@@ -965,7 +965,7 @@ declare i32 @create_ssl_objects(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @DTLS_set_timer_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i32 @timer_cb(ptr nocapture readnone %s, i32 noundef %timer_us) #3 {
+define internal noundef range(i32 0, -1) i32 @timer_cb(ptr nocapture readnone %s, i32 noundef %timer_us) #3 {
 entry:
   %0 = load i32, ptr @timer_cb_count, align 4
   %inc = add i32 %0, 1

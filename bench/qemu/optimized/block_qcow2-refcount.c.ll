@@ -1019,7 +1019,7 @@ for.end:                                          ; preds = %land.rhs, %if.end26
 declare i32 @bdrv_pdiscard(ptr noundef, i64 noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_update_cluster_refcount(ptr noundef %bs, i64 noundef %cluster_index, i64 noundef %addend, i1 noundef zeroext %decrease, i32 noundef %type) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_update_cluster_refcount(ptr noundef %bs, i64 noundef %cluster_index, i64 noundef %addend, i1 noundef zeroext %decrease, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2569,7 +2569,7 @@ for.cond55.preheader:                             ; preds = %for.body47
   br i1 %cmp57182, label %for.body59, label %for.end124
 
 for.body59:                                       ; preds = %for.cond55.preheader, %for.inc122
-  %19 = phi i32 [ %42, %for.inc122 ], [ %18, %for.cond55.preheader ]
+  %19 = phi i32 [ %43, %for.inc122 ], [ %18, %for.cond55.preheader ]
   %j.0183 = phi i32 [ %inc123, %for.inc122 ], [ 0, %for.cond55.preheader ]
   %20 = load ptr, ptr %l2_slice, align 8
   %.val126 = load i64, ptr %3, align 8
@@ -2602,14 +2602,14 @@ land.lhs.true.i:                                  ; preds = %if.else.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
   %tobool5.not.i = icmp eq i64 %and62, 0
-  br i1 %tobool5.not.i, label %sw.epilog.thread.sink.split, label %sw.bb77
+  br i1 %tobool5.not.i, label %sw.bb106, label %sw.bb77
 
 if.else7.i:                                       ; preds = %land.lhs.true.i, %if.else.i
   %tobool9.not.i = icmp eq i64 %and62, 0
-  br i1 %tobool9.not.i, label %sw.epilog.thread.sink.split, label %sw.bb77
+  br i1 %tobool9.not.i, label %sw.bb106, label %sw.bb77
 
 sw.bb:                                            ; preds = %for.body59
-  br i1 %cmp64.not, label %sw.epilog.thread.sink.split, label %if.then66
+  br i1 %cmp64.not, label %if.end76, label %if.then66
 
 if.then66:                                        ; preds = %sw.bb
   call void @qcow2_parse_compressed_l2_entry(ptr noundef nonnull %bs, i64 noundef %and61, ptr noundef nonnull %coffset, ptr noundef nonnull %csize) #17
@@ -2618,7 +2618,11 @@ if.then66:                                        ; preds = %sw.bb
   %conv67 = sext i32 %29 to i64
   %call71 = call fastcc i32 @update_refcount(ptr noundef nonnull %bs, i64 noundef %28, i64 noundef %conv67, i64 noundef %conv68, i1 noundef zeroext %cmp69, i32 noundef 3)
   %cmp72 = icmp slt i32 %call71, 0
-  br i1 %cmp72, label %fail, label %sw.epilog.thread.sink.split
+  br i1 %cmp72, label %fail, label %if.end76
+
+if.end76:                                         ; preds = %if.then66, %sw.bb
+  store i64 2, ptr %refcount, align 8
+  br label %sw.epilog
 
 sw.bb77:                                          ; preds = %if.then3.i, %if.else7.i
   %.val = load i32, ptr %cluster_size, align 4
@@ -2652,67 +2656,65 @@ if.then91:                                        ; preds = %if.end88
   %31 = load i32, ptr %26, align 8
   %sh_prom.i = zext nneg i32 %31 to i64
   %shl.i = shl i64 %shr, %sh_prom.i
-  %call.i = call fastcc i32 @update_refcount(ptr noundef nonnull %bs, i64 noundef %shl.i, i64 noundef 1, i64 noundef %conv68, i1 noundef zeroext %cmp69, i32 noundef 3)
+  %call.i = call fastcc range(i32 -2147483648, 1) i32 @update_refcount(ptr noundef nonnull %bs, i64 noundef %shl.i, i64 noundef 1, i64 noundef %conv68, i1 noundef zeroext %cmp69, i32 noundef 3)
   %cmp96 = icmp slt i32 %call.i, 0
   br i1 %cmp96, label %fail, label %if.end100
 
 if.end100:                                        ; preds = %if.then91, %if.end88
   %call101 = call i32 @qcow2_get_refcount(ptr noundef nonnull %bs, i64 noundef %shr, ptr noundef nonnull %refcount)
   %cmp102 = icmp slt i32 %call101, 0
-  br i1 %cmp102, label %fail, label %sw.epilog
+  br i1 %cmp102, label %fail, label %if.end100.sw.epilog_crit_edge
 
-sw.epilog:                                        ; preds = %if.end100
+if.end100.sw.epilog_crit_edge:                    ; preds = %if.end100
   %.pre = load i64, ptr %refcount, align 8
-  %.pre.fr = freeze i64 %.pre
-  %cmp107 = icmp eq i64 %.pre.fr, 1
-  %spec.select294 = select i1 %cmp107, i64 -9223372036854775808, i64 0
-  br label %sw.epilog.thread
+  %32 = icmp eq i64 %.pre, 1
+  %33 = select i1 %32, i64 -9223372036854775808, i64 0
+  br label %sw.epilog
 
-sw.epilog.thread.sink.split:                      ; preds = %if.then3.i, %if.else7.i, %sw.bb, %if.then66
-  %.sink = phi i64 [ 2, %if.then66 ], [ 2, %sw.bb ], [ 0, %if.else7.i ], [ 0, %if.then3.i ]
-  store i64 %.sink, ptr %refcount, align 8
-  br label %sw.epilog.thread
+sw.bb106:                                         ; preds = %if.else7.i, %if.then3.i
+  store i64 0, ptr %refcount, align 8
+  br label %sw.epilog
 
-sw.epilog.thread:                                 ; preds = %sw.epilog, %sw.epilog.thread.sink.split
-  %32 = phi i64 [ %spec.select294, %sw.epilog ], [ 0, %sw.epilog.thread.sink.split ]
-  %spec.select = or disjoint i64 %32, %and61
+sw.epilog:                                        ; preds = %if.end100.sw.epilog_crit_edge, %sw.bb106, %if.end76
+  %cmp107 = phi i64 [ %33, %if.end100.sw.epilog_crit_edge ], [ 0, %sw.bb106 ], [ 0, %if.end76 ]
+  %spec.select = or disjoint i64 %cmp107, %and61
   %cmp111.not = icmp eq i64 %spec.select, %25
   br i1 %cmp111.not, label %for.inc122, label %if.then113
 
-if.then113:                                       ; preds = %sw.epilog.thread
+if.then113:                                       ; preds = %sw.epilog
   br i1 %cmp114, label %if.then116, label %if.end119
 
 if.then116:                                       ; preds = %if.then113
-  %33 = load ptr, ptr %l2_table_cache, align 8
-  %34 = load ptr, ptr %refcount_block_cache, align 8
-  %call118 = call i32 @qcow2_cache_set_dependency(ptr noundef nonnull %bs, ptr noundef %33, ptr noundef %34) #17
+  %34 = load ptr, ptr %l2_table_cache, align 8
+  %35 = load ptr, ptr %refcount_block_cache, align 8
+  %call118 = call i32 @qcow2_cache_set_dependency(ptr noundef nonnull %bs, ptr noundef %34, ptr noundef %35) #17
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then116, %if.then113
-  %35 = load ptr, ptr %l2_slice, align 8
+  %36 = load ptr, ptr %l2_slice, align 8
   %.val127 = load i64, ptr %3, align 8
-  %36 = trunc i64 %.val127 to i32
-  %37 = lshr i32 %36, 4
-  %38 = and i32 %37, 1
-  %conv2.i = shl nuw i32 %j.0183, %38
-  %39 = call noundef i64 @llvm.bswap.i64(i64 %spec.select)
+  %37 = trunc i64 %.val127 to i32
+  %38 = lshr i32 %37, 4
+  %39 = and i32 %38, 1
+  %conv2.i = shl nuw i32 %j.0183, %39
+  %40 = call noundef i64 @llvm.bswap.i64(i64 %spec.select)
   %idxprom.i135 = sext i32 %conv2.i to i64
-  %arrayidx.i136 = getelementptr i64, ptr %35, i64 %idxprom.i135
-  store i64 %39, ptr %arrayidx.i136, align 8
-  %40 = load ptr, ptr %l2_table_cache, align 8
-  %41 = load ptr, ptr %l2_slice, align 8
-  call void @qcow2_cache_entry_mark_dirty(ptr noundef %40, ptr noundef %41) #17
+  %arrayidx.i136 = getelementptr i64, ptr %36, i64 %idxprom.i135
+  store i64 %40, ptr %arrayidx.i136, align 8
+  %41 = load ptr, ptr %l2_table_cache, align 8
+  %42 = load ptr, ptr %l2_slice, align 8
+  call void @qcow2_cache_entry_mark_dirty(ptr noundef %41, ptr noundef %42) #17
   br label %for.inc122
 
-for.inc122:                                       ; preds = %sw.epilog.thread, %if.end119
+for.inc122:                                       ; preds = %sw.epilog, %if.end119
   %inc123 = add nuw nsw i32 %j.0183, 1
-  %42 = load i32, ptr %l2_slice_size, align 8
-  %cmp57 = icmp slt i32 %inc123, %42
+  %43 = load i32, ptr %l2_slice_size, align 8
+  %cmp57 = icmp slt i32 %inc123, %43
   br i1 %cmp57, label %for.body59, label %for.end124, !llvm.loop !21
 
 for.end124:                                       ; preds = %for.inc122, %for.cond55.preheader
-  %43 = load ptr, ptr %l2_table_cache, align 8
-  call void @qcow2_cache_put(ptr noundef %43, ptr noundef nonnull %l2_slice) #17
+  %44 = load ptr, ptr %l2_table_cache, align 8
+  call void @qcow2_cache_put(ptr noundef %44, ptr noundef nonnull %l2_slice) #17
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %cmp45 = icmp ult i64 %indvars.iv.next233, %13
   br i1 %cmp45, label %for.body47, label %for.end128, !llvm.loop !22
@@ -2721,28 +2723,28 @@ for.end128:                                       ; preds = %for.end124, %for.co
   br i1 %cmp64.not, label %if.end143, label %if.then131
 
 if.then131:                                       ; preds = %for.end128
-  %44 = load i32, ptr %0, align 8
-  %sh_prom133 = zext nneg i32 %44 to i64
+  %45 = load i32, ptr %0, align 8
+  %sh_prom133 = zext nneg i32 %45 to i64
   %shr134 = lshr i64 %and, %sh_prom133
-  %45 = load ptr, ptr %opaque, align 8
-  %46 = load i32, ptr %45, align 8
-  %sh_prom.i138 = zext nneg i32 %46 to i64
+  %46 = load ptr, ptr %opaque, align 8
+  %47 = load i32, ptr %46, align 8
+  %sh_prom.i138 = zext nneg i32 %47 to i64
   %shl.i139 = shl i64 %shr134, %sh_prom.i138
-  %call.i140 = call fastcc i32 @update_refcount(ptr noundef %bs, i64 noundef %shl.i139, i64 noundef 1, i64 noundef %conv68, i1 noundef zeroext %cmp69, i32 noundef 3)
+  %call.i140 = call fastcc range(i32 -2147483648, 1) i32 @update_refcount(ptr noundef %bs, i64 noundef %shl.i139, i64 noundef 1, i64 noundef %conv68, i1 noundef zeroext %cmp69, i32 noundef 3)
   %cmp139 = icmp slt i32 %call.i140, 0
   br i1 %cmp139, label %fail, label %if.end143
 
 if.end143:                                        ; preds = %if.then131, %for.end128
-  %47 = load i32, ptr %0, align 8
-  %sh_prom145 = zext nneg i32 %47 to i64
+  %48 = load i32, ptr %0, align 8
+  %sh_prom145 = zext nneg i32 %48 to i64
   %shr146 = lshr i64 %and, %sh_prom145
   %call147 = call i32 @qcow2_get_refcount(ptr noundef %bs, i64 noundef %shr146, ptr noundef nonnull %refcount)
   %cmp148 = icmp slt i32 %call147, 0
   br i1 %cmp148, label %fail, label %if.else151
 
 if.else151:                                       ; preds = %if.end143
-  %48 = load i64, ptr %refcount, align 8
-  %cmp152 = icmp eq i64 %48, 1
+  %49 = load i64, ptr %refcount, align 8
+  %cmp152 = icmp eq i64 %49, 1
   %or155 = or disjoint i64 %and, -9223372036854775808
   %spec.select123 = select i1 %cmp152, i64 %or155, i64 %and
   %cmp158.not = icmp eq i64 %spec.select123, %14
@@ -2769,14 +2771,14 @@ fail:                                             ; preds = %if.end143, %if.then
   %l1_modified.0 = phi i32 [ 0, %if.end15 ], [ %l1_modified.1189, %if.then42 ], [ %l1_modified.1189, %if.then80 ], [ %l1_modified.1.lcssa, %for.end167 ], [ 0, %if.then9 ], [ %l1_modified.1189, %if.then66 ], [ %l1_modified.1189, %if.then91 ], [ %l1_modified.1189, %if.end100 ], [ %l1_modified.1189, %for.body47 ], [ %l1_modified.1189, %if.then131 ], [ %l1_modified.1189, %if.end143 ]
   %ret.0 = phi i32 [ %call16, %if.end15 ], [ -5, %if.then42 ], [ -5, %if.then80 ], [ %call168, %for.end167 ], [ -12, %if.then9 ], [ %call101, %if.end100 ], [ %call.i, %if.then91 ], [ %call71, %if.then66 ], [ %call50, %for.body47 ], [ %call147, %if.end143 ], [ %call.i140, %if.then131 ]
   %l1_table.0 = phi ptr [ %call10, %if.end15 ], [ %l1_table.1, %if.then42 ], [ %l1_table.1, %if.then80 ], [ %l1_table.1252, %for.end167 ], [ null, %if.then9 ], [ %l1_table.1, %if.then66 ], [ %l1_table.1, %if.then91 ], [ %l1_table.1, %if.end100 ], [ %l1_table.1, %for.body47 ], [ %l1_table.1, %if.then131 ], [ %l1_table.1, %if.end143 ]
-  %49 = load ptr, ptr %l2_slice, align 8
-  %tobool169.not = icmp eq ptr %49, null
+  %50 = load ptr, ptr %l2_slice, align 8
+  %tobool169.not = icmp eq ptr %50, null
   br i1 %tobool169.not, label %if.end172, label %if.then170
 
 if.then170:                                       ; preds = %fail
   %l2_table_cache171 = getelementptr inbounds i8, ptr %0, i64 80
-  %50 = load ptr, ptr %l2_table_cache171, align 8
-  call void @qcow2_cache_put(ptr noundef %50, ptr noundef nonnull %l2_slice) #17
+  %51 = load ptr, ptr %l2_table_cache171, align 8
+  call void @qcow2_cache_put(ptr noundef %51, ptr noundef nonnull %l2_slice) #17
   br label %if.end172
 
 if.end172:                                        ; preds = %if.then170, %fail
@@ -2794,9 +2796,9 @@ for.cond182.preheader:                            ; preds = %if.end172
   br i1 %cmp183190, label %for.body185.preheader, label %for.end190.thread
 
 for.end190.thread:                                ; preds = %for.cond182.preheader
-  %file191255 = getelementptr inbounds i8, ptr %bs, i64 16840
-  %51 = load ptr, ptr %file191255, align 8
-  %call192256 = call i32 @bdrv_pwrite_sync(ptr noundef %51, i64 noundef %l1_table_offset, i64 noundef %mul, ptr noundef %l1_table.0, i32 noundef 0) #17
+  %file191253 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %52 = load ptr, ptr %file191253, align 8
+  %call192254 = call i32 @bdrv_pwrite_sync(ptr noundef %52, i64 noundef %l1_table_offset, i64 noundef %mul, ptr noundef %l1_table.0, i32 noundef 0) #17
   br label %if.end202
 
 for.body185.preheader:                            ; preds = %for.cond182.preheader
@@ -2806,32 +2808,32 @@ for.body185.preheader:                            ; preds = %for.cond182.prehead
 for.body185:                                      ; preds = %for.body185.preheader, %for.body185
   %indvars.iv240 = phi i64 [ 0, %for.body185.preheader ], [ %indvars.iv.next241, %for.body185 ]
   %arrayidx187 = getelementptr i64, ptr %l1_table.0, i64 %indvars.iv240
-  %52 = load i64, ptr %arrayidx187, align 8
-  %53 = call i64 @llvm.bswap.i64(i64 %52)
-  store i64 %53, ptr %arrayidx187, align 8
+  %53 = load i64, ptr %arrayidx187, align 8
+  %54 = call i64 @llvm.bswap.i64(i64 %53)
+  store i64 %54, ptr %arrayidx187, align 8
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next241, %wide.trip.count243
   br i1 %exitcond244.not, label %for.end190, label %for.body185, !llvm.loop !24
 
 for.end190:                                       ; preds = %for.body185
   %file191 = getelementptr inbounds i8, ptr %bs, i64 16840
-  %54 = load ptr, ptr %file191, align 8
-  %call192 = call i32 @bdrv_pwrite_sync(ptr noundef %54, i64 noundef %l1_table_offset, i64 noundef %mul, ptr noundef nonnull %l1_table.0, i32 noundef 0) #17
+  %55 = load ptr, ptr %file191, align 8
+  %call192 = call i32 @bdrv_pwrite_sync(ptr noundef %55, i64 noundef %l1_table_offset, i64 noundef %mul, ptr noundef nonnull %l1_table.0, i32 noundef 0) #17
   %wide.trip.count248 = zext nneg i32 %l1_size to i64
   br label %for.body196
 
 for.body196:                                      ; preds = %for.end190, %for.body196
   %indvars.iv245 = phi i64 [ 0, %for.end190 ], [ %indvars.iv.next246, %for.body196 ]
   %arrayidx198 = getelementptr i64, ptr %l1_table.0, i64 %indvars.iv245
-  %55 = load i64, ptr %arrayidx198, align 8
-  %56 = call i64 @llvm.bswap.i64(i64 %55)
-  store i64 %56, ptr %arrayidx198, align 8
+  %56 = load i64, ptr %arrayidx198, align 8
+  %57 = call i64 @llvm.bswap.i64(i64 %56)
+  store i64 %57, ptr %arrayidx198, align 8
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond249.not = icmp eq i64 %indvars.iv.next246, %wide.trip.count248
   br i1 %exitcond249.not, label %if.end202, label %for.body196, !llvm.loop !25
 
 if.end202:                                        ; preds = %for.body196, %for.end190.thread, %if.end172
-  %ret.1 = phi i32 [ %ret.0, %if.end172 ], [ %call192256, %for.end190.thread ], [ %call192, %for.body196 ]
+  %ret.1 = phi i32 [ %ret.0, %if.end172 ], [ %call192254, %for.end190.thread ], [ %call192, %for.body196 ]
   br i1 %l1_allocated.0, label %if.then204, label %if.end205
 
 if.then204:                                       ; preds = %if.end202

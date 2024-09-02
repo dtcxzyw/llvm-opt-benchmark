@@ -1062,8 +1062,8 @@ if.end.i1569:                                     ; preds = %_ZNK2v820FunctionCa
   %sub.i.i1571 = add i64 %29, 11
   %30 = inttoptr i64 %sub.i.i1571 to ptr
   %31 = load i16, ptr %30, align 2
-  %cmp.i1573 = icmp ult i16 %31, 128
-  br i1 %cmp.i1573, label %lor.lhs.false.i980, label %do.body31
+  %cmp.i1573 = icmp ugt i16 %31, 127
+  br i1 %cmp.i1573, label %do.body31, label %lor.lhs.false.i980
 
 do.body31:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit1009, %if.end.i1569
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6loader10ModuleWrap3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_1) #19
@@ -1305,8 +1305,8 @@ if.end.i1593:                                     ; preds = %_ZNK2v820FunctionCa
   %sub.i.i1599 = add i64 %80, 11
   %81 = inttoptr i64 %sub.i.i1599 to ptr
   %82 = load i16, ptr %81, align 2
-  %cmp.i1601 = icmp ult i16 %82, 128
-  br i1 %cmp.i1601, label %lor.lhs.false.i854, label %do.body145
+  %cmp.i1601 = icmp ugt i16 %82, 127
+  br i1 %cmp.i1601, label %do.body145, label %lor.lhs.false.i854
 
 do.body145:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit883, %if.end.i1593
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6loader10ModuleWrap3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_5) #19
@@ -1535,8 +1535,8 @@ if.end.i1622:                                     ; preds = %_ZN2v810MaybeLocalI
   %sub.i.i1628 = add i64 %126, 11
   %127 = inttoptr i64 %sub.i.i1628 to ptr
   %128 = load i16, ptr %127, align 2
-  %cmp.i1630 = icmp ult i16 %128, 128
-  br i1 %cmp.i1630, label %do.end292, label %do.body287
+  %cmp.i1630 = icmp ugt i16 %128, 127
+  br i1 %cmp.i1630, label %do.body287, label %do.end292
 
 do.body287:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %if.end.i1622
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6loader10ModuleWrap3NewERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_9) #19
@@ -1600,8 +1600,8 @@ if.end5.i1426:                                    ; preds = %if.end.i1423
   %140 = inttoptr i64 %sub.i.i1525 to ptr
   %141 = load i64, ptr %140, align 8
   %shr.i.mask = and i64 %141, -4294967296
-  %cmp7.i1428 = icmp eq i64 %shr.i.mask, 21474836480
-  br i1 %cmp7.i1428, label %lor.lhs.false.i692, label %lor.lhs.false.i728
+  %cmp7.i1428.not = icmp eq i64 %shr.i.mask, 21474836480
+  br i1 %cmp7.i1428.not, label %lor.lhs.false.i692, label %lor.lhs.false.i728
 
 lor.lhs.false.i728:                               ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit757, %if.end.i1423, %if.end5.i1426
   br i1 %cmp2.i748, label %if.then.i736, label %if.end.i731

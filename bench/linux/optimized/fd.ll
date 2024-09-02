@@ -38,7 +38,7 @@ declare dso_local i64 @generic_file_llseek(ptr noundef, i64 noundef, i32 noundef
 declare dso_local i64 @generic_read_dir(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_readfd(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal range(i32 -2, 1) i32 @proc_readfd(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call fastcc i32 @proc_readfd_common(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @proc_fd_instantiate)
   ret i32 %3
 }
@@ -177,7 +177,7 @@ define internal ptr @proc_lookupfdinfo(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_readfdinfo(ptr noundef %0, ptr noundef %1) #1 align 16 {
+define internal range(i32 -2, 1) i32 @proc_readfdinfo(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call fastcc i32 @proc_readfd_common(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @proc_fdinfo_instantiate)
   ret i32 %3
 }
@@ -220,7 +220,7 @@ define internal range(i32 -13, 1) i32 @proc_open_fdinfo(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @proc_readfd_common(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -2, 1) i32 @proc_readfd_common(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.fd_data, align 8
   %6 = alloca [11 x i8], align 1

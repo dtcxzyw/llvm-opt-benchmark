@@ -1557,13 +1557,13 @@ define void @_ZNK8LightGBM4GBDT16PredictLeafIndexEPKdPd(ptr nocapture noundef no
 
 22:                                               ; preds = %.lr.ph
   %23 = tail call noundef i32 @_ZNK8LightGBM4Tree7GetLeafEPKd(ptr noundef nonnull align 8 dereferenceable(648) %18, ptr noundef %1)
+  %24 = sitofp i32 %23 to double
   br label %_ZNK8LightGBM4Tree16PredictLeafIndexEPKd.exit
 
 _ZNK8LightGBM4Tree16PredictLeafIndexEPKd.exit:    ; preds = %.lr.ph, %22
-  %.0.i = phi i32 [ %23, %22 ], [ 0, %.lr.ph ]
-  %24 = sitofp i32 %.0.i to double
+  %.0.i = phi double [ %24, %22 ], [ 0.000000e+00, %.lr.ph ]
   %25 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
-  store double %24, ptr %25, align 8
+  store double %.0.i, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -1604,13 +1604,13 @@ define void @_ZNK8LightGBM4GBDT21PredictLeafIndexByMapERKSt13unordered_mapIidSt4
 
 22:                                               ; preds = %.lr.ph
   %23 = tail call noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE(ptr noundef nonnull align 8 dereferenceable(648) %18, ptr noundef nonnull align 8 dereferenceable(56) %1)
+  %24 = sitofp i32 %23 to double
   br label %_ZNK8LightGBM4Tree21PredictLeafIndexByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit
 
 _ZNK8LightGBM4Tree21PredictLeafIndexByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit: ; preds = %.lr.ph, %22
-  %.0.i = phi i32 [ %23, %22 ], [ 0, %.lr.ph ]
-  %24 = sitofp i32 %.0.i to double
+  %.0.i = phi double [ %24, %22 ], [ 0.000000e+00, %.lr.ph ]
   %25 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
-  store double %24, ptr %25, align 8
+  store double %.0.i, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21

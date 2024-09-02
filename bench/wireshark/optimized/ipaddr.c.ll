@@ -513,7 +513,7 @@ define internal zeroext i1 @df_func_ip_is_rfc1918(ptr nocapture noundef readonly
   %9 = getelementptr ptr, ptr %8, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @fvalue_type_ftenum(ptr noundef %10) #4
-  switch i32 %11, label %27 [
+  switch i32 %11, label %28 [
     i32 32, label %12
     i32 33, label %ipv4_is_rfc1918.exit
   ]
@@ -537,16 +537,16 @@ define internal zeroext i1 @df_func_ip_is_rfc1918(ptr nocapture noundef readonly
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, -65536
   %26 = icmp eq i32 %25, -1062731776
+  %27 = zext i1 %26 to i64
   br label %ipv4_is_rfc1918.exit
 
-27:                                               ; preds = %.lr.ph.i
+28:                                               ; preds = %.lr.ph.i
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.5, i32 noundef 7, ptr noundef nonnull @.str.6, i64 noundef 137, ptr noundef nonnull @__func__.ipv4_is_rfc1918, ptr noundef nonnull @.str.7) #5
   unreachable
 
 ipv4_is_rfc1918.exit:                             ; preds = %.lr.ph.i, %12, %17, %22
-  %.0.i = phi i1 [ true, %17 ], [ true, %12 ], [ %26, %22 ], [ false, %.lr.ph.i ]
-  %28 = zext i1 %.0.i to i64
-  tail call void @fvalue_set_uinteger64(ptr noundef %7, i64 noundef %28) #4
+  %.0.i = phi i64 [ 1, %17 ], [ 1, %12 ], [ %27, %22 ], [ 0, %.lr.ph.i ]
+  tail call void @fvalue_set_uinteger64(ptr noundef %7, i64 noundef %.0.i) #4
   tail call void @df_cell_append(ptr noundef %2, ptr noundef %7) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = load i32, ptr %5, align 8
@@ -583,7 +583,7 @@ define internal zeroext i1 @df_func_ip_is_ula(ptr nocapture noundef readonly %0,
   %9 = getelementptr ptr, ptr %8, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @fvalue_type_ftenum(ptr noundef %10) #4
-  switch i32 %11, label %16 [
+  switch i32 %11, label %17 [
     i32 32, label %ipv6_is_ula.exit
     i32 33, label %12
   ]
@@ -593,16 +593,16 @@ define internal zeroext i1 @df_func_ip_is_ula(ptr nocapture noundef readonly %0,
   %.val.i = load i8, ptr %13, align 1
   %14 = and i8 %.val.i, -2
   %15 = icmp eq i8 %14, -4
+  %16 = zext i1 %15 to i64
   br label %ipv6_is_ula.exit
 
-16:                                               ; preds = %.lr.ph.i
+17:                                               ; preds = %.lr.ph.i
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.5, i32 noundef 7, ptr noundef nonnull @.str.6, i64 noundef 152, ptr noundef nonnull @__func__.ipv6_is_ula, ptr noundef nonnull @.str.7) #5
   unreachable
 
 ipv6_is_ula.exit:                                 ; preds = %.lr.ph.i, %12
-  %.0.i = phi i1 [ %15, %12 ], [ false, %.lr.ph.i ]
-  %17 = zext i1 %.0.i to i64
-  tail call void @fvalue_set_uinteger64(ptr noundef %7, i64 noundef %17) #4
+  %.0.i = phi i64 [ %16, %12 ], [ 0, %.lr.ph.i ]
+  tail call void @fvalue_set_uinteger64(ptr noundef %7, i64 noundef %.0.i) #4
   tail call void @df_cell_append(ptr noundef %2, ptr noundef %7) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load i32, ptr %5, align 8

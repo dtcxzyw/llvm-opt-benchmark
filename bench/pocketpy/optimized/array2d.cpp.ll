@@ -6237,7 +6237,7 @@ _ZN4pkpy7py_castIRNS_3StrEEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %_ZN4pkpy7i
   br label %50
 
 50:                                               ; preds = %.lr.ph204, %_ZNK4pkpy7Array2d8is_validEii.exit143.thread
-  %.0127203 = phi i32 [ 0, %.lr.ph204 ], [ %179, %_ZNK4pkpy7Array2d8is_validEii.exit143.thread ]
+  %.0127203 = phi i32 [ 0, %.lr.ph204 ], [ %180, %_ZNK4pkpy7Array2d8is_validEii.exit143.thread ]
   %51 = add nsw i32 %.0127203, -1
   %52 = icmp sgt i32 %.0127203, 0
   br i1 %52, label %53, label %66
@@ -6246,7 +6246,7 @@ _ZN4pkpy7py_castIRNS_3StrEEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %_ZN4pkpy7i
   %54 = load i32, ptr %12, align 8
   %55 = icmp sle i32 %.0127203, %54
   %or.cond.i = and i1 %48, %55
-  br i1 %or.cond.i, label %_ZNK4pkpy7Array2d8is_validEii.exit, label %.thread218
+  br i1 %or.cond.i, label %_ZNK4pkpy7Array2d8is_validEii.exit, label %.thread
 
 _ZNK4pkpy7Array2d8is_validEii.exit:               ; preds = %53
   %56 = load i32, ptr %14, align 4
@@ -6261,29 +6261,25 @@ _ZNK4pkpy7Array2d8is_validEii.exit:               ; preds = %53
   %62 = getelementptr inbounds ptr, ptr %58, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %63, ptr noundef %26)
+  %65 = zext i1 %64 to i32
   br label %.thread
-
-.thread:                                          ; preds = %57, %_ZNK4pkpy7Array2d8is_validEii.exit
-  %.ph = phi i1 [ %64, %57 ], [ false, %_ZNK4pkpy7Array2d8is_validEii.exit ]
-  %65 = zext i1 %.ph to i32
-  br label %.thread218
 
 66:                                               ; preds = %50
   %67 = icmp sgt i32 %.0127203, -1
-  br i1 %67, label %.thread218, label %84
+  br i1 %67, label %.thread, label %84
 
-.thread218:                                       ; preds = %53, %.thread, %66
-  %68 = phi i32 [ %65, %.thread ], [ 0, %66 ], [ 0, %53 ]
+.thread:                                          ; preds = %53, %_ZNK4pkpy7Array2d8is_validEii.exit, %57, %66
+  %68 = phi i32 [ 0, %66 ], [ %65, %57 ], [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit ], [ 0, %53 ]
   %69 = load i32, ptr %12, align 8
   %70 = icmp slt i32 %.0127203, %69
   %or.cond.i130 = and i1 %48, %70
   br i1 %or.cond.i130, label %_ZNK4pkpy7Array2d8is_validEii.exit131, label %.thread219
 
-.thread219:                                       ; preds = %.thread218
+.thread219:                                       ; preds = %.thread
   %71 = add nuw nsw i32 %.0127203, 1
   br label %87
 
-_ZNK4pkpy7Array2d8is_validEii.exit131:            ; preds = %.thread218
+_ZNK4pkpy7Array2d8is_validEii.exit131:            ; preds = %.thread
   %72 = load i32, ptr %14, align 4
   %.not193 = icmp sgt i32 %.0206, %72
   br i1 %.not193, label %.thread185, label %73
@@ -6296,12 +6292,12 @@ _ZNK4pkpy7Array2d8is_validEii.exit131:            ; preds = %.thread218
   %78 = getelementptr inbounds ptr, ptr %74, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %79, ptr noundef %26)
+  %81 = zext i1 %80 to i32
   br label %.thread185
 
 .thread185:                                       ; preds = %73, %_ZNK4pkpy7Array2d8is_validEii.exit131
-  %.ph184 = phi i1 [ %80, %73 ], [ false, %_ZNK4pkpy7Array2d8is_validEii.exit131 ]
-  %81 = zext i1 %.ph184 to i32
-  %82 = add nuw nsw i32 %68, %81
+  %.ph184 = phi i32 [ %81, %73 ], [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit131 ]
+  %82 = add nuw nsw i32 %.ph184, %68
   %83 = add nuw nsw i32 %.0127203, 1
   br label %87
 
@@ -6332,23 +6328,23 @@ _ZNK4pkpy7Array2d8is_validEii.exit133:            ; preds = %87
   %99 = getelementptr inbounds ptr, ptr %95, i64 %98
   %100 = load ptr, ptr %99, align 8
   %101 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %100, ptr noundef %26)
+  %102 = zext i1 %101 to i32
   br label %_ZNK4pkpy7Array2d8is_validEii.exit133.thread
 
 _ZNK4pkpy7Array2d8is_validEii.exit133.thread:     ; preds = %87, %94, %_ZNK4pkpy7Array2d8is_validEii.exit133
-  %102 = phi i1 [ false, %_ZNK4pkpy7Array2d8is_validEii.exit133 ], [ %101, %94 ], [ false, %87 ]
-  %103 = zext i1 %102 to i32
-  %104 = add nuw nsw i32 %89, %103
-  br i1 %52, label %105, label %117
+  %103 = phi i32 [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit133 ], [ %102, %94 ], [ 0, %87 ]
+  %104 = add nuw nsw i32 %103, %89
+  br i1 %52, label %105, label %118
 
 105:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit133.thread
   %106 = load i32, ptr %12, align 8
   %.not195 = icmp sgt i32 %.0127203, %106
-  br i1 %.not195, label %117, label %_ZNK4pkpy7Array2d8is_validEii.exit135
+  br i1 %.not195, label %118, label %_ZNK4pkpy7Array2d8is_validEii.exit135
 
 _ZNK4pkpy7Array2d8is_validEii.exit135:            ; preds = %105
   %107 = load i32, ptr %14, align 4
   %108 = icmp slt i32 %.0206, %107
-  br i1 %108, label %109, label %117
+  br i1 %108, label %109, label %118
 
 109:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit135
   %110 = load ptr, ptr %7, align 8
@@ -6358,17 +6354,17 @@ _ZNK4pkpy7Array2d8is_validEii.exit135:            ; preds = %105
   %114 = getelementptr inbounds ptr, ptr %110, i64 %113
   %115 = load ptr, ptr %114, align 8
   %116 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %115, ptr noundef %26)
-  br label %117
+  %117 = zext i1 %116 to i32
+  br label %118
 
-117:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit135, %109, %105, %_ZNK4pkpy7Array2d8is_validEii.exit133.thread
-  %.ph222 = phi i1 [ false, %_ZNK4pkpy7Array2d8is_validEii.exit133.thread ], [ false, %105 ], [ %116, %109 ], [ false, %_ZNK4pkpy7Array2d8is_validEii.exit135 ]
-  %118 = zext i1 %.ph222 to i32
-  %119 = add nuw nsw i32 %104, %118
+118:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit135, %109, %105, %_ZNK4pkpy7Array2d8is_validEii.exit133.thread
+  %.ph = phi i32 [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit133.thread ], [ 0, %105 ], [ %117, %109 ], [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit135 ]
+  %119 = add nuw nsw i32 %104, %.ph
   %120 = load i32, ptr %12, align 8
   %121 = icmp slt i32 %88, %120
   br i1 %121, label %_ZNK4pkpy7Array2d8is_validEii.exit137, label %_ZNK4pkpy7Array2d8is_validEii.exit137.thread
 
-_ZNK4pkpy7Array2d8is_validEii.exit137:            ; preds = %117
+_ZNK4pkpy7Array2d8is_validEii.exit137:            ; preds = %118
   %122 = load i32, ptr %14, align 4
   %123 = icmp slt i32 %.0206, %122
   br i1 %123, label %124, label %_ZNK4pkpy7Array2d8is_validEii.exit137.thread
@@ -6381,11 +6377,11 @@ _ZNK4pkpy7Array2d8is_validEii.exit137:            ; preds = %117
   %129 = getelementptr inbounds ptr, ptr %125, i64 %128
   %130 = load ptr, ptr %129, align 8
   %131 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %130, ptr noundef %26)
+  %132 = zext i1 %131 to i32
   br label %_ZNK4pkpy7Array2d8is_validEii.exit137.thread
 
-_ZNK4pkpy7Array2d8is_validEii.exit137.thread:     ; preds = %117, %124, %_ZNK4pkpy7Array2d8is_validEii.exit137
-  %132 = phi i1 [ false, %_ZNK4pkpy7Array2d8is_validEii.exit137 ], [ %131, %124 ], [ false, %117 ]
-  %133 = zext i1 %132 to i32
+_ZNK4pkpy7Array2d8is_validEii.exit137.thread:     ; preds = %118, %124, %_ZNK4pkpy7Array2d8is_validEii.exit137
+  %133 = phi i32 [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit137 ], [ %132, %124 ], [ 0, %118 ]
   %134 = add nuw nsw i32 %119, %133
   br i1 %52, label %135, label %_ZNK4pkpy7Array2d8is_validEii.exit139.thread
 
@@ -6409,21 +6405,21 @@ _ZNK4pkpy7Array2d8is_validEii.exit139:            ; preds = %135
   %146 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %145, ptr noundef %26)
   %147 = zext i1 %146 to i32
   %148 = add nuw nsw i32 %134, %147
-  br i1 %90, label %149, label %163
+  br i1 %90, label %149, label %164
 
 _ZNK4pkpy7Array2d8is_validEii.exit139.thread:     ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit137.thread, %135, %_ZNK4pkpy7Array2d8is_validEii.exit139
-  br i1 %90, label %149, label %163
+  br i1 %90, label %149, label %164
 
 149:                                              ; preds = %139, %_ZNK4pkpy7Array2d8is_validEii.exit139.thread
   %150 = phi i32 [ %148, %139 ], [ %134, %_ZNK4pkpy7Array2d8is_validEii.exit139.thread ]
   %151 = load i32, ptr %12, align 8
   %152 = icmp slt i32 %.0127203, %151
-  br i1 %152, label %_ZNK4pkpy7Array2d8is_validEii.exit141, label %163
+  br i1 %152, label %_ZNK4pkpy7Array2d8is_validEii.exit141, label %164
 
 _ZNK4pkpy7Array2d8is_validEii.exit141:            ; preds = %149
   %153 = load i32, ptr %14, align 4
   %154 = icmp slt i32 %49, %153
-  br i1 %154, label %155, label %163
+  br i1 %154, label %155, label %164
 
 155:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit141
   %156 = load ptr, ptr %7, align 8
@@ -6433,18 +6429,18 @@ _ZNK4pkpy7Array2d8is_validEii.exit141:            ; preds = %149
   %160 = getelementptr inbounds ptr, ptr %156, i64 %159
   %161 = load ptr, ptr %160, align 8
   %162 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %161, ptr noundef %26)
-  br label %163
+  %163 = zext i1 %162 to i32
+  br label %164
 
-163:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit141, %155, %149, %_ZNK4pkpy7Array2d8is_validEii.exit139.thread, %139
-  %.ph223 = phi i32 [ %148, %139 ], [ %134, %_ZNK4pkpy7Array2d8is_validEii.exit139.thread ], [ %150, %149 ], [ %150, %155 ], [ %150, %_ZNK4pkpy7Array2d8is_validEii.exit141 ]
-  %.ph226 = phi i1 [ false, %139 ], [ false, %_ZNK4pkpy7Array2d8is_validEii.exit139.thread ], [ false, %149 ], [ %162, %155 ], [ false, %_ZNK4pkpy7Array2d8is_validEii.exit141 ]
-  %164 = zext i1 %.ph226 to i32
-  %165 = add nuw nsw i32 %.ph223, %164
+164:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit141, %155, %149, %_ZNK4pkpy7Array2d8is_validEii.exit139.thread, %139
+  %.ph222 = phi i32 [ %148, %139 ], [ %134, %_ZNK4pkpy7Array2d8is_validEii.exit139.thread ], [ %150, %149 ], [ %150, %155 ], [ %150, %_ZNK4pkpy7Array2d8is_validEii.exit141 ]
+  %.ph225 = phi i32 [ 0, %139 ], [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit139.thread ], [ 0, %149 ], [ %163, %155 ], [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit141 ]
+  %165 = add nuw nsw i32 %.ph222, %.ph225
   %166 = load i32, ptr %12, align 8
   %167 = icmp slt i32 %88, %166
   br i1 %167, label %_ZNK4pkpy7Array2d8is_validEii.exit143, label %_ZNK4pkpy7Array2d8is_validEii.exit143.thread
 
-_ZNK4pkpy7Array2d8is_validEii.exit143:            ; preds = %163
+_ZNK4pkpy7Array2d8is_validEii.exit143:            ; preds = %164
   %168 = load i32, ptr %14, align 4
   %169 = icmp slt i32 %49, %168
   br i1 %169, label %170, label %_ZNK4pkpy7Array2d8is_validEii.exit143.thread
@@ -6457,14 +6453,14 @@ _ZNK4pkpy7Array2d8is_validEii.exit143:            ; preds = %163
   %175 = getelementptr inbounds ptr, ptr %171, i64 %174
   %176 = load ptr, ptr %175, align 8
   %177 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %176, ptr noundef %26)
+  %178 = zext i1 %177 to i32
   br label %_ZNK4pkpy7Array2d8is_validEii.exit143.thread
 
-_ZNK4pkpy7Array2d8is_validEii.exit143.thread:     ; preds = %84, %163, %170, %_ZNK4pkpy7Array2d8is_validEii.exit143
-  %178 = phi i32 [ %165, %_ZNK4pkpy7Array2d8is_validEii.exit143 ], [ %165, %170 ], [ %165, %163 ], [ 0, %84 ]
-  %179 = phi i32 [ %88, %_ZNK4pkpy7Array2d8is_validEii.exit143 ], [ %88, %170 ], [ %88, %163 ], [ %85, %84 ]
-  %180 = phi i1 [ false, %_ZNK4pkpy7Array2d8is_validEii.exit143 ], [ %177, %170 ], [ false, %163 ], [ false, %84 ]
-  %181 = zext i1 %180 to i32
-  %182 = add nuw nsw i32 %178, %181
+_ZNK4pkpy7Array2d8is_validEii.exit143.thread:     ; preds = %84, %164, %170, %_ZNK4pkpy7Array2d8is_validEii.exit143
+  %179 = phi i32 [ %165, %_ZNK4pkpy7Array2d8is_validEii.exit143 ], [ %165, %170 ], [ %165, %164 ], [ 0, %84 ]
+  %180 = phi i32 [ %88, %_ZNK4pkpy7Array2d8is_validEii.exit143 ], [ %88, %170 ], [ %88, %164 ], [ %85, %84 ]
+  %181 = phi i32 [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit143 ], [ %178, %170 ], [ 0, %164 ], [ 0, %84 ]
+  %182 = add nuw nsw i32 %179, %181
   %183 = zext nneg i32 %182 to i64
   %184 = shl nuw nsw i64 %183, 2
   %185 = or disjoint i64 %184, 2
@@ -6477,7 +6473,7 @@ _ZNK4pkpy7Array2d8is_validEii.exit143.thread:     ; preds = %84, %163, %170, %_Z
   %192 = getelementptr inbounds ptr, ptr %187, i64 %191
   store ptr %186, ptr %192, align 8
   %193 = load i32, ptr %16, align 8
-  %194 = icmp slt i32 %179, %193
+  %194 = icmp slt i32 %180, %193
   br i1 %194, label %50, label %._crit_edge205.loopexit, !llvm.loop !47
 
 ._crit_edge205.loopexit:                          ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit143.thread
@@ -6493,7 +6489,7 @@ _ZNK4pkpy7Array2d8is_validEii.exit143.thread:     ; preds = %84, %163, %170, %_Z
 
 198:                                              ; preds = %_ZN4pkpy7py_castIRNS_3StrEEET_PNS_2VMEPNS_8PyObjectE.exit
   %199 = tail call noundef zeroext i1 @_ZNK4pkpy3StreqEPKc(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull @.str.44)
-  br i1 %199, label %.preheader199, label %283
+  br i1 %199, label %.preheader199, label %284
 
 .preheader199:                                    ; preds = %198
   %200 = load i32, ptr %17, align 4
@@ -6506,8 +6502,8 @@ _ZNK4pkpy7Array2d8is_validEii.exit143.thread:     ; preds = %84, %163, %170, %_Z
   br i1 %203, label %.preheader198, label %.loopexit
 
 .preheader198:                                    ; preds = %.preheader198.lr.ph, %._crit_edge
-  %204 = phi i32 [ %280, %._crit_edge ], [ %200, %.preheader198.lr.ph ]
-  %205 = phi i32 [ %281, %._crit_edge ], [ %202, %.preheader198.lr.ph ]
+  %204 = phi i32 [ %281, %._crit_edge ], [ %200, %.preheader198.lr.ph ]
+  %205 = phi i32 [ %282, %._crit_edge ], [ %202, %.preheader198.lr.ph ]
   %.0129202 = phi i32 [ %.pre-phi217, %._crit_edge ], [ 0, %.preheader198.lr.ph ]
   %206 = icmp sgt i32 %205, 0
   br i1 %206, label %.lr.ph, label %.preheader198.._crit_edge_crit_edge
@@ -6542,13 +6538,13 @@ _ZNK4pkpy7Array2d8is_validEii.exit145:            ; preds = %210
   %219 = getelementptr inbounds ptr, ptr %215, i64 %218
   %220 = load ptr, ptr %219, align 8
   %221 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %220, ptr noundef %26)
+  %222 = zext i1 %221 to i64
   %.pre210.pre = load i32, ptr %12, align 8
   br label %_ZNK4pkpy7Array2d8is_validEii.exit145.thread
 
 _ZNK4pkpy7Array2d8is_validEii.exit145.thread:     ; preds = %210, %214, %_ZNK4pkpy7Array2d8is_validEii.exit145
   %.pre210 = phi i32 [ %211, %_ZNK4pkpy7Array2d8is_validEii.exit145 ], [ %.pre210.pre, %214 ], [ %211, %210 ]
-  %222 = phi i1 [ false, %_ZNK4pkpy7Array2d8is_validEii.exit145 ], [ %221, %214 ], [ false, %210 ]
-  %223 = zext i1 %222 to i64
+  %223 = phi i64 [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit145 ], [ %222, %214 ], [ 0, %210 ]
   %224 = add nsw i32 %.0128201, -1
   %.not190 = icmp eq i32 %.0128201, 0
   %.not191 = icmp sgt i32 %.0128201, %.pre210
@@ -6568,16 +6564,16 @@ _ZNK4pkpy7Array2d8is_validEii.exit147:            ; preds = %_ZNK4pkpy7Array2d8i
   %232 = getelementptr inbounds ptr, ptr %228, i64 %231
   %233 = load ptr, ptr %232, align 8
   %234 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %233, ptr noundef %26)
+  %235 = zext i1 %234 to i64
   %.pre = load i32, ptr %12, align 8
   br label %_ZNK4pkpy7Array2d8is_validEii.exit147.thread
 
 _ZNK4pkpy7Array2d8is_validEii.exit147.thread:     ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit145.thread, %227, %_ZNK4pkpy7Array2d8is_validEii.exit147
-  %235 = phi i32 [ %.pre210, %_ZNK4pkpy7Array2d8is_validEii.exit147 ], [ %.pre, %227 ], [ %.pre210, %_ZNK4pkpy7Array2d8is_validEii.exit145.thread ]
-  %236 = phi i1 [ false, %_ZNK4pkpy7Array2d8is_validEii.exit147 ], [ %234, %227 ], [ false, %_ZNK4pkpy7Array2d8is_validEii.exit145.thread ]
-  %237 = zext i1 %236 to i64
+  %236 = phi i32 [ %.pre210, %_ZNK4pkpy7Array2d8is_validEii.exit147 ], [ %.pre, %227 ], [ %.pre210, %_ZNK4pkpy7Array2d8is_validEii.exit145.thread ]
+  %237 = phi i64 [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit147 ], [ %235, %227 ], [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit145.thread ]
   %238 = add nuw nsw i64 %237, %223
   %239 = add nuw nsw i32 %.0128201, 1
-  %240 = icmp slt i32 %239, %235
+  %240 = icmp slt i32 %239, %236
   br i1 %240, label %_ZNK4pkpy7Array2d8is_validEii.exit149, label %_ZNK4pkpy7Array2d8is_validEii.exit149.thread
 
 _ZNK4pkpy7Array2d8is_validEii.exit149:            ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit147.thread
@@ -6587,21 +6583,21 @@ _ZNK4pkpy7Array2d8is_validEii.exit149:            ; preds = %_ZNK4pkpy7Array2d8i
 
 243:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit149
   %244 = load ptr, ptr %7, align 8
-  %245 = mul nsw i32 %235, %.0129202
+  %245 = mul nsw i32 %236, %.0129202
   %246 = add nsw i32 %245, %239
   %247 = sext i32 %246 to i64
   %248 = getelementptr inbounds ptr, ptr %244, i64 %247
   %249 = load ptr, ptr %248, align 8
   %250 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %249, ptr noundef %26)
+  %251 = zext i1 %250 to i64
   %.pre211 = load i32, ptr %12, align 8
   br label %_ZNK4pkpy7Array2d8is_validEii.exit149.thread
 
 _ZNK4pkpy7Array2d8is_validEii.exit149.thread:     ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit147.thread, %243, %_ZNK4pkpy7Array2d8is_validEii.exit149
-  %251 = phi i32 [ %235, %_ZNK4pkpy7Array2d8is_validEii.exit149 ], [ %.pre211, %243 ], [ %235, %_ZNK4pkpy7Array2d8is_validEii.exit147.thread ]
-  %252 = phi i1 [ false, %_ZNK4pkpy7Array2d8is_validEii.exit149 ], [ %250, %243 ], [ false, %_ZNK4pkpy7Array2d8is_validEii.exit147.thread ]
-  %253 = zext i1 %252 to i64
+  %252 = phi i32 [ %236, %_ZNK4pkpy7Array2d8is_validEii.exit149 ], [ %.pre211, %243 ], [ %236, %_ZNK4pkpy7Array2d8is_validEii.exit147.thread ]
+  %253 = phi i64 [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit149 ], [ %251, %243 ], [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit147.thread ]
   %254 = add nuw nsw i64 %238, %253
-  %255 = icmp slt i32 %.0128201, %251
+  %255 = icmp slt i32 %.0128201, %252
   br i1 %255, label %_ZNK4pkpy7Array2d8is_validEii.exit151, label %_ZNK4pkpy7Array2d8is_validEii.exit151.thread
 
 _ZNK4pkpy7Array2d8is_validEii.exit151:            ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit149.thread
@@ -6611,31 +6607,32 @@ _ZNK4pkpy7Array2d8is_validEii.exit151:            ; preds = %_ZNK4pkpy7Array2d8i
 
 258:                                              ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit151
   %259 = load ptr, ptr %7, align 8
-  %260 = mul nsw i32 %251, %209
+  %260 = mul nsw i32 %252, %209
   %261 = add nsw i32 %260, %.0128201
   %262 = sext i32 %261 to i64
   %263 = getelementptr inbounds ptr, ptr %259, i64 %262
   %264 = load ptr, ptr %263, align 8
   %265 = tail call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %264, ptr noundef %26)
+  %266 = zext i1 %265 to i64
   br label %_ZNK4pkpy7Array2d8is_validEii.exit151.thread
 
 _ZNK4pkpy7Array2d8is_validEii.exit151.thread:     ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit149.thread, %258, %_ZNK4pkpy7Array2d8is_validEii.exit151
-  %266 = phi i1 [ false, %_ZNK4pkpy7Array2d8is_validEii.exit151 ], [ %265, %258 ], [ false, %_ZNK4pkpy7Array2d8is_validEii.exit149.thread ]
-  %267 = zext i1 %266 to i64
+  %267 = phi i64 [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit151 ], [ %266, %258 ], [ 0, %_ZNK4pkpy7Array2d8is_validEii.exit149.thread ]
   %268 = add nuw nsw i64 %254, %267
   %269 = shl nuw nsw i64 %268, 2
-  %270 = or disjoint i64 %269, 2
-  %271 = inttoptr i64 %270 to ptr
-  %272 = load ptr, ptr %11, align 8
-  %273 = load i32, ptr %16, align 8
-  %274 = mul nsw i32 %273, %.0129202
-  %275 = add nsw i32 %274, %.0128201
-  %276 = sext i32 %275 to i64
-  %277 = getelementptr inbounds ptr, ptr %272, i64 %276
-  store ptr %271, ptr %277, align 8
-  %278 = load i32, ptr %16, align 8
-  %279 = icmp slt i32 %239, %278
-  br i1 %279, label %210, label %._crit_edge.loopexit, !llvm.loop !50
+  %270 = and i64 %269, 17179869180
+  %271 = or disjoint i64 %270, 2
+  %272 = inttoptr i64 %271 to ptr
+  %273 = load ptr, ptr %11, align 8
+  %274 = load i32, ptr %16, align 8
+  %275 = mul nsw i32 %274, %.0129202
+  %276 = add nsw i32 %275, %.0128201
+  %277 = sext i32 %276 to i64
+  %278 = getelementptr inbounds ptr, ptr %273, i64 %277
+  store ptr %272, ptr %278, align 8
+  %279 = load i32, ptr %16, align 8
+  %280 = icmp slt i32 %239, %279
+  br i1 %280, label %210, label %._crit_edge.loopexit, !llvm.loop !50
 
 ._crit_edge.loopexit:                             ; preds = %_ZNK4pkpy7Array2d8is_validEii.exit151.thread
   %.pre212 = load i32, ptr %17, align 4
@@ -6643,29 +6640,29 @@ _ZNK4pkpy7Array2d8is_validEii.exit151.thread:     ; preds = %_ZNK4pkpy7Array2d8i
 
 ._crit_edge:                                      ; preds = %.preheader198.._crit_edge_crit_edge, %._crit_edge.loopexit
   %.pre-phi217 = phi i32 [ %.pre216, %.preheader198.._crit_edge_crit_edge ], [ %209, %._crit_edge.loopexit ]
-  %280 = phi i32 [ %204, %.preheader198.._crit_edge_crit_edge ], [ %.pre212, %._crit_edge.loopexit ]
-  %281 = phi i32 [ %205, %.preheader198.._crit_edge_crit_edge ], [ %278, %._crit_edge.loopexit ]
-  %282 = icmp slt i32 %.pre-phi217, %280
-  br i1 %282, label %.preheader198, label %.loopexit, !llvm.loop !51
+  %281 = phi i32 [ %204, %.preheader198.._crit_edge_crit_edge ], [ %.pre212, %._crit_edge.loopexit ]
+  %282 = phi i32 [ %205, %.preheader198.._crit_edge_crit_edge ], [ %279, %._crit_edge.loopexit ]
+  %283 = icmp slt i32 %.pre-phi217, %281
+  br i1 %283, label %.preheader198, label %.loopexit, !llvm.loop !51
 
-283:                                              ; preds = %198
+284:                                              ; preds = %198
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.45)
-  %284 = invoke i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64 10, ptr nonnull @.str.32)
-          to label %.noexc unwind label %285
+  %285 = invoke i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64 10, ptr nonnull @.str.32)
+          to label %.noexc unwind label %286
 
-.noexc:                                           ; preds = %283
-  invoke void @_ZN4pkpy2VM15__builtin_errorENS_7StrNameERKNS_3StrE(ptr noundef nonnull align 8 dereferenceable(264913) %1, i16 %284, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit unwind label %285
+.noexc:                                           ; preds = %284
+  invoke void @_ZN4pkpy2VM15__builtin_errorENS_7StrNameERKNS_3StrE(ptr noundef nonnull align 8 dereferenceable(264913) %1, i16 %285, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit unwind label %286
 
 _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit:          ; preds = %.noexc
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   br label %.loopexit
 
-285:                                              ; preds = %.noexc, %283
-  %286 = landingpad { ptr, i32 }
+286:                                              ; preds = %.noexc, %284
+  %287 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  resume { ptr, i32 } %286
+  resume { ptr, i32 } %287
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge205, %.preheader198.lr.ph, %.preheader.lr.ph, %.preheader199, %.preheader197, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit
   ret ptr %10

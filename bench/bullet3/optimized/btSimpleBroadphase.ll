@@ -406,7 +406,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %17, %for.inc ]
+  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %18, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %m_pHandles, align 8
   %arrayidx = getelementptr inbounds %struct.btSimpleBroadphaseProxy, ptr %2, i64 %indvars.iv
@@ -432,52 +432,52 @@ cond.false.i:                                     ; preds = %lor.lhs.false.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %lor.lhs.false.i, %if.end
-  %cond.i = phi i1 [ true, %cond.false.i ], [ false, %lor.lhs.false.i ], [ false, %if.end ]
-  %8 = load float, ptr %arrayidx.i.i, align 4
+  %8 = phi i1 [ false, %cond.false.i ], [ true, %lor.lhs.false.i ], [ true, %if.end ]
+  %9 = load float, ptr %arrayidx.i.i, align 4
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %arrayidx, i64 44
-  %9 = load float, ptr %arrayidx.i12.i, align 4
-  %cmp7.i = fcmp ogt float %8, %9
+  %10 = load float, ptr %arrayidx.i12.i, align 4
+  %cmp7.i = fcmp ogt float %9, %10
   br i1 %cmp7.i, label %cond.end15.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %cond.end.i
-  %10 = load float, ptr %arrayidx.i13.i, align 4
+  %11 = load float, ptr %arrayidx.i13.i, align 4
   %arrayidx.i14.i = getelementptr inbounds i8, ptr %arrayidx, i64 28
-  %11 = load float, ptr %arrayidx.i14.i, align 4
-  %cmp11.i = fcmp olt float %10, %11
+  %12 = load float, ptr %arrayidx.i14.i, align 4
+  %cmp11.i = fcmp olt float %11, %12
   br i1 %cmp11.i, label %cond.end15.i, label %cond.false13.i
 
 cond.false13.i:                                   ; preds = %lor.lhs.false8.i
   br label %cond.end15.i
 
 cond.end15.i:                                     ; preds = %cond.false13.i, %lor.lhs.false8.i, %cond.end.i
-  %cond16.i = phi i1 [ %cond.i, %cond.false13.i ], [ false, %lor.lhs.false8.i ], [ false, %cond.end.i ]
-  %12 = load float, ptr %arrayidx.i15.i, align 4
+  %cond16.i = phi i1 [ %8, %cond.false13.i ], [ true, %lor.lhs.false8.i ], [ true, %cond.end.i ]
+  %13 = load float, ptr %arrayidx.i15.i, align 4
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
-  %13 = load float, ptr %arrayidx.i16.i, align 4
-  %cmp20.i = fcmp ogt float %12, %13
+  %14 = load float, ptr %arrayidx.i16.i, align 4
+  %cmp20.i = fcmp ogt float %13, %14
   br i1 %cmp20.i, label %for.inc, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %cond.end15.i
-  %14 = load float, ptr %arrayidx.i17.i, align 4
+  %15 = load float, ptr %arrayidx.i17.i, align 4
   %arrayidx.i18.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %15 = load float, ptr %arrayidx.i18.i, align 4
-  %cmp24.i = fcmp uge float %14, %15
-  %brmerge.not = and i1 %cond16.i, %cmp24.i
-  br i1 %brmerge.not, label %if.then2, label %for.inc
+  %16 = load float, ptr %arrayidx.i18.i, align 4
+  %cmp24.i = fcmp olt float %15, %16
+  %brmerge = or i1 %cond16.i, %cmp24.i
+  br i1 %brmerge, label %for.inc, label %if.then2
 
 if.then2:                                         ; preds = %lor.lhs.false21.i
   %vtable = load ptr, ptr %callback, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %16 = load ptr, ptr %vfn, align 8
-  %call3 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %arrayidx)
+  %17 = load ptr, ptr %vfn, align 8
+  %call3 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %arrayidx)
   %.pre = load i32, ptr %m_LastHandleIndex, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false21.i, %cond.end15.i, %if.then2, %for.body
-  %17 = phi i32 [ %1, %lor.lhs.false21.i ], [ %1, %cond.end15.i ], [ %.pre, %if.then2 ], [ %1, %for.body ]
+  %18 = phi i32 [ %1, %lor.lhs.false21.i ], [ %1, %cond.end15.i ], [ %.pre, %if.then2 ], [ %1, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = sext i32 %17 to i64
-  %cmp.not.not = icmp slt i64 %indvars.iv, %18
+  %19 = sext i32 %18 to i64
+  %cmp.not.not = icmp slt i64 %indvars.iv, %19
   br i1 %cmp.not.not, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %entry

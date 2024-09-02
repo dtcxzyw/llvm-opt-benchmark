@@ -385,7 +385,7 @@ define void @cl_cvdfree(ptr nocapture noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_cvdverify(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cl_cvdverify(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.12)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -434,7 +434,7 @@ declare ptr @cl_engine_new() local_unnamed_addr #2
 declare i32 @cli_strbcasestr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.cl_cvd, align 8
   %9 = alloca %struct.cl_cvd, align 8
   %10 = alloca i64, align 8
@@ -1485,7 +1485,7 @@ cli_tgzload_cleanup.exit:                         ; preds = %220, %218, %63, %60
 declare void @mpool_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [13 x i8], align 1
   %5 = alloca [101 x i8], align 16
   %6 = alloca [512 x i8], align 16
@@ -1875,12 +1875,12 @@ sub_0:                                            ; preds = %36
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %46 = phi ptr [ %44, %.lr.ph.lr.ph ], [ %159, %.outer ]
+  %46 = phi ptr [ %44, %.lr.ph.lr.ph ], [ %154, %.outer ]
   %.064.ph152 = phi i1 [ true, %.lr.ph.lr.ph ], [ false, %.outer ]
   br label %47
 
 47:                                               ; preds = %.lr.ph, %.backedge
-  %48 = phi ptr [ %46, %.lr.ph ], [ %64, %.backedge ]
+  %48 = phi ptr [ %46, %.lr.ph ], [ %60, %.backedge ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
   %49 = load i64, ptr %48, align 8
   %.not77 = icmp eq i64 %49, 0
@@ -1889,287 +1889,278 @@ sub_0:                                            ; preds = %36
 sub_0140:                                         ; preds = %47
   %50 = getelementptr inbounds i8, ptr %48, i64 19
   %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = add nsw i32 %52, -46
-  %.not154 = icmp eq i32 %53, 0
-  br i1 %.not154, label %.tail139, label %.tail143
+  %.not154 = icmp eq i8 %51, 46
+  br i1 %.not154, label %.tail139, label %.tail143.thread
 
 .tail139:                                         ; preds = %sub_0140
-  %54 = getelementptr inbounds i8, ptr %48, i64 20
-  %55 = load i8, ptr %54, align 1
-  %.not78 = icmp eq i8 %55, 0
-  br i1 %.not78, label %.backedge, label %sub_1145
+  %52 = getelementptr inbounds i8, ptr %48, i64 20
+  %53 = load i8, ptr %52, align 1
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %.backedge, label %sub_1145
 
 sub_1145:                                         ; preds = %.tail139
-  %56 = getelementptr inbounds i8, ptr %48, i64 20
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = add nsw i32 %58, -46
-  %.not156 = icmp eq i32 %59, 0
-  br i1 %.not156, label %sub_2, label %.tail143
+  %55 = getelementptr inbounds i8, ptr %48, i64 20
+  %56 = load i8, ptr %55, align 1
+  %.not156 = icmp eq i8 %56, 46
+  br i1 %.not156, label %.tail143, label %.tail143.thread
 
-sub_2:                                            ; preds = %sub_1145
-  %60 = getelementptr inbounds i8, ptr %48, i64 21
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i32
-  br label %.tail143
+.tail143:                                         ; preds = %sub_1145
+  %57 = getelementptr inbounds i8, ptr %48, i64 21
+  %58 = load i8, ptr %57, align 1
+  %59 = icmp eq i8 %58, 0
+  br i1 %59, label %.backedge, label %.tail143.thread
 
-.tail143:                                         ; preds = %sub_0140, %sub_1145, %sub_2
-  %63 = phi i32 [ %59, %sub_1145 ], [ %62, %sub_2 ], [ %53, %sub_0140 ]
-  %.not79 = icmp eq i32 %63, 0
-  br i1 %.not79, label %.backedge, label %65
-
-.backedge:                                        ; preds = %.tail139, %.tail143, %47, %139
-  %64 = call ptr @readdir(ptr noundef nonnull %33) #19
-  %.not76 = icmp eq ptr %64, null
+.backedge:                                        ; preds = %.tail139, %.tail143, %47, %134
+  %60 = call ptr @readdir(ptr noundef nonnull %33) #19
+  %.not76 = icmp eq ptr %60, null
   br i1 %.not76, label %.loopexit, label %47
 
-65:                                               ; preds = %.tail143
-  %66 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.44) #19
-  %.not80 = icmp eq i32 %66, 0
-  br i1 %.not80, label %67, label %141
+.tail143.thread:                                  ; preds = %sub_0140, %sub_1145, %.tail143
+  %61 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.44) #19
+  %.not80 = icmp eq i32 %61, 0
+  br i1 %.not80, label %62, label %136
 
-67:                                               ; preds = %65
-  %68 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.45) #19
-  %.not81 = icmp eq i32 %68, 0
-  br i1 %.not81, label %69, label %141
+62:                                               ; preds = %.tail143.thread
+  %63 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.45) #19
+  %.not81 = icmp eq i32 %63, 0
+  br i1 %.not81, label %64, label %136
 
-69:                                               ; preds = %67
-  %70 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.46) #19
-  %.not82 = icmp eq i32 %70, 0
-  br i1 %.not82, label %71, label %141
+64:                                               ; preds = %62
+  %65 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.46) #19
+  %.not82 = icmp eq i32 %65, 0
+  br i1 %.not82, label %66, label %136
 
-71:                                               ; preds = %69
-  %72 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.47) #19
-  %.not83 = icmp eq i32 %72, 0
-  br i1 %.not83, label %73, label %141
+66:                                               ; preds = %64
+  %67 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.47) #19
+  %.not83 = icmp eq i32 %67, 0
+  br i1 %.not83, label %68, label %136
 
-73:                                               ; preds = %71
-  %74 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.48) #19
-  %.not84 = icmp eq i32 %74, 0
-  br i1 %.not84, label %75, label %141
+68:                                               ; preds = %66
+  %69 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.48) #19
+  %.not84 = icmp eq i32 %69, 0
+  br i1 %.not84, label %70, label %136
 
-75:                                               ; preds = %73
-  %76 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.49) #19
-  %.not85 = icmp eq i32 %76, 0
-  br i1 %.not85, label %77, label %141
+70:                                               ; preds = %68
+  %71 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.49) #19
+  %.not85 = icmp eq i32 %71, 0
+  br i1 %.not85, label %72, label %136
 
-77:                                               ; preds = %75
-  %78 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.50) #19
-  %.not86 = icmp eq i32 %78, 0
-  br i1 %.not86, label %79, label %141
+72:                                               ; preds = %70
+  %73 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.50) #19
+  %.not86 = icmp eq i32 %73, 0
+  br i1 %.not86, label %74, label %136
 
-79:                                               ; preds = %77
-  %80 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.51) #19
-  %.not87 = icmp eq i32 %80, 0
-  br i1 %.not87, label %81, label %141
+74:                                               ; preds = %72
+  %75 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.51) #19
+  %.not87 = icmp eq i32 %75, 0
+  br i1 %.not87, label %76, label %136
 
-81:                                               ; preds = %79
-  %82 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.52) #19
-  %.not88 = icmp eq i32 %82, 0
-  br i1 %.not88, label %83, label %141
+76:                                               ; preds = %74
+  %77 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.52) #19
+  %.not88 = icmp eq i32 %77, 0
+  br i1 %.not88, label %78, label %136
 
-83:                                               ; preds = %81
-  %84 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.53) #19
-  %.not89 = icmp eq i32 %84, 0
-  br i1 %.not89, label %85, label %141
+78:                                               ; preds = %76
+  %79 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.53) #19
+  %.not89 = icmp eq i32 %79, 0
+  br i1 %.not89, label %80, label %136
 
-85:                                               ; preds = %83
-  %86 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.54) #19
-  %.not90 = icmp eq i32 %86, 0
-  br i1 %.not90, label %87, label %141
+80:                                               ; preds = %78
+  %81 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.54) #19
+  %.not90 = icmp eq i32 %81, 0
+  br i1 %.not90, label %82, label %136
 
-87:                                               ; preds = %85
-  %88 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.55) #19
-  %.not91 = icmp eq i32 %88, 0
-  br i1 %.not91, label %89, label %141
+82:                                               ; preds = %80
+  %83 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.55) #19
+  %.not91 = icmp eq i32 %83, 0
+  br i1 %.not91, label %84, label %136
 
-89:                                               ; preds = %87
-  %90 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.56) #19
-  %.not92 = icmp eq i32 %90, 0
-  br i1 %.not92, label %91, label %141
+84:                                               ; preds = %82
+  %85 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.56) #19
+  %.not92 = icmp eq i32 %85, 0
+  br i1 %.not92, label %86, label %136
 
-91:                                               ; preds = %89
-  %92 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.57) #19
-  %.not93 = icmp eq i32 %92, 0
-  br i1 %.not93, label %93, label %141
+86:                                               ; preds = %84
+  %87 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.57) #19
+  %.not93 = icmp eq i32 %87, 0
+  br i1 %.not93, label %88, label %136
 
-93:                                               ; preds = %91
-  %94 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.58) #19
-  %.not94 = icmp eq i32 %94, 0
-  br i1 %.not94, label %95, label %141
+88:                                               ; preds = %86
+  %89 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.58) #19
+  %.not94 = icmp eq i32 %89, 0
+  br i1 %.not94, label %90, label %136
 
-95:                                               ; preds = %93
-  %96 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.59) #19
-  %.not95 = icmp eq i32 %96, 0
-  br i1 %.not95, label %97, label %141
+90:                                               ; preds = %88
+  %91 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.59) #19
+  %.not95 = icmp eq i32 %91, 0
+  br i1 %.not95, label %92, label %136
 
-97:                                               ; preds = %95
-  %98 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.60) #19
-  %.not96 = icmp eq i32 %98, 0
-  br i1 %.not96, label %99, label %141
+92:                                               ; preds = %90
+  %93 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.60) #19
+  %.not96 = icmp eq i32 %93, 0
+  br i1 %.not96, label %94, label %136
 
-99:                                               ; preds = %97
-  %100 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.61) #19
-  %.not97 = icmp eq i32 %100, 0
-  br i1 %.not97, label %101, label %141
+94:                                               ; preds = %92
+  %95 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.61) #19
+  %.not97 = icmp eq i32 %95, 0
+  br i1 %.not97, label %96, label %136
 
-101:                                              ; preds = %99
-  %102 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.62) #19
-  %.not98 = icmp eq i32 %102, 0
-  br i1 %.not98, label %103, label %141
+96:                                               ; preds = %94
+  %97 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.62) #19
+  %.not98 = icmp eq i32 %97, 0
+  br i1 %.not98, label %98, label %136
 
-103:                                              ; preds = %101
-  %104 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.63) #19
-  %.not99 = icmp eq i32 %104, 0
-  br i1 %.not99, label %105, label %141
+98:                                               ; preds = %96
+  %99 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.63) #19
+  %.not99 = icmp eq i32 %99, 0
+  br i1 %.not99, label %100, label %136
 
-105:                                              ; preds = %103
-  %106 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.64) #19
-  %.not100 = icmp eq i32 %106, 0
-  br i1 %.not100, label %107, label %141
+100:                                              ; preds = %98
+  %101 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.64) #19
+  %.not100 = icmp eq i32 %101, 0
+  br i1 %.not100, label %102, label %136
 
-107:                                              ; preds = %105
-  %108 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.65) #19
-  %.not101 = icmp eq i32 %108, 0
-  br i1 %.not101, label %109, label %141
+102:                                              ; preds = %100
+  %103 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.65) #19
+  %.not101 = icmp eq i32 %103, 0
+  br i1 %.not101, label %104, label %136
 
-109:                                              ; preds = %107
-  %110 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.66) #19
-  %.not102 = icmp eq i32 %110, 0
-  br i1 %.not102, label %111, label %141
+104:                                              ; preds = %102
+  %105 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.66) #19
+  %.not102 = icmp eq i32 %105, 0
+  br i1 %.not102, label %106, label %136
 
-111:                                              ; preds = %109
-  %112 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.67) #19
-  %.not103 = icmp eq i32 %112, 0
-  br i1 %.not103, label %113, label %141
+106:                                              ; preds = %104
+  %107 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.67) #19
+  %.not103 = icmp eq i32 %107, 0
+  br i1 %.not103, label %108, label %136
 
-113:                                              ; preds = %111
-  %114 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.68) #19
-  %.not104 = icmp eq i32 %114, 0
-  br i1 %.not104, label %115, label %141
+108:                                              ; preds = %106
+  %109 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.68) #19
+  %.not104 = icmp eq i32 %109, 0
+  br i1 %.not104, label %110, label %136
 
-115:                                              ; preds = %113
-  %116 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.18) #19
-  %.not105 = icmp eq i32 %116, 0
-  br i1 %.not105, label %117, label %141
+110:                                              ; preds = %108
+  %111 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.18) #19
+  %.not105 = icmp eq i32 %111, 0
+  br i1 %.not105, label %112, label %136
 
-117:                                              ; preds = %115
-  %118 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.19) #19
-  %.not106 = icmp eq i32 %118, 0
-  br i1 %.not106, label %119, label %141
+112:                                              ; preds = %110
+  %113 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.19) #19
+  %.not106 = icmp eq i32 %113, 0
+  br i1 %.not106, label %114, label %136
 
-119:                                              ; preds = %117
-  %120 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.69) #19
-  %.not107 = icmp eq i32 %120, 0
-  br i1 %.not107, label %121, label %141
+114:                                              ; preds = %112
+  %115 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.69) #19
+  %.not107 = icmp eq i32 %115, 0
+  br i1 %.not107, label %116, label %136
 
-121:                                              ; preds = %119
-  %122 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.70) #19
-  %.not108 = icmp eq i32 %122, 0
-  br i1 %.not108, label %123, label %141
+116:                                              ; preds = %114
+  %117 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.70) #19
+  %.not108 = icmp eq i32 %117, 0
+  br i1 %.not108, label %118, label %136
 
-123:                                              ; preds = %121
-  %124 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.71) #19
-  %.not109 = icmp eq i32 %124, 0
-  br i1 %.not109, label %125, label %141
+118:                                              ; preds = %116
+  %119 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.71) #19
+  %.not109 = icmp eq i32 %119, 0
+  br i1 %.not109, label %120, label %136
 
-125:                                              ; preds = %123
-  %126 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.72) #19
-  %.not110 = icmp eq i32 %126, 0
-  br i1 %.not110, label %127, label %141
+120:                                              ; preds = %118
+  %121 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.72) #19
+  %.not110 = icmp eq i32 %121, 0
+  br i1 %.not110, label %122, label %136
 
-127:                                              ; preds = %125
-  %128 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.73) #19
-  %.not111 = icmp eq i32 %128, 0
-  br i1 %.not111, label %129, label %141
+122:                                              ; preds = %120
+  %123 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.73) #19
+  %.not111 = icmp eq i32 %123, 0
+  br i1 %.not111, label %124, label %136
 
-129:                                              ; preds = %127
-  %130 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.74) #19
-  %.not112 = icmp eq i32 %130, 0
-  br i1 %.not112, label %131, label %141
+124:                                              ; preds = %122
+  %125 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.74) #19
+  %.not112 = icmp eq i32 %125, 0
+  br i1 %.not112, label %126, label %136
 
-131:                                              ; preds = %129
-  %132 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.75) #19
-  %.not113 = icmp eq i32 %132, 0
-  br i1 %.not113, label %133, label %141
+126:                                              ; preds = %124
+  %127 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.75) #19
+  %.not113 = icmp eq i32 %127, 0
+  br i1 %.not113, label %128, label %136
 
-133:                                              ; preds = %131
-  %134 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.76) #19
-  %.not114 = icmp eq i32 %134, 0
-  br i1 %.not114, label %135, label %141
+128:                                              ; preds = %126
+  %129 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.76) #19
+  %.not114 = icmp eq i32 %129, 0
+  br i1 %.not114, label %130, label %136
 
-135:                                              ; preds = %133
-  %136 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.77) #19
-  %.not115 = icmp eq i32 %136, 0
-  br i1 %.not115, label %137, label %141
+130:                                              ; preds = %128
+  %131 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.77) #19
+  %.not115 = icmp eq i32 %131, 0
+  br i1 %.not115, label %132, label %136
 
-137:                                              ; preds = %135
-  %138 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.78) #19
-  %.not116 = icmp eq i32 %138, 0
-  br i1 %.not116, label %139, label %141
+132:                                              ; preds = %130
+  %133 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.78) #19
+  %.not116 = icmp eq i32 %133, 0
+  br i1 %.not116, label %134, label %136
 
-139:                                              ; preds = %137
-  %140 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.79) #19
-  %.not117 = icmp eq i32 %140, 0
-  br i1 %.not117, label %.backedge, label %141
+134:                                              ; preds = %132
+  %135 = call i32 @cli_strbcasestr(ptr noundef nonnull %50, ptr noundef nonnull @.str.79) #19
+  %.not117 = icmp eq i32 %135, 0
+  br i1 %.not117, label %.backedge, label %136
 
-141:                                              ; preds = %139, %137, %135, %133, %131, %129, %127, %125, %123, %121, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %69, %67, %65
-  %142 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 1023, ptr noundef nonnull %.067, ptr noundef %0, ptr noundef nonnull %50) #19
+136:                                              ; preds = %134, %132, %130, %128, %126, %124, %122, %120, %118, %116, %114, %112, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %82, %80, %78, %76, %74, %72, %70, %68, %66, %64, %62, %.tail143.thread
+  %137 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 1023, ptr noundef nonnull %.067, ptr noundef %0, ptr noundef nonnull %50) #19
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %143 = call noalias ptr @fopen(ptr noundef nonnull %8, ptr noundef nonnull @.str.12)
-  %144 = icmp eq ptr %143, null
-  br i1 %144, label %cvdgetfileage.exit124.thread, label %145
+  %138 = call noalias ptr @fopen(ptr noundef nonnull %8, ptr noundef nonnull @.str.12)
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %cvdgetfileage.exit124.thread, label %140
 
-cvdgetfileage.exit124.thread:                     ; preds = %141
+cvdgetfileage.exit124.thread:                     ; preds = %136
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.122, ptr noundef nonnull %8) #19
-  br label %148
+  br label %143
 
-145:                                              ; preds = %141
-  %146 = call fastcc i32 @cli_cvdverify(ptr noundef nonnull %143, ptr noundef nonnull %3, i32 noundef 1)
-  %.not.i120 = icmp eq i32 %146, 0
-  br i1 %.not.i120, label %149, label %cvdgetfileage.exit124
+140:                                              ; preds = %136
+  %141 = call fastcc i32 @cli_cvdverify(ptr noundef nonnull %138, ptr noundef nonnull %3, i32 noundef 1)
+  %.not.i120 = icmp eq i32 %141, 0
+  br i1 %.not.i120, label %144, label %cvdgetfileage.exit124
 
-cvdgetfileage.exit124:                            ; preds = %145
-  %147 = call i32 @fclose(ptr noundef nonnull %143)
-  br label %148
+cvdgetfileage.exit124:                            ; preds = %140
+  %142 = call i32 @fclose(ptr noundef nonnull %138)
+  br label %143
 
-148:                                              ; preds = %cvdgetfileage.exit124, %cvdgetfileage.exit124.thread
-  %.0.i121130 = phi i32 [ 8, %cvdgetfileage.exit124.thread ], [ %146, %cvdgetfileage.exit124 ]
+143:                                              ; preds = %cvdgetfileage.exit124, %cvdgetfileage.exit124.thread
+  %.0.i121130 = phi i32 [ 8, %cvdgetfileage.exit124.thread ], [ %141, %cvdgetfileage.exit124 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.82, ptr noundef nonnull %8) #19
   br label %.loopexit
 
-149:                                              ; preds = %145
-  %150 = call i64 @time(ptr noundef nonnull %4) #19
-  %151 = load i32, ptr %45, align 8
-  %152 = zext i32 %151 to i64
-  %153 = load i64, ptr %4, align 8
-  %154 = icmp slt i64 %153, %152
-  %155 = sub nsw i64 %153, %152
-  %.sink.i123 = select i1 %154, i64 0, i64 %155
-  %156 = call i32 @fclose(ptr noundef nonnull %143)
+144:                                              ; preds = %140
+  %145 = call i64 @time(ptr noundef nonnull %4) #19
+  %146 = load i32, ptr %45, align 8
+  %147 = zext i32 %146 to i64
+  %148 = load i64, ptr %4, align 8
+  %149 = icmp slt i64 %148, %147
+  %150 = sub nsw i64 %148, %147
+  %.sink.i123 = select i1 %149, i64 0, i64 %150
+  %151 = call i32 @fclose(ptr noundef nonnull %138)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br i1 %.064.ph152, label %.outer, label %157
+  br i1 %.064.ph152, label %.outer, label %152
 
-157:                                              ; preds = %149
-  %158 = load i64, ptr %1, align 8
-  %. = call i64 @llvm.smin.i64(i64 %.sink.i123, i64 %158)
+152:                                              ; preds = %144
+  %153 = load i64, ptr %1, align 8
+  %. = call i64 @llvm.smin.i64(i64 %.sink.i123, i64 %153)
   br label %.outer
 
-.outer:                                           ; preds = %149, %157
-  %storemerge = phi i64 [ %., %157 ], [ %.sink.i123, %149 ]
+.outer:                                           ; preds = %144, %152
+  %storemerge = phi i64 [ %., %152 ], [ %.sink.i123, %144 ]
   store i64 %storemerge, ptr %1, align 8
-  %159 = call ptr @readdir(ptr noundef nonnull %33) #19
-  %.not76150 = icmp eq ptr %159, null
+  %154 = call ptr @readdir(ptr noundef nonnull %33) #19
+  %.not76150 = icmp eq ptr %154, null
   br i1 %.not76150, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.outer, %.backedge, %.tail.thread, %148
-  %.0 = phi i32 [ %.0.i121130, %148 ], [ 0, %.tail.thread ], [ 0, %.backedge ], [ 0, %.outer ]
-  %160 = call i32 @closedir(ptr noundef nonnull %33)
+.loopexit:                                        ; preds = %.outer, %.backedge, %.tail.thread, %143
+  %.0 = phi i32 [ %.0.i121130, %143 ], [ 0, %.tail.thread ], [ 0, %.backedge ], [ 0, %.outer ]
+  %155 = call i32 @closedir(ptr noundef nonnull %33)
   br label %.thread
 
 .thread:                                          ; preds = %cvdgetfileage.exit, %35, %11, %.loopexit

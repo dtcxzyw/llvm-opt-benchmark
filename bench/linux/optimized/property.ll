@@ -1136,7 +1136,7 @@ define internal fastcc void @acpi_destroy_nondev_subnodes(ptr noundef %0) unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i32 @acpi_dev_get_property(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3) #4 align 16 {
+define dso_local range(i32 -71, 1) i32 @acpi_dev_get_property(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3) #4 align 16 {
   %5 = icmp eq ptr %0, null
   %.not12 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %.not12

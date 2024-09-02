@@ -22304,12 +22304,12 @@ for.cond:                                         ; preds = %for.inc, %entry
 if.end.i.i:                                       ; preds = %for.cond
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
+  %2 = zext i32 %1 to i64
   br label %_ZNK9subpaving9context_tINS_11config_mpffEE8num_varsEv.exit
 
 _ZNK9subpaving9context_tINS_11config_mpffEE8num_varsEv.exit: ; preds = %for.cond, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %for.cond ]
-  %2 = zext i32 %retval.0.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %2
+  %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %for.body, label %for.cond7.preheader
 
 for.cond7.preheader:                              ; preds = %_ZNK9subpaving9context_tINS_11config_mpffEE8num_varsEv.exit
@@ -22373,12 +22373,12 @@ for.cond7:                                        ; preds = %for.cond7.preheader
 if.end.i:                                         ; preds = %for.cond7
   %arrayidx.i18 = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i18, align 4
+  %16 = zext i32 %15 to i64
   br label %_ZNK6vectorIPN9subpaving9context_tINS0_11config_mpffEE4ineqELb0EjE4sizeEv.exit
 
 _ZNK6vectorIPN9subpaving9context_tINS0_11config_mpffEE4ineqELb0EjE4sizeEv.exit: ; preds = %for.cond7, %if.end.i
-  %retval.0.i = phi i32 [ %15, %if.end.i ], [ 0, %for.cond7 ]
-  %16 = zext i32 %retval.0.i to i64
-  %cmp9 = icmp ult i64 %indvars.iv32, %16
+  %retval.0.i = phi i64 [ %16, %if.end.i ], [ 0, %for.cond7 ]
+  %cmp9 = icmp ult i64 %indvars.iv32, %retval.0.i
   br i1 %cmp9, label %for.body10, label %for.cond20.preheader
 
 for.cond20.preheader:                             ; preds = %_ZNK6vectorIPN9subpaving9context_tINS0_11config_mpffEE4ineqELb0EjE4sizeEv.exit
@@ -22414,12 +22414,12 @@ for.cond20:                                       ; preds = %for.cond20.preheade
 if.end.i22:                                       ; preds = %for.cond20
   %arrayidx.i23 = getelementptr inbounds i8, ptr %24, i64 -4
   %25 = load i32, ptr %arrayidx.i23, align 4
+  %26 = zext i32 %25 to i64
   br label %_ZNK6vectorIPN9subpaving9context_tINS0_11config_mpffEE6clauseELb0EjE4sizeEv.exit
 
 _ZNK6vectorIPN9subpaving9context_tINS0_11config_mpffEE6clauseELb0EjE4sizeEv.exit: ; preds = %for.cond20, %if.end.i22
-  %retval.0.i24 = phi i32 [ %25, %if.end.i22 ], [ 0, %for.cond20 ]
-  %26 = zext i32 %retval.0.i24 to i64
-  %cmp22 = icmp ult i64 %indvars.iv35, %26
+  %retval.0.i24 = phi i64 [ %26, %if.end.i22 ], [ 0, %for.cond20 ]
+  %cmp22 = icmp ult i64 %indvars.iv35, %retval.0.i24
   br i1 %cmp22, label %for.body23, label %for.end31
 
 for.body23:                                       ; preds = %_ZNK6vectorIPN9subpaving9context_tINS0_11config_mpffEE6clauseELb0EjE4sizeEv.exit
@@ -28367,11 +28367,11 @@ land.rhs:                                         ; preds = %_ZNK9subpaving9cont
   %m_c.i91 = getelementptr inbounds i8, ptr %this, i64 8
   %40 = load ptr, ptr %m_c.i91, align 8
   %call8 = tail call noundef zeroext i1 @_ZNK12mpff_manager2eqERK4mpffS2_(ptr noundef nonnull align 8 dereferenceable(89) %40, ptr noundef nonnull align 4 dereferenceable(8) %m_result_lower, ptr noundef nonnull align 4 dereferenceable(8) %m_result_upper)
+  %41 = zext i1 %call8 to i8
   br label %land.end
 
 land.end:                                         ; preds = %if.end.i.i60, %land.rhs, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpffEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit
-  %41 = phi i1 [ false, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpffEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit ], [ %call8, %land.rhs ], [ false, %if.end.i.i60 ]
-  %frombool.i.i = zext i1 %41 to i8
+  %frombool.i.i = phi i8 [ 0, %_ZNK16interval_managerIN9subpaving9context_tINS0_11config_mpffEE15interval_configEE13lower_is_openERKNS3_8intervalE.exit ], [ %41, %land.rhs ], [ 0, %if.end.i.i60 ]
   %m_l_open.i.i92 = getelementptr inbounds i8, ptr %b, i64 29
   store i8 %frombool.i.i, ptr %m_l_open.i.i92, align 1
   %m_c.i93 = getelementptr inbounds i8, ptr %this, i64 8

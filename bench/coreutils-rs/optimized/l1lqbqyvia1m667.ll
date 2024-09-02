@@ -6627,7 +6627,7 @@ define internal fastcc void @_ZN6uu_ptx17get_output_chunks17h06269a27f79852f5E(p
   %31 = getelementptr inbounds i8, ptr %6, i64 80
   %32 = load i64, ptr %31, align 8, !noundef !5
   %33 = sub i64 %30, %32
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.smax.i64(i64 %33, i64 0)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %33, i64 0)
   %34 = getelementptr inbounds i8, ptr %6, i64 24
   %35 = getelementptr inbounds i8, ptr %6, i64 40
   %36 = load i64, ptr %35, align 8, !noundef !5
@@ -6635,7 +6635,7 @@ define internal fastcc void @_ZN6uu_ptx17get_output_chunks17h06269a27f79852f5E(p
   %38 = add i64 %37, %3
   %39 = xor i64 %38, -1
   %40 = add i64 %30, %39
-  %.0.sroa.speculated.i118 = tail call noundef i64 @llvm.smax.i64(i64 %40, i64 0)
+  %.0.sroa.speculated.i118 = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %40, i64 0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   %41 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he1af9935de9546f5E"(i64 noundef %30, i1 noundef zeroext false)
   %42 = extractvalue { i64, ptr } %41, 0
@@ -6722,7 +6722,7 @@ define internal fastcc void @_ZN6uu_ptx17get_output_chunks17h06269a27f79852f5E(p
 66:                                               ; preds = %58
   %67 = extractvalue { i64, i64 } %61, 1
   %68 = sub i64 %67, %.0.sroa.speculated.i
-  %.0.sroa.speculated.i119 = tail call noundef i64 @llvm.smax.i64(i64 %68, i64 0)
+  %.0.sroa.speculated.i119 = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %68, i64 0)
   %69 = invoke fastcc noundef i64 @_ZN6uu_ptx21trim_broken_word_left17hecb42f3b1662a84aE(ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2, i64 noundef %.0.sroa.speculated.i119, i64 noundef %67)
           to label %70 unwind label %64
 
@@ -6903,7 +6903,7 @@ define internal fastcc void @_ZN6uu_ptx17get_output_chunks17h06269a27f79852f5E(p
 143:                                              ; preds = %140
   %144 = add i64 %32, %141
   %145 = sub i64 %.0.sroa.speculated.i, %144
-  %.0.sroa.speculated.i130 = call noundef i64 @llvm.smax.i64(i64 %145, i64 0)
+  %.0.sroa.speculated.i130 = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %145, i64 0)
   %146 = extractvalue { i64, i64 } %142, 0
   %147 = add i64 %146, %.0.sroa.speculated.i130
   %.0.sroa.speculated.i131 = call noundef i64 @llvm.umin.i64(i64 %5, i64 %147)
@@ -6997,10 +6997,10 @@ define internal fastcc void @_ZN6uu_ptx17get_output_chunks17h06269a27f79852f5E(p
 186:                                              ; preds = %178
   %187 = add i64 %32, %184
   %188 = sub i64 %.0.sroa.speculated.i118, %187
-  %.0.sroa.speculated.i139 = call noundef i64 @llvm.smax.i64(i64 %188, i64 0)
+  %.0.sroa.speculated.i139 = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %188, i64 0)
   %189 = extractvalue { i64, i64 } %185, 1
   %190 = sub i64 %189, %.0.sroa.speculated.i139
-  %.0.sroa.speculated.i140 = call noundef i64 @llvm.smax.i64(i64 %190, i64 0)
+  %.0.sroa.speculated.i140 = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %190, i64 0)
   %191 = invoke fastcc noundef i64 @_ZN6uu_ptx21trim_broken_word_left17hecb42f3b1662a84aE(ptr noalias noundef nonnull readonly align 4 %1, i64 noundef %2, i64 noundef %.0.sroa.speculated.i140, i64 noundef %189)
           to label %192 unwind label %176
 

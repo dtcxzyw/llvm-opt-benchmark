@@ -327,7 +327,7 @@ _ZN22cranelift_codegen_meta4cdsl5types9ValueType5width17h1e099cc1e6dbc643E.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i16 @_ZN22cranelift_codegen_meta4cdsl5types9ValueType6number17h68ba705da1d4b60fE(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
+define hidden range(i16 102, 1261) i16 @_ZN22cranelift_codegen_meta4cdsl5types9ValueType6number17h68ba705da1d4b60fE(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 8, !range !3, !noundef !4
   switch i8 %2, label %default.unreachable4 [
     i8 0, label %3

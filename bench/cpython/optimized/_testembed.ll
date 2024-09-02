@@ -3563,7 +3563,7 @@ return:                                           ; preds = %if.end32, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_audit() #0 {
+define internal range(i32 4096, 7) i32 @test_audit() #0 {
 entry:
   %sawSet.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sawSet.i)

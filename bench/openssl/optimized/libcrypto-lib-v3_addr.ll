@@ -2801,10 +2801,10 @@ if.then73:                                        ; preds = %if.then70
 
 if.end76:                                         ; preds = %if.end62
   tail call void @OPENSSL_sk_sort(ptr noundef nonnull %call67) #15
-  %i.1155 = add nsw i32 %i.0, 1
-  %call79156 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %chain) #15
-  %cmp80157 = icmp slt i32 %i.1155, %call79156
-  br i1 %cmp80157, label %for.body.lr.ph, label %for.end243
+  %i.1150 = add nsw i32 %i.0, 1
+  %call79151 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %chain) #15
+  %cmp80152 = icmp slt i32 %i.1150, %call79151
+  br i1 %cmp80152, label %for.body.lr.ph, label %for.end243
 
 for.body.lr.ph:                                   ; preds = %if.end76
   %error92 = getelementptr inbounds i8, ptr %ctx, i64 176
@@ -2814,8 +2814,8 @@ for.body.lr.ph:                                   ; preds = %if.end76
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc241
-  %i.1158 = phi i32 [ %i.1155, %for.body.lr.ph ], [ %i.1, %for.inc241 ]
-  %call83 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %chain, i32 noundef %i.1158) #15
+  %i.1153 = phi i32 [ %i.1150, %for.body.lr.ph ], [ %i.1, %for.inc241 ]
+  %call83 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %chain, i32 noundef %i.1153) #15
   %rfc3779_addr84 = getelementptr inbounds i8, ptr %call83, i64 296
   %5 = load ptr, ptr %rfc3779_addr84, align 8
   %call85 = tail call i32 @X509v3_addr_is_canonical(ptr noundef %5)
@@ -2823,198 +2823,198 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool86.not, label %do.body88, label %if.end104
 
 do.body88:                                        ; preds = %for.body
-  br i1 %cmp5, label %if.end98, label %done
+  br i1 %cmp5, label %if.then91, label %done
 
-if.end98:                                         ; preds = %do.body88
+if.then91:                                        ; preds = %do.body88
   store i32 41, ptr %error92, align 8
-  store i32 %i.1158, ptr %error_depth93, align 4
+  store i32 %i.1153, ptr %error_depth93, align 4
   store ptr %call83, ptr %current_cert94, align 8
   %6 = load ptr, ptr %verify_cb95, align 8
   %call96 = tail call i32 %6(i32 noundef 0, ptr noundef nonnull %ctx) #15
-  %cmp99 = icmp eq i32 %call96, 0
-  br i1 %cmp99, label %done, label %if.end104
+  %7 = icmp eq i32 %call96, 0
+  br i1 %7, label %done, label %if.end104
 
-if.end104:                                        ; preds = %if.end98, %for.body
-  %7 = load ptr, ptr %rfc3779_addr84, align 8
-  %cmp106 = icmp eq ptr %7, null
+if.end104:                                        ; preds = %if.then91, %for.body
+  %8 = load ptr, ptr %rfc3779_addr84, align 8
+  %cmp106 = icmp eq ptr %8, null
   br i1 %cmp106, label %for.cond109.preheader, label %if.end142
 
 for.cond109.preheader:                            ; preds = %if.end104
-  %call111152 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call67) #15
-  %cmp112153 = icmp sgt i32 %call111152, 0
-  br i1 %cmp112153, label %for.body114, label %for.inc241
+  %call111147 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call67) #15
+  %cmp112148 = icmp sgt i32 %call111147, 0
+  br i1 %cmp112148, label %for.body114, label %for.inc241
 
 for.cond109:                                      ; preds = %if.end120
-  %inc141 = add nuw nsw i32 %j.0154, 1
+  %inc141 = add nuw nsw i32 %j.0149, 1
   %call111 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call67) #15
   %cmp112 = icmp slt i32 %inc141, %call111
   br i1 %cmp112, label %for.body114, label %for.inc241, !llvm.loop !25
 
 for.body114:                                      ; preds = %for.cond109.preheader, %for.cond109
-  %j.0154 = phi i32 [ %inc141, %for.cond109 ], [ 0, %for.cond109.preheader ]
-  %call116 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call67, i32 noundef %j.0154) #15
+  %j.0149 = phi i32 [ %inc141, %for.cond109 ], [ 0, %for.cond109.preheader ]
+  %call116 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call67, i32 noundef %j.0149) #15
   %call116.val = load ptr, ptr %call116, align 8
   %call116.val.val = load i32, ptr %call116.val, align 8
-  %8 = and i32 %call116.val.val, -2
-  %or.cond.i.not = icmp eq i32 %8, 2
+  %9 = and i32 %call116.val.val, -2
+  %or.cond.i.not = icmp eq i32 %9, 2
   br i1 %or.cond.i.not, label %if.end120, label %done
 
 if.end120:                                        ; preds = %for.body114
   %ipAddressChoice = getelementptr inbounds i8, ptr %call116, i64 8
-  %9 = load ptr, ptr %ipAddressChoice, align 8
-  %10 = load i32, ptr %9, align 8
-  %cmp121.not = icmp eq i32 %10, 0
+  %10 = load ptr, ptr %ipAddressChoice, align 8
+  %11 = load i32, ptr %10, align 8
+  %cmp121.not = icmp eq i32 %11, 0
   br i1 %cmp121.not, label %for.cond109, label %do.body124
 
 do.body124:                                       ; preds = %if.end120
-  br i1 %cmp5, label %if.end134, label %done
+  br i1 %cmp5, label %if.then127, label %done
 
-if.end134:                                        ; preds = %do.body124
+if.then127:                                       ; preds = %do.body124
   store i32 46, ptr %error92, align 8
-  store i32 %i.1158, ptr %error_depth93, align 4
+  store i32 %i.1153, ptr %error_depth93, align 4
   store ptr %call83, ptr %current_cert94, align 8
-  %11 = load ptr, ptr %verify_cb95, align 8
-  %call132 = tail call i32 %11(i32 noundef 0, ptr noundef nonnull %ctx) #15
-  %cmp135 = icmp eq i32 %call132, 0
-  br i1 %cmp135, label %done, label %for.inc241
+  %12 = load ptr, ptr %verify_cb95, align 8
+  %call132 = tail call i32 %12(i32 noundef 0, ptr noundef nonnull %ctx) #15
+  %13 = icmp eq i32 %call132, 0
+  br i1 %13, label %done, label %for.inc241
 
 if.end142:                                        ; preds = %if.end104
-  %call146 = tail call ptr @OPENSSL_sk_set_cmp_func(ptr noundef nonnull %7, ptr noundef nonnull @IPAddressFamily_cmp) #15
-  %12 = load ptr, ptr %rfc3779_addr84, align 8
-  tail call void @OPENSSL_sk_sort(ptr noundef %12) #15
-  %call151149 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call67) #15
-  %cmp152150 = icmp sgt i32 %call151149, 0
-  br i1 %cmp152150, label %for.body154, label %for.inc241
+  %call146 = tail call ptr @OPENSSL_sk_set_cmp_func(ptr noundef nonnull %8, ptr noundef nonnull @IPAddressFamily_cmp) #15
+  %14 = load ptr, ptr %rfc3779_addr84, align 8
+  tail call void @OPENSSL_sk_sort(ptr noundef %14) #15
+  %call151144 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call67) #15
+  %cmp152145 = icmp sgt i32 %call151144, 0
+  br i1 %cmp152145, label %for.body154, label %for.inc241
 
 for.body154:                                      ; preds = %if.end142, %for.inc238
-  %j.1151 = phi i32 [ %inc239, %for.inc238 ], [ 0, %if.end142 ]
-  %call157 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call67, i32 noundef %j.1151) #15
-  %13 = load ptr, ptr %rfc3779_addr84, align 8
-  %call161 = tail call i32 @OPENSSL_sk_find(ptr noundef %13, ptr noundef %call157) #15
-  %14 = load ptr, ptr %rfc3779_addr84, align 8
-  %call164 = tail call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %call161) #15
+  %j.1146 = phi i32 [ %inc239, %for.inc238 ], [ 0, %if.end142 ]
+  %call157 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call67, i32 noundef %j.1146) #15
+  %15 = load ptr, ptr %rfc3779_addr84, align 8
+  %call161 = tail call i32 @OPENSSL_sk_find(ptr noundef %15, ptr noundef %call157) #15
+  %16 = load ptr, ptr %rfc3779_addr84, align 8
+  %call164 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef %call161) #15
   %cmp165 = icmp eq ptr %call164, null
   br i1 %cmp165, label %if.then167, label %if.end190
 
 if.then167:                                       ; preds = %for.body154
   %ipAddressChoice168 = getelementptr inbounds i8, ptr %call157, i64 8
-  %15 = load ptr, ptr %ipAddressChoice168, align 8
-  %16 = load i32, ptr %15, align 8
-  %cmp170 = icmp eq i32 %16, 1
+  %17 = load ptr, ptr %ipAddressChoice168, align 8
+  %18 = load i32, ptr %17, align 8
+  %cmp170 = icmp eq i32 %18, 1
   br i1 %cmp170, label %do.body173, label %for.inc238
 
 do.body173:                                       ; preds = %if.then167
-  br i1 %cmp5, label %if.end183, label %done
+  br i1 %cmp5, label %if.then176, label %done
 
-if.end183:                                        ; preds = %do.body173
+if.then176:                                       ; preds = %do.body173
   store i32 46, ptr %error92, align 8
-  store i32 %i.1158, ptr %error_depth93, align 4
+  store i32 %i.1153, ptr %error_depth93, align 4
   store ptr %call83, ptr %current_cert94, align 8
-  %17 = load ptr, ptr %verify_cb95, align 8
-  %call181 = tail call i32 %17(i32 noundef 0, ptr noundef nonnull %ctx) #15
-  %cmp184 = icmp eq i32 %call181, 0
-  br i1 %cmp184, label %done, label %for.inc241
+  %19 = load ptr, ptr %verify_cb95, align 8
+  %call181 = tail call i32 %19(i32 noundef 0, ptr noundef nonnull %ctx) #15
+  %20 = icmp eq i32 %call181, 0
+  br i1 %20, label %done, label %for.inc241
 
 if.end190:                                        ; preds = %for.body154
   %call157.val = load ptr, ptr %call157, align 8
   %call157.val.val = load i32, ptr %call157.val, align 8
-  %18 = and i32 %call157.val.val, -2
-  %or.cond.i110.not = icmp eq i32 %18, 2
-  br i1 %or.cond.i110.not, label %lor.lhs.false193, label %done
+  %21 = and i32 %call157.val.val, -2
+  %or.cond.i115.not = icmp eq i32 %21, 2
+  br i1 %or.cond.i115.not, label %lor.lhs.false193, label %done
 
 lor.lhs.false193:                                 ; preds = %if.end190
   %call164.val = load ptr, ptr %call164, align 8
   %call164.val.val = load i32, ptr %call164.val, align 8
-  %19 = and i32 %call164.val.val, -2
-  %or.cond.i112.not = icmp eq i32 %19, 2
-  br i1 %or.cond.i112.not, label %if.end197, label %done
+  %22 = and i32 %call164.val.val, -2
+  %or.cond.i117.not = icmp eq i32 %22, 2
+  br i1 %or.cond.i117.not, label %if.end197, label %done
 
 if.end197:                                        ; preds = %lor.lhs.false193
   %ipAddressChoice198 = getelementptr inbounds i8, ptr %call164, i64 8
-  %20 = load ptr, ptr %ipAddressChoice198, align 8
-  %21 = load i32, ptr %20, align 8
-  %cmp200 = icmp eq i32 %21, 1
+  %23 = load ptr, ptr %ipAddressChoice198, align 8
+  %24 = load i32, ptr %23, align 8
+  %cmp200 = icmp eq i32 %24, 1
   br i1 %cmp200, label %if.then202, label %for.inc238
 
 if.then202:                                       ; preds = %if.end197
   %ipAddressChoice203 = getelementptr inbounds i8, ptr %call157, i64 8
-  %22 = load ptr, ptr %ipAddressChoice203, align 8
-  %23 = load i32, ptr %22, align 8
-  %cmp205 = icmp eq i32 %23, 0
+  %25 = load ptr, ptr %ipAddressChoice203, align 8
+  %26 = load i32, ptr %25, align 8
+  %cmp205 = icmp eq i32 %26, 0
   br i1 %cmp205, label %if.then215, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %if.then202
-  %u = getelementptr inbounds i8, ptr %20, i64 8
-  %24 = load ptr, ptr %u, align 8
-  %u210 = getelementptr inbounds i8, ptr %22, i64 8
-  %25 = load ptr, ptr %u210, align 8
+  %u = getelementptr inbounds i8, ptr %23, i64 8
+  %27 = load ptr, ptr %u, align 8
+  %u210 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = load ptr, ptr %u210, align 8
   %data.i = getelementptr inbounds i8, ptr %call157.val, i64 8
-  %26 = load ptr, ptr %data.i, align 8
-  %cmp4.i = icmp eq ptr %26, null
+  %29 = load ptr, ptr %data.i, align 8
+  %cmp4.i = icmp eq ptr %29, null
   br i1 %cmp4.i, label %.thread, label %X509v3_addr_get_afi.exit
 
 X509v3_addr_get_afi.exit:                         ; preds = %lor.lhs.false2.i
-  %27 = load i8, ptr %26, align 1
-  %conv.i = zext i8 %27 to i32
+  %30 = load i8, ptr %29, align 1
+  %conv.i = zext i8 %30 to i32
   %shl.i = shl nuw nsw i32 %conv.i, 8
-  %arrayidx12.i = getelementptr inbounds i8, ptr %26, i64 1
-  %28 = load i8, ptr %arrayidx12.i, align 1
-  %conv13.i = zext i8 %28 to i32
+  %arrayidx12.i = getelementptr inbounds i8, ptr %29, i64 1
+  %31 = load i8, ptr %arrayidx12.i, align 1
+  %conv13.i = zext i8 %31 to i32
   %or.i = or disjoint i32 %shl.i, %conv13.i
   %or.i.fr = freeze i32 %or.i
   %switch.selectcmp.i = icmp eq i32 %or.i.fr, 2
   %spec.select = select i1 %switch.selectcmp.i, i32 16, i32 0
   %switch.selectcmp1.i = icmp eq i32 %or.i.fr, 1
-  %spec.select138 = select i1 %switch.selectcmp1.i, i32 4, i32 %spec.select
+  %spec.select133 = select i1 %switch.selectcmp1.i, i32 4, i32 %spec.select
   br label %.thread
 
 .thread:                                          ; preds = %X509v3_addr_get_afi.exit, %lor.lhs.false2.i
-  %29 = phi i32 [ 0, %lor.lhs.false2.i ], [ %spec.select138, %X509v3_addr_get_afi.exit ]
-  %call213 = tail call fastcc i32 @addr_contains(ptr noundef %24, ptr noundef %25, i32 noundef %29)
+  %32 = phi i32 [ 0, %lor.lhs.false2.i ], [ %spec.select133, %X509v3_addr_get_afi.exit ]
+  %call213 = tail call fastcc i32 @addr_contains(ptr noundef %27, ptr noundef %28, i32 noundef %32)
   %tobool214.not = icmp eq i32 %call213, 0
   br i1 %tobool214.not, label %do.body220, label %if.then215
 
 if.then215:                                       ; preds = %.thread, %if.then202
-  %call218 = tail call ptr @OPENSSL_sk_set(ptr noundef nonnull %call67, i32 noundef %j.1151, ptr noundef nonnull %call164) #15
+  %call218 = tail call ptr @OPENSSL_sk_set(ptr noundef nonnull %call67, i32 noundef %j.1146, ptr noundef nonnull %call164) #15
   br label %for.inc238
 
 do.body220:                                       ; preds = %.thread
-  br i1 %cmp5, label %if.end230, label %done
+  br i1 %cmp5, label %if.then223, label %done
 
-if.end230:                                        ; preds = %do.body220
+if.then223:                                       ; preds = %do.body220
   store i32 46, ptr %error92, align 8
-  store i32 %i.1158, ptr %error_depth93, align 4
+  store i32 %i.1153, ptr %error_depth93, align 4
   store ptr %call83, ptr %current_cert94, align 8
-  %30 = load ptr, ptr %verify_cb95, align 8
-  %call228 = tail call i32 %30(i32 noundef 0, ptr noundef nonnull %ctx) #15
-  %cmp231 = icmp eq i32 %call228, 0
-  br i1 %cmp231, label %done, label %for.inc238
+  %33 = load ptr, ptr %verify_cb95, align 8
+  %call228 = tail call i32 %33(i32 noundef 0, ptr noundef nonnull %ctx) #15
+  %34 = icmp eq i32 %call228, 0
+  br i1 %34, label %done, label %for.inc238
 
-for.inc238:                                       ; preds = %if.end197, %if.end230, %if.then215, %if.then167
-  %inc239 = add nuw nsw i32 %j.1151, 1
+for.inc238:                                       ; preds = %if.end197, %if.then223, %if.then215, %if.then167
+  %inc239 = add nuw nsw i32 %j.1146, 1
   %call151 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call67) #15
   %cmp152 = icmp slt i32 %inc239, %call151
   br i1 %cmp152, label %for.body154, label %for.inc241, !llvm.loop !26
 
-for.inc241:                                       ; preds = %for.inc238, %for.cond109, %if.end142, %for.cond109.preheader, %if.end183, %if.end134
-  %i.1 = add nuw nsw i32 %i.1158, 1
+for.inc241:                                       ; preds = %for.inc238, %for.cond109, %if.end142, %for.cond109.preheader, %if.then176, %if.then127
+  %i.1 = add nuw nsw i32 %i.1153, 1
   %call79 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %chain) #15
   %cmp80 = icmp slt i32 %i.1, %call79
   br i1 %cmp80, label %for.body, label %for.end243, !llvm.loop !27
 
 for.end243:                                       ; preds = %for.inc241, %if.end76
   %x.1.lcssa = phi ptr [ %x.0, %if.end76 ], [ %call83, %for.inc241 ]
-  %i.1.lcssa = phi i32 [ %i.1155, %if.end76 ], [ %i.1, %for.inc241 ]
+  %i.1.lcssa = phi i32 [ %i.1150, %if.end76 ], [ %i.1, %for.inc241 ]
   %rfc3779_addr244 = getelementptr inbounds i8, ptr %x.1.lcssa, i64 296
-  %31 = load ptr, ptr %rfc3779_addr244, align 8
-  %cmp245.not = icmp eq ptr %31, null
+  %35 = load ptr, ptr %rfc3779_addr244, align 8
+  %cmp245.not = icmp eq ptr %35, null
   br i1 %cmp245.not, label %done, label %for.cond248.preheader
 
 for.cond248.preheader:                            ; preds = %for.end243
   %error277 = getelementptr inbounds i8, ptr %ctx, i64 176
-  %call251160 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %31) #15
-  %cmp252161 = icmp sgt i32 %call251160, 0
-  br i1 %cmp252161, label %for.body254.lr.ph, label %done
+  %call251155 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %35) #15
+  %cmp252156 = icmp sgt i32 %call251155, 0
+  br i1 %cmp252156, label %for.body254.lr.ph, label %done
 
 for.body254.lr.ph:                                ; preds = %for.cond248.preheader
   %error_depth278 = getelementptr inbounds i8, ptr %ctx, i64 172
@@ -3023,20 +3023,20 @@ for.body254.lr.ph:                                ; preds = %for.cond248.prehead
   br i1 %cmp5, label %for.body254.us, label %for.body254
 
 for.body254.us:                                   ; preds = %for.body254.lr.ph, %for.inc290.us
-  %j.2162.us = phi i32 [ %inc291.us, %for.inc290.us ], [ 0, %for.body254.lr.ph ]
-  %32 = load ptr, ptr %rfc3779_addr244, align 8
-  %call258.us = tail call ptr @OPENSSL_sk_value(ptr noundef %32, i32 noundef %j.2162.us) #15
+  %j.2157.us = phi i32 [ %inc291.us, %for.inc290.us ], [ 0, %for.body254.lr.ph ]
+  %36 = load ptr, ptr %rfc3779_addr244, align 8
+  %call258.us = tail call ptr @OPENSSL_sk_value(ptr noundef %36, i32 noundef %j.2157.us) #15
   %call258.val.us = load ptr, ptr %call258.us, align 8
   %call258.val.val.us = load i32, ptr %call258.val.us, align 8
-  %33 = and i32 %call258.val.val.us, -2
-  %or.cond.i115.not.us = icmp eq i32 %33, 2
-  br i1 %or.cond.i115.not.us, label %if.end262.us, label %done
+  %37 = and i32 %call258.val.val.us, -2
+  %or.cond.i120.not.us = icmp eq i32 %37, 2
+  br i1 %or.cond.i120.not.us, label %if.end262.us, label %done
 
 if.end262.us:                                     ; preds = %for.body254.us
   %ipAddressChoice263.us = getelementptr inbounds i8, ptr %call258.us, i64 8
-  %34 = load ptr, ptr %ipAddressChoice263.us, align 8
-  %35 = load i32, ptr %34, align 8
-  %cmp265.us = icmp eq i32 %35, 0
+  %38 = load ptr, ptr %ipAddressChoice263.us, align 8
+  %39 = load i32, ptr %38, align 8
+  %cmp265.us = icmp eq i32 %39, 0
   br i1 %cmp265.us, label %land.lhs.true.us, label %for.inc290.us
 
 land.lhs.true.us:                                 ; preds = %if.end262.us
@@ -3048,33 +3048,33 @@ do.body273.us:                                    ; preds = %land.lhs.true.us
   store i32 46, ptr %error277, align 8
   store i32 %i.1.lcssa, ptr %error_depth278, align 4
   store ptr %x.1.lcssa, ptr %current_cert279, align 8
-  %36 = load ptr, ptr %verify_cb280, align 8
-  %call281.us = tail call i32 %36(i32 noundef 0, ptr noundef nonnull %ctx) #15
-  %cmp284.us = icmp eq i32 %call281.us, 0
-  br i1 %cmp284.us, label %done, label %for.inc290.us
+  %40 = load ptr, ptr %verify_cb280, align 8
+  %call281.us = tail call i32 %40(i32 noundef 0, ptr noundef nonnull %ctx) #15
+  %41 = icmp eq i32 %call281.us, 0
+  br i1 %41, label %done, label %for.inc290.us
 
 for.inc290.us:                                    ; preds = %do.body273.us, %land.lhs.true.us, %if.end262.us
-  %inc291.us = add nuw nsw i32 %j.2162.us, 1
-  %37 = load ptr, ptr %rfc3779_addr244, align 8
-  %call251.us = tail call i32 @OPENSSL_sk_num(ptr noundef %37) #15
+  %inc291.us = add nuw nsw i32 %j.2157.us, 1
+  %42 = load ptr, ptr %rfc3779_addr244, align 8
+  %call251.us = tail call i32 @OPENSSL_sk_num(ptr noundef %42) #15
   %cmp252.us = icmp slt i32 %inc291.us, %call251.us
   br i1 %cmp252.us, label %for.body254.us, label %done, !llvm.loop !28
 
 for.body254:                                      ; preds = %for.body254.lr.ph, %for.inc290
-  %j.2162 = phi i32 [ %inc291, %for.inc290 ], [ 0, %for.body254.lr.ph ]
-  %38 = load ptr, ptr %rfc3779_addr244, align 8
-  %call258 = tail call ptr @OPENSSL_sk_value(ptr noundef %38, i32 noundef %j.2162) #15
+  %j.2157 = phi i32 [ %inc291, %for.inc290 ], [ 0, %for.body254.lr.ph ]
+  %43 = load ptr, ptr %rfc3779_addr244, align 8
+  %call258 = tail call ptr @OPENSSL_sk_value(ptr noundef %43, i32 noundef %j.2157) #15
   %call258.val = load ptr, ptr %call258, align 8
   %call258.val.val = load i32, ptr %call258.val, align 8
-  %39 = and i32 %call258.val.val, -2
-  %or.cond.i115.not = icmp eq i32 %39, 2
-  br i1 %or.cond.i115.not, label %if.end262, label %done
+  %44 = and i32 %call258.val.val, -2
+  %or.cond.i120.not = icmp eq i32 %44, 2
+  br i1 %or.cond.i120.not, label %if.end262, label %done
 
 if.end262:                                        ; preds = %for.body254
   %ipAddressChoice263 = getelementptr inbounds i8, ptr %call258, i64 8
-  %40 = load ptr, ptr %ipAddressChoice263, align 8
-  %41 = load i32, ptr %40, align 8
-  %cmp265 = icmp eq i32 %41, 0
+  %45 = load ptr, ptr %ipAddressChoice263, align 8
+  %46 = load i32, ptr %45, align 8
+  %cmp265 = icmp eq i32 %46, 0
   br i1 %cmp265, label %land.lhs.true, label %for.inc290
 
 land.lhs.true:                                    ; preds = %if.end262
@@ -3083,15 +3083,15 @@ land.lhs.true:                                    ; preds = %if.end262
   br i1 %cmp270, label %done, label %for.inc290
 
 for.inc290:                                       ; preds = %if.end262, %land.lhs.true
-  %inc291 = add nuw nsw i32 %j.2162, 1
-  %42 = load ptr, ptr %rfc3779_addr244, align 8
-  %call251 = tail call i32 @OPENSSL_sk_num(ptr noundef %42) #15
+  %inc291 = add nuw nsw i32 %j.2157, 1
+  %47 = load ptr, ptr %rfc3779_addr244, align 8
+  %call251 = tail call i32 @OPENSSL_sk_num(ptr noundef %47) #15
   %cmp252 = icmp slt i32 %inc291, %call251
   br i1 %cmp252, label %for.body254, label %done, !llvm.loop !28
 
-done:                                             ; preds = %do.body173, %do.body124, %do.body88, %if.end183, %if.end134, %if.end98, %do.body220, %if.end230, %if.end190, %lor.lhs.false193, %for.body114, %for.body254, %for.inc290, %land.lhs.true, %for.body254.us, %do.body273.us, %for.inc290.us, %for.cond248.preheader, %do.body, %for.end243, %if.then70, %if.then73, %if.then52
-  %ret.0 = phi i32 [ 0, %if.then73 ], [ 0, %if.then70 ], [ 0, %if.then52 ], [ 1, %for.end243 ], [ 0, %do.body ], [ 1, %for.cond248.preheader ], [ 0, %for.body254.us ], [ 0, %do.body273.us ], [ 1, %for.inc290.us ], [ 0, %for.body254 ], [ 1, %for.inc290 ], [ 0, %land.lhs.true ], [ 0, %for.body114 ], [ 0, %lor.lhs.false193 ], [ 0, %if.end190 ], [ 0, %if.end230 ], [ 0, %do.body220 ], [ 0, %if.end98 ], [ 0, %if.end134 ], [ 0, %if.end183 ], [ 0, %do.body88 ], [ 0, %do.body124 ], [ 0, %do.body173 ]
-  %child.0 = phi ptr [ null, %if.then73 ], [ null, %if.then70 ], [ null, %if.then52 ], [ %call67, %for.end243 ], [ null, %do.body ], [ %call67, %for.cond248.preheader ], [ %call67, %for.inc290.us ], [ %call67, %do.body273.us ], [ %call67, %for.body254.us ], [ %call67, %land.lhs.true ], [ %call67, %for.inc290 ], [ %call67, %for.body254 ], [ %call67, %for.body114 ], [ %call67, %lor.lhs.false193 ], [ %call67, %if.end190 ], [ %call67, %if.end230 ], [ %call67, %do.body220 ], [ %call67, %if.end98 ], [ %call67, %if.end134 ], [ %call67, %if.end183 ], [ %call67, %do.body88 ], [ %call67, %do.body124 ], [ %call67, %do.body173 ]
+done:                                             ; preds = %do.body173, %do.body124, %do.body88, %if.then176, %if.then127, %if.then91, %do.body220, %if.then223, %if.end190, %lor.lhs.false193, %for.body114, %for.body254, %for.inc290, %land.lhs.true, %for.body254.us, %do.body273.us, %for.inc290.us, %for.cond248.preheader, %do.body, %for.end243, %if.then70, %if.then73, %if.then52
+  %ret.0 = phi i32 [ 0, %if.then73 ], [ 0, %if.then70 ], [ 0, %if.then52 ], [ 1, %for.end243 ], [ 0, %do.body ], [ 1, %for.cond248.preheader ], [ 0, %for.body254.us ], [ 0, %do.body273.us ], [ 1, %for.inc290.us ], [ 0, %for.body254 ], [ 1, %for.inc290 ], [ 0, %land.lhs.true ], [ 0, %for.body114 ], [ 0, %lor.lhs.false193 ], [ 0, %if.end190 ], [ 0, %if.then223 ], [ 0, %do.body220 ], [ 0, %if.then91 ], [ 0, %if.then127 ], [ 0, %if.then176 ], [ 0, %do.body88 ], [ 0, %do.body124 ], [ 0, %do.body173 ]
+  %child.0 = phi ptr [ null, %if.then73 ], [ null, %if.then70 ], [ null, %if.then52 ], [ %call67, %for.end243 ], [ null, %do.body ], [ %call67, %for.cond248.preheader ], [ %call67, %for.inc290.us ], [ %call67, %do.body273.us ], [ %call67, %for.body254.us ], [ %call67, %land.lhs.true ], [ %call67, %for.inc290 ], [ %call67, %for.body254 ], [ %call67, %for.body114 ], [ %call67, %lor.lhs.false193 ], [ %call67, %if.end190 ], [ %call67, %if.then223 ], [ %call67, %do.body220 ], [ %call67, %if.then91 ], [ %call67, %if.then127 ], [ %call67, %if.then176 ], [ %call67, %do.body88 ], [ %call67, %do.body124 ], [ %call67, %do.body173 ]
   tail call void @OPENSSL_sk_free(ptr noundef %child.0) #15
   br label %return
 

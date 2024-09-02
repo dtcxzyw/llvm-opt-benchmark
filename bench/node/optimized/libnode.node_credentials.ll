@@ -2429,8 +2429,8 @@ if.end.i710:                                      ; preds = %_ZNK2v820FunctionCa
   %sub.i = add i64 %21, 11
   %22 = inttoptr i64 %sub.i to ptr
   %23 = load i16, ptr %22, align 2
-  %cmp.i711 = icmp ult i16 %23, 128
-  br i1 %cmp.i711, label %lor.lhs.false.i196, label %do.body23
+  %cmp.i711 = icmp ugt i16 %23, 127
+  br i1 %cmp.i711, label %do.body23, label %lor.lhs.false.i196
 
 do.body23:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit225, %if.end.i710
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node11credentialsL10InitGroupsERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_0) #19
@@ -2493,8 +2493,8 @@ if.end.i719:                                      ; preds = %_ZNK2v820FunctionCa
   %sub.i749 = add i64 %36, 11
   %37 = inttoptr i64 %sub.i749 to ptr
   %38 = load i16, ptr %37, align 2
-  %cmp.i721 = icmp ult i16 %38, 128
-  br i1 %cmp.i721, label %do.end51, label %do.body48
+  %cmp.i721 = icmp ugt i16 %38, 127
+  br i1 %cmp.i721, label %do.body48, label %do.end51
 
 do.body48:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit189, %if.end.i719
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node11credentialsL10InitGroupsERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_1) #19

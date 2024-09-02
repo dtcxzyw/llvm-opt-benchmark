@@ -429,11 +429,11 @@ define hidden void @_ZN8rawspeed10DngDecoder20dropUnsuportedChunksEPSt6vectorIPK
   %5 = icmp eq ptr %2, %4
   br i1 %5, label %.loopexit, label %.preheader6
 
-.loopexit:                                        ; preds = %69, %1
+.loopexit:                                        ; preds = %67, %1
   ret void
 
-.preheader6:                                      ; preds = %1, %69
-  %6 = phi ptr [ %71, %69 ], [ %2, %1 ]
+.preheader6:                                      ; preds = %1, %67
+  %6 = phi ptr [ %69, %67 ], [ %2, %1 ]
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   %8 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD8getEntryENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %7, i32 noundef 259)
   %9 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(52) %8, i32 noundef 0)
@@ -442,7 +442,7 @@ define hidden void @_ZN8rawspeed10DngDecoder20dropUnsuportedChunksEPSt6vectorIPK
   %12 = load ptr, ptr %11, align 8, !tbaa !49
   %13 = getelementptr inbounds i8, ptr %10, i64 64
   %14 = icmp eq ptr %12, null
-  br i1 %14, label %43, label %.preheader
+  br i1 %14, label %42, label %.preheader
 
 .preheader:                                       ; preds = %.preheader6, %.preheader
   %15 = phi ptr [ %23, %.preheader ], [ %12, %.preheader6 ]
@@ -459,18 +459,18 @@ define hidden void @_ZN8rawspeed10DngDecoder20dropUnsuportedChunksEPSt6vectorIPK
 
 25:                                               ; preds = %.preheader
   %26 = icmp eq ptr %20, %13
-  br i1 %26, label %43, label %27
+  br i1 %26, label %42, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %20, i64 32
   %29 = load i32, ptr %28, align 4, !tbaa !50
   %30 = icmp sgt i32 %29, 254
-  br i1 %30, label %43, label %31
+  br i1 %30, label %42, label %31
 
 31:                                               ; preds = %27
   %32 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD8getEntryENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %10, i32 noundef 254)
   %33 = tail call noundef zeroext i1 @_ZNK8rawspeed9TiffEntry5isIntEv(ptr noundef nonnull align 8 dereferenceable(52) %32) #26
-  br i1 %33, label %34, label %43
+  br i1 %33, label %34, label %42
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %6, align 8, !tbaa !6
@@ -478,62 +478,60 @@ define hidden void @_ZN8rawspeed10DngDecoder20dropUnsuportedChunksEPSt6vectorIPK
   %37 = tail call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(52) %36, i32 noundef 0)
   %38 = and i32 %37, 1
   %39 = icmp ne i32 %38, 0
-  %40 = trunc i32 %37 to i8
-  %41 = lshr i8 %40, 2
-  %42 = and i8 %41, 1
-  br label %43
+  %40 = and i32 %37, 4
+  %41 = icmp ne i32 %40, 0
+  br label %42
 
-43:                                               ; preds = %34, %31, %27, %25, %.preheader6
-  %44 = phi i8 [ %42, %34 ], [ 0, %31 ], [ 0, %27 ], [ 0, %25 ], [ 0, %.preheader6 ]
-  %45 = phi i1 [ %39, %34 ], [ false, %31 ], [ false, %27 ], [ false, %25 ], [ false, %.preheader6 ]
-  switch i16 %9, label %52 [
-    i16 1, label %46
-    i16 7, label %46
-    i16 8, label %46
-    i16 9, label %46
-    i16 -30644, label %46
+42:                                               ; preds = %34, %31, %27, %25, %.preheader6
+  %43 = phi i1 [ %41, %34 ], [ false, %31 ], [ false, %27 ], [ false, %25 ], [ false, %.preheader6 ]
+  %44 = phi i1 [ %39, %34 ], [ false, %31 ], [ false, %27 ], [ false, %25 ], [ false, %.preheader6 ]
+  switch i16 %9, label %50 [
+    i16 1, label %45
+    i16 7, label %45
+    i16 8, label %45
+    i16 9, label %45
+    i16 -30644, label %45
   ]
 
-46:                                               ; preds = %43, %43, %43, %43, %43
-  %47 = icmp ne i8 %44, 0
-  %48 = or i1 %47, %45
-  br i1 %48, label %52, label %49
+45:                                               ; preds = %42, %42, %42, %42, %42
+  %46 = or i1 %43, %44
+  br i1 %46, label %50, label %47
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %6, i64 8
-  %51 = load ptr, ptr %3, align 8, !tbaa !6
-  br label %69
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %6, i64 8
+  %49 = load ptr, ptr %3, align 8, !tbaa !6
+  br label %67
 
-52:                                               ; preds = %46, %43
-  %53 = load ptr, ptr %0, align 8, !tbaa !6
-  %54 = ptrtoint ptr %6 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
-  %59 = load ptr, ptr %3, align 8, !tbaa !6
-  %60 = icmp eq ptr %58, %59
-  br i1 %60, label %66, label %61
+50:                                               ; preds = %45, %42
+  %51 = load ptr, ptr %0, align 8, !tbaa !6
+  %52 = ptrtoint ptr %6 to i64
+  %53 = ptrtoint ptr %51 to i64
+  %54 = sub i64 %52, %53
+  %55 = getelementptr inbounds i8, ptr %51, i64 %54
+  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = load ptr, ptr %3, align 8, !tbaa !6
+  %58 = icmp eq ptr %56, %57
+  br i1 %58, label %64, label %59
 
-61:                                               ; preds = %52
-  %62 = ptrtoint ptr %59 to i64
-  %63 = ptrtoint ptr %58 to i64
-  %64 = sub i64 %62, %63
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %58, i64 %64, i1 false)
-  %65 = load ptr, ptr %3, align 8, !tbaa !54
-  br label %66
+59:                                               ; preds = %50
+  %60 = ptrtoint ptr %57 to i64
+  %61 = ptrtoint ptr %56 to i64
+  %62 = sub i64 %60, %61
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %55, ptr nonnull align 8 %56, i64 %62, i1 false)
+  %63 = load ptr, ptr %3, align 8, !tbaa !54
+  br label %64
 
-66:                                               ; preds = %61, %52
-  %67 = phi ptr [ %65, %61 ], [ %58, %52 ]
-  %68 = getelementptr inbounds i8, ptr %67, i64 -8
-  store ptr %68, ptr %3, align 8, !tbaa !54
-  br label %69
+64:                                               ; preds = %59, %50
+  %65 = phi ptr [ %63, %59 ], [ %56, %50 ]
+  %66 = getelementptr inbounds i8, ptr %65, i64 -8
+  store ptr %66, ptr %3, align 8, !tbaa !54
+  br label %67
 
-69:                                               ; preds = %66, %49
-  %70 = phi ptr [ %68, %66 ], [ %51, %49 ]
-  %71 = phi ptr [ %57, %66 ], [ %50, %49 ]
-  %72 = icmp eq ptr %71, %70
-  br i1 %72, label %.loopexit, label %.preheader6, !llvm.loop !56
+67:                                               ; preds = %64, %47
+  %68 = phi ptr [ %66, %64 ], [ %49, %47 ]
+  %69 = phi ptr [ %55, %64 ], [ %48, %47 ]
+  %70 = icmp eq ptr %69, %68
+  br i1 %70, label %.loopexit, label %.preheader6, !llvm.loop !56
 }
 
 declare noundef ptr @_ZNK8rawspeed7TiffIFD8getEntryENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef) local_unnamed_addr #6

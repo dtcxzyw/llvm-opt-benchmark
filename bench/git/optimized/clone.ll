@@ -1233,16 +1233,16 @@ if.then339:                                       ; preds = %if.end337
   %call341 = call i32 @transport_set_option(ptr noundef nonnull %call295, ptr noundef nonnull @.str.61, ptr noundef %call340) #17
   %call342 = call i32 @transport_set_option(ptr noundef nonnull %call295, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.55) #17
   %.pre437 = load i32, ptr getelementptr inbounds (i8, ptr @filter_options, i64 24), align 8
+  %100 = icmp ne i32 %.pre437, 0
   br label %if.end343
 
 if.end343:                                        ; preds = %if.then339, %if.end337
-  %100 = phi i32 [ %.pre437, %if.then339 ], [ 0, %if.end337 ]
+  %tobool348 = phi i1 [ %100, %if.then339 ], [ false, %if.end337 ]
   %smart_options = getelementptr inbounds i8, ptr %call295, i64 128
   %101 = load ptr, ptr %smart_options, align 8
   %tobool344 = icmp eq ptr %101, null
   %.b = load i1, ptr @deepen, align 4
   %or.cond16 = select i1 %tobool344, i1 true, i1 %.b
-  %tobool348 = icmp ne i32 %100, 0
   %or.cond18 = select i1 %or.cond16, i1 true, i1 %tobool348
   br i1 %or.cond18, label %if.end354, label %if.then349
 

@@ -1227,8 +1227,8 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %10 = phi i32 [ %8, %for.body.lr.ph ], [ %25, %for.inc ]
-  %11 = phi i16 [ %6, %for.body.lr.ph ], [ %23, %for.inc ]
+  %10 = phi i32 [ %8, %for.body.lr.ph ], [ %26, %for.inc ]
+  %11 = phi i16 [ %6, %for.body.lr.ph ], [ %24, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %12 = load i8, ptr %hasCursor, align 4
   %tobool7.not = icmp ne i8 %12, 0
@@ -1263,13 +1263,13 @@ if.then.i.i:                                      ; preds = %if.end12
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %18, ptr %fBuffer.i.i.i
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %indvars.iv
   %19 = load i16, ptr %arrayidx.i.i, align 2
+  %20 = zext i16 %19 to i32
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %if.then.i.i, %if.end12
-  %retval.0.i.i = phi i16 [ %19, %if.then.i.i ], [ -1, %if.end12 ]
-  %20 = load ptr, ptr %data, align 8
-  %conv = zext i16 %retval.0.i.i to i32
-  %call17 = invoke noundef ptr @_ZNK6icu_7523TransliterationRuleData14lookupReplacerEi(ptr noundef nonnull align 8 dereferenceable(1168) %20, i32 noundef %conv)
+  %retval.0.i.i = phi i32 [ %20, %if.then.i.i ], [ 65535, %if.end12 ]
+  %21 = load ptr, ptr %data, align 8
+  %call17 = invoke noundef ptr @_ZNK6icu_7523TransliterationRuleData14lookupReplacerEi(ptr noundef nonnull align 8 dereferenceable(1168) %21, i32 noundef %retval.0.i.i)
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont16:                                    ; preds = %invoke.cont14
@@ -1277,7 +1277,7 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   br i1 %cmp18, label %if.then19, label %invoke.cont22
 
 if.then19:                                        ; preds = %invoke.cont16
-  invoke void @_ZN6icu_7511ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %conv, i8 noundef signext 0, i8 noundef signext %escapeUnprintable, ptr noundef nonnull align 8 dereferenceable(64) %quoteBuf)
+  invoke void @_ZN6icu_7511ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %retval.0.i.i, i8 noundef signext 0, i8 noundef signext %escapeUnprintable, ptr noundef nonnull align 8 dereferenceable(64) %quoteBuf)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont22:                                    ; preds = %invoke.cont16
@@ -1285,8 +1285,8 @@ invoke.cont22:                                    ; preds = %invoke.cont16
   store i16 2, ptr %fUnion2.i30, align 8
   %vtable = load ptr, ptr %call17, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %21 = load ptr, ptr %vfn, align 8
-  %call25 = invoke noundef nonnull align 8 dereferenceable(64) ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %call17, ptr noundef nonnull align 8 dereferenceable(64) %buf, i8 noundef signext %escapeUnprintable)
+  %22 = load ptr, ptr %vfn, align 8
+  %call25 = invoke noundef nonnull align 8 dereferenceable(64) ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %call17, ptr noundef nonnull align 8 dereferenceable(64) %buf, i8 noundef signext %escapeUnprintable)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont22
@@ -1312,27 +1312,27 @@ invoke.cont30:                                    ; preds = %invoke.cont28
   br label %for.inc
 
 lpad23:                                           ; preds = %invoke.cont26, %invoke.cont24, %invoke.cont28, %invoke.cont22
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %buf) #15
   br label %ehcleanup
 
 for.inc:                                          ; preds = %invoke.cont30, %if.then19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i16, ptr %fUnion.i.i28, align 8
-  %cmp.i.i = icmp slt i16 %23, 0
-  %24 = ashr i16 %23, 5
-  %shr.i.i = sext i16 %24 to i32
-  %25 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %25, i32 %shr.i.i
-  %26 = sext i32 %cond.i to i64
-  %cmp5 = icmp slt i64 %indvars.iv.next, %26
+  %24 = load i16, ptr %fUnion.i.i28, align 8
+  %cmp.i.i = icmp slt i16 %24, 0
+  %25 = ashr i16 %24, 5
+  %shr.i.i = sext i16 %25 to i32
+  %26 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %26, i32 %shr.i.i
+  %27 = sext i32 %cond.i to i64
+  %cmp5 = icmp slt i64 %indvars.iv.next, %27
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %if.end
   %cond.i.lcssa = phi i32 [ %cond.i58, %if.end ], [ %cond.i, %for.inc ]
-  %27 = load i8, ptr %hasCursor, align 4
-  %tobool34.not = icmp ne i8 %27, 0
+  %28 = load i8, ptr %hasCursor, align 4
+  %tobool34.not = icmp ne i8 %28, 0
   %cmp39 = icmp sgt i32 %cursor.0, %cond.i.lcssa
   %or.cond44 = select i1 %tobool34.not, i1 %cmp39, i1 false
   br i1 %or.cond44, label %invoke.cont42, label %if.end50
@@ -1364,7 +1364,7 @@ invoke.cont51:                                    ; preds = %if.end50
   ret ptr %rule
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad23
-  %.pn = phi { ptr, i32 } [ %22, %lpad23 ], [ %lpad.loopexit45, %lpad.loopexit ], [ %lpad.loopexit47, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit50, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp51, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %23, %lpad23 ], [ %lpad.loopexit45, %lpad.loopexit ], [ %lpad.loopexit47, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit50, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp51, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %quoteBuf) #15
   resume { ptr, i32 } %.pn
 }

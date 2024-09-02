@@ -5842,13 +5842,13 @@ _ZNK12QHashPrivate4DataINS_4NodeIt15QHashDummyValueEEE4findERKt.exit.i.i.i: ; pr
   %110 = zext i8 %.pre.i.i to i64
   %111 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<unsigned short, QHashDummyValue>>::Entry", ptr %109, i64 %110
   %112 = icmp ne ptr %111, null
+  %113 = zext i1 %112 to i32
   br label %_ZNK4QSetItE8containsERKt.exit
 
 _ZNK4QSetItE8containsERKt.exit:                   ; preds = %98, %64, %66, %_ZNK12QHashPrivate4DataINS_4NodeIt15QHashDummyValueEEE4findERKt.exit.i.i.i, %107
-  %.0.i.i = phi i1 [ %112, %107 ], [ false, %64 ], [ false, %_ZNK12QHashPrivate4DataINS_4NodeIt15QHashDummyValueEEE4findERKt.exit.i.i.i ], [ false, %66 ], [ false, %98 ]
-  %113 = zext i1 %.0.i.i to i32
+  %.0.i.i = phi i32 [ %113, %107 ], [ 0, %64 ], [ 0, %_ZNK12QHashPrivate4DataINS_4NodeIt15QHashDummyValueEEE4findERKt.exit.i.i.i ], [ 0, %66 ], [ 0, %98 ]
   %114 = getelementptr inbounds i8, ptr %63, i64 112
-  store i32 %113, ptr %114, align 8
+  store i32 %.0.i.i, ptr %114, align 8
   %115 = getelementptr inbounds i8, ptr %.02260, i64 8
   %116 = load ptr, ptr %115, align 8
   %.not26 = icmp eq ptr %116, null

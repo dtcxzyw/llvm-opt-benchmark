@@ -1648,7 +1648,7 @@ _ZN17GrowableArrayViewIP5KlassE4sortEPFiPS1_S3_E.exit: ; preds = %4, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN14ArchiveBuilder21compare_klass_by_nameEPP5KlassS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN14ArchiveBuilder21compare_klass_by_nameEPP5KlassS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8

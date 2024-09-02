@@ -578,15 +578,15 @@ mbedtls_ssl_session_free.exit:                    ; preds = %8, %11
   %37 = icmp eq ptr %36, null
   %38 = icmp eq ptr %32, null
   %39 = or i1 %37, %38
-  %or.cond130 = or i1 %39, %26
-  br i1 %or.cond130, label %40, label %44
+  %or.cond = or i1 %39, %26
+  br i1 %or.cond, label %40, label %44
 
 .thread:                                          ; preds = %31
-  %.old129 = icmp eq ptr %32, null
-  %or.cond131 = or i1 %26, %.old129
-  br i1 %or.cond131, label %40, label %44
+  %.old = icmp eq ptr %32, null
+  %or.cond129 = or i1 %26, %.old
+  br i1 %or.cond129, label %40, label %44
 
-40:                                               ; preds = %.thread, %35
+40:                                               ; preds = %35, %.thread
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 745, ptr noundef nonnull @.str.87) #22
   %41 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %41) #22
@@ -708,14 +708,14 @@ mbedtls_ssl_session_free.exit:                    ; preds = %8, %11
   br label %101
 
 101:                                              ; preds = %98, %._crit_edge
-  %.sink135 = phi ptr [ %100, %98 ], [ %85, %._crit_edge ]
-  %.sink132 = phi i8 [ 0, %98 ], [ 1, %._crit_edge ]
+  %.sink133 = phi ptr [ %100, %98 ], [ %85, %._crit_edge ]
+  %.sink130 = phi i8 [ 0, %98 ], [ 1, %._crit_edge ]
   %102 = load ptr, ptr %16, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 104
-  store ptr %.sink135, ptr %103, align 8
+  store ptr %.sink133, ptr %103, align 8
   %104 = load ptr, ptr %16, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 14
-  store i8 %.sink132, ptr %105, align 2
+  store i8 %.sink130, ptr %105, align 2
   %106 = load ptr, ptr %0, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 4
   %108 = load i32, ptr %107, align 4
@@ -888,7 +888,7 @@ declare void @mbedtls_ssl_dtls_replay_reset(ptr noundef) local_unnamed_addr #3
 declare void @mbedtls_ssl_transform_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_session_reset_int(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_session_reset_int(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   tail call void @mbedtls_ssl_session_reset_msg_layer(ptr noundef %0, i32 noundef %1)
@@ -949,7 +949,7 @@ mbedtls_ssl_session_free.exit:                    ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_session_reset(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_session_reset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @mbedtls_ssl_session_reset_int(ptr noundef %0, i32 noundef 0)
   ret i32 %2
 }
@@ -2007,7 +2007,7 @@ ssl_mfl_code_to_length.exit:                      ; preds = %switch.lookup, %10,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 0, 16385) i64 @mbedtls_ssl_get_output_max_frag_len(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden range(i64 512, 16385) i64 @mbedtls_ssl_get_output_max_frag_len(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 12
   %4 = load i8, ptr %3, align 4
@@ -2295,7 +2295,7 @@ mbedtls_ssl_get_current_mtu.exit.thread:          ; preds = %mbedtls_ssl_get_cur
 declare i32 @mbedtls_ssl_get_record_expansion(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 16385) i32 @mbedtls_ssl_get_max_in_record_payload(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden range(i32 512, 16385) i32 @mbedtls_ssl_get_max_in_record_payload(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr %3, align 8
@@ -3486,7 +3486,7 @@ define internal fastcc void @ssl_clear_peer_cert(ptr nocapture noundef %0) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_context_save(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_context_save(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %6, align 8

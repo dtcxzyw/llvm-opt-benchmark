@@ -4051,7 +4051,7 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i226: ; preds = %561, %559
   unreachable
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit224:           ; preds = %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i226, %543, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i221, %519
-  %storemerge.in.sroa.speculated.in = phi ptr [ %.0.i.i.i.i222, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i221 ], [ null, %519 ], [ %.0.i.i.i.i227, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i226 ], [ null, %543 ]
+  %storemerge.in.sroa.speculated = phi ptr [ %.0.i.i.i.i222, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i221 ], [ null, %519 ], [ %.0.i.i.i.i227, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i226 ], [ null, %543 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #14
   %565 = getelementptr inbounds i8, ptr %21, i64 24
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %565) #14
@@ -4065,7 +4065,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit224:           ; preds = %_ZN10HandleArea15al
   unreachable
 
 568:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit224, %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %151
-  %.sroa.0257.0 = phi ptr [ null, %151 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %storemerge.in.sroa.speculated.in, %_ZN6HandleC2EP6ThreadP7oopDesc.exit224 ]
+  %.sroa.0257.0 = phi ptr [ null, %151 ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ %storemerge.in.sroa.speculated, %_ZN6HandleC2EP6ThreadP7oopDesc.exit224 ]
   %.sroa.0258.0 = phi ptr [ null, %151 ], [ %.sroa.0258.1, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit224 ]
   %.0145 = phi i64 [ 0, %151 ], [ %465, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ 0, %_ZN6HandleC2EP6ThreadP7oopDesc.exit224 ]
   %.0143 = phi ptr [ null, %151 ], [ %.1144, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ], [ null, %_ZN6HandleC2EP6ThreadP7oopDesc.exit224 ]

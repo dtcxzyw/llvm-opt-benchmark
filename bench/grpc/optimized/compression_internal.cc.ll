@@ -92,7 +92,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i64 @_ZN9grpc_core25ParseCompressionAlgorithmESt17basic_string_viewIcSt11char_traitsIcEE(i64 %algorithm.coerce0, ptr nocapture readonly %algorithm.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZN9grpc_core25ParseCompressionAlgorithmESt17basic_string_viewIcSt11char_traitsIcEE(i64 %algorithm.coerce0, ptr nocapture readonly %algorithm.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   switch i64 %algorithm.coerce0, label %if.else13 [
     i64 8, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
@@ -718,13 +718,13 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
   %add21.i = add i64 %add.i, %.sroa.speculated.i.i
   store i64 %add21.i, ptr %__begin1, align 8
   %.pre19 = load i32, ptr %state_.i.i, align 8
+  %15 = icmp ne i32 %.pre19, 2
   br label %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit, !llvm.loop !24
 
 _ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit: ; preds = %if.then.i14, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
-  %15 = phi i64 [ %.pre20, %if.then.i14 ], [ %add21.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
-  %16 = phi i32 [ 2, %if.then.i14 ], [ %.pre19, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
-  %cmp.i.i10 = icmp ne i32 %16, 2
-  %cmp3.i.i = icmp ne i64 %15, %retval.sroa.0.0.copyload.i.i.i8
+  %16 = phi i64 [ %.pre20, %if.then.i14 ], [ %add21.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
+  %cmp.i.i10 = phi i1 [ false, %if.then.i14 ], [ %15, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i ]
+  %cmp3.i.i = icmp ne i64 %16, %retval.sroa.0.0.copyload.i.i.i8
   %.not.i = select i1 %cmp.i.i10, i1 true, i1 %cmp3.i.i
   br i1 %.not.i, label %for.body, label %for.end
 
@@ -734,7 +734,7 @@ for.end:                                          ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN9grpc_core42DefaultCompressionAlgorithmFromChannelArgsERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZN9grpc_core42DefaultCompressionAlgorithmFromChannelArgsERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZNK9grpc_core11ChannelArgs3GetESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 34, ptr nonnull @.str.9)
   %cmp = icmp eq ptr %call, null

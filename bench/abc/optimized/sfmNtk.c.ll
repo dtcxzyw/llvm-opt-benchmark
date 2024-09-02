@@ -372,13 +372,16 @@ Sfm_ObjAddsLevelArray.exit.us:                    ; preds = %.lr.ph, %Sfm_ObjLev
   %38 = tail call noundef i32 @llvm.smax.i32(i32 %.013.i.us, i32 %37)
   %indvars.iv.next.i19.us = add nuw nsw i64 %indvars.iv.i18.us, 1
   %exitcond.not.i20.us = icmp eq i64 %indvars.iv.next.i19.us, %wide.trip.count.i17.us
-  br i1 %exitcond.not.i20.us, label %Sfm_ObjLevelNew.exit.us, label %32, !llvm.loop !11
+  br i1 %exitcond.not.i20.us, label %Sfm_ObjLevelNew.exit.us.loopexit, label %32, !llvm.loop !11
 
-Sfm_ObjLevelNew.exit.us:                          ; preds = %32, %Sfm_ObjAddsLevelArray.exit.us
-  %.0.lcssa.i.us = phi i32 [ 0, %Sfm_ObjAddsLevelArray.exit.us ], [ %38, %32 ]
-  %39 = add nuw nsw i32 %.0.lcssa.i.us, 1
+Sfm_ObjLevelNew.exit.us.loopexit:                 ; preds = %32
+  %39 = add nuw nsw i32 %38, 1
+  br label %Sfm_ObjLevelNew.exit.us
+
+Sfm_ObjLevelNew.exit.us:                          ; preds = %Sfm_ObjLevelNew.exit.us.loopexit, %Sfm_ObjAddsLevelArray.exit.us
+  %.0.lcssa.i.us = phi i32 [ 1, %Sfm_ObjAddsLevelArray.exit.us ], [ %39, %Sfm_ObjLevelNew.exit.us.loopexit ]
   %40 = getelementptr inbounds i32, ptr %.val14.us.pre, i64 %indvars.iv26
-  store i32 %39, ptr %40, align 4
+  store i32 %.0.lcssa.i.us, ptr %40, align 4
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %.val.us = load i32, ptr %4, align 4
   %41 = sext i32 %.val.us to i64
@@ -525,13 +528,16 @@ Sfm_ObjAddsLevelArray.exit.us:                    ; preds = %.lr.ph, %Sfm_ObjLev
   %39 = tail call noundef i32 @llvm.smax.i32(i32 %.013.i.us, i32 %38)
   %indvars.iv.next.i19.us = add nuw nsw i64 %indvars.iv.i18.us, 1
   %exitcond.not.i20.us = icmp eq i64 %indvars.iv.next.i19.us, %wide.trip.count.i17.us
-  br i1 %exitcond.not.i20.us, label %Sfm_ObjLevelNewR.exit.us, label %33, !llvm.loop !13
+  br i1 %exitcond.not.i20.us, label %Sfm_ObjLevelNewR.exit.us.loopexit, label %33, !llvm.loop !13
 
-Sfm_ObjLevelNewR.exit.us:                         ; preds = %33, %Sfm_ObjAddsLevelArray.exit.us
-  %.0.lcssa.i.us = phi i32 [ 0, %Sfm_ObjAddsLevelArray.exit.us ], [ %39, %33 ]
-  %40 = add nuw nsw i32 %.0.lcssa.i.us, 1
+Sfm_ObjLevelNewR.exit.us.loopexit:                ; preds = %33
+  %40 = add nuw nsw i32 %39, 1
+  br label %Sfm_ObjLevelNewR.exit.us
+
+Sfm_ObjLevelNewR.exit.us:                         ; preds = %Sfm_ObjLevelNewR.exit.us.loopexit, %Sfm_ObjAddsLevelArray.exit.us
+  %.0.lcssa.i.us = phi i32 [ 1, %Sfm_ObjAddsLevelArray.exit.us ], [ %40, %Sfm_ObjLevelNewR.exit.us.loopexit ]
   %41 = getelementptr inbounds i32, ptr %.val14.us.pre, i64 %indvars.iv.next26
-  store i32 %40, ptr %41, align 4
+  store i32 %.0.lcssa.i.us, ptr %41, align 4
   %42 = icmp sgt i64 %indvars.iv25, 1
   br i1 %42, label %Sfm_ObjAddsLevelArray.exit.us, label %.critedge, !llvm.loop !14
 

@@ -716,7 +716,7 @@ declare i32 @i2d_ECDSA_SIG(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ECDSA_SIG_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_sm2_internal_verify(ptr noundef %dgst, i32 noundef %dgstlen, ptr noundef %sig, i32 noundef %sig_len, ptr noundef %eckey) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_sm2_internal_verify(ptr noundef %dgst, i32 noundef %dgstlen, ptr noundef %sig, i32 noundef %sig_len, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %s = alloca ptr, align 8
   %p = alloca ptr, align 8

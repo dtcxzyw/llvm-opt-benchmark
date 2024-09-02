@@ -103,73 +103,63 @@ for.body.us:                                      ; preds = %do.body, %for.body.
   %arrayidx.us = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv57
   %3 = load ptr, ptr %arrayidx.us, align 8
   %4 = load i8, ptr %3, align 1
-  %5 = zext i8 %4 to i32
-  %6 = add nsw i32 %5, -45
-  %.not54 = icmp eq i32 %6, 0
+  %.not54 = icmp eq i8 %4, 45
   br i1 %.not54, label %sub_1.us, label %for.body.tail.us
 
 sub_1.us:                                         ; preds = %for.body.us
-  %7 = getelementptr inbounds i8, ptr %3, i64 1
-  %8 = load i8, ptr %7, align 1
-  %9 = zext i8 %8 to i32
+  %5 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 0
+  %8 = select i1 %7, ptr @file_from_standard_input, ptr %3
   br label %for.body.tail.us
 
 for.body.tail.us:                                 ; preds = %sub_1.us, %for.body.us
-  %10 = phi i32 [ %6, %for.body.us ], [ %9, %sub_1.us ]
-  %tobool15.not.us = icmp eq i32 %10, 0
-  %spec.select = select i1 %tobool15.not.us, ptr @file_from_standard_input, ptr %3
-  store ptr %spec.select, ptr %indvars.iv57.sroa.phi, align 8
+  %tobool15.not.us = phi ptr [ %3, %for.body.us ], [ %8, %sub_1.us ]
+  store ptr %tobool15.not.us, ptr %indvars.iv57.sroa.phi, align 8
   br i1 %cmp13.us, label %for.body.us, label %for.end, !llvm.loop !5
 
 for.body:                                         ; preds = %do.body, %if.end23
   %cmp13 = phi i1 [ false, %if.end23 ], [ true, %do.body ]
   %indvars.iv.sroa.phi = phi ptr [ %to_free.sroa.3, %if.end23 ], [ %to_free.sroa.0, %do.body ]
-  %indvars.iv.sroa.phi67 = phi ptr [ %paths.sroa.5, %if.end23 ], [ %paths.sroa.0, %do.body ]
+  %indvars.iv.sroa.phi68 = phi ptr [ %paths.sroa.5, %if.end23 ], [ %paths.sroa.0, %do.body ]
   %indvars.iv = phi i64 [ 1, %if.end23 ], [ 0, %do.body ]
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
-  %11 = load ptr, ptr %arrayidx, align 8
+  %9 = load ptr, ptr %arrayidx, align 8
+  %10 = load i8, ptr %9, align 1
+  %.not = icmp eq i8 %10, 45
+  br i1 %.not, label %for.body.tail, label %if.else
+
+for.body.tail:                                    ; preds = %for.body
+  %11 = getelementptr inbounds i8, ptr %9, i64 1
   %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = add nsw i32 %13, -45
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %sub_1, label %for.body.tail
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %if.end23, label %if.else
 
-sub_1:                                            ; preds = %for.body
-  %15 = getelementptr inbounds i8, ptr %11, i64 1
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  br label %for.body.tail
-
-for.body.tail:                                    ; preds = %for.body, %sub_1
-  %18 = phi i32 [ %14, %for.body ], [ %17, %sub_1 ]
-  %tobool15.not = icmp eq i32 %18, 0
-  br i1 %tobool15.not, label %if.end23, label %if.else
-
-if.else:                                          ; preds = %for.body.tail
-  %call19 = call ptr @prefix_filename(ptr noundef nonnull %.fr, ptr noundef nonnull %11) #12
+if.else:                                          ; preds = %for.body, %for.body.tail
+  %call19 = call ptr @prefix_filename(ptr noundef nonnull %.fr, ptr noundef nonnull %9) #12
   store ptr %call19, ptr %indvars.iv.sroa.phi, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %for.body.tail, %if.else
   %p.0 = phi ptr [ %call19, %if.else ], [ @file_from_standard_input, %for.body.tail ]
-  store ptr %p.0, ptr %indvars.iv.sroa.phi67, align 8
+  store ptr %p.0, ptr %indvars.iv.sroa.phi68, align 8
   br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end23, %for.body.tail.us
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
-  %paths.sroa.0.0.paths.sroa.0.0.70 = load ptr, ptr %paths.sroa.0, align 16
-  %cmp.not.i = icmp eq ptr %paths.sroa.0.0.paths.sroa.0.0.70, @file_from_standard_input
+  %paths.sroa.0.0.paths.sroa.0.0.71 = load ptr, ptr %paths.sroa.0, align 16
+  %cmp.not.i = icmp eq ptr %paths.sroa.0.0.paths.sroa.0.0.71, @file_from_standard_input
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.end
-  %call.i33 = call i32 @stat64(ptr noundef %paths.sroa.0.0.paths.sroa.0.0.70, ptr noundef nonnull %st.i) #12
+  %call.i33 = call i32 @stat64(ptr noundef %paths.sroa.0.0.paths.sroa.0.0.71, ptr noundef nonnull %st.i) #12
   %tobool.not.i = icmp eq i32 %call.i33, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
-  %19 = load i32, ptr %st_mode.i, align 8
-  %and.i = and i32 %19, 61440
+  %14 = load i32, ptr %st_mode.i, align 8
+  %and.i = and i32 %14, 61440
   %cmp2.i = icmp eq i32 %and.i, 16384
   %conv.i = zext i1 %cmp2.i to i32
   %cmp5.i = icmp eq i32 %and.i, 4096
@@ -189,8 +179,8 @@ land.lhs.true10.i:                                ; preds = %if.end.i
 
 if.end23.i:                                       ; preds = %land.lhs.true10.i
   %st_mode15.i = getelementptr inbounds i8, ptr %st.i, i64 24
-  %20 = load i32, ptr %st_mode15.i, align 8
-  %and16.i = and i32 %20, 61440
+  %15 = load i32, ptr %st_mode15.i, align 8
+  %and16.i = and i32 %15, 61440
   %cmp17.i = icmp eq i32 %and16.i, 16384
   %conv18.i = zext i1 %cmp17.i to i32
   %cmp21.i = icmp eq i32 %and16.i, 4096
@@ -235,18 +225,18 @@ if.end46.thread.i:                                ; preds = %if.end36.i
   br i1 %cmp4732.i, label %fixup_paths.exit, label %if.then52.i
 
 if.then52.i:                                      ; preds = %if.end46.thread.i
-  call fastcc void @append_basename(ptr noundef nonnull %replacement, ptr noundef %paths.sroa.0.0.paths.sroa.0.0.70, ptr noundef %paths.sroa.5.0.paths.sroa.5.8.)
+  call fastcc void @append_basename(ptr noundef nonnull %replacement, ptr noundef %paths.sroa.0.0.paths.sroa.0.0.71, ptr noundef %paths.sroa.5.0.paths.sroa.5.8.)
   br label %if.end60.sink.split.i
 
 if.else.i:                                        ; preds = %if.end46.i
-  call fastcc void @append_basename(ptr noundef nonnull %replacement, ptr noundef %paths.sroa.5.0.paths.sroa.5.8., ptr noundef %paths.sroa.0.0.paths.sroa.0.0.70)
+  call fastcc void @append_basename(ptr noundef nonnull %replacement, ptr noundef %paths.sroa.5.0.paths.sroa.5.8., ptr noundef %paths.sroa.0.0.paths.sroa.0.0.71)
   br label %if.end60.sink.split.i
 
 if.end60.sink.split.i:                            ; preds = %if.else.i, %if.then52.i
   %arrayidx7.sink.i = phi ptr [ %paths.sroa.5, %if.else.i ], [ %paths.sroa.0, %if.then52.i ]
   %buf58.i = getelementptr inbounds i8, ptr %replacement, i64 16
-  %21 = load ptr, ptr %buf58.i, align 8
-  store ptr %21, ptr %arrayidx7.sink.i, align 8
+  %16 = load ptr, ptr %buf58.i, align 8
+  store ptr %16, ptr %arrayidx7.sink.i, align 8
   br label %fixup_paths.exit
 
 fixup_paths.exit:                                 ; preds = %lor.lhs.false.i.thread, %if.end46.i, %if.end46.thread.i, %if.end60.sink.split.i
@@ -254,8 +244,8 @@ fixup_paths.exit:                                 ; preds = %lor.lhs.false.i.thr
   %skip_stat_unmatch = getelementptr inbounds i8, ptr %revs, i64 1748
   store i32 1, ptr %skip_stat_unmatch, align 4
   %output_format = getelementptr inbounds i8, ptr %revs, i64 1756
-  %22 = load i32, ptr %output_format, align 4
-  %tobool29.not = icmp eq i32 %22, 0
+  %17 = load i32, ptr %output_format, align 4
+  %tobool29.not = icmp eq i32 %17, 0
   br i1 %tobool29.not, label %if.then30, label %if.end33
 
 if.then30:                                        ; preds = %fixup_paths.exit
@@ -276,8 +266,8 @@ if.end33:                                         ; preds = %if.then30, %fixup_p
   %exit_with_status = getelementptr inbounds i8, ptr %revs, i64 1628
   store i32 1, ptr %exit_with_status, align 4
   %paths.sroa.0.0.paths.sroa.0.0. = load ptr, ptr %paths.sroa.0, align 16
-  %paths.sroa.5.0.paths.sroa.5.8.71 = load ptr, ptr %paths.sroa.5, align 8
-  %call48 = call fastcc i32 @queue_diff(ptr noundef nonnull %diffopt, ptr noundef %paths.sroa.0.0.paths.sroa.0.0., ptr noundef %paths.sroa.5.0.paths.sroa.5.8.71, i32 noundef 0)
+  %paths.sroa.5.0.paths.sroa.5.8.72 = load ptr, ptr %paths.sroa.5, align 8
+  %call48 = call fastcc i32 @queue_diff(ptr noundef nonnull %diffopt, ptr noundef %paths.sroa.0.0.paths.sroa.0.0., ptr noundef %paths.sroa.5.0.paths.sroa.5.8.72, i32 noundef 0)
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %if.end51, label %out
 

@@ -3841,8 +3841,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT18MathKernInfoRecord8sanit
   %9 = getelementptr inbounds i8, ptr %1, i64 40
   br label %10
 
-10:                                               ; preds = %3, %68
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %68 ]
+10:                                               ; preds = %3, %.thread
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %.thread ]
   %11 = getelementptr inbounds [4 x %"struct.OT::OffsetTo.185"], ptr %0, i64 0, i64 %indvars.iv
   %12 = getelementptr inbounds i8, ptr %11, i64 2
   %13 = load ptr, ptr %4, align 8
@@ -3852,7 +3852,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT18MathKernInfoRecord8sanit
   %17 = load i32, ptr %5, align 8
   %18 = zext i32 %17 to i64
   %.not.i.not = icmp ugt i64 %16, %18
-  br i1 %.not.i.not, label %69, label %19
+  br i1 %.not.i.not, label %.thread16, label %19
 
 19:                                               ; preds = %10
   %20 = load i8, ptr %11, align 1
@@ -3863,7 +3863,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT18MathKernInfoRecord8sanit
   %25 = zext i8 %24 to i32
   %26 = or disjoint i32 %22, %25
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %68, label %28
+  br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %19
   %29 = zext nneg i32 %26 to i64
@@ -3918,32 +3918,32 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT15MathValueRecordEEEbPKT_j.exit.i.i
   br i1 %or.cond.not.i.i.i.i, label %59, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, !llvm.loop !20
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit: ; preds = %59
-  br i1 %61, label %68, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
+  br i1 %61, label %.thread, label %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
 
 _ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread: ; preds = %34, %28, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT15MathValueRecordEEEbPKT_j.exit.i.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit
   %62 = load i32, ptr %8, align 4
   %63 = icmp ugt i32 %62, 31
-  br i1 %63, label %69, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
+  br i1 %63, label %.thread16, label %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
 
 _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i: ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread
   %64 = add nuw nsw i32 %62, 1
   store i32 %64, ptr %8, align 4
   %65 = load i8, ptr %9, align 8
   %66 = trunc i8 %65 to i1
-  br i1 %66, label %67, label %69
+  br i1 %66, label %67, label %.thread16
 
 67:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i
   store i16 0, ptr %11, align 1
-  br label %68
+  br label %.thread
 
-68:                                               ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %19, %67
+.thread:                                          ; preds = %19, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %69, label %10, !llvm.loop !21
+  br i1 %exitcond, label %.thread16, label %10, !llvm.loop !21
 
-69:                                               ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %10, %68
-  %.lcssa16 = phi i1 [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %10 ], [ true, %68 ]
-  ret i1 %.lcssa16
+.thread16:                                        ; preds = %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %10, %.thread
+  %.lcssa20 = phi i1 [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT8MathKernEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS5_.exit.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %10 ], [ true, %.thread ]
+  ret i1 %.lcssa20
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4261,8 +4261,8 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructi
   %wide.trip.count.i = zext nneg i32 %197 to i64
   br label %201
 
-201:                                              ; preds = %230, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %230 ]
+201:                                              ; preds = %.thread.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.thread.i ]
   %202 = getelementptr inbounds [1 x %"struct.OT::OffsetTo.154"], ptr %3, i64 0, i64 %indvars.iv.i
   %203 = getelementptr inbounds i8, ptr %202, i64 2
   %204 = load ptr, ptr %4, align 8
@@ -4283,13 +4283,13 @@ _ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructi
   %216 = zext i8 %215 to i32
   %217 = or disjoint i32 %213, %216
   %218 = icmp eq i32 %217, 0
-  br i1 %218, label %230, label %219
+  br i1 %218, label %.thread.i, label %219
 
 219:                                              ; preds = %210
   %220 = zext nneg i32 %217 to i64
   %221 = getelementptr inbounds i8, ptr %0, i64 %220
   %222 = tail call noundef zeroext i1 @_ZNK2OT21MathGlyphConstruction8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(8) %221, ptr noundef nonnull %1)
-  br i1 %222, label %230, label %223
+  br i1 %222, label %.thread.i, label %223
 
 223:                                              ; preds = %219
   %224 = load i32, ptr %198, align 4
@@ -4305,16 +4305,16 @@ _ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i: ; preds = %223
 
 229:                                              ; preds = %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i
   store i16 0, ptr %202, align 1
-  br label %230
+  br label %.thread.i
 
-230:                                              ; preds = %229, %219, %210
+.thread.i:                                        ; preds = %229, %219, %210
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.thread46, label %201, !llvm.loop !22
 
-.thread46:                                        ; preds = %230, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %223, %201, %184, %.thread54, %175, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37, %.thread, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %13, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEELb1EEEEEbPKT_j.exit, %2
-  %231 = phi i1 [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEELb1EEEEEbPKT_j.exit ], [ false, %2 ], [ false, %13 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread ], [ false, %.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread ], [ false, %175 ], [ false, %.thread54 ], [ true, %184 ], [ true, %230 ], [ false, %201 ], [ false, %223 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ]
-  ret i1 %231
+.thread46:                                        ; preds = %.thread.i, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i, %223, %201, %184, %.thread54, %175, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37, %.thread, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i, %13, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEELb1EEEEEbPKT_j.exit, %2
+  %230 = phi i1 [ false, %_ZNK21hb_sanitize_context_t11check_arrayIN2OT8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEELb1EEEEEbPKT_j.exit ], [ false, %2 ], [ false, %13 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit.thread ], [ false, %.thread ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i37 ], [ false, %_ZN21hb_sanitize_context_t8dispatchIN2OT6Layout6Common8CoverageEJEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOS7_.exit36.thread ], [ false, %175 ], [ false, %.thread54 ], [ true, %184 ], [ true, %.thread.i ], [ false, %201 ], [ false, %_ZN21hb_sanitize_context_t8may_editEPKvj.exit.i.i.i ], [ false, %223 ]
+  ret i1 %230
 }
 
 ; Function Attrs: mustprogress uwtable

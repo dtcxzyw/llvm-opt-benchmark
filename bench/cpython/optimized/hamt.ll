@@ -1585,7 +1585,7 @@ hamt_hash.exit:                                   ; preds = %entry
   %h_root = getelementptr inbounds i8, ptr %o, i64 16
   %0 = load ptr, ptr %h_root, align 8
   %call1 = call fastcc i32 @hamt_node_without(ptr noundef %0, i32 noundef 0, i32 noundef %cond.i, ptr noundef %key, ptr noundef nonnull %new_root)
-  switch i32 %call1, label %sw.default [
+  switch i32 %call1, label %default.unreachable [
     i32 0, label %return
     i32 2, label %sw.bb2
     i32 1, label %sw.bb4
@@ -1652,7 +1652,7 @@ if.end10:                                         ; preds = %sw.bb6
   store i64 %sub, ptr %h_count12, align 8
   br label %return
 
-sw.default:                                       ; preds = %hamt_hash.exit
+default.unreachable:                              ; preds = %hamt_hash.exit
   unreachable
 
 return:                                           ; preds = %entry, %if.end.i.i, %sw.bb4, %if.end.i.i.i, %sw.bb2, %if.end.i, %if.then1.i, %if.then9, %hamt_hash.exit, %if.end10
@@ -1661,7 +1661,7 @@ return:                                           ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hamt_node_without(ptr nocapture noundef readonly %node, i32 noundef %shift, i32 noundef %hash, ptr noundef %key, ptr nocapture noundef writeonly %new_node) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr nocapture noundef readonly %node, i32 noundef %shift, i32 noundef %hash, ptr noundef %key, ptr nocapture noundef writeonly %new_node) unnamed_addr #0 {
 entry:
   %sub_node.i17 = alloca ptr, align 8
   %sub_node.i = alloca ptr, align 8
@@ -2090,7 +2090,7 @@ if.end.i22:                                       ; preds = %if.then4
   store ptr null, ptr %sub_node.i17, align 8
   %add.i23 = add i32 %shift, 5
   %call1.i = call fastcc i32 @hamt_node_without(ptr noundef nonnull %62, i32 noundef %add.i23, i32 noundef %hash, ptr noundef %key, ptr noundef nonnull %sub_node.i17)
-  switch i32 %call1.i, label %sw.default.i [
+  switch i32 %call1.i, label %default.unreachable [
     i32 1, label %hamt_node_array_without.exit
     i32 0, label %hamt_node_array_without.exit
     i32 3, label %sw.bb2.i
@@ -2356,7 +2356,7 @@ for.end.i:                                        ; preds = %for.inc.i
   store ptr %call31.i27, ptr %new_node, align 8
   br label %hamt_node_array_without.exit
 
-sw.default.i:                                     ; preds = %if.end.i22
+default.unreachable:                              ; preds = %if.end.i22
   unreachable
 
 hamt_node_array_without.exit:                     ; preds = %if.then4, %if.end.i22, %if.end.i22, %if.then5.i, %if.end.i93.i, %if.then1.i96.i, %do.end.i, %sw.bb10.i24, %if.then15.i, %do.end28.i, %if.end29.i, %for.end.i

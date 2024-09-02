@@ -932,16 +932,16 @@ _ZN7RSCoder6gfMultEii.exit91:                     ; preds = %.lr.ph144, %208
   %243 = sext i32 %242 to i64
   %244 = getelementptr inbounds [512 x i32], ptr %0, i64 0, i64 %243
   %245 = load i32, ptr %244, align 4
+  %246 = trunc i32 %245 to i8
   br label %_ZN7RSCoder6gfMultEii.exit93
 
 _ZN7RSCoder6gfMultEii.exit93:                     ; preds = %223, %235
-  %246 = phi i32 [ %245, %235 ], [ 0, %223 ]
-  %247 = zext nneg i32 %222 to i64
-  %248 = getelementptr inbounds i8, ptr %1, i64 %247
-  %249 = load i8, ptr %248, align 1
-  %250 = trunc i32 %246 to i8
-  %251 = xor i8 %249, %250
-  store i8 %251, ptr %248, align 1
+  %247 = phi i8 [ %246, %235 ], [ 0, %223 ]
+  %248 = zext nneg i32 %222 to i64
+  %249 = getelementptr inbounds i8, ptr %1, i64 %248
+  %250 = load i8, ptr %249, align 1
+  %251 = xor i8 %250, %247
+  store i8 %251, ptr %249, align 1
   %.pre = load i32, ptr %185, align 4
   br label %252
 

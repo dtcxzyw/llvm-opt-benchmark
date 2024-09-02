@@ -768,9 +768,9 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr nocapture nound
   %12 = getelementptr inbounds i8, ptr %0, i64 64
   br label %13
 
-13:                                               ; preds = %27, %.lr.ph.i
-  %14 = phi i32 [ %9, %.lr.ph.i ], [ %39, %27 ]
-  %.01215.i = phi i64 [ 4, %.lr.ph.i ], [ %38, %27 ]
+13:                                               ; preds = %29, %.lr.ph.i
+  %14 = phi i32 [ %9, %.lr.ph.i ], [ %39, %29 ]
+  %.01215.i = phi i64 [ 4, %.lr.ph.i ], [ %38, %29 ]
   %15 = load ptr, ptr %11, align 8
   %16 = zext nneg i32 %14 to i64
   %17 = getelementptr %struct.ParamExecData, ptr %15, i64 %16
@@ -783,37 +783,37 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr nocapture nound
   %23 = load i32, ptr %22, align 8
   %24 = call i64 @add_size(i64 noundef %.01215.i, i64 noundef 4) #9
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %26, label %25
+  br i1 %.not.i, label %28, label %25
 
 25:                                               ; preds = %13
   call void @get_typlenbyval(i32 noundef %23, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %.pre.i = load i8, ptr %5, align 1
   %.pre16.i = load i16, ptr %4, align 2
-  br label %27
+  %26 = trunc i8 %.pre.i to i1
+  %27 = sext i16 %.pre16.i to i32
+  br label %29
 
-26:                                               ; preds = %13
+28:                                               ; preds = %13
   store i16 8, ptr %4, align 2
   store i8 1, ptr %5, align 1
-  br label %27
+  br label %29
 
-27:                                               ; preds = %26, %25
-  %28 = phi i16 [ 8, %26 ], [ %.pre16.i, %25 ]
-  %29 = phi i8 [ 1, %26 ], [ %.pre.i, %25 ]
-  %30 = getelementptr inbounds i8, ptr %17, i64 8
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %17, i64 16
-  %33 = load i8, ptr %32, align 8
-  %34 = trunc i8 %33 to i1
-  %35 = trunc i8 %29 to i1
-  %36 = sext i16 %28 to i32
-  %37 = call i64 @datumEstimateSpace(i64 noundef %31, i1 noundef zeroext %34, i1 noundef zeroext %35, i32 noundef %36) #9
+29:                                               ; preds = %28, %25
+  %30 = phi i32 [ 8, %28 ], [ %27, %25 ]
+  %31 = phi i1 [ true, %28 ], [ %26, %25 ]
+  %32 = getelementptr inbounds i8, ptr %17, i64 8
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %17, i64 16
+  %35 = load i8, ptr %34, align 8
+  %36 = trunc i8 %35 to i1
+  %37 = call i64 @datumEstimateSpace(i64 noundef %33, i1 noundef zeroext %36, i1 noundef zeroext %31, i32 noundef %30) #9
   %38 = call i64 @add_size(i64 noundef %24, i64 noundef %37) #9
   %39 = call i32 @bms_next_member(ptr noundef %1, i32 noundef %14) #9
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %13, label %EstimateParamExecSpace.exit, !llvm.loop !8
 
-EstimateParamExecSpace.exit:                      ; preds = %27, %3
-  %.012.lcssa.i = phi i64 [ 4, %3 ], [ %38, %27 ]
+EstimateParamExecSpace.exit:                      ; preds = %29, %3
+  %.012.lcssa.i = phi i64 [ 4, %3 ], [ %38, %29 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %41 = call i64 @dsa_allocate_extended(ptr noundef %2, i64 noundef %.012.lcssa.i, i32 noundef 0) #9
@@ -831,8 +831,8 @@ EstimateParamExecSpace.exit:                      ; preds = %27, %3
   %48 = getelementptr inbounds i8, ptr %0, i64 64
   br label %49
 
-49:                                               ; preds = %.lr.ph, %65
-  %50 = phi i32 [ %45, %.lr.ph ], [ %75, %65 ]
+49:                                               ; preds = %.lr.ph, %67
+  %50 = phi i32 [ %45, %.lr.ph ], [ %75, %67 ]
   %51 = load ptr, ptr %47, align 8
   %52 = zext nneg i32 %50 to i64
   %53 = getelementptr %struct.ParamExecData, ptr %51, i64 %52
@@ -849,35 +849,35 @@ EstimateParamExecSpace.exit:                      ; preds = %27, %3
   %62 = getelementptr i8, ptr %61, i64 4
   store ptr %62, ptr %6, align 8
   %.not = icmp eq i32 %59, 0
-  br i1 %.not, label %64, label %63
+  br i1 %.not, label %66, label %63
 
 63:                                               ; preds = %49
   call void @get_typlenbyval(i32 noundef %59, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
   %.pre = load i8, ptr %8, align 1
   %.pre20 = load i16, ptr %7, align 2
-  br label %65
+  %64 = trunc i8 %.pre to i1
+  %65 = sext i16 %.pre20 to i32
+  br label %67
 
-64:                                               ; preds = %49
+66:                                               ; preds = %49
   store i16 8, ptr %7, align 2
   store i8 1, ptr %8, align 1
-  br label %65
+  br label %67
 
-65:                                               ; preds = %64, %63
-  %66 = phi i16 [ 8, %64 ], [ %.pre20, %63 ]
-  %67 = phi i8 [ 1, %64 ], [ %.pre, %63 ]
-  %68 = getelementptr inbounds i8, ptr %53, i64 8
-  %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %53, i64 16
-  %71 = load i8, ptr %70, align 8
-  %72 = trunc i8 %71 to i1
-  %73 = trunc i8 %67 to i1
-  %74 = sext i16 %66 to i32
-  call void @datumSerialize(i64 noundef %69, i1 noundef zeroext %72, i1 noundef zeroext %73, i32 noundef %74, ptr noundef nonnull %6) #9
+67:                                               ; preds = %66, %63
+  %68 = phi i32 [ 8, %66 ], [ %65, %63 ]
+  %69 = phi i1 [ true, %66 ], [ %64, %63 ]
+  %70 = getelementptr inbounds i8, ptr %53, i64 8
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %53, i64 16
+  %73 = load i8, ptr %72, align 8
+  %74 = trunc i8 %73 to i1
+  call void @datumSerialize(i64 noundef %71, i1 noundef zeroext %74, i1 noundef zeroext %69, i32 noundef %68, ptr noundef nonnull %6) #9
   %75 = call i32 @bms_next_member(ptr noundef %1, i32 noundef %50) #9
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %49, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %65, %EstimateParamExecSpace.exit
+._crit_edge:                                      ; preds = %67, %EstimateParamExecSpace.exit
   ret i64 %41
 }
 

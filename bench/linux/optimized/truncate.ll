@@ -1693,7 +1693,7 @@ declare dso_local void @unmap_mapping_pages(ptr noundef, i64 noundef, i64 nounde
 declare dso_local void @unmap_mapping_folio(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @invalidate_inode_pages2(ptr noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @invalidate_inode_pages2(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @invalidate_inode_pages2_range(ptr noundef %0, i64 noundef 0, i64 noundef -1), !range !32
   ret i32 %2
 }

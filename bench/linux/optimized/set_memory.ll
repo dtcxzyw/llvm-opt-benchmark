@@ -514,7 +514,7 @@ define dso_local range(i64 0, 4503599627370496) i64 @slow_virt_to_phys(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__set_memory_prot(i64 noundef %0, i32 noundef %1, i64 %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__set_memory_prot(i64 noundef %0, i32 noundef %1, i64 %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
   %5 = xor i64 %2, -1
@@ -523,7 +523,7 @@ define dso_local i32 @__set_memory_prot(i64 noundef %0, i32 noundef %1, i64 %2) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @change_page_attr_set_clr(ptr noundef %0, i32 noundef %1, i64 %2, i64 %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(ptr noundef %0, i32 noundef %1, i64 %2, i64 %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
@@ -824,7 +824,7 @@ define internal fastcc i32 @change_page_attr_set_clr(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @_set_memory_uc(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @_set_memory_uc(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = tail call i64 @cachemode2protval(i32 noundef 2) #11
@@ -880,7 +880,7 @@ declare dso_local i32 @memtype_reserve(i64 noundef, i64 noundef, i32 noundef, pt
 declare dso_local i32 @memtype_free(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @_set_memory_wc(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @_set_memory_wc(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = tail call i64 @cachemode2protval(i32 noundef 2) #11
@@ -951,7 +951,7 @@ define dso_local i32 @set_memory_wc(i64 noundef %0, i32 noundef %1) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @_set_memory_wt(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @_set_memory_wt(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = tail call i64 @cachemode2protval(i32 noundef 4) #11
@@ -960,7 +960,7 @@ define dso_local i32 @_set_memory_wt(i64 noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @_set_memory_wb(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @_set_memory_wb(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 0, i64 152, i32 noundef 0, i32 noundef 0, ptr noundef null)
@@ -968,7 +968,7 @@ define dso_local i32 @_set_memory_wb(i64 noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_memory_wb(i64 noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_memory_wb(i64 noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %0, ptr %3, align 8
@@ -996,7 +996,7 @@ define dso_local i32 @set_memory_wb(i64 noundef %0, i32 noundef %1) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_mce_nospec(i64 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_mce_nospec(i64 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = shl i64 %0, 12
   %4 = load i64, ptr @page_offset_base, align 8
@@ -1018,7 +1018,7 @@ define dso_local i32 @set_mce_nospec(i64 noundef %0) local_unnamed_addr #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_memory_np(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_memory_np(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 0, i64 1, i32 noundef 0, i32 noundef 0, ptr noundef null)
@@ -1029,7 +1029,7 @@ define dso_local i32 @set_memory_np(i64 noundef %0, i32 noundef %1) local_unname
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @clear_mce_nospec(i64 noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @clear_mce_nospec(i64 noundef %0) #0 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %3 = shl i64 %0, 12
@@ -1042,7 +1042,7 @@ define dso_local i32 @clear_mce_nospec(i64 noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_memory_x(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_memory_x(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = load i64, ptr @__supported_pte_mask, align 8
@@ -1059,7 +1059,7 @@ define dso_local i32 @set_memory_x(i64 noundef %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_memory_nx(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_memory_nx(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = load i64, ptr @__supported_pte_mask, align 8
@@ -1076,7 +1076,7 @@ define dso_local i32 @set_memory_nx(i64 noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_memory_ro(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_memory_ro(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 0, i64 66, i32 noundef 0, i32 noundef 0, ptr noundef null)
@@ -1084,7 +1084,7 @@ define dso_local i32 @set_memory_ro(i64 noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_memory_rox(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_memory_rox(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = load i64, ptr @__supported_pte_mask, align 8
@@ -1095,7 +1095,7 @@ define dso_local i32 @set_memory_rox(i64 noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_memory_rw(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_memory_rw(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 2, i64 0, i32 noundef 0, i32 noundef 0, ptr noundef null)
@@ -1103,7 +1103,7 @@ define dso_local i32 @set_memory_rw(i64 noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_memory_np_noalias(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_memory_np_noalias(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 0, i64 1, i32 noundef 0, i32 noundef 8, ptr noundef null)
@@ -1111,7 +1111,7 @@ define dso_local i32 @set_memory_np_noalias(i64 noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_memory_4k(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_memory_4k(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 0, i64 0, i32 noundef 1, i32 noundef 0, ptr noundef null)
@@ -1119,7 +1119,7 @@ define dso_local i32 @set_memory_4k(i64 noundef %0, i32 noundef %1) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_memory_nonglobal(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_memory_nonglobal(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 0, i64 256, i32 noundef 0, i32 noundef 0, ptr noundef null)
@@ -1127,7 +1127,7 @@ define dso_local i32 @set_memory_nonglobal(i64 noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_memory_global(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_memory_global(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 256, i64 0, i32 noundef 0, i32 noundef 0, ptr noundef null)
@@ -1248,7 +1248,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_pages_array_wc(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_pages_wb(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_pages_wb(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load i64, ptr @vmemmap_base, align 8
   %5 = ptrtoint ptr %0 to i64
@@ -1282,7 +1282,7 @@ define dso_local i32 @set_pages_wb(ptr noundef %0, i32 noundef %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_pages_array_wb(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_pages_array_wb(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = tail call fastcc i32 @change_page_attr_set_clr(ptr noundef null, i32 noundef %1, i64 0, i64 152, i32 noundef 0, i32 noundef 4, ptr noundef %0)
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %.loopexit
@@ -1315,7 +1315,7 @@ define dso_local i32 @set_pages_array_wb(ptr noundef %0, i32 noundef %1) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_pages_ro(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_pages_ro(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load i64, ptr @vmemmap_base, align 8
   %5 = ptrtoint ptr %0 to i64
@@ -1331,7 +1331,7 @@ define dso_local i32 @set_pages_ro(ptr noundef %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_pages_rw(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_pages_rw(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load i64, ptr @vmemmap_base, align 8
   %5 = ptrtoint ptr %0 to i64
@@ -1347,7 +1347,7 @@ define dso_local i32 @set_pages_rw(ptr noundef %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_direct_map_invalid_noflush(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_direct_map_invalid_noflush(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.cpa_data, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
@@ -1381,7 +1381,7 @@ define dso_local i32 @set_direct_map_invalid_noflush(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @set_direct_map_default_noflush(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @set_direct_map_default_noflush(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.cpa_data, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
@@ -1441,7 +1441,7 @@ define dso_local zeroext i1 @kernel_page_present(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @kernel_map_pages_in_pgd(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #5 section ".init.text" align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @kernel_map_pages_in_pgd(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #5 section ".init.text" align 16 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.cpa_data, align 8
   store i64 %2, ptr %6, align 8
@@ -1509,7 +1509,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__change_page_attr_set_clr(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.cpa_data, align 8
   %5 = alloca i64, align 8
@@ -2535,7 +2535,7 @@ static_protections.exit.thread:                   ; preds = %static_protections.
 declare dso_local void @__flush_tlb_all() local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @kernel_unmap_pages_in_pgd(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 section ".init.text" align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @kernel_unmap_pages_in_pgd(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 section ".init.text" align 16 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.cpa_data, align 8
   store i64 %1, ptr %4, align 8
@@ -2707,11 +2707,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %19 = getelementptr %struct.pgd_t, ptr %12, i64 %18
   %20 = load i64, ptr %19, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #11
-          to label %21 [label %21, label %.thread], !srcloc !11
+          to label %21 [label %21, label %.critedge], !srcloc !11
 
 21:                                               ; preds = %14, %14
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %22, label %.thread
+  br i1 %.not, label %22, label %.critedge
 
 22:                                               ; preds = %21
   %23 = tail call i64 @get_zeroed_page(i32 noundef 3264) #11
@@ -2741,13 +2741,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %.0..0..0..0. = load volatile i64, ptr %10, align 8
   store volatile i64 %.0..0..0..0., ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %14, %36, %21
+.critedge:                                        ; preds = %14, %36, %21
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #11
           to label %38 [label %38, label %50], !srcloc !11
 
-38:                                               ; preds = %.thread, %.thread
+38:                                               ; preds = %.critedge, %.critedge
   %39 = load i64, ptr %19, align 8
   %40 = and i64 %39, 4503599627366400
   %41 = load i64, ptr @page_offset_base, align 8
@@ -2761,8 +2761,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %49 = getelementptr %struct.p4d_t, ptr %43, i64 %48
   br label %50
 
-50:                                               ; preds = %38, %.thread
-  %51 = phi ptr [ %49, %38 ], [ %19, %.thread ]
+50:                                               ; preds = %38, %.critedge
+  %51 = phi ptr [ %49, %38 ], [ %19, %.critedge ]
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, -97
   %54 = icmp eq i64 %53, 0
@@ -2856,7 +2856,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
 108:                                              ; preds = %88
   %109 = tail call i64 @get_zeroed_page(i32 noundef 3264) #11
   %110 = icmp eq i64 %109, 0
-  br i1 %110, label %.thread25, label %111
+  br i1 %110, label %.thread24, label %111
 
 111:                                              ; preds = %108
   %112 = add i64 %109, 2147483648
@@ -2877,7 +2877,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
 120:                                              ; preds = %88, %111
   %121 = tail call fastcc i64 @populate_pmd(ptr noundef %0, i64 noundef %1, i64 noundef %91, i32 noundef %96, ptr noundef %104, i64 %.fr), !range !65
   %122 = icmp sgt i64 %121, -1
-  br i1 %122, label %._crit_edge, label %.thread25
+  br i1 %122, label %._crit_edge, label %.thread24
 
 ._crit_edge:                                      ; preds = %120
   %.pre = load i64, ptr %82, align 8
@@ -2888,7 +2888,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %125 = phi i64 [ %121, %._crit_edge ], [ 0, %74 ]
   %126 = phi i64 [ %91, %._crit_edge ], [ %1, %74 ]
   %127 = icmp eq i64 %124, %125
-  br i1 %127, label %.thread23, label %128
+  br i1 %127, label %.thread22, label %128
 
 128:                                              ; preds = %123
   %129 = load i64, ptr %51, align 8
@@ -2903,7 +2903,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %138 = sub i64 %85, %126
   %139 = icmp ugt i64 %138, 1073741823
   %140 = select i1 %137, i1 %139, i1 false
-  br i1 %140, label %141, label %.loopexit26
+  br i1 %140, label %141, label %.loopexit25
 
 141:                                              ; preds = %128
   %142 = and i64 %129, 4503599627366400
@@ -2918,17 +2918,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   br i1 %150, label %.split.us.split.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %141
-  %.pre42 = load i64, ptr %148, align 8
+  %.pre41 = load i64, ptr %148, align 8
   br label %.split
 
 .split.us.split.us:                               ; preds = %141
   %151 = icmp ne i64 %134, 0
   %152 = sext i1 %151 to i64
-  %.pre43 = load i64, ptr %148, align 8
+  %.pre42 = load i64, ptr %148, align 8
   br label %153
 
 153:                                              ; preds = %153, %.split.us.split.us
-  %154 = phi i64 [ %.pre43, %.split.us.split.us ], [ %165, %153 ]
+  %154 = phi i64 [ %.pre42, %.split.us.split.us ], [ %165, %153 ]
   %155 = phi i64 [ %126, %.split.us.split.us ], [ %163, %153 ]
   %156 = phi ptr [ %147, %.split.us.split.us ], [ %167, %153 ]
   %157 = phi i64 [ %125, %.split.us.split.us ], [ %166, %153 ]
@@ -2954,10 +2954,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %171 = sub i64 %85, %163
   %172 = icmp ugt i64 %171, 1073741823
   %173 = select i1 %170, i1 %172, i1 false
-  br i1 %173, label %153, label %.loopexit26, !llvm.loop !66
+  br i1 %173, label %153, label %.loopexit25, !llvm.loop !66
 
 .split:                                           ; preds = %.split.preheader, %.split
-  %174 = phi i64 [ %192, %.split ], [ %.pre42, %.split.preheader ]
+  %174 = phi i64 [ %192, %.split ], [ %.pre41, %.split.preheader ]
   %175 = phi i64 [ %190, %.split ], [ %126, %.split.preheader ]
   %176 = phi ptr [ %194, %.split ], [ %147, %.split.preheader ]
   %177 = phi i64 [ %193, %.split ], [ %125, %.split.preheader ]
@@ -2990,15 +2990,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %198 = sub i64 %85, %190
   %199 = icmp ugt i64 %198, 1073741823
   %200 = select i1 %197, i1 %199, i1 false
-  br i1 %200, label %.split, label %.loopexit26, !llvm.loop !66
+  br i1 %200, label %.split, label %.loopexit25, !llvm.loop !66
 
-.loopexit26:                                      ; preds = %.split, %153, %128
+.loopexit25:                                      ; preds = %.split, %153, %128
   %201 = phi i64 [ %125, %128 ], [ %166, %153 ], [ %193, %.split ]
   %202 = phi i64 [ %126, %128 ], [ %163, %153 ], [ %190, %.split ]
   %203 = icmp ult i64 %202, %85
-  br i1 %203, label %204, label %.thread23
+  br i1 %203, label %204, label %.thread22
 
-204:                                              ; preds = %.loopexit26
+204:                                              ; preds = %.loopexit25
   %205 = load i64, ptr %51, align 8
   %206 = and i64 %205, 4503599627366400
   %207 = load i64, ptr @page_offset_base, align 8
@@ -3015,7 +3015,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
 216:                                              ; preds = %204
   %217 = tail call i64 @get_zeroed_page(i32 noundef 3264) #11
   %218 = icmp eq i64 %217, 0
-  br i1 %218, label %.thread25, label %219
+  br i1 %218, label %.thread24, label %219
 
 219:                                              ; preds = %216
   %220 = add i64 %217, 2147483648
@@ -3040,16 +3040,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %232 = tail call fastcc i64 @populate_pmd(ptr noundef %0, i64 noundef %202, i64 noundef %85, i32 noundef %231, ptr noundef %212, i64 %.fr), !range !65
   %233 = tail call i64 @llvm.smax.i64(i64 %232, i64 0)
   %spec.select = add i64 %201, %233
-  br label %.thread23
+  br label %.thread22
 
-.thread23:                                        ; preds = %228, %.loopexit26, %123
-  %.in = phi i64 [ %124, %123 ], [ %201, %.loopexit26 ], [ %spec.select, %228 ]
+.thread22:                                        ; preds = %228, %.loopexit25, %123
+  %.in = phi i64 [ %124, %123 ], [ %201, %.loopexit25 ], [ %spec.select, %228 ]
   %234 = trunc i64 %.in to i32
   %235 = icmp slt i32 %234, 0
-  br i1 %235, label %.thread25, label %274
+  br i1 %235, label %.thread24, label %274
 
-.thread25:                                        ; preds = %216, %108, %120, %.thread23
-  %236 = phi i32 [ %234, %.thread23 ], [ -1, %120 ], [ -1, %108 ], [ -1, %216 ]
+.thread24:                                        ; preds = %216, %108, %120, %.thread22
+  %236 = phi i32 [ %234, %.thread22 ], [ -1, %120 ], [ -1, %108 ], [ -1, %216 ]
   %237 = load i64, ptr %82, align 8
   %238 = shl i64 %237, 12
   %239 = add i64 %238, %1
@@ -3063,7 +3063,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %247 = getelementptr %struct.pud_t, ptr %244, i64 %246
   br i1 %87, label %253, label %248
 
-248:                                              ; preds = %.thread25
+248:                                              ; preds = %.thread24
   %249 = and i64 %1, -1073741824
   %250 = add i64 %249, 1073741824
   %251 = tail call i64 @llvm.umin.i64(i64 %250, i64 %239)
@@ -3071,9 +3071,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %252 = getelementptr i8, ptr %247, i64 8
   br label %253
 
-253:                                              ; preds = %248, %.thread25
-  %254 = phi ptr [ %252, %248 ], [ %247, %.thread25 ]
-  %255 = phi i64 [ %251, %248 ], [ %1, %.thread25 ]
+253:                                              ; preds = %248, %.thread24
+  %254 = phi ptr [ %252, %248 ], [ %247, %.thread24 ]
+  %255 = phi i64 [ %251, %248 ], [ %1, %.thread24 ]
   %256 = sub i64 %239, %255
   %257 = icmp ugt i64 %256, 1073741823
   br i1 %257, label %.preheader, label %.loopexit
@@ -3092,7 +3092,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %.0..0..0..0.7 = load volatile i64, ptr %4, align 8
   store volatile i64 %.0..0..0..0.7, ptr %259, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.pre44 = add i64 %258, 1073741824
+  %.pre43 = add i64 %258, 1073741824
   br label %266
 
 264:                                              ; preds = %.preheader
@@ -3101,7 +3101,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   br label %266
 
 266:                                              ; preds = %264, %263
-  %.pre-phi = phi i64 [ %265, %264 ], [ %.pre44, %263 ]
+  %.pre-phi = phi i64 [ %265, %264 ], [ %.pre43, %263 ]
   %267 = getelementptr i8, ptr %259, i64 8
   %268 = sub i64 %239, %.pre-phi
   %269 = icmp ugt i64 %268, 1073741823
@@ -3117,7 +3117,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   tail call fastcc void @unmap_pmd_range(ptr noundef %270, i64 noundef %271, i64 noundef %239)
   br label %316
 
-274:                                              ; preds = %.thread23
+274:                                              ; preds = %.thread22
   %275 = and i64 %.in, 2147483647
   store i64 %275, ptr %82, align 8
   br label %316

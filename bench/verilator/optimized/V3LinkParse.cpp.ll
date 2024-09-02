@@ -2410,11 +2410,11 @@ _ZN7AstNode9privateIsI8AstGenIfPS_EEbPKS_.exit.i: ; preds = %31
 36:                                               ; preds = %_ZN7AstNode9privateIsI8AstGenIfPS_EEbPKS_.exit.i
   %37 = getelementptr inbounds i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8
-  %.not8.i = icmp eq ptr %38, null
+  %.not8.i = icmp ne ptr %38, null
   br label %39
 
 39:                                               ; preds = %2, %_ZN7AstNode9privateIsI8AstGenIfKPKS_EEbS3_.exit.i, %_ZN7AstNode11privateCastI8AstGenIfKPKS_EEPKT_S3_.exit.i, %28, %31, %_ZN7AstNode9privateIsI8AstGenIfPS_EEbPKS_.exit.i, %36
-  %40 = phi i1 [ false, %_ZN7AstNode9privateIsI8AstGenIfPS_EEbPKS_.exit.i ], [ false, %28 ], [ false, %_ZN7AstNode11privateCastI8AstGenIfKPKS_EEPKT_S3_.exit.i ], [ false, %_ZN7AstNode9privateIsI8AstGenIfKPKS_EEbS3_.exit.i ], [ false, %2 ], [ %.not8.i, %36 ], [ false, %31 ]
+  %40 = phi i1 [ true, %_ZN7AstNode9privateIsI8AstGenIfPS_EEbPKS_.exit.i ], [ true, %28 ], [ true, %_ZN7AstNode11privateCastI8AstGenIfKPKS_EEPKT_S3_.exit.i ], [ true, %_ZN7AstNode9privateIsI8AstGenIfKPKS_EEbS3_.exit.i ], [ true, %2 ], [ %.not8.i, %36 ], [ true, %31 ]
   %41 = getelementptr inbounds i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
@@ -2465,7 +2465,7 @@ _ZN7AstNode9privateIsI11AstCaseItemKPKS_EEbS3_.exit: ; preds = %_ZNK12AstNodeBlo
 
 59:                                               ; preds = %_ZN7AstNode9privateIsI11AstCaseItemKPKS_EEbS3_.exit, %_ZN7AstNode9privateIsI11AstCaseItemKPKS_EEbS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
-  br i1 %40, label %.thread69, label %60
+  br i1 %40, label %60, label %.thread69
 
 60:                                               ; preds = %59
   %61 = getelementptr inbounds i8, ptr %0, i64 220

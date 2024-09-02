@@ -105,7 +105,7 @@ if.end31.i:                                       ; preds = %if.end19.i.i
   %cast.i.i.i.i.i = trunc nuw nsw i64 %7 to i32
   %sub.i7.i.i = sub nsw i32 11, %cast.i.i.i.i.i
   %sub1.i.i.i = sub nsw i32 -1074, %hex_parse.val39.i
-  %.sroa.speculated.i.i.i = call noundef i32 @llvm.smax.i32(i32 %sub.i7.i.i, i32 %sub1.i.i.i)
+  %.sroa.speculated.i.i.i = call noundef range(i32 -2147483648, 2147483595) i32 @llvm.smax.i32(i32 %sub.i7.i.i, i32 %sub1.i.i.i)
   %cmp.i.i.i = icmp slt i32 %.sroa.speculated.i.i.i, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
@@ -272,7 +272,7 @@ if.end49.i:                                       ; preds = %if.end19.i75.i
   %cast.i.i.i.i80.i = trunc nuw nsw i64 %16 to i32
   %sub.i7.i81.i = sub nsw i32 11, %cast.i.i.i.i80.i
   %sub1.i.i82.i = sub nsw i32 -1074, %hex_parse38.val40.i
-  %.sroa.speculated.i.i83.i = call noundef i32 @llvm.smax.i32(i32 %sub.i7.i81.i, i32 %sub1.i.i82.i)
+  %.sroa.speculated.i.i83.i = call noundef range(i32 -2147483648, 2147483595) i32 @llvm.smax.i32(i32 %sub.i7.i81.i, i32 %sub1.i.i82.i)
   %cmp.i.i84.i = icmp slt i32 %.sroa.speculated.i.i83.i, 1
   br i1 %cmp.i.i84.i, label %if.then.i.i119.i, label %if.end.i.i85.i
 
@@ -661,7 +661,7 @@ if.end24.i.i:                                     ; preds = %_ZN4absl12_GLOBAL__
   %mantissa_exact.0.i.i = phi i1 [ true, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ false, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ false, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
   %binary_exponent.0.i.i = phi i32 [ %sub.i25.i.i14, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %add19.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ %add.i199.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
   %sub1.i.i200.i = sub nsw i32 -1074, %binary_exponent.0.i.i
-  %.sroa.speculated.i.i201.i = call noundef i32 @llvm.smax.i32(i32 %mantissa_width.0.i.i, i32 %sub1.i.i200.i)
+  %.sroa.speculated.i.i201.i = call noundef range(i32 -2147483648, 2147483595) i32 @llvm.smax.i32(i32 %mantissa_width.0.i.i, i32 %sub1.i.i200.i)
   %add26.i.i = add nsw i32 %.sroa.speculated.i.i201.i, %binary_exponent.0.i.i
   %cmp.i52.i.i = icmp slt i32 %.sroa.speculated.i.i201.i, 1
   br i1 %cmp.i52.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, label %if.end.i53.i.i
@@ -862,7 +862,7 @@ if.end32.i:                                       ; preds = %if.end19.i.i
   %cast.i.i.i.i.i = trunc nuw nsw i64 %7 to i32
   %sub.i7.i.i = sub nsw i32 40, %cast.i.i.i.i.i
   %sub1.i.i.i = sub nsw i32 -149, %hex_parse.val39.i
-  %.sroa.speculated.i.i.i = call noundef i32 @llvm.smax.i32(i32 %sub.i7.i.i, i32 %sub1.i.i.i)
+  %.sroa.speculated.i.i.i = call noundef range(i32 -2147483648, 2147483624) i32 @llvm.smax.i32(i32 %sub.i7.i.i, i32 %sub1.i.i.i)
   %cmp.i.i.i = icmp slt i32 %.sroa.speculated.i.i.i, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
@@ -1029,7 +1029,7 @@ if.end50.i:                                       ; preds = %if.end19.i76.i
   %cast.i.i.i.i81.i = trunc nuw nsw i64 %16 to i32
   %sub.i7.i82.i = sub nsw i32 40, %cast.i.i.i.i81.i
   %sub1.i.i83.i = sub nsw i32 -149, %hex_parse39.val40.i
-  %.sroa.speculated.i.i84.i = call noundef i32 @llvm.smax.i32(i32 %sub.i7.i82.i, i32 %sub1.i.i83.i)
+  %.sroa.speculated.i.i84.i = call noundef range(i32 -2147483648, 2147483624) i32 @llvm.smax.i32(i32 %sub.i7.i82.i, i32 %sub1.i.i83.i)
   %cmp.i.i85.i = icmp slt i32 %.sroa.speculated.i.i84.i, 1
   br i1 %cmp.i.i85.i, label %if.then.i.i120.i, label %if.end.i.i86.i
 
@@ -1421,7 +1421,7 @@ if.end24.i.i:                                     ; preds = %_ZN4absl12_GLOBAL__
   %mantissa_exact.0.i.i = phi i1 [ true, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ false, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ false, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
   %binary_exponent.0.i.i = phi i32 [ %sub.i25.i.i14, %_ZN4absl12_GLOBAL__N_18BitWidthENS_7uint128E.exit.i.i ], [ %add19.i.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit48.i.i ], [ %add.i202.i, %_ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i ]
   %sub1.i.i203.i = sub nsw i32 -149, %binary_exponent.0.i.i
-  %.sroa.speculated.i.i204.i = call noundef i32 @llvm.smax.i32(i32 %mantissa_width.0.i.i, i32 %sub1.i.i203.i)
+  %.sroa.speculated.i.i204.i = call noundef range(i32 -2147483648, 2147483624) i32 @llvm.smax.i32(i32 %mantissa_width.0.i.i, i32 %sub1.i.i203.i)
   %add26.i.i = add nsw i32 %.sroa.speculated.i.i204.i, %binary_exponent.0.i.i
   %cmp.i52.i.i = icmp slt i32 %.sroa.speculated.i.i204.i, 1
   br i1 %cmp.i52.i.i, label %_ZN4absl12_GLOBAL__N_118ShiftRightAndRoundENS_7uint128EibPb.exit.i.i, label %if.end.i53.i.i

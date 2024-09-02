@@ -188,20 +188,20 @@ define dso_local void @dm_kcopyd_copy(ptr noundef %0, ptr noundef readonly %1, i
   %42 = getelementptr inbounds i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread, label %45
+  br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %.preheader
   %46 = getelementptr inbounds i8, ptr %43, i64 200
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.thread, label %35
+  br i1 %48, label %.critedge, label %35
 
-.thread:                                          ; preds = %.preheader, %45
+.critedge:                                        ; preds = %.preheader, %45
   store i32 1, ptr %33, align 8
   br label %.loopexit3
 
-.loopexit3:                                       ; preds = %35, %.thread, %28, %25
-  %49 = phi i64 [ %30, %.thread ], [ %30, %28 ], [ %.pre, %25 ], [ %30, %35 ]
+.loopexit3:                                       ; preds = %35, %.critedge, %28, %25
+  %49 = phi i64 [ %30, %.critedge ], [ %30, %28 ], [ %.pre, %25 ], [ %30, %35 ]
   %50 = getelementptr inbounds i8, ptr %9, i64 280
   store ptr %5, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %9, i64 288
@@ -1220,7 +1220,7 @@ define internal noundef i32 @run_complete_job(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 2) i32 @run_pages_job(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @run_pages_job(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 7

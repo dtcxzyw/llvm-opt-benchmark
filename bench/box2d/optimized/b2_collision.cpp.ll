@@ -556,7 +556,7 @@ return:                                           ; preds = %if.end28, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_Z19b2ClipSegmentToLineP12b2ClipVertexPKS_RK6b2Vec2fi(ptr nocapture noundef writeonly %vOut, ptr nocapture noundef readonly %vIn, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %normal, float noundef %offset, i32 noundef %vertexIndexA) local_unnamed_addr #3 {
+define noundef range(i32 0, 4) i32 @_Z19b2ClipSegmentToLineP12b2ClipVertexPKS_RK6b2Vec2fi(ptr nocapture noundef writeonly %vOut, ptr nocapture noundef readonly %vIn, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %normal, float noundef %offset, i32 noundef %vertexIndexA) local_unnamed_addr #3 {
 entry:
   %0 = load float, ptr %normal, align 4
   %1 = load float, ptr %vIn, align 4

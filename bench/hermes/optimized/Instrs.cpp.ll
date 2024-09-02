@@ -87,7 +87,7 @@ $_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed = comdat any
 @_ZN6hermes13SwitchImmInstC1EPNS_5ValueEPNS_10BasicBlockEPNS_13LiteralNumberES6_RKN4llvh11SmallVectorIS6_Lj8EEERKNS8_IS4_Lj8EEE = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN6hermes13SwitchImmInstC2EPNS_5ValueEPNS_10BasicBlockEPNS_13LiteralNumberES6_RKN4llvh11SmallVectorIS6_Lj8EEERKNS8_IS4_Lj8EEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK6hermes14TerminatorInst16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483647) i32 @_ZNK6hermes14TerminatorInst16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) local_unnamed_addr #0 align 2 {
 entry:
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
@@ -469,21 +469,21 @@ entry:
 
 entry.split.us:                                   ; preds = %entry
   %0 = load ptr, ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, align 16
-  %tobool.i.not.us16 = icmp eq ptr %0, null
-  br i1 %tobool.i.not.us16, label %if.then, label %_ZN4llvh9StringRefC2EPKc.exit.us
+  %tobool.i.not.us14 = icmp eq ptr %0, null
+  br i1 %tobool.i.not.us14, label %if.then, label %_ZN4llvh9StringRefC2EPKc.exit.us
 
 _ZN4llvh9StringRefC2EPKc.exit.us:                 ; preds = %entry.split.us, %for.inc.us
-  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ 0, %entry.split.us ]
+  %indvars.iv18 = phi i64 [ %indvars.iv.next19, %for.inc.us ], [ 0, %entry.split.us ]
   %1 = phi ptr [ %2, %for.inc.us ], [ %0, %entry.split.us ]
   %char0 = load i8, ptr %1, align 1
   %cmp.i.us = icmp eq i8 %char0, 0
   br i1 %cmp.i.us, label %if.then.loopexit, label %for.inc.us
 
 for.inc.us:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit.us
-  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
-  %cmp.us = icmp ult i64 %indvars.iv20, 25
+  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
+  %cmp.us = icmp ult i64 %indvars.iv18, 25
   tail call void @llvm.assume(i1 %cmp.us)
-  %arrayidx.us = getelementptr inbounds [9 x ptr], ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 0, i64 %indvars.iv.next21
+  %arrayidx.us = getelementptr inbounds [9 x ptr], ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 0, i64 %indvars.iv.next19
   %2 = load ptr, ptr %arrayidx.us, align 8
   %tobool.i.not.us = icmp eq ptr %2, null
   br i1 %tobool.i.not.us, label %if.then.loopexit, label %_ZN4llvh9StringRefC2EPKc.exit.us, !llvm.loop !4
@@ -500,27 +500,27 @@ for.cond:                                         ; preds = %entry, %for.inc
 _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %for.cond
   %call.i2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
   %cmp.i = icmp eq i64 %op.coerce1.fr, %call.i2
-  br i1 %cmp.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, label %for.inc
+  br i1 %cmp.i, label %if.end.i, label %for.inc
 
-_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %_ZN4llvh9StringRefC2EPKc.exit
+if.end.i:                                         ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %bcmp = tail call i32 @bcmp(ptr %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr)
-  %cmp5.i = icmp eq i32 %bcmp, 0
-  br i1 %cmp5.i, label %if.then.loopexit23, label %for.inc
+  %4 = icmp eq i32 %bcmp, 0
+  br i1 %4, label %if.then.loopexit21, label %for.inc
 
 if.then.loopexit:                                 ; preds = %for.inc.us, %_ZN4llvh9StringRefC2EPKc.exit.us
-  %.us-phi.ph.ph.in = phi i64 [ %indvars.iv.next21, %for.inc.us ], [ %indvars.iv20, %_ZN4llvh9StringRefC2EPKc.exit.us ]
+  %.us-phi.ph.ph.in = phi i64 [ %indvars.iv.next19, %for.inc.us ], [ %indvars.iv18, %_ZN4llvh9StringRefC2EPKc.exit.us ]
   %.us-phi.ph.ph = trunc nsw i64 %.us-phi.ph.ph.in to i32
   br label %if.then
 
-if.then.loopexit23:                               ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
-  %4 = trunc nuw nsw i64 %indvars.iv to i32
+if.then.loopexit21:                               ; preds = %if.end.i
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   br label %if.then
 
-if.then:                                          ; preds = %if.then.loopexit23, %if.then.loopexit, %entry.split.us
-  %.us-phi = phi i32 [ 0, %entry.split.us ], [ %.us-phi.ph.ph, %if.then.loopexit ], [ %4, %if.then.loopexit23 ]
+if.then:                                          ; preds = %if.then.loopexit21, %if.then.loopexit, %entry.split.us
+  %.us-phi = phi i32 [ 0, %entry.split.us ], [ %.us-phi.ph.ph, %if.then.loopexit ], [ %5, %if.then.loopexit21 ]
   ret i32 %.us-phi
 
-for.inc:                                          ; preds = %for.cond, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %_ZN4llvh9StringRefC2EPKc.exit
+for.inc:                                          ; preds = %for.cond, %if.end.i, %_ZN4llvh9StringRefC2EPKc.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !4
 }
@@ -568,21 +568,21 @@ entry:
 
 entry.split.us.i:                                 ; preds = %entry
   %0 = load ptr, ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, align 16
-  %tobool.i.not.us16.i = icmp eq ptr %0, null
-  br i1 %tobool.i.not.us16.i, label %_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit, label %_ZN4llvh9StringRefC2EPKc.exit.us.i
+  %tobool.i.not.us14.i = icmp eq ptr %0, null
+  br i1 %tobool.i.not.us14.i, label %_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit, label %_ZN4llvh9StringRefC2EPKc.exit.us.i
 
 _ZN4llvh9StringRefC2EPKc.exit.us.i:               ; preds = %entry.split.us.i, %for.inc.us.i
-  %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %for.inc.us.i ], [ 0, %entry.split.us.i ]
+  %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %for.inc.us.i ], [ 0, %entry.split.us.i ]
   %1 = phi ptr [ %2, %for.inc.us.i ], [ %0, %entry.split.us.i ]
   %char0.i = load i8, ptr %1, align 1
   %cmp.i.us.i = icmp eq i8 %char0.i, 0
   br i1 %cmp.i.us.i, label %if.then.loopexit.i, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %_ZN4llvh9StringRefC2EPKc.exit.us.i
-  %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
-  %cmp.us.i = icmp ult i64 %indvars.iv20.i, 25
+  %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
+  %cmp.us.i = icmp ult i64 %indvars.iv18.i, 25
   tail call void @llvm.assume(i1 %cmp.us.i)
-  %arrayidx.us.i = getelementptr inbounds ptr, ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, i64 %indvars.iv.next21.i
+  %arrayidx.us.i = getelementptr inbounds ptr, ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, i64 %indvars.iv.next19.i
   %2 = load ptr, ptr %arrayidx.us.i, align 8
   %tobool.i.not.us.i = icmp eq ptr %2, null
   br i1 %tobool.i.not.us.i, label %if.then.loopexit.i, label %_ZN4llvh9StringRefC2EPKc.exit.us.i, !llvm.loop !6
@@ -599,28 +599,28 @@ for.cond.i:                                       ; preds = %entry, %for.inc.i
 _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %for.cond.i
   %call.i2.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
   %cmp.i.i = icmp eq i64 %op.coerce1.fr.i, %call.i2.i
-  br i1 %cmp.i.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i, label %for.inc.i
+  br i1 %cmp.i.i, label %if.end.i.i, label %for.inc.i
 
-_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
+if.end.i.i:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
   %bcmp.i = tail call i32 @bcmp(ptr readonly %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr.i)
-  %cmp5.i.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp5.i.i, label %if.then.loopexit23.i, label %for.inc.i
+  %4 = icmp eq i32 %bcmp.i, 0
+  br i1 %4, label %if.then.loopexit21.i, label %for.inc.i
 
 if.then.loopexit.i:                               ; preds = %for.inc.us.i, %_ZN4llvh9StringRefC2EPKc.exit.us.i
-  %.us-phi.ph.ph.in.i = phi i64 [ %indvars.iv.next21.i, %for.inc.us.i ], [ %indvars.iv20.i, %_ZN4llvh9StringRefC2EPKc.exit.us.i ]
+  %.us-phi.ph.ph.in.i = phi i64 [ %indvars.iv.next19.i, %for.inc.us.i ], [ %indvars.iv18.i, %_ZN4llvh9StringRefC2EPKc.exit.us.i ]
   %.us-phi.ph.ph.i = trunc nsw i64 %.us-phi.ph.ph.in.i to i32
   br label %_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit
 
-if.then.loopexit23.i:                             ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i
-  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
+if.then.loopexit21.i:                             ; preds = %if.end.i.i
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit
 
-for.inc.i:                                        ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i, %_ZN4llvh9StringRefC2EPKc.exit.i, %for.cond.i
+for.inc.i:                                        ; preds = %if.end.i.i, %_ZN4llvh9StringRefC2EPKc.exit.i, %for.cond.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %for.cond.i, !llvm.loop !6
 
-_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit: ; preds = %entry.split.us.i, %if.then.loopexit.i, %if.then.loopexit23.i
-  %.us-phi.i = phi i32 [ 0, %entry.split.us.i ], [ %.us-phi.ph.ph.i, %if.then.loopexit.i ], [ %4, %if.then.loopexit23.i ]
+_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit: ; preds = %entry.split.us.i, %if.then.loopexit.i, %if.then.loopexit21.i
+  %.us-phi.i = phi i32 [ 0, %entry.split.us.i ], [ %.us-phi.ph.ph.i, %if.then.loopexit.i ], [ %5, %if.then.loopexit21.i ]
   ret i32 %.us-phi.i
 }
 
@@ -633,21 +633,21 @@ entry:
 
 entry.split.us.i:                                 ; preds = %entry
   %0 = load ptr, ptr @_ZN6hermes18BinaryOperatorInst22assignmentOpStringReprE, align 16
-  %tobool.i.not.us16.i = icmp eq ptr %0, null
-  br i1 %tobool.i.not.us16.i, label %_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit, label %_ZN4llvh9StringRefC2EPKc.exit.us.i
+  %tobool.i.not.us14.i = icmp eq ptr %0, null
+  br i1 %tobool.i.not.us14.i, label %_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit, label %_ZN4llvh9StringRefC2EPKc.exit.us.i
 
 _ZN4llvh9StringRefC2EPKc.exit.us.i:               ; preds = %entry.split.us.i, %for.inc.us.i
-  %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %for.inc.us.i ], [ 0, %entry.split.us.i ]
+  %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %for.inc.us.i ], [ 0, %entry.split.us.i ]
   %1 = phi ptr [ %2, %for.inc.us.i ], [ %0, %entry.split.us.i ]
   %char0.i = load i8, ptr %1, align 1
   %cmp.i.us.i = icmp eq i8 %char0.i, 0
   br i1 %cmp.i.us.i, label %if.then.loopexit.i, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %_ZN4llvh9StringRefC2EPKc.exit.us.i
-  %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
-  %cmp.us.i = icmp ult i64 %indvars.iv20.i, 25
+  %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
+  %cmp.us.i = icmp ult i64 %indvars.iv18.i, 25
   tail call void @llvm.assume(i1 %cmp.us.i)
-  %arrayidx.us.i = getelementptr inbounds ptr, ptr @_ZN6hermes18BinaryOperatorInst22assignmentOpStringReprE, i64 %indvars.iv.next21.i
+  %arrayidx.us.i = getelementptr inbounds ptr, ptr @_ZN6hermes18BinaryOperatorInst22assignmentOpStringReprE, i64 %indvars.iv.next19.i
   %2 = load ptr, ptr %arrayidx.us.i, align 8
   %tobool.i.not.us.i = icmp eq ptr %2, null
   br i1 %tobool.i.not.us.i, label %if.then.loopexit.i, label %_ZN4llvh9StringRefC2EPKc.exit.us.i, !llvm.loop !6
@@ -664,33 +664,33 @@ for.cond.i:                                       ; preds = %entry, %for.inc.i
 _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %for.cond.i
   %call.i2.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
   %cmp.i.i = icmp eq i64 %op.coerce1.fr.i, %call.i2.i
-  br i1 %cmp.i.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i, label %for.inc.i
+  br i1 %cmp.i.i, label %if.end.i.i, label %for.inc.i
 
-_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
+if.end.i.i:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
   %bcmp.i = tail call i32 @bcmp(ptr readonly %op.coerce0, ptr nonnull %3, i64 %op.coerce1.fr.i)
-  %cmp5.i.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp5.i.i, label %if.then.loopexit23.i, label %for.inc.i
+  %4 = icmp eq i32 %bcmp.i, 0
+  br i1 %4, label %if.then.loopexit21.i, label %for.inc.i
 
 if.then.loopexit.i:                               ; preds = %for.inc.us.i, %_ZN4llvh9StringRefC2EPKc.exit.us.i
-  %.us-phi.ph.ph.in.i = phi i64 [ %indvars.iv.next21.i, %for.inc.us.i ], [ %indvars.iv20.i, %_ZN4llvh9StringRefC2EPKc.exit.us.i ]
+  %.us-phi.ph.ph.in.i = phi i64 [ %indvars.iv.next19.i, %for.inc.us.i ], [ %indvars.iv18.i, %_ZN4llvh9StringRefC2EPKc.exit.us.i ]
   %.us-phi.ph.ph.i = trunc nsw i64 %.us-phi.ph.ph.in.i to i32
   br label %_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit
 
-if.then.loopexit23.i:                             ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i
-  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
+if.then.loopexit21.i:                             ; preds = %if.end.i.i
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit
 
-for.inc.i:                                        ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i, %_ZN4llvh9StringRefC2EPKc.exit.i, %for.cond.i
+for.inc.i:                                        ; preds = %if.end.i.i, %_ZN4llvh9StringRefC2EPKc.exit.i, %for.cond.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %for.cond.i, !llvm.loop !6
 
-_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit: ; preds = %entry.split.us.i, %if.then.loopexit.i, %if.then.loopexit23.i
-  %.us-phi.i = phi i32 [ 0, %entry.split.us.i ], [ %.us-phi.ph.ph.i, %if.then.loopexit.i ], [ %4, %if.then.loopexit23.i ]
+_ZL18parseOperator_implN4llvh9StringRefEPPKc.exit: ; preds = %entry.split.us.i, %if.then.loopexit.i, %if.then.loopexit21.i
+  %.us-phi.i = phi i32 [ 0, %entry.split.us.i ], [ %.us-phi.ph.ph.i, %if.then.loopexit.i ], [ %5, %if.then.loopexit21.i ]
   ret i32 %.us-phi.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @_ZN6hermes18BinaryOperatorInst21tryGetReverseOperatorENS0_6OpKindE(i32 noundef %op) local_unnamed_addr #1 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes18BinaryOperatorInst21tryGetReverseOperatorENS0_6OpKindE(i32 noundef %op) local_unnamed_addr #1 align 2 {
 entry:
   %switch.tableidx = add i32 %op, -1
   %0 = icmp ult i32 %switch.tableidx, 19

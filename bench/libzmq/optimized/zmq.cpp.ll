@@ -768,7 +768,7 @@ return:                                           ; preds = %_ZL16as_socket_base
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @zmq_sendmsg(ptr noundef %s_, ptr noundef %msg_, i32 noundef %flags_) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @zmq_sendmsg(ptr noundef %s_, ptr noundef %msg_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %tobool.not.i.i = icmp eq ptr %s_, null
   br i1 %tobool.not.i.i, label %_ZL16as_socket_base_tPv.exit.thread.i, label %lor.lhs.false.i.i
@@ -797,7 +797,7 @@ zmq_msg_send.exit:                                ; preds = %_ZL16as_socket_base
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @zmq_msg_send(ptr noundef %msg_, ptr noundef %s_, i32 noundef %flags_) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @zmq_msg_send(ptr noundef %msg_, ptr noundef %s_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %tobool.not.i = icmp eq ptr %s_, null
   br i1 %tobool.not.i, label %_ZL16as_socket_base_tPv.exit.thread, label %lor.lhs.false.i
@@ -1075,7 +1075,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define i32 @zmq_recvmsg(ptr noundef %s_, ptr noundef %msg_, i32 noundef %flags_) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @zmq_recvmsg(ptr noundef %s_, ptr noundef %msg_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %tobool.not.i.i = icmp eq ptr %s_, null
   br i1 %tobool.not.i.i, label %_ZL16as_socket_base_tPv.exit.thread.i, label %lor.lhs.false.i.i
@@ -1106,7 +1106,7 @@ zmq_msg_recv.exit:                                ; preds = %_ZL16as_socket_base
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @zmq_msg_recv(ptr noundef %msg_, ptr noundef %s_, i32 noundef %flags_) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @zmq_msg_recv(ptr noundef %msg_, ptr noundef %s_, i32 noundef %flags_) local_unnamed_addr #1 {
 entry:
   %tobool.not.i = icmp eq ptr %s_, null
   br i1 %tobool.not.i, label %_ZL16as_socket_base_tPv.exit.thread, label %lor.lhs.false.i
@@ -1415,7 +1415,7 @@ declare noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenc
 declare noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @zmq_msg_more(ptr noundef nonnull %msg_) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @zmq_msg_more(ptr noundef nonnull %msg_) local_unnamed_addr #1 {
 entry:
   %call.i = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %0 = and i8 %call.i, 1
@@ -1924,7 +1924,7 @@ invoke.cont96.i:                                  ; preds = %if.end7.i.i
   br i1 %cmp98.i, label %delete.notnull101.i, label %for.cond113.preheader.lr.ph.i
 
 for.cond113.preheader.lr.ph.i:                    ; preds = %invoke.cont96.i
-  %tobool163.i = trunc i8 %repeat_items.0.lcssa.i to i1
+  %tobool163.i = trunc nuw i8 %repeat_items.0.lcssa.i to i1
   %17 = and i8 %repeat_items.0.lcssa.i, 1
   %18 = xor i8 %17, 1
   %inc160.i = zext nneg i8 %18 to i32
@@ -3424,7 +3424,7 @@ return:                                           ; preds = %_ZL33check_poller_f
 declare noundef i32 @_ZN3zmq15socket_poller_t9remove_fdEi(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @zmq_poller_wait(ptr noundef %poller_, ptr noundef %event_, i64 noundef %timeout_) local_unnamed_addr #1 {
+define noundef range(i32 -2147483648, 1) i32 @zmq_poller_wait(ptr noundef %poller_, ptr noundef %event_, i64 noundef %timeout_) local_unnamed_addr #1 {
 entry:
   %tobool.not.i.i = icmp eq ptr %poller_, null
   br i1 %tobool.not.i.i, label %_ZL12check_pollerPv.exit.thread.i, label %lor.lhs.false.i.i

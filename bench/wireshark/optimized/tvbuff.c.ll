@@ -260,7 +260,7 @@ define hidden void @tvb_check_offset_length(ptr nocapture noundef readonly %0, i
   br i1 %.not.i, label %check_offset_length.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = sext i32 %6 to i64
+  %8 = zext nneg i32 %6 to i64
   tail call void @except_throw(i64 noundef 1, i64 noundef %8, ptr noundef null) #16
   unreachable
 
@@ -1006,7 +1006,7 @@ check_offset_length_no_exception.exit:            ; preds = %26, %15, %12, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_offset_length_no_exception(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @check_offset_length_no_exception(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
 

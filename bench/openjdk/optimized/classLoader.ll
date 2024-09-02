@@ -3917,11 +3917,11 @@ _ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us: ; preds = %_ZN11ClassLoade
 
 63:                                               ; preds = %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us
   %64 = load i32, ptr %61, align 8
+  %65 = sext i32 %64 to i64
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us
 
 _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51.us: ; preds = %63, %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us
-  %65 = phi i32 [ %64, %63 ], [ 0, %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us ]
-  %66 = sext i32 %65 to i64
+  %66 = phi i64 [ %65, %63 ], [ 0, %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split.us ]
   %67 = icmp slt i64 %indvars.iv72, %66
   br i1 %67, label %68, label %.split.us
 
@@ -3985,11 +3985,11 @@ _ZN11ClassLoader17skip_uri_protocolEPc.exit.split: ; preds = %_ZN11ClassLoader17
 
 95:                                               ; preds = %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split
   %96 = load i32, ptr %93, align 8
+  %97 = sext i32 %96 to i64
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51
 
 _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51: ; preds = %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split, %95
-  %97 = phi i32 [ %96, %95 ], [ 0, %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split ]
-  %98 = sext i32 %97 to i64
+  %98 = phi i64 [ %97, %95 ], [ 0, %_ZN11ClassLoader17skip_uri_protocolEPc.exit.split ]
   %99 = icmp slt i64 %indvars.iv, %98
   br i1 %99, label %100, label %.split.us
 
@@ -4045,11 +4045,11 @@ _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit51: ; preds = %_ZN11ClassLoad
 
 128:                                              ; preds = %125
   %129 = load i32, ptr %126, align 8
+  %130 = sext i32 %129 to i64
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53
 
 _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit53: ; preds = %125, %128
-  %130 = phi i32 [ %129, %128 ], [ 0, %125 ]
-  %131 = sext i32 %130 to i64
+  %131 = phi i64 [ %130, %128 ], [ 0, %125 ]
   %132 = icmp slt i64 %indvars.iv, %131
   br i1 %132, label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.thread.loopexit77.split.loop.exit83, label %133
 

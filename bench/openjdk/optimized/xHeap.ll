@@ -352,7 +352,7 @@ define hidden noundef i64 @_ZNK5XHeap13max_tlab_sizeEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK5XHeap21unsafe_max_tlab_allocEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 0, 262145) i64 @_ZNK5XHeap21unsafe_max_tlab_allocEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = tail call noundef i64 @_ZNK16XObjectAllocator9remainingEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #12
   %4 = load i64, ptr @MinTLABSize, align 8

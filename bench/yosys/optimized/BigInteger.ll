@@ -327,7 +327,7 @@ define void @_ZN10BigIntegerC2El(ptr noundef nonnull align 8 dereferenceable(24)
   %6 = select i1 %3, i32 0, i32 %5
   store i32 %6, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call noundef i64 @llvm.abs.i64(i64 %1, i1 true)
+  %8 = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %1, i1 true)
   tail call void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %8)
   ret void
 }

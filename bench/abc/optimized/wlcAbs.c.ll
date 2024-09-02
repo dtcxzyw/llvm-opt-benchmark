@@ -426,7 +426,7 @@ define void @Wlc_NtkAbsGetSupp(ptr noundef %0, ptr noundef %1, ptr nocapture nou
 declare void @Wlc_NtkCleanMarks(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Wlc_NtkNumPiBits(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, -2147483648) i32 @Wlc_NtkNumPiBits(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 20
   %.val = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val, 0
@@ -8531,7 +8531,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

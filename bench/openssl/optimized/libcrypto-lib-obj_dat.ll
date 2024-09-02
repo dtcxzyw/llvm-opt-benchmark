@@ -2516,10 +2516,11 @@ if.else97:                                        ; preds = %if.then85
   %conv98 = zext i1 %div.cmp to i8
   %mul.neg = select i1 %div.cmp, i64 -40, i64 0
   %sub100 = add nsw i64 %mul.neg, %l.1
+  %9 = or disjoint i8 %conv98, 48
   br label %if.end101
 
 if.end101:                                        ; preds = %if.else95, %if.then90, %if.else97
-  %i.0 = phi i8 [ 2, %if.then90 ], [ 2, %if.else95 ], [ %conv98, %if.else97 ]
+  %i.0 = phi i8 [ 50, %if.then90 ], [ 50, %if.else95 ], [ %9, %if.else97 ]
   %l.4 = phi i64 [ %l.1, %if.then90 ], [ %sub, %if.else95 ], [ %sub100, %if.else97 ]
   %cmp102 = icmp ne ptr %buf.addr.0137, null
   %cmp105 = icmp sgt i32 %buf_len.addr.0133, 1
@@ -2527,9 +2528,8 @@ if.end101:                                        ; preds = %if.else95, %if.then
   br i1 %or.cond2, label %if.then107, label %if.end111
 
 if.then107:                                       ; preds = %if.end101
-  %add = or disjoint i8 %i.0, 48
   %incdec.ptr109 = getelementptr inbounds i8, ptr %buf.addr.0137, i64 1
-  store i8 %add, ptr %buf.addr.0137, align 1
+  store i8 %i.0, ptr %buf.addr.0137, align 1
   store i8 0, ptr %incdec.ptr109, align 1
   %dec110 = add nsw i32 %buf_len.addr.0133, -1
   br label %if.end111
@@ -2789,8 +2789,8 @@ while.body35:                                     ; preds = %land.rhs
 
 while.end37:                                      ; preds = %land.rhs
   %.pre = load i8, ptr %l.125, align 1
-  %cmp39.not = icmp eq i8 %.pre, 0
-  br i1 %cmp39.not, label %if.end59, label %if.then41
+  %6 = icmp eq i8 %.pre, 0
+  br i1 %6, label %if.end59, label %if.then41
 
 if.then41:                                        ; preds = %while.end37
   store i8 0, ptr %l.125, align 1
@@ -2799,23 +2799,23 @@ if.then41:                                        ; preds = %while.end37
 while.cond43:                                     ; preds = %while.cond43, %if.then41
   %l.1.pn = phi ptr [ %l.125, %if.then41 ], [ %l.2, %while.cond43 ]
   %l.2 = getelementptr inbounds i8, ptr %l.1.pn, i64 1
-  %6 = load i8, ptr %l.2, align 1
-  %conv44 = sext i8 %6 to i32
+  %7 = load i8, ptr %l.2, align 1
+  %conv44 = sext i8 %7 to i32
   %call45 = call i32 @ossl_ctype_check(i32 noundef %conv44, i32 noundef 8) #9
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %while.end49, label %while.cond43, !llvm.loop !9
 
 while.end49:                                      ; preds = %while.cond43
-  %7 = load i8, ptr %l.2, align 1
-  %cmp51 = icmp eq i8 %7, 0
+  %8 = load i8, ptr %l.2, align 1
+  %cmp51 = icmp eq i8 %8, 0
   %spec.store.select = select i1 %cmp51, ptr null, ptr %l.2
   br label %if.end59
 
 if.end59:                                         ; preds = %lor.rhs, %while.body35, %while.end37, %while.end23, %while.end49
   %s.2 = phi ptr [ %s.1, %while.end49 ], [ null, %while.end23 ], [ %s.1, %while.end37 ], [ %s.1, %while.body35 ], [ null, %lor.rhs ]
   %l.3 = phi ptr [ %spec.store.select, %while.end49 ], [ %l.029, %while.end23 ], [ null, %while.end37 ], [ null, %while.body35 ], [ %l.029, %lor.rhs ]
-  %8 = load i8, ptr %buf, align 16
-  %cmp61 = icmp eq i8 %8, 0
+  %9 = load i8, ptr %buf, align 16
+  %cmp61 = icmp eq i8 %9, 0
   br i1 %cmp61, label %return, label %if.end64
 
 if.end64:                                         ; preds = %if.end59

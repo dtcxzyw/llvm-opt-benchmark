@@ -457,27 +457,27 @@ define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr no
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %16, align 8
   %32 = icmp eq ptr %30, %31
-  br i1 %32, label %33, label %35
+  br i1 %32, label %33, label %36
 
 33:                                               ; preds = %28
   %34 = load i8, ptr %17, align 1, !range !14, !noundef !15
-  br label %39
+  %35 = icmp ne i8 %34, 0
+  br label %40
 
-35:                                               ; preds = %28
-  %36 = call i32 @ww_mutex_trylock(ptr noundef %30, ptr noundef null) #6
-  %37 = icmp ne i32 %36, 0
-  %38 = zext i1 %37 to i8
-  br label %39
+36:                                               ; preds = %28
+  %37 = call i32 @ww_mutex_trylock(ptr noundef %30, ptr noundef null) #6
+  %38 = icmp ne i32 %37, 0
+  %39 = zext i1 %38 to i8
+  br label %40
 
-39:                                               ; preds = %35, %33
-  %40 = phi i8 [ 0, %33 ], [ %38, %35 ]
-  %41 = phi i1 [ true, %33 ], [ %37, %35 ]
-  %42 = phi i8 [ %34, %33 ], [ %38, %35 ]
-  %43 = icmp ne i8 %42, 0
+40:                                               ; preds = %36, %33
+  %41 = phi i8 [ 0, %33 ], [ %39, %36 ]
+  %42 = phi i1 [ true, %33 ], [ %38, %36 ]
+  %43 = phi i1 [ %35, %33 ], [ %38, %36 ]
   %44 = and i1 %18, %43
   br i1 %44, label %45, label %64
 
-45:                                               ; preds = %39
+45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %24, i64 384
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 16
@@ -497,7 +497,7 @@ define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %59, label %.thread28, label %60
 
 60:                                               ; preds = %52, %45
-  %61 = icmp eq i8 %40, 0
+  %61 = icmp eq i8 %41, 0
   br i1 %61, label %.thread27, label %62
 
 62:                                               ; preds = %60
@@ -505,13 +505,12 @@ define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr no
   call void @ww_mutex_unlock(ptr noundef %63) #6
   br label %.thread27
 
-64:                                               ; preds = %39
-  %.not = icmp eq i8 %42, 0
-  br i1 %.not, label %.thread27, label %.thread28
+64:                                               ; preds = %40
+  br i1 %43, label %.thread28, label %.thread27
 
 .thread27:                                        ; preds = %62, %60, %64
   %65 = icmp ne ptr %22, null
-  %66 = select i1 %41, i1 true, i1 %65
+  %66 = select i1 %42, i1 true, i1 %65
   br i1 %66, label %.thread29, label %67
 
 67:                                               ; preds = %.thread27
@@ -529,25 +528,25 @@ define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr no
   %76 = getelementptr inbounds i8, ptr %75, i64 376
   %77 = load volatile i32, ptr %76, align 4
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %.thread30, label %.preheader52
+  br i1 %78, label %.thread30, label %.preheader51
 
-.preheader52:                                     ; preds = %.thread28, %84
+.preheader51:                                     ; preds = %.thread28, %84
   %79 = phi i32 [ %85, %84 ], [ %77, %.thread28 ]
   %80 = add i32 %79, 1
   %81 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %76, i32 %80, ptr elementtype(i32) %76, i32 %79) #6, !srcloc !26
   %82 = extractvalue { i8, i32 } %81, 0
   %83 = icmp ult i8 %82, 2
   call void @llvm.assume(i1 %83)
-  %.not49 = icmp eq i8 %82, 0
-  br i1 %.not49, label %84, label %.thread30, !prof !16
+  %.not = icmp eq i8 %82, 0
+  br i1 %.not, label %84, label %.thread30, !prof !16
 
-84:                                               ; preds = %.preheader52
+84:                                               ; preds = %.preheader51
   %85 = extractvalue { i8, i32 } %81, 1
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.thread30, label %.preheader52, !llvm.loop !27
+  br i1 %86, label %.thread30, label %.preheader51, !llvm.loop !27
 
-.thread30:                                        ; preds = %.preheader52, %84, %.thread28
-  %87 = phi i32 [ 0, %.thread28 ], [ %79, %.preheader52 ], [ 0, %84 ]
+.thread30:                                        ; preds = %.preheader51, %84, %.thread28
+  %87 = phi i32 [ 0, %.thread28 ], [ %79, %.preheader51 ], [ 0, %84 ]
   %88 = add i32 %87, 1
   %89 = or i32 %88, %87
   %90 = icmp sgt i32 %89, -1
@@ -564,7 +563,7 @@ define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %95, label %96, label %104
 
 96:                                               ; preds = %92
-  %97 = icmp eq i8 %40, 0
+  %97 = icmp eq i8 %41, 0
   br i1 %97, label %.thread29, label %98
 
 98:                                               ; preds = %96
@@ -603,8 +602,8 @@ define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr no
   %116 = extractvalue { i8, i32 } %115, 0
   %117 = icmp ult i8 %116, 2
   call void @llvm.assume(i1 %117)
-  %.not50 = icmp eq i8 %116, 0
-  br i1 %.not50, label %118, label %.thread39, !prof !16
+  %.not49 = icmp eq i8 %116, 0
+  br i1 %.not49, label %118, label %.thread39, !prof !16
 
 118:                                              ; preds = %.preheader
   %119 = extractvalue { i8, i32 } %115, 1
@@ -681,7 +680,7 @@ define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr no
   %158 = getelementptr inbounds i8, ptr %3, i64 1
   %159 = load i8, ptr %158, align 1, !range !14, !noundef !15
   %160 = icmp ne i8 %159, 0
-  %161 = icmp ne i8 %40, 0
+  %161 = icmp ne i8 %41, 0
   %162 = call fastcc i32 @ttm_bo_cleanup_refs(ptr noundef nonnull %105, i1 noundef zeroext %157, i1 noundef zeroext %160, i1 noundef zeroext %161)
   br label %237
 
@@ -819,7 +818,7 @@ define dso_local i32 @ttm_mem_evict_first(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  %219 = icmp eq i8 %40, 0
+  %219 = icmp eq i8 %41, 0
   %220 = load ptr, ptr %164, align 8
   %221 = getelementptr inbounds i8, ptr %220, i64 2080
   call void @_raw_spin_lock(ptr noundef %221) #6

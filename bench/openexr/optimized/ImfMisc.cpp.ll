@@ -90,7 +90,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef %type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 2, 5) i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef %type) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = icmp ult i32 %type, 3
   br i1 %0, label %switch.lookup, label %sw.default

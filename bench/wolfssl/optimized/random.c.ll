@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [12 x i8] c"/dev/random\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wc_RNG_DRBG_Reseed(ptr noundef readonly %rng, ptr noundef %seed, i32 noundef %seedSz) local_unnamed_addr #0 {
+define range(i32 -173, 2) i32 @wc_RNG_DRBG_Reseed(ptr noundef readonly %rng, ptr noundef %seed, i32 noundef %seedSz) local_unnamed_addr #0 {
 entry:
   %newV.i = alloca [55 x i8], align 16
   %cmp = icmp eq ptr %rng, null
@@ -80,7 +80,7 @@ return:                                           ; preds = %entry, %Hash_DRBG_R
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Hash_DRBG_Reseed(ptr noundef %drbg, ptr noundef %seed, i32 noundef %seedSz) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Hash_DRBG_Reseed(ptr noundef %drbg, ptr noundef %seed, i32 noundef %seedSz) unnamed_addr #0 {
 entry:
   %newV = alloca [55 x i8], align 16
   %cmp = icmp eq ptr %drbg, null
@@ -138,7 +138,7 @@ entry:
   br i1 %cmp13.not, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %cond.i = tail call noundef i32 @llvm.umin.i32(i32 %sub, i32 4)
+  %cond.i = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %sub, i32 4)
   %0 = zext i32 %sub to i64
   br label %while.body
 
@@ -179,7 +179,7 @@ while.cond:                                       ; preds = %ConstantCompare.exi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %4 = trunc nuw i64 %indvars.iv.next to i32
   %sub8 = sub i32 %seedSz, %4
-  %cond.i9 = tail call noundef i32 @llvm.umin.i32(i32 %sub8, i32 4)
+  %cond.i9 = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %sub8, i32 4)
   %cmp = icmp ult i64 %indvars.iv.next, %0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
@@ -329,7 +329,7 @@ while.cond.i36:                                   ; preds = %ConstantCompare.exi
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %5 = trunc nuw i64 %indvars.iv.next.i to i32
   %sub8.i = sub i32 %spec.select, %5
-  %cond.i9.i = tail call noundef i32 @llvm.umin.i32(i32 %sub8.i, i32 4)
+  %cond.i9.i = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %sub8.i, i32 4)
   %cmp.i37 = icmp ult i64 %indvars.iv.next.i, %2
   br i1 %cmp.i37, label %while.body.i33, label %if.end29, !llvm.loop !8
 
@@ -337,7 +337,7 @@ while.cond.i36.thread:                            ; preds = %while.body.i33, %Co
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i, 4
   %6 = trunc nuw i64 %indvars.iv.next.i60 to i32
   %sub8.i61 = sub i32 %spec.select, %6
-  %cond.i9.i62 = tail call noundef i32 @llvm.umin.i32(i32 %sub8.i61, i32 4)
+  %cond.i9.i62 = tail call noundef range(i32 0, 5) i32 @llvm.umin.i32(i32 %sub8.i61, i32 4)
   %cmp.i3763 = icmp ult i64 %indvars.iv.next.i60, %2
   br i1 %cmp.i3763, label %while.body.i33.outer, label %if.then38, !llvm.loop !8
 
@@ -824,7 +824,7 @@ if.then45:                                        ; preds = %if.end42
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then23, %if.end35, %if.then45, %if.end42
-  %ret.4 = phi i32 [ %call47, %if.then45 ], [ %call41, %if.end42 ], [ %call34, %if.end35 ], [ 1, %if.then23 ]
+  %ret.4 = phi i32 [ %call47, %if.then45 ], [ 1, %if.end42 ], [ %call34, %if.end35 ], [ 1, %if.then23 ]
   call fastcc void @ForceZero(ptr noundef nonnull %newSeed, i32 noundef 36)
   br label %if.end51
 

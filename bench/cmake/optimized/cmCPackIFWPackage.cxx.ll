@@ -6415,7 +6415,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br i1 %.not626739, label %._crit_edge744, label %.lr.ph743
 
 .lr.ph743:                                        ; preds = %476, %490
-  %.1129.in741 = phi i1 [ %484, %490 ], [ %472, %476 ]
+  %.1129741 = phi i1 [ %484, %490 ], [ %472, %476 ]
   %.sroa.0579.0740 = phi ptr [ %491, %490 ], [ %477, %476 ]
   br i1 %434, label %478, label %482
 
@@ -6427,7 +6427,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
 
 482:                                              ; preds = %478, %.lr.ph743
   %483 = phi i1 [ false, %.lr.ph743 ], [ %481, %478 ]
-  %484 = or i1 %.1129.in741, %483
+  %484 = or i1 %.1129741, %483
   %485 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull @.str.71)
           to label %486 unwind label %.loopexit650
 
@@ -6469,7 +6469,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br label %510
 
 ._crit_edge744:                                   ; preds = %490, %476
-  %.1129.in.lcssa = phi i1 [ %472, %476 ], [ %484, %490 ]
+  %.1129.lcssa = phi i1 [ %472, %476 ], [ %484, %490 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %100) #18
   %496 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %99)
           to label %.noexc388 unwind label %503
@@ -6561,7 +6561,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br label %.loopexit.split-lp656
 
 511:                                              ; preds = %_ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKS6_RKT_.exit399, %._crit_edge738
-  %.0128 = phi i1 [ false, %._crit_edge738 ], [ %.1129.in.lcssa, %_ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKS6_RKT_.exit399 ]
+  %.0128 = phi i1 [ false, %._crit_edge738 ], [ %.1129.lcssa, %_ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKS6_RKT_.exit399 ]
   %512 = getelementptr inbounds i8, ptr %102, i64 8
   store i32 0, ptr %512, align 8
   %513 = getelementptr inbounds i8, ptr %102, i64 16

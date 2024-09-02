@@ -253,23 +253,23 @@ define dso_local void @pg_log_generic_v(i32 noundef %0, i32 noundef %1, ptr noal
 17:                                               ; preds = %16, %12
   %18 = load ptr, ptr @log_locus_callback, align 8
   %.not34 = icmp eq ptr %18, null
-  br i1 %.not34, label %20, label %19
+  br i1 %.not34, label %21, label %19
 
 19:                                               ; preds = %17
   call void %18(ptr noundef nonnull %5, ptr noundef nonnull %6) #13
   %.pre = load ptr, ptr %5, align 8
-  br label %20
+  %20 = icmp ne ptr %.pre, null
+  br label %21
 
-20:                                               ; preds = %19, %17
-  %21 = phi ptr [ %.pre, %19 ], [ null, %17 ]
-  %22 = load i32, ptr @log_flags, align 4
-  %23 = and i32 %22, 1
-  %24 = icmp eq i32 %23, 0
-  %25 = icmp ne ptr %21, null
-  %or.cond = select i1 %24, i1 true, i1 %25
+21:                                               ; preds = %19, %17
+  %22 = phi i1 [ %20, %19 ], [ false, %17 ]
+  %23 = load i32, ptr @log_flags, align 4
+  %24 = and i32 %23, 1
+  %25 = icmp eq i32 %24, 0
+  %or.cond = select i1 %25, i1 true, i1 %22
   br i1 %or.cond, label %26, label %54
 
-26:                                               ; preds = %20
+26:                                               ; preds = %21
   %27 = load ptr, ptr @sgr_locus, align 8
   %.not35 = icmp eq ptr %27, null
   br i1 %.not35, label %31, label %28
@@ -281,7 +281,7 @@ define dso_local void @pg_log_generic_v(i32 noundef %0, i32 noundef %1, ptr noal
   br label %31
 
 31:                                               ; preds = %28, %26
-  %32 = phi i32 [ %.pre50, %28 ], [ %22, %26 ]
+  %32 = phi i32 [ %.pre50, %28 ], [ %23, %26 ]
   %33 = and i32 %32, 1
   %.not36 = icmp eq i32 %33, 0
   br i1 %.not36, label %34, label %38
@@ -321,7 +321,7 @@ define dso_local void @pg_log_generic_v(i32 noundef %0, i32 noundef %1, ptr noal
   %53 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %52, ptr noundef nonnull @.str.17) #13
   br label %54
 
-54:                                               ; preds = %47, %51, %20
+54:                                               ; preds = %47, %51, %21
   %55 = load i32, ptr @log_flags, align 4
   %56 = and i32 %55, 1
   %.not40 = icmp eq i32 %56, 0

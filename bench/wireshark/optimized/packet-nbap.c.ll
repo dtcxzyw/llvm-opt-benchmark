@@ -37117,16 +37117,19 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %78, %68, %82
   %111 = call ptr @wmem_list_frame_next(ptr noundef %.0206231) #7
   %112 = add nuw i32 %.0191233, 1
   %exitcond.not = icmp eq i32 %112, %106
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %.lr.ph, %105
-  %.0200.lcssa = phi i32 [ 0, %105 ], [ %110, %.lr.ph ]
-  %113 = add i32 %.0200.lcssa, 7
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %113 = add i32 %110, 7
   %114 = lshr i32 %113, 3
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %105
+  %.0200.lcssa = phi i32 [ 0, %105 ], [ %114, %._crit_edge.loopexit ]
   %115 = load ptr, ptr %7, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 408
   %117 = load ptr, ptr %116, align 8
-  %118 = zext nneg i32 %114 to i64
+  %118 = zext nneg i32 %.0200.lcssa to i64
   %119 = call noalias ptr @wmem_alloc0(ptr noundef %117, i64 noundef %118) #7
   %120 = call ptr @wmem_list_head(ptr noundef nonnull %95) #7
   br i1 %.not251, label %._crit_edge250, label %.lr.ph249
@@ -37189,12 +37192,12 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %78, %68, %82
   br i1 %exitcond255.not, label %._crit_edge250, label %.lr.ph249, !llvm.loop !26
 
 ._crit_edge250:                                   ; preds = %._crit_edge241, %._crit_edge
-  %146 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %119, i32 noundef %114, i32 noundef %114) #7
+  %146 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %119, i32 noundef %.0200.lcssa, i32 noundef %.0200.lcssa) #7
   %147 = load ptr, ptr %7, align 8
   call void @add_new_data_source(ptr noundef %147, ptr noundef %146, ptr noundef nonnull @.str.6) #7
   store ptr null, ptr %94, align 8
   %148 = load i32, ptr @hf_nbap_reassembled_information_block, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %148, ptr noundef %146, i32 noundef 0, i32 noundef %114, i32 noundef 0) #7
+  %149 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %148, ptr noundef %146, i32 noundef 0, i32 noundef %.0200.lcssa, i32 noundef 0) #7
   br label %152
 
 .thread223:                                       ; preds = %48, %58, %55, %103

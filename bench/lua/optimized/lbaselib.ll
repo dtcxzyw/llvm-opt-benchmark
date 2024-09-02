@@ -811,7 +811,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @luaB_xpcall(ptr noundef %L) #0 {
+define internal range(i32 -2147483648, 2147483646) i32 @luaB_xpcall(ptr noundef %L) #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %L) #9
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 2, i32 noundef 6) #9

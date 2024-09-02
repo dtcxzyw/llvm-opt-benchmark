@@ -128,7 +128,7 @@ if.else.i:                                        ; preds = %if.end
 _ZN6icu_75L16adjustConfidenceEDsi.exit:           ; preds = %if.then.i, %if.else.i
   %confidence.addr.0.i = phi i32 [ %sub.i, %if.then.i ], [ %spec.select.i, %if.else.i ]
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %confidence.addr.0.i, i32 100)
-  %confidence.addr.1.i = tail call noundef i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 0)
+  %confidence.addr.1.i = tail call noundef range(i32 0, 101) i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 0)
   switch i32 %confidence.addr.1.i, label %for.inc [
     i32 100, label %for.end
     i32 0, label %for.end
@@ -241,7 +241,7 @@ if.else.i:                                        ; preds = %if.end20
 _ZN6icu_75L16adjustConfidenceEDsi.exit:           ; preds = %if.then.i, %if.else.i
   %confidence.addr.0.i = phi i32 [ %sub.i, %if.then.i ], [ %spec.select.i, %if.else.i ]
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %confidence.addr.0.i, i32 100)
-  %confidence.addr.1.i = tail call noundef i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 0)
+  %confidence.addr.1.i = tail call noundef range(i32 0, 101) i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 0)
   switch i32 %confidence.addr.1.i, label %for.inc [
     i32 100, label %for.end
     i32 0, label %for.end

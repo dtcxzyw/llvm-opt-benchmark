@@ -950,54 +950,57 @@ _ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds
   %17 = load ptr, ptr %12, align 8
   call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %17) #10
   store i32 0, ptr %13, align 8
-  %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
-  br label %21
+  %18 = trunc i8 %16 to i1
+  %19 = load ptr, ptr %14, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  br label %22
 
-21:                                               ; preds = %30, %15
+22:                                               ; preds = %30, %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %15 ]
-  %.0 = phi i8 [ 0, %30 ], [ %16, %15 ]
-  %22 = load i32, ptr %19, align 4
-  %23 = zext i32 %22 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %23
+  %.0 = phi i1 [ false, %30 ], [ %18, %15 ]
+  %23 = load i32, ptr %20, align 4
+  %24 = zext i32 %23 to i64
+  %.not.i = icmp ult i64 %indvars.iv, %24
   br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
 
-_ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %21
+_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %22
+  call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #10
+  br i1 %.0, label %_ZN13MonitorLocker4waitEl.exit, label %.critedge
+
+_ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = trunc nuw i64 %indvars.iv.next to i32
-  store i32 %24, ptr %13, align 8
-  %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
-  %27 = load ptr, ptr %26, align 8
-  %.not = icmp eq ptr %27, null
-  br i1 %.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %28
+  %25 = trunc nuw i64 %indvars.iv.next to i32
+  store i32 %25, ptr %13, align 8
+  %26 = load ptr, ptr %21, align 8
+  %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %28 = load ptr, ptr %27, align 8
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %34, label %29
 
-28:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
-  %29 = trunc i8 %.0 to i1
-  br i1 %29, label %.thread29, label %30
+29:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
+  br i1 %.0, label %.thread29, label %30
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %27, i64 1088
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds i8, ptr %28, i64 1088
   %32 = load volatile i32, ptr %31, align 8
   %33 = and i32 %32, 8
   %.not33 = icmp eq i32 %33, 0
-  br i1 %.not33, label %21, label %.thread29, !llvm.loop !32
+  br i1 %.not33, label %22, label %.thread29, !llvm.loop !32
 
-.thread29:                                        ; preds = %30, %28
+.thread29:                                        ; preds = %30, %29
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #10
   br label %_ZN13MonitorLocker4waitEl.exit
 
-_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %21, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
+34:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #10
-  %34 = trunc i8 %.0 to i1
-  br i1 %34, label %_ZN13MonitorLocker4waitEl.exit, label %.critedge
+  br i1 %.0, label %_ZN13MonitorLocker4waitEl.exit, label %.critedge
 
-_ZN13MonitorLocker4waitEl.exit:                   ; preds = %.thread29, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
+_ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %.thread29, %34
   %35 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %8, i64 noundef 0) #10
   br label %15, !llvm.loop !33
 
-.critedge:                                        ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
+.critedge:                                        ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %34
   store i8 1, ptr @_ZN13EscapeBarrier32_self_deoptimization_in_progressE, align 1
   store i8 1, ptr @_ZN13EscapeBarrier37_deoptimizing_objects_for_all_threadsE, align 1
   %36 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1009,8 +1012,8 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.thread29, %_ZN28Ja
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
-  %.not.i1535.not = icmp eq i32 %42, 0
-  br i1 %.not.i1535.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit17.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit17
+  %.not.i1536.not = icmp eq i32 %42, 0
+  br i1 %.not.i1536.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit17.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit17
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit17:  ; preds = %.critedge, %_ZN10JavaThread18set_obj_deopt_flagEv.exit
   %43 = phi ptr [ %86, %_ZN10JavaThread18set_obj_deopt_flagEv.exit ], [ %40, %.critedge ]

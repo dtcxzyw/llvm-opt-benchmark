@@ -1355,12 +1355,12 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #2 align 16 
   %18 = getelementptr inbounds i8, ptr %15, i64 28
   %19 = icmp ugt i32 %1, 45000000
   %20 = select i1 %19, i32 20000000, i32 2000000
-  br i1 %16, label %.split10.us, label %.split
+  br i1 %16, label %.split12.us, label %.split
 
 .split:                                           ; preds = %13
   %21 = load i32, ptr %17, align 8
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.split10.us, label %.split.split
+  br i1 %22, label %.split12.us, label %.split.split
 
 .split.splitthread-pre-split:                     ; preds = %.thread4
   %23 = add i32 %26, -1
@@ -1369,16 +1369,16 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #2 align 16 
 
 .split.split:                                     ; preds = %.split, %.split.splitthread-pre-split
   %24 = phi i32 [ %.pr, %.split.splitthread-pre-split ], [ 1, %.split ]
-  %25 = phi i32 [ %66, %.split.splitthread-pre-split ], [ 20000, %.split ]
+  %25 = phi i32 [ %63, %.split.splitthread-pre-split ], [ 20000, %.split ]
   %26 = phi i32 [ %23, %.split.splitthread-pre-split ], [ 8, %.split ]
   %27 = icmp eq i32 %24, 0
   br i1 %27, label %.thread, label %.preheader
 
-28:                                               ; preds = %52
+28:                                               ; preds = %50
   %29 = add nuw i32 %33, 1
   %30 = load i32, ptr %17, align 8
   %31 = icmp ult i32 %29, %30
-  br i1 %31, label %.preheader, label %58, !llvm.loop !33
+  br i1 %31, label %.preheader, label %55, !llvm.loop !33
 
 .preheader:                                       ; preds = %.split.split, %28
   %32 = phi i8 [ %.fr5, %28 ], [ 0, %.split.split ]
@@ -1387,59 +1387,55 @@ define dso_local ptr @freq_reg_info(ptr noundef %0, i32 noundef %1) #2 align 16 
   %35 = getelementptr [0 x %struct.ieee80211_reg_rule], ptr %18, i64 0, i64 %34
   %36 = and i8 %32, 1
   %37 = icmp eq i8 %36, 0
-  br i1 %37, label %38, label %52
+  br i1 %37, label %38, label %50
 
 38:                                               ; preds = %.preheader
   %39 = load i32, ptr %35, align 4
   %40 = sub i32 %1, %39
   %41 = tail call i32 @llvm.abs.i32(i32 %40, i1 false)
   %42 = icmp ugt i32 %41, %20
-  br i1 %42, label %43, label %49
+  br i1 %42, label %43, label %50
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i8, ptr %35, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = sub i32 %1, %45
+  %.fr7 = freeze i32 %45
+  %46 = sub i32 %1, %.fr7
   %47 = tail call i32 @llvm.abs.i32(i32 %46, i1 false)
   %48 = icmp ule i32 %47, %20
-  br label %49
+  %49 = zext i1 %48 to i8
+  br label %50
 
-49:                                               ; preds = %43, %38
-  %50 = phi i1 [ true, %38 ], [ %48, %43 ]
-  %51 = zext i1 %50 to i8
-  br label %52
+50:                                               ; preds = %38, %43, %.preheader
+  %.fr5 = phi i8 [ %32, %.preheader ], [ 1, %38 ], [ %49, %43 ]
+  %51 = tail call zeroext i1 @cfg80211_does_bw_fit_range(ptr noundef %35, i32 noundef %1, i32 noundef %25) #23
+  %52 = and i8 %.fr5, 1
+  %53 = icmp ne i8 %52, 0
+  %54 = select i1 %53, i1 %51, i1 false
+  br i1 %54, label %57, label %28
 
-52:                                               ; preds = %49, %.preheader
-  %53 = phi i8 [ %32, %.preheader ], [ %51, %49 ]
-  %.fr5 = freeze i8 %53
-  %54 = tail call zeroext i1 @cfg80211_does_bw_fit_range(ptr noundef %35, i32 noundef %1, i32 noundef %25) #23
-  %55 = and i8 %.fr5, 1
-  %56 = icmp ne i8 %55, 0
-  %57 = select i1 %56, i1 %54, i1 false
-  br i1 %57, label %60, label %28
+55:                                               ; preds = %28
+  %56 = icmp eq i8 %52, 0
+  br i1 %56, label %.thread, label %.thread4
 
-58:                                               ; preds = %28
-  %59 = icmp eq i8 %55, 0
-  br i1 %59, label %.thread, label %.thread4
-
-.thread:                                          ; preds = %.split.split, %58
+.thread:                                          ; preds = %.split.split, %55
   br label %.thread4
 
-60:                                               ; preds = %52
-  %61 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
-  br i1 %61, label %.thread4, label %.split10.us
+57:                                               ; preds = %50
+  %58 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
+  br i1 %58, label %.thread4, label %.split12.us
 
-.thread4:                                         ; preds = %58, %.thread, %60
-  %62 = phi ptr [ %35, %60 ], [ inttoptr (i64 -22 to ptr), %58 ], [ inttoptr (i64 -34 to ptr), %.thread ]
-  %63 = sext i32 %26 to i64
-  %64 = getelementptr [9 x i32], ptr @__freq_reg_info.bws, i64 0, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = mul i32 %65, 1000
-  %67 = icmp ult i32 %66, %4
-  br i1 %67, label %.split10.us, label %.split.splitthread-pre-split, !llvm.loop !34
+.thread4:                                         ; preds = %55, %.thread, %57
+  %59 = phi ptr [ %35, %57 ], [ inttoptr (i64 -22 to ptr), %55 ], [ inttoptr (i64 -34 to ptr), %.thread ]
+  %60 = sext i32 %26 to i64
+  %61 = getelementptr [9 x i32], ptr @__freq_reg_info.bws, i64 0, i64 %60
+  %62 = load i32, ptr %61, align 4
+  %63 = mul i32 %62, 1000
+  %64 = icmp ult i32 %63, %4
+  br i1 %64, label %.split12.us, label %.split.splitthread-pre-split, !llvm.loop !34
 
-.split10.us:                                      ; preds = %.thread4, %60, %.split, %13
-  %.us-phi = phi ptr [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -34 to ptr), %.split ], [ %62, %.thread4 ], [ %35, %60 ]
+.split12.us:                                      ; preds = %.thread4, %57, %.split, %13
+  %.us-phi = phi ptr [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -34 to ptr), %.split ], [ %59, %.thread4 ], [ %35, %57 ]
   ret ptr %.us-phi
 }
 
@@ -1673,27 +1669,27 @@ define internal fastcc void @handle_band_custom(ptr nocapture noundef readonly %
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %.thread6, label %.preheader
 
-48:                                               ; preds = %72
+48:                                               ; preds = %70
   %49 = add nuw i32 %53, 1
   %50 = load i32, ptr %11, align 8
   %51 = icmp ult i32 %49, %50
   br i1 %51, label %.preheader, label %.thread6, !llvm.loop !33
 
 .preheader:                                       ; preds = %.split, %48
-  %52 = phi i8 [ %73, %48 ], [ 0, %.split ]
+  %52 = phi i8 [ %71, %48 ], [ 0, %.split ]
   %53 = phi i32 [ %49, %48 ], [ 0, %.split ]
   %54 = sext i32 %53 to i64
   %55 = getelementptr [0 x %struct.ieee80211_reg_rule], ptr %12, i64 0, i64 %54
   %56 = and i8 %52, 1
   %57 = icmp eq i8 %56, 0
-  br i1 %57, label %58, label %72
+  br i1 %57, label %58, label %70
 
 58:                                               ; preds = %.preheader
   %59 = load i32, ptr %55, align 4
   %60 = sub i32 %43, %59
   %61 = tail call i32 @llvm.abs.i32(i32 %60, i1 false)
   %62 = icmp ugt i32 %61, %45
-  br i1 %62, label %63, label %69
+  br i1 %62, label %63, label %70
 
 63:                                               ; preds = %58
   %64 = getelementptr inbounds i8, ptr %55, i64 4
@@ -1701,21 +1697,18 @@ define internal fastcc void @handle_band_custom(ptr nocapture noundef readonly %
   %66 = sub i32 %43, %65
   %67 = tail call i32 @llvm.abs.i32(i32 %66, i1 false)
   %68 = icmp ule i32 %67, %45
-  br label %69
+  %69 = zext i1 %68 to i8
+  br label %70
 
-69:                                               ; preds = %63, %58
-  %70 = phi i1 [ true, %58 ], [ %68, %63 ]
-  %71 = zext i1 %70 to i8
-  br label %72
-
-72:                                               ; preds = %69, %.preheader
-  %.pre-phi = phi i1 [ %70, %69 ], [ true, %.preheader ]
-  %73 = phi i8 [ %71, %69 ], [ %52, %.preheader ]
-  %74 = tail call zeroext i1 @cfg80211_does_bw_fit_range(ptr noundef %55, i32 noundef %43, i32 noundef 20000) #23
-  %75 = select i1 %.pre-phi, i1 %74, i1 false
+70:                                               ; preds = %58, %63, %.preheader
+  %71 = phi i8 [ %52, %.preheader ], [ 1, %58 ], [ %69, %63 ]
+  %72 = tail call zeroext i1 @cfg80211_does_bw_fit_range(ptr noundef %55, i32 noundef %43, i32 noundef 20000) #23
+  %73 = and i8 %71, 1
+  %74 = icmp ne i8 %73, 0
+  %75 = select i1 %74, i1 %72, i1 false
   br i1 %75, label %76, label %48
 
-76:                                               ; preds = %72
+76:                                               ; preds = %70
   %77 = icmp eq ptr %55, null
   %78 = icmp ugt ptr %55, inttoptr (i64 -4096 to ptr)
   %79 = or i1 %77, %78
@@ -8344,27 +8337,27 @@ define internal fastcc void @reg_process_ht_flags(ptr noundef %0) unnamed_addr #
   %73 = select i1 %72, i32 20000000, i32 2000000
   br label %78
 
-74:                                               ; preds = %99
+74:                                               ; preds = %97
   %75 = add nuw i32 %80, 1
   %76 = load i32, ptr %67, align 8
   %77 = icmp ult i32 %75, %76
   br i1 %77, label %78, label %.thread13, !llvm.loop !33
 
 78:                                               ; preds = %74, %70
-  %79 = phi i8 [ 0, %70 ], [ %100, %74 ]
+  %79 = phi i8 [ 0, %70 ], [ %98, %74 ]
   %80 = phi i32 [ 0, %70 ], [ %75, %74 ]
   %81 = sext i32 %80 to i64
   %82 = getelementptr [0 x %struct.ieee80211_reg_rule], ptr %71, i64 0, i64 %81
   %83 = and i8 %79, 1
   %84 = icmp eq i8 %83, 0
-  br i1 %84, label %85, label %99
+  br i1 %84, label %85, label %97
 
 85:                                               ; preds = %78
   %86 = load i32, ptr %82, align 4
   %87 = sub i32 %66, %86
   %88 = tail call i32 @llvm.abs.i32(i32 %87, i1 false)
   %89 = icmp ugt i32 %88, %73
-  br i1 %89, label %90, label %96
+  br i1 %89, label %90, label %97
 
 90:                                               ; preds = %85
   %91 = getelementptr inbounds i8, ptr %82, i64 4
@@ -8372,21 +8365,18 @@ define internal fastcc void @reg_process_ht_flags(ptr noundef %0) unnamed_addr #
   %93 = sub i32 %66, %92
   %94 = tail call i32 @llvm.abs.i32(i32 %93, i1 false)
   %95 = icmp ule i32 %94, %73
-  br label %96
+  %96 = zext i1 %95 to i8
+  br label %97
 
-96:                                               ; preds = %90, %85
-  %97 = phi i1 [ true, %85 ], [ %95, %90 ]
-  %98 = zext i1 %97 to i8
-  br label %99
-
-99:                                               ; preds = %96, %78
-  %.pre-phi = phi i1 [ %97, %96 ], [ true, %78 ]
-  %100 = phi i8 [ %98, %96 ], [ %79, %78 ]
-  %101 = tail call zeroext i1 @cfg80211_does_bw_fit_range(ptr noundef %82, i32 noundef %66, i32 noundef 20000) #23
-  %102 = select i1 %.pre-phi, i1 %101, i1 false
+97:                                               ; preds = %85, %90, %78
+  %98 = phi i8 [ %79, %78 ], [ 1, %85 ], [ %96, %90 ]
+  %99 = tail call zeroext i1 @cfg80211_does_bw_fit_range(ptr noundef %82, i32 noundef %66, i32 noundef 20000) #23
+  %100 = and i8 %98, 1
+  %101 = icmp ne i8 %100, 0
+  %102 = select i1 %101, i1 %99, i1 false
   br i1 %102, label %103, label %74
 
-103:                                              ; preds = %99
+103:                                              ; preds = %97
   %104 = icmp ugt ptr %82, inttoptr (i64 -4096 to ptr)
   br i1 %104, label %.thread13, label %105
 

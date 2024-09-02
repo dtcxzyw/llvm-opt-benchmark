@@ -636,8 +636,8 @@ define internal fastcc ptr @php_ftp_fopen_connect(ptr noundef %0, ptr noundef %1
   %82 = add i32 %81, -200
   %or.cond5 = icmp ult i32 %82, 100
   %83 = icmp ne ptr %.0136.ph, null
-  %spec.select = select i1 %or.cond5, i1 true, i1 %83
-  %84 = zext i1 %spec.select to i32
+  %narrow = select i1 %or.cond5, i1 true, i1 %83
+  %84 = zext i1 %narrow to i32
   br label %85
 
 85:                                               ; preds = %61, %77
@@ -866,8 +866,8 @@ define internal fastcc i32 @get_ftp_result(ptr noundef %0, ptr noundef %1) unnam
   store i8 0, ptr %1, align 1
   %3 = getelementptr inbounds i8, ptr %1, i64 3
   %4 = tail call ptr @_php_stream_get_line(ptr noundef %0, ptr noundef nonnull %1, i64 noundef 511, ptr noundef null) #15
-  %.not13 = icmp eq ptr %4, null
-  br i1 %.not13, label %.critedge, label %.lr.ph
+  %.not14 = icmp eq ptr %4, null
+  br i1 %.not14, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = tail call ptr @__ctype_b_loc() #16
@@ -905,18 +905,18 @@ define internal fastcc i32 @get_ftp_result(ptr noundef %0, ptr noundef %1) unnam
 
 27:                                               ; preds = %21
   %28 = load i8, ptr %3, align 1
-  %29 = icmp eq i8 %28, 32
-  br i1 %29, label %.critedge, label %.backedge
+  %.not13 = icmp eq i8 %28, 32
+  br i1 %.not13, label %.critedge, label %.backedge
 
 .backedge:                                        ; preds = %21, %15, %8, %27
-  %30 = tail call ptr @_php_stream_get_line(ptr noundef %0, ptr noundef nonnull %1, i64 noundef 511, ptr noundef null) #15
-  %.not = icmp eq ptr %30, null
+  %29 = tail call ptr @_php_stream_get_line(ptr noundef %0, ptr noundef nonnull %1, i64 noundef 511, ptr noundef null) #15
+  %.not = icmp eq ptr %29, null
   br i1 %.not, label %.critedge, label %8
 
 .critedge:                                        ; preds = %27, %.backedge, %2
-  %31 = tail call i64 @strtol(ptr nocapture noundef nonnull %1, ptr noundef null, i32 noundef 10) #15
-  %32 = trunc i64 %31 to i32
-  ret i32 %32
+  %30 = tail call i64 @strtol(ptr nocapture noundef nonnull %1, ptr noundef null, i32 noundef 10) #15
+  %31 = trunc i64 %30 to i32
+  ret i32 %31
 }
 
 declare i64 @_php_stream_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2

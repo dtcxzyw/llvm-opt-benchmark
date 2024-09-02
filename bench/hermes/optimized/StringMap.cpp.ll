@@ -188,21 +188,21 @@ if.then24:                                        ; preds = %if.else
   br i1 %cmp.i, label %land.rhs.i, label %if.end34
 
 land.rhs.i:                                       ; preds = %if.then24
-  br i1 %cmp.not6.i, label %return, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
+  br i1 %cmp.not6.i, label %return, label %if.end.i
 
-_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %land.rhs.i
+if.end.i:                                         ; preds = %land.rhs.i
   %bcmp = tail call i32 @bcmp(ptr %Name.coerce0, ptr nonnull %add.ptr26, i64 %Name.coerce1)
-  %cmp5.i = icmp eq i32 %bcmp, 0
-  br i1 %cmp5.i, label %return, label %if.end34
+  %8 = icmp eq i32 %bcmp, 0
+  br i1 %8, label %return, label %if.end34
 
-if.end34:                                         ; preds = %if.then17, %if.else, %if.then24, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
-  %FirstTombstone.1 = phi i32 [ %FirstTombstone.0, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ %FirstTombstone.0, %if.then24 ], [ %FirstTombstone.0, %if.else ], [ %spec.select, %if.then17 ]
+if.end34:                                         ; preds = %if.then17, %if.else, %if.then24, %if.end.i
+  %FirstTombstone.1 = phi i32 [ %FirstTombstone.0, %if.end.i ], [ %FirstTombstone.0, %if.then24 ], [ %FirstTombstone.0, %if.else ], [ %spec.select, %if.then17 ]
   %add = add i32 %BucketNo.0, %ProbeAmt.0
   %inc = add i32 %ProbeAmt.0, 1
   br label %while.body, !llvm.loop !4
 
-return:                                           ; preds = %land.rhs.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %if.then6
-  %retval.0 = phi i32 [ %retval.0.ph, %if.then6 ], [ %BucketNo.0, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ %BucketNo.0, %land.rhs.i ]
+return:                                           ; preds = %land.rhs.i, %if.end.i, %if.then6
+  %retval.0 = phi i32 [ %retval.0.ph, %if.then6 ], [ %BucketNo.0, %if.end.i ], [ %BucketNo.0, %land.rhs.i ]
   ret i32 %retval.0
 }
 
@@ -268,20 +268,20 @@ if.then13:                                        ; preds = %if.else
   br i1 %cmp.i, label %land.rhs.i, label %if.end23
 
 land.rhs.i:                                       ; preds = %if.then13
-  br i1 %cmp.not6.i, label %return, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
+  br i1 %cmp.not6.i, label %return, label %if.end.i
 
-_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %land.rhs.i
+if.end.i:                                         ; preds = %land.rhs.i
   %bcmp = tail call i32 @bcmp(ptr %Key.coerce0, ptr nonnull %add.ptr15, i64 %Key.coerce1)
-  %cmp5.i = icmp eq i32 %bcmp, 0
-  br i1 %cmp5.i, label %return, label %if.end23
+  %7 = icmp eq i32 %bcmp, 0
+  br i1 %7, label %return, label %if.end23
 
-if.end23:                                         ; preds = %while.body, %if.else, %if.then13, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit
+if.end23:                                         ; preds = %while.body, %if.else, %if.then13, %if.end.i
   %add = add i32 %BucketNo.0, %ProbeAmt.0
   %inc = add i32 %ProbeAmt.0, 1
   br label %while.body, !llvm.loop !6
 
-return:                                           ; preds = %while.body, %land.rhs.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ %BucketNo.0, %land.rhs.i ], [ %BucketNo.0, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ], [ -1, %while.body ]
+return:                                           ; preds = %while.body, %land.rhs.i, %if.end.i, %entry
+  %retval.0 = phi i32 [ -1, %entry ], [ %BucketNo.0, %land.rhs.i ], [ %BucketNo.0, %if.end.i ], [ -1, %while.body ]
   ret i32 %retval.0
 }
 
@@ -396,8 +396,8 @@ if.then13.i:                                      ; preds = %if.else.i
 land.rhs.i.i:                                     ; preds = %if.then13.i
   %add.ptr15.i = getelementptr inbounds i8, ptr %8, i64 %idx.ext14.i
   %bcmp.i = tail call i32 @bcmp(ptr readonly %Key.coerce0, ptr nonnull %add.ptr15.i, i64 %Key.coerce1)
-  %cmp5.i.i = icmp eq i32 %bcmp.i, 0
-  br i1 %cmp5.i.i, label %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, label %if.end23.i
+  %11 = icmp eq i32 %bcmp.i, 0
+  br i1 %11, label %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, label %if.end23.i
 
 if.end23.i:                                       ; preds = %land.rhs.i.i, %if.then13.i, %if.else.i, %while.body.i
   %add.i = add i32 %BucketNo.0.i, %ProbeAmt.0.i
@@ -405,28 +405,28 @@ if.end23.i:                                       ; preds = %land.rhs.i.i, %if.t
   br label %while.body.i, !llvm.loop !6
 
 _ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit: ; preds = %land.rhs.i.i, %if.then13.i.us
-  %11 = phi ptr [ %1, %if.then13.i.us ], [ %3, %land.rhs.i.i ]
+  %12 = phi ptr [ %1, %if.then13.i.us ], [ %3, %land.rhs.i.i ]
   %.us-phi = phi i32 [ %BucketNo.0.i.us, %if.then13.i.us ], [ %BucketNo.0.i, %land.rhs.i.i ]
   %cmp = icmp eq i32 %.us-phi, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit
   %idxprom = sext i32 %.us-phi to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
-  %12 = load ptr, ptr %arrayidx, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %idxprom
+  %13 = load ptr, ptr %arrayidx, align 8
   store ptr inttoptr (i64 -8 to ptr), ptr %arrayidx, align 8
   %NumItems = getelementptr inbounds i8, ptr %this, i64 12
-  %13 = load i32, ptr %NumItems, align 4
-  %dec = add i32 %13, -1
+  %14 = load i32, ptr %NumItems, align 4
+  %dec = add i32 %14, -1
   store i32 %dec, ptr %NumItems, align 4
   %NumTombstones = getelementptr inbounds i8, ptr %this, i64 16
-  %14 = load i32, ptr %NumTombstones, align 8
-  %inc = add i32 %14, 1
+  %15 = load i32, ptr %NumTombstones, align 8
+  %inc = add i32 %15, 1
   store i32 %inc, ptr %NumTombstones, align 8
   br label %return
 
 return:                                           ; preds = %while.body.i, %while.body.i.us, %entry, %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit, %if.end
-  %retval.0 = phi ptr [ %12, %if.end ], [ null, %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit ], [ null, %entry ], [ null, %while.body.i.us ], [ null, %while.body.i ]
+  %retval.0 = phi ptr [ %13, %if.end ], [ null, %_ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit ], [ null, %entry ], [ null, %while.body.i.us ], [ null, %while.body.i ]
   ret ptr %retval.0
 }
 
@@ -565,11 +565,11 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 declare void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -577,8 +577,8 @@ attributes #2 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind allocsize(0,1) }
 attributes #9 = { nounwind }
 

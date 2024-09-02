@@ -967,7 +967,7 @@ if.end5:                                          ; preds = %entry, %_ZN4cvc57co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK4cvc58internal6theory11quantifiers15FirstOrderModel25getNumAssertedQuantifiersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK4cvc58internal6theory11quantifiers15FirstOrderModel25getNumAssertedQuantifiersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_list.i = getelementptr inbounds i8, ptr %this, i64 264
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 272

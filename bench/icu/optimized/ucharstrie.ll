@@ -42,7 +42,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7510UCharsTrie7currentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) local_unnamed_addr #4 align 2 {
+define noundef range(i32 0, 4) i32 @_ZNK6icu_7510UCharsTrie7currentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) local_unnamed_addr #4 align 2 {
 entry:
   %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
@@ -72,7 +72,7 @@ return:                                           ; preds = %cond.true, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7510UCharsTrie17firstForCodePointEi(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %cp) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN6icu_7510UCharsTrie17firstForCodePointEi(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %cp) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp slt i32 %cp, 65536
   br i1 %cmp, label %cond.true, label %cond.false
@@ -304,7 +304,7 @@ cond.end10:                                       ; preds = %_ZN6icu_7510UCharsT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7510UCharsTrie4nextEi(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %uchar) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN6icu_7510UCharsTrie4nextEi(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %uchar) local_unnamed_addr #5 align 2 {
 entry:
   %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
@@ -446,7 +446,7 @@ return:                                           ; preds = %for.end.i, %cond.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7510UCharsTrie16nextForCodePointEi(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %cp) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN6icu_7510UCharsTrie16nextForCodePointEi(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %cp) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp slt i32 %cp, 65536
   br i1 %cmp, label %cond.end10.sink.split, label %cond.false
@@ -476,7 +476,7 @@ cond.end10:                                       ; preds = %cond.end10.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7510UCharsTrie10branchNextEPKDsii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %pos, i32 noundef %length, i32 noundef %uchar) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN6icu_7510UCharsTrie10branchNextEPKDsii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %pos, i32 noundef %length, i32 noundef %uchar) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq i32 %length, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -694,7 +694,7 @@ return:                                           ; preds = %cond.true50, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7510UCharsTrie8nextImplEPKDsi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %pos, i32 noundef %uchar) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN6icu_7510UCharsTrie8nextImplEPKDsi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %pos, i32 noundef %uchar) local_unnamed_addr #6 align 2 {
 entry:
   %incdec.ptr = getelementptr inbounds i8, ptr %pos, i64 2
   %0 = load i16, ptr %pos, align 2
@@ -801,7 +801,7 @@ return:                                           ; preds = %cond.true, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7510UCharsTrie4nextENS_14ConstChar16PtrEi(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, ptr nocapture noundef readonly %ptr, i32 noundef %sLength) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN6icu_7510UCharsTrie4nextENS_14ConstChar16PtrEi(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, ptr nocapture noundef readonly %ptr, i32 noundef %sLength) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %cmp = icmp slt i32 %sLength, 0

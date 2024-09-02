@@ -1103,26 +1103,26 @@ if.then.i.i:                                      ; preds = %do.body
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %10, ptr %fBuffer.i.i.i
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %indvars.iv
   %11 = load i16, ptr %arrayidx.i.i, align 2
+  %12 = zext i16 %11 to i32
   br label %_ZNK6icu_7513UnicodeString6charAtEi.exit
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %do.body, %if.then.i.i
-  %retval.0.i.i = phi i16 [ %11, %if.then.i.i ], [ -1, %do.body ]
-  %12 = load ptr, ptr %rbc_, align 8
-  %conv = zext i16 %retval.0.i.i to i32
-  %call7 = tail call noundef signext i8 @_ZNK6icu_7517RuleBasedCollator8isUnsafeEi(ptr noundef nonnull align 8 dereferenceable(272) %12, i32 noundef %conv)
+  %retval.0.i.i = phi i32 [ %12, %if.then.i.i ], [ 65535, %do.body ]
+  %13 = load ptr, ptr %rbc_, align 8
+  %call7 = tail call noundef signext i8 @_ZNK6icu_7517RuleBasedCollator8isUnsafeEi(ptr noundef nonnull align 8 dereferenceable(272) %13, i32 noundef %retval.0.i.i)
   %tobool8.not = icmp eq i8 %call7, 0
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %tobool8.not, label %do.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %and = and i32 %conv, 64512
+  %and = and i32 %retval.0.i.i, 64512
   %cmp10 = icmp eq i32 %and, 55296
   br i1 %cmp10, label %land.lhs.true11, label %if.end18
 
 land.lhs.true11:                                  ; preds = %lor.lhs.false
-  %14 = load ptr, ptr %rbc_, align 8
-  %call14 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %string_, i32 noundef %13)
-  %call15 = tail call noundef signext i8 @_ZNK6icu_7517RuleBasedCollator8isUnsafeEi(ptr noundef nonnull align 8 dereferenceable(272) %14, i32 noundef %call14)
+  %15 = load ptr, ptr %rbc_, align 8
+  %call14 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %string_, i32 noundef %14)
+  %call15 = tail call noundef signext i8 @_ZNK6icu_7517RuleBasedCollator8isUnsafeEi(ptr noundef nonnull align 8 dereferenceable(272) %15, i32 noundef %call14)
   %tobool16.not = icmp eq i8 %call15, 0
   br i1 %tobool16.not, label %do.end, label %if.end18
 
@@ -1132,7 +1132,7 @@ if.end18:                                         ; preds = %land.lhs.true11, %l
   br i1 %cmp19, label %do.body, label %do.end, !llvm.loop !4
 
 do.end:                                           ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit, %land.lhs.true11, %if.end18
-  %offset.1 = phi i32 [ 0, %if.end18 ], [ %13, %land.lhs.true11 ], [ %13, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
+  %offset.1 = phi i32 [ 0, %if.end18 ], [ %14, %land.lhs.true11 ], [ %14, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
   %cmp20 = icmp slt i32 %offset.1, %newOffset
   br i1 %cmp20, label %do.body22.preheader, label %if.end44
 
@@ -1142,26 +1142,26 @@ do.body22.preheader:                              ; preds = %do.end
 
 do.body22:                                        ; preds = %do.body22.preheader, %do.end36
   %lastSafeOffset.0 = phi i32 [ %spec.select, %do.end36 ], [ %offset.1, %do.body22.preheader ]
-  %15 = load ptr, ptr %iter_, align 8
-  %vtable = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %iter_, align 8
+  %vtable = load ptr, ptr %16, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
-  %16 = load ptr, ptr %vfn, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(389) %15, i32 noundef %lastSafeOffset.0)
+  %17 = load ptr, ptr %vfn, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(389) %16, i32 noundef %lastSafeOffset.0)
   br label %do.body23
 
 do.body23:                                        ; preds = %do.cond30, %do.body22
-  %17 = load ptr, ptr %iter_, align 8
-  %call25 = tail call noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %17, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %18 = load i32, ptr %status, align 4
-  %cmp.i21 = icmp slt i32 %18, 1
+  %18 = load ptr, ptr %iter_, align 8
+  %call25 = tail call noundef i64 @_ZN6icu_7517CollationIterator6nextCEER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %18, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %19 = load i32, ptr %status, align 4
+  %cmp.i21 = icmp slt i32 %19, 1
   br i1 %cmp.i21, label %do.cond30, label %return
 
 do.cond30:                                        ; preds = %do.body23
-  %19 = load ptr, ptr %iter_, align 8
-  %vtable32 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %iter_, align 8
+  %vtable32 = load ptr, ptr %20, align 8
   %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 40
-  %20 = load ptr, ptr %vfn33, align 8
-  %call34 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(389) %19)
+  %21 = load ptr, ptr %vfn33, align 8
+  %call34 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(389) %20)
   %cmp35 = icmp eq i32 %call34, %lastSafeOffset.0
   br i1 %cmp35, label %do.body23, label %do.end36, !llvm.loop !6
 
@@ -1174,11 +1174,11 @@ do.end36:                                         ; preds = %do.cond30
 if.end44:                                         ; preds = %do.end36, %do.end, %land.lhs.true, %if.end
   %newOffset.addr.0 = phi i32 [ %newOffset, %do.end ], [ %newOffset, %land.lhs.true ], [ %newOffset, %if.end ], [ %spec.select, %do.end36 ]
   %iter_45 = getelementptr inbounds i8, ptr %this, i64 8
-  %21 = load ptr, ptr %iter_45, align 8
-  %vtable46 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %iter_45, align 8
+  %vtable46 = load ptr, ptr %22, align 8
   %vfn47 = getelementptr inbounds i8, ptr %vtable46, i64 32
-  %22 = load ptr, ptr %vfn47, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(389) %21, i32 noundef %newOffset.addr.0)
+  %23 = load ptr, ptr %vfn47, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(389) %22, i32 noundef %newOffset.addr.0)
   %otherHalf_ = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %otherHalf_, align 8
   %dir_ = getelementptr inbounds i8, ptr %this, i64 28

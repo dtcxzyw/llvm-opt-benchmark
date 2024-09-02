@@ -2442,18 +2442,21 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %627 = call double @llvm.fmuladd.f64(double %614, double %625, double %.040085.i.i.i)
   %indvars.iv.next190.i.i.i = add nuw nsw i64 %indvars.iv189.i.i.i, 1
   %exitcond193.not.i.i.i = icmp eq i64 %indvars.iv.next190.i.i.i, %wide.trip.count82.i.i.i
-  br i1 %exitcond193.not.i.i.i, label %._crit_edge87.i.i.i, label %.lr.ph86.i.i.i, !llvm.loop !48
+  br i1 %exitcond193.not.i.i.i, label %._crit_edge87.loopexit.i.i.i, label %.lr.ph86.i.i.i, !llvm.loop !48
 
-._crit_edge87.i.i.i:                              ; preds = %.lr.ph86.i.i.i, %589
-  %.0404.lcssa.i.i.i = phi double [ 0.000000e+00, %589 ], [ %617, %.lr.ph86.i.i.i ]
-  %.0403.lcssa.i.i.i = phi double [ 0.000000e+00, %589 ], [ %622, %.lr.ph86.i.i.i ]
-  %.0402.lcssa.i.i.i = phi double [ 0.000000e+00, %589 ], [ %623, %.lr.ph86.i.i.i ]
-  %.0401.lcssa.i.i.i = phi double [ 0.000000e+00, %589 ], [ %626, %.lr.ph86.i.i.i ]
-  %.0400.lcssa.i.i.i = phi double [ 0.000000e+00, %589 ], [ %627, %.lr.ph86.i.i.i ]
-  %628 = fmul double %.0404.lcssa.i.i.i, 5.000000e-01
-  %629 = fneg double %628
+._crit_edge87.loopexit.i.i.i:                     ; preds = %.lr.ph86.i.i.i
+  %628 = fmul double %617, 5.000000e-01
+  br label %._crit_edge87.i.i.i
+
+._crit_edge87.i.i.i:                              ; preds = %._crit_edge87.loopexit.i.i.i, %589
+  %.0404.lcssa.i.i.i = phi double [ %628, %._crit_edge87.loopexit.i.i.i ], [ 0.000000e+00, %589 ]
+  %.0403.lcssa.i.i.i = phi double [ %622, %._crit_edge87.loopexit.i.i.i ], [ 0.000000e+00, %589 ]
+  %.0402.lcssa.i.i.i = phi double [ %623, %._crit_edge87.loopexit.i.i.i ], [ 0.000000e+00, %589 ]
+  %.0401.lcssa.i.i.i = phi double [ %626, %._crit_edge87.loopexit.i.i.i ], [ 0.000000e+00, %589 ]
+  %.0400.lcssa.i.i.i = phi double [ %627, %._crit_edge87.loopexit.i.i.i ], [ 0.000000e+00, %589 ]
+  %629 = fneg double %.0404.lcssa.i.i.i
   %630 = call double @llvm.fmuladd.f64(double %.0401.lcssa.i.i.i, double 5.000000e-01, double %629)
-  %631 = fadd double %628, %.0403.lcssa.i.i.i
+  %631 = fadd double %.0404.lcssa.i.i.i, %.0403.lcssa.i.i.i
   %632 = fadd double %631, %630
   br label %633
 
@@ -2469,7 +2472,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %636 = call double @cos(double noundef %635) #22
   %637 = call double @sin(double noundef %635) #22
   %638 = call double @llvm.fmuladd.f64(double %630, double %636, double %.0403.lcssa.i.i.i)
-  %639 = call double @llvm.fmuladd.f64(double %638, double %636, double %628)
+  %639 = call double @llvm.fmuladd.f64(double %638, double %636, double %.0404.lcssa.i.i.i)
   %640 = call double @llvm.fmuladd.f64(double %.0400.lcssa.i.i.i, double %636, double %.0402.lcssa.i.i.i)
   %641 = call double @llvm.fmuladd.f64(double %640, double %637, double %639)
   %642 = call double @llvm.fabs.f64(double %641)
@@ -2521,7 +2524,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %666 = call double @cos(double noundef %665) #22
   %667 = call double @sin(double noundef %665) #22
   %668 = call double @llvm.fmuladd.f64(double %630, double %666, double %.0403.lcssa.i.i.i)
-  %669 = call double @llvm.fmuladd.f64(double %668, double %666, double %628)
+  %669 = call double @llvm.fmuladd.f64(double %668, double %666, double %.0404.lcssa.i.i.i)
   %670 = call double @llvm.fmuladd.f64(double %.0400.lcssa.i.i.i, double %666, double %.0402.lcssa.i.i.i)
   %671 = call double @llvm.fmuladd.f64(double %670, double %667, double %669)
   br i1 %.not1779.i.i, label %._crit_edge103.i.i.i, label %.lr.ph102.i.i.i
@@ -4492,10 +4495,10 @@ _ZL7update_IdEiiiPT_S1_PiS2_S1_S1_S2_S1_.exit.i.i: ; preds = %._crit_edge35.i134
   br i1 %exitcond2398.not.i.i, label %._crit_edge1877.i.i, label %.preheader1639.i.i, !llvm.loop !117
 
 ._crit_edge1877.i.i:                              ; preds = %._crit_edge1872.i.loopexit.i
-  %1515 = add nsw i32 %.111382083.i.i, 1
-  %1516 = fmul double %1513, 1.000000e+02
-  %1517 = fcmp olt double %.01091.lcssa.i.i, %1516
-  %.91146.i.i = select i1 %1517, i32 0, i32 %1515
+  %1515 = fmul double %1513, 1.000000e+02
+  %1516 = add nsw i32 %.111382083.i.i, 1
+  %1517 = fcmp olt double %.01091.lcssa.i.i, %1515
+  %.91146.i.i = select i1 %1517, i32 0, i32 %1516
   %1518 = icmp sgt i32 %.91146.i.i, 2
   br i1 %1518, label %.lr.ph1881.i.i, label %.loopexit1648.i.i
 
@@ -5445,13 +5448,16 @@ define noundef i32 @_ZN6Solver9iterativeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4
   %49 = call noundef i32 @_ZN10Parameters4sizeEv(ptr noundef nonnull align 8 dereferenceable(288) %24)
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !141
+  br i1 %51, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !141
 
-._crit_edge:                                      ; preds = %.lr.ph, %28
-  %.016.lcssa = phi double [ 0.000000e+00, %28 ], [ %.1, %.lr.ph ]
-  %52 = fmul double %.016.lcssa, 1.250000e-01
-  %53 = fcmp ogt double %52, 2.000000e+01
-  %storemerge17 = select i1 %53, double 2.000000e+01, double %52
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %52 = fmul double %.1, 1.250000e-01
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %28
+  %.016.lcssa = phi double [ 0.000000e+00, %28 ], [ %52, %._crit_edge.loopexit ]
+  %53 = fcmp ogt double %.016.lcssa, 2.000000e+01
+  %storemerge17 = select i1 %53, double 2.000000e+01, double %.016.lcssa
   store double %storemerge17, ptr %9, align 8
   %54 = fdiv double %storemerge17, 1.000000e+01
   store double %54, ptr %11, align 8

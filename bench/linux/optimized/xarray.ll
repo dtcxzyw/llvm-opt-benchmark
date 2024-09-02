@@ -259,17 +259,17 @@ define dso_local ptr @xas_load(ptr nocapture noundef %0) #0 align 16 {
   %125 = trunc i64 %.us-phi7 to i8
   br label %126
 
-126:                                              ; preds = %.split6.us, %81
+126:                                              ; preds = %81, %.split6.us
   %127 = phi i8 [ %125, %.split6.us ], [ %86, %81 ]
   %128 = phi ptr [ %.us-phi, %.split6.us ], [ %90, %81 ]
   store i8 %127, ptr %67, align 2
   %129 = load i8, ptr %77, align 8
-  %130 = icmp eq i8 %129, 0
-  br i1 %130, label %.thread, label %68
+  %.not = icmp eq i8 %129, 0
+  br i1 %.not, label %.thread, label %68
 
-.thread:                                          ; preds = %126, %75, %68
-  %131 = phi ptr [ %69, %68 ], [ %69, %75 ], [ %128, %126 ]
-  ret ptr %131
+.thread:                                          ; preds = %75, %126, %68
+  %130 = phi ptr [ %128, %126 ], [ %69, %68 ], [ %69, %75 ]
+  ret ptr %130
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -3398,30 +3398,30 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #2 align 16 {
 
 .split6.us.i:                                     ; preds = %.split.i, %.split.us.i, %.lr.ph
   %107 = phi ptr [ %73, %.lr.ph ], [ %85, %.split.us.i ], [ %101, %.split.i ]
-  %108 = icmp eq i8 %67, 0
-  br i1 %108, label %xas_load.exit, label %58
+  %.not.i = icmp eq i8 %67, 0
+  br i1 %.not.i, label %xas_load.exit, label %58
 
 xas_load.exit:                                    ; preds = %.split6.us.i, %58, %43, %42, %28, %51
   %.sroa.134.4 = phi ptr [ %.sroa.134.2, %51 ], [ inttoptr (i64 1 to ptr), %43 ], [ inttoptr (i64 1 to ptr), %42 ], [ %.sroa.134.0, %28 ], [ %66, %58 ], [ %66, %.split6.us.i ]
-  %109 = phi ptr [ %52, %51 ], [ null, %43 ], [ null, %42 ], [ null, %28 ], [ %107, %58 ], [ %107, %.split6.us.i ]
-  %110 = icmp eq ptr %109, inttoptr (i64 1030 to ptr)
-  %111 = select i1 %110, ptr null, ptr %109
-  %112 = ptrtoint ptr %111 to i64
-  switch i64 %112, label %114 [
+  %108 = phi ptr [ %52, %51 ], [ null, %43 ], [ null, %42 ], [ null, %28 ], [ %107, %58 ], [ %107, %.split6.us.i ]
+  %109 = icmp eq ptr %108, inttoptr (i64 1030 to ptr)
+  %110 = select i1 %109, ptr null, ptr %108
+  %111 = ptrtoint ptr %110 to i64
+  switch i64 %111, label %113 [
     i64 1030, label %.backedge
-    i64 1026, label %113
+    i64 1026, label %112
   ]
 
-113:                                              ; preds = %xas_load.exit
+112:                                              ; preds = %xas_load.exit
   br label %.backedge
 
-.backedge:                                        ; preds = %113, %xas_load.exit
-  %.sroa.134.0.be = phi ptr [ inttoptr (i64 3 to ptr), %113 ], [ %.sroa.134.4, %xas_load.exit ]
+.backedge:                                        ; preds = %112, %xas_load.exit
+  %.sroa.134.0.be = phi ptr [ inttoptr (i64 3 to ptr), %112 ], [ %.sroa.134.4, %xas_load.exit ]
   br label %5
 
-114:                                              ; preds = %xas_load.exit
+113:                                              ; preds = %xas_load.exit
   tail call void @__rcu_read_unlock() #8
-  ret ptr %111
+  ret ptr %110
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -451,12 +451,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 if.then.i.i123:                                   ; preds = %invoke.cont22
   call void @_ZdlPv(ptr noundef %7) #24
   %.pre = load i8, ptr %m_enable_shaders, align 1, !tbaa !67, !range !69
+  %9 = icmp ne i8 %.pre, 0
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i123, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %9 = phi i8 [ %frombool, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pre, %if.then.i.i123 ]
+  %tobool = phi i1 [ %call23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %9, %if.then.i.i123 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp17) #23
-  %tobool = icmp ne i8 %9, 0
   %tobool27 = icmp ne ptr %ssrc, null
   %10 = and i1 %tobool27, %tobool
   %frombool29 = zext i1 %10 to i8
@@ -1564,12 +1564,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 if.then.i.i135:                                   ; preds = %invoke.cont30
   call void @_ZdlPv(ptr noundef %4) #24
   %.pre = load i8, ptr %m_enable_shaders, align 1, !tbaa !67, !range !69
+  %6 = icmp ne i8 %.pre, 0
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i135, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %6 = phi i8 [ %frombool, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pre, %if.then.i.i135 ]
+  %tobool = phi i1 [ %call31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %6, %if.then.i.i135 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp25) #23
-  %tobool = icmp ne i8 %6, 0
   %tobool37 = icmp ne ptr %ssrc, null
   %7 = and i1 %tobool37, %tobool
   %frombool39 = zext i1 %7 to i8

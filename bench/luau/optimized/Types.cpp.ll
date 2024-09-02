@@ -2363,7 +2363,7 @@ common.resume:                                    ; preds = %.loopexit.i, %.loop
   br label %34
 
 34:                                               ; preds = %44, %.lr.ph.i
-  %.033.i = phi i1 [ false, %.lr.ph.i ], [ %42, %44 ]
+  %.033.i = phi i1 [ false, %.lr.ph.i ], [ %43, %44 ]
   %.02432.i = phi ptr [ %30, %.lr.ph.i ], [ %45, %44 ]
   %35 = load ptr, ptr %.02432.i, align 8, !noalias !10
   %36 = getelementptr inbounds i8, ptr %35, i64 48
@@ -2378,13 +2378,13 @@ common.resume:                                    ; preds = %.loopexit.i, %.loop
 40:                                               ; preds = %38
   %.not27.i = icmp ne i32 %39, 15
   %spec.select29.i = select i1 %.not27.i, i1 true, i1 %.033.i
+  %41 = trunc i32 %39 to i8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %40, %34
-  %41 = phi i32 [ 15, %34 ], [ %39, %40 ]
-  %42 = phi i1 [ %.033.i, %34 ], [ %spec.select29.i, %40 ]
-  %43 = trunc i32 %41 to i8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext %43)
+  %42 = phi i8 [ 15, %34 ], [ %41, %40 ]
+  %43 = phi i1 [ %.033.i, %34 ], [ %spec.select29.i, %40 ]
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext %42)
           to label %44 unwind label %.loopexit.i, !noalias !10
 
 44:                                               ; preds = %.thread.i
@@ -2393,7 +2393,7 @@ common.resume:                                    ; preds = %.loopexit.i, %.loop
   br i1 %.not.i, label %._crit_edge.i, label %34
 
 ._crit_edge.i:                                    ; preds = %44
-  br i1 %42, label %46, label %.critedge.i
+  br i1 %43, label %46, label %.critedge.i
 
 .critedge.i:                                      ; preds = %._crit_edge.i, %29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
@@ -4086,7 +4086,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_7AstExprESt4pairIS3_PKNS_7AstTypeEES4_IKS3_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN4LuauL7getTypeEPKNS_7AstTypeERKNS_8AstArrayINS_14AstGenericTypeEEERKNS_12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS9_ESt8equal_toIS9_EEEbPKcRKNS8_IS9_hSD_SF_EERNS_15BytecodeBuilderE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(840) %6) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 512) i32 @_ZN4LuauL7getTypeEPKNS_7AstTypeERKNS_8AstArrayINS_14AstGenericTypeEEERKNS_12DenseHashMapINS_7AstNameEPNS_16AstStatTypeAliasESt4hashIS9_ESt8equal_toIS9_EEEbPKcRKNS8_IS9_hSD_SF_EERNS_15BytecodeBuilderE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(840) %6) unnamed_addr #1 {
   %8 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstTypeReferenceEE5valueE, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8

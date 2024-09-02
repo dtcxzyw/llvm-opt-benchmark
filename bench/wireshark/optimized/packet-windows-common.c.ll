@@ -7640,7 +7640,7 @@ define i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   %17 = shl nuw nsw i32 %16, 2
   %18 = add i32 %1, 8
   %19 = add i32 %18, %17
-  br label %262
+  br label %264
 
 20:                                               ; preds = %14
   %21 = load i32, ptr @hf_nt_sid, align 4
@@ -7971,239 +7971,242 @@ match_wkwn_sids.exit295.thread:                   ; preds = %123, %match_wkwn_si
   %153 = add i32 %.1221328, 4
   %154 = add nuw nsw i32 %.1224327, 1
   %exitcond354.not = icmp eq i32 %.1224327, %47
-  br i1 %exitcond354.not, label %._crit_edge, label %71, !llvm.loop !7
+  br i1 %exitcond354.not, label %._crit_edge.loopexit, label %71, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %152, %63
-  %.0231.lcssa = phi i32 [ 0, %63 ], [ %.1232, %152 ]
-  %.1228.lcssa = phi i32 [ %.0227, %63 ], [ %.3230, %152 ]
-  %.0225.lcssa = phi i32 [ 0, %63 ], [ %.1226, %152 ]
-  %.1221.lcssa = phi i32 [ %28, %63 ], [ %153, %152 ]
-  %.0217.lcssa = phi i32 [ 0, %63 ], [ %.1218, %152 ]
-  %.3.lcssa = phi ptr [ %.1214, %63 ], [ %.4, %152 ]
-  %.0211.lcssa = phi ptr [ null, %63 ], [ %.1212, %152 ]
-  %.0209.lcssa = phi i32 [ 0, %63 ], [ %.1210, %152 ]
-  %.0207.lcssa = phi i32 [ 0, %63 ], [ %.1208, %152 ]
-  %.0205.lcssa = phi i32 [ 0, %63 ], [ %.1206, %152 ]
-  %.0204.lcssa = phi i32 [ 0, %63 ], [ %.1, %152 ]
-  %155 = icmp ne ptr %.3.lcssa, null
-  %156 = icmp ne i32 %.0209.lcssa, 0
-  %or.cond11 = select i1 %155, i1 true, i1 %156
-  %157 = icmp ne i32 %.0207.lcssa, 0
-  %or.cond13 = select i1 %or.cond11, i1 true, i1 %157
-  %158 = icmp ne i32 %.0205.lcssa, 0
-  %or.cond15 = select i1 %or.cond13, i1 true, i1 %158
-  br i1 %or.cond15, label %164, label %159
+._crit_edge.loopexit:                             ; preds = %152
+  %155 = icmp ne i32 %.1210, 0
+  %156 = icmp ne i32 %.1208, 0
+  %157 = icmp ne i32 %.1206, 0
+  %158 = icmp eq i32 %.1, 0
+  %159 = icmp eq i32 %.1218, 0
+  br label %._crit_edge
 
-159:                                              ; preds = %._crit_edge
-  %160 = load i32, ptr @sid_name_snooping, align 4
-  %.not246 = icmp eq i32 %160, 0
-  br i1 %.not246, label %164, label %161
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %63
+  %.0231.lcssa = phi i32 [ 0, %63 ], [ %.1232, %._crit_edge.loopexit ]
+  %.1228.lcssa = phi i32 [ %.0227, %63 ], [ %.3230, %._crit_edge.loopexit ]
+  %.0225.lcssa = phi i32 [ 0, %63 ], [ %.1226, %._crit_edge.loopexit ]
+  %.1221.lcssa = phi i32 [ %28, %63 ], [ %153, %._crit_edge.loopexit ]
+  %.0217.lcssa = phi i1 [ true, %63 ], [ %159, %._crit_edge.loopexit ]
+  %.3.lcssa = phi ptr [ %.1214, %63 ], [ %.4, %._crit_edge.loopexit ]
+  %.0211.lcssa = phi ptr [ null, %63 ], [ %.1212, %._crit_edge.loopexit ]
+  %.0209.lcssa = phi i1 [ false, %63 ], [ %155, %._crit_edge.loopexit ]
+  %.0207.lcssa = phi i1 [ false, %63 ], [ %156, %._crit_edge.loopexit ]
+  %.0205.lcssa = phi i1 [ false, %63 ], [ %157, %._crit_edge.loopexit ]
+  %.0204.lcssa = phi i1 [ true, %63 ], [ %158, %._crit_edge.loopexit ]
+  %160 = icmp ne ptr %.3.lcssa, null
+  %or.cond11 = select i1 %160, i1 true, i1 %.0209.lcssa
+  %or.cond13 = select i1 %or.cond11, i1 true, i1 %.0207.lcssa
+  %or.cond15 = select i1 %or.cond13, i1 true, i1 %.0205.lcssa
+  br i1 %or.cond15, label %166, label %161
 
-161:                                              ; preds = %159
-  %162 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32) #7
-  %163 = tail call ptr @find_sid_name(ptr noundef %162) #7
-  br label %164
+161:                                              ; preds = %._crit_edge
+  %162 = load i32, ptr @sid_name_snooping, align 4
+  %.not246 = icmp eq i32 %162, 0
+  br i1 %.not246, label %166, label %163
 
-164:                                              ; preds = %159, %161, %._crit_edge
-  %.5 = phi ptr [ %.3.lcssa, %._crit_edge ], [ %163, %161 ], [ @.str.6446, %159 ]
-  %.not247 = icmp eq i32 %.0204.lcssa, 0
-  br i1 %.not247, label %166, label %165
-
-165:                                              ; preds = %164
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %42, ptr noundef nonnull @.str.6447) #7
+163:                                              ; preds = %161
+  %164 = tail call ptr @wmem_strbuf_get_str(ptr noundef %32) #7
+  %165 = tail call ptr @find_sid_name(ptr noundef %164) #7
   br label %166
 
-166:                                              ; preds = %165, %164
-  %167 = sub i32 %.1221.lcssa, %1
-  %168 = load i32, ptr @sid_display_hex, align 4
-  %.not248 = icmp eq i32 %168, 0
-  %..0215391 = select i1 %.not248, ptr %32, ptr %.0215
-  %169 = tail call ptr @wmem_strbuf_get_str(ptr noundef %..0215391) #7
+166:                                              ; preds = %161, %163, %._crit_edge
+  %.5 = phi ptr [ %.3.lcssa, %._crit_edge ], [ %165, %163 ], [ @.str.6446, %161 ]
+  br i1 %.0204.lcssa, label %168, label %167
+
+167:                                              ; preds = %166
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %42, ptr noundef nonnull @.str.6447) #7
+  br label %168
+
+168:                                              ; preds = %167, %166
+  %169 = sub i32 %.1221.lcssa, %1
   %170 = load i32, ptr @sid_display_hex, align 4
-  %.not249 = icmp eq i32 %170, 0
+  %.not248 = icmp eq i32 %170, 0
+  %..0215391 = select i1 %.not248, ptr %32, ptr %.0215
+  %171 = tail call ptr @wmem_strbuf_get_str(ptr noundef %..0215391) #7
+  %172 = load i32, ptr @sid_display_hex, align 4
+  %.not249 = icmp eq i32 %172, 0
   %.sink385 = select i1 %.not249, ptr %32, ptr %.0215
-  %171 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.sink385) #7
-  %172 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %.0222, ptr noundef %0, i32 noundef %1, i32 noundef %167, ptr noundef %169, ptr noundef nonnull @.str.6448, ptr noundef %3, ptr noundef %171) #7
-  %173 = tail call i64 @wmem_strbuf_get_len(ptr noundef %42) #7
-  %.not250 = icmp eq i64 %173, 0
-  br i1 %.not250, label %176, label %174
+  %173 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.sink385) #7
+  %174 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %2, i32 noundef %.0222, ptr noundef %0, i32 noundef %1, i32 noundef %169, ptr noundef %171, ptr noundef nonnull @.str.6448, ptr noundef %3, ptr noundef %173) #7
+  %175 = tail call i64 @wmem_strbuf_get_len(ptr noundef %42) #7
+  %.not250 = icmp eq i64 %175, 0
+  br i1 %.not250, label %178, label %176
 
-174:                                              ; preds = %166
-  %175 = tail call ptr @wmem_strbuf_get_str(ptr noundef %42) #7
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %172, ptr noundef nonnull @.str.6449, ptr noundef %175) #7
-  br label %176
+176:                                              ; preds = %168
+  %177 = tail call ptr @wmem_strbuf_get_str(ptr noundef %42) #7
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %174, ptr noundef nonnull @.str.6449, ptr noundef %177) #7
+  br label %178
 
-176:                                              ; preds = %174, %166
-  %177 = load i32, ptr @ett_nt_sid, align 4
-  %178 = tail call ptr @proto_item_add_subtree(ptr noundef %172, i32 noundef %177) #7
-  %179 = load i32, ptr @hf_nt_sid_revision, align 4
-  %180 = tail call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %179, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #7
-  %181 = load i32, ptr @hf_nt_sid_num_auth, align 4
-  %182 = tail call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %181, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef -2147483648) #7
-  %183 = load i32, ptr @sid_display_hex, align 4
-  %.not251 = icmp eq i32 %183, 0
-  %184 = load i32, ptr @hf_nt_sid_auth_hex, align 4
-  %185 = load i32, ptr @hf_nt_sid_auth_dec, align 4
-  %186 = select i1 %.not251, i32 %185, i32 %184
-  %187 = tail call ptr @proto_tree_add_uint64(ptr noundef %178, i32 noundef %186, ptr noundef %0, i32 noundef %10, i32 noundef 6, i64 noundef %27) #7
-  %188 = load i32, ptr @hf_nt_sid_subauth, align 4
-  %189 = shl nuw nsw i32 %47, 2
-  %190 = tail call ptr @wmem_strbuf_get_str(ptr noundef %65) #7
-  %191 = tail call ptr @wmem_strbuf_get_str(ptr noundef %65) #7
-  %192 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %178, i32 noundef %188, ptr noundef %0, i32 noundef %28, i32 noundef %189, ptr noundef %190, ptr noundef nonnull @.str.6450, ptr noundef %191) #7
-  %.not252 = icmp eq i32 %.0217.lcssa, 0
-  br i1 %.not252, label %200, label %193
+178:                                              ; preds = %176, %168
+  %179 = load i32, ptr @ett_nt_sid, align 4
+  %180 = tail call ptr @proto_item_add_subtree(ptr noundef %174, i32 noundef %179) #7
+  %181 = load i32, ptr @hf_nt_sid_revision, align 4
+  %182 = tail call ptr @proto_tree_add_item(ptr noundef %180, i32 noundef %181, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2147483648) #7
+  %183 = load i32, ptr @hf_nt_sid_num_auth, align 4
+  %184 = tail call ptr @proto_tree_add_item(ptr noundef %180, i32 noundef %183, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef -2147483648) #7
+  %185 = load i32, ptr @sid_display_hex, align 4
+  %.not251 = icmp eq i32 %185, 0
+  %186 = load i32, ptr @hf_nt_sid_auth_hex, align 4
+  %187 = load i32, ptr @hf_nt_sid_auth_dec, align 4
+  %188 = select i1 %.not251, i32 %187, i32 %186
+  %189 = tail call ptr @proto_tree_add_uint64(ptr noundef %180, i32 noundef %188, ptr noundef %0, i32 noundef %10, i32 noundef 6, i64 noundef %27) #7
+  %190 = load i32, ptr @hf_nt_sid_subauth, align 4
+  %191 = shl nuw nsw i32 %47, 2
+  %192 = tail call ptr @wmem_strbuf_get_str(ptr noundef %65) #7
+  %193 = tail call ptr @wmem_strbuf_get_str(ptr noundef %65) #7
+  %194 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %180, i32 noundef %190, ptr noundef %0, i32 noundef %28, i32 noundef %191, ptr noundef %192, ptr noundef nonnull @.str.6450, ptr noundef %193) #7
+  br i1 %.0217.lcssa, label %202, label %195
 
-193:                                              ; preds = %176
-  %194 = load i32, ptr @sid_display_hex, align 4
-  %.not253 = icmp eq i32 %194, 0
-  %195 = load i32, ptr @hf_nt_sid_rid_hex, align 4
-  %196 = load i32, ptr @hf_nt_sid_rid_dec, align 4
-  %197 = select i1 %.not253, i32 %196, i32 %195
-  %198 = tail call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %197, ptr noundef %0, i32 noundef %.0231.lcssa, i32 noundef 4, i32 noundef -2147483648) #7
+195:                                              ; preds = %178
+  %196 = load i32, ptr @sid_display_hex, align 4
+  %.not253 = icmp eq i32 %196, 0
+  %197 = load i32, ptr @hf_nt_sid_rid_hex, align 4
+  %198 = load i32, ptr @hf_nt_sid_rid_dec, align 4
+  %199 = select i1 %.not253, i32 %198, i32 %197
+  %200 = tail call ptr @proto_tree_add_item(ptr noundef %180, i32 noundef %199, ptr noundef %0, i32 noundef %.0231.lcssa, i32 noundef 4, i32 noundef -2147483648) #7
   %.not254 = icmp eq ptr %.0211.lcssa, null
-  br i1 %.not254, label %200, label %199
+  br i1 %.not254, label %202, label %201
 
-199:                                              ; preds = %193
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %198, ptr noundef nonnull @.str.6449, ptr noundef nonnull %.0211.lcssa) #7
-  br label %200
+201:                                              ; preds = %195
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %200, ptr noundef nonnull @.str.6449, ptr noundef nonnull %.0211.lcssa) #7
+  br label %202
 
-200:                                              ; preds = %193, %199, %176
-  %201 = tail call i64 @wmem_strbuf_get_len(ptr noundef %40) #7
-  %.not255 = icmp eq i64 %201, 0
-  br i1 %.not255, label %proto_item_set_hidden.exit, label %202
+202:                                              ; preds = %195, %201, %178
+  %203 = tail call i64 @wmem_strbuf_get_len(ptr noundef %40) #7
+  %.not255 = icmp eq i64 %203, 0
+  br i1 %.not255, label %proto_item_set_hidden.exit, label %204
 
-202:                                              ; preds = %200
-  %203 = load i32, ptr @hf_nt_sid_wkwn, align 4
-  %204 = tail call ptr @wmem_strbuf_get_str(ptr noundef %40) #7
-  %205 = tail call ptr @wmem_strbuf_get_str(ptr noundef %40) #7
-  %206 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %178, i32 noundef %203, ptr noundef %0, i32 noundef %1, i32 noundef %.1228.lcssa, ptr noundef %204, ptr noundef nonnull @.str.6450, ptr noundef %205) #7
+204:                                              ; preds = %202
+  %205 = load i32, ptr @hf_nt_sid_wkwn, align 4
+  %206 = tail call ptr @wmem_strbuf_get_str(ptr noundef %40) #7
+  %207 = tail call ptr @wmem_strbuf_get_str(ptr noundef %40) #7
+  %208 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %180, i32 noundef %205, ptr noundef %0, i32 noundef %1, i32 noundef %.1228.lcssa, ptr noundef %206, ptr noundef nonnull @.str.6450, ptr noundef %207) #7
   %.not256 = icmp eq ptr %.5, null
-  br i1 %.not256, label %208, label %207
+  br i1 %.not256, label %210, label %209
 
-207:                                              ; preds = %202
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %206, ptr noundef nonnull @.str.6449, ptr noundef nonnull %.5) #7
-  br label %208
+209:                                              ; preds = %204
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.6449, ptr noundef nonnull %.5) #7
+  br label %210
 
-208:                                              ; preds = %207, %202
-  %.not.i = icmp eq ptr %206, null
-  br i1 %.not.i, label %proto_item_set_hidden.exit, label %209
+210:                                              ; preds = %209, %204
+  %.not.i = icmp eq ptr %208, null
+  br i1 %.not.i, label %proto_item_set_hidden.exit, label %211
 
-209:                                              ; preds = %208
-  %210 = getelementptr inbounds i8, ptr %206, i64 32
-  %211 = load ptr, ptr %210, align 8
-  %.not5.i = icmp eq ptr %211, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %212
+211:                                              ; preds = %210
+  %212 = getelementptr inbounds i8, ptr %208, i64 32
+  %213 = load ptr, ptr %212, align 8
+  %.not5.i = icmp eq ptr %213, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %214
 
-212:                                              ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %211, i64 28
-  %214 = load i32, ptr %213, align 4
-  %215 = or i32 %214, 1
-  store i32 %215, ptr %213, align 4
+214:                                              ; preds = %211
+  %215 = getelementptr inbounds i8, ptr %213, i64 28
+  %216 = load i32, ptr %215, align 4
+  %217 = or i32 %216, 1
+  store i32 %217, ptr %215, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %212, %209, %208, %200
-  %216 = tail call i64 @wmem_strbuf_get_len(ptr noundef %67) #7
-  %.not257 = icmp eq i64 %216, 0
-  br i1 %.not257, label %proto_item_set_hidden.exit298, label %217
+proto_item_set_hidden.exit:                       ; preds = %214, %211, %210, %202
+  %218 = tail call i64 @wmem_strbuf_get_len(ptr noundef %67) #7
+  %.not257 = icmp eq i64 %218, 0
+  br i1 %.not257, label %proto_item_set_hidden.exit298, label %219
 
-217:                                              ; preds = %proto_item_set_hidden.exit
-  %218 = load i32, ptr @hf_nt_sid_wkwn, align 4
-  %219 = tail call ptr @wmem_strbuf_get_str(ptr noundef %67) #7
-  %220 = tail call ptr @wmem_strbuf_get_str(ptr noundef %67) #7
-  %221 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %178, i32 noundef %218, ptr noundef %0, i32 noundef %1, i32 noundef %.0225.lcssa, ptr noundef %219, ptr noundef nonnull @.str.6450, ptr noundef %220) #7
-  %222 = tail call i64 @wmem_strbuf_get_len(ptr noundef %42) #7
-  %.not258 = icmp eq i64 %222, 0
-  br i1 %.not258, label %225, label %223
+219:                                              ; preds = %proto_item_set_hidden.exit
+  %220 = load i32, ptr @hf_nt_sid_wkwn, align 4
+  %221 = tail call ptr @wmem_strbuf_get_str(ptr noundef %67) #7
+  %222 = tail call ptr @wmem_strbuf_get_str(ptr noundef %67) #7
+  %223 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %180, i32 noundef %220, ptr noundef %0, i32 noundef %1, i32 noundef %.0225.lcssa, ptr noundef %221, ptr noundef nonnull @.str.6450, ptr noundef %222) #7
+  %224 = tail call i64 @wmem_strbuf_get_len(ptr noundef %42) #7
+  %.not258 = icmp eq i64 %224, 0
+  br i1 %.not258, label %227, label %225
 
-223:                                              ; preds = %217
-  %224 = tail call ptr @wmem_strbuf_get_str(ptr noundef %42) #7
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %221, ptr noundef nonnull @.str.6449, ptr noundef %224) #7
-  br label %225
+225:                                              ; preds = %219
+  %226 = tail call ptr @wmem_strbuf_get_str(ptr noundef %42) #7
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %223, ptr noundef nonnull @.str.6449, ptr noundef %226) #7
+  br label %227
 
-225:                                              ; preds = %223, %217
-  %.not.i296 = icmp eq ptr %221, null
-  br i1 %.not.i296, label %proto_item_set_hidden.exit298, label %226
+227:                                              ; preds = %225, %219
+  %.not.i296 = icmp eq ptr %223, null
+  br i1 %.not.i296, label %proto_item_set_hidden.exit298, label %228
 
-226:                                              ; preds = %225
-  %227 = getelementptr inbounds i8, ptr %221, i64 32
-  %228 = load ptr, ptr %227, align 8
-  %.not5.i297 = icmp eq ptr %228, null
-  br i1 %.not5.i297, label %proto_item_set_hidden.exit298, label %229
+228:                                              ; preds = %227
+  %229 = getelementptr inbounds i8, ptr %223, i64 32
+  %230 = load ptr, ptr %229, align 8
+  %.not5.i297 = icmp eq ptr %230, null
+  br i1 %.not5.i297, label %proto_item_set_hidden.exit298, label %231
 
-229:                                              ; preds = %226
-  %230 = getelementptr inbounds i8, ptr %228, i64 28
-  %231 = load i32, ptr %230, align 4
-  %232 = or i32 %231, 1
-  store i32 %232, ptr %230, align 4
+231:                                              ; preds = %228
+  %232 = getelementptr inbounds i8, ptr %230, i64 28
+  %233 = load i32, ptr %232, align 4
+  %234 = or i32 %233, 1
+  store i32 %234, ptr %232, align 4
   br label %proto_item_set_hidden.exit298
 
-proto_item_set_hidden.exit298:                    ; preds = %229, %226, %225, %proto_item_set_hidden.exit
-  br i1 %156, label %233, label %proto_item_set_hidden.exit301
+proto_item_set_hidden.exit298:                    ; preds = %231, %228, %227, %proto_item_set_hidden.exit
+  br i1 %.0209.lcssa, label %235, label %proto_item_set_hidden.exit301
 
-233:                                              ; preds = %proto_item_set_hidden.exit298
-  %234 = tail call i64 @wmem_strbuf_get_len(ptr noundef %69) #7
-  %.not259 = icmp eq i64 %234, 0
-  br i1 %.not259, label %proto_item_set_hidden.exit301, label %235
+235:                                              ; preds = %proto_item_set_hidden.exit298
+  %236 = tail call i64 @wmem_strbuf_get_len(ptr noundef %69) #7
+  %.not259 = icmp eq i64 %236, 0
+  br i1 %.not259, label %proto_item_set_hidden.exit301, label %237
 
-235:                                              ; preds = %233
-  %236 = load i32, ptr @hf_nt_sid_domain, align 4
-  %237 = add i32 %1, 12
-  %238 = tail call ptr @wmem_strbuf_get_str(ptr noundef %69) #7
-  %239 = tail call ptr @wmem_strbuf_get_str(ptr noundef %69) #7
-  %240 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %178, i32 noundef %236, ptr noundef %0, i32 noundef %237, i32 noundef 12, ptr noundef %238, ptr noundef nonnull @.str.6450, ptr noundef %239) #7
-  %.not.i299 = icmp eq ptr %240, null
-  br i1 %.not.i299, label %proto_item_set_hidden.exit301, label %241
+237:                                              ; preds = %235
+  %238 = load i32, ptr @hf_nt_sid_domain, align 4
+  %239 = add i32 %1, 12
+  %240 = tail call ptr @wmem_strbuf_get_str(ptr noundef %69) #7
+  %241 = tail call ptr @wmem_strbuf_get_str(ptr noundef %69) #7
+  %242 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %180, i32 noundef %238, ptr noundef %0, i32 noundef %239, i32 noundef 12, ptr noundef %240, ptr noundef nonnull @.str.6450, ptr noundef %241) #7
+  %.not.i299 = icmp eq ptr %242, null
+  br i1 %.not.i299, label %proto_item_set_hidden.exit301, label %243
 
-241:                                              ; preds = %235
-  %242 = getelementptr inbounds i8, ptr %240, i64 32
-  %243 = load ptr, ptr %242, align 8
-  %.not5.i300 = icmp eq ptr %243, null
-  br i1 %.not5.i300, label %proto_item_set_hidden.exit301, label %244
+243:                                              ; preds = %237
+  %244 = getelementptr inbounds i8, ptr %242, i64 32
+  %245 = load ptr, ptr %244, align 8
+  %.not5.i300 = icmp eq ptr %245, null
+  br i1 %.not5.i300, label %proto_item_set_hidden.exit301, label %246
 
-244:                                              ; preds = %241
-  %245 = getelementptr inbounds i8, ptr %243, i64 28
-  %246 = load i32, ptr %245, align 4
-  %247 = or i32 %246, 1
-  store i32 %247, ptr %245, align 4
+246:                                              ; preds = %243
+  %247 = getelementptr inbounds i8, ptr %245, i64 28
+  %248 = load i32, ptr %247, align 4
+  %249 = or i32 %248, 1
+  store i32 %249, ptr %247, align 4
   br label %proto_item_set_hidden.exit301
 
-proto_item_set_hidden.exit301:                    ; preds = %244, %241, %235, %233, %proto_item_set_hidden.exit298
-  br i1 %.not, label %262, label %248
+proto_item_set_hidden.exit301:                    ; preds = %246, %243, %237, %235, %proto_item_set_hidden.exit298
+  br i1 %.not, label %264, label %250
 
-248:                                              ; preds = %proto_item_set_hidden.exit301
-  %249 = tail call i64 @wmem_strbuf_get_len(ptr noundef %42) #7
-  %.not260 = icmp eq i64 %249, 0
-  %250 = tail call ptr @wmem_packet_scope() #7
-  %251 = load i32, ptr @sid_display_hex, align 4
-  %.not261 = icmp eq i32 %251, 0
+250:                                              ; preds = %proto_item_set_hidden.exit301
+  %251 = tail call i64 @wmem_strbuf_get_len(ptr noundef %42) #7
+  %.not260 = icmp eq i64 %251, 0
+  %252 = tail call ptr @wmem_packet_scope() #7
+  %253 = load i32, ptr @sid_display_hex, align 4
+  %.not261 = icmp eq i32 %253, 0
   %..0215393 = select i1 %.not261, ptr %32, ptr %.0215
-  %252 = tail call ptr @wmem_strbuf_get_str(ptr noundef %..0215393) #7
-  br i1 %.not260, label %256, label %253
+  %254 = tail call ptr @wmem_strbuf_get_str(ptr noundef %..0215393) #7
+  br i1 %.not260, label %258, label %255
 
-253:                                              ; preds = %248
-  %254 = tail call ptr @wmem_strbuf_get_str(ptr noundef %42) #7
-  %255 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %250, ptr noundef nonnull @.str.6451, ptr noundef %252, ptr noundef %254) #7
-  br label %258
+255:                                              ; preds = %250
+  %256 = tail call ptr @wmem_strbuf_get_str(ptr noundef %42) #7
+  %257 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %252, ptr noundef nonnull @.str.6451, ptr noundef %254, ptr noundef %256) #7
+  br label %260
 
-256:                                              ; preds = %248
-  %257 = tail call noalias ptr @wmem_strdup(ptr noundef %250, ptr noundef %252) #7
-  br label %258
+258:                                              ; preds = %250
+  %259 = tail call noalias ptr @wmem_strdup(ptr noundef %252, ptr noundef %254) #7
+  br label %260
 
-258:                                              ; preds = %256, %253
-  %storemerge = phi ptr [ %257, %256 ], [ %255, %253 ]
+260:                                              ; preds = %258, %255
+  %storemerge = phi ptr [ %259, %258 ], [ %257, %255 ]
   store ptr %storemerge, ptr %4, align 8
   %.not263 = icmp eq ptr %storemerge, null
-  br i1 %.not263, label %259, label %262
+  br i1 %.not263, label %261, label %264
 
-259:                                              ; preds = %258
-  %260 = tail call ptr @wmem_packet_scope() #7
-  %261 = tail call noalias ptr @wmem_strdup(ptr noundef %260, ptr noundef nonnull @.str.6452) #7
-  store ptr %261, ptr %4, align 8
-  br label %262
+261:                                              ; preds = %260
+  %262 = tail call ptr @wmem_packet_scope() #7
+  %263 = tail call noalias ptr @wmem_strdup(ptr noundef %262, ptr noundef nonnull @.str.6452) #7
+  store ptr %263, ptr %4, align 8
+  br label %264
 
-262:                                              ; preds = %proto_item_set_hidden.exit301, %259, %258, %15
-  %.0219 = phi i32 [ %19, %15 ], [ %.1221.lcssa, %258 ], [ %.1221.lcssa, %259 ], [ %.1221.lcssa, %proto_item_set_hidden.exit301 ]
+264:                                              ; preds = %proto_item_set_hidden.exit301, %261, %260, %15
+  %.0219 = phi i32 [ %19, %15 ], [ %.1221.lcssa, %260 ], [ %.1221.lcssa, %261 ], [ %.1221.lcssa, %proto_item_set_hidden.exit301 ]
   ret i32 %.0219
 }
 

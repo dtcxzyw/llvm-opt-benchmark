@@ -5256,7 +5256,7 @@ declare hidden void @FT_Stream_ExitFrame(ptr noundef) local_unnamed_addr #8
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @cff_parse_num(ptr nocapture noundef readonly %0, ptr %.0.val) unnamed_addr #4 {
+define internal fastcc range(i64 -140737488355328, 140737488355328) i64 @cff_parse_num(ptr nocapture noundef readonly %0, ptr %.0.val) unnamed_addr #4 {
   %2 = load i8, ptr %.0.val, align 1
   switch i8 %2, label %25 [
     i8 30, label %3
@@ -5785,7 +5785,7 @@ define internal range(i32 0, 162) i32 @cff_parse_multiple_master(ptr nocapture n
 9:                                                ; preds = %1
   %.val = load ptr, ptr %7, align 8
   %10 = tail call fastcc i64 @cff_parse_num(ptr noundef nonnull %0, ptr %.val)
-  %11 = add i64 %10, -17
+  %11 = add nsw i64 %10, -17
   %or.cond = icmp ult i64 %11, -15
   br i1 %or.cond, label %27, label %12
 

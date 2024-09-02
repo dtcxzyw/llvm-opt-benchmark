@@ -514,7 +514,7 @@ return:                                           ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @qemu_clock_deadline_ns_all(i32 noundef %type, i32 noundef %attr_mask) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @qemu_clock_deadline_ns_all(i32 noundef %type, i32 noundef %attr_mask) local_unnamed_addr #0 {
 entry:
   %idxprom.i = zext i32 %type to i64
   %arrayidx.i = getelementptr [4 x %struct.QEMUClock], ptr @qemu_clocks, i64 0, i64 %idxprom.i
@@ -1306,7 +1306,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @timerlistgroup_deadline_ns(ptr nocapture noundef readonly %tlg) local_unnamed_addr #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @timerlistgroup_deadline_ns(ptr nocapture noundef readonly %tlg) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -1448,7 +1448,7 @@ for.end:                                          ; preds = %qemu_clock_init.exi
 declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @timer_expire_time_ns(ptr nocapture noundef readonly %ts) local_unnamed_addr #10 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @timer_expire_time_ns(ptr nocapture noundef readonly %ts) local_unnamed_addr #10 {
 entry:
   %0 = load i64, ptr %ts, align 8
   %spec.select = tail call i64 @llvm.smax.i64(i64 %0, i64 -1)

@@ -290,12 +290,12 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit22:  ; preds = %76
   %.pre81 = load ptr, ptr %24, align 8
   %.phi.trans.insert82 = getelementptr inbounds i8, ptr %.pre81, i64 32
   %.pre83 = load i64, ptr %.phi.trans.insert82, align 8
-  %97 = getelementptr inbounds i8, ptr %80, i64 4
-  %98 = load i32, ptr %97, align 4
-  %99 = trunc i32 %98 to i8
-  store i8 %99, ptr %8, align 1
-  %100 = icmp slt i64 %.pre83, 1
-  br i1 %100, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit23, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit23.thread
+  %97 = icmp slt i64 %.pre83, 1
+  %98 = getelementptr inbounds i8, ptr %80, i64 4
+  %99 = load i32, ptr %98, align 4
+  %100 = trunc i32 %99 to i8
+  store i8 %100, ptr %8, align 1
+  br i1 %97, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit23, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit23.thread
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit23.thread: ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit22, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit22.thread
   %101 = getelementptr inbounds i8, ptr %80, i64 8
@@ -316,12 +316,12 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit23:  ; preds = %_ZN5draco13EncoderB
   %.pre84 = load ptr, ptr %24, align 8
   %.phi.trans.insert85 = getelementptr inbounds i8, ptr %.pre84, i64 32
   %.pre86 = load i64, ptr %.phi.trans.insert85, align 8
-  %111 = getelementptr inbounds i8, ptr %80, i64 8
-  %112 = load i32, ptr %111, align 4
-  %113 = trunc i32 %112 to i8
-  store i8 %113, ptr %9, align 1
-  %114 = icmp slt i64 %.pre86, 1
-  br i1 %114, label %115, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit24
+  %111 = icmp slt i64 %.pre86, 1
+  %112 = getelementptr inbounds i8, ptr %80, i64 8
+  %113 = load i32, ptr %112, align 4
+  %114 = trunc i32 %113 to i8
+  store i8 %114, ptr %9, align 1
+  br i1 %111, label %115, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit24
 
 115:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit23
   %116 = getelementptr inbounds i8, ptr %.pre84, i64 8
@@ -388,12 +388,12 @@ _ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit:    ; preds = %128
   %.pre = load ptr, ptr %24, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre77 = load i64, ptr %.phi.trans.insert, align 8
-  %149 = getelementptr inbounds i8, ptr %132, i64 4
-  %150 = load i32, ptr %149, align 4
-  %151 = trunc i32 %150 to i16
-  store i16 %151, ptr %11, align 2
-  %152 = icmp slt i64 %.pre77, 1
-  br i1 %152, label %_ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit25, label %_ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit25.thread
+  %149 = icmp slt i64 %.pre77, 1
+  %150 = getelementptr inbounds i8, ptr %132, i64 4
+  %151 = load i32, ptr %150, align 4
+  %152 = trunc i32 %151 to i16
+  store i16 %152, ptr %11, align 2
+  br i1 %149, label %_ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit25, label %_ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit25.thread
 
 _ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit25.thread: ; preds = %_ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit, %_ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit.thread
   %153 = getelementptr inbounds i8, ptr %132, i64 8
@@ -414,12 +414,12 @@ _ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit25:  ; preds = %_ZN5draco13EncoderB
   %.pre78 = load ptr, ptr %24, align 8
   %.phi.trans.insert79 = getelementptr inbounds i8, ptr %.pre78, i64 32
   %.pre80 = load i64, ptr %.phi.trans.insert79, align 8
-  %163 = getelementptr inbounds i8, ptr %132, i64 8
-  %164 = load i32, ptr %163, align 4
-  %165 = trunc i32 %164 to i16
-  store i16 %165, ptr %12, align 2
-  %166 = icmp slt i64 %.pre80, 1
-  br i1 %166, label %167, label %_ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit26
+  %163 = icmp slt i64 %.pre80, 1
+  %164 = getelementptr inbounds i8, ptr %132, i64 8
+  %165 = load i32, ptr %164, align 4
+  %166 = trunc i32 %165 to i16
+  store i16 %166, ptr %12, align 2
+  br i1 %163, label %167, label %_ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit26
 
 167:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit25
   %168 = getelementptr inbounds i8, ptr %.pre78, i64 8

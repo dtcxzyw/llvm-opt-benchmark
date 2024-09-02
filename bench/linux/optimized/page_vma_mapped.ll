@@ -54,11 +54,11 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %19 = getelementptr inbounds i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.loopexit11, label %22
+  br i1 %21, label %.loopexit10, label %22
 
 22:                                               ; preds = %18
   tail call void @_raw_spin_unlock(ptr noundef nonnull %20) #6
-  br label %.loopexit11
+  br label %.loopexit10
 
 23:                                               ; preds = %14, %1
   %24 = getelementptr inbounds i8, ptr %8, i64 32
@@ -75,7 +75,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
 
 32:                                               ; preds = %28
   tail call fastcc void @not_found(ptr noundef %0)
-  br label %.loopexit11
+  br label %.loopexit10
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %8, i64 136
@@ -97,7 +97,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %50 = tail call ptr @huge_pte_offset(ptr noundef %10, i64 noundef %49, i64 noundef %47) #6
   store ptr %50, ptr %29, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.loopexit11, label %52
+  br i1 %51, label %.loopexit10, label %52
 
 52:                                               ; preds = %33
   %.val = load i32, ptr %44, align 8
@@ -105,11 +105,11 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %54 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %53, ptr %54, align 8
   %55 = tail call fastcc zeroext i1 @check_pte(ptr noundef %0)
-  br i1 %55, label %.loopexit11, label %56
+  br i1 %55, label %.loopexit10, label %56
 
 56:                                               ; preds = %52
   tail call fastcc void @not_found(ptr noundef %0)
-  br label %.loopexit11
+  br label %.loopexit10
 
 57:                                               ; preds = %23
   store ptr null, ptr %6, align 8, !annotation !6
@@ -148,16 +148,16 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %78 = getelementptr inbounds i8, ptr %0, i64 48
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %.loopexit10
+  br i1 %80, label %81, label %.loopexit9
 
 81:                                               ; preds = %253, %._crit_edge
   %82 = getelementptr inbounds i8, ptr %10, i64 128
   %83 = getelementptr inbounds i8, ptr %0, i64 32
   %84 = getelementptr inbounds i8, ptr %0, i64 64
   %85 = getelementptr inbounds i8, ptr %0, i64 56
-  br label %.thread8
+  br label %.thread
 
-.thread8:                                         ; preds = %.thread8.backedge, %81
+.thread:                                          ; preds = %.thread.backedge, %81
   %86 = load ptr, ptr %82, align 64
   %87 = load i64, ptr %83, align 8
   %88 = load i32, ptr @pgdir_shift, align 4
@@ -167,12 +167,12 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %92 = getelementptr %struct.pgd_t, ptr %86, i64 %91
   %93 = load i64, ptr %92, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #6
-          to label %94 [label %94, label %.thread], !srcloc !7
+          to label %94 [label %94, label %.critedge], !srcloc !7
 
-94:                                               ; preds = %.thread8, %.thread8
+94:                                               ; preds = %.thread, %.thread
   %95 = and i64 %93, 1
   %96 = icmp eq i64 %95, 0
-  br i1 %96, label %97, label %.thread
+  br i1 %96, label %97, label %.critedge
 
 97:                                               ; preds = %94
   %98 = load i32, ptr @pgdir_shift, align 4
@@ -184,12 +184,12 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %104 = and i64 %102, %103
   br label %265
 
-.thread:                                          ; preds = %.thread8, %94
+.critedge:                                        ; preds = %.thread, %94
   %105 = load i64, ptr %83, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #6
           to label %106 [label %106, label %118], !srcloc !7
 
-106:                                              ; preds = %.thread, %.thread
+106:                                              ; preds = %.critedge, %.critedge
   %107 = load i64, ptr %92, align 8
   %108 = and i64 %107, 4503599627366400
   %109 = load i64, ptr @page_offset_base, align 8
@@ -203,8 +203,8 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %117 = getelementptr %struct.p4d_t, ptr %111, i64 %116
   br label %118
 
-118:                                              ; preds = %106, %.thread
-  %119 = phi ptr [ %117, %106 ], [ %92, %.thread ]
+118:                                              ; preds = %106, %.critedge
+  %119 = phi ptr [ %117, %106 ], [ %92, %.critedge ]
   %120 = load i64, ptr %119, align 8
   %121 = and i64 %120, 1
   %122 = icmp eq i64 %121, 0
@@ -273,16 +273,16 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %166 = load ptr, ptr %85, align 8
   store ptr %166, ptr %6, align 8
   %167 = icmp eq ptr %165, null
-  br i1 %167, label %.thread8.backedge, label %.loopexit
+  br i1 %167, label %.thread.backedge, label %.loopexit
 
-.thread8.backedge:                                ; preds = %164, %168, %265
-  br label %.thread8, !llvm.loop !8
+.thread.backedge:                                 ; preds = %164, %168, %265
+  br label %.thread, !llvm.loop !8
 
 168:                                              ; preds = %157
   %169 = call ptr @pte_offset_map_nolock(ptr noundef %163, ptr noundef %150, i64 noundef %123, ptr noundef nonnull %6) #6
   store ptr %169, ptr %78, align 8
   %170 = icmp eq ptr %169, null
-  br i1 %170, label %.thread8.backedge, label %171
+  br i1 %170, label %.thread.backedge, label %171
 
 171:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -300,23 +300,23 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %179 = and i64 %172, 257
   %180 = icmp ne i64 %179, 0
   %181 = or i1 %178, %180
-  br i1 %181, label %.loopexit10, label %185
+  br i1 %181, label %.loopexit9, label %185
 
 182:                                              ; preds = %171
   %183 = and i64 %172, 257
   %184 = icmp eq i64 %183, 0
-  br i1 %184, label %.loopexit10, label %185
+  br i1 %184, label %.loopexit9, label %185
 
 185:                                              ; preds = %176, %182, %260
-  %.sink16 = phi ptr [ %262, %260 ], [ %85, %182 ], [ %85, %176 ]
+  %.sink15 = phi ptr [ %262, %260 ], [ %85, %182 ], [ %85, %176 ]
   %186 = load ptr, ptr %6, align 8
-  store ptr %186, ptr %.sink16, align 8
+  store ptr %186, ptr %.sink15, align 8
   call void @_raw_spin_lock(ptr noundef %186) #6
-  %.pre12 = load ptr, ptr %78, align 8
+  %.pre11 = load ptr, ptr %78, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %164, %260, %185
-  %187 = phi ptr [ %261, %260 ], [ %.pre12, %185 ], [ %165, %164 ]
+  %187 = phi ptr [ %261, %260 ], [ %.pre11, %185 ], [ %165, %164 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %188 = load volatile i64, ptr %187, align 8
   store volatile i64 %188, ptr %3, align 8
@@ -333,7 +333,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %196 = and i64 %188, 257
   %197 = icmp ne i64 %196, 0
   %198 = or i1 %195, %197
-  br i1 %198, label %.loopexit10, label %199
+  br i1 %198, label %.loopexit9, label %199
 
 199:                                              ; preds = %193
   %200 = xor i64 %188, -1
@@ -343,16 +343,16 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %.mask = and i64 %188, -576460752303423488
   %204 = icmp ne i64 %.mask, -1152921504606846976
   %205 = and i1 %204, %203
-  br i1 %205, label %.loopexit10, label %206
+  br i1 %205, label %.loopexit9, label %206
 
 206:                                              ; preds = %199
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #6
-          to label %.thread9 [label %.thread9, label %207], !srcloc !7
+          to label %.thread8 [label %.thread8, label %207], !srcloc !7
 
 207:                                              ; preds = %206
-  br label %.thread9
+  br label %.thread8
 
-.thread9:                                         ; preds = %206, %206, %207
+.thread8:                                         ; preds = %206, %206, %207
   %208 = phi i64 [ 17179869183, %207 ], [ 1099511627775, %206 ], [ 1099511627775, %206 ]
   %209 = and i64 %208, %201
   br label %218
@@ -360,7 +360,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
 210:                                              ; preds = %.loopexit
   %211 = and i64 %188, 257
   %212 = icmp eq i64 %211, 0
-  br i1 %212, label %.loopexit10, label %213
+  br i1 %212, label %.loopexit9, label %213
 
 213:                                              ; preds = %210
   %214 = and i64 %188, 1
@@ -370,21 +370,21 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %217 = and i64 %216, 1099511627775
   br label %218
 
-218:                                              ; preds = %.thread9, %213
-  %219 = phi i64 [ %217, %213 ], [ %209, %.thread9 ]
+218:                                              ; preds = %.thread8, %213
+  %219 = phi i64 [ %217, %213 ], [ %209, %.thread8 ]
   %220 = load i64, ptr %0, align 8
   %221 = sub i64 %219, %220
   %222 = load i64, ptr %58, align 8
   %223 = icmp ult i64 %221, %222
-  br i1 %223, label %.loopexit11, label %.loopexit10
+  br i1 %223, label %.loopexit10, label %.loopexit9
 
-.loopexit10:                                      ; preds = %182, %176, %193, %199, %218, %210, %._crit_edge
+.loopexit9:                                       ; preds = %182, %176, %193, %199, %218, %210, %._crit_edge
   %224 = getelementptr inbounds i8, ptr %0, i64 32
   %225 = load i64, ptr %224, align 8
   br label %226
 
-226:                                              ; preds = %254, %.loopexit10
-  %227 = phi i64 [ %228, %254 ], [ %225, %.loopexit10 ]
+226:                                              ; preds = %254, %.loopexit9
+  %227 = phi i64 [ %228, %254 ], [ %225, %.loopexit9 ]
   %228 = add i64 %227, 4096
   store i64 %228, ptr %224, align 8
   %229 = icmp ult i64 %228, %77
@@ -411,11 +411,11 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %241 = getelementptr inbounds i8, ptr %0, i64 56
   %242 = load ptr, ptr %241, align 8
   %243 = icmp eq ptr %242, null
-  br i1 %243, label %.loopexit11, label %244
+  br i1 %243, label %.loopexit10, label %244
 
 244:                                              ; preds = %240
   call void @_raw_spin_unlock(ptr noundef nonnull %242) #6
-  br label %.loopexit11
+  br label %.loopexit10
 
 245:                                              ; preds = %226
   %246 = and i64 %228, 2093056
@@ -463,9 +463,9 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %268 = select i1 %267, i64 -1, i64 %266
   store i64 %268, ptr %83, align 8
   %269 = icmp ult i64 %268, %77
-  br i1 %269, label %.thread8.backedge, label %.loopexit11
+  br i1 %269, label %.thread.backedge, label %.loopexit10
 
-.loopexit11:                                      ; preds = %265, %244, %240, %218, %56, %52, %33, %32, %22, %18
+.loopexit10:                                      ; preds = %265, %244, %240, %218, %56, %52, %33, %32, %22, %18
   %270 = phi i1 [ false, %32 ], [ false, %56 ], [ false, %33 ], [ true, %52 ], [ true, %218 ], [ false, %18 ], [ false, %22 ], [ false, %240 ], [ false, %244 ], [ false, %265 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
   ret i1 %270

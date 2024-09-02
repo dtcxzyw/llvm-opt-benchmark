@@ -763,7 +763,7 @@ fetch_pte.exit.thread:                            ; preds = %15, %81, %fetch_pte
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define internal i64 @iommu_v1_iova_to_phys(ptr nocapture noundef readonly %0, i64 noundef %1) #3 align 16 {
+define internal range(i64 0, -9223372036854775808) i64 @iommu_v1_iova_to_phys(ptr nocapture noundef readonly %0, i64 noundef %1) #3 align 16 {
   %3 = getelementptr i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 6
@@ -995,9 +995,9 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
   %80 = add i64 %79, -12
   %81 = urem i64 %80, 9
   %82 = shl nuw nsw i64 1, %81
-  br i1 %.not, label %.preheader, label %.preheader16
+  br i1 %.not, label %.preheader, label %.preheader15
 
-.preheader16:                                     ; preds = %78, %88
+.preheader15:                                     ; preds = %78, %88
   %83 = phi i64 [ %89, %88 ], [ 0, %78 ]
   %84 = getelementptr i64, ptr %72, i64 %83
   %85 = load volatile i64, ptr %84, align 8
@@ -1005,10 +1005,10 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %88, label %.loopexit
 
-88:                                               ; preds = %.preheader16
+88:                                               ; preds = %.preheader15
   %89 = add nuw nsw i64 %83, 1
   %exitcond.not = icmp eq i64 %89, %82
-  br i1 %exitcond.not, label %.loopexit, label %.preheader16, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %.preheader15, !llvm.loop !39
 
 .preheader:                                       ; preds = %78, %.preheader
   %90 = phi i64 [ %97, %.preheader ], [ 0, %78 ]
@@ -1020,11 +1020,11 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
   %95 = icmp eq i8 %93, 0
   %96 = select i1 %95, i8 %91, i8 1
   %97 = add nuw nsw i64 %90, 1
-  %exitcond24.not = icmp eq i64 %97, %82
-  br i1 %exitcond24.not, label %.loopexit, label %.preheader, !llvm.loop !41
+  %exitcond23.not = icmp eq i64 %97, %82
+  br i1 %exitcond23.not, label %.loopexit, label %.preheader, !llvm.loop !41
 
-.loopexit:                                        ; preds = %.preheader16, %88, %.preheader
-  %98 = phi i8 [ %96, %.preheader ], [ 1, %.preheader16 ], [ 0, %88 ]
+.loopexit:                                        ; preds = %.preheader15, %88, %.preheader
+  %98 = phi i8 [ %96, %.preheader ], [ 1, %.preheader15 ], [ 0, %88 ]
   %99 = and i8 %98, 1
   %100 = icmp eq i8 %99, 0
   br i1 %100, label %.thread, label %101

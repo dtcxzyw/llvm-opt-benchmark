@@ -203,22 +203,22 @@ cleanup.done73.i:                                 ; preds = %invoke.cont65.i
   store ptr %call58.i, ptr %otherGrouping.i, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp63.i) #8
   %.pre.i = load i32, ptr %localStatus, align 4
-  %cmp.i33.i = icmp slt i32 %.pre.i, 1
-  br i1 %cmp.i33.i, label %if.end87.i, label %delete.notnull.i.i
+  %9 = icmp slt i32 %.pre.i, 1
+  br i1 %9, label %if.end87.i, label %delete.notnull.i.i
 
 lpad64.i:                                         ; preds = %new.notnull60.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action80.i
 
 cleanup.action76.i:                               ; preds = %invoke.cont65.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp63.i) #8
   br label %cleanup.action80.i
 
 cleanup.action80.i:                               ; preds = %cleanup.action76.i, %lpad64.i
-  %.pn19.i = phi { ptr, i32 } [ %10, %cleanup.action76.i ], [ %9, %lpad64.i ]
+  %.pn19.i = phi { ptr, i32 } [ %11, %cleanup.action76.i ], [ %10, %lpad64.i ]
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call58.i) #8
   br label %ehcleanup165.i
 
@@ -233,8 +233,8 @@ lpad82.loopexit.split-lp.i:                       ; preds = %if.end153.i, %invok
   br label %ehcleanup163.i
 
 if.end87.i:                                       ; preds = %cleanup.done73.i
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 56), align 8
-  %call91.i = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call58.i, ptr noundef nonnull align 8 dereferenceable(200) %11)
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 56), align 8
+  %call91.i = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call58.i, ptr noundef nonnull align 8 dereferenceable(200) %12)
           to label %invoke.cont90.i unwind label %lpad82.loopexit.split-lp.i
 
 invoke.cont90.i:                                  ; preds = %if.end87.i
@@ -272,23 +272,23 @@ cleanup.done112.critedge.i:                       ; preds = %invoke.cont96.i
   br label %cleanup.done112.i
 
 cleanup.done112.i:                                ; preds = %cleanup.done112.critedge.i, %cleanup.action111.i
-  %12 = load i32, ptr %localStatus, align 4
-  %cmp.i35.i = icmp slt i32 %12, 1
+  %13 = load i32, ptr %localStatus, align 4
+  %cmp.i35.i = icmp slt i32 %13, 1
   br i1 %cmp.i35.i, label %if.end125.i, label %cleanup164.i
 
 lpad104.i:                                        ; preds = %new.notnull100.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action119.i
 
 lpad107.i:                                        ; preds = %invoke.cont105.i
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp103.i) #8
   br label %cleanup.action119.i
 
 cleanup.action119.i:                              ; preds = %lpad107.i, %lpad104.i
-  %.pn21.i = phi { ptr, i32 } [ %14, %lpad107.i ], [ %13, %lpad104.i ]
+  %.pn21.i = phi { ptr, i32 } [ %15, %lpad107.i ], [ %14, %lpad104.i ]
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call98.i) #8
   br label %ehcleanup163.i
 
@@ -315,23 +315,23 @@ cleanup.done140.critedge.i:                       ; preds = %if.end125.i
   br label %cleanup.done140.i
 
 cleanup.done140.i:                                ; preds = %cleanup.done140.critedge.i, %cleanup.action139.i
-  %15 = load i32, ptr %localStatus, align 4
-  %cmp.i37.i = icmp slt i32 %15, 1
+  %16 = load i32, ptr %localStatus, align 4
+  %cmp.i37.i = icmp slt i32 %16, 1
   br i1 %cmp.i37.i, label %if.end153.i, label %cleanup164.i
 
 lpad132.i:                                        ; preds = %new.notnull128.i
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action147.i
 
 lpad135.i:                                        ; preds = %invoke.cont133.i
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp131.i) #8
   br label %cleanup.action147.i
 
 cleanup.action147.i:                              ; preds = %lpad135.i, %lpad132.i
-  %.pn23.i = phi { ptr, i32 } [ %17, %lpad135.i ], [ %16, %lpad132.i ]
+  %.pn23.i = phi { ptr, i32 } [ %18, %lpad135.i ], [ %17, %lpad132.i ]
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call126.i) #8
   br label %ehcleanup163.i
 
@@ -351,12 +351,12 @@ invoke.cont156.i:                                 ; preds = %invoke.cont154.i
 for.body.i:                                       ; preds = %for.inc.i, %invoke.cont156.i
   %__begin1.0.idx43.i = phi i64 [ 0, %invoke.cont156.i ], [ %__begin1.0.add.i, %for.inc.i ]
   %__begin1.0.ptr.i = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %__begin1.0.idx43.i
-  %18 = load ptr, ptr %__begin1.0.ptr.i, align 8
-  %cmp158.not.i = icmp eq ptr %18, null
+  %19 = load ptr, ptr %__begin1.0.ptr.i, align 8
+  %cmp158.not.i = icmp eq ptr %19, null
   br i1 %cmp158.not.i, label %for.inc.i, label %if.then159.i
 
 if.then159.i:                                     ; preds = %for.body.i
-  %call161.i = invoke noundef ptr @_ZN6icu_7510UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200) %18)
+  %call161.i = invoke noundef ptr @_ZN6icu_7510UnicodeSet6freezeEv(ptr noundef nonnull align 8 dereferenceable(200) %19)
           to label %for.inc.i unwind label %lpad82.loopexit.i
 
 for.inc.i:                                        ; preds = %if.then159.i, %for.body.i
@@ -382,10 +382,10 @@ if.then.i39.i:                                    ; preds = %cleanup166.i
           to label %_ZN12_GLOBAL__N_122initNumberParseUniSetsER10UErrorCode.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i39.i
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #9
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #9
   unreachable
 
 ehcleanup163.i:                                   ; preds = %cleanup.action147.i, %cleanup.action119.i, %lpad82.loopexit.split-lp.i, %lpad82.loopexit.i
@@ -412,16 +412,16 @@ _ZN12_GLOBAL__N_122initNumberParseUniSetsER10UErrorCode.exit: ; preds = %cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp63.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp103.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp131.i)
-  %21 = load i32, ptr %localStatus, align 4
-  store i32 %21, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127gNumberParseUniSetsInitOnceE, i64 4), align 4
+  %22 = load i32, ptr %localStatus, align 4
+  store i32 %22, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127gNumberParseUniSetsInitOnceE, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_127gNumberParseUniSetsInitOnceE)
   %.pr.old = load i32, ptr %localStatus, align 4
   %cmp.i.old = icmp slt i32 %.pr.old, 1
   br i1 %cmp.i.old, label %if.end, label %return
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127gNumberParseUniSetsInitOnceE, i64 4), align 4
-  %cmp.i9.i = icmp slt i32 %22, 1
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127gNumberParseUniSetsInitOnceE, i64 4), align 4
+  %cmp.i9.i = icmp slt i32 %23, 1
   %.pr = load i32, ptr %localStatus, align 4
   %cmp.i = icmp slt i32 %.pr, 1
   %or.cond = select i1 %cmp.i9.i, i1 %cmp.i, i1 false
@@ -430,9 +430,9 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
 if.end:                                           ; preds = %if.else.i, %_ZN12_GLOBAL__N_122initNumberParseUniSetsER10UErrorCode.exit
   %idxprom.i = sext i32 %key to i64
   %arrayidx.i = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom.i
-  %23 = load ptr, ptr %arrayidx.i, align 8
-  %cmp.i1 = icmp eq ptr %23, null
-  %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i = select i1 %cmp.i1, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %23
+  %24 = load ptr, ptr %arrayidx.i, align 8
+  %cmp.i1 = icmp eq ptr %24, null
+  %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i = select i1 %cmp.i1, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %24
   br label %return
 
 return:                                           ; preds = %if.else.i, %_ZN12_GLOBAL__N_122initNumberParseUniSetsER10UErrorCode.exit, %if.end

@@ -27087,7 +27087,7 @@ _ZN6vectorISt4pairIPN3smt5enodeEjELb0EjED2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK3smt9theory_bv7get_bitEjPNS_5enodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1048) %this, i32 noundef %bit, ptr noundef nonnull %n) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZNK3smt9theory_bv7get_bitEjPNS_5enodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1048) %this, i32 noundef %bit, ptr noundef nonnull %n) local_unnamed_addr #3 align 2 {
 entry:
   %m_id.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_id.i, align 8
@@ -27462,12 +27462,12 @@ for.cond:                                         ; preds = %for.inc, %do.body
 if.end.i:                                         ; preds = %for.cond
   %arrayidx.i59 = getelementptr inbounds i8, ptr %30, i64 -4
   %31 = load i32, ptr %arrayidx.i59, align 4
+  %32 = zext i32 %31 to i64
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %for.cond, %if.end.i
-  %retval.0.i = phi i32 [ %31, %if.end.i ], [ 0, %for.cond ]
-  %32 = zext i32 %retval.0.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %32
+  %retval.0.i = phi i64 [ %32, %if.end.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %invoke.cont43
 
 for.body:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit

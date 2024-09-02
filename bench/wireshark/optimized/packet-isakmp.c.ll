@@ -2345,10 +2345,10 @@ define internal fastcc void @dissect_payloads(ptr noundef %0, ptr noundef %1, i3
   %75 = getelementptr inbounds i8, ptr %9, i64 72
   br label %76
 
-76:                                               ; preds = %.lr.ph, %1628
-  %.0250 = phi i32 [ %4, %.lr.ph ], [ %1631, %1628 ]
-  %.0152249 = phi i8 [ %3, %.lr.ph ], [ %1633, %1628 ]
-  %.0153248 = phi i32 [ %5, %.lr.ph ], [ %1632, %1628 ]
+76:                                               ; preds = %.lr.ph, %1629
+  %.0250 = phi i32 [ %4, %.lr.ph ], [ %1631, %1629 ]
+  %.0152249 = phi i8 [ %3, %.lr.ph ], [ %1633, %1629 ]
+  %.0153248 = phi i32 [ %5, %.lr.ph ], [ %1632, %1629 ]
   %77 = icmp eq i8 %.0152249, 0
   br i1 %77, label %78, label %81
 
@@ -2362,7 +2362,7 @@ define internal fastcc void @dissect_payloads(ptr noundef %0, ptr noundef %1, i3
   %83 = load i16, ptr %53, align 2
   %84 = zext i16 %83 to i32
   %85 = icmp ugt i16 %83, 3
-  br i1 %85, label %86, label %1622
+  br i1 %85, label %86, label %1623
 
 86:                                               ; preds = %81
   call void @increment_dissection_depth(ptr noundef %6) #17
@@ -3337,7 +3337,7 @@ dissect_certreq.exit:                             ; preds = %.preheader.i, %532,
 566:                                              ; preds = %86, %86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
   %567 = add i32 %.0250, %84
-  br i1 %62, label %568, label %575
+  br i1 %62, label %568, label %576
 
 568:                                              ; preds = %566
   %569 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %87) #17
@@ -3345,105 +3345,106 @@ dissect_certreq.exit:                             ; preds = %.preheader.i, %532,
   %571 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %570, ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef 0) #17
   %572 = add i32 %.0250, 8
   %573 = add nsw i32 %84, -8
-  %574 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %572) #17
+  %574 = icmp eq i32 %569, 1
+  %575 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %572) #17
   br label %.sink.split.i165
 
-575:                                              ; preds = %566
-  %576 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %87) #17
-  br i1 %55, label %.sink.split.i165, label %579
+576:                                              ; preds = %566
+  %577 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %87) #17
+  br i1 %55, label %.sink.split.i165, label %580
 
-.sink.split.i165:                                 ; preds = %575, %568
-  %hf_isakmp_notify_protoid_v2.sink.i = phi ptr [ @hf_isakmp_notify_protoid_v1, %568 ], [ @hf_isakmp_notify_protoid_v2, %575 ]
-  %.sink358.i = phi i32 [ %572, %568 ], [ %87, %575 ]
-  %.ph.i = phi i8 [ %574, %568 ], [ %576, %575 ]
-  %.0303323.ph.i = phi i32 [ %573, %568 ], [ %88, %575 ]
-  %.0305321.ph.i = phi i32 [ %569, %568 ], [ 0, %575 ]
-  %577 = load i32, ptr %hf_isakmp_notify_protoid_v2.sink.i, align 4
-  %578 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %577, ptr noundef %0, i32 noundef %.sink358.i, i32 noundef 1, i32 noundef 0) #17
-  br label %579
+.sink.split.i165:                                 ; preds = %576, %568
+  %hf_isakmp_notify_protoid_v2.sink.i = phi ptr [ @hf_isakmp_notify_protoid_v1, %568 ], [ @hf_isakmp_notify_protoid_v2, %576 ]
+  %.sink358.i = phi i32 [ %572, %568 ], [ %87, %576 ]
+  %.ph.i = phi i8 [ %575, %568 ], [ %577, %576 ]
+  %.0303323.ph.i = phi i32 [ %573, %568 ], [ %88, %576 ]
+  %.0305321.ph.i = phi i1 [ %574, %568 ], [ false, %576 ]
+  %578 = load i32, ptr %hf_isakmp_notify_protoid_v2.sink.i, align 4
+  %579 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %578, ptr noundef %0, i32 noundef %.sink358.i, i32 noundef 1, i32 noundef 0) #17
+  br label %580
 
-579:                                              ; preds = %.sink.split.i165, %575
-  %580 = phi i8 [ %576, %575 ], [ %.ph.i, %.sink.split.i165 ]
-  %.0326.i = phi i32 [ %87, %575 ], [ %.sink358.i, %.sink.split.i165 ]
-  %.0303323.i = phi i32 [ %88, %575 ], [ %.0303323.ph.i, %.sink.split.i165 ]
-  %.0305321.i = phi i32 [ 0, %575 ], [ %.0305321.ph.i, %.sink.split.i165 ]
-  %581 = add i32 %.0326.i, 1
-  %582 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %581) #17
-  %583 = load i32, ptr @hf_isakmp_spisize, align 4
-  %584 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %583, ptr noundef %0, i32 noundef %581, i32 noundef 1, i32 noundef 0) #17
-  %585 = add i32 %.0326.i, 2
-  %586 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %585) #17
-  br i1 %62, label %587, label %590
+580:                                              ; preds = %.sink.split.i165, %576
+  %581 = phi i8 [ %577, %576 ], [ %.ph.i, %.sink.split.i165 ]
+  %.0326.i = phi i32 [ %87, %576 ], [ %.sink358.i, %.sink.split.i165 ]
+  %.0303323.i = phi i32 [ %88, %576 ], [ %.0303323.ph.i, %.sink.split.i165 ]
+  %.0305321.i = phi i1 [ false, %576 ], [ %.0305321.ph.i, %.sink.split.i165 ]
+  %582 = add i32 %.0326.i, 1
+  %583 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %582) #17
+  %584 = load i32, ptr @hf_isakmp_spisize, align 4
+  %585 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %584, ptr noundef %0, i32 noundef %582, i32 noundef 1, i32 noundef 0) #17
+  %586 = add i32 %.0326.i, 2
+  %587 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %586) #17
+  br i1 %62, label %588, label %591
 
-587:                                              ; preds = %579
-  %588 = load i32, ptr @hf_isakmp_notify_msgtype_v1, align 4
-  %589 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %588, ptr noundef %0, i32 noundef %585, i32 noundef 2, i32 noundef 0) #17
-  br label %604
+588:                                              ; preds = %580
+  %589 = load i32, ptr @hf_isakmp_notify_msgtype_v1, align 4
+  %590 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %589, ptr noundef %0, i32 noundef %586, i32 noundef 2, i32 noundef 0) #17
+  br label %605
 
-590:                                              ; preds = %579
-  br i1 %55, label %591, label %604
+591:                                              ; preds = %580
+  br i1 %55, label %592, label %605
 
-591:                                              ; preds = %590
-  %592 = zext i16 %586 to i32
-  %593 = icmp ult i16 %586, 8192
-  %594 = add i16 %586, -16384
-  %or.cond.i164 = icmp ult i16 %594, 24575
-  %or.cond315.i = or i1 %593, %or.cond.i164
-  %595 = load i32, ptr @hf_isakmp_notify_msgtype_v2, align 4
-  br i1 %or.cond315.i, label %596, label %600
+592:                                              ; preds = %591
+  %593 = zext i16 %587 to i32
+  %594 = icmp ult i16 %587, 8192
+  %595 = add i16 %587, -16384
+  %or.cond.i164 = icmp ult i16 %595, 24575
+  %or.cond315.i = or i1 %594, %or.cond.i164
+  %596 = load i32, ptr @hf_isakmp_notify_msgtype_v2, align 4
+  br i1 %or.cond315.i, label %597, label %601
 
-596:                                              ; preds = %591
-  %597 = call ptr @rval_to_str_const(i32 noundef %592, ptr noundef nonnull @notifmsg_v2_type, ptr noundef nonnull @.str.858) #17
-  %598 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %82, i32 noundef %595, ptr noundef %0, i32 noundef %585, i32 noundef 2, i32 noundef %592, ptr noundef nonnull @.str.822, ptr noundef %597, i32 noundef %592) #17
-  %599 = call ptr @rval_to_str_const(i32 noundef %592, ptr noundef nonnull @notifmsg_v2_type, ptr noundef nonnull @.str.858) #17
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %82, ptr noundef nonnull @.str.859, ptr noundef %599) #17
-  br label %604
+597:                                              ; preds = %592
+  %598 = call ptr @rval_to_str_const(i32 noundef %593, ptr noundef nonnull @notifmsg_v2_type, ptr noundef nonnull @.str.858) #17
+  %599 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %82, i32 noundef %596, ptr noundef %0, i32 noundef %586, i32 noundef 2, i32 noundef %593, ptr noundef nonnull @.str.822, ptr noundef %598, i32 noundef %593) #17
+  %600 = call ptr @rval_to_str_const(i32 noundef %593, ptr noundef nonnull @notifmsg_v2_type, ptr noundef nonnull @.str.858) #17
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %82, ptr noundef nonnull @.str.859, ptr noundef %600) #17
+  br label %605
 
-600:                                              ; preds = %591
-  %601 = call ptr @rval_to_str_const(i32 noundef %592, ptr noundef nonnull @notifmsg_v2_3gpp_type, ptr noundef nonnull @.str.858) #17
-  %602 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %82, i32 noundef %595, ptr noundef %0, i32 noundef %585, i32 noundef 2, i32 noundef %592, ptr noundef nonnull @.str.822, ptr noundef %601, i32 noundef %592) #17
-  %603 = call ptr @rval_to_str_const(i32 noundef %592, ptr noundef nonnull @notifmsg_v2_3gpp_type, ptr noundef nonnull @.str.858) #17
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %82, ptr noundef nonnull @.str.859, ptr noundef %603) #17
-  br label %604
+601:                                              ; preds = %592
+  %602 = call ptr @rval_to_str_const(i32 noundef %593, ptr noundef nonnull @notifmsg_v2_3gpp_type, ptr noundef nonnull @.str.858) #17
+  %603 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %82, i32 noundef %596, ptr noundef %0, i32 noundef %586, i32 noundef 2, i32 noundef %593, ptr noundef nonnull @.str.822, ptr noundef %602, i32 noundef %593) #17
+  %604 = call ptr @rval_to_str_const(i32 noundef %593, ptr noundef nonnull @notifmsg_v2_3gpp_type, ptr noundef nonnull @.str.858) #17
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %82, ptr noundef nonnull @.str.859, ptr noundef %604) #17
+  br label %605
 
-604:                                              ; preds = %600, %596, %590, %587
-  %605 = add i32 %.0326.i, 4
-  %606 = add nsw i32 %.0303323.i, -4
-  %.not.i161 = icmp eq i8 %582, 0
-  br i1 %.not.i161, label %613, label %607
+605:                                              ; preds = %601, %597, %591, %588
+  %606 = add i32 %.0326.i, 4
+  %607 = add nsw i32 %.0303323.i, -4
+  %.not.i161 = icmp eq i8 %583, 0
+  br i1 %.not.i161, label %614, label %608
 
-607:                                              ; preds = %604
-  %608 = load i32, ptr @hf_isakmp_spi, align 4
-  %609 = zext i8 %582 to i32
-  %610 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %608, ptr noundef %0, i32 noundef %605, i32 noundef %609, i32 noundef 0) #17
-  %611 = add i32 %605, %609
-  %612 = sub nsw i32 %606, %609
-  br label %613
+608:                                              ; preds = %605
+  %609 = load i32, ptr @hf_isakmp_spi, align 4
+  %610 = zext i8 %583 to i32
+  %611 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %609, ptr noundef %0, i32 noundef %606, i32 noundef %610, i32 noundef 0) #17
+  %612 = add i32 %606, %610
+  %613 = sub nsw i32 %607, %610
+  br label %614
 
-613:                                              ; preds = %607, %604
-  %.1304.i = phi i32 [ %612, %607 ], [ %606, %604 ]
-  %.1.i = phi i32 [ %611, %607 ], [ %605, %604 ]
-  %614 = load i32, ptr @hf_isakmp_notify_data, align 4
-  %615 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %614, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.1304.i, i32 noundef 0) #17
-  %616 = load i32, ptr @ett_isakmp_notify_data, align 4
-  %617 = call ptr @proto_item_add_subtree(ptr noundef %615, i32 noundef %616) #17
-  br i1 %62, label %618, label %685
+614:                                              ; preds = %608, %605
+  %.1304.i = phi i32 [ %613, %608 ], [ %607, %605 ]
+  %.1.i = phi i32 [ %612, %608 ], [ %606, %605 ]
+  %615 = load i32, ptr @hf_isakmp_notify_data, align 4
+  %616 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %615, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.1304.i, i32 noundef 0) #17
+  %617 = load i32, ptr @ett_isakmp_notify_data, align 4
+  %618 = call ptr @proto_item_add_subtree(ptr noundef %616, i32 noundef %617) #17
+  br i1 %62, label %619, label %685
 
-618:                                              ; preds = %613
-  switch i16 %586, label %dissect_notif.exit [
-    i16 24576, label %619
+619:                                              ; preds = %614
+  switch i16 %587, label %dissect_notif.exit [
+    i16 24576, label %620
     i16 -29400, label %676
     i16 -29399, label %679
     i16 -25035, label %682
   ]
 
-619:                                              ; preds = %618
-  %620 = icmp eq i8 %580, 1
-  br i1 %620, label %.preheader.i163, label %647
+620:                                              ; preds = %619
+  %621 = icmp eq i8 %581, 1
+  br i1 %621, label %.preheader.i163, label %648
 
-.preheader.i163:                                  ; preds = %619
-  %621 = icmp slt i32 %.1.i, %567
-  br i1 %621, label %.lr.ph344.i, label %dissect_notif.exit
+.preheader.i163:                                  ; preds = %620
+  %622 = icmp slt i32 %.1.i, %567
+  br i1 %622, label %.lr.ph344.i, label %dissect_notif.exit
 
 .lr.ph344.i:                                      ; preds = %.preheader.i163, %dissect_resp_lifetime_ike_attribute.exit.i
   %.2343.i = phi i32 [ %.pre-phi.i, %dissect_resp_lifetime_ike_attribute.exit.i ], [ %.1.i, %.preheader.i163 ]
@@ -3452,75 +3453,74 @@ dissect_certreq.exit:                             ; preds = %.preheader.i, %532,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
-  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %617, i32 noundef %.2343.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_resp_lifetime_ike_attr, ptr noundef nonnull @ike_attr_type, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36)
-  %622 = load i32, ptr %32, align 4
-  %623 = add i32 %622, %.2343.i
-  %624 = load i32, ptr %33, align 4
-  %625 = icmp eq i32 %624, 0
-  br i1 %625, label %626, label %629
+  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %618, i32 noundef %.2343.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_resp_lifetime_ike_attr, ptr noundef nonnull @ike_attr_type, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36)
+  %623 = load i32, ptr %32, align 4
+  %624 = add i32 %623, %.2343.i
+  %625 = load i32, ptr %33, align 4
+  %626 = icmp eq i32 %625, 0
+  br i1 %626, label %627, label %630
 
-626:                                              ; preds = %.lr.ph344.i
-  %627 = load ptr, ptr %35, align 8
-  %628 = call ptr @expert_add_info(ptr noundef %6, ptr noundef %627, ptr noundef nonnull @ei_isakmp_attribute_value_empty) #17
+627:                                              ; preds = %.lr.ph344.i
+  %628 = load ptr, ptr %35, align 8
+  %629 = call ptr @expert_add_info(ptr noundef %6, ptr noundef %628, ptr noundef nonnull @ei_isakmp_attribute_value_empty) #17
   br label %dissect_resp_lifetime_ike_attribute.exit.i
 
-629:                                              ; preds = %.lr.ph344.i
-  %630 = load i32, ptr %34, align 4
-  switch i32 %630, label %645 [
-    i32 11, label %631
-    i32 12, label %639
+630:                                              ; preds = %.lr.ph344.i
+  %631 = load i32, ptr %34, align 4
+  switch i32 %631, label %646 [
+    i32 11, label %632
+    i32 12, label %640
   ]
 
-631:                                              ; preds = %629
-  %632 = load ptr, ptr %36, align 8
-  %633 = load i32, ptr @hf_isakmp_resp_lifetime_ike_attr_life_type, align 4
-  %634 = call ptr @proto_tree_add_item(ptr noundef %632, i32 noundef %633, ptr noundef %0, i32 noundef %623, i32 noundef %624, i32 noundef 0) #17
-  %635 = load ptr, ptr %35, align 8
-  %636 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %623) #17
-  %637 = zext i16 %636 to i32
-  %638 = call ptr @val_to_str(i32 noundef %637, ptr noundef nonnull @attr_life_type, ptr noundef nonnull @.str.847) #17
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %635, ptr noundef nonnull @.str.846, ptr noundef %638) #17
-  br label %645
+632:                                              ; preds = %630
+  %633 = load ptr, ptr %36, align 8
+  %634 = load i32, ptr @hf_isakmp_resp_lifetime_ike_attr_life_type, align 4
+  %635 = call ptr @proto_tree_add_item(ptr noundef %633, i32 noundef %634, ptr noundef %0, i32 noundef %624, i32 noundef %625, i32 noundef 0) #17
+  %636 = load ptr, ptr %35, align 8
+  %637 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %624) #17
+  %638 = zext i16 %637 to i32
+  %639 = call ptr @val_to_str(i32 noundef %638, ptr noundef nonnull @attr_life_type, ptr noundef nonnull @.str.847) #17
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %636, ptr noundef nonnull @.str.846, ptr noundef %639) #17
+  br label %646
 
-639:                                              ; preds = %629
-  %640 = load ptr, ptr %36, align 8
-  %641 = load ptr, ptr %35, align 8
-  %642 = load i32, ptr @hf_isakmp_resp_lifetime_ike_attr_life_duration_uint32, align 4
-  %643 = load i32, ptr @hf_isakmp_resp_lifetime_ike_attr_life_duration_uint64, align 4
-  %644 = load i32, ptr @hf_isakmp_resp_lifetime_ike_attr_life_duration_bytes, align 4
-  call fastcc void @dissect_life_duration(ptr noundef %0, ptr noundef %640, ptr noundef %641, i32 noundef %642, i32 noundef %643, i32 noundef %644, i32 noundef %623, i32 noundef %624)
-  br label %645
+640:                                              ; preds = %630
+  %641 = load ptr, ptr %36, align 8
+  %642 = load ptr, ptr %35, align 8
+  %643 = load i32, ptr @hf_isakmp_resp_lifetime_ike_attr_life_duration_uint32, align 4
+  %644 = load i32, ptr @hf_isakmp_resp_lifetime_ike_attr_life_duration_uint64, align 4
+  %645 = load i32, ptr @hf_isakmp_resp_lifetime_ike_attr_life_duration_bytes, align 4
+  call fastcc void @dissect_life_duration(ptr noundef %0, ptr noundef %641, ptr noundef %642, i32 noundef %643, i32 noundef %644, i32 noundef %645, i32 noundef %624, i32 noundef %625)
+  br label %646
 
-645:                                              ; preds = %639, %631, %629
-  %.pre.i = add i32 %623, %624
+646:                                              ; preds = %640, %632, %630
+  %.pre.i = add i32 %624, %625
   br label %dissect_resp_lifetime_ike_attribute.exit.i
 
-dissect_resp_lifetime_ike_attribute.exit.i:       ; preds = %645, %626
-  %.pre-phi.i = phi i32 [ %623, %626 ], [ %.pre.i, %645 ]
+dissect_resp_lifetime_ike_attribute.exit.i:       ; preds = %646, %627
+  %.pre-phi.i = phi i32 [ %624, %627 ], [ %.pre.i, %646 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
-  %646 = icmp slt i32 %.pre-phi.i, %567
-  br i1 %646, label %.lr.ph344.i, label %dissect_notif.exit, !llvm.loop !9
+  %647 = icmp slt i32 %.pre-phi.i, %567
+  br i1 %647, label %.lr.ph344.i, label %dissect_notif.exit, !llvm.loop !9
 
-647:                                              ; preds = %619
-  %648 = icmp ne i8 %580, 0
-  %649 = icmp eq i32 %.0305321.i, 1
-  %or.cond4.i = select i1 %648, i1 %649, i1 false
+648:                                              ; preds = %620
+  %649 = icmp ne i8 %581, 0
+  %or.cond4.i = select i1 %649, i1 %.0305321.i, i1 false
   %650 = icmp slt i32 %.1.i, %567
   %or.cond345.i = and i1 %or.cond4.i, %650
   br i1 %or.cond345.i, label %.lr.ph342.i, label %dissect_notif.exit
 
-.lr.ph342.i:                                      ; preds = %647, %dissect_resp_lifetime_ipsec_attribute.exit.i
-  %.3341.i = phi i32 [ %.pre-phi351.i, %dissect_resp_lifetime_ipsec_attribute.exit.i ], [ %.1.i, %647 ]
+.lr.ph342.i:                                      ; preds = %648, %dissect_resp_lifetime_ipsec_attribute.exit.i
+  %.3341.i = phi i32 [ %.pre-phi351.i, %dissect_resp_lifetime_ipsec_attribute.exit.i ], [ %.1.i, %648 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
-  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %617, i32 noundef %.3341.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_resp_lifetime_ipsec_attr, ptr noundef nonnull @ipsec_attr_type, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31)
+  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %618, i32 noundef %.3341.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_resp_lifetime_ipsec_attr, ptr noundef nonnull @ipsec_attr_type, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31)
   %651 = load i32, ptr %27, align 4
   %652 = add i32 %651, %.3341.i
   %653 = load i32, ptr %28, align 4
@@ -3573,26 +3573,26 @@ dissect_resp_lifetime_ipsec_attribute.exit.i:     ; preds = %674, %655
   %675 = icmp slt i32 %.pre-phi351.i, %567
   br i1 %675, label %.lr.ph342.i, label %dissect_notif.exit, !llvm.loop !10
 
-676:                                              ; preds = %618
+676:                                              ; preds = %619
   %677 = load i32, ptr @hf_isakmp_notify_data_dpd_are_you_there, align 4
   %678 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %677, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.1304.i, i32 noundef 0) #17
   br label %dissect_notif.exit
 
-679:                                              ; preds = %618
+679:                                              ; preds = %619
   %680 = load i32, ptr @hf_isakmp_notify_data_dpd_are_you_there_ack, align 4
   %681 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %680, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.1304.i, i32 noundef 0) #17
   br label %dissect_notif.exit
 
-682:                                              ; preds = %618
+682:                                              ; preds = %619
   %683 = load i32, ptr @hf_isakmp_notify_data_unity_load_balance, align 4
   %684 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %683, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.1304.i, i32 noundef 0) #17
   br label %dissect_notif.exit
 
-685:                                              ; preds = %613
+685:                                              ; preds = %614
   br i1 %55, label %686, label %dissect_notif.exit
 
 686:                                              ; preds = %685
-  switch i16 %586, label %dissect_notif.exit [
+  switch i16 %587, label %dissect_notif.exit [
     i16 17, label %689
     i16 16387, label %692
     i16 16403, label %698
@@ -3910,7 +3910,7 @@ dissect_rohc_attribute.exit.i:                    ; preds = %784, %774
   %864 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %863, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.1304.i, i32 noundef 0) #17
   br label %dissect_notif.exit
 
-dissect_notif.exit:                               ; preds = %.lr.ph.i162, %.lr.ph338.i, %dissect_rohc_attribute.exit.i, %dissect_resp_lifetime_ipsec_attribute.exit.i, %dissect_resp_lifetime_ike_attribute.exit.i, %618, %.preheader.i163, %647, %676, %679, %682, %685, %686, %.preheader333.i, %.preheader331.i, %689, %692, %698, %730, %735, %749, %752, %755, %760, %767, %786, %789, %798, %801, %808, %813, %815, %827, %830, %833, %835, %837, %862
+dissect_notif.exit:                               ; preds = %.lr.ph.i162, %.lr.ph338.i, %dissect_rohc_attribute.exit.i, %dissect_resp_lifetime_ipsec_attribute.exit.i, %dissect_resp_lifetime_ike_attribute.exit.i, %619, %.preheader.i163, %648, %676, %679, %682, %685, %686, %.preheader333.i, %.preheader331.i, %689, %692, %698, %730, %735, %749, %752, %755, %760, %767, %786, %789, %798, %801, %808, %813, %815, %827, %830, %833, %835, %837, %862
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
   br label %dissect_sa.exit
 
@@ -5277,31 +5277,31 @@ dissect_ts.exit.i:                                ; preds = %.sink.split.i.i186,
 dissect_sa.exit:                                  ; preds = %dissect_ts.exit.i, %dissect_config_attribute.exit.i, %.preheader.i169, %1615, %1579, %1501, %1475, %.sink.split18.i, %1470, %1456, %1454, %1366, %1331, %1329, %968, %962, %955, %.thread98.i, %952, %873, %addresses_equal.exit45.thread.sink.split.i, %460, %458, %addresses_equal.exit.i, %427, %138, %135, %134, %133, %122, %118, %103, %99, %89, %1507, %1445, %1446, %1619, %1616, %1462, %1459, %dissect_auth.exit, %dissect_key_download.exit, %1255, %1254, %dissect_notif.exit, %563, %560, %557, %dissect_certreq.exit, %dissect_cert.exit, %dissect_id.exit, %dissect_proposal.exit
   call void @increment_dissection_depth(ptr noundef %6) #17
   %.pre = load i16, ptr %53, align 2
-  br label %1628
+  %1622 = zext i16 %.pre to i32
+  br label %1629
 
-1622:                                             ; preds = %81
-  %1623 = icmp ult i32 %.0153248, %84
-  br i1 %1623, label %1624, label %1626
+1623:                                             ; preds = %81
+  %1624 = icmp ult i32 %.0153248, %84
+  br i1 %1624, label %1625, label %1627
 
-1624:                                             ; preds = %1622
-  %1625 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %82, ptr noundef %6, ptr noundef nonnull @ei_isakmp_payload_bad_length, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.816, i32 noundef %84, i32 noundef %.0153248) #17
+1625:                                             ; preds = %1623
+  %1626 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %82, ptr noundef %6, ptr noundef nonnull @ei_isakmp_payload_bad_length, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.816, i32 noundef %84, i32 noundef %.0153248) #17
   br label %.loopexit
 
-1626:                                             ; preds = %1622
-  %1627 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %82, ptr noundef %6, ptr noundef nonnull @ei_isakmp_payload_bad_length, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.817, i32 noundef %84) #17
+1627:                                             ; preds = %1623
+  %1628 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %82, ptr noundef %6, ptr noundef nonnull @ei_isakmp_payload_bad_length, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.817, i32 noundef %84) #17
   store i16 4, ptr %53, align 2
-  br label %1628
+  br label %1629
 
-1628:                                             ; preds = %1626, %dissect_sa.exit
-  %1629 = phi i16 [ 4, %1626 ], [ %.pre, %dissect_sa.exit ]
-  %1630 = zext i16 %1629 to i32
+1629:                                             ; preds = %1627, %dissect_sa.exit
+  %1630 = phi i32 [ 4, %1627 ], [ %1622, %dissect_sa.exit ]
   %1631 = add i32 %.0250, %1630
   %1632 = sub nsw i32 %.0153248, %1630
   %1633 = load i8, ptr %52, align 1
   %1634 = icmp sgt i32 %1632, 0
   br i1 %1634, label %76, label %.loopexit, !llvm.loop !32
 
-.loopexit:                                        ; preds = %1628, %10, %1624, %78
+.loopexit:                                        ; preds = %1629, %10, %1625, %78
   ret void
 }
 

@@ -192,72 +192,63 @@ h5tools_str_reset.exit:                           ; preds = %2, %5
   %26 = getelementptr inbounds i8, ptr %1, i64 2
   br label %27
 
-27:                                               ; preds = %.lr.ph, %42
-  %28 = phi i32 [ %23, %.lr.ph ], [ %55, %42 ]
-  %29 = phi i64 [ %19, %.lr.ph ], [ %51, %42 ]
+27:                                               ; preds = %.lr.ph, %.tail.thread
+  %28 = phi i32 [ %23, %.lr.ph ], [ %49, %.tail.thread ]
+  %29 = phi i64 [ %19, %.lr.ph ], [ %45, %.tail.thread ]
   %30 = zext nneg i32 %28 to i64
   %.not34 = icmp ugt i64 %29, %30
-  br i1 %.not34, label %31, label %42
+  br i1 %.not34, label %31, label %.tail.thread
 
 31:                                               ; preds = %27
   %32 = icmp eq i32 %28, 0
-  br i1 %32, label %sub_0, label %57
+  br i1 %32, label %sub_0, label %51
 
 sub_0:                                            ; preds = %31
   %33 = load i8, ptr %1, align 1
-  %34 = zext i8 %33 to i32
-  %35 = add nsw i32 %34, -37
-  %.not38 = icmp eq i32 %35, 0
-  br i1 %.not38, label %sub_1, label %.tail
+  %.not38 = icmp eq i8 %33, 37
+  br i1 %.not38, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %36 = load i8, ptr %25, align 1
-  %37 = zext i8 %36 to i32
-  %38 = add nsw i32 %37, -115
-  %.not39 = icmp eq i32 %38, 0
-  br i1 %.not39, label %sub_2, label %.tail
+  %34 = load i8, ptr %25, align 1
+  %.not39 = icmp eq i8 %34, 115
+  br i1 %.not39, label %.tail, label %.tail.thread
 
-sub_2:                                            ; preds = %sub_1
-  %39 = load i8, ptr %26, align 1
-  %40 = zext i8 %39 to i32
-  br label %.tail
+.tail:                                            ; preds = %sub_1
+  %35 = load i8, ptr %26, align 1
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %51, label %.tail.thread
 
-.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
-  %41 = phi i32 [ %35, %sub_0 ], [ %38, %sub_1 ], [ %40, %sub_2 ]
-  %.not35 = icmp eq i32 %41, 0
-  br i1 %.not35, label %57, label %42
-
-42:                                               ; preds = %.tail, %27
-  %43 = load i64, ptr %17, align 8
-  %44 = add nuw nsw i64 %30, 1
-  %45 = add i64 %44, %43
-  %46 = load i64, ptr %16, align 8
-  %47 = shl i64 %46, 1
-  %. = call i64 @llvm.umax.i64(i64 %45, i64 %47)
-  %48 = load ptr, ptr %0, align 8
-  %49 = call ptr @realloc(ptr noundef %48, i64 noundef %.) #22
-  store ptr %49, ptr %0, align 8
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail, %27
+  %37 = load i64, ptr %17, align 8
+  %38 = add nuw nsw i64 %30, 1
+  %39 = add i64 %38, %37
+  %40 = load i64, ptr %16, align 8
+  %41 = shl i64 %40, 1
+  %. = call i64 @llvm.umax.i64(i64 %39, i64 %41)
+  %42 = load ptr, ptr %0, align 8
+  %43 = call ptr @realloc(ptr noundef %42, i64 noundef %.) #22
+  store ptr %43, ptr %0, align 8
   store i64 %., ptr %16, align 8
-  %50 = load i64, ptr %17, align 8
-  %51 = sub i64 %., %50
+  %44 = load i64, ptr %17, align 8
+  %45 = sub i64 %., %44
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %52 = load ptr, ptr %0, align 8
-  %53 = load i64, ptr %17, align 8
-  %54 = getelementptr inbounds i8, ptr %52, i64 %53
-  %55 = call i32 @vsnprintf(ptr noundef %54, i64 noundef %51, ptr noundef nonnull %1, ptr noundef nonnull %3) #20
+  %46 = load ptr, ptr %0, align 8
+  %47 = load i64, ptr %17, align 8
+  %48 = getelementptr inbounds i8, ptr %46, i64 %47
+  %49 = call i32 @vsnprintf(ptr noundef %48, i64 noundef %45, ptr noundef nonnull %1, ptr noundef nonnull %3) #20
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %56 = icmp slt i32 %55, 0
-  br i1 %56, label %.loopexit, label %27
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %.loopexit, label %27
 
-57:                                               ; preds = %.tail, %31
-  %58 = load i64, ptr %17, align 8
-  %59 = add i64 %58, %30
-  store i64 %59, ptr %17, align 8
-  %60 = load ptr, ptr %0, align 8
+51:                                               ; preds = %.tail, %31
+  %52 = load i64, ptr %17, align 8
+  %53 = add i64 %52, %30
+  store i64 %53, ptr %17, align 8
+  %54 = load ptr, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %12, %.preheader, %57
-  %.0 = phi ptr [ %60, %57 ], [ null, %.preheader ], [ %13, %12 ], [ null, %42 ]
+.loopexit:                                        ; preds = %.tail.thread, %12, %.preheader, %51
+  %.0 = phi ptr [ %54, %51 ], [ null, %.preheader ], [ %13, %12 ], [ null, %.tail.thread ]
   ret ptr %.0
 }
 

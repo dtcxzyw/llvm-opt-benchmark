@@ -479,13 +479,13 @@ define hidden void @xmpp_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   br label %8
 
-8:                                                ; preds = %.lr.ph, %69
-  %.043 = phi ptr [ %.041, %.lr.ph ], [ %.0, %69 ]
+8:                                                ; preds = %.lr.ph, %62
+  %.043 = phi ptr [ %.041, %.lr.ph ], [ %.0, %62 ]
   %9 = load ptr, ptr %.043, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 56
   %11 = load i32, ptr %10, align 8
   %.not29 = icmp eq i32 %11, 0
-  br i1 %.not29, label %12, label %69
+  br i1 %.not29, label %12, label %62
 
 12:                                               ; preds = %8
   %13 = load i32, ptr @hf_xmpp_unknown, align 4
@@ -528,89 +528,80 @@ xmpp_ep_string_upcase.exit:                       ; preds = %.lr.ph.i, %12
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #8
   %34 = load ptr, ptr %3, align 8
   %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  %37 = add nsw i32 %36, -105
-  %.not44 = icmp eq i32 %37, 0
-  br i1 %.not44, label %sub_1, label %xmpp_ep_string_upcase.exit.tail
+  %.not44 = icmp eq i8 %35, 105
+  br i1 %.not44, label %sub_1, label %xmpp_ep_string_upcase.exit.tail.thread
 
 sub_1:                                            ; preds = %xmpp_ep_string_upcase.exit
-  %38 = getelementptr inbounds i8, ptr %34, i64 1
+  %36 = getelementptr inbounds i8, ptr %34, i64 1
+  %37 = load i8, ptr %36, align 1
+  %.not45 = icmp eq i8 %37, 113
+  br i1 %.not45, label %xmpp_ep_string_upcase.exit.tail, label %xmpp_ep_string_upcase.exit.tail.thread
+
+xmpp_ep_string_upcase.exit.tail:                  ; preds = %sub_1
+  %38 = getelementptr inbounds i8, ptr %34, i64 2
   %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = add nsw i32 %40, -113
-  %.not45 = icmp eq i32 %41, 0
-  br i1 %.not45, label %sub_2, label %xmpp_ep_string_upcase.exit.tail
+  %40 = icmp eq i8 %39, 0
+  br i1 %40, label %41, label %xmpp_ep_string_upcase.exit.tail.thread
 
-sub_2:                                            ; preds = %sub_1
-  %42 = getelementptr inbounds i8, ptr %34, i64 2
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  br label %xmpp_ep_string_upcase.exit.tail
+41:                                               ; preds = %xmpp_ep_string_upcase.exit.tail
+  %42 = load ptr, ptr %7, align 8
+  %43 = load ptr, ptr %6, align 8
+  %44 = load ptr, ptr %9, align 8
+  %45 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %44) #9
+  %46 = trunc i64 %45 to i32
+  %47 = shl i64 %45, 32
+  %sext.i31 = add i64 %47, 4294967296
+  %48 = ashr exact i64 %sext.i31, 32
+  %49 = tail call noalias ptr @wmem_alloc0(ptr noundef %43, i64 noundef %48) #8
+  %50 = icmp sgt i32 %46, 0
+  br i1 %50, label %.lr.ph.preheader.i32, label %xmpp_ep_string_upcase.exit40
 
-xmpp_ep_string_upcase.exit.tail:                  ; preds = %xmpp_ep_string_upcase.exit, %sub_1, %sub_2
-  %45 = phi i32 [ %37, %xmpp_ep_string_upcase.exit ], [ %41, %sub_1 ], [ %44, %sub_2 ]
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %62
-
-47:                                               ; preds = %xmpp_ep_string_upcase.exit.tail
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = load ptr, ptr %9, align 8
-  %51 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %50) #9
-  %52 = trunc i64 %51 to i32
-  %53 = shl i64 %51, 32
-  %sext.i31 = add i64 %53, 4294967296
-  %54 = ashr exact i64 %sext.i31, 32
-  %55 = tail call noalias ptr @wmem_alloc0(ptr noundef %49, i64 noundef %54) #8
-  %56 = icmp sgt i32 %52, 0
-  br i1 %56, label %.lr.ph.preheader.i32, label %xmpp_ep_string_upcase.exit40
-
-.lr.ph.preheader.i32:                             ; preds = %47
-  %wide.trip.count.i33 = and i64 %51, 2147483647
+.lr.ph.preheader.i32:                             ; preds = %41
+  %wide.trip.count.i33 = and i64 %45, 2147483647
   br label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34, %.lr.ph.preheader.i32
   %indvars.iv.i35 = phi i64 [ 0, %.lr.ph.preheader.i32 ], [ %indvars.iv.next.i38, %.lr.ph.i34 ]
-  %57 = getelementptr i8, ptr %50, i64 %indvars.iv.i35
-  %58 = load i8, ptr %57, align 1
-  %59 = getelementptr i8, ptr %55, i64 %indvars.iv.i35
-  %60 = add i8 %58, -97
-  %or.cond.i36 = icmp ult i8 %60, 26
-  %61 = add nsw i8 %58, -32
-  %spec.select.i37 = select i1 %or.cond.i36, i8 %61, i8 %58
-  store i8 %spec.select.i37, ptr %59, align 1
+  %51 = getelementptr i8, ptr %44, i64 %indvars.iv.i35
+  %52 = load i8, ptr %51, align 1
+  %53 = getelementptr i8, ptr %49, i64 %indvars.iv.i35
+  %54 = add i8 %52, -97
+  %or.cond.i36 = icmp ult i8 %54, 26
+  %55 = add nsw i8 %52, -32
+  %spec.select.i37 = select i1 %or.cond.i36, i8 %55, i8 %52
+  store i8 %spec.select.i37, ptr %53, align 1
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i33
   br i1 %exitcond.not.i39, label %xmpp_ep_string_upcase.exit40, label %.lr.ph.i34, !llvm.loop !4
 
-xmpp_ep_string_upcase.exit40:                     ; preds = %.lr.ph.i34, %47
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.12, ptr noundef %55) #8
-  br label %62
+xmpp_ep_string_upcase.exit40:                     ; preds = %.lr.ph.i34, %41
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.12, ptr noundef %49) #8
+  br label %xmpp_ep_string_upcase.exit.tail.thread
 
-62:                                               ; preds = %xmpp_ep_string_upcase.exit40, %xmpp_ep_string_upcase.exit.tail
-  %63 = getelementptr inbounds i8, ptr %9, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %.not30 = icmp eq ptr %64, null
-  br i1 %.not30, label %66, label %65
+xmpp_ep_string_upcase.exit.tail.thread:           ; preds = %sub_1, %xmpp_ep_string_upcase.exit, %xmpp_ep_string_upcase.exit40, %xmpp_ep_string_upcase.exit.tail
+  %56 = getelementptr inbounds i8, ptr %9, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %.not30 = icmp eq ptr %57, null
+  br i1 %.not30, label %59, label %58
 
-65:                                               ; preds = %62
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.13, ptr noundef nonnull %64) #8
-  br label %66
+58:                                               ; preds = %xmpp_ep_string_upcase.exit.tail.thread
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.13, ptr noundef nonnull %57) #8
+  br label %59
 
-66:                                               ; preds = %65, %62
+59:                                               ; preds = %58, %xmpp_ep_string_upcase.exit.tail.thread
   tail call fastcc void @xmpp_unknown_items(ptr noundef %33, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, i32 noundef 1)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.14) #8
-  %67 = load ptr, ptr %9, align 8
-  %68 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %31, ptr noundef nonnull @ei_xmpp_unknown_element, ptr noundef nonnull @.str.15, ptr noundef %67) #8
-  br label %69
+  %60 = load ptr, ptr %9, align 8
+  %61 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %31, ptr noundef nonnull @ei_xmpp_unknown_element, ptr noundef nonnull @.str.15, ptr noundef %60) #8
+  br label %62
 
-69:                                               ; preds = %66, %8
-  %70 = getelementptr inbounds i8, ptr %.043, i64 8
-  %.0 = load ptr, ptr %70, align 8
+62:                                               ; preds = %59, %8
+  %63 = getelementptr inbounds i8, ptr %.043, i64 8
+  %.0 = load ptr, ptr %63, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %69, %4
+._crit_edge:                                      ; preds = %62, %4
   ret void
 }
 

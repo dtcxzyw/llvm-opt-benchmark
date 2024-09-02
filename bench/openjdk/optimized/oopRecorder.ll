@@ -1369,7 +1369,7 @@ _ZN17GrowableArrayViewIN12ObjectLookup11ObjectEntryEE4sortEPFiPS1_S3_E.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN12ObjectLookup15sort_by_addressEPNS_11ObjectEntryES1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN12ObjectLookup15sort_by_addressEPNS_11ObjectEntryES1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNK12ObjectLookup11ObjectEntry9oop_valueEv.exit, label %4
@@ -1438,7 +1438,7 @@ _ZNK12ObjectLookup11ObjectEntry9oop_valueEv.exit4: ; preds = %_ZNK12ObjectLookup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN12ObjectLookup15sort_by_addressEP7oopDescS1_(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN12ObjectLookup15sort_by_addressEP7oopDescS1_(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ugt ptr %0, %1
   %..i.neg = sext i1 %4 to i32
@@ -1447,7 +1447,7 @@ define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN12ObjectLookup
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN12ObjectLookup19sort_oop_by_addressERKP7oopDescRKNS_11ObjectEntryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -2397,7 +2397,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN13ValueRecorderI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN17ExternalsRecorder5countEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN17ExternalsRecorder5countEv() local_unnamed_addr #0 align 2 {
   %1 = load ptr, ptr @ExternalsRecorder_lock, align 8
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %2

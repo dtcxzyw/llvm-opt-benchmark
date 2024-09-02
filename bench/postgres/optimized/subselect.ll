@@ -3199,11 +3199,11 @@ get_first_col_type.exit:                          ; preds = %28, %36
 
 ._crit_edge.loopexit:                             ; preds = %59
   %.pre = load ptr, ptr %44, align 8
+  %69 = icmp eq ptr %.pre, null
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %get_first_col_type.exit
-  %69 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %.lr.ph ], [ null, %get_first_col_type.exit ]
-  %70 = icmp eq ptr %69, null
+  %70 = phi i1 [ %69, %._crit_edge.loopexit ], [ true, %.lr.ph ], [ true, %get_first_col_type.exit ]
   %71 = icmp eq i32 %4, 0
   %or.cond = and i1 %71, %70
   br i1 %or.cond, label %72, label %78

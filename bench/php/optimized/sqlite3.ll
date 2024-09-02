@@ -3491,141 +3491,141 @@ define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr nocapture noundef
   %7 = getelementptr inbounds i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %8, 1
-  br i1 %9, label %.thread222, label %10
+  br i1 %9, label %.thread226, label %10
 
-.thread222:                                       ; preds = %2
+.thread226:                                       ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #17
-  br label %19
+  br label %.thread239
 
 10:                                               ; preds = %2
   %11 = icmp eq i32 %8, 0
-  br i1 %11, label %.thread216, label %12
+  br i1 %11, label %.thread220, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8
   switch i8 %14, label %16 [
-    i8 3, label %.thread232
+    i8 3, label %.thread216
     i8 2, label %15
   ]
 
 15:                                               ; preds = %12
-  br label %.thread232
+  br label %.thread216
 
-.thread232:                                       ; preds = %15, %12
+.thread216:                                       ; preds = %15, %12
   %storemerge = phi i8 [ 0, %15 ], [ 1, %12 ]
   store i8 %storemerge, ptr %3, align 1
-  br label %.thread216
+  br label %.thread220
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 80
   %18 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %17, ptr noundef nonnull %3, i32 noundef 1) #17
-  %cond.fr205 = freeze i1 %18
-  br i1 %cond.fr205, label %.thread216, label %19
+  %.fr = freeze i1 %18
+  br i1 %.fr, label %.thread220, label %.thread239
 
-19:                                               ; preds = %16, %.thread222
-  %.0191231 = phi i32 [ 0, %.thread222 ], [ 1, %16 ]
-  %.0192230 = phi ptr [ null, %.thread222 ], [ %17, %16 ]
-  %.0193229 = phi i32 [ 0, %.thread222 ], [ 2, %16 ]
-  %.0194228 = phi i32 [ 1, %.thread222 ], [ 9, %16 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0194228, i32 noundef %.0191231, ptr noundef null, i32 noundef %.0193229, ptr noundef %.0192230) #17
-  br label %66
+.thread239:                                       ; preds = %16, %.thread226
+  %.0191235 = phi i32 [ 0, %.thread226 ], [ 1, %16 ]
+  %.0192234 = phi ptr [ null, %.thread226 ], [ %17, %16 ]
+  %.0193233 = phi i32 [ 0, %.thread226 ], [ 2, %16 ]
+  %.0194232 = phi i32 [ 1, %.thread226 ], [ 9, %16 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0194232, i32 noundef %.0191235, ptr noundef null, i32 noundef %.0193233, ptr noundef %.0192234) #17
+  br label %65
 
-.thread216:                                       ; preds = %16, %.thread232, %10
-  %20 = getelementptr inbounds i8, ptr %5, i64 -40
-  %21 = load ptr, ptr %20, align 8
-  %.not199 = icmp eq ptr %21, null
-  br i1 %.not199, label %25, label %22
+.thread220:                                       ; preds = %16, %.thread216, %10
+  %19 = getelementptr inbounds i8, ptr %5, i64 -40
+  %20 = load ptr, ptr %19, align 8
+  %.not199 = icmp eq ptr %20, null
+  br i1 %.not199, label %24, label %21
 
-22:                                               ; preds = %.thread216
-  %23 = getelementptr inbounds i8, ptr %5, i64 -16
-  %24 = load i32, ptr %23, align 8
-  %.not200 = icmp eq i32 %24, 0
-  br i1 %.not200, label %25, label %28
+21:                                               ; preds = %.thread220
+  %22 = getelementptr inbounds i8, ptr %5, i64 -16
+  %23 = load i32, ptr %22, align 8
+  %.not200 = icmp eq i32 %23, 0
+  br i1 %.not200, label %24, label %27
 
-25:                                               ; preds = %22, %.thread216
+24:                                               ; preds = %21, %.thread220
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.8) #17
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %27 = icmp ne ptr %26, null
-  call void @llvm.assume(i1 %27)
-  br label %66
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = icmp ne ptr %25, null
+  call void @llvm.assume(i1 %26)
+  br label %65
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr %6, align 8
-  %.not201 = icmp eq ptr %29, null
-  br i1 %.not201, label %30, label %33
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %6, align 8
+  %.not201 = icmp eq ptr %28, null
+  br i1 %.not201, label %29, label %32
 
-30:                                               ; preds = %28
+29:                                               ; preds = %27
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.39) #17
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
-  br label %66
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = icmp ne ptr %30, null
+  call void @llvm.assume(i1 %31)
+  br label %65
 
-33:                                               ; preds = %28
-  %34 = call fastcc i32 @php_sqlite3_bind_params(ptr noundef nonnull %6)
-  %35 = icmp ne i32 %34, -1
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not202 = icmp eq ptr %36, null
-  %or.cond = select i1 %35, i1 %.not202, i1 false
-  br i1 %or.cond, label %39, label %37
+32:                                               ; preds = %27
+  %33 = call fastcc i32 @php_sqlite3_bind_params(ptr noundef nonnull %6)
+  %34 = icmp ne i32 %33, -1
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not202 = icmp eq ptr %35, null
+  %or.cond = select i1 %34, i1 %.not202, i1 false
+  br i1 %or.cond, label %38, label %36
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %38, align 8
-  br label %66
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %37, align 8
+  br label %65
 
-39:                                               ; preds = %33
-  %40 = load i8, ptr %3, align 1
-  %41 = trunc i8 %40 to i1
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %41, label %44, label %55
+38:                                               ; preds = %32
+  %39 = load i8, ptr %3, align 1
+  %40 = trunc i8 %39 to i1
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  br i1 %40, label %43, label %54
 
-44:                                               ; preds = %39
-  %45 = call ptr @sqlite3_expanded_sql(ptr noundef %42) #17
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #18
-  %47 = and i64 %46, -8
-  %48 = add i64 %47, 32
-  %49 = call noalias ptr @_emalloc(i64 noundef %48) #19
-  store i32 1, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %49, i64 4
-  store i32 22, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
-  store i64 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 16
-  store i64 %46, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %49, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr align 1 %45, i64 %46, i1 false)
-  %54 = getelementptr inbounds [1 x i8], ptr %53, i64 0, i64 %46
-  store i8 0, ptr %54, align 1
-  store ptr %49, ptr %1, align 8
-  store i32 262, ptr %43, align 8
-  call void @sqlite3_free(ptr noundef %45) #17
-  br label %66
+43:                                               ; preds = %38
+  %44 = call ptr @sqlite3_expanded_sql(ptr noundef %41) #17
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #18
+  %46 = and i64 %45, -8
+  %47 = add i64 %46, 32
+  %48 = call noalias ptr @_emalloc(i64 noundef %47) #19
+  store i32 1, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  store i32 22, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %48, i64 8
+  store i64 0, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %48, i64 16
+  store i64 %45, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %48, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %52, ptr align 1 %44, i64 %45, i1 false)
+  %53 = getelementptr inbounds [1 x i8], ptr %52, i64 0, i64 %45
+  store i8 0, ptr %53, align 1
+  store ptr %48, ptr %1, align 8
+  store i32 262, ptr %42, align 8
+  call void @sqlite3_free(ptr noundef %44) #17
+  br label %65
 
-55:                                               ; preds = %39
-  %56 = call ptr @sqlite3_sql(ptr noundef %42) #17
-  %57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #18
-  %58 = and i64 %57, -8
-  %59 = add i64 %58, 32
-  %60 = call noalias ptr @_emalloc(i64 noundef %59) #19
-  store i32 1, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %60, i64 4
-  store i32 22, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
-  store i64 0, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 16
-  store i64 %57, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %60, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr align 1 %56, i64 %57, i1 false)
-  %65 = getelementptr inbounds [1 x i8], ptr %64, i64 0, i64 %57
-  store i8 0, ptr %65, align 1
-  store ptr %60, ptr %1, align 8
-  store i32 262, ptr %43, align 8
-  br label %66
+54:                                               ; preds = %38
+  %55 = call ptr @sqlite3_sql(ptr noundef %41) #17
+  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #18
+  %57 = and i64 %56, -8
+  %58 = add i64 %57, 32
+  %59 = call noalias ptr @_emalloc(i64 noundef %58) #19
+  store i32 1, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  store i32 22, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  store i64 0, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %59, i64 16
+  store i64 %56, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %59, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr align 1 %55, i64 %56, i1 false)
+  %64 = getelementptr inbounds [1 x i8], ptr %63, i64 0, i64 %56
+  store i8 0, ptr %64, align 1
+  store ptr %59, ptr %1, align 8
+  store i32 262, ptr %42, align 8
+  br label %65
 
-66:                                               ; preds = %55, %44, %37, %30, %25, %19
+65:                                               ; preds = %54, %43, %36, %29, %24, %.thread239
   ret void
 }
 
@@ -4573,11 +4573,7 @@ define hidden void @zim_SQLite3Result_columnName(ptr noundef %0, ptr nocapture n
   %7 = getelementptr inbounds i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %cond = icmp eq i32 %8, 1
-  br i1 %cond, label %9, label %.thread143
-
-.thread143:                                       ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #17
-  br label %17
+  br i1 %cond, label %9, label %.thread148
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 80
@@ -4589,74 +4585,79 @@ define hidden void @zim_SQLite3Result_columnName(ptr noundef %0, ptr nocapture n
 .thread138:                                       ; preds = %9
   %14 = load i64, ptr %10, align 8
   store i64 %14, ptr %3, align 8
-  br label %18
+  br label %.thread156
 
 15:                                               ; preds = %9
   %16 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1) #17
-  br i1 %16, label %18, label %17
+  %.fr = freeze i1 %16
+  br i1 %.fr, label %.thread156, label %17
 
-17:                                               ; preds = %15, %.thread143
-  %.0122150 = phi i32 [ 0, %.thread143 ], [ 1, %15 ]
-  %.0123149 = phi i32 [ 1, %.thread143 ], [ 9, %15 ]
-  %.0124148 = phi ptr [ null, %.thread143 ], [ %10, %15 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0123149, i32 noundef %.0122150, ptr noundef null, i32 noundef 0, ptr noundef %.0124148) #17
-  br label %47
+.thread148:                                       ; preds = %2
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #17
+  br label %17
 
-18:                                               ; preds = %15, %.thread138
-  %19 = load ptr, ptr %6, align 8
-  %.not131 = icmp eq ptr %19, null
-  br i1 %.not131, label %25, label %20
+17:                                               ; preds = %15, %.thread148
+  %.0122155 = phi i32 [ 0, %.thread148 ], [ 1, %15 ]
+  %.0123154 = phi i32 [ 1, %.thread148 ], [ 9, %15 ]
+  %.0124153 = phi ptr [ null, %.thread148 ], [ %10, %15 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0123154, i32 noundef %.0122155, ptr noundef null, i32 noundef 0, ptr noundef %.0124153) #17
+  br label %46
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 -48
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
-  %24 = load i32, ptr %23, align 8
-  %.not132 = icmp eq i32 %24, 0
-  br i1 %.not132, label %25, label %28
+.thread156:                                       ; preds = %15, %.thread138
+  %18 = load ptr, ptr %6, align 8
+  %.not131 = icmp eq ptr %18, null
+  br i1 %.not131, label %24, label %19
 
-25:                                               ; preds = %20, %18
+19:                                               ; preds = %.thread156
+  %20 = getelementptr inbounds i8, ptr %5, i64 -48
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %23 = load i32, ptr %22, align 8
+  %.not132 = icmp eq i32 %23, 0
+  br i1 %.not132, label %24, label %27
+
+24:                                               ; preds = %19, %.thread156
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.43) #17
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %27 = icmp ne ptr %26, null
-  call void @llvm.assume(i1 %27)
-  br label %47
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %26 = icmp ne ptr %25, null
+  call void @llvm.assume(i1 %26)
+  br label %46
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %22, align 8
-  %30 = load i64, ptr %3, align 8
-  %31 = trunc i64 %30 to i32
-  %32 = call ptr @sqlite3_column_name(ptr noundef %29, i32 noundef %31) #17
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %36
+27:                                               ; preds = %19
+  %28 = load ptr, ptr %21, align 8
+  %29 = load i64, ptr %3, align 8
+  %30 = trunc i64 %29 to i32
+  %31 = call ptr @sqlite3_column_name(ptr noundef %28, i32 noundef %30) #17
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %35
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %35, align 8
-  br label %47
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %34, align 8
+  br label %46
 
-36:                                               ; preds = %28
-  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #18
-  %38 = and i64 %37, -8
-  %39 = add i64 %38, 32
-  %40 = call noalias ptr @_emalloc(i64 noundef %39) #19
-  store i32 1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
-  store i32 22, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
-  store i64 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
-  store i64 %37, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %40, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %44, ptr nonnull align 1 %32, i64 %37, i1 false)
-  %45 = getelementptr inbounds [1 x i8], ptr %44, i64 0, i64 %37
-  store i8 0, ptr %45, align 1
-  store ptr %40, ptr %1, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %46, align 8
-  br label %47
+35:                                               ; preds = %27
+  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #18
+  %37 = and i64 %36, -8
+  %38 = add i64 %37, 32
+  %39 = call noalias ptr @_emalloc(i64 noundef %38) #19
+  store i32 1, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  store i32 22, ptr %40, align 4
+  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  store i64 0, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 16
+  store i64 %36, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %39, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 1 %31, i64 %36, i1 false)
+  %44 = getelementptr inbounds [1 x i8], ptr %43, i64 0, i64 %36
+  store i8 0, ptr %44, align 1
+  store ptr %39, ptr %1, align 8
+  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %45, align 8
+  br label %46
 
-47:                                               ; preds = %36, %34, %25, %17
+46:                                               ; preds = %35, %33, %24, %17
   ret void
 }
 
@@ -4761,45 +4762,46 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
   %9 = getelementptr inbounds i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = icmp ugt i32 %10, 1
-  br i1 %11, label %.thread249, label %12
-
-.thread249:                                       ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #17
-  br label %22
+  br i1 %11, label %.thread254, label %12
 
 12:                                               ; preds = %2
   %13 = icmp eq i32 %10, 0
-  br i1 %13, label %.thread244, label %14
+  br i1 %13, label %.thread262, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 80
   %16 = getelementptr inbounds i8, ptr %0, i64 88
   %17 = load i8, ptr %16, align 8
   %18 = icmp eq i8 %17, 4
-  br i1 %18, label %.thread, label %20
+  br i1 %18, label %.thread244, label %20
 
-.thread:                                          ; preds = %14
+.thread244:                                       ; preds = %14
   %19 = load i64, ptr %15, align 8
   store i64 %19, ptr %4, align 8
-  br label %.thread244
+  br label %.thread262
 
 20:                                               ; preds = %14
   %21 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %15, ptr noundef nonnull %4, i32 noundef 1) #17
-  br i1 %21, label %.thread244, label %22
+  %.fr = freeze i1 %21
+  br i1 %.fr, label %.thread262, label %22
 
-22:                                               ; preds = %20, %.thread249
-  %.0216256 = phi i32 [ 1, %.thread249 ], [ 9, %20 ]
-  %.0219255 = phi ptr [ null, %.thread249 ], [ %15, %20 ]
-  %.0220254 = phi i32 [ 0, %.thread249 ], [ 1, %20 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0216256, i32 noundef %.0220254, ptr noundef null, i32 noundef 0, ptr noundef %.0219255) #17
+.thread254:                                       ; preds = %2
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #17
+  br label %22
+
+22:                                               ; preds = %20, %.thread254
+  %.0216261 = phi i32 [ 1, %.thread254 ], [ 9, %20 ]
+  %.0219260 = phi ptr [ null, %.thread254 ], [ %15, %20 ]
+  %.0220259 = phi i32 [ 0, %.thread254 ], [ 1, %20 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0216261, i32 noundef %.0220259, ptr noundef null, i32 noundef 0, ptr noundef %.0219260) #17
   br label %.loopexit
 
-.thread244:                                       ; preds = %20, %.thread, %12
+.thread262:                                       ; preds = %20, %.thread244, %12
   %23 = load ptr, ptr %8, align 8
   %.not228 = icmp eq ptr %23, null
   br i1 %.not228, label %29, label %24
 
-24:                                               ; preds = %.thread244
+24:                                               ; preds = %.thread262
   %25 = getelementptr inbounds i8, ptr %7, i64 -48
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 32
@@ -4807,7 +4809,7 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
   %.not229 = icmp eq i32 %28, 0
   br i1 %.not229, label %29, label %32
 
-29:                                               ; preds = %24, %.thread244
+29:                                               ; preds = %24, %.thread262
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.43) #17
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %31 = icmp ne ptr %30, null
@@ -4865,13 +4867,13 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
   %58 = load i64, ptr %4, align 8
   %59 = and i64 %58, 1
   %.not233 = icmp eq i64 %59, 0
-  br i1 %.not233, label %.loopexit257, label %60
+  br i1 %.not233, label %.loopexit263, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds i8, ptr %7, i64 -16
   %62 = load ptr, ptr %61, align 8
   %.not234 = icmp eq ptr %62, null
-  br i1 %.not234, label %63, label %.loopexit257
+  br i1 %.not234, label %63, label %.loopexit263
 
 63:                                               ; preds = %60
   %64 = sext i32 %57 to i64
@@ -4879,7 +4881,7 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
   %66 = call noalias ptr @_emalloc(i64 noundef %65) #19
   store ptr %66, ptr %61, align 8
   %67 = icmp sgt i32 %57, 0
-  br i1 %67, label %.lr.ph.preheader, label %.loopexit257
+  br i1 %67, label %.lr.ph.preheader, label %.loopexit263
 
 .lr.ph.preheader:                                 ; preds = %63
   %wide.trip.count = zext nneg i32 %57 to i64
@@ -4911,27 +4913,27 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
   store ptr %75, ptr %82, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit257, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit263, label %.lr.ph
 
-.loopexit257:                                     ; preds = %.lr.ph, %63, %56, %60
+.loopexit263:                                     ; preds = %.lr.ph, %63, %56, %60
   %83 = call ptr @_zend_new_array_0() #17
   store ptr %83, ptr %1, align 8
   %84 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %84, align 8
   %85 = icmp sgt i32 %57, 0
-  br i1 %85, label %.lr.ph260, label %.loopexit
+  br i1 %85, label %.lr.ph266, label %.loopexit
 
-.lr.ph260:                                        ; preds = %.loopexit257
+.lr.ph266:                                        ; preds = %.loopexit263
   %86 = getelementptr inbounds i8, ptr %5, i64 9
   %87 = getelementptr inbounds i8, ptr %7, i64 -16
-  %wide.trip.count265 = zext nneg i32 %57 to i64
+  %wide.trip.count271 = zext nneg i32 %57 to i64
   br label %88
 
-88:                                               ; preds = %.lr.ph260, %132
-  %indvars.iv262 = phi i64 [ 0, %.lr.ph260 ], [ %indvars.iv.next263, %132 ]
+88:                                               ; preds = %.lr.ph266, %132
+  %indvars.iv268 = phi i64 [ 0, %.lr.ph266 ], [ %indvars.iv.next269, %132 ]
   %89 = load ptr, ptr %25, align 8
   %90 = load ptr, ptr %89, align 8
-  %91 = trunc nuw nsw i64 %indvars.iv262 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv268 to i32
   call fastcc void @sqlite_value_to_zval(ptr noundef %90, i32 noundef %91, ptr noundef nonnull %5)
   %92 = load i64, ptr %4, align 8
   %93 = and i64 %92, 2
@@ -4940,7 +4942,7 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
 
 94:                                               ; preds = %88
   %95 = load ptr, ptr %1, align 8
-  %96 = call ptr @zend_hash_index_update(ptr noundef %95, i64 noundef %indvars.iv262, ptr noundef nonnull %5) #17
+  %96 = call ptr @zend_hash_index_update(ptr noundef %95, i64 noundef %indvars.iv268, ptr noundef nonnull %5) #17
   %.pre = load i64, ptr %4, align 8
   br label %97
 
@@ -4968,7 +4970,7 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
 109:                                              ; preds = %105, %100
   %110 = load ptr, ptr %1, align 8
   %111 = load ptr, ptr %87, align 8
-  %112 = getelementptr inbounds ptr, ptr %111, i64 %indvars.iv262
+  %112 = getelementptr inbounds ptr, ptr %111, i64 %indvars.iv268
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 24
   %115 = getelementptr inbounds i8, ptr %113, i64 16
@@ -5006,9 +5008,9 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
   br label %132
 
 132:                                              ; preds = %97, %.critedge, %128
-  %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
-  %exitcond266.not = icmp eq i64 %indvars.iv.next263, %wide.trip.count265
-  br i1 %exitcond266.not, label %.loopexit, label %88
+  %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
+  %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
+  br i1 %exitcond272.not, label %.loopexit, label %88
 
 133:                                              ; preds = %32
   %134 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5028,7 +5030,7 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
   call void (ptr, i32, ptr, ...) @php_sqlite3_error(ptr noundef %136, i32 noundef %140, ptr noundef nonnull @.str.23, ptr noundef %144)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %132, %.loopexit257, %135, %133, %46, %29, %22
+.loopexit:                                        ; preds = %132, %.loopexit263, %135, %133, %46, %29, %22
   ret void
 }
 

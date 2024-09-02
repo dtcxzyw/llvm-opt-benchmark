@@ -22,7 +22,7 @@ define dso_local noundef zeroext i1 @Curl_auth_is_ntlm_supported() local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @Curl_bufref_ptr(ptr noundef %1) #7
   %5 = tail call i64 @Curl_bufref_len(ptr noundef %1) #7
   store i32 0, ptr %2, align 8

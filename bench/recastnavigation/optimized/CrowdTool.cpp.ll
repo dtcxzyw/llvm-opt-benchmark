@@ -451,11 +451,14 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %85 = add nuw nsw i32 %.0388442, 1
   %86 = tail call noundef i32 @_ZNK7dtCrowd13getAgentCountEv(ptr noundef nonnull align 8 dereferenceable(5072) %18)
   %87 = icmp slt i32 %85, %86
-  br i1 %87, label %.lr.ph444, label %._crit_edge, !llvm.loop !8
+  br i1 %87, label %.lr.ph444, label %._crit_edge.loopexit, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %84, %.preheader435
-  %.0387.lcssa = phi float [ 0xC7EFFFFFE0000000, %.preheader435 ], [ %.1, %84 ]
-  %88 = fadd float %.0387.lcssa, 1.000000e+00
+._crit_edge.loopexit:                             ; preds = %84
+  %88 = fadd float %.1, 1.000000e+00
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader435
+  %.0387.lcssa = phi float [ 0xC7EFFFFFE0000000, %.preheader435 ], [ %88, %._crit_edge.loopexit ]
   %89 = load ptr, ptr %4, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 32
   %91 = load ptr, ptr %90, align 8
@@ -508,20 +511,20 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr nocapture noundef
   %119 = load ptr, ptr %4, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 48
   %121 = load ptr, ptr %120, align 8
-  tail call void %121(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %118, float noundef %88, float noundef %108, i32 noundef %116)
+  tail call void %121(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %118, float noundef %.0387.lcssa, float noundef %108, i32 noundef %116)
   %122 = load ptr, ptr %4, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 48
   %124 = load ptr, ptr %123, align 8
-  tail call void %124(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %118, float noundef %88, float noundef %109, i32 noundef %116)
+  tail call void %124(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %118, float noundef %.0387.lcssa, float noundef %109, i32 noundef %116)
   %125 = tail call float @llvm.fmuladd.f32(float %117, float %95, float %95)
   %126 = load ptr, ptr %4, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 48
   %128 = load ptr, ptr %127, align 8
-  tail call void %128(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %125, float noundef %88, float noundef %109, i32 noundef %116)
+  tail call void %128(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %125, float noundef %.0387.lcssa, float noundef %109, i32 noundef %116)
   %129 = load ptr, ptr %4, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 48
   %131 = load ptr, ptr %130, align 8
-  tail call void %131(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %125, float noundef %88, float noundef %108, i32 noundef %116)
+  tail call void %131(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %125, float noundef %.0387.lcssa, float noundef %108, i32 noundef %116)
   br label %132
 
 132:                                              ; preds = %110, %112
@@ -2581,55 +2584,55 @@ define dso_local void @_ZN9CrowdTool10handleMenuEv(ptr nocapture noundef nonnull
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   %9 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.8, i1 noundef zeroext %8, i1 noundef zeroext true)
-  br i1 %9, label %10, label %._crit_edge
+  br i1 %9, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4
   %.pre = load i32, ptr %6, align 8
-  br label %11
+  %10 = icmp eq i32 %.pre, 1
+  br label %12
 
-10:                                               ; preds = %4
+11:                                               ; preds = %4
   store i32 0, ptr %6, align 8
-  br label %11
+  br label %12
 
-11:                                               ; preds = %._crit_edge, %10
-  %12 = phi i32 [ %.pre, %._crit_edge ], [ 0, %10 ]
-  %13 = icmp eq i32 %12, 1
+12:                                               ; preds = %._crit_edge, %11
+  %13 = phi i1 [ %10, %._crit_edge ], [ false, %11 ]
   %14 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.9, i1 noundef zeroext %13, i1 noundef zeroext true)
-  br i1 %14, label %15, label %._crit_edge63
+  br i1 %14, label %16, label %._crit_edge63
 
-._crit_edge63:                                    ; preds = %11
+._crit_edge63:                                    ; preds = %12
   %.pre64 = load i32, ptr %6, align 8
-  br label %16
+  %15 = icmp eq i32 %.pre64, 2
+  br label %17
 
-15:                                               ; preds = %11
+16:                                               ; preds = %12
   store i32 1, ptr %6, align 8
-  br label %16
+  br label %17
 
-16:                                               ; preds = %._crit_edge63, %15
-  %17 = phi i32 [ %.pre64, %._crit_edge63 ], [ 1, %15 ]
-  %18 = icmp eq i32 %17, 2
+17:                                               ; preds = %._crit_edge63, %16
+  %18 = phi i1 [ %15, %._crit_edge63 ], [ false, %16 ]
   %19 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.10, i1 noundef zeroext %18, i1 noundef zeroext true)
-  br i1 %19, label %20, label %._crit_edge65
+  br i1 %19, label %21, label %._crit_edge65
 
-._crit_edge65:                                    ; preds = %16
+._crit_edge65:                                    ; preds = %17
   %.pre66 = load i32, ptr %6, align 8
-  br label %21
+  %20 = icmp eq i32 %.pre66, 3
+  br label %22
 
-20:                                               ; preds = %16
+21:                                               ; preds = %17
   store i32 2, ptr %6, align 8
-  br label %21
+  br label %22
 
-21:                                               ; preds = %._crit_edge65, %20
-  %22 = phi i32 [ %.pre66, %._crit_edge65 ], [ 2, %20 ]
-  %23 = icmp eq i32 %22, 3
+22:                                               ; preds = %._crit_edge65, %21
+  %23 = phi i1 [ %20, %._crit_edge65 ], [ false, %21 ]
   %24 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.11, i1 noundef zeroext %23, i1 noundef zeroext true)
   br i1 %24, label %25, label %26
 
-25:                                               ; preds = %21
+25:                                               ; preds = %22
   store i32 3, ptr %6, align 8
   br label %26
 
-26:                                               ; preds = %25, %21
+26:                                               ; preds = %25, %22
   tail call void @_Z18imguiSeparatorLinev()
   %27 = getelementptr inbounds i8, ptr %3, i64 100981
   %28 = load i8, ptr %27, align 1

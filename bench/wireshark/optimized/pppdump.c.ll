@@ -707,8 +707,8 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr nocapture nound
   %13 = getelementptr inbounds i8, ptr %2, i64 12
   br label %14
 
-14:                                               ; preds = %.lr.ph, %70
-  %.05571 = phi i32 [ %3, %.lr.ph ], [ %71, %70 ]
+14:                                               ; preds = %.lr.ph, %71
+  %.05571 = phi i32 [ %3, %.lr.ph ], [ %72, %71 ]
   %15 = tail call i32 @file_getc(ptr noundef %1) #6
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %17, label %20
@@ -732,7 +732,7 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr nocapture nound
 23:                                               ; preds = %20
   %24 = load i32, ptr %12, align 4
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %26, label %70
+  br i1 %25, label %26, label %71
 
 26:                                               ; preds = %23
   store i32 0, ptr %11, align 8
@@ -799,48 +799,48 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr nocapture nound
 
 55:                                               ; preds = %53
   store i32 1, ptr %11, align 8
-  br label %70
+  br label %71
 
 56:                                               ; preds = %20
   %.pre = load i32, ptr %11, align 8
-  %.not63 = icmp eq i32 %.pre, 0
-  br i1 %.not63, label %58, label %.thread
+  %57 = icmp eq i32 %.pre, 0
+  br i1 %57, label %59, label %.thread
 
 .thread:                                          ; preds = %53, %56
-  %57 = xor i32 %15, 32
+  %58 = xor i32 %15, 32
   store i32 0, ptr %11, align 8
-  br label %58
+  br label %59
 
-58:                                               ; preds = %.thread, %56
-  %.056 = phi i32 [ %57, %.thread ], [ %15, %56 ]
-  %59 = load i32, ptr %12, align 4
-  %60 = icmp sgt i32 %59, 8191
-  br i1 %60, label %61, label %65
+59:                                               ; preds = %.thread, %56
+  %.056 = phi i32 [ %58, %.thread ], [ %15, %56 ]
+  %60 = load i32, ptr %12, align 4
+  %61 = icmp sgt i32 %60, 8191
+  br i1 %61, label %62, label %66
 
-61:                                               ; preds = %58
+62:                                               ; preds = %59
   store i32 -13, ptr %5, align 4
-  %62 = load i32, ptr %12, align 4
-  %63 = add i32 %62, -1
-  %64 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %63, i32 noundef 8192) #6
-  store ptr %64, ptr %6, align 8
+  %63 = load i32, ptr %12, align 4
+  %64 = add i32 %63, -1
+  %65 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %64, i32 noundef 8192) #6
+  store ptr %65, ptr %6, align 8
   br label %.loopexit
 
-65:                                               ; preds = %58
-  %66 = trunc i32 %.056 to i8
-  %67 = add nsw i32 %59, 1
-  store i32 %67, ptr %12, align 4
-  %68 = sext i32 %59 to i64
-  %69 = getelementptr [8192 x i8], ptr %13, i64 0, i64 %68
-  store i8 %66, ptr %69, align 1
-  br label %70
+66:                                               ; preds = %59
+  %67 = trunc i32 %.056 to i8
+  %68 = add nsw i32 %60, 1
+  store i32 %68, ptr %12, align 4
+  %69 = sext i32 %60 to i64
+  %70 = getelementptr [8192 x i8], ptr %13, i64 0, i64 %69
+  store i8 %67, ptr %70, align 1
+  br label %71
 
-70:                                               ; preds = %55, %65, %23
-  %71 = add nsw i32 %.05571, -1
-  %72 = icmp sgt i32 %.05571, 1
-  br i1 %72, label %14, label %.loopexit, !llvm.loop !9
+71:                                               ; preds = %55, %66, %23
+  %72 = add nsw i32 %.05571, -1
+  %73 = icmp sgt i32 %.05571, 1
+  br i1 %73, label %14, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %70, %8, %61, %49, %28, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %61 ], [ -1, %28 ], [ %24, %49 ], [ 0, %8 ], [ 0, %70 ]
+.loopexit:                                        ; preds = %71, %8, %62, %49, %28, %17
+  %.0 = phi i32 [ -1, %17 ], [ -1, %62 ], [ -1, %28 ], [ %24, %49 ], [ 0, %8 ], [ 0, %71 ]
   ret i32 %.0
 }
 

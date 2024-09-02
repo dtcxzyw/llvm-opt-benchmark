@@ -1086,87 +1086,87 @@ land.rhs:                                         ; preds = %entry
 land.lhs.true.i47.i:                              ; preds = %land.rhs
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i2) #19
   switch i64 %call.i.i, label %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i [
-    i64 4, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i
-    i64 6, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit171.i
-    i64 5, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit180.i
+    i64 4, label %if.end.i160.i
+    i64 6, label %if.end.i168.i
+    i64 5, label %if.end.i177.i
   ]
 
-_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %land.lhs.true.i47.i
-  %bcmp153.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %call.i2, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
-  %cmp5.i156.i = icmp eq i32 %bcmp153.i, 0
-  br label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread145.i
+if.end.i160.i:                                    ; preds = %land.lhs.true.i47.i
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %call.i2, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
+  %0 = icmp eq i32 %bcmp.i, 0
+  br label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i
 
-_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit171.i: ; preds = %land.lhs.true.i47.i
-  %bcmp152.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %call.i2, ptr noundef nonnull dereferenceable(6) @.str.7, i64 6)
-  %cmp5.i145.i = icmp eq i32 %bcmp152.i, 0
-  br i1 %cmp5.i145.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread145.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i
+if.end.i168.i:                                    ; preds = %land.lhs.true.i47.i
+  %bcmp28.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %call.i2, ptr noundef nonnull dereferenceable(6) @.str.7, i64 6)
+  %1 = icmp eq i32 %bcmp28.i, 0
+  br i1 %1, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i, label %if.end.i.i.i
 
-_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit180.i: ; preds = %land.lhs.true.i47.i
-  %bcmp151.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %call.i2, ptr noundef nonnull dereferenceable(5) @.str.8, i64 5)
-  %cmp5.i.i = icmp eq i32 %bcmp151.i, 0
-  br i1 %cmp5.i.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread145.i, label %if.end.i.i202.i
+if.end.i177.i:                                    ; preds = %land.lhs.true.i47.i
+  %bcmp29.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %call.i2, ptr noundef nonnull dereferenceable(5) @.str.8, i64 5)
+  %2 = icmp eq i32 %bcmp29.i, 0
+  br i1 %2, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i, label %if.end.i.i202.i
 
 _ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i: ; preds = %land.lhs.true.i47.i
   %cmp.i185.not.i = icmp ult i64 %call.i.i, 6
-  br i1 %cmp.i185.not.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i
+  br i1 %cmp.i185.not.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i, label %if.end.i.i.i
 
-_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit171.i
-  %bcmp154.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %call.i2, ptr noundef nonnull dereferenceable(6) @.str.9, i64 6)
-  %cmp5.i188.i = icmp eq i32 %bcmp154.i, 0
-  br i1 %cmp5.i188.i, label %if.then.i118.i, label %if.end.i.i202.i
+if.end.i.i.i:                                     ; preds = %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i, %if.end.i168.i
+  %bcmp30.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %call.i2, ptr noundef nonnull dereferenceable(6) @.str.9, i64 6)
+  %3 = icmp eq i32 %bcmp30.i, 0
+  br i1 %3, label %if.then.i118.i, label %if.end.i.i202.i
 
-_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread145.i: ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit180.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit171.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i
-  %ref.tmp.sroa.28.3.ph.i = phi i1 [ true, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit171.i ], [ true, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit180.i ], [ %cmp5.i156.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i ]
-  %cmp.i198.not149.i = icmp ult i64 %call.i.i, 5
+_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i: ; preds = %if.end.i177.i, %if.end.i168.i, %if.end.i160.i
+  %ref.tmp.sroa.28.3.ph.i = phi i1 [ true, %if.end.i168.i ], [ true, %if.end.i177.i ], [ %0, %if.end.i160.i ]
+  %cmp.i198.not153.i = icmp ult i64 %call.i.i, 5
   br label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i
 
-if.end.i.i202.i:                                  ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit180.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %call.i2, ptr noundef nonnull dereferenceable(5) @.str.10, i64 5)
-  %0 = icmp eq i32 %bcmp.i, 0
-  br i1 %0, label %if.then.i118.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i
+if.end.i.i202.i:                                  ; preds = %if.end.i.i.i, %if.end.i177.i
+  %bcmp31.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %call.i2, ptr noundef nonnull dereferenceable(5) @.str.10, i64 5)
+  %4 = icmp eq i32 %bcmp31.i, 0
+  br i1 %4, label %if.then.i118.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i
 
-_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i: ; preds = %if.end.i.i202.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread145.i
-  %cmp.i198.not116.i = phi i1 [ false, %if.end.i.i202.i ], [ %cmp.i198.not149.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread145.i ]
-  %ref.tmp.sroa.28.4.i = phi i1 [ false, %if.end.i.i202.i ], [ %ref.tmp.sroa.28.3.ph.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread145.i ]
-  %or.cond32.i = or i1 %cmp.i198.not116.i, %ref.tmp.sroa.28.4.i
-  br i1 %or.cond32.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i, label %if.end.i.i221.i
+_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i: ; preds = %if.end.i.i202.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i
+  %cmp.i198.not120.i = phi i1 [ false, %if.end.i.i202.i ], [ %cmp.i198.not153.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i ]
+  %ref.tmp.sroa.28.4.i = phi i1 [ false, %if.end.i.i202.i ], [ %ref.tmp.sroa.28.3.ph.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i ]
+  %or.cond36.i = or i1 %cmp.i198.not120.i, %ref.tmp.sroa.28.4.i
+  br i1 %or.cond36.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i, label %if.end.i.i221.i
 
 if.end.i.i221.i:                                  ; preds = %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i
-  %bcmp28.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %call.i2, ptr noundef nonnull dereferenceable(5) @.str.11, i64 5)
-  %1 = icmp eq i32 %bcmp28.i, 0
-  br i1 %1, label %if.then.i118.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i
+  %bcmp32.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %call.i2, ptr noundef nonnull dereferenceable(5) @.str.11, i64 5)
+  %5 = icmp eq i32 %bcmp32.i, 0
+  br i1 %5, label %if.then.i118.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i
 
 _ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i: ; preds = %if.end.i.i221.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i
-  %or.cond32161.i = phi i1 [ false, %if.end.i.i221.i ], [ true, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ true, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
+  %or.cond36161.i = phi i1 [ false, %if.end.i.i221.i ], [ true, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ true, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
   %ref.tmp.sroa.28.4160.i = phi i1 [ false, %if.end.i.i221.i ], [ %ref.tmp.sroa.28.4.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ false, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
   %cmp.i236.not.i = icmp ult i64 %call.i.i, 4
-  %or.cond33.i = or i1 %cmp.i236.not.i, %ref.tmp.sroa.28.4160.i
-  br i1 %or.cond33.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i, label %if.end.i.i240.i
+  %or.cond37.i = or i1 %cmp.i236.not.i, %ref.tmp.sroa.28.4160.i
+  br i1 %or.cond37.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i, label %if.end.i.i240.i
 
 if.end.i.i240.i:                                  ; preds = %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i
-  %bcmp29.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %call.i2, ptr noundef nonnull dereferenceable(4) @.str.12, i64 4)
-  %2 = icmp eq i32 %bcmp29.i, 0
-  br i1 %2, label %if.then.i118.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i
+  %bcmp33.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %call.i2, ptr noundef nonnull dereferenceable(4) @.str.12, i64 4)
+  %6 = icmp eq i32 %bcmp33.i, 0
+  br i1 %6, label %if.then.i118.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i
 
 _ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i: ; preds = %if.end.i.i240.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i
-  br i1 %or.cond32161.i, label %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, label %if.end.i.i259.i
+  br i1 %or.cond36161.i, label %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, label %if.end.i.i259.i
 
 if.end.i.i259.i:                                  ; preds = %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i
-  %add.ptr.i69.i = getelementptr inbounds i8, ptr %call.i2, i64 %call.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i69.i, i64 -5
-  %bcmp30.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str.13, i64 5)
-  %3 = icmp eq i32 %bcmp30.i, 0
-  br i1 %3, label %if.then.i118.i, label %land.end
+  %add.ptr.i73.i = getelementptr inbounds i8, ptr %call.i2, i64 %call.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i73.i, i64 -5
+  %bcmp34.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %add.ptr.i.i, ptr noundef nonnull dereferenceable(5) @.str.13, i64 5)
+  %7 = icmp eq i32 %bcmp34.i, 0
+  br i1 %7, label %if.then.i118.i, label %land.end
 
 _ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i: ; preds = %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i
   br i1 %ref.tmp.sroa.28.4160.i, label %if.then.i118.i, label %land.end
 
-if.then.i118.i:                                   ; preds = %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, %if.end.i.i259.i, %if.end.i.i240.i, %if.end.i.i221.i, %if.end.i.i202.i, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i
+if.then.i118.i:                                   ; preds = %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, %if.end.i.i259.i, %if.end.i.i240.i, %if.end.i.i221.i, %if.end.i.i202.i, %if.end.i.i.i
   br label %land.end
 
 land.end:                                         ; preds = %if.then.i118.i, %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, %if.end.i.i259.i, %land.rhs, %entry
-  %4 = phi i1 [ false, %entry ], [ true, %if.then.i118.i ], [ false, %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i ], [ false, %land.rhs ], [ false, %if.end.i.i259.i ]
-  ret i1 %4
+  %8 = phi i1 [ false, %entry ], [ true, %if.then.i118.i ], [ false, %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i ], [ false, %land.rhs ], [ false, %if.end.i.i259.i ]
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

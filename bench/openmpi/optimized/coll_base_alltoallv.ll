@@ -318,7 +318,7 @@ define i32 @ompi_coll_base_alltoallv_intra_pairwise(ptr noundef %0, ptr nocaptur
   br i1 %29, label %.lr.ph.split.us.split, label %.loopexit
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.thread
-  %.05374.us = phi i32 [ %49, %.thread ], [ 0, %.lr.ph.split.us ]
+  %.05374.us = phi i32 [ %50, %.thread ], [ 0, %.lr.ph.split.us ]
   store ptr @ompi_request_null, ptr %11, align 8
   %30 = add nsw i32 %.05374.us, %.val64
   %31 = srem i32 %30, %.val.val
@@ -342,83 +342,83 @@ define i32 @ompi_coll_base_alltoallv_intra_pairwise(ptr noundef %0, ptr nocaptur
 
 45:                                               ; preds = %36
   %.pre = load ptr, ptr %11, align 8
-  %.not62.us = icmp eq ptr %.pre, @ompi_request_null
-  br i1 %.not62.us, label %.thread, label %46
+  %46 = icmp eq ptr %.pre, @ompi_request_null
+  br i1 %46, label %.thread, label %47
 
-46:                                               ; preds = %45
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
-  %48 = call i32 %47(ptr noundef nonnull %11, ptr noundef null) #6
-  %.not63.us = icmp eq i32 %48, 0
+47:                                               ; preds = %45
+  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %49 = call i32 %48(ptr noundef nonnull %11, ptr noundef null) #6
+  %.not63.us = icmp eq i32 %49, 0
   br i1 %.not63.us, label %.thread, label %.loopexit
 
-.thread:                                          ; preds = %.lr.ph.split.us.split, %46, %45
-  %49 = add nuw nsw i32 %.05374.us, 1
-  %exitcond92.not = icmp eq i32 %49, %.val.val
+.thread:                                          ; preds = %.lr.ph.split.us.split, %47, %45
+  %50 = add nuw nsw i32 %.05374.us, 1
+  %exitcond92.not = icmp eq i32 %50, %.val.val
   br i1 %exitcond92.not, label %.loopexit, label %.lr.ph.split.us.split, !llvm.loop !7
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %86
-  %.05374 = phi i32 [ %87, %86 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %87
+  %.05374 = phi i32 [ %88, %87 ], [ 0, %.lr.ph ]
   store ptr @ompi_request_null, ptr %11, align 8
-  %50 = add nsw i32 %.05374, %.val64
-  %51 = srem i32 %50, %.val.val
-  %52 = sub i32 %28, %.05374
-  %53 = srem i32 %52, %.val.val
-  %54 = sext i32 %51 to i64
-  %55 = getelementptr inbounds i32, ptr %2, i64 %54
-  %56 = load i32, ptr %55, align 4
-  %57 = sext i32 %56 to i64
-  %58 = mul nsw i64 %21, %57
-  %59 = getelementptr inbounds i8, ptr %0, i64 %58
-  %60 = sext i32 %53 to i64
-  %61 = getelementptr inbounds i32, ptr %5, i64 %60
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %64, label %73
+  %51 = add nsw i32 %.05374, %.val64
+  %52 = srem i32 %51, %.val.val
+  %53 = sub i32 %28, %.05374
+  %54 = srem i32 %53, %.val.val
+  %55 = sext i32 %52 to i64
+  %56 = getelementptr inbounds i32, ptr %2, i64 %55
+  %57 = load i32, ptr %56, align 4
+  %58 = sext i32 %57 to i64
+  %59 = mul nsw i64 %21, %58
+  %60 = getelementptr inbounds i8, ptr %0, i64 %59
+  %61 = sext i32 %54 to i64
+  %62 = getelementptr inbounds i32, ptr %5, i64 %61
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %65, label %74
 
-64:                                               ; preds = %.lr.ph.split
-  %65 = getelementptr inbounds i32, ptr %6, i64 %60
-  %66 = load i32, ptr %65, align 4
-  %67 = sext i32 %66 to i64
-  %68 = mul nsw i64 %24, %67
-  %69 = getelementptr inbounds i8, ptr %4, i64 %68
-  %70 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
-  %71 = zext nneg i32 %62 to i64
-  %72 = call i32 %70(ptr noundef %69, i64 noundef %71, ptr noundef %7, i32 noundef %53, i32 noundef -14, ptr noundef %8, ptr noundef nonnull %11) #6
-  %.not = icmp eq i32 %72, 0
-  br i1 %.not, label %73, label %.loopexit
+65:                                               ; preds = %.lr.ph.split
+  %66 = getelementptr inbounds i32, ptr %6, i64 %61
+  %67 = load i32, ptr %66, align 4
+  %68 = sext i32 %67 to i64
+  %69 = mul nsw i64 %24, %68
+  %70 = getelementptr inbounds i8, ptr %4, i64 %69
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
+  %72 = zext nneg i32 %63 to i64
+  %73 = call i32 %71(ptr noundef %70, i64 noundef %72, ptr noundef %7, i32 noundef %54, i32 noundef -14, ptr noundef %8, ptr noundef nonnull %11) #6
+  %.not = icmp eq i32 %73, 0
+  br i1 %.not, label %74, label %.loopexit
 
-73:                                               ; preds = %64, %.lr.ph.split
-  %74 = getelementptr inbounds i32, ptr %1, i64 %54
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp sgt i32 %75, 0
-  %or.cond3 = and i1 %76, %29
-  br i1 %or.cond3, label %77, label %81
+74:                                               ; preds = %65, %.lr.ph.split
+  %75 = getelementptr inbounds i32, ptr %1, i64 %55
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp sgt i32 %76, 0
+  %or.cond3 = and i1 %77, %29
+  br i1 %or.cond3, label %78, label %82
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %79 = zext nneg i32 %75 to i64
-  %80 = call i32 %78(ptr noundef %59, i64 noundef %79, ptr noundef %3, i32 noundef %51, i32 noundef -14, i32 noundef 4, ptr noundef %8) #6
-  %.not61 = icmp eq i32 %80, 0
-  br i1 %.not61, label %81, label %.loopexit
+78:                                               ; preds = %74
+  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %80 = zext nneg i32 %76 to i64
+  %81 = call i32 %79(ptr noundef %60, i64 noundef %80, ptr noundef %3, i32 noundef %52, i32 noundef -14, i32 noundef 4, ptr noundef %8) #6
+  %.not61 = icmp eq i32 %81, 0
+  br i1 %.not61, label %82, label %.loopexit
 
-81:                                               ; preds = %77, %73
-  %82 = load ptr, ptr %11, align 8
-  %.not62 = icmp eq ptr %82, @ompi_request_null
-  br i1 %.not62, label %86, label %83
+82:                                               ; preds = %78, %74
+  %83 = load ptr, ptr %11, align 8
+  %.not62 = icmp eq ptr %83, @ompi_request_null
+  br i1 %.not62, label %87, label %84
 
-83:                                               ; preds = %81
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
-  %85 = call i32 %84(ptr noundef nonnull %11, ptr noundef null) #6
-  %.not63 = icmp eq i32 %85, 0
-  br i1 %.not63, label %86, label %.loopexit
+84:                                               ; preds = %82
+  %85 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
+  %86 = call i32 %85(ptr noundef nonnull %11, ptr noundef null) #6
+  %.not63 = icmp eq i32 %86, 0
+  br i1 %.not63, label %87, label %.loopexit
 
-86:                                               ; preds = %81, %83
-  %87 = add nuw nsw i32 %.05374, 1
-  %exitcond.not = icmp eq i32 %87, %.val.val
+87:                                               ; preds = %82, %84
+  %88 = add nuw nsw i32 %.05374, 1
+  %exitcond.not = icmp eq i32 %88, %.val.val
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !7
 
-.loopexit:                                        ; preds = %86, %83, %77, %64, %.thread, %46, %36, %.lr.ph.split.us, %15, %13
-  %.0 = phi i32 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.split.us ], [ 0, %.thread ], [ %48, %46 ], [ %44, %36 ], [ 0, %86 ], [ %85, %83 ], [ %80, %77 ], [ %72, %64 ]
+.loopexit:                                        ; preds = %87, %84, %78, %65, %.thread, %47, %36, %.lr.ph.split.us, %15, %13
+  %.0 = phi i32 [ %14, %13 ], [ 0, %15 ], [ 0, %.lr.ph.split.us ], [ 0, %.thread ], [ %49, %47 ], [ %44, %36 ], [ 0, %87 ], [ %86, %84 ], [ %81, %78 ], [ %73, %65 ]
   ret i32 %.0
 }
 

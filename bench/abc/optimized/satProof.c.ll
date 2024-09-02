@@ -1269,25 +1269,25 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Sat_ProofCollectCore(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 4
-  %.val62 = load i32, ptr %3, align 4
-  %4 = icmp sgt i32 %.val62, 0
-  br i1 %4, label %.lr.ph77, label %.critedge
+  %.val66 = load i32, ptr %3, align 4
+  %4 = icmp sgt i32 %.val66, 0
+  br i1 %4, label %.lr.ph80, label %.critedge
 
-.lr.ph77:                                         ; preds = %2
+.lr.ph80:                                         ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val64 = load ptr, ptr %5, align 8
+  %.val68 = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.val.i.i = load i32, ptr %0, align 8
   %8 = getelementptr i8, ptr %0, i64 4
   %.val4.i.i = load i32, ptr %8, align 4
-  %wide.trip.count93 = zext nneg i32 %.val62 to i64
+  %wide.trip.count96 = zext nneg i32 %.val66 to i64
   br label %9
 
-9:                                                ; preds = %.lr.ph77, %.critedge2
-  %indvars.iv90 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next91, %.critedge2 ]
-  %.076 = phi i32 [ 0, %.lr.ph77 ], [ %.1.lcssa, %.critedge2 ]
-  %10 = getelementptr inbounds i32, ptr %.val64, i64 %indvars.iv90
+9:                                                ; preds = %.lr.ph80, %.critedge2
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next94, %.critedge2 ]
+  %.079 = phi i32 [ 0, %.lr.ph80 ], [ %.1.lcssa, %.critedge2 ]
+  %10 = getelementptr inbounds i32, ptr %.val68, i64 %indvars.iv93
   %11 = load i32, ptr %10, align 4
   %12 = ashr i32 %11, %.val.i.i
   %13 = sext i32 %12 to i64
@@ -1297,14 +1297,14 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr nocapture noundef readonly 
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i64, ptr %15, i64 %17
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %.critedge, label %.preheader72
+  br i1 %.not, label %.critedge, label %.preheader75
 
-.preheader72:                                     ; preds = %9
+.preheader75:                                     ; preds = %9
   %19 = load i32, ptr %18, align 4
-  %.not87 = icmp ult i32 %19, 8
-  br i1 %.not87, label %.critedge2, label %.lr.ph
+  %.not90 = icmp ult i32 %19, 8
+  br i1 %.not90, label %.critedge2, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader72
+.lr.ph:                                           ; preds = %.preheader75
   %20 = lshr i32 %19, 3
   %21 = getelementptr inbounds i8, ptr %18, i64 8
   %wide.trip.count = zext nneg i32 %20 to i64
@@ -1312,13 +1312,13 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr nocapture noundef readonly 
 
 22:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %.174 = phi i32 [ %.076, %.lr.ph ], [ %.2, %34 ]
+  %.177 = phi i32 [ %.079, %.lr.ph ], [ %.2, %34 ]
   %23 = getelementptr inbounds [0 x i32], ptr %21, i64 0, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 1
   %.not61 = icmp eq i32 %25, 0
   %26 = ashr i32 %24, 2
-  br i1 %.not61, label %27, label %.thread
+  br i1 %.not61, label %27, label %.critedge63
 
 27:                                               ; preds = %22
   %28 = ashr i32 %26, %.val.i.i
@@ -1326,26 +1326,26 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr nocapture noundef readonly 
   %30 = getelementptr inbounds ptr, ptr %7, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.thread, label %34
+  br i1 %32, label %.critedge63, label %34
 
-.thread:                                          ; preds = %22, %27
-  %33 = tail call range(i32 -536870912, 536870912) i32 @llvm.smax.i32(i32 %.174, i32 %26)
+.critedge63:                                      ; preds = %22, %27
+  %33 = tail call range(i32 -536870912, 536870912) i32 @llvm.smax.i32(i32 %.177, i32 %26)
   br label %34
 
-34:                                               ; preds = %27, %.thread
-  %.2 = phi i32 [ %33, %.thread ], [ %.174, %27 ]
+34:                                               ; preds = %27, %.critedge63
+  %.2 = phi i32 [ %33, %.critedge63 ], [ %.177, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %22, !llvm.loop !19
 
-.critedge2:                                       ; preds = %34, %.preheader72
-  %.1.lcssa = phi i32 [ %.076, %.preheader72 ], [ %.2, %34 ]
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %.critedge, label %9, !llvm.loop !20
+.critedge2:                                       ; preds = %34, %.preheader75
+  %.1.lcssa = phi i32 [ %.079, %.preheader75 ], [ %.2, %34 ]
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
+  br i1 %exitcond97.not, label %.critedge, label %9, !llvm.loop !20
 
 .critedge:                                        ; preds = %9, %.critedge2, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1.lcssa, %.critedge2 ], [ %.076, %9 ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1.lcssa, %.critedge2 ], [ %.079, %9 ]
   %35 = lshr i32 %.0.lcssa, 5
   %36 = and i32 %.0.lcssa, 31
   %37 = icmp ne i32 %36, 0
@@ -1362,27 +1362,27 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr nocapture noundef readonly 
   %46 = getelementptr inbounds i8, ptr %43, i64 8
   store ptr %45, ptr %46, align 8
   %47 = getelementptr i8, ptr %1, i64 8
-  br i1 %4, label %.lr.ph85, label %.critedge4
+  br i1 %4, label %.lr.ph88, label %.critedge4
 
-.lr.ph85:                                         ; preds = %.critedge
+.lr.ph88:                                         ; preds = %.critedge
   %48 = getelementptr inbounds i8, ptr %0, i64 24
   %49 = getelementptr i8, ptr %0, i64 4
   br label %50
 
-50:                                               ; preds = %.lr.ph85, %.critedge6
-  %.val101 = phi i32 [ %.val62, %.lr.ph85 ], [ %.val, %.critedge6 ]
-  %indvars.iv98 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next99, %.critedge6 ]
-  %.val63 = load ptr, ptr %47, align 8
-  %51 = getelementptr inbounds i32, ptr %.val63, i64 %indvars.iv98
+50:                                               ; preds = %.lr.ph88, %.critedge6
+  %.val104 = phi i32 [ %.val66, %.lr.ph88 ], [ %.val, %.critedge6 ]
+  %indvars.iv101 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next102, %.critedge6 ]
+  %.val67 = load ptr, ptr %47, align 8
+  %51 = getelementptr inbounds i32, ptr %.val67, i64 %indvars.iv101
   %52 = load i32, ptr %51, align 4
   %53 = load ptr, ptr %48, align 8
-  %.val.i.i67 = load i32, ptr %0, align 8
-  %54 = ashr i32 %52, %.val.i.i67
+  %.val.i.i71 = load i32, ptr %0, align 8
+  %54 = ashr i32 %52, %.val.i.i71
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds ptr, ptr %53, i64 %55
   %57 = load ptr, ptr %56, align 8
-  %.val4.i.i68 = load i32, ptr %49, align 4
-  %58 = and i32 %.val4.i.i68, %52
+  %.val4.i.i72 = load i32, ptr %49, align 4
+  %58 = and i32 %.val4.i.i72, %52
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i64, ptr %57, i64 %59
   %.not57 = icmp eq ptr %57, null
@@ -1390,34 +1390,34 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr nocapture noundef readonly 
 
 .preheader:                                       ; preds = %50
   %61 = load i32, ptr %60, align 4
-  %.not88 = icmp ult i32 %61, 8
-  br i1 %.not88, label %.critedge6, label %.lr.ph82
+  %.not91 = icmp ult i32 %61, 8
+  br i1 %.not91, label %.critedge6, label %.lr.ph85
 
-.lr.ph82:                                         ; preds = %.preheader
+.lr.ph85:                                         ; preds = %.preheader
   %62 = getelementptr inbounds i8, ptr %60, i64 8
   br label %63
 
-63:                                               ; preds = %.lr.ph82, %112
-  %64 = phi i32 [ %61, %.lr.ph82 ], [ %113, %112 ]
-  %indvars.iv95 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next96, %112 ]
-  %65 = getelementptr inbounds [0 x i32], ptr %62, i64 0, i64 %indvars.iv95
+63:                                               ; preds = %.lr.ph85, %112
+  %64 = phi i32 [ %61, %.lr.ph85 ], [ %113, %112 ]
+  %indvars.iv98 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next99, %112 ]
+  %65 = getelementptr inbounds [0 x i32], ptr %62, i64 0, i64 %indvars.iv98
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, 1
   %.not59 = icmp eq i32 %67, 0
   %68 = ashr i32 %66, 2
-  br i1 %.not59, label %69, label %.thread71
+  br i1 %.not59, label %69, label %.critedge65
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr %48, align 8
-  %.val.i.i69 = load i32, ptr %0, align 8
-  %71 = ashr i32 %68, %.val.i.i69
+  %.val.i.i73 = load i32, ptr %0, align 8
+  %71 = ashr i32 %68, %.val.i.i73
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds ptr, ptr %70, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread71, label %112
+  br i1 %75, label %.critedge65, label %112
 
-.thread71:                                        ; preds = %63, %69
+.critedge65:                                      ; preds = %63, %69
   %76 = ashr i32 %66, 7
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i32, ptr %42, i64 %77
@@ -1428,7 +1428,7 @@ define noalias noundef ptr @Sat_ProofCollectCore(ptr nocapture noundef readonly 
   %.not60 = icmp eq i32 %82, 0
   br i1 %.not60, label %83, label %112
 
-83:                                               ; preds = %.thread71
+83:                                               ; preds = %.critedge65
   %84 = or i32 %79, %81
   store i32 %84, ptr %78, align 4
   %85 = load i32, ptr %44, align 4
@@ -1495,12 +1495,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.pre = load i32, ptr %60, align 4
   br label %112
 
-112:                                              ; preds = %69, %Vec_IntPush.exit, %.thread71
-  %113 = phi i32 [ %64, %69 ], [ %.pre, %Vec_IntPush.exit ], [ %64, %.thread71 ]
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
+112:                                              ; preds = %69, %Vec_IntPush.exit, %.critedge65
+  %113 = phi i32 [ %64, %69 ], [ %.pre, %Vec_IntPush.exit ], [ %64, %.critedge65 ]
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %114 = lshr i32 %113, 3
   %115 = zext nneg i32 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next96, %115
+  %116 = icmp ult i64 %indvars.iv.next99, %115
   br i1 %116, label %63, label %.critedge6.loopexit, !llvm.loop !21
 
 .critedge6.loopexit:                              ; preds = %112
@@ -1508,10 +1508,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.critedge6
 
 .critedge6:                                       ; preds = %.critedge6.loopexit, %.preheader
-  %.val = phi i32 [ %.val.pre, %.critedge6.loopexit ], [ %.val101, %.preheader ]
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %.val = phi i32 [ %.val.pre, %.critedge6.loopexit ], [ %.val104, %.preheader ]
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %117 = sext i32 %.val to i64
-  %118 = icmp slt i64 %indvars.iv.next99, %117
+  %118 = icmp slt i64 %indvars.iv.next102, %117
   br i1 %118, label %50, label %.critedge4, !llvm.loop !22
 
 .critedge4:                                       ; preds = %50, %.critedge6, %.critedge

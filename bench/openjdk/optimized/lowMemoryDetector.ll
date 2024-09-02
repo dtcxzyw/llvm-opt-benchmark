@@ -158,19 +158,19 @@ define hidden noundef zeroext i1 @_ZN17LowMemoryDetector20has_pending_requestsEv
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %6
 
-6:                                                ; preds = %.lr.ph, %40
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %.017 = phi i8 [ 0, %.lr.ph ], [ %.2, %40 ]
+6:                                                ; preds = %.lr.ph, %36
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+  %.017 = phi i8 [ 0, %.lr.ph ], [ %.2, %36 ]
   %7 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 176
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %24, label %11
+  br i1 %.not, label %22, label %11
 
 11:                                               ; preds = %6
   %12 = trunc nuw i8 %.017 to i1
-  br i1 %12, label %21, label %13
+  br i1 %12, label %22, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds i8, ptr %10, i64 24
@@ -180,51 +180,43 @@ define hidden noundef zeroext i1 @_ZN17LowMemoryDetector20has_pending_requestsEv
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
   %20 = select i1 %16, i1 true, i1 %19
-  br label %21
+  %21 = zext i1 %20 to i8
+  br label %22
 
-21:                                               ; preds = %13, %11
-  %22 = phi i1 [ true, %11 ], [ %20, %13 ]
-  %23 = zext i1 %22 to i8
-  br label %24
+22:                                               ; preds = %11, %13, %6
+  %.1 = phi i8 [ %.017, %6 ], [ 1, %11 ], [ %21, %13 ]
+  %23 = getelementptr inbounds i8, ptr %8, i64 184
+  %24 = load ptr, ptr %23, align 8
+  %.not15 = icmp eq ptr %24, null
+  br i1 %.not15, label %36, label %25
 
-24:                                               ; preds = %21, %6
-  %.1 = phi i8 [ %23, %21 ], [ %.017, %6 ]
-  %25 = getelementptr inbounds i8, ptr %8, i64 184
-  %26 = load ptr, ptr %25, align 8
-  %.not15 = icmp eq ptr %26, null
-  br i1 %.not15, label %40, label %27
+25:                                               ; preds = %22
+  %26 = trunc nuw i8 %.1 to i1
+  br i1 %26, label %36, label %27
 
-27:                                               ; preds = %24
-  %28 = trunc nuw i8 %.1 to i1
-  br i1 %28, label %37, label %29
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds i8, ptr %24, i64 24
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp sgt i32 %29, 0
+  %31 = getelementptr inbounds i8, ptr %24, i64 28
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp sgt i32 %32, 0
+  %34 = select i1 %30, i1 true, i1 %33
+  %35 = zext i1 %34 to i8
+  br label %36
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %26, i64 24
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp sgt i32 %31, 0
-  %33 = getelementptr inbounds i8, ptr %26, i64 28
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp sgt i32 %34, 0
-  %36 = select i1 %32, i1 true, i1 %35
-  br label %37
-
-37:                                               ; preds = %29, %27
-  %38 = phi i1 [ true, %27 ], [ %36, %29 ]
-  %39 = zext i1 %38 to i8
-  br label %40
-
-40:                                               ; preds = %24, %37
-  %.2 = phi i8 [ %39, %37 ], [ %.1, %24 ]
+36:                                               ; preds = %25, %27, %22
+  %.2 = phi i8 [ %.1, %22 ], [ 1, %25 ], [ %35, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %6, !llvm.loop !6
 
-._crit_edge.loopexit:                             ; preds = %40
-  %41 = trunc nuw i8 %.2 to i1
+._crit_edge.loopexit:                             ; preds = %36
+  %37 = trunc nuw i8 %.2 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %0
-  %.0.lcssa = phi i1 [ false, %0 ], [ %41, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i1 [ false, %0 ], [ %37, %._crit_edge.loopexit ]
   ret i1 %.0.lcssa
 }
 
@@ -409,10 +401,10 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %3
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %7
 
-7:                                                ; preds = %.lr.ph, %82
-  %8 = phi ptr [ %4, %.lr.ph ], [ %83, %82 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
-  %.024 = phi i8 [ 0, %.lr.ph ], [ %.1, %82 ]
+7:                                                ; preds = %.lr.ph, %80
+  %8 = phi ptr [ %4, %.lr.ph ], [ %81, %80 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
+  %.024 = phi i8 [ 0, %.lr.ph ], [ %.1, %80 ]
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
@@ -420,20 +412,20 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %3
   %13 = getelementptr inbounds i8, ptr %12, i64 176
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %82, label %15
+  br i1 %.not, label %80, label %15
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds i8, ptr %12, i64 160
   %17 = load ptr, ptr %16, align 8
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %82
+  br i1 %19, label %20, label %80
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %17, i64 8
   %22 = load i64, ptr %21, align 8
   %.not15 = icmp eq i64 %22, 0
-  br i1 %.not15, label %82, label %23
+  br i1 %.not15, label %80, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %12, align 8
@@ -533,7 +525,7 @@ _ZN16ThresholdSupport24is_low_threshold_crossedE11MemoryUsage.exit.i: ; preds = 
 _ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit: ; preds = %52, %55, %56, %64, %68
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5)
   %70 = trunc nuw i8 %.024 to i1
-  br i1 %70, label %79, label %71
+  br i1 %70, label %80, label %71
 
 71:                                               ; preds = %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
   %72 = getelementptr inbounds i8, ptr %14, i64 24
@@ -543,37 +535,33 @@ _ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit: ;
   %76 = load i32, ptr %75, align 4
   %77 = icmp sgt i32 %76, 0
   %78 = select i1 %74, i1 true, i1 %77
-  br label %79
+  %79 = zext i1 %78 to i8
+  br label %80
 
-79:                                               ; preds = %71, %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit
-  %80 = phi i1 [ true, %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit ], [ %78, %71 ]
-  %81 = zext i1 %80 to i8
-  br label %82
-
-82:                                               ; preds = %7, %15, %20, %79
-  %83 = phi ptr [ %.pre, %79 ], [ %8, %20 ], [ %8, %15 ], [ %8, %7 ]
-  %.1 = phi i8 [ %81, %79 ], [ %.024, %20 ], [ %.024, %15 ], [ %.024, %7 ]
+80:                                               ; preds = %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit, %71, %7, %15, %20
+  %81 = phi ptr [ %8, %20 ], [ %8, %15 ], [ %8, %7 ], [ %.pre, %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit ], [ %.pre, %71 ]
+  %.1 = phi i8 [ %.024, %20 ], [ %.024, %15 ], [ %.024, %7 ], [ 1, %_ZN10SensorInfo22set_gauge_sensor_levelE11MemoryUsageP16ThresholdSupport.exit ], [ %79, %71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %82
-  %84 = trunc nuw i8 %.1 to i1
-  br i1 %84, label %85, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %80
+  %82 = trunc nuw i8 %.1 to i1
+  br i1 %82, label %83, label %._crit_edge.thread
 
-85:                                               ; preds = %._crit_edge
-  %86 = load ptr, ptr @Notification_lock, align 8
-  call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %86) #12
+83:                                               ; preds = %._crit_edge
+  %84 = load ptr, ptr @Notification_lock, align 8
+  call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %84) #12
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %85, %._crit_edge
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %87
+._crit_edge.thread:                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %83, %._crit_edge
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %85
 
-87:                                               ; preds = %._crit_edge.thread
+85:                                               ; preds = %._crit_edge.thread
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #12
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge.thread, %87
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %._crit_edge.thread, %85
   ret void
 }
 

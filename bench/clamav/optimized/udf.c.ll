@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [40 x i8] c"writeWholeFile: Can't write to file %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_scanudf(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_scanudf(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = icmp ult i64 %1, 32768

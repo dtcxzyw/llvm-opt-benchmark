@@ -287,17 +287,17 @@ define hidden void @_ZNK16JfrJavaArguments10Parameters4copyER17JavaCallArguments
 
 22:                                               ; preds = %10
   %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 8, i32 noundef 0) #12
-  %.pre = ptrtoint ptr %23 to i64
+  %.pre26 = ptrtoint ptr %23 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %22, %20
-  %.pre-phi = phi i64 [ %.pre, %22 ], [ %18, %20 ]
+  %.pre-phi27 = phi i64 [ %.pre26, %22 ], [ %18, %20 ]
   %.0.i.i.i.i = phi ptr [ %23, %22 ], [ %16, %20 ]
   store ptr %8, ptr %.0.i.i.i.i, align 8
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %6, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
-  %storemerge.i = phi i64 [ %.pre-phi, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ 0, %6 ]
+  %storemerge.i = phi i64 [ %.pre-phi27, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ 0, %6 ]
   %24 = getelementptr inbounds i8, ptr %1, i64 112
   store i8 1, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 96
@@ -330,11 +330,11 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %6, %_ZN10HandleArea
   %42 = getelementptr inbounds i8, ptr %2, i64 808
   br label %43
 
-43:                                               ; preds = %.lr.ph, %150
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %150 ]
+43:                                               ; preds = %.lr.ph, %149
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %149 ]
   %44 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %indvars.iv
   %45 = load i8, ptr %44, align 8
-  switch i8 %45, label %148 [
+  switch i8 %45, label %147 [
     i8 4, label %46
     i8 5, label %46
     i8 9, label %46
@@ -343,7 +343,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %6, %_ZN10HandleArea
     i8 6, label %77
     i8 7, label %89
     i8 12, label %108
-    i8 15, label %135
+    i8 15, label %134
   ]
 
 46:                                               ; preds = %43, %43, %43, %43
@@ -361,7 +361,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %6, %_ZN10HandleArea
   %56 = sext i32 %54 to i64
   %57 = getelementptr inbounds i64, ptr %53, i64 %56
   store i32 %48, ptr %57, align 4
-  br label %150
+  br label %149
 
 58:                                               ; preds = %43
   %59 = getelementptr inbounds i8, ptr %44, i64 8
@@ -386,7 +386,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %6, %_ZN10HandleArea
   %75 = load i32, ptr %40, align 8
   %76 = add nsw i32 %75, 2
   store i32 %76, ptr %40, align 8
-  br label %150
+  br label %149
 
 77:                                               ; preds = %43
   %78 = getelementptr inbounds i8, ptr %44, i64 8
@@ -403,7 +403,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %6, %_ZN10HandleArea
   %87 = sext i32 %85 to i64
   %88 = getelementptr inbounds i64, ptr %84, i64 %87
   store float %79, ptr %88, align 4
-  br label %150
+  br label %149
 
 89:                                               ; preds = %43
   %90 = getelementptr inbounds i8, ptr %44, i64 8
@@ -428,7 +428,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %6, %_ZN10HandleArea
   %106 = load i32, ptr %40, align 8
   %107 = add nsw i32 %106, 2
   store i32 %107, ptr %40, align 8
-  br label %150
+  br label %149
 
 108:                                              ; preds = %43
   %109 = getelementptr inbounds i8, ptr %44, i64 8
@@ -455,62 +455,63 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %6, %_ZN10HandleArea
 
 123:                                              ; preds = %112
   %124 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %113, i64 noundef 8, i32 noundef 0) #12
+  %.pre = ptrtoint ptr %124 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i19
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i19: ; preds = %123, %121
-  %.0.i.i.i.i20 = phi ptr [ %117, %121 ], [ %124, %123 ]
+  %.pre-phi = phi i64 [ %.pre, %123 ], [ %119, %121 ]
+  %.0.i.i.i.i20 = phi ptr [ %124, %123 ], [ %117, %121 ]
   store ptr %110, ptr %.0.i.i.i.i20, align 8
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit22
 
 _ZN6HandleC2EP6ThreadP7oopDesc.exit22:            ; preds = %108, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i19
-  %storemerge.i21 = phi ptr [ %.0.i.i.i.i20, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i19 ], [ null, %108 ]
+  %storemerge.i21 = phi i64 [ %.pre-phi, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i19 ], [ 0, %108 ]
   %125 = load ptr, ptr %39, align 8
   %126 = load i32, ptr %40, align 8
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i8, ptr %125, i64 %127
   store i8 2, ptr %128, align 1
   %129 = load ptr, ptr %41, align 8
-  %130 = ptrtoint ptr %storemerge.i21 to i64
-  %131 = load i32, ptr %40, align 8
-  %132 = add nsw i32 %131, 1
-  store i32 %132, ptr %40, align 8
-  %133 = sext i32 %131 to i64
-  %134 = getelementptr inbounds i64, ptr %129, i64 %133
-  store i64 %130, ptr %134, align 8
-  br label %150
+  %130 = load i32, ptr %40, align 8
+  %131 = add nsw i32 %130, 1
+  store i32 %131, ptr %40, align 8
+  %132 = sext i32 %130 to i64
+  %133 = getelementptr inbounds i64, ptr %129, i64 %132
+  store i64 %storemerge.i21, ptr %133, align 8
+  br label %149
 
-135:                                              ; preds = %43
-  %136 = getelementptr inbounds i8, ptr %44, i64 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = load ptr, ptr %39, align 8
-  %139 = load i32, ptr %40, align 8
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds i8, ptr %138, i64 %140
-  store i8 3, ptr %141, align 1
-  %142 = load ptr, ptr %41, align 8
-  %143 = ptrtoint ptr %137 to i64
-  %144 = load i32, ptr %40, align 8
-  %145 = add nsw i32 %144, 1
-  store i32 %145, ptr %40, align 8
-  %146 = sext i32 %144 to i64
-  %147 = getelementptr inbounds i64, ptr %142, i64 %146
-  store i64 %143, ptr %147, align 8
-  br label %150
+134:                                              ; preds = %43
+  %135 = getelementptr inbounds i8, ptr %44, i64 8
+  %136 = load ptr, ptr %135, align 8
+  %137 = load ptr, ptr %39, align 8
+  %138 = load i32, ptr %40, align 8
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds i8, ptr %137, i64 %139
+  store i8 3, ptr %140, align 1
+  %141 = load ptr, ptr %41, align 8
+  %142 = ptrtoint ptr %136 to i64
+  %143 = load i32, ptr %40, align 8
+  %144 = add nsw i32 %143, 1
+  store i32 %144, ptr %40, align 8
+  %145 = sext i32 %143 to i64
+  %146 = getelementptr inbounds i64, ptr %141, i64 %145
+  store i64 %142, ptr %146, align 8
+  br label %149
 
-148:                                              ; preds = %43
-  %149 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %149, align 1
+147:                                              ; preds = %43
+  %148 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %148, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 178) #13
   unreachable
 
-150:                                              ; preds = %46, %58, %77, %89, %_ZN6HandleC2EP6ThreadP7oopDesc.exit22, %135
+149:                                              ; preds = %46, %58, %77, %89, %_ZN6HandleC2EP6ThreadP7oopDesc.exit22, %134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %151 = load i32, ptr %36, align 8
-  %152 = sext i32 %151 to i64
-  %153 = icmp slt i64 %indvars.iv.next, %152
-  br i1 %153, label %43, label %._crit_edge, !llvm.loop !6
+  %150 = load i32, ptr %36, align 8
+  %151 = sext i32 %150 to i64
+  %152 = icmp slt i64 %indvars.iv.next, %151
+  br i1 %152, label %43, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %150, %35
+._crit_edge:                                      ; preds = %149, %35
   ret void
 }
 

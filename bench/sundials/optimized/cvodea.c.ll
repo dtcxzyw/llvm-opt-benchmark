@@ -482,7 +482,7 @@ define internal void @CVAhermiteFree(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVAhermiteGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -107, 1) i32 @CVAhermiteGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [4 x double], align 16
   %6 = alloca [4 x ptr], align 16
   %7 = alloca [4 x ptr], align 16
@@ -1174,16 +1174,16 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr nocapture noundef 
   %11 = icmp ne i32 %10, 0
   %12 = icmp ne ptr %3, null
   %or.cond = and i1 %12, %11
-  br i1 %or.cond, label %13, label %16
+  br i1 %or.cond, label %13, label %17
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %0, i64 144
   %15 = load i32, ptr %14, align 8
-  br label %16
+  %16 = freeze i32 %15
+  br label %17
 
-16:                                               ; preds = %4, %13
-  %17 = phi i32 [ %15, %13 ], [ 0, %4 ]
-  %.fr230 = freeze i32 %17
+17:                                               ; preds = %4, %13
+  %.fr230 = phi i32 [ %16, %13 ], [ 0, %4 ]
   %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load double, ptr %18, align 8
   %20 = load double, ptr %6, align 8
@@ -1193,12 +1193,12 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr nocapture noundef 
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %._crit_edge284, label %24
 
-._crit_edge284:                                   ; preds = %16
+._crit_edge284:                                   ; preds = %17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 112
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %29
 
-24:                                               ; preds = %16
+24:                                               ; preds = %17
   %25 = getelementptr inbounds i8, ptr %6, i64 128
   %26 = load i64, ptr %25, align 8
   %27 = add nsw i64 %26, -1

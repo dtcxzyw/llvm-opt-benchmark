@@ -74,18 +74,21 @@ define hidden void @mlib_ImageAffine_bit_1ch_nn(ptr nocapture noundef readonly %
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %32, i64 %50
   %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
   %reass.sub = and i32 %35, -8
-  %54 = add i32 %reass.sub, 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %54, i32 %48)
-  %55 = icmp slt i32 %35, %spec.select
-  br i1 %55, label %.lr.ph, label %._crit_edge
+  %53 = add i32 %reass.sub, 8
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %53, i32 %48)
+  %54 = icmp slt i32 %35, %spec.select
+  br i1 %54, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %47, %.lr.ph
-  %.0171195 = phi i32 [ %77, %.lr.ph ], [ %53, %47 ]
-  %.1194 = phi i32 [ %78, %.lr.ph ], [ %40, %47 ]
-  %.1174193 = phi i32 [ %80, %.lr.ph ], [ %35, %47 ]
-  %.1178192 = phi i32 [ %79, %.lr.ph ], [ %42, %47 ]
+.lr.ph.preheader:                                 ; preds = %47
+  %55 = zext i8 %52 to i32
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0171195 = phi i32 [ %77, %.lr.ph ], [ %55, %.lr.ph.preheader ]
+  %.1194 = phi i32 [ %78, %.lr.ph ], [ %40, %.lr.ph.preheader ]
+  %.1174193 = phi i32 [ %80, %.lr.ph ], [ %35, %.lr.ph.preheader ]
+  %.1178192 = phi i32 [ %79, %.lr.ph ], [ %42, %.lr.ph.preheader ]
   %56 = and i32 %.1174193, 7
   %57 = xor i32 %56, 7
   %58 = ashr i32 %.1178192, 13
@@ -112,15 +115,18 @@ define hidden void @mlib_ImageAffine_bit_1ch_nn(ptr nocapture noundef readonly %
   %79 = add nsw i32 %.1178192, %21
   %80 = add nsw i32 %.1174193, 1
   %81 = icmp slt i32 %80, %spec.select
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %81, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %47
-  %.1178.lcssa = phi i32 [ %42, %47 ], [ %79, %.lr.ph ]
-  %.1174.lcssa = phi i32 [ %35, %47 ], [ %spec.select, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %40, %47 ], [ %78, %.lr.ph ]
-  %.0171.lcssa = phi i32 [ %53, %47 ], [ %77, %.lr.ph ]
-  %82 = trunc nuw i32 %.0171.lcssa to i8
-  store i8 %82, ptr %51, align 1
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %82 = trunc nuw i32 %77 to i8
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %47
+  %.1178.lcssa = phi i32 [ %42, %47 ], [ %79, %._crit_edge.loopexit ]
+  %.1174.lcssa = phi i32 [ %35, %47 ], [ %spec.select, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %40, %47 ], [ %78, %._crit_edge.loopexit ]
+  %.0171.lcssa = phi i8 [ %52, %47 ], [ %82, %._crit_edge.loopexit ]
+  store i8 %.0171.lcssa, ptr %51, align 1
   br label %83
 
 83:                                               ; preds = %._crit_edge, %44

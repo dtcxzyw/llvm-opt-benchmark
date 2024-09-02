@@ -2565,8 +2565,8 @@ proto_item_set_generated.exit330:                 ; preds = %353, %364, %361, %3
   %611 = load ptr, ptr %606, align 8
   %612 = load i64, ptr %611, align 8
   %613 = and i64 %612, -64
-  %spec.select = icmp eq i64 %613, 192
-  %614 = zext i1 %spec.select to i32
+  %narrow = icmp eq i64 %613, 192
+  %614 = zext i1 %narrow to i32
   br label %615
 
 615:                                              ; preds = %608, %605
@@ -2730,13 +2730,13 @@ cmp_address.exit:                                 ; preds = %691
   %698 = call i32 @memcmp(ptr noundef %694, ptr noundef %696, i64 noundef %697) #18
   %.fr = freeze i32 %698
   %699 = icmp slt i32 %.fr, 0
-  %spec.select436 = select i1 %699, ptr %655, ptr %659
-  %spec.select437 = select i1 %699, ptr %659, ptr %655
+  %spec.select = select i1 %699, ptr %655, ptr %659
+  %spec.select435 = select i1 %699, ptr %659, ptr %655
   br label %.thread411
 
 .thread411:                                       ; preds = %cmp_address.exit, %689, %681, %679, %683, %691
-  %700 = phi ptr [ %659, %691 ], [ %659, %683 ], [ %659, %679 ], [ %655, %689 ], [ %655, %681 ], [ %spec.select436, %cmp_address.exit ]
-  %701 = phi ptr [ %655, %691 ], [ %655, %683 ], [ %655, %679 ], [ %659, %689 ], [ %659, %681 ], [ %spec.select437, %cmp_address.exit ]
+  %700 = phi ptr [ %659, %691 ], [ %659, %683 ], [ %659, %679 ], [ %655, %689 ], [ %655, %681 ], [ %spec.select, %cmp_address.exit ]
+  %701 = phi ptr [ %655, %691 ], [ %655, %683 ], [ %655, %679 ], [ %659, %689 ], [ %659, %681 ], [ %spec.select435, %cmp_address.exit ]
   %.pn306 = load ptr, ptr %701, align 8
   %.0251 = getelementptr inbounds i8, ptr %.pn306, i64 8
   %.pn = load ptr, ptr %700, align 8
@@ -3791,7 +3791,7 @@ define internal i32 @dissect_status_report(ptr noundef %0, ptr noundef %1, ptr n
   %6 = alloca %struct.bp_creation_ts_t, align 8
   %7 = alloca %struct.nstime_t, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %177, label %8
+  br i1 %.not, label %181, label %8
 
 8:                                                ; preds = %4
   store i32 0, ptr %5, align 4
@@ -3815,7 +3815,7 @@ define internal i32 @dissect_status_report(ptr noundef %0, ptr noundef %1, ptr n
   %23 = load i32, ptr %22, align 8
   %24 = sub i32 %21, %23
   call void @proto_item_set_len(ptr noundef %10, i32 noundef %24) #16
-  br label %177
+  br label %181
 
 25:                                               ; preds = %8
   %26 = load ptr, ptr %13, align 8
@@ -3828,7 +3828,7 @@ define internal i32 @dissect_status_report(ptr noundef %0, ptr noundef %1, ptr n
   %33 = load ptr, ptr %13, align 8
   %34 = call i32 @wscbor_skip_if_errors(ptr noundef %33, ptr noundef %0, ptr noundef nonnull %5, ptr noundef %27) #16
   %.not158 = icmp eq i32 %34, 0
-  br i1 %.not158, label %35, label %46
+  br i1 %.not158, label %35, label %50
 
 35:                                               ; preds = %25
   %36 = load i32, ptr @ett_status_info, align 4
@@ -3841,270 +3841,267 @@ define internal i32 @dissect_status_report(ptr noundef %0, ptr noundef %1, ptr n
   %43 = call fastcc i32 @dissect_status_assertion(ptr noundef %37, i32 noundef %42, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
   %44 = load i32, ptr @hf_status_rep_deleted, align 4
   %45 = call fastcc i32 @dissect_status_assertion(ptr noundef %37, i32 noundef %44, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
-  br label %46
+  %46 = icmp eq i32 %39, 0
+  %47 = icmp eq i32 %41, 0
+  %48 = icmp eq i32 %43, 0
+  %49 = icmp eq i32 %45, 0
+  br label %50
 
-46:                                               ; preds = %25, %35
-  %.0150 = phi i32 [ 0, %25 ], [ %45, %35 ]
-  %.0149 = phi i32 [ 0, %25 ], [ %43, %35 ]
-  %.0148 = phi i32 [ 0, %25 ], [ %41, %35 ]
-  %.0147 = phi i32 [ 0, %25 ], [ %39, %35 ]
-  %47 = load i32, ptr %5, align 4
-  %48 = getelementptr inbounds i8, ptr %27, i64 8
-  %49 = load i32, ptr %48, align 8
-  %50 = sub i32 %47, %49
-  call void @proto_item_set_len(ptr noundef %31, i32 noundef %50) #16
-  %51 = load ptr, ptr %13, align 8
-  %52 = call ptr @wscbor_chunk_read(ptr noundef %51, ptr noundef %0, ptr noundef nonnull %5) #16
-  %53 = load ptr, ptr %13, align 8
-  %54 = call ptr @wscbor_require_uint64(ptr noundef %53, ptr noundef %52) #16
-  %55 = load i32, ptr @hf_status_rep_reason_code, align 4
-  %56 = call ptr @proto_tree_add_cbor_uint64(ptr noundef %12, i32 noundef %55, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %52, ptr noundef %54) #16
+50:                                               ; preds = %25, %35
+  %.0150 = phi i1 [ true, %25 ], [ %49, %35 ]
+  %.0149 = phi i1 [ true, %25 ], [ %48, %35 ]
+  %.0148 = phi i1 [ true, %25 ], [ %47, %35 ]
+  %.0147 = phi i1 [ true, %25 ], [ %46, %35 ]
+  %51 = load i32, ptr %5, align 4
+  %52 = getelementptr inbounds i8, ptr %27, i64 8
+  %53 = load i32, ptr %52, align 8
+  %54 = sub i32 %51, %53
+  call void @proto_item_set_len(ptr noundef %31, i32 noundef %54) #16
+  %55 = load ptr, ptr %13, align 8
+  %56 = call ptr @wscbor_chunk_read(ptr noundef %55, ptr noundef %0, ptr noundef nonnull %5) #16
   %57 = load ptr, ptr %13, align 8
-  %58 = call noalias ptr @wmem_alloc0(ptr noundef %57, i64 noundef 56) #16
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
-  %60 = load i32, ptr @hf_status_rep_subj_src_nodeid, align 4
-  %61 = load i32, ptr @hf_status_rep_subj_src_uri, align 4
-  %62 = call ptr @proto_tree_add_cbor_eid(ptr noundef %12, i32 noundef %60, i32 noundef %61, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5, ptr noundef %58)
-  %63 = load i32, ptr @hf_status_rep_subj_ts, align 4
-  call fastcc void @dissect_cbor_timestamp(ptr noundef %12, i32 noundef %63, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %64 = call ptr @wmem_file_scope() #16
-  %65 = call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef 72) #16
-  %66 = load i32, ptr %59, align 8
-  %67 = getelementptr inbounds i8, ptr %58, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %58, i64 16
-  %70 = load ptr, ptr %69, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
-  store i32 %66, ptr %65, align 8
-  %71 = icmp eq i32 %68, 0
-  br i1 %71, label %bp_bundle_ident_new.exit, label %72
+  %58 = call ptr @wscbor_require_uint64(ptr noundef %57, ptr noundef %56) #16
+  %59 = load i32, ptr @hf_status_rep_reason_code, align 4
+  %60 = call ptr @proto_tree_add_cbor_uint64(ptr noundef %12, i32 noundef %59, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %56, ptr noundef %58) #16
+  %61 = load ptr, ptr %13, align 8
+  %62 = call noalias ptr @wmem_alloc0(ptr noundef %61, i64 noundef 56) #16
+  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
+  %64 = load i32, ptr @hf_status_rep_subj_src_nodeid, align 4
+  %65 = load i32, ptr @hf_status_rep_subj_src_uri, align 4
+  %66 = call ptr @proto_tree_add_cbor_eid(ptr noundef %12, i32 noundef %64, i32 noundef %65, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5, ptr noundef %62)
+  %67 = load i32, ptr @hf_status_rep_subj_ts, align 4
+  call fastcc void @dissect_cbor_timestamp(ptr noundef %12, i32 noundef %67, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %68 = call ptr @wmem_file_scope() #16
+  %69 = call noalias ptr @wmem_alloc(ptr noundef %68, i64 noundef 72) #16
+  %70 = load i32, ptr %63, align 8
+  %71 = getelementptr inbounds i8, ptr %62, i64 12
+  %72 = load i32, ptr %71, align 4
+  %73 = getelementptr inbounds i8, ptr %62, i64 16
+  %74 = load ptr, ptr %73, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
+  store i32 %70, ptr %69, align 8
+  %75 = icmp eq i32 %72, 0
+  br i1 %75, label %bp_bundle_ident_new.exit, label %76
 
-72:                                               ; preds = %46
-  %73 = sext i32 %68 to i64
-  %74 = call noalias ptr @wmem_memdup(ptr noundef %64, ptr noundef %70, i64 noundef %73) #16
-  %75 = getelementptr inbounds i8, ptr %65, i64 16
-  store ptr %74, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %65, i64 8
-  store ptr %74, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %65, i64 4
-  store i32 %68, ptr %77, align 4
+76:                                               ; preds = %50
+  %77 = sext i32 %72 to i64
+  %78 = call noalias ptr @wmem_memdup(ptr noundef %68, ptr noundef %74, i64 noundef %77) #16
+  %79 = getelementptr inbounds i8, ptr %69, i64 16
+  store ptr %78, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %69, i64 8
+  store ptr %78, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %69, i64 4
+  store i32 %72, ptr %81, align 4
   br label %bp_bundle_ident_new.exit
 
-bp_bundle_ident_new.exit:                         ; preds = %46, %72
-  %78 = getelementptr inbounds i8, ptr %65, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %79 = getelementptr inbounds i8, ptr %65, i64 56
-  %80 = getelementptr inbounds i8, ptr %65, i64 64
-  %81 = getelementptr inbounds i8, ptr %27, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
-  %82 = load i64, ptr %81, align 8
-  %83 = icmp ugt i64 %82, 4
-  br i1 %83, label %84, label %.thread
+bp_bundle_ident_new.exit:                         ; preds = %50, %76
+  %82 = getelementptr inbounds i8, ptr %69, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32, i1 false)
+  %83 = getelementptr inbounds i8, ptr %69, i64 56
+  %84 = getelementptr inbounds i8, ptr %69, i64 64
+  %85 = getelementptr inbounds i8, ptr %27, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
+  %86 = load i64, ptr %85, align 8
+  %87 = icmp ugt i64 %86, 4
+  br i1 %87, label %88, label %.thread
 
-84:                                               ; preds = %bp_bundle_ident_new.exit
-  %85 = load ptr, ptr %13, align 8
-  %86 = call ptr @wscbor_chunk_read(ptr noundef %85, ptr noundef %0, ptr noundef nonnull %5) #16
-  %87 = call ptr @wmem_file_scope() #16
-  %88 = call ptr @wscbor_require_uint64(ptr noundef %87, ptr noundef %86) #16
-  store ptr %88, ptr %79, align 8
-  %89 = load i32, ptr @hf_status_rep_subj_frag_offset, align 4
-  %90 = call ptr @proto_tree_add_cbor_uint64(ptr noundef %12, i32 noundef %89, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %86, ptr noundef %88) #16
-  %.pre = load i64, ptr %81, align 8
-  %91 = icmp ugt i64 %.pre, 5
-  br i1 %91, label %92, label %.thread
+88:                                               ; preds = %bp_bundle_ident_new.exit
+  %89 = load ptr, ptr %13, align 8
+  %90 = call ptr @wscbor_chunk_read(ptr noundef %89, ptr noundef %0, ptr noundef nonnull %5) #16
+  %91 = call ptr @wmem_file_scope() #16
+  %92 = call ptr @wscbor_require_uint64(ptr noundef %91, ptr noundef %90) #16
+  store ptr %92, ptr %83, align 8
+  %93 = load i32, ptr @hf_status_rep_subj_frag_offset, align 4
+  %94 = call ptr @proto_tree_add_cbor_uint64(ptr noundef %12, i32 noundef %93, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %90, ptr noundef %92) #16
+  %.pre = load i64, ptr %85, align 8
+  %95 = icmp ugt i64 %.pre, 5
+  br i1 %95, label %96, label %.thread
 
-92:                                               ; preds = %84
-  %93 = load ptr, ptr %13, align 8
-  %94 = call ptr @wscbor_chunk_read(ptr noundef %93, ptr noundef %0, ptr noundef nonnull %5) #16
-  %95 = call ptr @wmem_file_scope() #16
-  %96 = call ptr @wscbor_require_uint64(ptr noundef %95, ptr noundef %94) #16
-  store ptr %96, ptr %80, align 8
-  %97 = load i32, ptr @hf_status_rep_subj_payload_len, align 4
-  %98 = call ptr @proto_tree_add_cbor_uint64(ptr noundef %12, i32 noundef %97, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %94, ptr noundef %96) #16
+96:                                               ; preds = %88
+  %97 = load ptr, ptr %13, align 8
+  %98 = call ptr @wscbor_chunk_read(ptr noundef %97, ptr noundef %0, ptr noundef nonnull %5) #16
+  %99 = call ptr @wmem_file_scope() #16
+  %100 = call ptr @wscbor_require_uint64(ptr noundef %99, ptr noundef %98) #16
+  store ptr %100, ptr %84, align 8
+  %101 = load i32, ptr @hf_status_rep_subj_payload_len, align 4
+  %102 = call ptr @proto_tree_add_cbor_uint64(ptr noundef %12, i32 noundef %101, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %98, ptr noundef %100) #16
   br label %.thread
 
-.thread:                                          ; preds = %bp_bundle_ident_new.exit, %92, %84
-  %99 = load i32, ptr @hf_status_rep_subj_ident, align 4
+.thread:                                          ; preds = %bp_bundle_ident_new.exit, %96, %88
+  %103 = load i32, ptr @hf_status_rep_subj_ident, align 4
   %.val = load ptr, ptr %13, align 8
-  %100 = call fastcc ptr @proto_tree_add_ident(ptr %.val, ptr noundef %12, i32 noundef %99, ptr noundef %0, ptr noundef nonnull %65)
-  %101 = load ptr, ptr @bp_history, align 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = call ptr @wmem_map_lookup(ptr noundef %102, ptr noundef nonnull %65) #16
-  %.not159 = icmp eq ptr %103, null
-  br i1 %.not159, label %proto_item_set_generated.exit174, label %104
+  %104 = call fastcc ptr @proto_tree_add_ident(ptr %.val, ptr noundef %12, i32 noundef %103, ptr noundef %0, ptr noundef nonnull %69)
+  %105 = load ptr, ptr @bp_history, align 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = call ptr @wmem_map_lookup(ptr noundef %106, ptr noundef nonnull %69) #16
+  %.not159 = icmp eq ptr %107, null
+  br i1 %.not159, label %proto_item_set_generated.exit174, label %108
 
-104:                                              ; preds = %.thread
-  %105 = call ptr @wmem_list_head(ptr noundef nonnull %103) #16
-  %.not160 = icmp eq ptr %105, null
-  br i1 %.not160, label %proto_item_set_generated.exit174, label %106
+108:                                              ; preds = %.thread
+  %109 = call ptr @wmem_list_head(ptr noundef nonnull %107) #16
+  %.not160 = icmp eq ptr %109, null
+  br i1 %.not160, label %proto_item_set_generated.exit174, label %110
 
-106:                                              ; preds = %104
-  %107 = call ptr @wmem_list_frame_data(ptr noundef nonnull %105) #16
-  %.not161 = icmp eq ptr %107, null
-  br i1 %.not161, label %proto_item_set_generated.exit174, label %108
+110:                                              ; preds = %108
+  %111 = call ptr @wmem_list_frame_data(ptr noundef nonnull %109) #16
+  %.not161 = icmp eq ptr %111, null
+  br i1 %.not161, label %proto_item_set_generated.exit174, label %112
 
-108:                                              ; preds = %106
-  %109 = load i32, ptr @hf_status_rep_subj_ref, align 4
-  %110 = load i32, ptr %107, align 8
-  %111 = call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %109, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %110) #16
-  %.not.i171 = icmp eq ptr %111, null
-  br i1 %.not.i171, label %proto_item_set_generated.exit, label %112
+112:                                              ; preds = %110
+  %113 = load i32, ptr @hf_status_rep_subj_ref, align 4
+  %114 = load i32, ptr %111, align 8
+  %115 = call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %113, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %114) #16
+  %.not.i171 = icmp eq ptr %115, null
+  br i1 %.not.i171, label %proto_item_set_generated.exit, label %116
 
-112:                                              ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %111, i64 32
-  %114 = load ptr, ptr %113, align 8
-  %.not5.i = icmp eq ptr %114, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %115
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds i8, ptr %115, i64 32
+  %118 = load ptr, ptr %117, align 8
+  %.not5.i = icmp eq ptr %118, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %119
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %114, i64 28
-  %117 = load i32, ptr %116, align 4
-  %118 = or i32 %117, 2
-  store i32 %118, ptr %116, align 4
+119:                                              ; preds = %116
+  %120 = getelementptr inbounds i8, ptr %118, i64 28
+  %121 = load i32, ptr %120, align 4
+  %122 = or i32 %121, 2
+  store i32 %122, ptr %120, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %108, %112, %115
-  %119 = load ptr, ptr %3, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 8
-  %121 = getelementptr inbounds i8, ptr %107, i64 8
-  call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %120, ptr noundef nonnull %121) #16
-  %122 = load i32, ptr @hf_status_time_diff, align 4
-  %123 = call ptr @proto_tree_add_time(ptr noundef %12, i32 noundef %122, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #16
-  %.not.i172 = icmp eq ptr %123, null
-  br i1 %.not.i172, label %proto_item_set_generated.exit174, label %124
+proto_item_set_generated.exit:                    ; preds = %112, %116, %119
+  %123 = load ptr, ptr %3, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %125 = getelementptr inbounds i8, ptr %111, i64 8
+  call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %124, ptr noundef nonnull %125) #16
+  %126 = load i32, ptr @hf_status_time_diff, align 4
+  %127 = call ptr @proto_tree_add_time(ptr noundef %12, i32 noundef %126, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #16
+  %.not.i172 = icmp eq ptr %127, null
+  br i1 %.not.i172, label %proto_item_set_generated.exit174, label %128
 
-124:                                              ; preds = %proto_item_set_generated.exit
-  %125 = getelementptr inbounds i8, ptr %123, i64 32
-  %126 = load ptr, ptr %125, align 8
-  %.not5.i173 = icmp eq ptr %126, null
-  br i1 %.not5.i173, label %proto_item_set_generated.exit174, label %127
+128:                                              ; preds = %proto_item_set_generated.exit
+  %129 = getelementptr inbounds i8, ptr %127, i64 32
+  %130 = load ptr, ptr %129, align 8
+  %.not5.i173 = icmp eq ptr %130, null
+  br i1 %.not5.i173, label %proto_item_set_generated.exit174, label %131
 
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %126, i64 28
-  %129 = load i32, ptr %128, align 4
-  %130 = or i32 %129, 2
-  store i32 %130, ptr %128, align 4
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds i8, ptr %130, i64 28
+  %133 = load i32, ptr %132, align 4
+  %134 = or i32 %133, 2
+  store i32 %134, ptr %132, align 4
   br label %proto_item_set_generated.exit174
 
-proto_item_set_generated.exit174:                 ; preds = %.thread, %104, %127, %124, %proto_item_set_generated.exit, %106
-  %131 = load ptr, ptr @bp_history, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 8
-  %133 = load ptr, ptr %132, align 8
-  %134 = call ptr @wmem_map_lookup(ptr noundef %133, ptr noundef nonnull %65) #16
-  %.not162 = icmp eq ptr %134, null
-  %135 = call ptr @wmem_file_scope() #16
-  br i1 %.not162, label %136, label %142
+proto_item_set_generated.exit174:                 ; preds = %.thread, %108, %131, %128, %proto_item_set_generated.exit, %110
+  %135 = load ptr, ptr @bp_history, align 8
+  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %137 = load ptr, ptr %136, align 8
+  %138 = call ptr @wmem_map_lookup(ptr noundef %137, ptr noundef nonnull %69) #16
+  %.not162 = icmp eq ptr %138, null
+  %139 = call ptr @wmem_file_scope() #16
+  br i1 %.not162, label %140, label %146
 
-136:                                              ; preds = %proto_item_set_generated.exit174
-  %137 = call noalias ptr @wmem_map_new(ptr noundef %135, ptr noundef nonnull @bp_bundle_ident_hash, ptr noundef nonnull @bp_bundle_ident_equal) #16
-  %138 = load ptr, ptr @bp_history, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 8
-  %140 = load ptr, ptr %139, align 8
-  %141 = call ptr @wmem_map_insert(ptr noundef %140, ptr noundef nonnull %65, ptr noundef %137) #16
-  br label %143
+140:                                              ; preds = %proto_item_set_generated.exit174
+  %141 = call noalias ptr @wmem_map_new(ptr noundef %139, ptr noundef nonnull @bp_bundle_ident_hash, ptr noundef nonnull @bp_bundle_ident_equal) #16
+  %142 = load ptr, ptr @bp_history, align 8
+  %143 = getelementptr inbounds i8, ptr %142, i64 8
+  %144 = load ptr, ptr %143, align 8
+  %145 = call ptr @wmem_map_insert(ptr noundef %144, ptr noundef nonnull %69, ptr noundef %141) #16
+  br label %147
 
-142:                                              ; preds = %proto_item_set_generated.exit174
-  call void @wmem_free(ptr noundef %135, ptr noundef nonnull %65) #16
-  br label %143
+146:                                              ; preds = %proto_item_set_generated.exit174
+  call void @wmem_free(ptr noundef %139, ptr noundef nonnull %69) #16
+  br label %147
 
-143:                                              ; preds = %142, %136
-  %.0146 = phi ptr [ %134, %142 ], [ %137, %136 ]
-  %144 = load ptr, ptr %3, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 24
-  %146 = load ptr, ptr %145, align 8
-  %147 = call zeroext i1 @wmem_map_contains(ptr noundef %.0146, ptr noundef %146) #16
-  br i1 %147, label %153, label %148
+147:                                              ; preds = %146, %140
+  %.0146 = phi ptr [ %138, %146 ], [ %141, %140 ]
+  %148 = load ptr, ptr %3, align 8
+  %149 = getelementptr inbounds i8, ptr %148, i64 24
+  %150 = load ptr, ptr %149, align 8
+  %151 = call zeroext i1 @wmem_map_contains(ptr noundef %.0146, ptr noundef %150) #16
+  br i1 %151, label %157, label %152
 
-148:                                              ; preds = %143
-  %149 = load ptr, ptr %3, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 24
-  %151 = load ptr, ptr %150, align 8
-  %152 = call ptr @wmem_map_insert(ptr noundef %.0146, ptr noundef %151, ptr noundef null) #16
-  br label %153
+152:                                              ; preds = %147
+  %153 = load ptr, ptr %3, align 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 24
+  %155 = load ptr, ptr %154, align 8
+  %156 = call ptr @wmem_map_insert(ptr noundef %.0146, ptr noundef %155, ptr noundef null) #16
+  br label %157
 
-153:                                              ; preds = %148, %143
-  %154 = call ptr @proto_tree_get_parent(ptr noundef %2) #16
-  %155 = load ptr, ptr %13, align 8
-  %156 = call noalias ptr @wmem_strbuf_new(ptr noundef %155, ptr noundef null) #16
-  %.not163 = icmp eq i32 %.0147, 0
-  br i1 %.not163, label %157, label %.thread178
+157:                                              ; preds = %152, %147
+  %158 = call ptr @proto_tree_get_parent(ptr noundef %2) #16
+  %159 = load ptr, ptr %13, align 8
+  %160 = call noalias ptr @wmem_strbuf_new(ptr noundef %159, ptr noundef null) #16
+  br i1 %.0147, label %161, label %.thread178
 
-157:                                              ; preds = %153
-  %.not164 = icmp eq i32 %.0148, 0
-  br i1 %.not164, label %.thread182, label %159
+161:                                              ; preds = %157
+  br i1 %.0148, label %.thread181, label %163
 
-.thread178:                                       ; preds = %153
-  call void @wmem_strbuf_append(ptr noundef %156, ptr noundef nonnull @.str.317) #16
-  %.not164180 = icmp eq i32 %.0148, 0
-  br i1 %.not164180, label %160, label %158
+.thread178:                                       ; preds = %157
+  call void @wmem_strbuf_append(ptr noundef %160, ptr noundef nonnull @.str.317) #16
+  br i1 %.0148, label %164, label %162
 
-158:                                              ; preds = %.thread178
-  call void @wmem_strbuf_append(ptr noundef %156, ptr noundef nonnull @.str.316) #16
-  br label %159
+162:                                              ; preds = %.thread178
+  call void @wmem_strbuf_append(ptr noundef %160, ptr noundef nonnull @.str.316) #16
+  br label %163
 
-159:                                              ; preds = %157, %158
-  call void @wmem_strbuf_append(ptr noundef %156, ptr noundef nonnull @.str.318) #16
-  br label %160
-
-160:                                              ; preds = %.thread178, %159
-  %.not166 = icmp eq i32 %.0149, 0
-  br i1 %.not166, label %162, label %161
-
-.thread182:                                       ; preds = %157
-  %.not166184 = icmp eq i32 %.0149, 0
-  br i1 %.not166184, label %.thread189, label %.thread186
-
-161:                                              ; preds = %160
-  call void @wmem_strbuf_append(ptr noundef %156, ptr noundef nonnull @.str.316) #16
-  br label %.thread186
-
-.thread186:                                       ; preds = %.thread182, %161
-  call void @wmem_strbuf_append(ptr noundef %156, ptr noundef nonnull @.str.319) #16
-  br label %162
-
-162:                                              ; preds = %.thread186, %160
-  %.not168 = icmp eq i32 %.0150, 0
-  br i1 %.not168, label %164, label %163
-
-.thread189:                                       ; preds = %.thread182
-  %.not168191 = icmp eq i32 %.0150, 0
-  br i1 %.not168191, label %164, label %.thread193
-
-163:                                              ; preds = %162
-  call void @wmem_strbuf_append(ptr noundef %156, ptr noundef nonnull @.str.316) #16
-  br label %.thread193
-
-.thread193:                                       ; preds = %.thread189, %163
-  call void @wmem_strbuf_append(ptr noundef %156, ptr noundef nonnull @.str.320) #16
+163:                                              ; preds = %161, %162
+  call void @wmem_strbuf_append(ptr noundef %160, ptr noundef nonnull @.str.318) #16
   br label %164
 
-164:                                              ; preds = %.thread189, %.thread193, %162
-  %165 = call ptr @wmem_strbuf_finalize(ptr noundef %156) #16
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %154, ptr noundef nonnull @.str.321, ptr noundef %165) #16
-  %166 = getelementptr inbounds i8, ptr %1, i64 8
-  %167 = load ptr, ptr %166, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %167, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.322, ptr noundef %165) #16
-  %.not170 = icmp eq ptr %54, null
-  br i1 %.not170, label %171, label %168
+164:                                              ; preds = %.thread178, %163
+  br i1 %.0149, label %166, label %165
 
-168:                                              ; preds = %164
-  %169 = load i64, ptr %54, align 8
-  %170 = call ptr @val64_to_str(i64 noundef %169, ptr noundef nonnull @status_report_reason_vals, ptr noundef nonnull @.str.293) #16
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %154, ptr noundef nonnull @.str.323, ptr noundef %170) #16
-  br label %171
+.thread181:                                       ; preds = %161
+  br i1 %.0149, label %.thread187, label %.thread184
 
-171:                                              ; preds = %168, %164
-  %172 = load i32, ptr %5, align 4
-  %173 = getelementptr inbounds i8, ptr %15, i64 8
-  %174 = load i32, ptr %173, align 8
-  %175 = sub i32 %172, %174
-  call void @proto_item_set_len(ptr noundef %10, i32 noundef %175) #16
+165:                                              ; preds = %164
+  call void @wmem_strbuf_append(ptr noundef %160, ptr noundef nonnull @.str.316) #16
+  br label %.thread184
+
+.thread184:                                       ; preds = %.thread181, %165
+  call void @wmem_strbuf_append(ptr noundef %160, ptr noundef nonnull @.str.319) #16
+  br label %166
+
+166:                                              ; preds = %.thread184, %164
+  br i1 %.0150, label %168, label %167
+
+.thread187:                                       ; preds = %.thread181
+  br i1 %.0150, label %168, label %.thread190
+
+167:                                              ; preds = %166
+  call void @wmem_strbuf_append(ptr noundef %160, ptr noundef nonnull @.str.316) #16
+  br label %.thread190
+
+.thread190:                                       ; preds = %.thread187, %167
+  call void @wmem_strbuf_append(ptr noundef %160, ptr noundef nonnull @.str.320) #16
+  br label %168
+
+168:                                              ; preds = %.thread187, %.thread190, %166
+  %169 = call ptr @wmem_strbuf_finalize(ptr noundef %160) #16
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %158, ptr noundef nonnull @.str.321, ptr noundef %169) #16
+  %170 = getelementptr inbounds i8, ptr %1, i64 8
+  %171 = load ptr, ptr %170, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %171, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.322, ptr noundef %169) #16
+  %.not170 = icmp eq ptr %58, null
+  br i1 %.not170, label %175, label %172
+
+172:                                              ; preds = %168
+  %173 = load i64, ptr %58, align 8
+  %174 = call ptr @val64_to_str(i64 noundef %173, ptr noundef nonnull @status_report_reason_vals, ptr noundef nonnull @.str.293) #16
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %158, ptr noundef nonnull @.str.323, ptr noundef %174) #16
+  br label %175
+
+175:                                              ; preds = %172, %168
   %176 = load i32, ptr %5, align 4
-  br label %177
+  %177 = getelementptr inbounds i8, ptr %15, i64 8
+  %178 = load i32, ptr %177, align 8
+  %179 = sub i32 %176, %178
+  call void @proto_item_set_len(ptr noundef %10, i32 noundef %179) #16
+  %180 = load i32, ptr %5, align 4
+  br label %181
 
-177:                                              ; preds = %4, %171, %20
-  %.0 = phi i32 [ 0, %20 ], [ %176, %171 ], [ -1, %4 ]
+181:                                              ; preds = %4, %175, %20
+  %.0 = phi i32 [ 0, %20 ], [ %180, %175 ], [ -1, %4 ]
   ret i32 %.0
 }
 

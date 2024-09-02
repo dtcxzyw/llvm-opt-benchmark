@@ -5871,30 +5871,33 @@ define range(i32 0, 2) i32 @Sbd_ManExplore(ptr nocapture noundef %0, i32 noundef
   store i64 %71, ptr %72, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %55, !llvm.loop !62
+  br i1 %exitcond.not, label %.critedge.loopexit, label %55, !llvm.loop !62
 
-.critedge:                                        ; preds = %55, %..critedge_crit_edge
-  %.val226.val = phi ptr [ %.val226.val.pre, %..critedge_crit_edge ], [ %.val228.val, %55 ]
-  %.val222.val = phi ptr [ %.val222.val.pre, %..critedge_crit_edge ], [ %.val224.val, %55 ]
-  %.val218.val = phi ptr [ %.val218.val.pre, %..critedge_crit_edge ], [ %.val220.val, %55 ]
-  %.val217.val = phi i32 [ %.val217.val.pre, %..critedge_crit_edge ], [ %.val219.val, %55 ]
-  %.0161.lcssa = phi i32 [ 0, %..critedge_crit_edge ], [ %.val201, %55 ]
-  %73 = mul nsw i32 %.val217.val, %1
+.critedge.loopexit:                               ; preds = %55
+  %73 = sub nsw i32 63, %.val201
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i64, ptr %.val218.val, i64 %74
-  %76 = load i64, ptr %75, align 8
-  %77 = sub nsw i32 63, %.0161.lcssa
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds [64 x i64], ptr %9, i64 0, i64 %78
-  store i64 %76, ptr %79, align 8
-  %80 = getelementptr inbounds i64, ptr %.val222.val, i64 %74
+  br label %.critedge
+
+.critedge:                                        ; preds = %..critedge_crit_edge, %.critedge.loopexit
+  %.val226.val = phi ptr [ %.val226.val.pre, %..critedge_crit_edge ], [ %.val228.val, %.critedge.loopexit ]
+  %.val222.val = phi ptr [ %.val222.val.pre, %..critedge_crit_edge ], [ %.val224.val, %.critedge.loopexit ]
+  %.val218.val = phi ptr [ %.val218.val.pre, %..critedge_crit_edge ], [ %.val220.val, %.critedge.loopexit ]
+  %.val217.val = phi i32 [ %.val217.val.pre, %..critedge_crit_edge ], [ %.val219.val, %.critedge.loopexit ]
+  %.0161.lcssa = phi i64 [ 63, %..critedge_crit_edge ], [ %74, %.critedge.loopexit ]
+  %75 = mul nsw i32 %.val217.val, %1
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds i64, ptr %.val218.val, i64 %76
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds [64 x i64], ptr %9, i64 0, i64 %.0161.lcssa
+  store i64 %78, ptr %79, align 8
+  %80 = getelementptr inbounds i64, ptr %.val222.val, i64 %76
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds [64 x i64], ptr %10, i64 0, i64 %78
+  %82 = getelementptr inbounds [64 x i64], ptr %10, i64 0, i64 %.0161.lcssa
   store i64 %81, ptr %82, align 8
-  %83 = getelementptr inbounds i64, ptr %.val226.val, i64 %74
+  %83 = getelementptr inbounds i64, ptr %.val226.val, i64 %76
   %84 = load i64, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %10, i64 512
-  %86 = getelementptr inbounds [64 x i64], ptr %85, i64 0, i64 %78
+  %86 = getelementptr inbounds [64 x i64], ptr %85, i64 0, i64 %.0161.lcssa
   store i64 %84, ptr %86, align 8
   br label %.preheader.i
 
@@ -10754,7 +10757,7 @@ Sbd_CutMergeSimple.exit179:                       ; preds = %.lr.ph55.i166, %.pr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Sbd_ManDelay(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define range(i32 0, -2147483648) i32 @Sbd_ManDelay(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 72

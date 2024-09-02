@@ -2546,7 +2546,7 @@ define zeroext i16 @get_CDR_ushort(ptr noundef %0, ptr nocapture noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_CDR_wchar(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define range(i32 -255, 256) i32 @get_CDR_wchar(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 5
   %7 = load i8, ptr %6, align 1

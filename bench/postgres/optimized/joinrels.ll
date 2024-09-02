@@ -867,23 +867,23 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   %14 = getelementptr inbounds i8, ptr %1, i64 72
   %15 = load i32, ptr %9, align 4
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph234, label %._crit_edge
+  br i1 %16, label %.lr.ph236, label %._crit_edge
 
-.lr.ph234:                                        ; preds = %.lr.ph, %116
-  %.0134171233 = phi i1 [ %.1135, %116 ], [ false, %.lr.ph ]
-  %.0132172232 = phi i8 [ %.1133, %116 ], [ 0, %.lr.ph ]
-  %.0130173231 = phi i8 [ %.1131, %116 ], [ 0, %.lr.ph ]
-  %.0125174230 = phi ptr [ %.1, %116 ], [ null, %.lr.ph ]
-  %indvars.iv229 = phi i64 [ %indvars.iv.next, %116 ], [ 0, %.lr.ph ]
+.lr.ph236:                                        ; preds = %.lr.ph, %116
+  %.0134171235 = phi i1 [ %.1135, %116 ], [ false, %.lr.ph ]
+  %.0132172234 = phi i8 [ %.1133, %116 ], [ 0, %.lr.ph ]
+  %.0130173233 = phi i8 [ %.1131, %116 ], [ 0, %.lr.ph ]
+  %.0125174232 = phi ptr [ %.1, %116 ], [ null, %.lr.ph ]
+  %indvars.iv231 = phi i64 [ %indvars.iv.next, %116 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr %union.ListCell, ptr %17, i64 %indvars.iv229
+  %18 = getelementptr %union.ListCell, ptr %17, i64 %indvars.iv231
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @bms_overlap(ptr noundef %21, ptr noundef %3) #8
   br i1 %22, label %23, label %116
 
-23:                                               ; preds = %.lr.ph234
+23:                                               ; preds = %.lr.ph236
   %24 = load ptr, ptr %20, align 8
   %25 = tail call zeroext i1 @bms_is_subset(ptr noundef %3, ptr noundef %24) #8
   br i1 %25, label %116, label %26
@@ -957,7 +957,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %68
-  %.not154 = icmp eq ptr %.0125174230, null
+  %.not154 = icmp eq ptr %.0125174232, null
   br i1 %.not154, label %116, label %.loopexit
 
 73:                                               ; preds = %68, %64
@@ -973,7 +973,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %77
-  %.not153 = icmp eq ptr %.0125174230, null
+  %.not153 = icmp eq ptr %.0125174232, null
   br i1 %.not153, label %116, label %.loopexit
 
 82:                                               ; preds = %77, %73
@@ -995,7 +995,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   br i1 %.not148, label %94, label %93
 
 93:                                               ; preds = %90
-  %.not152 = icmp eq ptr %.0125174230, null
+  %.not152 = icmp eq ptr %.0125174232, null
   br i1 %.not152, label %116, label %.loopexit
 
 94:                                               ; preds = %90, %85
@@ -1016,7 +1016,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   br i1 %.not149, label %.thread159, label %103
 
 103:                                              ; preds = %100
-  %.not151 = icmp eq ptr %.0125174230, null
+  %.not151 = icmp eq ptr %.0125174232, null
   br i1 %.not151, label %116, label %.loopexit
 
 .thread159:                                       ; preds = %82, %100, %96, %94
@@ -1041,210 +1041,209 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   %115 = tail call zeroext i1 @bms_overlap(ptr noundef %3, ptr noundef %114) #8
   br i1 %115, label %.loopexit, label %116
 
-116:                                              ; preds = %113, %103, %93, %81, %72, %107, %60, %52, %39, %31, %23, %.lr.ph234
-  %.1135 = phi i1 [ %.0134171233, %23 ], [ %.0134171233, %31 ], [ %.0134171233, %39 ], [ %.0134171233, %107 ], [ %.0134171233, %60 ], [ %.0134171233, %52 ], [ %.0134171233, %.lr.ph234 ], [ %.0134171233, %72 ], [ %.0134171233, %81 ], [ %.0134171233, %93 ], [ %.0134171233, %103 ], [ true, %113 ]
-  %.1133 = phi i8 [ %.0132172232, %23 ], [ %.0132172232, %31 ], [ %.0132172232, %39 ], [ %.0132172232, %107 ], [ %.0132172232, %60 ], [ %.0132172232, %52 ], [ %.0132172232, %.lr.ph234 ], [ %.0132172232, %72 ], [ %.0132172232, %81 ], [ 1, %93 ], [ 1, %103 ], [ %.0132172232, %113 ]
-  %.1131 = phi i8 [ %.0130173231, %23 ], [ %.0130173231, %31 ], [ %.0130173231, %39 ], [ %.0130173231, %107 ], [ %.0130173231, %60 ], [ %.0130173231, %52 ], [ %.0130173231, %.lr.ph234 ], [ 0, %72 ], [ 1, %81 ], [ 0, %93 ], [ 1, %103 ], [ %.0130173231, %113 ]
-  %.1 = phi ptr [ %.0125174230, %23 ], [ %.0125174230, %31 ], [ %.0125174230, %39 ], [ %.0125174230, %107 ], [ %.0125174230, %60 ], [ %.0125174230, %52 ], [ %.0125174230, %.lr.ph234 ], [ %19, %72 ], [ %19, %81 ], [ %19, %93 ], [ %19, %103 ], [ %.0125174230, %113 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv229, 1
+116:                                              ; preds = %113, %103, %93, %81, %72, %107, %60, %52, %39, %31, %23, %.lr.ph236
+  %.1135 = phi i1 [ %.0134171235, %23 ], [ %.0134171235, %31 ], [ %.0134171235, %39 ], [ %.0134171235, %107 ], [ %.0134171235, %60 ], [ %.0134171235, %52 ], [ %.0134171235, %.lr.ph236 ], [ %.0134171235, %72 ], [ %.0134171235, %81 ], [ %.0134171235, %93 ], [ %.0134171235, %103 ], [ true, %113 ]
+  %.1133 = phi i8 [ %.0132172234, %23 ], [ %.0132172234, %31 ], [ %.0132172234, %39 ], [ %.0132172234, %107 ], [ %.0132172234, %60 ], [ %.0132172234, %52 ], [ %.0132172234, %.lr.ph236 ], [ %.0132172234, %72 ], [ %.0132172234, %81 ], [ 1, %93 ], [ 1, %103 ], [ %.0132172234, %113 ]
+  %.1131 = phi i8 [ %.0130173233, %23 ], [ %.0130173233, %31 ], [ %.0130173233, %39 ], [ %.0130173233, %107 ], [ %.0130173233, %60 ], [ %.0130173233, %52 ], [ %.0130173233, %.lr.ph236 ], [ 0, %72 ], [ 1, %81 ], [ 0, %93 ], [ 1, %103 ], [ %.0130173233, %113 ]
+  %.1 = phi ptr [ %.0125174232, %23 ], [ %.0125174232, %31 ], [ %.0125174232, %39 ], [ %.0125174232, %107 ], [ %.0125174232, %60 ], [ %.0125174232, %52 ], [ %.0125174232, %.lr.ph236 ], [ %19, %72 ], [ %19, %81 ], [ %19, %93 ], [ %19, %103 ], [ %.0125174232, %113 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv231, 1
   %117 = load i32, ptr %9, align 4
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next, %118
-  br i1 %119, label %.lr.ph234, label %._crit_edge
+  br i1 %119, label %.lr.ph236, label %.._crit_edge_crit_edge
 
-._crit_edge:                                      ; preds = %116, %.lr.ph
-  %.0125174.lcssa = phi ptr [ null, %.lr.ph ], [ %.1, %116 ]
-  %.0130173.lcssa = phi i8 [ 0, %.lr.ph ], [ %.1131, %116 ]
-  %.0132172.lcssa = phi i8 [ 0, %.lr.ph ], [ %.1133, %116 ]
-  %.0134171.lcssa = phi i1 [ false, %.lr.ph ], [ %.1135, %116 ]
-  br i1 %.0134171.lcssa, label %120, label %._crit_edge.thread
+.._crit_edge_crit_edge:                           ; preds = %116
+  %120 = trunc nuw i8 %.1133 to i1
+  br label %._crit_edge
 
-120:                                              ; preds = %._crit_edge
-  %121 = icmp eq ptr %.0125174.lcssa, null
-  br i1 %121, label %.loopexit, label %122
+._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %.lr.ph
+  %.0125174.lcssa = phi ptr [ %.1, %.._crit_edge_crit_edge ], [ null, %.lr.ph ]
+  %.0130173.lcssa = phi i8 [ %.1131, %.._crit_edge_crit_edge ], [ 0, %.lr.ph ]
+  %.0132172.lcssa = phi i1 [ %120, %.._crit_edge_crit_edge ], [ false, %.lr.ph ]
+  %.0134171.lcssa = phi i1 [ %.1135, %.._crit_edge_crit_edge ], [ false, %.lr.ph ]
+  br i1 %.0134171.lcssa, label %121, label %._crit_edge.thread
 
-122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %.0125174.lcssa, i64 40
-  %124 = load i32, ptr %123, align 8
-  %.not142 = icmp eq i32 %124, 1
-  br i1 %.not142, label %125, label %.loopexit
+121:                                              ; preds = %._crit_edge
+  %122 = icmp eq ptr %.0125174.lcssa, null
+  br i1 %122, label %.loopexit, label %123
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %.0125174.lcssa, i64 80
-  %127 = load i8, ptr %126, align 8
-  %128 = trunc i8 %127 to i1
-  br i1 %128, label %._crit_edge.thread, label %.loopexit
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds i8, ptr %.0125174.lcssa, i64 40
+  %125 = load i32, ptr %124, align 8
+  %.not142 = icmp eq i32 %125, 1
+  br i1 %.not142, label %126, label %.loopexit
 
-._crit_edge.thread:                               ; preds = %6, %125, %._crit_edge
-  %.0125.lcssa214 = phi ptr [ %.0125174.lcssa, %125 ], [ %.0125174.lcssa, %._crit_edge ], [ null, %6 ]
-  %.0130.lcssa213 = phi i8 [ %.0130173.lcssa, %125 ], [ %.0130173.lcssa, %._crit_edge ], [ 0, %6 ]
-  %.0132.lcssa212 = phi i8 [ %.0132172.lcssa, %125 ], [ %.0132172.lcssa, %._crit_edge ], [ 0, %6 ]
-  %129 = getelementptr inbounds i8, ptr %0, i64 589
-  %130 = load i8, ptr %129, align 1
-  %131 = trunc i8 %130 to i1
-  br i1 %131, label %132, label %215
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds i8, ptr %.0125174.lcssa, i64 80
+  %128 = load i8, ptr %127, align 8
+  %129 = trunc i8 %128 to i1
+  br i1 %129, label %._crit_edge.thread, label %.loopexit
 
-132:                                              ; preds = %._crit_edge.thread
-  %133 = getelementptr inbounds i8, ptr %1, i64 8
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %2, i64 104
-  %136 = load ptr, ptr %135, align 8
-  %137 = tail call zeroext i1 @bms_overlap(ptr noundef %134, ptr noundef %136) #8
-  %138 = getelementptr inbounds i8, ptr %2, i64 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %1, i64 104
-  %141 = load ptr, ptr %140, align 8
-  %142 = tail call zeroext i1 @bms_overlap(ptr noundef %139, ptr noundef %141) #8
-  %143 = select i1 %137, i1 %142, i1 false
-  br i1 %143, label %.loopexit, label %144
+._crit_edge.thread:                               ; preds = %6, %126, %._crit_edge
+  %.0125.lcssa214 = phi ptr [ %.0125174.lcssa, %126 ], [ %.0125174.lcssa, %._crit_edge ], [ null, %6 ]
+  %.0130.lcssa213 = phi i8 [ %.0130173.lcssa, %126 ], [ %.0130173.lcssa, %._crit_edge ], [ 0, %6 ]
+  %.0132.lcssa212 = phi i1 [ %.0132172.lcssa, %126 ], [ %.0132172.lcssa, %._crit_edge ], [ false, %6 ]
+  %130 = getelementptr inbounds i8, ptr %0, i64 589
+  %131 = load i8, ptr %130, align 1
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %212
 
-144:                                              ; preds = %132
-  br i1 %137, label %145, label %163
+133:                                              ; preds = %._crit_edge.thread
+  %134 = getelementptr inbounds i8, ptr %1, i64 8
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %2, i64 104
+  %137 = load ptr, ptr %136, align 8
+  %138 = tail call zeroext i1 @bms_overlap(ptr noundef %135, ptr noundef %137) #8
+  %139 = getelementptr inbounds i8, ptr %2, i64 8
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds i8, ptr %1, i64 104
+  %142 = load ptr, ptr %141, align 8
+  %143 = tail call zeroext i1 @bms_overlap(ptr noundef %140, ptr noundef %142) #8
+  %144 = select i1 %138, i1 %143, i1 false
+  br i1 %144, label %.loopexit, label %145
 
-145:                                              ; preds = %144
-  %.not144 = icmp eq ptr %.0125.lcssa214, null
-  br i1 %.not144, label %154, label %146
+145:                                              ; preds = %133
+  br i1 %138, label %146, label %162
 
 146:                                              ; preds = %145
-  %147 = trunc nuw i8 %.0130.lcssa213 to i1
-  br i1 %147, label %.loopexit, label %148
+  %.not144 = icmp eq ptr %.0125.lcssa214, null
+  br i1 %.not144, label %153, label %147
 
-148:                                              ; preds = %146
-  %149 = trunc nuw i8 %.0132.lcssa212 to i1
-  br i1 %149, label %.loopexit, label %150
+147:                                              ; preds = %146
+  %148 = trunc nuw i8 %.0130.lcssa213 to i1
+  %brmerge = select i1 %148, i1 true, i1 %.0132.lcssa212
+  br i1 %brmerge, label %.loopexit, label %149
 
-150:                                              ; preds = %148
-  %151 = getelementptr inbounds i8, ptr %.0125.lcssa214, i64 40
-  %152 = load i32, ptr %151, align 8
-  %153 = icmp eq i32 %152, 2
-  br i1 %153, label %.loopexit, label %154
+149:                                              ; preds = %147
+  %150 = getelementptr inbounds i8, ptr %.0125.lcssa214, i64 40
+  %151 = load i32, ptr %150, align 8
+  %152 = icmp eq i32 %151, 2
+  br i1 %152, label %.loopexit, label %153
 
-154:                                              ; preds = %150, %145
-  %155 = load ptr, ptr %133, align 8
-  %156 = getelementptr inbounds i8, ptr %2, i64 96
-  %157 = load ptr, ptr %156, align 8
-  %158 = tail call zeroext i1 @bms_overlap(ptr noundef %155, ptr noundef %157) #8
-  br i1 %158, label %159, label %.loopexit
+153:                                              ; preds = %149, %146
+  %154 = load ptr, ptr %134, align 8
+  %155 = getelementptr inbounds i8, ptr %2, i64 96
+  %156 = load ptr, ptr %155, align 8
+  %157 = tail call zeroext i1 @bms_overlap(ptr noundef %154, ptr noundef %156) #8
+  br i1 %157, label %158, label %.loopexit
 
-159:                                              ; preds = %154
-  %160 = load ptr, ptr %133, align 8
-  %161 = load ptr, ptr %135, align 8
-  %162 = tail call zeroext i1 @have_dangerous_phv(ptr noundef nonnull %0, ptr noundef %160, ptr noundef %161)
-  br i1 %162, label %.loopexit, label %182
+158:                                              ; preds = %153
+  %159 = load ptr, ptr %134, align 8
+  %160 = load ptr, ptr %136, align 8
+  %161 = tail call zeroext i1 @have_dangerous_phv(ptr noundef nonnull %0, ptr noundef %159, ptr noundef %160)
+  br i1 %161, label %.loopexit, label %179
 
-163:                                              ; preds = %144
-  br i1 %142, label %164, label %182
+162:                                              ; preds = %145
+  br i1 %143, label %163, label %179
+
+163:                                              ; preds = %162
+  %.not143 = icmp eq ptr %.0125.lcssa214, null
+  br i1 %.not143, label %170, label %164
 
 164:                                              ; preds = %163
-  %.not143 = icmp eq ptr %.0125.lcssa214, null
-  br i1 %.not143, label %173, label %165
+  %165 = trunc nuw i8 %.0130.lcssa213 to i1
+  %.not225 = xor i1 %165, true
+  %brmerge226 = select i1 %.not225, i1 true, i1 %.0132.lcssa212
+  br i1 %brmerge226, label %.loopexit, label %166
 
-165:                                              ; preds = %164
-  %166 = trunc nuw i8 %.0130.lcssa213 to i1
-  br i1 %166, label %167, label %.loopexit
+166:                                              ; preds = %164
+  %167 = getelementptr inbounds i8, ptr %.0125.lcssa214, i64 40
+  %168 = load i32, ptr %167, align 8
+  %169 = icmp eq i32 %168, 2
+  br i1 %169, label %.loopexit, label %170
 
-167:                                              ; preds = %165
-  %168 = trunc nuw i8 %.0132.lcssa212 to i1
-  br i1 %168, label %.loopexit, label %169
+170:                                              ; preds = %166, %163
+  %171 = load ptr, ptr %139, align 8
+  %172 = getelementptr inbounds i8, ptr %1, i64 96
+  %173 = load ptr, ptr %172, align 8
+  %174 = tail call zeroext i1 @bms_overlap(ptr noundef %171, ptr noundef %173) #8
+  br i1 %174, label %175, label %.loopexit
 
-169:                                              ; preds = %167
-  %170 = getelementptr inbounds i8, ptr %.0125.lcssa214, i64 40
-  %171 = load i32, ptr %170, align 8
-  %172 = icmp eq i32 %171, 2
-  br i1 %172, label %.loopexit, label %173
+175:                                              ; preds = %170
+  %176 = load ptr, ptr %139, align 8
+  %177 = load ptr, ptr %141, align 8
+  %178 = tail call zeroext i1 @have_dangerous_phv(ptr noundef nonnull %0, ptr noundef %176, ptr noundef %177)
+  br i1 %178, label %.loopexit, label %179
 
-173:                                              ; preds = %169, %164
-  %174 = load ptr, ptr %138, align 8
-  %175 = getelementptr inbounds i8, ptr %1, i64 96
-  %176 = load ptr, ptr %175, align 8
-  %177 = tail call zeroext i1 @bms_overlap(ptr noundef %174, ptr noundef %176) #8
-  br i1 %177, label %178, label %.loopexit
+179:                                              ; preds = %162, %175, %158
+  %180 = tail call ptr @min_join_parameterization(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %2) #8
+  %.not145 = icmp eq ptr %180, null
+  br i1 %.not145, label %212, label %181
 
-178:                                              ; preds = %173
-  %179 = load ptr, ptr %138, align 8
-  %180 = load ptr, ptr %140, align 8
-  %181 = tail call zeroext i1 @have_dangerous_phv(ptr noundef nonnull %0, ptr noundef %179, ptr noundef %180)
-  br i1 %181, label %.loopexit, label %182
-
-182:                                              ; preds = %163, %178, %159
-  %183 = tail call ptr @min_join_parameterization(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %2) #8
-  %.not145 = icmp eq ptr %183, null
-  br i1 %.not145, label %215, label %184
-
-184:                                              ; preds = %182
-  %185 = tail call ptr @bms_copy(ptr noundef %3) #8
-  %186 = load ptr, ptr %7, align 8
-  %187 = icmp eq ptr %186, null
-  br i1 %187, label %.split204.us, label %.lr.ph187
+181:                                              ; preds = %179
+  %182 = tail call ptr @bms_copy(ptr noundef %3) #8
+  %183 = load ptr, ptr %7, align 8
+  %184 = icmp eq ptr %183, null
+  br i1 %184, label %.split204.us, label %.lr.ph187
 
 .splitthread-pre-split:                           ; preds = %._crit_edge188
   %.pr217 = load ptr, ptr %7, align 8
   %.not146 = icmp eq ptr %.pr217, null
   br i1 %.not146, label %.split204.us, label %.lr.ph187
 
-.lr.ph187:                                        ; preds = %184, %.splitthread-pre-split
-  %.0128238 = phi ptr [ %.2, %.splitthread-pre-split ], [ %185, %184 ]
-  %188 = phi ptr [ %.pr217, %.splitthread-pre-split ], [ %186, %184 ]
-  %189 = getelementptr inbounds i8, ptr %188, i64 4
-  %190 = getelementptr inbounds i8, ptr %188, i64 16
-  %191 = load i32, ptr %189, align 4
-  %192 = icmp sgt i32 %191, 0
-  br i1 %192, label %.lr.ph200, label %.split204.us
+.lr.ph187:                                        ; preds = %181, %.splitthread-pre-split
+  %.0128240 = phi ptr [ %.2, %.splitthread-pre-split ], [ %182, %181 ]
+  %185 = phi ptr [ %.pr217, %.splitthread-pre-split ], [ %183, %181 ]
+  %186 = getelementptr inbounds i8, ptr %185, i64 4
+  %187 = getelementptr inbounds i8, ptr %185, i64 16
+  %188 = load i32, ptr %186, align 4
+  %189 = icmp sgt i32 %188, 0
+  br i1 %189, label %.lr.ph200, label %.split204.us
 
-.lr.ph200:                                        ; preds = %.lr.ph187, %210
-  %indvars.iv206 = phi i64 [ %indvars.iv.next207, %210 ], [ 0, %.lr.ph187 ]
-  %.1129183199 = phi ptr [ %.2, %210 ], [ %.0128238, %.lr.ph187 ]
-  %.0126184198 = phi i1 [ %.1127, %210 ], [ false, %.lr.ph187 ]
-  %193 = load ptr, ptr %190, align 8
-  %194 = getelementptr %union.ListCell, ptr %193, i64 %indvars.iv206
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 40
-  %197 = load i32, ptr %196, align 8
-  %198 = icmp eq i32 %197, 2
-  br i1 %198, label %210, label %199
+.lr.ph200:                                        ; preds = %.lr.ph187, %207
+  %indvars.iv206 = phi i64 [ %indvars.iv.next207, %207 ], [ 0, %.lr.ph187 ]
+  %.1129183199 = phi ptr [ %.2, %207 ], [ %.0128240, %.lr.ph187 ]
+  %.0126184198 = phi i1 [ %.1127, %207 ], [ false, %.lr.ph187 ]
+  %190 = load ptr, ptr %187, align 8
+  %191 = getelementptr %union.ListCell, ptr %190, i64 %indvars.iv206
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds i8, ptr %192, i64 40
+  %194 = load i32, ptr %193, align 8
+  %195 = icmp eq i32 %194, 2
+  br i1 %195, label %207, label %196
 
-199:                                              ; preds = %.lr.ph200
-  %200 = getelementptr inbounds i8, ptr %195, i64 8
-  %201 = load ptr, ptr %200, align 8
-  %202 = tail call zeroext i1 @bms_overlap(ptr noundef %201, ptr noundef %.1129183199) #8
-  br i1 %202, label %203, label %210
+196:                                              ; preds = %.lr.ph200
+  %197 = getelementptr inbounds i8, ptr %192, i64 8
+  %198 = load ptr, ptr %197, align 8
+  %199 = tail call zeroext i1 @bms_overlap(ptr noundef %198, ptr noundef %.1129183199) #8
+  br i1 %199, label %200, label %207
 
-203:                                              ; preds = %199
-  %204 = getelementptr inbounds i8, ptr %195, i64 16
-  %205 = load ptr, ptr %204, align 8
-  %206 = tail call zeroext i1 @bms_is_subset(ptr noundef %205, ptr noundef %.1129183199) #8
-  br i1 %206, label %210, label %207
+200:                                              ; preds = %196
+  %201 = getelementptr inbounds i8, ptr %192, i64 16
+  %202 = load ptr, ptr %201, align 8
+  %203 = tail call zeroext i1 @bms_is_subset(ptr noundef %202, ptr noundef %.1129183199) #8
+  br i1 %203, label %207, label %204
 
-207:                                              ; preds = %203
-  %208 = load ptr, ptr %204, align 8
-  %209 = tail call ptr @bms_add_members(ptr noundef %.1129183199, ptr noundef %208) #8
-  br label %210
+204:                                              ; preds = %200
+  %205 = load ptr, ptr %201, align 8
+  %206 = tail call ptr @bms_add_members(ptr noundef %.1129183199, ptr noundef %205) #8
+  br label %207
 
-210:                                              ; preds = %199, %203, %207, %.lr.ph200
-  %.2 = phi ptr [ %.1129183199, %.lr.ph200 ], [ %.1129183199, %203 ], [ %209, %207 ], [ %.1129183199, %199 ]
-  %.1127 = phi i1 [ %.0126184198, %.lr.ph200 ], [ %.0126184198, %203 ], [ true, %207 ], [ %.0126184198, %199 ]
+207:                                              ; preds = %196, %200, %204, %.lr.ph200
+  %.2 = phi ptr [ %.1129183199, %.lr.ph200 ], [ %.1129183199, %200 ], [ %206, %204 ], [ %.1129183199, %196 ]
+  %.1127 = phi i1 [ %.0126184198, %.lr.ph200 ], [ %.0126184198, %200 ], [ true, %204 ], [ %.0126184198, %196 ]
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %211 = load i32, ptr %189, align 4
-  %212 = sext i32 %211 to i64
-  %213 = icmp slt i64 %indvars.iv.next207, %212
-  br i1 %213, label %.lr.ph200, label %._crit_edge188
+  %208 = load i32, ptr %186, align 4
+  %209 = sext i32 %208 to i64
+  %210 = icmp slt i64 %indvars.iv.next207, %209
+  br i1 %210, label %.lr.ph200, label %._crit_edge188
 
-._crit_edge188:                                   ; preds = %210
+._crit_edge188:                                   ; preds = %207
   br i1 %.1127, label %.splitthread-pre-split, label %.split204.us, !llvm.loop !7
 
-.split204.us:                                     ; preds = %.lr.ph187, %.splitthread-pre-split, %._crit_edge188, %184
-  %.us-phi205 = phi ptr [ %185, %184 ], [ %.0128238, %.lr.ph187 ], [ %.2, %.splitthread-pre-split ], [ %.2, %._crit_edge188 ]
-  %214 = tail call zeroext i1 @bms_overlap(ptr noundef %.us-phi205, ptr noundef nonnull %183) #8
-  br i1 %214, label %.loopexit, label %215
+.split204.us:                                     ; preds = %.lr.ph187, %.splitthread-pre-split, %._crit_edge188, %181
+  %.us-phi205 = phi ptr [ %182, %181 ], [ %.0128240, %.lr.ph187 ], [ %.2, %.splitthread-pre-split ], [ %.2, %._crit_edge188 ]
+  %211 = tail call zeroext i1 @bms_overlap(ptr noundef %.us-phi205, ptr noundef nonnull %180) #8
+  br i1 %211, label %.loopexit, label %212
 
-215:                                              ; preds = %182, %.split204.us, %._crit_edge.thread
+212:                                              ; preds = %179, %.split204.us, %._crit_edge.thread
   store ptr %.0125.lcssa214, ptr %4, align 8
-  %216 = and i8 %.0130.lcssa213, 1
-  store i8 %216, ptr %5, align 1
+  %213 = and i8 %.0130.lcssa213, 1
+  store i8 %213, ptr %5, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %111, %113, %103, %93, %81, %72, %.split204.us, %178, %173, %165, %167, %169, %159, %154, %146, %148, %150, %132, %120, %122, %125, %215
-  %.0 = phi i1 [ true, %215 ], [ false, %125 ], [ false, %122 ], [ false, %120 ], [ false, %132 ], [ false, %150 ], [ false, %148 ], [ false, %146 ], [ false, %154 ], [ false, %159 ], [ false, %169 ], [ false, %167 ], [ false, %165 ], [ false, %173 ], [ false, %178 ], [ false, %.split204.us ], [ false, %72 ], [ false, %81 ], [ false, %93 ], [ false, %103 ], [ false, %113 ], [ false, %111 ]
+.loopexit:                                        ; preds = %111, %113, %103, %93, %81, %72, %164, %147, %.split204.us, %175, %170, %166, %158, %153, %149, %133, %121, %123, %126, %212
+  %.0 = phi i1 [ true, %212 ], [ false, %126 ], [ false, %123 ], [ false, %121 ], [ false, %133 ], [ false, %149 ], [ false, %147 ], [ false, %153 ], [ false, %158 ], [ false, %166 ], [ false, %164 ], [ false, %170 ], [ false, %175 ], [ false, %.split204.us ], [ false, %72 ], [ false, %81 ], [ false, %93 ], [ false, %103 ], [ false, %113 ], [ false, %111 ]
   ret i1 %.0
 }
 

@@ -9617,25 +9617,25 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit74
 
 .noexc76.i:                                       ; preds = %245
   %.not.i.i.i.i = icmp eq ptr %246, null
-  br i1 %.not.i.i.i.i, label %250, label %247
+  br i1 %.not.i.i.i.i, label %251, label %247
 
 247:                                              ; preds = %.noexc76.i
   %248 = load i32, ptr %246, align 8
   %249 = icmp eq i32 %248, 14
-  br label %250
+  %250 = zext i1 %249 to i64
+  br label %251
 
-250:                                              ; preds = %247, %.noexc76.i
-  %251 = phi i1 [ %249, %247 ], [ false, %.noexc76.i ]
+251:                                              ; preds = %247, %.noexc76.i
+  %.sroa.0.0.insert.ext.i.i = phi i64 [ %250, %247 ], [ 0, %.noexc76.i ]
   %252 = load i32, ptr %37, align 4
   %.sroa.22.0.insert.ext.i.i = zext i32 %252 to i64
   %.sroa.22.0.insert.shift.i.i = shl nuw i64 %.sroa.22.0.insert.ext.i.i, 32
-  %.sroa.0.0.insert.ext.i.i = zext i1 %251 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.22.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %36, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %35, ptr noundef nonnull align 4 dereferenceable(8) %36)
           to label %253 unwind label %259
 
-253:                                              ; preds = %250
+253:                                              ; preds = %251
   invoke void @_ZN7doctest6detail13ResultBuilder9setResultERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(144) %33, ptr noundef nonnull align 8 dereferenceable(32) %35)
           to label %254 unwind label %261
 
@@ -9655,7 +9655,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit74
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #21
   br label %.body
 
-259:                                              ; preds = %250, %245, %234, %233
+259:                                              ; preds = %251, %245, %234, %233
   %260 = landingpad { ptr, i32 }
           catch ptr null
   br label %264
@@ -9754,25 +9754,25 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit74
 
 .noexc81.i:                                       ; preds = %292
   %.not.i.i.i80.i = icmp eq ptr %293, null
-  br i1 %.not.i.i.i80.i, label %297, label %294
+  br i1 %.not.i.i.i80.i, label %298, label %294
 
 294:                                              ; preds = %.noexc81.i
   %295 = load i32, ptr %293, align 8
   %296 = icmp eq i32 %295, 14
-  br label %297
+  %297 = zext i1 %296 to i64
+  br label %298
 
-297:                                              ; preds = %294, %.noexc81.i
-  %298 = phi i1 [ %296, %294 ], [ false, %.noexc81.i ]
+298:                                              ; preds = %294, %.noexc81.i
+  %.sroa.0.0.insert.ext.i85.i = phi i64 [ %297, %294 ], [ 0, %.noexc81.i ]
   %299 = load i32, ptr %42, align 4
   %.sroa.22.0.insert.ext.i83.i = zext i32 %299 to i64
   %.sroa.22.0.insert.shift.i84.i = shl nuw i64 %.sroa.22.0.insert.ext.i83.i, 32
-  %.sroa.0.0.insert.ext.i85.i = zext i1 %298 to i64
   %.sroa.0.0.insert.insert.i86.i = or disjoint i64 %.sroa.22.0.insert.shift.i84.i, %.sroa.0.0.insert.ext.i85.i
   store i64 %.sroa.0.0.insert.insert.i86.i, ptr %41, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %40, ptr noundef nonnull align 4 dereferenceable(8) %41)
           to label %300 unwind label %306
 
-300:                                              ; preds = %297
+300:                                              ; preds = %298
   invoke void @_ZN7doctest6detail13ResultBuilder9setResultERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(144) %38, ptr noundef nonnull align 8 dereferenceable(32) %40)
           to label %301 unwind label %308
 
@@ -9792,7 +9792,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit74
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #21
   br label %.body
 
-306:                                              ; preds = %297, %292, %281, %280
+306:                                              ; preds = %298, %292, %281, %280
   %307 = landingpad { ptr, i32 }
           catch ptr null
   br label %311
@@ -9891,25 +9891,25 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit74
 
 .noexc91.i:                                       ; preds = %339
   %.not.i.i.i90.i = icmp eq ptr %340, null
-  br i1 %.not.i.i.i90.i, label %344, label %341
+  br i1 %.not.i.i.i90.i, label %345, label %341
 
 341:                                              ; preds = %.noexc91.i
   %342 = load i32, ptr %340, align 8
   %343 = icmp eq i32 %342, 14
-  br label %344
+  %344 = zext i1 %343 to i64
+  br label %345
 
-344:                                              ; preds = %341, %.noexc91.i
-  %345 = phi i1 [ %343, %341 ], [ false, %.noexc91.i ]
+345:                                              ; preds = %341, %.noexc91.i
+  %.sroa.0.0.insert.ext.i95.i = phi i64 [ %344, %341 ], [ 0, %.noexc91.i ]
   %346 = load i32, ptr %47, align 4
   %.sroa.22.0.insert.ext.i93.i = zext i32 %346 to i64
   %.sroa.22.0.insert.shift.i94.i = shl nuw i64 %.sroa.22.0.insert.ext.i93.i, 32
-  %.sroa.0.0.insert.ext.i95.i = zext i1 %345 to i64
   %.sroa.0.0.insert.insert.i96.i = or disjoint i64 %.sroa.22.0.insert.shift.i94.i, %.sroa.0.0.insert.ext.i95.i
   store i64 %.sroa.0.0.insert.insert.i96.i, ptr %46, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %45, ptr noundef nonnull align 4 dereferenceable(8) %46)
           to label %347 unwind label %353
 
-347:                                              ; preds = %344
+347:                                              ; preds = %345
   invoke void @_ZN7doctest6detail13ResultBuilder9setResultERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull align 8 dereferenceable(32) %45)
           to label %348 unwind label %355
 
@@ -9929,7 +9929,7 @@ _ZN12_GLOBAL__N_115SimplifyFixture12intersectStrB5cxx11EPKN4Luau4TypeES4_.exit74
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #21
   br label %.body
 
-353:                                              ; preds = %344, %339, %328, %327
+353:                                              ; preds = %345, %339, %328, %327
   %354 = landingpad { ptr, i32 }
           catch ptr null
   br label %358

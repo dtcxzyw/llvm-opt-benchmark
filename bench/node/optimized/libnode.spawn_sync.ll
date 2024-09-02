@@ -1185,7 +1185,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4node20SyncProcessStdioPipeESt14default_dele
 declare void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node17SyncProcessRunner23TryInitializeAndRunLoopEN2v85LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr %options.coerce) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node17SyncProcessRunner23TryInitializeAndRunLoopEN2v85LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr %options.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %lifecycle_ = getelementptr inbounds i8, ptr %this, i64 508
   %0 = load i32, ptr %lifecycle_, align 4
@@ -1732,19 +1732,10 @@ if.then.i867:                                     ; preds = %if.end
 _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit868: ; preds = %if.end.split, %if.then.i867
   %8 = phi ptr [ %file_buffer_26, %if.end.split ], [ %file_buffer_28, %if.then.i867 ]
   %phi.call = phi i64 [ %call4927, %if.end.split ], [ %call4929, %if.then.i867 ]
-  %tobool.i1159 = trunc i64 %phi.call to i1
-  br i1 %tobool.i1159, label %if.then.i664, label %cleanup
+  %tobool.i1159 = trunc nuw i64 %phi.call to i1
+  br i1 %tobool.i1159, label %if.end56, label %cleanup
 
-if.then.i664:                                     ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit868
-  %cmp = icmp slt i64 %phi.call, 0
-  br i1 %cmp, label %if.then54, label %if.end56
-
-if.then54:                                        ; preds = %if.then.i664
-  %ref.tmp44.sroa.319.0.extract.shift = and i64 %phi.call, -4294967296
-  %retval.sroa.0.0.insert.insert.i63 = or disjoint i64 %ref.tmp44.sroa.319.0.extract.shift, 1
-  br label %cleanup
-
-if.end56:                                         ; preds = %if.then.i664
+if.end56:                                         ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit868
   %9 = load ptr, ptr %8, align 8
   %file = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %9, ptr %file, align 8
@@ -1830,19 +1821,10 @@ if.then.i853:                                     ; preds = %if.end100
 if.then136:                                       ; preds = %if.end5.i.i, %if.end.i.i, %if.end100.split, %if.then.i853
   %cwd_buffer_ = getelementptr inbounds i8, ptr %this, i64 168
   %call142 = call i64 @_ZN4node17SyncProcessRunner12CopyJsStringEN2v85LocalINS1_5ValueEEEPPKc(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr %call122, ptr noundef nonnull %cwd_buffer_)
-  %tobool.i1171 = trunc i64 %call142 to i1
-  br i1 %tobool.i1171, label %if.then.i646, label %cleanup
+  %tobool.i1171 = trunc nuw i64 %call142 to i1
+  br i1 %tobool.i1171, label %if.end151, label %cleanup
 
-if.then.i646:                                     ; preds = %if.then136
-  %cmp148 = icmp slt i64 %call142, 0
-  br i1 %cmp148, label %if.then149, label %if.end151
-
-if.then149:                                       ; preds = %if.then.i646
-  %ref.tmp137.sroa.323.0.extract.shift = and i64 %call142, -4294967296
-  %retval.sroa.0.0.insert.insert.i73 = or disjoint i64 %ref.tmp137.sroa.323.0.extract.shift, 1
-  br label %cleanup
-
-if.end151:                                        ; preds = %if.then.i646
+if.end151:                                        ; preds = %if.then136
   %25 = load ptr, ptr %cwd_buffer_, align 8
   %cwd = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %25, ptr %cwd, align 8
@@ -2226,8 +2208,8 @@ if.then635:                                       ; preds = %_ZN2v810MaybeLocalI
   %retval.sroa.0.0.insert.insert.i115 = or disjoint i64 %retval.sroa.21.0.insert.shift.i114, 1
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %if.then188, %if.then136, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit861, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit868, %entry, %if.then635, %if.then201, %if.then149, %if.then98, %if.then54
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.insert.insert.i63, %if.then54 ], [ %retval.sroa.0.0.insert.insert.i68, %if.then98 ], [ %retval.sroa.0.0.insert.insert.i73, %if.then149 ], [ %retval.sroa.0.0.insert.insert.i93, %if.then201 ], [ %retval.sroa.0.0.insert.insert.i115, %if.then635 ], [ -94489280511, %entry ], [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit868 ], [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit861 ], [ 0, %if.then136 ], [ 0, %if.then188 ], [ 1, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
+cleanup:                                          ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %if.then188, %if.then136, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit861, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit868, %entry, %if.then635, %if.then201, %if.then98
+  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.insert.insert.i68, %if.then98 ], [ %retval.sroa.0.0.insert.insert.i93, %if.then201 ], [ %retval.sroa.0.0.insert.insert.i115, %if.then635 ], [ -94489280511, %entry ], [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit868 ], [ 0, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit861 ], [ 0, %if.then136 ], [ 0, %if.then188 ], [ 1, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #25
   ret i64 %retval.sroa.0.0
 }
@@ -2942,7 +2924,7 @@ declare noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1
 declare ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4node17SyncProcessRunner12CopyJsStringEN2v85LocalINS1_5ValueEEEPPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this, ptr %js_value.coerce, ptr nocapture noundef writeonly %target) local_unnamed_addr #3 align 2 {
+define dso_local range(i64 0, 2) i64 @_ZN4node17SyncProcessRunner12CopyJsStringEN2v85LocalINS1_5ValueEEEPPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this, ptr %js_value.coerce, ptr nocapture noundef writeonly %target) local_unnamed_addr #3 align 2 {
 entry:
   %env_.i = getelementptr inbounds i8, ptr %this, i64 512
   %0 = load ptr, ptr %env_.i, align 8
@@ -2992,7 +2974,7 @@ return:                                           ; preds = %if.end30, %if.else,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4node17SyncProcessRunner17CopyJsStringArrayEN2v85LocalINS1_5ValueEEEPPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this, ptr nonnull %js_value.coerce, ptr nocapture noundef writeonly %target) local_unnamed_addr #3 align 2 {
+define dso_local range(i64 -94489280511, 2) i64 @_ZN4node17SyncProcessRunner17CopyJsStringArrayEN2v85LocalINS1_5ValueEEEPPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this, ptr nonnull %js_value.coerce, ptr nocapture noundef writeonly %target) local_unnamed_addr #3 align 2 {
 entry:
   %env_.i = getelementptr inbounds i8, ptr %this, i64 512
   %0 = load ptr, ptr %env_.i, align 8

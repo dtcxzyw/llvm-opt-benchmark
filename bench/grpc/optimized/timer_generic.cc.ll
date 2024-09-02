@@ -586,7 +586,7 @@ return:                                           ; preds = %entry, %if.end12
 }
 
 ; Function Attrs: uwtable
-define internal noundef i32 @_ZL11timer_checkPN9grpc_core9TimestampE(ptr noundef %next) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 3) i32 @_ZL11timer_checkPN9grpc_core9TimestampE(ptr noundef %next) #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i29 = alloca %"class.std::allocator.3", align 1
   %ref.tmp.i = alloca %"class.std::allocator.3", align 1

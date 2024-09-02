@@ -690,25 +690,25 @@ Min_SopAddCube.exit320.i:                         ; preds = %.thread454.i, %Min_
   %.0219.i = phi i32 [ %183, %307 ], [ %192, %306 ]
   %.2.i = phi ptr [ %.1228451.i, %307 ], [ %.1.i, %306 ]
   %.not248.i = icmp eq i32 %.0225.i, 3
-  br i1 %.not248.i, label %310, label %309
+  br i1 %.not248.i, label %311, label %309
 
 309:                                              ; preds = %308
-  br label %310
+  %310 = icmp eq i32 %.0223.i, 3
+  br label %311
 
-310:                                              ; preds = %309, %308
+311:                                              ; preds = %309, %308
   %.pre-phi60 = phi i32 [ %181, %309 ], [ %173, %308 ]
   %.pre-phi = phi i64 [ %178, %309 ], [ %170, %308 ]
   %.5.i = phi i32 [ %.3418448.i, %309 ], [ %.3414449.i, %308 ]
-  %.1226.i = phi i32 [ %.0223.i, %309 ], [ 3, %308 ]
+  %.1226.i = phi i1 [ %310, %309 ], [ true, %308 ]
   %.1224.i = phi i32 [ %.0225.i, %309 ], [ %.0223.i, %308 ]
   %.1222.i = phi i32 [ %.0219.i, %309 ], [ %.0221.i, %308 ]
   %.1220.i = phi i32 [ %.0221.i, %309 ], [ %.0219.i, %308 ]
-  %311 = icmp eq i32 %.1226.i, 3
   %312 = icmp eq i32 %.1220.i, 3
-  %or.cond11.i = select i1 %311, i1 %312, i1 false
+  %or.cond11.i = select i1 %.1226.i, i1 %312, i1 false
   br i1 %or.cond11.i, label %313, label %409
 
-313:                                              ; preds = %310
+313:                                              ; preds = %311
   %314 = shl nuw i32 %.1222.i, %.pre-phi60
   %315 = getelementptr inbounds i8, ptr %.2.i, i64 12
   %316 = getelementptr inbounds [1 x i32], ptr %315, i64 0, i64 %.pre-phi
@@ -893,7 +893,7 @@ Min_SopAddCube.exit352.i:                         ; preds = %406, %Min_SopAddCub
   %.not.i353.i = icmp eq i32 %408, 0
   br i1 %.not.i353.i, label %.outer.i.backedge, label %Min_SopAddCube.exit352.i, !llvm.loop !14
 
-409:                                              ; preds = %310
+409:                                              ; preds = %311
   %410 = shl nuw i32 3, %.pre-phi60
   %411 = getelementptr inbounds i8, ptr %.3.i, i64 12
   %412 = getelementptr inbounds [1 x i32], ptr %411, i64 0, i64 %.pre-phi

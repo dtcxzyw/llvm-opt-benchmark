@@ -8041,21 +8041,21 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEiN11opencv_test12_G
   %.val.i.i.i.i.i.i.i.i = load i32, ptr %318, align 8, !noalias !123
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !123
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7), !noalias !123
-  br label %.preheader1.i.i.i.i.i.i.i.i.i.i.i
+  br label %.preheader3.i.i.i.i.i.i.i.i.i.i.i
 
 319:                                              ; preds = %.critedge32.i.i.i.i.i.i.i.i.i.i.i
-  %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i, label %369, label %.preheader1.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !126
+  %indvars.iv.next25.i.i.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv24.i.i.i.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next25.i.i.i.i.i.i.i.i.i.i.i, 4
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i, label %369, label %.preheader3.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !126
 
-.preheader1.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %319, %.noexc5.i
-  %indvars.iv22.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc5.i ], [ %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i.i, %319 ]
-  %.02614.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ 0, %.noexc5.i ], [ %.2.lcssa.i.i.i.i.i.i.i.i.i.i.i, %319 ]
-  %320 = sext i32 %.02614.i.i.i.i.i.i.i.i.i.i.i to i64
+.preheader3.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %319, %.noexc5.i
+  %indvars.iv24.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc5.i ], [ %indvars.iv.next25.i.i.i.i.i.i.i.i.i.i.i, %319 ]
+  %.02615.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ 0, %.noexc5.i ], [ %.2.lcssa.i.i.i.i.i.i.i.i.i.i.i, %319 ]
+  %320 = sext i32 %.02615.i.i.i.i.i.i.i.i.i.i.i to i64
   br label %.critedge.i.i.i.i.i.i.i.i.i.i.i
 
-.critedge.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.critedge.i.i.i.i.i.i.i.i.i.i.i, %.preheader1.i.i.i.i.i.i.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i.i.i ], [ %320, %.preheader1.i.i.i.i.i.i.i.i.i.i.i ]
+.critedge.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %.critedge.i.i.i.i.i.i.i.i.i.i.i, %.preheader3.i.i.i.i.i.i.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i.i.i.i.i.i ], [ %320, %.preheader3.i.i.i.i.i.i.i.i.i.i.i ]
   %321 = getelementptr inbounds i8, ptr @.str.50, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i.i
   %322 = load i8, ptr %321, align 1, !noalias !123
   %323 = sext i8 %322 to i32
@@ -8074,38 +8074,38 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEiN11opencv_test12_G
   %329 = load i8, ptr %328, align 1, !noalias !123
   %330 = sext i8 %329 to i32
   %331 = call i32 @isspace(i32 noundef %330) #33, !noalias !123
-  %.fr4.i.i.i.i.i.i.i.i.i.i.i = freeze i32 %331
-  %.not28.not5.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.fr4.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not28.not5.i.i.i.i.i.i.i.i.i.i.i, label %switch.early.test.i.i.i.i.i.i.i.i.i.i.i, label %.critedge32.i.i.i.i.i.i.i.i.i.i.i
+  %.fr.i.i.i.i.i.i.i.i.i.i.i = freeze i32 %331
+  %.not286.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %.not286.i.i.i.i.i.i.i.i.i.i.i, label %switch.early.test.i.i.i.i.i.i.i.i.i.i.i, label %.critedge32.i.i.i.i.i.i.i.i.i.i.i
 
 switch.early.test.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %.preheader.i.i.i.i.i.i.i.i.i.i.i, %333
-  %indvars.iv20.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next21.i.i.i.i.i.i.i.i.i.i.i, %333 ], [ %indvars.iv.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i ]
+  %indvars.iv22.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i.i, %333 ], [ %indvars.iv.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i ]
   %332 = phi i8 [ %336, %333 ], [ %329, %.preheader.i.i.i.i.i.i.i.i.i.i.i ]
-  %.26.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %334, %333 ], [ %326, %.preheader.i.i.i.i.i.i.i.i.i.i.i ]
+  %.27.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %334, %333 ], [ %326, %.preheader.i.i.i.i.i.i.i.i.i.i.i ]
   switch i8 %332, label %333 [
     i8 44, label %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i.i
     i8 0, label %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i.i
   ]
 
 333:                                              ; preds = %switch.early.test.i.i.i.i.i.i.i.i.i.i.i
-  %indvars.iv.next21.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv20.i.i.i.i.i.i.i.i.i.i.i, 1
-  %334 = add nsw i32 %.26.i.i.i.i.i.i.i.i.i.i.i, 1
-  %335 = getelementptr inbounds i8, ptr @.str.50, i64 %indvars.iv.next21.i.i.i.i.i.i.i.i.i.i.i
+  %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i.i, 1
+  %334 = add nsw i32 %.27.i.i.i.i.i.i.i.i.i.i.i, 1
+  %335 = getelementptr inbounds i8, ptr @.str.50, i64 %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i.i
   %336 = load i8, ptr %335, align 1, !noalias !123
   %337 = sext i8 %336 to i32
   %338 = call i32 @isspace(i32 noundef %337) #33, !noalias !123
-  %.fr.i.i.i.i.i.i.i.i.i.i.i = freeze i32 %338
-  %.not28.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not28.not.i.i.i.i.i.i.i.i.i.i.i, label %switch.early.test.i.i.i.i.i.i.i.i.i.i.i, label %.critedge32.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !128
+  %.fr17.i.i.i.i.i.i.i.i.i.i.i = freeze i32 %338
+  %.not28.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.fr17.i.i.i.i.i.i.i.i.i.i.i, 0
+  br i1 %.not28.i.i.i.i.i.i.i.i.i.i.i, label %switch.early.test.i.i.i.i.i.i.i.i.i.i.i, label %.critedge32.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !128
 
 .critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %switch.early.test.i.i.i.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i.i.i.i
-  %339 = trunc nsw i64 %indvars.iv20.i.i.i.i.i.i.i.i.i.i.i to i32
+  %339 = trunc nsw i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i.i to i32
   br label %.critedge32.i.i.i.i.i.i.i.i.i.i.i
 
 .critedge32.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %333, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i
-  %.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %327, %.preheader.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv20.i.i.i.i.i.i.i.i.i.i.i, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next21.i.i.i.i.i.i.i.i.i.i.i, %333 ]
+  %.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %327, %.preheader.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv22.i.i.i.i.i.i.i.i.i.i.i, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next23.i.i.i.i.i.i.i.i.i.i.i, %333 ]
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %326, %.preheader.i.i.i.i.i.i.i.i.i.i.i ], [ %339, %.critedge32.loopexit.split.loop.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %334, %333 ]
-  %340 = getelementptr inbounds [4 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_18Mat_Type7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i.i.i.i.i.i.i.i.i.i
+  %340 = getelementptr inbounds [4 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_18Mat_Type7PrintToEPSo.vals, i64 0, i64 %indvars.iv24.i.i.i.i.i.i.i.i.i.i.i
   %341 = load i32, ptr %340, align 4, !noalias !123
   %342 = icmp eq i32 %.val.i.i.i.i.i.i.i.i, %341
   br i1 %342, label %343, label %319

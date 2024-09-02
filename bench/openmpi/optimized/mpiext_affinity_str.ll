@@ -983,7 +983,7 @@ declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #2
 declare i32 @hwloc_bitmap_list_sscanf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cset2str(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -45, 40) i32 @cset2str(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [1023 x i8], align 16
   %5 = alloca [1023 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1023) %5, i8 0, i64 1023, i1 false)
@@ -1111,41 +1111,41 @@ hwloc_get_nbobjs_by_type.exit63.i:                ; preds = %14, %13, %hwloc_get
 .critedge.i:                                      ; preds = %42
   %47 = getelementptr inbounds i8, ptr %.05080.i, i64 52
   %48 = load i32, ptr %47, align 4
+  %49 = sext i32 %48 to i64
   br label %.critedge60.i
 
 .critedge60.i:                                    ; preds = %44, %.critedge.i
-  %.053.i = phi i32 [ %48, %.critedge.i ], [ 0, %44 ]
-  br label %49
+  %.053.i = phi i64 [ %49, %.critedge.i ], [ 0, %44 ]
+  br label %50
 
-49:                                               ; preds = %51, %.critedge60.i
-  %.05181.i = phi ptr [ %.04984.i, %.critedge60.i ], [ %53, %51 ]
-  %50 = load i32, ptr %.05181.i, align 8
-  %.not59.i = icmp eq i32 %50, 1
-  br i1 %.not59.i, label %.critedge2.i, label %51
+50:                                               ; preds = %52, %.critedge60.i
+  %.05181.i = phi ptr [ %.04984.i, %.critedge60.i ], [ %54, %52 ]
+  %51 = load i32, ptr %.05181.i, align 8
+  %.not59.i = icmp eq i32 %51, 1
+  br i1 %.not59.i, label %.critedge2.i, label %52
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %.05181.i, i64 72
-  %53 = load ptr, ptr %52, align 8
-  %.not58.i = icmp eq ptr %53, null
-  br i1 %.not58.i, label %.critedge61.i, label %49, !llvm.loop !17
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds i8, ptr %.05181.i, i64 72
+  %54 = load ptr, ptr %53, align 8
+  %.not58.i = icmp eq ptr %54, null
+  br i1 %.not58.i, label %.critedge61.i, label %50, !llvm.loop !17
 
-.critedge2.i:                                     ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %.05181.i, i64 52
-  %55 = load i32, ptr %54, align 4
+.critedge2.i:                                     ; preds = %50
+  %55 = getelementptr inbounds i8, ptr %.05181.i, i64 52
+  %56 = load i32, ptr %55, align 4
+  %57 = sext i32 %56 to i64
   br label %.critedge61.i
 
-.critedge61.i:                                    ; preds = %51, %.critedge2.i
-  %.1.i = phi i32 [ %55, %.critedge2.i ], [ 0, %51 ]
-  %56 = getelementptr inbounds i8, ptr %.04984.i, i64 80
-  %57 = load i32, ptr %56, align 8
-  %58 = shl nuw i32 1, %57
-  %59 = sext i32 %.1.i to i64
-  %60 = getelementptr inbounds ptr, ptr %18, i64 %59
-  %61 = load ptr, ptr %60, align 8
-  %62 = sext i32 %.053.i to i64
-  %63 = getelementptr inbounds i32, ptr %61, i64 %62
+.critedge61.i:                                    ; preds = %52, %.critedge2.i
+  %.1.i = phi i64 [ %57, %.critedge2.i ], [ 0, %52 ]
+  %58 = getelementptr inbounds i8, ptr %.04984.i, i64 80
+  %59 = load i32, ptr %58, align 8
+  %60 = shl nuw i32 1, %59
+  %61 = getelementptr inbounds ptr, ptr %18, i64 %.1.i
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i32, ptr %62, i64 %.053.i
   %64 = load i32, ptr %63, align 4
-  %65 = or i32 %64, %58
+  %65 = or i32 %64, %60
   store i32 %65, ptr %63, align 4
   %66 = add nuw nsw i32 %.05283.i, 1
   %67 = tail call i32 @hwloc_get_type_depth(ptr noundef %1, i32 noundef 3) #14

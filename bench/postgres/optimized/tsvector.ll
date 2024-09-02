@@ -110,32 +110,34 @@ define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed
   %43 = add i64 %27, %42
   %44 = sext i32 %.0135159 to i64
   %.not130152 = icmp slt i64 %43, %44
-  br i1 %.not130152, label %._crit_edge, label %.lr.ph
+  br i1 %.not130152, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %40, %.lr.ph
-  %45 = phi i64 [ %49, %.lr.ph ], [ %27, %40 ]
-  %.1120154 = phi ptr [ %48, %.lr.ph ], [ %.0119160, %40 ]
-  %.1136153 = phi i32 [ %46, %.lr.ph ], [ %.0135159, %40 ]
-  %46 = shl i32 %.1136153, 1
-  %47 = sext i32 %46 to i64
-  %48 = call ptr @repalloc(ptr noundef %.1120154, i64 noundef %47) #10
-  %sext = shl i64 %45, 32
-  %49 = ashr exact i64 %sext, 32
+.lr.ph.preheader:                                 ; preds = %40
+  %45 = shl i64 %27, 32
+  %46 = ashr exact i64 %45, 32
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.1120154 = phi ptr [ %49, %.lr.ph ], [ %.0119160, %.lr.ph.preheader ]
+  %.1136153 = phi i32 [ %47, %.lr.ph ], [ %.0135159, %.lr.ph.preheader ]
+  %47 = shl i32 %.1136153, 1
+  %48 = sext i32 %47 to i64
+  %49 = call ptr @repalloc(ptr noundef %.1120154, i64 noundef %48) #10
   %50 = load i32, ptr %3, align 4
   %51 = sext i32 %50 to i64
-  %52 = add nsw i64 %49, %51
-  %.not130 = icmp slt i64 %52, %47
+  %52 = add nsw i64 %46, %51
+  %.not130 = icmp slt i64 %52, %48
   br i1 %.not130, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %53 = getelementptr i8, ptr %48, i64 %49
+  %53 = getelementptr i8, ptr %49, i64 %46
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %40
-  %.1136.lcssa = phi i32 [ %.0135159, %40 ], [ %46, %._crit_edge.loopexit ]
-  %.1120.lcssa = phi ptr [ %.0119160, %40 ], [ %48, %._crit_edge.loopexit ]
+  %.1136.lcssa = phi i32 [ %.0135159, %40 ], [ %47, %._crit_edge.loopexit ]
+  %.1120.lcssa = phi ptr [ %.0119160, %40 ], [ %49, %._crit_edge.loopexit ]
   %.1118.lcssa = phi ptr [ %.0117161, %40 ], [ %53, %._crit_edge.loopexit ]
-  %.lcssa142 = phi i64 [ %27, %40 ], [ %49, %._crit_edge.loopexit ]
+  %.lcssa142 = phi i64 [ %27, %40 ], [ %46, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %41, %40 ], [ %50, %._crit_edge.loopexit ]
   %54 = sext i32 %.0115162 to i64
   %55 = getelementptr %struct.WordEntryIN, ptr %.1, i64 %54

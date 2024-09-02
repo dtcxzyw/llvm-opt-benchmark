@@ -1963,7 +1963,7 @@ _ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjE9push_backEOS4_.exit: ; preds = %lor.l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt19conflict_resolution25get_justification_max_lvlEPNS_13justificationE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef %js) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 16777216) i32 @_ZN3smt19conflict_resolution25get_justification_max_lvlEPNS_13justificationE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef %js) local_unnamed_addr #3 align 2 {
 entry:
   %m_tmp_literal_vector = getelementptr inbounds i8, ptr %this, i64 328
   %0 = load ptr, ptr %m_tmp_literal_vector, align 8
@@ -2063,7 +2063,7 @@ for.end:                                          ; preds = %for.body, %_ZN3smt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt19conflict_resolution11get_max_lvlEN3sat7literalENS_15b_justificationE(ptr noundef nonnull align 8 dereferenceable(356) %this, i32 %consequent.coerce, ptr %js.coerce) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 16777216) i32 @_ZN3smt19conflict_resolution11get_max_lvlEN3sat7literalENS_15b_justificationE(ptr noundef nonnull align 8 dereferenceable(356) %this, i32 %consequent.coerce, ptr %js.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %.b = load i1, ptr @_ZN3smtL13false_literalE.0, align 4
   %0 = zext i1 %.b to i32
@@ -8390,7 +8390,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
-  %lhs.addr.048 = phi ptr [ %lhs, %while.body.lr.ph ], [ %37, %sw.epilog ]
+  %lhs.addr.048 = phi ptr [ %lhs, %while.body.lr.ph ], [ %39, %sw.epilog ]
   %visited.047 = phi i1 [ true, %while.body.lr.ph ], [ %visited.1, %sw.epilog ]
   %m_trans = getelementptr inbounds i8, ptr %lhs.addr.048, i64 80
   %m_justification = getelementptr inbounds i8, ptr %lhs.addr.048, i64 88
@@ -8581,19 +8581,21 @@ if.then.i:                                        ; preds = %land.lhs.true.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %curr.135.i.i.i.i, %land.lhs.true25.i.i.i.i ], [ %curr.033.i.i.i.i, %land.lhs.true.i.i.i.i ]
   %m_value.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 16
   %29 = load ptr, ptr %m_value.i.i.i, align 8
-  br label %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit
+  %30 = icmp ne ptr %29, null
+  %31 = select i1 %30, i1 %visited.345, i1 false
+  br label %for.inc
 
 if.end.i:                                         ; preds = %for.body.i.i.i.i, %for.inc36.i.i.i.i, %for.body20.i.i.i.i, %for.cond18.preheader.i.i.i.i
-  %30 = load ptr, ptr %m_todo_pr.i, align 8
-  %cmp.i.i = icmp eq ptr %30, null
+  %32 = load ptr, ptr %m_todo_pr.i, align 8
+  %cmp.i.i = icmp eq ptr %32, null
   br i1 %cmp.i.i, label %if.then.i3.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %30, i64 -4
-  %31 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %30, i64 -8
-  %32 = load i32, ptr %arrayidx4.i.i, align 4
-  %cmp5.i.i = icmp eq i32 %31, %32
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %32, i64 -4
+  %33 = load i32, ptr %arrayidx.i.i, align 4
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %32, i64 -8
+  %34 = load i32, ptr %arrayidx4.i.i, align 4
+  %cmp5.i.i = icmp eq i32 %33, %34
   br i1 %cmp5.i.i, label %if.then.i3.i, label %_ZN6vectorIN3smt19conflict_resolution7tp_elemELb0EjE9push_backEOS2_.exit.i
 
 if.then.i3.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.i
@@ -8604,30 +8606,24 @@ if.then.i3.i:                                     ; preds = %lor.lhs.false.i.i, 
   br label %_ZN6vectorIN3smt19conflict_resolution7tp_elemELb0EjE9push_backEOS2_.exit.i
 
 _ZN6vectorIN3smt19conflict_resolution7tp_elemELb0EjE9push_backEOS2_.exit.i: ; preds = %if.then.i3.i, %lor.lhs.false.i.i
-  %33 = phi i32 [ %.pre1.i.i, %if.then.i3.i ], [ %31, %lor.lhs.false.i.i ]
-  %34 = phi ptr [ %.pre.i.i, %if.then.i3.i ], [ %30, %lor.lhs.false.i.i ]
-  %idx.ext.i.i = zext i32 %33 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.smt::conflict_resolution::tp_elem", ptr %34, i64 %idx.ext.i.i
+  %35 = phi i32 [ %.pre1.i.i, %if.then.i3.i ], [ %33, %lor.lhs.false.i.i ]
+  %36 = phi ptr [ %.pre.i.i, %if.then.i3.i ], [ %32, %lor.lhs.false.i.i ]
+  %idx.ext.i.i = zext i32 %35 to i64
+  %add.ptr.i.i = getelementptr inbounds %"struct.smt::conflict_resolution::tp_elem", ptr %36, i64 %idx.ext.i.i
   store i32 1, ptr %add.ptr.i.i, align 8
   %ref.tmp.sroa.24.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store ptr %13, ptr %ref.tmp.sroa.24.0.add.ptr.i.sroa_idx.i, align 8
   %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store ptr %14, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i, align 8
-  %35 = load ptr, ptr %m_todo_pr.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %35, i64 -4
-  %36 = load i32, ptr %arrayidx10.i.i, align 4
-  %inc.i.i = add i32 %36, 1
+  %37 = load ptr, ptr %m_todo_pr.i, align 8
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %37, i64 -4
+  %38 = load i32, ptr %arrayidx10.i.i, align 4
+  %inc.i.i = add i32 %38, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
-  br label %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit
-
-_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit: ; preds = %if.then.i, %_ZN6vectorIN3smt19conflict_resolution7tp_elemELb0EjE9push_backEOS2_.exit.i
-  %retval.0.i = phi ptr [ %29, %if.then.i ], [ null, %_ZN6vectorIN3smt19conflict_resolution7tp_elemELb0EjE9push_backEOS2_.exit.i ]
-  %cmp39 = icmp ne ptr %retval.0.i, null
-  %spec.select22 = select i1 %cmp39, i1 %visited.345, i1 false
   br label %for.inc
 
-for.inc:                                          ; preds = %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit, %for.body
-  %visited.4 = phi i1 [ %visited.345, %for.body ], [ %spec.select22, %_ZN3smt19conflict_resolution9get_proofEPNS_5enodeES2_.exit ]
+for.inc:                                          ; preds = %_ZN6vectorIN3smt19conflict_resolution7tp_elemELb0EjE9push_backEOS2_.exit.i, %if.then.i, %for.body
+  %visited.4 = phi i1 [ %visited.345, %for.body ], [ %31, %if.then.i ], [ false, %_ZN6vectorIN3smt19conflict_resolution7tp_elemELb0EjE9push_backEOS2_.exit.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !47
@@ -8639,8 +8635,8 @@ sw.default:                                       ; preds = %while.body
 
 sw.epilog:                                        ; preds = %for.inc, %_ZNK3smt5enode12get_num_argsEv.exit.thread, %for.cond.preheader, %land.lhs.true28, %sw.bb7, %sw.bb2, %if.end26, %while.body
   %visited.1 = phi i1 [ %visited.2, %if.end26 ], [ %visited.047, %while.body ], [ %spec.select, %sw.bb2 ], [ %spec.select19, %sw.bb7 ], [ %spec.select21, %land.lhs.true28 ], [ %visited.047, %for.cond.preheader ], [ %visited.047, %_ZNK3smt5enode12get_num_argsEv.exit.thread ], [ %visited.4, %for.inc ]
-  %37 = load ptr, ptr %m_trans, align 8
-  %cmp.not = icmp eq ptr %37, %rhs
+  %39 = load ptr, ptr %m_trans, align 8
+  %cmp.not = icmp eq ptr %39, %rhs
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !48
 
 while.end:                                        ; preds = %sw.epilog, %entry

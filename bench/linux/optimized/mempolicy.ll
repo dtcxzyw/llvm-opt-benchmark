@@ -413,19 +413,19 @@ define dso_local i32 @do_migrate_pages(ptr noundef %0, ptr noundef %1, ptr nound
   %25 = select i1 %24, ptr @queue_pages_walk_ops, ptr @queue_pages_lock_vma_walk_ops
   %26 = ptrtoint ptr %8 to i64
   %27 = icmp eq i64 %10, 0
-  br i1 %27, label %.thread15, label %.lr.ph.preheader
+  br i1 %27, label %.thread14, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
   %28 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %10) #20, !srcloc !7
   %29 = trunc i64 %28 to i32
   %30 = icmp ult i32 %29, 64
-  br i1 %30, label %.preheader.preheader, label %.thread15
+  br i1 %30, label %.preheader.preheader, label %.thread14
 
 .lr.ph:                                           ; preds = %109
   %31 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %116) #20, !srcloc !7
   %32 = trunc i64 %31 to i32
   %33 = icmp ult i32 %32, 64
-  br i1 %33, label %.preheader.preheader, label %.thread15.loopexit.loopexit
+  br i1 %33, label %.preheader.preheader, label %.thread14.loopexit.loopexit
 
 .preheader.preheader:                             ; preds = %.lr.ph.preheader, %.lr.ph
   %34 = phi i32 [ %32, %.lr.ph ], [ %29, %.lr.ph.preheader ]
@@ -490,7 +490,7 @@ define dso_local i32 @do_migrate_pages(ptr noundef %0, ptr noundef %1, ptr nound
 
 .thread:                                          ; preds = %64, %60, %71
   %75 = icmp eq i32 %61, -1
-  br i1 %75, label %.thread15.loopexit.loopexit, label %.thread9
+  br i1 %75, label %.thread14.loopexit.loopexit, label %.thread9
 
 .thread9:                                         ; preds = %55, %.thread
   %76 = phi i32 [ %62, %.thread ], [ %53, %55 ]
@@ -590,22 +590,22 @@ define dso_local i32 @do_migrate_pages(ptr noundef %0, ptr noundef %1, ptr nound
   %116 = load i64, ptr %9, align 8
   %117 = icmp eq i64 %116, 0
   %or.cond = select i1 %115, i1 true, i1 %117
-  br i1 %or.cond, label %.thread15.loopexit.loopexit, label %.lr.ph
+  br i1 %or.cond, label %.thread14.loopexit.loopexit, label %.lr.ph
 
-.thread15.loopexit.loopexit:                      ; preds = %109, %.lr.ph, %.thread
-  %.ph.ph = phi i64 [ %35, %.thread ], [ %114, %.lr.ph ], [ %114, %109 ]
-  %.ph42.ph = phi i64 [ %36, %.thread ], [ %112, %.lr.ph ], [ %112, %109 ]
-  %118 = freeze i64 %.ph42.ph
-  br label %.thread15
+.thread14.loopexit.loopexit:                      ; preds = %.lr.ph, %.thread, %109
+  %.ph.ph = phi i64 [ %114, %109 ], [ %35, %.thread ], [ %114, %.lr.ph ]
+  %.ph41.ph = phi i64 [ %112, %109 ], [ %36, %.thread ], [ %112, %.lr.ph ]
+  %118 = freeze i64 %.ph41.ph
+  br label %.thread14
 
-.thread15:                                        ; preds = %.lr.ph.preheader, %.thread15.loopexit.loopexit, %4
-  %119 = phi i64 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %.ph.ph, %.thread15.loopexit.loopexit ]
-  %.fr41 = phi i64 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %118, %.thread15.loopexit.loopexit ]
+.thread14:                                        ; preds = %.lr.ph.preheader, %.thread14.loopexit.loopexit, %4
+  %119 = phi i64 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %.ph.ph, %.thread14.loopexit.loopexit ]
+  %.fr40 = phi i64 [ 0, %4 ], [ 0, %.lr.ph.preheader ], [ %118, %.thread14.loopexit.loopexit ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @lru_disable_count, ptr nonnull elementtype(i32) @lru_disable_count) #19, !srcloc !22
-  %120 = icmp slt i64 %.fr41, 0
+  %120 = icmp slt i64 %.fr40, 0
   %121 = call i64 @llvm.smin.i64(i64 %119, i64 2147483647)
-  %spec.select40 = select i1 %120, i64 %.fr41, i64 %121
-  %122 = trunc i64 %spec.select40 to i32
+  %spec.select39 = select i1 %120, i64 %.fr40, i64 %121
+  %122 = trunc i64 %spec.select39 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
   ret i32 %122
 }
@@ -2742,11 +2742,11 @@ define internal fastcc ptr @policy_nodemask(i32 noundef %0, ptr noundef %1, i64 
   %101 = icmp eq i64 %92, 0
   br i1 %101, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %98, %113
-  %102 = phi i32 [ %116, %113 ], [ %100, %98 ]
-  %103 = phi i32 [ %117, %113 ], [ 0, %98 ]
+.preheader:                                       ; preds = %98, %114
+  %102 = phi i32 [ %116, %114 ], [ %100, %98 ]
+  %103 = phi i32 [ %117, %114 ], [ 0, %98 ]
   %104 = icmp ugt i32 %102, 62
-  br i1 %104, label %113, label %105, !prof !8
+  br i1 %104, label %114, label %105, !prof !8
 
 105:                                              ; preds = %.preheader
   %106 = add nuw nsw i32 %102, 1
@@ -2754,22 +2754,22 @@ define internal fastcc ptr @policy_nodemask(i32 noundef %0, ptr noundef %1, i64 
   %108 = shl nsw i64 -1, %107
   %109 = and i64 %108, %85
   %110 = icmp eq i64 %109, 0
-  br i1 %110, label %113, label %111
+  br i1 %110, label %114, label %111
 
 111:                                              ; preds = %105
   %112 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %109) #20, !srcloc !7
-  br label %113
+  %113 = trunc i64 %112 to i32
+  br label %114
 
-113:                                              ; preds = %111, %105, %.preheader
-  %114 = phi i64 [ 64, %.preheader ], [ %112, %111 ], [ 64, %105 ]
-  %115 = trunc i64 %114 to i32
+114:                                              ; preds = %111, %105, %.preheader
+  %115 = phi i32 [ 64, %.preheader ], [ %113, %111 ], [ 64, %105 ]
   %116 = tail call i32 @llvm.umin.i32(i32 %115, i32 64)
   %117 = add nuw i32 %103, 1
   %118 = icmp ult i32 %117, %93
   br i1 %118, label %.preheader, label %.loopexit, !llvm.loop !48
 
-.loopexit:                                        ; preds = %113, %98, %89, %.thread14, %77
-  %119 = phi i32 [ 64, %77 ], [ %81, %.thread14 ], [ %90, %89 ], [ %100, %98 ], [ %116, %113 ]
+.loopexit:                                        ; preds = %114, %98, %89, %.thread14, %77
+  %119 = phi i32 [ 64, %77 ], [ %81, %.thread14 ], [ %90, %89 ], [ %100, %98 ], [ %116, %114 ]
   store i32 %119, ptr %3, align 4
   br label %120
 
@@ -3254,27 +3254,27 @@ define dso_local i64 @alloc_pages_bulk_array_mempolicy(i32 noundef %0, i64 nound
 
 .thread:                                          ; preds = %57, %63, %58
   %67 = icmp eq i64 %.pr17.pre, 0
-  br i1 %67, label %70, label %68
+  br i1 %67, label %71, label %68
 
 68:                                               ; preds = %.thread
   %69 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr17.pre) #20, !srcloc !7
-  br label %70
+  %70 = trunc i64 %69 to i32
+  br label %71
 
-70:                                               ; preds = %.thread, %68
-  %71 = phi i64 [ %69, %68 ], [ 64, %.thread ]
-  %72 = trunc i64 %71 to i32
+71:                                               ; preds = %.thread, %68
+  %72 = phi i32 [ %70, %68 ], [ 64, %.thread ]
   %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 64)
   %74 = icmp ult i32 %72, 64
   br i1 %74, label %.thread18, label %77
 
-.thread18:                                        ; preds = %63, %70
-  %75 = phi i32 [ %73, %70 ], [ %65, %63 ]
+.thread18:                                        ; preds = %63, %71
+  %75 = phi i32 [ %73, %71 ], [ %65, %63 ]
   %76 = trunc nuw nsw i32 %75 to i16
   store i16 %76, ptr %46, align 8
   br label %77
 
-77:                                               ; preds = %.thread18, %70
-  %78 = phi i32 [ %75, %.thread18 ], [ 64, %70 ]
+77:                                               ; preds = %.thread18, %71
+  %78 = phi i32 [ %75, %.thread18 ], [ 64, %71 ]
   %79 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %78, ptr noundef null, i32 noundef %43, ptr noundef null, ptr noundef %51) #19
   %80 = add i32 %50, -1
   br label %104
@@ -3297,27 +3297,27 @@ define dso_local i64 @alloc_pages_bulk_array_mempolicy(i32 noundef %0, i64 nound
 
 .thread16:                                        ; preds = %81, %87, %82
   %91 = icmp eq i64 %.pr17.pre, 0
-  br i1 %91, label %94, label %92
+  br i1 %91, label %95, label %92
 
 92:                                               ; preds = %.thread16
   %93 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr17.pre) #20, !srcloc !7
-  br label %94
+  %94 = trunc i64 %93 to i32
+  br label %95
 
-94:                                               ; preds = %.thread16, %92
-  %95 = phi i64 [ %93, %92 ], [ 64, %.thread16 ]
-  %96 = trunc i64 %95 to i32
+95:                                               ; preds = %.thread16, %92
+  %96 = phi i32 [ %94, %92 ], [ 64, %.thread16 ]
   %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 64)
   %98 = icmp ult i32 %96, 64
   br i1 %98, label %.thread19, label %101
 
-.thread19:                                        ; preds = %87, %94
-  %99 = phi i32 [ %97, %94 ], [ %89, %87 ]
+.thread19:                                        ; preds = %87, %95
+  %99 = phi i32 [ %97, %95 ], [ %89, %87 ]
   %100 = trunc nuw nsw i32 %99 to i16
   store i16 %100, ptr %46, align 8
   br label %101
 
-101:                                              ; preds = %.thread19, %94
-  %102 = phi i32 [ %99, %.thread19 ], [ 64, %94 ]
+101:                                              ; preds = %.thread19, %95
+  %102 = phi i32 [ %99, %.thread19 ], [ 64, %95 ]
   %103 = tail call i64 @__alloc_pages_bulk(i32 noundef %0, i32 noundef %102, ptr noundef null, i32 noundef %42, ptr noundef null, ptr noundef %51) #19
   br label %104
 
@@ -3769,11 +3769,11 @@ define dso_local i32 @mpol_misplaced(ptr noundef %0, ptr noundef %1, i64 noundef
   %101 = icmp eq i64 %92, 0
   br i1 %101, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %98, %113
-  %102 = phi i32 [ %116, %113 ], [ %100, %98 ]
-  %103 = phi i32 [ %117, %113 ], [ 0, %98 ]
+.preheader:                                       ; preds = %98, %114
+  %102 = phi i32 [ %116, %114 ], [ %100, %98 ]
+  %103 = phi i32 [ %117, %114 ], [ 0, %98 ]
   %104 = icmp ugt i32 %102, 62
-  br i1 %104, label %113, label %105, !prof !8
+  br i1 %104, label %114, label %105, !prof !8
 
 105:                                              ; preds = %.preheader
   %106 = add nuw nsw i32 %102, 1
@@ -3781,15 +3781,15 @@ define dso_local i32 @mpol_misplaced(ptr noundef %0, ptr noundef %1, i64 noundef
   %108 = shl nsw i64 -1, %107
   %109 = and i64 %108, %85
   %110 = icmp eq i64 %109, 0
-  br i1 %110, label %113, label %111
+  br i1 %110, label %114, label %111
 
 111:                                              ; preds = %105
   %112 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %109) #20, !srcloc !7
-  br label %113
+  %113 = trunc i64 %112 to i32
+  br label %114
 
-113:                                              ; preds = %111, %105, %.preheader
-  %114 = phi i64 [ 64, %.preheader ], [ %112, %111 ], [ 64, %105 ]
-  %115 = trunc i64 %114 to i32
+114:                                              ; preds = %111, %105, %.preheader
+  %115 = phi i32 [ 64, %.preheader ], [ %113, %111 ], [ 64, %105 ]
   %116 = call i32 @llvm.umin.i32(i32 %115, i32 64)
   %117 = add nuw i32 %103, 1
   %118 = icmp ult i32 %117, %93
@@ -3875,8 +3875,8 @@ define dso_local i32 @mpol_misplaced(ptr noundef %0, ptr noundef %1, i64 noundef
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2536, i32 0, i64 12) #19, !srcloc !62
   unreachable
 
-.loopexit:                                        ; preds = %113, %162, %138, %133, %130, %98, %89
-  %168 = phi i32 [ %166, %162 ], [ -1, %138 ], [ %134, %133 ], [ %132, %130 ], [ %90, %89 ], [ %100, %98 ], [ %116, %113 ]
+.loopexit:                                        ; preds = %114, %162, %138, %133, %130, %98, %89
+  %168 = phi i32 [ %166, %162 ], [ -1, %138 ], [ %134, %133 ], [ %132, %130 ], [ %90, %89 ], [ %100, %98 ], [ %116, %114 ]
   %169 = load i16, ptr %75, align 2
   %170 = and i16 %169, 16
   %171 = icmp eq i16 %170, 0
@@ -4249,7 +4249,7 @@ define internal fastcc i32 @mpol_set_nodemask(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @mpol_set_shared_policy(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @mpol_set_shared_policy(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %1, align 8
@@ -6585,7 +6585,7 @@ declare dso_local ptr @mas_prev(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare dso_local ptr @vma_modify(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @get_nodes(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @get_nodes(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = add i64 %2, -1
   store i64 0, ptr %0, align 8

@@ -76,7 +76,7 @@ define void @Java_com_sun_media_sound_MidiInDevice_nStop(ptr nocapture noundef r
 declare i32 @MIDI_IN_StopDevice(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_media_sound_MidiInDevice_nGetTimeStamp(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @Java_com_sun_media_sound_MidiInDevice_nGetTimeStamp(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i64 @MIDI_IN_GetTimeStamp(ptr noundef %4) #4
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %5, i64 -1)

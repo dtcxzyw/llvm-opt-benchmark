@@ -5851,25 +5851,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68.i: 
 245:                                              ; preds = %244
   %246 = load ptr, ptr %30, align 8
   %.not.i.i.i = icmp eq ptr %246, null
-  br i1 %.not.i.i.i, label %250, label %247
+  br i1 %.not.i.i.i, label %251, label %247
 
 247:                                              ; preds = %245
   %248 = load i32, ptr %246, align 8
   %249 = icmp eq i32 %248, 9
-  br label %250
+  %250 = zext i1 %249 to i64
+  br label %251
 
-250:                                              ; preds = %247, %245
-  %251 = phi i1 [ %249, %247 ], [ false, %245 ]
+251:                                              ; preds = %247, %245
+  %.sroa.0.0.insert.ext.i70.i = phi i64 [ %250, %247 ], [ 0, %245 ]
   %252 = load i32, ptr %38, align 4
   %.sroa.22.0.insert.ext.i.i = zext i32 %252 to i64
   %.sroa.22.0.insert.shift.i.i = shl nuw i64 %.sroa.22.0.insert.ext.i.i, 32
-  %.sroa.0.0.insert.ext.i70.i = zext i1 %251 to i64
   %.sroa.0.0.insert.insert.i71.i = or disjoint i64 %.sroa.22.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i70.i
   store i64 %.sroa.0.0.insert.insert.i71.i, ptr %37, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %36, ptr noundef nonnull align 4 dereferenceable(8) %37)
           to label %253 unwind label %265
 
-253:                                              ; preds = %250
+253:                                              ; preds = %251
   invoke void @_ZN7doctest6detail13ResultBuilder9setResultERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(32) %36)
           to label %254 unwind label %267
 
@@ -5910,7 +5910,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68.i: 
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #19
   br label %330
 
-265:                                              ; preds = %250, %244
+265:                                              ; preds = %251, %244
   %266 = landingpad { ptr, i32 }
           catch ptr null
   br label %270

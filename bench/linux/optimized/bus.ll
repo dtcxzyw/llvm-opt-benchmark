@@ -1439,7 +1439,7 @@ define dso_local void @acpi_subsystem_init() local_unnamed_addr #8 section ".ini
 declare dso_local i32 @acpi_enable_subsystem(i32 noundef) local_unnamed_addr #9 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @acpi_init() #8 section ".init.text" align 16 {
+define internal noundef range(i32 -19, 1) i32 @acpi_init() #8 section ".init.text" align 16 {
   %1 = load i32, ptr @acpi_disabled, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %5, label %3

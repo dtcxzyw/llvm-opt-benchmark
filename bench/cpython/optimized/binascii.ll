@@ -287,14 +287,15 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 switch.early.test.i:                              ; preds = %for.body.i
   %4 = load i8, ptr %ascii_data.012.i, align 1
+  %5 = zext i8 %4 to i32
   switch i8 %4, label %if.else.i [
     i8 13, label %if.end38.i
     i8 10, label %if.end38.i
   ]
 
 if.else.i:                                        ; preds = %switch.early.test.i
-  %5 = add i8 %4, -97
-  %or.cond2.i = icmp ult i8 %5, -65
+  %6 = add nsw i32 %5, -97
+  %or.cond2.i = icmp ult i32 %6, -65
   br i1 %or.cond2.i, label %if.then27.i, label %if.end33.i
 
 if.then27.i:                                      ; preds = %if.else.i
@@ -303,29 +304,28 @@ if.then27.i:                                      ; preds = %if.else.i
   br i1 %cmp29.i, label %exit, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then27.i
-  %6 = load ptr, ptr %call.i.i, align 8
-  call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.15) #5
-  %7 = load i64, ptr %call.i, align 8
-  %8 = and i64 %7, 2147483648
-  %cmp.i90.not.i = icmp eq i64 %8, 0
+  %7 = load ptr, ptr %call.i.i, align 8
+  call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.15) #5
+  %8 = load i64, ptr %call.i, align 8
+  %9 = and i64 %8, 2147483648
+  %cmp.i90.not.i = icmp eq i64 %9, 0
   br i1 %cmp.i90.not.i, label %if.end.i83.i, label %exit
 
 if.end.i83.i:                                     ; preds = %if.end32.i
-  %dec.i84.i = add i64 %7, -1
+  %dec.i84.i = add i64 %8, -1
   store i64 %dec.i84.i, ptr %call.i, align 8
   %cmp.i85.i = icmp eq i64 %dec.i84.i, 0
   br i1 %cmp.i85.i, label %return.sink.split.i, label %exit
 
 if.end33.i:                                       ; preds = %if.else.i
-  %9 = and i8 %4, 63
-  %10 = xor i8 %9, 32
+  %10 = and i32 %5, 63
+  %conv37.i = xor i32 %10, 32
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end33.i, %switch.early.test.i, %switch.early.test.i, %for.body.i
-  %this_ch.0.i = phi i8 [ %10, %if.end33.i ], [ 0, %switch.early.test.i ], [ 0, %switch.early.test.i ], [ 0, %for.body.i ]
+  %this_ch.0.i = phi i32 [ %conv37.i, %if.end33.i ], [ 0, %switch.early.test.i ], [ 0, %switch.early.test.i ], [ 0, %for.body.i ]
   %shl.i = shl i32 %leftchar.010.i, 6
-  %conv39.i = zext nneg i8 %this_ch.0.i to i32
-  %or.i = or i32 %shl.i, %conv39.i
+  %or.i = or i32 %this_ch.0.i, %shl.i
   %add.i = add nuw nsw i32 %leftbits.09.i, 6
   %cmp40.i = icmp sgt i32 %leftbits.09.i, 1
   br i1 %cmp40.i, label %if.then42.i, label %for.inc.i

@@ -236,11 +236,15 @@ for.body97:                                       ; preds = %for.body97.preheade
   store i8 %spec.select150, ptr %14, align 1
   %inc110 = add nuw i64 %i.3133, 1
   %exitcond146.not = icmp eq i64 %inc110, %umax
-  br i1 %exitcond146.not, label %for.end111, label %for.body97, !llvm.loop !7
+  br i1 %exitcond146.not, label %for.end111.loopexit, label %for.body97, !llvm.loop !7
 
-for.end111:                                       ; preds = %for.body97, %if.end81.thread147
-  %i.3.lcssa = phi i64 [ 0, %if.end81.thread147 ], [ %umax, %for.body97 ]
-  %diff.1.lcssa = phi i32 [ 0, %if.end81.thread147 ], [ %spec.select151, %for.body97 ]
+for.end111.loopexit:                              ; preds = %for.body97
+  %15 = icmp ne i32 %spec.select151, 0
+  br label %for.end111
+
+for.end111:                                       ; preds = %if.end81.thread147, %for.end111.loopexit
+  %i.3.lcssa = phi i64 [ %umax, %for.end111.loopexit ], [ 0, %if.end81.thread147 ]
+  %diff.1.lcssa = phi i1 [ %15, %for.end111.loopexit ], [ false, %if.end81.thread147 ]
   %arrayidx112 = getelementptr inbounds [81 x i8], ptr %bdiff, i64 0, i64 %i.3.lcssa
   store i8 0, ptr %arrayidx112, align 1
   br label %if.end113
@@ -249,11 +253,10 @@ if.end113:                                        ; preds = %if.end81.thread147,
   %cmp85127 = phi i1 [ true, %for.end111 ], [ %cmp85, %if.end81 ], [ false, %if.end81.thread ], [ %cmp85, %if.end81.thread147 ]
   %cmp82126 = phi i1 [ true, %for.end111 ], [ %cmp82, %if.end81 ], [ %cmp82122, %if.end81.thread ], [ %cmp82148, %if.end81.thread147 ]
   %n2.0125 = phi i64 [ %cond56, %for.end111 ], [ %cond56, %if.end81 ], [ 0, %if.end81.thread ], [ 0, %if.end81.thread147 ]
-  %i.2 = phi i64 [ %i.3.lcssa, %for.end111 ], [ 0, %if.end81 ], [ 0, %if.end81.thread ], [ 0, %if.end81.thread147 ]
-  %diff.0 = phi i32 [ %diff.1.lcssa, %for.end111 ], [ 0, %if.end81 ], [ 0, %if.end81.thread ], [ 0, %if.end81.thread147 ]
+  %i.2 = phi i1 [ true, %for.end111 ], [ false, %if.end81 ], [ false, %if.end81.thread ], [ false, %if.end81.thread147 ]
+  %diff.0 = phi i1 [ %diff.1.lcssa, %for.end111 ], [ false, %if.end81 ], [ false, %if.end81.thread ], [ false, %if.end81.thread147 ]
   %cmp114 = icmp ne i64 %n1.0, %n2.0125
-  %tobool117 = icmp ne i32 %diff.0, 0
-  %or.cond2 = select i1 %cmp114, i1 true, i1 %tobool117
+  %or.cond2 = select i1 %cmp114, i1 true, i1 %diff.0
   br i1 %or.cond2, label %if.else127, label %if.then118
 
 if.then118:                                       ; preds = %if.end113
@@ -273,8 +276,8 @@ land.lhs.true130.split:                           ; preds = %land.lhs.true130
   br label %land.lhs.true148
 
 lor.lhs.false133:                                 ; preds = %land.lhs.true130
-  %15 = load i8, ptr %m1.addr.0142, align 1
-  %cmp135 = icmp eq i8 %15, 0
+  %16 = load i8, ptr %m1.addr.0142, align 1
+  %cmp135 = icmp eq i8 %16, 0
   br i1 %cmp135, label %test_string_null_empty.exit112, label %if.else138
 
 test_string_null_empty.exit112:                   ; preds = %lor.lhs.false133
@@ -300,8 +303,8 @@ land.lhs.true148.split:                           ; preds = %land.lhs.true148
   br label %if.end163
 
 lor.lhs.false151:                                 ; preds = %land.lhs.true148
-  %16 = load i8, ptr %m2.addr.0138, align 1
-  %cmp153 = icmp eq i8 %16, 0
+  %17 = load i8, ptr %m2.addr.0138, align 1
+  %cmp153 = icmp eq i8 %17, 0
   br i1 %cmp153, label %test_string_null_empty.exit120, label %if.else156
 
 test_string_null_empty.exit120:                   ; preds = %lor.lhs.false151
@@ -316,8 +319,7 @@ if.then159:                                       ; preds = %if.else156
   br label %if.end163
 
 if.end163:                                        ; preds = %land.lhs.true148.split, %test_string_null_empty.exit120, %if.else156, %if.then159
-  %cmp166 = icmp ne i64 %i.2, 0
-  %or.cond3 = and i1 %cmp166, %tobool117
+  %or.cond3 = and i1 %i.2, %diff.0
   br i1 %or.cond3, label %if.then168, label %if.end172
 
 if.then168:                                       ; preds = %if.end163
@@ -336,8 +338,8 @@ if.end172:                                        ; preds = %if.end163, %if.then
   %conv185 = add i32 %cnt.0141, %3
   %cmp23 = icmp ne i64 %sub182, 0
   %cmp25 = icmp ne i64 %sub183, 0
-  %17 = select i1 %cmp23, i1 true, i1 %cmp25
-  br i1 %17, label %while.body, label %fin, !llvm.loop !8
+  %18 = select i1 %cmp23, i1 true, i1 %cmp25
+  br i1 %18, label %while.body, label %fin, !llvm.loop !8
 
 fin:                                              ; preds = %if.end172, %if.else.i98, %if.then.i100, %if.else.i, %if.then.i
   %call186 = call i32 @test_flush_stderr() #7
@@ -384,10 +386,11 @@ cond.false:                                       ; preds = %entry
   %tobool.not = icmp ne i32 %call1, 0
   %cond = zext i1 %tobool.not to i32
   %add2 = add nsw i32 %div, %cond
+  %0 = sext i32 %add2 to i64
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.false
-  %cond3 = phi i32 [ %add2, %cond.false ], [ 0, %entry ]
+  %cond3 = phi i64 [ %0, %cond.false ], [ 0, %entry ]
   %cmp4 = icmp eq ptr %bn2, null
   br i1 %cmp4, label %cond.end15, label %cond.false7
 
@@ -399,18 +402,19 @@ cond.false7:                                      ; preds = %cond.end
   %tobool12.not = icmp ne i32 %call11, 0
   %cond13 = zext i1 %tobool12.not to i32
   %add14 = add nsw i32 %div10, %cond13
+  %1 = sext i32 %add14 to i64
   br label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.false7
-  %cond16 = phi i32 [ %add14, %cond.false7 ], [ 0, %cond.end ]
-  %cmp18 = icmp eq i32 %cond3, 0
-  %cmp20 = icmp eq i32 %cond16, 0
+  %cond16 = phi i64 [ %1, %cond.false7 ], [ 0, %cond.end ]
+  %cmp18 = icmp eq i64 %cond3, 0
+  %cmp20 = icmp eq i64 %cond16, 0
   %or.cond = select i1 %cmp18, i1 %cmp20, i1 false
   br i1 %or.cond, label %if.then, label %if.end29
 
 if.then:                                          ; preds = %cond.end15
-  %0 = xor i1 %cmp, %cmp4
-  br i1 %0, label %if.else, label %if.then28
+  %2 = xor i1 %cmp, %cmp4
+  br i1 %2, label %if.else, label %if.then28
 
 if.then28:                                        ; preds = %if.then
   %call.i = tail call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.24, i32 noundef 73, ptr noundef nonnull @.str.25) #7
@@ -459,7 +463,7 @@ test_bignum_zero_print.exit103:                   ; preds = %test_bignum_zero_pr
   br label %fin.thread
 
 if.end29:                                         ; preds = %cond.end15
-  %cmp30 = icmp ne i32 %cond3, %cond16
+  %cmp30 = icmp ne i64 %cond3, %cond16
   %or.cond1 = or i1 %cmp, %cmp30
   %or.cond2 = or i1 %cmp4, %or.cond1
   br i1 %or.cond2, label %if.then41, label %lor.lhs.false37
@@ -476,15 +480,14 @@ if.then41:                                        ; preds = %lor.lhs.false37, %i
 
 if.end42:                                         ; preds = %if.then41, %lor.lhs.false37
   %call.i106 = tail call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.24, i32 noundef 73, ptr noundef nonnull @.str.25) #7
-  %1 = tail call i32 @llvm.umax.i32(i32 %cond3, i32 %cond16)
-  %cond48 = sext i32 %1 to i64
+  %cond48 = tail call i64 @llvm.umax.i64(i64 %cond3, i64 %cond16)
   %sub = add nsw i64 %cond48, 31
   %div5079 = and i64 %sub, -32
   %cmp51 = icmp ugt i64 %div5079, 2000
   br i1 %cmp51, label %land.lhs.true53, label %if.end61
 
 land.lhs.true53:                                  ; preds = %if.end42
-  %mul54 = shl nsw i64 %div5079, 1
+  %mul54 = shl i64 %div5079, 1
   %call55 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %mul54, ptr noundef nonnull @.str.16, i32 noundef 302) #7
   %cmp56 = icmp eq ptr %call55, null
   br i1 %cmp56, label %if.then58, label %if.end61
@@ -531,8 +534,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %conv78 = shl i32 %sub76.tr, 3
   %call80 = call fastcc i32 @convert_bn_memory(ptr noundef %m1.1123, ptr noundef nonnull %b1, ptr noundef nonnull %lz1, ptr noundef %bn1)
   %call83 = call fastcc i32 @convert_bn_memory(ptr noundef %m2.1124, ptr noundef nonnull %b2, ptr noundef nonnull %lz2, ptr noundef %bn2)
-  %2 = load i8, ptr %b1, align 16
-  %cmp87.not114 = icmp eq i8 %2, 0
+  %3 = load i8, ptr %b1, align 16
+  %cmp87.not114 = icmp eq i8 %3, 0
   br i1 %cmp87.not114, label %for.end.thread, label %for.body
 
 for.end.thread:                                   ; preds = %while.body
@@ -540,19 +543,19 @@ for.end.thread:                                   ; preds = %while.body
   br label %if.then117
 
 for.body:                                         ; preds = %while.body, %for.body
-  %3 = phi i8 [ %5, %for.body ], [ %2, %while.body ]
+  %4 = phi i8 [ %6, %for.body ], [ %3, %while.body ]
   %real_diff.0118 = phi i32 [ %real_diff.1, %for.body ], [ 0, %while.body ]
   %diff.0117 = phi i32 [ %diff.1, %for.body ], [ 0, %while.body ]
   %p.0116 = phi ptr [ %p.1, %for.body ], [ %bdiff, %while.body ]
   %i.0115 = phi i64 [ %inc, %for.body ], [ 0, %while.body ]
   %arrayidx91 = getelementptr inbounds [81 x i8], ptr %b2, i64 0, i64 %i.0115
-  %4 = load i8, ptr %arrayidx91, align 1
-  %cmp93 = icmp eq i8 %3, %4
-  %cmp98 = icmp eq i8 %3, 32
+  %5 = load i8, ptr %arrayidx91, align 1
+  %cmp93 = icmp eq i8 %4, %5
+  %cmp98 = icmp eq i8 %4, 32
   %or.cond80 = or i1 %cmp98, %cmp93
-  %cmp103 = icmp eq i8 %4, 32
+  %cmp103 = icmp eq i8 %5, 32
   %or.cond81 = or i1 %cmp103, %or.cond80
-  %cmp110 = icmp ne i8 %3, %4
+  %cmp110 = icmp ne i8 %4, %5
   %conv111 = zext i1 %cmp110 to i32
   %or = or i32 %diff.0117, %conv111
   %.sink = select i1 %or.cond81, i8 32, i8 94
@@ -562,14 +565,15 @@ for.body:                                         ; preds = %while.body, %for.bo
   %p.1 = getelementptr inbounds i8, ptr %p.0116, i64 1
   %inc = add i64 %i.0115, 1
   %arrayidx = getelementptr inbounds [81 x i8], ptr %b1, i64 0, i64 %inc
-  %5 = load i8, ptr %arrayidx, align 1
-  %cmp87.not = icmp eq i8 %5, 0
+  %6 = load i8, ptr %arrayidx, align 1
+  %cmp87.not = icmp eq i8 %6, 0
   br i1 %cmp87.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body
+  %7 = icmp eq i32 %diff.1, 0
+  %8 = icmp eq i32 %real_diff.1, 0
   store i8 0, ptr %p.1, align 1
-  %tobool116.not = icmp eq i32 %diff.1, 0
-  br i1 %tobool116.not, label %if.then117, label %if.else127
+  br i1 %7, label %if.then117, label %if.else127
 
 if.then117:                                       ; preds = %for.end.thread, %for.end
   %cmp118 = icmp ugt i32 %call83, %call80
@@ -613,8 +617,7 @@ if.then161:                                       ; preds = %if.else155
   br label %if.end165
 
 if.end165:                                        ; preds = %if.then161, %if.else155, %if.then152
-  %tobool166.not = icmp eq i32 %real_diff.1, 0
-  br i1 %tobool166.not, label %if.end186, label %land.lhs.true167
+  br i1 %8, label %if.end186, label %land.lhs.true167
 
 land.lhs.true167:                                 ; preds = %if.end165
   br i1 %cmp128, label %land.lhs.true176, label %lor.lhs.false170
@@ -1019,16 +1022,16 @@ for.inc:                                          ; preds = %for.body, %if.then7
 
 for.end:                                          ; preds = %for.inc
   store i8 0, ptr %p.2, align 1
+  %11 = icmp ne i32 %spec.select158, 0
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end44.thread, %for.end, %if.end44
   %cmp46142 = phi i1 [ true, %for.end ], [ false, %if.end44 ], [ %cmp46138, %if.end44.thread ]
   %n2.0141 = phi i64 [ %cond42, %for.end ], [ %cond42, %if.end44 ], [ 0, %if.end44.thread ]
-  %cmp124 = phi i1 [ true, %for.end ], [ false, %if.end44 ], [ false, %if.end44.thread ]
-  %diff.0 = phi i32 [ %spec.select158, %for.end ], [ 0, %if.end44 ], [ 0, %if.end44.thread ]
+  %i.0 = phi i1 [ true, %for.end ], [ false, %if.end44 ], [ false, %if.end44.thread ]
+  %diff.0 = phi i1 [ %11, %for.end ], [ false, %if.end44 ], [ false, %if.end44.thread ]
   %cmp81 = icmp ne i64 %n1.0, %n2.0141
-  %tobool = icmp ne i32 %diff.0, 0
-  %or.cond2 = select i1 %cmp81, i1 true, i1 %tobool
+  %or.cond2 = select i1 %cmp81, i1 true, i1 %diff.0
   br i1 %or.cond2, label %if.else87, label %if.then84
 
 if.then84:                                        ; preds = %if.end80
@@ -1091,7 +1094,7 @@ if.then117:                                       ; preds = %if.else114
   br label %if.end121
 
 if.end121:                                        ; preds = %if.else.i132, %if.then.i134, %if.else114, %if.then117
-  %or.cond5 = and i1 %cmp124, %tobool
+  %or.cond5 = and i1 %i.0, %diff.0
   br i1 %or.cond5, label %if.then126, label %if.end130
 
 if.then126:                                       ; preds = %if.end121
@@ -1110,8 +1113,8 @@ if.end130:                                        ; preds = %if.end121, %if.then
   %add = add i32 %cnt.0152, 32
   %cmp24 = icmp ne i64 %sub140, 0
   %cmp26 = icmp ne i64 %sub141, 0
-  %11 = select i1 %cmp24, i1 true, i1 %cmp26
-  br i1 %11, label %while.body, label %fin, !llvm.loop !14
+  %12 = select i1 %cmp24, i1 true, i1 %cmp26
+  br i1 %12, label %while.body, label %fin, !llvm.loop !14
 
 fin:                                              ; preds = %if.end130, %if.else.i88, %if.then.i90, %if.else.i, %if.then.i
   %call144 = call i32 @test_flush_stderr() #7
@@ -1307,9 +1310,6 @@ declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6

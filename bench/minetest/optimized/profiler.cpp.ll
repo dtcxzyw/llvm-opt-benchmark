@@ -2075,16 +2075,16 @@ land.rhs.i:                                       ; preds = %_ZNKSt3mapINSt7__cx
   %second.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 64
   %12 = load i32, ptr %second.i, align 8, !tbaa !31
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
+  %13 = uitofp nneg i32 %spec.select.i to float
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %land.rhs.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %if.end11
-  %retval.0.i = phi i32 [ 1, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i ], [ 1, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ 1, %if.end11 ], [ %spec.select.i, %land.rhs.i ]
+  %retval.0.i = phi float [ 1.000000e+00, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.i ], [ 1.000000e+00, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ 1.000000e+00, %if.end11 ], [ %13, %land.rhs.i ]
   %call18 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfSt4lessIS5_ESaISt4pairIKS5_fEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %o, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
           to label %invoke.cont17 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 invoke.cont17:                                    ; preds = %invoke.cont13
-  %conv15 = uitofp nneg i32 %retval.0.i to float
-  %div = fdiv nsz float %4, %conv15
+  %div = fdiv nsz float %4, %retval.0.i
   store float %div, ptr %call18, align 4, !tbaa !26
   br label %for.inc
 
@@ -2095,10 +2095,10 @@ for.inc:                                          ; preds = %invoke.cont17, %if.
   br i1 %cmp.i31.not, label %_ZNSt11unique_lockISt5mutexED2Ev.exit40, label %for.body
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %invoke.cont13
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i.i33 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #21
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %14
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit40:          ; preds = %for.inc, %for.body, %_Z6pagingjjjRjS_.exit
   %call1.i.i.i.i39 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %this) #21

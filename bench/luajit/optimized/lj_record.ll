@@ -2152,8 +2152,8 @@ lor.lhs.false:                                    ; preds = %while.end
   %60 = bitcast i64 %59 to double
   %cmp91 = icmp ult i64 %59, -1970324836974592
   %cmp96 = fcmp uno double %60, 0.000000e+00
-  %or.cond387 = and i1 %cmp91, %cmp96
-  br i1 %or.cond387, label %if.then98, label %if.end117
+  %or.cond383 = and i1 %cmp91, %cmp96
+  br i1 %or.cond383, label %if.then98, label %if.end117
 
 if.then98:                                        ; preds = %lor.lhs.false, %while.end
   %61 = load i32, ptr %val, align 8
@@ -2510,20 +2510,20 @@ if.then211:                                       ; preds = %if.then206
   %103 = inttoptr i64 %102 to ptr
   %call216 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %98, ptr noundef %103) #7
   %tobool217.not = icmp eq ptr %call216, null
-  br i1 %tobool217.not, label %if.else232, label %if.end224
+  br i1 %tobool217.not, label %if.else232, label %land.rhs218
 
-if.end224:                                        ; preds = %if.then211
+land.rhs218:                                      ; preds = %if.then211
   %104 = load i64, ptr %call216, align 8
   %cmp219.not = icmp eq i64 %104, -1
   br i1 %cmp219.not, label %if.else232, label %if.then226
 
-if.then226:                                       ; preds = %if.end224
+if.then226:                                       ; preds = %land.rhs218
   %cond124.tr = trunc nuw nsw i32 %cond124 to i16
   %105 = shl nuw nsw i16 %cond124.tr, 8
   %conv229 = or disjoint i16 %105, 128
   br label %if.end255.sink.split
 
-if.else232:                                       ; preds = %if.then211, %if.then206, %if.end224
+if.else232:                                       ; preds = %if.then206, %if.then211, %land.rhs218
   %cmp233 = icmp eq i8 %87, 58
   br i1 %cmp233, label %if.then235, label %if.end255
 
@@ -2555,25 +2555,25 @@ land.lhs.true258:                                 ; preds = %if.end255
 
 if.end262:                                        ; preds = %land.lhs.true258, %if.end255
   %shr187.le = lshr i32 %99, 24
-  %and188.le332 = and i32 %shr187.le, 31
-  %sub189.le = add nsw i32 %and188.le332, -4
-  %cmp190.le328 = icmp ult i32 %sub189.le, 9
+  %and188.le328 = and i32 %shr187.le, 31
+  %sub189.le = add nsw i32 %and188.le328, -4
+  %cmp190.le324 = icmp ult i32 %sub189.le, 9
   %and193.le = and i32 %91, 520093696
-  %cmp194.le324 = icmp ne i32 %and193.le, 0
-  %107 = and i1 %cmp194.le324, %cmp190.le328
+  %cmp194.le319 = icmp ne i32 %and193.le, 0
+  %narrow.le = and i1 %cmp194.le319, %cmp190.le324
   %cmp267 = icmp eq ptr %cond134, %nilnode.i
   br i1 %cmp267, label %if.then269, label %if.end352
 
 if.then269:                                       ; preds = %if.end262
-  %108 = load i32, ptr %key103, align 4
-  %shr272 = lshr i32 %108, 24
+  %107 = load i32, ptr %key103, align 4
+  %shr272 = lshr i32 %107, 24
   %and273 = and i32 %shr272, 31
   %sub274 = add nsw i32 %and273, -15
   %cmp275 = icmp ult i32 %sub274, 5
   br i1 %cmp275, label %if.then277, label %if.else280
 
 if.then277:                                       ; preds = %if.then269
-  %conv278 = trunc i32 %108 to i16
+  %conv278 = trunc i32 %107 to i16
   store i16 23310, ptr %ot1.i197.i, align 4
   store i16 %conv278, ptr %fold.i196.i, align 8
   store i16 467, ptr %op2.i200.i, align 2
@@ -2581,18 +2581,18 @@ if.then277:                                       ; preds = %if.then269
   br label %if.end302
 
 if.else280:                                       ; preds = %if.then269
-  %and281 = and i32 %108, 520093696
+  %and281 = and i32 %107, 520093696
   %cmp282 = icmp eq i32 %and281, 234881024
   br i1 %cmp282, label %if.then284, label %if.end302
 
 if.then284:                                       ; preds = %if.else280
-  %conv286 = and i32 %108, 32768
+  %conv286 = and i32 %107, 32768
   %cmp287.not.not = icmp eq i32 %conv286, 0
   br i1 %cmp287.not.not, label %if.then289, label %if.else296
 
 if.then289:                                       ; preds = %if.then284
-  %109 = load i64, ptr %keyv86, align 8
-  %cmp291 = icmp eq i64 %109, -9223372036854775808
+  %108 = load i64, ptr %keyv86, align 8
+  %cmp291 = icmp eq i64 %108, -9223372036854775808
   br i1 %cmp291, label %if.then293, label %if.end302
 
 if.then293:                                       ; preds = %if.then289
@@ -2600,7 +2600,7 @@ if.then293:                                       ; preds = %if.then289
   br label %if.end302
 
 if.else296:                                       ; preds = %if.then284
-  %conv285 = trunc i32 %108 to i16
+  %conv285 = trunc i32 %107 to i16
   store i16 2190, ptr %ot1.i197.i, align 4
   store i16 %conv285, ptr %fold.i196.i, align 8
   store i16 %conv285, ptr %op2.i200.i, align 2
@@ -2608,9 +2608,9 @@ if.else296:                                       ; preds = %if.then284
   br label %if.end302
 
 if.end302:                                        ; preds = %if.else280, %if.then289, %if.then293, %if.else296, %if.then277
-  %key270.0 = phi i32 [ %call279, %if.then277 ], [ %call294, %if.then293 ], [ %108, %if.then289 ], [ %108, %if.else296 ], [ %108, %if.else280 ]
-  %110 = load i32, ptr %tab, align 8
-  %conv304 = trunc i32 %110 to i16
+  %key270.0 = phi i32 [ %call279, %if.then277 ], [ %call294, %if.then293 ], [ %107, %if.then289 ], [ %107, %if.else296 ], [ %107, %if.else280 ]
+  %109 = load i32, ptr %tab, align 8
+  %conv304 = trunc i32 %109 to i16
   %conv305 = trunc i32 %key270.0 to i16
   store i16 15113, ptr %ot1.i197.i, align 4
   store i16 %conv304, ptr %fold.i196.i, align 8
@@ -2619,13 +2619,13 @@ if.end302:                                        ; preds = %if.else280, %if.the
   br label %if.end352
 
 if.else308:                                       ; preds = %if.end203
-  %shr187.le335 = lshr i32 %99, 24
-  %and188.le = and i32 %shr187.le335, 31
-  %sub189.le330 = add nsw i32 %and188.le, -4
-  %cmp190.le = icmp ult i32 %sub189.le330, 9
-  %and193.le326 = and i32 %91, 520093696
-  %cmp194.le = icmp ne i32 %and193.le326, 0
-  %111 = and i1 %cmp194.le, %cmp190.le
+  %shr187.le331 = lshr i32 %99, 24
+  %and188.le = and i32 %shr187.le331, 31
+  %sub189.le326 = add nsw i32 %and188.le, -4
+  %cmp190.le = icmp ult i32 %sub189.le326, 9
+  %and193.le322 = and i32 %91, 520093696
+  %cmp194.le = icmp ne i32 %and193.le322, 0
+  %narrow.le316 = and i1 %cmp194.le, %cmp190.le
   %conv309 = trunc nuw nsw i32 %cond124 to i16
   %call312 = tail call i32 @lj_opt_fwd_wasnonnil(ptr noundef nonnull %J, i16 noundef zeroext %conv309, i32 noundef %conv119.mask) #7
   %tobool313.not = icmp eq i32 %call312, 0
@@ -2645,8 +2645,8 @@ if.then317:                                       ; preds = %if.then314
   br label %if.end326
 
 if.end326:                                        ; preds = %if.then317, %if.then314
-  %112 = load i32, ptr %idxchain207, align 4
-  %tobool328.not = icmp eq i32 %112, 0
+  %110 = load i32, ptr %idxchain207, align 4
+  %tobool328.not = icmp eq i32 %110, 0
   br i1 %tobool328.not, label %if.end352, label %if.then329
 
 if.then329:                                       ; preds = %if.end326
@@ -2654,8 +2654,8 @@ if.then329:                                       ; preds = %if.end326
   br i1 %tobool330.not, label %if.then331, label %if.else339
 
 if.then331:                                       ; preds = %if.then329
-  %113 = load i32, ptr %tab, align 8
-  %conv333 = trunc i32 %113 to i16
+  %111 = load i32, ptr %tab, align 8
+  %conv333 = trunc i32 %111 to i16
   store i16 17675, ptr %ot1.i197.i, align 4
   store i16 %conv333, ptr %fold.i196.i, align 8
   store i16 5, ptr %op2.i200.i, align 2
@@ -2670,13 +2670,13 @@ if.then331:                                       ; preds = %if.then329
   br label %if.end352
 
 if.else339:                                       ; preds = %if.then329
-  %114 = load i64, ptr %cond134, align 8
-  %shr.i = ashr i64 %114, 47
+  %112 = load i64, ptr %cond134, align 8
+  %shr.i = ashr i64 %112, 47
   %cmp.i = icmp ult i64 %shr.i, -14
   %conv.i = trunc nsw i64 %shr.i to i32
   %not.i = xor i32 %conv.i, -1
-  %115 = or disjoint i32 %not.i, 128
-  %retval.i.0 = select i1 %cmp.i, i32 142, i32 %115
+  %113 = or disjoint i32 %not.i, 128
+  %retval.i.0 = select i1 %cmp.i, i32 142, i32 %113
   %shl342 = shl nuw nsw i32 %cond124, 8
   %or344 = or i32 %retval.i.0, %shl342
   %conv345 = trunc nuw nsw i32 %or344 to i16
@@ -2687,35 +2687,35 @@ if.else339:                                       ; preds = %if.then329
   br label %if.end352
 
 if.end352:                                        ; preds = %if.else308, %if.then331, %if.else339, %if.end326, %if.end262, %if.end302
-  %keybarrier.0.shrunk = phi i1 [ false, %if.end302 ], [ %107, %if.end262 ], [ %111, %if.else339 ], [ %111, %if.then331 ], [ %111, %if.end326 ], [ false, %if.else308 ]
+  %keybarrier.0.shrunk = phi i1 [ false, %if.end302 ], [ %narrow.le, %if.end262 ], [ %narrow.le316, %if.else339 ], [ %narrow.le316, %if.then331 ], [ %narrow.le316, %if.end326 ], [ false, %if.else308 ]
   %xref.0 = phi i32 [ %call306, %if.end302 ], [ %retval.0.i256, %if.end262 ], [ %retval.0.i256, %if.else339 ], [ %retval.0.i256, %if.then331 ], [ %retval.0.i256, %if.end326 ], [ %retval.0.i256, %if.else308 ]
-  %116 = load i32, ptr %val, align 8
-  %shr354 = lshr i32 %116, 24
+  %114 = load i32, ptr %val, align 8
+  %shr354 = lshr i32 %114, 24
   %and355 = and i32 %shr354, 31
   %sub356 = add nsw i32 %and355, -15
   %cmp357 = icmp ult i32 %sub356, 5
   br i1 %cmp357, label %if.then359, label %if.end364
 
 if.then359:                                       ; preds = %if.end352
-  %conv361 = trunc i32 %116 to i16
+  %conv361 = trunc i32 %114 to i16
   store i16 23310, ptr %ot1.i197.i, align 4
   store i16 %conv361, ptr %fold.i196.i, align 8
   store i16 467, ptr %op2.i200.i, align 2
   %call362 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #7
   store i32 %call362, ptr %val, align 8
-  %.pre359 = lshr i32 %call362, 24
-  %.pre360 = and i32 %.pre359, 31
+  %.pre355 = lshr i32 %call362, 24
+  %.pre356 = and i32 %.pre355, 31
   br label %if.end364
 
 if.end364:                                        ; preds = %if.then359, %if.end352
-  %and369.pre-phi = phi i32 [ %.pre360, %if.then359 ], [ %and355, %if.end352 ]
-  %117 = phi i32 [ %call362, %if.then359 ], [ %116, %if.end352 ]
+  %and369.pre-phi = phi i32 [ %.pre356, %if.then359 ], [ %and355, %if.end352 ]
+  %115 = phi i32 [ %call362, %if.then359 ], [ %114, %if.end352 ]
   %add365 = shl nuw nsw i32 %cond124, 8
   %shl366 = or disjoint i32 %and369.pre-phi, %add365
-  %118 = trunc nuw nsw i32 %shl366 to i16
-  %conv371 = or disjoint i16 %118, 2048
+  %116 = trunc nuw nsw i32 %shl366 to i16
+  %conv371 = or disjoint i16 %116, 2048
   %conv372 = trunc i32 %xref.0 to i16
-  %conv374 = trunc i32 %117 to i16
+  %conv374 = trunc i32 %115 to i16
   store i16 %conv371, ptr %ot1.i197.i, align 4
   store i16 %conv372, ptr %fold.i196.i, align 8
   store i16 %conv374, ptr %op2.i200.i, align 2
@@ -2723,16 +2723,16 @@ if.end364:                                        ; preds = %if.then359, %if.end
   br i1 %keybarrier.0.shrunk, label %if.then384, label %lor.lhs.false377
 
 lor.lhs.false377:                                 ; preds = %if.end364
-  %119 = load i32, ptr %val, align 8
-  %shr379 = lshr i32 %119, 24
+  %117 = load i32, ptr %val, align 8
+  %shr379 = lshr i32 %117, 24
   %and380 = and i32 %shr379, 31
   %sub381 = add nsw i32 %and380, -4
   %cmp382 = icmp ult i32 %sub381, 9
   br i1 %cmp382, label %if.then384, label %if.end388
 
 if.then384:                                       ; preds = %lor.lhs.false377, %if.end364
-  %120 = load i32, ptr %tab, align 8
-  %conv386 = trunc i32 %120 to i16
+  %118 = load i32, ptr %tab, align 8
+  %conv386 = trunc i32 %118 to i16
   store i16 22528, ptr %ot1.i197.i, align 4
   store i16 %conv386, ptr %fold.i196.i, align 8
   store i16 0, ptr %op2.i200.i, align 2
@@ -2740,24 +2740,24 @@ if.then384:                                       ; preds = %lor.lhs.false377, %
   br label %if.end388
 
 if.end388:                                        ; preds = %if.then384, %lor.lhs.false377
-  %121 = load i32, ptr %key103, align 4
-  %and.i260 = and i32 %121, 520093696
+  %119 = load i32, ptr %key103, align 4
+  %and.i260 = and i32 %119, 520093696
   %cmp.i261 = icmp eq i32 %and.i260, 67108864
   br i1 %cmp.i261, label %if.then.i263, label %if.end400
 
 if.then.i263:                                     ; preds = %if.end388
-  %conv1.i = and i32 %121, 32768
+  %conv1.i = and i32 %119, 32768
   %cmp2.not.not.i = icmp eq i32 %conv1.i, 0
   br i1 %cmp2.not.not.i, label %if.then4.i, label %if.then392
 
 if.then4.i:                                       ; preds = %if.then.i263
-  %122 = load ptr, ptr %ir, align 8
-  %123 = and i32 %121, 32767
-  %idxprom.i264 = zext nneg i32 %123 to i64
-  %arrayidx.i265 = getelementptr inbounds %union.IRIns, ptr %122, i64 %idxprom.i264
+  %120 = load ptr, ptr %ir, align 8
+  %121 = and i32 %119, 32767
+  %idxprom.i264 = zext nneg i32 %121 to i64
+  %arrayidx.i265 = getelementptr inbounds %union.IRIns, ptr %120, i64 %idxprom.i264
   %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx.i265, i64 8
-  %124 = load i64, ptr %arrayidx6.i, align 8
-  %125 = inttoptr i64 %124 to ptr
+  %122 = load i64, ptr %arrayidx6.i, align 8
+  %123 = inttoptr i64 %122 to ptr
   %gcroot.i = getelementptr inbounds i8, ptr %J, i64 -304
   br label %for.body.i266
 
@@ -2769,14 +2769,14 @@ for.cond.i:                                       ; preds = %for.body.i266
 for.body.i266:                                    ; preds = %for.cond.i, %if.then4.i
   %indvars.iv.i267 = phi i64 [ 0, %if.then4.i ], [ %indvars.iv.next.i268, %for.cond.i ]
   %arrayidx10.i = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %indvars.iv.i267
-  %126 = load i64, ptr %arrayidx10.i, align 8
-  %127 = inttoptr i64 %126 to ptr
-  %cmp12.i = icmp eq ptr %127, %125
+  %124 = load i64, ptr %arrayidx10.i, align 8
+  %125 = inttoptr i64 %124 to ptr
+  %cmp12.i = icmp eq ptr %125, %123
   br i1 %cmp12.i, label %if.then392, label %for.cond.i
 
 if.then392:                                       ; preds = %for.body.i266, %if.then.i263
-  %128 = load i32, ptr %tab, align 8
-  %conv394 = trunc i32 %128 to i16
+  %126 = load i32, ptr %tab, align 8
+  %conv394 = trunc i32 %126 to i16
   store i16 15881, ptr %ot1.i197.i, align 4
   store i16 %conv394, ptr %fold.i196.i, align 8
   store i16 10, ptr %op2.i200.i, align 2

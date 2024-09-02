@@ -4825,42 +4825,42 @@ proto_item_set_generated.exit:                    ; preds = %20, %23
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %16, %proto_item_set_generated.exit, %29, %27
-  %33 = phi i1 [ false, %proto_item_set_generated.exit ], [ true, %27 ], [ true, %29 ], [ %.not31, %16 ]
-  %34 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 4
-  %35 = load i32, ptr %34, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %35, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef 0) #13
-  %.not.i21 = icmp eq ptr %36, null
-  br i1 %.not.i21, label %proto_item_set_hidden.exit26, label %37
+  %.not29 = phi i1 [ true, %proto_item_set_generated.exit ], [ false, %27 ], [ false, %29 ], [ %17, %16 ]
+  %33 = getelementptr inbounds i8, ptr %indvars.iv.sroa.phi, i64 4
+  %34 = load i32, ptr %33, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %34, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef 0) #13
+  %.not.i21 = icmp eq ptr %35, null
+  br i1 %.not.i21, label %proto_item_set_hidden.exit26, label %36
 
-37:                                               ; preds = %proto_item_set_hidden.exit
-  %38 = getelementptr inbounds i8, ptr %36, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %.not5.i22 = icmp eq ptr %39, null
-  br i1 %.not5.i22, label %proto_item_set_generated.exit23, label %40
+36:                                               ; preds = %proto_item_set_hidden.exit
+  %37 = getelementptr inbounds i8, ptr %35, i64 32
+  %38 = load ptr, ptr %37, align 8
+  %.not5.i22 = icmp eq ptr %38, null
+  br i1 %.not5.i22, label %proto_item_set_generated.exit23, label %39
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %39, i64 28
-  %42 = load i32, ptr %41, align 4
-  %43 = or i32 %42, 2
-  store i32 %43, ptr %41, align 4
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds i8, ptr %38, i64 28
+  %41 = load i32, ptr %40, align 4
+  %42 = or i32 %41, 2
+  store i32 %42, ptr %40, align 4
   br label %proto_item_set_generated.exit23
 
-proto_item_set_generated.exit23:                  ; preds = %37, %40
-  br i1 %33, label %44, label %proto_item_set_hidden.exit26
+proto_item_set_generated.exit23:                  ; preds = %36, %39
+  br i1 %.not29, label %proto_item_set_hidden.exit26, label %43
 
-44:                                               ; preds = %proto_item_set_generated.exit23
-  %45 = load ptr, ptr %38, align 8
-  %.not5.i25 = icmp eq ptr %45, null
-  br i1 %.not5.i25, label %proto_item_set_hidden.exit26, label %46
+43:                                               ; preds = %proto_item_set_generated.exit23
+  %44 = load ptr, ptr %37, align 8
+  %.not5.i25 = icmp eq ptr %44, null
+  br i1 %.not5.i25, label %proto_item_set_hidden.exit26, label %45
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 28
-  %48 = load i32, ptr %47, align 4
-  %49 = or i32 %48, 1
-  store i32 %49, ptr %47, align 4
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds i8, ptr %44, i64 28
+  %47 = load i32, ptr %46, align 4
+  %48 = or i32 %47, 1
+  store i32 %48, ptr %46, align 4
   br label %proto_item_set_hidden.exit26
 
-proto_item_set_hidden.exit26:                     ; preds = %proto_item_set_generated.exit23, %proto_item_set_hidden.exit, %46, %44
+proto_item_set_hidden.exit26:                     ; preds = %proto_item_set_generated.exit23, %proto_item_set_hidden.exit, %45, %43
   br i1 %17, label %16, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %proto_item_set_hidden.exit26, %5

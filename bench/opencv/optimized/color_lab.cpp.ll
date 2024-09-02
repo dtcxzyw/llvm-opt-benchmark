@@ -8169,61 +8169,61 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_fclEPKfPfi(ptr noundef nonnull 
   %48 = sext i32 %12 to i64
   br label %49
 
-49:                                               ; preds = %.lr.ph136, %72
-  %indvars.iv = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next, %72 ]
-  %.0135 = phi ptr [ %1, %.lr.ph136 ], [ %98, %72 ]
+49:                                               ; preds = %.lr.ph136, %75
+  %indvars.iv = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next, %75 ]
+  %.0135 = phi ptr [ %1, %.lr.ph136 ], [ %98, %75 ]
   %50 = getelementptr inbounds float, ptr %.0135, i64 %44
   %51 = load float, ptr %50, align 4
   %52 = fcmp olt float %51, 0.000000e+00
-  br i1 %52, label %56, label %53
+  br i1 %52, label %57, label %53
 
 53:                                               ; preds = %49
   %54 = fcmp ugt float %51, 1.000000e+00
-  br i1 %54, label %56, label %55
+  br i1 %54, label %57, label %55
 
 55:                                               ; preds = %53
-  br label %56
+  %56 = fmul float %51, 1.638400e+04
+  br label %57
 
-56:                                               ; preds = %55, %53, %49
-  %57 = phi float [ 0.000000e+00, %49 ], [ %51, %55 ], [ 1.000000e+00, %53 ]
-  %58 = getelementptr inbounds i8, ptr %.0135, i64 4
-  %59 = load float, ptr %58, align 4
-  %60 = fcmp olt float %59, 0.000000e+00
-  br i1 %60, label %64, label %61
+57:                                               ; preds = %55, %53, %49
+  %58 = phi float [ 0.000000e+00, %49 ], [ %56, %55 ], [ 1.638400e+04, %53 ]
+  %59 = getelementptr inbounds i8, ptr %.0135, i64 4
+  %60 = load float, ptr %59, align 4
+  %61 = fcmp olt float %60, 0.000000e+00
+  br i1 %61, label %66, label %62
 
-61:                                               ; preds = %56
-  %62 = fcmp ugt float %59, 1.000000e+00
-  br i1 %62, label %64, label %63
+62:                                               ; preds = %57
+  %63 = fcmp ugt float %60, 1.000000e+00
+  br i1 %63, label %66, label %64
 
-63:                                               ; preds = %61
-  br label %64
+64:                                               ; preds = %62
+  %65 = fmul float %60, 1.638400e+04
+  br label %66
 
-64:                                               ; preds = %63, %61, %56
-  %65 = phi float [ 0.000000e+00, %56 ], [ %59, %63 ], [ 1.000000e+00, %61 ]
-  %66 = getelementptr inbounds float, ptr %.0135, i64 %46
-  %67 = load float, ptr %66, align 4
-  %68 = fcmp olt float %67, 0.000000e+00
-  br i1 %68, label %72, label %69
+66:                                               ; preds = %64, %62, %57
+  %67 = phi float [ 0.000000e+00, %57 ], [ %65, %64 ], [ 1.638400e+04, %62 ]
+  %68 = getelementptr inbounds float, ptr %.0135, i64 %46
+  %69 = load float, ptr %68, align 4
+  %70 = fcmp olt float %69, 0.000000e+00
+  br i1 %70, label %75, label %71
 
-69:                                               ; preds = %64
-  %70 = fcmp ugt float %67, 1.000000e+00
-  br i1 %70, label %72, label %71
+71:                                               ; preds = %66
+  %72 = fcmp ugt float %69, 1.000000e+00
+  br i1 %72, label %75, label %73
 
-71:                                               ; preds = %69
-  br label %72
+73:                                               ; preds = %71
+  %74 = fmul float %69, 1.638400e+04
+  br label %75
 
-72:                                               ; preds = %64, %69, %71
-  %73 = phi float [ 0.000000e+00, %64 ], [ %67, %71 ], [ 1.000000e+00, %69 ]
-  %74 = fmul float %57, 1.638400e+04
-  %75 = insertelement <4 x float> poison, float %74, i64 0
-  %76 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %75)
-  %77 = fmul float %65, 1.638400e+04
-  %78 = insertelement <4 x float> poison, float %77, i64 0
-  %79 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %78)
-  %80 = fmul float %73, 1.638400e+04
-  %81 = insertelement <4 x float> poison, float %80, i64 0
+75:                                               ; preds = %66, %71, %73
+  %76 = phi float [ 0.000000e+00, %66 ], [ %74, %73 ], [ 1.638400e+04, %71 ]
+  %77 = insertelement <4 x float> poison, float %58, i64 0
+  %78 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %77)
+  %79 = insertelement <4 x float> poison, float %67, i64 0
+  %80 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %79)
+  %81 = insertelement <4 x float> poison, float %76, i64 0
   %82 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %81)
-  call fastcc void @_ZN2cvL20trilinearInterpolateEiiiPKsRiS2_S2_(i32 noundef %76, i32 noundef %79, i32 noundef %82, ptr noundef %47, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call fastcc void @_ZN2cvL20trilinearInterpolateEiiiPKsRiS2_S2_(i32 noundef %78, i32 noundef %80, i32 noundef %82, ptr noundef %47, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %83 = load i32, ptr %6, align 4
   %84 = sitofp i32 %83 to float
   %85 = fmul float %84, 0x3F10000000000000
@@ -8476,7 +8476,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_fclEPKfPfi(ptr noundef nonnull 
   %exitcond.not = icmp eq i32 %237, %3
   br i1 %exitcond.not, label %.loopexit, label %116, !llvm.loop !248
 
-.loopexit:                                        ; preds = %226, %72, %113, %41
+.loopexit:                                        ; preds = %226, %75, %113, %41
   %240 = getelementptr inbounds i8, ptr %5, i64 8
   %241 = load i32, ptr %240, align 8
   %.not.i = icmp eq i32 %241, 0

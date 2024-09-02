@@ -171,7 +171,7 @@ _get_system_gpu_list_fake.exit.thread:            ; preds = %17
   call void @slurm_xfree(ptr noundef nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %93
+  br label %94
 
 21:                                               ; preds = %17
   %22 = tail call i32 @slurm_get_log_level() #14
@@ -313,39 +313,39 @@ _get_system_gpu_list_fake.exit.thread:            ; preds = %17
 
 ._crit_edge.i.i:                                  ; preds = %.backedge.i.i
   %75 = add nsw i32 %.036.i.i, -7
-  %or.cond5.i.i = icmp ult i32 %75, -3
-  br i1 %or.cond5.i.i, label %._crit_edge.thread.i.i, label %77
+  %76 = icmp ult i32 %75, -3
+  br i1 %76, label %._crit_edge.thread.i.i, label %78
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %48
-  %76 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.20, i32 noundef %40) #14
-  br label %77
+  %77 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.20, i32 noundef %40) #14
+  br label %78
 
-77:                                               ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i
-  %78 = load i32, ptr %34, align 8
-  %79 = zext i32 %78 to i64
-  %80 = call ptr @slurm_bit_alloc(i64 noundef %79) #14
-  store ptr %80, ptr %36, align 8
-  %81 = load ptr, ptr %33, align 8
-  %82 = call i32 @slurm_bit_unfmt(ptr noundef %80, ptr noundef %81) #14
-  %.not31.i.i = icmp eq i32 %82, 0
-  br i1 %.not31.i.i, label %85, label %83
+78:                                               ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i
+  %79 = load i32, ptr %34, align 8
+  %80 = zext i32 %79 to i64
+  %81 = call ptr @slurm_bit_alloc(i64 noundef %80) #14
+  store ptr %81, ptr %36, align 8
+  %82 = load ptr, ptr %33, align 8
+  %83 = call i32 @slurm_bit_unfmt(ptr noundef %81, ptr noundef %82) #14
+  %.not31.i.i = icmp eq i32 %83, 0
+  br i1 %.not31.i.i, label %86, label %84
 
-83:                                               ; preds = %77
-  %84 = load ptr, ptr %33, align 8
-  call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.21, ptr noundef %84) #16
+84:                                               ; preds = %78
+  %85 = load ptr, ptr %33, align 8
+  call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.21, ptr noundef %85) #16
   unreachable
 
-85:                                               ; preds = %77
+86:                                               ; preds = %78
   call void @add_gres_to_list(ptr noundef %26, ptr noundef nonnull %5) #14
-  %86 = load ptr, ptr %36, align 8
-  %.not32.i.i = icmp eq ptr %86, null
-  br i1 %.not32.i.i, label %88, label %87
+  %87 = load ptr, ptr %36, align 8
+  %.not32.i.i = icmp eq ptr %87, null
+  br i1 %.not32.i.i, label %89, label %88
 
-87:                                               ; preds = %85
+88:                                               ; preds = %86
   call void @slurm_bit_free(ptr noundef nonnull %36) #14
-  br label %88
+  br label %89
 
-88:                                               ; preds = %87, %85
+89:                                               ; preds = %88, %86
   store ptr null, ptr %36, align 8
   call void @slurm_xfree(ptr noundef nonnull %33) #14
   call void @slurm_xfree(ptr noundef nonnull %31) #14
@@ -354,13 +354,13 @@ _get_system_gpu_list_fake.exit.thread:            ; preds = %17
   call void @slurm_xfree(ptr noundef nonnull %30) #14
   br label %.backedge33.i.i
 
-.backedge33.i.i:                                  ; preds = %88, %39, %39
-  %89 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 256, ptr noundef nonnull %27)
-  %.not.i.i = icmp eq ptr %89, null
+.backedge33.i.i:                                  ; preds = %89, %39, %39
+  %90 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 256, ptr noundef nonnull %27)
+  %.not.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i, label %._crit_edge40.i.i, label %39, !llvm.loop !8
 
 ._crit_edge40.i.i:                                ; preds = %.backedge33.i.i, %.preheader.i.i
-  %90 = call i32 @fclose(ptr noundef nonnull %27)
+  %91 = call i32 @fclose(ptr noundef nonnull %27)
   br label %_get_system_gpu_list_fake.exit
 
 _get_system_gpu_list_fake.exit:                   ; preds = %37, %._crit_edge40.i.i
@@ -371,570 +371,570 @@ _get_system_gpu_list_fake.exit:                   ; preds = %37, %._crit_edge40.
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not27 = icmp eq ptr %26, null
-  br i1 %.not27, label %93, label %.thread44
+  br i1 %.not27, label %94, label %.thread44
 
 .thread44:                                        ; preds = %_get_system_gpu_list_fake.exit
-  %91 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %92 = and i64 %91, 64
-  %.not2846 = icmp eq i64 %92, 0
+  %92 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %93 = and i64 %92, 64
+  %.not2846 = icmp eq i64 %93, 0
   %.47 = select i1 %.not2846, i32 5, i32 4
-  br label %101
+  br label %102
 
-93:                                               ; preds = %_get_system_gpu_list_fake.exit.thread, %_get_system_gpu_list_fake.exit
-  %94 = getelementptr inbounds i8, ptr %1, i64 16
-  %95 = load i8, ptr %94, align 8
-  %96 = trunc i8 %95 to i1
-  br i1 %96, label %97, label %.thread
+94:                                               ; preds = %_get_system_gpu_list_fake.exit.thread, %_get_system_gpu_list_fake.exit
+  %95 = getelementptr inbounds i8, ptr %1, i64 16
+  %96 = load i8, ptr %95, align 8
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %.thread
 
-97:                                               ; preds = %93
-  %98 = call ptr @gpu_g_get_system_gpu_list(ptr noundef nonnull %1) #14
-  %99 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %100 = and i64 %99, 64
-  %.not28 = icmp eq i64 %100, 0
+98:                                               ; preds = %94
+  %99 = call ptr @gpu_g_get_system_gpu_list(ptr noundef nonnull %1) #14
+  %100 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %101 = and i64 %100, 64
+  %.not28 = icmp eq i64 %101, 0
   %. = select i1 %.not28, i32 5, i32 4
-  %.not29 = icmp eq ptr %98, null
-  br i1 %.not29, label %.thread, label %101
+  %.not29 = icmp eq ptr %99, null
+  br i1 %.not29, label %.thread, label %102
 
-101:                                              ; preds = %.thread44, %97
-  %.50 = phi i32 [ %.47, %.thread44 ], [ %., %97 ]
-  %.02149 = phi ptr [ %26, %.thread44 ], [ %98, %97 ]
-  %102 = call i32 @slurm_list_is_empty(ptr noundef nonnull %.02149) #14
-  %.not30 = icmp eq i32 %102, 0
-  br i1 %.not30, label %104, label %103
+102:                                              ; preds = %.thread44, %98
+  %.50 = phi i32 [ %.47, %.thread44 ], [ %., %98 ]
+  %.02149 = phi ptr [ %26, %.thread44 ], [ %99, %98 ]
+  %103 = call i32 @slurm_list_is_empty(ptr noundef nonnull %.02149) #14
+  %.not30 = icmp eq i32 %103, 0
+  br i1 %.not30, label %105, label %104
 
-103:                                              ; preds = %101
+104:                                              ; preds = %102
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef %.50, ptr noundef nonnull @.str.3) #14
-  br label %104
+  br label %105
 
-104:                                              ; preds = %103, %101
+105:                                              ; preds = %104, %102
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef %.50, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_name) #14
-  %105 = icmp eq ptr %0, null
-  br i1 %105, label %_merge_system_gres_conf.exit.thread, label %107
+  %106 = icmp eq ptr %0, null
+  br i1 %106, label %_merge_system_gres_conf.exit.thread, label %108
 
-_merge_system_gres_conf.exit.thread:              ; preds = %104
-  %106 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.22) #14
+_merge_system_gres_conf.exit.thread:              ; preds = %105
+  %107 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.22) #14
   call void @slurm_list_destroy(ptr noundef nonnull %.02149) #14
-  br label %298
+  br label %299
 
-107:                                              ; preds = %104
-  %108 = call ptr @slurm_list_create(ptr noundef nonnull @slurm_destroy_gres_slurmd_conf) #14
+108:                                              ; preds = %105
   %109 = call ptr @slurm_list_create(ptr noundef nonnull @slurm_destroy_gres_slurmd_conf) #14
   %110 = call ptr @slurm_list_create(ptr noundef nonnull @slurm_destroy_gres_slurmd_conf) #14
-  %111 = call i32 @slurm_get_log_level() #14
-  %112 = icmp sgt i32 %111, 5
-  br i1 %112, label %113, label %114
+  %111 = call ptr @slurm_list_create(ptr noundef nonnull @slurm_destroy_gres_slurmd_conf) #14
+  %112 = call i32 @slurm_get_log_level() #14
+  %113 = icmp sgt i32 %112, 5
+  br i1 %113, label %114, label %115
 
-113:                                              ; preds = %107
+114:                                              ; preds = %108
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.23, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._merge_system_gres_conf) #14
-  br label %114
+  br label %115
 
-114:                                              ; preds = %113, %107
+115:                                              ; preds = %114, %108
   call void @print_gres_list(ptr noundef nonnull %0, i32 noundef 6) #14
-  %115 = call ptr @slurm_list_iterator_create(ptr noundef nonnull %0) #14
-  %116 = call ptr @slurm_list_next(ptr noundef %115) #14
-  %.not146.i = icmp eq ptr %116, null
-  br i1 %.not146.i, label %._crit_edge149.i, label %.lr.ph148.i
+  %116 = call ptr @slurm_list_iterator_create(ptr noundef nonnull %0) #14
+  %117 = call ptr @slurm_list_next(ptr noundef %116) #14
+  %.not147.i = icmp eq ptr %117, null
+  br i1 %.not147.i, label %._crit_edge150.i, label %.lr.ph149.i
 
-.lr.ph148.i:                                      ; preds = %114, %.backedge138.i
-  %117 = phi ptr [ %133, %.backedge138.i ], [ %116, %114 ]
-  %118 = getelementptr inbounds i8, ptr %117, i64 8
-  %119 = load i64, ptr %118, align 8
-  %120 = trunc i64 %119 to i32
-  %.not125.i = icmp eq i64 %119, 0
-  br i1 %.not125.i, label %.backedge138.i, label %121
+.lr.ph149.i:                                      ; preds = %115, %.backedge139.i
+  %118 = phi ptr [ %134, %.backedge139.i ], [ %117, %115 ]
+  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %120 = load i64, ptr %119, align 8
+  %121 = trunc i64 %120 to i32
+  %.not125.i = icmp eq i64 %120, 0
+  br i1 %.not125.i, label %.backedge139.i, label %122
 
-121:                                              ; preds = %.lr.ph148.i
-  %122 = getelementptr inbounds i8, ptr %117, i64 56
-  %123 = load ptr, ptr %122, align 8
-  %124 = call i32 @slurm_xstrcasecmp(ptr noundef %123, ptr noundef nonnull @.str.14) #14
-  %.not126.i = icmp eq i32 %124, 0
-  br i1 %.not126.i, label %134, label %125
+122:                                              ; preds = %.lr.ph149.i
+  %123 = getelementptr inbounds i8, ptr %118, i64 56
+  %124 = load ptr, ptr %123, align 8
+  %125 = call i32 @slurm_xstrcasecmp(ptr noundef %124, ptr noundef nonnull @.str.14) #14
+  %.not126.i = icmp eq i32 %125, 0
+  br i1 %.not126.i, label %135, label %126
 
-125:                                              ; preds = %121
-  %126 = call ptr @slurm_list_remove(ptr noundef %115) #14
-  %127 = call i32 @slurm_get_log_level() #14
-  %128 = icmp sgt i32 %127, 5
-  br i1 %128, label %129, label %132
+126:                                              ; preds = %122
+  %127 = call ptr @slurm_list_remove(ptr noundef %116) #14
+  %128 = call i32 @slurm_get_log_level() #14
+  %129 = icmp sgt i32 %128, 5
+  br i1 %129, label %130, label %133
 
-129:                                              ; preds = %125
-  %130 = getelementptr inbounds i8, ptr %126, i64 56
-  %131 = load ptr, ptr %130, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._merge_system_gres_conf, ptr noundef %131) #14
-  br label %132
+130:                                              ; preds = %126
+  %131 = getelementptr inbounds i8, ptr %127, i64 56
+  %132 = load ptr, ptr %131, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._merge_system_gres_conf, ptr noundef %132) #14
+  br label %133
 
-132:                                              ; preds = %129, %125
-  call void @slurm_list_append(ptr noundef %109, ptr noundef %126) #14
-  br label %.backedge138.i
+133:                                              ; preds = %130, %126
+  call void @slurm_list_append(ptr noundef %110, ptr noundef %127) #14
+  br label %.backedge139.i
 
-.backedge138.i:                                   ; preds = %._crit_edge.i, %._crit_edge145.i, %137, %132, %.lr.ph148.i
-  %133 = call ptr @slurm_list_next(ptr noundef %115) #14
-  %.not.i = icmp eq ptr %133, null
-  br i1 %.not.i, label %._crit_edge149.i, label %.lr.ph148.i, !llvm.loop !9
+.backedge139.i:                                   ; preds = %._crit_edge.i, %._crit_edge146.i, %138, %133, %.lr.ph149.i
+  %134 = call ptr @slurm_list_next(ptr noundef %116) #14
+  %.not.i = icmp eq ptr %134, null
+  br i1 %.not.i, label %._crit_edge150.i, label %.lr.ph149.i, !llvm.loop !9
 
-134:                                              ; preds = %121
-  %135 = load i64, ptr %118, align 8
-  %136 = icmp eq i64 %135, 1
-  br i1 %136, label %137, label %139
+135:                                              ; preds = %122
+  %136 = load i64, ptr %119, align 8
+  %137 = icmp eq i64 %136, 1
+  br i1 %137, label %138, label %140
 
-137:                                              ; preds = %134
-  %138 = call ptr @slurm_list_remove(ptr noundef %115) #14
-  call void @slurm_list_append(ptr noundef %108, ptr noundef %138) #14
-  br label %.backedge138.i
+138:                                              ; preds = %135
+  %139 = call ptr @slurm_list_remove(ptr noundef %116) #14
+  call void @slurm_list_append(ptr noundef %109, ptr noundef %139) #14
+  br label %.backedge139.i
 
-139:                                              ; preds = %134
-  %140 = getelementptr inbounds i8, ptr %117, i64 40
-  %141 = load ptr, ptr %140, align 8
-  %.not127.i = icmp eq ptr %141, null
-  br i1 %.not127.i, label %142, label %146
+140:                                              ; preds = %135
+  %141 = getelementptr inbounds i8, ptr %118, i64 40
+  %142 = load ptr, ptr %141, align 8
+  %.not127.i = icmp eq ptr %142, null
+  br i1 %.not127.i, label %143, label %147
 
-142:                                              ; preds = %139
-  store i64 1, ptr %118, align 8
-  %143 = icmp sgt i32 %120, 0
-  br i1 %143, label %.lr.ph144.i, label %._crit_edge145.i
+143:                                              ; preds = %140
+  store i64 1, ptr %119, align 8
+  %144 = icmp sgt i32 %121, 0
+  br i1 %144, label %.lr.ph145.i, label %._crit_edge146.i
 
-.lr.ph144.i:                                      ; preds = %142, %.lr.ph144.i
-  %.0142.i = phi i32 [ %144, %.lr.ph144.i ], [ 0, %142 ]
-  call void @add_gres_to_list(ptr noundef %108, ptr noundef nonnull %117) #14
-  %144 = add nuw nsw i32 %.0142.i, 1
-  %exitcond.not.i = icmp eq i32 %144, %120
-  br i1 %exitcond.not.i, label %._crit_edge145.i, label %.lr.ph144.i, !llvm.loop !10
+.lr.ph145.i:                                      ; preds = %143, %.lr.ph145.i
+  %.0143.i = phi i32 [ %145, %.lr.ph145.i ], [ 0, %143 ]
+  call void @add_gres_to_list(ptr noundef %109, ptr noundef nonnull %118) #14
+  %145 = add nuw nsw i32 %.0143.i, 1
+  %exitcond.not.i = icmp eq i32 %145, %121
+  br i1 %exitcond.not.i, label %._crit_edge146.i, label %.lr.ph145.i, !llvm.loop !10
 
-._crit_edge145.i:                                 ; preds = %.lr.ph144.i, %142
-  %sext.i = shl i64 %119, 32
-  %145 = ashr exact i64 %sext.i, 32
-  store i64 %145, ptr %118, align 8
-  br label %.backedge138.i
+._crit_edge146.i:                                 ; preds = %.lr.ph145.i, %143
+  %sext.i = shl i64 %120, 32
+  %146 = ashr exact i64 %sext.i, 32
+  store i64 %146, ptr %119, align 8
+  br label %.backedge139.i
 
-146:                                              ; preds = %139
-  %147 = call ptr @slurm_hostlist_create(ptr noundef nonnull %141) #14
-  %148 = load ptr, ptr %140, align 8
-  %149 = call ptr @slurm_hostlist_shift(ptr noundef %147) #14
-  %.not128141.i = icmp eq ptr %149, null
-  br i1 %.not128141.i, label %._crit_edge.i, label %.lr.ph.i
+147:                                              ; preds = %140
+  %148 = call ptr @slurm_hostlist_create(ptr noundef nonnull %142) #14
+  %149 = load ptr, ptr %141, align 8
+  %150 = call ptr @slurm_hostlist_shift(ptr noundef %148) #14
+  %.not128142.i = icmp eq ptr %150, null
+  br i1 %.not128142.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %146, %.lr.ph.i
-  %150 = phi ptr [ %151, %.lr.ph.i ], [ %149, %146 ]
-  store i64 1, ptr %118, align 8
-  store ptr %150, ptr %140, align 8
-  call void @add_gres_to_list(ptr noundef %108, ptr noundef nonnull %117) #14
-  call void @free(ptr noundef nonnull %150) #14
-  store ptr null, ptr %140, align 8
-  %151 = call ptr @slurm_hostlist_shift(ptr noundef %147) #14
-  %.not128.i = icmp eq ptr %151, null
+.lr.ph.i:                                         ; preds = %147, %.lr.ph.i
+  %151 = phi ptr [ %152, %.lr.ph.i ], [ %150, %147 ]
+  store i64 1, ptr %119, align 8
+  store ptr %151, ptr %141, align 8
+  call void @add_gres_to_list(ptr noundef %109, ptr noundef nonnull %118) #14
+  call void @free(ptr noundef nonnull %151) #14
+  store ptr null, ptr %141, align 8
+  %152 = call ptr @slurm_hostlist_shift(ptr noundef %148) #14
+  %.not128.i = icmp eq ptr %152, null
   br i1 %.not128.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %146
-  call void @slurm_hostlist_destroy(ptr noundef %147) #14
-  %sext129.i = shl i64 %119, 32
-  %152 = ashr exact i64 %sext129.i, 32
-  store i64 %152, ptr %118, align 8
-  store ptr %148, ptr %140, align 8
-  br label %.backedge138.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %147
+  call void @slurm_hostlist_destroy(ptr noundef %148) #14
+  %sext129.i = shl i64 %120, 32
+  %153 = ashr exact i64 %sext129.i, 32
+  store i64 %153, ptr %119, align 8
+  store ptr %149, ptr %141, align 8
+  br label %.backedge139.i
 
-._crit_edge149.i:                                 ; preds = %.backedge138.i, %114
-  call void @slurm_list_iterator_destroy(ptr noundef %115) #14
-  %.not.i.i34 = icmp eq ptr %108, null
-  br i1 %.not.i.i34, label %_normalize_sys_gres_types.exit.i, label %153
+._crit_edge150.i:                                 ; preds = %.backedge139.i, %115
+  call void @slurm_list_iterator_destroy(ptr noundef %116) #14
+  %.not.i.i34 = icmp eq ptr %109, null
+  br i1 %.not.i.i34, label %_normalize_sys_gres_types.exit.i, label %154
 
-153:                                              ; preds = %._crit_edge149.i
-  %154 = call i32 @slurm_list_count(ptr noundef nonnull %108) #14
-  %155 = icmp eq i32 %154, 0
-  br i1 %155, label %_normalize_sys_gres_types.exit.i, label %156
+154:                                              ; preds = %._crit_edge150.i
+  %155 = call i32 @slurm_list_count(ptr noundef nonnull %109) #14
+  %156 = icmp eq i32 %155, 0
+  br i1 %156, label %_normalize_sys_gres_types.exit.i, label %157
 
-156:                                              ; preds = %153
-  %157 = call ptr @slurm_list_find_first(ptr noundef nonnull %108, ptr noundef nonnull @_find_nonnull_type_in_gres_list, ptr noundef null) #14
-  call void @slurm_list_sort(ptr noundef nonnull %108, ptr noundef nonnull @_sort_gpu_by_type_name) #14
+157:                                              ; preds = %154
+  %158 = call ptr @slurm_list_find_first(ptr noundef nonnull %109, ptr noundef nonnull @_find_nonnull_type_in_gres_list, ptr noundef null) #14
+  call void @slurm_list_sort(ptr noundef nonnull %109, ptr noundef nonnull @_sort_gpu_by_type_name) #14
   call void @slurm_list_sort(ptr noundef nonnull %.02149, ptr noundef nonnull @_sort_gpu_by_type_name) #14
-  %158 = call ptr @slurm_list_iterator_create(ptr noundef nonnull %.02149) #14
-  %159 = call ptr @slurm_list_next(ptr noundef %158) #14
-  %.not2730.i.i = icmp eq ptr %159, null
+  %159 = call ptr @slurm_list_iterator_create(ptr noundef nonnull %.02149) #14
+  %160 = call ptr @slurm_list_next(ptr noundef %159) #14
+  %.not2730.i.i = icmp eq ptr %160, null
   br i1 %.not2730.i.i, label %._crit_edge.i.i37, label %.lr.ph.i.i35
 
-.lr.ph.i.i35:                                     ; preds = %156
-  %.fr.i.i = freeze ptr %157
+.lr.ph.i.i35:                                     ; preds = %157
+  %.fr.i.i = freeze ptr %158
   %.not26.i.i = icmp eq ptr %.fr.i.i, null
   br i1 %.not26.i.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i35, %.backedge.us.i.i
-  %160 = phi ptr [ %177, %.backedge.us.i.i ], [ %159, %.lr.ph.i.i35 ]
-  %161 = getelementptr inbounds i8, ptr %160, i64 64
-  %162 = load ptr, ptr %161, align 8
-  %163 = call ptr @slurm_list_find_first(ptr noundef nonnull %108, ptr noundef nonnull @_find_type_in_gres_list, ptr noundef %162) #14
-  %.not29.us.i.i = icmp eq ptr %163, null
-  br i1 %.not29.us.i.i, label %169, label %164
+  %161 = phi ptr [ %178, %.backedge.us.i.i ], [ %160, %.lr.ph.i.i35 ]
+  %162 = getelementptr inbounds i8, ptr %161, i64 64
+  %163 = load ptr, ptr %162, align 8
+  %164 = call ptr @slurm_list_find_first(ptr noundef nonnull %109, ptr noundef nonnull @_find_type_in_gres_list, ptr noundef %163) #14
+  %.not29.us.i.i = icmp eq ptr %164, null
+  br i1 %.not29.us.i.i, label %170, label %165
 
-164:                                              ; preds = %.lr.ph.split.us.i.i
-  %165 = getelementptr inbounds i8, ptr %163, i64 8
-  store i64 0, ptr %165, align 8
-  call void @slurm_xfree(ptr noundef nonnull %161) #14
-  %166 = getelementptr inbounds i8, ptr %163, i64 64
-  %167 = load ptr, ptr %166, align 8
-  %168 = call ptr @slurm_xstrdup(ptr noundef %167) #14
-  store ptr %168, ptr %161, align 8
+165:                                              ; preds = %.lr.ph.split.us.i.i
+  %166 = getelementptr inbounds i8, ptr %164, i64 8
+  store i64 0, ptr %166, align 8
+  call void @slurm_xfree(ptr noundef nonnull %162) #14
+  %167 = getelementptr inbounds i8, ptr %164, i64 64
+  %168 = load ptr, ptr %167, align 8
+  %169 = call ptr @slurm_xstrdup(ptr noundef %168) #14
+  store ptr %169, ptr %162, align 8
   br label %.backedge.us.i.i
 
-169:                                              ; preds = %.lr.ph.split.us.i.i
-  %170 = call i32 @slurm_get_log_level() #14
-  %171 = icmp sgt i32 %170, 2
-  br i1 %171, label %172, label %174
+170:                                              ; preds = %.lr.ph.split.us.i.i
+  %171 = call i32 @slurm_get_log_level() #14
+  %172 = icmp sgt i32 %171, 2
+  br i1 %172, label %173, label %175
 
-172:                                              ; preds = %169
-  %173 = load ptr, ptr %161, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.33, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._normalize_sys_gres_types, ptr noundef %173) #14
-  br label %174
+173:                                              ; preds = %170
+  %174 = load ptr, ptr %162, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.33, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._normalize_sys_gres_types, ptr noundef %174) #14
+  br label %175
 
-174:                                              ; preds = %172, %169
-  call void @slurm_xfree(ptr noundef nonnull %161) #14
-  %175 = load i32, ptr %160, align 8
-  %176 = and i32 %175, -5
-  store i32 %176, ptr %160, align 8
+175:                                              ; preds = %173, %170
+  call void @slurm_xfree(ptr noundef nonnull %162) #14
+  %176 = load i32, ptr %161, align 8
+  %177 = and i32 %176, -5
+  store i32 %177, ptr %161, align 8
   br label %.backedge.us.i.i
 
-.backedge.us.i.i:                                 ; preds = %174, %164
-  %177 = call ptr @slurm_list_next(ptr noundef %158) #14
-  %.not27.us.i.i = icmp eq ptr %177, null
+.backedge.us.i.i:                                 ; preds = %175, %165
+  %178 = call ptr @slurm_list_next(ptr noundef %159) #14
+  %.not27.us.i.i = icmp eq ptr %178, null
   br i1 %.not27.us.i.i, label %._crit_edge.i.i37, label %.lr.ph.split.us.i.i, !llvm.loop !12
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i35, %.backedge.i.i36
-  %178 = phi ptr [ %182, %.backedge.i.i36 ], [ %159, %.lr.ph.i.i35 ]
-  %179 = getelementptr inbounds i8, ptr %178, i64 64
-  %180 = load ptr, ptr %179, align 8
-  %181 = call ptr @slurm_list_find_first(ptr noundef nonnull %108, ptr noundef nonnull @_find_type_in_gres_list, ptr noundef %180) #14
-  %.not29.i.i = icmp eq ptr %181, null
-  br i1 %.not29.i.i, label %.backedge.i.i36, label %183
+  %179 = phi ptr [ %183, %.backedge.i.i36 ], [ %160, %.lr.ph.i.i35 ]
+  %180 = getelementptr inbounds i8, ptr %179, i64 64
+  %181 = load ptr, ptr %180, align 8
+  %182 = call ptr @slurm_list_find_first(ptr noundef nonnull %109, ptr noundef nonnull @_find_type_in_gres_list, ptr noundef %181) #14
+  %.not29.i.i = icmp eq ptr %182, null
+  br i1 %.not29.i.i, label %.backedge.i.i36, label %184
 
-.backedge.i.i36:                                  ; preds = %183, %.lr.ph.split.i.i
-  %182 = call ptr @slurm_list_next(ptr noundef %158) #14
-  %.not27.i.i = icmp eq ptr %182, null
+.backedge.i.i36:                                  ; preds = %184, %.lr.ph.split.i.i
+  %183 = call ptr @slurm_list_next(ptr noundef %159) #14
+  %.not27.i.i = icmp eq ptr %183, null
   br i1 %.not27.i.i, label %._crit_edge.i.i37, label %.lr.ph.split.i.i, !llvm.loop !12
 
-183:                                              ; preds = %.lr.ph.split.i.i
-  %184 = getelementptr inbounds i8, ptr %181, i64 8
-  store i64 0, ptr %184, align 8
-  call void @slurm_xfree(ptr noundef nonnull %179) #14
-  %185 = getelementptr inbounds i8, ptr %181, i64 64
-  %186 = load ptr, ptr %185, align 8
-  %187 = call ptr @slurm_xstrdup(ptr noundef %186) #14
-  store ptr %187, ptr %179, align 8
+184:                                              ; preds = %.lr.ph.split.i.i
+  %185 = getelementptr inbounds i8, ptr %182, i64 8
+  store i64 0, ptr %185, align 8
+  call void @slurm_xfree(ptr noundef nonnull %180) #14
+  %186 = getelementptr inbounds i8, ptr %182, i64 64
+  %187 = load ptr, ptr %186, align 8
+  %188 = call ptr @slurm_xstrdup(ptr noundef %187) #14
+  store ptr %188, ptr %180, align 8
   br label %.backedge.i.i36
 
-._crit_edge.i.i37:                                ; preds = %.backedge.i.i36, %.backedge.us.i.i, %156
-  call void @slurm_list_iterator_destroy(ptr noundef %158) #14
-  %188 = call ptr @slurm_list_iterator_create(ptr noundef nonnull %108) #14
-  %189 = call ptr @slurm_list_next(ptr noundef %188) #14
-  %.not2831.i.i = icmp eq ptr %189, null
+._crit_edge.i.i37:                                ; preds = %.backedge.i.i36, %.backedge.us.i.i, %157
+  call void @slurm_list_iterator_destroy(ptr noundef %159) #14
+  %189 = call ptr @slurm_list_iterator_create(ptr noundef nonnull %109) #14
+  %190 = call ptr @slurm_list_next(ptr noundef %189) #14
+  %.not2831.i.i = icmp eq ptr %190, null
   br i1 %.not2831.i.i, label %._crit_edge34.i.i, label %.lr.ph33.i.i
 
 .lr.ph33.i.i:                                     ; preds = %._crit_edge.i.i37, %.lr.ph33.i.i
-  %190 = phi ptr [ %192, %.lr.ph33.i.i ], [ %189, %._crit_edge.i.i37 ]
-  %191 = getelementptr inbounds i8, ptr %190, i64 8
-  store i64 1, ptr %191, align 8
-  %192 = call ptr @slurm_list_next(ptr noundef %188) #14
-  %.not28.i.i = icmp eq ptr %192, null
+  %191 = phi ptr [ %193, %.lr.ph33.i.i ], [ %190, %._crit_edge.i.i37 ]
+  %192 = getelementptr inbounds i8, ptr %191, i64 8
+  store i64 1, ptr %192, align 8
+  %193 = call ptr @slurm_list_next(ptr noundef %189) #14
+  %.not28.i.i = icmp eq ptr %193, null
   br i1 %.not28.i.i, label %._crit_edge34.i.i, label %.lr.ph33.i.i, !llvm.loop !13
 
 ._crit_edge34.i.i:                                ; preds = %.lr.ph33.i.i, %._crit_edge.i.i37
-  call void @slurm_list_iterator_destroy(ptr noundef %188) #14
+  call void @slurm_list_iterator_destroy(ptr noundef %189) #14
   br label %_normalize_sys_gres_types.exit.i
 
-_normalize_sys_gres_types.exit.i:                 ; preds = %._crit_edge34.i.i, %153, %._crit_edge149.i
-  call void @slurm_list_sort(ptr noundef %108, ptr noundef nonnull @_sort_gpu_by_file) #14
+_normalize_sys_gres_types.exit.i:                 ; preds = %._crit_edge34.i.i, %154, %._crit_edge150.i
+  call void @slurm_list_sort(ptr noundef %109, ptr noundef nonnull @_sort_gpu_by_file) #14
   call void @slurm_list_sort(ptr noundef nonnull %.02149, ptr noundef nonnull @_sort_gpu_by_file) #14
-  %193 = call ptr @slurm_list_iterator_create(ptr noundef %108) #14
-  %194 = call ptr @slurm_list_iterator_create(ptr noundef nonnull %.02149) #14
-  %195 = call ptr @slurm_list_next(ptr noundef %193) #14
-  %.not112153.i = icmp eq ptr %195, null
-  br i1 %.not112153.i, label %._crit_edge155.i, label %.lr.ph154.i
+  %194 = call ptr @slurm_list_iterator_create(ptr noundef %109) #14
+  %195 = call ptr @slurm_list_iterator_create(ptr noundef nonnull %.02149) #14
+  %196 = call ptr @slurm_list_next(ptr noundef %194) #14
+  %.not112154.i = icmp eq ptr %196, null
+  br i1 %.not112154.i, label %._crit_edge156.i, label %.lr.ph155.i
 
-.lr.ph154.i:                                      ; preds = %_normalize_sys_gres_types.exit.i, %.backedge.i
-  %196 = phi ptr [ %255, %.backedge.i ], [ %195, %_normalize_sys_gres_types.exit.i ]
-  call void @slurm_list_iterator_reset(ptr noundef %194) #14
-  %197 = call ptr @slurm_list_next(ptr noundef %194) #14
-  %.not120150.i = icmp eq ptr %197, null
-  br i1 %.not120150.i, label %.critedge.i, label %.lr.ph152.i
+.lr.ph155.i:                                      ; preds = %_normalize_sys_gres_types.exit.i, %.backedge.i
+  %197 = phi ptr [ %256, %.backedge.i ], [ %196, %_normalize_sys_gres_types.exit.i ]
+  call void @slurm_list_iterator_reset(ptr noundef %195) #14
+  %198 = call ptr @slurm_list_next(ptr noundef %195) #14
+  %.not120151.i = icmp eq ptr %198, null
+  br i1 %.not120151.i, label %.critedge.i, label %.lr.ph153.i
 
-.lr.ph152.i:                                      ; preds = %.lr.ph154.i
-  %198 = getelementptr inbounds i8, ptr %196, i64 64
-  %199 = getelementptr inbounds i8, ptr %196, i64 40
-  br label %200
+.lr.ph153.i:                                      ; preds = %.lr.ph155.i
+  %199 = getelementptr inbounds i8, ptr %197, i64 64
+  %200 = getelementptr inbounds i8, ptr %197, i64 40
+  br label %201
 
-200:                                              ; preds = %_match_gres.exit.i, %.lr.ph152.i
-  %201 = phi ptr [ %197, %.lr.ph152.i ], [ %217, %_match_gres.exit.i ]
-  %202 = getelementptr inbounds i8, ptr %201, i64 8
-  %203 = load i64, ptr %202, align 8
-  %204 = icmp eq i64 %203, 0
-  br i1 %204, label %_match_gres.exit.i, label %205
+201:                                              ; preds = %_match_gres.exit.i, %.lr.ph153.i
+  %202 = phi ptr [ %198, %.lr.ph153.i ], [ %218, %_match_gres.exit.i ]
+  %203 = getelementptr inbounds i8, ptr %202, i64 8
+  %204 = load i64, ptr %203, align 8
+  %205 = icmp eq i64 %204, 0
+  br i1 %205, label %_match_gres.exit.i, label %206
 
-205:                                              ; preds = %200
-  %206 = load ptr, ptr %198, align 8
-  %.not.i130.i = icmp eq ptr %206, null
-  br i1 %.not.i130.i, label %211, label %207
+206:                                              ; preds = %201
+  %207 = load ptr, ptr %199, align 8
+  %.not.i130.i = icmp eq ptr %207, null
+  br i1 %.not.i130.i, label %212, label %208
 
-207:                                              ; preds = %205
-  %208 = getelementptr inbounds i8, ptr %201, i64 64
-  %209 = load ptr, ptr %208, align 8
-  %210 = call i32 @slurm_xstrcmp(ptr noundef nonnull %206, ptr noundef %209) #14
-  %.not9.i.i = icmp eq i32 %210, 0
-  br i1 %.not9.i.i, label %211, label %_match_gres.exit.i
+208:                                              ; preds = %206
+  %209 = getelementptr inbounds i8, ptr %202, i64 64
+  %210 = load ptr, ptr %209, align 8
+  %211 = call i32 @slurm_xstrcmp(ptr noundef nonnull %207, ptr noundef %210) #14
+  %.not9.i.i = icmp eq i32 %211, 0
+  br i1 %.not9.i.i, label %212, label %_match_gres.exit.i
 
-211:                                              ; preds = %207, %205
-  %212 = load ptr, ptr %199, align 8
-  %.not10.i.i = icmp eq ptr %212, null
-  br i1 %.not10.i.i, label %218, label %213
+212:                                              ; preds = %208, %206
+  %213 = load ptr, ptr %200, align 8
+  %.not10.i.i = icmp eq ptr %213, null
+  br i1 %.not10.i.i, label %219, label %214
 
-213:                                              ; preds = %211
-  %214 = getelementptr inbounds i8, ptr %201, i64 40
-  %215 = load ptr, ptr %214, align 8
-  %216 = call i32 @slurm_xstrcmp(ptr noundef nonnull %212, ptr noundef %215) #14
-  %.not11.i.i = icmp eq i32 %216, 0
-  br i1 %.not11.i.i, label %218, label %_match_gres.exit.i
+214:                                              ; preds = %212
+  %215 = getelementptr inbounds i8, ptr %202, i64 40
+  %216 = load ptr, ptr %215, align 8
+  %217 = call i32 @slurm_xstrcmp(ptr noundef nonnull %213, ptr noundef %216) #14
+  %.not11.i.i = icmp eq i32 %217, 0
+  br i1 %.not11.i.i, label %219, label %_match_gres.exit.i
 
-_match_gres.exit.i:                               ; preds = %213, %207, %200
-  %217 = call ptr @slurm_list_next(ptr noundef %194) #14
-  %.not120.i = icmp eq ptr %217, null
-  br i1 %.not120.i, label %.critedge.i, label %200, !llvm.loop !14
+_match_gres.exit.i:                               ; preds = %214, %208, %201
+  %218 = call ptr @slurm_list_next(ptr noundef %195) #14
+  %.not120.i = icmp eq ptr %218, null
+  br i1 %.not120.i, label %.critedge.i, label %201, !llvm.loop !14
 
-218:                                              ; preds = %213, %211
-  %219 = getelementptr inbounds i8, ptr %201, i64 8
-  %220 = getelementptr inbounds i8, ptr %196, i64 24
-  %221 = load ptr, ptr %220, align 8
-  %.not.i131.i = icmp eq ptr %221, null
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %196, i64 32
+219:                                              ; preds = %214, %212
+  %220 = getelementptr inbounds i8, ptr %202, i64 8
+  %221 = getelementptr inbounds i8, ptr %197, i64 24
+  %222 = load ptr, ptr %221, align 8
+  %.not.i131.i = icmp eq ptr %222, null
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %197, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.not15.i.i = icmp eq ptr %.pre.i.i, null
-  br i1 %.not.i131.i, label %223, label %222
+  br i1 %.not.i131.i, label %224, label %223
 
-222:                                              ; preds = %218
-  br i1 %.not15.i.i, label %_validate_cpus_links.exit.thread.i, label %.thread.i.i
+223:                                              ; preds = %219
+  br i1 %.not15.i.i, label %.critedge137.i, label %.thread.i.i
 
-223:                                              ; preds = %218
-  br i1 %.not15.i.i, label %228, label %.thread.i.i
+224:                                              ; preds = %219
+  br i1 %.not15.i.i, label %229, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %223, %222
-  %224 = getelementptr inbounds i8, ptr %201, i64 32
-  %225 = load ptr, ptr %224, align 8
-  %.not16.i.i = icmp eq ptr %225, null
-  br i1 %.not16.i.i, label %228, label %226
+.thread.i.i:                                      ; preds = %224, %223
+  %225 = getelementptr inbounds i8, ptr %202, i64 32
+  %226 = load ptr, ptr %225, align 8
+  %.not16.i.i = icmp eq ptr %226, null
+  br i1 %.not16.i.i, label %229, label %227
 
-226:                                              ; preds = %.thread.i.i
-  %227 = call i32 @slurm_bit_equal(ptr noundef nonnull %.pre.i.i, ptr noundef nonnull %225) #14
-  %.not17.i.i = icmp eq i32 %227, 0
-  br i1 %.not17.i.i, label %_validate_cpus_links.exit.thread.i, label %228
+227:                                              ; preds = %.thread.i.i
+  %228 = call i32 @slurm_bit_equal(ptr noundef nonnull %.pre.i.i, ptr noundef nonnull %226) #14
+  %.not17.i.i = icmp eq i32 %228, 0
+  br i1 %.not17.i.i, label %.critedge137.i, label %229
 
-228:                                              ; preds = %226, %.thread.i.i, %223
-  %229 = getelementptr inbounds i8, ptr %196, i64 48
-  %230 = load ptr, ptr %229, align 8
-  %.not18.i.i = icmp eq ptr %230, null
-  br i1 %.not18.i.i, label %_validate_cpus_links.exit.i, label %231
+229:                                              ; preds = %227, %.thread.i.i, %224
+  %230 = getelementptr inbounds i8, ptr %197, i64 48
+  %231 = load ptr, ptr %230, align 8
+  %.not18.i.i = icmp eq ptr %231, null
+  br i1 %.not18.i.i, label %_validate_cpus_links.exitthread-pre-split.i, label %232
 
-231:                                              ; preds = %228
-  %232 = getelementptr inbounds i8, ptr %201, i64 48
-  %233 = load ptr, ptr %232, align 8
-  %.not19.i.i = icmp eq ptr %233, null
-  br i1 %.not19.i.i, label %_validate_cpus_links.exit.i, label %234
+232:                                              ; preds = %229
+  %233 = getelementptr inbounds i8, ptr %202, i64 48
+  %234 = load ptr, ptr %233, align 8
+  %.not19.i.i = icmp eq ptr %234, null
+  br i1 %.not19.i.i, label %_validate_cpus_links.exitthread-pre-split.i, label %235
 
-234:                                              ; preds = %231
-  %235 = call i32 @slurm_xstrcmp(ptr noundef nonnull %230, ptr noundef nonnull %233) #14
-  %.not20.i.i = icmp eq i32 %235, 0
-  br i1 %.not20.i.i, label %_validate_cpus_links.exit.i, label %_validate_cpus_links.exit.thread.i
+235:                                              ; preds = %232
+  %236 = call i32 @slurm_xstrcmp(ptr noundef nonnull %231, ptr noundef nonnull %234) #14
+  %.not20.i.i = icmp eq i32 %236, 0
+  br i1 %.not20.i.i, label %_validate_cpus_links.exitthread-pre-split.i, label %.critedge137.i
 
-_validate_cpus_links.exit.thread.i:               ; preds = %234, %226, %222
-  %236 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.25) #14
-  %237 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.26) #14
-  call void @print_gres_conf(ptr noundef nonnull %196, i32 noundef 2) #14
-  %238 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.27) #14
-  call void @print_gres_conf(ptr noundef nonnull %201, i32 noundef 2) #14
-  store i64 0, ptr %219, align 8
+.critedge137.i:                                   ; preds = %235, %227, %223
+  %237 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.25) #14
+  %238 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.26) #14
+  call void @print_gres_conf(ptr noundef nonnull %197, i32 noundef 2) #14
+  %239 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.27) #14
+  call void @print_gres_conf(ptr noundef nonnull %202, i32 noundef 2) #14
+  store i64 0, ptr %220, align 8
   br label %.backedge.i
 
-_validate_cpus_links.exit.i:                      ; preds = %234, %231, %228
-  %.pr.i = load i64, ptr %219, align 8
-  %239 = icmp eq i64 %.pr.i, 0
-  br i1 %239, label %.backedge.i, label %240
+_validate_cpus_links.exitthread-pre-split.i:      ; preds = %235, %232, %229
+  %.pr.i = load i64, ptr %220, align 8
+  %240 = icmp eq i64 %.pr.i, 0
+  br i1 %240, label %.backedge.i, label %241
 
-240:                                              ; preds = %_validate_cpus_links.exit.i
-  %241 = call i32 @slurm_get_log_level() #14
-  %242 = icmp sgt i32 %241, 4
-  br i1 %242, label %243, label %244
+241:                                              ; preds = %_validate_cpus_links.exitthread-pre-split.i
+  %242 = call i32 @slurm_get_log_level() #14
+  %243 = icmp sgt i32 %242, 4
+  br i1 %243, label %244, label %245
 
-243:                                              ; preds = %240
+244:                                              ; preds = %241
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._merge_system_gres_conf) #14
-  br label %244
+  br label %245
 
-244:                                              ; preds = %243, %240
-  call void @print_gres_conf(ptr noundef nonnull %201, i32 noundef 5) #14
-  %245 = load i32, ptr %196, align 8
-  %246 = and i32 %245, 256
-  %.not124.i = icmp eq i32 %246, 0
-  br i1 %.not124.i, label %247, label %253
+245:                                              ; preds = %244, %241
+  call void @print_gres_conf(ptr noundef nonnull %202, i32 noundef 5) #14
+  %246 = load i32, ptr %197, align 8
+  %247 = and i32 %246, 256
+  %.not124.i = icmp eq i32 %247, 0
+  br i1 %.not124.i, label %248, label %254
 
-247:                                              ; preds = %244
-  %248 = load i32, ptr %201, align 8
-  %249 = and i32 %248, -2273
-  store i32 %249, ptr %201, align 8
-  %250 = load i32, ptr %196, align 8
-  %251 = and i32 %250, 2272
-  %252 = or disjoint i32 %251, %249
-  store i32 %252, ptr %201, align 8
-  br label %253
+248:                                              ; preds = %245
+  %249 = load i32, ptr %202, align 8
+  %250 = and i32 %249, -2273
+  store i32 %250, ptr %202, align 8
+  %251 = load i32, ptr %197, align 8
+  %252 = and i32 %251, 2272
+  %253 = or disjoint i32 %252, %250
+  store i32 %253, ptr %202, align 8
+  br label %254
 
-253:                                              ; preds = %247, %244
-  %254 = call ptr @slurm_list_remove(ptr noundef %194) #14
-  call void @slurm_list_append(ptr noundef %110, ptr noundef nonnull %201) #14
+254:                                              ; preds = %248, %245
+  %255 = call ptr @slurm_list_remove(ptr noundef %195) #14
+  call void @slurm_list_append(ptr noundef %111, ptr noundef nonnull %202) #14
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %264, %262, %253, %_validate_cpus_links.exit.i, %_validate_cpus_links.exit.thread.i
-  %255 = call ptr @slurm_list_next(ptr noundef %193) #14
-  %.not112.i = icmp eq ptr %255, null
-  br i1 %.not112.i, label %._crit_edge155.i, label %.lr.ph154.i, !llvm.loop !15
+.backedge.i:                                      ; preds = %265, %263, %254, %_validate_cpus_links.exitthread-pre-split.i, %.critedge137.i
+  %256 = call ptr @slurm_list_next(ptr noundef %194) #14
+  %.not112.i = icmp eq ptr %256, null
+  br i1 %.not112.i, label %._crit_edge156.i, label %.lr.ph155.i, !llvm.loop !15
 
-.critedge.i:                                      ; preds = %_match_gres.exit.i, %.lr.ph154.i
-  %256 = getelementptr inbounds i8, ptr %196, i64 40
-  %257 = load ptr, ptr %256, align 8
-  %.not123.i = icmp eq ptr %257, null
-  br i1 %.not123.i, label %264, label %258
+.critedge.i:                                      ; preds = %_match_gres.exit.i, %.lr.ph155.i
+  %257 = getelementptr inbounds i8, ptr %197, i64 40
+  %258 = load ptr, ptr %257, align 8
+  %.not123.i = icmp eq ptr %258, null
+  br i1 %.not123.i, label %265, label %259
 
-258:                                              ; preds = %.critedge.i
-  %259 = call i32 @slurm_get_log_level() #14
-  %260 = icmp sgt i32 %259, 4
-  br i1 %260, label %261, label %262
+259:                                              ; preds = %.critedge.i
+  %260 = call i32 @slurm_get_log_level() #14
+  %261 = icmp sgt i32 %260, 4
+  br i1 %261, label %262, label %263
 
-261:                                              ; preds = %258
+262:                                              ; preds = %259
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.29, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._merge_system_gres_conf) #14
-  br label %262
+  br label %263
 
-262:                                              ; preds = %261, %258
-  call void @print_gres_conf(ptr noundef nonnull %196, i32 noundef 5) #14
-  %263 = call ptr @slurm_list_remove(ptr noundef %193) #14
-  call void @slurm_list_append(ptr noundef %110, ptr noundef nonnull %196) #14
+263:                                              ; preds = %262, %259
+  call void @print_gres_conf(ptr noundef nonnull %197, i32 noundef 5) #14
+  %264 = call ptr @slurm_list_remove(ptr noundef %194) #14
+  call void @slurm_list_append(ptr noundef %111, ptr noundef nonnull %197) #14
   br label %.backedge.i
 
-264:                                              ; preds = %.critedge.i
-  %265 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.30) #14
-  call void @print_gres_conf(ptr noundef nonnull %196, i32 noundef 2) #14
+265:                                              ; preds = %.critedge.i
+  %266 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.30) #14
+  call void @print_gres_conf(ptr noundef nonnull %197, i32 noundef 2) #14
   br label %.backedge.i
 
-._crit_edge155.i:                                 ; preds = %.backedge.i, %_normalize_sys_gres_types.exit.i
-  call void @slurm_list_iterator_destroy(ptr noundef %193) #14
-  call void @slurm_list_iterator_reset(ptr noundef %194) #14
-  %266 = call ptr @slurm_list_next(ptr noundef %194) #14
-  %.not113156.i = icmp eq ptr %266, null
-  br i1 %.not113156.i, label %._crit_edge159.i, label %.lr.ph158.i
-
-.lr.ph158.i:                                      ; preds = %._crit_edge155.i, %272
-  %267 = phi ptr [ %273, %272 ], [ %266, %._crit_edge155.i ]
-  %268 = getelementptr inbounds i8, ptr %267, i64 8
-  %269 = load i64, ptr %268, align 8
-  %270 = icmp eq i64 %269, 0
-  br i1 %270, label %271, label %272
-
-271:                                              ; preds = %.lr.ph158.i
-  store i64 1, ptr %268, align 8
-  br label %272
-
-272:                                              ; preds = %271, %.lr.ph158.i
-  %273 = call ptr @slurm_list_next(ptr noundef %194) #14
-  %.not113.i = icmp eq ptr %273, null
-  br i1 %.not113.i, label %._crit_edge159.i, label %.lr.ph158.i, !llvm.loop !16
-
-._crit_edge159.i:                                 ; preds = %272, %._crit_edge155.i
+._crit_edge156.i:                                 ; preds = %.backedge.i, %_normalize_sys_gres_types.exit.i
   call void @slurm_list_iterator_destroy(ptr noundef %194) #14
-  %274 = call i32 @slurm_list_count(ptr noundef nonnull %.02149) #14
-  %.not114.i = icmp eq i32 %274, 0
-  br i1 %.not114.i, label %276, label %275
+  call void @slurm_list_iterator_reset(ptr noundef %195) #14
+  %267 = call ptr @slurm_list_next(ptr noundef %195) #14
+  %.not113157.i = icmp eq ptr %267, null
+  br i1 %.not113157.i, label %._crit_edge160.i, label %.lr.ph159.i
 
-275:                                              ; preds = %._crit_edge159.i
+.lr.ph159.i:                                      ; preds = %._crit_edge156.i, %273
+  %268 = phi ptr [ %274, %273 ], [ %267, %._crit_edge156.i ]
+  %269 = getelementptr inbounds i8, ptr %268, i64 8
+  %270 = load i64, ptr %269, align 8
+  %271 = icmp eq i64 %270, 0
+  br i1 %271, label %272, label %273
+
+272:                                              ; preds = %.lr.ph159.i
+  store i64 1, ptr %269, align 8
+  br label %273
+
+273:                                              ; preds = %272, %.lr.ph159.i
+  %274 = call ptr @slurm_list_next(ptr noundef %195) #14
+  %.not113.i = icmp eq ptr %274, null
+  br i1 %.not113.i, label %._crit_edge160.i, label %.lr.ph159.i, !llvm.loop !16
+
+._crit_edge160.i:                                 ; preds = %273, %._crit_edge156.i
+  call void @slurm_list_iterator_destroy(ptr noundef %195) #14
+  %275 = call i32 @slurm_list_count(ptr noundef nonnull %.02149) #14
+  %.not114.i = icmp eq i32 %275, 0
+  br i1 %.not114.i, label %277, label %276
+
+276:                                              ; preds = %._crit_edge160.i
   call void (ptr, ...) @warning(ptr noundef nonnull @.str.31) #14
   call void @print_gres_list(ptr noundef nonnull %.02149, i32 noundef 3) #14
-  br label %276
+  br label %277
 
-276:                                              ; preds = %275, %._crit_edge159.i
-  %277 = call i32 @slurm_list_flush(ptr noundef nonnull %0) #14
-  %.not115.i = icmp eq ptr %110, null
-  br i1 %.not115.i, label %286, label %278
+277:                                              ; preds = %276, %._crit_edge160.i
+  %278 = call i32 @slurm_list_flush(ptr noundef nonnull %0) #14
+  %.not115.i = icmp eq ptr %111, null
+  br i1 %.not115.i, label %287, label %279
 
-278:                                              ; preds = %276
-  %279 = call i32 @slurm_list_count(ptr noundef nonnull %110) #14
-  %.not116.i = icmp eq i32 %279, 0
-  br i1 %.not116.i, label %286, label %280
+279:                                              ; preds = %277
+  %280 = call i32 @slurm_list_count(ptr noundef nonnull %111) #14
+  %.not116.i = icmp eq i32 %280, 0
+  br i1 %.not116.i, label %287, label %281
 
-280:                                              ; preds = %278
-  call void @slurm_list_sort(ptr noundef nonnull %110, ptr noundef nonnull @_sort_gpu_by_file) #14
-  call void @slurm_list_sort(ptr noundef nonnull %110, ptr noundef nonnull @_sort_gpu_by_links_order) #14
-  %281 = call i32 @slurm_get_log_level() #14
-  %282 = icmp sgt i32 %281, 5
-  br i1 %282, label %283, label %284
+281:                                              ; preds = %279
+  call void @slurm_list_sort(ptr noundef nonnull %111, ptr noundef nonnull @_sort_gpu_by_file) #14
+  call void @slurm_list_sort(ptr noundef nonnull %111, ptr noundef nonnull @_sort_gpu_by_links_order) #14
+  %282 = call i32 @slurm_get_log_level() #14
+  %283 = icmp sgt i32 %282, 5
+  br i1 %283, label %284, label %285
 
-283:                                              ; preds = %280
+284:                                              ; preds = %281
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.32, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._merge_system_gres_conf) #14
-  br label %284
+  br label %285
 
-284:                                              ; preds = %283, %280
-  call void @print_gres_list(ptr noundef nonnull %110, i32 noundef 6) #14
-  %285 = call i32 @slurm_list_transfer(ptr noundef nonnull %0, ptr noundef nonnull %110) #14
-  br label %286
+285:                                              ; preds = %284, %281
+  call void @print_gres_list(ptr noundef nonnull %111, i32 noundef 6) #14
+  %286 = call i32 @slurm_list_transfer(ptr noundef nonnull %0, ptr noundef nonnull %111) #14
+  br label %287
 
-286:                                              ; preds = %284, %278, %276
-  %.not117.i = icmp eq ptr %109, null
-  br i1 %.not117.i, label %291, label %287
+287:                                              ; preds = %285, %279, %277
+  %.not117.i = icmp eq ptr %110, null
+  br i1 %.not117.i, label %292, label %288
 
-287:                                              ; preds = %286
-  %288 = call i32 @slurm_list_count(ptr noundef nonnull %109) #14
-  %.not118.i = icmp eq i32 %288, 0
-  br i1 %.not118.i, label %291, label %289
+288:                                              ; preds = %287
+  %289 = call i32 @slurm_list_count(ptr noundef nonnull %110) #14
+  %.not118.i = icmp eq i32 %289, 0
+  br i1 %.not118.i, label %292, label %290
 
-289:                                              ; preds = %287
-  %290 = call i32 @slurm_list_transfer(ptr noundef nonnull %0, ptr noundef nonnull %109) #14
-  br label %291
+290:                                              ; preds = %288
+  %291 = call i32 @slurm_list_transfer(ptr noundef nonnull %0, ptr noundef nonnull %110) #14
+  br label %292
 
-291:                                              ; preds = %289, %287, %286
-  br i1 %.not115.i, label %293, label %292
+292:                                              ; preds = %290, %288, %287
+  br i1 %.not115.i, label %294, label %293
 
-292:                                              ; preds = %291
-  call void @slurm_list_destroy(ptr noundef nonnull %110) #14
-  br label %293
+293:                                              ; preds = %292
+  call void @slurm_list_destroy(ptr noundef nonnull %111) #14
+  br label %294
 
-293:                                              ; preds = %292, %291
-  br i1 %.not.i.i34, label %295, label %294
+294:                                              ; preds = %293, %292
+  br i1 %.not.i.i34, label %296, label %295
 
-294:                                              ; preds = %293
-  call void @slurm_list_destroy(ptr noundef nonnull %108) #14
-  br label %295
-
-295:                                              ; preds = %294, %293
-  br i1 %.not117.i, label %_merge_system_gres_conf.exit, label %296
-
-296:                                              ; preds = %295
+295:                                              ; preds = %294
   call void @slurm_list_destroy(ptr noundef nonnull %109) #14
+  br label %296
+
+296:                                              ; preds = %295, %294
+  br i1 %.not117.i, label %_merge_system_gres_conf.exit, label %297
+
+297:                                              ; preds = %296
+  call void @slurm_list_destroy(ptr noundef nonnull %110) #14
   br label %_merge_system_gres_conf.exit
 
-_merge_system_gres_conf.exit:                     ; preds = %295, %296
+_merge_system_gres_conf.exit:                     ; preds = %296, %297
   call void @slurm_list_destroy(ptr noundef nonnull %.02149) #14
-  %297 = call i32 @slurm_list_is_empty(ptr noundef nonnull %0) #14
-  %.not32 = icmp eq i32 %297, 0
-  br i1 %.not32, label %299, label %298
+  %298 = call i32 @slurm_list_is_empty(ptr noundef nonnull %0) #14
+  %.not32 = icmp eq i32 %298, 0
+  br i1 %.not32, label %300, label %299
 
-298:                                              ; preds = %_merge_system_gres_conf.exit.thread, %_merge_system_gres_conf.exit
+299:                                              ; preds = %_merge_system_gres_conf.exit.thread, %_merge_system_gres_conf.exit
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef %.50, ptr noundef nonnull @.str.5, ptr noundef nonnull @plugin_name) #14
   br label %.thread
 
-299:                                              ; preds = %_merge_system_gres_conf.exit
+300:                                              ; preds = %_merge_system_gres_conf.exit
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef %.50, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_name) #14
   call void @print_gres_list(ptr noundef nonnull %0, i32 noundef %.50) #14
   br label %.thread
 
-.thread:                                          ; preds = %93, %298, %299, %97
-  %300 = call i32 @gres_node_config_load(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @gres_devices) #14
+.thread:                                          ; preds = %94, %299, %300, %98
+  %301 = call i32 @gres_node_config_load(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @gres_devices) #14
   store i32 0, ptr @node_flags, align 4
-  %301 = call i32 @slurm_list_for_each(ptr noundef %0, ptr noundef nonnull @gres_common_set_env_types_on_node_flags, ptr noundef nonnull @node_flags) #14
-  %.not33 = icmp eq i32 %300, 0
-  br i1 %.not33, label %303, label %302
+  %302 = call i32 @slurm_list_for_each(ptr noundef %0, ptr noundef nonnull @gres_common_set_env_types_on_node_flags, ptr noundef nonnull @node_flags) #14
+  %.not33 = icmp eq i32 %301, 0
+  br i1 %.not33, label %304, label %303
 
-302:                                              ; preds = %.thread
+303:                                              ; preds = %.thread
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_name) #16
   unreachable
 
-303:                                              ; preds = %.thread
+304:                                              ; preds = %.thread
   ret i32 0
 }
 

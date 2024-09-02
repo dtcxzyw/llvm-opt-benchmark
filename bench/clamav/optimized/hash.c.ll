@@ -1070,7 +1070,7 @@ onas_add_hashnode_child.exit:                     ; preds = %61, %57, %onas_hash
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onas_ht_add_hierarchy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 21) i32 @onas_ht_add_hierarchy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x ptr], align 16
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null

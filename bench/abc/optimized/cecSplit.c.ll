@@ -827,7 +827,7 @@ define void @Cec_GiaSplitPrintRefs(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cec_GiaSplitTest2(ptr noundef %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Cec_GiaSplitTest2(ptr noundef %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8
@@ -953,23 +953,23 @@ Vec_PtrPush.exit:                                 ; preds = %57
   %75 = getelementptr inbounds i8, ptr %74, i64 712
   %76 = load ptr, ptr %75, align 8
   %.not111 = icmp eq ptr %76, null
-  br i1 %.not111, label %79, label %77
+  br i1 %.not111, label %80, label %77
 
 77:                                               ; preds = %69
   %78 = getelementptr i8, ptr %76, i64 4
   %.val121 = load i32, ptr %78, align 4
-  br label %79
+  %79 = add nsw i32 %.val121, 1
+  br label %80
 
-79:                                               ; preds = %69, %77
-  %80 = phi i32 [ %.val121, %77 ], [ 0, %69 ]
-  %81 = add nsw i32 %80, 1
+80:                                               ; preds = %69, %77
+  %81 = phi i32 [ %79, %77 ], [ 1, %69 ]
   %82 = call i32 @Gia_SplitCofVar(ptr noundef nonnull %74, i32 noundef %4, ptr noundef nonnull %16, ptr noundef nonnull %17)
   %83 = call ptr @Gia_ManDupCofactorVar(ptr noundef nonnull %74, i32 noundef %82, i32 noundef 0) #17
   %84 = load ptr, ptr %75, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %91
 
-86:                                               ; preds = %79
+86:                                               ; preds = %80
   %87 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %88 = getelementptr inbounds i8, ptr %87, i64 4
   store i32 0, ptr %88, align 4
@@ -980,8 +980,8 @@ Vec_PtrPush.exit:                                 ; preds = %57
   store ptr %87, ptr %75, align 8
   br label %91
 
-91:                                               ; preds = %86, %79
-  %92 = phi ptr [ %87, %86 ], [ %84, %79 ]
+91:                                               ; preds = %86, %80
+  %92 = phi ptr [ %87, %86 ], [ %84, %80 ]
   br i1 %.not112, label %119, label %93
 
 93:                                               ; preds = %91
@@ -1824,7 +1824,7 @@ define noalias noundef nonnull ptr @Cec_GiaSplitWorkerThread(ptr noundef %0) #5 
 declare void @pthread_exit(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cec_GiaSplitTestInt(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Cec_GiaSplitTestInt(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.timespec, align 8
   %10 = alloca %struct.timespec, align 8
   %11 = alloca %struct.timespec, align 8

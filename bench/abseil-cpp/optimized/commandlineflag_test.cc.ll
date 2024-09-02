@@ -1701,11 +1701,11 @@ land.rhs.i:                                       ; preds = %_ZN7testing15Assert
   %add.ptr.i = getelementptr i8, ptr %73, i64 -34
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(34) %add.ptr.i, ptr noundef nonnull dereferenceable(34) @.str.36, i64 34)
   %cmp9.i = icmp eq i32 %bcmp.i, 0
+  %74 = zext i1 %cmp9.i to i8
   br label %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit
 
 _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit188, %land.rhs.i
-  %74 = phi i1 [ false, %_ZN7testing15AssertionResultD2Ev.exit188 ], [ %cmp9.i, %land.rhs.i ]
-  %frombool172 = zext i1 %74 to i8
+  %frombool172 = phi i8 [ 0, %_ZN7testing15AssertionResultD2Ev.exit188 ], [ %74, %land.rhs.i ]
   store i8 %frombool172, ptr %gtest_ar_163, align 8
   %message_.i192 = getelementptr inbounds i8, ptr %gtest_ar_163, i64 8
   store ptr null, ptr %message_.i192, align 8

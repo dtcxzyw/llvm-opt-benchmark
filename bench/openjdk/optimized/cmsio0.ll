@@ -1189,12 +1189,15 @@ CompatibleTypes.exit.thread:                      ; preds = %162, %156, %151, %1
   %171 = load i32, ptr %101, align 4
   %172 = zext i32 %171 to i64
   %173 = icmp ult i64 %indvars.iv.next, %172
-  br i1 %173, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %173, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %CompatibleTypes.exit.thread, %125
-  %.lcssa = phi i32 [ 0, %125 ], [ %171, %CompatibleTypes.exit.thread ]
-  %174 = add i32 %.lcssa, 1
-  store i32 %174, ptr %101, align 4
+._crit_edge.loopexit:                             ; preds = %CompatibleTypes.exit.thread
+  %174 = add i32 %171, 1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %125
+  %.lcssa = phi i32 [ 1, %125 ], [ %174, %._crit_edge.loopexit ]
+  store i32 %.lcssa, ptr %101, align 4
   br label %175
 
 175:                                              ; preds = %121, %116, %._crit_edge

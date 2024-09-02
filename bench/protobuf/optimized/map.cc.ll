@@ -483,7 +483,7 @@ cond.end:                                         ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6google8protobuf8internal14UntypedMapBase13ConvertToTreeEPNS1_8NodeBaseEPFNS1_10VariantKeyES4_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %node, ptr nocapture noundef readonly %get_key) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 1, 0) i64 @_ZN6google8protobuf8internal14UntypedMapBase13ConvertToTreeEPNS1_8NodeBaseEPFNS1_10VariantKeyES4_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %node, ptr nocapture noundef readonly %get_key) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::tuple.31", align 8
   %ref.tmp2.i.i = alloca %"class.std::tuple.34", align 8

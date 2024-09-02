@@ -12123,7 +12123,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -7777, 2) i32 @test_wc_HashInit() #0 {
+define internal range(i32 0, 2) i32 @test_wc_HashInit() #0 {
 entry:
   %hash = alloca %union.wc_HashAlg, align 16
   br label %do.body
@@ -23926,7 +23926,7 @@ do.end58:                                         ; preds = %do.end58.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -7777, 2) i32 @test_wc_ParseCert_Error() #0 {
+define internal range(i32 0, 2) i32 @test_wc_ParseCert_Error() #0 {
 entry:
   %decodedCert = alloca %struct.DecodedCert, align 8
   %c0 = alloca [8 x i8], align 8
@@ -35190,7 +35190,7 @@ entry:
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal range(i32 -7777, 2) i32 @test_short_session_id() #9 {
+define internal range(i32 0, 2) i32 @test_short_session_id() #9 {
 entry:
   %client_cbf = alloca %struct.test_ssl_cbf, align 8
   %server_cbf = alloca %struct.test_ssl_cbf, align 8

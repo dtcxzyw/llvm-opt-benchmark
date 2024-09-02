@@ -318,7 +318,7 @@ _ZNSt12_Vector_baseIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit: ; preds = %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK4cvc58internal6theory14RepSetIterator10domainSizeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(169) %this, i64 noundef %i) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK4cvc58internal6theory14RepSetIterator10domainSizeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(169) %this, i64 noundef %i) local_unnamed_addr #5 align 2 {
 entry:
   %d_var_order = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %d_var_order, align 8

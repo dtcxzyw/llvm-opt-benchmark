@@ -236,7 +236,7 @@ switch.lookup:                                    ; preds = %13
 
 ._crit_edge141:                                   ; preds = %._crit_edge127.thread, %85, %18, %11
   %.str.11.sink = phi ptr [ @.str.1, %11 ], [ @.str.11, %18 ], [ @.str.11, %85 ], [ @.str.11, %._crit_edge127.thread ]
-  %.not109 = phi i1 [ true, %11 ], [ true, %18 ], [ false, %._crit_edge127.thread ], [ true, %85 ]
+  %.1103 = phi i1 [ true, %11 ], [ true, %18 ], [ false, %._crit_edge127.thread ], [ true, %85 ]
   %.199 = phi i64 [ %.098157, %11 ], [ %.098157, %18 ], [ %72, %._crit_edge127.thread ], [ %.4, %85 ]
   %.195 = phi i64 [ %.094158, %11 ], [ %.094158, %18 ], [ %.296134, %._crit_edge127.thread ], [ %.397, %85 ]
   %.191 = phi i64 [ %.090159, %11 ], [ %.090159, %18 ], [ %.292135, %._crit_edge127.thread ], [ %.393, %85 ]
@@ -246,7 +246,7 @@ switch.lookup:                                    ; preds = %13
   %88 = getelementptr inbounds i8, ptr %.1162, i64 8
   %.1 = load ptr, ptr %88, align 8
   %89 = icmp ne ptr %.1, null
-  %90 = and i1 %89, %.not109
+  %90 = and i1 %89, %.1103
   br i1 %90, label %11, label %._crit_edge165
 
 ._crit_edge165:                                   ; preds = %._crit_edge141
@@ -255,7 +255,7 @@ switch.lookup:                                    ; preds = %13
   %93 = uitofp i64 %.195 to double
   %94 = fmul double %93, 0x3EB0000000000000
   call void @free(ptr noundef %.187) #12
-  br i1 %.not109, label %._crit_edge165.thread, label %95
+  br i1 %.1103, label %._crit_edge165.thread, label %95
 
 95:                                               ; preds = %._crit_edge165
   %96 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.14) #12

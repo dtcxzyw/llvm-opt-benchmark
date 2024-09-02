@@ -9592,29 +9592,29 @@ if.else.i.i113:                                   ; preds = %cond.true.i111
 _ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit.i: ; preds = %if.else.i.i113, %if.then.i.i
   %retval.sroa.0.0.in.i.i = phi ptr [ %arrayidx.i.i, %if.then.i.i ], [ %arrayidx.i.i.i, %if.else.i.i113 ]
   %retval.sroa.0.0.i.i = load i32, ptr %retval.sroa.0.0.in.i.i, align 4
+  %49 = and i32 %retval.sroa.0.0.i.i, -8
+  %50 = zext i32 %49 to i64
   br label %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
 
 _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit: ; preds = %for.body122, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit.i
-  %retval.sroa.0.0.i110 = phi i32 [ %retval.sroa.0.0.i.i, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit.i ], [ 7, %for.body122 ]
-  %and.i.i.i114 = and i32 %retval.sroa.0.0.i110, -8
-  %conv.i.i.i.i115 = zext i32 %and.i.i.i114 to i64
-  %add.i.i.i.i116 = add i64 %conv.i.i.i.i115, %38
+  %retval.sroa.0.0.i110 = phi i64 [ %50, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit.i ], [ 0, %for.body122 ]
+  %add.i.i.i.i116 = add i64 %retval.sroa.0.0.i110, %38
   %or.i.i.i.i.i117 = or i64 %add.i.i.i.i116, -844424930131968
   store i64 %or.i.i.i.i.i117, ptr %retval.0.i.i.i.i.i.i97, align 8
-  %and.i.i.i.i.i.i119 = and i64 %add.i.i.i.i116, 281474976710648
-  %49 = inttoptr i64 %and.i.i.i.i.i.i119 to ptr
-  %lengthAndUniquedFlag_.i.i120 = getelementptr inbounds i8, ptr %49, i64 4
-  %50 = load i32, ptr %lengthAndUniquedFlag_.i.i120, align 4
-  %and.i.i121 = and i32 %50, 2147483647
+  %and.i.i.i.i.i.i119 = and i64 %add.i.i.i.i116, 281474976710655
+  %51 = inttoptr i64 %and.i.i.i.i.i.i119 to ptr
+  %lengthAndUniquedFlag_.i.i120 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = load i32, ptr %lengthAndUniquedFlag_.i.i120, align 4
+  %and.i.i121 = and i32 %52, 2147483647
   call void @_ZN6hermes2vm13StringBuilder16appendStringPrimENS0_6HandleINS0_15StringPrimitiveEEEj(ptr noundef nonnull align 8 dereferenceable(24) %builder, ptr nonnull %retval.0.i.i.i.i.i.i97, i32 noundef %and.i.i121)
   %inc138 = add nuw i32 %i119.0149, 1
   %exitcond151.not = icmp eq i32 %inc138, %umax150
   br i1 %exitcond151.not, label %for.end139, label %for.body122, !llvm.loop !109
 
 for.end139:                                       ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit, %_ZN6hermes2vm13MutableHandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit
-  %51 = load i64, ptr %builder, align 8
-  %52 = inttoptr i64 %51 to ptr
-  %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %52, align 8
+  %53 = load i64, ptr %builder, align 8
+  %54 = inttoptr i64 %53 to ptr
+  %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %54, align 8
   %and.i.i.i.i.i122 = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
   %or.i.i.i123 = or disjoint i64 %and.i.i.i.i.i122, -844424930131968
   br label %return
@@ -11827,29 +11827,29 @@ if.else.i.i130:                                   ; preds = %cond.true.i
 _ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit.i: ; preds = %if.else.i.i130, %if.then.i.i131
   %retval.sroa.0.0.in.i.i = phi ptr [ %arrayidx.i.i, %if.then.i.i131 ], [ %arrayidx.i.i.i, %if.else.i.i130 ]
   %retval.sroa.0.0.i.i = load i32, ptr %retval.sroa.0.0.in.i.i, align 4
+  %79 = and i32 %retval.sroa.0.0.i.i, -8
+  %80 = zext i32 %79 to i64
   br label %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit
 
 _ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit: ; preds = %_ZN6hermes2vm13StringBuilder14appendASCIIRefEN4llvh8ArrayRefIcEE.exit, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit.i
-  %retval.sroa.0.0.i128 = phi i32 [ %retval.sroa.0.0.i.i, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit.i ], [ 7, %_ZN6hermes2vm13StringBuilder14appendASCIIRefEN4llvh8ArrayRefIcEE.exit ]
-  %and.i.i.i133 = and i32 %retval.sroa.0.0.i128, -8
-  %conv.i.i.i.i134 = zext i32 %and.i.i.i133 to i64
-  %add.i.i.i.i135 = add i64 %conv.i.i.i.i134, %61
+  %retval.sroa.0.0.i128 = phi i64 [ %80, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit.i ], [ 0, %_ZN6hermes2vm13StringBuilder14appendASCIIRefEN4llvh8ArrayRefIcEE.exit ]
+  %add.i.i.i.i135 = add i64 %retval.sroa.0.0.i128, %61
   %or.i.i.i.i.i136 = or i64 %add.i.i.i.i135, -844424930131968
   store i64 %or.i.i.i.i.i136, ptr %retval.0.i.i.i.i.i.i104, align 8
-  %and.i.i.i.i.i.i138 = and i64 %add.i.i.i.i135, 281474976710648
-  %79 = inttoptr i64 %and.i.i.i.i.i.i138 to ptr
-  %lengthAndUniquedFlag_.i.i139 = getelementptr inbounds i8, ptr %79, i64 4
-  %80 = load i32, ptr %lengthAndUniquedFlag_.i.i139, align 4
-  %and.i.i140 = and i32 %80, 2147483647
+  %and.i.i.i.i.i.i138 = and i64 %add.i.i.i.i135, 281474976710655
+  %81 = inttoptr i64 %and.i.i.i.i.i.i138 to ptr
+  %lengthAndUniquedFlag_.i.i139 = getelementptr inbounds i8, ptr %81, i64 4
+  %82 = load i32, ptr %lengthAndUniquedFlag_.i.i139, align 4
+  %and.i.i140 = and i32 %82, 2147483647
   call void @_ZN6hermes2vm13StringBuilder16appendStringPrimENS0_6HandleINS0_15StringPrimitiveEEEj(ptr noundef nonnull align 8 dereferenceable(24) %builder, ptr nonnull %retval.0.i.i.i.i.i.i104, i32 noundef %and.i.i140)
   %inc152 = add nuw i32 %i135.0158, 1
   %exitcond160.not = icmp eq i32 %inc152, %umax159
   br i1 %exitcond160.not, label %cleanup, label %for.body138, !llvm.loop !149
 
 cleanup:                                          ; preds = %_ZNK6hermes2vm9ArrayImpl2atERNS0_7RuntimeEj.exit, %_ZN6hermes2vm13MutableHandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit
-  %81 = load i64, ptr %builder, align 8
-  %82 = inttoptr i64 %81 to ptr
-  %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %82, align 8
+  %83 = load i64, ptr %builder, align 8
+  %84 = inttoptr i64 %83 to ptr
+  %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %84, align 8
   %and.i.i.i.i.i141 = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
   %or.i.i.i = or disjoint i64 %and.i.i.i.i.i141, -844424930131968
   %.pre = load i8, ptr %hasVal.i.i.i, align 8
@@ -13440,7 +13440,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal i64 @_ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EE7compareEjj(ptr nocapture noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %a, i32 noundef %b) unnamed_addr #0 align 2 {
+define internal range(i64 1, 0) i64 @_ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb0EE7compareEjj(ptr nocapture noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %a, i32 noundef %b) unnamed_addr #0 align 2 {
 entry:
   %gcMarker_ = getelementptr inbounds i8, ptr %this, i64 264
   %gcMarker.sroa.2.8.copyload = load ptr, ptr %gcMarker_, align 8

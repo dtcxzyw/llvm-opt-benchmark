@@ -307,12 +307,12 @@ for.cond:                                         ; preds = %for.cond.preheader,
 if.end.i.i:                                       ; preds = %for.cond
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 -4
   %18 = load i32, ptr %arrayidx.i.i, align 4
+  %19 = zext i32 %18 to i64
   br label %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit
 
 _ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %18, %if.end.i.i ], [ 0, %for.cond ]
-  %19 = zext i32 %retval.0.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %19
+  %retval.0.i.i = phi i64 [ %19, %if.end.i.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %invoke.cont95, label %for.end
 
 invoke.cont95:                                    ; preds = %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit

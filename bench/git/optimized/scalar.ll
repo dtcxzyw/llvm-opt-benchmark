@@ -252,21 +252,14 @@ land.rhs:                                         ; preds = %entry, %if.end30
 sub_1:                                            ; preds = %land.rhs
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
-  %4 = zext i8 %3 to i32
-  %5 = add nsw i32 %4, -67
-  %.not47 = icmp eq i32 %5, 0
-  br i1 %.not47, label %sub_2, label %while.body.tail
+  %.not47 = icmp eq i8 %3, 67
+  br i1 %.not47, label %while.body.tail, label %sub_126
 
-sub_2:                                            ; preds = %sub_1
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
-  %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i32
-  br label %while.body.tail
-
-while.body.tail:                                  ; preds = %sub_1, %sub_2
-  %9 = phi i32 [ %5, %sub_1 ], [ %8, %sub_2 ]
-  %tobool.not = icmp eq i32 %9, 0
-  br i1 %tobool.not, label %if.then, label %sub_126
+while.body.tail:                                  ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %if.then, label %sub_126
 
 if.then:                                          ; preds = %while.body.tail
   %cmp4 = icmp eq i32 %argc.addr.042, 2
@@ -279,35 +272,28 @@ if.then6:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %arrayidx8 = getelementptr inbounds i8, ptr %argv.addr.043, i64 16
-  %10 = load ptr, ptr %arrayidx8, align 8
-  %call9 = tail call i32 @chdir(ptr noundef %10) #17
+  %7 = load ptr, ptr %arrayidx8, align 8
+  %call9 = tail call i32 @chdir(ptr noundef %7) #17
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %if.then12, label %if.end30
 
 if.then12:                                        ; preds = %if.end
   %call13 = tail call fastcc ptr @_(ptr noundef nonnull @.str.3)
-  %11 = load ptr, ptr %arrayidx8, align 8
-  tail call void (ptr, ...) @die_errno(ptr noundef %call13, ptr noundef %11) #16
+  %8 = load ptr, ptr %arrayidx8, align 8
+  tail call void (ptr, ...) @die_errno(ptr noundef %call13, ptr noundef %8) #16
   unreachable
 
-sub_126:                                          ; preds = %while.body.tail
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  %15 = add nsw i32 %14, -99
-  %.not49 = icmp eq i32 %15, 0
-  br i1 %.not49, label %sub_227, label %if.else.tail
+sub_126:                                          ; preds = %sub_1, %while.body.tail
+  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %10 = load i8, ptr %9, align 1
+  %.not49 = icmp eq i8 %10, 99
+  br i1 %.not49, label %if.else.tail, label %if.then33
 
-sub_227:                                          ; preds = %sub_126
-  %16 = getelementptr inbounds i8, ptr %0, i64 2
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  br label %if.else.tail
-
-if.else.tail:                                     ; preds = %sub_126, %sub_227
-  %19 = phi i32 [ %15, %sub_126 ], [ %18, %sub_227 ]
-  %tobool18.not = icmp eq i32 %19, 0
-  br i1 %tobool18.not, label %if.then19, label %if.then33
+if.else.tail:                                     ; preds = %sub_126
+  %11 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %if.then19, label %if.then33
 
 if.then19:                                        ; preds = %if.else.tail
   %cmp20 = icmp eq i32 %argc.addr.042, 2
@@ -320,8 +306,8 @@ if.then22:                                        ; preds = %if.then19
 
 if.end24:                                         ; preds = %if.then19
   %arrayidx25 = getelementptr inbounds i8, ptr %argv.addr.043, i64 16
-  %20 = load ptr, ptr %arrayidx25, align 8
-  tail call void @git_config_push_parameter(ptr noundef %20) #17
+  %14 = load ptr, ptr %arrayidx25, align 8
+  tail call void @git_config_push_parameter(ptr noundef %14) #17
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end, %if.end24
@@ -330,21 +316,21 @@ if.end30:                                         ; preds = %if.end, %if.end24
   %cmp = icmp sgt i32 %argc.addr.042, 3
   br i1 %cmp, label %land.rhs, label %if.end49, !llvm.loop !5
 
-if.then33:                                        ; preds = %land.rhs, %if.else.tail
-  %call4097 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.9, ptr noundef nonnull dereferenceable(1) %0) #18
-  %tobool41.not98 = icmp eq i32 %call4097, 0
-  br i1 %tobool41.not98, label %if.then42, label %for.cond
+if.then33:                                        ; preds = %sub_126, %land.rhs, %if.else.tail
+  %call4099 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(6) @.str.9, ptr noundef nonnull dereferenceable(1) %0) #18
+  %tobool41.not100 = icmp eq i32 %call4099, 0
+  br i1 %tobool41.not100, label %if.then42, label %for.cond
 
 for.cond:                                         ; preds = %if.then33, %for.body
-  %indvars.iv99 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.then33 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv99, 1
+  %indvars.iv101 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.then33 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv101, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond, label %if.end49, label %for.body, !llvm.loop !7
 
 for.body:                                         ; preds = %for.cond
   %arrayidx34 = getelementptr inbounds [11 x %struct.anon], ptr @builtins, i64 0, i64 %indvars.iv.next
-  %21 = load ptr, ptr %arrayidx34, align 16
-  %call40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %0) #18
+  %15 = load ptr, ptr %arrayidx34, align 16
+  %call40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %0) #18
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %if.then42, label %for.cond, !llvm.loop !7
 
@@ -353,8 +339,8 @@ if.then42:                                        ; preds = %for.body, %if.then3
   %arrayidx.le = getelementptr inbounds i8, ptr %argv.addr.043, i64 8
   %dec = add nsw i32 %argc.addr.042, -1
   %fn = getelementptr inbounds i8, ptr %arrayidx3445.lcssa, i64 8
-  %22 = load ptr, ptr %fn, align 8
-  %call45 = tail call i32 %22(i32 noundef %dec, ptr noundef nonnull %arrayidx.le) #17
+  %16 = load ptr, ptr %fn, align 8
+  %call45 = tail call i32 %16(i32 noundef %dec, ptr noundef nonnull %arrayidx.le) #17
   %tobool46 = icmp ne i32 %call45, 0
   %lnot.ext = zext i1 %tobool46 to i32
   ret i32 %lnot.ext
@@ -365,18 +351,18 @@ if.end49:                                         ; preds = %if.end30, %for.cond
 
 for.body55:                                       ; preds = %if.end49, %for.body55
   %indvars.iv65 = phi i64 [ 0, %if.end49 ], [ %indvars.iv.next66, %for.body55 ]
-  %23 = phi ptr [ @.str.9, %if.end49 ], [ %24, %for.body55 ]
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %scalar_usage, ptr noundef nonnull @.str.7, ptr noundef nonnull %23) #17
+  %17 = phi ptr [ @.str.9, %if.end49 ], [ %18, %for.body55 ]
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %scalar_usage, ptr noundef nonnull @.str.7, ptr noundef nonnull %17) #17
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %arrayidx52 = getelementptr inbounds [11 x %struct.anon], ptr @builtins, i64 0, i64 %indvars.iv.next66
-  %24 = load ptr, ptr %arrayidx52, align 16
+  %18 = load ptr, ptr %arrayidx52, align 16
   %exitcond68 = icmp eq i64 %indvars.iv.next66, 10
   br i1 %exitcond68, label %for.end61, label %for.body55, !llvm.loop !8
 
 for.end61:                                        ; preds = %for.body55
   %buf = getelementptr inbounds i8, ptr %scalar_usage, i64 16
-  %25 = load ptr, ptr %buf, align 8
-  call void @usage(ptr noundef %25) #16
+  %19 = load ptr, ptr %buf, align 8
+  call void @usage(ptr noundef %19) #16
   unreachable
 }
 
@@ -1102,7 +1088,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_unregister(i32 noundef %argc, ptr noundef %argv) #2 {
+define internal range(i32 -1, 2) i32 @cmd_unregister(i32 noundef %argc, ptr noundef %argv) #2 {
 entry:
   %options = alloca [1 x %struct.option], align 16
   %usage = alloca [2 x ptr], align 16

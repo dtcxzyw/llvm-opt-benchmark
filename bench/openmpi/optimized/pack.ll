@@ -717,7 +717,7 @@ pmix_hton64.exit:                                 ; preds = %.lr.ph, %pmix_hton6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_pack_string(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 zeroext %4) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @pmix20_bfrop_pack_string(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 zeroext %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph, label %pmix20_bfrop_pack_int32.exit
 
@@ -840,7 +840,7 @@ pmix20_bfrop_pack_int32.exit:                     ; preds = %56, %21, %36, %52, 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_pack_float(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_pack_float(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.preheader, label %.loopexit
@@ -882,7 +882,7 @@ declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_pack_double(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix20_bfrop_pack_double(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.preheader, label %.loopexit
@@ -917,7 +917,7 @@ define noundef i32 @pmix20_bfrop_pack_double(ptr nocapture noundef readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_pack_timeval(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @pmix20_bfrop_pack_timeval(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [2 x i64], align 16
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -950,7 +950,7 @@ define i32 @pmix20_bfrop_pack_timeval(ptr nocapture noundef readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_pack_time(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @pmix20_bfrop_pack_time(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
@@ -979,7 +979,7 @@ define i32 @pmix20_bfrop_pack_time(ptr nocapture noundef readnone %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_pack_status(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @pmix20_bfrop_pack_status(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph, label %pmix20_bfrop_pack_int32.exit
 
@@ -2888,7 +2888,7 @@ pmix20_bfrop_pack_int.exit.thread:                ; preds = %.lr.ph.i.i.preheade
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_pack_proc(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @pmix20_bfrop_pack_proc(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %pmix20_bfrop_pack_rank.exit

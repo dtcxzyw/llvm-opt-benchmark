@@ -342,7 +342,7 @@ define internal fastcc range(i32 0, 16) i32 @pm_integer_parse_digit(i8 noundef z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @pm_integer_memsize(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden range(i64 32, 17) i64 @pm_integer_memsize(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8
   %3 = shl i64 %2, 4
   %4 = add i64 %3, 32

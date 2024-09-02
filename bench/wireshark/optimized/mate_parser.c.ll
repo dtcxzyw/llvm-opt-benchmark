@@ -3213,8 +3213,8 @@ define hidden noundef i32 @Mate_lex_destroy(ptr nocapture noundef %0) local_unna
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %.not23 = icmp eq ptr %4, null
-  br i1 %.not23, label %.thread, label %.lr.ph
+  %.not22 = icmp eq ptr %4, null
+  br i1 %.not22, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 52
@@ -3226,113 +3226,113 @@ define hidden noundef i32 @Mate_lex_destroy(ptr nocapture noundef %0) local_unna
   %11 = load i64, ptr %2, align 8
   %12 = getelementptr ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %.not1830 = icmp eq ptr %13, null
-  br i1 %.not1830, label %.thread, label %.thread.i
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %.critedge, label %.thread.i
 
 .thread.i:                                        ; preds = %.lr.ph, %Mate_pop_buffer_state.exit
-  %14 = phi ptr [ %56, %Mate_pop_buffer_state.exit ], [ %13, %.lr.ph ]
-  %15 = phi ptr [ %55, %Mate_pop_buffer_state.exit ], [ %12, %.lr.ph ]
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
-  %17 = load i32, ptr %16, align 8
-  %.not13.i = icmp eq i32 %17, 0
-  br i1 %.not13.i, label %Mate__delete_buffer.exit, label %18
+  %15 = phi ptr [ %59, %Mate_pop_buffer_state.exit ], [ %13, %.lr.ph ]
+  %16 = phi ptr [ %58, %Mate_pop_buffer_state.exit ], [ %12, %.lr.ph ]
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %18 = load i32, ptr %17, align 8
+  %.not13.i = icmp eq i32 %18, 0
+  br i1 %.not13.i, label %Mate__delete_buffer.exit, label %19
 
-18:                                               ; preds = %.thread.i
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
-  %20 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %20) #30
+19:                                               ; preds = %.thread.i
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load ptr, ptr %20, align 8
+  tail call void @free(ptr noundef %21) #30
   br label %Mate__delete_buffer.exit
 
-Mate__delete_buffer.exit:                         ; preds = %.thread.i, %18
-  tail call void @free(ptr noundef nonnull %14) #30
-  %.pre28 = load i64, ptr %2, align 8
-  %.pre = load ptr, ptr %3, align 8
-  %21 = getelementptr ptr, ptr %.pre, i64 %.pre28
-  store ptr null, ptr %21, align 8
+Mate__delete_buffer.exit:                         ; preds = %.thread.i, %19
+  tail call void @free(ptr noundef nonnull %15) #30
   %22 = load ptr, ptr %3, align 8
-  %.not.i20 = icmp eq ptr %22, null
-  br i1 %.not.i20, label %.thread, label %23
+  %23 = load i64, ptr %2, align 8
+  %24 = getelementptr ptr, ptr %22, i64 %23
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %3, align 8
+  %.not.i20 = icmp eq ptr %25, null
+  br i1 %.not.i20, label %.critedge, label %26
 
-23:                                               ; preds = %Mate__delete_buffer.exit
-  %24 = load i64, ptr %2, align 8
-  %25 = getelementptr ptr, ptr %22, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %.not20.i = icmp eq ptr %26, null
+26:                                               ; preds = %Mate__delete_buffer.exit
+  %27 = load i64, ptr %2, align 8
+  %28 = getelementptr ptr, ptr %25, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %Mate_pop_buffer_state.exit, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %23
-  store ptr null, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
-  %28 = load i32, ptr %27, align 8
-  %.not13.i.i = icmp eq i32 %28, 0
-  br i1 %.not13.i.i, label %Mate__delete_buffer.exit.i, label %29
+.thread.i.i:                                      ; preds = %26
+  store ptr null, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %31 = load i32, ptr %30, align 8
+  %.not13.i.i = icmp eq i32 %31, 0
+  br i1 %.not13.i.i, label %Mate__delete_buffer.exit.i, label %32
 
-29:                                               ; preds = %.thread.i.i
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
-  %31 = load ptr, ptr %30, align 8
-  tail call void @free(ptr noundef %31) #30
+32:                                               ; preds = %.thread.i.i
+  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %34 = load ptr, ptr %33, align 8
+  tail call void @free(ptr noundef %34) #30
   br label %Mate__delete_buffer.exit.i
 
-Mate__delete_buffer.exit.i:                       ; preds = %29, %.thread.i.i
-  tail call void @free(ptr noundef nonnull %26) #30
-  %32 = load ptr, ptr %3, align 8
-  %33 = load i64, ptr %2, align 8
-  %34 = getelementptr ptr, ptr %32, i64 %33
-  store ptr null, ptr %34, align 8
-  %35 = load i64, ptr %2, align 8
-  %.not21.i = icmp eq i64 %35, 0
-  br i1 %.not21.i, label %38, label %36
+Mate__delete_buffer.exit.i:                       ; preds = %32, %.thread.i.i
+  tail call void @free(ptr noundef nonnull %29) #30
+  %35 = load ptr, ptr %3, align 8
+  %36 = load i64, ptr %2, align 8
+  %37 = getelementptr ptr, ptr %35, i64 %36
+  store ptr null, ptr %37, align 8
+  %38 = load i64, ptr %2, align 8
+  %.not21.i = icmp eq i64 %38, 0
+  br i1 %.not21.i, label %41, label %39
 
-36:                                               ; preds = %Mate__delete_buffer.exit.i
-  %37 = add i64 %35, -1
-  store i64 %37, ptr %2, align 8
-  br label %38
+39:                                               ; preds = %Mate__delete_buffer.exit.i
+  %40 = add i64 %38, -1
+  store i64 %40, ptr %2, align 8
+  br label %41
 
-38:                                               ; preds = %36, %Mate__delete_buffer.exit.i
-  %39 = phi i64 [ %37, %36 ], [ 0, %Mate__delete_buffer.exit.i ]
-  %40 = load ptr, ptr %3, align 8
-  %.not22.i = icmp eq ptr %40, null
-  br i1 %.not22.i, label %.thread, label %41
-
-41:                                               ; preds = %38
-  %42 = getelementptr ptr, ptr %40, i64 %39
-  %43 = load ptr, ptr %42, align 8
-  %.not23.i = icmp eq ptr %43, null
-  br i1 %.not23.i, label %Mate_pop_buffer_state.exit, label %44
+41:                                               ; preds = %39, %Mate__delete_buffer.exit.i
+  %42 = phi i64 [ %40, %39 ], [ 0, %Mate__delete_buffer.exit.i ]
+  %43 = load ptr, ptr %3, align 8
+  %.not22.i = icmp eq ptr %43, null
+  br i1 %.not22.i, label %.critedge, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %43, i64 28
-  %46 = load i32, ptr %45, align 4
-  store i32 %46, ptr %5, align 4
-  %47 = load ptr, ptr %42, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %6, align 8
-  store ptr %49, ptr %7, align 8
-  %50 = load ptr, ptr %42, align 8
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %8, align 8
-  %52 = load i8, ptr %49, align 1
-  store i8 %52, ptr %9, align 8
+  %45 = getelementptr ptr, ptr %43, i64 %42
+  %46 = load ptr, ptr %45, align 8
+  %.not23.i = icmp eq ptr %46, null
+  br i1 %.not23.i, label %Mate_pop_buffer_state.exit, label %47
+
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %49 = load i32, ptr %48, align 4
+  store i32 %49, ptr %5, align 4
+  %50 = load ptr, ptr %45, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = load ptr, ptr %51, align 8
+  store ptr %52, ptr %6, align 8
+  store ptr %52, ptr %7, align 8
+  %53 = load ptr, ptr %45, align 8
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %8, align 8
+  %55 = load i8, ptr %52, align 1
+  store i8 %55, ptr %9, align 8
   store i32 1, ptr %10, align 8
   br label %Mate_pop_buffer_state.exit
 
-Mate_pop_buffer_state.exit:                       ; preds = %23, %41, %44
-  %53 = phi ptr [ %22, %23 ], [ %40, %41 ], [ %40, %44 ]
-  %54 = load i64, ptr %2, align 8
-  %55 = getelementptr ptr, ptr %53, i64 %54
-  %56 = load ptr, ptr %55, align 8
-  %.not18 = icmp eq ptr %56, null
-  br i1 %.not18, label %.thread, label %.thread.i, !llvm.loop !14
+Mate_pop_buffer_state.exit:                       ; preds = %26, %44, %47
+  %56 = phi ptr [ %25, %26 ], [ %43, %44 ], [ %43, %47 ]
+  %57 = load i64, ptr %2, align 8
+  %58 = getelementptr ptr, ptr %56, i64 %57
+  %59 = load ptr, ptr %58, align 8
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %.critedge, label %.thread.i, !llvm.loop !14
 
-.thread:                                          ; preds = %Mate_pop_buffer_state.exit, %Mate__delete_buffer.exit, %38, %.lr.ph, %1
-  %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %38 ], [ null, %Mate__delete_buffer.exit ], [ %53, %Mate_pop_buffer_state.exit ]
+.critedge:                                        ; preds = %Mate_pop_buffer_state.exit, %Mate__delete_buffer.exit, %41, %.lr.ph, %1
+  %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %41 ], [ null, %Mate__delete_buffer.exit ], [ %56, %Mate_pop_buffer_state.exit ]
   tail call void @free(ptr noundef %.lcssa) #30
   store ptr null, ptr %3, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 96
-  %58 = load ptr, ptr %57, align 8
-  tail call void @free(ptr noundef %58) #30
+  %61 = getelementptr inbounds i8, ptr %0, i64 96
+  %62 = load ptr, ptr %61, align 8
+  tail call void @free(ptr noundef %62) #30
   tail call void @free(ptr noundef nonnull %0) #30
   ret i32 0
 }

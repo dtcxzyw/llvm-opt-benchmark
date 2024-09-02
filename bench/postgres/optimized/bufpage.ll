@@ -1139,7 +1139,7 @@ define dso_local range(i64 0, 65536) i64 @PageGetExactFreeSpace(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @PageGetHeapFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local range(i64 0, 4294967296) i64 @PageGetHeapFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32

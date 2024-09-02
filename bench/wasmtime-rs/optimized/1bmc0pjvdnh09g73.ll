@@ -550,7 +550,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hbffb8fe895f8846eE.exit: ; preds
 71:                                               ; preds = %68
   %72 = add i64 %.0105, 10
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
   %73 = icmp ugt i64 %.0105, -11
   br i1 %73, label %.invoke163, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h00a9291e97f6ca4aE.exit.i"
 
@@ -1176,7 +1176,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hccb2f87a3c9b791cE.exit: ; preds
 71:                                               ; preds = %68
   %72 = add i64 %.0105, 10
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
   %73 = icmp ugt i64 %.0105, -11
   br i1 %73, label %.invoke163, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1bcc4e1b6fb99162E.exit.i"
 
@@ -1828,7 +1828,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h5b385de49902e1c2E.exit: ; preds
 77:                                               ; preds = %74
   %78 = add i64 %.0105, 10
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %78, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
   %79 = icmp ugt i64 %.0105, -11
   br i1 %79, label %.invoke163, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h214428ed146f9bb4E.exit.i"
 
@@ -2479,7 +2479,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h9ff16764c98a0f0bE.exit: ; preds
 72:                                               ; preds = %69
   %73 = add i64 %.0105, 10
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %73, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i68, i64 1)
   %74 = icmp ugt i64 %.0105, -11
   br i1 %74, label %.invoke160, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h912592b189a2e846E.exit.i"
 
@@ -5411,7 +5411,7 @@ define internal noundef zeroext i1 @"_ZN57_$LT$object..write..Error$u20$as$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i64 @_ZN5gimli5write4line10LineString5write17h7aea54dec1f4f944E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i16 noundef %2, i32 %3, ptr readonly %.8.val, i64 %.16.val, ptr readonly %.8.val1, i64 %.16.val3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc range(i64 3, 524288) i64 @_ZN5gimli5write4line10LineString5write17h7aea54dec1f4f944E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i16 noundef %2, i32 %3, ptr readonly %.8.val, i64 %.16.val, ptr readonly %.8.val1, i64 %.16.val3) unnamed_addr #4 personality ptr @rust_eh_personality {
 switch.lookup:
   %4 = load i64, ptr %0, align 8, !range !514, !noundef !4
   %5 = icmp slt i64 %4, -9223372036854775806
@@ -5985,7 +5985,7 @@ define hidden void @_ZN5gimli5write4line11LineProgram5write17h686013c60885eeb2E(
 
 87:                                               ; preds = %70
   %.sroa.4705.0.extract.shift = lshr i64 %72, 8
-  %.sroa.4705.0.extract.trunc = trunc nuw i64 %.sroa.4705.0.extract.shift to i56
+  %.sroa.4705.0.extract.trunc = trunc nuw nsw i64 %.sroa.4705.0.extract.shift to i56
   %88 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %.sroa.0704.0.extract.trunc, ptr %88, align 4
   %.sroa.2481.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 5
@@ -6574,7 +6574,7 @@ switch.lookup952:                                 ; preds = %205
 
 305:                                              ; preds = %201
   %.sroa.4757.0.extract.shift = lshr i64 %203, 8
-  %.sroa.4757.0.extract.trunc = trunc nuw i64 %.sroa.4757.0.extract.shift to i56
+  %.sroa.4757.0.extract.trunc = trunc nuw nsw i64 %.sroa.4757.0.extract.shift to i56
   %306 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %.sroa.0756.0.extract.trunc, ptr %306, align 4
   %.sroa.2595.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 5
@@ -6776,7 +6776,7 @@ switch.lookup952:                                 ; preds = %205
 
 385:                                              ; preds = %.lr.ph949
   %.sroa.4769.0.extract.shift = lshr i64 %333, 8
-  %.sroa.4769.0.extract.trunc = trunc nuw i64 %.sroa.4769.0.extract.shift to i56
+  %.sroa.4769.0.extract.trunc = trunc nuw nsw i64 %.sroa.4769.0.extract.shift to i56
   %386 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %.sroa.0768.0.extract.trunc, ptr %386, align 4
   %.sroa.2541.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 5
@@ -6832,7 +6832,7 @@ switch.lookup952:                                 ; preds = %205
 
 403:                                              ; preds = %.lr.ph
   %.sroa.4777.0.extract.shift = lshr i64 %313, 8
-  %.sroa.4777.0.extract.trunc = trunc nuw i64 %.sroa.4777.0.extract.shift to i56
+  %.sroa.4777.0.extract.trunc = trunc nuw nsw i64 %.sroa.4777.0.extract.shift to i56
   %404 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %.sroa.0776.0.extract.trunc, ptr %404, align 4
   %.sroa.2529.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 5
@@ -6869,7 +6869,7 @@ define internal fastcc i64 @"_ZN5gimli5write4line11LineProgram5write28_$u7b$$u7b
   %23 = getelementptr i8, ptr %19, i64 16
   %.val103 = load i64, ptr %23, align 8
   %24 = tail call fastcc i64 @_ZN5gimli5write4line10LineString5write17h7aea54dec1f4f944E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(56) %6, i16 noundef %9, i32 %.sroa.020.0.copyload, ptr %.val, i64 %.val101, ptr %.val102, i64 %.val103)
-  %.sroa.4.0.extract.shift = and i64 %24, -256
+  %.sroa.4.0.extract.shift = and i64 %24, 524032
   %25 = and i64 %24, 255
   %26 = icmp eq i64 %25, 18
   br i1 %26, label %27, label %79
@@ -7578,7 +7578,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit601: ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN5gimli5write6writer6Writer11write_sdata17h7cb3037256cf9c0fE(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
+define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer11write_sdata17h7cb3037256cf9c0fE(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
   switch i8 %2, label %4 [
     i8 1, label %5
     i8 2, label %7
@@ -7738,7 +7738,7 @@ _ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit: ; preds = %69,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN5gimli5write6writer6Writer11write_sdata17hf8622d6f16dcc160E(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
+define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer11write_sdata17hf8622d6f16dcc160E(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
   switch i8 %2, label %4 [
     i8 1, label %5
     i8 2, label %7
@@ -7923,7 +7923,7 @@ define hidden i64 @_ZN5gimli5write6writer6Writer11write_u8_at17h99d79abbf6f884df
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
+define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
   switch i8 %2, label %4 [
     i8 1, label %5
     i8 2, label %6
@@ -8080,7 +8080,7 @@ _ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit: ; preds = %66,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
+define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE(ptr noalias noundef align 8 dereferenceable(56) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #4 {
   switch i8 %2, label %4 [
     i8 1, label %5
     i8 2, label %6
@@ -8241,7 +8241,7 @@ _ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit: ; preds = %69,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN5gimli5write6writer6Writer12write_offset17h3e19c1ed06c6bfdcE(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %2, i8 noundef %3) unnamed_addr #4 {
+define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer12write_offset17h3e19c1ed06c6bfdcE(ptr noalias noundef align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %2, i8 noundef %3) unnamed_addr #4 {
   %5 = tail call i64 @_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef %3)
   ret i64 %5
 }
@@ -8340,7 +8340,7 @@ define hidden i64 @_ZN5gimli5write6writer6Writer12write_u64_at17h950f2b259672d0b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #4 {
+define hidden range(i64 3, 65536) i64 @_ZN5gimli5write6writer6Writer13write_address17h40a9f0c52c3e9c74E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #4 {
   %4 = load i64, ptr %1, align 8, !range !513, !noundef !4
   %trunc = trunc nuw i64 %4 to i1
   br i1 %trunc, label %9, label %5

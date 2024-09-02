@@ -125,8 +125,8 @@ define void @_Z22gmx_espresso_read_confRKNSt10filesystem7__cxx114pathEP8t_symtab
     i32 32, label %.loopexit325
     i32 10, label %.loopexit325
     i32 9, label %.loopexit325
-    i32 123, label %.loopexit325.loopexit1459
-    i32 125, label %.loopexit325.loopexit1307
+    i32 123, label %.loopexit325.loopexit1450
+    i32 125, label %.loopexit325.loopexit1301
   ]
 
 .split464.us:                                     ; preds = %.outer.i.split.us
@@ -146,15 +146,15 @@ define void @_Z22gmx_espresso_read_confRKNSt10filesystem7__cxx114pathEP8t_symtab
   store i8 %32, ptr %35, align 1
   br label %.outer.i, !llvm.loop !5
 
-.loopexit325.loopexit1307:                        ; preds = %.outer.i.split
+.loopexit325.loopexit1301:                        ; preds = %.outer.i.split
   br label %.loopexit325
 
-.loopexit325.loopexit1459:                        ; preds = %.outer.i.split
+.loopexit325.loopexit1450:                        ; preds = %.outer.i.split
   br label %.loopexit325
 
-.loopexit325:                                     ; preds = %.outer.i.split, %.outer.i.split, %.outer.i.split, %.loopexit325.loopexit1459, %.loopexit325.loopexit1307, %.split468.us, %.split464.us
-  %.131.i.ph = phi i32 [ 2, %.split464.us ], [ 3, %.split468.us ], [ 3, %.loopexit325.loopexit1307 ], [ 2, %.loopexit325.loopexit1459 ], [ 1, %.outer.i.split ], [ 1, %.outer.i.split ], [ 1, %.outer.i.split ]
-  %.330.i.ph = phi i32 [ 1, %.split464.us ], [ 1, %.split468.us ], [ %.024.ph.i, %.loopexit325.loopexit1307 ], [ %.024.ph.i, %.loopexit325.loopexit1459 ], [ %.024.ph.i, %.outer.i.split ], [ %.024.ph.i, %.outer.i.split ], [ %.024.ph.i, %.outer.i.split ]
+.loopexit325:                                     ; preds = %.outer.i.split, %.outer.i.split, %.outer.i.split, %.loopexit325.loopexit1450, %.loopexit325.loopexit1301, %.split468.us, %.split464.us
+  %.131.i.ph = phi i32 [ 2, %.split464.us ], [ 3, %.split468.us ], [ 3, %.loopexit325.loopexit1301 ], [ 2, %.loopexit325.loopexit1450 ], [ 1, %.outer.i.split ], [ 1, %.outer.i.split ], [ 1, %.outer.i.split ]
+  %.330.i.ph = phi i32 [ 1, %.split464.us ], [ 1, %.split468.us ], [ %.024.ph.i, %.loopexit325.loopexit1301 ], [ %.024.ph.i, %.loopexit325.loopexit1450 ], [ %.024.ph.i, %.outer.i.split ], [ %.024.ph.i, %.outer.i.split ], [ %.024.ph.i, %.outer.i.split ]
   %36 = zext nneg i32 %.330.i.ph to i64
   %37 = getelementptr inbounds i8, ptr %11, i64 %36
   store i8 0, ptr %37, align 1
@@ -202,7 +202,7 @@ select.unfold:                                    ; preds = %73, %43
 .outer.i221.split:                                ; preds = %.outer.i221
   %47 = call i32 @fgetc(ptr noundef %23)
   switch i32 %47, label %.split479.us [
-    i32 -1, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit226.thread
+    i32 -1, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit226.thread.loopexit759
     i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit226.loopexit
     i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit226.loopexit
     i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit226.loopexit
@@ -210,10 +210,13 @@ select.unfold:                                    ; preds = %73, %43
     i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit226
   ]
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit226.thread: ; preds = %.outer.i221.split, %.outer.i221.split.us
-  %.024.ph.i222801 = phi i32 [ 0, %.outer.i221.split.us ], [ %.024.ph.i222, %.outer.i221.split ]
-  %48 = zext nneg i32 %.024.ph.i222801 to i64
-  %49 = getelementptr inbounds i8, ptr %11, i64 %48
+_ZL17get_espresso_wordP8_IO_FILEPc.exit226.thread.loopexit759: ; preds = %.outer.i221.split
+  %48 = zext nneg i32 %.024.ph.i222 to i64
+  br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit226.thread
+
+_ZL17get_espresso_wordP8_IO_FILEPc.exit226.thread: ; preds = %.outer.i221.split.us, %_ZL17get_espresso_wordP8_IO_FILEPc.exit226.thread.loopexit759
+  %.024.ph.i222801 = phi i64 [ %48, %_ZL17get_espresso_wordP8_IO_FILEPc.exit226.thread.loopexit759 ], [ 0, %.outer.i221.split.us ]
+  %49 = getelementptr inbounds i8, ptr %11, i64 %.024.ph.i222801
   store i8 0, ptr %49, align 1
   br label %.outer.i227.preheader.lr.ph
 
@@ -337,18 +340,21 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit226:       ; preds = %.outer.i221.split, 
 .outer.i227.split:                                ; preds = %.outer.i227
   %83 = call i32 @fgetc(ptr noundef %23)
   switch i32 %83, label %.split504.us [
-    i32 -1, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit232.thread304
+    i32 -1, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit232.thread304.loopexit756
     i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit232
     i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit232
     i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit232
-    i32 123, label %.split510.us.thread
-    i32 125, label %.split514.us.thread
+    i32 123, label %.split510.us.thread.loopexit
+    i32 125, label %.split514.us.thread.loopexit
   ]
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit232.thread304: ; preds = %.outer.i227.split, %.outer.i227.split.us
-  %.024.ph.i228831 = phi i32 [ 0, %.outer.i227.split.us ], [ %.024.ph.i228, %.outer.i227.split ]
-  %84 = zext nneg i32 %.024.ph.i228831 to i64
-  %85 = getelementptr inbounds i8, ptr %11, i64 %84
+_ZL17get_espresso_wordP8_IO_FILEPc.exit232.thread304.loopexit756: ; preds = %.outer.i227.split
+  %84 = zext nneg i32 %.024.ph.i228 to i64
+  br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit232.thread304
+
+_ZL17get_espresso_wordP8_IO_FILEPc.exit232.thread304: ; preds = %.outer.i227.split.us, %_ZL17get_espresso_wordP8_IO_FILEPc.exit232.thread304.loopexit756
+  %.024.ph.i228831 = phi i64 [ %84, %_ZL17get_espresso_wordP8_IO_FILEPc.exit232.thread304.loopexit756 ], [ 0, %.outer.i227.split.us ]
+  %85 = getelementptr inbounds i8, ptr %11, i64 %.024.ph.i228831
   store i8 0, ptr %85, align 1
   br label %.critedge7
 
@@ -375,18 +381,24 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit232:       ; preds = %.outer.i227.split, 
   store i8 0, ptr %91, align 1
   br label %98
 
-.split510.us.thread:                              ; preds = %.outer.i227.split, %.split510.us
-  %.330.i230.ph = phi i32 [ 1, %.split510.us ], [ %.024.ph.i228, %.outer.i227.split ]
-  %92 = zext nneg i32 %.330.i230.ph to i64
-  %93 = getelementptr inbounds i8, ptr %11, i64 %92
+.split510.us.thread.loopexit:                     ; preds = %.outer.i227.split
+  %92 = zext nneg i32 %.024.ph.i228 to i64
+  br label %.split510.us.thread
+
+.split510.us.thread:                              ; preds = %.split510.us.thread.loopexit, %.split510.us
+  %.330.i230.ph = phi i64 [ 1, %.split510.us ], [ %92, %.split510.us.thread.loopexit ]
+  %93 = getelementptr inbounds i8, ptr %11, i64 %.330.i230.ph
   store i8 0, ptr %93, align 1
   %94 = add nuw nsw i32 %.3180679, 1
   br label %98
 
-.split514.us.thread:                              ; preds = %.outer.i227.split, %.split514.us
-  %.330.i230.ph299 = phi i32 [ 1, %.split514.us ], [ %.024.ph.i228, %.outer.i227.split ]
-  %95 = zext nneg i32 %.330.i230.ph299 to i64
-  %96 = getelementptr inbounds i8, ptr %11, i64 %95
+.split514.us.thread.loopexit:                     ; preds = %.outer.i227.split
+  %95 = zext nneg i32 %.024.ph.i228 to i64
+  br label %.split514.us.thread
+
+.split514.us.thread:                              ; preds = %.split514.us.thread.loopexit, %.split514.us
+  %.330.i230.ph299 = phi i64 [ 1, %.split514.us ], [ %95, %.split514.us.thread.loopexit ]
+  %96 = getelementptr inbounds i8, ptr %11, i64 %.330.i230.ph299
   store i8 0, ptr %96, align 1
   %97 = add nsw i32 %.3180679, -1
   br label %98
@@ -450,8 +462,8 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit232:       ; preds = %.outer.i227.split, 
     i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit238
     i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit238
     i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit238
-    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1446
-    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1293
+    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1440
+    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1290
   ]
 
 .split660.us:                                     ; preds = %.outer.i233.split.us
@@ -474,15 +486,15 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit232:       ; preds = %.outer.i227.split, 
 _ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1065: ; preds = %.outer.i233.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit238
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1293: ; preds = %.outer.i233.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1290: ; preds = %.outer.i233.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit238
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1446: ; preds = %.outer.i233.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1440: ; preds = %.outer.i233.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit238
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit238:       ; preds = %.outer.i233.split.us, %.outer.i233.split, %.outer.i233.split, %.outer.i233.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1446, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1293, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1065, %.split660.us, %.split664.us
-  %.131.i235 = phi i32 [ 3, %.split664.us ], [ 2, %.split660.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1065 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1293 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1446 ], [ 1, %.outer.i233.split ], [ 1, %.outer.i233.split ], [ 1, %.outer.i233.split ], [ 0, %.outer.i233.split.us ]
-  %.330.i236 = phi i32 [ 1, %.split664.us ], [ 1, %.split660.us ], [ %.024.ph.i234, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1065 ], [ %.024.ph.i234, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1293 ], [ %.024.ph.i234, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1446 ], [ %.024.ph.i234, %.outer.i233.split ], [ %.024.ph.i234, %.outer.i233.split ], [ %.024.ph.i234, %.outer.i233.split ], [ 0, %.outer.i233.split.us ]
+_ZL17get_espresso_wordP8_IO_FILEPc.exit238:       ; preds = %.outer.i233.split.us, %.outer.i233.split, %.outer.i233.split, %.outer.i233.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1440, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1290, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1065, %.split660.us, %.split664.us
+  %.131.i235 = phi i32 [ 3, %.split664.us ], [ 2, %.split660.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1065 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1290 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1440 ], [ 1, %.outer.i233.split ], [ 1, %.outer.i233.split ], [ 1, %.outer.i233.split ], [ 0, %.outer.i233.split.us ]
+  %.330.i236 = phi i32 [ 1, %.split664.us ], [ 1, %.split660.us ], [ %.024.ph.i234, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1065 ], [ %.024.ph.i234, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1290 ], [ %.024.ph.i234, %_ZL17get_espresso_wordP8_IO_FILEPc.exit238.loopexit1440 ], [ %.024.ph.i234, %.outer.i233.split ], [ %.024.ph.i234, %.outer.i233.split ], [ %.024.ph.i234, %.outer.i233.split ], [ 0, %.outer.i233.split.us ]
   %112 = zext nneg i32 %.330.i236 to i64
   %113 = getelementptr inbounds i8, ptr %11, i64 %112
   store i8 0, ptr %113, align 1
@@ -518,8 +530,8 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit238:       ; preds = %.outer.i233.split.u
     i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit244
     i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit244
     i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit244
-    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1443
-    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1290
+    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1437
+    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1287
   ]
 
 .split638.us:                                     ; preds = %.outer.i239.split.us
@@ -542,15 +554,15 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit238:       ; preds = %.outer.i233.split.u
 _ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1061: ; preds = %.outer.i239.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit244
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1290: ; preds = %.outer.i239.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1287: ; preds = %.outer.i239.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit244
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1443: ; preds = %.outer.i239.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1437: ; preds = %.outer.i239.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit244
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit244:       ; preds = %.outer.i239.split.us, %.outer.i239.split, %.outer.i239.split, %.outer.i239.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1443, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1290, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1061, %.split638.us, %.split642.us
-  %.131.i241 = phi i32 [ 3, %.split642.us ], [ 2, %.split638.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1061 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1290 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1443 ], [ 1, %.outer.i239.split ], [ 1, %.outer.i239.split ], [ 1, %.outer.i239.split ], [ 0, %.outer.i239.split.us ]
-  %.330.i242 = phi i32 [ 1, %.split642.us ], [ 1, %.split638.us ], [ %.024.ph.i240, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1061 ], [ %.024.ph.i240, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1290 ], [ %.024.ph.i240, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1443 ], [ %.024.ph.i240, %.outer.i239.split ], [ %.024.ph.i240, %.outer.i239.split ], [ %.024.ph.i240, %.outer.i239.split ], [ 0, %.outer.i239.split.us ]
+_ZL17get_espresso_wordP8_IO_FILEPc.exit244:       ; preds = %.outer.i239.split.us, %.outer.i239.split, %.outer.i239.split, %.outer.i239.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1437, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1287, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1061, %.split638.us, %.split642.us
+  %.131.i241 = phi i32 [ 3, %.split642.us ], [ 2, %.split638.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1061 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1287 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1437 ], [ 1, %.outer.i239.split ], [ 1, %.outer.i239.split ], [ 1, %.outer.i239.split ], [ 0, %.outer.i239.split.us ]
+  %.330.i242 = phi i32 [ 1, %.split642.us ], [ 1, %.split638.us ], [ %.024.ph.i240, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1061 ], [ %.024.ph.i240, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1287 ], [ %.024.ph.i240, %_ZL17get_espresso_wordP8_IO_FILEPc.exit244.loopexit1437 ], [ %.024.ph.i240, %.outer.i239.split ], [ %.024.ph.i240, %.outer.i239.split ], [ %.024.ph.i240, %.outer.i239.split ], [ 0, %.outer.i239.split.us ]
   %121 = zext nneg i32 %.330.i242 to i64
   %122 = getelementptr inbounds i8, ptr %11, i64 %121
   store i8 0, ptr %122, align 1
@@ -589,8 +601,8 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit244:       ; preds = %.outer.i239.split.u
     i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit250
     i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit250
     i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit250
-    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1447
-    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1294
+    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1441
+    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1291
   ]
 
 .split617.us:                                     ; preds = %.outer.i245.split.us
@@ -613,15 +625,15 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit244:       ; preds = %.outer.i239.split.u
 _ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1066: ; preds = %.outer.i245.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit250
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1294: ; preds = %.outer.i245.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1291: ; preds = %.outer.i245.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit250
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1447: ; preds = %.outer.i245.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1441: ; preds = %.outer.i245.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit250
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit250:       ; preds = %.outer.i245.split.us, %.outer.i245.split, %.outer.i245.split, %.outer.i245.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1447, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1294, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1066, %.split617.us, %.split621.us
-  %.131.i247 = phi i32 [ 3, %.split621.us ], [ 2, %.split617.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1066 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1294 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1447 ], [ 1, %.outer.i245.split ], [ 1, %.outer.i245.split ], [ 1, %.outer.i245.split ], [ 0, %.outer.i245.split.us ]
-  %.330.i248 = phi i32 [ 1, %.split621.us ], [ 1, %.split617.us ], [ %.024.ph.i246, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1066 ], [ %.024.ph.i246, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1294 ], [ %.024.ph.i246, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1447 ], [ %.024.ph.i246, %.outer.i245.split ], [ %.024.ph.i246, %.outer.i245.split ], [ %.024.ph.i246, %.outer.i245.split ], [ 0, %.outer.i245.split.us ]
+_ZL17get_espresso_wordP8_IO_FILEPc.exit250:       ; preds = %.outer.i245.split.us, %.outer.i245.split, %.outer.i245.split, %.outer.i245.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1441, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1291, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1066, %.split617.us, %.split621.us
+  %.131.i247 = phi i32 [ 3, %.split621.us ], [ 2, %.split617.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1066 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1291 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1441 ], [ 1, %.outer.i245.split ], [ 1, %.outer.i245.split ], [ 1, %.outer.i245.split ], [ 0, %.outer.i245.split.us ]
+  %.330.i248 = phi i32 [ 1, %.split621.us ], [ 1, %.split617.us ], [ %.024.ph.i246, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1066 ], [ %.024.ph.i246, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1291 ], [ %.024.ph.i246, %_ZL17get_espresso_wordP8_IO_FILEPc.exit250.loopexit1441 ], [ %.024.ph.i246, %.outer.i245.split ], [ %.024.ph.i246, %.outer.i245.split ], [ %.024.ph.i246, %.outer.i245.split ], [ 0, %.outer.i245.split.us ]
   %134 = zext nneg i32 %.330.i248 to i64
   %135 = getelementptr inbounds i8, ptr %11, i64 %134
   store i8 0, ptr %135, align 1
@@ -658,8 +670,8 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit250:       ; preds = %.outer.i245.split.u
     i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit256
     i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit256
     i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit256
-    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1448
-    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1295
+    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1442
+    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1292
   ]
 
 .split596.us:                                     ; preds = %.outer.i251.split.us
@@ -682,15 +694,15 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit250:       ; preds = %.outer.i245.split.u
 _ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1067: ; preds = %.outer.i251.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit256
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1295: ; preds = %.outer.i251.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1292: ; preds = %.outer.i251.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit256
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1448: ; preds = %.outer.i251.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1442: ; preds = %.outer.i251.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit256
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit256:       ; preds = %.outer.i251.split.us, %.outer.i251.split, %.outer.i251.split, %.outer.i251.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1448, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1295, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1067, %.split596.us, %.split600.us
-  %.131.i253 = phi i32 [ 3, %.split600.us ], [ 2, %.split596.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1067 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1295 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1448 ], [ 1, %.outer.i251.split ], [ 1, %.outer.i251.split ], [ 1, %.outer.i251.split ], [ 0, %.outer.i251.split.us ]
-  %.330.i254 = phi i32 [ 1, %.split600.us ], [ 1, %.split596.us ], [ %.024.ph.i252, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1067 ], [ %.024.ph.i252, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1295 ], [ %.024.ph.i252, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1448 ], [ %.024.ph.i252, %.outer.i251.split ], [ %.024.ph.i252, %.outer.i251.split ], [ %.024.ph.i252, %.outer.i251.split ], [ 0, %.outer.i251.split.us ]
+_ZL17get_espresso_wordP8_IO_FILEPc.exit256:       ; preds = %.outer.i251.split.us, %.outer.i251.split, %.outer.i251.split, %.outer.i251.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1442, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1292, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1067, %.split596.us, %.split600.us
+  %.131.i253 = phi i32 [ 3, %.split600.us ], [ 2, %.split596.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1067 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1292 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1442 ], [ 1, %.outer.i251.split ], [ 1, %.outer.i251.split ], [ 1, %.outer.i251.split ], [ 0, %.outer.i251.split.us ]
+  %.330.i254 = phi i32 [ 1, %.split600.us ], [ 1, %.split596.us ], [ %.024.ph.i252, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1067 ], [ %.024.ph.i252, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1292 ], [ %.024.ph.i252, %_ZL17get_espresso_wordP8_IO_FILEPc.exit256.loopexit1442 ], [ %.024.ph.i252, %.outer.i251.split ], [ %.024.ph.i252, %.outer.i251.split ], [ %.024.ph.i252, %.outer.i251.split ], [ 0, %.outer.i251.split.us ]
   %147 = zext nneg i32 %.330.i254 to i64
   %148 = getelementptr inbounds i8, ptr %11, i64 %147
   store i8 0, ptr %148, align 1
@@ -732,8 +744,8 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit256:       ; preds = %.outer.i251.split.u
     i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit262
     i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit262
     i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit262
-    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1444
-    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1291
+    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1438
+    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1288
   ]
 
 .split574.us:                                     ; preds = %.outer.i257.split.us
@@ -756,15 +768,15 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit256:       ; preds = %.outer.i251.split.u
 _ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1062: ; preds = %.outer.i257.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit262
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1291: ; preds = %.outer.i257.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1288: ; preds = %.outer.i257.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit262
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1444: ; preds = %.outer.i257.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1438: ; preds = %.outer.i257.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit262
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit262:       ; preds = %.outer.i257.split.us, %.outer.i257.split, %.outer.i257.split, %.outer.i257.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1444, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1291, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1062, %.split574.us, %.split578.us
-  %.131.i259 = phi i32 [ 3, %.split578.us ], [ 2, %.split574.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1062 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1291 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1444 ], [ 1, %.outer.i257.split ], [ 1, %.outer.i257.split ], [ 1, %.outer.i257.split ], [ 0, %.outer.i257.split.us ]
-  %.330.i260 = phi i32 [ 1, %.split578.us ], [ 1, %.split574.us ], [ %.024.ph.i258, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1062 ], [ %.024.ph.i258, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1291 ], [ %.024.ph.i258, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1444 ], [ %.024.ph.i258, %.outer.i257.split ], [ %.024.ph.i258, %.outer.i257.split ], [ %.024.ph.i258, %.outer.i257.split ], [ 0, %.outer.i257.split.us ]
+_ZL17get_espresso_wordP8_IO_FILEPc.exit262:       ; preds = %.outer.i257.split.us, %.outer.i257.split, %.outer.i257.split, %.outer.i257.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1438, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1288, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1062, %.split574.us, %.split578.us
+  %.131.i259 = phi i32 [ 3, %.split578.us ], [ 2, %.split574.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1062 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1288 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1438 ], [ 1, %.outer.i257.split ], [ 1, %.outer.i257.split ], [ 1, %.outer.i257.split ], [ 0, %.outer.i257.split.us ]
+  %.330.i260 = phi i32 [ 1, %.split578.us ], [ 1, %.split574.us ], [ %.024.ph.i258, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1062 ], [ %.024.ph.i258, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1288 ], [ %.024.ph.i258, %_ZL17get_espresso_wordP8_IO_FILEPc.exit262.loopexit1438 ], [ %.024.ph.i258, %.outer.i257.split ], [ %.024.ph.i258, %.outer.i257.split ], [ %.024.ph.i258, %.outer.i257.split ], [ 0, %.outer.i257.split.us ]
   %161 = zext nneg i32 %.330.i260 to i64
   %162 = getelementptr inbounds i8, ptr %11, i64 %161
   store i8 0, ptr %162, align 1
@@ -807,8 +819,8 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit262:       ; preds = %.outer.i257.split.u
     i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit268
     i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit268
     i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit268
-    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1445
-    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1292
+    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1439
+    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1289
   ]
 
 .split552.us:                                     ; preds = %.outer.i263.split.us
@@ -831,15 +843,15 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit262:       ; preds = %.outer.i257.split.u
 _ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1063: ; preds = %.outer.i263.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit268
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1292: ; preds = %.outer.i263.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1289: ; preds = %.outer.i263.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit268
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1445: ; preds = %.outer.i263.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1439: ; preds = %.outer.i263.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit268
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit268:       ; preds = %.outer.i263.split.us, %.outer.i263.split, %.outer.i263.split, %.outer.i263.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1445, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1292, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1063, %.split552.us, %.split556.us
-  %.131.i265 = phi i32 [ 3, %.split556.us ], [ 2, %.split552.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1063 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1292 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1445 ], [ 1, %.outer.i263.split ], [ 1, %.outer.i263.split ], [ 1, %.outer.i263.split ], [ 0, %.outer.i263.split.us ]
-  %.330.i266 = phi i32 [ 1, %.split556.us ], [ 1, %.split552.us ], [ %.024.ph.i264, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1063 ], [ %.024.ph.i264, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1292 ], [ %.024.ph.i264, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1445 ], [ %.024.ph.i264, %.outer.i263.split ], [ %.024.ph.i264, %.outer.i263.split ], [ %.024.ph.i264, %.outer.i263.split ], [ 0, %.outer.i263.split.us ]
+_ZL17get_espresso_wordP8_IO_FILEPc.exit268:       ; preds = %.outer.i263.split.us, %.outer.i263.split, %.outer.i263.split, %.outer.i263.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1439, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1289, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1063, %.split552.us, %.split556.us
+  %.131.i265 = phi i32 [ 3, %.split556.us ], [ 2, %.split552.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1063 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1289 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1439 ], [ 1, %.outer.i263.split ], [ 1, %.outer.i263.split ], [ 1, %.outer.i263.split ], [ 0, %.outer.i263.split.us ]
+  %.330.i266 = phi i32 [ 1, %.split556.us ], [ 1, %.split552.us ], [ %.024.ph.i264, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1063 ], [ %.024.ph.i264, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1289 ], [ %.024.ph.i264, %_ZL17get_espresso_wordP8_IO_FILEPc.exit268.loopexit1439 ], [ %.024.ph.i264, %.outer.i263.split ], [ %.024.ph.i264, %.outer.i263.split ], [ %.024.ph.i264, %.outer.i263.split ], [ 0, %.outer.i263.split.us ]
   %174 = zext nneg i32 %.330.i266 to i64
   %175 = getelementptr inbounds i8, ptr %11, i64 %174
   store i8 0, ptr %175, align 1
@@ -873,8 +885,8 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit268:       ; preds = %.outer.i263.split.u
     i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit274
     i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit274
     i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit274
-    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1451
-    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1298
+    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1445
+    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1295
   ]
 
 .split531.us:                                     ; preds = %.outer.i269.split.us
@@ -897,15 +909,15 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit268:       ; preds = %.outer.i263.split.u
 _ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1070: ; preds = %.outer.i269.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit274
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1298: ; preds = %.outer.i269.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1295: ; preds = %.outer.i269.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit274
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1451: ; preds = %.outer.i269.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1445: ; preds = %.outer.i269.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit274
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit274:       ; preds = %.outer.i269.split.us, %.outer.i269.split, %.outer.i269.split, %.outer.i269.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1451, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1298, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1070, %.split531.us, %.split535.us
-  %.131.i271 = phi i32 [ 3, %.split535.us ], [ 2, %.split531.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1070 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1298 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1451 ], [ 1, %.outer.i269.split ], [ 1, %.outer.i269.split ], [ 1, %.outer.i269.split ], [ 0, %.outer.i269.split.us ]
-  %.330.i272 = phi i32 [ 1, %.split535.us ], [ 1, %.split531.us ], [ %.024.ph.i270, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1070 ], [ %.024.ph.i270, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1298 ], [ %.024.ph.i270, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1451 ], [ %.024.ph.i270, %.outer.i269.split ], [ %.024.ph.i270, %.outer.i269.split ], [ %.024.ph.i270, %.outer.i269.split ], [ 0, %.outer.i269.split.us ]
+_ZL17get_espresso_wordP8_IO_FILEPc.exit274:       ; preds = %.outer.i269.split.us, %.outer.i269.split, %.outer.i269.split, %.outer.i269.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1445, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1295, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1070, %.split531.us, %.split535.us
+  %.131.i271 = phi i32 [ 3, %.split535.us ], [ 2, %.split531.us ], [ 0, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1070 ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1295 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1445 ], [ 1, %.outer.i269.split ], [ 1, %.outer.i269.split ], [ 1, %.outer.i269.split ], [ 0, %.outer.i269.split.us ]
+  %.330.i272 = phi i32 [ 1, %.split535.us ], [ 1, %.split531.us ], [ %.024.ph.i270, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1070 ], [ %.024.ph.i270, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1295 ], [ %.024.ph.i270, %_ZL17get_espresso_wordP8_IO_FILEPc.exit274.loopexit1445 ], [ %.024.ph.i270, %.outer.i269.split ], [ %.024.ph.i270, %.outer.i269.split ], [ %.024.ph.i270, %.outer.i269.split ], [ 0, %.outer.i269.split.us ]
   %184 = zext nneg i32 %.330.i272 to i64
   %185 = getelementptr inbounds i8, ptr %11, i64 %184
   store i8 0, ptr %185, align 1
@@ -1079,12 +1091,12 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit274:       ; preds = %.outer.i269.split.u
 .outer.i275.split:                                ; preds = %.outer.i275
   %265 = call i32 @fgetc(ptr noundef %23)
   switch i32 %265, label %.split683.us [
-    i32 -1, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit280
-    i32 32, label %.loopexit
-    i32 10, label %.loopexit
-    i32 9, label %.loopexit
-    i32 123, label %.loopexit
-    i32 125, label %.loopexit
+    i32 -1, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit280.loopexit753
+    i32 32, label %.loopexit.loopexit
+    i32 10, label %.loopexit.loopexit
+    i32 9, label %.loopexit.loopexit
+    i32 123, label %.loopexit.loopexit
+    i32 125, label %.loopexit.loopexit
   ]
 
 .split683.us:                                     ; preds = %.outer.i275.split.us, %.outer.i275.split
@@ -1100,10 +1112,13 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit274:       ; preds = %.outer.i269.split.u
   %.024.ph.i276.be = phi i32 [ %267, %.split683.us ], [ 0, %.loopexit ]
   br label %.outer.i275, !llvm.loop !5
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit280:       ; preds = %.outer.i275.split, %.outer.i275.split.us
-  %.024.ph.i276990 = phi i32 [ 0, %.outer.i275.split.us ], [ %.024.ph.i276, %.outer.i275.split ]
-  %270 = zext nneg i32 %.024.ph.i276990 to i64
-  %271 = getelementptr inbounds i8, ptr %11, i64 %270
+_ZL17get_espresso_wordP8_IO_FILEPc.exit280.loopexit753: ; preds = %.outer.i275.split
+  %270 = zext nneg i32 %.024.ph.i276 to i64
+  br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit280
+
+_ZL17get_espresso_wordP8_IO_FILEPc.exit280:       ; preds = %.outer.i275.split.us, %_ZL17get_espresso_wordP8_IO_FILEPc.exit280.loopexit753
+  %.024.ph.i276990 = phi i64 [ %270, %_ZL17get_espresso_wordP8_IO_FILEPc.exit280.loopexit753 ], [ 0, %.outer.i275.split.us ]
+  %271 = getelementptr inbounds i8, ptr %11, i64 %.024.ph.i276990
   store i8 0, ptr %271, align 1
   br label %.critedge9
 
@@ -1115,10 +1130,13 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit280:       ; preds = %.outer.i275.split, 
   store i8 %.sink, ptr %11, align 16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.outer.i275.split, %.outer.i275.split, %.outer.i275.split, %.outer.i275.split, %.outer.i275.split, %.loopexit.sink.split
-  %.330.i278.ph = phi i32 [ 1, %.loopexit.sink.split ], [ %.024.ph.i276, %.outer.i275.split ], [ %.024.ph.i276, %.outer.i275.split ], [ %.024.ph.i276, %.outer.i275.split ], [ %.024.ph.i276, %.outer.i275.split ], [ %.024.ph.i276, %.outer.i275.split ]
-  %272 = zext nneg i32 %.330.i278.ph to i64
-  %273 = getelementptr inbounds i8, ptr %11, i64 %272
+.loopexit.loopexit:                               ; preds = %.outer.i275.split, %.outer.i275.split, %.outer.i275.split, %.outer.i275.split, %.outer.i275.split
+  %272 = zext nneg i32 %.024.ph.i276 to i64
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit.sink.split
+  %.330.i278.ph = phi i64 [ 1, %.loopexit.sink.split ], [ %272, %.loopexit.loopexit ]
+  %273 = getelementptr inbounds i8, ptr %11, i64 %.330.i278.ph
   store i8 0, ptr %273, align 1
   %bcmp216 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %11, ptr noundef nonnull dereferenceable(6) @.str.13, i64 6)
   %.not724 = icmp eq i32 %bcmp216, 0
@@ -1150,11 +1168,11 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit280:       ; preds = %.outer.i275.split, 
 .outer.i281.split:                                ; preds = %.outer.i281
   %276 = call i32 @fgetc(ptr noundef %23)
   switch i32 %276, label %.split703.us [
-    i32 -1, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1452
-    i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1452
-    i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1452
-    i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1452
-    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1452
+    i32 -1, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1446
+    i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1446
+    i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1446
+    i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1446
+    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1446
     i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit286
   ]
 
@@ -1175,12 +1193,12 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit280:       ; preds = %.outer.i275.split, 
   store i8 %277, ptr %280, align 1
   br label %.outer.i281, !llvm.loop !5
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1452: ; preds = %.outer.i281.split, %.outer.i281.split, %.outer.i281.split, %.outer.i281.split, %.outer.i281.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1446: ; preds = %.outer.i281.split, %.outer.i281.split, %.outer.i281.split, %.outer.i281.split, %.outer.i281.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit286
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit286:       ; preds = %.outer.i281.split.us, %.outer.i281.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1452, %.split708.us, %.split712.us
-  %281 = phi i1 [ true, %.split712.us ], [ false, %.split708.us ], [ false, %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1452 ], [ true, %.outer.i281.split ], [ false, %.outer.i281.split.us ]
-  %.330.i284 = phi i32 [ 1, %.split712.us ], [ 1, %.split708.us ], [ %.024.ph.i282, %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1452 ], [ %.024.ph.i282, %.outer.i281.split ], [ 0, %.outer.i281.split.us ]
+_ZL17get_espresso_wordP8_IO_FILEPc.exit286:       ; preds = %.outer.i281.split.us, %.outer.i281.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1446, %.split708.us, %.split712.us
+  %281 = phi i1 [ true, %.split712.us ], [ false, %.split708.us ], [ false, %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1446 ], [ true, %.outer.i281.split ], [ false, %.outer.i281.split.us ]
+  %.330.i284 = phi i32 [ 1, %.split712.us ], [ 1, %.split708.us ], [ %.024.ph.i282, %_ZL17get_espresso_wordP8_IO_FILEPc.exit286.loopexit1446 ], [ %.024.ph.i282, %.outer.i281.split ], [ 0, %.outer.i281.split.us ]
   %282 = zext nneg i32 %.330.i284 to i64
   %283 = getelementptr inbounds i8, ptr %11, i64 %282
   store i8 0, ptr %283, align 1
@@ -1608,8 +1626,8 @@ define noundef i32 @_Z21get_espresso_coordnumRKNSt10filesystem7__cxx114pathE(ptr
     i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit
     i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit
     i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit
-    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit272
-    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit237
+    i32 123, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit269
+    i32 125, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit235
   ]
 
 _ZL17get_espresso_wordP8_IO_FILEPc.exit.thread:   ; preds = %.outer.i.split, %.outer.i.split.us
@@ -1633,15 +1651,15 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit.thread:   ; preds = %.outer.i.split, %.o
   store i8 %11, ptr %14, align 1
   br label %.outer.i, !llvm.loop !5
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit237: ; preds = %.outer.i.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit235: ; preds = %.outer.i.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit272: ; preds = %.outer.i.split
+_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit269: ; preds = %.outer.i.split
   br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit:          ; preds = %.outer.i.split, %.outer.i.split, %.outer.i.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit272, %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit237, %.split88.us, %.split92.us
-  %.131.i = phi i32 [ 3, %.split92.us ], [ 2, %.split88.us ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit237 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit272 ], [ 1, %.outer.i.split ], [ 1, %.outer.i.split ], [ 1, %.outer.i.split ]
-  %.330.i = phi i32 [ 1, %.split92.us ], [ 1, %.split88.us ], [ %.024.ph.i, %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit237 ], [ %.024.ph.i, %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit272 ], [ %.024.ph.i, %.outer.i.split ], [ %.024.ph.i, %.outer.i.split ], [ %.024.ph.i, %.outer.i.split ]
+_ZL17get_espresso_wordP8_IO_FILEPc.exit:          ; preds = %.outer.i.split, %.outer.i.split, %.outer.i.split, %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit269, %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit235, %.split88.us, %.split92.us
+  %.131.i = phi i32 [ 3, %.split92.us ], [ 2, %.split88.us ], [ 3, %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit235 ], [ 2, %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit269 ], [ 1, %.outer.i.split ], [ 1, %.outer.i.split ], [ 1, %.outer.i.split ]
+  %.330.i = phi i32 [ 1, %.split92.us ], [ 1, %.split88.us ], [ %.024.ph.i, %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit235 ], [ %.024.ph.i, %_ZL17get_espresso_wordP8_IO_FILEPc.exit.loopexit269 ], [ %.024.ph.i, %.outer.i.split ], [ %.024.ph.i, %.outer.i.split ], [ %.024.ph.i, %.outer.i.split ]
   %15 = zext nneg i32 %.330.i to i64
   %16 = getelementptr inbounds i8, ptr %3, i64 %15
   store i8 0, ptr %16, align 1
@@ -1688,18 +1706,21 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit:          ; preds = %.outer.i.split, %.o
 .outer.i37.split:                                 ; preds = %.outer.i37
   %24 = tail call i32 @fgetc(ptr noundef %5)
   switch i32 %24, label %.split103.us [
-    i32 -1, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53
+    i32 -1, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53.loopexit126
     i32 32, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit42
     i32 10, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit42
     i32 9, label %_ZL17get_espresso_wordP8_IO_FILEPc.exit42
-    i32 123, label %.split109.us.thread
-    i32 125, label %.split113.us.thread
+    i32 123, label %.split109.us.thread.loopexit
+    i32 125, label %.split113.us.thread.loopexit
   ]
 
-_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53: ; preds = %.outer.i37.split, %.outer.i37.split.us
-  %.024.ph.i38168 = phi i32 [ 0, %.outer.i37.split.us ], [ %.024.ph.i38, %.outer.i37.split ]
-  %25 = zext nneg i32 %.024.ph.i38168 to i64
-  %26 = getelementptr inbounds i8, ptr %3, i64 %25
+_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53.loopexit126: ; preds = %.outer.i37.split
+  %25 = zext nneg i32 %.024.ph.i38 to i64
+  br label %_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53
+
+_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53: ; preds = %.outer.i37.split.us, %_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53.loopexit126
+  %.024.ph.i38168 = phi i64 [ %25, %_ZL17get_espresso_wordP8_IO_FILEPc.exit42.thread53.loopexit126 ], [ 0, %.outer.i37.split.us ]
+  %26 = getelementptr inbounds i8, ptr %3, i64 %.024.ph.i38168
   store i8 0, ptr %26, align 1
   br label %.critedge
 
@@ -1726,10 +1747,13 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit42:        ; preds = %.outer.i37.split, %
   store i8 0, ptr %32, align 1
   br label %41
 
-.split109.us.thread:                              ; preds = %.outer.i37.split, %.split109.us
-  %.330.i40.ph = phi i32 [ 1, %.split109.us ], [ %.024.ph.i38, %.outer.i37.split ]
-  %33 = zext nneg i32 %.330.i40.ph to i64
-  %34 = getelementptr inbounds i8, ptr %3, i64 %33
+.split109.us.thread.loopexit:                     ; preds = %.outer.i37.split
+  %33 = zext nneg i32 %.024.ph.i38 to i64
+  br label %.split109.us.thread
+
+.split109.us.thread:                              ; preds = %.split109.us.thread.loopexit, %.split109.us
+  %.330.i40.ph = phi i64 [ 1, %.split109.us ], [ %33, %.split109.us.thread.loopexit ]
+  %34 = getelementptr inbounds i8, ptr %3, i64 %.330.i40.ph
   store i8 0, ptr %34, align 1
   %35 = add nuw nsw i32 %.125125, 1
   %36 = icmp eq i32 %35, 2
@@ -1737,10 +1761,13 @@ _ZL17get_espresso_wordP8_IO_FILEPc.exit42:        ; preds = %.outer.i37.split, %
   %spec.select = add nsw i32 %.127124, %37
   br label %41
 
-.split113.us.thread:                              ; preds = %.outer.i37.split, %.split113.us
-  %.330.i40.ph49 = phi i32 [ 1, %.split113.us ], [ %.024.ph.i38, %.outer.i37.split ]
-  %38 = zext nneg i32 %.330.i40.ph49 to i64
-  %39 = getelementptr inbounds i8, ptr %3, i64 %38
+.split113.us.thread.loopexit:                     ; preds = %.outer.i37.split
+  %38 = zext nneg i32 %.024.ph.i38 to i64
+  br label %.split113.us.thread
+
+.split113.us.thread:                              ; preds = %.split113.us.thread.loopexit, %.split113.us
+  %.330.i40.ph49 = phi i64 [ 1, %.split113.us ], [ %38, %.split113.us.thread.loopexit ]
+  %39 = getelementptr inbounds i8, ptr %3, i64 %.330.i40.ph49
   store i8 0, ptr %39, align 1
   %40 = add nsw i32 %.125125, -1
   br label %41

@@ -4602,26 +4602,26 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
   %wide.trip.count35 = zext nneg i32 %2 to i64
   br label %32
 
-32:                                               ; preds = %.lr.ph29, %41
-  %indvars.iv32 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next33, %41 ]
+32:                                               ; preds = %.lr.ph29, %42
+  %indvars.iv32 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next33, %42 ]
   %33 = trunc nuw nsw i64 %indvars.iv32 to i32
   %34 = lshr i32 %33, 6
   %35 = load i32, ptr %9, align 4
   %.not.i.i21 = icmp ult i32 %34, %35
-  br i1 %.not.i.i21, label %36, label %41
+  br i1 %.not.i.i21, label %36, label %42
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %15, align 8
   %38 = zext nneg i32 %34 to i64
   %39 = getelementptr inbounds i64, ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
-  br label %41
+  %41 = xor i64 %40, -1
+  br label %42
 
-41:                                               ; preds = %36, %32
-  %42 = phi i64 [ %40, %36 ], [ 0, %32 ]
-  %43 = and i64 %indvars.iv32, 63
-  %44 = xor i64 %42, -1
-  %45 = lshr i64 %44, %43
+42:                                               ; preds = %36, %32
+  %43 = phi i64 [ %41, %36 ], [ -1, %32 ]
+  %44 = and i64 %indvars.iv32, 63
+  %45 = lshr i64 %43, %44
   %46 = trunc i64 %45 to i8
   %47 = and i8 %46, 1
   %48 = load ptr, ptr %31, align 8
@@ -4674,7 +4674,7 @@ _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %18, %8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !45
 
-.loopexit:                                        ; preds = %64, %41, %.preheader25, %.preheader, %23
+.loopexit:                                        ; preds = %64, %42, %.preheader25, %.preheader, %23
   %72 = load ptr, ptr %15, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %_ZN11BigUnsignedD2Ev.exit, label %74

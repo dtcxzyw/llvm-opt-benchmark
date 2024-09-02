@@ -1615,7 +1615,7 @@ define internal fastcc void @walkdir(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.backedge
-  %8 = phi ptr [ %27, %.backedge ], [ %7, %4 ]
+  %8 = phi ptr [ %21, %.backedge ], [ %7, %4 ]
   %9 = load volatile i32, ptr @InterruptPending, align 4
   %.not20 = icmp eq i32 %9, 0
   br i1 %.not20, label %sub_0, label %10
@@ -1627,108 +1627,99 @@ define internal fastcc void @walkdir(ptr noundef %0, ptr nocapture noundef reado
 sub_0:                                            ; preds = %.lr.ph, %10
   %11 = getelementptr inbounds i8, ptr %8, i64 19
   %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = add nsw i32 %13, -46
-  %.not27 = icmp eq i32 %14, 0
-  br i1 %.not27, label %.tail, label %.tail21
+  %.not27 = icmp eq i8 %12, 46
+  br i1 %.not27, label %.tail, label %.tail21.thread
 
 .tail:                                            ; preds = %sub_0
-  %15 = getelementptr inbounds i8, ptr %8, i64 20
-  %16 = load i8, ptr %15, align 1
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %.backedge, label %sub_123
+  %13 = getelementptr inbounds i8, ptr %8, i64 20
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %.backedge, label %sub_123
 
 sub_123:                                          ; preds = %.tail
-  %18 = getelementptr inbounds i8, ptr %8, i64 20
+  %16 = getelementptr inbounds i8, ptr %8, i64 20
+  %17 = load i8, ptr %16, align 1
+  %.not29 = icmp eq i8 %17, 46
+  br i1 %.not29, label %.tail21, label %.tail21.thread
+
+.tail21:                                          ; preds = %sub_123
+  %18 = getelementptr inbounds i8, ptr %8, i64 21
   %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  %21 = add nsw i32 %20, -46
-  %.not29 = icmp eq i32 %21, 0
-  br i1 %.not29, label %sub_2, label %.tail21
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %.backedge, label %.tail21.thread
 
-sub_2:                                            ; preds = %sub_123
-  %22 = getelementptr inbounds i8, ptr %8, i64 21
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  br label %.tail21
-
-.tail21:                                          ; preds = %sub_0, %sub_123, %sub_2
-  %25 = phi i32 [ %21, %sub_123 ], [ %24, %sub_2 ], [ %14, %sub_0 ]
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.backedge, label %28
-
-.backedge:                                        ; preds = %31, %32, %28, %.tail, %.tail21
-  %27 = call ptr @ReadDirExtended(ptr noundef %6, ptr noundef %0, i32 noundef %3)
-  %.not = icmp eq ptr %27, null
+.backedge:                                        ; preds = %24, %25, %.tail21.thread, %.tail, %.tail21
+  %21 = call ptr @ReadDirExtended(ptr noundef %6, ptr noundef %0, i32 noundef %3)
+  %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-28:                                               ; preds = %.tail21
-  %29 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull %11) #25
-  %30 = call i32 @get_dirent_type(ptr noundef nonnull %5, ptr noundef nonnull %8, i1 noundef zeroext %2, i32 noundef %3) #25
-  switch i32 %30, label %.backedge [
-    i32 2, label %31
-    i32 3, label %32
+.tail21.thread:                                   ; preds = %sub_0, %sub_123, %.tail21
+  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull %11) #25
+  %23 = call i32 @get_dirent_type(ptr noundef nonnull %5, ptr noundef nonnull %8, i1 noundef zeroext %2, i32 noundef %3) #25
+  switch i32 %23, label %.backedge [
+    i32 2, label %24
+    i32 3, label %25
   ]
 
-31:                                               ; preds = %28
+24:                                               ; preds = %.tail21.thread
   call void %1(ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef %3) #25, !callees !11
   br label %.backedge
 
-32:                                               ; preds = %28
+25:                                               ; preds = %.tail21.thread
   call fastcc void @walkdir(ptr noundef nonnull %5, ptr noundef %1, i1 noundef zeroext false, i32 noundef %3)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %4
-  %33 = icmp eq ptr %6, null
-  br i1 %33, label %FreeDir.exit.thread, label %34
+  %26 = icmp eq ptr %6, null
+  br i1 %26, label %FreeDir.exit.thread, label %27
 
-34:                                               ; preds = %._crit_edge
-  %35 = load i32, ptr @numAllocatedDescs, align 4
-  %36 = add i32 %35, -1
-  %37 = icmp sgt i32 %36, -1
-  br i1 %37, label %.lr.ph.i, label %._crit_edge.i
+27:                                               ; preds = %._crit_edge
+  %28 = load i32, ptr @numAllocatedDescs, align 4
+  %29 = add i32 %28, -1
+  %30 = icmp sgt i32 %29, -1
+  br i1 %30, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %34
-  %38 = load ptr, ptr @allocatedDescs, align 8
-  %39 = zext nneg i32 %36 to i64
-  br label %40
+.lr.ph.i:                                         ; preds = %27
+  %31 = load ptr, ptr @allocatedDescs, align 8
+  %32 = zext nneg i32 %29 to i64
+  br label %33
 
-40:                                               ; preds = %50, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %39, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
-  %41 = getelementptr %struct.AllocateDesc, ptr %38, i64 %indvars.iv.i
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp eq i32 %42, 2
-  br i1 %43, label %44, label %50
+33:                                               ; preds = %43, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %32, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
+  %34 = getelementptr %struct.AllocateDesc, ptr %31, i64 %indvars.iv.i
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp eq i32 %35, 2
+  br i1 %36, label %37, label %43
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %41, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, %6
-  br i1 %47, label %48, label %50
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, %6
+  br i1 %40, label %41, label %43
 
-48:                                               ; preds = %44
-  %49 = call fastcc i32 @FreeDesc(ptr noundef nonnull %41)
+41:                                               ; preds = %37
+  %42 = call fastcc i32 @FreeDesc(ptr noundef nonnull %34)
   br label %FreeDir.exit
 
-50:                                               ; preds = %44, %40
+43:                                               ; preds = %37, %33
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %51 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %51, label %40, label %._crit_edge.i, !llvm.loop !12
+  %44 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %44, label %33, label %._crit_edge.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %50, %34
-  %52 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
-  br i1 %52, label %53, label %55
+._crit_edge.i:                                    ; preds = %43, %27
+  %45 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
+  br i1 %45, label %46, label %48
 
-53:                                               ; preds = %._crit_edge.i
-  %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32) #25
+46:                                               ; preds = %._crit_edge.i
+  %47 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32) #25
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2981, ptr noundef nonnull @__func__.FreeDir) #25
-  br label %55
+  br label %48
 
-55:                                               ; preds = %53, %._crit_edge.i
-  %56 = call i32 @closedir(ptr noundef nonnull %6)
+48:                                               ; preds = %46, %._crit_edge.i
+  %49 = call i32 @closedir(ptr noundef nonnull %6)
   br label %FreeDir.exit
 
-FreeDir.exit:                                     ; preds = %55, %48
+FreeDir.exit:                                     ; preds = %48, %41
   call void %1(ptr noundef %0, i1 noundef zeroext true, i32 noundef %3) #25, !callees !11
   br label %FreeDir.exit.thread
 
@@ -2313,12 +2304,12 @@ define dso_local range(i32 5, 4) i32 @FilePrefetch(i32 noundef %0, i64 noundef %
   br i1 %15, label %8, label %.loopexit
 
 .loopexit:                                        ; preds = %8, %4
-  %.0 = phi i32 [ %5, %4 ], [ %13, %8 ]
+  %.0 = phi i32 [ -1, %4 ], [ %13, %8 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @FileAccess(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @FileAccess(i32 noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr @VfdCache, align 8
   %3 = sext i32 %0 to i64
   %4 = getelementptr %struct.vfd, ptr %2, i64 %3
@@ -2459,56 +2450,52 @@ define dso_local void @FileWriteback(i32 noundef %0, i64 noundef %1, i64 noundef
 define dso_local i64 @FileReadV(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @FileAccess(i32 noundef %0)
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %10
+  br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  %9 = sext i32 %6 to i64
-  br label %.loopexit
+  %9 = load ptr, ptr @VfdCache, align 8
+  %10 = sext i32 %0 to i64
+  %11 = getelementptr %struct.vfd, ptr %9, i64 %10
+  %12 = icmp eq i32 %2, 1
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  br i1 %12, label %pg_preadv.exit.us, label %pg_preadv.exit
 
-10:                                               ; preds = %5
-  %11 = load ptr, ptr @VfdCache, align 8
-  %12 = sext i32 %0 to i64
-  %13 = getelementptr %struct.vfd, ptr %11, i64 %12
-  %14 = icmp eq i32 %2, 1
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %14, label %pg_preadv.exit.us, label %pg_preadv.exit
+pg_preadv.exit.us:                                ; preds = %8, %21
+  %14 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 %4, ptr %14, align 4
+  %15 = load i32, ptr %11, align 8
+  %16 = load ptr, ptr %1, align 8
+  %17 = load i64, ptr %13, align 8
+  %18 = tail call i64 @pread(i32 noundef %15, ptr noundef %16, i64 noundef %17, i64 noundef %3) #25
+  %19 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %19, align 4
+  %20 = icmp slt i64 %18, 0
+  br i1 %20, label %21, label %.loopexit
 
-pg_preadv.exit.us:                                ; preds = %10, %23
-  %16 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 %4, ptr %16, align 4
-  %17 = load i32, ptr %13, align 8
-  %18 = load ptr, ptr %1, align 8
-  %19 = load i64, ptr %15, align 8
-  %20 = tail call i64 @pread(i32 noundef %17, ptr noundef %18, i64 noundef %19, i64 noundef %3) #25
-  %21 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %21, align 4
-  %22 = icmp slt i64 %20, 0
-  br i1 %22, label %23, label %.loopexit
+21:                                               ; preds = %pg_preadv.exit.us
+  %22 = tail call ptr @__errno_location() #26
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp eq i32 %23, 4
+  br i1 %24, label %pg_preadv.exit.us, label %.loopexit
 
-23:                                               ; preds = %pg_preadv.exit.us
-  %24 = tail call ptr @__errno_location() #26
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp eq i32 %25, 4
-  br i1 %26, label %pg_preadv.exit.us, label %.loopexit
+pg_preadv.exit:                                   ; preds = %8, %30
+  %25 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 %4, ptr %25, align 4
+  %26 = load i32, ptr %11, align 8
+  %27 = tail call i64 @preadv(i32 noundef %26, ptr noundef %1, i32 noundef %2, i64 noundef %3) #25
+  %28 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %28, align 4
+  %29 = icmp slt i64 %27, 0
+  br i1 %29, label %30, label %.loopexit
 
-pg_preadv.exit:                                   ; preds = %10, %32
-  %27 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 %4, ptr %27, align 4
-  %28 = load i32, ptr %13, align 8
-  %29 = tail call i64 @preadv(i32 noundef %28, ptr noundef %1, i32 noundef %2, i64 noundef %3) #25
-  %30 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %30, align 4
-  %31 = icmp slt i64 %29, 0
-  br i1 %31, label %32, label %.loopexit
+30:                                               ; preds = %pg_preadv.exit
+  %31 = tail call ptr @__errno_location() #26
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp eq i32 %32, 4
+  br i1 %33, label %pg_preadv.exit, label %.loopexit
 
-32:                                               ; preds = %pg_preadv.exit
-  %33 = tail call ptr @__errno_location() #26
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %34, 4
-  br i1 %35, label %pg_preadv.exit, label %.loopexit
-
-.loopexit:                                        ; preds = %32, %pg_preadv.exit, %23, %pg_preadv.exit.us, %8
-  %.0 = phi i64 [ %9, %8 ], [ %20, %pg_preadv.exit.us ], [ %20, %23 ], [ %29, %pg_preadv.exit ], [ %29, %32 ]
+.loopexit:                                        ; preds = %30, %pg_preadv.exit, %21, %pg_preadv.exit.us, %5
+  %.0 = phi i64 [ -1, %5 ], [ %18, %pg_preadv.exit.us ], [ %18, %21 ], [ %27, %pg_preadv.exit ], [ %27, %30 ]
   ret i64 %.0
 }
 
@@ -2516,30 +2503,26 @@ pg_preadv.exit:                                   ; preds = %10, %32
 define dso_local i64 @FileWriteV(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @FileAccess(i32 noundef %0)
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %10
+  br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  %9 = sext i32 %6 to i64
-  br label %.loopexit
+  %9 = load ptr, ptr @VfdCache, align 8
+  %10 = sext i32 %0 to i64
+  %11 = getelementptr %struct.vfd, ptr %9, i64 %10
+  %12 = load i32, ptr @temp_file_limit, align 4
+  %13 = icmp sgt i32 %12, -1
+  br i1 %13, label %14, label %37
 
-10:                                               ; preds = %5
-  %11 = load ptr, ptr @VfdCache, align 8
-  %12 = sext i32 %0 to i64
-  %13 = getelementptr %struct.vfd, ptr %11, i64 %12
-  %14 = load i32, ptr @temp_file_limit, align 4
-  %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %16, label %39
+14:                                               ; preds = %8
+  %15 = getelementptr inbounds i8, ptr %11, i64 4
+  %16 = load i16, ptr %15, align 4
+  %17 = and i16 %16, 4
+  %.not = icmp eq i16 %17, 0
+  br i1 %.not, label %37, label %.preheader
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %13, i64 4
-  %18 = load i16, ptr %17, align 4
-  %19 = and i16 %18, 4
-  %.not = icmp eq i16 %19, 0
-  br i1 %.not, label %39, label %.preheader
-
-.preheader:                                       ; preds = %16
-  %20 = icmp sgt i32 %2, 0
-  br i1 %20, label %.lr.ph.preheader, label %._crit_edge
+.preheader:                                       ; preds = %14
+  %18 = icmp sgt i32 %2, 0
+  br i1 %18, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -2547,105 +2530,105 @@ define dso_local i64 @FileWriteV(i32 noundef %0, ptr noundef %1, i32 noundef %2,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03544 = phi i64 [ %3, %.lr.ph.preheader ], [ %23, %.lr.ph ]
-  %21 = getelementptr %struct.iovec, ptr %1, i64 %indvars.iv, i32 1
-  %22 = load i64, ptr %21, align 8
-  %23 = add i64 %22, %.03544
+  %.03544 = phi i64 [ %3, %.lr.ph.preheader ], [ %21, %.lr.ph ]
+  %19 = getelementptr %struct.iovec, ptr %1, i64 %indvars.iv, i32 1
+  %20 = load i64, ptr %19, align 8
+  %21 = add i64 %20, %.03544
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.035.lcssa = phi i64 [ %3, %.preheader ], [ %23, %.lr.ph ]
-  %24 = getelementptr inbounds i8, ptr %13, i64 32
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp sgt i64 %.035.lcssa, %25
-  br i1 %26, label %27, label %39
+  %.035.lcssa = phi i64 [ %3, %.preheader ], [ %21, %.lr.ph ]
+  %22 = getelementptr inbounds i8, ptr %11, i64 32
+  %23 = load i64, ptr %22, align 8
+  %24 = icmp sgt i64 %.035.lcssa, %23
+  br i1 %24, label %25, label %37
 
-27:                                               ; preds = %._crit_edge
-  %28 = load i64, ptr @temporary_files_size, align 8
-  %29 = sub i64 %.035.lcssa, %25
-  %30 = add i64 %29, %28
-  %31 = zext nneg i32 %14 to i64
-  %32 = shl nuw nsw i64 %31, 10
-  %33 = icmp ugt i64 %30, %32
-  br i1 %33, label %34, label %39
+25:                                               ; preds = %._crit_edge
+  %26 = load i64, ptr @temporary_files_size, align 8
+  %27 = sub i64 %.035.lcssa, %23
+  %28 = add i64 %27, %26
+  %29 = zext nneg i32 %12 to i64
+  %30 = shl nuw nsw i64 %29, 10
+  %31 = icmp ugt i64 %28, %30
+  br i1 %31, label %32, label %37
 
-34:                                               ; preds = %27
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 @errcode(i32 noundef 16581) #25
-  %37 = load i32, ptr @temp_file_limit, align 4
-  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, i32 noundef %37) #25
+32:                                               ; preds = %25
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #27
+  tail call void @llvm.assume(i1 %33)
+  %34 = tail call i32 @errcode(i32 noundef 16581) #25
+  %35 = load i32, ptr @temp_file_limit, align 4
+  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, i32 noundef %35) #25
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2235, ptr noundef nonnull @__func__.FileWriteV) #25
   unreachable
 
-39:                                               ; preds = %._crit_edge, %27, %16, %10
-  %40 = icmp eq i32 %2, 1
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
-  br i1 %40, label %pg_pwritev.exit.us, label %pg_pwritev.exit
+37:                                               ; preds = %._crit_edge, %25, %14, %8
+  %38 = icmp eq i32 %2, 1
+  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  br i1 %38, label %pg_pwritev.exit.us, label %pg_pwritev.exit
 
-pg_pwritev.exit.us:                               ; preds = %39, %49
-  %42 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 %4, ptr %42, align 4
-  %43 = load i32, ptr %13, align 8
-  %44 = load ptr, ptr %1, align 8
-  %45 = load i64, ptr %41, align 8
-  %46 = tail call i64 @pwrite(i32 noundef %43, ptr noundef %44, i64 noundef %45, i64 noundef %3) #25
-  %47 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %47, align 4
-  %48 = icmp sgt i64 %46, -1
-  br i1 %48, label %.split47.us, label %49
+pg_pwritev.exit.us:                               ; preds = %37, %47
+  %40 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 %4, ptr %40, align 4
+  %41 = load i32, ptr %11, align 8
+  %42 = load ptr, ptr %1, align 8
+  %43 = load i64, ptr %39, align 8
+  %44 = tail call i64 @pwrite(i32 noundef %41, ptr noundef %42, i64 noundef %43, i64 noundef %3) #25
+  %45 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %45, align 4
+  %46 = icmp sgt i64 %44, -1
+  br i1 %46, label %.split47.us, label %47
 
-49:                                               ; preds = %pg_pwritev.exit.us
-  %50 = tail call ptr @__errno_location() #26
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp eq i32 %51, 4
-  br i1 %52, label %pg_pwritev.exit.us, label %.loopexit
+47:                                               ; preds = %pg_pwritev.exit.us
+  %48 = tail call ptr @__errno_location() #26
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, 4
+  br i1 %50, label %pg_pwritev.exit.us, label %.loopexit
 
-pg_pwritev.exit:                                  ; preds = %39, %71
-  %53 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 %4, ptr %53, align 4
-  %54 = load i32, ptr %13, align 8
-  %55 = tail call i64 @pwritev(i32 noundef %54, ptr noundef %1, i32 noundef %2, i64 noundef %3) #25
-  %56 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %56, align 4
-  %57 = icmp sgt i64 %55, -1
-  br i1 %57, label %.split47.us, label %71
+pg_pwritev.exit:                                  ; preds = %37, %69
+  %51 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 %4, ptr %51, align 4
+  %52 = load i32, ptr %11, align 8
+  %53 = tail call i64 @pwritev(i32 noundef %52, ptr noundef %1, i32 noundef %2, i64 noundef %3) #25
+  %54 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %54, align 4
+  %55 = icmp sgt i64 %53, -1
+  br i1 %55, label %.split47.us, label %69
 
 .split47.us:                                      ; preds = %pg_pwritev.exit, %pg_pwritev.exit.us
-  %.us-phi = phi i64 [ %46, %pg_pwritev.exit.us ], [ %55, %pg_pwritev.exit ]
-  %58 = tail call ptr @__errno_location() #26
-  store i32 28, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %13, i64 4
-  %60 = load i16, ptr %59, align 4
-  %61 = and i16 %60, 4
-  %.not41 = icmp eq i16 %61, 0
-  br i1 %.not41, label %.loopexit, label %62
+  %.us-phi = phi i64 [ %44, %pg_pwritev.exit.us ], [ %53, %pg_pwritev.exit ]
+  %56 = tail call ptr @__errno_location() #26
+  store i32 28, ptr %56, align 4
+  %57 = getelementptr inbounds i8, ptr %11, i64 4
+  %58 = load i16, ptr %57, align 4
+  %59 = and i16 %58, 4
+  %.not41 = icmp eq i16 %59, 0
+  br i1 %.not41, label %.loopexit, label %60
 
-62:                                               ; preds = %.split47.us
-  %63 = add i64 %.us-phi, %3
-  %64 = getelementptr inbounds i8, ptr %13, i64 32
-  %65 = load i64, ptr %64, align 8
-  %66 = icmp sgt i64 %63, %65
-  br i1 %66, label %67, label %.loopexit
+60:                                               ; preds = %.split47.us
+  %61 = add i64 %.us-phi, %3
+  %62 = getelementptr inbounds i8, ptr %11, i64 32
+  %63 = load i64, ptr %62, align 8
+  %64 = icmp sgt i64 %61, %63
+  br i1 %64, label %65, label %.loopexit
 
-67:                                               ; preds = %62
-  %68 = sub i64 %63, %65
-  %69 = load i64, ptr @temporary_files_size, align 8
-  %70 = add i64 %68, %69
-  store i64 %70, ptr @temporary_files_size, align 8
-  store i64 %63, ptr %64, align 8
+65:                                               ; preds = %60
+  %66 = sub i64 %61, %63
+  %67 = load i64, ptr @temporary_files_size, align 8
+  %68 = add i64 %66, %67
+  store i64 %68, ptr @temporary_files_size, align 8
+  store i64 %61, ptr %62, align 8
   br label %.loopexit
 
-71:                                               ; preds = %pg_pwritev.exit
-  %72 = tail call ptr @__errno_location() #26
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %73, 4
-  br i1 %74, label %pg_pwritev.exit, label %.loopexit
+69:                                               ; preds = %pg_pwritev.exit
+  %70 = tail call ptr @__errno_location() #26
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp eq i32 %71, 4
+  br i1 %72, label %pg_pwritev.exit, label %.loopexit
 
-.loopexit:                                        ; preds = %71, %49, %62, %67, %.split47.us, %8
-  %.0 = phi i64 [ %9, %8 ], [ %.us-phi, %.split47.us ], [ %.us-phi, %67 ], [ %.us-phi, %62 ], [ %46, %49 ], [ %55, %71 ]
+.loopexit:                                        ; preds = %69, %47, %5, %60, %65, %.split47.us
+  %.0 = phi i64 [ %.us-phi, %.split47.us ], [ %.us-phi, %65 ], [ %.us-phi, %60 ], [ -1, %5 ], [ %44, %47 ], [ %53, %69 ]
   ret i64 %.0
 }
 
@@ -2684,12 +2667,12 @@ pg_fsync.exit:                                    ; preds = %.preheader.i.i, %15
   br label %20
 
 20:                                               ; preds = %2, %pg_fsync.exit
-  %.0 = phi i32 [ %.0.i.i, %pg_fsync.exit ], [ %3, %2 ]
+  %.0 = phi i32 [ %.0.i.i, %pg_fsync.exit ], [ -1, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @FileZero(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @FileZero(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @FileAccess(i32 noundef %0)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %22, label %7
@@ -2722,14 +2705,14 @@ define dso_local range(i32 -2147483648, 1) i32 @FileZero(i32 noundef %0, i64 nou
   br label %22
 
 22:                                               ; preds = %16, %17, %21, %7, %4
-  %.0 = phi i32 [ %5, %4 ], [ -1, %7 ], [ -1, %21 ], [ -1, %17 ], [ 0, %16 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %7 ], [ -1, %21 ], [ -1, %17 ], [ 0, %16 ]
   ret i32 %.0
 }
 
 declare i64 @pg_pwrite_zeros(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @FileFallocate(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @FileFallocate(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @FileAccess(i32 noundef %0)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %FileZero.exit, label %.preheader
@@ -2791,7 +2774,7 @@ define dso_local range(i32 -2147483648, 1) i32 @FileFallocate(i32 noundef %0, i6
   br label %FileZero.exit
 
 FileZero.exit:                                    ; preds = %8, %32, %29, %28, %20, %17, %15, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %15 ], [ %18, %17 ], [ -1, %20 ], [ -1, %32 ], [ -1, %29 ], [ 0, %28 ], [ %13, %8 ]
+  %.0 = phi i32 [ -1, %4 ], [ -1, %15 ], [ -1, %17 ], [ -1, %20 ], [ -1, %32 ], [ -1, %29 ], [ 0, %28 ], [ %13, %8 ]
   ret i32 %.0
 }
 
@@ -2883,7 +2866,7 @@ pg_ftruncate.exit:                                ; preds = %12
   br label %30
 
 30:                                               ; preds = %pg_ftruncate.exit.thread, %pg_ftruncate.exit, %22, %27, %3
-  %.0 = phi i32 [ %4, %3 ], [ 0, %27 ], [ 0, %22 ], [ %13, %pg_ftruncate.exit ], [ -1, %pg_ftruncate.exit.thread ]
+  %.0 = phi i32 [ -1, %3 ], [ 0, %27 ], [ 0, %22 ], [ %13, %pg_ftruncate.exit ], [ -1, %pg_ftruncate.exit.thread ]
   ret i32 %.0
 }
 
@@ -4017,102 +4000,93 @@ define dso_local void @RemovePgTempFiles() local_unnamed_addr #0 {
   br i1 %.not11, label %._crit_edge, label %sub_0
 
 sub_0:                                            ; preds = %0, %.backedge
-  %5 = phi ptr [ %22, %.backedge ], [ %4, %0 ]
+  %5 = phi ptr [ %16, %.backedge ], [ %4, %0 ]
   %6 = getelementptr inbounds i8, ptr %5, i64 19
   %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i32
-  %9 = add nsw i32 %8, -46
-  %.not12 = icmp eq i32 %9, 0
-  br i1 %.not12, label %.tail, label %.tail6
+  %.not12 = icmp eq i8 %7, 46
+  br i1 %.not12, label %.tail, label %.tail6.thread
 
 .tail:                                            ; preds = %sub_0
-  %10 = getelementptr inbounds i8, ptr %5, i64 20
-  %11 = load i8, ptr %10, align 1
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %.backedge, label %sub_18
+  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %.backedge, label %sub_18
 
 sub_18:                                           ; preds = %.tail
-  %13 = getelementptr inbounds i8, ptr %5, i64 20
+  %11 = getelementptr inbounds i8, ptr %5, i64 20
+  %12 = load i8, ptr %11, align 1
+  %.not14 = icmp eq i8 %12, 46
+  br i1 %.not14, label %.tail6, label %.tail6.thread
+
+.tail6:                                           ; preds = %sub_18
+  %13 = getelementptr inbounds i8, ptr %5, i64 21
   %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i32
-  %16 = add nsw i32 %15, -46
-  %.not14 = icmp eq i32 %16, 0
-  br i1 %.not14, label %sub_2, label %.tail6
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %.backedge, label %.tail6.thread
 
-sub_2:                                            ; preds = %sub_18
-  %17 = getelementptr inbounds i8, ptr %5, i64 21
-  %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i32
-  br label %.tail6
-
-.tail6:                                           ; preds = %sub_0, %sub_18, %sub_2
-  %20 = phi i32 [ %16, %sub_18 ], [ %19, %sub_2 ], [ %9, %sub_0 ]
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.backedge, label %23
-
-.backedge:                                        ; preds = %.tail, %.tail6, %23
-  %22 = call ptr @ReadDirExtended(ptr noundef %3, ptr noundef nonnull @.str.35, i32 noundef 15)
-  %.not = icmp eq ptr %22, null
+.backedge:                                        ; preds = %.tail, %.tail6, %.tail6.thread
+  %16 = call ptr @ReadDirExtended(ptr noundef %3, ptr noundef nonnull @.str.35, i32 noundef 15)
+  %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !21
 
-23:                                               ; preds = %.tail6
-  %24 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1060, ptr noundef nonnull @.str.38, ptr noundef nonnull %6, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.16) #25
+.tail6.thread:                                    ; preds = %sub_0, %sub_18, %.tail6
+  %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1060, ptr noundef nonnull @.str.38, ptr noundef nonnull %6, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.16) #25
   call void @RemovePgTempFilesInDir(ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext false)
-  %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1060, ptr noundef nonnull @.str.39, ptr noundef nonnull %6, ptr noundef nonnull @.str.18) #25
+  %18 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1060, ptr noundef nonnull @.str.39, ptr noundef nonnull %6, ptr noundef nonnull @.str.18) #25
   call fastcc void @RemovePgTempRelationFiles(ptr noundef nonnull %1)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %0
-  %26 = icmp eq ptr %3, null
-  br i1 %26, label %FreeDir.exit, label %27
+  %19 = icmp eq ptr %3, null
+  br i1 %19, label %FreeDir.exit, label %20
 
-27:                                               ; preds = %._crit_edge
-  %28 = load i32, ptr @numAllocatedDescs, align 4
-  %29 = add i32 %28, -1
-  %30 = icmp sgt i32 %29, -1
-  br i1 %30, label %.lr.ph.i, label %._crit_edge.i
+20:                                               ; preds = %._crit_edge
+  %21 = load i32, ptr @numAllocatedDescs, align 4
+  %22 = add i32 %21, -1
+  %23 = icmp sgt i32 %22, -1
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %27
-  %31 = load ptr, ptr @allocatedDescs, align 8
-  %32 = zext nneg i32 %29 to i64
-  br label %33
+.lr.ph.i:                                         ; preds = %20
+  %24 = load ptr, ptr @allocatedDescs, align 8
+  %25 = zext nneg i32 %22 to i64
+  br label %26
 
-33:                                               ; preds = %43, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %32, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
-  %34 = getelementptr %struct.AllocateDesc, ptr %31, i64 %indvars.iv.i
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %35, 2
-  br i1 %36, label %37, label %43
+26:                                               ; preds = %36, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %25, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
+  %27 = getelementptr %struct.AllocateDesc, ptr %24, i64 %indvars.iv.i
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp eq i32 %28, 2
+  br i1 %29, label %30, label %36
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %34, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, %3
-  br i1 %40, label %41, label %43
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %32, %3
+  br i1 %33, label %34, label %36
 
-41:                                               ; preds = %37
-  %42 = call fastcc i32 @FreeDesc(ptr noundef nonnull %34)
+34:                                               ; preds = %30
+  %35 = call fastcc i32 @FreeDesc(ptr noundef nonnull %27)
   br label %FreeDir.exit
 
-43:                                               ; preds = %37, %33
+36:                                               ; preds = %30, %26
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %44 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %44, label %33, label %._crit_edge.i, !llvm.loop !12
+  %37 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %37, label %26, label %._crit_edge.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %43, %27
-  %45 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
-  br i1 %45, label %46, label %48
+._crit_edge.i:                                    ; preds = %36, %20
+  %38 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
+  br i1 %38, label %39, label %41
 
-46:                                               ; preds = %._crit_edge.i
-  %47 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32) #25
+39:                                               ; preds = %._crit_edge.i
+  %40 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32) #25
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2981, ptr noundef nonnull @__func__.FreeDir) #25
-  br label %48
+  br label %41
 
-48:                                               ; preds = %46, %._crit_edge.i
-  %49 = call i32 @closedir(ptr noundef nonnull %3)
+41:                                               ; preds = %39, %._crit_edge.i
+  %42 = call i32 @closedir(ptr noundef nonnull %3)
   br label %FreeDir.exit
 
-FreeDir.exit:                                     ; preds = %._crit_edge, %41, %48
+FreeDir.exit:                                     ; preds = %._crit_edge, %34, %41
   ret void
 }
 
@@ -4136,146 +4110,137 @@ define dso_local void @RemovePgTempFilesInDir(ptr noundef %0, i1 noundef zeroext
   br i1 %.not23, label %._crit_edge, label %sub_0
 
 sub_0:                                            ; preds = %11, %.backedge
-  %13 = phi ptr [ %32, %.backedge ], [ %12, %11 ]
+  %13 = phi ptr [ %26, %.backedge ], [ %12, %11 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 19
   %15 = load i8, ptr %14, align 1
-  %16 = zext i8 %15 to i32
-  %17 = add nsw i32 %16, -46
-  %.not24 = icmp eq i32 %17, 0
-  br i1 %.not24, label %.tail, label %.tail18
+  %.not24 = icmp eq i8 %15, 46
+  br i1 %.not24, label %.tail, label %.tail18.thread
 
 .tail:                                            ; preds = %sub_0
-  %18 = getelementptr inbounds i8, ptr %13, i64 20
-  %19 = load i8, ptr %18, align 1
-  %20 = icmp eq i8 %19, 0
-  br i1 %20, label %.backedge, label %sub_120
+  %16 = getelementptr inbounds i8, ptr %13, i64 20
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %.backedge, label %sub_120
 
 sub_120:                                          ; preds = %.tail
-  %21 = getelementptr inbounds i8, ptr %13, i64 20
+  %19 = getelementptr inbounds i8, ptr %13, i64 20
+  %20 = load i8, ptr %19, align 1
+  %.not26 = icmp eq i8 %20, 46
+  br i1 %.not26, label %.tail18, label %.tail18.thread
+
+.tail18:                                          ; preds = %sub_120
+  %21 = getelementptr inbounds i8, ptr %13, i64 21
   %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = add nsw i32 %23, -46
-  %.not26 = icmp eq i32 %24, 0
-  br i1 %.not26, label %sub_2, label %.tail18
+  %23 = icmp eq i8 %22, 0
+  br i1 %23, label %.backedge, label %.tail18.thread
 
-sub_2:                                            ; preds = %sub_120
-  %25 = getelementptr inbounds i8, ptr %13, i64 21
-  %26 = load i8, ptr %25, align 1
-  %27 = zext i8 %26 to i32
-  br label %.tail18
-
-.tail18:                                          ; preds = %sub_0, %sub_120, %sub_2
-  %28 = phi i32 [ %24, %sub_120 ], [ %27, %sub_2 ], [ %17, %sub_0 ]
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.backedge, label %33
-
-.backedge.sink.split.sink.split:                  ; preds = %48, %43
-  %.str.41.sink.ph = phi ptr [ @.str.41, %43 ], [ @.str.7, %48 ]
-  %.sink.ph = phi i32 [ 3371, %43 ], [ 3379, %48 ]
-  %30 = call i32 @errcode_for_file_access() #25
+.backedge.sink.split.sink.split:                  ; preds = %41, %36
+  %.str.41.sink.ph = phi ptr [ @.str.41, %36 ], [ @.str.7, %41 ]
+  %.sink.ph = phi i32 [ 3371, %36 ], [ 3379, %41 ]
+  %24 = call i32 @errcode_for_file_access() #25
   br label %.backedge.sink.split
 
-.backedge.sink.split:                             ; preds = %.backedge.sink.split.sink.split, %50
-  %.str.41.sink = phi ptr [ @.str.42, %50 ], [ %.str.41.sink.ph, %.backedge.sink.split.sink.split ]
-  %.sink = phi i32 [ 3385, %50 ], [ %.sink.ph, %.backedge.sink.split.sink.split ]
-  %31 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.41.sink, ptr noundef nonnull %4) #25
+.backedge.sink.split:                             ; preds = %.backedge.sink.split.sink.split, %43
+  %.str.41.sink = phi ptr [ @.str.42, %43 ], [ %.str.41.sink.ph, %.backedge.sink.split.sink.split ]
+  %.sink = phi i32 [ 3385, %43 ], [ %.sink.ph, %.backedge.sink.split.sink.split ]
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.41.sink, ptr noundef nonnull %4) #25
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.RemovePgTempFilesInDir) #25
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %43, %40, %48, %45, %50, %.tail, %.tail18, %38
-  %32 = call ptr @ReadDirExtended(ptr noundef %5, ptr noundef %0, i32 noundef 15)
-  %.not = icmp eq ptr %32, null
+.backedge:                                        ; preds = %.backedge.sink.split, %36, %33, %41, %38, %43, %.tail, %.tail18, %31
+  %26 = call ptr @ReadDirExtended(ptr noundef %5, ptr noundef %0, i32 noundef 15)
+  %.not = icmp eq ptr %26, null
   br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !22
 
-33:                                               ; preds = %.tail18
-  %34 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull %14) #25
-  br i1 %2, label %38, label %35
+.tail18.thread:                                   ; preds = %sub_0, %sub_120, %.tail18
+  %27 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull %14) #25
+  br i1 %2, label %31, label %28
 
-35:                                               ; preds = %33
-  %36 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(10) @.str.16, i64 noundef 9) #30
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %50
+28:                                               ; preds = %.tail18.thread
+  %29 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(10) @.str.16, i64 noundef 9) #30
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %43
 
-38:                                               ; preds = %35, %33
-  %39 = call i32 @get_dirent_type(ptr noundef nonnull %4, ptr noundef nonnull %13, i1 noundef zeroext false, i32 noundef 15) #25
-  switch i32 %39, label %45 [
+31:                                               ; preds = %28, %.tail18.thread
+  %32 = call i32 @get_dirent_type(ptr noundef nonnull %4, ptr noundef nonnull %13, i1 noundef zeroext false, i32 noundef 15) #25
+  switch i32 %32, label %38 [
     i32 0, label %.backedge
-    i32 3, label %40
+    i32 3, label %33
   ]
 
-40:                                               ; preds = %38
+33:                                               ; preds = %31
   call void @RemovePgTempFilesInDir(ptr noundef nonnull %4, i1 noundef zeroext false, i1 noundef zeroext true)
-  %41 = call i32 @rmdir(ptr noundef nonnull %4) #25
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %.backedge
+  %34 = call i32 @rmdir(ptr noundef nonnull %4) #25
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %36, label %.backedge
 
-43:                                               ; preds = %40
+36:                                               ; preds = %33
+  %37 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #25
+  br i1 %37, label %.backedge.sink.split.sink.split, label %.backedge
+
+38:                                               ; preds = %31
+  %39 = call i32 @unlink(ptr noundef nonnull %4) #25
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %41, label %.backedge
+
+41:                                               ; preds = %38
+  %42 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #25
+  br i1 %42, label %.backedge.sink.split.sink.split, label %.backedge
+
+43:                                               ; preds = %28
   %44 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #25
-  br i1 %44, label %.backedge.sink.split.sink.split, label %.backedge
-
-45:                                               ; preds = %38
-  %46 = call i32 @unlink(ptr noundef nonnull %4) #25
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %48, label %.backedge
-
-48:                                               ; preds = %45
-  %49 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #25
-  br i1 %49, label %.backedge.sink.split.sink.split, label %.backedge
-
-50:                                               ; preds = %35
-  %51 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #25
-  br i1 %51, label %.backedge.sink.split, label %.backedge
+  br i1 %44, label %.backedge.sink.split, label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %11
-  br i1 %6, label %FreeDir.exit, label %52
+  br i1 %6, label %FreeDir.exit, label %45
 
-52:                                               ; preds = %._crit_edge
-  %53 = load i32, ptr @numAllocatedDescs, align 4
-  %54 = add i32 %53, -1
-  %55 = icmp sgt i32 %54, -1
-  br i1 %55, label %.lr.ph.i, label %._crit_edge.i
+45:                                               ; preds = %._crit_edge
+  %46 = load i32, ptr @numAllocatedDescs, align 4
+  %47 = add i32 %46, -1
+  %48 = icmp sgt i32 %47, -1
+  br i1 %48, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %52
-  %56 = load ptr, ptr @allocatedDescs, align 8
-  %57 = zext nneg i32 %54 to i64
-  br label %58
+.lr.ph.i:                                         ; preds = %45
+  %49 = load ptr, ptr @allocatedDescs, align 8
+  %50 = zext nneg i32 %47 to i64
+  br label %51
 
-58:                                               ; preds = %68, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %57, %.lr.ph.i ], [ %indvars.iv.next.i, %68 ]
-  %59 = getelementptr %struct.AllocateDesc, ptr %56, i64 %indvars.iv.i
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp eq i32 %60, 2
-  br i1 %61, label %62, label %68
+51:                                               ; preds = %61, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %50, %.lr.ph.i ], [ %indvars.iv.next.i, %61 ]
+  %52 = getelementptr %struct.AllocateDesc, ptr %49, i64 %indvars.iv.i
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp eq i32 %53, 2
+  br i1 %54, label %55, label %61
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %59, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, %5
-  br i1 %65, label %66, label %68
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds i8, ptr %52, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, %5
+  br i1 %58, label %59, label %61
 
-66:                                               ; preds = %62
-  %67 = call fastcc i32 @FreeDesc(ptr noundef nonnull %59)
+59:                                               ; preds = %55
+  %60 = call fastcc i32 @FreeDesc(ptr noundef nonnull %52)
   br label %FreeDir.exit
 
-68:                                               ; preds = %62, %58
+61:                                               ; preds = %55, %51
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %69 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %69, label %58, label %._crit_edge.i, !llvm.loop !12
+  %62 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %62, label %51, label %._crit_edge.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %68, %52
-  %70 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
-  br i1 %70, label %71, label %73
+._crit_edge.i:                                    ; preds = %61, %45
+  %63 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
+  br i1 %63, label %64, label %66
 
-71:                                               ; preds = %._crit_edge.i
-  %72 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32) #25
+64:                                               ; preds = %._crit_edge.i
+  %65 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32) #25
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2981, ptr noundef nonnull @__func__.FreeDir) #25
-  br label %73
+  br label %66
 
-73:                                               ; preds = %71, %._crit_edge.i
-  %74 = call i32 @closedir(ptr noundef nonnull %5)
+66:                                               ; preds = %64, %._crit_edge.i
+  %67 = call i32 @closedir(ptr noundef nonnull %5)
   br label %FreeDir.exit
 
-FreeDir.exit:                                     ; preds = %73, %66, %._crit_edge, %7
+FreeDir.exit:                                     ; preds = %66, %59, %._crit_edge, %7
   ret void
 }
 
@@ -4689,7 +4654,7 @@ define dso_local void @SyncDataDirectory() local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = load i8, ptr @enableFsync, align 1
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %5, label %72
+  br i1 %4, label %5, label %65
 
 5:                                                ; preds = %0
   %6 = call i32 @lstat(ptr noundef nonnull @.str.43, ptr noundef nonnull %1) #25
@@ -4718,7 +4683,7 @@ define dso_local void @SyncDataDirectory() local_unnamed_addr #0 {
   %19 = load i32, ptr @recovery_init_sync_method, align 4
   %20 = icmp eq i32 %19, 1
   tail call void @begin_startup_progress_phase() #25
-  br i1 %20, label %21, label %69
+  br i1 %20, label %21, label %62
 
 21:                                               ; preds = %18
   tail call fastcc void @do_syncfs(ptr noundef nonnull @.str.36)
@@ -4728,129 +4693,120 @@ define dso_local void @SyncDataDirectory() local_unnamed_addr #0 {
   br i1 %.not13, label %._crit_edge, label %sub_0
 
 sub_0:                                            ; preds = %21, %.backedge
-  %24 = phi ptr [ %41, %.backedge ], [ %23, %21 ]
+  %24 = phi ptr [ %35, %.backedge ], [ %23, %21 ]
   %25 = getelementptr inbounds i8, ptr %24, i64 19
   %26 = load i8, ptr %25, align 1
-  %27 = zext i8 %26 to i32
-  %28 = add nsw i32 %27, -46
-  %.not14 = icmp eq i32 %28, 0
-  br i1 %.not14, label %.tail, label %.tail8
+  %.not14 = icmp eq i8 %26, 46
+  br i1 %.not14, label %.tail, label %.tail8.thread
 
 .tail:                                            ; preds = %sub_0
-  %29 = getelementptr inbounds i8, ptr %24, i64 20
-  %30 = load i8, ptr %29, align 1
-  %31 = icmp eq i8 %30, 0
-  br i1 %31, label %.backedge, label %sub_110
+  %27 = getelementptr inbounds i8, ptr %24, i64 20
+  %28 = load i8, ptr %27, align 1
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %.backedge, label %sub_110
 
 sub_110:                                          ; preds = %.tail
-  %32 = getelementptr inbounds i8, ptr %24, i64 20
+  %30 = getelementptr inbounds i8, ptr %24, i64 20
+  %31 = load i8, ptr %30, align 1
+  %.not16 = icmp eq i8 %31, 46
+  br i1 %.not16, label %.tail8, label %.tail8.thread
+
+.tail8:                                           ; preds = %sub_110
+  %32 = getelementptr inbounds i8, ptr %24, i64 21
   %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = add nsw i32 %34, -46
-  %.not16 = icmp eq i32 %35, 0
-  br i1 %.not16, label %sub_2, label %.tail8
+  %34 = icmp eq i8 %33, 0
+  br i1 %34, label %.backedge, label %.tail8.thread
 
-sub_2:                                            ; preds = %sub_110
-  %36 = getelementptr inbounds i8, ptr %24, i64 21
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  br label %.tail8
-
-.tail8:                                           ; preds = %sub_0, %sub_110, %sub_2
-  %39 = phi i32 [ %35, %sub_110 ], [ %38, %sub_2 ], [ %28, %sub_0 ]
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.backedge, label %42
-
-.backedge:                                        ; preds = %.tail, %.tail8, %42
-  %41 = call ptr @ReadDirExtended(ptr noundef %22, ptr noundef nonnull @.str.35, i32 noundef 15)
-  %.not = icmp eq ptr %41, null
+.backedge:                                        ; preds = %.tail, %.tail8, %.tail8.thread
+  %35 = call ptr @ReadDirExtended(ptr noundef %22, ptr noundef nonnull @.str.35, i32 noundef 15)
+  %.not = icmp eq ptr %35, null
   br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !28
 
-42:                                               ; preds = %.tail8
-  %43 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.44, ptr noundef nonnull %25) #25
+.tail8.thread:                                    ; preds = %sub_0, %sub_110, %.tail8
+  %36 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.44, ptr noundef nonnull %25) #25
   call fastcc void @do_syncfs(ptr noundef nonnull %2)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %21
-  %44 = icmp eq ptr %22, null
-  br i1 %44, label %FreeDir.exit, label %45
+  %37 = icmp eq ptr %22, null
+  br i1 %37, label %FreeDir.exit, label %38
 
-45:                                               ; preds = %._crit_edge
-  %46 = load i32, ptr @numAllocatedDescs, align 4
-  %47 = add i32 %46, -1
-  %48 = icmp sgt i32 %47, -1
-  br i1 %48, label %.lr.ph.i, label %._crit_edge.i
+38:                                               ; preds = %._crit_edge
+  %39 = load i32, ptr @numAllocatedDescs, align 4
+  %40 = add i32 %39, -1
+  %41 = icmp sgt i32 %40, -1
+  br i1 %41, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %45
-  %49 = load ptr, ptr @allocatedDescs, align 8
-  %50 = zext nneg i32 %47 to i64
-  br label %51
+.lr.ph.i:                                         ; preds = %38
+  %42 = load ptr, ptr @allocatedDescs, align 8
+  %43 = zext nneg i32 %40 to i64
+  br label %44
 
-51:                                               ; preds = %61, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %50, %.lr.ph.i ], [ %indvars.iv.next.i, %61 ]
-  %52 = getelementptr %struct.AllocateDesc, ptr %49, i64 %indvars.iv.i
-  %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, 2
-  br i1 %54, label %55, label %61
+44:                                               ; preds = %54, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %43, %.lr.ph.i ], [ %indvars.iv.next.i, %54 ]
+  %45 = getelementptr %struct.AllocateDesc, ptr %42, i64 %indvars.iv.i
+  %46 = load i32, ptr %45, align 8
+  %47 = icmp eq i32 %46, 2
+  br i1 %47, label %48, label %54
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %52, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, %22
-  br i1 %58, label %59, label %61
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds i8, ptr %45, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, %22
+  br i1 %51, label %52, label %54
 
-59:                                               ; preds = %55
-  %60 = call fastcc i32 @FreeDesc(ptr noundef nonnull %52)
+52:                                               ; preds = %48
+  %53 = call fastcc i32 @FreeDesc(ptr noundef nonnull %45)
   br label %FreeDir.exit
 
-61:                                               ; preds = %55, %51
+54:                                               ; preds = %48, %44
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %62 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %62, label %51, label %._crit_edge.i, !llvm.loop !12
+  %55 = icmp sgt i64 %indvars.iv.i, 0
+  br i1 %55, label %44, label %._crit_edge.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %61, %45
-  %63 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
-  br i1 %63, label %64, label %66
+._crit_edge.i:                                    ; preds = %54, %38
+  %56 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #25
+  br i1 %56, label %57, label %59
 
-64:                                               ; preds = %._crit_edge.i
-  %65 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32) #25
+57:                                               ; preds = %._crit_edge.i
+  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32) #25
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2981, ptr noundef nonnull @__func__.FreeDir) #25
-  br label %66
+  br label %59
 
-66:                                               ; preds = %64, %._crit_edge.i
-  %67 = call i32 @closedir(ptr noundef nonnull %22)
+59:                                               ; preds = %57, %._crit_edge.i
+  %60 = call i32 @closedir(ptr noundef nonnull %22)
   br label %FreeDir.exit
 
-FreeDir.exit:                                     ; preds = %._crit_edge, %59, %66
-  br i1 %.0, label %68, label %72
+FreeDir.exit:                                     ; preds = %._crit_edge, %52, %59
+  br i1 %.0, label %61, label %65
 
-68:                                               ; preds = %FreeDir.exit
+61:                                               ; preds = %FreeDir.exit
   call fastcc void @do_syncfs(ptr noundef nonnull @.str.43)
-  br label %72
+  br label %65
 
-69:                                               ; preds = %18
+62:                                               ; preds = %18
   tail call fastcc void @walkdir(ptr noundef nonnull @.str.36, ptr noundef nonnull @pre_sync_fname, i1 noundef zeroext false, i32 noundef 14)
-  br i1 %.0, label %70, label %.critedge
+  br i1 %.0, label %63, label %.critedge
 
-70:                                               ; preds = %69
+63:                                               ; preds = %62
   tail call fastcc void @walkdir(ptr noundef nonnull @.str.43, ptr noundef nonnull @pre_sync_fname, i1 noundef zeroext false, i32 noundef 14)
   tail call fastcc void @walkdir(ptr noundef nonnull @.str.35, ptr noundef nonnull @pre_sync_fname, i1 noundef zeroext true, i32 noundef 14)
   tail call void @begin_startup_progress_phase() #25
   tail call fastcc void @walkdir(ptr noundef nonnull @.str.36, ptr noundef nonnull @datadir_fsync_fname, i1 noundef zeroext false, i32 noundef 15)
-  br label %71
+  br label %64
 
-.critedge:                                        ; preds = %69
+.critedge:                                        ; preds = %62
   tail call fastcc void @walkdir(ptr noundef nonnull @.str.35, ptr noundef nonnull @pre_sync_fname, i1 noundef zeroext true, i32 noundef 14)
   tail call void @begin_startup_progress_phase() #25
-  br label %71
+  br label %64
 
-71:                                               ; preds = %.critedge, %70
-  %.str.36.sink = phi ptr [ @.str.36, %.critedge ], [ @.str.43, %70 ]
+64:                                               ; preds = %.critedge, %63
+  %.str.36.sink = phi ptr [ @.str.36, %.critedge ], [ @.str.43, %63 ]
   tail call fastcc void @walkdir(ptr noundef nonnull %.str.36.sink, ptr noundef nonnull @datadir_fsync_fname, i1 noundef zeroext false, i32 noundef 15)
   tail call fastcc void @walkdir(ptr noundef nonnull @.str.35, ptr noundef nonnull @datadir_fsync_fname, i1 noundef zeroext true, i32 noundef 15)
-  br label %72
+  br label %65
 
-72:                                               ; preds = %FreeDir.exit, %68, %0, %71
+65:                                               ; preds = %FreeDir.exit, %61, %0, %64
   ret void
 }
 

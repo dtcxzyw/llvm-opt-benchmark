@@ -151,7 +151,7 @@ define noundef zeroext i1 @_ZNK22PreprocessingAtomTypes5isSetEi(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK22PreprocessingAtomTypes4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -50127021939428129, 50127021939428130) i64 @_ZNK22PreprocessingAtomTypes4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -164,7 +164,7 @@ define noundef i64 @_ZNK22PreprocessingAtomTypes4sizeEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK22PreprocessingAtomTypes16atomTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZNK22PreprocessingAtomTypes16atomTypeFromNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -392,7 +392,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK22PreprocessingAtomTypes20atomMassFromAtomTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZNK22PreprocessingAtomTypes20atomMassFromAtomTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp sgt i32 %1, -1
   br i1 %3, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.thread
 
@@ -423,7 +423,7 @@ _ZNK22PreprocessingAtomTypes5isSetEi.exit.thread: ; preds = %2, %_ZNK22Preproces
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK22PreprocessingAtomTypes22atomChargeFromAtomTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZNK22PreprocessingAtomTypes22atomChargeFromAtomTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp sgt i32 %1, -1
   br i1 %3, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.thread
 
@@ -454,7 +454,7 @@ _ZNK22PreprocessingAtomTypes5isSetEi.exit.thread: ; preds = %2, %_ZNK22Preproces
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK22PreprocessingAtomTypes28atomParticleTypeFromAtomTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZNK22PreprocessingAtomTypes28atomParticleTypeFromAtomTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp sgt i32 %1, -1
   br i1 %3, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.thread
 
@@ -485,7 +485,7 @@ _ZNK22PreprocessingAtomTypes5isSetEi.exit.thread: ; preds = %2, %_ZNK22Preproces
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK22PreprocessingAtomTypes24bondAtomTypeFromAtomTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZNK22PreprocessingAtomTypes24bondAtomTypeFromAtomTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp sgt i32 %1, -1
   br i1 %3, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.thread
 
@@ -516,7 +516,7 @@ _ZNK22PreprocessingAtomTypes5isSetEi.exit.thread: ; preds = %2, %_ZNK22Preproces
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp sgt i32 %1, -1
   br i1 %3, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.thread
 
@@ -547,7 +547,7 @@ _ZNK22PreprocessingAtomTypes5isSetEi.exit.thread: ; preds = %2, %_ZNK22Preproces
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK22PreprocessingAtomTypes30atomNonBondedParamFromAtomTypeEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZNK22PreprocessingAtomTypes30atomNonBondedParamFromAtomTypeEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp sgt i32 %1, -1
   br i1 %4, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.thread
 
@@ -1501,7 +1501,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN22PreprocessingAtomTypes7setTypeEiRK6t_atomRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17InteractionOfTypeii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(104) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZN22PreprocessingAtomTypes7setTypeEiRK6t_atomRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK17InteractionOfTypeii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(104) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = icmp sgt i32 %1, -1
   %9 = zext i32 %1 to i64
   br i1 %8, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.thread
@@ -2137,7 +2137,7 @@ define internal fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTy
   %10 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %7, i32 4
   %11 = load i32, ptr %10, align 8
   %12 = add nsw i32 %11, %9
-  %.fr96 = freeze i32 %12
+  %.fr108 = freeze i32 %12
   %13 = ptrtoint ptr %.0.val.8.val to i64
   %14 = ptrtoint ptr %.0.val.0.val to i64
   %15 = sub i64 %13, %14
@@ -2145,9 +2145,9 @@ define internal fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTy
   %16 = sdiv i64 %.fr, 184
   %17 = trunc i64 %16 to i32
   %18 = icmp sgt i32 %6, 0
-  br i1 %18, label %.lr.ph32, label %._crit_edge33
+  br i1 %18, label %.lr.ph31, label %._crit_edge32
 
-.lr.ph32:                                         ; preds = %4
+.lr.ph31:                                         ; preds = %4
   %19 = icmp sgt i32 %17, 0
   %20 = inttoptr i64 %.0.val1 to ptr
   %21 = mul nsw i32 %2, %17
@@ -2155,287 +2155,310 @@ define internal fastcc noundef i32 @_ZL16search_atomtypesPK22PreprocessingAtomTy
   %23 = zext i32 %2 to i64
   %24 = icmp sle i64 %16, %23
   %25 = getelementptr inbounds %struct.AtomTypeData, ptr %.0.val.0.val, i64 %23, i32 4
-  br i1 %19, label %.lr.ph32.split.us, label %._crit_edge33
+  br i1 %19, label %.lr.ph31.split.us, label %._crit_edge32
 
-.lr.ph32.split.us:                                ; preds = %.lr.ph32
-  %26 = icmp sgt i32 %.fr96, 0
-  br i1 %26, label %.lr.ph32.split.us.split.us.preheader, label %.lr.ph32.split.us.split
+.lr.ph31.split.us:                                ; preds = %.lr.ph31
+  %26 = icmp sgt i32 %.fr108, 0
+  br i1 %26, label %.lr.ph31.split.us.split.us.preheader, label %.lr.ph31.split.us.split
 
-.lr.ph32.split.us.split.us.preheader:             ; preds = %.lr.ph32.split.us
-  %27 = zext nneg i32 %.fr96 to i64
+.lr.ph31.split.us.split.us.preheader:             ; preds = %.lr.ph31.split.us
+  %27 = zext nneg i32 %.fr108 to i64
   %28 = sext i32 %21 to i64
   %29 = and i64 %16, 2147483647
-  %wide.trip.count139 = zext nneg i32 %6 to i64
+  %wide.trip.count160 = zext nneg i32 %6 to i64
   %brmerge = or i1 %22, %24
-  %brmerge93 = or i1 %22, %24
-  br label %.lr.ph32.split.us.split.us
+  br label %.lr.ph31.split.us.split.us
 
-.lr.ph32.split.us.split.us:                       ; preds = %.lr.ph32.split.us.split.us.preheader, %._crit_edge16.split.us42.us.thread
-  %indvars.iv136 = phi i64 [ 0, %.lr.ph32.split.us.split.us.preheader ], [ %indvars.iv.next137, %._crit_edge16.split.us42.us.thread ]
-  %30 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv136
+.lr.ph31.split.us.split.us:                       ; preds = %.lr.ph31.split.us.split.us.preheader, %._crit_edge15.split.us41.us.thread
+  %indvars.iv157 = phi i64 [ 0, %.lr.ph31.split.us.split.us.preheader ], [ %indvars.iv.next158, %._crit_edge15.split.us41.us.thread ]
+  %30 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv157
   %31 = load i32, ptr %30, align 4
-  %.fr102 = freeze i32 %31
-  %32 = icmp eq i32 %.fr102, %2
-  br i1 %32, label %._crit_edge33.loopexit, label %.preheader.us.us
+  %.fr114 = freeze i32 %31
+  %32 = icmp eq i32 %.fr114, %2
+  br i1 %32, label %._crit_edge32.loopexit, label %.preheader.us.us
 
-._crit_edge16.split.us42.us.thread:               ; preds = %._crit_edge.us.us, %._crit_edge.us.us.us, %._crit_edge16.split.us42.us
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %._crit_edge33.thread, label %.lr.ph32.split.us.split.us, !llvm.loop !32
+._crit_edge15.split.us41.us.thread:               ; preds = %._crit_edge.us.us.us100, %._crit_edge.us.us.us, %._crit_edge15.split.us41.us
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
+  br i1 %exitcond161.not, label %._crit_edge32.thread, label %.lr.ph31.split.us.split.us, !llvm.loop !32
 
-.lr.ph.us.us.preheader:                           ; preds = %39, %.lr.ph15.split.us44.us.split.preheader
-  %indvars.iv129 = phi i64 [ 0, %.lr.ph15.split.us44.us.split.preheader ], [ %indvars.iv.next130, %39 ]
-  %33 = add nsw i64 %indvars.iv129, %55
+.lr.ph.us.us.preheader:                           ; preds = %.lr.ph14.split.us43.us.split, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us
+  %indvars.iv150 = phi i64 [ %indvars.iv.next151, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us ], [ 0, %.lr.ph14.split.us43.us.split ]
+  %33 = add nsw i64 %indvars.iv150, %71
   %34 = getelementptr inbounds %class.InteractionOfType, ptr %20, i64 %33, i32 1
-  %35 = add nsw i64 %indvars.iv129, %28
+  %35 = add nsw i64 %indvars.iv150, %28
   %36 = getelementptr inbounds %class.InteractionOfType, ptr %20, i64 %35, i32 1
   br label %.lr.ph.us.us
 
-._crit_edge.us.us:                                ; preds = %.lr.ph.us.us
-  br i1 %47, label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us41.us, label %._crit_edge16.split.us42.us.thread
-
-_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us41.us: ; preds = %._crit_edge.us.us
-  br i1 %brmerge, label %39, label %37
-
-37:                                               ; preds = %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us41.us
-  %38 = load i32, ptr %25, align 4
-  br label %39
-
-39:                                               ; preds = %37, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us41.us
-  %.sroa.0.0.i54.us.us = phi i32 [ %38, %37 ], [ 0, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us41.us ]
-  %40 = icmp eq i32 %.sroa.0.0.i54.us.us, 0
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %41 = icmp ult i64 %indvars.iv.next130, %29
-  %42 = select i1 %41, i1 %40, i1 false
-  br i1 %42, label %.lr.ph.us.us.preheader, label %._crit_edge16.split.us42.us, !llvm.loop !33
+_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us: ; preds = %.lr.ph.us.us
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
+  %37 = icmp ult i64 %indvars.iv.next151, %29
+  %38 = select i1 %37, i1 %43, i1 false
+  br i1 %38, label %.lr.ph.us.us.preheader, label %._crit_edge15.split.us41.us, !llvm.loop !33
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
-  %indvars.iv126 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next127, %.lr.ph.us.us ]
-  %43 = getelementptr inbounds float, ptr %34, i64 %indvars.iv126
-  %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds float, ptr %36, i64 %indvars.iv126
-  %46 = load float, ptr %45, align 4
-  %47 = fcmp oeq float %44, %46
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %48 = icmp ult i64 %indvars.iv.next127, %27
-  %49 = select i1 %48, i1 %47, i1 false
-  br i1 %49, label %.lr.ph.us.us, label %._crit_edge.us.us, !llvm.loop !34
+  %indvars.iv147 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next148, %.lr.ph.us.us ]
+  %39 = getelementptr inbounds float, ptr %34, i64 %indvars.iv147
+  %40 = load float, ptr %39, align 4
+  %41 = getelementptr inbounds float, ptr %36, i64 %indvars.iv147
+  %42 = load float, ptr %41, align 4
+  %43 = fcmp oeq float %40, %42
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
+  %44 = icmp ult i64 %indvars.iv.next148, %27
+  %45 = select i1 %44, i1 %43, i1 false
+  br i1 %45, label %.lr.ph.us.us, label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us, !llvm.loop !34
 
-.preheader.us.us:                                 ; preds = %.lr.ph32.split.us.split.us
-  %50 = mul nsw i32 %.fr102, %17
-  %51 = icmp sgt i32 %.fr102, -1
-  %52 = zext nneg i32 %.fr102 to i64
-  %53 = icmp sgt i64 %16, %52
-  %54 = getelementptr inbounds %struct.AtomTypeData, ptr %.0.val.0.val, i64 %52, i32 4
-  br i1 %51, label %.lr.ph15.split.us44.us.split.us.preheader, label %.lr.ph15.split.us44.us.split.preheader
+.preheader.us.us:                                 ; preds = %.lr.ph31.split.us.split.us
+  %46 = mul nsw i32 %.fr114, %17
+  %47 = icmp sgt i32 %.fr114, -1
+  %48 = zext nneg i32 %.fr114 to i64
+  %49 = icmp sgt i64 %16, %48
+  %50 = getelementptr inbounds %struct.AtomTypeData, ptr %.0.val.0.val, i64 %48, i32 4
+  br i1 %47, label %.lr.ph14.split.us43.us.split.us.preheader, label %.lr.ph14.split.us43.us.split
 
-.lr.ph15.split.us44.us.split.preheader:           ; preds = %.preheader.us.us
-  %55 = sext i32 %50 to i64
-  br label %.lr.ph.us.us.preheader
-
-.lr.ph15.split.us44.us.split.us.preheader:        ; preds = %.preheader.us.us
-  %56 = zext nneg i32 %50 to i64
+.lr.ph14.split.us43.us.split.us.preheader:        ; preds = %.preheader.us.us
+  %51 = zext nneg i32 %46 to i64
   br label %.lr.ph.us.us.us.preheader
 
-._crit_edge16.split.us42.us:                      ; preds = %39, %65
-  %.us-phi88 = phi i1 [ %66, %65 ], [ %40, %39 ]
-  br i1 %.us-phi88, label %._crit_edge33.loopexit, label %._crit_edge16.split.us42.us.thread
+._crit_edge15.split.us41.us:                      ; preds = %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us, %60
+  %.us-phi89 = phi i1 [ %61, %60 ], [ %43, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us ], [ %79, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96 ]
+  br i1 %.us-phi89, label %._crit_edge32.loopexit, label %._crit_edge15.split.us41.us.thread
 
-.lr.ph.us.us.us.preheader:                        ; preds = %65, %.lr.ph15.split.us44.us.split.us.preheader
-  %indvars.iv134 = phi i64 [ 0, %.lr.ph15.split.us44.us.split.us.preheader ], [ %indvars.iv.next135, %65 ]
-  %57 = add nuw nsw i64 %indvars.iv134, %56
-  %58 = getelementptr inbounds %class.InteractionOfType, ptr %20, i64 %57, i32 1
-  %59 = add nsw i64 %indvars.iv134, %28
-  %60 = getelementptr inbounds %class.InteractionOfType, ptr %20, i64 %59, i32 1
+.lr.ph.us.us.us.preheader:                        ; preds = %60, %.lr.ph14.split.us43.us.split.us.preheader
+  %indvars.iv155 = phi i64 [ 0, %.lr.ph14.split.us43.us.split.us.preheader ], [ %indvars.iv.next156, %60 ]
+  %52 = add nuw nsw i64 %indvars.iv155, %51
+  %53 = getelementptr inbounds %class.InteractionOfType, ptr %20, i64 %52, i32 1
+  %54 = add nsw i64 %indvars.iv155, %28
+  %55 = getelementptr inbounds %class.InteractionOfType, ptr %20, i64 %54, i32 1
   br label %.lr.ph.us.us.us
 
 ._crit_edge.us.us.us:                             ; preds = %.lr.ph.us.us.us
-  br i1 %73, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us83, label %._crit_edge16.split.us42.us.thread
+  br i1 %68, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us84, label %._crit_edge15.split.us41.us.thread
 
-_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us83: ; preds = %._crit_edge.us.us.us
-  br i1 %53, label %61, label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us41.us.us
+_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us84: ; preds = %._crit_edge.us.us.us
+  br i1 %49, label %56, label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us
 
-61:                                               ; preds = %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us83
-  %62 = load i32, ptr %54, align 4
-  br label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us41.us.us
+56:                                               ; preds = %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us84
+  %57 = load i32, ptr %50, align 4
+  br label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us
 
-_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us41.us.us: ; preds = %61, %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us83
-  %.sroa.0.0.i.us.us.us84 = phi i32 [ %62, %61 ], [ 0, %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us83 ]
-  br i1 %brmerge93, label %65, label %63
+_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us: ; preds = %56, %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us84
+  %.sroa.0.0.i.us.us.us85 = phi i32 [ %57, %56 ], [ 0, %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us84 ]
+  br i1 %brmerge, label %60, label %58
 
-63:                                               ; preds = %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us41.us.us
-  %64 = load i32, ptr %25, align 4
-  br label %65
+58:                                               ; preds = %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us
+  %59 = load i32, ptr %25, align 4
+  br label %60
 
-65:                                               ; preds = %63, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us41.us.us
-  %.sroa.0.0.i54.us.us.us87 = phi i32 [ %64, %63 ], [ 0, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us41.us.us ]
-  %66 = icmp eq i32 %.sroa.0.0.i.us.us.us84, %.sroa.0.0.i54.us.us.us87
-  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %67 = icmp ult i64 %indvars.iv.next135, %29
-  %68 = select i1 %67, i1 %66, i1 false
-  br i1 %68, label %.lr.ph.us.us.us.preheader, label %._crit_edge16.split.us42.us, !llvm.loop !33
+60:                                               ; preds = %58, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us
+  %.sroa.0.0.i54.us.us.us88 = phi i32 [ %59, %58 ], [ 0, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us ]
+  %61 = icmp eq i32 %.sroa.0.0.i.us.us.us85, %.sroa.0.0.i54.us.us.us88
+  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
+  %62 = icmp ult i64 %indvars.iv.next156, %29
+  %63 = select i1 %62, i1 %61, i1 false
+  br i1 %63, label %.lr.ph.us.us.us.preheader, label %._crit_edge15.split.us41.us, !llvm.loop !33
 
 .lr.ph.us.us.us:                                  ; preds = %.lr.ph.us.us.us.preheader, %.lr.ph.us.us.us
-  %indvars.iv131 = phi i64 [ 0, %.lr.ph.us.us.us.preheader ], [ %indvars.iv.next132, %.lr.ph.us.us.us ]
-  %69 = getelementptr inbounds float, ptr %58, i64 %indvars.iv131
-  %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds float, ptr %60, i64 %indvars.iv131
-  %72 = load float, ptr %71, align 4
-  %73 = fcmp oeq float %70, %72
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %74 = icmp ult i64 %indvars.iv.next132, %27
-  %75 = select i1 %74, i1 %73, i1 false
-  br i1 %75, label %.lr.ph.us.us.us, label %._crit_edge.us.us.us, !llvm.loop !34
+  %indvars.iv152 = phi i64 [ 0, %.lr.ph.us.us.us.preheader ], [ %indvars.iv.next153, %.lr.ph.us.us.us ]
+  %64 = getelementptr inbounds float, ptr %53, i64 %indvars.iv152
+  %65 = load float, ptr %64, align 4
+  %66 = getelementptr inbounds float, ptr %55, i64 %indvars.iv152
+  %67 = load float, ptr %66, align 4
+  %68 = fcmp oeq float %65, %67
+  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
+  %69 = icmp ult i64 %indvars.iv.next153, %27
+  %70 = select i1 %69, i1 %68, i1 false
+  br i1 %70, label %.lr.ph.us.us.us, label %._crit_edge.us.us.us, !llvm.loop !34
 
-.lr.ph32.split.us.split:                          ; preds = %.lr.ph32.split.us
-  %wide.trip.count124 = zext nneg i32 %6 to i64
-  br i1 %22, label %.lr.ph32.split.us.split.split, label %.lr.ph32.split.us.split.split.us
+.lr.ph14.split.us43.us.split:                     ; preds = %.preheader.us.us
+  %71 = sext i32 %46 to i64
+  br i1 %22, label %.lr.ph.us.us.preheader, label %.lr.ph.us.us.us99.preheader
 
-.lr.ph32.split.us.split.split.us:                 ; preds = %.lr.ph32.split.us.split, %79
-  %indvars.iv = phi i64 [ %indvars.iv.next, %79 ], [ 0, %.lr.ph32.split.us.split ]
-  %76 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %77 = load i32, ptr %76, align 4
-  %.fr100 = freeze i32 %77
-  %78 = icmp eq i32 %.fr100, %2
-  br i1 %78, label %._crit_edge33.loopexit158, label %.preheader.us.us66
+.lr.ph.us.us.us99.preheader:                      ; preds = %.lr.ph14.split.us43.us.split, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96
+  %indvars.iv145 = phi i64 [ %indvars.iv.next146, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96 ], [ 0, %.lr.ph14.split.us43.us.split ]
+  %72 = add nsw i64 %indvars.iv145, %71
+  %73 = getelementptr inbounds %class.InteractionOfType, ptr %20, i64 %72, i32 1
+  %74 = add nuw nsw i64 %indvars.iv145, %28
+  %75 = getelementptr inbounds %class.InteractionOfType, ptr %20, i64 %74, i32 1
+  br label %.lr.ph.us.us.us99
 
-79:                                               ; preds = %._crit_edge16.split.us.us.us
+._crit_edge.us.us.us100:                          ; preds = %.lr.ph.us.us.us99
+  br i1 %86, label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us94, label %._crit_edge15.split.us41.us.thread
+
+_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us94: ; preds = %._crit_edge.us.us.us100
+  br i1 %24, label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96, label %76
+
+76:                                               ; preds = %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us94
+  %77 = load i32, ptr %25, align 4
+  %78 = icmp eq i32 %77, 0
+  br label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96
+
+_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us96: ; preds = %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us94, %76
+  %79 = phi i1 [ %78, %76 ], [ true, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit.us40.us.us94 ]
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
+  %80 = icmp ult i64 %indvars.iv.next146, %29
+  %81 = select i1 %80, i1 %79, i1 false
+  br i1 %81, label %.lr.ph.us.us.us99.preheader, label %._crit_edge15.split.us41.us, !llvm.loop !33
+
+.lr.ph.us.us.us99:                                ; preds = %.lr.ph.us.us.us99.preheader, %.lr.ph.us.us.us99
+  %indvars.iv142 = phi i64 [ 0, %.lr.ph.us.us.us99.preheader ], [ %indvars.iv.next143, %.lr.ph.us.us.us99 ]
+  %82 = getelementptr inbounds float, ptr %73, i64 %indvars.iv142
+  %83 = load float, ptr %82, align 4
+  %84 = getelementptr inbounds float, ptr %75, i64 %indvars.iv142
+  %85 = load float, ptr %84, align 4
+  %86 = fcmp oeq float %83, %85
+  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
+  %87 = icmp ult i64 %indvars.iv.next143, %27
+  %88 = select i1 %87, i1 %86, i1 false
+  br i1 %88, label %.lr.ph.us.us.us99, label %._crit_edge.us.us.us100, !llvm.loop !34
+
+.lr.ph31.split.us.split:                          ; preds = %.lr.ph31.split.us
+  %wide.trip.count140 = zext nneg i32 %6 to i64
+  br i1 %22, label %.lr.ph31.split.us.split.split, label %.lr.ph31.split.us.split.split.us
+
+.lr.ph31.split.us.split.split.us:                 ; preds = %.lr.ph31.split.us.split, %92
+  %indvars.iv = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph31.split.us.split ]
+  %89 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %90 = load i32, ptr %89, align 4
+  %.fr112 = freeze i32 %90
+  %91 = icmp eq i32 %.fr112, %2
+  br i1 %91, label %._crit_edge32.loopexit178, label %.preheader.us.us65
+
+92:                                               ; preds = %._crit_edge15.split.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count124
-  br i1 %exitcond.not, label %._crit_edge33.thread, label %.lr.ph32.split.us.split.split.us, !llvm.loop !32
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count140
+  br i1 %exitcond.not, label %._crit_edge32.thread, label %.lr.ph31.split.us.split.split.us, !llvm.loop !32
 
-.preheader.us.us66:                               ; preds = %.lr.ph32.split.us.split.split.us
-  %80 = icmp sgt i32 %.fr100, -1
-  %81 = zext i32 %.fr100 to i64
-  %82 = getelementptr inbounds %struct.AtomTypeData, ptr %.0.val.0.val, i64 %81, i32 4
-  br i1 %80, label %.lr.ph15.split.us.split.us.us.us, label %.lr.ph15.split.us.split.us50.us
+.preheader.us.us65:                               ; preds = %.lr.ph31.split.us.split.split.us
+  %93 = icmp sgt i32 %.fr112, -1
+  %94 = zext i32 %.fr112 to i64
+  %95 = getelementptr inbounds %struct.AtomTypeData, ptr %.0.val.0.val, i64 %94, i32 4
+  br i1 %93, label %.lr.ph14.split.us.split.us.us.us, label %.lr.ph14.split.us.split.us49.us
 
-.lr.ph15.split.us.split.us50.us:                  ; preds = %.preheader.us.us66
-  br i1 %24, label %._crit_edge33.loopexit158, label %._crit_edge16.split.us.us.us.sink.split
+.lr.ph14.split.us.split.us49.us:                  ; preds = %.preheader.us.us65
+  br i1 %24, label %._crit_edge32.loopexit178, label %._crit_edge15.split.us.us.us.loopexit7
 
-._crit_edge16.split.us.us.us.sink.split:          ; preds = %.lr.ph15.split.us.split.us50.us, %.lr.ph15.split.us.split.us.us.us.split
-  %83 = load i32, ptr %25, align 4
-  %84 = icmp eq i32 %83, 0
-  br label %._crit_edge16.split.us.us.us
+._crit_edge15.split.us.us.us.loopexit7:           ; preds = %.lr.ph14.split.us.split.us49.us
+  %96 = load i32, ptr %25, align 4
+  %97 = icmp eq i32 %96, 0
+  br label %._crit_edge15.split.us.us.us
 
-._crit_edge16.split.us.us.us:                     ; preds = %89, %._crit_edge16.split.us.us.us.sink.split
-  %.us-phi18.us.us = phi i1 [ %84, %._crit_edge16.split.us.us.us.sink.split ], [ %90, %89 ]
-  br i1 %.us-phi18.us.us, label %._crit_edge33.loopexit158, label %79
+._crit_edge15.split.us.us.us:                     ; preds = %._crit_edge15.split.us.us.us.loopexit7, %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader, %.lr.ph14.split.us.split.us.us.us.split.us.split.us.preheader, %.lr.ph14.split.us.split.us.us.us.split.us.split.preheader
+  %.us-phi17.us.us = phi i1 [ %102, %.lr.ph14.split.us.split.us.us.us.split.us.split.preheader ], [ %101, %.lr.ph14.split.us.split.us.us.us.split.us.split.us.preheader ], [ %104, %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader ], [ %97, %._crit_edge15.split.us.us.us.loopexit7 ]
+  br i1 %.us-phi17.us.us, label %._crit_edge32.loopexit178, label %92
 
-.lr.ph15.split.us.split.us.us.us:                 ; preds = %.preheader.us.us66
-  %85 = icmp sgt i64 %16, %81
-  br i1 %85, label %.lr.ph15.split.us.split.us.us.us.split.us.preheader, label %.lr.ph15.split.us.split.us.us.us.split
+.lr.ph14.split.us.split.us.us.us:                 ; preds = %.preheader.us.us65
+  %98 = icmp sgt i64 %16, %94
+  br i1 %98, label %.lr.ph14.split.us.split.us.us.us.split.us, label %.lr.ph14.split.us.split.us.us.us.split
 
-.lr.ph15.split.us.split.us.us.us.split.us.preheader: ; preds = %.lr.ph15.split.us.split.us.us.us
-  %86 = load i32, ptr %82, align 4
-  br label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us.us.us
+.lr.ph14.split.us.split.us.us.us.split.us:        ; preds = %.lr.ph14.split.us.split.us.us.us
+  %99 = load i32, ptr %95, align 4
+  br i1 %24, label %.lr.ph14.split.us.split.us.us.us.split.us.split.preheader, label %.lr.ph14.split.us.split.us.us.us.split.us.split.us.preheader
 
-_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us.us.us: ; preds = %89, %.lr.ph15.split.us.split.us.us.us.split.us.preheader
-  %.04613.us.us.us.us.us = phi i32 [ %91, %89 ], [ 0, %.lr.ph15.split.us.split.us.us.us.split.us.preheader ]
-  br i1 %24, label %89, label %87
+.lr.ph14.split.us.split.us.us.us.split.us.split.us.preheader: ; preds = %.lr.ph14.split.us.split.us.us.us.split.us
+  %100 = load i32, ptr %25, align 4
+  %101 = icmp eq i32 %99, %100
+  br label %._crit_edge15.split.us.us.us
 
-87:                                               ; preds = %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us.us.us
-  %88 = load i32, ptr %25, align 4
-  br label %89
+.lr.ph14.split.us.split.us.us.us.split.us.split.preheader: ; preds = %.lr.ph14.split.us.split.us.us.us.split.us
+  %102 = icmp eq i32 %99, 0
+  br label %._crit_edge15.split.us.us.us
 
-89:                                               ; preds = %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us.us.us, %87
-  %.sroa.0.0.i54.us.us.us.us.us = phi i32 [ %88, %87 ], [ 0, %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us.us.us ]
-  %90 = icmp eq i32 %86, %.sroa.0.0.i54.us.us.us.us.us
-  %91 = add nuw nsw i32 %.04613.us.us.us.us.us, 1
-  %92 = icmp slt i32 %91, %17
-  %93 = select i1 %92, i1 %90, i1 false
-  br i1 %93, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us.us.us, label %._crit_edge16.split.us.us.us, !llvm.loop !33
+.lr.ph14.split.us.split.us.us.us.split:           ; preds = %.lr.ph14.split.us.split.us.us.us
+  br i1 %24, label %._crit_edge32.loopexit178, label %.lr.ph14.split.us.split.us.us.us.split.split.us.preheader
 
-.lr.ph15.split.us.split.us.us.us.split:           ; preds = %.lr.ph15.split.us.split.us.us.us
-  br i1 %24, label %._crit_edge33.loopexit158, label %._crit_edge16.split.us.us.us.sink.split
+.lr.ph14.split.us.split.us.us.us.split.split.us.preheader: ; preds = %.lr.ph14.split.us.split.us.us.us.split
+  %103 = load i32, ptr %25, align 4
+  %104 = icmp eq i32 %103, 0
+  br label %._crit_edge15.split.us.us.us
 
-.lr.ph32.split.us.split.split:                    ; preds = %.lr.ph32.split.us.split, %97
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %97 ], [ 0, %.lr.ph32.split.us.split ]
-  %94 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv121
-  %95 = load i32, ptr %94, align 4
-  %.fr98 = freeze i32 %95
-  %96 = icmp eq i32 %.fr98, %2
-  br i1 %96, label %._crit_edge33.loopexit154, label %.preheader.us
+.lr.ph31.split.us.split.split:                    ; preds = %.lr.ph31.split.us.split, %108
+  %indvars.iv137 = phi i64 [ %indvars.iv.next138, %108 ], [ 0, %.lr.ph31.split.us.split ]
+  %105 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv137
+  %106 = load i32, ptr %105, align 4
+  %.fr110 = freeze i32 %106
+  %107 = icmp eq i32 %.fr110, %2
+  br i1 %107, label %._crit_edge32.loopexit173, label %.preheader.us
 
-97:                                               ; preds = %._crit_edge16.split.us.us
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
-  br i1 %exitcond125.not, label %._crit_edge33.thread, label %.lr.ph32.split.us.split.split, !llvm.loop !32
+108:                                              ; preds = %._crit_edge15.split.us.us
+  %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
+  %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
+  br i1 %exitcond141.not, label %._crit_edge32.thread, label %.lr.ph31.split.us.split.split, !llvm.loop !32
 
-.preheader.us:                                    ; preds = %.lr.ph32.split.us.split.split
-  %98 = icmp sgt i32 %.fr98, -1
-  %99 = zext nneg i32 %.fr98 to i64
-  %100 = icmp sgt i64 %16, %99
-  %101 = getelementptr inbounds %struct.AtomTypeData, ptr %.0.val.0.val, i64 %99, i32 4
-  br i1 %98, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us, label %._crit_edge33.loopexit154
+.preheader.us:                                    ; preds = %.lr.ph31.split.us.split.split
+  %109 = icmp sgt i32 %.fr110, -1
+  %110 = zext nneg i32 %.fr110 to i64
+  %111 = icmp sgt i64 %16, %110
+  %112 = getelementptr inbounds %struct.AtomTypeData, ptr %.0.val.0.val, i64 %110, i32 4
+  br i1 %109, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us, label %._crit_edge32.loopexit173
 
-._crit_edge16.split.us.us:                        ; preds = %104
-  br i1 %105, label %._crit_edge33.loopexit154, label %97
+._crit_edge15.split.us.us:                        ; preds = %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us
+  br i1 %.sroa.0.0.i.us.us.us, label %._crit_edge32.loopexit173, label %108
 
-_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us: ; preds = %.preheader.us, %104
-  %.04613.us.us.us = phi i32 [ %106, %104 ], [ 0, %.preheader.us ]
-  br i1 %100, label %102, label %104
+_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us: ; preds = %.preheader.us, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us
+  %.04612.us.us.us = phi i32 [ %116, %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us ], [ 0, %.preheader.us ]
+  br i1 %111, label %113, label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us
 
-102:                                              ; preds = %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us
-  %103 = load i32, ptr %101, align 4
-  br label %104
+113:                                              ; preds = %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us
+  %114 = load i32, ptr %112, align 4
+  %115 = icmp eq i32 %114, 0
+  br label %_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us
 
-104:                                              ; preds = %102, %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us
-  %.sroa.0.0.i.us.us.us = phi i32 [ %103, %102 ], [ 0, %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us ]
-  %105 = icmp eq i32 %.sroa.0.0.i.us.us.us, 0
-  %106 = add nuw nsw i32 %.04613.us.us.us, 1
-  %107 = icmp slt i32 %106, %17
-  %108 = select i1 %107, i1 %105, i1 false
-  br i1 %108, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us, label %._crit_edge16.split.us.us, !llvm.loop !33
+_ZNK22PreprocessingAtomTypes22atomNumberFromAtomTypeEi.exit57.us.us.us: ; preds = %113, %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us
+  %.sroa.0.0.i.us.us.us = phi i1 [ %115, %113 ], [ true, %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us ]
+  %116 = add nuw nsw i32 %.04612.us.us.us, 1
+  %117 = icmp slt i32 %116, %17
+  %118 = select i1 %117, i1 %.sroa.0.0.i.us.us.us, i1 false
+  br i1 %118, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit.i.us.us.us, label %._crit_edge15.split.us.us, !llvm.loop !33
 
-._crit_edge33.loopexit:                           ; preds = %._crit_edge16.split.us42.us, %.lr.ph32.split.us.split.us
-  %109 = trunc nuw nsw i64 %indvars.iv136 to i32
-  br label %._crit_edge33
+._crit_edge32.loopexit:                           ; preds = %._crit_edge15.split.us41.us, %.lr.ph31.split.us.split.us
+  %119 = trunc nuw nsw i64 %indvars.iv157 to i32
+  br label %._crit_edge32
 
-._crit_edge33.loopexit154:                        ; preds = %._crit_edge16.split.us.us, %.lr.ph32.split.us.split.split, %.preheader.us
-  %110 = trunc nuw nsw i64 %indvars.iv121 to i32
-  br label %._crit_edge33
+._crit_edge32.loopexit173:                        ; preds = %._crit_edge15.split.us.us, %.lr.ph31.split.us.split.split, %.preheader.us
+  %120 = trunc nuw nsw i64 %indvars.iv137 to i32
+  br label %._crit_edge32
 
-._crit_edge33.loopexit158:                        ; preds = %._crit_edge16.split.us.us.us, %.lr.ph32.split.us.split.split.us, %.lr.ph15.split.us.split.us50.us, %.lr.ph15.split.us.split.us.us.us.split
-  %111 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %._crit_edge33
+._crit_edge32.loopexit178:                        ; preds = %._crit_edge15.split.us.us.us, %.lr.ph31.split.us.split.split.us, %.lr.ph14.split.us.split.us49.us, %.lr.ph14.split.us.split.us.us.us.split
+  %121 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %._crit_edge32
 
-._crit_edge33:                                    ; preds = %._crit_edge33.loopexit158, %._crit_edge33.loopexit154, %._crit_edge33.loopexit, %.lr.ph32, %4
-  %.043.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph32 ], [ %109, %._crit_edge33.loopexit ], [ %110, %._crit_edge33.loopexit154 ], [ %111, %._crit_edge33.loopexit158 ]
-  %112 = icmp eq i32 %.043.lcssa, %6
-  br i1 %112, label %._crit_edge33.thread, label %122
+._crit_edge32:                                    ; preds = %._crit_edge32.loopexit178, %._crit_edge32.loopexit173, %._crit_edge32.loopexit, %.lr.ph31, %4
+  %.043.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph31 ], [ %119, %._crit_edge32.loopexit ], [ %120, %._crit_edge32.loopexit173 ], [ %121, %._crit_edge32.loopexit178 ]
+  %122 = icmp eq i32 %.043.lcssa, %6
+  br i1 %122, label %._crit_edge32.thread, label %132
 
-._crit_edge33.thread:                             ; preds = %79, %97, %._crit_edge16.split.us42.us.thread, %._crit_edge33
-  %.043.lcssa149 = phi i32 [ %.043.lcssa, %._crit_edge33 ], [ %6, %._crit_edge16.split.us42.us.thread ], [ %6, %97 ], [ %6, %79 ]
-  %113 = icmp eq i32 %6, %17
-  br i1 %113, label %114, label %118
+._crit_edge32.thread:                             ; preds = %92, %108, %._crit_edge15.split.us41.us.thread, %._crit_edge32
+  %.043.lcssa168 = phi i32 [ %.043.lcssa, %._crit_edge32 ], [ %6, %._crit_edge15.split.us41.us.thread ], [ %6, %108 ], [ %6, %92 ]
+  %123 = icmp eq i32 %6, %17
+  br i1 %123, label %124, label %128
 
-114:                                              ; preds = %._crit_edge33.thread
+124:                                              ; preds = %._crit_edge32.thread
   call void @_ZNSt10filesystem7__cxx114pathC2IA136_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(136) @.str.3, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 265, ptr noundef nonnull @.str.4, i32 noundef %6, ptr noundef nonnull @.str.3, i32 noundef 265) #23
-          to label %115 unwind label %116
+          to label %125 unwind label %126
 
-115:                                              ; preds = %114
+125:                                              ; preds = %124
   unreachable
 
-116:                                              ; preds = %114
-  %117 = landingpad { ptr, i32 }
+126:                                              ; preds = %124
+  %127 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #19
-  resume { ptr, i32 } %117
+  resume { ptr, i32 } %127
 
-118:                                              ; preds = %._crit_edge33.thread
-  %119 = sext i32 %6 to i64
-  %120 = getelementptr inbounds i32, ptr %1, i64 %119
-  store i32 %2, ptr %120, align 4
-  %121 = add nsw i32 %6, 1
-  br label %122
+128:                                              ; preds = %._crit_edge32.thread
+  %129 = sext i32 %6 to i64
+  %130 = getelementptr inbounds i32, ptr %1, i64 %129
+  store i32 %2, ptr %130, align 4
+  %131 = add nsw i32 %6, 1
+  br label %132
 
-122:                                              ; preds = %118, %._crit_edge33
-  %.043.lcssa148 = phi i32 [ %.043.lcssa149, %118 ], [ %.043.lcssa, %._crit_edge33 ]
-  %.0 = phi i32 [ %121, %118 ], [ %6, %._crit_edge33 ]
+132:                                              ; preds = %128, %._crit_edge32
+  %.043.lcssa167 = phi i32 [ %.043.lcssa168, %128 ], [ %.043.lcssa, %._crit_edge32 ]
+  %.0 = phi i32 [ %131, %128 ], [ %6, %._crit_edge32 ]
   store i32 %.0, ptr %0, align 4
-  ret i32 %.043.lcssa148
+  ret i32 %.043.lcssa167
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK17InteractionOfType19interactionTypeNameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #5

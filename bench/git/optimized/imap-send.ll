@@ -1579,7 +1579,7 @@ cond.false.i:                                     ; preds = %lf_to_crlf.exit.i
 
 imap_store_msg.exit:                              ; preds = %lf_to_crlf.exit.i, %cond.false.i
   %cond.i = phi ptr [ %128, %cond.false.i ], [ @.str, %lf_to_crlf.exit.i ]
-  %call4.i = call i32 (ptr, ptr, ptr, ...) @imap_exec_m(ptr noundef nonnull %call.i, ptr noundef nonnull %cb.i19, ptr nonnull poison, ptr noundef %cond.i, ptr noundef %127)
+  %call4.i = call range(i32 -3, 1) i32 (ptr, ptr, ptr, ...) @imap_exec_m(ptr noundef nonnull %call.i, ptr noundef nonnull %cb.i19, ptr nonnull poison, ptr noundef %cond.i, ptr noundef %127)
   %rcaps.i = getelementptr inbounds i8, ptr %117, i64 8
   %129 = load i32, ptr %rcaps.i, align 8
   %caps.i25 = getelementptr inbounds i8, ptr %117, i64 4
@@ -2710,7 +2710,7 @@ return:                                           ; preds = %lor.lhs.false18, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, -2147483648) i32 @imap_exec(ptr noundef %ctx, ptr noundef %cb, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #0 {
+define internal range(i32 0, 3) i32 @imap_exec(ptr noundef %ctx, ptr noundef %cb, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -3339,7 +3339,7 @@ return:                                           ; preds = %if.then43, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -2147483648) i32 @get_cmd_result(ptr noundef %ctx, ptr noundef readnone %tcmd) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @get_cmd_result(ptr noundef %ctx, ptr noundef readnone %tcmd) unnamed_addr #0 {
 entry:
   %cmd = alloca ptr, align 8
   %imap1 = getelementptr inbounds i8, ptr %ctx, i64 16

@@ -353,13 +353,13 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %91, %93, %95, %97
 
 .loopexit188.loopexit:                            ; preds = %124
   %.pre229 = load i32, ptr %47, align 8
+  %127 = add nsw i32 %.pre229, 5
+  %128 = sext i32 %127 to i64
   br label %.loopexit188
 
 .loopexit188:                                     ; preds = %.loopexit188.loopexit, %125
-  %127 = phi i32 [ %.pre229, %.loopexit188.loopexit ], [ 0, %125 ]
-  %128 = getelementptr inbounds i8, ptr %0, i64 128
-  %129 = add nsw i32 %127, 5
-  %130 = sext i32 %129 to i64
+  %129 = phi i64 [ %128, %.loopexit188.loopexit ], [ 5, %125 ]
+  %130 = getelementptr inbounds i8, ptr %0, i64 128
   %131 = getelementptr inbounds i8, ptr %0, i64 176
   %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %5, align 8
@@ -367,20 +367,20 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %91, %93, %95, %97
   %135 = ptrtoint ptr %133 to i64
   %136 = sub i64 %134, %135
   %137 = ashr exact i64 %136, 3
-  %138 = icmp ult i64 %137, %130
+  %138 = icmp ult i64 %137, %129
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %.loopexit188
-  %140 = sub nuw nsw i64 %130, %137
+  %140 = sub nuw nsw i64 %129, %137
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %140)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit150 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 141:                                              ; preds = %.loopexit188
-  %142 = icmp ugt i64 %137, %130
+  %142 = icmp ugt i64 %137, %129
   br i1 %142, label %143, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit150
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds double, ptr %133, i64 %130
+  %144 = getelementptr inbounds double, ptr %133, i64 %129
   %.not.i.i148 = icmp eq ptr %132, %144
   br i1 %.not.i.i148, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit150, label %145
 
@@ -389,7 +389,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %91, %93, %95, %97
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit150
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit150:            ; preds = %145, %143, %141, %139
-  %146 = load i32, ptr %128, align 8
+  %146 = load i32, ptr %130, align 8
   %147 = add nsw i32 %146, 2
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %0, i64 200

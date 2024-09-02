@@ -1257,10 +1257,11 @@ if.end3.i:                                        ; preds = %invoke.cont34
 
 if.end3.i.invoke.cont37_crit_edge:                ; preds = %if.end3.i
   %.pre = load i32, ptr %type_32, align 4
+  %30 = trunc i32 %.pre to i8
   br label %invoke.cont37
 
 invoke.cont37:                                    ; preds = %if.end3.i.invoke.cont37_crit_edge, %if.then2.i
-  %30 = phi i32 [ %conv.i, %if.then2.i ], [ %.pre, %if.end3.i.invoke.cont37_crit_edge ]
+  %conv39 = phi i8 [ %29, %if.then2.i ], [ %30, %if.end3.i.invoke.cont37_crit_edge ]
   %retval.0.i = phi ptr [ %add.ptr, %if.then2.i ], [ %call.i51, %if.end3.i.invoke.cont37_crit_edge ]
   %add.ptr40 = getelementptr inbounds i8, ptr %retval.0.i, i64 1
   %31 = load i8, ptr %retval.0.i, align 1
@@ -1278,13 +1279,12 @@ if.end3.i52:                                      ; preds = %invoke.cont37
 
 if.end3.i52.invoke.cont41_crit_edge:              ; preds = %if.end3.i52
   %.pre181 = load i32, ptr %source_32, align 4
+  %32 = trunc i32 %.pre181 to i8
   br label %invoke.cont41
 
 invoke.cont41:                                    ; preds = %if.end3.i52.invoke.cont41_crit_edge, %if.then2.i56
-  %32 = phi i32 [ %conv.i57, %if.then2.i56 ], [ %.pre181, %if.end3.i52.invoke.cont41_crit_edge ]
+  %conv43 = phi i8 [ %31, %if.then2.i56 ], [ %32, %if.end3.i52.invoke.cont41_crit_edge ]
   %retval.0.i53 = phi ptr [ %add.ptr40, %if.then2.i56 ], [ %call.i60, %if.end3.i52.invoke.cont41_crit_edge ]
-  %conv39 = trunc i32 %30 to i8
-  %conv43 = trunc i32 %32 to i8
   %33 = load ptr, ptr %add.ptr.i.i.i.i.i48, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %retval.0.i53 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %33 to i64

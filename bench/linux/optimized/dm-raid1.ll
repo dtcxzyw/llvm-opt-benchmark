@@ -1699,18 +1699,21 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %94 = add nuw nsw i64 %72, 1
   %95 = zext i32 %92 to i64
   %96 = icmp ult i64 %94, %95
-  br i1 %96, label %.preheader53, label %.loopexit54, !llvm.loop !22
+  br i1 %96, label %.preheader53, label %.loopexit54.loopexit, !llvm.loop !22
 
-.loopexit54:                                      ; preds = %91, %67
-  %97 = phi i32 [ 0, %67 ], [ %92, %91 ]
-  %98 = load i64, ptr %22, align 8
-  %99 = trunc i64 %98 to i32
-  %100 = shl i32 %99, 1
-  %101 = and i32 %100, 2
-  %102 = xor i32 %101, 2
-  %103 = load ptr, ptr %39, align 8
-  %104 = add i32 %97, -1
-  call void @dm_kcopyd_copy(ptr noundef %103, ptr noundef nonnull %9, i32 noundef %104, ptr noundef nonnull %10, i32 noundef %102, ptr noundef nonnull @recovery_complete, ptr noundef nonnull %41) #12
+.loopexit54.loopexit:                             ; preds = %91
+  %97 = add i32 %92, -1
+  br label %.loopexit54
+
+.loopexit54:                                      ; preds = %.loopexit54.loopexit, %67
+  %98 = phi i32 [ -1, %67 ], [ %97, %.loopexit54.loopexit ]
+  %99 = load i64, ptr %22, align 8
+  %100 = trunc i64 %99 to i32
+  %101 = shl i32 %100, 1
+  %102 = and i32 %101, 2
+  %103 = xor i32 %102, 2
+  %104 = load ptr, ptr %39, align 8
+  call void @dm_kcopyd_copy(ptr noundef %104, ptr noundef nonnull %9, i32 noundef %98, ptr noundef nonnull %10, i32 noundef %103, ptr noundef nonnull @recovery_complete, ptr noundef nonnull %41) #12
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #12
   %105 = load ptr, ptr %20, align 8

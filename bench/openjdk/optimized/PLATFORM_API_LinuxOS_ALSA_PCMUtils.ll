@@ -22,23 +22,23 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) lo
   %11 = call i32 @snd_ctl_card_info_malloc(ptr noundef nonnull %9) #5
   %12 = call i32 @snd_pcm_open(ptr noundef nonnull %7, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 1) #5
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %14, label %.thread
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %2
   %15 = call i32 @snd_pcm_open(ptr noundef nonnull %7, ptr noundef nonnull @.str, i32 noundef 1, i32 noundef 1) #5
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %.lr.ph72, label %.thread
+  br i1 %16, label %.lr.ph71, label %.critedge
 
-.thread:                                          ; preds = %2, %14
+.critedge:                                        ; preds = %2, %14
   %17 = load ptr, ptr %7, align 8
   %18 = load ptr, ptr %8, align 8
   %19 = call i32 @snd_pcm_info(ptr noundef %17, ptr noundef %18) #5
   %20 = load ptr, ptr %7, align 8
   %21 = call i32 @snd_pcm_close(ptr noundef %20) #5
   %22 = icmp slt i32 %19, 0
-  br i1 %22, label %.lr.ph72, label %23
+  br i1 %22, label %.lr.ph71, label %23
 
-23:                                               ; preds = %.thread
+23:                                               ; preds = %.critedge
   %24 = load ptr, ptr %8, align 8
   %25 = call i32 @snd_pcm_info_get_card(ptr noundef %24) #5
   store i32 %25, ptr %3, align 4
@@ -65,52 +65,52 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) lo
 39:                                               ; preds = %27, %31, %23
   %.035 = phi ptr [ %spec.select, %31 ], [ null, %27 ], [ null, %23 ]
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.lr.ph72.thread94, label %40
+  br i1 %.not, label %.lr.ph71.thread92, label %40
 
-.lr.ph72.thread94:                                ; preds = %39
+.lr.ph71.thread92:                                ; preds = %39
   store i32 -1, ptr %3, align 4
-  br label %.lr.ph72.split.us.split
+  br label %.lr.ph71.split.us.split
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %8, align 8
   %42 = call i32 %0(i32 noundef 0, ptr noundef %41, ptr noundef %.035, ptr noundef %1) #5
   store i32 -1, ptr %3, align 4
-  %.not4969 = icmp eq i32 %42, 0
-  br i1 %.not4969, label %._crit_edge, label %.lr.ph72.split.preheader
+  %.not4968 = icmp eq i32 %42, 0
+  br i1 %.not4968, label %._crit_edge, label %.lr.ph71.split.preheader
 
-.lr.ph72:                                         ; preds = %14, %.thread
+.lr.ph71:                                         ; preds = %14, %.critedge
   store i32 -1, ptr %3, align 4
   %.not52 = icmp eq ptr %0, null
-  br i1 %.not52, label %.lr.ph72.split.us.split, label %.lr.ph72.split.preheader
+  br i1 %.not52, label %.lr.ph71.split.us.split, label %.lr.ph71.split.preheader
 
-.lr.ph72.split.preheader:                         ; preds = %40, %.lr.ph72
-  %.271.ph = phi i32 [ %42, %40 ], [ 1, %.lr.ph72 ]
-  %.12970.ph = phi i32 [ 1, %40 ], [ 0, %.lr.ph72 ]
-  br label %.lr.ph72.split
+.lr.ph71.split.preheader:                         ; preds = %40, %.lr.ph71
+  %.270.ph = phi i32 [ %42, %40 ], [ 1, %.lr.ph71 ]
+  %.12969.ph = phi i32 [ 1, %40 ], [ 0, %.lr.ph71 ]
+  br label %.lr.ph71.split
 
-.lr.ph72.split.us.split:                          ; preds = %.lr.ph72.thread94, %.lr.ph72
-  %.028.ph97 = phi i32 [ 1, %.lr.ph72.thread94 ], [ 0, %.lr.ph72 ]
+.lr.ph71.split.us.split:                          ; preds = %.lr.ph71.thread92, %.lr.ph71
+  %.028.ph95 = phi i32 [ 1, %.lr.ph71.thread92 ], [ 0, %.lr.ph71 ]
   %43 = call i32 @snd_card_next(ptr noundef nonnull %3) #5
   %44 = icmp slt i32 %43, 0
   %45 = load i32, ptr %3, align 4
   %46 = icmp slt i32 %45, 0
-  %or.cond.us78 = select i1 %44, i1 true, i1 %46
-  br i1 %or.cond.us78, label %._crit_edge, label %.lr.ph80
+  %or.cond.us77 = select i1 %44, i1 true, i1 %46
+  br i1 %or.cond.us77, label %._crit_edge, label %.lr.ph79
 
-.lr.ph80:                                         ; preds = %.lr.ph72.split.us.split, %62
-  %47 = phi i32 [ %65, %62 ], [ %45, %.lr.ph72.split.us.split ]
-  %.12970.us79 = phi i32 [ %.230.us, %62 ], [ %.028.ph97, %.lr.ph72.split.us.split ]
+.lr.ph79:                                         ; preds = %.lr.ph71.split.us.split, %62
+  %47 = phi i32 [ %65, %62 ], [ %45, %.lr.ph71.split.us.split ]
+  %.12969.us78 = phi i32 [ %.230.us, %62 ], [ %.028.ph95, %.lr.ph71.split.us.split ]
   %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %47) #5
   %49 = call i32 @snd_ctl_open(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 1) #5
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %62, label %51
 
-51:                                               ; preds = %.lr.ph80
+51:                                               ; preds = %.lr.ph79
   %52 = load ptr, ptr %6, align 8
   %53 = load ptr, ptr %9, align 8
   %54 = call i32 @snd_ctl_card_info(ptr noundef %52, ptr noundef %53) #5
   %55 = icmp slt i32 %54, 0
-  br i1 %55, label %.loopexit55.split.us.us, label %.split.us.us
+  br i1 %55, label %.loopexit54.split.us.us, label %.split.us.us
 
 .split.us.us:                                     ; preds = %51
   store i32 -1, ptr %4, align 4
@@ -118,26 +118,26 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) lo
   %57 = call i32 @snd_ctl_pcm_next_device(ptr noundef %56, ptr noundef nonnull %4) #5
   %58 = load i32, ptr %4, align 4
   %59 = icmp slt i32 %58, 0
-  br i1 %59, label %.loopexit55.split.us.us, label %.lr.ph66.us
+  br i1 %59, label %.loopexit54.split.us.us, label %.lr.ph65.us
 
-.loopexit55.split.us.us:                          ; preds = %90, %.split.us.us, %51
-  %.331.us = phi i32 [ %.12970.us79, %51 ], [ %.12970.us79, %.split.us.us ], [ %.533.us.us, %90 ]
+.loopexit54.split.us.us:                          ; preds = %90, %.split.us.us, %51
+  %.331.us = phi i32 [ %.12969.us78, %51 ], [ %.12969.us78, %.split.us.us ], [ %.533.us.us, %90 ]
   %60 = load ptr, ptr %6, align 8
   %61 = call i32 @snd_ctl_close(ptr noundef %60) #5
   br label %62
 
-62:                                               ; preds = %.loopexit55.split.us.us, %.lr.ph80
-  %.230.us = phi i32 [ %.12970.us79, %.lr.ph80 ], [ %.331.us, %.loopexit55.split.us.us ]
+62:                                               ; preds = %.loopexit54.split.us.us, %.lr.ph79
+  %.230.us = phi i32 [ %.12969.us78, %.lr.ph79 ], [ %.331.us, %.loopexit54.split.us.us ]
   %63 = call i32 @snd_card_next(ptr noundef nonnull %3) #5
   %64 = icmp slt i32 %63, 0
   %65 = load i32, ptr %3, align 4
   %66 = icmp slt i32 %65, 0
   %or.cond.us = select i1 %64, i1 true, i1 %66
-  br i1 %or.cond.us, label %._crit_edge, label %.lr.ph80
+  br i1 %or.cond.us, label %._crit_edge, label %.lr.ph79
 
-.lr.ph66.us:                                      ; preds = %.split.us.us, %90
+.lr.ph65.us:                                      ; preds = %.split.us.us, %90
   %67 = phi i32 [ %93, %90 ], [ %58, %.split.us.us ]
-  %.43262.us65.us = phi i32 [ %.533.us.us, %90 ], [ %.12970.us79, %.split.us.us ]
+  %.43261.us64.us = phi i32 [ %.533.us.us, %90 ], [ %.12969.us78, %.split.us.us ]
   %68 = load ptr, ptr %8, align 8
   call void @snd_pcm_info_set_device(ptr noundef %68, i32 noundef %67) #5
   %69 = load ptr, ptr %8, align 8
@@ -150,7 +150,7 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) lo
   %74 = icmp eq i32 %73, -2
   br i1 %74, label %75, label %80
 
-75:                                               ; preds = %.lr.ph66.us
+75:                                               ; preds = %.lr.ph65.us
   %76 = load ptr, ptr %8, align 8
   call void @snd_pcm_info_set_stream(ptr noundef %76, i32 noundef 1) #5
   %77 = load ptr, ptr %6, align 8
@@ -158,8 +158,8 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) lo
   %79 = call i32 @snd_ctl_pcm_info(ptr noundef %77, ptr noundef %78) #5
   br label %80
 
-80:                                               ; preds = %75, %.lr.ph66.us
-  %.138.us.us = phi i32 [ %79, %75 ], [ %73, %.lr.ph66.us ]
+80:                                               ; preds = %75, %.lr.ph65.us
+  %.138.us.us = phi i32 [ %79, %75 ], [ %73, %.lr.ph65.us ]
   %81 = icmp slt i32 %.138.us.us, 0
   br i1 %81, label %90, label %82
 
@@ -175,20 +175,20 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) lo
 
 87:                                               ; preds = %84, %82
   %88 = phi i32 [ %86, %84 ], [ 1, %82 ]
-  %89 = add nsw i32 %88, %.43262.us65.us
+  %89 = add nsw i32 %88, %.43261.us64.us
   br label %90
 
 90:                                               ; preds = %87, %80
-  %.533.us.us = phi i32 [ %89, %87 ], [ %.43262.us65.us, %80 ]
+  %.533.us.us = phi i32 [ %89, %87 ], [ %.43261.us64.us, %80 ]
   %91 = load ptr, ptr %6, align 8
   %92 = call i32 @snd_ctl_pcm_next_device(ptr noundef %91, ptr noundef nonnull %4) #5
   %93 = load i32, ptr %4, align 4
   %94 = icmp slt i32 %93, 0
-  br i1 %94, label %.loopexit55.split.us.us, label %.lr.ph66.us
+  br i1 %94, label %.loopexit54.split.us.us, label %.lr.ph65.us
 
-.lr.ph72.split:                                   ; preds = %.lr.ph72.split.preheader, %149
-  %.271 = phi i32 [ %.3, %149 ], [ %.271.ph, %.lr.ph72.split.preheader ]
-  %.12970 = phi i32 [ %.230, %149 ], [ %.12970.ph, %.lr.ph72.split.preheader ]
+.lr.ph71.split:                                   ; preds = %.lr.ph71.split.preheader, %149
+  %.270 = phi i32 [ %.3, %149 ], [ %.270.ph, %.lr.ph71.split.preheader ]
+  %.12969 = phi i32 [ %.230, %149 ], [ %.12969.ph, %.lr.ph71.split.preheader ]
   %95 = call i32 @snd_card_next(ptr noundef nonnull %3) #5
   %96 = icmp slt i32 %95, 0
   %97 = load i32, ptr %3, align 4
@@ -196,7 +196,7 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) lo
   %or.cond = select i1 %96, i1 true, i1 %98
   br i1 %or.cond, label %._crit_edge, label %99
 
-99:                                               ; preds = %.lr.ph72.split
+99:                                               ; preds = %.lr.ph71.split
   %100 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.1, i32 noundef %97) #5
   %101 = call i32 @snd_ctl_open(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 1) #5
   %102 = icmp slt i32 %101, 0
@@ -207,7 +207,7 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) lo
   %105 = load ptr, ptr %9, align 8
   %106 = call i32 @snd_ctl_card_info(ptr noundef %104, ptr noundef %105) #5
   %107 = icmp slt i32 %106, 0
-  br i1 %107, label %.loopexit55.split, label %.split
+  br i1 %107, label %.loopexit54.split, label %.split
 
 .split:                                           ; preds = %103
   store i32 -1, ptr %4, align 4
@@ -215,12 +215,12 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) lo
   %109 = call i32 @snd_ctl_pcm_next_device(ptr noundef %108, ptr noundef nonnull %4) #5
   %110 = load i32, ptr %4, align 4
   %111 = icmp slt i32 %110, 0
-  br i1 %111, label %.loopexit55.split, label %.lr.ph117
+  br i1 %111, label %.loopexit54.split, label %.lr.ph115
 
-.lr.ph117:                                        ; preds = %.split, %.loopexit
+.lr.ph115:                                        ; preds = %.split, %.loopexit
   %112 = phi i32 [ %145, %.loopexit ], [ %110, %.split ]
-  %.43262116 = phi i32 [ %.533, %.loopexit ], [ %.12970, %.split ]
-  %.563115 = phi i32 [ %.6, %.loopexit ], [ %.271, %.split ]
+  %.43261114 = phi i32 [ %.533, %.loopexit ], [ %.12969, %.split ]
+  %.562113 = phi i32 [ %.6, %.loopexit ], [ %.270, %.split ]
   %113 = load ptr, ptr %8, align 8
   call void @snd_pcm_info_set_device(ptr noundef %113, i32 noundef %112) #5
   %114 = load ptr, ptr %8, align 8
@@ -233,7 +233,7 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) lo
   %119 = icmp eq i32 %118, -2
   br i1 %119, label %120, label %125
 
-120:                                              ; preds = %.lr.ph117
+120:                                              ; preds = %.lr.ph115
   %121 = load ptr, ptr %8, align 8
   call void @snd_pcm_info_set_stream(ptr noundef %121, i32 noundef 1) #5
   %122 = load ptr, ptr %6, align 8
@@ -241,8 +241,8 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) lo
   %124 = call i32 @snd_ctl_pcm_info(ptr noundef %122, ptr noundef %123) #5
   br label %125
 
-125:                                              ; preds = %120, %.lr.ph117
-  %.138 = phi i32 [ %124, %120 ], [ %118, %.lr.ph117 ]
+125:                                              ; preds = %120, %.lr.ph115
+  %.138 = phi i32 [ %124, %120 ], [ %118, %.lr.ph115 ]
   %126 = icmp slt i32 %.138, 0
   br i1 %126, label %.loopexit, label %127
 
@@ -259,51 +259,51 @@ define hidden i32 @iteratePCMDevices(ptr noundef readonly %0, ptr noundef %1) lo
 
 .lr.ph.preheader:                                 ; preds = %127, %.preheader
   %132 = phi i32 [ %130, %.preheader ], [ 1, %127 ]
-  %133 = add i32 %132, %.43262116
+  %133 = add i32 %132, %.43261114
   br label %.lr.ph
 
 134:                                              ; preds = %.lr.ph
-  %135 = add nuw nsw i32 %.03956, 1
+  %135 = add nuw nsw i32 %.03955, 1
   %exitcond.not = icmp eq i32 %135, %132
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %134
-  %.63457 = phi i32 [ %142, %134 ], [ %.43262116, %.lr.ph.preheader ]
-  %.03956 = phi i32 [ %135, %134 ], [ 0, %.lr.ph.preheader ]
+  %.63456 = phi i32 [ %142, %134 ], [ %.43261114, %.lr.ph.preheader ]
+  %.03955 = phi i32 [ %135, %134 ], [ 0, %.lr.ph.preheader ]
   %136 = load i32, ptr %3, align 4
   %137 = load i32, ptr %4, align 4
-  %138 = call i32 @encodeDeviceID(i32 noundef %136, i32 noundef %137, i32 noundef %.03956) #5
+  %138 = call i32 @encodeDeviceID(i32 noundef %136, i32 noundef %137, i32 noundef %.03955) #5
   %139 = load ptr, ptr %8, align 8
   %140 = load ptr, ptr %9, align 8
   %141 = call i32 %0(i32 noundef %138, ptr noundef %139, ptr noundef %140, ptr noundef %1) #5
-  %142 = add nsw i32 %.63457, 1
+  %142 = add nsw i32 %.63456, 1
   %.not53 = icmp eq i32 %141, 0
-  br i1 %.not53, label %.loopexit55.split, label %134
+  br i1 %.not53, label %.loopexit54.split, label %134
 
 .loopexit:                                        ; preds = %134, %.preheader, %125
-  %.533 = phi i32 [ %.43262116, %125 ], [ %.43262116, %.preheader ], [ %133, %134 ]
-  %.6 = phi i32 [ %.563115, %125 ], [ %.563115, %.preheader ], [ %141, %134 ]
+  %.533 = phi i32 [ %.43261114, %125 ], [ %.43261114, %.preheader ], [ %133, %134 ]
+  %.6 = phi i32 [ %.562113, %125 ], [ %.562113, %.preheader ], [ %141, %134 ]
   %143 = load ptr, ptr %6, align 8
   %144 = call i32 @snd_ctl_pcm_next_device(ptr noundef %143, ptr noundef nonnull %4) #5
   %145 = load i32, ptr %4, align 4
   %146 = icmp slt i32 %145, 0
-  br i1 %146, label %.loopexit55.split, label %.lr.ph117, !llvm.loop !8
+  br i1 %146, label %.loopexit54.split, label %.lr.ph115, !llvm.loop !8
 
-.loopexit55.split:                                ; preds = %.loopexit, %.lr.ph, %.split, %103
-  %.331 = phi i32 [ %.12970, %103 ], [ %.12970, %.split ], [ %142, %.lr.ph ], [ %.533, %.loopexit ]
-  %.4 = phi i32 [ %.271, %103 ], [ %.271, %.split ], [ 0, %.lr.ph ], [ %.6, %.loopexit ]
+.loopexit54.split:                                ; preds = %.loopexit, %.lr.ph, %.split, %103
+  %.331 = phi i32 [ %.12969, %103 ], [ %.12969, %.split ], [ %142, %.lr.ph ], [ %.533, %.loopexit ]
+  %.4 = phi i32 [ %.270, %103 ], [ %.270, %.split ], [ 0, %.lr.ph ], [ %.6, %.loopexit ]
   %147 = load ptr, ptr %6, align 8
   %148 = call i32 @snd_ctl_close(ptr noundef %147) #5
   br label %149
 
-149:                                              ; preds = %99, %.loopexit55.split
-  %.230 = phi i32 [ %.12970, %99 ], [ %.331, %.loopexit55.split ]
-  %.3 = phi i32 [ %.271, %99 ], [ %.4, %.loopexit55.split ]
+149:                                              ; preds = %99, %.loopexit54.split
+  %.230 = phi i32 [ %.12969, %99 ], [ %.331, %.loopexit54.split ]
+  %.3 = phi i32 [ %.270, %99 ], [ %.4, %.loopexit54.split ]
   %.not49 = icmp eq i32 %.3, 0
-  br i1 %.not49, label %._crit_edge, label %.lr.ph72.split, !llvm.loop !9
+  br i1 %.not49, label %._crit_edge, label %.lr.ph71.split, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %149, %.lr.ph72.split, %62, %.lr.ph72.split.us.split, %40
-  %.129.lcssa = phi i32 [ 1, %40 ], [ %.028.ph97, %.lr.ph72.split.us.split ], [ %.230.us, %62 ], [ %.12970, %.lr.ph72.split ], [ %.230, %149 ]
+._crit_edge:                                      ; preds = %149, %.lr.ph71.split, %62, %.lr.ph71.split.us.split, %40
+  %.129.lcssa = phi i32 [ 1, %40 ], [ %.028.ph95, %.lr.ph71.split.us.split ], [ %.230.us, %62 ], [ %.12969, %.lr.ph71.split ], [ %.230, %149 ]
   %150 = load ptr, ptr %9, align 8
   call void @snd_ctl_card_info_free(ptr noundef %150) #5
   %151 = load ptr, ptr %8, align 8

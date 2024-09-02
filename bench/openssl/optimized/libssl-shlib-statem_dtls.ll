@@ -1414,7 +1414,7 @@ declare ptr @pqueue_iterator(ptr noundef) local_unnamed_addr #1
 declare ptr @pqueue_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @dtls1_retransmit_message(ptr noundef %s, i16 noundef zeroext %seq, ptr nocapture noundef writeonly %found) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @dtls1_retransmit_message(ptr noundef %s, i16 noundef zeroext %seq, ptr nocapture noundef writeonly %found) local_unnamed_addr #0 {
 entry:
   %seq64be = alloca [8 x i8], align 8
   store i64 0, ptr %seq64be, align 8

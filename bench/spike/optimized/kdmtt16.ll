@@ -161,9 +161,9 @@ define noundef i64 @_Z18fast_rv64i_kdmtt16P11processor_t6insn_tm(ptr nocapture n
   %34 = getelementptr inbounds i8, ptr %0, i64 659712
   br label %35
 
-35:                                               ; preds = %20, %58
-  %.04661 = phi i64 [ %25, %20 ], [ %64, %58 ]
-  %.04760 = phi i64 [ 1, %20 ], [ %65, %58 ]
+35:                                               ; preds = %20, %59
+  %.04661 = phi i64 [ %25, %20 ], [ %64, %59 ]
+  %.04760 = phi i64 [ 1, %20 ], [ %65, %59 ]
   %36 = shl i64 %.04760, 5
   %37 = and i64 %36, 4294967264
   %38 = shl nuw i64 4294967295, %37
@@ -181,33 +181,33 @@ define noundef i64 @_Z18fast_rv64i_kdmtt16P11processor_t6insn_tm(ptr nocapture n
   %48 = icmp ne i32 %sext49, -2147483648
   %49 = icmp ne i32 %sext51, -2147483648
   %50 = or i1 %48, %49
-  br i1 %50, label %51, label %56
+  br i1 %50, label %51, label %57
 
 51:                                               ; preds = %35
   %52 = ashr i32 %47, 16
   %53 = ashr i32 %46, 15
   %54 = and i32 %53, -2
   %55 = mul i32 %54, %52
-  br label %58
+  %56 = sext i32 %55 to i64
+  br label %59
 
-56:                                               ; preds = %35
-  %57 = load ptr, ptr %34, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %57, i64 noundef 1) #16
-  br label %58
+57:                                               ; preds = %35
+  %58 = load ptr, ptr %34, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %58, i64 noundef 1) #16
+  br label %59
 
-58:                                               ; preds = %56, %51
-  %.048 = phi i32 [ %55, %51 ], [ 2147483647, %56 ]
-  %59 = xor i64 %38, -1
-  %60 = and i64 %.04661, %59
-  %61 = sext i32 %.048 to i64
-  %62 = mul i64 %42, %61
+59:                                               ; preds = %57, %51
+  %.048 = phi i64 [ %56, %51 ], [ 2147483647, %57 ]
+  %60 = xor i64 %38, -1
+  %61 = and i64 %.04661, %60
+  %62 = mul i64 %.048, %42
   %63 = and i64 %62, %38
-  %64 = or i64 %63, %60
+  %64 = or i64 %63, %61
   %65 = add nsw i64 %.04760, -1
   %.not = icmp eq i64 %.04760, 0
   br i1 %.not, label %66, label %35, !llvm.loop !4
 
-66:                                               ; preds = %58
+66:                                               ; preds = %59
   %.not.i = icmp eq i64 %23, 0
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %67
 
@@ -298,9 +298,9 @@ define noundef i64 @_Z20logged_rv64i_kdmtt16P11processor_t6insn_tm(ptr noundef %
   %34 = getelementptr inbounds i8, ptr %0, i64 659712
   br label %35
 
-35:                                               ; preds = %20, %58
-  %.04966 = phi i64 [ %25, %20 ], [ %64, %58 ]
-  %.05065 = phi i64 [ 1, %20 ], [ %65, %58 ]
+35:                                               ; preds = %20, %59
+  %.04966 = phi i64 [ %25, %20 ], [ %64, %59 ]
+  %.05065 = phi i64 [ 1, %20 ], [ %65, %59 ]
   %36 = shl i64 %.05065, 5
   %37 = and i64 %36, 4294967264
   %38 = shl nuw i64 4294967295, %37
@@ -318,33 +318,33 @@ define noundef i64 @_Z20logged_rv64i_kdmtt16P11processor_t6insn_tm(ptr noundef %
   %48 = icmp ne i32 %sext52, -2147483648
   %49 = icmp ne i32 %sext54, -2147483648
   %50 = or i1 %48, %49
-  br i1 %50, label %51, label %56
+  br i1 %50, label %51, label %57
 
 51:                                               ; preds = %35
   %52 = ashr i32 %47, 16
   %53 = ashr i32 %46, 15
   %54 = and i32 %53, -2
   %55 = mul i32 %54, %52
-  br label %58
+  %56 = sext i32 %55 to i64
+  br label %59
 
-56:                                               ; preds = %35
-  %57 = load ptr, ptr %34, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %57, i64 noundef 1) #16
-  br label %58
+57:                                               ; preds = %35
+  %58 = load ptr, ptr %34, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %58, i64 noundef 1) #16
+  br label %59
 
-58:                                               ; preds = %56, %51
-  %.051 = phi i32 [ %55, %51 ], [ 2147483647, %56 ]
-  %59 = xor i64 %38, -1
-  %60 = and i64 %.04966, %59
-  %61 = sext i32 %.051 to i64
-  %62 = mul i64 %42, %61
+59:                                               ; preds = %57, %51
+  %.051 = phi i64 [ %56, %51 ], [ 2147483647, %57 ]
+  %60 = xor i64 %38, -1
+  %61 = and i64 %.04966, %60
+  %62 = mul i64 %.051, %42
   %63 = and i64 %62, %38
-  %64 = or i64 %63, %60
+  %64 = or i64 %63, %61
   %65 = add nsw i64 %.05065, -1
   %.not = icmp eq i64 %.05065, 0
   br i1 %.not, label %66, label %35, !llvm.loop !6
 
-66:                                               ; preds = %58
+66:                                               ; preds = %59
   %67 = getelementptr inbounds i8, ptr %0, i64 3672
   %68 = shl nuw nsw i64 %23, 4
   %69 = getelementptr inbounds i8, ptr %0, i64 3680
@@ -534,9 +534,9 @@ define noundef i64 @_Z18fast_rv64e_kdmtt16P11processor_t6insn_tm(ptr nocapture n
   %55 = getelementptr inbounds i8, ptr %0, i64 659712
   br label %56
 
-56:                                               ; preds = %52, %79
-  %.05477 = phi i64 [ %32, %52 ], [ %85, %79 ]
-  %.05676 = phi i64 [ 1, %52 ], [ %86, %79 ]
+56:                                               ; preds = %52, %80
+  %.05477 = phi i64 [ %32, %52 ], [ %85, %80 ]
+  %.05676 = phi i64 [ 1, %52 ], [ %86, %80 ]
   %57 = shl i64 %.05676, 5
   %58 = and i64 %57, 4294967264
   %59 = shl nuw i64 4294967295, %58
@@ -554,33 +554,33 @@ define noundef i64 @_Z18fast_rv64e_kdmtt16P11processor_t6insn_tm(ptr nocapture n
   %69 = icmp ne i32 %sext57, -2147483648
   %70 = icmp ne i32 %sext59, -2147483648
   %71 = or i1 %69, %70
-  br i1 %71, label %72, label %77
+  br i1 %71, label %72, label %78
 
 72:                                               ; preds = %56
   %73 = ashr i32 %68, 16
   %74 = ashr i32 %67, 15
   %75 = and i32 %74, -2
   %76 = mul i32 %75, %73
-  br label %79
+  %77 = sext i32 %76 to i64
+  br label %80
 
-77:                                               ; preds = %56
-  %78 = load ptr, ptr %55, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %78, i64 noundef 1) #16
-  br label %79
+78:                                               ; preds = %56
+  %79 = load ptr, ptr %55, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %79, i64 noundef 1) #16
+  br label %80
 
-79:                                               ; preds = %77, %72
-  %.055 = phi i32 [ %76, %72 ], [ 2147483647, %77 ]
-  %80 = xor i64 %59, -1
-  %81 = and i64 %.05477, %80
-  %82 = sext i32 %.055 to i64
-  %83 = mul i64 %63, %82
+80:                                               ; preds = %78, %72
+  %.055 = phi i64 [ %77, %72 ], [ 2147483647, %78 ]
+  %81 = xor i64 %59, -1
+  %82 = and i64 %.05477, %81
+  %83 = mul i64 %.055, %63
   %84 = and i64 %83, %59
-  %85 = or i64 %84, %81
+  %85 = or i64 %84, %82
   %86 = add nsw i64 %.05676, -1
   %.not = icmp eq i64 %.05676, 0
   br i1 %.not, label %87, label %56, !llvm.loop !8
 
-87:                                               ; preds = %79
+87:                                               ; preds = %80
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %88
 
@@ -713,9 +713,9 @@ define noundef i64 @_Z20logged_rv64e_kdmtt16P11processor_t6insn_tm(ptr noundef %
   %55 = getelementptr inbounds i8, ptr %0, i64 659712
   br label %56
 
-56:                                               ; preds = %52, %79
-  %.05782 = phi i64 [ %32, %52 ], [ %85, %79 ]
-  %.05881 = phi i64 [ 1, %52 ], [ %86, %79 ]
+56:                                               ; preds = %52, %80
+  %.05782 = phi i64 [ %32, %52 ], [ %85, %80 ]
+  %.05881 = phi i64 [ 1, %52 ], [ %86, %80 ]
   %57 = shl i64 %.05881, 5
   %58 = and i64 %57, 4294967264
   %59 = shl nuw i64 4294967295, %58
@@ -733,33 +733,33 @@ define noundef i64 @_Z20logged_rv64e_kdmtt16P11processor_t6insn_tm(ptr noundef %
   %69 = icmp ne i32 %sext60, -2147483648
   %70 = icmp ne i32 %sext62, -2147483648
   %71 = or i1 %69, %70
-  br i1 %71, label %72, label %77
+  br i1 %71, label %72, label %78
 
 72:                                               ; preds = %56
   %73 = ashr i32 %68, 16
   %74 = ashr i32 %67, 15
   %75 = and i32 %74, -2
   %76 = mul i32 %75, %73
-  br label %79
+  %77 = sext i32 %76 to i64
+  br label %80
 
-77:                                               ; preds = %56
-  %78 = load ptr, ptr %55, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %78, i64 noundef 1) #16
-  br label %79
+78:                                               ; preds = %56
+  %79 = load ptr, ptr %55, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %79, i64 noundef 1) #16
+  br label %80
 
-79:                                               ; preds = %77, %72
-  %.059 = phi i32 [ %76, %72 ], [ 2147483647, %77 ]
-  %80 = xor i64 %59, -1
-  %81 = and i64 %.05782, %80
-  %82 = sext i32 %.059 to i64
-  %83 = mul i64 %63, %82
+80:                                               ; preds = %78, %72
+  %.059 = phi i64 [ %77, %72 ], [ 2147483647, %78 ]
+  %81 = xor i64 %59, -1
+  %82 = and i64 %.05782, %81
+  %83 = mul i64 %.059, %63
   %84 = and i64 %83, %59
-  %85 = or i64 %84, %81
+  %85 = or i64 %84, %82
   %86 = add nsw i64 %.05881, -1
   %.not = icmp eq i64 %.05881, 0
   br i1 %.not, label %87, label %56, !llvm.loop !9
 
-87:                                               ; preds = %79
+87:                                               ; preds = %80
   %88 = getelementptr inbounds i8, ptr %0, i64 3672
   %89 = shl nuw nsw i64 %22, 4
   %90 = getelementptr inbounds i8, ptr %0, i64 3680

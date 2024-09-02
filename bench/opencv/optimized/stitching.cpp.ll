@@ -330,7 +330,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit19:                  ; preds = %49, %46, %31, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_Z12parseCmdArgsiPPc(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 2) i32 @_Z12parseCmdArgsiPPc(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

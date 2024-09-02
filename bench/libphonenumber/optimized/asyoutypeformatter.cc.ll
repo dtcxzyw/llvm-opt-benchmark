@@ -1502,12 +1502,12 @@ _ZNK4i18n12phonenumbers13UnicodeString6lengthEv.exit: ; preds = %39
 50:                                               ; preds = %48
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 248
   %.pre = load i8, ptr %.phi.trans.insert, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 248
-  %52 = trunc i8 %.pre to i1
-  br i1 %52, label %102, label %53
+  %51 = trunc i8 %.pre to i1
+  %52 = getelementptr inbounds i8, ptr %0, i64 248
+  br i1 %51, label %102, label %53
 
 53:                                               ; preds = %.thread, %50
-  %54 = phi ptr [ %45, %.thread ], [ %51, %50 ]
+  %54 = phi ptr [ %45, %.thread ], [ %52, %50 ]
   %55 = getelementptr inbounds i8, ptr %0, i64 249
   %56 = load i8, ptr %55, align 1
   %57 = trunc i8 %56 to i1
@@ -1792,7 +1792,7 @@ _ZNK4i18n12phonenumbers13UnicodeString12toUTF8StringERNSt7__cxx1112basic_stringI
           to label %156 unwind label %143
 
 151:                                              ; preds = %149
-  %152 = load i8, ptr %51, align 8
+  %152 = load i8, ptr %52, align 8
   %153 = trunc i8 %152 to i1
   br i1 %153, label %154, label %155
 

@@ -415,7 +415,7 @@ define i32 @Unm_ManPrintPairStats(ptr nocapture noundef readonly %0, i32 noundef
   %gep.idx = shl nsw i64 %indvars.iv, 4
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %gep.idx
   %12 = load i32, ptr %gep, align 4
-  %13 = tail call noundef i32 @llvm.smin.i32(i32 %12, i32 20)
+  %13 = tail call noundef range(i32 -2147483648, 21) i32 @llvm.smin.i32(i32 %12, i32 20)
   %14 = add nsw i32 %13, %.035
   %15 = sext i32 %13 to i64
   %16 = getelementptr inbounds [21 x i32], ptr %6, i64 0, i64 %15
@@ -433,7 +433,7 @@ define i32 @Unm_ManPrintPairStats(ptr nocapture noundef readonly %0, i32 noundef
   %.029.lcssa = phi i32 [ 0, %5 ], [ %21, %11 ]
   %.0.lcssa = phi i32 [ 0, %5 ], [ %14, %11 ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %22 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa, i32 1)
+  %22 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.0.lcssa, i32 1)
   %23 = uitofp nneg i32 %22 to double
   br label %24
 
@@ -462,7 +462,7 @@ define i32 @Unm_ManPrintPairStats(ptr nocapture noundef readonly %0, i32 noundef
 37:                                               ; preds = %36
   %38 = sitofp i32 %2 to double
   %39 = fmul double %38, 1.000000e+02
-  %40 = tail call noundef i32 @llvm.smax.i32(i32 %1, i32 1)
+  %40 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %1, i32 1)
   %41 = uitofp nneg i32 %40 to double
   %42 = fdiv double %39, %41
   %43 = uitofp nneg i32 %.029.lcssa to double

@@ -558,23 +558,26 @@ plan_union_children.exit:                         ; preds = %.outer, %141, %112
   %186 = load i32, ptr %159, align 4
   %187 = sext i32 %186 to i64
   %188 = icmp slt i64 %indvars.iv.next, %187
-  br i1 %188, label %.lr.ph219, label %._crit_edge
+  br i1 %188, label %.lr.ph219, label %._crit_edge.loopexit
 
-._crit_edge:                                      ; preds = %182, %.lr.ph192, %plan_union_children.exit
-  %.091.i.lcssa = phi i8 [ 1, %plan_union_children.exit ], [ 1, %.lr.ph192 ], [ %.192.i, %182 ]
-  %.089.i.lcssa = phi i1 [ true, %plan_union_children.exit ], [ true, %.lr.ph192 ], [ %.190.i, %182 ]
-  %.086.i.lcssa = phi ptr [ null, %plan_union_children.exit ], [ null, %.lr.ph192 ], [ %.187.i, %182 ]
-  %.085.i.lcssa = phi ptr [ null, %plan_union_children.exit ], [ null, %.lr.ph192 ], [ %168, %182 ]
-  %.0.i.lcssa = phi ptr [ null, %plan_union_children.exit ], [ null, %.lr.ph192 ], [ %185, %182 ]
-  %189 = tail call ptr @fetch_upper_rel(ptr noundef %1, i32 noundef 0, ptr noundef %.0.i.lcssa) #7
-  %190 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %158) #7
-  %191 = tail call ptr @set_pathtarget_cost_width(ptr noundef %1, ptr noundef %190) #7
-  %192 = getelementptr inbounds i8, ptr %189, i64 32
-  store ptr %191, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %189, i64 26
-  %194 = and i8 %.091.i.lcssa, 1
-  store i8 %194, ptr %193, align 2
-  %195 = tail call ptr @create_append_path(ptr noundef %1, ptr noundef %189, ptr noundef %.085.i.lcssa, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i1 noundef zeroext false, double noundef -1.000000e+00) #7
+._crit_edge.loopexit:                             ; preds = %182
+  %189 = and i8 %.192.i, 1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph192, %plan_union_children.exit
+  %.091.i.lcssa = phi i8 [ 1, %plan_union_children.exit ], [ 1, %.lr.ph192 ], [ %189, %._crit_edge.loopexit ]
+  %.089.i.lcssa = phi i1 [ true, %plan_union_children.exit ], [ true, %.lr.ph192 ], [ %.190.i, %._crit_edge.loopexit ]
+  %.086.i.lcssa = phi ptr [ null, %plan_union_children.exit ], [ null, %.lr.ph192 ], [ %.187.i, %._crit_edge.loopexit ]
+  %.085.i.lcssa = phi ptr [ null, %plan_union_children.exit ], [ null, %.lr.ph192 ], [ %168, %._crit_edge.loopexit ]
+  %.0.i.lcssa = phi ptr [ null, %plan_union_children.exit ], [ null, %.lr.ph192 ], [ %185, %._crit_edge.loopexit ]
+  %190 = tail call ptr @fetch_upper_rel(ptr noundef %1, i32 noundef 0, ptr noundef %.0.i.lcssa) #7
+  %191 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %158) #7
+  %192 = tail call ptr @set_pathtarget_cost_width(ptr noundef %1, ptr noundef %191) #7
+  %193 = getelementptr inbounds i8, ptr %190, i64 32
+  store ptr %192, ptr %193, align 8
+  %194 = getelementptr inbounds i8, ptr %190, i64 26
+  store i8 %.091.i.lcssa, ptr %194, align 2
+  %195 = tail call ptr @create_append_path(ptr noundef %1, ptr noundef %190, ptr noundef %.085.i.lcssa, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i1 noundef zeroext false, double noundef -1.000000e+00) #7
   %196 = load i8, ptr %108, align 8
   %197 = trunc i8 %196 to i1
   br i1 %197, label %200, label %198
@@ -585,10 +588,10 @@ plan_union_children.exit:                         ; preds = %.outer, %141, %112
 
 200:                                              ; preds = %198, %._crit_edge
   %.088.i = phi ptr [ %195, %._crit_edge ], [ %199, %198 ]
-  tail call void @add_path(ptr noundef nonnull %189, ptr noundef %.088.i) #7
+  tail call void @add_path(ptr noundef nonnull %190, ptr noundef %.088.i) #7
   %201 = getelementptr inbounds i8, ptr %.088.i, i64 40
   %202 = load double, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %189, i64 16
+  %203 = getelementptr inbounds i8, ptr %190, i64 16
   store double %202, ptr %203, align 8
   br i1 %.089.i.lcssa, label %.preheader, label %generate_union_paths.exit
 
@@ -652,9 +655,9 @@ list_length.exit:                                 ; preds = %list_length.exit146
 229:                                              ; preds = %.thread162, %225, %214
   %230 = phi i1 [ true, %225 ], [ false, %214 ], [ false, %.thread162 ]
   %.183.i = phi i32 [ %228, %225 ], [ 0, %214 ], [ %.082.i.lcssa173, %.thread162 ]
-  %231 = tail call ptr @create_append_path(ptr noundef %1, ptr noundef %189, ptr noundef null, ptr noundef %.086.i.lcssa, ptr noundef null, ptr noundef null, i32 noundef %.183.i, i1 noundef zeroext %230, double noundef -1.000000e+00) #7
-  %232 = load ptr, ptr %192, align 8
-  %233 = tail call ptr @create_gather_path(ptr noundef %1, ptr noundef %189, ptr noundef %231, ptr noundef %232, ptr noundef null, ptr noundef null) #7
+  %231 = tail call ptr @create_append_path(ptr noundef %1, ptr noundef %190, ptr noundef null, ptr noundef %.086.i.lcssa, ptr noundef null, ptr noundef null, i32 noundef %.183.i, i1 noundef zeroext %230, double noundef -1.000000e+00) #7
+  %232 = load ptr, ptr %193, align 8
+  %233 = tail call ptr @create_gather_path(ptr noundef %1, ptr noundef %190, ptr noundef %231, ptr noundef %232, ptr noundef null, ptr noundef null) #7
   %234 = load i8, ptr %108, align 8
   %235 = trunc i8 %234 to i1
   br i1 %235, label %238, label %236
@@ -665,7 +668,7 @@ list_length.exit:                                 ; preds = %list_length.exit146
 
 238:                                              ; preds = %236, %229
   %.084.i = phi ptr [ %233, %229 ], [ %237, %236 ]
-  tail call void @add_path(ptr noundef nonnull %189, ptr noundef %.084.i) #7
+  tail call void @add_path(ptr noundef nonnull %190, ptr noundef %.084.i) #7
   br label %generate_union_paths.exit
 
 generate_union_paths.exit:                        ; preds = %200, %238
@@ -908,7 +911,7 @@ list_length.exit150:                              ; preds = %generate_nonunion_p
   br label %376
 
 376:                                              ; preds = %list_length.exit150, %generate_union_paths.exit
-  %.1 = phi ptr [ %189, %generate_union_paths.exit ], [ %280, %list_length.exit150 ]
+  %.1 = phi ptr [ %190, %generate_union_paths.exit ], [ %280, %list_length.exit150 ]
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %380, label %377
 

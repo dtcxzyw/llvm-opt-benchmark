@@ -2027,34 +2027,35 @@ if.then4.i.i:                                     ; preds = %trace_e1000e_rx_des
   store i64 %205, ptr %ba5.i.i, align 8
   %206 = load i64, ptr %desc.i, align 8
   store i64 %206, ptr %arrayidx2.i.i.i, align 8
+  %207 = icmp eq i64 %205, 0
   br label %igb_read_rx_descr.exit.i
 
 if.then9.i71.i:                                   ; preds = %trace_e1000e_rx_descr.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
-  %207 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i.i = icmp ne i32 %207, 0
-  %208 = load i16, ptr @_TRACE_IGB_WRN_RX_DESC_MODES_NOT_SUPP_DSTATE, align 2
-  %tobool4.i.i.i.i = icmp ne i16 %208, 0
+  %208 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i.i = icmp ne i32 %208, 0
+  %209 = load i16, ptr @_TRACE_IGB_WRN_RX_DESC_MODES_NOT_SUPP_DSTATE, align 2
+  %tobool4.i.i.i.i = icmp ne i16 %209, 0
   %or.cond.i.i.i.i = select i1 %tobool.i.i.i.i, i1 %tobool4.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i, label %land.lhs.true5.i.i.i.i, label %trace_igb_wrn_rx_desc_modes_not_supp.exit.i.i
 
 land.lhs.true5.i.i.i.i:                           ; preds = %if.then9.i71.i
-  %209 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i.i = and i32 %209, 32768
+  %210 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i.i = and i32 %210, 32768
   %cmp.i.not.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i.i, label %trace_igb_wrn_rx_desc_modes_not_supp.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.i.i
-  %210 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i.i = trunc i8 %210 to i1
+  %211 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i.i = trunc i8 %211 to i1
   br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #15
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #15
-  %211 = load i64, ptr %_now.i.i.i.i, align 8
-  %212 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i.i.i, i64 noundef %211, i64 noundef %212, i32 noundef %and.i.i.i70.i) #15
+  %212 = load i64, ptr %_now.i.i.i.i, align 8
+  %213 = load i64, ptr %tv_usec.i.i.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i.i.i, i64 noundef %212, i64 noundef %213, i32 noundef %and.i.i.i70.i) #15
   br label %trace_igb_wrn_rx_desc_modes_not_supp.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
@@ -2072,7 +2073,7 @@ if.end10.i.i:                                     ; preds = %trace_igb_wrn_rx_de
   br label %igb_read_rx_descr.exit.i
 
 igb_read_rx_descr.exit.i:                         ; preds = %if.end10.i.i, %if.then4.i.i
-  %213 = phi i64 [ %205, %if.then4.i.i ], [ 0, %if.end10.i.i ]
+  %tobool4.not.i.i = phi i1 [ %207, %if.then4.i.i ], [ true, %if.end10.i.i ]
   %214 = phi i64 [ %206, %if.then4.i.i ], [ %desc.val.i.i, %if.end10.i.i ]
   %tobool.not.i74.i = icmp eq i64 %214, 0
   br i1 %tobool.not.i74.i, label %if.then.i84.i, label %lor.lhs.false.i.i
@@ -2083,7 +2084,6 @@ lor.lhs.false.i.i:                                ; preds = %igb_read_rx_descr.e
   br i1 %tobool1.i.i, label %land.lhs.true.i.i, label %if.end.thread.i.i
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
-  %tobool4.not.i.i = icmp eq i64 %213, 0
   br i1 %tobool4.not.i.i, label %if.then.i84.i, label %if.end.i79.i
 
 if.then.i84.i:                                    ; preds = %land.lhs.true.i.i, %igb_read_rx_descr.exit.i

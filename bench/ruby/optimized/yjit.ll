@@ -1844,7 +1844,7 @@ rb_fix_div_fix.exit:                              ; preds = %7, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden i64 @rb_yjit_fix_mod_fix(i64 noundef %0, i64 noundef %1) local_unnamed_addr #8 {
+define hidden range(i64 1, 0) i64 @rb_yjit_fix_mod_fix(i64 noundef %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = ashr i64 %0, 1
   %4 = ashr i64 %1, 1
   %5 = icmp eq i64 %3, -4611686018427387904
@@ -1881,7 +1881,7 @@ rb_fix_mod_fix.exit:                              ; preds = %2, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @rb_yjit_ruby2_keywords_splat_p(i64 noundef %0) local_unnamed_addr #4 {
+define hidden range(i64 0, 8193) i64 @rb_yjit_ruby2_keywords_splat_p(i64 noundef %0) local_unnamed_addr #4 {
   %2 = and i64 %0, 7
   %3 = icmp ne i64 %2, 0
   %4 = icmp eq i64 %0, 0
@@ -2705,7 +2705,7 @@ declare i64 @rb_yjit_get_exit_locations(ptr noundef, i64 noundef) #3
 declare i64 @rb_yjit_get_stats(ptr noundef, i64 noundef, i64 noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i64 1, 0) i64 @object_shape_count(ptr nocapture readnone %0, i64 %1) #4 {
+define internal range(i64 1, 8589934592) i64 @object_shape_count(ptr nocapture readnone %0, i64 %1) #4 {
   %3 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8

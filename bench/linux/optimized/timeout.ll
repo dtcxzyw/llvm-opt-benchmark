@@ -994,12 +994,12 @@ define dso_local noundef i32 @io_timeout(ptr noundef %0, i32 noundef %1) local_u
   %33 = icmp eq ptr %32, %30
   br i1 %33, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %21, %select.unfold
-  %34 = phi ptr [ %51, %select.unfold ], [ %32, %21 ]
+.preheader:                                       ; preds = %21, %.critedge
+  %34 = phi ptr [ %50, %.critedge ], [ %32, %21 ]
   %35 = getelementptr i8, ptr %34, i64 -16
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %select.unfold, label %38
+  br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %.preheader
   %39 = getelementptr i8, ptr %34, i64 160
@@ -1008,45 +1008,45 @@ define dso_local noundef i32 @io_timeout(ptr noundef %0, i32 noundef %1) local_u
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 64
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %select.unfold
+  br i1 %44, label %45, label %.critedge
 
 45:                                               ; preds = %38
   %46 = getelementptr i8, ptr %34, i64 -12
   %47 = load i32, ptr %46, align 4
   %48 = sub i32 %47, %26
-  %49 = icmp ult i32 %8, %48
-  br i1 %49, label %select.unfold, label %.loopexit
+  %.not = icmp ult i32 %8, %48
+  br i1 %.not, label %.critedge, label %.loopexit
 
-select.unfold:                                    ; preds = %45, %38, %.preheader
-  %50 = getelementptr inbounds i8, ptr %34, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, %30
-  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !31
+.critedge:                                        ; preds = %38, %.preheader, %45
+  %49 = getelementptr inbounds i8, ptr %34, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp eq ptr %50, %30
+  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !31
 
-.loopexit:                                        ; preds = %45, %select.unfold, %21, %18
-  %53 = phi ptr [ %20, %18 ], [ %32, %21 ], [ %34, %45 ], [ %51, %select.unfold ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
-  %55 = load ptr, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
-  store ptr %54, ptr %56, align 8
-  store ptr %55, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %53, ptr %57, align 8
-  store volatile ptr %54, ptr %53, align 8
-  %58 = getelementptr inbounds i8, ptr %6, i64 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 48
-  store ptr @io_timeout_fn, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %6, i64 72
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %6, i64 80
-  %63 = load i64, ptr %62, align 8
-  %64 = icmp sgt i64 %61, 9223372035
-  %65 = mul i64 %61, 1000000000
-  %66 = add i64 %65, %63
-  %67 = select i1 %64, i64 9223372036854775807, i64 %66, !prof !9
-  %68 = getelementptr inbounds i8, ptr %6, i64 88
-  %69 = load i32, ptr %68, align 8
-  tail call void @hrtimer_start_range_ns(ptr noundef %58, i64 noundef %67, i64 noundef 0, i32 noundef %69) #8
+.loopexit:                                        ; preds = %.critedge, %45, %21, %18
+  %52 = phi ptr [ %20, %18 ], [ %32, %21 ], [ %50, %.critedge ], [ %34, %45 ]
+  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = load ptr, ptr %52, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  store ptr %53, ptr %55, align 8
+  store ptr %54, ptr %53, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %52, ptr %56, align 8
+  store volatile ptr %53, ptr %52, align 8
+  %57 = getelementptr inbounds i8, ptr %6, i64 8
+  %58 = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr @io_timeout_fn, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %6, i64 72
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %6, i64 80
+  %62 = load i64, ptr %61, align 8
+  %63 = icmp sgt i64 %60, 9223372035
+  %64 = mul i64 %60, 1000000000
+  %65 = add i64 %64, %62
+  %66 = select i1 %63, i64 9223372036854775807, i64 %65, !prof !9
+  %67 = getelementptr inbounds i8, ptr %6, i64 88
+  %68 = load i32, ptr %67, align 8
+  tail call void @hrtimer_start_range_ns(ptr noundef %57, i64 noundef %66, i64 noundef 0, i32 noundef %68) #8
   tail call void @_raw_spin_unlock_irq(ptr noundef %9) #8
   ret i32 -529
 }

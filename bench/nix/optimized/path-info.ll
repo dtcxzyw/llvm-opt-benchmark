@@ -5727,7 +5727,7 @@ define internal fastcc void @_ZN3nixL12makePathInfoERKNS_5StoreEb(ptr dead_on_un
   %20 = getelementptr inbounds i8, ptr %6, i64 104
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %36, label %22
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %37, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %6, i64 96
@@ -5753,26 +5753,26 @@ define internal fastcc void @_ZN3nixL12makePathInfoERKNS_5StoreEb(ptr dead_on_un
   store ptr %23, ptr %26, align 8
   store ptr %23, ptr %29, align 8
   %.pre = load i8, ptr %18, align 8
+  %36 = and i8 %.pre, 1
   br label %_ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit
 
-36:                                               ; preds = %17
+37:                                               ; preds = %17
   store i32 0, ptr %19, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 112
-  store ptr %19, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 120
+  %38 = getelementptr inbounds i8, ptr %5, i64 104
+  store ptr null, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %5, i64 112
   store ptr %19, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 128
+  %40 = getelementptr inbounds i8, ptr %5, i64 120
+  store ptr %19, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %5, i64 128
   br label %_ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit
 
-_ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit: ; preds = %22, %36
-  %41 = phi i8 [ 1, %36 ], [ %.pre, %22 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %40, %36 ], [ %33, %22 ]
+_ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit: ; preds = %22, %37
+  %42 = phi i8 [ 1, %37 ], [ %36, %22 ]
+  %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %41, %37 ], [ %33, %22 ]
   store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 136
-  %43 = and i8 %41, 1
-  store i8 %43, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %5, i64 136
+  store i8 %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %5, i64 144
   store i8 1, ptr %44, align 8
   invoke void @_ZN3nix4Hash8parseSRIESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"struct.nix::Hash") align 8 %10, i64 51, ptr nonnull @.str.151)

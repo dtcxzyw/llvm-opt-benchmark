@@ -183,7 +183,7 @@ GetMBSSIM.exit:                                   ; preds = %47
 
 GetILevel.exit.i:                                 ; preds = %63, %57
   %.0.i.i = phi i32 [ %55, %57 ], [ %spec.select.i.i, %63 ]
-  %spec.store.select.i.i = tail call range(i32 -2147483638, 64) i32 @llvm.smax.i32(i32 %.0.i.i, i32 1)
+  %spec.store.select.i.i = tail call range(i32 1, 64) i32 @llvm.smax.i32(i32 %.0.i.i, i32 1)
   %66 = shl nuw nsw i32 %55, 1
   %67 = add nuw nsw i32 %spec.store.select.i.i, %66
   %68 = load ptr, ptr %53, align 8

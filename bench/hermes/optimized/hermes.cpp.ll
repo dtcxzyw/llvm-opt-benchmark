@@ -18556,25 +18556,24 @@ invoke.cont10.loopexit:                           ; preds = %invoke.cont7
   %.pre = load i32, ptr %Size.i.i.i.i.i, align 8
   %.pre54 = load ptr, ptr %apiArgs, align 8
   %.pre55 = load ptr, ptr %hvArgs, align 8, !noalias !219
+  %10 = icmp eq i32 %.pre, 0
+  %11 = select i1 %10, ptr null, ptr %.pre54
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %invoke.cont10.loopexit, %entry
-  %10 = phi ptr [ %.pre55, %invoke.cont10.loopexit ], [ %1, %entry ]
-  %11 = phi ptr [ %.pre54, %invoke.cont10.loopexit ], [ %add.ptr.i.i.i.i.i, %entry ]
-  %12 = phi i32 [ %.pre, %invoke.cont10.loopexit ], [ 0, %entry ]
+  %12 = phi ptr [ %.pre55, %invoke.cont10.loopexit ], [ %1, %entry ]
+  %tobool.not.i = phi ptr [ %11, %invoke.cont10.loopexit ], [ null, %entry ]
   store i32 0, ptr %ret, align 8
-  %agg.tmp18.sroa.0.0.copyload = load i64, ptr %10, align 8
+  %agg.tmp18.sroa.0.0.copyload = load i64, ptr %12, align 8
   invoke void @_ZN8facebook6hermes17HermesRuntimeImpl20valueFromHermesValueEN6hermes2vm11HermesValueE(ptr nonnull sret(%"class.facebook::jsi::Value") align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(184) %0, i64 %agg.tmp18.sroa.0.0.copyload)
           to label %invoke.cont23 unwind label %lpad19
 
 invoke.cont23:                                    ; preds = %invoke.cont10
-  %tobool.not.i = icmp eq i32 %12, 0
-  %spec.select = select i1 %tobool.not.i, ptr null, ptr %11
   %13 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i21 = zext i32 %13 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr6.i)
-  store ptr %spec.select, ptr %__args.addr4.i, align 8, !noalias !222
+  store ptr %tobool.not.i, ptr %__args.addr4.i, align 8, !noalias !222
   store i64 %conv.i21, ptr %__args.addr6.i, align 8, !noalias !222
   %_M_manager.i.i = getelementptr inbounds i8, ptr %context, i64 16
   %14 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !222
@@ -22003,7 +22002,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4sizeERKNS0_5ArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i64 0, 4294967296) i64 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4sizeERKNS0_5ArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8
@@ -22055,7 +22054,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4sizeERKNS0_11ArrayBufferE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ab) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i64 0, 4294967296) i64 @_ZN8facebook3jsi20WithRuntimeDecoratorINS0_6detail8WithLockINS_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEES5_NS0_17ThreadSafeRuntimeEE4sizeERKNS0_11ArrayBufferE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ab) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %with_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %with_, align 8

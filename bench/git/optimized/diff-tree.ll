@@ -67,44 +67,35 @@ land.lhs.true:                                    ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = load i8, ptr %0, align 1
-  %2 = zext i8 %1 to i32
-  %3 = add nsw i32 %2, -45
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %sub_1, label %land.lhs.true.tail
+  %.not = icmp eq i8 %1, 45
+  br i1 %.not, label %sub_1, label %if.end
 
 sub_1:                                            ; preds = %land.lhs.true
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = load i8, ptr %2, align 1
+  %.not36 = icmp eq i8 %3, 104
+  br i1 %.not36, label %land.lhs.true.tail, label %if.end
+
+land.lhs.true.tail:                               ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 1
-  %6 = zext i8 %5 to i32
-  %7 = add nsw i32 %6, -104
-  %.not36 = icmp eq i32 %7, 0
-  br i1 %.not36, label %sub_2, label %land.lhs.true.tail
-
-sub_2:                                            ; preds = %sub_1
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
-  %9 = load i8, ptr %8, align 1
-  %10 = zext i8 %9 to i32
-  br label %land.lhs.true.tail
-
-land.lhs.true.tail:                               ; preds = %land.lhs.true, %sub_1, %sub_2
-  %11 = phi i32 [ %3, %land.lhs.true ], [ %7, %sub_1 ], [ %10, %sub_2 ]
-  %tobool.not = icmp eq i32 %11, 0
-  br i1 %tobool.not, label %if.then, label %if.end
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true.tail
   tail call void @usage(ptr noundef nonnull @diff_tree_usage) #10
   unreachable
 
-if.end:                                           ; preds = %land.lhs.true.tail, %entry
+if.end:                                           ; preds = %sub_1, %land.lhs.true, %land.lhs.true.tail, %entry
   tail call void @git_config(ptr noundef nonnull @git_diff_basic_config, ptr noundef null) #11
-  %12 = load ptr, ptr @the_repository, align 8
-  tail call void @prepare_repo_settings(ptr noundef %12) #11
-  %13 = load ptr, ptr @the_repository, align 8
-  %command_requires_full_index = getelementptr inbounds i8, ptr %13, i64 168
+  %7 = load ptr, ptr @the_repository, align 8
+  tail call void @prepare_repo_settings(ptr noundef %7) #11
+  %8 = load ptr, ptr @the_repository, align 8
+  %command_requires_full_index = getelementptr inbounds i8, ptr %8, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
-  tail call void @repo_init_revisions(ptr noundef %13, ptr noundef nonnull @log_tree_opt, ptr noundef %prefix) #11
-  %14 = load ptr, ptr @the_repository, align 8
-  %call1 = tail call i32 @repo_read_index(ptr noundef %14) #11
+  tail call void @repo_init_revisions(ptr noundef %8, ptr noundef nonnull @log_tree_opt, ptr noundef %prefix) #11
+  %9 = load ptr, ptr @the_repository, align 8
+  %call1 = tail call i32 @repo_read_index(ptr noundef %9) #11
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then3, label %if.end5
 
@@ -128,8 +119,8 @@ if.end5:                                          ; preds = %if.end
   store i32 0, ptr %w, align 4
   call void @userformat_find_requirements(ptr noundef null, ptr noundef nonnull %w) #11
   %bf.load11 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 292), align 4
-  %15 = and i32 %bf.load11, 8
-  %tobool13.not = icmp eq i32 %15, 0
+  %10 = and i32 %bf.load11, 8
+  %tobool13.not = icmp eq i32 %10, 0
   br i1 %tobool13.not, label %land.lhs.true14, label %if.end19
 
 land.lhs.true14:                                  ; preds = %if.end5
@@ -171,13 +162,13 @@ while.cond:                                       ; preds = %while.cond.outer, %
 while.body:                                       ; preds = %while.cond
   %dec = add nsw i32 %argc.addr.0, -1
   %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.0, i64 8
-  %16 = load ptr, ptr %incdec.ptr, align 8
-  %call25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(8) @.str.2) #12
+  %11 = load ptr, ptr %incdec.ptr, align 8
+  %call25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(8) @.str.2) #12
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %while.cond, label %if.end28, !llvm.loop !5
 
 if.end28:                                         ; preds = %while.body
-  %call29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(13) @.str.3) #12
+  %call29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(13) @.str.3) #12
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %while.cond.outer, label %if.end32, !llvm.loop !5
 
@@ -196,8 +187,8 @@ if.then36:                                        ; preds = %while.end
   unreachable
 
 if.end38:                                         ; preds = %while.end
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 8), align 8
-  %cmp41.not = icmp ne i32 %17, 2
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 8), align 8
+  %cmp41.not = icmp ne i32 %12, 2
   %or.cond19.not = select i1 %tobool35, i1 %cmp41.not, i1 false
   br i1 %or.cond19.not, label %if.then42, label %if.end44
 
@@ -208,7 +199,7 @@ if.then42:                                        ; preds = %if.end38
 
 if.end44:                                         ; preds = %if.end38
   store i32 1, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1492), align 4
-  switch i32 %17, label %sw.epilog [
+  switch i32 %12, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb50
     i32 2, label %sw.bb54
@@ -222,11 +213,11 @@ if.then48:                                        ; preds = %sw.bb
   unreachable
 
 sw.bb50:                                          ; preds = %if.end44
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 16), align 8
-  %19 = load ptr, ptr %18, align 8
-  %oid = getelementptr inbounds i8, ptr %19, i64 4
-  %20 = load ptr, ptr @the_repository, align 8
-  %call.i = call ptr @lookup_commit_reference(ptr noundef %20, ptr noundef nonnull %oid) #11
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 16), align 8
+  %14 = load ptr, ptr %13, align 8
+  %oid = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = load ptr, ptr @the_repository, align 8
+  %call.i = call ptr @lookup_commit_reference(ptr noundef %15, ptr noundef nonnull %oid) #11
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %sw.epilog, label %if.end.i
 
@@ -235,29 +226,29 @@ if.end.i:                                         ; preds = %sw.bb50
   br label %sw.epilog
 
 sw.bb54:                                          ; preds = %if.end44
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 16), align 8
-  %arrayidx61 = getelementptr inbounds i8, ptr %21, i64 32
-  %22 = load ptr, ptr %arrayidx61, align 8
+  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 16), align 8
+  %arrayidx61 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = load ptr, ptr %arrayidx61, align 8
   br i1 %tobool35, label %if.then64, label %if.else
 
 if.then64:                                        ; preds = %sw.bb54
   call void @diff_get_merge_base(ptr noundef nonnull @log_tree_opt, ptr noundef nonnull %oid65) #11
-  %23 = load ptr, ptr @the_repository, align 8
-  %call66 = call ptr @lookup_object(ptr noundef %23, ptr noundef nonnull %oid65) #11
+  %18 = load ptr, ptr @the_repository, align 8
+  %call66 = call ptr @lookup_object(ptr noundef %18, ptr noundef nonnull %oid65) #11
   br label %if.end73
 
 if.else:                                          ; preds = %sw.bb54
-  %24 = load ptr, ptr %21, align 8
-  %bf.load67 = load i32, ptr %22, align 4
-  %25 = and i32 %bf.load67, 32
-  %tobool69.not = icmp eq i32 %25, 0
-  %spec.select = select i1 %tobool69.not, ptr %24, ptr %22
-  %spec.select20 = select i1 %tobool69.not, ptr %22, ptr %24
+  %19 = load ptr, ptr %16, align 8
+  %bf.load67 = load i32, ptr %17, align 4
+  %20 = and i32 %bf.load67, 32
+  %tobool69.not = icmp eq i32 %20, 0
+  %spec.select = select i1 %tobool69.not, ptr %19, ptr %17
+  %spec.select20 = select i1 %tobool69.not, ptr %17, ptr %19
   br label %if.end73
 
 if.end73:                                         ; preds = %if.else, %if.then64
   %tree1.0 = phi ptr [ %call66, %if.then64 ], [ %spec.select, %if.else ]
-  %tree2.0 = phi ptr [ %22, %if.then64 ], [ %spec.select20, %if.else ]
+  %tree2.0 = phi ptr [ %17, %if.then64 ], [ %spec.select20, %if.else ]
   %oid74 = getelementptr inbounds i8, ptr %tree1.0, i64 4
   %oid75 = getelementptr inbounds i8, ptr %tree2.0, i64 4
   call void @diff_tree_oid(ptr noundef nonnull %oid74, ptr noundef nonnull %oid75, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds (i8, ptr @log_tree_opt, i64 1472)) #11
@@ -270,29 +261,29 @@ sw.epilog:                                        ; preds = %if.end.i, %sw.bb50,
 if.then79:                                        ; preds = %sw.bb, %sw.epilog
   store i32 0, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1492), align 4
   store i32 1, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 2064), align 8
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1740), align 4
-  %tobool84.not = icmp eq i32 %26, 0
+  %21 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1740), align 4
+  %tobool84.not = icmp eq i32 %21, 0
   br i1 %tobool84.not, label %if.end91, label %if.then85
 
 if.then85:                                        ; preds = %if.then79
-  %27 = load ptr, ptr @the_index, align 8
-  %tobool86.not = icmp eq ptr %27, null
+  %22 = load ptr, ptr @the_index, align 8
+  %tobool86.not = icmp eq ptr %22, null
   br i1 %tobool86.not, label %if.then87, label %if.end89
 
 if.then87:                                        ; preds = %if.then85
-  %28 = load ptr, ptr @the_repository, align 8
-  %call88 = call i32 @repo_read_index(ptr noundef %28) #11
+  %23 = load ptr, ptr @the_repository, align 8
+  %call88 = call i32 @repo_read_index(ptr noundef %23) #11
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then87, %if.then85
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1784), align 8
-  %or = or i32 %29, 4
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1784), align 8
+  %or = or i32 %24, 4
   store i32 %or, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1784), align 8
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end89, %if.then79
-  %30 = load ptr, ptr @stdin, align 8
-  %call9431 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1000, ptr noundef %30)
+  %25 = load ptr, ptr @stdin, align 8
+  %call9431 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1000, ptr noundef %25)
   %tobool95.not32 = icmp eq ptr %call9431, null
   br i1 %tobool95.not32, label %while.end119, label %while.body96
 
@@ -304,18 +295,18 @@ while.body96:                                     ; preds = %if.end91, %if.end11
   br i1 %tobool100.not, label %if.else105, label %if.then101
 
 if.then101:                                       ; preds = %while.body96
-  %31 = load ptr, ptr @stdout, align 8
-  %call103 = call i32 @fputs(ptr noundef nonnull %line, ptr noundef %31)
-  %32 = load ptr, ptr @stdout, align 8
-  %call104 = call i32 @fflush(ptr noundef %32)
+  %26 = load ptr, ptr @stdout, align 8
+  %call103 = call i32 @fputs(ptr noundef nonnull %line, ptr noundef %26)
+  %27 = load ptr, ptr @stdout, align 8
+  %call104 = call i32 @fflush(ptr noundef %27)
   br label %if.end118
 
 if.else105:                                       ; preds = %while.body96
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   %call.i23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line) #12
-  %33 = and i64 %call.i23, 4294967295
-  %tobool.not.i24 = icmp eq i64 %33, 0
+  %28 = and i64 %call.i23, 4294967295
+  %tobool.not.i24 = icmp eq i64 %28, 0
   br i1 %tobool.not.i24, label %diff_tree_stdin.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else105
@@ -323,8 +314,8 @@ lor.lhs.false.i:                                  ; preds = %if.else105
   %sext.i = add i64 %sub.i, -4294967296
   %idxprom.i = ashr exact i64 %sext.i, 32
   %arrayidx.i = getelementptr inbounds i8, ptr %line, i64 %idxprom.i
-  %34 = load i8, ptr %arrayidx.i, align 1
-  %cmp.not.i = icmp eq i8 %34, 10
+  %29 = load i8, ptr %arrayidx.i, align 1
+  %cmp.not.i = icmp eq i8 %29, 10
   br i1 %cmp.not.i, label %if.end.i26, label %diff_tree_stdin.exit
 
 if.end.i26:                                       ; preds = %lor.lhs.false.i
@@ -334,8 +325,8 @@ if.end.i26:                                       ; preds = %lor.lhs.false.i
   br i1 %tobool7.not.i, label %if.end9.i, label %diff_tree_stdin.exit
 
 if.end9.i:                                        ; preds = %if.end.i26
-  %35 = load ptr, ptr @the_repository, align 8
-  %call10.i = call ptr @parse_object(ptr noundef %35, ptr noundef nonnull %oid.i) #11
+  %30 = load ptr, ptr @the_repository, align 8
+  %call10.i = call ptr @parse_object(ptr noundef %30, ptr noundef nonnull %oid.i) #11
   %tobool11.not.i = icmp eq ptr %call10.i, null
   br i1 %tobool11.not.i, label %diff_tree_stdin.exit, label %if.end13.i
 
@@ -349,17 +340,17 @@ if.end13.i:                                       ; preds = %if.end9.i
   ]
 
 if.then16.i:                                      ; preds = %if.end13.i
-  %36 = load ptr, ptr %p.i, align 8
+  %31 = load ptr, ptr %p.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i.i)
-  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %36, i64 1
+  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %31, i64 1
   store ptr %incdec.ptr6.i.i, ptr %p.addr.i.i, align 8
-  %37 = load i8, ptr %36, align 1
-  %idxprom7.i.i = zext i8 %37 to i64
+  %32 = load i8, ptr %31, align 1
+  %idxprom7.i.i = zext i8 %32 to i64
   %arrayidx8.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom7.i.i
-  %38 = load i8, ptr %arrayidx8.i.i, align 1
-  %39 = and i8 %38, 1
-  %cmp.not9.i.i = icmp eq i8 %39, 0
+  %33 = load i8, ptr %arrayidx8.i.i, align 1
+  %34 = and i8 %33, 1
+  %cmp.not9.i.i = icmp eq i8 %34, 0
   br i1 %cmp.not9.i.i, label %stdin_diff_commit.exit.i, label %land.rhs.lr.ph.i.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %if.then16.i
@@ -374,14 +365,14 @@ land.rhs.i.i:                                     ; preds = %if.end9.i.i, %land.
   br i1 %tobool.not.i.i, label %while.body.i.i, label %stdin_diff_commit.exit.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %40 = load ptr, ptr @the_repository, align 8
-  %call2.i.i = call ptr @lookup_commit(ptr noundef %40, ptr noundef nonnull %oid.i.i) #11
+  %35 = load ptr, ptr @the_repository, align 8
+  %call2.i.i = call ptr @lookup_commit(ptr noundef %35, ptr noundef nonnull %oid.i.i) #11
   %tobool3.not.i.i = icmp eq ptr %pptr.010.i.i, null
   br i1 %tobool3.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
-  %41 = load ptr, ptr %parents.i.i, align 8
-  call void @free_commit_list(ptr noundef %41) #11
+  %36 = load ptr, ptr %parents.i.i, align 8
+  call void @free_commit_list(ptr noundef %36) #11
   store ptr null, ptr %parents.i.i, align 8
   br label %if.end.i.i
 
@@ -397,15 +388,15 @@ if.then7.i.i:                                     ; preds = %if.end.i.i
 
 if.end9.i.i:                                      ; preds = %if.then7.i.i, %if.end.i.i
   %pptr.2.i.i = phi ptr [ %next.i.i, %if.then7.i.i ], [ %pptr.1.i.i, %if.end.i.i ]
-  %42 = load ptr, ptr %p.addr.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %42, i64 1
+  %37 = load ptr, ptr %p.addr.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %37, i64 1
   store ptr %incdec.ptr.i.i, ptr %p.addr.i.i, align 8
-  %43 = load i8, ptr %42, align 1
-  %idxprom.i.i = zext i8 %43 to i64
+  %38 = load i8, ptr %37, align 1
+  %idxprom.i.i = zext i8 %38 to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i
-  %44 = load i8, ptr %arrayidx.i.i, align 1
-  %45 = and i8 %44, 1
-  %cmp.not.i.i = icmp eq i8 %45, 0
+  %39 = load i8, ptr %arrayidx.i.i, align 1
+  %40 = and i8 %39, 1
+  %cmp.not.i.i = icmp eq i8 %40, 0
   br i1 %cmp.not.i.i, label %stdin_diff_commit.exit.i, label %land.rhs.i.i, !llvm.loop !7
 
 stdin_diff_commit.exit.i:                         ; preds = %if.end9.i.i, %land.rhs.i.i, %if.then16.i
@@ -415,17 +406,17 @@ stdin_diff_commit.exit.i:                         ; preds = %if.end9.i.i, %land.
   br label %diff_tree_stdin.exit
 
 if.then24.i:                                      ; preds = %if.end13.i
-  %46 = load ptr, ptr %p.i, align 8
+  %41 = load ptr, ptr %p.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.addr.i11.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i12.i)
-  %incdec.ptr.i13.i = getelementptr inbounds i8, ptr %46, i64 1
+  %incdec.ptr.i13.i = getelementptr inbounds i8, ptr %41, i64 1
   store ptr %incdec.ptr.i13.i, ptr %p.addr.i11.i, align 8
-  %47 = load i8, ptr %46, align 1
-  %idxprom.i14.i = zext i8 %47 to i64
+  %42 = load i8, ptr %41, align 1
+  %idxprom.i14.i = zext i8 %42 to i64
   %arrayidx.i15.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i14.i
-  %48 = load i8, ptr %arrayidx.i15.i, align 1
-  %49 = and i8 %48, 1
-  %cmp.not.i16.i = icmp eq i8 %49, 0
+  %43 = load i8, ptr %arrayidx.i15.i, align 1
+  %44 = and i8 %43, 1
+  %cmp.not.i16.i = icmp eq i8 %44, 0
   br i1 %cmp.not.i16.i, label %if.then.i19.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then24.i
@@ -434,9 +425,9 @@ lor.lhs.false.i.i:                                ; preds = %if.then24.i
   br i1 %tobool.not.i18.i, label %lor.lhs.false2.i.i, label %if.then.i19.i
 
 lor.lhs.false2.i.i:                               ; preds = %lor.lhs.false.i.i
-  %50 = load ptr, ptr %p.addr.i11.i, align 8
-  %51 = load i8, ptr %50, align 1
-  %tobool4.not.i.i = icmp eq i8 %51, 0
+  %45 = load ptr, ptr %p.addr.i11.i, align 8
+  %46 = load i8, ptr %45, align 1
+  %tobool4.not.i.i = icmp eq i8 %46, 0
   br i1 %tobool4.not.i.i, label %if.end.i20.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %lor.lhs.false2.i.i, %lor.lhs.false.i.i, %if.then24.i
@@ -444,8 +435,8 @@ if.then.i19.i:                                    ; preds = %lor.lhs.false2.i.i,
   br label %stdin_diff_trees.exit.i
 
 if.end.i20.i:                                     ; preds = %lor.lhs.false2.i.i
-  %52 = load ptr, ptr @the_repository, align 8
-  %call7.i.i = call ptr @lookup_tree(ptr noundef %52, ptr noundef nonnull %oid.i12.i) #11
+  %47 = load ptr, ptr @the_repository, align 8
+  %call7.i.i = call ptr @lookup_tree(ptr noundef %47, ptr noundef nonnull %oid.i12.i) #11
   %tobool8.not.i.i = icmp eq ptr %call7.i.i, null
   br i1 %tobool8.not.i.i, label %stdin_diff_trees.exit.i, label %lor.lhs.false9.i.i
 
@@ -481,18 +472,18 @@ if.end26.i:                                       ; preds = %if.end13.i
 diff_tree_stdin.exit:                             ; preds = %if.else105, %lor.lhs.false.i, %if.end.i26, %if.end9.i, %stdin_diff_commit.exit.i, %stdin_diff_trees.exit.i, %if.end26.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  %53 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1768), align 8
-  %spec.select21 = call i32 @llvm.smax.i32(i32 %saved_nrl.033, i32 %53)
-  %54 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1772), align 4
-  %tobool115.not = icmp eq i32 %54, 0
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1768), align 8
+  %spec.select21 = call i32 @llvm.smax.i32(i32 %saved_nrl.033, i32 %48)
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1772), align 4
+  %tobool115.not = icmp eq i32 %49, 0
   %spec.select22 = select i1 %tobool115.not, i32 %saved_dcctc.034, i32 1
   br label %if.end118
 
 if.end118:                                        ; preds = %diff_tree_stdin.exit, %if.then101
   %saved_nrl.1 = phi i32 [ %saved_nrl.033, %if.then101 ], [ %spec.select21, %diff_tree_stdin.exit ]
   %saved_dcctc.1 = phi i32 [ %saved_dcctc.034, %if.then101 ], [ %spec.select22, %diff_tree_stdin.exit ]
-  %55 = load ptr, ptr @stdin, align 8
-  %call94 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1000, ptr noundef %55)
+  %50 = load ptr, ptr @stdin, align 8
+  %call94 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1000, ptr noundef %50)
   %tobool95.not = icmp eq ptr %call94, null
   br i1 %tobool95.not, label %while.end119, label %while.body96, !llvm.loop !8
 

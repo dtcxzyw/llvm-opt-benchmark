@@ -837,186 +837,189 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %539 = phi i8 [ %81, %533 ], [ %116, %296 ], [ %116, %113 ], [ %81, %429 ], [ %81, %433 ], [ %81, %79 ]
   %540 = add nuw nsw i64 %80, 1
   %541 = icmp eq i64 %540, %22
-  br i1 %541, label %.loopexit35, label %79, !llvm.loop !110
+  br i1 %541, label %.loopexit35.loopexit, label %79, !llvm.loop !110
 
-.loopexit35:                                      ; preds = %534, %25
-  %542 = phi i32 [ 0, %25 ], [ %92, %534 ]
-  %543 = phi i32 [ 0, %25 ], [ %538, %534 ]
-  %544 = phi i8 [ 0, %25 ], [ %539, %534 ]
-  %545 = getelementptr inbounds i8, ptr %1, i64 56
-  %546 = load i32, ptr %545, align 4, !tbaa !37
-  %547 = icmp eq i32 %546, 0
-  br i1 %547, label %604, label %548
+.loopexit35.loopexit:                             ; preds = %534
+  %542 = and i32 %92, 2
+  %543 = icmp ne i32 %542, 0
+  %544 = and i8 %539, 1
+  %545 = icmp eq i8 %544, 0
+  br label %.loopexit35
 
-548:                                              ; preds = %.loopexit35
-  %549 = getelementptr inbounds i8, ptr %1, i64 60
-  %550 = load i32, ptr %549, align 4, !tbaa !112
-  %551 = add i32 %550, -256
-  %552 = icmp ult i32 %551, -257
-  br i1 %552, label %553, label %594
+.loopexit35:                                      ; preds = %.loopexit35.loopexit, %25
+  %546 = phi i1 [ false, %25 ], [ %543, %.loopexit35.loopexit ]
+  %547 = phi i32 [ 0, %25 ], [ %538, %.loopexit35.loopexit ]
+  %548 = phi i1 [ true, %25 ], [ %545, %.loopexit35.loopexit ]
+  %549 = getelementptr inbounds i8, ptr %1, i64 56
+  %550 = load i32, ptr %549, align 4, !tbaa !37
+  %551 = icmp eq i32 %550, 0
+  br i1 %551, label %608, label %552
 
-553:                                              ; preds = %548
+552:                                              ; preds = %.loopexit35
+  %553 = getelementptr inbounds i8, ptr %1, i64 60
+  %554 = load i32, ptr %553, align 4, !tbaa !112
+  %555 = add i32 %554, -256
+  %556 = icmp ult i32 %555, -257
+  br i1 %556, label %557, label %598
+
+557:                                              ; preds = %552
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
-  %554 = load ptr, ptr %0, align 8, !tbaa !46
-  %555 = getelementptr inbounds i8, ptr %554, i64 8
-  %556 = load ptr, ptr %555, align 8, !tbaa !47
-  %557 = getelementptr inbounds i8, ptr %556, i64 464
-  %558 = load i32, ptr %557, align 8, !tbaa !49
-  %559 = icmp ugt i32 %558, %551
-  br i1 %559, label %560, label %600, !prof !50
+  %558 = load ptr, ptr %0, align 8, !tbaa !46
+  %559 = getelementptr inbounds i8, ptr %558, i64 8
+  %560 = load ptr, ptr %559, align 8, !tbaa !47
+  %561 = getelementptr inbounds i8, ptr %560, i64 464
+  %562 = load i32, ptr %561, align 8, !tbaa !49
+  %563 = icmp ugt i32 %562, %555
+  br i1 %563, label %564, label %604, !prof !50
 
-560:                                              ; preds = %553
-  %561 = getelementptr inbounds i8, ptr %556, i64 456
-  %562 = zext i32 %551 to i64
-  %563 = load ptr, ptr %561, align 8, !tbaa !51
-  %564 = getelementptr inbounds ptr, ptr %563, i64 %562
-  %565 = load ptr, ptr %564, align 8, !tbaa !52
-  %566 = getelementptr inbounds i8, ptr %565, i64 40
-  %567 = load ptr, ptr %566, align 8, !tbaa !53
-  store ptr %567, ptr %11, align 8, !tbaa !52
-  %568 = icmp eq ptr %567, null
-  br i1 %568, label %569, label %575
+564:                                              ; preds = %557
+  %565 = getelementptr inbounds i8, ptr %560, i64 456
+  %566 = zext i32 %555 to i64
+  %567 = load ptr, ptr %565, align 8, !tbaa !51
+  %568 = getelementptr inbounds ptr, ptr %567, i64 %566
+  %569 = load ptr, ptr %568, align 8, !tbaa !52
+  %570 = getelementptr inbounds i8, ptr %569, i64 40
+  %571 = load ptr, ptr %570, align 8, !tbaa !53
+  store ptr %571, ptr %11, align 8, !tbaa !52
+  %572 = icmp eq ptr %571, null
+  br i1 %572, label %573, label %579
 
-569:                                              ; preds = %560
-  %570 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %554, ptr noundef nonnull %565, ptr noundef nonnull %11) #16
-  %571 = icmp eq i32 %570, 0
-  br i1 %571, label %572, label %600
+573:                                              ; preds = %564
+  %574 = call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass10_asWorkRegEPNS0_7VirtRegEPPNS0_9RAWorkRegE(ptr noundef nonnull align 8 dereferenceable(944) %558, ptr noundef nonnull %569, ptr noundef nonnull %11) #16
+  %575 = icmp eq i32 %574, 0
+  br i1 %575, label %576, label %604
 
-572:                                              ; preds = %569
-  %573 = load ptr, ptr %11, align 8, !tbaa !52
-  %574 = load ptr, ptr %0, align 8, !tbaa !46
-  br label %575
+576:                                              ; preds = %573
+  %577 = load ptr, ptr %11, align 8, !tbaa !52
+  %578 = load ptr, ptr %0, align 8, !tbaa !46
+  br label %579
 
-575:                                              ; preds = %572, %560
-  %576 = phi ptr [ %574, %572 ], [ %554, %560 ]
-  %577 = phi ptr [ %573, %572 ], [ %567, %560 ]
-  %578 = getelementptr inbounds i8, ptr %577, i64 32
-  %579 = load i32, ptr %578, align 4, !tbaa !37
-  %580 = lshr i32 %579, 8
-  %581 = trunc i32 %580 to i8
-  %582 = and i8 %581, 15
-  %583 = getelementptr inbounds i8, ptr %576, i64 280
-  %584 = zext nneg i8 %582 to i64
-  %585 = getelementptr inbounds [4 x i32], ptr %583, i64 0, i64 %584
-  %586 = load i32, ptr %585, align 4, !tbaa !85
-  %587 = icmp eq i8 %582, 2
-  br i1 %587, label %588, label %591
+579:                                              ; preds = %576, %564
+  %580 = phi ptr [ %578, %576 ], [ %558, %564 ]
+  %581 = phi ptr [ %577, %576 ], [ %571, %564 ]
+  %582 = getelementptr inbounds i8, ptr %581, i64 32
+  %583 = load i32, ptr %582, align 4, !tbaa !37
+  %584 = lshr i32 %583, 8
+  %585 = trunc i32 %584 to i8
+  %586 = and i8 %585, 15
+  %587 = getelementptr inbounds i8, ptr %580, i64 280
+  %588 = zext nneg i8 %586 to i64
+  %589 = getelementptr inbounds [4 x i32], ptr %587, i64 0, i64 %588
+  %590 = load i32, ptr %589, align 4, !tbaa !85
+  %591 = icmp eq i8 %586, 2
+  br i1 %591, label %592, label %595
 
-588:                                              ; preds = %575
-  %589 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %3, ptr noundef nonnull %577, i32 noundef 5, i32 noundef %586, i32 noundef 255, i32 noundef 1, i32 noundef %586, i32 noundef 255, i32 noundef 0, i32 noundef 0, i32 noundef -1) #16
-  %590 = icmp eq i32 %589, 0
-  br i1 %590, label %602, label %600
+592:                                              ; preds = %579
+  %593 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %3, ptr noundef nonnull %581, i32 noundef 5, i32 noundef %590, i32 noundef 255, i32 noundef 1, i32 noundef %590, i32 noundef 255, i32 noundef 0, i32 noundef 0, i32 noundef -1) #16
+  %594 = icmp eq i32 %593, 0
+  br i1 %594, label %606, label %604
 
-591:                                              ; preds = %575
-  %592 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %3, ptr noundef nonnull %577, i32 noundef 7, i32 noundef %586, i32 noundef 1, i32 noundef 1, i32 noundef %586, i32 noundef 255, i32 noundef 0, i32 noundef 0, i32 noundef -1) #16
-  %593 = icmp eq i32 %592, 0
-  br i1 %593, label %602, label %600
+595:                                              ; preds = %579
+  %596 = call noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addEPNS0_9RAWorkRegENS0_11RATiedFlagsEjjjjjjjj(ptr noundef nonnull align 8 dereferenceable(4160) %3, ptr noundef nonnull %581, i32 noundef 7, i32 noundef %590, i32 noundef 1, i32 noundef 1, i32 noundef %590, i32 noundef 255, i32 noundef 0, i32 noundef 0, i32 noundef -1) #16
+  %597 = icmp eq i32 %596, 0
+  br i1 %597, label %606, label %604
 
-594:                                              ; preds = %548
-  %595 = and i32 %546, 3840
-  %596 = icmp eq i32 %595, 512
-  br i1 %596, label %597, label %604
+598:                                              ; preds = %552
+  %599 = and i32 %550, 3840
+  %600 = icmp eq i32 %599, 512
+  br i1 %600, label %601, label %608
 
-597:                                              ; preds = %594
-  %598 = icmp eq i32 %550, 0
-  %599 = select i1 %598, i32 %543, i32 0
-  br label %604
+601:                                              ; preds = %598
+  %602 = icmp eq i32 %554, 0
+  %603 = select i1 %602, i32 %547, i32 0
+  br label %608
 
-600:                                              ; preds = %591, %588, %569, %553
-  %601 = phi i32 [ %592, %591 ], [ %589, %588 ], [ %570, %569 ], [ 30, %553 ]
+604:                                              ; preds = %595, %592, %573, %557
+  %605 = phi i32 [ %596, %595 ], [ %593, %592 ], [ %574, %573 ], [ 30, %557 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
   br label %802
 
-602:                                              ; preds = %591, %588
-  %603 = phi i32 [ %543, %591 ], [ 0, %588 ]
+606:                                              ; preds = %595, %592
+  %607 = phi i32 [ %547, %595 ], [ 0, %592 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
-  br label %604
+  br label %608
 
-604:                                              ; preds = %602, %597, %594, %.loopexit35
-  %605 = phi i32 [ %603, %602 ], [ %543, %.loopexit35 ], [ %599, %597 ], [ %543, %594 ]
-  %606 = load i32, ptr %6, align 8, !tbaa !27
-  %607 = and i32 %606, 1
-  %608 = icmp eq i32 %607, 0
-  br i1 %608, label %656, label %609
+608:                                              ; preds = %606, %601, %598, %.loopexit35
+  %609 = phi i32 [ %607, %606 ], [ %547, %.loopexit35 ], [ %603, %601 ], [ %547, %598 ]
+  %610 = load i32, ptr %6, align 8, !tbaa !27
+  %611 = and i32 %610, 1
+  %612 = icmp eq i32 %611, 0
+  br i1 %612, label %658, label %613
 
-609:                                              ; preds = %604
-  %610 = load i32, ptr %545, align 4, !tbaa !37
-  %611 = icmp eq i32 %610, 0
-  %612 = and i32 %542, 2
-  %613 = icmp ne i32 %612, 0
-  %614 = select i1 %611, i1 %613, i1 false
-  br i1 %614, label %615, label %656
+613:                                              ; preds = %608
+  %614 = load i32, ptr %549, align 4, !tbaa !37
+  %615 = icmp eq i32 %614, 0
+  %616 = select i1 %615, i1 %546, i1 false
+  br i1 %616, label %617, label %658
 
-615:                                              ; preds = %609
-  switch i8 %17, label %656 [
-    i8 2, label %616
-    i8 3, label %619
+617:                                              ; preds = %613
+  switch i8 %17, label %658 [
+    i8 2, label %618
+    i8 3, label %621
   ]
 
-616:                                              ; preds = %615
-  %617 = getelementptr inbounds i8, ptr %1, i64 68
-  %618 = load i32, ptr %617, align 4, !tbaa !44
-  br label %627
+618:                                              ; preds = %617
+  %619 = getelementptr inbounds i8, ptr %1, i64 68
+  %620 = load i32, ptr %619, align 4, !tbaa !44
+  br label %629
 
-619:                                              ; preds = %615
-  %620 = getelementptr inbounds i8, ptr %1, i64 80
-  %621 = load <4 x i32>, ptr %19, align 4, !tbaa !85
-  %622 = load <4 x i32>, ptr %620, align 4, !tbaa !85
-  %623 = icmp ne <4 x i32> %621, %622
-  %624 = bitcast <4 x i1> %623 to i4
-  %625 = icmp eq i4 %624, 0
-  %626 = extractelement <4 x i32> %621, i64 1
-  br i1 %625, label %627, label %656
+621:                                              ; preds = %617
+  %622 = getelementptr inbounds i8, ptr %1, i64 80
+  %623 = load <4 x i32>, ptr %19, align 4, !tbaa !85
+  %624 = load <4 x i32>, ptr %622, align 4, !tbaa !85
+  %625 = icmp ne <4 x i32> %623, %624
+  %626 = bitcast <4 x i1> %625 to i4
+  %627 = icmp eq i4 %626, 0
+  %628 = extractelement <4 x i32> %623, i64 1
+  br i1 %627, label %629, label %658
 
-627:                                              ; preds = %619, %616
-  %628 = phi i32 [ %618, %616 ], [ %626, %619 ]
-  %629 = add i32 %628, -256
-  %630 = icmp ult i32 %629, -257
-  br i1 %630, label %631, label %656
+629:                                              ; preds = %621, %618
+  %630 = phi i32 [ %620, %618 ], [ %628, %621 ]
+  %631 = add i32 %630, -256
+  %632 = icmp ult i32 %631, -257
+  br i1 %632, label %633, label %658
 
-631:                                              ; preds = %627
-  %632 = getelementptr inbounds i8, ptr %0, i64 8
-  %633 = load ptr, ptr %632, align 8, !tbaa !69
-  %634 = getelementptr inbounds i8, ptr %633, i64 456
-  %635 = zext i32 %629 to i64
-  %636 = load ptr, ptr %634, align 8, !tbaa !51
-  %637 = getelementptr inbounds ptr, ptr %636, i64 %635
-  %638 = load ptr, ptr %637, align 8, !tbaa !52
-  %639 = getelementptr inbounds i8, ptr %638, i64 40
-  %640 = load ptr, ptr %639, align 8, !tbaa !53
-  %641 = getelementptr inbounds i8, ptr %640, i64 64
-  %642 = load i64, ptr %641, align 8, !tbaa !57
-  %643 = getelementptr inbounds i8, ptr %6, i64 80
-  %644 = load i64, ptr %643, align 8, !tbaa !66
-  %645 = xor i64 %644, -1
-  %646 = and i64 %642, %645
-  %647 = icmp eq i64 %646, 0
-  br i1 %647, label %653, label %648
+633:                                              ; preds = %629
+  %634 = getelementptr inbounds i8, ptr %0, i64 8
+  %635 = load ptr, ptr %634, align 8, !tbaa !69
+  %636 = getelementptr inbounds i8, ptr %635, i64 456
+  %637 = zext i32 %631 to i64
+  %638 = load ptr, ptr %636, align 8, !tbaa !51
+  %639 = getelementptr inbounds ptr, ptr %638, i64 %637
+  %640 = load ptr, ptr %639, align 8, !tbaa !52
+  %641 = getelementptr inbounds i8, ptr %640, i64 40
+  %642 = load ptr, ptr %641, align 8, !tbaa !53
+  %643 = getelementptr inbounds i8, ptr %642, i64 64
+  %644 = load i64, ptr %643, align 8, !tbaa !57
+  %645 = getelementptr inbounds i8, ptr %6, i64 80
+  %646 = load i64, ptr %645, align 8, !tbaa !66
+  %647 = xor i64 %646, -1
+  %648 = and i64 %644, %647
+  %649 = icmp eq i64 %648, 0
+  br i1 %649, label %655, label %650
 
-648:                                              ; preds = %631
-  %649 = getelementptr inbounds i8, ptr %6, i64 88
-  %650 = load i64, ptr %649, align 8, !tbaa !67
-  %651 = and i64 %650, %646
-  %652 = icmp eq i64 %651, 0
-  br i1 %652, label %653, label %656
+650:                                              ; preds = %633
+  %651 = getelementptr inbounds i8, ptr %6, i64 88
+  %652 = load i64, ptr %651, align 8, !tbaa !67
+  %653 = and i64 %652, %648
+  %654 = icmp eq i64 %653, 0
+  br i1 %654, label %655, label %658
 
-653:                                              ; preds = %648, %631
-  %654 = load i32, ptr %3, align 8, !tbaa !34
-  %655 = or i32 %654, 1
-  store i32 %655, ptr %3, align 8, !tbaa !34
-  br label %656
+655:                                              ; preds = %650, %633
+  %656 = load i32, ptr %3, align 8, !tbaa !34
+  %657 = or i32 %656, 1
+  store i32 %657, ptr %3, align 8, !tbaa !34
+  br label %658
 
-656:                                              ; preds = %653, %648, %627, %619, %615, %609, %604
-  %657 = and i8 %544, 1
-  %658 = icmp eq i8 %657, 0
-  br i1 %658, label %659, label %662
+658:                                              ; preds = %655, %650, %629, %621, %617, %613, %608
+  br i1 %548, label %659, label %662
 
-659:                                              ; preds = %656
+659:                                              ; preds = %658
   %660 = getelementptr inbounds i8, ptr %3, i64 56
   %661 = load ptr, ptr %660, align 8, !tbaa !97
   br label %.loopexit
 
-662:                                              ; preds = %656
+662:                                              ; preds = %658
   %663 = getelementptr inbounds i8, ptr %3, i64 64
   %664 = getelementptr inbounds i8, ptr %3, i64 56
   %665 = load ptr, ptr %664, align 8, !tbaa !97
@@ -1098,7 +1101,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   br i1 %717, label %718, label %793
 
 718:                                              ; preds = %.loopexit
-  %719 = icmp eq i32 %605, %18
+  %719 = icmp eq i32 %609, %18
   br i1 %719, label %720, label %729
 
 720:                                              ; preds = %718
@@ -1229,8 +1232,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   store i32 %801, ptr %2, align 4, !tbaa !118
   br label %802
 
-802:                                              ; preds = %793, %600, %531, %529, %426, %294, %15, %4
-  %803 = phi i32 [ 0, %793 ], [ 0, %4 ], [ %23, %15 ], [ %601, %600 ], [ %532, %531 ], [ %295, %294 ], [ %427, %426 ], [ %530, %529 ]
+802:                                              ; preds = %793, %604, %531, %529, %426, %294, %15, %4
+  %803 = phi i32 [ 0, %793 ], [ 0, %4 ], [ %23, %15 ], [ %605, %604 ], [ %532, %531 ], [ %295, %294 ], [ %427, %426 ], [ %530, %529 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #16
   ret i32 %803
 }

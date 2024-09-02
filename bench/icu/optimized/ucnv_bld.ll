@@ -1476,17 +1476,17 @@ if.end7:                                          ; preds = %if.end9.i, %if.then
   br i1 %cmp1.not, label %do.cond, label %while.body, !llvm.loop !9
 
 do.cond:                                          ; preds = %if.end7
-  %cmp10 = icmp sgt i32 %remaining.1, 0
-  %10 = select i1 %cmp9, i1 %cmp10, i1 false
-  br i1 %10, label %do.body, label %do.end, !llvm.loop !10
+  %10 = icmp sgt i32 %remaining.1, 0
+  %11 = select i1 %cmp9, i1 %10, i1 false
+  br i1 %11, label %do.body, label %do.end, !llvm.loop !10
 
 do.end:                                           ; preds = %do.body, %do.cond
-  %tableDeletedNum.1.lcssa15 = phi i32 [ %tableDeletedNum.2, %do.cond ], [ %tableDeletedNum.0, %do.body ]
+  %tableDeletedNum.1.lcssa14 = phi i32 [ %tableDeletedNum.2, %do.cond ], [ %tableDeletedNum.0, %do.body ]
   call void @umtx_unlock_75(ptr noundef nonnull @_ZL13cnvCacheMutex)
   br label %return
 
 return:                                           ; preds = %entry, %do.end
-  %retval.0 = phi i32 [ %tableDeletedNum.1.lcssa15, %do.end ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %tableDeletedNum.1.lcssa14, %do.end ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

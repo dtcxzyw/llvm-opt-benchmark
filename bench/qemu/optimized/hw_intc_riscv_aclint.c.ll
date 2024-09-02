@@ -609,8 +609,8 @@ if.then:                                          ; preds = %land.lhs.true
   %tobool.not = icmp eq ptr %call, null
   %add.ptr.i = getelementptr i8, ptr %call, i64 10176
   %3 = icmp eq ptr %add.ptr.i, null
-  %or.cond76 = or i1 %tobool.not, %3
-  br i1 %or.cond76, label %do.body, label %if.else
+  %or.cond74 = or i1 %tobool.not, %3
+  br i1 %or.cond74, label %do.body, label %if.else
 
 do.body:                                          ; preds = %if.then
   %4 = load i32, ptr @qemu_loglevel, align 4
@@ -766,8 +766,8 @@ if.end128:                                        ; preds = %if.then97, %if.else
   store i64 %sub100.sink, ptr %time_delta.i, align 16
   %num_harts129 = getelementptr inbounds i8, ptr %opaque, i64 1124
   %17 = load i32, ptr %num_harts129, align 4
-  %cmp13078.not = icmp eq i32 %17, 0
-  br i1 %cmp13078.not, label %do.end165, label %for.body.lr.ph
+  %cmp13076.not = icmp eq i32 %17, 0
+  br i1 %cmp13076.not, label %do.end165, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end128
   %hartid_base133 = getelementptr inbounds i8, ptr %opaque, i64 1120
@@ -775,37 +775,37 @@ for.body.lr.ph:                                   ; preds = %if.end128
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.079 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.077 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %18 = load i32, ptr %hartid_base133, align 16
-  %add134 = add i32 %18, %i.079
+  %add134 = add i32 %18, %i.077
   %conv135 = zext i32 %add134 to i64
   %call136 = tail call ptr @cpu_by_arch_id(i64 noundef %conv135) #6
   %tobool138.not = icmp eq ptr %call136, null
   %add.ptr.i70 = getelementptr i8, ptr %call136, i64 10176
-  %tobool144.not = icmp eq ptr %add.ptr.i70, null
-  %or.cond77 = or i1 %tobool138.not, %tobool144.not
-  br i1 %or.cond77, label %for.inc, label %if.end146
+  %19 = icmp eq ptr %add.ptr.i70, null
+  %or.cond75 = or i1 %tobool138.not, %19
+  br i1 %or.cond75, label %for.inc, label %if.end146
 
 if.end146:                                        ; preds = %for.body
   %call.i71 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call136, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
-  %19 = load i32, ptr %hartid_base133, align 16
-  %add149 = add i32 %19, %i.079
-  %20 = load ptr, ptr %timecmp150, align 8
-  %idxprom = sext i32 %i.079 to i64
-  %arrayidx151 = getelementptr i64, ptr %20, i64 %idxprom
-  %21 = load i64, ptr %arrayidx151, align 8
-  tail call fastcc void @riscv_aclint_mtimer_write_timecmp(ptr noundef nonnull %opaque, i32 noundef %add149, i64 noundef %21)
+  %20 = load i32, ptr %hartid_base133, align 16
+  %add149 = add i32 %20, %i.077
+  %21 = load ptr, ptr %timecmp150, align 8
+  %idxprom = sext i32 %i.077 to i64
+  %arrayidx151 = getelementptr i64, ptr %21, i64 %idxprom
+  %22 = load i64, ptr %arrayidx151, align 8
+  tail call fastcc void @riscv_aclint_mtimer_write_timecmp(ptr noundef nonnull %opaque, i32 noundef %add149, i64 noundef %22)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end146
-  %inc = add nuw i32 %i.079, 1
-  %22 = load i32, ptr %num_harts129, align 4
-  %cmp130 = icmp ult i32 %inc, %22
+  %inc = add nuw i32 %i.077, 1
+  %23 = load i32, ptr %num_harts129, align 4
+  %cmp130 = icmp ult i32 %inc, %23
   br i1 %cmp130, label %for.body, label %do.end165, !llvm.loop !9
 
 do.body154:                                       ; preds = %if.else78
-  %23 = load i32, ptr @qemu_loglevel, align 4
-  %and.i72 = and i32 %23, 1024
+  %24 = load i32, ptr @qemu_loglevel, align 4
+  %and.i72 = and i32 %24, 1024
   %cmp.i73.not = icmp eq i32 %and.i72, 0
   br i1 %cmp.i73.not, label %do.end165, label %if.then162
 

@@ -6829,10 +6829,11 @@ for.body.i565:                                    ; preds = %if.end.i563, %for.b
 for.end.i573:                                     ; preds = %for.body.i565, %if.end.i563
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.12)
   %.pre = load i32, ptr %emitter, align 8
+  %179 = icmp eq i32 %.pre, 2
   br label %emitter_col_init.exit600
 
 emitter_col_init.exit600:                         ; preds = %for.end.i573, %rate_per_second.exit561
-  %179 = phi i32 [ %.pre, %for.end.i573 ], [ %173, %rate_per_second.exit561 ]
+  %cmp.not.i601 = phi i1 [ %179, %for.end.i573 ], [ false, %rate_per_second.exit561 ]
   %link.i575 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
   %qre_prev.i576 = getelementptr inbounds i8, ptr %mem_count_title, i64 32
   store i32 0, ptr %mem_count_title, align 8
@@ -6855,8 +6856,7 @@ emitter_col_init.exit600:                         ; preds = %for.end.i573, %rate
   store i32 9, ptr %type741, align 8
   %181 = getelementptr inbounds i8, ptr %mem_count_val, i64 16
   store ptr @.str.8, ptr %181, align 8
-  %cmp.not.i601 = icmp eq i32 %179, 2
-  br i1 %cmp.not.i601, label %for.body.i604, label %emitter_table_row.exit613
+  br i1 %cmp.not.i601, label %for.body.i604, label %emitter_table_row.exit626.critedge
 
 for.body.i604:                                    ; preds = %emitter_col_init.exit600, %for.body.i604
   %col.011.i605 = phi ptr [ %186, %for.body.i604 ], [ %mem_count_title, %emitter_col_init.exit600 ]
@@ -6877,21 +6877,17 @@ for.body.i604:                                    ; preds = %emitter_col_init.ex
 for.end.i612:                                     ; preds = %for.body.i604
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.12)
   %.pr = load i32, ptr %emitter, align 8
-  br label %emitter_table_row.exit613
-
-emitter_table_row.exit613:                        ; preds = %emitter_col_init.exit600, %for.end.i612
-  %187 = phi i32 [ %179, %emitter_col_init.exit600 ], [ %.pr, %for.end.i612 ]
+  %187 = icmp eq i32 %.pr, 2
   store i32 6, ptr %type741, align 8
   store ptr @.str.339, ptr %180, align 8
   %188 = load i64, ptr %pactive, align 8
   %189 = load i64, ptr %page, align 8
   %mul = mul i64 %189, %188
   store i64 %mul, ptr %181, align 8
-  %cmp.not.i614 = icmp eq i32 %187, 2
-  br i1 %cmp.not.i614, label %for.body.i617, label %emitter_table_row.exit626
+  br i1 %187, label %for.body.i617, label %emitter_table_row.exit626
 
-for.body.i617:                                    ; preds = %emitter_table_row.exit613, %for.body.i617
-  %col.011.i618 = phi ptr [ %194, %for.body.i617 ], [ %mem_count_title, %emitter_table_row.exit613 ]
+for.body.i617:                                    ; preds = %for.end.i612, %for.body.i617
+  %col.011.i618 = phi ptr [ %194, %for.body.i617 ], [ %mem_count_title, %for.end.i612 ]
   %190 = load i32, ptr %col.011.i618, align 8
   %width.i619 = getelementptr inbounds i8, ptr %col.011.i618, i64 4
   %191 = load i32, ptr %width.i619, align 4
@@ -6910,7 +6906,16 @@ for.end.i625:                                     ; preds = %for.body.i617
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull readonly %emitter, ptr noundef nonnull @.str.12)
   br label %emitter_table_row.exit626
 
-emitter_table_row.exit626:                        ; preds = %emitter_table_row.exit613, %for.end.i625
+emitter_table_row.exit626.critedge:               ; preds = %emitter_col_init.exit600
+  store i32 6, ptr %type741, align 8
+  store ptr @.str.339, ptr %180, align 8
+  %195 = load i64, ptr %pactive, align 8
+  %196 = load i64, ptr %page, align 8
+  %mul.c = mul i64 %196, %195
+  store i64 %mul.c, ptr %181, align 8
+  br label %emitter_table_row.exit626
+
+emitter_table_row.exit626:                        ; preds = %emitter_table_row.exit626.critedge, %for.end.i612, %for.end.i625
   store i64 7, ptr %miblen745, align 8
   store i64 8, ptr %sz746, align 8
   %call749 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.340, ptr noundef nonnull %mib744, ptr noundef nonnull %miblen745) #13
@@ -6925,8 +6930,8 @@ if.then752:                                       ; preds = %emitter_table_row.e
 do.end754:                                        ; preds = %emitter_table_row.exit626
   %arrayidx756 = getelementptr inbounds i8, ptr %mib744, i64 16
   store i64 %conv41, ptr %arrayidx756, align 16
-  %195 = load i64, ptr %miblen745, align 8
-  %call759 = call i32 @mallctlbymib(ptr noundef nonnull %mib744, i64 noundef %195, ptr noundef nonnull %mapped, ptr noundef nonnull %sz746, ptr noundef null, i64 noundef 0) #13
+  %197 = load i64, ptr %miblen745, align 8
+  %call759 = call i32 @mallctlbymib(ptr noundef nonnull %mib744, i64 noundef %197, ptr noundef nonnull %mapped, ptr noundef nonnull %sz746, ptr noundef null, i64 noundef 0) #13
   %cmp760.not = icmp eq i32 %call759, 0
   br i1 %cmp760.not, label %do.end765, label %if.then762
 
@@ -6939,25 +6944,25 @@ do.end765:                                        ; preds = %do.end754
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.234)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %mapped)
   store ptr @.str.341, ptr %180, align 8
-  %196 = load i64, ptr %mapped, align 8
-  store i64 %196, ptr %181, align 8
-  %197 = load i32, ptr %emitter, align 8
-  %cmp.not.i627 = icmp eq i32 %197, 2
+  %198 = load i64, ptr %mapped, align 8
+  store i64 %198, ptr %181, align 8
+  %199 = load i32, ptr %emitter, align 8
+  %cmp.not.i627 = icmp eq i32 %199, 2
   br i1 %cmp.not.i627, label %for.body.i630, label %emitter_table_row.exit639
 
 for.body.i630:                                    ; preds = %do.end765, %for.body.i630
-  %col.011.i631 = phi ptr [ %202, %for.body.i630 ], [ %mem_count_title, %do.end765 ]
-  %198 = load i32, ptr %col.011.i631, align 8
+  %col.011.i631 = phi ptr [ %204, %for.body.i630 ], [ %mem_count_title, %do.end765 ]
+  %200 = load i32, ptr %col.011.i631, align 8
   %width.i632 = getelementptr inbounds i8, ptr %col.011.i631, i64 4
-  %199 = load i32, ptr %width.i632, align 4
+  %201 = load i32, ptr %width.i632, align 4
   %type.i633 = getelementptr inbounds i8, ptr %col.011.i631, i64 8
-  %200 = load i32, ptr %type.i633, align 8
-  %201 = getelementptr inbounds i8, ptr %col.011.i631, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %198, i32 noundef %199, i32 noundef %200, ptr noundef nonnull %201)
+  %202 = load i32, ptr %type.i633, align 8
+  %203 = getelementptr inbounds i8, ptr %col.011.i631, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %200, i32 noundef %201, i32 noundef %202, ptr noundef nonnull %203)
   %link.i634 = getelementptr inbounds i8, ptr %col.011.i631, i64 24
-  %202 = load ptr, ptr %link.i634, align 8
-  %cmp4.not.i635 = icmp eq ptr %202, %mem_count_title
-  %cmp1.not12.i636 = icmp eq ptr %202, null
+  %204 = load ptr, ptr %link.i634, align 8
+  %cmp4.not.i635 = icmp eq ptr %204, %mem_count_title
+  %cmp1.not12.i636 = icmp eq ptr %204, null
   %cmp1.not.i637 = or i1 %cmp4.not.i635, %cmp1.not12.i636
   br i1 %cmp1.not.i637, label %for.end.i638, label %for.body.i630
 
@@ -6980,8 +6985,8 @@ if.then775:                                       ; preds = %emitter_table_row.e
 do.end777:                                        ; preds = %emitter_table_row.exit639
   %arrayidx779 = getelementptr inbounds i8, ptr %mib767, i64 16
   store i64 %conv41, ptr %arrayidx779, align 16
-  %203 = load i64, ptr %miblen768, align 8
-  %call782 = call i32 @mallctlbymib(ptr noundef nonnull %mib767, i64 noundef %203, ptr noundef nonnull %retained, ptr noundef nonnull %sz769, ptr noundef null, i64 noundef 0) #13
+  %205 = load i64, ptr %miblen768, align 8
+  %call782 = call i32 @mallctlbymib(ptr noundef nonnull %mib767, i64 noundef %205, ptr noundef nonnull %retained, ptr noundef nonnull %sz769, ptr noundef null, i64 noundef 0) #13
   %cmp783.not = icmp eq i32 %call782, 0
   br i1 %cmp783.not, label %do.end788, label %if.then785
 
@@ -6994,25 +6999,25 @@ do.end788:                                        ; preds = %do.end777
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.235)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %retained)
   store ptr @.str.343, ptr %180, align 8
-  %204 = load i64, ptr %retained, align 8
-  store i64 %204, ptr %181, align 8
-  %205 = load i32, ptr %emitter, align 8
-  %cmp.not.i640 = icmp eq i32 %205, 2
+  %206 = load i64, ptr %retained, align 8
+  store i64 %206, ptr %181, align 8
+  %207 = load i32, ptr %emitter, align 8
+  %cmp.not.i640 = icmp eq i32 %207, 2
   br i1 %cmp.not.i640, label %for.body.i643, label %emitter_table_row.exit652
 
 for.body.i643:                                    ; preds = %do.end788, %for.body.i643
-  %col.011.i644 = phi ptr [ %210, %for.body.i643 ], [ %mem_count_title, %do.end788 ]
-  %206 = load i32, ptr %col.011.i644, align 8
+  %col.011.i644 = phi ptr [ %212, %for.body.i643 ], [ %mem_count_title, %do.end788 ]
+  %208 = load i32, ptr %col.011.i644, align 8
   %width.i645 = getelementptr inbounds i8, ptr %col.011.i644, i64 4
-  %207 = load i32, ptr %width.i645, align 4
+  %209 = load i32, ptr %width.i645, align 4
   %type.i646 = getelementptr inbounds i8, ptr %col.011.i644, i64 8
-  %208 = load i32, ptr %type.i646, align 8
-  %209 = getelementptr inbounds i8, ptr %col.011.i644, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %206, i32 noundef %207, i32 noundef %208, ptr noundef nonnull %209)
+  %210 = load i32, ptr %type.i646, align 8
+  %211 = getelementptr inbounds i8, ptr %col.011.i644, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %208, i32 noundef %209, i32 noundef %210, ptr noundef nonnull %211)
   %link.i647 = getelementptr inbounds i8, ptr %col.011.i644, i64 24
-  %210 = load ptr, ptr %link.i647, align 8
-  %cmp4.not.i648 = icmp eq ptr %210, %mem_count_title
-  %cmp1.not12.i649 = icmp eq ptr %210, null
+  %212 = load ptr, ptr %link.i647, align 8
+  %cmp4.not.i648 = icmp eq ptr %212, %mem_count_title
+  %cmp1.not12.i649 = icmp eq ptr %212, null
   %cmp1.not.i650 = or i1 %cmp4.not.i648, %cmp1.not12.i649
   br i1 %cmp1.not.i650, label %for.end.i651, label %for.body.i643
 
@@ -7035,8 +7040,8 @@ if.then798:                                       ; preds = %emitter_table_row.e
 do.end800:                                        ; preds = %emitter_table_row.exit652
   %arrayidx802 = getelementptr inbounds i8, ptr %mib790, i64 16
   store i64 %conv41, ptr %arrayidx802, align 16
-  %211 = load i64, ptr %miblen791, align 8
-  %call805 = call i32 @mallctlbymib(ptr noundef nonnull %mib790, i64 noundef %211, ptr noundef nonnull %base, ptr noundef nonnull %sz792, ptr noundef null, i64 noundef 0) #13
+  %213 = load i64, ptr %miblen791, align 8
+  %call805 = call i32 @mallctlbymib(ptr noundef nonnull %mib790, i64 noundef %213, ptr noundef nonnull %base, ptr noundef nonnull %sz792, ptr noundef null, i64 noundef 0) #13
   %cmp806.not = icmp eq i32 %call805, 0
   br i1 %cmp806.not, label %do.end811, label %if.then808
 
@@ -7049,25 +7054,25 @@ do.end811:                                        ; preds = %do.end800
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.345)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %base)
   store ptr @.str.346, ptr %180, align 8
-  %212 = load i64, ptr %base, align 8
-  store i64 %212, ptr %181, align 8
-  %213 = load i32, ptr %emitter, align 8
-  %cmp.not.i653 = icmp eq i32 %213, 2
+  %214 = load i64, ptr %base, align 8
+  store i64 %214, ptr %181, align 8
+  %215 = load i32, ptr %emitter, align 8
+  %cmp.not.i653 = icmp eq i32 %215, 2
   br i1 %cmp.not.i653, label %for.body.i656, label %emitter_table_row.exit665
 
 for.body.i656:                                    ; preds = %do.end811, %for.body.i656
-  %col.011.i657 = phi ptr [ %218, %for.body.i656 ], [ %mem_count_title, %do.end811 ]
-  %214 = load i32, ptr %col.011.i657, align 8
+  %col.011.i657 = phi ptr [ %220, %for.body.i656 ], [ %mem_count_title, %do.end811 ]
+  %216 = load i32, ptr %col.011.i657, align 8
   %width.i658 = getelementptr inbounds i8, ptr %col.011.i657, i64 4
-  %215 = load i32, ptr %width.i658, align 4
+  %217 = load i32, ptr %width.i658, align 4
   %type.i659 = getelementptr inbounds i8, ptr %col.011.i657, i64 8
-  %216 = load i32, ptr %type.i659, align 8
-  %217 = getelementptr inbounds i8, ptr %col.011.i657, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %214, i32 noundef %215, i32 noundef %216, ptr noundef nonnull %217)
+  %218 = load i32, ptr %type.i659, align 8
+  %219 = getelementptr inbounds i8, ptr %col.011.i657, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %216, i32 noundef %217, i32 noundef %218, ptr noundef nonnull %219)
   %link.i660 = getelementptr inbounds i8, ptr %col.011.i657, i64 24
-  %218 = load ptr, ptr %link.i660, align 8
-  %cmp4.not.i661 = icmp eq ptr %218, %mem_count_title
-  %cmp1.not12.i662 = icmp eq ptr %218, null
+  %220 = load ptr, ptr %link.i660, align 8
+  %cmp4.not.i661 = icmp eq ptr %220, %mem_count_title
+  %cmp1.not12.i662 = icmp eq ptr %220, null
   %cmp1.not.i663 = or i1 %cmp4.not.i661, %cmp1.not12.i662
   br i1 %cmp1.not.i663, label %for.end.i664, label %for.body.i656
 
@@ -7090,8 +7095,8 @@ if.then821:                                       ; preds = %emitter_table_row.e
 do.end823:                                        ; preds = %emitter_table_row.exit665
   %arrayidx825 = getelementptr inbounds i8, ptr %mib813, i64 16
   store i64 %conv41, ptr %arrayidx825, align 16
-  %219 = load i64, ptr %miblen814, align 8
-  %call828 = call i32 @mallctlbymib(ptr noundef nonnull %mib813, i64 noundef %219, ptr noundef nonnull %internal, ptr noundef nonnull %sz815, ptr noundef null, i64 noundef 0) #13
+  %221 = load i64, ptr %miblen814, align 8
+  %call828 = call i32 @mallctlbymib(ptr noundef nonnull %mib813, i64 noundef %221, ptr noundef nonnull %internal, ptr noundef nonnull %sz815, ptr noundef null, i64 noundef 0) #13
   %cmp829.not = icmp eq i32 %call828, 0
   br i1 %cmp829.not, label %do.end834, label %if.then831
 
@@ -7104,25 +7109,25 @@ do.end834:                                        ; preds = %do.end823
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.348)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %internal)
   store ptr @.str.349, ptr %180, align 8
-  %220 = load i64, ptr %internal, align 8
-  store i64 %220, ptr %181, align 8
-  %221 = load i32, ptr %emitter, align 8
-  %cmp.not.i666 = icmp eq i32 %221, 2
+  %222 = load i64, ptr %internal, align 8
+  store i64 %222, ptr %181, align 8
+  %223 = load i32, ptr %emitter, align 8
+  %cmp.not.i666 = icmp eq i32 %223, 2
   br i1 %cmp.not.i666, label %for.body.i669, label %emitter_table_row.exit678
 
 for.body.i669:                                    ; preds = %do.end834, %for.body.i669
-  %col.011.i670 = phi ptr [ %226, %for.body.i669 ], [ %mem_count_title, %do.end834 ]
-  %222 = load i32, ptr %col.011.i670, align 8
+  %col.011.i670 = phi ptr [ %228, %for.body.i669 ], [ %mem_count_title, %do.end834 ]
+  %224 = load i32, ptr %col.011.i670, align 8
   %width.i671 = getelementptr inbounds i8, ptr %col.011.i670, i64 4
-  %223 = load i32, ptr %width.i671, align 4
+  %225 = load i32, ptr %width.i671, align 4
   %type.i672 = getelementptr inbounds i8, ptr %col.011.i670, i64 8
-  %224 = load i32, ptr %type.i672, align 8
-  %225 = getelementptr inbounds i8, ptr %col.011.i670, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %222, i32 noundef %223, i32 noundef %224, ptr noundef nonnull %225)
+  %226 = load i32, ptr %type.i672, align 8
+  %227 = getelementptr inbounds i8, ptr %col.011.i670, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %224, i32 noundef %225, i32 noundef %226, ptr noundef nonnull %227)
   %link.i673 = getelementptr inbounds i8, ptr %col.011.i670, i64 24
-  %226 = load ptr, ptr %link.i673, align 8
-  %cmp4.not.i674 = icmp eq ptr %226, %mem_count_title
-  %cmp1.not12.i675 = icmp eq ptr %226, null
+  %228 = load ptr, ptr %link.i673, align 8
+  %cmp4.not.i674 = icmp eq ptr %228, %mem_count_title
+  %cmp1.not12.i675 = icmp eq ptr %228, null
   %cmp1.not.i676 = or i1 %cmp4.not.i674, %cmp1.not12.i675
   br i1 %cmp1.not.i676, label %for.end.i677, label %for.body.i669
 
@@ -7145,8 +7150,8 @@ if.then844:                                       ; preds = %emitter_table_row.e
 do.end846:                                        ; preds = %emitter_table_row.exit678
   %arrayidx848 = getelementptr inbounds i8, ptr %mib836, i64 16
   store i64 %conv41, ptr %arrayidx848, align 16
-  %227 = load i64, ptr %miblen837, align 8
-  %call851 = call i32 @mallctlbymib(ptr noundef nonnull %mib836, i64 noundef %227, ptr noundef nonnull %metadata_edata, ptr noundef nonnull %sz838, ptr noundef null, i64 noundef 0) #13
+  %229 = load i64, ptr %miblen837, align 8
+  %call851 = call i32 @mallctlbymib(ptr noundef nonnull %mib836, i64 noundef %229, ptr noundef nonnull %metadata_edata, ptr noundef nonnull %sz838, ptr noundef null, i64 noundef 0) #13
   %cmp852.not = icmp eq i32 %call851, 0
   br i1 %cmp852.not, label %do.end857, label %if.then854
 
@@ -7159,25 +7164,25 @@ do.end857:                                        ; preds = %do.end846
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.231)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %metadata_edata)
   store ptr @.str.351, ptr %180, align 8
-  %228 = load i64, ptr %metadata_edata, align 8
-  store i64 %228, ptr %181, align 8
-  %229 = load i32, ptr %emitter, align 8
-  %cmp.not.i679 = icmp eq i32 %229, 2
+  %230 = load i64, ptr %metadata_edata, align 8
+  store i64 %230, ptr %181, align 8
+  %231 = load i32, ptr %emitter, align 8
+  %cmp.not.i679 = icmp eq i32 %231, 2
   br i1 %cmp.not.i679, label %for.body.i682, label %emitter_table_row.exit691
 
 for.body.i682:                                    ; preds = %do.end857, %for.body.i682
-  %col.011.i683 = phi ptr [ %234, %for.body.i682 ], [ %mem_count_title, %do.end857 ]
-  %230 = load i32, ptr %col.011.i683, align 8
+  %col.011.i683 = phi ptr [ %236, %for.body.i682 ], [ %mem_count_title, %do.end857 ]
+  %232 = load i32, ptr %col.011.i683, align 8
   %width.i684 = getelementptr inbounds i8, ptr %col.011.i683, i64 4
-  %231 = load i32, ptr %width.i684, align 4
+  %233 = load i32, ptr %width.i684, align 4
   %type.i685 = getelementptr inbounds i8, ptr %col.011.i683, i64 8
-  %232 = load i32, ptr %type.i685, align 8
-  %233 = getelementptr inbounds i8, ptr %col.011.i683, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %230, i32 noundef %231, i32 noundef %232, ptr noundef nonnull %233)
+  %234 = load i32, ptr %type.i685, align 8
+  %235 = getelementptr inbounds i8, ptr %col.011.i683, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %232, i32 noundef %233, i32 noundef %234, ptr noundef nonnull %235)
   %link.i686 = getelementptr inbounds i8, ptr %col.011.i683, i64 24
-  %234 = load ptr, ptr %link.i686, align 8
-  %cmp4.not.i687 = icmp eq ptr %234, %mem_count_title
-  %cmp1.not12.i688 = icmp eq ptr %234, null
+  %236 = load ptr, ptr %link.i686, align 8
+  %cmp4.not.i687 = icmp eq ptr %236, %mem_count_title
+  %cmp1.not12.i688 = icmp eq ptr %236, null
   %cmp1.not.i689 = or i1 %cmp4.not.i687, %cmp1.not12.i688
   br i1 %cmp1.not.i689, label %for.end.i690, label %for.body.i682
 
@@ -7200,8 +7205,8 @@ if.then867:                                       ; preds = %emitter_table_row.e
 do.end869:                                        ; preds = %emitter_table_row.exit691
   %arrayidx871 = getelementptr inbounds i8, ptr %mib859, i64 16
   store i64 %conv41, ptr %arrayidx871, align 16
-  %235 = load i64, ptr %miblen860, align 8
-  %call874 = call i32 @mallctlbymib(ptr noundef nonnull %mib859, i64 noundef %235, ptr noundef nonnull %metadata_rtree, ptr noundef nonnull %sz861, ptr noundef null, i64 noundef 0) #13
+  %237 = load i64, ptr %miblen860, align 8
+  %call874 = call i32 @mallctlbymib(ptr noundef nonnull %mib859, i64 noundef %237, ptr noundef nonnull %metadata_rtree, ptr noundef nonnull %sz861, ptr noundef null, i64 noundef 0) #13
   %cmp875.not = icmp eq i32 %call874, 0
   br i1 %cmp875.not, label %do.end880, label %if.then877
 
@@ -7214,25 +7219,25 @@ do.end880:                                        ; preds = %do.end869
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.232)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %metadata_rtree)
   store ptr @.str.353, ptr %180, align 8
-  %236 = load i64, ptr %metadata_rtree, align 8
-  store i64 %236, ptr %181, align 8
-  %237 = load i32, ptr %emitter, align 8
-  %cmp.not.i692 = icmp eq i32 %237, 2
+  %238 = load i64, ptr %metadata_rtree, align 8
+  store i64 %238, ptr %181, align 8
+  %239 = load i32, ptr %emitter, align 8
+  %cmp.not.i692 = icmp eq i32 %239, 2
   br i1 %cmp.not.i692, label %for.body.i695, label %emitter_table_row.exit704
 
 for.body.i695:                                    ; preds = %do.end880, %for.body.i695
-  %col.011.i696 = phi ptr [ %242, %for.body.i695 ], [ %mem_count_title, %do.end880 ]
-  %238 = load i32, ptr %col.011.i696, align 8
+  %col.011.i696 = phi ptr [ %244, %for.body.i695 ], [ %mem_count_title, %do.end880 ]
+  %240 = load i32, ptr %col.011.i696, align 8
   %width.i697 = getelementptr inbounds i8, ptr %col.011.i696, i64 4
-  %239 = load i32, ptr %width.i697, align 4
+  %241 = load i32, ptr %width.i697, align 4
   %type.i698 = getelementptr inbounds i8, ptr %col.011.i696, i64 8
-  %240 = load i32, ptr %type.i698, align 8
-  %241 = getelementptr inbounds i8, ptr %col.011.i696, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %238, i32 noundef %239, i32 noundef %240, ptr noundef nonnull %241)
+  %242 = load i32, ptr %type.i698, align 8
+  %243 = getelementptr inbounds i8, ptr %col.011.i696, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %240, i32 noundef %241, i32 noundef %242, ptr noundef nonnull %243)
   %link.i699 = getelementptr inbounds i8, ptr %col.011.i696, i64 24
-  %242 = load ptr, ptr %link.i699, align 8
-  %cmp4.not.i700 = icmp eq ptr %242, %mem_count_title
-  %cmp1.not12.i701 = icmp eq ptr %242, null
+  %244 = load ptr, ptr %link.i699, align 8
+  %cmp4.not.i700 = icmp eq ptr %244, %mem_count_title
+  %cmp1.not12.i701 = icmp eq ptr %244, null
   %cmp1.not.i702 = or i1 %cmp4.not.i700, %cmp1.not12.i701
   br i1 %cmp1.not.i702, label %for.end.i703, label %for.body.i695
 
@@ -7255,8 +7260,8 @@ if.then890:                                       ; preds = %emitter_table_row.e
 do.end892:                                        ; preds = %emitter_table_row.exit704
   %arrayidx894 = getelementptr inbounds i8, ptr %mib882, i64 16
   store i64 %conv41, ptr %arrayidx894, align 16
-  %243 = load i64, ptr %miblen883, align 8
-  %call897 = call i32 @mallctlbymib(ptr noundef nonnull %mib882, i64 noundef %243, ptr noundef nonnull %metadata_thp, ptr noundef nonnull %sz884, ptr noundef null, i64 noundef 0) #13
+  %245 = load i64, ptr %miblen883, align 8
+  %call897 = call i32 @mallctlbymib(ptr noundef nonnull %mib882, i64 noundef %245, ptr noundef nonnull %metadata_thp, ptr noundef nonnull %sz884, ptr noundef null, i64 noundef 0) #13
   %cmp898.not = icmp eq i32 %call897, 0
   br i1 %cmp898.not, label %do.end903, label %if.then900
 
@@ -7269,25 +7274,25 @@ do.end903:                                        ; preds = %do.end892
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.86)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %metadata_thp)
   store ptr @.str.355, ptr %180, align 8
-  %244 = load i64, ptr %metadata_thp, align 8
-  store i64 %244, ptr %181, align 8
-  %245 = load i32, ptr %emitter, align 8
-  %cmp.not.i705 = icmp eq i32 %245, 2
+  %246 = load i64, ptr %metadata_thp, align 8
+  store i64 %246, ptr %181, align 8
+  %247 = load i32, ptr %emitter, align 8
+  %cmp.not.i705 = icmp eq i32 %247, 2
   br i1 %cmp.not.i705, label %for.body.i708, label %emitter_table_row.exit717
 
 for.body.i708:                                    ; preds = %do.end903, %for.body.i708
-  %col.011.i709 = phi ptr [ %250, %for.body.i708 ], [ %mem_count_title, %do.end903 ]
-  %246 = load i32, ptr %col.011.i709, align 8
+  %col.011.i709 = phi ptr [ %252, %for.body.i708 ], [ %mem_count_title, %do.end903 ]
+  %248 = load i32, ptr %col.011.i709, align 8
   %width.i710 = getelementptr inbounds i8, ptr %col.011.i709, i64 4
-  %247 = load i32, ptr %width.i710, align 4
+  %249 = load i32, ptr %width.i710, align 4
   %type.i711 = getelementptr inbounds i8, ptr %col.011.i709, i64 8
-  %248 = load i32, ptr %type.i711, align 8
-  %249 = getelementptr inbounds i8, ptr %col.011.i709, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %246, i32 noundef %247, i32 noundef %248, ptr noundef nonnull %249)
+  %250 = load i32, ptr %type.i711, align 8
+  %251 = getelementptr inbounds i8, ptr %col.011.i709, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %248, i32 noundef %249, i32 noundef %250, ptr noundef nonnull %251)
   %link.i712 = getelementptr inbounds i8, ptr %col.011.i709, i64 24
-  %250 = load ptr, ptr %link.i712, align 8
-  %cmp4.not.i713 = icmp eq ptr %250, %mem_count_title
-  %cmp1.not12.i714 = icmp eq ptr %250, null
+  %252 = load ptr, ptr %link.i712, align 8
+  %cmp4.not.i713 = icmp eq ptr %252, %mem_count_title
+  %cmp1.not12.i714 = icmp eq ptr %252, null
   %cmp1.not.i715 = or i1 %cmp4.not.i713, %cmp1.not12.i714
   br i1 %cmp1.not.i715, label %for.end.i716, label %for.body.i708
 
@@ -7310,8 +7315,8 @@ if.then913:                                       ; preds = %emitter_table_row.e
 do.end915:                                        ; preds = %emitter_table_row.exit717
   %arrayidx917 = getelementptr inbounds i8, ptr %mib905, i64 16
   store i64 %conv41, ptr %arrayidx917, align 16
-  %251 = load i64, ptr %miblen906, align 8
-  %call920 = call i32 @mallctlbymib(ptr noundef nonnull %mib905, i64 noundef %251, ptr noundef nonnull %tcache_bytes, ptr noundef nonnull %sz907, ptr noundef null, i64 noundef 0) #13
+  %253 = load i64, ptr %miblen906, align 8
+  %call920 = call i32 @mallctlbymib(ptr noundef nonnull %mib905, i64 noundef %253, ptr noundef nonnull %tcache_bytes, ptr noundef nonnull %sz907, ptr noundef null, i64 noundef 0) #13
   %cmp921.not = icmp eq i32 %call920, 0
   br i1 %cmp921.not, label %do.end926, label %if.then923
 
@@ -7324,25 +7329,25 @@ do.end926:                                        ; preds = %do.end915
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.357)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %tcache_bytes)
   store ptr @.str.358, ptr %180, align 8
-  %252 = load i64, ptr %tcache_bytes, align 8
-  store i64 %252, ptr %181, align 8
-  %253 = load i32, ptr %emitter, align 8
-  %cmp.not.i718 = icmp eq i32 %253, 2
+  %254 = load i64, ptr %tcache_bytes, align 8
+  store i64 %254, ptr %181, align 8
+  %255 = load i32, ptr %emitter, align 8
+  %cmp.not.i718 = icmp eq i32 %255, 2
   br i1 %cmp.not.i718, label %for.body.i721, label %emitter_table_row.exit730
 
 for.body.i721:                                    ; preds = %do.end926, %for.body.i721
-  %col.011.i722 = phi ptr [ %258, %for.body.i721 ], [ %mem_count_title, %do.end926 ]
-  %254 = load i32, ptr %col.011.i722, align 8
+  %col.011.i722 = phi ptr [ %260, %for.body.i721 ], [ %mem_count_title, %do.end926 ]
+  %256 = load i32, ptr %col.011.i722, align 8
   %width.i723 = getelementptr inbounds i8, ptr %col.011.i722, i64 4
-  %255 = load i32, ptr %width.i723, align 4
+  %257 = load i32, ptr %width.i723, align 4
   %type.i724 = getelementptr inbounds i8, ptr %col.011.i722, i64 8
-  %256 = load i32, ptr %type.i724, align 8
-  %257 = getelementptr inbounds i8, ptr %col.011.i722, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %254, i32 noundef %255, i32 noundef %256, ptr noundef nonnull %257)
+  %258 = load i32, ptr %type.i724, align 8
+  %259 = getelementptr inbounds i8, ptr %col.011.i722, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %256, i32 noundef %257, i32 noundef %258, ptr noundef nonnull %259)
   %link.i725 = getelementptr inbounds i8, ptr %col.011.i722, i64 24
-  %258 = load ptr, ptr %link.i725, align 8
-  %cmp4.not.i726 = icmp eq ptr %258, %mem_count_title
-  %cmp1.not12.i727 = icmp eq ptr %258, null
+  %260 = load ptr, ptr %link.i725, align 8
+  %cmp4.not.i726 = icmp eq ptr %260, %mem_count_title
+  %cmp1.not12.i727 = icmp eq ptr %260, null
   %cmp1.not.i728 = or i1 %cmp4.not.i726, %cmp1.not12.i727
   br i1 %cmp1.not.i728, label %for.end.i729, label %for.body.i721
 
@@ -7365,8 +7370,8 @@ if.then936:                                       ; preds = %emitter_table_row.e
 do.end938:                                        ; preds = %emitter_table_row.exit730
   %arrayidx940 = getelementptr inbounds i8, ptr %mib928, i64 16
   store i64 %conv41, ptr %arrayidx940, align 16
-  %259 = load i64, ptr %miblen929, align 8
-  %call943 = call i32 @mallctlbymib(ptr noundef nonnull %mib928, i64 noundef %259, ptr noundef nonnull %tcache_stashed_bytes, ptr noundef nonnull %sz930, ptr noundef null, i64 noundef 0) #13
+  %261 = load i64, ptr %miblen929, align 8
+  %call943 = call i32 @mallctlbymib(ptr noundef nonnull %mib928, i64 noundef %261, ptr noundef nonnull %tcache_stashed_bytes, ptr noundef nonnull %sz930, ptr noundef null, i64 noundef 0) #13
   %cmp944.not = icmp eq i32 %call943, 0
   br i1 %cmp944.not, label %do.end949, label %if.then946
 
@@ -7379,25 +7384,25 @@ do.end949:                                        ; preds = %do.end938
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.360)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %tcache_stashed_bytes)
   store ptr @.str.361, ptr %180, align 8
-  %260 = load i64, ptr %tcache_stashed_bytes, align 8
-  store i64 %260, ptr %181, align 8
-  %261 = load i32, ptr %emitter, align 8
-  %cmp.not.i731 = icmp eq i32 %261, 2
+  %262 = load i64, ptr %tcache_stashed_bytes, align 8
+  store i64 %262, ptr %181, align 8
+  %263 = load i32, ptr %emitter, align 8
+  %cmp.not.i731 = icmp eq i32 %263, 2
   br i1 %cmp.not.i731, label %for.body.i734, label %emitter_table_row.exit743
 
 for.body.i734:                                    ; preds = %do.end949, %for.body.i734
-  %col.011.i735 = phi ptr [ %266, %for.body.i734 ], [ %mem_count_title, %do.end949 ]
-  %262 = load i32, ptr %col.011.i735, align 8
+  %col.011.i735 = phi ptr [ %268, %for.body.i734 ], [ %mem_count_title, %do.end949 ]
+  %264 = load i32, ptr %col.011.i735, align 8
   %width.i736 = getelementptr inbounds i8, ptr %col.011.i735, i64 4
-  %263 = load i32, ptr %width.i736, align 4
+  %265 = load i32, ptr %width.i736, align 4
   %type.i737 = getelementptr inbounds i8, ptr %col.011.i735, i64 8
-  %264 = load i32, ptr %type.i737, align 8
-  %265 = getelementptr inbounds i8, ptr %col.011.i735, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %262, i32 noundef %263, i32 noundef %264, ptr noundef nonnull %265)
+  %266 = load i32, ptr %type.i737, align 8
+  %267 = getelementptr inbounds i8, ptr %col.011.i735, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %264, i32 noundef %265, i32 noundef %266, ptr noundef nonnull %267)
   %link.i738 = getelementptr inbounds i8, ptr %col.011.i735, i64 24
-  %266 = load ptr, ptr %link.i738, align 8
-  %cmp4.not.i739 = icmp eq ptr %266, %mem_count_title
-  %cmp1.not12.i740 = icmp eq ptr %266, null
+  %268 = load ptr, ptr %link.i738, align 8
+  %cmp4.not.i739 = icmp eq ptr %268, %mem_count_title
+  %cmp1.not12.i740 = icmp eq ptr %268, null
   %cmp1.not.i741 = or i1 %cmp4.not.i739, %cmp1.not12.i740
   br i1 %cmp1.not.i741, label %for.end.i742, label %for.body.i734
 
@@ -7420,8 +7425,8 @@ if.then959:                                       ; preds = %emitter_table_row.e
 do.end961:                                        ; preds = %emitter_table_row.exit743
   %arrayidx963 = getelementptr inbounds i8, ptr %mib951, i64 16
   store i64 %conv41, ptr %arrayidx963, align 16
-  %267 = load i64, ptr %miblen952, align 8
-  %call966 = call i32 @mallctlbymib(ptr noundef nonnull %mib951, i64 noundef %267, ptr noundef nonnull %resident, ptr noundef nonnull %sz953, ptr noundef null, i64 noundef 0) #13
+  %269 = load i64, ptr %miblen952, align 8
+  %call966 = call i32 @mallctlbymib(ptr noundef nonnull %mib951, i64 noundef %269, ptr noundef nonnull %resident, ptr noundef nonnull %sz953, ptr noundef null, i64 noundef 0) #13
   %cmp967.not = icmp eq i32 %call966, 0
   br i1 %cmp967.not, label %do.end972, label %if.then969
 
@@ -7434,25 +7439,25 @@ do.end972:                                        ; preds = %do.end961
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.233)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %resident)
   store ptr @.str.363, ptr %180, align 8
-  %268 = load i64, ptr %resident, align 8
-  store i64 %268, ptr %181, align 8
-  %269 = load i32, ptr %emitter, align 8
-  %cmp.not.i744 = icmp eq i32 %269, 2
+  %270 = load i64, ptr %resident, align 8
+  store i64 %270, ptr %181, align 8
+  %271 = load i32, ptr %emitter, align 8
+  %cmp.not.i744 = icmp eq i32 %271, 2
   br i1 %cmp.not.i744, label %for.body.i747, label %emitter_table_row.exit756
 
 for.body.i747:                                    ; preds = %do.end972, %for.body.i747
-  %col.011.i748 = phi ptr [ %274, %for.body.i747 ], [ %mem_count_title, %do.end972 ]
-  %270 = load i32, ptr %col.011.i748, align 8
+  %col.011.i748 = phi ptr [ %276, %for.body.i747 ], [ %mem_count_title, %do.end972 ]
+  %272 = load i32, ptr %col.011.i748, align 8
   %width.i749 = getelementptr inbounds i8, ptr %col.011.i748, i64 4
-  %271 = load i32, ptr %width.i749, align 4
+  %273 = load i32, ptr %width.i749, align 4
   %type.i750 = getelementptr inbounds i8, ptr %col.011.i748, i64 8
-  %272 = load i32, ptr %type.i750, align 8
-  %273 = getelementptr inbounds i8, ptr %col.011.i748, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %270, i32 noundef %271, i32 noundef %272, ptr noundef nonnull %273)
+  %274 = load i32, ptr %type.i750, align 8
+  %275 = getelementptr inbounds i8, ptr %col.011.i748, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %272, i32 noundef %273, i32 noundef %274, ptr noundef nonnull %275)
   %link.i751 = getelementptr inbounds i8, ptr %col.011.i748, i64 24
-  %274 = load ptr, ptr %link.i751, align 8
-  %cmp4.not.i752 = icmp eq ptr %274, %mem_count_title
-  %cmp1.not12.i753 = icmp eq ptr %274, null
+  %276 = load ptr, ptr %link.i751, align 8
+  %cmp4.not.i752 = icmp eq ptr %276, %mem_count_title
+  %cmp1.not12.i753 = icmp eq ptr %276, null
   %cmp1.not.i754 = or i1 %cmp4.not.i752, %cmp1.not12.i753
   br i1 %cmp1.not.i754, label %for.end.i755, label %for.body.i747
 
@@ -7475,8 +7480,8 @@ if.then982:                                       ; preds = %emitter_table_row.e
 do.end984:                                        ; preds = %emitter_table_row.exit756
   %arrayidx986 = getelementptr inbounds i8, ptr %mib974, i64 16
   store i64 %conv41, ptr %arrayidx986, align 16
-  %275 = load i64, ptr %miblen975, align 8
-  %call989 = call i32 @mallctlbymib(ptr noundef nonnull %mib974, i64 noundef %275, ptr noundef nonnull %abandoned_vm, ptr noundef nonnull %sz976, ptr noundef null, i64 noundef 0) #13
+  %277 = load i64, ptr %miblen975, align 8
+  %call989 = call i32 @mallctlbymib(ptr noundef nonnull %mib974, i64 noundef %277, ptr noundef nonnull %abandoned_vm, ptr noundef nonnull %sz976, ptr noundef null, i64 noundef 0) #13
   %cmp990.not = icmp eq i32 %call989, 0
   br i1 %cmp990.not, label %do.end995, label %if.then992
 
@@ -7489,25 +7494,25 @@ do.end995:                                        ; preds = %do.end984
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.365)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %abandoned_vm)
   store ptr @.str.366, ptr %180, align 8
-  %276 = load i64, ptr %abandoned_vm, align 8
-  store i64 %276, ptr %181, align 8
-  %277 = load i32, ptr %emitter, align 8
-  %cmp.not.i757 = icmp eq i32 %277, 2
+  %278 = load i64, ptr %abandoned_vm, align 8
+  store i64 %278, ptr %181, align 8
+  %279 = load i32, ptr %emitter, align 8
+  %cmp.not.i757 = icmp eq i32 %279, 2
   br i1 %cmp.not.i757, label %for.body.i760, label %emitter_table_row.exit769
 
 for.body.i760:                                    ; preds = %do.end995, %for.body.i760
-  %col.011.i761 = phi ptr [ %282, %for.body.i760 ], [ %mem_count_title, %do.end995 ]
-  %278 = load i32, ptr %col.011.i761, align 8
+  %col.011.i761 = phi ptr [ %284, %for.body.i760 ], [ %mem_count_title, %do.end995 ]
+  %280 = load i32, ptr %col.011.i761, align 8
   %width.i762 = getelementptr inbounds i8, ptr %col.011.i761, i64 4
-  %279 = load i32, ptr %width.i762, align 4
+  %281 = load i32, ptr %width.i762, align 4
   %type.i763 = getelementptr inbounds i8, ptr %col.011.i761, i64 8
-  %280 = load i32, ptr %type.i763, align 8
-  %281 = getelementptr inbounds i8, ptr %col.011.i761, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %278, i32 noundef %279, i32 noundef %280, ptr noundef nonnull %281)
+  %282 = load i32, ptr %type.i763, align 8
+  %283 = getelementptr inbounds i8, ptr %col.011.i761, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %280, i32 noundef %281, i32 noundef %282, ptr noundef nonnull %283)
   %link.i764 = getelementptr inbounds i8, ptr %col.011.i761, i64 24
-  %282 = load ptr, ptr %link.i764, align 8
-  %cmp4.not.i765 = icmp eq ptr %282, %mem_count_title
-  %cmp1.not12.i766 = icmp eq ptr %282, null
+  %284 = load ptr, ptr %link.i764, align 8
+  %cmp4.not.i765 = icmp eq ptr %284, %mem_count_title
+  %cmp1.not12.i766 = icmp eq ptr %284, null
   %cmp1.not.i767 = or i1 %cmp4.not.i765, %cmp1.not12.i766
   br i1 %cmp1.not.i767, label %for.end.i768, label %for.body.i760
 
@@ -7530,8 +7535,8 @@ if.then1005:                                      ; preds = %emitter_table_row.e
 do.end1007:                                       ; preds = %emitter_table_row.exit769
   %arrayidx1009 = getelementptr inbounds i8, ptr %mib997, i64 16
   store i64 %conv41, ptr %arrayidx1009, align 16
-  %283 = load i64, ptr %miblen998, align 8
-  %call1012 = call i32 @mallctlbymib(ptr noundef nonnull %mib997, i64 noundef %283, ptr noundef nonnull %extent_avail, ptr noundef nonnull %sz999, ptr noundef null, i64 noundef 0) #13
+  %285 = load i64, ptr %miblen998, align 8
+  %call1012 = call i32 @mallctlbymib(ptr noundef nonnull %mib997, i64 noundef %285, ptr noundef nonnull %extent_avail, ptr noundef nonnull %sz999, ptr noundef null, i64 noundef 0) #13
   %cmp1013.not = icmp eq i32 %call1012, 0
   br i1 %cmp1013.not, label %do.end1018, label %if.then1015
 
@@ -7544,25 +7549,25 @@ do.end1018:                                       ; preds = %do.end1007
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.368)
   call fastcc void @emitter_json_value(ptr noundef %emitter, i32 noundef 6, ptr noundef nonnull readonly %extent_avail)
   store ptr @.str.369, ptr %180, align 8
-  %284 = load i64, ptr %extent_avail, align 8
-  store i64 %284, ptr %181, align 8
-  %285 = load i32, ptr %emitter, align 8
-  %cmp.not.i770 = icmp eq i32 %285, 2
+  %286 = load i64, ptr %extent_avail, align 8
+  store i64 %286, ptr %181, align 8
+  %287 = load i32, ptr %emitter, align 8
+  %cmp.not.i770 = icmp eq i32 %287, 2
   br i1 %cmp.not.i770, label %for.body.i773, label %emitter_table_row.exit782
 
 for.body.i773:                                    ; preds = %do.end1018, %for.body.i773
-  %col.011.i774 = phi ptr [ %290, %for.body.i773 ], [ %mem_count_title, %do.end1018 ]
-  %286 = load i32, ptr %col.011.i774, align 8
+  %col.011.i774 = phi ptr [ %292, %for.body.i773 ], [ %mem_count_title, %do.end1018 ]
+  %288 = load i32, ptr %col.011.i774, align 8
   %width.i775 = getelementptr inbounds i8, ptr %col.011.i774, i64 4
-  %287 = load i32, ptr %width.i775, align 4
+  %289 = load i32, ptr %width.i775, align 4
   %type.i776 = getelementptr inbounds i8, ptr %col.011.i774, i64 8
-  %288 = load i32, ptr %type.i776, align 8
-  %289 = getelementptr inbounds i8, ptr %col.011.i774, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %286, i32 noundef %287, i32 noundef %288, ptr noundef nonnull %289)
+  %290 = load i32, ptr %type.i776, align 8
+  %291 = getelementptr inbounds i8, ptr %col.011.i774, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %288, i32 noundef %289, i32 noundef %290, ptr noundef nonnull %291)
   %link.i777 = getelementptr inbounds i8, ptr %col.011.i774, i64 24
-  %290 = load ptr, ptr %link.i777, align 8
-  %cmp4.not.i778 = icmp eq ptr %290, %mem_count_title
-  %cmp1.not12.i779 = icmp eq ptr %290, null
+  %292 = load ptr, ptr %link.i777, align 8
+  %cmp4.not.i778 = icmp eq ptr %292, %mem_count_title
+  %cmp1.not12.i779 = icmp eq ptr %292, null
   %cmp1.not.i780 = or i1 %cmp4.not.i778, %cmp1.not12.i779
   br i1 %cmp1.not.i780, label %for.end.i781, label %for.body.i773
 
@@ -7574,7 +7579,7 @@ emitter_table_row.exit782:                        ; preds = %do.end1018, %for.en
   br i1 %mutex, label %if.then1019, label %if.end1020
 
 if.then1019:                                      ; preds = %emitter_table_row.exit782
-  %291 = load i64, ptr %uptime, align 8
+  %293 = load i64, ptr %uptime, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %row.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %col_name.i)
   call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %col64.i)
@@ -7586,29 +7591,29 @@ if.then1019:                                      ; preds = %emitter_table_row.e
   call fastcc void @mutex_stats_init_cols(ptr noundef nonnull %row.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %col_name.i, ptr noundef nonnull %col64.i, ptr noundef nonnull %col32.i)
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.243)
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
-  %292 = load i32, ptr %emitter, align 8
-  %cmp.not.i.i = icmp eq i32 %292, 2
+  %294 = load i32, ptr %emitter, align 8
+  %cmp.not.i.i = icmp eq i32 %294, 2
   br i1 %cmp.not.i.i, label %if.end.i.i, label %emitter_table_row.exit.i
 
 if.end.i.i:                                       ; preds = %if.then1019
-  %293 = load ptr, ptr %row.i, align 8
-  %cmp1.not10.i.i = icmp eq ptr %293, null
+  %295 = load ptr, ptr %row.i, align 8
+  %cmp1.not10.i.i = icmp eq ptr %295, null
   br i1 %cmp1.not10.i.i, label %for.end.i.i, label %for.body.i.i786
 
 for.body.i.i786:                                  ; preds = %if.end.i.i, %for.body.i.i786
-  %col.011.i.i = phi ptr [ %298, %for.body.i.i786 ], [ %293, %if.end.i.i ]
-  %294 = load i32, ptr %col.011.i.i, align 8
+  %col.011.i.i = phi ptr [ %300, %for.body.i.i786 ], [ %295, %if.end.i.i ]
+  %296 = load i32, ptr %col.011.i.i, align 8
   %width.i.i = getelementptr inbounds i8, ptr %col.011.i.i, i64 4
-  %295 = load i32, ptr %width.i.i, align 4
+  %297 = load i32, ptr %width.i.i, align 4
   %type.i.i = getelementptr inbounds i8, ptr %col.011.i.i, i64 8
-  %296 = load i32, ptr %type.i.i, align 8
-  %297 = getelementptr inbounds i8, ptr %col.011.i.i, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %294, i32 noundef %295, i32 noundef %296, ptr noundef nonnull %297)
+  %298 = load i32, ptr %type.i.i, align 8
+  %299 = getelementptr inbounds i8, ptr %col.011.i.i, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %296, i32 noundef %297, i32 noundef %298, ptr noundef nonnull %299)
   %link.i.i = getelementptr inbounds i8, ptr %col.011.i.i, i64 24
-  %298 = load ptr, ptr %link.i.i, align 8
-  %299 = load ptr, ptr %row.i, align 8
-  %cmp4.not.i.i = icmp eq ptr %298, %299
-  %cmp1.not12.i.i = icmp eq ptr %298, null
+  %300 = load ptr, ptr %link.i.i, align 8
+  %301 = load ptr, ptr %row.i, align 8
+  %cmp4.not.i.i = icmp eq ptr %300, %301
+  %cmp1.not12.i.i = icmp eq ptr %300, null
   %cmp1.not.i.i = or i1 %cmp1.not12.i.i, %cmp4.not.i.i
   br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i786
 
@@ -7618,18 +7623,18 @@ for.end.i.i:                                      ; preds = %for.body.i.i786, %i
 
 emitter_table_row.exit.i:                         ; preds = %for.end.i.i, %if.then1019
   store i64 7, ptr %miblen_new.i, align 8
-  %300 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i64.i = getelementptr inbounds i8, ptr %300, i64 824
-  %301 = load i8, ptr %state.i64.i, align 8
-  %cmp6.i.not.i = icmp eq i8 %301, 0
+  %302 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %state.i64.i = getelementptr inbounds i8, ptr %302, i64 824
+  %303 = load i8, ptr %state.i64.i, align 8
+  %cmp6.i.not.i = icmp eq i8 %303, 0
   br i1 %cmp6.i.not.i, label %tsd_fetch_impl.exit.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %emitter_table_row.exit.i
-  %call13.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %300, i1 noundef zeroext false) #13
+  %call13.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %302, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit.i
 
 tsd_fetch_impl.exit.i:                            ; preds = %if.then11.i.i, %emitter_table_row.exit.i
-  %retval.i.0.i = phi ptr [ %call13.i.i, %if.then11.i.i ], [ %300, %emitter_table_row.exit.i ]
+  %retval.i.0.i = phi ptr [ %call13.i.i, %if.then11.i.i ], [ %302, %emitter_table_row.exit.i ]
   %call5.i = call i32 @ctl_mibnametomib(ptr noundef %retval.i.0.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 0, ptr noundef nonnull @.str.248, ptr noundef nonnull %miblen_new.i) #13
   %cmp.not.i783 = icmp eq i32 %call5.i, 0
   br i1 %cmp.not.i783, label %do.end9.i, label %if.then.i
@@ -7643,49 +7648,49 @@ do.end9.i:                                        ; preds = %tsd_fetch_impl.exit
   %arrayidx.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i, i64 16
   store i64 %conv41, ptr %arrayidx.i, align 16
   store i64 7, ptr %miblen_new13.i, align 8
-  %302 = load i8, ptr %state.i64.i, align 8
-  %cmp6.i48.not.i = icmp eq i8 %302, 0
+  %304 = load i8, ptr %state.i64.i, align 8
+  %cmp6.i48.not.i = icmp eq i8 %304, 0
   br i1 %cmp6.i48.not.i, label %tsd_fetch_impl.exit59.i, label %if.then11.i53.i
 
 if.then11.i53.i:                                  ; preds = %do.end9.i
-  %call13.i55.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %300, i1 noundef zeroext false) #13
+  %call13.i55.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %302, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit59.i
 
 tsd_fetch_impl.exit59.i:                          ; preds = %if.then11.i53.i, %do.end9.i
-  %retval.i36.0.i = phi ptr [ %call13.i55.i, %if.then11.i53.i ], [ %300, %do.end9.i ]
+  %retval.i36.0.i = phi ptr [ %call13.i55.i, %if.then11.i53.i ], [ %302, %do.end9.i ]
   %call17.i = call i32 @ctl_mibnametomib(ptr noundef %retval.i36.0.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 3, ptr noundef nonnull @.str.243, ptr noundef nonnull %miblen_new13.i) #13
   %cmp18.not.i = icmp eq i32 %call17.i, 0
   br i1 %cmp18.not.i, label %for.cond.preheader.i, label %if.then20.i
 
 for.cond.preheader.i:                             ; preds = %tsd_fetch_impl.exit59.i
-  %303 = getelementptr inbounds i8, ptr %col_name.i, i64 16
+  %305 = getelementptr inbounds i8, ptr %col_name.i, i64 16
   %type.i18.i = getelementptr inbounds i8, ptr %col64.i, i64 8
-  %304 = getelementptr inbounds i8, ptr %col64.i, i64 16
+  %306 = getelementptr inbounds i8, ptr %col64.i, i64 16
   %type23.i.i = getelementptr inbounds i8, ptr %col64.i, i64 48
-  %cmp.i.i.i = icmp eq i64 %291, 0
-  %cmp2.i.i.i = icmp ult i64 %291, 1000000000
-  %div.i.i.i = udiv i64 %291, 1000000000
-  %305 = getelementptr inbounds i8, ptr %col64.i, i64 56
+  %cmp.i.i.i = icmp eq i64 %293, 0
+  %cmp2.i.i.i = icmp ult i64 %293, 1000000000
+  %div.i.i.i = udiv i64 %293, 1000000000
+  %307 = getelementptr inbounds i8, ptr %col64.i, i64 56
   %type27.i.i = getelementptr inbounds i8, ptr %col64.i, i64 88
-  %306 = getelementptr inbounds i8, ptr %col64.i, i64 96
+  %308 = getelementptr inbounds i8, ptr %col64.i, i64 96
   %type44.i.i = getelementptr inbounds i8, ptr %col64.i, i64 128
-  %307 = getelementptr inbounds i8, ptr %col64.i, i64 136
+  %309 = getelementptr inbounds i8, ptr %col64.i, i64 136
   %type49.i.i = getelementptr inbounds i8, ptr %col64.i, i64 168
-  %308 = getelementptr inbounds i8, ptr %col64.i, i64 176
+  %310 = getelementptr inbounds i8, ptr %col64.i, i64 176
   %type66.i.i = getelementptr inbounds i8, ptr %col64.i, i64 208
-  %309 = getelementptr inbounds i8, ptr %col64.i, i64 216
+  %311 = getelementptr inbounds i8, ptr %col64.i, i64 216
   %type71.i.i = getelementptr inbounds i8, ptr %col64.i, i64 248
-  %310 = getelementptr inbounds i8, ptr %col64.i, i64 256
+  %312 = getelementptr inbounds i8, ptr %col64.i, i64 256
   %type88.i.i = getelementptr inbounds i8, ptr %col64.i, i64 288
-  %311 = getelementptr inbounds i8, ptr %col64.i, i64 296
+  %313 = getelementptr inbounds i8, ptr %col64.i, i64 296
   %type93.i.i = getelementptr inbounds i8, ptr %col64.i, i64 328
-  %312 = getelementptr inbounds i8, ptr %col64.i, i64 336
+  %314 = getelementptr inbounds i8, ptr %col64.i, i64 336
   %type110.i.i = getelementptr inbounds i8, ptr %col64.i, i64 368
-  %313 = getelementptr inbounds i8, ptr %col64.i, i64 376
+  %315 = getelementptr inbounds i8, ptr %col64.i, i64 376
   %type115.i.i = getelementptr inbounds i8, ptr %col64.i, i64 408
-  %314 = getelementptr inbounds i8, ptr %col64.i, i64 416
+  %316 = getelementptr inbounds i8, ptr %col64.i, i64 416
   %type132.i.i = getelementptr inbounds i8, ptr %col32.i, i64 8
-  %315 = getelementptr inbounds i8, ptr %col32.i, i64 16
+  %317 = getelementptr inbounds i8, ptr %col32.i, i64 16
   %nesting_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %item_at_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
   br label %for.body.i784
@@ -7698,8 +7703,8 @@ if.then20.i:                                      ; preds = %tsd_fetch_impl.exit
 for.body.i784:                                    ; preds = %emitter_json_object_end.exit.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %emitter_json_object_end.exit.i ]
   %arrayidx28.i = getelementptr inbounds [12 x ptr], ptr @arena_mutex_names, i64 0, i64 %indvars.iv.i
-  %316 = load ptr, ptr %arrayidx28.i, align 8
-  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef %316)
+  %318 = load ptr, ptr %arrayidx28.i, align 8
+  call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef %318)
   call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %miblen_new.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %miblen_new11.i.i)
@@ -7717,17 +7722,17 @@ for.body.i784:                                    ; preds = %emitter_json_object
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %miblen_new136.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz137.i.i)
   store i64 7, ptr %miblen_new.i.i, align 8
-  %317 = load i8, ptr %state.i64.i, align 8
-  %cmp6.i.not.i.i = icmp eq i8 %317, 0
+  %319 = load i8, ptr %state.i64.i, align 8
+  %cmp6.i.not.i.i = icmp eq i8 %319, 0
   br i1 %cmp6.i.not.i.i, label %tsd_fetch_impl.exit.i.i, label %if.then11.i.i.i
 
 if.then11.i.i.i:                                  ; preds = %for.body.i784
-  %call13.i.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %300, i1 noundef zeroext false) #13
+  %call13.i.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %302, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit.i.i
 
 tsd_fetch_impl.exit.i.i:                          ; preds = %if.then11.i.i.i, %for.body.i784
-  %retval.i.0.i.i = phi ptr [ %call13.i.i.i, %if.then11.i.i.i ], [ %300, %for.body.i784 ]
-  %call3.i.i = call i32 @ctl_mibnametomib(ptr noundef %retval.i.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 4, ptr noundef %316, ptr noundef nonnull %miblen_new.i.i) #13
+  %retval.i.0.i.i = phi ptr [ %call13.i.i.i, %if.then11.i.i.i ], [ %302, %for.body.i784 ]
+  %call3.i.i = call i32 @ctl_mibnametomib(ptr noundef %retval.i.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 4, ptr noundef %318, ptr noundef nonnull %miblen_new.i.i) #13
   %cmp.not.i17.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp.not.i17.i, label %do.end7.i.i, label %if.then.i.i
 
@@ -7737,21 +7742,21 @@ if.then.i.i:                                      ; preds = %tsd_fetch_impl.exit
   unreachable
 
 do.end7.i.i:                                      ; preds = %tsd_fetch_impl.exit.i.i
-  store ptr %316, ptr %303, align 8
+  store ptr %318, ptr %305, align 8
   store i32 5, ptr %type.i18.i, align 8
   store i64 7, ptr %miblen_new11.i.i, align 8
   store i64 8, ptr %sz.i.i, align 8
-  %318 = load i8, ptr %state.i64.i, align 8
-  %cmp6.i168.not.i.i = icmp eq i8 %318, 0
+  %320 = load i8, ptr %state.i64.i, align 8
+  %cmp6.i168.not.i.i = icmp eq i8 %320, 0
   br i1 %cmp6.i168.not.i.i, label %tsd_fetch_impl.exit179.i.i, label %if.then11.i173.i.i
 
 if.then11.i173.i.i:                               ; preds = %do.end7.i.i
-  %call13.i175.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %300, i1 noundef zeroext false) #13
+  %call13.i175.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %302, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit179.i.i
 
 tsd_fetch_impl.exit179.i.i:                       ; preds = %if.then11.i173.i.i, %do.end7.i.i
-  %retval.i156.0.i.i = phi ptr [ %call13.i175.i.i, %if.then11.i173.i.i ], [ %300, %do.end7.i.i ]
-  %call14.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i156.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.263, ptr noundef nonnull %miblen_new11.i.i, ptr noundef nonnull %304, ptr noundef nonnull %sz.i.i, ptr noundef null, i64 noundef 0) #13
+  %retval.i156.0.i.i = phi ptr [ %call13.i175.i.i, %if.then11.i173.i.i ], [ %302, %do.end7.i.i ]
+  %call14.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i156.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.263, ptr noundef nonnull %miblen_new11.i.i, ptr noundef nonnull %306, ptr noundef nonnull %sz.i.i, ptr noundef null, i64 noundef 0) #13
   %cmp15.not.i.i = icmp eq i32 %call14.i.i, 0
   br i1 %cmp15.not.i.i, label %do.end21.i.i, label %if.then16.i.i
 
@@ -7762,33 +7767,33 @@ if.then16.i.i:                                    ; preds = %tsd_fetch_impl.exit
 
 do.end21.i.i:                                     ; preds = %tsd_fetch_impl.exit179.i.i
   store i32 5, ptr %type23.i.i, align 16
-  %319 = load i64, ptr %304, align 16
-  %cmp1.i.i.i = icmp eq i64 %319, 0
+  %321 = load i64, ptr %306, align 16
+  %cmp1.i.i.i = icmp eq i64 %321, 0
   %brmerge.i = or i1 %cmp2.i.i.i, %cmp1.i.i.i
-  %.mux.i = select i1 %cmp.i.i.i, i64 0, i64 %319
+  %.mux.i = select i1 %cmp.i.i.i, i64 0, i64 %321
   br i1 %brmerge.i, label %rate_per_second.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %do.end21.i.i
-  %div4.i.i.i = udiv i64 %319, %div.i.i.i
+  %div4.i.i.i = udiv i64 %321, %div.i.i.i
   br label %rate_per_second.exit.i.i
 
 rate_per_second.exit.i.i:                         ; preds = %if.else.i.i.i, %do.end21.i.i
   %retval.0.i.i.i = phi i64 [ %div4.i.i.i, %if.else.i.i.i ], [ %.mux.i, %do.end21.i.i ]
-  store i64 %retval.0.i.i.i, ptr %305, align 8
+  store i64 %retval.0.i.i.i, ptr %307, align 8
   store i32 5, ptr %type27.i.i, align 8
   store i64 7, ptr %miblen_new31.i.i, align 8
   store i64 8, ptr %sz32.i.i, align 8
-  %320 = load i8, ptr %state.i64.i, align 8
-  %cmp6.i192.not.i.i = icmp eq i8 %320, 0
+  %322 = load i8, ptr %state.i64.i, align 8
+  %cmp6.i192.not.i.i = icmp eq i8 %322, 0
   br i1 %cmp6.i192.not.i.i, label %tsd_fetch_impl.exit203.i.i, label %if.then11.i197.i.i
 
 if.then11.i197.i.i:                               ; preds = %rate_per_second.exit.i.i
-  %call13.i199.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %300, i1 noundef zeroext false) #13
+  %call13.i199.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %302, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit203.i.i
 
 tsd_fetch_impl.exit203.i.i:                       ; preds = %if.then11.i197.i.i, %rate_per_second.exit.i.i
-  %retval.i180.0.i.i = phi ptr [ %call13.i199.i.i, %if.then11.i197.i.i ], [ %300, %rate_per_second.exit.i.i ]
-  %call35.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i180.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.264, ptr noundef nonnull %miblen_new31.i.i, ptr noundef nonnull %306, ptr noundef nonnull %sz32.i.i, ptr noundef null, i64 noundef 0) #13
+  %retval.i180.0.i.i = phi ptr [ %call13.i199.i.i, %if.then11.i197.i.i ], [ %302, %rate_per_second.exit.i.i ]
+  %call35.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i180.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.264, ptr noundef nonnull %miblen_new31.i.i, ptr noundef nonnull %308, ptr noundef nonnull %sz32.i.i, ptr noundef null, i64 noundef 0) #13
   %cmp36.not.i.i = icmp eq i32 %call35.i.i, 0
   br i1 %cmp36.not.i.i, label %do.end42.i.i, label %if.then37.i.i
 
@@ -7799,33 +7804,33 @@ if.then37.i.i:                                    ; preds = %tsd_fetch_impl.exit
 
 do.end42.i.i:                                     ; preds = %tsd_fetch_impl.exit203.i.i
   store i32 5, ptr %type44.i.i, align 16
-  %321 = load i64, ptr %306, align 16
-  %cmp1.i91.i.i = icmp eq i64 %321, 0
+  %323 = load i64, ptr %308, align 16
+  %cmp1.i91.i.i = icmp eq i64 %323, 0
   %brmerge43.i = or i1 %cmp2.i.i.i, %cmp1.i91.i.i
-  %.mux44.i = select i1 %cmp.i.i.i, i64 0, i64 %321
+  %.mux44.i = select i1 %cmp.i.i.i, i64 0, i64 %323
   br i1 %brmerge43.i, label %rate_per_second.exit99.i.i, label %if.else.i95.i.i
 
 if.else.i95.i.i:                                  ; preds = %do.end42.i.i
-  %div4.i97.i.i = udiv i64 %321, %div.i.i.i
+  %div4.i97.i.i = udiv i64 %323, %div.i.i.i
   br label %rate_per_second.exit99.i.i
 
 rate_per_second.exit99.i.i:                       ; preds = %if.else.i95.i.i, %do.end42.i.i
   %retval.0.i98.i.i = phi i64 [ %div4.i97.i.i, %if.else.i95.i.i ], [ %.mux44.i, %do.end42.i.i ]
-  store i64 %retval.0.i98.i.i, ptr %307, align 8
+  store i64 %retval.0.i98.i.i, ptr %309, align 8
   store i32 5, ptr %type49.i.i, align 8
   store i64 7, ptr %miblen_new53.i.i, align 8
   store i64 8, ptr %sz54.i.i, align 8
-  %322 = load i8, ptr %state.i64.i, align 8
-  %cmp6.i216.not.i.i = icmp eq i8 %322, 0
+  %324 = load i8, ptr %state.i64.i, align 8
+  %cmp6.i216.not.i.i = icmp eq i8 %324, 0
   br i1 %cmp6.i216.not.i.i, label %tsd_fetch_impl.exit227.i.i, label %if.then11.i221.i.i
 
 if.then11.i221.i.i:                               ; preds = %rate_per_second.exit99.i.i
-  %call13.i223.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %300, i1 noundef zeroext false) #13
+  %call13.i223.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %302, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit227.i.i
 
 tsd_fetch_impl.exit227.i.i:                       ; preds = %if.then11.i221.i.i, %rate_per_second.exit99.i.i
-  %retval.i204.0.i.i = phi ptr [ %call13.i223.i.i, %if.then11.i221.i.i ], [ %300, %rate_per_second.exit99.i.i ]
-  %call57.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i204.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.265, ptr noundef nonnull %miblen_new53.i.i, ptr noundef nonnull %308, ptr noundef nonnull %sz54.i.i, ptr noundef null, i64 noundef 0) #13
+  %retval.i204.0.i.i = phi ptr [ %call13.i223.i.i, %if.then11.i221.i.i ], [ %302, %rate_per_second.exit99.i.i ]
+  %call57.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i204.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.265, ptr noundef nonnull %miblen_new53.i.i, ptr noundef nonnull %310, ptr noundef nonnull %sz54.i.i, ptr noundef null, i64 noundef 0) #13
   %cmp58.not.i.i = icmp eq i32 %call57.i.i, 0
   br i1 %cmp58.not.i.i, label %do.end64.i.i, label %if.then59.i.i
 
@@ -7836,33 +7841,33 @@ if.then59.i.i:                                    ; preds = %tsd_fetch_impl.exit
 
 do.end64.i.i:                                     ; preds = %tsd_fetch_impl.exit227.i.i
   store i32 5, ptr %type66.i.i, align 16
-  %323 = load i64, ptr %308, align 16
-  %cmp1.i101.i.i = icmp eq i64 %323, 0
+  %325 = load i64, ptr %310, align 16
+  %cmp1.i101.i.i = icmp eq i64 %325, 0
   %brmerge45.i = or i1 %cmp2.i.i.i, %cmp1.i101.i.i
-  %.mux46.i = select i1 %cmp.i.i.i, i64 0, i64 %323
+  %.mux46.i = select i1 %cmp.i.i.i, i64 0, i64 %325
   br i1 %brmerge45.i, label %rate_per_second.exit109.i.i, label %if.else.i105.i.i
 
 if.else.i105.i.i:                                 ; preds = %do.end64.i.i
-  %div4.i107.i.i = udiv i64 %323, %div.i.i.i
+  %div4.i107.i.i = udiv i64 %325, %div.i.i.i
   br label %rate_per_second.exit109.i.i
 
 rate_per_second.exit109.i.i:                      ; preds = %if.else.i105.i.i, %do.end64.i.i
   %retval.0.i108.i.i = phi i64 [ %div4.i107.i.i, %if.else.i105.i.i ], [ %.mux46.i, %do.end64.i.i ]
-  store i64 %retval.0.i108.i.i, ptr %309, align 8
+  store i64 %retval.0.i108.i.i, ptr %311, align 8
   store i32 5, ptr %type71.i.i, align 8
   store i64 7, ptr %miblen_new75.i.i, align 8
   store i64 8, ptr %sz76.i.i, align 8
-  %324 = load i8, ptr %state.i64.i, align 8
-  %cmp6.i240.not.i.i = icmp eq i8 %324, 0
+  %326 = load i8, ptr %state.i64.i, align 8
+  %cmp6.i240.not.i.i = icmp eq i8 %326, 0
   br i1 %cmp6.i240.not.i.i, label %tsd_fetch_impl.exit251.i.i, label %if.then11.i245.i.i
 
 if.then11.i245.i.i:                               ; preds = %rate_per_second.exit109.i.i
-  %call13.i247.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %300, i1 noundef zeroext false) #13
+  %call13.i247.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %302, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit251.i.i
 
 tsd_fetch_impl.exit251.i.i:                       ; preds = %if.then11.i245.i.i, %rate_per_second.exit109.i.i
-  %retval.i228.0.i.i = phi ptr [ %call13.i247.i.i, %if.then11.i245.i.i ], [ %300, %rate_per_second.exit109.i.i ]
-  %call79.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i228.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.266, ptr noundef nonnull %miblen_new75.i.i, ptr noundef nonnull %310, ptr noundef nonnull %sz76.i.i, ptr noundef null, i64 noundef 0) #13
+  %retval.i228.0.i.i = phi ptr [ %call13.i247.i.i, %if.then11.i245.i.i ], [ %302, %rate_per_second.exit109.i.i ]
+  %call79.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i228.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.266, ptr noundef nonnull %miblen_new75.i.i, ptr noundef nonnull %312, ptr noundef nonnull %sz76.i.i, ptr noundef null, i64 noundef 0) #13
   %cmp80.not.i.i = icmp eq i32 %call79.i.i, 0
   br i1 %cmp80.not.i.i, label %do.end86.i.i, label %if.then81.i.i
 
@@ -7873,33 +7878,33 @@ if.then81.i.i:                                    ; preds = %tsd_fetch_impl.exit
 
 do.end86.i.i:                                     ; preds = %tsd_fetch_impl.exit251.i.i
   store i32 5, ptr %type88.i.i, align 16
-  %325 = load i64, ptr %310, align 16
-  %cmp1.i111.i.i = icmp eq i64 %325, 0
+  %327 = load i64, ptr %312, align 16
+  %cmp1.i111.i.i = icmp eq i64 %327, 0
   %brmerge47.i = or i1 %cmp2.i.i.i, %cmp1.i111.i.i
-  %.mux48.i = select i1 %cmp.i.i.i, i64 0, i64 %325
+  %.mux48.i = select i1 %cmp.i.i.i, i64 0, i64 %327
   br i1 %brmerge47.i, label %rate_per_second.exit119.i.i, label %if.else.i115.i.i
 
 if.else.i115.i.i:                                 ; preds = %do.end86.i.i
-  %div4.i117.i.i = udiv i64 %325, %div.i.i.i
+  %div4.i117.i.i = udiv i64 %327, %div.i.i.i
   br label %rate_per_second.exit119.i.i
 
 rate_per_second.exit119.i.i:                      ; preds = %if.else.i115.i.i, %do.end86.i.i
   %retval.0.i118.i.i = phi i64 [ %div4.i117.i.i, %if.else.i115.i.i ], [ %.mux48.i, %do.end86.i.i ]
-  store i64 %retval.0.i118.i.i, ptr %311, align 8
+  store i64 %retval.0.i118.i.i, ptr %313, align 8
   store i32 5, ptr %type93.i.i, align 8
   store i64 7, ptr %miblen_new97.i.i, align 8
   store i64 8, ptr %sz98.i.i, align 8
-  %326 = load i8, ptr %state.i64.i, align 8
-  %cmp6.i264.not.i.i = icmp eq i8 %326, 0
+  %328 = load i8, ptr %state.i64.i, align 8
+  %cmp6.i264.not.i.i = icmp eq i8 %328, 0
   br i1 %cmp6.i264.not.i.i, label %tsd_fetch_impl.exit275.i.i, label %if.then11.i269.i.i
 
 if.then11.i269.i.i:                               ; preds = %rate_per_second.exit119.i.i
-  %call13.i271.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %300, i1 noundef zeroext false) #13
+  %call13.i271.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %302, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit275.i.i
 
 tsd_fetch_impl.exit275.i.i:                       ; preds = %if.then11.i269.i.i, %rate_per_second.exit119.i.i
-  %retval.i252.0.i.i = phi ptr [ %call13.i271.i.i, %if.then11.i269.i.i ], [ %300, %rate_per_second.exit119.i.i ]
-  %call101.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i252.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.267, ptr noundef nonnull %miblen_new97.i.i, ptr noundef nonnull %312, ptr noundef nonnull %sz98.i.i, ptr noundef null, i64 noundef 0) #13
+  %retval.i252.0.i.i = phi ptr [ %call13.i271.i.i, %if.then11.i269.i.i ], [ %302, %rate_per_second.exit119.i.i ]
+  %call101.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i252.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.267, ptr noundef nonnull %miblen_new97.i.i, ptr noundef nonnull %314, ptr noundef nonnull %sz98.i.i, ptr noundef null, i64 noundef 0) #13
   %cmp102.not.i.i = icmp eq i32 %call101.i.i, 0
   br i1 %cmp102.not.i.i, label %do.end108.i.i, label %if.then103.i.i
 
@@ -7910,33 +7915,33 @@ if.then103.i.i:                                   ; preds = %tsd_fetch_impl.exit
 
 do.end108.i.i:                                    ; preds = %tsd_fetch_impl.exit275.i.i
   store i32 5, ptr %type110.i.i, align 16
-  %327 = load i64, ptr %312, align 16
-  %cmp1.i121.i.i = icmp eq i64 %327, 0
+  %329 = load i64, ptr %314, align 16
+  %cmp1.i121.i.i = icmp eq i64 %329, 0
   %brmerge49.i = or i1 %cmp2.i.i.i, %cmp1.i121.i.i
-  %.mux50.i = select i1 %cmp.i.i.i, i64 0, i64 %327
+  %.mux50.i = select i1 %cmp.i.i.i, i64 0, i64 %329
   br i1 %brmerge49.i, label %rate_per_second.exit129.i.i, label %if.else.i125.i.i
 
 if.else.i125.i.i:                                 ; preds = %do.end108.i.i
-  %div4.i127.i.i = udiv i64 %327, %div.i.i.i
+  %div4.i127.i.i = udiv i64 %329, %div.i.i.i
   br label %rate_per_second.exit129.i.i
 
 rate_per_second.exit129.i.i:                      ; preds = %if.else.i125.i.i, %do.end108.i.i
   %retval.0.i128.i.i = phi i64 [ %div4.i127.i.i, %if.else.i125.i.i ], [ %.mux50.i, %do.end108.i.i ]
-  store i64 %retval.0.i128.i.i, ptr %313, align 8
+  store i64 %retval.0.i128.i.i, ptr %315, align 8
   store i32 5, ptr %type115.i.i, align 8
   store i64 7, ptr %miblen_new119.i.i, align 8
   store i64 8, ptr %sz120.i.i, align 8
-  %328 = load i8, ptr %state.i64.i, align 8
-  %cmp6.i288.not.i.i = icmp eq i8 %328, 0
+  %330 = load i8, ptr %state.i64.i, align 8
+  %cmp6.i288.not.i.i = icmp eq i8 %330, 0
   br i1 %cmp6.i288.not.i.i, label %tsd_fetch_impl.exit299.i.i, label %if.then11.i293.i.i
 
 if.then11.i293.i.i:                               ; preds = %rate_per_second.exit129.i.i
-  %call13.i295.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %300, i1 noundef zeroext false) #13
+  %call13.i295.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %302, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit299.i.i
 
 tsd_fetch_impl.exit299.i.i:                       ; preds = %if.then11.i293.i.i, %rate_per_second.exit129.i.i
-  %retval.i276.0.i.i = phi ptr [ %call13.i295.i.i, %if.then11.i293.i.i ], [ %300, %rate_per_second.exit129.i.i ]
-  %call123.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i276.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.268, ptr noundef nonnull %miblen_new119.i.i, ptr noundef nonnull %314, ptr noundef nonnull %sz120.i.i, ptr noundef null, i64 noundef 0) #13
+  %retval.i276.0.i.i = phi ptr [ %call13.i295.i.i, %if.then11.i293.i.i ], [ %302, %rate_per_second.exit129.i.i ]
+  %call123.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i276.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.268, ptr noundef nonnull %miblen_new119.i.i, ptr noundef nonnull %316, ptr noundef nonnull %sz120.i.i, ptr noundef null, i64 noundef 0) #13
   %cmp124.not.i.i = icmp eq i32 %call123.i.i, 0
   br i1 %cmp124.not.i.i, label %do.end130.i.i, label %if.then125.i.i
 
@@ -7949,17 +7954,17 @@ do.end130.i.i:                                    ; preds = %tsd_fetch_impl.exit
   store i32 4, ptr %type132.i.i, align 8
   store i64 7, ptr %miblen_new136.i.i, align 8
   store i64 4, ptr %sz137.i.i, align 8
-  %329 = load i8, ptr %state.i64.i, align 8
-  %cmp6.i312.not.i.i = icmp eq i8 %329, 0
+  %331 = load i8, ptr %state.i64.i, align 8
+  %cmp6.i312.not.i.i = icmp eq i8 %331, 0
   br i1 %cmp6.i312.not.i.i, label %tsd_fetch_impl.exit323.i.i, label %if.then11.i317.i.i
 
 if.then11.i317.i.i:                               ; preds = %do.end130.i.i
-  %call13.i319.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %300, i1 noundef zeroext false) #13
+  %call13.i319.i.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %302, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit323.i.i
 
 tsd_fetch_impl.exit323.i.i:                       ; preds = %if.then11.i317.i.i, %do.end130.i.i
-  %retval.i300.0.i.i = phi ptr [ %call13.i319.i.i, %if.then11.i317.i.i ], [ %300, %do.end130.i.i ]
-  %call140.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i300.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.269, ptr noundef nonnull %miblen_new136.i.i, ptr noundef nonnull %315, ptr noundef nonnull %sz137.i.i, ptr noundef null, i64 noundef 0) #13
+  %retval.i300.0.i.i = phi ptr [ %call13.i319.i.i, %if.then11.i317.i.i ], [ %302, %do.end130.i.i ]
+  %call140.i.i = call i32 @ctl_bymibname(ptr noundef %retval.i300.0.i.i, ptr noundef nonnull %stats_arenas_mib.i, i64 noundef 5, ptr noundef nonnull @.str.269, ptr noundef nonnull %miblen_new136.i.i, ptr noundef nonnull %317, ptr noundef nonnull %sz137.i.i, ptr noundef null, i64 noundef 0) #13
   %cmp141.not.i.i = icmp eq i32 %call140.i.i, 0
   br i1 %cmp141.not.i.i, label %mutex_stats_read_arena.exit.i, label %if.then142.i.i
 
@@ -7990,8 +7995,8 @@ mutex_stats_read_arena.exit.i:                    ; preds = %tsd_fetch_impl.exit
   br i1 %spec.select.i.i.i, label %do.end.i.i, label %emitter_json_object_end.exit.i
 
 do.end.i.i:                                       ; preds = %mutex_stats_read_arena.exit.i
-  %330 = load i32, ptr %nesting_depth.i.i.i, align 8
-  %dec.i.i.i = add nsw i32 %330, -1
+  %332 = load i32, ptr %nesting_depth.i.i.i, align 8
+  %dec.i.i.i = add nsw i32 %332, -1
   store i32 %dec.i.i.i, ptr %nesting_depth.i.i.i, align 8
   store i8 1, ptr %item_at_depth.i.i.i, align 4
   %cmp.not.i19.i = icmp eq i32 %emitter.val.i.i, 1
@@ -7999,16 +8004,16 @@ do.end.i.i:                                       ; preds = %mutex_stats_read_ar
 
 if.then1.i.i:                                     ; preds = %do.end.i.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %331 = load i32, ptr %nesting_depth.i.i.i, align 8
-  %332 = load i32, ptr %emitter, align 8
-  %cmp.i.i20.i = icmp ne i32 %332, 0
+  %333 = load i32, ptr %nesting_depth.i.i.i, align 8
+  %334 = load i32, ptr %emitter, align 8
+  %cmp.i.i20.i = icmp ne i32 %334, 0
   %indent_str.0.i.i.i = select i1 %cmp.i.i20.i, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i.i = icmp sgt i32 %331, 0
+  %cmp15.i.i.i = icmp sgt i32 %333, 0
   br i1 %cmp15.i.i.i, label %for.body.preheader.i.i.i, label %if.end.i21.i
 
 for.body.preheader.i.i.i:                         ; preds = %if.then1.i.i
   %mul.i.i.i = zext i1 %cmp.i.i20.i to i32
-  %amount.0.i.i.i = shl nuw nsw i32 %331, %mul.i.i.i
+  %amount.0.i.i.i = shl nuw nsw i32 %333, %mul.i.i.i
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
@@ -8033,8 +8038,8 @@ for.end.i785:                                     ; preds = %emitter_json_object
   br i1 %spec.select.i.i23.i, label %do.end.i24.i, label %stats_arena_mutexes_print.exit
 
 do.end.i24.i:                                     ; preds = %for.end.i785
-  %333 = load i32, ptr %nesting_depth.i.i.i, align 8
-  %dec.i.i26.i = add nsw i32 %333, -1
+  %335 = load i32, ptr %nesting_depth.i.i.i, align 8
+  %dec.i.i26.i = add nsw i32 %335, -1
   store i32 %dec.i.i26.i, ptr %nesting_depth.i.i.i, align 8
   store i8 1, ptr %item_at_depth.i.i.i, align 4
   %cmp.not.i28.i = icmp eq i32 %emitter.val.i22.i, 1
@@ -8042,16 +8047,16 @@ do.end.i24.i:                                     ; preds = %for.end.i785
 
 if.then1.i29.i:                                   ; preds = %do.end.i24.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %334 = load i32, ptr %nesting_depth.i.i.i, align 8
-  %335 = load i32, ptr %emitter, align 8
-  %cmp.i.i30.i = icmp ne i32 %335, 0
+  %336 = load i32, ptr %nesting_depth.i.i.i, align 8
+  %337 = load i32, ptr %emitter, align 8
+  %cmp.i.i30.i = icmp ne i32 %337, 0
   %indent_str.0.i.i31.i = select i1 %cmp.i.i30.i, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i32.i = icmp sgt i32 %334, 0
+  %cmp15.i.i32.i = icmp sgt i32 %336, 0
   br i1 %cmp15.i.i32.i, label %for.body.preheader.i.i34.i, label %if.end.i33.i
 
 for.body.preheader.i.i34.i:                       ; preds = %if.then1.i29.i
   %mul.i.i35.i = zext i1 %cmp.i.i30.i to i32
-  %amount.0.i.i36.i = shl nuw nsw i32 %334, %mul.i.i35.i
+  %amount.0.i.i36.i = shl nuw nsw i32 %336, %mul.i.i35.i
   br label %for.body.i.i37.i
 
 for.body.i.i37.i:                                 ; preds = %for.body.i.i37.i, %for.body.preheader.i.i34.i
@@ -8079,16 +8084,16 @@ if.end1020:                                       ; preds = %stats_arena_mutexes
   br i1 %bins, label %if.then1022, label %if.end1024
 
 if.then1022:                                      ; preds = %if.end1020
-  %336 = load i64, ptr %uptime, align 8
-  call fastcc void @stats_arena_bins_print(ptr noundef %emitter, i1 noundef zeroext %mutex, i32 noundef %i, i64 noundef %336) #15
+  %338 = load i64, ptr %uptime, align 8
+  call fastcc void @stats_arena_bins_print(ptr noundef %emitter, i1 noundef zeroext %mutex, i32 noundef %i, i64 noundef %338) #15
   br label %if.end1024
 
 if.end1024:                                       ; preds = %if.then1022, %if.end1020
   br i1 %large, label %if.then1026, label %if.end1027
 
 if.then1026:                                      ; preds = %if.end1024
-  %337 = load i64, ptr %uptime, align 8
-  call fastcc void @stats_arena_lextents_print(ptr noundef %emitter, i32 noundef %i, i64 noundef %337) #15
+  %339 = load i64, ptr %uptime, align 8
+  call fastcc void @stats_arena_lextents_print(ptr noundef %emitter, i32 noundef %i, i64 noundef %339) #15
   br label %if.end1027
 
 if.end1027:                                       ; preds = %if.then1026, %if.end1024
@@ -8102,7 +8107,7 @@ if.end1030:                                       ; preds = %if.then1029, %if.en
   br i1 %hpa, label %if.then1032, label %if.end1033
 
 if.then1032:                                      ; preds = %if.end1030
-  %338 = load i64, ptr %uptime, align 8
+  %340 = load i64, ptr %uptime, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %npurge_passes.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %npurges.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nhugifies.i)
@@ -8212,8 +8217,8 @@ if.then.i790:                                     ; preds = %if.then1032
 do.end.i791:                                      ; preds = %if.then1032
   %arrayidx.i793 = getelementptr inbounds i8, ptr %mib.i, i64 16
   store i64 %conv41, ptr %arrayidx.i793, align 16
-  %339 = load i64, ptr %miblen.i, align 8
-  %call4.i = call i32 @mallctlbymib(ptr noundef nonnull %mib.i, i64 noundef %339, ptr noundef nonnull %npurge_passes.i, ptr noundef nonnull %sz.i, ptr noundef null, i64 noundef 0) #13
+  %341 = load i64, ptr %miblen.i, align 8
+  %call4.i = call i32 @mallctlbymib(ptr noundef nonnull %mib.i, i64 noundef %341, ptr noundef nonnull %npurge_passes.i, ptr noundef nonnull %sz.i, ptr noundef null, i64 noundef 0) #13
   %cmp5.not.i = icmp eq i32 %call4.i, 0
   br i1 %cmp5.not.i, label %do.body11.i, label %if.then7.i
 
@@ -8237,8 +8242,8 @@ if.then20.i796:                                   ; preds = %do.body11.i
 do.end22.i:                                       ; preds = %do.body11.i
   %arrayidx24.i = getelementptr inbounds i8, ptr %mib12.i, i64 16
   store i64 %conv41, ptr %arrayidx24.i, align 16
-  %340 = load i64, ptr %miblen13.i, align 8
-  %call27.i = call i32 @mallctlbymib(ptr noundef nonnull %mib12.i, i64 noundef %340, ptr noundef nonnull %npurges.i, ptr noundef nonnull %sz14.i, ptr noundef null, i64 noundef 0) #13
+  %342 = load i64, ptr %miblen13.i, align 8
+  %call27.i = call i32 @mallctlbymib(ptr noundef nonnull %mib12.i, i64 noundef %342, ptr noundef nonnull %npurges.i, ptr noundef nonnull %sz14.i, ptr noundef null, i64 noundef 0) #13
   %cmp28.not.i = icmp eq i32 %call27.i, 0
   br i1 %cmp28.not.i, label %do.body34.i, label %if.then30.i
 
@@ -8262,8 +8267,8 @@ if.then43.i:                                      ; preds = %do.body34.i
 do.end45.i:                                       ; preds = %do.body34.i
   %arrayidx47.i = getelementptr inbounds i8, ptr %mib35.i, i64 16
   store i64 %conv41, ptr %arrayidx47.i, align 16
-  %341 = load i64, ptr %miblen36.i, align 8
-  %call50.i = call i32 @mallctlbymib(ptr noundef nonnull %mib35.i, i64 noundef %341, ptr noundef nonnull %nhugifies.i, ptr noundef nonnull %sz37.i, ptr noundef null, i64 noundef 0) #13
+  %343 = load i64, ptr %miblen36.i, align 8
+  %call50.i = call i32 @mallctlbymib(ptr noundef nonnull %mib35.i, i64 noundef %343, ptr noundef nonnull %nhugifies.i, ptr noundef nonnull %sz37.i, ptr noundef null, i64 noundef 0) #13
   %cmp51.not.i = icmp eq i32 %call50.i, 0
   br i1 %cmp51.not.i, label %do.body57.i, label %if.then53.i
 
@@ -8287,8 +8292,8 @@ if.then66.i:                                      ; preds = %do.body57.i
 do.end68.i:                                       ; preds = %do.body57.i
   %arrayidx70.i = getelementptr inbounds i8, ptr %mib58.i, i64 16
   store i64 %conv41, ptr %arrayidx70.i, align 16
-  %342 = load i64, ptr %miblen59.i, align 8
-  %call73.i = call i32 @mallctlbymib(ptr noundef nonnull %mib58.i, i64 noundef %342, ptr noundef nonnull %ndehugifies.i, ptr noundef nonnull %sz60.i, ptr noundef null, i64 noundef 0) #13
+  %344 = load i64, ptr %miblen59.i, align 8
+  %call73.i = call i32 @mallctlbymib(ptr noundef nonnull %mib58.i, i64 noundef %344, ptr noundef nonnull %ndehugifies.i, ptr noundef nonnull %sz60.i, ptr noundef null, i64 noundef 0) #13
   %cmp74.not.i = icmp eq i32 %call73.i, 0
   br i1 %cmp74.not.i, label %do.body80.i, label %if.then76.i
 
@@ -8312,8 +8317,8 @@ if.then89.i:                                      ; preds = %do.body80.i
 do.end91.i:                                       ; preds = %do.body80.i
   %arrayidx93.i = getelementptr inbounds i8, ptr %mib81.i, i64 16
   store i64 %conv41, ptr %arrayidx93.i, align 16
-  %343 = load i64, ptr %miblen82.i, align 8
-  %call96.i = call i32 @mallctlbymib(ptr noundef nonnull %mib81.i, i64 noundef %343, ptr noundef nonnull %sec_bytes.i, ptr noundef nonnull %sz83.i, ptr noundef null, i64 noundef 0) #13
+  %345 = load i64, ptr %miblen82.i, align 8
+  %call96.i = call i32 @mallctlbymib(ptr noundef nonnull %mib81.i, i64 noundef %345, ptr noundef nonnull %sec_bytes.i, ptr noundef nonnull %sz83.i, ptr noundef null, i64 noundef 0) #13
   %cmp97.not.i = icmp eq i32 %call96.i, 0
   br i1 %cmp97.not.i, label %do.end102.i, label %if.then99.i
 
@@ -8324,72 +8329,72 @@ if.then99.i:                                      ; preds = %do.end91.i
 
 do.end102.i:                                      ; preds = %do.end91.i
   call fastcc void @emitter_kv_note(ptr noundef %emitter, ptr noundef nonnull @.str.431, ptr noundef nonnull @.str.432, i32 noundef 6, ptr noundef nonnull readonly %sec_bytes.i, ptr noundef null, i32 noundef 0, ptr noundef null)
-  %344 = load i64, ptr %npurge_passes.i, align 8
-  %cmp.i.i797 = icmp eq i64 %338, 0
-  %cmp1.i.i = icmp eq i64 %344, 0
+  %346 = load i64, ptr %npurge_passes.i, align 8
+  %cmp.i.i797 = icmp eq i64 %340, 0
+  %cmp1.i.i = icmp eq i64 %346, 0
   %or.cond.i.i = or i1 %cmp.i.i797, %cmp1.i.i
   br i1 %or.cond.i.i, label %rate_per_second.exit.i, label %if.end.i.i798
 
 if.end.i.i798:                                    ; preds = %do.end102.i
-  %cmp2.i.i = icmp ult i64 %338, 1000000000
+  %cmp2.i.i = icmp ult i64 %340, 1000000000
   br i1 %cmp2.i.i, label %rate_per_second.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i798
-  %div.i.i = udiv i64 %338, 1000000000
-  %div4.i.i = udiv i64 %344, %div.i.i
+  %div.i.i = udiv i64 %340, 1000000000
+  %div4.i.i = udiv i64 %346, %div.i.i
   br label %rate_per_second.exit.i
 
 rate_per_second.exit.i:                           ; preds = %if.else.i.i, %if.end.i.i798, %do.end102.i
-  %retval.0.i.i = phi i64 [ %div4.i.i, %if.else.i.i ], [ 0, %do.end102.i ], [ %344, %if.end.i.i798 ]
-  %345 = load i64, ptr %npurges.i, align 8
-  %cmp1.i104.i = icmp eq i64 %345, 0
+  %retval.0.i.i = phi i64 [ %div4.i.i, %if.else.i.i ], [ 0, %do.end102.i ], [ %346, %if.end.i.i798 ]
+  %347 = load i64, ptr %npurges.i, align 8
+  %cmp1.i104.i = icmp eq i64 %347, 0
   %or.cond.i105.i = or i1 %cmp.i.i797, %cmp1.i104.i
   br i1 %or.cond.i105.i, label %rate_per_second.exit112.i, label %if.end.i106.i
 
 if.end.i106.i:                                    ; preds = %rate_per_second.exit.i
-  %cmp2.i107.i = icmp ult i64 %338, 1000000000
+  %cmp2.i107.i = icmp ult i64 %340, 1000000000
   br i1 %cmp2.i107.i, label %rate_per_second.exit112.i, label %if.else.i108.i
 
 if.else.i108.i:                                   ; preds = %if.end.i106.i
-  %div.i109.i = udiv i64 %338, 1000000000
-  %div4.i110.i = udiv i64 %345, %div.i109.i
+  %div.i109.i = udiv i64 %340, 1000000000
+  %div4.i110.i = udiv i64 %347, %div.i109.i
   br label %rate_per_second.exit112.i
 
 rate_per_second.exit112.i:                        ; preds = %if.else.i108.i, %if.end.i106.i, %rate_per_second.exit.i
-  %retval.0.i111.i = phi i64 [ %div4.i110.i, %if.else.i108.i ], [ 0, %rate_per_second.exit.i ], [ %345, %if.end.i106.i ]
-  %346 = load i64, ptr %nhugifies.i, align 8
-  %cmp1.i114.i = icmp eq i64 %346, 0
+  %retval.0.i111.i = phi i64 [ %div4.i110.i, %if.else.i108.i ], [ 0, %rate_per_second.exit.i ], [ %347, %if.end.i106.i ]
+  %348 = load i64, ptr %nhugifies.i, align 8
+  %cmp1.i114.i = icmp eq i64 %348, 0
   %or.cond.i115.i = or i1 %cmp.i.i797, %cmp1.i114.i
   br i1 %or.cond.i115.i, label %rate_per_second.exit122.i, label %if.end.i116.i
 
 if.end.i116.i:                                    ; preds = %rate_per_second.exit112.i
-  %cmp2.i117.i = icmp ult i64 %338, 1000000000
+  %cmp2.i117.i = icmp ult i64 %340, 1000000000
   br i1 %cmp2.i117.i, label %rate_per_second.exit122.i, label %if.else.i118.i
 
 if.else.i118.i:                                   ; preds = %if.end.i116.i
-  %div.i119.i = udiv i64 %338, 1000000000
-  %div4.i120.i = udiv i64 %346, %div.i119.i
+  %div.i119.i = udiv i64 %340, 1000000000
+  %div4.i120.i = udiv i64 %348, %div.i119.i
   br label %rate_per_second.exit122.i
 
 rate_per_second.exit122.i:                        ; preds = %if.else.i118.i, %if.end.i116.i, %rate_per_second.exit112.i
-  %retval.0.i121.i = phi i64 [ %div4.i120.i, %if.else.i118.i ], [ 0, %rate_per_second.exit112.i ], [ %346, %if.end.i116.i ]
-  %347 = load i64, ptr %ndehugifies.i, align 8
-  %cmp1.i124.i = icmp eq i64 %347, 0
+  %retval.0.i121.i = phi i64 [ %div4.i120.i, %if.else.i118.i ], [ 0, %rate_per_second.exit112.i ], [ %348, %if.end.i116.i ]
+  %349 = load i64, ptr %ndehugifies.i, align 8
+  %cmp1.i124.i = icmp eq i64 %349, 0
   %or.cond.i125.i = or i1 %cmp.i.i797, %cmp1.i124.i
   br i1 %or.cond.i125.i, label %rate_per_second.exit132.i, label %if.end.i126.i
 
 if.end.i126.i:                                    ; preds = %rate_per_second.exit122.i
-  %cmp2.i127.i = icmp ult i64 %338, 1000000000
+  %cmp2.i127.i = icmp ult i64 %340, 1000000000
   br i1 %cmp2.i127.i, label %rate_per_second.exit132.i, label %if.else.i128.i
 
 if.else.i128.i:                                   ; preds = %if.end.i126.i
-  %div.i129.i = udiv i64 %338, 1000000000
-  %div4.i130.i = udiv i64 %347, %div.i129.i
+  %div.i129.i = udiv i64 %340, 1000000000
+  %div4.i130.i = udiv i64 %349, %div.i129.i
   br label %rate_per_second.exit132.i
 
 rate_per_second.exit132.i:                        ; preds = %if.else.i128.i, %if.end.i126.i, %rate_per_second.exit122.i
-  %retval.0.i131.i = phi i64 [ %div4.i130.i, %if.else.i128.i ], [ 0, %rate_per_second.exit122.i ], [ %347, %if.end.i126.i ]
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.433, i64 noundef %344, i64 noundef %retval.0.i.i, i64 noundef %345, i64 noundef %retval.0.i111.i, i64 noundef %346, i64 noundef %retval.0.i121.i, i64 noundef %347, i64 noundef %retval.0.i131.i)
+  %retval.0.i131.i = phi i64 [ %div4.i130.i, %if.else.i128.i ], [ 0, %rate_per_second.exit122.i ], [ %349, %if.end.i126.i ]
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.433, i64 noundef %346, i64 noundef %retval.0.i.i, i64 noundef %347, i64 noundef %retval.0.i111.i, i64 noundef %348, i64 noundef %retval.0.i121.i, i64 noundef %349, i64 noundef %retval.0.i131.i)
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.376)
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.434)
@@ -8414,8 +8419,8 @@ if.then116.i:                                     ; preds = %rate_per_second.exi
 do.end118.i:                                      ; preds = %rate_per_second.exit132.i
   %arrayidx120.i = getelementptr inbounds i8, ptr %mib108.i, i64 16
   store i64 %conv41, ptr %arrayidx120.i, align 16
-  %348 = load i64, ptr %miblen109.i, align 8
-  %call123.i = call i32 @mallctlbymib(ptr noundef nonnull %mib108.i, i64 noundef %348, ptr noundef nonnull %npageslabs_huge.i, ptr noundef nonnull %sz110.i, ptr noundef null, i64 noundef 0) #13
+  %350 = load i64, ptr %miblen109.i, align 8
+  %call123.i = call i32 @mallctlbymib(ptr noundef nonnull %mib108.i, i64 noundef %350, ptr noundef nonnull %npageslabs_huge.i, ptr noundef nonnull %sz110.i, ptr noundef null, i64 noundef 0) #13
   %cmp124.not.i = icmp eq i32 %call123.i, 0
   br i1 %cmp124.not.i, label %do.body130.i, label %if.then126.i
 
@@ -8439,8 +8444,8 @@ if.then139.i:                                     ; preds = %do.body130.i
 do.end141.i:                                      ; preds = %do.body130.i
   %arrayidx143.i = getelementptr inbounds i8, ptr %mib131.i, i64 16
   store i64 %conv41, ptr %arrayidx143.i, align 16
-  %349 = load i64, ptr %miblen132.i, align 8
-  %call146.i = call i32 @mallctlbymib(ptr noundef nonnull %mib131.i, i64 noundef %349, ptr noundef nonnull %nactive_huge.i, ptr noundef nonnull %sz133.i, ptr noundef null, i64 noundef 0) #13
+  %351 = load i64, ptr %miblen132.i, align 8
+  %call146.i = call i32 @mallctlbymib(ptr noundef nonnull %mib131.i, i64 noundef %351, ptr noundef nonnull %nactive_huge.i, ptr noundef nonnull %sz133.i, ptr noundef null, i64 noundef 0) #13
   %cmp147.not.i = icmp eq i32 %call146.i, 0
   br i1 %cmp147.not.i, label %do.body153.i, label %if.then149.i
 
@@ -8464,8 +8469,8 @@ if.then162.i:                                     ; preds = %do.body153.i
 do.end164.i:                                      ; preds = %do.body153.i
   %arrayidx166.i = getelementptr inbounds i8, ptr %mib154.i, i64 16
   store i64 %conv41, ptr %arrayidx166.i, align 16
-  %350 = load i64, ptr %miblen155.i, align 8
-  %call169.i = call i32 @mallctlbymib(ptr noundef nonnull %mib154.i, i64 noundef %350, ptr noundef nonnull %ndirty_huge.i, ptr noundef nonnull %sz156.i, ptr noundef null, i64 noundef 0) #13
+  %352 = load i64, ptr %miblen155.i, align 8
+  %call169.i = call i32 @mallctlbymib(ptr noundef nonnull %mib154.i, i64 noundef %352, ptr noundef nonnull %ndirty_huge.i, ptr noundef nonnull %sz156.i, ptr noundef null, i64 noundef 0) #13
   %cmp170.not.i = icmp eq i32 %call169.i, 0
   br i1 %cmp170.not.i, label %do.body176.i, label %if.then172.i
 
@@ -8489,8 +8494,8 @@ if.then185.i:                                     ; preds = %do.body176.i
 do.end187.i:                                      ; preds = %do.body176.i
   %arrayidx189.i = getelementptr inbounds i8, ptr %mib177.i, i64 16
   store i64 %conv41, ptr %arrayidx189.i, align 16
-  %351 = load i64, ptr %miblen178.i, align 8
-  %call192.i = call i32 @mallctlbymib(ptr noundef nonnull %mib177.i, i64 noundef %351, ptr noundef nonnull %npageslabs_nonhuge.i, ptr noundef nonnull %sz179.i, ptr noundef null, i64 noundef 0) #13
+  %353 = load i64, ptr %miblen178.i, align 8
+  %call192.i = call i32 @mallctlbymib(ptr noundef nonnull %mib177.i, i64 noundef %353, ptr noundef nonnull %npageslabs_nonhuge.i, ptr noundef nonnull %sz179.i, ptr noundef null, i64 noundef 0) #13
   %cmp193.not.i = icmp eq i32 %call192.i, 0
   br i1 %cmp193.not.i, label %do.body199.i, label %if.then195.i
 
@@ -8514,8 +8519,8 @@ if.then208.i:                                     ; preds = %do.body199.i
 do.end210.i:                                      ; preds = %do.body199.i
   %arrayidx212.i = getelementptr inbounds i8, ptr %mib200.i, i64 16
   store i64 %conv41, ptr %arrayidx212.i, align 16
-  %352 = load i64, ptr %miblen201.i, align 8
-  %call215.i = call i32 @mallctlbymib(ptr noundef nonnull %mib200.i, i64 noundef %352, ptr noundef nonnull %nactive_nonhuge.i, ptr noundef nonnull %sz202.i, ptr noundef null, i64 noundef 0) #13
+  %354 = load i64, ptr %miblen201.i, align 8
+  %call215.i = call i32 @mallctlbymib(ptr noundef nonnull %mib200.i, i64 noundef %354, ptr noundef nonnull %nactive_nonhuge.i, ptr noundef nonnull %sz202.i, ptr noundef null, i64 noundef 0) #13
   %cmp216.not.i = icmp eq i32 %call215.i, 0
   br i1 %cmp216.not.i, label %do.body222.i, label %if.then218.i
 
@@ -8539,8 +8544,8 @@ if.then231.i:                                     ; preds = %do.body222.i
 do.end233.i:                                      ; preds = %do.body222.i
   %arrayidx235.i = getelementptr inbounds i8, ptr %mib223.i, i64 16
   store i64 %conv41, ptr %arrayidx235.i, align 16
-  %353 = load i64, ptr %miblen224.i, align 8
-  %call238.i = call i32 @mallctlbymib(ptr noundef nonnull %mib223.i, i64 noundef %353, ptr noundef nonnull %ndirty_nonhuge.i, ptr noundef nonnull %sz225.i, ptr noundef null, i64 noundef 0) #13
+  %355 = load i64, ptr %miblen224.i, align 8
+  %call238.i = call i32 @mallctlbymib(ptr noundef nonnull %mib223.i, i64 noundef %355, ptr noundef nonnull %ndirty_nonhuge.i, ptr noundef nonnull %sz225.i, ptr noundef null, i64 noundef 0) #13
   %cmp239.not.i = icmp eq i32 %call238.i, 0
   br i1 %cmp239.not.i, label %do.end244.i, label %if.then241.i
 
@@ -8550,16 +8555,16 @@ if.then241.i:                                     ; preds = %do.end233.i
   unreachable
 
 do.end244.i:                                      ; preds = %do.end233.i
-  %354 = load i64, ptr %npageslabs_nonhuge.i, align 8
-  %mul.i = shl i64 %354, 9
-  %355 = load i64, ptr %nactive_nonhuge.i, align 8
-  %356 = load i64, ptr %ndirty_nonhuge.i, align 8
-  %357 = add i64 %355, %356
-  %sub245.i = sub i64 %mul.i, %357
-  %358 = load i64, ptr %npageslabs_huge.i, align 8
-  %359 = load i64, ptr %nactive_huge.i, align 8
-  %360 = load i64, ptr %ndirty_huge.i, align 8
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.444, i64 noundef %358, i64 noundef %354, i64 noundef %359, i64 noundef %355, i64 noundef %360, i64 noundef %356, i64 noundef %sub245.i)
+  %356 = load i64, ptr %npageslabs_nonhuge.i, align 8
+  %mul.i = shl i64 %356, 9
+  %357 = load i64, ptr %nactive_nonhuge.i, align 8
+  %358 = load i64, ptr %ndirty_nonhuge.i, align 8
+  %359 = add i64 %357, %358
+  %sub245.i = sub i64 %mul.i, %359
+  %360 = load i64, ptr %npageslabs_huge.i, align 8
+  %361 = load i64, ptr %nactive_huge.i, align 8
+  %362 = load i64, ptr %ndirty_huge.i, align 8
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.444, i64 noundef %360, i64 noundef %356, i64 noundef %361, i64 noundef %357, i64 noundef %362, i64 noundef %358, i64 noundef %sub245.i)
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.445)
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.446)
@@ -8580,8 +8585,8 @@ do.end244.i:                                      ; preds = %do.end233.i
 
 do.end.i.i827:                                    ; preds = %do.end244.i
   %nesting_depth.i.i.i828 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %361 = load i32, ptr %nesting_depth.i.i.i828, align 8
-  %dec.i.i.i829 = add nsw i32 %361, -1
+  %363 = load i32, ptr %nesting_depth.i.i.i828, align 8
+  %dec.i.i.i829 = add nsw i32 %363, -1
   store i32 %dec.i.i.i829, ptr %nesting_depth.i.i.i828, align 8
   %item_at_depth.i.i.i830 = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i.i830, align 4
@@ -8590,16 +8595,16 @@ do.end.i.i827:                                    ; preds = %do.end244.i
 
 if.then1.i.i832:                                  ; preds = %do.end.i.i827
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %362 = load i32, ptr %nesting_depth.i.i.i828, align 8
-  %363 = load i32, ptr %emitter, align 8
-  %cmp.i.i.i833 = icmp ne i32 %363, 0
+  %364 = load i32, ptr %nesting_depth.i.i.i828, align 8
+  %365 = load i32, ptr %emitter, align 8
+  %cmp.i.i.i833 = icmp ne i32 %365, 0
   %indent_str.0.i.i.i834 = select i1 %cmp.i.i.i833, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i.i835 = icmp sgt i32 %362, 0
+  %cmp15.i.i.i835 = icmp sgt i32 %364, 0
   br i1 %cmp15.i.i.i835, label %for.body.preheader.i.i.i836, label %if.end.i133.i
 
 for.body.preheader.i.i.i836:                      ; preds = %if.then1.i.i832
   %mul.i.i.i837 = zext i1 %cmp.i.i.i833 to i32
-  %amount.0.i.i.i838 = shl nuw nsw i32 %362, %mul.i.i.i837
+  %amount.0.i.i.i838 = shl nuw nsw i32 %364, %mul.i.i.i837
   br label %for.body.i.i.i839
 
 for.body.i.i.i839:                                ; preds = %for.body.i.i.i839, %for.body.preheader.i.i.i836
@@ -8628,8 +8633,8 @@ if.then255.i:                                     ; preds = %emitter_json_object
 do.end257.i:                                      ; preds = %emitter_json_object_end.exit.i801
   %arrayidx259.i = getelementptr inbounds i8, ptr %mib247.i, i64 16
   store i64 %conv41, ptr %arrayidx259.i, align 16
-  %364 = load i64, ptr %miblen248.i, align 8
-  %call262.i = call i32 @mallctlbymib(ptr noundef nonnull %mib247.i, i64 noundef %364, ptr noundef nonnull %npageslabs_huge.i, ptr noundef nonnull %sz249.i, ptr noundef null, i64 noundef 0) #13
+  %366 = load i64, ptr %miblen248.i, align 8
+  %call262.i = call i32 @mallctlbymib(ptr noundef nonnull %mib247.i, i64 noundef %366, ptr noundef nonnull %npageslabs_huge.i, ptr noundef nonnull %sz249.i, ptr noundef null, i64 noundef 0) #13
   %cmp263.not.i = icmp eq i32 %call262.i, 0
   br i1 %cmp263.not.i, label %do.body269.i, label %if.then265.i
 
@@ -8653,8 +8658,8 @@ if.then278.i:                                     ; preds = %do.body269.i
 do.end280.i:                                      ; preds = %do.body269.i
   %arrayidx282.i = getelementptr inbounds i8, ptr %mib270.i, i64 16
   store i64 %conv41, ptr %arrayidx282.i, align 16
-  %365 = load i64, ptr %miblen271.i, align 8
-  %call285.i = call i32 @mallctlbymib(ptr noundef nonnull %mib270.i, i64 noundef %365, ptr noundef nonnull %nactive_huge.i, ptr noundef nonnull %sz272.i, ptr noundef null, i64 noundef 0) #13
+  %367 = load i64, ptr %miblen271.i, align 8
+  %call285.i = call i32 @mallctlbymib(ptr noundef nonnull %mib270.i, i64 noundef %367, ptr noundef nonnull %nactive_huge.i, ptr noundef nonnull %sz272.i, ptr noundef null, i64 noundef 0) #13
   %cmp286.not.i = icmp eq i32 %call285.i, 0
   br i1 %cmp286.not.i, label %do.body292.i, label %if.then288.i
 
@@ -8678,8 +8683,8 @@ if.then301.i:                                     ; preds = %do.body292.i
 do.end303.i:                                      ; preds = %do.body292.i
   %arrayidx305.i = getelementptr inbounds i8, ptr %mib293.i, i64 16
   store i64 %conv41, ptr %arrayidx305.i, align 16
-  %366 = load i64, ptr %miblen294.i, align 8
-  %call308.i = call i32 @mallctlbymib(ptr noundef nonnull %mib293.i, i64 noundef %366, ptr noundef nonnull %ndirty_huge.i, ptr noundef nonnull %sz295.i, ptr noundef null, i64 noundef 0) #13
+  %368 = load i64, ptr %miblen294.i, align 8
+  %call308.i = call i32 @mallctlbymib(ptr noundef nonnull %mib293.i, i64 noundef %368, ptr noundef nonnull %ndirty_huge.i, ptr noundef nonnull %sz295.i, ptr noundef null, i64 noundef 0) #13
   %cmp309.not.i = icmp eq i32 %call308.i, 0
   br i1 %cmp309.not.i, label %do.body315.i, label %if.then311.i
 
@@ -8703,8 +8708,8 @@ if.then324.i:                                     ; preds = %do.body315.i
 do.end326.i:                                      ; preds = %do.body315.i
   %arrayidx328.i = getelementptr inbounds i8, ptr %mib316.i, i64 16
   store i64 %conv41, ptr %arrayidx328.i, align 16
-  %367 = load i64, ptr %miblen317.i, align 8
-  %call331.i = call i32 @mallctlbymib(ptr noundef nonnull %mib316.i, i64 noundef %367, ptr noundef nonnull %npageslabs_nonhuge.i, ptr noundef nonnull %sz318.i, ptr noundef null, i64 noundef 0) #13
+  %369 = load i64, ptr %miblen317.i, align 8
+  %call331.i = call i32 @mallctlbymib(ptr noundef nonnull %mib316.i, i64 noundef %369, ptr noundef nonnull %npageslabs_nonhuge.i, ptr noundef nonnull %sz318.i, ptr noundef null, i64 noundef 0) #13
   %cmp332.not.i = icmp eq i32 %call331.i, 0
   br i1 %cmp332.not.i, label %do.body338.i, label %if.then334.i
 
@@ -8728,8 +8733,8 @@ if.then347.i:                                     ; preds = %do.body338.i
 do.end349.i:                                      ; preds = %do.body338.i
   %arrayidx351.i = getelementptr inbounds i8, ptr %mib339.i, i64 16
   store i64 %conv41, ptr %arrayidx351.i, align 16
-  %368 = load i64, ptr %miblen340.i, align 8
-  %call354.i = call i32 @mallctlbymib(ptr noundef nonnull %mib339.i, i64 noundef %368, ptr noundef nonnull %nactive_nonhuge.i, ptr noundef nonnull %sz341.i, ptr noundef null, i64 noundef 0) #13
+  %370 = load i64, ptr %miblen340.i, align 8
+  %call354.i = call i32 @mallctlbymib(ptr noundef nonnull %mib339.i, i64 noundef %370, ptr noundef nonnull %nactive_nonhuge.i, ptr noundef nonnull %sz341.i, ptr noundef null, i64 noundef 0) #13
   %cmp355.not.i = icmp eq i32 %call354.i, 0
   br i1 %cmp355.not.i, label %do.body361.i, label %if.then357.i
 
@@ -8753,8 +8758,8 @@ if.then370.i:                                     ; preds = %do.body361.i
 do.end372.i:                                      ; preds = %do.body361.i
   %arrayidx374.i = getelementptr inbounds i8, ptr %mib362.i, i64 16
   store i64 %conv41, ptr %arrayidx374.i, align 16
-  %369 = load i64, ptr %miblen363.i, align 8
-  %call377.i = call i32 @mallctlbymib(ptr noundef nonnull %mib362.i, i64 noundef %369, ptr noundef nonnull %ndirty_nonhuge.i, ptr noundef nonnull %sz364.i, ptr noundef null, i64 noundef 0) #13
+  %371 = load i64, ptr %miblen363.i, align 8
+  %call377.i = call i32 @mallctlbymib(ptr noundef nonnull %mib362.i, i64 noundef %371, ptr noundef nonnull %ndirty_nonhuge.i, ptr noundef nonnull %sz364.i, ptr noundef null, i64 noundef 0) #13
   %cmp378.not.i = icmp eq i32 %call377.i, 0
   br i1 %cmp378.not.i, label %do.end383.i, label %if.then380.i
 
@@ -8764,16 +8769,16 @@ if.then380.i:                                     ; preds = %do.end372.i
   unreachable
 
 do.end383.i:                                      ; preds = %do.end372.i
-  %370 = load i64, ptr %npageslabs_nonhuge.i, align 8
-  %mul384.i = shl i64 %370, 9
-  %371 = load i64, ptr %nactive_nonhuge.i, align 8
-  %372 = load i64, ptr %ndirty_nonhuge.i, align 8
-  %373 = add i64 %371, %372
-  %sub386.i = sub i64 %mul384.i, %373
-  %374 = load i64, ptr %npageslabs_huge.i, align 8
-  %375 = load i64, ptr %nactive_huge.i, align 8
-  %376 = load i64, ptr %ndirty_huge.i, align 8
-  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.457, i64 noundef %374, i64 noundef %370, i64 noundef %375, i64 noundef %371, i64 noundef %376, i64 noundef %372, i64 noundef %sub386.i)
+  %372 = load i64, ptr %npageslabs_nonhuge.i, align 8
+  %mul384.i = shl i64 %372, 9
+  %373 = load i64, ptr %nactive_nonhuge.i, align 8
+  %374 = load i64, ptr %ndirty_nonhuge.i, align 8
+  %375 = add i64 %373, %374
+  %sub386.i = sub i64 %mul384.i, %375
+  %376 = load i64, ptr %npageslabs_huge.i, align 8
+  %377 = load i64, ptr %nactive_huge.i, align 8
+  %378 = load i64, ptr %ndirty_huge.i, align 8
+  call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.457, i64 noundef %376, i64 noundef %372, i64 noundef %377, i64 noundef %373, i64 noundef %378, i64 noundef %374, i64 noundef %sub386.i)
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.458)
   call fastcc void @emitter_json_object_begin(ptr noundef %emitter)
   call fastcc void @emitter_json_key(ptr noundef %emitter, ptr noundef nonnull @.str.446)
@@ -8794,8 +8799,8 @@ do.end383.i:                                      ; preds = %do.end372.i
 
 do.end.i136.i:                                    ; preds = %do.end383.i
   %nesting_depth.i.i137.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %377 = load i32, ptr %nesting_depth.i.i137.i, align 8
-  %dec.i.i138.i = add nsw i32 %377, -1
+  %379 = load i32, ptr %nesting_depth.i.i137.i, align 8
+  %dec.i.i138.i = add nsw i32 %379, -1
   store i32 %dec.i.i138.i, ptr %nesting_depth.i.i137.i, align 8
   %item_at_depth.i.i139.i = getelementptr inbounds i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i139.i, align 4
@@ -8804,16 +8809,16 @@ do.end.i136.i:                                    ; preds = %do.end383.i
 
 if.then1.i141.i:                                  ; preds = %do.end.i136.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %378 = load i32, ptr %nesting_depth.i.i137.i, align 8
-  %379 = load i32, ptr %emitter, align 8
-  %cmp.i.i142.i = icmp ne i32 %379, 0
+  %380 = load i32, ptr %nesting_depth.i.i137.i, align 8
+  %381 = load i32, ptr %emitter, align 8
+  %cmp.i.i142.i = icmp ne i32 %381, 0
   %indent_str.0.i.i143.i = select i1 %cmp.i.i142.i, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i144.i = icmp sgt i32 %378, 0
+  %cmp15.i.i144.i = icmp sgt i32 %380, 0
   br i1 %cmp15.i.i144.i, label %for.body.preheader.i.i146.i, label %if.end.i145.i
 
 for.body.preheader.i.i146.i:                      ; preds = %if.then1.i141.i
   %mul.i.i147.i = zext i1 %cmp.i.i142.i to i32
-  %amount.0.i.i148.i = shl nuw nsw i32 %378, %mul.i.i147.i
+  %amount.0.i.i148.i = shl nuw nsw i32 %380, %mul.i.i147.i
   br label %for.body.i.i149.i
 
 for.body.i.i149.i:                                ; preds = %for.body.i.i149.i, %for.body.preheader.i.i146.i
@@ -8842,8 +8847,8 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i145.i, %do.
   store i32 20, ptr %width388.i, align 4
   %type389.i = getelementptr inbounds i8, ptr %header_size.i, i64 8
   store i32 9, ptr %type389.i, align 8
-  %380 = getelementptr inbounds i8, ptr %header_size.i, i64 16
-  store ptr @.str.187, ptr %380, align 8
+  %382 = getelementptr inbounds i8, ptr %header_size.i, i64 16
+  store ptr @.str.187, ptr %382, align 8
   %link.i169.i = getelementptr inbounds i8, ptr %col_ind.i, i64 24
   %qre_prev.i170.i = getelementptr inbounds i8, ptr %col_ind.i, i64 32
   store ptr %col_size.i, ptr %qre_prev.i170.i, align 8
@@ -8862,8 +8867,8 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i145.i, %do.
   store i32 4, ptr %width394.i, align 4
   %type395.i = getelementptr inbounds i8, ptr %header_ind.i, i64 8
   store i32 9, ptr %type395.i, align 8
-  %381 = getelementptr inbounds i8, ptr %header_ind.i, i64 16
-  store ptr @.str.379, ptr %381, align 8
+  %383 = getelementptr inbounds i8, ptr %header_ind.i, i64 16
+  store ptr @.str.379, ptr %383, align 8
   %qre_prev.i196.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 32
   store ptr %col_ind.i, ptr %qre_prev.i196.i, align 8
   store ptr %col_npageslabs_huge.i, ptr %link.i169.i, align 8
@@ -8880,8 +8885,8 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i145.i, %do.
   store i32 16, ptr %width400.i, align 4
   %type401.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 8
   store i32 9, ptr %type401.i, align 8
-  %382 = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 16
-  store ptr @.str.446, ptr %382, align 8
+  %384 = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 16
+  store ptr @.str.446, ptr %384, align 8
   %qre_prev.i222.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 32
   store ptr %col_npageslabs_huge.i, ptr %qre_prev.i222.i, align 8
   %link34.i230.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 24
@@ -8901,8 +8906,8 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i145.i, %do.
   store i32 16, ptr %width406.i, align 4
   %type407.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 8
   store i32 9, ptr %type407.i, align 8
-  %383 = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 16
-  store ptr @.str.447, ptr %383, align 8
+  %385 = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 16
+  store ptr @.str.447, ptr %385, align 8
   %link.i247.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 24
   %qre_prev.i248.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 32
   store ptr %col_nactive_huge.i, ptr %qre_prev.i248.i, align 8
@@ -8922,8 +8927,8 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i145.i, %do.
   store i32 16, ptr %width412.i, align 4
   %type413.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 8
   store i32 9, ptr %type413.i, align 8
-  %384 = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 16
-  store ptr @.str.459, ptr %384, align 8
+  %386 = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 16
+  store ptr @.str.459, ptr %386, align 8
   %link.i273.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 24
   %qre_prev.i274.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 32
   store ptr %col_ndirty_huge.i, ptr %qre_prev.i274.i, align 8
@@ -8942,8 +8947,8 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i145.i, %do.
   store i32 20, ptr %width418.i, align 4
   %type419.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 8
   store i32 9, ptr %type419.i, align 8
-  %385 = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 16
-  store ptr @.str.448, ptr %385, align 8
+  %387 = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 16
+  store ptr @.str.448, ptr %387, align 8
   %link.i299.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 24
   %qre_prev.i300.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 32
   store ptr %col_npageslabs_nonhuge.i, ptr %qre_prev.i300.i, align 8
@@ -8962,8 +8967,8 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i145.i, %do.
   store i32 20, ptr %width424.i, align 4
   %type425.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 8
   store i32 9, ptr %type425.i, align 8
-  %386 = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 16
-  store ptr @.str.449, ptr %386, align 8
+  %388 = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 16
+  store ptr @.str.449, ptr %388, align 8
   %qre_prev.i326.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 32
   store ptr %col_nactive_nonhuge.i, ptr %qre_prev.i326.i, align 8
   store ptr %col_ndirty_nonhuge.i, ptr %link.i299.i, align 8
@@ -8980,8 +8985,8 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i145.i, %do.
   store i32 20, ptr %width430.i, align 4
   %type431.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 8
   store i32 9, ptr %type431.i, align 8
-  %387 = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 16
-  store ptr @.str.450, ptr %387, align 8
+  %389 = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 16
+  store ptr @.str.450, ptr %389, align 8
   %link.i351.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 24
   %qre_prev.i352.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 32
   store ptr %col_nretained_nonhuge.i, ptr %qre_prev.i.i, align 8
@@ -9006,21 +9011,21 @@ emitter_col_init.exit376.i:                       ; preds = %if.end.i145.i, %do.
   store i32 20, ptr %width436.i, align 4
   %type437.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 8
   store i32 9, ptr %type437.i, align 8
-  %388 = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 16
-  store ptr @.str.460, ptr %388, align 8
+  %390 = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 16
+  store ptr @.str.460, ptr %390, align 8
   store i64 7, ptr %miblen_new.i788, align 8
-  %389 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i807.i = getelementptr inbounds i8, ptr %389, i64 824
-  %390 = load i8, ptr %state.i807.i, align 8
-  %cmp6.i.not.i805 = icmp eq i8 %390, 0
+  %391 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
+  %state.i807.i = getelementptr inbounds i8, ptr %391, i64 824
+  %392 = load i8, ptr %state.i807.i, align 8
+  %cmp6.i.not.i805 = icmp eq i8 %392, 0
   br i1 %cmp6.i.not.i805, label %tsd_fetch_impl.exit.i808, label %if.then11.i.i806
 
 if.then11.i.i806:                                 ; preds = %emitter_col_init.exit376.i
-  %call13.i.i807 = call ptr @tsd_fetch_slow(ptr noundef nonnull %389, i1 noundef zeroext false) #13
+  %call13.i.i807 = call ptr @tsd_fetch_slow(ptr noundef nonnull %391, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit.i808
 
 tsd_fetch_impl.exit.i808:                         ; preds = %if.then11.i.i806, %emitter_col_init.exit376.i
-  %retval.i.0.i809 = phi ptr [ %call13.i.i807, %if.then11.i.i806 ], [ %389, %emitter_col_init.exit376.i ]
+  %retval.i.0.i809 = phi ptr [ %call13.i.i807, %if.then11.i.i806 ], [ %391, %emitter_col_init.exit376.i ]
   %call444.i = call i32 @ctl_mibnametomib(ptr noundef %retval.i.0.i809, ptr noundef nonnull %stats_arenas_mib.i787, i64 noundef 0, ptr noundef nonnull @.str.248, ptr noundef nonnull %miblen_new.i788) #13
   %cmp445.not.i = icmp eq i32 %call444.i, 0
   br i1 %cmp445.not.i, label %do.end452.i, label %if.then447.i
@@ -9034,16 +9039,16 @@ do.end452.i:                                      ; preds = %tsd_fetch_impl.exit
   %arrayidx454.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i787, i64 16
   store i64 %conv41, ptr %arrayidx454.i, align 16
   store i64 7, ptr %miblen_new458.i, align 8
-  %391 = load i8, ptr %state.i807.i, align 8
-  %cmp6.i623.not.i = icmp eq i8 %391, 0
+  %393 = load i8, ptr %state.i807.i, align 8
+  %cmp6.i623.not.i = icmp eq i8 %393, 0
   br i1 %cmp6.i623.not.i, label %tsd_fetch_impl.exit634.i, label %if.then11.i628.i
 
 if.then11.i628.i:                                 ; preds = %do.end452.i
-  %call13.i630.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %389, i1 noundef zeroext false) #13
+  %call13.i630.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %391, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit634.i
 
 tsd_fetch_impl.exit634.i:                         ; preds = %if.then11.i628.i, %do.end452.i
-  %retval.i611.0.i = phi ptr [ %call13.i630.i, %if.then11.i628.i ], [ %389, %do.end452.i ]
+  %retval.i611.0.i = phi ptr [ %call13.i630.i, %if.then11.i628.i ], [ %391, %do.end452.i ]
   %call462.i = call i32 @ctl_mibnametomib(ptr noundef %retval.i611.0.i, ptr noundef nonnull %stats_arenas_mib.i787, i64 noundef 3, ptr noundef nonnull @.str.461, ptr noundef nonnull %miblen_new458.i) #13
   %cmp463.not.i = icmp eq i32 %call462.i, 0
   br i1 %cmp463.not.i, label %do.end470.i, label %if.then465.i
@@ -9055,23 +9060,23 @@ if.then465.i:                                     ; preds = %tsd_fetch_impl.exit
 
 do.end470.i:                                      ; preds = %tsd_fetch_impl.exit634.i
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.462)
-  %392 = load i32, ptr %emitter, align 8
-  %cmp.not.i377.i = icmp eq i32 %392, 2
+  %394 = load i32, ptr %emitter, align 8
+  %cmp.not.i377.i = icmp eq i32 %394, 2
   br i1 %cmp.not.i377.i, label %for.body.i.i819, label %emitter_table_row.exit.i810
 
 for.body.i.i819:                                  ; preds = %do.end470.i, %for.body.i.i819
-  %col.011.i.i820 = phi ptr [ %397, %for.body.i.i819 ], [ %header_size.i, %do.end470.i ]
-  %393 = load i32, ptr %col.011.i.i820, align 8
+  %col.011.i.i820 = phi ptr [ %399, %for.body.i.i819 ], [ %header_size.i, %do.end470.i ]
+  %395 = load i32, ptr %col.011.i.i820, align 8
   %width.i.i821 = getelementptr inbounds i8, ptr %col.011.i.i820, i64 4
-  %394 = load i32, ptr %width.i.i821, align 4
+  %396 = load i32, ptr %width.i.i821, align 4
   %type.i.i822 = getelementptr inbounds i8, ptr %col.011.i.i820, i64 8
-  %395 = load i32, ptr %type.i.i822, align 8
-  %396 = getelementptr inbounds i8, ptr %col.011.i.i820, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %393, i32 noundef %394, i32 noundef %395, ptr noundef nonnull %396)
+  %397 = load i32, ptr %type.i.i822, align 8
+  %398 = getelementptr inbounds i8, ptr %col.011.i.i820, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %395, i32 noundef %396, i32 noundef %397, ptr noundef nonnull %398)
   %link.i379.i = getelementptr inbounds i8, ptr %col.011.i.i820, i64 24
-  %397 = load ptr, ptr %link.i379.i, align 8
-  %cmp4.not.i.i823 = icmp eq ptr %397, %header_size.i
-  %cmp1.not12.i.i824 = icmp eq ptr %397, null
+  %399 = load ptr, ptr %link.i379.i, align 8
+  %cmp4.not.i.i823 = icmp eq ptr %399, %header_size.i
+  %cmp1.not12.i.i824 = icmp eq ptr %399, null
   %cmp1.not.i.i825 = or i1 %cmp4.not.i.i823, %cmp1.not12.i.i824
   br i1 %cmp1.not.i.i825, label %for.end.i.i826, label %for.body.i.i819
 
@@ -9082,35 +9087,35 @@ for.end.i.i826:                                   ; preds = %for.body.i.i819
 emitter_table_row.exit.i810:                      ; preds = %for.end.i.i826, %do.end470.i
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %emitter, ptr noundef nonnull @.str.389)
   %arrayidx477.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i787, i64 40
-  %398 = getelementptr inbounds i8, ptr %col_size.i, i64 16
-  %399 = getelementptr inbounds i8, ptr %col_ind.i, i64 16
-  %400 = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 16
-  %401 = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 16
-  %402 = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 16
-  %403 = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 16
-  %404 = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 16
-  %405 = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 16
-  %406 = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 16
+  %400 = getelementptr inbounds i8, ptr %col_size.i, i64 16
+  %401 = getelementptr inbounds i8, ptr %col_ind.i, i64 16
+  %402 = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 16
+  %403 = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 16
+  %404 = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 16
+  %405 = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 16
+  %406 = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 16
+  %407 = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 16
+  %408 = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 16
   %nesting_depth.i.i396.i = getelementptr inbounds i8, ptr %emitter, i64 24
   %item_at_depth.i.i398.i = getelementptr inbounds i8, ptr %emitter, i64 28
   br label %for.body.i811
 
 for.body.i811:                                    ; preds = %emitter_json_object_end.exit412.i, %emitter_table_row.exit.i810
   %indvars.iv.i812 = phi i64 [ 0, %emitter_table_row.exit.i810 ], [ %indvars.iv.next.i815, %emitter_json_object_end.exit412.i ]
-  %in_gap.0524.i = phi i1 [ false, %emitter_table_row.exit.i810 ], [ %418, %emitter_json_object_end.exit412.i ]
+  %in_gap.0524.i = phi i1 [ false, %emitter_table_row.exit.i810 ], [ %420, %emitter_json_object_end.exit412.i ]
   store i64 %indvars.iv.i812, ptr %arrayidx477.i, align 8
   store i64 7, ptr %miblen_new481.i, align 8
   store i64 8, ptr %sz482.i, align 8
-  %407 = load i8, ptr %state.i807.i, align 8
-  %cmp6.i647.not.i = icmp eq i8 %407, 0
+  %409 = load i8, ptr %state.i807.i, align 8
+  %cmp6.i647.not.i = icmp eq i8 %409, 0
   br i1 %cmp6.i647.not.i, label %tsd_fetch_impl.exit658.i, label %if.then11.i652.i
 
 if.then11.i652.i:                                 ; preds = %for.body.i811
-  %call13.i654.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %389, i1 noundef zeroext false) #13
+  %call13.i654.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %391, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit658.i
 
 tsd_fetch_impl.exit658.i:                         ; preds = %if.then11.i652.i, %for.body.i811
-  %retval.i635.0.i = phi ptr [ %call13.i654.i, %if.then11.i652.i ], [ %389, %for.body.i811 ]
+  %retval.i635.0.i = phi ptr [ %call13.i654.i, %if.then11.i652.i ], [ %391, %for.body.i811 ]
   %call486.i = call i32 @ctl_bymibname(ptr noundef %retval.i635.0.i, ptr noundef nonnull %stats_arenas_mib.i787, i64 noundef 6, ptr noundef nonnull @.str.446, ptr noundef nonnull %miblen_new481.i, ptr noundef nonnull %npageslabs_huge.i, ptr noundef nonnull %sz482.i, ptr noundef null, i64 noundef 0) #13
   %cmp487.not.i = icmp eq i32 %call486.i, 0
   br i1 %cmp487.not.i, label %do.end497.i, label %if.then489.i
@@ -9123,16 +9128,16 @@ if.then489.i:                                     ; preds = %tsd_fetch_impl.exit
 do.end497.i:                                      ; preds = %tsd_fetch_impl.exit658.i
   store i64 7, ptr %miblen_new498.i, align 8
   store i64 8, ptr %sz499.i, align 8
-  %408 = load i8, ptr %state.i807.i, align 8
-  %cmp6.i671.not.i = icmp eq i8 %408, 0
+  %410 = load i8, ptr %state.i807.i, align 8
+  %cmp6.i671.not.i = icmp eq i8 %410, 0
   br i1 %cmp6.i671.not.i, label %tsd_fetch_impl.exit682.i, label %if.then11.i676.i
 
 if.then11.i676.i:                                 ; preds = %do.end497.i
-  %call13.i678.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %389, i1 noundef zeroext false) #13
+  %call13.i678.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %391, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit682.i
 
 tsd_fetch_impl.exit682.i:                         ; preds = %if.then11.i676.i, %do.end497.i
-  %retval.i659.0.i = phi ptr [ %call13.i678.i, %if.then11.i676.i ], [ %389, %do.end497.i ]
+  %retval.i659.0.i = phi ptr [ %call13.i678.i, %if.then11.i676.i ], [ %391, %do.end497.i ]
   %call503.i = call i32 @ctl_bymibname(ptr noundef %retval.i659.0.i, ptr noundef nonnull %stats_arenas_mib.i787, i64 noundef 6, ptr noundef nonnull @.str.447, ptr noundef nonnull %miblen_new498.i, ptr noundef nonnull %nactive_huge.i, ptr noundef nonnull %sz499.i, ptr noundef null, i64 noundef 0) #13
   %cmp504.not.i = icmp eq i32 %call503.i, 0
   br i1 %cmp504.not.i, label %do.end514.i, label %if.then506.i
@@ -9145,16 +9150,16 @@ if.then506.i:                                     ; preds = %tsd_fetch_impl.exit
 do.end514.i:                                      ; preds = %tsd_fetch_impl.exit682.i
   store i64 7, ptr %miblen_new515.i, align 8
   store i64 8, ptr %sz516.i, align 8
-  %409 = load i8, ptr %state.i807.i, align 8
-  %cmp6.i695.not.i = icmp eq i8 %409, 0
+  %411 = load i8, ptr %state.i807.i, align 8
+  %cmp6.i695.not.i = icmp eq i8 %411, 0
   br i1 %cmp6.i695.not.i, label %tsd_fetch_impl.exit706.i, label %if.then11.i700.i
 
 if.then11.i700.i:                                 ; preds = %do.end514.i
-  %call13.i702.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %389, i1 noundef zeroext false) #13
+  %call13.i702.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %391, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit706.i
 
 tsd_fetch_impl.exit706.i:                         ; preds = %if.then11.i700.i, %do.end514.i
-  %retval.i683.0.i = phi ptr [ %call13.i702.i, %if.then11.i700.i ], [ %389, %do.end514.i ]
+  %retval.i683.0.i = phi ptr [ %call13.i702.i, %if.then11.i700.i ], [ %391, %do.end514.i ]
   %call520.i = call i32 @ctl_bymibname(ptr noundef %retval.i683.0.i, ptr noundef nonnull %stats_arenas_mib.i787, i64 noundef 6, ptr noundef nonnull @.str.459, ptr noundef nonnull %miblen_new515.i, ptr noundef nonnull %ndirty_huge.i, ptr noundef nonnull %sz516.i, ptr noundef null, i64 noundef 0) #13
   %cmp521.not.i = icmp eq i32 %call520.i, 0
   br i1 %cmp521.not.i, label %do.end531.i, label %if.then523.i
@@ -9167,16 +9172,16 @@ if.then523.i:                                     ; preds = %tsd_fetch_impl.exit
 do.end531.i:                                      ; preds = %tsd_fetch_impl.exit706.i
   store i64 7, ptr %miblen_new532.i, align 8
   store i64 8, ptr %sz533.i, align 8
-  %410 = load i8, ptr %state.i807.i, align 8
-  %cmp6.i719.not.i = icmp eq i8 %410, 0
+  %412 = load i8, ptr %state.i807.i, align 8
+  %cmp6.i719.not.i = icmp eq i8 %412, 0
   br i1 %cmp6.i719.not.i, label %tsd_fetch_impl.exit730.i, label %if.then11.i724.i
 
 if.then11.i724.i:                                 ; preds = %do.end531.i
-  %call13.i726.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %389, i1 noundef zeroext false) #13
+  %call13.i726.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %391, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit730.i
 
 tsd_fetch_impl.exit730.i:                         ; preds = %if.then11.i724.i, %do.end531.i
-  %retval.i707.0.i = phi ptr [ %call13.i726.i, %if.then11.i724.i ], [ %389, %do.end531.i ]
+  %retval.i707.0.i = phi ptr [ %call13.i726.i, %if.then11.i724.i ], [ %391, %do.end531.i ]
   %call537.i = call i32 @ctl_bymibname(ptr noundef %retval.i707.0.i, ptr noundef nonnull %stats_arenas_mib.i787, i64 noundef 6, ptr noundef nonnull @.str.448, ptr noundef nonnull %miblen_new532.i, ptr noundef nonnull %npageslabs_nonhuge.i, ptr noundef nonnull %sz533.i, ptr noundef null, i64 noundef 0) #13
   %cmp538.not.i = icmp eq i32 %call537.i, 0
   br i1 %cmp538.not.i, label %do.end548.i, label %if.then540.i
@@ -9189,16 +9194,16 @@ if.then540.i:                                     ; preds = %tsd_fetch_impl.exit
 do.end548.i:                                      ; preds = %tsd_fetch_impl.exit730.i
   store i64 7, ptr %miblen_new549.i, align 8
   store i64 8, ptr %sz550.i, align 8
-  %411 = load i8, ptr %state.i807.i, align 8
-  %cmp6.i743.not.i = icmp eq i8 %411, 0
+  %413 = load i8, ptr %state.i807.i, align 8
+  %cmp6.i743.not.i = icmp eq i8 %413, 0
   br i1 %cmp6.i743.not.i, label %tsd_fetch_impl.exit754.i, label %if.then11.i748.i
 
 if.then11.i748.i:                                 ; preds = %do.end548.i
-  %call13.i750.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %389, i1 noundef zeroext false) #13
+  %call13.i750.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %391, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit754.i
 
 tsd_fetch_impl.exit754.i:                         ; preds = %if.then11.i748.i, %do.end548.i
-  %retval.i731.0.i = phi ptr [ %call13.i750.i, %if.then11.i748.i ], [ %389, %do.end548.i ]
+  %retval.i731.0.i = phi ptr [ %call13.i750.i, %if.then11.i748.i ], [ %391, %do.end548.i ]
   %call554.i = call i32 @ctl_bymibname(ptr noundef %retval.i731.0.i, ptr noundef nonnull %stats_arenas_mib.i787, i64 noundef 6, ptr noundef nonnull @.str.449, ptr noundef nonnull %miblen_new549.i, ptr noundef nonnull %nactive_nonhuge.i, ptr noundef nonnull %sz550.i, ptr noundef null, i64 noundef 0) #13
   %cmp555.not.i = icmp eq i32 %call554.i, 0
   br i1 %cmp555.not.i, label %do.end565.i, label %if.then557.i
@@ -9211,16 +9216,16 @@ if.then557.i:                                     ; preds = %tsd_fetch_impl.exit
 do.end565.i:                                      ; preds = %tsd_fetch_impl.exit754.i
   store i64 7, ptr %miblen_new566.i, align 8
   store i64 8, ptr %sz567.i, align 8
-  %412 = load i8, ptr %state.i807.i, align 8
-  %cmp6.i767.not.i = icmp eq i8 %412, 0
+  %414 = load i8, ptr %state.i807.i, align 8
+  %cmp6.i767.not.i = icmp eq i8 %414, 0
   br i1 %cmp6.i767.not.i, label %tsd_fetch_impl.exit778.i, label %if.then11.i772.i
 
 if.then11.i772.i:                                 ; preds = %do.end565.i
-  %call13.i774.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %389, i1 noundef zeroext false) #13
+  %call13.i774.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %391, i1 noundef zeroext false) #13
   br label %tsd_fetch_impl.exit778.i
 
 tsd_fetch_impl.exit778.i:                         ; preds = %if.then11.i772.i, %do.end565.i
-  %retval.i755.0.i = phi ptr [ %call13.i774.i, %if.then11.i772.i ], [ %389, %do.end565.i ]
+  %retval.i755.0.i = phi ptr [ %call13.i774.i, %if.then11.i772.i ], [ %391, %do.end565.i ]
   %call571.i = call i32 @ctl_bymibname(ptr noundef %retval.i755.0.i, ptr noundef nonnull %stats_arenas_mib.i787, i64 noundef 6, ptr noundef nonnull @.str.450, ptr noundef nonnull %miblen_new566.i, ptr noundef nonnull %ndirty_nonhuge.i, ptr noundef nonnull %sz567.i, ptr noundef null, i64 noundef 0) #13
   %cmp572.not.i = icmp eq i32 %call571.i, 0
   br i1 %cmp572.not.i, label %do.end579.i, label %if.then574.i
@@ -9231,18 +9236,18 @@ if.then574.i:                                     ; preds = %tsd_fetch_impl.exit
   unreachable
 
 do.end579.i:                                      ; preds = %tsd_fetch_impl.exit778.i
-  %413 = load i64, ptr %npageslabs_nonhuge.i, align 8
-  %mul580.i = shl i64 %413, 9
-  %414 = load i64, ptr %nactive_nonhuge.i, align 8
-  %415 = load i64, ptr %ndirty_nonhuge.i, align 8
-  %416 = add i64 %414, %415
-  %sub582.i = sub i64 %mul580.i, %416
-  %417 = load i64, ptr %npageslabs_huge.i, align 8
-  %cmp583.i = icmp eq i64 %417, 0
-  %cmp586.i = icmp eq i64 %413, 0
-  %418 = select i1 %cmp583.i, i1 %cmp586.i, i1 false
+  %415 = load i64, ptr %npageslabs_nonhuge.i, align 8
+  %mul580.i = shl i64 %415, 9
+  %416 = load i64, ptr %nactive_nonhuge.i, align 8
+  %417 = load i64, ptr %ndirty_nonhuge.i, align 8
+  %418 = add i64 %416, %417
+  %sub582.i = sub i64 %mul580.i, %418
+  %419 = load i64, ptr %npageslabs_huge.i, align 8
+  %cmp583.i = icmp eq i64 %419, 0
+  %cmp586.i = icmp eq i64 %415, 0
+  %420 = select i1 %cmp583.i, i1 %cmp586.i, i1 false
   %in_gap.0.not.i = xor i1 %in_gap.0524.i, true
-  %brmerge.i813 = select i1 %in_gap.0.not.i, i1 true, i1 %418
+  %brmerge.i813 = select i1 %in_gap.0.not.i, i1 true, i1 %420
   br i1 %brmerge.i813, label %if.end594.i, label %if.then593.i
 
 if.then593.i:                                     ; preds = %do.end579.i
@@ -9254,43 +9259,43 @@ if.then593.i:                                     ; preds = %do.end579.i
   br label %if.end594.i
 
 if.end594.i:                                      ; preds = %if.then593.i, %do.end579.i
-  %419 = phi i64 [ %415, %do.end579.i ], [ %.pre529.i, %if.then593.i ]
-  %420 = phi i64 [ %414, %do.end579.i ], [ %.pre528.i, %if.then593.i ]
-  %421 = phi i64 [ %413, %do.end579.i ], [ %.pre527.i, %if.then593.i ]
-  %422 = phi i64 [ %417, %do.end579.i ], [ %.pre.i814, %if.then593.i ]
+  %421 = phi i64 [ %417, %do.end579.i ], [ %.pre529.i, %if.then593.i ]
+  %422 = phi i64 [ %416, %do.end579.i ], [ %.pre528.i, %if.then593.i ]
+  %423 = phi i64 [ %415, %do.end579.i ], [ %.pre527.i, %if.then593.i ]
+  %424 = phi i64 [ %419, %do.end579.i ], [ %.pre.i814, %if.then593.i ]
   %arrayidx.i.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %indvars.iv.i812
-  %423 = load i64, ptr %arrayidx.i.i.i, align 8
-  store i64 %423, ptr %398, align 8
-  store i64 %indvars.iv.i812, ptr %399, align 8
-  store i64 %422, ptr %400, align 8
-  %424 = load i64, ptr %nactive_huge.i, align 8
-  store i64 %424, ptr %401, align 8
-  %425 = load i64, ptr %ndirty_huge.i, align 8
-  store i64 %425, ptr %402, align 8
-  store i64 %421, ptr %403, align 8
-  store i64 %420, ptr %404, align 8
-  store i64 %419, ptr %405, align 8
-  store i64 %sub582.i, ptr %406, align 8
-  br i1 %418, label %if.end599.i, label %if.then598.i
+  %425 = load i64, ptr %arrayidx.i.i.i, align 8
+  store i64 %425, ptr %400, align 8
+  store i64 %indvars.iv.i812, ptr %401, align 8
+  store i64 %424, ptr %402, align 8
+  %426 = load i64, ptr %nactive_huge.i, align 8
+  store i64 %426, ptr %403, align 8
+  %427 = load i64, ptr %ndirty_huge.i, align 8
+  store i64 %427, ptr %404, align 8
+  store i64 %423, ptr %405, align 8
+  store i64 %422, ptr %406, align 8
+  store i64 %421, ptr %407, align 8
+  store i64 %sub582.i, ptr %408, align 8
+  br i1 %420, label %if.end599.i, label %if.then598.i
 
 if.then598.i:                                     ; preds = %if.end594.i
-  %426 = load i32, ptr %emitter, align 8
-  %cmp.not.i380.i = icmp eq i32 %426, 2
+  %428 = load i32, ptr %emitter, align 8
+  %cmp.not.i380.i = icmp eq i32 %428, 2
   br i1 %cmp.not.i380.i, label %for.body.i383.i, label %if.end599.i
 
 for.body.i383.i:                                  ; preds = %if.then598.i, %for.body.i383.i
-  %col.011.i384.i = phi ptr [ %431, %for.body.i383.i ], [ %col_size.i, %if.then598.i ]
-  %427 = load i32, ptr %col.011.i384.i, align 8
+  %col.011.i384.i = phi ptr [ %433, %for.body.i383.i ], [ %col_size.i, %if.then598.i ]
+  %429 = load i32, ptr %col.011.i384.i, align 8
   %width.i385.i = getelementptr inbounds i8, ptr %col.011.i384.i, i64 4
-  %428 = load i32, ptr %width.i385.i, align 4
+  %430 = load i32, ptr %width.i385.i, align 4
   %type.i386.i = getelementptr inbounds i8, ptr %col.011.i384.i, i64 8
-  %429 = load i32, ptr %type.i386.i, align 8
-  %430 = getelementptr inbounds i8, ptr %col.011.i384.i, i64 16
-  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %427, i32 noundef %428, i32 noundef %429, ptr noundef nonnull %430)
+  %431 = load i32, ptr %type.i386.i, align 8
+  %432 = getelementptr inbounds i8, ptr %col.011.i384.i, i64 16
+  call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %429, i32 noundef %430, i32 noundef %431, ptr noundef nonnull %432)
   %link.i387.i = getelementptr inbounds i8, ptr %col.011.i384.i, i64 24
-  %431 = load ptr, ptr %link.i387.i, align 8
-  %cmp4.not.i388.i = icmp eq ptr %431, %col_size.i
-  %cmp1.not12.i389.i = icmp eq ptr %431, null
+  %433 = load ptr, ptr %link.i387.i, align 8
+  %cmp4.not.i388.i = icmp eq ptr %433, %col_size.i
+  %cmp1.not12.i389.i = icmp eq ptr %433, null
   %cmp1.not.i390.i = or i1 %cmp4.not.i388.i, %cmp1.not12.i389.i
   br i1 %cmp1.not.i390.i, label %for.end.i391.i, label %for.body.i383.i
 
@@ -9317,8 +9322,8 @@ if.end599.i:                                      ; preds = %for.end.i391.i, %if
   br i1 %spec.select.i.i394.i, label %do.end.i395.i, label %emitter_json_object_end.exit412.i
 
 do.end.i395.i:                                    ; preds = %if.end599.i
-  %432 = load i32, ptr %nesting_depth.i.i396.i, align 8
-  %dec.i.i397.i = add nsw i32 %432, -1
+  %434 = load i32, ptr %nesting_depth.i.i396.i, align 8
+  %dec.i.i397.i = add nsw i32 %434, -1
   store i32 %dec.i.i397.i, ptr %nesting_depth.i.i396.i, align 8
   store i8 1, ptr %item_at_depth.i.i398.i, align 4
   %cmp.not.i399.i = icmp eq i32 %emitter.val.i393.i, 1
@@ -9326,16 +9331,16 @@ do.end.i395.i:                                    ; preds = %if.end599.i
 
 if.then1.i400.i:                                  ; preds = %do.end.i395.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %433 = load i32, ptr %nesting_depth.i.i396.i, align 8
-  %434 = load i32, ptr %emitter, align 8
-  %cmp.i.i401.i = icmp ne i32 %434, 0
+  %435 = load i32, ptr %nesting_depth.i.i396.i, align 8
+  %436 = load i32, ptr %emitter, align 8
+  %cmp.i.i401.i = icmp ne i32 %436, 0
   %indent_str.0.i.i402.i = select i1 %cmp.i.i401.i, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i403.i = icmp sgt i32 %433, 0
+  %cmp15.i.i403.i = icmp sgt i32 %435, 0
   br i1 %cmp15.i.i403.i, label %for.body.preheader.i.i405.i, label %if.end.i404.i
 
 for.body.preheader.i.i405.i:                      ; preds = %if.then1.i400.i
   %mul.i.i406.i = zext i1 %cmp.i.i401.i to i32
-  %amount.0.i.i407.i = shl nuw nsw i32 %433, %mul.i.i406.i
+  %amount.0.i.i407.i = shl nuw nsw i32 %435, %mul.i.i406.i
   br label %for.body.i.i408.i
 
 for.body.i.i408.i:                                ; preds = %for.body.i.i408.i, %for.body.preheader.i.i405.i
@@ -9360,8 +9365,8 @@ for.end.i817:                                     ; preds = %emitter_json_object
   br i1 %spec.select.i.i414.i, label %do.end.i415.i, label %emitter_json_object_end.exit451.i
 
 do.end.i415.i:                                    ; preds = %for.end.i817
-  %435 = load i32, ptr %nesting_depth.i.i396.i, align 8
-  %dec.i.i417.i = add nsw i32 %435, -1
+  %437 = load i32, ptr %nesting_depth.i.i396.i, align 8
+  %dec.i.i417.i = add nsw i32 %437, -1
   store i32 %dec.i.i417.i, ptr %nesting_depth.i.i396.i, align 8
   store i8 1, ptr %item_at_depth.i.i398.i, align 4
   %cmp.not.i419.i = icmp eq i32 %emitter.val.i413.i, 1
@@ -9369,16 +9374,16 @@ do.end.i415.i:                                    ; preds = %for.end.i817
 
 if.then1.i420.i:                                  ; preds = %do.end.i415.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %436 = load i32, ptr %nesting_depth.i.i396.i, align 8
-  %437 = load i32, ptr %emitter, align 8
-  %cmp.i.i421.i = icmp ne i32 %437, 0
+  %438 = load i32, ptr %nesting_depth.i.i396.i, align 8
+  %439 = load i32, ptr %emitter, align 8
+  %cmp.i.i421.i = icmp ne i32 %439, 0
   %indent_str.0.i.i422.i = select i1 %cmp.i.i421.i, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i423.i = icmp sgt i32 %436, 0
+  %cmp15.i.i423.i = icmp sgt i32 %438, 0
   br i1 %cmp15.i.i423.i, label %for.body.preheader.i.i425.i, label %emitter_json_array_end.exit.i
 
 for.body.preheader.i.i425.i:                      ; preds = %if.then1.i420.i
   %mul.i.i426.i = zext i1 %cmp.i.i421.i to i32
-  %amount.0.i.i427.i = shl nuw nsw i32 %436, %mul.i.i426.i
+  %amount.0.i.i427.i = shl nuw nsw i32 %438, %mul.i.i426.i
   br label %for.body.i.i428.i
 
 for.body.i.i428.i:                                ; preds = %for.body.i.i428.i, %for.body.preheader.i.i425.i
@@ -9395,8 +9400,8 @@ emitter_json_array_end.exit.i:                    ; preds = %for.body.i.i428.i, 
   br i1 %spec.select.i.i433.i, label %do.end.i434.i, label %emitter_json_object_end.exit451.i
 
 do.end.i434.i:                                    ; preds = %emitter_json_array_end.exit.i
-  %438 = load i32, ptr %nesting_depth.i.i396.i, align 8
-  %dec.i.i436.i = add nsw i32 %438, -1
+  %440 = load i32, ptr %nesting_depth.i.i396.i, align 8
+  %dec.i.i436.i = add nsw i32 %440, -1
   store i32 %dec.i.i436.i, ptr %nesting_depth.i.i396.i, align 8
   store i8 1, ptr %item_at_depth.i.i398.i, align 4
   %cmp.not.i438.i = icmp eq i32 %emitter.val.i432.pr.i, 1
@@ -9404,16 +9409,16 @@ do.end.i434.i:                                    ; preds = %emitter_json_array_
 
 if.then1.i439.i:                                  ; preds = %do.end.i434.i
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.12)
-  %439 = load i32, ptr %nesting_depth.i.i396.i, align 8
-  %440 = load i32, ptr %emitter, align 8
-  %cmp.i.i440.i = icmp ne i32 %440, 0
+  %441 = load i32, ptr %nesting_depth.i.i396.i, align 8
+  %442 = load i32, ptr %emitter, align 8
+  %cmp.i.i440.i = icmp ne i32 %442, 0
   %indent_str.0.i.i441.i = select i1 %cmp.i.i440.i, ptr @.str.10, ptr @.str.13
-  %cmp15.i.i442.i = icmp sgt i32 %439, 0
+  %cmp15.i.i442.i = icmp sgt i32 %441, 0
   br i1 %cmp15.i.i442.i, label %for.body.preheader.i.i444.i, label %if.end.i443.i
 
 for.body.preheader.i.i444.i:                      ; preds = %if.then1.i439.i
   %mul.i.i445.i = zext i1 %cmp.i.i440.i to i32
-  %amount.0.i.i446.i = shl nuw nsw i32 %439, %mul.i.i445.i
+  %amount.0.i.i446.i = shl nuw nsw i32 %441, %mul.i.i445.i
   br label %for.body.i.i447.i
 
 for.body.i.i447.i:                                ; preds = %for.body.i.i447.i, %for.body.preheader.i.i444.i
@@ -9428,7 +9433,7 @@ if.end.i443.i:                                    ; preds = %for.body.i.i447.i, 
   br label %emitter_json_object_end.exit451.i
 
 emitter_json_object_end.exit451.i:                ; preds = %if.end.i443.i, %emitter_json_array_end.exit.i, %for.end.i817
-  br i1 %418, label %if.then601.i, label %stats_arena_hpa_shard_print.exit
+  br i1 %420, label %if.then601.i, label %stats_arena_hpa_shard_print.exit
 
 if.then601.i:                                     ; preds = %emitter_json_object_end.exit451.i
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.404)
@@ -11078,11 +11083,11 @@ if.then180:                                       ; preds = %emitter_col_init.ex
   call fastcc void @mutex_stats_init_cols(ptr noundef nonnull %row, ptr noundef null, ptr noundef null, ptr noundef nonnull %col_mutex64, ptr noundef nonnull %col_mutex32)
   call fastcc void @mutex_stats_init_cols(ptr noundef nonnull %header_row, ptr noundef null, ptr noundef null, ptr noundef nonnull %header_mutex64, ptr noundef nonnull %header_mutex32)
   %.pre = load i32, ptr %width13, align 4
+  %249 = add nsw i32 %.pre, -5
   br label %if.end184
 
 if.end184:                                        ; preds = %if.then180, %emitter_col_init.exit692
-  %249 = phi i32 [ %.pre, %if.then180 ], [ 20, %emitter_col_init.exit692 ]
-  %sub = add nsw i32 %249, -5
+  %sub = phi i32 [ %249, %if.then180 ], [ 15, %emitter_col_init.exit692 ]
   store i32 %sub, ptr %width13, align 4
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.399)
   %250 = load i32, ptr %emitter, align 8

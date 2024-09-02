@@ -75,7 +75,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @inflate64(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -5, 3) i32 @inflate64(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit839, label %4
 

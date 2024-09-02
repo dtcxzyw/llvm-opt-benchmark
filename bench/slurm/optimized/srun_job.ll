@@ -2707,7 +2707,7 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
   %.4 = phi i32 [ %251, %249 ], [ %.2184381, %.lr.ph383 ]
   %253 = call ptr @list_next(ptr noundef %244) #16
   %.not233 = icmp eq ptr %253, null
-  br i1 %.not233, label %._crit_edge384, label %254
+  br i1 %.not233, label %._crit_edge384.loopexit, label %254
 
 254:                                              ; preds = %252
   call fastcc void @_print_job_information(ptr noundef nonnull %247)
@@ -3035,23 +3035,29 @@ _set_step_opts.exit:                              ; preds = %396, %400
   store i8 %.sink.i, ptr %401, align 1
   %402 = call ptr @list_next(ptr noundef %245) #16
   %.not232 = icmp eq ptr %402, null
-  br i1 %.not232, label %._crit_edge384, label %.lr.ph383, !llvm.loop !26
+  br i1 %.not232, label %._crit_edge384.loopexit, label %.lr.ph383, !llvm.loop !26
 
-._crit_edge384:                                   ; preds = %_set_step_opts.exit, %252, %241
-  %.2198.lcssa = phi ptr [ null, %241 ], [ %.2198379, %252 ], [ %384, %_set_step_opts.exit ]
-  %.2191.lcssa = phi i32 [ -1, %241 ], [ %.2191380, %252 ], [ %255, %_set_step_opts.exit ]
-  %.lcssa = phi ptr [ null, %241 ], [ %247, %252 ], [ null, %_set_step_opts.exit ]
-  %.3185 = phi i32 [ 0, %241 ], [ %.4, %252 ], [ %.4, %_set_step_opts.exit ]
+._crit_edge384.loopexit:                          ; preds = %252, %_set_step_opts.exit
+  %.2198.lcssa.ph = phi ptr [ %384, %_set_step_opts.exit ], [ %.2198379, %252 ]
+  %.2191.lcssa.ph = phi i32 [ %255, %_set_step_opts.exit ], [ %.2191380, %252 ]
+  %.lcssa.ph = phi ptr [ null, %_set_step_opts.exit ], [ %247, %252 ]
+  %403 = add nsw i32 %.2191.lcssa.ph, 1
+  br label %._crit_edge384
+
+._crit_edge384:                                   ; preds = %._crit_edge384.loopexit, %241
+  %.2198.lcssa = phi ptr [ null, %241 ], [ %.2198.lcssa.ph, %._crit_edge384.loopexit ]
+  %.2191.lcssa = phi i32 [ 0, %241 ], [ %403, %._crit_edge384.loopexit ]
+  %.lcssa = phi ptr [ null, %241 ], [ %.lcssa.ph, %._crit_edge384.loopexit ]
+  %.3185 = phi i32 [ 0, %241 ], [ %.4, %._crit_edge384.loopexit ]
   call void @list_iterator_destroy(ptr noundef %244) #16
   call void @list_iterator_destroy(ptr noundef %245) #16
-  %403 = load i8, ptr @local_het_step, align 1
-  %404 = trunc i8 %403 to i1
-  br i1 %404, label %449, label %405
+  %404 = load i8, ptr @local_het_step, align 1
+  %405 = trunc i8 %404 to i1
+  br i1 %405, label %449, label %406
 
-405:                                              ; preds = %._crit_edge384
-  %406 = add nsw i32 %.2191.lcssa, 1
-  %407 = call i32 (ptr, ...) @setenvfs(ptr noundef nonnull @.str.30, i32 noundef %406) #16
-  %408 = call i32 (ptr, ...) @setenvfs(ptr noundef nonnull @.str.31, i32 noundef %406) #16
+406:                                              ; preds = %._crit_edge384
+  %407 = call i32 (ptr, ...) @setenvfs(ptr noundef nonnull @.str.30, i32 noundef %.2191.lcssa) #16
+  %408 = call i32 (ptr, ...) @setenvfs(ptr noundef nonnull @.str.31, i32 noundef %.2191.lcssa) #16
   br label %449
 
 409:                                              ; preds = %235
@@ -3127,7 +3133,7 @@ _set_step_opts.exit:                              ; preds = %396, %400
   store i8 %.sink.i275, ptr %448, align 1
   br label %463
 
-449:                                              ; preds = %._crit_edge384, %405
+449:                                              ; preds = %._crit_edge384, %406
   %.not234 = icmp eq ptr %242, null
   br i1 %.not234, label %463, label %450
 

@@ -315,8 +315,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %133 = icmp ult i64 %132, %131
   br i1 %133, label %.loopexit18, label %.preheader17
 
-.preheader17:                                     ; preds = %125, %149
-  %134 = phi i64 [ %154, %149 ], [ %132, %125 ]
+.preheader17:                                     ; preds = %125, %150
+  %134 = phi i64 [ %154, %150 ], [ %132, %125 ]
   %135 = getelementptr inbounds float, ptr %3, i64 %134
   %136 = load float, ptr %135, align 4, !tbaa !25, !alias.scope !48, !noalias !45
   %137 = shl i64 %134, 2
@@ -328,18 +328,18 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %143 = fmul reassoc nsz arcp contract afn double %142, %130
   %144 = fadd reassoc nsz arcp contract afn double %143, 5.000000e+01
   %145 = fcmp reassoc nsz arcp contract afn ogt double %144, 1.000000e+02
-  br i1 %145, label %149, label %146
+  br i1 %145, label %150, label %146
 
 146:                                              ; preds = %.preheader17
   %147 = fcmp reassoc nsz arcp contract afn olt double %144, 0.000000e+00
-  br i1 %147, label %149, label %148
+  br i1 %147, label %150, label %148
 
 148:                                              ; preds = %146
-  br label %149
+  %149 = fptrunc double %144 to float
+  br label %150
 
-149:                                              ; preds = %148, %146, %.preheader17
-  %150 = phi reassoc nsz arcp contract afn double [ 1.000000e+02, %.preheader17 ], [ %144, %148 ], [ 0.000000e+00, %146 ]
-  %151 = fptrunc double %150 to float
+150:                                              ; preds = %148, %146, %.preheader17
+  %151 = phi float [ 1.000000e+02, %.preheader17 ], [ %149, %148 ], [ 0.000000e+00, %146 ]
   %152 = getelementptr inbounds float, ptr %3, i64 %137
   store float %151, ptr %152, align 4, !tbaa !25, !alias.scope !50, !noalias !45
   %153 = getelementptr inbounds i8, ptr %152, i64 4
@@ -348,7 +348,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %155 = icmp ult i64 %154, %131
   br i1 %155, label %.loopexit18, label %.preheader17
 
-.loopexit18:                                      ; preds = %149, %125
+.loopexit18:                                      ; preds = %150, %125
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %156 = lshr i64 %20, 4
@@ -356,8 +356,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %158 = icmp ult i64 %157, %156
   br i1 %158, label %.loopexit16, label %.preheader15
 
-.preheader15:                                     ; preds = %.loopexit18, %174
-  %159 = phi i64 [ %179, %174 ], [ %157, %.loopexit18 ]
+.preheader15:                                     ; preds = %.loopexit18, %175
+  %159 = phi i64 [ %179, %175 ], [ %157, %.loopexit18 ]
   %160 = getelementptr inbounds float, ptr %3, i64 %159
   %161 = load float, ptr %160, align 4, !tbaa !25, !alias.scope !57, !noalias !54
   %162 = shl i64 %159, 2
@@ -369,18 +369,18 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %168 = fmul reassoc nsz arcp contract afn double %167, %130
   %169 = fadd reassoc nsz arcp contract afn double %168, 5.000000e+01
   %170 = fcmp reassoc nsz arcp contract afn ogt double %169, 1.000000e+02
-  br i1 %170, label %174, label %171
+  br i1 %170, label %175, label %171
 
 171:                                              ; preds = %.preheader15
   %172 = fcmp reassoc nsz arcp contract afn olt double %169, 0.000000e+00
-  br i1 %172, label %174, label %173
+  br i1 %172, label %175, label %173
 
 173:                                              ; preds = %171
-  br label %174
+  %174 = fptrunc double %169 to float
+  br label %175
 
-174:                                              ; preds = %173, %171, %.preheader15
-  %175 = phi reassoc nsz arcp contract afn double [ 1.000000e+02, %.preheader15 ], [ %169, %173 ], [ 0.000000e+00, %171 ]
-  %176 = fptrunc double %175 to float
+175:                                              ; preds = %173, %171, %.preheader15
+  %176 = phi float [ 1.000000e+02, %.preheader15 ], [ %174, %173 ], [ 0.000000e+00, %171 ]
   %177 = getelementptr inbounds float, ptr %3, i64 %162
   store float %176, ptr %177, align 4, !tbaa !25, !alias.scope !59, !noalias !54
   %178 = getelementptr inbounds i8, ptr %177, i64 4
@@ -389,7 +389,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %180 = icmp ult i64 %179, %156
   br i1 %180, label %.loopexit16, label %.preheader15
 
-.loopexit16:                                      ; preds = %174, %.loopexit18
+.loopexit16:                                      ; preds = %175, %.loopexit18
   %181 = icmp ult i64 %20, 16
   br i1 %181, label %.loopexit, label %.preheader
 

@@ -303,6 +303,7 @@ drdynvc_get_conversation_data.exit:               ; preds = %27, %39, %.thread.i
   %.019.i = phi i32 [ 4, %56 ], [ 2, %53 ], [ 1, %50 ]
   %.0.i = phi i32 [ %57, %56 ], [ %55, %53 ], [ %52, %50 ]
   %59 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %49, ptr noundef %0, i32 noundef 1, i32 noundef %.019.i, i32 noundef %.0.i) #7
+  %60 = add nuw nsw i32 %.019.i, 1
   br label %dissect_rdp_vlength.exit
 
 default.unreachable:                              ; preds = %68, %48
@@ -310,8 +311,7 @@ default.unreachable:                              ; preds = %68, %48
 
 dissect_rdp_vlength.exit:                         ; preds = %48, %58
   %storemerge.i = phi i32 [ %.0.i, %58 ], [ 0, %48 ]
-  %.020.i = phi i32 [ %.019.i, %58 ], [ 0, %48 ]
-  %60 = add nuw nsw i32 %.020.i, 1
+  %.020.i = phi i32 [ %60, %58 ], [ 1, %48 ]
   %61 = load ptr, ptr %.1.i, align 8
   %62 = zext i32 %storemerge.i to i64
   %63 = inttoptr i64 %62 to ptr
@@ -323,7 +323,7 @@ dissect_rdp_vlength.exit:                         ; preds = %48, %58
 67:                                               ; preds = %dissect_rdp_vlength.exit, %drdynvc_get_conversation_data.exit
   %.0440 = phi i32 [ 0, %drdynvc_get_conversation_data.exit ], [ %storemerge.i, %dissect_rdp_vlength.exit ]
   %.0362 = phi ptr [ null, %drdynvc_get_conversation_data.exit ], [ %66, %dissect_rdp_vlength.exit ]
-  %.0358 = phi i32 [ 1, %drdynvc_get_conversation_data.exit ], [ %60, %dissect_rdp_vlength.exit ]
+  %.0358 = phi i32 [ 1, %drdynvc_get_conversation_data.exit ], [ %.020.i, %dissect_rdp_vlength.exit ]
   br i1 %.not378444, label %83, label %68
 
 68:                                               ; preds = %67

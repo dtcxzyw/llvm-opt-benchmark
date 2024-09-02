@@ -557,7 +557,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i16 @_ZN4node6crypto17RandomBytesTraits12EncodeOutputEPNS_11EnvironmentERKNS0_17RandomBytesConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %params, ptr nocapture noundef readnone %unused, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 1, 258) i16 @_ZN4node6crypto17RandomBytesTraits12EncodeOutputEPNS_11EnvironmentERKNS0_17RandomBytesConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %params, ptr nocapture noundef readnone %unused, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
@@ -1212,7 +1212,7 @@ declare noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 de
 declare ptr @_ZN2v811ArrayBuffer3NewEPNS_7IsolateESt10shared_ptrINS_12BackingStoreEE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node6crypto17RandomPrimeTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_17RandomPrimeConfigE(i32 %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, ptr nocapture noundef %params) local_unnamed_addr #5 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6crypto17RandomPrimeTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_17RandomPrimeConfigE(i32 %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, ptr nocapture noundef %params) local_unnamed_addr #5 align 2 {
 entry:
   %add59 = alloca %"class.node::crypto::ArrayBufferOrViewContents", align 8
   %rem = alloca %"class.node::crypto::ArrayBufferOrViewContents", align 8
@@ -1412,8 +1412,8 @@ if.end5.i:                                        ; preds = %if.end.i559
   %47 = inttoptr i64 %sub.i.i620 to ptr
   %48 = load i64, ptr %47, align 8
   %shr.i634.mask = and i64 %48, -4294967296
-  %cmp7.i = icmp eq i64 %shr.i634.mask, 21474836480
-  br i1 %cmp7.i, label %if.end77, label %if.then58
+  %cmp7.i.not = icmp eq i64 %shr.i634.mask, 21474836480
+  br i1 %cmp7.i.not, label %if.end77, label %if.then58
 
 if.then58:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit229, %if.end.i559, %if.end5.i
   br i1 %or.cond67, label %if.end.i194, label %if.then.i199

@@ -333,32 +333,32 @@ define dso_local noundef i64 @pg_snapshot_in(ptr nocapture noundef readonly %0) 
 44:                                               ; preds = %42
   %45 = getelementptr i8, ptr %32, i64 1
   %.pre.i = load i8, ptr %45, align 1
-  %.not41.i = icmp eq i8 %.pre.i, 0
-  br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  %46 = icmp eq i8 %.pre.i, 0
+  br i1 %46, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %44, %42, %24
-  %46 = load ptr, ptr %29, align 8
-  %47 = getelementptr inbounds i8, ptr %29, i64 8
-  %48 = load i32, ptr %47, align 8
-  %49 = shl i32 %48, 2
-  store i32 %49, ptr %46, align 4
+  %47 = load ptr, ptr %29, align 8
+  %48 = getelementptr inbounds i8, ptr %29, i64 8
+  %49 = load i32, ptr %48, align 8
+  %50 = shl i32 %49, 2
+  store i32 %50, ptr %47, align 4
   store ptr null, ptr %29, align 8
   call void @pfree(ptr noundef nonnull %29) #11
-  %50 = ptrtoint ptr %46 to i64
+  %51 = ptrtoint ptr %47 to i64
   br label %parse_snapshot.exit
 
 .loopexit.i:                                      ; preds = %42, %.lr.ph.i, %18, %13, %1
-  %51 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #11
-  br i1 %51, label %52, label %parse_snapshot.exit
+  %52 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #11
+  br i1 %52, label %53, label %parse_snapshot.exit
 
-52:                                               ; preds = %.loopexit.i
-  %53 = call i32 @errcode(i32 noundef 33685634) #11
-  %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef %7) #11
+53:                                               ; preds = %.loopexit.i
+  %54 = call i32 @errcode(i32 noundef 33685634) #11
+  %55 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef %7) #11
   call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 363, ptr noundef nonnull @__func__.parse_snapshot) #11
   br label %parse_snapshot.exit
 
-parse_snapshot.exit:                              ; preds = %._crit_edge.i, %.loopexit.i, %52
-  %.0.i = phi i64 [ %50, %._crit_edge.i ], [ 0, %.loopexit.i ], [ 0, %52 ]
+parse_snapshot.exit:                              ; preds = %._crit_edge.i, %.loopexit.i, %53
+  %.0.i = phi i64 [ %51, %._crit_edge.i ], [ 0, %.loopexit.i ], [ 0, %53 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %.0.i
 }
@@ -459,7 +459,7 @@ define dso_local i64 @pg_snapshot_recv(ptr nocapture noundef readonly %0) local_
 22:                                               ; preds = %.lr.ph, %35
   %.sroa.029.056 = phi i64 [ 0, %.lr.ph ], [ %.sroa.029.1, %35 ]
   %.055 = phi i32 [ %5, %.lr.ph ], [ %.1, %35 ]
-  %.04254 = phi i32 [ 0, %.lr.ph ], [ %36, %35 ]
+  %.04254 = phi i32 [ 0, %.lr.ph ], [ %.143, %35 ]
   %23 = tail call i64 @pq_getmsgint64(ptr noundef %4) #11
   %24 = icmp ult i64 %23, %.sroa.029.056
   %25 = icmp ult i64 %23, %8
@@ -470,42 +470,41 @@ define dso_local i64 @pg_snapshot_recv(ptr nocapture noundef readonly %0) local_
 
 27:                                               ; preds = %22
   %28 = icmp eq i64 %23, %.sroa.029.056
-  br i1 %28, label %29, label %32
+  br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27
-  %30 = add i32 %.04254, -1
-  %31 = add nsw i32 %.055, -1
+  %30 = add nsw i32 %.055, -1
   br label %35
 
-32:                                               ; preds = %27
-  %33 = sext i32 %.04254 to i64
-  %34 = getelementptr [0 x %struct.FullTransactionId], ptr %21, i64 0, i64 %33
-  store i64 %23, ptr %34, align 8
+31:                                               ; preds = %27
+  %32 = sext i32 %.04254 to i64
+  %33 = getelementptr [0 x %struct.FullTransactionId], ptr %21, i64 0, i64 %32
+  store i64 %23, ptr %33, align 8
+  %34 = add nsw i32 %.04254, 1
   br label %35
 
-35:                                               ; preds = %32, %29
-  %.143 = phi i32 [ %30, %29 ], [ %.04254, %32 ]
-  %.1 = phi i32 [ %31, %29 ], [ %.055, %32 ]
-  %.sroa.029.1 = phi i64 [ %.sroa.029.056, %29 ], [ %23, %32 ]
-  %36 = add i32 %.143, 1
-  %37 = icmp slt i32 %36, %.1
-  br i1 %37, label %22, label %._crit_edge, !llvm.loop !10
+35:                                               ; preds = %31, %29
+  %.143 = phi i32 [ %.04254, %29 ], [ %34, %31 ]
+  %.1 = phi i32 [ %30, %29 ], [ %.055, %31 ]
+  %.sroa.029.1 = phi i64 [ %.sroa.029.056, %29 ], [ %23, %31 ]
+  %36 = icmp slt i32 %.143, %.1
+  br i1 %36, label %22, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %35, %15
   %.0.lcssa = phi i32 [ 0, %15 ], [ %.1, %35 ]
-  %38 = getelementptr inbounds i8, ptr %18, i64 4
-  store i32 %.0.lcssa, ptr %38, align 4
-  %39 = shl i32 %.0.lcssa, 5
-  %40 = add i32 %39, 96
-  store i32 %40, ptr %18, align 4
-  %41 = ptrtoint ptr %18 to i64
-  ret i64 %41
+  %37 = getelementptr inbounds i8, ptr %18, i64 4
+  store i32 %.0.lcssa, ptr %37, align 4
+  %38 = shl i32 %.0.lcssa, 5
+  %39 = add i32 %38, 96
+  store i32 %39, ptr %18, align 4
+  %40 = ptrtoint ptr %18 to i64
+  ret i64 %40
 
 .loopexit:                                        ; preds = %22, %7, %1
-  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %42)
-  %43 = tail call i32 @errcode(i32 noundef 50462850) #11
-  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #11
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %41)
+  %42 = tail call i32 @errcode(i32 noundef 50462850) #11
+  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #11
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 555, ptr noundef nonnull @__func__.pg_snapshot_recv) #11
   unreachable
 }

@@ -140,7 +140,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @pr_manager_helper_run(ptr noundef %p, i32 noundef %fd, ptr nocapture noundef %io_hdr) #0 {
+define internal range(i32 -107, 1) i32 @pr_manager_helper_run(ptr noundef %p, i32 noundef %fd, ptr nocapture noundef %io_hdr) #0 {
 entry:
   %resp = alloca %struct.PRHelperResponse, align 4
   %cdb = alloca [16 x i8], align 16
@@ -374,7 +374,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @pr_manager_helper_initialize(ptr noundef %pr_mgr, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -107, 1) i32 @pr_manager_helper_initialize(ptr noundef %pr_mgr, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %saddr = alloca %struct.SocketAddress, align 8
   %local_err = alloca ptr, align 8

@@ -3276,7 +3276,7 @@ return:                                           ; preds = %if.end11, %if.end5,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, -2147483648) i32 @PyObject_HasAttrString(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @PyObject_HasAttrString(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PyObject_HasAttrStringWithError(ptr noundef %obj, ptr noundef %name)
   %cmp = icmp slt i32 %call, 0
@@ -4126,7 +4126,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, -2147483648) i32 @PyObject_HasAttr(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @PyObject_HasAttr(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %res.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)

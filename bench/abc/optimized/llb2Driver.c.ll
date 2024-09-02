@@ -73,11 +73,11 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds i8, ptr %29, i64 36
   %31 = load i32, ptr %30, align 4
+  %32 = sext i32 %31 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %20, %26
-  %32 = phi i32 [ %31, %26 ], [ -1, %20 ]
-  %33 = sext i32 %32 to i64
+  %33 = phi i64 [ %32, %26 ], [ -1, %20 ]
   %34 = getelementptr inbounds i32, ptr %.val13, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = add nsw i32 %35, 1
@@ -448,12 +448,12 @@ define noundef ptr @Llb_DriverPhaseCube(ptr nocapture noundef readonly %0, ptr n
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds i8, ptr %23, i64 36
   %25 = load i32, ptr %24, align 4
+  %26 = sext i32 %25 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %12, %20
-  %26 = phi i32 [ %25, %20 ], [ -1, %12 ]
+  %27 = phi i64 [ %26, %20 ], [ -1, %12 ]
   %.val30 = load ptr, ptr %11, align 8
-  %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i32, ptr %.val30, i64 %27
   %29 = load i32, ptr %28, align 4
   %.not = icmp eq i32 %29, 1

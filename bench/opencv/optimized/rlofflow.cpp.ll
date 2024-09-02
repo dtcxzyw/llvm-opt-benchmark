@@ -3900,15 +3900,15 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = %_
 ._crit_edge384.loopexit:                          ; preds = %._crit_edge
   %.pre399 = load ptr, ptr %17, align 8
   %.pre400 = load ptr, ptr %275, align 8
+  %312 = sext i32 %.199.lcssa to i64
   br label %._crit_edge384
 
 ._crit_edge384:                                   ; preds = %.preheader379.lr.ph, %._crit_edge384.loopexit, %273
-  %312 = phi ptr [ %.0.lcssa.i.i.i.i.i, %273 ], [ %.pre400, %._crit_edge384.loopexit ], [ %.0.lcssa.i.i.i.i.i, %.preheader379.lr.ph ]
-  %313 = phi ptr [ %274, %273 ], [ %.pre399, %._crit_edge384.loopexit ], [ %274, %.preheader379.lr.ph ]
-  %.098.lcssa = phi i32 [ 0, %273 ], [ %.199.lcssa, %._crit_edge384.loopexit ], [ 0, %.preheader379.lr.ph ]
-  %314 = sext i32 %.098.lcssa to i64
-  %315 = getelementptr inbounds %"class.cv::Point_", ptr %313, i64 %314
-  %.not.i.i = icmp eq ptr %315, %312
+  %313 = phi ptr [ %.0.lcssa.i.i.i.i.i, %273 ], [ %.pre400, %._crit_edge384.loopexit ], [ %.0.lcssa.i.i.i.i.i, %.preheader379.lr.ph ]
+  %314 = phi ptr [ %274, %273 ], [ %.pre399, %._crit_edge384.loopexit ], [ %274, %.preheader379.lr.ph ]
+  %.098.lcssa = phi i64 [ 0, %273 ], [ %312, %._crit_edge384.loopexit ], [ 0, %.preheader379.lr.ph ]
+  %315 = getelementptr inbounds %"class.cv::Point_", ptr %314, i64 %.098.lcssa
+  %.not.i.i = icmp eq ptr %315, %313
   br i1 %.not.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge384
@@ -3916,9 +3916,9 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = %_
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit: ; preds = %._crit_edge.i.i, %._crit_edge384
-  %316 = phi ptr [ %315, %._crit_edge.i.i ], [ %312, %._crit_edge384 ]
+  %316 = phi ptr [ %315, %._crit_edge.i.i ], [ %313, %._crit_edge384 ]
   %317 = ptrtoint ptr %316 to i64
-  %318 = ptrtoint ptr %313 to i64
+  %318 = ptrtoint ptr %314 to i64
   %319 = sub i64 %317, %318
   %320 = ashr exact i64 %319, 3
   %321 = getelementptr inbounds i8, ptr %18, i64 8
@@ -4457,13 +4457,16 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit240: ; preds = %519, %517, %51
   %561 = sub i64 %559, %560
   %562 = ashr exact i64 %561, 3
   %563 = icmp ugt i64 %562, %558
-  br i1 %563, label %.lr.ph390, label %._crit_edge391, !llvm.loop !44
+  br i1 %563, label %.lr.ph390, label %._crit_edge391.loopexit, !llvm.loop !44
 
-._crit_edge391:                                   ; preds = %554, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit240
-  %.2100.lcssa = phi i32 [ 0, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit240 ], [ %.3101, %554 ]
-  %564 = load ptr, ptr %23, align 8
-  %565 = sext i32 %.2100.lcssa to i64
-  %566 = getelementptr inbounds %"class.cv::Point_", ptr %564, i64 %565
+._crit_edge391.loopexit:                          ; preds = %554
+  %564 = sext i32 %.3101 to i64
+  br label %._crit_edge391
+
+._crit_edge391:                                   ; preds = %._crit_edge391.loopexit, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit240
+  %.2100.lcssa = phi i64 [ 0, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit240 ], [ %564, %._crit_edge391.loopexit ]
+  %565 = load ptr, ptr %23, align 8
+  %566 = getelementptr inbounds %"class.cv::Point_", ptr %565, i64 %.2100.lcssa
   %567 = load ptr, ptr %438, align 8
   %.not.i.i243 = icmp eq ptr %566, %567
   br i1 %.not.i.i243, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit251, label %._crit_edge.i.i248
@@ -4474,7 +4477,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit240: ; preds = %519, %517, %51
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit251: ; preds = %._crit_edge.i.i248, %._crit_edge391
   %568 = load ptr, ptr %24, align 8
-  %569 = getelementptr inbounds %"class.cv::Point_", ptr %568, i64 %565
+  %569 = getelementptr inbounds %"class.cv::Point_", ptr %568, i64 %.2100.lcssa
   %570 = load ptr, ptr %482, align 8
   %.not.i.i252 = icmp eq ptr %569, %570
   br i1 %.not.i.i252, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit260, label %._crit_edge.i.i257
@@ -4575,7 +4578,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EEaSERKS4_.exit291: ; preds = %.loopexit, %_ZN
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit260: ; preds = %._crit_edge.i.i257, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit251, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EEaSERKS4_.exit291
   %606 = phi ptr [ %566, %._crit_edge.i.i257 ], [ %566, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit251 ], [ %587, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EEaSERKS4_.exit291 ]
-  %607 = phi ptr [ %564, %._crit_edge.i.i257 ], [ %564, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit251 ], [ %586, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EEaSERKS4_.exit291 ]
+  %607 = phi ptr [ %565, %._crit_edge.i.i257 ], [ %565, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit251 ], [ %586, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EEaSERKS4_.exit291 ]
   %608 = icmp eq ptr %607, %606
   br i1 %608, label %609, label %615
 

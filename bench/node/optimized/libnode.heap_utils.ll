@@ -866,7 +866,7 @@ _ZNSt13unordered_setISt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i8 @_ZN4node4heap13WriteSnapshotEPNS_11EnvironmentEPKcN2v812HeapProfiler19HeapSnapshotOptionsE(ptr nocapture noundef readonly %env, ptr noundef %filename, ptr nocapture noundef readonly byval(%"struct.v8::HeapProfiler::HeapSnapshotOptions") align 8 %options) local_unnamed_addr #3 {
+define dso_local range(i8 0, 2) i8 @_ZN4node4heap13WriteSnapshotEPNS_11EnvironmentEPKcN2v812HeapProfiler19HeapSnapshotOptionsE(ptr nocapture noundef readonly %env, ptr noundef %filename, ptr nocapture noundef readonly byval(%"struct.v8::HeapProfiler::HeapSnapshotOptions") align 8 %options) local_unnamed_addr #3 {
 entry:
   %agg.tmp12 = alloca %"struct.v8::HeapProfiler::HeapSnapshotOptions", align 8
   %req = alloca %struct.uv_fs_s, align 8
@@ -1452,7 +1452,7 @@ do.end35:                                         ; preds = %do.end35.critedge, 
   %options.sroa.5.0.agg.tmp38.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp38, i64 24
   store i64 0, ptr %options.sroa.5.0.agg.tmp38.sroa_idx, align 8
   %call39 = call i8 @_ZN4node4heap13WriteSnapshotEPNS_11EnvironmentEPKcN2v812HeapProfiler19HeapSnapshotOptionsE(ptr noundef nonnull %retval.0.i.i, ptr noundef %call.i, ptr noundef nonnull byval(%"struct.v8::HeapProfiler::HeapSnapshotOptions") align 8 %agg.tmp38)
-  %tobool.i177 = trunc i8 %call39 to i1
+  %tobool.i177 = trunc nuw i8 %call39 to i1
   br i1 %tobool.i177, label %if.end43, label %cleanup
 
 if.end43:                                         ; preds = %do.end35
@@ -1518,7 +1518,7 @@ do.end92:                                         ; preds = %do.body79, %if.end.
   %options.sroa.5.0.agg.tmp95.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp95, i64 24
   store i64 0, ptr %options.sroa.5.0.agg.tmp95.sroa_idx, align 8
   %call96 = call i8 @_ZN4node4heap13WriteSnapshotEPNS_11EnvironmentEPKcN2v812HeapProfiler19HeapSnapshotOptionsE(ptr noundef nonnull %retval.0.i.i, ptr noundef %41, ptr noundef nonnull byval(%"struct.v8::HeapProfiler::HeapSnapshotOptions") align 8 %agg.tmp95)
-  %tobool.i173 = trunc i8 %call96 to i1
+  %tobool.i173 = trunc nuw i8 %call96 to i1
   br i1 %tobool.i173, label %if.else.i, label %cleanup108
 
 if.else.i:                                        ; preds = %do.end92

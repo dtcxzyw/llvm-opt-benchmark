@@ -7695,7 +7695,7 @@ _ZN4Luau10fromStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; p
 declare noundef ptr @_ZN4Luau8Frontend15getSourceModuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1744), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN4Luau7Fixture16getPrimitiveTypeEPKNS_4TypeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2232) %0, ptr noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4Luau7Fixture16getPrimitiveTypeEPKNS_4TypeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2232) %0, ptr noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.doctest::detail::ResultBuilder", align 8
   %5 = alloca %"class.doctest::String", align 8

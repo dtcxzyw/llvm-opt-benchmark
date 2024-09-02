@@ -228,24 +228,24 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
 
 if.else.i:                                        ; preds = %land.lhs.true2.i, %for.body46
   %call.i = tail call i64 @iov_from_buf_full(ptr noundef %26, i32 noundef %27, i64 noundef 0, ptr noundef %arrayidx49, i64 noundef 8) #11
+  %31 = trunc i64 %call.i to i32
   br label %iov_from_buf.exit
 
 iov_from_buf.exit:                                ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi i64 [ 8, %if.then.i ], [ %call.i, %if.else.i ]
-  %conv56 = trunc i64 %retval.0.i to i32
-  %31 = load ptr, ptr %evt57, align 8
-  tail call void @virtqueue_push(ptr noundef %31, ptr noundef nonnull %25, i32 noundef %conv56) #11
+  %retval.0.i = phi i32 [ 8, %if.then.i ], [ %31, %if.else.i ]
+  %32 = load ptr, ptr %evt57, align 8
+  tail call void @virtqueue_push(ptr noundef %32, ptr noundef nonnull %25, i32 noundef %retval.0.i) #11
   tail call void @g_free(ptr noundef nonnull %25) #11
   %inc59 = add nuw i32 %i.242, 1
-  %32 = load i32, ptr %qindex, align 8
-  %cmp44 = icmp ult i32 %inc59, %32
+  %33 = load i32, ptr %qindex, align 8
+  %cmp44 = icmp ult i32 %inc59, %33
   br i1 %cmp44, label %for.body46, label %for.end60, !llvm.loop !8
 
 for.end60:                                        ; preds = %iov_from_buf.exit, %for.cond.preheader, %for.cond42.preheader
   %call.i37 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vinput, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %evt62 = getelementptr inbounds i8, ptr %vinput, i64 544
-  %33 = load ptr, ptr %evt62, align 8
-  tail call void @virtio_notify(ptr noundef %call.i37, ptr noundef %33) #11
+  %34 = load ptr, ptr %evt62, align 8
+  tail call void @virtio_notify(ptr noundef %call.i37, ptr noundef %34) #11
   store i32 0, ptr %qindex, align 8
   br label %return
 
@@ -916,31 +916,31 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
 
 if.else.i:                                        ; preds = %land.lhs.true2.i, %if.end
   %call.i12 = call i64 @iov_to_buf_full(ptr noundef %1, i32 noundef %2, i64 noundef 0, ptr noundef nonnull %event, i64 noundef 8) #11
+  %6 = trunc i64 %call.i12 to i32
   br label %iov_to_buf.exit
 
 iov_to_buf.exit:                                  ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi i64 [ 8, %if.then.i ], [ %call.i12, %if.else.i ]
-  %conv = trunc i64 %retval.0.i to i32
-  %6 = load ptr, ptr %handle_status, align 8
-  %tobool4.not = icmp eq ptr %6, null
+  %retval.0.i = phi i32 [ 8, %if.then.i ], [ %6, %if.else.i ]
+  %7 = load ptr, ptr %handle_status, align 8
+  %tobool4.not = icmp eq ptr %7, null
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %iov_to_buf.exit
-  call void %6(ptr noundef nonnull %call.i11, ptr noundef nonnull %event) #11
+  call void %7(ptr noundef nonnull %call.i11, ptr noundef nonnull %event) #11
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %iov_to_buf.exit
-  %7 = load ptr, ptr %sts, align 8
-  call void @virtqueue_push(ptr noundef %7, ptr noundef nonnull %call215, i32 noundef %conv) #11
-  call void @g_free(ptr noundef nonnull %call215) #11
   %8 = load ptr, ptr %sts, align 8
-  %call2 = call ptr @virtqueue_pop(ptr noundef %8, i64 noundef 56) #11
+  call void @virtqueue_push(ptr noundef %8, ptr noundef nonnull %call215, i32 noundef %retval.0.i) #11
+  call void @g_free(ptr noundef nonnull %call215) #11
+  %9 = load ptr, ptr %sts, align 8
+  %call2 = call ptr @virtqueue_pop(ptr noundef %9, i64 noundef 56) #11
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %for.end, label %if.end
 
 for.end:                                          ; preds = %if.end7, %entry
-  %9 = load ptr, ptr %sts, align 8
-  call void @virtio_notify(ptr noundef %vdev, ptr noundef %9) #11
+  %10 = load ptr, ptr %sts, align 8
+  call void @virtio_notify(ptr noundef %vdev, ptr noundef %10) #11
   ret void
 }
 

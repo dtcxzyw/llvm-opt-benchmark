@@ -306,22 +306,22 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont
   store ptr %appender, ptr %cachePtr_.i.i.i.i, align 8
   %.pre = load ptr, ptr %second3.i.i.i.i.i.i, align 8
   %.pre38 = load ptr, ptr %appender, align 8
+  %6 = ptrtoint ptr %.pre to i64
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %if.then.i.i.i.i, %invoke.cont
-  %6 = phi ptr [ %.pre38, %if.then.i.i.i.i ], [ null, %invoke.cont ]
-  %7 = phi ptr [ %.pre, %if.then.i.i.i.i ], [ null, %invoke.cont ]
+  %7 = phi ptr [ %.pre38, %if.then.i.i.i.i ], [ null, %invoke.cont ]
+  %sub.ptr.lhs.cast.i.i.i.i = phi i64 [ %6, %if.then.i.i.i.i ], [ 0, %invoke.cont ]
   %growth_.i = getelementptr inbounds i8, ptr %appender, i64 32
   store i64 %add, ptr %growth_.i, align 8
   %second.i.i.i.i = getelementptr inbounds i8, ptr %appender, i64 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont4
-  %cmp.i.i.i = icmp ne ptr %6, null
+  %cmp.i.i.i = icmp ne ptr %7, null
   call void @llvm.assume(i1 %cmp.i.i.i)
   br label %invoke.cont6
 
@@ -379,7 +379,7 @@ _ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i, %if.then.i.i
-  %.sink.i.i = phi ptr [ %17, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i ], [ %6, %if.then.i.i ]
+  %.sink.i.i = phi ptr [ %17, %_ZN5folly2io13QueueAppender9writeSlowItEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i ], [ %7, %if.then.i.i ]
   %18 = call noundef i16 @llvm.bswap.i16(i16 %0)
   store i16 %18, ptr %.sink.i.i, align 1
   %.pn.i.i = load ptr, ptr %appender, align 8

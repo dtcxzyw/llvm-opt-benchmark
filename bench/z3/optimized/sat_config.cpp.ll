@@ -893,9 +893,9 @@ invoke.cont186:                                   ; preds = %.noexc109
 invoke.cont190:                                   ; preds = %invoke.cont186
   %60 = load ptr, ptr %ref.tmp189, align 8
   %cmp.i111 = icmp ne ptr %call.i110, %60
-  %spec.select449 = zext i1 %cmp.i111 to i32
+  %spec.select = zext i1 %cmp.i111 to i32
   %61 = getelementptr inbounds i8, ptr %this, i64 168
-  store i32 %spec.select449, ptr %61, align 8
+  store i32 %spec.select, ptr %61, align 8
   %62 = load ptr, ptr %p, align 8
   %call.i113 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull @.str.86, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont197 unwind label %lpad2
@@ -1281,9 +1281,9 @@ cleanup.action382:                                ; preds = %if.else369
   br label %ehcleanup739
 
 if.end388:                                        ; preds = %invoke.cont364, %invoke.cont353, %invoke.cont342, %invoke.cont331, %invoke.cont321
-  %.sink450 = phi i32 [ 0, %invoke.cont321 ], [ 1, %invoke.cont331 ], [ 2, %invoke.cont342 ], [ 3, %invoke.cont353 ], [ 4, %invoke.cont364 ]
+  %.sink449 = phi i32 [ 0, %invoke.cont321 ], [ 1, %invoke.cont331 ], [ 2, %invoke.cont342 ], [ 3, %invoke.cont353 ], [ 4, %invoke.cont364 ]
   %m_lookahead_cube_cutoff335 = getelementptr inbounds i8, ptr %this, i64 196
-  store i32 %.sink450, ptr %m_lookahead_cube_cutoff335, align 4
+  store i32 %.sink449, ptr %m_lookahead_cube_cutoff335, align 4
   %102 = load ptr, ptr %p, align 8
   %call.i205 = invoke noundef double @_ZNK10params_ref10get_doubleEPKcRKS_d(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull @.str.104, ptr noundef nonnull align 8 dereferenceable(8) %g.i, double noundef 4.000000e-01)
           to label %invoke.cont389 unwind label %lpad2
@@ -1497,9 +1497,9 @@ cleanup.action487:                                ; preds = %if.else474
   br label %ehcleanup739
 
 if.end493:                                        ; preds = %invoke.cont469, %invoke.cont462, %invoke.cont455, %invoke.cont448, %invoke.cont442
-  %.sink451 = phi i32 [ 0, %invoke.cont442 ], [ 3, %invoke.cont448 ], [ 2, %invoke.cont455 ], [ 1, %invoke.cont462 ], [ 4, %invoke.cont469 ]
+  %.sink450 = phi i32 [ 0, %invoke.cont442 ], [ 3, %invoke.cont448 ], [ 2, %invoke.cont455 ], [ 1, %invoke.cont462 ], [ 4, %invoke.cont469 ]
   %m_gc_strategy452 = getelementptr inbounds i8, ptr %this, i64 292
-  store i32 %.sink451, ptr %m_gc_strategy452, align 4
+  store i32 %.sink450, ptr %m_gc_strategy452, align 4
   %128 = load ptr, ptr %p, align 8
   %call.i236 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef nonnull @.str.115, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 20000)
           to label %invoke.cont494 unwind label %lpad2
@@ -1701,14 +1701,16 @@ invoke.cont562:                                   ; preds = %invoke.cont559
 lor.lhs.false564:                                 ; preds = %invoke.cont559, %invoke.cont562
   %154 = load i8, ptr %m_smt_proof_check, align 8
   %tobool566 = trunc i8 %154 to i1
+  br i1 %tobool566, label %land.end, label %lor.rhs
+
+lor.rhs:                                          ; preds = %lor.lhs.false564
   %155 = load i8, ptr %m_drat_check_sat, align 2
-  %spec.select = select i1 %tobool566, i8 1, i8 %155
+  %156 = and i8 %155, 1
   br label %land.end
 
-land.end:                                         ; preds = %lor.lhs.false564, %invoke.cont548, %lor.lhs.false550, %invoke.cont555, %invoke.cont562, %invoke.cont545, %invoke.cont541
-  %156 = phi i8 [ 0, %invoke.cont545 ], [ 0, %invoke.cont541 ], [ 1, %invoke.cont562 ], [ 1, %invoke.cont555 ], [ 1, %lor.lhs.false550 ], [ 1, %invoke.cont548 ], [ %spec.select, %lor.lhs.false564 ]
+land.end:                                         ; preds = %invoke.cont548, %lor.lhs.false550, %invoke.cont555, %invoke.cont562, %lor.lhs.false564, %lor.rhs, %invoke.cont545, %invoke.cont541
+  %frombool569 = phi i8 [ 0, %invoke.cont545 ], [ 0, %invoke.cont541 ], [ 1, %lor.lhs.false564 ], [ 1, %invoke.cont562 ], [ 1, %invoke.cont555 ], [ 1, %lor.lhs.false550 ], [ 1, %invoke.cont548 ], [ %156, %lor.rhs ]
   %m_drat = getelementptr inbounds i8, ptr %this, i64 328
-  %frombool569 = and i8 %156, 1
   store i8 %frombool569, ptr %m_drat, align 8
   %157 = load ptr, ptr %p, align 8
   %call.i290 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef nonnull @.str.134, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
@@ -2039,9 +2041,9 @@ cleanup.action697:                                ; preds = %if.else684
   br label %ehcleanup739
 
 if.end700:                                        ; preds = %invoke.cont680, %.noexc346, %invoke.cont676, %.noexc332
-  %.sink452 = phi i32 [ 0, %.noexc332 ], [ 0, %invoke.cont676 ], [ 1, %.noexc346 ], [ 1, %invoke.cont680 ]
+  %.sink451 = phi i32 [ 0, %.noexc332 ], [ 0, %invoke.cont676 ], [ 1, %.noexc346 ], [ 1, %invoke.cont680 ]
   %m_pb_resolve683 = getelementptr inbounds i8, ptr %this, i64 352
-  store i32 %.sink452, ptr %m_pb_resolve683, align 8
+  store i32 %.sink451, ptr %m_pb_resolve683, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i349)
   %188 = load ptr, ptr %p, align 8
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i349, ptr noundef nonnull @.str.48)
@@ -2164,9 +2166,9 @@ cleanup.action726:                                ; preds = %if.else713
   br label %ehcleanup739
 
 if.end729:                                        ; preds = %invoke.cont709.tail, %.noexc381, %invoke.cont705, %.noexc366
-  %.sink453 = phi i32 [ 0, %.noexc366 ], [ 0, %invoke.cont705 ], [ 1, %.noexc381 ], [ 1, %invoke.cont709.tail ]
+  %.sink452 = phi i32 [ 0, %.noexc366 ], [ 0, %invoke.cont705 ], [ 1, %.noexc381 ], [ 1, %invoke.cont709.tail ]
   %m_pb_lemma_format712 = getelementptr inbounds i8, ptr %this, i64 356
-  store i32 %.sink453, ptr %m_pb_lemma_format712, align 4
+  store i32 %.sink452, ptr %m_pb_lemma_format712, align 4
   %199 = load ptr, ptr %p, align 8
   %call.i385 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %199, ptr noundef nonnull @.str.143, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext true)
           to label %invoke.cont730 unwind label %lpad2

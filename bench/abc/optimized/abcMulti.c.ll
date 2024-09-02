@@ -484,26 +484,26 @@ define ptr @Abc_NtkMulti(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 
 237:                                              ; preds = %217
   %.not31 = icmp eq i32 %6, 0
-  br i1 %.not31, label %283, label %238
+  br i1 %.not31, label %285, label %238
 
 238:                                              ; preds = %237
   %239 = getelementptr inbounds i8, ptr %0, i64 32
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr i8, ptr %240, i64 4
-  %.val2736.i = load i32, ptr %241, align 4
-  %242 = icmp sgt i32 %.val2736.i, 0
+  %.val2735.i = load i32, ptr %241, align 4
+  %242 = icmp sgt i32 %.val2735.i, 0
   br i1 %242, label %.lr.ph.i53, label %.critedge2.preheader.i50
 
 .critedge2.preheader.i50:                         ; preds = %.critedge.i56, %238
   %243 = getelementptr i8, ptr %0, i64 64
-  %.val3338.i = load ptr, ptr %243, align 8
-  %244 = getelementptr i8, ptr %.val3338.i, i64 4
-  %.val33.val39.i = load i32, ptr %244, align 4
-  %245 = icmp sgt i32 %.val33.val39.i, 0
+  %.val3337.i = load ptr, ptr %243, align 8
+  %244 = getelementptr i8, ptr %.val3337.i, i64 4
+  %.val33.val38.i = load i32, ptr %244, align 4
+  %245 = icmp sgt i32 %.val33.val38.i, 0
   br i1 %245, label %.critedge2.i52, label %Abc_NtkMultiSetBoundsCnf.exit
 
 .lr.ph.i53:                                       ; preds = %238, %.critedge.i56
-  %246 = phi ptr [ %264, %.critedge.i56 ], [ %240, %238 ]
+  %246 = phi ptr [ %266, %.critedge.i56 ], [ %240, %238 ]
   %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i57, %.critedge.i56 ], [ 0, %238 ]
   %247 = getelementptr i8, ptr %246, i64 8
   %.val29.val.i = load ptr, ptr %247, align 8
@@ -523,261 +523,260 @@ define ptr @Abc_NtkMulti(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   %255 = getelementptr inbounds i8, ptr %249, i64 44
   %256 = load i32, ptr %255, align 4
   %257 = icmp sgt i32 %256, 1
-  br i1 %257, label %258, label %.thread.i
+  br i1 %257, label %258, label %261
 
 258:                                              ; preds = %254
   %259 = tail call i32 @Abc_NodeIsMuxControlType(ptr noundef nonnull %249) #6
-  %.fr.i = freeze i32 %259
-  %.not26.i = icmp eq i32 %.fr.i, 0
-  %spec.select.i = select i1 %.not26.i, i32 16, i32 0
+  %.not26.i = icmp eq i32 %259, 0
+  %260 = select i1 %.not26.i, i32 16, i32 0
   %.pre.i58 = load i32, ptr %252, align 4
-  br label %.thread.i
+  br label %261
 
-.thread.i:                                        ; preds = %258, %254
-  %260 = phi i32 [ %.pre.i58, %258 ], [ %.val30.i, %254 ]
-  %261 = phi i32 [ %spec.select.i, %258 ], [ 0, %254 ]
-  %262 = and i32 %260, -17
-  %263 = or disjoint i32 %262, %261
-  store i32 %263, ptr %252, align 4
-  %.pre48.i = load ptr, ptr %239, align 8
+261:                                              ; preds = %258, %254
+  %262 = phi i32 [ %.val30.i, %254 ], [ %.pre.i58, %258 ]
+  %263 = phi i32 [ 0, %254 ], [ %260, %258 ]
+  %264 = and i32 %262, -17
+  %265 = or disjoint i32 %264, %263
+  store i32 %265, ptr %252, align 4
+  %.pre47.i = load ptr, ptr %239, align 8
   br label %.critedge.i56
 
-.critedge.i56:                                    ; preds = %.thread.i, %251, %.lr.ph.i53
-  %264 = phi ptr [ %.pre48.i, %.thread.i ], [ %246, %251 ], [ %246, %.lr.ph.i53 ]
+.critedge.i56:                                    ; preds = %261, %251, %.lr.ph.i53
+  %266 = phi ptr [ %.pre47.i, %261 ], [ %246, %251 ], [ %246, %.lr.ph.i53 ]
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i54, 1
-  %265 = getelementptr i8, ptr %264, i64 4
-  %.val27.i = load i32, ptr %265, align 4
-  %266 = sext i32 %.val27.i to i64
-  %267 = icmp slt i64 %indvars.iv.next.i57, %266
-  br i1 %267, label %.lr.ph.i53, label %.critedge2.preheader.i50, !llvm.loop !11
+  %267 = getelementptr i8, ptr %266, i64 4
+  %.val27.i = load i32, ptr %267, align 4
+  %268 = sext i32 %.val27.i to i64
+  %269 = icmp slt i64 %indvars.iv.next.i57, %268
+  br i1 %269, label %.lr.ph.i53, label %.critedge2.preheader.i50, !llvm.loop !11
 
 .critedge2.i52:                                   ; preds = %.critedge2.preheader.i50, %.critedge2.i52
-  %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %.critedge2.i52 ], [ 0, %.critedge2.preheader.i50 ]
-  %.val3341.i = phi ptr [ %.val33.i, %.critedge2.i52 ], [ %.val3338.i, %.critedge2.preheader.i50 ]
-  %268 = getelementptr i8, ptr %.val3341.i, i64 8
-  %.val34.val.i = load ptr, ptr %268, align 8
-  %269 = getelementptr inbounds ptr, ptr %.val34.val.i, i64 %indvars.iv45.i
-  %270 = load ptr, ptr %269, align 8
-  %.val31.i = load ptr, ptr %270, align 8
-  %271 = getelementptr i8, ptr %270, i64 32
-  %.val32.i = load ptr, ptr %271, align 8
-  %272 = getelementptr i8, ptr %.val31.i, i64 32
-  %.val31.val.i = load ptr, ptr %272, align 8
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.critedge2.i52 ], [ 0, %.critedge2.preheader.i50 ]
+  %.val3340.i = phi ptr [ %.val33.i, %.critedge2.i52 ], [ %.val3337.i, %.critedge2.preheader.i50 ]
+  %270 = getelementptr i8, ptr %.val3340.i, i64 8
+  %.val34.val.i = load ptr, ptr %270, align 8
+  %271 = getelementptr inbounds ptr, ptr %.val34.val.i, i64 %indvars.iv44.i
+  %272 = load ptr, ptr %271, align 8
+  %.val31.i = load ptr, ptr %272, align 8
+  %273 = getelementptr i8, ptr %272, i64 32
+  %.val32.i = load ptr, ptr %273, align 8
+  %274 = getelementptr i8, ptr %.val31.i, i64 32
+  %.val31.val.i = load ptr, ptr %274, align 8
   %.val32.val.i = load i32, ptr %.val32.i, align 4
-  %273 = getelementptr i8, ptr %.val31.val.i, i64 8
-  %.val31.val.val.i = load ptr, ptr %273, align 8
-  %274 = sext i32 %.val32.val.i to i64
-  %275 = getelementptr inbounds ptr, ptr %.val31.val.val.i, i64 %274
-  %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 20
-  %278 = load i32, ptr %277, align 4
-  %279 = or i32 %278, 16
-  store i32 %279, ptr %277, align 4
-  %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
+  %275 = getelementptr i8, ptr %.val31.val.i, i64 8
+  %.val31.val.val.i = load ptr, ptr %275, align 8
+  %276 = sext i32 %.val32.val.i to i64
+  %277 = getelementptr inbounds ptr, ptr %.val31.val.val.i, i64 %276
+  %278 = load ptr, ptr %277, align 8
+  %279 = getelementptr inbounds i8, ptr %278, i64 20
+  %280 = load i32, ptr %279, align 4
+  %281 = or i32 %280, 16
+  store i32 %281, ptr %279, align 4
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %.val33.i = load ptr, ptr %243, align 8
-  %280 = getelementptr i8, ptr %.val33.i, i64 4
-  %.val33.val.i = load i32, ptr %280, align 4
-  %281 = sext i32 %.val33.val.i to i64
-  %282 = icmp slt i64 %indvars.iv.next46.i, %281
-  br i1 %282, label %.critedge2.i52, label %Abc_NtkMultiSetBoundsCnf.exit, !llvm.loop !12
+  %282 = getelementptr i8, ptr %.val33.i, i64 4
+  %.val33.val.i = load i32, ptr %282, align 4
+  %283 = sext i32 %.val33.val.i to i64
+  %284 = icmp slt i64 %indvars.iv.next45.i, %283
+  br i1 %284, label %.critedge2.i52, label %Abc_NtkMultiSetBoundsCnf.exit, !llvm.loop !12
 
-283:                                              ; preds = %237
+285:                                              ; preds = %237
   tail call fastcc void @Abc_NtkMultiSetBounds(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %Abc_NtkMultiSetBoundsCnf.exit
 
-Abc_NtkMultiSetBoundsCnf.exit:                    ; preds = %.critedge4.i, %.critedge2.i37, %.critedge.i47, %.critedge2.i52, %.critedge2.preheader.i50, %218, %.critedge2.preheader.i35, %.critedge4.preheader.i, %283
-  %284 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 2, i32 noundef 2) #6
-  %285 = tail call ptr @Abc_AigConst1(ptr noundef %0) #6
-  %286 = getelementptr i8, ptr %285, i64 44
-  %.val31.i59 = load i32, ptr %286, align 4
-  %287 = icmp sgt i32 %.val31.i59, 0
-  br i1 %287, label %288, label %295
+Abc_NtkMultiSetBoundsCnf.exit:                    ; preds = %.critedge4.i, %.critedge2.i37, %.critedge.i47, %.critedge2.i52, %.critedge2.preheader.i50, %218, %.critedge2.preheader.i35, %.critedge4.preheader.i, %285
+  %286 = tail call ptr @Abc_NtkStartFrom(ptr noundef %0, i32 noundef 2, i32 noundef 2) #6
+  %287 = tail call ptr @Abc_AigConst1(ptr noundef %0) #6
+  %288 = getelementptr i8, ptr %287, i64 44
+  %.val31.i59 = load i32, ptr %288, align 4
+  %289 = icmp sgt i32 %.val31.i59, 0
+  br i1 %289, label %290, label %297
 
-288:                                              ; preds = %Abc_NtkMultiSetBoundsCnf.exit
-  %289 = tail call ptr @Abc_NtkCreateObj(ptr noundef %284, i32 noundef 7) #6
-  %290 = getelementptr inbounds i8, ptr %284, i64 256
-  %291 = load ptr, ptr %290, align 8
-  %292 = tail call ptr @Cudd_ReadOne(ptr noundef %291) #6
-  %293 = getelementptr inbounds i8, ptr %289, i64 56
-  store ptr %292, ptr %293, align 8
-  tail call void @Cudd_Ref(ptr noundef %292) #6
-  %294 = getelementptr inbounds i8, ptr %285, i64 64
-  store ptr %289, ptr %294, align 8
-  br label %295
+290:                                              ; preds = %Abc_NtkMultiSetBoundsCnf.exit
+  %291 = tail call ptr @Abc_NtkCreateObj(ptr noundef %286, i32 noundef 7) #6
+  %292 = getelementptr inbounds i8, ptr %286, i64 256
+  %293 = load ptr, ptr %292, align 8
+  %294 = tail call ptr @Cudd_ReadOne(ptr noundef %293) #6
+  %295 = getelementptr inbounds i8, ptr %291, i64 56
+  store ptr %294, ptr %295, align 8
+  tail call void @Cudd_Ref(ptr noundef %294) #6
+  %296 = getelementptr inbounds i8, ptr %287, i64 64
+  store ptr %291, ptr %296, align 8
+  br label %297
 
-295:                                              ; preds = %288, %Abc_NtkMultiSetBoundsCnf.exit
-  %296 = load ptr, ptr @stdout, align 8
-  %297 = getelementptr i8, ptr %0, i64 64
-  %.val36.i = load ptr, ptr %297, align 8
-  %298 = getelementptr i8, ptr %.val36.i, i64 4
-  %.val36.val.i = load i32, ptr %298, align 4
-  %299 = tail call ptr @Extra_ProgressBarStart(ptr noundef %296, i32 noundef %.val36.val.i) #6
-  %.val3742.i = load ptr, ptr %297, align 8
-  %300 = getelementptr i8, ptr %.val3742.i, i64 4
-  %.val37.val43.i = load i32, ptr %300, align 4
-  %301 = icmp sgt i32 %.val37.val43.i, 0
-  br i1 %301, label %.lr.ph.i64, label %.critedge.i60
+297:                                              ; preds = %290, %Abc_NtkMultiSetBoundsCnf.exit
+  %298 = load ptr, ptr @stdout, align 8
+  %299 = getelementptr i8, ptr %0, i64 64
+  %.val36.i = load ptr, ptr %299, align 8
+  %300 = getelementptr i8, ptr %.val36.i, i64 4
+  %.val36.val.i = load i32, ptr %300, align 4
+  %301 = tail call ptr @Extra_ProgressBarStart(ptr noundef %298, i32 noundef %.val36.val.i) #6
+  %.val3742.i = load ptr, ptr %299, align 8
+  %302 = getelementptr i8, ptr %.val3742.i, i64 4
+  %.val37.val43.i = load i32, ptr %302, align 4
+  %303 = icmp sgt i32 %.val37.val43.i, 0
+  br i1 %303, label %.lr.ph.i64, label %.critedge.i60
 
-.lr.ph.i64:                                       ; preds = %295
-  %.not.i.i = icmp eq ptr %299, null
+.lr.ph.i64:                                       ; preds = %297
+  %.not.i.i = icmp eq ptr %301, null
   br i1 %.not.i.i, label %Extra_ProgressBarUpdate.exit.us.i, label %.lr.ph.split.i
 
-Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph.i64, %316
-  %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %316 ], [ 0, %.lr.ph.i64 ]
-  %.val3745.us.i = phi ptr [ %.val37.us.i, %316 ], [ %.val3742.i, %.lr.ph.i64 ]
-  %302 = getelementptr i8, ptr %.val3745.us.i, i64 8
-  %.val38.val.us.i = load ptr, ptr %302, align 8
-  %303 = getelementptr inbounds ptr, ptr %.val38.val.us.i, i64 %indvars.iv51.i
-  %304 = load ptr, ptr %303, align 8
-  %305 = trunc nuw nsw i64 %indvars.iv51.i to i32
-  tail call void @Extra_ProgressBarUpdate_int(ptr noundef null, i32 noundef %305, ptr noundef null) #6
-  %.val32.us.i = load ptr, ptr %304, align 8
-  %306 = getelementptr i8, ptr %304, i64 32
-  %.val33.us.i = load ptr, ptr %306, align 8
-  %307 = getelementptr i8, ptr %.val32.us.i, i64 32
-  %.val32.val.us.i = load ptr, ptr %307, align 8
+Extra_ProgressBarUpdate.exit.us.i:                ; preds = %.lr.ph.i64, %318
+  %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %318 ], [ 0, %.lr.ph.i64 ]
+  %.val3745.us.i = phi ptr [ %.val37.us.i, %318 ], [ %.val3742.i, %.lr.ph.i64 ]
+  %304 = getelementptr i8, ptr %.val3745.us.i, i64 8
+  %.val38.val.us.i = load ptr, ptr %304, align 8
+  %305 = getelementptr inbounds ptr, ptr %.val38.val.us.i, i64 %indvars.iv51.i
+  %306 = load ptr, ptr %305, align 8
+  %307 = trunc nuw nsw i64 %indvars.iv51.i to i32
+  tail call void @Extra_ProgressBarUpdate_int(ptr noundef null, i32 noundef %307, ptr noundef null) #6
+  %.val32.us.i = load ptr, ptr %306, align 8
+  %308 = getelementptr i8, ptr %306, i64 32
+  %.val33.us.i = load ptr, ptr %308, align 8
+  %309 = getelementptr i8, ptr %.val32.us.i, i64 32
+  %.val32.val.us.i = load ptr, ptr %309, align 8
   %.val33.val.us.i = load i32, ptr %.val33.us.i, align 4
-  %308 = getelementptr i8, ptr %.val32.val.us.i, i64 8
-  %.val32.val.val.us.i = load ptr, ptr %308, align 8
-  %309 = sext i32 %.val33.val.us.i to i64
-  %310 = getelementptr inbounds ptr, ptr %.val32.val.val.us.i, i64 %309
-  %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr i8, ptr %311, i64 20
-  %.val39.us.i = load i32, ptr %312, align 4
-  %313 = and i32 %.val39.us.i, 15
-  switch i32 %313, label %314 [
-    i32 5, label %316
-    i32 2, label %316
+  %310 = getelementptr i8, ptr %.val32.val.us.i, i64 8
+  %.val32.val.val.us.i = load ptr, ptr %310, align 8
+  %311 = sext i32 %.val33.val.us.i to i64
+  %312 = getelementptr inbounds ptr, ptr %.val32.val.val.us.i, i64 %311
+  %313 = load ptr, ptr %312, align 8
+  %314 = getelementptr i8, ptr %313, i64 20
+  %.val39.us.i = load i32, ptr %314, align 4
+  %315 = and i32 %.val39.us.i, 15
+  switch i32 %315, label %316 [
+    i32 5, label %318
+    i32 2, label %318
   ]
 
-314:                                              ; preds = %Extra_ProgressBarUpdate.exit.us.i
-  %315 = tail call fastcc ptr @Abc_NtkMulti_rec(ptr noundef %284, ptr noundef nonnull %311)
-  br label %316
+316:                                              ; preds = %Extra_ProgressBarUpdate.exit.us.i
+  %317 = tail call fastcc ptr @Abc_NtkMulti_rec(ptr noundef %286, ptr noundef nonnull %313)
+  br label %318
 
-316:                                              ; preds = %314, %Extra_ProgressBarUpdate.exit.us.i, %Extra_ProgressBarUpdate.exit.us.i
+318:                                              ; preds = %316, %Extra_ProgressBarUpdate.exit.us.i, %Extra_ProgressBarUpdate.exit.us.i
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
-  %.val37.us.i = load ptr, ptr %297, align 8
-  %317 = getelementptr i8, ptr %.val37.us.i, i64 4
-  %.val37.val.us.i = load i32, ptr %317, align 4
-  %318 = sext i32 %.val37.val.us.i to i64
-  %319 = icmp slt i64 %indvars.iv.next52.i, %318
-  br i1 %319, label %Extra_ProgressBarUpdate.exit.us.i, label %.critedge.i60, !llvm.loop !13
+  %.val37.us.i = load ptr, ptr %299, align 8
+  %319 = getelementptr i8, ptr %.val37.us.i, i64 4
+  %.val37.val.us.i = load i32, ptr %319, align 4
+  %320 = sext i32 %.val37.val.us.i to i64
+  %321 = icmp slt i64 %indvars.iv.next52.i, %320
+  br i1 %321, label %Extra_ProgressBarUpdate.exit.us.i, label %.critedge.i60, !llvm.loop !13
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i64, %338
-  %indvars.iv.i65 = phi i64 [ %indvars.iv.next.i71, %338 ], [ 0, %.lr.ph.i64 ]
-  %.val3745.i = phi ptr [ %.val37.i, %338 ], [ %.val3742.i, %.lr.ph.i64 ]
-  %320 = getelementptr i8, ptr %.val3745.i, i64 8
-  %.val38.val.i = load ptr, ptr %320, align 8
-  %321 = getelementptr inbounds ptr, ptr %.val38.val.i, i64 %indvars.iv.i65
-  %322 = load ptr, ptr %321, align 8
-  %323 = load i32, ptr %299, align 4
-  %324 = sext i32 %323 to i64
-  %325 = icmp slt i64 %indvars.iv.i65, %324
-  br i1 %325, label %Extra_ProgressBarUpdate.exit.i, label %326
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i64, %340
+  %indvars.iv.i65 = phi i64 [ %indvars.iv.next.i71, %340 ], [ 0, %.lr.ph.i64 ]
+  %.val3745.i = phi ptr [ %.val37.i, %340 ], [ %.val3742.i, %.lr.ph.i64 ]
+  %322 = getelementptr i8, ptr %.val3745.i, i64 8
+  %.val38.val.i = load ptr, ptr %322, align 8
+  %323 = getelementptr inbounds ptr, ptr %.val38.val.i, i64 %indvars.iv.i65
+  %324 = load ptr, ptr %323, align 8
+  %325 = load i32, ptr %301, align 4
+  %326 = sext i32 %325 to i64
+  %327 = icmp slt i64 %indvars.iv.i65, %326
+  br i1 %327, label %Extra_ProgressBarUpdate.exit.i, label %328
 
-326:                                              ; preds = %.lr.ph.split.i
-  %327 = trunc nuw nsw i64 %indvars.iv.i65 to i32
-  tail call void @Extra_ProgressBarUpdate_int(ptr noundef nonnull %299, i32 noundef %327, ptr noundef null) #6
+328:                                              ; preds = %.lr.ph.split.i
+  %329 = trunc nuw nsw i64 %indvars.iv.i65 to i32
+  tail call void @Extra_ProgressBarUpdate_int(ptr noundef nonnull %301, i32 noundef %329, ptr noundef null) #6
   br label %Extra_ProgressBarUpdate.exit.i
 
-Extra_ProgressBarUpdate.exit.i:                   ; preds = %326, %.lr.ph.split.i
-  %.val32.i66 = load ptr, ptr %322, align 8
-  %328 = getelementptr i8, ptr %322, i64 32
-  %.val33.i67 = load ptr, ptr %328, align 8
-  %329 = getelementptr i8, ptr %.val32.i66, i64 32
-  %.val32.val.i68 = load ptr, ptr %329, align 8
+Extra_ProgressBarUpdate.exit.i:                   ; preds = %328, %.lr.ph.split.i
+  %.val32.i66 = load ptr, ptr %324, align 8
+  %330 = getelementptr i8, ptr %324, i64 32
+  %.val33.i67 = load ptr, ptr %330, align 8
+  %331 = getelementptr i8, ptr %.val32.i66, i64 32
+  %.val32.val.i68 = load ptr, ptr %331, align 8
   %.val33.val.i69 = load i32, ptr %.val33.i67, align 4
-  %330 = getelementptr i8, ptr %.val32.val.i68, i64 8
-  %.val32.val.val.i = load ptr, ptr %330, align 8
-  %331 = sext i32 %.val33.val.i69 to i64
-  %332 = getelementptr inbounds ptr, ptr %.val32.val.val.i, i64 %331
-  %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr i8, ptr %333, i64 20
-  %.val39.i70 = load i32, ptr %334, align 4
-  %335 = and i32 %.val39.i70, 15
-  switch i32 %335, label %336 [
-    i32 5, label %338
-    i32 2, label %338
+  %332 = getelementptr i8, ptr %.val32.val.i68, i64 8
+  %.val32.val.val.i = load ptr, ptr %332, align 8
+  %333 = sext i32 %.val33.val.i69 to i64
+  %334 = getelementptr inbounds ptr, ptr %.val32.val.val.i, i64 %333
+  %335 = load ptr, ptr %334, align 8
+  %336 = getelementptr i8, ptr %335, i64 20
+  %.val39.i70 = load i32, ptr %336, align 4
+  %337 = and i32 %.val39.i70, 15
+  switch i32 %337, label %338 [
+    i32 5, label %340
+    i32 2, label %340
   ]
 
-336:                                              ; preds = %Extra_ProgressBarUpdate.exit.i
-  %337 = tail call fastcc ptr @Abc_NtkMulti_rec(ptr noundef %284, ptr noundef nonnull %333)
-  br label %338
+338:                                              ; preds = %Extra_ProgressBarUpdate.exit.i
+  %339 = tail call fastcc ptr @Abc_NtkMulti_rec(ptr noundef %286, ptr noundef nonnull %335)
+  br label %340
 
-338:                                              ; preds = %336, %Extra_ProgressBarUpdate.exit.i, %Extra_ProgressBarUpdate.exit.i
+340:                                              ; preds = %338, %Extra_ProgressBarUpdate.exit.i, %Extra_ProgressBarUpdate.exit.i
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i65, 1
-  %.val37.i = load ptr, ptr %297, align 8
-  %339 = getelementptr i8, ptr %.val37.i, i64 4
-  %.val37.val.i72 = load i32, ptr %339, align 4
-  %340 = sext i32 %.val37.val.i72 to i64
-  %341 = icmp slt i64 %indvars.iv.next.i71, %340
-  br i1 %341, label %.lr.ph.split.i, label %.critedge.i60, !llvm.loop !13
+  %.val37.i = load ptr, ptr %299, align 8
+  %341 = getelementptr i8, ptr %.val37.i, i64 4
+  %.val37.val.i72 = load i32, ptr %341, align 4
+  %342 = sext i32 %.val37.val.i72 to i64
+  %343 = icmp slt i64 %indvars.iv.next.i71, %342
+  br i1 %343, label %.lr.ph.split.i, label %.critedge.i60, !llvm.loop !13
 
-.critedge.i60:                                    ; preds = %338, %316, %295
-  tail call void @Extra_ProgressBarStop(ptr noundef %299) #6
-  %342 = getelementptr inbounds i8, ptr %0, i64 32
-  %343 = load ptr, ptr %342, align 8
-  %344 = getelementptr i8, ptr %343, i64 4
-  %.val46.i61 = load i32, ptr %344, align 4
-  %345 = icmp sgt i32 %.val46.i61, 0
-  br i1 %345, label %.lr.ph48.i, label %Abc_NtkMultiInt.exit
+.critedge.i60:                                    ; preds = %340, %318, %297
+  tail call void @Extra_ProgressBarStop(ptr noundef %301) #6
+  %344 = getelementptr inbounds i8, ptr %0, i64 32
+  %345 = load ptr, ptr %344, align 8
+  %346 = getelementptr i8, ptr %345, i64 4
+  %.val46.i61 = load i32, ptr %346, align 4
+  %347 = icmp sgt i32 %.val46.i61, 0
+  br i1 %347, label %.lr.ph48.i, label %Abc_NtkMultiInt.exit
 
-.lr.ph48.i:                                       ; preds = %.critedge.i60, %356
-  %346 = phi ptr [ %357, %356 ], [ %343, %.critedge.i60 ]
-  %indvars.iv54.i = phi i64 [ %indvars.iv.next55.i, %356 ], [ 0, %.critedge.i60 ]
-  %347 = getelementptr i8, ptr %346, i64 8
-  %.val30.val.i = load ptr, ptr %347, align 8
-  %348 = getelementptr inbounds ptr, ptr %.val30.val.i, i64 %indvars.iv54.i
-  %349 = load ptr, ptr %348, align 8
-  %350 = icmp eq ptr %349, null
-  br i1 %350, label %356, label %351
+.lr.ph48.i:                                       ; preds = %.critedge.i60, %358
+  %348 = phi ptr [ %359, %358 ], [ %345, %.critedge.i60 ]
+  %indvars.iv54.i = phi i64 [ %indvars.iv.next55.i, %358 ], [ 0, %.critedge.i60 ]
+  %349 = getelementptr i8, ptr %348, i64 8
+  %.val30.val.i = load ptr, ptr %349, align 8
+  %350 = getelementptr inbounds ptr, ptr %.val30.val.i, i64 %indvars.iv54.i
+  %351 = load ptr, ptr %350, align 8
+  %352 = icmp eq ptr %351, null
+  br i1 %352, label %358, label %353
 
-351:                                              ; preds = %.lr.ph48.i
-  %352 = getelementptr inbounds i8, ptr %349, i64 20
-  %353 = load i32, ptr %352, align 4
-  %354 = and i32 %353, -17
-  store i32 %354, ptr %352, align 4
-  %355 = getelementptr inbounds i8, ptr %349, i64 56
-  store ptr null, ptr %355, align 8
-  %.pre.i63 = load ptr, ptr %342, align 8
-  br label %356
+353:                                              ; preds = %.lr.ph48.i
+  %354 = getelementptr inbounds i8, ptr %351, i64 20
+  %355 = load i32, ptr %354, align 4
+  %356 = and i32 %355, -17
+  store i32 %356, ptr %354, align 4
+  %357 = getelementptr inbounds i8, ptr %351, i64 56
+  store ptr null, ptr %357, align 8
+  %.pre.i63 = load ptr, ptr %344, align 8
+  br label %358
 
-356:                                              ; preds = %351, %.lr.ph48.i
-  %357 = phi ptr [ %.pre.i63, %351 ], [ %346, %.lr.ph48.i ]
+358:                                              ; preds = %353, %.lr.ph48.i
+  %359 = phi ptr [ %.pre.i63, %353 ], [ %348, %.lr.ph48.i ]
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
-  %358 = getelementptr i8, ptr %357, i64 4
-  %.val.i = load i32, ptr %358, align 4
-  %359 = sext i32 %.val.i to i64
-  %360 = icmp slt i64 %indvars.iv.next55.i, %359
-  br i1 %360, label %.lr.ph48.i, label %Abc_NtkMultiInt.exit, !llvm.loop !14
+  %360 = getelementptr i8, ptr %359, i64 4
+  %.val.i = load i32, ptr %360, align 4
+  %361 = sext i32 %.val.i to i64
+  %362 = icmp slt i64 %indvars.iv.next55.i, %361
+  br i1 %362, label %.lr.ph48.i, label %Abc_NtkMultiInt.exit, !llvm.loop !14
 
-Abc_NtkMultiInt.exit:                             ; preds = %356, %.critedge.i60
-  tail call void @Abc_NtkFinalize(ptr noundef %0, ptr noundef %284) #6
-  %361 = tail call i32 @Abc_NtkMinimumBase(ptr noundef %284) #6
-  %362 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %284, i32 noundef 0) #6
-  %363 = getelementptr inbounds i8, ptr %0, i64 328
-  %364 = load ptr, ptr %363, align 8
-  %.not32 = icmp eq ptr %364, null
-  br i1 %.not32, label %368, label %365
+Abc_NtkMultiInt.exit:                             ; preds = %358, %.critedge.i60
+  tail call void @Abc_NtkFinalize(ptr noundef %0, ptr noundef %286) #6
+  %363 = tail call i32 @Abc_NtkMinimumBase(ptr noundef %286) #6
+  %364 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %286, i32 noundef 0) #6
+  %365 = getelementptr inbounds i8, ptr %0, i64 328
+  %366 = load ptr, ptr %365, align 8
+  %.not32 = icmp eq ptr %366, null
+  br i1 %.not32, label %370, label %367
 
-365:                                              ; preds = %Abc_NtkMultiInt.exit
-  %366 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %364) #6
-  %367 = getelementptr inbounds i8, ptr %284, i64 328
-  store ptr %366, ptr %367, align 8
-  br label %368
+367:                                              ; preds = %Abc_NtkMultiInt.exit
+  %368 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %366) #6
+  %369 = getelementptr inbounds i8, ptr %286, i64 328
+  store ptr %368, ptr %369, align 8
+  br label %370
 
-368:                                              ; preds = %365, %Abc_NtkMultiInt.exit
-  %369 = tail call i32 @Abc_NtkCheck(ptr noundef %284) #6
-  %.not33 = icmp eq i32 %369, 0
-  br i1 %.not33, label %370, label %371
+370:                                              ; preds = %367, %Abc_NtkMultiInt.exit
+  %371 = tail call i32 @Abc_NtkCheck(ptr noundef %286) #6
+  %.not33 = icmp eq i32 %371, 0
+  br i1 %.not33, label %372, label %373
 
-370:                                              ; preds = %368
+372:                                              ; preds = %370
   %puts34 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  tail call void @Abc_NtkDelete(ptr noundef %284) #6
-  br label %371
+  tail call void @Abc_NtkDelete(ptr noundef %286) #6
+  br label %373
 
-371:                                              ; preds = %368, %370
-  %.0 = phi ptr [ null, %370 ], [ %284, %368 ]
+373:                                              ; preds = %370, %372
+  %.0 = phi ptr [ null, %372 ], [ %286, %370 ]
   ret ptr %.0
 }
 

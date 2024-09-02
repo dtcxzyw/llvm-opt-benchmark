@@ -401,27 +401,18 @@ if.then24:                                        ; preds = %_Z18ufmt_digitvalue
   %18 = add i16 %17, -65
   %19 = icmp ult i16 %18, 26
   %or.cond12.i25 = or i1 %or.cond.i24, %19
-  br i1 %or.cond12.i25, label %if.then.i27, label %_Z18ufmt_digitvalue_75Ds.exit35
-
-if.then.i27:                                      ; preds = %if.then24
   %conv.i28 = trunc i16 %15 to i8
-  %sub.i29 = add i8 %conv.i28, -48
   %cmp16.i30 = icmp ugt i16 %15, 64
-  %cmp18.i31 = icmp ugt i16 %15, 96
-  %cond.neg.i32 = select i1 %cmp18.i31, i8 -39, i8 -7
-  %cond19.neg.i33 = select i1 %cmp16.i30, i8 %cond.neg.i32, i8 0
-  %sub20.i34 = add i8 %sub.i29, %cond19.neg.i33
-  br label %_Z18ufmt_digitvalue_75Ds.exit35
-
-_Z18ufmt_digitvalue_75Ds.exit35:                  ; preds = %if.then24, %if.then.i27
-  %retval.0.i26 = phi i8 [ %sub20.i34, %if.then.i27 ], [ -1, %if.then24 ]
-  %shl = shl i8 %retval.0.i26, 4
-  %add = add i8 %shl, %retval.0.i
+  %cond19.neg.i33 = select i1 %cmp16.i30, i8 9, i8 0
+  %sub20.i34 = add i8 %cond19.neg.i33, %conv.i28
+  %20 = shl i8 %sub20.i34, 4
+  %retval.0.i26 = select i1 %or.cond12.i25, i8 %20, i8 -16
+  %add = add i8 %retval.0.i26, %retval.0.i
   br label %if.end31
 
-if.end31:                                         ; preds = %_Z18ufmt_digitvalue_75Ds.exit35, %_Z18ufmt_digitvalue_75Ds.exit
-  %count.3 = phi i32 [ %dec26, %_Z18ufmt_digitvalue_75Ds.exit35 ], [ %dec, %_Z18ufmt_digitvalue_75Ds.exit ]
-  %byte.0.in = phi i8 [ %add, %_Z18ufmt_digitvalue_75Ds.exit35 ], [ %retval.0.i, %_Z18ufmt_digitvalue_75Ds.exit ]
+if.end31:                                         ; preds = %if.then24, %_Z18ufmt_digitvalue_75Ds.exit
+  %count.3 = phi i32 [ %dec26, %if.then24 ], [ %dec, %_Z18ufmt_digitvalue_75Ds.exit ]
+  %byte.0.in = phi i8 [ %add, %if.then24 ], [ %retval.0.i, %_Z18ufmt_digitvalue_75Ds.exit ]
   %arrayidx33 = getelementptr inbounds [8 x i8], ptr %result, i64 0, i64 %indvars.iv54
   store i8 %byte.0.in, ptr %arrayidx33, align 1
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
@@ -433,8 +424,8 @@ while.end35.loopexit:                             ; preds = %if.end31
   br label %while.end35
 
 while.end35:                                      ; preds = %while.end35.loopexit, %while.end13
-  %20 = phi ptr [ %.pre, %while.end35.loopexit ], [ null, %while.end13 ]
-  ret ptr %20
+  %21 = phi ptr [ %.pre, %while.end35.loopexit ], [ null, %while.end13 ]
+  ret ptr %21
 }
 
 declare signext i8 @u_isspace_75(i32 noundef) local_unnamed_addr #4

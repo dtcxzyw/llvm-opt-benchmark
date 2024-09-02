@@ -1789,12 +1789,12 @@ for.cond66:                                       ; preds = %do.end, %for.inc85
 if.end.i.i:                                       ; preds = %for.cond66
   %arrayidx.i.i161 = getelementptr inbounds i8, ptr %112, i64 -4
   %113 = load i32, ptr %arrayidx.i.i161, align 4
+  %114 = zext i32 %113 to i64
   br label %invoke.cont67
 
 invoke.cont67:                                    ; preds = %if.end.i.i, %for.cond66
-  %retval.0.i.i = phi i32 [ %113, %if.end.i.i ], [ 0, %for.cond66 ]
-  %114 = zext i32 %retval.0.i.i to i64
-  %cmp69 = icmp ult i64 %indvars.iv340, %114
+  %retval.0.i.i = phi i64 [ %114, %if.end.i.i ], [ 0, %for.cond66 ]
+  %cmp69 = icmp ult i64 %indvars.iv340, %retval.0.i.i
   br i1 %cmp69, label %invoke.cont73, label %for.end87
 
 invoke.cont73:                                    ; preds = %invoke.cont67

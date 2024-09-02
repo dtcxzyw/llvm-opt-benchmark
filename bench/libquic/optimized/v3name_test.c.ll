@@ -123,14 +123,14 @@ entry:
   br label %while.cond1.preheader
 
 while.cond1.preheader:                            ; preds = %entry, %while.end
-  %0 = phi ptr [ @.str.3, %entry ], [ %32, %while.end ]
+  %0 = phi ptr [ @.str.3, %entry ], [ %31, %while.end ]
   %pfn.017 = phi ptr [ @name_fns, %entry ], [ %incdec.ptr10, %while.end ]
   %host.i = getelementptr inbounds i8, ptr %pfn.017, i64 16
   %email.i = getelementptr inbounds i8, ptr %pfn.017, i64 20
   br label %while.body3
 
 while.body3:                                      ; preds = %while.cond1.preheader, %run_cert.exit
-  %1 = phi ptr [ @.str.10, %while.cond1.preheader ], [ %31, %run_cert.exit ]
+  %1 = phi ptr [ @.str.10, %while.cond1.preheader ], [ %30, %run_cert.exit ]
   %pname.016 = phi ptr [ @names, %while.cond1.preheader ], [ %incdec.ptr, %run_cert.exit ]
   %call.i = call ptr @X509_new() #11
   %cmp.i = icmp eq ptr %call.i, null
@@ -160,7 +160,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 while.body.i:                                     ; preds = %if.end, %check_message.exit92.i
-  %7 = phi ptr [ %30, %check_message.exit92.i ], [ @.str.10, %if.end ]
+  %7 = phi ptr [ %29, %check_message.exit92.i ], [ @.str.10, %if.end ]
   %pname.0118.i = phi ptr [ %incdec.ptr.i, %check_message.exit92.i ], [ @names, %if.end ]
   %call.i10 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull %7) #11
   %cmp.i11 = icmp eq i32 %call.i10, 0
@@ -181,36 +181,36 @@ if.then.i:                                        ; preds = %while.body.i
 
 if.else.i:                                        ; preds = %while.body.i
   %11 = load i32, ptr %host.i, align 8
-  %tobool7.not.i = icmp eq i32 %11, 0
-  br i1 %tobool7.not.i, label %if.else19.i, label %if.then8.i
+  %tobool7.not.not.i = icmp eq i32 %11, 0
+  br i1 %tobool7.not.not.i, label %if.else19.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.else.i
   %cmp13.i = icmp eq i32 %call3.i, 0
   %or.cond1.i = select i1 %cmp13.i, i1 %cmp.i11, i1 false
-  br i1 %or.cond1.i, label %if.end.i.thread.sink.split.i, label %if.end25.i
+  br i1 %or.cond1.i, label %if.end25.thread97.i, label %if.end25.i
 
 if.else19.i:                                      ; preds = %if.else.i
   %cmp20.i = icmp eq i32 %call3.i, 1
-  br i1 %cmp20.i, label %if.end.i.thread.sink.split.i, label %if.end25.thread.i
+  br i1 %cmp20.i, label %if.end25.thread97.i, label %if.end25.thread.i
 
 if.end25.thread.i:                                ; preds = %if.else19.i, %if.then.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i.i)
   br label %check_message.exit.i
 
+if.end25.thread97.i:                              ; preds = %if.else19.i, %if.then8.i
+  %12 = phi ptr [ @.str.65, %if.else19.i ], [ @.str.66, %if.then8.i ]
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i.i)
+  br label %if.end.i.i
+
 if.end25.i:                                       ; preds = %if.then8.i
   %cmp9.i = icmp ne i32 %call3.i, 1
   %or.cond.i = select i1 %cmp9.i, i1 true, i1 %cmp.i11
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i.i)
-  br i1 %or.cond.i, label %check_message.exit.i, label %if.end.i.thread.i
+  br i1 %or.cond.i, label %check_message.exit.i, label %if.end.i.i
 
-if.end.i.thread.sink.split.i:                     ; preds = %if.else19.i, %if.then8.i
-  %.ph.i = phi ptr [ @.str.65, %if.else19.i ], [ @.str.66, %if.then8.i ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i.i)
-  br label %if.end.i.thread.i
-
-if.end.i.thread.i:                                ; preds = %if.end.i.thread.sink.split.i, %if.end25.i
-  %12 = phi ptr [ @.str.65, %if.end25.i ], [ %.ph.i, %if.end.i.thread.sink.split.i ]
-  %call.i.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %msg.i.i, i64 noundef 1024, ptr noundef nonnull @.str.64, ptr noundef nonnull %0, ptr noundef nonnull @.str.61, ptr noundef nonnull %1, ptr noundef nonnull %12, ptr noundef nonnull %7) #11
+if.end.i.i:                                       ; preds = %if.end25.i, %if.end25.thread97.i
+  %match.0100.i = phi ptr [ %12, %if.end25.thread97.i ], [ @.str.65, %if.end25.i ]
+  %call.i.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %msg.i.i, i64 noundef 1024, ptr noundef nonnull @.str.64, ptr noundef nonnull %0, ptr noundef nonnull @.str.61, ptr noundef nonnull %1, ptr noundef nonnull %match.0100.i, ptr noundef nonnull %7) #11
   br label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
@@ -219,9 +219,9 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %tobool.not.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i, label %if.end6.i.i, label %for.body.i.i.i, !llvm.loop !7
 
-for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.end.i.thread.i
-  %14 = phi ptr [ @.str.67, %if.end.i.thread.i ], [ %13, %for.cond.i.i.i ]
-  %p.03.i.i.i = phi ptr [ @exceptions, %if.end.i.thread.i ], [ %incdec.ptr.i.i.i, %for.cond.i.i.i ]
+for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.end.i.i
+  %14 = phi ptr [ @.str.67, %if.end.i.i ], [ %13, %for.cond.i.i.i ]
+  %p.03.i.i.i = phi ptr [ @exceptions, %if.end.i.i ], [ %incdec.ptr.i.i.i, %for.cond.i.i.i ]
   %call.i.i.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %msg.i.i, ptr noundef nonnull dereferenceable(1) %14) #13
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.i.i, label %check_message.exit.i, label %for.cond.i.i.i
@@ -249,36 +249,36 @@ if.then29.i:                                      ; preds = %check_message.exit.
 
 if.else32.i:                                      ; preds = %check_message.exit.i
   %19 = load i32, ptr %host.i, align 8
-  %tobool34.not.i = icmp eq i32 %19, 0
-  br i1 %tobool34.not.i, label %if.else48.i, label %if.then35.i
+  %tobool34.not.not.i = icmp eq i32 %19, 0
+  br i1 %tobool34.not.not.i, label %if.else48.i, label %if.then35.i
 
 if.then35.i:                                      ; preds = %if.else32.i
   %cmp42.i = icmp eq i32 %call26.i, 0
   %or.cond3.i = select i1 %cmp42.i, i1 %cmp.i11, i1 false
-  br i1 %or.cond3.i, label %if.end.i59.thread.sink.split.i, label %if.end54.i
+  br i1 %or.cond3.i, label %if.end54.thread106.i, label %if.end54.i
 
 if.else48.i:                                      ; preds = %if.else32.i
   %cmp49.i = icmp eq i32 %call26.i, 1
-  br i1 %cmp49.i, label %if.end.i59.thread.sink.split.i, label %if.end54.thread.i
+  br i1 %cmp49.i, label %if.end54.thread106.i, label %if.end54.thread.i
 
 if.end54.thread.i:                                ; preds = %if.else48.i, %if.then29.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i57.i)
   br label %check_message.exit74.i
 
+if.end54.thread106.i:                             ; preds = %if.else48.i, %if.then35.i
+  %20 = phi ptr [ @.str.65, %if.else48.i ], [ @.str.66, %if.then35.i ]
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i57.i)
+  br label %if.end.i59.i
+
 if.end54.i:                                       ; preds = %if.then35.i
   %cmp36.i = icmp ne i32 %call26.i, 1
   %or.cond2.i = select i1 %cmp36.i, i1 true, i1 %cmp.i11
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i57.i)
-  br i1 %or.cond2.i, label %check_message.exit74.i, label %if.end.i59.thread.i
+  br i1 %or.cond2.i, label %check_message.exit74.i, label %if.end.i59.i
 
-if.end.i59.thread.sink.split.i:                   ; preds = %if.else48.i, %if.then35.i
-  %.ph134.i = phi ptr [ @.str.65, %if.else48.i ], [ @.str.66, %if.then35.i ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i57.i)
-  br label %if.end.i59.thread.i
-
-if.end.i59.thread.i:                              ; preds = %if.end.i59.thread.sink.split.i, %if.end54.i
-  %20 = phi ptr [ @.str.65, %if.end54.i ], [ %.ph134.i, %if.end.i59.thread.sink.split.i ]
-  %call.i63.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %msg.i57.i, i64 noundef 1024, ptr noundef nonnull @.str.64, ptr noundef nonnull %0, ptr noundef nonnull @.str.62, ptr noundef nonnull %1, ptr noundef nonnull %20, ptr noundef nonnull %7) #11
+if.end.i59.i:                                     ; preds = %if.end54.i, %if.end54.thread106.i
+  %match.2109.i = phi ptr [ %20, %if.end54.thread106.i ], [ @.str.65, %if.end54.i ]
+  %call.i63.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %msg.i57.i, i64 noundef 1024, ptr noundef nonnull @.str.64, ptr noundef nonnull %0, ptr noundef nonnull @.str.62, ptr noundef nonnull %1, ptr noundef nonnull %match.2109.i, ptr noundef nonnull %7) #11
   br label %for.body.i.i64.i
 
 for.cond.i.i68.i:                                 ; preds = %for.body.i.i64.i
@@ -287,9 +287,9 @@ for.cond.i.i68.i:                                 ; preds = %for.body.i.i64.i
   %tobool.not.i.i70.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i70.i, label %if.end6.i71.i, label %for.body.i.i64.i, !llvm.loop !7
 
-for.body.i.i64.i:                                 ; preds = %for.cond.i.i68.i, %if.end.i59.thread.i
-  %22 = phi ptr [ @.str.67, %if.end.i59.thread.i ], [ %21, %for.cond.i.i68.i ]
-  %p.03.i.i65.i = phi ptr [ @exceptions, %if.end.i59.thread.i ], [ %incdec.ptr.i.i69.i, %for.cond.i.i68.i ]
+for.body.i.i64.i:                                 ; preds = %for.cond.i.i68.i, %if.end.i59.i
+  %22 = phi ptr [ @.str.67, %if.end.i59.i ], [ %21, %for.cond.i.i68.i ]
+  %p.03.i.i65.i = phi ptr [ @exceptions, %if.end.i59.i ], [ %incdec.ptr.i.i69.i, %for.cond.i.i68.i ]
   %call.i.i66.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %msg.i57.i, ptr noundef nonnull dereferenceable(1) %22) #13
   %cmp.i.i67.i = icmp eq i32 %call.i.i66.i, 0
   br i1 %cmp.i.i67.i, label %check_message.exit74.i, label %for.cond.i.i68.i
@@ -305,9 +305,9 @@ check_message.exit74.i:                           ; preds = %for.body.i.i64.i, %
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %msg.i57.i)
   %call55.i = call i32 @X509_check_email(ptr noundef nonnull %call.i, ptr noundef %call2.i, i64 noundef %call1.i12, i32 noundef 0) #11
   %24 = load i32, ptr %email.i, align 4
-  %tobool56.not.i = icmp eq i32 %24, 0
+  %tobool56.not.not.i = icmp eq i32 %24, 0
   %tobool73.not.i = icmp eq i32 %call55.i, 0
-  br i1 %tobool56.not.i, label %if.else72.i, label %if.then57.i
+  br i1 %tobool56.not.not.i, label %if.else72.i, label %if.then57.i
 
 if.then57.i:                                      ; preds = %check_message.exit74.i
   %or.cond4.i = select i1 %tobool73.not.i, i1 true, i1 %cmp.i11
@@ -317,70 +317,74 @@ if.then57.i:                                      ; preds = %check_message.exit7
 land.lhs.true66.i:                                ; preds = %if.then57.i
   %call67.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 64) #13
   %cmp68.not.i = icmp eq ptr %call67.i, null
-  br i1 %cmp68.not.i, label %if.end76.i, label %25
+  br i1 %cmp68.not.i, label %if.end76.i, label %if.end76.thread.i
 
 if.else72.i:                                      ; preds = %check_message.exit74.i
+  br i1 %tobool73.not.i, label %if.end76.thread115.i, label %if.end76.thread.i
+
+if.end76.thread115.i:                             ; preds = %if.else72.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i75.i)
-  br i1 %tobool73.not.i, label %check_message.exit92.i, label %if.end.i77.thread.i
+  br label %check_message.exit92.i
+
+if.end76.thread.i:                                ; preds = %if.else72.i, %land.lhs.true66.i
+  %25 = phi ptr [ @.str.65, %if.else72.i ], [ @.str.66, %land.lhs.true66.i ]
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i75.i)
+  br label %if.end.i77.i
 
 if.end76.i:                                       ; preds = %land.lhs.true66.i, %if.then57.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i75.i)
-  br i1 %or.cond4.i, label %check_message.exit92.i, label %if.end.i77.thread.i
+  br i1 %or.cond4.i, label %check_message.exit92.i, label %if.end.i77.i
 
-25:                                               ; preds = %land.lhs.true66.i
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %msg.i75.i)
-  br label %if.end.i77.thread.i
-
-if.end.i77.thread.i:                              ; preds = %25, %if.end76.i, %if.else72.i
-  %26 = phi ptr [ @.str.66, %25 ], [ @.str.65, %if.end76.i ], [ @.str.65, %if.else72.i ]
-  %call.i81.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %msg.i75.i, i64 noundef 1024, ptr noundef nonnull @.str.64, ptr noundef nonnull %0, ptr noundef nonnull @.str.63, ptr noundef nonnull %1, ptr noundef nonnull %26, ptr noundef nonnull %7) #11
+if.end.i77.i:                                     ; preds = %if.end76.i, %if.end76.thread.i
+  %match.5114.i = phi ptr [ %25, %if.end76.thread.i ], [ @.str.65, %if.end76.i ]
+  %call.i81.i = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %msg.i75.i, i64 noundef 1024, ptr noundef nonnull @.str.64, ptr noundef nonnull %0, ptr noundef nonnull @.str.63, ptr noundef nonnull %1, ptr noundef nonnull %match.5114.i, ptr noundef nonnull %7) #11
   br label %for.body.i.i82.i
 
 for.cond.i.i86.i:                                 ; preds = %for.body.i.i82.i
   %incdec.ptr.i.i87.i = getelementptr inbounds i8, ptr %p.03.i.i83.i, i64 8
-  %27 = load ptr, ptr %incdec.ptr.i.i87.i, align 8
-  %tobool.not.i.i88.i = icmp eq ptr %27, null
+  %26 = load ptr, ptr %incdec.ptr.i.i87.i, align 8
+  %tobool.not.i.i88.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i88.i, label %if.end6.i89.i, label %for.body.i.i82.i, !llvm.loop !7
 
-for.body.i.i82.i:                                 ; preds = %for.cond.i.i86.i, %if.end.i77.thread.i
-  %28 = phi ptr [ @.str.67, %if.end.i77.thread.i ], [ %27, %for.cond.i.i86.i ]
-  %p.03.i.i83.i = phi ptr [ @exceptions, %if.end.i77.thread.i ], [ %incdec.ptr.i.i87.i, %for.cond.i.i86.i ]
-  %call.i.i84.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %msg.i75.i, ptr noundef nonnull dereferenceable(1) %28) #13
+for.body.i.i82.i:                                 ; preds = %for.cond.i.i86.i, %if.end.i77.i
+  %27 = phi ptr [ @.str.67, %if.end.i77.i ], [ %26, %for.cond.i.i86.i ]
+  %p.03.i.i83.i = phi ptr [ @exceptions, %if.end.i77.i ], [ %incdec.ptr.i.i87.i, %for.cond.i.i86.i ]
+  %call.i.i84.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %msg.i75.i, ptr noundef nonnull dereferenceable(1) %27) #13
   %cmp.i.i85.i = icmp eq i32 %call.i.i84.i, 0
   br i1 %cmp.i.i85.i, label %check_message.exit92.i, label %for.cond.i.i86.i
 
 if.end6.i89.i:                                    ; preds = %for.cond.i.i86.i
   %call8.i90.i = call i32 @puts(ptr noundef nonnull dereferenceable(1) %msg.i75.i)
-  %29 = load i32, ptr @errors, align 4
-  %inc.i91.i = add nsw i32 %29, 1
+  %28 = load i32, ptr @errors, align 4
+  %inc.i91.i = add nsw i32 %28, 1
   store i32 %inc.i91.i, ptr @errors, align 4
   br label %check_message.exit92.i
 
-check_message.exit92.i:                           ; preds = %for.body.i.i82.i, %if.end6.i89.i, %if.end76.i, %if.else72.i
+check_message.exit92.i:                           ; preds = %for.body.i.i82.i, %if.end6.i89.i, %if.end76.i, %if.end76.thread115.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %msg.i75.i)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %pname.0118.i, i64 8
   call void @free(ptr noundef %call2.i) #11
-  %30 = load ptr, ptr %incdec.ptr.i, align 8
-  %tobool.not.i13 = icmp eq ptr %30, null
+  %29 = load ptr, ptr %incdec.ptr.i, align 8
+  %tobool.not.i13 = icmp eq ptr %29, null
   br i1 %tobool.not.i13, label %run_cert.exit, label %while.body.i, !llvm.loop !9
 
 run_cert.exit:                                    ; preds = %check_message.exit92.i
   call void @X509_free(ptr noundef nonnull %call.i) #11
   %incdec.ptr = getelementptr inbounds i8, ptr %pname.016, i64 8
-  %31 = load ptr, ptr %incdec.ptr, align 8
-  %tobool2.not = icmp eq ptr %31, null
+  %30 = load ptr, ptr %incdec.ptr, align 8
+  %tobool2.not = icmp eq ptr %30, null
   br i1 %tobool2.not, label %while.end, label %while.body3, !llvm.loop !10
 
 while.end:                                        ; preds = %run_cert.exit
   %incdec.ptr10 = getelementptr inbounds i8, ptr %pfn.017, i64 24
   %name = getelementptr inbounds i8, ptr %pfn.017, i64 32
-  %32 = load ptr, ptr %name, align 8
-  %tobool.not = icmp eq ptr %32, null
+  %31 = load ptr, ptr %name, align 8
+  %tobool.not = icmp eq ptr %31, null
   br i1 %tobool.not, label %while.end11, label %while.cond1.preheader, !llvm.loop !11
 
 while.end11:                                      ; preds = %while.end
-  %33 = load i32, ptr @errors, align 4
-  %cmp12 = icmp eq i32 %33, 0
+  %32 = load i32, ptr @errors, align 4
+  %cmp12 = icmp eq i32 %32, 0
   br i1 %cmp12, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %while.end11
@@ -389,8 +393,8 @@ if.then13:                                        ; preds = %while.end11
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %while.end11
-  %34 = phi i32 [ %.pre, %if.then13 ], [ %33, %while.end11 ]
-  %cmp16 = icmp sgt i32 %34, 0
+  %33 = phi i32 [ %.pre, %if.then13 ], [ %32, %while.end11 ]
+  %cmp16 = icmp sgt i32 %33, 0
   %cond = zext i1 %cmp16 to i32
   br label %return
 

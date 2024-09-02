@@ -167,7 +167,7 @@ define ptr @Fraig_ManReadModel(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Fraig_ManReadPatternNumRandom(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483617) i32 @Fraig_ManReadPatternNumRandom(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %4 = shl nsw i32 %3, 5
@@ -175,7 +175,7 @@ define i32 @Fraig_ManReadPatternNumRandom(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Fraig_ManReadPatternNumDynamic(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483617) i32 @Fraig_ManReadPatternNumDynamic(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = shl nsw i32 %3, 5

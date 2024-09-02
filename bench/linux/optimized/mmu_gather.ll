@@ -25,7 +25,7 @@ define dso_local void @tlb_flush_rmaps(ptr noundef %0, ptr noundef %1) local_unn
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 8
   %6 = icmp eq i16 %5, 0
-  br i1 %6, label %105, label %7
+  br i1 %6, label %107, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -38,16 +38,16 @@ define dso_local void @tlb_flush_rmaps(ptr noundef %0, ptr noundef %1) local_unn
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   br label %14
 
-14:                                               ; preds = %50, %12
-  %15 = phi i32 [ %10, %12 ], [ %51, %50 ]
-  %16 = phi i32 [ 0, %12 ], [ %52, %50 ]
+14:                                               ; preds = %51, %12
+  %15 = phi i32 [ %10, %12 ], [ %52, %51 ]
+  %16 = phi i32 [ 0, %12 ], [ %53, %51 ]
   %17 = sext i32 %16 to i64
   %18 = getelementptr [0 x ptr], ptr %13, i64 0, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 3
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %50, label %23
+  br i1 %22, label %51, label %23
 
 23:                                               ; preds = %14
   %24 = and i64 %20, -4
@@ -56,137 +56,139 @@ define dso_local void @tlb_flush_rmaps(ptr noundef %0, ptr noundef %1) local_unn
   %27 = load volatile i64, ptr %26, align 8
   %28 = and i64 %27, 1
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %32, label %30, !prof !5
+  br i1 %29, label %33, label %30, !prof !5
 
 30:                                               ; preds = %23
   %31 = add nsw i64 %27, -1
-  br label %47
+  %32 = inttoptr i64 %31 to ptr
+  br label %49
 
-32:                                               ; preds = %23
+33:                                               ; preds = %23
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #5
-          to label %47 [label %33], !srcloc !6
+          to label %49 [label %34], !srcloc !6
 
-33:                                               ; preds = %32
-  %34 = and i64 %20, 4092
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %46
+34:                                               ; preds = %33
+  %35 = and i64 %20, 4092
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %48
 
-36:                                               ; preds = %33
-  %37 = load volatile i64, ptr %25, align 8
-  %38 = and i64 %37, 64
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %46, label %40
+37:                                               ; preds = %34
+  %38 = load volatile i64, ptr %25, align 8
+  %39 = and i64 %38, 64
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %48, label %41
 
-40:                                               ; preds = %36
-  %41 = getelementptr i8, ptr %25, i64 72
-  %42 = load volatile i64, ptr %41, align 8
-  %43 = and i64 %42, 1
-  %44 = icmp eq i64 %43, 0
-  %45 = add nsw i64 %42, -1
-  br i1 %44, label %46, label %47
+41:                                               ; preds = %37
+  %42 = getelementptr i8, ptr %25, i64 72
+  %43 = load volatile i64, ptr %42, align 8
+  %44 = and i64 %43, 1
+  %45 = icmp eq i64 %44, 0
+  %46 = add nsw i64 %43, -1
+  %47 = inttoptr i64 %46 to ptr
+  br i1 %45, label %48, label %49
 
-46:                                               ; preds = %40, %36, %33
-  br label %47
+48:                                               ; preds = %41, %37, %34
+  br label %49
 
-47:                                               ; preds = %32, %40, %46, %30
-  %48 = phi i64 [ %31, %30 ], [ %45, %40 ], [ %24, %46 ], [ %24, %32 ]
-  %49 = inttoptr i64 %48 to ptr
-  tail call void @folio_remove_rmap_ptes(ptr noundef %49, ptr noundef %25, i32 noundef 1, ptr noundef %1) #5
+49:                                               ; preds = %33, %41, %48, %30
+  %50 = phi ptr [ %32, %30 ], [ %47, %41 ], [ %25, %48 ], [ %25, %33 ]
+  tail call void @folio_remove_rmap_ptes(ptr noundef %50, ptr noundef %25, i32 noundef 1, ptr noundef %1) #5
   %.pre = load i32, ptr %9, align 8
-  br label %50
+  br label %51
 
-50:                                               ; preds = %47, %14
-  %51 = phi i32 [ %.pre, %47 ], [ %15, %14 ]
-  %52 = add nuw i32 %16, 1
-  %53 = icmp ult i32 %52, %51
-  br i1 %53, label %14, label %.loopexit3, !llvm.loop !7
+51:                                               ; preds = %49, %14
+  %52 = phi i32 [ %.pre, %49 ], [ %15, %14 ]
+  %53 = add nuw i32 %16, 1
+  %54 = icmp ult i32 %53, %52
+  br i1 %54, label %14, label %.loopexit3, !llvm.loop !7
 
-.loopexit3:                                       ; preds = %50, %7
-  %54 = getelementptr inbounds i8, ptr %0, i64 40
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, %8
-  br i1 %56, label %.loopexit, label %57
+.loopexit3:                                       ; preds = %51, %7
+  %55 = getelementptr inbounds i8, ptr %0, i64 40
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, %8
+  br i1 %57, label %.loopexit, label %58
 
-57:                                               ; preds = %.loopexit3
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
-  %59 = load i32, ptr %58, align 8
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.loopexit, label %61
+58:                                               ; preds = %.loopexit3
+  %59 = getelementptr inbounds i8, ptr %56, i64 8
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %.loopexit, label %62
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %55, i64 16
-  br label %63
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds i8, ptr %56, i64 16
+  br label %64
 
-63:                                               ; preds = %99, %61
-  %64 = phi i32 [ %59, %61 ], [ %100, %99 ]
-  %65 = phi i32 [ 0, %61 ], [ %101, %99 ]
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr [0 x ptr], ptr %62, i64 0, i64 %66
-  %68 = load ptr, ptr %67, align 8
-  %69 = ptrtoint ptr %68 to i64
-  %70 = and i64 %69, 3
-  %71 = icmp eq i64 %70, 0
-  br i1 %71, label %99, label %72
+64:                                               ; preds = %101, %62
+  %65 = phi i32 [ %60, %62 ], [ %102, %101 ]
+  %66 = phi i32 [ 0, %62 ], [ %103, %101 ]
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr [0 x ptr], ptr %63, i64 0, i64 %67
+  %69 = load ptr, ptr %68, align 8
+  %70 = ptrtoint ptr %69 to i64
+  %71 = and i64 %70, 3
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %101, label %73
 
-72:                                               ; preds = %63
-  %73 = and i64 %69, -4
-  %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
-  %76 = load volatile i64, ptr %75, align 8
-  %77 = and i64 %76, 1
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %81, label %79, !prof !5
+73:                                               ; preds = %64
+  %74 = and i64 %70, -4
+  %75 = inttoptr i64 %74 to ptr
+  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %77 = load volatile i64, ptr %76, align 8
+  %78 = and i64 %77, 1
+  %79 = icmp eq i64 %78, 0
+  br i1 %79, label %83, label %80, !prof !5
 
-79:                                               ; preds = %72
-  %80 = add nsw i64 %76, -1
-  br label %96
-
-81:                                               ; preds = %72
-  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #5
-          to label %96 [label %82], !srcloc !6
-
-82:                                               ; preds = %81
-  %83 = and i64 %69, 4092
-  %84 = icmp eq i64 %83, 0
-  br i1 %84, label %85, label %95
-
-85:                                               ; preds = %82
-  %86 = load volatile i64, ptr %74, align 8
-  %87 = and i64 %86, 64
-  %88 = icmp eq i64 %87, 0
-  br i1 %88, label %95, label %89
-
-89:                                               ; preds = %85
-  %90 = getelementptr i8, ptr %74, i64 72
-  %91 = load volatile i64, ptr %90, align 8
-  %92 = and i64 %91, 1
-  %93 = icmp eq i64 %92, 0
-  %94 = add nsw i64 %91, -1
-  br i1 %93, label %95, label %96
-
-95:                                               ; preds = %89, %85, %82
-  br label %96
-
-96:                                               ; preds = %81, %89, %95, %79
-  %97 = phi i64 [ %80, %79 ], [ %94, %89 ], [ %73, %95 ], [ %73, %81 ]
-  %98 = inttoptr i64 %97 to ptr
-  tail call void @folio_remove_rmap_ptes(ptr noundef %98, ptr noundef %74, i32 noundef 1, ptr noundef %1) #5
-  %.pre4 = load i32, ptr %58, align 8
+80:                                               ; preds = %73
+  %81 = add nsw i64 %77, -1
+  %82 = inttoptr i64 %81 to ptr
   br label %99
 
-99:                                               ; preds = %96, %63
-  %100 = phi i32 [ %.pre4, %96 ], [ %64, %63 ]
-  %101 = add nuw i32 %65, 1
-  %102 = icmp ult i32 %101, %100
-  br i1 %102, label %63, label %.loopexit, !llvm.loop !7
+83:                                               ; preds = %73
+  callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #5
+          to label %99 [label %84], !srcloc !6
 
-.loopexit:                                        ; preds = %99, %57, %.loopexit3
-  %103 = load i16, ptr %3, align 8
-  %104 = and i16 %103, -9
-  store i16 %104, ptr %3, align 8
-  br label %105
+84:                                               ; preds = %83
+  %85 = and i64 %70, 4092
+  %86 = icmp eq i64 %85, 0
+  br i1 %86, label %87, label %98
 
-105:                                              ; preds = %.loopexit, %2
+87:                                               ; preds = %84
+  %88 = load volatile i64, ptr %75, align 8
+  %89 = and i64 %88, 64
+  %90 = icmp eq i64 %89, 0
+  br i1 %90, label %98, label %91
+
+91:                                               ; preds = %87
+  %92 = getelementptr i8, ptr %75, i64 72
+  %93 = load volatile i64, ptr %92, align 8
+  %94 = and i64 %93, 1
+  %95 = icmp eq i64 %94, 0
+  %96 = add nsw i64 %93, -1
+  %97 = inttoptr i64 %96 to ptr
+  br i1 %95, label %98, label %99
+
+98:                                               ; preds = %91, %87, %84
+  br label %99
+
+99:                                               ; preds = %83, %91, %98, %80
+  %100 = phi ptr [ %82, %80 ], [ %97, %91 ], [ %75, %98 ], [ %75, %83 ]
+  tail call void @folio_remove_rmap_ptes(ptr noundef %100, ptr noundef %75, i32 noundef 1, ptr noundef %1) #5
+  %.pre4 = load i32, ptr %59, align 8
+  br label %101
+
+101:                                              ; preds = %99, %64
+  %102 = phi i32 [ %.pre4, %99 ], [ %65, %64 ]
+  %103 = add nuw i32 %66, 1
+  %104 = icmp ult i32 %103, %102
+  br i1 %104, label %64, label %.loopexit, !llvm.loop !7
+
+.loopexit:                                        ; preds = %101, %58, %.loopexit3
+  %105 = load i16, ptr %3, align 8
+  %106 = and i16 %105, -9
+  store i16 %106, ptr %3, align 8
+  br label %107
+
+107:                                              ; preds = %.loopexit, %2
   ret void
 }
 

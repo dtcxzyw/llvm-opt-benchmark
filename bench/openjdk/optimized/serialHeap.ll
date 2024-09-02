@@ -1237,11 +1237,11 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %30, %32
 
 44:                                               ; preds = %41
   %45 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
-  %46 = icmp sgt i32 %45, 0
+  %46 = icmp slt i32 %45, 1
   br label %_ZNK10SerialHeap38should_try_older_generation_allocationEm.exit
 
 _ZNK10SerialHeap38should_try_older_generation_allocationEm.exit: ; preds = %35, %41, %44
-  %47 = phi i1 [ true, %35 ], [ false, %41 ], [ %46, %44 ]
+  %47 = phi i1 [ false, %35 ], [ true, %41 ], [ %46, %44 ]
   %48 = load ptr, ptr %5, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 432
   %50 = load i64, ptr %49, align 8
@@ -1256,9 +1256,9 @@ _ZNK10SerialHeap38should_try_older_generation_allocationEm.exit: ; preds = %35, 
   %56 = getelementptr inbounds i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(744) %48, i64 noundef %1, i1 noundef zeroext %2) #16
-  %.not.i = icmp eq ptr %58, null
-  %brmerge.i.not = and i1 %47, %.not.i
-  br i1 %brmerge.i.not, label %59, label %_ZN10SerialHeap18attempt_allocationEmbb.exit
+  %.not.i = icmp ne ptr %58, null
+  %brmerge.i = or i1 %47, %.not.i
+  br i1 %brmerge.i, label %_ZN10SerialHeap18attempt_allocationEmbb.exit, label %59
 
 59:                                               ; preds = %54, %_ZNK10SerialHeap38should_try_older_generation_allocationEm.exit
   br i1 %.0.i.not.i, label %_ZN10SerialHeap18attempt_allocationEmbb.exit.thread, label %60

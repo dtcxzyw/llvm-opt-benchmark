@@ -248,13 +248,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit254: ;
   %79 = extractvalue { i64, ptr } %78, 0
   %80 = extractvalue { i64, ptr } %78, 1
   %81 = call noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt11char_traitsIcEE(i64 %79, ptr %80) #14
+  %82 = select i1 %81, i32 1, i32 2
   br label %_Z7cmIsOff7cmValue.exit
 
 _Z7cmIsOff7cmValue.exit:                          ; preds = %75, %77
-  %82 = phi i1 [ true, %75 ], [ %81, %77 ]
+  %spec.select = phi i32 [ 1, %75 ], [ %82, %77 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #14
-  %spec.select = select i1 %82, i32 1, i32 2
   %83 = load ptr, ptr %0, align 8
   %.sroa.0348.0485 = getelementptr inbounds i8, ptr %83, i64 32
   %84 = load ptr, ptr %56, align 8

@@ -1350,7 +1350,7 @@ define noundef i8 @"_ZN94_$LT$tokio..runtime..task..error..JoinError$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i8 0, -110) i8 @"_ZN73_$LT$file_store..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17he17a3c8b3d8151d4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #0 {
+define noundef range(i8 26, -116) i8 @"_ZN73_$LT$file_store..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17he17a3c8b3d8151d4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #0 {
   %2 = alloca [16 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = load i64, ptr %0, align 8, !range !228, !noundef !4

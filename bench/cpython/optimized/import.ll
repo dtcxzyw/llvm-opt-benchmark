@@ -4310,7 +4310,7 @@ declare ptr @PyModule_GetDict(ptr noundef) local_unnamed_addr #1
 declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyImport_ImportFrozenModule(ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyImport_ImportFrozenModule(ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyUnicode_InternFromString(ptr noundef %name) #19
   %cmp = icmp eq ptr %call, null

@@ -41,7 +41,7 @@ define range(i32 -18, 1) i32 @fdt_create_with_flags(ptr nocapture noundef writeo
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -18, 1) i32 @fdt_create(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @fdt_create(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %1, 48
   br i1 %3, label %fdt_create_with_flags.exit, label %4
 
@@ -235,7 +235,7 @@ define range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly %0, ptr noundef %1
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @fdt_add_reservemap_entry(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 -9, 1) i32 @fdt_add_reservemap_entry(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   %6 = shl nuw i32 %5, 24
@@ -343,7 +343,7 @@ fdt_sw_probe_memrsv_.exit.thread17:               ; preds = %fdt_sw_probe_memrsv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @fdt_finish_reservemap(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 -9, 1) i32 @fdt_finish_reservemap(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = shl nuw i32 %3, 24
@@ -1040,7 +1040,7 @@ define internal fastcc i32 @fdt_add_string_(ptr nocapture noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fdt_property(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #7 {
+define range(i32 -9, 1) i32 @fdt_property(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca ptr, align 8
   %6 = call i32 @fdt_property_placeholder(ptr noundef %0, ptr noundef %1, i32 noundef %3, ptr noundef nonnull %5)
   %.not = icmp eq i32 %6, 0

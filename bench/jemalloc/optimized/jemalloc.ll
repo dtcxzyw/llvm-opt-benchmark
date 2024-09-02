@@ -1163,8 +1163,8 @@ tsd_fetch_impl.exit:                              ; preds = %entry
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 824
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
-  %cmp.i = icmp eq i8 %.pre, 0
-  br i1 %cmp.i, label %if.then2.i.i, label %land.lhs.true8.i
+  %2 = icmp eq i8 %.pre, 0
+  br i1 %2, label %if.then2.i.i, label %land.lhs.true8.i
 
 if.then2.i.i:                                     ; preds = %entry, %tsd_fetch_impl.exit
   %retval.i1208.0836 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
@@ -1175,8 +1175,8 @@ if.then.i158.i:                                   ; preds = %if.then2.i.i
   %sub.i200.i = add nuw nsw i64 %size, 7
   %shr.i.i = lshr i64 %sub.i200.i, 3
   %arrayidx.i201.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i
-  %2 = load i8, ptr %arrayidx.i201.i, align 1
-  %conv.i202.i = zext i8 %2 to i32
+  %3 = load i8, ptr %arrayidx.i201.i, align 1
+  %conv.i202.i = zext i8 %3 to i32
   br label %sz_size2index.exit.i
 
 if.end.i157.i:                                    ; preds = %if.then2.i.i
@@ -1186,17 +1186,17 @@ if.end.i157.i:                                    ; preds = %if.then2.i.i
 if.end12.i:                                       ; preds = %if.end.i157.i
   %shl.i = shl nuw i64 %size, 1
   %sub13.i = add i64 %shl.i, -1
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
-  %4 = trunc nuw nsw i64 %3 to i32
-  %conv1.i.i.i.i = shl nuw nsw i32 %4, 2
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
+  %5 = trunc nuw nsw i64 %4 to i32
+  %conv1.i.i.i.i = shl nuw nsw i32 %5, 2
   %sub19.i = xor i32 %conv1.i.i.i.i, 252
-  %sub28.i = sub nuw nsw i64 60, %3
+  %sub28.i = sub nuw nsw i64 60, %4
   %shl31.i = shl nsw i64 -1, %sub28.i
   %sub32.i = add nsw i64 %size, -1
   %and.i = and i64 %shl31.i, %sub32.i
   %shr.i = lshr i64 %and.i, %sub28.i
-  %5 = trunc i64 %shr.i to i32
-  %conv35.i = and i32 %5, 3
+  %6 = trunc i64 %shr.i to i32
+  %conv35.i = and i32 %6, 3
   %add.i = add nsw i32 %sub19.i, -23
   %add36.i = add nuw nsw i32 %add.i, %conv35.i
   br label %sz_size2index.exit.i
@@ -1209,22 +1209,22 @@ sz_size2index.exit.i:                             ; preds = %if.end12.i, %if.the
 land.lhs.true.i33.i716:                           ; preds = %sz_size2index.exit.i
   %conv.i148.i = zext nneg i32 %retval.i151.i.0 to i64
   %arrayidx.i.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i148.i
-  %6 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp.i161.i = icmp ult i64 %6, 14337
+  %7 = load i64, ptr %arrayidx.i.i, align 8
+  %cmp.i161.i = icmp ult i64 %7, 14337
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1206 = getelementptr inbounds i8, ptr %retval.i1208.0836, i64 864
   br i1 %cmp.i161.i, label %if.then11.i.i915, label %if.else.i69.i765
 
 if.then11.i.i915:                                 ; preds = %land.lhs.true.i33.i716
   %bins.i94.i920 = getelementptr inbounds i8, ptr %retval.i1208.0836, i64 872
   %arrayidx.i96.i922 = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i94.i920, i64 0, i64 %conv.i148.i
-  %7 = load ptr, ptr %arrayidx.i96.i922, align 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = ptrtoint ptr %7 to i64
-  %add.ptr.i.i924 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %arrayidx.i96.i922, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = ptrtoint ptr %8 to i64
+  %add.ptr.i.i924 = getelementptr inbounds i8, ptr %8, i64 8
   %low_bits_low_water.i.i926 = getelementptr inbounds i8, ptr %arrayidx.i96.i922, i64 16
-  %10 = load i16, ptr %low_bits_low_water.i.i926, align 8
-  %11 = trunc i64 %9 to i16
-  %cmp.i178.i928.not = icmp eq i16 %10, %11
+  %11 = load i16, ptr %low_bits_low_water.i.i926, align 8
+  %12 = trunc i64 %10 to i16
+  %cmp.i178.i928.not = icmp eq i16 %11, %12
   br i1 %cmp.i178.i928.not, label %if.end11.i.i992, label %if.then.i184.i1004
 
 if.then.i184.i1004:                               ; preds = %if.then11.i.i915
@@ -1233,14 +1233,14 @@ if.then.i184.i1004:                               ; preds = %if.then11.i.i915
 
 if.end11.i.i992:                                  ; preds = %if.then11.i.i915
   %low_bits_empty.i.i994 = getelementptr inbounds i8, ptr %arrayidx.i96.i922, i64 20
-  %12 = load i16, ptr %low_bits_empty.i.i994, align 4
-  %cmp14.i.i996.not = icmp eq i16 %12, %10
+  %13 = load i16, ptr %low_bits_empty.i.i994, align 4
+  %cmp14.i.i996.not = icmp eq i16 %13, %11
   br i1 %cmp14.i.i996.not, label %if.then.i105.i953, label %if.then22.i183.i1001
 
 if.then22.i183.i1001:                             ; preds = %if.end11.i.i992
   store ptr %add.ptr.i.i924, ptr %arrayidx.i96.i922, align 8
-  %13 = ptrtoint ptr %add.ptr.i.i924 to i64
-  %conv24.i.i1002 = trunc i64 %13 to i16
+  %14 = ptrtoint ptr %add.ptr.i.i924 to i64
+  %conv24.i.i1002 = trunc i64 %14 to i16
   store i16 %conv24.i.i1002, ptr %low_bits_low_water.i.i926, align 8
   br label %if.end50.i.i946
 
@@ -1261,23 +1261,23 @@ if.then23.i124.i985:                              ; preds = %if.end.i107.i959
 if.end27.i.i978:                                  ; preds = %if.end.i107.i959
   tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1208.0836, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1206, ptr noundef nonnull %arrayidx.i96.i922, i32 noundef %retval.i151.i.0, i1 noundef zeroext true) #19
   %call29.i123.i979 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1208.0836, ptr noundef nonnull %call7.i.i954, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1206, ptr noundef nonnull %arrayidx.i96.i922, i32 noundef %retval.i151.i.0, ptr noundef nonnull %tcache_hard_success.i.i611) #19
-  %14 = load i8, ptr %tcache_hard_success.i.i611, align 1
-  %15 = and i8 %14, 1
-  %cmp32.i.i982 = icmp eq i8 %15, 0
+  %15 = load i8, ptr %tcache_hard_success.i.i611, align 1
+  %16 = and i8 %15, 1
+  %cmp32.i.i982 = icmp eq i8 %16, 0
   br i1 %cmp32.i.i982, label %if.then113.i, label %if.end50.i.i946
 
 if.end50.i.i946:                                  ; preds = %if.then22.i183.i1001, %if.then.i184.i1004, %if.end27.i.i978
-  %ret.i91.i608.0 = phi ptr [ %call29.i123.i979, %if.end27.i.i978 ], [ %8, %if.then.i184.i1004 ], [ %8, %if.then22.i183.i1001 ]
+  %ret.i91.i608.0 = phi ptr [ %call29.i123.i979, %if.end27.i.i978 ], [ %9, %if.then.i184.i1004 ], [ %9, %if.then22.i183.i1001 ]
   %tstats.i.i947 = getelementptr inbounds i8, ptr %arrayidx.i96.i922, i64 8
-  %16 = load i64, ptr %tstats.i.i947, align 8
-  %inc.i.i948 = add i64 %16, 1
+  %17 = load i64, ptr %tstats.i.i947, align 8
+  %inc.i.i948 = add i64 %17, 1
   store i64 %inc.i.i948, ptr %tstats.i.i947, align 8
   br label %imalloc_no_sample.exit1046
 
 if.else.i69.i765:                                 ; preds = %land.lhs.true.i33.i716
-  %17 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1206, align 8
-  %18 = getelementptr i8, ptr %17, i64 48
-  %.val758 = load i32, ptr %18, align 8
+  %18 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1206, align 8
+  %19 = getelementptr i8, ptr %18, i64 48
+  %.val758 = load i32, ptr %19, align 8
   %cmp18.i70.i767 = icmp ult i32 %retval.i151.i.0, %.val758
   br i1 %cmp18.i70.i767, label %land.rhs.i.i892, label %if.end36.i.i731
 
@@ -1289,13 +1289,13 @@ land.rhs.i.i892:                                  ; preds = %if.else.i69.i765
   br i1 %cmp.i769, label %if.end36.i.i731, label %if.then30.i.i773
 
 if.then30.i.i773:                                 ; preds = %land.rhs.i.i892
-  %19 = load ptr, ptr %arrayidx.i.i895.val, align 8
-  %20 = ptrtoint ptr %arrayidx.i.i895.val to i64
+  %20 = load ptr, ptr %arrayidx.i.i895.val, align 8
+  %21 = ptrtoint ptr %arrayidx.i.i895.val to i64
   %add.ptr.i193.i782 = getelementptr inbounds i8, ptr %arrayidx.i.i895.val, i64 8
   %low_bits_low_water.i195.i784 = getelementptr inbounds i8, ptr %arrayidx.i.i895, i64 16
-  %21 = load i16, ptr %low_bits_low_water.i195.i784, align 8
-  %22 = trunc i64 %20 to i16
-  %cmp.i197.i786.not = icmp eq i16 %21, %22
+  %22 = load i16, ptr %low_bits_low_water.i195.i784, align 8
+  %23 = trunc i64 %21 to i16
+  %cmp.i197.i786.not = icmp eq i16 %22, %23
   br i1 %cmp.i197.i786.not, label %if.end11.i204.i879, label %if.then.i216.i891
 
 if.then.i216.i891:                                ; preds = %if.then30.i.i773
@@ -1304,14 +1304,14 @@ if.then.i216.i891:                                ; preds = %if.then30.i.i773
 
 if.end11.i204.i879:                               ; preds = %if.then30.i.i773
   %low_bits_empty.i206.i881 = getelementptr inbounds i8, ptr %arrayidx.i.i895, i64 20
-  %23 = load i16, ptr %low_bits_empty.i206.i881, align 4
-  %cmp14.i208.i883.not = icmp eq i16 %23, %21
+  %24 = load i16, ptr %low_bits_empty.i206.i881, align 4
+  %cmp14.i208.i883.not = icmp eq i16 %24, %22
   br i1 %cmp14.i208.i883.not, label %if.then.i159.i812, label %if.then22.i213.i888
 
 if.then22.i213.i888:                              ; preds = %if.end11.i204.i879
   store ptr %add.ptr.i193.i782, ptr %arrayidx.i.i895, align 8
-  %24 = ptrtoint ptr %add.ptr.i193.i782 to i64
-  %conv24.i214.i889 = trunc i64 %24 to i16
+  %25 = ptrtoint ptr %add.ptr.i193.i782 to i64
+  %conv24.i214.i889 = trunc i64 %25 to i16
   store i16 %conv24.i214.i889, ptr %low_bits_low_water.i195.i784, align 8
   br label %if.end35.i154.i804
 
@@ -1328,17 +1328,17 @@ if.then.i225.i870:                                ; preds = %if.end.i165.i818
   %sub.i266.i872 = add nuw nsw i64 %size, 7
   %shr.i.i873 = lshr i64 %sub.i266.i872, 3
   %arrayidx.i267.i874 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i873
-  %25 = load i8, ptr %arrayidx.i267.i874, align 1
-  %idxprom.i262.i876 = zext i8 %25 to i64
+  %26 = load i8, ptr %arrayidx.i267.i874, align 1
+  %idxprom.i262.i876 = zext i8 %26 to i64
   %arrayidx.i263.i877 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i262.i876
-  %26 = load i64, ptr %arrayidx.i263.i877, align 8
+  %27 = load i64, ptr %arrayidx.i263.i877, align 8
   br label %sz_s2u.exit.i849
 
 if.end14.i.i832:                                  ; preds = %if.end.i165.i818
   %shl15.i.i833 = shl nuw i64 %size, 1
   %sub.i.i834 = add i64 %shl15.i.i833, -1
-  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i834, i1 true)
-  %sub23.i.i840 = sub nuw nsw i64 60, %27
+  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i834, i1 true)
+  %sub23.i.i840 = sub nuw nsw i64 60, %28
   %notmask755 = shl nsw i64 -1, %sub23.i.i840
   %sub27.i.i844 = xor i64 %notmask755, -1
   %add.i.i845 = add nuw nsw i64 %size, %sub27.i.i844
@@ -1346,14 +1346,14 @@ if.end14.i.i832:                                  ; preds = %if.end.i165.i818
   br label %sz_s2u.exit.i849
 
 sz_s2u.exit.i849:                                 ; preds = %if.end14.i.i832, %if.then.i225.i870
-  %retval.i218.i557.0 = phi i64 [ %26, %if.then.i225.i870 ], [ %and.i.i847, %if.end14.i.i832 ]
+  %retval.i218.i557.0 = phi i64 [ %27, %if.then.i225.i870 ], [ %and.i.i847, %if.end14.i.i832 ]
   %call19.i167.i851 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1208.0836, ptr noundef nonnull %call7.i160.i813, i64 noundef %retval.i218.i557.0, i1 noundef zeroext false) #19
   br label %imalloc_no_sample.exit1046
 
 if.end35.i154.i804:                               ; preds = %if.then.i216.i891, %if.then22.i213.i888
   %tstats.i155.i805 = getelementptr inbounds i8, ptr %arrayidx.i.i895, i64 8
-  %28 = load i64, ptr %tstats.i155.i805, align 8
-  %inc.i156.i806 = add i64 %28, 1
+  %29 = load i64, ptr %tstats.i155.i805, align 8
+  %inc.i156.i806 = add i64 %29, 1
   store i64 %inc.i156.i806, ptr %tstats.i155.i805, align 8
   br label %imalloc_no_sample.exit1046
 
@@ -1362,7 +1362,7 @@ if.end36.i.i731:                                  ; preds = %land.rhs.i.i892, %i
   br label %imalloc_no_sample.exit1046
 
 imalloc_no_sample.exit1046:                       ; preds = %sz_s2u.exit.i849, %if.end35.i154.i804, %if.then23.i124.i985, %if.end50.i.i946, %if.end36.i.i731
-  %retval.i52.i623.0 = phi ptr [ %call39.i.i734, %if.end36.i.i731 ], [ %call26.i.i987, %if.then23.i124.i985 ], [ %ret.i91.i608.0, %if.end50.i.i946 ], [ %19, %if.end35.i154.i804 ], [ %call19.i167.i851, %sz_s2u.exit.i849 ]
+  %retval.i52.i623.0 = phi ptr [ %call39.i.i734, %if.end36.i.i731 ], [ %call26.i.i987, %if.then23.i124.i985 ], [ %ret.i91.i608.0, %if.end50.i.i946 ], [ %20, %if.end35.i154.i804 ], [ %call19.i167.i851, %sz_s2u.exit.i849 ]
   %cmp53.i = icmp eq ptr %retval.i52.i623.0, null
   br i1 %cmp53.i, label %if.then113.i, label %if.end62.i
 
@@ -1380,12 +1380,12 @@ if.end62.i:                                       ; preds = %imalloc_no_sample.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1768 = getelementptr inbounds i8, ptr %retval.i1208.0836, i64 840
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1657, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1768, ptr %next_event_fast.i, align 8
-  %29 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i1661 = add i64 %29, %6
+  %30 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
+  %add.i1661 = add i64 %30, %7
   store i64 %add.i1661, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %30 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
-  %sub.i1663 = sub i64 %30, %29
-  %cmp.i1664 = icmp ult i64 %6, %sub.i1663
+  %31 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
+  %sub.i1663 = sub i64 %31, %30
+  %cmp.i1664 = icmp ult i64 %7, %sub.i1663
   br i1 %cmp.i1664, label %do.end, label %if.else.i1668
 
 if.else.i1668:                                    ; preds = %if.end62.i
@@ -1398,8 +1398,8 @@ if.then113.i:                                     ; preds = %if.then.i159.i812, 
   br label %do.end
 
 land.lhs.true8.i:                                 ; preds = %tsd_fetch_impl.exit
-  %31 = load i32, ptr @malloc_init_state, align 4
-  %cmp.i362.not = icmp eq i32 %31, 0
+  %32 = load i32, ptr @malloc_init_state, align 4
+  %cmp.i362.not = icmp eq i32 %32, 0
   br i1 %cmp.i362.not, label %land.lhs.true.i.i340, label %land.lhs.true.i.i43
 
 land.lhs.true.i.i43:                              ; preds = %land.lhs.true8.i
@@ -1412,8 +1412,8 @@ if.then.i42:                                      ; preds = %land.lhs.true.i.i43
   br label %do.end
 
 land.lhs.true.i.i340:                             ; preds = %land.lhs.true.i.i43, %land.lhs.true8.i
-  %32 = load i8, ptr @opt_zero, align 1
-  %tobool2.i.i341 = trunc i8 %32 to i1
+  %33 = load i8, ptr @opt_zero, align 1
+  %tobool2.i.i341 = trunc i8 %33 to i1
   %cmp.i153.i318 = icmp ult i64 %size, 4097
   br i1 %cmp.i153.i318, label %if.then.i158.i334, label %if.end.i157.i322
 
@@ -1421,8 +1421,8 @@ if.then.i158.i334:                                ; preds = %land.lhs.true.i.i34
   %sub.i200.i336 = add nuw nsw i64 %size, 7
   %shr.i.i337 = lshr i64 %sub.i200.i336, 3
   %arrayidx.i201.i338 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i337
-  %33 = load i8, ptr %arrayidx.i201.i338, align 1
-  %conv.i202.i339 = zext i8 %33 to i32
+  %34 = load i8, ptr %arrayidx.i201.i338, align 1
+  %conv.i202.i339 = zext i8 %34 to i32
   br label %sz_size2index.exit.i324
 
 if.end.i157.i322:                                 ; preds = %land.lhs.true.i.i340
@@ -1432,17 +1432,17 @@ if.end.i157.i322:                                 ; preds = %land.lhs.true.i.i34
 if.end12.i772:                                    ; preds = %if.end.i157.i322
   %shl.i773 = shl nuw i64 %size, 1
   %sub13.i774 = add i64 %shl.i773, -1
-  %34 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i774, i1 true)
-  %35 = trunc nuw nsw i64 %34 to i32
-  %conv1.i.i.i.i775 = shl nuw nsw i32 %35, 2
+  %35 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i774, i1 true)
+  %36 = trunc nuw nsw i64 %35 to i32
+  %conv1.i.i.i.i775 = shl nuw nsw i32 %36, 2
   %sub19.i776 = xor i32 %conv1.i.i.i.i775, 252
-  %sub28.i777 = sub nuw nsw i64 60, %34
+  %sub28.i777 = sub nuw nsw i64 60, %35
   %shl31.i779 = shl nsw i64 -1, %sub28.i777
   %sub32.i780 = add nsw i64 %size, -1
   %and.i781 = and i64 %shl31.i779, %sub32.i780
   %shr.i782 = lshr i64 %and.i781, %sub28.i777
-  %36 = trunc i64 %shr.i782 to i32
-  %conv35.i783 = and i32 %36, 3
+  %37 = trunc i64 %shr.i782 to i32
+  %conv35.i783 = and i32 %37, 3
   %add.i784 = add nsw i32 %sub19.i776, -23
   %add36.i785 = add nuw nsw i32 %add.i784, %conv35.i783
   br label %sz_size2index.exit.i324
@@ -1455,23 +1455,23 @@ sz_size2index.exit.i324:                          ; preds = %if.end12.i772, %if.
 if.end24.i189:                                    ; preds = %sz_size2index.exit.i324
   %conv.i148.i325 = zext nneg i32 %retval.i151.i106.0 to i64
   %arrayidx.i.i332 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i148.i325
-  %37 = load i64, ptr %arrayidx.i.i332, align 8
+  %38 = load i64, ptr %arrayidx.i.i332, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1996 = getelementptr inbounds i8, ptr %call13.i, i64 1
-  %38 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1996, align 1
-  %cmp35.i244 = icmp slt i8 %38, 1
-  %cmp.i161.i198 = icmp ult i64 %37, 14337
+  %39 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1996, align 1
+  %cmp35.i244 = icmp slt i8 %39, 1
+  %cmp.i161.i198 = icmp ult i64 %38, 14337
   br i1 %cmp35.i244, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end24.i189
-  %39 = load i8, ptr %call13.i, align 1
-  %tobool.i1296 = trunc i8 %39 to i1
+  %40 = load i8, ptr %call13.i, align 1
+  %tobool.i1296 = trunc i8 %40 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1238 = getelementptr inbounds i8, ptr %call13.i, i64 864
   br i1 %tobool.i1296, label %if.then.i67.i, label %if.end36.i.i
 
 if.else.i24.i:                                    ; preds = %if.end24.i189
-  %40 = load atomic i64, ptr @arenas acquire, align 64
-  %41 = inttoptr i64 %40 to ptr
-  %cmp.i788 = icmp eq i64 %40, 0
+  %41 = load atomic i64, ptr @arenas acquire, align 64
+  %42 = inttoptr i64 %41 to ptr
+  %cmp.i788 = icmp eq i64 %41, 0
   br i1 %cmp.i788, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
@@ -1485,33 +1485,33 @@ if.then.i.i:                                      ; preds = %if.then3.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %inc.i.i.i = add i64 %42, 1
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %inc.i.i.i = add i64 %43, 1
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %cmp.not.i.i.i = icmp eq ptr %43, %call13.i
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %cmp.not.i.i.i = icmp eq ptr %44, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %44 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
-  %inc2.i.i.i = add i64 %44, 1
+  %45 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
+  %inc2.i.i.i = add i64 %45, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
-  %45 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i.i = icmp eq i32 %45, 0
+  %46 = load atomic i32, ptr @narenas_total acquire, align 4
+  %cmp1.i.i = icmp eq i32 %46, 0
   br i1 %cmp1.i.i, label %if.then2.i.i790, label %if.end3.i.i
 
 if.then2.i.i790:                                  ; preds = %malloc_mutex_lock.exit.i
-  %46 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
+  %47 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then2.i.i790, %malloc_mutex_lock.exit.i
-  %47 = load atomic i64, ptr @arenas acquire, align 64
-  %48 = inttoptr i64 %47 to ptr
-  %cmp5.not.i.i = icmp eq i64 %47, 0
+  %48 = load atomic i64, ptr @arenas acquire, align 64
+  %49 = inttoptr i64 %48 to ptr
+  %cmp5.not.i.i = icmp eq i64 %48, 0
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init_locked.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
@@ -1519,19 +1519,19 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
   br label %arena_init_locked.exit.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
-  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %48, %if.end3.i.i ]
+  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %49, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   %call1.i.i789 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
-  %ret.0.i = phi ptr [ %41, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
+  %ret.0.i = phi ptr [ %42, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
   %cmp2.i.i453 = icmp eq ptr %ret.0.i, null
   br i1 %cmp2.i.i453, label %arena_get_from_ind.exit.i, label %if.end36.i.i
 
 arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit
-  %49 = load i32, ptr @narenas_auto, align 4
-  %cmp4.i.i = icmp eq i32 %49, 0
+  %50 = load i32, ptr @narenas_auto, align 4
+  %cmp4.i.i = icmp eq i32 %50, 0
   br i1 %cmp4.i.i, label %if.then113.i239, label %if.end36.i.i
 
 if.then.i67.i:                                    ; preds = %tcache_get_from_ind.exit.i.thread
@@ -1540,14 +1540,14 @@ if.then.i67.i:                                    ; preds = %tcache_get_from_ind
 if.then11.i.i:                                    ; preds = %if.then.i67.i
   %bins.i94.i = getelementptr inbounds i8, ptr %call13.i, i64 872
   %arrayidx.i96.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i94.i, i64 0, i64 %conv.i148.i325
-  %50 = load ptr, ptr %arrayidx.i96.i, align 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = ptrtoint ptr %50 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = load ptr, ptr %arrayidx.i96.i, align 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = ptrtoint ptr %51 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %51, i64 8
   %low_bits_low_water.i.i = getelementptr inbounds i8, ptr %arrayidx.i96.i, i64 16
-  %53 = load i16, ptr %low_bits_low_water.i.i, align 8
-  %54 = trunc i64 %52 to i16
-  %cmp.i178.i.not = icmp eq i16 %53, %54
+  %54 = load i16, ptr %low_bits_low_water.i.i, align 8
+  %55 = trunc i64 %53 to i16
+  %cmp.i178.i.not = icmp eq i16 %54, %55
   br i1 %cmp.i178.i.not, label %if.end11.i.i505, label %if.then.i184.i
 
 if.then.i184.i:                                   ; preds = %if.then11.i.i
@@ -1556,14 +1556,14 @@ if.then.i184.i:                                   ; preds = %if.then11.i.i
 
 if.end11.i.i505:                                  ; preds = %if.then11.i.i
   %low_bits_empty.i.i = getelementptr inbounds i8, ptr %arrayidx.i96.i, i64 20
-  %55 = load i16, ptr %low_bits_empty.i.i, align 4
-  %cmp14.i.i.not = icmp eq i16 %55, %53
+  %56 = load i16, ptr %low_bits_empty.i.i, align 4
+  %cmp14.i.i.not = icmp eq i16 %56, %54
   br i1 %cmp14.i.i.not, label %if.then.i105.i, label %if.then22.i183.i
 
 if.then22.i183.i:                                 ; preds = %if.end11.i.i505
   store ptr %add.ptr.i.i, ptr %arrayidx.i96.i, align 8
-  %56 = ptrtoint ptr %add.ptr.i.i to i64
-  %conv24.i.i = trunc i64 %56 to i16
+  %57 = ptrtoint ptr %add.ptr.i.i to i64
+  %conv24.i.i = trunc i64 %57 to i16
   store i16 %conv24.i.i, ptr %low_bits_low_water.i.i, align 8
   br label %if.end36.i103.i
 
@@ -1584,31 +1584,31 @@ if.then23.i124.i:                                 ; preds = %if.end.i107.i
 if.end27.i.i:                                     ; preds = %if.end.i107.i
   tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1238, ptr noundef nonnull %arrayidx.i96.i, i32 noundef %retval.i151.i106.0, i1 noundef zeroext true) #19
   %call29.i123.i = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1238, ptr noundef nonnull %arrayidx.i96.i, i32 noundef %retval.i151.i106.0, ptr noundef nonnull %tcache_hard_success.i.i) #19
-  %57 = load i8, ptr %tcache_hard_success.i.i, align 1
-  %58 = and i8 %57, 1
-  %cmp32.i.i = icmp eq i8 %58, 0
+  %58 = load i8, ptr %tcache_hard_success.i.i, align 1
+  %59 = and i8 %58, 1
+  %cmp32.i.i = icmp eq i8 %59, 0
   br i1 %cmp32.i.i, label %if.then113.i239, label %if.end36.i103.i
 
 if.end36.i103.i:                                  ; preds = %if.then22.i183.i, %if.then.i184.i, %if.end27.i.i
-  %ret.i91.i.0 = phi ptr [ %call29.i123.i, %if.end27.i.i ], [ %51, %if.then.i184.i ], [ %51, %if.then22.i183.i ]
+  %ret.i91.i.0 = phi ptr [ %call29.i123.i, %if.end27.i.i ], [ %52, %if.then.i184.i ], [ %52, %if.then22.i183.i ]
   br i1 %tobool2.i.i341, label %if.then46.i.i, label %if.end50.i.i
 
 if.then46.i.i:                                    ; preds = %if.end36.i103.i
-  %59 = load i64, ptr %arrayidx.i.i332, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %ret.i91.i.0, i8 0, i64 %59, i1 false)
+  %60 = load i64, ptr %arrayidx.i.i332, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %ret.i91.i.0, i8 0, i64 %60, i1 false)
   br label %if.end50.i.i
 
 if.end50.i.i:                                     ; preds = %if.then46.i.i, %if.end36.i103.i
   %tstats.i.i = getelementptr inbounds i8, ptr %arrayidx.i96.i, i64 8
-  %60 = load i64, ptr %tstats.i.i, align 8
-  %inc.i.i502 = add i64 %60, 1
+  %61 = load i64, ptr %tstats.i.i, align 8
+  %inc.i.i502 = add i64 %61, 1
   store i64 %inc.i.i502, ptr %tstats.i.i, align 8
   br label %imalloc_no_sample.exit
 
 if.else.i69.i:                                    ; preds = %if.then.i67.i
-  %61 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1238, align 8
-  %62 = getelementptr i8, ptr %61, i64 48
-  %.val761 = load i32, ptr %62, align 8
+  %62 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1238, align 8
+  %63 = getelementptr i8, ptr %62, i64 48
+  %.val761 = load i32, ptr %63, align 8
   %cmp18.i70.i = icmp ult i32 %retval.i151.i106.0, %.val761
   br i1 %cmp18.i70.i, label %land.rhs.i.i, label %if.end36.i.i
 
@@ -1620,13 +1620,13 @@ land.rhs.i.i:                                     ; preds = %if.else.i69.i
   br i1 %cmp.i792, label %if.end36.i.i, label %if.then30.i.i
 
 if.then30.i.i:                                    ; preds = %land.rhs.i.i
-  %63 = load ptr, ptr %arrayidx.i.i501.val, align 8
-  %64 = ptrtoint ptr %arrayidx.i.i501.val to i64
+  %64 = load ptr, ptr %arrayidx.i.i501.val, align 8
+  %65 = ptrtoint ptr %arrayidx.i.i501.val to i64
   %add.ptr.i193.i = getelementptr inbounds i8, ptr %arrayidx.i.i501.val, i64 8
   %low_bits_low_water.i195.i = getelementptr inbounds i8, ptr %arrayidx.i.i501, i64 16
-  %65 = load i16, ptr %low_bits_low_water.i195.i, align 8
-  %66 = trunc i64 %64 to i16
-  %cmp.i197.i.not = icmp eq i16 %65, %66
+  %66 = load i16, ptr %low_bits_low_water.i195.i, align 8
+  %67 = trunc i64 %65 to i16
+  %cmp.i197.i.not = icmp eq i16 %66, %67
   br i1 %cmp.i197.i.not, label %if.end11.i204.i, label %if.then.i216.i
 
 if.then.i216.i:                                   ; preds = %if.then30.i.i
@@ -1635,14 +1635,14 @@ if.then.i216.i:                                   ; preds = %if.then30.i.i
 
 if.end11.i204.i:                                  ; preds = %if.then30.i.i
   %low_bits_empty.i206.i = getelementptr inbounds i8, ptr %arrayidx.i.i501, i64 20
-  %67 = load i16, ptr %low_bits_empty.i206.i, align 4
-  %cmp14.i208.i.not = icmp eq i16 %67, %65
+  %68 = load i16, ptr %low_bits_empty.i206.i, align 4
+  %cmp14.i208.i.not = icmp eq i16 %68, %66
   br i1 %cmp14.i208.i.not, label %if.then.i159.i, label %if.then22.i213.i
 
 if.then22.i213.i:                                 ; preds = %if.end11.i204.i
   store ptr %add.ptr.i193.i, ptr %arrayidx.i.i501, align 8
-  %68 = ptrtoint ptr %add.ptr.i193.i to i64
-  %conv24.i214.i = trunc i64 %68 to i16
+  %69 = ptrtoint ptr %add.ptr.i193.i to i64
+  %conv24.i214.i = trunc i64 %69 to i16
   store i16 %conv24.i214.i, ptr %low_bits_low_water.i195.i, align 8
   br label %if.else.i153.i
 
@@ -1659,17 +1659,17 @@ if.then.i225.i:                                   ; preds = %if.end.i165.i
   %sub.i266.i = add nuw nsw i64 %size, 7
   %shr.i.i499 = lshr i64 %sub.i266.i, 3
   %arrayidx.i267.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i499
-  %69 = load i8, ptr %arrayidx.i267.i, align 1
-  %idxprom.i262.i = zext i8 %69 to i64
+  %70 = load i8, ptr %arrayidx.i267.i, align 1
+  %idxprom.i262.i = zext i8 %70 to i64
   %arrayidx.i263.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i262.i
-  %70 = load i64, ptr %arrayidx.i263.i, align 8
+  %71 = load i64, ptr %arrayidx.i263.i, align 8
   br label %sz_s2u.exit.i486
 
 if.end14.i.i470:                                  ; preds = %if.end.i165.i
   %shl15.i.i471 = shl nuw i64 %size, 1
   %sub.i.i472 = add i64 %shl15.i.i471, -1
-  %71 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i472, i1 true)
-  %sub23.i.i477 = sub nuw nsw i64 60, %71
+  %72 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i472, i1 true)
+  %sub23.i.i477 = sub nuw nsw i64 60, %72
   %notmask = shl nsw i64 -1, %sub23.i.i477
   %sub27.i.i481 = xor i64 %notmask, -1
   %add.i.i482 = add nuw nsw i64 %size, %sub27.i.i481
@@ -1677,7 +1677,7 @@ if.end14.i.i470:                                  ; preds = %if.end.i165.i
   br label %sz_s2u.exit.i486
 
 sz_s2u.exit.i486:                                 ; preds = %if.end14.i.i470, %if.then.i225.i
-  %retval.i218.i.0 = phi i64 [ %70, %if.then.i225.i ], [ %and.i.i484, %if.end14.i.i470 ]
+  %retval.i218.i.0 = phi i64 [ %71, %if.then.i225.i ], [ %and.i.i484, %if.end14.i.i470 ]
   %call19.i167.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i160.i, i64 noundef %retval.i218.i.0, i1 noundef zeroext %tobool2.i.i341) #19
   br label %imalloc_no_sample.exit
 
@@ -1685,14 +1685,14 @@ if.else.i153.i:                                   ; preds = %if.then.i216.i, %if
   br i1 %tobool2.i.i341, label %if.then31.i.i, label %if.end35.i154.i
 
 if.then31.i.i:                                    ; preds = %if.else.i153.i
-  %72 = load i64, ptr %arrayidx.i.i332, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %63, i8 0, i64 %72, i1 false)
+  %73 = load i64, ptr %arrayidx.i.i332, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %64, i8 0, i64 %73, i1 false)
   br label %if.end35.i154.i
 
 if.end35.i154.i:                                  ; preds = %if.then31.i.i, %if.else.i153.i
   %tstats.i155.i = getelementptr inbounds i8, ptr %arrayidx.i.i501, i64 8
-  %73 = load i64, ptr %tstats.i155.i, align 8
-  %inc.i156.i = add i64 %73, 1
+  %74 = load i64, ptr %tstats.i155.i, align 8
+  %inc.i156.i = add i64 %74, 1
   store i64 %inc.i156.i, ptr %tstats.i155.i, align 8
   br label %imalloc_no_sample.exit
 
@@ -1702,7 +1702,7 @@ if.end36.i.i:                                     ; preds = %arena_get.exit, %tc
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i486, %if.end35.i154.i, %if.then23.i124.i, %if.end50.i.i, %if.end36.i.i
-  %retval.i441.0 = phi ptr [ %call39.i.i, %if.end36.i.i ], [ %call26.i.i, %if.then23.i124.i ], [ %ret.i91.i.0, %if.end50.i.i ], [ %63, %if.end35.i154.i ], [ %call19.i167.i, %sz_s2u.exit.i486 ]
+  %retval.i441.0 = phi ptr [ %call39.i.i, %if.end36.i.i ], [ %call26.i.i, %if.then23.i124.i ], [ %ret.i91.i.0, %if.end50.i.i ], [ %64, %if.end35.i154.i ], [ %call19.i167.i, %sz_s2u.exit.i486 ]
   %cmp53.i200 = icmp eq ptr %retval.i441.0, null
   br i1 %cmp53.i200, label %if.then113.i239, label %if.end62.i204
 
@@ -1720,12 +1720,12 @@ if.end62.i204:                                    ; preds = %imalloc_no_sample.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %call13.i, i64 840
   %next_event_fast.i1724 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, ptr %next_event_fast.i1724, align 8
-  %74 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1717, align 8
-  %add.i1645 = add i64 %74, %37
+  %75 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1717, align 8
+  %add.i1645 = add i64 %75, %38
   store i64 %add.i1645, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1717, align 8
-  %75 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1805, align 8
-  %sub.i1646 = sub i64 %75, %74
-  %cmp.i1647 = icmp ult i64 %37, %sub.i1646
+  %76 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1805, align 8
+  %sub.i1646 = sub i64 %76, %75
+  %cmp.i1647 = icmp ult i64 %38, %sub.i1646
   br i1 %cmp.i1647, label %land.lhs.true70.i212, label %if.else.i1651
 
 if.else.i1651:                                    ; preds = %if.end62.i204
@@ -1736,12 +1736,12 @@ land.lhs.true70.i212:                             ; preds = %if.else.i1651, %if.
   br i1 %tobool2.i.i341, label %if.then, label %land.lhs.true73.i215
 
 land.lhs.true73.i215:                             ; preds = %land.lhs.true70.i212
-  %76 = load i8, ptr @opt_junk_alloc, align 1
-  %tobool74.i216 = trunc i8 %76 to i1
+  %77 = load i8, ptr @opt_junk_alloc, align 1
+  %tobool74.i216 = trunc i8 %77 to i1
   br i1 %tobool74.i216, label %if.then81.i220, label %if.then
 
 if.then81.i220:                                   ; preds = %land.lhs.true73.i215
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.i441.0, i8 -91, i64 %37, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.i441.0, i8 -91, i64 %38, i1 false)
   br label %if.then
 
 if.then113.i239:                                  ; preds = %if.then.i159.i, %if.end27.i.i, %if.then.i105.i, %arena_get_from_ind.exit.i, %if.end.i157.i322, %sz_size2index.exit.i324, %imalloc_no_sample.exit
@@ -1754,8 +1754,8 @@ if.then:                                          ; preds = %land.lhs.true70.i21
   store i64 %size, ptr %args, align 16
   %scevgep = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false)
-  %77 = ptrtoint ptr %ret.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 0, ptr noundef %ret.0.ph, i64 noundef %77, ptr noundef nonnull %args) #19
+  %78 = ptrtoint ptr %ret.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 0, ptr noundef %ret.0.ph, i64 noundef %78, ptr noundef nonnull %args) #19
   br label %do.end
 
 do.end:                                           ; preds = %if.then.i42, %if.end62.i, %if.else.i1668, %if.then113.i, %if.then
@@ -1863,8 +1863,8 @@ tsd_fetch_impl.exit:                              ; preds = %entry
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 824
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
-  %cmp.i = icmp eq i8 %.pre, 0
-  br i1 %cmp.i, label %if.end.i61, label %land.lhs.true8.i
+  %2 = icmp eq i8 %.pre, 0
+  br i1 %2, label %if.end.i61, label %land.lhs.true8.i
 
 if.end.i61:                                       ; preds = %entry, %tsd_fetch_impl.exit
   %retval.i1211.0802 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
@@ -1873,8 +1873,8 @@ if.end.i61:                                       ; preds = %entry, %tsd_fetch_i
 
 lor.rhs.i:                                        ; preds = %if.end.i61
   %sub.i = add i64 %alignment, -1
-  %2 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp6.i.not = icmp ult i64 %2, 2
+  %3 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %cmp6.i.not = icmp ult i64 %3, 2
   br i1 %cmp6.i.not, label %if.else.i144.i, label %do.end4
 
 if.else.i144.i:                                   ; preds = %lor.rhs.i
@@ -1895,10 +1895,10 @@ if.then.i36.i1558:                                ; preds = %if.then.i1503
   %sub.i119.i1560 = add nuw nsw i64 %and.i1508, 7
   %shr.i.i1561 = lshr i64 %sub.i119.i1560, 3
   %arrayidx.i120.i1562 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1561
-  %3 = load i8, ptr %arrayidx.i120.i1562, align 1
-  %idxprom.i.i1564 = zext i8 %3 to i64
+  %4 = load i8, ptr %arrayidx.i120.i1562, align 1
+  %idxprom.i.i1564 = zext i8 %4 to i64
   %arrayidx.i.i1565 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i1564
-  %4 = load i64, ptr %arrayidx.i.i1565, align 8
+  %5 = load i64, ptr %arrayidx.i.i1565, align 8
   br label %sz_s2u.exit38.i1539
 
 if.end.i34.i1513:                                 ; preds = %if.then.i1503
@@ -1908,8 +1908,8 @@ if.end.i34.i1513:                                 ; preds = %if.then.i1503
 if.end14.i.i1522:                                 ; preds = %if.end.i34.i1513
   %shl15.i.i1523 = shl nuw i64 %and.i1508, 1
   %sub.i.i1524 = add nsw i64 %shl15.i.i1523, -1
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1524, i1 true)
-  %sub23.i.i1530 = sub nuw nsw i64 60, %5
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1524, i1 true)
+  %sub23.i.i1530 = sub nuw nsw i64 60, %6
   %notmask758 = shl nsw i64 -1, %sub23.i.i1530
   %sub27.i.i1534 = xor i64 %notmask758, -1
   %add.i.i1535 = add nuw nsw i64 %and.i1508, %sub27.i.i1534
@@ -1917,7 +1917,7 @@ if.end14.i.i1522:                                 ; preds = %if.end.i34.i1513
   br label %sz_s2u.exit38.i1539
 
 sz_s2u.exit38.i1539:                              ; preds = %if.end14.i.i1522, %if.then.i36.i1558
-  %retval.i28.i1416.0 = phi i64 [ %4, %if.then.i36.i1558 ], [ %and.i.i1537, %if.end14.i.i1522 ]
+  %retval.i28.i1416.0 = phi i64 [ %5, %if.then.i36.i1558 ], [ %and.i.i1537, %if.end14.i.i1522 ]
   %cmp3.i1540 = icmp ult i64 %retval.i28.i1416.0, 16384
   br i1 %cmp3.i1540, label %if.end26.i.i, label %if.end18.i1466
 
@@ -1936,8 +1936,8 @@ if.end.i.i1437:                                   ; preds = %if.end9.i1430
 sz_s2u.exit.i1463:                                ; preds = %if.end.i.i1437
   %shl15.i71.i1447 = shl nuw i64 %spec.store.select, 1
   %sub.i72.i1448 = add i64 %shl15.i71.i1447, -1
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i1448, i1 true)
-  %sub23.i78.i1454 = sub nsw i64 60, %6
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i1448, i1 true)
+  %sub23.i78.i1454 = sub nsw i64 60, %7
   %notmask759 = shl nsw i64 -1, %sub23.i78.i1454
   %sub27.i82.i1458 = xor i64 %notmask759, -1
   %add.i83.i1459 = add nuw nsw i64 %spec.store.select, %sub27.i82.i1458
@@ -1947,20 +1947,20 @@ sz_s2u.exit.i1463:                                ; preds = %if.end.i.i1437
 
 if.end18.i1466:                                   ; preds = %sz_s2u.exit38.i1539, %if.end9.i1430, %sz_s2u.exit.i1463
   %usize.i1423.0 = phi i64 [ %and.i85.i1461, %sz_s2u.exit.i1463 ], [ 16384, %if.end9.i1430 ], [ 16384, %sz_s2u.exit38.i1539 ]
-  %7 = load i64, ptr @sz_large_pad, align 8
+  %8 = load i64, ptr @sz_large_pad, align 8
   %add20.i1468 = add nuw nsw i64 %alignment, 4095
   %and21.i1469 = and i64 %add20.i1468, 9223372036854771712
   %add19.i1467 = add nsw i64 %and21.i1469, -4096
   %add22.i1470 = add i64 %add19.i1467, %usize.i1423.0
-  %sub23.i1471 = add i64 %add22.i1470, %7
+  %sub23.i1471 = add i64 %add22.i1470, %8
   %cmp24.i1472 = icmp ult i64 %sub23.i1471, %usize.i1423.0
   %.usize.i1423.0 = select i1 %cmp24.i1472, i64 0, i64 %usize.i1423.0
   br label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1539, %if.end18.i1466
   %retval.i1420.0 = phi i64 [ %retval.i28.i1416.0, %sz_s2u.exit38.i1539 ], [ %.usize.i1423.0, %if.end18.i1466 ]
-  %8 = add i64 %retval.i1420.0, -8070450532247928833
-  %or.cond = icmp ult i64 %8, -8070450532247928832
+  %9 = add i64 %retval.i1420.0, -8070450532247928833
+  %or.cond = icmp ult i64 %9, -8070450532247928832
   br i1 %or.cond, label %do.end4, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
@@ -1984,11 +1984,11 @@ if.end62.i:                                       ; preds = %if.end38.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1771 = getelementptr inbounds i8, ptr %retval.i1211.0802, i64 840
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1660, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1771, ptr %next_event_fast.i, align 8
-  %9 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i1664 = add i64 %9, %retval.i1420.0
+  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
+  %add.i1664 = add i64 %10, %retval.i1420.0
   store i64 %add.i1664, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
-  %sub.i1666 = sub i64 %10, %9
+  %11 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
+  %sub.i1666 = sub i64 %11, %10
   %cmp.i1667 = icmp ult i64 %retval.i1420.0, %sub.i1666
   br i1 %cmp.i1667, label %if.end82.i, label %if.else.i1671
 
@@ -2001,8 +2001,8 @@ if.end82.i:                                       ; preds = %if.else.i1671, %if.
   br label %do.end4
 
 land.lhs.true8.i:                                 ; preds = %tsd_fetch_impl.exit
-  %11 = load i32, ptr @malloc_init_state, align 4
-  %cmp.i365.not = icmp eq i32 %11, 0
+  %12 = load i32, ptr @malloc_init_state, align 4
+  %cmp.i365.not = icmp eq i32 %12, 0
   br i1 %cmp.i365.not, label %if.end.i146, label %land.lhs.true.i.i46
 
 land.lhs.true.i.i46:                              ; preds = %land.lhs.true8.i
@@ -2021,13 +2021,13 @@ if.end.i146:                                      ; preds = %land.lhs.true8.i, %
 
 lor.rhs.i150:                                     ; preds = %if.end.i146
   %sub.i153 = add i64 %alignment, -1
-  %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp6.i155.not = icmp ult i64 %12, 2
+  %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %cmp6.i155.not = icmp ult i64 %13, 2
   br i1 %cmp6.i155.not, label %land.lhs.true.i.i343, label %if.then
 
 land.lhs.true.i.i343:                             ; preds = %lor.rhs.i150
-  %13 = load i8, ptr @opt_zero, align 1
-  %tobool2.i.i344 = trunc i8 %13 to i1
+  %14 = load i8, ptr @opt_zero, align 1
+  %tobool2.i.i344 = trunc i8 %14 to i1
   %spec.store.select10 = tail call i64 @llvm.umax.i64(i64 %size, i64 1)
   %cmp.i1326 = icmp ult i64 %size, 14337
   %cmp1.i = icmp ult i64 %alignment, 4097
@@ -2045,10 +2045,10 @@ if.then.i36.i:                                    ; preds = %if.then.i1341
   %sub.i119.i = add nuw nsw i64 %and.i1343, 7
   %shr.i.i1379 = lshr i64 %sub.i119.i, 3
   %arrayidx.i120.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1379
-  %14 = load i8, ptr %arrayidx.i120.i, align 1
-  %idxprom.i.i1380 = zext i8 %14 to i64
+  %15 = load i8, ptr %arrayidx.i120.i, align 1
+  %idxprom.i.i1380 = zext i8 %15 to i64
   %arrayidx.i.i1381 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i1380
-  %15 = load i64, ptr %arrayidx.i.i1381, align 8
+  %16 = load i64, ptr %arrayidx.i.i1381, align 8
   br label %sz_s2u.exit38.i
 
 if.end.i34.i:                                     ; preds = %if.then.i1341
@@ -2058,8 +2058,8 @@ if.end.i34.i:                                     ; preds = %if.then.i1341
 if.end14.i.i1347:                                 ; preds = %if.end.i34.i
   %shl15.i.i1348 = shl nuw i64 %and.i1343, 1
   %sub.i.i1349 = add nsw i64 %shl15.i.i1348, -1
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1349, i1 true)
-  %sub23.i.i1355 = sub nuw nsw i64 60, %16
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1349, i1 true)
+  %sub23.i.i1355 = sub nuw nsw i64 60, %17
   %notmask = shl nsw i64 -1, %sub23.i.i1355
   %sub27.i.i1359 = xor i64 %notmask, -1
   %add.i.i1360 = add nuw nsw i64 %and.i1343, %sub27.i.i1359
@@ -2067,7 +2067,7 @@ if.end14.i.i1347:                                 ; preds = %if.end.i34.i
   br label %sz_s2u.exit38.i
 
 sz_s2u.exit38.i:                                  ; preds = %if.end14.i.i1347, %if.then.i36.i
-  %retval.i28.i.0 = phi i64 [ %15, %if.then.i36.i ], [ %and.i.i1362, %if.end14.i.i1347 ]
+  %retval.i28.i.0 = phi i64 [ %16, %if.then.i36.i ], [ %and.i.i1362, %if.end14.i.i1347 ]
   %cmp3.i = icmp ult i64 %retval.i28.i.0, 16384
   br i1 %cmp3.i, label %if.end26.i.i182, label %if.end18.i
 
@@ -2086,8 +2086,8 @@ if.end.i.i1336:                                   ; preds = %if.end9.i
 sz_s2u.exit.i1337:                                ; preds = %if.end.i.i1336
   %shl15.i71.i = shl nuw i64 %spec.store.select10, 1
   %sub.i72.i = add i64 %shl15.i71.i, -1
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i, i1 true)
-  %sub23.i78.i = sub nsw i64 60, %17
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i, i1 true)
+  %sub23.i78.i = sub nsw i64 60, %18
   %notmask757 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask757, -1
   %add.i83.i = add nuw nsw i64 %spec.store.select10, %sub27.i82.i
@@ -2097,40 +2097,40 @@ sz_s2u.exit.i1337:                                ; preds = %if.end.i.i1336
 
 if.end18.i:                                       ; preds = %sz_s2u.exit38.i, %if.end9.i, %sz_s2u.exit.i1337
   %usize.i1325.0 = phi i64 [ %and.i85.i, %sz_s2u.exit.i1337 ], [ 16384, %if.end9.i ], [ 16384, %sz_s2u.exit38.i ]
-  %18 = load i64, ptr @sz_large_pad, align 8
+  %19 = load i64, ptr @sz_large_pad, align 8
   %add20.i = add nuw nsw i64 %alignment, 4095
   %and21.i = and i64 %add20.i, 9223372036854771712
   %add19.i = add nsw i64 %and21.i, -4096
   %add22.i = add i64 %add19.i, %usize.i1325.0
-  %sub23.i = add i64 %add22.i, %18
+  %sub23.i = add i64 %add22.i, %19
   %cmp24.i = icmp ult i64 %sub23.i, %usize.i1325.0
   %.usize.i1325.0 = select i1 %cmp24.i, i64 0, i64 %usize.i1325.0
   br label %if.end26.i.i182
 
 if.end26.i.i182:                                  ; preds = %sz_s2u.exit38.i, %if.end18.i
   %retval.i1322.0 = phi i64 [ %retval.i28.i.0, %sz_s2u.exit38.i ], [ %.usize.i1325.0, %if.end18.i ]
-  %19 = add i64 %retval.i1322.0, -8070450532247928833
-  %or.cond760 = icmp ult i64 %19, -8070450532247928832
+  %20 = add i64 %retval.i1322.0, -8070450532247928833
+  %or.cond760 = icmp ult i64 %20, -8070450532247928832
   br i1 %or.cond760, label %if.then, label %if.end38.i.i190
 
 if.end38.i.i190:                                  ; preds = %if.end26.i.i182
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999 = getelementptr inbounds i8, ptr %call13.i, i64 1
-  %20 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999, align 1
-  %cmp35.i247 = icmp slt i8 %20, 1
+  %21 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999, align 1
+  %cmp35.i247 = icmp slt i8 %21, 1
   %cmp.i161.i201 = icmp ult i64 %retval.i1322.0, 14337
   br i1 %cmp35.i247, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end38.i.i190
-  %21 = load i8, ptr %call13.i, align 1
-  %tobool.i1299 = trunc i8 %21 to i1
+  %22 = load i8, ptr %call13.i, align 1
+  %tobool.i1299 = trunc i8 %22 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1241 = getelementptr inbounds i8, ptr %call13.i, i64 864
   %retval.i1235.0 = select i1 %tobool.i1299, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1241, ptr null
   br label %imalloc_no_sample.exit
 
 if.else.i24.i:                                    ; preds = %if.end38.i.i190
-  %22 = load atomic i64, ptr @arenas acquire, align 64
-  %23 = inttoptr i64 %22 to ptr
-  %cmp.i764 = icmp eq i64 %22, 0
+  %23 = load atomic i64, ptr @arenas acquire, align 64
+  %24 = inttoptr i64 %23 to ptr
+  %cmp.i764 = icmp eq i64 %23, 0
   br i1 %cmp.i764, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
@@ -2144,33 +2144,33 @@ if.then.i.i:                                      ; preds = %if.then3.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %inc.i.i.i = add i64 %24, 1
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %inc.i.i.i = add i64 %25, 1
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %cmp.not.i.i.i = icmp eq ptr %25, %call13.i
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %cmp.not.i.i.i = icmp eq ptr %26, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
-  %inc2.i.i.i = add i64 %26, 1
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
+  %inc2.i.i.i = add i64 %27, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
-  %27 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i.i = icmp eq i32 %27, 0
+  %28 = load atomic i32, ptr @narenas_total acquire, align 4
+  %cmp1.i.i = icmp eq i32 %28, 0
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end3.i.i
 
 if.then2.i.i:                                     ; preds = %malloc_mutex_lock.exit.i
-  %28 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
+  %29 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then2.i.i, %malloc_mutex_lock.exit.i
-  %29 = load atomic i64, ptr @arenas acquire, align 64
-  %30 = inttoptr i64 %29 to ptr
-  %cmp5.not.i.i = icmp eq i64 %29, 0
+  %30 = load atomic i64, ptr @arenas acquire, align 64
+  %31 = inttoptr i64 %30 to ptr
+  %cmp5.not.i.i = icmp eq i64 %30, 0
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init_locked.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
@@ -2178,19 +2178,19 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
   br label %arena_init_locked.exit.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
-  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %30, %if.end3.i.i ]
+  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %31, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   %call1.i.i766 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
-  %ret.0.i = phi ptr [ %23, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
+  %ret.0.i = phi ptr [ %24, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
   %cmp2.i.i456 = icmp eq ptr %ret.0.i, null
   br i1 %cmp2.i.i456, label %arena_get_from_ind.exit.i, label %imalloc_no_sample.exit
 
 arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit
-  %31 = load i32, ptr @narenas_auto, align 4
-  %cmp4.i.i = icmp eq i32 %31, 0
+  %32 = load i32, ptr @narenas_auto, align 4
+  %cmp4.i.i = icmp eq i32 %32, 0
   br i1 %cmp4.i.i, label %if.then, label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %tcache_get_from_ind.exit.i.thread, %arena_get.exit, %arena_get_from_ind.exit.i
@@ -2214,11 +2214,11 @@ if.end62.i207:                                    ; preds = %imalloc_no_sample.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %call13.i, i64 840
   %next_event_fast.i1727 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, ptr %next_event_fast.i1727, align 8
-  %32 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1720, align 8
-  %add.i1648 = add i64 %32, %retval.i1322.0
+  %33 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1720, align 8
+  %add.i1648 = add i64 %33, %retval.i1322.0
   store i64 %add.i1648, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1720, align 8
-  %33 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1808, align 8
-  %sub.i1649 = sub i64 %33, %32
+  %34 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1808, align 8
+  %sub.i1649 = sub i64 %34, %33
   %cmp.i1650 = icmp ult i64 %retval.i1322.0, %sub.i1649
   br i1 %cmp.i1650, label %land.lhs.true70.i215, label %if.else.i1654
 
@@ -2230,8 +2230,8 @@ land.lhs.true70.i215:                             ; preds = %if.else.i1654, %if.
   br i1 %tobool2.i.i344, label %if.end82.i210, label %land.lhs.true73.i218
 
 land.lhs.true73.i218:                             ; preds = %land.lhs.true70.i215
-  %34 = load i8, ptr @opt_junk_alloc, align 1
-  %tobool74.i219 = trunc i8 %34 to i1
+  %35 = load i8, ptr @opt_junk_alloc, align 1
+  %tobool74.i219 = trunc i8 %35 to i1
   br i1 %tobool74.i219, label %if.then81.i223, label %if.end82.i210
 
 if.then81.i223:                                   ; preds = %land.lhs.true73.i218
@@ -2244,15 +2244,15 @@ if.end82.i210:                                    ; preds = %if.then81.i223, %la
 
 if.then:                                          ; preds = %arena_get_from_ind.exit.i, %if.end.i.i1336, %if.end.i34.i, %sz_s2u.exit.i1337, %if.end5.i, %lor.rhs.i150, %if.end.i146, %imalloc_no_sample.exit, %if.end26.i.i182, %if.end82.i210
   %retval.i.0.ph = phi i32 [ 22, %lor.rhs.i150 ], [ 22, %if.end.i146 ], [ 12, %imalloc_no_sample.exit ], [ 12, %if.end26.i.i182 ], [ 0, %if.end82.i210 ], [ 12, %if.end5.i ], [ 12, %sz_s2u.exit.i1337 ], [ 12, %if.end.i34.i ], [ 12, %if.end.i.i1336 ], [ 12, %arena_get_from_ind.exit.i ]
-  %35 = ptrtoint ptr %memptr to i64
-  store i64 %35, ptr %args, align 16
+  %36 = ptrtoint ptr %memptr to i64
+  store i64 %36, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store i64 %alignment, ptr %arrayinit.element, align 8
   %arrayinit.element2 = getelementptr inbounds i8, ptr %args, i64 16
   store i64 %size, ptr %arrayinit.element2, align 16
-  %36 = load ptr, ptr %memptr, align 8
+  %37 = load ptr, ptr %memptr, align 8
   %conv = zext nneg i32 %retval.i.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 1, ptr noundef %36, i64 noundef %conv, ptr noundef nonnull %args) #19
+  call void @hook_invoke_alloc(i32 noundef 1, ptr noundef %37, i64 noundef %conv, ptr noundef nonnull %args) #19
   br label %do.end4
 
 do.end4:                                          ; preds = %if.end.i.i1437, %if.end.i34.i1513, %sz_s2u.exit.i1463, %if.end5.i1425, %if.then.i45, %lor.rhs.i, %if.end.i61, %if.end38.i.i, %if.end26.i.i, %if.end82.i, %if.then
@@ -2276,8 +2276,8 @@ tsd_fetch_impl.exit:                              ; preds = %entry
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 824
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
-  %cmp.i = icmp eq i8 %.pre, 0
-  br i1 %cmp.i, label %if.end.i61, label %land.lhs.true8.i
+  %2 = icmp eq i8 %.pre, 0
+  br i1 %2, label %if.end.i61, label %land.lhs.true8.i
 
 if.end.i61:                                       ; preds = %entry, %tsd_fetch_impl.exit
   %retval.i1211.0805 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
@@ -2286,8 +2286,8 @@ if.end.i61:                                       ; preds = %entry, %tsd_fetch_i
 
 lor.rhs.i:                                        ; preds = %if.end.i61
   %sub.i = add i64 %alignment, -1
-  %2 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp6.i.not = icmp ult i64 %2, 2
+  %3 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %cmp6.i.not = icmp ult i64 %3, 2
   br i1 %cmp6.i.not, label %if.else.i144.i, label %if.then121.i
 
 if.else.i144.i:                                   ; preds = %lor.rhs.i
@@ -2308,10 +2308,10 @@ if.then.i36.i1558:                                ; preds = %if.then.i1503
   %sub.i119.i1560 = add nuw nsw i64 %and.i1508, 7
   %shr.i.i1561 = lshr i64 %sub.i119.i1560, 3
   %arrayidx.i120.i1562 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1561
-  %3 = load i8, ptr %arrayidx.i120.i1562, align 1
-  %idxprom.i.i1564 = zext i8 %3 to i64
+  %4 = load i8, ptr %arrayidx.i120.i1562, align 1
+  %idxprom.i.i1564 = zext i8 %4 to i64
   %arrayidx.i.i1565 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i1564
-  %4 = load i64, ptr %arrayidx.i.i1565, align 8
+  %5 = load i64, ptr %arrayidx.i.i1565, align 8
   br label %sz_s2u.exit38.i1539
 
 if.end.i34.i1513:                                 ; preds = %if.then.i1503
@@ -2321,8 +2321,8 @@ if.end.i34.i1513:                                 ; preds = %if.then.i1503
 if.end14.i.i1522:                                 ; preds = %if.end.i34.i1513
   %shl15.i.i1523 = shl nuw i64 %and.i1508, 1
   %sub.i.i1524 = add nsw i64 %shl15.i.i1523, -1
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1524, i1 true)
-  %sub23.i.i1530 = sub nuw nsw i64 60, %5
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1524, i1 true)
+  %sub23.i.i1530 = sub nuw nsw i64 60, %6
   %notmask757 = shl nsw i64 -1, %sub23.i.i1530
   %sub27.i.i1534 = xor i64 %notmask757, -1
   %add.i.i1535 = add nuw nsw i64 %and.i1508, %sub27.i.i1534
@@ -2330,7 +2330,7 @@ if.end14.i.i1522:                                 ; preds = %if.end.i34.i1513
   br label %sz_s2u.exit38.i1539
 
 sz_s2u.exit38.i1539:                              ; preds = %if.end14.i.i1522, %if.then.i36.i1558
-  %retval.i28.i1416.0 = phi i64 [ %4, %if.then.i36.i1558 ], [ %and.i.i1537, %if.end14.i.i1522 ]
+  %retval.i28.i1416.0 = phi i64 [ %5, %if.then.i36.i1558 ], [ %and.i.i1537, %if.end14.i.i1522 ]
   %cmp3.i1540 = icmp ult i64 %retval.i28.i1416.0, 16384
   br i1 %cmp3.i1540, label %if.end26.i.i, label %if.end18.i1466
 
@@ -2349,8 +2349,8 @@ if.end.i.i1437:                                   ; preds = %if.end9.i1430
 sz_s2u.exit.i1463:                                ; preds = %if.end.i.i1437
   %shl15.i71.i1447 = shl nuw i64 %spec.store.select, 1
   %sub.i72.i1448 = add i64 %shl15.i71.i1447, -1
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i1448, i1 true)
-  %sub23.i78.i1454 = sub nsw i64 60, %6
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i1448, i1 true)
+  %sub23.i78.i1454 = sub nsw i64 60, %7
   %notmask758 = shl nsw i64 -1, %sub23.i78.i1454
   %sub27.i82.i1458 = xor i64 %notmask758, -1
   %add.i83.i1459 = add nuw nsw i64 %spec.store.select, %sub27.i82.i1458
@@ -2360,20 +2360,20 @@ sz_s2u.exit.i1463:                                ; preds = %if.end.i.i1437
 
 if.end18.i1466:                                   ; preds = %sz_s2u.exit38.i1539, %if.end9.i1430, %sz_s2u.exit.i1463
   %usize.i1423.0 = phi i64 [ %and.i85.i1461, %sz_s2u.exit.i1463 ], [ 16384, %if.end9.i1430 ], [ 16384, %sz_s2u.exit38.i1539 ]
-  %7 = load i64, ptr @sz_large_pad, align 8
+  %8 = load i64, ptr @sz_large_pad, align 8
   %add20.i1468 = add nuw nsw i64 %alignment, 4095
   %and21.i1469 = and i64 %add20.i1468, 9223372036854771712
   %add19.i1467 = add nsw i64 %and21.i1469, -4096
   %add22.i1470 = add i64 %add19.i1467, %usize.i1423.0
-  %sub23.i1471 = add i64 %add22.i1470, %7
+  %sub23.i1471 = add i64 %add22.i1470, %8
   %cmp24.i1472 = icmp ult i64 %sub23.i1471, %usize.i1423.0
   %.usize.i1423.0 = select i1 %cmp24.i1472, i64 0, i64 %usize.i1423.0
   br label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1539, %if.end18.i1466
   %retval.i1420.0 = phi i64 [ %retval.i28.i1416.0, %sz_s2u.exit38.i1539 ], [ %.usize.i1423.0, %if.end18.i1466 ]
-  %8 = add i64 %retval.i1420.0, -8070450532247928833
-  %or.cond = icmp ult i64 %8, -8070450532247928832
+  %9 = add i64 %retval.i1420.0, -8070450532247928833
+  %or.cond = icmp ult i64 %9, -8070450532247928832
   br i1 %or.cond, label %if.then113.i, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
@@ -2397,11 +2397,11 @@ if.end62.i:                                       ; preds = %if.end38.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1771 = getelementptr inbounds i8, ptr %retval.i1211.0805, i64 840
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1660, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1771, ptr %next_event_fast.i, align 8
-  %9 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i1664 = add i64 %9, %retval.i1420.0
+  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
+  %add.i1664 = add i64 %10, %retval.i1420.0
   store i64 %add.i1664, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
-  %sub.i1666 = sub i64 %10, %9
+  %11 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
+  %sub.i1666 = sub i64 %11, %10
   %cmp.i1667 = icmp ult i64 %retval.i1420.0, %sub.i1666
   br i1 %cmp.i1667, label %do.end4, label %if.else.i1671
 
@@ -2420,8 +2420,8 @@ if.then121.i:                                     ; preds = %lor.rhs.i, %if.end.
   br label %do.end4
 
 land.lhs.true8.i:                                 ; preds = %tsd_fetch_impl.exit
-  %11 = load i32, ptr @malloc_init_state, align 4
-  %cmp.i365.not = icmp eq i32 %11, 0
+  %12 = load i32, ptr @malloc_init_state, align 4
+  %cmp.i365.not = icmp eq i32 %12, 0
   br i1 %cmp.i365.not, label %if.end.i146, label %land.lhs.true.i.i46
 
 land.lhs.true.i.i46:                              ; preds = %land.lhs.true8.i
@@ -2439,13 +2439,13 @@ if.end.i146:                                      ; preds = %land.lhs.true8.i, %
 
 lor.rhs.i150:                                     ; preds = %if.end.i146
   %sub.i153 = add i64 %alignment, -1
-  %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp6.i155.not = icmp ult i64 %12, 2
+  %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %cmp6.i155.not = icmp ult i64 %13, 2
   br i1 %cmp6.i155.not, label %land.lhs.true.i.i343, label %if.then121.i361
 
 land.lhs.true.i.i343:                             ; preds = %lor.rhs.i150
-  %13 = load i8, ptr @opt_zero, align 1
-  %tobool2.i.i344 = trunc i8 %13 to i1
+  %14 = load i8, ptr @opt_zero, align 1
+  %tobool2.i.i344 = trunc i8 %14 to i1
   %spec.store.select10 = tail call i64 @llvm.umax.i64(i64 %size, i64 1)
   %cmp.i1326 = icmp ult i64 %size, 14337
   %cmp1.i = icmp ult i64 %alignment, 4097
@@ -2463,10 +2463,10 @@ if.then.i36.i:                                    ; preds = %if.then.i1341
   %sub.i119.i = add nuw nsw i64 %and.i1343, 7
   %shr.i.i1379 = lshr i64 %sub.i119.i, 3
   %arrayidx.i120.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1379
-  %14 = load i8, ptr %arrayidx.i120.i, align 1
-  %idxprom.i.i1380 = zext i8 %14 to i64
+  %15 = load i8, ptr %arrayidx.i120.i, align 1
+  %idxprom.i.i1380 = zext i8 %15 to i64
   %arrayidx.i.i1381 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i1380
-  %15 = load i64, ptr %arrayidx.i.i1381, align 8
+  %16 = load i64, ptr %arrayidx.i.i1381, align 8
   br label %sz_s2u.exit38.i
 
 if.end.i34.i:                                     ; preds = %if.then.i1341
@@ -2476,8 +2476,8 @@ if.end.i34.i:                                     ; preds = %if.then.i1341
 if.end14.i.i1347:                                 ; preds = %if.end.i34.i
   %shl15.i.i1348 = shl nuw i64 %and.i1343, 1
   %sub.i.i1349 = add nsw i64 %shl15.i.i1348, -1
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1349, i1 true)
-  %sub23.i.i1355 = sub nuw nsw i64 60, %16
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1349, i1 true)
+  %sub23.i.i1355 = sub nuw nsw i64 60, %17
   %notmask = shl nsw i64 -1, %sub23.i.i1355
   %sub27.i.i1359 = xor i64 %notmask, -1
   %add.i.i1360 = add nuw nsw i64 %and.i1343, %sub27.i.i1359
@@ -2485,7 +2485,7 @@ if.end14.i.i1347:                                 ; preds = %if.end.i34.i
   br label %sz_s2u.exit38.i
 
 sz_s2u.exit38.i:                                  ; preds = %if.end14.i.i1347, %if.then.i36.i
-  %retval.i28.i.0 = phi i64 [ %15, %if.then.i36.i ], [ %and.i.i1362, %if.end14.i.i1347 ]
+  %retval.i28.i.0 = phi i64 [ %16, %if.then.i36.i ], [ %and.i.i1362, %if.end14.i.i1347 ]
   %cmp3.i = icmp ult i64 %retval.i28.i.0, 16384
   br i1 %cmp3.i, label %if.end26.i.i182, label %if.end18.i
 
@@ -2504,8 +2504,8 @@ if.end.i.i1336:                                   ; preds = %if.end9.i
 sz_s2u.exit.i1337:                                ; preds = %if.end.i.i1336
   %shl15.i71.i = shl nuw i64 %spec.store.select10, 1
   %sub.i72.i = add i64 %shl15.i71.i, -1
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i, i1 true)
-  %sub23.i78.i = sub nsw i64 60, %17
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i, i1 true)
+  %sub23.i78.i = sub nsw i64 60, %18
   %notmask756 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask756, -1
   %add.i83.i = add nuw nsw i64 %spec.store.select10, %sub27.i82.i
@@ -2515,40 +2515,40 @@ sz_s2u.exit.i1337:                                ; preds = %if.end.i.i1336
 
 if.end18.i:                                       ; preds = %sz_s2u.exit38.i, %if.end9.i, %sz_s2u.exit.i1337
   %usize.i1325.0 = phi i64 [ %and.i85.i, %sz_s2u.exit.i1337 ], [ 16384, %if.end9.i ], [ 16384, %sz_s2u.exit38.i ]
-  %18 = load i64, ptr @sz_large_pad, align 8
+  %19 = load i64, ptr @sz_large_pad, align 8
   %add20.i = add nuw nsw i64 %alignment, 4095
   %and21.i = and i64 %add20.i, 9223372036854771712
   %add19.i = add nsw i64 %and21.i, -4096
   %add22.i = add i64 %add19.i, %usize.i1325.0
-  %sub23.i = add i64 %add22.i, %18
+  %sub23.i = add i64 %add22.i, %19
   %cmp24.i = icmp ult i64 %sub23.i, %usize.i1325.0
   %.usize.i1325.0 = select i1 %cmp24.i, i64 0, i64 %usize.i1325.0
   br label %if.end26.i.i182
 
 if.end26.i.i182:                                  ; preds = %sz_s2u.exit38.i, %if.end18.i
   %retval.i1322.0 = phi i64 [ %retval.i28.i.0, %sz_s2u.exit38.i ], [ %.usize.i1325.0, %if.end18.i ]
-  %19 = add i64 %retval.i1322.0, -8070450532247928833
-  %or.cond759 = icmp ult i64 %19, -8070450532247928832
+  %20 = add i64 %retval.i1322.0, -8070450532247928833
+  %or.cond759 = icmp ult i64 %20, -8070450532247928832
   br i1 %or.cond759, label %if.then113.i242, label %if.end38.i.i190
 
 if.end38.i.i190:                                  ; preds = %if.end26.i.i182
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999 = getelementptr inbounds i8, ptr %call13.i, i64 1
-  %20 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999, align 1
-  %cmp35.i247 = icmp slt i8 %20, 1
+  %21 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999, align 1
+  %cmp35.i247 = icmp slt i8 %21, 1
   %cmp.i161.i201 = icmp ult i64 %retval.i1322.0, 14337
   br i1 %cmp35.i247, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end38.i.i190
-  %21 = load i8, ptr %call13.i, align 1
-  %tobool.i1299 = trunc i8 %21 to i1
+  %22 = load i8, ptr %call13.i, align 1
+  %tobool.i1299 = trunc i8 %22 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1241 = getelementptr inbounds i8, ptr %call13.i, i64 864
   %retval.i1235.0 = select i1 %tobool.i1299, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1241, ptr null
   br label %imalloc_no_sample.exit
 
 if.else.i24.i:                                    ; preds = %if.end38.i.i190
-  %22 = load atomic i64, ptr @arenas acquire, align 64
-  %23 = inttoptr i64 %22 to ptr
-  %cmp.i765 = icmp eq i64 %22, 0
+  %23 = load atomic i64, ptr @arenas acquire, align 64
+  %24 = inttoptr i64 %23 to ptr
+  %cmp.i765 = icmp eq i64 %23, 0
   br i1 %cmp.i765, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
@@ -2562,33 +2562,33 @@ if.then.i.i:                                      ; preds = %if.then3.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %inc.i.i.i = add i64 %24, 1
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %inc.i.i.i = add i64 %25, 1
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %cmp.not.i.i.i = icmp eq ptr %25, %call13.i
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %cmp.not.i.i.i = icmp eq ptr %26, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
-  %inc2.i.i.i = add i64 %26, 1
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
+  %inc2.i.i.i = add i64 %27, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
-  %27 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i.i = icmp eq i32 %27, 0
+  %28 = load atomic i32, ptr @narenas_total acquire, align 4
+  %cmp1.i.i = icmp eq i32 %28, 0
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end3.i.i
 
 if.then2.i.i:                                     ; preds = %malloc_mutex_lock.exit.i
-  %28 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
+  %29 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then2.i.i, %malloc_mutex_lock.exit.i
-  %29 = load atomic i64, ptr @arenas acquire, align 64
-  %30 = inttoptr i64 %29 to ptr
-  %cmp5.not.i.i = icmp eq i64 %29, 0
+  %30 = load atomic i64, ptr @arenas acquire, align 64
+  %31 = inttoptr i64 %30 to ptr
+  %cmp5.not.i.i = icmp eq i64 %30, 0
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init_locked.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
@@ -2596,19 +2596,19 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
   br label %arena_init_locked.exit.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
-  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %30, %if.end3.i.i ]
+  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %31, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   %call1.i.i767 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
-  %ret.0.i = phi ptr [ %23, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
+  %ret.0.i = phi ptr [ %24, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
   %cmp2.i.i456 = icmp eq ptr %ret.0.i, null
   br i1 %cmp2.i.i456, label %arena_get_from_ind.exit.i, label %imalloc_no_sample.exit
 
 arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit
-  %31 = load i32, ptr @narenas_auto, align 4
-  %cmp4.i.i = icmp eq i32 %31, 0
+  %32 = load i32, ptr @narenas_auto, align 4
+  %cmp4.i.i = icmp eq i32 %32, 0
   br i1 %cmp4.i.i, label %if.then113.i242, label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %tcache_get_from_ind.exit.i.thread, %arena_get.exit, %arena_get_from_ind.exit.i
@@ -2632,11 +2632,11 @@ if.end62.i207:                                    ; preds = %imalloc_no_sample.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %call13.i, i64 840
   %next_event_fast.i1727 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, ptr %next_event_fast.i1727, align 8
-  %32 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1720, align 8
-  %add.i1648 = add i64 %32, %retval.i1322.0
+  %33 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1720, align 8
+  %add.i1648 = add i64 %33, %retval.i1322.0
   store i64 %add.i1648, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1720, align 8
-  %33 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1808, align 8
-  %sub.i1649 = sub i64 %33, %32
+  %34 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1808, align 8
+  %sub.i1649 = sub i64 %34, %33
   %cmp.i1650 = icmp ult i64 %retval.i1322.0, %sub.i1649
   br i1 %cmp.i1650, label %land.lhs.true70.i215, label %if.else.i1654
 
@@ -2648,8 +2648,8 @@ land.lhs.true70.i215:                             ; preds = %if.else.i1654, %if.
   br i1 %tobool2.i.i344, label %if.then, label %land.lhs.true73.i218
 
 land.lhs.true73.i218:                             ; preds = %land.lhs.true70.i215
-  %34 = load i8, ptr @opt_junk_alloc, align 1
-  %tobool74.i219 = trunc i8 %34 to i1
+  %35 = load i8, ptr @opt_junk_alloc, align 1
+  %tobool74.i219 = trunc i8 %35 to i1
   br i1 %tobool74.i219, label %if.then81.i223, label %if.then
 
 if.then81.i223:                                   ; preds = %land.lhs.true73.i218
@@ -2673,8 +2673,8 @@ if.then:                                          ; preds = %land.lhs.true70.i21
   store i64 %size, ptr %arrayinit.element, align 8
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
-  %35 = ptrtoint ptr %ret.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 2, ptr noundef %ret.0.ph, i64 noundef %35, ptr noundef nonnull %args) #19
+  %36 = ptrtoint ptr %ret.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 2, ptr noundef %ret.0.ph, i64 noundef %36, ptr noundef nonnull %args) #19
   br label %do.end4
 
 do.end4:                                          ; preds = %if.then.i45, %if.end62.i, %if.else.i1671, %if.then121.i, %if.then113.i, %if.then
@@ -2700,8 +2700,8 @@ tsd_fetch_impl.exit:                              ; preds = %entry
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 824
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
-  %cmp.i = icmp eq i8 %.pre, 0
-  br i1 %cmp.i, label %if.end.i390, label %land.lhs.true8.i
+  %2 = icmp eq i8 %.pre, 0
+  br i1 %2, label %if.end.i390, label %land.lhs.true8.i
 
 if.end.i390:                                      ; preds = %entry, %tsd_fetch_impl.exit
   %retval.i1210.0870 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
@@ -2731,8 +2731,8 @@ if.then.i158.i:                                   ; preds = %if.then4.i418, %if.
   %sub.i200.i = add nuw nsw i64 %mul.val757, 7
   %shr.i.i = lshr i64 %sub.i200.i, 3
   %arrayidx.i201.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i
-  %2 = load i8, ptr %arrayidx.i201.i, align 1
-  %conv.i202.i = zext i8 %2 to i32
+  %3 = load i8, ptr %arrayidx.i201.i, align 1
+  %conv.i202.i = zext i8 %3 to i32
   br label %sz_size2index.exit.i
 
 if.end.i157.i:                                    ; preds = %if.then2.i.i
@@ -2742,17 +2742,17 @@ if.end.i157.i:                                    ; preds = %if.then2.i.i
 if.end12.i:                                       ; preds = %if.end.i157.i
   %shl.i = shl nuw i64 %mul.val757, 1
   %sub13.i = add i64 %shl.i, -1
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
-  %4 = trunc nuw nsw i64 %3 to i32
-  %conv1.i.i.i.i = shl nuw nsw i32 %4, 2
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
+  %5 = trunc nuw nsw i64 %4 to i32
+  %conv1.i.i.i.i = shl nuw nsw i32 %5, 2
   %sub19.i = xor i32 %conv1.i.i.i.i, 252
-  %sub28.i = sub nuw nsw i64 60, %3
+  %sub28.i = sub nuw nsw i64 60, %4
   %shl31.i = shl nsw i64 -1, %sub28.i
   %sub32.i = add nsw i64 %mul.val757, -1
   %and.i = and i64 %shl31.i, %sub32.i
   %shr.i = lshr i64 %and.i, %sub28.i
-  %5 = trunc i64 %shr.i to i32
-  %conv35.i = and i32 %5, 3
+  %6 = trunc i64 %shr.i to i32
+  %conv35.i = and i32 %6, 3
   %add.i = add nsw i32 %sub19.i, -23
   %add36.i = add nuw nsw i32 %add.i, %conv35.i
   br label %sz_size2index.exit.i
@@ -2766,22 +2766,22 @@ sz_size2index.exit.i:                             ; preds = %if.end12.i, %if.the
 land.lhs.true.i33.i718:                           ; preds = %sz_size2index.exit.i
   %conv.i148.i = zext nneg i32 %retval.i151.i.0 to i64
   %arrayidx.i.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i148.i
-  %6 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp.i161.i = icmp ult i64 %6, 14337
+  %7 = load i64, ptr %arrayidx.i.i, align 8
+  %cmp.i161.i = icmp ult i64 %7, 14337
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1208 = getelementptr inbounds i8, ptr %retval.i1210.0870, i64 864
   br i1 %cmp.i161.i, label %if.then11.i.i917, label %if.else.i69.i767
 
 if.then11.i.i917:                                 ; preds = %land.lhs.true.i33.i718
   %bins.i94.i922 = getelementptr inbounds i8, ptr %retval.i1210.0870, i64 872
   %arrayidx.i96.i924 = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i94.i922, i64 0, i64 %conv.i148.i
-  %7 = load ptr, ptr %arrayidx.i96.i924, align 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = ptrtoint ptr %7 to i64
-  %add.ptr.i.i926 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %arrayidx.i96.i924, align 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = ptrtoint ptr %8 to i64
+  %add.ptr.i.i926 = getelementptr inbounds i8, ptr %8, i64 8
   %low_bits_low_water.i.i928 = getelementptr inbounds i8, ptr %arrayidx.i96.i924, i64 16
-  %10 = load i16, ptr %low_bits_low_water.i.i928, align 8
-  %11 = trunc i64 %9 to i16
-  %cmp.i178.i930.not = icmp eq i16 %10, %11
+  %11 = load i16, ptr %low_bits_low_water.i.i928, align 8
+  %12 = trunc i64 %10 to i16
+  %cmp.i178.i930.not = icmp eq i16 %11, %12
   br i1 %cmp.i178.i930.not, label %if.end11.i.i994, label %if.then.i184.i1006
 
 if.then.i184.i1006:                               ; preds = %if.then11.i.i917
@@ -2790,14 +2790,14 @@ if.then.i184.i1006:                               ; preds = %if.then11.i.i917
 
 if.end11.i.i994:                                  ; preds = %if.then11.i.i917
   %low_bits_empty.i.i996 = getelementptr inbounds i8, ptr %arrayidx.i96.i924, i64 20
-  %12 = load i16, ptr %low_bits_empty.i.i996, align 4
-  %cmp14.i.i998.not = icmp eq i16 %12, %10
+  %13 = load i16, ptr %low_bits_empty.i.i996, align 4
+  %cmp14.i.i998.not = icmp eq i16 %13, %11
   br i1 %cmp14.i.i998.not, label %if.then.i105.i955, label %if.then22.i183.i1003
 
 if.then22.i183.i1003:                             ; preds = %if.end11.i.i994
   store ptr %add.ptr.i.i926, ptr %arrayidx.i96.i924, align 8
-  %13 = ptrtoint ptr %add.ptr.i.i926 to i64
-  %conv24.i.i1004 = trunc i64 %13 to i16
+  %14 = ptrtoint ptr %add.ptr.i.i926 to i64
+  %conv24.i.i1004 = trunc i64 %14 to i16
   store i16 %conv24.i.i1004, ptr %low_bits_low_water.i.i928, align 8
   br label %if.then46.i.i952
 
@@ -2818,25 +2818,25 @@ if.then23.i124.i987:                              ; preds = %if.end.i107.i961
 if.end27.i.i980:                                  ; preds = %if.end.i107.i961
   tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1210.0870, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1208, ptr noundef nonnull %arrayidx.i96.i924, i32 noundef %retval.i151.i.0, i1 noundef zeroext true) #19
   %call29.i123.i981 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1210.0870, ptr noundef nonnull %call7.i.i956, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1208, ptr noundef nonnull %arrayidx.i96.i924, i32 noundef %retval.i151.i.0, ptr noundef nonnull %tcache_hard_success.i.i613) #19
-  %14 = load i8, ptr %tcache_hard_success.i.i613, align 1
-  %15 = and i8 %14, 1
-  %cmp32.i.i984 = icmp eq i8 %15, 0
+  %15 = load i8, ptr %tcache_hard_success.i.i613, align 1
+  %16 = and i8 %15, 1
+  %cmp32.i.i984 = icmp eq i8 %16, 0
   br i1 %cmp32.i.i984, label %if.then113.i, label %if.then46.i.i952
 
 if.then46.i.i952:                                 ; preds = %if.then22.i183.i1003, %if.then.i184.i1006, %if.end27.i.i980
-  %ret.i91.i610.0 = phi ptr [ %call29.i123.i981, %if.end27.i.i980 ], [ %8, %if.then.i184.i1006 ], [ %8, %if.then22.i183.i1003 ]
-  %16 = load i64, ptr %arrayidx.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %ret.i91.i610.0, i8 0, i64 %16, i1 false)
+  %ret.i91.i610.0 = phi ptr [ %call29.i123.i981, %if.end27.i.i980 ], [ %9, %if.then.i184.i1006 ], [ %9, %if.then22.i183.i1003 ]
+  %17 = load i64, ptr %arrayidx.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %ret.i91.i610.0, i8 0, i64 %17, i1 false)
   %tstats.i.i949 = getelementptr inbounds i8, ptr %arrayidx.i96.i924, i64 8
-  %17 = load i64, ptr %tstats.i.i949, align 8
-  %inc.i.i950 = add i64 %17, 1
+  %18 = load i64, ptr %tstats.i.i949, align 8
+  %inc.i.i950 = add i64 %18, 1
   store i64 %inc.i.i950, ptr %tstats.i.i949, align 8
   br label %imalloc_no_sample.exit1048
 
 if.else.i69.i767:                                 ; preds = %land.lhs.true.i33.i718
-  %18 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1208, align 8
-  %19 = getelementptr i8, ptr %18, i64 48
-  %.val767 = load i32, ptr %19, align 8
+  %19 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1208, align 8
+  %20 = getelementptr i8, ptr %19, i64 48
+  %.val767 = load i32, ptr %20, align 8
   %cmp18.i70.i769 = icmp ult i32 %retval.i151.i.0, %.val767
   br i1 %cmp18.i70.i769, label %land.rhs.i.i894, label %if.end36.i.i733
 
@@ -2848,13 +2848,13 @@ land.rhs.i.i894:                                  ; preds = %if.else.i69.i767
   br i1 %cmp.i778, label %if.end36.i.i733, label %if.then30.i.i775
 
 if.then30.i.i775:                                 ; preds = %land.rhs.i.i894
-  %20 = load ptr, ptr %arrayidx.i.i897.val, align 8
-  %21 = ptrtoint ptr %arrayidx.i.i897.val to i64
+  %21 = load ptr, ptr %arrayidx.i.i897.val, align 8
+  %22 = ptrtoint ptr %arrayidx.i.i897.val to i64
   %add.ptr.i193.i784 = getelementptr inbounds i8, ptr %arrayidx.i.i897.val, i64 8
   %low_bits_low_water.i195.i786 = getelementptr inbounds i8, ptr %arrayidx.i.i897, i64 16
-  %22 = load i16, ptr %low_bits_low_water.i195.i786, align 8
-  %23 = trunc i64 %21 to i16
-  %cmp.i197.i788.not = icmp eq i16 %22, %23
+  %23 = load i16, ptr %low_bits_low_water.i195.i786, align 8
+  %24 = trunc i64 %22 to i16
+  %cmp.i197.i788.not = icmp eq i16 %23, %24
   br i1 %cmp.i197.i788.not, label %if.end11.i204.i881, label %if.then.i216.i893
 
 if.then.i216.i893:                                ; preds = %if.then30.i.i775
@@ -2863,14 +2863,14 @@ if.then.i216.i893:                                ; preds = %if.then30.i.i775
 
 if.end11.i204.i881:                               ; preds = %if.then30.i.i775
   %low_bits_empty.i206.i883 = getelementptr inbounds i8, ptr %arrayidx.i.i897, i64 20
-  %24 = load i16, ptr %low_bits_empty.i206.i883, align 4
-  %cmp14.i208.i885.not = icmp eq i16 %24, %22
+  %25 = load i16, ptr %low_bits_empty.i206.i883, align 4
+  %cmp14.i208.i885.not = icmp eq i16 %25, %23
   br i1 %cmp14.i208.i885.not, label %if.then.i159.i814, label %if.then22.i213.i890
 
 if.then22.i213.i890:                              ; preds = %if.end11.i204.i881
   store ptr %add.ptr.i193.i784, ptr %arrayidx.i.i897, align 8
-  %25 = ptrtoint ptr %add.ptr.i193.i784 to i64
-  %conv24.i214.i891 = trunc i64 %25 to i16
+  %26 = ptrtoint ptr %add.ptr.i193.i784 to i64
+  %conv24.i214.i891 = trunc i64 %26 to i16
   store i16 %conv24.i214.i891, ptr %low_bits_low_water.i195.i786, align 8
   br label %if.then31.i.i811
 
@@ -2887,17 +2887,17 @@ if.then.i225.i872:                                ; preds = %if.end.i165.i820
   %sub.i266.i874 = add nuw nsw i64 %mul.val757, 7
   %shr.i.i875 = lshr i64 %sub.i266.i874, 3
   %arrayidx.i267.i876 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i875
-  %26 = load i8, ptr %arrayidx.i267.i876, align 1
-  %idxprom.i262.i878 = zext i8 %26 to i64
+  %27 = load i8, ptr %arrayidx.i267.i876, align 1
+  %idxprom.i262.i878 = zext i8 %27 to i64
   %arrayidx.i263.i879 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i262.i878
-  %27 = load i64, ptr %arrayidx.i263.i879, align 8
+  %28 = load i64, ptr %arrayidx.i263.i879, align 8
   br label %sz_s2u.exit.i851
 
 if.end14.i.i834:                                  ; preds = %if.end.i165.i820
   %shl15.i.i835 = shl nuw i64 %mul.val757, 1
   %sub.i.i836 = add i64 %shl15.i.i835, -1
-  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i836, i1 true)
-  %sub23.i.i842 = sub nsw i64 60, %28
+  %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i836, i1 true)
+  %sub23.i.i842 = sub nsw i64 60, %29
   %notmask759 = shl nsw i64 -1, %sub23.i.i842
   %sub27.i.i846 = xor i64 %notmask759, -1
   %add.i.i847 = add nuw nsw i64 %mul.val757, %sub27.i.i846
@@ -2905,16 +2905,16 @@ if.end14.i.i834:                                  ; preds = %if.end.i165.i820
   br label %sz_s2u.exit.i851
 
 sz_s2u.exit.i851:                                 ; preds = %if.end14.i.i834, %if.then.i225.i872
-  %retval.i218.i559.0 = phi i64 [ %27, %if.then.i225.i872 ], [ %and.i.i849, %if.end14.i.i834 ]
+  %retval.i218.i559.0 = phi i64 [ %28, %if.then.i225.i872 ], [ %and.i.i849, %if.end14.i.i834 ]
   %call19.i167.i853 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1210.0870, ptr noundef nonnull %call7.i160.i815, i64 noundef %retval.i218.i559.0, i1 noundef zeroext true) #19
   br label %imalloc_no_sample.exit1048
 
 if.then31.i.i811:                                 ; preds = %if.then.i216.i893, %if.then22.i213.i890
-  %29 = load i64, ptr %arrayidx.i.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %20, i8 0, i64 %29, i1 false)
+  %30 = load i64, ptr %arrayidx.i.i, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %21, i8 0, i64 %30, i1 false)
   %tstats.i155.i807 = getelementptr inbounds i8, ptr %arrayidx.i.i897, i64 8
-  %30 = load i64, ptr %tstats.i155.i807, align 8
-  %inc.i156.i808 = add i64 %30, 1
+  %31 = load i64, ptr %tstats.i155.i807, align 8
+  %inc.i156.i808 = add i64 %31, 1
   store i64 %inc.i156.i808, ptr %tstats.i155.i807, align 8
   br label %imalloc_no_sample.exit1048
 
@@ -2923,7 +2923,7 @@ if.end36.i.i733:                                  ; preds = %land.rhs.i.i894, %i
   br label %imalloc_no_sample.exit1048
 
 imalloc_no_sample.exit1048:                       ; preds = %sz_s2u.exit.i851, %if.then31.i.i811, %if.then23.i124.i987, %if.then46.i.i952, %if.end36.i.i733
-  %retval.i52.i625.0 = phi ptr [ %call39.i.i736, %if.end36.i.i733 ], [ %call26.i.i989, %if.then23.i124.i987 ], [ %ret.i91.i610.0, %if.then46.i.i952 ], [ %20, %if.then31.i.i811 ], [ %call19.i167.i853, %sz_s2u.exit.i851 ]
+  %retval.i52.i625.0 = phi ptr [ %call39.i.i736, %if.end36.i.i733 ], [ %call26.i.i989, %if.then23.i124.i987 ], [ %ret.i91.i610.0, %if.then46.i.i952 ], [ %21, %if.then31.i.i811 ], [ %call19.i167.i853, %sz_s2u.exit.i851 ]
   %cmp53.i = icmp eq ptr %retval.i52.i625.0, null
   br i1 %cmp53.i, label %if.then113.i, label %if.end62.i
 
@@ -2941,12 +2941,12 @@ if.end62.i:                                       ; preds = %imalloc_no_sample.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1770 = getelementptr inbounds i8, ptr %retval.i1210.0870, i64 840
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1659, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1770, ptr %next_event_fast.i, align 8
-  %31 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i1663 = add i64 %31, %6
+  %32 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
+  %add.i1663 = add i64 %32, %7
   store i64 %add.i1663, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %32 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
-  %sub.i1665 = sub i64 %32, %31
-  %cmp.i1666 = icmp ult i64 %6, %sub.i1665
+  %33 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
+  %sub.i1665 = sub i64 %33, %32
+  %cmp.i1666 = icmp ult i64 %7, %sub.i1665
   br i1 %cmp.i1666, label %do.end3, label %if.else.i1670
 
 if.else.i1670:                                    ; preds = %if.end62.i
@@ -2959,8 +2959,8 @@ if.then113.i:                                     ; preds = %if.then.i159.i814, 
   br label %do.end3
 
 land.lhs.true8.i:                                 ; preds = %tsd_fetch_impl.exit
-  %33 = load i32, ptr @malloc_init_state, align 4
-  %cmp.i364.not = icmp eq i32 %33, 0
+  %34 = load i32, ptr @malloc_init_state, align 4
+  %cmp.i364.not = icmp eq i32 %34, 0
   br i1 %cmp.i364.not, label %if.end.i373, label %land.lhs.true.i.i45
 
 land.lhs.true.i.i45:                              ; preds = %land.lhs.true8.i
@@ -2999,8 +2999,8 @@ if.then.i158.i336:                                ; preds = %if.then4.i, %if.the
   %sub.i200.i338 = add nuw nsw i64 %mul.val, 7
   %shr.i.i339 = lshr i64 %sub.i200.i338, 3
   %arrayidx.i201.i340 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i339
-  %34 = load i8, ptr %arrayidx.i201.i340, align 1
-  %conv.i202.i341 = zext i8 %34 to i32
+  %35 = load i8, ptr %arrayidx.i201.i340, align 1
+  %conv.i202.i341 = zext i8 %35 to i32
   br label %sz_size2index.exit.i326
 
 if.end.i157.i324:                                 ; preds = %if.then2.i.i319
@@ -3010,17 +3010,17 @@ if.end.i157.i324:                                 ; preds = %if.then2.i.i319
 if.end12.i781:                                    ; preds = %if.end.i157.i324
   %shl.i782 = shl nuw i64 %mul.val, 1
   %sub13.i783 = add i64 %shl.i782, -1
-  %35 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i783, i1 true)
-  %36 = trunc nuw nsw i64 %35 to i32
-  %conv1.i.i.i.i784 = shl nuw nsw i32 %36, 2
+  %36 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i783, i1 true)
+  %37 = trunc nuw nsw i64 %36 to i32
+  %conv1.i.i.i.i784 = shl nuw nsw i32 %37, 2
   %sub19.i785 = xor i32 %conv1.i.i.i.i784, 252
-  %sub28.i786 = sub nuw nsw i64 60, %35
+  %sub28.i786 = sub nuw nsw i64 60, %36
   %shl31.i788 = shl nsw i64 -1, %sub28.i786
   %sub32.i789 = add nsw i64 %mul.val, -1
   %and.i790 = and i64 %shl31.i788, %sub32.i789
   %shr.i791 = lshr i64 %and.i790, %sub28.i786
-  %37 = trunc i64 %shr.i791 to i32
-  %conv35.i792 = and i32 %37, 3
+  %38 = trunc i64 %shr.i791 to i32
+  %conv35.i792 = and i32 %38, 3
   %add.i793 = add nsw i32 %sub19.i785, -23
   %add36.i794 = add nuw nsw i32 %add.i793, %conv35.i792
   br label %sz_size2index.exit.i326
@@ -3034,23 +3034,23 @@ sz_size2index.exit.i326:                          ; preds = %if.end12.i781, %if.
 if.end24.i191:                                    ; preds = %sz_size2index.exit.i326
   %conv.i148.i327 = zext nneg i32 %retval.i151.i108.0 to i64
   %arrayidx.i.i334 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i148.i327
-  %38 = load i64, ptr %arrayidx.i.i334, align 8
+  %39 = load i64, ptr %arrayidx.i.i334, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998 = getelementptr inbounds i8, ptr %call13.i, i64 1
-  %39 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998, align 1
-  %cmp35.i246 = icmp slt i8 %39, 1
-  %cmp.i161.i200 = icmp ult i64 %38, 14337
+  %40 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998, align 1
+  %cmp35.i246 = icmp slt i8 %40, 1
+  %cmp.i161.i200 = icmp ult i64 %39, 14337
   br i1 %cmp35.i246, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end24.i191
-  %40 = load i8, ptr %call13.i, align 1
-  %tobool.i1298 = trunc i8 %40 to i1
+  %41 = load i8, ptr %call13.i, align 1
+  %tobool.i1298 = trunc i8 %41 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1240 = getelementptr inbounds i8, ptr %call13.i, i64 864
   br i1 %tobool.i1298, label %if.then.i67.i, label %if.end36.i.i
 
 if.else.i24.i:                                    ; preds = %if.end24.i191
-  %41 = load atomic i64, ptr @arenas acquire, align 64
-  %42 = inttoptr i64 %41 to ptr
-  %cmp.i797 = icmp eq i64 %41, 0
+  %42 = load atomic i64, ptr @arenas acquire, align 64
+  %43 = inttoptr i64 %42 to ptr
+  %cmp.i797 = icmp eq i64 %42, 0
   br i1 %cmp.i797, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
@@ -3064,33 +3064,33 @@ if.then.i.i:                                      ; preds = %if.then3.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %inc.i.i.i = add i64 %43, 1
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %inc.i.i.i = add i64 %44, 1
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %cmp.not.i.i.i = icmp eq ptr %44, %call13.i
+  %45 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %cmp.not.i.i.i = icmp eq ptr %45, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %45 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
-  %inc2.i.i.i = add i64 %45, 1
+  %46 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
+  %inc2.i.i.i = add i64 %46, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
-  %46 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i.i = icmp eq i32 %46, 0
+  %47 = load atomic i32, ptr @narenas_total acquire, align 4
+  %cmp1.i.i = icmp eq i32 %47, 0
   br i1 %cmp1.i.i, label %if.then2.i.i799, label %if.end3.i.i
 
 if.then2.i.i799:                                  ; preds = %malloc_mutex_lock.exit.i
-  %47 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
+  %48 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then2.i.i799, %malloc_mutex_lock.exit.i
-  %48 = load atomic i64, ptr @arenas acquire, align 64
-  %49 = inttoptr i64 %48 to ptr
-  %cmp5.not.i.i = icmp eq i64 %48, 0
+  %49 = load atomic i64, ptr @arenas acquire, align 64
+  %50 = inttoptr i64 %49 to ptr
+  %cmp5.not.i.i = icmp eq i64 %49, 0
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init_locked.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
@@ -3098,19 +3098,19 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
   br label %arena_init_locked.exit.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
-  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %49, %if.end3.i.i ]
+  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %50, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   %call1.i.i798 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
-  %ret.0.i = phi ptr [ %42, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
+  %ret.0.i = phi ptr [ %43, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
   %cmp2.i.i455 = icmp eq ptr %ret.0.i, null
   br i1 %cmp2.i.i455, label %arena_get_from_ind.exit.i, label %if.end36.i.i
 
 arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit
-  %50 = load i32, ptr @narenas_auto, align 4
-  %cmp4.i.i = icmp eq i32 %50, 0
+  %51 = load i32, ptr @narenas_auto, align 4
+  %cmp4.i.i = icmp eq i32 %51, 0
   br i1 %cmp4.i.i, label %if.then113.i241, label %if.end36.i.i
 
 if.then.i67.i:                                    ; preds = %tcache_get_from_ind.exit.i.thread
@@ -3119,14 +3119,14 @@ if.then.i67.i:                                    ; preds = %tcache_get_from_ind
 if.then11.i.i:                                    ; preds = %if.then.i67.i
   %bins.i94.i = getelementptr inbounds i8, ptr %call13.i, i64 872
   %arrayidx.i96.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i94.i, i64 0, i64 %conv.i148.i327
-  %51 = load ptr, ptr %arrayidx.i96.i, align 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = ptrtoint ptr %51 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = load ptr, ptr %arrayidx.i96.i, align 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = ptrtoint ptr %52 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %52, i64 8
   %low_bits_low_water.i.i = getelementptr inbounds i8, ptr %arrayidx.i96.i, i64 16
-  %54 = load i16, ptr %low_bits_low_water.i.i, align 8
-  %55 = trunc i64 %53 to i16
-  %cmp.i178.i.not = icmp eq i16 %54, %55
+  %55 = load i16, ptr %low_bits_low_water.i.i, align 8
+  %56 = trunc i64 %54 to i16
+  %cmp.i178.i.not = icmp eq i16 %55, %56
   br i1 %cmp.i178.i.not, label %if.end11.i.i507, label %if.then.i184.i
 
 if.then.i184.i:                                   ; preds = %if.then11.i.i
@@ -3135,14 +3135,14 @@ if.then.i184.i:                                   ; preds = %if.then11.i.i
 
 if.end11.i.i507:                                  ; preds = %if.then11.i.i
   %low_bits_empty.i.i = getelementptr inbounds i8, ptr %arrayidx.i96.i, i64 20
-  %56 = load i16, ptr %low_bits_empty.i.i, align 4
-  %cmp14.i.i.not = icmp eq i16 %56, %54
+  %57 = load i16, ptr %low_bits_empty.i.i, align 4
+  %cmp14.i.i.not = icmp eq i16 %57, %55
   br i1 %cmp14.i.i.not, label %if.then.i105.i, label %if.then22.i183.i
 
 if.then22.i183.i:                                 ; preds = %if.end11.i.i507
   store ptr %add.ptr.i.i, ptr %arrayidx.i96.i, align 8
-  %57 = ptrtoint ptr %add.ptr.i.i to i64
-  %conv24.i.i = trunc i64 %57 to i16
+  %58 = ptrtoint ptr %add.ptr.i.i to i64
+  %conv24.i.i = trunc i64 %58 to i16
   store i16 %conv24.i.i, ptr %low_bits_low_water.i.i, align 8
   br label %if.then46.i.i
 
@@ -3163,25 +3163,25 @@ if.then23.i124.i:                                 ; preds = %if.end.i107.i
 if.end27.i.i:                                     ; preds = %if.end.i107.i
   tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1240, ptr noundef nonnull %arrayidx.i96.i, i32 noundef %retval.i151.i108.0, i1 noundef zeroext true) #19
   %call29.i123.i = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1240, ptr noundef nonnull %arrayidx.i96.i, i32 noundef %retval.i151.i108.0, ptr noundef nonnull %tcache_hard_success.i.i) #19
-  %58 = load i8, ptr %tcache_hard_success.i.i, align 1
-  %59 = and i8 %58, 1
-  %cmp32.i.i = icmp eq i8 %59, 0
+  %59 = load i8, ptr %tcache_hard_success.i.i, align 1
+  %60 = and i8 %59, 1
+  %cmp32.i.i = icmp eq i8 %60, 0
   br i1 %cmp32.i.i, label %if.then113.i241, label %if.then46.i.i
 
 if.then46.i.i:                                    ; preds = %if.then22.i183.i, %if.then.i184.i, %if.end27.i.i
-  %ret.i91.i.0 = phi ptr [ %call29.i123.i, %if.end27.i.i ], [ %52, %if.then.i184.i ], [ %52, %if.then22.i183.i ]
-  %60 = load i64, ptr %arrayidx.i.i334, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %ret.i91.i.0, i8 0, i64 %60, i1 false)
+  %ret.i91.i.0 = phi ptr [ %call29.i123.i, %if.end27.i.i ], [ %53, %if.then.i184.i ], [ %53, %if.then22.i183.i ]
+  %61 = load i64, ptr %arrayidx.i.i334, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %ret.i91.i.0, i8 0, i64 %61, i1 false)
   %tstats.i.i = getelementptr inbounds i8, ptr %arrayidx.i96.i, i64 8
-  %61 = load i64, ptr %tstats.i.i, align 8
-  %inc.i.i504 = add i64 %61, 1
+  %62 = load i64, ptr %tstats.i.i, align 8
+  %inc.i.i504 = add i64 %62, 1
   store i64 %inc.i.i504, ptr %tstats.i.i, align 8
   br label %imalloc_no_sample.exit
 
 if.else.i69.i:                                    ; preds = %if.then.i67.i
-  %62 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1240, align 8
-  %63 = getelementptr i8, ptr %62, i64 48
-  %.val770 = load i32, ptr %63, align 8
+  %63 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1240, align 8
+  %64 = getelementptr i8, ptr %63, i64 48
+  %.val770 = load i32, ptr %64, align 8
   %cmp18.i70.i = icmp ult i32 %retval.i151.i108.0, %.val770
   br i1 %cmp18.i70.i, label %land.rhs.i.i, label %if.end36.i.i
 
@@ -3193,13 +3193,13 @@ land.rhs.i.i:                                     ; preds = %if.else.i69.i
   br i1 %cmp.i801, label %if.end36.i.i, label %if.then30.i.i
 
 if.then30.i.i:                                    ; preds = %land.rhs.i.i
-  %64 = load ptr, ptr %arrayidx.i.i503.val, align 8
-  %65 = ptrtoint ptr %arrayidx.i.i503.val to i64
+  %65 = load ptr, ptr %arrayidx.i.i503.val, align 8
+  %66 = ptrtoint ptr %arrayidx.i.i503.val to i64
   %add.ptr.i193.i = getelementptr inbounds i8, ptr %arrayidx.i.i503.val, i64 8
   %low_bits_low_water.i195.i = getelementptr inbounds i8, ptr %arrayidx.i.i503, i64 16
-  %66 = load i16, ptr %low_bits_low_water.i195.i, align 8
-  %67 = trunc i64 %65 to i16
-  %cmp.i197.i.not = icmp eq i16 %66, %67
+  %67 = load i16, ptr %low_bits_low_water.i195.i, align 8
+  %68 = trunc i64 %66 to i16
+  %cmp.i197.i.not = icmp eq i16 %67, %68
   br i1 %cmp.i197.i.not, label %if.end11.i204.i, label %if.then.i216.i
 
 if.then.i216.i:                                   ; preds = %if.then30.i.i
@@ -3208,14 +3208,14 @@ if.then.i216.i:                                   ; preds = %if.then30.i.i
 
 if.end11.i204.i:                                  ; preds = %if.then30.i.i
   %low_bits_empty.i206.i = getelementptr inbounds i8, ptr %arrayidx.i.i503, i64 20
-  %68 = load i16, ptr %low_bits_empty.i206.i, align 4
-  %cmp14.i208.i.not = icmp eq i16 %68, %66
+  %69 = load i16, ptr %low_bits_empty.i206.i, align 4
+  %cmp14.i208.i.not = icmp eq i16 %69, %67
   br i1 %cmp14.i208.i.not, label %if.then.i159.i, label %if.then22.i213.i
 
 if.then22.i213.i:                                 ; preds = %if.end11.i204.i
   store ptr %add.ptr.i193.i, ptr %arrayidx.i.i503, align 8
-  %69 = ptrtoint ptr %add.ptr.i193.i to i64
-  %conv24.i214.i = trunc i64 %69 to i16
+  %70 = ptrtoint ptr %add.ptr.i193.i to i64
+  %conv24.i214.i = trunc i64 %70 to i16
   store i16 %conv24.i214.i, ptr %low_bits_low_water.i195.i, align 8
   br label %if.then31.i.i
 
@@ -3232,17 +3232,17 @@ if.then.i225.i:                                   ; preds = %if.end.i165.i
   %sub.i266.i = add nuw nsw i64 %mul.val, 7
   %shr.i.i501 = lshr i64 %sub.i266.i, 3
   %arrayidx.i267.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i501
-  %70 = load i8, ptr %arrayidx.i267.i, align 1
-  %idxprom.i262.i = zext i8 %70 to i64
+  %71 = load i8, ptr %arrayidx.i267.i, align 1
+  %idxprom.i262.i = zext i8 %71 to i64
   %arrayidx.i263.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i262.i
-  %71 = load i64, ptr %arrayidx.i263.i, align 8
+  %72 = load i64, ptr %arrayidx.i263.i, align 8
   br label %sz_s2u.exit.i488
 
 if.end14.i.i472:                                  ; preds = %if.end.i165.i
   %shl15.i.i473 = shl nuw i64 %mul.val, 1
   %sub.i.i474 = add i64 %shl15.i.i473, -1
-  %72 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i474, i1 true)
-  %sub23.i.i479 = sub nsw i64 60, %72
+  %73 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i474, i1 true)
+  %sub23.i.i479 = sub nsw i64 60, %73
   %notmask = shl nsw i64 -1, %sub23.i.i479
   %sub27.i.i483 = xor i64 %notmask, -1
   %add.i.i484 = add nuw nsw i64 %mul.val, %sub27.i.i483
@@ -3250,16 +3250,16 @@ if.end14.i.i472:                                  ; preds = %if.end.i165.i
   br label %sz_s2u.exit.i488
 
 sz_s2u.exit.i488:                                 ; preds = %if.end14.i.i472, %if.then.i225.i
-  %retval.i218.i.0 = phi i64 [ %71, %if.then.i225.i ], [ %and.i.i486, %if.end14.i.i472 ]
+  %retval.i218.i.0 = phi i64 [ %72, %if.then.i225.i ], [ %and.i.i486, %if.end14.i.i472 ]
   %call19.i167.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i160.i, i64 noundef %retval.i218.i.0, i1 noundef zeroext true) #19
   br label %imalloc_no_sample.exit
 
 if.then31.i.i:                                    ; preds = %if.then.i216.i, %if.then22.i213.i
-  %73 = load i64, ptr %arrayidx.i.i334, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %64, i8 0, i64 %73, i1 false)
+  %74 = load i64, ptr %arrayidx.i.i334, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %65, i8 0, i64 %74, i1 false)
   %tstats.i155.i = getelementptr inbounds i8, ptr %arrayidx.i.i503, i64 8
-  %74 = load i64, ptr %tstats.i155.i, align 8
-  %inc.i156.i = add i64 %74, 1
+  %75 = load i64, ptr %tstats.i155.i, align 8
+  %inc.i156.i = add i64 %75, 1
   store i64 %inc.i156.i, ptr %tstats.i155.i, align 8
   br label %imalloc_no_sample.exit
 
@@ -3269,7 +3269,7 @@ if.end36.i.i:                                     ; preds = %arena_get.exit, %tc
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i488, %if.then31.i.i, %if.then23.i124.i, %if.then46.i.i, %if.end36.i.i
-  %retval.i443.0 = phi ptr [ %call39.i.i, %if.end36.i.i ], [ %call26.i.i, %if.then23.i124.i ], [ %ret.i91.i.0, %if.then46.i.i ], [ %64, %if.then31.i.i ], [ %call19.i167.i, %sz_s2u.exit.i488 ]
+  %retval.i443.0 = phi ptr [ %call39.i.i, %if.end36.i.i ], [ %call26.i.i, %if.then23.i124.i ], [ %ret.i91.i.0, %if.then46.i.i ], [ %65, %if.then31.i.i ], [ %call19.i167.i, %sz_s2u.exit.i488 ]
   %cmp53.i202 = icmp eq ptr %retval.i443.0, null
   br i1 %cmp53.i202, label %if.then113.i241, label %if.end62.i206
 
@@ -3287,12 +3287,12 @@ if.end62.i206:                                    ; preds = %imalloc_no_sample.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %call13.i, i64 840
   %next_event_fast.i1726 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, ptr %next_event_fast.i1726, align 8
-  %75 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1719, align 8
-  %add.i1647 = add i64 %75, %38
+  %76 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1719, align 8
+  %add.i1647 = add i64 %76, %39
   store i64 %add.i1647, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1719, align 8
-  %76 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1807, align 8
-  %sub.i1648 = sub i64 %76, %75
-  %cmp.i1649 = icmp ult i64 %38, %sub.i1648
+  %77 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1807, align 8
+  %sub.i1648 = sub i64 %77, %76
+  %cmp.i1649 = icmp ult i64 %39, %sub.i1648
   br i1 %cmp.i1649, label %if.then, label %if.else.i1653
 
 if.else.i1653:                                    ; preds = %if.end62.i206
@@ -3311,8 +3311,8 @@ if.then:                                          ; preds = %if.else.i1653, %if.
   store i64 %size, ptr %arrayinit.element, align 8
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
-  %77 = ptrtoint ptr %ret.0 to i64
-  call void @hook_invoke_alloc(i32 noundef 3, ptr noundef %ret.0, i64 noundef %77, ptr noundef nonnull %args) #19
+  %78 = ptrtoint ptr %ret.0 to i64
+  call void @hook_invoke_alloc(i32 noundef 3, ptr noundef %ret.0, i64 noundef %78, ptr noundef nonnull %args) #19
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then113.i, %if.else.i1670, %if.end62.i, %if.then.i44, %if.then
@@ -3342,44 +3342,44 @@ tsd_fetch_impl.exit:                              ; preds = %if.then
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext true) #19
   %state.i1539.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 824
   %.pre = load i8, ptr %state.i1539.phi.trans.insert, align 8
-  %cmp.i = icmp eq i8 %.pre, 0
-  br i1 %cmp.i, label %tsdn_rtree_ctx.exit1828, label %lor.lhs.false.i
+  %2 = icmp eq i8 %.pre, 0
+  br i1 %2, label %tsdn_rtree_ctx.exit1828, label %lor.lhs.false.i
 
 tsdn_rtree_ctx.exit1828:                          ; preds = %if.then, %tsd_fetch_impl.exit
   %retval.i1553.0631 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %if.then ]
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1551 = getelementptr inbounds i8, ptr %retval.i1553.0631, i64 864
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1938 = getelementptr inbounds i8, ptr %retval.i1553.0631, i64 440
-  %2 = ptrtoint ptr %ptr to i64
-  %call1.i109594 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i1553.0631, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1938, i64 noundef %2)
+  %3 = ptrtoint ptr %ptr to i64
+  %call1.i109594 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i1553.0631, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1938, i64 noundef %3)
   %call1.i109.fca.0.extract = extractvalue { i64, i32 } %call1.i109594, 0
   %call1.i109.fca.1.extract = extractvalue { i64, i32 } %call1.i109594, 1
   %metadata.i.sroa.0.0.extract.trunc = trunc i64 %call1.i109.fca.0.extract to i32
-  %3 = and i32 %call1.i109.fca.1.extract, 256
-  %.not628 = icmp eq i32 %3, 0
+  %4 = and i32 %call1.i109.fca.1.extract, 256
+  %.not628 = icmp eq i32 %4, 0
   %idxprom.i = and i64 %call1.i109.fca.0.extract, 4294967295
   %arrayidx.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i
-  %4 = load i64, ptr %arrayidx.i, align 8
+  %5 = load i64, ptr %arrayidx.i, align 8
   br i1 %.not628, label %if.else.i794, label %if.then17.i530
 
 if.then17.i530:                                   ; preds = %tsdn_rtree_ctx.exit1828
   %bins.i = getelementptr inbounds i8, ptr %retval.i1553.0631, i64 872
   %arrayidx.i554 = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i, i64 0, i64 %idxprom.i
-  %5 = load ptr, ptr %arrayidx.i554, align 8
-  %6 = ptrtoint ptr %5 to i64
+  %6 = load ptr, ptr %arrayidx.i554, align 8
+  %7 = ptrtoint ptr %6 to i64
   %low_bits_full.i1233 = getelementptr inbounds i8, ptr %arrayidx.i554, i64 18
-  %7 = load i16, ptr %low_bits_full.i1233, align 2
-  %8 = trunc i64 %6 to i16
-  %cmp.i1234.not = icmp eq i16 %7, %8
+  %8 = load i16, ptr %low_bits_full.i1233, align 2
+  %9 = trunc i64 %7 to i16
+  %cmp.i1234.not = icmp eq i16 %8, %9
   br i1 %cmp.i1234.not, label %if.then10.i, label %if.end.i1219
 
 if.end.i1219:                                     ; preds = %if.then17.i530
-  %incdec.ptr.i1225 = getelementptr inbounds i8, ptr %5, i64 -8
+  %incdec.ptr.i1225 = getelementptr inbounds i8, ptr %6, i64 -8
   store ptr %incdec.ptr.i1225, ptr %arrayidx.i554, align 8
   store ptr %ptr, ptr %incdec.ptr.i1225, align 8
   br label %ifree.exit105
 
 if.then10.i:                                      ; preds = %if.then17.i530
-  %cmp.i624 = icmp eq ptr %5, @disabled_bin
+  %cmp.i624 = icmp eq ptr %6, @disabled_bin
   br i1 %cmp.i624, label %if.then18.i566, label %if.end20.i
 
 if.then18.i566:                                   ; preds = %if.then10.i
@@ -3387,29 +3387,29 @@ if.then18.i566:                                   ; preds = %if.then10.i
   br label %ifree.exit105
 
 if.end20.i:                                       ; preds = %if.then10.i
-  %9 = getelementptr i8, ptr %arrayidx.i554, i64 22
-  %arrayidx.i554.val620 = load i16, ptr %9, align 2
+  %10 = getelementptr i8, ptr %arrayidx.i554, i64 22
+  %arrayidx.i554.val620 = load i16, ptr %10, align 2
   %conv22.i = zext i16 %arrayidx.i554.val620 to i32
-  %10 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
-  %shr.i = lshr i32 %conv22.i, %10
+  %11 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
+  %shr.i = lshr i32 %conv22.i, %11
   tail call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i1553.0631, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1551, ptr noundef nonnull %arrayidx.i554, i32 noundef %metadata.i.sroa.0.0.extract.trunc, i32 noundef %shr.i) #19
-  %11 = load ptr, ptr %arrayidx.i554, align 8
-  %12 = ptrtoint ptr %11 to i64
-  %13 = load i16, ptr %low_bits_full.i1233, align 2
-  %14 = trunc i64 %12 to i16
-  %cmp.i1240 = icmp eq i16 %13, %14
+  %12 = load ptr, ptr %arrayidx.i554, align 8
+  %13 = ptrtoint ptr %12 to i64
+  %14 = load i16, ptr %low_bits_full.i1233, align 2
+  %15 = trunc i64 %13 to i16
+  %cmp.i1240 = icmp eq i16 %14, %15
   br i1 %cmp.i1240, label %ifree.exit105, label %if.end.i1200
 
 if.end.i1200:                                     ; preds = %if.end20.i
-  %incdec.ptr.i1206 = getelementptr inbounds i8, ptr %11, i64 -8
+  %incdec.ptr.i1206 = getelementptr inbounds i8, ptr %12, i64 -8
   store ptr %incdec.ptr.i1206, ptr %arrayidx.i554, align 8
   store ptr %ptr, ptr %incdec.ptr.i1206, align 8
   br label %ifree.exit105
 
 if.else.i794:                                     ; preds = %tsdn_rtree_ctx.exit1828
-  %15 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1551, align 8
-  %16 = getelementptr i8, ptr %15, i64 48
-  %.val611 = load i32, ptr %16, align 8
+  %16 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1551, align 8
+  %17 = getelementptr i8, ptr %16, i64 48
+  %.val611 = load i32, ptr %17, align 8
   %cmp.i796 = icmp ugt i32 %.val611, %metadata.i.sroa.0.0.extract.trunc
   br i1 %cmp.i796, label %land.lhs.true.i799, label %tsdn_rtree_ctx.exit1698
 
@@ -3418,15 +3418,15 @@ land.lhs.true.i799:                               ; preds = %if.else.i794
   %arrayidx.i802 = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i800, i64 0, i64 %idxprom.i
   %arrayidx.i802.val = load ptr, ptr %arrayidx.i802, align 8
   %cmp.i625 = icmp eq ptr %arrayidx.i802.val, @disabled_bin
-  %17 = getelementptr i8, ptr %arrayidx.i802, i64 22
+  %18 = getelementptr i8, ptr %arrayidx.i802, i64 22
   br i1 %cmp.i625, label %tsdn_rtree_ctx.exit1698, label %if.then7.i
 
 if.then7.i:                                       ; preds = %land.lhs.true.i799
-  %18 = ptrtoint ptr %arrayidx.i802.val to i64
+  %19 = ptrtoint ptr %arrayidx.i802.val to i64
   %low_bits_full.i34.i1494 = getelementptr inbounds i8, ptr %arrayidx.i802, i64 18
-  %19 = load i16, ptr %low_bits_full.i34.i1494, align 2
-  %20 = trunc i64 %18 to i16
-  %cmp.i.i1496.not = icmp eq i16 %19, %20
+  %20 = load i16, ptr %low_bits_full.i34.i1494, align 2
+  %21 = trunc i64 %19 to i16
+  %cmp.i.i1496.not = icmp eq i16 %20, %21
   br i1 %cmp.i.i1496.not, label %if.then.i1510, label %if.end.i20.i1500
 
 if.end.i20.i1500:                                 ; preds = %if.then7.i
@@ -3436,28 +3436,28 @@ if.end.i20.i1500:                                 ; preds = %if.then7.i
   br label %ifree.exit105
 
 if.then.i1510:                                    ; preds = %if.then7.i
-  %arrayidx.i802.val621 = load i16, ptr %17, align 2
+  %arrayidx.i802.val621 = load i16, ptr %18, align 2
   %conv8.i1512 = zext i16 %arrayidx.i802.val621 to i32
-  %21 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
-  %shr.i1513 = lshr i32 %conv8.i1512, %21
+  %22 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
+  %shr.i1513 = lshr i32 %conv8.i1512, %22
   tail call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i1553.0631, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1551, ptr noundef nonnull %arrayidx.i802, i32 noundef %metadata.i.sroa.0.0.extract.trunc, i32 noundef %shr.i1513) #19
-  %22 = load ptr, ptr %arrayidx.i802, align 8
-  %23 = ptrtoint ptr %22 to i64
-  %24 = load i16, ptr %low_bits_full.i34.i1494, align 2
-  %25 = trunc i64 %23 to i16
-  %cmp.i40.i1518 = icmp eq i16 %24, %25
+  %23 = load ptr, ptr %arrayidx.i802, align 8
+  %24 = ptrtoint ptr %23 to i64
+  %25 = load i16, ptr %low_bits_full.i34.i1494, align 2
+  %26 = trunc i64 %24 to i16
+  %cmp.i40.i1518 = icmp eq i16 %25, %26
   br i1 %cmp.i40.i1518, label %ifree.exit105, label %if.end.i.i1522
 
 if.end.i.i1522:                                   ; preds = %if.then.i1510
-  %incdec.ptr.i.i1523 = getelementptr inbounds i8, ptr %22, i64 -8
+  %incdec.ptr.i.i1523 = getelementptr inbounds i8, ptr %23, i64 -8
   store ptr %incdec.ptr.i.i1523, ptr %arrayidx.i802, align 8
   store ptr %ptr, ptr %incdec.ptr.i.i1523, align 8
   br label %ifree.exit105
 
 tsdn_rtree_ctx.exit1698:                          ; preds = %land.lhs.true.i799, %if.else.i794
-  call fastcc void @rtree_read(ptr noalias nonnull align 8 %tmp.i.i, ptr noundef nonnull %retval.i1553.0631, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1938, i64 noundef %2)
-  %26 = load ptr, ptr %tmp.i.i, align 8
-  tail call void @large_dalloc(ptr noundef nonnull %retval.i1553.0631, ptr noundef %26) #19
+  call fastcc void @rtree_read(ptr noalias nonnull align 8 %tmp.i.i, ptr noundef nonnull %retval.i1553.0631, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1938, i64 noundef %3)
+  %27 = load ptr, ptr %tmp.i.i, align 8
+  tail call void @large_dalloc(ptr noundef nonnull %retval.i1553.0631, ptr noundef %27) #19
   br label %ifree.exit105
 
 ifree.exit105:                                    ; preds = %if.end.i20.i1500, %if.end.i1219, %if.end.i.i1522, %if.then.i1510, %if.end.i1200, %if.end20.i, %if.then18.i566, %tsdn_rtree_ctx.exit1698
@@ -3474,12 +3474,12 @@ ifree.exit105:                                    ; preds = %if.end.i20.i1500, %
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i2098 = getelementptr inbounds i8, ptr %retval.i1553.0631, i64 856
   %next_event_fast14.i = getelementptr inbounds i8, ptr %ctx.i1955, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i2098, ptr %next_event_fast14.i, align 8
-  %27 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i, align 8
-  %add.i1959 = add i64 %27, %4
+  %28 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i, align 8
+  %add.i1959 = add i64 %28, %5
   store i64 %add.i1959, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i, align 8
-  %28 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i, align 8
-  %sub.i1961 = sub i64 %28, %27
-  %cmp.i1962 = icmp ult i64 %4, %sub.i1961
+  %29 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i, align 8
+  %sub.i1961 = sub i64 %29, %28
+  %cmp.i1962 = icmp ult i64 %5, %sub.i1961
   br i1 %cmp.i1962, label %if.end16, label %if.else.i1966
 
 if.else.i1966:                                    ; preds = %ifree.exit105
@@ -3488,40 +3488,40 @@ if.else.i1966:                                    ; preds = %ifree.exit105
 
 lor.lhs.false.i:                                  ; preds = %tsd_fetch_impl.exit
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i2320 = getelementptr inbounds i8, ptr %call13.i, i64 1
-  %29 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i2320, align 1
-  %cmp10.i = icmp eq i8 %29, 0
+  %30 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i2320, align 1
+  %cmp10.i = icmp eq i8 %30, 0
   br i1 %cmp10.i, label %if.then18.i, label %tsdn_rtree_ctx.exit1815
 
 if.then18.i:                                      ; preds = %lor.lhs.false.i
-  %30 = load i8, ptr %call13.i, align 1
-  %tobool.i1638 = trunc i8 %30 to i1
+  %31 = load i8, ptr %call13.i, align 1
+  %tobool.i1638 = trunc i8 %31 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1583 = getelementptr inbounds i8, ptr %call13.i, i64 864
   %retval.i1577.0 = select i1 %tobool.i1638, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1583, ptr null
   br label %tsdn_rtree_ctx.exit1815
 
 tsdn_rtree_ctx.exit1815:                          ; preds = %lor.lhs.false.i, %if.then18.i
   %tcache.i.0 = phi ptr [ %retval.i1577.0, %if.then18.i ], [ null, %lor.lhs.false.i ]
-  %31 = ptrtoint ptr %ptr to i64
-  store i64 %31, ptr %args_raw, align 16
+  %32 = ptrtoint ptr %ptr to i64
+  store i64 %32, ptr %args_raw, align 16
   %scevgep = getelementptr inbounds i8, ptr %args_raw, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false)
   call void @hook_invoke_dalloc(i32 noundef 0, ptr noundef nonnull %ptr, ptr noundef nonnull %args_raw) #19
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1932 = getelementptr inbounds i8, ptr %call13.i, i64 440
-  %call1.i121602 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1932, i64 noundef %31)
+  %call1.i121602 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1932, i64 noundef %32)
   %call1.i121.fca.0.extract = extractvalue { i64, i32 } %call1.i121602, 0
   %call1.i121.fca.1.extract = extractvalue { i64, i32 } %call1.i121602, 1
   %metadata.i118.sroa.0.0.extract.trunc = trunc i64 %call1.i121.fca.0.extract to i32
-  %32 = and i32 %call1.i121.fca.1.extract, 256
-  %.not = icmp eq i32 %32, 0
+  %33 = and i32 %call1.i121.fca.1.extract, 256
+  %.not = icmp eq i32 %33, 0
   %idxprom.i150 = and i64 %call1.i121.fca.0.extract, 4294967295
   %arrayidx.i151 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i150
-  %33 = load i64, ptr %arrayidx.i151, align 8
-  %34 = load i8, ptr @opt_junk_free, align 1
-  %tobool22.i = trunc i8 %34 to i1
+  %34 = load i64, ptr %arrayidx.i151, align 8
+  %35 = load i8, ptr @opt_junk_free, align 1
+  %tobool22.i = trunc i8 %35 to i1
   br i1 %tobool22.i, label %if.then24.i, label %if.end25.i
 
 if.then24.i:                                      ; preds = %tsdn_rtree_ctx.exit1815
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %ptr, i8 90, i64 %33, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %ptr, i8 90, i64 %34, i1 false)
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then24.i, %tsdn_rtree_ctx.exit1815
@@ -3538,22 +3538,22 @@ if.then6.i:                                       ; preds = %if.end25.i
 if.then17.i:                                      ; preds = %if.then6.i
   %bins.i728 = getelementptr inbounds i8, ptr %tcache.i.0, i64 8
   %arrayidx.i730 = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i728, i64 0, i64 %idxprom.i150
-  %35 = load ptr, ptr %arrayidx.i730, align 8
-  %36 = ptrtoint ptr %35 to i64
+  %36 = load ptr, ptr %arrayidx.i730, align 8
+  %37 = ptrtoint ptr %36 to i64
   %low_bits_full.i1268 = getelementptr inbounds i8, ptr %arrayidx.i730, i64 18
-  %37 = load i16, ptr %low_bits_full.i1268, align 2
-  %38 = trunc i64 %36 to i16
-  %cmp.i1270.not = icmp eq i16 %37, %38
+  %38 = load i16, ptr %low_bits_full.i1268, align 2
+  %39 = trunc i64 %37 to i16
+  %cmp.i1270.not = icmp eq i16 %38, %39
   br i1 %cmp.i1270.not, label %if.then10.i738, label %if.end.i1105
 
 if.end.i1105:                                     ; preds = %if.then17.i
-  %incdec.ptr.i1111 = getelementptr inbounds i8, ptr %35, i64 -8
+  %incdec.ptr.i1111 = getelementptr inbounds i8, ptr %36, i64 -8
   store ptr %incdec.ptr.i1111, ptr %arrayidx.i730, align 8
   store ptr %ptr, ptr %incdec.ptr.i1111, align 8
   br label %ifree.exit
 
 if.then10.i738:                                   ; preds = %if.then17.i
-  %cmp.i626 = icmp eq ptr %35, @disabled_bin
+  %cmp.i626 = icmp eq ptr %36, @disabled_bin
   br i1 %cmp.i626, label %if.then18.i763, label %if.end20.i757
 
 if.then18.i763:                                   ; preds = %if.then10.i738
@@ -3561,29 +3561,29 @@ if.then18.i763:                                   ; preds = %if.then10.i738
   br label %ifree.exit
 
 if.end20.i757:                                    ; preds = %if.then10.i738
-  %39 = getelementptr i8, ptr %arrayidx.i730, i64 22
-  %arrayidx.i730.val622 = load i16, ptr %39, align 2
+  %40 = getelementptr i8, ptr %arrayidx.i730, i64 22
+  %arrayidx.i730.val622 = load i16, ptr %40, align 2
   %conv22.i759 = zext i16 %arrayidx.i730.val622 to i32
-  %40 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
-  %shr.i760 = lshr i32 %conv22.i759, %40
+  %41 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
+  %shr.i760 = lshr i32 %conv22.i759, %41
   call void @tcache_bin_flush_small(ptr noundef nonnull %call13.i, ptr noundef nonnull %tcache.i.0, ptr noundef nonnull %arrayidx.i730, i32 noundef %metadata.i118.sroa.0.0.extract.trunc, i32 noundef %shr.i760) #19
-  %41 = load ptr, ptr %arrayidx.i730, align 8
-  %42 = ptrtoint ptr %41 to i64
-  %43 = load i16, ptr %low_bits_full.i1268, align 2
-  %44 = trunc i64 %42 to i16
-  %cmp.i1276 = icmp eq i16 %43, %44
+  %42 = load ptr, ptr %arrayidx.i730, align 8
+  %43 = ptrtoint ptr %42 to i64
+  %44 = load i16, ptr %low_bits_full.i1268, align 2
+  %45 = trunc i64 %43 to i16
+  %cmp.i1276 = icmp eq i16 %44, %45
   br i1 %cmp.i1276, label %ifree.exit, label %if.end.i1094
 
 if.end.i1094:                                     ; preds = %if.end20.i757
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %41, i64 -8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %42, i64 -8
   store ptr %incdec.ptr.i, ptr %arrayidx.i730, align 8
   store ptr %ptr, ptr %incdec.ptr.i, align 8
   br label %ifree.exit
 
 if.else.i968:                                     ; preds = %if.then6.i
-  %45 = load ptr, ptr %tcache.i.0, align 8
-  %46 = getelementptr i8, ptr %45, i64 48
-  %.val614 = load i32, ptr %46, align 8
+  %46 = load ptr, ptr %tcache.i.0, align 8
+  %47 = getelementptr i8, ptr %46, i64 48
+  %.val614 = load i32, ptr %47, align 8
   %cmp.i970 = icmp ugt i32 %.val614, %metadata.i118.sroa.0.0.extract.trunc
   br i1 %cmp.i970, label %land.lhs.true.i977, label %tsdn_rtree_ctx.exit
 
@@ -3592,15 +3592,15 @@ land.lhs.true.i977:                               ; preds = %if.else.i968
   %arrayidx.i980 = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i978, i64 0, i64 %idxprom.i150
   %arrayidx.i980.val = load ptr, ptr %arrayidx.i980, align 8
   %cmp.i627 = icmp eq ptr %arrayidx.i980.val, @disabled_bin
-  %47 = getelementptr i8, ptr %arrayidx.i980, i64 22
+  %48 = getelementptr i8, ptr %arrayidx.i980, i64 22
   br i1 %cmp.i627, label %tsdn_rtree_ctx.exit, label %if.then7.i996
 
 if.then7.i996:                                    ; preds = %land.lhs.true.i977
-  %48 = ptrtoint ptr %arrayidx.i980.val to i64
+  %49 = ptrtoint ptr %arrayidx.i980.val to i64
   %low_bits_full.i34.i = getelementptr inbounds i8, ptr %arrayidx.i980, i64 18
-  %49 = load i16, ptr %low_bits_full.i34.i, align 2
-  %50 = trunc i64 %48 to i16
-  %cmp.i.i1332.not = icmp eq i16 %49, %50
+  %50 = load i16, ptr %low_bits_full.i34.i, align 2
+  %51 = trunc i64 %49 to i16
+  %cmp.i.i1332.not = icmp eq i16 %50, %51
   br i1 %cmp.i.i1332.not, label %if.then.i1337, label %if.end.i20.i
 
 if.end.i20.i:                                     ; preds = %if.then7.i996
@@ -3610,29 +3610,29 @@ if.end.i20.i:                                     ; preds = %if.then7.i996
   br label %ifree.exit
 
 if.then.i1337:                                    ; preds = %if.then7.i996
-  %arrayidx.i980.val623 = load i16, ptr %47, align 2
+  %arrayidx.i980.val623 = load i16, ptr %48, align 2
   %conv8.i = zext i16 %arrayidx.i980.val623 to i32
-  %51 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
-  %shr.i1338 = lshr i32 %conv8.i, %51
+  %52 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
+  %shr.i1338 = lshr i32 %conv8.i, %52
   call void @tcache_bin_flush_large(ptr noundef nonnull %call13.i, ptr noundef nonnull %tcache.i.0, ptr noundef nonnull %arrayidx.i980, i32 noundef %metadata.i118.sroa.0.0.extract.trunc, i32 noundef %shr.i1338) #19
-  %52 = load ptr, ptr %arrayidx.i980, align 8
-  %53 = ptrtoint ptr %52 to i64
-  %54 = load i16, ptr %low_bits_full.i34.i, align 2
-  %55 = trunc i64 %53 to i16
-  %cmp.i40.i = icmp eq i16 %54, %55
+  %53 = load ptr, ptr %arrayidx.i980, align 8
+  %54 = ptrtoint ptr %53 to i64
+  %55 = load i16, ptr %low_bits_full.i34.i, align 2
+  %56 = trunc i64 %54 to i16
+  %cmp.i40.i = icmp eq i16 %55, %56
   br i1 %cmp.i40.i, label %ifree.exit, label %if.end.i.i1340
 
 if.end.i.i1340:                                   ; preds = %if.then.i1337
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %52, i64 -8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %53, i64 -8
   store ptr %incdec.ptr.i.i, ptr %arrayidx.i980, align 8
   store ptr %ptr, ptr %incdec.ptr.i.i, align 8
   br label %ifree.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %land.lhs.true.i977, %if.else.i968
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds i8, ptr %call13.i, i64 440
-  call fastcc void @rtree_read(ptr noalias nonnull align 8 %tmp.i.i955, ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %31)
-  %56 = load ptr, ptr %tmp.i.i955, align 8
-  call void @large_dalloc(ptr noundef nonnull %call13.i, ptr noundef %56) #19
+  call fastcc void @rtree_read(ptr noalias nonnull align 8 %tmp.i.i955, ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %32)
+  %57 = load ptr, ptr %tmp.i.i955, align 8
+  call void @large_dalloc(ptr noundef nonnull %call13.i, ptr noundef %57) #19
   br label %ifree.exit
 
 ifree.exit:                                       ; preds = %if.end.i20.i, %if.end.i1105, %if.end.i.i1340, %if.then.i1337, %if.end.i1094, %if.end20.i757, %if.then.i396, %if.then18.i763, %tsdn_rtree_ctx.exit
@@ -3649,12 +3649,12 @@ ifree.exit:                                       ; preds = %if.end.i20.i, %if.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %call13.i, i64 856
   %next_event_fast14.i2011 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i, ptr %next_event_fast14.i2011, align 8
-  %57 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i2004, align 8
-  %add.i1943 = add i64 %57, %33
+  %58 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i2004, align 8
+  %add.i1943 = add i64 %58, %34
   store i64 %add.i1943, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i2004, align 8
-  %58 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i2110, align 8
-  %sub.i = sub i64 %58, %57
-  %cmp.i1945 = icmp ult i64 %33, %sub.i
+  %59 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i2110, align 8
+  %sub.i = sub i64 %59, %58
+  %cmp.i1945 = icmp ult i64 %34, %sub.i
   br i1 %cmp.i1945, label %if.end16, label %if.else.i1949
 
 if.else.i1949:                                    ; preds = %ifree.exit
@@ -3928,8 +3928,8 @@ tsd_fetch_impl.exit:                              ; preds = %entry
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 824
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
-  %cmp.i = icmp eq i8 %.pre, 0
-  br i1 %cmp.i, label %if.end.i61, label %land.lhs.true8.i
+  %2 = icmp eq i8 %.pre, 0
+  br i1 %2, label %if.end.i61, label %land.lhs.true8.i
 
 if.end.i61:                                       ; preds = %entry, %tsd_fetch_impl.exit
   %retval.i1211.0793 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
@@ -3938,8 +3938,8 @@ if.end.i61:                                       ; preds = %entry, %tsd_fetch_i
 
 lor.rhs.i:                                        ; preds = %if.end.i61
   %sub.i = add i64 %alignment, -1
-  %2 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp6.i.not = icmp ult i64 %2, 2
+  %3 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %cmp6.i.not = icmp ult i64 %3, 2
   br i1 %cmp6.i.not, label %if.else.i144.i, label %do.end4
 
 if.else.i144.i:                                   ; preds = %lor.rhs.i
@@ -3959,17 +3959,17 @@ if.then.i36.i1558:                                ; preds = %if.then.i1503
   %sub.i119.i1560 = add nuw nsw i64 %and.i1508, 7
   %shr.i.i1561 = lshr i64 %sub.i119.i1560, 3
   %arrayidx.i120.i1562 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1561
-  %3 = load i8, ptr %arrayidx.i120.i1562, align 1
-  %idxprom.i.i1564 = zext i8 %3 to i64
+  %4 = load i8, ptr %arrayidx.i120.i1562, align 1
+  %idxprom.i.i1564 = zext i8 %4 to i64
   %arrayidx.i.i1565 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i1564
-  %4 = load i64, ptr %arrayidx.i.i1565, align 8
+  %5 = load i64, ptr %arrayidx.i.i1565, align 8
   br label %sz_s2u.exit38.i1539
 
 if.end14.i.i1522:                                 ; preds = %if.then.i1503
   %shl15.i.i1523 = shl nuw nsw i64 %and.i1508, 1
   %sub.i.i1524 = add nsw i64 %shl15.i.i1523, -1
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1524, i1 true)
-  %sub23.i.i1530 = sub nuw nsw i64 60, %5
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1524, i1 true)
+  %sub23.i.i1530 = sub nuw nsw i64 60, %6
   %notmask757 = shl nsw i64 -1, %sub23.i.i1530
   %sub27.i.i1534 = xor i64 %notmask757, -1
   %add.i.i1535 = add nuw nsw i64 %and.i1508, %sub27.i.i1534
@@ -3977,7 +3977,7 @@ if.end14.i.i1522:                                 ; preds = %if.then.i1503
   br label %sz_s2u.exit38.i1539
 
 sz_s2u.exit38.i1539:                              ; preds = %if.end14.i.i1522, %if.then.i36.i1558
-  %retval.i28.i1416.0 = phi i64 [ %4, %if.then.i36.i1558 ], [ %and.i.i1537, %if.end14.i.i1522 ]
+  %retval.i28.i1416.0 = phi i64 [ %5, %if.then.i36.i1558 ], [ %and.i.i1537, %if.end14.i.i1522 ]
   %cmp3.i1540 = icmp ult i64 %retval.i28.i1416.0, 16384
   br i1 %cmp3.i1540, label %if.end26.i.i, label %if.end18.i1466
 
@@ -3996,8 +3996,8 @@ if.end.i.i1437:                                   ; preds = %if.end9.i1430
 if.end14.i70.i1446:                               ; preds = %if.end.i.i1437
   %shl15.i71.i1447 = shl nuw i64 %size, 1
   %sub.i72.i1448 = add i64 %shl15.i71.i1447, -1
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i1448, i1 true)
-  %sub23.i78.i1454 = sub nuw nsw i64 60, %6
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i1448, i1 true)
+  %sub23.i78.i1454 = sub nuw nsw i64 60, %7
   %notmask758 = shl nsw i64 -1, %sub23.i78.i1454
   %sub27.i82.i1458 = xor i64 %notmask758, -1
   %add.i83.i1459 = add nuw nsw i64 %size, %sub27.i82.i1458
@@ -4011,20 +4011,20 @@ sz_s2u.exit.i1463:                                ; preds = %if.end14.i70.i1446,
 
 if.end18.i1466:                                   ; preds = %sz_s2u.exit38.i1539, %if.end9.i1430, %sz_s2u.exit.i1463
   %usize.i1423.0 = phi i64 [ %retval.i53.i1394.0, %sz_s2u.exit.i1463 ], [ 16384, %if.end9.i1430 ], [ 16384, %sz_s2u.exit38.i1539 ]
-  %7 = load i64, ptr @sz_large_pad, align 8
+  %8 = load i64, ptr @sz_large_pad, align 8
   %add20.i1468 = add nuw nsw i64 %alignment, 4095
   %and21.i1469 = and i64 %add20.i1468, 9223372036854771712
   %add19.i1467 = add nsw i64 %and21.i1469, -4096
   %add22.i1470 = add i64 %add19.i1467, %usize.i1423.0
-  %sub23.i1471 = add i64 %add22.i1470, %7
+  %sub23.i1471 = add i64 %add22.i1470, %8
   %cmp24.i1472 = icmp ult i64 %sub23.i1471, %usize.i1423.0
   %.usize.i1423.0 = select i1 %cmp24.i1472, i64 0, i64 %usize.i1423.0
   br label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1539, %if.end18.i1466
   %retval.i1420.0 = phi i64 [ %retval.i28.i1416.0, %sz_s2u.exit38.i1539 ], [ %.usize.i1423.0, %if.end18.i1466 ]
-  %8 = add nsw i64 %retval.i1420.0, -8070450532247928833
-  %or.cond = icmp ult i64 %8, -8070450532247928832
+  %9 = add nsw i64 %retval.i1420.0, -8070450532247928833
+  %or.cond = icmp ult i64 %9, -8070450532247928832
   br i1 %or.cond, label %do.end4, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
@@ -4048,11 +4048,11 @@ if.end62.i:                                       ; preds = %if.end38.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1771 = getelementptr inbounds i8, ptr %retval.i1211.0793, i64 840
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1660, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1771, ptr %next_event_fast.i, align 8
-  %9 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i1664 = add i64 %9, %retval.i1420.0
+  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
+  %add.i1664 = add i64 %10, %retval.i1420.0
   store i64 %add.i1664, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
-  %sub.i1666 = sub i64 %10, %9
+  %11 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
+  %sub.i1666 = sub i64 %11, %10
   %cmp.i1667 = icmp ult i64 %retval.i1420.0, %sub.i1666
   br i1 %cmp.i1667, label %do.end4, label %if.else.i1671
 
@@ -4061,8 +4061,8 @@ if.else.i1671:                                    ; preds = %if.end62.i
   br label %do.end4
 
 land.lhs.true8.i:                                 ; preds = %tsd_fetch_impl.exit
-  %11 = load i32, ptr @malloc_init_state, align 4
-  %cmp.i365.not = icmp eq i32 %11, 0
+  %12 = load i32, ptr @malloc_init_state, align 4
+  %cmp.i365.not = icmp eq i32 %12, 0
   br i1 %cmp.i365.not, label %if.end.i146, label %land.lhs.true.i.i46
 
 land.lhs.true.i.i46:                              ; preds = %land.lhs.true8.i
@@ -4080,13 +4080,13 @@ if.end.i146:                                      ; preds = %land.lhs.true8.i, %
 
 lor.rhs.i150:                                     ; preds = %if.end.i146
   %sub.i153 = add i64 %alignment, -1
-  %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
-  %cmp6.i155.not = icmp ult i64 %12, 2
+  %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %cmp6.i155.not = icmp ult i64 %13, 2
   br i1 %cmp6.i155.not, label %land.lhs.true.i.i343, label %if.then
 
 land.lhs.true.i.i343:                             ; preds = %lor.rhs.i150
-  %13 = load i8, ptr @opt_zero, align 1
-  %tobool2.i.i344 = trunc i8 %13 to i1
+  %14 = load i8, ptr @opt_zero, align 1
+  %tobool2.i.i344 = trunc i8 %14 to i1
   %cmp.i1326 = icmp ult i64 %size, 14337
   %cmp1.i = icmp ult i64 %alignment, 4097
   %or.cond6 = and i1 %cmp1.i, %cmp.i1326
@@ -4103,17 +4103,17 @@ if.then.i36.i:                                    ; preds = %if.then.i1341
   %sub.i119.i = add nuw nsw i64 %and.i1343, 7
   %shr.i.i1379 = lshr i64 %sub.i119.i, 3
   %arrayidx.i120.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1379
-  %14 = load i8, ptr %arrayidx.i120.i, align 1
-  %idxprom.i.i1380 = zext i8 %14 to i64
+  %15 = load i8, ptr %arrayidx.i120.i, align 1
+  %idxprom.i.i1380 = zext i8 %15 to i64
   %arrayidx.i.i1381 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i1380
-  %15 = load i64, ptr %arrayidx.i.i1381, align 8
+  %16 = load i64, ptr %arrayidx.i.i1381, align 8
   br label %sz_s2u.exit38.i
 
 if.end14.i.i1347:                                 ; preds = %if.then.i1341
   %shl15.i.i1348 = shl nuw nsw i64 %and.i1343, 1
   %sub.i.i1349 = add nsw i64 %shl15.i.i1348, -1
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1349, i1 true)
-  %sub23.i.i1355 = sub nuw nsw i64 60, %16
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1349, i1 true)
+  %sub23.i.i1355 = sub nuw nsw i64 60, %17
   %notmask = shl nsw i64 -1, %sub23.i.i1355
   %sub27.i.i1359 = xor i64 %notmask, -1
   %add.i.i1360 = add nuw nsw i64 %and.i1343, %sub27.i.i1359
@@ -4121,7 +4121,7 @@ if.end14.i.i1347:                                 ; preds = %if.then.i1341
   br label %sz_s2u.exit38.i
 
 sz_s2u.exit38.i:                                  ; preds = %if.end14.i.i1347, %if.then.i36.i
-  %retval.i28.i.0 = phi i64 [ %15, %if.then.i36.i ], [ %and.i.i1362, %if.end14.i.i1347 ]
+  %retval.i28.i.0 = phi i64 [ %16, %if.then.i36.i ], [ %and.i.i1362, %if.end14.i.i1347 ]
   %cmp3.i = icmp ult i64 %retval.i28.i.0, 16384
   br i1 %cmp3.i, label %if.end26.i.i182, label %if.end18.i
 
@@ -4140,8 +4140,8 @@ if.end.i.i1336:                                   ; preds = %if.end9.i
 if.end14.i70.i:                                   ; preds = %if.end.i.i1336
   %shl15.i71.i = shl nuw i64 %size, 1
   %sub.i72.i = add i64 %shl15.i71.i, -1
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i, i1 true)
-  %sub23.i78.i = sub nuw nsw i64 60, %17
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i, i1 true)
+  %sub23.i78.i = sub nuw nsw i64 60, %18
   %notmask756 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask756, -1
   %add.i83.i = add nuw nsw i64 %size, %sub27.i82.i
@@ -4155,40 +4155,40 @@ sz_s2u.exit.i1337:                                ; preds = %if.end14.i70.i, %if
 
 if.end18.i:                                       ; preds = %sz_s2u.exit38.i, %if.end9.i, %sz_s2u.exit.i1337
   %usize.i1325.0 = phi i64 [ %retval.i53.i.0, %sz_s2u.exit.i1337 ], [ 16384, %if.end9.i ], [ 16384, %sz_s2u.exit38.i ]
-  %18 = load i64, ptr @sz_large_pad, align 8
+  %19 = load i64, ptr @sz_large_pad, align 8
   %add20.i = add nuw nsw i64 %alignment, 4095
   %and21.i = and i64 %add20.i, 9223372036854771712
   %add19.i = add nsw i64 %and21.i, -4096
   %add22.i = add i64 %add19.i, %usize.i1325.0
-  %sub23.i = add i64 %add22.i, %18
+  %sub23.i = add i64 %add22.i, %19
   %cmp24.i = icmp ult i64 %sub23.i, %usize.i1325.0
   %.usize.i1325.0 = select i1 %cmp24.i, i64 0, i64 %usize.i1325.0
   br label %if.end26.i.i182
 
 if.end26.i.i182:                                  ; preds = %sz_s2u.exit38.i, %if.end18.i
   %retval.i1322.0 = phi i64 [ %retval.i28.i.0, %sz_s2u.exit38.i ], [ %.usize.i1325.0, %if.end18.i ]
-  %19 = add nsw i64 %retval.i1322.0, -8070450532247928833
-  %or.cond759 = icmp ult i64 %19, -8070450532247928832
+  %20 = add nsw i64 %retval.i1322.0, -8070450532247928833
+  %or.cond759 = icmp ult i64 %20, -8070450532247928832
   br i1 %or.cond759, label %if.then, label %if.end38.i.i190
 
 if.end38.i.i190:                                  ; preds = %if.end26.i.i182
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999 = getelementptr inbounds i8, ptr %call13.i, i64 1
-  %20 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999, align 1
-  %cmp35.i247 = icmp slt i8 %20, 1
+  %21 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1999, align 1
+  %cmp35.i247 = icmp slt i8 %21, 1
   %cmp.i161.i201 = icmp ult i64 %retval.i1322.0, 14337
   br i1 %cmp35.i247, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end38.i.i190
-  %21 = load i8, ptr %call13.i, align 1
-  %tobool.i1299 = trunc i8 %21 to i1
+  %22 = load i8, ptr %call13.i, align 1
+  %tobool.i1299 = trunc i8 %22 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1241 = getelementptr inbounds i8, ptr %call13.i, i64 864
   %retval.i1235.0 = select i1 %tobool.i1299, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1241, ptr null
   br label %imalloc_no_sample.exit
 
 if.else.i24.i:                                    ; preds = %if.end38.i.i190
-  %22 = load atomic i64, ptr @arenas acquire, align 64
-  %23 = inttoptr i64 %22 to ptr
-  %cmp.i763 = icmp eq i64 %22, 0
+  %23 = load atomic i64, ptr @arenas acquire, align 64
+  %24 = inttoptr i64 %23 to ptr
+  %cmp.i763 = icmp eq i64 %23, 0
   br i1 %cmp.i763, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
@@ -4202,33 +4202,33 @@ if.then.i.i:                                      ; preds = %if.then3.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %inc.i.i.i = add i64 %24, 1
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %inc.i.i.i = add i64 %25, 1
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %cmp.not.i.i.i = icmp eq ptr %25, %call13.i
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %cmp.not.i.i.i = icmp eq ptr %26, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
-  %inc2.i.i.i = add i64 %26, 1
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
+  %inc2.i.i.i = add i64 %27, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
-  %27 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i.i = icmp eq i32 %27, 0
+  %28 = load atomic i32, ptr @narenas_total acquire, align 4
+  %cmp1.i.i = icmp eq i32 %28, 0
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end3.i.i
 
 if.then2.i.i:                                     ; preds = %malloc_mutex_lock.exit.i
-  %28 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
+  %29 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then2.i.i, %malloc_mutex_lock.exit.i
-  %29 = load atomic i64, ptr @arenas acquire, align 64
-  %30 = inttoptr i64 %29 to ptr
-  %cmp5.not.i.i = icmp eq i64 %29, 0
+  %30 = load atomic i64, ptr @arenas acquire, align 64
+  %31 = inttoptr i64 %30 to ptr
+  %cmp5.not.i.i = icmp eq i64 %30, 0
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init_locked.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
@@ -4236,19 +4236,19 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
   br label %arena_init_locked.exit.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
-  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %30, %if.end3.i.i ]
+  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %31, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   %call1.i.i765 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
-  %ret.0.i = phi ptr [ %23, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
+  %ret.0.i = phi ptr [ %24, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
   %cmp2.i.i456 = icmp eq ptr %ret.0.i, null
   br i1 %cmp2.i.i456, label %arena_get_from_ind.exit.i, label %imalloc_no_sample.exit
 
 arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit
-  %31 = load i32, ptr @narenas_auto, align 4
-  %cmp4.i.i = icmp eq i32 %31, 0
+  %32 = load i32, ptr @narenas_auto, align 4
+  %cmp4.i.i = icmp eq i32 %32, 0
   br i1 %cmp4.i.i, label %if.then, label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %tcache_get_from_ind.exit.i.thread, %arena_get.exit, %arena_get_from_ind.exit.i
@@ -4272,11 +4272,11 @@ if.end62.i207:                                    ; preds = %imalloc_no_sample.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %call13.i, i64 840
   %next_event_fast.i1727 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, ptr %next_event_fast.i1727, align 8
-  %32 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1720, align 8
-  %add.i1648 = add i64 %32, %retval.i1322.0
+  %33 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1720, align 8
+  %add.i1648 = add i64 %33, %retval.i1322.0
   store i64 %add.i1648, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1720, align 8
-  %33 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1808, align 8
-  %sub.i1649 = sub i64 %33, %32
+  %34 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1808, align 8
+  %sub.i1649 = sub i64 %34, %33
   %cmp.i1650 = icmp ult i64 %retval.i1322.0, %sub.i1649
   br i1 %cmp.i1650, label %land.lhs.true70.i215, label %if.else.i1654
 
@@ -4288,8 +4288,8 @@ land.lhs.true70.i215:                             ; preds = %if.else.i1654, %if.
   br i1 %tobool2.i.i344, label %if.then, label %land.lhs.true73.i218
 
 land.lhs.true73.i218:                             ; preds = %land.lhs.true70.i215
-  %34 = load i8, ptr @opt_junk_alloc, align 1
-  %tobool74.i219 = trunc i8 %34 to i1
+  %35 = load i8, ptr @opt_junk_alloc, align 1
+  %tobool74.i219 = trunc i8 %35 to i1
   br i1 %tobool74.i219, label %if.then81.i223, label %if.then
 
 if.then81.i223:                                   ; preds = %land.lhs.true73.i218
@@ -4303,8 +4303,8 @@ if.then:                                          ; preds = %arena_get_from_ind.
   store i64 %size, ptr %arrayinit.element, align 8
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
-  %35 = ptrtoint ptr %ret.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 4, ptr noundef %ret.0.ph, i64 noundef %35, ptr noundef nonnull %args) #19
+  %36 = ptrtoint ptr %ret.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 4, ptr noundef %ret.0.ph, i64 noundef %36, ptr noundef nonnull %args) #19
   br label %do.end4
 
 do.end4:                                          ; preds = %sz_s2u.exit.i1463, %if.end5.i1425, %if.then.i45, %if.end.i61, %lor.rhs.i, %if.end26.i.i, %if.end38.i.i, %if.end62.i, %if.else.i1671, %if.then
@@ -4328,8 +4328,8 @@ tsd_fetch_impl.exit:                              ; preds = %entry
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 824
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
-  %cmp.i = icmp eq i8 %.pre, 0
-  br i1 %cmp.i, label %if.else.i144.i, label %land.lhs.true8.i
+  %2 = icmp eq i8 %.pre, 0
+  br i1 %2, label %if.else.i144.i, label %land.lhs.true8.i
 
 if.else.i144.i:                                   ; preds = %entry, %tsd_fetch_impl.exit
   %retval.i1210.0789 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
@@ -4345,17 +4345,17 @@ if.then.i1502:                                    ; preds = %if.else.i144.i
 if.then.i36.i1557:                                ; preds = %if.then.i1502
   %shr.i.i1560 = lshr exact i64 %and.i1507, 3
   %arrayidx.i120.i1561 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1560
-  %2 = load i8, ptr %arrayidx.i120.i1561, align 1
-  %idxprom.i.i1563 = zext i8 %2 to i64
+  %3 = load i8, ptr %arrayidx.i120.i1561, align 1
+  %idxprom.i.i1563 = zext i8 %3 to i64
   %arrayidx.i.i1564 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i1563
-  %3 = load i64, ptr %arrayidx.i.i1564, align 8
+  %4 = load i64, ptr %arrayidx.i.i1564, align 8
   br label %sz_s2u.exit38.i1538
 
 if.end14.i.i1521:                                 ; preds = %if.then.i1502
   %shl15.i.i1522 = shl nuw nsw i64 %and.i1507, 1
   %sub.i.i1523 = add nsw i64 %shl15.i.i1522, -1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1523, i1 true)
-  %sub23.i.i1529 = sub nuw nsw i64 60, %4
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1523, i1 true)
+  %sub23.i.i1529 = sub nuw nsw i64 60, %5
   %notmask756 = shl nsw i64 -1, %sub23.i.i1529
   %sub27.i.i1533 = xor i64 %notmask756, -1
   %add.i.i1534 = add nuw nsw i64 %and.i1507, %sub27.i.i1533
@@ -4363,7 +4363,7 @@ if.end14.i.i1521:                                 ; preds = %if.then.i1502
   br label %sz_s2u.exit38.i1538
 
 sz_s2u.exit38.i1538:                              ; preds = %if.end14.i.i1521, %if.then.i36.i1557
-  %retval.i28.i1415.0 = phi i64 [ %3, %if.then.i36.i1557 ], [ %and.i.i1536, %if.end14.i.i1521 ]
+  %retval.i28.i1415.0 = phi i64 [ %4, %if.then.i36.i1557 ], [ %and.i.i1536, %if.end14.i.i1521 ]
   %cmp3.i1539 = icmp ult i64 %retval.i28.i1415.0, 16384
   br i1 %cmp3.i1539, label %if.end26.i.i, label %if.end18.i1465
 
@@ -4378,8 +4378,8 @@ if.end.i.i1436:                                   ; preds = %if.end9.i1429
 if.end14.i70.i1445:                               ; preds = %if.end.i.i1436
   %shl15.i71.i1446 = shl nuw i64 %size, 1
   %sub.i72.i1447 = add i64 %shl15.i71.i1446, -1
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i1447, i1 true)
-  %sub23.i78.i1453 = sub nuw nsw i64 60, %5
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i1447, i1 true)
+  %sub23.i78.i1453 = sub nuw nsw i64 60, %6
   %notmask757 = shl nsw i64 -1, %sub23.i78.i1453
   %sub27.i82.i1457 = xor i64 %notmask757, -1
   %add.i83.i1458 = add nuw nsw i64 %size, %sub27.i82.i1457
@@ -4393,16 +4393,16 @@ sz_s2u.exit.i1462:                                ; preds = %if.end14.i70.i1445,
 
 if.end18.i1465:                                   ; preds = %sz_s2u.exit38.i1538, %if.end9.i1429, %sz_s2u.exit.i1462
   %usize.i1422.0 = phi i64 [ %retval.i53.i1393.0, %sz_s2u.exit.i1462 ], [ 16384, %if.end9.i1429 ], [ 16384, %sz_s2u.exit38.i1538 ]
-  %6 = load i64, ptr @sz_large_pad, align 8
-  %7 = xor i64 %usize.i1422.0, -1
-  %cmp24.i1471 = icmp ugt i64 %6, %7
+  %7 = load i64, ptr @sz_large_pad, align 8
+  %8 = xor i64 %usize.i1422.0, -1
+  %cmp24.i1471 = icmp ugt i64 %7, %8
   %.usize.i1422.0 = select i1 %cmp24.i1471, i64 0, i64 %usize.i1422.0
   br label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1538, %if.end18.i1465
   %retval.i1419.0 = phi i64 [ %retval.i28.i1415.0, %sz_s2u.exit38.i1538 ], [ %.usize.i1422.0, %if.end18.i1465 ]
-  %8 = add nsw i64 %retval.i1419.0, -8070450532247928833
-  %or.cond = icmp ult i64 %8, -8070450532247928832
+  %9 = add nsw i64 %retval.i1419.0, -8070450532247928833
+  %or.cond = icmp ult i64 %9, -8070450532247928832
   br i1 %or.cond, label %do.end3, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
@@ -4426,11 +4426,11 @@ if.end62.i:                                       ; preds = %if.end38.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1770 = getelementptr inbounds i8, ptr %retval.i1210.0789, i64 840
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1659, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1770, ptr %next_event_fast.i, align 8
-  %9 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i1663 = add i64 %9, %retval.i1419.0
+  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
+  %add.i1663 = add i64 %10, %retval.i1419.0
   store i64 %add.i1663, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
-  %sub.i1665 = sub i64 %10, %9
+  %11 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
+  %sub.i1665 = sub i64 %11, %10
   %cmp.i1666 = icmp ult i64 %retval.i1419.0, %sub.i1665
   br i1 %cmp.i1666, label %do.end3, label %if.else.i1670
 
@@ -4439,8 +4439,8 @@ if.else.i1670:                                    ; preds = %if.end62.i
   br label %do.end3
 
 land.lhs.true8.i:                                 ; preds = %tsd_fetch_impl.exit
-  %11 = load i32, ptr @malloc_init_state, align 4
-  %cmp.i364.not = icmp eq i32 %11, 0
+  %12 = load i32, ptr @malloc_init_state, align 4
+  %cmp.i364.not = icmp eq i32 %12, 0
   br i1 %cmp.i364.not, label %land.lhs.true.i.i342, label %land.lhs.true.i.i45
 
 land.lhs.true.i.i45:                              ; preds = %land.lhs.true8.i
@@ -4453,8 +4453,8 @@ if.then.i44:                                      ; preds = %land.lhs.true.i.i45
   br label %do.end3
 
 land.lhs.true.i.i342:                             ; preds = %land.lhs.true.i.i45, %land.lhs.true8.i
-  %12 = load i8, ptr @opt_zero, align 1
-  %tobool2.i.i343 = trunc i8 %12 to i1
+  %13 = load i8, ptr @opt_zero, align 1
+  %tobool2.i.i343 = trunc i8 %13 to i1
   %cmp.i1325 = icmp ult i64 %size, 14337
   br i1 %cmp.i1325, label %if.then.i1340, label %if.end9.i
 
@@ -4467,17 +4467,17 @@ if.then.i1340:                                    ; preds = %land.lhs.true.i.i34
 if.then.i36.i:                                    ; preds = %if.then.i1340
   %shr.i.i1378 = lshr exact i64 %and.i1342, 3
   %arrayidx.i120.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1378
-  %13 = load i8, ptr %arrayidx.i120.i, align 1
-  %idxprom.i.i1379 = zext i8 %13 to i64
+  %14 = load i8, ptr %arrayidx.i120.i, align 1
+  %idxprom.i.i1379 = zext i8 %14 to i64
   %arrayidx.i.i1380 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i1379
-  %14 = load i64, ptr %arrayidx.i.i1380, align 8
+  %15 = load i64, ptr %arrayidx.i.i1380, align 8
   br label %sz_s2u.exit38.i
 
 if.end14.i.i1346:                                 ; preds = %if.then.i1340
   %shl15.i.i1347 = shl nuw nsw i64 %and.i1342, 1
   %sub.i.i1348 = add nsw i64 %shl15.i.i1347, -1
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1348, i1 true)
-  %sub23.i.i1354 = sub nuw nsw i64 60, %15
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1348, i1 true)
+  %sub23.i.i1354 = sub nuw nsw i64 60, %16
   %notmask = shl nsw i64 -1, %sub23.i.i1354
   %sub27.i.i1358 = xor i64 %notmask, -1
   %add.i.i1359 = add nuw nsw i64 %and.i1342, %sub27.i.i1358
@@ -4485,7 +4485,7 @@ if.end14.i.i1346:                                 ; preds = %if.then.i1340
   br label %sz_s2u.exit38.i
 
 sz_s2u.exit38.i:                                  ; preds = %if.end14.i.i1346, %if.then.i36.i
-  %retval.i28.i.0 = phi i64 [ %14, %if.then.i36.i ], [ %and.i.i1361, %if.end14.i.i1346 ]
+  %retval.i28.i.0 = phi i64 [ %15, %if.then.i36.i ], [ %and.i.i1361, %if.end14.i.i1346 ]
   %cmp3.i = icmp ult i64 %retval.i28.i.0, 16384
   br i1 %cmp3.i, label %if.end26.i.i181, label %if.end18.i
 
@@ -4500,8 +4500,8 @@ if.end.i.i1335:                                   ; preds = %if.end9.i
 if.end14.i70.i:                                   ; preds = %if.end.i.i1335
   %shl15.i71.i = shl nuw i64 %size, 1
   %sub.i72.i = add i64 %shl15.i71.i, -1
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i, i1 true)
-  %sub23.i78.i = sub nuw nsw i64 60, %16
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i, i1 true)
+  %sub23.i78.i = sub nuw nsw i64 60, %17
   %notmask755 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask755, -1
   %add.i83.i = add nuw nsw i64 %size, %sub27.i82.i
@@ -4515,36 +4515,36 @@ sz_s2u.exit.i1336:                                ; preds = %if.end14.i70.i, %if
 
 if.end18.i:                                       ; preds = %sz_s2u.exit38.i, %if.end9.i, %sz_s2u.exit.i1336
   %usize.i1324.0 = phi i64 [ %retval.i53.i.0, %sz_s2u.exit.i1336 ], [ 16384, %if.end9.i ], [ 16384, %sz_s2u.exit38.i ]
-  %17 = load i64, ptr @sz_large_pad, align 8
-  %18 = xor i64 %usize.i1324.0, -1
-  %cmp24.i = icmp ugt i64 %17, %18
+  %18 = load i64, ptr @sz_large_pad, align 8
+  %19 = xor i64 %usize.i1324.0, -1
+  %cmp24.i = icmp ugt i64 %18, %19
   %.usize.i1324.0 = select i1 %cmp24.i, i64 0, i64 %usize.i1324.0
   br label %if.end26.i.i181
 
 if.end26.i.i181:                                  ; preds = %sz_s2u.exit38.i, %if.end18.i
   %retval.i1321.0 = phi i64 [ %retval.i28.i.0, %sz_s2u.exit38.i ], [ %.usize.i1324.0, %if.end18.i ]
-  %19 = add nsw i64 %retval.i1321.0, -8070450532247928833
-  %or.cond758 = icmp ult i64 %19, -8070450532247928832
+  %20 = add nsw i64 %retval.i1321.0, -8070450532247928833
+  %or.cond758 = icmp ult i64 %20, -8070450532247928832
   br i1 %or.cond758, label %if.then, label %if.end38.i.i189
 
 if.end38.i.i189:                                  ; preds = %if.end26.i.i181
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998 = getelementptr inbounds i8, ptr %call13.i, i64 1
-  %20 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998, align 1
-  %cmp35.i246 = icmp slt i8 %20, 1
+  %21 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998, align 1
+  %cmp35.i246 = icmp slt i8 %21, 1
   %cmp.i161.i200 = icmp ult i64 %retval.i1321.0, 14337
   br i1 %cmp35.i246, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end38.i.i189
-  %21 = load i8, ptr %call13.i, align 1
-  %tobool.i1298 = trunc i8 %21 to i1
+  %22 = load i8, ptr %call13.i, align 1
+  %tobool.i1298 = trunc i8 %22 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1240 = getelementptr inbounds i8, ptr %call13.i, i64 864
   %retval.i1234.0 = select i1 %tobool.i1298, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1240, ptr null
   br label %imalloc_no_sample.exit
 
 if.else.i24.i:                                    ; preds = %if.end38.i.i189
-  %22 = load atomic i64, ptr @arenas acquire, align 64
-  %23 = inttoptr i64 %22 to ptr
-  %cmp.i762 = icmp eq i64 %22, 0
+  %23 = load atomic i64, ptr @arenas acquire, align 64
+  %24 = inttoptr i64 %23 to ptr
+  %cmp.i762 = icmp eq i64 %23, 0
   br i1 %cmp.i762, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
@@ -4558,33 +4558,33 @@ if.then.i.i:                                      ; preds = %if.then3.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %inc.i.i.i = add i64 %24, 1
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %inc.i.i.i = add i64 %25, 1
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %cmp.not.i.i.i = icmp eq ptr %25, %call13.i
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %cmp.not.i.i.i = icmp eq ptr %26, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
-  %inc2.i.i.i = add i64 %26, 1
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
+  %inc2.i.i.i = add i64 %27, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
-  %27 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i.i = icmp eq i32 %27, 0
+  %28 = load atomic i32, ptr @narenas_total acquire, align 4
+  %cmp1.i.i = icmp eq i32 %28, 0
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end3.i.i
 
 if.then2.i.i:                                     ; preds = %malloc_mutex_lock.exit.i
-  %28 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
+  %29 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then2.i.i, %malloc_mutex_lock.exit.i
-  %29 = load atomic i64, ptr @arenas acquire, align 64
-  %30 = inttoptr i64 %29 to ptr
-  %cmp5.not.i.i = icmp eq i64 %29, 0
+  %30 = load atomic i64, ptr @arenas acquire, align 64
+  %31 = inttoptr i64 %30 to ptr
+  %cmp5.not.i.i = icmp eq i64 %30, 0
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init_locked.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
@@ -4592,19 +4592,19 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
   br label %arena_init_locked.exit.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
-  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %30, %if.end3.i.i ]
+  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %31, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   %call1.i.i763 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
-  %ret.0.i = phi ptr [ %23, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
+  %ret.0.i = phi ptr [ %24, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
   %cmp2.i.i455 = icmp eq ptr %ret.0.i, null
   br i1 %cmp2.i.i455, label %arena_get_from_ind.exit.i, label %imalloc_no_sample.exit
 
 arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit
-  %31 = load i32, ptr @narenas_auto, align 4
-  %cmp4.i.i = icmp eq i32 %31, 0
+  %32 = load i32, ptr @narenas_auto, align 4
+  %cmp4.i.i = icmp eq i32 %32, 0
   br i1 %cmp4.i.i, label %if.then, label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %tcache_get_from_ind.exit.i.thread, %arena_get.exit, %arena_get_from_ind.exit.i
@@ -4628,11 +4628,11 @@ if.end62.i206:                                    ; preds = %imalloc_no_sample.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %call13.i, i64 840
   %next_event_fast.i1726 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, ptr %next_event_fast.i1726, align 8
-  %32 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1719, align 8
-  %add.i1647 = add i64 %32, %retval.i1321.0
+  %33 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1719, align 8
+  %add.i1647 = add i64 %33, %retval.i1321.0
   store i64 %add.i1647, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1719, align 8
-  %33 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1807, align 8
-  %sub.i1648 = sub i64 %33, %32
+  %34 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1807, align 8
+  %sub.i1648 = sub i64 %34, %33
   %cmp.i1649 = icmp ult i64 %retval.i1321.0, %sub.i1648
   br i1 %cmp.i1649, label %land.lhs.true70.i214, label %if.else.i1653
 
@@ -4644,8 +4644,8 @@ land.lhs.true70.i214:                             ; preds = %if.else.i1653, %if.
   br i1 %tobool2.i.i343, label %if.then, label %land.lhs.true73.i217
 
 land.lhs.true73.i217:                             ; preds = %land.lhs.true70.i214
-  %34 = load i8, ptr @opt_junk_alloc, align 1
-  %tobool74.i218 = trunc i8 %34 to i1
+  %35 = load i8, ptr @opt_junk_alloc, align 1
+  %tobool74.i218 = trunc i8 %35 to i1
   br i1 %tobool74.i218, label %if.then81.i222, label %if.then
 
 if.then81.i222:                                   ; preds = %land.lhs.true73.i217
@@ -4657,8 +4657,8 @@ if.then:                                          ; preds = %arena_get_from_ind.
   store i64 %size, ptr %args, align 16
   %scevgep = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false)
-  %35 = ptrtoint ptr %ret.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 5, ptr noundef %ret.0.ph, i64 noundef %35, ptr noundef nonnull %args) #19
+  %36 = ptrtoint ptr %ret.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 5, ptr noundef %ret.0.ph, i64 noundef %36, ptr noundef nonnull %args) #19
   br label %do.end3
 
 do.end3:                                          ; preds = %sz_s2u.exit.i1462, %if.then.i44, %if.end26.i.i, %if.end38.i.i, %if.end62.i, %if.else.i1670, %if.then
@@ -4684,8 +4684,8 @@ tsd_fetch_impl.exit:                              ; preds = %entry
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 824
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
-  %cmp.i = icmp eq i8 %.pre, 0
-  br i1 %cmp.i, label %if.else.i144.i, label %land.lhs.true8.i
+  %2 = icmp eq i8 %.pre, 0
+  br i1 %2, label %if.else.i144.i, label %land.lhs.true8.i
 
 if.else.i144.i:                                   ; preds = %entry, %tsd_fetch_impl.exit
   %retval.i1210.0793 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
@@ -4699,8 +4699,8 @@ if.then.i1502:                                    ; preds = %if.else.i144.i
 sz_s2u.exit38.i1538.thread:                       ; preds = %if.then.i1502
   %shl15.i.i1522 = shl nuw nsw i64 %and, 1
   %sub.i.i1523 = add nsw i64 %shl15.i.i1522, -1
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1523, i1 true)
-  %sub23.i.i1529 = sub nuw nsw i64 60, %2
+  %3 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1523, i1 true)
+  %sub23.i.i1529 = sub nuw nsw i64 60, %3
   %notmask756 = shl nsw i64 -1, %sub23.i.i1529
   %sub27.i.i1533 = xor i64 %notmask756, -1
   %add.i.i1534 = add nuw nsw i64 %and, %sub27.i.i1533
@@ -4710,11 +4710,11 @@ sz_s2u.exit38.i1538.thread:                       ; preds = %if.then.i1502
 sz_s2u.exit38.i1538:                              ; preds = %if.then.i1502
   %shr.i.i1560 = lshr exact i64 %and, 3
   %arrayidx.i120.i1561 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1560
-  %3 = load i8, ptr %arrayidx.i120.i1561, align 1
-  %idxprom.i.i1563 = zext i8 %3 to i64
+  %4 = load i8, ptr %arrayidx.i120.i1561, align 1
+  %idxprom.i.i1563 = zext i8 %4 to i64
   %arrayidx.i.i1564 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i1563
-  %4 = load i64, ptr %arrayidx.i.i1564, align 8
-  %cmp3.i1539 = icmp ult i64 %4, 16384
+  %5 = load i64, ptr %arrayidx.i.i1564, align 8
+  %cmp3.i1539 = icmp ult i64 %5, 16384
   br i1 %cmp3.i1539, label %if.end26.i.i, label %if.end18.i1465
 
 if.end9.i1429:                                    ; preds = %if.else.i144.i
@@ -4728,8 +4728,8 @@ if.end.i.i1436:                                   ; preds = %if.end9.i1429
 if.end14.i70.i1445:                               ; preds = %if.end.i.i1436
   %shl15.i71.i1446 = shl nuw i64 %and, 1
   %sub.i72.i1447 = add i64 %shl15.i71.i1446, -1
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i1447, i1 true)
-  %sub23.i78.i1453 = sub nuw nsw i64 60, %5
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i1447, i1 true)
+  %sub23.i78.i1453 = sub nuw nsw i64 60, %6
   %notmask757 = shl nsw i64 -1, %sub23.i78.i1453
   %sub27.i82.i1457 = xor i64 %notmask757, -1
   %add.i83.i1458 = add nuw nsw i64 %and, %sub27.i82.i1457
@@ -4743,16 +4743,16 @@ sz_s2u.exit.i1462:                                ; preds = %if.end14.i70.i1445,
 
 if.end18.i1465:                                   ; preds = %sz_s2u.exit38.i1538, %if.end9.i1429, %sz_s2u.exit.i1462
   %usize.i1422.0 = phi i64 [ %retval.i53.i1393.0, %sz_s2u.exit.i1462 ], [ 16384, %if.end9.i1429 ], [ 16384, %sz_s2u.exit38.i1538 ]
-  %6 = load i64, ptr @sz_large_pad, align 8
-  %7 = xor i64 %usize.i1422.0, -1
-  %cmp24.i1471 = icmp ugt i64 %6, %7
+  %7 = load i64, ptr @sz_large_pad, align 8
+  %8 = xor i64 %usize.i1422.0, -1
+  %cmp24.i1471 = icmp ugt i64 %7, %8
   %.usize.i1422.0 = select i1 %cmp24.i1471, i64 0, i64 %usize.i1422.0
   br label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1538.thread, %sz_s2u.exit38.i1538, %if.end18.i1465
-  %retval.i1419.0 = phi i64 [ %4, %sz_s2u.exit38.i1538 ], [ %.usize.i1422.0, %if.end18.i1465 ], [ %and.i.i1536, %sz_s2u.exit38.i1538.thread ]
-  %8 = add nsw i64 %retval.i1419.0, -8070450532247928833
-  %or.cond = icmp ult i64 %8, -8070450532247928832
+  %retval.i1419.0 = phi i64 [ %5, %sz_s2u.exit38.i1538 ], [ %.usize.i1422.0, %if.end18.i1465 ], [ %and.i.i1536, %sz_s2u.exit38.i1538.thread ]
+  %9 = add nsw i64 %retval.i1419.0, -8070450532247928833
+  %or.cond = icmp ult i64 %9, -8070450532247928832
   br i1 %or.cond, label %do.end3, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
@@ -4776,11 +4776,11 @@ if.end62.i:                                       ; preds = %if.end38.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1770 = getelementptr inbounds i8, ptr %retval.i1210.0793, i64 840
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1659, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1770, ptr %next_event_fast.i, align 8
-  %9 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i1663 = add i64 %9, %retval.i1419.0
+  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
+  %add.i1663 = add i64 %10, %retval.i1419.0
   store i64 %add.i1663, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
-  %sub.i1665 = sub i64 %10, %9
+  %11 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
+  %sub.i1665 = sub i64 %11, %10
   %cmp.i1666 = icmp ult i64 %retval.i1419.0, %sub.i1665
   br i1 %cmp.i1666, label %do.end3, label %if.else.i1670
 
@@ -4789,8 +4789,8 @@ if.else.i1670:                                    ; preds = %if.end62.i
   br label %do.end3
 
 land.lhs.true8.i:                                 ; preds = %tsd_fetch_impl.exit
-  %11 = load i32, ptr @malloc_init_state, align 4
-  %cmp.i364.not = icmp eq i32 %11, 0
+  %12 = load i32, ptr @malloc_init_state, align 4
+  %cmp.i364.not = icmp eq i32 %12, 0
   br i1 %cmp.i364.not, label %land.lhs.true.i.i342, label %land.lhs.true.i.i45
 
 land.lhs.true.i.i45:                              ; preds = %land.lhs.true8.i
@@ -4803,8 +4803,8 @@ if.then.i44:                                      ; preds = %land.lhs.true.i.i45
   br label %do.end3
 
 land.lhs.true.i.i342:                             ; preds = %land.lhs.true.i.i45, %land.lhs.true8.i
-  %12 = load i8, ptr @opt_zero, align 1
-  %tobool2.i.i343 = trunc i8 %12 to i1
+  %13 = load i8, ptr @opt_zero, align 1
+  %tobool2.i.i343 = trunc i8 %13 to i1
   %cmp.i1325 = icmp ult i64 %and, 14337
   br i1 %cmp.i1325, label %if.then.i1340, label %if.end9.i
 
@@ -4815,8 +4815,8 @@ if.then.i1340:                                    ; preds = %land.lhs.true.i.i34
 sz_s2u.exit38.i.thread:                           ; preds = %if.then.i1340
   %shl15.i.i1347 = shl nuw nsw i64 %and, 1
   %sub.i.i1348 = add nsw i64 %shl15.i.i1347, -1
-  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1348, i1 true)
-  %sub23.i.i1354 = sub nuw nsw i64 60, %13
+  %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1348, i1 true)
+  %sub23.i.i1354 = sub nuw nsw i64 60, %14
   %notmask = shl nsw i64 -1, %sub23.i.i1354
   %sub27.i.i1358 = xor i64 %notmask, -1
   %add.i.i1359 = add nuw nsw i64 %and, %sub27.i.i1358
@@ -4826,11 +4826,11 @@ sz_s2u.exit38.i.thread:                           ; preds = %if.then.i1340
 sz_s2u.exit38.i:                                  ; preds = %if.then.i1340
   %shr.i.i1378 = lshr exact i64 %and, 3
   %arrayidx.i120.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1378
-  %14 = load i8, ptr %arrayidx.i120.i, align 1
-  %idxprom.i.i1379 = zext i8 %14 to i64
+  %15 = load i8, ptr %arrayidx.i120.i, align 1
+  %idxprom.i.i1379 = zext i8 %15 to i64
   %arrayidx.i.i1380 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i1379
-  %15 = load i64, ptr %arrayidx.i.i1380, align 8
-  %cmp3.i = icmp ult i64 %15, 16384
+  %16 = load i64, ptr %arrayidx.i.i1380, align 8
+  %cmp3.i = icmp ult i64 %16, 16384
   br i1 %cmp3.i, label %if.end26.i.i181, label %if.end18.i
 
 if.end9.i:                                        ; preds = %land.lhs.true.i.i342
@@ -4844,8 +4844,8 @@ if.end.i.i1335:                                   ; preds = %if.end9.i
 if.end14.i70.i:                                   ; preds = %if.end.i.i1335
   %shl15.i71.i = shl nuw i64 %and, 1
   %sub.i72.i = add i64 %shl15.i71.i, -1
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i, i1 true)
-  %sub23.i78.i = sub nuw nsw i64 60, %16
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i, i1 true)
+  %sub23.i78.i = sub nuw nsw i64 60, %17
   %notmask755 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask755, -1
   %add.i83.i = add nuw nsw i64 %and, %sub27.i82.i
@@ -4859,36 +4859,36 @@ sz_s2u.exit.i1336:                                ; preds = %if.end14.i70.i, %if
 
 if.end18.i:                                       ; preds = %sz_s2u.exit38.i, %if.end9.i, %sz_s2u.exit.i1336
   %usize.i1324.0 = phi i64 [ %retval.i53.i.0, %sz_s2u.exit.i1336 ], [ 16384, %if.end9.i ], [ 16384, %sz_s2u.exit38.i ]
-  %17 = load i64, ptr @sz_large_pad, align 8
-  %18 = xor i64 %usize.i1324.0, -1
-  %cmp24.i = icmp ugt i64 %17, %18
+  %18 = load i64, ptr @sz_large_pad, align 8
+  %19 = xor i64 %usize.i1324.0, -1
+  %cmp24.i = icmp ugt i64 %18, %19
   %.usize.i1324.0 = select i1 %cmp24.i, i64 0, i64 %usize.i1324.0
   br label %if.end26.i.i181
 
 if.end26.i.i181:                                  ; preds = %sz_s2u.exit38.i.thread, %sz_s2u.exit38.i, %if.end18.i
-  %retval.i1321.0 = phi i64 [ %15, %sz_s2u.exit38.i ], [ %.usize.i1324.0, %if.end18.i ], [ %and.i.i1361, %sz_s2u.exit38.i.thread ]
-  %19 = add nsw i64 %retval.i1321.0, -8070450532247928833
-  %or.cond758 = icmp ult i64 %19, -8070450532247928832
+  %retval.i1321.0 = phi i64 [ %16, %sz_s2u.exit38.i ], [ %.usize.i1324.0, %if.end18.i ], [ %and.i.i1361, %sz_s2u.exit38.i.thread ]
+  %20 = add nsw i64 %retval.i1321.0, -8070450532247928833
+  %or.cond758 = icmp ult i64 %20, -8070450532247928832
   br i1 %or.cond758, label %if.then, label %if.end38.i.i189
 
 if.end38.i.i189:                                  ; preds = %if.end26.i.i181
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998 = getelementptr inbounds i8, ptr %call13.i, i64 1
-  %20 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998, align 1
-  %cmp35.i246 = icmp slt i8 %20, 1
+  %21 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1998, align 1
+  %cmp35.i246 = icmp slt i8 %21, 1
   %cmp.i161.i200 = icmp ult i64 %retval.i1321.0, 14337
   br i1 %cmp35.i246, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end38.i.i189
-  %21 = load i8, ptr %call13.i, align 1
-  %tobool.i1298 = trunc i8 %21 to i1
+  %22 = load i8, ptr %call13.i, align 1
+  %tobool.i1298 = trunc i8 %22 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1240 = getelementptr inbounds i8, ptr %call13.i, i64 864
   %retval.i1234.0 = select i1 %tobool.i1298, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1240, ptr null
   br label %imalloc_no_sample.exit
 
 if.else.i24.i:                                    ; preds = %if.end38.i.i189
-  %22 = load atomic i64, ptr @arenas acquire, align 64
-  %23 = inttoptr i64 %22 to ptr
-  %cmp.i762 = icmp eq i64 %22, 0
+  %23 = load atomic i64, ptr @arenas acquire, align 64
+  %24 = inttoptr i64 %23 to ptr
+  %cmp.i762 = icmp eq i64 %23, 0
   br i1 %cmp.i762, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i24.i
@@ -4902,33 +4902,33 @@ if.then.i.i:                                      ; preds = %if.then3.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %inc.i.i.i = add i64 %24, 1
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %inc.i.i.i = add i64 %25, 1
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %cmp.not.i.i.i = icmp eq ptr %25, %call13.i
+  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %cmp.not.i.i.i = icmp eq ptr %26, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
-  %inc2.i.i.i = add i64 %26, 1
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
+  %inc2.i.i.i = add i64 %27, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
-  %27 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i.i = icmp eq i32 %27, 0
+  %28 = load atomic i32, ptr @narenas_total acquire, align 4
+  %cmp1.i.i = icmp eq i32 %28, 0
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end3.i.i
 
 if.then2.i.i:                                     ; preds = %malloc_mutex_lock.exit.i
-  %28 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
+  %29 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then2.i.i, %malloc_mutex_lock.exit.i
-  %29 = load atomic i64, ptr @arenas acquire, align 64
-  %30 = inttoptr i64 %29 to ptr
-  %cmp5.not.i.i = icmp eq i64 %29, 0
+  %30 = load atomic i64, ptr @arenas acquire, align 64
+  %31 = inttoptr i64 %30 to ptr
+  %cmp5.not.i.i = icmp eq i64 %30, 0
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init_locked.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
@@ -4936,19 +4936,19 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
   br label %arena_init_locked.exit.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
-  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %30, %if.end3.i.i ]
+  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %31, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   %call1.i.i763 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
-  %ret.0.i = phi ptr [ %23, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
+  %ret.0.i = phi ptr [ %24, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
   %cmp2.i.i455 = icmp eq ptr %ret.0.i, null
   br i1 %cmp2.i.i455, label %arena_get_from_ind.exit.i, label %imalloc_no_sample.exit
 
 arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit
-  %31 = load i32, ptr @narenas_auto, align 4
-  %cmp4.i.i = icmp eq i32 %31, 0
+  %32 = load i32, ptr @narenas_auto, align 4
+  %cmp4.i.i = icmp eq i32 %32, 0
   br i1 %cmp4.i.i, label %if.then, label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %tcache_get_from_ind.exit.i.thread, %arena_get.exit, %arena_get_from_ind.exit.i
@@ -4972,11 +4972,11 @@ if.end62.i206:                                    ; preds = %imalloc_no_sample.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %call13.i, i64 840
   %next_event_fast.i1726 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, ptr %next_event_fast.i1726, align 8
-  %32 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1719, align 8
-  %add.i1647 = add i64 %32, %retval.i1321.0
+  %33 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1719, align 8
+  %add.i1647 = add i64 %33, %retval.i1321.0
   store i64 %add.i1647, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1719, align 8
-  %33 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1807, align 8
-  %sub.i1648 = sub i64 %33, %32
+  %34 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1807, align 8
+  %sub.i1648 = sub i64 %34, %33
   %cmp.i1649 = icmp ult i64 %retval.i1321.0, %sub.i1648
   br i1 %cmp.i1649, label %land.lhs.true70.i214, label %if.else.i1653
 
@@ -4988,8 +4988,8 @@ land.lhs.true70.i214:                             ; preds = %if.else.i1653, %if.
   br i1 %tobool2.i.i343, label %if.then, label %land.lhs.true73.i217
 
 land.lhs.true73.i217:                             ; preds = %land.lhs.true70.i214
-  %34 = load i8, ptr @opt_junk_alloc, align 1
-  %tobool74.i218 = trunc i8 %34 to i1
+  %35 = load i8, ptr @opt_junk_alloc, align 1
+  %tobool74.i218 = trunc i8 %35 to i1
   br i1 %tobool74.i218, label %if.then81.i222, label %if.then
 
 if.then81.i222:                                   ; preds = %land.lhs.true73.i217
@@ -5001,8 +5001,8 @@ if.then:                                          ; preds = %arena_get_from_ind.
   store i64 %size, ptr %args, align 16
   %scevgep = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false)
-  %35 = ptrtoint ptr %ret.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 6, ptr noundef %ret.0.ph, i64 noundef %35, ptr noundef nonnull %args) #19
+  %36 = ptrtoint ptr %ret.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 6, ptr noundef %ret.0.ph, i64 noundef %36, ptr noundef nonnull %args) #19
   br label %do.end3
 
 do.end3:                                          ; preds = %sz_s2u.exit.i1462, %if.then.i44, %if.end26.i.i, %if.end38.i.i, %if.end62.i, %if.else.i1670, %if.then
@@ -5026,8 +5026,6 @@ if.then:                                          ; preds = %entry
   %sh_prom = zext nneg i32 %and to i64
   %shl = shl nuw i64 1, %sh_prom
   %and2 = and i64 %shl, -2
-  %0 = trunc i32 %flags to i8
-  %1 = lshr i8 %0, 6
   %and.i = and i32 %flags, 1048320
   switch i32 %and.i, label %if.else6.i [
     i32 0, label %mallocx_tcache_get.exit
@@ -5048,11 +5046,13 @@ mallocx_tcache_get.exit:                          ; preds = %if.then, %if.else6.
   %shr.i37 = lshr i32 %flags, 20
   %sub.i38 = add nsw i32 %shr.i37, -1
   %retval.i28.0 = select i1 %cmp.i31.not, i32 -1, i32 %sub.i38
+  %0 = and i32 %flags, 64
+  %1 = icmp ne i32 %0, 0
   br label %if.end
 
 if.end:                                           ; preds = %mallocx_tcache_get.exit, %entry
   %dopts.sroa.34.0 = phi i64 [ %and2, %mallocx_tcache_get.exit ], [ 0, %entry ]
-  %dopts.sroa.48.0 = phi i8 [ %1, %mallocx_tcache_get.exit ], [ 0, %entry ]
+  %dopts.sroa.48.0 = phi i1 [ %1, %mallocx_tcache_get.exit ], [ false, %entry ]
   %dopts.sroa.60.0 = phi i32 [ %retval.i20.0, %mallocx_tcache_get.exit ], [ -2, %entry ]
   %dopts.sroa.66.0 = phi i32 [ %retval.i28.0, %mallocx_tcache_get.exit ], [ -1, %entry ]
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
@@ -5065,12 +5065,11 @@ tsd_fetch_impl.exit:                              ; preds = %if.end
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #19
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 824
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
-  %cmp.i = icmp eq i8 %.pre, 0
-  br i1 %cmp.i, label %lor.rhs.i, label %land.lhs.true8.i
+  %4 = icmp eq i8 %.pre, 0
+  br i1 %4, label %lor.rhs.i, label %land.lhs.true8.i
 
 lor.rhs.i:                                        ; preds = %if.end, %tsd_fetch_impl.exit
-  %retval.i1241.0881 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %2, %if.end ]
-  %tobool16.i = trunc i8 %dopts.sroa.48.0 to i1
+  %retval.i1241.0880 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %2, %if.end ]
   %cmp.i.i = icmp eq i64 %dopts.sroa.34.0, 0
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i144.i
 
@@ -5082,8 +5081,8 @@ if.then.i158.i:                                   ; preds = %if.then2.i.i
   %sub.i200.i = add nuw nsw i64 %size, 7
   %shr.i.i = lshr i64 %sub.i200.i, 3
   %arrayidx.i201.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i
-  %4 = load i8, ptr %arrayidx.i201.i, align 1
-  %conv.i202.i = zext i8 %4 to i32
+  %5 = load i8, ptr %arrayidx.i201.i, align 1
+  %conv.i202.i = zext i8 %5 to i32
   br label %sz_size2index.exit.i
 
 if.end.i157.i:                                    ; preds = %if.then2.i.i
@@ -5093,17 +5092,17 @@ if.end.i157.i:                                    ; preds = %if.then2.i.i
 if.end12.i:                                       ; preds = %if.end.i157.i
   %shl.i = shl nuw i64 %size, 1
   %sub13.i = add i64 %shl.i, -1
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
-  %6 = trunc nuw nsw i64 %5 to i32
-  %conv1.i.i.i.i = shl nuw nsw i32 %6, 2
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
+  %7 = trunc nuw nsw i64 %6 to i32
+  %conv1.i.i.i.i = shl nuw nsw i32 %7, 2
   %sub19.i = xor i32 %conv1.i.i.i.i, 252
-  %sub28.i = sub nuw nsw i64 60, %5
+  %sub28.i = sub nuw nsw i64 60, %6
   %shl31.i = shl nsw i64 -1, %sub28.i
   %sub32.i = add nsw i64 %size, -1
   %and.i787 = and i64 %shl31.i, %sub32.i
   %shr.i788 = lshr i64 %and.i787, %sub28.i
-  %7 = trunc i64 %shr.i788 to i32
-  %conv35.i = and i32 %7, 3
+  %8 = trunc i64 %shr.i788 to i32
+  %conv35.i = and i32 %8, 3
   %add.i789 = add nsw i32 %sub19.i, -23
   %add36.i = add nuw nsw i32 %add.i789, %conv35.i
   br label %sz_size2index.exit.i
@@ -5116,7 +5115,7 @@ sz_size2index.exit.i:                             ; preds = %if.end12.i, %if.the
 aligned_usize_get.exit.i.thread823:               ; preds = %sz_size2index.exit.i
   %conv.i148.i = zext nneg i32 %retval.i151.i.0 to i64
   %arrayidx.i.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i148.i
-  %8 = load i64, ptr %arrayidx.i.i, align 8
+  %9 = load i64, ptr %arrayidx.i.i, align 8
   br label %if.end24.i
 
 if.else.i144.i:                                   ; preds = %lor.rhs.i
@@ -5137,17 +5136,17 @@ if.then.i36.i1589:                                ; preds = %if.then.i1534
   %sub.i119.i1591 = add nuw nsw i64 %and.i1539, 7
   %shr.i.i1592 = lshr i64 %sub.i119.i1591, 3
   %arrayidx.i120.i1593 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1592
-  %9 = load i8, ptr %arrayidx.i120.i1593, align 1
-  %idxprom.i.i1595 = zext i8 %9 to i64
+  %10 = load i8, ptr %arrayidx.i120.i1593, align 1
+  %idxprom.i.i1595 = zext i8 %10 to i64
   %arrayidx.i.i1596 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i1595
-  %10 = load i64, ptr %arrayidx.i.i1596, align 8
+  %11 = load i64, ptr %arrayidx.i.i1596, align 8
   br label %sz_s2u.exit38.i1570
 
 if.end14.i.i1553:                                 ; preds = %if.then.i1534
   %shl15.i.i1554 = shl nuw nsw i64 %and.i1539, 1
   %sub.i.i1555 = add nsw i64 %shl15.i.i1554, -1
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1555, i1 true)
-  %sub23.i.i1561 = sub nuw nsw i64 60, %11
+  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1555, i1 true)
+  %sub23.i.i1561 = sub nuw nsw i64 60, %12
   %notmask765 = shl nsw i64 -1, %sub23.i.i1561
   %sub27.i.i1565 = xor i64 %notmask765, -1
   %add.i.i1566 = add nuw nsw i64 %and.i1539, %sub27.i.i1565
@@ -5155,7 +5154,7 @@ if.end14.i.i1553:                                 ; preds = %if.then.i1534
   br label %sz_s2u.exit38.i1570
 
 sz_s2u.exit38.i1570:                              ; preds = %if.end14.i.i1553, %if.then.i36.i1589
-  %retval.i28.i1447.0 = phi i64 [ %10, %if.then.i36.i1589 ], [ %and.i.i1568, %if.end14.i.i1553 ]
+  %retval.i28.i1447.0 = phi i64 [ %11, %if.then.i36.i1589 ], [ %and.i.i1568, %if.end14.i.i1553 ]
   %cmp3.i1571 = icmp ult i64 %retval.i28.i1447.0, 16384
   br i1 %cmp3.i1571, label %aligned_usize_get.exit.i, label %if.end18.i1497
 
@@ -5174,8 +5173,8 @@ if.end.i.i1468:                                   ; preds = %if.end9.i1461
 if.end14.i70.i1477:                               ; preds = %if.end.i.i1468
   %shl15.i71.i1478 = shl nuw i64 %size, 1
   %sub.i72.i1479 = add i64 %shl15.i71.i1478, -1
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i1479, i1 true)
-  %sub23.i78.i1485 = sub nuw nsw i64 60, %12
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i1479, i1 true)
+  %sub23.i78.i1485 = sub nuw nsw i64 60, %13
   %notmask766 = shl nsw i64 -1, %sub23.i78.i1485
   %sub27.i82.i1489 = xor i64 %notmask766, -1
   %add.i83.i1490 = add nuw nsw i64 %size, %sub27.i82.i1489
@@ -5189,24 +5188,24 @@ sz_s2u.exit.i1494:                                ; preds = %if.end14.i70.i1477,
 
 if.end18.i1497:                                   ; preds = %sz_s2u.exit38.i1570, %if.end9.i1461, %sz_s2u.exit.i1494
   %usize.i1454.0 = phi i64 [ %retval.i53.i1425.0, %sz_s2u.exit.i1494 ], [ 16384, %if.end9.i1461 ], [ 16384, %sz_s2u.exit38.i1570 ]
-  %13 = load i64, ptr @sz_large_pad, align 8
+  %14 = load i64, ptr @sz_large_pad, align 8
   %add20.i1499 = add nuw nsw i64 %dopts.sroa.34.0, 4095
   %and21.i1500 = and i64 %add20.i1499, 9223372036854771712
   %add19.i1498 = add nsw i64 %and21.i1500, -4096
   %add22.i1501 = add i64 %add19.i1498, %usize.i1454.0
-  %sub23.i1502 = add i64 %add22.i1501, %13
+  %sub23.i1502 = add i64 %add22.i1501, %14
   %cmp24.i1503 = icmp ult i64 %sub23.i1502, %usize.i1454.0
   %.usize.i1454.0 = select i1 %cmp24.i1503, i64 0, i64 %usize.i1454.0
   br label %aligned_usize_get.exit.i
 
 aligned_usize_get.exit.i:                         ; preds = %if.end18.i1497, %sz_s2u.exit38.i1570
   %retval.i1451.0 = phi i64 [ %retval.i28.i1447.0, %sz_s2u.exit38.i1570 ], [ %.usize.i1454.0, %if.end18.i1497 ]
-  %14 = add nsw i64 %retval.i1451.0, -8070450532247928833
-  %or.cond = icmp ult i64 %14, -8070450532247928832
+  %15 = add nsw i64 %retval.i1451.0, -8070450532247928833
+  %or.cond = icmp ult i64 %15, -8070450532247928832
   br i1 %or.cond, label %do.end13, label %if.end24.i
 
 if.end24.i:                                       ; preds = %aligned_usize_get.exit.i.thread823, %aligned_usize_get.exit.i
-  %usize.i83.0828 = phi i64 [ %8, %aligned_usize_get.exit.i.thread823 ], [ %retval.i1451.0, %aligned_usize_get.exit.i ]
+  %usize.i83.0828 = phi i64 [ %9, %aligned_usize_get.exit.i.thread823 ], [ %retval.i1451.0, %aligned_usize_get.exit.i ]
   %ind.i.0827 = phi i32 [ %retval.i151.i.0, %aligned_usize_get.exit.i.thread823 ], [ 0, %aligned_usize_get.exit.i ]
   %cmp.i161.i = icmp ult i64 %usize.i83.0828, 14337
   switch i32 %dopts.sroa.60.0, label %if.else28.i.i718 [
@@ -5215,15 +5214,15 @@ if.end24.i:                                       ; preds = %aligned_usize_get.e
   ]
 
 if.then5.i.i1077:                                 ; preds = %if.end24.i
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1239 = getelementptr inbounds i8, ptr %retval.i1241.0881, i64 864
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1239 = getelementptr inbounds i8, ptr %retval.i1241.0880, i64 864
   br label %tcache_get_from_ind.exit.i721
 
 if.else28.i.i718:                                 ; preds = %if.end24.i
-  %15 = load ptr, ptr @tcaches, align 8
+  %16 = load ptr, ptr @tcaches, align 8
   %idxprom.i = zext nneg i32 %dopts.sroa.60.0 to i64
-  %arrayidx.i = getelementptr inbounds %struct.tcaches_s, ptr %15, i64 %idxprom.i
-  %16 = load ptr, ptr %arrayidx.i, align 8
-  %magicptr = ptrtoint ptr %16 to i64
+  %arrayidx.i = getelementptr inbounds %struct.tcaches_s, ptr %16, i64 %idxprom.i
+  %17 = load ptr, ptr %arrayidx.i, align 8
+  %magicptr = ptrtoint ptr %17 to i64
   switch i64 %magicptr, label %tcache_get_from_ind.exit.i721 [
     i64 0, label %if.then.i1287
     i64 1, label %if.then10.i1285
@@ -5235,23 +5234,23 @@ if.then.i1287:                                    ; preds = %if.else28.i.i718
   unreachable
 
 if.then10.i1285:                                  ; preds = %if.else28.i.i718
-  %call.i1286 = tail call ptr @tcache_create_explicit(ptr noundef nonnull %retval.i1241.0881) #19
+  %call.i1286 = tail call ptr @tcache_create_explicit(ptr noundef nonnull %retval.i1241.0880) #19
   store ptr %call.i1286, ptr %arrayidx.i, align 8
   br label %tcache_get_from_ind.exit.i721
 
 tcache_get_from_ind.exit.i721:                    ; preds = %if.then10.i1285, %if.else28.i.i718, %if.end24.i, %if.then5.i.i1077
-  %tcache.i.i697.0 = phi ptr [ %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1239, %if.then5.i.i1077 ], [ null, %if.end24.i ], [ %16, %if.else28.i.i718 ], [ %call.i1286, %if.then10.i1285 ]
+  %tcache.i.i697.0 = phi ptr [ %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1239, %if.then5.i.i1077 ], [ null, %if.end24.i ], [ %17, %if.else28.i.i718 ], [ %call.i1286, %if.then10.i1285 ]
   %cmp.i23.i723 = icmp eq i32 %dopts.sroa.66.0, -1
   br i1 %cmp.i23.i723, label %if.end.i733, label %if.else.i24.i724
 
 if.else.i24.i724:                                 ; preds = %tcache_get_from_ind.exit.i721
-  %call1.i.i725 = tail call fastcc ptr @arena_get(ptr noundef nonnull %retval.i1241.0881, i32 noundef %dopts.sroa.66.0, i1 noundef zeroext true)
+  %call1.i.i725 = tail call fastcc ptr @arena_get(ptr noundef nonnull %retval.i1241.0880, i32 noundef %dopts.sroa.66.0, i1 noundef zeroext true)
   %cmp2.i.i726 = icmp eq ptr %call1.i.i725, null
   br i1 %cmp2.i.i726, label %arena_get_from_ind.exit.i732, label %if.end.i733
 
 arena_get_from_ind.exit.i732:                     ; preds = %if.else.i24.i724
-  %17 = load i32, ptr @narenas_auto, align 4
-  %cmp4.i.i1053.not.not = icmp ult i32 %dopts.sroa.66.0, %17
+  %18 = load i32, ptr @narenas_auto, align 4
+  %cmp4.i.i1053.not.not = icmp ult i32 %dopts.sroa.66.0, %18
   br i1 %cmp4.i.i1053.not.not, label %if.end.i733, label %do.end13
 
 if.end.i733:                                      ; preds = %if.else.i24.i724, %tcache_get_from_ind.exit.i721, %arena_get_from_ind.exit.i732
@@ -5259,7 +5258,7 @@ if.end.i733:                                      ; preds = %if.else.i24.i724, %
   br i1 %cmp.i.i, label %if.end.i36.i753, label %if.then4.i1045
 
 if.then4.i1045:                                   ; preds = %if.end.i733
-  %call12.i1201 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1241.0881, ptr noundef %arena.i709.1837, i64 noundef %usize.i83.0828, i64 noundef %dopts.sroa.34.0, i1 noundef zeroext %tobool16.i, i1 noundef zeroext %cmp.i161.i, ptr noundef %tcache.i.i697.0) #19
+  %call12.i1201 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1241.0880, ptr noundef %arena.i709.1837, i64 noundef %usize.i83.0828, i64 noundef %dopts.sroa.34.0, i1 noundef zeroext %dopts.sroa.48.0, i1 noundef zeroext %cmp.i161.i, ptr noundef %tcache.i.i697.0) #19
   br label %imalloc_no_sample.exit1079
 
 if.end.i36.i753:                                  ; preds = %if.end.i733
@@ -5273,14 +5272,14 @@ if.then11.i.i948:                                 ; preds = %if.then.i67.i793
   %bins.i94.i953 = getelementptr inbounds i8, ptr %tcache.i.i697.0, i64 8
   %idxprom.i95.i954 = zext nneg i32 %ind.i.0827 to i64
   %arrayidx.i96.i955 = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i94.i953, i64 0, i64 %idxprom.i95.i954
-  %18 = load ptr, ptr %arrayidx.i96.i955, align 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = ptrtoint ptr %18 to i64
-  %add.ptr.i.i957 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load ptr, ptr %arrayidx.i96.i955, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = ptrtoint ptr %19 to i64
+  %add.ptr.i.i957 = getelementptr inbounds i8, ptr %19, i64 8
   %low_bits_low_water.i.i959 = getelementptr inbounds i8, ptr %arrayidx.i96.i955, i64 16
-  %21 = load i16, ptr %low_bits_low_water.i.i959, align 8
-  %22 = trunc i64 %20 to i16
-  %cmp.i178.i961.not = icmp eq i16 %21, %22
+  %22 = load i16, ptr %low_bits_low_water.i.i959, align 8
+  %23 = trunc i64 %21 to i16
+  %cmp.i178.i961.not = icmp eq i16 %22, %23
   br i1 %cmp.i178.i961.not, label %if.end11.i.i1025, label %if.then.i184.i1037
 
 if.then.i184.i1037:                               ; preds = %if.then11.i.i948
@@ -5289,19 +5288,19 @@ if.then.i184.i1037:                               ; preds = %if.then11.i.i948
 
 if.end11.i.i1025:                                 ; preds = %if.then11.i.i948
   %low_bits_empty.i.i1027 = getelementptr inbounds i8, ptr %arrayidx.i96.i955, i64 20
-  %23 = load i16, ptr %low_bits_empty.i.i1027, align 4
-  %cmp14.i.i1029.not = icmp eq i16 %23, %21
+  %24 = load i16, ptr %low_bits_empty.i.i1027, align 4
+  %cmp14.i.i1029.not = icmp eq i16 %24, %22
   br i1 %cmp14.i.i1029.not, label %if.then.i105.i986, label %if.then22.i183.i1034
 
 if.then22.i183.i1034:                             ; preds = %if.end11.i.i1025
   store ptr %add.ptr.i.i957, ptr %arrayidx.i96.i955, align 8
-  %24 = ptrtoint ptr %add.ptr.i.i957 to i64
-  %conv24.i.i1035 = trunc i64 %24 to i16
+  %25 = ptrtoint ptr %add.ptr.i.i957 to i64
+  %conv24.i.i1035 = trunc i64 %25 to i16
   store i16 %conv24.i.i1035, ptr %low_bits_low_water.i.i959, align 8
   br label %if.end36.i103.i974
 
 if.then.i105.i986:                                ; preds = %if.end11.i.i1025
-  %call7.i.i987 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1241.0881, ptr noundef %arena.i709.1837)
+  %call7.i.i987 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1241.0880, ptr noundef %arena.i709.1837)
   %cmp.i106.i988 = icmp eq ptr %call7.i.i987, null
   br i1 %cmp.i106.i988, label %do.end13, label %if.end.i107.i992
 
@@ -5311,38 +5310,38 @@ if.end.i107.i992:                                 ; preds = %if.then.i105.i986
   br i1 %cmp.i791, label %if.then23.i124.i1018, label %if.end27.i.i1011
 
 if.then23.i124.i1018:                             ; preds = %if.end.i107.i992
-  %call26.i.i1020 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1241.0881, ptr noundef nonnull %call7.i.i987, i64 noundef %size, i32 noundef %ind.i.0827, i1 noundef zeroext %tobool16.i, i1 noundef zeroext true) #19
+  %call26.i.i1020 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1241.0880, ptr noundef nonnull %call7.i.i987, i64 noundef %size, i32 noundef %ind.i.0827, i1 noundef zeroext %dopts.sroa.48.0, i1 noundef zeroext true) #19
   br label %imalloc_no_sample.exit1079
 
 if.end27.i.i1011:                                 ; preds = %if.end.i107.i992
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1241.0881, ptr noundef nonnull %tcache.i.i697.0, ptr noundef nonnull %arrayidx.i96.i955, i32 noundef %ind.i.0827, i1 noundef zeroext true) #19
-  %call29.i123.i1012 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1241.0881, ptr noundef nonnull %call7.i.i987, ptr noundef nonnull %tcache.i.i697.0, ptr noundef nonnull %arrayidx.i96.i955, i32 noundef %ind.i.0827, ptr noundef nonnull %tcache_hard_success.i.i644) #19
-  %25 = load i8, ptr %tcache_hard_success.i.i644, align 1
-  %26 = and i8 %25, 1
-  %cmp32.i.i1015 = icmp eq i8 %26, 0
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1241.0880, ptr noundef nonnull %tcache.i.i697.0, ptr noundef nonnull %arrayidx.i96.i955, i32 noundef %ind.i.0827, i1 noundef zeroext true) #19
+  %call29.i123.i1012 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1241.0880, ptr noundef nonnull %call7.i.i987, ptr noundef nonnull %tcache.i.i697.0, ptr noundef nonnull %arrayidx.i96.i955, i32 noundef %ind.i.0827, ptr noundef nonnull %tcache_hard_success.i.i644) #19
+  %26 = load i8, ptr %tcache_hard_success.i.i644, align 1
+  %27 = and i8 %26, 1
+  %cmp32.i.i1015 = icmp eq i8 %27, 0
   br i1 %cmp32.i.i1015, label %do.end13, label %if.end36.i103.i974
 
 if.end36.i103.i974:                               ; preds = %if.then22.i183.i1034, %if.then.i184.i1037, %if.end27.i.i1011
-  %ret.i91.i641.0 = phi ptr [ %call29.i123.i1012, %if.end27.i.i1011 ], [ %19, %if.then.i184.i1037 ], [ %19, %if.then22.i183.i1034 ]
-  br i1 %tobool16.i, label %if.then46.i.i983, label %if.end50.i.i979
+  %ret.i91.i641.0 = phi ptr [ %call29.i123.i1012, %if.end27.i.i1011 ], [ %20, %if.then.i184.i1037 ], [ %20, %if.then22.i183.i1034 ]
+  br i1 %dopts.sroa.48.0, label %if.then46.i.i983, label %if.end50.i.i979
 
 if.then46.i.i983:                                 ; preds = %if.end36.i103.i974
   %arrayidx.i257.i985 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i95.i954
-  %27 = load i64, ptr %arrayidx.i257.i985, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %ret.i91.i641.0, i8 0, i64 %27, i1 false)
+  %28 = load i64, ptr %arrayidx.i257.i985, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %ret.i91.i641.0, i8 0, i64 %28, i1 false)
   br label %if.end50.i.i979
 
 if.end50.i.i979:                                  ; preds = %if.then46.i.i983, %if.end36.i103.i974
   %tstats.i.i980 = getelementptr inbounds i8, ptr %arrayidx.i96.i955, i64 8
-  %28 = load i64, ptr %tstats.i.i980, align 8
-  %inc.i.i981 = add i64 %28, 1
+  %29 = load i64, ptr %tstats.i.i980, align 8
+  %inc.i.i981 = add i64 %29, 1
   store i64 %inc.i.i981, ptr %tstats.i.i980, align 8
   br label %imalloc_no_sample.exit1079
 
 if.else.i69.i798:                                 ; preds = %if.then.i67.i793
-  %29 = load ptr, ptr %tcache.i.i697.0, align 8
-  %30 = getelementptr i8, ptr %29, i64 48
-  %.val777 = load i32, ptr %30, align 8
+  %30 = load ptr, ptr %tcache.i.i697.0, align 8
+  %31 = getelementptr i8, ptr %30, i64 48
+  %.val777 = load i32, ptr %31, align 8
   %cmp18.i70.i800 = icmp ult i32 %ind.i.0827, %.val777
   br i1 %cmp18.i70.i800, label %land.rhs.i.i925, label %if.end36.i.i764
 
@@ -5355,13 +5354,13 @@ land.rhs.i.i925:                                  ; preds = %if.else.i69.i798
   br i1 %cmp.i792, label %if.end36.i.i764, label %if.then30.i.i806
 
 if.then30.i.i806:                                 ; preds = %land.rhs.i.i925
-  %31 = load ptr, ptr %arrayidx.i.i928.val, align 8
-  %32 = ptrtoint ptr %arrayidx.i.i928.val to i64
+  %32 = load ptr, ptr %arrayidx.i.i928.val, align 8
+  %33 = ptrtoint ptr %arrayidx.i.i928.val to i64
   %add.ptr.i193.i815 = getelementptr inbounds i8, ptr %arrayidx.i.i928.val, i64 8
   %low_bits_low_water.i195.i817 = getelementptr inbounds i8, ptr %arrayidx.i.i928, i64 16
-  %33 = load i16, ptr %low_bits_low_water.i195.i817, align 8
-  %34 = trunc i64 %32 to i16
-  %cmp.i197.i819.not = icmp eq i16 %33, %34
+  %34 = load i16, ptr %low_bits_low_water.i195.i817, align 8
+  %35 = trunc i64 %33 to i16
+  %cmp.i197.i819.not = icmp eq i16 %34, %35
   br i1 %cmp.i197.i819.not, label %if.end11.i204.i912, label %if.then.i216.i924
 
 if.then.i216.i924:                                ; preds = %if.then30.i.i806
@@ -5370,24 +5369,24 @@ if.then.i216.i924:                                ; preds = %if.then30.i.i806
 
 if.end11.i204.i912:                               ; preds = %if.then30.i.i806
   %low_bits_empty.i206.i914 = getelementptr inbounds i8, ptr %arrayidx.i.i928, i64 20
-  %35 = load i16, ptr %low_bits_empty.i206.i914, align 4
-  %cmp14.i208.i916.not = icmp eq i16 %35, %33
+  %36 = load i16, ptr %low_bits_empty.i206.i914, align 4
+  %cmp14.i208.i916.not = icmp eq i16 %36, %34
   br i1 %cmp14.i208.i916.not, label %if.then.i159.i845, label %if.then22.i213.i921
 
 if.then22.i213.i921:                              ; preds = %if.end11.i204.i912
   store ptr %add.ptr.i193.i815, ptr %arrayidx.i.i928, align 8
-  %36 = ptrtoint ptr %add.ptr.i193.i815 to i64
-  %conv24.i214.i922 = trunc i64 %36 to i16
+  %37 = ptrtoint ptr %add.ptr.i193.i815 to i64
+  %conv24.i214.i922 = trunc i64 %37 to i16
   store i16 %conv24.i214.i922, ptr %low_bits_low_water.i195.i817, align 8
   br label %if.else.i153.i832
 
 if.then.i159.i845:                                ; preds = %if.end11.i204.i912
-  %call7.i160.i846 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1241.0881, ptr noundef %arena.i709.1837)
+  %call7.i160.i846 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1241.0880, ptr noundef %arena.i709.1837)
   %cmp.i161.i847 = icmp eq ptr %call7.i160.i846, null
   br i1 %cmp.i161.i847, label %do.end13, label %if.end.i165.i851
 
 if.end.i165.i851:                                 ; preds = %if.then.i159.i845
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1241.0881, ptr noundef nonnull %tcache.i.i697.0, ptr noundef nonnull %arrayidx.i.i928, i32 noundef %ind.i.0827, i1 noundef zeroext false) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1241.0880, ptr noundef nonnull %tcache.i.i697.0, ptr noundef nonnull %arrayidx.i.i928, i32 noundef %ind.i.0827, i1 noundef zeroext false) #19
   %cmp.i220.i852 = icmp ult i64 %size, 4097
   br i1 %cmp.i220.i852, label %if.then.i225.i903, label %if.end.i224.i856
 
@@ -5395,10 +5394,10 @@ if.then.i225.i903:                                ; preds = %if.end.i165.i851
   %sub.i266.i905 = add nuw nsw i64 %size, 7
   %shr.i.i906 = lshr i64 %sub.i266.i905, 3
   %arrayidx.i267.i907 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i906
-  %37 = load i8, ptr %arrayidx.i267.i907, align 1
-  %idxprom.i262.i909 = zext i8 %37 to i64
+  %38 = load i8, ptr %arrayidx.i267.i907, align 1
+  %idxprom.i262.i909 = zext i8 %38 to i64
   %arrayidx.i263.i910 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i262.i909
-  %38 = load i64, ptr %arrayidx.i263.i910, align 8
+  %39 = load i64, ptr %arrayidx.i263.i910, align 8
   br label %sz_s2u.exit.i882
 
 if.end.i224.i856:                                 ; preds = %if.end.i165.i851
@@ -5408,8 +5407,8 @@ if.end.i224.i856:                                 ; preds = %if.end.i165.i851
 if.end14.i.i865:                                  ; preds = %if.end.i224.i856
   %shl15.i.i866 = shl nuw i64 %size, 1
   %sub.i.i867 = add i64 %shl15.i.i866, -1
-  %39 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i867, i1 true)
-  %sub23.i.i873 = sub nuw nsw i64 60, %39
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i867, i1 true)
+  %sub23.i.i873 = sub nuw nsw i64 60, %40
   %notmask767 = shl nsw i64 -1, %sub23.i.i873
   %sub27.i.i877 = xor i64 %notmask767, -1
   %add.i.i878 = add nuw nsw i64 %size, %sub27.i.i877
@@ -5417,64 +5416,64 @@ if.end14.i.i865:                                  ; preds = %if.end.i224.i856
   br label %sz_s2u.exit.i882
 
 sz_s2u.exit.i882:                                 ; preds = %if.end14.i.i865, %if.end.i224.i856, %if.then.i225.i903
-  %retval.i218.i590.0 = phi i64 [ %38, %if.then.i225.i903 ], [ %and.i.i880, %if.end14.i.i865 ], [ 0, %if.end.i224.i856 ]
-  %call19.i167.i884 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1241.0881, ptr noundef nonnull %call7.i160.i846, i64 noundef %retval.i218.i590.0, i1 noundef zeroext %tobool16.i) #19
+  %retval.i218.i590.0 = phi i64 [ %39, %if.then.i225.i903 ], [ %and.i.i880, %if.end14.i.i865 ], [ 0, %if.end.i224.i856 ]
+  %call19.i167.i884 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1241.0880, ptr noundef nonnull %call7.i160.i846, i64 noundef %retval.i218.i590.0, i1 noundef zeroext %dopts.sroa.48.0) #19
   br label %imalloc_no_sample.exit1079
 
 if.else.i153.i832:                                ; preds = %if.then.i216.i924, %if.then22.i213.i921
-  br i1 %tobool16.i, label %if.then31.i.i842, label %if.end35.i154.i837
+  br i1 %dopts.sroa.48.0, label %if.then31.i.i842, label %if.end35.i154.i837
 
 if.then31.i.i842:                                 ; preds = %if.else.i153.i832
   %arrayidx.i260.i844 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i927
-  %40 = load i64, ptr %arrayidx.i260.i844, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %40, i1 false)
+  %41 = load i64, ptr %arrayidx.i260.i844, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %32, i8 0, i64 %41, i1 false)
   br label %if.end35.i154.i837
 
 if.end35.i154.i837:                               ; preds = %if.then31.i.i842, %if.else.i153.i832
   %tstats.i155.i838 = getelementptr inbounds i8, ptr %arrayidx.i.i928, i64 8
-  %41 = load i64, ptr %tstats.i155.i838, align 8
-  %inc.i156.i839 = add i64 %41, 1
+  %42 = load i64, ptr %tstats.i155.i838, align 8
+  %inc.i156.i839 = add i64 %42, 1
   store i64 %inc.i156.i839, ptr %tstats.i155.i838, align 8
   br label %imalloc_no_sample.exit1079
 
 if.end36.i.i764:                                  ; preds = %land.rhs.i.i925, %if.else.i69.i798, %if.end.i36.i753
-  %call39.i.i767 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1241.0881, ptr noundef %arena.i709.1837, i64 noundef %size, i32 noundef %ind.i.0827, i1 noundef zeroext %tobool16.i, i1 noundef zeroext %cmp.i161.i) #19
+  %call39.i.i767 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1241.0880, ptr noundef %arena.i709.1837, i64 noundef %size, i32 noundef %ind.i.0827, i1 noundef zeroext %dopts.sroa.48.0, i1 noundef zeroext %cmp.i161.i) #19
   br label %imalloc_no_sample.exit1079
 
 imalloc_no_sample.exit1079:                       ; preds = %sz_s2u.exit.i882, %if.end35.i154.i837, %if.then23.i124.i1018, %if.end50.i.i979, %if.end36.i.i764, %if.then4.i1045
-  %retval.i700.0 = phi ptr [ %call12.i1201, %if.then4.i1045 ], [ %call39.i.i767, %if.end36.i.i764 ], [ %call26.i.i1020, %if.then23.i124.i1018 ], [ %ret.i91.i641.0, %if.end50.i.i979 ], [ %31, %if.end35.i154.i837 ], [ %call19.i167.i884, %sz_s2u.exit.i882 ]
+  %retval.i700.0 = phi ptr [ %call12.i1201, %if.then4.i1045 ], [ %call39.i.i767, %if.end36.i.i764 ], [ %call26.i.i1020, %if.then23.i124.i1018 ], [ %ret.i91.i641.0, %if.end50.i.i979 ], [ %32, %if.end35.i154.i837 ], [ %call19.i167.i884, %sz_s2u.exit.i882 ]
   %cmp53.i = icmp eq ptr %retval.i700.0, null
   br i1 %cmp53.i, label %do.end13, label %if.end62.i
 
 if.end62.i:                                       ; preds = %imalloc_no_sample.exit1079
   store i8 1, ptr %ctx.i1691, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i1241.0881, i64 832
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i1241.0880, i64 832
   %current.i = getelementptr inbounds i8, ptr %ctx.i1691, i64 8
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, ptr %current.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds i8, ptr %retval.i1241.0881, i64 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds i8, ptr %retval.i1241.0880, i64 8
   %last_event.i = getelementptr inbounds i8, ptr %ctx.i1691, i64 16
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i, ptr %last_event.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds i8, ptr %retval.i1241.0881, i64 16
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds i8, ptr %retval.i1241.0880, i64 16
   %next_event.i = getelementptr inbounds i8, ptr %ctx.i1691, i64 24
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, ptr %next_event.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1802 = getelementptr inbounds i8, ptr %retval.i1241.0881, i64 840
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1802 = getelementptr inbounds i8, ptr %retval.i1241.0880, i64 840
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1691, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1802, ptr %next_event_fast.i, align 8
-  %42 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i1695 = add i64 %42, %usize.i83.0828
+  %43 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
+  %add.i1695 = add i64 %43, %usize.i83.0828
   store i64 %add.i1695, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %43 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
-  %sub.i1697 = sub i64 %43, %42
+  %44 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
+  %sub.i1697 = sub i64 %44, %43
   %cmp.i1698 = icmp ult i64 %usize.i83.0828, %sub.i1697
   br i1 %cmp.i1698, label %do.end13, label %if.else.i1702
 
 if.else.i1702:                                    ; preds = %if.end62.i
-  call void @te_event_trigger(ptr noundef nonnull %retval.i1241.0881, ptr noundef nonnull %ctx.i1691) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i1241.0880, ptr noundef nonnull %ctx.i1691) #19
   br label %do.end13
 
 land.lhs.true8.i:                                 ; preds = %tsd_fetch_impl.exit
-  %44 = load i32, ptr @malloc_init_state, align 4
-  %cmp.i395.not = icmp eq i32 %44, 0
+  %45 = load i32, ptr @malloc_init_state, align 4
+  %cmp.i395.not = icmp eq i32 %45, 0
   br i1 %cmp.i395.not, label %lor.rhs.i180, label %land.lhs.true.i.i74
 
 land.lhs.true.i.i74:                              ; preds = %land.lhs.true8.i
@@ -5487,9 +5486,9 @@ if.then.i73:                                      ; preds = %land.lhs.true.i.i74
   br label %do.end13
 
 lor.rhs.i180:                                     ; preds = %land.lhs.true.i.i74, %land.lhs.true8.i
-  %45 = load i8, ptr @opt_zero, align 1
-  %retval.i.i151.0878 = or i8 %45, %dopts.sroa.48.0
-  %retval.i.i151.0 = trunc i8 %retval.i.i151.0878 to i1
+  %46 = load i8, ptr @opt_zero, align 1
+  %tobool2.i.i374 = trunc i8 %46 to i1
+  %retval.i.i151.0 = or i1 %dopts.sroa.48.0, %tobool2.i.i374
   %cmp.i.i207 = icmp eq i64 %dopts.sroa.34.0, 0
   br i1 %cmp.i.i207, label %if.then2.i.i350, label %if.else.i144.i208
 
@@ -5501,8 +5500,8 @@ if.then.i158.i367:                                ; preds = %if.then2.i.i350
   %sub.i200.i369 = add nuw nsw i64 %size, 7
   %shr.i.i370 = lshr i64 %sub.i200.i369, 3
   %arrayidx.i201.i371 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i370
-  %46 = load i8, ptr %arrayidx.i201.i371, align 1
-  %conv.i202.i372 = zext i8 %46 to i32
+  %47 = load i8, ptr %arrayidx.i201.i371, align 1
+  %conv.i202.i372 = zext i8 %47 to i32
   br label %sz_size2index.exit.i357
 
 if.end.i157.i355:                                 ; preds = %if.then2.i.i350
@@ -5512,17 +5511,17 @@ if.end.i157.i355:                                 ; preds = %if.then2.i.i350
 if.end12.i795:                                    ; preds = %if.end.i157.i355
   %shl.i796 = shl nuw i64 %size, 1
   %sub13.i797 = add i64 %shl.i796, -1
-  %47 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i797, i1 true)
-  %48 = trunc nuw nsw i64 %47 to i32
-  %conv1.i.i.i.i798 = shl nuw nsw i32 %48, 2
+  %48 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i797, i1 true)
+  %49 = trunc nuw nsw i64 %48 to i32
+  %conv1.i.i.i.i798 = shl nuw nsw i32 %49, 2
   %sub19.i799 = xor i32 %conv1.i.i.i.i798, 252
-  %sub28.i800 = sub nuw nsw i64 60, %47
+  %sub28.i800 = sub nuw nsw i64 60, %48
   %shl31.i802 = shl nsw i64 -1, %sub28.i800
   %sub32.i803 = add nsw i64 %size, -1
   %and.i804 = and i64 %shl31.i802, %sub32.i803
   %shr.i805 = lshr i64 %and.i804, %sub28.i800
-  %49 = trunc i64 %shr.i805 to i32
-  %conv35.i806 = and i32 %49, 3
+  %50 = trunc i64 %shr.i805 to i32
+  %conv35.i806 = and i32 %50, 3
   %add.i807 = add nsw i32 %sub19.i799, -23
   %add36.i808 = add nuw nsw i32 %add.i807, %conv35.i806
   br label %sz_size2index.exit.i357
@@ -5535,7 +5534,7 @@ sz_size2index.exit.i357:                          ; preds = %if.end12.i795, %if.
 aligned_usize_get.exit.i221.thread852:            ; preds = %sz_size2index.exit.i357
   %conv.i148.i358 = zext nneg i32 %retval.i151.i139.0 to i64
   %arrayidx.i.i365 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i148.i358
-  %50 = load i64, ptr %arrayidx.i.i365, align 8
+  %51 = load i64, ptr %arrayidx.i.i365, align 8
   br label %if.end24.i222
 
 if.else.i144.i208:                                ; preds = %lor.rhs.i180
@@ -5556,17 +5555,17 @@ if.then.i36.i:                                    ; preds = %if.then.i1371
   %sub.i119.i = add nuw nsw i64 %and.i1373, 7
   %shr.i.i1410 = lshr i64 %sub.i119.i, 3
   %arrayidx.i120.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1410
-  %51 = load i8, ptr %arrayidx.i120.i, align 1
-  %idxprom.i.i1411 = zext i8 %51 to i64
+  %52 = load i8, ptr %arrayidx.i120.i, align 1
+  %idxprom.i.i1411 = zext i8 %52 to i64
   %arrayidx.i.i1412 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i1411
-  %52 = load i64, ptr %arrayidx.i.i1412, align 8
+  %53 = load i64, ptr %arrayidx.i.i1412, align 8
   br label %sz_s2u.exit38.i
 
 if.end14.i.i1377:                                 ; preds = %if.then.i1371
   %shl15.i.i1378 = shl nuw nsw i64 %and.i1373, 1
   %sub.i.i1379 = add nsw i64 %shl15.i.i1378, -1
-  %53 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1379, i1 true)
-  %sub23.i.i1385 = sub nuw nsw i64 60, %53
+  %54 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i1379, i1 true)
+  %sub23.i.i1385 = sub nuw nsw i64 60, %54
   %notmask = shl nsw i64 -1, %sub23.i.i1385
   %sub27.i.i1389 = xor i64 %notmask, -1
   %add.i.i1390 = add nuw nsw i64 %and.i1373, %sub27.i.i1389
@@ -5574,7 +5573,7 @@ if.end14.i.i1377:                                 ; preds = %if.then.i1371
   br label %sz_s2u.exit38.i
 
 sz_s2u.exit38.i:                                  ; preds = %if.end14.i.i1377, %if.then.i36.i
-  %retval.i28.i.0 = phi i64 [ %52, %if.then.i36.i ], [ %and.i.i1392, %if.end14.i.i1377 ]
+  %retval.i28.i.0 = phi i64 [ %53, %if.then.i36.i ], [ %and.i.i1392, %if.end14.i.i1377 ]
   %cmp3.i1394 = icmp ult i64 %retval.i28.i.0, 16384
   br i1 %cmp3.i1394, label %aligned_usize_get.exit.i221, label %if.end18.i
 
@@ -5593,8 +5592,8 @@ if.end.i.i1366:                                   ; preds = %if.end9.i
 if.end14.i70.i:                                   ; preds = %if.end.i.i1366
   %shl15.i71.i = shl nuw i64 %size, 1
   %sub.i72.i = add i64 %shl15.i71.i, -1
-  %54 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i, i1 true)
-  %sub23.i78.i = sub nuw nsw i64 60, %54
+  %55 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i72.i, i1 true)
+  %sub23.i78.i = sub nuw nsw i64 60, %55
   %notmask763 = shl nsw i64 -1, %sub23.i78.i
   %sub27.i82.i = xor i64 %notmask763, -1
   %add.i83.i = add nuw nsw i64 %size, %sub27.i82.i
@@ -5608,28 +5607,28 @@ sz_s2u.exit.i1367:                                ; preds = %if.end14.i70.i, %if
 
 if.end18.i:                                       ; preds = %sz_s2u.exit38.i, %if.end9.i, %sz_s2u.exit.i1367
   %usize.i1355.0 = phi i64 [ %retval.i53.i.0, %sz_s2u.exit.i1367 ], [ 16384, %if.end9.i ], [ 16384, %sz_s2u.exit38.i ]
-  %55 = load i64, ptr @sz_large_pad, align 8
+  %56 = load i64, ptr @sz_large_pad, align 8
   %add20.i = add nuw nsw i64 %dopts.sroa.34.0, 4095
   %and21.i = and i64 %add20.i, 9223372036854771712
   %add19.i = add nsw i64 %and21.i, -4096
   %add22.i = add i64 %add19.i, %usize.i1355.0
-  %sub23.i = add i64 %add22.i, %55
+  %sub23.i = add i64 %add22.i, %56
   %cmp24.i = icmp ult i64 %sub23.i, %usize.i1355.0
   %.usize.i1355.0 = select i1 %cmp24.i, i64 0, i64 %usize.i1355.0
   br label %aligned_usize_get.exit.i221
 
 aligned_usize_get.exit.i221:                      ; preds = %if.end18.i, %sz_s2u.exit38.i
   %retval.i1352.0 = phi i64 [ %retval.i28.i.0, %sz_s2u.exit38.i ], [ %.usize.i1355.0, %if.end18.i ]
-  %56 = add nsw i64 %retval.i1352.0, -8070450532247928833
-  %or.cond768 = icmp ult i64 %56, -8070450532247928832
+  %57 = add nsw i64 %retval.i1352.0, -8070450532247928833
+  %or.cond768 = icmp ult i64 %57, -8070450532247928832
   br i1 %or.cond768, label %if.then8, label %if.end24.i222
 
 if.end24.i222:                                    ; preds = %aligned_usize_get.exit.i221.thread852, %aligned_usize_get.exit.i221
-  %usize.i169.0857 = phi i64 [ %50, %aligned_usize_get.exit.i221.thread852 ], [ %retval.i1352.0, %aligned_usize_get.exit.i221 ]
+  %usize.i169.0857 = phi i64 [ %51, %aligned_usize_get.exit.i221.thread852 ], [ %retval.i1352.0, %aligned_usize_get.exit.i221 ]
   %ind.i168.0856 = phi i32 [ %retval.i151.i139.0, %aligned_usize_get.exit.i221.thread852 ], [ 0, %aligned_usize_get.exit.i221 ]
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i2030 = getelementptr inbounds i8, ptr %call13.i, i64 1
-  %57 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i2030, align 1
-  %cmp35.i277 = icmp sgt i8 %57, 0
+  %58 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i2030, align 1
+  %cmp35.i277 = icmp sgt i8 %58, 0
   %spec.select = select i1 %cmp35.i277, i32 -1, i32 %dopts.sroa.60.0
   %spec.select769 = select i1 %cmp35.i277, i32 0, i32 %dopts.sroa.66.0
   %cmp.i161.i231 = icmp ult i64 %usize.i169.0857, 14337
@@ -5639,18 +5638,18 @@ if.end24.i222:                                    ; preds = %aligned_usize_get.e
   ]
 
 if.then18.i.i:                                    ; preds = %if.end24.i222
-  %58 = load i8, ptr %call13.i, align 1
-  %tobool.i1329 = trunc i8 %58 to i1
+  %59 = load i8, ptr %call13.i, align 1
+  %tobool.i1329 = trunc i8 %59 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1271 = getelementptr inbounds i8, ptr %call13.i, i64 864
   %retval.i1265.0 = select i1 %tobool.i1329, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1271, ptr null
   br label %tcache_get_from_ind.exit.i
 
 if.else28.i.i:                                    ; preds = %if.end24.i222
-  %59 = load ptr, ptr @tcaches, align 8
+  %60 = load ptr, ptr @tcaches, align 8
   %idxprom.i1291 = zext nneg i32 %spec.select to i64
-  %arrayidx.i1292 = getelementptr inbounds %struct.tcaches_s, ptr %59, i64 %idxprom.i1291
-  %60 = load ptr, ptr %arrayidx.i1292, align 8
-  %magicptr770 = ptrtoint ptr %60 to i64
+  %arrayidx.i1292 = getelementptr inbounds %struct.tcaches_s, ptr %60, i64 %idxprom.i1291
+  %61 = load ptr, ptr %arrayidx.i1292, align 8
+  %magicptr770 = ptrtoint ptr %61 to i64
   switch i64 %magicptr770, label %tcache_get_from_ind.exit.i [
     i64 0, label %if.then.i1306
     i64 1, label %if.then10.i1304
@@ -5667,7 +5666,7 @@ if.then10.i1304:                                  ; preds = %if.else28.i.i
   br label %tcache_get_from_ind.exit.i
 
 tcache_get_from_ind.exit.i:                       ; preds = %if.then10.i1304, %if.else28.i.i, %if.end24.i222, %if.then18.i.i
-  %tcache.i.i.0 = phi ptr [ %retval.i1265.0, %if.then18.i.i ], [ null, %if.end24.i222 ], [ %60, %if.else28.i.i ], [ %call.i1305, %if.then10.i1304 ]
+  %tcache.i.i.0 = phi ptr [ %retval.i1265.0, %if.then18.i.i ], [ null, %if.end24.i222 ], [ %61, %if.else28.i.i ], [ %call.i1305, %if.then10.i1304 ]
   %cmp.i23.i = icmp eq i32 %spec.select769, -1
   br i1 %cmp.i23.i, label %if.end.i487, label %if.else.i24.i
 
@@ -5677,8 +5676,8 @@ if.else.i24.i:                                    ; preds = %tcache_get_from_ind
   br i1 %cmp2.i.i486, label %arena_get_from_ind.exit.i, label %if.end.i487
 
 arena_get_from_ind.exit.i:                        ; preds = %if.else.i24.i
-  %61 = load i32, ptr @narenas_auto, align 4
-  %cmp4.i.i.not.not = icmp ult i32 %spec.select769, %61
+  %62 = load i32, ptr @narenas_auto, align 4
+  %cmp4.i.i.not.not = icmp ult i32 %spec.select769, %62
   br i1 %cmp4.i.i.not.not, label %if.end.i487, label %if.then8
 
 if.end.i487:                                      ; preds = %if.else.i24.i, %tcache_get_from_ind.exit.i, %arena_get_from_ind.exit.i
@@ -5700,14 +5699,14 @@ if.then11.i.i:                                    ; preds = %if.then.i67.i
   %bins.i94.i = getelementptr inbounds i8, ptr %tcache.i.i.0, i64 8
   %idxprom.i95.i = zext nneg i32 %ind.i168.0856 to i64
   %arrayidx.i96.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i94.i, i64 0, i64 %idxprom.i95.i
-  %62 = load ptr, ptr %arrayidx.i96.i, align 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = ptrtoint ptr %62 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = load ptr, ptr %arrayidx.i96.i, align 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = ptrtoint ptr %63 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %63, i64 8
   %low_bits_low_water.i.i = getelementptr inbounds i8, ptr %arrayidx.i96.i, i64 16
-  %65 = load i16, ptr %low_bits_low_water.i.i, align 8
-  %66 = trunc i64 %64 to i16
-  %cmp.i178.i.not = icmp eq i16 %65, %66
+  %66 = load i16, ptr %low_bits_low_water.i.i, align 8
+  %67 = trunc i64 %65 to i16
+  %cmp.i178.i.not = icmp eq i16 %66, %67
   br i1 %cmp.i178.i.not, label %if.end11.i.i538, label %if.then.i184.i
 
 if.then.i184.i:                                   ; preds = %if.then11.i.i
@@ -5716,14 +5715,14 @@ if.then.i184.i:                                   ; preds = %if.then11.i.i
 
 if.end11.i.i538:                                  ; preds = %if.then11.i.i
   %low_bits_empty.i.i = getelementptr inbounds i8, ptr %arrayidx.i96.i, i64 20
-  %67 = load i16, ptr %low_bits_empty.i.i, align 4
-  %cmp14.i.i.not = icmp eq i16 %67, %65
+  %68 = load i16, ptr %low_bits_empty.i.i, align 4
+  %cmp14.i.i.not = icmp eq i16 %68, %66
   br i1 %cmp14.i.i.not, label %if.then.i105.i, label %if.then22.i183.i
 
 if.then22.i183.i:                                 ; preds = %if.end11.i.i538
   store ptr %add.ptr.i.i, ptr %arrayidx.i96.i, align 8
-  %68 = ptrtoint ptr %add.ptr.i.i to i64
-  %conv24.i.i = trunc i64 %68 to i16
+  %69 = ptrtoint ptr %add.ptr.i.i to i64
+  %conv24.i.i = trunc i64 %69 to i16
   store i16 %conv24.i.i, ptr %low_bits_low_water.i.i, align 8
   br label %if.end36.i103.i
 
@@ -5744,32 +5743,32 @@ if.then23.i124.i:                                 ; preds = %if.end.i107.i
 if.end27.i.i:                                     ; preds = %if.end.i107.i
   tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %tcache.i.i.0, ptr noundef nonnull %arrayidx.i96.i, i32 noundef %ind.i168.0856, i1 noundef zeroext true) #19
   %call29.i123.i = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, ptr noundef nonnull %tcache.i.i.0, ptr noundef nonnull %arrayidx.i96.i, i32 noundef %ind.i168.0856, ptr noundef nonnull %tcache_hard_success.i.i) #19
-  %69 = load i8, ptr %tcache_hard_success.i.i, align 1
-  %70 = and i8 %69, 1
-  %cmp32.i.i = icmp eq i8 %70, 0
+  %70 = load i8, ptr %tcache_hard_success.i.i, align 1
+  %71 = and i8 %70, 1
+  %cmp32.i.i = icmp eq i8 %71, 0
   br i1 %cmp32.i.i, label %if.then8, label %if.end36.i103.i
 
 if.end36.i103.i:                                  ; preds = %if.then22.i183.i, %if.then.i184.i, %if.end27.i.i
-  %ret.i91.i.0 = phi ptr [ %call29.i123.i, %if.end27.i.i ], [ %63, %if.then.i184.i ], [ %63, %if.then22.i183.i ]
+  %ret.i91.i.0 = phi ptr [ %call29.i123.i, %if.end27.i.i ], [ %64, %if.then.i184.i ], [ %64, %if.then22.i183.i ]
   br i1 %retval.i.i151.0, label %if.then46.i.i, label %if.end50.i.i
 
 if.then46.i.i:                                    ; preds = %if.end36.i103.i
   %arrayidx.i257.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i95.i
-  %71 = load i64, ptr %arrayidx.i257.i, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %ret.i91.i.0, i8 0, i64 %71, i1 false)
+  %72 = load i64, ptr %arrayidx.i257.i, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %ret.i91.i.0, i8 0, i64 %72, i1 false)
   br label %if.end50.i.i
 
 if.end50.i.i:                                     ; preds = %if.then46.i.i, %if.end36.i103.i
   %tstats.i.i = getelementptr inbounds i8, ptr %arrayidx.i96.i, i64 8
-  %72 = load i64, ptr %tstats.i.i, align 8
-  %inc.i.i535 = add i64 %72, 1
+  %73 = load i64, ptr %tstats.i.i, align 8
+  %inc.i.i535 = add i64 %73, 1
   store i64 %inc.i.i535, ptr %tstats.i.i, align 8
   br label %imalloc_no_sample.exit
 
 if.else.i69.i:                                    ; preds = %if.then.i67.i
-  %73 = load ptr, ptr %tcache.i.i.0, align 8
-  %74 = getelementptr i8, ptr %73, i64 48
-  %.val780 = load i32, ptr %74, align 8
+  %74 = load ptr, ptr %tcache.i.i.0, align 8
+  %75 = getelementptr i8, ptr %74, i64 48
+  %.val780 = load i32, ptr %75, align 8
   %cmp18.i70.i = icmp ult i32 %ind.i168.0856, %.val780
   br i1 %cmp18.i70.i, label %land.rhs.i.i, label %if.end36.i.i
 
@@ -5782,13 +5781,13 @@ land.rhs.i.i:                                     ; preds = %if.else.i69.i
   br i1 %cmp.i814, label %if.end36.i.i, label %if.then30.i.i
 
 if.then30.i.i:                                    ; preds = %land.rhs.i.i
-  %75 = load ptr, ptr %arrayidx.i.i534.val, align 8
-  %76 = ptrtoint ptr %arrayidx.i.i534.val to i64
+  %76 = load ptr, ptr %arrayidx.i.i534.val, align 8
+  %77 = ptrtoint ptr %arrayidx.i.i534.val to i64
   %add.ptr.i193.i = getelementptr inbounds i8, ptr %arrayidx.i.i534.val, i64 8
   %low_bits_low_water.i195.i = getelementptr inbounds i8, ptr %arrayidx.i.i534, i64 16
-  %77 = load i16, ptr %low_bits_low_water.i195.i, align 8
-  %78 = trunc i64 %76 to i16
-  %cmp.i197.i.not = icmp eq i16 %77, %78
+  %78 = load i16, ptr %low_bits_low_water.i195.i, align 8
+  %79 = trunc i64 %77 to i16
+  %cmp.i197.i.not = icmp eq i16 %78, %79
   br i1 %cmp.i197.i.not, label %if.end11.i204.i, label %if.then.i216.i
 
 if.then.i216.i:                                   ; preds = %if.then30.i.i
@@ -5797,14 +5796,14 @@ if.then.i216.i:                                   ; preds = %if.then30.i.i
 
 if.end11.i204.i:                                  ; preds = %if.then30.i.i
   %low_bits_empty.i206.i = getelementptr inbounds i8, ptr %arrayidx.i.i534, i64 20
-  %79 = load i16, ptr %low_bits_empty.i206.i, align 4
-  %cmp14.i208.i.not = icmp eq i16 %79, %77
+  %80 = load i16, ptr %low_bits_empty.i206.i, align 4
+  %cmp14.i208.i.not = icmp eq i16 %80, %78
   br i1 %cmp14.i208.i.not, label %if.then.i159.i, label %if.then22.i213.i
 
 if.then22.i213.i:                                 ; preds = %if.end11.i204.i
   store ptr %add.ptr.i193.i, ptr %arrayidx.i.i534, align 8
-  %80 = ptrtoint ptr %add.ptr.i193.i to i64
-  %conv24.i214.i = trunc i64 %80 to i16
+  %81 = ptrtoint ptr %add.ptr.i193.i to i64
+  %conv24.i214.i = trunc i64 %81 to i16
   store i16 %conv24.i214.i, ptr %low_bits_low_water.i195.i, align 8
   br label %if.else.i153.i
 
@@ -5822,10 +5821,10 @@ if.then.i225.i:                                   ; preds = %if.end.i165.i
   %sub.i266.i = add nuw nsw i64 %size, 7
   %shr.i.i532 = lshr i64 %sub.i266.i, 3
   %arrayidx.i267.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i532
-  %81 = load i8, ptr %arrayidx.i267.i, align 1
-  %idxprom.i262.i = zext i8 %81 to i64
+  %82 = load i8, ptr %arrayidx.i267.i, align 1
+  %idxprom.i262.i = zext i8 %82 to i64
   %arrayidx.i263.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i262.i
-  %82 = load i64, ptr %arrayidx.i263.i, align 8
+  %83 = load i64, ptr %arrayidx.i263.i, align 8
   br label %sz_s2u.exit.i519
 
 if.end.i224.i:                                    ; preds = %if.end.i165.i
@@ -5835,8 +5834,8 @@ if.end.i224.i:                                    ; preds = %if.end.i165.i
 if.end14.i.i503:                                  ; preds = %if.end.i224.i
   %shl15.i.i504 = shl nuw i64 %size, 1
   %sub.i.i505 = add i64 %shl15.i.i504, -1
-  %83 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i505, i1 true)
-  %sub23.i.i510 = sub nuw nsw i64 60, %83
+  %84 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i505, i1 true)
+  %sub23.i.i510 = sub nuw nsw i64 60, %84
   %notmask764 = shl nsw i64 -1, %sub23.i.i510
   %sub27.i.i514 = xor i64 %notmask764, -1
   %add.i.i515 = add nuw nsw i64 %size, %sub27.i.i514
@@ -5844,7 +5843,7 @@ if.end14.i.i503:                                  ; preds = %if.end.i224.i
   br label %sz_s2u.exit.i519
 
 sz_s2u.exit.i519:                                 ; preds = %if.end14.i.i503, %if.end.i224.i, %if.then.i225.i
-  %retval.i218.i.0 = phi i64 [ %82, %if.then.i225.i ], [ %and.i.i517, %if.end14.i.i503 ], [ 0, %if.end.i224.i ]
+  %retval.i218.i.0 = phi i64 [ %83, %if.then.i225.i ], [ %and.i.i517, %if.end14.i.i503 ], [ 0, %if.end.i224.i ]
   %call19.i167.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i160.i, i64 noundef %retval.i218.i.0, i1 noundef zeroext %retval.i.i151.0) #19
   br label %imalloc_no_sample.exit
 
@@ -5853,14 +5852,14 @@ if.else.i153.i:                                   ; preds = %if.then.i216.i, %if
 
 if.then31.i.i:                                    ; preds = %if.else.i153.i
   %arrayidx.i260.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i533
-  %84 = load i64, ptr %arrayidx.i260.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %75, i8 0, i64 %84, i1 false)
+  %85 = load i64, ptr %arrayidx.i260.i, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %76, i8 0, i64 %85, i1 false)
   br label %if.end35.i154.i
 
 if.end35.i154.i:                                  ; preds = %if.then31.i.i, %if.else.i153.i
   %tstats.i155.i = getelementptr inbounds i8, ptr %arrayidx.i.i534, i64 8
-  %85 = load i64, ptr %tstats.i155.i, align 8
-  %inc.i156.i = add i64 %85, 1
+  %86 = load i64, ptr %tstats.i155.i, align 8
+  %inc.i156.i = add i64 %86, 1
   store i64 %inc.i156.i, ptr %tstats.i155.i, align 8
   br label %imalloc_no_sample.exit
 
@@ -5869,7 +5868,7 @@ if.end36.i.i:                                     ; preds = %land.rhs.i.i, %if.e
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i519, %if.end35.i154.i, %if.then23.i124.i, %if.end50.i.i, %if.end36.i.i, %if.then4.i540
-  %retval.i474.0 = phi ptr [ %call12.i, %if.then4.i540 ], [ %call39.i.i, %if.end36.i.i ], [ %call26.i.i, %if.then23.i124.i ], [ %ret.i91.i.0, %if.end50.i.i ], [ %75, %if.end35.i154.i ], [ %call19.i167.i, %sz_s2u.exit.i519 ]
+  %retval.i474.0 = phi ptr [ %call12.i, %if.then4.i540 ], [ %call39.i.i, %if.end36.i.i ], [ %call26.i.i, %if.then23.i124.i ], [ %ret.i91.i.0, %if.end50.i.i ], [ %76, %if.end35.i154.i ], [ %call19.i167.i, %sz_s2u.exit.i519 ]
   %cmp53.i233 = icmp eq ptr %retval.i474.0, null
   br i1 %cmp53.i233, label %if.then8, label %if.end62.i237
 
@@ -5887,11 +5886,11 @@ if.end62.i237:                                    ; preds = %imalloc_no_sample.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %call13.i, i64 840
   %next_event_fast.i1758 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, ptr %next_event_fast.i1758, align 8
-  %86 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1751, align 8
-  %add.i1679 = add i64 %86, %usize.i169.0857
+  %87 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1751, align 8
+  %add.i1679 = add i64 %87, %usize.i169.0857
   store i64 %add.i1679, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1751, align 8
-  %87 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1839, align 8
-  %sub.i1680 = sub i64 %87, %86
+  %88 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1839, align 8
+  %sub.i1680 = sub i64 %88, %87
   %cmp.i1681 = icmp ult i64 %usize.i169.0857, %sub.i1680
   br i1 %cmp.i1681, label %land.lhs.true70.i245, label %if.else.i1685
 
@@ -5903,8 +5902,8 @@ land.lhs.true70.i245:                             ; preds = %if.else.i1685, %if.
   br i1 %retval.i.i151.0, label %if.then8, label %land.lhs.true73.i248
 
 land.lhs.true73.i248:                             ; preds = %land.lhs.true70.i245
-  %88 = load i8, ptr @opt_junk_alloc, align 1
-  %tobool74.i249 = trunc i8 %88 to i1
+  %89 = load i8, ptr @opt_junk_alloc, align 1
+  %tobool74.i249 = trunc i8 %89 to i1
   br i1 %tobool74.i249, label %if.then81.i253, label %if.then8
 
 if.then81.i253:                                   ; preds = %land.lhs.true73.i248
@@ -5919,8 +5918,8 @@ if.then8:                                         ; preds = %if.then.i159.i, %if
   store i64 %conv9, ptr %arrayinit.element, align 8
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
-  %89 = ptrtoint ptr %ret.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 7, ptr noundef %ret.0.ph, i64 noundef %89, ptr noundef nonnull %args) #19
+  %90 = ptrtoint ptr %ret.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 7, ptr noundef %ret.0.ph, i64 noundef %90, ptr noundef nonnull %args) #19
   br label %do.end13
 
 do.end13:                                         ; preds = %if.then.i159.i845, %if.end27.i.i1011, %if.then.i105.i986, %arena_get_from_ind.exit.i732, %sz_s2u.exit.i1494, %if.end5.i1456, %if.end.i157.i, %sz_size2index.exit.i, %if.then.i73, %imalloc_no_sample.exit1079, %aligned_usize_get.exit.i, %if.end62.i, %if.else.i1702, %if.then8
@@ -6772,8 +6771,8 @@ tsd_fetch_impl.exit:                              ; preds = %if.else14
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %37, i1 noundef zeroext false) #19
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 824
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
-  %cmp.i = icmp eq i8 %.pre, 0
-  br i1 %cmp.i, label %if.then2.i.i, label %land.lhs.true8.i
+  %39 = icmp eq i8 %.pre, 0
+  br i1 %39, label %if.then2.i.i, label %land.lhs.true8.i
 
 if.then2.i.i:                                     ; preds = %if.else14, %tsd_fetch_impl.exit
   %retval.i1228.0852 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %37, %if.else14 ]
@@ -6784,8 +6783,8 @@ if.then.i158.i:                                   ; preds = %if.then2.i.i
   %sub.i200.i = add nuw nsw i64 %size, 7
   %shr.i.i = lshr i64 %sub.i200.i, 3
   %arrayidx.i201.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i
-  %39 = load i8, ptr %arrayidx.i201.i, align 1
-  %conv.i202.i = zext i8 %39 to i32
+  %40 = load i8, ptr %arrayidx.i201.i, align 1
+  %conv.i202.i = zext i8 %40 to i32
   br label %sz_size2index.exit.i
 
 if.end.i157.i:                                    ; preds = %if.then2.i.i
@@ -6795,17 +6794,17 @@ if.end.i157.i:                                    ; preds = %if.then2.i.i
 if.end12.i:                                       ; preds = %if.end.i157.i
   %shl.i = shl nuw i64 %size, 1
   %sub13.i = add i64 %shl.i, -1
-  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
-  %41 = trunc nuw nsw i64 %40 to i32
-  %conv1.i.i.i.i = shl nuw nsw i32 %41, 2
+  %41 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
+  %42 = trunc nuw nsw i64 %41 to i32
+  %conv1.i.i.i.i = shl nuw nsw i32 %42, 2
   %sub19.i = xor i32 %conv1.i.i.i.i, 252
-  %sub28.i = sub nuw nsw i64 60, %40
+  %sub28.i = sub nuw nsw i64 60, %41
   %shl31.i = shl nsw i64 -1, %sub28.i
   %sub32.i = add nsw i64 %size, -1
   %and.i = and i64 %shl31.i, %sub32.i
   %shr.i = lshr i64 %and.i, %sub28.i
-  %42 = trunc i64 %shr.i to i32
-  %conv35.i = and i32 %42, 3
+  %43 = trunc i64 %shr.i to i32
+  %conv35.i = and i32 %43, 3
   %add.i = add nsw i32 %sub19.i, -23
   %add36.i = add nuw nsw i32 %add.i, %conv35.i
   br label %sz_size2index.exit.i
@@ -6818,22 +6817,22 @@ sz_size2index.exit.i:                             ; preds = %if.end12.i, %if.the
 land.lhs.true.i33.i736:                           ; preds = %sz_size2index.exit.i
   %conv.i148.i = zext nneg i32 %retval.i151.i.0 to i64
   %arrayidx.i.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i148.i
-  %43 = load i64, ptr %arrayidx.i.i, align 8
-  %cmp.i161.i = icmp ult i64 %43, 14337
+  %44 = load i64, ptr %arrayidx.i.i, align 8
+  %cmp.i161.i = icmp ult i64 %44, 14337
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1226 = getelementptr inbounds i8, ptr %retval.i1228.0852, i64 864
   br i1 %cmp.i161.i, label %if.then11.i.i935, label %if.else.i69.i785
 
 if.then11.i.i935:                                 ; preds = %land.lhs.true.i33.i736
   %bins.i94.i940 = getelementptr inbounds i8, ptr %retval.i1228.0852, i64 872
   %arrayidx.i96.i942 = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i94.i940, i64 0, i64 %conv.i148.i
-  %44 = load ptr, ptr %arrayidx.i96.i942, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = ptrtoint ptr %44 to i64
-  %add.ptr.i.i944 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = load ptr, ptr %arrayidx.i96.i942, align 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = ptrtoint ptr %45 to i64
+  %add.ptr.i.i944 = getelementptr inbounds i8, ptr %45, i64 8
   %low_bits_low_water.i.i946 = getelementptr inbounds i8, ptr %arrayidx.i96.i942, i64 16
-  %47 = load i16, ptr %low_bits_low_water.i.i946, align 8
-  %48 = trunc i64 %46 to i16
-  %cmp.i178.i948.not = icmp eq i16 %47, %48
+  %48 = load i16, ptr %low_bits_low_water.i.i946, align 8
+  %49 = trunc i64 %47 to i16
+  %cmp.i178.i948.not = icmp eq i16 %48, %49
   br i1 %cmp.i178.i948.not, label %if.end11.i.i1012, label %if.then.i184.i1024
 
 if.then.i184.i1024:                               ; preds = %if.then11.i.i935
@@ -6842,14 +6841,14 @@ if.then.i184.i1024:                               ; preds = %if.then11.i.i935
 
 if.end11.i.i1012:                                 ; preds = %if.then11.i.i935
   %low_bits_empty.i.i1014 = getelementptr inbounds i8, ptr %arrayidx.i96.i942, i64 20
-  %49 = load i16, ptr %low_bits_empty.i.i1014, align 4
-  %cmp14.i.i1016.not = icmp eq i16 %49, %47
+  %50 = load i16, ptr %low_bits_empty.i.i1014, align 4
+  %cmp14.i.i1016.not = icmp eq i16 %50, %48
   br i1 %cmp14.i.i1016.not, label %if.then.i105.i973, label %if.then22.i183.i1021
 
 if.then22.i183.i1021:                             ; preds = %if.end11.i.i1012
   store ptr %add.ptr.i.i944, ptr %arrayidx.i96.i942, align 8
-  %50 = ptrtoint ptr %add.ptr.i.i944 to i64
-  %conv24.i.i1022 = trunc i64 %50 to i16
+  %51 = ptrtoint ptr %add.ptr.i.i944 to i64
+  %conv24.i.i1022 = trunc i64 %51 to i16
   store i16 %conv24.i.i1022, ptr %low_bits_low_water.i.i946, align 8
   br label %if.end50.i.i966
 
@@ -6870,23 +6869,23 @@ if.then23.i124.i1005:                             ; preds = %if.end.i107.i979
 if.end27.i.i998:                                  ; preds = %if.end.i107.i979
   tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1228.0852, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1226, ptr noundef nonnull %arrayidx.i96.i942, i32 noundef %retval.i151.i.0, i1 noundef zeroext true) #19
   %call29.i123.i999 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1228.0852, ptr noundef nonnull %call7.i.i974, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1226, ptr noundef nonnull %arrayidx.i96.i942, i32 noundef %retval.i151.i.0, ptr noundef nonnull %tcache_hard_success.i.i631) #19
-  %51 = load i8, ptr %tcache_hard_success.i.i631, align 1
-  %52 = and i8 %51, 1
-  %cmp32.i.i1002 = icmp eq i8 %52, 0
+  %52 = load i8, ptr %tcache_hard_success.i.i631, align 1
+  %53 = and i8 %52, 1
+  %cmp32.i.i1002 = icmp eq i8 %53, 0
   br i1 %cmp32.i.i1002, label %if.then113.i, label %if.end50.i.i966
 
 if.end50.i.i966:                                  ; preds = %if.then22.i183.i1021, %if.then.i184.i1024, %if.end27.i.i998
-  %ret.i91.i628.0 = phi ptr [ %call29.i123.i999, %if.end27.i.i998 ], [ %45, %if.then.i184.i1024 ], [ %45, %if.then22.i183.i1021 ]
+  %ret.i91.i628.0 = phi ptr [ %call29.i123.i999, %if.end27.i.i998 ], [ %46, %if.then.i184.i1024 ], [ %46, %if.then22.i183.i1021 ]
   %tstats.i.i967 = getelementptr inbounds i8, ptr %arrayidx.i96.i942, i64 8
-  %53 = load i64, ptr %tstats.i.i967, align 8
-  %inc.i.i968 = add i64 %53, 1
+  %54 = load i64, ptr %tstats.i.i967, align 8
+  %inc.i.i968 = add i64 %54, 1
   store i64 %inc.i.i968, ptr %tstats.i.i967, align 8
   br label %imalloc_no_sample.exit1066
 
 if.else.i69.i785:                                 ; preds = %land.lhs.true.i33.i736
-  %54 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1226, align 8
-  %55 = getelementptr i8, ptr %54, i64 48
-  %.val766 = load i32, ptr %55, align 8
+  %55 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1226, align 8
+  %56 = getelementptr i8, ptr %55, i64 48
+  %.val766 = load i32, ptr %56, align 8
   %cmp18.i70.i787 = icmp ult i32 %retval.i151.i.0, %.val766
   br i1 %cmp18.i70.i787, label %land.rhs.i.i912, label %if.end36.i.i751
 
@@ -6898,13 +6897,13 @@ land.rhs.i.i912:                                  ; preds = %if.else.i69.i785
   br i1 %cmp.i781, label %if.end36.i.i751, label %if.then30.i.i793
 
 if.then30.i.i793:                                 ; preds = %land.rhs.i.i912
-  %56 = load ptr, ptr %arrayidx.i.i915.val, align 8
-  %57 = ptrtoint ptr %arrayidx.i.i915.val to i64
+  %57 = load ptr, ptr %arrayidx.i.i915.val, align 8
+  %58 = ptrtoint ptr %arrayidx.i.i915.val to i64
   %add.ptr.i193.i802 = getelementptr inbounds i8, ptr %arrayidx.i.i915.val, i64 8
   %low_bits_low_water.i195.i804 = getelementptr inbounds i8, ptr %arrayidx.i.i915, i64 16
-  %58 = load i16, ptr %low_bits_low_water.i195.i804, align 8
-  %59 = trunc i64 %57 to i16
-  %cmp.i197.i806.not = icmp eq i16 %58, %59
+  %59 = load i16, ptr %low_bits_low_water.i195.i804, align 8
+  %60 = trunc i64 %58 to i16
+  %cmp.i197.i806.not = icmp eq i16 %59, %60
   br i1 %cmp.i197.i806.not, label %if.end11.i204.i899, label %if.then.i216.i911
 
 if.then.i216.i911:                                ; preds = %if.then30.i.i793
@@ -6913,14 +6912,14 @@ if.then.i216.i911:                                ; preds = %if.then30.i.i793
 
 if.end11.i204.i899:                               ; preds = %if.then30.i.i793
   %low_bits_empty.i206.i901 = getelementptr inbounds i8, ptr %arrayidx.i.i915, i64 20
-  %60 = load i16, ptr %low_bits_empty.i206.i901, align 4
-  %cmp14.i208.i903.not = icmp eq i16 %60, %58
+  %61 = load i16, ptr %low_bits_empty.i206.i901, align 4
+  %cmp14.i208.i903.not = icmp eq i16 %61, %59
   br i1 %cmp14.i208.i903.not, label %if.then.i159.i832, label %if.then22.i213.i908
 
 if.then22.i213.i908:                              ; preds = %if.end11.i204.i899
   store ptr %add.ptr.i193.i802, ptr %arrayidx.i.i915, align 8
-  %61 = ptrtoint ptr %add.ptr.i193.i802 to i64
-  %conv24.i214.i909 = trunc i64 %61 to i16
+  %62 = ptrtoint ptr %add.ptr.i193.i802 to i64
+  %conv24.i214.i909 = trunc i64 %62 to i16
   store i16 %conv24.i214.i909, ptr %low_bits_low_water.i195.i804, align 8
   br label %if.end35.i154.i824
 
@@ -6937,17 +6936,17 @@ if.then.i225.i890:                                ; preds = %if.end.i165.i838
   %sub.i266.i892 = add nuw nsw i64 %size, 7
   %shr.i.i893 = lshr i64 %sub.i266.i892, 3
   %arrayidx.i267.i894 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i893
-  %62 = load i8, ptr %arrayidx.i267.i894, align 1
-  %idxprom.i262.i896 = zext i8 %62 to i64
+  %63 = load i8, ptr %arrayidx.i267.i894, align 1
+  %idxprom.i262.i896 = zext i8 %63 to i64
   %arrayidx.i263.i897 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i262.i896
-  %63 = load i64, ptr %arrayidx.i263.i897, align 8
+  %64 = load i64, ptr %arrayidx.i263.i897, align 8
   br label %sz_s2u.exit.i869
 
 if.end14.i.i852:                                  ; preds = %if.end.i165.i838
   %shl15.i.i853 = shl nuw i64 %size, 1
   %sub.i.i854 = add i64 %shl15.i.i853, -1
-  %64 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i854, i1 true)
-  %sub23.i.i860 = sub nuw nsw i64 60, %64
+  %65 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i854, i1 true)
+  %sub23.i.i860 = sub nuw nsw i64 60, %65
   %notmask763 = shl nsw i64 -1, %sub23.i.i860
   %sub27.i.i864 = xor i64 %notmask763, -1
   %add.i.i865 = add nuw nsw i64 %size, %sub27.i.i864
@@ -6955,14 +6954,14 @@ if.end14.i.i852:                                  ; preds = %if.end.i165.i838
   br label %sz_s2u.exit.i869
 
 sz_s2u.exit.i869:                                 ; preds = %if.end14.i.i852, %if.then.i225.i890
-  %retval.i218.i577.0 = phi i64 [ %63, %if.then.i225.i890 ], [ %and.i.i867, %if.end14.i.i852 ]
+  %retval.i218.i577.0 = phi i64 [ %64, %if.then.i225.i890 ], [ %and.i.i867, %if.end14.i.i852 ]
   %call19.i167.i871 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1228.0852, ptr noundef nonnull %call7.i160.i833, i64 noundef %retval.i218.i577.0, i1 noundef zeroext false) #19
   br label %imalloc_no_sample.exit1066
 
 if.end35.i154.i824:                               ; preds = %if.then.i216.i911, %if.then22.i213.i908
   %tstats.i155.i825 = getelementptr inbounds i8, ptr %arrayidx.i.i915, i64 8
-  %65 = load i64, ptr %tstats.i155.i825, align 8
-  %inc.i156.i826 = add i64 %65, 1
+  %66 = load i64, ptr %tstats.i155.i825, align 8
+  %inc.i156.i826 = add i64 %66, 1
   store i64 %inc.i156.i826, ptr %tstats.i155.i825, align 8
   br label %imalloc_no_sample.exit1066
 
@@ -6971,7 +6970,7 @@ if.end36.i.i751:                                  ; preds = %land.rhs.i.i912, %i
   br label %imalloc_no_sample.exit1066
 
 imalloc_no_sample.exit1066:                       ; preds = %sz_s2u.exit.i869, %if.end35.i154.i824, %if.then23.i124.i1005, %if.end50.i.i966, %if.end36.i.i751
-  %retval.i52.i643.0 = phi ptr [ %call39.i.i754, %if.end36.i.i751 ], [ %call26.i.i1007, %if.then23.i124.i1005 ], [ %ret.i91.i628.0, %if.end50.i.i966 ], [ %56, %if.end35.i154.i824 ], [ %call19.i167.i871, %sz_s2u.exit.i869 ]
+  %retval.i52.i643.0 = phi ptr [ %call39.i.i754, %if.end36.i.i751 ], [ %call26.i.i1007, %if.then23.i124.i1005 ], [ %ret.i91.i628.0, %if.end50.i.i966 ], [ %57, %if.end35.i154.i824 ], [ %call19.i167.i871, %sz_s2u.exit.i869 ]
   %cmp53.i = icmp eq ptr %retval.i52.i643.0, null
   br i1 %cmp53.i, label %if.then113.i, label %if.end62.i
 
@@ -6989,12 +6988,12 @@ if.end62.i:                                       ; preds = %imalloc_no_sample.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1788 = getelementptr inbounds i8, ptr %retval.i1228.0852, i64 840
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1677, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1788, ptr %next_event_fast.i, align 8
-  %66 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i1681 = add i64 %66, %43
+  %67 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
+  %add.i1681 = add i64 %67, %44
   store i64 %add.i1681, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %67 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
-  %sub.i1683 = sub i64 %67, %66
-  %cmp.i1684 = icmp ult i64 %43, %sub.i1683
+  %68 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
+  %sub.i1683 = sub i64 %68, %67
+  %cmp.i1684 = icmp ult i64 %44, %sub.i1683
   br i1 %cmp.i1684, label %return, label %if.else.i1688
 
 if.else.i1688:                                    ; preds = %if.end62.i
@@ -7007,8 +7006,8 @@ if.then113.i:                                     ; preds = %if.then.i159.i832, 
   br label %return
 
 land.lhs.true8.i:                                 ; preds = %tsd_fetch_impl.exit
-  %68 = load i32, ptr @malloc_init_state, align 4
-  %cmp.i382.not = icmp eq i32 %68, 0
+  %69 = load i32, ptr @malloc_init_state, align 4
+  %cmp.i382.not = icmp eq i32 %69, 0
   br i1 %cmp.i382.not, label %land.lhs.true.i.i360, label %land.lhs.true.i.i63
 
 land.lhs.true.i.i63:                              ; preds = %land.lhs.true8.i
@@ -7021,8 +7020,8 @@ if.then.i62:                                      ; preds = %land.lhs.true.i.i63
   br label %return
 
 land.lhs.true.i.i360:                             ; preds = %land.lhs.true.i.i63, %land.lhs.true8.i
-  %69 = load i8, ptr @opt_zero, align 1
-  %tobool2.i.i361 = trunc i8 %69 to i1
+  %70 = load i8, ptr @opt_zero, align 1
+  %tobool2.i.i361 = trunc i8 %70 to i1
   %cmp.i153.i338 = icmp ult i64 %size, 4097
   br i1 %cmp.i153.i338, label %if.then.i158.i354, label %if.end.i157.i342
 
@@ -7030,8 +7029,8 @@ if.then.i158.i354:                                ; preds = %land.lhs.true.i.i36
   %sub.i200.i356 = add nuw nsw i64 %size, 7
   %shr.i.i357 = lshr i64 %sub.i200.i356, 3
   %arrayidx.i201.i358 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i357
-  %70 = load i8, ptr %arrayidx.i201.i358, align 1
-  %conv.i202.i359 = zext i8 %70 to i32
+  %71 = load i8, ptr %arrayidx.i201.i358, align 1
+  %conv.i202.i359 = zext i8 %71 to i32
   br label %sz_size2index.exit.i344
 
 if.end.i157.i342:                                 ; preds = %land.lhs.true.i.i360
@@ -7041,17 +7040,17 @@ if.end.i157.i342:                                 ; preds = %land.lhs.true.i.i36
 if.end12.i784:                                    ; preds = %if.end.i157.i342
   %shl.i785 = shl nuw i64 %size, 1
   %sub13.i786 = add i64 %shl.i785, -1
-  %71 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i786, i1 true)
-  %72 = trunc nuw nsw i64 %71 to i32
-  %conv1.i.i.i.i787 = shl nuw nsw i32 %72, 2
+  %72 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i786, i1 true)
+  %73 = trunc nuw nsw i64 %72 to i32
+  %conv1.i.i.i.i787 = shl nuw nsw i32 %73, 2
   %sub19.i788 = xor i32 %conv1.i.i.i.i787, 252
-  %sub28.i789 = sub nuw nsw i64 60, %71
+  %sub28.i789 = sub nuw nsw i64 60, %72
   %shl31.i791 = shl nsw i64 -1, %sub28.i789
   %sub32.i792 = add nsw i64 %size, -1
   %and.i793 = and i64 %shl31.i791, %sub32.i792
   %shr.i794 = lshr i64 %and.i793, %sub28.i789
-  %73 = trunc i64 %shr.i794 to i32
-  %conv35.i795 = and i32 %73, 3
+  %74 = trunc i64 %shr.i794 to i32
+  %conv35.i795 = and i32 %74, 3
   %add.i796 = add nsw i32 %sub19.i788, -23
   %add36.i797 = add nuw nsw i32 %add.i796, %conv35.i795
   br label %sz_size2index.exit.i344
@@ -7064,23 +7063,23 @@ sz_size2index.exit.i344:                          ; preds = %if.end12.i784, %if.
 if.end24.i209:                                    ; preds = %sz_size2index.exit.i344
   %conv.i148.i345 = zext nneg i32 %retval.i151.i126.0 to i64
   %arrayidx.i.i352 = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i148.i345
-  %74 = load i64, ptr %arrayidx.i.i352, align 8
+  %75 = load i64, ptr %arrayidx.i.i352, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i2016 = getelementptr inbounds i8, ptr %call13.i, i64 1
-  %75 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i2016, align 1
-  %cmp35.i264 = icmp slt i8 %75, 1
-  %cmp.i161.i218 = icmp ult i64 %74, 14337
+  %76 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i2016, align 1
+  %cmp35.i264 = icmp slt i8 %76, 1
+  %cmp.i161.i218 = icmp ult i64 %75, 14337
   br i1 %cmp35.i264, label %tcache_get_from_ind.exit.i.thread, label %if.else.i24.i
 
 tcache_get_from_ind.exit.i.thread:                ; preds = %if.end24.i209
-  %76 = load i8, ptr %call13.i, align 1
-  %tobool.i1316 = trunc i8 %76 to i1
+  %77 = load i8, ptr %call13.i, align 1
+  %tobool.i1316 = trunc i8 %77 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1258 = getelementptr inbounds i8, ptr %call13.i, i64 864
   br i1 %tobool.i1316, label %if.then.i67.i, label %if.end36.i.i
 
 if.else.i24.i:                                    ; preds = %if.end24.i209
-  %77 = load atomic i64, ptr @arenas acquire, align 64
-  %78 = inttoptr i64 %77 to ptr
-  %cmp.i800 = icmp eq i64 %77, 0
+  %78 = load atomic i64, ptr @arenas acquire, align 64
+  %79 = inttoptr i64 %78 to ptr
+  %cmp.i800 = icmp eq i64 %78, 0
   br i1 %cmp.i800, label %if.then3.i801, label %arena_get.exit
 
 if.then3.i801:                                    ; preds = %if.else.i24.i
@@ -7094,33 +7093,33 @@ if.then.i.i:                                      ; preds = %if.then3.i801
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then3.i801
-  %79 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %inc.i.i.i = add i64 %79, 1
+  %80 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
+  %inc.i.i.i = add i64 %80, 1
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 56), align 8
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %cmp.not.i.i.i = icmp eq ptr %80, %call13.i
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
+  %cmp.not.i.i.i = icmp eq ptr %81, %call13.i
   br i1 %cmp.not.i.i.i, label %malloc_mutex_lock.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   store ptr %call13.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 48), align 8
-  %81 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
-  %inc2.i.i.i = add i64 %81, 1
+  %82 = load i64, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
+  %inc2.i.i.i = add i64 %82, 1
   store i64 %inc2.i.i.i, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 40), align 8
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
-  %82 = load atomic i32, ptr @narenas_total acquire, align 4
-  %cmp1.i.i = icmp eq i32 %82, 0
+  %83 = load atomic i32, ptr @narenas_total acquire, align 4
+  %cmp1.i.i = icmp eq i32 %83, 0
   br i1 %cmp1.i.i, label %if.then2.i.i803, label %if.end3.i.i
 
 if.then2.i.i803:                                  ; preds = %malloc_mutex_lock.exit.i
-  %83 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
+  %84 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
   br label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then2.i.i803, %malloc_mutex_lock.exit.i
-  %84 = load atomic i64, ptr @arenas acquire, align 64
-  %85 = inttoptr i64 %84 to ptr
-  %cmp5.not.i.i = icmp eq i64 %84, 0
+  %85 = load atomic i64, ptr @arenas acquire, align 64
+  %86 = inttoptr i64 %85 to ptr
+  %cmp5.not.i.i = icmp eq i64 %85, 0
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init_locked.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
@@ -7128,19 +7127,19 @@ if.end9.i.i:                                      ; preds = %if.end3.i.i
   br label %arena_init_locked.exit.i
 
 arena_init_locked.exit.i:                         ; preds = %if.end9.i.i, %if.end3.i.i
-  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %85, %if.end3.i.i ]
+  %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %86, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 64) monotonic, align 8
   %call1.i.i802 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 72)) #19
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i24.i, %arena_init_locked.exit.i
-  %ret.0.i = phi ptr [ %78, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
+  %ret.0.i = phi ptr [ %79, %if.else.i24.i ], [ %retval.0.i.i, %arena_init_locked.exit.i ]
   %cmp2.i.i473 = icmp eq ptr %ret.0.i, null
   br i1 %cmp2.i.i473, label %arena_get_from_ind.exit.i, label %if.end36.i.i
 
 arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit
-  %86 = load i32, ptr @narenas_auto, align 4
-  %cmp4.i.i = icmp eq i32 %86, 0
+  %87 = load i32, ptr @narenas_auto, align 4
+  %cmp4.i.i = icmp eq i32 %87, 0
   br i1 %cmp4.i.i, label %if.then113.i259, label %if.end36.i.i
 
 if.then.i67.i:                                    ; preds = %tcache_get_from_ind.exit.i.thread
@@ -7149,14 +7148,14 @@ if.then.i67.i:                                    ; preds = %tcache_get_from_ind
 if.then11.i.i:                                    ; preds = %if.then.i67.i
   %bins.i94.i = getelementptr inbounds i8, ptr %call13.i, i64 872
   %arrayidx.i96.i = getelementptr inbounds [73 x %struct.cache_bin_s], ptr %bins.i94.i, i64 0, i64 %conv.i148.i345
-  %87 = load ptr, ptr %arrayidx.i96.i, align 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = ptrtoint ptr %87 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = load ptr, ptr %arrayidx.i96.i, align 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = ptrtoint ptr %88 to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %88, i64 8
   %low_bits_low_water.i.i = getelementptr inbounds i8, ptr %arrayidx.i96.i, i64 16
-  %90 = load i16, ptr %low_bits_low_water.i.i, align 8
-  %91 = trunc i64 %89 to i16
-  %cmp.i178.i.not = icmp eq i16 %90, %91
+  %91 = load i16, ptr %low_bits_low_water.i.i, align 8
+  %92 = trunc i64 %90 to i16
+  %cmp.i178.i.not = icmp eq i16 %91, %92
   br i1 %cmp.i178.i.not, label %if.end11.i.i525, label %if.then.i184.i
 
 if.then.i184.i:                                   ; preds = %if.then11.i.i
@@ -7165,14 +7164,14 @@ if.then.i184.i:                                   ; preds = %if.then11.i.i
 
 if.end11.i.i525:                                  ; preds = %if.then11.i.i
   %low_bits_empty.i.i = getelementptr inbounds i8, ptr %arrayidx.i96.i, i64 20
-  %92 = load i16, ptr %low_bits_empty.i.i, align 4
-  %cmp14.i.i.not = icmp eq i16 %92, %90
+  %93 = load i16, ptr %low_bits_empty.i.i, align 4
+  %cmp14.i.i.not = icmp eq i16 %93, %91
   br i1 %cmp14.i.i.not, label %if.then.i105.i, label %if.then22.i183.i
 
 if.then22.i183.i:                                 ; preds = %if.end11.i.i525
   store ptr %add.ptr.i.i, ptr %arrayidx.i96.i, align 8
-  %93 = ptrtoint ptr %add.ptr.i.i to i64
-  %conv24.i.i = trunc i64 %93 to i16
+  %94 = ptrtoint ptr %add.ptr.i.i to i64
+  %conv24.i.i = trunc i64 %94 to i16
   store i16 %conv24.i.i, ptr %low_bits_low_water.i.i, align 8
   br label %if.end36.i103.i
 
@@ -7193,31 +7192,31 @@ if.then23.i124.i:                                 ; preds = %if.end.i107.i
 if.end27.i.i:                                     ; preds = %if.end.i107.i
   tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1258, ptr noundef nonnull %arrayidx.i96.i, i32 noundef %retval.i151.i126.0, i1 noundef zeroext true) #19
   %call29.i123.i = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1258, ptr noundef nonnull %arrayidx.i96.i, i32 noundef %retval.i151.i126.0, ptr noundef nonnull %tcache_hard_success.i.i) #19
-  %94 = load i8, ptr %tcache_hard_success.i.i, align 1
-  %95 = and i8 %94, 1
-  %cmp32.i.i = icmp eq i8 %95, 0
+  %95 = load i8, ptr %tcache_hard_success.i.i, align 1
+  %96 = and i8 %95, 1
+  %cmp32.i.i = icmp eq i8 %96, 0
   br i1 %cmp32.i.i, label %if.then113.i259, label %if.end36.i103.i
 
 if.end36.i103.i:                                  ; preds = %if.then22.i183.i, %if.then.i184.i, %if.end27.i.i
-  %ret.i91.i.0 = phi ptr [ %call29.i123.i, %if.end27.i.i ], [ %88, %if.then.i184.i ], [ %88, %if.then22.i183.i ]
+  %ret.i91.i.0 = phi ptr [ %call29.i123.i, %if.end27.i.i ], [ %89, %if.then.i184.i ], [ %89, %if.then22.i183.i ]
   br i1 %tobool2.i.i361, label %if.then46.i.i, label %if.end50.i.i
 
 if.then46.i.i:                                    ; preds = %if.end36.i103.i
-  %96 = load i64, ptr %arrayidx.i.i352, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %ret.i91.i.0, i8 0, i64 %96, i1 false)
+  %97 = load i64, ptr %arrayidx.i.i352, align 8
+  call void @llvm.memset.p0.i64(ptr align 1 %ret.i91.i.0, i8 0, i64 %97, i1 false)
   br label %if.end50.i.i
 
 if.end50.i.i:                                     ; preds = %if.then46.i.i, %if.end36.i103.i
   %tstats.i.i = getelementptr inbounds i8, ptr %arrayidx.i96.i, i64 8
-  %97 = load i64, ptr %tstats.i.i, align 8
-  %inc.i.i522 = add i64 %97, 1
+  %98 = load i64, ptr %tstats.i.i, align 8
+  %inc.i.i522 = add i64 %98, 1
   store i64 %inc.i.i522, ptr %tstats.i.i, align 8
   br label %imalloc_no_sample.exit
 
 if.else.i69.i:                                    ; preds = %if.then.i67.i
-  %98 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1258, align 8
-  %99 = getelementptr i8, ptr %98, i64 48
-  %.val769 = load i32, ptr %99, align 8
+  %99 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1258, align 8
+  %100 = getelementptr i8, ptr %99, i64 48
+  %.val769 = load i32, ptr %100, align 8
   %cmp18.i70.i = icmp ult i32 %retval.i151.i126.0, %.val769
   br i1 %cmp18.i70.i, label %land.rhs.i.i, label %if.end36.i.i
 
@@ -7229,13 +7228,13 @@ land.rhs.i.i:                                     ; preds = %if.else.i69.i
   br i1 %cmp.i805, label %if.end36.i.i, label %if.then30.i.i
 
 if.then30.i.i:                                    ; preds = %land.rhs.i.i
-  %100 = load ptr, ptr %arrayidx.i.i521.val, align 8
-  %101 = ptrtoint ptr %arrayidx.i.i521.val to i64
+  %101 = load ptr, ptr %arrayidx.i.i521.val, align 8
+  %102 = ptrtoint ptr %arrayidx.i.i521.val to i64
   %add.ptr.i193.i = getelementptr inbounds i8, ptr %arrayidx.i.i521.val, i64 8
   %low_bits_low_water.i195.i = getelementptr inbounds i8, ptr %arrayidx.i.i521, i64 16
-  %102 = load i16, ptr %low_bits_low_water.i195.i, align 8
-  %103 = trunc i64 %101 to i16
-  %cmp.i197.i.not = icmp eq i16 %102, %103
+  %103 = load i16, ptr %low_bits_low_water.i195.i, align 8
+  %104 = trunc i64 %102 to i16
+  %cmp.i197.i.not = icmp eq i16 %103, %104
   br i1 %cmp.i197.i.not, label %if.end11.i204.i, label %if.then.i216.i
 
 if.then.i216.i:                                   ; preds = %if.then30.i.i
@@ -7244,14 +7243,14 @@ if.then.i216.i:                                   ; preds = %if.then30.i.i
 
 if.end11.i204.i:                                  ; preds = %if.then30.i.i
   %low_bits_empty.i206.i = getelementptr inbounds i8, ptr %arrayidx.i.i521, i64 20
-  %104 = load i16, ptr %low_bits_empty.i206.i, align 4
-  %cmp14.i208.i.not = icmp eq i16 %104, %102
+  %105 = load i16, ptr %low_bits_empty.i206.i, align 4
+  %cmp14.i208.i.not = icmp eq i16 %105, %103
   br i1 %cmp14.i208.i.not, label %if.then.i159.i, label %if.then22.i213.i
 
 if.then22.i213.i:                                 ; preds = %if.end11.i204.i
   store ptr %add.ptr.i193.i, ptr %arrayidx.i.i521, align 8
-  %105 = ptrtoint ptr %add.ptr.i193.i to i64
-  %conv24.i214.i = trunc i64 %105 to i16
+  %106 = ptrtoint ptr %add.ptr.i193.i to i64
+  %conv24.i214.i = trunc i64 %106 to i16
   store i16 %conv24.i214.i, ptr %low_bits_low_water.i195.i, align 8
   br label %if.else.i153.i
 
@@ -7268,17 +7267,17 @@ if.then.i225.i:                                   ; preds = %if.end.i165.i
   %sub.i266.i = add nuw nsw i64 %size, 7
   %shr.i.i519 = lshr i64 %sub.i266.i, 3
   %arrayidx.i267.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i519
-  %106 = load i8, ptr %arrayidx.i267.i, align 1
-  %idxprom.i262.i = zext i8 %106 to i64
+  %107 = load i8, ptr %arrayidx.i267.i, align 1
+  %idxprom.i262.i = zext i8 %107 to i64
   %arrayidx.i263.i = getelementptr inbounds [232 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i262.i
-  %107 = load i64, ptr %arrayidx.i263.i, align 8
+  %108 = load i64, ptr %arrayidx.i263.i, align 8
   br label %sz_s2u.exit.i506
 
 if.end14.i.i490:                                  ; preds = %if.end.i165.i
   %shl15.i.i491 = shl nuw i64 %size, 1
   %sub.i.i492 = add i64 %shl15.i.i491, -1
-  %108 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i492, i1 true)
-  %sub23.i.i497 = sub nuw nsw i64 60, %108
+  %109 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i492, i1 true)
+  %sub23.i.i497 = sub nuw nsw i64 60, %109
   %notmask = shl nsw i64 -1, %sub23.i.i497
   %sub27.i.i501 = xor i64 %notmask, -1
   %add.i.i502 = add nuw nsw i64 %size, %sub27.i.i501
@@ -7286,7 +7285,7 @@ if.end14.i.i490:                                  ; preds = %if.end.i165.i
   br label %sz_s2u.exit.i506
 
 sz_s2u.exit.i506:                                 ; preds = %if.end14.i.i490, %if.then.i225.i
-  %retval.i218.i.0 = phi i64 [ %107, %if.then.i225.i ], [ %and.i.i504, %if.end14.i.i490 ]
+  %retval.i218.i.0 = phi i64 [ %108, %if.then.i225.i ], [ %and.i.i504, %if.end14.i.i490 ]
   %call19.i167.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i160.i, i64 noundef %retval.i218.i.0, i1 noundef zeroext %tobool2.i.i361) #19
   br label %imalloc_no_sample.exit
 
@@ -7294,14 +7293,14 @@ if.else.i153.i:                                   ; preds = %if.then.i216.i, %if
   br i1 %tobool2.i.i361, label %if.then31.i.i, label %if.end35.i154.i
 
 if.then31.i.i:                                    ; preds = %if.else.i153.i
-  %109 = load i64, ptr %arrayidx.i.i352, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %100, i8 0, i64 %109, i1 false)
+  %110 = load i64, ptr %arrayidx.i.i352, align 8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %101, i8 0, i64 %110, i1 false)
   br label %if.end35.i154.i
 
 if.end35.i154.i:                                  ; preds = %if.then31.i.i, %if.else.i153.i
   %tstats.i155.i = getelementptr inbounds i8, ptr %arrayidx.i.i521, i64 8
-  %110 = load i64, ptr %tstats.i155.i, align 8
-  %inc.i156.i = add i64 %110, 1
+  %111 = load i64, ptr %tstats.i155.i, align 8
+  %inc.i156.i = add i64 %111, 1
   store i64 %inc.i156.i, ptr %tstats.i155.i, align 8
   br label %imalloc_no_sample.exit
 
@@ -7311,7 +7310,7 @@ if.end36.i.i:                                     ; preds = %arena_get.exit, %tc
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i506, %if.end35.i154.i, %if.then23.i124.i, %if.end50.i.i, %if.end36.i.i
-  %retval.i461.0 = phi ptr [ %call39.i.i, %if.end36.i.i ], [ %call26.i.i, %if.then23.i124.i ], [ %ret.i91.i.0, %if.end50.i.i ], [ %100, %if.end35.i154.i ], [ %call19.i167.i, %sz_s2u.exit.i506 ]
+  %retval.i461.0 = phi ptr [ %call39.i.i, %if.end36.i.i ], [ %call26.i.i, %if.then23.i124.i ], [ %ret.i91.i.0, %if.end50.i.i ], [ %101, %if.end35.i154.i ], [ %call19.i167.i, %sz_s2u.exit.i506 ]
   %cmp53.i220 = icmp eq ptr %retval.i461.0, null
   br i1 %cmp53.i220, label %if.then113.i259, label %if.end62.i224
 
@@ -7329,12 +7328,12 @@ if.end62.i224:                                    ; preds = %imalloc_no_sample.e
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %call13.i, i64 840
   %next_event_fast.i1744 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, ptr %next_event_fast.i1744, align 8
-  %111 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1737, align 8
-  %add.i1665 = add i64 %111, %74
+  %112 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1737, align 8
+  %add.i1665 = add i64 %112, %75
   store i64 %add.i1665, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1737, align 8
-  %112 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1825, align 8
-  %sub.i1666 = sub i64 %112, %111
-  %cmp.i1667 = icmp ult i64 %74, %sub.i1666
+  %113 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1825, align 8
+  %sub.i1666 = sub i64 %113, %112
+  %cmp.i1667 = icmp ult i64 %75, %sub.i1666
   br i1 %cmp.i1667, label %land.lhs.true70.i232, label %if.else.i1671
 
 if.else.i1671:                                    ; preds = %if.end62.i224
@@ -7345,12 +7344,12 @@ land.lhs.true70.i232:                             ; preds = %if.else.i1671, %if.
   br i1 %tobool2.i.i361, label %if.then18, label %land.lhs.true73.i235
 
 land.lhs.true73.i235:                             ; preds = %land.lhs.true70.i232
-  %113 = load i8, ptr @opt_junk_alloc, align 1
-  %tobool74.i236 = trunc i8 %113 to i1
+  %114 = load i8, ptr @opt_junk_alloc, align 1
+  %tobool74.i236 = trunc i8 %114 to i1
   br i1 %tobool74.i236, label %if.then81.i240, label %if.then18
 
 if.then81.i240:                                   ; preds = %land.lhs.true73.i235
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.i461.0, i8 -91, i64 %74, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.i461.0, i8 -91, i64 %75, i1 false)
   br label %if.then18
 
 if.then113.i259:                                  ; preds = %if.then.i159.i, %if.end27.i.i, %if.then.i105.i, %arena_get_from_ind.exit.i, %if.end.i157.i342, %sz_size2index.exit.i344, %imalloc_no_sample.exit
@@ -7360,14 +7359,14 @@ if.then113.i259:                                  ; preds = %if.then.i159.i, %if
 
 if.then18:                                        ; preds = %land.lhs.true70.i232, %land.lhs.true73.i235, %if.then81.i240, %if.then113.i259
   %ret15.0.ph = phi ptr [ %retval.i461.0, %land.lhs.true70.i232 ], [ %retval.i461.0, %land.lhs.true73.i235 ], [ %retval.i461.0, %if.then81.i240 ], [ null, %if.then113.i259 ]
-  %114 = ptrtoint ptr %ptr to i64
-  store i64 %114, ptr %args, align 16
+  %115 = ptrtoint ptr %ptr to i64
+  store i64 %115, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store i64 %size, ptr %arrayinit.element, align 8
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
-  %115 = ptrtoint ptr %ret15.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 8, ptr noundef %ret15.0.ph, i64 noundef %115, ptr noundef nonnull %args) #19
+  %116 = ptrtoint ptr %ret15.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 8, ptr noundef %ret15.0.ph, i64 noundef %116, ptr noundef nonnull %args) #19
   br label %return
 
 return:                                           ; preds = %if.then.i62, %if.end62.i, %if.else.i1688, %if.then113.i, %if.then18, %do_realloc_nonnull_zero.exit, %if.then
@@ -7608,12 +7607,12 @@ if.then11.i:                                      ; preds = %entry
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext true) #19
   %state.i1514.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 824
   %.pre = load i8, ptr %state.i1514.phi.trans.insert, align 8
+  %2 = icmp eq i8 %.pre, 0
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry, %if.then11.i
-  %2 = phi i8 [ %.pre, %if.then11.i ], [ 0, %entry ]
+  %cmp.i = phi i1 [ %2, %if.then11.i ], [ true, %entry ]
   %retval.i1521.0 = phi ptr [ %call13.i, %if.then11.i ], [ %0, %entry ]
-  %cmp.i = icmp eq i8 %2, 0
   %and.i = and i32 %flags, 1048320
   switch i32 %and.i, label %mallocx_tcache_get.exit [
     i32 0, label %if.then.i25
@@ -8005,12 +8004,12 @@ if.then11.i:                                      ; preds = %entry
   %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext true) #19
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 824
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
+  %2 = icmp eq i8 %.pre, 0
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry, %if.then11.i
-  %2 = phi i8 [ %.pre, %if.then11.i ], [ 0, %entry ]
+  %cmp.i = phi i1 [ %2, %if.then11.i ], [ true, %entry ]
   %retval.i224.0 = phi ptr [ %call13.i, %if.then11.i ], [ %0, %entry ]
-  %cmp.i = icmp eq i8 %2, 0
   %and.i39 = and i32 %flags, 63
   %sh_prom.i = zext nneg i32 %and.i39 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -10868,8 +10867,8 @@ land.lhs.true327:                                 ; preds = %if.then306
   store ptr %31, ptr @opt_dss, align 8
   %33 = load i8, ptr @opt_confirm_conf, align 1
   %tobool328 = trunc i8 %33 to i1
-  %34 = select i1 %tobool328, i1 %cur_opt_valid.72190, i1 false
-  br i1 %34, label %if.then333, label %while.cond.backedge
+  %brmerge.not = select i1 %tobool328, i1 %cur_opt_valid.72190, i1 false
+  br i1 %brmerge.not, label %if.then333, label %while.cond.backedge
 
 if.then333:                                       ; preds = %land.lhs.true327
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv.i431, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i432, ptr noundef nonnull %incdec.ptr2.i) #19
@@ -10895,8 +10894,8 @@ land.lhs.true347:                                 ; preds = %if.then344
 
 if.then351:                                       ; preds = %land.lhs.true347
   store i32 0, ptr @opt_narenas, align 4
-  %35 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool354 = trunc i8 %35 to i1
+  %34 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool354 = trunc i8 %34 to i1
   br i1 %tobool354, label %if.then359, label %while.cond.backedge
 
 if.then359:                                       ; preds = %if.then351
@@ -10907,14 +10906,14 @@ if.then370:                                       ; preds = %land.lhs.true347, %
   %call.i443 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i443, align 4
   %call371 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end, i32 noundef 0) #19
-  %36 = load i32, ptr %call.i443, align 4
-  %cmp373.not = icmp eq i32 %36, 0
+  %35 = load i32, ptr %call.i443, align 4
+  %cmp373.not = icmp eq i32 %35, 0
   br i1 %cmp373.not, label %lor.lhs.false, label %if.then379
 
 lor.lhs.false:                                    ; preds = %if.then370
-  %37 = load ptr, ptr %end, align 8
-  %38 = ptrtoint ptr %37 to i64
-  %sub = sub i64 %38, %12
+  %36 = load ptr, ptr %end, align 8
+  %37 = ptrtoint ptr %36 to i64
+  %sub = sub i64 %37, %12
   %cmp375.not = icmp eq i64 %sub, %vlen.4
   br i1 %cmp375.not, label %if.else381, label %if.then379
 
@@ -10947,8 +10946,8 @@ if.end.i455:                                      ; preds = %if.then386
 land.lhs.true393:                                 ; preds = %if.else381
   %conv389 = trunc i64 %call371 to i32
   store i32 %conv389, ptr @opt_narenas, align 4
-  %39 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool394 = trunc i8 %39 to i1
+  %38 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool394 = trunc i8 %38 to i1
   br i1 %tobool394, label %if.then399, label %while.cond.backedge
 
 if.then399:                                       ; preds = %land.lhs.true393
@@ -10969,8 +10968,8 @@ if.then412:                                       ; preds = %land.lhs.true408
   br i1 %call414, label %if.then423, label %lor.lhs.false418
 
 lor.lhs.false418:                                 ; preds = %if.then412
-  %40 = load ptr, ptr %end413, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %40 to i64
+  %39 = load ptr, ptr %end413, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %39 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %12
   %cmp419.not = icmp eq i64 %sub.ptr.sub, %vlen.4
   br i1 %cmp419.not, label %land.lhs.true427, label %if.then423
@@ -10988,8 +10987,8 @@ if.end.i461:                                      ; preds = %if.then423
   br label %while.cond.backedge
 
 land.lhs.true427:                                 ; preds = %lor.lhs.false418
-  %41 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool428 = trunc i8 %41 to i1
+  %40 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool428 = trunc i8 %40 to i1
   br i1 %tobool428, label %if.then433, label %while.cond.backedge
 
 if.then433:                                       ; preds = %land.lhs.true427
@@ -11016,10 +11015,10 @@ do.body:                                          ; preds = %do.cond, %if.then44
   br i1 %call446, label %if.then455, label %lor.lhs.false450
 
 lor.lhs.false450:                                 ; preds = %do.body
-  %42 = load i64, ptr %size_start, align 8
-  %43 = load i64, ptr %size_end, align 8
-  %44 = load i64, ptr %nshards, align 8
-  %call451 = call zeroext i1 @bin_update_shard_size(ptr noundef %bin_shard_sizes, i64 noundef %42, i64 noundef %43, i64 noundef %44) #19
+  %41 = load i64, ptr %size_start, align 8
+  %42 = load i64, ptr %size_end, align 8
+  %43 = load i64, ptr %nshards, align 8
+  %call451 = call zeroext i1 @bin_update_shard_size(ptr noundef %bin_shard_sizes, i64 noundef %41, i64 noundef %42, i64 noundef %43) #19
   br i1 %call451, label %if.then455, label %do.cond
 
 if.then455:                                       ; preds = %do.body, %lor.lhs.false450
@@ -11035,13 +11034,13 @@ if.end.i467:                                      ; preds = %if.then455
   br label %while.cond.backedge
 
 do.cond:                                          ; preds = %lor.lhs.false450
-  %45 = load i64, ptr %vlen_left, align 8
-  %cmp458.not = icmp eq i64 %45, 0
+  %44 = load i64, ptr %vlen_left, align 8
+  %cmp458.not = icmp eq i64 %44, 0
   br i1 %cmp458.not, label %land.lhs.true461, label %do.body, !llvm.loop !26
 
 land.lhs.true461:                                 ; preds = %do.cond
-  %46 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool462 = trunc i8 %46 to i1
+  %45 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool462 = trunc i8 %45 to i1
   br i1 %tobool462, label %if.then467, label %while.cond.backedge
 
 if.then467:                                       ; preds = %land.lhs.true461
@@ -11075,8 +11074,8 @@ if.end.i473:                                      ; preds = %if.then485
   br label %while.cond.backedge
 
 land.lhs.true489:                                 ; preds = %if.then478
-  %47 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool490 = trunc i8 %47 to i1
+  %46 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool490 = trunc i8 %46 to i1
   br i1 %tobool490, label %if.then495, label %while.cond.backedge
 
 if.then495:                                       ; preds = %land.lhs.true489
@@ -11103,14 +11102,14 @@ if.then506:                                       ; preds = %land.lhs.true502
   %call.i475 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i475, align 4
   %call509 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end508, i32 noundef 0) #19
-  %48 = load i32, ptr %call.i475, align 4
-  %cmp511.not = icmp eq i32 %48, 0
+  %47 = load i32, ptr %call.i475, align 4
+  %cmp511.not = icmp eq i32 %47, 0
   br i1 %cmp511.not, label %lor.lhs.false513, label %if.then519
 
 lor.lhs.false513:                                 ; preds = %if.then506
-  %49 = load ptr, ptr %end508, align 8
-  %50 = ptrtoint ptr %49 to i64
-  %sub514 = sub i64 %50, %12
+  %48 = load ptr, ptr %end508, align 8
+  %49 = ptrtoint ptr %48 to i64
+  %sub514 = sub i64 %49, %12
   %cmp515.not = icmp eq i64 %sub514, %vlen.4
   br i1 %cmp515.not, label %if.else521, label %if.then519
 
@@ -11142,8 +11141,8 @@ if.end.i487:                                      ; preds = %if.then526
 
 land.lhs.true532:                                 ; preds = %if.else521
   store i64 %call509, ptr @opt_mutex_max_spin, align 8
-  %51 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool533 = trunc i8 %51 to i1
+  %50 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool533 = trunc i8 %50 to i1
   br i1 %tobool533, label %if.then538, label %while.cond.backedge
 
 if.then538:                                       ; preds = %land.lhs.true532
@@ -11160,14 +11159,14 @@ if.then549:                                       ; preds = %land.lhs.true545
   %call.i489 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i489, align 4
   %call552 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end551, i32 noundef 0) #19
-  %52 = load i32, ptr %call.i489, align 4
-  %cmp554.not = icmp eq i32 %52, 0
+  %51 = load i32, ptr %call.i489, align 4
+  %cmp554.not = icmp eq i32 %51, 0
   br i1 %cmp554.not, label %lor.lhs.false556, label %if.then562
 
 lor.lhs.false556:                                 ; preds = %if.then549
-  %53 = load ptr, ptr %end551, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %sub557 = sub i64 %54, %12
+  %52 = load ptr, ptr %end551, align 8
+  %53 = ptrtoint ptr %52 to i64
+  %sub557 = sub i64 %53, %12
   %cmp558.not = icmp eq i64 %sub557, %vlen.4
   br i1 %cmp558.not, label %if.else564, label %if.then562
 
@@ -11183,8 +11182,8 @@ if.end.i495:                                      ; preds = %if.then562
   br label %while.cond.backedge
 
 if.else564:                                       ; preds = %lor.lhs.false556
-  %55 = add i64 %call552, -18446744072001
-  %or.cond = icmp ult i64 %55, -18446744072002
+  %54 = add i64 %call552, -18446744072001
+  %or.cond = icmp ult i64 %54, -18446744072002
   br i1 %or.cond, label %if.then572, label %land.lhs.true578
 
 if.then572:                                       ; preds = %if.else564
@@ -11200,8 +11199,8 @@ if.end.i501:                                      ; preds = %if.then572
 
 land.lhs.true578:                                 ; preds = %if.else564
   store i64 %call552, ptr @opt_dirty_decay_ms, align 8
-  %56 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool579 = trunc i8 %56 to i1
+  %55 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool579 = trunc i8 %55 to i1
   br i1 %tobool579, label %if.then584, label %while.cond.backedge
 
 if.then584:                                       ; preds = %land.lhs.true578
@@ -11218,14 +11217,14 @@ if.then595:                                       ; preds = %land.lhs.true591
   %call.i503 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i503, align 4
   %call598 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end597, i32 noundef 0) #19
-  %57 = load i32, ptr %call.i503, align 4
-  %cmp600.not = icmp eq i32 %57, 0
+  %56 = load i32, ptr %call.i503, align 4
+  %cmp600.not = icmp eq i32 %56, 0
   br i1 %cmp600.not, label %lor.lhs.false602, label %if.then608
 
 lor.lhs.false602:                                 ; preds = %if.then595
-  %58 = load ptr, ptr %end597, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %sub603 = sub i64 %59, %12
+  %57 = load ptr, ptr %end597, align 8
+  %58 = ptrtoint ptr %57 to i64
+  %sub603 = sub i64 %58, %12
   %cmp604.not = icmp eq i64 %sub603, %vlen.4
   br i1 %cmp604.not, label %if.else610, label %if.then608
 
@@ -11241,8 +11240,8 @@ if.end.i509:                                      ; preds = %if.then608
   br label %while.cond.backedge
 
 if.else610:                                       ; preds = %lor.lhs.false602
-  %60 = add i64 %call598, -18446744072001
-  %or.cond1 = icmp ult i64 %60, -18446744072002
+  %59 = add i64 %call598, -18446744072001
+  %or.cond1 = icmp ult i64 %59, -18446744072002
   br i1 %or.cond1, label %if.then618, label %land.lhs.true624
 
 if.then618:                                       ; preds = %if.else610
@@ -11258,8 +11257,8 @@ if.end.i515:                                      ; preds = %if.then618
 
 land.lhs.true624:                                 ; preds = %if.else610
   store i64 %call598, ptr @opt_muzzy_decay_ms, align 8
-  %61 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool625 = trunc i8 %61 to i1
+  %60 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool625 = trunc i8 %60 to i1
   br i1 %tobool625, label %if.then630, label %while.cond.backedge
 
 if.then630:                                       ; preds = %land.lhs.true624
@@ -11302,8 +11301,8 @@ if.end.i521:                                      ; preds = %if.then659
 land.lhs.true664:                                 ; preds = %land.lhs.true652, %land.lhs.true644
   %storemerge2147 = phi i8 [ 1, %land.lhs.true644 ], [ 0, %land.lhs.true652 ]
   store i8 %storemerge2147, ptr @opt_stats_print, align 1
-  %62 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool665 = trunc i8 %62 to i1
+  %61 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool665 = trunc i8 %61 to i1
   br i1 %tobool665, label %if.then670, label %while.cond.backedge
 
 if.then670:                                       ; preds = %land.lhs.true664
@@ -11328,8 +11327,8 @@ for.body.i524:                                    ; preds = %for.inc.i, %for.bod
   %i.013.i = phi i64 [ %inc20.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
   %opts_len.012.i = phi i64 [ %opts_len.1.i, %for.inc.i ], [ %call.i523, %for.body.preheader.i ]
   %arrayidx.i525 = getelementptr inbounds i8, ptr %incdec.ptr2.i, i64 %i.013.i
-  %63 = load i8, ptr %arrayidx.i525, align 1
-  switch i8 %63, label %for.inc.i [
+  %62 = load i8, ptr %arrayidx.i525, align 1
+  switch i8 %62, label %for.inc.i [
     i8 74, label %sw.epilog.i526
     i8 103, label %sw.epilog.i526
     i8 109, label %sw.epilog.i526
@@ -11343,7 +11342,7 @@ for.body.i524:                                    ; preds = %for.inc.i, %for.bod
   ]
 
 sw.epilog.i526:                                   ; preds = %for.body.i524, %for.body.i524, %for.body.i524, %for.body.i524, %for.body.i524, %for.body.i524, %for.body.i524, %for.body.i524, %for.body.i524, %for.body.i524
-  %conv11.i = zext nneg i8 %63 to i32
+  %conv11.i = zext nneg i8 %62 to i32
   %call12.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @opt_stats_print_opts, i32 noundef %conv11.i) #23
   %cmp13.not.i = icmp eq ptr %call12.i, null
   br i1 %cmp13.not.i, label %if.end.i527, label %for.inc.i
@@ -11351,7 +11350,7 @@ sw.epilog.i526:                                   ; preds = %for.body.i524, %for
 if.end.i527:                                      ; preds = %sw.epilog.i526
   %inc.i = add i64 %opts_len.012.i, 1
   %arrayidx16.i = getelementptr inbounds i8, ptr @opt_stats_print_opts, i64 %opts_len.012.i
-  store i8 %63, ptr %arrayidx16.i, align 1
+  store i8 %62, ptr %arrayidx16.i, align 1
   %arrayidx17.i = getelementptr inbounds i8, ptr @opt_stats_print_opts, i64 %inc.i
   store i8 0, ptr %arrayidx17.i, align 1
   br label %for.inc.i
@@ -11363,8 +11362,8 @@ for.inc.i:                                        ; preds = %if.end.i527, %sw.ep
   br i1 %exitcond.not.i, label %init_opt_stats_opts.exit, label %for.body.i524, !llvm.loop !27
 
 init_opt_stats_opts.exit:                         ; preds = %for.inc.i, %if.then681
-  %64 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool684 = trunc i8 %64 to i1
+  %63 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool684 = trunc i8 %63 to i1
   br i1 %tobool684, label %if.then689, label %while.cond.backedge
 
 if.then689:                                       ; preds = %init_opt_stats_opts.exit
@@ -11381,14 +11380,14 @@ if.then700:                                       ; preds = %land.lhs.true696
   %call.i528 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i528, align 4
   %call703 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end702, i32 noundef 0) #19
-  %65 = load i32, ptr %call.i528, align 4
-  %cmp705.not = icmp eq i32 %65, 0
+  %64 = load i32, ptr %call.i528, align 4
+  %cmp705.not = icmp eq i32 %64, 0
   br i1 %cmp705.not, label %lor.lhs.false707, label %if.then713
 
 lor.lhs.false707:                                 ; preds = %if.then700
-  %66 = load ptr, ptr %end702, align 8
-  %67 = ptrtoint ptr %66 to i64
-  %sub708 = sub i64 %67, %12
+  %65 = load ptr, ptr %end702, align 8
+  %66 = ptrtoint ptr %65 to i64
+  %sub708 = sub i64 %66, %12
   %cmp709.not = icmp eq i64 %sub708, %vlen.4
   br i1 %cmp709.not, label %if.else715, label %if.then713
 
@@ -11420,8 +11419,8 @@ if.end.i540:                                      ; preds = %if.then720
 
 land.lhs.true726:                                 ; preds = %if.else715
   store i64 %call703, ptr @opt_stats_interval, align 8
-  %68 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool727 = trunc i8 %68 to i1
+  %67 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool727 = trunc i8 %67 to i1
   br i1 %tobool727, label %if.then732, label %while.cond.backedge
 
 if.then732:                                       ; preds = %land.lhs.true726
@@ -11446,8 +11445,8 @@ for.body.i545:                                    ; preds = %for.inc.i553, %for.
   %i.013.i546 = phi i64 [ %inc20.i555, %for.inc.i553 ], [ 0, %for.body.preheader.i543 ]
   %opts_len.012.i547 = phi i64 [ %opts_len.1.i554, %for.inc.i553 ], [ %call.i544, %for.body.preheader.i543 ]
   %arrayidx.i548 = getelementptr inbounds i8, ptr %incdec.ptr2.i, i64 %i.013.i546
-  %69 = load i8, ptr %arrayidx.i548, align 1
-  switch i8 %69, label %for.inc.i553 [
+  %68 = load i8, ptr %arrayidx.i548, align 1
+  switch i8 %68, label %for.inc.i553 [
     i8 74, label %sw.epilog.i549
     i8 103, label %sw.epilog.i549
     i8 109, label %sw.epilog.i549
@@ -11461,7 +11460,7 @@ for.body.i545:                                    ; preds = %for.inc.i553, %for.
   ]
 
 sw.epilog.i549:                                   ; preds = %for.body.i545, %for.body.i545, %for.body.i545, %for.body.i545, %for.body.i545, %for.body.i545, %for.body.i545, %for.body.i545, %for.body.i545, %for.body.i545
-  %conv11.i550 = zext nneg i8 %69 to i32
+  %conv11.i550 = zext nneg i8 %68 to i32
   %call12.i551 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @opt_stats_interval_opts, i32 noundef %conv11.i550) #23
   %cmp13.not.i552 = icmp eq ptr %call12.i551, null
   br i1 %cmp13.not.i552, label %if.end.i557, label %for.inc.i553
@@ -11469,7 +11468,7 @@ sw.epilog.i549:                                   ; preds = %for.body.i545, %for
 if.end.i557:                                      ; preds = %sw.epilog.i549
   %inc.i558 = add i64 %opts_len.012.i547, 1
   %arrayidx16.i559 = getelementptr inbounds i8, ptr @opt_stats_interval_opts, i64 %opts_len.012.i547
-  store i8 %69, ptr %arrayidx16.i559, align 1
+  store i8 %68, ptr %arrayidx16.i559, align 1
   %arrayidx17.i560 = getelementptr inbounds i8, ptr @opt_stats_interval_opts, i64 %inc.i558
   store i8 0, ptr %arrayidx17.i560, align 1
   br label %for.inc.i553
@@ -11481,8 +11480,8 @@ for.inc.i553:                                     ; preds = %if.end.i557, %sw.ep
   br i1 %exitcond.not.i556, label %init_opt_stats_opts.exit561, label %for.body.i545, !llvm.loop !27
 
 init_opt_stats_opts.exit561:                      ; preds = %for.inc.i553, %if.then743
-  %70 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool746 = trunc i8 %70 to i1
+  %69 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool746 = trunc i8 %69 to i1
   br i1 %tobool746, label %if.then751, label %while.cond.backedge
 
 if.then751:                                       ; preds = %init_opt_stats_opts.exit561
@@ -11557,8 +11556,8 @@ if.end.i566:                                      ; preds = %if.then796
   br label %while.cond.backedge
 
 land.lhs.true803:                                 ; preds = %if.then769, %if.then785, %if.then793, %if.then777
-  %71 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool804 = trunc i8 %71 to i1
+  %70 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool804 = trunc i8 %70 to i1
   br i1 %tobool804, label %if.then809, label %while.cond.backedge
 
 if.then809:                                       ; preds = %land.lhs.true803
@@ -11601,8 +11600,8 @@ if.end.i572:                                      ; preds = %if.then838
 land.lhs.true843:                                 ; preds = %land.lhs.true831, %land.lhs.true823
   %storemerge2146 = phi i8 [ 1, %land.lhs.true823 ], [ 0, %land.lhs.true831 ]
   store i8 %storemerge2146, ptr @opt_zero, align 1
-  %72 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool844 = trunc i8 %72 to i1
+  %71 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool844 = trunc i8 %71 to i1
   br i1 %tobool844, label %if.then849, label %while.cond.backedge
 
 if.then849:                                       ; preds = %land.lhs.true843
@@ -11645,8 +11644,8 @@ if.end.i578:                                      ; preds = %if.then878
 land.lhs.true883:                                 ; preds = %land.lhs.true871, %land.lhs.true863
   %storemerge2145 = phi i8 [ 1, %land.lhs.true863 ], [ 0, %land.lhs.true871 ]
   store i8 %storemerge2145, ptr @opt_experimental_infallible_new, align 1
-  %73 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool884 = trunc i8 %73 to i1
+  %72 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool884 = trunc i8 %72 to i1
   br i1 %tobool884, label %if.then889, label %while.cond.backedge
 
 if.then889:                                       ; preds = %land.lhs.true883
@@ -11695,8 +11694,8 @@ if.end.i584:                                      ; preds = %if.then918
 land.lhs.true923:                                 ; preds = %land.lhs.true911, %land.lhs.true903
   %storemerge2156 = phi i8 [ 1, %land.lhs.true903 ], [ 0, %land.lhs.true911 ]
   store i8 %storemerge2156, ptr @opt_tcache, align 1
-  %74 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool924 = trunc i8 %74 to i1
+  %73 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool924 = trunc i8 %73 to i1
   br i1 %tobool924, label %if.then929, label %while.cond.backedge
 
 if.then929:                                       ; preds = %land.lhs.true923
@@ -11717,14 +11716,14 @@ if.then940:                                       ; preds = %land.lhs.true936
   %call.i586 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i586, align 4
   %call943 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end942, i32 noundef 0) #19
-  %75 = load i32, ptr %call.i586, align 4
-  %cmp945.not = icmp eq i32 %75, 0
+  %74 = load i32, ptr %call.i586, align 4
+  %cmp945.not = icmp eq i32 %74, 0
   br i1 %cmp945.not, label %lor.lhs.false947, label %if.then953
 
 lor.lhs.false947:                                 ; preds = %if.then940
-  %76 = load ptr, ptr %end942, align 8
-  %77 = ptrtoint ptr %76 to i64
-  %sub948 = sub i64 %77, %12
+  %75 = load ptr, ptr %end942, align 8
+  %76 = ptrtoint ptr %75 to i64
+  %sub948 = sub i64 %76, %12
   %cmp949.not = icmp eq i64 %sub948, %vlen.4
   br i1 %cmp949.not, label %if.else955, label %if.then953
 
@@ -11743,8 +11742,8 @@ if.end.i592:                                      ; preds = %if.then953
 if.else955:                                       ; preds = %lor.lhs.false947
   %.call943 = call i64 @llvm.umin.i64(i64 %call943, i64 8388608)
   store i64 %.call943, ptr @opt_tcache_max, align 8
-  %78 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool964 = trunc i8 %78 to i1
+  %77 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool964 = trunc i8 %77 to i1
   br i1 %tobool964, label %if.then969, label %while.cond.backedge
 
 if.then969:                                       ; preds = %if.else955
@@ -11765,14 +11764,14 @@ if.then980:                                       ; preds = %land.lhs.true976
   %call.i594 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i594, align 4
   %call983 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end982, i32 noundef 0) #19
-  %79 = load i32, ptr %call.i594, align 4
-  %cmp985.not = icmp eq i32 %79, 0
+  %78 = load i32, ptr %call.i594, align 4
+  %cmp985.not = icmp eq i32 %78, 0
   br i1 %cmp985.not, label %lor.lhs.false987, label %if.then993
 
 lor.lhs.false987:                                 ; preds = %if.then980
-  %80 = load ptr, ptr %end982, align 8
-  %81 = ptrtoint ptr %80 to i64
-  %sub988 = sub i64 %81, %12
+  %79 = load ptr, ptr %end982, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %sub988 = sub i64 %80, %12
   %cmp989.not = icmp eq i64 %sub988, %vlen.4
   br i1 %cmp989.not, label %land.lhs.true1002, label %if.then993
 
@@ -11792,8 +11791,8 @@ land.lhs.true1002:                                ; preds = %lor.lhs.false987
   %spec.store.select = call i64 @llvm.umin.i64(i64 %call983, i64 23)
   %shl = shl nuw nsw i64 1, %spec.store.select
   store i64 %shl, ptr @opt_tcache_max, align 8
-  %82 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1003 = trunc i8 %82 to i1
+  %81 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1003 = trunc i8 %81 to i1
   br i1 %tobool1003, label %if.then1008, label %while.cond.backedge
 
 if.then1008:                                      ; preds = %land.lhs.true1002
@@ -11815,14 +11814,14 @@ if.then1019:                                      ; preds = %land.lhs.true1015
   %call.i602 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i602, align 4
   %call1022 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1021, i32 noundef 0) #19
-  %83 = load i32, ptr %call.i602, align 4
-  %cmp1024.not = icmp eq i32 %83, 0
+  %82 = load i32, ptr %call.i602, align 4
+  %cmp1024.not = icmp eq i32 %82, 0
   br i1 %cmp1024.not, label %lor.lhs.false1026, label %if.then1032
 
 lor.lhs.false1026:                                ; preds = %if.then1019
-  %84 = load ptr, ptr %end1021, align 8
-  %85 = ptrtoint ptr %84 to i64
-  %sub1027 = sub i64 %85, %12
+  %83 = load ptr, ptr %end1021, align 8
+  %84 = ptrtoint ptr %83 to i64
+  %sub1027 = sub i64 %84, %12
   %cmp1028.not = icmp eq i64 %sub1027, %vlen.4
   br i1 %cmp1028.not, label %if.else1034, label %if.then1032
 
@@ -11838,8 +11837,8 @@ if.end.i608:                                      ; preds = %if.then1032
   br label %while.cond.backedge
 
 if.else1034:                                      ; preds = %lor.lhs.false1026
-  %86 = add i64 %call1022, -17
-  %or.cond2 = icmp ult i64 %86, -33
+  %85 = add i64 %call1022, -17
+  %or.cond2 = icmp ult i64 %85, -33
   br i1 %or.cond2, label %if.then1042, label %land.lhs.true1048
 
 if.then1042:                                      ; preds = %if.else1034
@@ -11848,8 +11847,8 @@ if.then1042:                                      ; preds = %if.else1034
 
 land.lhs.true1048:                                ; preds = %if.else1034
   store i64 %call1022, ptr @opt_lg_tcache_nslots_mul, align 8
-  %87 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1049 = trunc i8 %87 to i1
+  %86 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1049 = trunc i8 %86 to i1
   br i1 %tobool1049, label %if.then1054, label %while.cond.backedge
 
 if.then1054:                                      ; preds = %land.lhs.true1048
@@ -11870,14 +11869,14 @@ if.then1065:                                      ; preds = %land.lhs.true1061
   %call.i610 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i610, align 4
   %call1068 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1067, i32 noundef 0) #19
-  %88 = load i32, ptr %call.i610, align 4
-  %cmp1070.not = icmp eq i32 %88, 0
+  %87 = load i32, ptr %call.i610, align 4
+  %cmp1070.not = icmp eq i32 %87, 0
   br i1 %cmp1070.not, label %lor.lhs.false1072, label %if.then1078
 
 lor.lhs.false1072:                                ; preds = %if.then1065
-  %89 = load ptr, ptr %end1067, align 8
-  %90 = ptrtoint ptr %89 to i64
-  %sub1073 = sub i64 %90, %12
+  %88 = load ptr, ptr %end1067, align 8
+  %89 = ptrtoint ptr %88 to i64
+  %sub1073 = sub i64 %89, %12
   %cmp1074.not = icmp eq i64 %sub1073, %vlen.4
   br i1 %cmp1074.not, label %if.else1080, label %if.then1078
 
@@ -11894,12 +11893,12 @@ if.end.i616:                                      ; preds = %if.then1078
 
 if.else1080:                                      ; preds = %lor.lhs.false1072
   %cmp1081 = icmp eq i64 %call1068, 0
-  %spec.select2275 = call i64 @llvm.umin.i64(i64 %call1068, i64 2048)
-  %spec.select = trunc nuw nsw i64 %spec.select2275 to i32
+  %spec.select2276 = call i64 @llvm.umin.i64(i64 %call1068, i64 2048)
+  %spec.select = trunc nuw nsw i64 %spec.select2276 to i32
   %.sink = select i1 %cmp1081, i32 1, i32 %spec.select
   store i32 %.sink, ptr @opt_tcache_nslots_small_min, align 4
-  %91 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1095 = trunc i8 %91 to i1
+  %90 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1095 = trunc i8 %90 to i1
   br i1 %tobool1095, label %if.then1100, label %while.cond.backedge
 
 if.then1100:                                      ; preds = %if.else1080
@@ -11916,14 +11915,14 @@ if.then1111:                                      ; preds = %land.lhs.true1107
   %call.i618 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i618, align 4
   %call1114 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1113, i32 noundef 0) #19
-  %92 = load i32, ptr %call.i618, align 4
-  %cmp1116.not = icmp eq i32 %92, 0
+  %91 = load i32, ptr %call.i618, align 4
+  %cmp1116.not = icmp eq i32 %91, 0
   br i1 %cmp1116.not, label %lor.lhs.false1118, label %if.then1124
 
 lor.lhs.false1118:                                ; preds = %if.then1111
-  %93 = load ptr, ptr %end1113, align 8
-  %94 = ptrtoint ptr %93 to i64
-  %sub1119 = sub i64 %94, %12
+  %92 = load ptr, ptr %end1113, align 8
+  %93 = ptrtoint ptr %92 to i64
+  %sub1119 = sub i64 %93, %12
   %cmp1120.not = icmp eq i64 %sub1119, %vlen.4
   br i1 %cmp1120.not, label %if.else1126, label %if.then1124
 
@@ -11940,12 +11939,12 @@ if.end.i624:                                      ; preds = %if.then1124
 
 if.else1126:                                      ; preds = %lor.lhs.false1118
   %cmp1127 = icmp eq i64 %call1114, 0
-  %spec.select22702274 = call i64 @llvm.umin.i64(i64 %call1114, i64 2048)
-  %spec.select2270 = trunc nuw nsw i64 %spec.select22702274 to i32
-  %.sink2263 = select i1 %cmp1127, i32 1, i32 %spec.select2270
-  store i32 %.sink2263, ptr @opt_tcache_nslots_small_max, align 4
-  %95 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1141 = trunc i8 %95 to i1
+  %spec.select22712275 = call i64 @llvm.umin.i64(i64 %call1114, i64 2048)
+  %spec.select2271 = trunc nuw nsw i64 %spec.select22712275 to i32
+  %.sink2264 = select i1 %cmp1127, i32 1, i32 %spec.select2271
+  store i32 %.sink2264, ptr @opt_tcache_nslots_small_max, align 4
+  %94 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1141 = trunc i8 %94 to i1
   br i1 %tobool1141, label %if.then1146, label %while.cond.backedge
 
 if.then1146:                                      ; preds = %if.else1126
@@ -11965,14 +11964,14 @@ if.then1157:                                      ; preds = %land.lhs.true1153
   %call.i626 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i626, align 4
   %call1160 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1159, i32 noundef 0) #19
-  %96 = load i32, ptr %call.i626, align 4
-  %cmp1162.not = icmp eq i32 %96, 0
+  %95 = load i32, ptr %call.i626, align 4
+  %cmp1162.not = icmp eq i32 %95, 0
   br i1 %cmp1162.not, label %lor.lhs.false1164, label %if.then1170
 
 lor.lhs.false1164:                                ; preds = %if.then1157
-  %97 = load ptr, ptr %end1159, align 8
-  %98 = ptrtoint ptr %97 to i64
-  %sub1165 = sub i64 %98, %12
+  %96 = load ptr, ptr %end1159, align 8
+  %97 = ptrtoint ptr %96 to i64
+  %sub1165 = sub i64 %97, %12
   %cmp1166.not = icmp eq i64 %sub1165, %vlen.4
   br i1 %cmp1166.not, label %if.else1172, label %if.then1170
 
@@ -11990,12 +11989,12 @@ if.end.i632:                                      ; preds = %if.then1170
 
 if.else1172:                                      ; preds = %lor.lhs.false1164
   %cmp1173 = icmp eq i64 %call1160, 0
-  %spec.select22712278 = call i64 @llvm.umin.i64(i64 %call1160, i64 2048)
-  %spec.select2271 = trunc nuw nsw i64 %spec.select22712278 to i32
-  %.sink2264 = select i1 %cmp1173, i32 1, i32 %spec.select2271
-  store i32 %.sink2264, ptr @opt_tcache_nslots_large, align 4
-  %99 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1187 = trunc i8 %99 to i1
+  %spec.select22722279 = call i64 @llvm.umin.i64(i64 %call1160, i64 2048)
+  %spec.select2272 = trunc nuw nsw i64 %spec.select22722279 to i32
+  %.sink2265 = select i1 %cmp1173, i32 1, i32 %spec.select2272
+  store i32 %.sink2265, ptr @opt_tcache_nslots_large, align 4
+  %98 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1187 = trunc i8 %98 to i1
   br i1 %tobool1187, label %if.then1192, label %while.cond.backedge
 
 if.then1192:                                      ; preds = %if.else1172
@@ -12016,14 +12015,14 @@ if.then1203:                                      ; preds = %land.lhs.true1199
   %call.i634 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i634, align 4
   %call1206 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1205, i32 noundef 0) #19
-  %100 = load i32, ptr %call.i634, align 4
-  %cmp1208.not = icmp eq i32 %100, 0
+  %99 = load i32, ptr %call.i634, align 4
+  %cmp1208.not = icmp eq i32 %99, 0
   br i1 %cmp1208.not, label %lor.lhs.false1210, label %if.then1216
 
 lor.lhs.false1210:                                ; preds = %if.then1203
-  %101 = load ptr, ptr %end1205, align 8
-  %102 = ptrtoint ptr %101 to i64
-  %sub1211 = sub i64 %102, %12
+  %100 = load ptr, ptr %end1205, align 8
+  %101 = ptrtoint ptr %100 to i64
+  %sub1211 = sub i64 %101, %12
   %cmp1212.not = icmp eq i64 %sub1211, %vlen.4
   br i1 %cmp1212.not, label %if.else1218, label %if.then1216
 
@@ -12041,8 +12040,8 @@ if.end.i640:                                      ; preds = %if.then1216
 if.else1218:                                      ; preds = %lor.lhs.false1210
   %.call1206 = call i64 @llvm.umax.i64(i64 %call1206, i64 1024)
   store i64 %.call1206, ptr @opt_tcache_gc_incr_bytes, align 8
-  %103 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1227 = trunc i8 %103 to i1
+  %102 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1227 = trunc i8 %102 to i1
   br i1 %tobool1227, label %if.then1232, label %while.cond.backedge
 
 if.then1232:                                      ; preds = %if.else1218
@@ -12066,14 +12065,14 @@ if.then1243:                                      ; preds = %land.lhs.true1239
   %call.i642 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i642, align 4
   %call1246 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1245, i32 noundef 0) #19
-  %104 = load i32, ptr %call.i642, align 4
-  %cmp1248.not = icmp eq i32 %104, 0
+  %103 = load i32, ptr %call.i642, align 4
+  %cmp1248.not = icmp eq i32 %103, 0
   br i1 %cmp1248.not, label %lor.lhs.false1250, label %if.then1256
 
 lor.lhs.false1250:                                ; preds = %if.then1243
-  %105 = load ptr, ptr %end1245, align 8
-  %106 = ptrtoint ptr %105 to i64
-  %sub1251 = sub i64 %106, %12
+  %104 = load ptr, ptr %end1245, align 8
+  %105 = ptrtoint ptr %104 to i64
+  %sub1251 = sub i64 %105, %12
   %cmp1252.not = icmp eq i64 %sub1251, %vlen.4
   br i1 %cmp1252.not, label %land.lhs.true1261, label %if.then1256
 
@@ -12090,8 +12089,8 @@ if.end.i648:                                      ; preds = %if.then1256
 
 land.lhs.true1261:                                ; preds = %lor.lhs.false1250
   store i64 %call1246, ptr @opt_tcache_gc_delay_bytes, align 8
-  %107 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1262 = trunc i8 %107 to i1
+  %106 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1262 = trunc i8 %106 to i1
   br i1 %tobool1262, label %if.then1267, label %while.cond.backedge
 
 if.then1267:                                      ; preds = %land.lhs.true1261
@@ -12108,14 +12107,14 @@ if.then1278:                                      ; preds = %land.lhs.true1274
   %call.i650 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i650, align 4
   %call1281 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1280, i32 noundef 0) #19
-  %108 = load i32, ptr %call.i650, align 4
-  %cmp1283.not = icmp eq i32 %108, 0
+  %107 = load i32, ptr %call.i650, align 4
+  %cmp1283.not = icmp eq i32 %107, 0
   br i1 %cmp1283.not, label %lor.lhs.false1285, label %if.then1291
 
 lor.lhs.false1285:                                ; preds = %if.then1278
-  %109 = load ptr, ptr %end1280, align 8
-  %110 = ptrtoint ptr %109 to i64
-  %sub1286 = sub i64 %110, %12
+  %108 = load ptr, ptr %end1280, align 8
+  %109 = ptrtoint ptr %108 to i64
+  %sub1286 = sub i64 %109, %12
   %cmp1287.not = icmp eq i64 %sub1286, %vlen.4
   br i1 %cmp1287.not, label %if.else1293, label %if.then1291
 
@@ -12132,12 +12131,12 @@ if.end.i656:                                      ; preds = %if.then1291
 
 if.else1293:                                      ; preds = %lor.lhs.false1285
   %cmp1294 = icmp eq i64 %call1281, 0
-  %spec.select22722277 = call i64 @llvm.umin.i64(i64 %call1281, i64 16)
-  %spec.select2272 = trunc nuw nsw i64 %spec.select22722277 to i32
-  %.sink2265 = select i1 %cmp1294, i32 1, i32 %spec.select2272
-  store i32 %.sink2265, ptr @opt_lg_tcache_flush_small_div, align 4
-  %111 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1308 = trunc i8 %111 to i1
+  %spec.select22732278 = call i64 @llvm.umin.i64(i64 %call1281, i64 16)
+  %spec.select2273 = trunc nuw nsw i64 %spec.select22732278 to i32
+  %.sink2266 = select i1 %cmp1294, i32 1, i32 %spec.select2273
+  store i32 %.sink2266, ptr @opt_lg_tcache_flush_small_div, align 4
+  %110 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1308 = trunc i8 %110 to i1
   br i1 %tobool1308, label %if.then1313, label %while.cond.backedge
 
 if.then1313:                                      ; preds = %if.else1293
@@ -12154,14 +12153,14 @@ if.then1324:                                      ; preds = %land.lhs.true1320
   %call.i658 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i658, align 4
   %call1327 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1326, i32 noundef 0) #19
-  %112 = load i32, ptr %call.i658, align 4
-  %cmp1329.not = icmp eq i32 %112, 0
+  %111 = load i32, ptr %call.i658, align 4
+  %cmp1329.not = icmp eq i32 %111, 0
   br i1 %cmp1329.not, label %lor.lhs.false1331, label %land.lhs.true1353.thread
 
 lor.lhs.false1331:                                ; preds = %if.then1324
-  %113 = load ptr, ptr %end1326, align 8
-  %114 = ptrtoint ptr %113 to i64
-  %sub1332 = sub i64 %114, %12
+  %112 = load ptr, ptr %end1326, align 8
+  %113 = ptrtoint ptr %112 to i64
+  %sub1332 = sub i64 %113, %12
   %cmp1333.not = icmp eq i64 %sub1332, %vlen.4
   br i1 %cmp1333.not, label %if.else1339, label %land.lhs.true1353.thread
 
@@ -12171,12 +12170,12 @@ land.lhs.true1353.thread:                         ; preds = %lor.lhs.false1331, 
 
 if.else1339:                                      ; preds = %lor.lhs.false1331
   %cmp1340 = icmp eq i64 %call1327, 0
-  %spec.select22732276 = call i64 @llvm.umin.i64(i64 %call1327, i64 16)
-  %spec.select2273 = trunc nuw nsw i64 %spec.select22732276 to i32
-  %.sink2266 = select i1 %cmp1340, i32 1, i32 %spec.select2273
-  store i32 %.sink2266, ptr @opt_lg_tcache_flush_large_div, align 4
-  %115 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1354 = trunc i8 %115 to i1
+  %spec.select22742277 = call i64 @llvm.umin.i64(i64 %call1327, i64 16)
+  %spec.select2274 = trunc nuw nsw i64 %spec.select22742277 to i32
+  %.sink2267 = select i1 %cmp1340, i32 1, i32 %spec.select2274
+  store i32 %.sink2267, ptr @opt_lg_tcache_flush_large_div, align 4
+  %114 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1354 = trunc i8 %114 to i1
   br i1 %tobool1354, label %if.then1359, label %while.cond.backedge
 
 if.then1359:                                      ; preds = %if.else1339
@@ -12193,14 +12192,14 @@ if.then1370:                                      ; preds = %land.lhs.true1366
   %call.i660 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i660, align 4
   %call1373 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1372, i32 noundef 0) #19
-  %116 = load i32, ptr %call.i660, align 4
-  %cmp1375.not = icmp eq i32 %116, 0
+  %115 = load i32, ptr %call.i660, align 4
+  %cmp1375.not = icmp eq i32 %115, 0
   br i1 %cmp1375.not, label %lor.lhs.false1377, label %land.lhs.true1389.thread
 
 lor.lhs.false1377:                                ; preds = %if.then1370
-  %117 = load ptr, ptr %end1372, align 8
-  %118 = ptrtoint ptr %117 to i64
-  %sub1378 = sub i64 %118, %12
+  %116 = load ptr, ptr %end1372, align 8
+  %117 = ptrtoint ptr %116 to i64
+  %sub1378 = sub i64 %117, %12
   %cmp1379.not = icmp eq i64 %sub1378, %vlen.4
   br i1 %cmp1379.not, label %land.lhs.true1389, label %land.lhs.true1389.thread
 
@@ -12211,8 +12210,8 @@ land.lhs.true1389.thread:                         ; preds = %lor.lhs.false1377, 
 land.lhs.true1389:                                ; preds = %lor.lhs.false1377
   %conv1386 = trunc i64 %call1373 to i32
   store i32 %conv1386, ptr @opt_debug_double_free_max_scan, align 4
-  %119 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1390 = trunc i8 %119 to i1
+  %118 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1390 = trunc i8 %118 to i1
   br i1 %tobool1390, label %if.then1395, label %while.cond.backedge
 
 if.then1395:                                      ; preds = %land.lhs.true1389
@@ -12232,14 +12231,14 @@ if.then1406:                                      ; preds = %land.lhs.true1402
   %call.i662 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i662, align 4
   %call1409 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1408, i32 noundef 0) #19
-  %120 = load i32, ptr %call.i662, align 4
-  %cmp1411.not = icmp eq i32 %120, 0
+  %119 = load i32, ptr %call.i662, align 4
+  %cmp1411.not = icmp eq i32 %119, 0
   br i1 %cmp1411.not, label %lor.lhs.false1413, label %if.then1419
 
 lor.lhs.false1413:                                ; preds = %if.then1406
-  %121 = load ptr, ptr %end1408, align 8
-  %122 = ptrtoint ptr %121 to i64
-  %sub1414 = sub i64 %122, %12
+  %120 = load ptr, ptr %end1408, align 8
+  %121 = ptrtoint ptr %120 to i64
+  %sub1414 = sub i64 %121, %12
   %cmp1415.not = icmp eq i64 %sub1414, %vlen.4
   br i1 %cmp1415.not, label %if.else1421, label %if.then1419
 
@@ -12257,8 +12256,8 @@ if.then1426:                                      ; preds = %if.else1421
 
 land.lhs.true1432:                                ; preds = %if.else1421
   store i64 %call1409, ptr @opt_oversize_threshold, align 8
-  %123 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1433 = trunc i8 %123 to i1
+  %122 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1433 = trunc i8 %122 to i1
   br i1 %tobool1433, label %if.then1438, label %while.cond.backedge
 
 if.then1438:                                      ; preds = %land.lhs.true1432
@@ -12279,14 +12278,14 @@ if.then1449:                                      ; preds = %land.lhs.true1445
   %call.i664 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i664, align 4
   %call1452 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1451, i32 noundef 0) #19
-  %124 = load i32, ptr %call.i664, align 4
-  %cmp1454.not = icmp eq i32 %124, 0
+  %123 = load i32, ptr %call.i664, align 4
+  %cmp1454.not = icmp eq i32 %123, 0
   br i1 %cmp1454.not, label %lor.lhs.false1456, label %if.then1462
 
 lor.lhs.false1456:                                ; preds = %if.then1449
-  %125 = load ptr, ptr %end1451, align 8
-  %126 = ptrtoint ptr %125 to i64
-  %sub1457 = sub i64 %126, %12
+  %124 = load ptr, ptr %end1451, align 8
+  %125 = ptrtoint ptr %124 to i64
+  %sub1457 = sub i64 %125, %12
   %cmp1458.not = icmp eq i64 %sub1457, %vlen.4
   br i1 %cmp1458.not, label %if.else1464, label %if.then1462
 
@@ -12304,8 +12303,8 @@ if.then1469:                                      ; preds = %if.else1464
 
 land.lhs.true1475:                                ; preds = %if.else1464
   store i64 %call1452, ptr @opt_lg_extent_max_active_fit, align 8
-  %127 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1476 = trunc i8 %127 to i1
+  %126 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1476 = trunc i8 %126 to i1
   br i1 %tobool1476, label %if.then1481, label %while.cond.backedge
 
 if.then1481:                                      ; preds = %land.lhs.true1475
@@ -12324,8 +12323,8 @@ if.end1485:                                       ; preds = %land.lhs.true1239, 
 for.body1495:                                     ; preds = %if.end1485, %for.inc1503
   %indvars.iv2229 = phi i64 [ %indvars.iv.next2230, %for.inc1503 ], [ 0, %if.end1485 ]
   %arrayidx1497 = getelementptr inbounds [0 x ptr], ptr @percpu_arena_mode_names, i64 0, i64 %indvars.iv2229
-  %128 = load ptr, ptr %arrayidx1497, align 8
-  %call1498 = call i32 @strncmp(ptr noundef %128, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #23
+  %127 = load ptr, ptr %arrayidx1497, align 8
+  %call1498 = call i32 @strncmp(ptr noundef %127, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #23
   %cmp1499 = icmp eq i32 %call1498, 0
   br i1 %cmp1499, label %land.lhs.true1513, label %for.inc1503
 
@@ -12339,10 +12338,10 @@ land.lhs.true1513.thread:                         ; preds = %for.inc1503
   br label %while.cond.backedge
 
 land.lhs.true1513:                                ; preds = %for.body1495
-  %129 = trunc nuw nsw i64 %indvars.iv2229 to i32
-  store i32 %129, ptr @opt_percpu_arena, align 4
-  %130 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1514 = trunc i8 %130 to i1
+  %128 = trunc nuw nsw i64 %indvars.iv2229 to i32
+  store i32 %128, ptr @opt_percpu_arena, align 4
+  %129 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1514 = trunc i8 %129 to i1
   br i1 %tobool1514, label %if.then1519, label %while.cond.backedge
 
 if.then1519:                                      ; preds = %land.lhs.true1513
@@ -12383,8 +12382,8 @@ land.lhs.true1553.thread:                         ; preds = %if.then1530, %land.
 land.lhs.true1553:                                ; preds = %land.lhs.true1541, %land.lhs.true1533
   %storemerge2153 = phi i8 [ 1, %land.lhs.true1533 ], [ 0, %land.lhs.true1541 ]
   store i8 %storemerge2153, ptr @opt_background_thread, align 1
-  %131 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1554 = trunc i8 %131 to i1
+  %130 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1554 = trunc i8 %130 to i1
   br i1 %tobool1554, label %if.then1559, label %while.cond.backedge
 
 if.then1559:                                      ; preds = %land.lhs.true1553
@@ -12407,14 +12406,14 @@ if.then1570:                                      ; preds = %land.lhs.true1566
   %call.i666 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i666, align 4
   %call1573 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1572, i32 noundef 0) #19
-  %132 = load i32, ptr %call.i666, align 4
-  %cmp1575.not = icmp eq i32 %132, 0
+  %131 = load i32, ptr %call.i666, align 4
+  %cmp1575.not = icmp eq i32 %131, 0
   br i1 %cmp1575.not, label %lor.lhs.false1577, label %land.lhs.true1598.thread
 
 lor.lhs.false1577:                                ; preds = %if.then1570
-  %133 = load ptr, ptr %end1572, align 8
-  %134 = ptrtoint ptr %133 to i64
-  %sub1578 = sub i64 %134, %12
+  %132 = load ptr, ptr %end1572, align 8
+  %133 = ptrtoint ptr %132 to i64
+  %sub1578 = sub i64 %133, %12
   %cmp1579.not = icmp eq i64 %sub1578, %vlen.4
   br i1 %cmp1579.not, label %if.else1585, label %land.lhs.true1598.thread
 
@@ -12427,8 +12426,8 @@ if.else1585:                                      ; preds = %lor.lhs.false1577
   br i1 %cmp1586, label %land.lhs.true1598.sink.split, label %if.else1589
 
 if.else1589:                                      ; preds = %if.else1585
-  %135 = load i64, ptr @opt_max_background_threads, align 8
-  %cmp1590 = icmp ugt i64 %call1573, %135
+  %134 = load i64, ptr @opt_max_background_threads, align 8
+  %cmp1590 = icmp ugt i64 %call1573, %134
   br i1 %cmp1590, label %land.lhs.true1598, label %land.lhs.true1598.sink.split
 
 land.lhs.true1598.sink.split:                     ; preds = %if.else1589, %if.else1585
@@ -12437,8 +12436,8 @@ land.lhs.true1598.sink.split:                     ; preds = %if.else1589, %if.el
   br label %land.lhs.true1598
 
 land.lhs.true1598:                                ; preds = %land.lhs.true1598.sink.split, %if.else1589
-  %136 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1599 = trunc i8 %136 to i1
+  %135 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1599 = trunc i8 %135 to i1
   br i1 %tobool1599, label %if.then1604, label %while.cond.backedge
 
 if.then1604:                                      ; preds = %land.lhs.true1598
@@ -12447,30 +12446,30 @@ if.then1604:                                      ; preds = %land.lhs.true1598
   br label %while.cond.backedge
 
 sub_0:                                            ; preds = %if.end1563
-  %137 = load i8, ptr %opts.02193, align 1
-  %138 = zext i8 %137 to i32
-  %139 = sub nsw i32 104, %138
-  %.not = icmp eq i8 %137, 104
+  %136 = load i8, ptr %opts.02193, align 1
+  %137 = zext i8 %136 to i32
+  %138 = sub nsw i32 104, %137
+  %.not = icmp eq i8 %136, 104
   br i1 %.not, label %sub_1, label %land.lhs.true1611.tail
 
 sub_1:                                            ; preds = %sub_0
-  %140 = getelementptr inbounds i8, ptr %opts.02193, i64 1
-  %141 = load i8, ptr %140, align 1
-  %142 = zext i8 %141 to i32
-  %143 = sub nsw i32 112, %142
-  %.not2205 = icmp eq i8 %141, 112
+  %139 = getelementptr inbounds i8, ptr %opts.02193, i64 1
+  %140 = load i8, ptr %139, align 1
+  %141 = zext i8 %140 to i32
+  %142 = sub nsw i32 112, %141
+  %.not2205 = icmp eq i8 %140, 112
   br i1 %.not2205, label %sub_2, label %land.lhs.true1611.tail
 
 sub_2:                                            ; preds = %sub_1
-  %144 = getelementptr inbounds i8, ptr %opts.02193, i64 2
-  %145 = load i8, ptr %144, align 1
-  %146 = zext i8 %145 to i32
-  %147 = sub nsw i32 97, %146
+  %143 = getelementptr inbounds i8, ptr %opts.02193, i64 2
+  %144 = load i8, ptr %143, align 1
+  %145 = zext i8 %144 to i32
+  %146 = sub nsw i32 97, %145
   br label %land.lhs.true1611.tail
 
 land.lhs.true1611.tail:                           ; preds = %sub_0, %sub_1, %sub_2
-  %148 = phi i32 [ %139, %sub_0 ], [ %143, %sub_1 ], [ %147, %sub_2 ]
-  %cmp1613 = icmp eq i32 %148, 0
+  %147 = phi i32 [ %138, %sub_0 ], [ %142, %sub_1 ], [ %146, %sub_2 ]
+  %cmp1613 = icmp eq i32 %147, 0
   br i1 %cmp1613, label %if.then1615, label %if.end1693
 
 if.then1615:                                      ; preds = %land.lhs.true1611.tail
@@ -12496,8 +12495,8 @@ land.lhs.true1638.thread:                         ; preds = %if.then1615, %land.
 land.lhs.true1638:                                ; preds = %land.lhs.true1626, %land.lhs.true1618
   %storemerge2148 = phi i8 [ 1, %land.lhs.true1618 ], [ 0, %land.lhs.true1626 ]
   store i8 %storemerge2148, ptr @opt_hpa, align 1
-  %149 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1639 = trunc i8 %149 to i1
+  %148 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1639 = trunc i8 %148 to i1
   br i1 %tobool1639, label %if.then1644, label %while.cond.backedge
 
 if.then1644:                                      ; preds = %land.lhs.true1638
@@ -12517,14 +12516,14 @@ if.then1655:                                      ; preds = %land.lhs.true1651
   %call.i668 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i668, align 4
   %call1658 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1657, i32 noundef 0) #19
-  %150 = load i32, ptr %call.i668, align 4
-  %cmp1660.not = icmp eq i32 %150, 0
+  %149 = load i32, ptr %call.i668, align 4
+  %cmp1660.not = icmp eq i32 %149, 0
   br i1 %cmp1660.not, label %lor.lhs.false1662, label %land.lhs.true1683.thread
 
 lor.lhs.false1662:                                ; preds = %if.then1655
-  %151 = load ptr, ptr %end1657, align 8
-  %152 = ptrtoint ptr %151 to i64
-  %sub1663 = sub i64 %152, %12
+  %150 = load ptr, ptr %end1657, align 8
+  %151 = ptrtoint ptr %150 to i64
+  %sub1663 = sub i64 %151, %12
   %cmp1664.not = icmp eq i64 %sub1663, %vlen.4
   br i1 %cmp1664.not, label %if.else1670, label %land.lhs.true1683.thread
 
@@ -12534,10 +12533,10 @@ land.lhs.true1683.thread:                         ; preds = %lor.lhs.false1662, 
 
 if.else1670:                                      ; preds = %lor.lhs.false1662
   %.call1658 = call i64 @llvm.umin.i64(i64 %call1658, i64 2097152)
-  %.sink2267 = call i64 @llvm.umax.i64(i64 %.call1658, i64 4096)
-  store i64 %.sink2267, ptr @opt_hpa_opts, align 8
-  %153 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1684 = trunc i8 %153 to i1
+  %.sink2268 = call i64 @llvm.umax.i64(i64 %.call1658, i64 4096)
+  store i64 %.sink2268, ptr @opt_hpa_opts, align 8
+  %152 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1684 = trunc i8 %152 to i1
   br i1 %tobool1684, label %if.then1689, label %while.cond.backedge
 
 if.then1689:                                      ; preds = %if.else1670
@@ -12558,14 +12557,14 @@ if.then1700:                                      ; preds = %land.lhs.true1696
   %call.i670 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i670, align 4
   %call1703 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1702, i32 noundef 0) #19
-  %154 = load i32, ptr %call.i670, align 4
-  %cmp1705.not = icmp eq i32 %154, 0
+  %153 = load i32, ptr %call.i670, align 4
+  %cmp1705.not = icmp eq i32 %153, 0
   br i1 %cmp1705.not, label %lor.lhs.false1707, label %land.lhs.true1728.thread
 
 lor.lhs.false1707:                                ; preds = %if.then1700
-  %155 = load ptr, ptr %end1702, align 8
-  %156 = ptrtoint ptr %155 to i64
-  %sub1708 = sub i64 %156, %12
+  %154 = load ptr, ptr %end1702, align 8
+  %155 = ptrtoint ptr %154 to i64
+  %sub1708 = sub i64 %155, %12
   %cmp1709.not = icmp eq i64 %sub1708, %vlen.4
   br i1 %cmp1709.not, label %if.else1715, label %land.lhs.true1728.thread
 
@@ -12575,10 +12574,10 @@ land.lhs.true1728.thread:                         ; preds = %lor.lhs.false1707, 
 
 if.else1715:                                      ; preds = %lor.lhs.false1707
   %.call1703 = call i64 @llvm.umin.i64(i64 %call1703, i64 2097152)
-  %.sink2268 = call i64 @llvm.umax.i64(i64 %.call1703, i64 4096)
-  store i64 %.sink2268, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
-  %157 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1729 = trunc i8 %157 to i1
+  %.sink2269 = call i64 @llvm.umax.i64(i64 %.call1703, i64 4096)
+  store i64 %.sink2269, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  %156 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1729 = trunc i8 %156 to i1
   br i1 %tobool1729, label %if.then1734, label %while.cond.backedge
 
 if.then1734:                                      ; preds = %if.else1715
@@ -12601,12 +12600,12 @@ if.then1745:                                      ; preds = %land.lhs.true1741
   br i1 %call1748, label %land.lhs.true1769.thread, label %lor.lhs.false1752
 
 lor.lhs.false1752:                                ; preds = %if.then1745
-  %158 = load ptr, ptr %end1746, align 8
-  %sub.ptr.lhs.cast1753 = ptrtoint ptr %158 to i64
+  %157 = load ptr, ptr %end1746, align 8
+  %sub.ptr.lhs.cast1753 = ptrtoint ptr %157 to i64
   %sub.ptr.sub1755 = sub i64 %sub.ptr.lhs.cast1753, %12
   %cmp1756 = icmp ne i64 %sub.ptr.sub1755, %vlen.4
-  %159 = load i32, ptr %ratio, align 4
-  %cmp1759 = icmp ugt i32 %159, 65536
+  %158 = load i32, ptr %ratio, align 4
+  %cmp1759 = icmp ugt i32 %158, 65536
   %or.cond3 = select i1 %cmp1756, i1 true, i1 %cmp1759
   br i1 %or.cond3, label %land.lhs.true1769.thread, label %land.lhs.true1769
 
@@ -12615,11 +12614,11 @@ land.lhs.true1769.thread:                         ; preds = %lor.lhs.false1752, 
   br label %while.cond.backedge
 
 land.lhs.true1769:                                ; preds = %lor.lhs.false1752
-  %160 = shl nuw nsw i32 %159, 5
-  %mul.i = zext nneg i32 %160 to i64
+  %159 = shl nuw nsw i32 %158, 5
+  %mul.i = zext nneg i32 %159 to i64
   store i64 %mul.i, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
-  %161 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1770 = trunc i8 %161 to i1
+  %160 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1770 = trunc i8 %160 to i1
   br i1 %tobool1770, label %if.then1775, label %while.cond.backedge
 
 if.then1775:                                      ; preds = %land.lhs.true1769
@@ -12639,14 +12638,14 @@ if.then1786:                                      ; preds = %land.lhs.true1782
   %call.i673 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i673, align 4
   %call1789 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1788, i32 noundef 0) #19
-  %162 = load i32, ptr %call.i673, align 4
-  %cmp1791.not = icmp eq i32 %162, 0
+  %161 = load i32, ptr %call.i673, align 4
+  %cmp1791.not = icmp eq i32 %161, 0
   br i1 %cmp1791.not, label %lor.lhs.false1793, label %land.lhs.true1804.thread
 
 lor.lhs.false1793:                                ; preds = %if.then1786
-  %163 = load ptr, ptr %end1788, align 8
-  %164 = ptrtoint ptr %163 to i64
-  %sub1794 = sub i64 %164, %12
+  %162 = load ptr, ptr %end1788, align 8
+  %163 = ptrtoint ptr %162 to i64
+  %sub1794 = sub i64 %163, %12
   %cmp1795.not = icmp eq i64 %sub1794, %vlen.4
   br i1 %cmp1795.not, label %land.lhs.true1804, label %land.lhs.true1804.thread
 
@@ -12656,8 +12655,8 @@ land.lhs.true1804.thread:                         ; preds = %lor.lhs.false1793, 
 
 land.lhs.true1804:                                ; preds = %lor.lhs.false1793
   store i64 %call1789, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 24), align 8
-  %165 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1805 = trunc i8 %165 to i1
+  %164 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1805 = trunc i8 %164 to i1
   br i1 %tobool1805, label %if.then1810, label %while.cond.backedge
 
 if.then1810:                                      ; preds = %land.lhs.true1804
@@ -12678,14 +12677,14 @@ if.then1821:                                      ; preds = %land.lhs.true1817
   %call.i675 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i675, align 4
   %call1824 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1823, i32 noundef 0) #19
-  %166 = load i32, ptr %call.i675, align 4
-  %cmp1826.not = icmp eq i32 %166, 0
+  %165 = load i32, ptr %call.i675, align 4
+  %cmp1826.not = icmp eq i32 %165, 0
   br i1 %cmp1826.not, label %lor.lhs.false1828, label %land.lhs.true1839.thread
 
 lor.lhs.false1828:                                ; preds = %if.then1821
-  %167 = load ptr, ptr %end1823, align 8
-  %168 = ptrtoint ptr %167 to i64
-  %sub1829 = sub i64 %168, %12
+  %166 = load ptr, ptr %end1823, align 8
+  %167 = ptrtoint ptr %166 to i64
+  %sub1829 = sub i64 %167, %12
   %cmp1830.not = icmp eq i64 %sub1829, %vlen.4
   br i1 %cmp1830.not, label %land.lhs.true1839, label %land.lhs.true1839.thread
 
@@ -12695,8 +12694,8 @@ land.lhs.true1839.thread:                         ; preds = %lor.lhs.false1828, 
 
 land.lhs.true1839:                                ; preds = %lor.lhs.false1828
   store i64 %call1824, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 32), align 8
-  %169 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1840 = trunc i8 %169 to i1
+  %168 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1840 = trunc i8 %168 to i1
   br i1 %tobool1840, label %if.then1845, label %while.cond.backedge
 
 if.then1845:                                      ; preds = %land.lhs.true1839
@@ -12718,28 +12717,28 @@ if.then1856:                                      ; preds = %land.lhs.true1852
   br i1 %cmp1857, label %sub_02159, label %if.end1875
 
 sub_02159:                                        ; preds = %if.then1856
-  %170 = load i8, ptr %incdec.ptr2.i, align 1
-  %171 = zext i8 %170 to i32
-  %172 = sub nsw i32 45, %171
-  %.not2208 = icmp eq i8 %170, 45
+  %169 = load i8, ptr %incdec.ptr2.i, align 1
+  %170 = zext i8 %169 to i32
+  %171 = sub nsw i32 45, %170
+  %.not2208 = icmp eq i8 %169, 45
   br i1 %.not2208, label %sub_12160, label %land.lhs.true1859.tail
 
 sub_12160:                                        ; preds = %sub_02159
-  %173 = getelementptr inbounds i8, ptr %opts.045.i, i64 2
-  %174 = load i8, ptr %173, align 1
-  %175 = zext i8 %174 to i32
-  %176 = sub nsw i32 49, %175
+  %172 = getelementptr inbounds i8, ptr %opts.045.i, i64 2
+  %173 = load i8, ptr %172, align 1
+  %174 = zext i8 %173 to i32
+  %175 = sub nsw i32 49, %174
   br label %land.lhs.true1859.tail
 
 land.lhs.true1859.tail:                           ; preds = %sub_02159, %sub_12160
-  %177 = phi i32 [ %172, %sub_02159 ], [ %176, %sub_12160 ]
-  %cmp1861 = icmp eq i32 %177, 0
+  %176 = phi i32 [ %171, %sub_02159 ], [ %175, %sub_12160 ]
+  %cmp1861 = icmp eq i32 %176, 0
   br i1 %cmp1861, label %if.then1863, label %if.end1875
 
 if.then1863:                                      ; preds = %land.lhs.true1859.tail
   store i32 -1, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
-  %178 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1866 = trunc i8 %178 to i1
+  %177 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1866 = trunc i8 %177 to i1
   br i1 %tobool1866, label %if.then1871, label %while.cond.backedge
 
 if.then1871:                                      ; preds = %if.then1863
@@ -12752,8 +12751,8 @@ if.end1875:                                       ; preds = %land.lhs.true1859.t
   br i1 %call1879, label %land.lhs.true1896.thread, label %lor.lhs.false1883
 
 lor.lhs.false1883:                                ; preds = %if.end1875
-  %179 = load ptr, ptr %end1877, align 8
-  %sub.ptr.lhs.cast1884 = ptrtoint ptr %179 to i64
+  %178 = load ptr, ptr %end1877, align 8
+  %sub.ptr.lhs.cast1884 = ptrtoint ptr %178 to i64
   %sub.ptr.sub1886 = sub i64 %sub.ptr.lhs.cast1884, %12
   %cmp1887.not = icmp eq i64 %sub.ptr.sub1886, %vlen.4
   br i1 %cmp1887.not, label %land.lhs.true1896, label %land.lhs.true1896.thread
@@ -12763,10 +12762,10 @@ land.lhs.true1896.thread:                         ; preds = %lor.lhs.false1883, 
   br label %while.cond.backedge
 
 land.lhs.true1896:                                ; preds = %lor.lhs.false1883
-  %180 = load i32, ptr %ratio1876, align 4
-  store i32 %180, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
-  %181 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1897 = trunc i8 %181 to i1
+  %179 = load i32, ptr %ratio1876, align 4
+  store i32 %179, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
+  %180 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1897 = trunc i8 %180 to i1
   br i1 %tobool1897, label %if.then1902, label %while.cond.backedge
 
 if.then1902:                                      ; preds = %land.lhs.true1896
@@ -12787,14 +12786,14 @@ if.then1913:                                      ; preds = %land.lhs.true1909
   %call.i677 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i677, align 4
   %call1916 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1915, i32 noundef 0) #19
-  %182 = load i32, ptr %call.i677, align 4
-  %cmp1918.not = icmp eq i32 %182, 0
+  %181 = load i32, ptr %call.i677, align 4
+  %cmp1918.not = icmp eq i32 %181, 0
   br i1 %cmp1918.not, label %lor.lhs.false1920, label %land.lhs.true1936.thread
 
 lor.lhs.false1920:                                ; preds = %if.then1913
-  %183 = load ptr, ptr %end1915, align 8
-  %184 = ptrtoint ptr %183 to i64
-  %sub1921 = sub i64 %184, %12
+  %182 = load ptr, ptr %end1915, align 8
+  %183 = ptrtoint ptr %182 to i64
+  %sub1921 = sub i64 %183, %12
   %cmp1922.not = icmp eq i64 %sub1921, %vlen.4
   br i1 %cmp1922.not, label %land.lhs.true1936, label %land.lhs.true1936.thread
 
@@ -12804,8 +12803,8 @@ land.lhs.true1936.thread:                         ; preds = %lor.lhs.false1920, 
 
 land.lhs.true1936:                                ; preds = %lor.lhs.false1920
   store i64 %call1916, ptr @opt_hpa_sec_opts, align 8
-  %185 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1937 = trunc i8 %185 to i1
+  %184 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1937 = trunc i8 %184 to i1
   br i1 %tobool1937, label %if.then1942, label %while.cond.backedge
 
 if.then1942:                                      ; preds = %land.lhs.true1936
@@ -12826,14 +12825,14 @@ if.then1953:                                      ; preds = %land.lhs.true1949
   %call.i679 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i679, align 4
   %call1956 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1955, i32 noundef 0) #19
-  %186 = load i32, ptr %call.i679, align 4
-  %cmp1958.not = icmp eq i32 %186, 0
+  %185 = load i32, ptr %call.i679, align 4
+  %cmp1958.not = icmp eq i32 %185, 0
   br i1 %cmp1958.not, label %lor.lhs.false1960, label %land.lhs.true1976.thread
 
 lor.lhs.false1960:                                ; preds = %if.then1953
-  %187 = load ptr, ptr %end1955, align 8
-  %188 = ptrtoint ptr %187 to i64
-  %sub1961 = sub i64 %188, %12
+  %186 = load ptr, ptr %end1955, align 8
+  %187 = ptrtoint ptr %186 to i64
+  %sub1961 = sub i64 %187, %12
   %cmp1962.not = icmp eq i64 %sub1961, %vlen.4
   br i1 %cmp1962.not, label %if.else1968, label %land.lhs.true1976.thread
 
@@ -12844,8 +12843,8 @@ land.lhs.true1976.thread:                         ; preds = %lor.lhs.false1960, 
 if.else1968:                                      ; preds = %lor.lhs.false1960
   %.call1956 = call i64 @llvm.umax.i64(i64 %call1956, i64 4096)
   store i64 %.call1956, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 8), align 8
-  %189 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool1977 = trunc i8 %189 to i1
+  %188 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool1977 = trunc i8 %188 to i1
   br i1 %tobool1977, label %if.then1982, label %while.cond.backedge
 
 if.then1982:                                      ; preds = %if.else1968
@@ -12862,14 +12861,14 @@ if.then1993:                                      ; preds = %land.lhs.true1989
   %call.i681 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i681, align 4
   %call1996 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1995, i32 noundef 0) #19
-  %190 = load i32, ptr %call.i681, align 4
-  %cmp1998.not = icmp eq i32 %190, 0
+  %189 = load i32, ptr %call.i681, align 4
+  %cmp1998.not = icmp eq i32 %189, 0
   br i1 %cmp1998.not, label %lor.lhs.false2000, label %land.lhs.true2016.thread
 
 lor.lhs.false2000:                                ; preds = %if.then1993
-  %191 = load ptr, ptr %end1995, align 8
-  %192 = ptrtoint ptr %191 to i64
-  %sub2001 = sub i64 %192, %12
+  %190 = load ptr, ptr %end1995, align 8
+  %191 = ptrtoint ptr %190 to i64
+  %sub2001 = sub i64 %191, %12
   %cmp2002.not = icmp eq i64 %sub2001, %vlen.4
   br i1 %cmp2002.not, label %if.else2008, label %land.lhs.true2016.thread
 
@@ -12880,8 +12879,8 @@ land.lhs.true2016.thread:                         ; preds = %lor.lhs.false2000, 
 if.else2008:                                      ; preds = %lor.lhs.false2000
   %.call1996 = call i64 @llvm.umax.i64(i64 %call1996, i64 4096)
   store i64 %.call1996, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 16), align 8
-  %193 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool2017 = trunc i8 %193 to i1
+  %192 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool2017 = trunc i8 %192 to i1
   br i1 %tobool2017, label %if.then2022, label %while.cond.backedge
 
 if.then2022:                                      ; preds = %if.else2008
@@ -12901,14 +12900,14 @@ if.then2033:                                      ; preds = %land.lhs.true2029
   %call.i683 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i683, align 4
   %call2036 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end2035, i32 noundef 0) #19
-  %194 = load i32, ptr %call.i683, align 4
-  %cmp2038.not = icmp eq i32 %194, 0
+  %193 = load i32, ptr %call.i683, align 4
+  %cmp2038.not = icmp eq i32 %193, 0
   br i1 %cmp2038.not, label %lor.lhs.false2040, label %land.lhs.true2056.thread
 
 lor.lhs.false2040:                                ; preds = %if.then2033
-  %195 = load ptr, ptr %end2035, align 8
-  %196 = ptrtoint ptr %195 to i64
-  %sub2041 = sub i64 %196, %12
+  %194 = load ptr, ptr %end2035, align 8
+  %195 = ptrtoint ptr %194 to i64
+  %sub2041 = sub i64 %195, %12
   %cmp2042.not = icmp eq i64 %sub2041, %vlen.4
   br i1 %cmp2042.not, label %if.else2048, label %land.lhs.true2056.thread
 
@@ -12919,8 +12918,8 @@ land.lhs.true2056.thread:                         ; preds = %lor.lhs.false2040, 
 if.else2048:                                      ; preds = %lor.lhs.false2040
   %.call2036 = call i64 @llvm.umax.i64(i64 %call2036, i64 4096)
   store i64 %.call2036, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 24), align 8
-  %197 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool2057 = trunc i8 %197 to i1
+  %196 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool2057 = trunc i8 %196 to i1
   br i1 %tobool2057, label %if.then2062, label %while.cond.backedge
 
 if.then2062:                                      ; preds = %if.else2048
@@ -12941,14 +12940,14 @@ if.then2073:                                      ; preds = %land.lhs.true2069
   %call.i685 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i685, align 4
   %call2076 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end2075, i32 noundef 0) #19
-  %198 = load i32, ptr %call.i685, align 4
-  %cmp2078.not = icmp eq i32 %198, 0
+  %197 = load i32, ptr %call.i685, align 4
+  %cmp2078.not = icmp eq i32 %197, 0
   br i1 %cmp2078.not, label %lor.lhs.false2080, label %land.lhs.true2101.thread
 
 lor.lhs.false2080:                                ; preds = %if.then2073
-  %199 = load ptr, ptr %end2075, align 8
-  %200 = ptrtoint ptr %199 to i64
-  %sub2081 = sub i64 %200, %12
+  %198 = load ptr, ptr %end2075, align 8
+  %199 = ptrtoint ptr %198 to i64
+  %sub2081 = sub i64 %199, %12
   %cmp2082.not = icmp eq i64 %sub2081, %vlen.4
   br i1 %cmp2082.not, label %if.else2092, label %land.lhs.true2101.thread
 
@@ -12959,8 +12958,8 @@ land.lhs.true2101.thread:                         ; preds = %lor.lhs.false2080, 
 if.else2092:                                      ; preds = %lor.lhs.false2080
   %.call2076 = call i64 @llvm.umin.i64(i64 %call2076, i64 512)
   store i64 %.call2076, ptr getelementptr inbounds (i8, ptr @opt_hpa_sec_opts, i64 32), align 8
-  %201 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool2102 = trunc i8 %201 to i1
+  %200 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool2102 = trunc i8 %200 to i1
   br i1 %tobool2102, label %if.then2107, label %while.cond.backedge
 
 if.then2107:                                      ; preds = %if.else2092
@@ -12988,8 +12987,8 @@ land.lhs.true2121:                                ; preds = %if.then2118
 
 if.then2125:                                      ; preds = %land.lhs.true2121
   call void @sc_data_init(ptr noundef %sc_data) #19
-  %202 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool2128 = trunc i8 %202 to i1
+  %201 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool2128 = trunc i8 %201 to i1
   br i1 %tobool2128, label %if.then2133, label %while.cond.backedge
 
 if.then2133:                                      ; preds = %if.then2125
@@ -13011,18 +13010,18 @@ land.lhs.true2159.thread:                         ; preds = %do.body2140
   br label %while.cond.backedge
 
 do.cond2151:                                      ; preds = %do.body2140
-  %203 = load i64, ptr %slab_start, align 8
-  %204 = load i64, ptr %slab_end, align 8
-  %205 = load i64, ptr %pgs, align 8
-  %conv2145 = trunc i64 %205 to i32
-  call void @sc_data_update_slab_size(ptr noundef %sc_data, i64 noundef %203, i64 noundef %204, i32 noundef %conv2145) #19
-  %206 = load i64, ptr %vlen_left2139, align 8
-  %cmp2154 = icmp eq i64 %206, 0
+  %202 = load i64, ptr %slab_start, align 8
+  %203 = load i64, ptr %slab_end, align 8
+  %204 = load i64, ptr %pgs, align 8
+  %conv2145 = trunc i64 %204 to i32
+  call void @sc_data_update_slab_size(ptr noundef %sc_data, i64 noundef %202, i64 noundef %203, i32 noundef %conv2145) #19
+  %205 = load i64, ptr %vlen_left2139, align 8
+  %cmp2154 = icmp eq i64 %205, 0
   br i1 %cmp2154, label %land.lhs.true2159, label %do.body2140, !llvm.loop !29
 
 land.lhs.true2159:                                ; preds = %do.cond2151
-  %207 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool2160 = trunc i8 %207 to i1
+  %206 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool2160 = trunc i8 %206 to i1
   br i1 %tobool2160, label %if.then2165, label %while.cond.backedge
 
 if.then2165:                                      ; preds = %land.lhs.true2159
@@ -13035,37 +13034,37 @@ if.end2169:                                       ; preds = %land.lhs.true2114, 
   br i1 %cmp160919982008, label %sub_02162, label %if.end2210
 
 sub_02162:                                        ; preds = %if.end2169
-  %208 = load i8, ptr %opts.02193, align 1
-  %209 = zext i8 %208 to i32
-  %210 = sub nsw i32 116, %209
-  %.not2206 = icmp eq i8 %208, 116
+  %207 = load i8, ptr %opts.02193, align 1
+  %208 = zext i8 %207 to i32
+  %209 = sub nsw i32 116, %208
+  %.not2206 = icmp eq i8 %207, 116
   br i1 %.not2206, label %sub_12163, label %land.lhs.true2172.tail
 
 sub_12163:                                        ; preds = %sub_02162
-  %211 = getelementptr inbounds i8, ptr %opts.02193, i64 1
-  %212 = load i8, ptr %211, align 1
-  %213 = zext i8 %212 to i32
-  %214 = sub nsw i32 104, %213
-  %.not2207 = icmp eq i8 %212, 104
+  %210 = getelementptr inbounds i8, ptr %opts.02193, i64 1
+  %211 = load i8, ptr %210, align 1
+  %212 = zext i8 %211 to i32
+  %213 = sub nsw i32 104, %212
+  %.not2207 = icmp eq i8 %211, 104
   br i1 %.not2207, label %sub_22164, label %land.lhs.true2172.tail
 
 sub_22164:                                        ; preds = %sub_12163
-  %215 = getelementptr inbounds i8, ptr %opts.02193, i64 2
-  %216 = load i8, ptr %215, align 1
-  %217 = zext i8 %216 to i32
-  %218 = sub nsw i32 112, %217
+  %214 = getelementptr inbounds i8, ptr %opts.02193, i64 2
+  %215 = load i8, ptr %214, align 1
+  %216 = zext i8 %215 to i32
+  %217 = sub nsw i32 112, %216
   br label %land.lhs.true2172.tail
 
 land.lhs.true2172.tail:                           ; preds = %sub_02162, %sub_12163, %sub_22164
-  %219 = phi i32 [ %210, %sub_02162 ], [ %214, %sub_12163 ], [ %218, %sub_22164 ]
-  %cmp2174 = icmp eq i32 %219, 0
+  %218 = phi i32 [ %209, %sub_02162 ], [ %213, %sub_12163 ], [ %217, %sub_22164 ]
+  %cmp2174 = icmp eq i32 %218, 0
   br i1 %cmp2174, label %for.body2182, label %if.end2210
 
 for.body2182:                                     ; preds = %land.lhs.true2172.tail, %for.inc2190
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc2190 ], [ 0, %land.lhs.true2172.tail ]
   %arrayidx2184 = getelementptr inbounds [0 x ptr], ptr @thp_mode_names, i64 0, i64 %indvars.iv
-  %220 = load ptr, ptr %arrayidx2184, align 8
-  %call2185 = call i32 @strncmp(ptr noundef %220, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #23
+  %219 = load ptr, ptr %arrayidx2184, align 8
+  %call2185 = call i32 @strncmp(ptr noundef %219, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #23
   %cmp2186 = icmp eq i32 %call2185, 0
   br i1 %cmp2186, label %land.lhs.true2200, label %for.inc2190
 
@@ -13079,10 +13078,10 @@ land.lhs.true2200.thread:                         ; preds = %for.inc2190
   br label %while.cond.backedge
 
 land.lhs.true2200:                                ; preds = %for.body2182
-  %221 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %221, ptr @opt_thp, align 4
-  %222 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool2201 = trunc i8 %222 to i1
+  %220 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %220, ptr @opt_thp, align 4
+  %221 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool2201 = trunc i8 %221 to i1
   br i1 %tobool2201, label %if.then2206, label %while.cond.backedge
 
 if.then2206:                                      ; preds = %land.lhs.true2200
@@ -13125,10 +13124,10 @@ land.lhs.true2249.thread:                         ; preds = %if.then2217, %land.
   br label %while.cond.backedge
 
 land.lhs.true2249:                                ; preds = %land.lhs.true2236, %land.lhs.true2228, %land.lhs.true2220
-  %.sink2269 = phi i32 [ 0, %land.lhs.true2220 ], [ 1, %land.lhs.true2228 ], [ 2, %land.lhs.true2236 ]
-  store i32 %.sink2269, ptr @opt_zero_realloc_action, align 4
-  %223 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool2250 = trunc i8 %223 to i1
+  %.sink2270 = phi i32 [ 0, %land.lhs.true2220 ], [ 1, %land.lhs.true2228 ], [ 2, %land.lhs.true2236 ]
+  store i32 %.sink2270, ptr @opt_zero_realloc_action, align 4
+  %222 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool2250 = trunc i8 %222 to i1
   br i1 %tobool2250, label %if.then2255, label %while.cond.backedge
 
 if.then2255:                                      ; preds = %land.lhs.true2249
@@ -13148,14 +13147,14 @@ if.then2266:                                      ; preds = %land.lhs.true2262
   %call.i687 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i687, align 4
   %call2269 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end2268, i32 noundef 0) #19
-  %224 = load i32, ptr %call.i687, align 4
-  %cmp2271.not = icmp eq i32 %224, 0
+  %223 = load i32, ptr %call.i687, align 4
+  %cmp2271.not = icmp eq i32 %223, 0
   br i1 %cmp2271.not, label %lor.lhs.false2273, label %land.lhs.true2284.thread
 
 lor.lhs.false2273:                                ; preds = %if.then2266
-  %225 = load ptr, ptr %end2268, align 8
-  %226 = ptrtoint ptr %225 to i64
-  %sub2274 = sub i64 %226, %12
+  %224 = load ptr, ptr %end2268, align 8
+  %225 = ptrtoint ptr %224 to i64
+  %sub2274 = sub i64 %225, %12
   %cmp2275.not = icmp eq i64 %sub2274, %vlen.4
   br i1 %cmp2275.not, label %land.lhs.true2284, label %land.lhs.true2284.thread
 
@@ -13165,8 +13164,8 @@ land.lhs.true2284.thread:                         ; preds = %lor.lhs.false2273, 
 
 land.lhs.true2284:                                ; preds = %lor.lhs.false2273
   store i64 %call2269, ptr @opt_san_guard_small, align 8
-  %227 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool2285 = trunc i8 %227 to i1
+  %226 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool2285 = trunc i8 %226 to i1
   br i1 %tobool2285, label %if.then2290, label %while.cond.backedge
 
 if.then2290:                                      ; preds = %land.lhs.true2284
@@ -13184,14 +13183,14 @@ if.then2301:                                      ; preds = %land.lhs.true2297
   %call.i689 = tail call ptr @__errno_location() #21
   store i32 0, ptr %call.i689, align 4
   %call2304 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end2303, i32 noundef 0) #19
-  %228 = load i32, ptr %call.i689, align 4
-  %cmp2306.not = icmp eq i32 %228, 0
+  %227 = load i32, ptr %call.i689, align 4
+  %cmp2306.not = icmp eq i32 %227, 0
   br i1 %cmp2306.not, label %lor.lhs.false2308, label %land.lhs.true2319.thread
 
 lor.lhs.false2308:                                ; preds = %if.then2301
-  %229 = load ptr, ptr %end2303, align 8
-  %230 = ptrtoint ptr %229 to i64
-  %sub2309 = sub i64 %230, %12
+  %228 = load ptr, ptr %end2303, align 8
+  %229 = ptrtoint ptr %228 to i64
+  %sub2309 = sub i64 %229, %12
   %cmp2310.not = icmp eq i64 %sub2309, %vlen.4
   br i1 %cmp2310.not, label %land.lhs.true2319, label %land.lhs.true2319.thread
 
@@ -13201,8 +13200,8 @@ land.lhs.true2319.thread:                         ; preds = %lor.lhs.false2308, 
 
 land.lhs.true2319:                                ; preds = %lor.lhs.false2308
   store i64 %call2304, ptr @opt_san_guard_large, align 8
-  %231 = load i8, ptr @opt_confirm_conf, align 1
-  %tobool2320 = trunc i8 %231 to i1
+  %230 = load i8, ptr @opt_confirm_conf, align 1
+  %tobool2320 = trunc i8 %230 to i1
   br i1 %tobool2320, label %if.then2325, label %while.cond.backedge
 
 if.then2325:                                      ; preds = %land.lhs.true2319
@@ -13237,43 +13236,43 @@ while.end:                                        ; preds = %while.cond.backedge
   br i1 %call.i691, label %lor.lhs.false.i, label %validate_hpa_settings.exit
 
 lor.lhs.false.i:                                  ; preds = %while.end
-  %232 = load i8, ptr @opt_hpa, align 1
-  %tobool.i = trunc i8 %232 to i1
-  %233 = load i32, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
-  %cmp.i692 = icmp ne i32 %233, -1
+  %231 = load i8, ptr @opt_hpa, align 1
+  %tobool.i = trunc i8 %231 to i1
+  %232 = load i32, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 16), align 8
+  %cmp.i692 = icmp ne i32 %232, -1
   %or.cond.not.i = select i1 %tobool.i, i1 %cmp.i692, i1 false
   br i1 %or.cond.not.i, label %if.end.i693, label %validate_hpa_settings.exit
 
 if.end.i693:                                      ; preds = %lor.lhs.false.i
-  %conv.i.i694 = zext i32 %233 to i64
+  %conv.i.i694 = zext i32 %232 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i694, 5
-  %234 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
-  %add.i = add i64 %234, %mul.i.i
+  %233 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  %add.i = add i64 %233, %mul.i.i
   %cmp3.i = icmp ugt i64 %add.i, 2097152
   br i1 %cmp3.i, label %validate_hpa_settings.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i693
   store i1 true, ptr @had_conf_error, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %normalization_message.i, i8 0, i64 256, i1 false)
-  call void @fxp_print(i32 noundef %233, ptr noundef nonnull %hpa_dirty_mult.i) #19
-  %235 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
-  %236 = trunc i64 %235 to i32
-  %237 = lshr i32 %236, 5
-  %238 = and i32 %237, 8388480
-  call void @fxp_print(i32 noundef %238, ptr noundef nonnull %hugification_threshold.i) #19
-  %239 = load i8, ptr @opt_abort_conf, align 1
-  %tobool8.i = trunc i8 %239 to i1
+  call void @fxp_print(i32 noundef %232, ptr noundef nonnull %hpa_dirty_mult.i) #19
+  %234 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  %235 = trunc i64 %234 to i32
+  %236 = lshr i32 %235, 5
+  %237 = and i32 %236, 8388480
+  call void @fxp_print(i32 noundef %237, ptr noundef nonnull %hugification_threshold.i) #19
+  %238 = load i8, ptr @opt_abort_conf, align 1
+  %tobool8.i = trunc i8 %238 to i1
   br i1 %tobool8.i, label %if.end19.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i
-  %240 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
-  %reass.sub.i = sub i64 %240, %add.i
+  %239 = load i64, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  %reass.sub.i = sub i64 %239, %add.i
   %add10.i = add i64 %reass.sub.i, 2097152
   store i64 %add10.i, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
-  %241 = trunc i64 %add10.i to i32
-  %242 = lshr i32 %241, 5
-  %243 = and i32 %242, 8388480
-  call void @fxp_print(i32 noundef %243, ptr noundef nonnull %normalized_hugification_threshold.i) #19
+  %240 = trunc i64 %add10.i to i32
+  %241 = lshr i32 %240, 5
+  %242 = and i32 %241, 8388480
+  call void @fxp_print(i32 noundef %242, ptr noundef nonnull %normalized_hugification_threshold.i) #19
   %call18.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %normalization_message.i, i64 noundef 256, ptr noundef nonnull @.str.165, ptr noundef nonnull %normalized_hugification_threshold.i) #19
   br label %if.end19.i
 
@@ -13286,8 +13285,8 @@ validate_hpa_settings.exit:                       ; preds = %while.end, %lor.lhs
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %hugification_threshold.i)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %normalization_message.i)
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %normalized_hugification_threshold.i)
-  %244 = load i8, ptr @opt_abort_conf, align 1
-  %tobool2333 = trunc i8 %244 to i1
+  %243 = load i8, ptr @opt_abort_conf, align 1
+  %tobool2333 = trunc i8 %243 to i1
   br i1 %tobool2333, label %land.lhs.true2335, label %for.inc2340
 
 land.lhs.true2335:                                ; preds = %validate_hpa_settings.exit

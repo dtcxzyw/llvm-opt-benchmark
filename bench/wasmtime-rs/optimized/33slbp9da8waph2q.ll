@@ -14673,7 +14673,7 @@ define noundef range(i8 0, 37) i8 @"_ZN13wasmtime_wasi4host10filesystem4sync203_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN13wasmtime_wasi4host10filesystem4sync215_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DescriptorFlags$GT$$u20$for$u20$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..DescriptorFlags$GT$4from17h54e2b91c477031fdE"(i8 noundef %0) unnamed_addr #5 {
+define noundef range(i8 0, 64) i8 @"_ZN13wasmtime_wasi4host10filesystem4sync215_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DescriptorFlags$GT$$u20$for$u20$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..DescriptorFlags$GT$4from17h54e2b91c477031fdE"(i8 noundef %0) unnamed_addr #5 {
   %.5 = and i8 %0, 63
   ret i8 %.5
 }

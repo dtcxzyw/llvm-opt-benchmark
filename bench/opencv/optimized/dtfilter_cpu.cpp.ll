@@ -10974,19 +10974,22 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU26ComputeDTandIDTH
   %65 = add nsw i32 %64, -1
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next, %66
-  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !106
+  br i1 %67, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !106
 
-._crit_edge:                                      ; preds = %.lr.ph, %13
-  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %59, %.lr.ph ]
-  %.0.lcssa = phi i64 [ 0, %13 ], [ %indvars.iv.next, %.lr.ph ]
-  %68 = load float, ptr %10, align 8
-  %69 = fadd float %.029.lcssa, %68
-  %70 = and i64 %.0.lcssa, 4294967295
-  %71 = getelementptr inbounds float, ptr %38, i64 %70
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %68 = and i64 %indvars.iv.next, 4294967295
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
+  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %59, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %13 ], [ %68, %._crit_edge.loopexit ]
+  %69 = load float, ptr %10, align 8
+  %70 = fadd float %.029.lcssa, %69
+  %71 = getelementptr inbounds float, ptr %38, i64 %.0.lcssa
   %72 = getelementptr inbounds i8, ptr %71, i64 4
-  store float %69, ptr %72, align 4
+  store float %70, ptr %72, align 4
   %73 = load float, ptr %10, align 8
-  %74 = getelementptr inbounds float, ptr %30, i64 %70
+  %74 = getelementptr inbounds float, ptr %30, i64 %.0.lcssa
   store float %73, ptr %74, align 4
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, 1
   %75 = load i32, ptr %4, align 4
@@ -11790,19 +11793,22 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU26ComputeDTandIDTH
   %63 = add nsw i32 %62, -1
   %64 = sext i32 %63 to i64
   %65 = icmp slt i64 %indvars.iv.next, %64
-  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !127
+  br i1 %65, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !127
 
-._crit_edge:                                      ; preds = %.lr.ph, %13
-  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %57, %.lr.ph ]
-  %.0.lcssa = phi i64 [ 0, %13 ], [ %indvars.iv.next, %.lr.ph ]
-  %66 = load float, ptr %10, align 8
-  %67 = fadd float %.029.lcssa, %66
-  %68 = and i64 %.0.lcssa, 4294967295
-  %69 = getelementptr inbounds float, ptr %38, i64 %68
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %66 = and i64 %indvars.iv.next, 4294967295
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
+  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %57, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %13 ], [ %66, %._crit_edge.loopexit ]
+  %67 = load float, ptr %10, align 8
+  %68 = fadd float %.029.lcssa, %67
+  %69 = getelementptr inbounds float, ptr %38, i64 %.0.lcssa
   %70 = getelementptr inbounds i8, ptr %69, i64 4
-  store float %67, ptr %70, align 4
+  store float %68, ptr %70, align 4
   %71 = load float, ptr %10, align 8
-  %72 = getelementptr inbounds float, ptr %30, i64 %68
+  %72 = getelementptr inbounds float, ptr %30, i64 %.0.lcssa
   store float %71, ptr %72, align 4
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, 1
   %73 = load i32, ptr %4, align 4
@@ -12619,19 +12625,22 @@ _ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.e
   %70 = add nsw i32 %69, -1
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !148
+  br i1 %72, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !148
 
-._crit_edge:                                      ; preds = %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit, %13
-  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %64, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit ]
-  %.0.lcssa = phi i64 [ 0, %13 ], [ %indvars.iv.next, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit ]
-  %73 = load float, ptr %10, align 8
-  %74 = fadd float %.029.lcssa, %73
-  %75 = and i64 %.0.lcssa, 4294967295
-  %76 = getelementptr inbounds float, ptr %38, i64 %75
+._crit_edge.loopexit:                             ; preds = %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi2EEEEEfRKT_S7_.exit
+  %73 = and i64 %indvars.iv.next, 4294967295
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
+  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %64, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %13 ], [ %73, %._crit_edge.loopexit ]
+  %74 = load float, ptr %10, align 8
+  %75 = fadd float %.029.lcssa, %74
+  %76 = getelementptr inbounds float, ptr %38, i64 %.0.lcssa
   %77 = getelementptr inbounds i8, ptr %76, i64 4
-  store float %74, ptr %77, align 4
+  store float %75, ptr %77, align 4
   %78 = load float, ptr %10, align 8
-  %79 = getelementptr inbounds float, ptr %30, i64 %75
+  %79 = getelementptr inbounds float, ptr %30, i64 %.0.lcssa
   store float %78, ptr %79, align 4
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, 1
   %80 = load i32, ptr %4, align 4
@@ -13472,19 +13481,22 @@ _ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.e
   %68 = add nsw i32 %67, -1
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !169
+  br i1 %70, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !169
 
-._crit_edge:                                      ; preds = %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit, %13
-  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %62, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit ]
-  %.0.lcssa = phi i64 [ 0, %13 ], [ %indvars.iv.next, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit ]
-  %71 = load float, ptr %10, align 8
-  %72 = fadd float %.029.lcssa, %71
-  %73 = and i64 %.0.lcssa, 4294967295
-  %74 = getelementptr inbounds float, ptr %38, i64 %73
+._crit_edge.loopexit:                             ; preds = %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi2EEEEEfRKT_S7_.exit
+  %71 = and i64 %indvars.iv.next, 4294967295
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
+  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %62, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %13 ], [ %71, %._crit_edge.loopexit ]
+  %72 = load float, ptr %10, align 8
+  %73 = fadd float %.029.lcssa, %72
+  %74 = getelementptr inbounds float, ptr %38, i64 %.0.lcssa
   %75 = getelementptr inbounds i8, ptr %74, i64 4
-  store float %72, ptr %75, align 4
+  store float %73, ptr %75, align 4
   %76 = load float, ptr %10, align 8
-  %77 = getelementptr inbounds float, ptr %30, i64 %73
+  %77 = getelementptr inbounds float, ptr %30, i64 %.0.lcssa
   store float %76, ptr %77, align 4
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, 1
   %78 = load i32, ptr %4, align 4
@@ -14327,19 +14339,22 @@ _ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.e
   %69 = add nsw i32 %68, -1
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !190
+  br i1 %71, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !190
 
-._crit_edge:                                      ; preds = %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit, %13
-  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %63, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit ]
-  %.0.lcssa = phi i64 [ 0, %13 ], [ %indvars.iv.next, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit ]
-  %72 = load float, ptr %10, align 8
-  %73 = fadd float %.029.lcssa, %72
-  %74 = and i64 %.0.lcssa, 4294967295
-  %75 = getelementptr inbounds float, ptr %38, i64 %74
+._crit_edge.loopexit:                             ; preds = %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi3EEEEEfRKT_S7_.exit
+  %72 = and i64 %indvars.iv.next, 4294967295
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
+  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %63, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %13 ], [ %72, %._crit_edge.loopexit ]
+  %73 = load float, ptr %10, align 8
+  %74 = fadd float %.029.lcssa, %73
+  %75 = getelementptr inbounds float, ptr %38, i64 %.0.lcssa
   %76 = getelementptr inbounds i8, ptr %75, i64 4
-  store float %73, ptr %76, align 4
+  store float %74, ptr %76, align 4
   %77 = load float, ptr %10, align 8
-  %78 = getelementptr inbounds float, ptr %30, i64 %74
+  %78 = getelementptr inbounds float, ptr %30, i64 %.0.lcssa
   store float %77, ptr %78, align 4
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, 1
   %79 = load i32, ptr %4, align 4
@@ -15184,19 +15199,22 @@ _ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.e
   %67 = add nsw i32 %66, -1
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !211
+  br i1 %69, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !211
 
-._crit_edge:                                      ; preds = %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit, %13
-  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %61, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit ]
-  %.0.lcssa = phi i64 [ 0, %13 ], [ %indvars.iv.next, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit ]
-  %70 = load float, ptr %10, align 8
-  %71 = fadd float %.029.lcssa, %70
-  %72 = and i64 %.0.lcssa, 4294967295
-  %73 = getelementptr inbounds float, ptr %38, i64 %72
+._crit_edge.loopexit:                             ; preds = %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi3EEEEEfRKT_S7_.exit
+  %70 = and i64 %indvars.iv.next, 4294967295
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
+  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %61, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %13 ], [ %70, %._crit_edge.loopexit ]
+  %71 = load float, ptr %10, align 8
+  %72 = fadd float %.029.lcssa, %71
+  %73 = getelementptr inbounds float, ptr %38, i64 %.0.lcssa
   %74 = getelementptr inbounds i8, ptr %73, i64 4
-  store float %71, ptr %74, align 4
+  store float %72, ptr %74, align 4
   %75 = load float, ptr %10, align 8
-  %76 = getelementptr inbounds float, ptr %30, i64 %72
+  %76 = getelementptr inbounds float, ptr %30, i64 %.0.lcssa
   store float %75, ptr %76, align 4
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, 1
   %77 = load i32, ptr %4, align 4
@@ -16041,19 +16059,22 @@ _ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.e
   %69 = add nsw i32 %68, -1
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !232
+  br i1 %71, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !232
 
-._crit_edge:                                      ; preds = %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit, %13
-  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %63, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit ]
-  %.0.lcssa = phi i64 [ 0, %13 ], [ %indvars.iv.next, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit ]
-  %72 = load float, ptr %10, align 8
-  %73 = fadd float %.029.lcssa, %72
-  %74 = and i64 %.0.lcssa, 4294967295
-  %75 = getelementptr inbounds float, ptr %38, i64 %74
+._crit_edge.loopexit:                             ; preds = %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIhLi4EEEEEfRKT_S7_.exit
+  %72 = and i64 %indvars.iv.next, 4294967295
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
+  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %63, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %13 ], [ %72, %._crit_edge.loopexit ]
+  %73 = load float, ptr %10, align 8
+  %74 = fadd float %.029.lcssa, %73
+  %75 = getelementptr inbounds float, ptr %38, i64 %.0.lcssa
   %76 = getelementptr inbounds i8, ptr %75, i64 4
-  store float %73, ptr %76, align 4
+  store float %74, ptr %76, align 4
   %77 = load float, ptr %10, align 8
-  %78 = getelementptr inbounds float, ptr %30, i64 %74
+  %78 = getelementptr inbounds float, ptr %30, i64 %.0.lcssa
   store float %77, ptr %78, align 4
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, 1
   %79 = load i32, ptr %4, align 4
@@ -16898,19 +16919,22 @@ _ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.e
   %67 = add nsw i32 %66, -1
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !253
+  br i1 %69, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !253
 
-._crit_edge:                                      ; preds = %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit, %13
-  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %61, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit ]
-  %.0.lcssa = phi i64 [ 0, %13 ], [ %indvars.iv.next, %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit ]
-  %70 = load float, ptr %10, align 8
-  %71 = fadd float %.029.lcssa, %70
-  %72 = and i64 %.0.lcssa, 4294967295
-  %73 = getelementptr inbounds float, ptr %38, i64 %72
+._crit_edge.loopexit:                             ; preds = %_ZN2cv8ximgproc11DTFilterCPU22getTransformedDistanceINS_3VecIfLi4EEEEEfRKT_S7_.exit
+  %70 = and i64 %indvars.iv.next, 4294967295
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
+  %.029.lcssa = phi float [ 0.000000e+00, %13 ], [ %61, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %13 ], [ %70, %._crit_edge.loopexit ]
+  %71 = load float, ptr %10, align 8
+  %72 = fadd float %.029.lcssa, %71
+  %73 = getelementptr inbounds float, ptr %38, i64 %.0.lcssa
   %74 = getelementptr inbounds i8, ptr %73, i64 4
-  store float %71, ptr %74, align 4
+  store float %72, ptr %74, align 4
   %75 = load float, ptr %10, align 8
-  %76 = getelementptr inbounds float, ptr %30, i64 %72
+  %76 = getelementptr inbounds float, ptr %30, i64 %.0.lcssa
   store float %75, ptr %76, align 4
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, 1
   %77 = load i32, ptr %4, align 4

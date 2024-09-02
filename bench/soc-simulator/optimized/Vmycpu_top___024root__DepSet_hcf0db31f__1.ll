@@ -1925,13 +1925,13 @@ select.unfold:                                    ; preds = %9, %7
   store i8 0, ptr %2, align 4
   br i1 %11, label %7, label %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.preheader
 
-select.unfold28:                                  ; preds = %34
+select.unfold28:                                  ; preds = %35
   tail call void @_Z31Vmycpu_top___024root___eval_nbaP20Vmycpu_top___024root(ptr noundef nonnull %0)
   store i64 0, ptr %6, align 8
   br label %12
 
 12:                                               ; preds = %select.unfold28, %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.preheader
-  %.01930 = phi i32 [ 0, %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.preheader ], [ %31, %select.unfold28 ]
+  %.01930 = phi i32 [ 0, %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.preheader ], [ %32, %select.unfold28 ]
   %13 = icmp ugt i32 %.01930, 100
   br i1 %13, label %14, label %15
 
@@ -1988,25 +1988,25 @@ _Z38Vmycpu_top___024root___eval_phase__actP20Vmycpu_top___024root.exit.thread: ;
 
 _Z38Vmycpu_top___024root___eval_phase__actP20Vmycpu_top___024root.exit: ; preds = %23
   %.pr.pre = load i8, ptr %4, align 8
-  %.not24 = icmp eq i8 %.pr.pre, 0
-  br i1 %.not24, label %.preheader, label %thread-pre-split, !llvm.loop !11
+  %31 = icmp eq i8 %.pr.pre, 0
+  br i1 %31, label %.preheader, label %thread-pre-split, !llvm.loop !11
 
 .preheader:                                       ; preds = %_Z38Vmycpu_top___024root___eval_phase__actP20Vmycpu_top___024root.exit
-  %31 = add i32 %.01930, 1
-  br label %32
+  %32 = add i32 %.01930, 1
+  br label %33
 
-32:                                               ; preds = %.preheader, %34
-  %33 = phi i1 [ false, %34 ], [ true, %.preheader ]
-  %.0.i.i26 = phi i64 [ 1, %34 ], [ 0, %.preheader ]
-  br i1 %33, label %34, label %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.loopexit
+33:                                               ; preds = %.preheader, %35
+  %34 = phi i1 [ false, %35 ], [ true, %.preheader ]
+  %.0.i.i26 = phi i64 [ 1, %35 ], [ 0, %.preheader ]
+  br i1 %34, label %35, label %_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.loopexit
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds [1 x i64], ptr %6, i64 0, i64 %.0.i.i26
-  %36 = load i64, ptr %35, align 8
-  %.not.i.i27 = icmp eq i64 %36, 0
-  br i1 %.not.i.i27, label %32, label %select.unfold28, !llvm.loop !10
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds [1 x i64], ptr %6, i64 0, i64 %.0.i.i26
+  %37 = load i64, ptr %36, align 8
+  %.not.i.i27 = icmp eq i64 %37, 0
+  br i1 %.not.i.i27, label %33, label %select.unfold28, !llvm.loop !10
 
-_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.loopexit: ; preds = %32
+_Z38Vmycpu_top___024root___eval_phase__nbaP20Vmycpu_top___024root.exit.loopexit: ; preds = %33
   ret void
 }
 
@@ -2026,7 +2026,7 @@ define internal noundef i64 @_ZL13VL_EXTENDS_QQiim(i32 %0, i32 noundef %1, i64 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZL15VL_EXTENDSIGN_Qim(i32 noundef %0, i64 noundef %1) #3 {
+define internal noundef range(i64 -9223372036854775808, 1) i64 @_ZL15VL_EXTENDSIGN_Qim(i32 noundef %0, i64 noundef %1) #3 {
   %3 = add nsw i32 %0, -1
   %4 = zext nneg i32 %3 to i64
   %5 = shl nuw i64 1, %4

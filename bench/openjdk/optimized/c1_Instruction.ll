@@ -926,11 +926,11 @@ _ZN10StateSplit15state_values_doEP12ValueVisitor.exit: ; preds = %_ZN11Instructi
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %18, align 4
+  %22 = sext i32 %21 to i64
   br label %_ZN10BlockBegin26number_of_exception_statesEv.exit
 
 _ZN10BlockBegin26number_of_exception_statesEv.exit: ; preds = %17, %20
-  %22 = phi i32 [ %21, %20 ], [ 0, %17 ]
-  %23 = sext i32 %22 to i64
+  %23 = phi i64 [ %22, %20 ], [ 0, %17 ]
   %24 = icmp slt i64 %indvars.iv, %23
   br i1 %24, label %25, label %.loopexit
 
@@ -1904,11 +1904,11 @@ define hidden void @_ZN10BlockBegin7set_endEP8BlockEnd(ptr noundef nonnull align
 
 10:                                               ; preds = %.preheader
   %11 = load i32, ptr %9, align 4
+  %12 = sext i32 %11 to i64
   br label %_ZNK10BlockBegin13number_of_suxEv.exit
 
 _ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %.preheader, %10
-  %12 = phi i32 [ %11, %10 ], [ 0, %.preheader ]
-  %13 = sext i32 %12 to i64
+  %13 = phi i64 [ %12, %10 ], [ 0, %.preheader ]
   %14 = icmp slt i64 %indvars.iv, %13
   br i1 %14, label %15, label %.loopexit14
 
@@ -1996,11 +1996,11 @@ _ZN10BlockBegin18remove_predecessorEPS_.exit:     ; preds = %_ZN17GrowableArrayV
 
 49:                                               ; preds = %45
   %50 = load i32, ptr %48, align 4
+  %51 = sext i32 %50 to i64
   br label %_ZNK10BlockBegin13number_of_suxEv.exit12
 
 _ZNK10BlockBegin13number_of_suxEv.exit12:         ; preds = %45, %49
-  %51 = phi i32 [ %50, %49 ], [ 0, %45 ]
-  %52 = sext i32 %51 to i64
+  %52 = phi i64 [ %51, %49 ], [ 0, %45 ]
   %53 = icmp slt i64 %indvars.iv19, %52
   br i1 %53, label %54, label %.loopexit
 
@@ -2300,11 +2300,11 @@ define hidden void @_ZN10BlockBegin14substitute_suxEPS_S0_(ptr noundef nonnull a
 
 12:                                               ; preds = %8
   %13 = load i32, ptr %11, align 4
+  %14 = sext i32 %13 to i64
   br label %_ZNK10BlockBegin13number_of_suxEv.exit
 
 _ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %8, %12
-  %14 = phi i32 [ %13, %12 ], [ 0, %8 ]
-  %15 = sext i32 %14 to i64
+  %15 = phi i64 [ %14, %12 ], [ 0, %8 ]
   %16 = icmp slt i64 %indvars.iv, %15
   br i1 %16, label %17, label %64
 

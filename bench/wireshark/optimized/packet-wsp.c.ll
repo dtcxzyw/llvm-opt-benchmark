@@ -2734,22 +2734,22 @@ define hidden void @add_post_data(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %39 = getelementptr inbounds i8, ptr %4, i64 296
   br label %40
 
-40:                                               ; preds = %76, %.lr.ph.i
-  %.in.i = phi i32 [ %35, %.lr.ph.i ], [ %41, %76 ]
-  %.06278.i = phi i32 [ %36, %.lr.ph.i ], [ %77, %76 ]
-  %.06377.i = phi i32 [ 1, %.lr.ph.i ], [ %78, %76 ]
+40:                                               ; preds = %77, %.lr.ph.i
+  %.in.i = phi i32 [ %35, %.lr.ph.i ], [ %41, %77 ]
+  %.06276.i = phi i32 [ %36, %.lr.ph.i ], [ %78, %77 ]
+  %.06375.i = phi i32 [ 1, %.lr.ph.i ], [ %79, %77 ]
   %41 = add i32 %.in.i, -1
-  %42 = call i32 @tvb_get_guintvar(ptr noundef %1, i32 noundef %.06278.i, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
+  %42 = call i32 @tvb_get_guintvar(ptr noundef %1, i32 noundef %.06276.i, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
   %43 = load i32, ptr %6, align 4
-  %44 = add i32 %43, %.06278.i
+  %44 = add i32 %43, %.06276.i
   %45 = call i32 @tvb_get_guintvar(ptr noundef %1, i32 noundef %44, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
   %46 = load i32, ptr %6, align 4
   %47 = add i32 %46, %44
   %48 = load i32, ptr @hf_wsp_mpart, align 4
-  %49 = sub i32 %42, %.06278.i
+  %49 = sub i32 %42, %.06276.i
   %50 = add i32 %49, %45
   %51 = add i32 %50, %47
-  %52 = call ptr @proto_tree_add_uint(ptr noundef %38, i32 noundef %48, ptr noundef %1, i32 noundef %.06278.i, i32 noundef %51, i32 noundef %.06377.i) #4
+  %52 = call ptr @proto_tree_add_uint(ptr noundef %38, i32 noundef %48, ptr noundef %1, i32 noundef %.06276.i, i32 noundef %51, i32 noundef %.06375.i) #4
   %53 = load i32, ptr @ett_multiparts, align 4
   %54 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53) #4
   %55 = call i32 @add_content_type(ptr noundef %54, ptr noundef %4, ptr noundef %1, i32 noundef %47, ptr noundef nonnull %7, ptr noundef nonnull %8)
@@ -2781,33 +2781,33 @@ define hidden void @add_post_data(ptr noundef %0, ptr noundef %1, i32 noundef %2
 65:                                               ; preds = %62, %60
   %66 = add i32 %47, %42
   %67 = call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %66, i32 noundef %45) #4
-  br i1 %.not69.i, label %.thread.i, label %68
+  br i1 %.not69.i, label %.critedge.i, label %68
 
 68:                                               ; preds = %65
   %69 = load ptr, ptr @media_type_table, align 8
   %70 = call i32 @dissector_try_string(ptr noundef %69, ptr noundef nonnull %56, ptr noundef %67, ptr noundef %4, ptr noundef %54, ptr noundef null) #4
-  %.not72.i = icmp eq i32 %70, 0
-  br i1 %.not72.i, label %.thread.i, label %76
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %.critedge.i, label %77
 
-.thread.i:                                        ; preds = %68, %65
-  %71 = load ptr, ptr @heur_subdissector_list, align 8
-  %72 = call i32 @dissector_try_heuristic(ptr noundef %71, ptr noundef %67, ptr noundef %4, ptr noundef %54, ptr noundef nonnull %9, ptr noundef null) #4
-  %.not73.i = icmp eq i32 %72, 0
-  br i1 %.not73.i, label %73, label %76
+.critedge.i:                                      ; preds = %68, %65
+  %72 = load ptr, ptr @heur_subdissector_list, align 8
+  %73 = call i32 @dissector_try_heuristic(ptr noundef %72, ptr noundef %67, ptr noundef %4, ptr noundef %54, ptr noundef nonnull %9, ptr noundef null) #4
+  %.not73.i = icmp eq i32 %73, 0
+  br i1 %.not73.i, label %74, label %77
 
-73:                                               ; preds = %.thread.i
+74:                                               ; preds = %.critedge.i
   store ptr %56, ptr %39, align 8
-  %74 = load ptr, ptr @media_handle, align 8
-  %75 = call i32 @call_dissector_with_data(ptr noundef %74, ptr noundef %67, ptr noundef %4, ptr noundef %54, ptr noundef null) #4
-  br label %76
+  %75 = load ptr, ptr @media_handle, align 8
+  %76 = call i32 @call_dissector_with_data(ptr noundef %75, ptr noundef %67, ptr noundef %4, ptr noundef %54, ptr noundef null) #4
+  br label %77
 
-76:                                               ; preds = %73, %.thread.i, %68
-  %77 = add i32 %66, %45
-  %78 = add i32 %.06377.i, 1
+77:                                               ; preds = %74, %.critedge.i, %68
+  %78 = add i32 %66, %45
+  %79 = add i32 %.06375.i, 1
   %.not68.i = icmp eq i32 %41, 0
   br i1 %.not68.i, label %add_multipart_data.exit, label %40, !llvm.loop !7
 
-add_multipart_data.exit:                          ; preds = %76, %34
+add_multipart_data.exit:                          ; preds = %77, %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)

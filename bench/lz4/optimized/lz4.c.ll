@@ -11929,7 +11929,7 @@ if.end:                                           ; preds = %if.end6.i, %if.end6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @LZ4_saveDict(ptr nocapture noundef %LZ4_dict, ptr noundef %safeBuffer, i32 noundef %dictSize) local_unnamed_addr #11 {
+define range(i32 0, 65537) i32 @LZ4_saveDict(ptr nocapture noundef %LZ4_dict, ptr noundef %safeBuffer, i32 noundef %dictSize) local_unnamed_addr #11 {
 entry:
   %dictSize1 = getelementptr inbounds i8, ptr %LZ4_dict, i64 16408
   %0 = load i32, ptr %dictSize1, align 8

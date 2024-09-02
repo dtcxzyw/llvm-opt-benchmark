@@ -1903,12 +1903,12 @@ declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @setenvf(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #2 {
+define zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %70, label %4
+  br i1 %.not, label %71, label %4
 
 4:                                                ; preds = %1
   %5 = tail call ptr @xstrdup(ptr noundef nonnull %0) #20
@@ -1919,18 +1919,18 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 
 ._crit_edge.thread:                               ; preds = %4
   call void @slurm_xfree(ptr noundef nonnull %2) #20
-  br label %69
+  br label %70
 
-.lr.ph:                                           ; preds = %4, %67
-  %.031.fr49 = phi i16 [ %.031.fr, %67 ], [ 0, %4 ]
-  %.03248 = phi ptr [ %68, %67 ], [ %6, %4 ]
+.lr.ph:                                           ; preds = %4, %68
+  %.031.fr49 = phi i16 [ %.2, %68 ], [ 0, %4 ]
+  %.03248 = phi ptr [ %69, %68 ], [ %6, %4 ]
   %7 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.59) #20
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.thread, label %9
 
 .thread:                                          ; preds = %.lr.ph
   call void @slurm_xfree(ptr noundef nonnull %2) #20
-  br label %70
+  br label %71
 
 9:                                                ; preds = %.lr.ph
   %10 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.60) #20
@@ -1939,7 +1939,7 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 
 12:                                               ; preds = %9
   %13 = or i16 %.031.fr49, 512
-  br label %67
+  br label %68
 
 14:                                               ; preds = %9
   %15 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.61) #20
@@ -1948,7 +1948,7 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 
 17:                                               ; preds = %14
   %18 = or i16 %.031.fr49, 1
-  br label %67
+  br label %68
 
 19:                                               ; preds = %14
   %20 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.62) #20
@@ -1957,7 +1957,7 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 
 22:                                               ; preds = %19
   %23 = or i16 %.031.fr49, 2
-  br label %67
+  br label %68
 
 24:                                               ; preds = %19
   %25 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.63) #20
@@ -1966,7 +1966,7 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 
 27:                                               ; preds = %24
   %28 = or i16 %.031.fr49, 4
-  br label %67
+  br label %68
 
 29:                                               ; preds = %24
   %30 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.64) #20
@@ -1975,7 +1975,7 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 
 32:                                               ; preds = %29
   %33 = or i16 %.031.fr49, 1024
-  br label %67
+  br label %68
 
 34:                                               ; preds = %29
   %35 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.65) #20
@@ -1984,7 +1984,7 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 
 37:                                               ; preds = %34
   %38 = or i16 %.031.fr49, 8
-  br label %67
+  br label %68
 
 39:                                               ; preds = %34
   %40 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.66) #20
@@ -1993,7 +1993,7 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 
 42:                                               ; preds = %39
   %43 = or i16 %.031.fr49, 1295
-  br label %67
+  br label %68
 
 44:                                               ; preds = %39
   %45 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.67) #20
@@ -2002,7 +2002,7 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 
 46:                                               ; preds = %44
   %47 = or i16 %.031.fr49, 256
-  br label %67
+  br label %68
 
 48:                                               ; preds = %44
   %49 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.68) #20
@@ -2011,7 +2011,7 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 
 51:                                               ; preds = %48
   %52 = or i16 %.031.fr49, 16
-  br label %67
+  br label %68
 
 53:                                               ; preds = %48
   %54 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.69) #20
@@ -2020,7 +2020,7 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 
 56:                                               ; preds = %53
   %57 = or i16 %.031.fr49, 32
-  br label %67
+  br label %68
 
 58:                                               ; preds = %53
   %59 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.70) #20
@@ -2029,32 +2029,32 @@ define noundef zeroext i16 @parse_mail_type(ptr noundef %0) local_unnamed_addr #
 
 61:                                               ; preds = %58
   %62 = or i16 %.031.fr49, 64
-  br label %67
+  br label %68
 
 63:                                               ; preds = %58
   %64 = call i32 @xstrcasecmp(ptr noundef nonnull %.03248, ptr noundef nonnull @.str.71) #20
   %65 = icmp eq i32 %64, 0
   %66 = or i16 %.031.fr49, 128
   %spec.select = select i1 %65, i16 %66, i16 %.031.fr49
-  br label %67
+  %67 = freeze i16 %spec.select
+  br label %68
 
-67:                                               ; preds = %63, %12, %22, %32, %42, %51, %61, %56, %46, %37, %27, %17
-  %.2 = phi i16 [ %13, %12 ], [ %18, %17 ], [ %23, %22 ], [ %28, %27 ], [ %33, %32 ], [ %38, %37 ], [ %43, %42 ], [ %52, %51 ], [ %57, %56 ], [ %62, %61 ], [ %47, %46 ], [ %spec.select, %63 ]
-  %68 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %3) #20
-  %.031.fr = freeze i16 %.2
-  %.not35.not = icmp eq ptr %68, null
+68:                                               ; preds = %63, %12, %22, %32, %42, %51, %61, %56, %46, %37, %27, %17
+  %.2 = phi i16 [ %13, %12 ], [ %18, %17 ], [ %23, %22 ], [ %28, %27 ], [ %33, %32 ], [ %38, %37 ], [ %43, %42 ], [ %52, %51 ], [ %57, %56 ], [ %62, %61 ], [ %47, %46 ], [ %67, %63 ]
+  %69 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %3) #20
+  %.not35.not = icmp eq ptr %69, null
   br i1 %.not35.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %67
+._crit_edge:                                      ; preds = %68
   call void @slurm_xfree(ptr noundef nonnull %2) #20
-  %.not37 = icmp eq i16 %.031.fr, 0
-  br i1 %.not37, label %69, label %70
+  %.not37 = icmp eq i16 %.2, 0
+  br i1 %.not37, label %70, label %71
 
-69:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  br label %70
+70:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  br label %71
 
-70:                                               ; preds = %69, %._crit_edge, %.thread, %1
-  %.033 = phi i16 [ -1, %1 ], [ 0, %.thread ], [ -1, %69 ], [ %.031.fr, %._crit_edge ]
+71:                                               ; preds = %70, %._crit_edge, %.thread, %1
+  %.033 = phi i16 [ -1, %1 ], [ 0, %.thread ], [ -1, %70 ], [ %.2, %._crit_edge ]
   ret i16 %.033
 }
 

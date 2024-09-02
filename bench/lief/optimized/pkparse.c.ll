@@ -781,7 +781,7 @@ declare ptr @mbedtls_pk_info_from_type(i32 noundef) local_unnamed_addr #3
 declare i32 @mbedtls_pk_setup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147468672) i32 @pk_get_rsapubkey(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147468544) i32 @pk_get_rsapubkey(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = call i32 @mbedtls_asn1_get_tag(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 48) #10
   %.not = icmp eq i32 %5, 0
@@ -1250,7 +1250,7 @@ declare void @mbedtls_pem_init(ptr noundef) local_unnamed_addr #3
 declare i32 @mbedtls_pem_read_buffer(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147468672) i32 @pk_parse_key_pkcs1_der(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147468032) i32 @pk_parse_key_pkcs1_der(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -1944,7 +1944,7 @@ declare i32 @mbedtls_mpi_cmp_int(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @mbedtls_ecp_keypair_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147468672) i32 @pk_get_ecparams(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147468032) i32 @pk_get_ecparams(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64

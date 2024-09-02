@@ -83,11 +83,11 @@ if.then30.i:                                      ; preds = %if.end28.i, %land.l
 land.rhs.i:                                       ; preds = %if.then30.i
   %call35.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr31.i, i32 noundef 42) #12
   %tobool36.i = icmp ne ptr %call35.i, null
+  %3 = zext i1 %tobool36.i to i32
   br label %cond.true.i
 
 cond.true.i:                                      ; preds = %land.rhs.i, %if.then30.i
-  %3 = phi i1 [ false, %if.then30.i ], [ %tobool36.i, %land.rhs.i ]
-  %land.ext.i = zext i1 %3 to i32
+  %land.ext.i = phi i32 [ 0, %if.then30.i ], [ %3, %land.rhs.i ]
   %call37.i = tail call ptr @xstrndup(ptr noundef nonnull %incdec.ptr31.i, i64 noundef %call32.i) #13
   %dst.i = getelementptr inbounds i8, ptr %item, i64 16
   store ptr %call37.i, ptr %dst.i, align 8

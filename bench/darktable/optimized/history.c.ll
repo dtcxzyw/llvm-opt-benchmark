@@ -552,8 +552,8 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %75, %1
-  %24 = phi i32 [ 0, %1 ], [ %92, %75 ]
+.loopexit:                                        ; preds = %70, %1
+  %24 = phi i32 [ 0, %1 ], [ %86, %70 ]
   %25 = load ptr, ptr %3, align 8, !tbaa !17
   tail call void @gtk_widget_show_all(ptr noundef %25) #16
   %26 = load ptr, ptr %3, align 8, !tbaa !17
@@ -562,117 +562,108 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %28 = getelementptr inbounds i8, ptr %27, i64 2016
   %29 = load i32, ptr %28, align 16, !tbaa !61
   %30 = icmp eq i32 %24, %29
-  br i1 %30, label %96, label %103
+  br i1 %30, label %90, label %97
 
-.preheader:                                       ; preds = %1, %75
-  %31 = phi ptr [ %94, %75 ], [ %22, %1 ]
-  %32 = phi i32 [ %92, %75 ], [ 0, %1 ]
+.preheader:                                       ; preds = %1, %70
+  %31 = phi ptr [ %88, %70 ], [ %22, %1 ]
+  %32 = phi i32 [ %86, %70 ], [ 0, %1 ]
   %33 = load ptr, ptr %31, align 8, !tbaa !73
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %.preheader
   %36 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.32) #16
-  br label %60
+  br label %54
 
 37:                                               ; preds = %.preheader
   %38 = getelementptr inbounds i8, ptr %33, i64 60
   %39 = load i8, ptr %38, align 4
-  %40 = icmp eq i8 %39, 0
-  br i1 %40, label %48, label %sub_0
+  switch i8 %39, label %.tail.thread [
+    i8 0, label %43
+    i8 48, label %.tail
+  ]
 
-sub_0:                                            ; preds = %37
-  %41 = zext i8 %39 to i32
-  %42 = add nsw i32 %41, -48
-  %.not = icmp eq i32 %42, 0
-  br i1 %.not, label %sub_1, label %.tail
+.tail:                                            ; preds = %37
+  %40 = getelementptr inbounds i8, ptr %33, i64 61
+  %41 = load i8, ptr %40, align 1
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %43, label %.tail.thread
 
-sub_1:                                            ; preds = %sub_0
-  %43 = getelementptr inbounds i8, ptr %33, i64 61
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
-  br label %.tail
+43:                                               ; preds = %37, %.tail
+  %44 = load ptr, ptr %33, align 8, !tbaa !75
+  %45 = getelementptr inbounds i8, ptr %44, i64 40
+  %46 = load ptr, ptr %45, align 8, !tbaa !77
+  %47 = tail call ptr %46() #16
+  %48 = tail call noalias ptr @g_strdup(ptr noundef %47) #16
+  br label %54
 
-.tail:                                            ; preds = %sub_0, %sub_1
-  %46 = phi i32 [ %42, %sub_0 ], [ %45, %sub_1 ]
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %54
-
-48:                                               ; preds = %.tail, %37
+.tail.thread:                                     ; preds = %37, %.tail
   %49 = load ptr, ptr %33, align 8, !tbaa !75
   %50 = getelementptr inbounds i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8, !tbaa !77
   %52 = tail call ptr %51() #16
-  %53 = tail call noalias ptr @g_strdup(ptr noundef %52) #16
-  br label %60
+  %53 = tail call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef nonnull @.str.43, ptr noundef %52, ptr noundef nonnull %38) #16
+  br label %54
 
-54:                                               ; preds = %.tail
-  %55 = load ptr, ptr %33, align 8, !tbaa !75
-  %56 = getelementptr inbounds i8, ptr %55, i64 40
-  %57 = load ptr, ptr %56, align 8, !tbaa !77
-  %58 = tail call ptr %57() #16
-  %59 = tail call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef nonnull @.str.43, ptr noundef %58, ptr noundef nonnull %38) #16
-  br label %60
+54:                                               ; preds = %.tail.thread, %43, %35
+  %55 = phi ptr [ %48, %43 ], [ %53, %.tail.thread ], [ %36, %35 ]
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  %57 = getelementptr inbounds i8, ptr %56, i64 2016
+  %58 = load i32, ptr %57, align 16, !tbaa !61
+  %59 = add nsw i32 %58, -1
+  %60 = icmp eq i32 %32, %59
+  %61 = zext i1 %60 to i32
+  %62 = getelementptr inbounds i8, ptr %33, i64 8
+  %63 = load i32, ptr %62, align 8, !tbaa !78
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %70
 
-60:                                               ; preds = %54, %48, %35
-  %61 = phi ptr [ %53, %48 ], [ %59, %54 ], [ %36, %35 ]
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  %63 = getelementptr inbounds i8, ptr %62, i64 2016
-  %64 = load i32, ptr %63, align 16, !tbaa !61
-  %65 = add nsw i32 %64, -1
-  %66 = icmp eq i32 %32, %65
-  %67 = zext i1 %66 to i32
-  %68 = getelementptr inbounds i8, ptr %33, i64 8
-  %69 = load i32, ptr %68, align 8, !tbaa !78
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %75
+65:                                               ; preds = %54
+  %66 = getelementptr inbounds i8, ptr %33, i64 32
+  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(13) @.str.20) #19
+  %68 = icmp eq i32 %67, 0
+  %69 = zext i1 %68 to i32
+  br label %70
 
-71:                                               ; preds = %60
-  %72 = getelementptr inbounds i8, ptr %33, i64 32
-  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(13) @.str.20) #19
-  %74 = icmp eq i32 %73, 0
-  br label %75
+70:                                               ; preds = %65, %54
+  %71 = phi i32 [ 1, %54 ], [ %69, %65 ]
+  %72 = load ptr, ptr %33, align 8, !tbaa !75
+  %73 = getelementptr inbounds i8, ptr %72, i64 676
+  %74 = load i32, ptr %73, align 4, !tbaa !79
+  %75 = getelementptr inbounds i8, ptr %72, i64 492
+  %76 = load i32, ptr %75, align 4, !tbaa !80
+  %77 = getelementptr inbounds i8, ptr %72, i64 64
+  %78 = load ptr, ptr %77, align 16, !tbaa !81
+  %79 = tail call i32 %78() #16
+  %80 = and i32 %79, 4
+  %81 = tail call fastcc ptr @_lib_history_create_button(ptr noundef %0, i32 noundef %32, ptr noundef %55, i32 noundef %71, i32 noundef %74, i32 noundef %76, i32 noundef %61, i32 noundef %80)
+  tail call void @g_free(ptr noundef %55) #16
+  tail call void @gtk_widget_set_has_tooltip(ptr noundef %81, i32 noundef 1) #16
+  %82 = tail call ptr @g_type_check_instance_cast(ptr noundef %81, i64 noundef 80) #16
+  %83 = tail call i64 @g_signal_connect_data(ptr noundef %82, ptr noundef nonnull @.str.21, ptr noundef nonnull @_changes_tooltip_callback, ptr noundef nonnull %33, ptr noundef null, i32 noundef 0) #16
+  %84 = load ptr, ptr %3, align 8, !tbaa !17
+  %85 = tail call ptr @g_type_check_instance_cast(ptr noundef %84, i64 noundef %18) #16
+  tail call void @gtk_box_pack_end(ptr noundef %85, ptr noundef %81, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
+  %86 = add nuw nsw i32 %32, 1
+  %87 = getelementptr inbounds i8, ptr %31, i64 8
+  %88 = load ptr, ptr %87, align 8, !tbaa !72
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %.loopexit, label %.preheader
 
-75:                                               ; preds = %71, %60
-  %76 = phi i1 [ true, %60 ], [ %74, %71 ]
-  %77 = zext i1 %76 to i32
-  %78 = load ptr, ptr %33, align 8, !tbaa !75
-  %79 = getelementptr inbounds i8, ptr %78, i64 676
-  %80 = load i32, ptr %79, align 4, !tbaa !79
-  %81 = getelementptr inbounds i8, ptr %78, i64 492
-  %82 = load i32, ptr %81, align 4, !tbaa !80
-  %83 = getelementptr inbounds i8, ptr %78, i64 64
-  %84 = load ptr, ptr %83, align 16, !tbaa !81
-  %85 = tail call i32 %84() #16
-  %86 = and i32 %85, 4
-  %87 = tail call fastcc ptr @_lib_history_create_button(ptr noundef %0, i32 noundef %32, ptr noundef %61, i32 noundef %77, i32 noundef %80, i32 noundef %82, i32 noundef %67, i32 noundef %86)
-  tail call void @g_free(ptr noundef %61) #16
-  tail call void @gtk_widget_set_has_tooltip(ptr noundef %87, i32 noundef 1) #16
-  %88 = tail call ptr @g_type_check_instance_cast(ptr noundef %87, i64 noundef 80) #16
-  %89 = tail call i64 @g_signal_connect_data(ptr noundef %88, ptr noundef nonnull @.str.21, ptr noundef nonnull @_changes_tooltip_callback, ptr noundef nonnull %33, ptr noundef null, i32 noundef 0) #16
-  %90 = load ptr, ptr %3, align 8, !tbaa !17
-  %91 = tail call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %18) #16
-  tail call void @gtk_box_pack_end(ptr noundef %91, ptr noundef %87, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
-  %92 = add nuw nsw i32 %32, 1
-  %93 = getelementptr inbounds i8, ptr %31, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !72
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %.loopexit, label %.preheader
+90:                                               ; preds = %.loopexit
+  %91 = load ptr, ptr %3, align 8, !tbaa !17
+  %92 = tail call i64 @gtk_scrolled_window_get_type() #18
+  %93 = tail call ptr @gtk_widget_get_ancestor(ptr noundef %91, i64 noundef %92) #16
+  %94 = tail call ptr @g_type_check_instance_cast(ptr noundef %93, i64 noundef %92) #16
+  %95 = tail call ptr @gtk_scrolled_window_get_vadjustment(ptr noundef %94) #16
+  tail call void @gtk_adjustment_set_value(ptr noundef %95, double noundef 0.000000e+00) #16
+  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
+  br label %97
 
-96:                                               ; preds = %.loopexit
-  %97 = load ptr, ptr %3, align 8, !tbaa !17
-  %98 = tail call i64 @gtk_scrolled_window_get_type() #18
-  %99 = tail call ptr @gtk_widget_get_ancestor(ptr noundef %97, i64 noundef %98) #16
-  %100 = tail call ptr @g_type_check_instance_cast(ptr noundef %99, i64 noundef %98) #16
-  %101 = tail call ptr @gtk_scrolled_window_get_vadjustment(ptr noundef %100) #16
-  tail call void @gtk_adjustment_set_value(ptr noundef %101, double noundef 0.000000e+00) #16
-  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !35
-  br label %103
-
-103:                                              ; preds = %96, %.loopexit
-  %104 = phi ptr [ %102, %96 ], [ %27, %.loopexit ]
-  %105 = getelementptr inbounds i8, ptr %104, i64 1976
-  %106 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %105) #16
+97:                                               ; preds = %90, %.loopexit
+  %98 = phi ptr [ %96, %90 ], [ %27, %.loopexit ]
+  %99 = getelementptr inbounds i8, ptr %98, i64 1976
+  %100 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %99) #16
   ret void
 }
 

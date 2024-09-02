@@ -2119,16 +2119,16 @@ _ZNRSt8optionalIfE5valueEv.exit103:               ; preds = %_ZNRSt8optionalIfE5
   %148 = call noundef i32 @_Z13read_next_xtcP8t_fileioiPlPfPA3_fS4_S2_Pb(ptr noundef %145, i32 noundef %146, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef %147, ptr noundef nonnull %32, ptr noundef nonnull %6)
   %149 = icmp ne i32 %148, 0
   %150 = zext i1 %149 to i8
-  br i1 %149, label %151, label %154
+  br i1 %149, label %151, label %155
 
 151:                                              ; preds = %144
   %152 = load float, ptr %32, align 4
   %153 = fcmp ogt float %152, 0.000000e+00
-  br label %154
+  %154 = zext i1 %153 to i8
+  br label %155
 
-154:                                              ; preds = %151, %144
-  %155 = phi i1 [ false, %144 ], [ %153, %151 ]
-  %156 = zext i1 %155 to i8
+155:                                              ; preds = %151, %144
+  %156 = phi i8 [ 0, %144 ], [ %154, %151 ]
   store i8 %156, ptr %19, align 8
   store i8 %150, ptr %14, align 4
   store i8 %150, ptr %15, align 8
@@ -2138,7 +2138,7 @@ _ZNRSt8optionalIfE5valueEv.exit103:               ; preds = %_ZNRSt8optionalIfE5
   %158 = trunc i8 %157 to i1
   br i1 %158, label %192, label %159
 
-159:                                              ; preds = %154
+159:                                              ; preds = %155
   store i32 2, ptr %2, align 8
   br label %192
 
@@ -2210,8 +2210,8 @@ _ZNRSt8optionalIfE5valueEv.exit103:               ; preds = %_ZNRSt8optionalIfE5
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #20
   br label %300
 
-192:                                              ; preds = %154, %159, %49, %169, %164, %160, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit
-  %.187 = phi i8 [ %173, %169 ], [ %168, %164 ], [ %163, %160 ], [ %150, %154 ], [ %150, %159 ], [ %128, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.086, %49 ], [ %.0.i, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit ]
+192:                                              ; preds = %155, %159, %49, %169, %164, %160, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit
+  %.187 = phi i8 [ %173, %169 ], [ %168, %164 ], [ %163, %160 ], [ %150, %155 ], [ %150, %159 ], [ %128, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.086, %49 ], [ %.0.i, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit ]
   %193 = load float, ptr %29, align 4
   store float %193, ptr %12, align 4
   %194 = trunc nuw i8 %.187 to i1

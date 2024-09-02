@@ -3003,39 +3003,39 @@ split_sdf_shape.exit.thread:                      ; preds = %.lr.ph99.i, %72, %s
   %192 = call i64 @llvm.smax.i64(i64 %.0139164.sroa.7.0.copyload.i, i64 %189)
   %193 = call i64 @llvm.smin.i64(i64 %.0139164.sroa.8.0.copyload.i, i64 %188)
   %194 = call i64 @llvm.smax.i64(i64 %.0139164.sroa.8.0.copyload.i, i64 %187)
+  %195 = add nsw i64 %191, -63
+  %196 = sdiv i64 %195, 64
+  %197 = add nsw i64 %192, 63
+  %198 = sdiv i64 %197, 64
+  %.fr.i = freeze i64 %193
+  %199 = add i64 %.fr.i, -63
+  %200 = sdiv i64 %199, 64
+  %201 = add nsw i64 %194, 63
+  %202 = sdiv i64 %201, 64
+  %203 = trunc i64 %200 to i32
+  %204 = trunc i64 %196 to i32
   br label %get_control_box.exit.i
 
 get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.lr.ph.i11
-  %.sroa.0.2.i = phi i64 [ 0, %.lr.ph.i11 ], [ %191, %.critedge4.i.i ]
-  %.sroa.5.2195.i = phi i64 [ 0, %.lr.ph.i11 ], [ %193, %.critedge4.i.i ]
-  %.sroa.7.2.i = phi i64 [ 0, %.lr.ph.i11 ], [ %192, %.critedge4.i.i ]
-  %.sroa.9.2.i = phi i64 [ 0, %.lr.ph.i11 ], [ %194, %.critedge4.i.i ]
-  %195 = add nsw i64 %.sroa.7.2.i, 63
-  %196 = sdiv i64 %195, 64
-  %197 = add nsw i64 %196, %108
-  %.sroa.5.2195.fr.i = freeze i64 %.sroa.5.2195.i
-  %198 = add i64 %.sroa.5.2195.fr.i, -63
-  %199 = sdiv i64 %198, 64
-  %200 = add nsw i64 %.sroa.9.2.i, 63
-  %201 = sdiv i64 %200, 64
-  %202 = add nsw i64 %201, %108
-  %203 = trunc i64 %199 to i32
-  %204 = sub i32 %203, %3
-  %205 = sext i32 %204 to i64
-  %206 = icmp sgt i64 %202, %205
-  br i1 %206, label %.lr.ph224.i, label %._crit_edge225.i
+  %.sroa.0.2.i = phi i32 [ 0, %.lr.ph.i11 ], [ %204, %.critedge4.i.i ]
+  %.sroa.5.2195.i = phi i32 [ 0, %.lr.ph.i11 ], [ %203, %.critedge4.i.i ]
+  %.sroa.7.2.i = phi i64 [ 0, %.lr.ph.i11 ], [ %198, %.critedge4.i.i ]
+  %.sroa.9.2.i = phi i64 [ 0, %.lr.ph.i11 ], [ %202, %.critedge4.i.i ]
+  %205 = add nsw i64 %.sroa.7.2.i, %108
+  %206 = add nsw i64 %.sroa.9.2.i, %108
+  %207 = sub i32 %.sroa.5.2195.i, %3
+  %208 = sext i32 %207 to i64
+  %209 = icmp sgt i64 %206, %208
+  br i1 %209, label %.lr.ph224.i, label %._crit_edge225.i
 
 .lr.ph224.i:                                      ; preds = %get_control_box.exit.i
-  %207 = add nsw i64 %.sroa.0.2.i, -63
-  %208 = sdiv i64 %207, 64
-  %209 = trunc i64 %208 to i32
-  %210 = sub i32 %209, %3
+  %210 = sub i32 %.sroa.0.2.i, %3
   %211 = sext i32 %210 to i64
-  %212 = icmp sgt i64 %197, %211
+  %212 = icmp sgt i64 %205, %211
   br i1 %212, label %.lr.ph.us.i, label %._crit_edge225.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph224.i, %._crit_edge.us.i
-  %.0141221.us.i = phi i32 [ %758, %._crit_edge.us.i ], [ %204, %.lr.ph224.i ]
+  %.0141221.us.i = phi i32 [ %758, %._crit_edge.us.i ], [ %207, %.lr.ph224.i ]
   %213 = icmp sgt i32 %.0141221.us.i, -1
   %.not160.us.i = icmp slt i32 %.0141221.us.i, %103
   %214 = shl nsw i32 %.0141221.us.i, 6
@@ -3835,13 +3835,13 @@ get_min_distance_line.exit.i.us.i:                ; preds = %708, %647
 
 756:                                              ; preds = %755, %751, %750, %748, %732, %.lr.ph.split.us230.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %757 = icmp sgt i64 %197, %indvars.iv.next.i
+  %757 = icmp sgt i64 %205, %indvars.iv.next.i
   br i1 %757, label %.lr.ph.split.us230.i, label %._crit_edge.us.i, !llvm.loop !37
 
 ._crit_edge.us.i:                                 ; preds = %756, %.lr.ph.us.i
   %758 = add i32 %.0141221.us.i, 1
   %759 = sext i32 %758 to i64
-  %760 = icmp sgt i64 %202, %759
+  %760 = icmp sgt i64 %206, %759
   br i1 %760, label %.lr.ph.us.i, label %._crit_edge225.i, !llvm.loop !38
 
 ._crit_edge225.i:                                 ; preds = %._crit_edge.us.i, %.lr.ph224.i, %get_control_box.exit.i

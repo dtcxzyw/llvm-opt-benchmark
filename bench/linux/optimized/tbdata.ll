@@ -412,7 +412,7 @@ default.unreachable26:                            ; preds = %60
 
 32:                                               ; preds = %27
   tail call void (ptr, i32, ptr, ...) @acpi_bios_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 513, ptr noundef nonnull @.str, i32 noundef %29, ptr noundef nonnull %1) #8
-  br label %120
+  br label %118
 
 33:                                               ; preds = %27, %24
   %34 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
@@ -436,7 +436,7 @@ default.unreachable26:                            ; preds = %60
   %48 = trunc nuw i64 %47 to i32
   %49 = trunc i64 %46 to i32
   tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 528, i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %45, i32 noundef %48, i32 noundef %49) #8
-  br label %120
+  br label %118
 
 50:                                               ; preds = %36
   %51 = icmp eq ptr %2, null
@@ -446,7 +446,7 @@ default.unreachable26:                            ; preds = %60
   br i1 %or.cond, label %.thread19, label %.preheader
 
 .preheader:                                       ; preds = %50, %.thread17
-  %54 = phi i64 [ %102, %.thread17 ], [ 0, %50 ]
+  %54 = phi i64 [ %100, %.thread17 ], [ 0, %50 ]
   %55 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %56 = getelementptr %struct.acpi_table_desc, ptr %55, i64 %54, i32 5
   %57 = load i8, ptr %56, align 2
@@ -491,102 +491,100 @@ default.unreachable26:                            ; preds = %60
   %81 = icmp eq i8 %80, 1
   %82 = load i32, ptr %37, align 8
   %83 = icmp eq i32 %82, %78
-  br i1 %83, label %84, label %90
+  br i1 %83, label %84, label %89
 
 84:                                               ; preds = %76
   %85 = load ptr, ptr %4, align 8
   %86 = zext i32 %78 to i64
   %87 = tail call i32 @bcmp(ptr %85, ptr nonnull %74, i64 %86)
-  %88 = icmp eq i32 %87, 0
-  %89 = zext i1 %88 to i8
-  br label %90
+  %88 = icmp ne i32 %87, 0
+  br label %89
 
-90:                                               ; preds = %84, %76
-  %91 = phi i8 [ 0, %76 ], [ %89, %84 ]
-  br i1 %81, label %92, label %94
+89:                                               ; preds = %84, %76
+  %90 = phi i1 [ true, %76 ], [ %88, %84 ]
+  br i1 %81, label %91, label %93
 
-92:                                               ; preds = %90
-  %93 = zext i32 %78 to i64
-  tail call void @acpi_os_unmap_memory(ptr noundef nonnull %74, i64 noundef %93) #8
-  br label %94
+91:                                               ; preds = %89
+  %92 = zext i32 %78 to i64
+  tail call void @acpi_os_unmap_memory(ptr noundef nonnull %74, i64 noundef %92) #8
+  br label %93
 
-94:                                               ; preds = %92, %90
-  %95 = icmp eq i8 %91, 0
-  br i1 %95, label %.thread17, label %96
+93:                                               ; preds = %91, %89
+  br i1 %90, label %.thread17, label %94
 
-96:                                               ; preds = %94
-  %97 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %98 = getelementptr %struct.acpi_table_desc, ptr %97, i64 %54, i32 5
-  %99 = load i8, ptr %98, align 2
-  %100 = and i8 %99, 8
-  %101 = icmp eq i8 %100, 0
-  br i1 %101, label %106, label %108
+94:                                               ; preds = %93
+  %95 = load ptr, ptr @acpi_gbl_root_table_list, align 8
+  %96 = getelementptr %struct.acpi_table_desc, ptr %95, i64 %54, i32 5
+  %97 = load i8, ptr %96, align 2
+  %98 = and i8 %97, 8
+  %99 = icmp eq i8 %98, 0
+  br i1 %99, label %104, label %106
 
-.thread17:                                        ; preds = %73, %60, %94, %.preheader
-  %102 = add nuw nsw i64 %54, 1
-  %103 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
-  %104 = zext i32 %103 to i64
-  %105 = icmp ult i64 %102, %104
-  br i1 %105, label %.preheader, label %.thread19, !llvm.loop !5
+.thread17:                                        ; preds = %73, %60, %93, %.preheader
+  %100 = add nuw nsw i64 %54, 1
+  %101 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
+  %102 = zext i32 %101 to i64
+  %103 = icmp ult i64 %100, %102
+  br i1 %103, label %.preheader, label %.thread19, !llvm.loop !5
 
-106:                                              ; preds = %96
-  %107 = trunc i64 %54 to i32
-  store i32 %107, ptr %2, align 4
-  br label %120
+104:                                              ; preds = %94
+  %105 = trunc i64 %54 to i32
+  store i32 %105, ptr %2, align 4
+  br label %118
 
-108:                                              ; preds = %96
-  %109 = getelementptr inbounds i8, ptr %0, i64 20
-  %110 = tail call zeroext i8 @acpi_ut_valid_nameseg(ptr noundef %109) #8
-  %111 = icmp eq i8 %110, 0
-  %112 = select i1 %111, ptr @.str.2, ptr %109
-  %113 = load i64, ptr %0, align 8
-  %114 = lshr i64 %113, 32
-  %115 = trunc nuw i64 %114 to i32
-  %116 = trunc i64 %113 to i32
-  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 548, i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef %112, i32 noundef %115, i32 noundef %116) #8
-  br label %120
+106:                                              ; preds = %94
+  %107 = getelementptr inbounds i8, ptr %0, i64 20
+  %108 = tail call zeroext i8 @acpi_ut_valid_nameseg(ptr noundef %107) #8
+  %109 = icmp eq i8 %108, 0
+  %110 = select i1 %109, ptr @.str.2, ptr %107
+  %111 = load i64, ptr %0, align 8
+  %112 = lshr i64 %111, 32
+  %113 = trunc nuw i64 %112 to i32
+  %114 = trunc i64 %111 to i32
+  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 548, i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef %110, i32 noundef %113, i32 noundef %114) #8
+  br label %118
 
 .thread19:                                        ; preds = %.thread17, %50
-  %117 = getelementptr inbounds i8, ptr %0, i64 26
-  %118 = load i8, ptr %117, align 2
-  %119 = or i8 %118, 4
-  store i8 %119, ptr %117, align 2
+  %115 = getelementptr inbounds i8, ptr %0, i64 26
+  %116 = load i8, ptr %115, align 2
+  %117 = or i8 %116, 4
+  store i8 %117, ptr %115, align 2
   br label %.thread13
 
-120:                                              ; preds = %106, %108, %41, %32
-  %121 = phi i32 [ %39, %41 ], [ 7, %108 ], [ 8193, %32 ], [ 16387, %106 ]
-  %122 = load ptr, ptr %4, align 8
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %.thread13, label %124
+118:                                              ; preds = %104, %106, %41, %32
+  %119 = phi i32 [ %39, %41 ], [ 7, %106 ], [ 8193, %32 ], [ 16387, %104 ]
+  %120 = load ptr, ptr %4, align 8
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %.thread13, label %122
 
-124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %0, i64 26
-  %126 = load i8, ptr %125, align 2
-  %127 = and i8 %126, 3
-  %128 = icmp eq i8 %127, 1
-  br i1 %128, label %129, label %133
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds i8, ptr %0, i64 26
+  %124 = load i8, ptr %123, align 2
+  %125 = and i8 %124, 3
+  %126 = icmp eq i8 %125, 1
+  br i1 %126, label %127, label %131
 
-129:                                              ; preds = %124
-  %130 = getelementptr inbounds i8, ptr %0, i64 16
-  %131 = load i32, ptr %130, align 8
-  %132 = zext i32 %131 to i64
-  tail call void @acpi_os_unmap_memory(ptr noundef nonnull %122, i64 noundef %132) #8
-  %.pre = load i8, ptr %125, align 2
-  br label %133
+127:                                              ; preds = %122
+  %128 = getelementptr inbounds i8, ptr %0, i64 16
+  %129 = load i32, ptr %128, align 8
+  %130 = zext i32 %129 to i64
+  tail call void @acpi_os_unmap_memory(ptr noundef nonnull %120, i64 noundef %130) #8
+  %.pre = load i8, ptr %123, align 2
+  br label %131
 
-133:                                              ; preds = %129, %124
-  %134 = phi i8 [ %.pre, %129 ], [ %126, %124 ]
-  %135 = and i8 %134, 3
-  %136 = icmp eq i8 %135, 1
-  br i1 %136, label %137, label %.thread13
+131:                                              ; preds = %127, %122
+  %132 = phi i8 [ %.pre, %127 ], [ %124, %122 ]
+  %133 = and i8 %132, 3
+  %134 = icmp eq i8 %133, 1
+  br i1 %134, label %135, label %.thread13
 
-137:                                              ; preds = %133
+135:                                              ; preds = %131
   store ptr null, ptr %4, align 8
   br label %.thread13
 
-.thread13:                                        ; preds = %13, %17, %137, %133, %120, %.thread19, %33
-  %138 = phi i32 [ 0, %.thread19 ], [ 0, %33 ], [ %121, %120 ], [ %121, %133 ], [ %121, %137 ], [ 4, %17 ], [ 4, %13 ]
-  ret i32 %138
+.thread13:                                        ; preds = %13, %17, %135, %131, %118, %.thread19, %33
+  %136 = phi i32 [ 0, %.thread19 ], [ 0, %33 ], [ %119, %118 ], [ %119, %131 ], [ %119, %135 ], [ 4, %17 ], [ 4, %13 ]
+  ret i32 %136
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -706,7 +704,7 @@ declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) l
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_tb_get_next_table_descriptor(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 16) i32 @acpi_tb_get_next_table_descriptor(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #2 align 16 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 12), align 4
   %5 = icmp ult i32 %3, %4

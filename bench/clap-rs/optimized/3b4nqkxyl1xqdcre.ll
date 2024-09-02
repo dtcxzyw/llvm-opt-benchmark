@@ -130,17 +130,17 @@ define hidden noundef zeroext i1 @"_ZN108_$LT$core..iter..adapters..filter..Filt
   %16 = and i32 %.val3.i.us.i, 4
   %.not2.i.i.i.i.us.i = icmp ne i32 %16, 0
   %17 = and i32 %.val3.i.us.i, 4104
-  %or.cond.us.not.i = icmp eq i32 %17, 4096
-  %or.cond.i = or i1 %.not2.i.i.i.i.us.i, %or.cond.us.not.i
+  %or.cond.us.i = icmp eq i32 %17, 4096
+  %or.cond.i = or i1 %.not2.i.i.i.i.us.i, %or.cond.us.i
   br i1 %or.cond.i, label %.backedge.us.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i"
 
 .backedge.us.i:                                   ; preds = %14, %.lr.ph.split.us.i
-  %.not25.i = icmp eq ptr %8, %4
-  br i1 %.not25.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i", label %.lr.ph.split.us.i
+  %.not24.i = icmp eq ptr %8, %4
+  br i1 %.not24.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i", label %.lr.ph.split.us.i
 
 .backedge.i:                                      ; preds = %25, %.lr.ph.split.i
-  %.not27.i = icmp eq ptr %19, %4
-  br i1 %.not27.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i", label %.lr.ph.split.i
+  %.not25.i = icmp eq ptr %19, %4
+  br i1 %.not25.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i", label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %18 = phi ptr [ %19, %.backedge.i ], [ %.promoted.i, %.lr.ph.i ]
@@ -160,8 +160,8 @@ define hidden noundef zeroext i1 @"_ZN108_$LT$core..iter..adapters..filter..Filt
   %27 = and i32 %.val3.i.i, 4
   %.not2.i.i.i.i.i = icmp ne i32 %27, 0
   %28 = and i32 %.val3.i.i, 8200
-  %or.cond42.i = icmp eq i32 %28, 8192
-  %or.cond = or i1 %.not2.i.i.i.i.i, %or.cond42.i
+  %or.cond41.i = icmp eq i32 %28, 8192
+  %or.cond = or i1 %.not2.i.i.i.i.i, %or.cond41.i
   br i1 %or.cond, label %.backedge.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i": ; preds = %.backedge.us.i, %14, %25, %.backedge.i
@@ -209,17 +209,17 @@ define hidden noundef zeroext i1 @"_ZN108_$LT$core..iter..adapters..filter..Filt
   %16 = and i32 %.val3.i.us.i, 4
   %.not2.i.i.i.i.us.i = icmp ne i32 %16, 0
   %17 = and i32 %.val3.i.us.i, 4104
-  %or.cond.us.not.i = icmp eq i32 %17, 4096
-  %or.cond.i = or i1 %.not2.i.i.i.i.us.i, %or.cond.us.not.i
+  %or.cond.us.i = icmp eq i32 %17, 4096
+  %or.cond.i = or i1 %.not2.i.i.i.i.us.i, %or.cond.us.i
   br i1 %or.cond.i, label %.backedge.us.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i"
 
 .backedge.us.i:                                   ; preds = %14, %.lr.ph.split.us.i
-  %.not25.i = icmp eq ptr %8, %4
-  br i1 %.not25.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i", label %.lr.ph.split.us.i
+  %.not24.i = icmp eq ptr %8, %4
+  br i1 %.not24.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i", label %.lr.ph.split.us.i
 
 .backedge.i:                                      ; preds = %25, %.lr.ph.split.i
-  %.not27.i = icmp eq ptr %19, %4
-  br i1 %.not27.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i", label %.lr.ph.split.i
+  %.not25.i = icmp eq ptr %19, %4
+  br i1 %.not25.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i", label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %18 = phi ptr [ %19, %.backedge.i ], [ %.promoted.i, %.lr.ph.i ]
@@ -239,8 +239,8 @@ define hidden noundef zeroext i1 @"_ZN108_$LT$core..iter..adapters..filter..Filt
   %27 = and i32 %.val3.i.i, 4
   %.not2.i.i.i.i.i = icmp ne i32 %27, 0
   %28 = and i32 %.val3.i.i, 8200
-  %or.cond42.i = icmp eq i32 %28, 8192
-  %or.cond = or i1 %.not2.i.i.i.i.i, %or.cond42.i
+  %or.cond41.i = icmp eq i32 %28, 8192
+  %or.cond = or i1 %.not2.i.i.i.i.i, %or.cond41.i
   br i1 %or.cond, label %.backedge.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split.i": ; preds = %.backedge.us.i, %14, %25, %.backedge.i
@@ -653,17 +653,17 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %17 = and i32 %.val3.i.us, 4
   %.not2.i.i.i.i.us = icmp ne i32 %17, 0
   %18 = and i32 %.val3.i.us, 4104
-  %or.cond.us.not = icmp eq i32 %18, 4096
-  %or.cond = or i1 %.not2.i.i.i.i.us, %or.cond.us.not
+  %or.cond.us = icmp eq i32 %18, 4096
+  %or.cond = or i1 %.not2.i.i.i.i.us, %or.cond.us
   br i1 %or.cond, label %.backedge.us, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split"
 
 .backedge.us:                                     ; preds = %.lr.ph.split.us, %15
-  %.not25 = icmp eq ptr %9, %5
-  br i1 %.not25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split", label %.lr.ph.split.us
+  %.not24 = icmp eq ptr %9, %5
+  br i1 %.not24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split", label %.lr.ph.split.us
 
 .backedge:                                        ; preds = %.lr.ph.split, %26
-  %.not27 = icmp eq ptr %20, %5
-  br i1 %.not27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split", label %.lr.ph.split
+  %.not25 = icmp eq ptr %20, %5
+  br i1 %.not25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split", label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
   %19 = phi ptr [ %20, %.backedge ], [ %.promoted, %.lr.ph ]
@@ -683,9 +683,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %28 = and i32 %.val3.i, 4
   %.not2.i.i.i.i = icmp ne i32 %28, 0
   %29 = and i32 %.val3.i, 8200
-  %or.cond42 = icmp eq i32 %29, 8192
-  %or.cond47 = or i1 %.not2.i.i.i.i, %or.cond42
-  br i1 %or.cond47, label %.backedge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split"
+  %or.cond41 = icmp eq i32 %29, 8192
+  %or.cond46 = or i1 %.not2.i.i.i.i, %or.cond41
+  br i1 %or.cond46, label %.backedge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split": ; preds = %.backedge.us, %15, %.backedge, %26
   %.us-phi21.sink = phi ptr [ %20, %26 ], [ %20, %.backedge ], [ %9, %15 ], [ %9, %.backedge.us ]
@@ -730,17 +730,17 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %17 = and i32 %.val3.i.us, 4
   %.not2.i.i.i.i.us = icmp ne i32 %17, 0
   %18 = and i32 %.val3.i.us, 4104
-  %or.cond.us.not = icmp eq i32 %18, 4096
-  %or.cond = or i1 %.not2.i.i.i.i.us, %or.cond.us.not
+  %or.cond.us = icmp eq i32 %18, 4096
+  %or.cond = or i1 %.not2.i.i.i.i.us, %or.cond.us
   br i1 %or.cond, label %.backedge.us, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split"
 
 .backedge.us:                                     ; preds = %.lr.ph.split.us, %15
-  %.not25 = icmp eq ptr %9, %5
-  br i1 %.not25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split", label %.lr.ph.split.us
+  %.not24 = icmp eq ptr %9, %5
+  br i1 %.not24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split", label %.lr.ph.split.us
 
 .backedge:                                        ; preds = %.lr.ph.split, %26
-  %.not27 = icmp eq ptr %20, %5
-  br i1 %.not27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split", label %.lr.ph.split
+  %.not25 = icmp eq ptr %20, %5
+  br i1 %.not25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split", label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
   %19 = phi ptr [ %20, %.backedge ], [ %.promoted, %.lr.ph ]
@@ -760,9 +760,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %28 = and i32 %.val3.i, 4
   %.not2.i.i.i.i = icmp ne i32 %28, 0
   %29 = and i32 %.val3.i, 8200
-  %or.cond42 = icmp eq i32 %29, 8192
-  %or.cond47 = or i1 %.not2.i.i.i.i, %or.cond42
-  br i1 %or.cond47, label %.backedge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split"
+  %or.cond41 = icmp eq i32 %29, 8192
+  %or.cond46 = or i1 %.not2.i.i.i.i, %or.cond41
+  br i1 %or.cond46, label %.backedge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1506ed8c4d52da53E.exit.sink.split": ; preds = %.backedge.us, %15, %.backedge, %26
   %.us-phi21.sink = phi ptr [ %20, %26 ], [ %20, %.backedge ], [ %9, %15 ], [ %9, %.backedge.us ]
@@ -1769,17 +1769,17 @@ define hidden void @_ZN12clap_builder6output13help_template8AutoHelp10write_help
   %23 = and i32 %.val3.i.us.i.i, 4
   %.not2.i.i.i.i.us.i.i = icmp ne i32 %23, 0
   %24 = and i32 %.val3.i.us.i.i, 4104
-  %or.cond.us.not.i.i = icmp eq i32 %24, 4096
-  %or.cond.i.i = or i1 %.not2.i.i.i.i.us.i.i, %or.cond.us.not.i.i
+  %or.cond.us.i.i = icmp eq i32 %24, 4096
+  %or.cond.i.i = or i1 %.not2.i.i.i.i.us.i.i, %or.cond.us.i.i
   br i1 %or.cond.i.i, label %.backedge.us.i.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit"
 
 .backedge.us.i.i:                                 ; preds = %21, %.lr.ph.split.us.i.i
-  %.not25.i.i = icmp eq ptr %15, %10
-  br i1 %.not25.i.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit", label %.lr.ph.split.us.i.i
+  %.not24.i.i = icmp eq ptr %15, %10
+  br i1 %.not24.i.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit", label %.lr.ph.split.us.i.i
 
 .backedge.i.i:                                    ; preds = %32, %.lr.ph.split.i.i
-  %.not27.i.i = icmp eq ptr %26, %10
-  br i1 %.not27.i.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit", label %.lr.ph.split.i.i
+  %.not25.i.i = icmp eq ptr %26, %10
+  br i1 %.not25.i.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit", label %.lr.ph.split.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.backedge.i.i
   %25 = phi ptr [ %26, %.backedge.i.i ], [ %7, %.lr.ph.i.i ]
@@ -1799,8 +1799,8 @@ define hidden void @_ZN12clap_builder6output13help_template8AutoHelp10write_help
   %34 = and i32 %.val3.i.i.i, 4
   %.not2.i.i.i.i.i.i = icmp ne i32 %34, 0
   %35 = and i32 %.val3.i.i.i, 8200
-  %or.cond42.i.i = icmp eq i32 %35, 8192
-  %or.cond.i = or i1 %.not2.i.i.i.i.i.i, %or.cond42.i.i
+  %or.cond41.i.i = icmp eq i32 %35, 8192
+  %or.cond.i = or i1 %.not2.i.i.i.i.i.i, %or.cond41.i.i
   br i1 %or.cond.i, label %.backedge.i.i, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit"
 
 "_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit": ; preds = %21, %.backedge.us.i.i, %32, %.backedge.i.i
@@ -1830,17 +1830,17 @@ define hidden void @_ZN12clap_builder6output13help_template8AutoHelp10write_help
   %47 = and i32 %.val3.i.us.i.i19, 4
   %.not2.i.i.i.i.us.i.i20 = icmp ne i32 %47, 0
   %48 = and i32 %.val3.i.us.i.i19, 4104
-  %or.cond.us.not.i.i21 = icmp eq i32 %48, 4096
-  %or.cond.i.i22 = or i1 %.not2.i.i.i.i.us.i.i20, %or.cond.us.not.i.i21
+  %or.cond.us.i.i21 = icmp eq i32 %48, 4096
+  %or.cond.i.i22 = or i1 %.not2.i.i.i.i.us.i.i20, %or.cond.us.i.i21
   br i1 %or.cond.i.i22, label %.backedge.us.i.i13, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit33"
 
 .backedge.us.i.i13:                               ; preds = %45, %.lr.ph.split.us.i.i11
-  %.not25.i.i14 = icmp eq ptr %39, %10
-  br i1 %.not25.i.i14, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit33", label %.lr.ph.split.us.i.i11
+  %.not24.i.i14 = icmp eq ptr %39, %10
+  br i1 %.not24.i.i14, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit33", label %.lr.ph.split.us.i.i11
 
 .backedge.i.i25:                                  ; preds = %56, %.lr.ph.split.i.i23
-  %.not27.i.i26 = icmp eq ptr %50, %10
-  br i1 %.not27.i.i26, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit33", label %.lr.ph.split.i.i23
+  %.not25.i.i26 = icmp eq ptr %50, %10
+  br i1 %.not25.i.i26, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit33", label %.lr.ph.split.i.i23
 
 .lr.ph.split.i.i23:                               ; preds = %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit", %.backedge.i.i25
   %49 = phi ptr [ %50, %.backedge.i.i25 ], [ %7, %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit" ]
@@ -1860,8 +1860,8 @@ define hidden void @_ZN12clap_builder6output13help_template8AutoHelp10write_help
   %58 = and i32 %.val3.i.i.i27, 4
   %.not2.i.i.i.i.i.i28 = icmp ne i32 %58, 0
   %59 = and i32 %.val3.i.i.i27, 8200
-  %or.cond42.i.i29 = icmp eq i32 %59, 8192
-  %or.cond.i30 = or i1 %.not2.i.i.i.i.i.i28, %or.cond42.i.i29
+  %or.cond41.i.i29 = icmp eq i32 %59, 8192
+  %or.cond.i30 = or i1 %.not2.i.i.i.i.i.i28, %or.cond41.i.i29
   br i1 %or.cond.i30, label %.backedge.i.i25, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit33"
 
 "_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit33": ; preds = %45, %.backedge.us.i.i13, %56, %.backedge.i.i25, %1
@@ -5762,7 +5762,7 @@ define internal fastcc void @_ZN12clap_builder6output13help_template12HelpTempla
 
 147:                                              ; preds = %143
   %148 = sub i64 %94, %.07.i.i.i.i.i.i.i
-  %149 = icmp ugt i64 %137, %148
+  %149 = icmp ule i64 %137, %148
   br label %_ZN12clap_builder6output13help_template12HelpTemplate18arg_next_line_help17ha6033ca3b6cd4481E.exit.i.i.i.i.i.i
 
 150:                                              ; preds = %.noexc.i.i.i.i.i.i, %131
@@ -5772,7 +5772,7 @@ define internal fastcc void @_ZN12clap_builder6output13help_template12HelpTempla
           to label %.body unwind label %156, !noalias !1169
 
 _ZN12clap_builder6output13help_template12HelpTemplate18arg_next_line_help17ha6033ca3b6cd4481E.exit.i.i.i.i.i.i: ; preds = %147, %143, %.noexc5.i.i.i.i.i.i, %.noexc36
-  %.0.i.i.i.i.i.i.i = phi i1 [ %149, %147 ], [ true, %.noexc36 ], [ false, %143 ], [ false, %.noexc5.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.i.i = phi i1 [ %149, %147 ], [ false, %.noexc36 ], [ true, %143 ], [ true, %.noexc5.i.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35), !noalias !1171
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc6fdfb9ba9128c2eE.llvm.13290713768692451428"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %36)
           to label %.noexc37 unwind label %.loopexit.split-lp.loopexit
@@ -5797,7 +5797,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate18arg_next_line_help17ha603
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h001f3bbeca8d20d6E.exit.i.i.i.i": ; preds = %153, %.noexc37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35), !noalias !1171
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36), !noalias !1170
-  br i1 %.0.i.i.i.i.i.i.i, label %_ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d3fab815fE.exit, label %.backedge.i.i.i
+  br i1 %.0.i.i.i.i.i.i.i, label %.backedge.i.i.i, label %_ZN12clap_builder6output13help_template12HelpTemplate14will_args_wrap17h3c3e8e7d3fab815fE.exit
 
 .backedge.i.i.i:                                  ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h001f3bbeca8d20d6E.exit.i.i.i.i", %.lr.ph.i.split.split.i.i
   %.not12.i.i.i = icmp eq ptr %121, %44

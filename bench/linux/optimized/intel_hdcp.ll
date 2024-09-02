@@ -3162,7 +3162,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %47 = getelementptr inbounds i8, ptr %31, i64 8
   %48 = load i8, ptr %32, align 4, !range !11, !noundef !12
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %.preheader.preheader, label %.thread154
+  br i1 %49, label %.preheader.preheader, label %.thread152
 
 .preheader.preheader:                             ; preds = %29
   %50 = getelementptr inbounds i8, ptr %2, i64 6
@@ -3171,7 +3171,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 51:                                               ; preds = %639
   %52 = load i8, ptr %32, align 4, !range !11, !noundef !12
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %.preheader, label %.thread152, !llvm.loop !78
+  br i1 %53, label %.preheader, label %.thread150, !llvm.loop !78
 
 .preheader:                                       ; preds = %.preheader.preheader, %51
   %54 = phi i32 [ %608, %51 ], [ 0, %.preheader.preheader ]
@@ -3224,9 +3224,9 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %78 = load ptr, ptr %69, align 8
   %79 = call i32 %77(ptr noundef %78, ptr noundef %66, ptr noundef nonnull %5) #9
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %.thread102, label %81
+  br i1 %80, label %.thread104, label %81
 
-.thread102:                                       ; preds = %75
+.thread104:                                       ; preds = %75
   call void @mutex_unlock(ptr noundef %68) #9
   br label %89
 
@@ -3250,7 +3250,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %88 = icmp slt i32 %79, 0
   br i1 %88, label %237, label %89
 
-89:                                               ; preds = %.thread102, %86
+89:                                               ; preds = %.thread104, %86
   %90 = getelementptr inbounds i8, ptr %56, i64 112
   %91 = load ptr, ptr %90, align 8
   %92 = call i32 %91(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 12) #9
@@ -3334,13 +3334,13 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   call void @mutex_lock(ptr noundef %134) #9
   %135 = load ptr, ptr %133, align 8
   %136 = icmp eq ptr %135, null
-  br i1 %136, label %.thread104, label %137
+  br i1 %136, label %.thread106, label %137
 
 137:                                              ; preds = %129
   %138 = getelementptr inbounds i8, ptr %135, i64 8
   %139 = load ptr, ptr %138, align 8
   %140 = icmp eq ptr %139, null
-  br i1 %140, label %.thread104, label %141
+  br i1 %140, label %.thread106, label %141
 
 141:                                              ; preds = %137
   %142 = getelementptr inbounds i8, ptr %139, i64 16
@@ -3362,9 +3362,9 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 152:                                              ; preds = %149, %147
   %153 = phi ptr [ %151, %149 ], [ null, %147 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %153, i32 noundef 2, ptr noundef nonnull @.str.45, i32 noundef %145) #9
-  br label %.thread104
+  br label %.thread106
 
-.thread104:                                       ; preds = %137, %129, %152
+.thread106:                                       ; preds = %137, %129, %152
   %.ph = phi i32 [ %145, %152 ], [ -22, %129 ], [ -22, %137 ]
   call void @mutex_unlock(ptr noundef %134) #9
   br label %237
@@ -3412,13 +3412,13 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   call void @mutex_lock(ptr noundef %176) #9
   %177 = load ptr, ptr %175, align 8
   %178 = icmp eq ptr %177, null
-  br i1 %178, label %.thread107, label %179
+  br i1 %178, label %.thread109, label %179
 
 179:                                              ; preds = %171
   %180 = getelementptr inbounds i8, ptr %177, i64 8
   %181 = load ptr, ptr %180, align 8
   %182 = icmp eq ptr %181, null
-  br i1 %182, label %.thread107, label %183
+  br i1 %182, label %.thread109, label %183
 
 183:                                              ; preds = %179
   %184 = getelementptr inbounds i8, ptr %181, i64 24
@@ -3440,10 +3440,10 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 194:                                              ; preds = %191, %189
   %195 = phi ptr [ %193, %191 ], [ null, %189 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %195, i32 noundef 2, ptr noundef nonnull @.str.46, i32 noundef %187) #9
-  br label %.thread107
+  br label %.thread109
 
-.thread107:                                       ; preds = %179, %171, %194
-  %.ph106 = phi i32 [ %187, %194 ], [ -22, %171 ], [ -22, %179 ]
+.thread109:                                       ; preds = %179, %171, %194
+  %.ph108 = phi i32 [ %187, %194 ], [ -22, %171 ], [ -22, %179 ]
   call void @mutex_unlock(ptr noundef %176) #9
   br label %237
 
@@ -3488,13 +3488,13 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   call void @mutex_lock(ptr noundef %216) #9
   %217 = load ptr, ptr %215, align 8
   %218 = icmp eq ptr %217, null
-  br i1 %218, label %.thread110, label %219
+  br i1 %218, label %.thread112, label %219
 
 219:                                              ; preds = %211
   %220 = getelementptr inbounds i8, ptr %217, i64 8
   %221 = load ptr, ptr %220, align 8
   %222 = icmp eq ptr %221, null
-  br i1 %222, label %.thread110, label %223
+  br i1 %222, label %.thread112, label %223
 
 223:                                              ; preds = %219
   %224 = getelementptr inbounds i8, ptr %221, i64 32
@@ -3516,10 +3516,10 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 234:                                              ; preds = %231, %229
   %235 = phi ptr [ %233, %231 ], [ null, %229 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %235, i32 noundef 2, ptr noundef nonnull @.str.47, i32 noundef %227) #9
-  br label %.thread110
+  br label %.thread112
 
-.thread110:                                       ; preds = %219, %211, %234
-  %.ph109 = phi i32 [ %227, %234 ], [ -22, %211 ], [ -22, %219 ]
+.thread112:                                       ; preds = %219, %211, %234
+  %.ph111 = phi i32 [ %227, %234 ], [ -22, %211 ], [ -22, %219 ]
   call void @mutex_unlock(ptr noundef %216) #9
   br label %237
 
@@ -3528,8 +3528,8 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   store i8 1, ptr %40, align 4
   br label %244
 
-237:                                              ; preds = %107, %119, %86, %89, %94, %154, %159, %199, %.thread, %.thread104, %.thread107, %.thread110
-  %.ph112 = phi i32 [ %.ph109, %.thread110 ], [ %.ph106, %.thread107 ], [ %.ph, %.thread104 ], [ -22, %.thread ], [ %201, %199 ], [ %161, %159 ], [ %157, %154 ], [ %97, %94 ], [ %92, %89 ], [ %79, %86 ], [ -1, %119 ], [ -22, %107 ]
+237:                                              ; preds = %107, %119, %86, %89, %94, %154, %159, %199, %.thread, %.thread106, %.thread109, %.thread112
+  %.ph114 = phi i32 [ %.ph111, %.thread112 ], [ %.ph108, %.thread109 ], [ %.ph, %.thread106 ], [ -22, %.thread ], [ %201, %199 ], [ %161, %159 ], [ %157, %154 ], [ %97, %94 ], [ %92, %89 ], [ %79, %86 ], [ -1, %119 ], [ -22, %107 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 534, ptr nonnull %5) #9
   %238 = icmp eq ptr %55, null
@@ -3542,8 +3542,8 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 
 242:                                              ; preds = %239, %237
   %243 = phi ptr [ %241, %239 ], [ null, %237 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %243, i32 noundef 2, ptr noundef nonnull @.str.38, i32 noundef %.ph112) #9
-  br label %.thread127
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %243, i32 noundef 2, ptr noundef nonnull @.str.38, i32 noundef %.ph114) #9
+  br label %.thread129
 
 244:                                              ; preds = %196, %236
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
@@ -3690,20 +3690,20 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 323:                                              ; preds = %310
   call void @mutex_unlock(ptr noundef %303) #9
   %324 = icmp eq i32 %314, 0
-  br i1 %324, label %.thread120, label %325
+  br i1 %324, label %.thread122, label %325
 
-.thread120:                                       ; preds = %323
+.thread122:                                       ; preds = %323
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4) #9
   br label %338
 
 .sink.split:                                      ; preds = %321, %298, %306, %280, %257, %265
   %.sink = phi ptr [ %262, %265 ], [ %262, %257 ], [ %262, %280 ], [ %303, %306 ], [ %303, %298 ], [ %303, %321 ]
-  %.ph194 = phi i32 [ -22, %265 ], [ -22, %257 ], [ %273, %280 ], [ -22, %306 ], [ -22, %298 ], [ %314, %321 ]
+  %.ph192 = phi i32 [ -22, %265 ], [ -22, %257 ], [ %273, %280 ], [ -22, %306 ], [ -22, %298 ], [ %314, %321 ]
   call void @mutex_unlock(ptr noundef %.sink) #9
   br label %325
 
 325:                                              ; preds = %.sink.split, %323, %286, %282
-  %326 = phi i32 [ %284, %282 ], [ %288, %286 ], [ %314, %323 ], [ %.ph194, %.sink.split ]
+  %326 = phi i32 [ %284, %282 ], [ %288, %286 ], [ %314, %323 ], [ %.ph192, %.sink.split ]
   %327 = add nuw nsw i32 %249, 1
   %328 = icmp eq i32 %327, 3
   br i1 %328, label %329, label %248, !llvm.loop !79
@@ -3725,9 +3725,9 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 336:                                              ; preds = %333, %331
   %337 = phi ptr [ %335, %333 ], [ null, %331 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %337, i32 noundef 2, ptr noundef nonnull @.str.39, i32 noundef %326) #9
-  br label %.thread127
+  br label %.thread129
 
-338:                                              ; preds = %.thread120, %329
+338:                                              ; preds = %.thread122, %329
   call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %3, i8 0, i64 25, i1 false), !annotation !5
   %339 = load ptr, ptr %21, align 8
@@ -3758,13 +3758,13 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   call void @mutex_lock(ptr noundef %351) #9
   %352 = load ptr, ptr %350, align 8
   %353 = icmp eq ptr %352, null
-  br i1 %353, label %.thread124, label %354
+  br i1 %353, label %.thread126, label %354
 
 354:                                              ; preds = %346
   %355 = getelementptr inbounds i8, ptr %352, i64 8
   %356 = load ptr, ptr %355, align 8
   %357 = icmp eq ptr %356, null
-  br i1 %357, label %.thread124, label %358
+  br i1 %357, label %.thread126, label %358
 
 358:                                              ; preds = %354
   %359 = getelementptr inbounds i8, ptr %356, i64 56
@@ -3786,10 +3786,10 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 369:                                              ; preds = %366, %364
   %370 = phi ptr [ %368, %366 ], [ null, %364 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %370, i32 noundef 2, ptr noundef nonnull @.str.50, i32 noundef %362) #9
-  br label %.thread124
+  br label %.thread126
 
-.thread124:                                       ; preds = %369, %346, %354
-  %.ph122 = phi i32 [ %362, %369 ], [ -22, %346 ], [ -22, %354 ]
+.thread126:                                       ; preds = %369, %346, %354
+  %.ph124 = phi i32 [ %362, %369 ], [ -22, %346 ], [ -22, %354 ]
   call void @mutex_unlock(ptr noundef %351) #9
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #9
   br label %377
@@ -3804,8 +3804,8 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %376 = icmp slt i32 %375, 0
   br i1 %376, label %377, label %385
 
-377:                                              ; preds = %.thread124, %371
-  %378 = phi i32 [ %.ph122, %.thread124 ], [ %375, %371 ]
+377:                                              ; preds = %.thread126, %371
+  %378 = phi i32 [ %.ph124, %.thread126 ], [ %375, %371 ]
   %379 = icmp eq ptr %55, null
   br i1 %379, label %383, label %380
 
@@ -3817,35 +3817,35 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 383:                                              ; preds = %380, %377
   %384 = phi ptr [ %382, %380 ], [ null, %377 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %384, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef %378) #9
-  br label %.thread127
+  br label %.thread129
 
 385:                                              ; preds = %371
   %386 = getelementptr inbounds i8, ptr %56, i64 128
   %387 = load ptr, ptr %386, align 8
   %388 = icmp eq ptr %387, null
   %389 = load i8, ptr %38, align 1, !range !11, !noundef !12
-  br i1 %388, label %.thread182, label %390
+  br i1 %388, label %.thread180, label %390
 
 390:                                              ; preds = %385
   %391 = icmp ne i8 %389, 0
   %392 = load i8, ptr %18, align 1
   %393 = call i32 %387(ptr noundef %0, i1 noundef zeroext %391, i8 noundef zeroext %392) #9
   %394 = icmp slt i32 %393, 0
-  br i1 %394, label %.thread127, label %395
+  br i1 %394, label %.thread129, label %395
 
 395:                                              ; preds = %390
   %396 = load i8, ptr %38, align 1, !range !11, !noundef !12
   %397 = icmp eq i8 %396, 0
   br i1 %397, label %409, label %399
 
-.thread182:                                       ; preds = %385
+.thread180:                                       ; preds = %385
   %398 = icmp eq i8 %389, 0
-  br i1 %398, label %.thread128, label %399
+  br i1 %398, label %.thread130, label %399
 
-399:                                              ; preds = %.thread182, %395
+399:                                              ; preds = %.thread180, %395
   %400 = call fastcc i32 @hdcp2_authenticate_repeater_topology(ptr noundef %0), !range !25
   %401 = icmp slt i32 %400, 0
-  br i1 %401, label %402, label %.thread128
+  br i1 %401, label %402, label %.thread130
 
 402:                                              ; preds = %399
   %403 = icmp eq ptr %55, null
@@ -3859,51 +3859,51 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 407:                                              ; preds = %404, %402
   %408 = phi ptr [ %406, %404 ], [ null, %402 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %408, i32 noundef 2, ptr noundef nonnull @.str.41, i32 noundef %400) #9
-  br label %.thread127
+  br label %.thread129
 
 409:                                              ; preds = %395
   %410 = icmp eq i32 %393, 0
-  br i1 %410, label %.thread128, label %.thread127
+  br i1 %410, label %.thread130, label %.thread129
 
-.thread128:                                       ; preds = %.thread182, %399, %409
+.thread130:                                       ; preds = %.thread180, %399, %409
   %411 = load ptr, ptr %21, align 8
   %412 = getelementptr inbounds i8, ptr %411, i64 128
   %413 = load i32, ptr %412, align 8
   switch i32 %413, label %419 [
-    i32 10, label %.thread131
-    i32 7, label %.thread131
-    i32 8, label %.thread131
-    i32 6, label %.thread131
-    i32 11, label %.thread129
+    i32 10, label %.thread133
+    i32 7, label %.thread133
+    i32 8, label %.thread133
+    i32 6, label %.thread133
+    i32 11, label %.thread131
   ]
 
-.thread129:                                       ; preds = %.thread128
+.thread131:                                       ; preds = %.thread130
   %414 = getelementptr inbounds i8, ptr %411, i64 392
   %415 = load ptr, ptr %414, align 8
   %416 = getelementptr inbounds i8, ptr %415, i64 3980
   %417 = load i8, ptr %416, align 4, !range !11, !noundef !12
   %418 = icmp eq i8 %417, 0
-  br i1 %418, label %425, label %.loopexit161
+  br i1 %418, label %425, label %.loopexit159
 
-419:                                              ; preds = %.thread128
-  br label %.thread131
+419:                                              ; preds = %.thread130
+  br label %.thread133
 
-.thread131:                                       ; preds = %419, %.thread128, %.thread128, %.thread128, %.thread128
-  %420 = phi ptr [ null, %419 ], [ %411, %.thread128 ], [ %411, %.thread128 ], [ %411, %.thread128 ], [ %411, %.thread128 ]
+.thread133:                                       ; preds = %419, %.thread130, %.thread130, %.thread130, %.thread130
+  %420 = phi ptr [ null, %419 ], [ %411, %.thread130 ], [ %411, %.thread130 ], [ %411, %.thread130 ], [ %411, %.thread130 ]
   %421 = load i8, ptr %18, align 1
   %422 = getelementptr inbounds i8, ptr %420, i64 4000
   %423 = load ptr, ptr %422, align 8
   %424 = getelementptr inbounds i8, ptr %423, i64 1
   store i8 %421, ptr %424, align 1
-  br label %.loopexit161
+  br label %.loopexit159
 
-425:                                              ; preds = %.thread129
+425:                                              ; preds = %.thread131
   %426 = getelementptr inbounds i8, ptr %415, i64 4008
   %427 = load i8, ptr %426, align 8, !range !11, !noundef !12
   %428 = getelementptr inbounds i8, ptr %415, i64 3994
   %429 = load i16, ptr %428, align 2
   %430 = icmp eq i16 %429, 0
-  br i1 %430, label %.loopexit161, label %431
+  br i1 %430, label %.loopexit159, label %431
 
 431:                                              ; preds = %425
   %432 = getelementptr inbounds i8, ptr %415, i64 4000
@@ -3918,14 +3918,14 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %438 = load i16, ptr %428, align 2
   %439 = zext i16 %438 to i64
   %440 = icmp ult i64 %437, %439
-  br i1 %440, label %433, label %.loopexit161, !llvm.loop !80
+  br i1 %440, label %433, label %.loopexit159, !llvm.loop !80
 
-.loopexit161:                                     ; preds = %433, %425, %.thread129, %.thread131
+.loopexit159:                                     ; preds = %433, %425, %.thread131, %.thread133
   %441 = load i8, ptr %38, align 1, !range !11, !noundef !12
   %442 = icmp eq i8 %441, 0
-  br i1 %442, label %.loopexit158, label %443
+  br i1 %442, label %.loopexit156, label %443
 
-443:                                              ; preds = %.loopexit161
+443:                                              ; preds = %.loopexit159
   %444 = load ptr, ptr %0, align 8
   %445 = icmp eq ptr %444, null
   %446 = getelementptr inbounds i8, ptr %444, i64 8
@@ -3959,11 +3959,11 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %458 = load ptr, ptr %33, align 8
   %459 = load i32, ptr %35, align 4
   %460 = icmp ugt i32 %459, 16777215
-  br i1 %460, label %.thread136, label %461
+  br i1 %460, label %.thread138, label %461
 
-.thread136:                                       ; preds = %456
+.thread138:                                       ; preds = %456
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %2) #9
-  br label %.loopexit159
+  br label %.loopexit157
 
 461:                                              ; preds = %456
   store i8 16, ptr %2, align 1
@@ -4002,25 +4002,28 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %484 = load i16, ptr %467, align 2
   %485 = zext i16 %484 to i64
   %486 = icmp ult i64 %483, %485
-  br i1 %486, label %473, label %.loopexit, !llvm.loop !81
+  br i1 %486, label %473, label %.loopexit.loopexit, !llvm.loop !81
 
-.loopexit:                                        ; preds = %473, %461
-  %487 = phi i16 [ 0, %461 ], [ %484, %473 ]
-  %488 = zext i16 %487 to i64
-  %489 = shl nuw nsw i64 %488, 1
-  %490 = getelementptr inbounds i8, ptr %458, i64 112
-  %491 = load ptr, ptr %490, align 8
-  %492 = add nuw nsw i64 %489, 6
-  %493 = call i32 %491(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %492) #9
+.loopexit.loopexit:                               ; preds = %473
+  %487 = zext i16 %484 to i64
+  %488 = shl nuw nsw i64 %487, 1
+  %489 = add nuw nsw i64 %488, 6
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %461, %.loopexit.loopexit
+  %490 = phi i64 [ %489, %.loopexit.loopexit ], [ 6, %461 ]
+  %491 = getelementptr inbounds i8, ptr %458, i64 112
+  %492 = load ptr, ptr %491, align 8
+  %493 = call i32 %492(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %490) #9
   %494 = icmp slt i32 %493, 0
-  br i1 %494, label %.thread135, label %495
+  br i1 %494, label %.thread137, label %495
 
 495:                                              ; preds = %.loopexit
   %496 = getelementptr inbounds i8, ptr %458, i64 120
   %497 = load ptr, ptr %496, align 8
   %498 = call i32 %497(ptr noundef %0, i8 noundef zeroext 17, ptr noundef nonnull %2, i64 noundef 33) #9
   %499 = icmp slt i32 %498, 0
-  br i1 %499, label %.thread135, label %500
+  br i1 %499, label %.thread137, label %500
 
 500:                                              ; preds = %495
   %501 = load i32, ptr %35, align 4
@@ -4084,8 +4087,8 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %534, i32 noundef 2, ptr noundef nonnull @.str.53, i32 noundef %526) #9
   br label %537
 
-.thread135:                                       ; preds = %.loopexit, %495
-  %.ph134 = phi i32 [ %498, %495 ], [ %493, %.loopexit ]
+.thread137:                                       ; preds = %.loopexit, %495
+  %.ph136 = phi i32 [ %498, %495 ], [ %493, %.loopexit ]
   %535 = load i32, ptr %35, align 4
   %536 = add i32 %535, 1
   store i32 %536, ptr %35, align 4
@@ -4100,26 +4103,26 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   store i32 %540, ptr %35, align 4
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %2) #9
   %541 = icmp eq i32 %538, 0
-  br i1 %541, label %.loopexit158, label %542
+  br i1 %541, label %.loopexit156, label %542
 
-542:                                              ; preds = %.thread135, %537
-  %543 = phi i32 [ %536, %.thread135 ], [ %540, %537 ]
-  %544 = phi i32 [ %.ph134, %.thread135 ], [ %538, %537 ]
+542:                                              ; preds = %.thread137, %537
+  %543 = phi i32 [ %536, %.thread137 ], [ %540, %537 ]
+  %544 = phi i32 [ %.ph136, %.thread137 ], [ %538, %537 ]
   %545 = icmp ugt i32 %543, 16777215
-  br i1 %545, label %.loopexit159, label %551
+  br i1 %545, label %.loopexit157, label %551
 
-.loopexit159:                                     ; preds = %542, %.thread136
-  %546 = phi i32 [ -34, %.thread136 ], [ %544, %542 ]
+.loopexit157:                                     ; preds = %542, %.thread138
+  %546 = phi i32 [ -34, %.thread138 ], [ %544, %542 ]
   br i1 %445, label %549, label %547
 
-547:                                              ; preds = %.loopexit159
+547:                                              ; preds = %.loopexit157
   %548 = load ptr, ptr %446, align 8
   br label %549
 
-549:                                              ; preds = %547, %.loopexit159
-  %550 = phi ptr [ %548, %547 ], [ null, %.loopexit159 ]
+549:                                              ; preds = %547, %.loopexit157
+  %550 = phi ptr [ %548, %547 ], [ null, %.loopexit157 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %550, i32 noundef 2, ptr noundef nonnull @.str.51, i32 noundef %546) #9
-  br label %.loopexit160
+  br label %.loopexit158
 
 551:                                              ; preds = %542
   br i1 %445, label %554, label %552
@@ -4133,22 +4136,22 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %556 = add nuw nsw i32 %448, 1
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %555, i32 noundef 2, ptr noundef nonnull @.str.52, i32 noundef %556, i32 noundef 3, i32 noundef %544) #9
   %557 = icmp eq i32 %556, 3
-  br i1 %557, label %.loopexit160, label %447, !llvm.loop !82
+  br i1 %557, label %.loopexit158, label %447, !llvm.loop !82
 
-.loopexit160:                                     ; preds = %554, %549
+.loopexit158:                                     ; preds = %554, %549
   %558 = phi i32 [ %546, %549 ], [ %544, %554 ]
   br i1 %46, label %561, label %559
 
-559:                                              ; preds = %.loopexit160
+559:                                              ; preds = %.loopexit158
   %560 = load ptr, ptr %47, align 8
   br label %561
 
-561:                                              ; preds = %559, %.loopexit160
-  %562 = phi ptr [ %560, %559 ], [ null, %.loopexit160 ]
+561:                                              ; preds = %559, %.loopexit158
+  %562 = phi ptr [ %560, %559 ], [ null, %.loopexit158 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %562, i32 noundef 2, ptr noundef nonnull @.str.33, i32 noundef %558) #9
-  br label %.thread152
+  br label %.thread150
 
-.loopexit158:                                     ; preds = %537, %.loopexit161
+.loopexit156:                                     ; preds = %537, %.loopexit159
   %563 = load ptr, ptr %21, align 8
   %564 = getelementptr inbounds i8, ptr %563, i64 128
   %565 = load i32, ptr %564, align 8
@@ -4160,16 +4163,16 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
     i32 11, label %566
   ]
 
-566:                                              ; preds = %.loopexit158
+566:                                              ; preds = %.loopexit156
   %567 = getelementptr inbounds i8, ptr %563, i64 392
   %568 = load ptr, ptr %567, align 8
   br label %570
 
-569:                                              ; preds = %.loopexit158
+569:                                              ; preds = %.loopexit156
   br label %570
 
-570:                                              ; preds = %569, %566, %.loopexit158, %.loopexit158, %.loopexit158, %.loopexit158
-  %571 = phi ptr [ %568, %566 ], [ %563, %.loopexit158 ], [ %563, %.loopexit158 ], [ %563, %.loopexit158 ], [ %563, %.loopexit158 ], [ null, %569 ]
+570:                                              ; preds = %569, %566, %.loopexit156, %.loopexit156, %.loopexit156, %.loopexit156
+  %571 = phi ptr [ %568, %566 ], [ %563, %.loopexit156 ], [ %563, %.loopexit156 ], [ %563, %.loopexit156 ], [ %563, %.loopexit156 ], [ null, %569 ]
   %572 = getelementptr inbounds i8, ptr %571, i64 3984
   %573 = load ptr, ptr %0, align 8
   %574 = getelementptr inbounds i8, ptr %573, i64 2560
@@ -4177,13 +4180,13 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   call void @mutex_lock(ptr noundef %575) #9
   %576 = load ptr, ptr %574, align 8
   %577 = icmp eq ptr %576, null
-  br i1 %577, label %.thread141, label %578
+  br i1 %577, label %.thread143, label %578
 
 578:                                              ; preds = %570
   %579 = getelementptr inbounds i8, ptr %576, i64 8
   %580 = load ptr, ptr %579, align 8
   %581 = icmp eq ptr %580, null
-  br i1 %581, label %.thread141, label %582
+  br i1 %581, label %.thread143, label %582
 
 582:                                              ; preds = %578
   %583 = getelementptr inbounds i8, ptr %580, i64 80
@@ -4205,10 +4208,10 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 593:                                              ; preds = %590, %588
   %594 = phi ptr [ %592, %590 ], [ null, %588 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %594, i32 noundef 2, ptr noundef nonnull @.str.54, i32 noundef %586) #9
-  br label %.thread141
+  br label %.thread143
 
-.thread141:                                       ; preds = %578, %570, %593
-  %.ph140 = phi i32 [ %586, %593 ], [ -22, %570 ], [ -22, %578 ]
+.thread143:                                       ; preds = %578, %570, %593
+  %.ph142 = phi i32 [ %586, %593 ], [ -22, %570 ], [ -22, %578 ]
   call void @mutex_unlock(ptr noundef %575) #9
   br label %597
 
@@ -4217,8 +4220,8 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %596 = icmp eq i32 %586, 0
   br i1 %596, label %641, label %597
 
-597:                                              ; preds = %.thread141, %595
-  %598 = phi i32 [ %.ph140, %.thread141 ], [ %586, %595 ]
+597:                                              ; preds = %.thread143, %595
+  %598 = phi i32 [ %.ph142, %.thread143 ], [ %586, %595 ]
   br i1 %46, label %601, label %599
 
 599:                                              ; preds = %597
@@ -4228,18 +4231,18 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 601:                                              ; preds = %599, %597
   %602 = phi ptr [ %600, %599 ], [ null, %597 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %602, i32 noundef 2, ptr noundef nonnull @.str.34, i32 noundef %598) #9
-  br label %.thread127
+  br label %.thread129
 
-.thread127:                                       ; preds = %390, %407, %383, %336, %242, %601, %409
-  %603 = phi i32 [ %393, %409 ], [ %598, %601 ], [ %393, %390 ], [ %400, %407 ], [ %378, %383 ], [ %326, %336 ], [ %.ph112, %242 ]
+.thread129:                                       ; preds = %390, %407, %383, %336, %242, %601, %409
+  %603 = phi i32 [ %393, %409 ], [ %598, %601 ], [ %393, %390 ], [ %400, %407 ], [ %378, %383 ], [ %326, %336 ], [ %.ph114, %242 ]
   br i1 %46, label %606, label %604
 
-604:                                              ; preds = %.thread127
+604:                                              ; preds = %.thread129
   %605 = load ptr, ptr %47, align 8
   br label %606
 
-606:                                              ; preds = %604, %.thread127
-  %607 = phi ptr [ %605, %604 ], [ null, %.thread127 ]
+606:                                              ; preds = %604, %.thread129
+  %607 = phi ptr [ %605, %604 ], [ null, %.thread129 ]
   %608 = add nuw nsw i32 %54, 1
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %607, i32 noundef 2, ptr noundef nonnull @.str.35, i32 noundef %608, i32 noundef 3, i32 noundef %603) #9
   %609 = load ptr, ptr %21, align 8
@@ -4269,17 +4272,13 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   call void @mutex_lock(ptr noundef %620) #9
   %621 = load ptr, ptr %619, align 8
   %622 = icmp eq ptr %621, null
-  br i1 %622, label %.thread143, label %623
+  br i1 %622, label %.critedge, label %623
 
 623:                                              ; preds = %616
   %624 = getelementptr inbounds i8, ptr %621, i64 8
   %625 = load ptr, ptr %624, align 8
   %626 = icmp eq ptr %625, null
-  br i1 %626, label %.thread143, label %627
-
-.thread143:                                       ; preds = %623, %616
-  call void @mutex_unlock(ptr noundef %620) #9
-  br label %634
+  br i1 %626, label %.critedge, label %627
 
 627:                                              ; preds = %623
   %628 = getelementptr inbounds i8, ptr %625, i64 88
@@ -4287,11 +4286,15 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %630 = load ptr, ptr %621, align 8
   %631 = getelementptr inbounds i8, ptr %617, i64 3984
   %632 = call i32 %629(ptr noundef %630, ptr noundef %631) #9
-  call void @mutex_unlock(ptr noundef %620) #9
   %633 = icmp slt i32 %632, 0
+  call void @mutex_unlock(ptr noundef %620) #9
   br i1 %633, label %634, label %639
 
-634:                                              ; preds = %.thread143, %627
+.critedge:                                        ; preds = %616, %623
+  call void @mutex_unlock(ptr noundef %620) #9
+  br label %634
+
+634:                                              ; preds = %.critedge, %627
   br i1 %46, label %637, label %635
 
 635:                                              ; preds = %634
@@ -4305,12 +4308,12 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 
 639:                                              ; preds = %637, %627
   %640 = icmp eq i32 %608, 3
-  br i1 %640, label %.thread152, label %51, !llvm.loop !78
+  br i1 %640, label %.thread150, label %51, !llvm.loop !78
 
 641:                                              ; preds = %595
   %.pr = load i8, ptr %32, align 4
   %642 = icmp eq i8 %.pr, 0
-  br i1 %642, label %643, label %.thread154
+  br i1 %642, label %643, label %.thread152
 
 643:                                              ; preds = %641
   call void @msleep(i32 noundef 200) #9
@@ -4535,17 +4538,13 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   call void @mutex_lock(ptr noundef %773) #9
   %774 = load ptr, ptr %772, align 8
   %775 = icmp eq ptr %774, null
-  br i1 %775, label %.thread149, label %776
+  br i1 %775, label %.critedge103, label %776
 
 776:                                              ; preds = %769
   %777 = getelementptr inbounds i8, ptr %774, i64 8
   %778 = load ptr, ptr %777, align 8
   %779 = icmp eq ptr %778, null
-  br i1 %779, label %.thread149, label %780
-
-.thread149:                                       ; preds = %776, %769
-  call void @mutex_unlock(ptr noundef %773) #9
-  br label %787
+  br i1 %779, label %.critedge103, label %780
 
 780:                                              ; preds = %776
   %781 = getelementptr inbounds i8, ptr %778, i64 88
@@ -4553,11 +4552,15 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %783 = load ptr, ptr %774, align 8
   %784 = getelementptr inbounds i8, ptr %770, i64 3984
   %785 = call i32 %782(ptr noundef %783, ptr noundef %784) #9
-  call void @mutex_unlock(ptr noundef %773) #9
   %786 = icmp slt i32 %785, 0
-  br i1 %786, label %787, label %.thread152
+  call void @mutex_unlock(ptr noundef %773) #9
+  br i1 %786, label %787, label %.thread150
 
-787:                                              ; preds = %.thread149, %780
+.critedge103:                                     ; preds = %769, %776
+  call void @mutex_unlock(ptr noundef %773) #9
+  br label %787
+
+787:                                              ; preds = %.critedge103, %780
   br i1 %46, label %790, label %788
 
 788:                                              ; preds = %787
@@ -4567,13 +4570,13 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 790:                                              ; preds = %788, %787
   %791 = phi ptr [ %789, %788 ], [ null, %787 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %791, i32 noundef 2, ptr noundef nonnull @.str.36) #9
-  br label %.thread152
+  br label %.thread150
 
 792:                                              ; preds = %754
   %793 = icmp eq i32 %755, 0
-  br i1 %793, label %.thread154, label %.thread152
+  br i1 %793, label %.thread152, label %.thread150
 
-.thread154:                                       ; preds = %29, %641, %792
+.thread152:                                       ; preds = %29, %641, %792
   %794 = load ptr, ptr %21, align 8
   %795 = getelementptr inbounds i8, ptr %794, i64 128
   %796 = load i32, ptr %795, align 8
@@ -4585,16 +4588,16 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
     i32 11, label %797
   ]
 
-797:                                              ; preds = %.thread154
+797:                                              ; preds = %.thread152
   %798 = getelementptr inbounds i8, ptr %794, i64 392
   %799 = load ptr, ptr %798, align 8
   br label %801
 
-800:                                              ; preds = %.thread154
+800:                                              ; preds = %.thread152
   br label %801
 
-801:                                              ; preds = %800, %797, %.thread154, %.thread154, %.thread154, %.thread154
-  %802 = phi ptr [ %799, %797 ], [ %794, %.thread154 ], [ %794, %.thread154 ], [ %794, %.thread154 ], [ %794, %.thread154 ], [ null, %800 ]
+801:                                              ; preds = %800, %797, %.thread152, %.thread152, %.thread152, %.thread152
+  %802 = phi ptr [ %799, %797 ], [ %794, %.thread152 ], [ %794, %.thread152 ], [ %794, %.thread152 ], [ %794, %.thread152 ], [ null, %800 ]
   %803 = load ptr, ptr %0, align 8
   %804 = getelementptr inbounds i8, ptr %803, i64 7176
   %805 = load i8, ptr %804, align 8
@@ -4716,7 +4719,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %877 = load ptr, ptr %14, align 8
   %878 = load i32, ptr %16, align 8
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %876, ptr noundef nonnull @.str.63, ptr noundef %877, i32 noundef %878) #12
-  br label %.thread152
+  br label %.thread150
 
 879:                                              ; preds = %867
   br i1 %870, label %883, label %880
@@ -4784,22 +4787,22 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   store i8 0, ptr %903, align 4
   %904 = getelementptr inbounds i8, ptr %802, i64 3994
   store i16 0, ptr %904, align 2
-  br label %.thread152
+  br label %.thread150
 
-.thread152:                                       ; preds = %51, %639, %561, %780, %790, %792, %875, %902
-  %.ph156 = phi i32 [ -1, %902 ], [ %868, %875 ], [ %755, %792 ], [ %755, %780 ], [ %755, %790 ], [ %558, %561 ], [ %603, %639 ], [ %603, %51 ]
+.thread150:                                       ; preds = %51, %639, %561, %780, %790, %792, %875, %902
+  %.ph154 = phi i32 [ -1, %902 ], [ %868, %875 ], [ %755, %792 ], [ %755, %780 ], [ %755, %790 ], [ %558, %561 ], [ %603, %639 ], [ %603, %51 ]
   br i1 %8, label %908, label %905
 
-905:                                              ; preds = %.thread152
+905:                                              ; preds = %.thread150
   %906 = getelementptr inbounds i8, ptr %7, i64 8
   %907 = load ptr, ptr %906, align 8
   br label %908
 
-908:                                              ; preds = %905, %.thread152
-  %909 = phi ptr [ %907, %905 ], [ null, %.thread152 ]
+908:                                              ; preds = %905, %.thread150
+  %909 = phi ptr [ %907, %905 ], [ null, %.thread150 ]
   %910 = load i8, ptr %18, align 1
   %911 = zext i8 %910 to i32
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %909, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %911, i32 noundef %.ph156) #9
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %909, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %911, i32 noundef %.ph154) #9
   br label %923
 
 912:                                              ; preds = %862, %894
@@ -4822,7 +4825,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   br label %923
 
 923:                                              ; preds = %916, %908
-  %924 = phi i32 [ %.ph156, %908 ], [ 0, %916 ]
+  %924 = phi i32 [ %.ph154, %908 ], [ 0, %916 ]
   ret i32 %924
 }
 

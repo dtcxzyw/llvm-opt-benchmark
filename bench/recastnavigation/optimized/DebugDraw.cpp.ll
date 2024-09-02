@@ -37,7 +37,7 @@ define void @_ZN11duDebugDrawD0Ev(ptr nocapture noundef nonnull readnone align 8
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN11duDebugDraw9areaToColEj(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define noundef range(i32 -16777216, 0) i32 @_ZN11duDebugDraw9areaToColEj(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %27, label %4
 
@@ -72,7 +72,7 @@ define noundef i32 @_ZN11duDebugDraw9areaToColEj(ptr nocapture nonnull readnone 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_Z10duIntToColii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 4128768, 0) i32 @_Z10duIntToColii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = lshr i32 %0, 1
   %4 = and i32 %3, 1
   %5 = lshr i32 %0, 2

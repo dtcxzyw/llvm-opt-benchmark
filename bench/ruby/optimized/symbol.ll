@@ -898,7 +898,7 @@ define dso_local range(i32 0, 2) i32 @rb_enc_symname2_p(ptr noundef %0, i64 noun
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 16) i32 @rb_enc_symname_type(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 15) i32 @rb_enc_symname_type(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [13 x i8], align 1
   %6 = alloca ptr, align 8
   %7 = getelementptr i8, ptr %0, i64 %1
@@ -1993,7 +1993,7 @@ RSTRING_PTR.exit:                                 ; preds = %8, %3, %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i64 14, 0) i64 @rb_make_internal_id() local_unnamed_addr #0 {
+define hidden range(i64 -1, 68719476736) i64 @rb_make_internal_id() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   %2 = load ptr, ptr @ruby_single_main_ractor, align 8
@@ -2033,7 +2033,7 @@ next_id_base.exit:                                ; preds = %next_id_base_with_l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i64 14, 0) i64 @rb_make_temporary_id(i64 noundef %0) local_unnamed_addr #0 {
+define hidden range(i64 15, 0) i64 @rb_make_temporary_id(i64 noundef %0) local_unnamed_addr #0 {
   %2 = sub i64 4294901760, %0
   %3 = load i32, ptr @ruby_global_symbols, align 8
   %4 = zext i32 %3 to i64

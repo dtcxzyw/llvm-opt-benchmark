@@ -380,7 +380,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i8 0, -15) i8 @pcie_cap_get_type(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 0, 16) i8 @pcie_cap_get_type(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
 entry:
   %exp = getelementptr inbounds i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
@@ -455,7 +455,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i8 @pcie_cap_flags_get_vector(ptr nocapture noundef readonly %dev) local_unnamed_addr #3 {
+define dso_local zeroext range(i8 0, 32) i8 @pcie_cap_flags_get_vector(ptr nocapture noundef readonly %dev) local_unnamed_addr #3 {
 entry:
   %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8

@@ -85,7 +85,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net17HpackHuffmanTable11DecodeTable4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i64 1, -9223372036854775807) i64 @_ZNK3net17HpackHuffmanTable11DecodeTable4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
   %indexed_length = getelementptr inbounds i8, ptr %this, i64 1
   %0 = load i8, ptr %indexed_length, align 1

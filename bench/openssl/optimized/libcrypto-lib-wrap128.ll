@@ -215,7 +215,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @CRYPTO_128_wrap_pad(ptr noundef %key, ptr noundef readonly %icv, ptr noundef %out, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @CRYPTO_128_wrap_pad(ptr noundef %key, ptr noundef readonly %icv, ptr noundef %out, ptr nocapture noundef readonly %in, i64 noundef %inlen, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
 entry:
   %B.i = alloca [16 x i8], align 16
   %add = add i64 %inlen, 7

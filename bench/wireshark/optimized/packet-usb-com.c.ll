@@ -1582,7 +1582,7 @@ define internal fastcc range(i32 28, 36) i32 @dissect_usb_com_get_ntb_params(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_usb_com_ntb_input_size(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 4, 0) i32 @dissect_usb_com_ntb_input_size(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
   %.not = icmp eq i32 %3, 0
   %5 = load i32, ptr @hf_usb_com_set_ntb_input_size_ntb_in_max_size, align 4
   %6 = load i32, ptr @hf_usb_com_get_ntb_input_size_ntb_in_max_size, align 4

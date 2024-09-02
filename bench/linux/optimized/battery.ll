@@ -928,7 +928,7 @@ define internal fastcc i32 @acpi_battery_update(ptr noundef %0) unnamed_addr #0 
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -19, 1) i32 @acpi_battery_get_info(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.acpi_buffer, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 568
   %4 = load volatile i64, ptr %3, align 8
@@ -1020,7 +1020,7 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
 64:                                               ; preds = %54
   switch i32 %63, label %79 [
     i32 3, label %65
-    i32 2, label %70
+    i32 2, label %71
     i32 1, label %76
   ]
 
@@ -1029,14 +1029,14 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
   %67 = load i32, ptr %66, align 4
   %68 = add i32 %67, 1
   %69 = call i32 @llvm.umin.i32(i32 %68, i32 64)
-  br label %70
+  %70 = zext nneg i32 %69 to i64
+  br label %71
 
-70:                                               ; preds = %65, %64
-  %71 = phi i32 [ 64, %64 ], [ %69, %65 ]
-  %72 = getelementptr inbounds i8, ptr %56, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = zext nneg i32 %71 to i64
-  %75 = call i64 @strscpy(ptr noundef %62, ptr noundef %73, i64 noundef %74) #11
+71:                                               ; preds = %65, %64
+  %72 = phi i64 [ 64, %64 ], [ %70, %65 ]
+  %73 = getelementptr inbounds i8, ptr %56, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = call i64 @strscpy(ptr noundef %62, ptr noundef %74, i64 noundef %72) #11
   br label %88
 
 76:                                               ; preds = %64
@@ -1050,20 +1050,20 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
 
 80:                                               ; preds = %54
   %81 = icmp eq i32 %63, 1
-  br i1 %81, label %82, label %85
+  br i1 %81, label %82, label %86
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds i8, ptr %56, i64 8
   %84 = load i64, ptr %83, align 8
-  br label %85
+  %85 = trunc i64 %84 to i32
+  br label %86
 
-85:                                               ; preds = %82, %80
-  %86 = phi i64 [ %84, %82 ], [ -1, %80 ]
-  %87 = trunc i64 %86 to i32
+86:                                               ; preds = %82, %80
+  %87 = phi i32 [ %85, %82 ], [ -1, %80 ]
   store i32 %87, ptr %62, align 4
   br label %88
 
-88:                                               ; preds = %85, %79, %76, %70
+88:                                               ; preds = %86, %79, %76, %71
   %89 = add nuw nsw i64 %50, 1
   %90 = icmp eq i64 %89, 19
   br i1 %90, label %extract_package.exit, label %49, !llvm.loop !17
@@ -1101,7 +1101,7 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
 111:                                              ; preds = %101
   switch i32 %110, label %126 [
     i32 3, label %112
-    i32 2, label %117
+    i32 2, label %118
     i32 1, label %123
   ]
 
@@ -1110,14 +1110,14 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
   %114 = load i32, ptr %113, align 4
   %115 = add i32 %114, 1
   %116 = call i32 @llvm.umin.i32(i32 %115, i32 64)
-  br label %117
+  %117 = zext nneg i32 %116 to i64
+  br label %118
 
-117:                                              ; preds = %112, %111
-  %118 = phi i32 [ 64, %111 ], [ %116, %112 ]
-  %119 = getelementptr inbounds i8, ptr %103, i64 8
-  %120 = load ptr, ptr %119, align 8
-  %121 = zext nneg i32 %118 to i64
-  %122 = call i64 @strscpy(ptr noundef %109, ptr noundef %120, i64 noundef %121) #11
+118:                                              ; preds = %112, %111
+  %119 = phi i64 [ 64, %111 ], [ %117, %112 ]
+  %120 = getelementptr inbounds i8, ptr %103, i64 8
+  %121 = load ptr, ptr %120, align 8
+  %122 = call i64 @strscpy(ptr noundef %109, ptr noundef %121, i64 noundef %119) #11
   br label %135
 
 123:                                              ; preds = %111
@@ -1131,20 +1131,20 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
 
 127:                                              ; preds = %101
   %128 = icmp eq i32 %110, 1
-  br i1 %128, label %129, label %132
+  br i1 %128, label %129, label %133
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds i8, ptr %103, i64 8
   %131 = load i64, ptr %130, align 8
-  br label %132
+  %132 = trunc i64 %131 to i32
+  br label %133
 
-132:                                              ; preds = %129, %127
-  %133 = phi i64 [ %131, %129 ], [ -1, %127 ]
-  %134 = trunc i64 %133 to i32
+133:                                              ; preds = %129, %127
+  %134 = phi i32 [ %132, %129 ], [ -1, %127 ]
   store i32 %134, ptr %109, align 4
   br label %135
 
-135:                                              ; preds = %132, %126, %123, %117
+135:                                              ; preds = %133, %126, %123, %118
   %136 = add nuw nsw i64 %97, 1
   %137 = icmp eq i64 %136, 20
   br i1 %137, label %extract_package.exit, label %96, !llvm.loop !17
@@ -1179,7 +1179,7 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
 157:                                              ; preds = %147
   switch i32 %156, label %172 [
     i32 3, label %158
-    i32 2, label %163
+    i32 2, label %164
     i32 1, label %169
   ]
 
@@ -1188,14 +1188,14 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
   %160 = load i32, ptr %159, align 4
   %161 = add i32 %160, 1
   %162 = call i32 @llvm.umin.i32(i32 %161, i32 64)
-  br label %163
+  %163 = zext nneg i32 %162 to i64
+  br label %164
 
-163:                                              ; preds = %158, %157
-  %164 = phi i32 [ 64, %157 ], [ %162, %158 ]
-  %165 = getelementptr inbounds i8, ptr %149, i64 8
-  %166 = load ptr, ptr %165, align 8
-  %167 = zext nneg i32 %164 to i64
-  %168 = call i64 @strscpy(ptr noundef %155, ptr noundef %166, i64 noundef %167) #11
+164:                                              ; preds = %158, %157
+  %165 = phi i64 [ 64, %157 ], [ %163, %158 ]
+  %166 = getelementptr inbounds i8, ptr %149, i64 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = call i64 @strscpy(ptr noundef %155, ptr noundef %167, i64 noundef %165) #11
   br label %181
 
 169:                                              ; preds = %157
@@ -1209,20 +1209,20 @@ define internal fastcc noundef i32 @acpi_battery_get_info(ptr noundef %0) unname
 
 173:                                              ; preds = %147
   %174 = icmp eq i32 %156, 1
-  br i1 %174, label %175, label %178
+  br i1 %174, label %175, label %179
 
 175:                                              ; preds = %173
   %176 = getelementptr inbounds i8, ptr %149, i64 8
   %177 = load i64, ptr %176, align 8
-  br label %178
+  %178 = trunc i64 %177 to i32
+  br label %179
 
-178:                                              ; preds = %175, %173
-  %179 = phi i64 [ %177, %175 ], [ -1, %173 ]
-  %180 = trunc i64 %179 to i32
+179:                                              ; preds = %175, %173
+  %180 = phi i32 [ %178, %175 ], [ -1, %173 ]
   store i32 %180, ptr %155, align 4
   br label %181
 
-181:                                              ; preds = %178, %172, %169, %163
+181:                                              ; preds = %179, %172, %169, %164
   %182 = add nuw nsw i64 %143, 1
   %183 = icmp eq i64 %182, 13
   br i1 %183, label %extract_package.exit, label %142, !llvm.loop !17
@@ -1424,8 +1424,8 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_battery_get_state(ptr
   %38 = getelementptr inbounds i8, ptr %33, i64 8
   br label %39
 
-39:                                               ; preds = %55, %36
-  %40 = phi i64 [ 0, %36 ], [ %58, %55 ]
+39:                                               ; preds = %56, %36
+  %40 = phi i64 [ 0, %36 ], [ %58, %56 ]
   %41 = load i32, ptr %37, align 4
   %42 = zext i32 %41 to i64
   %43 = icmp ult i64 %40, %42
@@ -1439,23 +1439,23 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_battery_get_state(ptr
   %49 = getelementptr i8, ptr %0, i64 %48
   %50 = load i32, ptr %46, align 8
   %51 = icmp eq i32 %50, 1
-  br i1 %51, label %52, label %55
+  br i1 %51, label %52, label %56
 
 52:                                               ; preds = %44
   %53 = getelementptr inbounds i8, ptr %46, i64 8
   %54 = load i64, ptr %53, align 8
-  br label %55
+  %55 = trunc i64 %54 to i32
+  br label %56
 
-55:                                               ; preds = %52, %44
-  %56 = phi i64 [ %54, %52 ], [ -1, %44 ]
-  %57 = trunc i64 %56 to i32
+56:                                               ; preds = %52, %44
+  %57 = phi i32 [ %55, %52 ], [ -1, %44 ]
   store i32 %57, ptr %49, align 4
   %58 = add nuw nsw i64 %40, 1
   %59 = icmp eq i64 %58, 4
   br i1 %59, label %extract_package.exit, label %39, !llvm.loop !17
 
-extract_package.exit:                             ; preds = %39, %55, %32
-  %60 = phi i32 [ -14, %32 ], [ 0, %55 ], [ -14, %39 ]
+extract_package.exit:                             ; preds = %39, %56, %32
+  %60 = phi i32 [ -14, %32 ], [ 0, %56 ], [ -14, %39 ]
   %61 = load volatile i64, ptr @jiffies, align 64
   store i64 %61, ptr %11, align 8
   call void @kfree(ptr noundef %33) #11

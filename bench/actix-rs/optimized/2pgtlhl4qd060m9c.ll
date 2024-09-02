@@ -4509,7 +4509,7 @@ define internal noundef zeroext i1 @"_ZN74_$LT$actix_http..error..ContentTypeErr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef range(i16 1, 0) i16 @"_ZN101_$LT$actix_web..error..UrlencodedError$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17hbc656625dc6e58eaE"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #8 {
+define noundef range(i16 400, 414) i16 @"_ZN101_$LT$actix_web..error..UrlencodedError$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17hbc656625dc6e58eaE"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #8 {
   %2 = load i8, ptr %0, align 8, !range !537, !noundef !4
   %3 = add nsw i8 %2, -11
   %narrow = tail call i8 @llvm.umin.i8(i8 %3, i8 7)
@@ -4542,7 +4542,7 @@ define void @"_ZN113_$LT$actix_web..error..JsonPayloadError$u20$as$u20$core..con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef range(i16 1, 0) i16 @"_ZN102_$LT$actix_web..error..JsonPayloadError$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17hed7f4bc93a20ce8aE"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #8 {
+define noundef range(i16 400, 501) i16 @"_ZN102_$LT$actix_web..error..JsonPayloadError$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17hed7f4bc93a20ce8aE"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #8 {
   %2 = load i8, ptr %0, align 8, !range !538, !noundef !4
   %3 = add nsw i8 %2, -11
   %narrow = tail call i8 @llvm.umin.i8(i8 %3, i8 5)

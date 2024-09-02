@@ -1513,12 +1513,12 @@ for.cond35:                                       ; preds = %for.inc44, %_ZNK15r
 if.end.i.i65:                                     ; preds = %for.cond35
   %arrayidx.i.i66 = getelementptr inbounds i8, ptr %25, i64 -4
   %26 = load i32, ptr %arrayidx.i.i66, align 4
+  %27 = zext i32 %26 to i64
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit68
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit68: ; preds = %for.cond35, %if.end.i.i65
-  %retval.0.i.i67 = phi i32 [ %26, %if.end.i.i65 ], [ 0, %for.cond35 ]
-  %27 = zext i32 %retval.0.i.i67 to i64
-  %cmp38 = icmp ult i64 %indvars.iv106, %27
+  %retval.0.i.i67 = phi i64 [ %27, %if.end.i.i65 ], [ 0, %for.cond35 ]
+  %cmp38 = icmp ult i64 %indvars.iv106, %retval.0.i.i67
   br i1 %cmp38, label %invoke.cont40, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit85
 
 invoke.cont40:                                    ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit68
@@ -3693,12 +3693,12 @@ for.cond.i.i:                                     ; preds = %_ZN15ref_vector_cor
 if.end.i.i.i.i:                                   ; preds = %for.cond.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %9 = zext i32 %8 to i64
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i: ; preds = %if.end.i.i.i.i, %for.cond.i.i
-  %retval.0.i.i.i.i = phi i32 [ %8, %if.end.i.i.i.i ], [ 0, %for.cond.i.i ]
-  %9 = zext i32 %retval.0.i.i.i.i to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.i.i, %9
+  %retval.0.i.i.i.i = phi i64 [ %9, %if.end.i.i.i.i ], [ 0, %for.cond.i.i ]
+  %cmp.i.i = icmp ult i64 %indvars.iv.i.i, %retval.0.i.i.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZN10ref_vectorI4expr11ast_managerEC2ERKS2_.exit
 
 for.body.i.i:                                     ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i

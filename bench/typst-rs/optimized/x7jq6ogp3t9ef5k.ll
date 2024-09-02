@@ -60,7 +60,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   %26 = icmp eq ptr %15, %.val.i.pre
   %27 = select i1 %24, i1 true, i1 %26
-  %28 = tail call i64 @llvm.umax.i64(i64 %5, i64 4)
+  %28 = tail call range(i64 4, 0) i64 @llvm.umax.i64(i64 %5, i64 4)
   %.0.sroa.speculated.i = select i1 %27, i64 4, i64 %28
   %29 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h7fea55bedb9e1bd8E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
   %30 = extractvalue { i64, ptr } %29, 0

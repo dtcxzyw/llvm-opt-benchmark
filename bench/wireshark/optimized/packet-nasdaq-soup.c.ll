@@ -108,28 +108,28 @@ define internal i32 @dissect_nasdaq_soup(ptr noundef %0, ptr noundef %1, ptr nou
   %.03340 = phi i32 [ 0, %.lr.ph ], [ %97, %dissect_nasdaq_soup_packet.exit ]
   %10 = load i32, ptr @nasdaq_soup_desegment, align 4
   %.not36 = icmp eq i32 %10, 0
-  br i1 %.not36, label %14, label %11
+  br i1 %.not36, label %15, label %11
 
 11:                                               ; preds = %9
   %12 = load i16, ptr %7, align 8
   %13 = icmp ne i16 %12, 0
-  br label %14
+  %14 = zext i1 %13 to i32
+  br label %15
 
-14:                                               ; preds = %11, %9
-  %15 = phi i1 [ false, %9 ], [ %13, %11 ]
-  %16 = zext i1 %15 to i32
+15:                                               ; preds = %11, %9
+  %16 = phi i32 [ 0, %9 ], [ %14, %11 ]
   %17 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.03340, i32 noundef -1, ptr noundef nonnull %5, i32 noundef %16) #2
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %22
 
-19:                                               ; preds = %14
+19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %1, i64 332
   store i32 %.03340, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 268435455, ptr %21, align 8
   br label %._crit_edge
 
-22:                                               ; preds = %14
+22:                                               ; preds = %15
   %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.03340) #2
   %cond = icmp eq i32 %.041, 0
   %24 = load ptr, ptr %8, align 8

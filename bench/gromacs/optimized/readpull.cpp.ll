@@ -31698,7 +31698,7 @@ define noundef ptr @_Z13set_pull_initP10t_inputrecRK10gmx_mtop_tN3gmx8ArrayRefIK
           cleanup
   br label %261
 
-.loopexit:                                        ; preds = %171, %179, %181, %240
+.loopexit:                                        ; preds = %172, %180, %182, %240
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -31935,50 +31935,50 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %111, %113
   %165 = getelementptr inbounds i8, ptr %130, i64 152
   %166 = load i8, ptr %165, align 8
   %167 = trunc i8 %166 to i1
-  br i1 %167, label %168, label %171
+  br i1 %167, label %168, label %172
 
 168:                                              ; preds = %128
   %169 = getelementptr inbounds i8, ptr %130, i64 156
   %170 = load float, ptr %169, align 4
   store float 0.000000e+00, ptr %169, align 4
-  br label %171
+  %171 = fpext float %170 to double
+  br label %172
 
-171:                                              ; preds = %168, %128
-  %.0100 = phi float [ %170, %168 ], [ 0.000000e+00, %128 ]
-  %172 = load double, ptr %39, align 8
-  %173 = load i64, ptr %41, align 8
-  %174 = sitofp i64 %173 to double
-  %175 = load double, ptr %44, align 8
-  %176 = call double @llvm.fmuladd.f64(double %174, double %175, double %172)
-  %177 = trunc nuw nsw i64 %indvars.iv150 to i32
-  %178 = invoke noundef double @_Z20get_pull_coord_valueP6pull_tiRK5t_pbcd(ptr noundef %22, i32 noundef %177, ptr noundef nonnull align 4 dereferenceable(384) %8, double noundef %176)
-          to label %179 unwind label %.loopexit
+172:                                              ; preds = %168, %128
+  %.0100 = phi double [ %171, %168 ], [ 0.000000e+00, %128 ]
+  %173 = load double, ptr %39, align 8
+  %174 = load i64, ptr %41, align 8
+  %175 = sitofp i64 %174 to double
+  %176 = load double, ptr %44, align 8
+  %177 = call double @llvm.fmuladd.f64(double %175, double %176, double %173)
+  %178 = trunc nuw nsw i64 %indvars.iv150 to i32
+  %179 = invoke noundef double @_Z20get_pull_coord_valueP6pull_tiRK5t_pbcd(ptr noundef %22, i32 noundef %178, ptr noundef nonnull align 4 dereferenceable(384) %8, double noundef %177)
+          to label %180 unwind label %.loopexit
 
-179:                                              ; preds = %171
-  %180 = invoke noundef double @_Z41pull_conversion_factor_internal2userinputRK12t_pull_coord(ptr noundef nonnull align 8 dereferenceable(176) %130)
-          to label %181 unwind label %.loopexit
+180:                                              ; preds = %172
+  %181 = invoke noundef double @_Z41pull_conversion_factor_internal2userinputRK12t_pull_coord(ptr noundef nonnull align 8 dereferenceable(176) %130)
+          to label %182 unwind label %.loopexit
 
-181:                                              ; preds = %179
-  %182 = fmul double %178, %180
-  %183 = load ptr, ptr @stderr, align 8
-  %184 = invoke noundef ptr @_Z21pull_coordinate_unitsRK12t_pull_coord(ptr noundef nonnull align 8 dereferenceable(176) %130)
-          to label %185 unwind label %.loopexit
+182:                                              ; preds = %180
+  %183 = fmul double %179, %181
+  %184 = load ptr, ptr @stderr, align 8
+  %185 = invoke noundef ptr @_Z21pull_coordinate_unitsRK12t_pull_coord(ptr noundef nonnull align 8 dereferenceable(176) %130)
+          to label %186 unwind label %.loopexit
 
-185:                                              ; preds = %181
-  %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %183, ptr noundef nonnull @.str.267, double noundef %182, ptr noundef %184) #29
-  %187 = load i8, ptr %165, align 8
-  %188 = trunc i8 %187 to i1
-  br i1 %188, label %189, label %194
+186:                                              ; preds = %182
+  %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.267, double noundef %183, ptr noundef %185) #29
+  %188 = load i8, ptr %165, align 8
+  %189 = trunc i8 %188 to i1
+  br i1 %189, label %190, label %194
 
-189:                                              ; preds = %185
-  %190 = fpext float %.0100 to double
-  %191 = fadd double %182, %190
+190:                                              ; preds = %186
+  %191 = fadd double %.0100, %183
   %192 = fptrunc double %191 to float
   %193 = getelementptr inbounds i8, ptr %130, i64 156
   store float %192, ptr %193, align 4
   br label %194
 
-194:                                              ; preds = %189, %185
+194:                                              ; preds = %190, %186
   %195 = getelementptr inbounds i8, ptr %130, i64 40
   %196 = load i32, ptr %195, align 8
   switch i32 %196, label %._crit_edge153 [

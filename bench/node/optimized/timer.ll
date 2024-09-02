@@ -663,7 +663,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @uv__next_timeout(ptr nocapture noundef readonly %loop) local_unnamed_addr #4 {
+define hidden range(i32 -1, -2147483648) i32 @uv__next_timeout(ptr nocapture noundef readonly %loop) local_unnamed_addr #4 {
 entry:
   %timer_heap.i = getelementptr inbounds i8, ptr %loop, i64 520
   %call.val = load ptr, ptr %timer_heap.i, align 8

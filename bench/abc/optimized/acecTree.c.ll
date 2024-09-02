@@ -3517,7 +3517,7 @@ Vec_WecPrintLits.exit29:                          ; preds = %.critedge2.i19, %Ve
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Acec_CreateBoxMaxRank(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, -2147483648) i32 @Acec_CreateBoxMaxRank(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val, 1

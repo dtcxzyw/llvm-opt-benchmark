@@ -271,11 +271,11 @@ lor.rhs:                                          ; preds = %land.rhs
   %tobool61.not = icmp eq i32 %param_out.0, 0
   %tobool63.not = icmp eq i32 %pubout.0, 0
   %1 = select i1 %tobool61.not, i1 %tobool63.not, i1 false
+  %2 = zext i1 %1 to i32
   br label %land.end64
 
 land.end64:                                       ; preds = %land.rhs, %lor.rhs, %if.end58
-  %2 = phi i1 [ false, %if.end58 ], [ true, %land.rhs ], [ %1, %lor.rhs ]
-  %land.ext = zext i1 %2 to i32
+  %land.ext = phi i32 [ 0, %if.end58 ], [ 1, %land.rhs ], [ %2, %lor.rhs ]
   %call65 = call i32 @app_passwd(ptr noundef %passinarg.0, ptr noundef %passoutarg.0, ptr noundef nonnull %passin, ptr noundef nonnull %passout) #3
   %tobool66.not = icmp eq i32 %call65, 0
   %3 = load ptr, ptr @bio_err, align 8

@@ -1580,11 +1580,7 @@ define hidden void @zif_random_bytes(ptr noundef %0, ptr nocapture noundef write
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
-  br i1 %cond, label %6, label %.thread139
-
-.thread139:                                       ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #13
-  br label %14
+  br i1 %cond, label %6, label %.thread144
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1596,91 +1592,96 @@ define hidden void @zif_random_bytes(ptr noundef %0, ptr nocapture noundef write
 .thread134:                                       ; preds = %6
   %11 = load i64, ptr %7, align 8
   store i64 %11, ptr %3, align 8
-  br label %15
+  br label %.thread152
 
 12:                                               ; preds = %6
   %13 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef 1) #13
-  br i1 %13, label %thread-pre-split, label %14
+  %.fr = freeze i1 %13
+  br i1 %.fr, label %.thread152thread-pre-split, label %14
 
-14:                                               ; preds = %12, %.thread139
-  %.0118146 = phi i32 [ 0, %.thread139 ], [ 1, %12 ]
-  %.0119145 = phi i32 [ 1, %.thread139 ], [ 9, %12 ]
-  %.0120144 = phi ptr [ null, %.thread139 ], [ %7, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0119145, i32 noundef %.0118146, ptr noundef null, i32 noundef 0, ptr noundef %.0120144) #13
-  br label %51
+.thread144:                                       ; preds = %2
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #13
+  br label %14
 
-thread-pre-split:                                 ; preds = %12
+14:                                               ; preds = %12, %.thread144
+  %.0118151 = phi i32 [ 0, %.thread144 ], [ 1, %12 ]
+  %.0119150 = phi i32 [ 1, %.thread144 ], [ 9, %12 ]
+  %.0120149 = phi ptr [ null, %.thread144 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0119150, i32 noundef %.0118151, ptr noundef null, i32 noundef 0, ptr noundef %.0120149) #13
+  br label %50
+
+.thread152thread-pre-split:                       ; preds = %12
   %.pr = load i64, ptr %3, align 8
-  br label %15
+  br label %.thread152
 
-15:                                               ; preds = %thread-pre-split, %.thread134
-  %16 = phi i64 [ %.pr, %thread-pre-split ], [ %11, %.thread134 ]
-  %17 = icmp slt i64 %16, 1
-  br i1 %17, label %18, label %21
+.thread152:                                       ; preds = %.thread152thread-pre-split, %.thread134
+  %15 = phi i64 [ %.pr, %.thread152thread-pre-split ], [ %11, %.thread134 ]
+  %16 = icmp slt i64 %15, 1
+  br i1 %16, label %17, label %20
 
-18:                                               ; preds = %15
+17:                                               ; preds = %.thread152
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.3) #13
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  br label %51
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %19 = icmp ne ptr %18, null
+  call void @llvm.assume(i1 %19)
+  br label %50
 
-21:                                               ; preds = %15
-  %22 = and i64 %16, 9223372036854775800
-  %23 = add nuw i64 %22, 32
-  %24 = call noalias ptr @_emalloc(i64 noundef %23) #15
-  store i32 1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
-  store i32 22, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
-  store i64 %16, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
-  %29 = load i64, ptr %3, align 8
-  %30 = call i32 @php_random_bytes(ptr noundef nonnull %28, i64 noundef %29, i1 noundef zeroext true) #13
-  %31 = icmp eq i32 %30, -1
-  br i1 %31, label %32, label %44
+20:                                               ; preds = %.thread152
+  %21 = and i64 %15, 9223372036854775800
+  %22 = add nuw i64 %21, 32
+  %23 = call noalias ptr @_emalloc(i64 noundef %22) #15
+  store i32 1, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  store i32 22, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  store i64 0, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  store i64 %15, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %23, i64 24
+  %28 = load i64, ptr %3, align 8
+  %29 = call i32 @php_random_bytes(ptr noundef nonnull %27, i64 noundef %28, i1 noundef zeroext true) #13
+  %30 = icmp eq i32 %29, -1
+  br i1 %30, label %31, label %43
 
-32:                                               ; preds = %21
-  %33 = load i32, ptr %25, align 4
-  %34 = and i32 %33, 64
-  %.not128 = icmp eq i32 %34, 0
-  br i1 %.not128, label %35, label %41
+31:                                               ; preds = %20
+  %32 = load i32, ptr %24, align 4
+  %33 = and i32 %32, 64
+  %.not128 = icmp eq i32 %33, 0
+  br i1 %.not128, label %34, label %40
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %24, align 4
-  %37 = icmp ne i32 %36, 0
-  call void @llvm.assume(i1 %37)
-  %38 = add i32 %36, -1
-  store i32 %38, ptr %24, align 4
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %41
+34:                                               ; preds = %31
+  %35 = load i32, ptr %23, align 4
+  %36 = icmp ne i32 %35, 0
+  call void @llvm.assume(i1 %36)
+  %37 = add i32 %35, -1
+  store i32 %37, ptr %23, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %40
 
-40:                                               ; preds = %35
-  call void @_efree(ptr noundef nonnull %24) #13
-  br label %41
+39:                                               ; preds = %34
+  call void @_efree(ptr noundef nonnull %23) #13
+  br label %40
 
-41:                                               ; preds = %32, %40, %35
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %43 = icmp ne ptr %42, null
-  call void @llvm.assume(i1 %43)
-  br label %51
+40:                                               ; preds = %31, %39, %34
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %42 = icmp ne ptr %41, null
+  call void @llvm.assume(i1 %42)
+  br label %50
 
-44:                                               ; preds = %21
-  %45 = load i64, ptr %3, align 8
-  %46 = getelementptr inbounds [1 x i8], ptr %28, i64 0, i64 %45
-  store i8 0, ptr %46, align 1
-  store ptr %24, ptr %1, align 8
-  %47 = load i32, ptr %25, align 4
-  %48 = and i32 %47, 64
-  %.not127 = icmp eq i32 %48, 0
-  %49 = select i1 %.not127, i32 262, i32 6
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %49, ptr %50, align 8
-  br label %51
+43:                                               ; preds = %20
+  %44 = load i64, ptr %3, align 8
+  %45 = getelementptr inbounds [1 x i8], ptr %27, i64 0, i64 %44
+  store i8 0, ptr %45, align 1
+  store ptr %23, ptr %1, align 8
+  %46 = load i32, ptr %24, align 4
+  %47 = and i32 %46, 64
+  %.not127 = icmp eq i32 %47, 0
+  %48 = select i1 %.not127, i32 262, i32 6
+  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %48, ptr %49, align 8
+  br label %50
 
-51:                                               ; preds = %44, %41, %18, %14
+50:                                               ; preds = %43, %40, %17, %14
   ret void
 }
 

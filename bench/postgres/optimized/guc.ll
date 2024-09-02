@@ -9250,126 +9250,118 @@ define dso_local ptr @get_explain_guc_options(ptr nocapture noundef %0) local_un
   %5 = tail call ptr @palloc(i64 noundef %4) #29
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @guc_nondef_list, i64 8), align 8
   %.not = icmp eq ptr %6, null
-  %.not384447 = icmp eq ptr %6, @guc_nondef_list
-  %.not3844 = or i1 %.not, %.not384447
-  br i1 %.not3844, label %select.unfold._crit_edge, label %.lr.ph
+  %.not384548 = icmp eq ptr %6, @guc_nondef_list
+  %.not3845 = or i1 %.not, %.not384548
+  br i1 %.not3845, label %select.unfold._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %.thread42
-  %.sroa.0.045 = phi ptr [ %74, %.thread42 ], [ %6, %1 ]
-  %7 = getelementptr i8, ptr %.sroa.0.045, i64 -88
-  %8 = getelementptr i8, ptr %.sroa.0.045, i64 -56
+.lr.ph:                                           ; preds = %1, %.critedge
+  %.sroa.0.046 = phi ptr [ %66, %.critedge ], [ %6, %1 ]
+  %7 = getelementptr i8, ptr %.sroa.0.046, i64 -88
+  %8 = getelementptr i8, ptr %.sroa.0.046, i64 -56
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 32
   %.not39 = icmp eq i32 %10, 0
-  br i1 %.not39, label %.thread42, label %11
+  br i1 %.not39, label %.critedge, label %11
 
 11:                                               ; preds = %.lr.ph
   %12 = tail call zeroext i1 @ConfigOptionIsVisible(ptr noundef %7) #29
-  br i1 %12, label %13, label %.thread42
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %11
-  %14 = getelementptr i8, ptr %.sroa.0.045, i64 -52
+  %14 = getelementptr i8, ptr %.sroa.0.046, i64 -52
   %15 = load i32, ptr %14, align 4
-  switch i32 %15, label %61 [
-    i32 0, label %16
-    i32 1, label %23
-    i32 2, label %31
-    i32 3, label %39
-    i32 4, label %53
+  switch i32 %15, label %47 [
+    i32 0, label %52
+    i32 1, label %16
+    i32 2, label %22
+    i32 3, label %29
+    i32 4, label %41
   ]
 
 16:                                               ; preds = %13
-  %17 = getelementptr i8, ptr %.sroa.0.045, i64 64
-  %18 = load i8, ptr %17, align 8
-  %19 = getelementptr i8, ptr %.sroa.0.045, i64 56
+  %17 = getelementptr i8, ptr %.sroa.0.046, i64 64
+  %18 = load i32, ptr %17, align 8
+  %19 = getelementptr i8, ptr %.sroa.0.046, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = load i8, ptr %20, align 1
-  %22 = xor i8 %21, %18
-  br label %66
+  %21 = load i32, ptr %20, align 4
+  %.not44 = icmp eq i32 %18, %21
+  br i1 %.not44, label %.critedge, label %.critedge41
 
-23:                                               ; preds = %13
-  %24 = getelementptr i8, ptr %.sroa.0.045, i64 64
-  %25 = load i32, ptr %24, align 8
-  %26 = getelementptr i8, ptr %.sroa.0.045, i64 56
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp ne i32 %25, %28
-  %30 = zext i1 %29 to i8
-  br label %66
+22:                                               ; preds = %13
+  %23 = getelementptr i8, ptr %.sroa.0.046, i64 64
+  %24 = load double, ptr %23, align 8
+  %25 = getelementptr i8, ptr %.sroa.0.046, i64 56
+  %26 = load ptr, ptr %25, align 8
+  %27 = load double, ptr %26, align 8
+  %28 = fcmp une double %24, %27
+  br i1 %28, label %.critedge41, label %.critedge
 
-31:                                               ; preds = %13
-  %32 = getelementptr i8, ptr %.sroa.0.045, i64 64
-  %33 = load double, ptr %32, align 8
-  %34 = getelementptr i8, ptr %.sroa.0.045, i64 56
+29:                                               ; preds = %13
+  %30 = getelementptr i8, ptr %.sroa.0.046, i64 64
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, null
+  %33 = getelementptr i8, ptr %.sroa.0.046, i64 56
+  %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = load double, ptr %35, align 8
-  %37 = fcmp une double %33, %36
-  %38 = zext i1 %37 to i8
-  br label %66
+  %36 = icmp eq ptr %35, null
+  br i1 %32, label %37, label %38
 
-39:                                               ; preds = %13
-  %40 = getelementptr i8, ptr %.sroa.0.045, i64 64
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  %43 = getelementptr i8, ptr %.sroa.0.045, i64 56
-  %44 = load ptr, ptr %43, align 8
+37:                                               ; preds = %29
+  br i1 %36, label %.critedge, label %.critedge41
+
+38:                                               ; preds = %29
+  br i1 %36, label %.critedge41, label %39
+
+39:                                               ; preds = %38
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %35) #30
+  %.not43 = icmp eq i32 %40, 0
+  br i1 %.not43, label %.critedge, label %.critedge41
+
+41:                                               ; preds = %13
+  %42 = getelementptr i8, ptr %.sroa.0.046, i64 64
+  %43 = load i32, ptr %42, align 8
+  %44 = getelementptr i8, ptr %.sroa.0.046, i64 56
   %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %42, label %47, label %48
+  %46 = load i32, ptr %45, align 4
+  %.not42 = icmp eq i32 %43, %46
+  br i1 %.not42, label %.critedge, label %.critedge41
 
-47:                                               ; preds = %39
-  br i1 %46, label %.thread42, label %.thread40
-
-48:                                               ; preds = %39
-  br i1 %46, label %.thread40, label %49
-
-49:                                               ; preds = %48
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %45) #30
-  %51 = icmp ne i32 %50, 0
-  %52 = zext i1 %51 to i8
-  br label %66
-
-53:                                               ; preds = %13
-  %54 = getelementptr i8, ptr %.sroa.0.045, i64 64
-  %55 = load i32, ptr %54, align 8
-  %56 = getelementptr i8, ptr %.sroa.0.045, i64 56
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp ne i32 %55, %58
-  %60 = zext i1 %59 to i8
-  br label %66
-
-61:                                               ; preds = %13
-  %62 = getelementptr i8, ptr %.sroa.0.045, i64 -52
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
-  tail call void @llvm.assume(i1 %63)
-  %64 = load i32, ptr %62, align 4
-  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.83, i32 noundef %64) #29
+47:                                               ; preds = %13
+  %48 = getelementptr i8, ptr %.sroa.0.046, i64 -52
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
+  tail call void @llvm.assume(i1 %49)
+  %50 = load i32, ptr %48, align 4
+  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.83, i32 noundef %50) #29
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5331, ptr noundef nonnull @__func__.get_explain_guc_options) #29
   unreachable
 
-66:                                               ; preds = %49, %53, %31, %23, %16
-  %.0 = phi i8 [ %60, %53 ], [ %52, %49 ], [ %38, %31 ], [ %30, %23 ], [ %22, %16 ]
-  %67 = trunc i8 %.0 to i1
-  br i1 %67, label %.thread40, label %.thread42
+52:                                               ; preds = %13
+  %53 = getelementptr i8, ptr %.sroa.0.046, i64 64
+  %54 = load i8, ptr %53, align 8
+  %55 = getelementptr i8, ptr %.sroa.0.046, i64 56
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i8, ptr %56, align 1
+  %58 = xor i8 %57, %54
+  %59 = trunc i8 %58 to i1
+  br i1 %59, label %.critedge41, label %.critedge
 
-.thread40:                                        ; preds = %47, %48, %66
-  %68 = load i32, ptr %0, align 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr ptr, ptr %5, i64 %69
-  store ptr %7, ptr %70, align 8
-  %71 = load i32, ptr %0, align 4
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %0, align 4
-  br label %.thread42
+.critedge41:                                      ; preds = %37, %16, %22, %39, %41, %38, %52
+  %60 = load i32, ptr %0, align 4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr ptr, ptr %5, i64 %61
+  store ptr %7, ptr %62, align 8
+  %63 = load i32, ptr %0, align 4
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %0, align 4
+  br label %.critedge
 
-.thread42:                                        ; preds = %47, %66, %11, %.lr.ph, %.thread40
-  %73 = getelementptr inbounds i8, ptr %.sroa.0.045, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %.not38 = icmp eq ptr %74, @guc_nondef_list
+.critedge:                                        ; preds = %16, %22, %39, %41, %37, %52, %11, %.lr.ph, %.critedge41
+  %65 = getelementptr inbounds i8, ptr %.sroa.0.046, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %.not38 = icmp eq ptr %66, @guc_nondef_list
   br i1 %.not38, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !54
 
-select.unfold._crit_edge:                         ; preds = %.thread42, %1
+select.unfold._crit_edge:                         ; preds = %.critedge, %1
   ret ptr %5
 }
 

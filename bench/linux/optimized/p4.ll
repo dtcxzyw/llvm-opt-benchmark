@@ -756,21 +756,21 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr nocapture noun
   %22 = inttoptr i64 %21 to ptr
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %27, label %25
+  br i1 %24, label %28, label %25
 
 25:                                               ; preds = %20
   %26 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %23) #15, !srcloc !35
-  br label %27
+  %27 = trunc i64 %26 to i32
+  br label %28
 
-27:                                               ; preds = %25, %20
-  %28 = phi i64 [ %26, %25 ], [ 64, %20 ]
-  %29 = trunc i64 %28 to i32
+28:                                               ; preds = %25, %20
+  %29 = phi i32 [ %27, %25 ], [ 64, %20 ]
   %30 = icmp ne i32 %6, %29
   %31 = zext i1 %30 to i64
   br label %32
 
-32:                                               ; preds = %27, %12
-  %33 = phi i64 [ %31, %27 ], [ 0, %12 ]
+32:                                               ; preds = %28, %12
+  %33 = phi i64 [ %31, %28 ], [ 0, %12 ]
   %34 = getelementptr inbounds i8, ptr %16, i64 396
   %.pre = load i64, ptr %17, align 8
   br label %35
@@ -828,21 +828,21 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr nocapture noun
   %66 = inttoptr i64 %65 to ptr
   %67 = load i64, ptr %66, align 8
   %68 = icmp eq i64 %67, 0
-  br i1 %68, label %71, label %69
+  br i1 %68, label %72, label %69
 
 69:                                               ; preds = %64
   %70 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %67) #15, !srcloc !35
-  br label %71
+  %71 = trunc i64 %70 to i32
+  br label %72
 
-71:                                               ; preds = %69, %64
-  %72 = phi i64 [ %70, %69 ], [ 64, %64 ]
-  %73 = trunc i64 %72 to i32
+72:                                               ; preds = %69, %64
+  %73 = phi i32 [ %71, %69 ], [ 64, %64 ]
   %74 = icmp ne i32 %6, %73
   %75 = zext i1 %74 to i32
   br label %76
 
-76:                                               ; preds = %71, %61
-  %77 = phi i32 [ %75, %71 ], [ 0, %61 ]
+76:                                               ; preds = %72, %61
+  %77 = phi i32 [ %75, %72 ], [ 0, %61 ]
   %78 = lshr i64 %36, 63
   %79 = trunc nuw nsw i64 %78 to i32
   %80 = icmp eq i32 %77, %79
@@ -923,21 +923,21 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr nocapture noun
   %117 = inttoptr i64 %116 to ptr
   %118 = load i64, ptr %117, align 8
   %119 = icmp eq i64 %118, 0
-  br i1 %119, label %122, label %120
+  br i1 %119, label %123, label %120
 
 120:                                              ; preds = %115
   %121 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %118) #15, !srcloc !35
-  br label %122
+  %122 = trunc i64 %121 to i32
+  br label %123
 
-122:                                              ; preds = %120, %115
-  %123 = phi i64 [ %121, %120 ], [ 64, %115 ]
-  %124 = trunc i64 %123 to i32
+123:                                              ; preds = %120, %115
+  %124 = phi i32 [ %122, %120 ], [ 64, %115 ]
   %125 = icmp ne i32 %6, %124
   %126 = zext i1 %125 to i32
   br label %127
 
-127:                                              ; preds = %122, %111
-  %128 = phi i32 [ %126, %122 ], [ 0, %111 ]
+127:                                              ; preds = %123, %111
+  %128 = phi i32 [ %126, %123 ], [ 0, %111 ]
   %129 = lshr i64 %.pre55, 63
   %130 = trunc nuw nsw i64 %129 to i32
   %131 = icmp eq i32 %128, %130
@@ -955,15 +955,15 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr nocapture noun
   %136 = inttoptr i64 %135 to ptr
   %137 = load i64, ptr %136, align 8
   %138 = icmp eq i64 %137, 0
-  br i1 %138, label %141, label %139
+  br i1 %138, label %142, label %139
 
 139:                                              ; preds = %134
   %140 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %137) #15, !srcloc !35
-  br label %141
+  %141 = trunc i64 %140 to i32
+  br label %142
 
-141:                                              ; preds = %134, %139
-  %142 = phi i64 [ %140, %139 ], [ 64, %134 ]
-  %143 = trunc i64 %142 to i32
+142:                                              ; preds = %134, %139
+  %143 = phi i32 [ %141, %139 ], [ 64, %134 ]
   %144 = icmp slt i64 %.pre55, 0
   %145 = icmp eq i32 %6, %143
   %146 = xor i1 %144, %145
@@ -978,26 +978,26 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr nocapture noun
   %149 = trunc nuw i64 %148 to i32
   br label %180
 
-150:                                              ; preds = %141
+150:                                              ; preds = %142
   %151 = lshr i64 %.pre55, 32
   %152 = trunc nuw i64 %151 to i32
   %153 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_sibling_map) #15, !srcloc !34
   %154 = inttoptr i64 %153 to ptr
   %155 = load i64, ptr %154, align 8
   %156 = icmp eq i64 %155, 0
-  br i1 %156, label %159, label %157
+  br i1 %156, label %160, label %157
 
 157:                                              ; preds = %150
   %158 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %155) #15, !srcloc !35
-  br label %159
+  %159 = trunc i64 %158 to i32
+  br label %160
 
-159:                                              ; preds = %157, %150
-  %160 = phi i64 [ %158, %157 ], [ 64, %150 ]
-  %161 = trunc i64 %160 to i32
+160:                                              ; preds = %157, %150
+  %161 = phi i32 [ %159, %157 ], [ 64, %150 ]
   %162 = icmp eq i32 %6, %161
   br i1 %162, label %180, label %163
 
-163:                                              ; preds = %159
+163:                                              ; preds = %160
   %164 = and i64 %.pre55, 4093640703
   %165 = or disjoint i64 %164, 134217728
   %166 = and i64 %.pre55, 34359738368
@@ -1016,8 +1016,8 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr nocapture noun
   %179 = or i64 %178, -9223372036854775808
   br label %198
 
-180:                                              ; preds = %.thread22, %159
-  %181 = phi i32 [ %149, %.thread22 ], [ %152, %159 ]
+180:                                              ; preds = %.thread22, %160
+  %181 = phi i32 [ %149, %.thread22 ], [ %152, %160 ]
   %182 = and i64 %.pre55, 4093640703
   %183 = and i64 %.pre55, 8589934592
   %184 = icmp eq i64 %183, 0
@@ -1041,7 +1041,7 @@ define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr nocapture noun
   store i64 %199, ptr %17, align 8
   br label %200
 
-200:                                              ; preds = %.thread21, %198, %141
+200:                                              ; preds = %.thread21, %198, %142
   br i1 %10, label %204, label %201
 
 201:                                              ; preds = %200, %81

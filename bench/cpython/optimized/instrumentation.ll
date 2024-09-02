@@ -2834,80 +2834,83 @@ if.end18.i142.i.i:                                ; preds = %if.end13.i135.i.i
 _Py_GetBaseOpcode.exit152.i.i:                    ; preds = %if.end18.i142.i.i, %if.end13.i135.i.i
   %retval.0.in.i140.i.i = phi i8 [ %95, %if.end18.i142.i.i ], [ %94, %if.end13.i135.i.i ]
   %cmp58.i.i = icmp eq i8 %retval.0.in.i140.i.i, 71
-  br i1 %cmp58.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !15
+  br i1 %cmp58.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !15
 
-while.end.i.i:                                    ; preds = %_Py_GetBaseOpcode.exit152.i.i, %_Py_GetBaseOpcode.exit127.i.i
-  %96 = phi i8 [ %77, %_Py_GetBaseOpcode.exit127.i.i ], [ %87, %_Py_GetBaseOpcode.exit152.i.i ]
-  %idxprom68.pre-phi.i.i = phi i64 [ %idxprom.i104.i.i, %_Py_GetBaseOpcode.exit127.i.i ], [ %idxprom.i129.i.i, %_Py_GetBaseOpcode.exit152.i.i ]
-  %i50.1.lcssa.i.i = phi i32 [ %i50.0303.i.i, %_Py_GetBaseOpcode.exit127.i.i ], [ %inc63.i.i, %_Py_GetBaseOpcode.exit152.i.i ]
-  %opcode56.0.in.lcssa.i.i = phi i8 [ %retval.0.in.i115.i.i, %_Py_GetBaseOpcode.exit127.i.i ], [ %retval.0.in.i140.i.i, %_Py_GetBaseOpcode.exit152.i.i ]
-  %oparg.0.lcssa.i.i = phi i32 [ 0, %_Py_GetBaseOpcode.exit127.i.i ], [ %or.i.i, %_Py_GetBaseOpcode.exit152.i.i ]
-  %shl65.i.i = shl i32 %oparg.0.lcssa.i.i, 8
+while.end.loopexit.i.i:                           ; preds = %_Py_GetBaseOpcode.exit152.i.i
+  %96 = shl i32 %or.i.i, 8
+  br label %while.end.i.i
+
+while.end.i.i:                                    ; preds = %while.end.loopexit.i.i, %_Py_GetBaseOpcode.exit127.i.i
+  %97 = phi i8 [ %87, %while.end.loopexit.i.i ], [ %77, %_Py_GetBaseOpcode.exit127.i.i ]
+  %idxprom68.pre-phi.i.i = phi i64 [ %idxprom.i129.i.i, %while.end.loopexit.i.i ], [ %idxprom.i104.i.i, %_Py_GetBaseOpcode.exit127.i.i ]
+  %i50.1.lcssa.i.i = phi i32 [ %inc63.i.i, %while.end.loopexit.i.i ], [ %i50.0303.i.i, %_Py_GetBaseOpcode.exit127.i.i ]
+  %opcode56.0.in.lcssa.i.i = phi i8 [ %retval.0.in.i140.i.i, %while.end.loopexit.i.i ], [ %retval.0.in.i115.i.i, %_Py_GetBaseOpcode.exit127.i.i ]
+  %oparg.0.lcssa.i.i = phi i32 [ %96, %while.end.loopexit.i.i ], [ 0, %_Py_GetBaseOpcode.exit127.i.i ]
   %gep314.i.i = getelementptr %union._Py_CODEUNIT, ptr %invariant.gep.i.i, i64 %idxprom68.pre-phi.i.i
-  %97 = load i8, ptr %gep314.i.i, align 1
-  %conv71.i.i = zext i8 %97 to i32
-  %or72.i.i = or disjoint i32 %shl65.i.i, %conv71.i.i
-  %cmp.i156.i.i = icmp eq i8 %96, -2
+  %98 = load i8, ptr %gep314.i.i, align 1
+  %conv71.i.i = zext i8 %98 to i32
+  %or72.i.i = or disjoint i32 %oparg.0.lcssa.i.i, %conv71.i.i
+  %cmp.i156.i.i = icmp eq i8 %97, -2
   br i1 %cmp.i156.i.i, label %if.then.i188.i.i, label %if.end.i157.i.i
 
 if.then.i188.i.i:                                 ; preds = %while.end.i.i
-  %98 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i190.i.i = getelementptr inbounds i8, ptr %98, i64 32
-  %99 = load ptr, ptr %lines.i190.i.i, align 8
-  %arrayidx4.i191.i.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %99, i64 %idxprom68.pre-phi.i.i
-  %100 = load i8, ptr %arrayidx4.i191.i.i, align 1
+  %99 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i190.i.i = getelementptr inbounds i8, ptr %99, i64 32
+  %100 = load ptr, ptr %lines.i190.i.i, align 8
+  %arrayidx4.i191.i.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %100, i64 %idxprom68.pre-phi.i.i
+  %101 = load i8, ptr %arrayidx4.i191.i.i, align 1
   br label %if.end.i157.i.i
 
 if.end.i157.i.i:                                  ; preds = %if.then.i188.i.i, %while.end.i.i
-  %opcode.0.in.i158.i.i = phi i8 [ %100, %if.then.i188.i.i ], [ %96, %while.end.i.i ]
+  %opcode.0.in.i158.i.i = phi i8 [ %101, %if.then.i188.i.i ], [ %97, %while.end.i.i ]
   %cmp6.i159.i.i = icmp eq i8 %opcode.0.in.i158.i.i, -9
   br i1 %cmp6.i159.i.i, label %if.then8.i184.i.i, label %if.end13.i160.i.i
 
 if.then8.i184.i.i:                                ; preds = %if.end.i157.i.i
-  %101 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i186.i.i = getelementptr inbounds i8, ptr %101, i64 48
-  %102 = load ptr, ptr %per_instruction_opcodes.i186.i.i, align 8
-  %arrayidx11.i187.i.i = getelementptr i8, ptr %102, i64 %idxprom68.pre-phi.i.i
-  %103 = load i8, ptr %arrayidx11.i187.i.i, align 1
+  %102 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i186.i.i = getelementptr inbounds i8, ptr %102, i64 48
+  %103 = load ptr, ptr %per_instruction_opcodes.i186.i.i, align 8
+  %arrayidx11.i187.i.i = getelementptr i8, ptr %103, i64 %idxprom68.pre-phi.i.i
+  %104 = load i8, ptr %arrayidx11.i187.i.i, align 1
   br label %if.end13.i160.i.i
 
 if.end13.i160.i.i:                                ; preds = %if.then8.i184.i.i, %if.end.i157.i.i
-  %opcode.1.in.i161.i.i = phi i8 [ %103, %if.then8.i184.i.i ], [ %opcode.0.in.i158.i.i, %if.end.i157.i.i ]
+  %opcode.1.in.i161.i.i = phi i8 [ %104, %if.then8.i184.i.i ], [ %opcode.0.in.i158.i.i, %if.end.i157.i.i ]
   %idxprom14.i162.i.i = zext i8 %opcode.1.in.i161.i.i to i64
   %arrayidx15.i163.i.i = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i162.i.i
-  %104 = load i8, ptr %arrayidx15.i163.i.i, align 1
-  %tobool.not.i164.i.i = icmp eq i8 %104, 0
+  %105 = load i8, ptr %arrayidx15.i163.i.i, align 1
+  %tobool.not.i164.i.i = icmp eq i8 %105, 0
   br i1 %tobool.not.i164.i.i, label %if.else.i182.i.i, label %if.end21.i165.i.i
 
 if.else.i182.i.i:                                 ; preds = %if.end13.i160.i.i
   %arrayidx19.i183.i.i = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i162.i.i
-  %105 = load i8, ptr %arrayidx19.i183.i.i, align 1
+  %106 = load i8, ptr %arrayidx19.i183.i.i, align 1
   br label %if.end21.i165.i.i
 
 if.end21.i165.i.i:                                ; preds = %if.else.i182.i.i, %if.end13.i160.i.i
-  %opcode.2.in.i166.i.i = phi i8 [ %105, %if.else.i182.i.i ], [ %104, %if.end13.i160.i.i ]
+  %opcode.2.in.i166.i.i = phi i8 [ %106, %if.else.i182.i.i ], [ %105, %if.end13.i160.i.i ]
   %cmp22.i167.i.i = icmp eq i8 %opcode.2.in.i166.i.i, 70
   br i1 %cmp22.i167.i.i, label %if.then24.i173.i.i, label %_PyInstruction_GetLength.exit192.i.i
 
 if.then24.i173.i.i:                               ; preds = %if.end21.i165.i.i
-  %106 = load ptr, ptr %co_executors, align 8
-  %executors.i176.i.i = getelementptr inbounds i8, ptr %106, i64 8
-  %idxprom30.i177.i.i = zext i8 %97 to i64
+  %107 = load ptr, ptr %co_executors, align 8
+  %executors.i176.i.i = getelementptr inbounds i8, ptr %107, i64 8
+  %idxprom30.i177.i.i = zext i8 %98 to i64
   %arrayidx31.i178.i.i = getelementptr [1 x ptr], ptr %executors.i176.i.i, i64 0, i64 %idxprom30.i177.i.i
-  %107 = load ptr, ptr %arrayidx31.i178.i.i, align 8
-  %vm_data.i179.i.i = getelementptr inbounds i8, ptr %107, i64 32
-  %108 = load i8, ptr %vm_data.i179.i.i, align 8
-  %idxprom33.i180.i.i = zext i8 %108 to i64
+  %108 = load ptr, ptr %arrayidx31.i178.i.i, align 8
+  %vm_data.i179.i.i = getelementptr inbounds i8, ptr %108, i64 32
+  %109 = load i8, ptr %vm_data.i179.i.i, align 8
+  %idxprom33.i180.i.i = zext i8 %109 to i64
   %arrayidx34.i181.i.i = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom33.i180.i.i
-  %109 = load i8, ptr %arrayidx34.i181.i.i, align 1
+  %110 = load i8, ptr %arrayidx34.i181.i.i, align 1
   br label %_PyInstruction_GetLength.exit192.i.i
 
 _PyInstruction_GetLength.exit192.i.i:             ; preds = %if.then24.i173.i.i, %if.end21.i165.i.i
-  %opcode.3.in.i168.i.i = phi i8 [ %109, %if.then24.i173.i.i ], [ %opcode.2.in.i166.i.i, %if.end21.i165.i.i ]
+  %opcode.3.in.i168.i.i = phi i8 [ %110, %if.then24.i173.i.i ], [ %opcode.2.in.i166.i.i, %if.end21.i165.i.i ]
   %idxprom37.i169.i.i = zext i8 %opcode.3.in.i168.i.i to i64
   %arrayidx38.i170.i.i = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %idxprom37.i169.i.i
-  %110 = load i8, ptr %arrayidx38.i170.i.i, align 1
-  %conv39.i171.i.i = zext i8 %110 to i32
+  %111 = load i8, ptr %arrayidx38.i170.i.i, align 1
+  %conv39.i171.i.i = zext i8 %111 to i32
   %add.i172.i.i = add i32 %i50.1.lcssa.i.i, 1
   %add74.i.i = add i32 %add.i172.i.i, %conv39.i171.i.i
   switch i8 %opcode56.0.in.lcssa.i.i, label %for.cond52.backedge.i.i [
@@ -2940,52 +2943,52 @@ sw.epilog82.i.i:                                  ; preds = %sw.bb80.i.i, %sw.bb
   %idxprom83.i.i = sext i32 %target.0.i.i to i64
   %arrayidx84.i.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %40, i64 %idxprom83.i.i
   %line_delta85.i.i = getelementptr inbounds i8, ptr %arrayidx84.i.i, i64 1
-  %111 = load i8, ptr %line_delta85.i.i, align 1
-  %cmp87.not.i.i = icmp eq i8 %111, -128
+  %112 = load i8, ptr %line_delta85.i.i, align 1
+  %cmp87.not.i.i = icmp eq i8 %112, -128
   br i1 %cmp87.not.i.i, label %for.cond52.backedge.i.i, label %if.then89.i.i
 
 if.then89.i.i:                                    ; preds = %sw.epilog82.i.i
   %arrayidx.i195.i.i = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i103.i.i, i64 %idxprom83.i.i
-  %112 = load i8, ptr %arrayidx.i195.i.i, align 2
-  %cmp.i196.i.i = icmp eq i8 %112, -2
+  %113 = load i8, ptr %arrayidx.i195.i.i, align 2
+  %cmp.i196.i.i = icmp eq i8 %113, -2
   br i1 %cmp.i196.i.i, label %if.then.i213.i.i, label %if.end.i197.i.i
 
 if.then.i213.i.i:                                 ; preds = %if.then89.i.i
-  %113 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i215.i.i = getelementptr inbounds i8, ptr %113, i64 32
-  %114 = load ptr, ptr %lines.i215.i.i, align 8
-  %arrayidx4.i216.i.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %114, i64 %idxprom83.i.i
-  %115 = load i8, ptr %arrayidx4.i216.i.i, align 1
+  %114 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i215.i.i = getelementptr inbounds i8, ptr %114, i64 32
+  %115 = load ptr, ptr %lines.i215.i.i, align 8
+  %arrayidx4.i216.i.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %115, i64 %idxprom83.i.i
+  %116 = load i8, ptr %arrayidx4.i216.i.i, align 1
   br label %if.end.i197.i.i
 
 if.end.i197.i.i:                                  ; preds = %if.then.i213.i.i, %if.then89.i.i
-  %opcode.0.in.i198.i.i = phi i8 [ %115, %if.then.i213.i.i ], [ %112, %if.then89.i.i ]
+  %opcode.0.in.i198.i.i = phi i8 [ %116, %if.then.i213.i.i ], [ %113, %if.then89.i.i ]
   %cmp6.i199.i.i = icmp eq i8 %opcode.0.in.i198.i.i, -9
   br i1 %cmp6.i199.i.i, label %if.then8.i209.i.i, label %if.end13.i200.i.i
 
 if.then8.i209.i.i:                                ; preds = %if.end.i197.i.i
-  %116 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i211.i.i = getelementptr inbounds i8, ptr %116, i64 48
-  %117 = load ptr, ptr %per_instruction_opcodes.i211.i.i, align 8
-  %arrayidx11.i212.i.i = getelementptr i8, ptr %117, i64 %idxprom83.i.i
-  %118 = load i8, ptr %arrayidx11.i212.i.i, align 1
+  %117 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i211.i.i = getelementptr inbounds i8, ptr %117, i64 48
+  %118 = load ptr, ptr %per_instruction_opcodes.i211.i.i, align 8
+  %arrayidx11.i212.i.i = getelementptr i8, ptr %118, i64 %idxprom83.i.i
+  %119 = load i8, ptr %arrayidx11.i212.i.i, align 1
   br label %if.end13.i200.i.i
 
 if.end13.i200.i.i:                                ; preds = %if.then8.i209.i.i, %if.end.i197.i.i
-  %opcode.1.in.i201.i.i = phi i8 [ %118, %if.then8.i209.i.i ], [ %opcode.0.in.i198.i.i, %if.end.i197.i.i ]
+  %opcode.1.in.i201.i.i = phi i8 [ %119, %if.then8.i209.i.i ], [ %opcode.0.in.i198.i.i, %if.end.i197.i.i ]
   %idxprom14.i202.i.i = zext i8 %opcode.1.in.i201.i.i to i64
   %arrayidx15.i203.i.i = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i202.i.i
-  %119 = load i8, ptr %arrayidx15.i203.i.i, align 1
-  %tobool.not.i204.i.i = icmp eq i8 %119, 0
+  %120 = load i8, ptr %arrayidx15.i203.i.i, align 1
+  %tobool.not.i204.i.i = icmp eq i8 %120, 0
   br i1 %tobool.not.i204.i.i, label %if.end18.i207.i.i, label %_Py_GetBaseOpcode.exit217.i.i
 
 if.end18.i207.i.i:                                ; preds = %if.end13.i200.i.i
   %arrayidx20.i208.i.i = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i202.i.i
-  %120 = load i8, ptr %arrayidx20.i208.i.i, align 1
+  %121 = load i8, ptr %arrayidx20.i208.i.i, align 1
   br label %_Py_GetBaseOpcode.exit217.i.i
 
 _Py_GetBaseOpcode.exit217.i.i:                    ; preds = %if.end18.i207.i.i, %if.end13.i200.i.i
-  %retval.0.in.i205.i.i = phi i8 [ %120, %if.end18.i207.i.i ], [ %119, %if.end13.i200.i.i ]
+  %retval.0.in.i205.i.i = phi i8 [ %121, %if.end18.i207.i.i ], [ %120, %if.end13.i200.i.i ]
   store i8 %retval.0.in.i205.i.i, ptr %arrayidx84.i.i, align 1
   br label %for.cond52.backedge.i.i
 
@@ -2995,10 +2998,10 @@ for.cond52.backedge.i.i:                          ; preds = %_Py_GetBaseOpcode.e
 
 for.end96.i.i:                                    ; preds = %for.cond52.backedge.i.i, %for.end49.i.i
   %co_exceptiontable.i.i = getelementptr inbounds i8, ptr %code, i64 40
-  %121 = load ptr, ptr %co_exceptiontable.i.i, align 8
-  %ob_sval.i.i.i = getelementptr inbounds i8, ptr %121, i64 32
-  %122 = getelementptr i8, ptr %121, i64 16
-  %.val.i.i = load i64, ptr %122, align 8
+  %122 = load ptr, ptr %co_exceptiontable.i.i, align 8
+  %ob_sval.i.i.i = getelementptr inbounds i8, ptr %122, i64 32
+  %123 = getelementptr i8, ptr %122, i64 16
+  %.val.i.i = load i64, ptr %123, align 8
   %add.ptr.i.i = getelementptr i8, ptr %ob_sval.i.i.i, i64 %.val.i.i
   %cmp101304.i.i = icmp ult ptr %ob_sval.i.i.i, %add.ptr.i.i
   br i1 %cmp101304.i.i, label %while.body103.lr.ph.i.i, label %initialize_lines.exit.i
@@ -3009,43 +3012,43 @@ while.body103.lr.ph.i.i:                          ; preds = %for.end96.i.i
 
 while.body103.i.i:                                ; preds = %if.end124.i.i, %while.body103.lr.ph.i.i
   %scan.0305.i.i = phi ptr [ %ob_sval.i.i.i, %while.body103.lr.ph.i.i ], [ %add.ptr.i259.i.i, %if.end124.i.i ]
-  %123 = load i8, ptr %scan.0305.i.i, align 1
-  %124 = and i8 %123, 64
-  %tobool.not6.i.i.i = icmp eq i8 %124, 0
+  %124 = load i8, ptr %scan.0305.i.i, align 1
+  %125 = and i8 %124, 64
+  %tobool.not6.i.i.i = icmp eq i8 %125, 0
   br i1 %tobool.not6.i.i.i, label %parse_varint.exit.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body103.i.i, %while.body.i.i.i
   %p.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %scan.0305.i.i, %while.body103.i.i ]
   %incdec.ptr.i.i.i = getelementptr i8, ptr %p.addr.07.i.i.i, i64 1
-  %125 = load i8, ptr %incdec.ptr.i.i.i, align 1
-  %126 = and i8 %125, 64
-  %tobool.not.i218.i.i = icmp eq i8 %126, 0
+  %126 = load i8, ptr %incdec.ptr.i.i.i, align 1
+  %127 = and i8 %126, 64
+  %tobool.not.i218.i.i = icmp eq i8 %127, 0
   br i1 %tobool.not.i218.i.i, label %parse_varint.exit.i.i, label %while.body.i.i.i, !llvm.loop !17
 
 parse_varint.exit.i.i:                            ; preds = %while.body.i.i.i, %while.body103.i.i
   %p.addr.0.lcssa.i.i.i = phi ptr [ %scan.0305.i.i, %while.body103.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %add.ptr.i.i.i = getelementptr i8, ptr %p.addr.0.lcssa.i.i.i, i64 1
-  %127 = load i8, ptr %add.ptr.i.i.i, align 1
-  %128 = and i8 %127, 64
-  %tobool.not6.i220.i.i = icmp eq i8 %128, 0
+  %128 = load i8, ptr %add.ptr.i.i.i, align 1
+  %129 = and i8 %128, 64
+  %tobool.not6.i220.i.i = icmp eq i8 %129, 0
   br i1 %tobool.not6.i220.i.i, label %parse_varint.exit232.i.i, label %while.body.i221.i.i
 
 while.body.i221.i.i:                              ; preds = %parse_varint.exit.i.i, %while.body.i221.i.i
   %p.addr.07.i223.i.i = phi ptr [ %incdec.ptr.i224.i.i, %while.body.i221.i.i ], [ %add.ptr.i.i.i, %parse_varint.exit.i.i ]
   %incdec.ptr.i224.i.i = getelementptr i8, ptr %p.addr.07.i223.i.i, i64 1
-  %129 = load i8, ptr %incdec.ptr.i224.i.i, align 1
-  %130 = and i8 %129, 64
-  %tobool.not.i228.i.i = icmp eq i8 %130, 0
+  %130 = load i8, ptr %incdec.ptr.i224.i.i, align 1
+  %131 = and i8 %130, 64
+  %tobool.not.i228.i.i = icmp eq i8 %131, 0
   br i1 %tobool.not.i228.i.i, label %parse_varint.exit232.i.i, label %while.body.i221.i.i, !llvm.loop !17
 
 parse_varint.exit232.i.i:                         ; preds = %while.body.i221.i.i, %parse_varint.exit.i.i
-  %131 = phi ptr [ %p.addr.0.lcssa.i.i.i, %parse_varint.exit.i.i ], [ %p.addr.07.i223.i.i, %while.body.i221.i.i ]
-  %add.ptr.i231.i.i = getelementptr i8, ptr %131, i64 2
-  %132 = load i8, ptr %add.ptr.i231.i.i, align 1
-  %133 = and i8 %132, 63
-  %and.i233.i.i = zext nneg i8 %133 to i32
-  %134 = and i8 %132, 64
-  %tobool.not6.i234.i.i = icmp eq i8 %134, 0
+  %132 = phi ptr [ %p.addr.0.lcssa.i.i.i, %parse_varint.exit.i.i ], [ %p.addr.07.i223.i.i, %while.body.i221.i.i ]
+  %add.ptr.i231.i.i = getelementptr i8, ptr %132, i64 2
+  %133 = load i8, ptr %add.ptr.i231.i.i, align 1
+  %134 = and i8 %133, 63
+  %and.i233.i.i = zext nneg i8 %134 to i32
+  %135 = and i8 %133, 64
+  %tobool.not6.i234.i.i = icmp eq i8 %135, 0
   br i1 %tobool.not6.i234.i.i, label %parse_varint.exit246.i.i, label %while.body.i235.i.i
 
 while.body.i235.i.i:                              ; preds = %parse_varint.exit232.i.i, %while.body.i235.i.i
@@ -3053,80 +3056,80 @@ while.body.i235.i.i:                              ; preds = %parse_varint.exit23
   %p.addr.07.i237.i.i = phi ptr [ %incdec.ptr.i238.i.i, %while.body.i235.i.i ], [ %add.ptr.i231.i.i, %parse_varint.exit232.i.i ]
   %incdec.ptr.i238.i.i = getelementptr i8, ptr %p.addr.07.i237.i.i, i64 1
   %shl.i239.i.i = shl i32 %val.08.i236.i.i, 6
-  %135 = load i8, ptr %incdec.ptr.i238.i.i, align 1
-  %136 = and i8 %135, 63
-  %and6.i240.i.i = zext nneg i8 %136 to i32
+  %136 = load i8, ptr %incdec.ptr.i238.i.i, align 1
+  %137 = and i8 %136, 63
+  %and6.i240.i.i = zext nneg i8 %137 to i32
   %or.i241.i.i = or disjoint i32 %shl.i239.i.i, %and6.i240.i.i
-  %137 = and i8 %135, 64
-  %tobool.not.i242.i.i = icmp eq i8 %137, 0
+  %138 = and i8 %136, 64
+  %tobool.not.i242.i.i = icmp eq i8 %138, 0
   br i1 %tobool.not.i242.i.i, label %parse_varint.exit246.i.i, label %while.body.i235.i.i, !llvm.loop !17
 
 parse_varint.exit246.i.i:                         ; preds = %while.body.i235.i.i, %parse_varint.exit232.i.i
   %p.addr.0.lcssa.i243.i.i = phi ptr [ %add.ptr.i231.i.i, %parse_varint.exit232.i.i ], [ %incdec.ptr.i238.i.i, %while.body.i235.i.i ]
   %val.0.lcssa.i244.i.i = phi i32 [ %and.i233.i.i, %parse_varint.exit232.i.i ], [ %or.i241.i.i, %while.body.i235.i.i ]
   %add.ptr.i245.i.i = getelementptr i8, ptr %p.addr.0.lcssa.i243.i.i, i64 1
-  %138 = load i8, ptr %add.ptr.i245.i.i, align 1
-  %139 = and i8 %138, 64
-  %tobool.not6.i248.i.i = icmp eq i8 %139, 0
+  %139 = load i8, ptr %add.ptr.i245.i.i, align 1
+  %140 = and i8 %139, 64
+  %tobool.not6.i248.i.i = icmp eq i8 %140, 0
   br i1 %tobool.not6.i248.i.i, label %parse_varint.exit260.i.i, label %while.body.i249.i.i
 
 while.body.i249.i.i:                              ; preds = %parse_varint.exit246.i.i, %while.body.i249.i.i
   %p.addr.07.i251.i.i = phi ptr [ %incdec.ptr.i252.i.i, %while.body.i249.i.i ], [ %add.ptr.i245.i.i, %parse_varint.exit246.i.i ]
   %incdec.ptr.i252.i.i = getelementptr i8, ptr %p.addr.07.i251.i.i, i64 1
-  %140 = load i8, ptr %incdec.ptr.i252.i.i, align 1
-  %141 = and i8 %140, 64
-  %tobool.not.i256.i.i = icmp eq i8 %141, 0
+  %141 = load i8, ptr %incdec.ptr.i252.i.i, align 1
+  %142 = and i8 %141, 64
+  %tobool.not.i256.i.i = icmp eq i8 %142, 0
   br i1 %tobool.not.i256.i.i, label %parse_varint.exit260.i.i, label %while.body.i249.i.i, !llvm.loop !17
 
 parse_varint.exit260.i.i:                         ; preds = %while.body.i249.i.i, %parse_varint.exit246.i.i
-  %142 = phi ptr [ %p.addr.0.lcssa.i243.i.i, %parse_varint.exit246.i.i ], [ %p.addr.07.i251.i.i, %while.body.i249.i.i ]
-  %add.ptr.i259.i.i = getelementptr i8, ptr %142, i64 2
+  %143 = phi ptr [ %p.addr.0.lcssa.i243.i.i, %parse_varint.exit246.i.i ], [ %p.addr.07.i251.i.i, %while.body.i249.i.i ]
+  %add.ptr.i259.i.i = getelementptr i8, ptr %143, i64 2
   %idxprom.i262.i.i = sext i32 %val.0.lcssa.i244.i.i to i64
   %arrayidx.i263.i.i = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i261.i.i, i64 %idxprom.i262.i.i
-  %143 = load i8, ptr %arrayidx.i263.i.i, align 2
-  %cmp.i264.i.i = icmp eq i8 %143, -2
+  %144 = load i8, ptr %arrayidx.i263.i.i, align 2
+  %cmp.i264.i.i = icmp eq i8 %144, -2
   br i1 %cmp.i264.i.i, label %if.then.i281.i.i, label %if.end.i265.i.i
 
 if.then.i281.i.i:                                 ; preds = %parse_varint.exit260.i.i
-  %144 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i283.i.i = getelementptr inbounds i8, ptr %144, i64 32
-  %145 = load ptr, ptr %lines.i283.i.i, align 8
-  %arrayidx4.i284.i.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %145, i64 %idxprom.i262.i.i
-  %146 = load i8, ptr %arrayidx4.i284.i.i, align 1
+  %145 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i283.i.i = getelementptr inbounds i8, ptr %145, i64 32
+  %146 = load ptr, ptr %lines.i283.i.i, align 8
+  %arrayidx4.i284.i.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %146, i64 %idxprom.i262.i.i
+  %147 = load i8, ptr %arrayidx4.i284.i.i, align 1
   br label %if.end.i265.i.i
 
 if.end.i265.i.i:                                  ; preds = %if.then.i281.i.i, %parse_varint.exit260.i.i
-  %opcode.0.in.i266.i.i = phi i8 [ %146, %if.then.i281.i.i ], [ %143, %parse_varint.exit260.i.i ]
+  %opcode.0.in.i266.i.i = phi i8 [ %147, %if.then.i281.i.i ], [ %144, %parse_varint.exit260.i.i ]
   %cmp6.i267.i.i = icmp eq i8 %opcode.0.in.i266.i.i, -9
   br i1 %cmp6.i267.i.i, label %if.then8.i277.i.i, label %if.end13.i268.i.i
 
 if.then8.i277.i.i:                                ; preds = %if.end.i265.i.i
-  %147 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i279.i.i = getelementptr inbounds i8, ptr %147, i64 48
-  %148 = load ptr, ptr %per_instruction_opcodes.i279.i.i, align 8
-  %arrayidx11.i280.i.i = getelementptr i8, ptr %148, i64 %idxprom.i262.i.i
-  %149 = load i8, ptr %arrayidx11.i280.i.i, align 1
+  %148 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i279.i.i = getelementptr inbounds i8, ptr %148, i64 48
+  %149 = load ptr, ptr %per_instruction_opcodes.i279.i.i, align 8
+  %arrayidx11.i280.i.i = getelementptr i8, ptr %149, i64 %idxprom.i262.i.i
+  %150 = load i8, ptr %arrayidx11.i280.i.i, align 1
   br label %if.end13.i268.i.i
 
 if.end13.i268.i.i:                                ; preds = %if.then8.i277.i.i, %if.end.i265.i.i
-  %opcode.1.in.i269.i.i = phi i8 [ %149, %if.then8.i277.i.i ], [ %opcode.0.in.i266.i.i, %if.end.i265.i.i ]
+  %opcode.1.in.i269.i.i = phi i8 [ %150, %if.then8.i277.i.i ], [ %opcode.0.in.i266.i.i, %if.end.i265.i.i ]
   %idxprom14.i270.i.i = zext i8 %opcode.1.in.i269.i.i to i64
   %arrayidx15.i271.i.i = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i270.i.i
-  %150 = load i8, ptr %arrayidx15.i271.i.i, align 1
-  %tobool.not.i272.i.i = icmp eq i8 %150, 0
+  %151 = load i8, ptr %arrayidx15.i271.i.i, align 1
+  %tobool.not.i272.i.i = icmp eq i8 %151, 0
   br i1 %tobool.not.i272.i.i, label %if.end18.i275.i.i, label %_Py_GetBaseOpcode.exit285.i.i
 
 if.end18.i275.i.i:                                ; preds = %if.end13.i268.i.i
   %arrayidx20.i276.i.i = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i270.i.i
-  %151 = load i8, ptr %arrayidx20.i276.i.i, align 1
+  %152 = load i8, ptr %arrayidx20.i276.i.i, align 1
   br label %_Py_GetBaseOpcode.exit285.i.i
 
 _Py_GetBaseOpcode.exit285.i.i:                    ; preds = %if.end18.i275.i.i, %if.end13.i268.i.i
-  %retval.0.in.i273.i.i = phi i8 [ %151, %if.end18.i275.i.i ], [ %150, %if.end13.i268.i.i ]
+  %retval.0.in.i273.i.i = phi i8 [ %152, %if.end18.i275.i.i ], [ %151, %if.end13.i268.i.i ]
   %arrayidx111.i.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %40, i64 %idxprom.i262.i.i
   %line_delta112.i.i = getelementptr inbounds i8, ptr %arrayidx111.i.i, i64 1
-  %152 = load i8, ptr %line_delta112.i.i, align 1
-  %cmp114.i.i = icmp ne i8 %152, -128
+  %153 = load i8, ptr %line_delta112.i.i, align 1
+  %cmp114.i.i = icmp ne i8 %153, -128
   %cmp117.i.i = icmp ne i8 %retval.0.in.i273.i.i, 10
   %or.cond1.i.i = select i1 %cmp114.i.i, i1 %cmp117.i.i, i1 false
   br i1 %or.cond1.i.i, label %if.then119.i.i, label %if.end124.i.i
@@ -3150,21 +3153,21 @@ if.end39.i:                                       ; preds = %initialize_lines.ex
 
 land.lhs.true42.i:                                ; preds = %if.end39.i
   %line_tools.i = getelementptr inbounds i8, ptr %.pre606.pre612, i64 40
-  %153 = load ptr, ptr %line_tools.i, align 8
-  %cmp44.i = icmp eq ptr %153, null
+  %154 = load ptr, ptr %line_tools.i, align 8
+  %cmp44.i = icmp eq ptr %154, null
   br i1 %cmp44.i, label %if.then46.i, label %if.end59.i
 
 if.then46.i:                                      ; preds = %land.lhs.true42.i
   %sext36.i = shl i64 %code.val103, 32
   %conv47.i = ashr exact i64 %sext36.i, 32
   %call48.i = call ptr @PyMem_Malloc(i64 noundef %conv47.i) #9
-  %154 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %line_tools50.i = getelementptr inbounds i8, ptr %154, i64 40
-  store ptr %call48.i, ptr %line_tools50.i, align 8
   %155 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %line_tools52.i = getelementptr inbounds i8, ptr %155, i64 40
-  %156 = load ptr, ptr %line_tools52.i, align 8
-  %cmp53.i = icmp eq ptr %156, null
+  %line_tools50.i = getelementptr inbounds i8, ptr %155, i64 40
+  store ptr %call48.i, ptr %line_tools50.i, align 8
+  %156 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %line_tools52.i = getelementptr inbounds i8, ptr %156, i64 40
+  %157 = load ptr, ptr %line_tools52.i, align 8
+  %cmp53.i = icmp eq ptr %157, null
   br i1 %cmp53.i, label %if.then55.i, label %if.end57.i
 
 if.then55.i:                                      ; preds = %if.then46.i
@@ -3179,33 +3182,33 @@ if.end57.i:                                       ; preds = %if.then46.i
 
 for.body.lr.ph.i74.i:                             ; preds = %if.end57.i
   %wide.trip.count.i76.i = and i64 %code.val39.i, 2147483647
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %156, i8 %17, i64 %wide.trip.count.i76.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %157, i8 %17, i64 %wide.trip.count.i76.i, i1 false)
   %.pre606.pre = load ptr, ptr %_co_monitoring.i.i, align 8
   br label %if.end59.i
 
 if.end59.i:                                       ; preds = %for.body.lr.ph.i74.i, %if.end57.i, %land.lhs.true42.i, %if.end39.i, %if.end20.i
-  %.pre606 = phi ptr [ %.pre606.pre, %for.body.lr.ph.i74.i ], [ %155, %if.end57.i ], [ %.pre606.pre612, %land.lhs.true42.i ], [ %.pre606.pre612, %if.end39.i ], [ %.pre606.pre613, %if.end20.i ]
-  %157 = and i64 %coerce.dive.coerce.sroa.0.0.copyload.i.i, 71776119061217280
-  %tobool62.not.i = icmp eq i64 %157, 0
+  %.pre606 = phi ptr [ %.pre606.pre, %for.body.lr.ph.i74.i ], [ %156, %if.end57.i ], [ %.pre606.pre612, %land.lhs.true42.i ], [ %.pre606.pre612, %if.end39.i ], [ %.pre606.pre613, %if.end20.i ]
+  %158 = and i64 %coerce.dive.coerce.sroa.0.0.copyload.i.i, 71776119061217280
+  %tobool62.not.i = icmp eq i64 %158, 0
   br i1 %tobool62.not.i, label %if.end10, label %if.then63.i
 
 if.then63.i:                                      ; preds = %if.end59.i
   %per_instruction_opcodes.i = getelementptr inbounds i8, ptr %.pre606, i64 48
-  %158 = load ptr, ptr %per_instruction_opcodes.i, align 8
-  %cmp65.i = icmp eq ptr %158, null
+  %159 = load ptr, ptr %per_instruction_opcodes.i, align 8
+  %cmp65.i = icmp eq ptr %159, null
   br i1 %cmp65.i, label %if.then67.i, label %if.end85.i
 
 if.then67.i:                                      ; preds = %if.then63.i
   %sext37.i = shl i64 %code.val103, 32
   %mul69.i = ashr exact i64 %sext37.i, 31
   %call70.i = call ptr @PyMem_Malloc(i64 noundef %mul69.i) #9
-  %159 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes72.i = getelementptr inbounds i8, ptr %159, i64 48
-  store ptr %call70.i, ptr %per_instruction_opcodes72.i, align 8
   %160 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes74.i = getelementptr inbounds i8, ptr %160, i64 48
-  %161 = load ptr, ptr %per_instruction_opcodes74.i, align 8
-  %cmp75.i = icmp eq ptr %161, null
+  %per_instruction_opcodes72.i = getelementptr inbounds i8, ptr %160, i64 48
+  store ptr %call70.i, ptr %per_instruction_opcodes72.i, align 8
+  %161 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes74.i = getelementptr inbounds i8, ptr %161, i64 48
+  %162 = load ptr, ptr %per_instruction_opcodes74.i, align 8
+  %cmp75.i = icmp eq ptr %162, null
   br i1 %cmp75.i, label %if.then77.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.then67.i
@@ -3222,10 +3225,10 @@ if.then77.i:                                      ; preds = %if.then67.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %162 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes83.i = getelementptr inbounds i8, ptr %162, i64 48
-  %163 = load ptr, ptr %per_instruction_opcodes83.i, align 8
-  %arrayidx84.i = getelementptr i8, ptr %163, i64 %indvars.iv.i
+  %163 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes83.i = getelementptr inbounds i8, ptr %163, i64 48
+  %164 = load ptr, ptr %per_instruction_opcodes83.i, align 8
+  %arrayidx84.i = getelementptr i8, ptr %164, i64 %indvars.iv.i
   store i8 0, ptr %arrayidx84.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3236,26 +3239,26 @@ if.end85.i.loopexit:                              ; preds = %for.body.i
   br label %if.end85.i
 
 if.end85.i:                                       ; preds = %if.end85.i.loopexit, %for.cond.preheader.i, %if.then63.i
-  %.pre605 = phi ptr [ %.pre605.pre, %if.end85.i.loopexit ], [ %160, %for.cond.preheader.i ], [ %.pre606, %if.then63.i ]
+  %.pre605 = phi ptr [ %.pre605.pre, %if.end85.i.loopexit ], [ %161, %for.cond.preheader.i ], [ %.pre606, %if.then63.i ]
   br i1 %cmp1.i.i, label %land.lhs.true88.i, label %if.end10
 
 land.lhs.true88.i:                                ; preds = %if.end85.i
   %per_instruction_tools.i = getelementptr inbounds i8, ptr %.pre605, i64 56
-  %164 = load ptr, ptr %per_instruction_tools.i, align 8
-  %cmp90.i = icmp eq ptr %164, null
+  %165 = load ptr, ptr %per_instruction_tools.i, align 8
+  %cmp90.i = icmp eq ptr %165, null
   br i1 %cmp90.i, label %if.then92.i, label %if.end10
 
 if.then92.i:                                      ; preds = %land.lhs.true88.i
   %sext38.i = shl i64 %code.val103, 32
   %conv93.i = ashr exact i64 %sext38.i, 32
   %call94.i = call ptr @PyMem_Malloc(i64 noundef %conv93.i) #9
-  %165 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_tools96.i = getelementptr inbounds i8, ptr %165, i64 56
-  store ptr %call94.i, ptr %per_instruction_tools96.i, align 8
   %166 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_tools98.i = getelementptr inbounds i8, ptr %166, i64 56
-  %167 = load ptr, ptr %per_instruction_tools98.i, align 8
-  %cmp99.i = icmp eq ptr %167, null
+  %per_instruction_tools96.i = getelementptr inbounds i8, ptr %166, i64 56
+  store ptr %call94.i, ptr %per_instruction_tools96.i, align 8
+  %167 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_tools98.i = getelementptr inbounds i8, ptr %167, i64 56
+  %168 = load ptr, ptr %per_instruction_tools98.i, align 8
+  %cmp99.i = icmp eq ptr %168, null
   br i1 %cmp99.i, label %if.then101.i, label %for.cond105.preheader.i
 
 for.cond105.preheader.i:                          ; preds = %if.then92.i
@@ -3272,10 +3275,10 @@ if.then101.i:                                     ; preds = %if.then92.i
 
 for.body108.i:                                    ; preds = %for.body108.i, %for.body108.preheader.i
   %indvars.iv92.i = phi i64 [ 0, %for.body108.preheader.i ], [ %indvars.iv.next93.i, %for.body108.i ]
-  %168 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_tools110.i = getelementptr inbounds i8, ptr %168, i64 56
-  %169 = load ptr, ptr %per_instruction_tools110.i, align 8
-  %arrayidx112.i = getelementptr i8, ptr %169, i64 %indvars.iv92.i
+  %169 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_tools110.i = getelementptr inbounds i8, ptr %169, i64 56
+  %170 = load ptr, ptr %per_instruction_tools110.i, align 8
+  %arrayidx112.i = getelementptr i8, ptr %170, i64 %indvars.iv92.i
   store i8 0, ptr %arrayidx112.i, align 1
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next93.i, %wide.trip.count95.i
@@ -3290,12 +3293,12 @@ if.end10.loopexit:                                ; preds = %for.body108.i
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end10.loopexit, %for.cond105.preheader.i, %land.lhs.true88.i, %if.end85.i, %if.end59.i
-  %170 = phi ptr [ %.pre, %if.end10.loopexit ], [ %166, %for.cond105.preheader.i ], [ %.pre605, %land.lhs.true88.i ], [ %.pre605, %if.end85.i ], [ %.pre606, %if.end59.i ]
+  %171 = phi ptr [ %.pre, %if.end10.loopexit ], [ %167, %for.cond105.preheader.i ], [ %.pre605, %land.lhs.true88.i ], [ %.pre605, %if.end85.i ], [ %.pre606, %if.end59.i ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %all_events.i)
   %monitors.coerce.sroa.0.0.copyload = load i64, ptr %monitors.i, align 8
   %monitors.coerce.sroa.2.0.copyload = load i56, ptr %monitors.coerce.sroa.2.0.monitors.sroa_idx.i, align 8
-  %local_monitors.coerce.sroa.0.0.copyload = load i64, ptr %170, align 8
-  %local_monitors.coerce.sroa.2.0.local_monitors.sroa_idx = getelementptr inbounds i8, ptr %170, i64 8
+  %local_monitors.coerce.sroa.0.0.copyload = load i64, ptr %171, align 8
+  %local_monitors.coerce.sroa.2.0.local_monitors.sroa_idx = getelementptr inbounds i8, ptr %171, i64 8
   %local_monitors.coerce.sroa.2.0.copyload = load i16, ptr %local_monitors.coerce.sroa.2.0.local_monitors.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %retval.i)
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %a.i)
@@ -3311,10 +3314,10 @@ if.end10:                                         ; preds = %if.end10.loopexit, 
 for.body.i106:                                    ; preds = %for.body.i106, %if.end10
   %indvars.iv.i107 = phi i64 [ 0, %if.end10 ], [ %indvars.iv.next.i108, %for.body.i106 ]
   %arrayidx.i = getelementptr [15 x i8], ptr %a.i, i64 0, i64 %indvars.iv.i107
-  %171 = load i8, ptr %arrayidx.i, align 1
+  %172 = load i8, ptr %arrayidx.i, align 1
   %arrayidx4.i = getelementptr [10 x i8], ptr %b.i, i64 0, i64 %indvars.iv.i107
-  %172 = load i8, ptr %arrayidx4.i, align 1
-  %or5.i = or i8 %172, %171
+  %173 = load i8, ptr %arrayidx4.i, align 1
+  %or5.i = or i8 %173, %172
   %arrayidx9.i = getelementptr [10 x i8], ptr %retval.i, i64 0, i64 %indvars.iv.i107
   store i8 %or5.i, ptr %arrayidx9.i, align 1
   %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i107, 1
@@ -3329,10 +3332,10 @@ local_union.exit:                                 ; preds = %for.body.i106
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %a.i)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %b.i)
   %last_restart_version = getelementptr inbounds i8, ptr %interp, i64 928
-  %173 = load i64, ptr %last_restart_version, align 8
-  %174 = load i64, ptr %0, align 8
-  %cmp12 = icmp ugt i64 %173, %174
-  %active_monitors = getelementptr inbounds i8, ptr %170, i64 10
+  %174 = load i64, ptr %last_restart_version, align 8
+  %175 = load i64, ptr %0, align 8
+  %cmp12 = icmp ugt i64 %174, %175
+  %active_monitors = getelementptr inbounds i8, ptr %171, i64 10
   br i1 %cmp12, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %local_union.exit
@@ -3341,7 +3344,7 @@ if.then15:                                        ; preds = %local_union.exit
 
 if.else:                                          ; preds = %local_union.exit
   %active_monitors18.coerce.sroa.0.0.copyload = load i64, ptr %active_monitors, align 2
-  %active_monitors18.coerce.sroa.2.0.active_monitors18.sroa_idx = getelementptr inbounds i8, ptr %170, i64 18
+  %active_monitors18.coerce.sroa.2.0.active_monitors18.sroa_idx = getelementptr inbounds i8, ptr %171, i64 18
   %active_monitors18.coerce.sroa.2.0.copyload = load i16, ptr %active_monitors18.coerce.sroa.2.0.active_monitors18.sroa_idx, align 2
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %retval.i110)
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %a.i111)
@@ -3357,11 +3360,11 @@ if.else:                                          ; preds = %local_union.exit
 for.body.i115:                                    ; preds = %for.body.i115, %if.else
   %indvars.iv.i116 = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i120, %for.body.i115 ]
   %arrayidx.i117 = getelementptr [10 x i8], ptr %a.i111, i64 0, i64 %indvars.iv.i116
-  %175 = load i8, ptr %arrayidx.i117, align 1
+  %176 = load i8, ptr %arrayidx.i117, align 1
   %arrayidx4.i118 = getelementptr [10 x i8], ptr %b.i112, i64 0, i64 %indvars.iv.i116
-  %176 = load i8, ptr %arrayidx4.i118, align 1
-  %not.i = xor i8 %176, -1
-  %and.i = and i8 %175, %not.i
+  %177 = load i8, ptr %arrayidx4.i118, align 1
+  %not.i = xor i8 %177, -1
+  %and.i = and i8 %176, %not.i
   %arrayidx9.i119 = getelementptr [10 x i8], ptr %retval.i110, i64 0, i64 %indvars.iv.i116
   store i8 %and.i, ptr %arrayidx9.i119, align 1
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i116, 1
@@ -3392,11 +3395,11 @@ monitors_sub.exit:                                ; preds = %for.body.i115
 for.body.i132:                                    ; preds = %for.body.i132, %monitors_sub.exit
   %indvars.iv.i133 = phi i64 [ 0, %monitors_sub.exit ], [ %indvars.iv.next.i139, %for.body.i132 ]
   %arrayidx.i134 = getelementptr [10 x i8], ptr %a.i128, i64 0, i64 %indvars.iv.i133
-  %177 = load i8, ptr %arrayidx.i134, align 1
+  %178 = load i8, ptr %arrayidx.i134, align 1
   %arrayidx4.i135 = getelementptr [10 x i8], ptr %b.i129, i64 0, i64 %indvars.iv.i133
-  %178 = load i8, ptr %arrayidx4.i135, align 1
-  %not.i136 = xor i8 %178, -1
-  %and.i137 = and i8 %177, %not.i136
+  %179 = load i8, ptr %arrayidx4.i135, align 1
+  %not.i136 = xor i8 %179, -1
+  %and.i137 = and i8 %178, %not.i136
   %arrayidx9.i138 = getelementptr [10 x i8], ptr %retval.i127, i64 0, i64 %indvars.iv.i133
   store i8 %and.i137, ptr %arrayidx9.i138, align 1
   %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i133, 1
@@ -3418,9 +3421,9 @@ if.end29:                                         ; preds = %monitors_sub.exit14
   store i64 %coerce.dive.coerce.sroa.0.0.copyload.i141.sink, ptr %new_events, align 8
   %tmp22.sroa.2.0.new_events.sroa_idx = getelementptr inbounds i8, ptr %new_events, i64 8
   store i16 %coerce.dive.coerce.sroa.2.0.copyload.i143.sink, ptr %tmp22.sroa.2.0.new_events.sroa_idx, align 8
-  %active_monitors31 = getelementptr inbounds i8, ptr %170, i64 10
+  %active_monitors31 = getelementptr inbounds i8, ptr %171, i64 10
   store i64 %coerce.dive.coerce.sroa.0.0.copyload.i, ptr %active_monitors31, align 2
-  %active_events.sroa.5.0.active_monitors31.sroa_idx = getelementptr inbounds i8, ptr %170, i64 18
+  %active_events.sroa.5.0.active_monitors31.sroa_idx = getelementptr inbounds i8, ptr %171, i64 18
   store i16 %coerce.dive.coerce.sroa.2.0.copyload.i, ptr %active_events.sroa.5.0.active_monitors31.sroa_idx, align 2
   %interp.val = load i64, ptr %interp, align 8
   %conv.i147 = and i64 %interp.val, 4294967040
@@ -3434,8 +3437,8 @@ if.end29:                                         ; preds = %monitors_sub.exit14
 for.body.i148:                                    ; preds = %for.body.i148, %if.end29
   %indvars.iv.i149 = phi i64 [ 0, %if.end29 ], [ %indvars.iv.next.i151, %for.body.i148 ]
   %arrayidx.i150 = getelementptr [10 x i8], ptr %m.i, i64 0, i64 %indvars.iv.i149
-  %179 = load i8, ptr %arrayidx.i150, align 1
-  %tobool.not.i = icmp eq i8 %179, 0
+  %180 = load i8, ptr %arrayidx.i150, align 1
+  %tobool.not.i = icmp eq i8 %180, 0
   %indvars.iv.next.i151 = add nuw nsw i64 %indvars.iv.i149, 1
   %exitcond.i = icmp ne i64 %indvars.iv.next.i151, 10
   %or.cond.not.i = select i1 %tobool.not.i, i1 %exitcond.i, i1 false
@@ -3458,8 +3461,8 @@ land.lhs.true:                                    ; preds = %monitors_are_empty.
 for.body.i154:                                    ; preds = %for.body.i154, %land.lhs.true
   %indvars.iv.i155 = phi i64 [ 0, %land.lhs.true ], [ %indvars.iv.next.i158, %for.body.i154 ]
   %arrayidx.i156 = getelementptr [10 x i8], ptr %m.i152, i64 0, i64 %indvars.iv.i155
-  %180 = load i8, ptr %arrayidx.i156, align 1
-  %tobool.not.i157 = icmp eq i8 %180, 0
+  %181 = load i8, ptr %arrayidx.i156, align 1
+  %tobool.not.i157 = icmp eq i8 %181, 0
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i155, 1
   %exitcond.i159 = icmp ne i64 %indvars.iv.next.i158, 10
   %or.cond.not.i160 = select i1 %tobool.not.i157, i1 %exitcond.i159, i1 false
@@ -3470,8 +3473,8 @@ monitors_are_empty.exit161:                       ; preds = %for.body.i154
   br i1 %tobool.not.i157, label %return, label %if.end40
 
 if.end40:                                         ; preds = %monitors_are_empty.exit161, %monitors_are_empty.exit
-  %181 = load i32, ptr %_co_firsttraceable, align 8
-  %cmp42594 = icmp slt i32 %181, %conv
+  %182 = load i32, ptr %_co_firsttraceable, align 8
+  %cmp42594 = icmp slt i32 %182, %conv
   br i1 %cmp42594, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end40
@@ -3479,57 +3482,57 @@ for.body.lr.ph:                                   ; preds = %if.end40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_PyInstruction_GetLength.exit
-  %i.0595 = phi i32 [ %181, %for.body.lr.ph ], [ %add, %_PyInstruction_GetLength.exit ]
+  %i.0595 = phi i32 [ %182, %for.body.lr.ph ], [ %add, %_PyInstruction_GetLength.exit ]
   %idxprom = sext i32 %i.0595 to i64
   %arrayidx = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive, i64 %idxprom
-  %182 = load i8, ptr %arrayidx, align 2
-  %cmp.i163 = icmp eq i8 %182, -2
+  %183 = load i8, ptr %arrayidx, align 2
+  %cmp.i163 = icmp eq i8 %183, -2
   br i1 %cmp.i163, label %if.then.i, label %if.end.i164
 
 if.then.i:                                        ; preds = %for.body
-  %183 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i169 = getelementptr inbounds i8, ptr %183, i64 32
-  %184 = load ptr, ptr %lines.i169, align 8
-  %arrayidx4.i170 = getelementptr %struct._PyCoLineInstrumentationData, ptr %184, i64 %idxprom
-  %185 = load i8, ptr %arrayidx4.i170, align 1
+  %184 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i169 = getelementptr inbounds i8, ptr %184, i64 32
+  %185 = load ptr, ptr %lines.i169, align 8
+  %arrayidx4.i170 = getelementptr %struct._PyCoLineInstrumentationData, ptr %185, i64 %idxprom
+  %186 = load i8, ptr %arrayidx4.i170, align 1
   br label %if.end.i164
 
 if.end.i164:                                      ; preds = %if.then.i, %for.body
-  %opcode.0.in.i = phi i8 [ %185, %if.then.i ], [ %182, %for.body ]
+  %opcode.0.in.i = phi i8 [ %186, %if.then.i ], [ %183, %for.body ]
   %cmp6.i = icmp eq i8 %opcode.0.in.i, -9
   br i1 %cmp6.i, label %if.then8.i167, label %if.end13.i
 
 if.then8.i167:                                    ; preds = %if.end.i164
-  %186 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i168 = getelementptr inbounds i8, ptr %186, i64 48
-  %187 = load ptr, ptr %per_instruction_opcodes.i168, align 8
-  %arrayidx11.i = getelementptr i8, ptr %187, i64 %idxprom
-  %188 = load i8, ptr %arrayidx11.i, align 1
+  %187 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i168 = getelementptr inbounds i8, ptr %187, i64 48
+  %188 = load ptr, ptr %per_instruction_opcodes.i168, align 8
+  %arrayidx11.i = getelementptr i8, ptr %188, i64 %idxprom
+  %189 = load i8, ptr %arrayidx11.i, align 1
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then8.i167, %if.end.i164
-  %opcode.1.in.i = phi i8 [ %188, %if.then8.i167 ], [ %opcode.0.in.i, %if.end.i164 ]
+  %opcode.1.in.i = phi i8 [ %189, %if.then8.i167 ], [ %opcode.0.in.i, %if.end.i164 ]
   %idxprom14.i = zext i8 %opcode.1.in.i to i64
   %arrayidx15.i = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i
-  %189 = load i8, ptr %arrayidx15.i, align 1
-  %tobool.not.i165 = icmp eq i8 %189, 0
+  %190 = load i8, ptr %arrayidx15.i, align 1
+  %tobool.not.i165 = icmp eq i8 %190, 0
   br i1 %tobool.not.i165, label %if.end18.i, label %_Py_GetBaseOpcode.exit
 
 if.end18.i:                                       ; preds = %if.end13.i
   %arrayidx20.i = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i
-  %190 = load i8, ptr %arrayidx20.i, align 1
+  %191 = load i8, ptr %arrayidx20.i, align 1
   br label %_Py_GetBaseOpcode.exit
 
 _Py_GetBaseOpcode.exit:                           ; preds = %if.end13.i, %if.end18.i
-  %retval.0.in.i = phi i8 [ %190, %if.end18.i ], [ %189, %if.end13.i ]
+  %retval.0.in.i = phi i8 [ %191, %if.end18.i ], [ %190, %if.end13.i ]
   %cmp.not.i = icmp eq i8 %retval.0.in.i, -2
   br i1 %cmp.not.i, label %for.inc, label %opcode_has_event.exit
 
 opcode_has_event.exit:                            ; preds = %_Py_GetBaseOpcode.exit
   %idxprom.i171 = zext i8 %retval.0.in.i to i64
   %arrayidx.i172 = getelementptr [256 x i8], ptr @INSTRUMENTED_OPCODES, i64 0, i64 %idxprom.i171
-  %191 = load i8, ptr %arrayidx.i172, align 1
-  %cmp1.i.not = icmp eq i8 %191, 0
+  %192 = load i8, ptr %arrayidx.i172, align 1
+  %cmp1.i.not = icmp eq i8 %192, 0
   br i1 %cmp1.i.not, label %for.inc, label %if.then46
 
 if.then46:                                        ; preds = %opcode_has_event.exit
@@ -3538,83 +3541,83 @@ if.then46:                                        ; preds = %opcode_has_event.ex
 
 if.then49:                                        ; preds = %if.then46
   %arg = getelementptr inbounds i8, ptr %arrayidx, i64 1
-  %192 = load i8, ptr %arg, align 1
-  %cmp51 = icmp ne i8 %192, 0
+  %193 = load i8, ptr %arg, align 1
+  %cmp51 = icmp ne i8 %193, 0
   %conv53 = zext i1 %cmp51 to i8
   br label %if.end57
 
 if.else54:                                        ; preds = %if.then46
   %arrayidx56 = getelementptr [256 x i8], ptr @EVENT_FOR_OPCODE, i64 0, i64 %idxprom.i171
-  %193 = load i8, ptr %arrayidx56, align 1
+  %194 = load i8, ptr %arrayidx56, align 1
   br label %if.end57
 
 if.end57:                                         ; preds = %if.else54, %if.then49
-  %event.0 = phi i8 [ %conv53, %if.then49 ], [ %193, %if.else54 ]
+  %event.0 = phi i8 [ %conv53, %if.then49 ], [ %194, %if.else54 ]
   %idxprom58 = sext i8 %event.0 to i64
   %arrayidx59 = getelementptr [10 x i8], ptr %removed_events, i64 0, i64 %idxprom58
-  %194 = load i8, ptr %arrayidx59, align 1
-  %tobool60.not = icmp eq i8 %194, 0
+  %195 = load i8, ptr %arrayidx59, align 1
+  %tobool60.not = icmp eq i8 %195, 0
   br i1 %tobool60.not, label %if.end64, label %if.then61
 
 if.then61:                                        ; preds = %if.end57
   %conv62 = sext i8 %event.0 to i32
-  %conv63 = zext i8 %194 to i32
+  %conv63 = zext i8 %195 to i32
   call fastcc void @remove_tools(ptr noundef nonnull %code, i32 noundef %i.0595, i32 noundef %conv62, i32 noundef %conv63)
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then61, %if.end57
   %arrayidx67 = getelementptr [10 x i8], ptr %new_events, i64 0, i64 %idxprom58
-  %195 = load i8, ptr %arrayidx67, align 1
-  %tobool68.not = icmp eq i8 %195, 0
+  %196 = load i8, ptr %arrayidx67, align 1
+  %tobool68.not = icmp eq i8 %196, 0
   br i1 %tobool68.not, label %for.inc, label %if.then69
 
 if.then69:                                        ; preds = %if.end64
-  %196 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %tobool.not.i174 = icmp eq ptr %196, null
+  %197 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %tobool.not.i174 = icmp eq ptr %197, null
   br i1 %tobool.not.i174, label %if.end.i178, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then69
-  %tools2.i = getelementptr inbounds i8, ptr %196, i64 24
-  %197 = load ptr, ptr %tools2.i, align 8
-  %tobool3.not.i = icmp eq ptr %197, null
+  %tools2.i = getelementptr inbounds i8, ptr %197, i64 24
+  %198 = load ptr, ptr %tools2.i, align 8
+  %tobool3.not.i = icmp eq ptr %198, null
   br i1 %tobool3.not.i, label %if.end.i178, label %if.then.i175
 
 if.then.i175:                                     ; preds = %land.lhs.true.i
-  %arrayidx.i177 = getelementptr i8, ptr %197, i64 %idxprom
-  %198 = load i8, ptr %arrayidx.i177, align 1
-  %conv6.i = or i8 %198, %195
+  %arrayidx.i177 = getelementptr i8, ptr %198, i64 %idxprom
+  %199 = load i8, ptr %arrayidx.i177, align 1
+  %conv6.i = or i8 %199, %196
   store i8 %conv6.i, ptr %arrayidx.i177, align 1
   br label %if.end.i178
 
 if.end.i178:                                      ; preds = %if.then.i175, %land.lhs.true.i, %if.then69
-  %199 = load i8, ptr %arrayidx, align 1
-  %cmp.i.i182 = icmp eq i8 %199, -2
+  %200 = load i8, ptr %arrayidx, align 1
+  %cmp.i.i182 = icmp eq i8 %200, -2
   br i1 %cmp.i.i182, label %if.then.i.i189, label %if.end.i.i183
 
 if.then.i.i189:                                   ; preds = %if.end.i178
-  %200 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines3.i.i = getelementptr inbounds i8, ptr %200, i64 32
-  %201 = load ptr, ptr %lines3.i.i, align 8
-  %arrayidx5.i.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %201, i64 %idxprom
-  %202 = load i8, ptr %arrayidx5.i.i, align 1
+  %201 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines3.i.i = getelementptr inbounds i8, ptr %201, i64 32
+  %202 = load ptr, ptr %lines3.i.i, align 8
+  %arrayidx5.i.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %202, i64 %idxprom
+  %203 = load i8, ptr %arrayidx5.i.i, align 1
   br label %if.end.i.i183
 
 if.end.i.i183:                                    ; preds = %if.then.i.i189, %if.end.i178
-  %opcode.0.in.i.i184 = phi i8 [ %202, %if.then.i.i189 ], [ %199, %if.end.i178 ]
+  %opcode.0.in.i.i184 = phi i8 [ %203, %if.then.i.i189 ], [ %200, %if.end.i178 ]
   %opcode_ptr.0.i.i = phi ptr [ %arrayidx5.i.i, %if.then.i.i189 ], [ %arrayidx, %if.end.i178 ]
   %cmp7.i.i = icmp eq i8 %opcode.0.in.i.i184, -9
   br i1 %cmp7.i.i, label %if.then9.i.i, label %if.end14.i.i
 
 if.then9.i.i:                                     ; preds = %if.end.i.i183
-  %203 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i.i188 = getelementptr inbounds i8, ptr %203, i64 48
-  %204 = load ptr, ptr %per_instruction_opcodes.i.i188, align 8
-  %arrayidx12.i.i = getelementptr i8, ptr %204, i64 %idxprom
-  %205 = load i8, ptr %arrayidx12.i.i, align 1
+  %204 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i.i188 = getelementptr inbounds i8, ptr %204, i64 48
+  %205 = load ptr, ptr %per_instruction_opcodes.i.i188, align 8
+  %arrayidx12.i.i = getelementptr i8, ptr %205, i64 %idxprom
+  %206 = load i8, ptr %arrayidx12.i.i, align 1
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then9.i.i, %if.end.i.i183
-  %opcode.1.in.i.i185 = phi i8 [ %205, %if.then9.i.i ], [ %opcode.0.in.i.i184, %if.end.i.i183 ]
+  %opcode.1.in.i.i185 = phi i8 [ %206, %if.then9.i.i ], [ %opcode.0.in.i.i184, %if.end.i.i183 ]
   %opcode_ptr.1.i.i = phi ptr [ %arrayidx12.i.i, %if.then9.i.i ], [ %opcode_ptr.0.i.i, %if.end.i.i183 ]
   %cmp.i.i.i186 = icmp ugt i8 %opcode.1.in.i.i185, -21
   br i1 %cmp.i.i.i186, label %for.inc, label %if.then15.i.i
@@ -3622,14 +3625,14 @@ if.end14.i.i:                                     ; preds = %if.then9.i.i, %if.e
 if.then15.i.i:                                    ; preds = %if.end14.i.i
   %idxprom16.i.i = zext i8 %opcode.1.in.i.i185 to i64
   %arrayidx17.i.i187 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom16.i.i
-  %206 = load i8, ptr %arrayidx17.i.i187, align 1
-  %idxprom19.i.i = zext i8 %206 to i64
+  %207 = load i8, ptr %arrayidx17.i.i187, align 1
+  %idxprom19.i.i = zext i8 %207 to i64
   %arrayidx20.i.i = getelementptr [256 x i8], ptr @INSTRUMENTED_OPCODES, i64 0, i64 %idxprom19.i.i
-  %207 = load i8, ptr %arrayidx20.i.i, align 1
-  store i8 %207, ptr %opcode_ptr.1.i.i, align 1
+  %208 = load i8, ptr %arrayidx20.i.i, align 1
+  store i8 %208, ptr %opcode_ptr.1.i.i, align 1
   %arrayidx24.i.i = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %idxprom19.i.i
-  %208 = load i8, ptr %arrayidx24.i.i, align 1
-  %tobool.not.i.i = icmp eq i8 %208, 0
+  %209 = load i8, ptr %arrayidx24.i.i, align 1
+  %tobool.not.i.i = icmp eq i8 %209, 0
   br i1 %tobool.not.i.i, label %for.inc, label %if.then25.i.i
 
 if.then25.i.i:                                    ; preds = %if.then15.i.i
@@ -3638,70 +3641,70 @@ if.then25.i.i:                                    ; preds = %if.then15.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %_Py_GetBaseOpcode.exit, %if.then25.i.i, %if.then15.i.i, %if.end14.i.i, %opcode_has_event.exit, %if.end64
-  %209 = load i8, ptr %arrayidx, align 2
-  %cmp.i193 = icmp eq i8 %209, -2
+  %210 = load i8, ptr %arrayidx, align 2
+  %cmp.i193 = icmp eq i8 %210, -2
   br i1 %cmp.i193, label %if.then.i206, label %if.end.i194
 
 if.then.i206:                                     ; preds = %for.inc
-  %210 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i208 = getelementptr inbounds i8, ptr %210, i64 32
-  %211 = load ptr, ptr %lines.i208, align 8
-  %arrayidx4.i209 = getelementptr %struct._PyCoLineInstrumentationData, ptr %211, i64 %idxprom
-  %212 = load i8, ptr %arrayidx4.i209, align 1
+  %211 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i208 = getelementptr inbounds i8, ptr %211, i64 32
+  %212 = load ptr, ptr %lines.i208, align 8
+  %arrayidx4.i209 = getelementptr %struct._PyCoLineInstrumentationData, ptr %212, i64 %idxprom
+  %213 = load i8, ptr %arrayidx4.i209, align 1
   br label %if.end.i194
 
 if.end.i194:                                      ; preds = %if.then.i206, %for.inc
-  %opcode.0.in.i195 = phi i8 [ %212, %if.then.i206 ], [ %209, %for.inc ]
+  %opcode.0.in.i195 = phi i8 [ %213, %if.then.i206 ], [ %210, %for.inc ]
   %cmp6.i196 = icmp eq i8 %opcode.0.in.i195, -9
   br i1 %cmp6.i196, label %if.then8.i202, label %if.end13.i197
 
 if.then8.i202:                                    ; preds = %if.end.i194
-  %213 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i204 = getelementptr inbounds i8, ptr %213, i64 48
-  %214 = load ptr, ptr %per_instruction_opcodes.i204, align 8
-  %arrayidx11.i205 = getelementptr i8, ptr %214, i64 %idxprom
-  %215 = load i8, ptr %arrayidx11.i205, align 1
+  %214 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i204 = getelementptr inbounds i8, ptr %214, i64 48
+  %215 = load ptr, ptr %per_instruction_opcodes.i204, align 8
+  %arrayidx11.i205 = getelementptr i8, ptr %215, i64 %idxprom
+  %216 = load i8, ptr %arrayidx11.i205, align 1
   br label %if.end13.i197
 
 if.end13.i197:                                    ; preds = %if.then8.i202, %if.end.i194
-  %opcode.1.in.i198 = phi i8 [ %215, %if.then8.i202 ], [ %opcode.0.in.i195, %if.end.i194 ]
+  %opcode.1.in.i198 = phi i8 [ %216, %if.then8.i202 ], [ %opcode.0.in.i195, %if.end.i194 ]
   %idxprom14.i199 = zext i8 %opcode.1.in.i198 to i64
   %arrayidx15.i200 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i199
-  %216 = load i8, ptr %arrayidx15.i200, align 1
-  %tobool.not.i201 = icmp eq i8 %216, 0
+  %217 = load i8, ptr %arrayidx15.i200, align 1
+  %tobool.not.i201 = icmp eq i8 %217, 0
   br i1 %tobool.not.i201, label %if.else.i, label %if.end21.i
 
 if.else.i:                                        ; preds = %if.end13.i197
   %arrayidx19.i = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i199
-  %217 = load i8, ptr %arrayidx19.i, align 1
+  %218 = load i8, ptr %arrayidx19.i, align 1
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.end13.i197
-  %opcode.2.in.i = phi i8 [ %217, %if.else.i ], [ %216, %if.end13.i197 ]
+  %opcode.2.in.i = phi i8 [ %218, %if.else.i ], [ %217, %if.end13.i197 ]
   %cmp22.i = icmp eq i8 %opcode.2.in.i, 70
   br i1 %cmp22.i, label %if.then24.i, label %_PyInstruction_GetLength.exit
 
 if.then24.i:                                      ; preds = %if.end21.i
   %arg.i = getelementptr inbounds i8, ptr %arrayidx, i64 1
-  %218 = load i8, ptr %arg.i, align 1
-  %219 = load ptr, ptr %co_executors, align 8
-  %executors.i = getelementptr inbounds i8, ptr %219, i64 8
-  %idxprom30.i = zext i8 %218 to i64
+  %219 = load i8, ptr %arg.i, align 1
+  %220 = load ptr, ptr %co_executors, align 8
+  %executors.i = getelementptr inbounds i8, ptr %220, i64 8
+  %idxprom30.i = zext i8 %219 to i64
   %arrayidx31.i = getelementptr [1 x ptr], ptr %executors.i, i64 0, i64 %idxprom30.i
-  %220 = load ptr, ptr %arrayidx31.i, align 8
-  %vm_data.i = getelementptr inbounds i8, ptr %220, i64 32
-  %221 = load i8, ptr %vm_data.i, align 8
-  %idxprom33.i = zext i8 %221 to i64
+  %221 = load ptr, ptr %arrayidx31.i, align 8
+  %vm_data.i = getelementptr inbounds i8, ptr %221, i64 32
+  %222 = load i8, ptr %vm_data.i, align 8
+  %idxprom33.i = zext i8 %222 to i64
   %arrayidx34.i = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom33.i
-  %222 = load i8, ptr %arrayidx34.i, align 1
+  %223 = load i8, ptr %arrayidx34.i, align 1
   br label %_PyInstruction_GetLength.exit
 
 _PyInstruction_GetLength.exit:                    ; preds = %if.end21.i, %if.then24.i
-  %opcode.3.in.i = phi i8 [ %222, %if.then24.i ], [ %opcode.2.in.i, %if.end21.i ]
+  %opcode.3.in.i = phi i8 [ %223, %if.then24.i ], [ %opcode.2.in.i, %if.end21.i ]
   %idxprom37.i = zext i8 %opcode.3.in.i to i64
   %arrayidx38.i = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %idxprom37.i
-  %223 = load i8, ptr %arrayidx38.i, align 1
-  %conv39.i = zext i8 %223 to i32
+  %224 = load i8, ptr %arrayidx38.i, align 1
+  %conv39.i = zext i8 %224 to i32
   %add.i = add nsw i32 %i.0595, 1
   %add = add i32 %add.i, %conv39.i
   %cmp42 = icmp slt i32 %add, %conv
@@ -3709,115 +3712,115 @@ _PyInstruction_GetLength.exit:                    ; preds = %if.end21.i, %if.the
 
 for.end:                                          ; preds = %_PyInstruction_GetLength.exit, %if.end40
   %arrayidx76 = getelementptr inbounds i8, ptr %removed_events, i64 5
-  %224 = load i8, ptr %arrayidx76, align 1
+  %225 = load i8, ptr %arrayidx76, align 1
   %arrayidx78 = getelementptr inbounds i8, ptr %removed_events, i64 6
-  %225 = load i8, ptr %arrayidx78, align 2
-  %tobool79.not = icmp eq i8 %224, 0
+  %226 = load i8, ptr %arrayidx78, align 2
+  %tobool79.not = icmp eq i8 %225, 0
   br i1 %tobool79.not, label %if.end100, label %if.then80
 
 if.then80:                                        ; preds = %for.end
-  %226 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines = getelementptr inbounds i8, ptr %226, i64 32
-  %227 = load ptr, ptr %lines, align 8
-  %228 = load i32, ptr %_co_firsttraceable, align 8
-  %cmp85596 = icmp slt i32 %228, %conv
+  %227 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines = getelementptr inbounds i8, ptr %227, i64 32
+  %228 = load ptr, ptr %lines, align 8
+  %229 = load i32, ptr %_co_firsttraceable, align 8
+  %cmp85596 = icmp slt i32 %229, %conv
   br i1 %cmp85596, label %for.body87.lr.ph, label %if.end100
 
 for.body87.lr.ph:                                 ; preds = %if.then80
-  %229 = xor i8 %224, -1
+  %230 = xor i8 %225, -1
   %co_code_adaptive.i.i217 = getelementptr inbounds i8, ptr %code, i64 200
   %invariant.gep = getelementptr i8, ptr %code, i64 202
   br label %for.body87
 
 for.body87:                                       ; preds = %for.body87.lr.ph, %_PyInstruction_GetLength.exit265
-  %i82.0597 = phi i32 [ %228, %for.body87.lr.ph ], [ %add98, %_PyInstruction_GetLength.exit265 ]
+  %i82.0597 = phi i32 [ %229, %for.body87.lr.ph ], [ %add98, %_PyInstruction_GetLength.exit265 ]
   %idxprom88 = sext i32 %i82.0597 to i64
-  %arrayidx89 = getelementptr %struct._PyCoLineInstrumentationData, ptr %227, i64 %idxprom88
-  %230 = load i8, ptr %arrayidx89, align 1
-  %tobool90.not = icmp eq i8 %230, 0
+  %arrayidx89 = getelementptr %struct._PyCoLineInstrumentationData, ptr %228, i64 %idxprom88
+  %231 = load i8, ptr %arrayidx89, align 1
+  %tobool90.not = icmp eq i8 %231, 0
   br i1 %tobool90.not, label %if.end96, label %if.then93
 
 if.then93:                                        ; preds = %for.body87
-  %231 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %line_tools.i211 = getelementptr inbounds i8, ptr %231, i64 40
-  %232 = load ptr, ptr %line_tools.i211, align 8
-  %tobool.not.i212 = icmp eq ptr %232, null
+  %232 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %line_tools.i211 = getelementptr inbounds i8, ptr %232, i64 40
+  %233 = load ptr, ptr %line_tools.i211, align 8
+  %tobool.not.i212 = icmp eq ptr %233, null
   br i1 %tobool.not.i212, label %if.else.i224, label %if.then.i213
 
 if.then.i213:                                     ; preds = %if.then93
-  %arrayidx.i215 = getelementptr i8, ptr %232, i64 %idxprom88
-  %233 = load i8, ptr %arrayidx.i215, align 1
-  %conv3.i = and i8 %233, %229
+  %arrayidx.i215 = getelementptr i8, ptr %233, i64 %idxprom88
+  %234 = load i8, ptr %arrayidx.i215, align 1
+  %conv3.i = and i8 %234, %230
   store i8 %conv3.i, ptr %arrayidx.i215, align 1
   %cmp.i216 = icmp eq i8 %conv3.i, 0
   br i1 %cmp.i216, label %if.then6.i, label %if.end96
 
 if.then6.i:                                       ; preds = %if.then.i213
   %arrayidx.i.i218 = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i217, i64 %idxprom88
-  %234 = load i8, ptr %arrayidx.i.i218, align 2
-  %cmp.not.i.i = icmp eq i8 %234, -2
+  %235 = load i8, ptr %arrayidx.i.i218, align 2
+  %cmp.not.i.i = icmp eq i8 %235, -2
   br i1 %cmp.not.i.i, label %if.end.i.i219, label %if.end96
 
 if.end.i.i219:                                    ; preds = %if.then6.i
-  %235 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines3.i.i220 = getelementptr inbounds i8, ptr %235, i64 32
-  %236 = load ptr, ptr %lines3.i.i220, align 8
-  %arrayidx5.i.i221 = getelementptr %struct._PyCoLineInstrumentationData, ptr %236, i64 %idxprom88
-  %237 = load i8, ptr %arrayidx5.i.i221, align 1
-  %cmp8.i.i = icmp eq i8 %237, -9
+  %236 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines3.i.i220 = getelementptr inbounds i8, ptr %236, i64 32
+  %237 = load ptr, ptr %lines3.i.i220, align 8
+  %arrayidx5.i.i221 = getelementptr %struct._PyCoLineInstrumentationData, ptr %237, i64 %idxprom88
+  %238 = load i8, ptr %arrayidx5.i.i221, align 1
+  %cmp8.i.i = icmp eq i8 %238, -9
   br i1 %cmp8.i.i, label %if.then10.i.i, label %if.end15.i.i
 
 if.then10.i.i:                                    ; preds = %if.end.i.i219
-  %per_instruction_opcodes.i.i223 = getelementptr inbounds i8, ptr %235, i64 48
-  %238 = load ptr, ptr %per_instruction_opcodes.i.i223, align 8
-  %arrayidx13.i.i = getelementptr i8, ptr %238, i64 %idxprom88
-  %239 = load i8, ptr %arrayidx13.i.i, align 1
-  store i8 %239, ptr %arrayidx5.i.i221, align 1
+  %per_instruction_opcodes.i.i223 = getelementptr inbounds i8, ptr %236, i64 48
+  %239 = load ptr, ptr %per_instruction_opcodes.i.i223, align 8
+  %arrayidx13.i.i = getelementptr i8, ptr %239, i64 %idxprom88
+  %240 = load i8, ptr %arrayidx13.i.i, align 1
+  store i8 %240, ptr %arrayidx5.i.i221, align 1
   br label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then10.i.i, %if.end.i.i219
-  store i8 %237, ptr %arrayidx.i.i218, align 2
-  %idxprom18.i.i = zext i8 %237 to i64
+  store i8 %238, ptr %arrayidx.i.i218, align 2
+  %idxprom18.i.i = zext i8 %238 to i64
   %arrayidx19.i.i = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %idxprom18.i.i
-  %240 = load i8, ptr %arrayidx19.i.i, align 1
-  %tobool.not.i.i222 = icmp eq i8 %240, 0
+  %241 = load i8, ptr %arrayidx19.i.i, align 1
+  %tobool.not.i.i222 = icmp eq i8 %241, 0
   br i1 %tobool.not.i.i222, label %if.end96, label %if.end17.sink.split.i
 
 if.else.i224:                                     ; preds = %if.then93
-  %arrayidx9.i225 = getelementptr i8, ptr %231, i64 15
-  %241 = load i8, ptr %arrayidx9.i225, align 1
-  %and11.i590 = and i8 %241, %224
-  %cmp13.i = icmp eq i8 %and11.i590, %241
+  %arrayidx9.i225 = getelementptr i8, ptr %232, i64 15
+  %242 = load i8, ptr %arrayidx9.i225, align 1
+  %and11.i590 = and i8 %242, %225
+  %cmp13.i = icmp eq i8 %and11.i590, %242
   br i1 %cmp13.i, label %if.then15.i, label %if.end96
 
 if.then15.i:                                      ; preds = %if.else.i224
   %arrayidx.i12.i = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i217, i64 %idxprom88
-  %242 = load i8, ptr %arrayidx.i12.i, align 2
-  %cmp.not.i13.i = icmp eq i8 %242, -2
+  %243 = load i8, ptr %arrayidx.i12.i, align 2
+  %cmp.not.i13.i = icmp eq i8 %243, -2
   br i1 %cmp.not.i13.i, label %if.end.i14.i, label %if.end96
 
 if.end.i14.i:                                     ; preds = %if.then15.i
-  %lines3.i16.i = getelementptr inbounds i8, ptr %231, i64 32
-  %243 = load ptr, ptr %lines3.i16.i, align 8
-  %arrayidx5.i17.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %243, i64 %idxprom88
-  %244 = load i8, ptr %arrayidx5.i17.i, align 1
-  %cmp8.i18.i = icmp eq i8 %244, -9
+  %lines3.i16.i = getelementptr inbounds i8, ptr %232, i64 32
+  %244 = load ptr, ptr %lines3.i16.i, align 8
+  %arrayidx5.i17.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %244, i64 %idxprom88
+  %245 = load i8, ptr %arrayidx5.i17.i, align 1
+  %cmp8.i18.i = icmp eq i8 %245, -9
   br i1 %cmp8.i18.i, label %if.then10.i25.i, label %if.end15.i19.i
 
 if.then10.i25.i:                                  ; preds = %if.end.i14.i
-  %per_instruction_opcodes.i26.i = getelementptr inbounds i8, ptr %231, i64 48
-  %245 = load ptr, ptr %per_instruction_opcodes.i26.i, align 8
-  %arrayidx13.i27.i = getelementptr i8, ptr %245, i64 %idxprom88
-  %246 = load i8, ptr %arrayidx13.i27.i, align 1
-  store i8 %246, ptr %arrayidx5.i17.i, align 1
+  %per_instruction_opcodes.i26.i = getelementptr inbounds i8, ptr %232, i64 48
+  %246 = load ptr, ptr %per_instruction_opcodes.i26.i, align 8
+  %arrayidx13.i27.i = getelementptr i8, ptr %246, i64 %idxprom88
+  %247 = load i8, ptr %arrayidx13.i27.i, align 1
+  store i8 %247, ptr %arrayidx5.i17.i, align 1
   br label %if.end15.i19.i
 
 if.end15.i19.i:                                   ; preds = %if.then10.i25.i, %if.end.i14.i
-  store i8 %244, ptr %arrayidx.i12.i, align 2
-  %idxprom18.i20.i = zext i8 %244 to i64
+  store i8 %245, ptr %arrayidx.i12.i, align 2
+  %idxprom18.i20.i = zext i8 %245 to i64
   %arrayidx19.i21.i = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %idxprom18.i20.i
-  %247 = load i8, ptr %arrayidx19.i21.i, align 1
-  %tobool.not.i22.i = icmp eq i8 %247, 0
+  %248 = load i8, ptr %arrayidx19.i21.i, align 1
+  %tobool.not.i22.i = icmp eq i8 %248, 0
   br i1 %tobool.not.i22.i, label %if.end96, label %if.end17.sink.split.i
 
 if.end17.sink.split.i:                            ; preds = %if.end15.i19.i, %if.end15.i.i
@@ -3827,133 +3830,133 @@ if.end17.sink.split.i:                            ; preds = %if.end15.i19.i, %if
 
 if.end96:                                         ; preds = %if.end17.sink.split.i, %if.end15.i19.i, %if.then15.i, %if.else.i224, %if.end15.i.i, %if.then6.i, %if.then.i213, %for.body87
   %arrayidx.i228 = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i217, i64 %idxprom88
-  %248 = load i8, ptr %arrayidx.i228, align 2
-  %cmp.i229 = icmp eq i8 %248, -2
+  %249 = load i8, ptr %arrayidx.i228, align 2
+  %cmp.i229 = icmp eq i8 %249, -2
   br i1 %cmp.i229, label %if.then.i261, label %if.end.i230
 
 if.then.i261:                                     ; preds = %if.end96
-  %249 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i263 = getelementptr inbounds i8, ptr %249, i64 32
-  %250 = load ptr, ptr %lines.i263, align 8
-  %arrayidx4.i264 = getelementptr %struct._PyCoLineInstrumentationData, ptr %250, i64 %idxprom88
-  %251 = load i8, ptr %arrayidx4.i264, align 1
+  %250 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i263 = getelementptr inbounds i8, ptr %250, i64 32
+  %251 = load ptr, ptr %lines.i263, align 8
+  %arrayidx4.i264 = getelementptr %struct._PyCoLineInstrumentationData, ptr %251, i64 %idxprom88
+  %252 = load i8, ptr %arrayidx4.i264, align 1
   br label %if.end.i230
 
 if.end.i230:                                      ; preds = %if.then.i261, %if.end96
-  %opcode.0.in.i231 = phi i8 [ %251, %if.then.i261 ], [ %248, %if.end96 ]
+  %opcode.0.in.i231 = phi i8 [ %252, %if.then.i261 ], [ %249, %if.end96 ]
   %cmp6.i232 = icmp eq i8 %opcode.0.in.i231, -9
   br i1 %cmp6.i232, label %if.then8.i257, label %if.end13.i233
 
 if.then8.i257:                                    ; preds = %if.end.i230
-  %252 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i259 = getelementptr inbounds i8, ptr %252, i64 48
-  %253 = load ptr, ptr %per_instruction_opcodes.i259, align 8
-  %arrayidx11.i260 = getelementptr i8, ptr %253, i64 %idxprom88
-  %254 = load i8, ptr %arrayidx11.i260, align 1
+  %253 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i259 = getelementptr inbounds i8, ptr %253, i64 48
+  %254 = load ptr, ptr %per_instruction_opcodes.i259, align 8
+  %arrayidx11.i260 = getelementptr i8, ptr %254, i64 %idxprom88
+  %255 = load i8, ptr %arrayidx11.i260, align 1
   br label %if.end13.i233
 
 if.end13.i233:                                    ; preds = %if.then8.i257, %if.end.i230
-  %opcode.1.in.i234 = phi i8 [ %254, %if.then8.i257 ], [ %opcode.0.in.i231, %if.end.i230 ]
+  %opcode.1.in.i234 = phi i8 [ %255, %if.then8.i257 ], [ %opcode.0.in.i231, %if.end.i230 ]
   %idxprom14.i235 = zext i8 %opcode.1.in.i234 to i64
   %arrayidx15.i236 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i235
-  %255 = load i8, ptr %arrayidx15.i236, align 1
-  %tobool.not.i237 = icmp eq i8 %255, 0
+  %256 = load i8, ptr %arrayidx15.i236, align 1
+  %tobool.not.i237 = icmp eq i8 %256, 0
   br i1 %tobool.not.i237, label %if.else.i255, label %if.end21.i238
 
 if.else.i255:                                     ; preds = %if.end13.i233
   %arrayidx19.i256 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i235
-  %256 = load i8, ptr %arrayidx19.i256, align 1
+  %257 = load i8, ptr %arrayidx19.i256, align 1
   br label %if.end21.i238
 
 if.end21.i238:                                    ; preds = %if.else.i255, %if.end13.i233
-  %opcode.2.in.i239 = phi i8 [ %256, %if.else.i255 ], [ %255, %if.end13.i233 ]
+  %opcode.2.in.i239 = phi i8 [ %257, %if.else.i255 ], [ %256, %if.end13.i233 ]
   %cmp22.i240 = icmp eq i8 %opcode.2.in.i239, 70
   br i1 %cmp22.i240, label %if.then24.i246, label %_PyInstruction_GetLength.exit265
 
 if.then24.i246:                                   ; preds = %if.end21.i238
   %arg.i247 = getelementptr inbounds i8, ptr %arrayidx.i228, i64 1
-  %257 = load i8, ptr %arg.i247, align 1
-  %258 = load ptr, ptr %co_executors, align 8
-  %executors.i249 = getelementptr inbounds i8, ptr %258, i64 8
-  %idxprom30.i250 = zext i8 %257 to i64
+  %258 = load i8, ptr %arg.i247, align 1
+  %259 = load ptr, ptr %co_executors, align 8
+  %executors.i249 = getelementptr inbounds i8, ptr %259, i64 8
+  %idxprom30.i250 = zext i8 %258 to i64
   %arrayidx31.i251 = getelementptr [1 x ptr], ptr %executors.i249, i64 0, i64 %idxprom30.i250
-  %259 = load ptr, ptr %arrayidx31.i251, align 8
-  %vm_data.i252 = getelementptr inbounds i8, ptr %259, i64 32
-  %260 = load i8, ptr %vm_data.i252, align 8
-  %idxprom33.i253 = zext i8 %260 to i64
+  %260 = load ptr, ptr %arrayidx31.i251, align 8
+  %vm_data.i252 = getelementptr inbounds i8, ptr %260, i64 32
+  %261 = load i8, ptr %vm_data.i252, align 8
+  %idxprom33.i253 = zext i8 %261 to i64
   %arrayidx34.i254 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom33.i253
-  %261 = load i8, ptr %arrayidx34.i254, align 1
+  %262 = load i8, ptr %arrayidx34.i254, align 1
   br label %_PyInstruction_GetLength.exit265
 
 _PyInstruction_GetLength.exit265:                 ; preds = %if.end21.i238, %if.then24.i246
-  %opcode.3.in.i241 = phi i8 [ %261, %if.then24.i246 ], [ %opcode.2.in.i239, %if.end21.i238 ]
+  %opcode.3.in.i241 = phi i8 [ %262, %if.then24.i246 ], [ %opcode.2.in.i239, %if.end21.i238 ]
   %idxprom37.i242 = zext i8 %opcode.3.in.i241 to i64
   %arrayidx38.i243 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %idxprom37.i242
-  %262 = load i8, ptr %arrayidx38.i243, align 1
-  %conv39.i244 = zext i8 %262 to i32
+  %263 = load i8, ptr %arrayidx38.i243, align 1
+  %conv39.i244 = zext i8 %263 to i32
   %add.i245 = add nsw i32 %i82.0597, 1
   %add98 = add i32 %add.i245, %conv39.i244
   %cmp85 = icmp slt i32 %add98, %conv
   br i1 %cmp85, label %for.body87, label %if.end100, !llvm.loop !24
 
 if.end100:                                        ; preds = %_PyInstruction_GetLength.exit265, %if.then80, %for.end
-  %tobool101.not = icmp eq i8 %225, 0
+  %tobool101.not = icmp eq i8 %226, 0
   br i1 %tobool101.not, label %if.end125, label %if.then102
 
 if.then102:                                       ; preds = %if.end100
-  %263 = load i32, ptr %_co_firsttraceable, align 8
-  %cmp106598 = icmp slt i32 %263, %conv
+  %264 = load i32, ptr %_co_firsttraceable, align 8
+  %cmp106598 = icmp slt i32 %264, %conv
   br i1 %cmp106598, label %for.body108.lr.ph, label %if.end125
 
 for.body108.lr.ph:                                ; preds = %if.then102
   %co_code_adaptive.i266 = getelementptr inbounds i8, ptr %code, i64 200
-  %264 = xor i8 %225, -1
+  %265 = xor i8 %226, -1
   br label %for.body108
 
 for.body108:                                      ; preds = %for.body108.lr.ph, %for.cond105.backedge
-  %i103.0599 = phi i32 [ %263, %for.body108.lr.ph ], [ %add116, %for.cond105.backedge ]
+  %i103.0599 = phi i32 [ %264, %for.body108.lr.ph ], [ %add116, %for.cond105.backedge ]
   %idxprom.i267 = sext i32 %i103.0599 to i64
   %arrayidx.i268 = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i266, i64 %idxprom.i267
-  %265 = load i8, ptr %arrayidx.i268, align 2
-  %cmp.i269 = icmp eq i8 %265, -2
+  %266 = load i8, ptr %arrayidx.i268, align 2
+  %cmp.i269 = icmp eq i8 %266, -2
   br i1 %cmp.i269, label %if.then.i286, label %if.end.i270
 
 if.then.i286:                                     ; preds = %for.body108
-  %266 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i288 = getelementptr inbounds i8, ptr %266, i64 32
-  %267 = load ptr, ptr %lines.i288, align 8
-  %arrayidx4.i289 = getelementptr %struct._PyCoLineInstrumentationData, ptr %267, i64 %idxprom.i267
-  %268 = load i8, ptr %arrayidx4.i289, align 1
+  %267 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i288 = getelementptr inbounds i8, ptr %267, i64 32
+  %268 = load ptr, ptr %lines.i288, align 8
+  %arrayidx4.i289 = getelementptr %struct._PyCoLineInstrumentationData, ptr %268, i64 %idxprom.i267
+  %269 = load i8, ptr %arrayidx4.i289, align 1
   br label %if.end.i270
 
 if.end.i270:                                      ; preds = %if.then.i286, %for.body108
-  %opcode.0.in.i271 = phi i8 [ %268, %if.then.i286 ], [ %265, %for.body108 ]
+  %opcode.0.in.i271 = phi i8 [ %269, %if.then.i286 ], [ %266, %for.body108 ]
   %cmp6.i272 = icmp eq i8 %opcode.0.in.i271, -9
   br i1 %cmp6.i272, label %if.then8.i282, label %if.end13.i273
 
 if.then8.i282:                                    ; preds = %if.end.i270
-  %269 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i284 = getelementptr inbounds i8, ptr %269, i64 48
-  %270 = load ptr, ptr %per_instruction_opcodes.i284, align 8
-  %arrayidx11.i285 = getelementptr i8, ptr %270, i64 %idxprom.i267
-  %271 = load i8, ptr %arrayidx11.i285, align 1
+  %270 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i284 = getelementptr inbounds i8, ptr %270, i64 48
+  %271 = load ptr, ptr %per_instruction_opcodes.i284, align 8
+  %arrayidx11.i285 = getelementptr i8, ptr %271, i64 %idxprom.i267
+  %272 = load i8, ptr %arrayidx11.i285, align 1
   br label %if.end13.i273
 
 if.end13.i273:                                    ; preds = %if.then8.i282, %if.end.i270
-  %opcode.1.in.i274 = phi i8 [ %271, %if.then8.i282 ], [ %opcode.0.in.i271, %if.end.i270 ]
+  %opcode.1.in.i274 = phi i8 [ %272, %if.then8.i282 ], [ %opcode.0.in.i271, %if.end.i270 ]
   %idxprom14.i275 = zext i8 %opcode.1.in.i274 to i64
   %arrayidx15.i276 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i275
-  %272 = load i8, ptr %arrayidx15.i276, align 1
-  %tobool.not.i277 = icmp eq i8 %272, 0
+  %273 = load i8, ptr %arrayidx15.i276, align 1
+  %tobool.not.i277 = icmp eq i8 %273, 0
   br i1 %tobool.not.i277, label %if.end18.i280, label %_Py_GetBaseOpcode.exit290
 
 if.end18.i280:                                    ; preds = %if.end13.i273
   %arrayidx20.i281 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i275
-  %273 = load i8, ptr %arrayidx20.i281, align 1
+  %274 = load i8, ptr %arrayidx20.i281, align 1
   br label %_Py_GetBaseOpcode.exit290
 
 _Py_GetBaseOpcode.exit290:                        ; preds = %if.end13.i273, %if.end18.i280
-  %retval.0.in.i278 = phi i8 [ %273, %if.end18.i280 ], [ %272, %if.end13.i273 ]
+  %retval.0.in.i278 = phi i8 [ %274, %if.end18.i280 ], [ %273, %if.end13.i273 ]
   switch i8 %retval.0.in.i278, label %if.then119 [
     i8 -107, label %if.then114
     i8 11, label %if.then114
@@ -3963,150 +3966,150 @@ if.then114:                                       ; preds = %_Py_GetBaseOpcode.e
   br i1 %cmp.i269, label %if.then.i326, label %if.end.i295
 
 if.then.i326:                                     ; preds = %if.then114
-  %274 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i328 = getelementptr inbounds i8, ptr %274, i64 32
-  %275 = load ptr, ptr %lines.i328, align 8
-  %arrayidx4.i329 = getelementptr %struct._PyCoLineInstrumentationData, ptr %275, i64 %idxprom.i267
-  %276 = load i8, ptr %arrayidx4.i329, align 1
+  %275 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i328 = getelementptr inbounds i8, ptr %275, i64 32
+  %276 = load ptr, ptr %lines.i328, align 8
+  %arrayidx4.i329 = getelementptr %struct._PyCoLineInstrumentationData, ptr %276, i64 %idxprom.i267
+  %277 = load i8, ptr %arrayidx4.i329, align 1
   br label %if.end.i295
 
 if.end.i295:                                      ; preds = %if.then.i326, %if.then114
-  %opcode.0.in.i296 = phi i8 [ %276, %if.then.i326 ], [ %265, %if.then114 ]
+  %opcode.0.in.i296 = phi i8 [ %277, %if.then.i326 ], [ %266, %if.then114 ]
   %cmp6.i297 = icmp eq i8 %opcode.0.in.i296, -9
   br i1 %cmp6.i297, label %if.then8.i322, label %if.end13.i298
 
 if.then8.i322:                                    ; preds = %if.end.i295
-  %277 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i324 = getelementptr inbounds i8, ptr %277, i64 48
-  %278 = load ptr, ptr %per_instruction_opcodes.i324, align 8
-  %arrayidx11.i325 = getelementptr i8, ptr %278, i64 %idxprom.i267
-  %279 = load i8, ptr %arrayidx11.i325, align 1
+  %278 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i324 = getelementptr inbounds i8, ptr %278, i64 48
+  %279 = load ptr, ptr %per_instruction_opcodes.i324, align 8
+  %arrayidx11.i325 = getelementptr i8, ptr %279, i64 %idxprom.i267
+  %280 = load i8, ptr %arrayidx11.i325, align 1
   br label %if.end13.i298
 
 if.end13.i298:                                    ; preds = %if.then8.i322, %if.end.i295
-  %opcode.1.in.i299 = phi i8 [ %279, %if.then8.i322 ], [ %opcode.0.in.i296, %if.end.i295 ]
+  %opcode.1.in.i299 = phi i8 [ %280, %if.then8.i322 ], [ %opcode.0.in.i296, %if.end.i295 ]
   %idxprom14.i300 = zext i8 %opcode.1.in.i299 to i64
   %arrayidx15.i301 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i300
-  %280 = load i8, ptr %arrayidx15.i301, align 1
-  %tobool.not.i302 = icmp eq i8 %280, 0
+  %281 = load i8, ptr %arrayidx15.i301, align 1
+  %tobool.not.i302 = icmp eq i8 %281, 0
   br i1 %tobool.not.i302, label %if.else.i320, label %if.end21.i303
 
 if.else.i320:                                     ; preds = %if.end13.i298
   %arrayidx19.i321 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i300
-  %281 = load i8, ptr %arrayidx19.i321, align 1
+  %282 = load i8, ptr %arrayidx19.i321, align 1
   br label %if.end21.i303
 
 if.end21.i303:                                    ; preds = %if.else.i320, %if.end13.i298
-  %opcode.2.in.i304 = phi i8 [ %281, %if.else.i320 ], [ %280, %if.end13.i298 ]
+  %opcode.2.in.i304 = phi i8 [ %282, %if.else.i320 ], [ %281, %if.end13.i298 ]
   %cmp22.i305 = icmp eq i8 %opcode.2.in.i304, 70
   br i1 %cmp22.i305, label %for.cond105.backedge.sink.split, label %for.cond105.backedge
 
 for.cond105.backedge.sink.split:                  ; preds = %if.end21.i303, %if.end21.i378
   %arg.i312 = getelementptr inbounds i8, ptr %arrayidx.i268, i64 1
-  %282 = load i8, ptr %arg.i312, align 1
-  %283 = load ptr, ptr %co_executors, align 8
-  %executors.i314 = getelementptr inbounds i8, ptr %283, i64 8
-  %idxprom30.i315 = zext i8 %282 to i64
+  %283 = load i8, ptr %arg.i312, align 1
+  %284 = load ptr, ptr %co_executors, align 8
+  %executors.i314 = getelementptr inbounds i8, ptr %284, i64 8
+  %idxprom30.i315 = zext i8 %283 to i64
   %arrayidx31.i316 = getelementptr [1 x ptr], ptr %executors.i314, i64 0, i64 %idxprom30.i315
-  %284 = load ptr, ptr %arrayidx31.i316, align 8
-  %vm_data.i317 = getelementptr inbounds i8, ptr %284, i64 32
-  %285 = load i8, ptr %vm_data.i317, align 8
-  %idxprom33.i318 = zext i8 %285 to i64
+  %285 = load ptr, ptr %arrayidx31.i316, align 8
+  %vm_data.i317 = getelementptr inbounds i8, ptr %285, i64 32
+  %286 = load i8, ptr %vm_data.i317, align 8
+  %idxprom33.i318 = zext i8 %286 to i64
   %arrayidx34.i319 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom33.i318
-  %286 = load i8, ptr %arrayidx34.i319, align 1
+  %287 = load i8, ptr %arrayidx34.i319, align 1
   br label %for.cond105.backedge
 
 for.cond105.backedge:                             ; preds = %for.cond105.backedge.sink.split, %if.end21.i303, %if.end21.i378
-  %opcode.3.in.i306.sink = phi i8 [ %opcode.2.in.i379, %if.end21.i378 ], [ %opcode.2.in.i304, %if.end21.i303 ], [ %286, %for.cond105.backedge.sink.split ]
+  %opcode.3.in.i306.sink = phi i8 [ %opcode.2.in.i379, %if.end21.i378 ], [ %opcode.2.in.i304, %if.end21.i303 ], [ %287, %for.cond105.backedge.sink.split ]
   %idxprom37.i307 = zext i8 %opcode.3.in.i306.sink to i64
   %arrayidx38.i308 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %idxprom37.i307
-  %287 = load i8, ptr %arrayidx38.i308, align 1
-  %conv39.i309 = zext i8 %287 to i32
+  %288 = load i8, ptr %arrayidx38.i308, align 1
+  %conv39.i309 = zext i8 %288 to i32
   %add.i310 = add nsw i32 %i103.0599, 1
   %add116 = add i32 %add.i310, %conv39.i309
   %cmp106 = icmp slt i32 %add116, %conv
   br i1 %cmp106, label %for.body108, label %if.end125, !llvm.loop !25
 
 if.then119:                                       ; preds = %_Py_GetBaseOpcode.exit290
-  %288 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_tools.i332 = getelementptr inbounds i8, ptr %288, i64 56
-  %289 = load ptr, ptr %per_instruction_tools.i332, align 8
-  %tobool.not.i333 = icmp eq ptr %289, null
+  %289 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_tools.i332 = getelementptr inbounds i8, ptr %289, i64 56
+  %290 = load ptr, ptr %per_instruction_tools.i332, align 8
+  %tobool.not.i333 = icmp eq ptr %290, null
   br i1 %tobool.not.i333, label %if.else.i356, label %if.then.i334
 
 if.then.i334:                                     ; preds = %if.then119
-  %arrayidx.i336 = getelementptr i8, ptr %289, i64 %idxprom.i267
-  %290 = load i8, ptr %arrayidx.i336, align 1
-  %conv3.i337 = and i8 %290, %264
+  %arrayidx.i336 = getelementptr i8, ptr %290, i64 %idxprom.i267
+  %291 = load i8, ptr %arrayidx.i336, align 1
+  %conv3.i337 = and i8 %291, %265
   store i8 %conv3.i337, ptr %arrayidx.i336, align 1
   %cmp.i338 = icmp eq i8 %conv3.i337, 0
   br i1 %cmp.i338, label %if.then6.i339, label %remove_per_instruction_tools.exit
 
 if.then6.i339:                                    ; preds = %if.then.i334
-  %291 = load i8, ptr %arrayidx.i268, align 1
-  %cmp.i.i342 = icmp eq i8 %291, -2
+  %292 = load i8, ptr %arrayidx.i268, align 1
+  %cmp.i.i342 = icmp eq i8 %292, -2
   br i1 %cmp.i.i342, label %if.then.i.i353, label %if.end.i.i343
 
 if.then.i.i353:                                   ; preds = %if.then6.i339
-  %292 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i.i354 = getelementptr inbounds i8, ptr %292, i64 32
-  %293 = load ptr, ptr %lines.i.i354, align 8
-  %arrayidx4.i.i355 = getelementptr %struct._PyCoLineInstrumentationData, ptr %293, i64 %idxprom.i267
-  %294 = load i8, ptr %arrayidx4.i.i355, align 1
+  %293 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i.i354 = getelementptr inbounds i8, ptr %293, i64 32
+  %294 = load ptr, ptr %lines.i.i354, align 8
+  %arrayidx4.i.i355 = getelementptr %struct._PyCoLineInstrumentationData, ptr %294, i64 %idxprom.i267
+  %295 = load i8, ptr %arrayidx4.i.i355, align 1
   br label %if.end.i.i343
 
 if.end.i.i343:                                    ; preds = %if.then.i.i353, %if.then6.i339
-  %opcode.0.in.i.i344 = phi i8 [ %294, %if.then.i.i353 ], [ %291, %if.then6.i339 ]
+  %opcode.0.in.i.i344 = phi i8 [ %295, %if.then.i.i353 ], [ %292, %if.then6.i339 ]
   %opcode_ptr.0.i.i345 = phi ptr [ %arrayidx4.i.i355, %if.then.i.i353 ], [ %arrayidx.i268, %if.then6.i339 ]
   %cmp6.not.i.i = icmp eq i8 %opcode.0.in.i.i344, -9
   br i1 %cmp6.not.i.i, label %if.end9.i.i, label %remove_per_instruction_tools.exit
 
 if.end9.i.i:                                      ; preds = %if.end.i.i343
-  %295 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i.i346 = getelementptr inbounds i8, ptr %295, i64 48
-  %296 = load ptr, ptr %per_instruction_opcodes.i.i346, align 8
-  %arrayidx13.i.i347 = getelementptr i8, ptr %296, i64 %idxprom.i267
-  %297 = load i8, ptr %arrayidx13.i.i347, align 1
-  store i8 %297, ptr %opcode_ptr.0.i.i345, align 1
-  %idxprom16.i.i348 = zext i8 %297 to i64
+  %296 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i.i346 = getelementptr inbounds i8, ptr %296, i64 48
+  %297 = load ptr, ptr %per_instruction_opcodes.i.i346, align 8
+  %arrayidx13.i.i347 = getelementptr i8, ptr %297, i64 %idxprom.i267
+  %298 = load i8, ptr %arrayidx13.i.i347, align 1
+  store i8 %298, ptr %opcode_ptr.0.i.i345, align 1
+  %idxprom16.i.i348 = zext i8 %298 to i64
   %arrayidx17.i.i349 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %idxprom16.i.i348
-  %298 = load i8, ptr %arrayidx17.i.i349, align 1
-  %tobool.not.i.i350 = icmp eq i8 %298, 0
+  %299 = load i8, ptr %arrayidx17.i.i349, align 1
+  %tobool.not.i.i350 = icmp eq i8 %299, 0
   br i1 %tobool.not.i.i350, label %if.end17.sink.split.i352, label %if.end17.sink.split.sink.split.i
 
 if.else.i356:                                     ; preds = %if.then119
-  %arrayidx9.i357 = getelementptr i8, ptr %288, i64 16
-  %299 = load i8, ptr %arrayidx9.i357, align 2
-  %and11.i359591 = and i8 %299, %225
-  %cmp13.i360 = icmp eq i8 %and11.i359591, %299
+  %arrayidx9.i357 = getelementptr i8, ptr %289, i64 16
+  %300 = load i8, ptr %arrayidx9.i357, align 2
+  %and11.i359591 = and i8 %300, %226
+  %cmp13.i360 = icmp eq i8 %and11.i359591, %300
   br i1 %cmp13.i360, label %if.then15.i361, label %remove_per_instruction_tools.exit
 
 if.then15.i361:                                   ; preds = %if.else.i356
   br i1 %cmp.i269, label %if.then.i30.i, label %if.end.i14.i365
 
 if.then.i30.i:                                    ; preds = %if.then15.i361
-  %lines.i32.i = getelementptr inbounds i8, ptr %288, i64 32
-  %300 = load ptr, ptr %lines.i32.i, align 8
-  %arrayidx4.i33.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %300, i64 %idxprom.i267
-  %301 = load i8, ptr %arrayidx4.i33.i, align 1
+  %lines.i32.i = getelementptr inbounds i8, ptr %289, i64 32
+  %301 = load ptr, ptr %lines.i32.i, align 8
+  %arrayidx4.i33.i = getelementptr %struct._PyCoLineInstrumentationData, ptr %301, i64 %idxprom.i267
+  %302 = load i8, ptr %arrayidx4.i33.i, align 1
   br label %if.end.i14.i365
 
 if.end.i14.i365:                                  ; preds = %if.then.i30.i, %if.then15.i361
-  %opcode.0.in.i15.i = phi i8 [ %301, %if.then.i30.i ], [ %265, %if.then15.i361 ]
+  %opcode.0.in.i15.i = phi i8 [ %302, %if.then.i30.i ], [ %266, %if.then15.i361 ]
   %opcode_ptr.0.i16.i = phi ptr [ %arrayidx4.i33.i, %if.then.i30.i ], [ %arrayidx.i268, %if.then15.i361 ]
   %cmp6.not.i17.i = icmp eq i8 %opcode.0.in.i15.i, -9
   br i1 %cmp6.not.i17.i, label %if.end9.i18.i, label %remove_per_instruction_tools.exit
 
 if.end9.i18.i:                                    ; preds = %if.end.i14.i365
-  %per_instruction_opcodes.i20.i = getelementptr inbounds i8, ptr %288, i64 48
-  %302 = load ptr, ptr %per_instruction_opcodes.i20.i, align 8
-  %arrayidx13.i21.i = getelementptr i8, ptr %302, i64 %idxprom.i267
-  %303 = load i8, ptr %arrayidx13.i21.i, align 1
-  store i8 %303, ptr %opcode_ptr.0.i16.i, align 1
-  %idxprom16.i22.i = zext i8 %303 to i64
+  %per_instruction_opcodes.i20.i = getelementptr inbounds i8, ptr %289, i64 48
+  %303 = load ptr, ptr %per_instruction_opcodes.i20.i, align 8
+  %arrayidx13.i21.i = getelementptr i8, ptr %303, i64 %idxprom.i267
+  %304 = load i8, ptr %arrayidx13.i21.i, align 1
+  store i8 %304, ptr %opcode_ptr.0.i16.i, align 1
+  %idxprom16.i22.i = zext i8 %304 to i64
   %arrayidx17.i23.i = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %idxprom16.i22.i
-  %304 = load i8, ptr %arrayidx17.i23.i, align 1
-  %tobool.not.i24.i = icmp eq i8 %304, 0
+  %305 = load i8, ptr %arrayidx17.i23.i, align 1
+  %tobool.not.i24.i = icmp eq i8 %305, 0
   br i1 %tobool.not.i24.i, label %if.end17.sink.split.i352, label %if.end17.sink.split.sink.split.i
 
 if.end17.sink.split.sink.split.i:                 ; preds = %if.end9.i18.i, %if.end9.i.i
@@ -4115,71 +4118,71 @@ if.end17.sink.split.sink.split.i:                 ; preds = %if.end9.i18.i, %if.
   br label %if.end17.sink.split.i352
 
 if.end17.sink.split.i352:                         ; preds = %if.end17.sink.split.sink.split.i, %if.end9.i18.i, %if.end9.i.i
-  %305 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes22.i28.i = getelementptr inbounds i8, ptr %305, i64 48
-  %306 = load ptr, ptr %per_instruction_opcodes22.i28.i, align 8
-  %arrayidx24.i29.i = getelementptr i8, ptr %306, i64 %idxprom.i267
+  %306 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes22.i28.i = getelementptr inbounds i8, ptr %306, i64 48
+  %307 = load ptr, ptr %per_instruction_opcodes22.i28.i, align 8
+  %arrayidx24.i29.i = getelementptr i8, ptr %307, i64 %idxprom.i267
   store i8 0, ptr %arrayidx24.i29.i, align 1
   br label %remove_per_instruction_tools.exit
 
 remove_per_instruction_tools.exit:                ; preds = %if.then.i334, %if.end.i.i343, %if.else.i356, %if.end.i14.i365, %if.end17.sink.split.i352
-  %307 = load i8, ptr %arrayidx.i268, align 2
-  %cmp.i369 = icmp eq i8 %307, -2
+  %308 = load i8, ptr %arrayidx.i268, align 2
+  %cmp.i369 = icmp eq i8 %308, -2
   br i1 %cmp.i369, label %if.then.i401, label %if.end.i370
 
 if.then.i401:                                     ; preds = %remove_per_instruction_tools.exit
-  %308 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i403 = getelementptr inbounds i8, ptr %308, i64 32
-  %309 = load ptr, ptr %lines.i403, align 8
-  %arrayidx4.i404 = getelementptr %struct._PyCoLineInstrumentationData, ptr %309, i64 %idxprom.i267
-  %310 = load i8, ptr %arrayidx4.i404, align 1
+  %309 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i403 = getelementptr inbounds i8, ptr %309, i64 32
+  %310 = load ptr, ptr %lines.i403, align 8
+  %arrayidx4.i404 = getelementptr %struct._PyCoLineInstrumentationData, ptr %310, i64 %idxprom.i267
+  %311 = load i8, ptr %arrayidx4.i404, align 1
   br label %if.end.i370
 
 if.end.i370:                                      ; preds = %if.then.i401, %remove_per_instruction_tools.exit
-  %opcode.0.in.i371 = phi i8 [ %310, %if.then.i401 ], [ %307, %remove_per_instruction_tools.exit ]
+  %opcode.0.in.i371 = phi i8 [ %311, %if.then.i401 ], [ %308, %remove_per_instruction_tools.exit ]
   %cmp6.i372 = icmp eq i8 %opcode.0.in.i371, -9
   br i1 %cmp6.i372, label %if.then8.i397, label %if.end13.i373
 
 if.then8.i397:                                    ; preds = %if.end.i370
-  %311 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i399 = getelementptr inbounds i8, ptr %311, i64 48
-  %312 = load ptr, ptr %per_instruction_opcodes.i399, align 8
-  %arrayidx11.i400 = getelementptr i8, ptr %312, i64 %idxprom.i267
-  %313 = load i8, ptr %arrayidx11.i400, align 1
+  %312 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i399 = getelementptr inbounds i8, ptr %312, i64 48
+  %313 = load ptr, ptr %per_instruction_opcodes.i399, align 8
+  %arrayidx11.i400 = getelementptr i8, ptr %313, i64 %idxprom.i267
+  %314 = load i8, ptr %arrayidx11.i400, align 1
   br label %if.end13.i373
 
 if.end13.i373:                                    ; preds = %if.then8.i397, %if.end.i370
-  %opcode.1.in.i374 = phi i8 [ %313, %if.then8.i397 ], [ %opcode.0.in.i371, %if.end.i370 ]
+  %opcode.1.in.i374 = phi i8 [ %314, %if.then8.i397 ], [ %opcode.0.in.i371, %if.end.i370 ]
   %idxprom14.i375 = zext i8 %opcode.1.in.i374 to i64
   %arrayidx15.i376 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i375
-  %314 = load i8, ptr %arrayidx15.i376, align 1
-  %tobool.not.i377 = icmp eq i8 %314, 0
+  %315 = load i8, ptr %arrayidx15.i376, align 1
+  %tobool.not.i377 = icmp eq i8 %315, 0
   br i1 %tobool.not.i377, label %if.else.i395, label %if.end21.i378
 
 if.else.i395:                                     ; preds = %if.end13.i373
   %arrayidx19.i396 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i375
-  %315 = load i8, ptr %arrayidx19.i396, align 1
+  %316 = load i8, ptr %arrayidx19.i396, align 1
   br label %if.end21.i378
 
 if.end21.i378:                                    ; preds = %if.else.i395, %if.end13.i373
-  %opcode.2.in.i379 = phi i8 [ %315, %if.else.i395 ], [ %314, %if.end13.i373 ]
+  %opcode.2.in.i379 = phi i8 [ %316, %if.else.i395 ], [ %315, %if.end13.i373 ]
   %cmp22.i380 = icmp eq i8 %opcode.2.in.i379, 70
   br i1 %cmp22.i380, label %for.cond105.backedge.sink.split, label %for.cond105.backedge
 
 if.end125:                                        ; preds = %for.cond105.backedge, %if.then102, %if.end100
   %arrayidx127 = getelementptr inbounds i8, ptr %new_events, i64 5
-  %316 = load i8, ptr %arrayidx127, align 1
+  %317 = load i8, ptr %arrayidx127, align 1
   %arrayidx129 = getelementptr inbounds i8, ptr %new_events, i64 6
-  %317 = load i8, ptr %arrayidx129, align 2
-  %tobool130.not = icmp eq i8 %316, 0
+  %318 = load i8, ptr %arrayidx129, align 2
+  %tobool130.not = icmp eq i8 %317, 0
   br i1 %tobool130.not, label %if.end154, label %if.then131
 
 if.then131:                                       ; preds = %if.end125
-  %318 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines134 = getelementptr inbounds i8, ptr %318, i64 32
-  %319 = load ptr, ptr %lines134, align 8
-  %320 = load i32, ptr %_co_firsttraceable, align 8
-  %cmp138600 = icmp slt i32 %320, %conv
+  %319 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines134 = getelementptr inbounds i8, ptr %319, i64 32
+  %320 = load ptr, ptr %lines134, align 8
+  %321 = load i32, ptr %_co_firsttraceable, align 8
+  %cmp138600 = icmp slt i32 %321, %conv
   br i1 %cmp138600, label %for.body140.lr.ph, label %if.end154
 
 for.body140.lr.ph:                                ; preds = %if.then131
@@ -4187,42 +4190,42 @@ for.body140.lr.ph:                                ; preds = %if.then131
   br label %for.body140
 
 for.body140:                                      ; preds = %for.body140.lr.ph, %_PyInstruction_GetLength.exit459
-  %i135.0601 = phi i32 [ %320, %for.body140.lr.ph ], [ %add152, %_PyInstruction_GetLength.exit459 ]
+  %i135.0601 = phi i32 [ %321, %for.body140.lr.ph ], [ %add152, %_PyInstruction_GetLength.exit459 ]
   %idxprom141 = sext i32 %i135.0601 to i64
-  %arrayidx142 = getelementptr %struct._PyCoLineInstrumentationData, ptr %319, i64 %idxprom141
-  %321 = load i8, ptr %arrayidx142, align 1
-  %tobool144.not = icmp eq i8 %321, 0
+  %arrayidx142 = getelementptr %struct._PyCoLineInstrumentationData, ptr %320, i64 %idxprom141
+  %322 = load i8, ptr %arrayidx142, align 1
+  %tobool144.not = icmp eq i8 %322, 0
   br i1 %tobool144.not, label %if.end150, label %if.then147
 
 if.then147:                                       ; preds = %for.body140
-  %322 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %line_tools.i407 = getelementptr inbounds i8, ptr %322, i64 40
-  %323 = load ptr, ptr %line_tools.i407, align 8
-  %tobool.not.i408 = icmp eq ptr %323, null
+  %323 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %line_tools.i407 = getelementptr inbounds i8, ptr %323, i64 40
+  %324 = load ptr, ptr %line_tools.i407, align 8
+  %tobool.not.i408 = icmp eq ptr %324, null
   br i1 %tobool.not.i408, label %if.end.i413, label %if.then.i410
 
 if.then.i410:                                     ; preds = %if.then147
-  %arrayidx.i411 = getelementptr i8, ptr %323, i64 %idxprom141
-  %324 = load i8, ptr %arrayidx.i411, align 1
-  %conv3.i412 = or i8 %324, %316
+  %arrayidx.i411 = getelementptr i8, ptr %324, i64 %idxprom141
+  %325 = load i8, ptr %arrayidx.i411, align 1
+  %conv3.i412 = or i8 %325, %317
   store i8 %conv3.i412, ptr %arrayidx.i411, align 1
   br label %if.end.i413
 
 if.end.i413:                                      ; preds = %if.then.i410, %if.then147
   %arrayidx.i.i415 = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i414, i64 %idxprom141
-  %325 = load i8, ptr %arrayidx.i.i415, align 1
-  %cmp.i.i416 = icmp eq i8 %325, -2
+  %326 = load i8, ptr %arrayidx.i.i415, align 1
+  %cmp.i.i416 = icmp eq i8 %326, -2
   br i1 %cmp.i.i416, label %if.end150.thread, label %if.end.i.i417
 
 if.end.i.i417:                                    ; preds = %if.end.i413
-  %326 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines3.i.i418 = getelementptr inbounds i8, ptr %326, i64 32
-  %327 = load ptr, ptr %lines3.i.i418, align 8
-  %arrayidx5.i.i419 = getelementptr %struct._PyCoLineInstrumentationData, ptr %327, i64 %idxprom141
-  %idxprom6.i.i = zext i8 %325 to i64
+  %327 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines3.i.i418 = getelementptr inbounds i8, ptr %327, i64 32
+  %328 = load ptr, ptr %lines3.i.i418, align 8
+  %arrayidx5.i.i419 = getelementptr %struct._PyCoLineInstrumentationData, ptr %328, i64 %idxprom141
+  %idxprom6.i.i = zext i8 %326 to i64
   %arrayidx7.i.i = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom6.i.i
-  %328 = load i8, ptr %arrayidx7.i.i, align 1
-  store i8 %328, ptr %arrayidx5.i.i419, align 1
+  %329 = load i8, ptr %arrayidx7.i.i, align 1
+  store i8 %329, ptr %arrayidx5.i.i419, align 1
   store i8 -2, ptr %arrayidx.i.i415, align 1
   br label %if.end150.thread
 
@@ -4239,78 +4242,78 @@ if.end150:                                        ; preds = %for.body140
 
 if.then.i455:                                     ; preds = %if.end150.thread, %if.end150
   %arrayidx.i422621 = phi ptr [ %arrayidx.i422618, %if.end150.thread ], [ %arrayidx.i422, %if.end150 ]
-  %329 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i457 = getelementptr inbounds i8, ptr %329, i64 32
-  %330 = load ptr, ptr %lines.i457, align 8
-  %arrayidx4.i458 = getelementptr %struct._PyCoLineInstrumentationData, ptr %330, i64 %idxprom141
-  %331 = load i8, ptr %arrayidx4.i458, align 1
+  %330 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i457 = getelementptr inbounds i8, ptr %330, i64 32
+  %331 = load ptr, ptr %lines.i457, align 8
+  %arrayidx4.i458 = getelementptr %struct._PyCoLineInstrumentationData, ptr %331, i64 %idxprom141
+  %332 = load i8, ptr %arrayidx4.i458, align 1
   br label %if.end.i424
 
 if.end.i424:                                      ; preds = %if.then.i455, %if.end150
   %arrayidx.i422620 = phi ptr [ %arrayidx.i422621, %if.then.i455 ], [ %arrayidx.i422, %if.end150 ]
-  %opcode.0.in.i425 = phi i8 [ %331, %if.then.i455 ], [ %.pre609, %if.end150 ]
+  %opcode.0.in.i425 = phi i8 [ %332, %if.then.i455 ], [ %.pre609, %if.end150 ]
   %cmp6.i426 = icmp eq i8 %opcode.0.in.i425, -9
   br i1 %cmp6.i426, label %if.then8.i451, label %if.end13.i427
 
 if.then8.i451:                                    ; preds = %if.end.i424
-  %332 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i453 = getelementptr inbounds i8, ptr %332, i64 48
-  %333 = load ptr, ptr %per_instruction_opcodes.i453, align 8
-  %arrayidx11.i454 = getelementptr i8, ptr %333, i64 %idxprom141
-  %334 = load i8, ptr %arrayidx11.i454, align 1
+  %333 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i453 = getelementptr inbounds i8, ptr %333, i64 48
+  %334 = load ptr, ptr %per_instruction_opcodes.i453, align 8
+  %arrayidx11.i454 = getelementptr i8, ptr %334, i64 %idxprom141
+  %335 = load i8, ptr %arrayidx11.i454, align 1
   br label %if.end13.i427
 
 if.end13.i427:                                    ; preds = %if.then8.i451, %if.end.i424
-  %opcode.1.in.i428 = phi i8 [ %334, %if.then8.i451 ], [ %opcode.0.in.i425, %if.end.i424 ]
+  %opcode.1.in.i428 = phi i8 [ %335, %if.then8.i451 ], [ %opcode.0.in.i425, %if.end.i424 ]
   %idxprom14.i429 = zext i8 %opcode.1.in.i428 to i64
   %arrayidx15.i430 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i429
-  %335 = load i8, ptr %arrayidx15.i430, align 1
-  %tobool.not.i431 = icmp eq i8 %335, 0
+  %336 = load i8, ptr %arrayidx15.i430, align 1
+  %tobool.not.i431 = icmp eq i8 %336, 0
   br i1 %tobool.not.i431, label %if.else.i449, label %if.end21.i432
 
 if.else.i449:                                     ; preds = %if.end13.i427
   %arrayidx19.i450 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i429
-  %336 = load i8, ptr %arrayidx19.i450, align 1
+  %337 = load i8, ptr %arrayidx19.i450, align 1
   br label %if.end21.i432
 
 if.end21.i432:                                    ; preds = %if.else.i449, %if.end13.i427
-  %opcode.2.in.i433 = phi i8 [ %336, %if.else.i449 ], [ %335, %if.end13.i427 ]
+  %opcode.2.in.i433 = phi i8 [ %337, %if.else.i449 ], [ %336, %if.end13.i427 ]
   %cmp22.i434 = icmp eq i8 %opcode.2.in.i433, 70
   br i1 %cmp22.i434, label %if.then24.i440, label %_PyInstruction_GetLength.exit459
 
 if.then24.i440:                                   ; preds = %if.end21.i432
   %arg.i441 = getelementptr inbounds i8, ptr %arrayidx.i422620, i64 1
-  %337 = load i8, ptr %arg.i441, align 1
-  %338 = load ptr, ptr %co_executors, align 8
-  %executors.i443 = getelementptr inbounds i8, ptr %338, i64 8
-  %idxprom30.i444 = zext i8 %337 to i64
+  %338 = load i8, ptr %arg.i441, align 1
+  %339 = load ptr, ptr %co_executors, align 8
+  %executors.i443 = getelementptr inbounds i8, ptr %339, i64 8
+  %idxprom30.i444 = zext i8 %338 to i64
   %arrayidx31.i445 = getelementptr [1 x ptr], ptr %executors.i443, i64 0, i64 %idxprom30.i444
-  %339 = load ptr, ptr %arrayidx31.i445, align 8
-  %vm_data.i446 = getelementptr inbounds i8, ptr %339, i64 32
-  %340 = load i8, ptr %vm_data.i446, align 8
-  %idxprom33.i447 = zext i8 %340 to i64
+  %340 = load ptr, ptr %arrayidx31.i445, align 8
+  %vm_data.i446 = getelementptr inbounds i8, ptr %340, i64 32
+  %341 = load i8, ptr %vm_data.i446, align 8
+  %idxprom33.i447 = zext i8 %341 to i64
   %arrayidx34.i448 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom33.i447
-  %341 = load i8, ptr %arrayidx34.i448, align 1
+  %342 = load i8, ptr %arrayidx34.i448, align 1
   br label %_PyInstruction_GetLength.exit459
 
 _PyInstruction_GetLength.exit459:                 ; preds = %if.end21.i432, %if.then24.i440
-  %opcode.3.in.i435 = phi i8 [ %341, %if.then24.i440 ], [ %opcode.2.in.i433, %if.end21.i432 ]
+  %opcode.3.in.i435 = phi i8 [ %342, %if.then24.i440 ], [ %opcode.2.in.i433, %if.end21.i432 ]
   %idxprom37.i436 = zext i8 %opcode.3.in.i435 to i64
   %arrayidx38.i437 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %idxprom37.i436
-  %342 = load i8, ptr %arrayidx38.i437, align 1
-  %conv39.i438 = zext i8 %342 to i32
+  %343 = load i8, ptr %arrayidx38.i437, align 1
+  %conv39.i438 = zext i8 %343 to i32
   %add.i439 = add nsw i32 %i135.0601, 1
   %add152 = add i32 %add.i439, %conv39.i438
   %cmp138 = icmp slt i32 %add152, %conv
   br i1 %cmp138, label %for.body140, label %if.end154, !llvm.loop !26
 
 if.end154:                                        ; preds = %_PyInstruction_GetLength.exit459, %if.then131, %if.end125
-  %tobool155.not = icmp eq i8 %317, 0
+  %tobool155.not = icmp eq i8 %318, 0
   br i1 %tobool155.not, label %return, label %if.then156
 
 if.then156:                                       ; preds = %if.end154
-  %343 = load i32, ptr %_co_firsttraceable, align 8
-  %cmp160602 = icmp slt i32 %343, %conv
+  %344 = load i32, ptr %_co_firsttraceable, align 8
+  %cmp160602 = icmp slt i32 %344, %conv
   br i1 %cmp160602, label %for.body162.lr.ph, label %return
 
 for.body162.lr.ph:                                ; preds = %if.then156
@@ -4318,49 +4321,49 @@ for.body162.lr.ph:                                ; preds = %if.then156
   br label %for.body162
 
 for.body162:                                      ; preds = %for.body162.lr.ph, %for.cond159.backedge
-  %i157.0603 = phi i32 [ %343, %for.body162.lr.ph ], [ %add172, %for.cond159.backedge ]
+  %i157.0603 = phi i32 [ %344, %for.body162.lr.ph ], [ %add172, %for.cond159.backedge ]
   %idxprom.i461 = sext i32 %i157.0603 to i64
   %arrayidx.i462 = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i460, i64 %idxprom.i461
-  %344 = load i8, ptr %arrayidx.i462, align 2
-  %cmp.i463 = icmp eq i8 %344, -2
+  %345 = load i8, ptr %arrayidx.i462, align 2
+  %cmp.i463 = icmp eq i8 %345, -2
   br i1 %cmp.i463, label %if.then.i480, label %if.end.i464
 
 if.then.i480:                                     ; preds = %for.body162
-  %345 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i482 = getelementptr inbounds i8, ptr %345, i64 32
-  %346 = load ptr, ptr %lines.i482, align 8
-  %arrayidx4.i483 = getelementptr %struct._PyCoLineInstrumentationData, ptr %346, i64 %idxprom.i461
-  %347 = load i8, ptr %arrayidx4.i483, align 1
+  %346 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i482 = getelementptr inbounds i8, ptr %346, i64 32
+  %347 = load ptr, ptr %lines.i482, align 8
+  %arrayidx4.i483 = getelementptr %struct._PyCoLineInstrumentationData, ptr %347, i64 %idxprom.i461
+  %348 = load i8, ptr %arrayidx4.i483, align 1
   br label %if.end.i464
 
 if.end.i464:                                      ; preds = %if.then.i480, %for.body162
-  %opcode.0.in.i465 = phi i8 [ %347, %if.then.i480 ], [ %344, %for.body162 ]
+  %opcode.0.in.i465 = phi i8 [ %348, %if.then.i480 ], [ %345, %for.body162 ]
   %cmp6.i466 = icmp eq i8 %opcode.0.in.i465, -9
   br i1 %cmp6.i466, label %if.then8.i476, label %if.end13.i467
 
 if.then8.i476:                                    ; preds = %if.end.i464
-  %348 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i478 = getelementptr inbounds i8, ptr %348, i64 48
-  %349 = load ptr, ptr %per_instruction_opcodes.i478, align 8
-  %arrayidx11.i479 = getelementptr i8, ptr %349, i64 %idxprom.i461
-  %350 = load i8, ptr %arrayidx11.i479, align 1
+  %349 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i478 = getelementptr inbounds i8, ptr %349, i64 48
+  %350 = load ptr, ptr %per_instruction_opcodes.i478, align 8
+  %arrayidx11.i479 = getelementptr i8, ptr %350, i64 %idxprom.i461
+  %351 = load i8, ptr %arrayidx11.i479, align 1
   br label %if.end13.i467
 
 if.end13.i467:                                    ; preds = %if.then8.i476, %if.end.i464
-  %opcode.1.in.i468 = phi i8 [ %350, %if.then8.i476 ], [ %opcode.0.in.i465, %if.end.i464 ]
+  %opcode.1.in.i468 = phi i8 [ %351, %if.then8.i476 ], [ %opcode.0.in.i465, %if.end.i464 ]
   %idxprom14.i469 = zext i8 %opcode.1.in.i468 to i64
   %arrayidx15.i470 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i469
-  %351 = load i8, ptr %arrayidx15.i470, align 1
-  %tobool.not.i471 = icmp eq i8 %351, 0
+  %352 = load i8, ptr %arrayidx15.i470, align 1
+  %tobool.not.i471 = icmp eq i8 %352, 0
   br i1 %tobool.not.i471, label %if.end18.i474, label %_Py_GetBaseOpcode.exit484
 
 if.end18.i474:                                    ; preds = %if.end13.i467
   %arrayidx20.i475 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i469
-  %352 = load i8, ptr %arrayidx20.i475, align 1
+  %353 = load i8, ptr %arrayidx20.i475, align 1
   br label %_Py_GetBaseOpcode.exit484
 
 _Py_GetBaseOpcode.exit484:                        ; preds = %if.end13.i467, %if.end18.i474
-  %retval.0.in.i472 = phi i8 [ %352, %if.end18.i474 ], [ %351, %if.end13.i467 ]
+  %retval.0.in.i472 = phi i8 [ %353, %if.end18.i474 ], [ %352, %if.end13.i467 ]
   switch i8 %retval.0.in.i472, label %if.then175 [
     i8 -107, label %if.then170
     i8 11, label %if.then170
@@ -4370,100 +4373,100 @@ if.then170:                                       ; preds = %_Py_GetBaseOpcode.e
   br i1 %cmp.i463, label %if.then.i520, label %if.end.i489
 
 if.then.i520:                                     ; preds = %if.then170
-  %353 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i522 = getelementptr inbounds i8, ptr %353, i64 32
-  %354 = load ptr, ptr %lines.i522, align 8
-  %arrayidx4.i523 = getelementptr %struct._PyCoLineInstrumentationData, ptr %354, i64 %idxprom.i461
-  %355 = load i8, ptr %arrayidx4.i523, align 1
+  %354 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i522 = getelementptr inbounds i8, ptr %354, i64 32
+  %355 = load ptr, ptr %lines.i522, align 8
+  %arrayidx4.i523 = getelementptr %struct._PyCoLineInstrumentationData, ptr %355, i64 %idxprom.i461
+  %356 = load i8, ptr %arrayidx4.i523, align 1
   br label %if.end.i489
 
 if.end.i489:                                      ; preds = %if.then.i520, %if.then170
-  %opcode.0.in.i490 = phi i8 [ %355, %if.then.i520 ], [ %344, %if.then170 ]
+  %opcode.0.in.i490 = phi i8 [ %356, %if.then.i520 ], [ %345, %if.then170 ]
   %cmp6.i491 = icmp eq i8 %opcode.0.in.i490, -9
   br i1 %cmp6.i491, label %if.then8.i516, label %if.end13.i492
 
 if.then8.i516:                                    ; preds = %if.end.i489
-  %356 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i518 = getelementptr inbounds i8, ptr %356, i64 48
-  %357 = load ptr, ptr %per_instruction_opcodes.i518, align 8
-  %arrayidx11.i519 = getelementptr i8, ptr %357, i64 %idxprom.i461
-  %358 = load i8, ptr %arrayidx11.i519, align 1
+  %357 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i518 = getelementptr inbounds i8, ptr %357, i64 48
+  %358 = load ptr, ptr %per_instruction_opcodes.i518, align 8
+  %arrayidx11.i519 = getelementptr i8, ptr %358, i64 %idxprom.i461
+  %359 = load i8, ptr %arrayidx11.i519, align 1
   br label %if.end13.i492
 
 if.end13.i492:                                    ; preds = %if.then8.i516, %if.end.i489
-  %opcode.1.in.i493 = phi i8 [ %358, %if.then8.i516 ], [ %opcode.0.in.i490, %if.end.i489 ]
+  %opcode.1.in.i493 = phi i8 [ %359, %if.then8.i516 ], [ %opcode.0.in.i490, %if.end.i489 ]
   %idxprom14.i494 = zext i8 %opcode.1.in.i493 to i64
   %arrayidx15.i495 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i494
-  %359 = load i8, ptr %arrayidx15.i495, align 1
-  %tobool.not.i496 = icmp eq i8 %359, 0
+  %360 = load i8, ptr %arrayidx15.i495, align 1
+  %tobool.not.i496 = icmp eq i8 %360, 0
   br i1 %tobool.not.i496, label %if.else.i514, label %if.end21.i497
 
 if.else.i514:                                     ; preds = %if.end13.i492
   %arrayidx19.i515 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i494
-  %360 = load i8, ptr %arrayidx19.i515, align 1
+  %361 = load i8, ptr %arrayidx19.i515, align 1
   br label %if.end21.i497
 
 if.end21.i497:                                    ; preds = %if.else.i514, %if.end13.i492
-  %opcode.2.in.i498 = phi i8 [ %360, %if.else.i514 ], [ %359, %if.end13.i492 ]
+  %opcode.2.in.i498 = phi i8 [ %361, %if.else.i514 ], [ %360, %if.end13.i492 ]
   %cmp22.i499 = icmp eq i8 %opcode.2.in.i498, 70
   br i1 %cmp22.i499, label %for.cond159.backedge.sink.split, label %for.cond159.backedge
 
 for.cond159.backedge.sink.split:                  ; preds = %if.end21.i497, %if.end21.i560
   %arg.i506 = getelementptr inbounds i8, ptr %arrayidx.i462, i64 1
-  %361 = load i8, ptr %arg.i506, align 1
-  %362 = load ptr, ptr %co_executors, align 8
-  %executors.i508 = getelementptr inbounds i8, ptr %362, i64 8
-  %idxprom30.i509 = zext i8 %361 to i64
+  %362 = load i8, ptr %arg.i506, align 1
+  %363 = load ptr, ptr %co_executors, align 8
+  %executors.i508 = getelementptr inbounds i8, ptr %363, i64 8
+  %idxprom30.i509 = zext i8 %362 to i64
   %arrayidx31.i510 = getelementptr [1 x ptr], ptr %executors.i508, i64 0, i64 %idxprom30.i509
-  %363 = load ptr, ptr %arrayidx31.i510, align 8
-  %vm_data.i511 = getelementptr inbounds i8, ptr %363, i64 32
-  %364 = load i8, ptr %vm_data.i511, align 8
-  %idxprom33.i512 = zext i8 %364 to i64
+  %364 = load ptr, ptr %arrayidx31.i510, align 8
+  %vm_data.i511 = getelementptr inbounds i8, ptr %364, i64 32
+  %365 = load i8, ptr %vm_data.i511, align 8
+  %idxprom33.i512 = zext i8 %365 to i64
   %arrayidx34.i513 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom33.i512
-  %365 = load i8, ptr %arrayidx34.i513, align 1
+  %366 = load i8, ptr %arrayidx34.i513, align 1
   br label %for.cond159.backedge
 
 for.cond159.backedge:                             ; preds = %for.cond159.backedge.sink.split, %if.end21.i497, %if.end21.i560
-  %opcode.3.in.i500.sink = phi i8 [ %opcode.2.in.i561, %if.end21.i560 ], [ %opcode.2.in.i498, %if.end21.i497 ], [ %365, %for.cond159.backedge.sink.split ]
+  %opcode.3.in.i500.sink = phi i8 [ %opcode.2.in.i561, %if.end21.i560 ], [ %opcode.2.in.i498, %if.end21.i497 ], [ %366, %for.cond159.backedge.sink.split ]
   %idxprom37.i501 = zext i8 %opcode.3.in.i500.sink to i64
   %arrayidx38.i502 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %idxprom37.i501
-  %366 = load i8, ptr %arrayidx38.i502, align 1
-  %conv39.i503 = zext i8 %366 to i32
+  %367 = load i8, ptr %arrayidx38.i502, align 1
+  %conv39.i503 = zext i8 %367 to i32
   %add.i504 = add nsw i32 %i157.0603, 1
   %add172 = add i32 %add.i504, %conv39.i503
   %cmp160 = icmp slt i32 %add172, %conv
   br i1 %cmp160, label %for.body162, label %return, !llvm.loop !27
 
 if.then175:                                       ; preds = %_Py_GetBaseOpcode.exit484
-  %367 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_tools.i526 = getelementptr inbounds i8, ptr %367, i64 56
-  %368 = load ptr, ptr %per_instruction_tools.i526, align 8
-  %tobool.not.i527 = icmp eq ptr %368, null
+  %368 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_tools.i526 = getelementptr inbounds i8, ptr %368, i64 56
+  %369 = load ptr, ptr %per_instruction_tools.i526, align 8
+  %tobool.not.i527 = icmp eq ptr %369, null
   br i1 %tobool.not.i527, label %if.end.i532, label %if.then.i529
 
 if.then.i529:                                     ; preds = %if.then175
-  %arrayidx.i530 = getelementptr i8, ptr %368, i64 %idxprom.i461
-  %369 = load i8, ptr %arrayidx.i530, align 1
-  %conv3.i531 = or i8 %369, %317
+  %arrayidx.i530 = getelementptr i8, ptr %369, i64 %idxprom.i461
+  %370 = load i8, ptr %arrayidx.i530, align 1
+  %conv3.i531 = or i8 %370, %318
   store i8 %conv3.i531, ptr %arrayidx.i530, align 1
   %.pre610 = load i8, ptr %arrayidx.i462, align 1
   br label %if.end.i532
 
 if.end.i532:                                      ; preds = %if.then.i529, %if.then175
-  %370 = phi i8 [ %.pre610, %if.then.i529 ], [ %344, %if.then175 ]
-  %cmp.i.i535 = icmp eq i8 %370, -2
+  %371 = phi i8 [ %.pre610, %if.then.i529 ], [ %345, %if.then175 ]
+  %cmp.i.i535 = icmp eq i8 %371, -2
   br i1 %cmp.i.i535, label %if.then.i.i545, label %if.end.i.i536
 
 if.then.i.i545:                                   ; preds = %if.end.i532
-  %371 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines3.i.i546 = getelementptr inbounds i8, ptr %371, i64 32
-  %372 = load ptr, ptr %lines3.i.i546, align 8
-  %arrayidx5.i.i547 = getelementptr %struct._PyCoLineInstrumentationData, ptr %372, i64 %idxprom.i461
-  %373 = load i8, ptr %arrayidx5.i.i547, align 1
+  %372 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines3.i.i546 = getelementptr inbounds i8, ptr %372, i64 32
+  %373 = load ptr, ptr %lines3.i.i546, align 8
+  %arrayidx5.i.i547 = getelementptr %struct._PyCoLineInstrumentationData, ptr %373, i64 %idxprom.i461
+  %374 = load i8, ptr %arrayidx5.i.i547, align 1
   br label %if.end.i.i536
 
 if.end.i.i536:                                    ; preds = %if.then.i.i545, %if.end.i532
-  %opcode.0.in.i.i537 = phi i8 [ %373, %if.then.i.i545 ], [ %370, %if.end.i532 ]
+  %opcode.0.in.i.i537 = phi i8 [ %374, %if.then.i.i545 ], [ %371, %if.end.i532 ]
   %opcode_ptr.0.i.i538 = phi ptr [ %arrayidx5.i.i547, %if.then.i.i545 ], [ %arrayidx.i462, %if.end.i532 ]
   %cmp7.i.i539 = icmp eq i8 %opcode.0.in.i.i537, -9
   br i1 %cmp7.i.i539, label %add_per_instruction_tools.exit, label %if.end10.i.i
@@ -4475,61 +4478,61 @@ if.end10.i.i:                                     ; preds = %if.end.i.i536
 if.else.i.i541:                                   ; preds = %if.end10.i.i
   %idxprom16.i.i542 = zext i8 %opcode.0.in.i.i537 to i64
   %arrayidx17.i.i543 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom16.i.i542
-  %374 = load i8, ptr %arrayidx17.i.i543, align 1
+  %375 = load i8, ptr %arrayidx17.i.i543, align 1
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.else.i.i541, %if.end10.i.i
-  %.sink.i.i544 = phi i8 [ %374, %if.else.i.i541 ], [ %opcode.0.in.i.i537, %if.end10.i.i ]
-  %375 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes19.i.i = getelementptr inbounds i8, ptr %375, i64 48
-  %376 = load ptr, ptr %per_instruction_opcodes19.i.i, align 8
-  %arrayidx21.i.i = getelementptr i8, ptr %376, i64 %idxprom.i461
+  %.sink.i.i544 = phi i8 [ %375, %if.else.i.i541 ], [ %opcode.0.in.i.i537, %if.end10.i.i ]
+  %376 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes19.i.i = getelementptr inbounds i8, ptr %376, i64 48
+  %377 = load ptr, ptr %per_instruction_opcodes19.i.i, align 8
+  %arrayidx21.i.i = getelementptr i8, ptr %377, i64 %idxprom.i461
   store i8 %.sink.i.i544, ptr %arrayidx21.i.i, align 1
   store i8 -9, ptr %opcode_ptr.0.i.i538, align 1
   %.pre611 = load i8, ptr %arrayidx.i462, align 2
   br label %add_per_instruction_tools.exit
 
 add_per_instruction_tools.exit:                   ; preds = %if.end.i.i536, %if.end22.i.i
-  %377 = phi i8 [ %370, %if.end.i.i536 ], [ %.pre611, %if.end22.i.i ]
-  %cmp.i551 = icmp eq i8 %377, -2
+  %378 = phi i8 [ %371, %if.end.i.i536 ], [ %.pre611, %if.end22.i.i ]
+  %cmp.i551 = icmp eq i8 %378, -2
   br i1 %cmp.i551, label %if.then.i583, label %if.end.i552
 
 if.then.i583:                                     ; preds = %add_per_instruction_tools.exit
-  %378 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %lines.i585 = getelementptr inbounds i8, ptr %378, i64 32
-  %379 = load ptr, ptr %lines.i585, align 8
-  %arrayidx4.i586 = getelementptr %struct._PyCoLineInstrumentationData, ptr %379, i64 %idxprom.i461
-  %380 = load i8, ptr %arrayidx4.i586, align 1
+  %379 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %lines.i585 = getelementptr inbounds i8, ptr %379, i64 32
+  %380 = load ptr, ptr %lines.i585, align 8
+  %arrayidx4.i586 = getelementptr %struct._PyCoLineInstrumentationData, ptr %380, i64 %idxprom.i461
+  %381 = load i8, ptr %arrayidx4.i586, align 1
   br label %if.end.i552
 
 if.end.i552:                                      ; preds = %if.then.i583, %add_per_instruction_tools.exit
-  %opcode.0.in.i553 = phi i8 [ %380, %if.then.i583 ], [ %377, %add_per_instruction_tools.exit ]
+  %opcode.0.in.i553 = phi i8 [ %381, %if.then.i583 ], [ %378, %add_per_instruction_tools.exit ]
   %cmp6.i554 = icmp eq i8 %opcode.0.in.i553, -9
   br i1 %cmp6.i554, label %if.then8.i579, label %if.end13.i555
 
 if.then8.i579:                                    ; preds = %if.end.i552
-  %381 = load ptr, ptr %_co_monitoring.i.i, align 8
-  %per_instruction_opcodes.i581 = getelementptr inbounds i8, ptr %381, i64 48
-  %382 = load ptr, ptr %per_instruction_opcodes.i581, align 8
-  %arrayidx11.i582 = getelementptr i8, ptr %382, i64 %idxprom.i461
-  %383 = load i8, ptr %arrayidx11.i582, align 1
+  %382 = load ptr, ptr %_co_monitoring.i.i, align 8
+  %per_instruction_opcodes.i581 = getelementptr inbounds i8, ptr %382, i64 48
+  %383 = load ptr, ptr %per_instruction_opcodes.i581, align 8
+  %arrayidx11.i582 = getelementptr i8, ptr %383, i64 %idxprom.i461
+  %384 = load i8, ptr %arrayidx11.i582, align 1
   br label %if.end13.i555
 
 if.end13.i555:                                    ; preds = %if.then8.i579, %if.end.i552
-  %opcode.1.in.i556 = phi i8 [ %383, %if.then8.i579 ], [ %opcode.0.in.i553, %if.end.i552 ]
+  %opcode.1.in.i556 = phi i8 [ %384, %if.then8.i579 ], [ %opcode.0.in.i553, %if.end.i552 ]
   %idxprom14.i557 = zext i8 %opcode.1.in.i556 to i64
   %arrayidx15.i558 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %idxprom14.i557
-  %384 = load i8, ptr %arrayidx15.i558, align 1
-  %tobool.not.i559 = icmp eq i8 %384, 0
+  %385 = load i8, ptr %arrayidx15.i558, align 1
+  %tobool.not.i559 = icmp eq i8 %385, 0
   br i1 %tobool.not.i559, label %if.else.i577, label %if.end21.i560
 
 if.else.i577:                                     ; preds = %if.end13.i555
   %arrayidx19.i578 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %idxprom14.i557
-  %385 = load i8, ptr %arrayidx19.i578, align 1
+  %386 = load i8, ptr %arrayidx19.i578, align 1
   br label %if.end21.i560
 
 if.end21.i560:                                    ; preds = %if.else.i577, %if.end13.i555
-  %opcode.2.in.i561 = phi i8 [ %385, %if.else.i577 ], [ %384, %if.end13.i555 ]
+  %opcode.2.in.i561 = phi i8 [ %386, %if.else.i577 ], [ %385, %if.end13.i555 ]
   %cmp22.i562 = icmp eq i8 %opcode.2.in.i561, 70
   br i1 %cmp22.i562, label %for.cond159.backedge.sink.split, label %for.cond159.backedge
 

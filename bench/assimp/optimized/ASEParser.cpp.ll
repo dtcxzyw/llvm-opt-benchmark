@@ -9628,10 +9628,11 @@ if.end.i:                                         ; preds = %while.end.i.i.i
   %call3.i = call noundef ptr @_ZN6Assimp17fast_atoreal_moveIf17DeadlyImportErrorEEPKcS3_RT_b(ptr noundef nonnull %in.addr.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %f, i1 noundef zeroext true)
   store ptr %call3.i, ptr %this, align 8
   %.pre52 = load float, ptr %f, align 4
+  %16 = fmul float %.pre52, 5.000000e-01
   br label %_ZN6Assimp3ASE6Parser17ParseLV4MeshFloatERf.exit
 
 _ZN6Assimp3ASE6Parser17ParseLV4MeshFloatERf.exit: ; preds = %if.then.i29, %if.end.i
-  %16 = phi float [ 0.000000e+00, %if.then.i29 ], [ %.pre52, %if.end.i ]
+  %div.i = phi float [ 0.000000e+00, %if.then.i29 ], [ %16, %if.end.i ]
   %17 = load i32, ptr %iIndex, align 4
   %conv19 = uitofp i32 %17 to double
   store double %conv19, ptr %add.ptr.i.i, align 8
@@ -9657,7 +9658,6 @@ _ZN13aiQuaterniontIfEC2E10aiVector3tIfEf.exit:    ; preds = %_ZN6Assimp3ASE6Pars
   %axis.sroa.0.4.vec.extract.pre-phi.i = phi float [ %axis.sroa.0.4.vec.extract9.i, %_ZN6Assimp3ASE6Parser17ParseLV4MeshFloatERf.exit ], [ %mul2.i.i.i, %_ZN10aiVector3tIfEdVEf.exit.i.i ]
   %axis.sroa.0.0.vec.extract.pre-phi.i = phi float [ %axis.sroa.0.0.vec.extract6.i, %_ZN6Assimp3ASE6Parser17ParseLV4MeshFloatERf.exit ], [ %mul.i.i.i, %_ZN10aiVector3tIfEdVEf.exit.i.i ]
   %axis.sroa.7.0.i = phi float [ %agg.tmp.sroa.2.0.copyload, %_ZN6Assimp3ASE6Parser17ParseLV4MeshFloatERf.exit ], [ %mul3.i.i.i, %_ZN10aiVector3tIfEdVEf.exit.i.i ]
-  %div.i = fmul float %16, 5.000000e-01
   %call.i.i30 = call noundef float @sinf(float noundef %div.i) #26
   %call.i4.i = call noundef float @cosf(float noundef %div.i) #26
   %mul.i = fmul float %axis.sroa.0.0.vec.extract.pre-phi.i, %call.i.i30

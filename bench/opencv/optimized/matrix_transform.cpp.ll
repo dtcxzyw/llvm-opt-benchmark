@@ -793,7 +793,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc95
   store i32 %87, ptr %88, align 4
   %89 = add nuw i64 %.075148, 1
   %exitcond174.not = icmp eq i64 %89, %umax173
-  br i1 %exitcond174.not, label %._crit_edge, label %82, !llvm.loop !15
+  br i1 %exitcond174.not, label %._crit_edge.loopexit, label %82, !llvm.loop !15
 
 90:                                               ; preds = %74, %73
   %91 = landingpad { ptr, i32 }
@@ -805,12 +805,15 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc95
           cleanup
   br label %232
 
-._crit_edge:                                      ; preds = %82, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.0.i.i.i.i.i192 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %.0.i.i.i.i.i.ph, %82 ]
-  %.sroa.0122.0190 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %75, %82 ]
-  %94 = ptrtoint ptr %.0.i.i.i.i.i192 to i64
+._crit_edge.loopexit:                             ; preds = %82
+  %94 = ptrtoint ptr %.0.i.i.i.i.i.ph to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
+  %.0.i.i.i.i.i192 = phi i64 [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %94, %._crit_edge.loopexit ]
+  %.sroa.0122.0190 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %75, %._crit_edge.loopexit ]
   %95 = ptrtoint ptr %.sroa.0122.0190 to i64
-  %96 = sub i64 %94, %95
+  %96 = sub i64 %.0.i.i.i.i.i192, %95
   %97 = lshr exact i64 %96, 2
   %98 = trunc i64 %97 to i32
   %99 = load i32, ptr %4, align 8

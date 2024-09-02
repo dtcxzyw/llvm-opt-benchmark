@@ -239,7 +239,7 @@ _ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit6: ; preds = %_ZL23tsi_fake_fr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL20fake_handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr noundef writeonly %bytes_to_send, ptr noundef writeonly %bytes_to_send_size, ptr noundef writeonly %handshaker_result, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %error) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 9) i32 @_ZL20fake_handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr noundef writeonly %bytes_to_send, ptr noundef writeonly %bytes_to_send_size, ptr noundef writeonly %handshaker_result, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %error) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %consumed_bytes_size = alloca i64, align 8
   %cmp = icmp ne i64 %received_bytes_size, 0
@@ -934,7 +934,7 @@ declare void @_Z17tsi_peer_destructP8tsi_peer(ptr noundef) local_unnamed_addr #1
 declare noundef ptr @_Z28tsi_security_level_to_string18tsi_security_level(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL22fake_protector_protectP19tsi_frame_protectorPKhPmPhS3_(ptr nocapture noundef %self, ptr noundef %unprotected_bytes, ptr nocapture noundef %unprotected_bytes_size, ptr nocapture noundef writeonly %protected_output_frames, ptr nocapture noundef %protected_output_frames_size) #0 {
+define internal noundef range(i32 0, 8) i32 @_ZL22fake_protector_protectP19tsi_frame_protectorPKhPmPhS3_(ptr nocapture noundef %self, ptr noundef %unprotected_bytes, ptr nocapture noundef %unprotected_bytes_size, ptr nocapture noundef writeonly %protected_output_frames, ptr nocapture noundef %protected_output_frames_size) #0 {
 entry:
   %frame_header = alloca [4 x i8], align 1
   %written_in_frame_size = alloca i64, align 8
@@ -1155,7 +1155,7 @@ _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL24fake_protector_unprotectP19tsi_frame_protectorPKhPmPhS3_(ptr nocapture noundef %self, ptr noundef %protected_frames_bytes, ptr nocapture noundef %protected_frames_bytes_size, ptr nocapture noundef writeonly %unprotected_bytes, ptr nocapture noundef %unprotected_bytes_size) #0 {
+define internal noundef range(i32 0, 8) i32 @_ZL24fake_protector_unprotectP19tsi_frame_protectorPKhPmPhS3_(ptr nocapture noundef %self, ptr noundef %protected_frames_bytes, ptr nocapture noundef %protected_frames_bytes_size, ptr nocapture noundef writeonly %unprotected_bytes, ptr nocapture noundef %unprotected_bytes_size) #0 {
 entry:
   %unprotect_frame = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load i64, ptr %unprotected_bytes_size, align 8

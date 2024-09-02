@@ -977,8 +977,8 @@ pmix_obj_new_tma.exit283:                         ; preds = %.lr.ph.i.i280, %416
   br i1 %.not204, label %._crit_edge, label %36, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit, %444
-  %.0177.lcssa = phi i8 [ %.3180, %.loopexit ], [ %.0177367, %444 ]
-  %447 = trunc nuw i8 %.0177.lcssa to i1
+  %.0177.lcssa.ph = phi i8 [ %.3180, %.loopexit ], [ %.0177367, %444 ]
+  %447 = trunc nuw i8 %.0177.lcssa.ph to i1
   br i1 %447, label %.thread311, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader324, %._crit_edge

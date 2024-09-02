@@ -1450,23 +1450,23 @@ define internal fastcc void @_tree_view(ptr noundef %0) unnamed_addr #1 {
 200:                                              ; preds = %198, %.loopexit31
   %201 = phi ptr [ %195, %.loopexit31 ], [ %199, %198 ]
   %202 = icmp eq i32 %24, 17
-  br i1 %202, label %203, label %205
+  br i1 %202, label %203, label %206
 
 203:                                              ; preds = %200
   %204 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.94) #17
-  br label %205
+  %205 = icmp eq i32 %204, 0
+  br label %206
 
-205:                                              ; preds = %203, %200
-  %206 = phi i32 [ %204, %203 ], [ 1, %200 ]
-  %207 = icmp eq ptr %201, null
-  br i1 %207, label %208, label %210
+206:                                              ; preds = %203, %200
+  %207 = phi i1 [ %205, %203 ], [ false, %200 ]
+  %208 = icmp eq ptr %201, null
+  br i1 %208, label %209, label %211
 
-208:                                              ; preds = %205
-  %209 = add i32 %23, -16
+209:                                              ; preds = %206
+  %210 = add i32 %23, -16
   br label %.loopexit30
 
-210:                                              ; preds = %205
-  %211 = icmp eq i32 %206, 0
+211:                                              ; preds = %206
   %212 = icmp eq i32 %24, 1
   %213 = icmp eq i32 %24, 9
   %214 = add i32 %23, -16
@@ -1477,9 +1477,9 @@ define internal fastcc void @_tree_view(ptr noundef %0) unnamed_addr #1 {
   %219 = icmp ult i32 %218, 6
   br label %238
 
-.loopexit30:                                      ; preds = %428, %208
-  %220 = phi i32 [ %209, %208 ], [ %214, %428 ]
-  %221 = phi ptr [ null, %208 ], [ %431, %428 ]
+.loopexit30:                                      ; preds = %428, %209
+  %220 = phi i32 [ %210, %209 ], [ %214, %428 ]
+  %221 = phi ptr [ null, %209 ], [ %431, %428 ]
   call void @g_list_free_full(ptr noundef %201, ptr noundef nonnull @free_tuple) #17
   %222 = load ptr, ptr %60, align 8, !tbaa !37
   %223 = call ptr @g_type_check_instance_cast(ptr noundef %222, i64 noundef %62) #17
@@ -1512,11 +1512,11 @@ define internal fastcc void @_tree_view(ptr noundef %0) unnamed_addr #1 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   br label %435
 
-238:                                              ; preds = %428, %210
-  %239 = phi ptr [ null, %210 ], [ %431, %428 ]
-  %240 = phi i32 [ 0, %210 ], [ %430, %428 ]
-  %241 = phi i32 [ 0, %210 ], [ %429, %428 ]
-  %242 = phi ptr [ %201, %210 ], [ %433, %428 ]
+238:                                              ; preds = %428, %211
+  %239 = phi ptr [ null, %211 ], [ %431, %428 ]
+  %240 = phi i32 [ 0, %211 ], [ %430, %428 ]
+  %241 = phi i32 [ 0, %211 ], [ %429, %428 ]
+  %242 = phi ptr [ %201, %211 ], [ %433, %428 ]
   %243 = load ptr, ptr %242, align 8, !tbaa !67
   %244 = load ptr, ptr %243, align 8, !tbaa !62
   %245 = getelementptr inbounds i8, ptr %243, i64 16
@@ -1527,7 +1527,7 @@ define internal fastcc void @_tree_view(ptr noundef %0) unnamed_addr #1 {
   br i1 %249, label %428, label %250
 
 250:                                              ; preds = %238
-  br i1 %211, label %251, label %292
+  br i1 %207, label %251, label %292
 
 251:                                              ; preds = %250
   %252 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %244, i32 noundef 124) #20
@@ -5246,31 +5246,33 @@ define internal fastcc ptr @_create_filtered_model(ptr noundef %0, ptr %1) unnam
   %48 = load ptr, ptr %5, align 8, !tbaa !55
   %49 = call i32 @sqlite3_step(ptr noundef %48) #17
   %50 = icmp eq i32 %49, 100
-  br i1 %50, label %51, label %54
+  %51 = load ptr, ptr %5, align 8, !tbaa !55
+  br i1 %50, label %52, label %.critedge
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %5, align 8, !tbaa !55
-  %53 = call i32 @sqlite3_column_int(ptr noundef %52, i32 noundef 0) #17
-  br label %54
+52:                                               ; preds = %47
+  %53 = call i32 @sqlite3_column_int(ptr noundef %51, i32 noundef 0) #17
+  %54 = icmp eq i32 %53, -1
+  %55 = load ptr, ptr %5, align 8, !tbaa !55
+  %56 = call i32 @sqlite3_finalize(ptr noundef %55) #17
+  %57 = load ptr, ptr %6, align 8, !tbaa !55
+  call void @g_free(ptr noundef %57) #17
+  br i1 %54, label %63, label %58
 
-54:                                               ; preds = %51, %47
-  %55 = phi i32 [ %53, %51 ], [ -1, %47 ]
-  %56 = load ptr, ptr %5, align 8, !tbaa !55
-  %57 = call i32 @sqlite3_finalize(ptr noundef %56) #17
-  %58 = load ptr, ptr %6, align 8, !tbaa !55
-  call void @g_free(ptr noundef %58) #17
-  %59 = icmp eq i32 %55, -1
-  br i1 %59, label %63, label %60
-
-60:                                               ; preds = %54
-  %61 = call i32 @gtk_tree_model_iter_parent(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #17
-  %62 = icmp eq i32 %61, 0
+58:                                               ; preds = %52
+  %59 = call i32 @gtk_tree_model_iter_parent(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #17
+  %60 = icmp eq i32 %59, 0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  br i1 %62, label %79, label %.loopexit
+  br i1 %60, label %79, label %.loopexit
 
-63:                                               ; preds = %54
+.critedge:                                        ; preds = %47
+  %61 = call i32 @sqlite3_finalize(ptr noundef %51) #17
+  %62 = load ptr, ptr %6, align 8, !tbaa !55
+  call void @g_free(ptr noundef %62) #17
+  br label %63
+
+63:                                               ; preds = %.critedge, %52
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   %64 = call i32 @gtk_tree_model_iter_n_children(ptr noundef %0, ptr noundef nonnull %4) #17
@@ -5284,7 +5286,7 @@ define internal fastcc ptr @_create_filtered_model(ptr noundef %0, ptr %1) unnam
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %.preheader, label %.loopexit, !llvm.loop !116
 
-.loopexit:                                        ; preds = %63, %66, %60, %17
+.loopexit:                                        ; preds = %63, %66, %58, %17
   %70 = call i32 @gtk_tree_model_iter_n_children(ptr noundef %0, ptr noundef nonnull %4) #17
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %75
@@ -5302,8 +5304,8 @@ define internal fastcc ptr @_create_filtered_model(ptr noundef %0, ptr %1) unnam
   %78 = call ptr @gtk_tree_model_get_path(ptr noundef %0, ptr noundef nonnull %77) #17
   br label %79
 
-79:                                               ; preds = %76, %60, %14, %11
-  %80 = phi ptr [ null, %60 ], [ null, %11 ], [ null, %14 ], [ %78, %76 ]
+79:                                               ; preds = %76, %58, %14, %11
+  %80 = phi ptr [ null, %58 ], [ null, %11 ], [ null, %14 ], [ %78, %76 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
   br label %81
@@ -5985,27 +5987,21 @@ define internal noundef i32 @list_match_string(ptr noundef %0, ptr nocapture rea
 sub_0:                                            ; preds = %22
   %29 = load i8, ptr %27, align 1
   switch i8 %29, label %.tail20.thread [
-    i8 62, label %sub_1
+    i8 62, label %.tail
     i8 60, label %.tail11
   ]
 
-sub_1:                                            ; preds = %sub_0
+.tail:                                            ; preds = %sub_0
   %30 = getelementptr inbounds i8, ptr %27, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %33, label %sub_08
+  br i1 %32, label %33, label %sub_19
 
-33:                                               ; preds = %sub_1
+33:                                               ; preds = %.tail
   %34 = fcmp reassoc nsz arcp contract afn ogt float %26, %24
   br label %75
 
-sub_08:                                           ; preds = %sub_1
-  switch i8 %29, label %.tail20.thread [
-    i8 62, label %sub_19
-    i8 60, label %.tail11
-  ]
-
-sub_19:                                           ; preds = %sub_08
+sub_19:                                           ; preds = %.tail
   %35 = getelementptr inbounds i8, ptr %27, i64 1
   %36 = load i8, ptr %35, align 1
   %.not31 = icmp eq i8 %36, 61
@@ -6021,7 +6017,7 @@ sub_19:                                           ; preds = %sub_08
   %41 = fcmp reassoc nsz arcp contract afn oge float %26, %24
   br label %75
 
-.tail11:                                          ; preds = %sub_0, %sub_08
+.tail11:                                          ; preds = %sub_0
   %42 = getelementptr inbounds i8, ptr %27, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 0
@@ -6063,7 +6059,7 @@ sub_122:                                          ; preds = %.tail15, %sub_117
   %60 = fcmp reassoc nsz arcp contract afn une float %24, %26
   br label %75
 
-.tail20.thread:                                   ; preds = %sub_0, %sub_08, %sub_19, %.tail7, %sub_122
+.tail20.thread:                                   ; preds = %sub_0, %sub_19, %.tail7, %sub_122
   %61 = load ptr, ptr %9, align 8
   %62 = icmp ne ptr %61, null
   %.not37 = icmp eq i8 %29, 91

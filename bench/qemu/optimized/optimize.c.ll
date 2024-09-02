@@ -148,12 +148,15 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %i.0.in.i.i.i = getelementptr inbounds i8, ptr %call1.pn.i.i.i, i64 16
   %i.0.i.i.i = load ptr, ptr %i.0.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %i.0.i.i.i, %9
-  br i1 %cmp.not.i.i.i, label %find_better_copy.exit.i.i, label %for.body.i.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i.i, label %find_better_copy.exit.loopexit.i.i, label %for.body.i.i.i, !llvm.loop !7
 
-find_better_copy.exit.i.i:                        ; preds = %for.body.i.i.i, %if.then.i.i
-  %retval.0.i.i.i = phi ptr [ %9, %if.then.i.i ], [ %cond.i.i.i.i, %for.body.i.i.i ]
-  %16 = ptrtoint ptr %retval.0.i.i.i to i64
-  store i64 %16, ptr %arrayidx.i.i, align 8
+find_better_copy.exit.loopexit.i.i:               ; preds = %for.body.i.i.i
+  %16 = ptrtoint ptr %cond.i.i.i.i to i64
+  br label %find_better_copy.exit.i.i
+
+find_better_copy.exit.i.i:                        ; preds = %find_better_copy.exit.loopexit.i.i, %if.then.i.i
+  %retval.0.i.i.i = phi i64 [ %8, %if.then.i.i ], [ %16, %find_better_copy.exit.loopexit.i.i ]
+  store i64 %retval.0.i.i.i, ptr %arrayidx.i.i, align 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %find_better_copy.exit.i.i, %for.body.i.i
@@ -613,12 +616,15 @@ for.body.i.i74:                                   ; preds = %if.then.i72, %for.b
   %i.0.in.i.i = getelementptr inbounds i8, ptr %call1.pn.i.i, i64 16
   %i.0.i.i = load ptr, ptr %i.0.in.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %i.0.i.i, %73
-  br i1 %cmp.not.i.i, label %find_better_copy.exit.i, label %for.body.i.i74, !llvm.loop !7
+  br i1 %cmp.not.i.i, label %find_better_copy.exit.loopexit.i, label %for.body.i.i74, !llvm.loop !7
 
-find_better_copy.exit.i:                          ; preds = %for.body.i.i74, %if.then.i72
-  %retval.0.i.i = phi ptr [ %73, %if.then.i72 ], [ %cond.i.i.i, %for.body.i.i74 ]
-  %80 = ptrtoint ptr %retval.0.i.i to i64
-  store i64 %80, ptr %arrayidx.i71, align 8
+find_better_copy.exit.loopexit.i:                 ; preds = %for.body.i.i74
+  %80 = ptrtoint ptr %cond.i.i.i to i64
+  br label %find_better_copy.exit.i
+
+find_better_copy.exit.i:                          ; preds = %find_better_copy.exit.loopexit.i, %if.then.i72
+  %retval.0.i.i = phi i64 [ %72, %if.then.i72 ], [ %80, %find_better_copy.exit.loopexit.i ]
+  store i64 %retval.0.i.i, ptr %arrayidx.i71, align 8
   br label %for.inc.i78
 
 for.inc.i78:                                      ; preds = %find_better_copy.exit.i, %for.body.i69

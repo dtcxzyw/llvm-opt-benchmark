@@ -154,32 +154,28 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %.579 = phi i32 [ %.175126, %50 ], [ %52, %57 ]
   %62 = call i64 @SzArEx_GetFileNameUtf16(ptr noundef nonnull %5, i64 noundef %indvars.iv, ptr noundef %.585) #6
   %sext = shl i64 %51, 32
-  %.not166 = icmp eq i64 %sext, 0
-  br i1 %.not166, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %61
   %63 = ashr exact i64 %sext, 32
-  %umax = call i64 @llvm.umax.i64(i64 %63, i64 1)
-  br label %.lr.ph
+  %.not166 = icmp eq i64 %sext, 0
+  br i1 %.not166, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.063124 = phi i64 [ %68, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %61, %.lr.ph
+  %.063124 = phi i64 [ %68, %.lr.ph ], [ 0, %61 ]
   %64 = getelementptr inbounds i16, ptr %.585, i64 %.063124
   %65 = load i16, ptr %64, align 2
   %66 = trunc i16 %65 to i8
   %67 = getelementptr inbounds i8, ptr %.585, i64 %.063124
   store i8 %66, ptr %67, align 1
   %68 = add nuw i64 %.063124, 1
-  %exitcond.not = icmp eq i64 %68, %umax
+  %exitcond.not = icmp eq i64 %68, %63
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %48, %61
-  %.478175 = phi i32 [ %.579, %61 ], [ %.175126, %48 ], [ %.579, %.lr.ph ]
-  %.484174 = phi ptr [ %.585, %61 ], [ %.181125, %48 ], [ %.585, %.lr.ph ]
-  %.063.lcssa = phi i64 [ 0, %61 ], [ 0, %48 ], [ %umax, %.lr.ph ]
-  %69 = getelementptr inbounds i8, ptr %.484174, i64 %.063.lcssa
+  %.478174 = phi i32 [ %.579, %61 ], [ %.175126, %48 ], [ %.579, %.lr.ph ]
+  %.484173 = phi ptr [ %.585, %61 ], [ %.181125, %48 ], [ %.585, %.lr.ph ]
+  %.063.lcssa = phi i64 [ 0, %61 ], [ 0, %48 ], [ %63, %.lr.ph ]
+  %69 = getelementptr inbounds i8, ptr %.484173, i64 %.063.lcssa
   store i8 0, ptr %69, align 1
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef %.484174) #6
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef %.484173) #6
   %70 = trunc nuw i64 %indvars.iv to i32
   %71 = call i32 @SzArEx_Extract(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %70, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @allocImp, ptr noundef nonnull @allocTempImp) #6
   %72 = icmp eq i32 %71, 18
@@ -214,7 +210,7 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 87:                                               ; preds = %80, %84
   %88 = phi i32 [ %86, %84 ], [ 0, %80 ]
-  %89 = call i32 @cli_matchmeta(ptr noundef %0, ptr noundef nonnull %.484174, i64 noundef 0, i64 noundef %81, i32 noundef %.268, i32 noundef %70, i32 noundef %88) #6
+  %89 = call i32 @cli_matchmeta(ptr noundef %0, ptr noundef nonnull %.484173, i64 noundef 0, i64 noundef %81, i32 noundef %.268, i32 noundef %70, i32 noundef %88) #6
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %.loopexit, label %91
 
@@ -255,7 +251,7 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %109 = call i64 @cli_writen(i32 noundef %104, ptr noundef %107, i64 noundef %108) #6
   %110 = load i32, ptr %13, align 4
   %111 = load ptr, ptr %12, align 8
-  %112 = call i32 @cli_magic_scan_desc(i32 noundef %110, ptr noundef %111, ptr noundef nonnull %0, ptr noundef nonnull %.484174, i32 noundef 0) #6
+  %112 = call i32 @cli_magic_scan_desc(i32 noundef %110, ptr noundef %111, ptr noundef nonnull %0, ptr noundef nonnull %.484173, i32 noundef 0) #6
   %113 = load i32, ptr %13, align 4
   %114 = call i32 @close(i32 noundef %113) #6
   %115 = load ptr, ptr %36, align 8
@@ -282,8 +278,8 @@ select.unfold:                                    ; preds = %118, %102
   br i1 %.not114, label %123, label %.loopexit
 
 123:                                              ; preds = %92, %select.unfold, %98, %44, %41
-  %.383 = phi ptr [ %.181125, %41 ], [ %.181125, %44 ], [ %.484174, %92 ], [ %.484174, %98 ], [ %.484174, %select.unfold ]
-  %.377 = phi i32 [ %.175126, %41 ], [ %.175126, %44 ], [ %.478175, %92 ], [ %.478175, %98 ], [ %.478175, %select.unfold ]
+  %.383 = phi ptr [ %.181125, %41 ], [ %.181125, %44 ], [ %.484173, %92 ], [ %.484173, %98 ], [ %.484173, %select.unfold ]
+  %.377 = phi i32 [ %.175126, %41 ], [ %.175126, %44 ], [ %.478174, %92 ], [ %.478174, %98 ], [ %.478174, %select.unfold ]
   %.167 = phi i32 [ %.066128, %41 ], [ %.066128, %44 ], [ %.268, %92 ], [ %.268, %98 ], [ %.268, %select.unfold ]
   %.3 = phi i32 [ %.1129, %41 ], [ %.1129, %44 ], [ %71, %92 ], [ 0, %98 ], [ 0, %select.unfold ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -298,8 +294,8 @@ select.unfold:                                    ; preds = %118, %102
   br label %131
 
 .loopexit:                                        ; preds = %87, %57, %select.unfold, %99, %78, %37, %123, %29, %.thread
-  %.282 = phi ptr [ %.484174, %.thread ], [ %6, %29 ], [ %.383, %123 ], [ %.181125, %37 ], [ %.484174, %78 ], [ %.484174, %99 ], [ %.484174, %select.unfold ], [ null, %57 ], [ %.484174, %87 ]
-  %.276 = phi i32 [ %.478175, %.thread ], [ 256, %29 ], [ %.377, %123 ], [ %.175126, %37 ], [ %.478175, %78 ], [ %.478175, %99 ], [ %.478175, %select.unfold ], [ %.175126, %57 ], [ %.478175, %87 ]
+  %.282 = phi ptr [ %.484173, %.thread ], [ %6, %29 ], [ %.383, %123 ], [ %.181125, %37 ], [ %.484173, %78 ], [ %.484173, %99 ], [ %.484173, %select.unfold ], [ null, %57 ], [ %.484173, %87 ]
+  %.276 = phi i32 [ %.478174, %.thread ], [ 256, %29 ], [ %.377, %123 ], [ %.175126, %37 ], [ %.478174, %78 ], [ %.478174, %99 ], [ %.478174, %select.unfold ], [ %.175126, %57 ], [ %.478174, %87 ]
   %.272 = phi i32 [ 10, %.thread ], [ 0, %29 ], [ 0, %123 ], [ %40, %37 ], [ %79, %78 ], [ %101, %99 ], [ %112, %select.unfold ], [ 20, %57 ], [ 1, %87 ]
   %.2 = phi i32 [ 0, %.thread ], [ 0, %29 ], [ %.3, %123 ], [ %.1129, %37 ], [ 18, %78 ], [ 0, %99 ], [ 0, %select.unfold ], [ %.1129, %57 ], [ %71, %87 ]
   %127 = load ptr, ptr getelementptr inbounds (i8, ptr @allocImp, i64 8), align 8
@@ -494,9 +490,6 @@ declare void @__lzma_wrap_free(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

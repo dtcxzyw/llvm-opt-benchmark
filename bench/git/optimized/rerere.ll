@@ -1747,6 +1747,11 @@ if.then7:                                         ; preds = %if.end
   call void (ptr, ...) @die_errno(ptr noundef %call8) #15
   unreachable
 
+while.cond.critedge:                              ; preds = %while.body
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  br label %while.cond.backedge
+
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %call1033 = phi ptr [ %call1031, %while.body.lr.ph ], [ %call10, %while.cond.backedge ]
   %d_name = getelementptr inbounds i8, ptr %call1033, i64 19
@@ -1754,14 +1759,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
   %call.i10 = call i32 @parse_oid_hex(ptr noundef nonnull %d_name, ptr noundef nonnull %oid.i, ptr noundef nonnull %end.i) #14
   %tobool.not.i = icmp eq i32 %call.i10, 0
-  br i1 %tobool.not.i, label %is_rr_cache_dirname.exit, label %is_rr_cache_dirname.exit.thread
+  br i1 %tobool.not.i, label %land.rhs.i, label %while.cond.critedge
 
-is_rr_cache_dirname.exit.thread:                  ; preds = %while.body
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
-  br label %while.cond.backedge
-
-is_rr_cache_dirname.exit:                         ; preds = %while.body
+land.rhs.i:                                       ; preds = %while.body
   %2 = load ptr, ptr %end.i, align 8
   %3 = load i8, ptr %2, align 1
   %tobool1.not.i.not = icmp eq i8 %3, 0
@@ -1769,7 +1769,7 @@ is_rr_cache_dirname.exit:                         ; preds = %while.body
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   br i1 %tobool1.not.i.not, label %if.end15, label %while.cond.backedge
 
-if.end15:                                         ; preds = %is_rr_cache_dirname.exit
+if.end15:                                         ; preds = %land.rhs.i
   %call18 = call fastcc ptr @find_rerere_dir(ptr noundef nonnull %d_name)
   %status_nr = getelementptr inbounds i8, ptr %call18, i64 4
   %4 = load i32, ptr %status_nr, align 4
@@ -1882,14 +1882,14 @@ prune_one.exit:                                   ; preds = %rerere_created_at.e
   br i1 %cmp21, label %for.body, label %for.end, !llvm.loop !20
 
 for.end:                                          ; preds = %prune_one.exit
-  %tobool28.not = icmp eq i32 %spec.select, 0
-  br i1 %tobool28.not, label %while.cond.backedge, label %if.then29
+  %18 = icmp eq i32 %spec.select, 0
+  br i1 %18, label %while.cond.backedge, label %if.then29
 
 if.then29:                                        ; preds = %if.end15, %for.end
   %call32 = call ptr @string_list_append(ptr noundef nonnull %to_remove, ptr noundef nonnull %d_name) #14
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %is_rr_cache_dirname.exit.thread, %for.end, %if.then29, %is_rr_cache_dirname.exit
+while.cond.backedge:                              ; preds = %for.end, %if.then29, %land.rhs.i, %while.cond.critedge
   %call10 = call ptr @readdir_skip_dot_and_dotdot(ptr noundef nonnull %call6) #14
   %tobool11.not = icmp eq ptr %call10, null
   br i1 %tobool11.not, label %while.end, label %while.body, !llvm.loop !21
@@ -1897,20 +1897,20 @@ while.cond.backedge:                              ; preds = %is_rr_cache_dirname
 while.end:                                        ; preds = %while.cond.backedge, %while.cond.preheader
   %call34 = call i32 @closedir(ptr noundef nonnull %call6)
   %nr = getelementptr inbounds i8, ptr %to_remove, i64 8
-  %18 = load i64, ptr %nr, align 8
-  %cmp3634.not = icmp eq i64 %18, 0
+  %19 = load i64, ptr %nr, align 8
+  %cmp3634.not = icmp eq i64 %19, 0
   br i1 %cmp3634.not, label %for.end45, label %for.body38
 
 for.body38:                                       ; preds = %while.end, %for.body38
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %for.body38 ], [ 0, %while.end ]
-  %19 = load ptr, ptr %to_remove, align 8
-  %arrayidx40 = getelementptr inbounds %struct.string_list_item, ptr %19, i64 %indvars.iv38
-  %20 = load ptr, ptr %arrayidx40, align 8
-  %call41 = call ptr (ptr, ...) @git_path(ptr noundef nonnull @.str, ptr noundef %20) #14
+  %20 = load ptr, ptr %to_remove, align 8
+  %arrayidx40 = getelementptr inbounds %struct.string_list_item, ptr %20, i64 %indvars.iv38
+  %21 = load ptr, ptr %arrayidx40, align 8
+  %call41 = call ptr (ptr, ...) @git_path(ptr noundef nonnull @.str, ptr noundef %21) #14
   %call42 = call i32 @lstat_cache_aware_rmdir(ptr noundef %call41) #14
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %21 = load i64, ptr %nr, align 8
-  %cmp36 = icmp ugt i64 %21, %indvars.iv.next39
+  %22 = load i64, ptr %nr, align 8
+  %cmp36 = icmp ugt i64 %22, %indvars.iv.next39
   br i1 %cmp36, label %for.body38, label %for.end45, !llvm.loop !22
 
 for.end45:                                        ; preds = %for.body38, %while.end

@@ -23,110 +23,101 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef re
   %6 = zext nneg i32 %0 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
-  %.02235 = phi i32 [ 1, %.lr.ph.preheader ], [ %.2, %42 ]
-  %.02334 = phi i32 [ 0, %.lr.ph.preheader ], [ %.124, %42 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %36
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
+  %.02235 = phi i32 [ 1, %.lr.ph.preheader ], [ %.2, %36 ]
+  %.02334 = phi i32 [ 0, %.lr.ph.preheader ], [ %.124, %36 ]
   %7 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str) #6
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %42, label %10
+  br i1 %.not, label %36, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(6) @.str.1) #6
   %.not28 = icmp eq i32 %11, 0
-  br i1 %.not28, label %23, label %sub_0
+  br i1 %.not28, label %18, label %sub_0
 
 sub_0:                                            ; preds = %10
   %12 = load i8, ptr %8, align 1
-  %13 = zext i8 %12 to i32
-  %14 = add nsw i32 %13, -45
-  %.not39 = icmp eq i32 %14, 0
-  br i1 %.not39, label %sub_1, label %.tail
+  %.not39 = icmp eq i8 %12, 45
+  br i1 %.not39, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %15 = getelementptr inbounds i8, ptr %8, i64 1
+  %13 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = load i8, ptr %13, align 1
+  %.not40 = icmp eq i8 %14, 104
+  br i1 %.not40, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %15 = getelementptr inbounds i8, ptr %8, i64 2
   %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  %18 = add nsw i32 %17, -104
-  %.not40 = icmp eq i32 %18, 0
-  br i1 %.not40, label %sub_2, label %.tail
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %18, label %.tail.thread
 
-sub_2:                                            ; preds = %sub_1
-  %19 = getelementptr inbounds i8, ptr %8, i64 2
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  br label %.tail
-
-.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
-  %22 = phi i32 [ %14, %sub_0 ], [ %18, %sub_1 ], [ %21, %sub_2 ]
-  %.not29 = icmp eq i32 %22, 0
-  br i1 %.not29, label %23, label %24
-
-23:                                               ; preds = %.tail, %10
+18:                                               ; preds = %.tail, %10
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %._crit_edge
 
-24:                                               ; preds = %.tail
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   store ptr null, ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %25 = call i32 @ImgIoUtilReadFile(ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
-  %.not30 = icmp eq i32 %25, 0
-  br i1 %.not30, label %._crit_edge.loopexit, label %26
+  %19 = call i32 @ImgIoUtilReadFile(ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
+  %.not30 = icmp eq i32 %19, 0
+  br i1 %.not30, label %._crit_edge.loopexit, label %20
 
-26:                                               ; preds = %24
-  %27 = load ptr, ptr %3, align 8
-  %28 = load i64, ptr %4, align 8
-  %29 = call i32 @VP8EstimateQuality(ptr noundef %27, i64 noundef %28) #7
+20:                                               ; preds = %.tail.thread
+  %21 = load ptr, ptr %3, align 8
+  %22 = load i64, ptr %4, align 8
+  %23 = call i32 @VP8EstimateQuality(ptr noundef %21, i64 noundef %22) #7
   %.not32 = icmp eq i32 %.02334, 0
-  br i1 %.not32, label %30, label %.thread
+  br i1 %.not32, label %24, label %.thread
 
-30:                                               ; preds = %26
-  %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %8)
-  %32 = icmp slt i32 %29, 0
-  br i1 %32, label %34, label %37
+24:                                               ; preds = %20
+  %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %8)
+  %26 = icmp slt i32 %23, 0
+  br i1 %26, label %28, label %31
 
-.thread:                                          ; preds = %26
-  %33 = icmp slt i32 %29, 0
-  br i1 %33, label %34, label %.thread33
+.thread:                                          ; preds = %20
+  %27 = icmp slt i32 %23, 0
+  br i1 %27, label %28, label %.thread33
 
-34:                                               ; preds = %.thread, %30
-  %35 = load ptr, ptr @stderr, align 8
-  %36 = call i64 @fwrite(ptr nonnull @.str.5, i64 43, i64 1, ptr %35) #8
-  br label %40
+28:                                               ; preds = %.thread, %24
+  %29 = load ptr, ptr @stderr, align 8
+  %30 = call i64 @fwrite(ptr nonnull @.str.5, i64 43, i64 1, ptr %29) #8
+  br label %34
 
-37:                                               ; preds = %30
-  %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %29)
-  br label %40
+31:                                               ; preds = %24
+  %32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %23)
+  br label %34
 
 .thread33:                                        ; preds = %.thread
-  %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %29)
-  br label %40
+  %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %23)
+  br label %34
 
-40:                                               ; preds = %37, %.thread33, %34
-  %.1 = phi i32 [ 0, %34 ], [ %25, %.thread33 ], [ %25, %37 ]
-  %41 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %41) #7
-  br label %42
+34:                                               ; preds = %31, %.thread33, %28
+  %.1 = phi i32 [ 0, %28 ], [ %19, %.thread33 ], [ %19, %31 ]
+  %35 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %35) #7
+  br label %36
 
-42:                                               ; preds = %.lr.ph, %40
-  %.124 = phi i32 [ %.02334, %40 ], [ 1, %.lr.ph ]
-  %.2 = phi i32 [ %.1, %40 ], [ %.02235, %.lr.ph ]
+36:                                               ; preds = %.lr.ph, %34
+  %.124 = phi i32 [ %.02334, %34 ], [ 1, %.lr.ph ]
+  %.2 = phi i32 [ %.1, %34 ], [ %.02235, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = icmp ne i32 %.2, 0
-  %44 = icmp ult i64 %indvars.iv.next, %6
-  %45 = select i1 %43, i1 %44, i1 false
-  br i1 %45, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !5
+  %37 = icmp ne i32 %.2, 0
+  %38 = icmp ult i64 %indvars.iv.next, %6
+  %39 = select i1 %37, i1 %38, i1 false
+  br i1 %39, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !5
 
-._crit_edge.loopexit:                             ; preds = %42, %24
-  %.3.ph = phi i32 [ 0, %24 ], [ %.2, %42 ]
-  %46 = icmp eq i32 %.3.ph, 0
-  %47 = zext i1 %46 to i32
+._crit_edge.loopexit:                             ; preds = %36, %.tail.thread
+  %.3.ph = phi i32 [ 0, %.tail.thread ], [ %.2, %36 ]
+  %40 = icmp eq i32 %.3.ph, 0
+  %41 = zext i1 %40 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %2, %._crit_edge.loopexit, %23
-  %.0 = phi i32 [ 0, %23 ], [ 0, %2 ], [ %47, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %2, %._crit_edge.loopexit, %18
+  %.0 = phi i32 [ 0, %18 ], [ 0, %2 ], [ %41, %._crit_edge.loopexit ]
   ret i32 %.0
 }
 

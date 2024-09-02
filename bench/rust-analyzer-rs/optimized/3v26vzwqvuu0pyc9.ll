@@ -3698,9 +3698,9 @@ define { ptr, i64 } @"_ZN73_$LT$base_db..FileTextQuery$u20$as$u20$salsa..plumbin
   %42 = and i8 %40, 15
   %43 = icmp ne i8 %42, 15
   %44 = icmp ult i8 %40, -16
-  %.0142.not.i.i.i.i = and i1 %44, %43
+  %.0142.i.i.i.i = and i1 %44, %43
   %45 = icmp ule ptr %41, %34
-  %or.cond.i.i.i.i = select i1 %.0142.not.i.i.i.i, i1 %45, i1 false
+  %or.cond.i.i.i.i = select i1 %.0142.i.i.i.i, i1 %45, i1 false
   %46 = icmp ult ptr %.017.i.i.i.i, %36
   %or.cond5.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 %46, i1 false
   br i1 %or.cond5.i.i.i.i, label %165, label %47

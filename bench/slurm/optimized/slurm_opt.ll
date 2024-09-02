@@ -3935,13 +3935,13 @@ _validate_threads_per_core_option.exit:           ; preds = %409
 489:                                              ; preds = %485
   %490 = getelementptr inbounds i8, ptr %486, i64 1
   %491 = load i8, ptr %490, align 1
-  %492 = xor i8 %491, 1
-  %493 = zext i8 %492 to i32
+  %492 = and i8 %491, 1
+  %493 = xor i8 %492, 1
+  %494 = zext nneg i8 %493 to i32
   br label %slurm_option_set_by_cli.exit.i38
 
 slurm_option_set_by_cli.exit.i38:                 ; preds = %476, %489, %485, %482
-  %.012.i.i39 = phi i32 [ 0, %482 ], [ 0, %485 ], [ %493, %489 ], [ 0, %476 ]
-  %494 = and i32 %.012.i.i39, 1
+  %.012.i.i39 = phi i32 [ 0, %482 ], [ 0, %485 ], [ %494, %489 ], [ 0, %476 ]
   br label %.preheader.i20.i40
 
 slurm_option_set_by_cli.exit.thread.i66:          ; preds = %475, %472
@@ -3982,14 +3982,14 @@ slurm_option_set_by_cli.exit.thread.i66:          ; preds = %475, %472
 511:                                              ; preds = %507
   %512 = getelementptr inbounds i8, ptr %508, i64 1
   %513 = load i8, ptr %512, align 1
-  %514 = xor i8 %513, 1
-  %515 = zext i8 %514 to i32
+  %514 = and i8 %513, 1
+  %515 = xor i8 %514, 1
+  %516 = zext nneg i8 %515 to i32
   br label %slurm_option_set_by_cli.exit26.i44
 
 slurm_option_set_by_cli.exit26.i44:               ; preds = %498, %511, %507, %504
-  %.012.i24.i = phi i32 [ 0, %504 ], [ 0, %507 ], [ %515, %511 ], [ 0, %498 ]
-  %516 = and i32 %.012.i24.i, 1
-  %517 = add nuw nsw i32 %516, %494
+  %.012.i24.i = phi i32 [ 0, %504 ], [ 0, %507 ], [ %516, %511 ], [ 0, %498 ]
+  %517 = add nuw nsw i32 %.012.i24.i, %.012.i.i39
   br label %.preheader.i28.i45
 
 slurm_option_set_by_cli.exit26.thread.i67:        ; preds = %497, %slurm_option_set_by_cli.exit.thread.i66
@@ -4030,15 +4030,15 @@ slurm_option_set_by_cli.exit26.thread.i67:        ; preds = %497, %slurm_option_
 534:                                              ; preds = %530
   %535 = getelementptr inbounds i8, ptr %531, i64 1
   %536 = load i8, ptr %535, align 1
-  %537 = xor i8 %536, 1
-  %538 = zext i8 %537 to i32
+  %537 = and i8 %536, 1
+  %538 = xor i8 %537, 1
+  %539 = zext nneg i8 %538 to i32
   br label %slurm_option_set_by_cli.exit34.i
 
 slurm_option_set_by_cli.exit34.i:                 ; preds = %521, %534, %530, %527, %520, %slurm_option_set_by_cli.exit26.thread.i67
-  %539 = phi i32 [ 0, %520 ], [ 0, %slurm_option_set_by_cli.exit26.thread.i67 ], [ %517, %527 ], [ %517, %530 ], [ %517, %534 ], [ %517, %521 ]
-  %.012.i32.i = phi i32 [ 0, %520 ], [ 0, %slurm_option_set_by_cli.exit26.thread.i67 ], [ 0, %527 ], [ 0, %530 ], [ %538, %534 ], [ 0, %521 ]
-  %540 = and i32 %.012.i32.i, 1
-  %541 = add nuw nsw i32 %540, %539
+  %540 = phi i32 [ 0, %520 ], [ 0, %slurm_option_set_by_cli.exit26.thread.i67 ], [ %517, %527 ], [ %517, %530 ], [ %517, %534 ], [ %517, %521 ]
+  %.012.i32.i = phi i32 [ 0, %520 ], [ 0, %slurm_option_set_by_cli.exit26.thread.i67 ], [ 0, %527 ], [ 0, %530 ], [ %539, %534 ], [ 0, %521 ]
+  %541 = add nuw nsw i32 %.012.i32.i, %540
   %542 = icmp ugt i32 %541, 1
   br i1 %542, label %543, label %544
 
@@ -5186,7 +5186,7 @@ _validate_cpus_per_task.exit.i:                   ; preds = %998, %1010, %1026, 
 1034:                                             ; preds = %.backedge.i.i, %.lr.ph.i.i
   %1035 = load ptr, ptr %1033, align 8
   %.not.i48.i = icmp eq ptr %1035, null
-  br i1 %.not.i48.i, label %1039, label %1036
+  br i1 %.not.i48.i, label %1041, label %1036
 
 1036:                                             ; preds = %1034
   %1037 = load ptr, ptr %8, align 8
@@ -5196,19 +5196,19 @@ _validate_cpus_per_task.exit.i:                   ; preds = %998, %1010, %1026, 
 
 ._crit_edge7.i.i:                                 ; preds = %1036
   %.pre.i.i = load ptr, ptr %1033, align 8
-  br label %1039
+  %1039 = icmp eq ptr %.pre.i.i, null
+  %1040 = select i1 %1039, ptr @.str.297, ptr @.str.6
+  br label %1041
 
-1039:                                             ; preds = %._crit_edge7.i.i, %1034
-  %1040 = phi ptr [ %.pre.i.i, %._crit_edge7.i.i ], [ null, %1034 ]
-  %.not6.i.i = icmp eq ptr %1040, null
-  %1041 = select i1 %.not6.i.i, ptr @.str.297, ptr @.str.6
+1041:                                             ; preds = %._crit_edge7.i.i, %1034
+  %.not6.i.i = phi ptr [ %1040, %._crit_edge7.i.i ], [ @.str.297, %1034 ]
   %1042 = load ptr, ptr %11, align 8
   %1043 = load ptr, ptr %8, align 8
   %1044 = load i64, ptr %12, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1033, ptr noundef nonnull @.str.430, ptr noundef nonnull %1041, ptr noundef %1042, ptr noundef %1043, i64 noundef %1044) #23
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1033, ptr noundef nonnull @.str.430, ptr noundef nonnull %.not6.i.i, ptr noundef %1042, ptr noundef %1043, i64 noundef %1044) #23
   br label %.backedge.i.i
 
-.backedge.i.i:                                    ; preds = %1039, %1036
+.backedge.i.i:                                    ; preds = %1041, %1036
   %1045 = load ptr, ptr %811, align 8
   %1046 = call i32 @slurm_get_next_tres(ptr noundef nonnull %11, ptr noundef %1045, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %10) #23
   %1047 = icmp eq i32 %1046, 0
@@ -7201,8 +7201,8 @@ define void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_u
   %12 = sext i8 %8 to i64
   %13 = getelementptr inbounds i16, ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2
-  %.fr65 = freeze i16 %14
-  %15 = and i16 %.fr65, 1024
+  %.fr54 = freeze i16 %14
+  %15 = and i16 %.fr54, 1024
   %16 = icmp eq i16 %15, 0
   br label %17
 
@@ -7218,8 +7218,8 @@ define void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_u
   %23 = sext i8 %8 to i64
   %24 = getelementptr inbounds i16, ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2
-  %.fr66 = freeze i16 %25
-  %26 = and i16 %.fr66, 1024
+  %.fr53 = freeze i16 %25
+  %26 = and i16 %.fr53, 1024
   %27 = icmp eq i16 %26, 0
   br i1 %27, label %.split.us, label %.split.preheader
 
@@ -7254,7 +7254,7 @@ define void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_u
 
 .critedge.us:                                     ; preds = %.critedge.us.preheader, %.split.us.split
   %36 = phi i32 [ %52, %.split.us.split ], [ %34, %.critedge.us.preheader ]
-  %indvars.iv5675 = phi i64 [ %indvars.iv.next57, %.split.us.split ], [ 0, %.critedge.us.preheader ]
+  %indvars.iv5875 = phi i64 [ %indvars.iv.next59, %.split.us.split ], [ 0, %.critedge.us.preheader ]
   %37 = load ptr, ptr %35, align 8
   %38 = sext i32 %36 to i64
   %39 = getelementptr inbounds i16, ptr %37, i64 %38
@@ -7282,8 +7282,8 @@ define void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_u
   br label %.split.us.split
 
 .split.us.split:                                  ; preds = %48, %.critedge.us
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv5675, 1
-  %49 = getelementptr inbounds %struct.option, ptr %0, i64 %indvars.iv.next57
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv5875, 1
+  %49 = getelementptr inbounds %struct.option, ptr %0, i64 %indvars.iv.next59
   %50 = load ptr, ptr %49, align 8
   %.not.us = icmp eq ptr %50, null
   %51 = getelementptr inbounds i8, ptr %49, i64 24
@@ -7322,11 +7322,11 @@ define void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_u
 
 67:                                               ; preds = %65, %61
   call void @slurm_xfree(ptr noundef nonnull %4) #23
-  %.pre62 = load ptr, ptr %55, align 8
+  %.pre64 = load ptr, ptr %55, align 8
   br label %68
 
 68:                                               ; preds = %.critedge, %67
-  %69 = phi ptr [ %54, %.critedge ], [ %.pre62, %67 ]
+  %69 = phi ptr [ %54, %.critedge ], [ %.pre64, %67 ]
   %.not43 = icmp eq ptr %69, null
   br i1 %.not43, label %.split, label %70
 

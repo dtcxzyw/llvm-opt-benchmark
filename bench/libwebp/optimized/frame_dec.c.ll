@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8InitDithering(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %40, label %3
+  br i1 %.not, label %39, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 44
@@ -65,9 +65,9 @@ define hidden void @VP8InitDithering(ptr noundef readonly %0, ptr noundef %1) lo
   %13 = getelementptr inbounds i8, ptr %1, i64 1060
   br label %14
 
-14:                                               ; preds = %.preheader, %27
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %27 ]
-  %.02635 = phi i32 [ 0, %.preheader ], [ %29, %27 ]
+14:                                               ; preds = %.preheader, %26
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %26 ]
+  %.02635 = phi i32 [ 0, %.preheader ], [ %28, %26 ]
   %15 = getelementptr inbounds [4 x %struct.VP8QuantMatrix], ptr %13, i64 0, i64 %indvars.iv
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 4
@@ -77,56 +77,56 @@ define hidden void @VP8InitDithering(ptr noundef readonly %0, ptr noundef %1) lo
 ._crit_edge:                                      ; preds = %14
   %.phi.trans.insert = getelementptr inbounds i8, ptr %15, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %27
+  br label %26
 
 19:                                               ; preds = %14
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
-  %20 = zext nneg i32 %spec.select to i64
-  %21 = getelementptr inbounds [12 x i8], ptr @kQuantToDitherAmp, i64 0, i64 %20
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = mul nuw nsw i32 %12, %23
-  %25 = lshr i32 %24, 3
-  %26 = getelementptr inbounds i8, ptr %15, i64 28
-  store i32 %25, ptr %26, align 4
-  br label %27
+  %narrow = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
+  %spec.select = zext nneg i32 %narrow to i64
+  %20 = getelementptr inbounds [12 x i8], ptr @kQuantToDitherAmp, i64 0, i64 %spec.select
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i32
+  %23 = mul nuw nsw i32 %12, %22
+  %24 = lshr i32 %23, 3
+  %25 = getelementptr inbounds i8, ptr %15, i64 28
+  store i32 %24, ptr %25, align 4
+  br label %26
 
-27:                                               ; preds = %._crit_edge, %19
-  %28 = phi i32 [ %.pre, %._crit_edge ], [ %25, %19 ]
-  %29 = or i32 %28, %.02635
+26:                                               ; preds = %._crit_edge, %19
+  %27 = phi i32 [ %.pre, %._crit_edge ], [ %24, %19 ]
+  %28 = or i32 %27, %.02635
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %30, label %14, !llvm.loop !4
+  br i1 %exitcond.not, label %29, label %14, !llvm.loop !4
 
-30:                                               ; preds = %27
-  %.not33 = icmp eq i32 %29, 0
-  br i1 %.not33, label %.thread, label %31
+29:                                               ; preds = %26
+  %.not33 = icmp eq i32 %28, 0
+  br i1 %.not33, label %.thread, label %30
 
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %1, i64 828
-  tail call void @VP8InitRandom(ptr noundef nonnull %32, float noundef 1.000000e+00) #7
-  %33 = getelementptr inbounds i8, ptr %1, i64 824
-  store i32 1, ptr %33, align 8
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds i8, ptr %1, i64 828
+  tail call void @VP8InitRandom(ptr noundef nonnull %31, float noundef 1.000000e+00) #7
+  %32 = getelementptr inbounds i8, ptr %1, i64 824
+  store i32 1, ptr %32, align 8
   br label %.thread
 
-.thread:                                          ; preds = %3, %30, %31, %9
-  %34 = getelementptr inbounds i8, ptr %0, i64 52
-  %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 3016
-  store i32 %35, ptr %36, align 8
-  %37 = icmp sgt i32 %35, 100
-  br i1 %37, label %.sink.split, label %38
+.thread:                                          ; preds = %3, %29, %30, %9
+  %33 = getelementptr inbounds i8, ptr %0, i64 52
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds i8, ptr %1, i64 3016
+  store i32 %34, ptr %35, align 8
+  %36 = icmp sgt i32 %34, 100
+  br i1 %36, label %.sink.split, label %37
 
-38:                                               ; preds = %.thread
-  %39 = icmp slt i32 %35, 0
-  br i1 %39, label %.sink.split, label %40
+37:                                               ; preds = %.thread
+  %38 = icmp slt i32 %34, 0
+  br i1 %38, label %.sink.split, label %39
 
-.sink.split:                                      ; preds = %38, %.thread
-  %.sink = phi i32 [ 100, %.thread ], [ 0, %38 ]
-  store i32 %.sink, ptr %36, align 8
-  br label %40
+.sink.split:                                      ; preds = %37, %.thread
+  %.sink = phi i32 [ 100, %.thread ], [ 0, %37 ]
+  store i32 %.sink, ptr %35, align 8
+  br label %39
 
-40:                                               ; preds = %.sink.split, %38, %2
+39:                                               ; preds = %.sink.split, %37, %2
   ret void
 }
 

@@ -1676,29 +1676,22 @@ if.then40:                                        ; preds = %while.end
 if.end41:                                         ; preds = %if.then40, %while.end
   %14 = phi i8 [ %.pre192, %if.then40 ], [ %13, %while.end ]
   %15 = phi ptr [ %.pre, %if.then40 ], [ %.lcssa, %while.end ]
-  %16 = zext i8 %14 to i32
-  %17 = add nsw i32 %16, -46
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %sub_1, label %if.end41.tail
+  switch i8 %14, label %if.end72 [
+    i8 46, label %sub_1
+    i8 0, label %if.then68
+  ]
 
 sub_1:                                            ; preds = %if.end41
-  %18 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %17 = load i8, ptr %16, align 1
+  %.not146 = icmp eq i8 %17, 46
+  br i1 %.not146, label %if.end41.tail, label %if.end72
+
+if.end41.tail:                                    ; preds = %sub_1
+  %18 = getelementptr inbounds i8, ptr %15, i64 2
   %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  %21 = add nsw i32 %20, -46
-  %.not146 = icmp eq i32 %21, 0
-  br i1 %.not146, label %sub_2, label %if.end41.tail
-
-sub_2:                                            ; preds = %sub_1
-  %22 = getelementptr inbounds i8, ptr %15, i64 2
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  br label %if.end41.tail
-
-if.end41.tail:                                    ; preds = %if.end41, %sub_1, %sub_2
-  %25 = phi i32 [ %17, %if.end41 ], [ %21, %sub_1 ], [ %24, %sub_2 ]
-  %tobool44.not = icmp eq i32 %25, 0
-  br i1 %tobool44.not, label %if.then45, label %if.end62
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %if.then45, label %if.end72
 
 if.then45:                                        ; preds = %if.end41.tail
   %cmp46 = icmp eq i64 %parents_nr.1, 1
@@ -1713,40 +1706,40 @@ if.then50:                                        ; preds = %if.then48
   br label %done.thread
 
 done.thread:                                      ; preds = %if.then48, %if.then50
-  %26 = phi ptr [ %.pre193, %if.then50 ], [ %15, %if.then48 ]
-  %27 = load i64, ptr %len128, align 8
-  call void @strbuf_add(ptr noundef %result_path, ptr noundef %26, i64 noundef %27) #14
+  %21 = phi ptr [ %.pre193, %if.then50 ], [ %15, %if.then48 ]
+  %22 = load i64, ptr %len128, align 8
+  call void @strbuf_add(ptr noundef %result_path, ptr noundef %21, i64 noundef %22) #14
   store i16 0, ptr %mode, align 2
   br label %for.body.preheader
 
 if.end53:                                         ; preds = %if.then45
   %sub = add i64 %parents_nr.1, -1
   %arrayidx54 = getelementptr inbounds %struct.dir_state, ptr %parents.1, i64 %sub
-  %28 = load ptr, ptr %arrayidx54, align 8
-  call void @free(ptr noundef %28) #14
+  %23 = load ptr, ptr %arrayidx54, align 8
+  call void @free(ptr noundef %23) #14
   %sub56 = add i64 %parents_nr.1, -2
   %arrayidx57 = getelementptr inbounds %struct.dir_state, ptr %parents.1, i64 %sub56
-  %29 = load ptr, ptr %arrayidx57, align 8
+  %24 = load ptr, ptr %arrayidx57, align 8
   %size59 = getelementptr inbounds i8, ptr %arrayidx57, i64 8
-  %30 = load i64, ptr %size59, align 8
+  %25 = load i64, ptr %size59, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %err.i67)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err.i67, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_tree_entry_follow_symlinks.namebuf, i64 24, i1 false)
-  store ptr %29, ptr %t, align 8
-  %conv.i.i68 = trunc i64 %30 to i32
+  store ptr %24, ptr %t, align 8
+  %conv.i.i68 = trunc i64 %25 to i32
   store i32 %conv.i.i68, ptr %size2.i.i, align 8
   store i32 0, ptr %flags3.i.i, align 4
-  %tobool.not.i.i71 = icmp eq i64 %30, 0
+  %tobool.not.i.i71 = icmp eq i64 %25, 0
   br i1 %tobool.not.i.i71, label %init_tree_desc.exit77, label %init_tree_desc_internal.exit.i72
 
 init_tree_desc_internal.exit.i72:                 ; preds = %if.end53
-  %call.i.i73 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %t, ptr noundef %29, i64 noundef %30, ptr noundef nonnull %err.i67)
+  %call.i.i73 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %t, ptr noundef %24, i64 noundef %25, ptr noundef nonnull %err.i67)
   %tobool.not.i74 = icmp eq i32 %call.i.i73, 0
   br i1 %tobool.not.i74, label %init_tree_desc.exit77, label %if.then.i75
 
 if.then.i75:                                      ; preds = %init_tree_desc_internal.exit.i72
   %buf.i76 = getelementptr inbounds i8, ptr %err.i67, i64 16
-  %31 = load ptr, ptr %buf.i76, align 8
-  call void (ptr, ...) @die(ptr noundef nonnull @.str, ptr noundef %31) #13
+  %26 = load ptr, ptr %buf.i76, align 8
+  call void (ptr, ...) @die(ptr noundef nonnull @.str, ptr noundef %26) #13
   unreachable
 
 init_tree_desc.exit77:                            ; preds = %if.end53, %init_tree_desc_internal.exit.i72
@@ -1756,29 +1749,25 @@ init_tree_desc.exit77:                            ; preds = %if.end53, %init_tre
   call void @strbuf_remove(ptr noundef nonnull %namebuf, i64 noundef 0, i64 noundef %conv61) #14
   br label %while.body
 
-if.end62:                                         ; preds = %if.end41.tail
-  %cmp66 = icmp eq i8 %14, 0
-  br i1 %cmp66, label %if.then68, label %if.end72
-
-if.then68:                                        ; preds = %if.end62
+if.then68:                                        ; preds = %if.end41
   %sub69 = add i64 %parents_nr.1, -1
   %oid71 = getelementptr inbounds %struct.dir_state, ptr %parents.1, i64 %sub69, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %result, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid71, i64 32, i1 false)
   %algo.i78 = getelementptr inbounds i8, ptr %oid71, i64 32
-  %32 = load i32, ptr %algo.i78, align 4
+  %27 = load i32, ptr %algo.i78, align 4
   %algo3.i79 = getelementptr inbounds i8, ptr %result, i64 32
-  store i32 %32, ptr %algo3.i79, align 4
+  store i32 %27, ptr %algo3.i79, align 4
   br label %done
 
-if.end72:                                         ; preds = %if.end62
+if.end72:                                         ; preds = %if.end41.tail, %sub_1, %if.end41
   %call74 = call fastcc i32 @find_tree_entry(ptr noundef %r, ptr noundef nonnull %t, ptr noundef nonnull %15, ptr noundef nonnull %current_tree_oid, ptr noundef %mode)
   %tobool75.not = icmp eq i32 %call74, 0
   br i1 %tobool75.not, label %if.end77, label %done
 
 if.end77:                                         ; preds = %if.end72
-  %33 = load i16, ptr %mode, align 2
-  %34 = and i16 %33, -4096
-  switch i16 %34, label %while.body.outer.backedge [
+  %28 = load i16, ptr %mode, align 2
+  %29 = and i16 %28, -4096
+  switch i16 %29, label %while.body.outer.backedge [
     i16 16384, label %if.then81
     i16 -32768, label %if.then93
     i16 -24576, label %if.then103
@@ -1792,17 +1781,17 @@ if.then81:                                        ; preds = %if.end77
 
 if.then83:                                        ; preds = %if.then81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %result, ptr noundef nonnull readonly align 4 dereferenceable(32) %current_tree_oid, i64 32, i1 false)
-  %35 = load i32, ptr %algo3.i, align 4
+  %30 = load i32, ptr %algo3.i, align 4
   %algo3.i81 = getelementptr inbounds i8, ptr %result, i64 32
-  store i32 %35, ptr %algo3.i81, align 4
+  store i32 %30, ptr %algo3.i81, align 4
   br label %done
 
 if.end84:                                         ; preds = %if.then81
   store ptr null, ptr %t, align 8
   %add.ptr86 = getelementptr inbounds i8, ptr %call38, i64 1
-  %36 = load ptr, ptr %buf, align 8
+  %31 = load ptr, ptr %buf, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr86 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %36 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %31 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   call void @strbuf_remove(ptr noundef nonnull %namebuf, i64 noundef 0, i64 noundef %sub.ptr.sub) #14
   br label %while.body.outer.backedge
@@ -1812,9 +1801,9 @@ if.then93:                                        ; preds = %if.end77
 
 if.then95:                                        ; preds = %if.then93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %result, ptr noundef nonnull readonly align 4 dereferenceable(32) %current_tree_oid, i64 32, i1 false)
-  %37 = load i32, ptr %algo3.i, align 4
+  %32 = load i32, ptr %algo3.i, align 4
   %algo3.i83 = getelementptr inbounds i8, ptr %result, i64 32
-  store i32 %37, ptr %algo3.i83, align 4
+  store i32 %32, ptr %algo3.i83, align 4
   br label %done
 
 if.then103:                                       ; preds = %if.end77
@@ -1828,8 +1817,8 @@ if.end110:                                        ; preds = %if.then103
   br i1 %tobool112.not, label %done, label %if.end114
 
 if.end114:                                        ; preds = %if.end110
-  %38 = load i8, ptr %call111, align 1
-  %cmp117 = icmp eq i8 %38, 47
+  %33 = load i8, ptr %call111, align 1
+  %cmp117 = icmp eq i8 %33, 47
   br i1 %cmp117, label %if.then119, label %if.end120
 
 if.then119:                                       ; preds = %if.end114
@@ -1840,48 +1829,48 @@ if.then119:                                       ; preds = %if.end114
   br label %done
 
 if.end120:                                        ; preds = %if.end114
-  %39 = load ptr, ptr %buf, align 8
+  %34 = load ptr, ptr %buf, align 8
   %sub.ptr.lhs.cast124 = ptrtoint ptr %call38 to i64
-  %sub.ptr.rhs.cast125 = ptrtoint ptr %39 to i64
+  %sub.ptr.rhs.cast125 = ptrtoint ptr %34 to i64
   %sub.ptr.sub126 = sub i64 %sub.ptr.lhs.cast124, %sub.ptr.rhs.cast125
-  %40 = load i64, ptr %len128, align 8
-  %len104.0 = select i1 %tobool39.not, i64 %40, i64 %sub.ptr.sub126
+  %35 = load i64, ptr %len128, align 8
+  %len104.0 = select i1 %tobool39.not, i64 %35, i64 %sub.ptr.sub126
   %sub130 = add i64 %parents_nr.1, -1
   %arrayidx131 = getelementptr inbounds %struct.dir_state, ptr %parents.1, i64 %sub130
-  %41 = load ptr, ptr %arrayidx131, align 8
+  %36 = load ptr, ptr %arrayidx131, align 8
   %size133 = getelementptr inbounds i8, ptr %arrayidx131, i64 8
-  %42 = load i64, ptr %size133, align 8
+  %37 = load i64, ptr %size133, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %err.i85)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err.i85, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_tree_entry_follow_symlinks.namebuf, i64 24, i1 false)
-  store ptr %41, ptr %t, align 8
-  %conv.i.i86 = trunc i64 %42 to i32
+  store ptr %36, ptr %t, align 8
+  %conv.i.i86 = trunc i64 %37 to i32
   store i32 %conv.i.i86, ptr %size2.i.i, align 8
   store i32 0, ptr %flags3.i.i, align 4
-  %tobool.not.i.i89 = icmp eq i64 %42, 0
+  %tobool.not.i.i89 = icmp eq i64 %37, 0
   br i1 %tobool.not.i.i89, label %init_tree_desc.exit95, label %init_tree_desc_internal.exit.i90
 
 init_tree_desc_internal.exit.i90:                 ; preds = %if.end120
-  %call.i.i91 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %t, ptr noundef %41, i64 noundef %42, ptr noundef nonnull %err.i85)
+  %call.i.i91 = call fastcc i32 @decode_tree_entry(ptr noundef nonnull %t, ptr noundef %36, i64 noundef %37, ptr noundef nonnull %err.i85)
   %tobool.not.i92 = icmp eq i32 %call.i.i91, 0
   br i1 %tobool.not.i92, label %init_tree_desc.exit95, label %if.then.i93
 
 if.then.i93:                                      ; preds = %init_tree_desc_internal.exit.i90
   %buf.i94 = getelementptr inbounds i8, ptr %err.i85, i64 16
-  %43 = load ptr, ptr %buf.i94, align 8
-  call void (ptr, ...) @die(ptr noundef nonnull @.str, ptr noundef %43) #13
+  %38 = load ptr, ptr %buf.i94, align 8
+  call void (ptr, ...) @die(ptr noundef nonnull @.str, ptr noundef %38) #13
   unreachable
 
 init_tree_desc.exit95:                            ; preds = %if.end120, %init_tree_desc_internal.exit.i90
   call void @strbuf_release(ptr noundef nonnull %err.i85) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %err.i85)
-  %44 = load i64, ptr %link_len, align 8
-  call void @strbuf_splice(ptr noundef nonnull %namebuf, i64 noundef 0, i64 noundef %len104.0, ptr noundef nonnull %call111, i64 noundef %44) #14
+  %39 = load i64, ptr %link_len, align 8
+  call void @strbuf_splice(ptr noundef nonnull %namebuf, i64 noundef 0, i64 noundef %len104.0, ptr noundef nonnull %call111, i64 noundef %39) #14
   br i1 %tobool39.not, label %if.end138, label %if.then135
 
 if.then135:                                       ; preds = %init_tree_desc.exit95
-  %45 = load ptr, ptr %buf, align 8
-  %46 = load i64, ptr %link_len, align 8
-  %arrayidx137 = getelementptr inbounds i8, ptr %45, i64 %46
+  %40 = load ptr, ptr %buf, align 8
+  %41 = load i64, ptr %link_len, align 8
+  %arrayidx137 = getelementptr inbounds i8, ptr %40, i64 %41
   store i8 47, ptr %arrayidx137, align 1
   br label %if.end138
 
@@ -1897,26 +1886,26 @@ done:                                             ; preds = %if.end72, %if.then1
   br i1 %cmp142144.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %done.thread, %done
-  %retval1.1201 = phi i32 [ 0, %done.thread ], [ %retval1.1, %done ]
-  %parents.2199 = phi ptr [ %parents.1, %done.thread ], [ %parents.2, %done ]
-  %parents_nr.2198 = phi i64 [ 1, %done.thread ], [ %parents_nr.2, %done ]
+  %retval1.1205 = phi i32 [ 0, %done.thread ], [ %retval1.1, %done ]
+  %parents.2203 = phi ptr [ %parents.1, %done.thread ], [ %parents.2, %done ]
+  %parents_nr.2202 = phi i64 [ 1, %done.thread ], [ %parents_nr.2, %done ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %i.0145 = phi i64 [ %inc146, %for.body ], [ 0, %for.body.preheader ]
-  %arrayidx144 = getelementptr inbounds %struct.dir_state, ptr %parents.2199, i64 %i.0145
-  %47 = load ptr, ptr %arrayidx144, align 8
-  call void @free(ptr noundef %47) #14
+  %arrayidx144 = getelementptr inbounds %struct.dir_state, ptr %parents.2203, i64 %i.0145
+  %42 = load ptr, ptr %arrayidx144, align 8
+  call void @free(ptr noundef %42) #14
   %inc146 = add nuw i64 %i.0145, 1
-  %exitcond.not = icmp eq i64 %inc146, %parents_nr.2198
+  %exitcond.not = icmp eq i64 %inc146, %parents_nr.2202
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %done
-  %retval1.1202 = phi i32 [ %retval1.1, %done ], [ %retval1.1201, %for.body ]
-  %parents.2200 = phi ptr [ %parents.2, %done ], [ %parents.2199, %for.body ]
-  call void @free(ptr noundef %parents.2200) #14
+  %retval1.1206 = phi i32 [ %retval1.1, %done ], [ %retval1.1205, %for.body ]
+  %parents.2204 = phi ptr [ %parents.2, %done ], [ %parents.2203, %for.body ]
+  call void @free(ptr noundef %parents.2204) #14
   call void @strbuf_release(ptr noundef nonnull %namebuf) #14
-  ret i32 %retval1.1202
+  ret i32 %retval1.1206
 }
 
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -1933,7 +1922,7 @@ declare ptr @repo_read_object_file(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @strbuf_splice(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tree_entry_interesting(ptr noundef %istate, ptr nocapture noundef readonly %entry1, ptr noundef %base, ptr nocapture noundef readonly %ps) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 3) i32 @tree_entry_interesting(ptr noundef %istate, ptr nocapture noundef readonly %entry1, ptr noundef %base, ptr nocapture noundef readonly %ps) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @do_match(ptr noundef %istate, ptr noundef %entry1, ptr noundef %base, ptr noundef %ps, i32 noundef 0)
   %magic = getelementptr inbounds i8, ptr %ps, i64 8
@@ -1978,7 +1967,7 @@ return:                                           ; preds = %if.end17, %if.end9,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_match(ptr noundef %istate, ptr nocapture noundef readonly %entry1, ptr noundef %base, ptr nocapture noundef readonly %ps, i32 noundef %exclude) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 3) i32 @do_match(ptr noundef %istate, ptr nocapture noundef readonly %entry1, ptr noundef %base, ptr nocapture noundef readonly %ps, i32 noundef %exclude) unnamed_addr #0 {
 entry:
   %len = getelementptr inbounds i8, ptr %base, i64 8
   %0 = load i64, ptr %len, align 8

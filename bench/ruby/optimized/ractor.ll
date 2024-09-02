@@ -1715,106 +1715,105 @@ rb_vm_lock.exit18:                                ; preds = %rb_vm_unlock.exit, 
   %36 = getelementptr inbounds i8, ptr %3, i64 384
   %37 = getelementptr inbounds i8, ptr %1, i64 104
   %38 = getelementptr inbounds i8, ptr %1, i64 8
-  br label %39
-
-39:                                               ; preds = %.lr.ph, %ractor_terminal_interrupt_all.exit31
   store i8 1, ptr %33, align 8
-  %40 = load i32, ptr %34, align 8
-  %cond.i.i.i = icmp eq i32 %40, 3
-  br i1 %cond.i.i.i, label %41, label %rb_vm_ractor_blocking_cnt_inc.exit
+  %39 = load i32, ptr %34, align 8
+  %cond.i.i.i34 = icmp eq i32 %39, 3
+  br i1 %cond.i.i.i34, label %._crit_edge35, label %rb_vm_ractor_blocking_cnt_inc.exit
 
-41:                                               ; preds = %39
+._crit_edge35:                                    ; preds = %.backedge, %.lr.ph
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.61) #33
   unreachable
 
-rb_vm_ractor_blocking_cnt_inc.exit:               ; preds = %39
+rb_vm_ractor_blocking_cnt_inc.exit:               ; preds = %.lr.ph, %.backedge
   store i32 2, ptr %34, align 8
-  %42 = load i32, ptr %35, align 4
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %35, align 4
-  %44 = load ptr, ptr %36, align 8
-  %45 = getelementptr i8, ptr %44, i64 48
-  %.val = load ptr, ptr %45, align 8
+  %40 = load i32, ptr %35, align 4
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %35, align 4
+  %42 = load ptr, ptr %36, align 8
+  %43 = getelementptr i8, ptr %42, i64 48
+  %.val = load ptr, ptr %43, align 8
   tail call void @rb_del_running_thread(ptr noundef %.val) #20
   tail call void @rb_vm_cond_timedwait(ptr noundef nonnull %1, ptr noundef nonnull %37, i64 noundef 1000) #20
-  %46 = load ptr, ptr %36, align 8
-  %47 = getelementptr i8, ptr %46, i64 48
-  %.val14 = load ptr, ptr %47, align 8
+  %44 = load ptr, ptr %36, align 8
+  %45 = getelementptr i8, ptr %44, i64 48
+  %.val14 = load ptr, ptr %45, align 8
   tail call void @rb_add_running_thread(ptr noundef %.val14) #20
-  %48 = load i32, ptr %35, align 4
-  %49 = add i32 %48, -1
-  store i32 %49, ptr %35, align 4
-  %50 = load i32, ptr %34, align 8
-  %cond.i.i = icmp eq i32 %50, 3
-  br i1 %cond.i.i, label %51, label %rb_vm_ractor_blocking_cnt_dec.exit
+  %46 = load i32, ptr %35, align 4
+  %47 = add i32 %46, -1
+  store i32 %47, ptr %35, align 4
+  %48 = load i32, ptr %34, align 8
+  %cond.i.i = icmp eq i32 %48, 3
+  br i1 %cond.i.i, label %49, label %rb_vm_ractor_blocking_cnt_dec.exit
 
-51:                                               ; preds = %rb_vm_ractor_blocking_cnt_inc.exit
+49:                                               ; preds = %rb_vm_ractor_blocking_cnt_inc.exit
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.61) #33
   unreachable
 
 rb_vm_ractor_blocking_cnt_dec.exit:               ; preds = %rb_vm_ractor_blocking_cnt_inc.exit
   store i32 1, ptr %34, align 8
-  %52 = load i32, ptr %4, align 8
-  %53 = icmp ugt i32 %52, 1
-  br i1 %53, label %.preheader.i19, label %._crit_edge
+  %50 = load i32, ptr %4, align 8
+  %51 = icmp ugt i32 %50, 1
+  br i1 %51, label %.preheader.i19, label %._crit_edge
 
 .preheader.i19:                                   ; preds = %rb_vm_ractor_blocking_cnt_dec.exit
   %.pn10.i20 = load ptr, ptr %38, align 8
   %.not11.i21 = icmp eq ptr %.pn10.i20, %38
-  br i1 %.not11.i21, label %ractor_terminal_interrupt_all.exit31, label %.lr.ph.i22
+  br i1 %.not11.i21, label %.backedge, label %.lr.ph.i22
 
 .lr.ph.i22:                                       ; preds = %.preheader.i19, %rb_ractor_terminate_interrupt_main_thread.exit.i28
   %.pn12.i23 = phi ptr [ %.pn.i29, %rb_ractor_terminate_interrupt_main_thread.exit.i28 ], [ %.pn10.i20, %.preheader.i19 ]
   %.0.i24 = getelementptr i8, ptr %.pn12.i23, i64 -432
-  %54 = load ptr, ptr %2, align 8
-  %.not9.i25 = icmp eq ptr %.0.i24, %54
-  br i1 %.not9.i25, label %rb_ractor_terminate_interrupt_main_thread.exit.i28, label %55
+  %52 = load ptr, ptr %2, align 8
+  %.not9.i25 = icmp eq ptr %.0.i24, %52
+  br i1 %.not9.i25, label %rb_ractor_terminate_interrupt_main_thread.exit.i28, label %53
 
-55:                                               ; preds = %.lr.ph.i22
-  %56 = getelementptr i8, ptr %.pn12.i23, i64 -40
-  %57 = load ptr, ptr %56, align 8
-  %.not.i.i26 = icmp eq ptr %57, null
-  br i1 %.not.i.i26, label %rb_ractor_terminate_interrupt_main_thread.exit.i28, label %58
+53:                                               ; preds = %.lr.ph.i22
+  %54 = getelementptr i8, ptr %.pn12.i23, i64 -40
+  %55 = load ptr, ptr %54, align 8
+  %.not.i.i26 = icmp eq ptr %55, null
+  br i1 %.not.i.i26, label %rb_ractor_terminate_interrupt_main_thread.exit.i28, label %56
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %57, i64 240
-  %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 3
-  %.not6.i.i27 = icmp eq i8 %61, 3
-  br i1 %.not6.i.i27, label %rb_ractor_terminate_interrupt_main_thread.exit.i28, label %62
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds i8, ptr %55, i64 240
+  %58 = load i8, ptr %57, align 8
+  %59 = and i8 %58, 3
+  %.not6.i.i27 = icmp eq i8 %59, 3
+  br i1 %.not6.i.i27, label %rb_ractor_terminate_interrupt_main_thread.exit.i28, label %60
 
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %57, i64 48
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
-  %66 = atomicrmw volatile or ptr %65, i32 16 seq_cst, align 4
-  tail call void @rb_threadptr_interrupt(ptr noundef nonnull %57) #20
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds i8, ptr %55, i64 48
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 32
+  %64 = atomicrmw volatile or ptr %63, i32 16 seq_cst, align 4
+  tail call void @rb_threadptr_interrupt(ptr noundef nonnull %55) #20
   br label %rb_ractor_terminate_interrupt_main_thread.exit.i28
 
-rb_ractor_terminate_interrupt_main_thread.exit.i28: ; preds = %62, %58, %55, %.lr.ph.i22
+rb_ractor_terminate_interrupt_main_thread.exit.i28: ; preds = %60, %56, %53, %.lr.ph.i22
   %.pn.i29 = load ptr, ptr %.pn12.i23, align 8
   %.not.i30 = icmp eq ptr %.pn.i29, %38
   br i1 %.not.i30, label %ractor_terminal_interrupt_all.exit31.loopexit, label %.lr.ph.i22, !llvm.loop !18
 
 ractor_terminal_interrupt_all.exit31.loopexit:    ; preds = %rb_ractor_terminate_interrupt_main_thread.exit.i28
   %.pre = load i32, ptr %4, align 8
-  br label %ractor_terminal_interrupt_all.exit31
+  %65 = icmp ugt i32 %.pre, 1
+  br i1 %65, label %.backedge, label %._crit_edge
 
-ractor_terminal_interrupt_all.exit31:             ; preds = %ractor_terminal_interrupt_all.exit31.loopexit, %.preheader.i19
-  %67 = phi i32 [ %.pre, %ractor_terminal_interrupt_all.exit31.loopexit ], [ %52, %.preheader.i19 ]
-  %68 = icmp ugt i32 %67, 1
-  br i1 %68, label %39, label %._crit_edge, !llvm.loop !19
+.backedge:                                        ; preds = %.preheader.i19, %ractor_terminal_interrupt_all.exit31.loopexit
+  store i8 1, ptr %33, align 8
+  %66 = load i32, ptr %34, align 8
+  %cond.i.i.i = icmp eq i32 %66, 3
+  br i1 %cond.i.i.i, label %._crit_edge35, label %rb_vm_ractor_blocking_cnt_inc.exit, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %rb_vm_ractor_blocking_cnt_dec.exit, %ractor_terminal_interrupt_all.exit31, %rb_vm_lock.exit18
-  %69 = load ptr, ptr @ruby_single_main_ractor, align 8
-  %.not.i.i32 = icmp eq ptr %69, null
-  br i1 %.not.i.i32, label %70, label %rb_vm_unlock.exit33
+._crit_edge:                                      ; preds = %rb_vm_ractor_blocking_cnt_dec.exit, %ractor_terminal_interrupt_all.exit31.loopexit, %rb_vm_lock.exit18
+  %67 = load ptr, ptr @ruby_single_main_ractor, align 8
+  %.not.i.i32 = icmp eq ptr %67, null
+  br i1 %.not.i.i32, label %68, label %rb_vm_unlock.exit33
 
-70:                                               ; preds = %._crit_edge
+68:                                               ; preds = %._crit_edge
   tail call void @rb_vm_unlock_body() #20
   br label %rb_vm_unlock.exit33
 
-rb_vm_unlock.exit33:                              ; preds = %._crit_edge, %70
+rb_vm_unlock.exit33:                              ; preds = %._crit_edge, %68
   ret void
 }
 

@@ -4583,9 +4583,9 @@ define dso_local void @ata_scsi_dev_rescan(ptr noundef %0) local_unnamed_addr #0
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %11, %select.unfold
-  %16 = phi i64 [ %.ph, %select.unfold ], [ %13, %11 ]
-  %17 = phi ptr [ %34, %select.unfold ], [ %14, %11 ]
+.preheader:                                       ; preds = %11, %.thread
+  %16 = phi i64 [ %33, %.thread ], [ %13, %11 ]
+  %17 = phi ptr [ %34, %.thread ], [ %14, %11 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %10, align 32
@@ -4595,12 +4595,12 @@ define dso_local void @ata_scsi_dev_rescan(ptr noundef %0) local_unnamed_addr #0
 
 23:                                               ; preds = %.preheader
   %24 = icmp eq ptr %19, null
-  br i1 %24, label %select.unfold, label %25
+  br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %23
   %26 = tail call i32 @scsi_device_get(ptr noundef nonnull %19) #19
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %select.unfold
+  br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %4, align 16
@@ -4609,37 +4609,37 @@ define dso_local void @ata_scsi_dev_rescan(ptr noundef %0) local_unnamed_addr #0
   tail call void @scsi_device_put(ptr noundef nonnull %19) #19
   %31 = load ptr, ptr %4, align 16
   %32 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %31) #19
-  %33 = icmp eq i32 %30, 0
-  br i1 %33, label %select.unfold, label %39
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %.thread, label %.thread5
 
-select.unfold:                                    ; preds = %28, %23, %25
-  %.ph = phi i64 [ %16, %25 ], [ %16, %23 ], [ %32, %28 ]
+.thread:                                          ; preds = %25, %23, %28
+  %33 = phi i64 [ %32, %28 ], [ %16, %23 ], [ %16, %25 ]
   %34 = tail call ptr @ata_dev_next(ptr noundef nonnull %17, ptr noundef nonnull %12, i32 noundef 0) #19
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !38
 
-.loopexit:                                        ; preds = %select.unfold, %11
-  %36 = phi i64 [ %13, %11 ], [ %.ph, %select.unfold ]
+.loopexit:                                        ; preds = %.thread, %11
+  %36 = phi i64 [ %13, %11 ], [ %33, %.thread ]
   %37 = tail call ptr @ata_link_next(ptr noundef nonnull %12, ptr noundef %2, i32 noundef 0) #19
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.critedge, label %11, !llvm.loop !39
 
-39:                                               ; preds = %28
-  %40 = load ptr, ptr %4, align 16
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %40, i64 noundef %32) #19
+.thread5:                                         ; preds = %28
+  %39 = load ptr, ptr %4, align 16
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %39, i64 noundef %32) #19
   tail call void @mutex_unlock(ptr noundef %3) #19
-  %41 = load ptr, ptr @system_wq, align 8
-  %42 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %41, ptr noundef %0, i64 noundef 5) #19
-  br label %44
+  %40 = load ptr, ptr @system_wq, align 8
+  %41 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %40, ptr noundef %0, i64 noundef 5) #19
+  br label %43
 
 .critedge:                                        ; preds = %.loopexit, %.preheader, %1
-  %.ph7 = phi i64 [ %6, %1 ], [ %16, %.preheader ], [ %36, %.loopexit ]
-  %43 = load ptr, ptr %4, align 16
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %43, i64 noundef %.ph7) #19
+  %.ph = phi i64 [ %6, %1 ], [ %16, %.preheader ], [ %36, %.loopexit ]
+  %42 = load ptr, ptr %4, align 16
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %42, i64 noundef %.ph) #19
   tail call void @mutex_unlock(ptr noundef %3) #19
-  br label %44
+  br label %43
 
-44:                                               ; preds = %.critedge, %39
+43:                                               ; preds = %.critedge, %.thread5
   ret void
 }
 

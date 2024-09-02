@@ -965,11 +965,11 @@ land.rhs:                                         ; preds = %if.then45
   %18 = load i32, ptr %sctl_pause49, align 8
   %and50 = and i32 %18, %sctl
   %tobool51.not = icmp eq i32 %and50, 0
+  %19 = zext i1 %tobool51.not to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then45
-  %19 = phi i1 [ false, %if.then45 ], [ %tobool51.not, %land.rhs ]
-  %land.ext = zext i1 %19 to i32
+  %land.ext = phi i32 [ 0, %if.then45 ], [ %19, %land.rhs ]
   %cmp52 = icmp eq i64 %i.050, 2
   br i1 %cmp52, label %for.inc.thread, label %if.else56
 

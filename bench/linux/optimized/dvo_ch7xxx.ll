@@ -986,8 +986,8 @@ define internal void @ch7xxx_dump_regs(ptr nocapture noundef readonly %0) #0 ali
   %14 = getelementptr inbounds i8, ptr %2, i64 1
   br label %15
 
-15:                                               ; preds = %36, %1
-  %16 = phi i32 [ 0, %1 ], [ %39, %36 ]
+15:                                               ; preds = %37, %1
+  %16 = phi i32 [ 0, %1 ], [ %39, %37 ]
   %17 = and i32 %16, 7
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %20
@@ -1018,35 +1018,35 @@ define internal void @ch7xxx_dump_regs(ptr nocapture noundef readonly %0) #0 ali
   store i8 0, ptr %14, align 1
   %26 = call i32 @i2c_transfer(ptr noundef %22, ptr noundef nonnull %4, i32 noundef 2) #7
   %27 = icmp eq i32 %26, 2
-  br i1 %27, label %28, label %30
+  br i1 %27, label %28, label %31
 
 28:                                               ; preds = %20
   %29 = load i8, ptr %3, align 2
-  br label %36
+  %30 = zext i8 %29 to i32
+  br label %37
 
-30:                                               ; preds = %20
-  %31 = load i8, ptr %21, align 1, !range !6, !noundef !7
-  %32 = icmp eq i8 %31, 0
-  br i1 %32, label %33, label %36
+31:                                               ; preds = %20
+  %32 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %22, i64 852
-  %35 = load i32, ptr %7, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef %16, ptr noundef %34, i32 noundef %35) #7
-  br label %36
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %22, i64 852
+  %36 = load i32, ptr %7, align 4
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef %16, ptr noundef %35, i32 noundef %36) #7
+  br label %37
 
-36:                                               ; preds = %33, %30, %28
-  %37 = phi i8 [ %29, %28 ], [ 0, %33 ], [ 0, %30 ]
+37:                                               ; preds = %34, %31, %28
+  %38 = phi i32 [ %30, %28 ], [ 0, %34 ], [ 0, %31 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #7
-  %38 = zext i8 %37 to i32
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %38) #7
   %39 = add nuw nsw i32 %16, 1
   %40 = icmp eq i32 %39, 76
   br i1 %40, label %41, label %15, !llvm.loop !12
 
-41:                                               ; preds = %36
+41:                                               ; preds = %37
   ret void
 }
 

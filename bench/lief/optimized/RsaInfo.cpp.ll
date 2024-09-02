@@ -457,7 +457,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %22, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK4LIEF2PE7RsaInfo8key_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define noundef range(i64 0, -7) i64 @_ZNK4LIEF2PE7RsaInfo8key_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i64 @mbedtls_rsa_get_len(ptr noundef %2)
   %4 = shl i64 %3, 3

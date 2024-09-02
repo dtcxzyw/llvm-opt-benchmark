@@ -404,11 +404,11 @@ Vec_IntStart.exit366:                             ; preds = %Vec_IntAlloc.exit.t
   %159 = inttoptr i64 %158 to ptr
   %160 = getelementptr inbounds i8, ptr %159, i64 36
   %161 = load i32, ptr %160, align 4
+  %162 = sext i32 %161 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %150, %156
-  %162 = phi i32 [ %161, %156 ], [ -1, %150 ]
-  %163 = sext i32 %162 to i64
+  %163 = phi i64 [ %162, %156 ], [ -1, %150 ]
   %164 = getelementptr inbounds ptr, ptr %29, i64 %163
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr i8, ptr %143, i64 16
@@ -422,11 +422,11 @@ Aig_ObjFaninId0.exit:                             ; preds = %150, %156
   %170 = inttoptr i64 %169 to ptr
   %171 = getelementptr inbounds i8, ptr %170, i64 36
   %172 = load i32, ptr %171, align 4
+  %173 = sext i32 %172 to i64
   br label %Aig_ObjFaninId1.exit
 
 Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %167
-  %173 = phi i32 [ %172, %167 ], [ -1, %Aig_ObjFaninId0.exit ]
-  %174 = sext i32 %173 to i64
+  %174 = phi i64 [ %173, %167 ], [ -1, %Aig_ObjFaninId0.exit ]
   %175 = getelementptr inbounds ptr, ptr %29, i64 %174
   %176 = load ptr, ptr %175, align 8
   %177 = ptrtoint ptr %.val339 to i64
@@ -564,11 +564,11 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %232 = inttoptr i64 %231 to ptr
   %233 = getelementptr inbounds i8, ptr %232, i64 36
   %234 = load i32, ptr %233, align 4
+  %235 = sext i32 %234 to i64
   br label %Aig_ObjFaninId0.exit370
 
 Aig_ObjFaninId0.exit370:                          ; preds = %.lr.ph451, %229
-  %235 = phi i32 [ %234, %229 ], [ -1, %.lr.ph451 ]
-  %236 = sext i32 %235 to i64
+  %236 = phi i64 [ %235, %229 ], [ -1, %.lr.ph451 ]
   %237 = getelementptr inbounds ptr, ptr %29, i64 %236
   %238 = load ptr, ptr %237, align 8
   %.val313 = load i32, ptr %40, align 8

@@ -6568,7 +6568,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEEvLb1EEENS3_ItLj2EEEE
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i, 8
   %conv4.i.i.i.i = zext i8 %regionIndices.val8.i to i32
   %add.i.i.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i
-  %spec.select.i.i = tail call noundef i32 @llvm.umin.i32(i32 %num_scalars, i32 %add.i.i.i.i)
+  %spec.select.i.i = tail call noundef range(i32 0, 65536) i32 @llvm.umin.i32(i32 %num_scalars, i32 %add.i.i.i.i)
   %cmp10.not.i = icmp eq i32 %spec.select.i.i, 0
   br i1 %cmp10.not.i, label %for.cond8.preheader.i, label %for.body.lr.ph.i
 

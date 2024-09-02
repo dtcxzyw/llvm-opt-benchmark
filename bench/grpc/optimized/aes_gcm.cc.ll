@@ -503,7 +503,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z32gsec_aes_gcm_aead_crypter_createSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEmmPP17gsec_aead_crypterPPc(ptr nocapture noundef %key, i64 noundef %nonce_length, i64 noundef %tag_length, ptr noundef writeonly %crypter, ptr noundef %error_details) local_unnamed_addr #0 {
+define noundef range(i32 0, 14) i32 @_Z32gsec_aes_gcm_aead_crypter_createSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EEmmPP17gsec_aead_crypterPPc(ptr nocapture noundef %key, i64 noundef %nonce_length, i64 noundef %tag_length, ptr noundef writeonly %crypter, ptr noundef %error_details) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %key, align 8
   %cmp.i.not.i = icmp eq ptr %0, null

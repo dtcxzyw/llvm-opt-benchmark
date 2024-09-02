@@ -182,11 +182,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %lor.rhs
   br i1 %tobool.not.i.i, label %if.then.i.i, label %cleanup.action
 
 if.then.i.i:                                      ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %lor.rhs
-  %2 = icmp eq i64 %1, %call.i.i.i
+  %2 = icmp ne i64 %1, %call.i.i.i
   br label %cleanup.action
 
 cleanup.action:                                   ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %if.then.i.i
-  %__r.0.i.i = phi i1 [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %2, %if.then.i.i ]
+  %__r.0.i.i = phi i1 [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %2, %if.then.i.i ]
   %cmp.i.i.i = icmp eq ptr %.pre.pre, %0
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i3
 
@@ -201,7 +201,7 @@ if.then.i.i3:                                     ; preds = %cleanup.action
 
 cleanup.done:                                     ; preds = %if.then.i.i3, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
-  br i1 %__r.0.i.i, label %if.end, label %cleanup.cont
+  br i1 %__r.0.i.i, label %cleanup.cont, label %if.end
 
 if.end:                                           ; preds = %cleanup.done
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i5)

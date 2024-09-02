@@ -1599,7 +1599,7 @@ define dso_local noundef i32 @_ZNK4Type16get_struct_depthEv(ptr nocapture nounde
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %16 = add nuw nsw i32 %spec.select, 1
+  %16 = add nsw i32 %spec.select, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit, %1
@@ -3851,18 +3851,18 @@ define dso_local void @_ZN4Type20make_one_union_fieldERSt6vectorIPKS_SaIS2_EERS0
   br i1 %.not113, label %.preheader.split.us.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %_ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit
-  %14 = icmp eq ptr %.sroa.0.1, %.sroa.8.1
-  %15 = ptrtoint ptr %.sroa.8.1 to i64
-  %16 = ptrtoint ptr %.sroa.0.1 to i64
-  %17 = sub i64 %15, %16
-  %18 = lshr exact i64 %17, 3
-  %19 = trunc i64 %18 to i32
-  %20 = ptrtoint ptr %.sroa.7.1 to i64
+  %14 = ptrtoint ptr %.sroa.7.1 to i64
+  %15 = icmp eq ptr %.sroa.0.1, %.sroa.8.1
+  %16 = ptrtoint ptr %.sroa.8.1 to i64
+  %17 = ptrtoint ptr %.sroa.0.1 to i64
+  %18 = sub i64 %16, %17
+  %19 = lshr exact i64 %18, 3
+  %20 = trunc i64 %19 to i32
   %21 = ptrtoint ptr %.sroa.069.1 to i64
-  %22 = sub i64 %20, %21
+  %22 = sub i64 %14, %21
   %23 = lshr exact i64 %22, 3
   %24 = trunc i64 %23 to i32
-  br i1 %14, label %.preheader.split.us.preheader, label %.preheader.split
+  br i1 %15, label %.preheader.split.us.preheader, label %.preheader.split
 
 .preheader.split.us.preheader:                    ; preds = %.critedge, %.preheader
   %25 = phi i32 [ %24, %.preheader ], [ 0, %.critedge ]
@@ -4108,7 +4108,7 @@ _ZNSt6vectorIP4TypeSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP4Type
   br i1 %115, label %117, label %123
 
 117:                                              ; preds = %116
-  %118 = invoke noundef i32 @_Z13pure_rnd_uptojPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %19, ptr noundef null, ptr noundef null)
+  %118 = invoke noundef i32 @_Z13pure_rnd_uptojPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %20, ptr noundef null, ptr noundef null)
           to label %119 unwind label %.loopexit.split
 
 119:                                              ; preds = %117

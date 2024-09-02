@@ -1114,7 +1114,7 @@ define ptr @fdt_find_string_(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -2147483648, 1) i32 @fdt_move(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define range(i32 -10, 1) i32 @fdt_move(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = tail call i32 @fdt_ro_probe_(ptr noundef %0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %28, label %6

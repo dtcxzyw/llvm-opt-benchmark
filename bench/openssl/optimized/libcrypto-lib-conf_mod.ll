@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.module_init = private unnamed_addr constant [12 x i8] c"module_init\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2) i32 @CONF_modules_load(ptr noundef %cnf, ptr noundef %appname, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @CONF_modules_load(ptr noundef %cnf, ptr noundef %appname, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %cnf, null
   br i1 %tobool.not, label %return, label %if.end
@@ -375,7 +375,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CONF_modules_load_file_ex(ptr noundef %libctx, ptr noundef %filename, ptr noundef %appname, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @CONF_modules_load_file_ex(ptr noundef %libctx, ptr noundef %filename, ptr noundef %appname, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ERR_set_mark() #6
   %cmp = icmp eq ptr %filename, null
@@ -518,7 +518,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @NCONF_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CONF_modules_load_file(ptr noundef %filename, ptr noundef %appname, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @CONF_modules_load_file(ptr noundef %filename, ptr noundef %appname, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @CONF_modules_load_file_ex(ptr noundef null, ptr noundef %filename, ptr noundef %appname, i64 noundef %flags)
   ret i32 %call
@@ -951,7 +951,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %lstart.0 = phi ptr [ %add.ptr47, %if.end42 ], [ %list_, %for.cond.preheader ]
   %2 = load i8, ptr %lstart.0, align 1
   %tobool2.not21 = icmp eq i8 %2, 0
-  br i1 %tobool2.not21, label %if.end6.loopexit, label %land.rhs.lr.ph
+  br i1 %tobool2.not21, label %if.end6.loopexit.thread, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %for.cond
   %call = tail call ptr @__ctype_b_loc() #8
@@ -965,8 +965,8 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   %arrayidx = getelementptr inbounds i16, ptr %3, i64 %idxprom
   %5 = load i16, ptr %arrayidx, align 2
   %6 = and i16 %5, 8192
-  %tobool5.not.not = icmp ne i16 %6, 0
-  br i1 %tobool5.not.not, label %while.body, label %if.end6.loopexit
+  %tobool5.not.not.not.not = icmp ne i16 %6, 0
+  br i1 %tobool5.not.not.not.not, label %while.body, label %if.end6.loopexit
 
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds i8, ptr %lstart.222, i64 1
@@ -974,15 +974,19 @@ while.body:                                       ; preds = %land.rhs
   %tobool2.not = icmp eq i8 %7, 0
   br i1 %tobool2.not, label %if.end6.loopexit, label %land.rhs, !llvm.loop !9
 
-if.end6.loopexit:                                 ; preds = %land.rhs, %while.body, %for.cond
-  %cmp11 = phi i1 [ true, %for.cond ], [ %tobool5.not.not, %while.body ], [ %tobool5.not.not, %land.rhs ]
-  %lstart.2.lcssa = phi ptr [ %lstart.0, %for.cond ], [ %lstart.222, %land.rhs ], [ %incdec.ptr, %while.body ]
+if.end6.loopexit:                                 ; preds = %land.rhs, %while.body
+  %lstart.2.lcssa = phi ptr [ %lstart.222, %land.rhs ], [ %incdec.ptr, %while.body ]
   %call7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %lstart.2.lcssa, i32 noundef %sep) #7
   %cmp8 = icmp eq ptr %call7, %lstart.2.lcssa
-  %or.cond = or i1 %cmp8, %cmp11
-  br i1 %or.cond, label %if.then13, label %if.else
+  %brmerge = or i1 %cmp8, %tobool5.not.not.not.not
+  br i1 %brmerge, label %if.then13, label %if.else
 
-if.then13:                                        ; preds = %if.end6.loopexit
+if.end6.loopexit.thread:                          ; preds = %for.cond
+  %call729 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %lstart.0, i32 noundef %sep) #7
+  br label %if.then13
+
+if.then13:                                        ; preds = %if.end6.loopexit, %if.end6.loopexit.thread
+  %call735 = phi ptr [ %call7, %if.end6.loopexit ], [ %call729, %if.end6.loopexit.thread ]
   %call14 = tail call i32 %list_cb(ptr noundef null, i32 noundef 0, ptr noundef %arg) #6
   br label %if.end38
 
@@ -1022,13 +1026,14 @@ if.end35.loopexit:                                ; preds = %while.cond24
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end35.loopexit, %if.then13
+  %call733 = phi ptr [ %call735, %if.then13 ], [ %call7, %if.end35.loopexit ]
   %ret.0 = phi i32 [ %call14, %if.then13 ], [ %call37, %if.end35.loopexit ]
   %cmp39 = icmp slt i32 %ret.0, 1
   br i1 %cmp39, label %return, label %if.end42
 
 if.end42:                                         ; preds = %if.end38
-  %cmp43 = icmp eq ptr %call7, null
-  %add.ptr47 = getelementptr inbounds i8, ptr %call7, i64 1
+  %cmp43 = icmp eq ptr %call733, null
+  %add.ptr47 = getelementptr inbounds i8, ptr %call733, i64 1
   br i1 %cmp43, label %return, label %for.cond
 
 return:                                           ; preds = %if.end38, %if.end42, %if.end42.us, %if.end38.us, %if.then

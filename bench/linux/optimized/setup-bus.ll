@@ -2413,30 +2413,6 @@ define internal fastcc void @pci_root_bus_distribute_available_resources(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @free_list(ptr noundef readonly %0) unnamed_addr #5 align 16 {
-  %2 = load ptr, ptr %0, align 8
-  %3 = icmp eq ptr %2, %0
-  br i1 %3, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %1, %.preheader
-  %4 = phi ptr [ %5, %.preheader ], [ %2, %1 ]
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %7, ptr %8, align 8
-  store volatile ptr %5, ptr %7, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %6, align 8
-  tail call void @kfree(ptr noundef %4) #12
-  %9 = icmp eq ptr %5, %0
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !32
-
-.loopexit:                                        ; preds = %.preheader, %1
-  ret void
-}
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @pci_bus_release_bridge_resources(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -2644,8 +2620,8 @@ define dso_local void @pci_assign_unassigned_resources() local_unnamed_addr #5 a
   %2 = icmp eq ptr %1, @pci_root_buses
   br i1 %2, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %0, %.thread
-  %3 = phi ptr [ %30, %.thread ], [ %1, %0 ]
+.preheader:                                       ; preds = %0, %.critedge
+  %3 = phi ptr [ %30, %.critedge ], [ %1, %0 ]
   tail call void @pci_assign_unassigned_root_bus_resources(ptr noundef %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 272
   %5 = load ptr, ptr %4, align 8
@@ -2655,13 +2631,13 @@ define dso_local void @pci_assign_unassigned_resources() local_unnamed_addr #5 a
   %9 = getelementptr i8, ptr %7, i64 -16
   %10 = icmp ne ptr %9, null
   %11 = and i1 %8, %10
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %.preheader
   %13 = getelementptr i8, ptr %7, i64 -8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %4, align 8
@@ -2681,14 +2657,14 @@ define dso_local void @pci_assign_unassigned_resources() local_unnamed_addr #5 a
 27:                                               ; preds = %24, %16
   %28 = phi ptr [ %26, %24 ], [ null, %16 ]
   %29 = tail call i32 @acpi_ioapic_add(ptr noundef %28) #12
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.preheader, %27, %12
+.critedge:                                        ; preds = %.preheader, %27, %12
   %30 = load ptr, ptr %3, align 8
   %31 = icmp eq ptr %30, @pci_root_buses
   br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !40
 
-.loopexit:                                        ; preds = %.thread, %0
+.loopexit:                                        ; preds = %.critedge, %0
   ret void
 }
 
@@ -2947,7 +2923,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local void @pci_set_master(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pci_reassign_bridge_resources(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 -28, 1) i32 @pci_reassign_bridge_resources(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 align 16 {
   %3 = alloca %struct.list_head, align 8
   %4 = alloca %struct.list_head, align 8
   %5 = alloca %struct.list_head, align 8
@@ -3034,31 +3010,31 @@ define dso_local noundef i32 @pci_reassign_bridge_resources(ptr noundef %0, i64 
 51:                                               ; preds = %13, %23
   %52 = add nuw nsw i64 %14, 1
   %53 = icmp eq i64 %52, 10
-  br i1 %53, label %.thread15, label %13, !llvm.loop !45
+  br i1 %53, label %.critedge, label %13, !llvm.loop !45
 
 54:                                               ; preds = %31, %49
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %55 = icmp eq i64 %14, 10
-  br i1 %55, label %.thread15, label %56
+  br i1 %55, label %.critedge, label %56
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds i8, ptr %10, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %.thread15, label %60
+  br i1 %59, label %.critedge, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds i8, ptr %58, i64 56
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.thread15, label %9, !llvm.loop !46
+  br i1 %63, label %.critedge, label %9, !llvm.loop !46
 
-.thread15:                                        ; preds = %56, %60, %54, %51
+.critedge:                                        ; preds = %56, %60, %54, %51
   %64 = load volatile ptr, ptr %3, align 8
   %65 = icmp eq ptr %64, %3
   br i1 %65, label %.loopexit, label %66
 
-66:                                               ; preds = %.thread15
+66:                                               ; preds = %.critedge
   %67 = getelementptr inbounds i8, ptr %10, i64 24
   %68 = load ptr, ptr %67, align 8
   call void @__pci_bus_size_bridges(ptr noundef %68, ptr noundef nonnull %4)
@@ -3101,131 +3077,150 @@ define dso_local noundef i32 @pci_reassign_bridge_resources(ptr noundef %0, i64 
   %87 = phi ptr [ %79, %.preheader23 ], [ %81, %83 ]
   %88 = load ptr, ptr %78, align 8
   %89 = icmp eq ptr %88, %3
-  br i1 %89, label %.loopexit24, label %.preheader23, !llvm.loop !49
+  br i1 %89, label %.loopexit24.loopexit, label %.preheader23, !llvm.loop !49
 
-.loopexit24:                                      ; preds = %86, %75
-  call fastcc void @free_list(ptr noundef nonnull %3)
-  br label %.loopexit
+.loopexit24.loopexit:                             ; preds = %86
+  %.pre = load ptr, ptr %3, align 8
+  br label %.loopexit24
+
+.loopexit24:                                      ; preds = %.loopexit24.loopexit, %75
+  %90 = phi ptr [ %.pre, %.loopexit24.loopexit ], [ %76, %75 ]
+  %91 = icmp eq ptr %90, %3
+  br i1 %91, label %.loopexit, label %.preheader.i
+
+.preheader.i:                                     ; preds = %.loopexit24, %.preheader.i
+  %92 = phi ptr [ %93, %.preheader.i ], [ %90, %.loopexit24 ]
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds i8, ptr %92, i64 8
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds i8, ptr %93, i64 8
+  store ptr %95, ptr %96, align 8
+  store volatile ptr %93, ptr %95, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %92, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %94, align 8
+  call void @kfree(ptr noundef %92) #12
+  %97 = icmp eq ptr %93, %3
+  br i1 %97, label %.loopexit, label %.preheader.i, !llvm.loop !32
 
 .loopexit25.loopexit:                             ; preds = %27
-  %.pre = load ptr, ptr %5, align 8
+  %.pre48 = load ptr, ptr %5, align 8
   br label %.loopexit25
 
 .loopexit25:                                      ; preds = %.loopexit25.loopexit, %72
-  %90 = phi ptr [ %73, %72 ], [ %.pre, %.loopexit25.loopexit ]
-  %91 = phi i32 [ -28, %72 ], [ -12, %.loopexit25.loopexit ]
-  %92 = icmp eq ptr %90, %5
-  br i1 %92, label %.loopexit22, label %.preheader21
+  %98 = phi ptr [ %73, %72 ], [ %.pre48, %.loopexit25.loopexit ]
+  %99 = phi i32 [ -28, %72 ], [ -12, %.loopexit25.loopexit ]
+  %100 = icmp eq ptr %98, %5
+  br i1 %100, label %.loopexit21, label %.preheader20
 
-.preheader21:                                     ; preds = %.loopexit25, %.preheader21
-  %93 = phi ptr [ %104, %.preheader21 ], [ %90, %.loopexit25 ]
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 32
-  %97 = load i64, ptr %96, align 8
-  store i64 %97, ptr %95, align 8
-  %98 = getelementptr inbounds i8, ptr %93, i64 40
-  %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %95, i64 8
-  store i64 %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %93, i64 64
-  %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %95, i64 24
-  store i64 %102, ptr %103, align 8
-  %104 = load ptr, ptr %93, align 8
-  %105 = icmp eq ptr %104, %5
-  br i1 %105, label %.loopexit22.loopexit, label %.preheader21, !llvm.loop !50
+.preheader20:                                     ; preds = %.loopexit25, %.preheader20
+  %101 = phi ptr [ %112, %.preheader20 ], [ %98, %.loopexit25 ]
+  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %101, i64 32
+  %105 = load i64, ptr %104, align 8
+  store i64 %105, ptr %103, align 8
+  %106 = getelementptr inbounds i8, ptr %101, i64 40
+  %107 = load i64, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %103, i64 8
+  store i64 %107, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %101, i64 64
+  %110 = load i64, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %103, i64 24
+  store i64 %110, ptr %111, align 8
+  %112 = load ptr, ptr %101, align 8
+  %113 = icmp eq ptr %112, %5
+  br i1 %113, label %.loopexit21.loopexit, label %.preheader20, !llvm.loop !50
 
-.loopexit22.loopexit:                             ; preds = %.preheader21
-  %.pre47 = load ptr, ptr %5, align 8
-  br label %.loopexit22
+.loopexit21.loopexit:                             ; preds = %.preheader20
+  %.pre49 = load ptr, ptr %5, align 8
+  br label %.loopexit21
 
-.loopexit22:                                      ; preds = %.loopexit22.loopexit, %.loopexit25
-  %106 = phi ptr [ %.pre47, %.loopexit22.loopexit ], [ %90, %.loopexit25 ]
-  %107 = icmp eq ptr %106, %5
-  br i1 %107, label %.loopexit20, label %.preheader19
+.loopexit21:                                      ; preds = %.loopexit21.loopexit, %.loopexit25
+  %114 = phi ptr [ %.pre49, %.loopexit21.loopexit ], [ %98, %.loopexit25 ]
+  %115 = icmp eq ptr %114, %5
+  br i1 %115, label %.loopexit19, label %.preheader18
 
-.preheader19:                                     ; preds = %.loopexit22, %.preheader19
-  %108 = phi ptr [ %109, %.preheader19 ], [ %106, %.loopexit22 ]
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %108, i64 8
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %109, i64 8
-  store ptr %111, ptr %112, align 8
-  store volatile ptr %109, ptr %111, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %108, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %110, align 8
-  call void @kfree(ptr noundef %108) #12
-  %113 = icmp eq ptr %109, %5
-  br i1 %113, label %.loopexit20, label %.preheader19, !llvm.loop !32
+.preheader18:                                     ; preds = %.loopexit21, %.preheader18
+  %116 = phi ptr [ %117, %.preheader18 ], [ %114, %.loopexit21 ]
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %116, i64 8
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds i8, ptr %117, i64 8
+  store ptr %119, ptr %120, align 8
+  store volatile ptr %117, ptr %119, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %116, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %118, align 8
+  call void @kfree(ptr noundef %116) #12
+  %121 = icmp eq ptr %117, %5
+  br i1 %121, label %.loopexit19, label %.preheader18, !llvm.loop !32
 
-.loopexit20:                                      ; preds = %.preheader19, %.loopexit22
-  %114 = load ptr, ptr %3, align 8
-  %115 = icmp eq ptr %114, %3
-  br i1 %115, label %.loopexit18, label %.preheader17
+.loopexit19:                                      ; preds = %.preheader18, %.loopexit21
+  %122 = load ptr, ptr %3, align 8
+  %123 = icmp eq ptr %122, %3
+  br i1 %123, label %.loopexit17, label %.preheader16
 
-.preheader17:                                     ; preds = %.loopexit20, %.preheader17
-  %116 = phi ptr [ %138, %.preheader17 ], [ %114, %.loopexit20 ]
-  %117 = getelementptr inbounds i8, ptr %116, i64 16
-  %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %116, i64 24
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 920
-  %122 = ptrtoint ptr %118 to i64
-  %123 = ptrtoint ptr %121 to i64
-  %124 = sub i64 %122, %123
-  %125 = lshr exact i64 %124, 6
-  %126 = trunc i64 %125 to i32
-  %127 = getelementptr inbounds i8, ptr %116, i64 32
-  %128 = load i64, ptr %127, align 8
-  store i64 %128, ptr %118, align 8
-  %129 = getelementptr inbounds i8, ptr %116, i64 40
-  %130 = load i64, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %118, i64 8
-  store i64 %130, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %116, i64 64
-  %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %118, i64 24
-  store i64 %133, ptr %134, align 8
-  %135 = call i32 @pci_claim_resource(ptr noundef %120, i32 noundef %126) #12
-  %136 = getelementptr inbounds i8, ptr %120, i64 24
-  %137 = load ptr, ptr %136, align 8
-  call void @pcibios_setup_bridge(ptr noundef %137, i64 noundef 8960)
-  call fastcc void @__pci_setup_bridge(ptr noundef %137, i64 noundef 8960)
-  %138 = load ptr, ptr %116, align 8
-  %139 = icmp eq ptr %138, %3
-  br i1 %139, label %.loopexit18.loopexit, label %.preheader17, !llvm.loop !51
-
-.loopexit18.loopexit:                             ; preds = %.preheader17
-  %.pre48 = load ptr, ptr %3, align 8
-  br label %.loopexit18
-
-.loopexit18:                                      ; preds = %.loopexit18.loopexit, %.loopexit20
-  %140 = phi ptr [ %.pre48, %.loopexit18.loopexit ], [ %114, %.loopexit20 ]
-  %141 = icmp eq ptr %140, %3
-  br i1 %141, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %.loopexit18, %.preheader
-  %142 = phi ptr [ %143, %.preheader ], [ %140, %.loopexit18 ]
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %142, i64 8
+.preheader16:                                     ; preds = %.loopexit19, %.preheader16
+  %124 = phi ptr [ %146, %.preheader16 ], [ %122, %.loopexit19 ]
+  %125 = getelementptr inbounds i8, ptr %124, i64 16
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %124, i64 24
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 920
+  %130 = ptrtoint ptr %126 to i64
+  %131 = ptrtoint ptr %129 to i64
+  %132 = sub i64 %130, %131
+  %133 = lshr exact i64 %132, 6
+  %134 = trunc i64 %133 to i32
+  %135 = getelementptr inbounds i8, ptr %124, i64 32
+  %136 = load i64, ptr %135, align 8
+  store i64 %136, ptr %126, align 8
+  %137 = getelementptr inbounds i8, ptr %124, i64 40
+  %138 = load i64, ptr %137, align 8
+  %139 = getelementptr inbounds i8, ptr %126, i64 8
+  store i64 %138, ptr %139, align 8
+  %140 = getelementptr inbounds i8, ptr %124, i64 64
+  %141 = load i64, ptr %140, align 8
+  %142 = getelementptr inbounds i8, ptr %126, i64 24
+  store i64 %141, ptr %142, align 8
+  %143 = call i32 @pci_claim_resource(ptr noundef %128, i32 noundef %134) #12
+  %144 = getelementptr inbounds i8, ptr %128, i64 24
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %143, i64 8
-  store ptr %145, ptr %146, align 8
-  store volatile ptr %143, ptr %145, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %142, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %144, align 8
-  call void @kfree(ptr noundef %142) #12
-  %147 = icmp eq ptr %143, %3
-  br i1 %147, label %.loopexit, label %.preheader, !llvm.loop !32
+  call void @pcibios_setup_bridge(ptr noundef %145, i64 noundef 8960)
+  call fastcc void @__pci_setup_bridge(ptr noundef %145, i64 noundef 8960)
+  %146 = load ptr, ptr %124, align 8
+  %147 = icmp eq ptr %146, %3
+  br i1 %147, label %.loopexit17.loopexit, label %.preheader16, !llvm.loop !51
 
-.loopexit:                                        ; preds = %.preheader, %.thread15, %.loopexit24, %.loopexit18
-  %148 = phi i32 [ 0, %.loopexit24 ], [ -2, %.thread15 ], [ %91, %.loopexit18 ], [ %91, %.preheader ]
+.loopexit17.loopexit:                             ; preds = %.preheader16
+  %.pre50 = load ptr, ptr %3, align 8
+  br label %.loopexit17
+
+.loopexit17:                                      ; preds = %.loopexit17.loopexit, %.loopexit19
+  %148 = phi ptr [ %.pre50, %.loopexit17.loopexit ], [ %122, %.loopexit19 ]
+  %149 = icmp eq ptr %148, %3
+  br i1 %149, label %.loopexit, label %.preheader
+
+.preheader:                                       ; preds = %.loopexit17, %.preheader
+  %150 = phi ptr [ %151, %.preheader ], [ %148, %.loopexit17 ]
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %150, i64 8
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds i8, ptr %151, i64 8
+  store ptr %153, ptr %154, align 8
+  store volatile ptr %151, ptr %153, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %150, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %152, align 8
+  call void @kfree(ptr noundef %150) #12
+  %155 = icmp eq ptr %151, %3
+  br i1 %155, label %.loopexit, label %.preheader, !llvm.loop !32
+
+.loopexit:                                        ; preds = %.preheader.i, %.preheader, %.critedge, %.loopexit17, %.loopexit24
+  %156 = phi i32 [ -2, %.critedge ], [ %99, %.loopexit17 ], [ 0, %.loopexit24 ], [ %99, %.preheader ], [ 0, %.preheader.i ]
   call void @up_read(ptr noundef nonnull @pci_bus_sem) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
-  ret i32 %148
+  ret i32 %156
 }
 
 ; Function Attrs: null_pointer_is_valid

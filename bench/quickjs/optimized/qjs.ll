@@ -108,13 +108,13 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 45
-  br i1 %18, label %19, label %.critedge
+  br i1 %18, label %19, label %.critedge.loopexit
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr i8, ptr %16, i64 1
   %21 = load i8, ptr %20, align 1
   %.not206 = icmp eq i8 %21, 0
-  br i1 %.not206, label %.critedge, label %22
+  br i1 %.not206, label %.critedge.loopexit, label %22
 
 22:                                               ; preds = %19
   %23 = add nsw i32 %.0155491, 1
@@ -127,7 +127,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %28 = getelementptr i8, ptr %20, i64 %27
   %29 = load i8, ptr %26, align 1
   %.not207 = icmp eq i8 %29, 0
-  br i1 %.not207, label %.critedge, label %.preheader899
+  br i1 %.not207, label %.critedge.loopexit, label %.preheader899
 
 .preheader899:                                    ; preds = %25, %22
   %.1159.ph = phi ptr [ %20, %22 ], [ %28, %25 ]
@@ -447,324 +447,340 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.1163 = phi ptr [ %53, %49 ], [ %spec.select244248252256, %45 ], [ %.0162490, %32 ]
   %.3 = phi i32 [ %50, %49 ], [ %.2, %45 ], [ %.2, %32 ]
   %152 = icmp slt i32 %.3, %0
-  br i1 %152, label %.lr.ph, label %.critedge, !llvm.loop !9
+  br i1 %152, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !9
 
-.critedge:                                        ; preds = %.lr.ph, %19, %25, %.loopexit283, %2
-  %.0195.lcssa = phi i32 [ 0, %2 ], [ %.1196, %.loopexit283 ], [ %.0195479, %25 ], [ %.0195479, %19 ], [ %.0195479, %.lr.ph ]
-  %.0192.lcssa = phi i32 [ 0, %2 ], [ %.1193, %.loopexit283 ], [ %.0192480, %25 ], [ %.0192480, %19 ], [ %.0192480, %.lr.ph ]
-  %.0189.lcssa = phi i32 [ 0, %2 ], [ %.1190, %.loopexit283 ], [ %.0189481, %25 ], [ %.0189481, %19 ], [ %.0189481, %.lr.ph ]
-  %.0186.lcssa = phi i32 [ 0, %2 ], [ %.1187, %.loopexit283 ], [ %.0186482, %25 ], [ %.0186482, %19 ], [ %.0186482, %.lr.ph ]
-  %.0183.lcssa = phi i32 [ -1, %2 ], [ %.1184, %.loopexit283 ], [ %.0183483, %25 ], [ %.0183483, %19 ], [ %.0183483, %.lr.ph ]
-  %.0180.lcssa = phi i32 [ 0, %2 ], [ %.1181, %.loopexit283 ], [ %.0180484, %25 ], [ %.0180484, %19 ], [ %.0180484, %.lr.ph ]
-  %.0177.lcssa = phi i32 [ 0, %2 ], [ %.1178, %.loopexit283 ], [ %.0177485, %25 ], [ %.0177485, %19 ], [ %.0177485, %.lr.ph ]
-  %.0174.lcssa = phi i64 [ 0, %2 ], [ %.1175, %.loopexit283 ], [ %.0174486, %25 ], [ %.0174486, %19 ], [ %.0174486, %.lr.ph ]
-  %.0170.lcssa = phi i32 [ 0, %2 ], [ %.1171, %.loopexit283 ], [ %.0170487, %25 ], [ %.0170487, %19 ], [ %.0170487, %.lr.ph ]
-  %.0167.lcssa = phi i32 [ %12, %2 ], [ %.1168, %.loopexit283 ], [ %.0167488, %25 ], [ %.0167488, %19 ], [ %.0167488, %.lr.ph ]
-  %.0164.lcssa = phi i64 [ 0, %2 ], [ %.1165, %.loopexit283 ], [ %.0164489, %25 ], [ %.0164489, %19 ], [ %.0164489, %.lr.ph ]
-  %.0162.lcssa = phi ptr [ null, %2 ], [ %.1163, %.loopexit283 ], [ %.0162490, %25 ], [ %.0162490, %19 ], [ %.0162490, %.lr.ph ]
-  %.1 = phi i32 [ 1, %2 ], [ %.3, %.loopexit283 ], [ %23, %25 ], [ %.0155491, %19 ], [ %.0155491, %.lr.ph ]
+.critedge.loopexit:                               ; preds = %.loopexit283, %25, %19, %.lr.ph
+  %.0195.lcssa.ph = phi i32 [ %.0195479, %.lr.ph ], [ %.0195479, %19 ], [ %.0195479, %25 ], [ %.1196, %.loopexit283 ]
+  %.0192.lcssa.ph = phi i32 [ %.0192480, %.lr.ph ], [ %.0192480, %19 ], [ %.0192480, %25 ], [ %.1193, %.loopexit283 ]
+  %.0189.lcssa.ph = phi i32 [ %.0189481, %.lr.ph ], [ %.0189481, %19 ], [ %.0189481, %25 ], [ %.1190, %.loopexit283 ]
+  %.0186.lcssa.ph = phi i32 [ %.0186482, %.lr.ph ], [ %.0186482, %19 ], [ %.0186482, %25 ], [ %.1187, %.loopexit283 ]
+  %.0183.lcssa.ph = phi i32 [ %.0183483, %.lr.ph ], [ %.0183483, %19 ], [ %.0183483, %25 ], [ %.1184, %.loopexit283 ]
+  %.0180.lcssa.ph = phi i32 [ %.0180484, %.lr.ph ], [ %.0180484, %19 ], [ %.0180484, %25 ], [ %.1181, %.loopexit283 ]
+  %.0177.lcssa.ph = phi i32 [ %.0177485, %.lr.ph ], [ %.0177485, %19 ], [ %.0177485, %25 ], [ %.1178, %.loopexit283 ]
+  %.0174.lcssa.ph = phi i64 [ %.0174486, %.lr.ph ], [ %.0174486, %19 ], [ %.0174486, %25 ], [ %.1175, %.loopexit283 ]
+  %.0170.lcssa.ph = phi i32 [ %.0170487, %.lr.ph ], [ %.0170487, %19 ], [ %.0170487, %25 ], [ %.1171, %.loopexit283 ]
+  %.0167.lcssa.ph = phi i32 [ %.0167488, %.lr.ph ], [ %.0167488, %19 ], [ %.0167488, %25 ], [ %.1168, %.loopexit283 ]
+  %.0164.lcssa.ph = phi i64 [ %.0164489, %.lr.ph ], [ %.0164489, %19 ], [ %.0164489, %25 ], [ %.1165, %.loopexit283 ]
+  %.0162.lcssa.ph = phi ptr [ %.0162490, %.lr.ph ], [ %.0162490, %19 ], [ %.0162490, %25 ], [ %.1163, %.loopexit283 ]
+  %.1.ph = phi i32 [ %.0155491, %.lr.ph ], [ %.0155491, %19 ], [ %23, %25 ], [ %.3, %.loopexit283 ]
+  %153 = icmp eq i32 %.0189.lcssa.ph, 0
+  %154 = icmp eq i32 %.0177.lcssa.ph, 0
+  %155 = icmp ne i32 %.0186.lcssa.ph, 0
+  %156 = icmp eq i32 %.0180.lcssa.ph, 0
+  %157 = icmp eq i32 %.0195.lcssa.ph, 0
+  %158 = icmp ne i32 %.0192.lcssa.ph, 0
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %2
+  %.0195.lcssa = phi i1 [ true, %2 ], [ %157, %.critedge.loopexit ]
+  %.0192.lcssa = phi i1 [ false, %2 ], [ %158, %.critedge.loopexit ]
+  %.0189.lcssa = phi i1 [ true, %2 ], [ %153, %.critedge.loopexit ]
+  %.0186.lcssa = phi i1 [ false, %2 ], [ %155, %.critedge.loopexit ]
+  %.0183.lcssa = phi i32 [ -1, %2 ], [ %.0183.lcssa.ph, %.critedge.loopexit ]
+  %.0180.lcssa = phi i1 [ true, %2 ], [ %156, %.critedge.loopexit ]
+  %.0177.lcssa = phi i1 [ true, %2 ], [ %154, %.critedge.loopexit ]
+  %.0174.lcssa = phi i64 [ 0, %2 ], [ %.0174.lcssa.ph, %.critedge.loopexit ]
+  %.0170.lcssa = phi i32 [ 0, %2 ], [ %.0170.lcssa.ph, %.critedge.loopexit ]
+  %.0167.lcssa = phi i32 [ %12, %2 ], [ %.0167.lcssa.ph, %.critedge.loopexit ]
+  %.0164.lcssa = phi i64 [ 0, %2 ], [ %.0164.lcssa.ph, %.critedge.loopexit ]
+  %.0162.lcssa = phi ptr [ null, %2 ], [ %.0162.lcssa.ph, %.critedge.loopexit ]
+  %.1 = phi i32 [ 1, %2 ], [ %.1.ph, %.critedge.loopexit ]
   %.not208 = icmp eq i32 %.0167.lcssa, 0
-  br i1 %.not208, label %154, label %153
+  br i1 %.not208, label %160, label %159
 
-153:                                              ; preds = %.critedge
+159:                                              ; preds = %.critedge
   store i1 true, ptr @bignum_ext, align 4
-  br label %154
-
-154:                                              ; preds = %153, %.critedge
-  %.not209 = icmp eq i32 %.0189.lcssa, 0
-  br i1 %.not209, label %158, label %155
-
-155:                                              ; preds = %154
-  %156 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #18
-  store ptr %156, ptr %3, align 8
-  tail call void @free(ptr noundef %156) #16
-  %157 = call ptr @JS_NewRuntime2(ptr noundef nonnull @trace_mf, ptr noundef nonnull %3) #16
   br label %160
 
-158:                                              ; preds = %154
-  %159 = tail call ptr @JS_NewRuntime() #16
-  br label %160
-
-160:                                              ; preds = %158, %155
-  %.0154 = phi ptr [ %157, %155 ], [ %159, %158 ]
-  %.not210 = icmp eq ptr %.0154, null
-  br i1 %.not210, label %161, label %164
+160:                                              ; preds = %159, %.critedge
+  br i1 %.0189.lcssa, label %164, label %161
 
 161:                                              ; preds = %160
-  %162 = load ptr, ptr @stderr, align 8
-  %163 = call i64 @fwrite(ptr nonnull @.str.24, i64 32, i64 1, ptr %162) #15
-  call void @exit(i32 noundef 2) #13
-  unreachable
-
-164:                                              ; preds = %160
-  %.not211 = icmp eq i64 %.0174.lcssa, 0
-  br i1 %.not211, label %166, label %165
-
-165:                                              ; preds = %164
-  call void @JS_SetMemoryLimit(ptr noundef nonnull %.0154, i64 noundef %.0174.lcssa) #16
+  %162 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #18
+  store ptr %162, ptr %3, align 8
+  tail call void @free(ptr noundef %162) #16
+  %163 = call ptr @JS_NewRuntime2(ptr noundef nonnull @trace_mf, ptr noundef nonnull %3) #16
   br label %166
 
-166:                                              ; preds = %165, %164
-  %.not212 = icmp eq i64 %.0164.lcssa, 0
-  br i1 %.not212, label %168, label %167
+164:                                              ; preds = %160
+  %165 = tail call ptr @JS_NewRuntime() #16
+  br label %166
+
+166:                                              ; preds = %164, %161
+  %.0154 = phi ptr [ %163, %161 ], [ %165, %164 ]
+  %.not210 = icmp eq ptr %.0154, null
+  br i1 %.not210, label %167, label %170
 
 167:                                              ; preds = %166
-  call void @JS_SetMaxStackSize(ptr noundef nonnull %.0154, i64 noundef %.0164.lcssa) #16
-  br label %168
-
-168:                                              ; preds = %167, %166
-  call void @js_std_set_worker_new_context_func(ptr noundef nonnull @JS_NewCustomContext) #16
-  call void @js_std_init_handlers(ptr noundef nonnull %.0154) #16
-  %169 = call ptr @JS_NewContext(ptr noundef nonnull %.0154) #16
-  %.not.i = icmp eq ptr %169, null
-  br i1 %.not.i, label %172, label %170
-
-170:                                              ; preds = %168
-  %.b.i = load i1, ptr @bignum_ext, align 4
-  br i1 %.b.i, label %171, label %175
-
-171:                                              ; preds = %170
-  call void @JS_AddIntrinsicBigFloat(ptr noundef nonnull %169) #16
-  call void @JS_AddIntrinsicBigDecimal(ptr noundef nonnull %169) #16
-  call void @JS_AddIntrinsicOperators(ptr noundef nonnull %169) #16
-  call void @JS_EnableBignumExt(ptr noundef nonnull %169, i32 noundef 1) #16
-  br label %175
-
-172:                                              ; preds = %168
-  %173 = load ptr, ptr @stderr, align 8
-  %174 = call i64 @fwrite(ptr nonnull @.str.25, i64 32, i64 1, ptr %173) #15
+  %168 = load ptr, ptr @stderr, align 8
+  %169 = call i64 @fwrite(ptr nonnull @.str.24, i64 32, i64 1, ptr %168) #15
   call void @exit(i32 noundef 2) #13
   unreachable
 
-175:                                              ; preds = %171, %170
-  %176 = call ptr @js_init_module_std(ptr noundef nonnull %169, ptr noundef nonnull @.str.14) #16
-  %177 = call ptr @js_init_module_os(ptr noundef nonnull %169, ptr noundef nonnull @.str.38) #16
+170:                                              ; preds = %166
+  %.not211 = icmp eq i64 %.0174.lcssa, 0
+  br i1 %.not211, label %172, label %171
+
+171:                                              ; preds = %170
+  call void @JS_SetMemoryLimit(ptr noundef nonnull %.0154, i64 noundef %.0174.lcssa) #16
+  br label %172
+
+172:                                              ; preds = %171, %170
+  %.not212 = icmp eq i64 %.0164.lcssa, 0
+  br i1 %.not212, label %174, label %173
+
+173:                                              ; preds = %172
+  call void @JS_SetMaxStackSize(ptr noundef nonnull %.0154, i64 noundef %.0164.lcssa) #16
+  br label %174
+
+174:                                              ; preds = %173, %172
+  call void @js_std_set_worker_new_context_func(ptr noundef nonnull @JS_NewCustomContext) #16
+  call void @js_std_init_handlers(ptr noundef nonnull %.0154) #16
+  %175 = call ptr @JS_NewContext(ptr noundef nonnull %.0154) #16
+  %.not.i = icmp eq ptr %175, null
+  br i1 %.not.i, label %178, label %176
+
+176:                                              ; preds = %174
+  %.b.i = load i1, ptr @bignum_ext, align 4
+  br i1 %.b.i, label %177, label %181
+
+177:                                              ; preds = %176
+  call void @JS_AddIntrinsicBigFloat(ptr noundef nonnull %175) #16
+  call void @JS_AddIntrinsicBigDecimal(ptr noundef nonnull %175) #16
+  call void @JS_AddIntrinsicOperators(ptr noundef nonnull %175) #16
+  call void @JS_EnableBignumExt(ptr noundef nonnull %175, i32 noundef 1) #16
+  br label %181
+
+178:                                              ; preds = %174
+  %179 = load ptr, ptr @stderr, align 8
+  %180 = call i64 @fwrite(ptr nonnull @.str.25, i64 32, i64 1, ptr %179) #15
+  call void @exit(i32 noundef 2) #13
+  unreachable
+
+181:                                              ; preds = %177, %176
+  %182 = call ptr @js_init_module_std(ptr noundef nonnull %175, ptr noundef nonnull @.str.14) #16
+  %183 = call ptr @js_init_module_os(ptr noundef nonnull %175, ptr noundef nonnull @.str.38) #16
   call void @JS_SetModuleLoaderFunc(ptr noundef nonnull %.0154, ptr noundef null, ptr noundef nonnull @js_module_loader, ptr noundef null) #16
-  %.not214 = icmp eq i32 %.0177.lcssa, 0
-  br i1 %.not214, label %179, label %178
+  br i1 %.0177.lcssa, label %185, label %184
 
-178:                                              ; preds = %175
+184:                                              ; preds = %181
   call void @JS_SetHostPromiseRejectionTracker(ptr noundef nonnull %.0154, ptr noundef nonnull @js_std_promise_rejection_tracker, ptr noundef null) #16
-  br label %179
-
-179:                                              ; preds = %178, %175
-  %180 = icmp ne i32 %.0186.lcssa, 0
-  br i1 %180, label %220, label %181
-
-181:                                              ; preds = %179
-  br i1 %.not208, label %185, label %182
-
-182:                                              ; preds = %181
-  %183 = load i32, ptr @qjsc_qjscalc_size, align 4
-  %184 = zext i32 %183 to i64
-  call void @js_std_eval_binary(ptr noundef nonnull %169, ptr noundef nonnull @qjsc_qjscalc, i64 noundef %184, i32 noundef 0) #16
   br label %185
 
-185:                                              ; preds = %182, %181
-  %186 = sub i32 %0, %.1
-  %187 = sext i32 %.1 to i64
-  %188 = getelementptr ptr, ptr %1, i64 %187
-  call void @js_std_add_helpers(ptr noundef nonnull %169, i32 noundef %186, ptr noundef %188) #16
-  %.not215 = icmp eq i32 %.0180.lcssa, 0
-  br i1 %.not215, label %191, label %189
+185:                                              ; preds = %184, %181
+  br i1 %.0186.lcssa, label %225, label %186
 
-189:                                              ; preds = %185
-  %190 = call fastcc i32 @eval_buf(ptr noundef nonnull %169, ptr noundef nonnull @.str.26, i32 noundef 96, ptr noundef nonnull @.str.27, i32 noundef 1)
-  br label %191
+186:                                              ; preds = %185
+  br i1 %.not208, label %190, label %187
 
-191:                                              ; preds = %189, %185
-  %192 = icmp sgt i32 %.0170.lcssa, 0
-  br i1 %192, label %.lr.ph547.preheader, label %._crit_edge
+187:                                              ; preds = %186
+  %188 = load i32, ptr @qjsc_qjscalc_size, align 4
+  %189 = zext i32 %188 to i64
+  call void @js_std_eval_binary(ptr noundef nonnull %175, ptr noundef nonnull @qjsc_qjscalc, i64 noundef %189, i32 noundef 0) #16
+  br label %190
 
-.lr.ph547.preheader:                              ; preds = %191
+190:                                              ; preds = %187, %186
+  %191 = sub i32 %0, %.1
+  %192 = sext i32 %.1 to i64
+  %193 = getelementptr ptr, ptr %1, i64 %192
+  call void @js_std_add_helpers(ptr noundef nonnull %175, i32 noundef %191, ptr noundef %193) #16
+  br i1 %.0180.lcssa, label %196, label %194
+
+194:                                              ; preds = %190
+  %195 = call fastcc i32 @eval_buf(ptr noundef nonnull %175, ptr noundef nonnull @.str.26, i32 noundef 96, ptr noundef nonnull @.str.27, i32 noundef 1)
+  br label %196
+
+196:                                              ; preds = %194, %190
+  %197 = icmp sgt i32 %.0170.lcssa, 0
+  br i1 %197, label %.lr.ph547.preheader, label %._crit_edge
+
+.lr.ph547.preheader:                              ; preds = %196
   %wide.trip.count = zext nneg i32 %.0170.lcssa to i64
   br label %.lr.ph547
 
-193:                                              ; preds = %.lr.ph547
+198:                                              ; preds = %.lr.ph547
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph547, !llvm.loop !10
 
-.lr.ph547:                                        ; preds = %.lr.ph547.preheader, %193
-  %indvars.iv = phi i64 [ 0, %.lr.ph547.preheader ], [ %indvars.iv.next, %193 ]
-  %194 = getelementptr [32 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %195 = load ptr, ptr %194, align 8
-  %196 = call fastcc i32 @eval_file(ptr noundef nonnull %169, ptr noundef %195, i32 noundef %.0183.lcssa)
-  %.not221 = icmp eq i32 %196, 0
-  br i1 %.not221, label %193, label %.loopexit
+.lr.ph547:                                        ; preds = %.lr.ph547.preheader, %198
+  %indvars.iv = phi i64 [ 0, %.lr.ph547.preheader ], [ %indvars.iv.next, %198 ]
+  %199 = getelementptr [32 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %200 = load ptr, ptr %199, align 8
+  %201 = call fastcc i32 @eval_file(ptr noundef nonnull %175, ptr noundef %200, i32 noundef %.0183.lcssa)
+  %.not221 = icmp eq i32 %201, 0
+  br i1 %.not221, label %198, label %.loopexit
 
-._crit_edge:                                      ; preds = %193, %191
+._crit_edge:                                      ; preds = %198, %196
   %.not216 = icmp eq ptr %.0162.lcssa, null
-  br i1 %.not216, label %212, label %197
+  br i1 %.not216, label %217, label %202
 
-197:                                              ; preds = %._crit_edge
-  %198 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0162.lcssa) #14
-  %sext = shl i64 %198, 32
-  %199 = ashr exact i64 %sext, 32
-  %200 = call { i64, i64 } @JS_Eval(ptr noundef nonnull %169, ptr noundef nonnull %.0162.lcssa, i64 noundef %199, ptr noundef nonnull @.str.28, i32 noundef 0) #16
-  %.sroa.10.1.i = extractvalue { i64, i64 } %200, 1
-  %.sroa.07.1.i = extractvalue { i64, i64 } %200, 0
-  %201 = and i64 %.sroa.10.1.i, 4294967295
-  %.not35.i.not = icmp eq i64 %201, 6
-  br i1 %.not35.i.not, label %202, label %203
+202:                                              ; preds = %._crit_edge
+  %203 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0162.lcssa) #14
+  %sext = shl i64 %203, 32
+  %204 = ashr exact i64 %sext, 32
+  %205 = call { i64, i64 } @JS_Eval(ptr noundef nonnull %175, ptr noundef nonnull %.0162.lcssa, i64 noundef %204, ptr noundef nonnull @.str.28, i32 noundef 0) #16
+  %.sroa.10.1.i = extractvalue { i64, i64 } %205, 1
+  %.sroa.07.1.i = extractvalue { i64, i64 } %205, 0
+  %206 = and i64 %.sroa.10.1.i, 4294967295
+  %.not35.i.not = icmp eq i64 %206, 6
+  br i1 %.not35.i.not, label %207, label %208
 
-202:                                              ; preds = %197
-  call void @js_std_dump_error(ptr noundef nonnull %169) #16
-  br label %203
+207:                                              ; preds = %202
+  call void @js_std_dump_error(ptr noundef nonnull %175) #16
+  br label %208
 
-203:                                              ; preds = %202, %197
-  %204 = trunc i64 %.sroa.10.1.i to i32
-  %205 = icmp ugt i32 %204, -12
-  br i1 %205, label %206, label %eval_buf.exit
-
-206:                                              ; preds = %203
-  %207 = inttoptr i64 %.sroa.07.1.i to ptr
-  %208 = load i32, ptr %207, align 4
-  %209 = add i32 %208, -1
-  store i32 %209, ptr %207, align 4
-  %210 = icmp slt i32 %209, 1
+208:                                              ; preds = %207, %202
+  %209 = trunc i64 %.sroa.10.1.i to i32
+  %210 = icmp ugt i32 %209, -12
   br i1 %210, label %211, label %eval_buf.exit
 
-211:                                              ; preds = %206
-  call void @__JS_FreeValue(ptr noundef nonnull %169, i64 %.sroa.07.1.i, i64 %.sroa.10.1.i) #16
+211:                                              ; preds = %208
+  %212 = inttoptr i64 %.sroa.07.1.i to ptr
+  %213 = load i32, ptr %212, align 4
+  %214 = add i32 %213, -1
+  store i32 %214, ptr %212, align 4
+  %215 = icmp slt i32 %214, 1
+  br i1 %215, label %216, label %eval_buf.exit
+
+216:                                              ; preds = %211
+  call void @__JS_FreeValue(ptr noundef nonnull %175, i64 %.sroa.07.1.i, i64 %.sroa.10.1.i) #16
   br label %eval_buf.exit
 
-eval_buf.exit:                                    ; preds = %203, %206, %211
-  br i1 %.not35.i.not, label %.loopexit, label %216
+eval_buf.exit:                                    ; preds = %208, %211, %216
+  br i1 %.not35.i.not, label %.loopexit, label %221
 
-212:                                              ; preds = %._crit_edge
+217:                                              ; preds = %._crit_edge
   %.not217 = icmp slt i32 %.1, %0
-  br i1 %.not217, label %213, label %.thread280
+  br i1 %.not217, label %218, label %.thread280
 
-213:                                              ; preds = %212
-  %214 = load ptr, ptr %188, align 8
-  %215 = call fastcc i32 @eval_file(ptr noundef nonnull %169, ptr noundef %214, i32 noundef %.0183.lcssa)
-  %.not218 = icmp eq i32 %215, 0
-  br i1 %.not218, label %216, label %.loopexit
+218:                                              ; preds = %217
+  %219 = load ptr, ptr %193, align 8
+  %220 = call fastcc i32 @eval_file(ptr noundef nonnull %175, ptr noundef %219, i32 noundef %.0183.lcssa)
+  %.not218 = icmp eq i32 %220, 0
+  br i1 %.not218, label %221, label %.loopexit
 
-216:                                              ; preds = %213, %eval_buf.exit
-  %.not220 = icmp eq i32 %.0195.lcssa, 0
-  br i1 %.not220, label %219, label %.thread280
+221:                                              ; preds = %218, %eval_buf.exit
+  br i1 %.0195.lcssa, label %224, label %.thread280
 
-.thread280:                                       ; preds = %212, %216
-  %217 = load i32, ptr @qjsc_repl_size, align 4
-  %218 = zext i32 %217 to i64
-  call void @js_std_eval_binary(ptr noundef nonnull %169, ptr noundef nonnull @qjsc_repl, i64 noundef %218, i32 noundef 0) #16
-  br label %219
-
-219:                                              ; preds = %.thread280, %216
-  call void @js_std_loop(ptr noundef nonnull %169) #16
-  br label %220
-
-220:                                              ; preds = %219, %179
-  %221 = icmp ne i32 %.0192.lcssa, 0
-  br i1 %221, label %222, label %224
-
-222:                                              ; preds = %220
-  call void @JS_ComputeMemoryUsage(ptr noundef nonnull %.0154, ptr noundef nonnull %5) #16
-  %223 = load ptr, ptr @stdout, align 8
-  call void @JS_DumpMemoryUsage(ptr noundef %223, ptr noundef nonnull %5, ptr noundef nonnull %.0154) #16
+.thread280:                                       ; preds = %217, %221
+  %222 = load i32, ptr @qjsc_repl_size, align 4
+  %223 = zext i32 %222 to i64
+  call void @js_std_eval_binary(ptr noundef nonnull %175, ptr noundef nonnull @qjsc_repl, i64 noundef %223, i32 noundef 0) #16
   br label %224
 
-224:                                              ; preds = %222, %220
+224:                                              ; preds = %.thread280, %221
+  call void @js_std_loop(ptr noundef nonnull %175) #16
+  br label %225
+
+225:                                              ; preds = %224, %185
+  br i1 %.0192.lcssa, label %226, label %228
+
+226:                                              ; preds = %225
+  call void @JS_ComputeMemoryUsage(ptr noundef nonnull %.0154, ptr noundef nonnull %5) #16
+  %227 = load ptr, ptr @stdout, align 8
+  call void @JS_DumpMemoryUsage(ptr noundef %227, ptr noundef nonnull %5, ptr noundef nonnull %.0154) #16
+  br label %228
+
+228:                                              ; preds = %226, %225
   call void @js_std_free_handlers(ptr noundef nonnull %.0154) #16
-  call void @JS_FreeContext(ptr noundef nonnull %169) #16
+  call void @JS_FreeContext(ptr noundef nonnull %175) #16
   call void @JS_FreeRuntime(ptr noundef nonnull %.0154) #16
-  %or.cond6 = and i1 %221, %180
-  br i1 %or.cond6, label %.preheader, label %274
+  %or.cond6 = and i1 %.0192.lcssa, %.0186.lcssa
+  br i1 %or.cond6, label %.preheader, label %278
 
-.preheader:                                       ; preds = %224
-  %225 = getelementptr inbounds i8, ptr %6, i64 8
-  %226 = getelementptr inbounds i8, ptr %6, i64 16
-  %227 = getelementptr inbounds i8, ptr %6, i64 24
-  %228 = getelementptr inbounds i8, ptr %6, i64 32
-  br label %229
+.preheader:                                       ; preds = %228
+  %229 = getelementptr inbounds i8, ptr %6, i64 8
+  %230 = getelementptr inbounds i8, ptr %6, i64 16
+  %231 = getelementptr inbounds i8, ptr %6, i64 24
+  %232 = getelementptr inbounds i8, ptr %6, i64 32
+  br label %233
 
-229:                                              ; preds = %.preheader, %.split550.us
-  %.0153551 = phi i32 [ 0, %.preheader ], [ %260, %.split550.us ]
-  %230 = call i64 @clock() #16
-  store i64 %230, ptr %6, align 16
-  %231 = call ptr @JS_NewRuntime() #16
-  %232 = call i64 @clock() #16
-  store i64 %232, ptr %225, align 8
-  %233 = call ptr @JS_NewContext(ptr noundef %231) #16
+233:                                              ; preds = %.preheader, %.split550.us
+  %.0153551 = phi i32 [ 0, %.preheader ], [ %264, %.split550.us ]
   %234 = call i64 @clock() #16
-  store i64 %234, ptr %226, align 16
-  call void @JS_FreeContext(ptr noundef %233) #16
-  %235 = call i64 @clock() #16
-  store i64 %235, ptr %227, align 8
-  call void @JS_FreeRuntime(ptr noundef %231) #16
+  store i64 %234, ptr %6, align 16
+  %235 = call ptr @JS_NewRuntime() #16
   %236 = call i64 @clock() #16
-  store i64 %236, ptr %228, align 16
-  %237 = icmp eq i32 %.0153551, 0
-  br i1 %237, label %.split.us, label %.split
+  store i64 %236, ptr %229, align 8
+  %237 = call ptr @JS_NewContext(ptr noundef %235) #16
+  %238 = call i64 @clock() #16
+  store i64 %238, ptr %230, align 16
+  call void @JS_FreeContext(ptr noundef %237) #16
+  %239 = call i64 @clock() #16
+  store i64 %239, ptr %231, align 8
+  call void @JS_FreeRuntime(ptr noundef %235) #16
+  %240 = call i64 @clock() #16
+  store i64 %240, ptr %232, align 16
+  %241 = icmp eq i32 %.0153551, 0
+  br i1 %241, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %229, %.split.us
-  %238 = phi i64 [ %240, %.split.us ], [ %236, %229 ]
-  %indvars.iv668 = phi i64 [ %indvars.iv.next669, %.split.us ], [ 4, %229 ]
+.split.us:                                        ; preds = %233, %.split.us
+  %242 = phi i64 [ %244, %.split.us ], [ %240, %233 ]
+  %indvars.iv668 = phi i64 [ %indvars.iv.next669, %.split.us ], [ 4, %233 ]
   %indvars.iv.next669 = add nsw i64 %indvars.iv668, -1
-  %239 = getelementptr [5 x i64], ptr %6, i64 0, i64 %indvars.iv.next669
-  %240 = load i64, ptr %239, align 8
-  %241 = sub i64 %238, %240
-  %242 = sitofp i64 %241 to double
-  %243 = fmul double %242, 1.000000e+03
-  %244 = fdiv double %243, 1.000000e+06
-  %245 = getelementptr [5 x double], ptr %7, i64 0, i64 %indvars.iv668
-  store double %244, ptr %245, align 8
-  %246 = icmp ugt i64 %indvars.iv668, 1
-  br i1 %246, label %.split.us, label %.split550.us, !llvm.loop !11
+  %243 = getelementptr [5 x i64], ptr %6, i64 0, i64 %indvars.iv.next669
+  %244 = load i64, ptr %243, align 8
+  %245 = sub i64 %242, %244
+  %246 = sitofp i64 %245 to double
+  %247 = fmul double %246, 1.000000e+03
+  %248 = fdiv double %247, 1.000000e+06
+  %249 = getelementptr [5 x double], ptr %7, i64 0, i64 %indvars.iv668
+  store double %248, ptr %249, align 8
+  %250 = icmp ugt i64 %indvars.iv668, 1
+  br i1 %250, label %.split.us, label %.split550.us, !llvm.loop !11
 
-.split:                                           ; preds = %229, %258
-  %247 = phi i64 [ %249, %258 ], [ %236, %229 ]
-  %indvars.iv665 = phi i64 [ %indvars.iv.next666, %258 ], [ 4, %229 ]
+.split:                                           ; preds = %233, %262
+  %251 = phi i64 [ %253, %262 ], [ %240, %233 ]
+  %indvars.iv665 = phi i64 [ %indvars.iv.next666, %262 ], [ 4, %233 ]
   %indvars.iv.next666 = add nsw i64 %indvars.iv665, -1
-  %248 = getelementptr [5 x i64], ptr %6, i64 0, i64 %indvars.iv.next666
-  %249 = load i64, ptr %248, align 8
-  %250 = sub i64 %247, %249
-  %251 = sitofp i64 %250 to double
-  %252 = fmul double %251, 1.000000e+03
-  %253 = fdiv double %252, 1.000000e+06
-  %254 = getelementptr [5 x double], ptr %7, i64 0, i64 %indvars.iv665
-  %255 = load double, ptr %254, align 8
-  %256 = fcmp ogt double %255, %253
-  br i1 %256, label %257, label %258
+  %252 = getelementptr [5 x i64], ptr %6, i64 0, i64 %indvars.iv.next666
+  %253 = load i64, ptr %252, align 8
+  %254 = sub i64 %251, %253
+  %255 = sitofp i64 %254 to double
+  %256 = fmul double %255, 1.000000e+03
+  %257 = fdiv double %256, 1.000000e+06
+  %258 = getelementptr [5 x double], ptr %7, i64 0, i64 %indvars.iv665
+  %259 = load double, ptr %258, align 8
+  %260 = fcmp ogt double %259, %257
+  br i1 %260, label %261, label %262
 
-257:                                              ; preds = %.split
-  store double %253, ptr %254, align 8
-  br label %258
+261:                                              ; preds = %.split
+  store double %257, ptr %258, align 8
+  br label %262
 
-258:                                              ; preds = %.split, %257
-  %259 = icmp ugt i64 %indvars.iv665, 1
-  br i1 %259, label %.split, label %.split550.us, !llvm.loop !11
+262:                                              ; preds = %.split, %261
+  %263 = icmp ugt i64 %indvars.iv665, 1
+  br i1 %263, label %.split, label %.split550.us, !llvm.loop !11
 
-.split550.us:                                     ; preds = %258, %.split.us
-  %260 = add nuw nsw i32 %.0153551, 1
-  %exitcond671.not = icmp eq i32 %260, 100
-  br i1 %exitcond671.not, label %261, label %229, !llvm.loop !12
+.split550.us:                                     ; preds = %262, %.split.us
+  %264 = add nuw nsw i32 %.0153551, 1
+  %exitcond671.not = icmp eq i32 %264, 100
+  br i1 %exitcond671.not, label %265, label %233, !llvm.loop !12
 
-261:                                              ; preds = %.split550.us
-  %262 = getelementptr inbounds i8, ptr %7, i64 8
-  %263 = load double, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %7, i64 16
-  %265 = load double, ptr %264, align 16
-  %266 = fadd double %263, %265
-  %267 = getelementptr inbounds i8, ptr %7, i64 24
-  %268 = load double, ptr %267, align 8
-  %269 = fadd double %266, %268
-  %270 = getelementptr inbounds i8, ptr %7, i64 32
-  %271 = load double, ptr %270, align 16
-  %272 = fadd double %269, %271
-  %273 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %272, double noundef %263, double noundef %265, double noundef %268, double noundef %271)
-  br label %274
+265:                                              ; preds = %.split550.us
+  %266 = getelementptr inbounds i8, ptr %7, i64 8
+  %267 = load double, ptr %266, align 8
+  %268 = getelementptr inbounds i8, ptr %7, i64 16
+  %269 = load double, ptr %268, align 16
+  %270 = fadd double %267, %269
+  %271 = getelementptr inbounds i8, ptr %7, i64 24
+  %272 = load double, ptr %271, align 8
+  %273 = fadd double %270, %272
+  %274 = getelementptr inbounds i8, ptr %7, i64 32
+  %275 = load double, ptr %274, align 16
+  %276 = fadd double %273, %275
+  %277 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %276, double noundef %267, double noundef %269, double noundef %272, double noundef %275)
+  br label %278
 
-.loopexit:                                        ; preds = %.lr.ph547, %213, %eval_buf.exit
+.loopexit:                                        ; preds = %.lr.ph547, %218, %eval_buf.exit
   call void @js_std_free_handlers(ptr noundef nonnull %.0154) #16
-  call void @JS_FreeContext(ptr noundef nonnull %169) #16
+  call void @JS_FreeContext(ptr noundef nonnull %175) #16
   call void @JS_FreeRuntime(ptr noundef nonnull %.0154) #16
-  br label %274
+  br label %278
 
-274:                                              ; preds = %224, %261, %.loopexit
-  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %261 ], [ 0, %224 ]
+278:                                              ; preds = %228, %265, %.loopexit
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %265 ], [ 0, %228 ]
   ret i32 %.0
 }
 

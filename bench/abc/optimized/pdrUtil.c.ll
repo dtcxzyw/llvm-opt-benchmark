@@ -799,12 +799,12 @@ define void @Pdr_SetPrintStr(ptr nocapture noundef %0, ptr nocapture noundef rea
 .lr.ph.preheader:                                 ; preds = %4
   %9 = zext nneg i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 45, i64 %9, i1 false)
+  %10 = zext nneg i32 %2 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %4
-  %.038.lcssa = phi i32 [ 0, %4 ], [ %2, %.lr.ph.preheader ]
-  %10 = zext nneg i32 %.038.lcssa to i64
-  %11 = getelementptr inbounds i8, ptr %7, i64 %10
+  %.038.lcssa = phi i64 [ 0, %4 ], [ %10, %.lr.ph.preheader ]
+  %11 = getelementptr inbounds i8, ptr %7, i64 %.038.lcssa
   store i8 0, ptr %11, align 1
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8

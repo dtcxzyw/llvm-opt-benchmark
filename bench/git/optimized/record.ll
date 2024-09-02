@@ -3700,17 +3700,17 @@ if.end12.i58:                                     ; preds = %while.body.i54
 
 get_var_int.exit71:                               ; preds = %if.end12.i58
   %20 = add nuw i64 %indvars.iv.i55, 2
+  %21 = and i64 %20, 4294967295
   br label %if.end39
 
 if.end39:                                         ; preds = %get_var_int.exit71, %if.end.i51
-  %retval.0.i70114 = phi i64 [ %20, %get_var_int.exit71 ], [ 1, %if.end.i51 ]
+  %retval.0.i70114 = phi i64 [ %21, %get_var_int.exit71 ], [ 1, %if.end.i51 ]
   %delta.0113 = phi i64 [ %or.i64, %get_var_int.exit71 ], [ %conv1.i52, %if.end.i51 ]
-  %idx.ext.i72 = and i64 %retval.0.i70114, 4294967295
-  %add.ptr.i73 = getelementptr inbounds i8, ptr %in.sroa.0.1125, i64 %idx.ext.i72
-  %sub.i75 = sub i64 %in.sroa.10.1124, %idx.ext.i72
+  %add.ptr.i73 = getelementptr inbounds i8, ptr %in.sroa.0.1125, i64 %retval.0.i70114
+  %sub.i75 = sub i64 %in.sroa.10.1124, %retval.0.i70114
   %add = add i64 %delta.0113, %last.0126
-  %21 = load ptr, ptr %offsets, align 8
-  %arrayidx41 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv
+  %22 = load ptr, ptr %offsets, align 8
+  %arrayidx41 = getelementptr inbounds i64, ptr %22, i64 %indvars.iv
   store i64 %add, ptr %arrayidx41, align 8
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax

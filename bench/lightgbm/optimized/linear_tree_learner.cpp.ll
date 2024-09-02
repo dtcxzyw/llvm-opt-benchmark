@@ -1317,7 +1317,7 @@ define linkonce_odr void @_ZN8LightGBM17SerialTreeLearner14SetForcedSplitEPKN24j
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8LightGBM17LinearTreeLearner5TrainEPKfS2_b(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8LightGBM17LinearTreeLearner5TrainEPKfS2_b(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

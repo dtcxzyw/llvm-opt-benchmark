@@ -349,7 +349,7 @@ define hidden void @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$8finalize17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$3len17h9f24308c5ce3cc71E.llvm.1529300605734054276"(ptr nocapture noundef nonnull readonly align 128 %0) unnamed_addr #5 {
+define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$3len17h9f24308c5ce3cc71E.llvm.1529300605734054276"(ptr nocapture noundef nonnull readonly align 128 %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %3, i64 0)

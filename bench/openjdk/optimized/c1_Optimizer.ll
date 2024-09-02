@@ -4476,11 +4476,11 @@ _ZNK17GrowableArrayViewIP10BlockBeginE8containsERKS1_.exit: ; preds = %232, %_ZN
 
 327:                                              ; preds = %325
   %328 = load i32, ptr %326, align 4
+  %329 = sext i32 %328 to i64
   br label %_ZNK8BlockEnd13number_of_suxEv.exit
 
 _ZNK8BlockEnd13number_of_suxEv.exit:              ; preds = %325, %327
-  %329 = phi i32 [ %328, %327 ], [ 0, %325 ]
-  %330 = sext i32 %329 to i64
+  %330 = phi i64 [ %329, %327 ], [ 0, %325 ]
   %331 = icmp slt i64 %indvars.iv130, %330
   br i1 %331, label %332, label %405
 
@@ -6135,11 +6135,11 @@ _ZN8BlockEnd8find_suxEP10BlockBegin.exit.thread.i: ; preds = %_ZN8BlockEnd13remo
 
 95:                                               ; preds = %91
   %96 = load i32, ptr %94, align 4
+  %97 = sext i32 %96 to i64
   br label %_ZNK10BlockBegin13number_of_suxEv.exit.i
 
 _ZNK10BlockBegin13number_of_suxEv.exit.i:         ; preds = %95, %91
-  %97 = phi i32 [ %96, %95 ], [ 0, %91 ]
-  %98 = sext i32 %97 to i64
+  %98 = phi i64 [ %97, %95 ], [ 0, %91 ]
   %99 = icmp slt i64 %indvars.iv27.i, %98
   br i1 %99, label %100, label %_ZL21disconnect_from_graphP10BlockBegin.exit
 

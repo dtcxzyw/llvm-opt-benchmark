@@ -1124,7 +1124,7 @@ return:                                           ; preds = %if.then4.i.i, %land
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z40tsi_create_ssl_client_handshaker_factoryPK25tsi_ssl_pem_key_cert_pairPKcS3_PS3_tPP33tsi_ssl_client_handshaker_factory(ptr noundef %pem_key_cert_pair, ptr noundef %pem_root_certs, ptr noundef %cipher_suites, ptr noundef %alpn_protocols, i16 noundef zeroext %num_alpn_protocols, ptr noundef %factory) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 13) i32 @_Z40tsi_create_ssl_client_handshaker_factoryPK25tsi_ssl_pem_key_cert_pairPKcS3_PS3_tPP33tsi_ssl_client_handshaker_factory(ptr noundef %pem_key_cert_pair, ptr noundef %pem_root_certs, ptr noundef %cipher_suites, ptr noundef %alpn_protocols, i16 noundef zeroext %num_alpn_protocols, ptr noundef %factory) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %options = alloca %struct.tsi_ssl_client_handshaker_options, align 8
   %min_tls_version.i = getelementptr inbounds i8, ptr %options, i64 68
@@ -1159,7 +1159,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z53tsi_create_ssl_client_handshaker_factory_with_optionsPK33tsi_ssl_client_handshaker_optionsPP33tsi_ssl_client_handshaker_factory(ptr nocapture noundef readonly %options, ptr noundef writeonly %factory) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 13) i32 @_Z53tsi_create_ssl_client_handshaker_factory_with_optionsPK33tsi_ssl_client_handshaker_optionsPP33tsi_ssl_client_handshaker_factory(ptr nocapture noundef readonly %options, ptr noundef writeonly %factory) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @gpr_once_init(ptr noundef nonnull @_ZL19g_init_openssl_once, ptr noundef nonnull @_ZL12init_opensslv)
   %cmp = icmp eq ptr %factory, null
@@ -1746,7 +1746,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 declare i32 @SSL_CTX_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL20populate_ssl_contextP10ssl_ctx_stPK25tsi_ssl_pem_key_cert_pairPKc(ptr noundef %context, ptr noundef readonly %key_cert_pair, ptr noundef %cipher_list) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 13) i32 @_ZL20populate_ssl_contextP10ssl_ctx_stPK25tsi_ssl_pem_key_cert_pairPKc(ptr noundef %context, ptr noundef readonly %key_cert_pair, ptr noundef %cipher_list) unnamed_addr #3 {
 entry:
   %cmp.not = icmp eq ptr %key_cert_pair, null
   br i1 %cmp.not, label %if.end21, label %if.then
@@ -4203,7 +4203,7 @@ _ZL32tsi_ssl_handshaker_factory_unrefP26tsi_ssl_handshaker_factory.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL19ssl_handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr noundef writeonly %bytes_to_send, ptr noundef writeonly %bytes_to_send_size, ptr noundef writeonly %handshaker_result, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %error) #3 {
+define internal noundef range(i32 0, 17) i32 @_ZL19ssl_handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr noundef writeonly %bytes_to_send, ptr noundef writeonly %bytes_to_send_size, ptr noundef writeonly %handshaker_result, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %error) #3 {
 entry:
   %bytes_written = alloca i64, align 8
   %unused_bytes = alloca ptr, align 8

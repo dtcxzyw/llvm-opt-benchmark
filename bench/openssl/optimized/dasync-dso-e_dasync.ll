@@ -1396,11 +1396,11 @@ land.rhs:                                         ; preds = %if.end27
   %9 = load i64, ptr %arrayidx34, align 8
   %call35 = tail call i32 %call28(ptr noundef %ctx, ptr noundef %5, ptr noundef %7, i64 noundef %9) #8
   %tobool36 = icmp ne i32 %call35, 0
+  %10 = zext i1 %tobool36 to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end27
-  %10 = phi i1 [ false, %if.end27 ], [ %tobool36, %land.rhs ]
-  %land.ext = zext i1 %10 to i32
+  %land.ext = phi i32 [ 0, %if.end27 ], [ %10, %land.rhs ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4

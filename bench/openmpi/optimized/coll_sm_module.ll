@@ -387,7 +387,7 @@ declare i32 @mca_coll_sm_bcast_intra(ptr noundef, i32 noundef, ptr noundef, i32 
 declare i32 @mca_coll_sm_reduce_intra(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_coll_sm_lazy_enable(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -3, 1) i32 @ompi_coll_sm_lazy_enable(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.opal_shmem_ds_t, align 8
   %5 = getelementptr i8, ptr %1, i64 220
@@ -399,7 +399,7 @@ define noundef i32 @ompi_coll_sm_lazy_enable(ptr nocapture noundef %0, ptr nound
   %8 = getelementptr inbounds i8, ptr %0, i64 592
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %419, label %11
+  br i1 %10, label %421, label %11
 
 11:                                               ; preds = %2
   store i8 1, ptr %8, align 8
@@ -413,7 +413,7 @@ define noundef i32 @ompi_coll_sm_lazy_enable(ptr nocapture noundef %0, ptr nound
 17:                                               ; preds = %11
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %19 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %18) #8
-  br i1 %19, label %20, label %419
+  br i1 %19, label %20, label %421
 
 20:                                               ; preds = %17
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
@@ -421,7 +421,7 @@ define noundef i32 @ompi_coll_sm_lazy_enable(ptr nocapture noundef %0, ptr nound
   %23 = getelementptr inbounds i8, ptr %1, i64 160
   %24 = load ptr, ptr %23, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %21, ptr noundef nonnull @.str.5, ptr noundef %22, ptr noundef %24) #8
-  br label %419
+  br label %421
 
 25:                                               ; preds = %11
   %26 = shl nsw i64 %13, 4
@@ -443,7 +443,7 @@ define noundef i32 @ompi_coll_sm_lazy_enable(ptr nocapture noundef %0, ptr nound
   tail call void @free(ptr noundef nonnull %15) #8
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
   %40 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %39) #8
-  br i1 %40, label %41, label %419
+  br i1 %40, label %41, label %421
 
 41:                                               ; preds = %38
   %42 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
@@ -451,7 +451,7 @@ define noundef i32 @ompi_coll_sm_lazy_enable(ptr nocapture noundef %0, ptr nound
   %44 = getelementptr inbounds i8, ptr %1, i64 160
   %45 = load ptr, ptr %44, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %42, ptr noundef nonnull @.str.6, ptr noundef %43, ptr noundef %45) #8
-  br label %419
+  br label %421
 
 46:                                               ; preds = %25
   %47 = getelementptr inbounds i8, ptr %35, i64 64
@@ -498,7 +498,7 @@ define noundef i32 @ompi_coll_sm_lazy_enable(ptr nocapture noundef %0, ptr nound
   br i1 %exitcond.not, label %.preheader228, label %.lr.ph, !llvm.loop !7
 
 65:                                               ; preds = %.lr.ph234, %._crit_edge
-  %66 = phi i32 [ %.pre, %.lr.ph234 ], [ %103, %._crit_edge ]
+  %66 = phi i32 [ %.pre, %.lr.ph234 ], [ %105, %._crit_edge ]
   %indvars.iv258 = phi i64 [ 0, %.lr.ph234 ], [ %indvars.iv.next259, %._crit_edge ]
   %67 = trunc i64 %indvars.iv258 to i32
   %68 = add i32 %67, -1
@@ -507,65 +507,71 @@ define noundef i32 @ompi_coll_sm_lazy_enable(ptr nocapture noundef %0, ptr nound
   %71 = mul nsw i32 %66, %70
   %72 = add nsw i32 %71, 1
   %.not218 = icmp slt i32 %72, %.val.val
-  %73 = add nsw i32 %71, %66
-  %.not219 = icmp slt i32 %73, %.val.val
-  %spec.select = select i1 %.not219, i32 %73, i32 %56
-  %74 = sub i32 %spec.select, %71
-  %.0208 = select i1 %.not218, i32 %72, i32 -1
-  %.0207 = select i1 %.not218, i32 %74, i32 0
-  %75 = load ptr, ptr %51, align 8
-  %76 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %75, i64 %indvars.iv258
-  store i32 %70, ptr %76, align 8
-  %77 = icmp eq i64 %indvars.iv258, 0
-  %78 = icmp eq i32 %69, 0
-  %or.cond = and i1 %77, %78
-  %79 = load ptr, ptr %51, align 8
-  br i1 %or.cond, label %80, label %82
+  br i1 %.not218, label %73, label %77
 
-80:                                               ; preds = %65
-  %81 = getelementptr inbounds i8, ptr %79, i64 8
-  store ptr null, ptr %81, align 8
-  br label %86
+73:                                               ; preds = %65
+  %74 = add nsw i32 %71, %66
+  %.not219 = icmp slt i32 %74, %.val.val
+  %spec.select = select i1 %.not219, i32 %74, i32 %56
+  %75 = sub i32 %spec.select, %71
+  %76 = sext i32 %72 to i64
+  br label %77
 
-82:                                               ; preds = %65
-  %83 = sext i32 %69 to i64
-  %84 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %79, i64 %83
-  %85 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %79, i64 %indvars.iv258, i32 1
-  store ptr %84, ptr %85, align 8
-  br label %86
+77:                                               ; preds = %65, %73
+  %.0208 = phi i64 [ %76, %73 ], [ -1, %65 ]
+  %.0207 = phi i32 [ %75, %73 ], [ 0, %65 ]
+  %78 = load ptr, ptr %51, align 8
+  %79 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %78, i64 %indvars.iv258
+  store i32 %70, ptr %79, align 8
+  %80 = icmp eq i64 %indvars.iv258, 0
+  %81 = icmp eq i32 %69, 0
+  %or.cond = and i1 %80, %81
+  %82 = load ptr, ptr %51, align 8
+  br i1 %or.cond, label %83, label %85
 
-86:                                               ; preds = %82, %80
-  %87 = load ptr, ptr %51, align 8
-  %88 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %87, i64 %indvars.iv258, i32 2
-  store i32 %.0207, ptr %88, align 8
-  %89 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 300), align 4
-  %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %.lr.ph232.preheader, label %._crit_edge
+83:                                               ; preds = %77
+  %84 = getelementptr inbounds i8, ptr %82, i64 8
+  store ptr null, ptr %84, align 8
+  br label %89
 
-.lr.ph232.preheader:                              ; preds = %86
-  %91 = sext i32 %.0208 to i64
-  %92 = sext i32 %.0207 to i64
+85:                                               ; preds = %77
+  %86 = sext i32 %69 to i64
+  %87 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %82, i64 %86
+  %88 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %82, i64 %indvars.iv258, i32 1
+  store ptr %87, ptr %88, align 8
+  br label %89
+
+89:                                               ; preds = %85, %83
+  %90 = load ptr, ptr %51, align 8
+  %91 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %90, i64 %indvars.iv258, i32 2
+  store i32 %.0207, ptr %91, align 8
+  %92 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 300), align 4
+  %93 = icmp sgt i32 %92, 0
+  br i1 %93, label %.lr.ph232.preheader, label %._crit_edge
+
+.lr.ph232.preheader:                              ; preds = %89
+  %94 = sext i32 %.0207 to i64
   br label %.lr.ph232
 
 .lr.ph232:                                        ; preds = %.lr.ph232.preheader, %.lr.ph232
   %indvars.iv255 = phi i64 [ 0, %.lr.ph232.preheader ], [ %indvars.iv.next256, %.lr.ph232 ]
-  %93 = icmp slt i64 %indvars.iv255, %92
+  %95 = icmp slt i64 %indvars.iv255, %94
   %.pre278 = load ptr, ptr %51, align 8
-  %94 = getelementptr %struct.mca_coll_sm_tree_node_t, ptr %.pre278, i64 %indvars.iv255
-  %95 = getelementptr %struct.mca_coll_sm_tree_node_t, ptr %94, i64 %91
-  %96 = select i1 %93, ptr %95, ptr null
-  %97 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %.pre278, i64 %indvars.iv258, i32 3
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds ptr, ptr %98, i64 %indvars.iv255
-  store ptr %96, ptr %99, align 8
+  %96 = getelementptr %struct.mca_coll_sm_tree_node_t, ptr %.pre278, i64 %indvars.iv255
+  %97 = getelementptr %struct.mca_coll_sm_tree_node_t, ptr %96, i64 %.0208
+  %98 = select i1 %95, ptr %97, ptr null
+  %99 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %.pre278, i64 %indvars.iv258, i32 3
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds ptr, ptr %100, i64 %indvars.iv255
+  store ptr %98, ptr %101, align 8
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
-  %100 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 300), align 4
-  %101 = sext i32 %100 to i64
-  %102 = icmp slt i64 %indvars.iv.next256, %101
-  br i1 %102, label %.lr.ph232, label %._crit_edge, !llvm.loop !8
+  %102 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 300), align 4
+  %103 = sext i32 %102 to i64
+  %104 = icmp slt i64 %indvars.iv.next256, %103
+  br i1 %104, label %.lr.ph232, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph232, %86
-  %103 = phi i32 [ %89, %86 ], [ %100, %.lr.ph232 ]
+._crit_edge:                                      ; preds = %.lr.ph232, %89
+  %105 = phi i32 [ %92, %89 ], [ %102, %.lr.ph232 ]
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
   br i1 %exitcond262.not, label %._crit_edge235, label %65, !llvm.loop !9
@@ -575,54 +581,54 @@ define noundef i32 @ompi_coll_sm_lazy_enable(ptr nocapture noundef %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4136, ptr nonnull %4)
   %.val59.i = load ptr, ptr %6, align 8
-  %104 = getelementptr i8, ptr %.val59.i, i64 16
-  %.val59.val.i = load i32, ptr %104, align 8
-  %105 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
-  %106 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
-  %107 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
-  %108 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
-  %109 = getelementptr inbounds i8, ptr %.val59.i, i64 32
-  %110 = load ptr, ptr %109, align 8
-  %111 = load ptr, ptr %110, align 8
-  %112 = ptrtoint ptr %111 to i64
-  %113 = and i64 %112, 1
-  %.not.i.i.i.i = icmp eq i64 %113, 0
-  br i1 %.not.i.i.i.i, label %ompi_group_peer_lookup.exit.i, label %114
+  %106 = getelementptr i8, ptr %.val59.i, i64 16
+  %.val59.val.i = load i32, ptr %106, align 8
+  %107 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
+  %108 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
+  %109 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %110 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %111 = getelementptr inbounds i8, ptr %.val59.i, i64 32
+  %112 = load ptr, ptr %111, align 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = ptrtoint ptr %113 to i64
+  %115 = and i64 %114, 1
+  %.not.i.i.i.i = icmp eq i64 %115, 0
+  br i1 %.not.i.i.i.i, label %ompi_group_peer_lookup.exit.i, label %116
 
-114:                                              ; preds = %._crit_edge235
-  %115 = lshr i64 %112, 1
-  %116 = and i64 %115, 32767
-  %117 = and i64 %112, -65536
-  %.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i64 %116, %117
-  %118 = tail call ptr @ompi_proc_for_name(i64 %.sroa.0.0.insert.insert.i.i.i.i.i) #8
-  %119 = load ptr, ptr %109, align 8
-  %120 = ptrtoint ptr %118 to i64
-  %121 = cmpxchg volatile ptr %119, i64 %112, i64 %120 acquire monotonic, align 8
-  %122 = extractvalue { i64, i1 } %121, 1
-  br i1 %122, label %123, label %ompi_group_peer_lookup.exit.i
+116:                                              ; preds = %._crit_edge235
+  %117 = lshr i64 %114, 1
+  %118 = and i64 %117, 32767
+  %119 = and i64 %114, -65536
+  %.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i64 %118, %119
+  %120 = tail call ptr @ompi_proc_for_name(i64 %.sroa.0.0.insert.insert.i.i.i.i.i) #8
+  %121 = load ptr, ptr %111, align 8
+  %122 = ptrtoint ptr %120 to i64
+  %123 = cmpxchg volatile ptr %121, i64 %114, i64 %122 acquire monotonic, align 8
+  %124 = extractvalue { i64, i1 } %123, 1
+  br i1 %124, label %125, label %ompi_group_peer_lookup.exit.i
 
-123:                                              ; preds = %114
-  %124 = getelementptr inbounds i8, ptr %118, i64 8
-  %125 = load i8, ptr @opal_uses_threads, align 1
-  %126 = trunc i8 %125 to i1
-  br i1 %126, label %127, label %129
+125:                                              ; preds = %116
+  %126 = getelementptr inbounds i8, ptr %120, i64 8
+  %127 = load i8, ptr @opal_uses_threads, align 1
+  %128 = trunc i8 %127 to i1
+  br i1 %128, label %129, label %131
 
-127:                                              ; preds = %123
-  %128 = atomicrmw volatile add ptr %124, i32 1 monotonic, align 4
+129:                                              ; preds = %125
+  %130 = atomicrmw volatile add ptr %126, i32 1 monotonic, align 4
   br label %ompi_group_peer_lookup.exit.i
 
-129:                                              ; preds = %123
-  %130 = load volatile i32, ptr %124, align 4
-  %131 = add nsw i32 %130, 1
-  store volatile i32 %131, ptr %124, align 4
-  %132 = load volatile i32, ptr %124, align 4
+131:                                              ; preds = %125
+  %132 = load volatile i32, ptr %126, align 4
+  %133 = add nsw i32 %132, 1
+  store volatile i32 %133, ptr %126, align 4
+  %134 = load volatile i32, ptr %126, align 4
   br label %ompi_group_peer_lookup.exit.i
 
-ompi_group_peer_lookup.exit.i:                    ; preds = %129, %127, %114, %._crit_edge235
-  %.0.i.i.i.i = phi ptr [ %111, %._crit_edge235 ], [ %118, %129 ], [ %118, %127 ], [ %118, %114 ]
-  %133 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
-  %134 = icmp sgt i32 %.val59.val.i, 1
-  br i1 %134, label %.lr.ph.preheader.i, label %._crit_edge.i
+ompi_group_peer_lookup.exit.i:                    ; preds = %131, %129, %116, %._crit_edge235
+  %.0.i.i.i.i = phi ptr [ %113, %._crit_edge235 ], [ %120, %131 ], [ %120, %129 ], [ %120, %116 ]
+  %135 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %136 = icmp sgt i32 %.val59.val.i, 1
+  br i1 %136, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %ompi_group_peer_lookup.exit.i
   %wide.trip.count.i = zext nneg i32 %.val59.val.i to i64
@@ -630,488 +636,488 @@ ompi_group_peer_lookup.exit.i:                    ; preds = %129, %127, %114, %.
 
 .lr.ph.i:                                         ; preds = %ompi_group_peer_lookup.exit64.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %ompi_group_peer_lookup.exit64.i ]
-  %.0553.i = phi ptr [ %133, %.lr.ph.preheader.i ], [ %spec.select.i, %ompi_group_peer_lookup.exit64.i ]
-  %135 = load ptr, ptr %6, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 32
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds ptr, ptr %137, i64 %indvars.iv.i
+  %.0553.i = phi ptr [ %135, %.lr.ph.preheader.i ], [ %spec.select.i, %ompi_group_peer_lookup.exit64.i ]
+  %137 = load ptr, ptr %6, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 32
   %139 = load ptr, ptr %138, align 8
-  %140 = ptrtoint ptr %139 to i64
-  %141 = and i64 %140, 1
-  %.not.i.i.i61.i = icmp eq i64 %141, 0
-  br i1 %.not.i.i.i61.i, label %ompi_group_peer_lookup.exit64.i, label %142
+  %140 = getelementptr inbounds ptr, ptr %139, i64 %indvars.iv.i
+  %141 = load ptr, ptr %140, align 8
+  %142 = ptrtoint ptr %141 to i64
+  %143 = and i64 %142, 1
+  %.not.i.i.i61.i = icmp eq i64 %143, 0
+  br i1 %.not.i.i.i61.i, label %ompi_group_peer_lookup.exit64.i, label %144
 
-142:                                              ; preds = %.lr.ph.i
-  %143 = lshr i64 %140, 1
-  %144 = and i64 %143, 32767
-  %145 = and i64 %140, -65536
-  %.sroa.0.0.insert.insert.i.i.i.i62.i = or disjoint i64 %144, %145
-  %146 = tail call ptr @ompi_proc_for_name(i64 %.sroa.0.0.insert.insert.i.i.i.i62.i) #8
-  %147 = load ptr, ptr %136, align 8
-  %148 = getelementptr inbounds ptr, ptr %147, i64 %indvars.iv.i
-  %149 = ptrtoint ptr %146 to i64
-  %150 = cmpxchg volatile ptr %148, i64 %140, i64 %149 acquire monotonic, align 8
-  %151 = extractvalue { i64, i1 } %150, 1
-  br i1 %151, label %152, label %ompi_group_peer_lookup.exit64.i
+144:                                              ; preds = %.lr.ph.i
+  %145 = lshr i64 %142, 1
+  %146 = and i64 %145, 32767
+  %147 = and i64 %142, -65536
+  %.sroa.0.0.insert.insert.i.i.i.i62.i = or disjoint i64 %146, %147
+  %148 = tail call ptr @ompi_proc_for_name(i64 %.sroa.0.0.insert.insert.i.i.i.i62.i) #8
+  %149 = load ptr, ptr %138, align 8
+  %150 = getelementptr inbounds ptr, ptr %149, i64 %indvars.iv.i
+  %151 = ptrtoint ptr %148 to i64
+  %152 = cmpxchg volatile ptr %150, i64 %142, i64 %151 acquire monotonic, align 8
+  %153 = extractvalue { i64, i1 } %152, 1
+  br i1 %153, label %154, label %ompi_group_peer_lookup.exit64.i
 
-152:                                              ; preds = %142
-  %153 = getelementptr inbounds i8, ptr %146, i64 8
-  %154 = load i8, ptr @opal_uses_threads, align 1
-  %155 = trunc i8 %154 to i1
-  br i1 %155, label %156, label %158
+154:                                              ; preds = %144
+  %155 = getelementptr inbounds i8, ptr %148, i64 8
+  %156 = load i8, ptr @opal_uses_threads, align 1
+  %157 = trunc i8 %156 to i1
+  br i1 %157, label %158, label %160
 
-156:                                              ; preds = %152
-  %157 = atomicrmw volatile add ptr %153, i32 1 monotonic, align 4
+158:                                              ; preds = %154
+  %159 = atomicrmw volatile add ptr %155, i32 1 monotonic, align 4
   br label %ompi_group_peer_lookup.exit64.i
 
-158:                                              ; preds = %152
-  %159 = load volatile i32, ptr %153, align 4
-  %160 = add nsw i32 %159, 1
-  store volatile i32 %160, ptr %153, align 4
-  %161 = load volatile i32, ptr %153, align 4
+160:                                              ; preds = %154
+  %161 = load volatile i32, ptr %155, align 4
+  %162 = add nsw i32 %161, 1
+  store volatile i32 %162, ptr %155, align 4
+  %163 = load volatile i32, ptr %155, align 4
   br label %ompi_group_peer_lookup.exit64.i
 
-ompi_group_peer_lookup.exit64.i:                  ; preds = %158, %156, %142, %.lr.ph.i
-  %.0.i.i.i63.i = phi ptr [ %139, %.lr.ph.i ], [ %146, %158 ], [ %146, %156 ], [ %146, %142 ]
-  %162 = getelementptr inbounds i8, ptr %.0.i.i.i63.i, i64 40
-  %163 = tail call i32 @ompi_rte_compare_name_fields(i8 noundef zeroext 15, ptr noundef nonnull %162, ptr noundef %.0553.i) #8
-  %164 = icmp slt i32 %163, 0
-  %spec.select.i = select i1 %164, ptr %162, ptr %.0553.i
+ompi_group_peer_lookup.exit64.i:                  ; preds = %160, %158, %144, %.lr.ph.i
+  %.0.i.i.i63.i = phi ptr [ %141, %.lr.ph.i ], [ %148, %160 ], [ %148, %158 ], [ %148, %144 ]
+  %164 = getelementptr inbounds i8, ptr %.0.i.i.i63.i, i64 40
+  %165 = tail call i32 @ompi_rte_compare_name_fields(i8 noundef zeroext 15, ptr noundef nonnull %164, ptr noundef %.0553.i) #8
+  %166 = icmp slt i32 %165, 0
+  %spec.select.i = select i1 %166, ptr %164, ptr %.0553.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %ompi_group_peer_lookup.exit64.i, %ompi_group_peer_lookup.exit.i
-  %.055.lcssa.i = phi ptr [ %133, %ompi_group_peer_lookup.exit.i ], [ %spec.select.i, %ompi_group_peer_lookup.exit64.i ]
-  %165 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
-  %166 = tail call ptr @ompi_pmix_print_name(ptr noundef %.055.lcssa.i) #8
-  %167 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef %165, ptr noundef %166) #8
-  %168 = load ptr, ptr %3, align 8
-  %169 = icmp eq ptr %168, null
-  br i1 %169, label %170, label %178
+  %.055.lcssa.i = phi ptr [ %135, %ompi_group_peer_lookup.exit.i ], [ %spec.select.i, %ompi_group_peer_lookup.exit64.i ]
+  %167 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
+  %168 = tail call ptr @ompi_pmix_print_name(ptr noundef %.055.lcssa.i) #8
+  %169 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef %167, ptr noundef %168) #8
+  %170 = load ptr, ptr %3, align 8
+  %171 = icmp eq ptr %170, null
+  br i1 %171, label %172, label %180
 
-170:                                              ; preds = %._crit_edge.i
-  %171 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %172 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %171) #8
-  br i1 %172, label %173, label %231
+172:                                              ; preds = %._crit_edge.i
+  %173 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %174 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %173) #8
+  br i1 %174, label %175, label %233
 
-173:                                              ; preds = %170
-  %174 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %175 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
-  %176 = getelementptr inbounds i8, ptr %1, i64 160
-  %177 = load ptr, ptr %176, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %174, ptr noundef nonnull @.str.12, ptr noundef %175, ptr noundef %177) #8
-  br label %231
+175:                                              ; preds = %172
+  %176 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %177 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
+  %178 = getelementptr inbounds i8, ptr %1, i64 160
+  %179 = load ptr, ptr %178, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %176, ptr noundef nonnull @.str.12, ptr noundef %177, ptr noundef %179) #8
+  br label %233
 
-178:                                              ; preds = %._crit_edge.i
-  %179 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
-  %180 = call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef %179, ptr noundef nonnull %168, ptr noundef null) #8
-  %181 = load ptr, ptr %3, align 8
-  call void @free(ptr noundef %181) #8
-  %182 = icmp eq ptr %180, null
-  br i1 %182, label %183, label %191
+180:                                              ; preds = %._crit_edge.i
+  %181 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 288), align 8
+  %182 = call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef %181, ptr noundef nonnull %170, ptr noundef null) #8
+  %183 = load ptr, ptr %3, align 8
+  call void @free(ptr noundef %183) #8
+  %184 = icmp eq ptr %182, null
+  br i1 %184, label %185, label %193
 
-183:                                              ; preds = %178
-  %184 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %185 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %184) #8
-  br i1 %185, label %186, label %231
+185:                                              ; preds = %180
+  %186 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %187 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %186) #8
+  br i1 %187, label %188, label %233
 
-186:                                              ; preds = %183
-  %187 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %188 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
-  %189 = getelementptr inbounds i8, ptr %1, i64 160
-  %190 = load ptr, ptr %189, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %187, ptr noundef nonnull @.str.13, ptr noundef %188, ptr noundef %190) #8
-  br label %231
+188:                                              ; preds = %185
+  %189 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %190 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
+  %191 = getelementptr inbounds i8, ptr %1, i64 160
+  %192 = load ptr, ptr %191, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %189, ptr noundef nonnull @.str.13, ptr noundef %190, ptr noundef %192) #8
+  br label %233
 
-191:                                              ; preds = %178
-  %192 = add i32 %106, 4
-  %193 = mul i32 %108, %192
-  %194 = shl i32 %108, 1
-  %reass.add1.i = add i32 %194, %107
-  %reass.mul2.i = mul i32 %105, %.val59.val.i
+193:                                              ; preds = %180
+  %194 = add i32 %108, 4
+  %195 = mul i32 %110, %194
+  %196 = shl i32 %110, 1
+  %reass.add1.i = add i32 %196, %109
+  %reass.mul2.i = mul i32 %107, %.val59.val.i
   %reass.mul.i = mul i32 %reass.mul2.i, %reass.add1.i
-  %195 = add i32 %reass.mul.i, %193
-  %196 = sext i32 %195 to i64
-  %197 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %198 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %197) #8
-  br i1 %198, label %199, label %204
+  %197 = add i32 %reass.mul.i, %195
+  %198 = sext i32 %197 to i64
+  %199 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %200 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %199) #8
+  br i1 %200, label %201, label %206
 
-199:                                              ; preds = %191
-  %200 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %201 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
-  %202 = getelementptr inbounds i8, ptr %1, i64 160
-  %203 = load ptr, ptr %202, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %200, ptr noundef nonnull @.str.14, ptr noundef %201, ptr noundef %203, i64 noundef %196, ptr noundef nonnull %180) #8
-  br label %204
+201:                                              ; preds = %193
+  %202 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %203 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
+  %204 = getelementptr inbounds i8, ptr %1, i64 160
+  %205 = load ptr, ptr %204, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %202, ptr noundef nonnull @.str.14, ptr noundef %203, ptr noundef %205, i64 noundef %198, ptr noundef nonnull %182) #8
+  br label %206
 
-204:                                              ; preds = %199, %191
+206:                                              ; preds = %201, %193
   %.val60.i = load i32, ptr %5, align 4
-  %205 = icmp eq i32 %.val60.i, 0
-  br i1 %205, label %206, label %227
+  %207 = icmp eq i32 %.val60.i, 0
+  br i1 %207, label %208, label %229
 
-206:                                              ; preds = %204
-  %207 = call ptr @mca_common_sm_module_create_and_attach(i64 noundef %196, ptr noundef nonnull %180, i64 noundef 32, i64 noundef 8) #8
-  store ptr %207, ptr %.val221, align 8
-  %208 = icmp eq ptr %207, null
-  br i1 %208, label %211, label %.preheader.i
+208:                                              ; preds = %206
+  %209 = call ptr @mca_common_sm_module_create_and_attach(i64 noundef %198, ptr noundef nonnull %182, i64 noundef 32, i64 noundef 8) #8
+  store ptr %209, ptr %.val221, align 8
+  %210 = icmp eq ptr %209, null
+  br i1 %210, label %213, label %.preheader.i
 
-.preheader.i:                                     ; preds = %206
+.preheader.i:                                     ; preds = %208
   %.val5.i = load ptr, ptr %6, align 8
-  %209 = getelementptr i8, ptr %.val5.i, i64 16
-  %.val.val6.i = load i32, ptr %209, align 8
-  %210 = icmp sgt i32 %.val.val6.i, 1
-  br i1 %210, label %.lr.ph8.i, label %.loopexit227
+  %211 = getelementptr i8, ptr %.val5.i, i64 16
+  %.val.val6.i = load i32, ptr %211, align 8
+  %212 = icmp sgt i32 %.val.val6.i, 1
+  br i1 %212, label %.lr.ph8.i, label %.loopexit227
 
-211:                                              ; preds = %206
-  %212 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %213 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %212) #8
-  br i1 %213, label %214, label %219
+213:                                              ; preds = %208
+  %214 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %215 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %214) #8
+  br i1 %215, label %216, label %221
 
-214:                                              ; preds = %211
-  %215 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %216 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
-  %217 = getelementptr inbounds i8, ptr %1, i64 160
-  %218 = load ptr, ptr %217, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %215, ptr noundef nonnull @.str.15, ptr noundef %216, ptr noundef %218) #8
-  br label %219
+216:                                              ; preds = %213
+  %217 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %218 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
+  %219 = getelementptr inbounds i8, ptr %1, i64 160
+  %220 = load ptr, ptr %219, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %217, ptr noundef nonnull @.str.15, ptr noundef %218, ptr noundef %220) #8
+  br label %221
 
-219:                                              ; preds = %214, %211
-  call void @free(ptr noundef nonnull %180) #8
-  br label %231
+221:                                              ; preds = %216, %213
+  call void @free(ptr noundef nonnull %182) #8
+  br label %233
 
 .lr.ph8.i:                                        ; preds = %.preheader.i, %.lr.ph8.i
-  %.07.i = phi i32 [ %224, %.lr.ph8.i ], [ 1, %.preheader.i ]
-  %220 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %221 = load ptr, ptr %.val221, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 64
-  %223 = call i32 %220(ptr noundef nonnull %222, i64 noundef 4136, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %.07.i, i32 noundef -17, i32 noundef 4, ptr noundef nonnull %1) #8
-  %224 = add nuw nsw i32 %.07.i, 1
+  %.07.i = phi i32 [ %226, %.lr.ph8.i ], [ 1, %.preheader.i ]
+  %222 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
+  %223 = load ptr, ptr %.val221, align 8
+  %224 = getelementptr inbounds i8, ptr %223, i64 64
+  %225 = call i32 %222(ptr noundef nonnull %224, i64 noundef 4136, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %.07.i, i32 noundef -17, i32 noundef 4, ptr noundef nonnull %1) #8
+  %226 = add nuw nsw i32 %.07.i, 1
   %.val.i = load ptr, ptr %6, align 8
-  %225 = getelementptr i8, ptr %.val.i, i64 16
-  %.val.val.i = load i32, ptr %225, align 8
-  %226 = icmp slt i32 %224, %.val.val.i
-  br i1 %226, label %.lr.ph8.i, label %.loopexit227, !llvm.loop !11
+  %227 = getelementptr i8, ptr %.val.i, i64 16
+  %.val.val.i = load i32, ptr %227, align 8
+  %228 = icmp slt i32 %226, %.val.val.i
+  br i1 %228, label %.lr.ph8.i, label %.loopexit227, !llvm.loop !11
 
-227:                                              ; preds = %204
-  %228 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
-  %229 = call i32 %228(ptr noundef nonnull %4, i64 noundef 4136, ptr noundef nonnull @ompi_mpi_byte, i32 noundef 0, i32 noundef -17, ptr noundef nonnull %1, ptr noundef null) #8
-  %230 = call ptr @mca_common_sm_module_attach(ptr noundef nonnull %4, i64 noundef 32, i64 noundef 8) #8
-  store ptr %230, ptr %.val221, align 8
+229:                                              ; preds = %206
+  %230 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
+  %231 = call i32 %230(ptr noundef nonnull %4, i64 noundef 4136, ptr noundef nonnull @ompi_mpi_byte, i32 noundef 0, i32 noundef -17, ptr noundef nonnull %1, ptr noundef null) #8
+  %232 = call ptr @mca_common_sm_module_attach(ptr noundef nonnull %4, i64 noundef 32, i64 noundef 8) #8
+  store ptr %232, ptr %.val221, align 8
   br label %.loopexit227
 
-231:                                              ; preds = %219, %170, %173, %183, %186
+233:                                              ; preds = %221, %172, %175, %185, %188
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4136, ptr nonnull %4)
   call void @free(ptr noundef %35) #8
   call void @free(ptr noundef %15) #8
   store ptr null, ptr %36, align 8
-  br label %419
+  br label %421
 
-.loopexit227:                                     ; preds = %.lr.ph8.i, %227, %.preheader.i
-  call void @free(ptr noundef %180) #8
+.loopexit227:                                     ; preds = %.lr.ph8.i, %229, %.preheader.i
+  call void @free(ptr noundef %182) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4136, ptr nonnull %4)
-  %232 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
-  %233 = sext i32 %232 to i64
-  %234 = load ptr, ptr %35, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 56
-  %236 = load ptr, ptr %235, align 8
-  %237 = sext i32 %.val220 to i64
-  %238 = shl nsw i64 %237, 2
-  %239 = mul i64 %238, %233
-  %240 = getelementptr inbounds i8, ptr %236, i64 %239
-  %241 = getelementptr inbounds i8, ptr %35, i64 8
-  store ptr %240, ptr %241, align 8
-  %242 = load ptr, ptr %51, align 8
-  %243 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %242, i64 %237, i32 1
-  %244 = load ptr, ptr %243, align 8
-  %.not217 = icmp eq ptr %244, null
-  br i1 %.not217, label %251, label %245
+  %234 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %235 = sext i32 %234 to i64
+  %236 = load ptr, ptr %35, align 8
+  %237 = getelementptr inbounds i8, ptr %236, i64 56
+  %238 = load ptr, ptr %237, align 8
+  %239 = sext i32 %.val220 to i64
+  %240 = shl nsw i64 %239, 2
+  %241 = mul i64 %240, %235
+  %242 = getelementptr inbounds i8, ptr %238, i64 %241
+  %243 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %242, ptr %243, align 8
+  %244 = load ptr, ptr %51, align 8
+  %245 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %244, i64 %239, i32 1
+  %246 = load ptr, ptr %245, align 8
+  %.not217 = icmp eq ptr %246, null
+  br i1 %.not217, label %253, label %247
 
-245:                                              ; preds = %.loopexit227
-  %246 = load i32, ptr %244, align 8
-  %247 = sext i32 %246 to i64
-  %248 = shl nsw i64 %233, 2
-  %249 = mul i64 %248, %247
-  %250 = getelementptr inbounds i8, ptr %236, i64 %249
-  br label %251
+247:                                              ; preds = %.loopexit227
+  %248 = load i32, ptr %246, align 8
+  %249 = sext i32 %248 to i64
+  %250 = shl nsw i64 %235, 2
+  %251 = mul i64 %250, %249
+  %252 = getelementptr inbounds i8, ptr %238, i64 %251
+  br label %253
 
-251:                                              ; preds = %.loopexit227, %245
-  %.sink = phi ptr [ %250, %245 ], [ null, %.loopexit227 ]
-  %252 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr %.sink, ptr %252, align 8
-  %253 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %242, i64 %237
-  %254 = getelementptr inbounds i8, ptr %253, i64 16
-  %255 = load i32, ptr %254, align 8
-  %256 = icmp sgt i32 %255, 0
-  br i1 %256, label %257, label %266
+253:                                              ; preds = %.loopexit227, %247
+  %.sink = phi ptr [ %252, %247 ], [ null, %.loopexit227 ]
+  %254 = getelementptr inbounds i8, ptr %35, i64 16
+  store ptr %.sink, ptr %254, align 8
+  %255 = getelementptr inbounds %struct.mca_coll_sm_tree_node_t, ptr %244, i64 %239
+  %256 = getelementptr inbounds i8, ptr %255, i64 16
+  %257 = load i32, ptr %256, align 8
+  %258 = icmp sgt i32 %257, 0
+  br i1 %258, label %259, label %268
 
-257:                                              ; preds = %251
-  %258 = getelementptr inbounds i8, ptr %253, i64 24
-  %259 = load ptr, ptr %258, align 8
-  %260 = load ptr, ptr %259, align 8
-  %261 = load i32, ptr %260, align 8
-  %262 = sext i32 %261 to i64
-  %263 = shl nsw i64 %233, 2
-  %264 = mul i64 %263, %262
-  %265 = getelementptr inbounds i8, ptr %236, i64 %264
-  br label %266
+259:                                              ; preds = %253
+  %260 = getelementptr inbounds i8, ptr %255, i64 24
+  %261 = load ptr, ptr %260, align 8
+  %262 = load ptr, ptr %261, align 8
+  %263 = load i32, ptr %262, align 8
+  %264 = sext i32 %263 to i64
+  %265 = shl nsw i64 %235, 2
+  %266 = mul i64 %265, %264
+  %267 = getelementptr inbounds i8, ptr %238, i64 %266
+  br label %268
 
-266:                                              ; preds = %251, %257
-  %.sink277 = phi ptr [ %265, %257 ], [ null, %251 ]
-  %267 = getelementptr inbounds i8, ptr %35, i64 24
-  store ptr %.sink277, ptr %267, align 8
-  %268 = getelementptr inbounds i8, ptr %35, i64 32
-  store i32 0, ptr %268, align 8
-  %269 = shl i32 %.val.val, 2
-  %270 = mul i32 %269, %232
-  %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds i8, ptr %236, i64 %271
-  %273 = getelementptr inbounds i8, ptr %35, i64 40
-  store ptr %272, ptr %273, align 8
-  %274 = icmp eq i32 %.val220, 0
+268:                                              ; preds = %253, %259
+  %.sink277 = phi ptr [ %267, %259 ], [ null, %253 ]
+  %269 = getelementptr inbounds i8, ptr %35, i64 24
+  store ptr %.sink277, ptr %269, align 8
+  %270 = getelementptr inbounds i8, ptr %35, i64 32
+  store i32 0, ptr %270, align 8
+  %271 = shl i32 %.val.val, 2
+  %272 = mul i32 %271, %234
+  %273 = sext i32 %272 to i64
+  %274 = getelementptr inbounds i8, ptr %238, i64 %273
+  %275 = getelementptr inbounds i8, ptr %35, i64 40
+  store ptr %274, ptr %275, align 8
+  %276 = icmp eq i32 %.val220, 0
   %.pre279 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
-  br i1 %274, label %275, label %.loopexit226
+  br i1 %276, label %277, label %.loopexit226
 
-275:                                              ; preds = %266
-  store ptr %272, ptr %15, align 8
-  %276 = mul nsw i32 %.pre279, %232
-  %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 %277, ptr %278, align 8
-  %279 = icmp sgt i32 %.pre279, 0
-  br i1 %279, label %.lr.ph238, label %.loopexit226
+277:                                              ; preds = %268
+  store ptr %274, ptr %15, align 8
+  %278 = mul nsw i32 %.pre279, %234
+  %279 = sext i32 %278 to i64
+  %280 = getelementptr inbounds i8, ptr %15, i64 8
+  store i64 %279, ptr %280, align 8
+  %281 = icmp sgt i32 %.pre279, 0
+  br i1 %281, label %.lr.ph238, label %.loopexit226
 
-.lr.ph238:                                        ; preds = %275, %.lr.ph238
-  %indvars.iv263 = phi i64 [ %indvars.iv.next264, %.lr.ph238 ], [ 0, %275 ]
-  %280 = getelementptr inbounds %struct.mca_coll_sm_in_use_flag_t, ptr %272, i64 %indvars.iv263
-  %281 = getelementptr inbounds i8, ptr %280, i64 4
-  store volatile i32 1, ptr %281, align 4
-  store volatile i32 0, ptr %280, align 4
+.lr.ph238:                                        ; preds = %277, %.lr.ph238
+  %indvars.iv263 = phi i64 [ %indvars.iv.next264, %.lr.ph238 ], [ 0, %277 ]
+  %282 = getelementptr inbounds %struct.mca_coll_sm_in_use_flag_t, ptr %274, i64 %indvars.iv263
+  %283 = getelementptr inbounds i8, ptr %282, i64 4
+  store volatile i32 1, ptr %283, align 4
+  store volatile i32 0, ptr %282, align 4
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
-  %282 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
-  %283 = sext i32 %282 to i64
-  %284 = icmp slt i64 %indvars.iv.next264, %283
-  br i1 %284, label %.lr.ph238, label %.loopexit226.loopexit, !llvm.loop !12
+  %284 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 288), align 8
+  %285 = sext i32 %284 to i64
+  %286 = icmp slt i64 %indvars.iv.next264, %285
+  br i1 %286, label %.lr.ph238, label %.loopexit226.loopexit, !llvm.loop !12
 
 .loopexit226.loopexit:                            ; preds = %.lr.ph238
   %.pre280 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
   br label %.loopexit226
 
-.loopexit226:                                     ; preds = %.loopexit226.loopexit, %275, %266
-  %285 = phi i32 [ %232, %266 ], [ %232, %275 ], [ %.pre280, %.loopexit226.loopexit ]
-  %286 = phi i32 [ %.pre279, %266 ], [ %.pre279, %275 ], [ %282, %.loopexit226.loopexit ]
-  %.0205 = phi i32 [ 0, %266 ], [ 1, %275 ], [ 1, %.loopexit226.loopexit ]
-  %287 = mul nsw i32 %285, %286
-  %288 = sext i32 %287 to i64
-  %289 = getelementptr inbounds i8, ptr %272, i64 %288
-  %290 = mul nsw i32 %285, %.val.val
-  %291 = sext i32 %290 to i64
-  %292 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
-  %293 = icmp sgt i32 %292, 0
-  br i1 %293, label %.lr.ph242, label %._crit_edge243
+.loopexit226:                                     ; preds = %.loopexit226.loopexit, %277, %268
+  %287 = phi i32 [ %234, %268 ], [ %234, %277 ], [ %.pre280, %.loopexit226.loopexit ]
+  %288 = phi i32 [ %.pre279, %268 ], [ %.pre279, %277 ], [ %284, %.loopexit226.loopexit ]
+  %.0205 = phi i32 [ 0, %268 ], [ 1, %277 ], [ 1, %.loopexit226.loopexit ]
+  %289 = mul nsw i32 %287, %288
+  %290 = sext i32 %289 to i64
+  %291 = getelementptr inbounds i8, ptr %274, i64 %290
+  %292 = mul nsw i32 %287, %.val.val
+  %293 = sext i32 %292 to i64
+  %294 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
+  %295 = icmp sgt i32 %294, 0
+  br i1 %295, label %.lr.ph242, label %._crit_edge243
 
 .lr.ph242:                                        ; preds = %.loopexit226
-  %294 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
-  %295 = mul nsw i32 %294, %.val.val
-  %296 = sext i32 %295 to i64
-  %297 = add nsw i64 %296, %291
-  %298 = zext nneg i32 %.0205 to i64
+  %296 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %297 = mul nsw i32 %296, %.val.val
+  %298 = sext i32 %297 to i64
+  %299 = add nsw i64 %298, %293
+  %300 = zext nneg i32 %.0205 to i64
   %.pre281 = load ptr, ptr %49, align 8
-  br label %299
+  br label %301
 
-299:                                              ; preds = %.lr.ph242, %299
-  %300 = phi ptr [ %.pre281, %.lr.ph242 ], [ %313, %299 ]
-  %indvars.iv268 = phi i64 [ %298, %.lr.ph242 ], [ %indvars.iv.next269, %299 ]
-  %indvars.iv266 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next267, %299 ]
-  %301 = mul nsw i64 %297, %indvars.iv266
-  %302 = getelementptr inbounds i8, ptr %289, i64 %301
-  %303 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %300, i64 %indvars.iv266
-  store ptr %302, ptr %303, align 8
-  %304 = load ptr, ptr %49, align 8
-  %305 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %304, i64 %indvars.iv266
-  %306 = load ptr, ptr %305, align 8
-  %307 = getelementptr inbounds i8, ptr %306, i64 %291
-  %308 = getelementptr inbounds i8, ptr %305, i64 8
-  store ptr %307, ptr %308, align 8
-  %309 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
-  %310 = sext i32 %309 to i64
-  %311 = getelementptr inbounds %struct.opal_hwloc_base_memory_segment_t, ptr %15, i64 %indvars.iv268
-  %312 = getelementptr inbounds i8, ptr %311, i64 8
-  store i64 %310, ptr %312, align 8
-  %313 = load ptr, ptr %49, align 8
-  %314 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %313, i64 %indvars.iv266
-  %315 = load ptr, ptr %314, align 8
-  %316 = mul nsw i32 %309, %.val220
-  %317 = sext i32 %316 to i64
-  %318 = getelementptr inbounds i8, ptr %315, i64 %317
-  store ptr %318, ptr %311, align 8
-  %319 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
-  %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds i8, ptr %311, i64 16
-  %322 = getelementptr inbounds i8, ptr %311, i64 24
-  store i64 %320, ptr %322, align 8
-  %323 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %313, i64 %indvars.iv266, i32 1
-  %324 = load ptr, ptr %323, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 %317
-  store ptr %325, ptr %321, align 8
+301:                                              ; preds = %.lr.ph242, %301
+  %302 = phi ptr [ %.pre281, %.lr.ph242 ], [ %315, %301 ]
+  %indvars.iv268 = phi i64 [ %300, %.lr.ph242 ], [ %indvars.iv.next269, %301 ]
+  %indvars.iv266 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next267, %301 ]
+  %303 = mul nsw i64 %299, %indvars.iv266
+  %304 = getelementptr inbounds i8, ptr %291, i64 %303
+  %305 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %302, i64 %indvars.iv266
+  store ptr %304, ptr %305, align 8
+  %306 = load ptr, ptr %49, align 8
+  %307 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %306, i64 %indvars.iv266
+  %308 = load ptr, ptr %307, align 8
+  %309 = getelementptr inbounds i8, ptr %308, i64 %293
+  %310 = getelementptr inbounds i8, ptr %307, i64 8
+  store ptr %309, ptr %310, align 8
+  %311 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %312 = sext i32 %311 to i64
+  %313 = getelementptr inbounds %struct.opal_hwloc_base_memory_segment_t, ptr %15, i64 %indvars.iv268
+  %314 = getelementptr inbounds i8, ptr %313, i64 8
+  store i64 %312, ptr %314, align 8
+  %315 = load ptr, ptr %49, align 8
+  %316 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %315, i64 %indvars.iv266
+  %317 = load ptr, ptr %316, align 8
+  %318 = mul nsw i32 %311, %.val220
+  %319 = sext i32 %318 to i64
+  %320 = getelementptr inbounds i8, ptr %317, i64 %319
+  store ptr %320, ptr %313, align 8
+  %321 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
+  %322 = sext i32 %321 to i64
+  %323 = getelementptr inbounds i8, ptr %313, i64 16
+  %324 = getelementptr inbounds i8, ptr %313, i64 24
+  store i64 %322, ptr %324, align 8
+  %325 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %315, i64 %indvars.iv266, i32 1
+  %326 = load ptr, ptr %325, align 8
+  %327 = getelementptr inbounds i8, ptr %326, i64 %319
+  store ptr %327, ptr %323, align 8
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 2
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
-  %326 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
-  %327 = sext i32 %326 to i64
-  %328 = icmp slt i64 %indvars.iv.next267, %327
-  br i1 %328, label %299, label %._crit_edge243.loopexit, !llvm.loop !13
+  %328 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
+  %329 = sext i32 %328 to i64
+  %330 = icmp slt i64 %indvars.iv.next267, %329
+  br i1 %330, label %301, label %._crit_edge243.loopexit, !llvm.loop !13
 
-._crit_edge243.loopexit:                          ; preds = %299
-  %329 = trunc nuw i64 %indvars.iv.next269 to i32
+._crit_edge243.loopexit:                          ; preds = %301
+  %331 = trunc nuw i64 %indvars.iv.next269 to i32
   br label %._crit_edge243
 
 ._crit_edge243:                                   ; preds = %._crit_edge243.loopexit, %.loopexit226
-  %.1206.lcssa = phi i32 [ %.0205, %.loopexit226 ], [ %329, %._crit_edge243.loopexit ]
-  %330 = zext nneg i32 %.1206.lcssa to i64
-  %331 = call i32 @opal_hwloc_base_memory_set(ptr noundef nonnull %15, i64 noundef %330) #8
+  %.1206.lcssa = phi i32 [ %.0205, %.loopexit226 ], [ %331, %._crit_edge243.loopexit ]
+  %332 = zext nneg i32 %.1206.lcssa to i64
+  %333 = call i32 @opal_hwloc_base_memory_set(ptr noundef nonnull %15, i64 noundef %332) #8
   call void @free(ptr noundef %15) #8
-  %332 = load ptr, ptr %241, align 8
-  %333 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
-  %334 = shl nsw i32 %333, 2
-  %335 = sext i32 %334 to i64
-  call void @llvm.memset.p0.i64(ptr align 4 %332, i8 0, i64 %335, i1 false)
-  %336 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
-  %337 = icmp sgt i32 %336, 0
-  br i1 %337, label %.lr.ph246, label %._crit_edge247
+  %334 = load ptr, ptr %243, align 8
+  %335 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
+  %336 = shl nsw i32 %335, 2
+  %337 = sext i32 %336 to i64
+  call void @llvm.memset.p0.i64(ptr align 4 %334, i8 0, i64 %337, i1 false)
+  %338 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
+  %339 = icmp sgt i32 %338, 0
+  br i1 %339, label %.lr.ph246, label %._crit_edge247
 
 .lr.ph246:                                        ; preds = %._crit_edge243, %.lr.ph246
   %indvars.iv273 = phi i64 [ %indvars.iv.next274, %.lr.ph246 ], [ 0, %._crit_edge243 ]
-  %338 = load ptr, ptr %49, align 8
-  %339 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %338, i64 %indvars.iv273
-  %340 = load ptr, ptr %339, align 8
-  %341 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
-  %342 = sext i32 %341 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %340, i8 0, i64 %342, i1 false)
-  %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
-  %343 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
+  %340 = load ptr, ptr %49, align 8
+  %341 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %340, i64 %indvars.iv273
+  %342 = load ptr, ptr %341, align 8
+  %343 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 284), align 4
   %344 = sext i32 %343 to i64
-  %345 = icmp slt i64 %indvars.iv.next274, %344
-  br i1 %345, label %.lr.ph246, label %._crit_edge247, !llvm.loop !14
+  call void @llvm.memset.p0.i64(ptr align 1 %342, i8 0, i64 %344, i1 false)
+  %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
+  %345 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 292), align 4
+  %346 = sext i32 %345 to i64
+  %347 = icmp slt i64 %indvars.iv.next274, %346
+  br i1 %347, label %.lr.ph246, label %._crit_edge247, !llvm.loop !14
 
 ._crit_edge247:                                   ; preds = %.lr.ph246, %._crit_edge243
-  %346 = getelementptr inbounds i8, ptr %1, i64 328
-  %347 = load ptr, ptr %346, align 8
-  %348 = getelementptr inbounds i8, ptr %347, i64 176
+  %348 = getelementptr inbounds i8, ptr %1, i64 328
   %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr inbounds i8, ptr %0, i64 608
-  store ptr %349, ptr %350, align 8
-  %351 = load ptr, ptr %346, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 184
-  %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds i8, ptr %0, i64 616
-  store ptr %353, ptr %354, align 8
-  %355 = getelementptr inbounds i8, ptr %353, i64 8
-  %356 = load i8, ptr @opal_uses_threads, align 1
-  %357 = trunc i8 %356 to i1
-  br i1 %357, label %358, label %360
-
-358:                                              ; preds = %._crit_edge247
-  %359 = atomicrmw volatile add ptr %355, i32 1 monotonic, align 4
-  br label %opal_thread_add_fetch_32.exit
+  %350 = getelementptr inbounds i8, ptr %349, i64 176
+  %351 = load ptr, ptr %350, align 8
+  %352 = getelementptr inbounds i8, ptr %0, i64 608
+  store ptr %351, ptr %352, align 8
+  %353 = load ptr, ptr %348, align 8
+  %354 = getelementptr inbounds i8, ptr %353, i64 184
+  %355 = load ptr, ptr %354, align 8
+  %356 = getelementptr inbounds i8, ptr %0, i64 616
+  store ptr %355, ptr %356, align 8
+  %357 = getelementptr inbounds i8, ptr %355, i64 8
+  %358 = load i8, ptr @opal_uses_threads, align 1
+  %359 = trunc i8 %358 to i1
+  br i1 %359, label %360, label %362
 
 360:                                              ; preds = %._crit_edge247
-  %361 = load volatile i32, ptr %355, align 4
-  %362 = add nsw i32 %361, 1
-  store volatile i32 %362, ptr %355, align 4
-  %363 = load volatile i32, ptr %355, align 4
+  %361 = atomicrmw volatile add ptr %357, i32 1 monotonic, align 4
   br label %opal_thread_add_fetch_32.exit
 
-opal_thread_add_fetch_32.exit:                    ; preds = %358, %360
-  %364 = load ptr, ptr %35, align 8
-  %365 = getelementptr inbounds i8, ptr %364, i64 40
-  %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 4
-  %368 = atomicrmw volatile add ptr %367, i32 1 monotonic, align 4
-  %369 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %370 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %369) #8
-  br i1 %370, label %371, label %376
+362:                                              ; preds = %._crit_edge247
+  %363 = load volatile i32, ptr %357, align 4
+  %364 = add nsw i32 %363, 1
+  store volatile i32 %364, ptr %357, align 4
+  %365 = load volatile i32, ptr %357, align 4
+  br label %opal_thread_add_fetch_32.exit
 
-371:                                              ; preds = %opal_thread_add_fetch_32.exit
-  %372 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %373 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
-  %374 = getelementptr inbounds i8, ptr %1, i64 160
-  %375 = load ptr, ptr %374, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %372, ptr noundef nonnull @.str.7, ptr noundef %373, ptr noundef %375) #8
-  br label %376
+opal_thread_add_fetch_32.exit:                    ; preds = %360, %362
+  %366 = load ptr, ptr %35, align 8
+  %367 = getelementptr inbounds i8, ptr %366, i64 40
+  %368 = load ptr, ptr %367, align 8
+  %369 = getelementptr inbounds i8, ptr %368, i64 4
+  %370 = atomicrmw volatile add ptr %369, i32 1 monotonic, align 4
+  %371 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %372 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %371) #8
+  br i1 %372, label %373, label %378
 
-376:                                              ; preds = %opal_thread_add_fetch_32.exit, %371
-  %377 = load ptr, ptr %35, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 40
-  %379 = load ptr, ptr %378, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 4
-  %381 = load volatile i32, ptr %380, align 4
-  %382 = icmp eq i32 %.val.val, %381
-  br i1 %382, label %.loopexit, label %.preheader
+373:                                              ; preds = %opal_thread_add_fetch_32.exit
+  %374 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %375 = call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
+  %376 = getelementptr inbounds i8, ptr %1, i64 160
+  %377 = load ptr, ptr %376, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %374, ptr noundef nonnull @.str.7, ptr noundef %375, ptr noundef %377) #8
+  br label %378
 
-.preheader:                                       ; preds = %376, %390
-  %383 = phi ptr [ %395, %390 ], [ %380, %376 ]
-  %384 = phi ptr [ %392, %390 ], [ %377, %376 ]
-  br label %387
+378:                                              ; preds = %opal_thread_add_fetch_32.exit, %373
+  %379 = load ptr, ptr %35, align 8
+  %380 = getelementptr inbounds i8, ptr %379, i64 40
+  %381 = load ptr, ptr %380, align 8
+  %382 = getelementptr inbounds i8, ptr %381, i64 4
+  %383 = load volatile i32, ptr %382, align 4
+  %384 = icmp eq i32 %.val.val, %383
+  br i1 %384, label %.loopexit, label %.preheader
 
-385:                                              ; preds = %387
-  %386 = add nuw nsw i32 %.0248, 1
-  %exitcond276.not = icmp eq i32 %386, 100000
-  br i1 %exitcond276.not, label %390, label %387, !llvm.loop !15
+.preheader:                                       ; preds = %378, %392
+  %385 = phi ptr [ %397, %392 ], [ %382, %378 ]
+  %386 = phi ptr [ %394, %392 ], [ %379, %378 ]
+  br label %389
 
-387:                                              ; preds = %.preheader, %385
-  %.0248 = phi i32 [ 0, %.preheader ], [ %386, %385 ]
-  %388 = load volatile i32, ptr %383, align 4
-  %389 = icmp eq i32 %.val.val, %388
-  br i1 %389, label %.loopexit, label %385
+387:                                              ; preds = %389
+  %388 = add nuw nsw i32 %.0248, 1
+  %exitcond276.not = icmp eq i32 %388, 100000
+  br i1 %exitcond276.not, label %392, label %389, !llvm.loop !15
 
-390:                                              ; preds = %385
-  %391 = call i32 @opal_progress() #8
-  %392 = load ptr, ptr %35, align 8
-  %393 = getelementptr inbounds i8, ptr %392, i64 40
-  %394 = load ptr, ptr %393, align 8
-  %395 = getelementptr inbounds i8, ptr %394, i64 4
-  %396 = load volatile i32, ptr %395, align 4
-  %397 = icmp eq i32 %.val.val, %396
-  br i1 %397, label %.loopexit, label %.preheader
+389:                                              ; preds = %.preheader, %387
+  %.0248 = phi i32 [ 0, %.preheader ], [ %388, %387 ]
+  %390 = load volatile i32, ptr %385, align 4
+  %391 = icmp eq i32 %.val.val, %390
+  br i1 %391, label %.loopexit, label %387
 
-.loopexit:                                        ; preds = %390, %387, %376
-  %398 = phi ptr [ %377, %376 ], [ %384, %387 ], [ %392, %390 ]
-  br i1 %274, label %399, label %411
+392:                                              ; preds = %387
+  %393 = call i32 @opal_progress() #8
+  %394 = load ptr, ptr %35, align 8
+  %395 = getelementptr inbounds i8, ptr %394, i64 40
+  %396 = load ptr, ptr %395, align 8
+  %397 = getelementptr inbounds i8, ptr %396, i64 4
+  %398 = load volatile i32, ptr %397, align 4
+  %399 = icmp eq i32 %.val.val, %398
+  br i1 %399, label %.loopexit, label %.preheader
 
-399:                                              ; preds = %.loopexit
-  %400 = getelementptr inbounds i8, ptr %398, i64 96
-  %401 = call i32 @unlink(ptr noundef nonnull %400) #8
-  %402 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %403 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %402) #8
-  br i1 %403, label %404, label %411
+.loopexit:                                        ; preds = %392, %389, %378
+  %400 = phi ptr [ %379, %378 ], [ %386, %389 ], [ %394, %392 ]
+  br i1 %276, label %401, label %413
 
-404:                                              ; preds = %399
-  %405 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %406 = call ptr @ompi_comm_print_cid(ptr noundef %1) #8
-  %407 = getelementptr inbounds i8, ptr %1, i64 160
-  %408 = load ptr, ptr %407, align 8
-  %409 = load ptr, ptr %35, align 8
-  %410 = getelementptr inbounds i8, ptr %409, i64 96
-  call void (i32, ptr, ...) @opal_output(i32 noundef %405, ptr noundef nonnull @.str.8, ptr noundef %406, ptr noundef %408, ptr noundef nonnull %410) #8
-  br label %411
+401:                                              ; preds = %.loopexit
+  %402 = getelementptr inbounds i8, ptr %400, i64 96
+  %403 = call i32 @unlink(ptr noundef nonnull %402) #8
+  %404 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %405 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %404) #8
+  br i1 %405, label %406, label %413
 
-411:                                              ; preds = %.loopexit, %399, %404
-  %412 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %413 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %412) #8
-  br i1 %413, label %414, label %419
+406:                                              ; preds = %401
+  %407 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %408 = call ptr @ompi_comm_print_cid(ptr noundef %1) #8
+  %409 = getelementptr inbounds i8, ptr %1, i64 160
+  %410 = load ptr, ptr %409, align 8
+  %411 = load ptr, ptr %35, align 8
+  %412 = getelementptr inbounds i8, ptr %411, i64 96
+  call void (i32, ptr, ...) @opal_output(i32 noundef %407, ptr noundef nonnull @.str.8, ptr noundef %408, ptr noundef %410, ptr noundef nonnull %412) #8
+  br label %413
 
-414:                                              ; preds = %411
-  %415 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %416 = call ptr @ompi_comm_print_cid(ptr noundef %1) #8
-  %417 = getelementptr inbounds i8, ptr %1, i64 160
-  %418 = load ptr, ptr %417, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %415, ptr noundef nonnull @.str.9, ptr noundef %416, ptr noundef %418) #8
-  br label %419
+413:                                              ; preds = %.loopexit, %401, %406
+  %414 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %415 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %414) #8
+  br i1 %415, label %416, label %421
 
-419:                                              ; preds = %414, %411, %41, %38, %20, %17, %2, %231
-  %.0202 = phi i32 [ -2, %231 ], [ 0, %2 ], [ -2, %17 ], [ -2, %20 ], [ -3, %38 ], [ -3, %41 ], [ 0, %411 ], [ 0, %414 ]
+416:                                              ; preds = %413
+  %417 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
+  %418 = call ptr @ompi_comm_print_cid(ptr noundef %1) #8
+  %419 = getelementptr inbounds i8, ptr %1, i64 160
+  %420 = load ptr, ptr %419, align 8
+  call void (i32, ptr, ...) @opal_output(i32 noundef %417, ptr noundef nonnull @.str.9, ptr noundef %418, ptr noundef %420) #8
+  br label %421
+
+421:                                              ; preds = %416, %413, %41, %38, %20, %17, %2, %233
+  %.0202 = phi i32 [ -2, %233 ], [ 0, %2 ], [ -2, %17 ], [ -2, %20 ], [ -3, %38 ], [ -3, %41 ], [ 0, %413 ], [ 0, %416 ]
   ret i32 %.0202
 }
 

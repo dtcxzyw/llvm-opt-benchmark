@@ -1571,7 +1571,7 @@ define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @awdl_tag_ht_capabilities(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 8, 12) i32 @awdl_tag_ht_capabilities(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %6 = load i32, ptr @hf_awdl_ht_unknown, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #5
@@ -1666,7 +1666,7 @@ define internal i32 @awdl_tag_ht_capabilities(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @awdl_tag_datapath_state(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 2, 65587) i32 @awdl_tag_datapath_state(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 0, i32 noundef -2147483648) #5
   %6 = load i32, ptr @hf_awdl_datastate_flags, align 4
   %7 = load i32, ptr @ett_awdl_datastate_flags, align 4

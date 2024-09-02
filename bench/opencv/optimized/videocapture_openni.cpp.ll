@@ -1137,7 +1137,7 @@ switch.lookup:                                    ; preds = %205
 
 464:                                              ; preds = %463
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %55) #10
-  br i1 %.not114, label %478, label %465
+  br i1 %.not114, label %479, label %465
 
 465:                                              ; preds = %464
   %466 = load ptr, ptr %39, align 8
@@ -1158,11 +1158,11 @@ _ZL15getMaxDisparityRN2cv12VideoCaptureE.exit:    ; preds = %.noexc
   %475 = fptrunc double %473 to float
   %476 = fmul float %474, %475
   %477 = fdiv float %476, 4.000000e+02
-  br label %478
+  %478 = fpext float %477 to double
+  br label %479
 
-478:                                              ; preds = %_ZL15getMaxDisparityRN2cv12VideoCaptureE.exit, %464
-  %479 = phi float [ %477, %_ZL15getMaxDisparityRN2cv12VideoCaptureE.exit ], [ -1.000000e+00, %464 ]
-  %480 = fpext float %479 to double
+479:                                              ; preds = %_ZL15getMaxDisparityRN2cv12VideoCaptureE.exit, %464
+  %480 = phi double [ %478, %_ZL15getMaxDisparityRN2cv12VideoCaptureE.exit ], [ -1.000000e+00, %464 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -1179,7 +1179,7 @@ _ZL15getMaxDisparityRN2cv12VideoCaptureE.exit:    ; preds = %.noexc
   %481 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %44)
           to label %.noexc91 unwind label %531
 
-.noexc91:                                         ; preds = %478
+.noexc91:                                         ; preds = %479
   br i1 %481, label %482, label %490
 
 482:                                              ; preds = %.noexc91
@@ -1245,7 +1245,7 @@ _ZL15getMaxDisparityRN2cv12VideoCaptureE.exit:    ; preds = %.noexc
   br label %.body96
 
 502:                                              ; preds = %490
-  %503 = fcmp ugt float %479, 0.000000e+00
+  %503 = fcmp ugt double %480, 0.000000e+00
   br i1 %503, label %.noexc93, label %504
 
 504:                                              ; preds = %502
@@ -1383,7 +1383,7 @@ _ZL15getMaxDisparityRN2cv12VideoCaptureE.exit:    ; preds = %.noexc
           cleanup
   br label %616
 
-531:                                              ; preds = %.noexc94, %.noexc93, %.noexc92, %504, %478, %.noexc, %465
+531:                                              ; preds = %.noexc94, %.noexc93, %.noexc92, %504, %479, %.noexc, %465
   %532 = landingpad { ptr, i32 }
           cleanup
   br label %.body96

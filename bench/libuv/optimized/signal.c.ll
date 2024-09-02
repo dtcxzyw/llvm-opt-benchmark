@@ -1017,14 +1017,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_signal_start(ptr noundef %handle, ptr noundef %signal_cb, i32 noundef %signum) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_signal_start(ptr noundef %handle, ptr noundef %signal_cb, i32 noundef %signum) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @uv__signal_start(ptr noundef %handle, ptr noundef %signal_cb, i32 noundef %signum, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @uv__signal_start(ptr noundef %handle, ptr noundef %signal_cb, i32 noundef %signum, i32 noundef %oneshot) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__signal_start(ptr noundef %handle, ptr noundef %signal_cb, i32 noundef %signum, i32 noundef %oneshot) unnamed_addr #0 {
 entry:
   %data.i.i53 = alloca i8, align 1
   %data.i.i = alloca i8, align 1
@@ -1675,7 +1675,7 @@ return:                                           ; preds = %if.end.i45, %uv__si
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_signal_start_oneshot(ptr noundef %handle, ptr noundef %signal_cb, i32 noundef %signum) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_signal_start_oneshot(ptr noundef %handle, ptr noundef %signal_cb, i32 noundef %signum) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @uv__signal_start(ptr noundef %handle, ptr noundef %signal_cb, i32 noundef %signum, i32 noundef 1)
   ret i32 %call

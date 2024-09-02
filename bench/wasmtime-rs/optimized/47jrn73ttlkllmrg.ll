@@ -6655,7 +6655,7 @@ _ZN11wasi_common5sched4Poll23earliest_clock_deadline17h57f423e063c6bd4aE.exit192
 
 347:                                              ; preds = %344
   %.sink.i207.i = ptrtoint ptr %346 to i64
-  %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umax.i64(i64 %.sink.i207.i, i64 1)
+  %.0.sroa.speculated.i.i.i.i = call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sink.i207.i, i64 1)
   br label %349
 
 348:                                              ; preds = %344

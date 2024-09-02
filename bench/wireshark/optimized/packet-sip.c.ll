@@ -4864,25 +4864,25 @@ dissect_sip_authorization_item.exit.thread.sink.split: ; preds = %dissect_sip_au
   store ptr %.lcssa2159.sink, ptr %291, align 8
   store ptr %.lcssa2162.sink, ptr %292, align 8
   store ptr %.lcssa2165.sink, ptr %293, align 8
+  %1063 = icmp ne ptr %.lcssa2165.sink, null
   br label %dissect_sip_authorization_item.exit.thread
 
 dissect_sip_authorization_item.exit.thread:       ; preds = %dissect_sip_authorization_item.exit.thread.sink.split, %923
-  %1063 = phi ptr [ null, %923 ], [ %.lcssa2159.sink, %dissect_sip_authorization_item.exit.thread.sink.split ]
-  %1064 = phi ptr [ null, %923 ], [ %.lcssa2165.sink, %dissect_sip_authorization_item.exit.thread.sink.split ]
-  %1065 = phi ptr [ null, %923 ], [ %.ph2261, %dissect_sip_authorization_item.exit.thread.sink.split ]
-  store ptr %1065, ptr %25, align 8
-  %1066 = icmp ne ptr %1064, null
+  %1064 = phi ptr [ null, %923 ], [ %.lcssa2159.sink, %dissect_sip_authorization_item.exit.thread.sink.split ]
+  %1065 = phi i1 [ false, %923 ], [ %1063, %dissect_sip_authorization_item.exit.thread.sink.split ]
+  %1066 = phi ptr [ null, %923 ], [ %.ph2261, %dissect_sip_authorization_item.exit.thread.sink.split ]
+  store ptr %1066, ptr %25, align 8
   %1067 = load i32, ptr @global_sip_validate_authorization, align 4
   %1068 = icmp ne i32 %1067, 0
-  %or.cond13 = select i1 %1066, i1 %1068, i1 false
-  %1069 = icmp ne ptr %1065, null
+  %or.cond13 = select i1 %1065, i1 %1068, i1 false
+  %1069 = icmp ne ptr %1066, null
   %or.cond16 = select i1 %or.cond13, i1 %1069, i1 false
-  %1070 = icmp ne ptr %1063, null
+  %1070 = icmp ne ptr %1064, null
   %or.cond19 = select i1 %or.cond16, i1 %1070, i1 false
   br i1 %or.cond19, label %1071, label %.critedge1491
 
 1071:                                             ; preds = %dissect_sip_authorization_item.exit.thread
-  %1072 = call fastcc ptr @sip_get_authorization(ptr nonnull %1065, ptr nonnull %1063)
+  %1072 = call fastcc ptr @sip_get_authorization(ptr nonnull %1066, ptr nonnull %1064)
   %.not1426 = icmp eq ptr %1072, null
   br i1 %.not1426, label %.critedge1491, label %1073
 
@@ -7290,28 +7290,28 @@ define internal fastcc void @dissect_sip_via_header(ptr noundef %0, ptr noundef 
   br i1 %54, label %.lr.ph303, label %._crit_edge304, !llvm.loop !52
 
 ._crit_edge304:                                   ; preds = %52, %.thread270, %.lr.ph303, %46, %46
-  %.1238 = phi i32 [ %.2239273, %52 ], [ %.2239273, %.thread270 ], [ %.0237299, %.lr.ph303 ], [ %.0237299, %46 ], [ %.0237299, %46 ]
-  %.6 = phi i32 [ %53, %52 ], [ %44, %.thread270 ], [ %3, %.lr.ph303 ], [ %44, %46 ], [ %44, %46 ]
-  %55 = icmp eq i32 %.1238, 1
+  %.1238.ph = phi i32 [ %.2239273, %52 ], [ %.2239273, %.thread270 ], [ %.0237299, %.lr.ph303 ], [ %.0237299, %46 ], [ %.0237299, %46 ]
+  %.6.ph = phi i32 [ %53, %52 ], [ %44, %.thread270 ], [ %3, %.lr.ph303 ], [ %44, %46 ], [ %44, %46 ]
+  %55 = icmp eq i32 %.1238.ph, 1
   br i1 %55, label %56, label %._crit_edge304.thread
 
 56:                                               ; preds = %._crit_edge304
   %57 = load i32, ptr @hf_sip_via_sent_by_address, align 4
   %58 = add i32 %41, 1
-  %reass.sub = sub i32 %.6, %41
+  %reass.sub = sub i32 %.6.ph, %41
   %59 = add i32 %reass.sub, -2
   %60 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %57, ptr noundef %0, i32 noundef %58, i32 noundef %59, i32 noundef 2) #15
   br label %64
 
 ._crit_edge304.thread:                            ; preds = %._crit_edge, %._crit_edge304
-  %.6355 = phi i32 [ %.6, %._crit_edge304 ], [ %41, %._crit_edge ]
+  %.6355 = phi i32 [ %.6.ph, %._crit_edge304 ], [ %41, %._crit_edge ]
   %61 = load i32, ptr @hf_sip_via_sent_by_address, align 4
   %62 = sub i32 %.6355, %41
   %63 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %61, ptr noundef %0, i32 noundef %41, i32 noundef %62, i32 noundef 2) #15
   br label %64
 
 64:                                               ; preds = %._crit_edge304.thread, %56
-  %.6354 = phi i32 [ %.6355, %._crit_edge304.thread ], [ %.6, %56 ]
+  %.6354 = phi i32 [ %.6355, %._crit_edge304.thread ], [ %.6.ph, %56 ]
   %65 = sub i32 %3, %.6354
   %66 = call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %.6354, i32 noundef %65) #15
   %67 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %66) #15

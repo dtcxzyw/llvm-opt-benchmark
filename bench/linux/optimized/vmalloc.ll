@@ -826,7 +826,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
 42:                                               ; preds = %40
   %43 = tail call i32 @__p4d_alloc(ptr noundef nonnull @init_mm, ptr noundef %27, i64 noundef %29) #21
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %.thread20
+  br i1 %44, label %45, label %.thread18
 
 45:                                               ; preds = %42, %40, %26
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #21
@@ -849,7 +849,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
 58:                                               ; preds = %46, %45
   %59 = phi ptr [ %57, %46 ], [ %27, %45 ]
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.thread20, label %61
+  br i1 %60, label %.thread18, label %61
 
 61:                                               ; preds = %58
   %62 = add i64 %38, -1
@@ -872,7 +872,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
 75:                                               ; preds = %63
   %76 = tail call i32 @__pud_alloc(ptr noundef nonnull @init_mm, ptr noundef %65, i64 noundef %66) #21
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %._crit_edge, label %.thread20
+  br i1 %77, label %._crit_edge, label %.thread18
 
 ._crit_edge:                                      ; preds = %75
   %.pre = load i64, ptr %65, align 8
@@ -888,22 +888,22 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   %85 = and i64 %84, 511
   %86 = getelementptr %struct.pud_t, ptr %83, i64 %85
   %.not = icmp eq ptr %86, null
-  br i1 %.not, label %.thread20, label %87
+  br i1 %.not, label %.thread18, label %87
 
 87:                                               ; preds = %78
   %88 = add i64 %71, -1
   br label %89
 
-89:                                               ; preds = %.loopexit24, %87
-  %90 = phi i64 [ %64, %87 ], [ %224, %.loopexit24 ]
-  %91 = phi ptr [ %86, %87 ], [ %222, %.loopexit24 ]
-  %92 = phi i64 [ %66, %87 ], [ %97, %.loopexit24 ]
+89:                                               ; preds = %.loopexit22, %87
+  %90 = phi i64 [ %64, %87 ], [ %224, %.loopexit22 ]
+  %91 = phi ptr [ %86, %87 ], [ %222, %.loopexit22 ]
+  %92 = phi i64 [ %66, %87 ], [ %97, %.loopexit22 ]
   %93 = and i64 %92, -1073741824
   %94 = add i64 %93, 1073741824
   %95 = or i64 %92, 1073741823
   %96 = icmp ult i64 %95, %88
   %97 = select i1 %96, i64 %94, i64 %71
-  br i1 %19, label %.thread14, label %98
+  br i1 %19, label %.critedge, label %98
 
 98:                                               ; preds = %89
   %99 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
@@ -916,7 +916,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   %106 = and i64 %105, 1073741823
   %107 = icmp eq i64 %106, 0
   %108 = and i1 %107, %104
-  br i1 %108, label %109, label %.thread14
+  br i1 %108, label %109, label %.critedge
 
 109:                                              ; preds = %98
   %110 = load i64, ptr %91, align 8
@@ -927,30 +927,30 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
 113:                                              ; preds = %109
   %114 = tail call i32 @pud_free_pmd_page(ptr noundef %91, i64 noundef %92) #21
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %.thread14, label %116
+  br i1 %115, label %.critedge, label %116
 
-116:                                              ; preds = %109, %113
+116:                                              ; preds = %113, %109
   %117 = tail call i32 @pud_set_huge(ptr noundef %91, i64 noundef %90, i64 %.fr) #21
   %118 = icmp eq i32 %117, 0
-  br i1 %118, label %.thread14, label %.loopexit24
+  br i1 %118, label %.critedge, label %.loopexit22
 
-.thread14:                                        ; preds = %113, %98, %89, %116
+.critedge:                                        ; preds = %89, %98, %113, %116
   %119 = load i64, ptr %91, align 8
   %120 = and i64 %119, -97
   %121 = icmp eq i64 %120, 0
   br i1 %121, label %122, label %125, !prof !12
 
-122:                                              ; preds = %.thread14
+122:                                              ; preds = %.critedge
   %123 = tail call i32 @__pmd_alloc(ptr noundef nonnull @init_mm, ptr noundef %91, i64 noundef %92) #21
   %124 = icmp eq i32 %123, 0
-  br i1 %124, label %._crit_edge34, label %.thread20
+  br i1 %124, label %._crit_edge32, label %.thread18
 
-._crit_edge34:                                    ; preds = %122
-  %.pre35 = load i64, ptr %91, align 8
+._crit_edge32:                                    ; preds = %122
+  %.pre33 = load i64, ptr %91, align 8
   br label %125
 
-125:                                              ; preds = %._crit_edge34, %.thread14
-  %126 = phi i64 [ %.pre35, %._crit_edge34 ], [ %119, %.thread14 ]
+125:                                              ; preds = %._crit_edge32, %.critedge
+  %126 = phi i64 [ %.pre33, %._crit_edge32 ], [ %119, %.critedge ]
   %127 = and i64 %126, 128
   %128 = icmp eq i64 %127, 0
   %129 = select i1 %128, i64 4503599627366400, i64 4503598553628672
@@ -962,7 +962,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   %135 = and i64 %134, 511
   %136 = getelementptr %struct.pmd_t, ptr %133, i64 %135
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %.thread20, label %138
+  br i1 %137, label %.thread18, label %138
 
 138:                                              ; preds = %125
   %139 = add i64 %97, -1
@@ -977,7 +977,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   %146 = or i64 %143, 2097151
   %147 = icmp ult i64 %146, %139
   %148 = select i1 %147, i64 %145, i64 %97
-  br i1 %20, label %.thread17, label %149
+  br i1 %20, label %.critedge13, label %149
 
 149:                                              ; preds = %140
   %150 = sub i64 %148, %143
@@ -986,7 +986,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   %153 = and i64 %152, 2097151
   %154 = icmp eq i64 %153, 0
   %155 = and i1 %154, %151
-  br i1 %155, label %156, label %.thread17
+  br i1 %155, label %156, label %.critedge13
 
 156:                                              ; preds = %149
   %157 = load i64, ptr %142, align 8
@@ -997,31 +997,31 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
 160:                                              ; preds = %156
   %161 = tail call i32 @pmd_free_pte_page(ptr noundef %142, i64 noundef %143) #21
   %162 = icmp eq i32 %161, 0
-  br i1 %162, label %.thread17, label %163
+  br i1 %162, label %.critedge13, label %163
 
-163:                                              ; preds = %156, %160
+163:                                              ; preds = %160, %156
   %164 = tail call i32 @pmd_set_huge(ptr noundef %142, i64 noundef %141, i64 %.fr) #21
   %165 = icmp eq i32 %164, 0
-  br i1 %165, label %.thread17, label %.loopexit
+  br i1 %165, label %.critedge13, label %.loopexit
 
-.thread17:                                        ; preds = %160, %149, %140, %163
+.critedge13:                                      ; preds = %140, %149, %160, %163
   %166 = lshr i64 %141, 12
   %167 = load i64, ptr %142, align 8
   %168 = and i64 %167, -97
   %169 = icmp eq i64 %168, 0
   br i1 %169, label %170, label %173, !prof !12
 
-170:                                              ; preds = %.thread17
+170:                                              ; preds = %.critedge13
   %171 = tail call i32 @__pte_alloc_kernel(ptr noundef %142) #21
   %172 = icmp eq i32 %171, 0
-  br i1 %172, label %._crit_edge36, label %.thread20
+  br i1 %172, label %._crit_edge34, label %.thread18
 
-._crit_edge36:                                    ; preds = %170
-  %.pre37 = load i64, ptr %142, align 8
+._crit_edge34:                                    ; preds = %170
+  %.pre35 = load i64, ptr %142, align 8
   br label %173
 
-173:                                              ; preds = %._crit_edge36, %.thread17
-  %174 = phi i64 [ %.pre37, %._crit_edge36 ], [ %167, %.thread17 ]
+173:                                              ; preds = %._crit_edge34, %.critedge13
+  %174 = phi i64 [ %.pre35, %._crit_edge34 ], [ %167, %.critedge13 ]
   %175 = and i64 %174, 128
   %176 = icmp eq i64 %175, 0
   %177 = select i1 %176, i64 4503599627366400, i64 4503599625273344
@@ -1033,7 +1033,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   %183 = and i64 %182, 511
   %184 = getelementptr %struct.pte_t, ptr %181, i64 %183
   %185 = icmp eq ptr %184, null
-  br i1 %185, label %.thread20, label %.preheader
+  br i1 %185, label %.thread18, label %.preheader
 
 .preheader:                                       ; preds = %173
   br i1 %23, label %.preheader.split.us, label %.preheader.split
@@ -1106,16 +1106,16 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   %219 = sub i64 %141, %143
   %220 = add i64 %219, %148
   %221 = icmp eq i64 %148, %97
-  br i1 %221, label %.loopexit24, label %140, !llvm.loop !24
+  br i1 %221, label %.loopexit22, label %140, !llvm.loop !24
 
-.loopexit24:                                      ; preds = %.loopexit, %116
+.loopexit22:                                      ; preds = %.loopexit, %116
   %222 = getelementptr i8, ptr %91, i64 8
   %223 = sub i64 %90, %92
   %224 = add i64 %223, %97
   %225 = icmp eq i64 %97, %71
   br i1 %225, label %226, label %89, !llvm.loop !25
 
-226:                                              ; preds = %.loopexit24
+226:                                              ; preds = %.loopexit22
   %227 = getelementptr i8, ptr %65, i64 8
   %228 = sub i64 %64, %66
   %229 = add i64 %228, %71
@@ -1127,9 +1127,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   %233 = sub i64 %28, %29
   %234 = add i64 %233, %38
   %235 = icmp eq i64 %38, %1
-  br i1 %235, label %.thread20, label %26, !llvm.loop !27
+  br i1 %235, label %.thread18, label %26, !llvm.loop !27
 
-.thread20:                                        ; preds = %42, %58, %231, %75, %78, %122, %125, %170, %173
+.thread18:                                        ; preds = %42, %58, %231, %75, %78, %122, %125, %170, %173
   %236 = phi i32 [ -12, %173 ], [ -12, %170 ], [ -12, %125 ], [ -12, %122 ], [ -12, %78 ], [ -12, %75 ], [ -12, %42 ], [ -12, %58 ], [ 0, %231 ]
   ret i32 %236
 }
@@ -1400,7 +1400,7 @@ define dso_local void @vunmap_range(i64 noundef %0, i64 noundef %1) local_unname
 declare dso_local void @flush_tlb_kernel_range(i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__vmap_pages_range_noflush(i64 noundef %0, i64 noundef %1, i64 %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -12, 1) i32 @__vmap_pages_range_noflush(i64 noundef %0, i64 noundef %1, i64 %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = sub i64 %1, %0
@@ -1863,7 +1863,7 @@ define dso_local noundef i32 @__vmap_pages_range_noflush(i64 noundef %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @vmap_pages_range_noflush(i64 noundef %0, i64 noundef %1, i64 %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -12, 1) i32 @vmap_pages_range_noflush(i64 noundef %0, i64 noundef %1, i64 %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = tail call i32 @__vmap_pages_range_noflush(i64 noundef %0, i64 noundef %1, i64 %2, ptr noundef %3, i32 noundef %4)
   ret i32 %6
 }
@@ -5164,7 +5164,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   tail call void asm sideeffect "654: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 654b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 654) #21, !srcloc !201
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 3247, i32 2307, i64 12) #21, !srcloc !202
   tail call void asm sideeffect "655: nop\0A\09.pushsection .discard.instr_end\0A\09.long 655b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 655) #21, !srcloc !203
-  br label %.loopexit21
+  br label %.loopexit22
 
 13:                                               ; preds = %9
   %14 = lshr i64 %0, 12
@@ -5174,7 +5174,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
 
 17:                                               ; preds = %13
   tail call void (i32, ptr, ptr, ...) @warn_alloc(i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.4, i64 noundef %0) #21
-  br label %.loopexit21
+  br label %.loopexit22
 
 18:                                               ; preds = %13
   %19 = load i1, ptr @vmap_allow_huge, align 1
@@ -5234,9 +5234,9 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %65 = xor i64 %64, 4096
   br label %66
 
-66:                                               ; preds = %.thread16, %38
-  %67 = phi i32 [ 12, %.thread16 ], [ %39, %38 ]
-  %68 = phi i64 [ %1, %.thread16 ], [ %40, %38 ]
+66:                                               ; preds = %.critedge17, %38
+  %67 = phi i32 [ 12, %.critedge17 ], [ %39, %38 ]
+  %68 = phi i64 [ %1, %.critedge17 ], [ %40, %38 ]
   %69 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !159
   %70 = and i32 %69, 16776960
   %71 = icmp eq i32 %70, 0
@@ -5254,7 +5254,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   br i1 %59, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %77, label %.thread16.loopexit.split.us, label %80, !prof !12
+  br i1 %77, label %.critedge17.loopexit.split.us, label %80, !prof !12
 
 80:                                               ; preds = %.lr.ph.split.us
   br i1 %62, label %88, label %81
@@ -5273,7 +5273,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %90 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %91 = call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_node_trace(ptr noundef %90, i32 noundef %43, i32 noundef %7, i64 noundef 64) #24
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %.thread16.loopexit.split.us, label %93, !prof !12
+  br i1 %92, label %.critedge17.loopexit.split.us, label %93, !prof !12
 
 93:                                               ; preds = %88
   %94 = call fastcc ptr @alloc_vmap_area(i64 noundef %79, i64 noundef %89, i64 noundef %2, i64 noundef %3, i32 noundef %7, i32 noundef %4, i64 noundef 0)
@@ -5282,11 +5282,11 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
 
 96:                                               ; preds = %93
   call void @kfree(ptr noundef nonnull %91) #21
-  br label %.thread16.loopexit.split.us
+  br label %.critedge17.loopexit.split.us
 
-.thread16.loopexit.split.us:                      ; preds = %96, %88, %.lr.ph.split.us
+.critedge17.loopexit.split.us:                    ; preds = %96, %88, %.lr.ph.split.us
   call void (i32, ptr, ptr, ...) @warn_alloc(i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.5, i64 noundef %0, ptr noundef nonnull @.str.7) #21
-  br label %.thread16
+  br label %.critedge17
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %77, label %.lr.ph.split.split.us, label %.lr.ph.split.split, !prof !12
@@ -5342,23 +5342,23 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
 
 .split.us:                                        ; preds = %113, %93
   %.us-phi = phi ptr [ %94, %93 ], [ %114, %113 ]
-  %.us-phi28 = phi ptr [ %91, %93 ], [ %111, %113 ]
+  %.us-phi29 = phi ptr [ %91, %93 ], [ %111, %113 ]
   call void @_raw_spin_lock(ptr noundef nonnull @vmap_area_lock) #21
-  %122 = getelementptr inbounds i8, ptr %.us-phi28, i64 24
+  %122 = getelementptr inbounds i8, ptr %.us-phi29, i64 24
   store i64 %41, ptr %122, align 8
   %123 = load i64, ptr %.us-phi, align 8
   %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds i8, ptr %.us-phi28, i64 8
+  %125 = getelementptr inbounds i8, ptr %.us-phi29, i64 8
   store ptr %124, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %.us-phi, i64 8
   %127 = load i64, ptr %126, align 8
   %128 = sub i64 %127, %123
-  %129 = getelementptr inbounds i8, ptr %.us-phi28, i64 16
+  %129 = getelementptr inbounds i8, ptr %.us-phi29, i64 16
   store i64 %128, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %.us-phi28, i64 56
+  %130 = getelementptr inbounds i8, ptr %.us-phi29, i64 56
   store ptr %8, ptr %130, align 8
   %131 = getelementptr inbounds i8, ptr %.us-phi, i64 56
-  store ptr %.us-phi28, ptr %131, align 8
+  store ptr %.us-phi29, ptr %131, align 8
   call void @_raw_spin_unlock(ptr noundef nonnull @vmap_area_lock) #21
   %132 = load ptr, ptr %125, align 8
   %133 = ptrtoint ptr %132 to i64
@@ -5399,7 +5399,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
 
 158:                                              ; preds = %156, %149
   %159 = phi ptr [ %157, %156 ], [ %155, %149 ]
-  %160 = getelementptr inbounds i8, ptr %.us-phi28, i64 32
+  %160 = getelementptr inbounds i8, ptr %.us-phi29, i64 32
   store ptr %159, ptr %160, align 8
   %161 = icmp eq ptr %159, null
   br i1 %161, label %162, label %169
@@ -5409,7 +5409,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   call void (i32, ptr, ptr, ...) @warn_alloc(i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.33, i64 noundef %163, i64 noundef %143) #21
   %164 = load ptr, ptr %125, align 8
   %165 = call ptr @remove_vm_area(ptr noundef %164)
-  %166 = icmp eq ptr %165, %.us-phi28
+  %166 = icmp eq ptr %165, %.us-phi29
   br i1 %166, label %168, label %167, !prof !11
 
 167:                                              ; preds = %162
@@ -5418,25 +5418,25 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   unreachable
 
 168:                                              ; preds = %162
-  call void @kfree(ptr noundef nonnull %.us-phi28) #21
-  br label %.thread16
+  call void @kfree(ptr noundef nonnull %.us-phi29) #21
+  br label %.critedge17
 
 169:                                              ; preds = %158
   %170 = add nsw i32 %67, -12
-  %171 = getelementptr inbounds i8, ptr %.us-phi28, i64 40
+  %171 = getelementptr inbounds i8, ptr %.us-phi29, i64 40
   store i32 %170, ptr %171, align 8
   %172 = icmp eq i32 %170, 0
-  br i1 %172, label %.preheader18, label %.loopexit19
+  br i1 %172, label %.preheader19, label %.loopexit20
 
-.preheader18:                                     ; preds = %169
-  br i1 %54, label %.preheader18.split.us, label %.preheader18.split
+.preheader19:                                     ; preds = %169
+  br i1 %54, label %.preheader19.split.us, label %.preheader19.split
 
-.preheader18.split.us:                            ; preds = %.preheader18, %175
-  %173 = phi i32 [ %183, %175 ], [ 0, %.preheader18 ]
+.preheader19.split.us:                            ; preds = %.preheader19, %175
+  %173 = phi i32 [ %183, %175 ], [ 0, %.preheader19 ]
   %174 = icmp ult i32 %173, %141
-  br i1 %174, label %175, label %.loopexit19
+  br i1 %174, label %175, label %.loopexit20
 
-175:                                              ; preds = %.preheader18.split.us
+175:                                              ; preds = %.preheader19.split.us
   %176 = sub nuw i32 %141, %173
   %177 = call i32 @llvm.umin.i32(i32 %176, i32 100)
   %178 = zext nneg i32 %177 to i64
@@ -5447,14 +5447,14 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %183 = add i32 %173, %182
   %184 = call i32 @__SCT__cond_resched() #21
   %185 = icmp eq i32 %177, %182
-  br i1 %185, label %.preheader18.split.us, label %.loopexit19
+  br i1 %185, label %.preheader19.split.us, label %.loopexit20
 
-.preheader18.split:                               ; preds = %.preheader18, %188
-  %186 = phi i32 [ %195, %188 ], [ 0, %.preheader18 ]
+.preheader19.split:                               ; preds = %.preheader19, %188
+  %186 = phi i32 [ %195, %188 ], [ 0, %.preheader19 ]
   %187 = icmp ult i32 %186, %141
-  br i1 %187, label %188, label %.loopexit19
+  br i1 %187, label %188, label %.loopexit20
 
-188:                                              ; preds = %.preheader18.split
+188:                                              ; preds = %.preheader19.split
   %189 = sub nuw i32 %141, %186
   %190 = call i32 @llvm.umin.i32(i32 %189, i32 100)
   %191 = zext i32 %186 to i64
@@ -5464,16 +5464,16 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %195 = add i32 %186, %194
   %196 = call i32 @__SCT__cond_resched() #21
   %197 = icmp eq i32 %190, %194
-  br i1 %197, label %.preheader18.split, label %.loopexit19
+  br i1 %197, label %.preheader19.split, label %.loopexit20
 
-.loopexit19:                                      ; preds = %.preheader18.split, %188, %175, %.preheader18.split.us, %169
-  %198 = phi i1 [ %52, %169 ], [ false, %.preheader18.split.us ], [ false, %175 ], [ false, %188 ], [ false, %.preheader18.split ]
-  %199 = phi i32 [ %53, %169 ], [ %50, %.preheader18.split.us ], [ %50, %175 ], [ %50, %188 ], [ %50, %.preheader18.split ]
-  %200 = phi i32 [ 0, %169 ], [ %183, %175 ], [ %173, %.preheader18.split.us ], [ %186, %.preheader18.split ], [ %195, %188 ]
+.loopexit20:                                      ; preds = %.preheader19.split, %188, %175, %.preheader19.split.us, %169
+  %198 = phi i1 [ %52, %169 ], [ false, %.preheader19.split.us ], [ false, %175 ], [ false, %188 ], [ false, %.preheader19.split ]
+  %199 = phi i32 [ %53, %169 ], [ %50, %.preheader19.split.us ], [ %50, %175 ], [ %50, %188 ], [ %50, %.preheader19.split ]
+  %200 = phi i32 [ 0, %169 ], [ %183, %175 ], [ %173, %.preheader19.split.us ], [ %186, %.preheader19.split ], [ %195, %188 ]
   %201 = icmp ult i32 %200, %141
-  br i1 %201, label %202, label %.loopexit17
+  br i1 %201, label %202, label %.loopexit18
 
-202:                                              ; preds = %.loopexit19
+202:                                              ; preds = %.loopexit20
   %203 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23, !srcloc !206
   %204 = inttoptr i64 %203 to ptr
   %205 = getelementptr inbounds i8, ptr %204, i64 1936
@@ -5486,22 +5486,22 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %210 = load volatile i64, ptr %204, align 8
   %211 = and i64 %210, 4
   %212 = icmp eq i64 %211, 0
-  br i1 %212, label %.thread, label %213
+  br i1 %212, label %.critedge, label %213
 
 213:                                              ; preds = %206
   %214 = load i64, ptr %205, align 8
   %215 = and i64 %214, 256
   %216 = icmp eq i64 %215, 0
-  br i1 %216, label %.thread, label %.loopexit17
+  br i1 %216, label %.critedge, label %.loopexit18
 
-.thread:                                          ; preds = %206, %213
+.critedge:                                        ; preds = %206, %213
   br i1 %54, label %217, label %219
 
-217:                                              ; preds = %.thread
+217:                                              ; preds = %.critedge
   %218 = call ptr @alloc_pages(i32 noundef %209, i32 noundef %207) #21
   br label %230
 
-219:                                              ; preds = %.thread
+219:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 %209, ptr %10, align 4
   %220 = and i32 %209, 2105344
@@ -5531,7 +5531,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   br i1 %232, label %233, label %241, !prof !12
 
 233:                                              ; preds = %230
-  br i1 %198, label %234, label %.loopexit17
+  br i1 %198, label %234, label %.loopexit18
 
 234:                                              ; preds = %233
   %235 = or i32 %209, 32768
@@ -5542,7 +5542,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %238 = phi i32 [ %208, %234 ], [ %257, %255 ]
   %239 = phi i32 [ 0, %234 ], [ %207, %255 ]
   %240 = icmp ult i32 %238, %141
-  br i1 %240, label %206, label %.loopexit17, !llvm.loop !207
+  br i1 %240, label %206, label %.loopexit18, !llvm.loop !207
 
 241:                                              ; preds = %230
   %242 = icmp eq i32 %207, 0
@@ -5573,9 +5573,9 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %257 = add i32 %245, %208
   br label %236
 
-.loopexit17:                                      ; preds = %236, %233, %213, %.loopexit19
-  %258 = phi i32 [ %200, %.loopexit19 ], [ %208, %233 ], [ %208, %213 ], [ %238, %236 ]
-  %259 = getelementptr inbounds i8, ptr %.us-phi28, i64 44
+.loopexit18:                                      ; preds = %236, %233, %213, %.loopexit20
+  %258 = phi i32 [ %200, %.loopexit20 ], [ %208, %233 ], [ %208, %213 ], [ %238, %236 ]
+  %259 = getelementptr inbounds i8, ptr %.us-phi29, i64 44
   store i32 %258, ptr %259, align 4
   %260 = zext i32 %258 to i64
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @nr_vmalloc_pages, i64 %260, ptr nonnull elementtype(i64) @nr_vmalloc_pages) #21, !srcloc !209
@@ -5583,7 +5583,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %262 = icmp eq i32 %261, %141
   br i1 %262, label %279, label %263
 
-263:                                              ; preds = %.loopexit17
+263:                                              ; preds = %.loopexit18
   %264 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23, !srcloc !206
   %265 = inttoptr i64 %264 to ptr
   %266 = load volatile i64, ptr %265, align 8
@@ -5603,9 +5603,9 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %276 = phi i32 [ 0, %263 ], [ %274, %269 ]
   %277 = or i32 %276, %170
   %278 = icmp eq i32 %277, 0
-  br i1 %278, label %318, label %323
+  br i1 %278, label %321, label %326
 
-279:                                              ; preds = %.loopexit17
+279:                                              ; preds = %.loopexit18
   br i1 %57, label %280, label %282
 
 280:                                              ; preds = %279
@@ -5620,13 +5620,13 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %280, %283
-  %.sink56 = phi i64 [ %284, %283 ], [ %281, %280 ]
-  %.sink54 = phi i32 [ 524288, %283 ], [ 262144, %280 ]
-  %285 = inttoptr i64 %.sink56 to ptr
+  %.sink57 = phi i64 [ %284, %283 ], [ %281, %280 ]
+  %.sink55 = phi i32 [ 524288, %283 ], [ 262144, %280 ]
+  %285 = inttoptr i64 %.sink57 to ptr
   %286 = getelementptr inbounds i8, ptr %285, i64 44
   %287 = load i32, ptr %286, align 4
-  %288 = and i32 %287, %.sink54
-  %289 = or i32 %287, %.sink54
+  %288 = and i32 %287, %.sink55
+  %289 = or i32 %287, %.sink55
   store i32 %289, ptr %286, align 4
   br label %290
 
@@ -5636,7 +5636,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %293 = load ptr, ptr %160, align 8
   %294 = call i32 @__vmap_pages_range_noflush(i64 noundef %133, i64 noundef %292, i64 %5, ptr noundef %293, i32 noundef %67)
   %295 = icmp slt i32 %294, 0
-  %296 = and i1 %45, %295
+  %296 = select i1 %45, i1 %295, i1 false
   br i1 %296, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %290, %.preheader
@@ -5673,32 +5673,32 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   br label %315
 
 315:                                              ; preds = %307, %304
-  br i1 %301, label %316, label %325
+  br i1 %301, label %316, label %318
 
 316:                                              ; preds = %315
   %317 = load i32, ptr %259, align 4
-  br label %318
+  br label %321
 
-318:                                              ; preds = %316, %275
-  %319 = phi i32 [ %317, %316 ], [ %261, %275 ]
-  %320 = phi ptr [ @.str.35, %316 ], [ @.str.34, %275 ]
-  %321 = zext i32 %319 to i64
-  %322 = shl nuw nsw i64 %321, 12
-  call void (i32, ptr, ptr, ...) @warn_alloc(i32 noundef %49, ptr noundef null, ptr noundef nonnull %320, i64 noundef %322) #21
-  br label %323
+318:                                              ; preds = %315
+  %319 = load ptr, ptr %125, align 8
+  %320 = icmp eq ptr %319, null
+  br i1 %320, label %.critedge17, label %328
 
-323:                                              ; preds = %318, %275
-  %324 = load ptr, ptr %125, align 8
-  call void @vfree(ptr noundef %324)
-  br label %.thread16
+321:                                              ; preds = %316, %275
+  %322 = phi i32 [ %317, %316 ], [ %261, %275 ]
+  %323 = phi ptr [ @.str.35, %316 ], [ @.str.34, %275 ]
+  %324 = zext i32 %322 to i64
+  %325 = shl nuw nsw i64 %324, 12
+  call void (i32, ptr, ptr, ...) @warn_alloc(i32 noundef %49, ptr noundef null, ptr noundef nonnull %323, i64 noundef %325) #21
+  br label %326
 
-325:                                              ; preds = %315
-  %326 = load ptr, ptr %125, align 8
-  %327 = icmp eq ptr %326, null
-  br i1 %327, label %.thread16, label %328
+326:                                              ; preds = %321, %275
+  %327 = load ptr, ptr %125, align 8
+  call void @vfree(ptr noundef %327)
+  br label %.critedge17
 
-328:                                              ; preds = %325
-  %329 = getelementptr inbounds i8, ptr %.us-phi28, i64 24
+328:                                              ; preds = %318
+  %329 = getelementptr inbounds i8, ptr %.us-phi29, i64 24
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_free, i32 2) #21
           to label %330 [label %331], !srcloc !136
 
@@ -5712,14 +5712,14 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %333 = and i64 %332, -33
   store i64 %333, ptr %329, align 8
   %334 = load ptr, ptr %125, align 8
-  br label %.loopexit21
+  br label %.loopexit22
 
-.thread16:                                        ; preds = %.thread16.loopexit.split.us, %168, %323, %325
+.critedge17:                                      ; preds = %.critedge17.loopexit.split.us, %326, %168, %318
   %335 = icmp ugt i32 %67, 12
-  br i1 %335, label %66, label %.loopexit21
+  br i1 %335, label %66, label %.loopexit22
 
-.loopexit21:                                      ; preds = %.thread16, %331, %17, %12
-  %336 = phi ptr [ null, %17 ], [ %334, %331 ], [ null, %12 ], [ null, %.thread16 ]
+.loopexit22:                                      ; preds = %.critedge17, %331, %17, %12
+  %336 = phi ptr [ null, %17 ], [ %334, %331 ], [ null, %12 ], [ null, %.critedge17 ]
   ret ptr %336
 }
 

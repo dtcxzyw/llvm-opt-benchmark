@@ -247,14 +247,12 @@ while.cond.i.i:                                   ; preds = %if.end32.i.i, %if.t
   %i.0.i.i = phi i64 [ 0, %if.then6.i ], [ %i.3.i.i, %if.end32.i.i ]
   %arrayidx.i21.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %i.0.i.i
   %3 = load i8, ptr %arrayidx.i21.i, align 1
-  %cmp.not.i.i = icmp eq i8 %3, 0
-  br i1 %cmp.not.i.i, label %land.lhs.true, label %while.body.i.i
+  switch i8 %3, label %if.end12.i [
+    i8 46, label %land.lhs.true.i.i
+    i8 0, label %land.lhs.true
+  ]
 
-while.body.i.i:                                   ; preds = %while.cond.i.i
-  %cmp3.i22.i = icmp eq i8 %3, 46
-  br i1 %cmp3.i22.i, label %land.lhs.true.i.i, label %if.end.i.i
-
-land.lhs.true.i.i:                                ; preds = %while.body.i.i
+land.lhs.true.i.i:                                ; preds = %while.cond.i.i
   %arrayidx4.i.i = getelementptr i8, ptr %arrayidx.i21.i, i64 1
   %4 = load i8, ptr %arrayidx4.i.i, align 1
   %5 = and i8 %4, -33
@@ -280,15 +278,12 @@ while.cond10.i.i:                                 ; preds = %while.cond10.i.i, %
   %inc.i23.i = add i64 %i.2.i.i, 1
   br i1 %or.cond21.i.i, label %while.cond10.i.i, label %if.end.i.i, !llvm.loop !5
 
-if.end.i.i:                                       ; preds = %while.cond10.i.i, %while.body.i.i
-  %12 = phi i8 [ %3, %while.body.i.i ], [ %8, %while.cond10.i.i ]
-  %i.1.i.i = phi i64 [ %i.0.i.i, %while.body.i.i ], [ %i.2.i.i, %while.cond10.i.i ]
-  %cmp19.i.i = icmp eq i8 %12, 46
-  br i1 %cmp19.i.i, label %land.lhs.true20.i.i, label %if.end32.i.i
+if.end.i.i:                                       ; preds = %while.cond10.i.i
+  %12 = icmp eq i8 %8, 46
+  br i1 %12, label %land.lhs.true20.i.i, label %if.end32.i.i
 
 land.lhs.true20.i.i:                              ; preds = %if.end.i.i, %land.lhs.true.i.i
-  %parsed.026.i.i = phi i1 [ %cmp3.i22.i, %if.end.i.i ], [ false, %land.lhs.true.i.i ]
-  %i.125.i.i = phi i64 [ %i.1.i.i, %if.end.i.i ], [ %i.0.i.i, %land.lhs.true.i.i ]
+  %i.125.i.i = phi i64 [ %i.2.i.i, %if.end.i.i ], [ %i.0.i.i, %land.lhs.true.i.i ]
   %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %i.125.i.i
   %13 = load i8, ptr %gep.i.i, align 1
   %14 = add i8 %13, -48
@@ -309,11 +304,11 @@ while.cond26.i.i:                                 ; preds = %while.cond26.i.i, %
   br i1 %18, label %while.cond26.i.i, label %if.end32.i.i, !llvm.loop !7
 
 if.end32.i.i:                                     ; preds = %while.cond26.i.i, %land.lhs.true20.i.i, %if.end.i.i
-  %i.3.i.i = phi i64 [ %i.125.i.i, %land.lhs.true20.i.i ], [ %i.1.i.i, %if.end.i.i ], [ %i.4.i.i, %while.cond26.i.i ]
-  %parsed.1.i.i = phi i1 [ %parsed.026.i.i, %land.lhs.true20.i.i ], [ %cmp3.i22.i, %if.end.i.i ], [ true, %while.cond26.i.i ]
+  %i.3.i.i = phi i64 [ %i.125.i.i, %land.lhs.true20.i.i ], [ %i.2.i.i, %if.end.i.i ], [ %i.4.i.i, %while.cond26.i.i ]
+  %parsed.1.i.i = phi i1 [ %or.cond.i.i, %land.lhs.true20.i.i ], [ true, %if.end.i.i ], [ true, %while.cond26.i.i ]
   br i1 %parsed.1.i.i, label %while.cond.i.i, label %if.end12.i, !llvm.loop !8
 
-if.end12.i:                                       ; preds = %if.end32.i.i
+if.end12.i:                                       ; preds = %if.end32.i.i, %while.cond.i.i
   %cmp17.i = icmp eq i8 %2, 64
   br i1 %cmp17.i, label %if.then18.i, label %land.end
 

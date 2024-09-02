@@ -668,11 +668,11 @@ if.then.i:                                        ; preds = %if.end
   %4 = load ptr, ptr %mppPrevNext.i, align 8, !noalias !12
   store ptr null, ptr %4, align 8, !noalias !12
   %.pre = load ptr, ptr %l, align 8
+  %5 = icmp eq ptr %.pre, null
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit
 
 _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit: ; preds = %if.then.i, %if.end
-  %5 = phi ptr [ %.pre, %if.then.i ], [ null, %if.end ]
-  %cmp.i88 = icmp eq ptr %5, null
+  %cmp.i88 = phi i1 [ %5, %if.then.i ], [ true, %if.end ]
   %call30 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i88, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @.str.10)
   call void @_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEEC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %l2)
   br label %for.body

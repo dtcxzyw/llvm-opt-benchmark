@@ -231,15 +231,18 @@ make_rfile.exit:                                  ; preds = %.lr.ph212, %74
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %109 = zext i32 %108 to i64
   %110 = icmp ult i64 %indvars.iv.next260, %109
-  br i1 %110, label %.lr.ph214, label %._crit_edge, !llvm.loop !8
+  br i1 %110, label %.lr.ph214, label %._crit_edge.loopexit, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %107, %92
-  %.lcssa200 = phi i32 [ 0, %92 ], [ %108, %107 ]
-  %111 = zext i32 %.lcssa200 to i64
+._crit_edge.loopexit:                             ; preds = %107
+  %111 = zext i32 %108 to i64
   %112 = shl nuw nsw i64 %111, 13
-  %113 = icmp eq i64 %112, %94
-  %or.cond303 = select i1 %.1130210, i1 %113, i1 false
-  br i1 %or.cond303, label %136, label %.sink.split
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %92
+  %.lcssa200 = phi i64 [ 0, %92 ], [ %112, %._crit_edge.loopexit ]
+  %113 = icmp eq i64 %.lcssa200, %94
+  %or.cond301 = select i1 %.1130210, i1 %113, i1 false
+  br i1 %or.cond301, label %136, label %.sink.split
 
 114:                                              ; preds = %.lr.ph208, %132
   %115 = phi i32 [ %83, %.lr.ph208 ], [ %133, %132 ]
@@ -745,20 +748,20 @@ debug_reconstruction.exit:                        ; preds = %318, %304, %write_r
 319:                                              ; preds = %debug_reconstruction.exit, %167
   %.0171 = phi i32 [ %.0172, %debug_reconstruction.exit ], [ %.0, %167 ]
   %.not144 = icmp eq i32 %.0171, 0
-  br i1 %.not144, label %.preheader337, label %320
+  br i1 %.not144, label %.preheader335, label %320
 
 320:                                              ; preds = %319
   %321 = call ptr @pg_malloc(i64 noundef 64) #10
   store ptr %321, ptr %10, align 8
   %322 = call i32 @pg_checksum_final(ptr noundef nonnull %17, ptr noundef %321) #10
   store i32 %322, ptr %9, align 4
-  br label %.preheader337
+  br label %.preheader335
 
-.preheader337:                                    ; preds = %320, %319
+.preheader335:                                    ; preds = %320, %319
   br label %323
 
-323:                                              ; preds = %.preheader337, %340
-  %.2216 = phi i32 [ %341, %340 ], [ 0, %.preheader337 ]
+323:                                              ; preds = %.preheader335, %340
+  %.2216 = phi i32 [ %341, %340 ], [ 0, %.preheader335 ]
   %324 = zext i32 %.2216 to i64
   %325 = getelementptr ptr, ptr %23, i64 %324
   %326 = load ptr, ptr %325, align 8

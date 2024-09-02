@@ -326,10 +326,11 @@ if.then271:                                       ; preds = %if.else267
 if.end275.sink.split:                             ; preds = %if.then265, %if.then271
   %arrayidx273.sink = phi ptr [ %arrayidx273, %if.then271 ], [ %arrayidx266, %if.then265 ]
   %8 = load i8, ptr %arrayidx273.sink, align 1
+  %9 = zext i8 %8 to i32
   br label %if.end275
 
 if.end275:                                        ; preds = %if.end275.sink.split, %if.else267
-  %b.0 = phi i8 [ 0, %if.else267 ], [ %8, %if.end275.sink.split ]
+  %b.0 = phi i32 [ 0, %if.else267 ], [ %9, %if.end275.sink.split ]
   %inc276 = add i64 %k.2192, 1
   %sub.i.i.i166 = sub nsw i64 %j.0193, %rem
   %or.i.i.i = or i64 %sub.i.i.i166, %rem
@@ -338,12 +339,11 @@ if.end275:                                        ; preds = %if.end275.sink.spli
   %or.i.i.i171 = or i64 %sub.i.i.i169, %add282
   %isnotneg.i.i173 = icmp sgt i64 %or.i.i.i171, -1
   %conv.i175 = select i1 %isnotneg.i.i, i32 %5, i32 0
-  %conv2.i = zext i8 %b.0 to i32
-  %9 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i175) #7, !srcloc !9
-  %and.i.i = and i32 %9, 128
+  %10 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i175) #7, !srcloc !9
+  %and.i.i = and i32 %10, 128
   %not.i.i = xor i32 %conv.i175, -1
-  %10 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #7, !srcloc !9
-  %and2.i.i = and i32 %10, %conv2.i
+  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #7, !srcloc !9
+  %and2.i.i = and i32 %11, %b.0
   %or.i.i = or i32 %and2.i.i, %and.i.i
   %conv3.i = trunc nuw i32 %or.i.i to i8
   %not = select i1 %isnotneg.i.i173, i8 %6, i8 -1
@@ -355,13 +355,13 @@ if.end275:                                        ; preds = %if.end275.sink.spli
 if.then301:                                       ; preds = %if.end275
   %sub303 = sub nuw nsw i64 %j.0193, %sub298
   %arrayidx304 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub303
-  %11 = load i8, ptr %arrayidx304, align 1
-  %conv1.i = zext i8 %11 to i32
+  %12 = load i8, ptr %arrayidx304, align 1
+  %conv1.i = zext i8 %12 to i32
   %conv2.i177 = zext i8 %and296 to i32
-  %12 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i176) #7, !srcloc !9
-  %and.i.i178 = and i32 %12, %conv1.i
-  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i179) #7, !srcloc !9
-  %and2.i.i180 = and i32 %13, %conv2.i177
+  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i176) #7, !srcloc !9
+  %and.i.i178 = and i32 %13, %conv1.i
+  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i179) #7, !srcloc !9
+  %and2.i.i180 = and i32 %14, %conv2.i177
   %or.i.i181 = or i32 %and2.i.i180, %and.i.i178
   %conv3.i182 = trunc nuw i32 %or.i.i181 to i8
   br label %if.end306
@@ -382,11 +382,11 @@ for.end310:                                       ; preds = %if.end306
 for.body318:                                      ; preds = %for.end310, %for.body318
   %j.1194 = phi i64 [ 0, %for.end310 ], [ %inc328, %for.body318 ]
   %arrayidx319 = getelementptr inbounds [128 x i8], ptr %block, i64 0, i64 %j.1194
-  %14 = load i8, ptr %arrayidx319, align 1
-  %and322156 = and i8 %14, %conv.i165
+  %15 = load i8, ptr %arrayidx319, align 1
+  %and322156 = and i8 %15, %conv.i165
   %arrayidx323 = getelementptr inbounds [64 x i8], ptr %mac_out, i64 0, i64 %j.1194
-  %15 = load i8, ptr %arrayidx323, align 1
-  %or325157 = or i8 %15, %and322156
+  %16 = load i8, ptr %arrayidx323, align 1
+  %or325157 = or i8 %16, %and322156
   store i8 %or325157, ptr %arrayidx323, align 1
   %inc328 = add nuw nsw i64 %j.1194, 1
   %exitcond203.not = icmp eq i64 %inc328, %md_size.0
@@ -429,9 +429,9 @@ lor.lhs.false354:                                 ; preds = %lor.lhs.false349
 for.body365:                                      ; preds = %if.end342, %for.body365
   %i.4198 = phi i64 [ %inc371, %for.body365 ], [ 0, %if.end342 ]
   %arrayidx366 = getelementptr inbounds [128 x i8], ptr %hmac_pad, i64 0, i64 %i.4198
-  %16 = load i8, ptr %arrayidx366, align 1
-  %17 = xor i8 %16, 106
-  store i8 %17, ptr %arrayidx366, align 1
+  %17 = load i8, ptr %arrayidx366, align 1
+  %18 = xor i8 %17, 106
+  store i8 %18, ptr %arrayidx366, align 1
   %inc371 = add nuw nsw i64 %i.4198, 1
   %exitcond204.not = icmp eq i64 %inc371, %md_block_size.0
   br i1 %exitcond204.not, label %for.end372, label %for.body365, !llvm.loop !14
@@ -454,8 +454,8 @@ if.end384:                                        ; preds = %lor.lhs.false377, %
   br i1 %or.cond, label %if.then388, label %err
 
 if.then388:                                       ; preds = %if.end384
-  %18 = load i32, ptr %md_out_size_u, align 4
-  %conv389 = zext i32 %18 to i64
+  %19 = load i32, ptr %md_out_size_u, align 4
+  %conv389 = zext i32 %19 to i64
   store i64 %conv389, ptr %md_out_size, align 8
   br label %err
 

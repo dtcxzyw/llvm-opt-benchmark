@@ -6498,7 +6498,7 @@ _ZN4LuauL20tryStripUnionFromNilERNS_9TypeArenaEPKNS_4TypeE.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20shouldSuppressErrorsENS_7NotNullINS_10NormalizerEEEPKNS_4TypeE(ptr nonnull %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i32 0, 3) i32 @_ZN4Luau20shouldSuppressErrorsENS_7NotNullINS_10NormalizerEEEPKNS_4TypeE(ptr nonnull %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   call void @_ZN4Luau10Normalizer9normalizeEPKNS_4TypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(337) %0, ptr noundef %1)
   %4 = load ptr, ptr %3, align 8
@@ -6683,7 +6683,7 @@ _ZNSt12__shared_ptrIKN4Luau14NormalizedTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZN4Luau20shouldSuppressErrorsENS_7NotNullINS_10NormalizerEEEPKNS_11TypePackVarE(ptr %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i32 0, 3) i32 @_ZN4Luau20shouldSuppressErrorsENS_7NotNullINS_10NormalizerEEEPKNS_11TypePackVarE(ptr %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair.222", align 8
   call void @_ZN4Luau7flattenEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.222") align 8 %3, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 24
@@ -6783,7 +6783,7 @@ declare void @_ZN4Luau7flattenEPKNS_11TypePackVarE(ptr dead_on_unwind writable s
 declare noundef zeroext i1 @_ZN4Luau6finiteEPKNS_11TypePackVarEPNS_6TxnLogE(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau20shouldSuppressErrorsENS_7NotNullINS_10NormalizerEEEPKNS_4TypeES5_(ptr %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 0, 3) i32 @_ZN4Luau20shouldSuppressErrorsENS_7NotNullINS_10NormalizerEEEPKNS_4TypeES5_(ptr %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call i32 @_ZN4Luau20shouldSuppressErrorsENS_7NotNullINS_10NormalizerEEEPKNS_4TypeE(ptr %0, ptr noundef %1)
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %8
@@ -6798,7 +6798,7 @@ define dso_local noundef i32 @_ZN4Luau20shouldSuppressErrorsENS_7NotNullINS_10No
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZN4Luau20shouldSuppressErrorsENS_7NotNullINS_10NormalizerEEEPKNS_11TypePackVarES5_(ptr %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 0, 3) i32 @_ZN4Luau20shouldSuppressErrorsENS_7NotNullINS_10NormalizerEEEPKNS_11TypePackVarES5_(ptr %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call i32 @_ZN4Luau20shouldSuppressErrorsENS_7NotNullINS_10NormalizerEEEPKNS_11TypePackVarE(ptr %0, ptr noundef %1)
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %8

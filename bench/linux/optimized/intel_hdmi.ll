@@ -1220,7 +1220,7 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 32
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %390
+  br i1 %9, label %10, label %391
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %5, i64 148
@@ -1229,7 +1229,7 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
   %14 = and i32 %7, 16
   %15 = icmp eq i32 %14, 0
   %16 = or i1 %15, %13
-  br i1 %16, label %17, label %390
+  br i1 %16, label %17, label %391
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds i8, ptr %1, i64 4744
@@ -1256,12 +1256,12 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
 
 29:                                               ; preds = %27, %24
   %30 = load ptr, ptr %2, align 8
-  br i1 %21, label %39, label %31
+  br i1 %21, label %40, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %2, i64 160
   %33 = load i32, ptr %32, align 8
-  switch i32 %33, label %39 [
+  switch i32 %33, label %40 [
     i32 0, label %34
     i32 1, label %37
   ]
@@ -1270,23 +1270,23 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
   %35 = getelementptr inbounds i8, ptr %30, i64 246
   %36 = load i8, ptr %35, align 2, !range !20, !noundef !21
   %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %39, label %37
+  br i1 %.not, label %40, label %37
 
 37:                                               ; preds = %31, %34
   %38 = tail call zeroext i1 @intel_audio_compute_config(ptr noundef %0, ptr noundef %1, ptr noundef %2) #14
-  br label %39
+  %39 = zext i1 %38 to i8
+  br label %40
 
-39:                                               ; preds = %31, %34, %37, %29
-  %40 = phi i1 [ %38, %37 ], [ false, %29 ], [ false, %34 ], [ false, %31 ]
-  %41 = getelementptr inbounds i8, ptr %1, i64 877
-  %42 = zext i1 %40 to i8
-  store i8 %42, ptr %41, align 1
+40:                                               ; preds = %31, %34, %37, %29
+  %41 = phi i8 [ %39, %37 ], [ 0, %29 ], [ 0, %34 ], [ 0, %31 ]
+  %42 = getelementptr inbounds i8, ptr %1, i64 877
+  store i8 %41, ptr %42, align 1
   %.val = load ptr, ptr %2, align 8
   %43 = tail call fastcc i32 @intel_hdmi_compute_output_format(ptr noundef %0, ptr noundef %1, ptr %.val, i1 noundef zeroext true)
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.thread, label %45
 
-45:                                               ; preds = %39
+45:                                               ; preds = %40
   %.val11 = load ptr, ptr %2, align 8
   %46 = tail call fastcc i32 @intel_hdmi_compute_output_format(ptr noundef %0, ptr noundef %1, ptr %.val11, i1 noundef zeroext false)
   %47 = icmp eq i32 %46, 0
@@ -1306,9 +1306,9 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
   %55 = getelementptr inbounds i8, ptr %1, i64 636
   %56 = load i32, ptr %55, align 4
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %54, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %56) #14
-  br label %390
+  br label %391
 
-.thread:                                          ; preds = %39, %45
+.thread:                                          ; preds = %40, %45
   %57 = load i32, ptr %18, align 8
   %58 = icmp eq i32 %57, 1
   br i1 %58, label %59, label %62
@@ -1316,7 +1316,7 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
 59:                                               ; preds = %.thread
   %60 = tail call i32 @intel_panel_fitting(ptr noundef %1, ptr noundef %2) #14
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %thread-pre-split, label %390
+  br i1 %61, label %thread-pre-split, label %391
 
 thread-pre-split:                                 ; preds = %59
   %.pr = load i32, ptr %18, align 8
@@ -1556,7 +1556,7 @@ thread-pre-split:                                 ; preds = %59
   store i32 %210, ptr %208, align 4
   %211 = tail call i32 @drm_hdmi_avi_infoframe_from_display_mode(ptr noundef %205, ptr noundef %206, ptr noundef %64) #14
   %212 = icmp eq i32 %211, 0
-  br i1 %212, label %213, label %265
+  br i1 %212, label %213, label %266
 
 213:                                              ; preds = %.thread23
   %214 = load i32, ptr %18, align 8
@@ -1574,7 +1574,7 @@ thread-pre-split:                                 ; preds = %59
 222:                                              ; preds = %213
   %223 = load i32, ptr %18, align 8
   %224 = icmp eq i32 %223, 0
-  br i1 %224, label %.thread15.thread, label %225, !prof !43
+  br i1 %224, label %.thread15, label %225, !prof !43
 
 225:                                              ; preds = %222
   tail call void asm sideeffect "953: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 953b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 953) #14, !srcloc !44
@@ -1606,295 +1606,294 @@ thread-pre-split:                                 ; preds = %59
 240:                                              ; preds = %238, %213
   %.pr14 = load i32, ptr %18, align 8
   %241 = icmp eq i32 %.pr14, 0
-  br i1 %241, label %.thread15, label %244
+  br i1 %241, label %..thread15_crit_edge, label %245
 
-.thread15:                                        ; preds = %240
+..thread15_crit_edge:                             ; preds = %240
   %.pre22 = load i8, ptr %80, align 4, !range !20
-  %.pre22.fr = freeze i8 %.pre22
-  %242 = icmp eq i8 %.pre22.fr, 0
-  %spec.select = select i1 %242, i32 2, i32 1
-  br label %.thread15.thread
+  %242 = icmp eq i8 %.pre22, 0
+  %243 = select i1 %242, i32 2, i32 1
+  br label %.thread15
 
-.thread15.thread:                                 ; preds = %.thread15, %222
-  %243 = phi i32 [ 1, %222 ], [ %spec.select, %.thread15 ]
-  tail call void @drm_hdmi_avi_infoframe_quant_range(ptr noundef %205, ptr noundef %206, ptr noundef %64, i32 noundef %243) #14
-  br label %247
+.thread15:                                        ; preds = %..thread15_crit_edge, %222
+  %244 = phi i32 [ %243, %..thread15_crit_edge ], [ 1, %222 ]
+  tail call void @drm_hdmi_avi_infoframe_quant_range(ptr noundef %205, ptr noundef %206, ptr noundef %64, i32 noundef %244) #14
+  br label %248
 
-244:                                              ; preds = %240
-  %245 = getelementptr inbounds i8, ptr %1, i64 4380
-  store i32 0, ptr %245, align 4
-  %246 = getelementptr inbounds i8, ptr %1, i64 4392
+245:                                              ; preds = %240
+  %246 = getelementptr inbounds i8, ptr %1, i64 4380
   store i32 0, ptr %246, align 4
-  br label %247
+  %247 = getelementptr inbounds i8, ptr %1, i64 4392
+  store i32 0, ptr %247, align 4
+  br label %248
 
-247:                                              ; preds = %244, %.thread15.thread
+248:                                              ; preds = %245, %.thread15
   tail call void @drm_hdmi_avi_infoframe_content_type(ptr noundef %205, ptr noundef %2) #14
-  %248 = tail call i32 @hdmi_avi_infoframe_check(ptr noundef %205) #14
-  %249 = icmp eq i32 %248, 0
-  br i1 %249, label %272, label %250, !prof !43
+  %249 = tail call i32 @hdmi_avi_infoframe_check(ptr noundef %205) #14
+  %250 = icmp eq i32 %249, 0
+  br i1 %250, label %273, label %251, !prof !43
 
-250:                                              ; preds = %247
+251:                                              ; preds = %248
   tail call void asm sideeffect "957: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 957b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 957) #14, !srcloc !49
-  %251 = load ptr, ptr %0, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 8
-  %253 = load ptr, ptr %252, align 8
-  %254 = tail call ptr @dev_driver_string(ptr noundef %253) #14
-  %255 = load ptr, ptr %0, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 8
-  %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 80
-  %259 = load ptr, ptr %258, align 8
-  %260 = icmp eq ptr %259, null
-  br i1 %260, label %261, label %263
+  %252 = load ptr, ptr %0, align 8
+  %253 = getelementptr inbounds i8, ptr %252, i64 8
+  %254 = load ptr, ptr %253, align 8
+  %255 = tail call ptr @dev_driver_string(ptr noundef %254) #14
+  %256 = load ptr, ptr %0, align 8
+  %257 = getelementptr inbounds i8, ptr %256, i64 8
+  %258 = load ptr, ptr %257, align 8
+  %259 = getelementptr inbounds i8, ptr %258, i64 80
+  %260 = load ptr, ptr %259, align 8
+  %261 = icmp eq ptr %260, null
+  br i1 %261, label %262, label %264
 
-261:                                              ; preds = %250
-  %262 = load ptr, ptr %257, align 8
-  br label %263
+262:                                              ; preds = %251
+  %263 = load ptr, ptr %258, align 8
+  br label %264
 
-263:                                              ; preds = %261, %250
-  %264 = phi ptr [ %262, %261 ], [ %259, %250 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %254, ptr noundef %264, ptr noundef nonnull @.str.25) #14
+264:                                              ; preds = %262, %251
+  %265 = phi ptr [ %263, %262 ], [ %260, %251 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %255, ptr noundef %265, ptr noundef nonnull @.str.25) #14
   tail call void asm sideeffect "958: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 958b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 958) #14, !srcloc !50
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 744, i32 2313, i64 12) #14, !srcloc !51
   tail call void asm sideeffect "959: nop\0A\09.pushsection .discard.instr_end\0A\09.long 959b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 959) #14, !srcloc !52
   tail call void asm sideeffect "960: nop\0A\09.pushsection .discard.instr_end\0A\09.long 960b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 960) #14, !srcloc !53
-  br label %265
+  br label %266
 
-265:                                              ; preds = %263, %.thread23
-  %266 = icmp eq ptr %4, null
-  br i1 %266, label %270, label %267
+266:                                              ; preds = %264, %.thread23
+  %267 = icmp eq ptr %4, null
+  br i1 %267, label %271, label %268
 
-267:                                              ; preds = %265
-  %268 = getelementptr inbounds i8, ptr %4, i64 8
-  %269 = load ptr, ptr %268, align 8
-  br label %270
+268:                                              ; preds = %266
+  %269 = getelementptr inbounds i8, ptr %4, i64 8
+  %270 = load ptr, ptr %269, align 8
+  br label %271
 
-270:                                              ; preds = %267, %265
-  %271 = phi ptr [ %269, %267 ], [ null, %265 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %271, i32 noundef 2, ptr noundef nonnull @.str.9) #14
-  br label %390
+271:                                              ; preds = %268, %266
+  %272 = phi ptr [ %270, %268 ], [ null, %266 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %272, i32 noundef 2, ptr noundef nonnull @.str.9) #14
+  br label %391
 
-272:                                              ; preds = %247
+273:                                              ; preds = %248
   %.pr17 = load i8, ptr %207, align 1
-  %273 = getelementptr inbounds i8, ptr %1, i64 4408
-  %274 = icmp eq i8 %.pr17, 0
-  br i1 %274, label %.thread21, label %275
+  %274 = getelementptr inbounds i8, ptr %1, i64 4408
+  %275 = icmp eq i8 %.pr17, 0
+  br i1 %275, label %.thread21, label %276
 
-275:                                              ; preds = %272
-  %276 = load ptr, ptr %0, align 8
-  %277 = load i32, ptr %208, align 4
-  %278 = or i32 %277, 16
-  store i32 %278, ptr %208, align 4
-  %279 = getelementptr inbounds i8, ptr %276, i64 7168
-  %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 28
-  %282 = load i64, ptr %281, align 4
-  %283 = and i64 %282, 8
-  %284 = icmp eq i64 %283, 0
-  %285 = select i1 %284, ptr @.str.28, ptr @.str.27
-  %286 = tail call i32 @hdmi_spd_infoframe_init(ptr noundef %273, ptr noundef nonnull @.str.26, ptr noundef nonnull %285) #14
-  %287 = icmp eq i32 %286, 0
-  br i1 %287, label %303, label %288, !prof !43
+276:                                              ; preds = %273
+  %277 = load ptr, ptr %0, align 8
+  %278 = load i32, ptr %208, align 4
+  %279 = or i32 %278, 16
+  store i32 %279, ptr %208, align 4
+  %280 = getelementptr inbounds i8, ptr %277, i64 7168
+  %281 = load ptr, ptr %280, align 8
+  %282 = getelementptr inbounds i8, ptr %281, i64 28
+  %283 = load i64, ptr %282, align 4
+  %284 = and i64 %283, 8
+  %285 = icmp eq i64 %284, 0
+  %286 = select i1 %285, ptr @.str.28, ptr @.str.27
+  %287 = tail call i32 @hdmi_spd_infoframe_init(ptr noundef %274, ptr noundef nonnull @.str.26, ptr noundef nonnull %286) #14
+  %288 = icmp eq i32 %287, 0
+  br i1 %288, label %304, label %289, !prof !43
 
-288:                                              ; preds = %275
+289:                                              ; preds = %276
   tail call void asm sideeffect "961: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 961b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 961) #14, !srcloc !54
-  %289 = load ptr, ptr %0, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 8
-  %291 = load ptr, ptr %290, align 8
-  %292 = tail call ptr @dev_driver_string(ptr noundef %291) #14
-  %293 = load ptr, ptr %0, align 8
-  %294 = getelementptr inbounds i8, ptr %293, i64 8
-  %295 = load ptr, ptr %294, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 80
-  %297 = load ptr, ptr %296, align 8
-  %298 = icmp eq ptr %297, null
-  br i1 %298, label %299, label %301
+  %290 = load ptr, ptr %0, align 8
+  %291 = getelementptr inbounds i8, ptr %290, i64 8
+  %292 = load ptr, ptr %291, align 8
+  %293 = tail call ptr @dev_driver_string(ptr noundef %292) #14
+  %294 = load ptr, ptr %0, align 8
+  %295 = getelementptr inbounds i8, ptr %294, i64 8
+  %296 = load ptr, ptr %295, align 8
+  %297 = getelementptr inbounds i8, ptr %296, i64 80
+  %298 = load ptr, ptr %297, align 8
+  %299 = icmp eq ptr %298, null
+  br i1 %299, label %300, label %302
 
-299:                                              ; preds = %288
-  %300 = load ptr, ptr %295, align 8
-  br label %301
+300:                                              ; preds = %289
+  %301 = load ptr, ptr %296, align 8
+  br label %302
 
-301:                                              ; preds = %299, %288
-  %302 = phi ptr [ %300, %299 ], [ %297, %288 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %292, ptr noundef %302, ptr noundef nonnull @.str.25) #14
+302:                                              ; preds = %300, %289
+  %303 = phi ptr [ %301, %300 ], [ %298, %289 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %293, ptr noundef %303, ptr noundef nonnull @.str.25) #14
   tail call void asm sideeffect "962: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 962b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 962) #14, !srcloc !55
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 770, i32 2313, i64 12) #14, !srcloc !56
   tail call void asm sideeffect "963: nop\0A\09.pushsection .discard.instr_end\0A\09.long 963b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 963) #14, !srcloc !57
   tail call void asm sideeffect "964: nop\0A\09.pushsection .discard.instr_end\0A\09.long 964b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 964) #14, !srcloc !58
-  br label %322
+  br label %323
 
-303:                                              ; preds = %275
-  %304 = getelementptr inbounds i8, ptr %1, i64 4440
-  store i32 9, ptr %304, align 4
-  %305 = tail call i32 @hdmi_spd_infoframe_check(ptr noundef %273) #14
-  %306 = icmp eq i32 %305, 0
-  br i1 %306, label %329, label %307, !prof !43
+304:                                              ; preds = %276
+  %305 = getelementptr inbounds i8, ptr %1, i64 4440
+  store i32 9, ptr %305, align 4
+  %306 = tail call i32 @hdmi_spd_infoframe_check(ptr noundef %274) #14
+  %307 = icmp eq i32 %306, 0
+  br i1 %307, label %330, label %308, !prof !43
 
-307:                                              ; preds = %303
+308:                                              ; preds = %304
   tail call void asm sideeffect "965: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 965b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 965) #14, !srcloc !59
-  %308 = load ptr, ptr %0, align 8
-  %309 = getelementptr inbounds i8, ptr %308, i64 8
-  %310 = load ptr, ptr %309, align 8
-  %311 = tail call ptr @dev_driver_string(ptr noundef %310) #14
-  %312 = load ptr, ptr %0, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 8
-  %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 80
-  %316 = load ptr, ptr %315, align 8
-  %317 = icmp eq ptr %316, null
-  br i1 %317, label %318, label %320
+  %309 = load ptr, ptr %0, align 8
+  %310 = getelementptr inbounds i8, ptr %309, i64 8
+  %311 = load ptr, ptr %310, align 8
+  %312 = tail call ptr @dev_driver_string(ptr noundef %311) #14
+  %313 = load ptr, ptr %0, align 8
+  %314 = getelementptr inbounds i8, ptr %313, i64 8
+  %315 = load ptr, ptr %314, align 8
+  %316 = getelementptr inbounds i8, ptr %315, i64 80
+  %317 = load ptr, ptr %316, align 8
+  %318 = icmp eq ptr %317, null
+  br i1 %318, label %319, label %321
 
-318:                                              ; preds = %307
-  %319 = load ptr, ptr %314, align 8
-  br label %320
+319:                                              ; preds = %308
+  %320 = load ptr, ptr %315, align 8
+  br label %321
 
-320:                                              ; preds = %318, %307
-  %321 = phi ptr [ %319, %318 ], [ %316, %307 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %311, ptr noundef %321, ptr noundef nonnull @.str.25) #14
+321:                                              ; preds = %319, %308
+  %322 = phi ptr [ %320, %319 ], [ %317, %308 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %312, ptr noundef %322, ptr noundef nonnull @.str.25) #14
   tail call void asm sideeffect "966: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 966b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 966) #14, !srcloc !60
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 776, i32 2313, i64 12) #14, !srcloc !61
   tail call void asm sideeffect "967: nop\0A\09.pushsection .discard.instr_end\0A\09.long 967b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 967) #14, !srcloc !62
   tail call void asm sideeffect "968: nop\0A\09.pushsection .discard.instr_end\0A\09.long 968b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 968) #14, !srcloc !63
-  br label %322
+  br label %323
 
-322:                                              ; preds = %320, %301
-  %323 = icmp eq ptr %4, null
-  br i1 %323, label %327, label %324
+323:                                              ; preds = %321, %302
+  %324 = icmp eq ptr %4, null
+  br i1 %324, label %328, label %325
 
-324:                                              ; preds = %322
-  %325 = getelementptr inbounds i8, ptr %4, i64 8
-  %326 = load ptr, ptr %325, align 8
-  br label %327
+325:                                              ; preds = %323
+  %326 = getelementptr inbounds i8, ptr %4, i64 8
+  %327 = load ptr, ptr %326, align 8
+  br label %328
 
-327:                                              ; preds = %324, %322
-  %328 = phi ptr [ %326, %324 ], [ null, %322 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %328, i32 noundef 2, ptr noundef nonnull @.str.10) #14
-  br label %390
+328:                                              ; preds = %325, %323
+  %329 = phi ptr [ %327, %325 ], [ null, %323 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %329, i32 noundef 2, ptr noundef nonnull @.str.10) #14
+  br label %391
 
-329:                                              ; preds = %303
+330:                                              ; preds = %304
   %.pr20 = load i8, ptr %207, align 1
-  %330 = getelementptr inbounds i8, ptr %1, i64 4468
-  %331 = icmp eq i8 %.pr20, 0
-  br i1 %331, label %.thread21, label %332
+  %331 = getelementptr inbounds i8, ptr %1, i64 4468
+  %332 = icmp eq i8 %.pr20, 0
+  br i1 %332, label %.thread21, label %333
 
-332:                                              ; preds = %329
-  %333 = load ptr, ptr %2, align 8
-  %334 = getelementptr inbounds i8, ptr %333, i64 247
-  %335 = load i8, ptr %334, align 1, !range !20, !noundef !21
-  %336 = icmp eq i8 %335, 0
-  br i1 %336, label %.thread21, label %337
+333:                                              ; preds = %330
+  %334 = load ptr, ptr %2, align 8
+  %335 = getelementptr inbounds i8, ptr %334, i64 247
+  %336 = load i8, ptr %335, align 1, !range !20, !noundef !21
+  %337 = icmp eq i8 %336, 0
+  br i1 %337, label %.thread21, label %338
 
-337:                                              ; preds = %332
-  %338 = load i32, ptr %208, align 4
-  %339 = or i32 %338, 32
-  store i32 %339, ptr %208, align 4
-  %340 = load ptr, ptr %2, align 8
-  %341 = tail call i32 @drm_hdmi_vendor_infoframe_from_display_mode(ptr noundef %330, ptr noundef %340, ptr noundef %64) #14
-  %342 = icmp eq i32 %341, 0
-  br i1 %342, label %358, label %343, !prof !43
+338:                                              ; preds = %333
+  %339 = load i32, ptr %208, align 4
+  %340 = or i32 %339, 32
+  store i32 %340, ptr %208, align 4
+  %341 = load ptr, ptr %2, align 8
+  %342 = tail call i32 @drm_hdmi_vendor_infoframe_from_display_mode(ptr noundef %331, ptr noundef %341, ptr noundef %64) #14
+  %343 = icmp eq i32 %342, 0
+  br i1 %343, label %359, label %344, !prof !43
 
-343:                                              ; preds = %337
+344:                                              ; preds = %338
   tail call void asm sideeffect "969: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 969b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 969) #14, !srcloc !64
-  %344 = load ptr, ptr %0, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 8
-  %346 = load ptr, ptr %345, align 8
-  %347 = tail call ptr @dev_driver_string(ptr noundef %346) #14
-  %348 = load ptr, ptr %0, align 8
-  %349 = getelementptr inbounds i8, ptr %348, i64 8
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 80
-  %352 = load ptr, ptr %351, align 8
-  %353 = icmp eq ptr %352, null
-  br i1 %353, label %354, label %356
+  %345 = load ptr, ptr %0, align 8
+  %346 = getelementptr inbounds i8, ptr %345, i64 8
+  %347 = load ptr, ptr %346, align 8
+  %348 = tail call ptr @dev_driver_string(ptr noundef %347) #14
+  %349 = load ptr, ptr %0, align 8
+  %350 = getelementptr inbounds i8, ptr %349, i64 8
+  %351 = load ptr, ptr %350, align 8
+  %352 = getelementptr inbounds i8, ptr %351, i64 80
+  %353 = load ptr, ptr %352, align 8
+  %354 = icmp eq ptr %353, null
+  br i1 %354, label %355, label %357
 
-354:                                              ; preds = %343
-  %355 = load ptr, ptr %350, align 8
-  br label %356
+355:                                              ; preds = %344
+  %356 = load ptr, ptr %351, align 8
+  br label %357
 
-356:                                              ; preds = %354, %343
-  %357 = phi ptr [ %355, %354 ], [ %352, %343 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %347, ptr noundef %357, ptr noundef nonnull @.str.25) #14
+357:                                              ; preds = %355, %344
+  %358 = phi ptr [ %356, %355 ], [ %353, %344 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %348, ptr noundef %358, ptr noundef nonnull @.str.25) #14
   tail call void asm sideeffect "970: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 970b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 970) #14, !srcloc !65
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 802, i32 2313, i64 12) #14, !srcloc !66
   tail call void asm sideeffect "971: nop\0A\09.pushsection .discard.instr_end\0A\09.long 971b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 971) #14, !srcloc !67
   tail call void asm sideeffect "972: nop\0A\09.pushsection .discard.instr_end\0A\09.long 972b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 972) #14, !srcloc !68
   br label %intel_hdmi_compute_hdmi_infoframe.exit
 
-358:                                              ; preds = %337
-  %359 = tail call i32 @hdmi_vendor_infoframe_check(ptr noundef %330) #14
-  %360 = icmp eq i32 %359, 0
-  br i1 %360, label %.thread21, label %361, !prof !43
+359:                                              ; preds = %338
+  %360 = tail call i32 @hdmi_vendor_infoframe_check(ptr noundef %331) #14
+  %361 = icmp eq i32 %360, 0
+  br i1 %361, label %.thread21, label %362, !prof !43
 
-361:                                              ; preds = %358
+362:                                              ; preds = %359
   tail call void asm sideeffect "973: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 973b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 973) #14, !srcloc !69
-  %362 = load ptr, ptr %0, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 8
-  %364 = load ptr, ptr %363, align 8
-  %365 = tail call ptr @dev_driver_string(ptr noundef %364) #14
-  %366 = load ptr, ptr %0, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 8
-  %368 = load ptr, ptr %367, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 80
-  %370 = load ptr, ptr %369, align 8
-  %371 = icmp eq ptr %370, null
-  br i1 %371, label %372, label %374
+  %363 = load ptr, ptr %0, align 8
+  %364 = getelementptr inbounds i8, ptr %363, i64 8
+  %365 = load ptr, ptr %364, align 8
+  %366 = tail call ptr @dev_driver_string(ptr noundef %365) #14
+  %367 = load ptr, ptr %0, align 8
+  %368 = getelementptr inbounds i8, ptr %367, i64 8
+  %369 = load ptr, ptr %368, align 8
+  %370 = getelementptr inbounds i8, ptr %369, i64 80
+  %371 = load ptr, ptr %370, align 8
+  %372 = icmp eq ptr %371, null
+  br i1 %372, label %373, label %375
 
-372:                                              ; preds = %361
-  %373 = load ptr, ptr %368, align 8
-  br label %374
+373:                                              ; preds = %362
+  %374 = load ptr, ptr %369, align 8
+  br label %375
 
-374:                                              ; preds = %372, %361
-  %375 = phi ptr [ %373, %372 ], [ %370, %361 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %365, ptr noundef %375, ptr noundef nonnull @.str.25) #14
+375:                                              ; preds = %373, %362
+  %376 = phi ptr [ %374, %373 ], [ %371, %362 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %366, ptr noundef %376, ptr noundef nonnull @.str.25) #14
   tail call void asm sideeffect "974: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 974b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 974) #14, !srcloc !70
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 806, i32 2313, i64 12) #14, !srcloc !71
   tail call void asm sideeffect "975: nop\0A\09.pushsection .discard.instr_end\0A\09.long 975b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 975) #14, !srcloc !72
   tail call void asm sideeffect "976: nop\0A\09.pushsection .discard.instr_end\0A\09.long 976b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 976) #14, !srcloc !73
   br label %intel_hdmi_compute_hdmi_infoframe.exit
 
-intel_hdmi_compute_hdmi_infoframe.exit:           ; preds = %374, %356
-  %376 = icmp eq ptr %4, null
-  br i1 %376, label %380, label %377
+intel_hdmi_compute_hdmi_infoframe.exit:           ; preds = %375, %357
+  %377 = icmp eq ptr %4, null
+  br i1 %377, label %381, label %378
 
-377:                                              ; preds = %intel_hdmi_compute_hdmi_infoframe.exit
-  %378 = getelementptr inbounds i8, ptr %4, i64 8
-  %379 = load ptr, ptr %378, align 8
-  br label %380
+378:                                              ; preds = %intel_hdmi_compute_hdmi_infoframe.exit
+  %379 = getelementptr inbounds i8, ptr %4, i64 8
+  %380 = load ptr, ptr %379, align 8
+  br label %381
 
-380:                                              ; preds = %377, %intel_hdmi_compute_hdmi_infoframe.exit
-  %381 = phi ptr [ %379, %377 ], [ null, %intel_hdmi_compute_hdmi_infoframe.exit ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %381, i32 noundef 2, ptr noundef nonnull @.str.11) #14
-  br label %390
+381:                                              ; preds = %378, %intel_hdmi_compute_hdmi_infoframe.exit
+  %382 = phi ptr [ %380, %378 ], [ null, %intel_hdmi_compute_hdmi_infoframe.exit ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %382, i32 noundef 2, ptr noundef nonnull @.str.11) #14
+  br label %391
 
-.thread21:                                        ; preds = %138, %204, %272, %332, %329, %358
+.thread21:                                        ; preds = %138, %204, %273, %333, %330, %359
   %.val12 = load ptr, ptr %0, align 8
-  %382 = tail call fastcc zeroext i1 @intel_hdmi_compute_drm_infoframe(ptr %.val12, ptr noundef %1, ptr noundef %2)
-  br i1 %382, label %390, label %383
+  %383 = tail call fastcc zeroext i1 @intel_hdmi_compute_drm_infoframe(ptr %.val12, ptr noundef %1, ptr noundef %2)
+  br i1 %383, label %391, label %384
 
-383:                                              ; preds = %.thread21
-  %384 = icmp eq ptr %4, null
-  br i1 %384, label %388, label %385
+384:                                              ; preds = %.thread21
+  %385 = icmp eq ptr %4, null
+  br i1 %385, label %389, label %386
 
-385:                                              ; preds = %383
-  %386 = getelementptr inbounds i8, ptr %4, i64 8
-  %387 = load ptr, ptr %386, align 8
-  br label %388
+386:                                              ; preds = %384
+  %387 = getelementptr inbounds i8, ptr %4, i64 8
+  %388 = load ptr, ptr %387, align 8
+  br label %389
 
-388:                                              ; preds = %385, %383
-  %389 = phi ptr [ %387, %385 ], [ null, %383 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %389, i32 noundef 2, ptr noundef nonnull @.str.12) #14
-  br label %390
+389:                                              ; preds = %386, %384
+  %390 = phi ptr [ %388, %386 ], [ null, %384 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %390, i32 noundef 2, ptr noundef nonnull @.str.12) #14
+  br label %391
 
-390:                                              ; preds = %388, %.thread21, %380, %327, %270, %59, %53, %10, %3
-  %391 = phi i32 [ %46, %53 ], [ -22, %388 ], [ -22, %380 ], [ -22, %327 ], [ -22, %270 ], [ -22, %3 ], [ -22, %10 ], [ %60, %59 ], [ 0, %.thread21 ]
-  ret i32 %391
+391:                                              ; preds = %389, %.thread21, %381, %328, %271, %59, %53, %10, %3
+  %392 = phi i32 [ %46, %53 ], [ -22, %389 ], [ -22, %381 ], [ -22, %328 ], [ -22, %271 ], [ -22, %3 ], [ -22, %10 ], [ %60, %59 ], [ 0, %.thread21 ]
+  ret i32 %392
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @intel_audio_compute_config(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @intel_hdmi_compute_output_format(ptr noundef %0, ptr noundef %1, ptr %.0.val, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_output_format(ptr noundef %0, ptr noundef %1, ptr %.0.val, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 608
   %5 = getelementptr inbounds i8, ptr %.0.val, i64 200
   %6 = load ptr, ptr %.0.val, align 8
@@ -5112,7 +5111,7 @@ define dso_local i32 @intel_hdmi_dsc_get_bpp(i32 noundef %0, i32 noundef %1, i32
 declare dso_local zeroext i1 @drm_mode_is_420_only(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @intel_hdmi_compute_clock(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_clock(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 636
   %6 = load i32, ptr %5, align 4

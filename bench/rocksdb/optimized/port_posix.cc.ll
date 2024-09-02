@@ -788,7 +788,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @getpid() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7rocksdb4port15GetMaxOpenFilesEv() local_unnamed_addr #2 {
+define noundef range(i32 -1, -2147483648) i32 @_ZN7rocksdb4port15GetMaxOpenFilesEv() local_unnamed_addr #2 {
 entry:
   %no_files_limit = alloca %struct.rlimit, align 8
   %call = call i32 @getrlimit(i32 noundef 7, ptr noundef nonnull %no_files_limit) #16

@@ -1343,7 +1343,7 @@ define void @_ZN2cv11polarToCartERKNS_11_InputArrayES2_RKNS_12_OutputArrayES5_b(
   %.not = icmp eq ptr %22, %24
   br i1 %.not, label %27, label %35
 
-25:                                               ; preds = %76, %74, %71, %59, %56, %45
+25:                                               ; preds = %76, %74, %71, %59, %56, %46
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %401
@@ -1382,7 +1382,7 @@ define void @_ZN2cv11polarToCartERKNS_11_InputArrayES2_RKNS_12_OutputArrayES5_b(
   %38 = icmp eq ptr %37, %22
   %39 = icmp eq ptr %37, %24
   %or.cond238 = or i1 %38, %39
-  br i1 %or.cond238, label %45, label %40
+  br i1 %or.cond238, label %46, label %40
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1390,15 +1390,15 @@ define void @_ZN2cv11polarToCartERKNS_11_InputArrayES2_RKNS_12_OutputArrayES5_b(
   %43 = icmp eq ptr %42, %22
   %44 = icmp eq ptr %42, %24
   %spec.select = or i1 %43, %44
-  br label %45
+  %45 = freeze i1 %spec.select
+  br label %46
 
-45:                                               ; preds = %40, %35
-  %46 = phi i1 [ true, %35 ], [ %spec.select, %40 ]
-  %.fr = freeze i1 %46
+46:                                               ; preds = %40, %35
+  %.fr = phi i1 [ true, %35 ], [ %45, %40 ]
   %47 = invoke noundef i32 @_ZNK2cv11_InputArray4typeEi(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef -1)
           to label %48 unwind label %25
 
-48:                                               ; preds = %45
+48:                                               ; preds = %46
   %49 = and i32 %47, 7
   %50 = lshr i32 %47, 3
   %51 = and i32 %50, 511

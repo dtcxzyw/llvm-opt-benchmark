@@ -589,7 +589,7 @@ define hidden range(i32 0, 3) i32 @cf_read(ptr noundef %0, i32 noundef %1) local
   %39 = call i32 @union_of_tap_listener_flags() #21
   %40 = load ptr, ptr %36, align 8
   %.not99 = icmp eq ptr %40, null
-  br i1 %.not99, label %41, label %47
+  br i1 %.not99, label %41, label %48
 
 41:                                               ; preds = %35
   %42 = call i32 @have_filtering_tap_listeners() #21
@@ -597,16 +597,16 @@ define hidden range(i32 0, 3) i32 @cf_read(ptr noundef %0, i32 noundef %1) local
   %43 = and i32 %39, 1
   %.not101 = icmp eq i32 %43, 0
   %or.cond = select i1 %.not100, i1 %.not101, i1 false
-  br i1 %or.cond, label %44, label %47
+  br i1 %or.cond, label %44, label %48
 
 44:                                               ; preds = %41
   %45 = call i32 @postdissectors_want_hfids() #21
   %46 = icmp ne i32 %45, 0
-  br label %47
+  %47 = zext i1 %46 to i32
+  br label %48
 
-47:                                               ; preds = %44, %41, %35
-  %48 = phi i1 [ true, %41 ], [ true, %35 ], [ %46, %44 ]
-  %49 = zext i1 %48 to i32
+48:                                               ; preds = %44, %41, %35
+  %49 = phi i32 [ 1, %41 ], [ 1, %35 ], [ %47, %44 ]
   store volatile i32 %49, ptr %14, align 4
   call void @reset_tap_listeners() #21
   %50 = getelementptr inbounds i8, ptr %0, i64 16
@@ -617,7 +617,7 @@ define hidden range(i32 0, 3) i32 @cf_read(ptr noundef %0, i32 noundef %1) local
   %.not8.i123 = icmp eq ptr %.07.i122, null
   br i1 %.not102, label %59, label %53
 
-53:                                               ; preds = %47
+53:                                               ; preds = %48
   br i1 %.not8.i123, label %cf_callback_invoke.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %.lr.ph.i
@@ -632,7 +632,7 @@ define hidden range(i32 0, 3) i32 @cf_read(ptr noundef %0, i32 noundef %1) local
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %cf_callback_invoke.exit, label %.lr.ph.i, !llvm.loop !6
 
-59:                                               ; preds = %47
+59:                                               ; preds = %48
   br i1 %.not8.i123, label %cf_callback_invoke.exit, label %.lr.ph.i124
 
 .lr.ph.i124:                                      ; preds = %59, %.lr.ph.i124

@@ -789,25 +789,25 @@ tens:                                             ; preds = %if.then20, %if.else
   %w.1 = phi ptr [ %incdec.ptr11, %if.else28 ], [ %incdec.ptr24, %if.then20 ]
   %mul = mul nuw nsw i32 %c.1, 205
   %shr = lshr i32 %mul, 11
-  %mul32.neg = mul nsw i32 %shr, -10
+  %mul32.neg = mul nuw nsw i32 %shr, 246
   %sub33 = add nsw i32 %mul32.neg, %c.1
   %11 = trunc nuw nsw i32 %shr to i8
   %conv35 = add nuw nsw i8 %11, 48
   %incdec.ptr36 = getelementptr inbounds i8, ptr %w.1, i64 1
   store i8 %conv35, ptr %w.1, align 1
+  %12 = trunc i32 %sub33 to i8
   br label %if.end38
 
 if.end38:                                         ; preds = %if.else28, %tens
-  %c.2 = phi i32 [ %sub33, %tens ], [ %conv, %if.else28 ]
+  %c.2 = phi i8 [ %12, %tens ], [ %3, %if.else28 ]
   %w.2 = phi ptr [ %incdec.ptr36, %tens ], [ %incdec.ptr11, %if.else28 ]
-  %add39 = add nsw i32 %c.2, 48
+  %13 = add i8 %c.2, 48
   br label %if.end41
 
 if.end41:                                         ; preds = %if.else, %if.end38, %if.then
-  %c.0 = phi i32 [ %conv, %if.then ], [ %add39, %if.end38 ], [ %conv, %if.else ]
+  %c.0 = phi i8 [ %3, %if.then ], [ %13, %if.end38 ], [ %3, %if.else ]
   %w.0 = phi ptr [ %incdec.ptr7, %if.then ], [ %w.2, %if.end38 ], [ %retval.i.0, %if.else ]
-  %conv42 = trunc i32 %c.0 to i8
-  store i8 %conv42, ptr %w.0, align 1
+  store i8 %c.0, ptr %w.0, align 1
   %storemerge = getelementptr inbounds i8, ptr %w.0, i64 1
   store ptr %storemerge, ptr %sb, align 8
   %tobool.not = icmp eq i32 %dec46, 0
@@ -815,12 +815,12 @@ if.end41:                                         ; preds = %if.else, %if.end38,
 
 while.end:                                        ; preds = %if.end41, %lj_buf_putb.exit67
   %storemerge.lcssa = phi ptr [ %storemerge41, %lj_buf_putb.exit67 ], [ %storemerge, %if.end41 ]
-  %12 = load ptr, ptr %e.i.i53, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
+  %14 = load ptr, ptr %e.i.i53, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %storemerge.lcssa to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %13 = and i64 %sub.ptr.sub.i.i, 4294967295
-  %cmp.i.i = icmp eq i64 %13, 0
+  %15 = and i64 %sub.ptr.sub.i.i, 4294967295
+  %cmp.i.i = icmp eq i64 %15, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %lj_buf_putb.exit
 
 if.then.i.i:                                      ; preds = %while.end
@@ -1674,14 +1674,14 @@ land.rhs77:                                       ; preds = %sw.bb67
   %32 = inttoptr i64 %and79 to ptr
   %udtype = getelementptr inbounds i8, ptr %32, i64 10
   %33 = load i8, ptr %udtype, align 2
-  %cmp81 = icmp eq i8 %33, 3
+  %cmp81 = icmp ne i8 %33, 3
   br label %land.end83
 
-land.end83:                                       ; preds = %land.rhs77, %sw.bb67
-  %34 = phi i1 [ %cmp81, %land.rhs77 ], [ false, %sw.bb67 ]
-  %cmp87 = icmp slt i32 %retry.addr.0, 0
-  %or.cond.not = select i1 %34, i1 true, i1 %cmp87
-  br i1 %or.cond.not, label %if.end106, label %land.lhs.true89
+land.end83:                                       ; preds = %sw.bb67, %land.rhs77
+  %34 = phi i1 [ %cmp81, %land.rhs77 ], [ true, %sw.bb67 ]
+  %cmp87 = icmp sgt i32 %retry.addr.0, -1
+  %or.cond = select i1 %34, i1 %cmp87, i1 false
+  br i1 %or.cond, label %land.lhs.true89, label %if.end106
 
 land.lhs.true89:                                  ; preds = %land.end83
   %call90 = tail call ptr @lj_meta_lookup(ptr noundef nonnull %L, ptr noundef nonnull %arrayidx, i32 noundef 18) #12

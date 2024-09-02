@@ -1366,10 +1366,11 @@ if.end206:                                        ; preds = %lor.lhs.false195
 
 cond.false212:                                    ; preds = %if.end206
   %43 = load i32, ptr %version, align 8
+  %44 = zext i32 %43 to i64
   br label %cond.end214
 
 cond.end214:                                      ; preds = %if.end206, %cond.false212
-  %cond215 = phi i32 [ %43, %cond.false212 ], [ 65279, %if.end206 ]
+  %cond215 = phi i64 [ %44, %cond.false212 ], [ 65279, %if.end206 ]
   %call216 = call i32 @ssl_get_max_send_fragment(ptr noundef nonnull %ssl) #9
   %add217 = add i32 %call216, 13
   %conv218 = zext i32 %add217 to i64
@@ -1383,8 +1384,7 @@ lor.lhs.false221:                                 ; preds = %cond.end214
   br i1 %tobool223.not, label %if.then267, label %lor.lhs.false224
 
 lor.lhs.false224:                                 ; preds = %lor.lhs.false221
-  %conv225 = zext i32 %cond215 to i64
-  %call226 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %wpkt, i64 noundef %conv225, i64 noundef 2) #9
+  %call226 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %wpkt, i64 noundef %cond215, i64 noundef 2) #9
   %tobool227.not = icmp eq i32 %call226, 0
   br i1 %tobool227.not, label %if.then267, label %lor.lhs.false228
 
@@ -1424,8 +1424,8 @@ lor.lhs.false247:                                 ; preds = %lor.lhs.false244
   br i1 %tobool249.not, label %if.then267, label %lor.lhs.false250
 
 lor.lhs.false250:                                 ; preds = %lor.lhs.false247
-  %44 = load i32, ptr %cookielen, align 4
-  %conv252 = zext i32 %44 to i64
+  %45 = load i32, ptr %cookielen, align 4
+  %conv252 = zext i32 %45 to i64
   %call253 = call i32 @dtls_raw_hello_verify_request(ptr noundef nonnull %wpkt, ptr noundef nonnull %cookie, i64 noundef %conv252) #9
   %tobool254.not = icmp eq i32 %call253, 0
   br i1 %tobool254.not, label %if.then267, label %lor.lhs.false255
@@ -1459,13 +1459,13 @@ if.then267:                                       ; preds = %lor.lhs.false264, %
 
 if.end268:                                        ; preds = %lor.lhs.false264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %arrayidx269, ptr noundef nonnull align 1 dereferenceable(3) %arrayidx270, i64 3, i1 false)
-  %45 = load ptr, ptr %msg_callback, align 8
-  %tobool272.not = icmp eq ptr %45, null
+  %46 = load ptr, ptr %msg_callback, align 8
+  %tobool272.not = icmp eq ptr %46, null
   br i1 %tobool272.not, label %if.end276, label %if.then273
 
 if.then273:                                       ; preds = %if.end268
-  %46 = load ptr, ptr %msg_callback_arg, align 8
-  call void %45(i32 noundef 1, i32 noundef 0, i32 noundef 256, ptr noundef nonnull %call21, i64 noundef 13, ptr noundef nonnull %ssl, ptr noundef %46) #9
+  %47 = load ptr, ptr %msg_callback_arg, align 8
+  call void %46(i32 noundef 1, i32 noundef 0, i32 noundef 256, ptr noundef nonnull %call21, i64 noundef 13, ptr noundef nonnull %ssl, ptr noundef %47) #9
   br label %if.end276
 
 if.end276:                                        ; preds = %if.then273, %if.end268
@@ -1491,11 +1491,11 @@ if.then286:                                       ; preds = %if.end281
 
 if.end289:                                        ; preds = %if.then286, %if.end281
   call void @BIO_ADDR_free(ptr noundef nonnull %call277) #9
-  %47 = load i64, ptr %wreclen, align 8
-  %conv290 = trunc i64 %47 to i32
-  %call291 = call i32 @BIO_write(ptr noundef nonnull %call13, ptr noundef nonnull %call25, i32 noundef %conv290) #9
   %48 = load i64, ptr %wreclen, align 8
-  %conv292 = trunc i64 %48 to i32
+  %conv290 = trunc i64 %48 to i32
+  %call291 = call i32 @BIO_write(ptr noundef nonnull %call13, ptr noundef nonnull %call25, i32 noundef %conv290) #9
+  %49 = load i64, ptr %wreclen, align 8
+  %conv292 = trunc i64 %49 to i32
   %cmp293 = icmp slt i32 %call291, %conv292
   br i1 %cmp293, label %if.then295, label %if.end300
 
@@ -1519,22 +1519,22 @@ if.then305:                                       ; preds = %if.end300
 
 do.end.critedge:                                  ; preds = %if.end187
   %d1 = getelementptr inbounds i8, ptr %ssl, i64 1136
-  %49 = load ptr, ptr %d1, align 8
-  %handshake_read_seq = getelementptr inbounds i8, ptr %49, i64 272
-  store i16 1, ptr %handshake_read_seq, align 8
   %50 = load ptr, ptr %d1, align 8
-  %handshake_write_seq = getelementptr inbounds i8, ptr %50, i64 268
-  store i16 1, ptr %handshake_write_seq, align 4
+  %handshake_read_seq = getelementptr inbounds i8, ptr %50, i64 272
+  store i16 1, ptr %handshake_read_seq, align 8
   %51 = load ptr, ptr %d1, align 8
-  %next_handshake_write_seq = getelementptr inbounds i8, ptr %51, i64 270
+  %handshake_write_seq = getelementptr inbounds i8, ptr %51, i64 268
+  store i16 1, ptr %handshake_write_seq, align 4
+  %52 = load ptr, ptr %d1, align 8
+  %next_handshake_write_seq = getelementptr inbounds i8, ptr %52, i64 270
   store i16 1, ptr %next_handshake_write_seq, align 2
   %wrlmethod = getelementptr inbounds i8, ptr %ssl, i64 3032
-  %52 = load ptr, ptr %wrlmethod, align 8
-  %increment_sequence_ctr = getelementptr inbounds i8, ptr %52, i64 176
-  %53 = load ptr, ptr %increment_sequence_ctr, align 8
+  %53 = load ptr, ptr %wrlmethod, align 8
+  %increment_sequence_ctr = getelementptr inbounds i8, ptr %53, i64 176
+  %54 = load ptr, ptr %increment_sequence_ctr, align 8
   %wrl = getelementptr inbounds i8, ptr %ssl, i64 3048
-  %54 = load ptr, ptr %wrl, align 8
-  %call317 = call i32 %53(ptr noundef %54) #9
+  %55 = load ptr, ptr %wrl, align 8
+  %call317 = call i32 %54(ptr noundef %55) #9
   %call318 = call i64 @SSL_set_options(ptr noundef nonnull %ssl, i64 noundef 8192) #9
   call void @ossl_statem_set_hello_verify_done(ptr noundef nonnull %ssl) #9
   %call319 = call i64 @BIO_ctrl(ptr noundef nonnull %call12, i32 noundef 46, i64 noundef 0, ptr noundef %client) #9
@@ -1548,8 +1548,8 @@ if.then323:                                       ; preds = %do.end.critedge
 
 if.end324:                                        ; preds = %if.then323, %do.end.critedge
   %rrlnext = getelementptr inbounds i8, ptr %ssl, i64 3056
-  %55 = load ptr, ptr %rrlnext, align 8
-  %call326 = call i32 @BIO_write(ptr noundef %55, ptr noundef nonnull %call21, i32 noundef %call30) #9
+  %56 = load ptr, ptr %rrlnext, align 8
+  %call326 = call i32 @BIO_write(ptr noundef %56, ptr noundef nonnull %call21, i32 noundef %call30) #9
   %cmp327.not = icmp eq i32 %call326, %call30
   br i1 %cmp327.not, label %if.end330, label %if.then329
 

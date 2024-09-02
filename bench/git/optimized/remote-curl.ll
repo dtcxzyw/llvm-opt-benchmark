@@ -3033,7 +3033,7 @@ declare ptr @http_get_accept_language_header() local_unnamed_addr #2
 declare i32 @packet_read(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @post_rpc(ptr noundef %rpc, i32 noundef %stateless_connect, i32 noundef %flush_received) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @post_rpc(ptr noundef %rpc, i32 noundef %stateless_connect, i32 noundef %flush_received) unnamed_addr #0 {
 entry:
   %buf.i = alloca %struct.strbuf, align 8
   %rpc_in_data = alloca %struct.rpc_in_data, align 8

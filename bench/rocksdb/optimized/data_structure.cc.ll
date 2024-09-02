@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN7rocksdb6detail36CountTrailingZeroBitsForSmallEnumSetEm(i64 noundef %v) local_unnamed_addr #0 {
+define noundef range(i32 0, 64) i32 @_ZN7rocksdb6detail36CountTrailingZeroBitsForSmallEnumSetEm(i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %0 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %v, i1 true)
   %cast.i = trunc nuw nsw i64 %0 to i32

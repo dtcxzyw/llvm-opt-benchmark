@@ -2827,7 +2827,7 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
   %50 = load volatile i64, ptr %10, align 8
   %51 = and i64 %50, 8
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %.thread7, label %53
+  br i1 %52, label %.critedge8, label %53
 
 53:                                               ; preds = %49
   tail call void @__rcu_read_lock() #15
@@ -2847,7 +2847,7 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
   %65 = and i64 %64, 8
   %66 = icmp eq i64 %65, 0
   tail call void @__rcu_read_unlock() #15
-  br i1 %66, label %.thread7, label %67
+  br i1 %66, label %.critedge8, label %67
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2881,20 +2881,20 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
   %84 = load volatile i64, ptr %10, align 8
   %85 = and i64 %84, 1
   %86 = icmp eq i64 %85, 0
-  br i1 %86, label %87, label %.loopexit10
+  br i1 %86, label %87, label %.loopexit11
 
 87:                                               ; preds = %.split.us
   %88 = load ptr, ptr %15, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread.us, label %92
+  br i1 %91, label %.critedge.us, label %92
 
 92:                                               ; preds = %87
   %93 = tail call zeroext i1 %90(ptr noundef %0) #15
-  br i1 %93, label %.split13.us, label %.thread.us
+  br i1 %93, label %.split14.us, label %.critedge.us
 
-.thread.us:                                       ; preds = %92, %87
+.critedge.us:                                     ; preds = %92, %87
   %94 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !72
   %95 = inttoptr i64 %94 to ptr
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !22
@@ -2908,31 +2908,31 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
   %100 = icmp eq i8 %98, 0
   br i1 %100, label %104, label %101, !prof !6
 
-101:                                              ; preds = %.thread.us
+101:                                              ; preds = %.critedge.us
   %102 = tail call i64 @llvm.read_register.i64(metadata !0)
   %103 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %102) #15, !srcloc !71
   tail call void @llvm.write_register.i64(metadata !0, i64 %103)
   br label %104
 
-104:                                              ; preds = %101, %.thread.us
+104:                                              ; preds = %101, %.critedge.us
   %105 = sub i64 %81, %97
   %106 = icmp slt i64 %105, 0
   %107 = icmp ne i32 %96, %72
   %108 = select i1 %106, i1 true, i1 %107
-  br i1 %108, label %.thread7, label %109
+  br i1 %108, label %.critedge8, label %109
 
 109:                                              ; preds = %104
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !73
   %110 = load volatile i64, ptr %95, align 8
   %111 = and i64 %110, 8
   %112 = icmp eq i64 %111, 0
-  br i1 %112, label %.split.us, label %.thread7, !llvm.loop !74
+  br i1 %112, label %.split.us, label %.critedge8, !llvm.loop !74
 
 .split:                                           ; preds = %80, %147
   %113 = load volatile i64, ptr %10, align 8
   %114 = and i64 %113, 1
   %115 = icmp eq i64 %114, 0
-  br i1 %115, label %116, label %.loopexit10
+  br i1 %115, label %116, label %.loopexit11
 
 116:                                              ; preds = %.split
   %117 = load ptr, ptr %15, align 8
@@ -2943,11 +2943,11 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
 
 121:                                              ; preds = %116
   %122 = tail call zeroext i1 %119(ptr noundef %0) #15
-  br i1 %122, label %.split13.us, label %124
+  br i1 %122, label %.split14.us, label %124
 
-.split13.us:                                      ; preds = %121, %92
+.split14.us:                                      ; preds = %121, %92
   %123 = tail call i32 @dma_fence_signal(ptr noundef %0) #15
-  br label %.loopexit10
+  br label %.loopexit11
 
 124:                                              ; preds = %121, %116
   %125 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !72
@@ -2955,15 +2955,15 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
   %127 = load volatile i64, ptr %126, align 8
   %128 = and i64 %127, 131072
   %129 = icmp eq i64 %128, 0
-  br i1 %129, label %130, label %.thread7, !prof !6
+  br i1 %129, label %130, label %.critedge8, !prof !6
 
 130:                                              ; preds = %124
   %131 = load volatile i64, ptr %126, align 8
   %132 = and i64 %131, 4
   %133 = icmp eq i64 %132, 0
-  br i1 %133, label %.thread, label %.thread7
+  br i1 %133, label %.critedge, label %.critedge8
 
-.thread:                                          ; preds = %130
+.critedge:                                        ; preds = %130
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !68
   %134 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !69
@@ -2975,36 +2975,36 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
   %138 = icmp eq i8 %136, 0
   br i1 %138, label %142, label %139, !prof !6
 
-139:                                              ; preds = %.thread
+139:                                              ; preds = %.critedge
   %140 = tail call i64 @llvm.read_register.i64(metadata !0)
   %141 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %140) #15, !srcloc !71
   tail call void @llvm.write_register.i64(metadata !0, i64 %141)
   br label %142
 
-142:                                              ; preds = %139, %.thread
+142:                                              ; preds = %139, %.critedge
   %143 = sub i64 %81, %135
   %144 = icmp slt i64 %143, 0
   %145 = icmp ne i32 %134, %72
   %146 = select i1 %144, i1 true, i1 %145
-  br i1 %146, label %.thread7, label %147
+  br i1 %146, label %.critedge8, label %147
 
 147:                                              ; preds = %142
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !73
   %148 = load volatile i64, ptr %126, align 8
   %149 = and i64 %148, 8
   %150 = icmp eq i64 %149, 0
-  br i1 %150, label %.split, label %.thread7, !llvm.loop !74
+  br i1 %150, label %.split, label %.critedge8, !llvm.loop !74
 
 151:                                              ; preds = %53
   tail call void @__rcu_read_unlock() #15
-  br label %.thread7
+  br label %.critedge8
 
-.thread7:                                         ; preds = %130, %142, %147, %124, %109, %104, %151, %63, %49
+.critedge8:                                       ; preds = %130, %142, %147, %124, %109, %104, %151, %63, %49
   %152 = and i64 %5, 2
   %153 = icmp eq i64 %152, 0
   br i1 %153, label %174, label %154
 
-154:                                              ; preds = %.thread7
+154:                                              ; preds = %.critedge8
   %155 = load volatile i64, ptr %10, align 8
   %156 = and i64 %155, 1
   %157 = icmp eq i64 %156, 0
@@ -3038,14 +3038,14 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
   tail call void @__rcu_read_unlock() #15
   br label %174
 
-174:                                              ; preds = %173, %172, %162, %154, %.thread7
+174:                                              ; preds = %173, %172, %162, %154, %.critedge8
   %175 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !72
   %176 = inttoptr i64 %175 to ptr
   %177 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %176, ptr %177, align 8
   %178 = call i32 @dma_fence_add_callback(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull @request_wait_wake) #15
   %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %.loopexit10
+  br i1 %179, label %180, label %.loopexit11
 
 180:                                              ; preds = %174
   %181 = getelementptr inbounds i8, ptr %0, i64 336
@@ -3082,7 +3082,7 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
 
 200:                                              ; preds = %.lr.ph.split.us
   %201 = call zeroext i1 %198(ptr noundef %0) #15
-  br i1 %201, label %.split21.us, label %202
+  br i1 %201, label %.split22.us, label %202
 
 202:                                              ; preds = %200, %.lr.ph.split.us
   %203 = icmp eq i64 %195, 0
@@ -3106,9 +3106,9 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
 
 215:                                              ; preds = %.lr.ph.split
   %216 = call zeroext i1 %213(ptr noundef %0) #15
-  br i1 %216, label %.split21.us, label %218
+  br i1 %216, label %.split22.us, label %218
 
-.split21.us:                                      ; preds = %215, %200
+.split22.us:                                      ; preds = %215, %200
   %.us-phi = phi i64 [ %195, %200 ], [ %210, %215 ]
   %217 = call i32 @dma_fence_signal(ptr noundef %0) #15
   br label %.loopexit
@@ -3137,23 +3137,23 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
   %233 = icmp eq i64 %232, 0
   br i1 %233, label %.lr.ph.split, label %.loopexit, !llvm.loop !76
 
-.loopexit:                                        ; preds = %228, %218, %222, %226, %204, %202, %187, %.split21.us
-  %234 = phi i64 [ %.us-phi, %.split21.us ], [ %2, %187 ], [ %205, %204 ], [ -62, %202 ], [ %229, %228 ], [ -512, %218 ], [ -512, %222 ], [ -62, %226 ]
+.loopexit:                                        ; preds = %228, %218, %222, %226, %204, %202, %187, %.split22.us
+  %234 = phi i64 [ %.us-phi, %.split22.us ], [ %2, %187 ], [ %205, %204 ], [ -62, %202 ], [ %229, %228 ], [ -512, %218 ], [ -512, %222 ], [ -62, %226 ]
   store volatile i32 0, ptr %188, align 8
   %235 = load volatile ptr, ptr %177, align 8
   %236 = icmp eq ptr %235, null
-  br i1 %236, label %.loopexit10, label %237
+  br i1 %236, label %.loopexit11, label %237
 
 237:                                              ; preds = %.loopexit
   %238 = call zeroext i1 @dma_fence_remove_callback(ptr noundef %0, ptr noundef nonnull %4) #15
-  br label %.loopexit10
+  br label %.loopexit11
 
-.loopexit10:                                      ; preds = %.split, %.split.us, %237, %.loopexit, %174, %.split13.us
-  %239 = phi i64 [ %2, %174 ], [ %234, %237 ], [ %234, %.loopexit ], [ %2, %.split13.us ], [ %2, %.split.us ], [ %2, %.split ]
+.loopexit11:                                      ; preds = %.split, %.split.us, %237, %.loopexit, %174, %.split14.us
+  %239 = phi i64 [ %2, %174 ], [ %234, %237 ], [ %234, %.loopexit ], [ %2, %.split14.us ], [ %2, %.split.us ], [ %2, %.split ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_request_wait_end, i64 8), i32 2) #15
           to label %260 [label %240], !srcloc !19
 
-240:                                              ; preds = %.loopexit10
+240:                                              ; preds = %.loopexit11
   %241 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !77
   %242 = zext i32 %241 to i64
   %243 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %242) #15, !srcloc !21
@@ -3189,8 +3189,8 @@ define dso_local i64 @i915_request_wait_timeout(ptr noundef %0, i32 noundef %1, 
   call void @llvm.write_register.i64(metadata !0, i64 %259)
   br label %260
 
-260:                                              ; preds = %257, %253, %240, %.loopexit10, %26, %24
-  %261 = phi i64 [ %25, %24 ], [ -62, %26 ], [ %239, %.loopexit10 ], [ %239, %240 ], [ %239, %253 ], [ %239, %257 ]
+260:                                              ; preds = %257, %253, %240, %.loopexit11, %26, %24
+  %261 = phi i64 [ %25, %24 ], [ -62, %26 ], [ %239, %.loopexit11 ], [ %239, %240 ], [ %239, %253 ], [ %239, %257 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
   ret i64 %261
 }

@@ -520,7 +520,7 @@ _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.noe
           catch ptr @_ZTI26trap_load_guest_page_fault
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %100, %61, %58
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %101, %61, %58
   %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
           catch ptr @_ZTI28trap_load_address_misaligned
           catch ptr @_ZTI20trap_load_page_fault
@@ -540,16 +540,16 @@ _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.noe
   %95 = tail call ptr @__cxa_allocate_exception(i64 48) #17
   %96 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %96, null
-  br i1 %.not, label %100, label %97
+  br i1 %.not, label %101, label %97
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds i8, ptr %96, i64 962
   %99 = load i8, ptr %98, align 2
-  br label %100
+  %100 = and i8 %99, 1
+  br label %101
 
-100:                                              ; preds = %97, %94
-  %101 = phi i8 [ %99, %97 ], [ 0, %94 ]
-  %102 = and i8 %101, 1
+101:                                              ; preds = %97, %94
+  %102 = phi i8 [ %100, %97 ], [ 0, %94 ]
   %103 = getelementptr inbounds i8, ptr %95, i64 8
   store i64 7, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %95, i64 16
@@ -828,7 +828,7 @@ _ZN16memtracer_list_t16clean_invalidateEmmbb.exit: ; preds = %75, %.noexc59, %69
   tail call void @__clang_call_terminate(ptr %246) #19
   unreachable
 
-247:                                              ; preds = %217, %190, %159, %128, %100
+247:                                              ; preds = %217, %190, %159, %128, %101
   unreachable
 }
 

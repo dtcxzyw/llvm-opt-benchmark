@@ -530,29 +530,29 @@ hwloc_linux_pci_link_speed_from_string.exit:      ; preds = %sub_0.i, %.tail.thr
   %257 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 128, ptr noundef nonnull @.str.9, i32 noundef %136, i32 noundef %139, i32 noundef %142, i32 noundef %145) #10
   %258 = call noalias ptr @fopen(ptr noundef nonnull %19, ptr noundef nonnull @.str.6)
   %.not145 = icmp eq ptr %258, null
-  br i1 %.not145, label %264, label %259
+  br i1 %.not145, label %265, label %259
 
 259:                                              ; preds = %hwloc_linux_pci_link_speed_from_string.exit
   %260 = call i64 @fread(ptr noundef nonnull %20, i64 noundef 1, i64 noundef 16, ptr noundef nonnull %258)
   %261 = call i32 @fclose(ptr noundef nonnull %258)
   %.not146 = icmp eq i64 %260, 0
-  br i1 %.not146, label %264, label %262
+  br i1 %.not146, label %265, label %262
 
 262:                                              ; preds = %259
   %263 = call i32 @atoi(ptr nocapture noundef nonnull %20) #11
-  br label %264
+  %264 = uitofp i32 %263 to float
+  br label %265
 
-264:                                              ; preds = %259, %262, %hwloc_linux_pci_link_speed_from_string.exit
-  %.0 = phi i32 [ %263, %262 ], [ 0, %259 ], [ 0, %hwloc_linux_pci_link_speed_from_string.exit ]
-  %265 = uitofp i32 %.0 to float
-  %266 = fmul float %.0124, %265
+265:                                              ; preds = %259, %262, %hwloc_linux_pci_link_speed_from_string.exit
+  %.0 = phi float [ %264, %262 ], [ 0.000000e+00, %259 ], [ 0.000000e+00, %hwloc_linux_pci_link_speed_from_string.exit ]
+  %266 = fmul float %.0124, %.0
   %267 = fmul float %266, 1.250000e-01
   %268 = load ptr, ptr %200, align 8
   %269 = getelementptr inbounds i8, ptr %268, i64 20
   store float %267, ptr %269, align 4
   br label %270
 
-270:                                              ; preds = %264, %241
+270:                                              ; preds = %265, %241
   %271 = load i32, ptr %199, align 8
   %272 = icmp eq i32 %271, 15
   br i1 %272, label %273, label %278

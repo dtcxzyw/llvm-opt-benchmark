@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_mca_base_component_abort_on_load_error = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_mca_base_component_find(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -46, 1) i32 @pmix_mca_base_component_find(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca [65 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 56

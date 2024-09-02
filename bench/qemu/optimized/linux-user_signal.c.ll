@@ -1777,7 +1777,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i64 @do_sigaltstack(i64 noundef %uss_addr, i64 noundef %uoss_addr, ptr nocapture noundef readonly %env) local_unnamed_addr #1 {
+define dso_local range(i64 -22, 1) i64 @do_sigaltstack(i64 noundef %uss_addr, i64 noundef %uoss_addr, ptr nocapture noundef readonly %env) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i64 %uoss_addr, 0
   br i1 %tobool.not, label %if.end3.thread, label %if.then

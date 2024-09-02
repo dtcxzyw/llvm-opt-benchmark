@@ -1634,12 +1634,15 @@ define internal noundef i32 @hugetlb_cgroup_read_numa_stat(ptr noundef %0, ptr n
   %102 = add i64 %101, %95
   %103 = tail call ptr @css_next_descendant_pre(ptr noundef nonnull %96, ptr noundef %14) #9
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %.loopexit, label %94, !llvm.loop !42
+  br i1 %104, label %.loopexit.loopexit, label %94, !llvm.loop !42
 
-.loopexit:                                        ; preds = %94, %.preheader
-  %105 = phi i64 [ 0, %.preheader ], [ %102, %94 ]
+.loopexit.loopexit:                               ; preds = %94
+  %105 = shl i64 %102, 12
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader
+  %106 = phi i64 [ 0, %.preheader ], [ %105, %.loopexit.loopexit ]
   tail call void @__rcu_read_unlock() #9
-  %106 = shl i64 %105, 12
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %89, i64 noundef %106) #9
   %107 = icmp eq i32 %89, 63
   br i1 %107, label %.thread17, label %108, !prof !12

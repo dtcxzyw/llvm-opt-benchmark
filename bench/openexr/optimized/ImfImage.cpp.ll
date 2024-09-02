@@ -730,7 +730,7 @@ declare void @_ZN7Iex_3_26ArgExcD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_25Image10levelWidthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %lx) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK7Imf_3_25Image10levelWidthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %lx) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %cmp = icmp sgt i32 %lx, -1
@@ -814,7 +814,7 @@ unreachable:                                      ; preds = %invoke.cont9
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK7Imf_3_25Image11levelHeightEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %ly) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK7Imf_3_25Image11levelHeightEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i32 noundef %ly) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %cmp = icmp sgt i32 %ly, -1

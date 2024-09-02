@@ -3538,18 +3538,18 @@ _ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSERKj.exit.i: ; preds = %_ZNSt6ve
 
 invoke.cont36.loopexit:                           ; preds = %_ZNSt20back_insert_iteratorISt6vectorIjSaIjEEEaSERKj.exit.i
   %.pre = load ptr, ptr %param_result, align 8, !noalias !70
+  %28 = ptrtoint ptr %27 to i64
   br label %invoke.cont36
 
 invoke.cont36:                                    ; preds = %invoke.cont36.loopexit, %invoke.cont32
-  %28 = phi ptr [ %.pre, %invoke.cont36.loopexit ], [ null, %invoke.cont32 ]
-  %29 = phi ptr [ %27, %invoke.cont36.loopexit ], [ null, %invoke.cont32 ]
+  %29 = phi ptr [ %.pre, %invoke.cont36.loopexit ], [ null, %invoke.cont32 ]
+  %sub.ptr.lhs.cast.i5.i.i.i = phi i64 [ %28, %invoke.cont36.loopexit ], [ 0, %invoke.cont32 ]
   %30 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !70
   %31 = load ptr, ptr %seed_values, align 8, !noalias !70
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %sub.ptr.lhs.cast.i5.i.i.i = ptrtoint ptr %29 to i64
-  %sub.ptr.rhs.cast.i6.i.i.i = ptrtoint ptr %28 to i64
+  %sub.ptr.rhs.cast.i6.i.i.i = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i7.i.i.i = sub i64 %sub.ptr.lhs.cast.i5.i.i.i, %sub.ptr.rhs.cast.i6.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, %sub.ptr.sub.i7.i.i.i
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %if.end.i.i22
@@ -3559,7 +3559,7 @@ land.rhs.i.i.i:                                   ; preds = %invoke.cont36
   br i1 %tobool.not.i.i.i.i.i.i.i, label %if.then.i.i23, label %_ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.i.i
 
 _ZSteqIjSaIjEEbRKSt6vectorIT_T0_ES6_.exit.i.i:    ; preds = %land.rhs.i.i.i
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr %31, ptr %28, i64 %sub.ptr.sub.i.i.i.i), !noalias !70
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr %31, ptr %29, i64 %sub.ptr.sub.i.i.i.i), !noalias !70
   %tobool1.not.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i, label %if.then.i.i23, label %if.end.i.i22
 

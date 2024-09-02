@@ -2202,11 +2202,11 @@ land.rhs.i:                                       ; preds = %invoke.cont10
 if.end.i.i:                                       ; preds = %land.rhs.i
   %bcmp.i = call i32 @bcmp(ptr %call2.i, ptr %call3.i, i64 %call4.i)
   %0 = icmp eq i32 %bcmp.i, 0
+  %1 = zext i1 %0 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %invoke.cont10, %land.rhs.i, %if.end.i.i
-  %1 = phi i1 [ false, %invoke.cont10 ], [ %0, %if.end.i.i ], [ true, %land.rhs.i ]
-  %frombool = zext i1 %1 to i8
+  %frombool = phi i8 [ 0, %invoke.cont10 ], [ %1, %if.end.i.i ], [ 1, %land.rhs.i ]
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8
@@ -2566,11 +2566,11 @@ land.rhs.i:                                       ; preds = %invoke.cont11
 if.end.i.i:                                       ; preds = %land.rhs.i
   %bcmp.i = call i32 @bcmp(ptr %call2.i, ptr %call3.i, i64 %call4.i)
   %0 = icmp eq i32 %bcmp.i, 0
+  %1 = zext i1 %0 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %invoke.cont11, %land.rhs.i, %if.end.i.i
-  %1 = phi i1 [ false, %invoke.cont11 ], [ %0, %if.end.i.i ], [ true, %land.rhs.i ]
-  %frombool = zext i1 %1 to i8
+  %frombool = phi i8 [ 0, %invoke.cont11 ], [ %1, %if.end.i.i ], [ 1, %land.rhs.i ]
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8
@@ -2930,11 +2930,11 @@ land.rhs.i:                                       ; preds = %invoke.cont11
 if.end.i.i:                                       ; preds = %land.rhs.i
   %bcmp.i = call i32 @bcmp(ptr %call2.i, ptr %call3.i, i64 %call4.i)
   %0 = icmp eq i32 %bcmp.i, 0
+  %1 = zext i1 %0 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %invoke.cont11, %land.rhs.i, %if.end.i.i
-  %1 = phi i1 [ false, %invoke.cont11 ], [ %0, %if.end.i.i ], [ true, %land.rhs.i ]
-  %frombool = zext i1 %1 to i8
+  %frombool = phi i8 [ 0, %invoke.cont11 ], [ %1, %if.end.i.i ], [ 1, %land.rhs.i ]
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8
@@ -3294,11 +3294,11 @@ land.rhs.i:                                       ; preds = %invoke.cont11
 if.end.i.i:                                       ; preds = %land.rhs.i
   %bcmp.i = call i32 @bcmp(ptr %call2.i, ptr %call3.i, i64 %call4.i)
   %0 = icmp eq i32 %bcmp.i, 0
+  %1 = zext i1 %0 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %invoke.cont11, %land.rhs.i, %if.end.i.i
-  %1 = phi i1 [ false, %invoke.cont11 ], [ %0, %if.end.i.i ], [ true, %land.rhs.i ]
-  %frombool = zext i1 %1 to i8
+  %frombool = phi i8 [ 0, %invoke.cont11 ], [ %1, %if.end.i.i ], [ 1, %land.rhs.i ]
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8
@@ -3658,11 +3658,11 @@ land.rhs.i:                                       ; preds = %invoke.cont11
 if.end.i.i:                                       ; preds = %land.rhs.i
   %bcmp.i = call i32 @bcmp(ptr %call2.i, ptr %call3.i, i64 %call4.i)
   %0 = icmp eq i32 %bcmp.i, 0
+  %1 = zext i1 %0 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %invoke.cont11, %land.rhs.i, %if.end.i.i
-  %1 = phi i1 [ false, %invoke.cont11 ], [ %0, %if.end.i.i ], [ true, %land.rhs.i ]
-  %frombool = zext i1 %1 to i8
+  %frombool = phi i8 [ 0, %invoke.cont11 ], [ %1, %if.end.i.i ], [ 1, %land.rhs.i ]
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8
@@ -4022,11 +4022,11 @@ land.rhs.i:                                       ; preds = %invoke.cont11
 if.end.i.i:                                       ; preds = %land.rhs.i
   %bcmp.i = call i32 @bcmp(ptr %call2.i, ptr %call3.i, i64 %call4.i)
   %0 = icmp eq i32 %bcmp.i, 0
+  %1 = zext i1 %0 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %invoke.cont11, %land.rhs.i, %if.end.i.i
-  %1 = phi i1 [ false, %invoke.cont11 ], [ %0, %if.end.i.i ], [ true, %land.rhs.i ]
-  %frombool = zext i1 %1 to i8
+  %frombool = phi i8 [ 0, %invoke.cont11 ], [ %1, %if.end.i.i ], [ 1, %land.rhs.i ]
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8
@@ -4392,11 +4392,11 @@ land.rhs.i:                                       ; preds = %invoke.cont11
 if.end.i.i:                                       ; preds = %land.rhs.i
   %bcmp.i = call i32 @bcmp(ptr %call2.i, ptr %call3.i, i64 %call4.i)
   %0 = icmp eq i32 %bcmp.i, 0
+  %1 = zext i1 %0 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %invoke.cont11, %land.rhs.i, %if.end.i.i
-  %1 = phi i1 [ false, %invoke.cont11 ], [ %0, %if.end.i.i ], [ true, %land.rhs.i ]
-  %frombool = zext i1 %1 to i8
+  %frombool = phi i8 [ 0, %invoke.cont11 ], [ %1, %if.end.i.i ], [ 1, %land.rhs.i ]
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i, align 8
@@ -11380,11 +11380,11 @@ land.rhs.i:                                       ; preds = %invoke.cont180
 if.end.i.i:                                       ; preds = %land.rhs.i
   %bcmp.i = call i32 @bcmp(ptr %call2.i, ptr %call3.i, i64 %call4.i)
   %57 = icmp eq i32 %bcmp.i, 0
+  %58 = zext i1 %57 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %invoke.cont180, %land.rhs.i, %if.end.i.i
-  %58 = phi i1 [ false, %invoke.cont180 ], [ %57, %if.end.i.i ], [ true, %land.rhs.i ]
-  %frombool182 = zext i1 %58 to i8
+  %frombool182 = phi i8 [ 0, %invoke.cont180 ], [ %58, %if.end.i.i ], [ 1, %land.rhs.i ]
   store i8 %frombool182, ptr %gtest_ar_169, align 8
   %message_.i211 = getelementptr inbounds i8, ptr %gtest_ar_169, i64 8
   store ptr null, ptr %message_.i211, align 8
@@ -11533,11 +11533,11 @@ land.rhs.i247:                                    ; preds = %invoke.cont219
 if.end.i.i252:                                    ; preds = %land.rhs.i247
   %bcmp.i253 = call i32 @bcmp(ptr %call2.i248, ptr %call3.i249, i64 %call4.i250)
   %71 = icmp eq i32 %bcmp.i253, 0
+  %72 = zext i1 %71 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit254
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit254: ; preds = %invoke.cont219, %land.rhs.i247, %if.end.i.i252
-  %72 = phi i1 [ false, %invoke.cont219 ], [ %71, %if.end.i.i252 ], [ true, %land.rhs.i247 ]
-  %frombool221 = zext i1 %72 to i8
+  %frombool221 = phi i8 [ 0, %invoke.cont219 ], [ %72, %if.end.i.i252 ], [ 1, %land.rhs.i247 ]
   store i8 %frombool221, ptr %gtest_ar_208, align 8
   %message_.i256 = getelementptr inbounds i8, ptr %gtest_ar_208, i64 8
   store ptr null, ptr %message_.i256, align 8
@@ -11806,11 +11806,11 @@ land.rhs.i323:                                    ; preds = %invoke.cont294
 if.end.i.i328:                                    ; preds = %land.rhs.i323
   %bcmp.i329 = call i32 @bcmp(ptr %call2.i324, ptr %call3.i325, i64 %call4.i326)
   %96 = icmp eq i32 %bcmp.i329, 0
+  %97 = zext i1 %96 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit330
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit330: ; preds = %invoke.cont294, %land.rhs.i323, %if.end.i.i328
-  %97 = phi i1 [ false, %invoke.cont294 ], [ %96, %if.end.i.i328 ], [ true, %land.rhs.i323 ]
-  %frombool296 = zext i1 %97 to i8
+  %frombool296 = phi i8 [ 0, %invoke.cont294 ], [ %97, %if.end.i.i328 ], [ 1, %land.rhs.i323 ]
   store i8 %frombool296, ptr %gtest_ar_283, align 8
   %message_.i332 = getelementptr inbounds i8, ptr %gtest_ar_283, i64 8
   store ptr null, ptr %message_.i332, align 8
@@ -11959,11 +11959,11 @@ land.rhs.i368:                                    ; preds = %invoke.cont333
 if.end.i.i373:                                    ; preds = %land.rhs.i368
   %bcmp.i374 = call i32 @bcmp(ptr %call2.i369, ptr %call3.i370, i64 %call4.i371)
   %110 = icmp eq i32 %bcmp.i374, 0
+  %111 = zext i1 %110 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit375
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit375: ; preds = %invoke.cont333, %land.rhs.i368, %if.end.i.i373
-  %111 = phi i1 [ false, %invoke.cont333 ], [ %110, %if.end.i.i373 ], [ true, %land.rhs.i368 ]
-  %frombool335 = zext i1 %111 to i8
+  %frombool335 = phi i8 [ 0, %invoke.cont333 ], [ %111, %if.end.i.i373 ], [ 1, %land.rhs.i368 ]
   store i8 %frombool335, ptr %gtest_ar_322, align 8
   %message_.i377 = getelementptr inbounds i8, ptr %gtest_ar_322, i64 8
   store ptr null, ptr %message_.i377, align 8
@@ -12232,11 +12232,11 @@ land.rhs.i442:                                    ; preds = %invoke.cont408
 if.end.i.i447:                                    ; preds = %land.rhs.i442
   %bcmp.i448 = call i32 @bcmp(ptr %call2.i443, ptr %call3.i444, i64 %call4.i445)
   %135 = icmp eq i32 %bcmp.i448, 0
+  %136 = zext i1 %135 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit449
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit449: ; preds = %invoke.cont408, %land.rhs.i442, %if.end.i.i447
-  %136 = phi i1 [ false, %invoke.cont408 ], [ %135, %if.end.i.i447 ], [ true, %land.rhs.i442 ]
-  %frombool410 = zext i1 %136 to i8
+  %frombool410 = phi i8 [ 0, %invoke.cont408 ], [ %136, %if.end.i.i447 ], [ 1, %land.rhs.i442 ]
   store i8 %frombool410, ptr %gtest_ar_397, align 8
   %message_.i451 = getelementptr inbounds i8, ptr %gtest_ar_397, i64 8
   store ptr null, ptr %message_.i451, align 8
@@ -12385,11 +12385,11 @@ land.rhs.i487:                                    ; preds = %invoke.cont447
 if.end.i.i492:                                    ; preds = %land.rhs.i487
   %bcmp.i493 = call i32 @bcmp(ptr %call2.i488, ptr %call3.i489, i64 %call4.i490)
   %149 = icmp eq i32 %bcmp.i493, 0
+  %150 = zext i1 %149 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit494
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit494: ; preds = %invoke.cont447, %land.rhs.i487, %if.end.i.i492
-  %150 = phi i1 [ false, %invoke.cont447 ], [ %149, %if.end.i.i492 ], [ true, %land.rhs.i487 ]
-  %frombool449 = zext i1 %150 to i8
+  %frombool449 = phi i8 [ 0, %invoke.cont447 ], [ %150, %if.end.i.i492 ], [ 1, %land.rhs.i487 ]
   store i8 %frombool449, ptr %gtest_ar_436, align 8
   %message_.i496 = getelementptr inbounds i8, ptr %gtest_ar_436, i64 8
   store ptr null, ptr %message_.i496, align 8
@@ -12658,11 +12658,11 @@ land.rhs.i563:                                    ; preds = %invoke.cont522
 if.end.i.i568:                                    ; preds = %land.rhs.i563
   %bcmp.i569 = call i32 @bcmp(ptr %call2.i564, ptr %call3.i565, i64 %call4.i566)
   %174 = icmp eq i32 %bcmp.i569, 0
+  %175 = zext i1 %174 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit570
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit570: ; preds = %invoke.cont522, %land.rhs.i563, %if.end.i.i568
-  %175 = phi i1 [ false, %invoke.cont522 ], [ %174, %if.end.i.i568 ], [ true, %land.rhs.i563 ]
-  %frombool524 = zext i1 %175 to i8
+  %frombool524 = phi i8 [ 0, %invoke.cont522 ], [ %175, %if.end.i.i568 ], [ 1, %land.rhs.i563 ]
   store i8 %frombool524, ptr %gtest_ar_511, align 8
   %message_.i572 = getelementptr inbounds i8, ptr %gtest_ar_511, i64 8
   store ptr null, ptr %message_.i572, align 8

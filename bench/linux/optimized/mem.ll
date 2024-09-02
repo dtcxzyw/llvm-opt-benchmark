@@ -227,7 +227,7 @@ define internal i64 @read_mem(ptr nocapture readnone %0, ptr noundef %1, i64 nou
   %14 = phi i64 [ %44, %58 ], [ %5, %8 ]
   %15 = phi i64 [ %46, %58 ], [ 0, %8 ]
   %16 = icmp eq i64 %13, 0
-  br i1 %16, label %.thread6, label %17
+  br i1 %16, label %.thread5, label %17
 
 17:                                               ; preds = %.preheader
   %18 = and i64 %14, 4095
@@ -295,16 +295,15 @@ define internal i64 @read_mem(ptr nocapture readnone %0, ptr noundef %1, i64 nou
   %55 = load volatile i64, ptr %48, align 8
   %56 = and i64 %55, 131072
   %57 = icmp eq i64 %56, 0
-  br i1 %57, label %58, label %.thread6, !prof !13
+  br i1 %57, label %58, label %.thread5, !prof !13
 
 58:                                               ; preds = %54
   %59 = load volatile i64, ptr %48, align 8
-  %.fr7 = freeze i64 %59
-  %60 = and i64 %.fr7, 4
+  %60 = and i64 %59, 4
   %.not = icmp eq i64 %60, 0
-  br i1 %.not, label %.preheader, label %.thread6
+  br i1 %.not, label %.preheader, label %.thread5
 
-.thread6:                                         ; preds = %54, %58, %.preheader
+.thread5:                                         ; preds = %54, %58, %.preheader
   %61 = phi i64 [ %15, %.preheader ], [ %46, %58 ], [ %46, %54 ]
   tail call void @kfree(ptr noundef nonnull %10) #12
   %62 = load i64, ptr %3, align 8
@@ -317,8 +316,8 @@ define internal i64 @read_mem(ptr nocapture readnone %0, ptr noundef %1, i64 nou
   tail call void @kfree(ptr noundef nonnull %10) #12
   br label %64
 
-64:                                               ; preds = %.thread, %.thread6, %8, %4
-  %65 = phi i64 [ %.ph, %.thread ], [ %61, %.thread6 ], [ -14, %4 ], [ -12, %8 ]
+64:                                               ; preds = %.thread, %.thread5, %8, %4
+  %65 = phi i64 [ %.ph, %.thread ], [ %61, %.thread5 ], [ -14, %4 ], [ -12, %8 ]
   ret i64 %65
 }
 
@@ -327,7 +326,7 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
   %5 = load i64, ptr %3, align 8
   %6 = tail call i32 @valid_phys_addr_range(i64 noundef %5, i64 noundef %2) #12
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %.thread6, label %.preheader
+  br i1 %7, label %.thread11, label %.preheader
 
 .preheader:                                       ; preds = %4, %47
   %8 = phi ptr [ %32, %47 ], [ %1, %4 ]
@@ -335,7 +334,7 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
   %10 = phi i64 [ %33, %47 ], [ %5, %4 ]
   %11 = phi i64 [ %35, %47 ], [ 0, %4 ]
   %12 = icmp eq i64 %9, 0
-  br i1 %12, label %.thread13, label %13
+  br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %.preheader
   %14 = and i64 %10, 4095
@@ -344,7 +343,7 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
   %17 = lshr i64 %10, 12
   %18 = tail call i32 @devmem_is_allowed(i64 noundef %17) #12
   switch i32 %18, label %31 [
-    i32 0, label %.thread6
+    i32 0, label %.thread11
     i32 1, label %19
   ]
 
@@ -355,7 +354,7 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
 
 22:                                               ; preds = %19
   %23 = icmp eq i64 %11, 0
-  br i1 %23, label %.thread6, label %.thread13
+  br i1 %23, label %.thread11, label %.thread
 
 24:                                               ; preds = %19
   %25 = tail call i64 @_copy_from_user(ptr noundef nonnull %20, ptr noundef %8, i64 noundef %16) #12
@@ -367,7 +366,7 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
   %28 = sub i64 %16, %25
   %29 = add i64 %28, %11
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %.thread6, label %.thread13
+  br i1 %30, label %.thread11, label %.thread
 
 31:                                               ; preds = %24, %13
   %32 = getelementptr i8, ptr %8, i64 %16
@@ -389,24 +388,23 @@ define internal i64 @write_mem(ptr nocapture readnone %0, ptr noundef %1, i64 no
   %44 = load volatile i64, ptr %37, align 8
   %45 = and i64 %44, 131072
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %.thread13, !prof !13
+  br i1 %46, label %47, label %.thread, !prof !13
 
 47:                                               ; preds = %43
   %48 = load volatile i64, ptr %37, align 8
-  %.fr14 = freeze i64 %48
-  %49 = and i64 %.fr14, 4
+  %49 = and i64 %48, 4
   %.not = icmp eq i64 %49, 0
-  br i1 %.not, label %.preheader, label %.thread13
+  br i1 %.not, label %.preheader, label %.thread
 
-.thread13:                                        ; preds = %47, %43, %.preheader, %27, %22
+.thread:                                          ; preds = %43, %47, %.preheader, %27, %22
   %50 = phi i64 [ %29, %27 ], [ %11, %22 ], [ %35, %47 ], [ %35, %43 ], [ %11, %.preheader ]
   %51 = load i64, ptr %3, align 8
   %52 = add i64 %51, %50
   store i64 %52, ptr %3, align 8
-  br label %.thread6
+  br label %.thread11
 
-.thread6:                                         ; preds = %13, %27, %22, %.thread13, %4
-  %53 = phi i64 [ %50, %.thread13 ], [ -14, %4 ], [ -14, %22 ], [ -14, %27 ], [ -1, %13 ]
+.thread11:                                        ; preds = %13, %27, %22, %.thread, %4
+  %53 = phi i64 [ %50, %.thread ], [ -14, %4 ], [ -14, %22 ], [ -14, %27 ], [ -1, %13 ]
   ret i64 %53
 }
 
@@ -746,11 +744,11 @@ define internal i64 @write_port(ptr nocapture readnone %0, ptr noundef %1, i64 n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @read_zero(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %.thread3, label %.lr.ph
+  br i1 %5, label %.critedge.thread4, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %33
-  %6 = phi i64 [ %23, %33 ], [ %2, %4 ]
-  %7 = phi i64 [ %22, %33 ], [ 0, %4 ]
+.lr.ph:                                           ; preds = %4, %.critedge
+  %6 = phi i64 [ %23, %.critedge ], [ %2, %4 ]
+  %7 = phi i64 [ %22, %.critedge ], [ 0, %4 ]
   %8 = tail call i64 @llvm.umin.i64(i64 %6, i64 4096)
   %9 = getelementptr i8, ptr %1, i64 %7
   %10 = icmp sgt ptr %9, inttoptr (i64 -1 to ptr)
@@ -773,7 +771,7 @@ define internal i64 @read_zero(ptr nocapture readnone %0, ptr noundef %1, i64 no
   %19 = add i64 %18, %7
   %20 = icmp eq i64 %19, 0
   %spec.select = select i1 %20, i64 -14, i64 %19
-  br label %.thread3
+  br label %.critedge.thread4
 
 21:                                               ; preds = %11
   %22 = add i64 %8, %7
@@ -783,22 +781,22 @@ define internal i64 @read_zero(ptr nocapture readnone %0, ptr noundef %1, i64 no
   %26 = load volatile i64, ptr %25, align 8
   %27 = and i64 %26, 131072
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %.thread3, !prof !13
+  br i1 %28, label %29, label %.critedge.thread4, !prof !13
 
 29:                                               ; preds = %21
   %30 = load volatile i64, ptr %25, align 8
   %31 = and i64 %30, 4
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %.thread3
+  br i1 %32, label %.critedge, label %.critedge.thread4
 
-33:                                               ; preds = %29
-  %34 = tail call i32 @__SCT__cond_resched() #12
-  %35 = icmp eq i64 %23, 0
-  br i1 %35, label %.thread3, label %.lr.ph
+.critedge:                                        ; preds = %29
+  %33 = tail call i32 @__SCT__cond_resched() #12
+  %34 = icmp eq i64 %23, 0
+  br i1 %34, label %.critedge.thread4, label %.lr.ph
 
-.thread3:                                         ; preds = %33, %29, %21, %4, %.thread
-  %36 = phi i64 [ %spec.select, %.thread ], [ 0, %4 ], [ %22, %21 ], [ %22, %29 ], [ %22, %33 ]
-  ret i64 %36
+.critedge.thread4:                                ; preds = %.critedge, %29, %21, %4, %.thread
+  %35 = phi i64 [ %spec.select, %.thread ], [ 0, %4 ], [ %22, %21 ], [ %22, %29 ], [ %22, %.critedge ]
+  ret i64 %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -806,7 +804,7 @@ define internal i64 @read_iter_zero(ptr nocapture noundef readonly %0, ptr nound
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %.thread3, label %6
+  br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -828,7 +826,7 @@ define internal i64 @read_iter_zero(ptr nocapture noundef readonly %0, ptr nound
 17:                                               ; preds = %14
   %18 = icmp eq i64 %10, 0
   %19 = select i1 %18, i64 -14, i64 %10
-  br label %.thread3
+  br label %.thread
 
 20:                                               ; preds = %14, %8
   %21 = add i64 %12, %10
@@ -837,18 +835,18 @@ define internal i64 @read_iter_zero(ptr nocapture noundef readonly %0, ptr nound
   %24 = load volatile i64, ptr %23, align 8
   %25 = and i64 %24, 131072
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %.thread, !prof !13
+  br i1 %26, label %27, label %.critedge, !prof !13
 
 27:                                               ; preds = %20
   %28 = load volatile i64, ptr %23, align 8
   %29 = and i64 %28, 4
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %33, label %.thread
+  br i1 %30, label %33, label %.critedge
 
-.thread:                                          ; preds = %20, %27
+.critedge:                                        ; preds = %20, %27
   %31 = icmp eq i64 %21, 0
   %32 = select i1 %31, i64 -512, i64 %21
-  br label %.thread3
+  br label %.thread
 
 33:                                               ; preds = %27
   %34 = load volatile i64, ptr %23, align 8
@@ -865,7 +863,7 @@ define internal i64 @read_iter_zero(ptr nocapture noundef readonly %0, ptr nound
 41:                                               ; preds = %37
   %42 = icmp eq i64 %21, 0
   %43 = select i1 %42, i64 -11, i64 %21
-  br label %.thread3
+  br label %.thread
 
 44:                                               ; preds = %37
   %45 = tail call i32 @__SCT__cond_resched() #12
@@ -874,10 +872,10 @@ define internal i64 @read_iter_zero(ptr nocapture noundef readonly %0, ptr nound
 46:                                               ; preds = %33, %44
   %47 = load i64, ptr %3, align 8
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %.thread3, label %8, !llvm.loop !21
+  br i1 %48, label %.thread, label %8, !llvm.loop !21
 
-.thread3:                                         ; preds = %46, %17, %41, %.thread, %2
-  %49 = phi i64 [ 0, %2 ], [ %19, %17 ], [ %43, %41 ], [ %32, %.thread ], [ %21, %46 ]
+.thread:                                          ; preds = %46, %17, %41, %.critedge, %2
+  %49 = phi i64 [ 0, %2 ], [ %19, %17 ], [ %43, %41 ], [ %32, %.critedge ], [ %21, %46 ]
   ret i64 %49
 }
 

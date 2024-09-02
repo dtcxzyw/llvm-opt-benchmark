@@ -668,15 +668,15 @@ if.end35:                                         ; preds = %if.end.i
   %or.i = or i32 %15, %shl.i
   store i32 %or.i, ptr %arrayidx.i, align 4
   %.pre = load i32, ptr %status, align 4
-  %cmp.i28 = icmp slt i32 %.pre, 1
-  br i1 %cmp.i28, label %if.end40, label %cleanup
+  %16 = icmp slt i32 %.pre, 1
+  br i1 %16, label %if.end40, label %cleanup
 
 if.end40:                                         ; preds = %if.end35
-  %16 = load i16, ptr %fUnion2.i, align 8
-  %conv2.i3.i = and i16 %16, 1
+  %17 = load i16, ptr %fUnion2.i, align 8
+  %conv2.i3.i = and i16 %17, 1
   %tobool.not.i = icmp eq i16 %conv2.i3.i, 0
-  %17 = and i16 %16, 30
-  %storemerge.i = select i1 %tobool.not.i, i16 %17, i16 2
+  %18 = and i16 %17, 30
+  %storemerge.i = select i1 %tobool.not.i, i16 %18, i16 2
   store i16 %storemerge.i, ptr %fUnion2.i, align 8
   br label %invoke.cont.backedge
 
@@ -805,10 +805,10 @@ invoke.cont22:                                    ; preds = %if.end.i
   %or.i = or i32 %11, %shl.i
   store i32 %or.i, ptr %arrayidx.i14, align 4
   %.pre = load i32, ptr %status, align 4
-  %cmp.i16 = icmp sgt i32 %.pre, 0
+  %12 = icmp sgt i32 %.pre, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %cmp.i16, i1 true, i1 %exitcond.not
+  %or.cond = select i1 %12, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %cleanup, label %if.end.i, !llvm.loop !17
 
 cleanup.sink.split:                               ; preds = %if.then7, %call.i.noexc, %if.end.i, %while.end
@@ -817,20 +817,20 @@ cleanup.sink.split:                               ; preds = %if.then7, %call.i.n
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont22, %cleanup.sink.split, %for.body.lr.ph, %for.cond.preheader
-  %12 = load i8, ptr %needToRelease.i, align 4
-  %tobool.not.i.i19 = icmp eq i8 %12, 0
+  %13 = load i8, ptr %needToRelease.i, align 4
+  %tobool.not.i.i19 = icmp eq i8 %13, 0
   br i1 %tobool.not.i.i19, label %cleanup.cont, label %if.then.i.i20
 
 if.then.i.i20:                                    ; preds = %cleanup
-  %13 = load ptr, ptr %scripts, align 8
-  invoke void @uprv_free_75(ptr noundef %13)
+  %14 = load ptr, ptr %scripts, align 8
+  invoke void @uprv_free_75(ptr noundef %14)
           to label %cleanup.cont unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i20
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #17
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #17
   unreachable
 
 cleanup.cont:                                     ; preds = %if.then.i.i20, %cleanup, %entry

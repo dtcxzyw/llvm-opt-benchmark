@@ -8110,7 +8110,7 @@ define void @_ZN5tokio4sync9semaphore9Semaphore16const_new_closed17h2355c7afa103
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @_ZN5tokio4sync9semaphore9Semaphore17available_permits17hc1c43228f539c98eE(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
+define noundef range(i64 0, -9223372036854775808) i64 @_ZN5tokio4sync9semaphore9Semaphore17available_permits17hc1c43228f539c98eE(ptr noundef nonnull align 8 %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.10338052584253536188(ptr noundef nonnull %2, i8 noundef 2)
   %4 = lshr i64 %3, 1
@@ -8142,7 +8142,7 @@ _ZN5tokio4sync15batch_semaphore9Semaphore7release17h37d6d1b93fbe9269E.exit: ; pr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @_ZN5tokio4sync9semaphore9Semaphore14forget_permits17hd96a2718cecf2166E(ptr noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef range(i64 0, -9223372036854775808) i64 @_ZN5tokio4sync9semaphore9Semaphore14forget_permits17hd96a2718cecf2166E(ptr noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %_ZN5tokio4sync15batch_semaphore9Semaphore14forget_permits17hb884bdf8f4e223b2E.exit, label %4
 

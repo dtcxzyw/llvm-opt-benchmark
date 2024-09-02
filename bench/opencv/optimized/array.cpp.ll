@@ -1595,7 +1595,7 @@ declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -2147483647, -2147483648) i32 @cvInitNArrayIterator(i32 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -2147483648) i32 @cvInitNArrayIterator(i32 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8

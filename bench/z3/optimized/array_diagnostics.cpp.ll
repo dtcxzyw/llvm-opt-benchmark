@@ -118,12 +118,12 @@ for.cond:                                         ; preds = %for.body, %if.end
 if.end.i.i16:                                     ; preds = %for.cond
   %arrayidx.i.i17 = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i17, align 4
+  %4 = zext i32 %3 to i64
   br label %_ZNK3euf13th_euf_solver12get_num_varsEv.exit19
 
 _ZNK3euf13th_euf_solver12get_num_varsEv.exit19:   ; preds = %for.cond, %if.end.i.i16
-  %retval.0.i.i18 = phi i32 [ %3, %if.end.i.i16 ], [ 0, %for.cond ]
-  %4 = zext i32 %retval.0.i.i18 to i64
-  %cmp4 = icmp ult i64 %indvars.iv, %4
+  %retval.0.i.i18 = phi i64 [ %4, %if.end.i.i16 ], [ 0, %for.cond ]
+  %cmp4 = icmp ult i64 %indvars.iv, %retval.0.i.i18
   br i1 %cmp4, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit19

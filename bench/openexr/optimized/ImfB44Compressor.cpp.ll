@@ -1914,17 +1914,17 @@ if.end90:                                         ; preds = %for.body.i122, %if.
   %cmp93 = icmp slt i32 %add, %32
   %sub95 = sub nsw i32 %32, %x67.0188
   %mul97 = shl i32 %sub95, 1
-  %cond = select i1 %cmp93, i32 8, i32 %mul97
+  %narrow = select i1 %cmp93, i32 8, i32 %mul97
+  %cond = sext i32 %narrow to i64
   %82 = load i32, ptr %ny50, align 4
   %cmp101 = icmp slt i32 %add99, %82
-  %conv104 = sext i32 %cond to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row0.0184, ptr nonnull align 16 %s, i64 %conv104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row0.0184, ptr nonnull align 16 %s, i64 %cond, i1 false)
   br i1 %cmp101, label %if.then102, label %if.else111
 
 if.then102:                                       ; preds = %if.end90
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row1.0185, ptr nonnull align 8 %arrayidx24.i, i64 %conv104, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row2.0186, ptr nonnull align 16 %arrayidx41.i, i64 %conv104, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row3.0187, ptr nonnull align 8 %arrayidx53.i, i64 %conv104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row1.0185, ptr nonnull align 8 %arrayidx24.i, i64 %cond, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row2.0186, ptr nonnull align 16 %arrayidx41.i, i64 %cond, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row3.0187, ptr nonnull align 8 %arrayidx53.i, i64 %cond, i1 false)
   br label %if.end128
 
 if.else111:                                       ; preds = %if.end90
@@ -1933,7 +1933,7 @@ if.else111:                                       ; preds = %if.end90
   br i1 %cmp116, label %if.then117, label %if.end120
 
 if.then117:                                       ; preds = %if.else111
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row1.0185, ptr nonnull align 8 %arrayidx24.i, i64 %conv104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row1.0185, ptr nonnull align 8 %arrayidx24.i, i64 %cond, i1 false)
   %.pre = load i32, ptr %ny50, align 4
   br label %if.end120
 
@@ -1943,7 +1943,7 @@ if.end120:                                        ; preds = %if.then117, %if.els
   br i1 %cmp123, label %if.then124, label %if.end128
 
 if.then124:                                       ; preds = %if.end120
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row2.0186, ptr nonnull align 16 %arrayidx41.i, i64 %conv104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row2.0186, ptr nonnull align 16 %arrayidx41.i, i64 %cond, i1 false)
   br label %if.end128
 
 if.end128:                                        ; preds = %if.end120, %if.then124, %if.then102

@@ -1466,14 +1466,14 @@ while.body.lr.ph:                                 ; preds = %if.end
   %intermediate_table20 = getelementptr inbounds i8, ptr %call, i64 32
   %count.i53 = getelementptr inbounds i8, ptr %call, i64 72
   %scan_state30 = getelementptr inbounds i8, ptr %call, i64 136
-  br label %while.body
+  br label %while.bodythread-pre-split
 
-while.body:                                       ; preds = %if.end31, %while.body.lr.ph
-  %2 = load i8, ptr %finished_scan5, align 1, !tbaa !125, !range !50, !noundef !51
-  %tobool6.not = icmp eq i8 %2, 0
-  br i1 %tobool6.not, label %if.then7, label %if.else16
+while.bodythread-pre-split:                       ; preds = %while.body.lr.ph, %if.end28
+  %.pr = load i8, ptr %finished_scan5, align 1, !tbaa !125
+  %2 = icmp eq i8 %.pr, 0
+  br i1 %2, label %if.then7, label %if.else16
 
-if.then7:                                         ; preds = %while.body
+if.then7:                                         ; preds = %while.bodythread-pre-split
   %call10 = tail call noundef zeroext i1 @_ZNK6duckdb20ColumnDataCollection4ScanERNS_19ColumnDataScanStateERNS_9DataChunkE(ptr noundef nonnull align 8 dereferenceable(97) %intermediate_table20, ptr noundef nonnull align 8 dereferenceable(128) %scan_state30, ptr noundef nonnull align 8 dereferenceable(64) %chunk)
   %3 = load i64, ptr %count.i, align 8, !tbaa !126
   %cmp12 = icmp eq i64 %3, 0
@@ -1481,9 +1481,9 @@ if.then7:                                         ; preds = %while.body
 
 if.then13:                                        ; preds = %if.then7
   store i8 1, ptr %finished_scan5, align 1, !tbaa !125
-  br label %if.end31
+  br label %if.else16
 
-if.else16:                                        ; preds = %while.body
+if.else16:                                        ; preds = %if.then13, %while.bodythread-pre-split
   %4 = load ptr, ptr %working_table, align 8, !tbaa !138
   tail call void @_ZN6duckdb20ColumnDataCollection5ResetEv(ptr noundef nonnull align 8 dereferenceable(97) %4)
   %5 = load ptr, ptr %working_table, align 8, !tbaa !138
@@ -1505,15 +1505,11 @@ if.then26:                                        ; preds = %if.else16
 if.end28:                                         ; preds = %if.else16
   tail call void @_ZNK6duckdb20ColumnDataCollection14InitializeScanERNS_19ColumnDataScanStateENS_24ColumnDataScanPropertiesE(ptr noundef nonnull align 8 dereferenceable(97) %intermediate_table20, ptr noundef nonnull align 8 dereferenceable(128) %scan_state30, i8 noundef zeroext 1)
   %.pre = load i64, ptr %count.i, align 8, !tbaa !126
-  br label %if.end31
+  %9 = icmp eq i64 %.pre, 0
+  br i1 %9, label %while.bodythread-pre-split, label %while.end, !llvm.loop !140
 
-if.end31:                                         ; preds = %if.end28, %if.then13
-  %9 = phi i64 [ %.pre, %if.end28 ], [ 0, %if.then13 ]
-  %cmp = icmp eq i64 %9, 0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !140
-
-while.end:                                        ; preds = %if.end31, %if.then7, %if.then26, %if.end
-  %cmp33 = phi i8 [ 0, %if.end ], [ %8, %if.then26 ], [ 0, %if.then7 ], [ 0, %if.end31 ]
+while.end:                                        ; preds = %if.end28, %if.then7, %if.then26, %if.end
+  %cmp33 = phi i8 [ 0, %if.end ], [ %8, %if.then26 ], [ 0, %if.then7 ], [ 0, %if.end28 ]
   ret i8 %cmp33
 }
 

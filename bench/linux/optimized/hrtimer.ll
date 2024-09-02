@@ -811,7 +811,7 @@ define internal fastcc void @hrtimer_reprogram(ptr noundef %0) unnamed_addr #5 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @hrtimer_try_to_cancel(ptr noundef %0) #5 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @hrtimer_try_to_cancel(ptr noundef %0) #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   br label %4
@@ -1077,7 +1077,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @remove_hrtimer(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, -2147483648) i32 @hrtimer_cancel(ptr noundef %0) #5 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @hrtimer_cancel(ptr noundef %0) #5 align 16 {
   %2 = tail call i32 @hrtimer_try_to_cancel(ptr noundef %0), !range !50
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %.preheader, label %.loopexit
@@ -2488,7 +2488,7 @@ declare dso_local i32 @put_old_timespec32(ptr noundef, ptr noundef) local_unname
 declare dso_local i32 @put_timespec64(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -2147483648, 2147483648) i64 @hrtimer_nanosleep(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i64 -516, 1) i64 @hrtimer_nanosleep(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 16 {
   %4 = alloca %struct.hrtimer_sleeper, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !annotation !7
@@ -2770,27 +2770,27 @@ hrtimer_try_to_cancel.exit:                       ; preds = %57
 hrtimer_try_to_cancel.exit.thread:                ; preds = %43, %hrtimer_try_to_cancel.exit.thread1, %21
   %124 = load ptr, ptr %9, align 8
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %.thread, label %126
+  br i1 %125, label %.critedge, label %126
 
 126:                                              ; preds = %hrtimer_try_to_cancel.exit.thread
   %127 = load volatile i64, ptr %5, align 8
   %128 = and i64 %127, 131072
   %129 = icmp eq i64 %128, 0
-  br i1 %129, label %130, label %.thread, !prof !19
+  br i1 %129, label %130, label %.critedge, !prof !19
 
 130:                                              ; preds = %126
   %131 = load volatile i64, ptr %5, align 8
   %132 = and i64 %131, 4
   %133 = icmp eq i64 %132, 0
-  br i1 %133, label %12, label %.thread, !llvm.loop !97
+  br i1 %133, label %12, label %.critedge, !llvm.loop !97
 
-.thread:                                          ; preds = %126, %130, %hrtimer_try_to_cancel.exit.thread
+.critedge:                                        ; preds = %126, %130, %hrtimer_try_to_cancel.exit.thread
   store volatile i32 0, ptr %6, align 8
   %134 = load ptr, ptr %9, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %168, label %136
 
-136:                                              ; preds = %.thread
+136:                                              ; preds = %.critedge
   %137 = getelementptr inbounds i8, ptr %5, i64 1284
   %138 = load i32, ptr %137, align 4
   %139 = icmp eq i32 %138, 0
@@ -2847,8 +2847,8 @@ hrtimer_try_to_cancel.exit.thread:                ; preds = %43, %hrtimer_try_to
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
   br label %168
 
-168:                                              ; preds = %166, %136, %.thread
-  %169 = phi i32 [ %167, %166 ], [ 0, %.thread ], [ -516, %136 ]
+168:                                              ; preds = %166, %136, %.critedge
+  %169 = phi i32 [ %167, %166 ], [ 0, %.critedge ], [ -516, %136 ]
   ret i32 %169
 }
 
@@ -2873,7 +2873,7 @@ define internal noundef range(i64 -516, 1) i64 @hrtimer_nanosleep_restart(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -2147483648, 2147483648) i64 @__x64_sys_nanosleep(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i64 -516, 1) i64 @__x64_sys_nanosleep(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2883,7 +2883,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @__x64_sys_nanos
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i64 -2147483648, 2147483648) i64 @__se_sys_nanosleep(i64 noundef %0, i64 noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc noundef range(i64 -516, 1) i64 @__se_sys_nanosleep(i64 noundef %0, i64 noundef %1) unnamed_addr #5 align 16 {
   %3 = alloca %struct.hrtimer_sleeper, align 8
   %4 = alloca %struct.timespec64, align 8
   %5 = inttoptr i64 %0 to ptr
@@ -2972,7 +2972,7 @@ define internal fastcc noundef range(i64 -2147483648, 2147483648) i64 @__se_sys_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -2147483648, 2147483648) i64 @__ia32_sys_nanosleep(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i64 -516, 1) i64 @__ia32_sys_nanosleep(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -2984,7 +2984,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @__ia32_sys_nano
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -2147483648, 2147483648) i64 @__x64_sys_nanosleep_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i64 -516, 1) i64 @__x64_sys_nanosleep_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -2994,7 +2994,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @__x64_sys_nanos
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i64 -2147483648, 2147483648) i64 @__se_sys_nanosleep_time32(i64 noundef %0, i64 noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc noundef range(i64 -516, 1) i64 @__se_sys_nanosleep_time32(i64 noundef %0, i64 noundef %1) unnamed_addr #5 align 16 {
   %3 = alloca %struct.hrtimer_sleeper, align 8
   %4 = alloca %struct.timespec64, align 8
   %5 = inttoptr i64 %0 to ptr
@@ -3083,7 +3083,7 @@ define internal fastcc noundef range(i64 -2147483648, 2147483648) i64 @__se_sys_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -2147483648, 2147483648) i64 @__ia32_sys_nanosleep_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local noundef range(i64 -516, 1) i64 @__ia32_sys_nanosleep_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295

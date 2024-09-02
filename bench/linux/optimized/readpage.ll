@@ -102,12 +102,12 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef %
   %47 = zext i32 %32 to i64
   br label %48
 
-48:                                               ; preds = %368, %28
-  %49 = phi i64 [ %47, %28 ], [ %372, %368 ]
-  %50 = phi i32 [ 0, %28 ], [ %371, %368 ]
-  %51 = phi i64 [ 0, %28 ], [ %370, %368 ]
-  %52 = phi ptr [ null, %28 ], [ %369, %368 ]
-  %53 = phi ptr [ %2, %28 ], [ %85, %368 ]
+48:                                               ; preds = %369, %28
+  %49 = phi i64 [ %47, %28 ], [ %373, %369 ]
+  %50 = phi i32 [ 0, %28 ], [ %372, %369 ]
+  %51 = phi i64 [ 0, %28 ], [ %371, %369 ]
+  %52 = phi ptr [ null, %28 ], [ %370, %369 ]
+  %53 = phi ptr [ %2, %28 ], [ %85, %369 ]
   br i1 %17, label %84, label %54
 
 54:                                               ; preds = %48
@@ -359,7 +359,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef %
 
 209:                                              ; preds = %205
   call void @folio_unlock(ptr noundef %85) #7
-  br label %368
+  br label %369
 
 210:                                              ; preds = %._crit_edge, %146
   %211 = phi i32 [ %.pre, %._crit_edge ], [ %147, %146 ]
@@ -524,129 +524,129 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef %
 
 312:                                              ; preds = %310
   call void @folio_end_read(ptr noundef %85, i1 noundef zeroext true) #7
-  br label %368
+  br label %369
 
 .loopexit123:                                     ; preds = %.loopexit122, %.thread119
-  %.ph = phi i32 [ %250, %.thread119 ], [ %232, %.loopexit122 ]
-  %313 = icmp eq i32 %149, 0
-  br i1 %313, label %.thread121, label %.thread35
+  %313 = phi i32 [ %250, %.thread119 ], [ %232, %.loopexit122 ]
+  %314 = icmp eq i32 %149, 0
+  br i1 %314, label %.thread121, label %.thread35
 
 .thread35:                                        ; preds = %125, %135, %.loopexit123
-  %314 = phi i32 [ %.ph, %.loopexit123 ], [ %139, %135 ], [ %11, %125 ]
-  %315 = getelementptr i8, ptr %85, i64 2
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %315, i32 2, ptr elementtype(i8) %315) #7, !srcloc !13
+  %315 = phi i32 [ %313, %.loopexit123 ], [ %139, %135 ], [ %11, %125 ]
+  %316 = getelementptr i8, ptr %85, i64 2
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %316, i32 2, ptr elementtype(i8) %316) #7, !srcloc !13
   br label %.thread121
 
 .thread121:                                       ; preds = %.loopexit, %.thread35, %.loopexit123, %310
-  %316 = phi i1 [ false, %.thread35 ], [ false, %.loopexit123 ], [ true, %310 ], [ false, %.loopexit ]
-  %317 = phi i32 [ %11, %.thread35 ], [ %11, %.loopexit123 ], [ %216, %310 ], [ %11, %.loopexit ]
-  %318 = phi i32 [ %314, %.thread35 ], [ %.ph, %.loopexit123 ], [ %143, %310 ], [ %143, %.loopexit ]
-  %319 = icmp eq ptr %52, null
-  br i1 %319, label %326, label %320
+  %317 = phi i1 [ false, %.thread35 ], [ false, %.loopexit123 ], [ true, %310 ], [ false, %.loopexit ]
+  %318 = phi i32 [ %11, %.thread35 ], [ %11, %.loopexit123 ], [ %216, %310 ], [ %11, %.loopexit ]
+  %319 = phi i32 [ %315, %.thread35 ], [ %313, %.loopexit123 ], [ %143, %310 ], [ %143, %.loopexit ]
+  %320 = icmp eq ptr %52, null
+  br i1 %320, label %327, label %321
 
-320:                                              ; preds = %.thread121
-  %321 = load i64, ptr %4, align 16
-  %322 = add i64 %321, -1
-  %323 = icmp eq i64 %51, %322
-  br i1 %323, label %326, label %324
+321:                                              ; preds = %.thread121
+  %322 = load i64, ptr %4, align 16
+  %323 = add i64 %322, -1
+  %324 = icmp eq i64 %51, %323
+  br i1 %324, label %327, label %325
 
-324:                                              ; preds = %342, %320
-  %325 = phi ptr [ %343, %342 ], [ %52, %320 ]
-  call void @submit_bio(ptr noundef %325) #7
-  br label %326
+325:                                              ; preds = %343, %321
+  %326 = phi ptr [ %344, %343 ], [ %52, %321 ]
+  call void @submit_bio(ptr noundef %326) #7
+  br label %327
 
-326:                                              ; preds = %324, %320, %.thread121
-  %327 = phi ptr [ null, %324 ], [ null, %.thread121 ], [ %52, %320 ]
-  %328 = icmp eq ptr %327, null
-  br i1 %328, label %329, label %342
+327:                                              ; preds = %325, %321, %.thread121
+  %328 = phi ptr [ null, %325 ], [ null, %.thread121 ], [ %52, %321 ]
+  %329 = icmp eq ptr %328, null
+  br i1 %329, label %330, label %343
 
-329:                                              ; preds = %326
-  %330 = trunc i64 %49 to i32
-  %331 = call noundef i32 @llvm.umin.i32(i32 %330, i32 256)
-  %332 = trunc nuw nsw i32 %331 to i16
-  %333 = call ptr @bio_alloc_bioset(ptr noundef %16, i16 noundef zeroext %332, i32 noundef 0, i32 noundef 3264, ptr noundef nonnull @fs_bio_set) #7
-  %334 = load i64, ptr %4, align 16
-  %335 = shl i64 %334, %43
-  %336 = getelementptr inbounds i8, ptr %333, i64 32
-  store i64 %335, ptr %336, align 8
-  %337 = getelementptr inbounds i8, ptr %333, i64 56
-  store ptr @mpage_end_io, ptr %337, align 8
-  br i1 %17, label %342, label %338
+330:                                              ; preds = %327
+  %331 = trunc i64 %49 to i32
+  %332 = call noundef i32 @llvm.umin.i32(i32 %331, i32 256)
+  %333 = trunc nuw nsw i32 %332 to i16
+  %334 = call ptr @bio_alloc_bioset(ptr noundef %16, i16 noundef zeroext %333, i32 noundef 0, i32 noundef 3264, ptr noundef nonnull @fs_bio_set) #7
+  %335 = load i64, ptr %4, align 16
+  %336 = shl i64 %335, %43
+  %337 = getelementptr inbounds i8, ptr %334, i64 32
+  store i64 %336, ptr %337, align 8
+  %338 = getelementptr inbounds i8, ptr %334, i64 56
+  store ptr @mpage_end_io, ptr %338, align 8
+  br i1 %17, label %343, label %339
 
-338:                                              ; preds = %329
-  %339 = getelementptr inbounds i8, ptr %333, i64 16
-  %340 = load i32, ptr %339, align 8
-  %341 = or i32 %340, 524288
-  store i32 %341, ptr %339, align 8
-  br label %342
+339:                                              ; preds = %330
+  %340 = getelementptr inbounds i8, ptr %334, i64 16
+  %341 = load i32, ptr %340, align 8
+  %342 = or i32 %341, 524288
+  store i32 %342, ptr %340, align 8
+  br label %343
 
-342:                                              ; preds = %338, %329, %326
-  %343 = phi ptr [ %333, %338 ], [ %333, %329 ], [ %327, %326 ]
-  %344 = shl i32 %317, %8
-  %345 = sext i32 %344 to i64
-  %346 = call zeroext i1 @bio_add_folio(ptr noundef %343, ptr noundef %85, i64 noundef %345, i64 noundef 0) #7
-  br i1 %346, label %347, label %324
+343:                                              ; preds = %339, %330, %327
+  %344 = phi ptr [ %334, %339 ], [ %334, %330 ], [ %328, %327 ]
+  %345 = shl i32 %318, %8
+  %346 = sext i32 %345 to i64
+  %347 = call zeroext i1 @bio_add_folio(ptr noundef %344, ptr noundef %85, i64 noundef %346, i64 noundef 0) #7
+  br i1 %347, label %348, label %325
 
-347:                                              ; preds = %342
-  %348 = load i32, ptr %29, align 8
-  %349 = and i32 %348, 512
-  %350 = icmp ne i32 %349, 0
-  %351 = load i32, ptr %30, align 4
-  %352 = icmp eq i32 %318, %351
-  %353 = select i1 %350, i1 %352, i1 false
-  %354 = or i1 %316, %353
-  br i1 %354, label %355, label %356
+348:                                              ; preds = %343
+  %349 = load i32, ptr %29, align 8
+  %350 = and i32 %349, 512
+  %351 = icmp ne i32 %350, 0
+  %352 = load i32, ptr %30, align 4
+  %353 = icmp eq i32 %319, %352
+  %354 = select i1 %351, i1 %353, i1 false
+  %355 = or i1 %317, %354
+  br i1 %355, label %356, label %357
 
-355:                                              ; preds = %347
-  call void @submit_bio(ptr noundef %343) #7
-  br label %368
+356:                                              ; preds = %348
+  call void @submit_bio(ptr noundef %344) #7
+  br label %369
 
-356:                                              ; preds = %347
-  %357 = load i64, ptr %46, align 8
-  br label %368
+357:                                              ; preds = %348
+  %358 = load i64, ptr %46, align 8
+  br label %369
 
 .loopexit37:                                      ; preds = %223, %220, %84
-  %358 = phi i32 [ %50, %84 ], [ %143, %220 ], [ %143, %223 ]
-  %359 = icmp eq ptr %52, null
-  br i1 %359, label %361, label %360
+  %359 = phi i32 [ %50, %84 ], [ %143, %220 ], [ %143, %223 ]
+  %360 = icmp eq ptr %52, null
+  br i1 %360, label %362, label %361
 
-360:                                              ; preds = %.loopexit37
+361:                                              ; preds = %.loopexit37
   call void @submit_bio(ptr noundef nonnull %52) #7
-  br label %361
+  br label %362
 
-361:                                              ; preds = %360, %.loopexit37
-  %362 = load volatile i64, ptr %85, align 8
-  %363 = and i64 %362, 8
-  %364 = icmp eq i64 %363, 0
-  br i1 %364, label %366, label %365
+362:                                              ; preds = %361, %.loopexit37
+  %363 = load volatile i64, ptr %85, align 8
+  %364 = and i64 %363, 8
+  %365 = icmp eq i64 %364, 0
+  br i1 %365, label %367, label %366
 
-365:                                              ; preds = %361
+366:                                              ; preds = %362
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !20
   call void @folio_unlock(ptr noundef %85) #7
-  br label %368
+  br label %369
 
-366:                                              ; preds = %361
-  %367 = call i32 @block_read_full_folio(ptr noundef %85, ptr noundef nonnull @ext4_get_block) #7
-  br label %368
+367:                                              ; preds = %362
+  %368 = call i32 @block_read_full_folio(ptr noundef %85, ptr noundef nonnull @ext4_get_block) #7
+  br label %369
 
-368:                                              ; preds = %366, %365, %356, %355, %312, %209
-  %369 = phi ptr [ %52, %312 ], [ null, %355 ], [ %343, %356 ], [ null, %365 ], [ null, %366 ], [ %52, %209 ]
-  %370 = phi i64 [ %51, %312 ], [ %51, %355 ], [ %357, %356 ], [ %51, %365 ], [ %51, %366 ], [ %51, %209 ]
-  %371 = phi i32 [ %143, %312 ], [ %318, %355 ], [ %318, %356 ], [ %358, %365 ], [ %358, %366 ], [ %143, %209 ]
-  %372 = add nsw i64 %49, -1
-  %373 = and i64 %372, 4294967295
-  %374 = icmp eq i64 %373, 0
-  br i1 %374, label %375, label %48, !llvm.loop !21
+369:                                              ; preds = %367, %366, %357, %356, %312, %209
+  %370 = phi ptr [ %52, %312 ], [ null, %356 ], [ %344, %357 ], [ null, %366 ], [ null, %367 ], [ %52, %209 ]
+  %371 = phi i64 [ %51, %312 ], [ %51, %356 ], [ %358, %357 ], [ %51, %366 ], [ %51, %367 ], [ %51, %209 ]
+  %372 = phi i32 [ %143, %312 ], [ %319, %356 ], [ %319, %357 ], [ %359, %366 ], [ %359, %367 ], [ %143, %209 ]
+  %373 = add nsw i64 %49, -1
+  %374 = and i64 %373, 4294967295
+  %375 = icmp eq i64 %374, 0
+  br i1 %375, label %376, label %48, !llvm.loop !21
 
-375:                                              ; preds = %368
-  %376 = icmp eq ptr %369, null
-  br i1 %376, label %.thread36, label %377
+376:                                              ; preds = %369
+  %377 = icmp eq ptr %370, null
+  br i1 %377, label %.thread36, label %378
 
-377:                                              ; preds = %375
-  call void @submit_bio(ptr noundef nonnull %369) #7
+378:                                              ; preds = %376
+  call void @submit_bio(ptr noundef nonnull %370) #7
   br label %.thread36
 
-.thread36:                                        ; preds = %21, %377, %375
+.thread36:                                        ; preds = %21, %378, %376
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
   ret i32 0

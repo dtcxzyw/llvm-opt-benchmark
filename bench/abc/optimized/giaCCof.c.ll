@@ -373,7 +373,7 @@ Vec_IntFill.exit:                                 ; preds = %22, %Vec_IntGrow.ex
 
 40:                                               ; preds = %Vec_IntFill.exit
   %41 = shl nsw i32 %36, 1
-  %42 = tail call noundef i32 @llvm.smin.i32(i32 %41, i32 536870912)
+  %42 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %41, i32 536870912)
   %43 = icmp eq i32 %36, 536870912
   br i1 %43, label %44, label %45
 

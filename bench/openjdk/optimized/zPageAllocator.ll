@@ -907,7 +907,7 @@ define hidden noundef i64 @_ZNK14ZPageAllocator15used_generationE13ZGenerationId
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i64 @_ZNK14ZPageAllocator6unusedEv(ptr noundef nonnull align 8 dereferenceable(609) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZNK14ZPageAllocator6unusedEv(ptr noundef nonnull align 8 dereferenceable(609) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 424
   %3 = load volatile i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 440

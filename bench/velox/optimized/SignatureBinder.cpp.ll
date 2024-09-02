@@ -921,11 +921,11 @@ land.rhs.i.i.i:                                   ; preds = %invoke.cont.i94
 
 if.end.i.i.i.i98:                                 ; preds = %land.rhs.i.i.i
   %bcmp.i.i.i = call i32 @bcmp(ptr %call2.i.i.i, ptr %call3.i.i.i, i64 %call4.i.i.i)
-  %70 = icmp ne i32 %bcmp.i.i.i, 0
+  %70 = icmp eq i32 %bcmp.i.i.i, 0
   br label %cleanup.action.i
 
 cleanup.action.i:                                 ; preds = %if.end.i.i.i.i98, %land.rhs.i.i.i, %invoke.cont.i94
-  %.ph.i = phi i1 [ false, %land.rhs.i.i.i ], [ %70, %if.end.i.i.i.i98 ], [ true, %invoke.cont.i94 ]
+  %.ph.i = phi i1 [ true, %land.rhs.i.i.i ], [ %70, %if.end.i.i.i.i98 ], [ false, %invoke.cont.i94 ]
   %71 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i3.i = icmp eq ptr %71, null
   br i1 %cmp.not.i.i.i3.i, label %invoke.cont119, label %if.then.i.i.i4.i
@@ -1006,7 +1006,7 @@ lpad.i93:                                         ; preds = %if.then.i.i.i.i92
 
 invoke.cont119:                                   ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %cleanup.action.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  br i1 %.ph.i, label %cleanup, label %invoke.cont119.if.end122_crit_edge
+  br i1 %.ph.i, label %invoke.cont119.if.end122_crit_edge, label %cleanup
 
 invoke.cont119.if.end122_crit_edge:               ; preds = %invoke.cont119
   %.pre125 = load ptr, ptr %parameters_.i68, align 8

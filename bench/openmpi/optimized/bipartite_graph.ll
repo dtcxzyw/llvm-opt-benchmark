@@ -1295,7 +1295,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph122, %pmix_po
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @prte_bp_graph_bipartite_to_flow(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -14, 1) i32 @prte_bp_graph_bipartite_to_flow(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = tail call i32 @prte_bp_graph_add_vertex(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %3)
@@ -1345,28 +1345,28 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %pmix_pointer_array_
   %20 = getelementptr inbounds i8, ptr %16, i64 552
   %21 = load volatile i64, ptr %20, align 8
   %22 = trunc i64 %21 to i32
+  %23 = icmp sgt i32 %22, 0
   br label %prte_bp_graph_indegree.exit
 
 prte_bp_graph_indegree.exit:                      ; preds = %pmix_pointer_array_get_item.exit.thread.i, %19
   %.pre-phi = phi i64 [ %.pre113, %pmix_pointer_array_get_item.exit.thread.i ], [ %13, %19 ]
-  %.0.i = phi i32 [ -13, %pmix_pointer_array_get_item.exit.thread.i ], [ %22, %19 ]
+  %.0.i = phi i1 [ false, %pmix_pointer_array_get_item.exit.thread.i ], [ %23, %19 ]
   %.not.i.i75 = icmp sgt i64 %.pre-phi, %indvars.iv
-  br i1 %.not.i.i75, label %23, label %prte_bp_graph_outdegree.exit
+  br i1 %.not.i.i75, label %24, label %prte_bp_graph_outdegree.exit
 
-23:                                               ; preds = %prte_bp_graph_indegree.exit
-  %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
-  %26 = load ptr, ptr %25, align 8
+24:                                               ; preds = %prte_bp_graph_indegree.exit
+  %25 = load ptr, ptr %10, align 8
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
+  %27 = load ptr, ptr %26, align 8
   br label %prte_bp_graph_outdegree.exit
 
-prte_bp_graph_outdegree.exit:                     ; preds = %prte_bp_graph_indegree.exit, %23
-  %.0.i.i = phi ptr [ %26, %23 ], [ null, %prte_bp_graph_indegree.exit ]
-  %27 = getelementptr inbounds i8, ptr %.0.i.i, i64 280
-  %28 = load volatile i64, ptr %27, align 8
-  %29 = trunc i64 %28 to i32
-  %30 = icmp sgt i32 %.0.i, 0
-  %31 = icmp sgt i32 %29, 0
-  %or.cond = select i1 %30, i1 %31, i1 false
+prte_bp_graph_outdegree.exit:                     ; preds = %prte_bp_graph_indegree.exit, %24
+  %.0.i.i = phi ptr [ %27, %24 ], [ null, %prte_bp_graph_indegree.exit ]
+  %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 280
+  %29 = load volatile i64, ptr %28, align 8
+  %30 = trunc i64 %29 to i32
+  %31 = icmp sgt i32 %30, 0
+  %or.cond = select i1 %.0.i, i1 %31, i1 false
   br i1 %or.cond, label %32, label %33
 
 32:                                               ; preds = %prte_bp_graph_outdegree.exit
@@ -1375,7 +1375,7 @@ prte_bp_graph_outdegree.exit:                     ; preds = %prte_bp_graph_indeg
   unreachable
 
 33:                                               ; preds = %prte_bp_graph_outdegree.exit
-  br i1 %30, label %34, label %39
+  br i1 %.0.i, label %34, label %39
 
 34:                                               ; preds = %33
   %35 = add nsw i32 %.05988, 1
@@ -1493,10 +1493,8 @@ define i32 @prte_bp_graph_solve_bipartite_assignment(ptr nocapture noundef reado
 9:                                                ; preds = %7
   %10 = load ptr, ptr %4, align 8
   %11 = call i32 @prte_bp_graph_bipartite_to_flow(ptr noundef %10)
-  switch i32 %11, label %12 [
-    i32 0, label %14
-    i32 -43, label %190
-  ]
+  %cond = icmp eq i32 %11, 0
+  br i1 %cond, label %14, label %12
 
 12:                                               ; preds = %9
   %13 = call ptr @prte_strerror(i32 noundef %11) #13
@@ -1956,8 +1954,8 @@ min_cost_flow_ssp.exit:                           ; preds = %14, %21
   %189 = call i32 @prte_bp_graph_free(ptr noundef %188)
   br label %190
 
-190:                                              ; preds = %min_cost_flow_ssp.exit, %12, %9, %3, %.loopexit
-  %.0 = phi i32 [ %.051, %.loopexit ], [ -5, %3 ], [ %11, %9 ], [ %11, %12 ], [ -2, %min_cost_flow_ssp.exit ]
+190:                                              ; preds = %min_cost_flow_ssp.exit, %12, %3, %.loopexit
+  %.0 = phi i32 [ %.051, %.loopexit ], [ -5, %3 ], [ %11, %12 ], [ -2, %min_cost_flow_ssp.exit ]
   ret i32 %.0
 }
 

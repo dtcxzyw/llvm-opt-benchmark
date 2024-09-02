@@ -615,14 +615,14 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   br label %70
 
 70:                                               ; preds = %66, %56
-  br i1 %.not81, label %397, label %71
+  br i1 %.not81, label %396, label %71
 
 71:                                               ; preds = %70
   %72 = load ptr, ptr %0, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 104
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i32 %74(ptr noundef nonnull %0, ptr noundef nonnull %51) #14
-  br label %397
+  br label %396
 
 76:                                               ; preds = %46
   %77 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #17
@@ -670,14 +670,14 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   br label %104
 
 104:                                              ; preds = %100, %90
-  br i1 %.not86, label %397, label %105
+  br i1 %.not86, label %396, label %105
 
 105:                                              ; preds = %104
   %106 = load ptr, ptr %0, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 104
   %108 = load ptr, ptr %107, align 8
   %109 = tail call i32 %108(ptr noundef nonnull %0, ptr noundef nonnull %85) #14
-  br label %397
+  br label %396
 
 110:                                              ; preds = %76
   %111 = load ptr, ptr %0, align 8
@@ -702,7 +702,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %121 = load ptr, ptr %22, align 8
   %122 = load i16, ptr %121, align 8
   %.not27.i = icmp eq i16 %122, 0
-  br i1 %.not27.i, label %.thread55.i, label %.lr.ph.i
+  br i1 %.not27.i, label %.thread51.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %123 = getelementptr inbounds i8, ptr %121, i64 8
@@ -738,87 +738,79 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %.08915.i = phi i64 [ 0, %._crit_edge.i ], [ %137, %133 ]
   %134 = getelementptr inbounds i64, ptr %124, i64 %indvars.iv33.i
   %135 = load i64, ptr %134, align 8
-  %.fr.i = freeze i64 %135
-  %136 = and i64 %.fr.i, %.091.i
+  %136 = and i64 %135, %.091.i
   %137 = or i64 %136, %.08915.i
-  %138 = and i64 %.fr.i, 1032
+  %138 = and i64 %135, 1032
   %139 = or i64 %138, %.08716.i
-  %140 = and i64 %.fr.i, 2064
+  %140 = and i64 %135, 2064
   %141 = or i64 %140, %.08617.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count.i
   br i1 %exitcond37.not.i, label %._crit_edge21.i, label %133, !llvm.loop !9
 
-.thread55.i:                                      ; preds = %.preheader.i
+.thread51.i:                                      ; preds = %.preheader.i
   %142 = call i32 @XFree(ptr noundef nonnull %121) #14
   br label %.thread.i
 
 ._crit_edge21.i:                                  ; preds = %133
-  %143 = call i32 @XFree(ptr noundef nonnull %121) #14
+  %143 = icmp eq i64 %139, 1032
+  %144 = icmp eq i64 %141, 2064
+  %145 = select i1 %144, i64 2064, i64 0
+  %146 = call i32 @XFree(ptr noundef nonnull %121) #14
   %.not104.i = icmp eq i64 %137, %.091.i
-  %.not105.i = icmp eq i64 %139, 1032
-  br i1 %.not104.i, label %147, label %144
-
-144:                                              ; preds = %._crit_edge21.i
-  br i1 %.not105.i, label %.thread.i, label %145
-
-145:                                              ; preds = %144
-  %146 = icmp eq i64 %141, 2064
-  %spec.select.i = select i1 %146, i64 2064, i64 0
-  br label %.thread.i
+  br i1 %.not104.i, label %148, label %147
 
 147:                                              ; preds = %._crit_edge21.i
-  br i1 %.not105.i, label %150, label %148
-
-148:                                              ; preds = %147
-  %149 = icmp eq i64 %141, 2064
-  %.112.i = select i1 %149, i64 2064, i64 0
+  %spec.select.i = select i1 %143, i64 1032, i64 %145
   br label %.thread.i
 
-150:                                              ; preds = %147
-  %151 = load ptr, ptr @X11im, align 8
-  %152 = call ptr (ptr, ...) @XCreateIC(ptr noundef %151, ptr noundef nonnull @.str.16, i64 noundef %2, ptr noundef nonnull @.str.6, i64 noundef %2, ptr noundef nonnull @.str.17, i64 noundef 1032, ptr noundef null) #14
-  %153 = getelementptr inbounds i8, ptr %77, i64 16
-  store ptr %152, ptr %153, align 8
-  %154 = call noalias dereferenceable_or_null(112) ptr @malloc(i64 noundef 112) #15
-  %155 = icmp eq ptr %154, null
-  br i1 %155, label %.thread99, label %156
+148:                                              ; preds = %._crit_edge21.i
+  br i1 %143, label %149, label %.thread.i
 
-156:                                              ; preds = %150
-  %157 = getelementptr inbounds i8, ptr %77, i64 24
-  store ptr %154, ptr %157, align 8
-  br label %158
+149:                                              ; preds = %148
+  %150 = load ptr, ptr @X11im, align 8
+  %151 = call ptr (ptr, ...) @XCreateIC(ptr noundef %150, ptr noundef nonnull @.str.16, i64 noundef %2, ptr noundef nonnull @.str.6, i64 noundef %2, ptr noundef nonnull @.str.17, i64 noundef 1032, ptr noundef null) #14
+  %152 = getelementptr inbounds i8, ptr %77, i64 16
+  store ptr %151, ptr %152, align 8
+  %153 = call noalias dereferenceable_or_null(112) ptr @malloc(i64 noundef 112) #15
+  %154 = icmp eq ptr %153, null
+  br i1 %154, label %.thread99, label %155
 
-158:                                              ; preds = %158, %156
-  %indvars.iv38.i = phi i64 [ 0, %156 ], [ %indvars.iv.next39.i, %158 ]
-  %.08525.i = phi ptr [ %154, %156 ], [ %162, %158 ]
+155:                                              ; preds = %149
+  %156 = getelementptr inbounds i8, ptr %77, i64 24
+  store ptr %153, ptr %156, align 8
+  br label %157
+
+157:                                              ; preds = %157, %155
+  %indvars.iv38.i = phi i64 [ 0, %155 ], [ %indvars.iv.next39.i, %157 ]
+  %.08525.i = phi ptr [ %153, %155 ], [ %161, %157 ]
   store ptr %114, ptr %.08525.i, align 8
-  %159 = getelementptr inbounds [7 x ptr], ptr @callback_funcs, i64 0, i64 %indvars.iv38.i
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %.08525.i, i64 8
-  store ptr %160, ptr %161, align 8
+  %158 = getelementptr inbounds [7 x ptr], ptr @callback_funcs, i64 0, i64 %indvars.iv38.i
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds i8, ptr %.08525.i, i64 8
+  store ptr %159, ptr %160, align 8
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %162 = getelementptr inbounds i8, ptr %.08525.i, i64 16
+  %161 = getelementptr inbounds i8, ptr %.08525.i, i64 16
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next39.i, 7
-  br i1 %exitcond41.not.i, label %163, label %158, !llvm.loop !10
+  br i1 %exitcond41.not.i, label %162, label %157, !llvm.loop !10
 
-163:                                              ; preds = %158
-  %164 = getelementptr inbounds i8, ptr %154, i64 16
-  %165 = getelementptr inbounds i8, ptr %154, i64 32
-  %166 = getelementptr inbounds i8, ptr %154, i64 48
-  %167 = call ptr (i32, ...) @XVaCreateNestedList(i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %154, ptr noundef nonnull @.str.19, ptr noundef nonnull %164, ptr noundef nonnull @.str.20, ptr noundef nonnull %165, ptr noundef nonnull @.str.21, ptr noundef nonnull %166, ptr noundef null) #14
-  %cond.i = icmp eq ptr %167, null
-  br i1 %cond.i, label %345, label %168
+162:                                              ; preds = %157
+  %163 = getelementptr inbounds i8, ptr %153, i64 16
+  %164 = getelementptr inbounds i8, ptr %153, i64 32
+  %165 = getelementptr inbounds i8, ptr %153, i64 48
+  %166 = call ptr (i32, ...) @XVaCreateNestedList(i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef nonnull %153, ptr noundef nonnull @.str.19, ptr noundef nonnull %163, ptr noundef nonnull @.str.20, ptr noundef nonnull %164, ptr noundef nonnull @.str.21, ptr noundef nonnull %165, ptr noundef null) #14
+  %cond.i = icmp eq ptr %166, null
+  br i1 %cond.i, label %344, label %167
 
-168:                                              ; preds = %163
-  %169 = getelementptr inbounds i8, ptr %154, i64 64
-  %170 = getelementptr inbounds i8, ptr %154, i64 80
-  %171 = getelementptr inbounds i8, ptr %154, i64 96
-  %172 = call ptr (i32, ...) @XVaCreateNestedList(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull %169, ptr noundef nonnull @.str.23, ptr noundef nonnull %170, ptr noundef nonnull @.str.24, ptr noundef nonnull %171, ptr noundef null) #14
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %343, label %174
+167:                                              ; preds = %162
+  %168 = getelementptr inbounds i8, ptr %153, i64 64
+  %169 = getelementptr inbounds i8, ptr %153, i64 80
+  %170 = getelementptr inbounds i8, ptr %153, i64 96
+  %171 = call ptr (i32, ...) @XVaCreateNestedList(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull %168, ptr noundef nonnull @.str.23, ptr noundef nonnull %169, ptr noundef nonnull @.str.24, ptr noundef nonnull %170, ptr noundef null) #14
+  %172 = icmp eq ptr %171, null
+  br i1 %172, label %342, label %173
 
-174:                                              ; preds = %168
+173:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -838,196 +830,196 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   store i32 0, ptr %10, align 4
-  %175 = load ptr, ptr @dpy, align 8
-  %176 = call i32 @XGetGeometry(ptr noundef %175, i64 noundef %2, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17) #14
-  %177 = getelementptr inbounds i8, ptr %4, i64 88
-  store i32 1, ptr %177, align 8
-  %178 = load i32, ptr @awt_numScreens, align 4
-  %179 = icmp sgt i32 %178, 0
-  br i1 %179, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %174 = load ptr, ptr @dpy, align 8
+  %175 = call i32 @XGetGeometry(ptr noundef %174, i64 noundef %2, ptr noundef nonnull %19, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17) #14
+  %176 = getelementptr inbounds i8, ptr %4, i64 88
+  store i32 1, ptr %176, align 8
+  %177 = load i32, ptr @awt_numScreens, align 4
+  %178 = icmp sgt i32 %177, 0
+  br i1 %178, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %174
-  %180 = load ptr, ptr @dpy, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 232
-  %182 = load ptr, ptr %181, align 8
-  %183 = load i64, ptr %19, align 8
-  %wide.trip.count.i.i = zext nneg i32 %178 to i64
-  br label %184
+.lr.ph.i.i:                                       ; preds = %173
+  %179 = load ptr, ptr @dpy, align 8
+  %180 = getelementptr inbounds i8, ptr %179, i64 232
+  %181 = load ptr, ptr %180, align 8
+  %182 = load i64, ptr %19, align 8
+  %wide.trip.count.i.i = zext nneg i32 %177 to i64
+  br label %183
 
-184:                                              ; preds = %188, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %188 ]
-  %185 = getelementptr inbounds %struct.Screen, ptr %182, i64 %indvars.iv.i.i, i32 2
-  %186 = load i64, ptr %185, align 8
-  %187 = icmp eq i64 %186, %183
-  br i1 %187, label %._crit_edge.loopexit.split.loop.exit.i.i, label %188
+183:                                              ; preds = %187, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %187 ]
+  %184 = getelementptr inbounds %struct.Screen, ptr %181, i64 %indvars.iv.i.i, i32 2
+  %185 = load i64, ptr %184, align 8
+  %186 = icmp eq i64 %185, %182
+  br i1 %186, label %._crit_edge.loopexit.split.loop.exit.i.i, label %187
 
-188:                                              ; preds = %184
+187:                                              ; preds = %183
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %184, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %183, !llvm.loop !11
 
-._crit_edge.loopexit.split.loop.exit.i.i:         ; preds = %184
-  %189 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+._crit_edge.loopexit.split.loop.exit.i.i:         ; preds = %183
+  %188 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %188, %._crit_edge.loopexit.split.loop.exit.i.i, %174
-  %.080.i.i = phi i32 [ 0, %174 ], [ %189, %._crit_edge.loopexit.split.loop.exit.i.i ], [ 0, %188 ]
-  %190 = call ptr @getDefaultConfig(i32 noundef %.080.i.i) #14
-  %191 = getelementptr inbounds i8, ptr %190, i64 96
-  %192 = load ptr, ptr %191, align 8
-  %193 = call i32 %192(i32 noundef 255, i32 noundef 255, i32 noundef 255, ptr noundef %190) #14
-  %194 = sext i32 %193 to i64
-  %195 = load ptr, ptr %191, align 8
-  %196 = call i32 %195(i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %190) #14
-  %197 = sext i32 %196 to i64
-  %198 = load ptr, ptr %191, align 8
-  %199 = call i32 %198(i32 noundef 195, i32 noundef 195, i32 noundef 195, ptr noundef %190) #14
-  %200 = sext i32 %199 to i64
-  %201 = load ptr, ptr %191, align 8
-  %202 = call i32 %201(i32 noundef 128, i32 noundef 128, i32 noundef 128, ptr noundef %190) #14
-  %203 = sext i32 %202 to i64
-  %204 = load ptr, ptr @dpy, align 8
-  %205 = call i32 @XGetWindowAttributes(ptr noundef %204, i64 noundef %2, ptr noundef nonnull %7) #14
+._crit_edge.i.i:                                  ; preds = %187, %._crit_edge.loopexit.split.loop.exit.i.i, %173
+  %.080.i.i = phi i32 [ 0, %173 ], [ %188, %._crit_edge.loopexit.split.loop.exit.i.i ], [ 0, %187 ]
+  %189 = call ptr @getDefaultConfig(i32 noundef %.080.i.i) #14
+  %190 = getelementptr inbounds i8, ptr %189, i64 96
+  %191 = load ptr, ptr %190, align 8
+  %192 = call i32 %191(i32 noundef 255, i32 noundef 255, i32 noundef 255, ptr noundef %189) #14
+  %193 = sext i32 %192 to i64
+  %194 = load ptr, ptr %190, align 8
+  %195 = call i32 %194(i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %189) #14
+  %196 = sext i32 %195 to i64
+  %197 = load ptr, ptr %190, align 8
+  %198 = call i32 %197(i32 noundef 195, i32 noundef 195, i32 noundef 195, ptr noundef %189) #14
+  %199 = sext i32 %198 to i64
+  %200 = load ptr, ptr %190, align 8
+  %201 = call i32 %200(i32 noundef 128, i32 noundef 128, i32 noundef 128, ptr noundef %189) #14
+  %202 = sext i32 %201 to i64
+  %203 = load ptr, ptr @dpy, align 8
+  %204 = call i32 @XGetWindowAttributes(ptr noundef %203, i64 noundef %2, ptr noundef nonnull %7) #14
   store i32 2, ptr %16, align 4
-  %206 = load ptr, ptr @dpy, align 8
-  %207 = call i32 @XQueryTree(ptr noundef %206, i64 noundef %2, ptr noundef nonnull %19, ptr noundef nonnull %5, ptr noundef nonnull %20, ptr noundef nonnull %21) #14
-  %208 = load ptr, ptr @dpy, align 8
-  %209 = load i64, ptr %5, align 8
-  %210 = call i32 @XGetWindowAttributes(ptr noundef %208, i64 noundef %209, ptr noundef nonnull %8) #14
-  %211 = getelementptr inbounds i8, ptr %8, i64 8
-  %212 = load i32, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %7, i64 8
-  %214 = load i32, ptr %213, align 8
-  %215 = sub nsw i32 %212, %214
-  %216 = sdiv i32 %215, 2
-  %217 = getelementptr inbounds i8, ptr %8, i64 12
-  %218 = load i32, ptr %217, align 4
-  %219 = getelementptr inbounds i8, ptr %7, i64 12
-  %220 = load i32, ptr %219, align 4
-  %221 = add i32 %216, %220
-  %222 = sub i32 %218, %221
-  %223 = load ptr, ptr @dpy, align 8
-  %224 = load i64, ptr %19, align 8
-  %225 = call i32 @XGetWindowAttributes(ptr noundef %223, i64 noundef %224, ptr noundef nonnull %8) #14
-  %226 = load ptr, ptr @dpy, align 8
-  %227 = getelementptr inbounds i8, ptr %7, i64 32
-  %228 = load i64, ptr %227, align 8
-  %229 = load i32, ptr %7, align 8
-  %230 = getelementptr inbounds i8, ptr %7, i64 4
-  %231 = load i32, ptr %230, align 4
-  %232 = call i32 @XTranslateCoordinates(ptr noundef %226, i64 noundef %2, i64 noundef %228, i32 noundef %229, i32 noundef %231, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %6) #14
-  %233 = load i32, ptr %12, align 4
-  %234 = sub nsw i32 %233, %216
-  %235 = load i32, ptr %13, align 4
-  %236 = load i32, ptr %219, align 4
-  %237 = sub i32 %235, %222
-  %238 = add i32 %237, %236
-  %spec.store.select.i.i = call i32 @llvm.smax.i32(i32 %234, i32 0)
-  %239 = add nuw nsw i32 %spec.store.select.i.i, 80
-  %240 = load i32, ptr %211, align 8
-  %241 = icmp sgt i32 %239, %240
-  %242 = add nsw i32 %240, -80
-  %spec.select.i.i = select i1 %241, i32 %242, i32 %spec.store.select.i.i
-  %243 = add nsw i32 %238, 22
-  %244 = load i32, ptr %217, align 4
-  %245 = icmp sgt i32 %243, %244
-  %246 = add nsw i32 %244, -22
-  %.078.i.i = select i1 %245, i32 %246, i32 %238
-  %247 = load ptr, ptr @dpy, align 8
-  %248 = load i64, ptr %227, align 8
-  %249 = getelementptr inbounds i8, ptr %7, i64 20
-  %250 = load i32, ptr %249, align 4
-  %251 = getelementptr inbounds i8, ptr %190, i64 16
-  %252 = load ptr, ptr %251, align 8
-  %253 = call i64 @XCreateWindow(ptr noundef %247, i64 noundef %248, i32 noundef %spec.select.i.i, i32 noundef %.078.i.i, i32 noundef 80, i32 noundef 22, i32 noundef 0, i32 noundef %250, i32 noundef 1, ptr noundef %252, i64 noundef 512, ptr noundef nonnull %4) #14
-  %254 = load ptr, ptr @dpy, align 8
-  %255 = call i32 @XSelectInput(ptr noundef %254, i64 noundef %253, i64 noundef 229424) #14
-  %256 = call noalias dereferenceable_or_null(216) ptr @calloc(i64 noundef 1, i64 noundef 216) #17
-  %257 = icmp eq ptr %256, null
-  br i1 %257, label %258, label %261
+  %205 = load ptr, ptr @dpy, align 8
+  %206 = call i32 @XQueryTree(ptr noundef %205, i64 noundef %2, ptr noundef nonnull %19, ptr noundef nonnull %5, ptr noundef nonnull %20, ptr noundef nonnull %21) #14
+  %207 = load ptr, ptr @dpy, align 8
+  %208 = load i64, ptr %5, align 8
+  %209 = call i32 @XGetWindowAttributes(ptr noundef %207, i64 noundef %208, ptr noundef nonnull %8) #14
+  %210 = getelementptr inbounds i8, ptr %8, i64 8
+  %211 = load i32, ptr %210, align 8
+  %212 = getelementptr inbounds i8, ptr %7, i64 8
+  %213 = load i32, ptr %212, align 8
+  %214 = sub nsw i32 %211, %213
+  %215 = sdiv i32 %214, 2
+  %216 = getelementptr inbounds i8, ptr %8, i64 12
+  %217 = load i32, ptr %216, align 4
+  %218 = getelementptr inbounds i8, ptr %7, i64 12
+  %219 = load i32, ptr %218, align 4
+  %220 = add i32 %215, %219
+  %221 = sub i32 %217, %220
+  %222 = load ptr, ptr @dpy, align 8
+  %223 = load i64, ptr %19, align 8
+  %224 = call i32 @XGetWindowAttributes(ptr noundef %222, i64 noundef %223, ptr noundef nonnull %8) #14
+  %225 = load ptr, ptr @dpy, align 8
+  %226 = getelementptr inbounds i8, ptr %7, i64 32
+  %227 = load i64, ptr %226, align 8
+  %228 = load i32, ptr %7, align 8
+  %229 = getelementptr inbounds i8, ptr %7, i64 4
+  %230 = load i32, ptr %229, align 4
+  %231 = call i32 @XTranslateCoordinates(ptr noundef %225, i64 noundef %2, i64 noundef %227, i32 noundef %228, i32 noundef %230, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %6) #14
+  %232 = load i32, ptr %12, align 4
+  %233 = sub nsw i32 %232, %215
+  %234 = load i32, ptr %13, align 4
+  %235 = load i32, ptr %218, align 4
+  %236 = sub i32 %234, %221
+  %237 = add i32 %236, %235
+  %spec.store.select.i.i = call i32 @llvm.smax.i32(i32 %233, i32 0)
+  %238 = add nuw nsw i32 %spec.store.select.i.i, 80
+  %239 = load i32, ptr %210, align 8
+  %240 = icmp sgt i32 %238, %239
+  %241 = add nsw i32 %239, -80
+  %spec.select.i.i = select i1 %240, i32 %241, i32 %spec.store.select.i.i
+  %242 = add nsw i32 %237, 22
+  %243 = load i32, ptr %216, align 4
+  %244 = icmp sgt i32 %242, %243
+  %245 = add nsw i32 %243, -22
+  %.078.i.i = select i1 %244, i32 %245, i32 %237
+  %246 = load ptr, ptr @dpy, align 8
+  %247 = load i64, ptr %226, align 8
+  %248 = getelementptr inbounds i8, ptr %7, i64 20
+  %249 = load i32, ptr %248, align 4
+  %250 = getelementptr inbounds i8, ptr %189, i64 16
+  %251 = load ptr, ptr %250, align 8
+  %252 = call i64 @XCreateWindow(ptr noundef %246, i64 noundef %247, i32 noundef %spec.select.i.i, i32 noundef %.078.i.i, i32 noundef 80, i32 noundef 22, i32 noundef 0, i32 noundef %249, i32 noundef 1, ptr noundef %251, i64 noundef 512, ptr noundef nonnull %4) #14
+  %253 = load ptr, ptr @dpy, align 8
+  %254 = call i32 @XSelectInput(ptr noundef %253, i64 noundef %252, i64 noundef 229424) #14
+  %255 = call noalias dereferenceable_or_null(216) ptr @calloc(i64 noundef 1, i64 noundef 216) #17
+  %256 = icmp eq ptr %255, null
+  br i1 %256, label %257, label %260
 
-258:                                              ; preds = %._crit_edge.i.i
-  %259 = load ptr, ptr @jvm, align 8
-  %260 = call ptr @JNU_GetEnv(ptr noundef %259, i32 noundef 65538) #14
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef %260, ptr noundef null) #14
+257:                                              ; preds = %._crit_edge.i.i
+  %258 = load ptr, ptr @jvm, align 8
+  %259 = call ptr @JNU_GetEnv(ptr noundef %258, i32 noundef 65538) #14
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef %259, ptr noundef null) #14
   br label %createStatusWindow.exit.i
 
-261:                                              ; preds = %._crit_edge.i.i
-  store i64 %253, ptr %256, align 8
-  %262 = load ptr, ptr @dpy, align 8
-  %263 = call ptr @XCreateFontSet(ptr noundef %262, ptr noundef nonnull @.str.30, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #14
-  %264 = getelementptr inbounds i8, ptr %256, i64 192
-  store ptr %263, ptr %264, align 8
-  %265 = load i32, ptr %10, align 4
-  %266 = icmp sgt i32 %265, 0
-  br i1 %266, label %267, label %269
+260:                                              ; preds = %._crit_edge.i.i
+  store i64 %252, ptr %255, align 8
+  %261 = load ptr, ptr @dpy, align 8
+  %262 = call ptr @XCreateFontSet(ptr noundef %261, ptr noundef nonnull @.str.30, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #14
+  %263 = getelementptr inbounds i8, ptr %255, i64 192
+  store ptr %262, ptr %263, align 8
+  %264 = load i32, ptr %10, align 4
+  %265 = icmp sgt i32 %264, 0
+  br i1 %265, label %266, label %268
 
-267:                                              ; preds = %261
-  %268 = load ptr, ptr %9, align 8
-  call void @XFreeStringList(ptr noundef %268) #14
-  br label %269
+266:                                              ; preds = %260
+  %267 = load ptr, ptr %9, align 8
+  call void @XFreeStringList(ptr noundef %267) #14
+  br label %268
 
-269:                                              ; preds = %267, %261
-  %270 = getelementptr inbounds i8, ptr %256, i64 16
-  store i64 %2, ptr %270, align 8
-  %271 = getelementptr inbounds i8, ptr %256, i64 208
-  store i32 0, ptr %271, align 8
-  %272 = load i32, ptr %12, align 4
-  %273 = getelementptr inbounds i8, ptr %256, i64 24
-  store i32 %272, ptr %273, align 8
-  %274 = load i32, ptr %13, align 4
-  %275 = getelementptr inbounds i8, ptr %256, i64 28
-  store i32 %274, ptr %275, align 4
-  %276 = load i32, ptr %213, align 8
-  %277 = getelementptr inbounds i8, ptr %256, i64 32
-  store i32 %276, ptr %277, align 8
-  %278 = load i32, ptr %219, align 4
-  %279 = getelementptr inbounds i8, ptr %256, i64 36
-  store i32 %278, ptr %279, align 4
-  %280 = getelementptr inbounds i8, ptr %256, i64 200
-  store i32 %216, ptr %280, align 8
-  %281 = getelementptr inbounds i8, ptr %256, i64 204
-  store i32 %222, ptr %281, align 4
-  %282 = load i32, ptr %16, align 4
-  %283 = getelementptr inbounds i8, ptr %256, i64 88
-  store i32 %282, ptr %283, align 8
-  %284 = getelementptr inbounds i8, ptr %256, i64 76
-  store i32 22, ptr %284, align 4
-  %285 = getelementptr inbounds i8, ptr %256, i64 72
-  store i32 80, ptr %285, align 8
-  %286 = load i32, ptr %217, align 4
-  %287 = getelementptr inbounds i8, ptr %256, i64 84
-  store i32 %286, ptr %287, align 4
-  %288 = load i32, ptr %211, align 8
-  %289 = getelementptr inbounds i8, ptr %256, i64 80
-  store i32 %288, ptr %289, align 8
-  %290 = load ptr, ptr @dpy, align 8
-  %291 = call ptr @XCreateGC(ptr noundef %290, i64 noundef %253, i64 noundef 0, ptr noundef nonnull %18) #14
-  %292 = getelementptr inbounds i8, ptr %256, i64 40
-  store ptr %291, ptr %292, align 8
-  %293 = load ptr, ptr @dpy, align 8
-  %294 = call i32 @XSetForeground(ptr noundef %293, ptr noundef %291, i64 noundef %200) #14
-  %295 = load ptr, ptr @dpy, align 8
-  %296 = call ptr @XCreateGC(ptr noundef %295, i64 noundef %253, i64 noundef 0, ptr noundef nonnull %18) #14
-  %297 = getelementptr inbounds i8, ptr %256, i64 48
-  store ptr %296, ptr %297, align 8
-  %298 = load ptr, ptr @dpy, align 8
-  %299 = call i32 @XSetForeground(ptr noundef %298, ptr noundef %296, i64 noundef %203) #14
-  %300 = load ptr, ptr @dpy, align 8
-  %301 = call ptr @XCreateGC(ptr noundef %300, i64 noundef %253, i64 noundef 0, ptr noundef nonnull %18) #14
-  %302 = getelementptr inbounds i8, ptr %256, i64 64
-  store ptr %301, ptr %302, align 8
-  %303 = load ptr, ptr @dpy, align 8
-  %304 = call i32 @XSetForeground(ptr noundef %303, ptr noundef %301, i64 noundef %197) #14
-  %305 = load ptr, ptr @dpy, align 8
-  %306 = call ptr @XCreateGC(ptr noundef %305, i64 noundef %253, i64 noundef 0, ptr noundef nonnull %18) #14
-  %307 = getelementptr inbounds i8, ptr %256, i64 56
-  store ptr %306, ptr %307, align 8
-  %308 = load ptr, ptr @dpy, align 8
-  %309 = call i32 @XSetForeground(ptr noundef %308, ptr noundef %306, i64 noundef %194) #14
+268:                                              ; preds = %266, %260
+  %269 = getelementptr inbounds i8, ptr %255, i64 16
+  store i64 %2, ptr %269, align 8
+  %270 = getelementptr inbounds i8, ptr %255, i64 208
+  store i32 0, ptr %270, align 8
+  %271 = load i32, ptr %12, align 4
+  %272 = getelementptr inbounds i8, ptr %255, i64 24
+  store i32 %271, ptr %272, align 8
+  %273 = load i32, ptr %13, align 4
+  %274 = getelementptr inbounds i8, ptr %255, i64 28
+  store i32 %273, ptr %274, align 4
+  %275 = load i32, ptr %212, align 8
+  %276 = getelementptr inbounds i8, ptr %255, i64 32
+  store i32 %275, ptr %276, align 8
+  %277 = load i32, ptr %218, align 4
+  %278 = getelementptr inbounds i8, ptr %255, i64 36
+  store i32 %277, ptr %278, align 4
+  %279 = getelementptr inbounds i8, ptr %255, i64 200
+  store i32 %215, ptr %279, align 8
+  %280 = getelementptr inbounds i8, ptr %255, i64 204
+  store i32 %221, ptr %280, align 4
+  %281 = load i32, ptr %16, align 4
+  %282 = getelementptr inbounds i8, ptr %255, i64 88
+  store i32 %281, ptr %282, align 8
+  %283 = getelementptr inbounds i8, ptr %255, i64 76
+  store i32 22, ptr %283, align 4
+  %284 = getelementptr inbounds i8, ptr %255, i64 72
+  store i32 80, ptr %284, align 8
+  %285 = load i32, ptr %216, align 4
+  %286 = getelementptr inbounds i8, ptr %255, i64 84
+  store i32 %285, ptr %286, align 4
+  %287 = load i32, ptr %210, align 8
+  %288 = getelementptr inbounds i8, ptr %255, i64 80
+  store i32 %287, ptr %288, align 8
+  %289 = load ptr, ptr @dpy, align 8
+  %290 = call ptr @XCreateGC(ptr noundef %289, i64 noundef %252, i64 noundef 0, ptr noundef nonnull %18) #14
+  %291 = getelementptr inbounds i8, ptr %255, i64 40
+  store ptr %290, ptr %291, align 8
+  %292 = load ptr, ptr @dpy, align 8
+  %293 = call i32 @XSetForeground(ptr noundef %292, ptr noundef %290, i64 noundef %199) #14
+  %294 = load ptr, ptr @dpy, align 8
+  %295 = call ptr @XCreateGC(ptr noundef %294, i64 noundef %252, i64 noundef 0, ptr noundef nonnull %18) #14
+  %296 = getelementptr inbounds i8, ptr %255, i64 48
+  store ptr %295, ptr %296, align 8
+  %297 = load ptr, ptr @dpy, align 8
+  %298 = call i32 @XSetForeground(ptr noundef %297, ptr noundef %295, i64 noundef %202) #14
+  %299 = load ptr, ptr @dpy, align 8
+  %300 = call ptr @XCreateGC(ptr noundef %299, i64 noundef %252, i64 noundef 0, ptr noundef nonnull %18) #14
+  %301 = getelementptr inbounds i8, ptr %255, i64 64
+  store ptr %300, ptr %301, align 8
+  %302 = load ptr, ptr @dpy, align 8
+  %303 = call i32 @XSetForeground(ptr noundef %302, ptr noundef %300, i64 noundef %196) #14
+  %304 = load ptr, ptr @dpy, align 8
+  %305 = call ptr @XCreateGC(ptr noundef %304, i64 noundef %252, i64 noundef 0, ptr noundef nonnull %18) #14
+  %306 = getelementptr inbounds i8, ptr %255, i64 56
+  store ptr %305, ptr %306, align 8
+  %307 = load ptr, ptr @dpy, align 8
+  %308 = call i32 @XSetForeground(ptr noundef %307, ptr noundef %305, i64 noundef %193) #14
   br label %createStatusWindow.exit.i
 
-createStatusWindow.exit.i:                        ; preds = %269, %258
+createStatusWindow.exit.i:                        ; preds = %268, %257
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -1046,208 +1038,208 @@ createStatusWindow.exit.i:                        ; preds = %269, %258
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  store ptr %256, ptr %116, align 8
-  %310 = load ptr, ptr @X11im, align 8
-  %311 = call ptr (ptr, ...) @XCreateIC(ptr noundef %310, ptr noundef nonnull @.str.16, i64 noundef %2, ptr noundef nonnull @.str.6, i64 noundef %2, ptr noundef nonnull @.str.17, i64 noundef %.091.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %167, ptr noundef nonnull @.str.25, ptr noundef nonnull %172, ptr noundef null) #14
-  %312 = getelementptr inbounds i8, ptr %77, i64 8
-  store ptr %311, ptr %312, align 8
-  %313 = call i32 @XFree(ptr noundef nonnull %172) #14
-  %314 = call i32 @XFree(ptr noundef nonnull %167) #14
-  br label %319
+  store ptr %255, ptr %116, align 8
+  %309 = load ptr, ptr @X11im, align 8
+  %310 = call ptr (ptr, ...) @XCreateIC(ptr noundef %309, ptr noundef nonnull @.str.16, i64 noundef %2, ptr noundef nonnull @.str.6, i64 noundef %2, ptr noundef nonnull @.str.17, i64 noundef %.091.i, ptr noundef nonnull @.str.8, ptr noundef nonnull %166, ptr noundef nonnull @.str.25, ptr noundef nonnull %171, ptr noundef null) #14
+  %311 = getelementptr inbounds i8, ptr %77, i64 8
+  store ptr %310, ptr %311, align 8
+  %312 = call i32 @XFree(ptr noundef nonnull %171) #14
+  %313 = call i32 @XFree(ptr noundef nonnull %166) #14
+  br label %318
 
-.thread.i:                                        ; preds = %148, %145, %144, %.thread55.i
-  %.1903.i = phi i64 [ %.112.i, %148 ], [ 1032, %144 ], [ 0, %.thread55.i ], [ %spec.select.i, %145 ]
-  %315 = load ptr, ptr @X11im, align 8
-  %316 = call ptr (ptr, ...) @XCreateIC(ptr noundef %315, ptr noundef nonnull @.str.16, i64 noundef %2, ptr noundef nonnull @.str.6, i64 noundef %2, ptr noundef nonnull @.str.17, i64 noundef %.1903.i, ptr noundef null) #14
-  %317 = getelementptr inbounds i8, ptr %77, i64 8
-  store ptr %316, ptr %317, align 8
-  %318 = getelementptr inbounds i8, ptr %77, i64 16
-  store ptr %316, ptr %318, align 8
-  br label %319
+.thread.i:                                        ; preds = %148, %147, %.thread51.i
+  %.1903.i = phi i64 [ 0, %.thread51.i ], [ %145, %148 ], [ %spec.select.i, %147 ]
+  %314 = load ptr, ptr @X11im, align 8
+  %315 = call ptr (ptr, ...) @XCreateIC(ptr noundef %314, ptr noundef nonnull @.str.16, i64 noundef %2, ptr noundef nonnull @.str.6, i64 noundef %2, ptr noundef nonnull @.str.17, i64 noundef %.1903.i, ptr noundef null) #14
+  %316 = getelementptr inbounds i8, ptr %77, i64 8
+  store ptr %315, ptr %316, align 8
+  %317 = getelementptr inbounds i8, ptr %77, i64 16
+  store ptr %315, ptr %317, align 8
+  br label %318
 
-319:                                              ; preds = %.thread.i, %createStatusWindow.exit.i
-  %320 = phi ptr [ %316, %.thread.i ], [ %152, %createStatusWindow.exit.i ]
-  %321 = phi ptr [ %316, %.thread.i ], [ %311, %createStatusWindow.exit.i ]
-  %322 = icmp eq ptr %321, null
-  br i1 %322, label %.thread99, label %323
+318:                                              ; preds = %.thread.i, %createStatusWindow.exit.i
+  %319 = phi ptr [ %315, %.thread.i ], [ %151, %createStatusWindow.exit.i ]
+  %320 = phi ptr [ %315, %.thread.i ], [ %310, %createStatusWindow.exit.i ]
+  %321 = icmp eq ptr %320, null
+  br i1 %321, label %.thread99, label %322
 
-323:                                              ; preds = %319
-  %324 = icmp eq ptr %320, null
-  br i1 %324, label %348, label %325
+322:                                              ; preds = %318
+  %323 = icmp eq ptr %319, null
+  br i1 %323, label %347, label %324
 
-325:                                              ; preds = %323
+324:                                              ; preds = %322
   store ptr %114, ptr %23, align 8
-  %326 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr @CommitStringCallback, ptr %326, align 8
-  %327 = call ptr (ptr, ...) @XSetICValues(ptr noundef nonnull %321, ptr noundef nonnull @.str.26, ptr noundef nonnull %23, ptr noundef null) #14
-  %.not106.i = icmp eq ptr %321, %320
-  br i1 %.not106.i, label %.thread, label %328
+  %325 = getelementptr inbounds i8, ptr %23, i64 8
+  store ptr @CommitStringCallback, ptr %325, align 8
+  %326 = call ptr (ptr, ...) @XSetICValues(ptr noundef nonnull %320, ptr noundef nonnull @.str.26, ptr noundef nonnull %23, ptr noundef null) #14
+  %.not106.i = icmp eq ptr %320, %319
+  br i1 %.not106.i, label %.thread, label %327
 
-328:                                              ; preds = %325
-  %329 = call ptr (ptr, ...) @XSetICValues(ptr noundef nonnull %320, ptr noundef nonnull @.str.26, ptr noundef nonnull %23, ptr noundef null) #14
-  %330 = call ptr (ptr, ...) @XSetICValues(ptr noundef nonnull %321, ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef null) #14
+327:                                              ; preds = %324
+  %328 = call ptr (ptr, ...) @XSetICValues(ptr noundef nonnull %319, ptr noundef nonnull @.str.26, ptr noundef nonnull %23, ptr noundef null) #14
+  %329 = call ptr (ptr, ...) @XSetICValues(ptr noundef nonnull %320, ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef null) #14
   br label %.thread
 
-.thread:                                          ; preds = %325, %328
-  %.sink = phi ptr [ %320, %328 ], [ %321, %325 ]
-  %331 = call ptr (ptr, ...) @XSetICValues(ptr noundef nonnull %.sink, ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef null) #14
-  %332 = icmp eq ptr %114, null
-  br i1 %332, label %setXICFocus.exit.i, label %333
+.thread:                                          ; preds = %324, %327
+  %.sink = phi ptr [ %319, %327 ], [ %320, %324 ]
+  %330 = call ptr (ptr, ...) @XSetICValues(ptr noundef nonnull %.sink, ptr noundef nonnull @.str.27, i64 noundef 1, ptr noundef null) #14
+  %331 = icmp eq ptr %114, null
+  br i1 %331, label %setXICFocus.exit.i, label %332
 
-333:                                              ; preds = %.thread
+332:                                              ; preds = %.thread
   %.06.i.i.i = load ptr, ptr @x11InputMethodGRefListHead, align 8
   %.not7.i.i.i = icmp eq ptr %.06.i.i.i, null
   br i1 %.not7.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
-334:                                              ; preds = %.lr.ph.i.i.i
-  %335 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 8
-  %.0.i.i.i = load ptr, ptr %335, align 8
+333:                                              ; preds = %.lr.ph.i.i.i
+  %334 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 8
+  %.0.i.i.i = load ptr, ptr %334, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
-.lr.ph.i.i.i:                                     ; preds = %333, %334
-  %.08.i.i.i = phi ptr [ %.0.i.i.i, %334 ], [ %.06.i.i.i, %333 ]
-  %336 = load ptr, ptr %.08.i.i.i, align 8
-  %337 = icmp eq ptr %336, %114
-  br i1 %337, label %setXICFocus.exit.i, label %334
+.lr.ph.i.i.i:                                     ; preds = %332, %333
+  %.08.i.i.i = phi ptr [ %.0.i.i.i, %333 ], [ %.06.i.i.i, %332 ]
+  %335 = load ptr, ptr %.08.i.i.i, align 8
+  %336 = icmp eq ptr %335, %114
+  br i1 %336, label %setXICFocus.exit.i, label %333
 
-.loopexit.i.i:                                    ; preds = %334, %333
-  %338 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
-  %339 = icmp eq ptr %338, null
-  br i1 %339, label %setXICFocus.exit.i, label %340
+.loopexit.i.i:                                    ; preds = %333, %332
+  %337 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
+  %338 = icmp eq ptr %337, null
+  br i1 %338, label %setXICFocus.exit.i, label %339
 
-340:                                              ; preds = %.loopexit.i.i
-  store ptr %114, ptr %338, align 8
-  %341 = getelementptr inbounds i8, ptr %338, i64 8
-  store ptr %.06.i.i.i, ptr %341, align 8
-  store ptr %338, ptr @x11InputMethodGRefListHead, align 8
+339:                                              ; preds = %.loopexit.i.i
+  store ptr %114, ptr %337, align 8
+  %340 = getelementptr inbounds i8, ptr %337, i64 8
+  store ptr %.06.i.i.i, ptr %340, align 8
+  store ptr %337, ptr @x11InputMethodGRefListHead, align 8
   br label %setXICFocus.exit.i
 
-setXICFocus.exit.i:                               ; preds = %.lr.ph.i.i.i, %340, %.loopexit.i.i, %.thread
-  call void @XUnsetICFocus(ptr noundef nonnull %321) #14
-  br i1 %.not106.i, label %createXIC.exit, label %342
-
-342:                                              ; preds = %setXICFocus.exit.i
+setXICFocus.exit.i:                               ; preds = %.lr.ph.i.i.i, %339, %.loopexit.i.i, %.thread
   call void @XUnsetICFocus(ptr noundef nonnull %320) #14
+  br i1 %.not106.i, label %createXIC.exit, label %341
+
+341:                                              ; preds = %setXICFocus.exit.i
+  call void @XUnsetICFocus(ptr noundef nonnull %319) #14
   br label %createXIC.exit
 
-343:                                              ; preds = %168
-  %344 = call i32 @XFree(ptr noundef nonnull %167) #14
-  br label %345
+342:                                              ; preds = %167
+  %343 = call i32 @XFree(ptr noundef nonnull %166) #14
+  br label %344
 
-345:                                              ; preds = %343, %163
-  %346 = load ptr, ptr @jvm, align 8
-  %347 = call ptr @JNU_GetEnv(ptr noundef %346, i32 noundef 65538) #14
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef %347, ptr noundef null) #14
+344:                                              ; preds = %342, %162
+  %345 = load ptr, ptr @jvm, align 8
+  %346 = call ptr @JNU_GetEnv(ptr noundef %345, i32 noundef 65538) #14
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef %346, ptr noundef null) #14
   br label %.thread99
 
-createXIC.exit:                                   ; preds = %setXICFocus.exit.i, %342
+createXIC.exit:                                   ; preds = %setXICFocus.exit.i, %341
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
-  br label %360
+  br label %359
 
-.thread99:                                        ; preds = %125, %345, %110, %150, %319
+.thread99:                                        ; preds = %125, %344, %110, %149, %318
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
   br label %destroyX11InputMethodData.exit
 
-348:                                              ; preds = %323
+347:                                              ; preds = %322
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
-  %349 = getelementptr inbounds i8, ptr %77, i64 8
-  call void @XUnsetICFocus(ptr noundef nonnull %321) #14
-  %350 = load ptr, ptr %349, align 8
-  call void @XDestroyIC(ptr noundef %350) #14
-  %351 = getelementptr inbounds i8, ptr %77, i64 16
-  %352 = load ptr, ptr %351, align 8
-  %.not15.i = icmp eq ptr %350, %352
-  br i1 %.not15.i, label %destroyX11InputMethodData.exit, label %353
+  %348 = getelementptr inbounds i8, ptr %77, i64 8
+  call void @XUnsetICFocus(ptr noundef nonnull %320) #14
+  %349 = load ptr, ptr %348, align 8
+  call void @XDestroyIC(ptr noundef %349) #14
+  %350 = getelementptr inbounds i8, ptr %77, i64 16
+  %351 = load ptr, ptr %350, align 8
+  %.not15.i = icmp eq ptr %349, %351
+  br i1 %.not15.i, label %destroyX11InputMethodData.exit, label %352
 
-353:                                              ; preds = %348
-  %.not16.i = icmp eq ptr %352, null
-  br i1 %.not16.i, label %355, label %354
+352:                                              ; preds = %347
+  %.not16.i = icmp eq ptr %351, null
+  br i1 %.not16.i, label %354, label %353
 
-354:                                              ; preds = %353
-  call void @XUnsetICFocus(ptr noundef nonnull %352) #14
-  call void @XDestroyIC(ptr noundef nonnull %352) #14
-  br label %355
+353:                                              ; preds = %352
+  call void @XUnsetICFocus(ptr noundef nonnull %351) #14
+  call void @XDestroyIC(ptr noundef nonnull %351) #14
+  br label %354
 
-355:                                              ; preds = %354, %353
-  store ptr null, ptr %351, align 8
+354:                                              ; preds = %353, %352
+  store ptr null, ptr %350, align 8
   store ptr null, ptr %77, align 8
   br label %destroyX11InputMethodData.exit
 
-destroyX11InputMethodData.exit:                   ; preds = %.thread99, %348, %355
+destroyX11InputMethodData.exit:                   ; preds = %.thread99, %347, %354
   call fastcc void @freeX11InputMethodData(ptr noundef null, ptr noundef nonnull %77)
-  %356 = load ptr, ptr %0, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 1824
-  %358 = load ptr, ptr %357, align 8
-  %359 = call zeroext i8 %358(ptr noundef nonnull %0) #14
-  %.not83 = icmp eq i8 %359, 0
-  br i1 %.not83, label %360, label %368
+  %355 = load ptr, ptr %0, align 8
+  %356 = getelementptr inbounds i8, ptr %355, i64 1824
+  %357 = load ptr, ptr %356, align 8
+  %358 = call zeroext i8 %357(ptr noundef nonnull %0) #14
+  %.not83 = icmp eq i8 %358, 0
+  br i1 %.not83, label %359, label %367
 
-360:                                              ; preds = %createXIC.exit, %destroyX11InputMethodData.exit
+359:                                              ; preds = %createXIC.exit, %destroyX11InputMethodData.exit
   %.073 = phi ptr [ null, %destroyX11InputMethodData.exit ], [ %77, %createXIC.exit ]
-  %361 = load ptr, ptr %0, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 880
-  %363 = load ptr, ptr %362, align 8
-  %364 = load ptr, ptr @x11InputMethodIDs, align 8
-  %365 = ptrtoint ptr %.073 to i64
-  call void %363(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %364, i64 noundef %365) #14
-  %366 = icmp ne ptr %.073, null
-  %367 = zext i1 %366 to i8
-  br label %368
+  %360 = load ptr, ptr %0, align 8
+  %361 = getelementptr inbounds i8, ptr %360, i64 880
+  %362 = load ptr, ptr %361, align 8
+  %363 = load ptr, ptr @x11InputMethodIDs, align 8
+  %364 = ptrtoint ptr %.073 to i64
+  call void %362(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %363, i64 noundef %364) #14
+  %365 = icmp ne ptr %.073, null
+  %366 = zext i1 %365 to i8
+  br label %367
 
-368:                                              ; preds = %360, %destroyX11InputMethodData.exit
-  %.1 = phi i8 [ 0, %destroyX11InputMethodData.exit ], [ %367, %360 ]
+367:                                              ; preds = %359, %destroyX11InputMethodData.exit
+  %.1 = phi i8 [ 0, %destroyX11InputMethodData.exit ], [ %366, %359 ]
   call void (...) @awt_output_flush() #14
-  %369 = load ptr, ptr %0, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 120
-  %371 = load ptr, ptr %370, align 8
-  %372 = call ptr %371(ptr noundef nonnull %0) #14
-  %.not84 = icmp eq ptr %372, null
-  br i1 %.not84, label %377, label %373
+  %368 = load ptr, ptr %0, align 8
+  %369 = getelementptr inbounds i8, ptr %368, i64 120
+  %370 = load ptr, ptr %369, align 8
+  %371 = call ptr %370(ptr noundef nonnull %0) #14
+  %.not84 = icmp eq ptr %371, null
+  br i1 %.not84, label %376, label %372
 
-373:                                              ; preds = %368
-  %374 = load ptr, ptr %0, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 136
-  %376 = load ptr, ptr %375, align 8
-  call void %376(ptr noundef nonnull %0) #14
-  br label %377
+372:                                              ; preds = %367
+  %373 = load ptr, ptr %0, align 8
+  %374 = getelementptr inbounds i8, ptr %373, i64 136
+  %375 = load ptr, ptr %374, align 8
+  call void %375(ptr noundef nonnull %0) #14
+  br label %376
 
-377:                                              ; preds = %373, %368
-  %378 = load ptr, ptr %0, align 8
-  %379 = getelementptr inbounds i8, ptr %378, i64 1128
-  %380 = load ptr, ptr %379, align 8
-  %381 = load ptr, ptr @tkClass, align 8
-  %382 = load ptr, ptr @awtUnlockMID, align 8
-  call void (ptr, ptr, ptr, ...) %380(ptr noundef nonnull %0, ptr noundef %381, ptr noundef %382) #14
-  %383 = load ptr, ptr %0, align 8
-  %384 = getelementptr inbounds i8, ptr %383, i64 1824
-  %385 = load ptr, ptr %384, align 8
-  %386 = call zeroext i8 %385(ptr noundef nonnull %0) #14
-  %.not85 = icmp eq i8 %386, 0
-  br i1 %.not85, label %391, label %387
+376:                                              ; preds = %372, %367
+  %377 = load ptr, ptr %0, align 8
+  %378 = getelementptr inbounds i8, ptr %377, i64 1128
+  %379 = load ptr, ptr %378, align 8
+  %380 = load ptr, ptr @tkClass, align 8
+  %381 = load ptr, ptr @awtUnlockMID, align 8
+  call void (ptr, ptr, ptr, ...) %379(ptr noundef nonnull %0, ptr noundef %380, ptr noundef %381) #14
+  %382 = load ptr, ptr %0, align 8
+  %383 = getelementptr inbounds i8, ptr %382, i64 1824
+  %384 = load ptr, ptr %383, align 8
+  %385 = call zeroext i8 %384(ptr noundef nonnull %0) #14
+  %.not85 = icmp eq i8 %385, 0
+  br i1 %.not85, label %390, label %386
 
-387:                                              ; preds = %377
-  %388 = load ptr, ptr %0, align 8
-  %389 = getelementptr inbounds i8, ptr %388, i64 136
-  %390 = load ptr, ptr %389, align 8
-  call void %390(ptr noundef nonnull %0) #14
-  br label %391
+386:                                              ; preds = %376
+  %387 = load ptr, ptr %0, align 8
+  %388 = getelementptr inbounds i8, ptr %387, i64 136
+  %389 = load ptr, ptr %388, align 8
+  call void %389(ptr noundef nonnull %0) #14
+  br label %390
 
-391:                                              ; preds = %387, %377
-  br i1 %.not84, label %397, label %392
+390:                                              ; preds = %386, %376
+  br i1 %.not84, label %396, label %391
 
-392:                                              ; preds = %391
-  %393 = load ptr, ptr %0, align 8
-  %394 = getelementptr inbounds i8, ptr %393, i64 104
-  %395 = load ptr, ptr %394, align 8
-  %396 = call i32 %395(ptr noundef nonnull %0, ptr noundef nonnull %372) #14
-  br label %397
+391:                                              ; preds = %390
+  %392 = load ptr, ptr %0, align 8
+  %393 = getelementptr inbounds i8, ptr %392, i64 104
+  %394 = load ptr, ptr %393, align 8
+  %395 = call i32 %394(ptr noundef nonnull %0, ptr noundef nonnull %371) #14
+  br label %396
 
-397:                                              ; preds = %391, %392, %104, %105, %70, %71
-  %.0 = phi i8 [ 0, %71 ], [ 0, %70 ], [ 0, %105 ], [ 0, %104 ], [ %.1, %392 ], [ %.1, %391 ]
+396:                                              ; preds = %390, %391, %104, %105, %70, %71
+  %.0 = phi i8 [ 0, %71 ], [ 0, %70 ], [ 0, %105 ], [ 0, %104 ], [ %.1, %391 ], [ %.1, %390 ]
   ret i8 %.0
 }
 

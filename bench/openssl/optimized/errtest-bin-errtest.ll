@@ -207,15 +207,24 @@ for.cond:                                         ; preds = %for.inc, %if.end19
 for.body:                                         ; preds = %for.cond
   %3 = add i8 %2, -48
   %or.cond = icmp ult i8 %3, 10
-  %4 = add i8 %2, -65
-  %spec.select = icmp ult i8 %4, 6
-  %5 = or i1 %or.cond, %spec.select
-  %lor.ext = zext i1 %5 to i32
+  br i1 %or.cond, label %lor.end, label %lor.rhs
+
+lor.rhs:                                          ; preds = %for.body
+  %cmp32 = icmp sgt i8 %2, 64
+  br i1 %cmp32, label %land.rhs34, label %lor.end
+
+land.rhs34:                                       ; preds = %lor.rhs
+  %cmp36 = icmp ult i8 %2, 71
+  %4 = zext i1 %cmp36 to i32
+  br label %lor.end
+
+lor.end:                                          ; preds = %for.body, %lor.rhs, %land.rhs34
+  %lor.ext = phi i32 [ 0, %lor.rhs ], [ %4, %land.rhs34 ], [ 1, %for.body ]
   %call41 = call i32 @test_true(ptr noundef nonnull @.str.7, i32 noundef 102, ptr noundef nonnull @.str.31, i32 noundef %lor.ext) #5
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %err, label %for.inc
 
-for.inc:                                          ; preds = %for.body
+for.inc:                                          ; preds = %lor.end
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   br label %for.cond, !llvm.loop !5
 
@@ -230,12 +239,12 @@ lor.lhs.false:                                    ; preds = %for.end
   %call54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %expected) #7
   %call57 = call i32 @test_strn_eq(ptr noundef nonnull @.str.7, i32 noundef 106, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull %expected, i64 noundef %call54, ptr noundef nonnull %p.0, i64 noundef %call54) #5
   %tobool58.not = icmp ne i32 %call57, 0
-  %spec.select13 = zext i1 %tobool58.not to i32
+  %spec.select = zext i1 %tobool58.not to i32
   br label %err
 
-err:                                              ; preds = %for.body, %lor.lhs.false, %for.end, %if.end13, %if.end, %if.then
-  %bio.0 = phi ptr [ %call9, %for.end ], [ %call9, %if.end13 ], [ %call9, %if.end ], [ null, %if.then ], [ %call9, %lor.lhs.false ], [ %call9, %for.body ]
-  %ret.0 = phi i32 [ 0, %for.end ], [ 0, %if.end13 ], [ 0, %if.end ], [ 0, %if.then ], [ %spec.select13, %lor.lhs.false ], [ 0, %for.body ]
+err:                                              ; preds = %lor.end, %lor.lhs.false, %for.end, %if.end13, %if.end, %if.then
+  %bio.0 = phi ptr [ %call9, %for.end ], [ %call9, %if.end13 ], [ %call9, %if.end ], [ null, %if.then ], [ %call9, %lor.lhs.false ], [ %call9, %lor.end ]
+  %ret.0 = phi i32 [ 0, %for.end ], [ 0, %if.end13 ], [ 0, %if.end ], [ 0, %if.then ], [ %spec.select, %lor.lhs.false ], [ 0, %lor.end ]
   %call61 = call i32 @BIO_free(ptr noundef %bio.0) #5
   ret i32 %ret.0
 }

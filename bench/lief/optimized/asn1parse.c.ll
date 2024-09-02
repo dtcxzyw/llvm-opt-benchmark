@@ -657,7 +657,7 @@ declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_a
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @mbedtls_asn1_get_sequence_of(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden range(i32 -106, 1) i32 @mbedtls_asn1_get_sequence_of(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %6 = trunc i32 %3 to i8
@@ -839,7 +839,7 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %28, %20, %11, %4, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_asn1_get_alg_null(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 -104, 1) i32 @mbedtls_asn1_get_alg_null(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.mbedtls_asn1_buf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = call i32 @mbedtls_asn1_get_alg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)

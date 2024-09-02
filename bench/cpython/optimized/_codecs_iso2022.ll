@@ -1143,10 +1143,10 @@ return:                                           ; preds = %if.end17, %do.body3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @iso2022_decode(ptr nocapture noundef %state, ptr noundef %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
+define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @iso2022_decode(ptr nocapture noundef %state, ptr noundef %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
-  %cmp135139 = icmp sgt i64 %inleft, 0
-  br i1 %cmp135139, label %while.body.lr.ph.lr.ph, label %return
+  %cmp133137 = icmp sgt i64 %inleft, 0
+  br i1 %cmp133137, label %while.body.lr.ph.lr.ph, label %return
 
 while.body.lr.ph.lr.ph:                           ; preds = %entry
   %arrayidx2 = getelementptr i8, ptr %state, i64 4
@@ -1160,12 +1160,12 @@ while.body.lr.ph.lr.ph:                           ; preds = %entry
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %sw.epilog
-  %dsgcache.0.ph141 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %dsgcache.1, %sw.epilog ]
-  %inleft.addr.0.ph140 = phi i64 [ %inleft, %while.body.lr.ph.lr.ph ], [ %inleft.addr.1, %sw.epilog ]
+  %dsgcache.0.ph139 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %dsgcache.1, %sw.epilog ]
+  %inleft.addr.0.ph138 = phi i64 [ %inleft, %while.body.lr.ph.lr.ph ], [ %inleft.addr.1, %sw.epilog ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end26
-  %inleft.addr.0136 = phi i64 [ %inleft.addr.0.ph140, %while.body.lr.ph ], [ %sub, %if.end26 ]
+  %inleft.addr.0134 = phi i64 [ %inleft.addr.0.ph138, %while.body.lr.ph ], [ %sub, %if.end26 ]
   %1 = load ptr, ptr %inbuf, align 8
   %2 = load i8, ptr %1, align 1
   %3 = load i8, ptr %arrayidx2, align 1
@@ -1184,7 +1184,7 @@ do.body7:                                         ; preds = %do.body
   %4 = load ptr, ptr %inbuf, align 8
   %add.ptr = getelementptr i8, ptr %4, i64 1
   store ptr %add.ptr, ptr %inbuf, align 8
-  %sub = add nsw i64 %inleft.addr.0136, -1
+  %sub = add nsw i64 %inleft.addr.0134, -1
   %5 = add i8 %2, -64
   %or.cond1 = icmp ult i8 %5, 27
   br i1 %or.cond1, label %do.body19, label %if.end26
@@ -1196,7 +1196,7 @@ do.body19:                                        ; preds = %do.body7
   br label %if.end26
 
 if.end26:                                         ; preds = %do.body7, %do.body19
-  %cmp = icmp ugt i64 %inleft.addr.0136, 1
+  %cmp = icmp ugt i64 %inleft.addr.0134, 1
   br i1 %cmp, label %while.body, label %return, !llvm.loop !11
 
 if.end27:                                         ; preds = %while.body
@@ -1208,7 +1208,7 @@ if.end27:                                         ; preds = %while.body
   ]
 
 do.body29:                                        ; preds = %if.end27
-  %cmp30 = icmp eq i64 %inleft.addr.0136, 1
+  %cmp30 = icmp eq i64 %inleft.addr.0134, 1
   br i1 %cmp30, label %return, label %do.end34
 
 do.end34:                                         ; preds = %do.body29
@@ -1226,7 +1226,7 @@ switch.hole_check:                                ; preds = %do.end34
 
 for.body.i:                                       ; preds = %switch.hole_check, %for.inc.i
   %i.056.i = phi i64 [ %inc.i, %for.inc.i ], [ 1, %switch.hole_check ]
-  %cmp1.not.i = icmp slt i64 %i.056.i, %inleft.addr.0136
+  %cmp1.not.i = icmp slt i64 %i.056.i, %inleft.addr.0134
   br i1 %cmp1.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %for.body.i
@@ -1245,7 +1245,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 land.lhs.true13.i:                                ; preds = %if.else.i
   %add14.i = add nsw i64 %i.056.i, 1
-  %cmp15.i = icmp slt i64 %add14.i, %inleft.addr.0136
+  %cmp15.i = icmp slt i64 %add14.i, %inleft.addr.0134
   %cmp20.i = icmp eq i8 %10, 38
   %or.cond43.i = and i1 %cmp15.i, %cmp20.i
   br i1 %or.cond43.i, label %land.lhs.true22.i, label %for.inc.i
@@ -1371,7 +1371,7 @@ iso2022processesc.exit.thread118:                 ; preds = %sw.epilog.i, %for.e
   %charset.051.i = phi i8 [ 66, %sw.epilog.i ], [ %charset.050.i, %for.end134.i ]
   %arrayidx140.i = getelementptr [8 x i8], ptr %state, i64 0, i64 %designation.053.i
   store i8 %charset.051.i, ptr %arrayidx140.i, align 1
-  %sub.i = sub i64 %inleft.addr.0136, %add.i
+  %sub.i = sub i64 %inleft.addr.0134, %add.i
   %30 = load ptr, ptr %inbuf, align 8
   %add.ptr.i = getelementptr i8, ptr %30, i64 %add.i
   store ptr %add.ptr.i, ptr %inbuf, align 8
@@ -1391,7 +1391,7 @@ if.else:                                          ; preds = %switch.hole_check, 
   br i1 %or.cond, label %do.body73, label %do.body85
 
 do.body73:                                        ; preds = %if.else
-  %cmp74 = icmp ult i64 %inleft.addr.0136, 3
+  %cmp74 = icmp ult i64 %inleft.addr.0134, 3
   br i1 %cmp74, label %return, label %do.end78
 
 do.end78:                                         ; preds = %do.body73
@@ -1508,7 +1508,7 @@ iso2022processg2.exit:                            ; preds = %do.body.i91, %do.bo
   %38 = load ptr, ptr %inbuf, align 8
   %add.ptr.i87 = getelementptr i8, ptr %38, i64 3
   store ptr %add.ptr.i87, ptr %inbuf, align 8
-  %sub169.i = add nsw i64 %inleft.addr.0136, -3
+  %sub169.i = add nsw i64 %inleft.addr.0134, -3
   br label %sw.epilog
 
 do.body85:                                        ; preds = %if.else
@@ -1523,7 +1523,7 @@ do.body92:                                        ; preds = %do.body85
   %41 = load ptr, ptr %inbuf, align 8
   %add.ptr99 = getelementptr i8, ptr %41, i64 1
   store ptr %add.ptr99, ptr %inbuf, align 8
-  %sub100 = add nsw i64 %inleft.addr.0136, -1
+  %sub100 = add nsw i64 %inleft.addr.0134, -1
   br label %sw.epilog
 
 sw.bb104:                                         ; preds = %if.end27
@@ -1539,7 +1539,7 @@ do.body111:                                       ; preds = %sw.bb104
   %44 = load ptr, ptr %inbuf, align 8
   %add.ptr119 = getelementptr i8, ptr %44, i64 1
   store ptr %add.ptr119, ptr %inbuf, align 8
-  %sub120 = add nsw i64 %inleft.addr.0136, -1
+  %sub120 = add nsw i64 %inleft.addr.0134, -1
   br label %sw.epilog
 
 sw.bb122:                                         ; preds = %if.end27
@@ -1555,7 +1555,7 @@ do.body129:                                       ; preds = %sw.bb122
   %47 = load ptr, ptr %inbuf, align 8
   %add.ptr137 = getelementptr i8, ptr %47, i64 1
   store ptr %add.ptr137, ptr %inbuf, align 8
-  %sub138 = add nsw i64 %inleft.addr.0136, -1
+  %sub138 = add nsw i64 %inleft.addr.0134, -1
   br label %sw.epilog
 
 do.body141:                                       ; preds = %if.end27
@@ -1569,7 +1569,7 @@ do.body155:                                       ; preds = %do.body141
   %48 = load ptr, ptr %inbuf, align 8
   %add.ptr156 = getelementptr i8, ptr %48, i64 1
   store ptr %add.ptr156, ptr %inbuf, align 8
-  %sub157 = add nsw i64 %inleft.addr.0136, -1
+  %sub157 = add nsw i64 %inleft.addr.0134, -1
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end27
@@ -1597,15 +1597,15 @@ do.body193:                                       ; preds = %do.body185
   %49 = load ptr, ptr %inbuf, align 8
   %add.ptr194 = getelementptr i8, ptr %49, i64 1
   store ptr %add.ptr194, ptr %inbuf, align 8
-  %sub195 = add nsw i64 %inleft.addr.0136, -1
+  %sub195 = add nsw i64 %inleft.addr.0134, -1
   br label %sw.epilog
 
 if.end197:                                        ; preds = %if.else168
-  %cmp198.not = icmp eq ptr %dsgcache.0.ph141, null
+  %cmp198.not = icmp eq ptr %dsgcache.0.ph139, null
   br i1 %cmp198.not, label %if.else206, label %land.lhs.true200
 
 land.lhs.true200:                                 ; preds = %if.end197
-  %50 = load i8, ptr %dsgcache.0.ph141, align 8
+  %50 = load i8, ptr %dsgcache.0.ph139, align 8
   %cmp203 = icmp eq i8 %50, %charset.0
   br i1 %cmp203, label %do.body214, label %if.else206
 
@@ -1623,11 +1623,11 @@ for.cond:                                         ; preds = %for.cond, %if.else2
   br i1 %cmp211.not, label %do.body214, label %for.cond, !llvm.loop !14
 
 do.body214:                                       ; preds = %for.cond, %land.lhs.true200
-  %dsgcache.2 = phi ptr [ %dsgcache.0.ph141, %land.lhs.true200 ], [ %dsg.0, %for.cond ]
+  %dsgcache.2 = phi ptr [ %dsgcache.0.ph139, %land.lhs.true200 ], [ %dsg.0, %for.cond ]
   %width = getelementptr inbounds i8, ptr %dsgcache.2, i64 2
   %54 = load i8, ptr %width, align 2
   %conv215 = zext i8 %54 to i64
-  %cmp216 = icmp slt i64 %inleft.addr.0136, %conv215
+  %cmp216 = icmp slt i64 %inleft.addr.0134, %conv215
   br i1 %cmp216, label %return, label %do.end220
 
 do.end220:                                        ; preds = %do.body214
@@ -1666,102 +1666,102 @@ do.body250:                                       ; preds = %if.else238
   %cond = tail call i32 @llvm.umax.i32(i32 %shr, i32 %and251)
   %57 = load i32, ptr %maxchar, align 4
   %cmp256.not = icmp ugt i32 %cond, %57
-  br i1 %cmp256.not, label %cond.end273, label %land.lhs.true258
+  br i1 %cmp256.not, label %cond.false263, label %land.lhs.true258
 
 land.lhs.true258:                                 ; preds = %do.body250
   %58 = load i64, ptr %size, align 8
   %59 = load i64, ptr %pos, align 8
   %sub259 = sub i64 %58, %59
   %cmp260 = icmp sgt i64 %sub259, 1
-  br i1 %cmp260, label %if.end278, label %cond.end273
+  br i1 %cmp260, label %if.end278, label %cond.false263
 
-cond.end273:                                      ; preds = %do.body250, %land.lhs.true258
+cond.false263:                                    ; preds = %land.lhs.true258, %do.body250
   %call272 = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %writer, i64 noundef 2, i32 noundef %cond) #15
-  %cmp275 = icmp slt i32 %call272, 0
-  br i1 %cmp275, label %return, label %cond.end273.if.end278_crit_edge
+  %60 = icmp slt i32 %call272, 0
+  br i1 %60, label %return, label %cond.false263.if.end278_crit_edge
 
-cond.end273.if.end278_crit_edge:                  ; preds = %cond.end273
+cond.false263.if.end278_crit_edge:                ; preds = %cond.false263
   %.pre = load i64, ptr %pos, align 8
   br label %if.end278
 
-if.end278:                                        ; preds = %cond.end273.if.end278_crit_edge, %land.lhs.true258
-  %60 = phi i64 [ %.pre, %cond.end273.if.end278_crit_edge ], [ %59, %land.lhs.true258 ]
-  %61 = load i32, ptr %kind, align 8
-  %62 = load ptr, ptr %data, align 8
-  switch i32 %61, label %if.else6.i [
+if.end278:                                        ; preds = %cond.false263.if.end278_crit_edge, %land.lhs.true258
+  %61 = phi i64 [ %.pre, %cond.false263.if.end278_crit_edge ], [ %59, %land.lhs.true258 ]
+  %62 = load i32, ptr %kind, align 8
+  %63 = load ptr, ptr %data, align 8
+  switch i32 %62, label %if.else6.i [
     i32 1, label %if.then.i93
     i32 2, label %if.then3.i
   ]
 
 if.then.i93:                                      ; preds = %if.end278
   %conv.i = trunc i32 %shr to i8
-  %arrayidx.i94 = getelementptr i8, ptr %62, i64 %60
+  %arrayidx.i94 = getelementptr i8, ptr %63, i64 %61
   store i8 %conv.i, ptr %arrayidx.i94, align 1
   br label %PyUnicode_WRITE.exit
 
 if.then3.i:                                       ; preds = %if.end278
   %conv4.i = trunc nuw i32 %shr to i16
-  %arrayidx5.i = getelementptr i16, ptr %62, i64 %60
+  %arrayidx5.i = getelementptr i16, ptr %63, i64 %61
   store i16 %conv4.i, ptr %arrayidx5.i, align 2
   br label %PyUnicode_WRITE.exit
 
 if.else6.i:                                       ; preds = %if.end278
-  %arrayidx7.i = getelementptr i32, ptr %62, i64 %60
+  %arrayidx7.i = getelementptr i32, ptr %63, i64 %61
   store i32 %shr, ptr %arrayidx7.i, align 4
   br label %PyUnicode_WRITE.exit
 
 PyUnicode_WRITE.exit:                             ; preds = %if.then.i93, %if.then3.i, %if.else6.i
-  %63 = load i32, ptr %kind, align 8
-  %64 = load ptr, ptr %data, align 8
-  %65 = load i64, ptr %pos, align 8
-  %add = add i64 %65, 1
-  switch i32 %63, label %if.else6.i101 [
+  %64 = load i32, ptr %kind, align 8
+  %65 = load ptr, ptr %data, align 8
+  %66 = load i64, ptr %pos, align 8
+  %add = add i64 %66, 1
+  switch i32 %64, label %if.else6.i101 [
     i32 1, label %if.then.i98
     i32 2, label %if.then3.i95
   ]
 
 if.then.i98:                                      ; preds = %PyUnicode_WRITE.exit
   %conv.i99 = trunc i32 %call221 to i8
-  %arrayidx.i100 = getelementptr i8, ptr %64, i64 %add
+  %arrayidx.i100 = getelementptr i8, ptr %65, i64 %add
   store i8 %conv.i99, ptr %arrayidx.i100, align 1
   br label %PyUnicode_WRITE.exit103
 
 if.then3.i95:                                     ; preds = %PyUnicode_WRITE.exit
   %conv4.i96 = trunc i32 %call221 to i16
-  %arrayidx5.i97 = getelementptr i16, ptr %64, i64 %add
+  %arrayidx5.i97 = getelementptr i16, ptr %65, i64 %add
   store i16 %conv4.i96, ptr %arrayidx5.i97, align 2
   br label %PyUnicode_WRITE.exit103
 
 if.else6.i101:                                    ; preds = %PyUnicode_WRITE.exit
-  %arrayidx7.i102 = getelementptr i32, ptr %64, i64 %add
+  %arrayidx7.i102 = getelementptr i32, ptr %65, i64 %add
   store i32 %and251, ptr %arrayidx7.i102, align 4
   br label %PyUnicode_WRITE.exit103
 
 PyUnicode_WRITE.exit103:                          ; preds = %if.then.i98, %if.then3.i95, %if.else6.i101
-  %66 = load i64, ptr %pos, align 8
-  %add284 = add i64 %66, 2
+  %67 = load i64, ptr %pos, align 8
+  %add284 = add i64 %67, 2
   store i64 %add284, ptr %pos, align 8
   br label %do.body288
 
 do.body288:                                       ; preds = %do.body231, %do.body242, %PyUnicode_WRITE.exit103
-  %67 = load i8, ptr %width, align 2
-  %68 = load ptr, ptr %inbuf, align 8
-  %idx.ext = zext i8 %67 to i64
-  %add.ptr291 = getelementptr i8, ptr %68, i64 %idx.ext
+  %68 = load i8, ptr %width, align 2
+  %69 = load ptr, ptr %inbuf, align 8
+  %idx.ext = zext i8 %68 to i64
+  %add.ptr291 = getelementptr i8, ptr %69, i64 %idx.ext
   store ptr %add.ptr291, ptr %inbuf, align 8
-  %69 = load i8, ptr %width, align 2
-  %conv293 = zext i8 %69 to i64
-  %sub294 = sub nsw i64 %inleft.addr.0136, %conv293
+  %70 = load i8, ptr %width, align 2
+  %conv293 = zext i8 %70 to i64
+  %sub294 = sub nsw i64 %inleft.addr.0134, %conv293
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %iso2022processg2.exit, %iso2022processesc.exit.thread118, %iso2022processesc.exit, %do.body92, %do.body288, %do.body193, %do.body155, %do.body129, %do.body111
-  %inleft.addr.1 = phi i64 [ %sub195, %do.body193 ], [ %sub294, %do.body288 ], [ %sub157, %do.body155 ], [ %sub138, %do.body129 ], [ %sub120, %do.body111 ], [ %sub169.i, %iso2022processg2.exit ], [ %sub100, %do.body92 ], [ %inleft.addr.0136, %iso2022processesc.exit ], [ %sub.i, %iso2022processesc.exit.thread118 ]
-  %dsgcache.1 = phi ptr [ %dsgcache.0.ph141, %do.body193 ], [ %dsgcache.2, %do.body288 ], [ %dsgcache.0.ph141, %do.body155 ], [ %dsgcache.0.ph141, %do.body129 ], [ %dsgcache.0.ph141, %do.body111 ], [ %dsgcache.0.ph141, %iso2022processg2.exit ], [ %dsgcache.0.ph141, %do.body92 ], [ %dsgcache.0.ph141, %iso2022processesc.exit ], [ %dsgcache.0.ph141, %iso2022processesc.exit.thread118 ]
-  %cmp135 = icmp sgt i64 %inleft.addr.1, 0
-  br i1 %cmp135, label %while.body.lr.ph, label %return, !llvm.loop !11
+  %inleft.addr.1 = phi i64 [ %sub195, %do.body193 ], [ %sub294, %do.body288 ], [ %sub157, %do.body155 ], [ %sub138, %do.body129 ], [ %sub120, %do.body111 ], [ %sub169.i, %iso2022processg2.exit ], [ %sub100, %do.body92 ], [ %inleft.addr.0134, %iso2022processesc.exit ], [ %sub.i, %iso2022processesc.exit.thread118 ]
+  %dsgcache.1 = phi ptr [ %dsgcache.0.ph139, %do.body193 ], [ %dsgcache.2, %do.body288 ], [ %dsgcache.0.ph139, %do.body155 ], [ %dsgcache.0.ph139, %do.body129 ], [ %dsgcache.0.ph139, %do.body111 ], [ %dsgcache.0.ph139, %iso2022processg2.exit ], [ %dsgcache.0.ph139, %do.body92 ], [ %dsgcache.0.ph139, %iso2022processesc.exit ], [ %dsgcache.0.ph139, %iso2022processesc.exit.thread118 ]
+  %cmp133 = icmp sgt i64 %inleft.addr.1, 0
+  br i1 %cmp133, label %while.body.lr.ph, label %return, !llvm.loop !11
 
-return:                                           ; preds = %sw.epilog, %do.end78, %do.body155.i, %if.then148.i, %if.else93.i, %do.body128.i, %do.body114.i, %do.body100.i, %do.body82.i, %do.body45.i, %do.body25.i, %if.then.i, %do.body.i91, %sw.bb95.i, %land.lhs.true100.i, %land.lhs.true105.i, %land.lhs.true110.i, %if.end76.i, %sw.bb70.i, %if.else54.i, %for.end.i, %cond.end273, %do.body242, %do.body231, %do.body214, %do.body185, %if.else163, %do.body141, %do.body85, %do.body73, %iso2022processesc.exit, %do.body29, %do.body, %if.end26, %for.body.i, %for.inc.i, %entry, %if.then224
-  %retval.0 = phi i64 [ %conv226, %if.then224 ], [ 0, %entry ], [ 1, %for.inc.i ], [ -2, %for.body.i ], [ 0, %if.end26 ], [ -4, %do.body ], [ 0, %sw.epilog ], [ -2, %do.body29 ], [ %add.i, %iso2022processesc.exit ], [ -2, %do.body73 ], [ -4, %do.body85 ], [ -4, %do.body141 ], [ 1, %if.else163 ], [ -4, %do.body185 ], [ -2, %do.body214 ], [ -4, %do.body231 ], [ -4, %do.body242 ], [ -4, %cond.end273 ], [ 6, %sw.bb95.i ], [ 6, %land.lhs.true100.i ], [ 6, %land.lhs.true105.i ], [ 6, %land.lhs.true110.i ], [ 4, %if.end76.i ], [ 4, %sw.bb70.i ], [ 3, %if.else54.i ], [ 1, %for.end.i ], [ -3, %do.end78 ], [ -4, %do.body155.i ], [ 3, %if.then148.i ], [ 3, %if.else93.i ], [ -4, %do.body128.i ], [ -4, %do.body114.i ], [ -4, %do.body100.i ], [ -4, %do.body82.i ], [ -4, %do.body45.i ], [ -4, %do.body25.i ], [ 3, %if.then.i ], [ -4, %do.body.i91 ]
+return:                                           ; preds = %sw.epilog, %do.end78, %do.body155.i, %if.then148.i, %if.else93.i, %do.body128.i, %do.body114.i, %do.body100.i, %do.body82.i, %do.body45.i, %do.body25.i, %if.then.i, %do.body.i91, %sw.bb95.i, %land.lhs.true100.i, %land.lhs.true105.i, %land.lhs.true110.i, %if.end76.i, %sw.bb70.i, %if.else54.i, %for.end.i, %cond.false263, %do.body242, %do.body231, %do.body214, %do.body185, %if.else163, %do.body141, %do.body85, %do.body73, %iso2022processesc.exit, %do.body29, %do.body, %if.end26, %for.body.i, %for.inc.i, %entry, %if.then224
+  %retval.0 = phi i64 [ %conv226, %if.then224 ], [ 0, %entry ], [ 1, %for.inc.i ], [ -2, %for.body.i ], [ 0, %if.end26 ], [ -4, %do.body ], [ 0, %sw.epilog ], [ -2, %do.body29 ], [ %add.i, %iso2022processesc.exit ], [ -2, %do.body73 ], [ -4, %do.body85 ], [ -4, %do.body141 ], [ 1, %if.else163 ], [ -4, %do.body185 ], [ -2, %do.body214 ], [ -4, %do.body231 ], [ -4, %do.body242 ], [ -4, %cond.false263 ], [ 6, %sw.bb95.i ], [ 6, %land.lhs.true100.i ], [ 6, %land.lhs.true105.i ], [ 6, %land.lhs.true110.i ], [ 4, %if.end76.i ], [ 4, %sw.bb70.i ], [ 3, %if.else54.i ], [ 1, %for.end.i ], [ -3, %do.end78 ], [ -4, %do.body155.i ], [ 3, %if.then148.i ], [ 3, %if.else93.i ], [ -4, %do.body128.i ], [ -4, %do.body114.i ], [ -4, %do.body100.i ], [ -4, %do.body82.i ], [ -4, %do.body45.i ], [ -4, %do.body25.i ], [ 3, %if.then.i ], [ -4, %do.body.i91 ]
   ret i64 %retval.0
 }
 

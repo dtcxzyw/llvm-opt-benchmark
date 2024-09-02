@@ -425,7 +425,7 @@ for.cond.i:                                       ; preds = %for.body.i
   %next_hash.i = getelementptr inbounds i8, ptr %7, i64 8
   %i.0.i = load i32, ptr %next_hash.i, align 4
   %cmp.not.i = icmp eq i32 %i.0.i, -1
-  br i1 %cmp.not.i, label %invoke.cont8, label %for.body.i, !llvm.loop !7
+  br i1 %cmp.not.i, label %invoke.cont8.loopexit, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.07.i = phi i32 [ %i.05.i, %for.body.lr.ph.i ], [ %i.0.i, %for.cond.i ]
@@ -436,12 +436,16 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %8 = load i64, ptr %masked_ptr.i, align 8
   %9 = xor i64 %8, %xor.i
   %cmp5.i = icmp eq i64 %9, -1136490970041655429
-  br i1 %cmp5.i, label %invoke.cont8, label %for.cond.i
+  br i1 %cmp5.i, label %invoke.cont8.loopexit, label %for.cond.i
 
-invoke.cont8:                                     ; preds = %for.body.i, %for.cond.i, %land.lhs.true
-  %i.0.lcssa.i = phi i32 [ -1, %land.lhs.true ], [ %i.07.i, %for.body.i ], [ -1, %for.cond.i ]
-  %10 = zext i32 %i.0.lcssa.i to i64
-  %cmp10.not = icmp eq i64 %indvars.iv74, %10
+invoke.cont8.loopexit:                            ; preds = %for.cond.i, %for.body.i
+  %i.0.lcssa.i.ph = phi i32 [ -1, %for.cond.i ], [ %i.07.i, %for.body.i ]
+  %10 = zext i32 %i.0.lcssa.i.ph to i64
+  br label %invoke.cont8
+
+invoke.cont8:                                     ; preds = %invoke.cont8.loopexit, %land.lhs.true
+  %i.0.lcssa.i = phi i64 [ 4294967295, %land.lhs.true ], [ %10, %invoke.cont8.loopexit ]
+  %cmp10.not = icmp eq i64 %i.0.lcssa.i, %indvars.iv74
   br i1 %cmp10.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %invoke.cont8

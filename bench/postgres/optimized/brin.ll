@@ -1761,8 +1761,8 @@ check_null_keys.exit:                             ; preds = %181, %155, %149
   br i1 %.not187, label %.thread, label %134, !llvm.loop !15
 
 .thread:                                          ; preds = %218, %.loopexit
-  %.0171 = phi i8 [ %.2173, %218 ], [ %.3, %.loopexit ]
-  %221 = trunc nuw i8 %.0171 to i1
+  %.0171.ph = phi i8 [ %.2173, %218 ], [ %.3, %.loopexit ]
+  %221 = trunc nuw i8 %.0171.ph to i1
   br i1 %221, label %.preheader207, label %.thread196
 
 .preheader207:                                    ; preds = %.preheader209, %120, %123, %.thread
@@ -3210,29 +3210,29 @@ define internal fastcc void @union_tuples(ptr noundef %0, ptr noundef %1, ptr no
   %77 = getelementptr inbounds i8, ptr %70, i64 2
   %78 = load i8, ptr %77, align 2
   %79 = trunc i8 %78 to i1
-  br i1 %79, label %84, label %80
+  br i1 %79, label %85, label %80
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds i8, ptr %70, i64 3
   %82 = load i8, ptr %81, align 1
   %83 = trunc i8 %82 to i1
-  br label %84
+  %84 = xor i1 %83, true
+  br label %85
 
-84:                                               ; preds = %80, %76
-  %85 = phi i1 [ true, %76 ], [ %83, %80 ]
+85:                                               ; preds = %80, %76
+  %.not = phi i1 [ false, %76 ], [ %84, %80 ]
   %86 = getelementptr inbounds i8, ptr %69, i64 3
   %87 = load i8, ptr %86, align 1
   %88 = trunc i8 %87 to i1
-  %.not = xor i1 %85, true
   %brmerge = select i1 %88, i1 true, i1 %.not
   br i1 %brmerge, label %91, label %89
 
-89:                                               ; preds = %84
+89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %69, i64 2
   store i8 1, ptr %90, align 2
   br label %91
 
-91:                                               ; preds = %84, %89
+91:                                               ; preds = %85, %89
   %92 = getelementptr inbounds i8, ptr %70, i64 3
   %93 = load i8, ptr %92, align 1
   %94 = trunc i8 %93 to i1

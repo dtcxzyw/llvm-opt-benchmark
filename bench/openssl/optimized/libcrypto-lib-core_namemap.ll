@@ -669,8 +669,8 @@ if.end22:                                         ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %call17, i64 1
   store i8 0, ptr %call17, align 1
   %.pre = load i8, ptr %p.041, align 1
-  %cmp24 = icmp eq i8 %.pre, 0
-  br i1 %cmp24, label %if.then26, label %if.end27
+  %3 = icmp eq i8 %.pre, 0
+  br i1 %3, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end22
   call void @ERR_new() #7
@@ -690,11 +690,11 @@ if.end27:                                         ; preds = %if.end22.thread, %i
 
 cond.true.i:                                      ; preds = %if.end27
   %number2.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  %3 = load i32, ptr %number2.i, align 8
+  %4 = load i32, ptr %number2.i, align 8
   br label %namemap_name2num.exit
 
 namemap_name2num.exit:                            ; preds = %if.end27, %cond.true.i
-  %cond.i = phi i32 [ %3, %cond.true.i ], [ 0, %if.end27 ]
+  %cond.i = phi i32 [ %4, %cond.true.i ], [ 0, %if.end27 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %namenum_tmpl.i)
   %cmp29 = icmp eq i32 %number.addr.042, 0
   br i1 %cmp29, label %for.inc, label %if.else32
@@ -713,8 +713,8 @@ if.then37:                                        ; preds = %if.else32
 
 for.inc:                                          ; preds = %namemap_name2num.exit, %if.else32
   %number.addr.2 = phi i32 [ %number.addr.042, %if.else32 ], [ %cond.i, %namemap_name2num.exit ]
-  %4 = load i8, ptr %q.060, align 1
-  %cmp14.not = icmp eq i8 %4, 0
+  %5 = load i8, ptr %q.060, align 1
+  %cmp14.not = icmp eq i8 %5, 0
   br i1 %cmp14.not, label %for.cond40.preheader, label %for.body, !llvm.loop !7
 
 for.body43:                                       ; preds = %for.cond40.preheader, %for.inc58
@@ -744,8 +744,8 @@ for.inc58:                                        ; preds = %for.body43, %if.els
 
 end:                                              ; preds = %for.inc58, %for.cond.preheader, %for.cond40.preheader, %if.then55, %if.then37, %if.then26
   %number.addr.1 = phi i32 [ 0, %if.then26 ], [ 0, %if.then37 ], [ 0, %if.then55 ], [ %number.addr.2, %for.cond40.preheader ], [ %number, %for.cond.preheader ], [ %number.addr.4, %for.inc58 ]
-  %5 = load ptr, ptr %lock, align 8
-  %call61 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #7
+  %6 = load ptr, ptr %lock, align 8
+  %call61 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %6) #7
   call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 371) #7
   br label %return
 

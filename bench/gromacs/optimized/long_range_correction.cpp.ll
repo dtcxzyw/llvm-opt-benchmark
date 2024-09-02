@@ -447,19 +447,22 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   %237 = select i1 %236, ptr %.val, ptr %.val155
   br i1 %211, label %.lr.ph.us.us, label %._crit_edge.us.us
 
-._crit_edge.us.us:                                ; preds = %.lr.ph.us.us, %235
-  %.0119.lcssa.us.us = phi float [ 0.000000e+00, %235 ], [ %256, %.lr.ph.us.us ]
-  %238 = getelementptr inbounds double, ptr %5, i64 %indvars.iv209
-  %239 = load double, ptr %238, align 8
-  %240 = fpext float %.0119.lcssa.us.us to double
+._crit_edge.us.us.loopexit:                       ; preds = %.lr.ph.us.us
+  %238 = fpext float %256 to double
+  br label %._crit_edge.us.us
+
+._crit_edge.us.us:                                ; preds = %._crit_edge.us.us.loopexit, %235
+  %.0119.lcssa.us.us = phi double [ 0.000000e+00, %235 ], [ %238, %._crit_edge.us.us.loopexit ]
+  %239 = getelementptr inbounds double, ptr %5, i64 %indvars.iv209
+  %240 = load double, ptr %239, align 8
   %241 = load float, ptr %39, align 4
   %242 = fpext float %241 to double
-  %243 = fmul double %239, %242
+  %243 = fmul double %240, %242
   %244 = fmul double %243, %242
   %245 = fdiv double %244, 1.200000e+01
-  %246 = fadd double %245, %240
+  %246 = fadd double %245, %.0119.lcssa.us.us
   %247 = fpext float %230 to double
-  %248 = fmul double %239, %215
+  %248 = fmul double %240, %215
   %249 = tail call double @llvm.fmuladd.f64(double %248, double %246, double %247)
   %250 = fptrunc double %249 to float
   store float %250, ptr %231, align 4
@@ -476,7 +479,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   %256 = tail call float @llvm.fmuladd.f32(float %255, float %254, float %.0119169.us.us)
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
-  br i1 %exitcond208.not, label %._crit_edge.us.us, label %.lr.ph.us.us, !llvm.loop !14
+  br i1 %exitcond208.not, label %._crit_edge.us.us.loopexit, label %.lr.ph.us.us, !llvm.loop !14
 
 257:                                              ; preds = %._crit_edge.us.us, %.split.us.split.us172
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1

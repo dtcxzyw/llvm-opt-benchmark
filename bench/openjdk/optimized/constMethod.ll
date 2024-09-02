@@ -193,7 +193,7 @@ _ZN11ConstMethodC2EiP16InlineTableSizesNS_10MethodTypeEi.exit: ; preds = %58, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN11ConstMethod4sizeEiP16InlineTableSizes(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 -268435449, 268435463) i32 @_ZN11ConstMethod4sizeEiP16InlineTableSizes(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)

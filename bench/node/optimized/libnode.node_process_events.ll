@@ -79,7 +79,7 @@ declare ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(
 declare ptr @_ZN4node12MakeCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKciPNS3_INS0_5ValueEEENS_13async_contextE(ptr noundef, ptr, ptr noundef, i32 noundef, ptr noundef, double, double) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node25ProcessEmitWarningGenericEPNS_11EnvironmentEPKcS3_S3_(ptr nocapture noundef readonly %env, ptr noundef %warning, ptr noundef %type, ptr noundef %code) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node25ProcessEmitWarningGenericEPNS_11EnvironmentEPKcS3_S3_(ptr nocapture noundef readonly %env, ptr noundef %warning, ptr noundef %type, ptr noundef %code) local_unnamed_addr #3 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %args = alloca [3 x %"class.v8::Local"], align 16
@@ -205,7 +205,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node30ProcessEmitExperimentalWarningEPNS_11EnvironmentEPKc(ptr nocapture noundef readonly %env, ptr noundef %warning) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node30ProcessEmitExperimentalWarningEPNS_11EnvironmentEPKc(ptr nocapture noundef readonly %env, ptr noundef %warning) local_unnamed_addr #3 {
 entry:
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.78", align 1
@@ -304,7 +304,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node29ProcessEmitDeprecationWarningEPNS_11EnvironmentEPKcS3_(ptr nocapture noundef readonly %env, ptr noundef %warning, ptr noundef %deprecation_code) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node29ProcessEmitDeprecationWarningEPNS_11EnvironmentEPKcS3_(ptr nocapture noundef readonly %env, ptr noundef %warning, ptr noundef %deprecation_code) local_unnamed_addr #3 {
 entry:
   %call = tail call i16 @_ZN4node25ProcessEmitWarningGenericEPNS_11EnvironmentEPKcS3_S3_(ptr noundef %env, ptr noundef %warning, ptr noundef nonnull @.str.4, ptr noundef %deprecation_code)
   ret i16 %call

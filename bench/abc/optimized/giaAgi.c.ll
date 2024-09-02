@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Agi_ManAlloc(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noundef i32 @llvm.smax.i32(i32 %0, i32 16)
+  %2 = tail call noundef range(i32 16, -2147483648) i32 @llvm.smax.i32(i32 %0, i32 16)
   %3 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #15
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %2, ptr %4, align 8
@@ -92,7 +92,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 define noalias noundef ptr @Agi_ManFromGia(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %2, align 8
-  %3 = tail call noundef i32 @llvm.smax.i32(i32 %.val, i32 16)
+  %3 = tail call noundef range(i32 16, -2147483648) i32 @llvm.smax.i32(i32 %.val, i32 16)
   %4 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #15
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 %3, ptr %5, align 8

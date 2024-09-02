@@ -2356,96 +2356,96 @@ define internal fastcc void @ieee80211_recalc_radar_chanctx(ptr noundef %0, ptr 
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   tail call void @__rcu_read_lock() #13
   %4 = getelementptr inbounds i8, ptr %0, i64 4512
+  br label %.outer
+
+.outer:                                           ; preds = %39, %2
+  %.ph = phi i8 [ %35, %39 ], [ 0, %2 ]
+  %.ph3 = phi ptr [ %7, %39 ], [ %4, %2 ]
   br label %5
 
-5:                                                ; preds = %44, %2
-  %6 = phi i8 [ 0, %2 ], [ %46, %44 ]
-  %7 = phi ptr [ %4, %2 ], [ %8, %44 ]
-  %8 = load volatile ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, %4
-  br i1 %9, label %48, label %10
+5:                                                ; preds = %.outer, %9
+  %6 = phi ptr [ %7, %9 ], [ %.ph3, %.outer ]
+  %7 = load volatile ptr, ptr %6, align 8
+  %8 = icmp eq ptr %7, %4
+  br i1 %8, label %.loopexit.loopexit, label %9
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %8, i64 1272
-  %12 = load volatile i64, ptr %11, align 8
-  %13 = and i64 %12, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %44, label %15
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds i8, ptr %7, i64 1272
+  %11 = load volatile i64, ptr %10, align 8
+  %12 = and i64 %11, 1
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %5, label %14, !llvm.loop !106
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %8, i64 3904
-  br label %17
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %7, i64 3904
+  br label %16
 
-17:                                               ; preds = %34, %15
-  %18 = phi i64 [ %37, %34 ], [ 0, %15 ]
-  %19 = phi i8 [ %36, %34 ], [ %6, %15 ]
-  %20 = getelementptr [15 x ptr], ptr %16, i64 0, i64 %18
-  %21 = load volatile ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %34, label %23
+16:                                               ; preds = %33, %14
+  %17 = phi i64 [ %36, %33 ], [ 0, %14 ]
+  %18 = phi i8 [ %35, %33 ], [ %.ph, %14 ]
+  %19 = getelementptr [15 x ptr], ptr %15, i64 0, i64 %17
+  %20 = load volatile ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %33, label %22
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %21, i64 720
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 768
-  %27 = load volatile ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, %3
-  br i1 %28, label %29, label %34
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds i8, ptr %20, i64 720
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 768
+  %26 = load volatile ptr, ptr %25, align 8
+  %27 = icmp eq ptr %26, %3
+  br i1 %27, label %28, label %33
 
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %21, i64 376
-  %31 = load i8, ptr %30, align 8, !range !11, !noundef !12
-  %32 = icmp eq i8 %31, 0
-  %33 = select i1 %32, i8 %19, i8 1
-  br label %34
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds i8, ptr %20, i64 376
+  %30 = load i8, ptr %29, align 8, !range !11, !noundef !12
+  %31 = icmp eq i8 %30, 0
+  %32 = select i1 %31, i8 %18, i8 1
+  br label %33
 
-34:                                               ; preds = %29, %23, %17
-  %35 = phi i1 [ true, %17 ], [ true, %23 ], [ %32, %29 ]
-  %36 = phi i8 [ %19, %17 ], [ %19, %23 ], [ %33, %29 ]
-  %37 = add nuw nsw i64 %18, 1
-  %38 = icmp ult i64 %18, 14
-  %39 = and i1 %38, %35
-  br i1 %39, label %17, label %40, !llvm.loop !106
+33:                                               ; preds = %28, %22, %16
+  %34 = phi i1 [ true, %16 ], [ true, %22 ], [ %31, %28 ]
+  %35 = phi i8 [ %18, %16 ], [ %18, %22 ], [ %32, %28 ]
+  %36 = add nuw nsw i64 %17, 1
+  %37 = icmp ult i64 %17, 14
+  %38 = and i1 %37, %34
+  br i1 %38, label %16, label %39, !llvm.loop !107
 
-40:                                               ; preds = %34
-  %41 = shl nuw nsw i8 %36, 2
-  %42 = and i8 %41, 4
-  %43 = zext nneg i8 %42 to i32
-  br label %44
+39:                                               ; preds = %33
+  %40 = and i8 %35, 1
+  %.not = icmp eq i8 %40, 0
+  br i1 %.not, label %.outer, label %.loopexit, !llvm.loop !106
 
-44:                                               ; preds = %40, %10
-  %45 = phi i32 [ 8, %10 ], [ %43, %40 ]
-  %46 = phi i8 [ %6, %10 ], [ %36, %40 ]
-  %47 = icmp eq i32 %45, 4
-  br i1 %47, label %48, label %5, !llvm.loop !107
+.loopexit.loopexit:                               ; preds = %5
+  %.pre = and i8 %.ph, 1
+  br label %.loopexit
 
-48:                                               ; preds = %44, %5
-  %49 = phi i8 [ %46, %44 ], [ %6, %5 ]
+.loopexit:                                        ; preds = %39, %.loopexit.loopexit
+  %.pre-phi = phi i8 [ %.pre, %.loopexit.loopexit ], [ 1, %39 ]
   tail call void @__rcu_read_unlock() #13
-  %50 = and i8 %49, 1
-  %51 = getelementptr inbounds i8, ptr %1, i64 154
-  %52 = load i8, ptr %51, align 2, !range !11, !noundef !12
-  %53 = icmp eq i8 %52, %50
-  br i1 %53, label %62, label %54
+  %41 = getelementptr inbounds i8, ptr %1, i64 154
+  %42 = load i8, ptr %41, align 2, !range !11, !noundef !12
+  %43 = icmp eq i8 %42, %.pre-phi
+  br i1 %43, label %52, label %44
 
-54:                                               ; preds = %48
-  store i8 %50, ptr %51, align 2
-  %55 = getelementptr inbounds i8, ptr %0, i64 1345
-  %56 = load i8, ptr %55, align 1, !range !11, !noundef !12
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %58, label %61
+44:                                               ; preds = %.loopexit
+  store i8 %.pre-phi, ptr %41, align 2
+  %45 = getelementptr inbounds i8, ptr %0, i64 1345
+  %46 = load i8, ptr %45, align 1, !range !11, !noundef !12
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %48, label %51
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
-  store i8 %50, ptr %59, align 8
-  %60 = tail call i32 @ieee80211_hw_config(ptr noundef %0, i32 noundef 64) #13
-  br label %61
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds i8, ptr %0, i64 56
+  store i8 %.pre-phi, ptr %49, align 8
+  %50 = tail call i32 @ieee80211_hw_config(ptr noundef %0, i32 noundef 64) #13
+  br label %51
 
-61:                                               ; preds = %58, %54
+51:                                               ; preds = %48, %44
   tail call fastcc void @drv_change_chanctx(ptr noundef %0, ptr noundef %1, i32 noundef 4)
-  br label %62
+  br label %52
 
-62:                                               ; preds = %61, %48
+52:                                               ; preds = %51, %.loopexit
   ret void
 }
 

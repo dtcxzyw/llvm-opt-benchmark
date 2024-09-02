@@ -482,13 +482,16 @@ define dso_local void @gistdoinsert(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.094 = phi i8 [ 0, %6 ], [ %.094.be, %.backedge ]
   %.0 = phi ptr [ %13, %6 ], [ %.0.be, %.backedge ]
   %28 = trunc i8 %27 to i1
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  br i1 %28, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %26, %33
-  %.1132 = phi ptr [ %37, %33 ], [ %.0, %26 ]
-  %.195131 = phi i8 [ 0, %33 ], [ %.094, %26 ]
-  %29 = trunc nuw i8 %.195131 to i1
-  br i1 %29, label %30, label %33
+.lr.ph.preheader:                                 ; preds = %26
+  %29 = trunc nuw i8 %.094 to i1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %33
+  %.1132 = phi ptr [ %37, %33 ], [ %.0, %.lr.ph.preheader ]
+  %.195131 = phi i1 [ false, %33 ], [ %29, %.lr.ph.preheader ]
+  br i1 %.195131, label %30, label %33
 
 30:                                               ; preds = %.lr.ph
   %31 = getelementptr inbounds i8, ptr %.1132, i64 4

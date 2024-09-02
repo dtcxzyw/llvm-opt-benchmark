@@ -6069,7 +6069,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, 0) i64 @io_buffer_read_u32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, 8589934592) i64 @io_buffer_read_u32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 4
   %6 = icmp ugt i64 %5, %1
@@ -6091,7 +6091,7 @@ io_buffer_validate_type.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, 0) i64 @io_buffer_read_U32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i64 1, 8589934592) i64 @io_buffer_read_U32(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 4
   %6 = icmp ugt i64 %5, %1

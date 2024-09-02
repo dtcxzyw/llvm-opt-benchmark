@@ -2173,14 +2173,14 @@ land.lhs.true:                                    ; preds = %if.end5
   %cmp8 = icmp eq i8 %8, 58
   %dec = sext i1 %cmp8 to i64
   %spec.select = add i64 %arglen.2, %dec
+  %9 = inttoptr i64 %spec.select to ptr
   br label %if.end11
 
 if.end11:                                         ; preds = %land.lhs.true, %if.end5
-  %len.0 = phi i64 [ 0, %if.end5 ], [ %spec.select, %land.lhs.true ]
-  %9 = inttoptr i64 %len.0 to ptr
+  %len.0 = phi ptr [ null, %if.end5 ], [ %9, %land.lhs.true ]
   %call12 = tail call ptr @string_list_append(ptr noundef %filter_list, ptr noundef nonnull %argval.2) #18
   %util = getelementptr inbounds i8, ptr %call12, i64 8
-  store ptr %9, ptr %util, align 8
+  store ptr %len.0, ptr %util, align 8
   store ptr @format_trailer_match_cb, ptr %filter, align 8
   store ptr %filter_list, ptr %filter_data, align 8
   store i32 1, ptr %only_trailers, align 8

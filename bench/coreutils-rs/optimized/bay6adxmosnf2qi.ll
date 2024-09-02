@@ -1900,7 +1900,7 @@ define hidden { ptr, ptr } @_ZN5uu_dd8progress10ProgUpdate15write_prog_line17hb4
   %73 = udiv i32 %67, 1000000
   %74 = zext nneg i32 %73 to i128
   %75 = add nuw nsw i128 %72, %74
-  %.0.sroa.speculated.i = tail call noundef i128 @llvm.umax.i128(i128 %75, i128 1)
+  %.0.sroa.speculated.i = tail call noundef range(i128 1, 0) i128 @llvm.umax.i128(i128 %75, i128 1)
   %76 = udiv i128 %56, %.0.sroa.speculated.i
   %77 = mul i128 %76, 1000
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %51)

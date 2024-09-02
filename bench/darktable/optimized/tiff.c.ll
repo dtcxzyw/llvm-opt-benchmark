@@ -1486,22 +1486,22 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %878 = getelementptr inbounds float, ptr %868, i64 %860
   br label %879
 
-879:                                              ; preds = %886, %877
-  %880 = phi i64 [ 0, %877 ], [ %892, %886 ]
+879:                                              ; preds = %887, %877
+  %880 = phi i64 [ 0, %877 ], [ %892, %887 ]
   %881 = load float, ptr %878, align 4, !tbaa !37
   %882 = fcmp reassoc nsz arcp contract afn ult float %881, 0.000000e+00
-  br i1 %882, label %886, label %883
+  br i1 %882, label %887, label %883
 
 883:                                              ; preds = %879
   %884 = fcmp reassoc nsz arcp contract afn ugt float %881, 1.000000e+00
-  br i1 %884, label %886, label %885
+  br i1 %884, label %887, label %885
 
 885:                                              ; preds = %883
-  br label %886
+  %886 = fmul reassoc nsz arcp contract afn float %881, 2.550000e+02
+  br label %887
 
-886:                                              ; preds = %885, %883, %879
-  %887 = phi reassoc nsz arcp contract afn float [ %881, %885 ], [ 1.000000e+00, %883 ], [ 0.000000e+00, %879 ]
-  %888 = fmul reassoc nsz arcp contract afn float %887, 2.550000e+02
+887:                                              ; preds = %885, %883, %879
+  %888 = phi float [ %886, %885 ], [ 2.550000e+02, %883 ], [ 0.000000e+00, %879 ]
   %889 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %888)
   %890 = fptoui float %889 to i8
   %891 = getelementptr inbounds i8, ptr %875, i64 %880
@@ -1512,7 +1512,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %894 = icmp ult i64 %892, %893
   br i1 %894, label %879, label %.loopexit141
 
-.loopexit141:                                     ; preds = %886, %.thread131
+.loopexit141:                                     ; preds = %887, %.thread131
   %.0..0..0..0.75 = load volatile i16, ptr %15, align 2, !tbaa !33
   br label %895
 
@@ -1522,7 +1522,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %898 = icmp eq i32 %897, -1
   br i1 %898, label %.loopexit149, label %862
 
-.loopexit132:                                     ; preds = %932, %.preheader142
+.loopexit132:                                     ; preds = %933, %.preheader142
   %.0..0..0..0.76 = load volatile i16, ptr %15, align 2, !tbaa !33
   %899 = zext i16 %.0..0..0..0.76 to i64
   %900 = getelementptr inbounds i8, ptr %870, i64 %899
@@ -1535,22 +1535,22 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %904 = getelementptr inbounds float, ptr %868, i64 %903
   br label %905
 
-905:                                              ; preds = %912, %902
-  %906 = phi i64 [ 0, %902 ], [ %918, %912 ]
+905:                                              ; preds = %913, %902
+  %906 = phi i64 [ 0, %902 ], [ %918, %913 ]
   %907 = load float, ptr %904, align 4, !tbaa !37
   %908 = fcmp reassoc nsz arcp contract afn ult float %907, 0.000000e+00
-  br i1 %908, label %912, label %909
+  br i1 %908, label %913, label %909
 
 909:                                              ; preds = %905
   %910 = fcmp reassoc nsz arcp contract afn ugt float %907, 1.000000e+00
-  br i1 %910, label %912, label %911
+  br i1 %910, label %913, label %911
 
 911:                                              ; preds = %909
-  br label %912
+  %912 = fmul reassoc nsz arcp contract afn float %907, 2.550000e+02
+  br label %913
 
-912:                                              ; preds = %911, %909, %905
-  %913 = phi reassoc nsz arcp contract afn float [ %907, %911 ], [ 1.000000e+00, %909 ], [ 0.000000e+00, %905 ]
-  %914 = fmul reassoc nsz arcp contract afn float %913, 2.550000e+02
+913:                                              ; preds = %911, %909, %905
+  %914 = phi float [ %912, %911 ], [ 2.550000e+02, %909 ], [ 0.000000e+00, %905 ]
   %915 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %914)
   %916 = fptoui float %915 to i8
   %917 = getelementptr inbounds i8, ptr %900, i64 %906
@@ -1561,7 +1561,7 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %920 = icmp ult i64 %918, %919
   br i1 %920, label %905, label %.loopexit
 
-.loopexit:                                        ; preds = %912, %.loopexit132
+.loopexit:                                        ; preds = %913, %.loopexit132
   %921 = add nuw i64 %869, 2
   %.0..0..0..0.79 = load volatile i16, ptr %15, align 2, !tbaa !33
   %922 = zext i16 %.0..0..0..0.79 to i64
@@ -1569,22 +1569,22 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %924 = icmp eq i64 %921, %860
   br i1 %924, label %874, label %.preheader142
 
-925:                                              ; preds = %932, %872
-  %926 = phi i64 [ 0, %872 ], [ %938, %932 ]
+925:                                              ; preds = %933, %872
+  %926 = phi i64 [ 0, %872 ], [ %938, %933 ]
   %927 = load float, ptr %873, align 4, !tbaa !37
   %928 = fcmp reassoc nsz arcp contract afn ult float %927, 0.000000e+00
-  br i1 %928, label %932, label %929
+  br i1 %928, label %933, label %929
 
 929:                                              ; preds = %925
   %930 = fcmp reassoc nsz arcp contract afn ugt float %927, 1.000000e+00
-  br i1 %930, label %932, label %931
+  br i1 %930, label %933, label %931
 
 931:                                              ; preds = %929
-  br label %932
+  %932 = fmul reassoc nsz arcp contract afn float %927, 2.550000e+02
+  br label %933
 
-932:                                              ; preds = %931, %929, %925
-  %933 = phi reassoc nsz arcp contract afn float [ %927, %931 ], [ 1.000000e+00, %929 ], [ 0.000000e+00, %925 ]
-  %934 = fmul reassoc nsz arcp contract afn float %933, 2.550000e+02
+933:                                              ; preds = %931, %929, %925
+  %934 = phi float [ %932, %931 ], [ 2.550000e+02, %929 ], [ 0.000000e+00, %925 ]
   %935 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %934)
   %936 = fptoui float %935 to i8
   %937 = getelementptr inbounds i8, ptr %870, i64 %926

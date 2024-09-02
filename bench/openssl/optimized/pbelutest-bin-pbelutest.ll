@@ -25,9 +25,9 @@ define internal range(i32 0, 2) i32 @test_pbelu() #0 {
 entry:
   %pbe_type = alloca i32, align 4
   %pbe_nid = alloca i32, align 4
-  %call13 = call i32 @EVP_PBE_get(ptr noundef nonnull %pbe_type, ptr noundef nonnull %pbe_nid, i64 noundef 0) #2
-  %cmp.not14 = icmp eq i32 %call13, 0
-  br i1 %cmp.not14, label %return, label %for.body
+  %call9 = call i32 @EVP_PBE_get(ptr noundef nonnull %pbe_type, ptr noundef nonnull %pbe_nid, i64 noundef 0) #2
+  %cmp.not10 = icmp eq i32 %call9, 0
+  br i1 %cmp.not10, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
@@ -45,9 +45,9 @@ if.then:                                          ; preds = %for.body
   %3 = load i32, ptr %pbe_type, align 4
   %4 = load i32, ptr %pbe_nid, align 4
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.3, i32 noundef %2, i32 noundef %3, i32 noundef %4) #2
-  %call1116 = call i32 @EVP_PBE_get(ptr noundef nonnull %pbe_type, ptr noundef nonnull %pbe_nid, i64 noundef 0) #2
-  %cmp12.not17 = icmp eq i32 %call1116, 0
-  br i1 %cmp12.not17, label %return, label %for.body14
+  %call1112 = call i32 @EVP_PBE_get(ptr noundef nonnull %pbe_type, ptr noundef nonnull %pbe_nid, i64 noundef 0) #2
+  %cmp12.not13 = icmp eq i32 %call1112, 0
+  br i1 %cmp12.not13, label %return, label %for.body14
 
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -55,43 +55,29 @@ for.inc:                                          ; preds = %for.body
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !5
 
-for.body14:                                       ; preds = %if.then, %for.cond9
-  %indvars.iv24 = phi i64 [ %indvars.iv.next25, %for.cond9 ], [ 0, %if.then ]
-  %last_nid.020 = phi i32 [ %12, %for.cond9 ], [ -1, %if.then ]
-  %last_type.019 = phi i32 [ %11, %for.cond9 ], [ -1, %if.then ]
+for.body14:                                       ; preds = %if.then, %for.body14
+  %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body14 ], [ 0, %if.then ]
+  %last_nid.016 = phi i32 [ %9, %for.body14 ], [ -1, %if.then ]
+  %last_type.015 = phi i32 [ %8, %for.body14 ], [ -1, %if.then ]
   %5 = load i32, ptr %pbe_type, align 4
-  %cmp15 = icmp slt i32 %5, %last_type.019
-  br i1 %cmp15, label %lor.end.thread, label %lor.end
-
-lor.end.thread:                                   ; preds = %for.body14
-  %6 = load i32, ptr %pbe_nid, align 4
-  %call217 = call ptr @OBJ_nid2sn(i32 noundef %6) #2
-  br label %for.cond9
-
-lor.end:                                          ; preds = %for.body14
-  %cmp17 = icmp eq i32 %5, %last_type.019
-  %7 = load i32, ptr %pbe_nid, align 4
-  %cmp19 = icmp slt i32 %7, %last_nid.020
-  %8 = select i1 %cmp17, i1 %cmp19, i1 false
-  %call21 = call ptr @OBJ_nid2sn(i32 noundef %7) #2
-  %cond.fr = freeze i1 %8
-  %spec.select = select i1 %cond.fr, ptr @.str.5, ptr @.str.6
-  br label %for.cond9
-
-for.cond9:                                        ; preds = %lor.end, %lor.end.thread
-  %call219 = phi ptr [ %call217, %lor.end.thread ], [ %call21, %lor.end ]
-  %9 = phi i32 [ %6, %lor.end.thread ], [ %7, %lor.end ]
-  %10 = phi ptr [ @.str.5, %lor.end.thread ], [ %spec.select, %lor.end ]
-  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.4, i32 noundef %5, i32 noundef %9, ptr noundef %call219, ptr noundef nonnull %10) #2
-  %11 = load i32, ptr %pbe_type, align 4
-  %12 = load i32, ptr %pbe_nid, align 4
-  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %call11 = call i32 @EVP_PBE_get(ptr noundef nonnull %pbe_type, ptr noundef nonnull %pbe_nid, i64 noundef %indvars.iv.next25) #2
+  %cmp15 = icmp slt i32 %5, %last_type.015
+  %.pre = load i32, ptr %pbe_nid, align 4
+  %cmp17 = icmp eq i32 %5, %last_type.015
+  %cmp19 = icmp slt i32 %.pre, %last_nid.016
+  %6 = select i1 %cmp17, i1 %cmp19, i1 false
+  %7 = select i1 %cmp15, i1 true, i1 %6
+  %cond = select i1 %7, ptr @.str.5, ptr @.str.6
+  %call21 = call ptr @OBJ_nid2sn(i32 noundef %.pre) #2
+  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.4, i32 noundef %5, i32 noundef %.pre, ptr noundef %call21, ptr noundef nonnull %cond) #2
+  %8 = load i32, ptr %pbe_type, align 4
+  %9 = load i32, ptr %pbe_nid, align 4
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
+  %call11 = call i32 @EVP_PBE_get(ptr noundef nonnull %pbe_type, ptr noundef nonnull %pbe_nid, i64 noundef %indvars.iv.next21) #2
   %cmp12.not = icmp eq i32 %call11, 0
   br i1 %cmp12.not, label %return, label %for.body14, !llvm.loop !7
 
-return:                                           ; preds = %for.inc, %for.cond9, %entry, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %entry ], [ 0, %for.cond9 ], [ 1, %for.inc ]
+return:                                           ; preds = %for.inc, %for.body14, %entry, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %entry ], [ 0, %for.body14 ], [ 1, %for.inc ]
   ret i32 %retval.0
 }
 

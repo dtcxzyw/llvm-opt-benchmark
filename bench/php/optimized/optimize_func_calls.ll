@@ -129,21 +129,21 @@ define hidden void @zend_optimize_func_calls(ptr noundef %0, ptr nocapture nound
   store ptr %52, ptr %50, align 8
   %53 = load i8, ptr %51, align 8
   %54 = trunc i8 %53 to i1
-  br i1 %54, label %58, label %55
+  br i1 %54, label %59, label %55
 
 55:                                               ; preds = %47
   %56 = load i8, ptr %45, align 4
   %57 = icmp ne i8 %56, 68
-  br label %58
+  %58 = zext i1 %57 to i8
+  br label %59
 
-58:                                               ; preds = %55, %47
-  %59 = phi i1 [ false, %47 ], [ %57, %55 ]
-  %60 = getelementptr inbounds i8, ptr %50, i64 25
-  %61 = zext i1 %59 to i8
-  store i8 %61, ptr %60, align 1
+59:                                               ; preds = %55, %47
+  %60 = phi i8 [ 0, %47 ], [ %58, %55 ]
+  %61 = getelementptr inbounds i8, ptr %50, i64 25
+  store i8 %60, ptr %61, align 1
   br label %62
 
-62:                                               ; preds = %58, %44, %44
+62:                                               ; preds = %59, %44, %44
   %63 = sext i32 %.0389522 to i64
   %64 = getelementptr inbounds %struct._optimizer_call_info, ptr %.0, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 8

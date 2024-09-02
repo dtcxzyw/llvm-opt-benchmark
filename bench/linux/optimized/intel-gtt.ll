@@ -1624,7 +1624,7 @@ define internal noundef i32 @intel_fake_agp_free_gatt_table(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_fake_agp_insert_entries(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @intel_fake_agp_insert_entries(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.sg_table, align 8
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @intel_private, i64 56), align 8, !range !20, !noundef !21
   %6 = icmp eq i8 %5, 0

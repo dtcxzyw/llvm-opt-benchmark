@@ -7702,16 +7702,16 @@ while.cond412.preheader.lr.ph:                    ; preds = %if.end405
 
 while.cond407.loopexit:                           ; preds = %if.end437
   %209 = load i32, ptr %m_size.i.i, align 4
-  %cmp409 = icmp slt i32 %inc418.lcssa1453, %209
+  %cmp409 = icmp slt i32 %inc418.lcssa1452, %209
   br i1 %cmp409, label %while.cond412.preheader, label %while.end439, !llvm.loop !74
 
 while.cond412.preheader:                          ; preds = %while.cond412.preheader.lr.ph, %while.cond407.loopexit
   %210 = phi i32 [ %208, %while.cond412.preheader.lr.ph ], [ %209, %while.cond407.loopexit ]
-  %pos.01415 = phi i32 [ 0, %while.cond412.preheader.lr.ph ], [ %inc418.lcssa1453, %while.cond407.loopexit ]
+  %pos.01415 = phi i32 [ 0, %while.cond412.preheader.lr.ph ], [ %inc418.lcssa1452, %while.cond407.loopexit ]
   br label %while.body414
 
 while.body414:                                    ; preds = %while.cond412.preheader, %if.end437
-  %pos.11413 = phi i32 [ %pos.01415, %while.cond412.preheader ], [ %inc418.lcssa1453, %if.end437 ]
+  %pos.11413 = phi i32 [ %pos.01415, %while.cond412.preheader ], [ %inc418.lcssa1452, %if.end437 ]
   %211 = load ptr, ptr %m_data.i, align 8
   %idxprom.i1201 = sext i32 %pos.11413 to i64
   %arrayidx.i1202 = getelementptr ptr, ptr %211, i64 %idxprom.i1201
@@ -8012,18 +8012,18 @@ _ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit1254: ; preds = %if.end
 
 while.end433:                                     ; preds = %while.cond417.loopexit
   %256 = trunc nsw i64 %indvars.iv.next to i32
-  %tobool434 = trunc nuw i8 %deeper.1.lcssa to i1
-  br i1 %tobool434, label %if.then435, label %if.end437
+  %257 = trunc nuw i8 %deeper.1.lcssa to i1
+  br i1 %257, label %if.then435, label %if.end437
 
 if.then435:                                       ; preds = %while.end433
-  %257 = load i32, ptr %m_size.i.i, align 4
-  %258 = load i32, ptr %m_capacity.i.i, align 8
-  %cmp.i1257 = icmp eq i32 %257, %258
+  %258 = load i32, ptr %m_size.i.i, align 4
+  %259 = load i32, ptr %m_capacity.i.i, align 8
+  %cmp.i1257 = icmp eq i32 %258, %259
   br i1 %cmp.i1257, label %if.then.i1263, label %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit1268
 
 if.then.i1263:                                    ; preds = %if.then435
-  %tobool.not.i.i1264 = icmp eq i32 %257, 0
-  %mul.i.i1265 = shl nsw i32 %257, 1
+  %tobool.not.i.i1264 = icmp eq i32 %258, 0
+  %mul.i.i1265 = shl nsw i32 %258, 1
   %cond.i.i1266 = select i1 %tobool.not.i.i1264, i32 1, i32 %mul.i.i1265
   call void @_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %stack, i32 noundef %cond.i.i1266)
   %.pre.i1267 = load i32, ptr %m_size.i.i, align 4
@@ -8031,19 +8031,19 @@ if.then.i1263:                                    ; preds = %if.then435
   br label %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit1268
 
 _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit1268: ; preds = %if.then435, %if.then.i1263
-  %259 = phi ptr [ %.pre1447, %if.then.i1263 ], [ %215, %if.then435 ]
-  %260 = phi i32 [ %.pre.i1267, %if.then.i1263 ], [ %257, %if.then435 ]
-  %idxprom.i1260 = sext i32 %260 to i64
-  %arrayidx.i1261 = getelementptr inbounds ptr, ptr %259, i64 %idxprom.i1260
+  %260 = phi ptr [ %.pre1447, %if.then.i1263 ], [ %215, %if.then435 ]
+  %261 = phi i32 [ %.pre.i1267, %if.then.i1263 ], [ %258, %if.then435 ]
+  %idxprom.i1260 = sext i32 %261 to i64
+  %arrayidx.i1261 = getelementptr inbounds ptr, ptr %260, i64 %idxprom.i1260
   store ptr null, ptr %arrayidx.i1261, align 8
-  %261 = load i32, ptr %m_size.i.i, align 4
-  %inc.i1262 = add nsw i32 %261, 1
+  %262 = load i32, ptr %m_size.i.i, align 4
+  %inc.i1262 = add nsw i32 %262, 1
   store i32 %inc.i1262, ptr %m_size.i.i, align 4
   br label %if.end437
 
 if.end437:                                        ; preds = %while.body414, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit1268, %while.end433
-  %inc418.lcssa1453 = phi i32 [ %256, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit1268 ], [ %256, %while.end433 ], [ %inc4181405.reass, %while.body414 ]
-  %cmp413 = icmp slt i32 %inc418.lcssa1453, %210
+  %inc418.lcssa1452 = phi i32 [ %256, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit1268 ], [ %256, %while.end433 ], [ %inc4181405.reass, %while.body414 ]
+  %cmp413 = icmp slt i32 %inc418.lcssa1452, %210
   br i1 %cmp413, label %while.body414, label %while.cond407.loopexit, !llvm.loop !78
 
 while.end439:                                     ; preds = %while.cond407.loopexit, %if.end405
@@ -8053,13 +8053,13 @@ while.end439:                                     ; preds = %while.cond407.loope
 
 for.body9.lr.ph.i:                                ; preds = %while.end439
   call void @_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %stack, i32 noundef 0)
-  %262 = sext i32 %.lcssa to i64
+  %263 = sext i32 %.lcssa to i64
   br label %for.body9.i
 
 for.body9.i:                                      ; preds = %for.body9.i, %for.body9.lr.ph.i
-  %indvars.iv.i = phi i64 [ %262, %for.body9.lr.ph.i ], [ %indvars.iv.next.i, %for.body9.i ]
-  %263 = load ptr, ptr %m_data.i, align 8
-  %arrayidx12.i = getelementptr inbounds ptr, ptr %263, i64 %indvars.iv.i
+  %indvars.iv.i = phi i64 [ %263, %for.body9.lr.ph.i ], [ %indvars.iv.next.i, %for.body9.i ]
+  %264 = load ptr, ptr %m_data.i, align 8
+  %arrayidx12.i = getelementptr inbounds ptr, ptr %264, i64 %indvars.iv.i
   store ptr null, ptr %arrayidx12.i, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 0

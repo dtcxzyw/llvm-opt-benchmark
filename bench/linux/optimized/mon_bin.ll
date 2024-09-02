@@ -402,7 +402,7 @@ define internal range(i32 0, 66) i32 @mon_bin_poll(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @mon_bin_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.mon_bin_get, align 8
   %5 = alloca %struct.mon_bin_mfetch, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 200
@@ -874,7 +874,7 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @mon_bin_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.mon_bin_get32, align 4
   %5 = alloca %struct.mon_bin_mfetch32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 200
@@ -1330,20 +1330,20 @@ define internal fastcc noundef range(i32 -11, 1) i32 @mon_bin_wait_event(ptr noc
 
 23:                                               ; preds = %18
   %24 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 0, ptr elementtype(i32) %10) #12, !srcloc !25
-  br label %.thread
+  br label %.critedge
 
 25:                                               ; preds = %18
   call void @schedule() #12
   %26 = load volatile i64, ptr %6, align 8
   %27 = and i64 %26, 131072
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %.thread, !prof !26
+  br i1 %28, label %29, label %.critedge, !prof !26
 
 29:                                               ; preds = %25
   %30 = load volatile i64, ptr %6, align 8
   %31 = and i64 %30, 4
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %.thread
+  br i1 %32, label %33, label %.critedge
 
 33:                                               ; preds = %29
   %34 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 1, ptr elementtype(i32) %10) #12, !srcloc !27
@@ -1356,9 +1356,9 @@ define internal fastcc noundef range(i32 -11, 1) i32 @mon_bin_wait_event(ptr noc
   %38 = phi i64 [ %12, %2 ], [ %35, %33 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef %1, i64 noundef %38) #12
   %39 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 0, ptr elementtype(i32) %10) #12, !srcloc !29
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %25, %29, %.loopexit, %23
+.critedge:                                        ; preds = %25, %29, %.loopexit, %23
   %40 = phi i32 [ -11, %23 ], [ 0, %.loopexit ], [ -4, %29 ], [ -4, %25 ]
   call void @remove_wait_queue(ptr noundef %9, ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #12

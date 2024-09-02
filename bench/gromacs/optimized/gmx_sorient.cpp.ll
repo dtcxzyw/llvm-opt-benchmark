@@ -1958,13 +1958,13 @@ _ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit:        ; preds = %648
   %816 = getelementptr inbounds float, ptr %235, i64 %indvars.iv757
   %817 = load float, ptr %816, align 4
   %818 = fdiv float %817, %813
+  %819 = fpext float %818 to double
   br label %.thread425
 
 .thread425:                                       ; preds = %.lr.ph724, %810
-  %819 = phi double [ %815, %810 ], [ 0.000000e+00, %.lr.ph724 ]
-  %820 = phi float [ %818, %810 ], [ 0.000000e+00, %.lr.ph724 ]
-  %821 = fpext float %820 to double
-  %822 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %783, ptr noundef nonnull @.str.80, double noundef %807, double noundef %819, double noundef %821) #17
+  %820 = phi double [ %815, %810 ], [ 0.000000e+00, %.lr.ph724 ]
+  %821 = phi double [ %819, %810 ], [ 0.000000e+00, %.lr.ph724 ]
+  %822 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %783, ptr noundef nonnull @.str.80, double noundef %807, double noundef %820, double noundef %821) #17
   %indvars.iv.next758 = add nuw nsw i64 %indvars.iv757, 1
   %exitcond761.not = icmp eq i64 %indvars.iv.next758, %wide.trip.count760
   br i1 %exitcond761.not, label %._crit_edge725, label %.lr.ph724, !llvm.loop !15

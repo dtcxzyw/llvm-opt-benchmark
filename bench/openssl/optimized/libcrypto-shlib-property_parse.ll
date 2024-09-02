@@ -1159,14 +1159,13 @@ land.rhs:                                         ; preds = %if.then24
   %v = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %v35 = getelementptr inbounds i8, ptr %arrayidx11, i64 16
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %v, ptr noundef nonnull dereferenceable(8) %v35, i64 8)
-  %cmp36 = icmp eq i32 %bcmp, 0
+  %cmp36 = icmp ne i32 %bcmp, 0
+  %11 = zext i1 %cmp36 to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then24
-  %11 = phi i1 [ false, %if.then24 ], [ %cmp36, %land.rhs ]
-  %not. = xor i1 %11, true
-  %or.cond50.v = zext i1 %not. to i32
-  %or.cond50.not = icmp eq i32 %3, %or.cond50.v
+  %not. = phi i32 [ 1, %if.then24 ], [ %11, %land.rhs ]
+  %or.cond50.not = icmp eq i32 %3, %not.
   br i1 %or.cond50.not, label %if.then41, label %if.else
 
 if.then41:                                        ; preds = %land.end

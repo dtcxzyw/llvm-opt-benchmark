@@ -791,7 +791,7 @@ declare noundef zeroext i1 @_ZN3zmq10metadata_t8drop_refEv(ptr noundef nonnull a
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483648, 1) i32 @_ZN3zmq5msg_t4moveERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(64) %src_) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t4moveERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(64) %src_) local_unnamed_addr #1 align 2 {
 entry:
   %type.i = getelementptr inbounds i8, ptr %src_, i64 42
   %0 = load i8, ptr %type.i, align 2
@@ -825,7 +825,7 @@ return:                                           ; preds = %if.end, %if.end5, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483648, 1) i32 @_ZN3zmq5msg_t4copyERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(64) %src_) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t4copyERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(64) %src_) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type.i = getelementptr inbounds i8, ptr %src_, i64 42
   %0 = load i8, ptr %type.i, align 2

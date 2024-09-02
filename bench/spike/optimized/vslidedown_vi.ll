@@ -148,9 +148,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24fast_rv32i_vslidedown
   %43 = and i64 %42, 31
   %44 = getelementptr inbounds i8, ptr %0, i64 659808
   %45 = load i64, ptr %44, align 8
-  %46 = add i64 %45, -8
-  %spec.select = icmp ult i64 %46, 57
-  br i1 %spec.select, label %52, label %47
+  %46 = add i64 %45, -65
+  %spec.select = icmp ult i64 %46, -57
+  br i1 %spec.select, label %47, label %52
 
 47:                                               ; preds = %41
   %48 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -504,9 +504,9 @@ define noundef i64 @_Z24fast_rv64i_vslidedown_viP11processor_t6insn_tm(ptr nound
   %43 = and i64 %42, 31
   %44 = getelementptr inbounds i8, ptr %0, i64 659808
   %45 = load i64, ptr %44, align 8
-  %46 = add i64 %45, -8
-  %spec.select = icmp ult i64 %46, 57
-  br i1 %spec.select, label %52, label %47
+  %46 = add i64 %45, -65
+  %spec.select = icmp ult i64 %46, -57
+  br i1 %spec.select, label %47, label %52
 
 47:                                               ; preds = %41
   %48 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -826,9 +826,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z26logged_rv32i_vslidedo
   %43 = and i64 %42, 31
   %44 = getelementptr inbounds i8, ptr %0, i64 659808
   %45 = load i64, ptr %44, align 8
-  %46 = add i64 %45, -8
-  %spec.select = icmp ult i64 %46, 57
-  br i1 %spec.select, label %52, label %47
+  %46 = add i64 %45, -65
+  %spec.select = icmp ult i64 %46, -57
+  br i1 %spec.select, label %47, label %52
 
 47:                                               ; preds = %41
   %48 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -1150,9 +1150,9 @@ define noundef i64 @_Z26logged_rv64i_vslidedown_viP11processor_t6insn_tm(ptr nou
   %43 = and i64 %42, 31
   %44 = getelementptr inbounds i8, ptr %0, i64 659808
   %45 = load i64, ptr %44, align 8
-  %46 = add i64 %45, -8
-  %spec.select = icmp ult i64 %46, 57
-  br i1 %spec.select, label %52, label %47
+  %46 = add i64 %45, -65
+  %spec.select = icmp ult i64 %46, -57
+  br i1 %spec.select, label %47, label %52
 
 47:                                               ; preds = %41
   %48 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -1472,9 +1472,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24fast_rv32e_vslidedown
   %43 = and i64 %42, 31
   %44 = getelementptr inbounds i8, ptr %0, i64 659808
   %45 = load i64, ptr %44, align 8
-  %46 = add i64 %45, -8
-  %spec.select = icmp ult i64 %46, 57
-  br i1 %spec.select, label %52, label %47
+  %46 = add i64 %45, -65
+  %spec.select = icmp ult i64 %46, -57
+  br i1 %spec.select, label %47, label %52
 
 47:                                               ; preds = %41
   %48 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -1796,9 +1796,9 @@ define noundef i64 @_Z24fast_rv64e_vslidedown_viP11processor_t6insn_tm(ptr nound
   %43 = and i64 %42, 31
   %44 = getelementptr inbounds i8, ptr %0, i64 659808
   %45 = load i64, ptr %44, align 8
-  %46 = add i64 %45, -8
-  %spec.select = icmp ult i64 %46, 57
-  br i1 %spec.select, label %52, label %47
+  %46 = add i64 %45, -65
+  %spec.select = icmp ult i64 %46, -57
+  br i1 %spec.select, label %47, label %52
 
 47:                                               ; preds = %41
   %48 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -2118,9 +2118,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z26logged_rv32e_vslidedo
   %43 = and i64 %42, 31
   %44 = getelementptr inbounds i8, ptr %0, i64 659808
   %45 = load i64, ptr %44, align 8
-  %46 = add i64 %45, -8
-  %spec.select = icmp ult i64 %46, 57
-  br i1 %spec.select, label %52, label %47
+  %46 = add i64 %45, -65
+  %spec.select = icmp ult i64 %46, -57
+  br i1 %spec.select, label %47, label %52
 
 47:                                               ; preds = %41
   %48 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -2442,9 +2442,9 @@ define noundef i64 @_Z26logged_rv64e_vslidedown_viP11processor_t6insn_tm(ptr nou
   %43 = and i64 %42, 31
   %44 = getelementptr inbounds i8, ptr %0, i64 659808
   %45 = load i64, ptr %44, align 8
-  %46 = add i64 %45, -8
-  %spec.select = icmp ult i64 %46, 57
-  br i1 %spec.select, label %52, label %47
+  %46 = add i64 %45, -65
+  %spec.select = icmp ult i64 %46, -57
+  br i1 %spec.select, label %47, label %52
 
 47:                                               ; preds = %41
   %48 = tail call ptr @__cxa_allocate_exception(i64 32) #15

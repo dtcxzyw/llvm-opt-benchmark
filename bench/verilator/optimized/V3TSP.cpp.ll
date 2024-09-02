@@ -2353,8 +2353,8 @@ common.resume:                                    ; preds = %.lr.ph.i.i.i.i, %.l
 
 _ZN12TspGraphTmplIPKN5V3TSP12TspStateBaseEE16keysToVertexListB5cxx11ERKSt6vectorIS3_SaIS3_EE.exit: ; preds = %26
   %43 = and i64 %28, 1
-  %.not.not = icmp eq i64 %43, 0
-  br i1 %.not.not, label %44, label %.preheader108
+  %.not = icmp eq i64 %43, 0
+  br i1 %.not, label %44, label %.preheader108
 
 .preheader108:                                    ; preds = %14, %_ZN12TspGraphTmplIPKN5V3TSP12TspStateBaseEE16keysToVertexListB5cxx11ERKSt6vectorIS3_SaIS3_EE.exit
   %.sroa.090.0124 = load ptr, ptr %6, align 8

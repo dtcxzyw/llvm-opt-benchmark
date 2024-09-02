@@ -4114,7 +4114,7 @@ define linkonce_odr void @_ZN7glslang20TReflectionTraverser21blowUpActiveAggrega
   %66 = load ptr, ptr %65, align 8
   %67 = tail call noundef i32 %66(ptr noundef nonnull align 8 dereferenceable(152) %1) #19
   %68 = icmp eq i32 %67, 16
-  br i1 %68, label %69, label %78
+  br i1 %68, label %69, label %79
 
 69:                                               ; preds = %12
   %70 = load ptr, ptr %1, align 8
@@ -4125,11 +4125,11 @@ define linkonce_odr void @_ZN7glslang20TReflectionTraverser21blowUpActiveAggrega
   %75 = load i64, ptr %74, align 8
   %76 = and i64 %75, 127
   %77 = icmp eq i64 %76, 6
-  br label %78
+  %78 = zext i1 %77 to i8
+  br label %79
 
-78:                                               ; preds = %69, %12
-  %79 = phi i1 [ false, %12 ], [ %77, %69 ]
-  %80 = zext i1 %79 to i8
+79:                                               ; preds = %69, %12
+  %80 = phi i8 [ 0, %12 ], [ %78, %69 ]
   %81 = getelementptr inbounds i8, ptr %30, i64 24
   %82 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #19, !noalias !54
   store ptr %82, ptr %30, align 8
@@ -4142,7 +4142,7 @@ define linkonce_odr void @_ZN7glslang20TReflectionTraverser21blowUpActiveAggrega
   %88 = icmp ugt i64 %87, 15
   br i1 %88, label %89, label %._crit_edge.i.i
 
-89:                                               ; preds = %78
+89:                                               ; preds = %79
   %90 = icmp slt i64 %87, 0
   br i1 %90, label %91, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_createERmm.exit.i.i
 
@@ -4157,8 +4157,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   store i64 %87, ptr %81, align 8
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_createERmm.exit.i.i, %78
-  %94 = phi ptr [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_createERmm.exit.i.i ], [ %81, %78 ]
+._crit_edge.i.i:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_createERmm.exit.i.i, %79
+  %94 = phi ptr [ %93, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_createERmm.exit.i.i ], [ %81, %79 ]
   switch i64 %87, label %97 [
     i64 1, label %95
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2ERKS6_.exit

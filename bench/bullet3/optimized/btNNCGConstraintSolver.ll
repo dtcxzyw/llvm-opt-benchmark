@@ -761,11 +761,15 @@ for.inc73:                                        ; preds = %for.body60, %if.the
   %indvars.iv.next1151 = add nuw nsw i64 %indvars.iv1150, 1
   %40 = sext i32 %39 to i64
   %cmp59 = icmp slt i64 %indvars.iv.next1151, %40
-  br i1 %cmp59, label %for.body60, label %for.end75, !llvm.loop !10
+  br i1 %cmp59, label %for.body60, label %for.end75.loopexit, !llvm.loop !10
 
-for.end75:                                        ; preds = %for.inc73, %if.end54
-  %41 = phi i32 [ %28, %if.end54 ], [ %39, %for.inc73 ]
-  %deltaflengthsqr.0.lcssa = phi float [ 0.000000e+00, %if.end54 ], [ %deltaflengthsqr.1, %for.inc73 ]
+for.end75.loopexit:                               ; preds = %for.inc73
+  %41 = icmp sgt i32 %39, 0
+  br label %for.end75
+
+for.end75:                                        ; preds = %for.end75.loopexit, %if.end54
+  %cmp841090 = phi i1 [ false, %if.end54 ], [ %41, %for.end75.loopexit ]
+  %deltaflengthsqr.0.lcssa = phi float [ 0.000000e+00, %if.end54 ], [ %deltaflengthsqr.1, %for.end75.loopexit ]
   %m_onlyForNoneContact = getelementptr inbounds i8, ptr %this, i64 672
   %42 = load i8, ptr %m_onlyForNoneContact, align 8
   %tobool76 = trunc i8 %42 to i1
@@ -776,7 +780,6 @@ if.then77:                                        ; preds = %for.end75
   br i1 %cmp78, label %for.cond81.preheader, label %if.else
 
 for.cond81.preheader:                             ; preds = %if.then77
-  %cmp841090 = icmp sgt i32 %41, 0
   br i1 %cmp841090, label %for.body85.lr.ph, label %if.end150
 
 for.body85.lr.ph:                                 ; preds = %for.cond81.preheader
@@ -805,11 +808,10 @@ if.else:                                          ; preds = %if.then77
   %div = fdiv float %deltaflengthsqr.0.lcssa, %48
   %cond = select i1 %cmp92, float %div, float 2.000000e+00
   %cmp94 = fcmp ogt float %cond, 1.000000e+00
-  %cmp1001088 = icmp sgt i32 %41, 0
   br i1 %cmp94, label %for.cond97.preheader, label %for.cond109.preheader
 
 for.cond109.preheader:                            ; preds = %if.else
-  br i1 %cmp1001088, label %for.body113.lr.ph, label %if.end150
+  br i1 %cmp841090, label %for.body113.lr.ph, label %if.end150
 
 for.body113.lr.ph:                                ; preds = %for.cond109.preheader
   %m_data.i333 = getelementptr inbounds i8, ptr %this, i64 216
@@ -820,7 +822,7 @@ for.body113.lr.ph:                                ; preds = %for.cond109.prehead
   br label %for.body113
 
 for.cond97.preheader:                             ; preds = %if.else
-  br i1 %cmp1001088, label %for.body101.lr.ph, label %if.end150
+  br i1 %cmp841090, label %for.body101.lr.ph, label %if.end150
 
 for.body101.lr.ph:                                ; preds = %for.cond97.preheader
   %m_data.i329 = getelementptr inbounds i8, ptr %this, i64 432

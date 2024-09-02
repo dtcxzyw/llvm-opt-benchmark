@@ -819,7 +819,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #7
 declare void @_ZN6icu_7517StringTrieBuilder5buildE22UStringTrieBuildOptioniR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7517UCharsTrieBuilder22getElementStringLengthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %i) unnamed_addr #8 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZNK6icu_7517UCharsTrieBuilder22getElementStringLengthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %i) unnamed_addr #8 align 2 {
 entry:
   %elements = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %elements, align 8

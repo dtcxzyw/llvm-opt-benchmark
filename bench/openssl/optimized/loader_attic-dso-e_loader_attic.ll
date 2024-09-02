@@ -280,22 +280,14 @@ cond.true:                                        ; preds = %entry
   %path_data_n.1.sroa.gep55 = getelementptr inbounds i8, ptr %path_data, i64 16
   %add.ptr = getelementptr inbounds i8, ptr %uri, i64 5
   %0 = load i8, ptr %add.ptr, align 1
-  %1 = zext i8 %0 to i32
-  %2 = add nsw i32 %1, -47
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %sub_1, label %cond.true.tail
+  %.not = icmp eq i8 %0, 47
+  br i1 %.not, label %cond.true.tail, label %if.end21
 
-sub_1:                                            ; preds = %cond.true
-  %3 = getelementptr inbounds i8, ptr %uri, i64 6
-  %4 = load i8, ptr %3, align 1
-  %5 = zext i8 %4 to i32
-  %6 = add nsw i32 %5, -47
-  br label %cond.true.tail
-
-cond.true.tail:                                   ; preds = %cond.true, %sub_1
-  %7 = phi i32 [ %2, %cond.true ], [ %6, %sub_1 ]
-  %cmp4 = icmp eq i32 %7, 0
-  br i1 %cmp4, label %cond.true5, label %if.end21
+cond.true.tail:                                   ; preds = %cond.true
+  %1 = getelementptr inbounds i8, ptr %uri, i64 6
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 47
+  br i1 %3, label %cond.true5, label %if.end21
 
 cond.true5:                                       ; preds = %cond.true.tail
   %add.ptr6 = getelementptr inbounds i8, ptr %uri, i64 7
@@ -309,14 +301,14 @@ lor.lhs.false:                                    ; preds = %cond.true5
   br i1 %cmp15, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %lor.lhs.false, %cond.true5
-  %8 = phi i64 [ 17, %cond.true5 ], [ 8, %lor.lhs.false ]
-  %9 = getelementptr inbounds i8, ptr %uri, i64 %8
-  %add.ptr20 = getelementptr inbounds i8, ptr %9, i64 -1
+  %4 = phi i64 [ 17, %cond.true5 ], [ 8, %lor.lhs.false ]
+  %5 = getelementptr inbounds i8, ptr %uri, i64 %4
+  %add.ptr20 = getelementptr inbounds i8, ptr %5, i64 -1
   br label %if.end21
 
 if.else:                                          ; preds = %lor.lhs.false
-  %10 = load i32, ptr @lib_code, align 4
-  %cmp.i = icmp eq i32 %10, 0
+  %6 = load i32, ptr @lib_code, align 4
+  %cmp.i = icmp eq i32 %6, 0
   br i1 %cmp.i, label %if.then.i, label %ERR_ATTIC_error.exit
 
 if.then.i:                                        ; preds = %if.else
@@ -327,15 +319,15 @@ if.then.i:                                        ; preds = %if.else
 ERR_ATTIC_error.exit:                             ; preds = %if.else, %if.then.i
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
-  %11 = load i32, ptr @lib_code, align 4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %11, i32 noundef 110, ptr noundef null) #10
+  %7 = load i32, ptr @lib_code, align 4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %7, i32 noundef 110, ptr noundef null) #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 977, ptr noundef null) #10
   br label %return
 
-if.end21:                                         ; preds = %cond.true.tail, %if.then19
-  %path_data_n.1.sroa.phi = phi ptr [ %path_data, %if.then19 ], [ %path_data_n.1.sroa.gep55, %cond.true.tail ]
-  %path_data_n.1 = phi i64 [ 1, %if.then19 ], [ 2, %cond.true.tail ]
-  %p.0 = phi ptr [ %add.ptr20, %if.then19 ], [ %add.ptr, %cond.true.tail ]
+if.end21:                                         ; preds = %cond.true, %cond.true.tail, %if.then19
+  %path_data_n.1.sroa.phi = phi ptr [ %path_data, %if.then19 ], [ %path_data_n.1.sroa.gep55, %cond.true.tail ], [ %path_data_n.1.sroa.gep55, %cond.true ]
+  %path_data_n.1 = phi i64 [ 1, %if.then19 ], [ 2, %cond.true.tail ], [ 2, %cond.true ]
+  %p.0 = phi ptr [ %add.ptr20, %if.then19 ], [ %add.ptr, %cond.true.tail ], [ %add.ptr, %cond.true ]
   %check_absolute23 = getelementptr inbounds i8, ptr %path_data_n.1.sroa.phi, i64 8
   %bf.load24 = load i8, ptr %check_absolute23, align 8
   %bf.set26 = or i8 %bf.load24, 1
@@ -358,13 +350,13 @@ for.body:                                         ; preds = %if.end30, %for.inc
   br i1 %tobool.not, label %if.end45, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %12 = load i8, ptr %.pre, align 1
-  %cmp40.not = icmp eq i8 %12, 47
+  %8 = load i8, ptr %.pre, align 1
+  %cmp40.not = icmp eq i8 %8, 47
   br i1 %cmp40.not, label %if.end45, label %if.then42
 
 if.then42:                                        ; preds = %land.lhs.true
-  %13 = load i32, ptr @lib_code, align 4
-  %cmp.i46 = icmp eq i32 %13, 0
+  %9 = load i32, ptr @lib_code, align 4
+  %cmp.i46 = icmp eq i32 %9, 0
   br i1 %cmp.i46, label %if.then.i47, label %ERR_ATTIC_error.exit49
 
 if.then.i47:                                      ; preds = %if.then42
@@ -375,8 +367,8 @@ if.then.i47:                                      ; preds = %if.then42
 ERR_ATTIC_error.exit49:                           ; preds = %if.then42, %if.then.i47
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.45, i32 noundef 71, ptr noundef nonnull @__func__.ERR_ATTIC_error) #10
-  %14 = load i32, ptr @lib_code, align 4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %14, i32 noundef 105, ptr noundef null) #10
+  %10 = load i32, ptr @lib_code, align 4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef %10, i32 noundef 105, ptr noundef null) #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1005, ptr noundef null) #10
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 1, ptr noundef nonnull %.pre) #10
   br label %return
@@ -390,8 +382,8 @@ if.then51:                                        ; preds = %if.end45
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1011, ptr noundef nonnull @__func__.file_open_ex) #10
   %call52 = tail call ptr @__errno_location() #12
-  %15 = load i32, ptr %call52, align 4
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %15, ptr noundef nonnull @.str.18, ptr noundef %.pre) #10
+  %11 = load i32, ptr %call52, align 4
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %11, ptr noundef nonnull @.str.18, ptr noundef %.pre) #10
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end45, %if.then51
@@ -399,8 +391,8 @@ for.inc:                                          ; preds = %if.end45, %if.then5
   %inc59 = add nuw nsw i64 %i.060, 1
   %cmp31 = icmp eq ptr %path.1, null
   %cmp32 = icmp ult i64 %inc59, %path_data_n.0
-  %16 = select i1 %cmp31, i1 %cmp32, i1 false
-  br i1 %16, label %for.body, label %for.end, !llvm.loop !4
+  %12 = select i1 %cmp31, i1 %cmp32, i1 false
+  br i1 %12, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
   br i1 %cmp31, label %return, label %if.end63
@@ -418,8 +410,8 @@ if.end68:                                         ; preds = %if.end63
 
 if.end75:                                         ; preds = %if.end68
   %st_mode = getelementptr inbounds i8, ptr %st, i64 24
-  %17 = load i32, ptr %st_mode, align 8
-  %and = and i32 %17, 61440
+  %13 = load i32, ptr %st_mode, align 8
+  %and = and i32 %13, 61440
   %cmp76 = icmp eq i32 %and, 16384
   br i1 %cmp76, label %if.then78, label %if.else99
 
@@ -431,21 +423,21 @@ if.then78:                                        ; preds = %if.end75
   %last_entry = getelementptr inbounds i8, ptr %call64, i64 48
   store ptr %call80, ptr %last_entry, align 8
   %call82 = tail call ptr @__errno_location() #12
-  %18 = load i32, ptr %call82, align 4
+  %14 = load i32, ptr %call82, align 4
   %last_errno = getelementptr inbounds i8, ptr %call64, i64 56
-  store i32 %18, ptr %last_errno, align 8
+  store i32 %14, ptr %last_errno, align 8
   %cmp86 = icmp eq ptr %call80, null
   br i1 %cmp86, label %if.then88, label %if.end111
 
 if.then88:                                        ; preds = %if.then78
-  %cmp91.not = icmp eq i32 %18, 0
+  %cmp91.not = icmp eq i32 %14, 0
   br i1 %cmp91.not, label %if.end96, label %if.then93
 
 if.then93:                                        ; preds = %if.then88
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 1037, ptr noundef nonnull @__func__.file_open_ex) #10
-  %19 = load i32, ptr %last_errno, align 8
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %19, ptr noundef null) #10
+  %15 = load i32, ptr %last_errno, align 8
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %15, ptr noundef null) #10
   br label %if.end.i53
 
 if.end96:                                         ; preds = %if.then88
@@ -469,8 +461,8 @@ lor.lhs.false104:                                 ; preds = %if.else99
   br i1 %cmp.i51, label %file_find_type.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false104
-  %20 = load ptr, ptr %_101, align 8
-  %call2.i = tail call ptr @BIO_push(ptr noundef nonnull %call1.i, ptr noundef %20) #10
+  %16 = load ptr, ptr %_101, align 8
+  %call2.i = tail call ptr @BIO_push(ptr noundef nonnull %call1.i, ptr noundef %16) #10
   store ptr %call2.i, ptr %_101, align 8
   %call7.i = call i64 @BIO_ctrl(ptr noundef %call2.i, i32 noundef 29, i64 noundef 4095, ptr noundef nonnull %peekbuf.i) #10
   %cmp8.i = icmp sgt i64 %call7.i, 0
@@ -498,8 +490,8 @@ file_find_type.exit:                              ; preds = %lor.lhs.false104
   br label %if.then107
 
 if.then107:                                       ; preds = %file_find_type.exit, %if.else99
-  %21 = phi ptr [ %.pre61, %file_find_type.exit ], [ null, %if.else99 ]
-  tail call void @BIO_free_all(ptr noundef %21) #10
+  %17 = phi ptr [ %.pre61, %file_find_type.exit ], [ null, %if.else99 ]
+  tail call void @BIO_free_all(ptr noundef %17) #10
   br label %if.end.i53
 
 if.end111:                                        ; preds = %file_find_type.exit.thread, %if.then78, %if.end96
@@ -520,26 +512,26 @@ if.end122:                                        ; preds = %if.then114, %if.end
 
 if.end.i53:                                       ; preds = %if.then93, %if.then107, %if.end68, %if.then114
   %propq.i = getelementptr inbounds i8, ptr %call64, i64 80
-  %22 = load ptr, ptr %propq.i, align 8
-  call void @CRYPTO_free(ptr noundef %22, ptr noundef nonnull @.str.2, i32 noundef 914) #10
-  %23 = load ptr, ptr %call64, align 8
-  call void @CRYPTO_free(ptr noundef %23, ptr noundef nonnull @.str.2, i32 noundef 915) #10
+  %18 = load ptr, ptr %propq.i, align 8
+  call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str.2, i32 noundef 914) #10
+  %19 = load ptr, ptr %call64, align 8
+  call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.2, i32 noundef 915) #10
   %type.i54 = getelementptr inbounds i8, ptr %call64, i64 8
-  %24 = load i32, ptr %type.i54, align 8
-  %cmp1.not.i = icmp eq i32 %24, 2
+  %20 = load i32, ptr %type.i54, align 8
+  %cmp1.not.i = icmp eq i32 %20, 2
   br i1 %cmp1.not.i, label %OSSL_STORE_LOADER_CTX_free.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i53
   %last_handler.i = getelementptr inbounds i8, ptr %call64, i64 32
-  %25 = load ptr, ptr %last_handler.i, align 8
-  %cmp3.not.i = icmp eq ptr %25, null
+  %21 = load ptr, ptr %last_handler.i, align 8
+  %cmp3.not.i = icmp eq ptr %21, null
   br i1 %cmp3.not.i, label %OSSL_STORE_LOADER_CTX_free.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then2.i
-  %destroy_ctx.i = getelementptr inbounds i8, ptr %25, i64 24
-  %26 = load ptr, ptr %destroy_ctx.i, align 8
+  %destroy_ctx.i = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = load ptr, ptr %destroy_ctx.i, align 8
   %last_handler_ctx.i = getelementptr inbounds i8, ptr %call64, i64 40
-  call void %26(ptr noundef nonnull %last_handler_ctx.i) #10
+  call void %22(ptr noundef nonnull %last_handler_ctx.i) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_handler.i, i8 0, i64 16, i1 false)
   br label %OSSL_STORE_LOADER_CTX_free.exit
 

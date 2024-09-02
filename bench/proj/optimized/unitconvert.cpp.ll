@@ -946,11 +946,11 @@ _ZL12is_leap_yearl.exit.i:                        ; preds = %.lr.ph
   %6 = urem i32 %.035, 400
   %.not.i = icmp eq i32 %6, 0
   %spec.select.i = select i1 %.not.i, i32 366, i32 365
+  %7 = uitofp nneg i32 %spec.select.i to double
   br label %_ZL12days_in_yearl.exit
 
 _ZL12days_in_yearl.exit:                          ; preds = %.lr.ph, %_ZL12is_leap_yearl.exit.i
-  %7 = phi i32 [ 366, %.lr.ph ], [ %spec.select.i, %_ZL12is_leap_yearl.exit.i ]
-  %8 = uitofp nneg i32 %7 to double
+  %8 = phi double [ 3.660000e+02, %.lr.ph ], [ %7, %_ZL12is_leap_yearl.exit.i ]
   %9 = fadd double %.01334, %8
   %10 = add nuw nsw i32 %.035, 1
   %11 = fcmp ult double %0, %9
@@ -1107,12 +1107,11 @@ _ZL17daynumber_in_yearmmm.exit:                   ; preds = %_ZL13days_in_monthm
 _ZL12is_leap_yearl.exit.i:                        ; preds = %.lr.ph
   %52 = urem i64 %.014, 400
   %.not.i = icmp eq i64 %52, 0
-  %spec.select.i = select i1 %.not.i, i32 366, i32 365
+  %53 = select i1 %.not.i, double 3.660000e+02, double 3.650000e+02
   br label %_ZL12days_in_yearl.exit
 
 _ZL12days_in_yearl.exit:                          ; preds = %.lr.ph, %_ZL12is_leap_yearl.exit.i
-  %53 = phi i32 [ 366, %.lr.ph ], [ %spec.select.i, %_ZL12is_leap_yearl.exit.i ]
-  %54 = uitofp nneg i32 %53 to double
+  %54 = phi double [ 3.660000e+02, %.lr.ph ], [ %53, %_ZL12is_leap_yearl.exit.i ]
   %55 = fadd double %.019, %54
   %56 = icmp ugt i64 %.014.in18, 1860
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !18

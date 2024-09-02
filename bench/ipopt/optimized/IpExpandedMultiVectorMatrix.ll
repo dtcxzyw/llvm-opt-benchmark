@@ -797,7 +797,7 @@ _ZNK5Ipopt6Matrix15TransMultVectorEdRKNS_6VectorEdRS1_.exit: ; preds = %_ZN5Ipop
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %44, align 8
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %52
+  br i1 %47, label %48, label %53
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %26, align 8
@@ -805,16 +805,16 @@ _ZNK5Ipopt6Matrix15TransMultVectorEdRKNS_6VectorEdRS1_.exit: ; preds = %_ZN5Ipop
   %51 = load ptr, ptr %50, align 8
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(205) %26) #19
   %.pre = load i32, ptr %44, align 8
-  br label %52
+  %52 = add nsw i32 %.pre, -1
+  br label %53
 
-52:                                               ; preds = %43, %48
-  %53 = phi i32 [ %46, %43 ], [ %.pre, %48 ]
-  %54 = add nsw i32 %53, -1
+53:                                               ; preds = %43, %48
+  %54 = phi i32 [ %45, %43 ], [ %52, %48 ]
   store i32 %54, ptr %44, align 8
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit
 
-56:                                               ; preds = %52
+56:                                               ; preds = %53
   %57 = load ptr, ptr %26, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
@@ -865,8 +865,8 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit:     ; preds = %5
   store i32 %83, ptr %81, align 8
   br label %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit
 
-_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit:         ; preds = %56, %52, %_ZNK5Ipopt6Matrix15TransMultVectorEdRKNS_6VectorEdRS1_.exit, %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit
-  %.sroa.092.0 = phi ptr [ %2, %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit ], [ null, %_ZNK5Ipopt6Matrix15TransMultVectorEdRKNS_6VectorEdRS1_.exit ], [ %26, %52 ], [ %26, %56 ]
+_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit:         ; preds = %56, %53, %_ZNK5Ipopt6Matrix15TransMultVectorEdRKNS_6VectorEdRS1_.exit, %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit
+  %.sroa.092.0 = phi ptr [ %2, %_ZN5Ipopt8SmartPtrIKNS_6VectorEEaSEPS2_.exit ], [ null, %_ZNK5Ipopt6Matrix15TransMultVectorEdRKNS_6VectorEdRS1_.exit ], [ %26, %53 ], [ %26, %56 ]
   %84 = getelementptr inbounds i8, ptr %4, i64 232
   %85 = load i8, ptr %84, align 8
   %86 = trunc i8 %85 to i1

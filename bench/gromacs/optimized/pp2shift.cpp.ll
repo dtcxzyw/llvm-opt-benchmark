@@ -771,17 +771,20 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit:          ; preds = %.lr.ph66
   %92 = load i32, ptr %20, align 4
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next, %93
-  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %94, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %88, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit
-  %.017.lcssa = phi i64 [ 0, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit ], [ %indvars.iv.next, %88 ]
-  %95 = load ptr, ptr %53, align 8
-  %96 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv72
-  %97 = load ptr, ptr %96, align 8
-  %98 = load float, ptr %97, align 4
-  %99 = and i64 %.017.lcssa, 4294967295
-  %100 = getelementptr inbounds float, ptr %97, i64 %99
-  store float %98, ptr %100, align 4
+._crit_edge.loopexit:                             ; preds = %88
+  %95 = and i64 %indvars.iv.next, 4294967295
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit
+  %.017.lcssa = phi i64 [ 0, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit ], [ %95, %._crit_edge.loopexit ]
+  %96 = load ptr, ptr %53, align 8
+  %97 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv72
+  %98 = load ptr, ptr %97, align 8
+  %99 = load float, ptr %98, align 4
+  %100 = getelementptr inbounds float, ptr %98, i64 %.017.lcssa
+  store float %99, ptr %100, align 4
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %101 = load i32, ptr %19, align 4
   %102 = sext i32 %101 to i64

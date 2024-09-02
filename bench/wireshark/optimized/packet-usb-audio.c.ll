@@ -1538,7 +1538,7 @@ define internal range(i32 0, 256) i32 @dissect_usb_audio_descriptor(ptr noundef 
 
 34:                                               ; preds = %30
   %35 = call fastcc i32 @dissect_ac_if_input_terminal(ptr noundef %0, ptr noundef %21, ptr noundef nonnull %15)
-  %36 = add i32 %35, 3
+  %36 = add nuw nsw i32 %35, 3
   br label %dissect_as_ep_general_body.exit
 
 37:                                               ; preds = %30
@@ -1969,7 +1969,7 @@ define internal fastcc i32 @dissect_ac_if_hdr_body(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ac_if_input_terminal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 15) i32 @dissect_ac_if_input_terminal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load i16, ptr %4, align 8
   switch i16 %5, label %43 [

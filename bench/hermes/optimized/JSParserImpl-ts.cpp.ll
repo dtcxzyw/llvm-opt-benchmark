@@ -194,7 +194,7 @@ if.end:                                           ; preds = %if.then11, %_ZN6her
   %call17 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypeAnnotationTSEN4llvh8OptionalINS3_5SMLocEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i64 %27, i8 1)
   %28 = extractvalue { i64, i8 } %call17, 0
   %29 = extractvalue { i64, i8 } %call17, 1
-  %tobool.i = trunc i8 %29 to i1
+  %tobool.i = trunc nuw i8 %29 to i1
   br i1 %tobool.i, label %if.end21, label %cleanup147.critedge
 
 if.end21:                                         ; preds = %if.end
@@ -413,7 +413,7 @@ if.then97:                                        ; preds = %if.end95
   %call99 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypeAnnotationTSEN4llvh8OptionalINS3_5SMLocEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i64 undef, i8 0)
   %68 = extractvalue { i64, i8 } %call99, 0
   %69 = extractvalue { i64, i8 } %call99, 1
-  %tobool.i91 = trunc i8 %69 to i1
+  %tobool.i91 = trunc nuw i8 %69 to i1
   br i1 %tobool.i91, label %if.end103, label %cleanup147
 
 if.end103:                                        ; preds = %if.then97
@@ -424,7 +424,7 @@ if.end108:                                        ; preds = %if.end103
   %call110 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypeAnnotationTSEN4llvh8OptionalINS3_5SMLocEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i64 undef, i8 0)
   %70 = extractvalue { i64, i8 } %call110, 0
   %71 = extractvalue { i64, i8 } %call110, 1
-  %tobool.i96 = trunc i8 %71 to i1
+  %tobool.i96 = trunc nuw i8 %71 to i1
   br i1 %tobool.i96, label %if.end114, label %cleanup147
 
 if.end114:                                        ; preds = %if.end108
@@ -434,7 +434,7 @@ if.end114:                                        ; preds = %if.end108
 if.end119:                                        ; preds = %if.end114
   %call121 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypeAnnotationTSEN4llvh8OptionalINS3_5SMLocEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i64 undef, i8 0)
   %72 = extractvalue { i64, i8 } %call121, 1
-  %tobool.i101 = trunc i8 %72 to i1
+  %tobool.i101 = trunc nuw i8 %72 to i1
   br i1 %tobool.i101, label %if.end125, label %cleanup147
 
 if.end125:                                        ; preds = %if.end119

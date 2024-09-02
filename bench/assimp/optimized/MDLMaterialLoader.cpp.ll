@@ -1413,17 +1413,17 @@ for.body92:                                       ; preds = %for.cond90.preheade
   %indvars.iv = phi i64 [ 0, %for.cond90.preheader ], [ %indvars.iv.next, %for.body92 ]
   %rem95149 = and i64 %indvars.iv, 1
   %4 = icmp ne i64 %rem95149, 0
-  %spec.select = xor i1 %cmp93, %4
+  %narrow = xor i1 %cmp93, %4
+  %cond106 = sext i1 %narrow to i8
   %5 = load ptr, ptr %pcData.i88, align 8
   %.idx = shl nsw i64 %indvars.iv, 5
   %6 = getelementptr inbounds i8, ptr %5, i64 %.idx
   %arrayidx104 = getelementptr inbounds %struct.aiTexel, ptr %6, i64 %indvars.iv140
-  %conv107 = sext i1 %spec.select to i8
   %g = getelementptr inbounds i8, ptr %arrayidx104, i64 1
-  store i8 %conv107, ptr %g, align 1
-  store i8 %conv107, ptr %arrayidx104, align 1
+  store i8 %cond106, ptr %g, align 1
+  store i8 %cond106, ptr %arrayidx104, align 1
   %r = getelementptr inbounds i8, ptr %arrayidx104, i64 2
-  store i8 %conv107, ptr %r, align 1
+  store i8 %cond106, ptr %r, align 1
   %a = getelementptr inbounds i8, ptr %arrayidx104, i64 3
   store i8 -1, ptr %a, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

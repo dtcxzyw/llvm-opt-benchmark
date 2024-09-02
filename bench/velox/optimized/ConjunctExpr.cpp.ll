@@ -1946,33 +1946,29 @@ invoke.cont158:                                   ; preds = %for.inc.i, %for.inc
 invoke.cont158.if.end171_crit_edge:               ; preds = %invoke.cont158
   %reorderEnabled_172.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 481
   %.pre446 = load i8, ptr %reorderEnabled_172.phi.trans.insert, align 1
-  br label %if.end171
+  %238 = trunc i8 %.pre446 to i1
+  br i1 %238, label %if.then174, label %if.end176
 
 if.then160:                                       ; preds = %invoke.cont158
-  %238 = load ptr, ptr %context, align 8
-  %queryCtx_.i = getelementptr inbounds i8, ptr %238, i64 8
-  %239 = load ptr, ptr %queryCtx_.i, align 8
-  %queryConfig_.i = getelementptr inbounds i8, ptr %239, i64 136
+  %239 = load ptr, ptr %context, align 8
+  %queryCtx_.i = getelementptr inbounds i8, ptr %239, i64 8
+  %240 = load ptr, ptr %queryCtx_.i, align 8
+  %queryConfig_.i = getelementptr inbounds i8, ptr %240, i64 136
   %call168 = invoke noundef zeroext i1 @_ZNK8facebook5velox4core11QueryConfig31adaptiveFilterReorderingEnabledEv(ptr noundef nonnull align 8 dereferenceable(8) %queryConfig_.i)
-          to label %invoke.cont167 unwind label %lpad52.loopexit.split-lp.loopexit.split-lp
+          to label %if.end171 unwind label %lpad52.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont167:                                   ; preds = %if.then160
+if.end171:                                        ; preds = %if.then160
   %reorderEnabled_ = getelementptr inbounds i8, ptr %this, i64 481
   %frombool169 = zext i1 %call168 to i8
   store i8 %frombool169, ptr %reorderEnabled_, align 1
   store i8 1, ptr %reorderEnabledChecked_, align 8
-  br label %if.end171
+  br i1 %call168, label %if.then174, label %if.end176
 
-if.end171:                                        ; preds = %invoke.cont158.if.end171_crit_edge, %invoke.cont167
-  %240 = phi i8 [ %.pre446, %invoke.cont158.if.end171_crit_edge ], [ %frombool169, %invoke.cont167 ]
-  %tobool173 = trunc i8 %240 to i1
-  br i1 %tobool173, label %if.then174, label %if.end176
-
-if.then174:                                       ; preds = %if.end171
+if.then174:                                       ; preds = %invoke.cont158.if.end171_crit_edge, %if.end171
   call void @_ZN8facebook5velox4exec12ConjunctExpr18maybeReorderInputsEv(ptr noundef nonnull align 8 dereferenceable(536) %this)
   br label %if.end176
 
-if.end176:                                        ; preds = %if.then174, %if.end171
+if.end176:                                        ; preds = %invoke.cont158.if.end171_crit_edge, %if.then174, %if.end171
   %241 = load ptr, ptr %vector_.i76, align 8
   %cmp.i.not.i239 = icmp eq ptr %241, null
   %242 = ptrtoint ptr %241 to i64

@@ -174,9 +174,9 @@ while.cond45:                                     ; preds = %while.cond24, %whil
   ]
 
 lor.rhs53:                                        ; preds = %while.cond45
-  %7 = add i8 %6, -10
-  %spec.select = icmp ult i8 %7, 4
-  br i1 %spec.select, label %if.end100, label %while.body63
+  %7 = add i8 %6, -14
+  %spec.select = icmp ult i8 %7, -4
+  br i1 %spec.select, label %while.body63, label %if.end100
 
 while.body63:                                     ; preds = %lor.rhs53
   %incdec.ptr64 = getelementptr inbounds i8, ptr %tok_end.0, i64 1

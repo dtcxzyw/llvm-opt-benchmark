@@ -876,7 +876,7 @@ declare void @xen_evtchn_snoop_msi(ptr noundef, i1 noundef zeroext, i32 noundef,
 declare void @pci_device_deassert_intx(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @msi_nr_vectors_allocated(ptr nocapture noundef readonly %dev) local_unnamed_addr #2 {
+define dso_local range(i32 1, 129) i32 @msi_nr_vectors_allocated(ptr nocapture noundef readonly %dev) local_unnamed_addr #2 {
 entry:
   %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8

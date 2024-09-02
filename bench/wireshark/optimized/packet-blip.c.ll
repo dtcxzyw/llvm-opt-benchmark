@@ -191,8 +191,7 @@ define internal i32 @dissect_blip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %59 = trunc i64 %58 to i32
   %60 = getelementptr inbounds i8, ptr %1, i64 20
   %61 = load i32, ptr %60, align 4
-  %.not13.i = icmp eq i32 %61, %59
-  %spec.select.i96 = zext i1 %.not13.i to i32
+  %.not13.i = icmp ne i32 %61, %59
   br label %is_first_frame_in_msg.exit
 
 62:                                               ; preds = %43
@@ -207,7 +206,7 @@ define internal i32 @dissect_blip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %is_first_frame_in_msg.exit
 
 is_first_frame_in_msg.exit:                       ; preds = %57, %62
-  %.0.i = phi i32 [ 1, %62 ], [ %spec.select.i96, %57 ]
+  %.0.i = phi i1 [ false, %62 ], [ %.not13.i, %57 ]
   %71 = load i64, ptr %7, align 8
   %72 = and i64 %71, 8
   %.not92 = icmp eq i64 %72, 0
@@ -429,8 +428,7 @@ decompress.exit.thread:                           ; preds = %97, %101, %178, %16
 195:                                              ; preds = %decompress.exit, %is_first_frame_in_msg.exit
   %.088 = phi ptr [ %0, %is_first_frame_in_msg.exit ], [ %.0.i98, %decompress.exit ]
   %.087 = phi i32 [ %25, %is_first_frame_in_msg.exit ], [ 0, %decompress.exit ]
-  %.not94 = icmp eq i32 %.0.i, 0
-  br i1 %.not94, label %229, label %196
+  br i1 %.0.i, label %229, label %196
 
 196:                                              ; preds = %195
   %197 = call i32 @tvb_get_varint(ptr noundef %.088, i32 noundef %.087, i32 noundef 10, ptr noundef nonnull %8, i32 noundef 2) #6

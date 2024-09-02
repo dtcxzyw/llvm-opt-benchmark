@@ -621,8 +621,9 @@ invoke.cont46:                                    ; preds = %if.else41
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then34, %invoke.cont46
-  %flags.1 = phi i32 [ %call47, %invoke.cont46 ], [ %flags.0, %if.then34 ]
+  %flags.1.in = phi i32 [ %call47, %invoke.cont46 ], [ %flags.0, %if.then34 ]
   %scriptDistance.0 = phi i32 [ %and49, %invoke.cont46 ], [ %spec.select187, %if.then34 ]
+  %flags.1 = and i32 %flags.1.in, 256
   %add51 = add nsw i32 %scriptDistance.0, %spec.select
   %cmp52 = icmp sgt i32 %add51, %shr
   br i1 %cmp52, label %for.inc, label %if.end54
@@ -636,8 +637,7 @@ if.end54:                                         ; preds = %if.end50
   br i1 %cmp57, label %if.end80, label %if.else59
 
 if.else59:                                        ; preds = %if.end54
-  %and62 = and i32 %flags.1, 256
-  %cmp63.not = icmp ne i32 %and62, 0
+  %cmp63.not = icmp ne i32 %flags.1, 0
   %or.cond73.not = or i1 %cmp15158, %cmp63.not
   br i1 %or.cond73.not, label %if.then64, label %if.else66
 

@@ -816,7 +816,7 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   %24 = getelementptr inbounds i8, ptr %5, i64 8
   br label %25
 
-25:                                               ; preds = %.thread, %23
+25:                                               ; preds = %.critedge, %23
   %26 = load ptr, ptr %24, align 8
   %27 = load ptr, ptr %5, align 8
   %28 = load ptr, ptr %27, align 8
@@ -829,13 +829,13 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   %33 = getelementptr inbounds i8, ptr %32, i64 96
   %34 = load i64, ptr %33, align 32
   %35 = icmp eq i64 %34, 391
-  br i1 %35, label %36, label %.thread
+  br i1 %35, label %36, label %.critedge
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds i8, ptr %26, i64 128
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %38, i64 80
@@ -844,20 +844,20 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, %9
   %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %.thread, label %46
+  br i1 %.not, label %.critedge, label %46
 
 46:                                               ; preds = %40
   call void @path_get(ptr noundef nonnull %5) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   br label %.loopexit
 
-.thread:                                          ; preds = %36, %40, %30
+.critedge:                                        ; preds = %36, %40, %30
   %47 = call i32 @follow_up(ptr noundef nonnull %5) #10
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %.loopexit, label %25, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.thread, %25, %46
-  %49 = phi i32 [ 0, %46 ], [ -2, %25 ], [ -2, %.thread ]
+.loopexit:                                        ; preds = %.critedge, %25, %46
+  %49 = phi i32 [ 0, %46 ], [ -2, %25 ], [ -2, %.critedge ]
   call void @path_put(ptr noundef nonnull %5) #10
   br label %50
 
@@ -888,7 +888,7 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   %69 = load ptr, ptr %6, align 8
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, %57
-  br i1 %71, label %.thread11.sink.split, label %.thread11
+  br i1 %71, label %.thread10.sink.split, label %.thread10
 
 72:                                               ; preds = %12
   %73 = getelementptr inbounds i8, ptr %1, i64 64
@@ -899,9 +899,9 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !6
   %77 = call i32 @kern_path(ptr noundef %7, i32 noundef 128, ptr noundef nonnull %4) #10
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %.thread8
+  br i1 %78, label %79, label %.thread
 
-.thread8:                                         ; preds = %72
+.thread:                                          ; preds = %72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   br label %121
 
@@ -914,7 +914,7 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   %83 = load ptr, ptr %4, align 8
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %82, %84
-  br i1 %85, label %86, label %.thread9
+  br i1 %85, label %86, label %.thread8
 
 86:                                               ; preds = %81
   %87 = getelementptr inbounds i8, ptr %82, i64 112
@@ -933,9 +933,9 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
 96:                                               ; preds = %92, %86
   %97 = call i32 @follow_up(ptr noundef nonnull %4) #10
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %.thread9, label %81, !llvm.loop !10
+  br i1 %98, label %.thread8, label %81, !llvm.loop !10
 
-.thread9:                                         ; preds = %81, %96
+.thread8:                                         ; preds = %81, %96
   call void @path_put(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   br label %121
@@ -955,35 +955,35 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   %107 = call i32 @path_has_submounts(ptr noundef nonnull %6) #10
   %108 = call i32 @follow_down_one(ptr noundef nonnull %6) #10
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %.thread11, label %110
+  br i1 %109, label %.thread10, label %110
 
 110:                                              ; preds = %99
   %111 = getelementptr inbounds i8, ptr %6, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 112
   %114 = load ptr, ptr %113, align 8
-  br label %.thread11.sink.split
+  br label %.thread10.sink.split
 
-.thread11.sink.split:                             ; preds = %55, %110
+.thread10.sink.split:                             ; preds = %55, %110
   %.sink = phi ptr [ %114, %110 ], [ %59, %55 ]
   %.ph = phi i32 [ %106, %110 ], [ %68, %55 ]
-  %.ph13 = phi i32 [ %107, %110 ], [ 1, %55 ]
+  %.ph12 = phi i32 [ %107, %110 ], [ 1, %55 ]
   %115 = getelementptr inbounds i8, ptr %.sink, i64 96
   %116 = load i64, ptr %115, align 32
   %117 = trunc i64 %116 to i32
-  br label %.thread11
+  br label %.thread10
 
-.thread11:                                        ; preds = %.thread11.sink.split, %99, %55
-  %118 = phi i32 [ %68, %55 ], [ %106, %99 ], [ %.ph, %.thread11.sink.split ]
-  %119 = phi i32 [ 0, %55 ], [ 0, %99 ], [ %117, %.thread11.sink.split ]
-  %120 = phi i32 [ 0, %55 ], [ %107, %99 ], [ %.ph13, %.thread11.sink.split ]
+.thread10:                                        ; preds = %.thread10.sink.split, %99, %55
+  %118 = phi i32 [ %68, %55 ], [ %106, %99 ], [ %.ph, %.thread10.sink.split ]
+  %119 = phi i32 [ 0, %55 ], [ 0, %99 ], [ %117, %.thread10.sink.split ]
+  %120 = phi i32 [ 0, %55 ], [ %107, %99 ], [ %.ph12, %.thread10.sink.split ]
   store i32 %118, ptr %8, align 8
   store i32 %119, ptr %10, align 4
   call void @path_put(ptr noundef nonnull %6) #10
   br label %121
 
-121:                                              ; preds = %.thread8, %.thread9, %.thread11, %52
-  %122 = phi i32 [ %53, %52 ], [ %120, %.thread11 ], [ %77, %.thread8 ], [ -2, %.thread9 ]
+121:                                              ; preds = %.thread, %.thread8, %.thread10, %52
+  %122 = phi i32 [ %53, %52 ], [ %120, %.thread10 ], [ %77, %.thread ], [ -2, %.thread8 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
   ret i32 %122
 }

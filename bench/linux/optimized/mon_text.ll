@@ -526,20 +526,20 @@ define internal fastcc ptr @mon_text_read_wait(ptr noundef %0, ptr nocapture nou
 
 34:                                               ; preds = %30
   %35 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12, i32 0, ptr elementtype(i32) %12) #11, !srcloc !15
-  br label %.thread2
+  br label %.critedge
 
 36:                                               ; preds = %30
   call void @schedule() #11
   %37 = load volatile i64, ptr %8, align 8
   %38 = and i64 %37, 131072
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %.thread2, !prof !16
+  br i1 %39, label %40, label %.critedge, !prof !16
 
 40:                                               ; preds = %36
   %41 = load volatile i64, ptr %8, align 8
   %42 = and i64 %41, 4
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %44, label %.thread2
+  br i1 %43, label %44, label %.critedge
 
 44:                                               ; preds = %40
   %45 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12, i32 1, ptr elementtype(i32) %12) #11, !srcloc !17
@@ -547,9 +547,9 @@ define internal fastcc ptr @mon_text_read_wait(ptr noundef %0, ptr nocapture nou
 
 46:                                               ; preds = %22
   %47 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12, i32 0, ptr elementtype(i32) %12) #11, !srcloc !19
-  br label %.thread2
+  br label %.critedge
 
-.thread2:                                         ; preds = %36, %40, %46, %34
+.critedge:                                        ; preds = %36, %40, %46, %34
   %48 = phi ptr [ inttoptr (i64 -11 to ptr), %34 ], [ %20, %46 ], [ inttoptr (i64 -4 to ptr), %40 ], [ inttoptr (i64 -4 to ptr), %36 ]
   call void @remove_wait_queue(ptr noundef %11, ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #11

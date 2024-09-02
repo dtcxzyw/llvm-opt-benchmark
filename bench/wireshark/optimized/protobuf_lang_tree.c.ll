@@ -527,13 +527,13 @@ tailrecurse:                                      ; preds = %7
 declare noalias ptr @g_strconcat(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pbl_message_descriptor_pool_FindMethodByName(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_message_descriptor_pool_FindMethodByName(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @pbl_find_node_in_pool(ptr noundef %0, ptr noundef %1, i32 noundef 9)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pbl_find_node_in_pool(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @pbl_find_node_in_pool(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -585,16 +585,16 @@ define internal fastcc ptr @pbl_find_node_in_pool(ptr noundef readonly %0, ptr n
   br label %28
 
 28:                                               ; preds = %25, %23
-  %.sink91 = phi ptr [ %13, %25 ], [ @.str.2, %23 ]
+  %.sink94 = phi ptr [ %13, %25 ], [ @.str.2, %23 ]
   %.2 = phi ptr [ %27, %25 ], [ %24, %23 ]
   %29 = load ptr, ptr %7, align 8
-  %30 = tail call ptr @g_hash_table_lookup(ptr noundef %29, ptr noundef nonnull %.sink91) #14
+  %30 = tail call ptr @g_hash_table_lookup(ptr noundef %29, ptr noundef nonnull %.sink94) #14
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %.critedge.thread, label %.preheader
 
 .preheader:                                       ; preds = %28
   %.not79 = icmp eq ptr %.2, null
-  br i1 %.not79, label %.critedge, label %.lr.ph
+  br i1 %.not79, label %.critedge.thread84, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %33
   %.067 = phi ptr [ %37, %33 ], [ %.2, %.preheader ]
@@ -614,28 +614,26 @@ define internal fastcc ptr @pbl_find_node_in_pool(ptr noundef readonly %0, ptr n
   %or.cond5 = select i1 %38, i1 %39, i1 false
   br i1 %or.cond5, label %.lr.ph, label %.critedge, !llvm.loop !8
 
-.critedge:                                        ; preds = %33, %.preheader
-  %.251.lcssa = phi ptr [ %30, %.preheader ], [ %35, %33 ]
-  %.0.lcssa = phi ptr [ null, %.preheader ], [ %37, %33 ]
-  %.lcssa = phi i1 [ true, %.preheader ], [ %39, %33 ]
-  %40 = icmp eq ptr %.0.lcssa, null
-  %or.cond7 = select i1 %40, i1 %.lcssa, i1 false
-  br i1 %or.cond7, label %41, label %.critedge.thread
+.critedge:                                        ; preds = %33
+  %40 = icmp eq ptr %37, null
+  %41 = select i1 %40, i1 %39, i1 false
+  br i1 %41, label %.critedge.thread84, label %.critedge.thread
 
-41:                                               ; preds = %.critedge
-  %42 = load i32, ptr %.251.lcssa, align 8
+.critedge.thread84:                               ; preds = %.preheader, %.critedge
+  %.251.lcssa87 = phi ptr [ %35, %.critedge ], [ %30, %.preheader ]
+  %42 = load i32, ptr %.251.lcssa87, align 8
   %43 = icmp eq i32 %42, %2
   br i1 %43, label %._crit_edge, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph, %.critedge, %41, %.lr.ph73, %28
-  %.3 = phi ptr [ %.2, %28 ], [ %.04871, %.lr.ph73 ], [ %.2, %41 ], [ %.2, %.critedge ], [ %.2, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %.critedge, %.critedge.thread84, %.lr.ph73, %28
+  %.3 = phi ptr [ %.2, %28 ], [ %.04871, %.lr.ph73 ], [ %.2, %.critedge.thread84 ], [ %.2, %.critedge ], [ %.2, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %44 = icmp sgt i64 %indvars.iv, 0
   br i1 %44, label %.lr.ph73, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.critedge.thread, %41
-  %.150 = phi ptr [ null, %.critedge.thread ], [ %.251.lcssa, %41 ]
-  %.1 = phi ptr [ %.3, %.critedge.thread ], [ %.2, %41 ]
+._crit_edge:                                      ; preds = %.critedge.thread, %.critedge.thread84
+  %.150 = phi ptr [ null, %.critedge.thread ], [ %.251.lcssa87, %.critedge.thread84 ]
+  %.1 = phi ptr [ %.3, %.critedge.thread ], [ %.2, %.critedge.thread84 ]
   %.not61 = icmp eq ptr %.1, null
   br i1 %.not61, label %._crit_edge.thread, label %45
 
@@ -644,12 +642,12 @@ define internal fastcc ptr @pbl_find_node_in_pool(ptr noundef readonly %0, ptr n
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %10, %45, %._crit_edge
-  %.15087 = phi ptr [ %.150, %45 ], [ %.150, %._crit_edge ], [ null, %10 ]
+  %.15091 = phi ptr [ %.150, %45 ], [ %.150, %._crit_edge ], [ null, %10 ]
   tail call void @g_free(ptr noundef %13) #14
   br label %46
 
 46:                                               ; preds = %3, %6, %._crit_edge.thread
-  %.055 = phi ptr [ %.15087, %._crit_edge.thread ], [ null, %6 ], [ null, %3 ]
+  %.055 = phi ptr [ %.15091, %._crit_edge.thread ], [ null, %6 ], [ null, %3 ]
   ret ptr %.055
 }
 
@@ -667,7 +665,7 @@ define hidden ptr @pbl_method_descriptor_full_name(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pbl_method_descriptor_input_type(ptr noundef %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_method_descriptor_input_type(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc ptr @pbl_find_node_in_context(ptr noundef %0, ptr noundef %3, i32 noundef 2)
@@ -675,7 +673,7 @@ define hidden ptr @pbl_method_descriptor_input_type(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pbl_find_node_in_context(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @pbl_find_node_in_context(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -769,7 +767,7 @@ define internal fastcc ptr @pbl_find_node_in_context(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pbl_method_descriptor_output_type(ptr noundef %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_method_descriptor_output_type(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc ptr @pbl_find_node_in_context(ptr noundef %0, ptr noundef %3, i32 noundef 2)
@@ -777,7 +775,7 @@ define hidden ptr @pbl_method_descriptor_output_type(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pbl_message_descriptor_pool_FindMessageTypeByName(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_message_descriptor_pool_FindMessageTypeByName(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @pbl_find_node_in_pool(ptr noundef %0, ptr noundef %1, i32 noundef 2)
   ret ptr %3
 }
@@ -1053,7 +1051,7 @@ define hidden ptr @pbl_field_descriptor_TypeName(i32 noundef %0) local_unnamed_a
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pbl_field_descriptor_message_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_field_descriptor_message_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, -2
@@ -1074,7 +1072,7 @@ define hidden ptr @pbl_field_descriptor_message_type(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pbl_field_descriptor_enum_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef ptr @pbl_field_descriptor_enum_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 14

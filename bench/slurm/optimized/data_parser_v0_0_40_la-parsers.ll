@@ -3799,7 +3799,7 @@ define internal noundef i32 @_v40_dump_INT32(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v40_parse_INT32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
+define internal range(i32 0, 9203) i32 @_v40_parse_INT32(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #18
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.thread, label %8
@@ -3839,7 +3839,7 @@ define internal noundef i32 @_v40_dump_INT64(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v40_parse_INT64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
+define internal range(i32 0, 9203) i32 @_v40_parse_INT64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #18
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %9
@@ -5031,7 +5031,7 @@ define internal noundef i32 @_v40_dump_GROUP_ID(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v40_parse_GROUP_ID(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
+define internal range(i32 0, 9203) i32 @_v40_parse_GROUP_ID(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
   %6 = alloca i32, align 4
   %7 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 0) #18
   switch i32 %7, label %17 [
@@ -5176,7 +5176,7 @@ define internal noundef i32 @_v40_dump_USER_ID(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v40_parse_USER_ID(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
+define internal range(i32 0, 9203) i32 @_v40_parse_USER_ID(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
   %6 = alloca i32, align 4
   %7 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 0) #18
   %8 = tail call i32 @data_get_type(ptr noundef %2) #18
@@ -5701,7 +5701,7 @@ define internal noundef i32 @_v40_dump_CORE_SPEC(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v40_parse_CORE_SPEC(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
+define internal range(i32 0, 9203) i32 @_v40_parse_CORE_SPEC(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
   %6 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #18
   %.not = icmp eq i32 %6, 4
   br i1 %.not, label %10, label %7
@@ -5752,7 +5752,7 @@ define internal noundef i32 @_v40_dump_THREAD_SPEC(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v40_parse_THREAD_SPEC(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
+define internal range(i32 0, 9203) i32 @_v40_parse_THREAD_SPEC(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
   %6 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #18
   %.not = icmp eq i32 %6, 4
   br i1 %.not, label %10, label %7
@@ -6251,7 +6251,7 @@ define internal noundef i32 @_v40_dump_HOSTLIST(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v40_parse_HOSTLIST(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
+define internal range(i32 0, 9203) i32 @_v40_parse_HOSTLIST(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
   %6 = alloca %struct.foreach_hostlist_parse_t, align 8
   %7 = tail call i32 @data_get_type(ptr noundef %2) #18
   %8 = icmp eq i32 %7, 1
@@ -6363,7 +6363,7 @@ define internal i32 @_v40_dump_HOSTLIST_STRING(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v40_parse_HOSTLIST_STRING(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
+define internal range(i32 0, 9203) i32 @_v40_parse_HOSTLIST_STRING(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = call i32 @_v40_parse_HOSTLIST(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -9943,65 +9943,63 @@ _v40_parse_disabled.exit:                         ; preds = %5, %12
 define internal noundef i32 @_v40_dump_NODES(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #3 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #18
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %10, label %6
+  br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %.not19 = icmp eq i32 %8, 0
-  br i1 %.not19, label %10, label %.preheader22
+  br i1 %.not19, label %11, label %.preheader22
 
 .preheader22:                                     ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 16
-  br label %13
+  %10 = load i32, ptr %7, align 8
+  %.not27 = icmp eq i32 %10, 0
+  br i1 %.not27, label %.critedge, label %.lr.ph
 
-10:                                               ; preds = %6, %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 8
-  tail call void (i32, i32, ptr, ptr, ptr, ptr, ...) @on_warn(i32 noundef 44718, i32 noundef %12, ptr noundef %3, ptr noundef null, ptr noundef nonnull @__func__._v40_dump_NODES, ptr noundef nonnull @.str.878) #18
+11:                                               ; preds = %6, %4
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load i32, ptr %12, align 8
+  tail call void (i32, i32, ptr, ptr, ptr, ptr, ...) @on_warn(i32 noundef 44718, i32 noundef %13, ptr noundef %3, ptr noundef null, ptr noundef nonnull @__func__._v40_dump_NODES, ptr noundef nonnull @.str.878) #18
   br label %.critedge
 
-13:                                               ; preds = %.preheader22, %29
-  %indvars.iv = phi i64 [ 0, %.preheader22 ], [ %indvars.iv.next, %29 ]
-  %14 = load i32, ptr %7, align 8
-  %15 = zext i32 %14 to i64
-  %16 = icmp ult i64 %indvars.iv, %15
-  br i1 %16, label %17, label %.critedge
+.lr.ph:                                           ; preds = %.preheader22, %.backedge
+  %indvars.iv26 = phi i64 [ %indvars.iv.be, %.backedge ], [ 0, %.preheader22 ]
+  %14 = load ptr, ptr %9, align 8
+  %15 = getelementptr inbounds %struct.node_info, ptr %14, i64 %indvars.iv26
+  %16 = getelementptr inbounds i8, ptr %15, i64 192
+  %17 = load ptr, ptr %16, align 8
+  %.not21 = icmp eq ptr %17, null
+  br i1 %.not21, label %.backedge, label %.preheader
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds %struct.node_info, ptr %18, i64 %indvars.iv
-  %20 = getelementptr inbounds i8, ptr %19, i64 192
-  %21 = load ptr, ptr %20, align 8
-  %.not21 = icmp eq ptr %21, null
-  br i1 %.not21, label %29, label %.preheader
-
-22:                                               ; preds = %.preheader
+18:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 450
   br i1 %exitcond.not.i, label %find_parser_by_type.exit, label %.preheader, !llvm.loop !6
 
-.preheader:                                       ; preds = %17, %22
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %17 ]
-  %23 = getelementptr inbounds [450 x %struct.parser_s], ptr @parsers, i64 0, i64 %indvars.iv.i
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp eq i32 %25, 283
-  br i1 %26, label %find_parser_by_type.exit, label %22
+.preheader:                                       ; preds = %.lr.ph, %18
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %.lr.ph ]
+  %19 = getelementptr inbounds [450 x %struct.parser_s], ptr @parsers, i64 0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp eq i32 %21, 283
+  br i1 %22, label %find_parser_by_type.exit, label %18
 
-find_parser_by_type.exit:                         ; preds = %22, %.preheader
-  %.05.i = phi ptr [ %23, %.preheader ], [ null, %22 ]
-  %27 = tail call ptr @data_list_append(ptr noundef %2) #18
-  %28 = tail call i32 @dump(ptr noundef %19, i64 noundef 368, ptr noundef %.05.i, ptr noundef %27, ptr noundef %3) #18
-  br label %29
+find_parser_by_type.exit:                         ; preds = %18, %.preheader
+  %.05.i = phi ptr [ %19, %.preheader ], [ null, %18 ]
+  %23 = tail call ptr @data_list_append(ptr noundef %2) #18
+  %24 = tail call i32 @dump(ptr noundef %15, i64 noundef 368, ptr noundef %.05.i, ptr noundef %23, ptr noundef %3) #18
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %.backedge, label %.critedge
 
-29:                                               ; preds = %17, %find_parser_by_type.exit
-  %.1 = phi i32 [ %28, %find_parser_by_type.exit ], [ 0, %17 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not20 = icmp eq i32 %.1, 0
-  br i1 %.not20, label %13, label %.critedge, !llvm.loop !31
+.backedge:                                        ; preds = %.lr.ph, %find_parser_by_type.exit
+  %indvars.iv.be = add nuw nsw i64 %indvars.iv26, 1
+  %26 = load i32, ptr %7, align 8
+  %27 = zext i32 %26 to i64
+  %28 = icmp ult i64 %indvars.iv.be, %27
+  br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !31
 
-.critedge:                                        ; preds = %13, %29, %10
+.critedge:                                        ; preds = %find_parser_by_type.exit, %.backedge, %.preheader22, %11
   ret i32 0
 }
 
@@ -10877,7 +10875,7 @@ define internal noundef i32 @_v40_dump_JOB_DESC_MSG_NODES(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v40_parse_JOB_DESC_MSG_NODES(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
+define internal range(i32 0, 9203) i32 @_v40_parse_JOB_DESC_MSG_NODES(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8

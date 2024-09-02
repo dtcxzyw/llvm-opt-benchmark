@@ -5477,13 +5477,16 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %92 = load i8, ptr %91, align 1
   %93 = add i8 %92, -48
   %94 = icmp ult i8 %93, 10
-  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %94, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph, %.critedge3.thread
-  %.6.lcssa = phi ptr [ %82, %.critedge3.thread ], [ %91, %.lr.ph ]
-  %.0124.lcssa = phi i64 [ 0, %.critedge3.thread ], [ %90, %.lr.ph ]
-  %.lcssa = phi i8 [ %83, %.critedge3.thread ], [ %92, %.lr.ph ]
-  %95 = uitofp i64 %.0124.lcssa to float
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %95 = uitofp i64 %90 to float
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.critedge3.thread
+  %.6.lcssa = phi ptr [ %82, %.critedge3.thread ], [ %91, %._crit_edge.loopexit ]
+  %.0124.lcssa = phi float [ 0.000000e+00, %.critedge3.thread ], [ %95, %._crit_edge.loopexit ]
+  %.lcssa = phi i8 [ %83, %.critedge3.thread ], [ %92, %._crit_edge.loopexit ]
   %96 = icmp eq i8 %.lcssa, 46
   br i1 %96, label %.preheader161, label %120
 
@@ -5532,13 +5535,13 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %117 = phi i8 [ %97, %.preheader161 ], [ %110, %._crit_edge183.loopexit ]
   %.8.lcssa = phi ptr [ %.8177, %.preheader161 ], [ %.8, %._crit_edge183.loopexit ]
   %118 = phi float [ 0.000000e+00, %.preheader161 ], [ %116, %._crit_edge183.loopexit ]
-  %119 = fadd float %118, %95
+  %119 = fadd float %.0124.lcssa, %118
   br label %120
 
 120:                                              ; preds = %._crit_edge183, %._crit_edge
   %121 = phi i8 [ %117, %._crit_edge183 ], [ %.lcssa, %._crit_edge ]
   %.7 = phi ptr [ %.8.lcssa, %._crit_edge183 ], [ %.6.lcssa, %._crit_edge ]
-  %.0122 = phi float [ %119, %._crit_edge183 ], [ %95, %._crit_edge ]
+  %.0122 = phi float [ %119, %._crit_edge183 ], [ %.0124.lcssa, %._crit_edge ]
   switch i8 %121, label %163 [
     i8 101, label %122
     i8 69, label %122
@@ -8631,13 +8634,13 @@ _ZN7xgboost3gbm13GBLinearModel13LazyInitModelEv.exit: ; preds = %60, %67, %_ZNSt
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds float, ptr %92, i64 %.06.i
   %94 = load float, ptr %93, align 4
+  %95 = fpext float %94 to double
   br label %_ZNK7xgboost8MetaInfo9GetWeightEm.exit.i
 
 _ZNK7xgboost8MetaInfo9GetWeightEm.exit.i:         ; preds = %90, %88
-  %95 = phi float [ %94, %90 ], [ 1.000000e+00, %88 ]
-  %96 = fpext float %95 to double
+  %96 = phi double [ %95, %90 ], [ 1.000000e+00, %88 ]
   %97 = load double, ptr %87, align 8
-  %98 = fadd double %97, %96
+  %98 = fadd double %96, %97
   store double %98, ptr %87, align 8
   %99 = add nuw i64 %.06.i, 1
   %100 = load i64, ptr %84, align 8
@@ -9576,12 +9579,12 @@ _ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit:  ; preds = %_ZN7xgboost13BatchI
           to label %.noexc41 unwind label %234
 
 .noexc41:                                         ; preds = %242
-  %244 = add i64 %243, -1
+  %244 = trunc i64 %243 to i32
+  %245 = add i32 %244, -1
   br label %_ZNK7xgboost10SparsePage4SizeEv.exit
 
 _ZNK7xgboost10SparsePage4SizeEv.exit:             ; preds = %.noexc41, %.noexc40
-  %245 = phi i64 [ %244, %.noexc41 ], [ 0, %.noexc40 ]
-  %246 = trunc i64 %245 to i32
+  %246 = phi i32 [ %245, %.noexc41 ], [ 0, %.noexc40 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !57)
   call void @llvm.experimental.noalias.scope.decl(metadata !60)
   call void @llvm.experimental.noalias.scope.decl(metadata !63)

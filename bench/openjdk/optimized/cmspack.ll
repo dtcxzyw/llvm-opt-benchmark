@@ -7449,13 +7449,13 @@ define internal ptr @PackBytesFromFloat(ptr nocapture noundef readonly %0, ptr n
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %17 = zext nneg i32 %spec.select to i64
-  %wide.trip.count90 = zext nneg i32 %8 to i64
+  %wide.trip.count87 = zext nneg i32 %8 to i64
   %invariant.gep = getelementptr inbounds i8, ptr %2, i64 %17
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_cmsQuickSaturateWord.exit.us
-  %indvars.iv87 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next88, %_cmsQuickSaturateWord.exit.us ]
-  %18 = trunc nuw nsw i64 %indvars.iv87 to i32
+  %indvars.iv84 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next85, %_cmsQuickSaturateWord.exit.us ]
+  %18 = trunc nuw nsw i64 %indvars.iv84 to i32
   %19 = xor i32 %18, -1
   %20 = add nsw i32 %8, %19
   %21 = select i1 %.not52, i32 %18, i32 %20
@@ -7479,28 +7479,28 @@ define internal ptr @PackBytesFromFloat(ptr nocapture noundef readonly %0, ptr n
   %34 = tail call double @llvm.floor.f64(double %33)
   %35 = fptosi double %34 to i32
   %36 = add i32 %35, 32767
-  br label %_cmsQuickSaturateWord.exit.us
-
-_cmsQuickSaturateWord.exit.us:                    ; preds = %32, %30, %.lr.ph.split.us
-  %.0.i.us = phi i32 [ %36, %32 ], [ 0, %.lr.ph.split.us ], [ 65535, %30 ]
-  %37 = and i32 %.0.i.us, 65535
+  %37 = and i32 %36, 65535
   %38 = mul nuw i32 %37, 65281
   %39 = add nuw i32 %38, 8388608
   %40 = lshr i32 %39, 24
   %41 = trunc nuw i32 %40 to i8
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv87
-  store i8 %41, ptr %gep, align 1
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !34
+  br label %_cmsQuickSaturateWord.exit.us
+
+_cmsQuickSaturateWord.exit.us:                    ; preds = %32, %30, %.lr.ph.split.us
+  %.0.i.us = phi i8 [ %41, %32 ], [ 0, %.lr.ph.split.us ], [ -1, %30 ]
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv84
+  store i8 %.0.i.us, ptr %gep, align 1
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
+  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !34
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %wide.trip.count85 = zext nneg i32 %8 to i64
+  %wide.trip.count82 = zext nneg i32 %8 to i64
   br i1 %.not52, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_cmsQuickSaturateWord.exit.us57
-  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %_cmsQuickSaturateWord.exit.us57 ], [ 0, %.lr.ph.split ]
-  %42 = getelementptr inbounds float, ptr %1, i64 %indvars.iv82
+  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %_cmsQuickSaturateWord.exit.us57 ], [ 0, %.lr.ph.split ]
+  %42 = getelementptr inbounds float, ptr %1, i64 %indvars.iv79
   %43 = load float, ptr %42, align 4
   %44 = fpext float %43 to double
   %45 = fmul double %44, 6.553500e+04
@@ -7519,31 +7519,31 @@ _cmsQuickSaturateWord.exit.us:                    ; preds = %32, %30, %.lr.ph.sp
   %53 = tail call double @llvm.floor.f64(double %52)
   %54 = fptosi double %53 to i32
   %55 = add i32 %54, 32767
-  br label %_cmsQuickSaturateWord.exit.us57
-
-_cmsQuickSaturateWord.exit.us57:                  ; preds = %.lr.ph.split.split.us, %51, %49
-  %.0.i.us58 = phi i32 [ %55, %51 ], [ 0, %.lr.ph.split.split.us ], [ 65535, %49 ]
-  %56 = and i32 %.0.i.us58, 65535
+  %56 = and i32 %55, 65535
   %57 = mul nuw i32 %56, 65281
   %58 = add nuw i32 %57, 8388608
   %59 = lshr i32 %58, 24
   %60 = trunc nuw i32 %59 to i8
-  %61 = trunc i64 %indvars.iv82 to i32
+  br label %_cmsQuickSaturateWord.exit.us57
+
+_cmsQuickSaturateWord.exit.us57:                  ; preds = %.lr.ph.split.split.us, %51, %49
+  %.0.i.us58 = phi i8 [ %60, %51 ], [ 0, %.lr.ph.split.split.us ], [ -1, %49 ]
+  %61 = trunc i64 %indvars.iv79 to i32
   %62 = add i32 %spec.select, %61
   %63 = mul i32 %62, %3
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds i8, ptr %2, i64 %64
-  store i8 %60, ptr %65, align 1
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !34
+  store i8 %.0.i.us58, ptr %65, align 1
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !34
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not53, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %_cmsQuickSaturateWord.exit.us63
-  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %_cmsQuickSaturateWord.exit.us63 ], [ 0, %.lr.ph.split.split ]
-  %66 = trunc nuw nsw i64 %indvars.iv77 to i32
+  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %_cmsQuickSaturateWord.exit.us63 ], [ 0, %.lr.ph.split.split ]
+  %66 = trunc nuw nsw i64 %indvars.iv74 to i32
   %67 = xor i32 %66, -1
   %68 = add nsw i32 %8, %67
   %69 = zext i32 %68 to i64
@@ -7564,24 +7564,24 @@ _cmsQuickSaturateWord.exit.us57:                  ; preds = %.lr.ph.split.split.
   %80 = tail call double @llvm.floor.f64(double %79)
   %81 = fptosi double %80 to i32
   %82 = add i32 %81, 32767
-  br label %_cmsQuickSaturateWord.exit.us63
-
-_cmsQuickSaturateWord.exit.us63:                  ; preds = %.lr.ph.split.split.split.us, %78, %76
-  %.0.i.us64 = phi i32 [ %82, %78 ], [ 0, %.lr.ph.split.split.split.us ], [ 65535, %76 ]
-  %83 = and i32 %.0.i.us64, 65535
+  %83 = and i32 %82, 65535
   %84 = mul nuw i32 %83, 65281
   %85 = add nuw i32 %84, 8388608
   %86 = lshr i32 %85, 24
   %87 = trunc nuw i32 %86 to i8
-  %88 = trunc i64 %indvars.iv77 to i32
+  br label %_cmsQuickSaturateWord.exit.us63
+
+_cmsQuickSaturateWord.exit.us63:                  ; preds = %.lr.ph.split.split.split.us, %78, %76
+  %.0.i.us64 = phi i8 [ %87, %78 ], [ 0, %.lr.ph.split.split.split.us ], [ -1, %76 ]
+  %88 = trunc i64 %indvars.iv74 to i32
   %89 = add i32 %spec.select, %88
   %90 = mul i32 %89, %3
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds i8, ptr %2, i64 %91
-  store i8 %87, ptr %92, align 1
-  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count85
-  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !34
+  store i8 %.0.i.us64, ptr %92, align 1
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count82
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !34
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %_cmsQuickSaturateWord.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_cmsQuickSaturateWord.exit ], [ 0, %.lr.ph.split.split ]
@@ -7607,27 +7607,27 @@ _cmsQuickSaturateWord.exit.us63:                  ; preds = %.lr.ph.split.split.
   %108 = tail call double @llvm.floor.f64(double %107)
   %109 = fptosi double %108 to i32
   %110 = add i32 %109, 32767
-  br label %_cmsQuickSaturateWord.exit
-
-_cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split.split.split, %104, %106
-  %.0.i = phi i32 [ %110, %106 ], [ 0, %.lr.ph.split.split.split ], [ 65535, %104 ]
-  %111 = and i32 %.0.i, 65535
+  %111 = and i32 %110, 65535
   %112 = mul nuw i32 %111, 65281
   %113 = add nuw i32 %112, 8388608
   %114 = lshr i32 %113, 24
   %115 = trunc nuw i32 %114 to i8
+  br label %_cmsQuickSaturateWord.exit
+
+_cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph.split.split.split, %104, %106
+  %.0.i = phi i8 [ %115, %106 ], [ 0, %.lr.ph.split.split.split ], [ -1, %104 ]
   %116 = trunc i64 %indvars.iv to i32
   %117 = add i32 %spec.select, %116
   %118 = mul i32 %117, %3
   %119 = zext i32 %118 to i64
   %120 = getelementptr inbounds i8, ptr %2, i64 %119
-  store i8 %115, ptr %120, align 1
+  store i8 %.0.i, ptr %120, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count85
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count82
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %_cmsQuickSaturateWord.exit, %_cmsQuickSaturateWord.exit.us63, %_cmsQuickSaturateWord.exit.us57, %_cmsQuickSaturateWord.exit.us, %4
-  %.048.lcssa = phi i8 [ 0, %4 ], [ %41, %_cmsQuickSaturateWord.exit.us ], [ %60, %_cmsQuickSaturateWord.exit.us57 ], [ %87, %_cmsQuickSaturateWord.exit.us63 ], [ %115, %_cmsQuickSaturateWord.exit ]
+  %.048.lcssa = phi i8 [ 0, %4 ], [ %.0.i.us, %_cmsQuickSaturateWord.exit.us ], [ %.0.i.us58, %_cmsQuickSaturateWord.exit.us57 ], [ %.0.i.us64, %_cmsQuickSaturateWord.exit.us63 ], [ %.0.i, %_cmsQuickSaturateWord.exit ]
   %121 = icmp eq i32 %12, 0
   %122 = icmp ne i32 %14, 0
   %or.cond = and i1 %121, %122

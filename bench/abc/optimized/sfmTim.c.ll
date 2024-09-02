@@ -443,7 +443,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %2, %Vec_IntFill.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Sfm_TimTrace(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Sfm_TimTrace(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca [6 x ptr], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8

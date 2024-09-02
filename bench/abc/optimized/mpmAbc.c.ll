@@ -693,7 +693,7 @@ Mig_ObjIsCi.exit:                                 ; preds = %Mig_ObjIsTerm.exit.
   %71 = icmp ult i32 %70, -2
   br i1 %71, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %Vec_PtrPush.exit, %Mig_ObjIsTerm.exit.i, %Mig_ObjIsCi.exit
+.lr.ph.preheader:                                 ; preds = %Mig_ObjIsCi.exit, %Vec_PtrPush.exit, %Mig_ObjIsTerm.exit.i
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Mig_ObjSibl.exit
@@ -2990,7 +2990,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

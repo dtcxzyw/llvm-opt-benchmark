@@ -332,7 +332,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef %0, i1 
   %25 = load i32, ptr %24, align 4
   %26 = tail call ptr @g_strerror(i32 noundef %25) #15
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 207, ptr noundef nonnull @__func__.sdj_start_export, ptr noundef nonnull @.str.37, ptr noundef %2, ptr noundef %26) #14
-  br label %215
+  br label %214
 
 27:                                               ; preds = %20, %3
   %.033 = phi ptr [ %21, %20 ], [ %18, %3 ]
@@ -343,7 +343,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef %0, i1 
 
 30:                                               ; preds = %27
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 226, ptr noundef nonnull @__func__.sdj_start_export, ptr noundef nonnull @.str.39) #14
-  br label %208
+  br label %207
 
 31:                                               ; preds = %27
   %32 = call i32 @sd_journal_open(ptr noundef nonnull %15, i32 noundef 0) #14
@@ -353,7 +353,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef %0, i1 
 34:                                               ; preds = %31
   %35 = call ptr @g_strerror(i32 noundef %32) #15
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 232, ptr noundef nonnull @__func__.sdj_start_export, ptr noundef nonnull @.str.40, ptr noundef %35) #14
-  br label %208
+  br label %207
 
 36:                                               ; preds = %31
   %37 = call i32 @sd_id128_get_boot(ptr noundef nonnull %16) #14
@@ -363,7 +363,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef %0, i1 
 39:                                               ; preds = %36
   %40 = call ptr @g_strerror(i32 noundef %37) #15
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 238, ptr noundef nonnull @__func__.sdj_start_export, ptr noundef nonnull @.str.41, ptr noundef %40) #14
-  br label %208
+  br label %207
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds i8, ptr %17, i64 9
@@ -380,7 +380,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef %0, i1 
 51:                                               ; preds = %41
   %52 = call ptr @g_strerror(i32 noundef %49) #15
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 245, ptr noundef nonnull @__func__.sdj_start_export, ptr noundef nonnull @.str.42, ptr noundef %52) #14
-  br label %208
+  br label %207
 
 53:                                               ; preds = %41
   %54 = load ptr, ptr %15, align 8
@@ -396,7 +396,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef %0, i1 
 60:                                               ; preds = %57
   %61 = call ptr @g_strerror(i32 noundef %58) #15
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 258, ptr noundef nonnull @__func__.sdj_start_export, ptr noundef nonnull @.str.43, ptr noundef %61) #14
-  br label %208
+  br label %207
 
 62:                                               ; preds = %57
   %63 = load ptr, ptr %15, align 8
@@ -409,7 +409,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef %0, i1 
 68:                                               ; preds = %62
   %69 = call ptr @g_strerror(i32 noundef %66) #15
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 263, ptr noundef nonnull @__func__.sdj_start_export, ptr noundef nonnull @.str.44, ptr noundef %69) #14
-  br label %208
+  br label %207
 
 70:                                               ; preds = %53
   %71 = call i32 @sd_journal_seek_head(ptr noundef %56) #14
@@ -419,7 +419,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef %0, i1 
 73:                                               ; preds = %70
   %74 = call ptr @g_strerror(i32 noundef %71) #15
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 270, ptr noundef nonnull @__func__.sdj_start_export, ptr noundef nonnull @.str.45, ptr noundef %74) #14
-  br label %208
+  br label %207
 
 75:                                               ; preds = %70
   %76 = icmp sgt i32 %0, 0
@@ -435,7 +435,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef %0, i1 
 82:                                               ; preds = %77
   %83 = call ptr @g_strerror(i32 noundef %80) #15
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 276, ptr noundef nonnull @__func__.sdj_start_export, ptr noundef nonnull @.str.46, ptr noundef %83) #14
-  br label %208
+  br label %207
 
 84:                                               ; preds = %75, %77, %62
   %85 = load ptr, ptr %15, align 8
@@ -453,201 +453,204 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef %0, i1 
   %88 = getelementptr inbounds i8, ptr %8, i64 9
   %89 = getelementptr inbounds i8, ptr %7, i64 8
   %90 = getelementptr i8, ptr %86, i64 4
-  br label %91
-
-91:                                               ; preds = %.backedge.i, %84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(43) %8, ptr noundef nonnull align 16 dereferenceable(43) @__const.sdj_dump_entries.boot_id_str, i64 43, i1 false)
   store i64 0, ptr %11, align 8
   store i32 9, ptr %86, align 1
-  %92 = call i32 @sd_journal_next(ptr noundef %85) #14
-  %93 = icmp slt i32 %92, 0
-  br i1 %93, label %94, label %96
+  %91 = call i32 @sd_journal_next(ptr noundef %85) #14
+  %92 = icmp slt i32 %91, 0
+  br i1 %92, label %._crit_edge, label %.lr.ph
 
-94:                                               ; preds = %91
-  %95 = call ptr @g_strerror(i32 noundef %92) #15
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 96, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.49, ptr noundef %95) #14
+._crit_edge:                                      ; preds = %.backedge132.i, %84
+  %.lcssa = phi i32 [ %91, %84 ], [ %100, %.backedge132.i ]
+  %93 = call ptr @g_strerror(i32 noundef %.lcssa) #15
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 96, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.49, ptr noundef %93) #14
   br label %sdj_dump_entries.exit.thread
 
-96:                                               ; preds = %91
-  %97 = icmp eq i32 %92, 0
-  br i1 %97, label %98, label %101
+.lr.ph:                                           ; preds = %84, %.backedge132.i
+  %94 = phi i32 [ %100, %.backedge132.i ], [ %91, %84 ]
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %102
 
-98:                                               ; preds = %96
-  %99 = call i32 @sd_journal_wait(ptr noundef %85, i64 noundef -1) #14
-  br label %.backedge.i
+96:                                               ; preds = %.lr.ph
+  %97 = call i32 @sd_journal_wait(ptr noundef %85, i64 noundef -1) #14
+  br label %.backedge132.i
 
-.backedge.i:                                      ; preds = %203, %98
-  %.077.be.i = phi i32 [ 0, %98 ], [ %122, %203 ]
-  %100 = icmp eq i32 %.077.be.i, 0
-  br i1 %100, label %91, label %sdj_dump_entries.exit.thread, !llvm.loop !7
+.backedge.i:                                      ; preds = %199
+  %98 = call i32 @fflush(ptr noundef %.033)
+  %99 = icmp eq i32 %123, 0
+  br i1 %99, label %.backedge132.i, label %sdj_dump_entries.exit.thread
 
-101:                                              ; preds = %96
-  %102 = call i32 @sd_journal_get_cursor(ptr noundef %85, ptr noundef nonnull %4) #14
-  %103 = icmp slt i32 %102, 0
-  br i1 %103, label %104, label %106
+.backedge132.i:                                   ; preds = %.backedge.i, %96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(43) %8, ptr noundef nonnull align 16 dereferenceable(43) @__const.sdj_dump_entries.boot_id_str, i64 43, i1 false)
+  store i64 0, ptr %11, align 8
+  store i32 9, ptr %86, align 1
+  %100 = call i32 @sd_journal_next(ptr noundef %85) #14
+  %101 = icmp slt i32 %100, 0
+  br i1 %101, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
-104:                                              ; preds = %101
-  %105 = call ptr @g_strerror(i32 noundef %102) #15
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 105, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.50, ptr noundef %105) #14
+102:                                              ; preds = %.lr.ph
+  %103 = call i32 @sd_journal_get_cursor(ptr noundef %85, ptr noundef nonnull %4) #14
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %105, label %107
+
+105:                                              ; preds = %102
+  %106 = call ptr @g_strerror(i32 noundef %103) #15
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 105, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.50, ptr noundef %106) #14
   br label %sdj_dump_entries.exit.thread
 
-106:                                              ; preds = %101
-  %107 = load ptr, ptr %4, align 8
-  %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %87, i64 noundef 262124, ptr noundef nonnull @.str.51, ptr noundef %107) #14
-  %109 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %109) #14
-  %110 = call i32 @sd_journal_get_realtime_usec(ptr noundef %85, ptr noundef nonnull %5) #14
-  %111 = icmp slt i32 %110, 0
-  br i1 %111, label %112, label %114
+107:                                              ; preds = %102
+  %108 = load ptr, ptr %4, align 8
+  %109 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %87, i64 noundef 262124, ptr noundef nonnull @.str.51, ptr noundef %108) #14
+  %110 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %110) #14
+  %111 = call i32 @sd_journal_get_realtime_usec(ptr noundef %85, ptr noundef nonnull %5) #14
+  %112 = icmp slt i32 %111, 0
+  br i1 %112, label %113, label %115
 
-112:                                              ; preds = %106
-  %113 = call ptr @g_strerror(i32 noundef %110) #15
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 113, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.52, ptr noundef %113) #14
+113:                                              ; preds = %107
+  %114 = call ptr @g_strerror(i32 noundef %111) #15
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 113, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.52, ptr noundef %114) #14
   br label %sdj_dump_entries.exit.thread
 
-114:                                              ; preds = %106
-  %115 = add i32 %108, 8
-  %116 = zext i32 %115 to i64
-  %117 = getelementptr i8, ptr %86, i64 %116
-  %118 = sub i32 262124, %108
-  %119 = zext i32 %118 to i64
-  %120 = load i64, ptr %5, align 8
-  %121 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %117, i64 noundef %119, ptr noundef nonnull @.str.53, i64 noundef %120) #14
-  %122 = call i32 @sd_journal_get_monotonic_usec(ptr noundef %85, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
-  %123 = icmp slt i32 %122, 0
-  br i1 %123, label %124, label %126
+115:                                              ; preds = %107
+  %116 = add i32 %109, 8
+  %117 = zext i32 %116 to i64
+  %118 = getelementptr i8, ptr %86, i64 %117
+  %119 = sub i32 262124, %109
+  %120 = zext i32 %119 to i64
+  %121 = load i64, ptr %5, align 8
+  %122 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %118, i64 noundef %120, ptr noundef nonnull @.str.53, i64 noundef %121) #14
+  %123 = call i32 @sd_journal_get_monotonic_usec(ptr noundef %85, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
+  %124 = icmp slt i32 %123, 0
+  br i1 %124, label %125, label %127
 
-124:                                              ; preds = %114
-  %125 = call ptr @g_strerror(i32 noundef %122) #15
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 120, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.54, ptr noundef %125) #14
+125:                                              ; preds = %115
+  %126 = call ptr @g_strerror(i32 noundef %123) #15
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 120, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.54, ptr noundef %126) #14
   br label %sdj_dump_entries.exit.thread
 
-126:                                              ; preds = %114
-  %127 = add i32 %121, %115
-  %128 = load i64, ptr %7, align 8
-  %129 = load i64, ptr %89, align 8
-  %130 = call ptr @sd_id128_to_string(i64 %128, i64 %129, ptr noundef nonnull %88) #14
-  %131 = zext i32 %127 to i64
-  %132 = getelementptr i8, ptr %86, i64 %131
-  %133 = sub i32 262132, %127
-  %134 = zext i32 %133 to i64
-  %135 = load i64, ptr %6, align 8
-  %136 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %132, i64 noundef %134, ptr noundef nonnull @.str.55, i64 noundef %135, ptr noundef nonnull %8) #14
-  %137 = add i32 %136, %127
+127:                                              ; preds = %115
+  %128 = add i32 %122, %116
+  %129 = load i64, ptr %7, align 8
+  %130 = load i64, ptr %89, align 8
+  %131 = call ptr @sd_id128_to_string(i64 %129, i64 %130, ptr noundef nonnull %88) #14
+  %132 = zext i32 %128 to i64
+  %133 = getelementptr i8, ptr %86, i64 %132
+  %134 = sub i32 262132, %128
+  %135 = zext i32 %134 to i64
+  %136 = load i64, ptr %6, align 8
+  %137 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %133, i64 noundef %135, ptr noundef nonnull @.str.55, i64 noundef %136, ptr noundef nonnull %8) #14
+  %138 = add i32 %137, %128
   call void @sd_journal_restart_data(ptr noundef %85) #14
-  %138 = call i32 @sd_journal_enumerate_available_data(ptr noundef %85, ptr noundef nonnull %9, ptr noundef nonnull %10) #14
-  %139 = icmp sgt i32 %138, 0
-  br i1 %139, label %.lr.ph.i, label %._crit_edge.i
+  %139 = call i32 @sd_journal_enumerate_available_data(ptr noundef %85, ptr noundef nonnull %9, ptr noundef nonnull %10) #14
+  %140 = icmp sgt i32 %139, 0
+  br i1 %140, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %126, %188
-  %.078109.i = phi i32 [ %.1.i, %188 ], [ %137, %126 ]
-  %140 = load ptr, ptr %9, align 8
-  %141 = load i64, ptr %10, align 8
-  %142 = call ptr @memchr(ptr noundef %140, i32 noundef 61, i64 noundef %141) #16
-  %.not.i = icmp eq ptr %142, null
-  br i1 %.not.i, label %143, label %144
+.lr.ph.i:                                         ; preds = %127, %189
+  %.078109.i = phi i32 [ %.1.i, %189 ], [ %138, %127 ]
+  %141 = load ptr, ptr %9, align 8
+  %142 = load i64, ptr %10, align 8
+  %143 = call ptr @memchr(ptr noundef %141, i32 noundef 61, i64 noundef %142) #16
+  %.not.i = icmp eq ptr %143, null
+  br i1 %.not.i, label %144, label %145
 
-143:                                              ; preds = %.lr.ph.i
+144:                                              ; preds = %.lr.ph.i
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 130, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.56) #14
   br label %sdj_dump_entries.exit.thread
 
-144:                                              ; preds = %.lr.ph.i
-  %145 = call i32 @g_utf8_validate(ptr noundef %140, i64 noundef %141, ptr noundef null) #14
-  %.not89.i = icmp eq i32 %145, 0
-  %146 = load i64, ptr %10, align 8
-  br i1 %.not89.i, label %160, label %147
+145:                                              ; preds = %.lr.ph.i
+  %146 = call i32 @g_utf8_validate(ptr noundef %141, i64 noundef %142, ptr noundef null) #14
+  %.not89.i = icmp eq i32 %146, 0
+  %147 = load i64, ptr %10, align 8
+  br i1 %.not89.i, label %161, label %148
 
-147:                                              ; preds = %144
-  %148 = sub i32 262130, %.078109.i
-  %149 = zext i32 %148 to i64
-  %150 = icmp ugt i64 %146, %149
-  br i1 %150, label %._crit_edge.i, label %151
+148:                                              ; preds = %145
+  %149 = sub i32 262130, %.078109.i
+  %150 = zext i32 %149 to i64
+  %151 = icmp ugt i64 %147, %150
+  br i1 %151, label %._crit_edge.i, label %152
 
-151:                                              ; preds = %147
-  %152 = zext i32 %.078109.i to i64
-  %153 = getelementptr i8, ptr %86, i64 %152
-  %154 = load ptr, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %153, ptr align 1 %154, i64 %146, i1 false)
-  %155 = trunc i64 %146 to i32
-  %156 = add i32 %.078109.i, %155
-  %157 = zext i32 %156 to i64
-  %158 = getelementptr i8, ptr %86, i64 %157
-  store i8 10, ptr %158, align 1
-  %159 = add i32 %156, 1
-  br label %188
+152:                                              ; preds = %148
+  %153 = zext i32 %.078109.i to i64
+  %154 = getelementptr i8, ptr %86, i64 %153
+  %155 = load ptr, ptr %9, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %154, ptr align 1 %155, i64 %147, i1 false)
+  %156 = trunc i64 %147 to i32
+  %157 = add i32 %.078109.i, %156
+  %158 = zext i32 %157 to i64
+  %159 = getelementptr i8, ptr %86, i64 %158
+  store i8 10, ptr %159, align 1
+  %160 = add i32 %157, 1
+  br label %189
 
-160:                                              ; preds = %144
-  %161 = sub i32 262121, %.078109.i
-  %162 = zext i32 %161 to i64
-  %163 = icmp ugt i64 %146, %162
-  br i1 %163, label %._crit_edge.i, label %164
+161:                                              ; preds = %145
+  %162 = sub i32 262121, %.078109.i
+  %163 = zext i32 %162 to i64
+  %164 = icmp ugt i64 %147, %163
+  br i1 %164, label %._crit_edge.i, label %165
 
-164:                                              ; preds = %160
-  %165 = load ptr, ptr %9, align 8
-  %166 = ptrtoint ptr %142 to i64
-  %167 = ptrtoint ptr %165 to i64
-  %168 = sub i64 %166, %167
-  %169 = xor i64 %168, -1
-  %170 = add i64 %146, %169
-  %171 = zext i32 %.078109.i to i64
-  %172 = getelementptr i8, ptr %86, i64 %171
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %172, ptr align 1 %165, i64 %168, i1 false)
-  %173 = trunc i64 %168 to i32
-  %174 = add i32 %.078109.i, %173
-  %175 = zext i32 %174 to i64
-  %176 = getelementptr i8, ptr %86, i64 %175
-  store i8 10, ptr %176, align 1
-  %177 = add i32 %174, 1
-  %178 = zext i32 %177 to i64
-  %179 = getelementptr i8, ptr %86, i64 %178
-  store i64 %170, ptr %179, align 1
-  %180 = add i32 %174, 9
-  %181 = zext i32 %180 to i64
-  %182 = getelementptr i8, ptr %86, i64 %181
-  %183 = getelementptr i8, ptr %165, i64 %168
-  %184 = getelementptr i8, ptr %183, i64 1
-  %185 = sub i64 %146, %168
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %182, ptr align 1 %184, i64 %185, i1 false)
-  %186 = trunc i64 %185 to i32
-  %187 = add i32 %180, %186
-  br label %188
+165:                                              ; preds = %161
+  %166 = load ptr, ptr %9, align 8
+  %167 = ptrtoint ptr %143 to i64
+  %168 = ptrtoint ptr %166 to i64
+  %169 = sub i64 %167, %168
+  %170 = xor i64 %169, -1
+  %171 = add i64 %147, %170
+  %172 = zext i32 %.078109.i to i64
+  %173 = getelementptr i8, ptr %86, i64 %172
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %173, ptr align 1 %166, i64 %169, i1 false)
+  %174 = trunc i64 %169 to i32
+  %175 = add i32 %.078109.i, %174
+  %176 = zext i32 %175 to i64
+  %177 = getelementptr i8, ptr %86, i64 %176
+  store i8 10, ptr %177, align 1
+  %178 = add i32 %175, 1
+  %179 = zext i32 %178 to i64
+  %180 = getelementptr i8, ptr %86, i64 %179
+  store i64 %171, ptr %180, align 1
+  %181 = add i32 %175, 9
+  %182 = zext i32 %181 to i64
+  %183 = getelementptr i8, ptr %86, i64 %182
+  %184 = getelementptr i8, ptr %166, i64 %169
+  %185 = getelementptr i8, ptr %184, i64 1
+  %186 = sub i64 %147, %169
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %183, ptr align 1 %185, i64 %186, i1 false)
+  %187 = trunc i64 %186 to i32
+  %188 = add i32 %181, %187
+  br label %189
 
-188:                                              ; preds = %164, %151
-  %.1.i = phi i32 [ %159, %151 ], [ %187, %164 ]
-  %189 = call i32 @sd_journal_enumerate_available_data(ptr noundef %85, ptr noundef nonnull %9, ptr noundef nonnull %10) #14
-  %190 = icmp sgt i32 %189, 0
-  br i1 %190, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+189:                                              ; preds = %165, %152
+  %.1.i = phi i32 [ %160, %152 ], [ %188, %165 ]
+  %190 = call i32 @sd_journal_enumerate_available_data(ptr noundef %85, ptr noundef nonnull %9, ptr noundef nonnull %10) #14
+  %191 = icmp sgt i32 %190, 0
+  br i1 %191, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %188, %160, %147, %126
-  %.078.lcssa.i = phi i32 [ %137, %126 ], [ %.1.i, %188 ], [ %.078109.i, %147 ], [ %.078109.i, %160 ]
-  %191 = and i32 %.078.lcssa.i, 3
-  %.not90.i = icmp eq i32 %191, 0
-  br i1 %.not90.i, label %198, label %192
+._crit_edge.i:                                    ; preds = %189, %161, %148, %127
+  %.078.lcssa.i = phi i32 [ %138, %127 ], [ %.1.i, %189 ], [ %.078109.i, %148 ], [ %.078109.i, %161 ]
+  %192 = and i32 %.078.lcssa.i, 3
+  %.not90.i = icmp eq i32 %192, 0
+  br i1 %.not90.i, label %199, label %193
 
-192:                                              ; preds = %._crit_edge.i
-  %193 = sub nuw nsw i32 4, %191
-  %194 = zext nneg i32 %193 to i64
-  %195 = zext i32 %.078.lcssa.i to i64
-  %196 = getelementptr i8, ptr %86, i64 %195
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %196, i8 0, i64 %194, i1 false)
-  %197 = add i32 %193, %.078.lcssa.i
-  br label %198
+193:                                              ; preds = %._crit_edge.i
+  %194 = sub nuw nsw i32 4, %192
+  %195 = zext nneg i32 %194 to i64
+  %196 = zext i32 %.078.lcssa.i to i64
+  %197 = getelementptr i8, ptr %86, i64 %196
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %197, i8 0, i64 %195, i1 false)
+  %198 = add i32 %194, %.078.lcssa.i
+  br label %199
 
-198:                                              ; preds = %192, %._crit_edge.i
-  %.2.i = phi i32 [ %197, %192 ], [ %.078.lcssa.i, %._crit_edge.i ]
-  %199 = add i32 %.2.i, 4
-  store i32 %199, ptr %90, align 1
-  %200 = zext i32 %.2.i to i64
-  %201 = getelementptr i8, ptr %86, i64 %200
-  store i32 %199, ptr %201, align 1
-  %202 = call zeroext i1 @pcapng_write_block(ptr noundef %.033, ptr noundef nonnull %86, i32 noundef %199, ptr noundef nonnull %11, ptr noundef nonnull %12) #14
-  br i1 %202, label %203, label %205
+199:                                              ; preds = %193, %._crit_edge.i
+  %.2.i = phi i32 [ %198, %193 ], [ %.078.lcssa.i, %._crit_edge.i ]
+  %200 = add i32 %.2.i, 4
+  store i32 %200, ptr %90, align 1
+  %201 = zext i32 %.2.i to i64
+  %202 = getelementptr i8, ptr %86, i64 %201
+  store i32 %200, ptr %202, align 1
+  %203 = call zeroext i1 @pcapng_write_block(ptr noundef %.033, ptr noundef nonnull %86, i32 noundef %200, ptr noundef nonnull %11, ptr noundef nonnull %12) #14
+  br i1 %203, label %.backedge.i, label %204
 
-203:                                              ; preds = %198
-  %204 = call i32 @fflush(ptr noundef %.033)
-  br label %.backedge.i
-
-sdj_dump_entries.exit.thread:                     ; preds = %.backedge.i, %94, %104, %112, %124, %143
+sdj_dump_entries.exit.thread:                     ; preds = %.backedge.i, %._crit_edge, %105, %113, %125, %144
   call void @g_free(ptr noundef nonnull %86) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -658,12 +661,12 @@ sdj_dump_entries.exit.thread:                     ; preds = %.backedge.i, %94, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  br label %208
+  br label %207
 
-205:                                              ; preds = %198
-  %206 = load i32, ptr %12, align 4
-  %207 = call ptr @strerror(i32 noundef %206) #14
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 176, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.57, ptr noundef %207) #14
+204:                                              ; preds = %199
+  %205 = load i32, ptr %12, align 4
+  %206 = call ptr @strerror(i32 noundef %205) #14
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 176, ptr noundef nonnull @__func__.sdj_dump_entries, ptr noundef nonnull @.str.57, ptr noundef %206) #14
   call void @g_free(ptr noundef nonnull %86) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -675,30 +678,30 @@ sdj_dump_entries.exit.thread:                     ; preds = %.backedge.i, %94, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 284, ptr noundef nonnull @__func__.sdj_start_export, ptr noundef nonnull @.str.47) #14
-  br label %208
+  br label %207
 
-208:                                              ; preds = %sdj_dump_entries.exit.thread, %205, %82, %73, %68, %60, %51, %39, %34, %30
-  %.034 = phi i32 [ 1, %34 ], [ 1, %39 ], [ 1, %51 ], [ 1, %60 ], [ 1, %68 ], [ 1, %205 ], [ 1, %73 ], [ 1, %82 ], [ 1, %30 ], [ 0, %sdj_dump_entries.exit.thread ]
-  %209 = load ptr, ptr %15, align 8
-  %.not46 = icmp eq ptr %209, null
-  br i1 %.not46, label %211, label %210
+207:                                              ; preds = %sdj_dump_entries.exit.thread, %204, %82, %73, %68, %60, %51, %39, %34, %30
+  %.034 = phi i32 [ 1, %34 ], [ 1, %39 ], [ 1, %51 ], [ 1, %60 ], [ 1, %68 ], [ 1, %204 ], [ 1, %73 ], [ 1, %82 ], [ 1, %30 ], [ 0, %sdj_dump_entries.exit.thread ]
+  %208 = load ptr, ptr %15, align 8
+  %.not46 = icmp eq ptr %208, null
+  br i1 %.not46, label %210, label %209
 
-210:                                              ; preds = %208
-  call void @sd_journal_close(ptr noundef nonnull %209) #14
-  br label %211
+209:                                              ; preds = %207
+  call void @sd_journal_close(ptr noundef nonnull %208) #14
+  br label %210
 
-211:                                              ; preds = %208, %210
+210:                                              ; preds = %207, %209
   call void @g_free(ptr noundef null) #14
-  %212 = call i32 @g_strcmp0(ptr noundef %2, ptr noundef nonnull @.str.35) #14
-  %.not47 = icmp eq i32 %212, 0
-  br i1 %.not47, label %215, label %213
+  %211 = call i32 @g_strcmp0(ptr noundef %2, ptr noundef nonnull @.str.35) #14
+  %.not47 = icmp eq i32 %211, 0
+  br i1 %.not47, label %214, label %212
 
-213:                                              ; preds = %211
-  %214 = call i32 @fclose(ptr noundef %.033)
-  br label %215
+212:                                              ; preds = %210
+  %213 = call i32 @fclose(ptr noundef %.033)
+  br label %214
 
-215:                                              ; preds = %211, %213, %23
-  %.0 = phi i32 [ 1, %23 ], [ %.034, %213 ], [ %.034, %211 ]
+214:                                              ; preds = %210, %212, %23
+  %.0 = phi i32 [ 1, %23 ], [ %.034, %212 ], [ %.034, %210 ]
   ret i32 %.0
 }
 

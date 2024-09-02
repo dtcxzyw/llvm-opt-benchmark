@@ -2096,7 +2096,7 @@ if.end:                                           ; preds = %wait_or_whine.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @run_command(ptr noundef %cmd) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 256) i32 @run_command(ptr noundef %cmd) local_unnamed_addr #2 {
 entry:
   %out = getelementptr inbounds i8, ptr %cmd, i64 84
   %0 = load i32, ptr %out, align 4
@@ -2952,8 +2952,8 @@ if.end11.i:                                       ; preds = %if.end6.i
   %call10.i = tail call ptr @xcalloc(i64 noundef %4, i64 noundef 8) #21
   %pfd.i = getelementptr inbounds i8, ptr %pp, i64 16
   store ptr %call10.i, ptr %pfd.i, align 8
-  %pfd15.i = getelementptr inbounds i8, ptr %pp, i64 16
   %7 = icmp eq ptr %call10.i, null
+  %pfd15.i = getelementptr inbounds i8, ptr %pp, i64 16
   br i1 %7, label %if.end11.i.split.us, label %for.body.i
 
 if.end11.i.split.us:                              ; preds = %if.end11.i.thread, %if.end11.i
@@ -3650,7 +3650,7 @@ for.end:                                          ; preds = %for.body, %do.end
 declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @run_auto_maintenance(i32 noundef %quiet) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 256) i32 @run_auto_maintenance(i32 noundef %quiet) local_unnamed_addr #2 {
 entry:
   %enabled = alloca i32, align 4
   %maint = alloca %struct.child_process, align 8

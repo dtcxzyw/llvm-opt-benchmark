@@ -1635,7 +1635,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
   %109 = sub nsw i32 %104, %101
   %110 = getelementptr inbounds i8, ptr %5, i64 32
   store i32 %109, ptr %110, align 4
-  br i1 %.not170, label %117, label %111
+  br i1 %.not170, label %119, label %111
 
 111:                                              ; preds = %108
   store i8 1, ptr %42, align 1
@@ -1645,93 +1645,93 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
   %115 = sub nsw i32 %113, %114
   %116 = call noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, float noundef %.0.i, i32 noundef %113, i32 noundef %115, float noundef -1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %10)
   %.pre = load i8, ptr %42, align 1
+  %117 = trunc i8 %.pre to i1
+  %118 = select i1 %117, i1 %52, i1 false
   br label %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit
 
-117:                                              ; preds = %108
-  %118 = getelementptr inbounds i8, ptr %4, i64 76
-  %119 = getelementptr inbounds i8, ptr %4, i64 16
-  %120 = load float, ptr %118, align 4
-  %121 = load float, ptr %119, align 8
-  %122 = fcmp olt float %120, %121
-  %123 = select i1 %122, float %121, float %120
-  %124 = getelementptr inbounds i8, ptr %5, i64 24
-  %125 = load i32, ptr %124, align 4
-  %126 = select i1 %52, i32 0, i32 %101
+119:                                              ; preds = %108
+  %120 = getelementptr inbounds i8, ptr %4, i64 76
+  %121 = getelementptr inbounds i8, ptr %4, i64 16
+  %122 = load float, ptr %120, align 4
+  %123 = load float, ptr %121, align 8
+  %124 = fcmp olt float %122, %123
+  %125 = select i1 %124, float %123, float %122
+  %126 = getelementptr inbounds i8, ptr %5, i64 24
+  %127 = load i32, ptr %126, align 4
+  %128 = select i1 %52, i32 0, i32 %101
   %.mask = and i8 %51, 1
-  %127 = zext nneg i8 %.mask to i32
-  %128 = shl i32 %101, %127
-  br label %129
+  %129 = zext nneg i8 %.mask to i32
+  %130 = shl i32 %101, %129
+  br label %131
 
-129:                                              ; preds = %129, %117
-  %.069.i = phi i32 [ %125, %117 ], [ %132, %129 ]
-  %130 = sub nsw i32 %.069.i, %126
-  %131 = call noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, float noundef %.0.i, i32 noundef %.069.i, i32 noundef %130, float noundef -1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  %132 = add nsw i32 %.069.i, %128
-  %133 = load i32, ptr %103, align 8
-  %134 = icmp slt i32 %132, %133
-  %135 = fcmp oeq float %131, %123
-  %136 = select i1 %134, i1 %135, i1 false
-  br i1 %136, label %129, label %137, !llvm.loop !9
+131:                                              ; preds = %131, %119
+  %.069.i = phi i32 [ %127, %119 ], [ %134, %131 ]
+  %132 = sub nsw i32 %.069.i, %128
+  %133 = call noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, float noundef %.0.i, i32 noundef %.069.i, i32 noundef %132, float noundef -1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %10)
+  %134 = add nsw i32 %.069.i, %130
+  %135 = load i32, ptr %103, align 8
+  %136 = icmp slt i32 %134, %135
+  %137 = fcmp oeq float %133, %125
+  %138 = select i1 %136, i1 %137, i1 false
+  br i1 %138, label %131, label %139, !llvm.loop !9
 
-137:                                              ; preds = %129
-  br i1 %52, label %148, label %138
+139:                                              ; preds = %131
+  br i1 %52, label %150, label %140
 
-138:                                              ; preds = %137
-  %139 = add i32 %133, -1
-  %140 = add i32 %139, %.069.i
-  %141 = sdiv i32 %140, %.069.i
-  %142 = add i32 %141, %139
-  %143 = sdiv i32 %142, %141
-  %144 = icmp slt i32 %143, %.069.i
-  br i1 %144, label %145, label %148
+140:                                              ; preds = %139
+  %141 = add i32 %135, -1
+  %142 = add i32 %141, %.069.i
+  %143 = sdiv i32 %142, %.069.i
+  %144 = add i32 %143, %141
+  %145 = sdiv i32 %144, %143
+  %146 = icmp slt i32 %145, %.069.i
+  br i1 %146, label %147, label %150
 
-145:                                              ; preds = %138
-  %146 = sub nsw i32 %143, %101
-  %147 = call noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, float noundef %.0.i, i32 noundef %143, i32 noundef %146, float noundef -1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  br label %148
+147:                                              ; preds = %140
+  %148 = sub nsw i32 %145, %101
+  %149 = call noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, float noundef %.0.i, i32 noundef %145, i32 noundef %148, float noundef -1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %10)
+  br label %150
 
-148:                                              ; preds = %145, %138, %137
-  %.068.i = phi float [ %131, %137 ], [ %147, %145 ], [ %131, %138 ]
-  %.067.i = phi i32 [ %.069.i, %137 ], [ %143, %145 ], [ %.069.i, %138 ]
-  %149 = call noundef float @_Z33nbnxmPairlistVolumeRadiusIncreasebf(i1 noundef zeroext %52, float noundef %3)
-  %150 = fadd float %.068.i, %149
-  %151 = fpext float %150 to double
-  %152 = load float, ptr %37, align 4
-  %153 = fadd float %149, %152
-  %154 = fpext float %153 to double
-  %155 = fmul double %154, 0x3FEFAE147AE147AE
-  %156 = fcmp ogt double %155, %151
-  br i1 %156, label %157, label %.critedge.i
+150:                                              ; preds = %147, %140, %139
+  %.068.i = phi float [ %133, %139 ], [ %149, %147 ], [ %133, %140 ]
+  %.067.i = phi i32 [ %.069.i, %139 ], [ %145, %147 ], [ %.069.i, %140 ]
+  %151 = call noundef float @_Z33nbnxmPairlistVolumeRadiusIncreasebf(i1 noundef zeroext %52, float noundef %3)
+  %152 = fadd float %.068.i, %151
+  %153 = fpext float %152 to double
+  %154 = load float, ptr %37, align 4
+  %155 = fadd float %151, %154
+  %156 = fpext float %155 to double
+  %157 = fmul double %156, 0x3FEFAE147AE147AE
+  %158 = fcmp ogt double %157, %153
+  br i1 %158, label %159, label %.critedge.i
 
-157:                                              ; preds = %148
-  %158 = load i32, ptr %110, align 4
-  %159 = icmp slt i32 %.067.i, %158
-  %160 = zext i1 %159 to i8
-  store i8 %160, ptr %42, align 1
-  br i1 %159, label %161, label %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit.thread
+159:                                              ; preds = %150
+  %160 = load i32, ptr %110, align 4
+  %161 = icmp slt i32 %.067.i, %160
+  %162 = zext i1 %161 to i8
+  store i8 %162, ptr %42, align 1
+  br i1 %161, label %163, label %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit.thread
 
-161:                                              ; preds = %157
-  store i32 %.067.i, ptr %124, align 4
+163:                                              ; preds = %159
+  store i32 %.067.i, ptr %126, align 4
   br label %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit
 
-.critedge.i:                                      ; preds = %148
+.critedge.i:                                      ; preds = %150
   store i8 0, ptr %42, align 1
   br label %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit.thread
 
-_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit.thread: ; preds = %157, %.critedge.i
-  store i32 -1, ptr %124, align 4
-  %162 = getelementptr inbounds i8, ptr %5, i64 12
-  store float %152, ptr %162, align 4
+_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit.thread: ; preds = %159, %.critedge.i
+  store i32 -1, ptr %126, align 4
+  %164 = getelementptr inbounds i8, ptr %5, i64 12
+  store float %154, ptr %164, align 4
   br label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread.sink.split
 
-_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit: ; preds = %111, %161
-  %163 = phi i8 [ 1, %161 ], [ %.pre, %111 ]
-  %.sink.i = phi float [ %.068.i, %161 ], [ %116, %111 ]
-  %164 = getelementptr inbounds i8, ptr %5, i64 12
-  store float %.sink.i, ptr %164, align 4
-  %165 = trunc i8 %163 to i1
-  %166 = select i1 %165, i1 %52, i1 false
-  br i1 %166, label %167, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread.sink.split
+_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit: ; preds = %111, %163
+  %165 = phi i1 [ %52, %163 ], [ %118, %111 ]
+  %.sink.i = phi float [ %.068.i, %163 ], [ %116, %111 ]
+  %166 = getelementptr inbounds i8, ptr %5, i64 12
+  store float %.sink.i, ptr %166, align 4
+  br i1 %165, label %167, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread.sink.split
 
 167:                                              ; preds = %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit
   %168 = getelementptr inbounds i8, ptr %5, i64 24

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @TMPI_COMM_WORLD = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z18tMPI_Coll_env_initP8coll_envi(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z18tMPI_Coll_env_initP8coll_envi(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = mul nsw i64 %3, 304
   %5 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %4)

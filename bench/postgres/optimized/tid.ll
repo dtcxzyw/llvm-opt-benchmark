@@ -36,7 +36,7 @@ define dso_local noundef i64 @tidin(ptr nocapture noundef readonly %0) local_unn
 
 switch.early.test:                                ; preds = %1, %18
   %.04561 = phi ptr [ %6, %1 ], [ %19, %18 ]
-  %.04660 = phi i32 [ 0, %1 ], [ %.1.fr, %18 ]
+  %.04660 = phi i32 [ 0, %1 ], [ %.1, %18 ]
   %9 = load i8, ptr %.04561, align 1
   switch i8 %9, label %10 [
     i8 41, label %.critedge
@@ -52,7 +52,7 @@ switch.early.test:                                ; preds = %1, %18
 
 13:                                               ; preds = %switch.early.test, %10
   %14 = getelementptr i8, ptr %.04561, i64 1
-  %15 = add nsw i32 %.04660, 1
+  %15 = add i32 %.04660, 1
   %16 = sext i32 %.04660 to i64
   %17 = getelementptr [2 x ptr], ptr %2, i64 0, i64 %16
   store ptr %14, ptr %17, align 8
@@ -60,9 +60,8 @@ switch.early.test:                                ; preds = %1, %18
 
 18:                                               ; preds = %10, %13
   %.1 = phi i32 [ %15, %13 ], [ %.04660, %10 ]
-  %.1.fr = freeze i32 %.1
   %19 = getelementptr i8, ptr %.04561, i64 1
-  %20 = icmp sgt i32 %.1.fr, 1
+  %20 = icmp sgt i32 %.1, 1
   br i1 %20, label %25, label %switch.early.test, !llvm.loop !5
 
 .critedge:                                        ; preds = %switch.early.test, %switch.early.test

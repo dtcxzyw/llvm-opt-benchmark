@@ -6351,7 +6351,7 @@ _ZN11str_indices5chars16to_byte_idx_impl17h0e1ffa1c9b40da34E.llvm.15236414416081
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN5ropey4tree4node4Node11child_count17hf10be1babb43d18bE(ptr noalias nocapture noundef readonly align 8 dereferenceable(1008) %0) unnamed_addr #6 {
+define hidden noundef range(i64 0, 256) i64 @_ZN5ropey4tree4node4Node11child_count17hf10be1babb43d18bE(ptr noalias nocapture noundef readonly align 8 dereferenceable(1008) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 8, !range !58, !noundef !7
   %trunc = trunc nuw i8 %2 to i1
   br i1 %trunc, label %3, label %7

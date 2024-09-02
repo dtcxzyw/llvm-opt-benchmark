@@ -1203,7 +1203,7 @@ define hidden void @proto_reg_handoff_zb_direct() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zb_direct_dump_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 1, 34) i32 @dissect_zb_direct_dump_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.zb_direct_key_record_t, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8

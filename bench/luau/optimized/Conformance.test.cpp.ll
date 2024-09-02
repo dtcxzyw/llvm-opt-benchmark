@@ -9399,7 +9399,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_96v() #4 personality ptr @__gxx_per
 
 674:                                              ; preds = %672
   %.not = icmp eq i32 %673, 0
-  br i1 %.not, label %680, label %675
+  br i1 %.not, label %681, label %675
 
 675:                                              ; preds = %674
   %676 = invoke noundef ptr @_Z13lua_tolstringP9lua_StateiPm(ptr noundef %129, i32 noundef -1, ptr noundef null)
@@ -9408,20 +9408,20 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_96v() #4 personality ptr @__gxx_per
 677:                                              ; preds = %675
   %678 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %676, ptr noundef nonnull dereferenceable(5) @.str.261) #35
   %679 = icmp eq i32 %678, 0
-  br label %680
+  %680 = zext i1 %679 to i64
+  br label %681
 
-680:                                              ; preds = %674, %677
-  %681 = phi i1 [ false, %674 ], [ %679, %677 ]
+681:                                              ; preds = %674, %677
+  %.sroa.0.0.insert.ext.i222 = phi i64 [ 0, %674 ], [ %680, %677 ]
   %682 = load i32, ptr %90, align 4
   %.sroa.22.0.insert.ext.i = zext i32 %682 to i64
   %.sroa.22.0.insert.shift.i = shl nuw i64 %.sroa.22.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i222 = zext i1 %681 to i64
   %.sroa.0.0.insert.insert.i223 = or disjoint i64 %.sroa.22.0.insert.shift.i, %.sroa.0.0.insert.ext.i222
   store i64 %.sroa.0.0.insert.insert.i223, ptr %89, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %88, ptr noundef nonnull align 4 dereferenceable(8) %89)
           to label %683 unwind label %689
 
-683:                                              ; preds = %680
+683:                                              ; preds = %681
   invoke void @_ZN7doctest6detail13ResultBuilder9setResultERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(144) %86, ptr noundef nonnull align 8 dereferenceable(32) %88)
           to label %684 unwind label %691
 
@@ -9441,7 +9441,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_96v() #4 personality ptr @__gxx_per
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %87) #37
   br label %955
 
-689:                                              ; preds = %680, %675, %672, %671
+689:                                              ; preds = %681, %675, %672, %671
   %690 = landingpad { ptr, i32 }
           catch ptr null
   br label %694
@@ -9629,7 +9629,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_96v() #4 personality ptr @__gxx_per
 
 753:                                              ; preds = %751
   %.not174 = icmp eq i32 %752, 0
-  br i1 %.not174, label %759, label %754
+  br i1 %.not174, label %760, label %754
 
 754:                                              ; preds = %753
   %755 = invoke noundef ptr @_Z13lua_tolstringP9lua_StateiPm(ptr noundef %129, i32 noundef -1, ptr noundef null)
@@ -9638,20 +9638,20 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_96v() #4 personality ptr @__gxx_per
 756:                                              ; preds = %754
   %757 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %755, ptr noundef nonnull dereferenceable(24) @.str.365) #35
   %758 = icmp eq i32 %757, 0
-  br label %759
+  %759 = zext i1 %758 to i64
+  br label %760
 
-759:                                              ; preds = %753, %756
-  %760 = phi i1 [ false, %753 ], [ %758, %756 ]
+760:                                              ; preds = %753, %756
+  %.sroa.0.0.insert.ext.i228 = phi i64 [ 0, %753 ], [ %759, %756 ]
   %761 = load i32, ptr %102, align 4
   %.sroa.22.0.insert.ext.i226 = zext i32 %761 to i64
   %.sroa.22.0.insert.shift.i227 = shl nuw i64 %.sroa.22.0.insert.ext.i226, 32
-  %.sroa.0.0.insert.ext.i228 = zext i1 %760 to i64
   %.sroa.0.0.insert.insert.i229 = or disjoint i64 %.sroa.22.0.insert.shift.i227, %.sroa.0.0.insert.ext.i228
   store i64 %.sroa.0.0.insert.insert.i229, ptr %101, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %100, ptr noundef nonnull align 4 dereferenceable(8) %101)
           to label %762 unwind label %768
 
-762:                                              ; preds = %759
+762:                                              ; preds = %760
   invoke void @_ZN7doctest6detail13ResultBuilder9setResultERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(144) %98, ptr noundef nonnull align 8 dereferenceable(32) %100)
           to label %763 unwind label %770
 
@@ -9671,7 +9671,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_96v() #4 personality ptr @__gxx_per
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %99) #37
   br label %955
 
-768:                                              ; preds = %759, %754, %751, %750
+768:                                              ; preds = %760, %754, %751, %750
   %769 = landingpad { ptr, i32 }
           catch ptr null
   br label %773
@@ -9859,7 +9859,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_96v() #4 personality ptr @__gxx_per
 
 832:                                              ; preds = %830
   %.not181 = icmp eq i32 %831, 0
-  br i1 %.not181, label %838, label %833
+  br i1 %.not181, label %839, label %833
 
 833:                                              ; preds = %832
   %834 = invoke noundef ptr @_Z13lua_tolstringP9lua_StateiPm(ptr noundef %129, i32 noundef -1, ptr noundef null)
@@ -9868,20 +9868,20 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_96v() #4 personality ptr @__gxx_per
 835:                                              ; preds = %833
   %836 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %834, ptr noundef nonnull dereferenceable(18) @.str.367) #35
   %837 = icmp eq i32 %836, 0
-  br label %838
+  %838 = zext i1 %837 to i64
+  br label %839
 
-838:                                              ; preds = %832, %835
-  %839 = phi i1 [ false, %832 ], [ %837, %835 ]
+839:                                              ; preds = %832, %835
+  %.sroa.0.0.insert.ext.i234 = phi i64 [ 0, %832 ], [ %838, %835 ]
   %840 = load i32, ptr %114, align 4
   %.sroa.22.0.insert.ext.i232 = zext i32 %840 to i64
   %.sroa.22.0.insert.shift.i233 = shl nuw i64 %.sroa.22.0.insert.ext.i232, 32
-  %.sroa.0.0.insert.ext.i234 = zext i1 %839 to i64
   %.sroa.0.0.insert.insert.i235 = or disjoint i64 %.sroa.22.0.insert.shift.i233, %.sroa.0.0.insert.ext.i234
   store i64 %.sroa.0.0.insert.insert.i235, ptr %113, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr dead_on_unwind nonnull writable sret(%"struct.doctest::detail::Result") align 8 %112, ptr noundef nonnull align 4 dereferenceable(8) %113)
           to label %841 unwind label %847
 
-841:                                              ; preds = %838
+841:                                              ; preds = %839
   invoke void @_ZN7doctest6detail13ResultBuilder9setResultERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(144) %110, ptr noundef nonnull align 8 dereferenceable(32) %112)
           to label %842 unwind label %849
 
@@ -9901,7 +9901,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_96v() #4 personality ptr @__gxx_per
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %111) #37
   br label %955
 
-847:                                              ; preds = %838, %833, %830, %829
+847:                                              ; preds = %839, %833, %830, %829
   %848 = landingpad { ptr, i32 }
           catch ptr null
   br label %852
@@ -27752,14 +27752,14 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i: ; preds =
   %33 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.0)
   %34 = icmp eq i32 %33, -1
   %spec.select42 = select i1 %34, ptr null, ptr %.sroa.0.0
+  %35 = icmp eq i32 %33, -1
   br label %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
 
 _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = %32, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i
   %.sroa.0.2 = phi ptr [ null, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %spec.select42, %32 ]
-  %.0.i.i4.i.i = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %33, %32 ]
-  %35 = icmp eq i32 %.0.i.i.i.i, -1
-  %36 = icmp eq i32 %.0.i.i4.i.i, -1
-  %37 = xor i1 %35, %36
+  %.0.i.i4.i.i = phi i1 [ true, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %35, %32 ]
+  %36 = icmp eq i32 %.0.i.i.i.i, -1
+  %37 = xor i1 %36, %.0.i.i4.i.i
   %38 = icmp ult i64 %.0, 15
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %40, label %.split.us

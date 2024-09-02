@@ -135,12 +135,12 @@ for.cond:                                         ; preds = %for.inc, %_ZN6vecto
 if.end.i:                                         ; preds = %for.cond
   %arrayidx.i7 = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i7, align 4
+  %16 = zext i32 %15 to i64
   br label %_ZNK6vectorIbLb0EjE4sizeEv.exit
 
 _ZNK6vectorIbLb0EjE4sizeEv.exit:                  ; preds = %for.cond, %if.end.i
-  %retval.0.i = phi i32 [ %15, %if.end.i ], [ 0, %for.cond ]
-  %16 = zext i32 %retval.0.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %16
+  %retval.0.i = phi i64 [ %16, %if.end.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit

@@ -751,7 +751,7 @@ _setHeaderInfo.exit:                              ; preds = %42, %44
   %.0.i = phi i32 [ 1, %44 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %150
+  br label %151
 
 72:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -827,159 +827,159 @@ _setHeaderInfo.exit:                              ; preds = %42, %44
   %109 = call i32 @cmsCloseProfile(ptr noundef nonnull %74) #8
   br label %_writeCookedTag.exit
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %123
-  %.07096.i = phi i32 [ %124, %123 ], [ 0, %.preheader.i ]
-  %110 = call i32 @cmsGetTagSignature(ptr noundef %41, i32 noundef %.07096.i) #8
+.lr.ph.i:                                         ; preds = %.preheader.i, %124
+  %.07091.i = phi i32 [ %125, %124 ], [ 0, %.preheader.i ]
+  %110 = call i32 @cmsGetTagSignature(ptr noundef %41, i32 noundef %.07091.i) #8
   %111 = call i32 @cmsReadRawTag(ptr noundef %41, i32 noundef %110, ptr noundef null, i32 noundef 0) #8
   %112 = icmp eq i32 %110, %3
-  br i1 %112, label %123, label %113
+  br i1 %112, label %124, label %113
 
 113:                                              ; preds = %.lr.ph.i
   %.not83.i = icmp eq i32 %111, 0
-  br i1 %.not83.i, label %.thread.i, label %114
+  br i1 %.not83.i, label %.critedge.i, label %114
 
 114:                                              ; preds = %113
   %115 = zext i32 %111 to i64
   %116 = call noalias ptr @malloc(i64 noundef %115) #9
   %.not84.i = icmp eq ptr %116, null
-  br i1 %.not84.i, label %.thread.i, label %117
+  br i1 %.not84.i, label %.critedge.i, label %117
 
 117:                                              ; preds = %114
   %118 = call i32 @cmsReadRawTag(ptr noundef %41, i32 noundef %110, ptr noundef nonnull %116, i32 noundef %111) #8
   %119 = icmp eq i32 %111, %118
-  br i1 %119, label %120, label %.thread88.i
-
-.thread88.i:                                      ; preds = %117
-  call void @free(ptr noundef nonnull %116) #8
-  br label %.thread.i
+  br i1 %119, label %120, label %.critedge87.i
 
 120:                                              ; preds = %117
   %121 = call i32 @cmsWriteRawTag(ptr noundef nonnull %74, i32 noundef %110, ptr noundef nonnull %116, i32 noundef %111) #8
+  %122 = icmp eq i32 %121, 0
   call void @free(ptr noundef nonnull %116) #8
-  %.not85.i = icmp eq i32 %121, 0
-  br i1 %.not85.i, label %.thread.i, label %123
+  br i1 %122, label %.critedge.i, label %124
 
-.thread.i:                                        ; preds = %120, %114, %113, %.thread88.i
-  %122 = call i32 @cmsCloseProfile(ptr noundef nonnull %74) #8
+.critedge87.i:                                    ; preds = %117
+  call void @free(ptr noundef nonnull %116) #8
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %120, %114, %113, %.critedge87.i
+  %123 = call i32 @cmsCloseProfile(ptr noundef nonnull %74) #8
   br label %_writeCookedTag.exit
 
-123:                                              ; preds = %120, %.lr.ph.i
-  %124 = add nuw nsw i32 %.07096.i, 1
-  %exitcond.not.i = icmp eq i32 %124, %73
+124:                                              ; preds = %120, %.lr.ph.i
+  %125 = add nuw nsw i32 %.07091.i, 1
+  %exitcond.not.i = icmp eq i32 %125, %73
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %123, %.preheader.i
-  %125 = call i32 @cmsSaveProfileToMem(ptr noundef nonnull %74, ptr noundef null, ptr noundef nonnull %6) #8
-  %.not80.i = icmp eq i32 %125, 0
-  br i1 %.not80.i, label %.thread92.i, label %126
+._crit_edge.i:                                    ; preds = %124, %.preheader.i
+  %126 = call i32 @cmsSaveProfileToMem(ptr noundef nonnull %74, ptr noundef null, ptr noundef nonnull %6) #8
+  %.not80.i = icmp eq i32 %126, 0
+  br i1 %.not80.i, label %.thread.i, label %127
 
-126:                                              ; preds = %._crit_edge.i
-  %127 = load i32, ptr %6, align 4
-  %128 = zext i32 %127 to i64
-  %129 = call noalias ptr @malloc(i64 noundef %128) #9
-  %.not81.i = icmp eq ptr %129, null
-  br i1 %.not81.i, label %.thread92.i, label %130
+127:                                              ; preds = %._crit_edge.i
+  %128 = load i32, ptr %6, align 4
+  %129 = zext i32 %128 to i64
+  %130 = call noalias ptr @malloc(i64 noundef %129) #9
+  %.not81.i = icmp eq ptr %130, null
+  br i1 %.not81.i, label %.thread.i, label %131
 
-130:                                              ; preds = %126
-  %131 = call i32 @cmsSaveProfileToMem(ptr noundef nonnull %74, ptr noundef nonnull %129, ptr noundef nonnull %6) #8
-  %.not82.i = icmp eq i32 %131, 0
-  br i1 %.not82.i, label %.thread92.i, label %133
+131:                                              ; preds = %127
+  %132 = call i32 @cmsSaveProfileToMem(ptr noundef nonnull %74, ptr noundef nonnull %130, ptr noundef nonnull %6) #8
+  %.not82.i = icmp eq i32 %132, 0
+  br i1 %.not82.i, label %.thread.i, label %134
 
-.thread92.i:                                      ; preds = %130, %126, %._crit_edge.i
-  %.069.ph.i = phi ptr [ null, %._crit_edge.i ], [ null, %126 ], [ %129, %130 ]
-  %132 = call i32 @cmsCloseProfile(ptr noundef nonnull %74) #8
-  br label %138
+.thread.i:                                        ; preds = %131, %127, %._crit_edge.i
+  %.069.ph.i = phi ptr [ null, %._crit_edge.i ], [ null, %127 ], [ %130, %131 ]
+  %133 = call i32 @cmsCloseProfile(ptr noundef nonnull %74) #8
+  br label %139
 
-133:                                              ; preds = %130
-  %134 = load i32, ptr %6, align 4
-  %135 = call ptr @cmsOpenProfileFromMem(ptr noundef nonnull %129, i32 noundef %134) #8
-  %136 = call i32 @cmsCloseProfile(ptr noundef nonnull %74) #8
-  %137 = icmp eq ptr %135, null
-  br i1 %137, label %138, label %139
+134:                                              ; preds = %131
+  %135 = load i32, ptr %6, align 4
+  %136 = call ptr @cmsOpenProfileFromMem(ptr noundef nonnull %130, i32 noundef %135) #8
+  %137 = call i32 @cmsCloseProfile(ptr noundef nonnull %74) #8
+  %138 = icmp eq ptr %136, null
+  br i1 %138, label %139, label %140
 
-138:                                              ; preds = %133, %.thread92.i
-  %.06995.i = phi ptr [ %.069.ph.i, %.thread92.i ], [ %129, %133 ]
-  call void @free(ptr noundef %.06995.i) #8
+139:                                              ; preds = %134, %.thread.i
+  %.06990.i = phi ptr [ %.069.ph.i, %.thread.i ], [ %130, %134 ]
+  call void @free(ptr noundef %.06990.i) #8
   br label %_writeCookedTag.exit
 
-139:                                              ; preds = %133
-  %140 = call ptr @cmsReadTag(ptr noundef nonnull %135, i32 noundef %3) #8
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %142, label %144
+140:                                              ; preds = %134
+  %141 = call ptr @cmsReadTag(ptr noundef nonnull %136, i32 noundef %3) #8
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %143, label %145
 
-142:                                              ; preds = %139
-  call void @free(ptr noundef nonnull %129) #8
-  %143 = call i32 @cmsCloseProfile(ptr noundef nonnull %135) #8
+143:                                              ; preds = %140
+  call void @free(ptr noundef nonnull %130) #8
+  %144 = call i32 @cmsCloseProfile(ptr noundef nonnull %136) #8
   br label %_writeCookedTag.exit
 
-144:                                              ; preds = %139
-  %145 = call i32 @cmsCloseProfile(ptr noundef nonnull %135) #8
-  %146 = load i32, ptr %6, align 4
-  %147 = call ptr @cmsOpenProfileFromMem(ptr noundef nonnull %129, i32 noundef %146) #8
-  call void @free(ptr noundef nonnull %129) #8
+145:                                              ; preds = %140
+  %146 = call i32 @cmsCloseProfile(ptr noundef nonnull %136) #8
+  %147 = load i32, ptr %6, align 4
+  %148 = call ptr @cmsOpenProfileFromMem(ptr noundef nonnull %130, i32 noundef %147) #8
+  call void @free(ptr noundef nonnull %130) #8
   br label %_writeCookedTag.exit
 
-_writeCookedTag.exit:                             ; preds = %72, %108, %.thread.i, %138, %142, %144
-  %.0.i34 = phi ptr [ null, %108 ], [ null, %.thread.i ], [ null, %138 ], [ null, %142 ], [ %147, %144 ], [ null, %72 ]
+_writeCookedTag.exit:                             ; preds = %72, %108, %.critedge.i, %139, %143, %145
+  %.0.i34 = phi ptr [ null, %108 ], [ null, %.critedge.i ], [ null, %139 ], [ null, %143 ], [ %148, %145 ], [ null, %72 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
-  %148 = icmp ne ptr %.0.i34, null
-  %149 = zext i1 %148 to i32
-  br label %150
+  %149 = icmp ne ptr %.0.i34, null
+  %150 = zext i1 %149 to i32
+  br label %151
 
-150:                                              ; preds = %_writeCookedTag.exit, %_setHeaderInfo.exit
-  %.028 = phi i32 [ %.0.i, %_setHeaderInfo.exit ], [ %149, %_writeCookedTag.exit ]
+151:                                              ; preds = %_writeCookedTag.exit, %_setHeaderInfo.exit
+  %.028 = phi i32 [ %.0.i, %_setHeaderInfo.exit ], [ %150, %_writeCookedTag.exit ]
   %.0 = phi ptr [ null, %_setHeaderInfo.exit ], [ %.0.i34, %_writeCookedTag.exit ]
-  %151 = load ptr, ptr %0, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 1536
-  %153 = load ptr, ptr %152, align 8
-  call void %153(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %37, i32 noundef 0) #8
+  %152 = load ptr, ptr %0, align 8
+  %153 = getelementptr inbounds i8, ptr %152, i64 1536
+  %154 = load ptr, ptr %153, align 8
+  call void %154(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %37, i32 noundef 0) #8
   %.not = icmp eq i32 %.028, 0
-  br i1 %.not, label %154, label %172
+  br i1 %.not, label %155, label %173
 
-154:                                              ; preds = %150
-  %155 = load ptr, ptr %0, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 120
-  %157 = load ptr, ptr %156, align 8
-  %158 = call ptr %157(ptr noundef nonnull %0) #8
-  %.not.i35 = icmp eq ptr %158, null
-  br i1 %.not.i35, label %163, label %159
+155:                                              ; preds = %151
+  %156 = load ptr, ptr %0, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 120
+  %158 = load ptr, ptr %157, align 8
+  %159 = call ptr %158(ptr noundef nonnull %0) #8
+  %.not.i35 = icmp eq ptr %159, null
+  br i1 %.not.i35, label %164, label %160
 
-159:                                              ; preds = %154
-  %160 = load ptr, ptr %0, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 136
-  %162 = load ptr, ptr %161, align 8
-  call void %162(ptr noundef nonnull %0) #8
-  br label %163
+160:                                              ; preds = %155
+  %161 = load ptr, ptr %0, align 8
+  %162 = getelementptr inbounds i8, ptr %161, i64 136
+  %163 = load ptr, ptr %162, align 8
+  call void %163(ptr noundef nonnull %0) #8
+  br label %164
 
-163:                                              ; preds = %159, %154
-  %164 = call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #8
-  %.not16.i36 = icmp eq ptr %164, null
-  br i1 %.not16.i36, label %ThrowIllegalArgumentException.exit, label %165
+164:                                              ; preds = %160, %155
+  %165 = call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #8
+  %.not16.i36 = icmp eq ptr %165, null
+  br i1 %.not16.i36, label %ThrowIllegalArgumentException.exit, label %166
 
-165:                                              ; preds = %163
-  %166 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %164, ptr noundef %158) #8
-  %.not17.i37 = icmp eq ptr %166, null
-  br i1 %.not17.i37, label %ThrowIllegalArgumentException.exit, label %167
+166:                                              ; preds = %164
+  %167 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %165, ptr noundef %159) #8
+  %.not17.i37 = icmp eq ptr %167, null
+  br i1 %.not17.i37, label %ThrowIllegalArgumentException.exit, label %168
 
-167:                                              ; preds = %165
-  %168 = load ptr, ptr %0, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 104
-  %170 = load ptr, ptr %169, align 8
-  %171 = call i32 %170(ptr noundef nonnull %0, ptr noundef nonnull %166) #8
+168:                                              ; preds = %166
+  %169 = load ptr, ptr %0, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i64 104
+  %171 = load ptr, ptr %170, align 8
+  %172 = call i32 %171(ptr noundef nonnull %0, ptr noundef nonnull %167) #8
   br label %ThrowIllegalArgumentException.exit
 
-172:                                              ; preds = %150
+173:                                              ; preds = %151
   %.not32 = icmp eq ptr %.0, null
-  br i1 %.not32, label %ThrowIllegalArgumentException.exit, label %173
+  br i1 %.not32, label %ThrowIllegalArgumentException.exit, label %174
 
-173:                                              ; preds = %172
-  %174 = load ptr, ptr %10, align 8
-  %175 = call i32 @cmsCloseProfile(ptr noundef %174) #8
+174:                                              ; preds = %173
+  %175 = load ptr, ptr %10, align 8
+  %176 = call i32 @cmsCloseProfile(ptr noundef %175) #8
   store ptr %.0, ptr %10, align 8
   br label %ThrowIllegalArgumentException.exit
 
-ThrowIllegalArgumentException.exit:               ; preds = %167, %165, %163, %25, %23, %21, %172, %173, %30
+ThrowIllegalArgumentException.exit:               ; preds = %168, %166, %164, %25, %23, %21, %173, %174, %30
   ret void
 }
 

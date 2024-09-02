@@ -510,7 +510,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @mi_option_get_size(i32 noundef %option) local_unnamed_addr #1 {
+define range(i64 0, -1023) i64 @mi_option_get_size(i32 noundef %option) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @mi_option_get(i32 noundef %option) #18
   %cmp = icmp slt i64 %call, 0

@@ -20242,27 +20242,27 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %inputs_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not5 = icmp eq ptr %1, %2
-  br i1 %cmp.i.not5, label %return, label %for.body
+  %cmp.i.not4 = icmp eq ptr %1, %2
+  br i1 %cmp.i.not4, label %return, label %for.body
 
-for.cond:                                         ; preds = %dynamic_cast.end
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06, i64 16
+for.cond:                                         ; preds = %dynamic_cast.notnull
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.cond
-  %__begin2.sroa.0.06 = phi ptr [ %incdec.ptr.i, %for.cond ], [ %1, %if.end ]
-  %3 = load ptr, ptr %__begin2.sroa.0.06, align 8
+  %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.cond ], [ %1, %if.end ]
+  %3 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %return, label %dynamic_cast.end
+  br i1 %4, label %return, label %dynamic_cast.notnull
 
-dynamic_cast.end:                                 ; preds = %for.body
+dynamic_cast.notnull:                             ; preds = %for.body
   %5 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN8facebook5velox4exec4ExprE, ptr nonnull @_ZTIN8facebook5velox4exec12ConstantExprE, i64 0) #33
-  %tobool.not = icmp eq ptr %5, null
-  br i1 %tobool.not, label %return, label %for.cond
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %return, label %for.cond
 
-return:                                           ; preds = %dynamic_cast.end, %for.cond, %for.body, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %dynamic_cast.end ], [ true, %for.cond ], [ false, %for.body ]
+return:                                           ; preds = %dynamic_cast.notnull, %for.cond, %for.body, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %dynamic_cast.notnull ], [ true, %for.cond ], [ false, %for.body ]
   ret i1 %retval.0
 }
 

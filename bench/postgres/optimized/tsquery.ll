@@ -2229,11 +2229,14 @@ define dso_local i64 @tsqueryrecv(ptr nocapture noundef readonly %0) local_unnam
   %57 = shl i32 %.094123, 8
   %58 = xor i32 %56, %57
   %.not108 = icmp eq i32 %48, 0
-  br i1 %.not108, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not108, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !40
 
-._crit_edge:                                      ; preds = %.lr.ph, %46
-  %.094.lcssa = phi i32 [ -1, %46 ], [ %58, %.lr.ph ]
-  %59 = xor i32 %.094.lcssa, -1
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %59 = xor i32 %58, -1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %46
+  %.094.lcssa = phi i32 [ 0, %46 ], [ %59, %._crit_edge.loopexit ]
   %60 = getelementptr inbounds i8, ptr %.095127, i64 1
   store i8 %28, ptr %60, align 1
   %61 = and i32 %29, 255
@@ -2242,7 +2245,7 @@ define dso_local i64 @tsqueryrecv(ptr nocapture noundef readonly %0) local_unnam
   %64 = zext i1 %62 to i8
   store i8 %64, ptr %63, align 2
   %65 = getelementptr inbounds i8, ptr %.095127, i64 4
-  store i32 %59, ptr %65, align 4
+  store i32 %.094.lcssa, ptr %65, align 4
   %66 = getelementptr inbounds i8, ptr %.095127, i64 8
   %67 = shl i32 %.097126, 12
   %68 = or disjoint i32 %67, %47

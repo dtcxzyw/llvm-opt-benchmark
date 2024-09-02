@@ -554,20 +554,20 @@ define dso_local void @intel_init_thermal(ptr noundef %0) local_unnamed_addr #0 
   %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), align 8
   %4 = and i64 %3, 512
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %.thread, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load volatile i64, ptr %7, align 8
   %9 = and i64 %8, 4194304
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %6
   %12 = load volatile i64, ptr %7, align 8
   %13 = and i64 %12, 536870912
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %11
   %16 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 416) #11, !srcloc !10
@@ -598,7 +598,7 @@ define dso_local void @intel_init_thermal(ptr noundef %0) local_unnamed_addr #0 
   %30 = and i32 %23, 512
   %31 = icmp eq i32 %30, 0
   %32 = or i1 %29, %31
-  br i1 %32, label %33, label %.thread
+  br i1 %32, label %33, label %.critedge
 
 33:                                               ; preds = %27
   %34 = getelementptr i8, ptr %0, i64 56
@@ -921,9 +921,9 @@ define dso_local void @intel_init_thermal(ptr noundef %0) local_unnamed_addr #0 
 
 209:                                              ; preds = %207, %205
   store volatile i32 1, ptr @therm_throt_en, align 4
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %6, %1, %209, %27, %11
+.critedge:                                        ; preds = %1, %6, %209, %27, %11
   ret void
 }
 

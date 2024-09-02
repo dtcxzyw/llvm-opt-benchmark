@@ -425,7 +425,7 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
 
 73:                                               ; preds = %.thread41
   %74 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14) #14
-  br label %283
+  br label %284
 
 75:                                               ; preds = %.thread41
   %76 = load ptr, ptr @s2idle_ops, align 8
@@ -839,38 +839,38 @@ s2idle_loop.exit:                                 ; preds = %119, %206, %204, %1
   %281 = phi i8 [ %270, %275 ], [ %270, %279 ], [ %270, %269 ], [ 0, %83 ]
   %282 = phi i32 [ %271, %275 ], [ %271, %279 ], [ %271, %269 ], [ %84, %83 ]
   call void @dpm_resume_early(i32 16) #13
-  br label %283
+  %283 = icmp ne i8 %281, 0
+  br label %284
 
-283:                                              ; preds = %280, %73
-  %284 = phi i8 [ %281, %280 ], [ 0, %73 ]
-  %285 = phi i32 [ %282, %280 ], [ %71, %73 ]
-  br i1 %5, label %293, label %.thread46
+284:                                              ; preds = %280, %73
+  %285 = phi i1 [ %283, %280 ], [ false, %73 ]
+  %286 = phi i32 [ %282, %280 ], [ %71, %73 ]
+  br i1 %5, label %294, label %.thread46
 
-.thread46:                                        ; preds = %68, %283
-  %286 = phi i32 [ %285, %283 ], [ %69, %68 ]
-  %287 = phi i8 [ %284, %283 ], [ 0, %68 ]
-  %288 = load ptr, ptr @suspend_ops, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 48
-  %290 = load ptr, ptr %289, align 8
-  %291 = icmp eq ptr %290, null
-  br i1 %291, label %293, label %292
+.thread46:                                        ; preds = %68, %284
+  %287 = phi i32 [ %286, %284 ], [ %69, %68 ]
+  %288 = phi i1 [ %285, %284 ], [ false, %68 ]
+  %289 = load ptr, ptr @suspend_ops, align 8
+  %290 = getelementptr inbounds i8, ptr %289, i64 48
+  %291 = load ptr, ptr %290, align 8
+  %292 = icmp eq ptr %291, null
+  br i1 %292, label %294, label %293
 
-292:                                              ; preds = %.thread46
-  call void %290() #13
-  br label %293
+293:                                              ; preds = %.thread46
+  call void %291() #13
+  br label %294
 
-293:                                              ; preds = %292, %.thread46, %283
-  %294 = phi i32 [ %286, %292 ], [ %286, %.thread46 ], [ %285, %283 ]
-  %295 = phi i8 [ %287, %292 ], [ %287, %.thread46 ], [ %284, %283 ]
-  %296 = icmp eq i32 %294, 0
-  br i1 %296, label %297, label %.loopexit48
+294:                                              ; preds = %293, %.thread46, %284
+  %295 = phi i32 [ %287, %293 ], [ %287, %.thread46 ], [ %286, %284 ]
+  %296 = phi i1 [ %288, %293 ], [ %288, %.thread46 ], [ %285, %284 ]
+  %297 = icmp eq i32 %295, 0
+  br i1 %297, label %298, label %.loopexit48
 
-297:                                              ; preds = %293
-  %298 = icmp ne i8 %295, 0
-  %299 = or i1 %5, %298
+298:                                              ; preds = %294
+  %299 = or i1 %5, %296
   br i1 %299, label %.loopexit48, label %300
 
-300:                                              ; preds = %297
+300:                                              ; preds = %298
   %301 = load ptr, ptr @suspend_ops, align 8
   %302 = getelementptr inbounds i8, ptr %301, i64 56
   %303 = load ptr, ptr %302, align 8
@@ -881,8 +881,8 @@ s2idle_loop.exit:                                 ; preds = %119, %206, %204, %1
   %306 = call zeroext i1 %303() #13
   br i1 %306, label %62, label %.loopexit48, !llvm.loop !30
 
-.loopexit48:                                      ; preds = %305, %300, %297, %293, %375, %370, %.loopexit
-  %307 = phi i32 [ %41, %.loopexit ], [ %41, %370 ], [ %41, %375 ], [ 0, %300 ], [ 0, %305 ], [ 0, %297 ], [ %294, %293 ]
+.loopexit48:                                      ; preds = %305, %300, %298, %294, %375, %370, %.loopexit
+  %307 = phi i32 [ %41, %.loopexit ], [ %41, %370 ], [ %41, %375 ], [ 0, %300 ], [ 0, %305 ], [ 0, %298 ], [ %295, %294 ]
   call void @dpm_resume_end(i32 16) #13
   %308 = load ptr, ptr @suspend_devices_and_enter.___tp_str, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_suspend_resume, i64 8), i32 2) #13

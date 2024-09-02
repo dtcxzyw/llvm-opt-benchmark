@@ -738,8 +738,8 @@ define internal fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zero
   %4 = getelementptr inbounds i8, ptr %0, i64 97
   br label %5
 
-5:                                                ; preds = %41, %2
-  %6 = phi i32 [ 3, %2 ], [ %42, %41 ]
+5:                                                ; preds = %39, %2
+  %6 = phi i32 [ 3, %2 ], [ %40, %39 ]
   %7 = tail call i32 @ps2_sendbyte(ptr noundef %3, i8 noundef zeroext -24, i32 noundef 200) #8
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %.thread10
@@ -786,23 +786,21 @@ define internal fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zero
 
 32:                                               ; preds = %29
   %33 = load i8, ptr %4, align 1
-  %34 = icmp eq i8 %33, -2
-  %35 = select i1 %34, i32 254, i32 252
+  %34 = icmp ne i8 %33, -2
   br label %.thread15
 
 .thread15:                                        ; preds = %26, %32
-  %36 = phi i32 [ %35, %32 ], [ 252, %26 ]
-  %37 = icmp eq i32 %36, 252
-  %38 = icmp ugt i32 %6, 1
-  %39 = select i1 %37, i1 %38, i1 false
-  br i1 %39, label %41, label %.thread16
+  %35 = phi i1 [ %34, %32 ], [ true, %26 ]
+  %36 = icmp ugt i32 %6, 1
+  %37 = select i1 %35, i1 %36, i1 false
+  br i1 %37, label %39, label %.thread16
 
 .thread11:                                        ; preds = %15, %9, %21
-  %40 = icmp ugt i32 %6, 1
-  br i1 %40, label %41, label %.thread16
+  %38 = icmp ugt i32 %6, 1
+  br i1 %38, label %39, label %.thread16
 
-41:                                               ; preds = %.thread11, %.thread15
-  %42 = add nsw i32 %6, -1
+39:                                               ; preds = %.thread11, %.thread15
+  %40 = add nsw i32 %6, -1
   br label %5, !llvm.loop !15
 
 .thread16:                                        ; preds = %.thread10, %29, %.thread11, %.thread15

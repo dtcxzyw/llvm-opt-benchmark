@@ -1107,8 +1107,8 @@ Vec_IntAlloc.exit109:                             ; preds = %._crit_edge, %80
 94:                                               ; preds = %.critedge88, %Vec_IntAlloc.exit109
   %.val99147 = phi ptr [ %84, %Vec_IntAlloc.exit109 ], [ %.val99, %.critedge88 ]
   %.val104142 = phi ptr [ %84, %Vec_IntAlloc.exit109 ], [ %.val104143, %.critedge88 ]
-  %95 = phi ptr [ %84, %Vec_IntAlloc.exit109 ], [ %141, %.critedge88 ]
-  %96 = phi ptr [ %84, %Vec_IntAlloc.exit109 ], [ %142, %.critedge88 ]
+  %95 = phi ptr [ %84, %Vec_IntAlloc.exit109 ], [ %142, %.critedge88 ]
+  %96 = phi ptr [ %84, %Vec_IntAlloc.exit109 ], [ %143, %.critedge88 ]
   %97 = phi i32 [ %spec.store.select.i107, %Vec_IntAlloc.exit109 ], [ %116, %.critedge88 ]
   %.078 = phi i32 [ %..val95.pr, %Vec_IntAlloc.exit109 ], [ %.179.lcssa, %.critedge88 ]
   %98 = call ptr @Bmc_DeriveSolver(ptr noundef %0, ptr noundef %31, ptr noundef %33, i32 noundef %1, i32 noundef %2, i32 poison)
@@ -1219,69 +1219,72 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   %.1 = phi i32 [ %.0130, %.lr.ph131 ], [ %.0130, %132 ], [ 1, %135 ]
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count.i
-  br i1 %exitcond141.not, label %.critedge, label %.lr.ph131, !llvm.loop !19
+  br i1 %exitcond141.not, label %.critedge.loopexit, label %.lr.ph131, !llvm.loop !19
 
-.critedge:                                        ; preds = %138, %.preheader
-  %.val104143 = phi ptr [ %.val104, %.preheader ], [ %.val104144, %138 ]
-  %141 = phi ptr [ %119, %.preheader ], [ %139, %138 ]
-  %142 = phi ptr [ %120, %.preheader ], [ %140, %138 ]
-  %.179.lcssa = phi i32 [ %.078, %.preheader ], [ %.2, %138 ]
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %138 ]
-  br i1 %.not, label %.critedge88, label %143
+.critedge.loopexit:                               ; preds = %138
+  %141 = icmp eq i32 %.1, 0
+  br label %.critedge
 
-143:                                              ; preds = %.critedge
-  %144 = load i32, ptr %89, align 8
-  %145 = load ptr, ptr %90, align 8
-  %146 = getelementptr i8, ptr %145, i64 4
-  %.val3.i112 = load i32, ptr %146, align 4
-  %147 = load ptr, ptr %91, align 8
-  %148 = getelementptr i8, ptr %147, i64 4
-  %.val.i113 = load i32, ptr %148, align 4
-  %149 = add i32 %.val.i113, %.val3.i112
-  %150 = xor i32 %149, -1
-  %151 = add i32 %144, %150
-  %152 = mul nsw i32 %151, %88
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader
+  %.val104143 = phi ptr [ %.val104, %.preheader ], [ %.val104144, %.critedge.loopexit ]
+  %142 = phi ptr [ %119, %.preheader ], [ %139, %.critedge.loopexit ]
+  %143 = phi ptr [ %120, %.preheader ], [ %140, %.critedge.loopexit ]
+  %.179.lcssa = phi i32 [ %.078, %.preheader ], [ %.2, %.critedge.loopexit ]
+  %.0.lcssa = phi i1 [ true, %.preheader ], [ %141, %.critedge.loopexit ]
+  br i1 %.not, label %.critedge88, label %144
+
+144:                                              ; preds = %.critedge
+  %145 = load i32, ptr %89, align 8
+  %146 = load ptr, ptr %90, align 8
+  %147 = getelementptr i8, ptr %146, i64 4
+  %.val3.i112 = load i32, ptr %147, align 4
+  %148 = load ptr, ptr %91, align 8
+  %149 = getelementptr i8, ptr %148, i64 4
+  %.val.i113 = load i32, ptr %149, align 4
+  %150 = add i32 %.val.i113, %.val3.i112
+  %151 = xor i32 %150, -1
+  %152 = add i32 %145, %151
+  %153 = mul nsw i32 %152, %88
   %.val89 = load i32, ptr %45, align 8
   %.val97 = load ptr, ptr %34, align 8
-  %153 = getelementptr i8, ptr %.val97, i64 4
-  %.val97.val = load i32, ptr %153, align 4
-  %154 = add nsw i32 %.val97.val, %.val89
-  %155 = call i32 @sat_solver_nvars(ptr noundef %98) #12
-  %156 = add nsw i32 %154, %155
-  %157 = call i32 @sat_solver_nconflicts(ptr noundef %98) #12
-  %158 = sitofp i32 %.179.lcssa to double
-  %159 = fmul double %158, 1.000000e+02
+  %154 = getelementptr i8, ptr %.val97, i64 4
+  %.val97.val = load i32, ptr %154, align 4
+  %155 = add nsw i32 %.val97.val, %.val89
+  %156 = call i32 @sat_solver_nvars(ptr noundef %98) #12
+  %157 = add nsw i32 %155, %156
+  %158 = call i32 @sat_solver_nconflicts(ptr noundef %98) #12
+  %159 = sitofp i32 %.179.lcssa to double
+  %160 = fmul double %159, 1.000000e+02
   %.val = load i32, ptr %45, align 8
-  %160 = sitofp i32 %.val to double
-  %161 = fdiv double %159, %160
-  %162 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %1, i32 noundef %152, i32 noundef %156, i32 noundef %157, i32 noundef %.179.lcssa, double noundef %161)
+  %161 = sitofp i32 %.val to double
+  %162 = fdiv double %160, %161
+  %163 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %1, i32 noundef %153, i32 noundef %157, i32 noundef %158, i32 noundef %.179.lcssa, double noundef %162)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %163 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #12
-  %164 = icmp slt i32 %163, 0
-  br i1 %164, label %Abc_Clock.exit115, label %165
+  %164 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #12
+  %165 = icmp slt i32 %164, 0
+  br i1 %165, label %Abc_Clock.exit115, label %166
 
-165:                                              ; preds = %143
-  %166 = load i64, ptr %6, align 8
-  %167 = mul nsw i64 %166, 1000000
-  %168 = load i64, ptr %92, align 8
-  %169 = sdiv i64 %168, 1000
-  %170 = add nsw i64 %169, %167
+166:                                              ; preds = %144
+  %167 = load i64, ptr %6, align 8
+  %168 = mul nsw i64 %167, 1000000
+  %169 = load i64, ptr %92, align 8
+  %170 = sdiv i64 %169, 1000
+  %171 = add nsw i64 %170, %168
   br label %Abc_Clock.exit115
 
-Abc_Clock.exit115:                                ; preds = %143, %165
-  %.0.i114 = phi i64 [ %170, %165 ], [ -1, %143 ]
+Abc_Clock.exit115:                                ; preds = %144, %166
+  %.0.i114 = phi i64 [ %171, %166 ], [ -1, %144 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %171 = add i64 %.0.i114, %.0.i.neg
+  %172 = add i64 %.0.i114, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.4)
-  %172 = sitofp i64 %171 to double
-  %173 = fdiv double %172, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.20, double noundef %173)
+  %173 = sitofp i64 %172 to double
+  %174 = fdiv double %173, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.20, double noundef %174)
   br label %.critedge88
 
 .critedge88:                                      ; preds = %.critedge, %Abc_Clock.exit115
   call void @sat_solver_delete(ptr noundef %98) #12
-  %174 = icmp eq i32 %.0.lcssa, 0
-  %or.cond = or i1 %78, %174
+  %or.cond = or i1 %78, %.0.lcssa
   br i1 %or.cond, label %.loopexit, label %94
 
 .loopexit:                                        ; preds = %.critedge88, %103, %101

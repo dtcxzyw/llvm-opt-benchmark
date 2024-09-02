@@ -1117,9 +1117,9 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
 
 27:                                               ; preds = %20
   %28 = icmp sgt i64 %24, %1
-  br i1 %28, label %29, label %.thread11
+  br i1 %28, label %29, label %.thread10
 
-.thread11:                                        ; preds = %27
+.thread10:                                        ; preds = %27
   tail call void @mutex_unlock(ptr noundef %7) #12
   br label %85
 
@@ -1138,15 +1138,15 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   %37 = load volatile i64, ptr %31, align 8
   %38 = and i64 %37, 4
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %.thread, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %34
   %41 = load i64, ptr %32, align 8
   %42 = and i64 %41, 256
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %.thread, label %.thread13
+  br i1 %43, label %.critedge, label %.thread12
 
-.thread:                                          ; preds = %34, %40
+.critedge:                                        ; preds = %34, %40
   %44 = load i8, ptr %33, align 4
   %45 = zext i8 %44 to i32
   %46 = add nuw nsw i32 %45, 2
@@ -1154,12 +1154,12 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   %48 = and i16 %47, -4
   %49 = call i32 @pci_user_write_config_word(ptr noundef %0, i32 noundef %46, i16 noundef zeroext %48) #12
   %50 = icmp slt i32 %49, 0
-  br i1 %50, label %.thread13, label %51
+  br i1 %50, label %.thread12, label %51
 
-51:                                               ; preds = %.thread
+51:                                               ; preds = %.critedge
   %52 = call fastcc i32 @pci_vpd_wait(ptr noundef %0, i1 noundef zeroext true), !range !13
   %53 = icmp slt i32 %52, 0
-  br i1 %53, label %.thread13, label %54
+  br i1 %53, label %.thread12, label %54
 
 54:                                               ; preds = %51
   %55 = load i8, ptr %33, align 4
@@ -1168,16 +1168,16 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   %58 = call i32 @pci_user_read_config_dword(ptr noundef %0, i32 noundef %57, ptr noundef nonnull %6) #12
   %.fr = freeze i32 %58
   %59 = icmp slt i32 %.fr, 0
-  br i1 %59, label %.thread13, label %60
+  br i1 %59, label %.thread12, label %60
 
 60:                                               ; preds = %54
   %61 = trunc i64 %36 to i32
   %62 = and i32 %61, 3
-  %.pre15.pre = load i32, ptr %6, align 4
+  %.pre14.pre = load i32, ptr %6, align 4
   br label %63
 
 63:                                               ; preds = %73, %60
-  %.pre15 = phi i32 [ %.pre15.pre, %60 ], [ %77, %73 ]
+  %.pre14 = phi i32 [ %.pre14.pre, %60 ], [ %77, %73 ]
   %64 = phi i32 [ 0, %60 ], [ %78, %73 ]
   %65 = phi ptr [ %35, %60 ], [ %76, %73 ]
   %66 = phi i64 [ %36, %60 ], [ %75, %73 ]
@@ -1185,13 +1185,13 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %67, label %73, label %68
 
 68:                                               ; preds = %63
-  %69 = trunc i32 %.pre15 to i8
+  %69 = trunc i32 %.pre14 to i8
   store i8 %69, ptr %65, align 1
   %70 = add i64 %66, 1
   %71 = icmp eq i64 %70, %24
-  br i1 %71, label %.thread17, label %._crit_edge
+  br i1 %71, label %.thread, label %._crit_edge
 
-.thread17:                                        ; preds = %68
+.thread:                                          ; preds = %68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   br label %.loopexit
 
@@ -1201,7 +1201,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   br label %73
 
 73:                                               ; preds = %._crit_edge, %63
-  %74 = phi i32 [ %.pre, %._crit_edge ], [ %.pre15, %63 ]
+  %74 = phi i32 [ %.pre, %._crit_edge ], [ %.pre14, %63 ]
   %75 = phi i64 [ %70, %._crit_edge ], [ %66, %63 ]
   %76 = phi ptr [ %72, %._crit_edge ], [ %65, %63 ]
   %77 = lshr i32 %74, 8
@@ -1210,8 +1210,8 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   %79 = icmp eq i32 %78, 4
   br i1 %79, label %81, label %63, !llvm.loop !14
 
-.thread13:                                        ; preds = %54, %51, %.thread, %40
-  %.ph = phi i32 [ %.fr, %54 ], [ %52, %51 ], [ %49, %.thread ], [ -4, %40 ]
+.thread12:                                        ; preds = %54, %51, %.critedge, %40
+  %.ph = phi i32 [ %.fr, %54 ], [ %52, %51 ], [ %49, %.critedge ], [ -4, %40 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   call void @mutex_unlock(ptr noundef %7) #12
   %80 = sext i32 %.ph to i64
@@ -1222,17 +1222,17 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   %82 = icmp slt i64 %75, %24
   br i1 %82, label %34, label %.loopexit
 
-.loopexit:                                        ; preds = %81, %.thread17
+.loopexit:                                        ; preds = %81, %.thread
   call void @mutex_unlock(ptr noundef %7) #12
   %83 = icmp eq i32 %.fr, 0
   %84 = zext nneg i32 %.fr to i64
   br i1 %83, label %85, label %86
 
-85:                                               ; preds = %.thread11, %.loopexit
+85:                                               ; preds = %.thread10, %.loopexit
   br label %86
 
-86:                                               ; preds = %85, %.loopexit, %.thread13, %20, %17, %10, %5
-  %87 = phi i64 [ -19, %5 ], [ -22, %10 ], [ 0, %17 ], [ -4, %20 ], [ %23, %85 ], [ %84, %.loopexit ], [ %80, %.thread13 ]
+86:                                               ; preds = %85, %.loopexit, %.thread12, %20, %17, %10, %5
+  %87 = phi i64 [ -19, %5 ], [ -22, %10 ], [ 0, %17 ], [ -4, %20 ], [ %23, %85 ], [ %84, %.loopexit ], [ %80, %.thread12 ]
   ret i64 %87
 }
 

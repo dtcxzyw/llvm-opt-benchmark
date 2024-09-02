@@ -1105,7 +1105,7 @@ opal_free_list_return.exit:                       ; preds = %._crit_edge254, %op
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
-define internal range(i32 -2, 1) i32 @mca_part_persist_precv_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture readnone %7, ptr nocapture noundef writeonly %8) #0 {
+define internal range(i32 -1, 1) i32 @mca_part_persist_precv_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture readnone %7, ptr nocapture noundef writeonly %8) #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %.sroa.22.i.i.i.i = alloca i64, align 8
@@ -2264,21 +2264,21 @@ define internal noundef i32 @mca_part_persist_parrived(i64 noundef %0, i64 nound
   %.not3344 = icmp ugt i64 %0, %1
   br i1 %.not3344, label %.loopexit.thread, label %.lr.ph47
 
-.lr.ph47:                                         ; preds = %.preheader, %17
-  %.046 = phi i64 [ %20, %17 ], [ %0, %.preheader ]
-  %.12845 = phi i32 [ %19, %17 ], [ 1, %.preheader ]
+.lr.ph47:                                         ; preds = %.preheader, %18
+  %.046 = phi i64 [ %20, %18 ], [ %0, %.preheader ]
+  %.12845 = phi i32 [ %19, %18 ], [ 1, %.preheader ]
   %.not35 = icmp eq i32 %.12845, 0
-  br i1 %.not35, label %17, label %13
+  br i1 %.not35, label %18, label %13
 
 13:                                               ; preds = %.lr.ph47
   %14 = getelementptr inbounds i32, ptr %6, i64 %.046
   %15 = load i32, ptr %14, align 4
   %16 = icmp ne i32 %15, 0
-  br label %17
+  %17 = zext i1 %16 to i32
+  br label %18
 
-17:                                               ; preds = %13, %.lr.ph47
-  %18 = phi i1 [ false, %.lr.ph47 ], [ %16, %13 ]
-  %19 = zext i1 %18 to i32
+18:                                               ; preds = %13, %.lr.ph47
+  %19 = phi i32 [ 0, %.lr.ph47 ], [ %17, %13 ]
   %20 = add i64 %.046, 1
   %.not33 = icmp ugt i64 %20, %1
   br i1 %.not33, label %.loopexit, label %.lr.ph47, !llvm.loop !20
@@ -2298,27 +2298,27 @@ define internal noundef i32 @mca_part_persist_parrived(i64 noundef %0, i64 nound
   %.not3141 = icmp ugt i64 %28, %32
   br i1 %.not3141, label %.loopexit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %21, %37
-  %.143 = phi i64 [ %40, %37 ], [ %28, %21 ]
-  %.242 = phi i32 [ %39, %37 ], [ 1, %21 ]
+.lr.ph:                                           ; preds = %21, %38
+  %.143 = phi i64 [ %40, %38 ], [ %28, %21 ]
+  %.242 = phi i32 [ %39, %38 ], [ 1, %21 ]
   %.not32 = icmp eq i32 %.242, 0
-  br i1 %.not32, label %37, label %33
+  br i1 %.not32, label %38, label %33
 
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr inbounds i32, ptr %6, i64 %.143
   %35 = load i32, ptr %34, align 4
   %36 = icmp ne i32 %35, 0
-  br label %37
+  %37 = zext i1 %36 to i32
+  br label %38
 
-37:                                               ; preds = %33, %.lr.ph
-  %38 = phi i1 [ false, %.lr.ph ], [ %36, %33 ]
-  %39 = zext i1 %38 to i32
+38:                                               ; preds = %33, %.lr.ph
+  %39 = phi i32 [ 0, %.lr.ph ], [ %37, %33 ]
   %40 = add i64 %.143, 1
   %.not31 = icmp ugt i64 %40, %32
   br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
-.loopexit:                                        ; preds = %37, %17
-  %.027 = phi i32 [ %19, %17 ], [ %39, %37 ]
+.loopexit:                                        ; preds = %38, %18
+  %.027 = phi i32 [ %19, %18 ], [ %39, %38 ]
   %.not34 = icmp eq i32 %.027, 0
   br i1 %.not34, label %.thread, label %.loopexit.thread
 

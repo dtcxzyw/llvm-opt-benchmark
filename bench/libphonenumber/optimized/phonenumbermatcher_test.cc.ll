@@ -11439,12 +11439,12 @@ _ZN7testing15AssertionResultD2Ev.exit106:         ; preds = %_ZN7testing15Assert
   %132 = load ptr, ptr %131, align 8
   %133 = select i1 %.not.i.i.i, ptr %132, ptr %130
   %134 = load i16, ptr %133, align 2
+  %135 = zext i16 %134 to i32
   br label %_ZNK6icu_7013UnicodeStringixEi.exit
 
 _ZNK6icu_7013UnicodeStringixEi.exit:              ; preds = %128, %_ZN7testing15AssertionResultD2Ev.exit106
-  %.0.i.i = phi i16 [ %134, %128 ], [ -1, %_ZN7testing15AssertionResultD2Ev.exit106 ]
-  %135 = zext i16 %.0.i.i to i32
-  %136 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi(i32 noundef %135)
+  %.0.i.i = phi i32 [ %135, %128 ], [ 65535, %_ZN7testing15AssertionResultD2Ev.exit106 ]
+  %136 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi(i32 noundef %.0.i.i)
           to label %_ZN4i18n12phonenumbers22PhoneNumberMatcherTest13IsLatinLetterEi.exit unwind label %142
 
 _ZN4i18n12phonenumbers22PhoneNumberMatcherTest13IsLatinLetterEi.exit: ; preds = %_ZNK6icu_7013UnicodeStringixEi.exit
@@ -11582,12 +11582,12 @@ _ZN7testing15AssertionResultD2Ev.exit115:         ; preds = %168, %_ZNKSt14defau
   %185 = load ptr, ptr %184, align 8
   %186 = select i1 %.not.i.i.i117, ptr %185, ptr %183
   %187 = load i16, ptr %186, align 2
+  %188 = zext i16 %187 to i32
   br label %_ZNK6icu_7013UnicodeStringixEi.exit118
 
 _ZNK6icu_7013UnicodeStringixEi.exit118:           ; preds = %181, %_ZN7testing15AssertionResultD2Ev.exit115
-  %.0.i.i116 = phi i16 [ %187, %181 ], [ -1, %_ZN7testing15AssertionResultD2Ev.exit115 ]
-  %188 = zext i16 %.0.i.i116 to i32
-  %189 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi(i32 noundef %188)
+  %.0.i.i116 = phi i32 [ %188, %181 ], [ 65535, %_ZN7testing15AssertionResultD2Ev.exit115 ]
+  %189 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi(i32 noundef %.0.i.i116)
           to label %_ZN4i18n12phonenumbers22PhoneNumberMatcherTest13IsLatinLetterEi.exit119 unwind label %195
 
 _ZN4i18n12phonenumbers22PhoneNumberMatcherTest13IsLatinLetterEi.exit119: ; preds = %_ZNK6icu_7013UnicodeStringixEi.exit118
@@ -12225,12 +12225,12 @@ _ZN7testing15AssertionResultD2Ev.exit173:         ; preds = %_ZN7testing15Assert
   %388 = load ptr, ptr %387, align 8
   %389 = select i1 %.not.i.i.i175, ptr %388, ptr %386
   %390 = load i16, ptr %389, align 2
+  %391 = zext i16 %390 to i32
   br label %_ZNK6icu_7013UnicodeStringixEi.exit176
 
 _ZNK6icu_7013UnicodeStringixEi.exit176:           ; preds = %384, %_ZN7testing15AssertionResultD2Ev.exit173
-  %.0.i.i174 = phi i16 [ %390, %384 ], [ -1, %_ZN7testing15AssertionResultD2Ev.exit173 ]
-  %391 = zext i16 %.0.i.i174 to i32
-  %392 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi(i32 noundef %391)
+  %.0.i.i174 = phi i32 [ %391, %384 ], [ 65535, %_ZN7testing15AssertionResultD2Ev.exit173 ]
+  %392 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi(i32 noundef %.0.i.i174)
           to label %_ZN4i18n12phonenumbers22PhoneNumberMatcherTest13IsLatinLetterEi.exit177 unwind label %399
 
 _ZN4i18n12phonenumbers22PhoneNumberMatcherTest13IsLatinLetterEi.exit177: ; preds = %_ZNK6icu_7013UnicodeStringixEi.exit176
@@ -12369,12 +12369,12 @@ _ZN7testing15AssertionResultD2Ev.exit186:         ; preds = %425, %_ZNKSt14defau
   %442 = load ptr, ptr %441, align 8
   %443 = select i1 %.not.i.i.i188, ptr %442, ptr %440
   %444 = load i16, ptr %443, align 2
+  %445 = zext i16 %444 to i32
   br label %_ZNK6icu_7013UnicodeStringixEi.exit189
 
 _ZNK6icu_7013UnicodeStringixEi.exit189:           ; preds = %438, %_ZN7testing15AssertionResultD2Ev.exit186
-  %.0.i.i187 = phi i16 [ %444, %438 ], [ -1, %_ZN7testing15AssertionResultD2Ev.exit186 ]
-  %445 = zext i16 %.0.i.i187 to i32
-  %446 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi(i32 noundef %445)
+  %.0.i.i187 = phi i32 [ %445, %438 ], [ 65535, %_ZN7testing15AssertionResultD2Ev.exit186 ]
+  %446 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi(i32 noundef %.0.i.i187)
           to label %_ZN4i18n12phonenumbers22PhoneNumberMatcherTest13IsLatinLetterEi.exit190 unwind label %453
 
 _ZN4i18n12phonenumbers22PhoneNumberMatcherTest13IsLatinLetterEi.exit190: ; preds = %_ZNK6icu_7013UnicodeStringixEi.exit189

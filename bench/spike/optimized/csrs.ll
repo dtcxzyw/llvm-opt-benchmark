@@ -3105,7 +3105,7 @@ _ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv.exit: ; preds = %67, %69, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i64 0, 274877906944) i64 @_ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 68719476736) i64 @_ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 968
@@ -5224,7 +5224,7 @@ define void @_ZN9mip_csr_t24backdoor_write_with_maskEmm(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i64 0, 8744) i64 @_ZNK9mip_csr_t10write_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, 8743) i64 @_ZNK9mip_csr_t10write_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 968
@@ -5297,7 +5297,7 @@ define void @_ZN9mie_csr_tC2EP11processor_tm(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 2048, 16384) i64 @_ZNK9mie_csr_t10write_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 2184, 16384) i64 @_ZNK9mie_csr_t10write_maskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 968
@@ -9568,7 +9568,7 @@ define void @_ZNK10seed_csr_t18verify_permissionsE6insn_tb(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZNK10seed_csr_t4readEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 2147483648, 2147549184) i64 @_ZNK10seed_csr_t4readEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 659592

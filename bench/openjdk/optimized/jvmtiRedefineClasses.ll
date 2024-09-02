@@ -4019,7 +4019,7 @@ define hidden void @_ZN18VM_RedefineClasses23finalize_operands_mergeERK18constan
 declare void @_ZN12ConstantPool15shrink_operandsEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(68), i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN18VM_RedefineClasses36compare_and_normalize_class_versionsEP13InstanceKlassS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 111) i32 @_ZN18VM_RedefineClasses36compare_and_normalize_class_versionsEP13InstanceKlassS1_(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.JavaFieldStream, align 8
   %5 = alloca %class.JavaFieldStream, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 120
@@ -6857,12 +6857,12 @@ _ZN18VM_RedefineClasses14find_new_indexEi.exit251: ; preds = %372
 390:                                              ; preds = %383
   %391 = call noundef ptr @_ZNK11ConstMethod28generic_signature_index_addrEv(ptr noundef nonnull align 8 dereferenceable(52) %386) #19
   %392 = load i16, ptr %391, align 2
+  %393 = zext i16 %392 to i32
   br label %_ZNK6Method23generic_signature_indexEv.exit254
 
 _ZNK6Method23generic_signature_indexEv.exit254:   ; preds = %383, %390
-  %.0.i.i253 = phi i16 [ %392, %390 ], [ 0, %383 ]
-  %393 = zext i16 %.0.i.i253 to i32
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.162, i32 noundef %393, i32 noundef %380)
+  %.0.i.i253 = phi i32 [ %393, %390 ], [ 0, %383 ]
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.162, i32 noundef %.0.i.i253, i32 noundef %380)
   br label %394
 
 394:                                              ; preds = %381, %_ZNK6Method23generic_signature_indexEv.exit254

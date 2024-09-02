@@ -1089,7 +1089,7 @@ define internal i64 @rb_fiddle_ptr_inspect(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @rb_fiddle_ptr_cmp(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 -1, 5) i64 @rb_fiddle_ptr_cmp(i64 noundef %0, i64 noundef %1) #0 {
   %3 = load i64, ptr @rb_cPointer, align 8
   %4 = tail call i64 @rb_obj_is_kind_of(i64 noundef %1, i64 noundef %3) #10
   %.not = icmp eq i64 %4, 0

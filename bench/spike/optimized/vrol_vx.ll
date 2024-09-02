@@ -323,9 +323,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 130:                                              ; preds = %119, %101
-  %131 = add i64 %83, -8
-  %spec.select = icmp ult i64 %131, 57
-  br i1 %spec.select, label %137, label %132
+  %131 = add i64 %83, -65
+  %spec.select = icmp ult i64 %131, -57
+  br i1 %spec.select, label %132, label %137
 
 132:                                              ; preds = %130
   %133 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -860,9 +860,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 130:                                              ; preds = %119, %101
-  %131 = add i64 %83, -8
-  %spec.select = icmp ult i64 %131, 57
-  br i1 %spec.select, label %137, label %132
+  %131 = add i64 %83, -65
+  %spec.select = icmp ult i64 %131, -57
+  br i1 %spec.select, label %132, label %137
 
 132:                                              ; preds = %130
   %133 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1365,9 +1365,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 130:                                              ; preds = %119, %101
-  %131 = add i64 %83, -8
-  %spec.select = icmp ult i64 %131, 57
-  br i1 %spec.select, label %137, label %132
+  %131 = add i64 %83, -65
+  %spec.select = icmp ult i64 %131, -57
+  br i1 %spec.select, label %132, label %137
 
 132:                                              ; preds = %130
   %133 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1872,9 +1872,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 130:                                              ; preds = %119, %101
-  %131 = add i64 %83, -8
-  %spec.select = icmp ult i64 %131, 57
-  br i1 %spec.select, label %137, label %132
+  %131 = add i64 %83, -65
+  %spec.select = icmp ult i64 %131, -57
+  br i1 %spec.select, label %132, label %137
 
 132:                                              ; preds = %130
   %133 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2393,9 +2393,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 137:                                              ; preds = %126, %108
-  %138 = add i64 %83, -8
-  %spec.select = icmp ult i64 %138, 57
-  br i1 %spec.select, label %144, label %139
+  %138 = add i64 %83, -65
+  %spec.select = icmp ult i64 %138, -57
+  br i1 %spec.select, label %139, label %144
 
 139:                                              ; preds = %137
   %140 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2916,9 +2916,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 137:                                              ; preds = %126, %108
-  %138 = add i64 %83, -8
-  %spec.select = icmp ult i64 %138, 57
-  br i1 %spec.select, label %144, label %139
+  %138 = add i64 %83, -65
+  %spec.select = icmp ult i64 %138, -57
+  br i1 %spec.select, label %139, label %144
 
 139:                                              ; preds = %137
   %140 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -3437,9 +3437,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 137:                                              ; preds = %126, %108
-  %138 = add i64 %83, -8
-  %spec.select = icmp ult i64 %138, 57
-  br i1 %spec.select, label %144, label %139
+  %138 = add i64 %83, -65
+  %spec.select = icmp ult i64 %138, -57
+  br i1 %spec.select, label %139, label %144
 
 139:                                              ; preds = %137
   %140 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -3960,9 +3960,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   unreachable
 
 137:                                              ; preds = %126, %108
-  %138 = add i64 %83, -8
-  %spec.select = icmp ult i64 %138, 57
-  br i1 %spec.select, label %144, label %139
+  %138 = add i64 %83, -65
+  %spec.select = icmp ult i64 %138, -57
+  br i1 %spec.select, label %139, label %144
 
 139:                                              ; preds = %137
   %140 = tail call ptr @__cxa_allocate_exception(i64 32) #16

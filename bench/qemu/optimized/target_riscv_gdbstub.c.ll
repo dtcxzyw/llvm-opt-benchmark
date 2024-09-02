@@ -473,7 +473,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal i32 @riscv_gdb_set_vector(ptr nocapture noundef %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #4 {
+define internal range(i32 0, 8192) i32 @riscv_gdb_set_vector(ptr nocapture noundef %env, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) #4 {
 entry:
   %cmp = icmp slt i32 %n, 32
   br i1 %cmp, label %for.cond.preheader, label %return

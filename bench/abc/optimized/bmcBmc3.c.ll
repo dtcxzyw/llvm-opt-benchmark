@@ -2480,11 +2480,11 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds i8, ptr %31, i64 36
   %33 = load i32, ptr %32, align 4
+  %34 = sext i32 %33 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %24, %28
-  %34 = phi i32 [ %33, %28 ], [ -1, %24 ]
-  %35 = sext i32 %34 to i64
+  %35 = phi i64 [ %34, %28 ], [ -1, %24 ]
   %36 = getelementptr inbounds i32, ptr %.val42, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %37, 1
@@ -6931,7 +6931,7 @@ Abc_Clock.exit762:                                ; preds = %Abc_Clock.exit760, 
   %.neg604 = trunc i64 %.neg to i32
   %738 = add i32 %733, %.neg604
   %739 = call noundef i32 @llvm.smin.i32(i32 %733, i32 %738)
-  %740 = call noundef i32 @llvm.smax.i32(i32 %739, i32 0)
+  %740 = call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %739, i32 0)
   br label %741
 
 741:                                              ; preds = %726, %732
@@ -7788,22 +7788,22 @@ Saig_ManBmcTimeToStop.exit781:                    ; preds = %Abc_Clock.exit774, 
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.38, double noundef %1161)
   %1162 = load ptr, ptr %115, align 8
   %.not653 = icmp eq ptr %1162, null
-  br i1 %.not653, label %1165, label %1163
+  br i1 %.not653, label %1166, label %1163
 
 1163:                                             ; preds = %1153
   %1164 = call double @sat_solver_memory(ptr noundef nonnull %1162) #23
-  br label %1165
+  %1165 = fmul double %1164, 0x3EB0000000000000
+  br label %1166
 
-1165:                                             ; preds = %1153, %1163
-  %1166 = phi double [ %1164, %1163 ], [ 0.000000e+00, %1153 ]
-  %1167 = fmul double %1166, 0x3EB0000000000000
+1166:                                             ; preds = %1153, %1163
+  %1167 = phi double [ %1165, %1163 ], [ 0.000000e+00, %1153 ]
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.38, double noundef %1167)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %1168 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #23
   %1169 = icmp slt i32 %1168, 0
   br i1 %1169, label %Abc_Clock.exit783, label %1170
 
-1170:                                             ; preds = %1165
+1170:                                             ; preds = %1166
   %1171 = load i64, ptr %7, align 8
   %1172 = mul nsw i64 %1171, 1000000
   %1173 = load i64, ptr %272, align 8
@@ -7811,8 +7811,8 @@ Saig_ManBmcTimeToStop.exit781:                    ; preds = %Abc_Clock.exit774, 
   %1175 = add nsw i64 %1174, %1172
   br label %Abc_Clock.exit783
 
-Abc_Clock.exit783:                                ; preds = %1165, %1170
-  %.0.i782 = phi i64 [ %1175, %1170 ], [ -1, %1165 ]
+Abc_Clock.exit783:                                ; preds = %1166, %1170
+  %.0.i782 = phi i64 [ %1175, %1170 ], [ -1, %1166 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %1176 = sub nsw i64 %.0.i782, %.0.i
   %1177 = sitofp i64 %1176 to double

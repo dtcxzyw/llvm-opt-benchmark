@@ -1187,7 +1187,7 @@ return:                                           ; preds = %for.body, %for.inc,
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -2147483648, 1) i32 @fdt_move(ptr noundef readonly %fdt, ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #5 {
+define dso_local range(i32 -19, 1) i32 @fdt_move(ptr noundef readonly %fdt, ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #5 {
 entry:
   %cmp = icmp slt i32 %bufsize, 0
   br i1 %cmp, label %return, label %if.end

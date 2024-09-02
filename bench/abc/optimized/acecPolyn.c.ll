@@ -1690,7 +1690,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   %211 = load i32, ptr %210, align 4
   %212 = icmp slt i32 %211, 0
   %213 = select i1 %212, ptr @.str.2, ptr @.str.3
-  %214 = tail call i32 @llvm.abs.i32(i32 %211, i1 true)
+  %214 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %211, i1 true)
   %215 = add nsw i32 %214, -1
   %216 = shl nuw i32 1, %215
   %217 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %213, i32 noundef %216)
@@ -2021,7 +2021,7 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntAppend.exit.
   %134 = and i64 %.val127, 536870911
   %135 = icmp eq i64 %134, 536870911
   %narrow.i.not.i = or i1 %.not.i.i, %135
-  br i1 %narrow.i.not.i, label %.preheader, label %Gia_ObjIsXor.exit
+  br i1 %narrow.i.not.i, label %.critedge.preheader, label %Gia_ObjIsXor.exit
 
 Gia_ObjIsXor.exit:                                ; preds = %113
   %136 = trunc i64 %.val127 to i32
@@ -2029,10 +2029,10 @@ Gia_ObjIsXor.exit:                                ; preds = %113
   %138 = lshr i64 %.val127, 32
   %139 = trunc nuw i64 %138 to i32
   %140 = and i32 %139, 536870911
-  %.not176 = icmp ult i32 %137, %140
-  br i1 %.not176, label %.loopexit, label %.preheader
+  %.not166 = icmp ult i32 %137, %140
+  br i1 %.not166, label %.loopexit, label %.critedge.preheader
 
-.preheader:                                       ; preds = %113, %Gia_ObjIsXor.exit
+.critedge.preheader:                              ; preds = %Gia_ObjIsXor.exit, %113
   %141 = getelementptr inbounds i8, ptr %0, i64 48
   %142 = load ptr, ptr %141, align 8
   tail call fastcc void @Vec_IntAppendMinus(ptr noundef %142, ptr noundef nonnull %129, i32 noundef 0)
@@ -2040,13 +2040,13 @@ Gia_ObjIsXor.exit:                                ; preds = %113
   %144 = load ptr, ptr %143, align 8
   tail call fastcc void @Vec_IntAppendMinus(ptr noundef %144, ptr noundef nonnull %129, i32 noundef 1)
   %.val128.pre = load i64, ptr %29, align 4
-  %.pre174 = and i64 %.val128.pre, 536870911
-  %145 = icmp eq i64 %.pre174, 536870911
+  %.pre175 = and i64 %.val128.pre, 536870911
+  %145 = icmp eq i64 %.pre175, 536870911
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %Gia_ObjIsXor.exit
-  %.pre-phi = phi i1 [ %145, %.preheader ], [ false, %Gia_ObjIsXor.exit ]
-  %.val128 = phi i64 [ %.val128.pre, %.preheader ], [ %.val127, %Gia_ObjIsXor.exit ]
+.loopexit:                                        ; preds = %.critedge.preheader, %Gia_ObjIsXor.exit
+  %.pre-phi = phi i1 [ %145, %.critedge.preheader ], [ false, %Gia_ObjIsXor.exit ]
+  %.val128 = phi i64 [ %.val128.pre, %.critedge.preheader ], [ %.val127, %Gia_ObjIsXor.exit ]
   %146 = and i64 %.val128, 2147483648
   %.not.i.i138 = icmp ne i64 %146, 0
   %narrow.i.not.i139 = or i1 %.not.i.i138, %.pre-phi
@@ -2976,7 +2976,7 @@ Vec_QuePush.exit:                                 ; preds = %Vec_QuePrio.exit30.
   %.val77.i.i = phi i32 [ %.val.i.i50, %tailrecurse.backedge.i.i ], [ %.val75.i.i, %191 ]
   %.tr4676.i.i = phi i32 [ %.tr46.be.i.i, %tailrecurse.backedge.i.i ], [ %195, %191 ]
   %.val34.i.i = load ptr, ptr %190, align 8
-  %197 = tail call i32 @llvm.abs.i32(i32 %.tr4676.i.i, i1 true)
+  %197 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %.tr4676.i.i, i1 true)
   %wide.trip.count.i.i = zext nneg i32 %.val77.i.i to i64
   br label %198
 
@@ -3021,7 +3021,7 @@ tailrecurse.backedge.i.i:                         ; preds = %Vec_IntDrop.exit42.
   br i1 %214, label %.lr.ph.i.i49, label %._crit_edge.i.i.i
 
 215:                                              ; preds = %198
-  %216 = tail call i32 @llvm.abs.i32(i32 %200, i1 true)
+  %216 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %200, i1 true)
   %217 = icmp eq i32 %216, %197
   br i1 %217, label %218, label %229
 

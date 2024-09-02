@@ -5548,99 +5548,99 @@ define dso_local i32 @rb_get_kwargs(i64 noundef %0, ptr nocapture noundef nonnul
   %51 = call i64 @rb_id2sym(i64 noundef %50) #18
   store i64 %51, ptr %6, align 8
   %52 = call i32 @rb_hash_stlike_lookup(i64 noundef %spec.store.select, i64 noundef %51, ptr noundef null) #18
-  %.not80.us = icmp ne i32 %52, 0
-  %53 = zext i1 %.not80.us to i32
-  %spec.select85.us = add i32 %.166102.us, %53
+  %53 = icmp ne i32 %52, 0
+  %54 = zext i1 %53 to i32
+  %spec.select85.us = add i32 %.166102.us, %54
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
   br i1 %exitcond134.not, label %.loopexit, label %.lr.ph103.split.us, !llvm.loop !24
 
-.lr.ph103.split:                                  ; preds = %.lr.ph103, %63
-  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %63 ], [ 0, %.lr.ph103 ]
-  %.166102 = phi i32 [ %spec.select85, %63 ], [ %.068, %.lr.ph103 ]
-  %54 = trunc nuw nsw i64 %indvars.iv125 to i32
-  %55 = add i32 %2, %54
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr i64, ptr %1, i64 %56
-  %58 = load i64, ptr %57, align 8
-  %59 = call i64 @rb_id2sym(i64 noundef %58) #18
-  store i64 %59, ptr %6, align 8
-  %60 = getelementptr i64, ptr %4, i64 %56
-  %61 = call i32 @rb_hash_stlike_delete(i64 noundef %spec.store.select, ptr noundef nonnull %6, ptr noundef %60) #18
-  %.not79 = icmp ne i32 %61, 0
-  br i1 %.not79, label %63, label %62
+.lr.ph103.split:                                  ; preds = %.lr.ph103, %64
+  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %64 ], [ 0, %.lr.ph103 ]
+  %.166102 = phi i32 [ %spec.select85, %64 ], [ %.068, %.lr.ph103 ]
+  %55 = trunc nuw nsw i64 %indvars.iv125 to i32
+  %56 = add i32 %2, %55
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr i64, ptr %1, i64 %57
+  %59 = load i64, ptr %58, align 8
+  %60 = call i64 @rb_id2sym(i64 noundef %59) #18
+  store i64 %60, ptr %6, align 8
+  %61 = getelementptr i64, ptr %4, i64 %57
+  %62 = call i32 @rb_hash_stlike_delete(i64 noundef %spec.store.select, ptr noundef nonnull %6, ptr noundef %61) #18
+  %.not79.not = icmp ne i32 %62, 0
+  br i1 %.not79.not, label %64, label %63
 
-62:                                               ; preds = %.lr.ph103.split
-  store i64 36, ptr %60, align 8
-  br label %63
+63:                                               ; preds = %.lr.ph103.split
+  store i64 36, ptr %61, align 8
+  br label %64
 
-63:                                               ; preds = %62, %.lr.ph103.split
-  %64 = zext i1 %.not79 to i32
-  %spec.select85 = add i32 %.166102, %64
+64:                                               ; preds = %.lr.ph103.split, %63
+  %65 = zext i1 %.not79.not to i32
+  %spec.select85 = add i32 %.166102, %65
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count133
   br i1 %exitcond129.not, label %.loopexit, label %.lr.ph103.split, !llvm.loop !24
 
-.loopexit:                                        ; preds = %63, %.lr.ph103.split.us, %._crit_edge.thread
-  %.065 = phi i32 [ %.068, %._crit_edge.thread ], [ %spec.select85.us, %.lr.ph103.split.us ], [ %spec.select85, %63 ]
+.loopexit:                                        ; preds = %64, %.lr.ph103.split.us, %._crit_edge.thread
+  %.065 = phi i32 [ %.068, %._crit_edge.thread ], [ %spec.select85.us, %.lr.ph103.split.us ], [ %spec.select85, %64 ]
   %or.cond3 = and i1 %44, %8
-  br i1 %or.cond3, label %65, label %82
+  br i1 %or.cond3, label %66, label %83
 
-65:                                               ; preds = %.loopexit
-  %66 = inttoptr i64 %spec.store.select to ptr
-  %67 = load i64, ptr %66, align 8
-  %68 = and i64 %67, 32768
-  %.not.i.i = icmp eq i64 %68, 0
-  br i1 %.not.i.i, label %69, label %72
+66:                                               ; preds = %.loopexit
+  %67 = inttoptr i64 %spec.store.select to ptr
+  %68 = load i64, ptr %67, align 8
+  %69 = and i64 %68, 32768
+  %.not.i.i = icmp eq i64 %69, 0
+  br i1 %.not.i.i, label %70, label %73
 
-69:                                               ; preds = %65
-  %70 = lshr i64 %67, 16
-  %71 = and i64 %70, 15
+70:                                               ; preds = %66
+  %71 = lshr i64 %68, 16
+  %72 = and i64 %71, 15
   br label %RHASH_SIZE.exit
 
-72:                                               ; preds = %65
-  %73 = add i64 %spec.store.select, 24
-  %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
-  %76 = load i64, ptr %75, align 8
+73:                                               ; preds = %66
+  %74 = add i64 %spec.store.select, 24
+  %75 = inttoptr i64 %74 to ptr
+  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %77 = load i64, ptr %76, align 8
   br label %RHASH_SIZE.exit
 
-RHASH_SIZE.exit:                                  ; preds = %69, %72
-  %.0.i = phi i64 [ %71, %69 ], [ %76, %72 ]
+RHASH_SIZE.exit:                                  ; preds = %70, %73
+  %.0.i = phi i64 [ %72, %70 ], [ %77, %73 ]
   %.not77 = icmp eq ptr %4, null
-  %77 = zext i32 %.065 to i64
-  %78 = select i1 %.not77, i64 %77, i64 0
-  %79 = icmp ugt i64 %.0.i, %78
-  br i1 %79, label %80, label %.thread
+  %78 = zext i32 %.065 to i64
+  %79 = select i1 %.not77, i64 %78, i64 0
+  %80 = icmp ugt i64 %.0.i, %79
+  br i1 %80, label %81, label %.thread
 
-80:                                               ; preds = %RHASH_SIZE.exit
-  %81 = add i32 %3, %2
-  call fastcc void @unknown_keyword_error(i64 noundef %spec.store.select, ptr noundef nonnull %1, i32 noundef %81) #23
+81:                                               ; preds = %RHASH_SIZE.exit
+  %82 = add i32 %3, %2
+  call fastcc void @unknown_keyword_error(i64 noundef %spec.store.select, ptr noundef nonnull %1, i32 noundef %82) #23
   unreachable
 
-82:                                               ; preds = %.loopexit
-  %83 = icmp eq ptr %4, null
-  %or.cond5 = or i1 %44, %83
+83:                                               ; preds = %.loopexit
+  %84 = icmp eq ptr %4, null
+  %or.cond5 = or i1 %44, %84
   br i1 %or.cond5, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %82
-  %84 = add i32 %spec.select, %2
-  %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %.lr.ph107.preheader, label %.thread
+.preheader:                                       ; preds = %83
+  %85 = add i32 %spec.select, %2
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %.lr.ph107.preheader, label %.thread
 
 .lr.ph107.preheader:                              ; preds = %.preheader
-  %wide.trip.count138 = zext nneg i32 %84 to i64
+  %wide.trip.count138 = zext nneg i32 %85 to i64
   br label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %.lr.ph107
   %indvars.iv135 = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next136, %.lr.ph107 ]
-  %86 = getelementptr i64, ptr %4, i64 %indvars.iv135
-  store i64 36, ptr %86, align 8
+  %87 = getelementptr i64, ptr %4, i64 %indvars.iv135
+  store i64 36, ptr %87, align 8
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
   br i1 %exitcond139.not, label %.thread, label %.lr.ph107, !llvm.loop !25
 
-.thread:                                          ; preds = %.lr.ph107, %.preheader, %RHASH_SIZE.exit, %82
+.thread:                                          ; preds = %.lr.ph107, %.preheader, %RHASH_SIZE.exit, %83
   ret i32 %.065
 }
 

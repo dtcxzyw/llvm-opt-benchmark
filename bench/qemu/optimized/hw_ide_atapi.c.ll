@@ -475,7 +475,7 @@ if.else25:                                        ; preds = %if.end14
   %52 = load ptr, ptr %s, align 8
   tail call void @ide_bus_set_irq(ptr noundef %52) #9
   %s.val = load i16, ptr %0, align 1
-  %.or.i = tail call i16 @llvm.umin.i16(i16 %s.val, i16 -2)
+  %.or.i = tail call range(i16 0, -1) i16 @llvm.umin.i16(i16 %s.val, i16 -2)
   %conv = zext i16 %.or.i to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i102)
   %53 = load i32, ptr @trace_events_enabled_count, align 4

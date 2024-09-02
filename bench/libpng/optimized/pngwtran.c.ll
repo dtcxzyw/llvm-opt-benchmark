@@ -440,12 +440,15 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   %.pn128.i = select i1 %206, i32 %207, i32 %209
   %.1115.i = or i32 %.pn128.i, %.0114140.i
   %210 = sub nsw i32 %.0117139.i, %203
-  br i1 %206, label %.lr.ph142.i, label %._crit_edge143.i, !llvm.loop !10
+  br i1 %206, label %.lr.ph142.i, label %._crit_edge143.loopexit.i, !llvm.loop !10
 
-._crit_edge143.i:                                 ; preds = %.lr.ph142.i, %.lr.ph148.i
-  %.0114.lcssa.i = phi i32 [ 0, %.lr.ph148.i ], [ %.1115.i, %.lr.ph142.i ]
-  %211 = trunc i32 %.0114.lcssa.i to i8
-  store i8 %211, ptr %.0122145.i, align 1
+._crit_edge143.loopexit.i:                        ; preds = %.lr.ph142.i
+  %211 = trunc i32 %.1115.i to i8
+  br label %._crit_edge143.i
+
+._crit_edge143.i:                                 ; preds = %._crit_edge143.loopexit.i, %.lr.ph148.i
+  %.0114.lcssa.i = phi i8 [ 0, %.lr.ph148.i ], [ %211, %._crit_edge143.loopexit.i ]
+  store i8 %.0114.lcssa.i, ptr %.0122145.i, align 1
   %212 = add nuw i32 %.0121146.i, 1
   %213 = getelementptr inbounds i8, ptr %.0122145.i, i64 1
   %exitcond165.not.i = icmp eq i32 %212, %194

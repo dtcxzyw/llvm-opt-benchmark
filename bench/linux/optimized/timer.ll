@@ -4627,7 +4627,7 @@ define dso_local range(i64 0, 4294967296) i64 @msleep_interruptible(i32 noundef 
   %2 = tail call i64 @__msecs_to_jiffies(i32 noundef %0) #16
   %3 = add i64 %2, 1
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %.thread, label %5
+  br i1 %4, label %.critedge, label %5
 
 5:                                                ; preds = %1
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !88
@@ -4640,21 +4640,21 @@ define dso_local range(i64 0, 4294967296) i64 @msleep_interruptible(i32 noundef 
   %11 = load volatile i64, ptr %7, align 8
   %12 = and i64 %11, 131072
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %.thread, !prof !22
+  br i1 %13, label %14, label %.critedge, !prof !22
 
 14:                                               ; preds = %9
   %15 = load volatile i64, ptr %7, align 8
   %16 = and i64 %15, 4
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %.thread
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %14
   store volatile i32 1, ptr %8, align 8
   %19 = tail call i64 @schedule_timeout(i64 noundef %10)
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %.thread, label %9, !llvm.loop !113
+  br i1 %20, label %.critedge, label %9, !llvm.loop !113
 
-.thread:                                          ; preds = %9, %18, %14, %1
+.critedge:                                        ; preds = %9, %18, %14, %1
   %21 = phi i64 [ 0, %1 ], [ %10, %9 ], [ 0, %18 ], [ %10, %14 ]
   %22 = tail call i32 @jiffies_to_msecs(i64 noundef %21) #16
   %23 = zext i32 %22 to i64

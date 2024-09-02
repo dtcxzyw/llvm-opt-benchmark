@@ -1039,16 +1039,16 @@ land.rhs26:                                       ; preds = %land.lhs.true23
   br label %if.end33
 
 if.end33:                                         ; preds = %land.lhs.true23, %land.rhs26, %land.lhs.true14, %land.rhs17
-  %res.2.in = phi i1 [ false, %land.lhs.true14 ], [ %tobool20, %land.rhs17 ], [ false, %land.lhs.true23 ], [ %tobool30, %land.rhs26 ]
+  %res.2.shrunk = phi i1 [ false, %land.lhs.true14 ], [ %tobool20, %land.rhs17 ], [ false, %land.lhs.true23 ], [ %tobool30, %land.rhs26 ]
   %call34 = call i32 @BIO_free(ptr noundef %call9) #7
   %call35 = call i64 @BIO_ctrl(ptr noundef %call3, i32 noundef 1, i64 noundef 0, ptr noundef null) #7
   %inc = add nuw nsw i32 %i.021, 1
   %cmp8 = icmp ult i32 %i.021, 2
-  %2 = select i1 %res.2.in, i1 %cmp8, i1 false
+  %2 = select i1 %res.2.shrunk, i1 %cmp8, i1 false
   br i1 %2, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end33
-  %res.2 = zext i1 %res.2.in to i32
+  %res.2 = zext i1 %res.2.shrunk to i32
   %3 = load ptr, ptr %rctx, align 8
   %call37 = call i32 @OSSL_HTTP_close(ptr noundef %3, i32 noundef %res.2) #7
   br label %err

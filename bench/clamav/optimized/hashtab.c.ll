@@ -1515,7 +1515,7 @@ define void @cli_hashset_destroy(ptr nocapture noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_hashset_addkey(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_hashset_addkey(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1

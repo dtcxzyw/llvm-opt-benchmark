@@ -3958,7 +3958,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender13from_owned_fd17h5c6214d5c627ff96E(p
   store ptr %.sink, ptr %25, align 8
   store i64 2, ptr %0, align 8
   %26 = tail call noundef i32 @close(i32 noundef %1)
-  br label %.thread67
+  br label %.thread68
 
 27:                                               ; preds = %12
   %28 = invoke noundef i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 3)
@@ -4009,7 +4009,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender13from_owned_fd17h5c6214d5c627ff96E(p
 .noexc38:                                         ; preds = %.noexc36, %42
   %49 = tail call noundef i32 @"_ZN76_$LT$mio..sys..unix..pipe..Sender$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h66fd5dc07fd91ebaE"(i32 noundef %1)
   tail call fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %49)
-  br label %.thread67
+  br label %.thread68
 
 50:                                               ; preds = %47
   %51 = sext i32 %48 to i64
@@ -4018,7 +4018,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender13from_owned_fd17h5c6214d5c627ff96E(p
   %54 = inttoptr i64 %53 to ptr
   br label %24
 
-.thread67:                                        ; preds = %.noexc38, %55, %24
+.thread68:                                        ; preds = %.noexc38, %55, %24
   ret void
 
 55:                                               ; preds = %40
@@ -4026,7 +4026,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender13from_owned_fd17h5c6214d5c627ff96E(p
   store ptr %41, ptr %56, align 8
   store i64 2, ptr %0, align 8
   %57 = tail call noundef i32 @close(i32 noundef %1)
-  br label %.thread67
+  br label %.thread68
 
 "_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.exit": ; preds = %58
   resume { ptr, i32 } %lpad.thr_comm
@@ -4443,7 +4443,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver13from_owned_fd17hbe545561190f1354E
   store ptr %.sink, ptr %25, align 8
   store i64 2, ptr %0, align 8
   %26 = tail call noundef i32 @close(i32 noundef %1)
-  br label %.thread67
+  br label %.thread68
 
 27:                                               ; preds = %12
   %28 = invoke noundef i32 (i32, i32, ...) @fcntl(i32 noundef %1, i32 noundef 3)
@@ -4493,7 +4493,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver13from_owned_fd17hbe545561190f1354E
 .noexc38:                                         ; preds = %.noexc36, %41
   %48 = tail call noundef i32 @"_ZN78_$LT$mio..sys..unix..pipe..Receiver$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h6c77d1c5d5f87d57E"(i32 noundef %1)
   tail call fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %48)
-  br label %.thread67
+  br label %.thread68
 
 49:                                               ; preds = %46
   %50 = sext i32 %47 to i64
@@ -4502,7 +4502,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver13from_owned_fd17hbe545561190f1354E
   %53 = inttoptr i64 %52 to ptr
   br label %24
 
-.thread67:                                        ; preds = %.noexc38, %54, %24
+.thread68:                                        ; preds = %.noexc38, %54, %24
   ret void
 
 54:                                               ; preds = %39
@@ -4510,7 +4510,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver13from_owned_fd17hbe545561190f1354E
   store ptr %40, ptr %55, align 8
   store i64 2, ptr %0, align 8
   %56 = tail call noundef i32 @close(i32 noundef %1)
-  br label %.thread67
+  br label %.thread68
 
 "_ZN4core3ptr48drop_in_place$LT$std..os..fd..owned..OwnedFd$GT$17he4b47a550e05a9c5E.exit": ; preds = %57
   resume { ptr, i32 } %lpad.thr_comm

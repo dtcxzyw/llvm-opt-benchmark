@@ -1031,8 +1031,8 @@ if.end.i674:                                      ; preds = %_ZNK2v820FunctionCa
   %sub.i.i = add i64 %36, 11
   %37 = inttoptr i64 %sub.i.i to ptr
   %38 = load i16, ptr %37, align 2
-  %cmp.i675 = icmp ult i16 %38, 128
-  br i1 %cmp.i675, label %lor.lhs.false.i257, label %do.body50
+  %cmp.i675 = icmp ugt i16 %38, 127
+  br i1 %cmp.i675, label %do.body50, label %lor.lhs.false.i257
 
 do.body50:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit286, %if.end.i674
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node9JSUDPWrap12EmitReceivedERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_0) #13

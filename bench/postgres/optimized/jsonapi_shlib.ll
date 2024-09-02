@@ -404,7 +404,7 @@ lex_expect.exit:                                  ; preds = %18, %16, %12, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @json_lex(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define range(i32 0, 19) i32 @json_lex(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = alloca [5 x i8], align 1
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

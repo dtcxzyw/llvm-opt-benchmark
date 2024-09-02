@@ -2901,7 +2901,7 @@ if.else:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN6btDbvt11countLeavesEPK10btDbvtNode(ptr nocapture noundef readonly %node) local_unnamed_addr #9 align 2 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN6btDbvt11countLeavesEPK10btDbvtNode(ptr nocapture noundef readonly %node) local_unnamed_addr #9 align 2 {
 entry:
   %arrayidx.i.i3 = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %arrayidx.i.i3, align 8

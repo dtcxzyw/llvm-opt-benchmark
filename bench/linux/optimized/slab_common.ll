@@ -2382,31 +2382,31 @@ define dso_local ptr @find_mergeable(i32 noundef %0, i32 noundef %1, i32 noundef
   %invariant.op = or disjoint i32 %30, 7
   br i1 %38, label %.loopexit, label %.split
 
-.split:                                           ; preds = %37, %.thread
-  %39 = phi ptr [ %66, %.thread ], [ %35, %37 ]
+.split:                                           ; preds = %37, %.critedge
+  %39 = phi ptr [ %66, %.critedge ], [ %35, %37 ]
   %40 = getelementptr i8, ptr %39, i64 -96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 27855872
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %.thread
+  br i1 %43, label %44, label %.critedge
 
 44:                                               ; preds = %.split
   %45 = getelementptr i8, ptr %39, i64 -32
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %.thread
+  br i1 %47, label %48, label %.critedge
 
 48:                                               ; preds = %44
   %49 = getelementptr i8, ptr %39, i64 -40
   %50 = load i32, ptr %49, align 8
   %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %52, label %.thread
+  br i1 %51, label %52, label %.critedge
 
 52:                                               ; preds = %48
   %53 = getelementptr i8, ptr %39, i64 -80
   %54 = load i32, ptr %53, align 8
   %55 = icmp ugt i32 %30, %54
-  br i1 %55, label %.thread, label %56
+  br i1 %55, label %.critedge, label %56
 
 56:                                               ; preds = %52
   %57 = xor i32 %41, %31
@@ -2414,12 +2414,12 @@ define dso_local ptr @find_mergeable(i32 noundef %0, i32 noundef %1, i32 noundef
   %59 = icmp ne i32 %58, 0
   %60 = and i32 %54, %29
   %61 = icmp ne i32 %60, %54
-  %62 = or i1 %61, %59
+  %62 = or i1 %59, %61
   %63 = icmp ugt i32 %54, %invariant.op
   %64 = or i1 %63, %62
-  br i1 %64, label %.thread, label %68
+  br i1 %64, label %.critedge, label %68
 
-.thread:                                          ; preds = %44, %.split, %56, %52, %48
+.critedge:                                        ; preds = %.split, %44, %56, %52, %48
   %65 = getelementptr inbounds i8, ptr %39, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, @slab_caches
@@ -2429,8 +2429,8 @@ define dso_local ptr @find_mergeable(i32 noundef %0, i32 noundef %1, i32 noundef
   %69 = getelementptr i8, ptr %39, i64 -104
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %37, %68, %34, %22, %5
-  %70 = phi ptr [ null, %5 ], [ null, %22 ], [ %69, %68 ], [ null, %34 ], [ null, %37 ], [ null, %.thread ]
+.loopexit:                                        ; preds = %.critedge, %37, %68, %34, %22, %5
+  %70 = phi ptr [ null, %5 ], [ null, %22 ], [ %69, %68 ], [ null, %34 ], [ null, %37 ], [ null, %.critedge ]
   ret ptr %70
 }
 

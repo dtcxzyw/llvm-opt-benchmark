@@ -271,7 +271,7 @@ jpeg_add_quant_table.exit20:                      ; preds = %.split.i7, %.split.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -2147483447, 5001) i32 @jpeg_quality_scaling(i32 noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 5001) i32 @jpeg_quality_scaling(i32 noundef %0) local_unnamed_addr #2 {
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
   %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 100)
   %2 = icmp slt i32 %0, 50

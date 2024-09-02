@@ -414,7 +414,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %16, %18, %20, %_ZSt
   %60 = icmp eq i32 %59, 0
   %61 = icmp eq i32 %.07799, 1
   %or.cond = and i1 %61, %60
-  br i1 %or.cond, label %65, label %62
+  br i1 %or.cond, label %66, label %62
 
 62:                                               ; preds = %56
   %63 = icmp ne i32 %59, 1
@@ -422,21 +422,18 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %16, %18, %20, %_ZSt
   %or.cond3.not = or i1 %64, %63
   %not.or.cond3.not = xor i1 %or.cond3.not, true
   %spec.select84 = sext i1 %not.or.cond3.not to i8
-  br label %65
+  %65 = sext i1 %or.cond3.not to i8
+  br label %66
 
-65:                                               ; preds = %62, %56
-  %.not82 = phi i1 [ false, %56 ], [ %or.cond3.not, %62 ]
+66:                                               ; preds = %62, %56
+  %.not82 = phi i8 [ 0, %56 ], [ %65, %62 ]
   %.080 = phi i8 [ -1, %56 ], [ %spec.select84, %62 ]
-  %66 = load i32, ptr %30, align 4
-  %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph97, label %._crit_edge
+  %67 = load i32, ptr %30, align 4
+  %68 = icmp sgt i32 %67, 0
+  br i1 %68, label %.lr.ph97, label %._crit_edge
 
-.lr.ph97:                                         ; preds = %65
-  %. = sext i1 %.not82 to i8
-  br label %68
-
-68:                                               ; preds = %.lr.ph97, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next, %68 ]
+.lr.ph97:                                         ; preds = %66, %.lr.ph97
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph97 ], [ 0, %66 ]
   %69 = load i64, ptr %29, align 8
   %70 = sub i64 %69, %.076100
   %71 = load ptr, ptr %5, align 8
@@ -464,19 +461,19 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %16, %18, %20, %_ZSt
   %90 = mul i64 %89, %indvars.iv
   %91 = getelementptr inbounds i8, ptr %86, i64 %90
   %92 = getelementptr inbounds i8, ptr %91, i64 %indvars.iv128
-  store i8 %., ptr %92, align 1
+  store i8 %.not82, ptr %92, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %93 = load i32, ptr %30, align 4
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next, %94
-  br i1 %95, label %68, label %._crit_edge.loopexit, !llvm.loop !7
+  br i1 %95, label %.lr.ph97, label %._crit_edge.loopexit, !llvm.loop !7
 
-._crit_edge.loopexit:                             ; preds = %68
+._crit_edge.loopexit:                             ; preds = %.lr.ph97
   %.pre = load i64, ptr %29, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %65
-  %96 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %57, %65 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %66
+  %96 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %57, %66 ]
   %97 = add nuw i64 %.076100, 1
   %98 = icmp ult i64 %97, %96
   br i1 %98, label %56, label %._crit_edge103.loopexit, !llvm.loop !8
@@ -520,7 +517,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %16, %18, %20, %_ZSt
   %115 = icmp eq i32 %114, 0
   %116 = icmp eq i32 %.071111, 1
   %or.cond5 = and i1 %116, %115
-  br i1 %or.cond5, label %120, label %117
+  br i1 %or.cond5, label %121, label %117
 
 117:                                              ; preds = %110
   %118 = icmp ne i32 %114, 1
@@ -528,20 +525,17 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %16, %18, %20, %_ZSt
   %or.cond7.not = or i1 %119, %118
   %not.or.cond7.not = xor i1 %or.cond7.not, true
   %spec.select86 = sext i1 %not.or.cond7.not to i8
-  br label %120
+  %120 = sext i1 %or.cond7.not to i8
+  br label %121
 
-120:                                              ; preds = %117, %110
-  %.not = phi i1 [ false, %110 ], [ %or.cond7.not, %117 ]
+121:                                              ; preds = %117, %110
+  %.not = phi i8 [ 0, %110 ], [ %120, %117 ]
   %.1 = phi i8 [ -1, %110 ], [ %spec.select86, %117 ]
-  %121 = icmp sgt i32 %112, 0
-  br i1 %121, label %.lr.ph108, label %._crit_edge109
+  %122 = icmp sgt i32 %112, 0
+  br i1 %122, label %.lr.ph108, label %._crit_edge109
 
-.lr.ph108:                                        ; preds = %120
-  %.83 = sext i1 %.not to i8
-  br label %122
-
-122:                                              ; preds = %.lr.ph108, %122
-  %indvars.iv131 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next132, %122 ]
+.lr.ph108:                                        ; preds = %121, %.lr.ph108
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.lr.ph108 ], [ 0, %121 ]
   %123 = load i64, ptr %48, align 8
   %124 = add i64 %123, %.070.neg113
   %125 = load i64, ptr %49, align 8
@@ -573,20 +567,20 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %16, %18, %20, %_ZSt
   %148 = mul i64 %147, %indvars.iv134
   %149 = getelementptr inbounds i8, ptr %144, i64 %148
   %150 = getelementptr inbounds i8, ptr %149, i64 %indvars.iv131
-  store i8 %.83, ptr %150, align 1
+  store i8 %.not, ptr %150, align 1
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %151 = load i32, ptr %26, align 8
   %152 = sext i32 %151 to i64
   %153 = icmp slt i64 %indvars.iv.next132, %152
-  br i1 %153, label %122, label %._crit_edge109.loopexit, !llvm.loop !11
+  br i1 %153, label %.lr.ph108, label %._crit_edge109.loopexit, !llvm.loop !11
 
-._crit_edge109.loopexit:                          ; preds = %122
+._crit_edge109.loopexit:                          ; preds = %.lr.ph108
   %.pre138 = load i64, ptr %48, align 8
   br label %._crit_edge109
 
-._crit_edge109:                                   ; preds = %._crit_edge109.loopexit, %120
-  %154 = phi i64 [ %.pre138, %._crit_edge109.loopexit ], [ %111, %120 ]
-  %155 = phi i32 [ %151, %._crit_edge109.loopexit ], [ %112, %120 ]
+._crit_edge109:                                   ; preds = %._crit_edge109.loopexit, %121
+  %154 = phi i64 [ %.pre138, %._crit_edge109.loopexit ], [ %111, %121 ]
+  %155 = phi i32 [ %151, %._crit_edge109.loopexit ], [ %112, %121 ]
   %156 = add nuw i64 %.070112, 1
   %.070.neg = xor i64 %.070112, -1
   %157 = icmp ult i64 %156, %154

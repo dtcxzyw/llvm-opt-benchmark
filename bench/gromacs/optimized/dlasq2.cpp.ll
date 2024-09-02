@@ -770,33 +770,33 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br i1 %386, label %436, label %387
 
 387:                                              ; preds = %381, %373
-  %388 = add nsw i32 %370, -1
-  %389 = shl i32 %370, 2
-  %390 = sext i32 %389 to i64
-  %391 = getelementptr double, ptr %16, i64 %390
-  %392 = getelementptr i8, ptr %391, i64 -24
-  %393 = load double, ptr %392, align 8
-  store double %393, ptr %11, align 8
-  %394 = getelementptr i8, ptr %391, i64 -8
-  %395 = load double, ptr %394, align 8
-  %396 = load double, ptr %391, align 8
-  %397 = add i32 %374, -12
-  %.not571664 = icmp sgt i32 %389, %397
+  %388 = shl i32 %370, 2
+  %389 = sext i32 %388 to i64
+  %390 = getelementptr double, ptr %16, i64 %389
+  %391 = getelementptr i8, ptr %390, i64 -24
+  %392 = load double, ptr %391, align 8
+  store double %392, ptr %11, align 8
+  %393 = getelementptr i8, ptr %390, i64 -8
+  %394 = load double, ptr %393, align 8
+  %395 = load double, ptr %390, align 8
+  %396 = add i32 %374, -12
+  %.not571664 = icmp sgt i32 %388, %396
   br i1 %.not571664, label %._crit_edge671, label %.lr.ph670
 
 .lr.ph670:                                        ; preds = %387
+  %397 = add nsw i32 %370, -1
   %398 = load double, ptr %14, align 8
   %399 = fmul double %398, 0x3A43880000000000
   %400 = fneg double %398
-  %401 = sext i32 %397 to i64
+  %401 = sext i32 %396 to i64
   br label %402
 
 402:                                              ; preds = %.lr.ph670, %432
-  %indvars.iv744 = phi i64 [ %390, %.lr.ph670 ], [ %indvars.iv.next745, %432 ]
-  %.0511668 = phi double [ %396, %.lr.ph670 ], [ %.1512, %432 ]
-  %.0519667 = phi i32 [ %388, %.lr.ph670 ], [ %.1520, %432 ]
-  %.4532666 = phi double [ %395, %.lr.ph670 ], [ %.5, %432 ]
-  %403 = phi double [ %393, %.lr.ph670 ], [ %433, %432 ]
+  %indvars.iv744 = phi i64 [ %389, %.lr.ph670 ], [ %indvars.iv.next745, %432 ]
+  %.0511668 = phi double [ %395, %.lr.ph670 ], [ %.1512, %432 ]
+  %.0519667 = phi i32 [ %397, %.lr.ph670 ], [ %.1520, %432 ]
+  %.4532666 = phi double [ %394, %.lr.ph670 ], [ %.5, %432 ]
+  %403 = phi double [ %392, %.lr.ph670 ], [ %433, %432 ]
   %404 = getelementptr inbounds double, ptr %16, i64 %indvars.iv744
   %405 = load double, ptr %404, align 8
   %406 = getelementptr i8, ptr %404, i64 -24
@@ -843,17 +843,20 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %.1512 = phi double [ %422, %414 ], [ %431, %423 ]
   %indvars.iv.next745 = add nsw i64 %indvars.iv744, 4
   %.not571 = icmp sgt i64 %indvars.iv.next745, %401
-  br i1 %.not571, label %._crit_edge671, label %402, !llvm.loop !16
+  br i1 %.not571, label %._crit_edge671.loopexit, label %402, !llvm.loop !16
 
-._crit_edge671:                                   ; preds = %432, %387
-  %.4532.lcssa = phi double [ %395, %387 ], [ %.5, %432 ]
-  %.0519.lcssa = phi i32 [ %388, %387 ], [ %.1520, %432 ]
-  %.0511.lcssa = phi double [ %396, %387 ], [ %.1512, %432 ]
-  %434 = getelementptr i8, ptr %376, i64 -8
-  store double %.4532.lcssa, ptr %434, align 8
+._crit_edge671.loopexit:                          ; preds = %432
+  %434 = add nsw i32 %.1520, 1
+  br label %._crit_edge671
+
+._crit_edge671:                                   ; preds = %._crit_edge671.loopexit, %387
+  %.4532.lcssa = phi double [ %394, %387 ], [ %.5, %._crit_edge671.loopexit ]
+  %.0519.lcssa = phi i32 [ %370, %387 ], [ %434, %._crit_edge671.loopexit ]
+  %.0511.lcssa = phi double [ %395, %387 ], [ %.1512, %._crit_edge671.loopexit ]
+  %435 = getelementptr i8, ptr %376, i64 -8
+  store double %.4532.lcssa, ptr %435, align 8
   store double %.0511.lcssa, ptr %376, align 8
-  %435 = add nsw i32 %.0519.lcssa, 1
-  store i32 %435, ptr %4, align 4
+  store i32 %.0519.lcssa, ptr %4, align 4
   br label %436
 
 436:                                              ; preds = %364, %368, %._crit_edge671, %381

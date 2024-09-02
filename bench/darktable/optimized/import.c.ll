@@ -1669,49 +1669,42 @@ define internal fastcc i32 @_do_select_new(ptr nocapture readonly %0) unnamed_ad
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %1, %26
-  %13 = phi i32 [ %27, %26 ], [ 0, %1 ]
+.preheader:                                       ; preds = %1, %.tail.thread
+  %13 = phi i32 [ %22, %.tail.thread ], [ 0, %1 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   store ptr null, ptr %3, align 8, !tbaa !13
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %8, ptr noundef nonnull %2, i32 noundef 5, ptr noundef nonnull %3, i32 noundef -1) #16
   %14 = load ptr, ptr %3, align 8, !tbaa !13
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %26, label %sub_0
+  br i1 %15, label %.tail.thread, label %sub_0
 
 sub_0:                                            ; preds = %.preheader
   %16 = load i8, ptr %14, align 1
-  %17 = zext i8 %16 to i32
-  %18 = add nsw i32 %17, -32
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %sub_1, label %.tail
+  %.not = icmp eq i8 %16, 32
+  br i1 %.not, label %.tail, label %.tail.thread
 
-sub_1:                                            ; preds = %sub_0
-  %19 = getelementptr inbounds i8, ptr %14, i64 1
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  br label %.tail
+.tail:                                            ; preds = %sub_0
+  %17 = getelementptr inbounds i8, ptr %14, i64 1
+  %18 = load i8, ptr %17, align 1
+  %19 = icmp eq i8 %18, 0
+  br i1 %19, label %20, label %.tail.thread
 
-.tail:                                            ; preds = %sub_0, %sub_1
-  %22 = phi i32 [ %18, %sub_0 ], [ %21, %sub_1 ]
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %26
-
-24:                                               ; preds = %.tail
+20:                                               ; preds = %.tail
   call void @gtk_tree_selection_select_iter(ptr noundef %10, ptr noundef nonnull %2) #16
-  %25 = add i32 %13, 1
-  br label %26
+  %21 = add i32 %13, 1
+  br label %.tail.thread
 
-26:                                               ; preds = %24, %.tail, %.preheader
-  %27 = phi i32 [ %13, %.tail ], [ %25, %24 ], [ %13, %.preheader ]
+.tail.thread:                                     ; preds = %sub_0, %20, %.tail, %.preheader
+  %22 = phi i32 [ %13, %.tail ], [ %21, %20 ], [ %13, %.preheader ], [ %13, %sub_0 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  %28 = call i32 @gtk_tree_model_iter_next(ptr noundef %8, ptr noundef nonnull %2) #16
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.loopexit, label %.preheader
+  %23 = call i32 @gtk_tree_model_iter_next(ptr noundef %8, ptr noundef nonnull %2) #16
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %26, %1
-  %30 = phi i32 [ 0, %1 ], [ %27, %26 ]
+.loopexit:                                        ; preds = %.tail.thread, %1
+  %25 = phi i32 [ 0, %1 ], [ %22, %.tail.thread ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #16
-  ret i32 %30
+  ret i32 %25
 }
 
 declare void @gtk_tree_sortable_set_sort_column_id(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4

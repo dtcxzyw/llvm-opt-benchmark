@@ -849,7 +849,7 @@ _ZNK12opencv_caffe12NetParameter5inputB5cxx11Ei.exit: ; preds = %79
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.noexc86, %_ZNK12opencv_caffe16V1LayerParameter6bottomB5cxx11Ei.exit85, %275, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i.i, %_ZNK12opencv_caffe16V1LayerParameter8top_sizeEv.exit, %235, %_ZNK12opencv_caffe16V1LayerParameter11bottom_sizeEv.exit75, %223, %_ZNK12opencv_caffe16V1LayerParameter11bottom_sizeEv.exit71, %206, %201, %.critedge.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.thread, %121, %116
+.loopexit.split-lp.loopexit:                      ; preds = %.noexc86, %_ZNK12opencv_caffe16V1LayerParameter6bottomB5cxx11Ei.exit85, %275, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i.i, %_ZNK12opencv_caffe16V1LayerParameter8top_sizeEv.exit, %235, %_ZNK12opencv_caffe16V1LayerParameter11bottom_sizeEv.exit75, %223, %_ZNK12opencv_caffe16V1LayerParameter11bottom_sizeEv.exit71, %206, %202, %.critedge.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEE4findERS9_.exit.thread, %121, %116
   %lpad.loopexit111 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -1126,7 +1126,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %191 = inttoptr i64 %190 to ptr
   %192 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %191, ptr noundef nonnull @.str.7) #17
   %193 = icmp eq i32 %192, 0
-  br i1 %193, label %201, label %194
+  br i1 %193, label %202, label %194
 
 194:                                              ; preds = %187
   %195 = load ptr, ptr %92, align 8
@@ -1135,11 +1135,11 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %198 = inttoptr i64 %197 to ptr
   %199 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull @.str.8) #17
   %200 = icmp eq i32 %199, 0
-  br label %201
+  %201 = zext i1 %200 to i8
+  br label %202
 
-201:                                              ; preds = %194, %187
-  %202 = phi i1 [ true, %187 ], [ %200, %194 ]
-  %203 = zext i1 %202 to i8
+202:                                              ; preds = %194, %187
+  %203 = phi i8 [ 1, %187 ], [ %201, %194 ]
   store ptr @.str.1, ptr %9, align 8
   store ptr @__func__._ZN2cv3dnn22UpgradeV0PaddingLayersERKN12opencv_caffe12NetParameterEPS2_, ptr %47, align 8
   store ptr @.str.5, ptr %48, align 8
@@ -1150,7 +1150,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %53)
           to label %_ZN2cv3dnn11GLogWrapperC2EPKcS3_iS3_S3_b.exit69 unwind label %.loopexit.split-lp.loopexit
 
-_ZN2cv3dnn11GLogWrapperC2EPKcS3_iS3_S3_b.exit69:  ; preds = %201, %218
+_ZN2cv3dnn11GLogWrapperC2EPKcS3_iS3_S3_b.exit69:  ; preds = %202, %218
   %204 = load i8, ptr %52, align 1
   %205 = trunc i8 %204 to i1
   br i1 %205, label %210, label %206

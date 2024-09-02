@@ -2302,17 +2302,17 @@ switch.lookup411:                                 ; preds = %45
   %70 = icmp ult i8 %53, -16
   %spec.select = select i1 %70, i32 %.3215, i32 %.0202267
   %spec.select229 = select i1 %70, i8 %53, i8 0
-  %71 = add i32 %.2117214, -1
-  %72 = add i32 %.3215, 1
+  %71 = add i32 %.3215, 1
+  %72 = icmp eq i32 %.2117214, 1
   br label %73
 
 73:                                               ; preds = %69, %67
   %.2209 = phi i8 [ %.0207266, %67 ], [ %spec.select229, %69 ]
   %.3205 = phi i32 [ %.0202267, %67 ], [ %spec.select, %69 ]
-  %.0145.i = phi i32 [ %.2117214, %67 ], [ %71, %69 ]
+  %.0145.i = phi i1 [ false, %67 ], [ %72, %69 ]
   %.0144.i = phi i32 [ 0, %67 ], [ 1, %69 ]
   %.0142.i = phi i8 [ %.0207266, %67 ], [ %53, %69 ]
-  %.0140.i = phi i32 [ %.3215, %67 ], [ %72, %69 ]
+  %.0140.i = phi i32 [ %.3215, %67 ], [ %71, %69 ]
   %74 = icmp ult i8 %.0142.i, -16
   br i1 %74, label %75, label %286
 
@@ -2655,8 +2655,7 @@ default.unreachable.i:                            ; preds = %75
 
 287:                                              ; preds = %286
   %288 = tail call ptr @val_to_str(i32 noundef 247, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  %.old1.not.i172 = icmp eq i32 %.0145.i, 0
-  br i1 %.old1.not.i172, label %.thread.i174, label %.preheader.i173
+  br i1 %.0145.i, label %.thread.i174, label %.preheader.i173
 
 .preheader.i173:                                  ; preds = %287, %292
   %.080.i = phi i32 [ %291, %292 ], [ 0, %287 ]
@@ -3498,8 +3497,7 @@ decode_sysex_common_nrt.exit.thread.i:            ; preds = %decode_sysex_common
 
 790:                                              ; preds = %286
   %791 = tail call ptr @val_to_str(i32 noundef 244, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  %.old1.not.i163 = icmp eq i32 %.0145.i, 0
-  br i1 %.old1.not.i163, label %.loopexit.i166, label %.preheader.i164
+  br i1 %.0145.i, label %.loopexit.i166, label %.preheader.i164
 
 .preheader.i164:                                  ; preds = %790, %.preheader.i164
   %.0.i165 = phi i32 [ %794, %.preheader.i164 ], [ 0, %790 ]
@@ -3535,8 +3533,7 @@ decode_sysex_common_nrt.exit.thread.i:            ; preds = %decode_sysex_common
 
 810:                                              ; preds = %286
   %811 = tail call ptr @val_to_str(i32 noundef 245, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  %.old1.not.i158 = icmp eq i32 %.0145.i, 0
-  br i1 %.old1.not.i158, label %.loopexit.i, label %.preheader.i159
+  br i1 %.0145.i, label %.loopexit.i, label %.preheader.i159
 
 .preheader.i159:                                  ; preds = %810, %.preheader.i159
   %.0.i160 = phi i32 [ %814, %.preheader.i159 ], [ 0, %810 ]
@@ -3590,8 +3587,7 @@ decode_sysex_common_nrt.exit.thread.i:            ; preds = %decode_sysex_common
 
 840:                                              ; preds = %286
   %841 = tail call ptr @val_to_str(i32 noundef 247, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  %.old1.not.i = icmp eq i32 %.0145.i, 0
-  br i1 %.old1.not.i, label %.thread.i154, label %.preheader.i
+  br i1 %.0145.i, label %.thread.i154, label %.preheader.i
 
 .preheader.i:                                     ; preds = %840, %845
   %.032.i = phi i32 [ %844, %845 ], [ 0, %840 ]

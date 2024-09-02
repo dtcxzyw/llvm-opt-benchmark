@@ -226,7 +226,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$12pus
 
 37:                                               ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6, i64 72, i1 false)
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.0, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0, i32 6)
   br label %40
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit: ; preds = %40
@@ -269,7 +269,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31: ; preds = 
   br i1 %52, label %60, label %54
 
 54:                                               ; preds = %45
-  %.0.sroa.speculated.i.i28 = tail call noundef i32 @llvm.umin.i32(i32 %.0, i32 6)
+  %.0.sroa.speculated.i.i28 = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0, i32 6)
   br label %57
 
 55:                                               ; preds = %57
@@ -370,7 +370,7 @@ define hidden void @"_ZN15crossbeam_queue11array_queue19ArrayQueue$LT$T$GT$3pop1
   br i1 %35, label %42, label %36
 
 36:                                               ; preds = %33
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.025, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.025, i32 6)
   br label %39
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit: ; preds = %39
@@ -413,7 +413,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19: ; preds = 
   br i1 %49, label %57, label %51
 
 51:                                               ; preds = %47
-  %.0.sroa.speculated.i.i16 = tail call noundef i32 @llvm.umin.i32(i32 %.025, i32 6)
+  %.0.sroa.speculated.i.i16 = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.025, i32 6)
   br label %54
 
 52:                                               ; preds = %54

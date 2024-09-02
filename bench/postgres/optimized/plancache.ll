@@ -1503,12 +1503,12 @@ choose_custom_plan.exit58.thread:                 ; preds = %146, %24, %32, %30,
 187:                                              ; preds = %179
   %188 = getelementptr inbounds i8, ptr %186, i64 4
   %189 = load i32, ptr %188, align 4
+  %190 = add i32 %189, 1
+  %191 = sitofp i32 %190 to double
   br label %list_length.exit.us.i
 
 list_length.exit.us.i:                            ; preds = %187, %179
-  %190 = phi i32 [ %189, %187 ], [ 0, %179 ]
-  %191 = add i32 %190, 1
-  %192 = sitofp i32 %191 to double
+  %192 = phi double [ %191, %187 ], [ 1.000000e+00, %179 ]
   %193 = tail call double @llvm.fmuladd.f64(double %169, double %192, double %184)
   br label %194
 

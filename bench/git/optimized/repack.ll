@@ -893,11 +893,12 @@ land.lhs.true399:                                 ; preds = %if.end394
 
 land.lhs.true399.if.end404_crit_edge:             ; preds = %land.lhs.true399
   %.pre410 = load i32, ptr @write_bitmaps, align 4
+  %21 = icmp ne i32 %.pre410, 0
   br label %if.end404
 
 if.then402:                                       ; preds = %land.lhs.true399
-  %21 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i = icmp eq i32 %21, 0
+  %22 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i = icmp eq i32 %22, 0
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then402
@@ -911,10 +912,9 @@ _.exit:                                           ; preds = %if.then402, %if.end
   br label %if.end411
 
 if.end404:                                        ; preds = %land.lhs.true399.if.end404_crit_edge, %if.end394
-  %22 = phi i32 [ %.pre410, %land.lhs.true399.if.end404_crit_edge ], [ 1, %if.end394 ]
+  %tobool407 = phi i1 [ %21, %land.lhs.true399.if.end404_crit_edge ], [ true, %if.end394 ]
   %23 = load i32, ptr %write_midx, align 4
   %tobool405 = icmp ne i32 %23, 0
-  %tobool407 = icmp ne i32 %22, 0
   %or.cond3 = select i1 %tobool405, i1 %tobool407, i1 false
   br i1 %or.cond3, label %if.then408, label %if.end411
 

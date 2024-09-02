@@ -5700,7 +5700,7 @@ define dso_local void @ExecEvalScalarArrayOp(ptr nocapture readnone %0, ptr noun
   %15 = load ptr, ptr %14, align 8
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %161, label %18
+  br i1 %17, label %162, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5722,7 +5722,7 @@ define dso_local void @ExecEvalScalarArrayOp(ptr nocapture readnone %0, ptr noun
   store i64 %31, ptr %32, align 8
   %33 = load ptr, ptr %14, align 8
   store i8 0, ptr %33, align 1
-  br label %161
+  br label %162
 
 34:                                               ; preds = %18
   %35 = getelementptr inbounds i8, ptr %5, i64 40
@@ -5734,7 +5734,7 @@ define dso_local void @ExecEvalScalarArrayOp(ptr nocapture readnone %0, ptr noun
 39:                                               ; preds = %34
   %40 = load ptr, ptr %14, align 8
   store i8 1, ptr %40, align 1
-  br label %161
+  br label %162
 
 41:                                               ; preds = %34
   %42 = load i32, ptr %3, align 8
@@ -5797,12 +5797,12 @@ define dso_local void @ExecEvalScalarArrayOp(ptr nocapture readnone %0, ptr noun
   %82 = getelementptr inbounds i8, ptr %1, i64 56
   br label %83
 
-83:                                               ; preds = %.lr.ph, %154
-  %.086121 = phi i32 [ 0, %.lr.ph ], [ %157, %154 ]
-  %.087120 = phi i32 [ 1, %.lr.ph ], [ %.1, %154 ]
-  %.088119 = phi ptr [ %73, %.lr.ph ], [ %.189, %154 ]
-  %.090117 = phi ptr [ %74, %.lr.ph ], [ %.191135140, %154 ]
-  %.092116 = phi i8 [ 0, %.lr.ph ], [ %.2, %154 ]
+83:                                               ; preds = %.lr.ph, %155
+  %.086121 = phi i32 [ 0, %.lr.ph ], [ %158, %155 ]
+  %.087120 = phi i32 [ 1, %.lr.ph ], [ %.1, %155 ]
+  %.088119 = phi ptr [ %73, %.lr.ph ], [ %.189, %155 ]
+  %.090117 = phi ptr [ %74, %.lr.ph ], [ %.191135140, %155 ]
+  %.092116 = phi i8 [ 0, %.lr.ph ], [ %.2, %155 ]
   %.not105 = icmp eq ptr %.088119, null
   br i1 %.not105, label %89, label %84
 
@@ -5939,52 +5939,52 @@ fetch_att.exit.thread:                            ; preds = %111, %127, %fetch_a
 
 .thread137:                                       ; preds = %146
   store i8 1, ptr %81, align 4
-  br label %154
+  br label %155
 
 147:                                              ; preds = %146, %.thread132
   %.191136 = phi ptr [ %145, %.thread132 ], [ %.090117, %146 ]
   store i8 0, ptr %81, align 4
   %148 = load ptr, ptr %82, align 8
   %149 = tail call i64 %148(ptr noundef nonnull %5) #15
+  %150 = icmp eq i64 %149, 0
   %.pre = load i8, ptr %81, align 4
-  %150 = trunc i8 %.pre to i1
-  br i1 %150, label %154, label %151
+  %151 = trunc i8 %.pre to i1
+  br i1 %151, label %155, label %152
 
-151:                                              ; preds = %147
-  %.not115 = icmp eq i64 %149, 0
-  br i1 %8, label %152, label %153
+152:                                              ; preds = %147
+  br i1 %8, label %153, label %154
 
-152:                                              ; preds = %151
-  br i1 %.not115, label %154, label %._crit_edge
+153:                                              ; preds = %152
+  br i1 %150, label %155, label %._crit_edge
 
-153:                                              ; preds = %151
-  br i1 %.not115, label %._crit_edge, label %154
+154:                                              ; preds = %152
+  br i1 %150, label %._crit_edge, label %155
 
-154:                                              ; preds = %.thread137, %147, %152, %153
-  %.191135140 = phi ptr [ %.191136, %152 ], [ %.191136, %153 ], [ %.191136, %147 ], [ %.090117, %.thread137 ]
-  %.2 = phi i8 [ %.092116, %152 ], [ %.092116, %153 ], [ 1, %147 ], [ 1, %.thread137 ]
-  %155 = shl i32 %.087120, 1
-  %156 = icmp eq i32 %155, 256
-  %spec.select.idx = zext i1 %156 to i64
+155:                                              ; preds = %.thread137, %147, %153, %154
+  %.191135140 = phi ptr [ %.191136, %153 ], [ %.191136, %154 ], [ %.191136, %147 ], [ %.090117, %.thread137 ]
+  %.2 = phi i8 [ %.092116, %153 ], [ %.092116, %154 ], [ 1, %147 ], [ 1, %.thread137 ]
+  %156 = shl i32 %.087120, 1
+  %157 = icmp eq i32 %156, 256
+  %spec.select.idx = zext i1 %157 to i64
   %spec.select = getelementptr i8, ptr %.088119, i64 %spec.select.idx
-  %spec.select113 = select i1 %156, i32 1, i32 %155
+  %spec.select113 = select i1 %157, i32 1, i32 %156
   %.189 = select i1 %.not105, ptr null, ptr %spec.select
   %.1 = select i1 %.not105, i32 %.087120, i32 %spec.select113
-  %157 = add nuw nsw i32 %.086121, 1
-  %exitcond.not = icmp eq i32 %157, %27
+  %158 = add nuw nsw i32 %.086121, 1
+  %exitcond.not = icmp eq i32 %158, %27
   br i1 %exitcond.not, label %._crit_edge, label %83, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %154, %152, %153
-  %.193.ph = phi i8 [ %.2, %154 ], [ 0, %152 ], [ 0, %153 ]
-  %.085.ph = phi i64 [ %59, %154 ], [ 1, %152 ], [ 0, %153 ]
-  %158 = load ptr, ptr %19, align 8
-  store i64 %.085.ph, ptr %158, align 8
-  %159 = load ptr, ptr %14, align 8
-  %160 = and i8 %.193.ph, 1
-  store i8 %160, ptr %159, align 1
-  br label %161
+._crit_edge:                                      ; preds = %155, %153, %154
+  %.193.ph = phi i8 [ %.2, %155 ], [ 0, %153 ], [ 0, %154 ]
+  %.085.ph = phi i64 [ %59, %155 ], [ 1, %153 ], [ 0, %154 ]
+  %159 = load ptr, ptr %19, align 8
+  store i64 %.085.ph, ptr %159, align 8
+  %160 = load ptr, ptr %14, align 8
+  %161 = and i8 %.193.ph, 1
+  store i8 %161, ptr %160, align 1
+  br label %162
 
-161:                                              ; preds = %2, %._crit_edge, %39, %29
+162:                                              ; preds = %2, %._crit_edge, %39, %29
   ret void
 }
 
@@ -6914,11 +6914,11 @@ define dso_local void @ExecEvalXmlExpr(ptr nocapture readnone %0, ptr nocapture 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4
+  %23 = sext i32 %22 to i64
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %18, %20
-  %23 = phi i32 [ %22, %20 ], [ 0, %18 ]
-  %24 = sext i32 %23 to i64
+  %24 = phi i64 [ %23, %20 ], [ 0, %18 ]
   %25 = icmp slt i64 %indvars.iv123, %24
   br i1 %25, label %26, label %36
 

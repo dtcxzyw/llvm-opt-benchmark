@@ -26200,7 +26200,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %45 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 656, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 6109, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
   store ptr %45, ptr %0, align 8
   %46 = icmp ugt i16 %2, 10239
-  br i1 %46, label %47, label %375
+  br i1 %46, label %47, label %378
 
 47:                                               ; preds = %3
   %48 = getelementptr inbounds i8, ptr %45, i64 104
@@ -26284,1343 +26284,1343 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 
 81:                                               ; preds = %77
   %.pre823 = load i32, ptr %66, align 8
-  %.not774 = icmp eq i32 %.pre823, 0
-  br i1 %.not774, label %.loopexit734, label %.lr.ph758
+  %82 = icmp eq i32 %.pre823, 0
+  br i1 %82, label %.loopexit734, label %.lr.ph758
 
 .lr.ph758:                                        ; preds = %81
-  %82 = getelementptr inbounds i8, ptr %45, i64 24
-  %83 = getelementptr inbounds i8, ptr %45, i64 16
-  br label %84
+  %83 = getelementptr inbounds i8, ptr %45, i64 24
+  %84 = getelementptr inbounds i8, ptr %45, i64 16
+  br label %85
 
-84:                                               ; preds = %.lr.ph758, %88
-  %indvars.iv801 = phi i64 [ 0, %.lr.ph758 ], [ %indvars.iv.next802, %88 ]
-  %85 = load ptr, ptr %82, align 8
-  %86 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv801
-  %87 = call i32 @unpack32_array(ptr noundef %86, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not705 = icmp eq i32 %87, 0
-  br i1 %.not705, label %88, label %unpack_step_id_members.exit
+85:                                               ; preds = %.lr.ph758, %89
+  %indvars.iv801 = phi i64 [ 0, %.lr.ph758 ], [ %indvars.iv.next802, %89 ]
+  %86 = load ptr, ptr %83, align 8
+  %87 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv801
+  %88 = call i32 @unpack32_array(ptr noundef %87, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not705 = icmp eq i32 %88, 0
+  br i1 %.not705, label %89, label %unpack_step_id_members.exit
 
-88:                                               ; preds = %84
-  %89 = load i32, ptr %4, align 4
-  %90 = trunc i32 %89 to i16
-  %91 = load ptr, ptr %83, align 8
-  %92 = getelementptr inbounds i16, ptr %91, i64 %indvars.iv801
-  store i16 %90, ptr %92, align 2
+89:                                               ; preds = %85
+  %90 = load i32, ptr %4, align 4
+  %91 = trunc i32 %90 to i16
+  %92 = load ptr, ptr %84, align 8
+  %93 = getelementptr inbounds i16, ptr %92, i64 %indvars.iv801
+  store i16 %91, ptr %93, align 2
   %indvars.iv.next802 = add nuw nsw i64 %indvars.iv801, 1
-  %93 = load i32, ptr %66, align 8
-  %94 = zext i32 %93 to i64
-  %95 = icmp ult i64 %indvars.iv.next802, %94
-  br i1 %95, label %84, label %.loopexit734, !llvm.loop !64
+  %94 = load i32, ptr %66, align 8
+  %95 = zext i32 %94 to i64
+  %96 = icmp ult i64 %indvars.iv.next802, %95
+  br i1 %96, label %85, label %.loopexit734, !llvm.loop !64
 
-.loopexit734:                                     ; preds = %88, %.thread829, %81, %68
-  %96 = getelementptr inbounds i8, ptr %45, i64 12
-  %97 = call i32 @unpack32(ptr noundef nonnull %96, ptr noundef %1) #8
-  %.not629 = icmp eq i32 %97, 0
-  br i1 %.not629, label %98, label %unpack_step_id_members.exit
+.loopexit734:                                     ; preds = %89, %.thread829, %81, %68
+  %97 = getelementptr inbounds i8, ptr %45, i64 12
+  %98 = call i32 @unpack32(ptr noundef nonnull %97, ptr noundef %1) #8
+  %.not629 = icmp eq i32 %98, 0
+  br i1 %.not629, label %99, label %unpack_step_id_members.exit
 
-98:                                               ; preds = %.loopexit734
-  %99 = load i32, ptr %96, align 4
-  switch i32 %99, label %101 [
+99:                                               ; preds = %.loopexit734
+  %100 = load i32, ptr %97, align 4
+  switch i32 %100, label %102 [
     i32 -2, label %.loopexit732
     i32 0, label %.thread831
   ]
 
-.thread831:                                       ; preds = %98
-  %100 = getelementptr inbounds i8, ptr %45, i64 32
-  store ptr null, ptr %100, align 8
+.thread831:                                       ; preds = %99
+  %101 = getelementptr inbounds i8, ptr %45, i64 32
+  store ptr null, ptr %101, align 8
   br label %.loopexit732
 
-101:                                              ; preds = %98
-  %102 = zext i32 %99 to i64
-  %103 = call ptr @slurm_xcalloc(i64 noundef %102, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6139, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %104 = getelementptr inbounds i8, ptr %45, i64 32
-  store ptr %103, ptr %104, align 8
-  %.not632 = icmp eq ptr %103, null
-  br i1 %.not632, label %unpack_step_id_members.exit, label %105
+102:                                              ; preds = %99
+  %103 = zext i32 %100 to i64
+  %104 = call ptr @slurm_xcalloc(i64 noundef %103, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6139, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %105 = getelementptr inbounds i8, ptr %45, i64 32
+  store ptr %104, ptr %105, align 8
+  %.not632 = icmp eq ptr %104, null
+  br i1 %.not632, label %unpack_step_id_members.exit, label %106
 
-105:                                              ; preds = %101
-  %.pre825 = load i32, ptr %96, align 4
-  %.not775 = icmp eq i32 %.pre825, 0
-  br i1 %.not775, label %.loopexit732, label %.lr.ph761
+106:                                              ; preds = %102
+  %.pre825 = load i32, ptr %97, align 4
+  %107 = icmp eq i32 %.pre825, 0
+  br i1 %107, label %.loopexit732, label %.lr.ph761
 
-.lr.ph761:                                        ; preds = %105
-  %106 = getelementptr inbounds i8, ptr %45, i64 32
-  br label %111
+.lr.ph761:                                        ; preds = %106
+  %108 = getelementptr inbounds i8, ptr %45, i64 32
+  br label %113
 
-107:                                              ; preds = %111
+109:                                              ; preds = %113
   %indvars.iv.next805 = add nuw nsw i64 %indvars.iv804, 1
-  %108 = load i32, ptr %96, align 4
-  %109 = zext i32 %108 to i64
-  %110 = icmp ult i64 %indvars.iv.next805, %109
-  br i1 %110, label %111, label %.loopexit732, !llvm.loop !65
+  %110 = load i32, ptr %97, align 4
+  %111 = zext i32 %110 to i64
+  %112 = icmp ult i64 %indvars.iv.next805, %111
+  br i1 %112, label %113, label %.loopexit732, !llvm.loop !65
 
-111:                                              ; preds = %.lr.ph761, %107
-  %indvars.iv804 = phi i64 [ 0, %.lr.ph761 ], [ %indvars.iv.next805, %107 ]
-  %112 = load ptr, ptr %106, align 8
-  %113 = getelementptr inbounds i32, ptr %112, i64 %indvars.iv804
-  %114 = call i32 @unpack32(ptr noundef %113, ptr noundef %1) #8
-  %.not704 = icmp eq i32 %114, 0
-  br i1 %.not704, label %107, label %unpack_step_id_members.exit
+113:                                              ; preds = %.lr.ph761, %109
+  %indvars.iv804 = phi i64 [ 0, %.lr.ph761 ], [ %indvars.iv.next805, %109 ]
+  %114 = load ptr, ptr %108, align 8
+  %115 = getelementptr inbounds i32, ptr %114, i64 %indvars.iv804
+  %116 = call i32 @unpack32(ptr noundef %115, ptr noundef %1) #8
+  %.not704 = icmp eq i32 %116, 0
+  br i1 %.not704, label %109, label %unpack_step_id_members.exit
 
-.loopexit732:                                     ; preds = %107, %.thread831, %105, %98
-  %115 = getelementptr inbounds i8, ptr %45, i64 40
-  %116 = call i32 @unpack32(ptr noundef nonnull %115, ptr noundef %1) #8
-  %.not633 = icmp eq i32 %116, 0
-  br i1 %.not633, label %117, label %unpack_step_id_members.exit
+.loopexit732:                                     ; preds = %109, %.thread831, %106, %99
+  %117 = getelementptr inbounds i8, ptr %45, i64 40
+  %118 = call i32 @unpack32(ptr noundef nonnull %117, ptr noundef %1) #8
+  %.not633 = icmp eq i32 %118, 0
+  br i1 %.not633, label %119, label %unpack_step_id_members.exit
 
-117:                                              ; preds = %.loopexit732
-  %118 = getelementptr inbounds i8, ptr %45, i64 44
-  %119 = call i32 @unpack32(ptr noundef nonnull %118, ptr noundef %1) #8
-  %.not634 = icmp eq i32 %119, 0
-  br i1 %.not634, label %120, label %unpack_step_id_members.exit
+119:                                              ; preds = %.loopexit732
+  %120 = getelementptr inbounds i8, ptr %45, i64 44
+  %121 = call i32 @unpack32(ptr noundef nonnull %120, ptr noundef %1) #8
+  %.not634 = icmp eq i32 %121, 0
+  br i1 %.not634, label %122, label %unpack_step_id_members.exit
 
-120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %45, i64 48
-  %122 = call i32 @unpack32(ptr noundef nonnull %121, ptr noundef %1) #8
-  %.not635 = icmp eq i32 %122, 0
-  br i1 %.not635, label %123, label %unpack_step_id_members.exit
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds i8, ptr %45, i64 48
+  %124 = call i32 @unpack32(ptr noundef nonnull %123, ptr noundef %1) #8
+  %.not635 = icmp eq i32 %124, 0
+  br i1 %.not635, label %125, label %unpack_step_id_members.exit
 
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %45, i64 56
-  %125 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %124, ptr noundef nonnull %5, ptr noundef %1) #8
-  %.not636 = icmp eq i32 %125, 0
-  br i1 %.not636, label %126, label %unpack_step_id_members.exit
+125:                                              ; preds = %122
+  %126 = getelementptr inbounds i8, ptr %45, i64 56
+  %127 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %126, ptr noundef nonnull %5, ptr noundef %1) #8
+  %.not636 = icmp eq i32 %127, 0
+  br i1 %.not636, label %128, label %unpack_step_id_members.exit
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %45, i64 64
-  %128 = call i32 @unpack32(ptr noundef nonnull %127, ptr noundef %1) #8
-  %.not637 = icmp eq i32 %128, 0
-  br i1 %.not637, label %129, label %unpack_step_id_members.exit
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds i8, ptr %45, i64 64
+  %130 = call i32 @unpack32(ptr noundef nonnull %129, ptr noundef %1) #8
+  %.not637 = icmp eq i32 %130, 0
+  br i1 %.not637, label %131, label %unpack_step_id_members.exit
 
-129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %45, i64 72
-  %131 = call i32 @unpack32(ptr noundef nonnull %130, ptr noundef %1) #8
-  %.not638 = icmp eq i32 %131, 0
-  br i1 %.not638, label %132, label %unpack_step_id_members.exit
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds i8, ptr %45, i64 72
+  %133 = call i32 @unpack32(ptr noundef nonnull %132, ptr noundef %1) #8
+  %.not638 = icmp eq i32 %133, 0
+  br i1 %.not638, label %134, label %unpack_step_id_members.exit
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds i8, ptr %45, i64 76
-  %134 = call i32 @unpack16(ptr noundef nonnull %133, ptr noundef %1) #8
-  %.not639 = icmp eq i32 %134, 0
-  br i1 %.not639, label %135, label %unpack_step_id_members.exit
+134:                                              ; preds = %131
+  %135 = getelementptr inbounds i8, ptr %45, i64 76
+  %136 = call i32 @unpack16(ptr noundef nonnull %135, ptr noundef %1) #8
+  %.not639 = icmp eq i32 %136, 0
+  br i1 %.not639, label %137, label %unpack_step_id_members.exit
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %45, i64 78
-  %137 = call i32 @unpack16(ptr noundef nonnull %136, ptr noundef %1) #8
-  %.not640 = icmp eq i32 %137, 0
-  br i1 %.not640, label %138, label %unpack_step_id_members.exit
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds i8, ptr %45, i64 78
+  %139 = call i32 @unpack16(ptr noundef nonnull %138, ptr noundef %1) #8
+  %.not640 = icmp eq i32 %139, 0
+  br i1 %.not640, label %140, label %unpack_step_id_members.exit
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %45, i64 80
-  %140 = call i32 @unpack16(ptr noundef nonnull %139, ptr noundef %1) #8
-  %.not641 = icmp eq i32 %140, 0
-  br i1 %.not641, label %141, label %unpack_step_id_members.exit
+140:                                              ; preds = %137
+  %141 = getelementptr inbounds i8, ptr %45, i64 80
+  %142 = call i32 @unpack16(ptr noundef nonnull %141, ptr noundef %1) #8
+  %.not641 = icmp eq i32 %142, 0
+  br i1 %.not641, label %143, label %unpack_step_id_members.exit
 
-141:                                              ; preds = %138
-  %142 = getelementptr inbounds i8, ptr %45, i64 82
-  %143 = call i32 @unpack16(ptr noundef nonnull %142, ptr noundef %1) #8
-  %.not642 = icmp eq i32 %143, 0
-  br i1 %.not642, label %144, label %unpack_step_id_members.exit
+143:                                              ; preds = %140
+  %144 = getelementptr inbounds i8, ptr %45, i64 82
+  %145 = call i32 @unpack16(ptr noundef nonnull %144, ptr noundef %1) #8
+  %.not642 = icmp eq i32 %145, 0
+  br i1 %.not642, label %146, label %unpack_step_id_members.exit
 
-144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %45, i64 96
-  %146 = call i32 @unpack64(ptr noundef nonnull %145, ptr noundef %1) #8
-  %.not643 = icmp eq i32 %146, 0
-  br i1 %.not643, label %147, label %unpack_step_id_members.exit
+146:                                              ; preds = %143
+  %147 = getelementptr inbounds i8, ptr %45, i64 96
+  %148 = call i32 @unpack64(ptr noundef nonnull %147, ptr noundef %1) #8
+  %.not643 = icmp eq i32 %148, 0
+  br i1 %.not643, label %149, label %unpack_step_id_members.exit
 
-147:                                              ; preds = %144
-  %148 = getelementptr inbounds i8, ptr %45, i64 120
-  %149 = call i32 @unpack64(ptr noundef nonnull %148, ptr noundef %1) #8
-  %.not644 = icmp eq i32 %149, 0
-  br i1 %.not644, label %150, label %unpack_step_id_members.exit
+149:                                              ; preds = %146
+  %150 = getelementptr inbounds i8, ptr %45, i64 120
+  %151 = call i32 @unpack64(ptr noundef nonnull %150, ptr noundef %1) #8
+  %.not644 = icmp eq i32 %151, 0
+  br i1 %.not644, label %152, label %unpack_step_id_members.exit
 
-150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %45, i64 68
-  %152 = call i32 @unpack32(ptr noundef nonnull %151, ptr noundef %1) #8
-  %.not645 = icmp eq i32 %152, 0
-  br i1 %.not645, label %153, label %unpack_step_id_members.exit
+152:                                              ; preds = %149
+  %153 = getelementptr inbounds i8, ptr %45, i64 68
+  %154 = call i32 @unpack32(ptr noundef nonnull %153, ptr noundef %1) #8
+  %.not645 = icmp eq i32 %154, 0
+  br i1 %.not645, label %155, label %unpack_step_id_members.exit
 
-153:                                              ; preds = %150
-  %154 = load i32, ptr %151, align 4
-  %155 = icmp ugt i32 %154, -3
-  br i1 %155, label %unpack_step_id_members.exit, label %156
+155:                                              ; preds = %152
+  %156 = load i32, ptr %153, align 4
+  %157 = icmp ugt i32 %156, -3
+  br i1 %157, label %unpack_step_id_members.exit, label %158
 
-156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %45, i64 146
-  %158 = call i32 @unpack16(ptr noundef nonnull %157, ptr noundef %1) #8
-  %.not646 = icmp eq i32 %158, 0
-  br i1 %.not646, label %159, label %unpack_step_id_members.exit
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds i8, ptr %45, i64 146
+  %160 = call i32 @unpack16(ptr noundef nonnull %159, ptr noundef %1) #8
+  %.not646 = icmp eq i32 %160, 0
+  br i1 %.not646, label %161, label %unpack_step_id_members.exit
 
-159:                                              ; preds = %156
-  %160 = getelementptr inbounds i8, ptr %45, i64 152
-  %161 = getelementptr inbounds i8, ptr %45, i64 160
-  %162 = call i32 @unpack16_array(ptr noundef nonnull %160, ptr noundef nonnull %161, ptr noundef %1) #8
-  %.not647 = icmp eq i32 %162, 0
-  br i1 %.not647, label %163, label %unpack_step_id_members.exit
+161:                                              ; preds = %158
+  %162 = getelementptr inbounds i8, ptr %45, i64 152
+  %163 = getelementptr inbounds i8, ptr %45, i64 160
+  %164 = call i32 @unpack16_array(ptr noundef nonnull %162, ptr noundef nonnull %163, ptr noundef %1) #8
+  %.not647 = icmp eq i32 %164, 0
+  br i1 %.not647, label %165, label %unpack_step_id_members.exit
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %45, i64 168
-  %165 = call i32 @unpack32_array(ptr noundef nonnull %164, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not648 = icmp eq i32 %165, 0
-  br i1 %.not648, label %166, label %unpack_step_id_members.exit
+165:                                              ; preds = %161
+  %166 = getelementptr inbounds i8, ptr %45, i64 168
+  %167 = call i32 @unpack32_array(ptr noundef nonnull %166, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not648 = icmp eq i32 %167, 0
+  br i1 %.not648, label %168, label %unpack_step_id_members.exit
 
-166:                                              ; preds = %163
-  %167 = getelementptr inbounds i8, ptr %45, i64 184
-  %168 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %167, ptr noundef nonnull %6, ptr noundef %1) #8
-  %.not649 = icmp eq i32 %168, 0
-  br i1 %.not649, label %169, label %unpack_step_id_members.exit
+168:                                              ; preds = %165
+  %169 = getelementptr inbounds i8, ptr %45, i64 184
+  %170 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %169, ptr noundef nonnull %6, ptr noundef %1) #8
+  %.not649 = icmp eq i32 %170, 0
+  br i1 %.not649, label %171, label %unpack_step_id_members.exit
 
-169:                                              ; preds = %166
-  %170 = getelementptr inbounds i8, ptr %45, i64 176
-  %171 = call i32 @unpack16(ptr noundef nonnull %170, ptr noundef %1) #8
-  %.not650 = icmp eq i32 %171, 0
-  br i1 %.not650, label %172, label %unpack_step_id_members.exit
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds i8, ptr %45, i64 176
+  %173 = call i32 @unpack16(ptr noundef nonnull %172, ptr noundef %1) #8
+  %.not650 = icmp eq i32 %173, 0
+  br i1 %.not650, label %174, label %unpack_step_id_members.exit
 
-172:                                              ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %45, i64 296
-  %174 = call i32 @unpack32(ptr noundef nonnull %173, ptr noundef %1) #8
-  %.not651 = icmp eq i32 %174, 0
-  br i1 %.not651, label %175, label %unpack_step_id_members.exit
+174:                                              ; preds = %171
+  %175 = getelementptr inbounds i8, ptr %45, i64 296
+  %176 = call i32 @unpack32(ptr noundef nonnull %175, ptr noundef %1) #8
+  %.not651 = icmp eq i32 %176, 0
+  br i1 %.not651, label %177, label %unpack_step_id_members.exit
 
-175:                                              ; preds = %172
-  %176 = getelementptr inbounds i8, ptr %45, i64 144
-  %177 = call i32 @unpack16(ptr noundef nonnull %176, ptr noundef %1) #8
-  %.not652 = icmp eq i32 %177, 0
-  br i1 %.not652, label %178, label %unpack_step_id_members.exit
+177:                                              ; preds = %174
+  %178 = getelementptr inbounds i8, ptr %45, i64 144
+  %179 = call i32 @unpack16(ptr noundef nonnull %178, ptr noundef %1) #8
+  %.not652 = icmp eq i32 %179, 0
+  br i1 %.not652, label %180, label %unpack_step_id_members.exit
 
-178:                                              ; preds = %175
-  %179 = getelementptr inbounds i8, ptr %45, i64 468
-  %180 = call i32 @unpack16(ptr noundef nonnull %179, ptr noundef %1) #8
-  %.not653 = icmp eq i32 %180, 0
-  br i1 %.not653, label %181, label %unpack_step_id_members.exit
+180:                                              ; preds = %177
+  %181 = getelementptr inbounds i8, ptr %45, i64 468
+  %182 = call i32 @unpack16(ptr noundef nonnull %181, ptr noundef %1) #8
+  %.not653 = icmp eq i32 %182, 0
+  br i1 %.not653, label %183, label %unpack_step_id_members.exit
 
-181:                                              ; preds = %178
-  %182 = getelementptr inbounds i8, ptr %45, i64 256
-  %183 = call i32 @unpack16(ptr noundef nonnull %182, ptr noundef %1) #8
-  %.not654 = icmp eq i32 %183, 0
-  br i1 %.not654, label %184, label %unpack_step_id_members.exit
+183:                                              ; preds = %180
+  %184 = getelementptr inbounds i8, ptr %45, i64 256
+  %185 = call i32 @unpack16(ptr noundef nonnull %184, ptr noundef %1) #8
+  %.not654 = icmp eq i32 %185, 0
+  br i1 %.not654, label %186, label %unpack_step_id_members.exit
 
-184:                                              ; preds = %181
-  %185 = getelementptr inbounds i8, ptr %45, i64 538
-  %186 = call i32 @unpack16(ptr noundef nonnull %185, ptr noundef %1) #8
-  %.not655 = icmp eq i32 %186, 0
-  br i1 %.not655, label %187, label %unpack_step_id_members.exit
+186:                                              ; preds = %183
+  %187 = getelementptr inbounds i8, ptr %45, i64 538
+  %188 = call i32 @unpack16(ptr noundef nonnull %187, ptr noundef %1) #8
+  %.not655 = icmp eq i32 %188, 0
+  br i1 %.not655, label %189, label %unpack_step_id_members.exit
 
-187:                                              ; preds = %184
-  %188 = load i16, ptr %185, align 2
-  %189 = call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %188) #8
-  %190 = getelementptr inbounds i8, ptr %45, i64 544
-  store ptr %189, ptr %190, align 8
-  %.not656 = icmp eq ptr %189, null
-  br i1 %.not656, label %unpack_step_id_members.exit, label %191
+189:                                              ; preds = %186
+  %190 = load i16, ptr %187, align 2
+  %191 = call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %190) #8
+  %192 = getelementptr inbounds i8, ptr %45, i64 544
+  store ptr %191, ptr %192, align 8
+  %.not656 = icmp eq ptr %191, null
+  br i1 %.not656, label %unpack_step_id_members.exit, label %193
 
-191:                                              ; preds = %187
-  %192 = load i32, ptr %151, align 4
-  %.not657 = icmp eq i32 %192, 0
-  br i1 %.not657, label %.thread716, label %194
+193:                                              ; preds = %189
+  %194 = load i32, ptr %153, align 4
+  %.not657 = icmp eq i32 %194, 0
+  br i1 %.not657, label %.thread716, label %196
 
-.thread716:                                       ; preds = %191
-  %193 = getelementptr inbounds i8, ptr %45, i64 128
-  store ptr null, ptr %193, align 8
+.thread716:                                       ; preds = %193
+  %195 = getelementptr inbounds i8, ptr %45, i64 128
+  store ptr null, ptr %195, align 8
   br label %.thread833
 
-194:                                              ; preds = %191
-  %195 = zext i32 %192 to i64
-  %196 = call ptr @slurm_xcalloc(i64 noundef %195, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6177, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %197 = getelementptr inbounds i8, ptr %45, i64 128
-  store ptr %196, ptr %197, align 8
-  %.not658 = icmp eq ptr %196, null
-  br i1 %.not658, label %unpack_step_id_members.exit, label %198
+196:                                              ; preds = %193
+  %197 = zext i32 %194 to i64
+  %198 = call ptr @slurm_xcalloc(i64 noundef %197, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6177, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %199 = getelementptr inbounds i8, ptr %45, i64 128
+  store ptr %198, ptr %199, align 8
+  %.not658 = icmp eq ptr %198, null
+  br i1 %.not658, label %unpack_step_id_members.exit, label %200
 
-198:                                              ; preds = %194
-  %.pr715 = load i32, ptr %151, align 4
+200:                                              ; preds = %196
+  %.pr715 = load i32, ptr %153, align 4
   %.not659 = icmp eq i32 %.pr715, 0
-  br i1 %.not659, label %.thread833, label %200
+  br i1 %.not659, label %.thread833, label %202
 
-.thread833:                                       ; preds = %198, %.thread716
-  %199 = getelementptr inbounds i8, ptr %45, i64 304
-  store ptr null, ptr %199, align 8
+.thread833:                                       ; preds = %200, %.thread716
+  %201 = getelementptr inbounds i8, ptr %45, i64 304
+  store ptr null, ptr %201, align 8
   br label %._crit_edge765
 
-200:                                              ; preds = %198
-  %201 = zext i32 %.pr715 to i64
-  %202 = call ptr @slurm_xcalloc(i64 noundef %201, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6179, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %203 = getelementptr inbounds i8, ptr %45, i64 304
-  store ptr %202, ptr %203, align 8
-  %.not660 = icmp eq ptr %202, null
-  br i1 %.not660, label %unpack_step_id_members.exit, label %204
+202:                                              ; preds = %200
+  %203 = zext i32 %.pr715 to i64
+  %204 = call ptr @slurm_xcalloc(i64 noundef %203, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6179, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %205 = getelementptr inbounds i8, ptr %45, i64 304
+  store ptr %204, ptr %205, align 8
+  %.not660 = icmp eq ptr %204, null
+  br i1 %.not660, label %unpack_step_id_members.exit, label %206
 
-204:                                              ; preds = %200
-  %.pre827 = load i32, ptr %151, align 4
-  %.not776 = icmp eq i32 %.pre827, 0
-  br i1 %.not776, label %._crit_edge765, label %.lr.ph764
+206:                                              ; preds = %202
+  %.pre827 = load i32, ptr %153, align 4
+  %207 = icmp eq i32 %.pre827, 0
+  br i1 %207, label %._crit_edge765, label %.lr.ph764
 
-.lr.ph764:                                        ; preds = %204
-  %205 = getelementptr inbounds i8, ptr %45, i64 128
-  %206 = getelementptr inbounds i8, ptr %45, i64 304
-  %.pre828 = load ptr, ptr %205, align 8
-  br label %211
+.lr.ph764:                                        ; preds = %206
+  %208 = getelementptr inbounds i8, ptr %45, i64 128
+  %209 = getelementptr inbounds i8, ptr %45, i64 304
+  %.pre828 = load ptr, ptr %208, align 8
+  br label %214
 
-207:                                              ; preds = %219
+210:                                              ; preds = %222
   %indvars.iv.next808 = add nuw nsw i64 %indvars.iv807, 1
-  %208 = load i32, ptr %151, align 4
-  %209 = zext i32 %208 to i64
-  %210 = icmp ult i64 %indvars.iv.next808, %209
-  br i1 %210, label %211, label %._crit_edge765, !llvm.loop !66
+  %211 = load i32, ptr %153, align 4
+  %212 = zext i32 %211 to i64
+  %213 = icmp ult i64 %indvars.iv.next808, %212
+  br i1 %213, label %214, label %._crit_edge765, !llvm.loop !66
 
-211:                                              ; preds = %.lr.ph764, %207
-  %212 = phi ptr [ %.pre828, %.lr.ph764 ], [ %220, %207 ]
-  %indvars.iv807 = phi i64 [ 0, %.lr.ph764 ], [ %indvars.iv.next808, %207 ]
-  %213 = getelementptr inbounds i16, ptr %212, i64 %indvars.iv807
-  %214 = call i32 @unpack16(ptr noundef %213, ptr noundef %1) #8
-  %.not701 = icmp eq i32 %214, 0
-  br i1 %.not701, label %215, label %unpack_step_id_members.exit
+214:                                              ; preds = %.lr.ph764, %210
+  %215 = phi ptr [ %.pre828, %.lr.ph764 ], [ %223, %210 ]
+  %indvars.iv807 = phi i64 [ 0, %.lr.ph764 ], [ %indvars.iv.next808, %210 ]
+  %216 = getelementptr inbounds i16, ptr %215, i64 %indvars.iv807
+  %217 = call i32 @unpack16(ptr noundef %216, ptr noundef %1) #8
+  %.not701 = icmp eq i32 %217, 0
+  br i1 %.not701, label %218, label %unpack_step_id_members.exit
 
-215:                                              ; preds = %211
-  %216 = load ptr, ptr %206, align 8
-  %217 = getelementptr inbounds ptr, ptr %216, i64 %indvars.iv807
-  %218 = call i32 @unpack32_array(ptr noundef %217, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not702 = icmp eq i32 %218, 0
-  br i1 %.not702, label %219, label %unpack_step_id_members.exit
+218:                                              ; preds = %214
+  %219 = load ptr, ptr %209, align 8
+  %220 = getelementptr inbounds ptr, ptr %219, i64 %indvars.iv807
+  %221 = call i32 @unpack32_array(ptr noundef %220, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not702 = icmp eq i32 %221, 0
+  br i1 %.not702, label %222, label %unpack_step_id_members.exit
 
-219:                                              ; preds = %215
-  %220 = load ptr, ptr %205, align 8
-  %221 = getelementptr inbounds i16, ptr %220, i64 %indvars.iv807
-  %222 = load i16, ptr %221, align 2
-  %223 = load i32, ptr %4, align 4
-  %224 = trunc i32 %223 to i16
-  %.not703 = icmp eq i16 %222, %224
-  br i1 %.not703, label %207, label %unpack_step_id_members.exit
+222:                                              ; preds = %218
+  %223 = load ptr, ptr %208, align 8
+  %224 = getelementptr inbounds i16, ptr %223, i64 %indvars.iv807
+  %225 = load i16, ptr %224, align 2
+  %226 = load i32, ptr %4, align 4
+  %227 = trunc i32 %226 to i16
+  %.not703 = icmp eq i16 %225, %227
+  br i1 %.not703, label %210, label %unpack_step_id_members.exit
 
-._crit_edge765:                                   ; preds = %207, %.thread833, %204
-  %225 = getelementptr inbounds i8, ptr %45, i64 280
-  %226 = call i32 @unpack16(ptr noundef nonnull %225, ptr noundef %1) #8
-  %.not661 = icmp eq i32 %226, 0
-  br i1 %.not661, label %227, label %unpack_step_id_members.exit
+._crit_edge765:                                   ; preds = %210, %.thread833, %206
+  %228 = getelementptr inbounds i8, ptr %45, i64 280
+  %229 = call i32 @unpack16(ptr noundef nonnull %228, ptr noundef %1) #8
+  %.not661 = icmp eq i32 %229, 0
+  br i1 %.not661, label %230, label %unpack_step_id_members.exit
 
-227:                                              ; preds = %._crit_edge765
-  %228 = load i16, ptr %225, align 8
-  %229 = icmp ugt i16 %228, -3
-  br i1 %229, label %unpack_step_id_members.exit, label %230
+230:                                              ; preds = %._crit_edge765
+  %231 = load i16, ptr %228, align 8
+  %232 = icmp ugt i16 %231, -3
+  br i1 %232, label %unpack_step_id_members.exit, label %233
 
-230:                                              ; preds = %227
-  %.not662 = icmp eq i16 %228, 0
-  br i1 %.not662, label %.loopexit729, label %231
+233:                                              ; preds = %230
+  %.not662 = icmp eq i16 %231, 0
+  br i1 %.not662, label %.loopexit729, label %234
 
-231:                                              ; preds = %230
-  %232 = zext i16 %228 to i64
-  %233 = call ptr @slurm_xcalloc(i64 noundef %232, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6193, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %234 = getelementptr inbounds i8, ptr %45, i64 288
-  store ptr %233, ptr %234, align 8
-  %.not663 = icmp eq ptr %233, null
+234:                                              ; preds = %233
+  %235 = zext i16 %231 to i64
+  %236 = call ptr @slurm_xcalloc(i64 noundef %235, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6193, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %237 = getelementptr inbounds i8, ptr %45, i64 288
+  store ptr %236, ptr %237, align 8
+  %.not663 = icmp eq ptr %236, null
   br i1 %.not663, label %unpack_step_id_members.exit, label %.preheader728
 
-.preheader728:                                    ; preds = %231
-  %235 = load i16, ptr %225, align 8
-  %.not777 = icmp eq i16 %235, 0
+.preheader728:                                    ; preds = %234
+  %238 = load i16, ptr %228, align 8
+  %.not777 = icmp eq i16 %238, 0
   br i1 %.not777, label %.loopexit729, label %.lr.ph767
 
-236:                                              ; preds = %.lr.ph767
+239:                                              ; preds = %.lr.ph767
   %indvars.iv.next811 = add nuw nsw i64 %indvars.iv810, 1
-  %237 = load i16, ptr %225, align 8
-  %238 = zext i16 %237 to i64
-  %239 = icmp ult i64 %indvars.iv.next811, %238
-  br i1 %239, label %.lr.ph767, label %.loopexit729, !llvm.loop !67
+  %240 = load i16, ptr %228, align 8
+  %241 = zext i16 %240 to i64
+  %242 = icmp ult i64 %indvars.iv.next811, %241
+  br i1 %242, label %.lr.ph767, label %.loopexit729, !llvm.loop !67
 
-.lr.ph767:                                        ; preds = %.preheader728, %236
-  %indvars.iv810 = phi i64 [ %indvars.iv.next811, %236 ], [ 0, %.preheader728 ]
-  %240 = load ptr, ptr %234, align 8
-  %241 = getelementptr inbounds i16, ptr %240, i64 %indvars.iv810
-  %242 = call i32 @unpack16(ptr noundef %241, ptr noundef %1) #8
-  %.not700 = icmp eq i32 %242, 0
-  br i1 %.not700, label %236, label %unpack_step_id_members.exit
+.lr.ph767:                                        ; preds = %.preheader728, %239
+  %indvars.iv810 = phi i64 [ %indvars.iv.next811, %239 ], [ 0, %.preheader728 ]
+  %243 = load ptr, ptr %237, align 8
+  %244 = getelementptr inbounds i16, ptr %243, i64 %indvars.iv810
+  %245 = call i32 @unpack16(ptr noundef %244, ptr noundef %1) #8
+  %.not700 = icmp eq i32 %245, 0
+  br i1 %.not700, label %239, label %unpack_step_id_members.exit
 
-.loopexit729:                                     ; preds = %236, %.preheader728, %230
-  %243 = getelementptr inbounds i8, ptr %45, i64 312
-  %244 = call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %243, ptr noundef %1) #8
-  %245 = getelementptr inbounds i8, ptr %45, i64 192
-  %246 = getelementptr inbounds i8, ptr %45, i64 136
-  %247 = call i32 @unpackstr_array(ptr noundef nonnull %245, ptr noundef nonnull %246, ptr noundef %1) #8
-  %.not664 = icmp eq i32 %247, 0
-  br i1 %.not664, label %248, label %unpack_step_id_members.exit
+.loopexit729:                                     ; preds = %239, %.preheader728, %233
+  %246 = getelementptr inbounds i8, ptr %45, i64 312
+  %247 = call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %246, ptr noundef %1) #8
+  %248 = getelementptr inbounds i8, ptr %45, i64 192
+  %249 = getelementptr inbounds i8, ptr %45, i64 136
+  %250 = call i32 @unpackstr_array(ptr noundef nonnull %248, ptr noundef nonnull %249, ptr noundef %1) #8
+  %.not664 = icmp eq i32 %250, 0
+  br i1 %.not664, label %251, label %unpack_step_id_members.exit
 
-248:                                              ; preds = %.loopexit729
-  %249 = getelementptr inbounds i8, ptr %45, i64 576
-  %250 = getelementptr inbounds i8, ptr %45, i64 584
-  %251 = call i32 @unpackstr_array(ptr noundef nonnull %249, ptr noundef nonnull %250, ptr noundef %1) #8
-  %.not665 = icmp eq i32 %251, 0
-  br i1 %.not665, label %252, label %unpack_step_id_members.exit
+251:                                              ; preds = %.loopexit729
+  %252 = getelementptr inbounds i8, ptr %45, i64 576
+  %253 = getelementptr inbounds i8, ptr %45, i64 584
+  %254 = call i32 @unpackstr_array(ptr noundef nonnull %252, ptr noundef nonnull %253, ptr noundef %1) #8
+  %.not665 = icmp eq i32 %254, 0
+  br i1 %.not665, label %255, label %unpack_step_id_members.exit
 
-252:                                              ; preds = %248
-  %253 = getelementptr inbounds i8, ptr %45, i64 208
-  %254 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %253, ptr noundef nonnull %7, ptr noundef %1) #8
-  %.not666 = icmp eq i32 %254, 0
-  br i1 %.not666, label %255, label %unpack_step_id_members.exit
-
-255:                                              ; preds = %252
-  %256 = getelementptr inbounds i8, ptr %45, i64 216
-  %257 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %256, ptr noundef nonnull %8, ptr noundef %1) #8
-  %.not667 = icmp eq i32 %257, 0
-  br i1 %.not667, label %258, label %unpack_step_id_members.exit
+255:                                              ; preds = %251
+  %256 = getelementptr inbounds i8, ptr %45, i64 208
+  %257 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %256, ptr noundef nonnull %7, ptr noundef %1) #8
+  %.not666 = icmp eq i32 %257, 0
+  br i1 %.not666, label %258, label %unpack_step_id_members.exit
 
 258:                                              ; preds = %255
-  %259 = getelementptr inbounds i8, ptr %45, i64 224
-  %260 = call i32 @unpack16(ptr noundef nonnull %259, ptr noundef %1) #8
-  %.not668 = icmp eq i32 %260, 0
-  br i1 %.not668, label %261, label %unpack_step_id_members.exit
+  %259 = getelementptr inbounds i8, ptr %45, i64 216
+  %260 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %259, ptr noundef nonnull %8, ptr noundef %1) #8
+  %.not667 = icmp eq i32 %260, 0
+  br i1 %.not667, label %261, label %unpack_step_id_members.exit
 
 261:                                              ; preds = %258
-  %262 = getelementptr inbounds i8, ptr %45, i64 232
-  %263 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %262, ptr noundef nonnull %9, ptr noundef %1) #8
-  %.not669 = icmp eq i32 %263, 0
-  br i1 %.not669, label %264, label %unpack_step_id_members.exit
+  %262 = getelementptr inbounds i8, ptr %45, i64 224
+  %263 = call i32 @unpack16(ptr noundef nonnull %262, ptr noundef %1) #8
+  %.not668 = icmp eq i32 %263, 0
+  br i1 %.not668, label %264, label %unpack_step_id_members.exit
 
 264:                                              ; preds = %261
-  %265 = getelementptr inbounds i8, ptr %45, i64 240
-  %266 = call i32 @unpack16(ptr noundef nonnull %265, ptr noundef %1) #8
-  %.not670 = icmp eq i32 %266, 0
-  br i1 %.not670, label %267, label %unpack_step_id_members.exit
+  %265 = getelementptr inbounds i8, ptr %45, i64 232
+  %266 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %265, ptr noundef nonnull %9, ptr noundef %1) #8
+  %.not669 = icmp eq i32 %266, 0
+  br i1 %.not669, label %267, label %unpack_step_id_members.exit
 
 267:                                              ; preds = %264
-  %268 = getelementptr inbounds i8, ptr %45, i64 248
-  %269 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %268, ptr noundef nonnull %10, ptr noundef %1) #8
-  %.not671 = icmp eq i32 %269, 0
-  br i1 %.not671, label %270, label %unpack_step_id_members.exit
+  %268 = getelementptr inbounds i8, ptr %45, i64 240
+  %269 = call i32 @unpack16(ptr noundef nonnull %268, ptr noundef %1) #8
+  %.not670 = icmp eq i32 %269, 0
+  br i1 %.not670, label %270, label %unpack_step_id_members.exit
 
 270:                                              ; preds = %267
-  %271 = getelementptr inbounds i8, ptr %45, i64 200
-  %272 = getelementptr inbounds i8, ptr %45, i64 140
-  %273 = call i32 @unpackstr_array(ptr noundef nonnull %271, ptr noundef nonnull %272, ptr noundef %1) #8
-  %.not672 = icmp eq i32 %273, 0
-  br i1 %.not672, label %274, label %unpack_step_id_members.exit
+  %271 = getelementptr inbounds i8, ptr %45, i64 248
+  %272 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %271, ptr noundef nonnull %10, ptr noundef %1) #8
+  %.not671 = icmp eq i32 %272, 0
+  br i1 %.not671, label %273, label %unpack_step_id_members.exit
 
-274:                                              ; preds = %270
-  %275 = getelementptr inbounds i8, ptr %45, i64 300
-  %276 = call i32 @unpack32(ptr noundef nonnull %275, ptr noundef %1) #8
-  %.not673 = icmp eq i32 %276, 0
-  br i1 %.not673, label %277, label %unpack_step_id_members.exit
+273:                                              ; preds = %270
+  %274 = getelementptr inbounds i8, ptr %45, i64 200
+  %275 = getelementptr inbounds i8, ptr %45, i64 140
+  %276 = call i32 @unpackstr_array(ptr noundef nonnull %274, ptr noundef nonnull %275, ptr noundef %1) #8
+  %.not672 = icmp eq i32 %276, 0
+  br i1 %.not672, label %277, label %unpack_step_id_members.exit
 
-277:                                              ; preds = %274
-  %278 = getelementptr inbounds i8, ptr %45, i64 472
-  %279 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %278, ptr noundef nonnull %11, ptr noundef %1) #8
-  %.not674 = icmp eq i32 %279, 0
-  br i1 %.not674, label %280, label %unpack_step_id_members.exit
+277:                                              ; preds = %273
+  %278 = getelementptr inbounds i8, ptr %45, i64 300
+  %279 = call i32 @unpack32(ptr noundef nonnull %278, ptr noundef %1) #8
+  %.not673 = icmp eq i32 %279, 0
+  br i1 %.not673, label %280, label %unpack_step_id_members.exit
 
 280:                                              ; preds = %277
-  %281 = getelementptr inbounds i8, ptr %45, i64 480
-  %282 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %281, ptr noundef nonnull %12, ptr noundef %1) #8
-  %.not675 = icmp eq i32 %282, 0
-  br i1 %.not675, label %283, label %unpack_step_id_members.exit
+  %281 = getelementptr inbounds i8, ptr %45, i64 472
+  %282 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %281, ptr noundef nonnull %11, ptr noundef %1) #8
+  %.not674 = icmp eq i32 %282, 0
+  br i1 %.not674, label %283, label %unpack_step_id_members.exit
 
 283:                                              ; preds = %280
-  %284 = getelementptr inbounds i8, ptr %45, i64 488
-  %285 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %284, ptr noundef nonnull %13, ptr noundef %1) #8
-  %.not676 = icmp eq i32 %285, 0
-  br i1 %.not676, label %286, label %unpack_step_id_members.exit
+  %284 = getelementptr inbounds i8, ptr %45, i64 480
+  %285 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %284, ptr noundef nonnull %12, ptr noundef %1) #8
+  %.not675 = icmp eq i32 %285, 0
+  br i1 %.not675, label %286, label %unpack_step_id_members.exit
 
 286:                                              ; preds = %283
-  %287 = getelementptr inbounds i8, ptr %45, i64 496
-  %288 = call i32 @unpack16(ptr noundef nonnull %287, ptr noundef %1) #8
-  %.not677 = icmp eq i32 %288, 0
-  br i1 %.not677, label %289, label %unpack_step_id_members.exit
+  %287 = getelementptr inbounds i8, ptr %45, i64 488
+  %288 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %287, ptr noundef nonnull %13, ptr noundef %1) #8
+  %.not676 = icmp eq i32 %288, 0
+  br i1 %.not676, label %289, label %unpack_step_id_members.exit
 
 289:                                              ; preds = %286
-  %290 = load i16, ptr %287, align 8
-  %291 = icmp ugt i16 %290, -3
-  br i1 %291, label %unpack_step_id_members.exit, label %292
+  %290 = getelementptr inbounds i8, ptr %45, i64 496
+  %291 = call i32 @unpack16(ptr noundef nonnull %290, ptr noundef %1) #8
+  %.not677 = icmp eq i32 %291, 0
+  br i1 %.not677, label %292, label %unpack_step_id_members.exit
 
 292:                                              ; preds = %289
-  %.not678 = icmp eq i16 %290, 0
-  br i1 %.not678, label %.loopexit, label %293
+  %293 = load i16, ptr %290, align 8
+  %294 = icmp ugt i16 %293, -3
+  br i1 %294, label %unpack_step_id_members.exit, label %295
 
-293:                                              ; preds = %292
-  %294 = zext i16 %290 to i64
-  %295 = call ptr @slurm_xcalloc(i64 noundef %294, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6217, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %296 = getelementptr inbounds i8, ptr %45, i64 504
-  store ptr %295, ptr %296, align 8
-  %.not679 = icmp eq ptr %295, null
+295:                                              ; preds = %292
+  %.not678 = icmp eq i16 %293, 0
+  br i1 %.not678, label %.loopexit, label %296
+
+296:                                              ; preds = %295
+  %297 = zext i16 %293 to i64
+  %298 = call ptr @slurm_xcalloc(i64 noundef %297, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6217, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %299 = getelementptr inbounds i8, ptr %45, i64 504
+  store ptr %298, ptr %299, align 8
+  %.not679 = icmp eq ptr %298, null
   br i1 %.not679, label %unpack_step_id_members.exit, label %.preheader
 
-.preheader:                                       ; preds = %293
-  %297 = load i16, ptr %287, align 8
-  %.not778 = icmp eq i16 %297, 0
+.preheader:                                       ; preds = %296
+  %300 = load i16, ptr %290, align 8
+  %.not778 = icmp eq i16 %300, 0
   br i1 %.not778, label %.loopexit, label %.lr.ph769
 
-298:                                              ; preds = %.lr.ph769
+301:                                              ; preds = %.lr.ph769
   %indvars.iv.next814 = add nuw nsw i64 %indvars.iv813, 1
-  %299 = load i16, ptr %287, align 8
-  %300 = zext i16 %299 to i64
-  %301 = icmp ult i64 %indvars.iv.next814, %300
-  br i1 %301, label %.lr.ph769, label %.loopexit, !llvm.loop !68
+  %302 = load i16, ptr %290, align 8
+  %303 = zext i16 %302 to i64
+  %304 = icmp ult i64 %indvars.iv.next814, %303
+  br i1 %304, label %.lr.ph769, label %.loopexit, !llvm.loop !68
 
-.lr.ph769:                                        ; preds = %.preheader, %298
-  %indvars.iv813 = phi i64 [ %indvars.iv.next814, %298 ], [ 0, %.preheader ]
-  %302 = load ptr, ptr %296, align 8
-  %303 = getelementptr inbounds i16, ptr %302, i64 %indvars.iv813
-  %304 = call i32 @unpack16(ptr noundef %303, ptr noundef %1) #8
-  %.not699 = icmp eq i32 %304, 0
-  br i1 %.not699, label %298, label %unpack_step_id_members.exit
+.lr.ph769:                                        ; preds = %.preheader, %301
+  %indvars.iv813 = phi i64 [ %indvars.iv.next814, %301 ], [ 0, %.preheader ]
+  %305 = load ptr, ptr %299, align 8
+  %306 = getelementptr inbounds i16, ptr %305, i64 %indvars.iv813
+  %307 = call i32 @unpack16(ptr noundef %306, ptr noundef %1) #8
+  %.not699 = icmp eq i32 %307, 0
+  br i1 %.not699, label %301, label %unpack_step_id_members.exit
 
-.loopexit:                                        ; preds = %298, %.preheader, %292
-  %305 = getelementptr inbounds i8, ptr %45, i64 512
-  %306 = call i32 @unpack32(ptr noundef nonnull %305, ptr noundef %1) #8
-  %.not680 = icmp eq i32 %306, 0
-  br i1 %.not680, label %307, label %unpack_step_id_members.exit
+.loopexit:                                        ; preds = %301, %.preheader, %295
+  %308 = getelementptr inbounds i8, ptr %45, i64 512
+  %309 = call i32 @unpack32(ptr noundef nonnull %308, ptr noundef %1) #8
+  %.not680 = icmp eq i32 %309, 0
+  br i1 %.not680, label %310, label %unpack_step_id_members.exit
 
-307:                                              ; preds = %.loopexit
-  %308 = getelementptr inbounds i8, ptr %45, i64 520
-  %309 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %308, ptr noundef nonnull %14, ptr noundef %1) #8
-  %.not681 = icmp eq i32 %309, 0
-  br i1 %.not681, label %310, label %unpack_step_id_members.exit
-
-310:                                              ; preds = %307
-  %311 = getelementptr inbounds i8, ptr %45, i64 528
-  %312 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %311, ptr noundef nonnull %15, ptr noundef %1) #8
-  %.not682 = icmp eq i32 %312, 0
-  br i1 %.not682, label %313, label %unpack_step_id_members.exit
+310:                                              ; preds = %.loopexit
+  %311 = getelementptr inbounds i8, ptr %45, i64 520
+  %312 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %311, ptr noundef nonnull %14, ptr noundef %1) #8
+  %.not681 = icmp eq i32 %312, 0
+  br i1 %.not681, label %313, label %unpack_step_id_members.exit
 
 313:                                              ; preds = %310
-  %314 = getelementptr inbounds i8, ptr %45, i64 536
-  %315 = call i32 @unpack16(ptr noundef nonnull %314, ptr noundef %1) #8
-  %.not683 = icmp eq i32 %315, 0
-  br i1 %.not683, label %316, label %unpack_step_id_members.exit
+  %314 = getelementptr inbounds i8, ptr %45, i64 528
+  %315 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %314, ptr noundef nonnull %15, ptr noundef %1) #8
+  %.not682 = icmp eq i32 %315, 0
+  br i1 %.not682, label %316, label %unpack_step_id_members.exit
 
 316:                                              ; preds = %313
-  %317 = getelementptr inbounds i8, ptr %45, i64 552
-  %318 = call i32 @switch_g_unpack_jobinfo(ptr noundef nonnull %317, ptr noundef %1, i16 noundef zeroext %2) #8
-  %319 = icmp slt i32 %318, 0
-  br i1 %319, label %320, label %323
+  %317 = getelementptr inbounds i8, ptr %45, i64 536
+  %318 = call i32 @unpack16(ptr noundef nonnull %317, ptr noundef %1) #8
+  %.not683 = icmp eq i32 %318, 0
+  br i1 %.not683, label %319, label %unpack_step_id_members.exit
 
-320:                                              ; preds = %316
-  %321 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13) #8
-  %322 = load ptr, ptr %317, align 8
-  call void @switch_g_free_jobinfo(ptr noundef %322) #8
+319:                                              ; preds = %316
+  %320 = getelementptr inbounds i8, ptr %45, i64 552
+  %321 = call i32 @switch_g_unpack_jobinfo(ptr noundef nonnull %320, ptr noundef %1, i16 noundef zeroext %2) #8
+  %322 = icmp slt i32 %321, 0
+  br i1 %322, label %323, label %326
+
+323:                                              ; preds = %319
+  %324 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13) #8
+  %325 = load ptr, ptr %320, align 8
+  call void @switch_g_free_jobinfo(ptr noundef %325) #8
   br label %unpack_step_id_members.exit
 
-323:                                              ; preds = %316
-  %324 = call ptr @job_options_create() #8
-  %325 = getelementptr inbounds i8, ptr %45, i64 560
-  store ptr %324, ptr %325, align 8
-  %326 = call i32 @job_options_unpack(ptr noundef %324, ptr noundef %1) #8
-  %327 = icmp slt i32 %326, 0
-  br i1 %327, label %328, label %330
+326:                                              ; preds = %319
+  %327 = call ptr @job_options_create() #8
+  %328 = getelementptr inbounds i8, ptr %45, i64 560
+  store ptr %327, ptr %328, align 8
+  %329 = call i32 @job_options_unpack(ptr noundef %327, ptr noundef %1) #8
+  %330 = icmp slt i32 %329, 0
+  br i1 %330, label %331, label %333
 
-328:                                              ; preds = %323
-  %329 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14) #8
+331:                                              ; preds = %326
+  %332 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14) #8
   br label %unpack_step_id_members.exit
 
-330:                                              ; preds = %323
-  %331 = getelementptr inbounds i8, ptr %45, i64 600
-  %332 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %331, ptr noundef nonnull %16, ptr noundef %1) #8
-  %.not684 = icmp eq i32 %332, 0
-  br i1 %.not684, label %333, label %unpack_step_id_members.exit
-
-333:                                              ; preds = %330
-  %334 = getelementptr inbounds i8, ptr %45, i64 568
-  %335 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %334, ptr noundef nonnull %17, ptr noundef %1) #8
-  %.not685 = icmp eq i32 %335, 0
-  br i1 %.not685, label %336, label %unpack_step_id_members.exit
+333:                                              ; preds = %326
+  %334 = getelementptr inbounds i8, ptr %45, i64 600
+  %335 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %334, ptr noundef nonnull %16, ptr noundef %1) #8
+  %.not684 = icmp eq i32 %335, 0
+  br i1 %.not684, label %336, label %unpack_step_id_members.exit
 
 336:                                              ; preds = %333
-  %337 = getelementptr inbounds i8, ptr %45, i64 440
-  %338 = call i32 @unpack8(ptr noundef nonnull %337, ptr noundef %1) #8
-  %.not686 = icmp eq i32 %338, 0
-  br i1 %.not686, label %339, label %unpack_step_id_members.exit
+  %337 = getelementptr inbounds i8, ptr %45, i64 568
+  %338 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %337, ptr noundef nonnull %17, ptr noundef %1) #8
+  %.not685 = icmp eq i32 %338, 0
+  br i1 %.not685, label %339, label %unpack_step_id_members.exit
 
 339:                                              ; preds = %336
-  %340 = getelementptr inbounds i8, ptr %45, i64 448
-  %341 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %340, ptr noundef nonnull %18, ptr noundef %1) #8
-  %.not687 = icmp eq i32 %341, 0
-  br i1 %.not687, label %342, label %unpack_step_id_members.exit
+  %340 = getelementptr inbounds i8, ptr %45, i64 440
+  %341 = call i32 @unpack8(ptr noundef nonnull %340, ptr noundef %1) #8
+  %.not686 = icmp eq i32 %341, 0
+  br i1 %.not686, label %342, label %unpack_step_id_members.exit
 
 342:                                              ; preds = %339
-  %343 = getelementptr inbounds i8, ptr %45, i64 456
-  %344 = call i32 @unpack32(ptr noundef nonnull %343, ptr noundef %1) #8
-  %.not688 = icmp eq i32 %344, 0
-  br i1 %.not688, label %345, label %unpack_step_id_members.exit
+  %343 = getelementptr inbounds i8, ptr %45, i64 448
+  %344 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %343, ptr noundef nonnull %18, ptr noundef %1) #8
+  %.not687 = icmp eq i32 %344, 0
+  br i1 %.not687, label %345, label %unpack_step_id_members.exit
 
 345:                                              ; preds = %342
-  %346 = getelementptr inbounds i8, ptr %45, i64 460
+  %346 = getelementptr inbounds i8, ptr %45, i64 456
   %347 = call i32 @unpack32(ptr noundef nonnull %346, ptr noundef %1) #8
-  %.not689 = icmp eq i32 %347, 0
-  br i1 %.not689, label %348, label %unpack_step_id_members.exit
+  %.not688 = icmp eq i32 %347, 0
+  br i1 %.not688, label %348, label %unpack_step_id_members.exit
 
 348:                                              ; preds = %345
-  %349 = getelementptr inbounds i8, ptr %45, i64 464
+  %349 = getelementptr inbounds i8, ptr %45, i64 460
   %350 = call i32 @unpack32(ptr noundef nonnull %349, ptr noundef %1) #8
-  %.not690 = icmp eq i32 %350, 0
-  br i1 %.not690, label %351, label %unpack_step_id_members.exit
+  %.not689 = icmp eq i32 %350, 0
+  br i1 %.not689, label %351, label %unpack_step_id_members.exit
 
 351:                                              ; preds = %348
-  %352 = getelementptr inbounds i8, ptr %45, i64 264
-  %353 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %352, ptr noundef nonnull %19, ptr noundef %1) #8
-  %.not691 = icmp eq i32 %353, 0
-  br i1 %.not691, label %354, label %unpack_step_id_members.exit
+  %352 = getelementptr inbounds i8, ptr %45, i64 464
+  %353 = call i32 @unpack32(ptr noundef nonnull %352, ptr noundef %1) #8
+  %.not690 = icmp eq i32 %353, 0
+  br i1 %.not690, label %354, label %unpack_step_id_members.exit
 
 354:                                              ; preds = %351
-  %355 = getelementptr inbounds i8, ptr %45, i64 272
-  %356 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %355, ptr noundef nonnull %20, ptr noundef %1) #8
-  %.not692 = icmp eq i32 %356, 0
-  br i1 %.not692, label %357, label %unpack_step_id_members.exit
+  %355 = getelementptr inbounds i8, ptr %45, i64 264
+  %356 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %355, ptr noundef nonnull %19, ptr noundef %1) #8
+  %.not691 = icmp eq i32 %356, 0
+  br i1 %.not691, label %357, label %unpack_step_id_members.exit
 
 357:                                              ; preds = %354
-  %358 = getelementptr inbounds i8, ptr %45, i64 608
-  %359 = call i32 @unpack16(ptr noundef nonnull %358, ptr noundef %1) #8
-  %.not693 = icmp eq i32 %359, 0
-  br i1 %.not693, label %360, label %unpack_step_id_members.exit
+  %358 = getelementptr inbounds i8, ptr %45, i64 272
+  %359 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %358, ptr noundef nonnull %20, ptr noundef %1) #8
+  %.not692 = icmp eq i32 %359, 0
+  br i1 %.not692, label %360, label %unpack_step_id_members.exit
 
 360:                                              ; preds = %357
-  %361 = getelementptr inbounds i8, ptr %45, i64 616
-  %362 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %361, ptr noundef nonnull %21, ptr noundef %1) #8
-  %.not694 = icmp eq i32 %362, 0
-  br i1 %.not694, label %363, label %unpack_step_id_members.exit
+  %361 = getelementptr inbounds i8, ptr %45, i64 608
+  %362 = call i32 @unpack16(ptr noundef nonnull %361, ptr noundef %1) #8
+  %.not693 = icmp eq i32 %362, 0
+  br i1 %.not693, label %363, label %unpack_step_id_members.exit
 
 363:                                              ; preds = %360
-  %364 = getelementptr inbounds i8, ptr %45, i64 624
-  %365 = call i32 @unpack16(ptr noundef nonnull %364, ptr noundef %1) #8
-  %.not695 = icmp eq i32 %365, 0
-  br i1 %.not695, label %366, label %unpack_step_id_members.exit
+  %364 = getelementptr inbounds i8, ptr %45, i64 616
+  %365 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %364, ptr noundef nonnull %21, ptr noundef %1) #8
+  %.not694 = icmp eq i32 %365, 0
+  br i1 %.not694, label %366, label %unpack_step_id_members.exit
 
 366:                                              ; preds = %363
-  %367 = getelementptr inbounds i8, ptr %45, i64 632
-  %368 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %367, ptr noundef nonnull %22, ptr noundef %1) #8
-  %.not696 = icmp eq i32 %368, 0
-  br i1 %.not696, label %369, label %unpack_step_id_members.exit
+  %367 = getelementptr inbounds i8, ptr %45, i64 624
+  %368 = call i32 @unpack16(ptr noundef nonnull %367, ptr noundef %1) #8
+  %.not695 = icmp eq i32 %368, 0
+  br i1 %.not695, label %369, label %unpack_step_id_members.exit
 
 369:                                              ; preds = %366
-  %370 = getelementptr inbounds i8, ptr %45, i64 640
-  %371 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %370, ptr noundef nonnull %23, ptr noundef %1) #8
-  %.not697 = icmp eq i32 %371, 0
-  br i1 %.not697, label %372, label %unpack_step_id_members.exit
+  %370 = getelementptr inbounds i8, ptr %45, i64 632
+  %371 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %370, ptr noundef nonnull %22, ptr noundef %1) #8
+  %.not696 = icmp eq i32 %371, 0
+  br i1 %.not696, label %372, label %unpack_step_id_members.exit
 
 372:                                              ; preds = %369
-  %373 = getelementptr inbounds i8, ptr %45, i64 648
-  %374 = call i32 @unpack16(ptr noundef nonnull %373, ptr noundef %1) #8
-  %.not698 = icmp eq i32 %374, 0
-  br i1 %.not698, label %708, label %unpack_step_id_members.exit
+  %373 = getelementptr inbounds i8, ptr %45, i64 640
+  %374 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %373, ptr noundef nonnull %23, ptr noundef %1) #8
+  %.not697 = icmp eq i32 %374, 0
+  br i1 %.not697, label %375, label %unpack_step_id_members.exit
 
-375:                                              ; preds = %3
-  %376 = icmp ugt i16 %2, 9983
-  br i1 %376, label %377, label %708
+375:                                              ; preds = %372
+  %376 = getelementptr inbounds i8, ptr %45, i64 648
+  %377 = call i32 @unpack16(ptr noundef nonnull %376, ptr noundef %1) #8
+  %.not698 = icmp eq i32 %377, 0
+  br i1 %.not698, label %714, label %unpack_step_id_members.exit
 
-377:                                              ; preds = %375
-  %378 = getelementptr inbounds i8, ptr %45, i64 104
-  %379 = tail call i32 @unpack32(ptr noundef nonnull %378, ptr noundef %1) #8
-  %.not.i707 = icmp eq i32 %379, 0
-  br i1 %.not.i707, label %380, label %unpack_step_id_members.exit
+378:                                              ; preds = %3
+  %379 = icmp ugt i16 %2, 9983
+  br i1 %379, label %380, label %714
 
-380:                                              ; preds = %377
-  %381 = getelementptr inbounds i8, ptr %45, i64 112
+380:                                              ; preds = %378
+  %381 = getelementptr inbounds i8, ptr %45, i64 104
   %382 = tail call i32 @unpack32(ptr noundef nonnull %381, ptr noundef %1) #8
-  %.not9.i708 = icmp eq i32 %382, 0
-  br i1 %.not9.i708, label %383, label %unpack_step_id_members.exit
+  %.not.i707 = icmp eq i32 %382, 0
+  br i1 %.not.i707, label %383, label %unpack_step_id_members.exit
 
 383:                                              ; preds = %380
-  %384 = getelementptr inbounds i8, ptr %45, i64 108
+  %384 = getelementptr inbounds i8, ptr %45, i64 112
   %385 = tail call i32 @unpack32(ptr noundef nonnull %384, ptr noundef %1) #8
-  %.not10.i709 = icmp eq i32 %385, 0
-  br i1 %.not10.i709, label %386, label %unpack_step_id_members.exit
+  %.not9.i708 = icmp eq i32 %385, 0
+  br i1 %.not9.i708, label %386, label %unpack_step_id_members.exit
 
 386:                                              ; preds = %383
-  %387 = call i32 @unpack32(ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not532 = icmp eq i32 %387, 0
-  br i1 %.not532, label %388, label %unpack_step_id_members.exit
+  %387 = getelementptr inbounds i8, ptr %45, i64 108
+  %388 = tail call i32 @unpack32(ptr noundef nonnull %387, ptr noundef %1) #8
+  %.not10.i709 = icmp eq i32 %388, 0
+  br i1 %.not10.i709, label %389, label %unpack_step_id_members.exit
 
-388:                                              ; preds = %386
-  %389 = call i32 @unpack32(ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not533 = icmp eq i32 %389, 0
-  br i1 %.not533, label %390, label %unpack_step_id_members.exit
+389:                                              ; preds = %386
+  %390 = call i32 @unpack32(ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not532 = icmp eq i32 %390, 0
+  br i1 %.not532, label %391, label %unpack_step_id_members.exit
 
-390:                                              ; preds = %388
+391:                                              ; preds = %389
+  %392 = call i32 @unpack32(ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not533 = icmp eq i32 %392, 0
+  br i1 %.not533, label %393, label %unpack_step_id_members.exit
+
+393:                                              ; preds = %391
   store ptr null, ptr %24, align 8
-  %391 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %1) #8
-  %.not534 = icmp eq i32 %391, 0
-  br i1 %.not534, label %392, label %unpack_step_id_members.exit
+  %394 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %1) #8
+  %.not534 = icmp eq i32 %394, 0
+  br i1 %.not534, label %395, label %unpack_step_id_members.exit
 
-392:                                              ; preds = %390
+395:                                              ; preds = %393
   call void @slurm_xfree(ptr noundef nonnull %24) #8
-  %393 = getelementptr inbounds i8, ptr %45, i64 88
-  %394 = getelementptr inbounds i8, ptr %45, i64 84
-  %395 = call i32 @unpack32_array(ptr noundef nonnull %393, ptr noundef nonnull %394, ptr noundef %1) #8
-  %.not535 = icmp eq i32 %395, 0
-  br i1 %.not535, label %396, label %unpack_step_id_members.exit
+  %396 = getelementptr inbounds i8, ptr %45, i64 88
+  %397 = getelementptr inbounds i8, ptr %45, i64 84
+  %398 = call i32 @unpack32_array(ptr noundef nonnull %396, ptr noundef nonnull %397, ptr noundef %1) #8
+  %.not535 = icmp eq i32 %398, 0
+  br i1 %.not535, label %399, label %unpack_step_id_members.exit
 
-396:                                              ; preds = %392
-  %397 = call i32 @unpack32(ptr noundef %45, ptr noundef %1) #8
-  %.not536 = icmp eq i32 %397, 0
-  br i1 %.not536, label %398, label %unpack_step_id_members.exit
+399:                                              ; preds = %395
+  %400 = call i32 @unpack32(ptr noundef %45, ptr noundef %1) #8
+  %.not536 = icmp eq i32 %400, 0
+  br i1 %.not536, label %401, label %unpack_step_id_members.exit
 
-398:                                              ; preds = %396
-  %399 = getelementptr inbounds i8, ptr %45, i64 4
-  %400 = call i32 @unpack32(ptr noundef nonnull %399, ptr noundef %1) #8
-  %.not537 = icmp eq i32 %400, 0
-  br i1 %.not537, label %401, label %unpack_step_id_members.exit
-
-401:                                              ; preds = %398
-  %402 = getelementptr inbounds i8, ptr %45, i64 8
+401:                                              ; preds = %399
+  %402 = getelementptr inbounds i8, ptr %45, i64 4
   %403 = call i32 @unpack32(ptr noundef nonnull %402, ptr noundef %1) #8
-  %.not538 = icmp eq i32 %403, 0
-  br i1 %.not538, label %404, label %unpack_step_id_members.exit
+  %.not537 = icmp eq i32 %403, 0
+  br i1 %.not537, label %404, label %unpack_step_id_members.exit
 
 404:                                              ; preds = %401
-  %405 = load i32, ptr %402, align 8
-  switch i32 %405, label %407 [
+  %405 = getelementptr inbounds i8, ptr %45, i64 8
+  %406 = call i32 @unpack32(ptr noundef nonnull %405, ptr noundef %1) #8
+  %.not538 = icmp eq i32 %406, 0
+  br i1 %.not538, label %407, label %unpack_step_id_members.exit
+
+407:                                              ; preds = %404
+  %408 = load i32, ptr %405, align 8
+  switch i32 %408, label %410 [
     i32 -2, label %.loopexit745
     i32 0, label %.thread722
   ]
 
-.thread722:                                       ; preds = %404
-  %406 = getelementptr inbounds i8, ptr %45, i64 16
-  store ptr null, ptr %406, align 8
+.thread722:                                       ; preds = %407
+  %409 = getelementptr inbounds i8, ptr %45, i64 16
+  store ptr null, ptr %409, align 8
   br label %.thread835
 
-407:                                              ; preds = %404
-  %408 = zext i32 %405 to i64
-  %409 = call ptr @slurm_xcalloc(i64 noundef %408, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6270, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %410 = getelementptr inbounds i8, ptr %45, i64 16
-  store ptr %409, ptr %410, align 8
-  %.not541 = icmp eq ptr %409, null
-  br i1 %.not541, label %unpack_step_id_members.exit, label %411
+410:                                              ; preds = %407
+  %411 = zext i32 %408 to i64
+  %412 = call ptr @slurm_xcalloc(i64 noundef %411, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6270, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %413 = getelementptr inbounds i8, ptr %45, i64 16
+  store ptr %412, ptr %413, align 8
+  %.not541 = icmp eq ptr %412, null
+  br i1 %.not541, label %unpack_step_id_members.exit, label %414
 
-411:                                              ; preds = %407
-  %.pr721 = load i32, ptr %402, align 8
+414:                                              ; preds = %410
+  %.pr721 = load i32, ptr %405, align 8
   %.not542 = icmp eq i32 %.pr721, 0
-  br i1 %.not542, label %.thread835, label %413
+  br i1 %.not542, label %.thread835, label %416
 
-.thread835:                                       ; preds = %411, %.thread722
-  %412 = getelementptr inbounds i8, ptr %45, i64 24
-  store ptr null, ptr %412, align 8
+.thread835:                                       ; preds = %414, %.thread722
+  %415 = getelementptr inbounds i8, ptr %45, i64 24
+  store ptr null, ptr %415, align 8
   br label %.loopexit745
 
-413:                                              ; preds = %411
-  %414 = zext i32 %.pr721 to i64
-  %415 = call ptr @slurm_xcalloc(i64 noundef %414, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6272, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %416 = getelementptr inbounds i8, ptr %45, i64 24
-  store ptr %415, ptr %416, align 8
-  %.not543 = icmp eq ptr %415, null
-  br i1 %.not543, label %unpack_step_id_members.exit, label %417
+416:                                              ; preds = %414
+  %417 = zext i32 %.pr721 to i64
+  %418 = call ptr @slurm_xcalloc(i64 noundef %417, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6272, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %419 = getelementptr inbounds i8, ptr %45, i64 24
+  store ptr %418, ptr %419, align 8
+  %.not543 = icmp eq ptr %418, null
+  br i1 %.not543, label %unpack_step_id_members.exit, label %420
 
-417:                                              ; preds = %413
-  %.pre = load i32, ptr %402, align 8
-  %.not = icmp eq i32 %.pre, 0
-  br i1 %.not, label %.loopexit745, label %.lr.ph
+420:                                              ; preds = %416
+  %.pre = load i32, ptr %405, align 8
+  %421 = icmp eq i32 %.pre, 0
+  br i1 %421, label %.loopexit745, label %.lr.ph
 
-.lr.ph:                                           ; preds = %417
-  %418 = getelementptr inbounds i8, ptr %45, i64 24
-  %419 = getelementptr inbounds i8, ptr %45, i64 16
-  br label %420
+.lr.ph:                                           ; preds = %420
+  %422 = getelementptr inbounds i8, ptr %45, i64 24
+  %423 = getelementptr inbounds i8, ptr %45, i64 16
+  br label %424
 
-420:                                              ; preds = %.lr.ph, %424
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %424 ]
-  %421 = load ptr, ptr %418, align 8
-  %422 = getelementptr inbounds ptr, ptr %421, i64 %indvars.iv
-  %423 = call i32 @unpack32_array(ptr noundef %422, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not618 = icmp eq i32 %423, 0
-  br i1 %.not618, label %424, label %unpack_step_id_members.exit
+424:                                              ; preds = %.lr.ph, %428
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %428 ]
+  %425 = load ptr, ptr %422, align 8
+  %426 = getelementptr inbounds ptr, ptr %425, i64 %indvars.iv
+  %427 = call i32 @unpack32_array(ptr noundef %426, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not618 = icmp eq i32 %427, 0
+  br i1 %.not618, label %428, label %unpack_step_id_members.exit
 
-424:                                              ; preds = %420
-  %425 = load i32, ptr %4, align 4
-  %426 = trunc i32 %425 to i16
-  %427 = load ptr, ptr %419, align 8
-  %428 = getelementptr inbounds i16, ptr %427, i64 %indvars.iv
-  store i16 %426, ptr %428, align 2
+428:                                              ; preds = %424
+  %429 = load i32, ptr %4, align 4
+  %430 = trunc i32 %429 to i16
+  %431 = load ptr, ptr %423, align 8
+  %432 = getelementptr inbounds i16, ptr %431, i64 %indvars.iv
+  store i16 %430, ptr %432, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %429 = load i32, ptr %402, align 8
-  %430 = zext i32 %429 to i64
-  %431 = icmp ult i64 %indvars.iv.next, %430
-  br i1 %431, label %420, label %.loopexit745, !llvm.loop !69
+  %433 = load i32, ptr %405, align 8
+  %434 = zext i32 %433 to i64
+  %435 = icmp ult i64 %indvars.iv.next, %434
+  br i1 %435, label %424, label %.loopexit745, !llvm.loop !69
 
-.loopexit745:                                     ; preds = %424, %.thread835, %417, %404
-  %432 = getelementptr inbounds i8, ptr %45, i64 12
-  %433 = call i32 @unpack32(ptr noundef nonnull %432, ptr noundef %1) #8
-  %.not544 = icmp eq i32 %433, 0
-  br i1 %.not544, label %434, label %unpack_step_id_members.exit
+.loopexit745:                                     ; preds = %428, %.thread835, %420, %407
+  %436 = getelementptr inbounds i8, ptr %45, i64 12
+  %437 = call i32 @unpack32(ptr noundef nonnull %436, ptr noundef %1) #8
+  %.not544 = icmp eq i32 %437, 0
+  br i1 %.not544, label %438, label %unpack_step_id_members.exit
 
-434:                                              ; preds = %.loopexit745
-  %435 = load i32, ptr %432, align 4
-  switch i32 %435, label %437 [
+438:                                              ; preds = %.loopexit745
+  %439 = load i32, ptr %436, align 4
+  switch i32 %439, label %441 [
     i32 -2, label %.loopexit743
     i32 0, label %.thread837
   ]
 
-.thread837:                                       ; preds = %434
-  %436 = getelementptr inbounds i8, ptr %45, i64 32
-  store ptr null, ptr %436, align 8
+.thread837:                                       ; preds = %438
+  %440 = getelementptr inbounds i8, ptr %45, i64 32
+  store ptr null, ptr %440, align 8
   br label %.loopexit743
 
-437:                                              ; preds = %434
-  %438 = zext i32 %435 to i64
-  %439 = call ptr @slurm_xcalloc(i64 noundef %438, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6284, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %440 = getelementptr inbounds i8, ptr %45, i64 32
-  store ptr %439, ptr %440, align 8
-  %.not547 = icmp eq ptr %439, null
-  br i1 %.not547, label %unpack_step_id_members.exit, label %441
+441:                                              ; preds = %438
+  %442 = zext i32 %439 to i64
+  %443 = call ptr @slurm_xcalloc(i64 noundef %442, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6284, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %444 = getelementptr inbounds i8, ptr %45, i64 32
+  store ptr %443, ptr %444, align 8
+  %.not547 = icmp eq ptr %443, null
+  br i1 %.not547, label %unpack_step_id_members.exit, label %445
 
-441:                                              ; preds = %437
-  %.pre818 = load i32, ptr %432, align 4
-  %.not770 = icmp eq i32 %.pre818, 0
-  br i1 %.not770, label %.loopexit743, label %.lr.ph749
+445:                                              ; preds = %441
+  %.pre818 = load i32, ptr %436, align 4
+  %446 = icmp eq i32 %.pre818, 0
+  br i1 %446, label %.loopexit743, label %.lr.ph749
 
-.lr.ph749:                                        ; preds = %441
-  %442 = getelementptr inbounds i8, ptr %45, i64 32
-  br label %447
+.lr.ph749:                                        ; preds = %445
+  %447 = getelementptr inbounds i8, ptr %45, i64 32
+  br label %452
 
-443:                                              ; preds = %447
+448:                                              ; preds = %452
   %indvars.iv.next790 = add nuw nsw i64 %indvars.iv789, 1
-  %444 = load i32, ptr %432, align 4
-  %445 = zext i32 %444 to i64
-  %446 = icmp ult i64 %indvars.iv.next790, %445
-  br i1 %446, label %447, label %.loopexit743, !llvm.loop !70
+  %449 = load i32, ptr %436, align 4
+  %450 = zext i32 %449 to i64
+  %451 = icmp ult i64 %indvars.iv.next790, %450
+  br i1 %451, label %452, label %.loopexit743, !llvm.loop !70
 
-447:                                              ; preds = %.lr.ph749, %443
-  %indvars.iv789 = phi i64 [ 0, %.lr.ph749 ], [ %indvars.iv.next790, %443 ]
-  %448 = load ptr, ptr %442, align 8
-  %449 = getelementptr inbounds i32, ptr %448, i64 %indvars.iv789
-  %450 = call i32 @unpack32(ptr noundef %449, ptr noundef %1) #8
-  %.not617 = icmp eq i32 %450, 0
-  br i1 %.not617, label %443, label %unpack_step_id_members.exit
+452:                                              ; preds = %.lr.ph749, %448
+  %indvars.iv789 = phi i64 [ 0, %.lr.ph749 ], [ %indvars.iv.next790, %448 ]
+  %453 = load ptr, ptr %447, align 8
+  %454 = getelementptr inbounds i32, ptr %453, i64 %indvars.iv789
+  %455 = call i32 @unpack32(ptr noundef %454, ptr noundef %1) #8
+  %.not617 = icmp eq i32 %455, 0
+  br i1 %.not617, label %448, label %unpack_step_id_members.exit
 
-.loopexit743:                                     ; preds = %443, %.thread837, %441, %434
-  %451 = getelementptr inbounds i8, ptr %45, i64 40
-  %452 = call i32 @unpack32(ptr noundef nonnull %451, ptr noundef %1) #8
-  %.not548 = icmp eq i32 %452, 0
-  br i1 %.not548, label %453, label %unpack_step_id_members.exit
+.loopexit743:                                     ; preds = %448, %.thread837, %445, %438
+  %456 = getelementptr inbounds i8, ptr %45, i64 40
+  %457 = call i32 @unpack32(ptr noundef nonnull %456, ptr noundef %1) #8
+  %.not548 = icmp eq i32 %457, 0
+  br i1 %.not548, label %458, label %unpack_step_id_members.exit
 
-453:                                              ; preds = %.loopexit743
-  %454 = getelementptr inbounds i8, ptr %45, i64 44
-  %455 = call i32 @unpack32(ptr noundef nonnull %454, ptr noundef %1) #8
-  %.not549 = icmp eq i32 %455, 0
-  br i1 %.not549, label %456, label %unpack_step_id_members.exit
+458:                                              ; preds = %.loopexit743
+  %459 = getelementptr inbounds i8, ptr %45, i64 44
+  %460 = call i32 @unpack32(ptr noundef nonnull %459, ptr noundef %1) #8
+  %.not549 = icmp eq i32 %460, 0
+  br i1 %.not549, label %461, label %unpack_step_id_members.exit
 
-456:                                              ; preds = %453
-  %457 = getelementptr inbounds i8, ptr %45, i64 48
-  %458 = call i32 @unpack32(ptr noundef nonnull %457, ptr noundef %1) #8
-  %.not550 = icmp eq i32 %458, 0
-  br i1 %.not550, label %459, label %unpack_step_id_members.exit
+461:                                              ; preds = %458
+  %462 = getelementptr inbounds i8, ptr %45, i64 48
+  %463 = call i32 @unpack32(ptr noundef nonnull %462, ptr noundef %1) #8
+  %.not550 = icmp eq i32 %463, 0
+  br i1 %.not550, label %464, label %unpack_step_id_members.exit
 
-459:                                              ; preds = %456
-  %460 = getelementptr inbounds i8, ptr %45, i64 56
-  %461 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %460, ptr noundef nonnull %26, ptr noundef %1) #8
-  %.not551 = icmp eq i32 %461, 0
-  br i1 %.not551, label %462, label %unpack_step_id_members.exit
+464:                                              ; preds = %461
+  %465 = getelementptr inbounds i8, ptr %45, i64 56
+  %466 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %465, ptr noundef nonnull %26, ptr noundef %1) #8
+  %.not551 = icmp eq i32 %466, 0
+  br i1 %.not551, label %467, label %unpack_step_id_members.exit
 
-462:                                              ; preds = %459
-  %463 = getelementptr inbounds i8, ptr %45, i64 64
-  %464 = call i32 @unpack32(ptr noundef nonnull %463, ptr noundef %1) #8
-  %.not552 = icmp eq i32 %464, 0
-  br i1 %.not552, label %465, label %unpack_step_id_members.exit
+467:                                              ; preds = %464
+  %468 = getelementptr inbounds i8, ptr %45, i64 64
+  %469 = call i32 @unpack32(ptr noundef nonnull %468, ptr noundef %1) #8
+  %.not552 = icmp eq i32 %469, 0
+  br i1 %.not552, label %470, label %unpack_step_id_members.exit
 
-465:                                              ; preds = %462
-  %466 = load i32, ptr %463, align 8
-  %467 = icmp eq i32 %466, 101
-  br i1 %467, label %468, label %469
+470:                                              ; preds = %467
+  %471 = load i32, ptr %468, align 8
+  %472 = icmp eq i32 %471, 101
+  br i1 %472, label %473, label %474
 
-468:                                              ; preds = %465
-  store i32 -2, ptr %463, align 8
-  br label %469
+473:                                              ; preds = %470
+  store i32 -2, ptr %468, align 8
+  br label %474
 
-469:                                              ; preds = %465, %468
-  %470 = getelementptr inbounds i8, ptr %45, i64 72
-  %471 = call i32 @unpack32(ptr noundef nonnull %470, ptr noundef %1) #8
-  %.not553 = icmp eq i32 %471, 0
-  br i1 %.not553, label %472, label %unpack_step_id_members.exit
+474:                                              ; preds = %470, %473
+  %475 = getelementptr inbounds i8, ptr %45, i64 72
+  %476 = call i32 @unpack32(ptr noundef nonnull %475, ptr noundef %1) #8
+  %.not553 = icmp eq i32 %476, 0
+  br i1 %.not553, label %477, label %unpack_step_id_members.exit
 
-472:                                              ; preds = %469
-  %473 = getelementptr inbounds i8, ptr %45, i64 76
-  %474 = call i32 @unpack16(ptr noundef nonnull %473, ptr noundef %1) #8
-  %.not554 = icmp eq i32 %474, 0
-  br i1 %.not554, label %475, label %unpack_step_id_members.exit
+477:                                              ; preds = %474
+  %478 = getelementptr inbounds i8, ptr %45, i64 76
+  %479 = call i32 @unpack16(ptr noundef nonnull %478, ptr noundef %1) #8
+  %.not554 = icmp eq i32 %479, 0
+  br i1 %.not554, label %480, label %unpack_step_id_members.exit
 
-475:                                              ; preds = %472
-  %476 = getelementptr inbounds i8, ptr %45, i64 78
-  %477 = call i32 @unpack16(ptr noundef nonnull %476, ptr noundef %1) #8
-  %.not555 = icmp eq i32 %477, 0
-  br i1 %.not555, label %478, label %unpack_step_id_members.exit
+480:                                              ; preds = %477
+  %481 = getelementptr inbounds i8, ptr %45, i64 78
+  %482 = call i32 @unpack16(ptr noundef nonnull %481, ptr noundef %1) #8
+  %.not555 = icmp eq i32 %482, 0
+  br i1 %.not555, label %483, label %unpack_step_id_members.exit
 
-478:                                              ; preds = %475
-  %479 = getelementptr inbounds i8, ptr %45, i64 80
-  %480 = call i32 @unpack16(ptr noundef nonnull %479, ptr noundef %1) #8
-  %.not556 = icmp eq i32 %480, 0
-  br i1 %.not556, label %481, label %unpack_step_id_members.exit
+483:                                              ; preds = %480
+  %484 = getelementptr inbounds i8, ptr %45, i64 80
+  %485 = call i32 @unpack16(ptr noundef nonnull %484, ptr noundef %1) #8
+  %.not556 = icmp eq i32 %485, 0
+  br i1 %.not556, label %486, label %unpack_step_id_members.exit
 
-481:                                              ; preds = %478
-  %482 = getelementptr inbounds i8, ptr %45, i64 82
-  %483 = call i32 @unpack16(ptr noundef nonnull %482, ptr noundef %1) #8
-  %.not557 = icmp eq i32 %483, 0
-  br i1 %.not557, label %484, label %unpack_step_id_members.exit
+486:                                              ; preds = %483
+  %487 = getelementptr inbounds i8, ptr %45, i64 82
+  %488 = call i32 @unpack16(ptr noundef nonnull %487, ptr noundef %1) #8
+  %.not557 = icmp eq i32 %488, 0
+  br i1 %.not557, label %489, label %unpack_step_id_members.exit
 
-484:                                              ; preds = %481
-  %485 = getelementptr inbounds i8, ptr %45, i64 96
-  %486 = call i32 @unpack64(ptr noundef nonnull %485, ptr noundef %1) #8
-  %.not558 = icmp eq i32 %486, 0
-  br i1 %.not558, label %487, label %unpack_step_id_members.exit
+489:                                              ; preds = %486
+  %490 = getelementptr inbounds i8, ptr %45, i64 96
+  %491 = call i32 @unpack64(ptr noundef nonnull %490, ptr noundef %1) #8
+  %.not558 = icmp eq i32 %491, 0
+  br i1 %.not558, label %492, label %unpack_step_id_members.exit
 
-487:                                              ; preds = %484
-  %488 = getelementptr inbounds i8, ptr %45, i64 120
-  %489 = call i32 @unpack64(ptr noundef nonnull %488, ptr noundef %1) #8
-  %.not559 = icmp eq i32 %489, 0
-  br i1 %.not559, label %490, label %unpack_step_id_members.exit
+492:                                              ; preds = %489
+  %493 = getelementptr inbounds i8, ptr %45, i64 120
+  %494 = call i32 @unpack64(ptr noundef nonnull %493, ptr noundef %1) #8
+  %.not559 = icmp eq i32 %494, 0
+  br i1 %.not559, label %495, label %unpack_step_id_members.exit
 
-490:                                              ; preds = %487
-  %491 = getelementptr inbounds i8, ptr %45, i64 68
-  %492 = call i32 @unpack32(ptr noundef nonnull %491, ptr noundef %1) #8
-  %.not560 = icmp eq i32 %492, 0
-  br i1 %.not560, label %493, label %unpack_step_id_members.exit
+495:                                              ; preds = %492
+  %496 = getelementptr inbounds i8, ptr %45, i64 68
+  %497 = call i32 @unpack32(ptr noundef nonnull %496, ptr noundef %1) #8
+  %.not560 = icmp eq i32 %497, 0
+  br i1 %.not560, label %498, label %unpack_step_id_members.exit
 
-493:                                              ; preds = %490
-  %494 = load i32, ptr %491, align 4
-  %495 = icmp ugt i32 %494, -3
-  br i1 %495, label %unpack_step_id_members.exit, label %496
+498:                                              ; preds = %495
+  %499 = load i32, ptr %496, align 4
+  %500 = icmp ugt i32 %499, -3
+  br i1 %500, label %unpack_step_id_members.exit, label %501
 
-496:                                              ; preds = %493
-  %497 = getelementptr inbounds i8, ptr %45, i64 146
-  %498 = call i32 @unpack16(ptr noundef nonnull %497, ptr noundef %1) #8
-  %.not561 = icmp eq i32 %498, 0
-  br i1 %.not561, label %499, label %unpack_step_id_members.exit
+501:                                              ; preds = %498
+  %502 = getelementptr inbounds i8, ptr %45, i64 146
+  %503 = call i32 @unpack16(ptr noundef nonnull %502, ptr noundef %1) #8
+  %.not561 = icmp eq i32 %503, 0
+  br i1 %.not561, label %504, label %unpack_step_id_members.exit
 
-499:                                              ; preds = %496
-  %500 = getelementptr inbounds i8, ptr %45, i64 184
-  %501 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %500, ptr noundef nonnull %27, ptr noundef %1) #8
-  %.not562 = icmp eq i32 %501, 0
-  br i1 %.not562, label %502, label %unpack_step_id_members.exit
+504:                                              ; preds = %501
+  %505 = getelementptr inbounds i8, ptr %45, i64 184
+  %506 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %505, ptr noundef nonnull %27, ptr noundef %1) #8
+  %.not562 = icmp eq i32 %506, 0
+  br i1 %.not562, label %507, label %unpack_step_id_members.exit
 
-502:                                              ; preds = %499
-  call void @_xstrsubstitute(ptr noundef nonnull %500, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
-  %503 = getelementptr inbounds i8, ptr %45, i64 176
-  %504 = call i32 @unpack16(ptr noundef nonnull %503, ptr noundef %1) #8
-  %.not563 = icmp eq i32 %504, 0
-  br i1 %.not563, label %505, label %unpack_step_id_members.exit
+507:                                              ; preds = %504
+  call void @_xstrsubstitute(ptr noundef nonnull %505, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #8
+  %508 = getelementptr inbounds i8, ptr %45, i64 176
+  %509 = call i32 @unpack16(ptr noundef nonnull %508, ptr noundef %1) #8
+  %.not563 = icmp eq i32 %509, 0
+  br i1 %.not563, label %510, label %unpack_step_id_members.exit
 
-505:                                              ; preds = %502
-  %506 = getelementptr inbounds i8, ptr %45, i64 296
-  %507 = call i32 @unpack32(ptr noundef nonnull %506, ptr noundef %1) #8
-  %.not564 = icmp eq i32 %507, 0
-  br i1 %.not564, label %508, label %unpack_step_id_members.exit
+510:                                              ; preds = %507
+  %511 = getelementptr inbounds i8, ptr %45, i64 296
+  %512 = call i32 @unpack32(ptr noundef nonnull %511, ptr noundef %1) #8
+  %.not564 = icmp eq i32 %512, 0
+  br i1 %.not564, label %513, label %unpack_step_id_members.exit
 
-508:                                              ; preds = %505
-  %509 = getelementptr inbounds i8, ptr %45, i64 144
-  %510 = call i32 @unpack16(ptr noundef nonnull %509, ptr noundef %1) #8
-  %.not565 = icmp eq i32 %510, 0
-  br i1 %.not565, label %511, label %unpack_step_id_members.exit
+513:                                              ; preds = %510
+  %514 = getelementptr inbounds i8, ptr %45, i64 144
+  %515 = call i32 @unpack16(ptr noundef nonnull %514, ptr noundef %1) #8
+  %.not565 = icmp eq i32 %515, 0
+  br i1 %.not565, label %516, label %unpack_step_id_members.exit
 
-511:                                              ; preds = %508
-  %512 = getelementptr inbounds i8, ptr %45, i64 468
-  %513 = call i32 @unpack16(ptr noundef nonnull %512, ptr noundef %1) #8
-  %.not566 = icmp eq i32 %513, 0
-  br i1 %.not566, label %514, label %unpack_step_id_members.exit
+516:                                              ; preds = %513
+  %517 = getelementptr inbounds i8, ptr %45, i64 468
+  %518 = call i32 @unpack16(ptr noundef nonnull %517, ptr noundef %1) #8
+  %.not566 = icmp eq i32 %518, 0
+  br i1 %.not566, label %519, label %unpack_step_id_members.exit
 
-514:                                              ; preds = %511
-  %515 = getelementptr inbounds i8, ptr %45, i64 256
-  %516 = call i32 @unpack16(ptr noundef nonnull %515, ptr noundef %1) #8
-  %.not567 = icmp eq i32 %516, 0
-  br i1 %.not567, label %517, label %unpack_step_id_members.exit
+519:                                              ; preds = %516
+  %520 = getelementptr inbounds i8, ptr %45, i64 256
+  %521 = call i32 @unpack16(ptr noundef nonnull %520, ptr noundef %1) #8
+  %.not567 = icmp eq i32 %521, 0
+  br i1 %.not567, label %522, label %unpack_step_id_members.exit
 
-517:                                              ; preds = %514
-  %518 = getelementptr inbounds i8, ptr %45, i64 538
-  %519 = call i32 @unpack16(ptr noundef nonnull %518, ptr noundef %1) #8
-  %.not568 = icmp eq i32 %519, 0
-  br i1 %.not568, label %520, label %unpack_step_id_members.exit
+522:                                              ; preds = %519
+  %523 = getelementptr inbounds i8, ptr %45, i64 538
+  %524 = call i32 @unpack16(ptr noundef nonnull %523, ptr noundef %1) #8
+  %.not568 = icmp eq i32 %524, 0
+  br i1 %.not568, label %525, label %unpack_step_id_members.exit
 
-520:                                              ; preds = %517
-  %521 = load i16, ptr %518, align 2
-  %522 = call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %521) #8
-  %523 = getelementptr inbounds i8, ptr %45, i64 544
-  store ptr %522, ptr %523, align 8
-  %.not569 = icmp eq ptr %522, null
-  br i1 %.not569, label %unpack_step_id_members.exit, label %524
+525:                                              ; preds = %522
+  %526 = load i16, ptr %523, align 2
+  %527 = call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %526) #8
+  %528 = getelementptr inbounds i8, ptr %45, i64 544
+  store ptr %527, ptr %528, align 8
+  %.not569 = icmp eq ptr %527, null
+  br i1 %.not569, label %unpack_step_id_members.exit, label %529
 
-524:                                              ; preds = %520
-  %525 = load i32, ptr %491, align 4
-  %.not570 = icmp eq i32 %525, 0
-  br i1 %.not570, label %.thread726, label %527
+529:                                              ; preds = %525
+  %530 = load i32, ptr %496, align 4
+  %.not570 = icmp eq i32 %530, 0
+  br i1 %.not570, label %.thread726, label %532
 
-.thread726:                                       ; preds = %524
-  %526 = getelementptr inbounds i8, ptr %45, i64 128
-  store ptr null, ptr %526, align 8
+.thread726:                                       ; preds = %529
+  %531 = getelementptr inbounds i8, ptr %45, i64 128
+  store ptr null, ptr %531, align 8
   br label %.thread839
 
-527:                                              ; preds = %524
-  %528 = zext i32 %525 to i64
-  %529 = call ptr @slurm_xcalloc(i64 noundef %528, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6323, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %530 = getelementptr inbounds i8, ptr %45, i64 128
-  store ptr %529, ptr %530, align 8
-  %.not571 = icmp eq ptr %529, null
-  br i1 %.not571, label %unpack_step_id_members.exit, label %531
+532:                                              ; preds = %529
+  %533 = zext i32 %530 to i64
+  %534 = call ptr @slurm_xcalloc(i64 noundef %533, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6323, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %535 = getelementptr inbounds i8, ptr %45, i64 128
+  store ptr %534, ptr %535, align 8
+  %.not571 = icmp eq ptr %534, null
+  br i1 %.not571, label %unpack_step_id_members.exit, label %536
 
-531:                                              ; preds = %527
-  %.pr725 = load i32, ptr %491, align 4
+536:                                              ; preds = %532
+  %.pr725 = load i32, ptr %496, align 4
   %.not572 = icmp eq i32 %.pr725, 0
-  br i1 %.not572, label %.thread839, label %533
+  br i1 %.not572, label %.thread839, label %538
 
-.thread839:                                       ; preds = %531, %.thread726
-  %532 = getelementptr inbounds i8, ptr %45, i64 304
-  store ptr null, ptr %532, align 8
+.thread839:                                       ; preds = %536, %.thread726
+  %537 = getelementptr inbounds i8, ptr %45, i64 304
+  store ptr null, ptr %537, align 8
   br label %._crit_edge
 
-533:                                              ; preds = %531
-  %534 = zext i32 %.pr725 to i64
-  %535 = call ptr @slurm_xcalloc(i64 noundef %534, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6325, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %536 = getelementptr inbounds i8, ptr %45, i64 304
-  store ptr %535, ptr %536, align 8
-  %.not573 = icmp eq ptr %535, null
-  br i1 %.not573, label %unpack_step_id_members.exit, label %537
+538:                                              ; preds = %536
+  %539 = zext i32 %.pr725 to i64
+  %540 = call ptr @slurm_xcalloc(i64 noundef %539, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6325, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %541 = getelementptr inbounds i8, ptr %45, i64 304
+  store ptr %540, ptr %541, align 8
+  %.not573 = icmp eq ptr %540, null
+  br i1 %.not573, label %unpack_step_id_members.exit, label %542
 
-537:                                              ; preds = %533
-  %.pre820 = load i32, ptr %491, align 4
-  %.not771 = icmp eq i32 %.pre820, 0
-  br i1 %.not771, label %._crit_edge, label %.lr.ph751
+542:                                              ; preds = %538
+  %.pre820 = load i32, ptr %496, align 4
+  %543 = icmp eq i32 %.pre820, 0
+  br i1 %543, label %._crit_edge, label %.lr.ph751
 
-.lr.ph751:                                        ; preds = %537
-  %538 = getelementptr inbounds i8, ptr %45, i64 128
-  %539 = getelementptr inbounds i8, ptr %45, i64 304
-  %.pre821 = load ptr, ptr %538, align 8
-  br label %544
+.lr.ph751:                                        ; preds = %542
+  %544 = getelementptr inbounds i8, ptr %45, i64 128
+  %545 = getelementptr inbounds i8, ptr %45, i64 304
+  %.pre821 = load ptr, ptr %544, align 8
+  br label %550
 
-540:                                              ; preds = %552
+546:                                              ; preds = %558
   %indvars.iv.next793 = add nuw nsw i64 %indvars.iv792, 1
-  %541 = load i32, ptr %491, align 4
-  %542 = zext i32 %541 to i64
-  %543 = icmp ult i64 %indvars.iv.next793, %542
-  br i1 %543, label %544, label %._crit_edge, !llvm.loop !71
+  %547 = load i32, ptr %496, align 4
+  %548 = zext i32 %547 to i64
+  %549 = icmp ult i64 %indvars.iv.next793, %548
+  br i1 %549, label %550, label %._crit_edge, !llvm.loop !71
 
-544:                                              ; preds = %.lr.ph751, %540
-  %545 = phi ptr [ %.pre821, %.lr.ph751 ], [ %553, %540 ]
-  %indvars.iv792 = phi i64 [ 0, %.lr.ph751 ], [ %indvars.iv.next793, %540 ]
-  %546 = getelementptr inbounds i16, ptr %545, i64 %indvars.iv792
-  %547 = call i32 @unpack16(ptr noundef %546, ptr noundef %1) #8
-  %.not614 = icmp eq i32 %547, 0
-  br i1 %.not614, label %548, label %unpack_step_id_members.exit
+550:                                              ; preds = %.lr.ph751, %546
+  %551 = phi ptr [ %.pre821, %.lr.ph751 ], [ %559, %546 ]
+  %indvars.iv792 = phi i64 [ 0, %.lr.ph751 ], [ %indvars.iv.next793, %546 ]
+  %552 = getelementptr inbounds i16, ptr %551, i64 %indvars.iv792
+  %553 = call i32 @unpack16(ptr noundef %552, ptr noundef %1) #8
+  %.not614 = icmp eq i32 %553, 0
+  br i1 %.not614, label %554, label %unpack_step_id_members.exit
 
-548:                                              ; preds = %544
-  %549 = load ptr, ptr %539, align 8
-  %550 = getelementptr inbounds ptr, ptr %549, i64 %indvars.iv792
-  %551 = call i32 @unpack32_array(ptr noundef %550, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not615 = icmp eq i32 %551, 0
-  br i1 %.not615, label %552, label %unpack_step_id_members.exit
+554:                                              ; preds = %550
+  %555 = load ptr, ptr %545, align 8
+  %556 = getelementptr inbounds ptr, ptr %555, i64 %indvars.iv792
+  %557 = call i32 @unpack32_array(ptr noundef %556, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not615 = icmp eq i32 %557, 0
+  br i1 %.not615, label %558, label %unpack_step_id_members.exit
 
-552:                                              ; preds = %548
-  %553 = load ptr, ptr %538, align 8
-  %554 = getelementptr inbounds i16, ptr %553, i64 %indvars.iv792
-  %555 = load i16, ptr %554, align 2
-  %556 = load i32, ptr %4, align 4
-  %557 = trunc i32 %556 to i16
-  %.not616 = icmp eq i16 %555, %557
-  br i1 %.not616, label %540, label %unpack_step_id_members.exit
+558:                                              ; preds = %554
+  %559 = load ptr, ptr %544, align 8
+  %560 = getelementptr inbounds i16, ptr %559, i64 %indvars.iv792
+  %561 = load i16, ptr %560, align 2
+  %562 = load i32, ptr %4, align 4
+  %563 = trunc i32 %562 to i16
+  %.not616 = icmp eq i16 %561, %563
+  br i1 %.not616, label %546, label %unpack_step_id_members.exit
 
-._crit_edge:                                      ; preds = %540, %.thread839, %537
-  %558 = getelementptr inbounds i8, ptr %45, i64 280
-  %559 = call i32 @unpack16(ptr noundef nonnull %558, ptr noundef %1) #8
-  %.not574 = icmp eq i32 %559, 0
-  br i1 %.not574, label %560, label %unpack_step_id_members.exit
+._crit_edge:                                      ; preds = %546, %.thread839, %542
+  %564 = getelementptr inbounds i8, ptr %45, i64 280
+  %565 = call i32 @unpack16(ptr noundef nonnull %564, ptr noundef %1) #8
+  %.not574 = icmp eq i32 %565, 0
+  br i1 %.not574, label %566, label %unpack_step_id_members.exit
 
-560:                                              ; preds = %._crit_edge
-  %561 = load i16, ptr %558, align 8
-  %562 = icmp ugt i16 %561, -3
-  br i1 %562, label %unpack_step_id_members.exit, label %563
+566:                                              ; preds = %._crit_edge
+  %567 = load i16, ptr %564, align 8
+  %568 = icmp ugt i16 %567, -3
+  br i1 %568, label %unpack_step_id_members.exit, label %569
 
-563:                                              ; preds = %560
-  %.not575 = icmp eq i16 %561, 0
-  br i1 %.not575, label %.loopexit740, label %564
+569:                                              ; preds = %566
+  %.not575 = icmp eq i16 %567, 0
+  br i1 %.not575, label %.loopexit740, label %570
 
-564:                                              ; preds = %563
-  %565 = zext i16 %561 to i64
-  %566 = call ptr @slurm_xcalloc(i64 noundef %565, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6339, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %567 = getelementptr inbounds i8, ptr %45, i64 288
-  store ptr %566, ptr %567, align 8
-  %.not576 = icmp eq ptr %566, null
+570:                                              ; preds = %569
+  %571 = zext i16 %567 to i64
+  %572 = call ptr @slurm_xcalloc(i64 noundef %571, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6339, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %573 = getelementptr inbounds i8, ptr %45, i64 288
+  store ptr %572, ptr %573, align 8
+  %.not576 = icmp eq ptr %572, null
   br i1 %.not576, label %unpack_step_id_members.exit, label %.preheader739
 
-.preheader739:                                    ; preds = %564
-  %568 = load i16, ptr %558, align 8
-  %.not772 = icmp eq i16 %568, 0
+.preheader739:                                    ; preds = %570
+  %574 = load i16, ptr %564, align 8
+  %.not772 = icmp eq i16 %574, 0
   br i1 %.not772, label %.loopexit740, label %.lr.ph753
 
-569:                                              ; preds = %.lr.ph753
+575:                                              ; preds = %.lr.ph753
   %indvars.iv.next796 = add nuw nsw i64 %indvars.iv795, 1
-  %570 = load i16, ptr %558, align 8
-  %571 = zext i16 %570 to i64
-  %572 = icmp ult i64 %indvars.iv.next796, %571
-  br i1 %572, label %.lr.ph753, label %.loopexit740, !llvm.loop !72
+  %576 = load i16, ptr %564, align 8
+  %577 = zext i16 %576 to i64
+  %578 = icmp ult i64 %indvars.iv.next796, %577
+  br i1 %578, label %.lr.ph753, label %.loopexit740, !llvm.loop !72
 
-.lr.ph753:                                        ; preds = %.preheader739, %569
-  %indvars.iv795 = phi i64 [ %indvars.iv.next796, %569 ], [ 0, %.preheader739 ]
-  %573 = load ptr, ptr %567, align 8
-  %574 = getelementptr inbounds i16, ptr %573, i64 %indvars.iv795
-  %575 = call i32 @unpack16(ptr noundef %574, ptr noundef %1) #8
-  %.not613 = icmp eq i32 %575, 0
-  br i1 %.not613, label %569, label %unpack_step_id_members.exit
+.lr.ph753:                                        ; preds = %.preheader739, %575
+  %indvars.iv795 = phi i64 [ %indvars.iv.next796, %575 ], [ 0, %.preheader739 ]
+  %579 = load ptr, ptr %573, align 8
+  %580 = getelementptr inbounds i16, ptr %579, i64 %indvars.iv795
+  %581 = call i32 @unpack16(ptr noundef %580, ptr noundef %1) #8
+  %.not613 = icmp eq i32 %581, 0
+  br i1 %.not613, label %575, label %unpack_step_id_members.exit
 
-.loopexit740:                                     ; preds = %569, %.preheader739, %563
-  %576 = getelementptr inbounds i8, ptr %45, i64 312
-  %577 = call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %576, ptr noundef %1) #8
-  %578 = getelementptr inbounds i8, ptr %45, i64 192
-  %579 = getelementptr inbounds i8, ptr %45, i64 136
-  %580 = call i32 @unpackstr_array(ptr noundef nonnull %578, ptr noundef nonnull %579, ptr noundef %1) #8
-  %.not577 = icmp eq i32 %580, 0
-  br i1 %.not577, label %581, label %unpack_step_id_members.exit
+.loopexit740:                                     ; preds = %575, %.preheader739, %569
+  %582 = getelementptr inbounds i8, ptr %45, i64 312
+  %583 = call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %582, ptr noundef %1) #8
+  %584 = getelementptr inbounds i8, ptr %45, i64 192
+  %585 = getelementptr inbounds i8, ptr %45, i64 136
+  %586 = call i32 @unpackstr_array(ptr noundef nonnull %584, ptr noundef nonnull %585, ptr noundef %1) #8
+  %.not577 = icmp eq i32 %586, 0
+  br i1 %.not577, label %587, label %unpack_step_id_members.exit
 
-581:                                              ; preds = %.loopexit740
-  %582 = getelementptr inbounds i8, ptr %45, i64 576
-  %583 = getelementptr inbounds i8, ptr %45, i64 584
-  %584 = call i32 @unpackstr_array(ptr noundef nonnull %582, ptr noundef nonnull %583, ptr noundef %1) #8
-  %.not578 = icmp eq i32 %584, 0
-  br i1 %.not578, label %585, label %unpack_step_id_members.exit
+587:                                              ; preds = %.loopexit740
+  %588 = getelementptr inbounds i8, ptr %45, i64 576
+  %589 = getelementptr inbounds i8, ptr %45, i64 584
+  %590 = call i32 @unpackstr_array(ptr noundef nonnull %588, ptr noundef nonnull %589, ptr noundef %1) #8
+  %.not578 = icmp eq i32 %590, 0
+  br i1 %.not578, label %591, label %unpack_step_id_members.exit
 
-585:                                              ; preds = %581
-  %586 = getelementptr inbounds i8, ptr %45, i64 208
-  %587 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %586, ptr noundef nonnull %28, ptr noundef %1) #8
-  %.not579 = icmp eq i32 %587, 0
-  br i1 %.not579, label %588, label %unpack_step_id_members.exit
-
-588:                                              ; preds = %585
-  %589 = getelementptr inbounds i8, ptr %45, i64 216
-  %590 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %589, ptr noundef nonnull %29, ptr noundef %1) #8
-  %.not580 = icmp eq i32 %590, 0
-  br i1 %.not580, label %591, label %unpack_step_id_members.exit
-
-591:                                              ; preds = %588
-  %592 = getelementptr inbounds i8, ptr %45, i64 224
-  %593 = call i32 @unpack16(ptr noundef nonnull %592, ptr noundef %1) #8
-  %.not581 = icmp eq i32 %593, 0
-  br i1 %.not581, label %594, label %unpack_step_id_members.exit
+591:                                              ; preds = %587
+  %592 = getelementptr inbounds i8, ptr %45, i64 208
+  %593 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %592, ptr noundef nonnull %28, ptr noundef %1) #8
+  %.not579 = icmp eq i32 %593, 0
+  br i1 %.not579, label %594, label %unpack_step_id_members.exit
 
 594:                                              ; preds = %591
-  %595 = getelementptr inbounds i8, ptr %45, i64 232
-  %596 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %595, ptr noundef nonnull %30, ptr noundef %1) #8
-  %.not582 = icmp eq i32 %596, 0
-  br i1 %.not582, label %597, label %unpack_step_id_members.exit
+  %595 = getelementptr inbounds i8, ptr %45, i64 216
+  %596 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %595, ptr noundef nonnull %29, ptr noundef %1) #8
+  %.not580 = icmp eq i32 %596, 0
+  br i1 %.not580, label %597, label %unpack_step_id_members.exit
 
 597:                                              ; preds = %594
-  %598 = getelementptr inbounds i8, ptr %45, i64 240
+  %598 = getelementptr inbounds i8, ptr %45, i64 224
   %599 = call i32 @unpack16(ptr noundef nonnull %598, ptr noundef %1) #8
-  %.not583 = icmp eq i32 %599, 0
-  br i1 %.not583, label %600, label %unpack_step_id_members.exit
+  %.not581 = icmp eq i32 %599, 0
+  br i1 %.not581, label %600, label %unpack_step_id_members.exit
 
 600:                                              ; preds = %597
-  %601 = getelementptr inbounds i8, ptr %45, i64 248
-  %602 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %601, ptr noundef nonnull %31, ptr noundef %1) #8
-  %.not584 = icmp eq i32 %602, 0
-  br i1 %.not584, label %603, label %unpack_step_id_members.exit
+  %601 = getelementptr inbounds i8, ptr %45, i64 232
+  %602 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %601, ptr noundef nonnull %30, ptr noundef %1) #8
+  %.not582 = icmp eq i32 %602, 0
+  br i1 %.not582, label %603, label %unpack_step_id_members.exit
 
 603:                                              ; preds = %600
-  %604 = getelementptr inbounds i8, ptr %45, i64 200
-  %605 = getelementptr inbounds i8, ptr %45, i64 140
-  %606 = call i32 @unpackstr_array(ptr noundef nonnull %604, ptr noundef nonnull %605, ptr noundef %1) #8
-  %.not585 = icmp eq i32 %606, 0
-  br i1 %.not585, label %607, label %unpack_step_id_members.exit
+  %604 = getelementptr inbounds i8, ptr %45, i64 240
+  %605 = call i32 @unpack16(ptr noundef nonnull %604, ptr noundef %1) #8
+  %.not583 = icmp eq i32 %605, 0
+  br i1 %.not583, label %606, label %unpack_step_id_members.exit
 
-607:                                              ; preds = %603
-  %608 = getelementptr inbounds i8, ptr %45, i64 300
-  %609 = call i32 @unpack32(ptr noundef nonnull %608, ptr noundef %1) #8
-  %.not586 = icmp eq i32 %609, 0
-  br i1 %.not586, label %610, label %unpack_step_id_members.exit
+606:                                              ; preds = %603
+  %607 = getelementptr inbounds i8, ptr %45, i64 248
+  %608 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %607, ptr noundef nonnull %31, ptr noundef %1) #8
+  %.not584 = icmp eq i32 %608, 0
+  br i1 %.not584, label %609, label %unpack_step_id_members.exit
 
-610:                                              ; preds = %607
-  %611 = getelementptr inbounds i8, ptr %45, i64 472
-  %612 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %611, ptr noundef nonnull %32, ptr noundef %1) #8
-  %.not587 = icmp eq i32 %612, 0
-  br i1 %.not587, label %613, label %unpack_step_id_members.exit
+609:                                              ; preds = %606
+  %610 = getelementptr inbounds i8, ptr %45, i64 200
+  %611 = getelementptr inbounds i8, ptr %45, i64 140
+  %612 = call i32 @unpackstr_array(ptr noundef nonnull %610, ptr noundef nonnull %611, ptr noundef %1) #8
+  %.not585 = icmp eq i32 %612, 0
+  br i1 %.not585, label %613, label %unpack_step_id_members.exit
 
-613:                                              ; preds = %610
-  %614 = getelementptr inbounds i8, ptr %45, i64 480
-  %615 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %614, ptr noundef nonnull %33, ptr noundef %1) #8
-  %.not588 = icmp eq i32 %615, 0
-  br i1 %.not588, label %616, label %unpack_step_id_members.exit
+613:                                              ; preds = %609
+  %614 = getelementptr inbounds i8, ptr %45, i64 300
+  %615 = call i32 @unpack32(ptr noundef nonnull %614, ptr noundef %1) #8
+  %.not586 = icmp eq i32 %615, 0
+  br i1 %.not586, label %616, label %unpack_step_id_members.exit
 
 616:                                              ; preds = %613
-  %617 = getelementptr inbounds i8, ptr %45, i64 488
-  %618 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %617, ptr noundef nonnull %34, ptr noundef %1) #8
-  %.not589 = icmp eq i32 %618, 0
-  br i1 %.not589, label %619, label %unpack_step_id_members.exit
+  %617 = getelementptr inbounds i8, ptr %45, i64 472
+  %618 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %617, ptr noundef nonnull %32, ptr noundef %1) #8
+  %.not587 = icmp eq i32 %618, 0
+  br i1 %.not587, label %619, label %unpack_step_id_members.exit
 
 619:                                              ; preds = %616
-  %620 = getelementptr inbounds i8, ptr %45, i64 496
-  %621 = call i32 @unpack16(ptr noundef nonnull %620, ptr noundef %1) #8
-  %.not590 = icmp eq i32 %621, 0
-  br i1 %.not590, label %622, label %unpack_step_id_members.exit
+  %620 = getelementptr inbounds i8, ptr %45, i64 480
+  %621 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %620, ptr noundef nonnull %33, ptr noundef %1) #8
+  %.not588 = icmp eq i32 %621, 0
+  br i1 %.not588, label %622, label %unpack_step_id_members.exit
 
 622:                                              ; preds = %619
-  %623 = load i16, ptr %620, align 8
-  %624 = icmp ugt i16 %623, -3
-  br i1 %624, label %unpack_step_id_members.exit, label %625
+  %623 = getelementptr inbounds i8, ptr %45, i64 488
+  %624 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %623, ptr noundef nonnull %34, ptr noundef %1) #8
+  %.not589 = icmp eq i32 %624, 0
+  br i1 %.not589, label %625, label %unpack_step_id_members.exit
 
 625:                                              ; preds = %622
-  %.not591 = icmp eq i16 %623, 0
-  br i1 %.not591, label %.loopexit737, label %626
+  %626 = getelementptr inbounds i8, ptr %45, i64 496
+  %627 = call i32 @unpack16(ptr noundef nonnull %626, ptr noundef %1) #8
+  %.not590 = icmp eq i32 %627, 0
+  br i1 %.not590, label %628, label %unpack_step_id_members.exit
 
-626:                                              ; preds = %625
-  %627 = zext i16 %623 to i64
-  %628 = call ptr @slurm_xcalloc(i64 noundef %627, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6363, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
-  %629 = getelementptr inbounds i8, ptr %45, i64 504
-  store ptr %628, ptr %629, align 8
-  %.not592 = icmp eq ptr %628, null
+628:                                              ; preds = %625
+  %629 = load i16, ptr %626, align 8
+  %630 = icmp ugt i16 %629, -3
+  br i1 %630, label %unpack_step_id_members.exit, label %631
+
+631:                                              ; preds = %628
+  %.not591 = icmp eq i16 %629, 0
+  br i1 %.not591, label %.loopexit737, label %632
+
+632:                                              ; preds = %631
+  %633 = zext i16 %629 to i64
+  %634 = call ptr @slurm_xcalloc(i64 noundef %633, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 6363, ptr noundef nonnull @__func__._unpack_launch_tasks_request_msg) #8
+  %635 = getelementptr inbounds i8, ptr %45, i64 504
+  store ptr %634, ptr %635, align 8
+  %.not592 = icmp eq ptr %634, null
   br i1 %.not592, label %unpack_step_id_members.exit, label %.preheader736
 
-.preheader736:                                    ; preds = %626
-  %630 = load i16, ptr %620, align 8
-  %.not773 = icmp eq i16 %630, 0
+.preheader736:                                    ; preds = %632
+  %636 = load i16, ptr %626, align 8
+  %.not773 = icmp eq i16 %636, 0
   br i1 %.not773, label %.loopexit737, label %.lr.ph755
 
-631:                                              ; preds = %.lr.ph755
+637:                                              ; preds = %.lr.ph755
   %indvars.iv.next799 = add nuw nsw i64 %indvars.iv798, 1
-  %632 = load i16, ptr %620, align 8
-  %633 = zext i16 %632 to i64
-  %634 = icmp ult i64 %indvars.iv.next799, %633
-  br i1 %634, label %.lr.ph755, label %.loopexit737, !llvm.loop !73
+  %638 = load i16, ptr %626, align 8
+  %639 = zext i16 %638 to i64
+  %640 = icmp ult i64 %indvars.iv.next799, %639
+  br i1 %640, label %.lr.ph755, label %.loopexit737, !llvm.loop !73
 
-.lr.ph755:                                        ; preds = %.preheader736, %631
-  %indvars.iv798 = phi i64 [ %indvars.iv.next799, %631 ], [ 0, %.preheader736 ]
-  %635 = load ptr, ptr %629, align 8
-  %636 = getelementptr inbounds i16, ptr %635, i64 %indvars.iv798
-  %637 = call i32 @unpack16(ptr noundef %636, ptr noundef %1) #8
-  %.not612 = icmp eq i32 %637, 0
-  br i1 %.not612, label %631, label %unpack_step_id_members.exit
+.lr.ph755:                                        ; preds = %.preheader736, %637
+  %indvars.iv798 = phi i64 [ %indvars.iv.next799, %637 ], [ 0, %.preheader736 ]
+  %641 = load ptr, ptr %635, align 8
+  %642 = getelementptr inbounds i16, ptr %641, i64 %indvars.iv798
+  %643 = call i32 @unpack16(ptr noundef %642, ptr noundef %1) #8
+  %.not612 = icmp eq i32 %643, 0
+  br i1 %.not612, label %637, label %unpack_step_id_members.exit
 
-.loopexit737:                                     ; preds = %631, %.preheader736, %625
-  %638 = getelementptr inbounds i8, ptr %45, i64 512
-  %639 = call i32 @unpack32(ptr noundef nonnull %638, ptr noundef %1) #8
-  %.not593 = icmp eq i32 %639, 0
-  br i1 %.not593, label %640, label %unpack_step_id_members.exit
+.loopexit737:                                     ; preds = %637, %.preheader736, %631
+  %644 = getelementptr inbounds i8, ptr %45, i64 512
+  %645 = call i32 @unpack32(ptr noundef nonnull %644, ptr noundef %1) #8
+  %.not593 = icmp eq i32 %645, 0
+  br i1 %.not593, label %646, label %unpack_step_id_members.exit
 
-640:                                              ; preds = %.loopexit737
-  %641 = getelementptr inbounds i8, ptr %45, i64 520
-  %642 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %641, ptr noundef nonnull %35, ptr noundef %1) #8
-  %.not594 = icmp eq i32 %642, 0
-  br i1 %.not594, label %643, label %unpack_step_id_members.exit
-
-643:                                              ; preds = %640
-  %644 = getelementptr inbounds i8, ptr %45, i64 528
-  %645 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %644, ptr noundef nonnull %36, ptr noundef %1) #8
-  %.not595 = icmp eq i32 %645, 0
-  br i1 %.not595, label %646, label %unpack_step_id_members.exit
-
-646:                                              ; preds = %643
-  %647 = getelementptr inbounds i8, ptr %45, i64 536
-  %648 = call i32 @unpack16(ptr noundef nonnull %647, ptr noundef %1) #8
-  %.not596 = icmp eq i32 %648, 0
-  br i1 %.not596, label %649, label %unpack_step_id_members.exit
+646:                                              ; preds = %.loopexit737
+  %647 = getelementptr inbounds i8, ptr %45, i64 520
+  %648 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %647, ptr noundef nonnull %35, ptr noundef %1) #8
+  %.not594 = icmp eq i32 %648, 0
+  br i1 %.not594, label %649, label %unpack_step_id_members.exit
 
 649:                                              ; preds = %646
-  %650 = getelementptr inbounds i8, ptr %45, i64 552
-  %651 = call i32 @switch_g_unpack_jobinfo(ptr noundef nonnull %650, ptr noundef %1, i16 noundef zeroext %2) #8
-  %652 = icmp slt i32 %651, 0
-  br i1 %652, label %653, label %656
+  %650 = getelementptr inbounds i8, ptr %45, i64 528
+  %651 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %650, ptr noundef nonnull %36, ptr noundef %1) #8
+  %.not595 = icmp eq i32 %651, 0
+  br i1 %.not595, label %652, label %unpack_step_id_members.exit
 
-653:                                              ; preds = %649
-  %654 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13) #8
-  %655 = load ptr, ptr %650, align 8
-  call void @switch_g_free_jobinfo(ptr noundef %655) #8
+652:                                              ; preds = %649
+  %653 = getelementptr inbounds i8, ptr %45, i64 536
+  %654 = call i32 @unpack16(ptr noundef nonnull %653, ptr noundef %1) #8
+  %.not596 = icmp eq i32 %654, 0
+  br i1 %.not596, label %655, label %unpack_step_id_members.exit
+
+655:                                              ; preds = %652
+  %656 = getelementptr inbounds i8, ptr %45, i64 552
+  %657 = call i32 @switch_g_unpack_jobinfo(ptr noundef nonnull %656, ptr noundef %1, i16 noundef zeroext %2) #8
+  %658 = icmp slt i32 %657, 0
+  br i1 %658, label %659, label %662
+
+659:                                              ; preds = %655
+  %660 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13) #8
+  %661 = load ptr, ptr %656, align 8
+  call void @switch_g_free_jobinfo(ptr noundef %661) #8
   br label %unpack_step_id_members.exit
 
-656:                                              ; preds = %649
-  %657 = call ptr @job_options_create() #8
-  %658 = getelementptr inbounds i8, ptr %45, i64 560
-  store ptr %657, ptr %658, align 8
-  %659 = call i32 @job_options_unpack(ptr noundef %657, ptr noundef %1) #8
-  %660 = icmp slt i32 %659, 0
-  br i1 %660, label %661, label %663
+662:                                              ; preds = %655
+  %663 = call ptr @job_options_create() #8
+  %664 = getelementptr inbounds i8, ptr %45, i64 560
+  store ptr %663, ptr %664, align 8
+  %665 = call i32 @job_options_unpack(ptr noundef %663, ptr noundef %1) #8
+  %666 = icmp slt i32 %665, 0
+  br i1 %666, label %667, label %669
 
-661:                                              ; preds = %656
-  %662 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14) #8
+667:                                              ; preds = %662
+  %668 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14) #8
   br label %unpack_step_id_members.exit
 
-663:                                              ; preds = %656
-  %664 = getelementptr inbounds i8, ptr %45, i64 600
-  %665 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %664, ptr noundef nonnull %37, ptr noundef %1) #8
-  %.not597 = icmp eq i32 %665, 0
-  br i1 %.not597, label %666, label %unpack_step_id_members.exit
-
-666:                                              ; preds = %663
-  %667 = getelementptr inbounds i8, ptr %45, i64 568
-  %668 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %667, ptr noundef nonnull %38, ptr noundef %1) #8
-  %.not598 = icmp eq i32 %668, 0
-  br i1 %.not598, label %669, label %unpack_step_id_members.exit
-
-669:                                              ; preds = %666
-  %670 = getelementptr inbounds i8, ptr %45, i64 440
-  %671 = call i32 @unpack8(ptr noundef nonnull %670, ptr noundef %1) #8
-  %.not599 = icmp eq i32 %671, 0
-  br i1 %.not599, label %672, label %unpack_step_id_members.exit
+669:                                              ; preds = %662
+  %670 = getelementptr inbounds i8, ptr %45, i64 600
+  %671 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %670, ptr noundef nonnull %37, ptr noundef %1) #8
+  %.not597 = icmp eq i32 %671, 0
+  br i1 %.not597, label %672, label %unpack_step_id_members.exit
 
 672:                                              ; preds = %669
-  %673 = getelementptr inbounds i8, ptr %45, i64 448
-  %674 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %673, ptr noundef nonnull %39, ptr noundef %1) #8
-  %.not600 = icmp eq i32 %674, 0
-  br i1 %.not600, label %675, label %unpack_step_id_members.exit
+  %673 = getelementptr inbounds i8, ptr %45, i64 568
+  %674 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %673, ptr noundef nonnull %38, ptr noundef %1) #8
+  %.not598 = icmp eq i32 %674, 0
+  br i1 %.not598, label %675, label %unpack_step_id_members.exit
 
 675:                                              ; preds = %672
-  %676 = getelementptr inbounds i8, ptr %45, i64 456
-  %677 = call i32 @unpack32(ptr noundef nonnull %676, ptr noundef %1) #8
-  %.not601 = icmp eq i32 %677, 0
-  br i1 %.not601, label %678, label %unpack_step_id_members.exit
+  %676 = getelementptr inbounds i8, ptr %45, i64 440
+  %677 = call i32 @unpack8(ptr noundef nonnull %676, ptr noundef %1) #8
+  %.not599 = icmp eq i32 %677, 0
+  br i1 %.not599, label %678, label %unpack_step_id_members.exit
 
 678:                                              ; preds = %675
-  %679 = getelementptr inbounds i8, ptr %45, i64 460
-  %680 = call i32 @unpack32(ptr noundef nonnull %679, ptr noundef %1) #8
-  %.not602 = icmp eq i32 %680, 0
-  br i1 %.not602, label %681, label %unpack_step_id_members.exit
+  %679 = getelementptr inbounds i8, ptr %45, i64 448
+  %680 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %679, ptr noundef nonnull %39, ptr noundef %1) #8
+  %.not600 = icmp eq i32 %680, 0
+  br i1 %.not600, label %681, label %unpack_step_id_members.exit
 
 681:                                              ; preds = %678
-  %682 = getelementptr inbounds i8, ptr %45, i64 464
+  %682 = getelementptr inbounds i8, ptr %45, i64 456
   %683 = call i32 @unpack32(ptr noundef nonnull %682, ptr noundef %1) #8
-  %.not603 = icmp eq i32 %683, 0
-  br i1 %.not603, label %684, label %unpack_step_id_members.exit
+  %.not601 = icmp eq i32 %683, 0
+  br i1 %.not601, label %684, label %unpack_step_id_members.exit
 
 684:                                              ; preds = %681
-  %685 = getelementptr inbounds i8, ptr %45, i64 264
-  %686 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %685, ptr noundef nonnull %40, ptr noundef %1) #8
-  %.not604 = icmp eq i32 %686, 0
-  br i1 %.not604, label %687, label %unpack_step_id_members.exit
+  %685 = getelementptr inbounds i8, ptr %45, i64 460
+  %686 = call i32 @unpack32(ptr noundef nonnull %685, ptr noundef %1) #8
+  %.not602 = icmp eq i32 %686, 0
+  br i1 %.not602, label %687, label %unpack_step_id_members.exit
 
 687:                                              ; preds = %684
-  %688 = getelementptr inbounds i8, ptr %45, i64 272
-  %689 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %688, ptr noundef nonnull %41, ptr noundef %1) #8
-  %.not605 = icmp eq i32 %689, 0
-  br i1 %.not605, label %690, label %unpack_step_id_members.exit
+  %688 = getelementptr inbounds i8, ptr %45, i64 464
+  %689 = call i32 @unpack32(ptr noundef nonnull %688, ptr noundef %1) #8
+  %.not603 = icmp eq i32 %689, 0
+  br i1 %.not603, label %690, label %unpack_step_id_members.exit
 
 690:                                              ; preds = %687
-  %691 = getelementptr inbounds i8, ptr %45, i64 608
-  %692 = call i32 @unpack16(ptr noundef nonnull %691, ptr noundef %1) #8
-  %.not606 = icmp eq i32 %692, 0
-  br i1 %.not606, label %693, label %unpack_step_id_members.exit
+  %691 = getelementptr inbounds i8, ptr %45, i64 264
+  %692 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %691, ptr noundef nonnull %40, ptr noundef %1) #8
+  %.not604 = icmp eq i32 %692, 0
+  br i1 %.not604, label %693, label %unpack_step_id_members.exit
 
 693:                                              ; preds = %690
-  %694 = getelementptr inbounds i8, ptr %45, i64 616
-  %695 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %694, ptr noundef nonnull %42, ptr noundef %1) #8
-  %.not607 = icmp eq i32 %695, 0
-  br i1 %.not607, label %696, label %unpack_step_id_members.exit
+  %694 = getelementptr inbounds i8, ptr %45, i64 272
+  %695 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %694, ptr noundef nonnull %41, ptr noundef %1) #8
+  %.not605 = icmp eq i32 %695, 0
+  br i1 %.not605, label %696, label %unpack_step_id_members.exit
 
 696:                                              ; preds = %693
-  %697 = getelementptr inbounds i8, ptr %45, i64 624
+  %697 = getelementptr inbounds i8, ptr %45, i64 608
   %698 = call i32 @unpack16(ptr noundef nonnull %697, ptr noundef %1) #8
-  %.not608 = icmp eq i32 %698, 0
-  br i1 %.not608, label %699, label %unpack_step_id_members.exit
+  %.not606 = icmp eq i32 %698, 0
+  br i1 %.not606, label %699, label %unpack_step_id_members.exit
 
 699:                                              ; preds = %696
-  %700 = getelementptr inbounds i8, ptr %45, i64 632
-  %701 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %700, ptr noundef nonnull %43, ptr noundef %1) #8
-  %.not609 = icmp eq i32 %701, 0
-  br i1 %.not609, label %702, label %unpack_step_id_members.exit
+  %700 = getelementptr inbounds i8, ptr %45, i64 616
+  %701 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %700, ptr noundef nonnull %42, ptr noundef %1) #8
+  %.not607 = icmp eq i32 %701, 0
+  br i1 %.not607, label %702, label %unpack_step_id_members.exit
 
 702:                                              ; preds = %699
-  %703 = getelementptr inbounds i8, ptr %45, i64 640
-  %704 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %703, ptr noundef nonnull %44, ptr noundef %1) #8
-  %.not610 = icmp eq i32 %704, 0
-  br i1 %.not610, label %705, label %unpack_step_id_members.exit
+  %703 = getelementptr inbounds i8, ptr %45, i64 624
+  %704 = call i32 @unpack16(ptr noundef nonnull %703, ptr noundef %1) #8
+  %.not608 = icmp eq i32 %704, 0
+  br i1 %.not608, label %705, label %unpack_step_id_members.exit
 
 705:                                              ; preds = %702
-  %706 = getelementptr inbounds i8, ptr %45, i64 648
-  %707 = call i32 @unpack16(ptr noundef nonnull %706, ptr noundef %1) #8
-  %.not611 = icmp eq i32 %707, 0
-  br i1 %.not611, label %708, label %unpack_step_id_members.exit
+  %706 = getelementptr inbounds i8, ptr %45, i64 632
+  %707 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %706, ptr noundef nonnull %43, ptr noundef %1) #8
+  %.not609 = icmp eq i32 %707, 0
+  br i1 %.not609, label %708, label %unpack_step_id_members.exit
 
-unpack_step_id_members.exit:                      ; preds = %420, %447, %552, %548, %544, %.lr.ph753, %.lr.ph755, %84, %111, %219, %215, %211, %.lr.ph767, %.lr.ph769, %383, %380, %377, %53, %50, %47, %705, %702, %699, %696, %693, %690, %687, %684, %681, %678, %675, %672, %669, %666, %663, %646, %643, %640, %.loopexit737, %626, %622, %619, %616, %613, %610, %607, %603, %600, %597, %594, %591, %588, %585, %581, %.loopexit740, %564, %560, %._crit_edge, %533, %527, %520, %517, %514, %511, %508, %505, %502, %499, %496, %493, %490, %487, %484, %481, %478, %475, %472, %469, %462, %459, %456, %453, %.loopexit743, %437, %.loopexit745, %413, %407, %401, %398, %396, %392, %390, %388, %386, %372, %369, %366, %363, %360, %357, %354, %351, %348, %345, %342, %339, %336, %333, %330, %313, %310, %307, %.loopexit, %293, %289, %286, %283, %280, %277, %274, %270, %267, %264, %261, %258, %255, %252, %248, %.loopexit729, %231, %227, %._crit_edge765, %200, %194, %187, %184, %181, %178, %175, %172, %169, %166, %163, %159, %156, %153, %150, %147, %144, %141, %138, %135, %132, %129, %126, %123, %120, %117, %.loopexit732, %101, %.loopexit734, %77, %71, %65, %62, %60, %56, %661, %653, %328, %320
+708:                                              ; preds = %705
+  %709 = getelementptr inbounds i8, ptr %45, i64 640
+  %710 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %709, ptr noundef nonnull %44, ptr noundef %1) #8
+  %.not610 = icmp eq i32 %710, 0
+  br i1 %.not610, label %711, label %unpack_step_id_members.exit
+
+711:                                              ; preds = %708
+  %712 = getelementptr inbounds i8, ptr %45, i64 648
+  %713 = call i32 @unpack16(ptr noundef nonnull %712, ptr noundef %1) #8
+  %.not611 = icmp eq i32 %713, 0
+  br i1 %.not611, label %714, label %unpack_step_id_members.exit
+
+unpack_step_id_members.exit:                      ; preds = %424, %452, %558, %554, %550, %.lr.ph753, %.lr.ph755, %85, %113, %222, %218, %214, %.lr.ph767, %.lr.ph769, %386, %383, %380, %53, %50, %47, %711, %708, %705, %702, %699, %696, %693, %690, %687, %684, %681, %678, %675, %672, %669, %652, %649, %646, %.loopexit737, %632, %628, %625, %622, %619, %616, %613, %609, %606, %603, %600, %597, %594, %591, %587, %.loopexit740, %570, %566, %._crit_edge, %538, %532, %525, %522, %519, %516, %513, %510, %507, %504, %501, %498, %495, %492, %489, %486, %483, %480, %477, %474, %467, %464, %461, %458, %.loopexit743, %441, %.loopexit745, %416, %410, %404, %401, %399, %395, %393, %391, %389, %375, %372, %369, %366, %363, %360, %357, %354, %351, %348, %345, %342, %339, %336, %333, %316, %313, %310, %.loopexit, %296, %292, %289, %286, %283, %280, %277, %273, %270, %267, %264, %261, %258, %255, %251, %.loopexit729, %234, %230, %._crit_edge765, %202, %196, %189, %186, %183, %180, %177, %174, %171, %168, %165, %161, %158, %155, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %122, %119, %.loopexit732, %102, %.loopexit734, %77, %71, %65, %62, %60, %56, %667, %659, %331, %323
   call void @slurm_free_launch_tasks_request_msg(ptr noundef %45) #8
   store ptr null, ptr %0, align 8
-  br label %708
+  br label %714
 
-708:                                              ; preds = %372, %705, %375, %unpack_step_id_members.exit
-  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %375 ], [ 0, %705 ], [ 0, %372 ]
+714:                                              ; preds = %375, %711, %378, %unpack_step_id_members.exit
+  %.0 = phi i32 [ -1, %unpack_step_id_members.exit ], [ 0, %378 ], [ 0, %711 ], [ 0, %375 ]
   ret i32 %.0
 }
 
@@ -32482,7 +32482,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
 51:                                               ; preds = %47, %48
   %52 = phi ptr [ null, %47 ], [ %50, %48 ]
   %53 = icmp ugt i16 %2, 10495
-  br i1 %53, label %54, label %234
+  br i1 %53, label %54, label %237
 
 54:                                               ; preds = %51
   %55 = load i32, ptr %41, align 8
@@ -32490,8 +32490,8 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   br i1 %.not468, label %.loopexit424, label %.lr.ph463
 
 .lr.ph463:                                        ; preds = %54, %._crit_edge459
-  %.0297461 = phi i32 [ %230, %._crit_edge459 ], [ 0, %54 ]
-  %.0300460 = phi ptr [ %231, %._crit_edge459 ], [ %52, %54 ]
+  %.0297461 = phi i32 [ %233, %._crit_edge459 ], [ 0, %54 ]
+  %.0300460 = phi ptr [ %234, %._crit_edge459 ], [ %52, %54 ]
   %56 = getelementptr inbounds i8, ptr %.0300460, i64 88
   %57 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %56, ptr noundef nonnull %4, ptr noundef %1) #8
   %.not372 = icmp eq i32 %57, 0
@@ -32580,697 +32580,697 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
 
 96:                                               ; preds = %92
   %.pre490 = load i32, ptr %85, align 8
-  %.not469 = icmp eq i32 %.pre490, 0
-  br i1 %.not469, label %._crit_edge449, label %.lr.ph448
+  %97 = icmp eq i32 %.pre490, 0
+  br i1 %97, label %._crit_edge449, label %.lr.ph448
 
 .lr.ph448:                                        ; preds = %96
-  %97 = getelementptr inbounds i8, ptr %.0300460, i64 80
-  br label %102
+  %98 = getelementptr inbounds i8, ptr %.0300460, i64 80
+  br label %103
 
-98:                                               ; preds = %118
+99:                                               ; preds = %119
   %indvars.iv.next482 = add nuw nsw i64 %indvars.iv481, 1
-  %99 = load i32, ptr %85, align 8
-  %100 = zext i32 %99 to i64
-  %101 = icmp ult i64 %indvars.iv.next482, %100
-  br i1 %101, label %102, label %._crit_edge449, !llvm.loop !83
+  %100 = load i32, ptr %85, align 8
+  %101 = zext i32 %100 to i64
+  %102 = icmp ult i64 %indvars.iv.next482, %101
+  br i1 %102, label %103, label %._crit_edge449, !llvm.loop !83
 
-102:                                              ; preds = %.lr.ph448, %98
-  %indvars.iv481 = phi i64 [ 0, %.lr.ph448 ], [ %indvars.iv.next482, %98 ]
-  %103 = load ptr, ptr %97, align 8
-  %104 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %103, i64 %indvars.iv481, i32 1
-  %105 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %104, ptr noundef nonnull %12, ptr noundef %1) #8
-  %.not417 = icmp eq i32 %105, 0
-  br i1 %.not417, label %106, label %.loopexit
+103:                                              ; preds = %.lr.ph448, %99
+  %indvars.iv481 = phi i64 [ 0, %.lr.ph448 ], [ %indvars.iv.next482, %99 ]
+  %104 = load ptr, ptr %98, align 8
+  %105 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %104, i64 %indvars.iv481, i32 1
+  %106 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %105, ptr noundef nonnull %12, ptr noundef %1) #8
+  %.not417 = icmp eq i32 %106, 0
+  br i1 %.not417, label %107, label %.loopexit
 
-106:                                              ; preds = %102
-  %107 = load ptr, ptr %97, align 8
-  %108 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %107, i64 %indvars.iv481, i32 2
-  %109 = call i32 @unpack64(ptr noundef nonnull %108, ptr noundef %1) #8
-  %.not418 = icmp eq i32 %109, 0
-  br i1 %.not418, label %110, label %.loopexit
+107:                                              ; preds = %103
+  %108 = load ptr, ptr %98, align 8
+  %109 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %108, i64 %indvars.iv481, i32 2
+  %110 = call i32 @unpack64(ptr noundef nonnull %109, ptr noundef %1) #8
+  %.not418 = icmp eq i32 %110, 0
+  br i1 %.not418, label %111, label %.loopexit
 
-110:                                              ; preds = %106
-  %111 = load ptr, ptr %97, align 8
-  %112 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %111, i64 %indvars.iv481
-  %113 = call i32 @unpack64(ptr noundef %112, ptr noundef %1) #8
-  %.not419 = icmp eq i32 %113, 0
-  br i1 %.not419, label %114, label %.loopexit
+111:                                              ; preds = %107
+  %112 = load ptr, ptr %98, align 8
+  %113 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %112, i64 %indvars.iv481
+  %114 = call i32 @unpack64(ptr noundef %113, ptr noundef %1) #8
+  %.not419 = icmp eq i32 %114, 0
+  br i1 %.not419, label %115, label %.loopexit
 
-114:                                              ; preds = %110
-  %115 = load ptr, ptr %97, align 8
-  %116 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %115, i64 %indvars.iv481, i32 4
-  %117 = call i32 @unpack64(ptr noundef nonnull %116, ptr noundef %1) #8
-  %.not420 = icmp eq i32 %117, 0
-  br i1 %.not420, label %118, label %.loopexit
+115:                                              ; preds = %111
+  %116 = load ptr, ptr %98, align 8
+  %117 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %116, i64 %indvars.iv481, i32 4
+  %118 = call i32 @unpack64(ptr noundef nonnull %117, ptr noundef %1) #8
+  %.not420 = icmp eq i32 %118, 0
+  br i1 %.not420, label %119, label %.loopexit
 
-118:                                              ; preds = %114
-  %119 = load ptr, ptr %97, align 8
-  %120 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %119, i64 %indvars.iv481, i32 3
-  %121 = call i32 @unpack64(ptr noundef nonnull %120, ptr noundef %1) #8
-  %.not421 = icmp eq i32 %121, 0
-  br i1 %.not421, label %98, label %.loopexit
+119:                                              ; preds = %115
+  %120 = load ptr, ptr %98, align 8
+  %121 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %120, i64 %indvars.iv481, i32 3
+  %122 = call i32 @unpack64(ptr noundef nonnull %121, ptr noundef %1) #8
+  %.not421 = icmp eq i32 %122, 0
+  br i1 %.not421, label %99, label %.loopexit
 
-._crit_edge449:                                   ; preds = %98, %.thread, %96
-  %122 = getelementptr inbounds i8, ptr %.0300460, i64 96
-  %123 = call i32 @unpack32(ptr noundef nonnull %122, ptr noundef %1) #8
-  %.not385 = icmp eq i32 %123, 0
-  br i1 %.not385, label %124, label %.loopexit
+._crit_edge449:                                   ; preds = %99, %.thread, %96
+  %123 = getelementptr inbounds i8, ptr %.0300460, i64 96
+  %124 = call i32 @unpack32(ptr noundef nonnull %123, ptr noundef %1) #8
+  %.not385 = icmp eq i32 %124, 0
+  br i1 %.not385, label %125, label %.loopexit
 
-124:                                              ; preds = %._crit_edge449
-  %125 = getelementptr inbounds i8, ptr %.0300460, i64 100
-  %126 = call i32 @unpack32(ptr noundef nonnull %125, ptr noundef %1) #8
-  %.not386 = icmp eq i32 %126, 0
-  br i1 %.not386, label %127, label %.loopexit
+125:                                              ; preds = %._crit_edge449
+  %126 = getelementptr inbounds i8, ptr %.0300460, i64 100
+  %127 = call i32 @unpack32(ptr noundef nonnull %126, ptr noundef %1) #8
+  %.not386 = icmp eq i32 %127, 0
+  br i1 %.not386, label %128, label %.loopexit
 
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %.0300460, i64 112
-  %129 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %128, ptr noundef nonnull %13, ptr noundef %1) #8
-  %.not387 = icmp eq i32 %129, 0
-  br i1 %.not387, label %130, label %.loopexit
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds i8, ptr %.0300460, i64 112
+  %130 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %129, ptr noundef nonnull %13, ptr noundef %1) #8
+  %.not387 = icmp eq i32 %130, 0
+  br i1 %.not387, label %131, label %.loopexit
 
-130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %.0300460, i64 120
-  %132 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %131, ptr noundef nonnull %14, ptr noundef %1) #8
-  %.not388 = icmp eq i32 %132, 0
-  br i1 %.not388, label %133, label %.loopexit
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds i8, ptr %.0300460, i64 120
+  %133 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %132, ptr noundef nonnull %14, ptr noundef %1) #8
+  %.not388 = icmp eq i32 %133, 0
+  br i1 %.not388, label %134, label %.loopexit
 
-133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %.0300460, i64 128
-  %135 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %134, ptr noundef nonnull %15, ptr noundef %1) #8
-  %.not389 = icmp eq i32 %135, 0
-  br i1 %.not389, label %136, label %.loopexit
+134:                                              ; preds = %131
+  %135 = getelementptr inbounds i8, ptr %.0300460, i64 128
+  %136 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %135, ptr noundef nonnull %15, ptr noundef %1) #8
+  %.not389 = icmp eq i32 %136, 0
+  br i1 %.not389, label %137, label %.loopexit
 
-136:                                              ; preds = %133
-  %137 = getelementptr inbounds i8, ptr %.0300460, i64 136
-  %138 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %137, ptr noundef nonnull %16, ptr noundef %1) #8
-  %.not390 = icmp eq i32 %138, 0
-  br i1 %.not390, label %139, label %.loopexit
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds i8, ptr %.0300460, i64 136
+  %139 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %138, ptr noundef nonnull %16, ptr noundef %1) #8
+  %.not390 = icmp eq i32 %139, 0
+  br i1 %.not390, label %140, label %.loopexit
 
-139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %.0300460, i64 104
-  %141 = call i32 @unpack32(ptr noundef nonnull %140, ptr noundef %1) #8
-  %.not391 = icmp eq i32 %141, 0
-  br i1 %.not391, label %142, label %.loopexit
+140:                                              ; preds = %137
+  %141 = getelementptr inbounds i8, ptr %.0300460, i64 104
+  %142 = call i32 @unpack32(ptr noundef nonnull %141, ptr noundef %1) #8
+  %.not391 = icmp eq i32 %142, 0
+  br i1 %.not391, label %143, label %.loopexit
 
-142:                                              ; preds = %139
-  %143 = getelementptr inbounds i8, ptr %.0300460, i64 108
-  %144 = call i32 @unpack32(ptr noundef nonnull %143, ptr noundef %1) #8
-  %.not392 = icmp eq i32 %144, 0
-  br i1 %.not392, label %145, label %.loopexit
+143:                                              ; preds = %140
+  %144 = getelementptr inbounds i8, ptr %.0300460, i64 108
+  %145 = call i32 @unpack32(ptr noundef nonnull %144, ptr noundef %1) #8
+  %.not392 = icmp eq i32 %145, 0
+  br i1 %.not392, label %146, label %.loopexit
 
-145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %.0300460, i64 144
-  %147 = call i32 @unpack64(ptr noundef nonnull %146, ptr noundef %1) #8
-  %.not393 = icmp eq i32 %147, 0
-  br i1 %.not393, label %148, label %.loopexit
+146:                                              ; preds = %143
+  %147 = getelementptr inbounds i8, ptr %.0300460, i64 144
+  %148 = call i32 @unpack64(ptr noundef nonnull %147, ptr noundef %1) #8
+  %.not393 = icmp eq i32 %148, 0
+  br i1 %.not393, label %149, label %.loopexit
 
-148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %.0300460, i64 152
-  %150 = call i32 @unpack64(ptr noundef nonnull %149, ptr noundef %1) #8
-  %.not394 = icmp eq i32 %150, 0
-  br i1 %.not394, label %151, label %.loopexit
+149:                                              ; preds = %146
+  %150 = getelementptr inbounds i8, ptr %.0300460, i64 152
+  %151 = call i32 @unpack64(ptr noundef nonnull %150, ptr noundef %1) #8
+  %.not394 = icmp eq i32 %151, 0
+  br i1 %.not394, label %152, label %.loopexit
 
-151:                                              ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %.0300460, i64 160
-  %153 = call i32 @unpack64(ptr noundef nonnull %152, ptr noundef %1) #8
-  %.not395 = icmp eq i32 %153, 0
-  br i1 %.not395, label %154, label %.loopexit
+152:                                              ; preds = %149
+  %153 = getelementptr inbounds i8, ptr %.0300460, i64 160
+  %154 = call i32 @unpack64(ptr noundef nonnull %153, ptr noundef %1) #8
+  %.not395 = icmp eq i32 %154, 0
+  br i1 %.not395, label %155, label %.loopexit
 
-154:                                              ; preds = %151
-  %155 = getelementptr inbounds i8, ptr %.0300460, i64 168
-  %156 = call i32 @unpack32(ptr noundef nonnull %155, ptr noundef %1) #8
-  %.not396 = icmp eq i32 %156, 0
-  br i1 %.not396, label %157, label %.loopexit
+155:                                              ; preds = %152
+  %156 = getelementptr inbounds i8, ptr %.0300460, i64 168
+  %157 = call i32 @unpack32(ptr noundef nonnull %156, ptr noundef %1) #8
+  %.not396 = icmp eq i32 %157, 0
+  br i1 %.not396, label %158, label %.loopexit
 
-157:                                              ; preds = %154
-  %158 = getelementptr inbounds i8, ptr %.0300460, i64 172
-  %159 = call i32 @unpack32(ptr noundef nonnull %158, ptr noundef %1) #8
-  %.not397 = icmp eq i32 %159, 0
-  br i1 %.not397, label %160, label %.loopexit
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds i8, ptr %.0300460, i64 172
+  %160 = call i32 @unpack32(ptr noundef nonnull %159, ptr noundef %1) #8
+  %.not397 = icmp eq i32 %160, 0
+  br i1 %.not397, label %161, label %.loopexit
 
-160:                                              ; preds = %157
-  %161 = load i32, ptr %158, align 4
-  %162 = icmp ugt i32 %161, -3
-  br i1 %162, label %.loopexit, label %163
+161:                                              ; preds = %158
+  %162 = load i32, ptr %159, align 4
+  %163 = icmp ugt i32 %162, -3
+  br i1 %163, label %.loopexit, label %164
 
-163:                                              ; preds = %160
-  %.not398 = icmp eq i32 %161, 0
-  br i1 %.not398, label %.thread496, label %165
+164:                                              ; preds = %161
+  %.not398 = icmp eq i32 %162, 0
+  br i1 %.not398, label %.thread496, label %166
 
-.thread496:                                       ; preds = %163
-  %164 = getelementptr inbounds i8, ptr %.0300460, i64 176
-  store ptr null, ptr %164, align 8
+.thread496:                                       ; preds = %164
+  %165 = getelementptr inbounds i8, ptr %.0300460, i64 176
+  store ptr null, ptr %165, align 8
   br label %._crit_edge454
 
-165:                                              ; preds = %163
-  %166 = zext i32 %161 to i64
-  %167 = call ptr @slurm_xcalloc(i64 noundef %166, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 7196, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #8
-  %168 = getelementptr inbounds i8, ptr %.0300460, i64 176
-  store ptr %167, ptr %168, align 8
-  %.not399 = icmp eq ptr %167, null
-  br i1 %.not399, label %.loopexit, label %169
+166:                                              ; preds = %164
+  %167 = zext i32 %162 to i64
+  %168 = call ptr @slurm_xcalloc(i64 noundef %167, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 7196, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #8
+  %169 = getelementptr inbounds i8, ptr %.0300460, i64 176
+  store ptr %168, ptr %169, align 8
+  %.not399 = icmp eq ptr %168, null
+  br i1 %.not399, label %.loopexit, label %170
 
-169:                                              ; preds = %165
-  %.pre492 = load i32, ptr %158, align 4
-  %.not470 = icmp eq i32 %.pre492, 0
-  br i1 %.not470, label %._crit_edge454, label %.lr.ph453
+170:                                              ; preds = %166
+  %.pre492 = load i32, ptr %159, align 4
+  %171 = icmp eq i32 %.pre492, 0
+  br i1 %171, label %._crit_edge454, label %.lr.ph453
 
-.lr.ph453:                                        ; preds = %169, %204
-  %.1299451 = phi i32 [ %205, %204 ], [ 0, %169 ]
-  %.0302450 = phi ptr [ %206, %204 ], [ %167, %169 ]
-  %170 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.0302450, ptr noundef nonnull %17, ptr noundef %1) #8
-  %.not405 = icmp eq i32 %170, 0
-  br i1 %.not405, label %171, label %.loopexit
+.lr.ph453:                                        ; preds = %170, %206
+  %.1299451 = phi i32 [ %207, %206 ], [ 0, %170 ]
+  %.0302450 = phi ptr [ %208, %206 ], [ %168, %170 ]
+  %172 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.0302450, ptr noundef nonnull %17, ptr noundef %1) #8
+  %.not405 = icmp eq i32 %172, 0
+  br i1 %.not405, label %173, label %.loopexit
 
-171:                                              ; preds = %.lr.ph453
-  %172 = getelementptr inbounds i8, ptr %.0302450, i64 8
-  %173 = call i32 @unpack32(ptr noundef nonnull %172, ptr noundef %1) #8
-  %.not406 = icmp eq i32 %173, 0
-  br i1 %.not406, label %174, label %.loopexit
+173:                                              ; preds = %.lr.ph453
+  %174 = getelementptr inbounds i8, ptr %.0302450, i64 8
+  %175 = call i32 @unpack32(ptr noundef nonnull %174, ptr noundef %1) #8
+  %.not406 = icmp eq i32 %175, 0
+  br i1 %.not406, label %176, label %.loopexit
 
-174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %.0302450, i64 12
-  %176 = call i32 @unpack32(ptr noundef nonnull %175, ptr noundef %1) #8
-  %.not407 = icmp eq i32 %176, 0
-  br i1 %.not407, label %177, label %.loopexit
+176:                                              ; preds = %173
+  %177 = getelementptr inbounds i8, ptr %.0302450, i64 12
+  %178 = call i32 @unpack32(ptr noundef nonnull %177, ptr noundef %1) #8
+  %.not407 = icmp eq i32 %178, 0
+  br i1 %.not407, label %179, label %.loopexit
 
-177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %.0302450, i64 16
-  %179 = call i32 @unpack_time(ptr noundef nonnull %178, ptr noundef %1) #8
-  %.not408 = icmp eq i32 %179, 0
-  br i1 %.not408, label %180, label %.loopexit
+179:                                              ; preds = %176
+  %180 = getelementptr inbounds i8, ptr %.0302450, i64 16
+  %181 = call i32 @unpack_time(ptr noundef nonnull %180, ptr noundef %1) #8
+  %.not408 = icmp eq i32 %181, 0
+  br i1 %.not408, label %182, label %.loopexit
 
-180:                                              ; preds = %177
-  %181 = getelementptr inbounds i8, ptr %.0302450, i64 24
-  %182 = call i32 @unpack32(ptr noundef nonnull %181, ptr noundef %1) #8
-  %.not409 = icmp eq i32 %182, 0
-  br i1 %.not409, label %183, label %.loopexit
+182:                                              ; preds = %179
+  %183 = getelementptr inbounds i8, ptr %.0302450, i64 24
+  %184 = call i32 @unpack32(ptr noundef nonnull %183, ptr noundef %1) #8
+  %.not409 = icmp eq i32 %184, 0
+  br i1 %.not409, label %185, label %.loopexit
 
-183:                                              ; preds = %180
-  %184 = getelementptr inbounds i8, ptr %.0302450, i64 32
-  %185 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %184, ptr noundef nonnull %18, ptr noundef %1) #8
-  %.not410 = icmp eq i32 %185, 0
-  br i1 %.not410, label %186, label %.loopexit
+185:                                              ; preds = %182
+  %186 = getelementptr inbounds i8, ptr %.0302450, i64 32
+  %187 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %186, ptr noundef nonnull %18, ptr noundef %1) #8
+  %.not410 = icmp eq i32 %187, 0
+  br i1 %.not410, label %188, label %.loopexit
 
-186:                                              ; preds = %183
-  %187 = getelementptr inbounds i8, ptr %.0302450, i64 40
-  %188 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %187, ptr noundef nonnull %19, ptr noundef %1) #8
-  %.not411 = icmp eq i32 %188, 0
-  br i1 %.not411, label %189, label %.loopexit
+188:                                              ; preds = %185
+  %189 = getelementptr inbounds i8, ptr %.0302450, i64 40
+  %190 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %189, ptr noundef nonnull %19, ptr noundef %1) #8
+  %.not411 = icmp eq i32 %190, 0
+  br i1 %.not411, label %191, label %.loopexit
 
-189:                                              ; preds = %186
-  %190 = getelementptr inbounds i8, ptr %.0302450, i64 48
-  %191 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %190, ptr noundef nonnull %20, ptr noundef %1) #8
-  %.not412 = icmp eq i32 %191, 0
-  br i1 %.not412, label %192, label %.loopexit
+191:                                              ; preds = %188
+  %192 = getelementptr inbounds i8, ptr %.0302450, i64 48
+  %193 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %192, ptr noundef nonnull %20, ptr noundef %1) #8
+  %.not412 = icmp eq i32 %193, 0
+  br i1 %.not412, label %194, label %.loopexit
 
-192:                                              ; preds = %189
-  %193 = getelementptr inbounds i8, ptr %.0302450, i64 56
-  %194 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %193, ptr noundef nonnull %21, ptr noundef %1) #8
-  %.not413 = icmp eq i32 %194, 0
-  br i1 %.not413, label %195, label %.loopexit
+194:                                              ; preds = %191
+  %195 = getelementptr inbounds i8, ptr %.0302450, i64 56
+  %196 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %195, ptr noundef nonnull %21, ptr noundef %1) #8
+  %.not413 = icmp eq i32 %196, 0
+  br i1 %.not413, label %197, label %.loopexit
 
-195:                                              ; preds = %192
-  %196 = getelementptr inbounds i8, ptr %.0302450, i64 64
-  %197 = call i32 @unpack64(ptr noundef nonnull %196, ptr noundef %1) #8
-  %.not414 = icmp eq i32 %197, 0
-  br i1 %.not414, label %198, label %.loopexit
+197:                                              ; preds = %194
+  %198 = getelementptr inbounds i8, ptr %.0302450, i64 64
+  %199 = call i32 @unpack64(ptr noundef nonnull %198, ptr noundef %1) #8
+  %.not414 = icmp eq i32 %199, 0
+  br i1 %.not414, label %200, label %.loopexit
 
-198:                                              ; preds = %195
-  %199 = getelementptr inbounds i8, ptr %.0302450, i64 72
-  %200 = call i32 @unpack16(ptr noundef nonnull %199, ptr noundef %1) #8
-  %.not415 = icmp eq i32 %200, 0
-  br i1 %.not415, label %201, label %.loopexit
+200:                                              ; preds = %197
+  %201 = getelementptr inbounds i8, ptr %.0302450, i64 72
+  %202 = call i32 @unpack16(ptr noundef nonnull %201, ptr noundef %1) #8
+  %.not415 = icmp eq i32 %202, 0
+  br i1 %.not415, label %203, label %.loopexit
 
-201:                                              ; preds = %198
-  %202 = getelementptr inbounds i8, ptr %.0302450, i64 76
-  %203 = call i32 @unpack32(ptr noundef nonnull %202, ptr noundef %1) #8
-  %.not416 = icmp eq i32 %203, 0
-  br i1 %.not416, label %204, label %.loopexit
+203:                                              ; preds = %200
+  %204 = getelementptr inbounds i8, ptr %.0302450, i64 76
+  %205 = call i32 @unpack32(ptr noundef nonnull %204, ptr noundef %1) #8
+  %.not416 = icmp eq i32 %205, 0
+  br i1 %.not416, label %206, label %.loopexit
 
-204:                                              ; preds = %201
-  %205 = add nuw nsw i32 %.1299451, 1
-  %206 = getelementptr inbounds i8, ptr %.0302450, i64 80
-  %207 = load i32, ptr %158, align 4
-  %208 = icmp ult i32 %205, %207
-  br i1 %208, label %.lr.ph453, label %._crit_edge454, !llvm.loop !84
+206:                                              ; preds = %203
+  %207 = add nuw nsw i32 %.1299451, 1
+  %208 = getelementptr inbounds i8, ptr %.0302450, i64 80
+  %209 = load i32, ptr %159, align 4
+  %210 = icmp ult i32 %207, %209
+  br i1 %210, label %.lr.ph453, label %._crit_edge454, !llvm.loop !84
 
-._crit_edge454:                                   ; preds = %204, %.thread496, %169
-  %209 = getelementptr inbounds i8, ptr %.0300460, i64 184
-  %210 = call i32 @unpack32(ptr noundef nonnull %209, ptr noundef %1) #8
-  %.not400 = icmp eq i32 %210, 0
-  br i1 %.not400, label %211, label %.loopexit
+._crit_edge454:                                   ; preds = %206, %.thread496, %170
+  %211 = getelementptr inbounds i8, ptr %.0300460, i64 184
+  %212 = call i32 @unpack32(ptr noundef nonnull %211, ptr noundef %1) #8
+  %.not400 = icmp eq i32 %212, 0
+  br i1 %.not400, label %213, label %.loopexit
 
-211:                                              ; preds = %._crit_edge454
-  %212 = load i32, ptr %209, align 8
-  %213 = icmp ugt i32 %212, -3
-  br i1 %213, label %.loopexit, label %214
+213:                                              ; preds = %._crit_edge454
+  %214 = load i32, ptr %211, align 8
+  %215 = icmp ugt i32 %214, -3
+  br i1 %215, label %.loopexit, label %216
 
-214:                                              ; preds = %211
-  %.not401 = icmp eq i32 %212, 0
-  br i1 %.not401, label %.thread498, label %216
+216:                                              ; preds = %213
+  %.not401 = icmp eq i32 %214, 0
+  br i1 %.not401, label %.thread498, label %218
 
-.thread498:                                       ; preds = %214
-  %215 = getelementptr inbounds i8, ptr %.0300460, i64 192
-  store ptr null, ptr %215, align 8
+.thread498:                                       ; preds = %216
+  %217 = getelementptr inbounds i8, ptr %.0300460, i64 192
+  store ptr null, ptr %217, align 8
   br label %._crit_edge459
 
-216:                                              ; preds = %214
-  %217 = zext i32 %212 to i64
-  %218 = call ptr @slurm_xcalloc(i64 noundef %217, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 7222, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #8
-  %219 = getelementptr inbounds i8, ptr %.0300460, i64 192
-  store ptr %218, ptr %219, align 8
-  %.not402 = icmp eq ptr %218, null
-  br i1 %.not402, label %.loopexit, label %220
+218:                                              ; preds = %216
+  %219 = zext i32 %214 to i64
+  %220 = call ptr @slurm_xcalloc(i64 noundef %219, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 7222, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #8
+  %221 = getelementptr inbounds i8, ptr %.0300460, i64 192
+  store ptr %220, ptr %221, align 8
+  %.not402 = icmp eq ptr %220, null
+  br i1 %.not402, label %.loopexit, label %222
 
-220:                                              ; preds = %216
-  %.pre494 = load i32, ptr %209, align 8
-  %.not471 = icmp eq i32 %.pre494, 0
-  br i1 %.not471, label %._crit_edge459, label %.lr.ph458
+222:                                              ; preds = %218
+  %.pre494 = load i32, ptr %211, align 8
+  %223 = icmp eq i32 %.pre494, 0
+  br i1 %223, label %._crit_edge459, label %.lr.ph458
 
-.lr.ph458:                                        ; preds = %220, %225
-  %.2456 = phi i32 [ %226, %225 ], [ 0, %220 ]
-  %.0304455 = phi ptr [ %227, %225 ], [ %218, %220 ]
-  %221 = getelementptr inbounds i8, ptr %.0304455, i64 8
-  %222 = call i32 @unpack64(ptr noundef nonnull %221, ptr noundef %1) #8
-  %.not403 = icmp eq i32 %222, 0
-  br i1 %.not403, label %223, label %.loopexit
+.lr.ph458:                                        ; preds = %222, %228
+  %.2456 = phi i32 [ %229, %228 ], [ 0, %222 ]
+  %.0304455 = phi ptr [ %230, %228 ], [ %220, %222 ]
+  %224 = getelementptr inbounds i8, ptr %.0304455, i64 8
+  %225 = call i32 @unpack64(ptr noundef nonnull %224, ptr noundef %1) #8
+  %.not403 = icmp eq i32 %225, 0
+  br i1 %.not403, label %226, label %.loopexit
 
-223:                                              ; preds = %.lr.ph458
-  %224 = call i32 @unpack32(ptr noundef nonnull %.0304455, ptr noundef %1) #8
-  %.not404 = icmp eq i32 %224, 0
-  br i1 %.not404, label %225, label %.loopexit
+226:                                              ; preds = %.lr.ph458
+  %227 = call i32 @unpack32(ptr noundef nonnull %.0304455, ptr noundef %1) #8
+  %.not404 = icmp eq i32 %227, 0
+  br i1 %.not404, label %228, label %.loopexit
 
-225:                                              ; preds = %223
-  %226 = add nuw nsw i32 %.2456, 1
-  %227 = getelementptr inbounds i8, ptr %.0304455, i64 16
-  %228 = load i32, ptr %209, align 8
-  %229 = icmp ult i32 %226, %228
-  br i1 %229, label %.lr.ph458, label %._crit_edge459, !llvm.loop !85
+228:                                              ; preds = %226
+  %229 = add nuw nsw i32 %.2456, 1
+  %230 = getelementptr inbounds i8, ptr %.0304455, i64 16
+  %231 = load i32, ptr %211, align 8
+  %232 = icmp ult i32 %229, %231
+  br i1 %232, label %.lr.ph458, label %._crit_edge459, !llvm.loop !85
 
-._crit_edge459:                                   ; preds = %225, %.thread498, %220
-  %230 = add nuw nsw i32 %.0297461, 1
-  %231 = getelementptr inbounds i8, ptr %.0300460, i64 200
-  %232 = load i32, ptr %41, align 8
-  %233 = icmp ult i32 %230, %232
-  br i1 %233, label %.lr.ph463, label %.loopexit424, !llvm.loop !86
+._crit_edge459:                                   ; preds = %228, %.thread498, %222
+  %233 = add nuw nsw i32 %.0297461, 1
+  %234 = getelementptr inbounds i8, ptr %.0300460, i64 200
+  %235 = load i32, ptr %41, align 8
+  %236 = icmp ult i32 %233, %235
+  br i1 %236, label %.lr.ph463, label %.loopexit424, !llvm.loop !86
 
-234:                                              ; preds = %51
-  %235 = icmp ugt i16 %2, 9983
-  br i1 %235, label %236, label %.loopexit424
+237:                                              ; preds = %51
+  %238 = icmp ugt i16 %2, 9983
+  br i1 %238, label %239, label %.loopexit424
 
-236:                                              ; preds = %234
-  %237 = load i32, ptr %41, align 8
-  %.not464 = icmp eq i32 %237, 0
+239:                                              ; preds = %237
+  %240 = load i32, ptr %41, align 8
+  %.not464 = icmp eq i32 %240, 0
   br i1 %.not464, label %.loopexit424, label %.lr.ph445
 
-.lr.ph445:                                        ; preds = %236, %._crit_edge441
-  %.1443 = phi i32 [ %409, %._crit_edge441 ], [ 0, %236 ]
-  %.1301442 = phi ptr [ %410, %._crit_edge441 ], [ %52, %236 ]
-  %238 = getelementptr inbounds i8, ptr %.1301442, i64 88
-  %239 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %238, ptr noundef nonnull %22, ptr noundef %1) #8
-  %.not323 = icmp eq i32 %239, 0
-  br i1 %.not323, label %240, label %.loopexit
+.lr.ph445:                                        ; preds = %239, %._crit_edge441
+  %.1443 = phi i32 [ %415, %._crit_edge441 ], [ 0, %239 ]
+  %.1301442 = phi ptr [ %416, %._crit_edge441 ], [ %52, %239 ]
+  %241 = getelementptr inbounds i8, ptr %.1301442, i64 88
+  %242 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %241, ptr noundef nonnull %22, ptr noundef %1) #8
+  %.not323 = icmp eq i32 %242, 0
+  br i1 %.not323, label %243, label %.loopexit
 
-240:                                              ; preds = %.lr.ph445
-  %241 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %.1301442, ptr noundef nonnull %23, ptr noundef %1) #8
-  %.not324 = icmp eq i32 %241, 0
-  br i1 %.not324, label %242, label %.loopexit
+243:                                              ; preds = %.lr.ph445
+  %244 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %.1301442, ptr noundef nonnull %23, ptr noundef %1) #8
+  %.not324 = icmp eq i32 %244, 0
+  br i1 %.not324, label %245, label %.loopexit
 
-242:                                              ; preds = %240
-  %243 = getelementptr inbounds i8, ptr %.1301442, i64 16
-  %244 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %243, ptr noundef nonnull %24, ptr noundef %1) #8
-  %.not325 = icmp eq i32 %244, 0
-  br i1 %.not325, label %245, label %.loopexit
-
-245:                                              ; preds = %242
-  %246 = getelementptr inbounds i8, ptr %.1301442, i64 8
-  %247 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %246, ptr noundef nonnull %25, ptr noundef %1) #8
-  %.not326 = icmp eq i32 %247, 0
-  br i1 %.not326, label %248, label %.loopexit
+245:                                              ; preds = %243
+  %246 = getelementptr inbounds i8, ptr %.1301442, i64 16
+  %247 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %246, ptr noundef nonnull %24, ptr noundef %1) #8
+  %.not325 = icmp eq i32 %247, 0
+  br i1 %.not325, label %248, label %.loopexit
 
 248:                                              ; preds = %245
-  %249 = getelementptr inbounds i8, ptr %.1301442, i64 24
-  %250 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %249, ptr noundef nonnull %26, ptr noundef %1) #8
-  %.not327 = icmp eq i32 %250, 0
-  br i1 %.not327, label %251, label %.loopexit
+  %249 = getelementptr inbounds i8, ptr %.1301442, i64 8
+  %250 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %249, ptr noundef nonnull %25, ptr noundef %1) #8
+  %.not326 = icmp eq i32 %250, 0
+  br i1 %.not326, label %251, label %.loopexit
 
 251:                                              ; preds = %248
-  %252 = getelementptr inbounds i8, ptr %.1301442, i64 32
-  %253 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %252, ptr noundef nonnull %27, ptr noundef %1) #8
-  %.not328 = icmp eq i32 %253, 0
-  br i1 %.not328, label %254, label %.loopexit
+  %252 = getelementptr inbounds i8, ptr %.1301442, i64 24
+  %253 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %252, ptr noundef nonnull %26, ptr noundef %1) #8
+  %.not327 = icmp eq i32 %253, 0
+  br i1 %.not327, label %254, label %.loopexit
 
 254:                                              ; preds = %251
-  %255 = getelementptr inbounds i8, ptr %.1301442, i64 40
-  %256 = call i32 @unpack32(ptr noundef nonnull %255, ptr noundef %1) #8
-  %.not329 = icmp eq i32 %256, 0
-  br i1 %.not329, label %257, label %.loopexit
+  %255 = getelementptr inbounds i8, ptr %.1301442, i64 32
+  %256 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %255, ptr noundef nonnull %27, ptr noundef %1) #8
+  %.not328 = icmp eq i32 %256, 0
+  br i1 %.not328, label %257, label %.loopexit
 
 257:                                              ; preds = %254
-  %258 = getelementptr inbounds i8, ptr %.1301442, i64 48
-  %259 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %258, ptr noundef nonnull %28, ptr noundef %1) #8
-  %.not330 = icmp eq i32 %259, 0
-  br i1 %.not330, label %260, label %.loopexit
+  %258 = getelementptr inbounds i8, ptr %.1301442, i64 40
+  %259 = call i32 @unpack32(ptr noundef nonnull %258, ptr noundef %1) #8
+  %.not329 = icmp eq i32 %259, 0
+  br i1 %.not329, label %260, label %.loopexit
 
 260:                                              ; preds = %257
-  %261 = getelementptr inbounds i8, ptr %.1301442, i64 56
-  %262 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %261, ptr noundef nonnull %29, ptr noundef %1) #8
-  %.not331 = icmp eq i32 %262, 0
-  br i1 %.not331, label %263, label %.loopexit
+  %261 = getelementptr inbounds i8, ptr %.1301442, i64 48
+  %262 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %261, ptr noundef nonnull %28, ptr noundef %1) #8
+  %.not330 = icmp eq i32 %262, 0
+  br i1 %.not330, label %263, label %.loopexit
 
 263:                                              ; preds = %260
-  %264 = getelementptr inbounds i8, ptr %.1301442, i64 64
-  %265 = call i32 @unpack64(ptr noundef nonnull %264, ptr noundef %1) #8
-  %.not332 = icmp eq i32 %265, 0
-  br i1 %.not332, label %266, label %.loopexit
+  %264 = getelementptr inbounds i8, ptr %.1301442, i64 56
+  %265 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %264, ptr noundef nonnull %29, ptr noundef %1) #8
+  %.not331 = icmp eq i32 %265, 0
+  br i1 %.not331, label %266, label %.loopexit
 
 266:                                              ; preds = %263
-  %267 = getelementptr inbounds i8, ptr %.1301442, i64 72
-  %268 = call i32 @unpack32(ptr noundef nonnull %267, ptr noundef %1) #8
-  %.not333 = icmp eq i32 %268, 0
-  br i1 %.not333, label %269, label %.loopexit
+  %267 = getelementptr inbounds i8, ptr %.1301442, i64 64
+  %268 = call i32 @unpack64(ptr noundef nonnull %267, ptr noundef %1) #8
+  %.not332 = icmp eq i32 %268, 0
+  br i1 %.not332, label %269, label %.loopexit
 
 269:                                              ; preds = %266
-  %270 = load i32, ptr %267, align 8
-  %271 = icmp ugt i32 %270, -3
-  br i1 %271, label %.loopexit, label %272
+  %270 = getelementptr inbounds i8, ptr %.1301442, i64 72
+  %271 = call i32 @unpack32(ptr noundef nonnull %270, ptr noundef %1) #8
+  %.not333 = icmp eq i32 %271, 0
+  br i1 %.not333, label %272, label %.loopexit
 
 272:                                              ; preds = %269
-  %.not334 = icmp eq i32 %270, 0
-  br i1 %.not334, label %.thread500, label %274
+  %273 = load i32, ptr %270, align 8
+  %274 = icmp ugt i32 %273, -3
+  br i1 %274, label %.loopexit, label %275
 
-.thread500:                                       ; preds = %272
-  %273 = getelementptr inbounds i8, ptr %.1301442, i64 80
-  store ptr null, ptr %273, align 8
+275:                                              ; preds = %272
+  %.not334 = icmp eq i32 %273, 0
+  br i1 %.not334, label %.thread500, label %277
+
+.thread500:                                       ; preds = %275
+  %276 = getelementptr inbounds i8, ptr %.1301442, i64 80
+  store ptr null, ptr %276, align 8
   br label %._crit_edge
 
-274:                                              ; preds = %272
-  %275 = zext i32 %270 to i64
-  %276 = call ptr @slurm_xcalloc(i64 noundef %275, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 7248, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #8
-  %277 = getelementptr inbounds i8, ptr %.1301442, i64 80
-  store ptr %276, ptr %277, align 8
-  %.not335 = icmp eq ptr %276, null
-  br i1 %.not335, label %.loopexit, label %278
+277:                                              ; preds = %275
+  %278 = zext i32 %273 to i64
+  %279 = call ptr @slurm_xcalloc(i64 noundef %278, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 7248, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #8
+  %280 = getelementptr inbounds i8, ptr %.1301442, i64 80
+  store ptr %279, ptr %280, align 8
+  %.not335 = icmp eq ptr %279, null
+  br i1 %.not335, label %.loopexit, label %281
 
-278:                                              ; preds = %274
-  %.pre = load i32, ptr %267, align 8
-  %.not465 = icmp eq i32 %.pre, 0
-  br i1 %.not465, label %._crit_edge, label %.lr.ph
+281:                                              ; preds = %277
+  %.pre = load i32, ptr %270, align 8
+  %282 = icmp eq i32 %.pre, 0
+  br i1 %282, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %278
-  %279 = getelementptr inbounds i8, ptr %.1301442, i64 80
-  br label %284
+.lr.ph:                                           ; preds = %281
+  %283 = getelementptr inbounds i8, ptr %.1301442, i64 80
+  br label %288
 
-280:                                              ; preds = %300
+284:                                              ; preds = %304
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %281 = load i32, ptr %267, align 8
-  %282 = zext i32 %281 to i64
-  %283 = icmp ult i64 %indvars.iv.next, %282
-  br i1 %283, label %284, label %._crit_edge, !llvm.loop !87
+  %285 = load i32, ptr %270, align 8
+  %286 = zext i32 %285 to i64
+  %287 = icmp ult i64 %indvars.iv.next, %286
+  br i1 %287, label %288, label %._crit_edge, !llvm.loop !87
 
-284:                                              ; preds = %.lr.ph, %280
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %280 ]
-  %285 = load ptr, ptr %279, align 8
-  %286 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %285, i64 %indvars.iv, i32 1
-  %287 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %286, ptr noundef nonnull %30, ptr noundef %1) #8
-  %.not367 = icmp eq i32 %287, 0
-  br i1 %.not367, label %288, label %.loopexit
-
-288:                                              ; preds = %284
-  %289 = load ptr, ptr %279, align 8
-  %290 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %289, i64 %indvars.iv, i32 2
-  %291 = call i32 @unpack64(ptr noundef nonnull %290, ptr noundef %1) #8
-  %.not368 = icmp eq i32 %291, 0
-  br i1 %.not368, label %292, label %.loopexit
+288:                                              ; preds = %.lr.ph, %284
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %284 ]
+  %289 = load ptr, ptr %283, align 8
+  %290 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %289, i64 %indvars.iv, i32 1
+  %291 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %290, ptr noundef nonnull %30, ptr noundef %1) #8
+  %.not367 = icmp eq i32 %291, 0
+  br i1 %.not367, label %292, label %.loopexit
 
 292:                                              ; preds = %288
-  %293 = load ptr, ptr %279, align 8
-  %294 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %293, i64 %indvars.iv
-  %295 = call i32 @unpack64(ptr noundef %294, ptr noundef %1) #8
-  %.not369 = icmp eq i32 %295, 0
-  br i1 %.not369, label %296, label %.loopexit
+  %293 = load ptr, ptr %283, align 8
+  %294 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %293, i64 %indvars.iv, i32 2
+  %295 = call i32 @unpack64(ptr noundef nonnull %294, ptr noundef %1) #8
+  %.not368 = icmp eq i32 %295, 0
+  br i1 %.not368, label %296, label %.loopexit
 
 296:                                              ; preds = %292
-  %297 = load ptr, ptr %279, align 8
-  %298 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %297, i64 %indvars.iv, i32 4
-  %299 = call i32 @unpack64(ptr noundef nonnull %298, ptr noundef %1) #8
-  %.not370 = icmp eq i32 %299, 0
-  br i1 %.not370, label %300, label %.loopexit
+  %297 = load ptr, ptr %283, align 8
+  %298 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %297, i64 %indvars.iv
+  %299 = call i32 @unpack64(ptr noundef %298, ptr noundef %1) #8
+  %.not369 = icmp eq i32 %299, 0
+  br i1 %.not369, label %300, label %.loopexit
 
 300:                                              ; preds = %296
-  %301 = load ptr, ptr %279, align 8
-  %302 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %301, i64 %indvars.iv, i32 3
+  %301 = load ptr, ptr %283, align 8
+  %302 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %301, i64 %indvars.iv, i32 4
   %303 = call i32 @unpack64(ptr noundef nonnull %302, ptr noundef %1) #8
-  %.not371 = icmp eq i32 %303, 0
-  br i1 %.not371, label %280, label %.loopexit
+  %.not370 = icmp eq i32 %303, 0
+  br i1 %.not370, label %304, label %.loopexit
 
-._crit_edge:                                      ; preds = %280, %.thread500, %278
-  %304 = getelementptr inbounds i8, ptr %.1301442, i64 100
-  %305 = call i32 @unpack32(ptr noundef nonnull %304, ptr noundef %1) #8
-  %.not336 = icmp eq i32 %305, 0
-  br i1 %.not336, label %306, label %.loopexit
+304:                                              ; preds = %300
+  %305 = load ptr, ptr %283, align 8
+  %306 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %305, i64 %indvars.iv, i32 3
+  %307 = call i32 @unpack64(ptr noundef nonnull %306, ptr noundef %1) #8
+  %.not371 = icmp eq i32 %307, 0
+  br i1 %.not371, label %284, label %.loopexit
 
-306:                                              ; preds = %._crit_edge
-  %307 = getelementptr inbounds i8, ptr %.1301442, i64 112
-  %308 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %307, ptr noundef nonnull %31, ptr noundef %1) #8
-  %.not337 = icmp eq i32 %308, 0
-  br i1 %.not337, label %309, label %.loopexit
+._crit_edge:                                      ; preds = %284, %.thread500, %281
+  %308 = getelementptr inbounds i8, ptr %.1301442, i64 100
+  %309 = call i32 @unpack32(ptr noundef nonnull %308, ptr noundef %1) #8
+  %.not336 = icmp eq i32 %309, 0
+  br i1 %.not336, label %310, label %.loopexit
 
-309:                                              ; preds = %306
-  %310 = getelementptr inbounds i8, ptr %.1301442, i64 120
-  %311 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %310, ptr noundef nonnull %32, ptr noundef %1) #8
-  %.not338 = icmp eq i32 %311, 0
-  br i1 %.not338, label %312, label %.loopexit
+310:                                              ; preds = %._crit_edge
+  %311 = getelementptr inbounds i8, ptr %.1301442, i64 112
+  %312 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %311, ptr noundef nonnull %31, ptr noundef %1) #8
+  %.not337 = icmp eq i32 %312, 0
+  br i1 %.not337, label %313, label %.loopexit
 
-312:                                              ; preds = %309
-  %313 = getelementptr inbounds i8, ptr %.1301442, i64 128
-  %314 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %313, ptr noundef nonnull %33, ptr noundef %1) #8
-  %.not339 = icmp eq i32 %314, 0
-  br i1 %.not339, label %315, label %.loopexit
+313:                                              ; preds = %310
+  %314 = getelementptr inbounds i8, ptr %.1301442, i64 120
+  %315 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %314, ptr noundef nonnull %32, ptr noundef %1) #8
+  %.not338 = icmp eq i32 %315, 0
+  br i1 %.not338, label %316, label %.loopexit
 
-315:                                              ; preds = %312
-  %316 = getelementptr inbounds i8, ptr %.1301442, i64 136
-  %317 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %316, ptr noundef nonnull %34, ptr noundef %1) #8
-  %.not340 = icmp eq i32 %317, 0
-  br i1 %.not340, label %318, label %.loopexit
+316:                                              ; preds = %313
+  %317 = getelementptr inbounds i8, ptr %.1301442, i64 128
+  %318 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %317, ptr noundef nonnull %33, ptr noundef %1) #8
+  %.not339 = icmp eq i32 %318, 0
+  br i1 %.not339, label %319, label %.loopexit
 
-318:                                              ; preds = %315
-  %319 = getelementptr inbounds i8, ptr %.1301442, i64 104
-  %320 = call i32 @unpack32(ptr noundef nonnull %319, ptr noundef %1) #8
-  %.not341 = icmp eq i32 %320, 0
-  br i1 %.not341, label %321, label %.loopexit
+319:                                              ; preds = %316
+  %320 = getelementptr inbounds i8, ptr %.1301442, i64 136
+  %321 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %320, ptr noundef nonnull %34, ptr noundef %1) #8
+  %.not340 = icmp eq i32 %321, 0
+  br i1 %.not340, label %322, label %.loopexit
 
-321:                                              ; preds = %318
-  %322 = getelementptr inbounds i8, ptr %.1301442, i64 108
-  %323 = call i32 @unpack32(ptr noundef nonnull %322, ptr noundef %1) #8
-  %.not342 = icmp eq i32 %323, 0
-  br i1 %.not342, label %324, label %.loopexit
+322:                                              ; preds = %319
+  %323 = getelementptr inbounds i8, ptr %.1301442, i64 104
+  %324 = call i32 @unpack32(ptr noundef nonnull %323, ptr noundef %1) #8
+  %.not341 = icmp eq i32 %324, 0
+  br i1 %.not341, label %325, label %.loopexit
 
-324:                                              ; preds = %321
-  %325 = getelementptr inbounds i8, ptr %.1301442, i64 144
-  %326 = call i32 @unpack64(ptr noundef nonnull %325, ptr noundef %1) #8
-  %.not343 = icmp eq i32 %326, 0
-  br i1 %.not343, label %327, label %.loopexit
+325:                                              ; preds = %322
+  %326 = getelementptr inbounds i8, ptr %.1301442, i64 108
+  %327 = call i32 @unpack32(ptr noundef nonnull %326, ptr noundef %1) #8
+  %.not342 = icmp eq i32 %327, 0
+  br i1 %.not342, label %328, label %.loopexit
 
-327:                                              ; preds = %324
-  %328 = getelementptr inbounds i8, ptr %.1301442, i64 152
-  %329 = call i32 @unpack64(ptr noundef nonnull %328, ptr noundef %1) #8
-  %.not344 = icmp eq i32 %329, 0
-  br i1 %.not344, label %330, label %.loopexit
+328:                                              ; preds = %325
+  %329 = getelementptr inbounds i8, ptr %.1301442, i64 144
+  %330 = call i32 @unpack64(ptr noundef nonnull %329, ptr noundef %1) #8
+  %.not343 = icmp eq i32 %330, 0
+  br i1 %.not343, label %331, label %.loopexit
 
-330:                                              ; preds = %327
-  %331 = getelementptr inbounds i8, ptr %.1301442, i64 160
-  %332 = call i32 @unpack64(ptr noundef nonnull %331, ptr noundef %1) #8
-  %.not345 = icmp eq i32 %332, 0
-  br i1 %.not345, label %333, label %.loopexit
+331:                                              ; preds = %328
+  %332 = getelementptr inbounds i8, ptr %.1301442, i64 152
+  %333 = call i32 @unpack64(ptr noundef nonnull %332, ptr noundef %1) #8
+  %.not344 = icmp eq i32 %333, 0
+  br i1 %.not344, label %334, label %.loopexit
 
-333:                                              ; preds = %330
-  %334 = getelementptr inbounds i8, ptr %.1301442, i64 168
-  %335 = call i32 @unpack32(ptr noundef nonnull %334, ptr noundef %1) #8
-  %.not346 = icmp eq i32 %335, 0
-  br i1 %.not346, label %336, label %.loopexit
+334:                                              ; preds = %331
+  %335 = getelementptr inbounds i8, ptr %.1301442, i64 160
+  %336 = call i32 @unpack64(ptr noundef nonnull %335, ptr noundef %1) #8
+  %.not345 = icmp eq i32 %336, 0
+  br i1 %.not345, label %337, label %.loopexit
 
-336:                                              ; preds = %333
-  %337 = getelementptr inbounds i8, ptr %.1301442, i64 172
-  %338 = call i32 @unpack32(ptr noundef nonnull %337, ptr noundef %1) #8
-  %.not347 = icmp eq i32 %338, 0
-  br i1 %.not347, label %339, label %.loopexit
+337:                                              ; preds = %334
+  %338 = getelementptr inbounds i8, ptr %.1301442, i64 168
+  %339 = call i32 @unpack32(ptr noundef nonnull %338, ptr noundef %1) #8
+  %.not346 = icmp eq i32 %339, 0
+  br i1 %.not346, label %340, label %.loopexit
 
-339:                                              ; preds = %336
-  %340 = load i32, ptr %337, align 4
-  %341 = icmp ugt i32 %340, -3
-  br i1 %341, label %.loopexit, label %342
+340:                                              ; preds = %337
+  %341 = getelementptr inbounds i8, ptr %.1301442, i64 172
+  %342 = call i32 @unpack32(ptr noundef nonnull %341, ptr noundef %1) #8
+  %.not347 = icmp eq i32 %342, 0
+  br i1 %.not347, label %343, label %.loopexit
 
-342:                                              ; preds = %339
-  %.not348 = icmp eq i32 %340, 0
-  br i1 %.not348, label %.thread502, label %344
+343:                                              ; preds = %340
+  %344 = load i32, ptr %341, align 4
+  %345 = icmp ugt i32 %344, -3
+  br i1 %345, label %.loopexit, label %346
 
-.thread502:                                       ; preds = %342
-  %343 = getelementptr inbounds i8, ptr %.1301442, i64 176
-  store ptr null, ptr %343, align 8
+346:                                              ; preds = %343
+  %.not348 = icmp eq i32 %344, 0
+  br i1 %.not348, label %.thread502, label %348
+
+.thread502:                                       ; preds = %346
+  %347 = getelementptr inbounds i8, ptr %.1301442, i64 176
+  store ptr null, ptr %347, align 8
   br label %._crit_edge436
 
-344:                                              ; preds = %342
-  %345 = zext i32 %340 to i64
-  %346 = call ptr @slurm_xcalloc(i64 noundef %345, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 7283, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #8
-  %347 = getelementptr inbounds i8, ptr %.1301442, i64 176
-  store ptr %346, ptr %347, align 8
-  %.not349 = icmp eq ptr %346, null
-  br i1 %.not349, label %.loopexit, label %348
+348:                                              ; preds = %346
+  %349 = zext i32 %344 to i64
+  %350 = call ptr @slurm_xcalloc(i64 noundef %349, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 7283, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #8
+  %351 = getelementptr inbounds i8, ptr %.1301442, i64 176
+  store ptr %350, ptr %351, align 8
+  %.not349 = icmp eq ptr %350, null
+  br i1 %.not349, label %.loopexit, label %352
 
-348:                                              ; preds = %344
-  %.pre486 = load i32, ptr %337, align 4
-  %.not466 = icmp eq i32 %.pre486, 0
-  br i1 %.not466, label %._crit_edge436, label %.lr.ph435
+352:                                              ; preds = %348
+  %.pre486 = load i32, ptr %341, align 4
+  %353 = icmp eq i32 %.pre486, 0
+  br i1 %353, label %._crit_edge436, label %.lr.ph435
 
-.lr.ph435:                                        ; preds = %348, %383
-  %.4433 = phi i32 [ %384, %383 ], [ 0, %348 ]
-  %.1303432 = phi ptr [ %385, %383 ], [ %346, %348 ]
-  %349 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.1303432, ptr noundef nonnull %35, ptr noundef %1) #8
-  %.not355 = icmp eq i32 %349, 0
-  br i1 %.not355, label %350, label %.loopexit
+.lr.ph435:                                        ; preds = %352, %388
+  %.4433 = phi i32 [ %389, %388 ], [ 0, %352 ]
+  %.1303432 = phi ptr [ %390, %388 ], [ %350, %352 ]
+  %354 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %.1303432, ptr noundef nonnull %35, ptr noundef %1) #8
+  %.not355 = icmp eq i32 %354, 0
+  br i1 %.not355, label %355, label %.loopexit
 
-350:                                              ; preds = %.lr.ph435
-  %351 = getelementptr inbounds i8, ptr %.1303432, i64 8
-  %352 = call i32 @unpack32(ptr noundef nonnull %351, ptr noundef %1) #8
-  %.not356 = icmp eq i32 %352, 0
-  br i1 %.not356, label %353, label %.loopexit
+355:                                              ; preds = %.lr.ph435
+  %356 = getelementptr inbounds i8, ptr %.1303432, i64 8
+  %357 = call i32 @unpack32(ptr noundef nonnull %356, ptr noundef %1) #8
+  %.not356 = icmp eq i32 %357, 0
+  br i1 %.not356, label %358, label %.loopexit
 
-353:                                              ; preds = %350
-  %354 = getelementptr inbounds i8, ptr %.1303432, i64 12
-  %355 = call i32 @unpack32(ptr noundef nonnull %354, ptr noundef %1) #8
-  %.not357 = icmp eq i32 %355, 0
-  br i1 %.not357, label %356, label %.loopexit
+358:                                              ; preds = %355
+  %359 = getelementptr inbounds i8, ptr %.1303432, i64 12
+  %360 = call i32 @unpack32(ptr noundef nonnull %359, ptr noundef %1) #8
+  %.not357 = icmp eq i32 %360, 0
+  br i1 %.not357, label %361, label %.loopexit
 
-356:                                              ; preds = %353
-  %357 = getelementptr inbounds i8, ptr %.1303432, i64 16
-  %358 = call i32 @unpack_time(ptr noundef nonnull %357, ptr noundef %1) #8
-  %.not358 = icmp eq i32 %358, 0
-  br i1 %.not358, label %359, label %.loopexit
+361:                                              ; preds = %358
+  %362 = getelementptr inbounds i8, ptr %.1303432, i64 16
+  %363 = call i32 @unpack_time(ptr noundef nonnull %362, ptr noundef %1) #8
+  %.not358 = icmp eq i32 %363, 0
+  br i1 %.not358, label %364, label %.loopexit
 
-359:                                              ; preds = %356
-  %360 = getelementptr inbounds i8, ptr %.1303432, i64 24
-  %361 = call i32 @unpack32(ptr noundef nonnull %360, ptr noundef %1) #8
-  %.not359 = icmp eq i32 %361, 0
-  br i1 %.not359, label %362, label %.loopexit
+364:                                              ; preds = %361
+  %365 = getelementptr inbounds i8, ptr %.1303432, i64 24
+  %366 = call i32 @unpack32(ptr noundef nonnull %365, ptr noundef %1) #8
+  %.not359 = icmp eq i32 %366, 0
+  br i1 %.not359, label %367, label %.loopexit
 
-362:                                              ; preds = %359
-  %363 = getelementptr inbounds i8, ptr %.1303432, i64 32
-  %364 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %363, ptr noundef nonnull %36, ptr noundef %1) #8
-  %.not360 = icmp eq i32 %364, 0
-  br i1 %.not360, label %365, label %.loopexit
+367:                                              ; preds = %364
+  %368 = getelementptr inbounds i8, ptr %.1303432, i64 32
+  %369 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %368, ptr noundef nonnull %36, ptr noundef %1) #8
+  %.not360 = icmp eq i32 %369, 0
+  br i1 %.not360, label %370, label %.loopexit
 
-365:                                              ; preds = %362
-  %366 = getelementptr inbounds i8, ptr %.1303432, i64 40
-  %367 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %366, ptr noundef nonnull %37, ptr noundef %1) #8
-  %.not361 = icmp eq i32 %367, 0
-  br i1 %.not361, label %368, label %.loopexit
+370:                                              ; preds = %367
+  %371 = getelementptr inbounds i8, ptr %.1303432, i64 40
+  %372 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %371, ptr noundef nonnull %37, ptr noundef %1) #8
+  %.not361 = icmp eq i32 %372, 0
+  br i1 %.not361, label %373, label %.loopexit
 
-368:                                              ; preds = %365
-  %369 = getelementptr inbounds i8, ptr %.1303432, i64 48
-  %370 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %369, ptr noundef nonnull %38, ptr noundef %1) #8
-  %.not362 = icmp eq i32 %370, 0
-  br i1 %.not362, label %371, label %.loopexit
+373:                                              ; preds = %370
+  %374 = getelementptr inbounds i8, ptr %.1303432, i64 48
+  %375 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %374, ptr noundef nonnull %38, ptr noundef %1) #8
+  %.not362 = icmp eq i32 %375, 0
+  br i1 %.not362, label %376, label %.loopexit
 
-371:                                              ; preds = %368
-  %372 = getelementptr inbounds i8, ptr %.1303432, i64 56
-  %373 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %372, ptr noundef nonnull %39, ptr noundef %1) #8
-  %.not363 = icmp eq i32 %373, 0
-  br i1 %.not363, label %374, label %.loopexit
+376:                                              ; preds = %373
+  %377 = getelementptr inbounds i8, ptr %.1303432, i64 56
+  %378 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %377, ptr noundef nonnull %39, ptr noundef %1) #8
+  %.not363 = icmp eq i32 %378, 0
+  br i1 %.not363, label %379, label %.loopexit
 
-374:                                              ; preds = %371
-  %375 = getelementptr inbounds i8, ptr %.1303432, i64 64
-  %376 = call i32 @unpack64(ptr noundef nonnull %375, ptr noundef %1) #8
-  %.not364 = icmp eq i32 %376, 0
-  br i1 %.not364, label %377, label %.loopexit
+379:                                              ; preds = %376
+  %380 = getelementptr inbounds i8, ptr %.1303432, i64 64
+  %381 = call i32 @unpack64(ptr noundef nonnull %380, ptr noundef %1) #8
+  %.not364 = icmp eq i32 %381, 0
+  br i1 %.not364, label %382, label %.loopexit
 
-377:                                              ; preds = %374
-  %378 = getelementptr inbounds i8, ptr %.1303432, i64 72
-  %379 = call i32 @unpack16(ptr noundef nonnull %378, ptr noundef %1) #8
-  %.not365 = icmp eq i32 %379, 0
-  br i1 %.not365, label %380, label %.loopexit
+382:                                              ; preds = %379
+  %383 = getelementptr inbounds i8, ptr %.1303432, i64 72
+  %384 = call i32 @unpack16(ptr noundef nonnull %383, ptr noundef %1) #8
+  %.not365 = icmp eq i32 %384, 0
+  br i1 %.not365, label %385, label %.loopexit
 
-380:                                              ; preds = %377
-  %381 = getelementptr inbounds i8, ptr %.1303432, i64 76
-  %382 = call i32 @unpack32(ptr noundef nonnull %381, ptr noundef %1) #8
-  %.not366 = icmp eq i32 %382, 0
-  br i1 %.not366, label %383, label %.loopexit
+385:                                              ; preds = %382
+  %386 = getelementptr inbounds i8, ptr %.1303432, i64 76
+  %387 = call i32 @unpack32(ptr noundef nonnull %386, ptr noundef %1) #8
+  %.not366 = icmp eq i32 %387, 0
+  br i1 %.not366, label %388, label %.loopexit
 
-383:                                              ; preds = %380
-  %384 = add nuw nsw i32 %.4433, 1
-  %385 = getelementptr inbounds i8, ptr %.1303432, i64 80
-  %386 = load i32, ptr %337, align 4
-  %387 = icmp ult i32 %384, %386
-  br i1 %387, label %.lr.ph435, label %._crit_edge436, !llvm.loop !88
+388:                                              ; preds = %385
+  %389 = add nuw nsw i32 %.4433, 1
+  %390 = getelementptr inbounds i8, ptr %.1303432, i64 80
+  %391 = load i32, ptr %341, align 4
+  %392 = icmp ult i32 %389, %391
+  br i1 %392, label %.lr.ph435, label %._crit_edge436, !llvm.loop !88
 
-._crit_edge436:                                   ; preds = %383, %.thread502, %348
-  %388 = getelementptr inbounds i8, ptr %.1301442, i64 184
-  %389 = call i32 @unpack32(ptr noundef nonnull %388, ptr noundef %1) #8
-  %.not350 = icmp eq i32 %389, 0
-  br i1 %.not350, label %390, label %.loopexit
+._crit_edge436:                                   ; preds = %388, %.thread502, %352
+  %393 = getelementptr inbounds i8, ptr %.1301442, i64 184
+  %394 = call i32 @unpack32(ptr noundef nonnull %393, ptr noundef %1) #8
+  %.not350 = icmp eq i32 %394, 0
+  br i1 %.not350, label %395, label %.loopexit
 
-390:                                              ; preds = %._crit_edge436
-  %391 = load i32, ptr %388, align 8
-  %392 = icmp ugt i32 %391, -3
-  br i1 %392, label %.loopexit, label %393
+395:                                              ; preds = %._crit_edge436
+  %396 = load i32, ptr %393, align 8
+  %397 = icmp ugt i32 %396, -3
+  br i1 %397, label %.loopexit, label %398
 
-393:                                              ; preds = %390
-  %.not351 = icmp eq i32 %391, 0
-  br i1 %.not351, label %.thread504, label %395
+398:                                              ; preds = %395
+  %.not351 = icmp eq i32 %396, 0
+  br i1 %.not351, label %.thread504, label %400
 
-.thread504:                                       ; preds = %393
-  %394 = getelementptr inbounds i8, ptr %.1301442, i64 192
-  store ptr null, ptr %394, align 8
+.thread504:                                       ; preds = %398
+  %399 = getelementptr inbounds i8, ptr %.1301442, i64 192
+  store ptr null, ptr %399, align 8
   br label %._crit_edge441
 
-395:                                              ; preds = %393
-  %396 = zext i32 %391 to i64
-  %397 = call ptr @slurm_xcalloc(i64 noundef %396, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 7309, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #8
-  %398 = getelementptr inbounds i8, ptr %.1301442, i64 192
-  store ptr %397, ptr %398, align 8
-  %.not352 = icmp eq ptr %397, null
-  br i1 %.not352, label %.loopexit, label %399
+400:                                              ; preds = %398
+  %401 = zext i32 %396 to i64
+  %402 = call ptr @slurm_xcalloc(i64 noundef %401, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 7309, ptr noundef nonnull @__func__._unpack_burst_buffer_info_msg) #8
+  %403 = getelementptr inbounds i8, ptr %.1301442, i64 192
+  store ptr %402, ptr %403, align 8
+  %.not352 = icmp eq ptr %402, null
+  br i1 %.not352, label %.loopexit, label %404
 
-399:                                              ; preds = %395
-  %.pre488 = load i32, ptr %388, align 8
-  %.not467 = icmp eq i32 %.pre488, 0
-  br i1 %.not467, label %._crit_edge441, label %.lr.ph440
+404:                                              ; preds = %400
+  %.pre488 = load i32, ptr %393, align 8
+  %405 = icmp eq i32 %.pre488, 0
+  br i1 %405, label %._crit_edge441, label %.lr.ph440
 
-.lr.ph440:                                        ; preds = %399, %404
-  %.5438 = phi i32 [ %405, %404 ], [ 0, %399 ]
-  %.1305437 = phi ptr [ %406, %404 ], [ %397, %399 ]
-  %400 = getelementptr inbounds i8, ptr %.1305437, i64 8
-  %401 = call i32 @unpack64(ptr noundef nonnull %400, ptr noundef %1) #8
-  %.not353 = icmp eq i32 %401, 0
-  br i1 %.not353, label %402, label %.loopexit
+.lr.ph440:                                        ; preds = %404, %410
+  %.5438 = phi i32 [ %411, %410 ], [ 0, %404 ]
+  %.1305437 = phi ptr [ %412, %410 ], [ %402, %404 ]
+  %406 = getelementptr inbounds i8, ptr %.1305437, i64 8
+  %407 = call i32 @unpack64(ptr noundef nonnull %406, ptr noundef %1) #8
+  %.not353 = icmp eq i32 %407, 0
+  br i1 %.not353, label %408, label %.loopexit
 
-402:                                              ; preds = %.lr.ph440
-  %403 = call i32 @unpack32(ptr noundef nonnull %.1305437, ptr noundef %1) #8
-  %.not354 = icmp eq i32 %403, 0
-  br i1 %.not354, label %404, label %.loopexit
+408:                                              ; preds = %.lr.ph440
+  %409 = call i32 @unpack32(ptr noundef nonnull %.1305437, ptr noundef %1) #8
+  %.not354 = icmp eq i32 %409, 0
+  br i1 %.not354, label %410, label %.loopexit
 
-404:                                              ; preds = %402
-  %405 = add nuw nsw i32 %.5438, 1
-  %406 = getelementptr inbounds i8, ptr %.1305437, i64 16
-  %407 = load i32, ptr %388, align 8
-  %408 = icmp ult i32 %405, %407
-  br i1 %408, label %.lr.ph440, label %._crit_edge441, !llvm.loop !89
+410:                                              ; preds = %408
+  %411 = add nuw nsw i32 %.5438, 1
+  %412 = getelementptr inbounds i8, ptr %.1305437, i64 16
+  %413 = load i32, ptr %393, align 8
+  %414 = icmp ult i32 %411, %413
+  br i1 %414, label %.lr.ph440, label %._crit_edge441, !llvm.loop !89
 
-._crit_edge441:                                   ; preds = %404, %.thread504, %399
-  %409 = add nuw nsw i32 %.1443, 1
-  %410 = getelementptr inbounds i8, ptr %.1301442, i64 200
-  %411 = load i32, ptr %41, align 8
-  %412 = icmp ult i32 %409, %411
-  br i1 %412, label %.lr.ph445, label %.loopexit424, !llvm.loop !90
+._crit_edge441:                                   ; preds = %410, %.thread504, %404
+  %415 = add nuw nsw i32 %.1443, 1
+  %416 = getelementptr inbounds i8, ptr %.1301442, i64 200
+  %417 = load i32, ptr %41, align 8
+  %418 = icmp ult i32 %415, %417
+  br i1 %418, label %.lr.ph445, label %.loopexit424, !llvm.loop !90
 
-.loopexit:                                        ; preds = %395, %390, %._crit_edge436, %344, %339, %336, %333, %330, %327, %324, %321, %318, %315, %312, %309, %306, %._crit_edge, %274, %269, %266, %263, %260, %257, %254, %251, %248, %245, %242, %240, %.lr.ph445, %300, %296, %292, %288, %284, %380, %377, %374, %371, %368, %365, %362, %359, %356, %353, %350, %.lr.ph435, %402, %.lr.ph440, %216, %211, %._crit_edge454, %165, %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %._crit_edge449, %92, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %58, %.lr.ph463, %118, %114, %110, %106, %102, %201, %198, %195, %192, %189, %186, %183, %180, %177, %174, %171, %.lr.ph453, %223, %.lr.ph458, %48, %43, %3
+.loopexit:                                        ; preds = %400, %395, %._crit_edge436, %348, %343, %340, %337, %334, %331, %328, %325, %322, %319, %316, %313, %310, %._crit_edge, %277, %272, %269, %266, %263, %260, %257, %254, %251, %248, %245, %243, %.lr.ph445, %304, %300, %296, %292, %288, %385, %382, %379, %376, %373, %370, %367, %364, %361, %358, %355, %.lr.ph435, %408, %.lr.ph440, %218, %213, %._crit_edge454, %166, %161, %158, %155, %152, %149, %146, %143, %140, %137, %134, %131, %128, %125, %._crit_edge449, %92, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %58, %.lr.ph463, %119, %115, %111, %107, %103, %203, %200, %197, %194, %191, %188, %185, %182, %179, %176, %173, %.lr.ph453, %226, %.lr.ph458, %48, %43, %3
   call void @slurm_free_burst_buffer_info_msg(ptr noundef %40) #8
   br label %.loopexit424
 
-.loopexit424:                                     ; preds = %._crit_edge441, %._crit_edge459, %236, %54, %234, %.loopexit
-  %storemerge = phi ptr [ null, %.loopexit ], [ %40, %234 ], [ %40, %54 ], [ %40, %236 ], [ %40, %._crit_edge459 ], [ %40, %._crit_edge441 ]
-  %.0 = phi i32 [ -1, %.loopexit ], [ 0, %234 ], [ 0, %54 ], [ 0, %236 ], [ 0, %._crit_edge459 ], [ 0, %._crit_edge441 ]
+.loopexit424:                                     ; preds = %._crit_edge441, %._crit_edge459, %239, %54, %237, %.loopexit
+  %storemerge = phi ptr [ null, %.loopexit ], [ %40, %237 ], [ %40, %54 ], [ %40, %239 ], [ %40, %._crit_edge459 ], [ %40, %._crit_edge441 ]
+  %.0 = phi i32 [ -1, %.loopexit ], [ 0, %237 ], [ 0, %54 ], [ 0, %239 ], [ 0, %._crit_edge459 ], [ 0, %._crit_edge441 ]
   store ptr %storemerge, ptr %0, align 8
   ret i32 %.0
 }
@@ -33523,12 +33523,12 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_data(ptr nocapture noun
   store ptr %8, ptr %0, align 8
   %9 = tail call i32 @unpack16(ptr noundef %8, ptr noundef %1) #8
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %88
+  br i1 %.not, label %10, label %89
 
 10:                                               ; preds = %3
   %11 = load i16, ptr %8, align 8
   switch i16 %11, label %13 [
-    i16 -1, label %88
+    i16 -1, label %89
     i16 0, label %.thread
   ]
 
@@ -33543,215 +33543,215 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_data(ptr nocapture noun
   %16 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %15, ptr %16, align 8
   %.not45 = icmp eq ptr %15, null
-  br i1 %.not45, label %88, label %17
+  br i1 %.not45, label %89, label %17
 
 17:                                               ; preds = %13
   %.pre = load i16, ptr %8, align 8
-  %.not63 = icmp eq i16 %.pre, 0
-  br i1 %.not63, label %._crit_edge, label %.lr.ph
+  %18 = icmp eq i16 %.pre, 0
+  br i1 %18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
-  br label %19
+  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  br label %20
 
-19:                                               ; preds = %.lr.ph, %29
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds %struct.kvs_hosts, ptr %20, i64 %indvars.iv
+20:                                               ; preds = %.lr.ph, %30
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
+  %21 = load ptr, ptr %19, align 8
+  %22 = getelementptr inbounds %struct.kvs_hosts, ptr %21, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %22 = call i32 @unpack32(ptr noundef %21, ptr noundef %1) #8
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %23, label %_unpack_kvs_host_rec.exit
+  %23 = call i32 @unpack32(ptr noundef %22, ptr noundef %1) #8
+  %.not.i = icmp eq i32 %23, 0
+  br i1 %.not.i, label %24, label %_unpack_kvs_host_rec.exit
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 4
-  %25 = call i32 @unpack16(ptr noundef nonnull %24, ptr noundef %1) #8
-  %.not6.i = icmp eq i32 %25, 0
-  br i1 %.not6.i, label %26, label %_unpack_kvs_host_rec.exit
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %22, i64 4
+  %26 = call i32 @unpack16(ptr noundef nonnull %25, ptr noundef %1) #8
+  %.not6.i = icmp eq i32 %26, 0
+  br i1 %.not6.i, label %27, label %_unpack_kvs_host_rec.exit
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %21, i64 8
-  %28 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %27, ptr noundef nonnull %7, ptr noundef %1) #8
-  %.not7.i = icmp eq i32 %28, 0
-  br i1 %.not7.i, label %29, label %_unpack_kvs_host_rec.exit
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %28, ptr noundef nonnull %7, ptr noundef %1) #8
+  %.not7.i = icmp eq i32 %29, 0
+  br i1 %.not7.i, label %30, label %_unpack_kvs_host_rec.exit
 
-_unpack_kvs_host_rec.exit:                        ; preds = %19, %23, %26
+_unpack_kvs_host_rec.exit:                        ; preds = %20, %24, %27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %88
+  br label %89
 
-29:                                               ; preds = %26
+30:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i16, ptr %8, align 8
-  %31 = zext i16 %30 to i64
-  %32 = icmp ult i64 %indvars.iv.next, %31
-  br i1 %32, label %19, label %._crit_edge, !llvm.loop !91
+  %31 = load i16, ptr %8, align 8
+  %32 = zext i16 %31 to i64
+  %33 = icmp ult i64 %indvars.iv.next, %32
+  br i1 %33, label %20, label %._crit_edge, !llvm.loop !91
 
-._crit_edge:                                      ; preds = %29, %.thread, %17
-  %33 = getelementptr inbounds i8, ptr %8, i64 16
-  %34 = call i32 @unpack16(ptr noundef nonnull %33, ptr noundef %1) #8
-  %.not46 = icmp eq i32 %34, 0
-  br i1 %.not46, label %35, label %88
+._crit_edge:                                      ; preds = %30, %.thread, %17
+  %34 = getelementptr inbounds i8, ptr %8, i64 16
+  %35 = call i32 @unpack16(ptr noundef nonnull %34, ptr noundef %1) #8
+  %.not46 = icmp eq i32 %35, 0
+  br i1 %.not46, label %36, label %89
 
-35:                                               ; preds = %._crit_edge
-  %36 = load i16, ptr %33, align 8
-  switch i16 %36, label %38 [
-    i16 -1, label %88
+36:                                               ; preds = %._crit_edge
+  %37 = load i16, ptr %34, align 8
+  switch i16 %37, label %39 [
+    i16 -1, label %89
     i16 0, label %.thread78
   ]
 
-.thread78:                                        ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %8, i64 24
+.thread78:                                        ; preds = %36
+  %38 = getelementptr inbounds i8, ptr %8, i64 24
   br label %.loopexit57.sink.split
 
-38:                                               ; preds = %35
-  %39 = zext i16 %36 to i64
-  %40 = call ptr @slurm_xcalloc(i64 noundef %39, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 8884, ptr noundef nonnull @__func__._unpack_kvs_data) #8
-  %41 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr %40, ptr %41, align 8
-  %.not48 = icmp eq ptr %40, null
-  br i1 %.not48, label %88, label %42
+39:                                               ; preds = %36
+  %40 = zext i16 %37 to i64
+  %41 = call ptr @slurm_xcalloc(i64 noundef %40, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 8884, ptr noundef nonnull @__func__._unpack_kvs_data) #8
+  %42 = getelementptr inbounds i8, ptr %8, i64 24
+  store ptr %41, ptr %42, align 8
+  %.not48 = icmp eq ptr %41, null
+  br i1 %.not48, label %89, label %43
 
-42:                                               ; preds = %38
-  %.pre76 = load i16, ptr %33, align 8
-  %43 = icmp eq i16 %.pre76, 0
-  br i1 %43, label %.loopexit57, label %.lr.ph62
+43:                                               ; preds = %39
+  %.pre76 = load i16, ptr %34, align 8
+  %44 = icmp eq i16 %.pre76, 0
+  br i1 %44, label %.loopexit57, label %.lr.ph62
 
-.lr.ph62:                                         ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %8, i64 24
-  %45 = icmp ugt i16 %2, 9983
-  br i1 %45, label %.lr.ph62.split.us, label %.lr.ph62.split
+.lr.ph62:                                         ; preds = %43
+  %45 = getelementptr inbounds i8, ptr %8, i64 24
+  %46 = icmp ugt i16 %2, 9983
+  br i1 %46, label %.lr.ph62.split.us, label %.lr.ph62.split
 
 .lr.ph62.split.us:                                ; preds = %.lr.ph62, %.loopexit.us
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.loopexit.us ], [ 0, %.lr.ph62 ]
-  %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv71
+  %47 = load ptr, ptr %45, align 8
+  %48 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %48 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8822, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
-  store ptr %48, ptr %47, align 8
-  %49 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %48, ptr noundef nonnull %4, ptr noundef %1) #8
-  %.not.i52.us = icmp eq i32 %49, 0
-  br i1 %.not.i52.us, label %50, label %_unpack_kvs_rec.exit.thread
+  %49 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8822, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
+  store ptr %49, ptr %48, align 8
+  %50 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %49, ptr noundef nonnull %4, ptr noundef %1) #8
+  %.not.i52.us = icmp eq i32 %50, 0
+  br i1 %.not.i52.us, label %51, label %_unpack_kvs_rec.exit.thread
 
-50:                                               ; preds = %.lr.ph62.split.us
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
-  %52 = call i32 @unpack32(ptr noundef nonnull %51, ptr noundef %1) #8
-  %.not38.i.us = icmp eq i32 %52, 0
-  br i1 %.not38.i.us, label %53, label %_unpack_kvs_rec.exit.thread
+51:                                               ; preds = %.lr.ph62.split.us
+  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %53 = call i32 @unpack32(ptr noundef nonnull %52, ptr noundef %1) #8
+  %.not38.i.us = icmp eq i32 %53, 0
+  br i1 %.not38.i.us, label %54, label %_unpack_kvs_rec.exit.thread
 
-53:                                               ; preds = %50
-  %54 = load i32, ptr %51, align 8
-  switch i32 %54, label %56 [
+54:                                               ; preds = %51
+  %55 = load i32, ptr %52, align 8
+  switch i32 %55, label %57 [
     i32 -1, label %_unpack_kvs_rec.exit.thread
     i32 0, label %.thread.i.us
   ]
 
-.thread.i.us:                                     ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %48, i64 16
-  store ptr null, ptr %55, align 8
+.thread.i.us:                                     ; preds = %54
+  %56 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr null, ptr %56, align 8
   br label %.thread53.i.us
 
-56:                                               ; preds = %53
-  %57 = zext i32 %54 to i64
-  %58 = call ptr @slurm_xcalloc(i64 noundef %57, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 8829, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
-  %59 = getelementptr inbounds i8, ptr %48, i64 16
-  store ptr %58, ptr %59, align 8
-  %.not40.i.us = icmp eq ptr %58, null
-  br i1 %.not40.i.us, label %_unpack_kvs_rec.exit.thread, label %60
+57:                                               ; preds = %54
+  %58 = zext i32 %55 to i64
+  %59 = call ptr @slurm_xcalloc(i64 noundef %58, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 8829, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
+  %60 = getelementptr inbounds i8, ptr %49, i64 16
+  store ptr %59, ptr %60, align 8
+  %.not40.i.us = icmp eq ptr %59, null
+  br i1 %.not40.i.us, label %_unpack_kvs_rec.exit.thread, label %61
 
-60:                                               ; preds = %56
-  %.pr.i.us = load i32, ptr %51, align 8
+61:                                               ; preds = %57
+  %.pr.i.us = load i32, ptr %52, align 8
   %.not41.i.us = icmp eq i32 %.pr.i.us, 0
-  br i1 %.not41.i.us, label %.thread53.i.us, label %61
+  br i1 %.not41.i.us, label %.thread53.i.us, label %62
 
-61:                                               ; preds = %60
-  %62 = zext i32 %.pr.i.us to i64
-  %63 = call ptr @slurm_xcalloc(i64 noundef %62, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 8830, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
-  %64 = getelementptr inbounds i8, ptr %48, i64 24
-  store ptr %63, ptr %64, align 8
-  %.not42.i.us = icmp eq ptr %63, null
-  br i1 %.not42.i.us, label %_unpack_kvs_rec.exit.thread, label %65
+62:                                               ; preds = %61
+  %63 = zext i32 %.pr.i.us to i64
+  %64 = call ptr @slurm_xcalloc(i64 noundef %63, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.3, i32 noundef 8830, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
+  %65 = getelementptr inbounds i8, ptr %49, i64 24
+  store ptr %64, ptr %65, align 8
+  %.not42.i.us = icmp eq ptr %64, null
+  br i1 %.not42.i.us, label %_unpack_kvs_rec.exit.thread, label %66
 
-65:                                               ; preds = %61
-  %.pre.i.us = load i32, ptr %51, align 8
-  %66 = icmp eq i32 %.pre.i.us, 0
-  br i1 %66, label %.loopexit.us, label %.lr.ph.i.us
+66:                                               ; preds = %62
+  %.pre.i.us = load i32, ptr %52, align 8
+  %67 = icmp eq i32 %.pre.i.us, 0
+  br i1 %67, label %.loopexit.us, label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %65, %74
-  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %74 ], [ 0, %65 ]
-  %67 = load ptr, ptr %59, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv.i.us
-  %69 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %68, ptr noundef nonnull %5, ptr noundef %1) #8
-  %.not43.i.us = icmp eq i32 %69, 0
-  br i1 %.not43.i.us, label %70, label %_unpack_kvs_rec.exit.thread
+.lr.ph.i.us:                                      ; preds = %66, %75
+  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %75 ], [ 0, %66 ]
+  %68 = load ptr, ptr %60, align 8
+  %69 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv.i.us
+  %70 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %69, ptr noundef nonnull %5, ptr noundef %1) #8
+  %.not43.i.us = icmp eq i32 %70, 0
+  br i1 %.not43.i.us, label %71, label %_unpack_kvs_rec.exit.thread
 
-70:                                               ; preds = %.lr.ph.i.us
-  %71 = load ptr, ptr %64, align 8
-  %72 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv.i.us
-  %73 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %72, ptr noundef nonnull %6, ptr noundef %1) #8
-  %.not44.i.us = icmp eq i32 %73, 0
-  br i1 %.not44.i.us, label %74, label %_unpack_kvs_rec.exit.thread
+71:                                               ; preds = %.lr.ph.i.us
+  %72 = load ptr, ptr %65, align 8
+  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv.i.us
+  %74 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %73, ptr noundef nonnull %6, ptr noundef %1) #8
+  %.not44.i.us = icmp eq i32 %74, 0
+  br i1 %.not44.i.us, label %75, label %_unpack_kvs_rec.exit.thread
 
-74:                                               ; preds = %70
+75:                                               ; preds = %71
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %75 = load i32, ptr %51, align 8
-  %76 = zext i32 %75 to i64
-  %77 = icmp ult i64 %indvars.iv.next.i.us, %76
-  br i1 %77, label %.lr.ph.i.us, label %.loopexit.us, !llvm.loop !92
+  %76 = load i32, ptr %52, align 8
+  %77 = zext i32 %76 to i64
+  %78 = icmp ult i64 %indvars.iv.next.i.us, %77
+  br i1 %78, label %.lr.ph.i.us, label %.loopexit.us, !llvm.loop !92
 
-.thread53.i.us:                                   ; preds = %60, %.thread.i.us
-  %78 = getelementptr inbounds i8, ptr %48, i64 24
-  store ptr null, ptr %78, align 8
+.thread53.i.us:                                   ; preds = %61, %.thread.i.us
+  %79 = getelementptr inbounds i8, ptr %49, i64 24
+  store ptr null, ptr %79, align 8
   br label %.loopexit.us
 
-.loopexit.us:                                     ; preds = %74, %.thread53.i.us, %65
+.loopexit.us:                                     ; preds = %75, %.thread53.i.us, %66
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %79 = load i16, ptr %33, align 8
-  %80 = zext i16 %79 to i64
-  %81 = icmp ult i64 %indvars.iv.next72, %80
-  br i1 %81, label %.lr.ph62.split.us, label %.loopexit57, !llvm.loop !93
+  %80 = load i16, ptr %34, align 8
+  %81 = zext i16 %80 to i64
+  %82 = icmp ult i64 %indvars.iv.next72, %81
+  br i1 %82, label %.lr.ph62.split.us, label %.loopexit57, !llvm.loop !93
 
 .lr.ph62.split:                                   ; preds = %.lr.ph62, %.lr.ph62.split
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph62.split ], [ 0, %.lr.ph62 ]
-  %82 = load ptr, ptr %44, align 8
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv68
+  %83 = load ptr, ptr %45, align 8
+  %84 = getelementptr inbounds ptr, ptr %83, i64 %indvars.iv68
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %84 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8822, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
-  store ptr %84, ptr %83, align 8
+  %85 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 8822, ptr noundef nonnull @__func__._unpack_kvs_rec) #8
+  store ptr %85, ptr %84, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %85 = load i16, ptr %33, align 8
-  %86 = zext i16 %85 to i64
-  %87 = icmp ult i64 %indvars.iv.next69, %86
-  br i1 %87, label %.lr.ph62.split, label %.loopexit57, !llvm.loop !93
+  %86 = load i16, ptr %34, align 8
+  %87 = zext i16 %86 to i64
+  %88 = icmp ult i64 %indvars.iv.next69, %87
+  br i1 %88, label %.lr.ph62.split, label %.loopexit57, !llvm.loop !93
 
-_unpack_kvs_rec.exit.thread:                      ; preds = %61, %56, %53, %50, %.lr.ph62.split.us, %70, %.lr.ph.i.us
+_unpack_kvs_rec.exit.thread:                      ; preds = %62, %57, %54, %51, %.lr.ph62.split.us, %71, %.lr.ph.i.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %88
+  br label %89
 
-88:                                               ; preds = %_unpack_kvs_rec.exit.thread, %_unpack_kvs_host_rec.exit, %35, %10, %38, %._crit_edge, %13, %3
+89:                                               ; preds = %_unpack_kvs_rec.exit.thread, %_unpack_kvs_host_rec.exit, %36, %10, %39, %._crit_edge, %13, %3
   call void @slurm_free_kvs_comm_set(ptr noundef %8) #8
   br label %.loopexit57.sink.split
 
-.loopexit57.sink.split:                           ; preds = %88, %.thread78
-  %.sink = phi ptr [ %37, %.thread78 ], [ %0, %88 ]
-  %.0.ph = phi i32 [ 0, %.thread78 ], [ -1, %88 ]
+.loopexit57.sink.split:                           ; preds = %89, %.thread78
+  %.sink = phi ptr [ %38, %.thread78 ], [ %0, %89 ]
+  %.0.ph = phi i32 [ 0, %.thread78 ], [ -1, %89 ]
   store ptr null, ptr %.sink, align 8
   br label %.loopexit57
 
-.loopexit57:                                      ; preds = %.lr.ph62.split, %.loopexit.us, %.loopexit57.sink.split, %42
-  %.0 = phi i32 [ 0, %42 ], [ %.0.ph, %.loopexit57.sink.split ], [ 0, %.loopexit.us ], [ 0, %.lr.ph62.split ]
+.loopexit57:                                      ; preds = %.lr.ph62.split, %.loopexit.us, %.loopexit57.sink.split, %43
+  %.0 = phi i32 [ 0, %43 ], [ %.0.ph, %.loopexit57.sink.split ], [ 0, %.loopexit.us ], [ 0, %.lr.ph62.split ]
   ret i32 %.0
 }
 

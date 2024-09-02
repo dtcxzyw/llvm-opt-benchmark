@@ -234,7 +234,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
 33:                                               ; preds = %25, %25
   %34 = and i32 %27, 1
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %.thread22
+  br i1 %35, label %36, label %.critedge
 
 36:                                               ; preds = %33
   %37 = load volatile i64, ptr @jiffies, align 64
@@ -243,7 +243,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %40 = add i64 %37, -1000
   %41 = sub i64 %40, %39
   %42 = icmp sgt i64 %41, -1
-  br i1 %42, label %43, label %.thread22
+  br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %36
   %44 = icmp eq ptr %0, null
@@ -254,7 +254,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 96
   %49 = icmp eq i32 %48, 96
-  br i1 %49, label %.thread22, label %50
+  br i1 %49, label %.critedge, label %50
 
 50:                                               ; preds = %45, %43
   %51 = or disjoint i32 %27, 1
@@ -313,18 +313,18 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %71 = getelementptr i8, ptr %16, i64 -16
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, %71
-  br i1 %73, label %.loopexit33, label %.preheader32
+  br i1 %73, label %.loopexit32, label %.preheader31
 
-.loopexit33.loopexit:                             ; preds = %88
+.loopexit32.loopexit:                             ; preds = %88
   %.pre = load ptr, ptr %71, align 8
-  br label %.loopexit33
+  br label %.loopexit32
 
-.loopexit33:                                      ; preds = %.loopexit33.loopexit, %70
-  %74 = phi ptr [ %.pre, %.loopexit33.loopexit ], [ %72, %70 ]
+.loopexit32:                                      ; preds = %.loopexit32.loopexit, %70
+  %74 = phi ptr [ %.pre, %.loopexit32.loopexit ], [ %72, %70 ]
   %75 = icmp eq ptr %74, %71
-  br i1 %75, label %.loopexit31, label %.preheader30
+  br i1 %75, label %.loopexit30, label %.preheader29
 
-.preheader32:                                     ; preds = %70, %88
+.preheader31:                                     ; preds = %70, %88
   %76 = phi ptr [ %89, %88 ], [ %72, %70 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
@@ -334,7 +334,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %81 = icmp eq ptr %80, null
   br i1 %81, label %87, label %82
 
-82:                                               ; preds = %.preheader32
+82:                                               ; preds = %.preheader31
   %83 = getelementptr inbounds i8, ptr %80, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
@@ -345,26 +345,26 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   call void %84(ptr noundef %78) #8
   br label %88
 
-87:                                               ; preds = %82, %.preheader32
+87:                                               ; preds = %82, %.preheader31
   call void @acpi_unlock_hp_context() #8
   br label %88
 
 88:                                               ; preds = %87, %86
   %89 = load ptr, ptr %76, align 8
   %90 = icmp eq ptr %89, %71
-  br i1 %90, label %.loopexit33.loopexit, label %.preheader32, !llvm.loop !11
+  br i1 %90, label %.loopexit32.loopexit, label %.preheader31, !llvm.loop !11
 
-.loopexit31.loopexit:                             ; preds = %106
-  %.pre39 = load ptr, ptr %71, align 8
-  br label %.loopexit31
+.loopexit30.loopexit:                             ; preds = %106
+  %.pre38 = load ptr, ptr %71, align 8
+  br label %.loopexit30
 
-.loopexit31:                                      ; preds = %.loopexit31.loopexit, %.loopexit33
-  %91 = phi ptr [ %.pre39, %.loopexit31.loopexit ], [ %74, %.loopexit33 ]
+.loopexit30:                                      ; preds = %.loopexit30.loopexit, %.loopexit32
+  %91 = phi ptr [ %.pre38, %.loopexit30.loopexit ], [ %74, %.loopexit32 ]
   %92 = icmp eq ptr %91, %71
-  br i1 %92, label %.loopexit29, label %.preheader28
+  br i1 %92, label %.loopexit28, label %.preheader27
 
-.preheader30:                                     ; preds = %.loopexit33, %106
-  %93 = phi ptr [ %107, %106 ], [ %74, %.loopexit33 ]
+.preheader29:                                     ; preds = %.loopexit32, %106
+  %93 = phi ptr [ %107, %106 ], [ %74, %.loopexit32 ]
   %94 = getelementptr inbounds i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
   call void @acpi_lock_hp_context() #8
@@ -373,7 +373,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %98 = icmp eq ptr %97, null
   br i1 %98, label %105, label %99
 
-99:                                               ; preds = %.preheader30
+99:                                               ; preds = %.preheader29
   %100 = getelementptr inbounds i8, ptr %97, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
@@ -384,30 +384,30 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %104 = call i32 %101(ptr noundef %95, i32 noundef %32) #8
   br label %106
 
-105:                                              ; preds = %99, %.preheader30
+105:                                              ; preds = %99, %.preheader29
   call void @acpi_unlock_hp_context() #8
   br label %106
 
 106:                                              ; preds = %105, %103
   %107 = load ptr, ptr %93, align 8
   %108 = icmp eq ptr %107, %71
-  br i1 %108, label %.loopexit31.loopexit, label %.preheader30, !llvm.loop !12
+  br i1 %108, label %.loopexit30.loopexit, label %.preheader29, !llvm.loop !12
 
-.preheader28:                                     ; preds = %.loopexit31, %122
-  %109 = phi ptr [ %123, %122 ], [ %91, %.loopexit31 ]
+.preheader27:                                     ; preds = %.loopexit30, %122
+  %109 = phi ptr [ %123, %122 ], [ %91, %.loopexit30 ]
   %110 = getelementptr inbounds i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   br i1 %112, label %118, label %113
 
-113:                                              ; preds = %.preheader28
+113:                                              ; preds = %.preheader27
   %114 = getelementptr inbounds i8, ptr %111, i64 116
   %115 = load i32, ptr %114, align 4
   %116 = and i32 %115, 96
   %117 = icmp eq i32 %116, 96
   br i1 %117, label %122, label %118
 
-118:                                              ; preds = %113, %.preheader28
+118:                                              ; preds = %113, %.preheader27
   %119 = getelementptr inbounds i8, ptr %111, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = call i32 @acpi_bus_scan(ptr noundef %120) #8
@@ -416,9 +416,9 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
 122:                                              ; preds = %118, %113
   %123 = load ptr, ptr %109, align 8
   %124 = icmp eq ptr %123, %71
-  br i1 %124, label %.loopexit29, label %.preheader28, !llvm.loop !13
+  br i1 %124, label %.loopexit28, label %.preheader27, !llvm.loop !13
 
-.loopexit29:                                      ; preds = %122, %.loopexit31
+.loopexit28:                                      ; preds = %122, %.loopexit30
   %125 = load i32, ptr %26, align 8
   %126 = and i32 %125, -2
   store i32 %126, ptr %26, align 8
@@ -440,8 +440,8 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %135 = icmp eq ptr %134, %71
   br i1 %135, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit29, %148
-  %136 = phi ptr [ %149, %148 ], [ %134, %.loopexit29 ]
+.preheader:                                       ; preds = %.loopexit28, %148
+  %136 = phi ptr [ %149, %148 ], [ %134, %.loopexit28 ]
   %137 = getelementptr inbounds i8, ptr %136, i64 16
   %138 = load ptr, ptr %137, align 8
   call void @acpi_lock_hp_context() #8
@@ -470,7 +470,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %150 = icmp eq ptr %149, %71
   br i1 %150, label %.loopexit, label %.preheader, !llvm.loop !14
 
-.loopexit:                                        ; preds = %148, %.loopexit29
+.loopexit:                                        ; preds = %148, %.loopexit28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #8
   %151 = load ptr, ptr %23, align 8
@@ -478,7 +478,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %153 = call i32 @acpi_update_all_gpes() #8
   br label %.thread
 
-.thread22:                                        ; preds = %33, %45, %36
+.critedge:                                        ; preds = %33, %45, %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   store i64 0, ptr %5, align 8, !annotation !10
   %154 = call i32 @acpi_evaluate_integer(ptr noundef %20, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef nonnull %5) #8
@@ -489,7 +489,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   br i1 %158, label %159, label %.thread
 
-159:                                              ; preds = %.thread22
+159:                                              ; preds = %.critedge
   %160 = load i32, ptr %26, align 8
   %161 = and i32 %160, 1
   %162 = icmp eq i32 %161, 0
@@ -502,7 +502,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %167 = add i64 %164, -1000
   %168 = sub i64 %167, %166
   %169 = icmp sgt i64 %168, -1
-  br i1 %169, label %.thread23, label %.thread
+  br i1 %169, label %.thread22, label %.thread
 
 170:                                              ; preds = %25
   %171 = or i32 %27, 2
@@ -512,14 +512,14 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %174 = and i32 %27, 32
   %175 = icmp eq i32 %174, 0
   %or.cond = and i1 %173, %175
-  br i1 %or.cond, label %.thread24, label %178
+  br i1 %or.cond, label %.thread23, label %178
 
-.thread23:                                        ; preds = %163
+.thread22:                                        ; preds = %163
   %176 = or i32 %160, 2
   store i32 %176, ptr %26, align 8
-  br label %.thread24
+  br label %.thread23
 
-.thread24:                                        ; preds = %170, %.thread23
+.thread23:                                        ; preds = %170, %.thread22
   %177 = call fastcc i32 @handle_eject_request(ptr noundef nonnull %23)
   br label %.thread
 
@@ -536,9 +536,9 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %183 = getelementptr i8, ptr %16, i64 -16
   %184 = load ptr, ptr %183, align 8
   %185 = icmp eq ptr %184, %183
-  br i1 %185, label %.loopexit35, label %.preheader34
+  br i1 %185, label %.loopexit34, label %.preheader33
 
-.preheader34:                                     ; preds = %178, %198
+.preheader33:                                     ; preds = %178, %198
   %186 = phi ptr [ %199, %198 ], [ %184, %178 ]
   %187 = getelementptr inbounds i8, ptr %186, i64 16
   %188 = load ptr, ptr %187, align 8
@@ -548,7 +548,7 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   %191 = icmp eq ptr %190, null
   br i1 %191, label %197, label %192
 
-192:                                              ; preds = %.preheader34
+192:                                              ; preds = %.preheader33
   %193 = getelementptr inbounds i8, ptr %190, i64 16
   %194 = load ptr, ptr %193, align 8
   %195 = icmp eq ptr %194, null
@@ -559,23 +559,23 @@ define dso_local noundef range(i32 -19, 1) i32 @dock_notify(ptr noundef readonly
   call void %194(ptr noundef %188, i32 noundef 3) #8
   br label %198
 
-197:                                              ; preds = %192, %.preheader34
+197:                                              ; preds = %192, %.preheader33
   call void @acpi_unlock_hp_context() #8
   br label %198
 
 198:                                              ; preds = %197, %196
   %199 = load ptr, ptr %186, align 8
   %200 = icmp eq ptr %199, %183
-  br i1 %200, label %.loopexit35, label %.preheader34, !llvm.loop !14
+  br i1 %200, label %.loopexit34, label %.preheader33, !llvm.loop !14
 
-.loopexit35:                                      ; preds = %198, %178
+.loopexit34:                                      ; preds = %198, %178
   %201 = call i32 @kobject_uevent_env(ptr noundef %181, i32 noundef 2, ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %3) #8
   br label %.thread
 
-.thread:                                          ; preds = %14, %.loopexit35, %.thread24, %163, %159, %.thread22, %.loopexit, %66, %25, %22
-  %202 = phi i32 [ -19, %22 ], [ 0, %.thread24 ], [ 0, %.loopexit35 ], [ 0, %.thread22 ], [ 0, %163 ], [ 0, %25 ], [ 0, %.loopexit ], [ 0, %66 ], [ 0, %159 ], [ -19, %14 ]
+.thread:                                          ; preds = %14, %.loopexit34, %.thread23, %163, %159, %.critedge, %.loopexit, %66, %25, %22
+  %202 = phi i32 [ -19, %22 ], [ 0, %.thread23 ], [ 0, %.loopexit34 ], [ 0, %.critedge ], [ 0, %163 ], [ 0, %25 ], [ 0, %.loopexit ], [ 0, %66 ], [ 0, %159 ], [ -19, %14 ]
   ret i32 %202
 }
 

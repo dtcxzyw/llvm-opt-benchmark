@@ -236,7 +236,7 @@ entry:
 declare void @pcnet_common_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pcnet_ioport_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, -9223372036854775808) i64 @pcnet_ioport_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i.i133 = alloca %struct.timeval, align 8
   %_now.i.i.i113 = alloca %struct.timeval, align 8

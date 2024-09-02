@@ -114,7 +114,7 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   %21 = load i32, ptr %8, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph93, label %._crit_edge
+  br i1 %23, label %.lr.ph93, label %._crit_edge.loopexit
 
 .split:                                           ; preds = %.lr.ph93
   %24 = getelementptr inbounds i8, ptr %14, i64 16
@@ -129,10 +129,13 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 132, ptr noundef nonnull @__func__.cluster) #8
   unreachable
 
-._crit_edge:                                      ; preds = %19, %.lr.ph, %3
-  %.047.lcssa = phi i1 [ false, %3 ], [ false, %.lr.ph ], [ %20, %19 ]
-  %32 = zext i1 %.047.lcssa to i32
-  store i32 %32, ptr %5, align 4
+._crit_edge.loopexit:                             ; preds = %19
+  %32 = zext i1 %20 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %3
+  %.047.lcssa = phi i32 [ 0, %3 ], [ 0, %.lr.ph ], [ %32, %._crit_edge.loopexit ]
+  store i32 %.047.lcssa, ptr %5, align 4
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not58 = icmp eq ptr %34, null
@@ -248,7 +251,7 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull @.str.6) #8
   %93 = load ptr, ptr @PortalContext, align 8
   %94 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %93, ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
-  %95 = or disjoint i32 %32, 2
+  %95 = or disjoint i32 %.047.lcssa, 2
   store i32 %95, ptr %5, align 4
   %.not64 = icmp eq ptr %.049, null
   br i1 %.not64, label %125, label %96
@@ -368,7 +371,7 @@ get_tables_to_cluster.exit:                       ; preds = %128
   call void %153(ptr noundef nonnull %127) #8
   call void @relation_close(ptr noundef %126, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  %154 = or disjoint i32 %32, 6
+  %154 = or disjoint i32 %.047.lcssa, 6
   store i32 %154, ptr %5, align 4
   br label %155
 

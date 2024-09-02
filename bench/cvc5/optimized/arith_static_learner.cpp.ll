@@ -2911,7 +2911,7 @@ for.cond.i.i.i166:                                ; preds = %for.body.i.i.i170, 
   %retval.sroa.0.0.in.i.i.i167 = phi ptr [ %_M_before_begin.i.i.i.i.i165, %if.then.i.i.i164 ], [ %retval.sroa.0.0.i.i.i168, %for.body.i.i.i170 ]
   %retval.sroa.0.0.i.i.i168 = load ptr, ptr %retval.sroa.0.0.in.i.i.i167, align 8, !noalias !87
   %cmp.i.not.i.i.i169 = icmp eq ptr %retval.sroa.0.0.i.i.i168, null
-  br i1 %cmp.i.not.i.i.i169, label %land.end, label %for.body.i.i.i170
+  br i1 %cmp.i.not.i.i.i169, label %cleanup.action, label %for.body.i.i.i170
 
 for.body.i.i.i170:                                ; preds = %for.cond.i.i.i166
   %add.ptr.i.i.i171 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i168, i64 8
@@ -2958,31 +2958,26 @@ if.end3.i.i.i.i.i149:                             ; preds = %if.end.i.i.i.i.i144
   %__p.012.i.i.i.i.i150 = phi ptr [ %33, %for.cond.i.i.i.i.i157 ], [ %27, %if.end.i.i.i.i.i144 ]
   %33 = load ptr, ptr %__p.012.i.i.i.i.i150, align 8, !noalias !87
   %tobool5.not.i.i.i.i.i151 = icmp eq ptr %33, null
-  br i1 %tobool5.not.i.i.i.i.i151, label %land.end, label %lor.lhs.false.i.i.i.i.i152
+  br i1 %tobool5.not.i.i.i.i.i151, label %cleanup.action, label %lor.lhs.false.i.i.i.i.i152
 
 lor.lhs.false.i.i.i.i.i152:                       ; preds = %if.end3.i.i.i.i.i149
   %add.ptr.i.i.i.i.i.i.i153 = getelementptr inbounds i8, ptr %33, i64 24
   %34 = load i64, ptr %add.ptr.i.i.i.i.i.i.i153, align 8, !noalias !87
   %rem.i.i.i.i.i.i.i.i154 = urem i64 %34, %24
   %cmp.not.i.i.i.i.i155 = icmp eq i64 %rem.i.i.i.i.i.i.i.i154, %rem.i.i.i.i.i.i141
-  br i1 %cmp.not.i.i.i.i.i155, label %for.cond.i.i.i.i.i157, label %land.end, !llvm.loop !37
+  br i1 %cmp.not.i.i.i.i.i155, label %for.cond.i.i.i.i.i157, label %cleanup.action, !llvm.loop !37
 
 if.else.i161:                                     ; preds = %for.cond.i.i.i.i.i157, %for.body.i.i.i170, %if.end.i.i.i.i.i144
   %35 = phi ptr [ %.pre, %if.end.i.i.i.i.i144 ], [ %22, %for.body.i.i.i170 ], [ %.pre, %for.cond.i.i.i.i.i157 ]
   %retval.sroa.0.1.i.i.i162 = phi ptr [ %27, %if.end.i.i.i.i.i144 ], [ %retval.sroa.0.0.i.i.i168, %for.body.i.i.i170 ], [ %33, %for.cond.i.i.i.i.i157 ]
   %second.i163 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i162, i64 16
   %36 = load ptr, ptr %second.i163, align 8, !noalias !87
-  br label %land.end
-
-land.end:                                         ; preds = %lor.lhs.false.i.i.i.i.i152, %if.end3.i.i.i.i.i149, %for.cond.i.i.i166, %if.else.i161
-  %37 = phi ptr [ %35, %if.else.i161 ], [ %22, %for.cond.i.i.i166 ], [ %.pre, %if.end3.i.i.i.i.i149 ], [ %.pre, %lor.lhs.false.i.i.i.i.i152 ]
-  %storemerge.i156 = phi ptr [ %36, %if.else.i161 ], [ null, %for.cond.i.i.i166 ], [ null, %if.end3.i.i.i.i.i149 ], [ null, %lor.lhs.false.i.i.i.i.i152 ]
-  %cmp.i176 = icmp ne ptr %storemerge.i156, null
+  %37 = icmp ne ptr %36, null
   br label %cleanup.action
 
-cleanup.action:                                   ; preds = %call2.i.i.i.i.noexc173, %land.end
-  %38 = phi ptr [ %37, %land.end ], [ %.pre, %call2.i.i.i.i.noexc173 ]
-  %cmp.i1761094 = phi i1 [ %cmp.i176, %land.end ], [ false, %call2.i.i.i.i.noexc173 ]
+cleanup.action:                                   ; preds = %if.end3.i.i.i.i.i149, %lor.lhs.false.i.i.i.i.i152, %for.cond.i.i.i166, %if.else.i161, %call2.i.i.i.i.noexc173
+  %38 = phi ptr [ %.pre, %call2.i.i.i.i.noexc173 ], [ %35, %if.else.i161 ], [ %22, %for.cond.i.i.i166 ], [ %.pre, %lor.lhs.false.i.i.i.i.i152 ], [ %.pre, %if.end3.i.i.i.i.i149 ]
+  %cmp.i1761094 = phi i1 [ false, %call2.i.i.i.i.noexc173 ], [ %37, %if.else.i161 ], [ false, %for.cond.i.i.i166 ], [ false, %lor.lhs.false.i.i.i.i.i152 ], [ false, %if.end3.i.i.i.i.i149 ]
   %bf.load.i.i177 = load i64, ptr %38, align 8
   %39 = and i64 %bf.load.i.i177, 1152920405095219200
   %cmp.not.i.i = icmp eq i64 %39, 1152920405095219200
@@ -3979,7 +3974,7 @@ for.cond.i.i.i662:                                ; preds = %for.body.i.i.i666, 
   %retval.sroa.0.0.in.i.i.i663 = phi ptr [ %_M_before_begin.i.i.i.i.i661, %if.then.i.i.i660 ], [ %retval.sroa.0.0.i.i.i664, %for.body.i.i.i666 ]
   %retval.sroa.0.0.i.i.i664 = load ptr, ptr %retval.sroa.0.0.in.i.i.i663, align 8, !noalias !111
   %cmp.i.not.i.i.i665 = icmp eq ptr %retval.sroa.0.0.i.i.i664, null
-  br i1 %cmp.i.not.i.i.i665, label %land.end188, label %for.body.i.i.i666
+  br i1 %cmp.i.not.i.i.i665, label %cleanup.action190, label %for.body.i.i.i666
 
 for.body.i.i.i666:                                ; preds = %for.cond.i.i.i662
   %add.ptr.i.i.i667 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i664, i64 8
@@ -4026,31 +4021,26 @@ if.end3.i.i.i.i.i645:                             ; preds = %if.end.i.i.i.i.i640
   %__p.012.i.i.i.i.i646 = phi ptr [ %174, %for.cond.i.i.i.i.i653 ], [ %168, %if.end.i.i.i.i.i640 ]
   %174 = load ptr, ptr %__p.012.i.i.i.i.i646, align 8, !noalias !111
   %tobool5.not.i.i.i.i.i647 = icmp eq ptr %174, null
-  br i1 %tobool5.not.i.i.i.i.i647, label %land.end188, label %lor.lhs.false.i.i.i.i.i648
+  br i1 %tobool5.not.i.i.i.i.i647, label %cleanup.action190, label %lor.lhs.false.i.i.i.i.i648
 
 lor.lhs.false.i.i.i.i.i648:                       ; preds = %if.end3.i.i.i.i.i645
   %add.ptr.i.i.i.i.i.i.i649 = getelementptr inbounds i8, ptr %174, i64 24
   %175 = load i64, ptr %add.ptr.i.i.i.i.i.i.i649, align 8, !noalias !111
   %rem.i.i.i.i.i.i.i.i650 = urem i64 %175, %165
   %cmp.not.i.i.i.i.i651 = icmp eq i64 %rem.i.i.i.i.i.i.i.i650, %rem.i.i.i.i.i.i637
-  br i1 %cmp.not.i.i.i.i.i651, label %for.cond.i.i.i.i.i653, label %land.end188, !llvm.loop !37
+  br i1 %cmp.not.i.i.i.i.i651, label %for.cond.i.i.i.i.i653, label %cleanup.action190, !llvm.loop !37
 
 if.else.i657:                                     ; preds = %for.cond.i.i.i.i.i653, %for.body.i.i.i666, %if.end.i.i.i.i.i640
   %176 = phi ptr [ %.pre1158, %if.end.i.i.i.i.i640 ], [ %163, %for.body.i.i.i666 ], [ %.pre1158, %for.cond.i.i.i.i.i653 ]
   %retval.sroa.0.1.i.i.i658 = phi ptr [ %168, %if.end.i.i.i.i.i640 ], [ %retval.sroa.0.0.i.i.i664, %for.body.i.i.i666 ], [ %174, %for.cond.i.i.i.i.i653 ]
   %second.i659 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i.i658, i64 16
   %177 = load ptr, ptr %second.i659, align 8, !noalias !111
-  br label %land.end188
-
-land.end188:                                      ; preds = %lor.lhs.false.i.i.i.i.i648, %if.end3.i.i.i.i.i645, %for.cond.i.i.i662, %if.else.i657
-  %178 = phi ptr [ %176, %if.else.i657 ], [ %163, %for.cond.i.i.i662 ], [ %.pre1158, %if.end3.i.i.i.i.i645 ], [ %.pre1158, %lor.lhs.false.i.i.i.i.i648 ]
-  %storemerge.i652 = phi ptr [ %177, %if.else.i657 ], [ null, %for.cond.i.i.i662 ], [ null, %if.end3.i.i.i.i.i645 ], [ null, %lor.lhs.false.i.i.i.i.i648 ]
-  %cmp.i672 = icmp ne ptr %storemerge.i652, null
+  %178 = icmp ne ptr %177, null
   br label %cleanup.action190
 
-cleanup.action190:                                ; preds = %call2.i.i.i.i.noexc669, %land.end188
-  %179 = phi ptr [ %178, %land.end188 ], [ %.pre1158, %call2.i.i.i.i.noexc669 ]
-  %cmp.i6721105 = phi i1 [ %cmp.i672, %land.end188 ], [ false, %call2.i.i.i.i.noexc669 ]
+cleanup.action190:                                ; preds = %if.end3.i.i.i.i.i645, %lor.lhs.false.i.i.i.i.i648, %for.cond.i.i.i662, %if.else.i657, %call2.i.i.i.i.noexc669
+  %179 = phi ptr [ %.pre1158, %call2.i.i.i.i.noexc669 ], [ %176, %if.else.i657 ], [ %163, %for.cond.i.i.i662 ], [ %.pre1158, %lor.lhs.false.i.i.i.i.i648 ], [ %.pre1158, %if.end3.i.i.i.i.i645 ]
+  %cmp.i6721105 = phi i1 [ false, %call2.i.i.i.i.noexc669 ], [ %178, %if.else.i657 ], [ false, %for.cond.i.i.i662 ], [ false, %lor.lhs.false.i.i.i.i.i648 ], [ false, %if.end3.i.i.i.i.i645 ]
   %bf.load.i.i673 = load i64, ptr %179, align 8
   %180 = and i64 %bf.load.i.i673, 1152920405095219200
   %cmp.not.i.i674 = icmp eq i64 %180, 1152920405095219200

@@ -1876,7 +1876,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_fnmsub_d
 
 48:                                               ; preds = %39
   %49 = icmp eq i64 %41, 0
-  br i1 %49, label %68, label %50
+  br i1 %49, label %69, label %50
 
 50:                                               ; preds = %48
   %51 = add nsw i64 %41, -15
@@ -1905,18 +1905,18 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_fnmsub_d
   %65 = load i64, ptr %64, align 8
   %66 = and i64 %65, 4294967295
   %67 = or disjoint i64 %66, %63
-  br label %68
+  %68 = xor i64 %67, -9223372036854775808
+  br label %69
 
-68:                                               ; preds = %48, %58
-  %.sroa.076.0 = phi i64 [ %67, %58 ], [ 0, %48 ]
-  %69 = xor i64 %.sroa.076.0, -9223372036854775808
+69:                                               ; preds = %48, %58
+  %.sroa.076.0 = phi i64 [ %68, %58 ], [ -9223372036854775808, %48 ]
   %70 = lshr i64 %1, 20
   %71 = and i64 %70, 31
   %72 = and i64 %1, 1048576
   %.not137 = icmp eq i64 %72, 0
   br i1 %.not137, label %78, label %73
 
-73:                                               ; preds = %68
+73:                                               ; preds = %69
   %74 = tail call ptr @__cxa_allocate_exception(i64 32) #15
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   store i64 2, ptr %75, align 8
@@ -1928,7 +1928,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_fnmsub_d
   tail call void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #16
   unreachable
 
-78:                                               ; preds = %68
+78:                                               ; preds = %69
   %79 = icmp eq i64 %71, 0
   br i1 %79, label %98, label %80
 
@@ -2016,7 +2016,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_fnmsub_d
 
 127:                                              ; preds = %117, %107
   %.sroa.056.0 = phi i64 [ %126, %117 ], [ 0, %107 ]
-  %128 = tail call i64 @f64_mulAdd(i64 %69, i64 %.sroa.066.0, i64 %.sroa.056.0)
+  %128 = tail call i64 @f64_mulAdd(i64 %.sroa.076.0, i64 %.sroa.066.0, i64 %.sroa.056.0)
   %129 = lshr i64 %1, 7
   %130 = and i64 %129, 31
   %.not139 = icmp eq i64 %130, 0

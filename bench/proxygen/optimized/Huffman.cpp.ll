@@ -844,7 +844,7 @@ if.end57:                                         ; preds = %entry, %_ZN5folly2i
 declare i32 @htonl(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK8proxygen7huffman8HuffTree13getEncodeSizeEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this, ptr %literal.coerce0, ptr %literal.coerce1) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 536870913) i32 @_ZNK8proxygen7huffman8HuffTree13getEncodeSizeEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this, ptr %literal.coerce0, ptr %literal.coerce1) local_unnamed_addr #5 align 2 {
 entry:
   %cmp7.not = icmp eq ptr %literal.coerce1, %literal.coerce0
   br i1 %cmp7.not, label %for.end, label %for.body.lr.ph
@@ -883,7 +883,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK8proxygen7huffman8HuffTree7getCodeEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this, i8 noundef zeroext %ch) local_unnamed_addr #5 align 2 {
+define range(i64 0, 1099511627776) i64 @_ZNK8proxygen7huffman8HuffTree7getCodeEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23576) %this, i8 noundef zeroext %ch) local_unnamed_addr #5 align 2 {
 entry:
   %codes_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %codes_, align 8

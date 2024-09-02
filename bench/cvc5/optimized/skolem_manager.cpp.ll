@@ -5286,7 +5286,7 @@ lpad124:                                          ; preds = %if.end15.i.i573
   br label %ehcleanup205
 
 if.end145:                                        ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %if.else.i639, %invoke.cont114
-  %childChanged.0.shrunk = phi i1 [ false, %invoke.cont114 ], [ %cmp.i619, %if.else.i639 ], [ %cmp.i619, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ]
+  %childChanged.0 = phi i1 [ false, %invoke.cont114 ], [ %cmp.i619, %if.else.i639 ], [ %cmp.i619, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ]
   %194 = load ptr, ptr %cur, align 8
   %d_kind.i.i.i.i642 = getelementptr inbounds i8, ptr %194, i64 8
   %bf.load.i.i.i.i643 = load i16, ptr %d_kind.i.i.i.i642, align 8
@@ -5312,7 +5312,7 @@ invoke.cont149:                                   ; preds = %if.end145
   br i1 %cmp.i660.not1113, label %for.end188, label %invoke.cont159
 
 invoke.cont159:                                   ; preds = %invoke.cont149, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit749
-  %childChanged.1.in1115 = phi i1 [ %213, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit749 ], [ %childChanged.0.shrunk, %invoke.cont149 ]
+  %childChanged.11115 = phi i1 [ %213, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit749 ], [ %childChanged.0, %invoke.cont149 ]
   %__begin5.sroa.0.01114 = phi ptr [ %incdec.ptr.i750, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit749 ], [ %spec.select.i.i650, %invoke.cont149 ]
   %196 = load ptr, ptr %__begin5.sroa.0.01114, align 8, !noalias !51
   store ptr %196, ptr %ref.tmp157, align 8
@@ -5407,7 +5407,7 @@ lor.lhs.false.i.i.i.i691:                         ; preds = %if.end3.i.i.i.i688
 
 invoke.cont168:                                   ; preds = %lor.lhs.false.i.i.i.i691, %if.end3.i.i.i.i688, %for.cond.i.i.i.i696, %for.body.i.i706, %for.cond.i.i702, %if.end.i.i.i.i683, %call2.i.i.i.noexc709
   %retval.sroa.0.1.i.i695 = phi ptr [ null, %call2.i.i.i.noexc709 ], [ %203, %if.end.i.i.i.i683 ], [ null, %for.cond.i.i702 ], [ %retval.sroa.0.0.i.i704, %for.body.i.i706 ], [ %210, %for.cond.i.i.i.i696 ], [ null, %if.end3.i.i.i.i688 ], [ null, %lor.lhs.false.i.i.i.i691 ]
-  br i1 %childChanged.1.in1115, label %lor.end179, label %lor.rhs174
+  br i1 %childChanged.11115, label %lor.end179, label %lor.rhs174
 
 lor.rhs174:                                       ; preds = %invoke.cont168
   %second176 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i695, i64 16
@@ -5518,8 +5518,8 @@ ehcleanup184:                                     ; preds = %lpad167, %lpad165
   br label %ehcleanup205
 
 for.end188:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit749, %invoke.cont149
-  %childChanged.1.in.lcssa = phi i1 [ %childChanged.0.shrunk, %invoke.cont149 ], [ %213, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit749 ]
-  br i1 %childChanged.1.in.lcssa, label %invoke.cont192, label %if.end199
+  %childChanged.1.lcssa = phi i1 [ %childChanged.0, %invoke.cont149 ], [ %213, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit749 ]
+  br i1 %childChanged.1.lcssa, label %invoke.cont192, label %if.end199
 
 invoke.cont192:                                   ; preds = %for.end188
   %226 = load ptr, ptr %cur, align 8

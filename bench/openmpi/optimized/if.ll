@@ -675,7 +675,7 @@ define zeroext i1 @opal_ifislocal(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_iftupletoaddr(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 -42, 1) i32 @opal_iftupletoaddr(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
   %4 = alloca ptr, align 8
   %5 = alloca [4 x i32], align 16
   %6 = alloca ptr, align 8
@@ -922,7 +922,7 @@ define noundef zeroext i1 @opal_ifisloopback(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_ifmatches(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -42, 1) i32 @opal_ifmatches(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %.010.i = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_if_list, i64 32), align 8

@@ -322,7 +322,7 @@ define hidden void @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..ite
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h097181bfdab1fb64E.llvm.1186810780523629026(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden noundef range(i64 -4294967295, 4294967296) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h097181bfdab1fb64E.llvm.1186810780523629026(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %0, align 4, !alias.scope !5, !noalias !8, !noundef !4
   %4 = load i32, ptr %2, align 4, !alias.scope !5, !noalias !8, !noundef !4
@@ -335,7 +335,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h0e984afa2f986d74E.llvm.1186810780523629026(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #0 {
+define hidden noundef range(i64 -65535, 65536) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h0e984afa2f986d74E.llvm.1186810780523629026(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2
   %3 = load i16, ptr %0, align 2, !alias.scope !10, !noalias !13, !noundef !4
   %4 = load i16, ptr %2, align 2, !alias.scope !10, !noalias !13, !noundef !4
@@ -348,7 +348,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h29737184d21978e8E.llvm.1186810780523629026(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h29737184d21978e8E.llvm.1186810780523629026(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %0, align 4, !alias.scope !15, !noalias !18, !noundef !4
   %4 = load i32, ptr %2, align 4, !alias.scope !15, !noalias !18, !noundef !4
@@ -367,7 +367,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc9aa81880020b3aeE.llvm.1186810780523629026(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #0 {
+define hidden noundef range(i64 -255, 256) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc9aa81880020b3aeE.llvm.1186810780523629026(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %0, align 1, !alias.scope !25, !noalias !28, !noundef !4
   %4 = load i8, ptr %2, align 1, !alias.scope !25, !noalias !28, !noundef !4
@@ -380,7 +380,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hd908bc8be3356853E.llvm.1186810780523629026(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 65536) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hd908bc8be3356853E.llvm.1186810780523629026(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2
   %3 = load i16, ptr %0, align 2, !alias.scope !30, !noalias !33, !noundef !4
   %4 = load i16, ptr %2, align 2, !alias.scope !30, !noalias !33, !noundef !4
@@ -390,7 +390,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hda02200b2c1c0365E.llvm.1186810780523629026(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 256) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hda02200b2c1c0365E.llvm.1186810780523629026(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %0, align 1, !alias.scope !35, !noalias !38, !noundef !4
   %4 = load i8, ptr %2, align 1, !alias.scope !35, !noalias !38, !noundef !4
@@ -469,7 +469,7 @@ define { i64, i64 } @"_ZN5rayon5range68_$LT$impl$u20$rayon..range..private..Rang
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN5rayon5range75_$LT$impl$u20$rayon..range..private..IndexedRangeInteger$u20$for$u20$u8$GT$3len17h49f6f1844d926688E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef range(i64 0, 256) i64 @"_ZN5rayon5range75_$LT$impl$u20$rayon..range..private..IndexedRangeInteger$u20$for$u20$u8$GT$3len17h49f6f1844d926688E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %0, align 1, !alias.scope !56, !noalias !61, !noundef !4
   %4 = load i8, ptr %2, align 1, !alias.scope !56, !noalias !61, !noundef !4
@@ -533,7 +533,7 @@ define { i64, i64 } @"_ZN5rayon5range69_$LT$impl$u20$rayon..range..private..Rang
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN5rayon5range76_$LT$impl$u20$rayon..range..private..IndexedRangeInteger$u20$for$u20$u16$GT$3len17hb3d2f0d7ab2c19c8E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #3 {
+define noundef range(i64 0, 65536) i64 @"_ZN5rayon5range76_$LT$impl$u20$rayon..range..private..IndexedRangeInteger$u20$for$u20$u16$GT$3len17hb3d2f0d7ab2c19c8E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2
   %3 = load i16, ptr %0, align 2, !alias.scope !70, !noalias !75, !noundef !4
   %4 = load i16, ptr %2, align 2, !alias.scope !70, !noalias !75, !noundef !4
@@ -597,7 +597,7 @@ define { i64, i64 } @"_ZN5rayon5range69_$LT$impl$u20$rayon..range..private..Rang
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN5rayon5range76_$LT$impl$u20$rayon..range..private..IndexedRangeInteger$u20$for$u20$u32$GT$3len17h7494c7055f9e8ad4E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #3 {
+define noundef range(i64 0, 4294967296) i64 @"_ZN5rayon5range76_$LT$impl$u20$rayon..range..private..IndexedRangeInteger$u20$for$u20$u32$GT$3len17h7494c7055f9e8ad4E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %0, align 4, !alias.scope !84, !noalias !89, !noundef !4
   %4 = load i32, ptr %2, align 4, !alias.scope !84, !noalias !89, !noundef !4
@@ -720,7 +720,7 @@ define { i64, i64 } @"_ZN5rayon5range68_$LT$impl$u20$rayon..range..private..Rang
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN5rayon5range75_$LT$impl$u20$rayon..range..private..IndexedRangeInteger$u20$for$u20$i8$GT$3len17ha0ec9faded438efdE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #3 {
+define noundef range(i64 -255, 256) i64 @"_ZN5rayon5range75_$LT$impl$u20$rayon..range..private..IndexedRangeInteger$u20$for$u20$i8$GT$3len17ha0ec9faded438efdE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %0, align 1, !alias.scope !112, !noalias !117, !noundef !4
   %4 = load i8, ptr %2, align 1, !alias.scope !112, !noalias !117, !noundef !4
@@ -793,7 +793,7 @@ define { i64, i64 } @"_ZN5rayon5range69_$LT$impl$u20$rayon..range..private..Rang
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN5rayon5range76_$LT$impl$u20$rayon..range..private..IndexedRangeInteger$u20$for$u20$i16$GT$3len17h99eb97f46a48deb2E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #3 {
+define noundef range(i64 -65535, 65536) i64 @"_ZN5rayon5range76_$LT$impl$u20$rayon..range..private..IndexedRangeInteger$u20$for$u20$i16$GT$3len17h99eb97f46a48deb2E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2
   %3 = load i16, ptr %0, align 2, !alias.scope !126, !noalias !131, !noundef !4
   %4 = load i16, ptr %2, align 2, !alias.scope !126, !noalias !131, !noundef !4
@@ -866,7 +866,7 @@ define { i64, i64 } @"_ZN5rayon5range69_$LT$impl$u20$rayon..range..private..Rang
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN5rayon5range76_$LT$impl$u20$rayon..range..private..IndexedRangeInteger$u20$for$u20$i32$GT$3len17hb2c9cc5a63c2b601E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #3 {
+define noundef range(i64 -4294967295, 4294967296) i64 @"_ZN5rayon5range76_$LT$impl$u20$rayon..range..private..IndexedRangeInteger$u20$for$u20$i32$GT$3len17hb2c9cc5a63c2b601E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %0, align 4, !alias.scope !140, !noalias !145, !noundef !4
   %4 = load i32, ptr %2, align 4, !alias.scope !140, !noalias !145, !noundef !4

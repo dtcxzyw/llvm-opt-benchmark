@@ -538,7 +538,7 @@ _ZNK2cv3Mat2atIfEERKT_i.exit.i:                   ; preds = %.lr.ph.split.i, %25
   %.034.lcssa.i = phi i32 [ %.135.us.i, %213 ], [ %.135.us76.i, %232 ], [ %.135.i, %252 ]
   %.033.lcssa.i = phi i32 [ %.1.us.i, %213 ], [ %.1.us77.i, %232 ], [ %.1.i, %252 ]
   %254 = icmp eq i32 %.033.lcssa.i, -1
-  br i1 %254, label %264, label %._crit_edge.thread.i
+  br i1 %254, label %266, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %189
   %.034.lcssa103.i = phi i32 [ %.034.lcssa.i, %._crit_edge.i ], [ -1, %189 ]
@@ -552,11 +552,13 @@ _ZNK2cv3Mat2atIfEERKT_i.exit.i:                   ; preds = %.lr.ph.split.i, %25
   %261 = call double @llvm.fmuladd.f64(double %257, double 7.500000e-01, double %255)
   %262 = insertelement <2 x double> poison, double %261, i64 0
   %263 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %262)
-  br label %264
+  %264 = sitofp i32 %260 to double
+  %265 = sitofp i32 %263 to double
+  br label %266
 
-264:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.0205 = phi i32 [ 0, %._crit_edge.i ], [ %263, %._crit_edge.thread.i ]
-  %.0 = phi i32 [ 0, %._crit_edge.i ], [ %260, %._crit_edge.thread.i ]
+266:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i
+  %.0205 = phi double [ 0.000000e+00, %._crit_edge.i ], [ %265, %._crit_edge.thread.i ]
+  %.0 = phi double [ 0.000000e+00, %._crit_edge.i ], [ %264, %._crit_edge.thread.i ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
@@ -568,11 +570,10 @@ _ZNK2cv3Mat2atIfEERKT_i.exit.i:                   ; preds = %.lr.ph.split.i, %25
   store i64 0, ptr %111, align 8
   store i32 33619968, ptr %27, align 8
   store ptr %18, ptr %110, align 8
-  %265 = sitofp i32 %.0 to double
-  %266 = invoke noundef double @_ZN2cv9thresholdERKNS_11_InputArrayERKNS_12_OutputArrayEddi(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27, double noundef %265, double noundef 2.550000e+02, i32 noundef 1)
-          to label %267 unwind label %294
+  %267 = invoke noundef double @_ZN2cv9thresholdERKNS_11_InputArrayERKNS_12_OutputArrayEddi(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27, double noundef %.0, double noundef 2.550000e+02, i32 noundef 1)
+          to label %268 unwind label %294
 
-267:                                              ; preds = %264
+268:                                              ; preds = %266
   store i32 0, ptr %112, align 8
   store i32 0, ptr %113, align 4
   store i32 16842752, ptr %28, align 8
@@ -580,11 +581,10 @@ _ZNK2cv3Mat2atIfEERKT_i.exit.i:                   ; preds = %.lr.ph.split.i, %25
   store i64 0, ptr %116, align 8
   store i32 33619968, ptr %29, align 8
   store ptr %19, ptr %115, align 8
-  %268 = sitofp i32 %.0205 to double
-  %269 = invoke noundef double @_ZN2cv9thresholdERKNS_11_InputArrayERKNS_12_OutputArrayEddi(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29, double noundef %268, double noundef 2.550000e+02, i32 noundef 0)
+  %269 = invoke noundef double @_ZN2cv9thresholdERKNS_11_InputArrayERKNS_12_OutputArrayEddi(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29, double noundef %.0205, double noundef 2.550000e+02, i32 noundef 0)
           to label %270 unwind label %296
 
-270:                                              ; preds = %267
+270:                                              ; preds = %268
   store i32 0, ptr %117, align 8
   store i32 0, ptr %118, align 4
   store i32 16842752, ptr %30, align 8
@@ -681,12 +681,12 @@ _ZNK2cv3Mat2atIfEERKT_i.exit.i:                   ; preds = %.lr.ph.split.i, %25
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #20
   br label %.body
 
-294:                                              ; preds = %264
+294:                                              ; preds = %266
   %295 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-296:                                              ; preds = %267
+296:                                              ; preds = %268
   %297 = landingpad { ptr, i32 }
           cleanup
   br label %.body

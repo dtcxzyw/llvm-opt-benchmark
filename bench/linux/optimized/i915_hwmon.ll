@@ -1034,13 +1034,13 @@ define internal i32 @hwm_write(ptr nocapture noundef readonly %0, i32 noundef %1
   %23 = load volatile i64, ptr %14, align 8
   %24 = and i64 %23, 131072
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %.thread, !prof !14
+  br i1 %25, label %26, label %.critedge, !prof !14
 
 26:                                               ; preds = %.preheader
   %27 = load volatile i64, ptr %14, align 8
   %28 = and i64 %27, 4
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %.thread
+  br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %26
   call void @mutex_unlock(ptr noundef %18) #10
@@ -1051,7 +1051,7 @@ define internal i32 @hwm_write(ptr nocapture noundef readonly %0, i32 noundef %1
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !15
 
-.thread:                                          ; preds = %.preheader, %26
+.critedge:                                        ; preds = %.preheader, %26
   call void @finish_wait(ptr noundef %19, ptr noundef nonnull %6) #10
   br label %82
 
@@ -1117,8 +1117,8 @@ define internal i32 @hwm_write(ptr nocapture noundef readonly %0, i32 noundef %1
   call void @intel_runtime_pm_put_unchecked(ptr noundef %81) #10
   br label %82
 
-82:                                               ; preds = %.thread, %77
-  %83 = phi i32 [ -4, %.thread ], [ %78, %77 ]
+82:                                               ; preds = %.critedge, %77
+  %83 = phi i32 [ -4, %.critedge ], [ %78, %77 ]
   call void @mutex_unlock(ptr noundef %18) #10
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #10
   br label %108

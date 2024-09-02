@@ -3682,17 +3682,17 @@ thread-pre-split.i:                               ; preds = %478, %0
   %82 = icmp slt i32 %81, 3
   br i1 %82, label %.preheader62.i, label %_ZL9fill_bitsP4zbuf.exit.i
 
-.preheader62.i:                                   ; preds = %.preheader152.i.i, %160
-  %.promoted1447.i = phi i32 [ %.promoted1444.i, %160 ], [ %.promoted1448.i, %.preheader152.i.i ]
-  %.promoted1339.i = phi i32 [ %.promoted1337.i, %160 ], [ %.promoted1340.i, %.preheader152.i.i ]
-  %.promoted1232.i = phi ptr [ %.promoted1229.i, %160 ], [ %.promoted1233.i, %.preheader152.i.i ]
-  %.promoted25.i = phi i32 [ %.promoted24.i, %160 ], [ %.promoted26.i, %.preheader152.i.i ]
-  %83 = phi i32 [ %161, %160 ], [ %.promoted1448.i, %.preheader152.i.i ]
-  %84 = phi i32 [ %162, %160 ], [ %.promoted1340.i, %.preheader152.i.i ]
-  %85 = phi ptr [ %163, %160 ], [ %.promoted1233.i, %.preheader152.i.i ]
-  %86 = phi i32 [ %164, %160 ], [ %.promoted26.i, %.preheader152.i.i ]
-  %87 = phi i32 [ %168, %160 ], [ %81, %.preheader152.i.i ]
-  %88 = phi i32 [ %167, %160 ], [ %80, %.preheader152.i.i ]
+.preheader62.i:                                   ; preds = %.preheader152.i.i, %161
+  %.promoted1447.i = phi i32 [ %.promoted1444.i, %161 ], [ %.promoted1448.i, %.preheader152.i.i ]
+  %.promoted1339.i = phi i32 [ %.promoted1337.i, %161 ], [ %.promoted1340.i, %.preheader152.i.i ]
+  %.promoted1232.i = phi ptr [ %.promoted1229.i, %161 ], [ %.promoted1233.i, %.preheader152.i.i ]
+  %.promoted25.i = phi i32 [ %.promoted24.i, %161 ], [ %.promoted26.i, %.preheader152.i.i ]
+  %83 = phi i32 [ %162, %161 ], [ %.promoted1448.i, %.preheader152.i.i ]
+  %84 = phi i32 [ %163, %161 ], [ %.promoted1340.i, %.preheader152.i.i ]
+  %85 = phi ptr [ %164, %161 ], [ %.promoted1233.i, %.preheader152.i.i ]
+  %86 = phi i32 [ %165, %161 ], [ %.promoted26.i, %.preheader152.i.i ]
+  %87 = phi i32 [ %168, %161 ], [ %81, %.preheader152.i.i ]
+  %88 = phi i32 [ %167, %161 ], [ %80, %.preheader152.i.i ]
   %.highbits.i.i = lshr i32 %88, %87
   %.not.i59.i = icmp eq i32 %.highbits.i.i, 0
   br i1 %.not.i59.i, label %90, label %89
@@ -3721,7 +3721,7 @@ thread-pre-split.i:                               ; preds = %478, %0
 
 101:                                              ; preds = %98
   store i32 1, ptr %11, align 8
-  br label %160
+  br label %161
 
 102:                                              ; preds = %98
   %103 = sext i32 %99 to i64
@@ -3804,20 +3804,20 @@ thread-pre-split.i:                               ; preds = %478, %0
   %158 = load i8, ptr %157, align 1
   %159 = add nsw i32 %86, 1
   store i32 %159, ptr %7, align 8
-  br label %160
+  %160 = zext i8 %158 to i32
+  br label %161
 
-160:                                              ; preds = %152, %101
+161:                                              ; preds = %152, %101
   %.promoted1444.i = phi i32 [ %99, %101 ], [ %.promoted1445.i, %152 ]
   %.promoted1337.i = phi i32 [ %.promoted1339.i, %101 ], [ %.promoted1338.i, %152 ]
   %.promoted1229.i = phi ptr [ %.promoted1232.i, %101 ], [ %.promoted1230.i, %152 ]
   %.promoted24.i = phi i32 [ %.promoted25.i, %101 ], [ %159, %152 ]
-  %161 = phi i32 [ %99, %101 ], [ %153, %152 ]
-  %162 = phi i32 [ %84, %101 ], [ %154, %152 ]
-  %163 = phi ptr [ %85, %101 ], [ %155, %152 ]
-  %164 = phi i32 [ %86, %101 ], [ %159, %152 ]
-  %.0.i61.i = phi i8 [ 0, %101 ], [ %158, %152 ]
-  %165 = zext i8 %.0.i61.i to i32
-  %166 = shl i32 %165, %87
+  %162 = phi i32 [ %99, %101 ], [ %153, %152 ]
+  %163 = phi i32 [ %84, %101 ], [ %154, %152 ]
+  %164 = phi ptr [ %85, %101 ], [ %155, %152 ]
+  %165 = phi i32 [ %86, %101 ], [ %159, %152 ]
+  %.0.i61.i = phi i32 [ 0, %101 ], [ %160, %152 ]
+  %166 = shl i32 %.0.i61.i, %87
   %167 = or i32 %166, %88
   store i32 %167, ptr %13, align 4
   %168 = add nsw i32 %87, 8
@@ -3825,13 +3825,13 @@ thread-pre-split.i:                               ; preds = %478, %0
   %169 = icmp slt i32 %87, 17
   br i1 %169, label %.preheader62.i, label %_ZL9fill_bitsP4zbuf.exit.i, !llvm.loop !10
 
-_ZL9fill_bitsP4zbuf.exit.i:                       ; preds = %160, %89, %.preheader152.i.i
-  %.promoted1442.i = phi i32 [ %.promoted1448.i, %.preheader152.i.i ], [ %.promoted1447.i, %89 ], [ %.promoted1444.i, %160 ]
-  %.promoted1335.i = phi i32 [ %.promoted1340.i, %.preheader152.i.i ], [ %.promoted1339.i, %89 ], [ %.promoted1337.i, %160 ]
-  %.promoted1227.i = phi ptr [ %.promoted1233.i, %.preheader152.i.i ], [ %.promoted1232.i, %89 ], [ %.promoted1229.i, %160 ]
-  %.promoted22.i = phi i32 [ %.promoted26.i, %.preheader152.i.i ], [ %.promoted25.i, %89 ], [ %.promoted24.i, %160 ]
-  %170 = phi i32 [ %81, %.preheader152.i.i ], [ %87, %89 ], [ %168, %160 ]
-  %171 = phi i32 [ %80, %.preheader152.i.i ], [ %88, %89 ], [ %167, %160 ]
+_ZL9fill_bitsP4zbuf.exit.i:                       ; preds = %161, %89, %.preheader152.i.i
+  %.promoted1442.i = phi i32 [ %.promoted1448.i, %.preheader152.i.i ], [ %.promoted1447.i, %89 ], [ %.promoted1444.i, %161 ]
+  %.promoted1335.i = phi i32 [ %.promoted1340.i, %.preheader152.i.i ], [ %.promoted1339.i, %89 ], [ %.promoted1337.i, %161 ]
+  %.promoted1227.i = phi ptr [ %.promoted1233.i, %.preheader152.i.i ], [ %.promoted1232.i, %89 ], [ %.promoted1229.i, %161 ]
+  %.promoted22.i = phi i32 [ %.promoted26.i, %.preheader152.i.i ], [ %.promoted25.i, %89 ], [ %.promoted24.i, %161 ]
+  %170 = phi i32 [ %81, %.preheader152.i.i ], [ %87, %89 ], [ %168, %161 ]
+  %171 = phi i32 [ %80, %.preheader152.i.i ], [ %88, %89 ], [ %167, %161 ]
   %172 = lshr i32 %171, 3
   store i32 %172, ptr %13, align 4
   %173 = add nsw i32 %170, -3
@@ -4478,9 +4478,9 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef %0) unnam
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   br label %12
 
-12:                                               ; preds = %86, %1
-  %13 = phi i32 [ %90, %86 ], [ %.promoted60, %1 ]
-  %14 = phi i32 [ %89, %86 ], [ %.promoted, %1 ]
+12:                                               ; preds = %87, %1
+  %13 = phi i32 [ %90, %87 ], [ %.promoted60, %1 ]
+  %14 = phi i32 [ %89, %87 ], [ %.promoted, %1 ]
   %.highbits = lshr i32 %14, %13
   %.not = icmp eq i32 %.highbits, 0
   br i1 %.not, label %16, label %15
@@ -4513,7 +4513,7 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef %0) unnam
 
 31:                                               ; preds = %27
   store i32 1, ptr %11, align 8
-  br label %86
+  br label %87
 
 32:                                               ; preds = %27
   %33 = sext i32 %29 to i64
@@ -4587,12 +4587,12 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef %0) unnam
   %84 = load i8, ptr %83, align 1
   %85 = add nsw i32 %17, 1
   store i32 %85, ptr %4, align 8
-  br label %86
+  %86 = zext i8 %84 to i32
+  br label %87
 
-86:                                               ; preds = %81, %31
-  %.0 = phi i8 [ 0, %31 ], [ %84, %81 ]
-  %87 = zext i8 %.0 to i32
-  %88 = shl i32 %87, %13
+87:                                               ; preds = %81, %31
+  %.0 = phi i32 [ 0, %31 ], [ %86, %81 ]
+  %88 = shl i32 %.0, %13
   %89 = or i32 %88, %14
   store i32 %89, ptr %2, align 4
   %90 = add nsw i32 %13, 8
@@ -4600,7 +4600,7 @@ define internal fastcc void @_ZL9fill_bitsP4zbuf(ptr nocapture noundef %0) unnam
   %91 = icmp slt i32 %13, 17
   br i1 %91, label %12, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %86, %15
+.loopexit:                                        ; preds = %87, %15
   ret void
 }
 

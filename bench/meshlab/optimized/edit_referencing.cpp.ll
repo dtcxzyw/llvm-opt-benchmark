@@ -5357,7 +5357,7 @@ define void @_ZN21EditReferencingPlugin15updateDistancesEv(ptr nocapture noundef
 
 44:                                               ; preds = %.lr.ph43, %.critedge
   %.02542 = phi i64 [ 0, %.lr.ph43 ], [ %77, %.critedge ]
-  %.02641 = phi i32 [ 0, %.lr.ph43 ], [ %.1.fr, %.critedge ]
+  %.02641 = phi i32 [ 0, %.lr.ph43 ], [ %.1, %.critedge ]
   %.02740 = phi double [ 0.000000e+00, %.lr.ph43 ], [ %.128, %.critedge ]
   %45 = load ptr, ptr %17, align 8
   %46 = getelementptr inbounds double, ptr %45, i64 %.02542
@@ -5403,14 +5403,13 @@ define void @_ZN21EditReferencingPlugin15updateDistancesEv(ptr nocapture noundef
 
 73:                                               ; preds = %68
   %74 = fadd double %.02740, %71
-  %75 = add nsw i32 %.02641, 1
+  %75 = add i32 %.02641, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %49, %52, %73, %68
   %76 = phi ptr [ %.pre, %49 ], [ %59, %73 ], [ %59, %68 ], [ %59, %52 ]
   %.128 = phi double [ %.02740, %49 ], [ %74, %73 ], [ %.02740, %68 ], [ %.02740, %52 ]
   %.1 = phi i32 [ %.02641, %49 ], [ %75, %73 ], [ %.02641, %68 ], [ %.02641, %52 ]
-  %.1.fr = freeze i32 %.1
   %77 = add nuw i64 %.02542, 1
   %78 = load ptr, ptr %3, align 8
   %79 = load i32, ptr %4, align 8
@@ -5424,7 +5423,7 @@ define void @_ZN21EditReferencingPlugin15updateDistancesEv(ptr nocapture noundef
   br i1 %86, label %44, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.critedge
-  %87 = icmp eq i32 %.1.fr, 0
+  %87 = icmp eq i32 %.1, 0
   br i1 %87, label %.thread, label %89
 
 .thread:                                          ; preds = %._crit_edge, %.preheader
@@ -5433,7 +5432,7 @@ define void @_ZN21EditReferencingPlugin15updateDistancesEv(ptr nocapture noundef
   br label %95
 
 89:                                               ; preds = %._crit_edge
-  %90 = sitofp i32 %.1.fr to double
+  %90 = sitofp i32 %.1 to double
   %91 = fdiv double %.128, %90
   %92 = getelementptr inbounds i8, ptr %0, i64 512
   store double %91, ptr %92, align 8

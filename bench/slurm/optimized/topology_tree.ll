@@ -552,9 +552,9 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %95, label %96, label %._crit_edge103.thread
 
 96:                                               ; preds = %._crit_edge103
-  %97 = load ptr, ptr %10, align 8
-  %98 = sext i32 %.160 to i64
-  call void @slurm_bit_clear(ptr noundef %97, i64 noundef %98) #10
+  %97 = sext i32 %.160 to i64
+  %98 = load ptr, ptr %10, align 8
+  call void @slurm_bit_clear(ptr noundef %98, i64 noundef %97) #10
   %99 = load ptr, ptr %10, align 8
   call void @slurm_bit_set(ptr noundef %99, i64 noundef %73) #10
   %.neg = add i32 %.162106, 1

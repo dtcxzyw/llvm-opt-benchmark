@@ -126,18 +126,21 @@ define void @Bac_ManSetupTypes(ptr nocapture noundef writeonly %0, ptr nocapture
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = icmp eq i64 %indvars.iv, %6
-  br i1 %7, label %Bac_GetTypeId.exit, label %8
+  br i1 %7, label %.split.loop.exit9.i, label %8
 
 8:                                                ; preds = %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 73
   br i1 %exitcond.not.i, label %Bac_GetTypeId.exit, label %3, !llvm.loop !4
 
-Bac_GetTypeId.exit:                               ; preds = %3, %8
-  %.06.i = phi i64 [ -1, %8 ], [ %indvars.iv.i, %3 ]
-  %sext = shl i64 %.06.i, 32
+.split.loop.exit9.i:                              ; preds = %3
+  %sext = shl i64 %indvars.iv.i, 32
   %9 = ashr exact i64 %sext, 32
-  %10 = getelementptr inbounds [73 x %struct.Bac_Pair_t_], ptr @s_Types, i64 0, i64 %9
+  br label %Bac_GetTypeId.exit
+
+Bac_GetTypeId.exit:                               ; preds = %8, %.split.loop.exit9.i
+  %.06.i = phi i64 [ %9, %.split.loop.exit9.i ], [ -1, %8 ]
+  %10 = getelementptr inbounds [73 x %struct.Bac_Pair_t_], ptr @s_Types, i64 0, i64 %.06.i
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv

@@ -2935,8 +2935,8 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 45
   %52 = load i8, ptr %51, align 1
-  %.fr85 = freeze i8 %52
-  %53 = trunc i8 %.fr85 to i1
+  %.fr76 = freeze i8 %52
+  %53 = trunc i8 %.fr76 to i1
   %54 = getelementptr i8, ptr %.0.i.i, i64 12
   %.val55 = load i16, ptr %54, align 4
   %55 = icmp ult i16 %.val55, 25
@@ -3185,11 +3185,11 @@ SampleHeapTupleVisible.exit.thread:               ; preds = %151
   tail call void @pgstat_assoc_relation(ptr noundef nonnull %177) #11
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 472
-  %.pre83 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre85 = load ptr, ptr %.phi.trans.insert, align 8
   br label %185
 
 185:                                              ; preds = %.thread58, %184
-  %186 = phi ptr [ %179, %.thread58 ], [ %.pre83, %184 ]
+  %186 = phi ptr [ %179, %.thread58 ], [ %.pre85, %184 ]
   %187 = getelementptr inbounds i8, ptr %186, i64 24
   %188 = load i64, ptr %187, align 8
   %189 = add i64 %188, 1

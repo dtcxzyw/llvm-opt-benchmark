@@ -1918,13 +1918,13 @@ Gia_Sim2SimulateRound.exit:                       ; preds = %.lr.ph90.i, %Gia_Si
   %220 = load i64, ptr %80, align 8
   %221 = sdiv i64 %220, 1000
   %222 = add nsw i64 %221, %219
+  %223 = sitofp i64 %222 to double
   br label %Abc_Clock.exit79
 
 Abc_Clock.exit79:                                 ; preds = %214, %217
-  %.0.i78 = phi i64 [ %222, %217 ], [ -1, %214 ]
+  %.0.i78 = phi double [ %223, %217 ], [ -1.000000e+00, %214 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %223 = sitofp i64 %.0.i78 to double
-  %224 = fsub double %223, %81
+  %224 = fsub double %.0.i78, %81
   %225 = fdiv double %224, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %225)
   br label %226

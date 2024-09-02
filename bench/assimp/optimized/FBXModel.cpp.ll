@@ -1333,27 +1333,27 @@ entry:
   %0 = load ptr, ptr %attributes.i, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i5.not = icmp eq ptr %0, %1
-  br i1 %cmp.i5.not, label %return, label %for.body
+  %cmp.i4.not = icmp eq ptr %0, %1
+  br i1 %cmp.i4.not, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin2.sroa.0.06 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
-  %2 = load ptr, ptr %__begin2.sroa.0.06, align 8
+  %__begin2.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
+  %2 = load ptr, ptr %__begin2.sroa.0.05, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %for.inc, label %dynamic_cast.end
+  br i1 %3, label %for.inc, label %dynamic_cast.notnull
 
-dynamic_cast.end:                                 ; preds = %for.body
+dynamic_cast.notnull:                             ; preds = %for.body
   %4 = tail call ptr @__dynamic_cast(ptr nonnull %2, ptr nonnull @_ZTIN6Assimp3FBX13NodeAttributeE, ptr nonnull @_ZTIN6Assimp3FBX4NullE, i64 0) #14
-  %tobool.not = icmp eq ptr %4, null
-  br i1 %tobool.not, label %for.inc, label %return
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %for.inc, label %return
 
-for.inc:                                          ; preds = %for.body, %dynamic_cast.end
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06, i64 8
+for.inc:                                          ; preds = %for.body, %dynamic_cast.notnull
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %for.body
 
-return:                                           ; preds = %dynamic_cast.end, %for.inc, %entry
-  %cmp.i.lcssa = phi i1 [ false, %entry ], [ false, %for.inc ], [ true, %dynamic_cast.end ]
+return:                                           ; preds = %dynamic_cast.notnull, %for.inc, %entry
+  %cmp.i.lcssa = phi i1 [ false, %entry ], [ false, %for.inc ], [ true, %dynamic_cast.notnull ]
   ret i1 %cmp.i.lcssa
 }
 

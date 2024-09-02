@@ -2169,7 +2169,7 @@ define noundef zeroext i1 @_ZNK6casadi10DaeBuilder5has_tEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi10DaeBuilder2nxEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK6casadi10DaeBuilder2nxEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 728
   %4 = getelementptr inbounds i8, ptr %2, i64 736
@@ -2183,7 +2183,7 @@ define noundef i64 @_ZNK6casadi10DaeBuilder2nxEv(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi10DaeBuilder2nzEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK6casadi10DaeBuilder2nzEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 752
   %4 = getelementptr inbounds i8, ptr %2, i64 760
@@ -2197,7 +2197,7 @@ define noundef i64 @_ZNK6casadi10DaeBuilder2nzEv(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi10DaeBuilder2nqEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK6casadi10DaeBuilder2nqEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 776
   %4 = getelementptr inbounds i8, ptr %2, i64 784
@@ -2211,7 +2211,7 @@ define noundef i64 @_ZNK6casadi10DaeBuilder2nqEv(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi10DaeBuilder2nyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK6casadi10DaeBuilder2nyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 872
   %4 = getelementptr inbounds i8, ptr %2, i64 880
@@ -2225,7 +2225,7 @@ define noundef i64 @_ZNK6casadi10DaeBuilder2nyEv(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi10DaeBuilder2nuEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK6casadi10DaeBuilder2nuEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 704
   %4 = getelementptr inbounds i8, ptr %2, i64 712
@@ -2239,7 +2239,7 @@ define noundef i64 @_ZNK6casadi10DaeBuilder2nuEv(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi10DaeBuilder2npEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK6casadi10DaeBuilder2npEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 680
   %4 = getelementptr inbounds i8, ptr %2, i64 688
@@ -2253,7 +2253,7 @@ define noundef i64 @_ZNK6casadi10DaeBuilder2npEv(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi10DaeBuilder2ncEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK6casadi10DaeBuilder2ncEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 800
   %4 = getelementptr inbounds i8, ptr %2, i64 808
@@ -2267,7 +2267,7 @@ define noundef i64 @_ZNK6casadi10DaeBuilder2ncEv(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi10DaeBuilder2ndEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK6casadi10DaeBuilder2ndEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 824
   %4 = getelementptr inbounds i8, ptr %2, i64 832
@@ -2281,7 +2281,7 @@ define noundef i64 @_ZNK6casadi10DaeBuilder2ndEv(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi10DaeBuilder2nwEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK6casadi10DaeBuilder2nwEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 848
   %4 = getelementptr inbounds i8, ptr %2, i64 856

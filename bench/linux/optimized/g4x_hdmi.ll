@@ -30,18 +30,18 @@ define dso_local i32 @g4x_hdmi_connector_atomic_check(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   %6 = tail call i32 @intel_digital_connector_atomic_check(ptr noundef %0, ptr noundef %1) #6
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %91
+  br i1 %7, label %8, label %89
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %.fr9, i64 7184
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 196608
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %91, label %13
+  br i1 %12, label %89, label %13
 
 13:                                               ; preds = %8
   %14 = tail call zeroext i1 @intel_connector_needs_modeset(ptr noundef %1, ptr noundef %0) #6
-  br i1 %14, label %15, label %91
+  br i1 %14, label %15, label %89
 
 15:                                               ; preds = %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5
@@ -50,24 +50,24 @@ define dso_local i32 @g4x_hdmi_connector_atomic_check(ptr noundef %0, ptr nounde
   %17 = getelementptr inbounds i8, ptr %1, i64 32
   %18 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #6
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.thread, label %.lr.ph
+  br i1 %19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %20 = icmp eq ptr %.fr9, null
   br i1 %20, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %select.unfold.us
-  %21 = phi ptr [ %52, %select.unfold.us ], [ %18, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
+  %21 = phi ptr [ %51, %.backedge.us ], [ %18, %.lr.ph ]
   %22 = getelementptr inbounds i8, ptr %21, i64 1976
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %select.unfold.us, label %25
+  br i1 %24, label %.backedge.us, label %25
 
 25:                                               ; preds = %.lr.ph.split.us
   %26 = getelementptr inbounds i8, ptr %23, i64 128
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 6
-  br i1 %28, label %29, label %select.unfold.us, !llvm.loop !6
+  br i1 %28, label %29, label %.backedge.us, !llvm.loop !6
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %21, i64 64
@@ -77,13 +77,13 @@ define dso_local i32 @g4x_hdmi_connector_atomic_check(ptr noundef %0, ptr nounde
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %31, ptr noundef %33) #6
   %34 = call ptr @drm_atomic_get_connector_state(ptr noundef %1, ptr noundef nonnull %21) #6
   %35 = icmp ugt ptr %34, inttoptr (i64 -4096 to ptr)
-  br i1 %35, label %.split.us, label %36
+  br i1 %35, label %.thread, label %36
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds i8, ptr %34, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %select.unfold.us, label %40, !llvm.loop !6
+  br i1 %39, label %.backedge.us, label %40, !llvm.loop !6
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %17, align 8
@@ -97,79 +97,79 @@ define dso_local i32 @g4x_hdmi_connector_atomic_check(ptr noundef %0, ptr nounde
   %49 = or i8 %48, 2
   store i8 %49, ptr %47, align 2
   %50 = call i32 @drm_atomic_add_affected_planes(ptr noundef %1, ptr noundef nonnull %38) #6
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %select.unfold.us, label %.thread
+  %.not.us = icmp eq i32 %50, 0
+  br i1 %.not.us, label %.backedge.us, label %.loopexit
 
-select.unfold.us:                                 ; preds = %40, %36, %25, %.lr.ph.split.us
-  %52 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #6
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %.thread, label %.lr.ph.split.us
+.backedge.us:                                     ; preds = %.lr.ph.split.us, %25, %36, %40
+  %51 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #6
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.loopexit, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %select.unfold
-  %54 = phi ptr [ %88, %select.unfold ], [ %18, %.lr.ph ]
-  %55 = getelementptr inbounds i8, ptr %54, i64 1976
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %select.unfold, label %58
+.lr.ph.split:                                     ; preds = %.lr.ph, %.backedge
+  %53 = phi ptr [ %86, %.backedge ], [ %18, %.lr.ph ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 1976
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %.backedge, label %57
 
-58:                                               ; preds = %.lr.ph.split
-  %59 = getelementptr inbounds i8, ptr %56, i64 128
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp eq i32 %60, 6
-  br i1 %61, label %62, label %select.unfold, !llvm.loop !6
+57:                                               ; preds = %.lr.ph.split
+  %58 = getelementptr inbounds i8, ptr %55, i64 128
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp eq i32 %59, 6
+  br i1 %60, label %61, label %.backedge, !llvm.loop !6
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %16, align 8
-  %64 = getelementptr inbounds i8, ptr %54, i64 64
-  %65 = load i32, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %54, i64 96
-  %67 = load ptr, ptr %66, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %63, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %65, ptr noundef %67) #6
-  %68 = call ptr @drm_atomic_get_connector_state(ptr noundef %1, ptr noundef nonnull %54) #6
-  %69 = icmp ugt ptr %68, inttoptr (i64 -4096 to ptr)
-  br i1 %69, label %.split.us, label %72
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %16, align 8
+  %63 = getelementptr inbounds i8, ptr %53, i64 64
+  %64 = load i32, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %53, i64 96
+  %66 = load ptr, ptr %65, align 8
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %62, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %64, ptr noundef %66) #6
+  %67 = call ptr @drm_atomic_get_connector_state(ptr noundef %1, ptr noundef nonnull %53) #6
+  %68 = icmp ugt ptr %67, inttoptr (i64 -4096 to ptr)
+  br i1 %68, label %.thread, label %71
 
-.split.us:                                        ; preds = %62, %29
-  %.us-phi = phi ptr [ %34, %29 ], [ %68, %62 ]
-  %70 = ptrtoint ptr %.us-phi to i64
-  %71 = trunc i64 %70 to i32
-  br label %.thread
+.thread:                                          ; preds = %61, %29
+  %.us-phi = phi ptr [ %34, %29 ], [ %67, %61 ]
+  %69 = ptrtoint ptr %.us-phi to i64
+  %70 = trunc i64 %69 to i32
+  br label %.loopexit
 
-72:                                               ; preds = %62
-  %73 = getelementptr inbounds i8, ptr %68, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %select.unfold, label %76, !llvm.loop !6
+71:                                               ; preds = %61
+  %72 = getelementptr inbounds i8, ptr %67, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %.backedge, label %75, !llvm.loop !6
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %17, align 8
-  %78 = getelementptr inbounds i8, ptr %74, i64 144
-  %79 = load i32, ptr %78, align 8
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr %struct.__drm_crtcs_state, ptr %77, i64 %80, i32 3
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 10
-  %84 = load i8, ptr %83, align 2
-  %85 = or i8 %84, 2
-  store i8 %85, ptr %83, align 2
-  %86 = call i32 @drm_atomic_add_affected_planes(ptr noundef %1, ptr noundef nonnull %74) #6
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %select.unfold, label %.thread
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %17, align 8
+  %77 = getelementptr inbounds i8, ptr %73, i64 144
+  %78 = load i32, ptr %77, align 8
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr %struct.__drm_crtcs_state, ptr %76, i64 %79, i32 3
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 10
+  %83 = load i8, ptr %82, align 2
+  %84 = or i8 %83, 2
+  store i8 %84, ptr %82, align 2
+  %85 = call i32 @drm_atomic_add_affected_planes(ptr noundef %1, ptr noundef nonnull %73) #6
+  %.not = icmp eq i32 %85, 0
+  br i1 %.not, label %.backedge, label %.loopexit
 
-select.unfold:                                    ; preds = %76, %72, %58, %.lr.ph.split
-  %88 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #6
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %.thread, label %.lr.ph.split
+.backedge:                                        ; preds = %.lr.ph.split, %57, %71, %75
+  %86 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #6
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %.loopexit, label %.lr.ph.split
 
-.thread:                                          ; preds = %select.unfold, %76, %select.unfold.us, %40, %15, %.split.us
-  %90 = phi i32 [ %71, %.split.us ], [ 0, %15 ], [ 0, %select.unfold.us ], [ %50, %40 ], [ 0, %select.unfold ], [ %86, %76 ]
+.loopexit:                                        ; preds = %.backedge, %75, %.backedge.us, %40, %15, %.thread
+  %88 = phi i32 [ %70, %.thread ], [ 0, %15 ], [ 0, %.backedge.us ], [ %50, %40 ], [ 0, %.backedge ], [ %85, %75 ]
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #6
-  br label %91
+  br label %89
 
-91:                                               ; preds = %.thread, %13, %8, %2
-  %92 = phi i32 [ %90, %.thread ], [ %6, %2 ], [ 0, %13 ], [ 0, %8 ]
+89:                                               ; preds = %.loopexit, %13, %8, %2
+  %90 = phi i32 [ %88, %.loopexit ], [ %6, %2 ], [ 0, %13 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
-  ret i32 %92
+  ret i32 %90
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

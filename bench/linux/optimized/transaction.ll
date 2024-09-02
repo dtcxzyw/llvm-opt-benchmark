@@ -2154,21 +2154,21 @@ define internal fastcc noundef range(i32 -30, 1) i32 @do_get_write_access(ptr no
   %78 = load i32, ptr %8, align 4
   %79 = and i32 %78, 8
   %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %.thread
+  br i1 %80, label %81, label %.critedge
 
 81:                                               ; preds = %77
   %82 = load ptr, ptr %0, align 8
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %.thread, label %84
+  br i1 %83, label %.critedge, label %84
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %82, align 8
   %86 = load i64, ptr %85, align 8
   %87 = and i64 %86, 2
   %88 = icmp eq i64 %87, 0
-  br i1 %88, label %89, label %.thread
+  br i1 %88, label %89, label %.critedge
 
-.thread:                                          ; preds = %77, %81, %84
+.critedge:                                        ; preds = %81, %77, %84
   tail call void @_raw_spin_unlock(ptr noundef %6) #11
   tail call void @unlock_buffer(ptr noundef %18) #11
   br label %204
@@ -2387,9 +2387,9 @@ define internal fastcc noundef range(i32 -30, 1) i32 @do_get_write_access(ptr no
   %203 = tail call i32 @jbd2_journal_cancel_revoke(ptr noundef %0, ptr noundef %1) #11
   br label %204
 
-204:                                              ; preds = %201, %.thread
-  %205 = phi i32 [ -30, %.thread ], [ 0, %201 ]
-  %206 = phi ptr [ %16, %.thread ], [ %202, %201 ]
+204:                                              ; preds = %201, %.critedge
+  %205 = phi i32 [ -30, %.critedge ], [ 0, %201 ]
+  %206 = phi ptr [ %16, %.critedge ], [ %202, %201 ]
   %207 = icmp eq ptr %206, null
   br i1 %207, label %211, label %208, !prof !6
 
@@ -3231,14 +3231,14 @@ define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_forget(ptr nocaptur
   %7 = icmp ne i32 %6, 0
   %8 = icmp eq ptr %3, null
   %9 = select i1 %7, i1 true, i1 %8
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %3, align 8
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %10
   %16 = tail call ptr @jbd2_journal_grab_journal_head(ptr noundef %1) #11
@@ -3247,7 +3247,7 @@ define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_forget(ptr nocaptur
 
 18:                                               ; preds = %15
   tail call void @__bforget(ptr noundef %1) #11
-  br label %.thread
+  br label %.critedge
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %16, i64 8
@@ -3415,16 +3415,16 @@ define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_forget(ptr nocaptur
   tail call void @__brelse(ptr noundef %1) #11
   tail call void @_raw_spin_unlock(ptr noundef %20) #11
   tail call void @jbd2_journal_put_journal_head(ptr noundef nonnull %16) #11
-  br i1 %93, label %.thread, label %95
+  br i1 %93, label %.critedge, label %95
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds i8, ptr %0, i64 16
   %97 = load i32, ptr %96, align 8
   %98 = add i32 %97, 1
   store i32 %98, ptr %96, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %2, %95, %92, %18, %10
+.critedge:                                        ; preds = %2, %95, %92, %18, %10
   %99 = phi i32 [ 0, %18 ], [ -30, %10 ], [ %94, %95 ], [ %94, %92 ], [ -30, %2 ]
   ret i32 %99
 }
@@ -3694,7 +3694,7 @@ select.unfold:                                    ; preds = %31, %11
 declare dso_local zeroext i1 @try_to_free_buffers(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @jbd2_journal_invalidate_folio(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -16, 1) i32 @jbd2_journal_invalidate_folio(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 16 {
   %5 = add i64 %3, %2
   %6 = trunc i64 %5 to i32
   %7 = icmp eq i64 %2, 0

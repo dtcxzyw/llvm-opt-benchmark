@@ -43,7 +43,7 @@ _Z33grpc_base64_estimate_encoded_sizemi.exit:     ; preds = %entry, %cond.true.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_Z33grpc_base64_estimate_encoded_sizemi(i64 noundef %data_size, i32 noundef %multiline) local_unnamed_addr #1 {
+define noundef range(i64 1, 0) i64 @_Z33grpc_base64_estimate_encoded_sizemi(i64 noundef %data_size, i32 noundef %multiline) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %multiline, 0
   br i1 %tobool.not, label %cond.end, label %cond.true

@@ -544,7 +544,7 @@ declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnam
 declare void @test_openssl_errors() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @make_custom_der(ptr nocapture noundef readonly %custom_data, ptr nocapture noundef %encoding, i32 noundef %explicit_default) unnamed_addr #0 {
+define internal fastcc range(i64 -9223372036854775803, -9223372036854775808) i64 @make_custom_der(ptr nocapture noundef readonly %custom_data, ptr nocapture noundef %encoding, i32 noundef %explicit_default) unnamed_addr #0 {
 entry:
   %nbytes1 = getelementptr inbounds i8, ptr %custom_data, i64 8
   %0 = load i64, ptr %nbytes1, align 8

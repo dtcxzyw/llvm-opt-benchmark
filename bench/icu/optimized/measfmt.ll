@@ -758,24 +758,24 @@ entry:
 
 new.notnull:                                      ; preds = %entry
   invoke void @_ZN6icu_7522MeasureFormatCacheDataC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %call3)
-          to label %invoke.cont5 unwind label %lpad
+          to label %new.cont.thread unwind label %lpad
+
+new.cont.thread:                                  ; preds = %new.notnull
+  %.pr = load i32, ptr %status, align 4
+  %2 = icmp slt i32 %.pr, 1
+  br i1 %2, label %if.end, label %delete.notnull.i39
 
 new.cont:                                         ; preds = %entry
-  %2 = load i32, ptr %status, align 4
-  %cmp.i.i = icmp sgt i32 %2, 0
+  %3 = load i32, ptr %status, align 4
+  %cmp.i.i = icmp sgt i32 %3, 0
   br i1 %cmp.i.i, label %_ZN6icu_7512LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit, label %invoke.cont5.thread
-
-invoke.cont5:                                     ; preds = %new.notnull
-  %.pr = load i32, ptr %status, align 4
-  %cmp.i20 = icmp slt i32 %.pr, 1
-  br i1 %cmp.i20, label %if.end, label %delete.notnull.i39
 
 invoke.cont5.thread:                              ; preds = %new.cont
   store i32 7, ptr %status, align 4
   br label %_ZN6icu_7512LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit
 
 lpad:                                             ; preds = %new.notnull
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call3) #17
   br label %ehcleanup62
@@ -790,7 +790,7 @@ lpad6.loopexit.split-lp:                          ; preds = %for.end, %if.end45,
           cleanup
   br label %delete.notnull.i45
 
-if.end:                                           ; preds = %invoke.cont5
+if.end:                                           ; preds = %new.cont.thread
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp3.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp7.i)
@@ -826,18 +826,18 @@ invoke.cont.i.i:                                  ; preds = %.noexc.i
           to label %cleanup.done24.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %.noexc.i
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup.i.i
 
 lpad2.i.i:                                        ; preds = %invoke.cont.i.i
-  %5 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %minuteSecond.i.i) #17
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %5, %lpad2.i.i ], [ %4, %lpad.i.i ]
+  %.pn.i.i = phi { ptr, i32 } [ %6, %lpad2.i.i ], [ %5, %lpad.i.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %hourMinute.i.i) #17
   br label %lpad11.body.i
 
@@ -845,8 +845,8 @@ cleanup.done24.i:                                 ; preds = %invoke.cont.i.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp7.i) #17
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp3.i) #17
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i) #17
-  %6 = load i32, ptr %status, align 4
-  %cmp.i11.i = icmp slt i32 %6, 1
+  %7 = load i32, ptr %status, align 4
+  %cmp.i11.i = icmp slt i32 %7, 1
   br i1 %cmp.i11.i, label %invoke.cont13, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %cleanup.done24.i
@@ -857,42 +857,42 @@ delete.notnull.i:                                 ; preds = %cleanup.done24.i
   br label %invoke.cont13
 
 lpad.i:                                           ; preds = %new.notnull.i
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action31.i
 
 lpad4.i:                                          ; preds = %invoke.cont.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action27.i
 
 lpad8.i:                                          ; preds = %invoke.cont5.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action20.i
 
 lpad11.i:                                         ; preds = %invoke.cont9.i
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad11.body.i
 
 lpad11.body.i:                                    ; preds = %lpad11.i, %ehcleanup.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %10, %lpad11.i ], [ %.pn.i.i, %ehcleanup.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %11, %lpad11.i ], [ %.pn.i.i, %ehcleanup.i.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp7.i) #17
   br label %cleanup.action20.i
 
 cleanup.action20.i:                               ; preds = %lpad11.body.i, %lpad8.i
-  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad11.body.i ], [ %9, %lpad8.i ]
+  %.pn.i = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad11.body.i ], [ %10, %lpad8.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp3.i) #17
   br label %cleanup.action27.i
 
 cleanup.action27.i:                               ; preds = %cleanup.action20.i, %lpad4.i
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %cleanup.action20.i ], [ %8, %lpad4.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %cleanup.action20.i ], [ %9, %lpad4.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i) #17
   br label %cleanup.action31.i
 
 cleanup.action31.i:                               ; preds = %cleanup.action27.i, %lpad.i
-  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %cleanup.action27.i ], [ %7, %lpad.i ]
+  %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %cleanup.action27.i ], [ %8, %lpad.i ]
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call1.i) #17
   br label %delete.notnull.i45
 
@@ -902,24 +902,24 @@ invoke.cont13:                                    ; preds = %delete.notnull.i, %
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp3.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp7.i)
   %numericDateFormatters.i = getelementptr inbounds i8, ptr %call3, i64 72
-  %11 = load ptr, ptr %numericDateFormatters.i, align 8
-  %isnull.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %numericDateFormatters.i, align 8
+  %isnull.i = icmp eq ptr %12, null
   br i1 %isnull.i, label %_ZN6icu_7522MeasureFormatCacheData26adoptNumericDateFormattersEPNS_21NumericDateFormattersE.exit, label %delete.notnull.i22
 
 delete.notnull.i22:                               ; preds = %invoke.cont13
-  %hourMinuteSecond.i.i23 = getelementptr inbounds i8, ptr %11, i64 136
+  %hourMinuteSecond.i.i23 = getelementptr inbounds i8, ptr %12, i64 136
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %hourMinuteSecond.i.i23) #17
-  %minuteSecond.i.i24 = getelementptr inbounds i8, ptr %11, i64 72
+  %minuteSecond.i.i24 = getelementptr inbounds i8, ptr %12, i64 72
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %minuteSecond.i.i24) #17
-  %hourMinute.i.i25 = getelementptr inbounds i8, ptr %11, i64 8
+  %hourMinute.i.i25 = getelementptr inbounds i8, ptr %12, i64 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %hourMinute.i.i25) #17
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %11) #17
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %12) #17
   br label %_ZN6icu_7522MeasureFormatCacheData26adoptNumericDateFormattersEPNS_21NumericDateFormattersE.exit
 
 _ZN6icu_7522MeasureFormatCacheData26adoptNumericDateFormattersEPNS_21NumericDateFormattersE.exit: ; preds = %invoke.cont13, %delete.notnull.i22
   store ptr %retval.0.i, ptr %numericDateFormatters.i, align 8
-  %12 = load i32, ptr %status, align 4
-  %cmp.i26 = icmp slt i32 %12, 1
+  %13 = load i32, ptr %status, align 4
+  %cmp.i26 = icmp slt i32 %13, 1
   br i1 %cmp.i26, label %for.cond.preheader, label %delete.notnull.i39
 
 for.cond.preheader:                               ; preds = %_ZN6icu_7522MeasureFormatCacheData26adoptNumericDateFormattersEPNS_21NumericDateFormattersE.exit
@@ -939,28 +939,28 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 invoke.cont23:                                    ; preds = %for.body
   %arrayidx = getelementptr inbounds [3 x i32], ptr @_ZZNK6icu_7514LocaleCacheKeyINS_22MeasureFormatCacheDataEE12createObjectEPKvR10UErrorCodeE14currencyStyles, i64 0, i64 %indvars.iv
-  %13 = load i32, ptr %arrayidx, align 4
-  %call26 = invoke noundef ptr @_ZN6icu_7512NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(4) %localStatus)
+  %14 = load i32, ptr %arrayidx, align 4
+  %call26 = invoke noundef ptr @_ZN6icu_7512NumberFormat14createInstanceERKNS_6LocaleE18UNumberFormatStyleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %localStatus)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont23
   %arrayidx.i = getelementptr inbounds [3 x ptr], ptr %currencyFormats.i, i64 0, i64 %indvars.iv
-  %14 = load ptr, ptr %arrayidx.i, align 8
-  %isnull.i28 = icmp eq ptr %14, null
+  %15 = load ptr, ptr %arrayidx.i, align 8
+  %isnull.i28 = icmp eq ptr %15, null
   br i1 %isnull.i28, label %_ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit, label %delete.notnull.i29
 
 delete.notnull.i29:                               ; preds = %invoke.cont25
-  %vtable.i = load ptr, ptr %14, align 8
+  %vtable.i = load ptr, ptr %15, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %15 = load ptr, ptr %vfn.i, align 8
-  call void %15(ptr noundef nonnull align 8 dereferenceable(356) %14) #17
+  %16 = load ptr, ptr %vfn.i, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(356) %15) #17
   br label %_ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit
 
 _ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit: ; preds = %invoke.cont25, %delete.notnull.i29
   store ptr %call26, ptr %arrayidx.i, align 8
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #17
-  %16 = load i32, ptr %localStatus, align 4
-  %cmp28.not = icmp eq i32 %16, 0
+  %17 = load i32, ptr %localStatus, align 4
+  %cmp28.not = icmp eq i32 %17, 0
   br i1 %cmp28.not, label %_ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit.if.end30_crit_edge, label %if.then29
 
 _ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit.if.end30_crit_edge: ; preds = %_ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit
@@ -968,18 +968,18 @@ _ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exi
   br label %if.end30
 
 if.then29:                                        ; preds = %_ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit
-  store i32 %16, ptr %status, align 4
+  store i32 %17, ptr %status, align 4
   br label %if.end30
 
 lpad24:                                           ; preds = %invoke.cont23
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #17
   br label %delete.notnull.i45
 
 if.end30:                                         ; preds = %_ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit.if.end30_crit_edge, %if.then29
-  %18 = phi i32 [ %.pre, %_ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit.if.end30_crit_edge ], [ %16, %if.then29 ]
-  %cmp.i30 = icmp slt i32 %18, 1
+  %19 = phi i32 [ %.pre, %_ZN6icu_7522MeasureFormatCacheData19adoptCurrencyFormatEiPNS_12NumberFormatE.exit.if.end30_crit_edge ], [ %17, %if.then29 ]
+  %cmp.i30 = icmp slt i32 %19, 1
   br i1 %cmp.i30, label %for.cond, label %delete.notnull.i39
 
 for.end:                                          ; preds = %for.cond
@@ -992,12 +992,12 @@ invoke.cont37:                                    ; preds = %for.end
 
 invoke.cont39:                                    ; preds = %invoke.cont37
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp36) #17
-  %19 = load i32, ptr %status, align 4
-  %cmp.i32 = icmp slt i32 %19, 1
+  %20 = load i32, ptr %status, align 4
+  %cmp.i32 = icmp slt i32 %20, 1
   br i1 %cmp.i32, label %if.end45, label %delete.notnull.i39
 
 lpad38:                                           ; preds = %invoke.cont37
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp36) #17
   br label %delete.notnull.i45
@@ -1005,33 +1005,33 @@ lpad38:                                           ; preds = %invoke.cont37
 if.end45:                                         ; preds = %invoke.cont39
   %vtable = load ptr, ptr %call40, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
-  %21 = load ptr, ptr %vfn, align 8
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(356) %call40, i32 noundef 0)
+  %22 = load ptr, ptr %vfn, align 8
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(356) %call40, i32 noundef 0)
           to label %dynamic_cast.notnull unwind label %lpad6.loopexit.split-lp
 
 dynamic_cast.notnull:                             ; preds = %if.end45
-  %22 = call ptr @__dynamic_cast(ptr nonnull %call40, ptr nonnull @_ZTIN6icu_7512NumberFormatE, ptr nonnull @_ZTIN6icu_7513DecimalFormatE, i64 0) #17
-  %cmp47.not = icmp eq ptr %22, null
+  %23 = call ptr @__dynamic_cast(ptr nonnull %call40, ptr nonnull @_ZTIN6icu_7512NumberFormatE, ptr nonnull @_ZTIN6icu_7513DecimalFormatE, i64 0) #17
+  %cmp47.not = icmp eq ptr %23, null
   br i1 %cmp47.not, label %if.end52, label %if.then48
 
 if.then48:                                        ; preds = %dynamic_cast.notnull
-  %vtable49 = load ptr, ptr %22, align 8
+  %vtable49 = load ptr, ptr %23, align 8
   %vfn50 = getelementptr inbounds i8, ptr %vtable49, i64 280
-  %23 = load ptr, ptr %vfn50, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(368) %22, i32 noundef 2)
+  %24 = load ptr, ptr %vfn50, align 8
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(368) %23, i32 noundef 2)
           to label %if.end52 unwind label %lpad6.loopexit.split-lp
 
 if.end52:                                         ; preds = %if.then48, %dynamic_cast.notnull
   %integerFormat.i = getelementptr inbounds i8, ptr %call3, i64 64
-  %24 = load ptr, ptr %integerFormat.i, align 8
-  %isnull.i34 = icmp eq ptr %24, null
+  %25 = load ptr, ptr %integerFormat.i, align 8
+  %isnull.i34 = icmp eq ptr %25, null
   br i1 %isnull.i34, label %_ZN6icu_7522MeasureFormatCacheData18adoptIntegerFormatEPNS_12NumberFormatE.exit, label %delete.notnull.i35
 
 delete.notnull.i35:                               ; preds = %if.end52
-  %vtable.i36 = load ptr, ptr %24, align 8
+  %vtable.i36 = load ptr, ptr %25, align 8
   %vfn.i37 = getelementptr inbounds i8, ptr %vtable.i36, i64 8
-  %25 = load ptr, ptr %vfn.i37, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(356) %24) #17
+  %26 = load ptr, ptr %vfn.i37, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(356) %25) #17
   br label %_ZN6icu_7522MeasureFormatCacheData18adoptIntegerFormatEPNS_12NumberFormatE.exit
 
 _ZN6icu_7522MeasureFormatCacheData18adoptIntegerFormatEPNS_12NumberFormatE.exit: ; preds = %if.end52, %delete.notnull.i35
@@ -1039,11 +1039,11 @@ _ZN6icu_7522MeasureFormatCacheData18adoptIntegerFormatEPNS_12NumberFormatE.exit:
   invoke void @_ZNK6icu_7512SharedObject6addRefEv(ptr noundef nonnull align 8 dereferenceable(24) %call3)
           to label %_ZN6icu_7512LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit unwind label %lpad6.loopexit.split-lp
 
-delete.notnull.i39:                               ; preds = %if.end30, %invoke.cont5, %invoke.cont39, %_ZN6icu_7522MeasureFormatCacheData26adoptNumericDateFormattersEPNS_21NumericDateFormattersE.exit
+delete.notnull.i39:                               ; preds = %if.end30, %new.cont.thread, %invoke.cont39, %_ZN6icu_7522MeasureFormatCacheData26adoptNumericDateFormattersEPNS_21NumericDateFormattersE.exit
   %vtable.i40 = load ptr, ptr %call3, align 8
   %vfn.i41 = getelementptr inbounds i8, ptr %vtable.i40, i64 8
-  %26 = load ptr, ptr %vfn.i41, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(80) %call3) #17
+  %27 = load ptr, ptr %vfn.i41, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(80) %call3) #17
   br label %_ZN6icu_7512LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit: ; preds = %new.cont, %invoke.cont5.thread, %_ZN6icu_7522MeasureFormatCacheData18adoptIntegerFormatEPNS_12NumberFormatE.exit, %delete.notnull.i39
@@ -1056,25 +1056,25 @@ if.then.i42:                                      ; preds = %_ZN6icu_7512LocalPo
           to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i42
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #19
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #19
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %_ZN6icu_7512LocalPointerINS_22MeasureFormatCacheDataEED2Ev.exit, %if.then.i42
   ret ptr %retval.065
 
-delete.notnull.i45:                               ; preds = %lpad24, %lpad6.loopexit, %lpad38, %cleanup.action31.i, %lpad6.loopexit.split-lp
-  %.pn78 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %lpad6.loopexit.split-lp ], [ %.pn.pn.pn.i, %cleanup.action31.i ], [ %20, %lpad38 ], [ %17, %lpad24 ], [ %lpad.loopexit, %lpad6.loopexit ]
+delete.notnull.i45:                               ; preds = %lpad24, %lpad38, %cleanup.action31.i, %lpad6.loopexit.split-lp, %lpad6.loopexit
+  %.pn = phi { ptr, i32 } [ %18, %lpad24 ], [ %21, %lpad38 ], [ %.pn.pn.pn.i, %cleanup.action31.i ], [ %lpad.loopexit, %lpad6.loopexit ], [ %lpad.loopexit.split-lp, %lpad6.loopexit.split-lp ]
   %vtable.i46 = load ptr, ptr %call3, align 8
   %vfn.i47 = getelementptr inbounds i8, ptr %vtable.i46, i64 8
-  %29 = load ptr, ptr %vfn.i47, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(80) %call3) #17
+  %30 = load ptr, ptr %vfn.i47, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(80) %call3) #17
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %delete.notnull.i45, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn78, %delete.notnull.i45 ]
+  %.pn.pn = phi { ptr, i32 } [ %4, %lpad ], [ %.pn, %delete.notnull.i45 ]
   call void @_ZN6icu_7527LocalUResourceBundlePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %unitsBundle) #17
   resume { ptr, i32 } %.pn.pn
 }

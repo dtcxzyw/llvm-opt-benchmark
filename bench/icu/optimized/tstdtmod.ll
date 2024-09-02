@@ -969,7 +969,7 @@ return:                                           ; preds = %if.else, %invoke.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN16IcuTestErrorCode19expectErrorAndResetE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %expectedError) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN16IcuTestErrorCode19expectErrorAndResetE10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %expectedError) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp2 = alloca %"class.icu_75::UnicodeString", align 8
@@ -1044,7 +1044,7 @@ declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #6
 declare void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN16IcuTestErrorCode19expectErrorAndResetE10UErrorCodePKcz(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %expectedError, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN16IcuTestErrorCode19expectErrorAndResetE10UErrorCodePKcz(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %expectedError, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca [4000 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16

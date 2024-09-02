@@ -157,22 +157,22 @@ do.body:                                          ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp3, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %do.body
-  %cmp4 = icmp eq i64 %shr, -1
+  %cmp4 = icmp ne i64 %shr, -1
   %and620 = and i64 %Value.addr.0, 64
-  %cmp7 = icmp ne i64 %and620, 0
-  %1 = and i1 %cmp4, %cmp7
+  %cmp7 = icmp eq i64 %and620, 0
+  %.not = or i1 %cmp4, %cmp7
   br label %lor.end
 
 lor.end:                                          ; preds = %do.body, %lor.rhs
-  %2 = phi i1 [ %1, %lor.rhs ], [ true, %do.body ]
+  %lnot = phi i1 [ %.not, %lor.rhs ], [ false, %do.body ]
   %inc = add i32 %Count.0, 1
-  %cmp8 = icmp uge i32 %inc, %PadTo
-  %or.cond21.not = select i1 %2, i1 %cmp8, i1 false
-  %masksel = select i1 %or.cond21.not, i8 0, i8 -128
+  %cmp8 = icmp ult i32 %inc, %PadTo
+  %or.cond21 = select i1 %lnot, i1 true, i1 %cmp8
+  %masksel = select i1 %or.cond21, i8 -128, i8 0
   %Byte.0 = or disjoint i8 %masksel, %conv
-  %3 = load ptr, ptr %OutBufCur.i, align 8
-  %4 = load ptr, ptr %OutBufEnd.i, align 8
-  %cmp.not.i = icmp ult ptr %3, %4
+  %1 = load ptr, ptr %OutBufCur.i, align 8
+  %2 = load ptr, ptr %OutBufEnd.i, align 8
+  %cmp.not.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.end
@@ -180,16 +180,16 @@ if.then.i:                                        ; preds = %lor.end
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %lor.end
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 1
   store ptr %incdec.ptr.i, ptr %OutBufCur.i, align 8
-  store i8 %Byte.0, ptr %3, align 1
+  store i8 %Byte.0, ptr %1, align 1
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  br i1 %2, label %do.end, label %do.body, !llvm.loop !6
+  br i1 %lnot, label %do.body, label %do.end, !llvm.loop !6
 
 do.end:                                           ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  br i1 %cmp8, label %if.end24, label %if.then13
+  br i1 %cmp8, label %if.then13, label %if.end24
 
 if.then13:                                        ; preds = %do.end
   %cmp14 = icmp slt i64 %shr, 0
@@ -199,24 +199,24 @@ if.then13:                                        ; preds = %do.end
   br i1 %cmp1640, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then13
-  %5 = or disjoint i8 %conv15, -128
+  %3 = or disjoint i8 %conv15, -128
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh11raw_ostreamlsEc.exit30
   %Count.241 = phi i32 [ %inc, %for.body.lr.ph ], [ %inc21, %_ZN4llvh11raw_ostreamlsEc.exit30 ]
-  %6 = load ptr, ptr %OutBufCur.i, align 8
-  %7 = load ptr, ptr %OutBufEnd.i, align 8
-  %cmp.not.i24 = icmp ult ptr %6, %7
+  %4 = load ptr, ptr %OutBufCur.i, align 8
+  %5 = load ptr, ptr %OutBufEnd.i, align 8
+  %cmp.not.i24 = icmp ult ptr %4, %5
   br i1 %cmp.not.i24, label %if.end.i28, label %if.then.i25
 
 if.then.i25:                                      ; preds = %for.body
-  %call.i26 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %OS, i8 noundef zeroext %5) #12
+  %call.i26 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %OS, i8 noundef zeroext %3) #12
   br label %_ZN4llvh11raw_ostreamlsEc.exit30
 
 if.end.i28:                                       ; preds = %for.body
-  %incdec.ptr.i29 = getelementptr inbounds i8, ptr %6, i64 1
+  %incdec.ptr.i29 = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %incdec.ptr.i29, ptr %OutBufCur.i, align 8
-  store i8 %5, ptr %6, align 1
+  store i8 %3, ptr %4, align 1
   br label %_ZN4llvh11raw_ostreamlsEc.exit30
 
 _ZN4llvh11raw_ostreamlsEc.exit30:                 ; preds = %if.then.i25, %if.end.i28
@@ -226,9 +226,9 @@ _ZN4llvh11raw_ostreamlsEc.exit30:                 ; preds = %if.then.i25, %if.en
 
 for.end:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit30, %if.then13
   %Count.2.lcssa = phi i32 [ %inc, %if.then13 ], [ %sub, %_ZN4llvh11raw_ostreamlsEc.exit30 ]
-  %8 = load ptr, ptr %OutBufCur.i, align 8
-  %9 = load ptr, ptr %OutBufEnd.i, align 8
-  %cmp.not.i33 = icmp ult ptr %8, %9
+  %6 = load ptr, ptr %OutBufCur.i, align 8
+  %7 = load ptr, ptr %OutBufEnd.i, align 8
+  %cmp.not.i33 = icmp ult ptr %6, %7
   br i1 %cmp.not.i33, label %if.end.i37, label %if.then.i34
 
 if.then.i34:                                      ; preds = %for.end
@@ -236,9 +236,9 @@ if.then.i34:                                      ; preds = %for.end
   br label %_ZN4llvh11raw_ostreamlsEc.exit39
 
 if.end.i37:                                       ; preds = %for.end
-  %incdec.ptr.i38 = getelementptr inbounds i8, ptr %8, i64 1
+  %incdec.ptr.i38 = getelementptr inbounds i8, ptr %6, i64 1
   store ptr %incdec.ptr.i38, ptr %OutBufCur.i, align 8
-  store i8 %conv15, ptr %8, align 1
+  store i8 %conv15, ptr %6, align 1
   br label %_ZN4llvh11raw_ostreamlsEc.exit39
 
 _ZN4llvh11raw_ostreamlsEc.exit39:                 ; preds = %if.then.i34, %if.end.i37

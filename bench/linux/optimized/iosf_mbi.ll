@@ -448,7 +448,7 @@ define dso_local void @iosf_mbi_punit_release() #0 align 16 {
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @iosf_mbi_block_punit_i2c_access() #0 align 16 {
+define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c_access() #0 align 16 {
   %1 = alloca i32, align 4
   %2 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #7

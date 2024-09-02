@@ -744,99 +744,99 @@ ptvcursor_add_invalid_check.exit.i:               ; preds = %96, %89
   %145 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %143, i32 noundef %144) #3
   %146 = and i16 %145, 3568
   switch i16 %146, label %._crit_edge389 [
-    i16 2176, label %147
-    i16 128, label %148
-    i16 320, label %149
-    i16 160, label %150
-    i16 192, label %151
-    i16 1152, label %152
-    i16 336, label %153
-    i16 208, label %154
+    i16 2176, label %148
+    i16 128, label %149
+    i16 320, label %150
+    i16 160, label %151
+    i16 192, label %152
+    i16 1152, label %153
+    i16 336, label %154
+    i16 208, label %155
   ]
 
 ._crit_edge389:                                   ; preds = %135
   %.pre = load i32, ptr %42, align 8
-  br label %155
-
-147:                                              ; preds = %135
-  store i32 1, ptr %42, align 8
-  br label %155
+  %147 = icmp eq i32 %.pre, 1
+  br label %156
 
 148:                                              ; preds = %135
-  store i32 3, ptr %42, align 8
-  br label %155
+  store i32 1, ptr %42, align 8
+  br label %156
 
 149:                                              ; preds = %135
-  store i32 5, ptr %42, align 8
-  store i8 2, ptr %45, align 4
-  br label %155
+  store i32 3, ptr %42, align 8
+  br label %156
 
 150:                                              ; preds = %135
-  store i32 4, ptr %42, align 8
-  br label %155
+  store i32 5, ptr %42, align 8
+  store i8 2, ptr %45, align 4
+  br label %156
 
 151:                                              ; preds = %135
-  store i32 6, ptr %42, align 8
-  store i8 1, ptr %45, align 4
-  store i32 0, ptr %53, align 8
-  br label %155
+  store i32 4, ptr %42, align 8
+  br label %156
 
 152:                                              ; preds = %135
   store i32 6, ptr %42, align 8
   store i8 1, ptr %45, align 4
   store i32 0, ptr %53, align 8
-  br label %155
+  br label %156
 
 153:                                              ; preds = %135
-  store i32 5, ptr %42, align 8
-  store i8 34, ptr %45, align 4
-  br label %155
+  store i32 6, ptr %42, align 8
+  store i8 1, ptr %45, align 4
+  store i32 0, ptr %53, align 8
+  br label %156
 
 154:                                              ; preds = %135
+  store i32 5, ptr %42, align 8
+  store i8 34, ptr %45, align 4
+  br label %156
+
+155:                                              ; preds = %135
   store i32 6, ptr %42, align 8
   store i8 1, ptr %45, align 4
   store i32 1, ptr %53, align 8
-  br label %155
+  br label %156
 
-155:                                              ; preds = %._crit_edge389, %154, %153, %152, %151, %150, %149, %148, %147
-  %156 = phi i8 [ 3, %._crit_edge389 ], [ 3, %154 ], [ 35, %153 ], [ 3, %152 ], [ 3, %151 ], [ 3, %150 ], [ 3, %149 ], [ 3, %148 ], [ 3, %147 ]
-  %157 = phi i32 [ %.pre, %._crit_edge389 ], [ 6, %154 ], [ 5, %153 ], [ 6, %152 ], [ 6, %151 ], [ 4, %150 ], [ 5, %149 ], [ 3, %148 ], [ 1, %147 ]
-  %158 = load i32, ptr @hf_80211_common_chan_flags, align 4
-  %159 = load i32, ptr @ett_dot11_common_channel_flags, align 4
-  %160 = tail call ptr @ptvcursor_add_with_subtree(ptr noundef %83, i32 noundef %158, i32 noundef 2, i32 noundef -2147483648, i32 noundef %159) #3
-  %161 = load i32, ptr @hf_80211_common_chan_flags_turbo, align 4
-  %162 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %161, i32 noundef 2, i32 noundef -2147483648) #3
-  %163 = load i32, ptr @hf_80211_common_chan_flags_cck, align 4
-  %164 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %163, i32 noundef 2, i32 noundef -2147483648) #3
-  %165 = load i32, ptr @hf_80211_common_chan_flags_ofdm, align 4
-  %166 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %165, i32 noundef 2, i32 noundef -2147483648) #3
-  %167 = load i32, ptr @hf_80211_common_chan_flags_2ghz, align 4
-  %168 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %167, i32 noundef 2, i32 noundef -2147483648) #3
-  %169 = load i32, ptr @hf_80211_common_chan_flags_5ghz, align 4
-  %170 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %169, i32 noundef 2, i32 noundef -2147483648) #3
-  %171 = load i32, ptr @hf_80211_common_chan_flags_passive, align 4
-  %172 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %171, i32 noundef 2, i32 noundef -2147483648) #3
-  %173 = load i32, ptr @hf_80211_common_chan_flags_dynamic, align 4
-  %174 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %173, i32 noundef 2, i32 noundef -2147483648) #3
-  %175 = load i32, ptr @hf_80211_common_chan_flags_gfsk, align 4
-  %176 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %175, i32 noundef 2, i32 noundef -2147483648) #3
+156:                                              ; preds = %._crit_edge389, %155, %154, %153, %152, %151, %150, %149, %148
+  %157 = phi i8 [ 3, %._crit_edge389 ], [ 3, %155 ], [ 35, %154 ], [ 3, %153 ], [ 3, %152 ], [ 3, %151 ], [ 3, %150 ], [ 3, %149 ], [ 3, %148 ]
+  %158 = phi i1 [ %147, %._crit_edge389 ], [ false, %155 ], [ false, %154 ], [ false, %153 ], [ false, %152 ], [ false, %151 ], [ false, %150 ], [ false, %149 ], [ true, %148 ]
+  %159 = load i32, ptr @hf_80211_common_chan_flags, align 4
+  %160 = load i32, ptr @ett_dot11_common_channel_flags, align 4
+  %161 = tail call ptr @ptvcursor_add_with_subtree(ptr noundef %83, i32 noundef %159, i32 noundef 2, i32 noundef -2147483648, i32 noundef %160) #3
+  %162 = load i32, ptr @hf_80211_common_chan_flags_turbo, align 4
+  %163 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %162, i32 noundef 2, i32 noundef -2147483648) #3
+  %164 = load i32, ptr @hf_80211_common_chan_flags_cck, align 4
+  %165 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %164, i32 noundef 2, i32 noundef -2147483648) #3
+  %166 = load i32, ptr @hf_80211_common_chan_flags_ofdm, align 4
+  %167 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %166, i32 noundef 2, i32 noundef -2147483648) #3
+  %168 = load i32, ptr @hf_80211_common_chan_flags_2ghz, align 4
+  %169 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %168, i32 noundef 2, i32 noundef -2147483648) #3
+  %170 = load i32, ptr @hf_80211_common_chan_flags_5ghz, align 4
+  %171 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %170, i32 noundef 2, i32 noundef -2147483648) #3
+  %172 = load i32, ptr @hf_80211_common_chan_flags_passive, align 4
+  %173 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %172, i32 noundef 2, i32 noundef -2147483648) #3
+  %174 = load i32, ptr @hf_80211_common_chan_flags_dynamic, align 4
+  %175 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %83, i32 noundef %174, i32 noundef 2, i32 noundef -2147483648) #3
+  %176 = load i32, ptr @hf_80211_common_chan_flags_gfsk, align 4
+  %177 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %176, i32 noundef 2, i32 noundef -2147483648) #3
   tail call void @ptvcursor_pop_subtree(ptr noundef %83) #3
-  %177 = icmp eq i32 %157, 1
-  br i1 %177, label %181, label %178
+  br i1 %158, label %181, label %178
 
-178:                                              ; preds = %155
+178:                                              ; preds = %156
   %179 = load i32, ptr @hf_80211_common_fhss_hopset, align 4
   %180 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %179, i32 noundef 1, i32 noundef -2147483648) #3
   br label %190
 
-181:                                              ; preds = %155
+181:                                              ; preds = %156
   %182 = tail call ptr @ptvcursor_tvbuff(ptr noundef %83) #3
   %183 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
   %184 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %182, i32 noundef %183) #3
   store i8 %184, ptr %54, align 1
   %185 = load i32, ptr @hf_80211_common_fhss_hopset, align 4
   %186 = tail call ptr @ptvcursor_add(ptr noundef %83, i32 noundef %185, i32 noundef 1, i32 noundef -2147483648) #3
-  store i8 %156, ptr %45, align 4
+  store i8 %157, ptr %45, align 4
   %187 = tail call ptr @ptvcursor_tvbuff(ptr noundef %83) #3
   %188 = tail call i32 @ptvcursor_current_offset(ptr noundef %83) #3
   %189 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %187, i32 noundef %188) #3

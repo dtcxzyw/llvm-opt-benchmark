@@ -512,10 +512,10 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   br i1 %10, label %401, label %11
 
 11:                                               ; preds = %4
-  %.not483 = icmp eq ptr %2, null
-  br i1 %.not483, label %.thread476, label %12
+  %.not467 = icmp eq ptr %2, null
+  br i1 %.not467, label %.thread477, label %12
 
-.thread476:                                       ; preds = %11
+.thread477:                                       ; preds = %11
   %.0460472 = add nuw nsw i32 %3, 32
   br label %395
 
@@ -609,8 +609,9 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %99 = add nuw nsw i32 %3, 28
   %100 = load i32, ptr @hf_ams_invokeid, align 4
   %101 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 4, i32 noundef -2147483648) #3
-  %.0460 = add nuw nsw i32 %3, 32
   %102 = zext i16 %91 to i32
+  %.not485 = icmp eq i32 %95, 0
+  %.0460 = add nuw nsw i32 %3, 32
   %103 = and i32 %102, 4
   %.not = icmp eq i32 %103, 0
   %104 = and i32 %102, 1
@@ -714,7 +715,6 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
 171:                                              ; preds = %107
   %172 = load ptr, ptr %7, align 8
   call void @col_append_str(ptr noundef %172, i32 noundef 25, ptr noundef nonnull @.str.72) #3
-  %.not485 = icmp eq i32 %95, 0
   br i1 %.not485, label %401, label %173
 
 173:                                              ; preds = %171
@@ -760,8 +760,7 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
 204:                                              ; preds = %107
   %205 = load ptr, ptr %7, align 8
   call void @col_append_str(ptr noundef %205, i32 noundef 25, ptr noundef nonnull @.str.80) #3
-  %.not484 = icmp eq i32 %95, 0
-  br i1 %.not484, label %401, label %206
+  br i1 %.not485, label %401, label %206
 
 206:                                              ; preds = %204
   %207 = load i32, ptr @hf_ams_adsreaddinforequest, align 4
@@ -1025,24 +1024,24 @@ define internal fastcc i32 @dissect_ams_pdu(ptr noundef %0, ptr nocapture nounde
   %spec.select = select i1 %105, ptr @.str.346, ptr @.str.347
   br label %395
 
-395:                                              ; preds = %394, %.thread476
-  %.str.347.sink = phi ptr [ @.str.346, %.thread476 ], [ %spec.select, %394 ]
-  %.0461474481 = phi ptr [ null, %.thread476 ], [ %16, %394 ]
-  %.0460475479 = phi i32 [ %.0460472, %.thread476 ], [ %.0460, %394 ]
+395:                                              ; preds = %394, %.thread477
+  %.str.347.sink = phi ptr [ @.str.346, %.thread477 ], [ %spec.select, %394 ]
+  %.0461474483 = phi ptr [ null, %.thread477 ], [ %16, %394 ]
+  %.0460476481 = phi i32 [ %.0460472, %.thread477 ], [ %.0460, %394 ]
   %396 = load ptr, ptr %7, align 8
   call void @col_append_str(ptr noundef %396, i32 noundef 25, ptr noundef nonnull %.str.347.sink) #3
-  %.not465 = icmp eq i32 %6, %.0460475479
-  %or.cond467 = select i1 %.not483, i1 true, i1 %.not465
-  br i1 %or.cond467, label %401, label %397
+  %.not465 = icmp eq i32 %6, %.0460476481
+  %or.cond = select i1 %.not467, i1 true, i1 %.not465
+  br i1 %or.cond, label %401, label %397
 
 397:                                              ; preds = %395
-  %398 = sub i32 %6, %.0460475479
+  %398 = sub i32 %6, %.0460476481
   %399 = load i32, ptr @hf_ams_data, align 4
-  %400 = call ptr @proto_tree_add_item(ptr noundef %.0461474481, i32 noundef %399, ptr noundef %0, i32 noundef %.0460475479, i32 noundef %398, i32 noundef 0) #3
+  %400 = call ptr @proto_tree_add_item(ptr noundef %.0461474483, i32 noundef %399, ptr noundef %0, i32 noundef %.0460476481, i32 noundef %398, i32 noundef 0) #3
   br label %401
 
 401:                                              ; preds = %269, %270, %276, %288, %294, %299, %305, %317, %323, %334, %340, %345, %351, %369, %375, %383, %389, %107, %108, %114, %126, %132, %147, %153, %173, %178, %171, %183, %189, %206, %211, %204, %216, %222, %243, %249, %254, %260, %397, %395, %4
-  %.0 = phi i32 [ %3, %4 ], [ %.0460, %107 ], [ %268, %260 ], [ %.0460, %254 ], [ %.0460, %249 ], [ %.0460, %243 ], [ %242, %222 ], [ %.0460, %216 ], [ %.0460, %211 ], [ %.0460, %206 ], [ %.0460, %204 ], [ %200, %189 ], [ %.0460, %183 ], [ %.0460, %178 ], [ %.0460, %173 ], [ %.0460, %171 ], [ %167, %153 ], [ %.0460, %147 ], [ %143, %132 ], [ %.0460, %126 ], [ %125, %114 ], [ %.0460, %108 ], [ %.0460, %269 ], [ %.0460, %389 ], [ %.0460, %383 ], [ %380, %375 ], [ %.0460, %369 ], [ %365, %351 ], [ %.0460, %345 ], [ %.0460, %340 ], [ %.0460, %334 ], [ %331, %323 ], [ %.0460, %317 ], [ %313, %305 ], [ %.0460, %299 ], [ %.0460, %294 ], [ %.0460, %288 ], [ %284, %276 ], [ %.0460, %270 ], [ %.0460475479, %397 ], [ %.0460475479, %395 ]
+  %.0 = phi i32 [ %3, %4 ], [ %.0460, %107 ], [ %268, %260 ], [ %.0460, %254 ], [ %.0460, %249 ], [ %.0460, %243 ], [ %242, %222 ], [ %.0460, %216 ], [ %.0460, %211 ], [ %.0460, %206 ], [ %.0460, %204 ], [ %200, %189 ], [ %.0460, %183 ], [ %.0460, %178 ], [ %.0460, %173 ], [ %.0460, %171 ], [ %167, %153 ], [ %.0460, %147 ], [ %143, %132 ], [ %.0460, %126 ], [ %125, %114 ], [ %.0460, %108 ], [ %.0460, %269 ], [ %.0460, %389 ], [ %.0460, %383 ], [ %380, %375 ], [ %.0460, %369 ], [ %365, %351 ], [ %.0460, %345 ], [ %.0460, %340 ], [ %.0460, %334 ], [ %331, %323 ], [ %.0460, %317 ], [ %313, %305 ], [ %.0460, %299 ], [ %.0460, %294 ], [ %.0460, %288 ], [ %284, %276 ], [ %.0460, %270 ], [ %.0460476481, %397 ], [ %.0460476481, %395 ]
   ret i32 %.0
 }
 

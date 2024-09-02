@@ -792,7 +792,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Md5GetHash(ptr noundef readonly %md5, ptr noundef writeonly %hash) local_unnamed_addr #3 {
+define range(i32 -173, 1) i32 @wc_Md5GetHash(ptr noundef readonly %md5, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %tmpMd5 = alloca %struct.wc_Md5, align 8
   %cmp = icmp eq ptr %md5, null

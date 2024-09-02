@@ -3334,7 +3334,7 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit87: ; preds = %_ZNKSt14de
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5faiss6ivflib27ivf_residual_from_quantizerERKNS_17ResidualQuantizerEi(ptr noundef nonnull align 8 dereferenceable(432) %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5faiss6ivflib27ivf_residual_from_quantizerERKNS_17ResidualQuantizerEi(ptr noundef nonnull align 8 dereferenceable(432) %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::vector.35", align 8
   %5 = alloca %"class.std::vector.35", align 8
@@ -4059,22 +4059,25 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %77 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
   %78 = icmp ugt i32 %.02732.i, 16
-  br i1 %78, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
+  br i1 %78, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !24
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %67
-  %.027.lcssa.i = phi i32 [ %70, %67 ], [ %77, %.lr.ph.i ]
-  %.026.lcssa.i = phi i64 [ %68, %67 ], [ %76, %.lr.ph.i ]
-  %.025.lcssa.i = phi i64 [ 8, %67 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.024.lcssa.i = phi i64 [ 1, %67 ], [ %.024.i, %.lr.ph.i ]
-  %79 = getelementptr inbounds i8, ptr %55, i64 %.024.lcssa.i
-  %80 = load i8, ptr %79, align 1
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %79 = and i64 %indvars.iv.next.i, 4294967288
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %67
+  %.027.lcssa.i = phi i32 [ %70, %67 ], [ %77, %._crit_edge.loopexit.i ]
+  %.026.lcssa.i = phi i64 [ %68, %67 ], [ %76, %._crit_edge.loopexit.i ]
+  %.025.lcssa.i = phi i64 [ 8, %67 ], [ %79, %._crit_edge.loopexit.i ]
+  %.024.lcssa.i = phi i64 [ 1, %67 ], [ %.024.i, %._crit_edge.loopexit.i ]
+  %80 = getelementptr inbounds i8, ptr %55, i64 %.024.lcssa.i
+  %81 = load i8, ptr %80, align 1
   %notmask.i = shl nsw i32 -1, %.027.lcssa.i
-  %81 = xor i32 %notmask.i, -1
-  %82 = zext i8 %80 to i32
-  %83 = and i32 %82, %81
-  %84 = zext nneg i32 %83 to i64
-  %85 = and i64 %.025.lcssa.i, 4294967295
-  %86 = shl i64 %84, %85
+  %82 = xor i32 %notmask.i, -1
+  %83 = zext i8 %81 to i32
+  %84 = and i32 %83, %82
+  %85 = zext nneg i32 %84 to i64
+  %86 = shl i64 %85, %.025.lcssa.i
   %87 = or i64 %86, %.026.lcssa.i
   br label %_ZN5faiss15BitstringReader4readEi.exit
 

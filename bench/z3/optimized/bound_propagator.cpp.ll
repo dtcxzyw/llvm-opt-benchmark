@@ -4082,6 +4082,8 @@ for.inc:                                          ; preds = %if.end56, %land.lhs
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc
+  %24 = trunc nuw i8 %ll_failed.2 to i1
+  %25 = trunc nuw i8 %uu_failed.1 to i1
   %cmp61 = icmp eq i32 %ll_i.2, -1
   %cmp62 = icmp eq i32 %uu_i.1, -1
   %or.cond = select i1 %cmp61, i1 true, i1 %cmp62
@@ -4104,109 +4106,109 @@ for.body67.lr.ph:                                 ; preds = %for.end
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.inc122
   %indvars.iv501 = phi i64 [ 0, %for.body67.lr.ph ], [ %indvars.iv.next502, %for.inc122 ]
   %propagated.1492 = phi i1 [ false, %for.body67.lr.ph ], [ %propagated.3, %for.inc122 ]
-  %24 = load ptr, ptr %m_xs.i118, align 8
-  %arrayidx.i120 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv501
-  %25 = load i32, ptr %arrayidx.i120, align 4
-  %26 = load ptr, ptr %m_approx_as.i121, align 8
-  %arrayidx.i123 = getelementptr inbounds double, ptr %26, i64 %indvars.iv501
-  %27 = load double, ptr %arrayidx.i123, align 8
-  %28 = load ptr, ptr %m_lowers73, align 8
-  %idxprom.i124 = zext i32 %25 to i64
-  %arrayidx.i125 = getelementptr inbounds ptr, ptr %28, i64 %idxprom.i124
-  %29 = load ptr, ptr %arrayidx.i125, align 8
-  %30 = load ptr, ptr %m_uppers76, align 8
-  %arrayidx.i127 = getelementptr inbounds ptr, ptr %30, i64 %idxprom.i124
-  %31 = load ptr, ptr %arrayidx.i127, align 8
+  %26 = load ptr, ptr %m_xs.i118, align 8
+  %arrayidx.i120 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv501
+  %27 = load i32, ptr %arrayidx.i120, align 4
+  %28 = load ptr, ptr %m_approx_as.i121, align 8
+  %arrayidx.i123 = getelementptr inbounds double, ptr %28, i64 %indvars.iv501
+  %29 = load double, ptr %arrayidx.i123, align 8
+  %30 = load ptr, ptr %m_lowers73, align 8
+  %idxprom.i124 = zext i32 %27 to i64
+  %arrayidx.i125 = getelementptr inbounds ptr, ptr %30, i64 %idxprom.i124
+  %31 = load ptr, ptr %arrayidx.i125, align 8
+  %32 = load ptr, ptr %m_uppers76, align 8
+  %arrayidx.i127 = getelementptr inbounds ptr, ptr %32, i64 %idxprom.i124
+  %33 = load ptr, ptr %arrayidx.i127, align 8
   br i1 %cmp61, label %if.then79, label %if.end98
 
 if.then79:                                        ; preds = %for.body67
-  %cmp80 = fcmp ogt double %27, 0.000000e+00
+  %cmp80 = fcmp ogt double %29, 0.000000e+00
   br i1 %cmp80, label %if.then81, label %if.else88
 
 if.then81:                                        ; preds = %if.then79
-  %m_approx_k82 = getelementptr inbounds i8, ptr %31, i64 32
-  %32 = load double, ptr %m_approx_k82, align 8
-  %33 = tail call double @llvm.fmuladd.f64(double %27, double %32, double %ll.2)
-  %div = fdiv double %33, %27
-  %cmp.i.i = icmp eq ptr %29, null
+  %m_approx_k82 = getelementptr inbounds i8, ptr %33, i64 32
+  %34 = load double, ptr %m_approx_k82, align 8
+  %35 = tail call double @llvm.fmuladd.f64(double %29, double %34, double %ll.2)
+  %div = fdiv double %35, %29
+  %cmp.i.i = icmp eq ptr %31, null
   br i1 %cmp.i.i, label %land.lhs.true84, label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i
 
 _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i: ; preds = %if.then81
-  %m_approx_k4.i.i.i = getelementptr inbounds i8, ptr %29, i64 32
-  %34 = load double, ptr %m_approx_k4.i.i.i, align 8
-  %sub.i.i.i = fsub double %32, %34
-  %35 = load ptr, ptr %m_is_int.i.i.i139, align 8
-  %arrayidx.i.i11.i.i = getelementptr inbounds i8, ptr %35, i64 %idxprom.i124
-  %36 = load i8, ptr %arrayidx.i.i11.i.i, align 1
-  %cmp.i.not.i.i = icmp eq i8 %36, 0
+  %m_approx_k4.i.i.i = getelementptr inbounds i8, ptr %31, i64 32
+  %36 = load double, ptr %m_approx_k4.i.i.i, align 8
+  %sub.i.i.i = fsub double %34, %36
+  %37 = load ptr, ptr %m_is_int.i.i.i139, align 8
+  %arrayidx.i.i11.i.i = getelementptr inbounds i8, ptr %37, i64 %idxprom.i124
+  %38 = load i8, ptr %arrayidx.i.i11.i.i, align 1
+  %cmp.i.not.i.i = icmp eq i8 %38, 0
   br i1 %cmp.i.not.i.i, label %if.then4.i.i, label %if.else20.i.i
 
 if.then4.i.i:                                     ; preds = %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i
-  %cmp5.i.i = fcmp olt double %34, 0.000000e+00
-  %sub.i.i = fsub double %34, %34
-  %storemerge.i.i = select i1 %cmp5.i.i, double %sub.i.i, double %34
-  %37 = load double, ptr %m_threshold11.i.i151, align 8
+  %cmp5.i.i = fcmp olt double %36, 0.000000e+00
+  %sub.i.i = fsub double %36, %36
+  %storemerge.i.i = select i1 %cmp5.i.i, double %sub.i.i, double %36
+  %39 = load double, ptr %m_threshold11.i.i151, align 8
   %cmp.i12.i.i = fcmp olt double %storemerge.i.i, %sub.i.i.i
   %storemerge.sink26.i.i = select i1 %cmp.i12.i.i, double %storemerge.i.i, double %sub.i.i.i
   %cmp.i15.i.i = fcmp olt double %storemerge.sink26.i.i, 1.000000e+00
   %.sroa.speculated.i.i = select i1 %cmp.i15.i.i, double 1.000000e+00, double %storemerge.sink26.i.i
-  %mul14.i.i = fmul double %.sroa.speculated.i.i, %37
-  %add.i.i = fadd double %34, %mul14.i.i
+  %mul14.i.i = fmul double %.sroa.speculated.i.i, %39
+  %add.i.i = fadd double %36, %mul14.i.i
   %cmp17.i.i = fcmp ugt double %div, %add.i.i
   br i1 %cmp17.i.i, label %if.end26.i.i, label %if.end98
 
 if.else20.i.i:                                    ; preds = %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i
-  %add22.i.i = fadd double %34, 1.000000e+00
+  %add22.i.i = fadd double %36, 1.000000e+00
   %cmp23.i.i = fcmp olt double %div, %add22.i.i
   br i1 %cmp23.i.i, label %if.end98, label %if.end26.i.i
 
 if.end26.i.i:                                     ; preds = %if.else20.i.i, %if.then4.i.i
-  %38 = load double, ptr %m_small_interval.i.i142, align 8
-  %cmp28.i.i = fcmp ugt double %sub.i.i.i, %38
+  %40 = load double, ptr %m_small_interval.i.i142, align 8
+  %cmp28.i.i = fcmp ugt double %sub.i.i.i, %40
   br i1 %cmp28.i.i, label %_ZNK16bound_propagator14relevant_lowerEjd.exit, label %land.lhs.true84
 
 _ZNK16bound_propagator14relevant_lowerEjd.exit:   ; preds = %if.end26.i.i
-  %39 = load ptr, ptr %m_lower_refinements.i.i, align 8
-  %arrayidx.i18.i.i = getelementptr inbounds i32, ptr %39, i64 %idxprom.i124
-  %40 = load i32, ptr %arrayidx.i18.i.i, align 4
-  %41 = load i32, ptr %m_max_refinements.i.i146, align 8
-  %cmp32.i.i = icmp ult i32 %40, %41
+  %41 = load ptr, ptr %m_lower_refinements.i.i, align 8
+  %arrayidx.i18.i.i = getelementptr inbounds i32, ptr %41, i64 %idxprom.i124
+  %42 = load i32, ptr %arrayidx.i18.i.i, align 4
+  %43 = load i32, ptr %m_max_refinements.i.i146, align 8
+  %cmp32.i.i = icmp ult i32 %42, %43
   br i1 %cmp32.i.i, label %land.lhs.true84, label %if.end98
 
 land.lhs.true84:                                  ; preds = %if.end26.i.i, %if.then81, %_ZNK16bound_propagator14relevant_lowerEjd.exit
-  %42 = trunc nuw i64 %indvars.iv501 to i32
-  %call85 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_lowerEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %42)
+  %44 = trunc nuw i64 %indvars.iv501 to i32
+  %call85 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_lowerEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %44)
   %spec.select = select i1 %call85, i1 true, i1 %propagated.1492
   br label %if.end98
 
 if.else88:                                        ; preds = %if.then79
-  %m_approx_k90 = getelementptr inbounds i8, ptr %29, i64 32
-  %43 = load double, ptr %m_approx_k90, align 8
-  %44 = tail call double @llvm.fmuladd.f64(double %27, double %43, double %ll.2)
-  %div91 = fdiv double %44, %27
-  %cmp.i.i130 = icmp eq ptr %31, null
+  %m_approx_k90 = getelementptr inbounds i8, ptr %31, i64 32
+  %45 = load double, ptr %m_approx_k90, align 8
+  %46 = tail call double @llvm.fmuladd.f64(double %29, double %45, double %ll.2)
+  %div91 = fdiv double %46, %29
+  %cmp.i.i130 = icmp eq ptr %33, null
   br i1 %cmp.i.i130, label %land.lhs.true93, label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i137
 
 _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i137: ; preds = %if.else88
-  %m_approx_k.i.phi.trans.insert.i132 = getelementptr inbounds i8, ptr %31, i64 32
+  %m_approx_k.i.phi.trans.insert.i132 = getelementptr inbounds i8, ptr %33, i64 32
   %.pre.i133 = load double, ptr %m_approx_k.i.phi.trans.insert.i132, align 8
-  %sub.i.i.i136 = fsub double %.pre.i133, %43
-  %45 = load ptr, ptr %m_is_int.i.i.i139, align 8
-  %arrayidx.i.i11.i.i140 = getelementptr inbounds i8, ptr %45, i64 %idxprom.i124
-  %46 = load i8, ptr %arrayidx.i.i11.i.i140, align 1
-  %cmp.i.not.i.i141 = icmp eq i8 %46, 0
+  %sub.i.i.i136 = fsub double %.pre.i133, %45
+  %47 = load ptr, ptr %m_is_int.i.i.i139, align 8
+  %arrayidx.i.i11.i.i140 = getelementptr inbounds i8, ptr %47, i64 %idxprom.i124
+  %48 = load i8, ptr %arrayidx.i.i11.i.i140, align 1
+  %cmp.i.not.i.i141 = icmp eq i8 %48, 0
   br i1 %cmp.i.not.i.i141, label %if.then4.i.i147, label %if.else21.i.i
 
 if.then4.i.i147:                                  ; preds = %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i137
   %cmp5.i.i148 = fcmp olt double %.pre.i133, 0.000000e+00
   %sub.i.i149 = fsub double %.pre.i133, %.pre.i133
   %storemerge.i.i150 = select i1 %cmp5.i.i148, double %sub.i.i149, double %.pre.i133
-  %47 = load double, ptr %m_threshold11.i.i151, align 8
+  %49 = load double, ptr %m_threshold11.i.i151, align 8
   %cmp.i12.i.i152 = fcmp olt double %storemerge.i.i150, %sub.i.i.i136
   %storemerge.sink26.i.i153 = select i1 %cmp.i12.i.i152, double %storemerge.i.i150, double %sub.i.i.i136
   %cmp.i15.i.i154 = fcmp olt double %storemerge.sink26.i.i153, 1.000000e+00
   %.sroa.speculated.i.i155 = select i1 %cmp.i15.i.i154, double 1.000000e+00, double %storemerge.sink26.i.i153
-  %mul14.i.i156 = fmul double %.sroa.speculated.i.i155, %47
+  %mul14.i.i156 = fmul double %.sroa.speculated.i.i155, %49
   %sub17.i.i = fsub double %.pre.i133, %mul14.i.i156
   %cmp18.i.i = fcmp ult double %div91, %sub17.i.i
   br i1 %cmp18.i.i, label %if.end27.i.i, label %if.end98
@@ -4217,21 +4219,21 @@ if.else21.i.i:                                    ; preds = %_ZNK16bound_propaga
   br i1 %cmp24.i.i, label %if.end98, label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %if.else21.i.i, %if.then4.i.i147
-  %48 = load double, ptr %m_small_interval.i.i142, align 8
-  %cmp29.i.i = fcmp ugt double %sub.i.i.i136, %48
+  %50 = load double, ptr %m_small_interval.i.i142, align 8
+  %cmp29.i.i = fcmp ugt double %sub.i.i.i136, %50
   br i1 %cmp29.i.i, label %_ZNK16bound_propagator14relevant_upperEjd.exit, label %land.lhs.true93
 
 _ZNK16bound_propagator14relevant_upperEjd.exit:   ; preds = %if.end27.i.i
-  %49 = load ptr, ptr %m_upper_refinements.i.i, align 8
-  %arrayidx.i18.i.i145 = getelementptr inbounds i32, ptr %49, i64 %idxprom.i124
-  %50 = load i32, ptr %arrayidx.i18.i.i145, align 4
-  %51 = load i32, ptr %m_max_refinements.i.i146, align 8
-  %cmp33.i.i = icmp ult i32 %50, %51
+  %51 = load ptr, ptr %m_upper_refinements.i.i, align 8
+  %arrayidx.i18.i.i145 = getelementptr inbounds i32, ptr %51, i64 %idxprom.i124
+  %52 = load i32, ptr %arrayidx.i18.i.i145, align 4
+  %53 = load i32, ptr %m_max_refinements.i.i146, align 8
+  %cmp33.i.i = icmp ult i32 %52, %53
   br i1 %cmp33.i.i, label %land.lhs.true93, label %if.end98
 
 land.lhs.true93:                                  ; preds = %if.end27.i.i, %if.else88, %_ZNK16bound_propagator14relevant_upperEjd.exit
-  %52 = trunc nuw i64 %indvars.iv501 to i32
-  %call94 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_upperEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %52)
+  %54 = trunc nuw i64 %indvars.iv501 to i32
+  %call94 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_upperEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %54)
   %spec.select103 = select i1 %call94, i1 true, i1 %propagated.1492
   br label %if.end98
 
@@ -4240,54 +4242,54 @@ if.end98:                                         ; preds = %if.else21.i.i, %if.
   br i1 %cmp62, label %if.then100, label %for.inc122
 
 if.then100:                                       ; preds = %if.end98
-  %cmp101 = fcmp ogt double %27, 0.000000e+00
+  %cmp101 = fcmp ogt double %29, 0.000000e+00
   br i1 %cmp101, label %if.then102, label %if.else111
 
 if.then102:                                       ; preds = %if.then100
-  %m_approx_k104 = getelementptr inbounds i8, ptr %29, i64 32
-  %53 = load double, ptr %m_approx_k104, align 8
-  %54 = tail call double @llvm.fmuladd.f64(double %27, double %53, double %uu.1)
-  %div105 = fdiv double %54, %27
-  %55 = load ptr, ptr %m_uppers76, align 8
-  %arrayidx.i.i.i159 = getelementptr inbounds ptr, ptr %55, i64 %idxprom.i124
-  %56 = load ptr, ptr %arrayidx.i.i.i159, align 8
-  %cmp.i.i160 = icmp eq ptr %56, null
+  %m_approx_k104 = getelementptr inbounds i8, ptr %31, i64 32
+  %55 = load double, ptr %m_approx_k104, align 8
+  %56 = tail call double @llvm.fmuladd.f64(double %29, double %55, double %uu.1)
+  %div105 = fdiv double %56, %29
+  %57 = load ptr, ptr %m_uppers76, align 8
+  %arrayidx.i.i.i159 = getelementptr inbounds ptr, ptr %57, i64 %idxprom.i124
+  %58 = load ptr, ptr %arrayidx.i.i.i159, align 8
+  %cmp.i.i160 = icmp eq ptr %58, null
   br i1 %cmp.i.i160, label %land.lhs.true107, label %if.end.i.i161
 
 if.end.i.i161:                                    ; preds = %if.then102
-  %57 = load ptr, ptr %m_lowers73, align 8
-  %arrayidx.i.i.i.i163 = getelementptr inbounds ptr, ptr %57, i64 %idxprom.i124
-  %58 = load ptr, ptr %arrayidx.i.i.i.i163, align 8
-  %tobool.i.not25.i.i164 = icmp eq ptr %58, null
-  %m_approx_k.i.phi.trans.insert.i165 = getelementptr inbounds i8, ptr %56, i64 32
+  %59 = load ptr, ptr %m_lowers73, align 8
+  %arrayidx.i.i.i.i163 = getelementptr inbounds ptr, ptr %59, i64 %idxprom.i124
+  %60 = load ptr, ptr %arrayidx.i.i.i.i163, align 8
+  %tobool.i.not25.i.i164 = icmp eq ptr %60, null
+  %m_approx_k.i.phi.trans.insert.i165 = getelementptr inbounds i8, ptr %58, i64 32
   %.pre.i166 = load double, ptr %m_approx_k.i.phi.trans.insert.i165, align 8
   br i1 %tobool.i.not25.i.i164, label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i170, label %if.then.i.i.i167
 
 if.then.i.i.i167:                                 ; preds = %if.end.i.i161
-  %m_approx_k4.i.i.i168 = getelementptr inbounds i8, ptr %58, i64 32
-  %59 = load double, ptr %m_approx_k4.i.i.i168, align 8
-  %sub.i.i.i169 = fsub double %.pre.i166, %59
+  %m_approx_k4.i.i.i168 = getelementptr inbounds i8, ptr %60, i64 32
+  %61 = load double, ptr %m_approx_k4.i.i.i168, align 8
+  %sub.i.i.i169 = fsub double %.pre.i166, %61
   br label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i170
 
 _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i170: ; preds = %if.then.i.i.i167, %if.end.i.i161
   %interval_size.0.i.i171 = phi double [ %sub.i.i.i169, %if.then.i.i.i167 ], [ undef, %if.end.i.i161 ]
-  %60 = load ptr, ptr %m_is_int.i.i.i139, align 8
-  %arrayidx.i.i11.i.i173 = getelementptr inbounds i8, ptr %60, i64 %idxprom.i124
-  %61 = load i8, ptr %arrayidx.i.i11.i.i173, align 1
-  %cmp.i.not.i.i174 = icmp eq i8 %61, 0
+  %62 = load ptr, ptr %m_is_int.i.i.i139, align 8
+  %arrayidx.i.i11.i.i173 = getelementptr inbounds i8, ptr %62, i64 %idxprom.i124
+  %63 = load i8, ptr %arrayidx.i.i11.i.i173, align 1
+  %cmp.i.not.i.i174 = icmp eq i8 %63, 0
   br i1 %cmp.i.not.i.i174, label %if.then4.i.i188, label %if.else21.i.i175
 
 if.then4.i.i188:                                  ; preds = %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i170
   %cmp5.i.i189 = fcmp olt double %.pre.i166, 0.000000e+00
   %sub.i.i190 = fsub double %.pre.i166, %.pre.i166
   %storemerge.i.i191 = select i1 %cmp5.i.i189, double %sub.i.i190, double %.pre.i166
-  %62 = load double, ptr %m_threshold11.i.i151, align 8
+  %64 = load double, ptr %m_threshold11.i.i151, align 8
   %cmp.i12.i.i193 = fcmp olt double %storemerge.i.i191, %interval_size.0.i.i171
-  %63 = select i1 %tobool.i.not25.i.i164, i1 true, i1 %cmp.i12.i.i193
-  %storemerge.sink26.i.i194 = select i1 %63, double %storemerge.i.i191, double %interval_size.0.i.i171
+  %65 = select i1 %tobool.i.not25.i.i164, i1 true, i1 %cmp.i12.i.i193
+  %storemerge.sink26.i.i194 = select i1 %65, double %storemerge.i.i191, double %interval_size.0.i.i171
   %cmp.i15.i.i195 = fcmp olt double %storemerge.sink26.i.i194, 1.000000e+00
   %.sroa.speculated.i.i196 = select i1 %cmp.i15.i.i195, double 1.000000e+00, double %storemerge.sink26.i.i194
-  %mul14.i.i197 = fmul double %.sroa.speculated.i.i196, %62
+  %mul14.i.i197 = fmul double %.sroa.speculated.i.i196, %64
   %sub17.i.i198 = fsub double %.pre.i166, %mul14.i.i197
   %cmp18.i.i199 = fcmp ult double %div105, %sub17.i.i198
   br i1 %cmp18.i.i199, label %if.end27.i.i178, label %for.inc122
@@ -4298,102 +4300,102 @@ if.else21.i.i175:                                 ; preds = %_ZNK16bound_propaga
   br i1 %cmp24.i.i177, label %for.inc122, label %if.end27.i.i178
 
 if.end27.i.i178:                                  ; preds = %if.else21.i.i175, %if.then4.i.i188
-  %64 = load double, ptr %m_small_interval.i.i142, align 8
-  %cmp29.i.i180 = fcmp ugt double %interval_size.0.i.i171, %64
+  %66 = load double, ptr %m_small_interval.i.i142, align 8
+  %cmp29.i.i180 = fcmp ugt double %interval_size.0.i.i171, %66
   %or.cond.i.i181 = select i1 %tobool.i.not25.i.i164, i1 true, i1 %cmp29.i.i180
   br i1 %or.cond.i.i181, label %_ZNK16bound_propagator14relevant_upperEjd.exit200, label %land.lhs.true107
 
 _ZNK16bound_propagator14relevant_upperEjd.exit200: ; preds = %if.end27.i.i178
-  %65 = load ptr, ptr %m_upper_refinements.i.i, align 8
-  %arrayidx.i18.i.i185 = getelementptr inbounds i32, ptr %65, i64 %idxprom.i124
-  %66 = load i32, ptr %arrayidx.i18.i.i185, align 4
-  %67 = load i32, ptr %m_max_refinements.i.i146, align 8
-  %cmp33.i.i187 = icmp ult i32 %66, %67
+  %67 = load ptr, ptr %m_upper_refinements.i.i, align 8
+  %arrayidx.i18.i.i185 = getelementptr inbounds i32, ptr %67, i64 %idxprom.i124
+  %68 = load i32, ptr %arrayidx.i18.i.i185, align 4
+  %69 = load i32, ptr %m_max_refinements.i.i146, align 8
+  %cmp33.i.i187 = icmp ult i32 %68, %69
   br i1 %cmp33.i.i187, label %land.lhs.true107, label %for.inc122
 
 land.lhs.true107:                                 ; preds = %if.end27.i.i178, %if.then102, %_ZNK16bound_propagator14relevant_upperEjd.exit200
-  %68 = trunc nuw i64 %indvars.iv501 to i32
-  %call108 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_upperEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %68)
+  %70 = trunc nuw i64 %indvars.iv501 to i32
+  %call108 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_upperEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %70)
   %spec.select104 = select i1 %call108, i1 true, i1 %propagated.2
   br label %for.inc122
 
 if.else111:                                       ; preds = %if.then100
-  %m_approx_k113 = getelementptr inbounds i8, ptr %31, i64 32
-  %69 = load double, ptr %m_approx_k113, align 8
-  %70 = tail call double @llvm.fmuladd.f64(double %27, double %69, double %uu.1)
-  %div114 = fdiv double %70, %27
-  %71 = load ptr, ptr %m_lowers73, align 8
-  %arrayidx.i.i.i203 = getelementptr inbounds ptr, ptr %71, i64 %idxprom.i124
-  %72 = load ptr, ptr %arrayidx.i.i.i203, align 8
-  %cmp.i.i204 = icmp eq ptr %72, null
+  %m_approx_k113 = getelementptr inbounds i8, ptr %33, i64 32
+  %71 = load double, ptr %m_approx_k113, align 8
+  %72 = tail call double @llvm.fmuladd.f64(double %29, double %71, double %uu.1)
+  %div114 = fdiv double %72, %29
+  %73 = load ptr, ptr %m_lowers73, align 8
+  %arrayidx.i.i.i203 = getelementptr inbounds ptr, ptr %73, i64 %idxprom.i124
+  %74 = load ptr, ptr %arrayidx.i.i.i203, align 8
+  %cmp.i.i204 = icmp eq ptr %74, null
   br i1 %cmp.i.i204, label %land.lhs.true116, label %if.end.i.i205
 
 if.end.i.i205:                                    ; preds = %if.else111
-  %73 = load ptr, ptr %m_uppers76, align 8
-  %arrayidx.i6.i.i.i207 = getelementptr inbounds ptr, ptr %73, i64 %idxprom.i124
-  %74 = load ptr, ptr %arrayidx.i6.i.i.i207, align 8
-  %tobool3.i.not25.i.i208 = icmp eq ptr %74, null
+  %75 = load ptr, ptr %m_uppers76, align 8
+  %arrayidx.i6.i.i.i207 = getelementptr inbounds ptr, ptr %75, i64 %idxprom.i124
+  %76 = load ptr, ptr %arrayidx.i6.i.i.i207, align 8
+  %tobool3.i.not25.i.i208 = icmp eq ptr %76, null
   br i1 %tobool3.i.not25.i.i208, label %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i243, label %if.then.i.i.i209
 
 if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i243: ; preds = %if.end.i.i205
-  %m_approx_k.i.phi.trans.insert.i244 = getelementptr inbounds i8, ptr %72, i64 32
+  %m_approx_k.i.phi.trans.insert.i244 = getelementptr inbounds i8, ptr %74, i64 32
   %.pre.i245 = load double, ptr %m_approx_k.i.phi.trans.insert.i244, align 8
   br label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i213
 
 if.then.i.i.i209:                                 ; preds = %if.end.i.i205
-  %m_approx_k.i.i.i210 = getelementptr inbounds i8, ptr %74, i64 32
-  %75 = load double, ptr %m_approx_k.i.i.i210, align 8
-  %m_approx_k4.i.i.i211 = getelementptr inbounds i8, ptr %72, i64 32
-  %76 = load double, ptr %m_approx_k4.i.i.i211, align 8
-  %sub.i.i.i212 = fsub double %75, %76
+  %m_approx_k.i.i.i210 = getelementptr inbounds i8, ptr %76, i64 32
+  %77 = load double, ptr %m_approx_k.i.i.i210, align 8
+  %m_approx_k4.i.i.i211 = getelementptr inbounds i8, ptr %74, i64 32
+  %78 = load double, ptr %m_approx_k4.i.i.i211, align 8
+  %sub.i.i.i212 = fsub double %77, %78
   br label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i213
 
 _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i213: ; preds = %if.then.i.i.i209, %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i243
-  %77 = phi double [ %76, %if.then.i.i.i209 ], [ %.pre.i245, %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i243 ]
+  %79 = phi double [ %78, %if.then.i.i.i209 ], [ %.pre.i245, %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i243 ]
   %interval_size.0.i.i214 = phi double [ %sub.i.i.i212, %if.then.i.i.i209 ], [ undef, %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i243 ]
-  %78 = load ptr, ptr %m_is_int.i.i.i139, align 8
-  %arrayidx.i.i11.i.i216 = getelementptr inbounds i8, ptr %78, i64 %idxprom.i124
-  %79 = load i8, ptr %arrayidx.i.i11.i.i216, align 1
-  %cmp.i.not.i.i217 = icmp eq i8 %79, 0
+  %80 = load ptr, ptr %m_is_int.i.i.i139, align 8
+  %arrayidx.i.i11.i.i216 = getelementptr inbounds i8, ptr %80, i64 %idxprom.i124
+  %81 = load i8, ptr %arrayidx.i.i11.i.i216, align 1
+  %cmp.i.not.i.i217 = icmp eq i8 %81, 0
   br i1 %cmp.i.not.i.i217, label %if.then4.i.i231, label %if.else20.i.i218
 
 if.then4.i.i231:                                  ; preds = %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i213
-  %cmp5.i.i232 = fcmp olt double %77, 0.000000e+00
-  %sub.i.i233 = fsub double %77, %77
-  %storemerge.i.i234 = select i1 %cmp5.i.i232, double %sub.i.i233, double %77
-  %80 = load double, ptr %m_threshold11.i.i151, align 8
+  %cmp5.i.i232 = fcmp olt double %79, 0.000000e+00
+  %sub.i.i233 = fsub double %79, %79
+  %storemerge.i.i234 = select i1 %cmp5.i.i232, double %sub.i.i233, double %79
+  %82 = load double, ptr %m_threshold11.i.i151, align 8
   %cmp.i12.i.i236 = fcmp olt double %storemerge.i.i234, %interval_size.0.i.i214
-  %81 = select i1 %tobool3.i.not25.i.i208, i1 true, i1 %cmp.i12.i.i236
-  %storemerge.sink26.i.i237 = select i1 %81, double %storemerge.i.i234, double %interval_size.0.i.i214
+  %83 = select i1 %tobool3.i.not25.i.i208, i1 true, i1 %cmp.i12.i.i236
+  %storemerge.sink26.i.i237 = select i1 %83, double %storemerge.i.i234, double %interval_size.0.i.i214
   %cmp.i15.i.i238 = fcmp olt double %storemerge.sink26.i.i237, 1.000000e+00
   %.sroa.speculated.i.i239 = select i1 %cmp.i15.i.i238, double 1.000000e+00, double %storemerge.sink26.i.i237
-  %mul14.i.i240 = fmul double %.sroa.speculated.i.i239, %80
-  %add.i.i241 = fadd double %77, %mul14.i.i240
+  %mul14.i.i240 = fmul double %.sroa.speculated.i.i239, %82
+  %add.i.i241 = fadd double %79, %mul14.i.i240
   %cmp17.i.i242 = fcmp ugt double %div114, %add.i.i241
   br i1 %cmp17.i.i242, label %if.end26.i.i221, label %for.inc122
 
 if.else20.i.i218:                                 ; preds = %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i213
-  %add22.i.i219 = fadd double %77, 1.000000e+00
+  %add22.i.i219 = fadd double %79, 1.000000e+00
   %cmp23.i.i220 = fcmp olt double %div114, %add22.i.i219
   br i1 %cmp23.i.i220, label %for.inc122, label %if.end26.i.i221
 
 if.end26.i.i221:                                  ; preds = %if.else20.i.i218, %if.then4.i.i231
-  %82 = load double, ptr %m_small_interval.i.i142, align 8
-  %cmp28.i.i223 = fcmp ugt double %interval_size.0.i.i214, %82
+  %84 = load double, ptr %m_small_interval.i.i142, align 8
+  %cmp28.i.i223 = fcmp ugt double %interval_size.0.i.i214, %84
   %or.cond.i.i224 = select i1 %tobool3.i.not25.i.i208, i1 true, i1 %cmp28.i.i223
   br i1 %or.cond.i.i224, label %_ZNK16bound_propagator14relevant_lowerEjd.exit246, label %land.lhs.true116
 
 _ZNK16bound_propagator14relevant_lowerEjd.exit246: ; preds = %if.end26.i.i221
-  %83 = load ptr, ptr %m_lower_refinements.i.i, align 8
-  %arrayidx.i18.i.i228 = getelementptr inbounds i32, ptr %83, i64 %idxprom.i124
-  %84 = load i32, ptr %arrayidx.i18.i.i228, align 4
-  %85 = load i32, ptr %m_max_refinements.i.i146, align 8
-  %cmp32.i.i230 = icmp ult i32 %84, %85
+  %85 = load ptr, ptr %m_lower_refinements.i.i, align 8
+  %arrayidx.i18.i.i228 = getelementptr inbounds i32, ptr %85, i64 %idxprom.i124
+  %86 = load i32, ptr %arrayidx.i18.i.i228, align 4
+  %87 = load i32, ptr %m_max_refinements.i.i146, align 8
+  %cmp32.i.i230 = icmp ult i32 %86, %87
   br i1 %cmp32.i.i230, label %land.lhs.true116, label %for.inc122
 
 land.lhs.true116:                                 ; preds = %if.end26.i.i221, %if.else111, %_ZNK16bound_propagator14relevant_lowerEjd.exit246
-  %86 = trunc nuw i64 %indvars.iv501 to i32
-  %call117 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_lowerEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %86)
+  %88 = trunc nuw i64 %indvars.iv501 to i32
+  %call117 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_lowerEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %88)
   %spec.select105 = select i1 %call117, i1 true, i1 %propagated.2
   br label %for.inc122
 
@@ -4405,100 +4407,99 @@ for.inc122:                                       ; preds = %if.else20.i.i218, %
 
 if.end125:                                        ; preds = %for.inc122, %for.end
   %propagated.0 = phi i1 [ false, %for.end ], [ %propagated.3, %for.inc122 ]
-  %tobool126 = trunc nuw i8 %ll_failed.2 to i1
-  %or.cond1.not = or i1 %cmp61, %tobool126
+  %or.cond1.not = or i1 %cmp61, %24
   br i1 %or.cond1.not, label %if.end150, label %if.then129
 
 if.then129:                                       ; preds = %if.end125
   %m_xs.i247 = getelementptr inbounds i8, ptr %2, i64 24
-  %87 = load ptr, ptr %m_xs.i247, align 8
+  %89 = load ptr, ptr %m_xs.i247, align 8
   %idxprom.i248 = zext i32 %ll_i.2 to i64
-  %arrayidx.i249 = getelementptr inbounds i32, ptr %87, i64 %idxprom.i248
-  %88 = load i32, ptr %arrayidx.i249, align 4
+  %arrayidx.i249 = getelementptr inbounds i32, ptr %89, i64 %idxprom.i248
+  %90 = load i32, ptr %arrayidx.i249, align 4
   %m_approx_as.i250 = getelementptr inbounds i8, ptr %2, i64 16
-  %89 = load ptr, ptr %m_approx_as.i250, align 8
-  %arrayidx.i252 = getelementptr inbounds double, ptr %89, i64 %idxprom.i248
-  %90 = load double, ptr %arrayidx.i252, align 8
-  %div135 = fdiv double %ll.2, %90
-  %cmp136 = fcmp ogt double %90, 0.000000e+00
-  %idxprom.i.i.i254 = zext i32 %88 to i64
+  %91 = load ptr, ptr %m_approx_as.i250, align 8
+  %arrayidx.i252 = getelementptr inbounds double, ptr %91, i64 %idxprom.i248
+  %92 = load double, ptr %arrayidx.i252, align 8
+  %div135 = fdiv double %ll.2, %92
+  %cmp136 = fcmp ogt double %92, 0.000000e+00
+  %idxprom.i.i.i254 = zext i32 %90 to i64
   br i1 %cmp136, label %if.then137, label %if.else143
 
 if.then137:                                       ; preds = %if.then129
   %m_lowers.i.i253 = getelementptr inbounds i8, ptr %this, i64 104
-  %91 = load ptr, ptr %m_lowers.i.i253, align 8
-  %arrayidx.i.i.i255 = getelementptr inbounds ptr, ptr %91, i64 %idxprom.i.i.i254
-  %92 = load ptr, ptr %arrayidx.i.i.i255, align 8
-  %cmp.i.i256 = icmp eq ptr %92, null
+  %93 = load ptr, ptr %m_lowers.i.i253, align 8
+  %arrayidx.i.i.i255 = getelementptr inbounds ptr, ptr %93, i64 %idxprom.i.i.i254
+  %94 = load ptr, ptr %arrayidx.i.i.i255, align 8
+  %cmp.i.i256 = icmp eq ptr %94, null
   br i1 %cmp.i.i256, label %land.lhs.true139, label %if.end.i.i257
 
 if.end.i.i257:                                    ; preds = %if.then137
   %m_uppers.i.i.i258 = getelementptr inbounds i8, ptr %this, i64 112
-  %93 = load ptr, ptr %m_uppers.i.i.i258, align 8
-  %arrayidx.i6.i.i.i259 = getelementptr inbounds ptr, ptr %93, i64 %idxprom.i.i.i254
-  %94 = load ptr, ptr %arrayidx.i6.i.i.i259, align 8
-  %tobool3.i.not25.i.i260 = icmp eq ptr %94, null
+  %95 = load ptr, ptr %m_uppers.i.i.i258, align 8
+  %arrayidx.i6.i.i.i259 = getelementptr inbounds ptr, ptr %95, i64 %idxprom.i.i.i254
+  %96 = load ptr, ptr %arrayidx.i6.i.i.i259, align 8
+  %tobool3.i.not25.i.i260 = icmp eq ptr %96, null
   br i1 %tobool3.i.not25.i.i260, label %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i295, label %if.then.i.i.i261
 
 if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i295: ; preds = %if.end.i.i257
-  %m_approx_k.i.phi.trans.insert.i296 = getelementptr inbounds i8, ptr %92, i64 32
+  %m_approx_k.i.phi.trans.insert.i296 = getelementptr inbounds i8, ptr %94, i64 32
   %.pre.i297 = load double, ptr %m_approx_k.i.phi.trans.insert.i296, align 8
   br label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i265
 
 if.then.i.i.i261:                                 ; preds = %if.end.i.i257
-  %m_approx_k.i.i.i262 = getelementptr inbounds i8, ptr %94, i64 32
-  %95 = load double, ptr %m_approx_k.i.i.i262, align 8
-  %m_approx_k4.i.i.i263 = getelementptr inbounds i8, ptr %92, i64 32
-  %96 = load double, ptr %m_approx_k4.i.i.i263, align 8
-  %sub.i.i.i264 = fsub double %95, %96
+  %m_approx_k.i.i.i262 = getelementptr inbounds i8, ptr %96, i64 32
+  %97 = load double, ptr %m_approx_k.i.i.i262, align 8
+  %m_approx_k4.i.i.i263 = getelementptr inbounds i8, ptr %94, i64 32
+  %98 = load double, ptr %m_approx_k4.i.i.i263, align 8
+  %sub.i.i.i264 = fsub double %97, %98
   br label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i265
 
 _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i265: ; preds = %if.then.i.i.i261, %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i295
-  %97 = phi double [ %96, %if.then.i.i.i261 ], [ %.pre.i297, %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i295 ]
+  %99 = phi double [ %98, %if.then.i.i.i261 ], [ %.pre.i297, %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i295 ]
   %interval_size.0.i.i266 = phi double [ %sub.i.i.i264, %if.then.i.i.i261 ], [ undef, %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i295 ]
   %m_is_int.i.i.i267 = getelementptr inbounds i8, ptr %this, i64 88
-  %98 = load ptr, ptr %m_is_int.i.i.i267, align 8
-  %arrayidx.i.i11.i.i268 = getelementptr inbounds i8, ptr %98, i64 %idxprom.i.i.i254
-  %99 = load i8, ptr %arrayidx.i.i11.i.i268, align 1
-  %cmp.i.not.i.i269 = icmp eq i8 %99, 0
+  %100 = load ptr, ptr %m_is_int.i.i.i267, align 8
+  %arrayidx.i.i11.i.i268 = getelementptr inbounds i8, ptr %100, i64 %idxprom.i.i.i254
+  %101 = load i8, ptr %arrayidx.i.i11.i.i268, align 1
+  %cmp.i.not.i.i269 = icmp eq i8 %101, 0
   br i1 %cmp.i.not.i.i269, label %if.then4.i.i283, label %if.else20.i.i270
 
 if.then4.i.i283:                                  ; preds = %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i265
-  %cmp5.i.i284 = fcmp olt double %97, 0.000000e+00
-  %sub.i.i285 = fsub double %97, %97
-  %storemerge.i.i286 = select i1 %cmp5.i.i284, double %sub.i.i285, double %97
+  %cmp5.i.i284 = fcmp olt double %99, 0.000000e+00
+  %sub.i.i285 = fsub double %99, %99
+  %storemerge.i.i286 = select i1 %cmp5.i.i284, double %sub.i.i285, double %99
   %m_threshold11.i.i287 = getelementptr inbounds i8, ptr %this, i64 240
-  %100 = load double, ptr %m_threshold11.i.i287, align 8
+  %102 = load double, ptr %m_threshold11.i.i287, align 8
   %cmp.i12.i.i288 = fcmp olt double %storemerge.i.i286, %interval_size.0.i.i266
-  %101 = select i1 %tobool3.i.not25.i.i260, i1 true, i1 %cmp.i12.i.i288
-  %storemerge.sink26.i.i289 = select i1 %101, double %storemerge.i.i286, double %interval_size.0.i.i266
+  %103 = select i1 %tobool3.i.not25.i.i260, i1 true, i1 %cmp.i12.i.i288
+  %storemerge.sink26.i.i289 = select i1 %103, double %storemerge.i.i286, double %interval_size.0.i.i266
   %cmp.i15.i.i290 = fcmp olt double %storemerge.sink26.i.i289, 1.000000e+00
   %.sroa.speculated.i.i291 = select i1 %cmp.i15.i.i290, double 1.000000e+00, double %storemerge.sink26.i.i289
-  %mul14.i.i292 = fmul double %.sroa.speculated.i.i291, %100
-  %add.i.i293 = fadd double %97, %mul14.i.i292
+  %mul14.i.i292 = fmul double %.sroa.speculated.i.i291, %102
+  %add.i.i293 = fadd double %99, %mul14.i.i292
   %cmp17.i.i294 = fcmp ugt double %div135, %add.i.i293
   br i1 %cmp17.i.i294, label %if.end26.i.i273, label %if.end150
 
 if.else20.i.i270:                                 ; preds = %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i265
-  %add22.i.i271 = fadd double %97, 1.000000e+00
+  %add22.i.i271 = fadd double %99, 1.000000e+00
   %cmp23.i.i272 = fcmp olt double %div135, %add22.i.i271
   br i1 %cmp23.i.i272, label %if.end150, label %if.end26.i.i273
 
 if.end26.i.i273:                                  ; preds = %if.else20.i.i270, %if.then4.i.i283
   %m_small_interval.i.i274 = getelementptr inbounds i8, ptr %this, i64 232
-  %102 = load double, ptr %m_small_interval.i.i274, align 8
-  %cmp28.i.i275 = fcmp ugt double %interval_size.0.i.i266, %102
+  %104 = load double, ptr %m_small_interval.i.i274, align 8
+  %cmp28.i.i275 = fcmp ugt double %interval_size.0.i.i266, %104
   %or.cond.i.i276 = select i1 %tobool3.i.not25.i.i260, i1 true, i1 %cmp28.i.i275
   br i1 %or.cond.i.i276, label %_ZNK16bound_propagator14relevant_lowerEjd.exit298, label %land.lhs.true139
 
 _ZNK16bound_propagator14relevant_lowerEjd.exit298: ; preds = %if.end26.i.i273
   %m_lower_refinements.i.i279 = getelementptr inbounds i8, ptr %this, i64 152
-  %103 = load ptr, ptr %m_lower_refinements.i.i279, align 8
-  %arrayidx.i18.i.i280 = getelementptr inbounds i32, ptr %103, i64 %idxprom.i.i.i254
-  %104 = load i32, ptr %arrayidx.i18.i.i280, align 4
+  %105 = load ptr, ptr %m_lower_refinements.i.i279, align 8
+  %arrayidx.i18.i.i280 = getelementptr inbounds i32, ptr %105, i64 %idxprom.i.i.i254
+  %106 = load i32, ptr %arrayidx.i18.i.i280, align 4
   %m_max_refinements.i.i281 = getelementptr inbounds i8, ptr %this, i64 224
-  %105 = load i32, ptr %m_max_refinements.i.i281, align 8
-  %cmp32.i.i282 = icmp ult i32 %104, %105
+  %107 = load i32, ptr %m_max_refinements.i.i281, align 8
+  %cmp32.i.i282 = icmp ult i32 %106, %107
   br i1 %cmp32.i.i282, label %land.lhs.true139, label %if.end150
 
 land.lhs.true139:                                 ; preds = %if.end26.i.i273, %if.then137, %_ZNK16bound_propagator14relevant_lowerEjd.exit298
@@ -4508,35 +4509,35 @@ land.lhs.true139:                                 ; preds = %if.end26.i.i273, %i
 
 if.else143:                                       ; preds = %if.then129
   %m_uppers.i.i299 = getelementptr inbounds i8, ptr %this, i64 112
-  %106 = load ptr, ptr %m_uppers.i.i299, align 8
-  %arrayidx.i.i.i301 = getelementptr inbounds ptr, ptr %106, i64 %idxprom.i.i.i254
-  %107 = load ptr, ptr %arrayidx.i.i.i301, align 8
-  %cmp.i.i302 = icmp eq ptr %107, null
+  %108 = load ptr, ptr %m_uppers.i.i299, align 8
+  %arrayidx.i.i.i301 = getelementptr inbounds ptr, ptr %108, i64 %idxprom.i.i.i254
+  %109 = load ptr, ptr %arrayidx.i.i.i301, align 8
+  %cmp.i.i302 = icmp eq ptr %109, null
   br i1 %cmp.i.i302, label %land.lhs.true145, label %if.end.i.i303
 
 if.end.i.i303:                                    ; preds = %if.else143
   %m_lowers.i.i.i304 = getelementptr inbounds i8, ptr %this, i64 104
-  %108 = load ptr, ptr %m_lowers.i.i.i304, align 8
-  %arrayidx.i.i.i.i305 = getelementptr inbounds ptr, ptr %108, i64 %idxprom.i.i.i254
-  %109 = load ptr, ptr %arrayidx.i.i.i.i305, align 8
-  %tobool.i.not25.i.i306 = icmp eq ptr %109, null
-  %m_approx_k.i.phi.trans.insert.i307 = getelementptr inbounds i8, ptr %107, i64 32
+  %110 = load ptr, ptr %m_lowers.i.i.i304, align 8
+  %arrayidx.i.i.i.i305 = getelementptr inbounds ptr, ptr %110, i64 %idxprom.i.i.i254
+  %111 = load ptr, ptr %arrayidx.i.i.i.i305, align 8
+  %tobool.i.not25.i.i306 = icmp eq ptr %111, null
+  %m_approx_k.i.phi.trans.insert.i307 = getelementptr inbounds i8, ptr %109, i64 32
   %.pre.i308 = load double, ptr %m_approx_k.i.phi.trans.insert.i307, align 8
   br i1 %tobool.i.not25.i.i306, label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i312, label %if.then.i.i.i309
 
 if.then.i.i.i309:                                 ; preds = %if.end.i.i303
-  %m_approx_k4.i.i.i310 = getelementptr inbounds i8, ptr %109, i64 32
-  %110 = load double, ptr %m_approx_k4.i.i.i310, align 8
-  %sub.i.i.i311 = fsub double %.pre.i308, %110
+  %m_approx_k4.i.i.i310 = getelementptr inbounds i8, ptr %111, i64 32
+  %112 = load double, ptr %m_approx_k4.i.i.i310, align 8
+  %sub.i.i.i311 = fsub double %.pre.i308, %112
   br label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i312
 
 _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i312: ; preds = %if.then.i.i.i309, %if.end.i.i303
   %interval_size.0.i.i313 = phi double [ %sub.i.i.i311, %if.then.i.i.i309 ], [ undef, %if.end.i.i303 ]
   %m_is_int.i.i.i314 = getelementptr inbounds i8, ptr %this, i64 88
-  %111 = load ptr, ptr %m_is_int.i.i.i314, align 8
-  %arrayidx.i.i11.i.i315 = getelementptr inbounds i8, ptr %111, i64 %idxprom.i.i.i254
-  %112 = load i8, ptr %arrayidx.i.i11.i.i315, align 1
-  %cmp.i.not.i.i316 = icmp eq i8 %112, 0
+  %113 = load ptr, ptr %m_is_int.i.i.i314, align 8
+  %arrayidx.i.i11.i.i315 = getelementptr inbounds i8, ptr %113, i64 %idxprom.i.i.i254
+  %114 = load i8, ptr %arrayidx.i.i11.i.i315, align 1
+  %cmp.i.not.i.i316 = icmp eq i8 %114, 0
   br i1 %cmp.i.not.i.i316, label %if.then4.i.i330, label %if.else21.i.i317
 
 if.then4.i.i330:                                  ; preds = %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i312
@@ -4544,13 +4545,13 @@ if.then4.i.i330:                                  ; preds = %_ZNK16bound_propaga
   %sub.i.i332 = fsub double %.pre.i308, %.pre.i308
   %storemerge.i.i333 = select i1 %cmp5.i.i331, double %sub.i.i332, double %.pre.i308
   %m_threshold11.i.i334 = getelementptr inbounds i8, ptr %this, i64 240
-  %113 = load double, ptr %m_threshold11.i.i334, align 8
+  %115 = load double, ptr %m_threshold11.i.i334, align 8
   %cmp.i12.i.i335 = fcmp olt double %storemerge.i.i333, %interval_size.0.i.i313
-  %114 = select i1 %tobool.i.not25.i.i306, i1 true, i1 %cmp.i12.i.i335
-  %storemerge.sink26.i.i336 = select i1 %114, double %storemerge.i.i333, double %interval_size.0.i.i313
+  %116 = select i1 %tobool.i.not25.i.i306, i1 true, i1 %cmp.i12.i.i335
+  %storemerge.sink26.i.i336 = select i1 %116, double %storemerge.i.i333, double %interval_size.0.i.i313
   %cmp.i15.i.i337 = fcmp olt double %storemerge.sink26.i.i336, 1.000000e+00
   %.sroa.speculated.i.i338 = select i1 %cmp.i15.i.i337, double 1.000000e+00, double %storemerge.sink26.i.i336
-  %mul14.i.i339 = fmul double %.sroa.speculated.i.i338, %113
+  %mul14.i.i339 = fmul double %.sroa.speculated.i.i338, %115
   %sub17.i.i340 = fsub double %.pre.i308, %mul14.i.i339
   %cmp18.i.i341 = fcmp ult double %div135, %sub17.i.i340
   br i1 %cmp18.i.i341, label %if.end27.i.i320, label %if.end150
@@ -4562,19 +4563,19 @@ if.else21.i.i317:                                 ; preds = %_ZNK16bound_propaga
 
 if.end27.i.i320:                                  ; preds = %if.else21.i.i317, %if.then4.i.i330
   %m_small_interval.i.i321 = getelementptr inbounds i8, ptr %this, i64 232
-  %115 = load double, ptr %m_small_interval.i.i321, align 8
-  %cmp29.i.i322 = fcmp ugt double %interval_size.0.i.i313, %115
+  %117 = load double, ptr %m_small_interval.i.i321, align 8
+  %cmp29.i.i322 = fcmp ugt double %interval_size.0.i.i313, %117
   %or.cond.i.i323 = select i1 %tobool.i.not25.i.i306, i1 true, i1 %cmp29.i.i322
   br i1 %or.cond.i.i323, label %_ZNK16bound_propagator14relevant_upperEjd.exit342, label %land.lhs.true145
 
 _ZNK16bound_propagator14relevant_upperEjd.exit342: ; preds = %if.end27.i.i320
   %m_upper_refinements.i.i326 = getelementptr inbounds i8, ptr %this, i64 160
-  %116 = load ptr, ptr %m_upper_refinements.i.i326, align 8
-  %arrayidx.i18.i.i327 = getelementptr inbounds i32, ptr %116, i64 %idxprom.i.i.i254
-  %117 = load i32, ptr %arrayidx.i18.i.i327, align 4
+  %118 = load ptr, ptr %m_upper_refinements.i.i326, align 8
+  %arrayidx.i18.i.i327 = getelementptr inbounds i32, ptr %118, i64 %idxprom.i.i.i254
+  %119 = load i32, ptr %arrayidx.i18.i.i327, align 4
   %m_max_refinements.i.i328 = getelementptr inbounds i8, ptr %this, i64 224
-  %118 = load i32, ptr %m_max_refinements.i.i328, align 8
-  %cmp33.i.i329 = icmp ult i32 %117, %118
+  %120 = load i32, ptr %m_max_refinements.i.i328, align 8
+  %cmp33.i.i329 = icmp ult i32 %119, %120
   br i1 %cmp33.i.i329, label %land.lhs.true145, label %if.end150
 
 land.lhs.true145:                                 ; preds = %if.end27.i.i320, %if.else143, %_ZNK16bound_propagator14relevant_upperEjd.exit342
@@ -4584,56 +4585,55 @@ land.lhs.true145:                                 ; preds = %if.end27.i.i320, %i
 
 if.end150:                                        ; preds = %if.else21.i.i317, %if.then4.i.i330, %if.else20.i.i270, %if.then4.i.i283, %land.lhs.true145, %land.lhs.true139, %_ZNK16bound_propagator14relevant_lowerEjd.exit298, %_ZNK16bound_propagator14relevant_upperEjd.exit342, %if.end125
   %propagated.4 = phi i1 [ %propagated.0, %_ZNK16bound_propagator14relevant_lowerEjd.exit298 ], [ %propagated.0, %_ZNK16bound_propagator14relevant_upperEjd.exit342 ], [ %propagated.0, %if.end125 ], [ %spec.select106, %land.lhs.true139 ], [ %spec.select107, %land.lhs.true145 ], [ %propagated.0, %if.then4.i.i283 ], [ %propagated.0, %if.else20.i.i270 ], [ %propagated.0, %if.then4.i.i330 ], [ %propagated.0, %if.else21.i.i317 ]
-  %tobool151 = trunc nuw i8 %uu_failed.1 to i1
-  %or.cond2.not = select i1 %tobool151, i1 true, i1 %cmp62
+  %or.cond2.not = select i1 %25, i1 true, i1 %cmp62
   br i1 %or.cond2.not, label %return, label %if.then154
 
 if.then154:                                       ; preds = %if.end150
   %m_xs.i343 = getelementptr inbounds i8, ptr %2, i64 24
-  %119 = load ptr, ptr %m_xs.i343, align 8
+  %121 = load ptr, ptr %m_xs.i343, align 8
   %idxprom.i344 = zext i32 %uu_i.1 to i64
-  %arrayidx.i345 = getelementptr inbounds i32, ptr %119, i64 %idxprom.i344
-  %120 = load i32, ptr %arrayidx.i345, align 4
+  %arrayidx.i345 = getelementptr inbounds i32, ptr %121, i64 %idxprom.i344
+  %122 = load i32, ptr %arrayidx.i345, align 4
   %m_approx_as.i346 = getelementptr inbounds i8, ptr %2, i64 16
-  %121 = load ptr, ptr %m_approx_as.i346, align 8
-  %arrayidx.i348 = getelementptr inbounds double, ptr %121, i64 %idxprom.i344
-  %122 = load double, ptr %arrayidx.i348, align 8
-  %div160 = fdiv double %uu.1, %122
-  %cmp161 = fcmp ogt double %122, 0.000000e+00
-  %idxprom.i.i.i350 = zext i32 %120 to i64
+  %123 = load ptr, ptr %m_approx_as.i346, align 8
+  %arrayidx.i348 = getelementptr inbounds double, ptr %123, i64 %idxprom.i344
+  %124 = load double, ptr %arrayidx.i348, align 8
+  %div160 = fdiv double %uu.1, %124
+  %cmp161 = fcmp ogt double %124, 0.000000e+00
+  %idxprom.i.i.i350 = zext i32 %122 to i64
   br i1 %cmp161, label %if.then162, label %if.else168
 
 if.then162:                                       ; preds = %if.then154
   %m_uppers.i.i349 = getelementptr inbounds i8, ptr %this, i64 112
-  %123 = load ptr, ptr %m_uppers.i.i349, align 8
-  %arrayidx.i.i.i351 = getelementptr inbounds ptr, ptr %123, i64 %idxprom.i.i.i350
-  %124 = load ptr, ptr %arrayidx.i.i.i351, align 8
-  %cmp.i.i352 = icmp eq ptr %124, null
+  %125 = load ptr, ptr %m_uppers.i.i349, align 8
+  %arrayidx.i.i.i351 = getelementptr inbounds ptr, ptr %125, i64 %idxprom.i.i.i350
+  %126 = load ptr, ptr %arrayidx.i.i.i351, align 8
+  %cmp.i.i352 = icmp eq ptr %126, null
   br i1 %cmp.i.i352, label %land.lhs.true164, label %if.end.i.i353
 
 if.end.i.i353:                                    ; preds = %if.then162
   %m_lowers.i.i.i354 = getelementptr inbounds i8, ptr %this, i64 104
-  %125 = load ptr, ptr %m_lowers.i.i.i354, align 8
-  %arrayidx.i.i.i.i355 = getelementptr inbounds ptr, ptr %125, i64 %idxprom.i.i.i350
-  %126 = load ptr, ptr %arrayidx.i.i.i.i355, align 8
-  %tobool.i.not25.i.i356 = icmp eq ptr %126, null
-  %m_approx_k.i.phi.trans.insert.i357 = getelementptr inbounds i8, ptr %124, i64 32
+  %127 = load ptr, ptr %m_lowers.i.i.i354, align 8
+  %arrayidx.i.i.i.i355 = getelementptr inbounds ptr, ptr %127, i64 %idxprom.i.i.i350
+  %128 = load ptr, ptr %arrayidx.i.i.i.i355, align 8
+  %tobool.i.not25.i.i356 = icmp eq ptr %128, null
+  %m_approx_k.i.phi.trans.insert.i357 = getelementptr inbounds i8, ptr %126, i64 32
   %.pre.i358 = load double, ptr %m_approx_k.i.phi.trans.insert.i357, align 8
   br i1 %tobool.i.not25.i.i356, label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i362, label %if.then.i.i.i359
 
 if.then.i.i.i359:                                 ; preds = %if.end.i.i353
-  %m_approx_k4.i.i.i360 = getelementptr inbounds i8, ptr %126, i64 32
-  %127 = load double, ptr %m_approx_k4.i.i.i360, align 8
-  %sub.i.i.i361 = fsub double %.pre.i358, %127
+  %m_approx_k4.i.i.i360 = getelementptr inbounds i8, ptr %128, i64 32
+  %129 = load double, ptr %m_approx_k4.i.i.i360, align 8
+  %sub.i.i.i361 = fsub double %.pre.i358, %129
   br label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i362
 
 _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i362: ; preds = %if.then.i.i.i359, %if.end.i.i353
   %interval_size.0.i.i363 = phi double [ %sub.i.i.i361, %if.then.i.i.i359 ], [ undef, %if.end.i.i353 ]
   %m_is_int.i.i.i364 = getelementptr inbounds i8, ptr %this, i64 88
-  %128 = load ptr, ptr %m_is_int.i.i.i364, align 8
-  %arrayidx.i.i11.i.i365 = getelementptr inbounds i8, ptr %128, i64 %idxprom.i.i.i350
-  %129 = load i8, ptr %arrayidx.i.i11.i.i365, align 1
-  %cmp.i.not.i.i366 = icmp eq i8 %129, 0
+  %130 = load ptr, ptr %m_is_int.i.i.i364, align 8
+  %arrayidx.i.i11.i.i365 = getelementptr inbounds i8, ptr %130, i64 %idxprom.i.i.i350
+  %131 = load i8, ptr %arrayidx.i.i11.i.i365, align 1
+  %cmp.i.not.i.i366 = icmp eq i8 %131, 0
   br i1 %cmp.i.not.i.i366, label %if.then4.i.i380, label %if.else21.i.i367
 
 if.then4.i.i380:                                  ; preds = %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i362
@@ -4641,13 +4641,13 @@ if.then4.i.i380:                                  ; preds = %_ZNK16bound_propaga
   %sub.i.i382 = fsub double %.pre.i358, %.pre.i358
   %storemerge.i.i383 = select i1 %cmp5.i.i381, double %sub.i.i382, double %.pre.i358
   %m_threshold11.i.i384 = getelementptr inbounds i8, ptr %this, i64 240
-  %130 = load double, ptr %m_threshold11.i.i384, align 8
+  %132 = load double, ptr %m_threshold11.i.i384, align 8
   %cmp.i12.i.i385 = fcmp olt double %storemerge.i.i383, %interval_size.0.i.i363
-  %131 = select i1 %tobool.i.not25.i.i356, i1 true, i1 %cmp.i12.i.i385
-  %storemerge.sink26.i.i386 = select i1 %131, double %storemerge.i.i383, double %interval_size.0.i.i363
+  %133 = select i1 %tobool.i.not25.i.i356, i1 true, i1 %cmp.i12.i.i385
+  %storemerge.sink26.i.i386 = select i1 %133, double %storemerge.i.i383, double %interval_size.0.i.i363
   %cmp.i15.i.i387 = fcmp olt double %storemerge.sink26.i.i386, 1.000000e+00
   %.sroa.speculated.i.i388 = select i1 %cmp.i15.i.i387, double 1.000000e+00, double %storemerge.sink26.i.i386
-  %mul14.i.i389 = fmul double %.sroa.speculated.i.i388, %130
+  %mul14.i.i389 = fmul double %.sroa.speculated.i.i388, %132
   %sub17.i.i390 = fsub double %.pre.i358, %mul14.i.i389
   %cmp18.i.i391 = fcmp ult double %div160, %sub17.i.i390
   br i1 %cmp18.i.i391, label %if.end27.i.i370, label %return
@@ -4659,19 +4659,19 @@ if.else21.i.i367:                                 ; preds = %_ZNK16bound_propaga
 
 if.end27.i.i370:                                  ; preds = %if.else21.i.i367, %if.then4.i.i380
   %m_small_interval.i.i371 = getelementptr inbounds i8, ptr %this, i64 232
-  %132 = load double, ptr %m_small_interval.i.i371, align 8
-  %cmp29.i.i372 = fcmp ugt double %interval_size.0.i.i363, %132
+  %134 = load double, ptr %m_small_interval.i.i371, align 8
+  %cmp29.i.i372 = fcmp ugt double %interval_size.0.i.i363, %134
   %or.cond.i.i373 = select i1 %tobool.i.not25.i.i356, i1 true, i1 %cmp29.i.i372
   br i1 %or.cond.i.i373, label %_ZNK16bound_propagator14relevant_upperEjd.exit392, label %land.lhs.true164
 
 _ZNK16bound_propagator14relevant_upperEjd.exit392: ; preds = %if.end27.i.i370
   %m_upper_refinements.i.i376 = getelementptr inbounds i8, ptr %this, i64 160
-  %133 = load ptr, ptr %m_upper_refinements.i.i376, align 8
-  %arrayidx.i18.i.i377 = getelementptr inbounds i32, ptr %133, i64 %idxprom.i.i.i350
-  %134 = load i32, ptr %arrayidx.i18.i.i377, align 4
+  %135 = load ptr, ptr %m_upper_refinements.i.i376, align 8
+  %arrayidx.i18.i.i377 = getelementptr inbounds i32, ptr %135, i64 %idxprom.i.i.i350
+  %136 = load i32, ptr %arrayidx.i18.i.i377, align 4
   %m_max_refinements.i.i378 = getelementptr inbounds i8, ptr %this, i64 224
-  %135 = load i32, ptr %m_max_refinements.i.i378, align 8
-  %cmp33.i.i379 = icmp ult i32 %134, %135
+  %137 = load i32, ptr %m_max_refinements.i.i378, align 8
+  %cmp33.i.i379 = icmp ult i32 %136, %137
   br i1 %cmp33.i.i379, label %land.lhs.true164, label %return
 
 land.lhs.true164:                                 ; preds = %if.end27.i.i370, %if.then162, %_ZNK16bound_propagator14relevant_upperEjd.exit392
@@ -4681,79 +4681,79 @@ land.lhs.true164:                                 ; preds = %if.end27.i.i370, %i
 
 if.else168:                                       ; preds = %if.then154
   %m_lowers.i.i393 = getelementptr inbounds i8, ptr %this, i64 104
-  %136 = load ptr, ptr %m_lowers.i.i393, align 8
-  %arrayidx.i.i.i395 = getelementptr inbounds ptr, ptr %136, i64 %idxprom.i.i.i350
-  %137 = load ptr, ptr %arrayidx.i.i.i395, align 8
-  %cmp.i.i396 = icmp eq ptr %137, null
+  %138 = load ptr, ptr %m_lowers.i.i393, align 8
+  %arrayidx.i.i.i395 = getelementptr inbounds ptr, ptr %138, i64 %idxprom.i.i.i350
+  %139 = load ptr, ptr %arrayidx.i.i.i395, align 8
+  %cmp.i.i396 = icmp eq ptr %139, null
   br i1 %cmp.i.i396, label %land.lhs.true170, label %if.end.i.i397
 
 if.end.i.i397:                                    ; preds = %if.else168
   %m_uppers.i.i.i398 = getelementptr inbounds i8, ptr %this, i64 112
-  %138 = load ptr, ptr %m_uppers.i.i.i398, align 8
-  %arrayidx.i6.i.i.i399 = getelementptr inbounds ptr, ptr %138, i64 %idxprom.i.i.i350
-  %139 = load ptr, ptr %arrayidx.i6.i.i.i399, align 8
-  %tobool3.i.not25.i.i400 = icmp eq ptr %139, null
+  %140 = load ptr, ptr %m_uppers.i.i.i398, align 8
+  %arrayidx.i6.i.i.i399 = getelementptr inbounds ptr, ptr %140, i64 %idxprom.i.i.i350
+  %141 = load ptr, ptr %arrayidx.i6.i.i.i399, align 8
+  %tobool3.i.not25.i.i400 = icmp eq ptr %141, null
   br i1 %tobool3.i.not25.i.i400, label %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i435, label %if.then.i.i.i401
 
 if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i435: ; preds = %if.end.i.i397
-  %m_approx_k.i.phi.trans.insert.i436 = getelementptr inbounds i8, ptr %137, i64 32
+  %m_approx_k.i.phi.trans.insert.i436 = getelementptr inbounds i8, ptr %139, i64 32
   %.pre.i437 = load double, ptr %m_approx_k.i.phi.trans.insert.i436, align 8
   br label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i405
 
 if.then.i.i.i401:                                 ; preds = %if.end.i.i397
-  %m_approx_k.i.i.i402 = getelementptr inbounds i8, ptr %139, i64 32
-  %140 = load double, ptr %m_approx_k.i.i.i402, align 8
-  %m_approx_k4.i.i.i403 = getelementptr inbounds i8, ptr %137, i64 32
-  %141 = load double, ptr %m_approx_k4.i.i.i403, align 8
-  %sub.i.i.i404 = fsub double %140, %141
+  %m_approx_k.i.i.i402 = getelementptr inbounds i8, ptr %141, i64 32
+  %142 = load double, ptr %m_approx_k.i.i.i402, align 8
+  %m_approx_k4.i.i.i403 = getelementptr inbounds i8, ptr %139, i64 32
+  %143 = load double, ptr %m_approx_k4.i.i.i403, align 8
+  %sub.i.i.i404 = fsub double %142, %143
   br label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i405
 
 _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i405: ; preds = %if.then.i.i.i401, %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i435
-  %142 = phi double [ %141, %if.then.i.i.i401 ], [ %.pre.i437, %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i435 ]
+  %144 = phi double [ %143, %if.then.i.i.i401 ], [ %.pre.i437, %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i435 ]
   %interval_size.0.i.i406 = phi double [ %sub.i.i.i404, %if.then.i.i.i401 ], [ undef, %if.end.i._ZNK16bound_propagator17get_interval_sizeEjRd.exit.i_crit_edge.i435 ]
   %m_is_int.i.i.i407 = getelementptr inbounds i8, ptr %this, i64 88
-  %143 = load ptr, ptr %m_is_int.i.i.i407, align 8
-  %arrayidx.i.i11.i.i408 = getelementptr inbounds i8, ptr %143, i64 %idxprom.i.i.i350
-  %144 = load i8, ptr %arrayidx.i.i11.i.i408, align 1
-  %cmp.i.not.i.i409 = icmp eq i8 %144, 0
+  %145 = load ptr, ptr %m_is_int.i.i.i407, align 8
+  %arrayidx.i.i11.i.i408 = getelementptr inbounds i8, ptr %145, i64 %idxprom.i.i.i350
+  %146 = load i8, ptr %arrayidx.i.i11.i.i408, align 1
+  %cmp.i.not.i.i409 = icmp eq i8 %146, 0
   br i1 %cmp.i.not.i.i409, label %if.then4.i.i423, label %if.else20.i.i410
 
 if.then4.i.i423:                                  ; preds = %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i405
-  %cmp5.i.i424 = fcmp olt double %142, 0.000000e+00
-  %sub.i.i425 = fsub double %142, %142
-  %storemerge.i.i426 = select i1 %cmp5.i.i424, double %sub.i.i425, double %142
+  %cmp5.i.i424 = fcmp olt double %144, 0.000000e+00
+  %sub.i.i425 = fsub double %144, %144
+  %storemerge.i.i426 = select i1 %cmp5.i.i424, double %sub.i.i425, double %144
   %m_threshold11.i.i427 = getelementptr inbounds i8, ptr %this, i64 240
-  %145 = load double, ptr %m_threshold11.i.i427, align 8
+  %147 = load double, ptr %m_threshold11.i.i427, align 8
   %cmp.i12.i.i428 = fcmp olt double %storemerge.i.i426, %interval_size.0.i.i406
-  %146 = select i1 %tobool3.i.not25.i.i400, i1 true, i1 %cmp.i12.i.i428
-  %storemerge.sink26.i.i429 = select i1 %146, double %storemerge.i.i426, double %interval_size.0.i.i406
+  %148 = select i1 %tobool3.i.not25.i.i400, i1 true, i1 %cmp.i12.i.i428
+  %storemerge.sink26.i.i429 = select i1 %148, double %storemerge.i.i426, double %interval_size.0.i.i406
   %cmp.i15.i.i430 = fcmp olt double %storemerge.sink26.i.i429, 1.000000e+00
   %.sroa.speculated.i.i431 = select i1 %cmp.i15.i.i430, double 1.000000e+00, double %storemerge.sink26.i.i429
-  %mul14.i.i432 = fmul double %.sroa.speculated.i.i431, %145
-  %add.i.i433 = fadd double %142, %mul14.i.i432
+  %mul14.i.i432 = fmul double %.sroa.speculated.i.i431, %147
+  %add.i.i433 = fadd double %144, %mul14.i.i432
   %cmp17.i.i434 = fcmp ugt double %div160, %add.i.i433
   br i1 %cmp17.i.i434, label %if.end26.i.i413, label %return
 
 if.else20.i.i410:                                 ; preds = %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i405
-  %add22.i.i411 = fadd double %142, 1.000000e+00
+  %add22.i.i411 = fadd double %144, 1.000000e+00
   %cmp23.i.i412 = fcmp olt double %div160, %add22.i.i411
   br i1 %cmp23.i.i412, label %return, label %if.end26.i.i413
 
 if.end26.i.i413:                                  ; preds = %if.else20.i.i410, %if.then4.i.i423
   %m_small_interval.i.i414 = getelementptr inbounds i8, ptr %this, i64 232
-  %147 = load double, ptr %m_small_interval.i.i414, align 8
-  %cmp28.i.i415 = fcmp ugt double %interval_size.0.i.i406, %147
+  %149 = load double, ptr %m_small_interval.i.i414, align 8
+  %cmp28.i.i415 = fcmp ugt double %interval_size.0.i.i406, %149
   %or.cond.i.i416 = select i1 %tobool3.i.not25.i.i400, i1 true, i1 %cmp28.i.i415
   br i1 %or.cond.i.i416, label %_ZNK16bound_propagator14relevant_lowerEjd.exit438, label %land.lhs.true170
 
 _ZNK16bound_propagator14relevant_lowerEjd.exit438: ; preds = %if.end26.i.i413
   %m_lower_refinements.i.i419 = getelementptr inbounds i8, ptr %this, i64 152
-  %148 = load ptr, ptr %m_lower_refinements.i.i419, align 8
-  %arrayidx.i18.i.i420 = getelementptr inbounds i32, ptr %148, i64 %idxprom.i.i.i350
-  %149 = load i32, ptr %arrayidx.i18.i.i420, align 4
+  %150 = load ptr, ptr %m_lower_refinements.i.i419, align 8
+  %arrayidx.i18.i.i420 = getelementptr inbounds i32, ptr %150, i64 %idxprom.i.i.i350
+  %151 = load i32, ptr %arrayidx.i18.i.i420, align 4
   %m_max_refinements.i.i421 = getelementptr inbounds i8, ptr %this, i64 224
-  %150 = load i32, ptr %m_max_refinements.i.i421, align 8
-  %cmp32.i.i422 = icmp ult i32 %149, %150
+  %152 = load i32, ptr %m_max_refinements.i.i421, align 8
+  %cmp32.i.i422 = icmp ult i32 %151, %152
   br i1 %cmp32.i.i422, label %land.lhs.true170, label %return
 
 land.lhs.true170:                                 ; preds = %if.end26.i.i413, %if.else168, %_ZNK16bound_propagator14relevant_lowerEjd.exit438

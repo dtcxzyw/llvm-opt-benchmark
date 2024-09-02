@@ -539,8 +539,8 @@ land.rhs4:                                        ; preds = %land.rhs
   %4 = load ptr, ptr %buf, align 8
   %path = getelementptr inbounds i8, ptr %1, i64 56
   %call = tail call i32 @strncmp(ptr noundef %4, ptr noundef nonnull %path, i64 noundef %conv) #20
-  %tobool9.not = icmp eq i32 %call, 0
-  br i1 %tobool9.not, label %while.end, label %while.body
+  %tobool9.not.not = icmp eq i32 %call, 0
+  br i1 %tobool9.not.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs, %land.rhs4
   %5 = load ptr, ptr %1, align 8
@@ -1780,15 +1780,14 @@ land.rhs.i51:                                     ; preds = %check_attr_export_i
   %value.i53 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %value.i53, align 8
   %cmp.i54 = icmp eq ptr %18, @git_attr__true
-  %19 = zext i1 %cmp.i54 to i8
+  %19 = select i1 %cmp.i54, i8 4, i8 0
   br label %check_attr_export_subst.exit
 
 check_attr_export_subst.exit:                     ; preds = %get_archive_attrs.exit, %land.rhs.i51
   %land.ext.i55 = phi i8 [ %19, %land.rhs.i51 ], [ 0, %get_archive_attrs.exit ]
   %bf.load19 = load i8, ptr %convert, align 8
-  %bf.shl = shl nuw nsw i8 %land.ext.i55, 2
   %bf.clear20 = and i8 %bf.load19, -5
-  %bf.set21 = or disjoint i8 %bf.clear20, %bf.shl
+  %bf.set21 = or disjoint i8 %bf.clear20, %land.ext.i55
   store i8 %bf.set21, ptr %convert, align 8
   br label %if.end22
 
@@ -1801,31 +1800,22 @@ if.end22:                                         ; preds = %check_attr_export_s
 if.then24:                                        ; preds = %if.end22
   %call26 = tail call ptr @relative_path(ptr noundef %add.ptr, ptr noundef nonnull %20, ptr noundef nonnull @write_archive_entry.buf) #18
   %21 = load i8, ptr %call26, align 1
-  %22 = zext i8 %21 to i32
-  %23 = add nsw i32 %22, -46
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %sub_1, label %if.then24.tail
+  %.not = icmp eq i8 %21, 46
+  br i1 %.not, label %sub_1, label %lor.lhs.false29
 
 sub_1:                                            ; preds = %if.then24
-  %24 = getelementptr inbounds i8, ptr %call26, i64 1
+  %22 = getelementptr inbounds i8, ptr %call26, i64 1
+  %23 = load i8, ptr %22, align 1
+  %.not10 = icmp eq i8 %23, 47
+  br i1 %.not10, label %if.then24.tail, label %lor.lhs.false29
+
+if.then24.tail:                                   ; preds = %sub_1
+  %24 = getelementptr inbounds i8, ptr %call26, i64 2
   %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  %27 = add nsw i32 %26, -47
-  %.not10 = icmp eq i32 %27, 0
-  br i1 %.not10, label %sub_2, label %if.then24.tail
+  %26 = icmp eq i8 %25, 0
+  br i1 %26, label %if.then32, label %lor.lhs.false29
 
-sub_2:                                            ; preds = %sub_1
-  %28 = getelementptr inbounds i8, ptr %call26, i64 2
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  br label %if.then24.tail
-
-if.then24.tail:                                   ; preds = %if.then24, %sub_1, %sub_2
-  %31 = phi i32 [ %23, %if.then24 ], [ %27, %sub_1 ], [ %30, %sub_2 ]
-  %tobool28.not = icmp eq i32 %31, 0
-  br i1 %tobool28.not, label %if.then32, label %lor.lhs.false29
-
-lor.lhs.false29:                                  ; preds = %if.then24.tail
+lor.lhs.false29:                                  ; preds = %sub_1, %if.then24, %if.then24.tail
   %call30 = tail call i32 @starts_with(ptr noundef nonnull %call26, ptr noundef nonnull @.str.9) #18
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.end36, label %if.then32
@@ -1836,18 +1826,18 @@ if.then32:                                        ; preds = %lor.lhs.false29, %i
 
 if.end36:                                         ; preds = %lor.lhs.false29
   store i64 0, ptr getelementptr inbounds (i8, ptr @write_archive_entry.new_path, i64 8), align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.new_path, i64 16), align 8
-  %cmp3.not.i58 = icmp eq ptr %32, @strbuf_slopbuf
+  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.new_path, i64 16), align 8
+  %cmp3.not.i58 = icmp eq ptr %27, @strbuf_slopbuf
   br i1 %cmp3.not.i58, label %strbuf_setlen.exit62, label %if.then4.i59
 
 if.then4.i59:                                     ; preds = %if.end36
-  store i8 0, ptr %32, align 1
+  store i8 0, ptr %27, align 1
   br label %strbuf_setlen.exit62
 
 strbuf_setlen.exit62:                             ; preds = %if.end36, %if.then4.i59
-  %33 = load ptr, ptr %base3, align 8
-  %34 = load i64, ptr %baselen4, align 8
-  tail call void @strbuf_add(ptr noundef nonnull @write_archive_entry.new_path, ptr noundef %33, i64 noundef %34) #18
+  %28 = load ptr, ptr %base3, align 8
+  %29 = load i64, ptr %baselen4, align 8
+  tail call void @strbuf_add(ptr noundef nonnull @write_archive_entry.new_path, ptr noundef %28, i64 noundef %29) #18
   %call.i63 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call26) #20
   tail call void @strbuf_add(ptr noundef nonnull @write_archive_entry.new_path, ptr noundef nonnull %call26, i64 noundef %call.i63) #18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %_swap_buffer.i)
@@ -1864,11 +1854,11 @@ if.end39:                                         ; preds = %strbuf_setlen.exit6
   br i1 %tobool42.not, label %if.end46, label %if.then43
 
 if.then43:                                        ; preds = %if.end39
-  %35 = load ptr, ptr @stderr, align 8
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
-  %conv44 = trunc i64 %36 to i32
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
-  %call45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str, i32 noundef %conv44, ptr noundef %37) #19
+  %30 = load ptr, ptr @stderr, align 8
+  %31 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
+  %conv44 = trunc i64 %31 to i32
+  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
+  %call45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str, i32 noundef %conv44, ptr noundef %32) #19
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then43, %if.end39
@@ -1879,9 +1869,9 @@ if.end46:                                         ; preds = %if.then43, %if.end3
   ]
 
 if.then54:                                        ; preds = %if.end46, %if.end46
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
-  %call55 = tail call i32 %context.8.val(ptr noundef nonnull %context.0.val, ptr noundef %oid, ptr noundef %38, i64 noundef %39, i32 noundef %mode, ptr noundef null, i64 noundef 0) #18
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
+  %34 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
+  %call55 = tail call i32 %context.8.val(ptr noundef nonnull %context.0.val, ptr noundef %oid, ptr noundef %33, i64 noundef %34, i32 noundef %mode, ptr noundef null, i64 noundef 0) #18
   %tobool56.not = icmp eq i32 %call55, 0
   %cond62 = zext i1 %cmp to i32
   %spec.select = select i1 %tobool56.not, i32 %cond62, i32 %call55
@@ -1889,67 +1879,67 @@ if.then54:                                        ; preds = %if.end46, %if.end46
 
 land.lhs.true:                                    ; preds = %if.end46
   %bf.load68 = load i8, ptr %convert, align 8
-  %40 = and i8 %bf.load68, 4
-  %tobool71.not = icmp eq i8 %40, 0
+  %35 = and i8 %bf.load68, 4
+  %tobool71.not = icmp eq i8 %35, 0
   br i1 %tobool71.not, label %land.lhs.true72, label %if.end82
 
 land.lhs.true72:                                  ; preds = %land.lhs.true
-  %41 = load ptr, ptr %context.0.val, align 8
-  %call74 = call i32 @oid_object_info(ptr noundef %41, ptr noundef %oid, ptr noundef nonnull %size) #18
+  %36 = load ptr, ptr %context.0.val, align 8
+  %call74 = call i32 @oid_object_info(ptr noundef %36, ptr noundef %oid, ptr noundef nonnull %size) #18
   %cmp75 = icmp eq i32 %call74, 3
   br i1 %cmp75, label %land.lhs.true77, label %if.end82
 
 land.lhs.true77:                                  ; preds = %land.lhs.true72
-  %42 = load i64, ptr %size, align 8
-  %43 = load i64, ptr @big_file_threshold, align 8
-  %cmp78 = icmp ugt i64 %42, %43
+  %37 = load i64, ptr %size, align 8
+  %38 = load i64, ptr @big_file_threshold, align 8
+  %cmp78 = icmp ugt i64 %37, %38
   br i1 %cmp78, label %if.then80, label %if.end82
 
 if.then80:                                        ; preds = %land.lhs.true77
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
-  %45 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
-  %call81 = call i32 %context.8.val(ptr noundef nonnull %context.0.val, ptr noundef %oid, ptr noundef %44, i64 noundef %45, i32 noundef %mode, ptr noundef null, i64 noundef %42) #18
+  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
+  %40 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
+  %call81 = call i32 %context.8.val(ptr noundef nonnull %context.0.val, ptr noundef %oid, ptr noundef %39, i64 noundef %40, i32 noundef %mode, ptr noundef null, i64 noundef %37) #18
   br label %return
 
 if.end82:                                         ; preds = %if.end46, %land.lhs.true77, %land.lhs.true72, %land.lhs.true
-  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %meta.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i)
   %bf.load.i = load i8, ptr %convert, align 8
-  %47 = and i8 %bf.load.i, 4
-  %tobool.not.i64 = icmp eq i8 %47, 0
+  %42 = and i8 %bf.load.i, 4
+  %tobool.not.i64 = icmp eq i8 %42, 0
   br i1 %tobool.not.i64, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end82
   %commit1.i = getelementptr inbounds i8, ptr %context.0.val, i64 56
-  %48 = load ptr, ptr %commit1.i, align 8
+  %43 = load ptr, ptr %commit1.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end82
-  %cond.i = phi ptr [ %48, %cond.true.i ], [ null, %if.end82 ]
+  %cond.i = phi ptr [ %43, %cond.true.i ], [ null, %if.end82 ]
   %refname.i = getelementptr inbounds i8, ptr %context.0.val, i64 8
-  %49 = load ptr, ptr %refname.i, align 8
+  %44 = load ptr, ptr %refname.i, align 8
   %commit_oid.i = getelementptr inbounds i8, ptr %context.0.val, i64 48
-  %50 = load ptr, ptr %commit_oid.i, align 8
-  %tobool2.not.i = icmp eq ptr %50, null
+  %45 = load ptr, ptr %commit_oid.i, align 8
+  %tobool2.not.i = icmp eq ptr %45, null
   br i1 %tobool2.not.i, label %cond.false5.i, label %cond.end13.i
 
 cond.false5.i:                                    ; preds = %cond.end.i
   %tree.i = getelementptr inbounds i8, ptr %context.0.val, i64 40
-  %51 = load ptr, ptr %tree.i, align 8
-  %tobool6.not.i = icmp eq ptr %51, null
-  %oid9.i = getelementptr inbounds i8, ptr %51, i64 4
+  %46 = load ptr, ptr %tree.i, align 8
+  %tobool6.not.i = icmp eq ptr %46, null
+  %oid9.i = getelementptr inbounds i8, ptr %46, i64 4
   %spec.select.i69 = select i1 %tobool6.not.i, ptr null, ptr %oid9.i
   br label %cond.end13.i
 
 cond.end13.i:                                     ; preds = %cond.false5.i, %cond.end.i
-  %cond14.i = phi ptr [ %50, %cond.end.i ], [ %spec.select.i69, %cond.false5.i ]
-  call void @init_checkout_metadata(ptr noundef nonnull %meta.i, ptr noundef %49, ptr noundef %cond14.i, ptr noundef %oid) #18
-  %52 = load i64, ptr %baselen4, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %46, i64 %52
-  %53 = load ptr, ptr @the_repository, align 8
-  %call.i65 = call ptr @repo_read_object_file(ptr noundef %53, ptr noundef %oid, ptr noundef nonnull %type, ptr noundef nonnull %size) #18
+  %cond14.i = phi ptr [ %45, %cond.end.i ], [ %spec.select.i69, %cond.false5.i ]
+  call void @init_checkout_metadata(ptr noundef nonnull %meta.i, ptr noundef %44, ptr noundef %cond14.i, ptr noundef %oid) #18
+  %47 = load i64, ptr %baselen4, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %41, i64 %47
+  %48 = load ptr, ptr @the_repository, align 8
+  %call.i65 = call ptr @repo_read_object_file(ptr noundef %48, ptr noundef %oid, ptr noundef nonnull %type, ptr noundef nonnull %size) #18
   %tobool15.not.i = icmp eq ptr %call.i65, null
   br i1 %tobool15.not.i, label %object_file_to_archive.exit.thread, label %land.lhs.true.i
 
@@ -1973,32 +1963,32 @@ object_file_to_archive.exit.thread5:              ; preds = %land.lhs.true.i
 if.then.i67:                                      ; preds = %land.lhs.true.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.reject_entry.sb, i64 24, i1 false)
   store i64 0, ptr %size.i, align 8
-  %54 = load i64, ptr %size, align 8
-  %add.i = add i64 %54, 1
-  call void @strbuf_attach(ptr noundef nonnull %buf.i, ptr noundef nonnull %call.i65, i64 noundef %54, i64 noundef %add.i) #18
-  %55 = load ptr, ptr %context.0.val, align 8
-  %index.i = getelementptr inbounds i8, ptr %55, i64 240
-  %56 = load ptr, ptr %index.i, align 8
+  %49 = load i64, ptr %size, align 8
+  %add.i = add i64 %49, 1
+  call void @strbuf_attach(ptr noundef nonnull %buf.i, ptr noundef nonnull %call.i65, i64 noundef %49, i64 noundef %add.i) #18
+  %50 = load ptr, ptr %context.0.val, align 8
+  %index.i = getelementptr inbounds i8, ptr %50, i64 240
+  %51 = load ptr, ptr %index.i, align 8
   %buf16.i = getelementptr inbounds i8, ptr %buf.i, i64 16
-  %57 = load ptr, ptr %buf16.i, align 8
+  %52 = load ptr, ptr %buf16.i, align 8
   %len.i = getelementptr inbounds i8, ptr %buf.i, i64 8
-  %58 = load i64, ptr %len.i, align 8
+  %53 = load i64, ptr %len.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ca.i.i)
-  call void @convert_attrs(ptr noundef %56, ptr noundef nonnull %ca.i.i, ptr noundef %add.ptr.i) #18
-  %call.i.i = call i32 @convert_to_working_tree_ca(ptr noundef nonnull %ca.i.i, ptr noundef %add.ptr.i, ptr noundef %57, i64 noundef %58, ptr noundef nonnull %buf.i, ptr noundef nonnull %meta.i) #18
+  call void @convert_attrs(ptr noundef %51, ptr noundef nonnull %ca.i.i, ptr noundef %add.ptr.i) #18
+  %call.i.i = call i32 @convert_to_working_tree_ca(ptr noundef nonnull %ca.i.i, ptr noundef %add.ptr.i, ptr noundef %52, i64 noundef %53, ptr noundef nonnull %buf.i, ptr noundef nonnull %meta.i) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ca.i.i)
   %tobool18.not.i = icmp eq ptr %cond.i, null
   br i1 %tobool18.not.i, label %object_file_to_archive.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i67
-  %59 = load ptr, ptr %buf16.i, align 8
-  %60 = load i64, ptr %len.i, align 8
+  %54 = load ptr, ptr %buf16.i, align 8
+  %55 = load i64, ptr %len.i, align 8
   %pretty_ctx.i = getelementptr inbounds i8, ptr %context.0.val, i64 152
-  %61 = load ptr, ptr %pretty_ctx.i, align 8
+  %56 = load ptr, ptr %pretty_ctx.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %fmt.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fmt.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.reject_entry.sb, i64 24, i1 false)
   %call.i19.i = call ptr @strbuf_detach(ptr noundef nonnull %buf.i, ptr noundef null) #18
-  %call222.i.i = call ptr @memmem(ptr noundef %59, i64 noundef %60, ptr noundef nonnull @.str.10, i64 noundef 8) #20
+  %call222.i.i = call ptr @memmem(ptr noundef %54, i64 noundef %55, ptr noundef nonnull @.str.10, i64 noundef 8) #20
   %tobool.not23.i.i = icmp eq ptr %call222.i.i, null
   br i1 %tobool.not23.i.i, label %format_subst.exit.i, label %if.end4.lr.ph.i.i
 
@@ -2009,8 +1999,8 @@ if.end4.lr.ph.i.i:                                ; preds = %if.end.i.i
 
 if.end4.i.i:                                      ; preds = %strbuf_setlen.exit.i.i, %if.end4.lr.ph.i.i
   %call226.i.i = phi ptr [ %call222.i.i, %if.end4.lr.ph.i.i ], [ %call2.i.i, %strbuf_setlen.exit.i.i ]
-  %src.addr.025.i.i = phi ptr [ %59, %if.end4.lr.ph.i.i ], [ %add.ptr19.i.i, %strbuf_setlen.exit.i.i ]
-  %len.addr.024.i.i = phi i64 [ %60, %if.end4.lr.ph.i.i ], [ %sub23.i.i, %strbuf_setlen.exit.i.i ]
+  %src.addr.025.i.i = phi ptr [ %54, %if.end4.lr.ph.i.i ], [ %add.ptr19.i.i, %strbuf_setlen.exit.i.i ]
+  %len.addr.024.i.i = phi i64 [ %55, %if.end4.lr.ph.i.i ], [ %sub23.i.i, %strbuf_setlen.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call226.i.i, i64 8
   %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.addr.025.i.i, i64 %len.addr.024.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr5.i.i to i64
@@ -2023,12 +2013,12 @@ if.end4.i.i:                                      ; preds = %strbuf_setlen.exit.
 
 if.end9.i.i:                                      ; preds = %if.end4.i.i
   store i64 0, ptr %len2.i.i.i, align 8
-  %62 = load ptr, ptr %buf.i.i.i, align 8
-  %cmp3.not.i.i.i = icmp eq ptr %62, @strbuf_slopbuf
+  %57 = load ptr, ptr %buf.i.i.i, align 8
+  %cmp3.not.i.i.i = icmp eq ptr %57, @strbuf_slopbuf
   br i1 %cmp3.not.i.i.i, label %strbuf_setlen.exit.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end9.i.i
-  store i8 0, ptr %62, align 1
+  store i8 0, ptr %57, align 1
   br label %strbuf_setlen.exit.i.i
 
 strbuf_setlen.exit.i.i:                           ; preds = %if.then4.i.i.i, %if.end9.i.i
@@ -2039,9 +2029,9 @@ strbuf_setlen.exit.i.i:                           ; preds = %if.then4.i.i.i, %if
   %sub.ptr.rhs.cast16.i.i = ptrtoint ptr %src.addr.025.i.i to i64
   %sub.ptr.sub17.i.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.rhs.cast16.i.i
   call void @strbuf_add(ptr noundef nonnull %buf.i, ptr noundef %src.addr.025.i.i, i64 noundef %sub.ptr.sub17.i.i) #18
-  %63 = load ptr, ptr @the_repository, align 8
-  %64 = load ptr, ptr %buf.i.i.i, align 8
-  call void @repo_format_commit_message(ptr noundef %63, ptr noundef nonnull %cond.i, ptr noundef %64, ptr noundef nonnull %buf.i, ptr noundef %61) #18
+  %58 = load ptr, ptr @the_repository, align 8
+  %59 = load ptr, ptr %buf.i.i.i, align 8
+  call void @repo_format_commit_message(ptr noundef %58, ptr noundef nonnull %cond.i, ptr noundef %59, ptr noundef nonnull %buf.i, ptr noundef %56) #18
   %add.ptr19.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 1
   %sub.ptr.lhs.cast20.i.i = ptrtoint ptr %add.ptr19.i.i to i64
   %sub.ptr.sub22.neg.i.i = add i64 %len.addr.024.i.i, %sub.ptr.rhs.cast16.i.i
@@ -2051,8 +2041,8 @@ strbuf_setlen.exit.i.i:                           ; preds = %if.then4.i.i.i, %if
   br i1 %tobool.not.i.i68, label %format_subst.exit.i, label %if.end4.i.i
 
 format_subst.exit.i:                              ; preds = %strbuf_setlen.exit.i.i, %if.end4.i.i, %if.end.i.i
-  %len.addr.0.lcssa.i.i = phi i64 [ %60, %if.end.i.i ], [ %len.addr.024.i.i, %if.end4.i.i ], [ %sub23.i.i, %strbuf_setlen.exit.i.i ]
-  %src.addr.0.lcssa.i.i = phi ptr [ %59, %if.end.i.i ], [ %src.addr.025.i.i, %if.end4.i.i ], [ %add.ptr19.i.i, %strbuf_setlen.exit.i.i ]
+  %len.addr.0.lcssa.i.i = phi i64 [ %55, %if.end.i.i ], [ %len.addr.024.i.i, %if.end4.i.i ], [ %sub23.i.i, %strbuf_setlen.exit.i.i ]
+  %src.addr.0.lcssa.i.i = phi ptr [ %54, %if.end.i.i ], [ %src.addr.025.i.i, %if.end4.i.i ], [ %add.ptr19.i.i, %strbuf_setlen.exit.i.i ]
   call void @strbuf_add(ptr noundef nonnull %buf.i, ptr noundef %src.addr.0.lcssa.i.i, i64 noundef %len.addr.0.lcssa.i.i) #18
   call void @strbuf_release(ptr noundef nonnull %fmt.i.i) #18
   call void @free(ptr noundef %call.i19.i) #18
@@ -2061,8 +2051,8 @@ format_subst.exit.i:                              ; preds = %strbuf_setlen.exit.
 
 object_file_to_archive.exit:                      ; preds = %if.then.i67, %format_subst.exit.i
   %call22.i = call ptr @strbuf_detach(ptr noundef nonnull %buf.i, ptr noundef nonnull %size.i) #18
-  %65 = load i64, ptr %size.i, align 8
-  store i64 %65, ptr %size, align 8
+  %60 = load i64, ptr %size.i, align 8
+  store i64 %60, ptr %size, align 8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %meta.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
@@ -2070,8 +2060,8 @@ object_file_to_archive.exit:                      ; preds = %if.then.i67, %forma
   br i1 %tobool84.not, label %if.then85, label %if.end90
 
 if.then85:                                        ; preds = %object_file_to_archive.exit.thread, %object_file_to_archive.exit
-  %66 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i = icmp eq i32 %66, 0
+  %61 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i = icmp eq i32 %61, 0
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then85
@@ -2085,11 +2075,11 @@ _.exit:                                           ; preds = %if.then85, %if.end3
   br label %return
 
 if.end90:                                         ; preds = %object_file_to_archive.exit.thread5, %object_file_to_archive.exit
-  %67 = phi i64 [ %.pre, %object_file_to_archive.exit.thread5 ], [ %65, %object_file_to_archive.exit ]
+  %62 = phi i64 [ %.pre, %object_file_to_archive.exit.thread5 ], [ %60, %object_file_to_archive.exit ]
   %buffer.0.i8 = phi ptr [ %call.i65, %object_file_to_archive.exit.thread5 ], [ %call22.i, %object_file_to_archive.exit ]
-  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
-  %69 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
-  %call91 = call i32 %context.8.val(ptr noundef %context.0.val, ptr noundef %oid, ptr noundef %68, i64 noundef %69, i32 noundef %mode, ptr noundef nonnull %buffer.0.i8, i64 noundef %67) #18
+  %63 = load ptr, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 16), align 8
+  %64 = load i64, ptr getelementptr inbounds (i8, ptr @write_archive_entry.path, i64 8), align 8
+  %call91 = call i32 %context.8.val(ptr noundef %context.0.val, ptr noundef %oid, ptr noundef %63, i64 noundef %64, i32 noundef %mode, ptr noundef nonnull %buffer.0.i8, i64 noundef %62) #18
   call void @free(ptr noundef nonnull %buffer.0.i8) #18
   br label %return
 

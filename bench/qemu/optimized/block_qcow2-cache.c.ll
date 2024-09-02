@@ -615,7 +615,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_cache_flush(ptr noundef %bs, ptr noundef %c) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_cache_flush(ptr noundef %bs, ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @qcow2_cache_write(ptr noundef %bs, ptr noundef %c)
   %cmp = icmp eq i32 %call, 0

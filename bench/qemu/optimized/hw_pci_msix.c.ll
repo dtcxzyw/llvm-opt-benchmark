@@ -795,7 +795,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @msix_init_exclusive_bar(ptr noundef %dev, i16 noundef zeroext %nentries, i8 noundef zeroext %bar_nr, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @msix_init_exclusive_bar(ptr noundef %dev, i16 noundef zeroext %nentries, i8 noundef zeroext %bar_nr, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %conv = zext i16 %nentries to i32
   %sub = add nuw nsw i32 %conv, 63

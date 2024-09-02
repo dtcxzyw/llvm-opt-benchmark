@@ -3283,7 +3283,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN12JvmtiEnvBase27get_locked_objects_in_frameEP10JavaThreadS1_P10javaVFrameP13GrowableArrayIP26jvmtiMonitorStackDepthInfoEi(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 111) i32 @_ZN12JvmtiEnvBase27get_locked_objects_in_frameEP10JavaThreadS1_P10javaVFrameP13GrowableArrayIP26jvmtiMonitorStackDepthInfoEi(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.HandleMark, align 8
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
@@ -3657,9 +3657,9 @@ define hidden noundef range(i32 0, 104) i32 @_ZN12JvmtiEnvBase15get_stack_traceE
   %43 = zext nneg i32 %3 to i64
   br label %.lr.ph82
 
-.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %61
-  %indvars.iv = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next, %61 ]
-  %.379 = phi ptr [ %.048, %.lr.ph82.preheader ], [ %65, %61 ]
+.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %62
+  %indvars.iv = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next, %62 ]
+  %.379 = phi ptr [ %.048, %.lr.ph82.preheader ], [ %65, %62 ]
   %44 = load ptr, ptr %.379, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8
@@ -3675,18 +3675,18 @@ define hidden noundef range(i32 0, 104) i32 @_ZN12JvmtiEnvBase15get_stack_traceE
   %.sroa.0.0.copyload.i.i = load i32, ptr %54, align 8
   %55 = and i32 %.sroa.0.0.copyload.i.i, 256
   %.not56 = icmp eq i32 %55, 0
-  br i1 %.not56, label %56, label %61
+  br i1 %.not56, label %56, label %62
 
 56:                                               ; preds = %.lr.ph82
   %57 = load ptr, ptr %.379, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 56
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef i32 %59(ptr noundef nonnull align 8 dereferenceable(5064) %.379) #18
-  br label %61
+  %61 = sext i32 %60 to i64
+  br label %62
 
-61:                                               ; preds = %.lr.ph82, %56
-  %62 = phi i32 [ %60, %56 ], [ -1, %.lr.ph82 ]
-  %63 = sext i32 %62 to i64
+62:                                               ; preds = %.lr.ph82, %56
+  %63 = phi i64 [ %61, %56 ], [ -1, %.lr.ph82 ]
   %64 = getelementptr inbounds i8, ptr %49, i64 8
   store i64 %63, ptr %64, align 8
   %65 = call noundef ptr @_ZNK6vframe11java_senderEv(ptr noundef nonnull align 8 dereferenceable(5064) %.379) #18
@@ -3696,7 +3696,7 @@ define hidden noundef range(i32 0, 104) i32 @_ZN12JvmtiEnvBase15get_stack_traceE
   %68 = and i1 %67, %66
   br i1 %68, label %.lr.ph82, label %._crit_edge83.loopexit, !llvm.loop !52
 
-._crit_edge83.loopexit:                           ; preds = %61
+._crit_edge83.loopexit:                           ; preds = %62
   %69 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge83
 
@@ -4649,7 +4649,7 @@ _ZN12JvmtiEnvBase20is_vthread_suspendedEP7oopDescP10JavaThread.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN12JvmtiEnvBase24get_object_monitor_usageEP10JavaThreadP8_jobjectP17jvmtiMonitorUsage(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 111) i32 @_ZN12JvmtiEnvBase24get_object_monitor_usageEP10JavaThreadP8_jobjectP17jvmtiMonitorUsage(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.HandleMark, align 8
   %6 = alloca %class.ThreadsListHandle, align 8
   %7 = load ptr, ptr @_ZN8VMThread10_vm_threadE, align 8
@@ -5793,7 +5793,7 @@ _ZN13GrowableArrayIPhED2Ev.exit:                  ; preds = %.loopexit.thread, %
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN15ResourceTracker8allocateElPPh(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 111) i32 @_ZN15ResourceTracker8allocateElPPh(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = icmp slt i64 %1, 0
   br i1 %4, label %_ZN12JvmtiEnvBase8allocateElPPh.exit, label %5
 
@@ -7883,11 +7883,11 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %78 = getelementptr inbounds i8, ptr %74, i64 %77
   %79 = icmp ult ptr %72, %78
   %80 = select i1 %.not.i.i.i.i, i1 %79, i1 false
+  %81 = zext i1 %80 to i8
   br label %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit
 
 _ZNK18vframeStreamCommon20is_interpreted_frameEv.exit: ; preds = %69, %71
-  %81 = phi i1 [ false, %69 ], [ %80, %71 ]
-  %82 = zext i1 %81 to i8
+  %82 = phi i8 [ 0, %69 ], [ %81, %71 ]
   store i8 %82, ptr %.02139.sroa.phi44, align 1
   %83 = load i8, ptr %42, align 4
   %84 = trunc i8 %83 to i1

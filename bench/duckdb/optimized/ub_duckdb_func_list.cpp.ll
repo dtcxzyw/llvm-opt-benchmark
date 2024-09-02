@@ -1883,10 +1883,11 @@ cond.true.i.i:                                    ; preds = %if.then4.i
   %18 = load ptr, ptr %step_vector.i.i, align 8, !tbaa !108
   %data.i.i151.i.i = getelementptr inbounds i8, ptr %18, i64 32
   %19 = load ptr, ptr %data.i.i151.i.i, align 8, !tbaa !107
+  %20 = icmp eq ptr %18, null
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %.noexc.i, %if.then4.i
-  %20 = phi ptr [ %18, %.noexc.i ], [ null, %if.then4.i ]
+  %tobool.i167.not.i.i = phi i1 [ %20, %.noexc.i ], [ true, %if.then4.i ]
   %cond.i.i = phi ptr [ %19, %.noexc.i ], [ null, %if.then4.i ]
   %str.sroa.0.0.copyload.i.i = load i64, ptr %15, align 8, !tbaa !37
   %str.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %15, i64 8
@@ -1964,7 +1965,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i162.i.i: ; pre
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit166.i.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i162.i.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit159.i.i
   %retval.0.i.i165.i.i = phi i1 [ %tobool.i.i.i.i164.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i162.i.i ], [ false, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit159.i.i ]
-  %tobool.i167.not.i.i = icmp eq ptr %20, null
   br i1 %tobool.i167.not.i.i, label %land.end.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit166.i.i
@@ -3494,10 +3494,11 @@ cond.true.i.i244:                                 ; preds = %if.then4.i242
   %211 = load ptr, ptr %step_vector.i.i88, align 8, !tbaa !108
   %data.i.i155.i.i = getelementptr inbounds i8, ptr %211, i64 32
   %212 = load ptr, ptr %data.i.i155.i.i, align 8, !tbaa !107
+  %213 = icmp eq ptr %211, null
   br label %cond.end.i.i246
 
 cond.end.i.i246:                                  ; preds = %.noexc.i245, %if.then4.i242
-  %213 = phi ptr [ %211, %.noexc.i245 ], [ null, %if.then4.i242 ]
+  %tobool.i190.not.i.i = phi i1 [ %213, %.noexc.i245 ], [ true, %if.then4.i242 ]
   %cond.i.i247 = phi ptr [ %212, %.noexc.i245 ], [ null, %if.then4.i242 ]
   %str.sroa.0.0.copyload.i.i248 = load i64, ptr %208, align 8, !tbaa.struct !30
   %str.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %208, i64 8
@@ -3715,7 +3716,6 @@ _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i185.i.i: ; pre
 
 _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit189.i.i: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i185.i.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit182.i.i
   %retval.0.i.i188.i.i = phi i1 [ %tobool.i.i.i.i187.i.i, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i185.i.i ], [ false, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit182.i.i ]
-  %tobool.i190.not.i.i = icmp eq ptr %213, null
   br i1 %tobool.i190.not.i.i, label %land.end.i.i271, label %land.rhs.i.i269
 
 land.rhs.i.i269:                                  ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit189.i.i

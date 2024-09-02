@@ -3038,7 +3038,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %667, %671
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i64 @_ZN2cvL15normalizeAnchorENS_6Point_IiEENS_5Size_IiEE(i64 %0, i64 %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i64 0, -9223372036854775808) i64 @_ZN2cvL15normalizeAnchorENS_6Point_IiEENS_5Size_IiEE(i64 %0, i64 %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %.sroa.06.0.extract.trunc = trunc i64 %0 to i32
@@ -3282,7 +3282,7 @@ define void @_ZN2cv22createMorphologyFilterEiiRKNS_11_InputArrayENS_6Point_IiEEi
 36:                                               ; preds = %29
   %.sroa.034.0.extract.trunc38 = trunc i64 %35 to i32
   %.sroa.5.0.extract.shift43 = lshr i64 %35, 32
-  %.sroa.5.0.extract.trunc44 = trunc nuw i64 %.sroa.5.0.extract.shift43 to i32
+  %.sroa.5.0.extract.trunc44 = trunc nuw nsw i64 %.sroa.5.0.extract.shift43 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
@@ -5197,7 +5197,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %37, %40
 51:                                               ; preds = %49
   %.sroa.032.0.extract.trunc38 = trunc i64 %50 to i32
   %.sroa.8.0.extract.shift45 = lshr i64 %50, 32
-  %.sroa.8.0.extract.trunc46 = trunc nuw i64 %.sroa.8.0.extract.shift45 to i32
+  %.sroa.8.0.extract.trunc46 = trunc nuw nsw i64 %.sroa.8.0.extract.shift45 to i32
   %52 = icmp eq i32 %5, 0
   br i1 %52, label %60, label %53
 
@@ -5293,7 +5293,7 @@ _ZN2cv21getStructuringElementEiNS_5Size_IiEENS_6Point_IiEE.exit: ; preds = %._cr
 
 93:                                               ; preds = %88
   %94 = mul nsw i32 %5, %.sroa.032.0.extract.trunc38
-  %95 = mul nsw i32 %5, %.sroa.8.0.extract.trunc46
+  %95 = mul nuw nsw i32 %5, %.sroa.8.0.extract.trunc46
   %96 = add nsw i32 %5, -1
   %97 = add nsw i32 %.sroa.0100.0, -1
   %98 = mul nsw i32 %97, %96
@@ -5301,8 +5301,8 @@ _ZN2cv21getStructuringElementEiNS_5Size_IiEENS_6Point_IiEE.exit: ; preds = %._cr
   %100 = add nsw i32 %.sroa.4.0, -1
   %101 = mul nsw i32 %100, %96
   %102 = add nsw i32 %101, %.sroa.4.0
-  %.sroa.8.0.insert.ext = zext i32 %95 to i64
-  %.sroa.8.0.insert.shift = shl nuw i64 %.sroa.8.0.insert.ext, 32
+  %.sroa.8.0.insert.ext = zext nneg i32 %95 to i64
+  %.sroa.8.0.insert.shift = shl nuw nsw i64 %.sroa.8.0.insert.ext, 32
   %.sroa.032.0.insert.ext = zext i32 %94 to i64
   %.sroa.032.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.shift, %.sroa.032.0.insert.ext
   %.sroa.2.0.insert.ext = zext i32 %102 to i64

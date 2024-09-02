@@ -8122,7 +8122,7 @@ do.body.i:                                        ; preds = %call2.i.i.i.noexc, 
 
 do.cond.thread:                                   ; preds = %do.body.i
   store i32 2, ptr %state_.i.i, align 8
-  %inc57 = add nuw nsw i64 %index.0, 1
+  %inc58 = add nuw nsw i64 %index.0, 1
   br label %do.end
 
 if.end.i:                                         ; preds = %do.body.i
@@ -8315,21 +8315,21 @@ call2.i.i.i.noexc:                                ; preds = %call.i.i.i.noexc
 
 do.cond:                                          ; preds = %call2.i.i.i.noexc
   %.pre = load i32, ptr %state_.i.i, align 8
+  %35 = icmp eq i32 %.pre, 2
   %inc = add nuw nsw i64 %index.0, 1
   %cmp.not = icmp eq i64 %inc, 16
-  %cmp.i14 = icmp eq i32 %.pre, 2
-  %or.cond = select i1 %cmp.not, i1 true, i1 %cmp.i14
+  %or.cond = select i1 %cmp.not, i1 true, i1 %35
   br i1 %or.cond, label %do.end, label %do.body, !llvm.loop !196
 
 do.end:                                           ; preds = %do.cond, %do.cond.thread
-  %inc61 = phi i64 [ %inc57, %do.cond.thread ], [ %inc, %do.cond ]
-  %35 = load ptr, ptr %_M_finish.i, align 8
+  %inc61 = phi i64 [ %inc58, %do.cond.thread ], [ %inc, %do.cond ]
+  %36 = load ptr, ptr %_M_finish.i, align 8
   %add.ptr = getelementptr inbounds %struct.raw_view, ptr %ar, i64 %inc61
-  %36 = load ptr, ptr %agg.result, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %35 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %36 to i64
+  %37 = load ptr, ptr %agg.result, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %36 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %36, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %37, i64 %sub.ptr.sub.i.i
   invoke void @_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE15_M_range_insertIPZNK4absl16strings_internal8SplitterINS7_6ByCharENS7_14SkipWhitespaceES3_E18ConvertToContainerIS5_S3_Lb0EEclERKSC_E8raw_viewEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SN_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %add.ptr.i.i, ptr noundef nonnull %ar, ptr noundef nonnull %add.ptr)
           to label %for.cond unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -8350,12 +8350,12 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i.i.i24.inv
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit26, %lpad.loopexit ], [ %lpad.loopexit28, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp29, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  %37 = load ptr, ptr %agg.result, align 8
-  %tobool.not.i.i.i = icmp eq ptr %37, null
+  %38 = load ptr, ptr %agg.result, align 8
+  %tobool.not.i.i.i = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit, label %if.then.i.i.i16
 
 if.then.i.i.i16:                                  ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %37) #28
+  call void @_ZdlPv(ptr noundef nonnull %38) #28
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i16

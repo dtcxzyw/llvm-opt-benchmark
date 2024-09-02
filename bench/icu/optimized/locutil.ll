@@ -878,7 +878,7 @@ delete.end.i:                                     ; preds = %_ZN6icu_759Hashtabl
   br label %_ZL19locale_utility_initR10UErrorCode.exit
 
 common.resume:                                    ; preds = %ehcleanup49, %lpad, %lpad.i46
-  %common.resume.op = phi { ptr, i32 } [ %8, %lpad.i46 ], [ %.pn.pn, %ehcleanup49 ], [ %18, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %lpad.i46 ], [ %.pn.pn, %ehcleanup49 ], [ %19, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i46:                                         ; preds = %if.then5.i.i.i, %if.end.i.i.i
@@ -951,23 +951,23 @@ if.then5.i.i:                                     ; preds = %call2.i.i.noexc
 
 land.lhs.true:                                    ; preds = %if.then5.i.i
   %.pre53 = load i32, ptr %status, align 4
-  %cmp.i = icmp sgt i32 %.pre53, 0
-  br i1 %cmp.i, label %return, label %if.then6
+  %15 = icmp sgt i32 %.pre53, 0
+  br i1 %15, label %return, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cbundleID)
   %len.i = getelementptr inbounds i8, ptr %cbundleID, i64 56
   store i32 0, ptr %len.i, align 8
-  %15 = load ptr, ptr %cbundleID, align 8
-  store i8 0, ptr %15, align 1
+  %16 = load ptr, ptr %cbundleID, align 8
+  store i8 0, ptr %16, align 1
   %call9 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %cbundleID, ptr noundef nonnull align 8 dereferenceable(64) %bundleID, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %if.then6
-  %16 = load i32, ptr %len.i, align 8
-  %cmp.i23.not = icmp eq i32 %16, 0
-  %17 = load ptr, ptr %cbundleID, align 8
-  %spec.select49 = select i1 %cmp.i23.not, ptr null, ptr %17
+  %17 = load i32, ptr %len.i, align 8
+  %cmp.i23.not = icmp eq i32 %17, 0
+  %18 = load ptr, ptr %cbundleID, align 8
+  %spec.select49 = select i1 %cmp.i23.not, ptr null, ptr %18
   %call16 = invoke ptr @ures_openAvailableLocales_75(ptr noundef %spec.select49, ptr noundef nonnull %status)
           to label %invoke.cont15 unwind label %lpad7
 
@@ -984,13 +984,13 @@ invoke.cont21:                                    ; preds = %for.cond
   br i1 %cmp23, label %for.end, label %if.end25
 
 lpad:                                             ; preds = %if.then5.i.i, %if.end.i.i
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call3) #9
   br label %common.resume
 
 lpad7:                                            ; preds = %invoke.cont8, %if.then6
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup49
 
@@ -1009,7 +1009,7 @@ if.end25:                                         ; preds = %invoke.cont21
           to label %invoke.cont26 unwind label %lpad18.loopexit
 
 invoke.cont26:                                    ; preds = %if.end25
-  %20 = load ptr, ptr %call3, align 8
+  %21 = load ptr, ptr %call3, align 8
   %call.i25 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #9
   %new.isnull.i = icmp eq ptr %call.i25, null
   br i1 %new.isnull.i, label %new.cont.i, label %new.notnull.i
@@ -1019,11 +1019,11 @@ new.notnull.i:                                    ; preds = %invoke.cont26
           to label %new.cont.i unwind label %lpad.i
 
 new.cont.i:                                       ; preds = %new.notnull.i, %invoke.cont26
-  %call2.i2627 = invoke noundef ptr @uhash_put_75(ptr noundef %20, ptr noundef %call.i25, ptr noundef nonnull %call3, ptr noundef nonnull %status)
+  %call2.i2627 = invoke noundef ptr @uhash_put_75(ptr noundef %21, ptr noundef %call.i25, ptr noundef nonnull %call3, ptr noundef nonnull %status)
           to label %invoke.cont28 unwind label %lpad27
 
 lpad.i:                                           ; preds = %new.notnull.i
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call.i25) #9
   br label %lpad27.body
@@ -1033,34 +1033,34 @@ invoke.cont28:                                    ; preds = %new.cont.i
   br label %for.cond, !llvm.loop !8
 
 lpad27:                                           ; preds = %new.cont.i
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %lpad27.body
 
 lpad27.body:                                      ; preds = %lpad.i, %lpad27
-  %eh.lpad-body = phi { ptr, i32 } [ %22, %lpad27 ], [ %21, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %lpad27 ], [ %22, %lpad.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #9
   br label %ehcleanup
 
 for.end:                                          ; preds = %invoke.cont21
-  %23 = load i32, ptr %status, align 4
-  %cmp.i28 = icmp slt i32 %23, 1
+  %24 = load i32, ptr %status, align 4
+  %cmp.i28 = icmp slt i32 %24, 1
   br i1 %cmp.i28, label %if.end34, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.end
-  %24 = load ptr, ptr %call3, align 8
-  %cmp.not.i30 = icmp eq ptr %24, null
+  %25 = load ptr, ptr %call3, align 8
+  %cmp.not.i30 = icmp eq ptr %25, null
   br i1 %cmp.not.i30, label %cleanup.sink.split, label %if.then.i
 
 if.then.i:                                        ; preds = %delete.notnull
-  invoke void @uhash_close_75(ptr noundef nonnull %24)
+  invoke void @uhash_close_75(ptr noundef nonnull %25)
           to label %cleanup.sink.split unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #11
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #11
   unreachable
 
 if.end34:                                         ; preds = %for.end
@@ -1068,8 +1068,8 @@ if.end34:                                         ; preds = %for.end
           to label %invoke.cont35 unwind label %lpad18.loopexit.split-lp
 
 invoke.cont35:                                    ; preds = %if.end34
-  %27 = load ptr, ptr %11, align 8
-  %call.i3233 = invoke noundef ptr @uhash_get_75(ptr noundef %27, ptr noundef nonnull %bundleID)
+  %28 = load ptr, ptr %11, align 8
+  %call.i3233 = invoke noundef ptr @uhash_get_75(ptr noundef %28, ptr noundef nonnull %bundleID)
           to label %invoke.cont36 unwind label %lpad18.loopexit.split-lp
 
 invoke.cont36:                                    ; preds = %invoke.cont35
@@ -1081,19 +1081,19 @@ if.then39:                                        ; preds = %invoke.cont36
           to label %delete.notnull42 unwind label %lpad18.loopexit.split-lp
 
 delete.notnull42:                                 ; preds = %if.then39
-  %28 = load ptr, ptr %call3, align 8
-  %cmp.not.i34 = icmp eq ptr %28, null
+  %29 = load ptr, ptr %call3, align 8
+  %cmp.not.i34 = icmp eq ptr %29, null
   br i1 %cmp.not.i34, label %cleanup.sink.split, label %if.then.i35
 
 if.then.i35:                                      ; preds = %delete.notnull42
-  invoke void @uhash_close_75(ptr noundef nonnull %28)
+  invoke void @uhash_close_75(ptr noundef nonnull %29)
           to label %cleanup.sink.split unwind label %terminate.lpad.i36
 
 terminate.lpad.i36:                               ; preds = %if.then.i35
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #11
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #11
   unreachable
 
 if.else:                                          ; preds = %invoke.cont36
@@ -1119,10 +1119,10 @@ if.then.i40:                                      ; preds = %cleanup
           to label %_ZN6icu_7524LocalUEnumerationPointerD2Ev.exit unwind label %terminate.lpad.i41
 
 terminate.lpad.i41:                               ; preds = %if.then.i40
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #11
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #11
   unreachable
 
 _ZN6icu_7524LocalUEnumerationPointerD2Ev.exit:    ; preds = %cleanup, %if.then.i40
@@ -1135,7 +1135,7 @@ ehcleanup:                                        ; preds = %lpad18.loopexit, %l
   br label %ehcleanup49
 
 ehcleanup49:                                      ; preds = %ehcleanup, %lpad7
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %19, %lpad7 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %20, %lpad7 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %cbundleID) #9
   br label %common.resume
 

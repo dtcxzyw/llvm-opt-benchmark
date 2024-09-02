@@ -965,14 +965,15 @@ if.end41.i:                                       ; preds = %switch.lookup
 
 if.end41.if.end47_crit_edge.i:                    ; preds = %if.end41.i
   %.pre.i = load ptr, ptr %pkt.i, align 8
+  %13 = add i64 %call42.i, 1
   br label %if.end47.i
 
 if.end47.i:                                       ; preds = %switch.hole_check, %sw.bb31.i, %if.end41.if.end47_crit_edge.i
-  %13 = phi ptr [ %.pre.i, %if.end41.if.end47_crit_edge.i ], [ %9, %sw.bb31.i ], [ %9, %switch.hole_check ]
+  %14 = phi ptr [ %.pre.i, %if.end41.if.end47_crit_edge.i ], [ %9, %sw.bb31.i ], [ %9, %switch.hole_check ]
   %cmp3434.i = phi i1 [ true, %if.end41.if.end47_crit_edge.i ], [ false, %sw.bb31.i ], [ false, %switch.hole_check ]
   %retval.0.i32.i = phi i32 [ %switch.load, %if.end41.if.end47_crit_edge.i ], [ 4, %sw.bb31.i ], [ 4, %switch.hole_check ]
-  %old_value.0.i = phi i64 [ %call42.i, %if.end41.if.end47_crit_edge.i ], [ 0, %sw.bb31.i ], [ 0, %switch.hole_check ]
-  %call49.i = call i32 @ossl_qtx_write_pkt(ptr noundef %call.i, ptr noundef %13) #10
+  %old_value.0.i = phi i64 [ %13, %if.end41.if.end47_crit_edge.i ], [ 1, %sw.bb31.i ], [ 1, %switch.hole_check ]
+  %call49.i = call i32 @ossl_qtx_write_pkt(ptr noundef %call.i, ptr noundef %14) #10
   %cmp50.i = icmp ne i32 %call49.i, 0
   %conv51.i = zext i1 %cmp50.i to i32
   %call52.i = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 3645, ptr noundef nonnull @.str.133, i32 noundef %conv51.i) #10
@@ -984,8 +985,7 @@ if.end55.i:                                       ; preds = %if.end47.i
 
 if.then58.i:                                      ; preds = %if.end55.i
   %call59.i = call i64 @ossl_qtx_get_cur_epoch_pkt_count(ptr noundef %call.i, i32 noundef %retval.0.i32.i) #10
-  %add.i = add i64 %old_value.0.i, 1
-  %call60.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.3, i32 noundef 3650, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, i64 noundef %add.i, i64 noundef %call59.i) #10
+  %call60.i = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.3, i32 noundef 3650, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, i64 noundef %old_value.0.i, i64 noundef %call59.i) #10
   %tobool61.not.i = icmp eq i32 %call60.i, 0
   br i1 %tobool61.not.i, label %err.i, label %for.inc.i
 
@@ -998,13 +998,13 @@ sw.bb65.i:                                        ; preds = %for.cond.i
   br i1 %tobool70.not.i, label %err.i, label %if.end72.i
 
 if.end72.i:                                       ; preds = %sw.bb65.i
-  %14 = load ptr, ptr %msg.i, align 8
-  %15 = load i64, ptr %data_len.i, align 8
+  %15 = load ptr, ptr %msg.i, align 8
+  %16 = load i64, ptr %data_len.i, align 8
   %buf73.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
-  %16 = load ptr, ptr %buf73.i, align 8
+  %17 = load ptr, ptr %buf73.i, align 8
   %buf_len74.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
-  %17 = load i64, ptr %buf_len74.i, align 8
-  %call75.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 3659, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.14, ptr noundef %14, i64 noundef %15, ptr noundef %16, i64 noundef %17) #10
+  %18 = load i64, ptr %buf_len74.i, align 8
+  %call75.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 3659, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.14, ptr noundef %15, i64 noundef %16, ptr noundef %17, i64 noundef %18) #10
   %tobool76.not.i = icmp eq i32 %call75.i, 0
   br i1 %tobool76.not.i, label %err.i, label %for.inc.i
 
@@ -1697,12 +1697,12 @@ if.then174:                                       ; preds = %for.body
   %bf.load176 = load i32, ptr %0, align 8
   %bf.clear177 = and i32 %bf.load176, 255
   %cmp178 = icmp eq i32 %bf.clear177, 5
-  %conv180 = select i1 %cmp178, i32 224, i32 240
+  %38 = select i1 %cmp178, i32 224, i32 240
   br label %if.end198
 
 if.else181:                                       ; preds = %for.body
-  %38 = load i64, ptr %pn_offset, align 8
-  %cmp183.not = icmp ult i64 %i.093, %38
+  %39 = load i64, ptr %pn_offset, align 8
+  %cmp183.not = icmp ult i64 %i.093, %39
   br i1 %cmp183.not, label %if.end235, label %land.lhs.true185
 
 land.lhs.true185:                                 ; preds = %if.else181
@@ -1710,18 +1710,18 @@ land.lhs.true185:                                 ; preds = %if.else181
   %bf.lshr = lshr i32 %bf.load188, 10
   %bf.clear189 = and i32 %bf.lshr, 15
   %conv190 = zext nneg i32 %bf.clear189 to i64
-  %add = add i64 %38, %conv190
+  %add = add i64 %39, %conv190
   %cmp191 = icmp ult i64 %i.093, %add
   br i1 %cmp191, label %if.then193, label %if.end235
 
 if.then193:                                       ; preds = %land.lhs.true185
-  %sub195 = sub i64 %i.093, %38
+  %sub195 = sub i64 %i.093, %39
   %mul = shl i64 %sub195, 3
   %add196 = or disjoint i64 %mul, 5
   br label %if.end198
 
 if.end198:                                        ; preds = %if.then193, %if.then174
-  %rej_mask.0 = phi i32 [ %conv180, %if.then174 ], [ 0, %if.then193 ]
+  %rej_mask.0 = phi i32 [ %38, %if.then174 ], [ 0, %if.then193 ]
   %jrel.0 = phi i64 [ 0, %if.then174 ], [ %add196, %if.then193 ]
   %conv216 = zext i8 %xor77 to i32
   br label %for.body206
@@ -1748,8 +1748,8 @@ cond.end:                                         ; preds = %if.end211
   %cmp220.not = icmp eq i32 %and219, 0
   %counts_u.counts_c = select i1 %cmp220.not, ptr @counts_u, ptr @counts_c
   %arrayidx226 = getelementptr inbounds [3 x [37 x i32]], ptr %counts_u.counts_c, i64 0, i64 %idxprom223, i64 %add212
-  %39 = load i32, ptr %arrayidx226, align 4
-  %inc = add i32 %39, 1
+  %40 = load i32, ptr %arrayidx226, align 4
+  %inc = add i32 %40, 1
   store i32 %inc, ptr %arrayidx226, align 4
   br label %for.inc
 
@@ -1775,9 +1775,9 @@ for.end245:                                       ; preds = %for.cond, %for.cond
   br i1 %tobool250.not, label %if.then263, label %if.end252
 
 if.end252:                                        ; preds = %for.end245
-  %40 = load i64, ptr %expected_len, align 8
-  %41 = load ptr, ptr %expected, align 8
-  %call256 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 2901, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.109, ptr noundef %call137, i64 noundef %40, ptr noundef %41, i64 noundef %40) #10
+  %41 = load i64, ptr %expected_len, align 8
+  %42 = load ptr, ptr %expected, align 8
+  %call256 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 2901, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.109, ptr noundef %call137, i64 noundef %41, ptr noundef %42, i64 noundef %41) #10
   %tobool257.not = icmp ne i32 %call256, 0
   %spec.select78 = zext i1 %tobool257.not to i32
   br label %if.then263

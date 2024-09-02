@@ -92,14 +92,14 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @sp_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_DhCheckPubKey_ex(ptr noundef %key, ptr noundef %pub, i32 noundef %pubSz, ptr noundef %prime, i32 noundef %primeSz) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_DhCheckPubKey_ex(ptr noundef %key, ptr noundef %pub, i32 noundef %pubSz, ptr noundef %prime, i32 noundef %primeSz) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @_ffc_validate_public_key(ptr noundef %key, ptr noundef %pub, i32 noundef %pubSz, ptr noundef %prime, i32 noundef %primeSz, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_ffc_validate_public_key(ptr noundef %key, ptr noundef %pub, i32 noundef %pubSz, ptr noundef %prime, i32 noundef %primeSz, i32 noundef %partial) unnamed_addr #1 {
+define internal fastcc range(i32 -173, 1) i32 @_ffc_validate_public_key(ptr noundef %key, ptr noundef %pub, i32 noundef %pubSz, ptr noundef %prime, i32 noundef %primeSz, i32 noundef %partial) unnamed_addr #1 {
 entry:
   %y = alloca [1 x %struct.sp_int], align 16
   %p = alloca [1 x %struct.sp_int], align 16
@@ -212,7 +212,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_DhCheckPubKey(ptr noundef %key, ptr noundef %pub, i32 noundef %pubSz) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_DhCheckPubKey(ptr noundef %key, ptr noundef %pub, i32 noundef %pubSz) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @_ffc_validate_public_key(ptr noundef %key, ptr noundef %pub, i32 noundef %pubSz, ptr noundef null, i32 noundef 0, i32 noundef 1)
   ret i32 %call

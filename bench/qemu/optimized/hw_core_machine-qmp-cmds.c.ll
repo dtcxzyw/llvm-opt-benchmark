@@ -212,10 +212,10 @@ if.end9:                                          ; preds = %if.then5, %if.end
   store ptr %call10, ptr %call1, align 8
   %max_cpus = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load i32, ptr %max_cpus, align 8
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
-  %conv = sext i32 %spec.select to i64
+  %narrow = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
+  %spec.select = sext i32 %narrow to i64
   %cpu_max = getelementptr inbounds i8, ptr %call1, i64 24
-  store i64 %conv, ptr %cpu_max, align 8
+  store i64 %spec.select, ptr %cpu_max, align 8
   %has_hotpluggable_cpus = getelementptr inbounds i8, ptr %0, i64 264
   %5 = load i8, ptr %has_hotpluggable_cpus, align 8
   %hotpluggable_cpus = getelementptr inbounds i8, ptr %call1, i64 32

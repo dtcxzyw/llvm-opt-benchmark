@@ -939,7 +939,7 @@ entry:
 declare double @uprv_ceil_75(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 28, 32) i32 @_ZNK6icu_7520IslamicCivilCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #0 align 2 {
+define noundef range(i32 28, 31) i32 @_ZNK6icu_7520IslamicCivilCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #0 align 2 {
 entry:
   %add = add nsw i32 %month, 1
   %rem = srem i32 %add, 2
@@ -1270,7 +1270,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 28, 32) i32 @_ZNK6icu_7523IslamicUmalquraCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #0 align 2 {
+define noundef range(i32 28, 31) i32 @_ZNK6icu_7523IslamicUmalquraCalendar20handleGetMonthLengthEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %extendedYear, i32 noundef %month) unnamed_addr #0 align 2 {
 entry:
   %0 = add i32 %extendedYear, -1601
   %or.cond = icmp ult i32 %0, -301

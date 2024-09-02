@@ -532,7 +532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit374: ;
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %651, %770, %761, %702, %673, %394
+.loopexit.split-lp.loopexit:                      ; preds = %651, %770, %._crit_edge644.thread, %702, %673, %394
   %lpad.loopexit559 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -1961,47 +1961,44 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %566
 
 ._crit_edge644.thread809:                         ; preds = %.thread
   %738 = trunc nuw nsw i64 %indvars.iv.next777806 to i32
+  %739 = uitofp nneg i32 %738 to double
   br label %._crit_edge644.thread
 
 ._crit_edge644:                                   ; preds = %735
-  %739 = trunc nuw nsw i64 %indvars.iv.next777 to i32
-  %740 = icmp eq i32 %.6301, -1
-  br i1 %740, label %._crit_edge644.thread, label %742
+  %740 = trunc nuw nsw i64 %indvars.iv.next777 to i32
+  %741 = uitofp nneg i32 %740 to double
+  %742 = icmp eq i32 %.6301, -1
+  br i1 %742, label %._crit_edge644.thread, label %743
 
-._crit_edge644.thread:                            ; preds = %.preheader551, %._crit_edge644.thread809, %._crit_edge644
-  %.1306.lcssa804 = phi i32 [ %739, %._crit_edge644 ], [ %738, %._crit_edge644.thread809 ], [ 0, %.preheader551 ]
-  %741 = uitofp nneg i32 %.1306.lcssa804 to double
-  br label %761
+743:                                              ; preds = %._crit_edge644
+  %744 = sitofp i32 %.6301 to double
+  %745 = fadd double %744, -2.000000e+00
+  %746 = add nsw i32 %.6301, -2
+  %747 = sext i32 %746 to i64
+  %748 = getelementptr inbounds double, ptr %.0538, i64 %747
+  %749 = load double, ptr %748, align 8
+  %750 = call double @log(double noundef %749) #18
+  %751 = fadd double %750, 1.000000e+00
+  %752 = fmul double %751, 2.000000e+00
+  %753 = load double, ptr %748, align 8
+  %754 = call double @log(double noundef %753) #18
+  %755 = sext i32 %.6301 to i64
+  %756 = getelementptr inbounds double, ptr %.0538, i64 %755
+  %757 = load double, ptr %756, align 8
+  %758 = call double @log(double noundef %757) #18
+  %759 = fsub double %754, %758
+  %760 = fdiv double %752, %759
+  %761 = fadd double %745, %760
+  br label %._crit_edge644.thread
 
-742:                                              ; preds = %._crit_edge644
-  %743 = sitofp i32 %.6301 to double
-  %744 = fadd double %743, -2.000000e+00
-  %745 = add nsw i32 %.6301, -2
-  %746 = sext i32 %745 to i64
-  %747 = getelementptr inbounds double, ptr %.0538, i64 %746
-  %748 = load double, ptr %747, align 8
-  %749 = call double @log(double noundef %748) #18
-  %750 = fadd double %749, 1.000000e+00
-  %751 = fmul double %750, 2.000000e+00
-  %752 = load double, ptr %747, align 8
-  %753 = call double @log(double noundef %752) #18
-  %754 = sext i32 %.6301 to i64
-  %755 = getelementptr inbounds double, ptr %.0538, i64 %754
-  %756 = load double, ptr %755, align 8
-  %757 = call double @log(double noundef %756) #18
-  %758 = fsub double %753, %757
-  %759 = fdiv double %751, %758
-  %760 = fadd double %744, %759
-  br label %761
-
-761:                                              ; preds = %742, %._crit_edge644.thread
-  %.0266 = phi double [ %741, %._crit_edge644.thread ], [ %760, %742 ]
+._crit_edge644.thread:                            ; preds = %.preheader551, %._crit_edge644, %._crit_edge644.thread809, %743
+  %.0266 = phi double [ %761, %743 ], [ %741, %._crit_edge644 ], [ %739, %._crit_edge644.thread809 ], [ 0.000000e+00, %.preheader551 ]
   %762 = load float, ptr %14, align 4
   %763 = load ptr, ptr %9, align 8
   %764 = invoke noundef float @_Z26output_env_get_time_factorPK16gmx_output_env_t(ptr noundef %763)
           to label %765 unwind label %.loopexit.split-lp.loopexit
 
-765:                                              ; preds = %761
+765:                                              ; preds = %._crit_edge644.thread
   %766 = fmul float %762, %764
   %767 = fpext float %766 to double
   %768 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.0257, ptr noundef nonnull @.str.74, double noundef %767, double noundef %.0266) #18
@@ -2122,16 +2119,19 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %566
   %831 = fcmp olt double %829, %.0262656
   %.1263 = select i1 %831, double %829, double %.0262656
   %exitcond783.not = icmp eq i64 %indvars.iv.next780, %wide.trip.count782
-  br i1 %exitcond783.not, label %._crit_edge659, label %823, !llvm.loop !35
+  br i1 %exitcond783.not, label %._crit_edge659.loopexit, label %823, !llvm.loop !35
 
-._crit_edge659:                                   ; preds = %823, %808
-  %.0264.lcssa = phi double [ -1.000000e+00, %808 ], [ %.1265, %823 ]
-  %.0262.lcssa = phi double [ 1.000000e+300, %808 ], [ %.1263, %823 ]
-  %832 = fptrunc double %.0262.lcssa to float
-  %833 = sitofp i32 %820 to float
-  %834 = fptrunc double %.0264.lcssa to float
+._crit_edge659.loopexit:                          ; preds = %823
+  %832 = fptrunc double %.1263 to float
+  %833 = fptrunc double %.1265 to float
+  br label %._crit_edge659
+
+._crit_edge659:                                   ; preds = %._crit_edge659.loopexit, %808
+  %.0264.lcssa = phi float [ -1.000000e+00, %808 ], [ %833, %._crit_edge659.loopexit ]
+  %.0262.lcssa = phi float [ 0x7FF0000000000000, %808 ], [ %832, %._crit_edge659.loopexit ]
+  %834 = sitofp i32 %820 to float
   %835 = load ptr, ptr %9, align 8
-  invoke void @_Z10xvgr_worldP8_IO_FILEffffPK16gmx_output_env_t(ptr noundef nonnull %.0256, float noundef 1.000000e+00, float noundef %832, float noundef %833, float noundef %834, ptr noundef %835)
+  invoke void @_Z10xvgr_worldP8_IO_FILEffffPK16gmx_output_env_t(ptr noundef nonnull %.0256, float noundef 1.000000e+00, float noundef %.0262.lcssa, float noundef %834, float noundef %.0264.lcssa, ptr noundef %835)
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .preheader:                                       ; preds = %._crit_edge659

@@ -152,7 +152,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZNK6hermes2vm9JSWeakRef5derefERNS0_7RuntimeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
+define hidden range(i64 -1688849860263936, 0) i64 @_ZNK6hermes2vm9JSWeakRef5derefERNS0_7RuntimeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
 entry:
   %ref_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %ref_, align 8

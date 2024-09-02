@@ -2542,578 +2542,578 @@ _post_reconfig.exit:                              ; preds = %839, %838, %.thread
   %867 = add i32 %866, -1
   %or.cond.i314 = icmp ult i32 %867, 59
   %868 = call i32 @llvm.umax.i32(i32 %866, i32 10)
-  %.084.i = select i1 %or.cond.i314, i32 %868, i32 60
-  %869 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1306), align 2
-  %.not110.i = icmp eq i16 %869, 0
-  br i1 %.not110.i, label %873, label %870
+  %869 = uitofp nneg i32 %868 to double
+  %.084.i = select i1 %or.cond.i314, double %869, double 6.000000e+01
+  %870 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1306), align 2
+  %.not110.i = icmp eq i16 %870, 0
+  br i1 %.not110.i, label %874, label %871
 
-870:                                              ; preds = %860
-  %871 = udiv i16 %869, 3
-  %872 = zext nneg i16 %871 to i32
-  br label %873
+871:                                              ; preds = %860
+  %872 = udiv i16 %870, 3
+  %873 = zext nneg i16 %872 to i32
+  br label %874
 
-873:                                              ; preds = %870, %860
-  %.083.i = phi i32 [ %872, %870 ], [ 100, %860 ]
-  %874 = load i64, ptr @_slurmctld_background.last_ping_node_time, align 8
-  %.not111.i = icmp eq i64 %874, 0
-  br i1 %.not111.i, label %875, label %879
+874:                                              ; preds = %871, %860
+  %.083.i = phi i32 [ %873, %871 ], [ 100, %860 ]
+  %875 = load i64, ptr @_slurmctld_background.last_ping_node_time, align 8
+  %.not111.i = icmp eq i64 %875, 0
+  br i1 %.not111.i, label %876, label %880
 
-875:                                              ; preds = %873
-  %876 = add nsw i64 %861, 3
-  %877 = zext nneg i32 %.083.i to i64
-  %878 = sub i64 %876, %877
-  store i64 %878, ptr @_slurmctld_background.last_ping_node_time, align 8
-  br label %879
+876:                                              ; preds = %874
+  %877 = add nsw i64 %861, 3
+  %878 = zext nneg i32 %.083.i to i64
+  %879 = sub i64 %877, %878
+  store i64 %879, ptr @_slurmctld_background.last_ping_node_time, align 8
+  br label %880
 
-879:                                              ; preds = %875, %873
-  %880 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
-  %.not112.i = icmp eq i64 %880, 0
-  br i1 %.not112.i, label %918, label %881
+880:                                              ; preds = %876, %874
+  %881 = load i64, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 328), align 8
+  %.not112.i = icmp eq i64 %881, 0
+  br i1 %.not112.i, label %919, label %882
 
-881:                                              ; preds = %879
+882:                                              ; preds = %880
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  %882 = load i8, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 320), align 8
-  %883 = and i8 %882, 1
-  %884 = zext nneg i8 %883 to i32
-  %885 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #21
-  %886 = load i64, ptr %13, align 8
-  %887 = add nsw i64 %886, 30
-  store i64 %887, ptr %12, align 8
-  %888 = load i64, ptr %549, align 8
-  %889 = mul nsw i64 %888, 1000
-  store i64 %889, ptr %550, align 8
-  %890 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #21
-  %.not.i.i = icmp eq i32 %890, 0
-  br i1 %.not.i.i, label %.preheader.i.i, label %893
+  %883 = load i8, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 320), align 8
+  %884 = and i8 %883, 1
+  %885 = zext nneg i8 %884 to i32
+  %886 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #21
+  %887 = load i64, ptr %13, align 8
+  %888 = add nsw i64 %887, 30
+  store i64 %888, ptr %12, align 8
+  %889 = load i64, ptr %549, align 8
+  %890 = mul nsw i64 %889, 1000
+  store i64 %890, ptr %550, align 8
+  %891 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #21
+  %.not.i.i = icmp eq i32 %891, 0
+  br i1 %.not.i.i, label %.preheader.i.i, label %894
 
-.preheader.i.i:                                   ; preds = %881
-  %891 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
-  %892 = icmp sgt i32 %891, %884
-  br i1 %892, label %.lr.ph.i.i, label %._crit_edge.i.i
+.preheader.i.i:                                   ; preds = %882
+  %892 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
+  %893 = icmp sgt i32 %892, %885
+  br i1 %893, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-893:                                              ; preds = %881
-  %894 = tail call ptr @__errno_location() #22
-  store i32 %890, ptr %894, align 4
+894:                                              ; preds = %882
+  %895 = tail call ptr @__errno_location() #22
+  store i32 %891, ptr %895, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 1979, ptr noundef nonnull @__func__._flush_rpcs) #23
   unreachable
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %899
-  %895 = call i32 @pthread_cond_timedwait(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 344), ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392), ptr noundef nonnull %12) #21
-  switch i32 %895, label %896 [
-    i32 110, label %899
-    i32 0, label %899
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %900
+  %896 = call i32 @pthread_cond_timedwait(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 344), ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392), ptr noundef nonnull %12) #21
+  switch i32 %896, label %897 [
+    i32 110, label %900
+    i32 0, label %900
   ]
 
-896:                                              ; preds = %.lr.ph.i.i
-  %897 = tail call ptr @__errno_location() #22
-  store i32 %895, ptr %897, align 4
-  %898 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.53, i32 noundef 1982, ptr noundef nonnull @__func__._flush_rpcs) #21
-  br label %899
+897:                                              ; preds = %.lr.ph.i.i
+  %898 = tail call ptr @__errno_location() #22
+  store i32 %896, ptr %898, align 4
+  %899 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.53, i32 noundef 1982, ptr noundef nonnull @__func__._flush_rpcs) #21
+  br label %900
 
-899:                                              ; preds = %896, %.lr.ph.i.i, %.lr.ph.i.i
-  %900 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
-  %901 = icmp sgt i32 %900, %884
-  br i1 %901, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !15
+900:                                              ; preds = %897, %.lr.ph.i.i, %.lr.ph.i.i
+  %901 = load i32, ptr getelementptr inbounds (i8, ptr @slurmctld_config, i64 324), align 4
+  %902 = icmp sgt i32 %901, %885
+  br i1 %902, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !15
 
-._crit_edge.i.i:                                  ; preds = %899, %.preheader.i.i
-  %902 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #21
-  %.not12.i.i = icmp eq i32 %902, 0
-  br i1 %.not12.i.i, label %_flush_rpcs.exit.i, label %903
+._crit_edge.i.i:                                  ; preds = %900, %.preheader.i.i
+  %903 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @slurmctld_config, i64 392)) #21
+  %.not12.i.i = icmp eq i32 %903, 0
+  br i1 %.not12.i.i, label %_flush_rpcs.exit.i, label %904
 
-903:                                              ; preds = %._crit_edge.i.i
-  %904 = tail call ptr @__errno_location() #22
-  store i32 %902, ptr %904, align 4
+904:                                              ; preds = %._crit_edge.i.i
+  %905 = tail call ptr @__errno_location() #22
+  store i32 %903, ptr %905, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 1990, ptr noundef nonnull @__func__._flush_rpcs) #23
   unreachable
 
 _flush_rpcs.exit.i:                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  %905 = call i32 @report_locks_set() #21
-  %.not131.i = icmp eq i32 %905, 0
-  br i1 %.not131.i, label %906, label %916
+  %906 = call i32 @report_locks_set() #21
+  %.not131.i = icmp eq i32 %906, 0
+  br i1 %.not131.i, label %907, label %917
 
-906:                                              ; preds = %_flush_rpcs.exit.i
-  %907 = call i32 @get_log_level() #21
-  %908 = icmp sgt i32 %907, 2
-  br i1 %908, label %909, label %910
+907:                                              ; preds = %_flush_rpcs.exit.i
+  %908 = call i32 @get_log_level() #21
+  %909 = icmp sgt i32 %908, 2
+  br i1 %909, label %910, label %911
 
-909:                                              ; preds = %906
+910:                                              ; preds = %907
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.137) #21
-  br label %910
+  br label %911
 
-910:                                              ; preds = %909, %906
+911:                                              ; preds = %910, %907
   call void @schedule_front_end_save() #21
   call void @schedule_job_save() #21
   call void @schedule_node_save() #21
   call void @schedule_part_save() #21
   call void @schedule_resv_save() #21
   call void @schedule_trigger_save() #21
-  %911 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
-  %912 = call i32 @select_g_state_save(ptr noundef %911) #21
-  %913 = call i32 @dump_assoc_mgr_state() #21
-  %914 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
-  %915 = call i32 @fed_mgr_state_save(ptr noundef %914) #21
+  %912 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %913 = call i32 @select_g_state_save(ptr noundef %912) #21
+  %914 = call i32 @dump_assoc_mgr_state() #21
+  %915 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
+  %916 = call i32 @fed_mgr_state_save(ptr noundef %915) #21
   br label %1255
 
-916:                                              ; preds = %_flush_rpcs.exit.i
-  %917 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.138, i32 noundef 30) #21
+917:                                              ; preds = %_flush_rpcs.exit.i
+  %918 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.138, i32 noundef 30) #21
   br label %1255
 
-918:                                              ; preds = %879
-  %919 = load i64, ptr @_slurmctld_background.last_resv_time, align 8
-  %920 = call double @difftime(i64 noundef %861, i64 noundef %919) #22
-  %921 = fcmp ult double %920, 5.000000e+00
-  br i1 %921, label %936, label %922
+919:                                              ; preds = %880
+  %920 = load i64, ptr @_slurmctld_background.last_resv_time, align 8
+  %921 = call double @difftime(i64 noundef %861, i64 noundef %920) #22
+  %922 = fcmp ult double %921, 5.000000e+00
+  br i1 %922, label %937, label %923
 
-922:                                              ; preds = %918
+923:                                              ; preds = %919
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
-  %923 = call i64 @time(ptr noundef null) #21
-  store i64 %923, ptr @_slurmctld_background.last_resv_time, align 8
-  %924 = call i32 @set_node_maint_mode(i1 noundef zeroext false) #21
-  %925 = icmp sgt i32 %924, 0
-  br i1 %925, label %926, label %queue_job_scheduler.exit.i
+  %924 = call i64 @time(ptr noundef null) #21
+  store i64 %924, ptr @_slurmctld_background.last_resv_time, align 8
+  %925 = call i32 @set_node_maint_mode(i1 noundef zeroext false) #21
+  %926 = icmp sgt i32 %925, 0
+  br i1 %926, label %927, label %queue_job_scheduler.exit.i
 
-926:                                              ; preds = %922
-  %927 = call i32 @pthread_mutex_lock(ptr noundef nonnull @sched_cnt_mutex) #21
-  %.not.i132.i = icmp eq i32 %927, 0
-  br i1 %.not.i132.i, label %930, label %928
+927:                                              ; preds = %923
+  %928 = call i32 @pthread_mutex_lock(ptr noundef nonnull @sched_cnt_mutex) #21
+  %.not.i132.i = icmp eq i32 %928, 0
+  br i1 %.not.i132.i, label %931, label %929
 
-928:                                              ; preds = %926
-  %929 = tail call ptr @__errno_location() #22
-  store i32 %927, ptr %929, align 4
+929:                                              ; preds = %927
+  %930 = tail call ptr @__errno_location() #22
+  store i32 %928, ptr %930, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 1179, ptr noundef nonnull @__func__.queue_job_scheduler) #23
   unreachable
 
-930:                                              ; preds = %926
-  %931 = load i32, ptr @job_sched_cnt, align 4
-  %932 = add nsw i32 %931, 1
-  store i32 %932, ptr @job_sched_cnt, align 4
-  %933 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sched_cnt_mutex) #21
-  %.not5.i.i = icmp eq i32 %933, 0
-  br i1 %.not5.i.i, label %queue_job_scheduler.exit.i, label %934
+931:                                              ; preds = %927
+  %932 = load i32, ptr @job_sched_cnt, align 4
+  %933 = add nsw i32 %932, 1
+  store i32 %933, ptr @job_sched_cnt, align 4
+  %934 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sched_cnt_mutex) #21
+  %.not5.i.i = icmp eq i32 %934, 0
+  br i1 %.not5.i.i, label %queue_job_scheduler.exit.i, label %935
 
-934:                                              ; preds = %930
-  %935 = tail call ptr @__errno_location() #22
-  store i32 %933, ptr %935, align 4
+935:                                              ; preds = %931
+  %936 = tail call ptr @__errno_location() #22
+  store i32 %934, ptr %936, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 1181, ptr noundef nonnull @__func__.queue_job_scheduler) #23
   unreachable
 
-queue_job_scheduler.exit.i:                       ; preds = %930, %922
+queue_job_scheduler.exit.i:                       ; preds = %931, %923
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
-  br label %936
+  br label %937
 
-936:                                              ; preds = %queue_job_scheduler.exit.i, %918
-  %.0.i = phi i64 [ %923, %queue_job_scheduler.exit.i ], [ %861, %918 ]
-  %937 = load i64, ptr @_slurmctld_background.last_no_resp_msg_time, align 8
-  %938 = call double @difftime(i64 noundef %.0.i, i64 noundef %937) #22
-  %939 = fcmp ult double %938, %.082.i
-  br i1 %939, label %942, label %940
+937:                                              ; preds = %queue_job_scheduler.exit.i, %919
+  %.0.i = phi i64 [ %924, %queue_job_scheduler.exit.i ], [ %861, %919 ]
+  %938 = load i64, ptr @_slurmctld_background.last_no_resp_msg_time, align 8
+  %939 = call double @difftime(i64 noundef %.0.i, i64 noundef %938) #22
+  %940 = fcmp ult double %939, %.082.i
+  br i1 %940, label %943, label %941
 
-940:                                              ; preds = %936
+941:                                              ; preds = %937
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock2) #21
-  %941 = call i64 @time(ptr noundef null) #21
-  store i64 %941, ptr @_slurmctld_background.last_no_resp_msg_time, align 8
+  %942 = call i64 @time(ptr noundef null) #21
+  store i64 %942, ptr @_slurmctld_background.last_no_resp_msg_time, align 8
   call void @node_no_resp_msg() #21
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock2) #21
-  br label %942
+  br label %943
 
-942:                                              ; preds = %940, %936
-  %.1.i315 = phi i64 [ %941, %940 ], [ %.0.i, %936 ]
+943:                                              ; preds = %941, %937
+  %.1.i315 = phi i64 [ %942, %941 ], [ %.0.i, %937 ]
   call void @validate_all_reservations(i1 noundef zeroext true) #21
-  %943 = load i64, ptr @_slurmctld_background.last_timelimit_time, align 8
-  %944 = call double @difftime(i64 noundef %.1.i315, i64 noundef %943) #22
-  %945 = fcmp ult double %944, 3.000000e+01
-  br i1 %945, label %952, label %946
+  %944 = load i64, ptr @_slurmctld_background.last_timelimit_time, align 8
+  %945 = call double @difftime(i64 noundef %.1.i315, i64 noundef %944) #22
+  %946 = fcmp ult double %945, 3.000000e+01
+  br i1 %946, label %953, label %947
 
-946:                                              ; preds = %942
+947:                                              ; preds = %943
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_write_lock) #21
-  %947 = call i64 @time(ptr noundef null) #21
-  store i64 %947, ptr @_slurmctld_background.last_timelimit_time, align 8
-  %948 = call i32 @get_log_level() #21
-  %949 = icmp sgt i32 %948, 5
-  br i1 %949, label %950, label %951
+  %948 = call i64 @time(ptr noundef null) #21
+  store i64 %948, ptr @_slurmctld_background.last_timelimit_time, align 8
+  %949 = call i32 @get_log_level() #21
+  %950 = icmp sgt i32 %949, 5
+  br i1 %950, label %951, label %952
 
-950:                                              ; preds = %946
+951:                                              ; preds = %947
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.139) #21
-  br label %951
+  br label %952
 
-951:                                              ; preds = %950, %946
+952:                                              ; preds = %951, %947
   call void @job_time_limit() #21
   call void @job_resv_check() #21
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_write_lock) #21
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
   call void @check_node_timers() #21
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
-  br label %952
+  br label %953
 
-952:                                              ; preds = %951, %942
-  %.2.i316 = phi i64 [ %947, %951 ], [ %.1.i315, %942 ]
-  %953 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 420), align 4
-  %.not113.i = icmp eq i16 %953, 0
-  br i1 %.not113.i, label %966, label %954
+953:                                              ; preds = %952, %943
+  %.2.i316 = phi i64 [ %948, %952 ], [ %.1.i315, %943 ]
+  %954 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 420), align 4
+  %.not113.i = icmp eq i16 %954, 0
+  br i1 %.not113.i, label %967, label %955
 
-954:                                              ; preds = %952
-  %955 = load i64, ptr @_slurmctld_background.last_health_check_time, align 8
-  %956 = call double @difftime(i64 noundef %.2.i316, i64 noundef %955) #22
-  %957 = uitofp i16 %953 to double
-  %958 = fcmp ult double %956, %957
-  br i1 %958, label %966, label %959
+955:                                              ; preds = %953
+  %956 = load i64, ptr @_slurmctld_background.last_health_check_time, align 8
+  %957 = call double @difftime(i64 noundef %.2.i316, i64 noundef %956) #22
+  %958 = uitofp i16 %954 to double
+  %959 = fcmp ult double %957, %958
+  br i1 %959, label %967, label %960
 
-959:                                              ; preds = %954
-  %960 = call zeroext i1 @is_ping_done() #21
-  br i1 %960, label %961, label %966
+960:                                              ; preds = %955
+  %961 = call zeroext i1 @is_ping_done() #21
+  br i1 %961, label %962, label %967
 
-961:                                              ; preds = %959
+962:                                              ; preds = %960
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
-  %962 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 422), align 2
-  %.not114.i = icmp sgt i16 %962, -1
-  br i1 %.not114.i, label %963, label %965
+  %963 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 422), align 2
+  %.not114.i = icmp sgt i16 %963, -1
+  br i1 %.not114.i, label %964, label %966
 
-963:                                              ; preds = %961
-  %964 = call i64 @time(ptr noundef null) #21
-  store i64 %964, ptr @_slurmctld_background.last_health_check_time, align 8
-  br label %965
-
-965:                                              ; preds = %963, %961
-  %.4.i = phi i64 [ %.2.i316, %961 ], [ %964, %963 ]
-  call void @run_health_check() #21
-  call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
+964:                                              ; preds = %962
+  %965 = call i64 @time(ptr noundef null) #21
+  store i64 %965, ptr @_slurmctld_background.last_health_check_time, align 8
   br label %966
 
-966:                                              ; preds = %965, %959, %954, %952
-  %.3.i = phi i64 [ %.4.i, %965 ], [ %.2.i316, %959 ], [ %.2.i316, %954 ], [ %.2.i316, %952 ]
-  %967 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 128), align 8
-  %.not115.i = icmp eq i16 %967, 0
-  br i1 %.not115.i, label %977, label %968
+966:                                              ; preds = %964, %962
+  %.4.i = phi i64 [ %.2.i316, %962 ], [ %965, %964 ]
+  call void @run_health_check() #21
+  call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
+  br label %967
 
-968:                                              ; preds = %966
-  %969 = load i64, ptr @_slurmctld_background.last_acct_gather_node_time, align 8
-  %970 = call double @difftime(i64 noundef %.3.i, i64 noundef %969) #22
-  %971 = uitofp i16 %967 to double
-  %972 = fcmp ult double %970, %971
-  br i1 %972, label %977, label %973
+967:                                              ; preds = %966, %960, %955, %953
+  %.3.i = phi i64 [ %.4.i, %966 ], [ %.2.i316, %960 ], [ %.2.i316, %955 ], [ %.2.i316, %953 ]
+  %968 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 128), align 8
+  %.not115.i = icmp eq i16 %968, 0
+  br i1 %.not115.i, label %978, label %969
 
-973:                                              ; preds = %968
-  %974 = call zeroext i1 @is_ping_done() #21
-  br i1 %974, label %975, label %977
+969:                                              ; preds = %967
+  %970 = load i64, ptr @_slurmctld_background.last_acct_gather_node_time, align 8
+  %971 = call double @difftime(i64 noundef %.3.i, i64 noundef %970) #22
+  %972 = uitofp i16 %968 to double
+  %973 = fcmp ult double %971, %972
+  br i1 %973, label %978, label %974
 
-975:                                              ; preds = %973
+974:                                              ; preds = %969
+  %975 = call zeroext i1 @is_ping_done() #21
+  br i1 %975, label %976, label %978
+
+976:                                              ; preds = %974
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
-  %976 = call i64 @time(ptr noundef null) #21
-  store i64 %976, ptr @_slurmctld_background.last_acct_gather_node_time, align 8
+  %977 = call i64 @time(ptr noundef null) #21
+  store i64 %977, ptr @_slurmctld_background.last_acct_gather_node_time, align 8
   call void @update_nodes_acct_gather_data() #21
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
-  br label %977
+  br label %978
 
-977:                                              ; preds = %975, %973, %968, %966
-  %.5.i = phi i64 [ %976, %975 ], [ %.3.i, %973 ], [ %.3.i, %968 ], [ %.3.i, %966 ]
-  %978 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 352), align 8
-  %.not116.i = icmp eq i16 %978, 0
-  br i1 %.not116.i, label %989, label %979
+978:                                              ; preds = %976, %974, %969, %967
+  %.5.i = phi i64 [ %977, %976 ], [ %.3.i, %974 ], [ %.3.i, %969 ], [ %.3.i, %967 ]
+  %979 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 352), align 8
+  %.not116.i = icmp eq i16 %979, 0
+  br i1 %.not116.i, label %990, label %980
 
-979:                                              ; preds = %977
-  %980 = load i64, ptr @_slurmctld_background.last_ext_sensors_time, align 8
-  %981 = call double @difftime(i64 noundef %.5.i, i64 noundef %980) #22
-  %982 = uitofp i16 %978 to double
-  %983 = fcmp ult double %981, %982
-  br i1 %983, label %989, label %984
+980:                                              ; preds = %978
+  %981 = load i64, ptr @_slurmctld_background.last_ext_sensors_time, align 8
+  %982 = call double @difftime(i64 noundef %.5.i, i64 noundef %981) #22
+  %983 = uitofp i16 %979 to double
+  %984 = fcmp ult double %982, %983
+  br i1 %984, label %990, label %985
 
-984:                                              ; preds = %979
-  %985 = call zeroext i1 @is_ping_done() #21
-  br i1 %985, label %986, label %989
+985:                                              ; preds = %980
+  %986 = call zeroext i1 @is_ping_done() #21
+  br i1 %986, label %987, label %990
 
-986:                                              ; preds = %984
+987:                                              ; preds = %985
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
-  %987 = call i64 @time(ptr noundef null) #21
-  store i64 %987, ptr @_slurmctld_background.last_ext_sensors_time, align 8
-  %988 = call i32 @ext_sensors_g_update_component_data() #21
+  %988 = call i64 @time(ptr noundef null) #21
+  store i64 %988, ptr @_slurmctld_background.last_ext_sensors_time, align 8
+  %989 = call i32 @ext_sensors_g_update_component_data() #21
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
-  br label %989
+  br label %990
 
-989:                                              ; preds = %986, %984, %979, %977
-  %.6.i = phi i64 [ %987, %986 ], [ %.5.i, %984 ], [ %.5.i, %979 ], [ %.5.i, %977 ]
-  %990 = load i64, ptr @_slurmctld_background.last_ping_node_time, align 8
-  %991 = call double @difftime(i64 noundef %.6.i, i64 noundef %990) #22
-  %992 = uitofp nneg i32 %.083.i to double
-  %993 = fcmp ult double %991, %992
-  br i1 %993, label %994, label %997
+990:                                              ; preds = %987, %985, %980, %978
+  %.6.i = phi i64 [ %988, %987 ], [ %.5.i, %985 ], [ %.5.i, %980 ], [ %.5.i, %978 ]
+  %991 = load i64, ptr @_slurmctld_background.last_ping_node_time, align 8
+  %992 = call double @difftime(i64 noundef %.6.i, i64 noundef %991) #22
+  %993 = uitofp nneg i32 %.083.i to double
+  %994 = fcmp ult double %992, %993
+  br i1 %994, label %995, label %998
 
-994:                                              ; preds = %989
-  %995 = load i8, ptr @ping_nodes_now, align 1
-  %996 = trunc i8 %995 to i1
-  br i1 %996, label %997, label %1001
+995:                                              ; preds = %990
+  %996 = load i8, ptr @ping_nodes_now, align 1
+  %997 = trunc i8 %996 to i1
+  br i1 %997, label %998, label %1002
 
-997:                                              ; preds = %994, %989
-  %998 = call zeroext i1 @is_ping_done() #21
-  br i1 %998, label %999, label %1001
+998:                                              ; preds = %995, %990
+  %999 = call zeroext i1 @is_ping_done() #21
+  br i1 %999, label %1000, label %1002
 
-999:                                              ; preds = %997
+1000:                                             ; preds = %998
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
-  %1000 = call i64 @time(ptr noundef null) #21
-  store i64 %1000, ptr @_slurmctld_background.last_ping_node_time, align 8
+  %1001 = call i64 @time(ptr noundef null) #21
+  store i64 %1001, ptr @_slurmctld_background.last_ping_node_time, align 8
   store i8 0, ptr @ping_nodes_now, align 1
   call void @ping_nodes() #21
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
-  br label %1001
+  br label %1002
 
-1001:                                             ; preds = %999, %997, %994
-  %.7.i = phi i64 [ %1000, %999 ], [ %.6.i, %997 ], [ %.6.i, %994 ]
-  %1002 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 432), align 8
-  %.not117.i = icmp eq i16 %1002, 0
-  br i1 %.not117.i, label %1014, label %1003
+1002:                                             ; preds = %1000, %998, %995
+  %.7.i = phi i64 [ %1001, %1000 ], [ %.6.i, %998 ], [ %.6.i, %995 ]
+  %1003 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 432), align 8
+  %.not117.i = icmp eq i16 %1003, 0
+  br i1 %.not117.i, label %1015, label %1004
 
-1003:                                             ; preds = %1001
-  %1004 = load i64, ptr @_slurmctld_background.last_ping_srun_time, align 8
-  %1005 = sub nsw i64 %.7.i, %1004
-  %1006 = udiv i16 %1002, 3
-  %1007 = zext nneg i16 %1006 to i64
-  %.not118.i = icmp slt i64 %1005, %1007
-  br i1 %.not118.i, label %1014, label %1008
+1004:                                             ; preds = %1002
+  %1005 = load i64, ptr @_slurmctld_background.last_ping_srun_time, align 8
+  %1006 = sub nsw i64 %.7.i, %1005
+  %1007 = udiv i16 %1003, 3
+  %1008 = zext nneg i16 %1007 to i64
+  %.not118.i = icmp slt i64 %1006, %1008
+  br i1 %.not118.i, label %1015, label %1009
 
-1008:                                             ; preds = %1003
+1009:                                             ; preds = %1004
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_read_lock) #21
-  %1009 = call i64 @time(ptr noundef null) #21
-  store i64 %1009, ptr @_slurmctld_background.last_ping_srun_time, align 8
-  %1010 = call i32 @get_log_level() #21
-  %1011 = icmp sgt i32 %1010, 5
-  br i1 %1011, label %1012, label %1013
+  %1010 = call i64 @time(ptr noundef null) #21
+  store i64 %1010, ptr @_slurmctld_background.last_ping_srun_time, align 8
+  %1011 = call i32 @get_log_level() #21
+  %1012 = icmp sgt i32 %1011, 5
+  br i1 %1012, label %1013, label %1014
 
-1012:                                             ; preds = %1008
+1013:                                             ; preds = %1009
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.140) #21
-  br label %1013
-
-1013:                                             ; preds = %1012, %1008
-  call void @srun_ping() #21
-  call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_read_lock) #21
   br label %1014
 
-1014:                                             ; preds = %1013, %1003, %1001
-  %.8.i = phi i64 [ %1009, %1013 ], [ %.7.i, %1003 ], [ %.7.i, %1001 ]
-  %1015 = load i8, ptr @want_nodes_reboot, align 1
-  %1016 = trunc i8 %1015 to i1
-  br i1 %1016, label %1017, label %1100
+1014:                                             ; preds = %1013, %1009
+  call void @srun_ping() #21
+  call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.job_read_lock) #21
+  br label %1015
 
-1017:                                             ; preds = %1014
+1015:                                             ; preds = %1014, %1004, %1002
+  %.8.i = phi i64 [ %1010, %1014 ], [ %.7.i, %1004 ], [ %.7.i, %1002 ]
+  %1016 = load i8, ptr @want_nodes_reboot, align 1
+  %1017 = trunc i8 %1016 to i1
+  br i1 %1017, label %1018, label %1101
+
+1018:                                             ; preds = %1015
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %1018 = call i64 @time(ptr noundef null) #21
+  %1019 = call i64 @time(ptr noundef null) #21
   store i8 0, ptr @want_nodes_reboot, align 1
   store i32 0, ptr %11, align 4
-  %1019 = call ptr @next_node(ptr noundef nonnull %11) #21
-  %.not51.i.i = icmp eq ptr %1019, null
+  %1020 = call ptr @next_node(ptr noundef nonnull %11) #21
+  %.not51.i.i = icmp eq ptr %1020, null
   br i1 %.not51.i.i, label %_queue_reboot_msg.exit.i, label %.lr.ph.i133.i
 
-.lr.ph.i133.i:                                    ; preds = %1017, %1087
-  %1020 = phi ptr [ %1090, %1087 ], [ %1019, %1017 ]
-  %.04152.i.i = phi ptr [ %.1.i.i, %1087 ], [ null, %1017 ]
-  %1021 = getelementptr inbounds i8, ptr %1020, i64 304
-  %1022 = load i32, ptr %1021, align 8
-  %1023 = zext i32 %1022 to i64
-  %1024 = and i64 %1023, 65536
-  %.not44.i.i = icmp eq i64 %1024, 0
-  br i1 %.not44.i.i, label %1087, label %1025
+.lr.ph.i133.i:                                    ; preds = %1018, %1088
+  %1021 = phi ptr [ %1091, %1088 ], [ %1020, %1018 ]
+  %.04152.i.i = phi ptr [ %.1.i.i, %1088 ], [ null, %1018 ]
+  %1022 = getelementptr inbounds i8, ptr %1021, i64 304
+  %1023 = load i32, ptr %1022, align 8
+  %1024 = zext i32 %1023 to i64
+  %1025 = and i64 %1024, 65536
+  %.not44.i.i = icmp eq i64 %1025, 0
+  br i1 %.not44.i.i, label %1088, label %1026
 
-1025:                                             ; preds = %.lr.ph.i133.i
-  %1026 = and i64 %1023, 1048576
-  %.not45.i.i = icmp eq i64 %1026, 0
-  br i1 %.not45.i.i, label %1033, label %1027
+1026:                                             ; preds = %.lr.ph.i133.i
+  %1027 = and i64 %1024, 1048576
+  %.not45.i.i = icmp eq i64 %1027, 0
+  br i1 %.not45.i.i, label %1034, label %1028
 
-1027:                                             ; preds = %1025
-  %1028 = call i32 @get_log_level() #21
-  %1029 = icmp sgt i32 %1028, 5
-  br i1 %1029, label %1030, label %1087
+1028:                                             ; preds = %1026
+  %1029 = call i32 @get_log_level() #21
+  %1030 = icmp sgt i32 %1029, 5
+  br i1 %1030, label %1031, label %1088
 
-1030:                                             ; preds = %1027
-  %1031 = getelementptr inbounds i8, ptr %1020, i64 256
-  %1032 = load ptr, ptr %1031, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.145, ptr noundef nonnull @__func__._queue_reboot_msg, ptr noundef %1032) #21
-  br label %1087
+1031:                                             ; preds = %1028
+  %1032 = getelementptr inbounds i8, ptr %1021, i64 256
+  %1033 = load ptr, ptr %1032, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.145, ptr noundef nonnull @__func__._queue_reboot_msg, ptr noundef %1033) #21
+  br label %1088
 
-1033:                                             ; preds = %1025
-  %1034 = and i64 %1023, 1024
-  %.not46.i.i = icmp eq i64 %1034, 0
-  br i1 %.not46.i.i, label %1036, label %1035
+1034:                                             ; preds = %1026
+  %1035 = and i64 %1024, 1024
+  %.not46.i.i = icmp eq i64 %1035, 0
+  br i1 %.not46.i.i, label %1037, label %1036
 
-1035:                                             ; preds = %1033
+1036:                                             ; preds = %1034
   store i8 1, ptr @want_nodes_reboot, align 1
-  br label %1087
+  br label %1088
 
-1036:                                             ; preds = %1033
-  %1037 = and i32 %1022, 15
-  %1038 = icmp eq i32 %1037, 2
-  %1039 = and i64 %1023, 18432
-  %1040 = icmp eq i64 %1039, 0
-  %or.cond49.i.i = and i1 %1038, %1040
-  br i1 %or.cond49.i.i, label %1041, label %1045
+1037:                                             ; preds = %1034
+  %1038 = and i32 %1023, 15
+  %1039 = icmp eq i32 %1038, 2
+  %1040 = and i64 %1024, 18432
+  %1041 = icmp eq i64 %1040, 0
+  %or.cond49.i.i = and i1 %1039, %1041
+  br i1 %or.cond49.i.i, label %1042, label %1046
 
-1041:                                             ; preds = %1036
-  %1042 = getelementptr inbounds i8, ptr %1020, i64 448
-  %1043 = load i16, ptr %1042, align 8
-  %1044 = icmp eq i16 %1043, 0
-  br i1 %1044, label %.critedge.i.i, label %.thread50.i.i
+1042:                                             ; preds = %1037
+  %1043 = getelementptr inbounds i8, ptr %1021, i64 448
+  %1044 = load i16, ptr %1043, align 8
+  %1045 = icmp eq i16 %1044, 0
+  br i1 %1045, label %.critedge.i.i, label %.thread50.i.i
 
-1045:                                             ; preds = %1036
-  switch i32 %1037, label %.thread50.i.i [
-    i32 6, label %1046
+1046:                                             ; preds = %1037
+  switch i32 %1038, label %.thread50.i.i [
+    i32 6, label %1047
     i32 1, label %.critedge.i.i
   ]
 
-1046:                                             ; preds = %1045
-  %1047 = getelementptr inbounds i8, ptr %1020, i64 224
-  %1048 = load i64, ptr %1047, align 8
-  %1049 = icmp eq i64 %1048, 0
-  br i1 %1049, label %.critedge.i.i, label %.thread50.i.i
+1047:                                             ; preds = %1046
+  %1048 = getelementptr inbounds i8, ptr %1021, i64 224
+  %1049 = load i64, ptr %1048, align 8
+  %1050 = icmp eq i64 %1049, 0
+  br i1 %1050, label %.critedge.i.i, label %.thread50.i.i
 
-.thread50.i.i:                                    ; preds = %1046, %1045, %1041
+.thread50.i.i:                                    ; preds = %1047, %1046, %1042
   store i8 1, ptr @want_nodes_reboot, align 1
-  br label %1087
+  br label %1088
 
-.critedge.i.i:                                    ; preds = %1046, %1045, %1041
-  %1050 = icmp eq ptr %.04152.i.i, null
-  br i1 %1050, label %1051, label %.critedge._crit_edge.i.i
+.critedge.i.i:                                    ; preds = %1047, %1046, %1042
+  %1051 = icmp eq ptr %.04152.i.i, null
+  br i1 %1051, label %1052, label %.critedge._crit_edge.i.i
 
 .critedge._crit_edge.i.i:                         ; preds = %.critedge.i.i
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.04152.i.i, i64 32
   %.pre.i.i = load i16, ptr %.phi.trans.insert.i.i, align 8
-  br label %1058
+  br label %1059
 
-1051:                                             ; preds = %.critedge.i.i
-  %1052 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.53, i32 noundef 1921, ptr noundef nonnull @__func__._queue_reboot_msg) #21
-  %1053 = getelementptr inbounds i8, ptr %1052, i64 36
-  store i32 1015, ptr %1053, align 4
-  %1054 = getelementptr inbounds i8, ptr %1052, i64 4
-  store i16 0, ptr %1054, align 4
-  %1055 = call ptr @hostlist_create(ptr noundef null) #21
-  %1056 = getelementptr inbounds i8, ptr %1052, i64 24
-  store ptr %1055, ptr %1056, align 8
-  %1057 = getelementptr inbounds i8, ptr %1052, i64 32
-  store i16 10496, ptr %1057, align 8
-  br label %1058
+1052:                                             ; preds = %.critedge.i.i
+  %1053 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.53, i32 noundef 1921, ptr noundef nonnull @__func__._queue_reboot_msg) #21
+  %1054 = getelementptr inbounds i8, ptr %1053, i64 36
+  store i32 1015, ptr %1054, align 4
+  %1055 = getelementptr inbounds i8, ptr %1053, i64 4
+  store i16 0, ptr %1055, align 4
+  %1056 = call ptr @hostlist_create(ptr noundef null) #21
+  %1057 = getelementptr inbounds i8, ptr %1053, i64 24
+  store ptr %1056, ptr %1057, align 8
+  %1058 = getelementptr inbounds i8, ptr %1053, i64 32
+  store i16 10496, ptr %1058, align 8
+  br label %1059
 
-1058:                                             ; preds = %1051, %.critedge._crit_edge.i.i
-  %1059 = phi i16 [ 10496, %1051 ], [ %.pre.i.i, %.critedge._crit_edge.i.i ]
-  %.2.i.i = phi ptr [ %1052, %1051 ], [ %.04152.i.i, %.critedge._crit_edge.i.i ]
-  %1060 = getelementptr inbounds i8, ptr %1020, i64 352
-  %1061 = load i16, ptr %1060, align 8
-  %1062 = icmp ugt i16 %1059, %1061
-  br i1 %1062, label %1063, label %1065
+1059:                                             ; preds = %1052, %.critedge._crit_edge.i.i
+  %1060 = phi i16 [ 10496, %1052 ], [ %.pre.i.i, %.critedge._crit_edge.i.i ]
+  %.2.i.i = phi ptr [ %1053, %1052 ], [ %.04152.i.i, %.critedge._crit_edge.i.i ]
+  %1061 = getelementptr inbounds i8, ptr %1021, i64 352
+  %1062 = load i16, ptr %1061, align 8
+  %1063 = icmp ugt i16 %1060, %1062
+  br i1 %1063, label %1064, label %1066
 
-1063:                                             ; preds = %1058
-  %1064 = getelementptr inbounds i8, ptr %.2.i.i, i64 32
-  store i16 %1061, ptr %1064, align 8
-  br label %1065
+1064:                                             ; preds = %1059
+  %1065 = getelementptr inbounds i8, ptr %.2.i.i, i64 32
+  store i16 %1062, ptr %1065, align 8
+  br label %1066
 
-1065:                                             ; preds = %1063, %1058
-  %1066 = getelementptr inbounds i8, ptr %.2.i.i, i64 24
-  %1067 = load ptr, ptr %1066, align 8
-  %1068 = getelementptr inbounds i8, ptr %1020, i64 256
-  %1069 = load ptr, ptr %1068, align 8
-  %1070 = call i32 @hostlist_push_host(ptr noundef %1067, ptr noundef %1069) #21
-  %1071 = load i32, ptr %.2.i.i, align 8
-  %1072 = add i32 %1071, 1
-  store i32 %1072, ptr %.2.i.i, align 8
-  %1073 = load i32, ptr %1021, align 8
-  %1074 = and i32 %1073, -1114128
-  %1075 = or disjoint i32 %1074, 1048577
-  store i32 %1075, ptr %1021, align 8
-  %1076 = load ptr, ptr @avail_node_bitmap, align 8
-  %1077 = getelementptr inbounds i8, ptr %1020, i64 192
-  %1078 = load i32, ptr %1077, align 8
-  %1079 = zext i32 %1078 to i64
-  call void @bit_clear(ptr noundef %1076, i64 noundef %1079) #21
-  %1080 = load ptr, ptr @idle_node_bitmap, align 8
-  %1081 = load i32, ptr %1077, align 8
-  %1082 = zext i32 %1081 to i64
-  call void @bit_clear(ptr noundef %1080, i64 noundef %1082) #21
-  %1083 = getelementptr inbounds i8, ptr %1020, i64 24
-  store i64 %1018, ptr %1083, align 8
-  call void @set_node_reason(ptr noundef nonnull %1020, ptr noundef nonnull @.str.146, i64 noundef %1018) #21
-  %1084 = load ptr, ptr @acct_db_conn, align 8
-  %1085 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %1086 = call i32 @clusteracct_storage_g_node_down(ptr noundef %1084, ptr noundef nonnull %1020, i64 noundef %1018, ptr noundef null, i32 noundef %1085) #21
-  br label %1087
+1066:                                             ; preds = %1064, %1059
+  %1067 = getelementptr inbounds i8, ptr %.2.i.i, i64 24
+  %1068 = load ptr, ptr %1067, align 8
+  %1069 = getelementptr inbounds i8, ptr %1021, i64 256
+  %1070 = load ptr, ptr %1069, align 8
+  %1071 = call i32 @hostlist_push_host(ptr noundef %1068, ptr noundef %1070) #21
+  %1072 = load i32, ptr %.2.i.i, align 8
+  %1073 = add i32 %1072, 1
+  store i32 %1073, ptr %.2.i.i, align 8
+  %1074 = load i32, ptr %1022, align 8
+  %1075 = and i32 %1074, -1114128
+  %1076 = or disjoint i32 %1075, 1048577
+  store i32 %1076, ptr %1022, align 8
+  %1077 = load ptr, ptr @avail_node_bitmap, align 8
+  %1078 = getelementptr inbounds i8, ptr %1021, i64 192
+  %1079 = load i32, ptr %1078, align 8
+  %1080 = zext i32 %1079 to i64
+  call void @bit_clear(ptr noundef %1077, i64 noundef %1080) #21
+  %1081 = load ptr, ptr @idle_node_bitmap, align 8
+  %1082 = load i32, ptr %1078, align 8
+  %1083 = zext i32 %1082 to i64
+  call void @bit_clear(ptr noundef %1081, i64 noundef %1083) #21
+  %1084 = getelementptr inbounds i8, ptr %1021, i64 24
+  store i64 %1019, ptr %1084, align 8
+  call void @set_node_reason(ptr noundef nonnull %1021, ptr noundef nonnull @.str.146, i64 noundef %1019) #21
+  %1085 = load ptr, ptr @acct_db_conn, align 8
+  %1086 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
+  %1087 = call i32 @clusteracct_storage_g_node_down(ptr noundef %1085, ptr noundef nonnull %1021, i64 noundef %1019, ptr noundef null, i32 noundef %1086) #21
+  br label %1088
 
-1087:                                             ; preds = %1065, %.thread50.i.i, %1035, %1030, %1027, %.lr.ph.i133.i
-  %.1.i.i = phi ptr [ %.04152.i.i, %1030 ], [ %.04152.i.i, %1027 ], [ %.04152.i.i, %1035 ], [ %.2.i.i, %1065 ], [ %.04152.i.i, %.thread50.i.i ], [ %.04152.i.i, %.lr.ph.i133.i ]
-  %1088 = load i32, ptr %11, align 4
-  %1089 = add nsw i32 %1088, 1
-  store i32 %1089, ptr %11, align 4
-  %1090 = call ptr @next_node(ptr noundef nonnull %11) #21
-  %.not.i134.i = icmp eq ptr %1090, null
+1088:                                             ; preds = %1066, %.thread50.i.i, %1036, %1031, %1028, %.lr.ph.i133.i
+  %.1.i.i = phi ptr [ %.04152.i.i, %1031 ], [ %.04152.i.i, %1028 ], [ %.04152.i.i, %1036 ], [ %.2.i.i, %1066 ], [ %.04152.i.i, %.thread50.i.i ], [ %.04152.i.i, %.lr.ph.i133.i ]
+  %1089 = load i32, ptr %11, align 4
+  %1090 = add nsw i32 %1089, 1
+  store i32 %1090, ptr %11, align 4
+  %1091 = call ptr @next_node(ptr noundef nonnull %11) #21
+  %.not.i134.i = icmp eq ptr %1091, null
   br i1 %.not.i134.i, label %._crit_edge.i135.i, label %.lr.ph.i133.i, !llvm.loop !16
 
-._crit_edge.i135.i:                               ; preds = %1087
+._crit_edge.i135.i:                               ; preds = %1088
   %.not43.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not43.i.i, label %_queue_reboot_msg.exit.i, label %1091
+  br i1 %.not43.i.i, label %_queue_reboot_msg.exit.i, label %1092
 
-1091:                                             ; preds = %._crit_edge.i135.i
-  %1092 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
-  %1093 = load ptr, ptr %1092, align 8
-  call void @hostlist_uniq(ptr noundef %1093) #21
-  %1094 = load ptr, ptr %1092, align 8
-  %1095 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %1094) #21
-  store ptr %1095, ptr %10, align 8
-  %1096 = call i32 @get_log_level() #21
-  %1097 = icmp sgt i32 %1096, 4
-  br i1 %1097, label %1098, label %1099
+1092:                                             ; preds = %._crit_edge.i135.i
+  %1093 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
+  %1094 = load ptr, ptr %1093, align 8
+  call void @hostlist_uniq(ptr noundef %1094) #21
+  %1095 = load ptr, ptr %1093, align 8
+  %1096 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %1095) #21
+  store ptr %1096, ptr %10, align 8
+  %1097 = call i32 @get_log_level() #21
+  %1098 = icmp sgt i32 %1097, 4
+  br i1 %1098, label %1099, label %1100
 
-1098:                                             ; preds = %1091
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.147, ptr noundef %1095) #21
-  br label %1099
+1099:                                             ; preds = %1092
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.147, ptr noundef %1096) #21
+  br label %1100
 
-1099:                                             ; preds = %1098, %1091
+1100:                                             ; preds = %1099, %1092
   call void @slurm_xfree(ptr noundef nonnull %10) #21
   call void @set_agent_arg_r_uid(ptr noundef nonnull %.1.i.i, i32 noundef -1) #21
   call void @agent_queue_request(ptr noundef nonnull %.1.i.i) #21
-  store i64 %1018, ptr @last_node_update, align 8
+  store i64 %1019, ptr @last_node_update, align 8
   call void @schedule_node_save() #21
   br label %_queue_reboot_msg.exit.i
 
-_queue_reboot_msg.exit.i:                         ; preds = %1099, %._crit_edge.i135.i, %1017
+_queue_reboot_msg.exit.i:                         ; preds = %1100, %._crit_edge.i135.i, %1018
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._slurmctld_background.node_write_lock) #21
-  br label %1100
+  br label %1101
 
-1100:                                             ; preds = %_queue_reboot_msg.exit.i, %1014
+1101:                                             ; preds = %_queue_reboot_msg.exit.i, %1015
   call void @agent_trigger(i32 noundef 60, i1 noundef zeroext true, i1 noundef zeroext true) #21
-  %1101 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 400), align 8
-  %.not119.i = icmp eq i16 %1101, 0
-  br i1 %.not119.i, label %1113, label %1102
+  %1102 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 400), align 8
+  %.not119.i = icmp eq i16 %1102, 0
+  br i1 %.not119.i, label %1114, label %1103
 
-1102:                                             ; preds = %1100
-  %1103 = load i64, ptr @_slurmctld_background.last_group_time, align 8
-  %1104 = call double @difftime(i64 noundef %.8.i, i64 noundef %1103) #22
-  %1105 = uitofp i16 %1101 to double
-  %1106 = fcmp ult double %1104, %1105
-  br i1 %1106, label %1113, label %1107
+1103:                                             ; preds = %1101
+  %1104 = load i64, ptr @_slurmctld_background.last_group_time, align 8
+  %1105 = call double @difftime(i64 noundef %.8.i, i64 noundef %1104) #22
+  %1106 = uitofp i16 %1102 to double
+  %1107 = fcmp ult double %1105, %1106
+  br i1 %1107, label %1114, label %1108
 
-1107:                                             ; preds = %1102
+1108:                                             ; preds = %1103
   call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._remove_qos.part_write_lock) #21
-  %1108 = call i64 @time(ptr noundef null) #21
-  store i64 %1108, ptr @_slurmctld_background.last_group_time, align 8
-  %1109 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 402), align 2
-  %1110 = icmp ne i16 %1109, 0
-  call void @load_part_uid_allow_list(i1 noundef zeroext %1110) #21
-  %1111 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 402), align 2
-  %1112 = zext i16 %1111 to i32
-  call void @reservation_update_groups(i32 noundef %1112) #21
+  %1109 = call i64 @time(ptr noundef null) #21
+  store i64 %1109, ptr @_slurmctld_background.last_group_time, align 8
+  %1110 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 402), align 2
+  %1111 = icmp ne i16 %1110, 0
+  call void @load_part_uid_allow_list(i1 noundef zeroext %1111) #21
+  %1112 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 402), align 2
+  %1113 = zext i16 %1112 to i32
+  call void @reservation_update_groups(i32 noundef %1113) #21
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._remove_qos.part_write_lock) #21
   call void @group_cache_cleanup() #21
-  br label %1113
+  br label %1114
 
-1113:                                             ; preds = %1107, %1102, %1100
-  %.9.i = phi i64 [ %1108, %1107 ], [ %.8.i, %1102 ], [ %.8.i, %1100 ]
-  %1114 = load i64, ptr @_slurmctld_background.last_purge_job_time, align 8
-  %1115 = call double @difftime(i64 noundef %.9.i, i64 noundef %1114) #22
-  %1116 = uitofp nneg i32 %.084.i to double
-  %1117 = fcmp ult double %1115, %1116
+1114:                                             ; preds = %1108, %1103, %1101
+  %.9.i = phi i64 [ %1109, %1108 ], [ %.8.i, %1103 ], [ %.8.i, %1101 ]
+  %1115 = load i64, ptr @_slurmctld_background.last_purge_job_time, align 8
+  %1116 = call double @difftime(i64 noundef %.9.i, i64 noundef %1115) #22
+  %1117 = fcmp ult double %1116, %.084.i
   br i1 %1117, label %1134, label %1118
 
-1118:                                             ; preds = %1113
+1118:                                             ; preds = %1114
   %1119 = call i32 @pthread_mutex_lock(ptr noundef nonnull @check_bf_running_lock) #21
   %.not120.i = icmp eq i32 %1119, 0
   br i1 %.not120.i, label %1122, label %1120
@@ -3158,8 +3158,8 @@ _queue_reboot_msg.exit.i:                         ; preds = %1099, %._crit_edge.
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, i32 noundef 2262, ptr noundef nonnull @__func__._slurmctld_background) #23
   unreachable
 
-1134:                                             ; preds = %1130, %1113
-  %.10.i = phi i64 [ %.11.i, %1130 ], [ %.9.i, %1113 ]
+1134:                                             ; preds = %1130, %1114
+  %.10.i = phi i64 [ %.11.i, %1130 ], [ %.9.i, %1114 ]
   %1135 = load i64, ptr @_slurmctld_background.last_full_sched_time, align 8
   %1136 = call double @difftime(i64 noundef %.10.i, i64 noundef %1135) #22
   %1137 = load i32, ptr @sched_interval, align 4
@@ -3424,7 +3424,7 @@ _queue_reboot_msg.exit.i:                         ; preds = %1099, %._crit_edge.
   %.not.i318 = icmp eq i32 %1254, 0
   br i1 %.not.i318, label %.lr.ph.i313, label %._crit_edge.i312
 
-1255:                                             ; preds = %916, %910
+1255:                                             ; preds = %917, %911
   %1256 = call i32 @get_log_level() #21
   %1257 = icmp sgt i32 %1256, 6
   br i1 %1257, label %1258, label %_slurmctld_background.exit

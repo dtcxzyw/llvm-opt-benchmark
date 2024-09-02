@@ -934,7 +934,7 @@ declare dso_local void @fib_release_info(ptr noundef) local_unnamed_addr #2
 declare dso_local void @rt_cache_flush(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @fib_insert_alias(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -12, 1) i32 @fib_insert_alias(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %260
 
@@ -6520,7 +6520,7 @@ define dso_local i32 @fib_table_dump(ptr nocapture noundef readonly %0, ptr noun
   %13 = icmp eq i32 %9, 0
   %14 = icmp ne i32 %12, 0
   %15 = select i1 %13, i1 true, i1 %14
-  br i1 %15, label %16, label %239
+  br i1 %15, label %16, label %240
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %0, i64 40
@@ -6545,10 +6545,10 @@ define dso_local i32 @fib_table_dump(ptr nocapture noundef readonly %0, ptr noun
   %36 = getelementptr inbounds i8, ptr %6, i64 16
   br label %37
 
-37:                                               ; preds = %229, %16
-  %38 = phi ptr [ %18, %16 ], [ %116, %229 ]
-  %39 = phi i32 [ %9, %16 ], [ %230, %229 ]
-  %40 = phi i32 [ %12, %16 ], [ %232, %229 ]
+37:                                               ; preds = %230, %16
+  %38 = phi ptr [ %18, %16 ], [ %116, %230 ]
+  %39 = phi i32 [ %9, %16 ], [ %231, %230 ]
+  %40 = phi i32 [ %12, %16 ], [ %233, %230 ]
   br label %41
 
 41:                                               ; preds = %64, %37
@@ -6699,7 +6699,7 @@ define dso_local i32 @fib_table_dump(ptr nocapture noundef readonly %0, ptr noun
   %135 = icmp eq i32 %133, 0
   %136 = load volatile ptr, ptr %134, align 8
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %._crit_edge113, label %.lr.ph
+  br i1 %137, label %224, label %.lr.ph
 
 .lr.ph:                                           ; preds = %128, %215
   %138 = phi ptr [ %217, %215 ], [ %136, %128 ]
@@ -6837,49 +6837,52 @@ define dso_local i32 @fib_table_dump(ptr nocapture noundef readonly %0, ptr noun
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   br label %.thread16
 
-._crit_edge113:                                   ; preds = %215, %128
-  %.lcssa101 = phi i32 [ 0, %128 ], [ %216, %215 ]
-  %223 = sext i32 %.lcssa101 to i64
-  store i64 %223, ptr %22, align 8
-  %224 = load i32, ptr %35, align 8
+._crit_edge113:                                   ; preds = %215
+  %223 = sext i32 %216 to i64
+  br label %224
+
+224:                                              ; preds = %._crit_edge113, %128
+  %.lcssa101 = phi i64 [ %223, %._crit_edge113 ], [ 0, %128 ]
+  store i64 %.lcssa101, ptr %22, align 8
+  %225 = load i32, ptr %35, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  %225 = icmp slt i32 %224, 0
-  br i1 %225, label %.thread16, label %229
+  %226 = icmp slt i32 %225, 0
+  br i1 %226, label %.thread16, label %230
 
-.thread16:                                        ; preds = %._crit_edge113, %.thread65
-  %226 = phi i32 [ %219, %.thread65 ], [ %224, %._crit_edge113 ]
-  %227 = zext i32 %40 to i64
-  store i64 %227, ptr %10, align 8
-  %228 = sext i32 %39 to i64
-  store i64 %228, ptr %7, align 8
-  br label %242
+.thread16:                                        ; preds = %224, %.thread65
+  %227 = phi i32 [ %219, %.thread65 ], [ %225, %224 ]
+  %228 = zext i32 %40 to i64
+  store i64 %228, ptr %10, align 8
+  %229 = sext i32 %39 to i64
+  store i64 %229, ptr %7, align 8
+  br label %243
 
-229:                                              ; preds = %._crit_edge113
-  %230 = add i32 %39, 1
-  %231 = load i32, ptr %117, align 8
-  %232 = add i32 %231, 1
+230:                                              ; preds = %224
+  %231 = add i32 %39, 1
+  %232 = load i32, ptr %117, align 8
+  %233 = add i32 %232, 1
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  %233 = load i32, ptr %117, align 8
-  %234 = icmp ult i32 %232, %233
-  br i1 %234, label %.thread, label %37
+  %234 = load i32, ptr %117, align 8
+  %235 = icmp ult i32 %233, %234
+  br i1 %235, label %.thread, label %37
 
-.thread:                                          ; preds = %229, %.loopexit18, %101
-  %235 = phi i32 [ %39, %101 ], [ %230, %229 ], [ %39, %.loopexit18 ]
-  %236 = phi i32 [ %40, %101 ], [ %232, %229 ], [ %40, %.loopexit18 ]
-  %237 = zext i32 %236 to i64
-  store i64 %237, ptr %10, align 8
-  %238 = sext i32 %235 to i64
-  store i64 %238, ptr %7, align 8
-  br label %239
+.thread:                                          ; preds = %230, %.loopexit18, %101
+  %236 = phi i32 [ %39, %101 ], [ %231, %230 ], [ %39, %.loopexit18 ]
+  %237 = phi i32 [ %40, %101 ], [ %233, %230 ], [ %40, %.loopexit18 ]
+  %238 = zext i32 %237 to i64
+  store i64 %238, ptr %10, align 8
+  %239 = sext i32 %236 to i64
+  store i64 %239, ptr %7, align 8
+  br label %240
 
-239:                                              ; preds = %.thread, %4
-  %240 = getelementptr inbounds i8, ptr %1, i64 112
-  %241 = load i32, ptr %240, align 8
-  br label %242
+240:                                              ; preds = %.thread, %4
+  %241 = getelementptr inbounds i8, ptr %1, i64 112
+  %242 = load i32, ptr %241, align 8
+  br label %243
 
-242:                                              ; preds = %.thread16, %239
-  %243 = phi i32 [ %241, %239 ], [ %226, %.thread16 ]
-  ret i32 %243
+243:                                              ; preds = %.thread16, %240
+  %244 = phi i32 [ %242, %240 ], [ %227, %.thread16 ]
+  ret i32 %244
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -7515,15 +7518,15 @@ define internal fastcc ptr @replace(ptr noundef %0, ptr noundef %1) unnamed_addr
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %39, %.thread
-  %46 = phi ptr [ %67, %.thread ], [ %1, %39 ]
-  %47 = phi i64 [ %49, %.thread ], [ %44, %39 ]
+.preheader:                                       ; preds = %39, %.critedge
+  %46 = phi ptr [ %67, %.critedge ], [ %1, %39 ]
+  %47 = phi i64 [ %49, %.critedge ], [ %44, %39 ]
   %48 = getelementptr inbounds i8, ptr %46, i64 8
   %49 = add i64 %47, -1
   %50 = getelementptr [0 x ptr], ptr %48, i64 0, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.thread, label %53
+  br i1 %52, label %.critedge, label %53
 
 53:                                               ; preds = %.preheader
   %54 = getelementptr inbounds i8, ptr %51, i64 4
@@ -7538,19 +7541,19 @@ define internal fastcc ptr @replace(ptr noundef %0, ptr noundef %1) unnamed_addr
   %63 = zext i8 %62 to i32
   %64 = icmp ne i32 %60, %63
   %.not = icmp eq i8 %58, 0
-  %or.cond = or i1 %.not, %64
-  br i1 %or.cond, label %.thread, label %65
+  %spec.select = or i1 %.not, %64
+  br i1 %spec.select, label %.critedge, label %65
 
 65:                                               ; preds = %53
   %66 = tail call fastcc ptr @resize(ptr noundef nonnull %51)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.preheader, %53, %65
+.critedge:                                        ; preds = %.preheader, %65, %53
   %67 = phi ptr [ %66, %65 ], [ %46, %53 ], [ %46, %.preheader ]
   %68 = icmp eq i64 %49, 0
   br i1 %68, label %.loopexit, label %.preheader, !llvm.loop !92
 
-.loopexit:                                        ; preds = %.thread, %39
+.loopexit:                                        ; preds = %.critedge, %39
   ret ptr %5
 }
 

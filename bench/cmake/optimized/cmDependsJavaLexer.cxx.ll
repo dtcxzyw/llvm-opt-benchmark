@@ -54,11 +54,11 @@ define dso_local noundef i32 @_Z19cmDependsJava_yylexPN25cmDependsJavaParserHelp
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %._crit_edge677
+  br i1 %.not, label %5, label %._crit_edge675
 
-._crit_edge677:                                   ; preds = %2
+._crit_edge675:                                   ; preds = %2
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 64
-  %.pre668.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre666.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %76
 
 5:                                                ; preds = %2
@@ -99,42 +99,42 @@ define dso_local noundef i32 @_Z19cmDependsJava_yylexPN25cmDependsJavaParserHelp
   %21 = getelementptr inbounds i8, ptr %1, i64 40
   %22 = load ptr, ptr %21, align 8
   %.not235 = icmp eq ptr %22, null
-  br i1 %.not235, label %28, label %23
+  br i1 %.not235, label %29, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %1, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = getelementptr inbounds ptr, ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8
-  %.not236 = icmp eq ptr %27, null
-  br i1 %.not236, label %34, label %59
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %.critedge, label %59
 
-28:                                               ; preds = %20
-  %29 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #29
-  store ptr %29, ptr %21, align 8
-  %.not28.i = icmp eq ptr %29, null
-  br i1 %.not28.i, label %30, label %31
+29:                                               ; preds = %20
+  %30 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #29
+  store ptr %30, ptr %21, align 8
+  %.not28.i = icmp eq ptr %30, null
+  br i1 %.not28.i, label %31, label %32
 
-30:                                               ; preds = %28
+31:                                               ; preds = %29
   tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.14) #30
   unreachable
 
-31:                                               ; preds = %28
-  store i64 0, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
-  store i64 0, ptr %33, align 8
+32:                                               ; preds = %29
+  store i64 0, ptr %30, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 1, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  store i64 0, ptr %34, align 8
   br label %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit
 
-34:                                               ; preds = %23
+.critedge:                                        ; preds = %23
   %35 = getelementptr inbounds i8, ptr %1, i64 32
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, -1
   %.not29.i = icmp ult i64 %25, %37
   br i1 %.not29.i, label %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit, label %38
 
-38:                                               ; preds = %34
+38:                                               ; preds = %.critedge
   %39 = add i64 %36, 8
   %40 = shl i64 %39, 3
   %41 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %22, i64 noundef %40) #31
@@ -154,8 +154,8 @@ define dso_local noundef i32 @_Z19cmDependsJava_yylexPN25cmDependsJavaParserHelp
   %.pre = load ptr, ptr %10, align 8
   br label %_ZL35cmDependsJava_yyensure_buffer_stackPv.exit
 
-_ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %31, %34, %43
-  %46 = phi ptr [ %15, %31 ], [ %15, %34 ], [ %.pre, %43 ]
+_ZL35cmDependsJava_yyensure_buffer_stackPv.exit:  ; preds = %32, %.critedge, %43
+  %46 = phi ptr [ %15, %32 ], [ %15, %.critedge ], [ %.pre, %43 ]
   %47 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
   %.not.i242 = icmp eq ptr %47, null
   br i1 %.not.i242, label %48, label %49
@@ -186,16 +186,16 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %57 = load i64, ptr %56, align 8
   %58 = getelementptr inbounds ptr, ptr %55, i64 %57
   store ptr %47, ptr %58, align 8
-  %.pre664 = load ptr, ptr %21, align 8
-  %.pre665 = load i64, ptr %56, align 8
-  %.phi.trans.insert666 = getelementptr inbounds ptr, ptr %.pre664, i64 %.pre665
-  %.pre667 = load ptr, ptr %.phi.trans.insert666, align 8
+  %.pre662 = load ptr, ptr %21, align 8
+  %.pre663 = load i64, ptr %56, align 8
+  %.phi.trans.insert664 = getelementptr inbounds ptr, ptr %.pre662, i64 %.pre663
+  %.pre665 = load ptr, ptr %.phi.trans.insert664, align 8
   br label %59
 
 59:                                               ; preds = %_Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit, %23
-  %60 = phi ptr [ %.pre667, %_Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit ], [ %27, %23 ]
-  %61 = phi i64 [ %.pre665, %_Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit ], [ %25, %23 ]
-  %62 = phi ptr [ %.pre664, %_Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit ], [ %22, %23 ]
+  %60 = phi ptr [ %.pre665, %_Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit ], [ %27, %23 ]
+  %61 = phi i64 [ %.pre663, %_Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit ], [ %25, %23 ]
+  %62 = phi ptr [ %.pre662, %_Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit ], [ %22, %23 ]
   %63 = getelementptr inbounds ptr, ptr %62, i64 %61
   %64 = getelementptr inbounds i8, ptr %60, i64 28
   %65 = load i32, ptr %64, align 4
@@ -216,8 +216,8 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   store i8 %74, ptr %75, align 8
   br label %76
 
-76:                                               ; preds = %._crit_edge677, %59
-  %.pre668 = phi ptr [ %.pre668.pre, %._crit_edge677 ], [ %69, %59 ]
+76:                                               ; preds = %._crit_edge675, %59
+  %.pre666 = phi ptr [ %.pre666.pre, %._crit_edge675 ], [ %69, %59 ]
   %77 = getelementptr inbounds i8, ptr %1, i64 64
   %78 = getelementptr inbounds i8, ptr %1, i64 48
   %79 = getelementptr inbounds i8, ptr %1, i64 76
@@ -233,7 +233,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %76
-  %89 = phi ptr [ %.pre668, %76 ], [ %152, %.loopexit.backedge ]
+  %89 = phi ptr [ %.pre666, %76 ], [ %152, %.loopexit.backedge ]
   %90 = load i8, ptr %78, align 8
   store i8 %90, ptr %89, align 1
   %91 = load i32, ptr %79, align 4
@@ -272,13 +272,13 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %107 = getelementptr inbounds [479 x i16], ptr @_ZL6yy_chk, i64 0, i64 %106
   %108 = load i16, ptr %107, align 2
   %109 = sext i16 %108 to i32
-  %.not238517 = icmp eq i32 %.1, %109
-  br i1 %.not238517, label %._crit_edge, label %.lr.ph
+  %.not238515 = icmp eq i32 %.1, %109
+  br i1 %.not238515, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %101, %118
   %110 = phi i64 [ %123, %118 ], [ %105, %101 ]
   %111 = phi i64 [ %119, %118 ], [ %97, %101 ]
-  %.0219518 = phi i8 [ %.1220, %118 ], [ %96, %101 ]
+  %.0219516 = phi i8 [ %.1220, %118 ], [ %96, %101 ]
   %112 = getelementptr inbounds [334 x i16], ptr @_ZL6yy_def, i64 0, i64 %111
   %113 = load i16, ptr %112, align 2
   %114 = icmp sgt i16 %113, 326
@@ -290,7 +290,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   br label %118
 
 118:                                              ; preds = %115, %.lr.ph
-  %.1220 = phi i8 [ %117, %115 ], [ %.0219518, %.lr.ph ]
+  %.1220 = phi i8 [ %117, %115 ], [ %.0219516, %.lr.ph ]
   %119 = sext i16 %113 to i64
   %120 = getelementptr inbounds [334 x i16], ptr @_ZL7yy_base, i64 0, i64 %119
   %121 = load i16, ptr %120, align 2
@@ -359,7 +359,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   switch i32 %.1226, label %481 [
     i32 0, label %153
     i32 1, label %.loopexit.sink.split.loopexit
-    i32 2, label %.loopexit.sink.split.loopexit1244
+    i32 2, label %.loopexit.sink.split.loopexit1242
     i32 3, label %.loopexit.backedge
     i32 4, label %.loopexit.sink.split
     i32 5, label %157
@@ -469,9 +469,9 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
     i32 109, label %.loopexit.backedge
     i32 110, label %263
     i32 111, label %.loopexit.backedge
-    i32 113, label %.loopexit249
-    i32 114, label %.loopexit249
-    i32 115, label %.loopexit249
+    i32 113, label %.loopexit247
+    i32 114, label %.loopexit247
+    i32 115, label %.loopexit247
     i32 112, label %276
   ], !llvm.loop !8
 
@@ -484,407 +484,407 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
 
 157:                                              ; preds = %151
   store i32 1, ptr %79, align 4
-  br label %.loopexit249
+  br label %.loopexit247
 
 158:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 159:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 160:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 161:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 162:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 163:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 164:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 165:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 166:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 167:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 168:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 169:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 170:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 171:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 172:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 173:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 174:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 175:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 176:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 177:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 178:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 179:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 180:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 181:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 182:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 183:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 184:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 185:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 186:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 187:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 188:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 189:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 190:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 191:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 192:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 193:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 194:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 195:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 196:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 197:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 198:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 199:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 200:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 201:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 202:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 203:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 204:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 205:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 206:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 207:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 208:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 209:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 210:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 211:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 212:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 213:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 214:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 215:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 216:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 217:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 218:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 219:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 220:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 221:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 222:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 223:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 224:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 225:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 226:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 227:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 228:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 229:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 230:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 231:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 232:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 233:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 234:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 235:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 236:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 237:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 238:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 239:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 240:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 241:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 242:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 243:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 244:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 245:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 246:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 247:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 248:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 249:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 250:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 251:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 252:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 253:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 254:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 255:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 256:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 257:                                              ; preds = %151
   store ptr null, ptr %0, align 8
-  br label %.loopexit249
+  br label %.loopexit247
 
 258:                                              ; preds = %151
   %259 = load ptr, ptr %1, align 8
@@ -892,7 +892,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %261 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %260) #32
   %262 = trunc i64 %261 to i32
   tail call void @_ZN25cmDependsJavaParserHelper18AllocateParserTypeEPNS_10ParserTypeEPKci(ptr noundef nonnull align 8 dereferenceable(248) %259, ptr noundef %0, ptr noundef %260, i32 noundef %262)
-  br label %.loopexit249
+  br label %.loopexit247
 
 263:                                              ; preds = %151
   %264 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str)
@@ -908,7 +908,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %274 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %273, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %275 = load ptr, ptr %1, align 8
   tail call void @_ZN25cmDependsJavaParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(248) %275, ptr noundef nonnull @.str.3)
-  br label %.loopexit249
+  br label %.loopexit247
 
 276:                                              ; preds = %151
   %277 = load ptr, ptr %82, align 8
@@ -936,16 +936,16 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %294 = load ptr, ptr %293, align 8
   %295 = getelementptr inbounds i8, ptr %294, i64 56
   store i32 1, ptr %295, align 8
-  %.pre669 = load ptr, ptr %84, align 8
-  %.pre670 = load i64, ptr %85, align 8
-  %.phi.trans.insert671 = getelementptr inbounds ptr, ptr %.pre669, i64 %.pre670
-  %.pre672 = load ptr, ptr %.phi.trans.insert671, align 8
+  %.pre667 = load ptr, ptr %84, align 8
+  %.pre668 = load i64, ptr %85, align 8
+  %.phi.trans.insert669 = getelementptr inbounds ptr, ptr %.pre667, i64 %.pre668
+  %.pre670 = load ptr, ptr %.phi.trans.insert669, align 8
   br label %296
 
 296:                                              ; preds = %286, %276
-  %297 = phi ptr [ %.pre672, %286 ], [ %282, %276 ]
-  %298 = phi i64 [ %.pre670, %286 ], [ %280, %276 ]
-  %299 = phi ptr [ %.pre669, %286 ], [ %279, %276 ]
+  %297 = phi ptr [ %.pre670, %286 ], [ %282, %276 ]
+  %298 = phi i64 [ %.pre668, %286 ], [ %280, %276 ]
+  %299 = phi ptr [ %.pre667, %286 ], [ %279, %276 ]
   %300 = load ptr, ptr %77, align 8
   %301 = getelementptr inbounds i8, ptr %297, i64 8
   %302 = load ptr, ptr %301, align 8
@@ -982,9 +982,9 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
   %.0218.be = phi i32 [ %314, %316 ], [ %474, %468 ]
   br label %.backedge
 
-.outer.backedge:                                  ; preds = %306, %_ZL18yy_get_next_bufferPv.exit.thread247
-  %.1228.ph.be = phi ptr [ %480, %_ZL18yy_get_next_bufferPv.exit.thread247 ], [ %315, %306 ]
-  %.3.ph.be = phi i32 [ %479, %_ZL18yy_get_next_bufferPv.exit.thread247 ], [ %313, %306 ]
+.outer.backedge:                                  ; preds = %306, %_ZL18yy_get_next_bufferPv.exit.thread245
+  %.1228.ph.be = phi ptr [ %480, %_ZL18yy_get_next_bufferPv.exit.thread245 ], [ %315, %306 ]
+  %.3.ph.be = phi i32 [ %479, %_ZL18yy_get_next_bufferPv.exit.thread245 ], [ %313, %306 ]
   %.2223.ph.be = load ptr, ptr %77, align 8
   br label %.outer
 
@@ -1009,7 +1009,7 @@ _Z30cmDependsJava_yy_create_bufferP8_IO_FILEiPv.exit: ; preds = %49
 330:                                              ; preds = %324
   %331 = sub i64 %328, %329
   %332 = icmp eq i64 %331, 1
-  br i1 %332, label %_ZL18yy_get_next_bufferPv.exit.thread, label %_ZL18yy_get_next_bufferPv.exit.thread247
+  br i1 %332, label %_ZL18yy_get_next_bufferPv.exit.thread, label %_ZL18yy_get_next_bufferPv.exit.thread245
 
 333:                                              ; preds = %324
   %334 = xor i64 %329, -1
@@ -1240,20 +1240,20 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %406, %435
   %460 = getelementptr inbounds i8, ptr %459, i64 8
   %461 = load ptr, ptr %460, align 8
   store ptr %461, ptr %82, align 8
-  switch i32 %.0103.i, label %default.unreachable680 [
+  switch i32 %.0103.i, label %default.unreachable678 [
     i32 1, label %_ZL18yy_get_next_bufferPv.exit.thread
     i32 0, label %468
-    i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread247_crit_edge
+    i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread245_crit_edge
   ]
 
-_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread247_crit_edge: ; preds = %_ZL18yy_get_next_bufferPv.exit
+_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread245_crit_edge: ; preds = %_ZL18yy_get_next_bufferPv.exit
   %462 = getelementptr inbounds ptr, ptr %456, i64 %457
-  %.pre673 = load ptr, ptr %462, align 8
-  %.phi.trans.insert674 = getelementptr inbounds i8, ptr %.pre673, i64 8
-  %.pre675 = load ptr, ptr %.phi.trans.insert674, align 8
-  %.pre676 = load i32, ptr %86, align 4
-  %.pre679 = sext i32 %.pre676 to i64
-  br label %_ZL18yy_get_next_bufferPv.exit.thread247
+  %.pre671 = load ptr, ptr %462, align 8
+  %.phi.trans.insert672 = getelementptr inbounds i8, ptr %.pre671, i64 8
+  %.pre673 = load ptr, ptr %.phi.trans.insert672, align 8
+  %.pre674 = load i32, ptr %86, align 4
+  %.pre677 = sext i32 %.pre674 to i64
+  br label %_ZL18yy_get_next_bufferPv.exit.thread245
 
 _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %330, %_ZL18yy_get_next_bufferPv.exit
   %463 = phi ptr [ %320, %330 ], [ %461, %_ZL18yy_get_next_bufferPv.exit ]
@@ -1269,8 +1269,8 @@ _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %330, %_ZL18yy_get_n
   %469 = ptrtoint ptr %277 to i64
   %470 = xor i64 %469, -1
   %471 = add i64 %470, %147
-  %sext529 = shl i64 %471, 32
-  %472 = ashr exact i64 %sext529, 32
+  %sext527 = shl i64 %471, 32
+  %472 = ashr exact i64 %sext527, 32
   %473 = getelementptr inbounds i8, ptr %461, i64 %472
   store ptr %473, ptr %77, align 8
   %474 = tail call fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef nonnull %1)
@@ -1278,9 +1278,9 @@ _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %330, %_ZL18yy_get_n
   %476 = load ptr, ptr %82, align 8
   br label %.backedge.backedge
 
-_ZL18yy_get_next_bufferPv.exit.thread247:         ; preds = %330, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread247_crit_edge
-  %.pre-phi = phi i64 [ %.pre679, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread247_crit_edge ], [ %304, %330 ]
-  %477 = phi ptr [ %.pre675, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread247_crit_edge ], [ %302, %330 ]
+_ZL18yy_get_next_bufferPv.exit.thread245:         ; preds = %330, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread245_crit_edge
+  %.pre-phi = phi i64 [ %.pre677, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread245_crit_edge ], [ %304, %330 ]
+  %477 = phi ptr [ %.pre673, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread245_crit_edge ], [ %302, %330 ]
   %478 = getelementptr inbounds i8, ptr %477, i64 %.pre-phi
   store ptr %478, ptr %77, align 8
   %479 = tail call fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef nonnull %1)
@@ -1291,24 +1291,24 @@ _ZL18yy_get_next_bufferPv.exit.thread247:         ; preds = %330, %_ZL18yy_get_n
   tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.4) #30
   unreachable
 
-default.unreachable680:                           ; preds = %_ZL18yy_get_next_bufferPv.exit
+default.unreachable678:                           ; preds = %_ZL18yy_get_next_bufferPv.exit
   unreachable
 
 .loopexit.sink.split.loopexit:                    ; preds = %151
   br label %.loopexit.sink.split
 
-.loopexit.sink.split.loopexit1244:                ; preds = %151
+.loopexit.sink.split.loopexit1242:                ; preds = %151
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %151, %.loopexit.sink.split.loopexit1244, %.loopexit.sink.split.loopexit
-  %.sink = phi i32 [ 3, %.loopexit.sink.split.loopexit ], [ 1, %.loopexit.sink.split.loopexit1244 ], [ 5, %151 ]
+.loopexit.sink.split:                             ; preds = %151, %.loopexit.sink.split.loopexit1242, %.loopexit.sink.split.loopexit
+  %.sink = phi i32 [ 3, %.loopexit.sink.split.loopexit ], [ 1, %.loopexit.sink.split.loopexit1242 ], [ 5, %151 ]
   store i32 %.sink, ptr %79, align 4
   br label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %151, %151, %151, %151, %151, %.loopexit.sink.split
   br label %.loopexit, !llvm.loop !8
 
-.loopexit249:                                     ; preds = %151, %151, %151, %263, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157
+.loopexit247:                                     ; preds = %151, %151, %151, %263, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157
   %.0 = phi i32 [ 360, %263 ], [ 312, %258 ], [ 359, %257 ], [ 358, %256 ], [ 357, %255 ], [ 356, %254 ], [ 355, %253 ], [ 354, %252 ], [ 353, %251 ], [ 352, %250 ], [ 351, %249 ], [ 350, %248 ], [ 349, %247 ], [ 348, %246 ], [ 347, %245 ], [ 346, %244 ], [ 345, %243 ], [ 344, %242 ], [ 343, %241 ], [ 342, %240 ], [ 341, %239 ], [ 340, %238 ], [ 339, %237 ], [ 338, %236 ], [ 337, %235 ], [ 336, %234 ], [ 335, %233 ], [ 334, %232 ], [ 333, %231 ], [ 332, %230 ], [ 331, %229 ], [ 330, %228 ], [ 329, %227 ], [ 328, %226 ], [ 327, %225 ], [ 326, %224 ], [ 325, %223 ], [ 324, %222 ], [ 323, %221 ], [ 322, %220 ], [ 321, %219 ], [ 320, %218 ], [ 319, %217 ], [ 318, %216 ], [ 317, %215 ], [ 316, %214 ], [ 315, %213 ], [ 314, %212 ], [ 313, %211 ], [ 310, %210 ], [ 309, %209 ], [ 308, %208 ], [ 307, %207 ], [ 306, %206 ], [ 305, %205 ], [ 304, %204 ], [ 303, %203 ], [ 302, %202 ], [ 301, %201 ], [ 300, %200 ], [ 299, %199 ], [ 298, %198 ], [ 297, %197 ], [ 296, %196 ], [ 295, %195 ], [ 294, %194 ], [ 293, %193 ], [ 292, %192 ], [ 291, %191 ], [ 290, %190 ], [ 289, %189 ], [ 288, %188 ], [ 287, %187 ], [ 286, %186 ], [ 285, %185 ], [ 284, %184 ], [ 283, %183 ], [ 282, %182 ], [ 281, %181 ], [ 280, %180 ], [ 279, %179 ], [ 278, %178 ], [ 277, %177 ], [ 276, %176 ], [ 275, %175 ], [ 274, %174 ], [ 273, %173 ], [ 272, %172 ], [ 271, %171 ], [ 270, %170 ], [ 269, %169 ], [ 268, %168 ], [ 267, %167 ], [ 266, %166 ], [ 265, %165 ], [ 264, %164 ], [ 263, %163 ], [ 262, %162 ], [ 261, %161 ], [ 260, %160 ], [ 259, %159 ], [ 258, %158 ], [ 311, %157 ], [ 0, %151 ], [ 0, %151 ], [ 0, %151 ]
   ret i32 %.0
 }
@@ -2576,8 +2576,8 @@ define dso_local noundef i32 @_Z27cmDependsJava_yylex_destroyPv(ptr nocapture no
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %.not26 = icmp eq ptr %4, null
-  br i1 %.not26, label %.thread, label %.lr.ph
+  %.not25 = icmp eq ptr %4, null
+  br i1 %.not25, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 52
@@ -2589,113 +2589,113 @@ define dso_local noundef i32 @_Z27cmDependsJava_yylex_destroyPv(ptr nocapture no
   %11 = load i64, ptr %2, align 8
   %12 = getelementptr inbounds ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %.not2133 = icmp eq ptr %13, null
-  br i1 %.not2133, label %.thread, label %.thread.i
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %.critedge, label %.thread.i
 
 .thread.i:                                        ; preds = %.lr.ph, %_Z32cmDependsJava_yypop_buffer_statePv.exit
-  %14 = phi ptr [ %58, %_Z32cmDependsJava_yypop_buffer_statePv.exit ], [ %13, %.lr.ph ]
-  %15 = phi ptr [ %57, %_Z32cmDependsJava_yypop_buffer_statePv.exit ], [ %12, %.lr.ph ]
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
-  %17 = load i32, ptr %16, align 8
-  %.not15.i = icmp eq i32 %17, 0
-  br i1 %.not15.i, label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit, label %18
+  %15 = phi ptr [ %61, %_Z32cmDependsJava_yypop_buffer_statePv.exit ], [ %13, %.lr.ph ]
+  %16 = phi ptr [ %60, %_Z32cmDependsJava_yypop_buffer_statePv.exit ], [ %12, %.lr.ph ]
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %18 = load i32, ptr %17, align 8
+  %.not15.i = icmp eq i32 %18, 0
+  br i1 %.not15.i, label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit, label %19
 
-18:                                               ; preds = %.thread.i
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
-  %20 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %20) #36
+19:                                               ; preds = %.thread.i
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load ptr, ptr %20, align 8
+  tail call void @free(ptr noundef %21) #36
   br label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit
 
-_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.thread.i, %18
-  tail call void @free(ptr noundef nonnull %14) #36
-  %.pre31 = load i64, ptr %2, align 8
-  %.pre = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds ptr, ptr %.pre, i64 %.pre31
-  store ptr null, ptr %21, align 8
+_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.thread.i, %19
+  tail call void @free(ptr noundef nonnull %15) #36
   %22 = load ptr, ptr %3, align 8
-  %.not.i23 = icmp eq ptr %22, null
-  br i1 %.not.i23, label %.thread, label %23
+  %23 = load i64, ptr %2, align 8
+  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %3, align 8
+  %.not.i23 = icmp eq ptr %25, null
+  br i1 %.not.i23, label %.critedge, label %26
 
-23:                                               ; preds = %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit
-  %24 = load i64, ptr %2, align 8
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %_Z32cmDependsJava_yypop_buffer_statePv.exit, label %.thread.i.i
+26:                                               ; preds = %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit
+  %27 = load i64, ptr %2, align 8
+  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %_Z32cmDependsJava_yypop_buffer_statePv.exit, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %23
-  store ptr null, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 32
-  %29 = load i32, ptr %28, align 8
-  %.not15.i.i = icmp eq i32 %29, 0
-  br i1 %.not15.i.i, label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i, label %30
+.thread.i.i:                                      ; preds = %26
+  store ptr null, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %29, i64 32
+  %32 = load i32, ptr %31, align 8
+  %.not15.i.i = icmp eq i32 %32, 0
+  br i1 %.not15.i.i, label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i, label %33
 
-30:                                               ; preds = %.thread.i.i
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
-  %32 = load ptr, ptr %31, align 8
-  tail call void @free(ptr noundef %32) #36
+33:                                               ; preds = %.thread.i.i
+  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %35 = load ptr, ptr %34, align 8
+  tail call void @free(ptr noundef %35) #36
   br label %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i
 
-_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %30, %.thread.i.i
-  tail call void @free(ptr noundef nonnull %26) #36
-  %33 = load ptr, ptr %3, align 8
-  %34 = load i64, ptr %2, align 8
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
-  store ptr null, ptr %35, align 8
-  %36 = load i64, ptr %2, align 8
-  %.not22.i = icmp eq i64 %36, 0
-  br i1 %.not22.i, label %39, label %37
+_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %33, %.thread.i.i
+  tail call void @free(ptr noundef nonnull %29) #36
+  %36 = load ptr, ptr %3, align 8
+  %37 = load i64, ptr %2, align 8
+  %38 = getelementptr inbounds ptr, ptr %36, i64 %37
+  store ptr null, ptr %38, align 8
+  %39 = load i64, ptr %2, align 8
+  %.not22.i = icmp eq i64 %39, 0
+  br i1 %.not22.i, label %42, label %40
 
-37:                                               ; preds = %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i
-  %38 = add i64 %36, -1
-  store i64 %38, ptr %2, align 8
-  br label %39
+40:                                               ; preds = %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i
+  %41 = add i64 %39, -1
+  store i64 %41, ptr %2, align 8
+  br label %42
 
-39:                                               ; preds = %37, %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i
-  %40 = phi i64 [ %38, %37 ], [ 0, %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i ]
-  %41 = load ptr, ptr %3, align 8
-  %.not23.i = icmp eq ptr %41, null
-  br i1 %.not23.i, label %.thread, label %42
+42:                                               ; preds = %40, %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i
+  %43 = phi i64 [ %41, %40 ], [ 0, %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit.i ]
+  %44 = load ptr, ptr %3, align 8
+  %.not23.i = icmp eq ptr %44, null
+  br i1 %.not23.i, label %.critedge, label %45
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %40
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %_Z32cmDependsJava_yypop_buffer_statePv.exit, label %46
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds ptr, ptr %44, i64 %43
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %_Z32cmDependsJava_yypop_buffer_statePv.exit, label %49
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %44, i64 28
-  %48 = load i32, ptr %47, align 4
-  store i32 %48, ptr %5, align 4
-  %49 = load ptr, ptr %43, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %6, align 8
-  store ptr %51, ptr %7, align 8
-  %52 = load ptr, ptr %43, align 8
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %8, align 8
-  %54 = load i8, ptr %51, align 1
-  store i8 %54, ptr %9, align 8
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %47, i64 28
+  %51 = load i32, ptr %50, align 4
+  store i32 %51, ptr %5, align 4
+  %52 = load ptr, ptr %46, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %6, align 8
+  store ptr %54, ptr %7, align 8
+  %55 = load ptr, ptr %46, align 8
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %8, align 8
+  %57 = load i8, ptr %54, align 1
+  store i8 %57, ptr %9, align 8
   store i32 1, ptr %10, align 8
   br label %_Z32cmDependsJava_yypop_buffer_statePv.exit
 
-_Z32cmDependsJava_yypop_buffer_statePv.exit:      ; preds = %23, %42, %46
-  %55 = phi ptr [ %22, %23 ], [ %41, %42 ], [ %41, %46 ]
-  %56 = load i64, ptr %2, align 8
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
-  %58 = load ptr, ptr %57, align 8
-  %.not21 = icmp eq ptr %58, null
-  br i1 %.not21, label %.thread, label %.thread.i, !llvm.loop !14
+_Z32cmDependsJava_yypop_buffer_statePv.exit:      ; preds = %26, %45, %49
+  %58 = phi ptr [ %25, %26 ], [ %44, %45 ], [ %44, %49 ]
+  %59 = load i64, ptr %2, align 8
+  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %.critedge, label %.thread.i, !llvm.loop !14
 
-.thread:                                          ; preds = %_Z32cmDependsJava_yypop_buffer_statePv.exit, %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit, %39, %.lr.ph, %1
-  %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit ], [ %55, %_Z32cmDependsJava_yypop_buffer_statePv.exit ]
+.critedge:                                        ; preds = %_Z32cmDependsJava_yypop_buffer_statePv.exit, %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit, %42, %.lr.ph, %1
+  %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %42 ], [ null, %_Z30cmDependsJava_yy_delete_bufferP15yy_buffer_statePv.exit ], [ %58, %_Z32cmDependsJava_yypop_buffer_statePv.exit ]
   tail call void @free(ptr noundef %.lcssa) #36
   store ptr null, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 96
-  %60 = load ptr, ptr %59, align 8
-  tail call void @free(ptr noundef %60) #36
+  %63 = getelementptr inbounds i8, ptr %0, i64 96
+  %64 = load ptr, ptr %63, align 8
+  tail call void @free(ptr noundef %64) #36
   tail call void @free(ptr noundef nonnull %0) #36
   ret i32 0
 }

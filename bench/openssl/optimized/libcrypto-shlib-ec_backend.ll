@@ -515,7 +515,7 @@ declare ptr @EC_GROUP_get0_cofactor(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_key_fromdata(ptr noundef %ec, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ec_key_fromdata(ptr noundef %ec, ptr noundef %params, i32 noundef %include_private) local_unnamed_addr #0 {
 entry:
   %priv_key = alloca ptr, align 8
   %pub_key = alloca ptr, align 8

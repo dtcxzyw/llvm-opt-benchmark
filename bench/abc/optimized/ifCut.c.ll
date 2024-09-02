@@ -1482,7 +1482,7 @@ tailrecurse:                                      ; preds = %71, %65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @If_ManSortCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 2) i32 @If_ManSortCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 80
@@ -3169,8 +3169,8 @@ define range(i32 0, 2) i32 @If_CutGetCone_rec(ptr noundef readnone %0, ptr nocap
   %4 = getelementptr inbounds i8, ptr %2, i64 28
   %5 = load i64, ptr %4, align 4
   %6 = and i64 %5, 4278190080
-  %.not38 = icmp eq i64 %6, 0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph
+  %.not36 = icmp eq i64 %6, 0
+  br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = lshr i64 %5, 24
@@ -3200,29 +3200,29 @@ define range(i32 0, 2) i32 @If_CutGetCone_rec(ptr noundef readnone %0, ptr nocap
   %.not = icmp eq i32 %17, 2
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge, %.thread
-  %.02337 = phi ptr [ %24, %.thread ], [ %1, %._crit_edge ]
-  %18 = getelementptr i8, ptr %.02337, i64 24
+.preheader:                                       ; preds = %._crit_edge, %.critedge
+  %.02335 = phi ptr [ %25, %.critedge ], [ %1, %._crit_edge ]
+  %18 = getelementptr i8, ptr %.02335, i64 24
   %.023.val = load ptr, ptr %18, align 8
   %19 = tail call i32 @If_CutGetCone_rec(ptr noundef %0, ptr noundef %.023.val, ptr noundef %2)
   %.not29 = icmp eq i32 %19, 0
-  br i1 %.not29, label %.thread, label %20
+  br i1 %.not29, label %.critedge, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr i8, ptr %.02337, i64 32
+  %21 = getelementptr i8, ptr %.02335, i64 32
   %.023.val31 = load ptr, ptr %21, align 8
   %22 = tail call i32 @If_CutGetCone_rec(ptr noundef %0, ptr noundef %.023.val31, ptr noundef %2)
-  %.not30 = icmp eq i32 %22, 0
-  br i1 %.not30, label %.thread, label %.loopexit
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %.critedge, label %.loopexit
 
-.thread:                                          ; preds = %.preheader, %20
-  %23 = getelementptr inbounds i8, ptr %.02337, i64 40
-  %24 = load ptr, ptr %23, align 8
-  %.not28 = icmp eq ptr %24, null
+.critedge:                                        ; preds = %.preheader, %20
+  %24 = getelementptr inbounds i8, ptr %.02335, i64 40
+  %25 = load ptr, ptr %24, align 8
+  %.not28 = icmp eq ptr %25, null
   br i1 %.not28, label %.loopexit, label %.preheader, !llvm.loop !41
 
-.loopexit:                                        ; preds = %11, %.thread, %20, %._crit_edge
-  %.024 = phi i32 [ 0, %._crit_edge ], [ 0, %.thread ], [ 1, %20 ], [ 1, %11 ]
+.loopexit:                                        ; preds = %11, %.critedge, %20, %._crit_edge
+  %.024 = phi i32 [ 0, %._crit_edge ], [ 0, %.critedge ], [ 1, %20 ], [ 1, %11 ]
   ret i32 %.024
 }
 

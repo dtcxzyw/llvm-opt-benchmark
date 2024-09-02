@@ -4541,12 +4541,12 @@ for.cond:                                         ; preds = %for.inc, %entry
 if.end.i.i.i:                                     ; preds = %for.cond
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
+  %3 = zext i32 %2 to i64
   br label %_ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit
 
 _ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit: ; preds = %for.cond, %if.end.i.i.i
-  %retval.0.i.i.i = phi i32 [ %2, %if.end.i.i.i ], [ 0, %for.cond ]
-  %3 = zext i32 %retval.0.i.i.i to i64
-  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %3
+  %retval.0.i.i.i = phi i64 [ %3, %if.end.i.i.i ], [ 0, %for.cond ]
+  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %retval.0.i.i.i
   br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit
@@ -4603,12 +4603,12 @@ for.cond:                                         ; preds = %for.inc, %entry
 if.end.i.i.i:                                     ; preds = %for.cond
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i, align 4
+  %3 = zext i32 %2 to i64
   br label %_ZNK2lp19lp_core_solver_baseI8rationalS1_E3m_nEv.exit
 
 _ZNK2lp19lp_core_solver_baseI8rationalS1_E3m_nEv.exit: ; preds = %for.cond, %if.end.i.i.i
-  %retval.0.i.i.i = phi i32 [ %2, %if.end.i.i.i ], [ 0, %for.cond ]
-  %3 = zext i32 %retval.0.i.i.i to i64
-  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %3
+  %retval.0.i.i.i = phi i64 [ %3, %if.end.i.i.i ], [ 0, %for.cond ]
+  %cmp.not.not.not.not.not = icmp uge i64 %indvars.iv, %retval.0.i.i.i
   br i1 %cmp.not.not.not.not.not, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK2lp19lp_core_solver_baseI8rationalS1_E3m_nEv.exit

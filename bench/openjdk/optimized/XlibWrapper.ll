@@ -72,7 +72,7 @@ define hidden noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, p
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %1) #14
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %37, label %9
+  br i1 %8, label %39, label %9
 
 9:                                                ; preds = %3
   %10 = sext i32 %7 to i64
@@ -81,79 +81,80 @@ define hidden noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, p
   br i1 %12, label %13, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %.not5458 = icmp sgt i32 %7, 0
-  br i1 %.not5458, label %.lr.ph, label %.loopexit
+  %.not5463 = icmp sgt i32 %7, 0
+  br i1 %.not5463, label %.lr.ph, label %.loopexit
 
 13:                                               ; preds = %9
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str) #14
-  br label %37
+  br label %39
 
-.lr.ph:                                           ; preds = %.preheader, %32
-  %.03960 = phi i32 [ %33, %32 ], [ 0, %.preheader ]
-  %.04059 = phi i32 [ %.444, %32 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %34
+  %.03965 = phi i32 [ %35, %34 ], [ 0, %.preheader ]
+  %.04064 = phi i32 [ %.444, %34 ], [ 0, %.preheader ]
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 1384
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.03960) #14
+  %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.03965) #14
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %32, label %18
+  br i1 %.not, label %34, label %18
 
 18:                                               ; preds = %.lr.ph
   %19 = tail call ptr @JNU_GetStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef null) #14
   %.not50 = icmp eq ptr %19, null
-  br i1 %.not50, label %28, label %20
+  br i1 %.not50, label %.thread, label %23
 
-20:                                               ; preds = %18
-  %21 = tail call noalias ptr @strdup(ptr noundef nonnull %19) #14
-  %.not51 = icmp eq ptr %21, null
-  br i1 %.not51, label %26, label %22
+.thread:                                          ; preds = %18
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 184
+  %22 = load ptr, ptr %21, align 8
+  tail call void %22(ptr noundef nonnull %0, ptr noundef nonnull %17) #14
+  br label %.preheader.i
 
-22:                                               ; preds = %20
-  %23 = add nsw i32 %.04059, 1
-  %24 = sext i32 %.04059 to i64
-  %25 = getelementptr inbounds ptr, ptr %11, i64 %24
-  store ptr %21, ptr %25, align 8
-  br label %27
+23:                                               ; preds = %18
+  %24 = tail call noalias ptr @strdup(ptr noundef nonnull %19) #14
+  %.not51.not = icmp eq ptr %24, null
+  br i1 %.not51.not, label %29, label %25
 
-26:                                               ; preds = %20
+25:                                               ; preds = %23
+  %26 = add nsw i32 %.04064, 1
+  %27 = sext i32 %.04064 to i64
+  %28 = getelementptr inbounds ptr, ptr %11, i64 %27
+  store ptr %24, ptr %28, align 8
+  br label %30
+
+29:                                               ; preds = %23
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str) #14
-  br label %27
+  br label %30
 
-27:                                               ; preds = %26, %22
-  %.242 = phi i32 [ %23, %22 ], [ %.04059, %26 ]
-  %.2 = phi i32 [ 0, %22 ], [ 1, %26 ]
+30:                                               ; preds = %25, %29
+  %.242 = phi i32 [ %26, %25 ], [ %.04064, %29 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %19) #14
-  br label %28
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 184
+  %33 = load ptr, ptr %32, align 8
+  tail call void %33(ptr noundef nonnull %0, ptr noundef nonnull %17) #14
+  br i1 %.not51.not, label %.preheader.i, label %34
 
-28:                                               ; preds = %18, %27
-  %.343 = phi i32 [ %.242, %27 ], [ %.04059, %18 ]
-  %.3 = phi i32 [ %.2, %27 ], [ 1, %18 ]
-  %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 184
-  %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull %0, ptr noundef nonnull %17) #14
-  %.not52 = icmp eq i32 %.3, 0
-  br i1 %.not52, label %32, label %.preheader.i
-
-32:                                               ; preds = %.lr.ph, %28
-  %.444 = phi i32 [ %.343, %28 ], [ %.04059, %.lr.ph ]
-  %33 = add nuw nsw i32 %.03960, 1
-  %exitcond.not = icmp eq i32 %33, %7
+34:                                               ; preds = %.lr.ph, %30
+  %.444 = phi i32 [ %.242, %30 ], [ %.04064, %.lr.ph ]
+  %35 = add nuw nsw i32 %.03965, 1
+  %exitcond.not = icmp eq i32 %35, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
-.preheader.i:                                     ; preds = %28
-  %34 = icmp sgt i32 %.343, 0
-  br i1 %34, label %.lr.ph.preheader.i, label %freeNativeStringArray.exit
+.preheader.i:                                     ; preds = %30, %.thread
+  %.141.ph = phi i32 [ %.04064, %.thread ], [ %.242, %30 ]
+  %36 = icmp sgt i32 %.141.ph, 0
+  br i1 %36, label %.lr.ph.preheader.i, label %freeNativeStringArray.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = zext nneg i32 %.343 to i64
+  %wide.trip.count.i = zext nneg i32 %.141.ph to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %35 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
-  %36 = load ptr, ptr %35, align 8
-  tail call void @free(ptr noundef %36) #14
+  %37 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %38 = load ptr, ptr %37, align 8
+  tail call void @free(ptr noundef %38) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %freeNativeStringArray.exit, label %.lr.ph.i, !llvm.loop !6
@@ -162,13 +163,13 @@ freeNativeStringArray.exit:                       ; preds = %.lr.ph.i, %.prehead
   tail call void @free(ptr noundef nonnull %11) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %32, %.preheader, %freeNativeStringArray.exit
-  %.5 = phi i32 [ -1, %freeNativeStringArray.exit ], [ 0, %.preheader ], [ %.444, %32 ]
-  %.038 = phi ptr [ null, %freeNativeStringArray.exit ], [ %11, %.preheader ], [ %11, %32 ]
+.loopexit:                                        ; preds = %34, %.preheader, %freeNativeStringArray.exit
+  %.5 = phi i32 [ -1, %freeNativeStringArray.exit ], [ 0, %.preheader ], [ %.444, %34 ]
+  %.038 = phi ptr [ null, %freeNativeStringArray.exit ], [ %11, %.preheader ], [ %11, %34 ]
   store i32 %.5, ptr %2, align 4
-  br label %37
+  br label %39
 
-37:                                               ; preds = %3, %.loopexit, %13
+39:                                               ; preds = %3, %.loopexit, %13
   %.0 = phi ptr [ null, %13 ], [ %.038, %.loopexit ], [ null, %3 ]
   ret ptr %.0
 }

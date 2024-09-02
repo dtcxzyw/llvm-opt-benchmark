@@ -1514,11 +1514,11 @@ define dso_local ptr @ExportSnapshot(ptr nocapture noundef readonly %0) local_un
 20:                                               ; preds = %12
   %21 = getelementptr inbounds i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4
+  %23 = add i32 %22, 1
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %12, %20
-  %23 = phi i32 [ %22, %20 ], [ 0, %12 ]
-  %24 = add i32 %23, 1
+  %24 = phi i32 [ %23, %20 ], [ 1, %12 ]
   %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %16, i32 noundef %18, i32 noundef %24) #16
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   %27 = load i32, ptr %26, align 8
@@ -2584,62 +2584,53 @@ define dso_local void @DeleteAllExportedSnapshotFiles() local_unnamed_addr #0 {
   br i1 %.not10, label %._crit_edge, label %sub_0
 
 sub_0:                                            ; preds = %0, %.backedge
-  %4 = phi ptr [ %21, %.backedge ], [ %3, %0 ]
+  %4 = phi ptr [ %15, %.backedge ], [ %3, %0 ]
   %5 = getelementptr inbounds i8, ptr %4, i64 19
   %6 = load i8, ptr %5, align 1
-  %7 = zext i8 %6 to i32
-  %8 = add nsw i32 %7, -46
-  %.not11 = icmp eq i32 %8, 0
-  br i1 %.not11, label %.tail, label %.tail6
+  %.not11 = icmp eq i8 %6, 46
+  br i1 %.not11, label %.tail, label %.tail6.thread
 
 .tail:                                            ; preds = %sub_0
-  %9 = getelementptr inbounds i8, ptr %4, i64 20
-  %10 = load i8, ptr %9, align 1
-  %11 = icmp eq i8 %10, 0
-  br i1 %11, label %.backedge, label %sub_18
+  %7 = getelementptr inbounds i8, ptr %4, i64 20
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %.backedge, label %sub_18
 
 sub_18:                                           ; preds = %.tail
-  %12 = getelementptr inbounds i8, ptr %4, i64 20
+  %10 = getelementptr inbounds i8, ptr %4, i64 20
+  %11 = load i8, ptr %10, align 1
+  %.not13 = icmp eq i8 %11, 46
+  br i1 %.not13, label %.tail6, label %.tail6.thread
+
+.tail6:                                           ; preds = %sub_18
+  %12 = getelementptr inbounds i8, ptr %4, i64 21
   %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  %15 = add nsw i32 %14, -46
-  %.not13 = icmp eq i32 %15, 0
-  br i1 %.not13, label %sub_2, label %.tail6
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %.backedge, label %.tail6.thread
 
-sub_2:                                            ; preds = %sub_18
-  %16 = getelementptr inbounds i8, ptr %4, i64 21
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  br label %.tail6
-
-.tail6:                                           ; preds = %sub_0, %sub_18, %sub_2
-  %19 = phi i32 [ %15, %sub_18 ], [ %18, %sub_2 ], [ %8, %sub_0 ]
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.backedge, label %22
-
-.backedge:                                        ; preds = %22, %25, %27, %.tail, %.tail6
-  %21 = call ptr @ReadDirExtended(ptr noundef %2, ptr noundef nonnull @.str.55, i32 noundef 15) #16
-  %.not = icmp eq ptr %21, null
+.backedge:                                        ; preds = %.tail6.thread, %18, %20, %.tail, %.tail6
+  %15 = call ptr @ReadDirExtended(ptr noundef %2, ptr noundef nonnull @.str.55, i32 noundef 15) #16
+  %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !15
 
-22:                                               ; preds = %.tail6
-  %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1037, ptr noundef nonnull @.str.32, ptr noundef nonnull %5) #16
-  %24 = call i32 @unlink(ptr noundef nonnull %1) #16
-  %.not5 = icmp eq i32 %24, 0
-  br i1 %.not5, label %.backedge, label %25
+.tail6.thread:                                    ; preds = %sub_0, %sub_18, %.tail6
+  %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1037, ptr noundef nonnull @.str.32, ptr noundef nonnull %5) #16
+  %17 = call i32 @unlink(ptr noundef nonnull %1) #16
+  %.not5 = icmp eq i32 %17, 0
+  br i1 %.not5, label %.backedge, label %18
 
-25:                                               ; preds = %22
-  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
-  br i1 %26, label %27, label %.backedge
+18:                                               ; preds = %.tail6.thread
+  %19 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
+  br i1 %19, label %20, label %.backedge
 
-27:                                               ; preds = %25
-  %28 = call i32 @errcode_for_file_access() #16
-  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58, ptr noundef nonnull %1) #16
+20:                                               ; preds = %18
+  %21 = call i32 @errcode_for_file_access() #16
+  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58, ptr noundef nonnull %1) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1598, ptr noundef nonnull @__func__.DeleteAllExportedSnapshotFiles) #16
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %0
-  %30 = call i32 @FreeDir(ptr noundef %2) #16
+  %23 = call i32 @FreeDir(ptr noundef %2) #16
   ret void
 }
 

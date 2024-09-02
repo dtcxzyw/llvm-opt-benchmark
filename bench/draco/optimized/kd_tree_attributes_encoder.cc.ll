@@ -2115,7 +2115,7 @@ _ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeVal
   %184 = load i8, ptr %147, align 8
   %185 = zext i8 %184 to i64
   %186 = icmp ult i64 %indvars.iv.next, %185
-  br i1 %186, label %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit, label %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit._crit_edge, !llvm.loop !22
+  br i1 %186, label %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit, label %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit._crit_edge.loopexit, !llvm.loop !22
 
 187:                                              ; preds = %149
   %188 = landingpad { ptr, i32 }
@@ -2137,17 +2137,20 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %156
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0171.2) #19
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit._crit_edge: ; preds = %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit, %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit.preheader
-  %.lcssa202 = phi i8 [ 0, %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit.preheader ], [ %184, %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit ]
-  %193 = zext i8 %.lcssa202 to i64
+_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit._crit_edge.loopexit: ; preds = %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit
+  %193 = zext i8 %184 to i64
   %194 = shl nuw nsw i64 %193, 2
+  br label %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit._crit_edge
+
+_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit._crit_edge: ; preds = %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit._crit_edge.loopexit, %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit.preheader
+  %.lcssa202 = phi i64 [ 0, %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit.preheader ], [ %194, %_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEPT_.exit._crit_edge.loopexit ]
   %195 = load ptr, ptr %78, align 8
   %196 = load i32, ptr %63, align 4
   %197 = mul i32 %196, %170
   %198 = zext i32 %197 to i64
   %199 = getelementptr inbounds i32, ptr %195, i64 %198
   %200 = getelementptr inbounds i32, ptr %199, i64 %165
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %200, ptr align 1 %.sroa.0171.2, i64 %194, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %200, ptr align 1 %.sroa.0171.2, i64 %.lcssa202, i1 false)
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next245, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %167, !llvm.loop !23

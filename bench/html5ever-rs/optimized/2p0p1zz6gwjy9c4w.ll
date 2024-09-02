@@ -3649,7 +3649,7 @@ define void @"_ZN65_$LT$markup5ever_rcdom..Node$u20$as$u20$core..ops..drop..Drop
 10:                                               ; preds = %.body, %11
   %.pn23.pn = phi { ptr, i32 } [ %.pn23, %.body ], [ %12, %11 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hed298f06e372a7d7E.llvm.10022686776672290337"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #25
-          to label %common.resume unwind label %88
+          to label %common.resume unwind label %89
 
 11:                                               ; preds = %62
   %12 = landingpad { ptr, i32 }
@@ -3697,7 +3697,7 @@ define void @"_ZN65_$LT$markup5ever_rcdom..Node$u20$as$u20$core..ops..drop..Drop
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.body35, %36, %33
   %.pn23 = phi { ptr, i32 } [ %34, %33 ], [ %78, %.body35 ], [ %37, %36 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$17h38e6e968ed04c345E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #25
-          to label %10 unwind label %88
+          to label %10 unwind label %89
 
 33:                                               ; preds = %35
   %34 = landingpad { ptr, i32 }
@@ -3785,7 +3785,7 @@ define void @"_ZN65_$LT$markup5ever_rcdom..Node$u20$as$u20$core..ops..drop..Drop
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %68, label %71
 
-58:                                               ; preds = %90, %"_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17hd43c99c79648cf9cE.exit"
+58:                                               ; preds = %91, %"_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17hd43c99c79648cf9cE.exit"
   %59 = load i64, ptr %29, align 8, !noalias !956, !noundef !4
   %60 = add i64 %59, -1
   store i64 %60, ptr %29, align 8, !noalias !956
@@ -3814,7 +3814,7 @@ define void @"_ZN65_$LT$markup5ever_rcdom..Node$u20$as$u20$core..ops..drop..Drop
   %70 = load ptr, ptr %69, align 8, !noundef !4
   store ptr null, ptr %69, align 8
   %.not20 = icmp eq ptr %70, null
-  br i1 %.not20, label %90, label %72
+  br i1 %.not20, label %91, label %72
 
 71:                                               ; preds = %54
   invoke void @_ZN4core4cell22panic_already_borrowed17h3ef59d0d58797532E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.145d26ab9438a7fa9329688a3d201f86.6) #26
@@ -3859,23 +3859,23 @@ define void @"_ZN65_$LT$markup5ever_rcdom..Node$u20$as$u20$core..ops..drop..Drop
   store i64 %85, ptr %15, align 8, !alias.scope !961
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %.pre97 = load i64, ptr %55, align 8, !noalias !964
-  br label %90
+  %86 = add i64 %.pre97, 1
+  br label %91
 
 .body35:                                          ; preds = %77
-  %86 = load i64, ptr %55, align 8, !noalias !969, !noundef !4
-  %87 = add i64 %86, 1
-  store i64 %87, ptr %55, align 8, !noalias !969
+  %87 = load i64, ptr %55, align 8, !noalias !969, !noundef !4
+  %88 = add i64 %87, 1
+  store i64 %88, ptr %55, align 8, !noalias !969
   br label %.body
 
-88:                                               ; preds = %.body, %10
-  %89 = landingpad { ptr, i32 }
+89:                                               ; preds = %.body, %10
+  %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-90:                                               ; preds = %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha56e516a13139feaE.exit"
-  %91 = phi i64 [ -1, %68 ], [ %.pre97, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha56e516a13139feaE.exit" ]
-  %92 = add i64 %91, 1
+91:                                               ; preds = %68, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha56e516a13139feaE.exit"
+  %92 = phi i64 [ 0, %68 ], [ %86, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha56e516a13139feaE.exit" ]
   store i64 %92, ptr %55, align 8, !noalias !964
   br label %58
 

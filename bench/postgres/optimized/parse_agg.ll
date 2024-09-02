@@ -1482,11 +1482,11 @@ define dso_local ptr @expand_grouping_sets(ptr noundef readonly %0, i1 noundef z
 21:                                               ; preds = %.lr.ph.split
   %22 = getelementptr inbounds i8, ptr %20, i64 4
   %23 = load i32, ptr %22, align 4
+  %24 = sitofp i32 %23 to double
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %.lr.ph.split, %21
-  %24 = phi i32 [ %23, %21 ], [ 0, %.lr.ph.split ]
-  %25 = sitofp i32 %24 to double
+  %25 = phi double [ %24, %21 ], [ 0.000000e+00, %.lr.ph.split ]
   %26 = fmul double %.083144, %25
   %27 = fcmp ogt double %26, %9
   br i1 %27, label %.thread134, label %28
@@ -1654,7 +1654,7 @@ list_length.exit109.thread:                       ; preds = %list_length.exit109
 
 94:                                               ; preds = %._crit_edge209, %110
   %.sroa.0.0213 = phi ptr [ %.182.lcssa, %._crit_edge209 ], [ %.sroa.0.1, %110 ]
-  %.sroa.5.0212 = phi i32 [ 1, %._crit_edge209 ], [ %111, %110 ]
+  %.sroa.5.0212 = phi i32 [ 1, %._crit_edge209 ], [ %.sroa.5.1, %110 ]
   %.076211 = phi ptr [ %93, %._crit_edge209 ], [ %.1, %110 ]
   %.3210 = phi ptr [ %.182.lcssa, %._crit_edge209 ], [ %.4, %110 ]
   %95 = getelementptr inbounds i8, ptr %.sroa.0.0213, i64 4
@@ -1669,23 +1669,22 @@ list_length.exit109.thread:                       ; preds = %list_length.exit109
   %102 = getelementptr %union.ListCell, ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = tail call zeroext i1 @equal(ptr noundef %103, ptr noundef %.076211) #10
-  br i1 %104, label %105, label %108
+  br i1 %104, label %105, label %107
 
 105:                                              ; preds = %98
-  %106 = add i32 %.sroa.5.0212, -1
-  %107 = tail call ptr @list_delete_nth_cell(ptr noundef %.3210, i32 noundef %.sroa.5.0212) #10
+  %106 = tail call ptr @list_delete_nth_cell(ptr noundef %.3210, i32 noundef %.sroa.5.0212) #10
   br label %110
 
-108:                                              ; preds = %98
-  %109 = load ptr, ptr %102, align 8
+107:                                              ; preds = %98
+  %108 = load ptr, ptr %102, align 8
+  %109 = add nsw i32 %.sroa.5.0212, 1
   br label %110
 
-110:                                              ; preds = %105, %108
-  %.4 = phi ptr [ %107, %105 ], [ %.3210, %108 ]
-  %.1 = phi ptr [ %.076211, %105 ], [ %109, %108 ]
-  %.sroa.5.1 = phi i32 [ %106, %105 ], [ %.sroa.5.0212, %108 ]
-  %.sroa.0.1 = phi ptr [ %107, %105 ], [ %.sroa.0.0213, %108 ]
-  %111 = add i32 %.sroa.5.1, 1
+110:                                              ; preds = %105, %107
+  %.4 = phi ptr [ %106, %105 ], [ %.3210, %107 ]
+  %.1 = phi ptr [ %.076211, %105 ], [ %108, %107 ]
+  %.sroa.5.1 = phi i32 [ %.sroa.5.0212, %105 ], [ %109, %107 ]
+  %.sroa.0.1 = phi ptr [ %106, %105 ], [ %.sroa.0.0213, %107 ]
   %.not101 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not101, label %.thread134, label %94, !llvm.loop !13
 

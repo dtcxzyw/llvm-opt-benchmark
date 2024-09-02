@@ -443,12 +443,12 @@ define hidden void @VP8IteratorImport(ptr nocapture noundef %0, ptr noundef %1) 
   %32 = load i32, ptr %31, align 8
   %33 = shl nsw i32 %5, 4
   %34 = sub nsw i32 %32, %33
-  %35 = tail call noundef i32 @llvm.smin.i32(i32 %34, i32 16)
+  %35 = tail call noundef range(i32 -2147483648, 17) i32 @llvm.smin.i32(i32 %34, i32 16)
   %36 = getelementptr inbounds i8, ptr %9, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = shl nsw i32 %7, 4
   %39 = sub nsw i32 %37, %38
-  %40 = tail call noundef i32 @llvm.smin.i32(i32 %39, i32 16)
+  %40 = tail call noundef range(i32 -2147483648, 17) i32 @llvm.smin.i32(i32 %39, i32 16)
   %41 = add nsw i32 %35, 1
   %42 = ashr i32 %41, 1
   %43 = add nsw i32 %40, 1

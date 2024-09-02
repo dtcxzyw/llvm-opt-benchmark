@@ -277,7 +277,7 @@ entry:
 declare i32 @pthread_setaffinity_np(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN2EA6Thread18GetThreadProcessorEv() local_unnamed_addr #6 {
+define dso_local noundef range(i32 0, -2147483648) i32 @_ZN2EA6Thread18GetThreadProcessorEv() local_unnamed_addr #6 {
 entry:
   %call = tail call i32 @sched_getcpu() #19
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %call, i32 0)

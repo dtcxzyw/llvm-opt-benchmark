@@ -325,7 +325,7 @@ define hidden void @WebPConvertRGBA32ToUV_C(ptr nocapture noundef readonly %0, p
   %18 = add nsw i32 %17, %15
   %19 = ashr i32 %18, 18
   %20 = tail call i32 @llvm.smax.i32(i32 %19, i32 0)
-  %21 = tail call range(i32 -7072, 7329) i32 @llvm.umin.i32(i32 %20, i32 255)
+  %21 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %20, i32 255)
   %22 = trunc nuw i32 %21 to i8
   %23 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   store i8 %22, ptr %23, align 1
@@ -337,7 +337,7 @@ define hidden void @WebPConvertRGBA32ToUV_C(ptr nocapture noundef readonly %0, p
   %27 = add nsw i32 %26, %.neg5.i
   %28 = ashr i32 %27, 18
   %29 = tail call i32 @llvm.smax.i32(i32 %28, i32 0)
-  %30 = tail call range(i32 -7072, 7329) i32 @llvm.umin.i32(i32 %29, i32 255)
+  %30 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %29, i32 255)
   %31 = trunc nuw i32 %30 to i8
   %32 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
   store i8 %31, ptr %32, align 1

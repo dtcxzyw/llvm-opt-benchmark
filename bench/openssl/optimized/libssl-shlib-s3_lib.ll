@@ -2548,13 +2548,11 @@ if.end200:                                        ; preds = %land.lhs.true195, %
   %tobool205 = icmp ne i64 %and204, 0
   %35 = select i1 %tobool202, i1 %tobool205, i1 false
   %and207 = and i64 %conv191, 4
-  %tobool208.not = icmp eq i64 %and207, 0
-  br i1 %tobool208.not, label %if.end217, label %if.then209
+  %tobool208.not = icmp ne i64 %and207, 0
+  %brmerge.not = select i1 %tobool208.not, i1 %35, i1 false
+  br i1 %brmerge.not, label %land.rhs211, label %if.end217
 
-if.then209:                                       ; preds = %if.end200
-  br i1 %35, label %land.rhs211, label %for.inc270
-
-land.rhs211:                                      ; preds = %if.then209
+land.rhs211:                                      ; preds = %if.end200
   %id = getelementptr inbounds i8, ptr %call105, i64 24
   %36 = load i32, ptr %id, align 8
   %conv212 = zext i32 %36 to i64
@@ -2563,7 +2561,9 @@ land.rhs211:                                      ; preds = %if.then209
   br i1 %tobool214.not, label %for.inc270, label %if.end221
 
 if.end217:                                        ; preds = %if.end200
-  br i1 %35, label %if.end221, label %for.inc270
+  %not.tobool208.not = xor i1 %tobool208.not, true
+  %narrow = select i1 %not.tobool208.not, i1 %35, i1 false
+  br i1 %narrow, label %if.end221, label %for.inc270
 
 if.end221:                                        ; preds = %land.rhs211, %land.lhs.true167, %if.end217
   %alg_k.2 = phi i64 [ %conv191, %if.end217 ], [ %alg_k.0134, %land.lhs.true167 ], [ %conv191, %land.rhs211 ]
@@ -2622,10 +2622,10 @@ if.end261:                                        ; preds = %land.lhs.true257, %
   %spec.select111 = select i1 %cmp262, ptr %call268, ptr %ret.0136
   br label %for.inc270
 
-for.inc270:                                       ; preds = %land.rhs211, %if.end261, %if.then209, %if.end221, %if.then241, %if.then243, %if.then227, %if.end217, %land.lhs.true195, %land.lhs.true127, %lor.lhs.false141, %land.lhs.true112, %lor.lhs.false
-  %alg_k.1 = phi i64 [ %alg_k.0134, %land.lhs.true127 ], [ %alg_k.0134, %lor.lhs.false141 ], [ %conv191, %land.lhs.true195 ], [ %alg_k.2, %if.then241 ], [ %alg_k.2, %if.then243 ], [ %alg_k.2, %if.then227 ], [ %alg_k.2, %if.end221 ], [ %conv191, %if.end217 ], [ %alg_k.0134, %land.lhs.true112 ], [ %alg_k.0134, %lor.lhs.false ], [ %alg_k.2, %if.end261 ], [ %conv191, %if.then209 ], [ %conv191, %land.rhs211 ]
-  %alg_a.1 = phi i64 [ %alg_a.0135, %land.lhs.true127 ], [ %alg_a.0135, %lor.lhs.false141 ], [ %conv192, %land.lhs.true195 ], [ %alg_a.2, %if.then241 ], [ %alg_a.2, %if.then243 ], [ %alg_a.2, %if.then227 ], [ %alg_a.2, %if.end221 ], [ %conv192, %if.end217 ], [ %alg_a.0135, %land.lhs.true112 ], [ %alg_a.0135, %lor.lhs.false ], [ %alg_a.2, %if.end261 ], [ %conv192, %if.then209 ], [ %conv192, %land.rhs211 ]
-  %ret.2 = phi ptr [ %ret.0136, %land.lhs.true127 ], [ %ret.0136, %lor.lhs.false141 ], [ %ret.0136, %land.lhs.true195 ], [ %ret.0136, %if.then241 ], [ %call245, %if.then243 ], [ %ret.0136, %if.then227 ], [ %ret.0136, %if.end221 ], [ %ret.0136, %if.end217 ], [ %ret.0136, %land.lhs.true112 ], [ %ret.0136, %lor.lhs.false ], [ %spec.select111, %if.end261 ], [ %ret.0136, %if.then209 ], [ %ret.0136, %land.rhs211 ]
+for.inc270:                                       ; preds = %land.rhs211, %if.end261, %if.end221, %if.then241, %if.then243, %if.then227, %if.end217, %land.lhs.true195, %land.lhs.true127, %lor.lhs.false141, %land.lhs.true112, %lor.lhs.false
+  %alg_k.1 = phi i64 [ %alg_k.0134, %land.lhs.true127 ], [ %alg_k.0134, %lor.lhs.false141 ], [ %conv191, %land.lhs.true195 ], [ %alg_k.2, %if.then241 ], [ %alg_k.2, %if.then243 ], [ %alg_k.2, %if.then227 ], [ %alg_k.2, %if.end221 ], [ %conv191, %if.end217 ], [ %alg_k.0134, %land.lhs.true112 ], [ %alg_k.0134, %lor.lhs.false ], [ %alg_k.2, %if.end261 ], [ %conv191, %land.rhs211 ]
+  %alg_a.1 = phi i64 [ %alg_a.0135, %land.lhs.true127 ], [ %alg_a.0135, %lor.lhs.false141 ], [ %conv192, %land.lhs.true195 ], [ %alg_a.2, %if.then241 ], [ %alg_a.2, %if.then243 ], [ %alg_a.2, %if.then227 ], [ %alg_a.2, %if.end221 ], [ %conv192, %if.end217 ], [ %alg_a.0135, %land.lhs.true112 ], [ %alg_a.0135, %lor.lhs.false ], [ %alg_a.2, %if.end261 ], [ %conv192, %land.rhs211 ]
+  %ret.2 = phi ptr [ %ret.0136, %land.lhs.true127 ], [ %ret.0136, %lor.lhs.false141 ], [ %ret.0136, %land.lhs.true195 ], [ %ret.0136, %if.then241 ], [ %call245, %if.then243 ], [ %ret.0136, %if.then227 ], [ %ret.0136, %if.end221 ], [ %ret.0136, %if.end217 ], [ %ret.0136, %land.lhs.true112 ], [ %ret.0136, %lor.lhs.false ], [ %spec.select111, %if.end261 ], [ %ret.0136, %land.rhs211 ]
   %inc271 = add nuw nsw i32 %i.3133, 1
   %call100 = tail call i32 @OPENSSL_sk_num(ptr noundef %prio.0) #19
   %cmp101 = icmp slt i32 %inc271, %call100

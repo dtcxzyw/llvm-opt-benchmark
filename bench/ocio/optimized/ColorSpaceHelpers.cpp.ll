@@ -1673,7 +1673,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev14ColorSpaceInfo21getNumHierarchyLevelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZNK19OpenColorIO_v2_4dev14ColorSpaceInfo21getNumHierarchyLevelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_hierarchyLevels = getelementptr inbounds i8, ptr %this, i64 136
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -2866,7 +2866,7 @@ terminate.lpad.body:                              ; preds = %lpad.i, %terminate.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev28ColorSpaceMenuParametersImpl22getNumAddedColorSpacesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) unnamed_addr #6 align 2 {
+define hidden noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZNK19OpenColorIO_v2_4dev28ColorSpaceMenuParametersImpl22getNumAddedColorSpacesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) unnamed_addr #6 align 2 {
 entry:
   %m_additionalColorSpaces = getelementptr inbounds i8, ptr %this, i64 160
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -7247,7 +7247,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev14NamedTransformELN9__gnu_cxx12_Lock_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev24ColorSpaceMenuHelperImpl17getNumColorSpacesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #6 align 2 {
+define hidden noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZNK19OpenColorIO_v2_4dev24ColorSpaceMenuHelperImpl17getNumColorSpacesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #6 align 2 {
 entry:
   %m_entries = getelementptr inbounds i8, ptr %this, i64 192
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 200
@@ -7537,7 +7537,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev24ColorSpaceMenuHelperImpl21getNumHierarchyLevelsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, i64 noundef %idx) unnamed_addr #15 align 2 {
+define hidden noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZNK19OpenColorIO_v2_4dev24ColorSpaceMenuHelperImpl21getNumHierarchyLevelsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, i64 noundef %idx) unnamed_addr #15 align 2 {
 entry:
   %m_entries = getelementptr inbounds i8, ptr %this, i64 192
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 200

@@ -907,19 +907,19 @@ if.then1:                                         ; preds = %if.end
 if.end2:                                          ; preds = %if.then1
   %call.i = tail call i32 @dictRehash(ptr noundef nonnull %d, i32 noundef 1)
   %.pr.pre = load i64, ptr %rehashidx, align 8
-  %cmp.not.i = icmp eq i64 %.pr.pre, -1
-  br i1 %cmp.not.i, label %if.end.i, label %for.cond.preheader
+  %4 = icmp eq i64 %.pr.pre, -1
+  br i1 %4, label %if.end.i, label %for.cond.preheader
 
 if.end.i:                                         ; preds = %if.end, %if.end2
   %ht_size_exp.i = getelementptr inbounds i8, ptr %d, i64 50
-  %4 = load i8, ptr %ht_size_exp.i, align 2
-  %cmp1.i = icmp eq i8 %4, -1
+  %5 = load i8, ptr %ht_size_exp.i, align 2
+  %cmp1.i = icmp eq i8 %5, -1
   br i1 %cmp1.i, label %lor.lhs.false.i.i, label %if.end9.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i
   %ht_used.i16.i = getelementptr inbounds i8, ptr %d, i64 24
-  %5 = load i64, ptr %ht_used.i16.i, align 8
-  %cmp1.i.i = icmp ugt i64 %5, 4
+  %6 = load i64, ptr %ht_used.i16.i, align 8
+  %cmp1.i.i = icmp ugt i64 %6, 4
   br i1 %cmp1.i.i, label %return, label %if.end20.i.i
 
 if.end20.i.i:                                     ; preds = %lor.lhs.false.i.i
@@ -932,45 +932,45 @@ if.end20.i.i:                                     ; preds = %lor.lhs.false.i.i
   %arrayidx37.i.i = getelementptr inbounds i8, ptr %d, i64 16
   store ptr %call31.i.i, ptr %arrayidx37.i.i, align 8
   store i64 0, ptr %rehashidx, align 8
-  %6 = load ptr, ptr %d, align 8
-  %rehashingStarted.i.i = getelementptr inbounds i8, ptr %6, i64 56
-  %7 = load ptr, ptr %rehashingStarted.i.i, align 8
-  %tobool39.not.i.i = icmp eq ptr %7, null
+  %7 = load ptr, ptr %d, align 8
+  %rehashingStarted.i.i = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = load ptr, ptr %rehashingStarted.i.i, align 8
+  %tobool39.not.i.i = icmp eq ptr %8, null
   br i1 %tobool39.not.i.i, label %if.end43.i.i, label %if.then40.i.i
 
 if.then40.i.i:                                    ; preds = %if.end20.i.i
-  tail call void %7(ptr noundef nonnull %d) #22
+  tail call void %8(ptr noundef nonnull %d) #22
   br label %if.end43.i.i
 
 if.end43.i.i:                                     ; preds = %if.then40.i.i, %if.end20.i.i
-  %8 = load ptr, ptr %ht_table.i.i, align 8
-  %cmp46.i.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %ht_table.i.i, align 8
+  %cmp46.i.i = icmp eq ptr %9, null
   br i1 %cmp46.i.i, label %if.then53.i.i, label %lor.lhs.false48.i.i
 
 lor.lhs.false48.i.i:                              ; preds = %if.end43.i.i
-  %9 = load i64, ptr %ht_used.i16.i, align 8
-  %cmp51.i.i = icmp eq i64 %9, 0
+  %10 = load i64, ptr %ht_used.i16.i, align 8
+  %cmp51.i.i = icmp eq i64 %10, 0
   br i1 %cmp51.i.i, label %if.then53.i.i, label %for.cond.preheader
 
 if.then53.i.i:                                    ; preds = %lor.lhs.false48.i.i, %if.end43.i.i
-  %10 = load ptr, ptr %d, align 8
-  %rehashingCompleted.i.i = getelementptr inbounds i8, ptr %10, i64 64
-  %11 = load ptr, ptr %rehashingCompleted.i.i, align 8
-  %tobool55.not.i.i = icmp eq ptr %11, null
+  %11 = load ptr, ptr %d, align 8
+  %rehashingCompleted.i.i = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = load ptr, ptr %rehashingCompleted.i.i, align 8
+  %tobool55.not.i.i = icmp eq ptr %12, null
   br i1 %tobool55.not.i.i, label %if.end59.i.i, label %if.then56.i.i
 
 if.then56.i.i:                                    ; preds = %if.then53.i.i
-  tail call void %11(ptr noundef nonnull %d) #22
+  tail call void %12(ptr noundef nonnull %d) #22
   %.pre.i.i = load ptr, ptr %ht_table.i.i, align 8
   br label %if.end59.i.i
 
 if.end59.i.i:                                     ; preds = %if.then56.i.i, %if.then53.i.i
-  %12 = phi ptr [ %.pre.i.i, %if.then56.i.i ], [ %8, %if.then53.i.i ]
-  %tobool62.not.i.i = icmp eq ptr %12, null
+  %13 = phi ptr [ %.pre.i.i, %if.then56.i.i ], [ %9, %if.then53.i.i ]
+  %tobool62.not.i.i = icmp eq ptr %13, null
   br i1 %tobool62.not.i.i, label %if.end66.i.i, label %if.then63.i.i
 
 if.then63.i.i:                                    ; preds = %if.end59.i.i
-  tail call void @zfree(ptr noundef nonnull %12) #22
+  tail call void @zfree(ptr noundef nonnull %13) #22
   br label %if.end66.i.i
 
 if.end66.i.i:                                     ; preds = %if.then63.i.i, %if.end59.i.i
@@ -984,41 +984,41 @@ if.end66.i.i:                                     ; preds = %if.then63.i.i, %if.
   br label %for.cond.preheader
 
 if.end9.i:                                        ; preds = %if.end.i
-  %13 = load i32, ptr @dict_can_resize, align 4
-  switch i32 %13, label %land.lhs.true31.i [
+  %14 = load i32, ptr @dict_can_resize, align 4
+  switch i32 %14, label %land.lhs.true31.i [
     i32 0, label %land.lhs.true.i
     i32 2, label %for.cond.preheader
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end9.i
   %ht_used.i = getelementptr inbounds i8, ptr %d, i64 24
-  %14 = load i64, ptr %ht_used.i, align 8
-  %conv15.i = sext i8 %4 to i64
+  %15 = load i64, ptr %ht_used.i, align 8
+  %conv15.i = sext i8 %5 to i64
   %sh_prom23.i = and i64 %conv15.i, 4294967295
-  %.highbits.i = lshr i64 %14, %sh_prom23.i
+  %.highbits.i = lshr i64 %15, %sh_prom23.i
   %cmp27.not.i = icmp eq i64 %.highbits.i, 0
   br i1 %cmp27.not.i, label %for.cond.preheader, label %if.then51.i
 
 land.lhs.true31.i:                                ; preds = %if.end9.i
   %ht_used32.phi.trans.insert.i = getelementptr inbounds i8, ptr %d, i64 24
   %.pre.i = load i64, ptr %ht_used32.phi.trans.insert.i, align 8
-  %.pre24.i = sext i8 %4 to i64
+  %.pre24.i = sext i8 %5 to i64
   %.pre25.i = and i64 %.pre24.i, 4294967295
   %.pre26.i = lshr i64 %.pre.i, %.pre25.i
-  %15 = icmp ugt i64 %.pre26.i, 5
-  br i1 %15, label %if.then51.i, label %for.cond.preheader
+  %16 = icmp ugt i64 %.pre26.i, 5
+  br i1 %16, label %if.then51.i, label %for.cond.preheader
 
 if.then51.i:                                      ; preds = %land.lhs.true31.i, %land.lhs.true.i
-  %16 = phi i64 [ %.pre.i, %land.lhs.true31.i ], [ %14, %land.lhs.true.i ]
-  %17 = load ptr, ptr %d, align 8
-  %expandAllowed.i.i = getelementptr inbounds i8, ptr %17, i64 48
-  %18 = load ptr, ptr %expandAllowed.i.i, align 8
-  %cmp.i.i = icmp eq ptr %18, null
+  %17 = phi i64 [ %.pre.i, %land.lhs.true31.i ], [ %15, %land.lhs.true.i ]
+  %18 = load ptr, ptr %d, align 8
+  %expandAllowed.i.i = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = load ptr, ptr %expandAllowed.i.i, align 8
+  %cmp.i.i = icmp eq ptr %19, null
   br i1 %cmp.i.i, label %if.end54.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then51.i
   %ht_used.i.i = getelementptr inbounds i8, ptr %d, i64 24
-  %add.i.i = add i64 %16, 1
+  %add.i.i = add i64 %17, 1
   %cmp.i.i.i = icmp ult i64 %add.i.i, 5
   br i1 %cmp.i.i.i, label %dictTypeExpandAllowed.exit.i, label %if.end.i.i.i
 
@@ -1027,20 +1027,20 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp1.i.i.i, label %dictTypeExpandAllowed.exit.i, label %if.end3.i10.i.i
 
 if.end3.i10.i.i:                                  ; preds = %if.end.i.i.i
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
-  %conv5.i11.i.i = sub nuw nsw i64 64, %19
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %17, i1 true)
+  %conv5.i11.i.i = sub nuw nsw i64 64, %20
   br label %dictTypeExpandAllowed.exit.i
 
 dictTypeExpandAllowed.exit.i:                     ; preds = %if.end3.i10.i.i, %if.end.i.i.i, %if.end.i.i
   %retval.0.i12.i.i = phi i64 [ %conv5.i11.i.i, %if.end3.i10.i.i ], [ 2, %if.end.i.i ], [ 63, %if.end.i.i.i ]
   %mul.i.i = shl i64 8, %retval.0.i12.i.i
-  %conv12.i.i = uitofp i64 %16 to double
-  %conv14.i.i = sext i8 %4 to i64
+  %conv12.i.i = uitofp i64 %17 to double
+  %conv14.i.i = sext i8 %5 to i64
   %sh_prom22.i.i = and i64 %conv14.i.i, 4294967295
   %shl23.i.i = shl nuw i64 1, %sh_prom22.i.i
-  %20 = uitofp i64 %shl23.i.i to double
-  %div.i.i = fdiv double %conv12.i.i, %20
-  %call27.i.i = tail call i32 %18(i64 noundef %mul.i.i, double noundef %div.i.i) #22
+  %21 = uitofp i64 %shl23.i.i to double
+  %div.i.i = fdiv double %conv12.i.i, %21
+  %call27.i.i = tail call i32 %19(i64 noundef %mul.i.i, double noundef %div.i.i) #22
   %tobool.not.i = icmp eq i32 %call27.i.i, 0
   br i1 %tobool.not.i, label %for.cond.preheader, label %dictTypeExpandAllowed.exit.if.end54_crit_edge.i
 
@@ -1049,11 +1049,11 @@ dictTypeExpandAllowed.exit.if.end54_crit_edge.i:  ; preds = %dictTypeExpandAllow
   br label %if.end54.i
 
 if.end54.i:                                       ; preds = %dictTypeExpandAllowed.exit.if.end54_crit_edge.i, %if.then51.i
-  %21 = phi i64 [ %.pre23.i, %dictTypeExpandAllowed.exit.if.end54_crit_edge.i ], [ %16, %if.then51.i ]
-  %add.i = add i64 %21, 1
+  %22 = phi i64 [ %.pre23.i, %dictTypeExpandAllowed.exit.if.end54_crit_edge.i ], [ %17, %if.then51.i ]
+  %add.i = add i64 %22, 1
   %call.i13.i = tail call range(i32 0, 2) i32 @_dictExpand(ptr noundef nonnull %d, i64 noundef %add.i, ptr noundef null)
-  %22 = icmp eq i32 %call.i13.i, 0
-  br i1 %22, label %for.cond.preheader, label %return
+  %23 = icmp eq i32 %call.i13.i, 0
+  br i1 %23, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.then1, %if.end2, %dictTypeExpandAllowed.exit.i, %land.lhs.true31.i, %if.end66.i.i, %lor.lhs.false48.i.i, %if.end9.i, %land.lhs.true.i, %if.end54.i
   %ht_size_exp = getelementptr inbounds i8, ptr %d, i64 50
@@ -1064,9 +1064,9 @@ for.body:                                         ; preds = %for.body.backedge, 
   %cmp22 = phi i1 [ true, %for.cond.preheader ], [ false, %for.body.backedge ]
   %table.049 = phi i64 [ 0, %for.cond.preheader ], [ 1, %for.body.backedge ]
   %arrayidx = getelementptr inbounds [2 x i8], ptr %ht_size_exp, i64 0, i64 %table.049
-  %23 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %23 to i64
-  %cmp8 = icmp eq i8 %23, -1
+  %24 = load i8, ptr %arrayidx, align 1
+  %conv = sext i8 %24 to i64
+  %cmp8 = icmp eq i8 %24, -1
   %sh_prom = and i64 %conv, 4294967295
   %notmask = shl nsw i64 -1, %sh_prom
   %sub = xor i64 %notmask, -1
@@ -1075,8 +1075,8 @@ for.body:                                         ; preds = %for.body.backedge, 
   br i1 %cmp22, label %land.lhs.true, label %if.end28
 
 land.lhs.true:                                    ; preds = %for.body
-  %24 = load i64, ptr %rehashidx, align 8
-  %cmp25 = icmp slt i64 %and, %24
+  %25 = load i64, ptr %rehashidx, align 8
+  %cmp25 = icmp slt i64 %and, %25
   br i1 %cmp25, label %for.body.backedge, label %if.end28
 
 for.body.backedge:                                ; preds = %land.lhs.true, %while.end
@@ -1084,42 +1084,42 @@ for.body.backedge:                                ; preds = %land.lhs.true, %whi
 
 if.end28:                                         ; preds = %land.lhs.true, %for.body
   %arrayidx29 = getelementptr inbounds [2 x ptr], ptr %ht_table, i64 0, i64 %table.049
-  %25 = load ptr, ptr %arrayidx29, align 8
-  %arrayidx30 = getelementptr inbounds ptr, ptr %25, i64 %and
-  %26 = load ptr, ptr %arrayidx30, align 8
-  %tobool31.not47 = icmp eq ptr %26, null
+  %26 = load ptr, ptr %arrayidx29, align 8
+  %arrayidx30 = getelementptr inbounds ptr, ptr %26, i64 %and
+  %27 = load ptr, ptr %arrayidx30, align 8
+  %tobool31.not47 = icmp eq ptr %27, null
   br i1 %tobool31.not47, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end28, %dictGetNext.exit
-  %he.048 = phi ptr [ %33, %dictGetNext.exit ], [ %26, %if.end28 ]
-  %27 = ptrtoint ptr %he.048 to i64
-  %conv.i6.i = and i64 %27, 1
+  %he.048 = phi ptr [ %34, %dictGetNext.exit ], [ %27, %if.end28 ]
+  %28 = ptrtoint ptr %he.048 to i64
+  %conv.i6.i = and i64 %28, 1
   %tobool.not.i34 = icmp eq i64 %conv.i6.i, 0
   br i1 %tobool.not.i34, label %if.end.i36, label %dictGetKey.exit
 
 if.end.i36:                                       ; preds = %while.body
-  %and.i.i = and i64 %27, 6
+  %and.i.i = and i64 %28, 6
   %cmp.i.not.i = icmp eq i64 %and.i.i, 2
-  %and.i.i.i = and i64 %27, -8
-  %28 = inttoptr i64 %and.i.i.i to ptr
-  %de.sink.i = select i1 %cmp.i.not.i, ptr %28, ptr %he.048
-  %29 = load ptr, ptr %de.sink.i, align 8
+  %and.i.i.i = and i64 %28, -8
+  %29 = inttoptr i64 %and.i.i.i to ptr
+  %de.sink.i = select i1 %cmp.i.not.i, ptr %29, ptr %he.048
+  %30 = load ptr, ptr %de.sink.i, align 8
   br label %dictGetKey.exit
 
 dictGetKey.exit:                                  ; preds = %while.body, %if.end.i36
-  %retval.0.i35 = phi ptr [ %he.048, %while.body ], [ %29, %if.end.i36 ]
+  %retval.0.i35 = phi ptr [ %he.048, %while.body ], [ %30, %if.end.i36 ]
   %cmp33 = icmp eq ptr %key, %retval.0.i35
   br i1 %cmp33, label %if.then45, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %dictGetKey.exit
-  %30 = load ptr, ptr %d, align 8
-  %keyCompare = getelementptr inbounds i8, ptr %30, i64 24
-  %31 = load ptr, ptr %keyCompare, align 8
-  %tobool36.not = icmp eq ptr %31, null
+  %31 = load ptr, ptr %d, align 8
+  %keyCompare = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = load ptr, ptr %keyCompare, align 8
+  %tobool36.not = icmp eq ptr %32, null
   br i1 %tobool36.not, label %if.end49, label %cond.true37
 
 cond.true37:                                      ; preds = %lor.lhs.false
-  %call40 = tail call i32 %31(ptr noundef nonnull %d, ptr noundef %key, ptr noundef %retval.0.i35) #22
+  %call40 = tail call i32 %32(ptr noundef nonnull %d, ptr noundef %key, ptr noundef %retval.0.i35) #22
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %if.end49, label %if.then45
 
@@ -1134,29 +1134,29 @@ if.end49:                                         ; preds = %lor.lhs.false, %con
   br i1 %tobool.not.i34, label %dictGetNext.exit, label %while.end
 
 dictGetNext.exit:                                 ; preds = %if.end49
-  %and.i.i40 = and i64 %27, 6
+  %and.i.i40 = and i64 %28, 6
   %cmp.i.not.i41 = icmp eq i64 %and.i.i40, 2
   %next6.i = getelementptr inbounds i8, ptr %he.048, i64 16
-  %and.i.i.i42 = and i64 %27, -8
-  %32 = inttoptr i64 %and.i.i.i42 to ptr
-  %next.i = getelementptr inbounds i8, ptr %32, i64 8
+  %and.i.i.i42 = and i64 %28, -8
+  %33 = inttoptr i64 %and.i.i.i42 to ptr
+  %next.i = getelementptr inbounds i8, ptr %33, i64 8
   %next6.sink.i = select i1 %cmp.i.not.i41, ptr %next.i, ptr %next6.i
-  %33 = load ptr, ptr %next6.sink.i, align 8
-  %tobool31.not = icmp eq ptr %33, null
+  %34 = load ptr, ptr %next6.sink.i, align 8
+  %tobool31.not = icmp eq ptr %34, null
   br i1 %tobool31.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end49, %dictGetNext.exit, %if.end28
-  %34 = load i64, ptr %rehashidx, align 8
-  %cmp52.not = icmp ne i64 %34, -1
+  %35 = load i64, ptr %rehashidx, align 8
+  %cmp52.not = icmp ne i64 %35, -1
   %or.cond = and i1 %cmp52.not, %cmp22
   br i1 %or.cond, label %for.body.backedge, label %for.end
 
 for.end:                                          ; preds = %while.end
-  %cmp58.not = icmp ne i64 %34, -1
+  %cmp58.not = icmp ne i64 %35, -1
   %idxprom = zext i1 %cmp58.not to i64
   %arrayidx61 = getelementptr inbounds [2 x ptr], ptr %ht_table, i64 0, i64 %idxprom
-  %35 = load ptr, ptr %arrayidx61, align 8
-  %arrayidx62 = getelementptr inbounds ptr, ptr %35, i64 %and
+  %36 = load ptr, ptr %arrayidx61, align 8
+  %arrayidx62 = getelementptr inbounds ptr, ptr %36, i64 %and
   br label %return
 
 return:                                           ; preds = %lor.lhs.false.i.i, %if.then45, %if.then47, %if.end54.i, %for.end

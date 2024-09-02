@@ -219,7 +219,7 @@ define dso_local noalias noundef ptr @onas_ddd_th(ptr noundef %0) #0 {
 
 28:                                               ; preds = %1
   %29 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.4) #16
-  br label %568
+  br label %560
 
 30:                                               ; preds = %1
   %31 = call i32 @onas_ddd_init(i64 poison, i64 noundef 262144)
@@ -228,7 +228,7 @@ define dso_local noalias noundef ptr @onas_ddd_th(ptr noundef %0) #0 {
 
 32:                                               ; preds = %30
   %33 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.5) #16
-  br label %568
+  br label %560
 
 34:                                               ; preds = %30
   %35 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.6) #16
@@ -250,7 +250,7 @@ define dso_local noalias noundef ptr @onas_ddd_th(ptr noundef %0) #0 {
 
 46:                                               ; preds = %40
   %47 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.9) #16
-  br label %568
+  br label %560
 
 48:                                               ; preds = %40, %34
   %49 = getelementptr inbounds i8, ptr %0, i64 8
@@ -281,7 +281,7 @@ define dso_local noalias noundef ptr @onas_ddd_th(ptr noundef %0) #0 {
   %or.cond = and i1 %65, %64
   br i1 %or.cond, label %sub_0, label %.loopexit295
 
-66:                                               ; preds = %87, %98, %83, %76
+66:                                               ; preds = %83, %94, %79, %73
   %.0196.in = getelementptr inbounds i8, ptr %.1, i64 48
   %.0196 = load ptr, ptr %.0196.in, align 8
   %.old1.not = icmp eq ptr %.0196, null
@@ -292,958 +292,944 @@ sub_0:                                            ; preds = %59, %66
   %67 = getelementptr inbounds i8, ptr %.1, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  %71 = add nsw i32 %70, -47
-  %.not322 = icmp eq i32 %71, 0
-  br i1 %.not322, label %sub_1, label %.tail
+  %.not322 = icmp eq i8 %69, 47
+  br i1 %.not322, label %.tail, label %.tail.thread
 
-sub_1:                                            ; preds = %sub_0
-  %72 = getelementptr inbounds i8, ptr %68, i64 1
-  %73 = load i8, ptr %72, align 1
-  %74 = zext i8 %73 to i32
-  br label %.tail
+.tail:                                            ; preds = %sub_0
+  %70 = getelementptr inbounds i8, ptr %68, i64 1
+  %71 = load i8, ptr %70, align 1
+  %72 = icmp eq i8 %71, 0
+  br i1 %72, label %73, label %.tail.thread
 
-.tail:                                            ; preds = %sub_0, %sub_1
-  %75 = phi i32 [ %71, %sub_0 ], [ %74, %sub_1 ]
-  %.not223 = icmp eq i32 %75, 0
-  br i1 %.not223, label %76, label %80
-
-76:                                               ; preds = %.tail
-  %77 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.12, ptr noundef nonnull %68) #16
-  %78 = load ptr, ptr %67, align 8
-  %79 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.13, ptr noundef %78) #16
+73:                                               ; preds = %.tail
+  %74 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.12, ptr noundef nonnull %68) #16
+  %75 = load ptr, ptr %67, align 8
+  %76 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.13, ptr noundef %75) #16
   br label %66
 
-80:                                               ; preds = %.tail
-  %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0197, ptr noundef nonnull dereferenceable(1) %68) #18
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %83, label %87
+.tail.thread:                                     ; preds = %sub_0, %.tail
+  %77 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0197, ptr noundef nonnull dereferenceable(1) %68) #18
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %83
 
-83:                                               ; preds = %80
-  %84 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.14, ptr noundef nonnull %68) #16
-  %85 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.15) #16
-  %86 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.16) #16
+79:                                               ; preds = %.tail.thread
+  %80 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.14, ptr noundef nonnull %68) #16
+  %81 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.15) #16
+  %82 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.16) #16
   br label %66
 
-87:                                               ; preds = %80
+83:                                               ; preds = %.tail.thread
+  %84 = load ptr, ptr @ddd_ht, align 8
+  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #18
+  %86 = call i32 @onas_ht_get(ptr noundef %84, ptr noundef nonnull %68, i64 noundef %85, ptr noundef null) #16
+  %.not224 = icmp eq i32 %86, 0
+  br i1 %.not224, label %66, label %87
+
+87:                                               ; preds = %83
   %88 = load ptr, ptr @ddd_ht, align 8
-  %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #18
-  %90 = call i32 @onas_ht_get(ptr noundef %88, ptr noundef nonnull %68, i64 noundef %89, ptr noundef null) #16
-  %.not224 = icmp eq i32 %90, 0
-  br i1 %.not224, label %66, label %91
+  %89 = load ptr, ptr %67, align 8
+  %90 = call i32 @onas_ht_add_hierarchy(ptr noundef %88, ptr noundef %89) #16
+  %.not225 = icmp eq i32 %90, 0
+  %91 = load ptr, ptr %67, align 8
+  br i1 %.not225, label %94, label %92
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr @ddd_ht, align 8
-  %93 = load ptr, ptr %67, align 8
-  %94 = call i32 @onas_ht_add_hierarchy(ptr noundef %92, ptr noundef %93) #16
-  %.not225 = icmp eq i32 %94, 0
-  %95 = load ptr, ptr %67, align 8
-  br i1 %.not225, label %98, label %96
+92:                                               ; preds = %87
+  %93 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.17, ptr noundef %91) #16
+  br label %560
 
-96:                                               ; preds = %91
-  %97 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.17, ptr noundef %95) #16
-  br label %568
-
-98:                                               ; preds = %91
-  %99 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %95) #16
+94:                                               ; preds = %87
+  %95 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %91) #16
   br label %66
 
 .loopexit295:                                     ; preds = %66, %59
-  %100 = load ptr, ptr %0, align 1
-  %101 = call ptr @optget(ptr noundef %100, ptr noundef nonnull @.str.7) #16
-  %102 = getelementptr inbounds i8, ptr %101, i64 32
-  %103 = load i32, ptr %102, align 8
-  %.not226 = icmp eq i32 %103, 0
-  br i1 %.not226, label %.loopexit293, label %104
+  %96 = load ptr, ptr %0, align 1
+  %97 = call ptr @optget(ptr noundef %96, ptr noundef nonnull @.str.7) #16
+  %98 = getelementptr inbounds i8, ptr %97, i64 32
+  %99 = load i32, ptr %98, align 8
+  %.not226 = icmp eq i32 %99, 0
+  br i1 %.not226, label %.loopexit293, label %100
 
-104:                                              ; preds = %.loopexit295
+100:                                              ; preds = %.loopexit295
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
-  %105 = getelementptr inbounds i8, ptr %101, i64 16
-  %106 = load ptr, ptr %105, align 8
-  %107 = call ptr @onas_get_opt_list(ptr noundef %106, ptr noundef nonnull %11, ptr noundef nonnull %12) #16
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %110, label %.preheader292
+  %101 = getelementptr inbounds i8, ptr %97, i64 16
+  %102 = load ptr, ptr %101, align 8
+  %103 = call ptr @onas_get_opt_list(ptr noundef %102, ptr noundef nonnull %11, ptr noundef nonnull %12) #16
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %106, label %.preheader292
 
-.preheader292:                                    ; preds = %104
-  %109 = load ptr, ptr %107, align 8
-  %.not227307309 = icmp eq ptr %109, null
+.preheader292:                                    ; preds = %100
+  %105 = load ptr, ptr %103, align 8
+  %.not227307309 = icmp eq ptr %105, null
   br i1 %.not227307309, label %.loopexit293, label %.lr.ph
 
-110:                                              ; preds = %104
-  %111 = load i32, ptr %12, align 4
-  %112 = call ptr @cl_strerror(i32 noundef %111) #16
-  %113 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.19, ptr noundef %112) #16
-  br label %568
+106:                                              ; preds = %100
+  %107 = load i32, ptr %12, align 4
+  %108 = call ptr @cl_strerror(i32 noundef %107) #16
+  %109 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.19, ptr noundef %108) #16
+  br label %560
 
-114:                                              ; preds = %.lr.ph, %.backedge
-  %115 = phi ptr [ %149, %.lr.ph ], [ %131, %.backedge ]
-  %116 = load ptr, ptr @ddd_ht, align 8
-  %117 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %115) #18
-  %118 = call i32 @onas_ht_get(ptr noundef %116, ptr noundef nonnull %115, i64 noundef %117, ptr noundef null) #16
-  %.not250 = icmp eq i32 %118, 0
+110:                                              ; preds = %.lr.ph, %.backedge
+  %111 = phi ptr [ %141, %.lr.ph ], [ %124, %.backedge ]
+  %112 = load ptr, ptr @ddd_ht, align 8
+  %113 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #18
+  %114 = call i32 @onas_ht_get(ptr noundef %112, ptr noundef nonnull %111, i64 noundef %113, ptr noundef null) #16
+  %.not250 = icmp eq i32 %114, 0
   br i1 %.not250, label %.outer, label %sub_0281
 
-sub_0281:                                         ; preds = %114
-  %119 = load ptr, ptr %150, align 8
-  %120 = load i8, ptr %119, align 1
-  %121 = zext i8 %120 to i32
-  %122 = add nsw i32 %121, -47
-  %.not323 = icmp eq i32 %122, 0
-  br i1 %.not323, label %sub_1282, label %.tail280
+sub_0281:                                         ; preds = %110
+  %115 = load ptr, ptr %142, align 8
+  %116 = load i8, ptr %115, align 1
+  %.not323 = icmp eq i8 %116, 47
+  br i1 %.not323, label %.tail280, label %.tail280.thread
 
-sub_1282:                                         ; preds = %sub_0281
-  %123 = getelementptr inbounds i8, ptr %119, i64 1
-  %124 = load i8, ptr %123, align 1
-  %125 = zext i8 %124 to i32
-  br label %.tail280
+.tail280:                                         ; preds = %sub_0281
+  %117 = getelementptr inbounds i8, ptr %115, i64 1
+  %118 = load i8, ptr %117, align 1
+  %119 = icmp eq i8 %118, 0
+  br i1 %119, label %120, label %.tail280.thread
 
-.tail280:                                         ; preds = %sub_0281, %sub_1282
-  %126 = phi i32 [ %122, %sub_0281 ], [ %125, %sub_1282 ]
-  %.not251 = icmp eq i32 %126, 0
-  br i1 %.not251, label %127, label %132
-
-127:                                              ; preds = %.tail280
-  %128 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.12, ptr noundef nonnull %119) #16
-  %129 = load ptr, ptr %150, align 8
-  %130 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.13, ptr noundef %129) #16
+120:                                              ; preds = %.tail280
+  %121 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.12, ptr noundef nonnull %115) #16
+  %122 = load ptr, ptr %142, align 8
+  %123 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.13, ptr noundef %122) #16
   br label %.backedge
 
-.backedge:                                        ; preds = %127, %135
-  %131 = load ptr, ptr %150, align 8
-  %.not227 = icmp eq ptr %131, null
-  br i1 %.not227, label %.loopexit293, label %114
+.backedge:                                        ; preds = %120, %127
+  %124 = load ptr, ptr %142, align 8
+  %.not227 = icmp eq ptr %124, null
+  br i1 %.not227, label %.loopexit293, label %110
 
-132:                                              ; preds = %.tail280
-  %133 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0197, ptr noundef nonnull dereferenceable(1) %119) #18
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %135, label %139
+.tail280.thread:                                  ; preds = %sub_0281, %.tail280
+  %125 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0197, ptr noundef nonnull dereferenceable(1) %115) #18
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %131
 
-135:                                              ; preds = %132
-  %136 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.14, ptr noundef nonnull %119) #16
-  %137 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.15) #16
-  %138 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.16) #16
+127:                                              ; preds = %.tail280.thread
+  %128 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.14, ptr noundef nonnull %115) #16
+  %129 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.15) #16
+  %130 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.16) #16
   br label %.backedge
 
-139:                                              ; preds = %132
-  %140 = load ptr, ptr @ddd_ht, align 8
-  %141 = call i32 @onas_ht_add_hierarchy(ptr noundef %140, ptr noundef nonnull %119) #16
-  %.not252 = icmp eq i32 %141, 0
-  %142 = load ptr, ptr %150, align 8
-  br i1 %.not252, label %145, label %143
+131:                                              ; preds = %.tail280.thread
+  %132 = load ptr, ptr @ddd_ht, align 8
+  %133 = call i32 @onas_ht_add_hierarchy(ptr noundef %132, ptr noundef nonnull %115) #16
+  %.not252 = icmp eq i32 %133, 0
+  %134 = load ptr, ptr %142, align 8
+  br i1 %.not252, label %137, label %135
 
-143:                                              ; preds = %139
-  %144 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.17, ptr noundef %142) #16
-  br label %568
+135:                                              ; preds = %131
+  %136 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.17, ptr noundef %134) #16
+  br label %560
 
-145:                                              ; preds = %139
-  %146 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %142) #16
+137:                                              ; preds = %131
+  %138 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %134) #16
   br label %.outer
 
-.outer:                                           ; preds = %114, %145
+.outer:                                           ; preds = %110, %137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %147 = getelementptr inbounds ptr, ptr %107, i64 %indvars.iv.next
-  %148 = load ptr, ptr %147, align 8
-  %.not227307 = icmp eq ptr %148, null
+  %139 = getelementptr inbounds ptr, ptr %103, i64 %indvars.iv.next
+  %140 = load ptr, ptr %139, align 8
+  %.not227307 = icmp eq ptr %140, null
   br i1 %.not227307, label %.loopexit293, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader292, %.outer
   %indvars.iv = phi i64 [ %indvars.iv.next, %.outer ], [ 0, %.preheader292 ]
-  %149 = phi ptr [ %148, %.outer ], [ %109, %.preheader292 ]
-  %150 = getelementptr inbounds ptr, ptr %107, i64 %indvars.iv
-  br label %114
+  %141 = phi ptr [ %140, %.outer ], [ %105, %.preheader292 ]
+  %142 = getelementptr inbounds ptr, ptr %103, i64 %indvars.iv
+  br label %110
 
 .loopexit293:                                     ; preds = %.outer, %.backedge, %.preheader292, %.loopexit295
-  %.0202 = phi ptr [ null, %.loopexit295 ], [ %107, %.preheader292 ], [ %107, %.backedge ], [ %107, %.outer ]
-  %151 = load ptr, ptr %49, align 1
-  %152 = call ptr @optget(ptr noundef %151, ptr noundef nonnull @.str.20) #16
-  %153 = getelementptr inbounds i8, ptr %152, i64 32
-  %154 = load i32, ptr %153, align 8
-  %155 = icmp ne i32 %154, 0
-  %156 = icmp ne ptr %152, null
-  %or.cond4 = and i1 %156, %155
+  %.0202 = phi ptr [ null, %.loopexit295 ], [ %103, %.preheader292 ], [ %103, %.backedge ], [ %103, %.outer ]
+  %143 = load ptr, ptr %49, align 1
+  %144 = call ptr @optget(ptr noundef %143, ptr noundef nonnull @.str.20) #16
+  %145 = getelementptr inbounds i8, ptr %144, i64 32
+  %146 = load i32, ptr %145, align 8
+  %147 = icmp ne i32 %146, 0
+  %148 = icmp ne ptr %144, null
+  %or.cond4 = and i1 %148, %147
   br i1 %or.cond4, label %.preheader290, label %.loopexit291
 
-.preheader290:                                    ; preds = %.loopexit293, %172
-  %.3 = phi ptr [ %174, %172 ], [ %152, %.loopexit293 ]
-  %157 = getelementptr inbounds i8, ptr %.3, i64 16
-  %158 = load ptr, ptr %157, align 8
-  %159 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %158) #18
-  %160 = load ptr, ptr @ddd_ht, align 8
-  %161 = call i32 @onas_ht_get(ptr noundef %160, ptr noundef %158, i64 noundef %159, ptr noundef null) #16
-  %162 = icmp eq i32 %161, 0
-  br i1 %162, label %163, label %172
+.preheader290:                                    ; preds = %.loopexit293, %164
+  %.3 = phi ptr [ %166, %164 ], [ %144, %.loopexit293 ]
+  %149 = getelementptr inbounds i8, ptr %.3, i64 16
+  %150 = load ptr, ptr %149, align 8
+  %151 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %150) #18
+  %152 = load ptr, ptr @ddd_ht, align 8
+  %153 = call i32 @onas_ht_get(ptr noundef %152, ptr noundef %150, i64 noundef %151, ptr noundef null) #16
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %155, label %164
 
-163:                                              ; preds = %.preheader290
-  %164 = load ptr, ptr @ddd_ht, align 8
-  %165 = load ptr, ptr %157, align 8
-  %166 = call i32 @onas_ht_rm_hierarchy(ptr noundef %164, ptr noundef %165, i64 noundef %159, i32 noundef 0) #16
-  %.not228 = icmp eq i32 %166, 0
-  %167 = load ptr, ptr %157, align 8
-  br i1 %.not228, label %170, label %168
+155:                                              ; preds = %.preheader290
+  %156 = load ptr, ptr @ddd_ht, align 8
+  %157 = load ptr, ptr %149, align 8
+  %158 = call i32 @onas_ht_rm_hierarchy(ptr noundef %156, ptr noundef %157, i64 noundef %151, i32 noundef 0) #16
+  %.not228 = icmp eq i32 %158, 0
+  %159 = load ptr, ptr %149, align 8
+  br i1 %.not228, label %162, label %160
 
-168:                                              ; preds = %163
-  %169 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.21, ptr noundef %167) #16
-  br label %568
+160:                                              ; preds = %155
+  %161 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.21, ptr noundef %159) #16
+  br label %560
 
-170:                                              ; preds = %163
-  %171 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef %167) #16
-  br label %172
+162:                                              ; preds = %155
+  %163 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef %159) #16
+  br label %164
 
-172:                                              ; preds = %170, %.preheader290
-  %173 = getelementptr inbounds i8, ptr %.3, i64 48
-  %174 = load ptr, ptr %173, align 8
-  %.old3.not = icmp eq ptr %174, null
+164:                                              ; preds = %162, %.preheader290
+  %165 = getelementptr inbounds i8, ptr %.3, i64 48
+  %166 = load ptr, ptr %165, align 8
+  %.old3.not = icmp eq ptr %166, null
   br i1 %.old3.not, label %.loopexit291, label %.preheader290
 
-.loopexit291:                                     ; preds = %172, %.loopexit293
-  %175 = load ptr, ptr %0, align 1
-  %176 = call ptr @optget(ptr noundef %175, ptr noundef nonnull @.str.23) #16
-  %177 = getelementptr inbounds i8, ptr %176, i64 32
-  %178 = load i32, ptr %177, align 8
-  %.not229 = icmp eq i32 %178, 0
-  br i1 %.not229, label %.loopexit289, label %179
+.loopexit291:                                     ; preds = %164, %.loopexit293
+  %167 = load ptr, ptr %0, align 1
+  %168 = call ptr @optget(ptr noundef %167, ptr noundef nonnull @.str.23) #16
+  %169 = getelementptr inbounds i8, ptr %168, i64 32
+  %170 = load i32, ptr %169, align 8
+  %.not229 = icmp eq i32 %170, 0
+  br i1 %.not229, label %.loopexit289, label %171
 
-179:                                              ; preds = %.loopexit291
+171:                                              ; preds = %.loopexit291
   store i32 0, ptr %10, align 4
   store i32 0, ptr %12, align 4
-  %180 = getelementptr inbounds i8, ptr %176, i64 16
-  %181 = load ptr, ptr %180, align 8
-  %182 = call ptr @onas_get_opt_list(ptr noundef %181, ptr noundef nonnull %10, ptr noundef nonnull %12) #16
-  %183 = icmp eq ptr %182, null
-  br i1 %183, label %185, label %.preheader288
+  %172 = getelementptr inbounds i8, ptr %168, i64 16
+  %173 = load ptr, ptr %172, align 8
+  %174 = call ptr @onas_get_opt_list(ptr noundef %173, ptr noundef nonnull %10, ptr noundef nonnull %12) #16
+  %175 = icmp eq ptr %174, null
+  br i1 %175, label %177, label %.preheader288
 
-.preheader288:                                    ; preds = %179
-  %184 = load ptr, ptr %182, align 8
-  %.not230312 = icmp eq ptr %184, null
+.preheader288:                                    ; preds = %171
+  %176 = load ptr, ptr %174, align 8
+  %.not230312 = icmp eq ptr %176, null
   br i1 %.not230312, label %.loopexit289, label %.lr.ph314
 
-185:                                              ; preds = %179
-  %186 = load i32, ptr %12, align 4
-  %187 = call ptr @cl_strerror(i32 noundef %186) #16
-  %188 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.24, ptr noundef %187) #16
-  br label %568
+177:                                              ; preds = %171
+  %178 = load i32, ptr %12, align 4
+  %179 = call ptr @cl_strerror(i32 noundef %178) #16
+  %180 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.24, ptr noundef %179) #16
+  br label %560
 
-.lr.ph314:                                        ; preds = %.preheader288, %205
-  %indvars.iv339 = phi i64 [ %indvars.iv.next340, %205 ], [ 0, %.preheader288 ]
-  %189 = phi ptr [ %207, %205 ], [ %184, %.preheader288 ]
-  %190 = load ptr, ptr @ddd_ht, align 8
-  %191 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %189) #18
-  %192 = call i32 @onas_ht_get(ptr noundef %190, ptr noundef nonnull %189, i64 noundef %191, ptr noundef null) #16
-  %193 = icmp eq i32 %192, 0
-  br i1 %193, label %194, label %205
+.lr.ph314:                                        ; preds = %.preheader288, %197
+  %indvars.iv339 = phi i64 [ %indvars.iv.next340, %197 ], [ 0, %.preheader288 ]
+  %181 = phi ptr [ %199, %197 ], [ %176, %.preheader288 ]
+  %182 = load ptr, ptr @ddd_ht, align 8
+  %183 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %181) #18
+  %184 = call i32 @onas_ht_get(ptr noundef %182, ptr noundef nonnull %181, i64 noundef %183, ptr noundef null) #16
+  %185 = icmp eq i32 %184, 0
+  br i1 %185, label %186, label %197
 
-194:                                              ; preds = %.lr.ph314
-  %195 = getelementptr inbounds ptr, ptr %182, i64 %indvars.iv339
-  %196 = load ptr, ptr @ddd_ht, align 8
-  %197 = load ptr, ptr %195, align 8
-  %198 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %197) #18
-  %199 = call i32 @onas_ht_rm_hierarchy(ptr noundef %196, ptr noundef %197, i64 noundef %198, i32 noundef 0) #16
-  %.not249 = icmp eq i32 %199, 0
-  %200 = load ptr, ptr %195, align 8
-  br i1 %.not249, label %203, label %201
+186:                                              ; preds = %.lr.ph314
+  %187 = getelementptr inbounds ptr, ptr %174, i64 %indvars.iv339
+  %188 = load ptr, ptr @ddd_ht, align 8
+  %189 = load ptr, ptr %187, align 8
+  %190 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %189) #18
+  %191 = call i32 @onas_ht_rm_hierarchy(ptr noundef %188, ptr noundef %189, i64 noundef %190, i32 noundef 0) #16
+  %.not249 = icmp eq i32 %191, 0
+  %192 = load ptr, ptr %187, align 8
+  br i1 %.not249, label %195, label %193
 
-201:                                              ; preds = %194
-  %202 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.21, ptr noundef %200) #16
-  br label %568
+193:                                              ; preds = %186
+  %194 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.21, ptr noundef %192) #16
+  br label %560
 
-203:                                              ; preds = %194
-  %204 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef %200) #16
-  br label %205
+195:                                              ; preds = %186
+  %196 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef %192) #16
+  br label %197
 
-205:                                              ; preds = %203, %.lr.ph314
+197:                                              ; preds = %195, %.lr.ph314
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
-  %206 = getelementptr inbounds ptr, ptr %182, i64 %indvars.iv.next340
-  %207 = load ptr, ptr %206, align 8
-  %.not230 = icmp eq ptr %207, null
+  %198 = getelementptr inbounds ptr, ptr %174, i64 %indvars.iv.next340
+  %199 = load ptr, ptr %198, align 8
+  %.not230 = icmp eq ptr %199, null
   br i1 %.not230, label %.loopexit289, label %.lr.ph314
 
-.loopexit289:                                     ; preds = %205, %.preheader288, %.loopexit291
-  %208 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.25, ptr noundef %.0197) #16
-  %209 = load ptr, ptr @ddd_ht, align 8
-  %210 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0197) #18
-  %211 = call i32 @onas_ht_rm_hierarchy(ptr noundef %209, ptr noundef %.0197, i64 noundef %210, i32 noundef 0) #16
-  %.not231 = icmp eq i32 %211, 0
-  br i1 %.not231, label %214, label %212
+.loopexit289:                                     ; preds = %197, %.preheader288, %.loopexit291
+  %200 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.25, ptr noundef %.0197) #16
+  %201 = load ptr, ptr @ddd_ht, align 8
+  %202 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0197) #18
+  %203 = call i32 @onas_ht_rm_hierarchy(ptr noundef %201, ptr noundef %.0197, i64 noundef %202, i32 noundef 0) #16
+  %.not231 = icmp eq i32 %203, 0
+  br i1 %.not231, label %206, label %204
 
-212:                                              ; preds = %.loopexit289
-  %213 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef %.0197) #16
-  br label %216
+204:                                              ; preds = %.loopexit289
+  %205 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.26, ptr noundef %.0197) #16
+  br label %208
 
-214:                                              ; preds = %.loopexit289
-  %215 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef %.0197) #16
-  br label %216
+206:                                              ; preds = %.loopexit289
+  %207 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef %.0197) #16
+  br label %208
 
-216:                                              ; preds = %214, %212
-  %217 = load ptr, ptr %49, align 1
-  %218 = call ptr @optget(ptr noundef %217, ptr noundef nonnull @.str.8) #16
-  %219 = getelementptr inbounds i8, ptr %218, i64 32
-  %220 = load i32, ptr %219, align 8
-  %221 = icmp ne i32 %220, 0
-  %222 = icmp ne ptr %218, null
-  %or.cond7 = and i1 %222, %221
+208:                                              ; preds = %206, %204
+  %209 = load ptr, ptr %49, align 1
+  %210 = call ptr @optget(ptr noundef %209, ptr noundef nonnull @.str.8) #16
+  %211 = getelementptr inbounds i8, ptr %210, i64 32
+  %212 = load i32, ptr %211, align 8
+  %213 = icmp ne i32 %212, 0
+  %214 = icmp ne ptr %210, null
+  %or.cond7 = and i1 %214, %213
   br i1 %or.cond7, label %.preheader286, label %.loopexit287
 
-.preheader286:                                    ; preds = %216
-  %223 = call ptr @__errno_location() #19
-  %224 = getelementptr inbounds i8, ptr %0, i64 28
-  %225 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %226
+.preheader286:                                    ; preds = %208
+  %215 = call ptr @__errno_location() #19
+  %216 = getelementptr inbounds i8, ptr %0, i64 28
+  %217 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %218
 
-226:                                              ; preds = %.preheader286, %274
-  %.4 = phi ptr [ %276, %274 ], [ %218, %.preheader286 ]
-  store i32 0, ptr %223, align 4
-  %227 = getelementptr inbounds i8, ptr %.4, i64 16
-  %228 = load ptr, ptr %227, align 8
-  %229 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %228) #18
-  %230 = load ptr, ptr @ddd_ht, align 8
-  %231 = call i32 @onas_ht_get(ptr noundef %230, ptr noundef %228, i64 noundef %229, ptr noundef null) #16
-  %232 = icmp eq i32 %231, 0
-  br i1 %232, label %233, label %274
+218:                                              ; preds = %.preheader286, %266
+  %.4 = phi ptr [ %268, %266 ], [ %210, %.preheader286 ]
+  store i32 0, ptr %215, align 4
+  %219 = getelementptr inbounds i8, ptr %.4, i64 16
+  %220 = load ptr, ptr %219, align 8
+  %221 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %220) #18
+  %222 = load ptr, ptr @ddd_ht, align 8
+  %223 = call i32 @onas_ht_get(ptr noundef %222, ptr noundef %220, i64 noundef %221, ptr noundef null) #16
+  %224 = icmp eq i32 %223, 0
+  br i1 %224, label %225, label %266
 
-233:                                              ; preds = %226
-  %234 = load ptr, ptr %227, align 8
-  %235 = load i32, ptr %224, align 1
-  %236 = load i64, ptr %225, align 1
-  %237 = load i32, ptr @onas_in_fd, align 4
-  %238 = icmp eq ptr %234, null
-  %239 = icmp slt i32 %235, 1
-  %or.cond.i = or i1 %238, %239
-  %240 = icmp slt i32 %237, 1
-  %or.cond3.i = or i1 %or.cond.i, %240
-  br i1 %or.cond3.i, label %onas_ddd_watch.exit.thread, label %241
+225:                                              ; preds = %218
+  %226 = load ptr, ptr %219, align 8
+  %227 = load i32, ptr %216, align 1
+  %228 = load i64, ptr %217, align 1
+  %229 = load i32, ptr @onas_in_fd, align 4
+  %230 = icmp eq ptr %226, null
+  %231 = icmp slt i32 %227, 1
+  %or.cond.i = or i1 %230, %231
+  %232 = icmp slt i32 %229, 1
+  %or.cond3.i = or i1 %or.cond.i, %232
+  br i1 %or.cond3.i, label %onas_ddd_watch.exit.thread, label %233
 
-241:                                              ; preds = %233
-  %242 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %234) #18
-  %243 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %234, i64 noundef %242, i32 noundef %237, i64 noundef 16778184, i32 noundef 1)
-  %.not.i = icmp eq i32 %243, 0
+233:                                              ; preds = %225
+  %234 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %226) #18
+  %235 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %226, i64 noundef %234, i32 noundef %229, i64 noundef 16778184, i32 noundef 1)
+  %.not.i = icmp eq i32 %235, 0
   br i1 %.not.i, label %onas_ddd_watch.exit, label %onas_ddd_watch.exit.thread
 
-onas_ddd_watch.exit.thread:                       ; preds = %233, %241
-  %.0.i.ph = phi i32 [ %243, %241 ], [ 2, %233 ]
+onas_ddd_watch.exit.thread:                       ; preds = %225, %233
+  %.0.i.ph = phi i32 [ %235, %233 ], [ 2, %225 ]
   store i32 %.0.i.ph, ptr %12, align 4
-  br label %245
+  br label %237
 
-onas_ddd_watch.exit:                              ; preds = %241
-  %244 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %234, i64 noundef %242, i32 noundef %235, i64 noundef %236, i32 noundef 2)
-  store i32 %244, ptr %12, align 4
-  %.not232 = icmp eq i32 %244, 0
-  br i1 %.not232, label %274, label %245
+onas_ddd_watch.exit:                              ; preds = %233
+  %236 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %226, i64 noundef %234, i32 noundef %227, i64 noundef %228, i32 noundef 2)
+  store i32 %236, ptr %12, align 4
+  %.not232 = icmp eq i32 %236, 0
+  br i1 %.not232, label %266, label %237
 
-245:                                              ; preds = %onas_ddd_watch.exit.thread, %onas_ddd_watch.exit
-  %.0.i273 = phi i32 [ %.0.i.ph, %onas_ddd_watch.exit.thread ], [ %244, %onas_ddd_watch.exit ]
-  %246 = load i32, ptr %223, align 4
-  %247 = icmp eq i32 %246, 0
-  %248 = load ptr, ptr %227, align 8
-  br i1 %247, label %249, label %252
+237:                                              ; preds = %onas_ddd_watch.exit.thread, %onas_ddd_watch.exit
+  %.0.i273 = phi i32 [ %.0.i.ph, %onas_ddd_watch.exit.thread ], [ %236, %onas_ddd_watch.exit ]
+  %238 = load i32, ptr %215, align 4
+  %239 = icmp eq i32 %238, 0
+  %240 = load ptr, ptr %219, align 8
+  br i1 %239, label %241, label %244
 
-249:                                              ; preds = %245
-  %250 = call ptr @cl_strerror(i32 noundef %.0.i273) #16
-  %251 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.27, ptr noundef %248, ptr noundef %250) #16
-  br label %274
-
-252:                                              ; preds = %245
-  %253 = call ptr @strerror(i32 noundef %246) #16
-  %254 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef %248, ptr noundef %253) #16
-  %255 = load i32, ptr %223, align 4
-  %256 = icmp eq i32 %255, 22
-  br i1 %256, label %257, label %266
-
-257:                                              ; preds = %252
-  %258 = load ptr, ptr %49, align 1
-  %259 = call ptr @optget(ptr noundef %258, ptr noundef nonnull @.str.29) #16
-  %260 = getelementptr inbounds i8, ptr %259, i64 32
-  %261 = load i32, ptr %260, align 8
-  %.not233 = icmp eq i32 %261, 0
-  br i1 %.not233, label %thread-pre-split, label %262
-
-262:                                              ; preds = %257
-  %263 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.30) #16
-  %264 = call i32 @getpid() #16
-  %265 = call i32 @kill(i32 noundef %264, i32 noundef 15) #16
-  br label %thread-pre-split
-
-thread-pre-split:                                 ; preds = %257, %262
-  %.pr = load i32, ptr %223, align 4
+241:                                              ; preds = %237
+  %242 = call ptr @cl_strerror(i32 noundef %.0.i273) #16
+  %243 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.27, ptr noundef %240, ptr noundef %242) #16
   br label %266
 
-266:                                              ; preds = %thread-pre-split, %252
-  %267 = phi i32 [ %.pr, %thread-pre-split ], [ %255, %252 ]
-  %268 = icmp eq i32 %267, 28
-  br i1 %268, label %269, label %274
+244:                                              ; preds = %237
+  %245 = call ptr @strerror(i32 noundef %238) #16
+  %246 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef %240, ptr noundef %245) #16
+  %247 = load i32, ptr %215, align 4
+  %248 = icmp eq i32 %247, 22
+  br i1 %248, label %249, label %258
 
-269:                                              ; preds = %266
-  %270 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.31) #16
-  %271 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.32) #16
-  %272 = call i32 @getpid() #16
-  %273 = call i32 @kill(i32 noundef %272, i32 noundef 15) #16
-  br label %274
+249:                                              ; preds = %244
+  %250 = load ptr, ptr %49, align 1
+  %251 = call ptr @optget(ptr noundef %250, ptr noundef nonnull @.str.29) #16
+  %252 = getelementptr inbounds i8, ptr %251, i64 32
+  %253 = load i32, ptr %252, align 8
+  %.not233 = icmp eq i32 %253, 0
+  br i1 %.not233, label %thread-pre-split, label %254
 
-274:                                              ; preds = %onas_ddd_watch.exit, %266, %269, %249, %226
-  %275 = getelementptr inbounds i8, ptr %.4, i64 48
-  %276 = load ptr, ptr %275, align 8
-  %.old6.not = icmp eq ptr %276, null
-  br i1 %.old6.not, label %.loopexit287, label %226
+254:                                              ; preds = %249
+  %255 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.30) #16
+  %256 = call i32 @getpid() #16
+  %257 = call i32 @kill(i32 noundef %256, i32 noundef 15) #16
+  br label %thread-pre-split
 
-.loopexit287:                                     ; preds = %274, %216
+thread-pre-split:                                 ; preds = %249, %254
+  %.pr = load i32, ptr %215, align 4
+  br label %258
+
+258:                                              ; preds = %thread-pre-split, %244
+  %259 = phi i32 [ %.pr, %thread-pre-split ], [ %247, %244 ]
+  %260 = icmp eq i32 %259, 28
+  br i1 %260, label %261, label %266
+
+261:                                              ; preds = %258
+  %262 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.31) #16
+  %263 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.32) #16
+  %264 = call i32 @getpid() #16
+  %265 = call i32 @kill(i32 noundef %264, i32 noundef 15) #16
+  br label %266
+
+266:                                              ; preds = %onas_ddd_watch.exit, %258, %261, %241, %218
+  %267 = getelementptr inbounds i8, ptr %.4, i64 48
+  %268 = load ptr, ptr %267, align 8
+  %.old6.not = icmp eq ptr %268, null
+  br i1 %.old6.not, label %.loopexit287, label %218
+
+.loopexit287:                                     ; preds = %266, %208
   %.not234 = icmp eq ptr %.0202, null
   br i1 %.not234, label %.loopexit285, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit287
-  %277 = load ptr, ptr %.0202, align 8
-  %.not235315 = icmp eq ptr %277, null
+  %269 = load ptr, ptr %.0202, align 8
+  %.not235315 = icmp eq ptr %269, null
   br i1 %.not235315, label %.loopexit285, label %.lr.ph317
 
 .lr.ph317:                                        ; preds = %.preheader
-  %278 = call ptr @__errno_location() #19
-  %279 = getelementptr inbounds i8, ptr %0, i64 28
-  %280 = getelementptr inbounds i8, ptr %0, i64 32
-  br label %281
+  %270 = call ptr @__errno_location() #19
+  %271 = getelementptr inbounds i8, ptr %0, i64 28
+  %272 = getelementptr inbounds i8, ptr %0, i64 32
+  br label %273
 
-281:                                              ; preds = %.lr.ph317, %329
-  %indvars.iv342 = phi i64 [ 0, %.lr.ph317 ], [ %indvars.iv.next343, %329 ]
-  %282 = getelementptr inbounds ptr, ptr %.0202, i64 %indvars.iv342
-  store i32 0, ptr %278, align 4
-  %283 = load ptr, ptr %282, align 8
-  %284 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %283) #18
-  %285 = load ptr, ptr @ddd_ht, align 8
-  %286 = call i32 @onas_ht_get(ptr noundef %285, ptr noundef %283, i64 noundef %284, ptr noundef null) #16
-  %287 = icmp eq i32 %286, 0
-  br i1 %287, label %288, label %329
+273:                                              ; preds = %.lr.ph317, %321
+  %indvars.iv342 = phi i64 [ 0, %.lr.ph317 ], [ %indvars.iv.next343, %321 ]
+  %274 = getelementptr inbounds ptr, ptr %.0202, i64 %indvars.iv342
+  store i32 0, ptr %270, align 4
+  %275 = load ptr, ptr %274, align 8
+  %276 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %275) #18
+  %277 = load ptr, ptr @ddd_ht, align 8
+  %278 = call i32 @onas_ht_get(ptr noundef %277, ptr noundef %275, i64 noundef %276, ptr noundef null) #16
+  %279 = icmp eq i32 %278, 0
+  br i1 %279, label %280, label %321
 
-288:                                              ; preds = %281
-  %289 = load ptr, ptr %282, align 8
-  %290 = load i32, ptr %279, align 1
-  %291 = load i64, ptr %280, align 1
-  %292 = load i32, ptr @onas_in_fd, align 4
-  %293 = icmp eq ptr %289, null
-  %294 = icmp slt i32 %290, 1
-  %or.cond.i253 = or i1 %293, %294
-  %295 = icmp slt i32 %292, 1
-  %or.cond3.i254 = or i1 %or.cond.i253, %295
-  br i1 %or.cond3.i254, label %onas_ddd_watch.exit257.thread, label %296
+280:                                              ; preds = %273
+  %281 = load ptr, ptr %274, align 8
+  %282 = load i32, ptr %271, align 1
+  %283 = load i64, ptr %272, align 1
+  %284 = load i32, ptr @onas_in_fd, align 4
+  %285 = icmp eq ptr %281, null
+  %286 = icmp slt i32 %282, 1
+  %or.cond.i253 = or i1 %285, %286
+  %287 = icmp slt i32 %284, 1
+  %or.cond3.i254 = or i1 %or.cond.i253, %287
+  br i1 %or.cond3.i254, label %onas_ddd_watch.exit257.thread, label %288
 
-296:                                              ; preds = %288
-  %297 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %289) #18
-  %298 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %289, i64 noundef %297, i32 noundef %292, i64 noundef 16778184, i32 noundef 1)
-  %.not.i255 = icmp eq i32 %298, 0
+288:                                              ; preds = %280
+  %289 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %281) #18
+  %290 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %281, i64 noundef %289, i32 noundef %284, i64 noundef 16778184, i32 noundef 1)
+  %.not.i255 = icmp eq i32 %290, 0
   br i1 %.not.i255, label %onas_ddd_watch.exit257, label %onas_ddd_watch.exit257.thread
 
-onas_ddd_watch.exit257.thread:                    ; preds = %288, %296
-  %.0.i256.ph = phi i32 [ %298, %296 ], [ 2, %288 ]
+onas_ddd_watch.exit257.thread:                    ; preds = %280, %288
+  %.0.i256.ph = phi i32 [ %290, %288 ], [ 2, %280 ]
   store i32 %.0.i256.ph, ptr %12, align 4
-  br label %300
+  br label %292
 
-onas_ddd_watch.exit257:                           ; preds = %296
-  %299 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %289, i64 noundef %297, i32 noundef %290, i64 noundef %291, i32 noundef 2)
-  store i32 %299, ptr %12, align 4
-  %.not247 = icmp eq i32 %299, 0
-  br i1 %.not247, label %329, label %300
+onas_ddd_watch.exit257:                           ; preds = %288
+  %291 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %281, i64 noundef %289, i32 noundef %282, i64 noundef %283, i32 noundef 2)
+  store i32 %291, ptr %12, align 4
+  %.not247 = icmp eq i32 %291, 0
+  br i1 %.not247, label %321, label %292
 
-300:                                              ; preds = %onas_ddd_watch.exit257.thread, %onas_ddd_watch.exit257
-  %.0.i256276 = phi i32 [ %.0.i256.ph, %onas_ddd_watch.exit257.thread ], [ %299, %onas_ddd_watch.exit257 ]
-  %301 = load i32, ptr %278, align 4
-  %302 = icmp eq i32 %301, 0
-  %303 = load ptr, ptr %282, align 8
-  br i1 %302, label %304, label %307
+292:                                              ; preds = %onas_ddd_watch.exit257.thread, %onas_ddd_watch.exit257
+  %.0.i256276 = phi i32 [ %.0.i256.ph, %onas_ddd_watch.exit257.thread ], [ %291, %onas_ddd_watch.exit257 ]
+  %293 = load i32, ptr %270, align 4
+  %294 = icmp eq i32 %293, 0
+  %295 = load ptr, ptr %274, align 8
+  br i1 %294, label %296, label %299
 
-304:                                              ; preds = %300
-  %305 = call ptr @cl_strerror(i32 noundef %.0.i256276) #16
-  %306 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.27, ptr noundef %303, ptr noundef %305) #16
-  br label %329
-
-307:                                              ; preds = %300
-  %308 = call ptr @strerror(i32 noundef %301) #16
-  %309 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef %303, ptr noundef %308) #16
-  %310 = load i32, ptr %278, align 4
-  %311 = icmp eq i32 %310, 22
-  br i1 %311, label %312, label %321
-
-312:                                              ; preds = %307
-  %313 = load ptr, ptr %49, align 1
-  %314 = call ptr @optget(ptr noundef %313, ptr noundef nonnull @.str.29) #16
-  %315 = getelementptr inbounds i8, ptr %314, i64 32
-  %316 = load i32, ptr %315, align 8
-  %.not248 = icmp eq i32 %316, 0
-  br i1 %.not248, label %thread-pre-split277, label %317
-
-317:                                              ; preds = %312
-  %318 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.30) #16
-  %319 = call i32 @getpid() #16
-  %320 = call i32 @kill(i32 noundef %319, i32 noundef 15) #16
-  br label %thread-pre-split277
-
-thread-pre-split277:                              ; preds = %312, %317
-  %.pr278 = load i32, ptr %278, align 4
+296:                                              ; preds = %292
+  %297 = call ptr @cl_strerror(i32 noundef %.0.i256276) #16
+  %298 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.27, ptr noundef %295, ptr noundef %297) #16
   br label %321
 
-321:                                              ; preds = %thread-pre-split277, %307
-  %322 = phi i32 [ %.pr278, %thread-pre-split277 ], [ %310, %307 ]
-  %323 = icmp eq i32 %322, 28
-  br i1 %323, label %324, label %329
+299:                                              ; preds = %292
+  %300 = call ptr @strerror(i32 noundef %293) #16
+  %301 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef %295, ptr noundef %300) #16
+  %302 = load i32, ptr %270, align 4
+  %303 = icmp eq i32 %302, 22
+  br i1 %303, label %304, label %313
 
-324:                                              ; preds = %321
-  %325 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.31) #16
-  %326 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.32) #16
-  %327 = call i32 @getpid() #16
-  %328 = call i32 @kill(i32 noundef %327, i32 noundef 15) #16
-  br label %329
+304:                                              ; preds = %299
+  %305 = load ptr, ptr %49, align 1
+  %306 = call ptr @optget(ptr noundef %305, ptr noundef nonnull @.str.29) #16
+  %307 = getelementptr inbounds i8, ptr %306, i64 32
+  %308 = load i32, ptr %307, align 8
+  %.not248 = icmp eq i32 %308, 0
+  br i1 %.not248, label %thread-pre-split277, label %309
 
-329:                                              ; preds = %onas_ddd_watch.exit257, %321, %324, %304, %281
+309:                                              ; preds = %304
+  %310 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.30) #16
+  %311 = call i32 @getpid() #16
+  %312 = call i32 @kill(i32 noundef %311, i32 noundef 15) #16
+  br label %thread-pre-split277
+
+thread-pre-split277:                              ; preds = %304, %309
+  %.pr278 = load i32, ptr %270, align 4
+  br label %313
+
+313:                                              ; preds = %thread-pre-split277, %299
+  %314 = phi i32 [ %.pr278, %thread-pre-split277 ], [ %302, %299 ]
+  %315 = icmp eq i32 %314, 28
+  br i1 %315, label %316, label %321
+
+316:                                              ; preds = %313
+  %317 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.31) #16
+  %318 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.32) #16
+  %319 = call i32 @getpid() #16
+  %320 = call i32 @kill(i32 noundef %319, i32 noundef 15) #16
+  br label %321
+
+321:                                              ; preds = %onas_ddd_watch.exit257, %313, %316, %296, %273
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
-  %330 = getelementptr inbounds ptr, ptr %.0202, i64 %indvars.iv.next343
-  %331 = load ptr, ptr %330, align 8
-  %.not235 = icmp eq ptr %331, null
-  br i1 %.not235, label %.loopexit285, label %281
+  %322 = getelementptr inbounds ptr, ptr %.0202, i64 %indvars.iv.next343
+  %323 = load ptr, ptr %322, align 8
+  %.not235 = icmp eq ptr %323, null
+  br i1 %.not235, label %.loopexit285, label %273
 
-.loopexit285:                                     ; preds = %329, %.preheader, %.loopexit287
-  %332 = load ptr, ptr %49, align 1
-  %333 = call ptr @optget(ptr noundef %332, ptr noundef nonnull @.str.33) #16
-  %334 = getelementptr inbounds i8, ptr %333, i64 32
-  %335 = load i32, ptr %334, align 8
-  %.not236 = icmp eq i32 %335, 0
-  br i1 %.not236, label %338, label %336
+.loopexit285:                                     ; preds = %321, %.preheader, %.loopexit287
+  %324 = load ptr, ptr %49, align 1
+  %325 = call ptr @optget(ptr noundef %324, ptr noundef nonnull @.str.33) #16
+  %326 = getelementptr inbounds i8, ptr %325, i64 32
+  %327 = load i32, ptr %326, align 8
+  %.not236 = icmp eq i32 %327, 0
+  br i1 %.not236, label %330, label %328
 
-336:                                              ; preds = %.loopexit285
-  %337 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.34) #16
-  br label %338
+328:                                              ; preds = %.loopexit285
+  %329 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.34) #16
+  br label %330
 
-338:                                              ; preds = %.loopexit285, %336
+330:                                              ; preds = %.loopexit285, %328
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false)
-  %339 = load i32, ptr @onas_in_fd, align 4
-  %340 = srem i32 %339, 64
-  %341 = zext nneg i32 %340 to i64
-  %342 = shl nuw i64 1, %341
-  %343 = sdiv i32 %339, 64
-  %344 = sext i32 %343 to i64
-  %345 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %344
-  %346 = load i64, ptr %345, align 8
-  %347 = or i64 %342, %346
-  store i64 %347, ptr %345, align 8
-  %348 = call i32 @__sigsetjmp(ptr noundef nonnull %13, i32 noundef 0) #20
-  %.not237 = icmp eq i32 %348, 0
-  br i1 %.not237, label %350, label %349
+  %331 = load i32, ptr @onas_in_fd, align 4
+  %332 = srem i32 %331, 64
+  %333 = zext nneg i32 %332 to i64
+  %334 = shl nuw i64 1, %333
+  %335 = sdiv i32 %331, 64
+  %336 = sext i32 %335 to i64
+  %337 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %336
+  %338 = load i64, ptr %337, align 8
+  %339 = or i64 %334, %338
+  store i64 %339, ptr %337, align 8
+  %340 = call i32 @__sigsetjmp(ptr noundef nonnull %13, i32 noundef 0) #20
+  %.not237 = icmp eq i32 %340, 0
+  br i1 %.not237, label %342, label %341
 
-349:                                              ; preds = %338
+341:                                              ; preds = %330
   call fastcc void @onas_ddd_exit()
   call void @__pthread_unwind_next(ptr noundef nonnull %13) #21
   unreachable
 
-350:                                              ; preds = %338
+342:                                              ; preds = %330
   call void @__pthread_register_cancel(ptr noundef nonnull %13) #16
-  %351 = getelementptr inbounds i8, ptr %5, i64 24
-  %352 = getelementptr inbounds i8, ptr %0, i64 28
-  %353 = getelementptr inbounds i8, ptr %4, i64 24
-  %354 = getelementptr inbounds i8, ptr %0, i64 32
-  %355 = getelementptr inbounds i8, ptr %3, i64 24
-  %356 = getelementptr inbounds i8, ptr %2, i64 24
+  %343 = getelementptr inbounds i8, ptr %5, i64 24
+  %344 = getelementptr inbounds i8, ptr %0, i64 28
+  %345 = getelementptr inbounds i8, ptr %4, i64 24
+  %346 = getelementptr inbounds i8, ptr %0, i64 32
+  %347 = getelementptr inbounds i8, ptr %3, i64 24
+  %348 = getelementptr inbounds i8, ptr %2, i64 24
   br label %.loopexit284
 
-.loopexit284:                                     ; preds = %.loopexit284.backedge, %350
+.loopexit284:                                     ; preds = %.loopexit284.backedge, %342
+  %349 = load i32, ptr @onas_in_fd, align 4
+  %350 = add nsw i32 %349, 1
+  %351 = call i32 @select(i32 noundef %350, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null) #16
+  %352 = icmp eq i32 %351, -1
+  br i1 %352, label %353, label %.critedge
+
+353:                                              ; preds = %.loopexit284
+  %354 = call ptr @__errno_location() #19
+  %355 = load i32, ptr %354, align 4
+  %356 = icmp eq i32 %355, 4
+  br i1 %356, label %.loopexit284.backedge, label %.critedge
+
+.loopexit284.backedge:                            ; preds = %.loopexit, %353, %.critedge
+  br label %.loopexit284
+
+.critedge:                                        ; preds = %.loopexit284, %353
   %357 = load i32, ptr @onas_in_fd, align 4
-  %358 = add nsw i32 %357, 1
-  %359 = call i32 @select(i32 noundef %358, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null) #16
-  %360 = icmp eq i32 %359, -1
-  br i1 %360, label %361, label %.critedge
+  %358 = call i64 @read(i32 noundef %357, ptr noundef nonnull %9, i64 noundef 4096) #16
+  %359 = icmp sgt i64 %358, 0
+  br i1 %359, label %.lr.ph320.preheader, label %.loopexit284.backedge
 
-361:                                              ; preds = %.loopexit284
-  %362 = call ptr @__errno_location() #19
-  %363 = load i32, ptr %362, align 4
-  %364 = icmp eq i32 %363, 4
-  br i1 %364, label %.loopexit284.backedge, label %.critedge
-
-.loopexit284.backedge:                            ; preds = %.loopexit, %361, %.critedge
-  br label %.loopexit284
-
-.critedge:                                        ; preds = %.loopexit284, %361
-  %365 = load i32, ptr @onas_in_fd, align 4
-  %366 = call i64 @read(i32 noundef %365, ptr noundef nonnull %9, i64 noundef 4096) #16
-  %367 = icmp sgt i64 %366, 0
-  br i1 %367, label %.lr.ph320.preheader, label %.loopexit284.backedge
-
-.loopexit:                                        ; preds = %561
-  %368 = load i32, ptr @onas_in_fd, align 4
-  %369 = call i64 @read(i32 noundef %368, ptr noundef nonnull %9, i64 noundef 4096) #16
-  %370 = icmp sgt i64 %369, 0
-  br i1 %370, label %.lr.ph320.preheader, label %.loopexit284.backedge
+.loopexit:                                        ; preds = %553
+  %360 = load i32, ptr @onas_in_fd, align 4
+  %361 = call i64 @read(i32 noundef %360, ptr noundef nonnull %9, i64 noundef 4096) #16
+  %362 = icmp sgt i64 %361, 0
+  br i1 %362, label %.lr.ph320.preheader, label %.loopexit284.backedge
 
 .lr.ph320.preheader:                              ; preds = %.critedge, %.loopexit
-  %371 = phi i64 [ %369, %.loopexit ], [ %366, %.critedge ]
+  %363 = phi i64 [ %361, %.loopexit ], [ %358, %.critedge ]
   call void @pthread_testcancel() #16
-  %372 = getelementptr inbounds i8, ptr %9, i64 %371
+  %364 = getelementptr inbounds i8, ptr %9, i64 %363
   br label %.lr.ph320
 
-.lr.ph320:                                        ; preds = %.lr.ph320.preheader, %561
-  %.0194319 = phi ptr [ %566, %561 ], [ %9, %.lr.ph320.preheader ]
-  %373 = load i32, ptr %.0194319, align 4
-  %374 = icmp sgt i32 %373, -1
-  br i1 %374, label %375, label %.thread
+.lr.ph320:                                        ; preds = %.lr.ph320.preheader, %553
+  %.0194319 = phi ptr [ %558, %553 ], [ %9, %.lr.ph320.preheader ]
+  %365 = load i32, ptr %.0194319, align 4
+  %366 = icmp sgt i32 %365, -1
+  br i1 %366, label %367, label %.thread
 
-375:                                              ; preds = %.lr.ph320
-  %376 = load ptr, ptr @wdlt, align 8
-  %377 = zext nneg i32 %373 to i64
-  %378 = getelementptr inbounds ptr, ptr %376, i64 %377
-  %379 = load ptr, ptr %378, align 8
-  %380 = getelementptr inbounds i8, ptr %.0194319, i64 16
-  %381 = icmp eq ptr %379, null
-  br i1 %381, label %.thread, label %383
+367:                                              ; preds = %.lr.ph320
+  %368 = load ptr, ptr @wdlt, align 8
+  %369 = zext nneg i32 %365 to i64
+  %370 = getelementptr inbounds ptr, ptr %368, i64 %369
+  %371 = load ptr, ptr %370, align 8
+  %372 = getelementptr inbounds i8, ptr %.0194319, i64 16
+  %373 = icmp eq ptr %371, null
+  br i1 %373, label %.thread, label %375
 
-.thread:                                          ; preds = %.lr.ph320, %375
-  %382 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.35, i32 noundef %373) #16
-  br label %561
+.thread:                                          ; preds = %.lr.ph320, %367
+  %374 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.35, i32 noundef %365) #16
+  br label %553
 
-383:                                              ; preds = %375
-  %384 = getelementptr inbounds i8, ptr %.0194319, i64 4
-  %385 = load i32, ptr %384, align 4
-  %386 = and i32 %385, 8192
-  %.not238 = icmp eq i32 %386, 0
-  br i1 %.not238, label %389, label %387
+375:                                              ; preds = %367
+  %376 = getelementptr inbounds i8, ptr %.0194319, i64 4
+  %377 = load i32, ptr %376, align 4
+  %378 = and i32 %377, 8192
+  %.not238 = icmp eq i32 %378, 0
+  br i1 %.not238, label %381, label %379
 
-387:                                              ; preds = %383
-  %388 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.36, i32 noundef %385) #16
-  br label %561
+379:                                              ; preds = %375
+  %380 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.36, i32 noundef %377) #16
+  br label %553
 
-389:                                              ; preds = %383
-  %390 = and i32 %385, 16384
-  %.not239 = icmp eq i32 %390, 0
-  br i1 %.not239, label %393, label %391
+381:                                              ; preds = %375
+  %382 = and i32 %377, 16384
+  %.not239 = icmp eq i32 %382, 0
+  br i1 %.not239, label %385, label %383
 
-391:                                              ; preds = %389
-  %392 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.37, i32 noundef %385) #16
-  br label %561
+383:                                              ; preds = %381
+  %384 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.37, i32 noundef %377) #16
+  br label %553
 
-393:                                              ; preds = %389
-  %394 = and i32 %385, 32768
-  %.not240 = icmp eq i32 %394, 0
-  br i1 %.not240, label %395, label %561
+385:                                              ; preds = %381
+  %386 = and i32 %377, 32768
+  %.not240 = icmp eq i32 %386, 0
+  br i1 %.not240, label %387, label %553
 
-395:                                              ; preds = %393
-  %396 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %379) #18
-  %397 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %380) #18
-  %sext = shl i64 %396, 32
-  %398 = ashr exact i64 %sext, 32
-  %399 = add i64 %398, %397
-  %400 = add i64 %399, 2
-  %401 = call noalias ptr @malloc(i64 noundef %400) #22
-  %402 = icmp eq ptr %401, null
-  br i1 %402, label %403, label %405
+387:                                              ; preds = %385
+  %388 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %371) #18
+  %389 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %372) #18
+  %sext = shl i64 %388, 32
+  %390 = ashr exact i64 %sext, 32
+  %391 = add i64 %390, %389
+  %392 = add i64 %391, 2
+  %393 = call noalias ptr @malloc(i64 noundef %392) #22
+  %394 = icmp eq ptr %393, null
+  br i1 %394, label %395, label %397
 
-403:                                              ; preds = %395
-  %404 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.38) #16
-  br label %568
+395:                                              ; preds = %387
+  %396 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.38) #16
+  br label %560
 
-405:                                              ; preds = %395
+397:                                              ; preds = %387
   %sext241 = add i64 %sext, -4294967296
-  %406 = ashr exact i64 %sext241, 32
-  %407 = getelementptr inbounds i8, ptr %379, i64 %406
-  %408 = load i8, ptr %407, align 1
-  %409 = icmp eq i8 %408, 47
-  br i1 %409, label %410, label %413
+  %398 = ashr exact i64 %sext241, 32
+  %399 = getelementptr inbounds i8, ptr %371, i64 %398
+  %400 = load i8, ptr %399, align 1
+  %401 = icmp eq i8 %400, 47
+  br i1 %401, label %402, label %405
 
-410:                                              ; preds = %405
-  %411 = add i64 %399, 1
-  %412 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %401, i64 noundef %411, ptr noundef nonnull @.str.39, ptr noundef nonnull %379, ptr noundef nonnull %380) #16
-  br label %415
+402:                                              ; preds = %397
+  %403 = add i64 %391, 1
+  %404 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %393, i64 noundef %403, ptr noundef nonnull @.str.39, ptr noundef nonnull %371, ptr noundef nonnull %372) #16
+  br label %407
 
-413:                                              ; preds = %405
-  %414 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %401, i64 noundef %400, ptr noundef nonnull @.str.40, ptr noundef nonnull %379, ptr noundef nonnull %380) #16
-  br label %415
+405:                                              ; preds = %397
+  %406 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %393, i64 noundef %392, ptr noundef nonnull @.str.40, ptr noundef nonnull %371, ptr noundef nonnull %372) #16
+  br label %407
 
-415:                                              ; preds = %413, %410
-  %416 = load i32, ptr %384, align 4
-  %417 = and i32 %416, 512
-  %.not242 = icmp eq i32 %417, 0
-  br i1 %.not242, label %442, label %418
+407:                                              ; preds = %405, %402
+  %408 = load i32, ptr %376, align 4
+  %409 = and i32 %408, 512
+  %.not242 = icmp eq i32 %409, 0
+  br i1 %.not242, label %434, label %410
 
-418:                                              ; preds = %415
+410:                                              ; preds = %407
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
-  %419 = call i32 @stat(ptr noundef nonnull %401, ptr noundef nonnull %5) #16
-  %420 = icmp eq i32 %419, 0
-  br i1 %420, label %421, label %425
+  %411 = call i32 @stat(ptr noundef nonnull %393, ptr noundef nonnull %5) #16
+  %412 = icmp eq i32 %411, 0
+  br i1 %412, label %413, label %417
 
-421:                                              ; preds = %418
-  %422 = load i32, ptr %351, align 8
-  %423 = and i32 %422, 61440
-  %424 = icmp eq i32 %423, 32768
-  br i1 %424, label %onas_ddd_handle_in_delete.exit, label %425
+413:                                              ; preds = %410
+  %414 = load i32, ptr %343, align 8
+  %415 = and i32 %414, 61440
+  %416 = icmp eq i32 %415, 32768
+  br i1 %416, label %onas_ddd_handle_in_delete.exit, label %417
 
-425:                                              ; preds = %421, %418
-  %426 = load i32, ptr %384, align 4
-  %427 = and i32 %426, 1073741824
-  %.not.i258 = icmp eq i32 %427, 0
-  br i1 %.not.i258, label %onas_ddd_handle_in_delete.exit, label %428
+417:                                              ; preds = %413, %410
+  %418 = load i32, ptr %376, align 4
+  %419 = and i32 %418, 1073741824
+  %.not.i258 = icmp eq i32 %419, 0
+  br i1 %.not.i258, label %onas_ddd_handle_in_delete.exit, label %420
 
-428:                                              ; preds = %425
-  %429 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.47, ptr noundef nonnull %401, ptr noundef nonnull %379, i32 noundef %373) #16
-  %430 = load i32, ptr %352, align 1
-  %431 = load i32, ptr @onas_in_fd, align 4
-  %432 = icmp slt i32 %430, 1
-  %433 = icmp slt i32 %431, 1
-  %or.cond3.i.i = or i1 %432, %433
-  br i1 %or.cond3.i.i, label %onas_ddd_unwatch.exit.i, label %434
+420:                                              ; preds = %417
+  %421 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.47, ptr noundef nonnull %393, ptr noundef nonnull %371, i32 noundef %365) #16
+  %422 = load i32, ptr %344, align 1
+  %423 = load i32, ptr @onas_in_fd, align 4
+  %424 = icmp slt i32 %422, 1
+  %425 = icmp slt i32 %423, 1
+  %or.cond3.i.i = or i1 %424, %425
+  br i1 %or.cond3.i.i, label %onas_ddd_unwatch.exit.i, label %426
 
-434:                                              ; preds = %428
-  %435 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #18
-  %436 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %401, i64 noundef %435, i32 noundef %431, i32 noundef 1)
-  %.not.i.i = icmp eq i32 %436, 0
-  br i1 %.not.i.i, label %437, label %onas_ddd_unwatch.exit.i
+426:                                              ; preds = %420
+  %427 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
+  %428 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %393, i64 noundef %427, i32 noundef %423, i32 noundef 1)
+  %.not.i.i = icmp eq i32 %428, 0
+  br i1 %.not.i.i, label %429, label %onas_ddd_unwatch.exit.i
 
-437:                                              ; preds = %434
-  %438 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %401, i64 noundef %435, i32 noundef %430, i32 noundef 2)
+429:                                              ; preds = %426
+  %430 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %393, i64 noundef %427, i32 noundef %422, i32 noundef 2)
   br label %onas_ddd_unwatch.exit.i
 
-onas_ddd_unwatch.exit.i:                          ; preds = %437, %434, %428
-  %439 = load ptr, ptr @ddd_ht, align 8
-  %440 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #18
-  %441 = call i32 @onas_ht_rm_hierarchy(ptr noundef %439, ptr noundef nonnull %401, i64 noundef %440, i32 noundef 0) #16
+onas_ddd_unwatch.exit.i:                          ; preds = %429, %426, %420
+  %431 = load ptr, ptr @ddd_ht, align 8
+  %432 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
+  %433 = call i32 @onas_ht_rm_hierarchy(ptr noundef %431, ptr noundef nonnull %393, i64 noundef %432, i32 noundef 0) #16
   br label %onas_ddd_handle_in_delete.exit
 
-onas_ddd_handle_in_delete.exit:                   ; preds = %421, %425, %onas_ddd_unwatch.exit.i
+onas_ddd_handle_in_delete.exit:                   ; preds = %413, %417, %onas_ddd_unwatch.exit.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   br label %onas_ddd_handle_in_create.exit
 
-442:                                              ; preds = %415
-  %443 = and i32 %416, 64
-  %.not243 = icmp eq i32 %443, 0
-  br i1 %.not243, label %468, label %444
+434:                                              ; preds = %407
+  %435 = and i32 %408, 64
+  %.not243 = icmp eq i32 %435, 0
+  br i1 %.not243, label %460, label %436
 
-444:                                              ; preds = %442
+436:                                              ; preds = %434
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
-  %445 = call i32 @stat(ptr noundef nonnull %401, ptr noundef nonnull %4) #16
-  %446 = icmp eq i32 %445, 0
-  br i1 %446, label %447, label %451
+  %437 = call i32 @stat(ptr noundef nonnull %393, ptr noundef nonnull %4) #16
+  %438 = icmp eq i32 %437, 0
+  br i1 %438, label %439, label %443
 
-447:                                              ; preds = %444
-  %448 = load i32, ptr %353, align 8
-  %449 = and i32 %448, 61440
-  %450 = icmp eq i32 %449, 32768
-  br i1 %450, label %onas_ddd_handle_in_moved_from.exit, label %451
+439:                                              ; preds = %436
+  %440 = load i32, ptr %345, align 8
+  %441 = and i32 %440, 61440
+  %442 = icmp eq i32 %441, 32768
+  br i1 %442, label %onas_ddd_handle_in_moved_from.exit, label %443
 
-451:                                              ; preds = %447, %444
-  %452 = load i32, ptr %384, align 4
-  %453 = and i32 %452, 1073741824
-  %.not.i259 = icmp eq i32 %453, 0
-  br i1 %.not.i259, label %onas_ddd_handle_in_moved_from.exit, label %454
+443:                                              ; preds = %439, %436
+  %444 = load i32, ptr %376, align 4
+  %445 = and i32 %444, 1073741824
+  %.not.i259 = icmp eq i32 %445, 0
+  br i1 %.not.i259, label %onas_ddd_handle_in_moved_from.exit, label %446
 
-454:                                              ; preds = %451
-  %455 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.48, ptr noundef nonnull %401, ptr noundef nonnull %379, i32 noundef %373) #16
-  %456 = load i32, ptr %352, align 1
-  %457 = load i32, ptr @onas_in_fd, align 4
-  %458 = icmp slt i32 %456, 1
-  %459 = icmp slt i32 %457, 1
-  %or.cond3.i.i260 = or i1 %458, %459
-  br i1 %or.cond3.i.i260, label %onas_ddd_unwatch.exit.i262, label %460
+446:                                              ; preds = %443
+  %447 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.48, ptr noundef nonnull %393, ptr noundef nonnull %371, i32 noundef %365) #16
+  %448 = load i32, ptr %344, align 1
+  %449 = load i32, ptr @onas_in_fd, align 4
+  %450 = icmp slt i32 %448, 1
+  %451 = icmp slt i32 %449, 1
+  %or.cond3.i.i260 = or i1 %450, %451
+  br i1 %or.cond3.i.i260, label %onas_ddd_unwatch.exit.i262, label %452
 
-460:                                              ; preds = %454
-  %461 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #18
-  %462 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %401, i64 noundef %461, i32 noundef %457, i32 noundef 1)
-  %.not.i.i261 = icmp eq i32 %462, 0
-  br i1 %.not.i.i261, label %463, label %onas_ddd_unwatch.exit.i262
+452:                                              ; preds = %446
+  %453 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
+  %454 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %393, i64 noundef %453, i32 noundef %449, i32 noundef 1)
+  %.not.i.i261 = icmp eq i32 %454, 0
+  br i1 %.not.i.i261, label %455, label %onas_ddd_unwatch.exit.i262
 
-463:                                              ; preds = %460
-  %464 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %401, i64 noundef %461, i32 noundef %456, i32 noundef 2)
+455:                                              ; preds = %452
+  %456 = call fastcc i32 @onas_ddd_unwatch_hierarchy(ptr noundef nonnull %393, i64 noundef %453, i32 noundef %448, i32 noundef 2)
   br label %onas_ddd_unwatch.exit.i262
 
-onas_ddd_unwatch.exit.i262:                       ; preds = %463, %460, %454
-  %465 = load ptr, ptr @ddd_ht, align 8
-  %466 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #18
-  %467 = call i32 @onas_ht_rm_hierarchy(ptr noundef %465, ptr noundef nonnull %401, i64 noundef %466, i32 noundef 0) #16
+onas_ddd_unwatch.exit.i262:                       ; preds = %455, %452, %446
+  %457 = load ptr, ptr @ddd_ht, align 8
+  %458 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
+  %459 = call i32 @onas_ht_rm_hierarchy(ptr noundef %457, ptr noundef nonnull %393, i64 noundef %458, i32 noundef 0) #16
   br label %onas_ddd_handle_in_moved_from.exit
 
-onas_ddd_handle_in_moved_from.exit:               ; preds = %447, %451, %onas_ddd_unwatch.exit.i262
+onas_ddd_handle_in_moved_from.exit:               ; preds = %439, %443, %onas_ddd_unwatch.exit.i262
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   br label %onas_ddd_handle_in_create.exit
 
-468:                                              ; preds = %442
-  %469 = and i32 %416, 256
-  %.not244 = icmp eq i32 %469, 0
-  br i1 %.not244, label %492, label %470
+460:                                              ; preds = %434
+  %461 = and i32 %408, 256
+  %.not244 = icmp eq i32 %461, 0
+  br i1 %.not244, label %484, label %462
 
-470:                                              ; preds = %468
-  %471 = and i32 %416, 1073741824
-  %.not.i263 = icmp eq i32 %471, 0
-  br i1 %.not.i263, label %onas_ddd_handle_in_create.exit, label %472
+462:                                              ; preds = %460
+  %463 = and i32 %408, 1073741824
+  %.not.i263 = icmp eq i32 %463, 0
+  br i1 %.not.i263, label %onas_ddd_handle_in_create.exit, label %464
 
-472:                                              ; preds = %470
-  %473 = load ptr, ptr %49, align 1
-  %474 = call ptr @optget(ptr noundef %473, ptr noundef nonnull @.str.33) #16
-  %475 = getelementptr inbounds i8, ptr %474, i64 32
-  %476 = load i32, ptr %475, align 8
-  %.not11.i = icmp eq i32 %476, 0
-  br i1 %.not11.i, label %479, label %477
+464:                                              ; preds = %462
+  %465 = load ptr, ptr %49, align 1
+  %466 = call ptr @optget(ptr noundef %465, ptr noundef nonnull @.str.33) #16
+  %467 = getelementptr inbounds i8, ptr %466, i64 32
+  %468 = load i32, ptr %467, align 8
+  %.not11.i = icmp eq i32 %468, 0
+  br i1 %.not11.i, label %471, label %469
 
-477:                                              ; preds = %472
-  %478 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.49, ptr noundef nonnull %401, ptr noundef nonnull %379, i32 noundef %373) #16
-  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef nonnull %401, i32 noundef 1)
-  br label %479
+469:                                              ; preds = %464
+  %470 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.49, ptr noundef nonnull %393, ptr noundef nonnull %371, i32 noundef %365) #16
+  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef nonnull %393, i32 noundef 1)
+  br label %471
 
-479:                                              ; preds = %477, %472
-  %480 = load ptr, ptr @ddd_ht, align 8
-  %481 = call i32 @onas_ht_add_hierarchy(ptr noundef %480, ptr noundef nonnull %401) #16
-  %482 = load i32, ptr %352, align 1
-  %483 = load i64, ptr %354, align 1
-  %484 = load i32, ptr @onas_in_fd, align 4
-  %485 = icmp slt i32 %482, 1
-  %486 = icmp slt i32 %484, 1
-  %or.cond3.i.i264 = or i1 %485, %486
-  br i1 %or.cond3.i.i264, label %onas_ddd_handle_in_create.exit, label %487
+471:                                              ; preds = %469, %464
+  %472 = load ptr, ptr @ddd_ht, align 8
+  %473 = call i32 @onas_ht_add_hierarchy(ptr noundef %472, ptr noundef nonnull %393) #16
+  %474 = load i32, ptr %344, align 1
+  %475 = load i64, ptr %346, align 1
+  %476 = load i32, ptr @onas_in_fd, align 4
+  %477 = icmp slt i32 %474, 1
+  %478 = icmp slt i32 %476, 1
+  %or.cond3.i.i264 = or i1 %477, %478
+  br i1 %or.cond3.i.i264, label %onas_ddd_handle_in_create.exit, label %479
 
-487:                                              ; preds = %479
-  %488 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #18
-  %489 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %401, i64 noundef %488, i32 noundef %484, i64 noundef 16778184, i32 noundef 1)
-  %.not.i.i265 = icmp eq i32 %489, 0
-  br i1 %.not.i.i265, label %490, label %onas_ddd_handle_in_create.exit
+479:                                              ; preds = %471
+  %480 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
+  %481 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %393, i64 noundef %480, i32 noundef %476, i64 noundef 16778184, i32 noundef 1)
+  %.not.i.i265 = icmp eq i32 %481, 0
+  br i1 %.not.i.i265, label %482, label %onas_ddd_handle_in_create.exit
 
-490:                                              ; preds = %487
-  %491 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %401, i64 noundef %488, i32 noundef %482, i64 noundef %483, i32 noundef 2)
+482:                                              ; preds = %479
+  %483 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %393, i64 noundef %480, i32 noundef %474, i64 noundef %475, i32 noundef 2)
   br label %onas_ddd_handle_in_create.exit
 
-492:                                              ; preds = %468
-  %493 = and i32 %416, 8
-  %.not245 = icmp eq i32 %493, 0
-  br i1 %.not245, label %507, label %494
+484:                                              ; preds = %460
+  %485 = and i32 %408, 8
+  %.not245 = icmp eq i32 %485, 0
+  br i1 %.not245, label %499, label %486
 
-494:                                              ; preds = %492
+486:                                              ; preds = %484
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
-  %495 = load ptr, ptr %49, align 1
-  %496 = call ptr @optget(ptr noundef %495, ptr noundef nonnull @.str.33) #16
-  %497 = getelementptr inbounds i8, ptr %496, i64 32
-  %498 = load i32, ptr %497, align 8
-  %.not.i266 = icmp eq i32 %498, 0
-  br i1 %.not.i266, label %onas_ddd_handle_in_close_write.exit, label %499
+  %487 = load ptr, ptr %49, align 1
+  %488 = call ptr @optget(ptr noundef %487, ptr noundef nonnull @.str.33) #16
+  %489 = getelementptr inbounds i8, ptr %488, i64 32
+  %490 = load i32, ptr %489, align 8
+  %.not.i266 = icmp eq i32 %490, 0
+  br i1 %.not.i266, label %onas_ddd_handle_in_close_write.exit, label %491
 
-499:                                              ; preds = %494
-  %500 = call i32 @stat(ptr noundef nonnull %401, ptr noundef nonnull %3) #16
-  %501 = icmp eq i32 %500, 0
-  br i1 %501, label %502, label %onas_ddd_handle_in_close_write.exit
+491:                                              ; preds = %486
+  %492 = call i32 @stat(ptr noundef nonnull %393, ptr noundef nonnull %3) #16
+  %493 = icmp eq i32 %492, 0
+  br i1 %493, label %494, label %onas_ddd_handle_in_close_write.exit
 
-502:                                              ; preds = %499
-  %503 = load i32, ptr %355, align 8
-  %504 = and i32 %503, 61440
-  %505 = icmp eq i32 %504, 32768
-  br i1 %505, label %506, label %onas_ddd_handle_in_close_write.exit
+494:                                              ; preds = %491
+  %495 = load i32, ptr %347, align 8
+  %496 = and i32 %495, 61440
+  %497 = icmp eq i32 %496, 32768
+  br i1 %497, label %498, label %onas_ddd_handle_in_close_write.exit
 
-506:                                              ; preds = %502
-  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef nonnull %401, i32 noundef 2)
+498:                                              ; preds = %494
+  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef nonnull %393, i32 noundef 2)
   br label %onas_ddd_handle_in_close_write.exit
 
-onas_ddd_handle_in_close_write.exit:              ; preds = %494, %499, %502, %506
+onas_ddd_handle_in_close_write.exit:              ; preds = %486, %491, %494, %498
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   br label %onas_ddd_handle_in_create.exit
 
-507:                                              ; preds = %492
-  %508 = and i32 %416, 128
-  %.not246 = icmp eq i32 %508, 0
-  br i1 %.not246, label %onas_ddd_handle_in_create.exit, label %509
+499:                                              ; preds = %484
+  %500 = and i32 %408, 128
+  %.not246 = icmp eq i32 %500, 0
+  br i1 %.not246, label %onas_ddd_handle_in_create.exit, label %501
 
-509:                                              ; preds = %507
+501:                                              ; preds = %499
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
-  %510 = load ptr, ptr %49, align 1
-  %511 = call ptr @optget(ptr noundef %510, ptr noundef nonnull @.str.33) #16
-  %512 = getelementptr inbounds i8, ptr %511, i64 32
-  %513 = load i32, ptr %512, align 8
-  %.not.i267 = icmp eq i32 %513, 0
-  %514 = call i32 @stat(ptr noundef nonnull %401, ptr noundef nonnull %2) #16
-  %515 = icmp eq i32 %514, 0
-  br i1 %.not.i267, label %539, label %516
+  %502 = load ptr, ptr %49, align 1
+  %503 = call ptr @optget(ptr noundef %502, ptr noundef nonnull @.str.33) #16
+  %504 = getelementptr inbounds i8, ptr %503, i64 32
+  %505 = load i32, ptr %504, align 8
+  %.not.i267 = icmp eq i32 %505, 0
+  %506 = call i32 @stat(ptr noundef nonnull %393, ptr noundef nonnull %2) #16
+  %507 = icmp eq i32 %506, 0
+  br i1 %.not.i267, label %531, label %508
 
-516:                                              ; preds = %509
-  br i1 %515, label %517, label %522
+508:                                              ; preds = %501
+  br i1 %507, label %509, label %514
 
-517:                                              ; preds = %516
-  %518 = load i32, ptr %356, align 8
-  %519 = and i32 %518, 61440
-  %520 = icmp eq i32 %519, 32768
-  br i1 %520, label %521, label %522
+509:                                              ; preds = %508
+  %510 = load i32, ptr %348, align 8
+  %511 = and i32 %510, 61440
+  %512 = icmp eq i32 %511, 32768
+  br i1 %512, label %513, label %514
 
-521:                                              ; preds = %517
-  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef nonnull %401, i32 noundef 2)
+513:                                              ; preds = %509
+  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef nonnull %393, i32 noundef 2)
   br label %onas_ddd_handle_in_moved_to.exit
 
-522:                                              ; preds = %517, %516
-  %523 = load i32, ptr %384, align 4
-  %524 = and i32 %523, 1073741824
-  %.not25.i = icmp eq i32 %524, 0
-  br i1 %.not25.i, label %onas_ddd_handle_in_moved_to.exit, label %525
+514:                                              ; preds = %509, %508
+  %515 = load i32, ptr %376, align 4
+  %516 = and i32 %515, 1073741824
+  %.not25.i = icmp eq i32 %516, 0
+  br i1 %.not25.i, label %onas_ddd_handle_in_moved_to.exit, label %517
 
-525:                                              ; preds = %522
-  %526 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef nonnull %401, ptr noundef nonnull %379, i32 noundef %373) #16
-  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef nonnull %401, i32 noundef 1)
-  %527 = load ptr, ptr @ddd_ht, align 8
-  %528 = call i32 @onas_ht_add_hierarchy(ptr noundef %527, ptr noundef nonnull %401) #16
-  %529 = load i32, ptr %352, align 1
-  %530 = load i64, ptr %354, align 1
-  %531 = load i32, ptr @onas_in_fd, align 4
-  %532 = icmp slt i32 %529, 1
-  %533 = icmp slt i32 %531, 1
-  %or.cond3.i.i269 = or i1 %532, %533
-  br i1 %or.cond3.i.i269, label %onas_ddd_handle_in_moved_to.exit, label %534
+517:                                              ; preds = %514
+  %518 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef nonnull %393, ptr noundef nonnull %371, i32 noundef %365) #16
+  call fastcc void @onas_ddd_handle_extra_scanning(ptr noundef nonnull %0, ptr noundef nonnull %393, i32 noundef 1)
+  %519 = load ptr, ptr @ddd_ht, align 8
+  %520 = call i32 @onas_ht_add_hierarchy(ptr noundef %519, ptr noundef nonnull %393) #16
+  %521 = load i32, ptr %344, align 1
+  %522 = load i64, ptr %346, align 1
+  %523 = load i32, ptr @onas_in_fd, align 4
+  %524 = icmp slt i32 %521, 1
+  %525 = icmp slt i32 %523, 1
+  %or.cond3.i.i269 = or i1 %524, %525
+  br i1 %or.cond3.i.i269, label %onas_ddd_handle_in_moved_to.exit, label %526
 
-534:                                              ; preds = %525
-  %535 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #18
-  %536 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %401, i64 noundef %535, i32 noundef %531, i64 noundef 16778184, i32 noundef 1)
-  %.not.i.i270 = icmp eq i32 %536, 0
-  br i1 %.not.i.i270, label %537, label %onas_ddd_handle_in_moved_to.exit
+526:                                              ; preds = %517
+  %527 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
+  %528 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %393, i64 noundef %527, i32 noundef %523, i64 noundef 16778184, i32 noundef 1)
+  %.not.i.i270 = icmp eq i32 %528, 0
+  br i1 %.not.i.i270, label %529, label %onas_ddd_handle_in_moved_to.exit
 
-537:                                              ; preds = %534
-  %538 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %401, i64 noundef %535, i32 noundef %529, i64 noundef %530, i32 noundef 2)
+529:                                              ; preds = %526
+  %530 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %393, i64 noundef %527, i32 noundef %521, i64 noundef %522, i32 noundef 2)
   br label %onas_ddd_handle_in_moved_to.exit
 
-539:                                              ; preds = %509
-  br i1 %515, label %540, label %544
+531:                                              ; preds = %501
+  br i1 %507, label %532, label %536
 
-540:                                              ; preds = %539
-  %541 = load i32, ptr %356, align 8
-  %542 = and i32 %541, 61440
-  %543 = icmp eq i32 %542, 32768
-  br i1 %543, label %onas_ddd_handle_in_moved_to.exit, label %544
+532:                                              ; preds = %531
+  %533 = load i32, ptr %348, align 8
+  %534 = and i32 %533, 61440
+  %535 = icmp eq i32 %534, 32768
+  br i1 %535, label %onas_ddd_handle_in_moved_to.exit, label %536
 
-544:                                              ; preds = %540, %539
-  %545 = load i32, ptr %384, align 4
-  %546 = and i32 %545, 1073741824
-  %.not24.i = icmp eq i32 %546, 0
-  br i1 %.not24.i, label %onas_ddd_handle_in_moved_to.exit, label %547
+536:                                              ; preds = %532, %531
+  %537 = load i32, ptr %376, align 4
+  %538 = and i32 %537, 1073741824
+  %.not24.i = icmp eq i32 %538, 0
+  br i1 %.not24.i, label %onas_ddd_handle_in_moved_to.exit, label %539
 
-547:                                              ; preds = %544
-  %548 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef nonnull %401, ptr noundef nonnull %379, i32 noundef %373) #16
-  %549 = load ptr, ptr @ddd_ht, align 8
-  %550 = call i32 @onas_ht_add_hierarchy(ptr noundef %549, ptr noundef nonnull %401) #16
-  %551 = load i32, ptr %352, align 1
-  %552 = load i64, ptr %354, align 1
-  %553 = load i32, ptr @onas_in_fd, align 4
-  %554 = icmp slt i32 %551, 1
-  %555 = icmp slt i32 %553, 1
-  %or.cond3.i27.i = or i1 %554, %555
-  br i1 %or.cond3.i27.i, label %onas_ddd_handle_in_moved_to.exit, label %556
+539:                                              ; preds = %536
+  %540 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.53, ptr noundef nonnull %393, ptr noundef nonnull %371, i32 noundef %365) #16
+  %541 = load ptr, ptr @ddd_ht, align 8
+  %542 = call i32 @onas_ht_add_hierarchy(ptr noundef %541, ptr noundef nonnull %393) #16
+  %543 = load i32, ptr %344, align 1
+  %544 = load i64, ptr %346, align 1
+  %545 = load i32, ptr @onas_in_fd, align 4
+  %546 = icmp slt i32 %543, 1
+  %547 = icmp slt i32 %545, 1
+  %or.cond3.i27.i = or i1 %546, %547
+  br i1 %or.cond3.i27.i, label %onas_ddd_handle_in_moved_to.exit, label %548
 
-556:                                              ; preds = %547
-  %557 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #18
-  %558 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %401, i64 noundef %557, i32 noundef %553, i64 noundef 16778184, i32 noundef 1)
-  %.not.i28.i = icmp eq i32 %558, 0
-  br i1 %.not.i28.i, label %559, label %onas_ddd_handle_in_moved_to.exit
+548:                                              ; preds = %539
+  %549 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #18
+  %550 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %393, i64 noundef %549, i32 noundef %545, i64 noundef 16778184, i32 noundef 1)
+  %.not.i28.i = icmp eq i32 %550, 0
+  br i1 %.not.i28.i, label %551, label %onas_ddd_handle_in_moved_to.exit
 
-559:                                              ; preds = %556
-  %560 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %401, i64 noundef %557, i32 noundef %551, i64 noundef %552, i32 noundef 2)
+551:                                              ; preds = %548
+  %552 = call fastcc i32 @onas_ddd_watch_hierarchy(ptr noundef nonnull %393, i64 noundef %549, i32 noundef %543, i64 noundef %544, i32 noundef 2)
   br label %onas_ddd_handle_in_moved_to.exit
 
-onas_ddd_handle_in_moved_to.exit:                 ; preds = %521, %522, %525, %534, %537, %540, %544, %547, %556, %559
+onas_ddd_handle_in_moved_to.exit:                 ; preds = %513, %514, %517, %526, %529, %532, %536, %539, %548, %551
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
   br label %onas_ddd_handle_in_create.exit
 
-onas_ddd_handle_in_create.exit:                   ; preds = %490, %487, %479, %470, %onas_ddd_handle_in_moved_from.exit, %onas_ddd_handle_in_close_write.exit, %onas_ddd_handle_in_moved_to.exit, %507, %onas_ddd_handle_in_delete.exit
-  call void @free(ptr noundef nonnull %401) #16
-  br label %561
+onas_ddd_handle_in_create.exit:                   ; preds = %482, %479, %471, %462, %onas_ddd_handle_in_moved_from.exit, %onas_ddd_handle_in_close_write.exit, %onas_ddd_handle_in_moved_to.exit, %499, %onas_ddd_handle_in_delete.exit
+  call void @free(ptr noundef nonnull %393) #16
+  br label %553
 
-561:                                              ; preds = %387, %onas_ddd_handle_in_create.exit, %393, %391, %.thread
-  %562 = getelementptr inbounds i8, ptr %.0194319, i64 12
-  %563 = load i32, ptr %562, align 4
-  %564 = zext i32 %563 to i64
-  %565 = add nuw nsw i64 %564, 16
-  %566 = getelementptr inbounds i8, ptr %.0194319, i64 %565
-  %567 = icmp ult ptr %566, %372
-  br i1 %567, label %.lr.ph320, label %.loopexit
+553:                                              ; preds = %379, %onas_ddd_handle_in_create.exit, %385, %383, %.thread
+  %554 = getelementptr inbounds i8, ptr %.0194319, i64 12
+  %555 = load i32, ptr %554, align 4
+  %556 = zext i32 %555 to i64
+  %557 = add nuw nsw i64 %556, 16
+  %558 = getelementptr inbounds i8, ptr %.0194319, i64 %557
+  %559 = icmp ult ptr %558, %364
+  br i1 %559, label %.lr.ph320, label %.loopexit
 
-568:                                              ; preds = %403, %201, %185, %168, %143, %110, %96, %46, %32, %28
+560:                                              ; preds = %395, %193, %177, %160, %135, %106, %92, %46, %32, %28
   ret ptr null
 }
 

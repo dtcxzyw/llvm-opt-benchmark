@@ -456,13 +456,13 @@ define internal i64 @signalfd_read(ptr nocapture noundef readonly %0, ptr nounde
   %73 = load volatile i64, ptr %19, align 8
   %74 = and i64 %73, 131072
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %76, label %.thread, !prof !8
+  br i1 %75, label %76, label %.critedge, !prof !8
 
 76:                                               ; preds = %.preheader
   %77 = load volatile i64, ptr %19, align 8
   %78 = and i64 %77, 4
   %79 = icmp eq i64 %78, 0
-  br i1 %79, label %80, label %.thread
+  br i1 %79, label %80, label %.critedge
 
 80:                                               ; preds = %76
   %81 = load ptr, ptr %22, align 32
@@ -478,9 +478,9 @@ define internal i64 @signalfd_read(ptr nocapture noundef readonly %0, ptr nounde
 .loopexit:                                        ; preds = %80, %67
   %86 = phi i32 [ %71, %67 ], [ %84, %80 ]
   %87 = sext i32 %86 to i64
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.preheader, %76, %.loopexit
+.critedge:                                        ; preds = %.preheader, %76, %.loopexit
   %88 = phi i64 [ %87, %.loopexit ], [ -512, %76 ], [ -512, %.preheader ]
   %89 = load ptr, ptr %22, align 32
   call void @_raw_spin_unlock_irq(ptr noundef %89) #5
@@ -490,8 +490,8 @@ define internal i64 @signalfd_read(ptr nocapture noundef readonly %0, ptr nounde
   store volatile i32 0, ptr %23, align 8
   br label %92
 
-92:                                               ; preds = %.thread, %63
-  %93 = phi i64 [ %65, %63 ], [ %88, %.thread ]
+92:                                               ; preds = %.critedge, %63
+  %93 = phi i64 [ %65, %63 ], [ %88, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   %94 = icmp slt i64 %93, 1

@@ -718,7 +718,7 @@ define void @mspack_destroy_kwaj_decompressor(ptr noundef %0) local_unnamed_addr
 declare i32 @lzss_decompress(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lzh_decompress(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [6 x i32], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 7092
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1822,27 +1822,27 @@ define internal fastcc range(i32 0, 4) i32 @lzh_read_lens(ptr noundef %0, i32 no
 
 ._crit_edge659:                                   ; preds = %107
   %.pre655.pre.pre = load i32, ptr %59, align 8
-  br label %109
+  %109 = zext nneg i32 %105 to i64
+  br label %110
 
 .sink.split.i310:                                 ; preds = %107, %98
   %storemerge605 = phi i32 [ %99, %98 ], [ 8, %107 ]
   store i32 %storemerge605, ptr %59, align 8
   store i8 0, ptr %66, align 4
-  br label %109
+  br label %110
 
-109:                                              ; preds = %._crit_edge659, %.sink.split.i310
+110:                                              ; preds = %._crit_edge659, %.sink.split.i310
   %.pre655.pre = phi i32 [ %.pre655.pre.pre, %._crit_edge659 ], [ %storemerge605, %.sink.split.i310 ]
-  %.0.i312 = phi i32 [ %105, %._crit_edge659 ], [ 1, %.sink.split.i310 ]
+  %.0.i312 = phi i64 [ %109, %._crit_edge659 ], [ 1, %.sink.split.i310 ]
   store ptr %66, ptr %5, align 8
-  %110 = zext nneg i32 %.0.i312 to i64
-  %111 = getelementptr inbounds [2048 x i8], ptr %66, i64 0, i64 %110
+  %111 = getelementptr inbounds [2048 x i8], ptr %66, i64 0, i64 %.0.i312
   store ptr %111, ptr %7, align 8
   br label %._crit_edge554
 
-._crit_edge554:                                   ; preds = %109, %.lr.ph553
-  %.pre655 = phi i32 [ %.pre655.pre, %109 ], [ %93, %.lr.ph553 ]
-  %.6235 = phi ptr [ %66, %109 ], [ %.3232.lcssa, %.lr.ph553 ]
-  %.6221 = phi ptr [ %111, %109 ], [ %.3218.lcssa, %.lr.ph553 ]
+._crit_edge554:                                   ; preds = %110, %.lr.ph553
+  %.pre655 = phi i32 [ %.pre655.pre, %110 ], [ %93, %.lr.ph553 ]
+  %.6235 = phi ptr [ %66, %110 ], [ %.3232.lcssa, %.lr.ph553 ]
+  %.6221 = phi ptr [ %111, %110 ], [ %.3218.lcssa, %.lr.ph553 ]
   %112 = getelementptr inbounds i8, ptr %.6235, i64 1
   %113 = load i8, ptr %.6235, align 1
   %114 = zext i8 %113 to i32
@@ -1901,27 +1901,27 @@ define internal fastcc range(i32 0, 4) i32 @lzh_read_lens(ptr noundef %0, i32 no
 
 ._crit_edge661:                                   ; preds = %137
   %.pre656.pre.pre = load i32, ptr %59, align 8
-  br label %139
+  %139 = zext nneg i32 %135 to i64
+  br label %140
 
 .sink.split.i316:                                 ; preds = %137, %128
   %storemerge606 = phi i32 [ %129, %128 ], [ 8, %137 ]
   store i32 %storemerge606, ptr %59, align 8
   store i8 0, ptr %66, align 4
-  br label %139
+  br label %140
 
-139:                                              ; preds = %._crit_edge661, %.sink.split.i316
+140:                                              ; preds = %._crit_edge661, %.sink.split.i316
   %.pre656.pre = phi i32 [ %.pre656.pre.pre, %._crit_edge661 ], [ %storemerge606, %.sink.split.i316 ]
-  %.0.i318 = phi i32 [ %135, %._crit_edge661 ], [ 1, %.sink.split.i316 ]
+  %.0.i318 = phi i64 [ %139, %._crit_edge661 ], [ 1, %.sink.split.i316 ]
   store ptr %66, ptr %5, align 8
-  %140 = zext nneg i32 %.0.i318 to i64
-  %141 = getelementptr inbounds [2048 x i8], ptr %66, i64 0, i64 %140
+  %141 = getelementptr inbounds [2048 x i8], ptr %66, i64 0, i64 %.0.i318
   store ptr %141, ptr %7, align 8
   br label %._crit_edge581.loopexit
 
-._crit_edge581.loopexit:                          ; preds = %139, %.lr.ph580.preheader
-  %.pre656 = phi i32 [ %.pre656.pre, %139 ], [ %118, %.lr.ph580.preheader ]
-  %.8237 = phi ptr [ %66, %139 ], [ %.5234.lcssa, %.lr.ph580.preheader ]
-  %.8223 = phi ptr [ %141, %139 ], [ %.5220.lcssa, %.lr.ph580.preheader ]
+._crit_edge581.loopexit:                          ; preds = %140, %.lr.ph580.preheader
+  %.pre656 = phi i32 [ %.pre656.pre, %140 ], [ %118, %.lr.ph580.preheader ]
+  %.8237 = phi ptr [ %66, %140 ], [ %.5234.lcssa, %.lr.ph580.preheader ]
+  %.8223 = phi ptr [ %141, %140 ], [ %.5220.lcssa, %.lr.ph580.preheader ]
   %142 = getelementptr inbounds i8, ptr %.8237, i64 1
   %143 = load i8, ptr %.8237, align 1
   %144 = zext i8 %143 to i32

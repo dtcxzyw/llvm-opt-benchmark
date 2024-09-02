@@ -225,7 +225,7 @@ define range(i32 0, 2) i32 @Aig_ManHasNoGaps(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @Aig_ManLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 16777216) i32 @Aig_ManLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4

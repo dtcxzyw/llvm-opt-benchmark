@@ -827,20 +827,23 @@ Abc_Clock.exit99:                                 ; preds = %68, %75
   %.val.i = load i32, ptr %118, align 4
   %119 = sext i32 %.val.i to i64
   %120 = icmp slt i64 %indvars.iv.next.i, %119
-  br i1 %120, label %.lr.ph.i, label %Aig_ManCountXors.exit, !llvm.loop !4
+  br i1 %120, label %.lr.ph.i, label %Aig_ManCountXors.exit.loopexit, !llvm.loop !4
 
-Aig_ManCountXors.exit:                            ; preds = %116, %96
-  %.0.lcssa.i = phi i32 [ 0, %96 ], [ %.1.i, %116 ]
+Aig_ManCountXors.exit.loopexit:                   ; preds = %116
+  %121 = mul nsw i32 %.1.i, 30
+  br label %Aig_ManCountXors.exit
+
+Aig_ManCountXors.exit:                            ; preds = %Aig_ManCountXors.exit.loopexit, %96
+  %.0.lcssa.i = phi i32 [ 0, %96 ], [ %121, %Aig_ManCountXors.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %121 = mul nsw i32 %.0.lcssa.i, 30
   %122 = getelementptr i8, ptr %.069138, i64 148
   %.069.val = load i32, ptr %122, align 4
   %123 = getelementptr i8, ptr %.069138, i64 152
   %.069.val84 = load i32, ptr %123, align 8
   %124 = add i32 %.069.val, 300
   %125 = add i32 %124, %.069.val84
-  %126 = icmp sgt i32 %121, %125
+  %126 = icmp sgt i32 %.0.lcssa.i, %125
   br i1 %126, label %127, label %150
 
 127:                                              ; preds = %Aig_ManCountXors.exit

@@ -434,7 +434,7 @@ define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h05da09c1198bec58E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define range(i64 0, 288230376151711744) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h05da09c1198bec58E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -447,7 +447,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h05da09c119
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h3038f0476e165224E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define range(i64 0, 230584300921369396) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h3038f0476e165224E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -460,7 +460,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h3038f0476e
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h3dec8d4a6ec544a0E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define range(i64 0, 256204778801521551) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h3dec8d4a6ec544a0E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -473,7 +473,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h3dec8d4a6e
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h7dd5f5cff89566dcE(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define range(i64 0, 1152921504606846976) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h7dd5f5cff89566dcE(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -486,7 +486,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h7dd5f5cff8
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hbbbed75b552cbd38E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define range(i64 0, 209622091746699451) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hbbbed75b552cbd38E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -499,7 +499,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hbbbed75b55
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hcce3204fb3e61dc3E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define range(i64 0, 192153584101141163) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hcce3204fb3e61dc3E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -512,7 +512,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hcce3204fb3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hce6ba77f05fc3918E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define range(i64 0, 230584300921369396) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hce6ba77f05fc3918E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -525,7 +525,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hce6ba77f05
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hd4eb66a381a27520E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define range(i64 0, 209622091746699451) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hd4eb66a381a27520E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -538,7 +538,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hd4eb66a381
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf927e7c59589501aE(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define range(i64 0, 768614336404564651) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf927e7c59589501aE(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -551,7 +551,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf927e7c595
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfdac0a6b8a4810a8E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define range(i64 0, 576460752303423488) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfdac0a6b8a4810a8E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -564,7 +564,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfdac0a6b8a
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hffb67e0fb7d52310E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
+define range(i64 0, 209622091746699451) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hffb67e0fb7d52310E(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %0, i64 8

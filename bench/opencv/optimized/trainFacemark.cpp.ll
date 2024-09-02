@@ -1700,57 +1700,57 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %14
 _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %17, i8 0, i64 %13, i1 false)
   %18 = getelementptr inbounds i8, ptr %17, i64 %13
+  %19 = ptrtoint ptr %18 to i64
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %4, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i
   %.sroa.0.1 = phi ptr [ %17, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ null, %4 ]
-  %.sroa.13.0 = phi ptr [ %18, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ null, %4 ]
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %7 to i64
-  %23 = sub i64 %21, %22
-  %24 = sdiv exact i64 %23, 232
-  %.not107 = icmp eq ptr %20, %7
+  %.sroa.13.0 = phi i64 [ %19, %_ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i ], [ 0, %4 ]
+  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = ptrtoint ptr %21 to i64
+  %23 = ptrtoint ptr %7 to i64
+  %24 = sub i64 %22, %23
+  %25 = sdiv exact i64 %24, 232
+  %.not107 = icmp eq ptr %21, %7
   br i1 %.not107, label %.preheader92, label %.preheader93.preheader
 
 .preheader93.preheader:                           ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
-  %umax = tail call i64 @llvm.umax.i64(i64 %24, i64 1)
+  %umax = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
   br label %.preheader93
 
 .preheader93:                                     ; preds = %.preheader93.preheader, %._crit_edge
   %.04797 = phi i64 [ %47, %._crit_edge ], [ 0, %.preheader93.preheader ]
-  %25 = getelementptr inbounds %"struct.cv::face::training_sample", ptr %7, i64 %.04797
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %25, align 8
-  %.not108 = icmp eq ptr %27, %28
+  %26 = getelementptr inbounds %"struct.cv::face::training_sample", ptr %7, i64 %.04797
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %26, align 8
+  %.not108 = icmp eq ptr %28, %29
   br i1 %.not108, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader93
-  %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  %32 = ashr exact i64 %31, 3
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  %33 = ashr exact i64 %32, 3
   br label %.lr.ph
 
 .preheader92:                                     ; preds = %._crit_edge, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
-  %.not109 = icmp eq ptr %.sroa.13.0, %.sroa.0.1
+  %34 = ptrtoint ptr %.sroa.0.1 to i64
+  %.not109 = icmp eq i64 %.sroa.13.0, %34
   br i1 %.not109, label %.preheader91, label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %.preheader92
-  %33 = ptrtoint ptr %.sroa.13.0 to i64
-  %34 = ptrtoint ptr %.sroa.0.1 to i64
-  %35 = sub i64 %33, %34
+  %35 = sub i64 %.sroa.13.0, %34
   %36 = ashr exact i64 %35, 3
-  %37 = uitofp i64 %24 to float
+  %37 = uitofp i64 %25 to float
   %umax113 = tail call i64 @llvm.umax.i64(i64 %36, i64 1)
   br label %48
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.04696 = phi i64 [ %44, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %38 = getelementptr inbounds %"class.cv::Point_", ptr %.sroa.0.1, i64 %.04696
-  %39 = getelementptr inbounds %"class.cv::Point_", ptr %28, i64 %.04696
+  %39 = getelementptr inbounds %"class.cv::Point_", ptr %29, i64 %.04696
   %.val56 = load float, ptr %38, align 4
   %40 = getelementptr i8, ptr %38, i64 4
   %.val57 = load float, ptr %40, align 4
@@ -1763,7 +1763,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %4, %_ZNSt12_Vecto
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %43, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %38, align 4
   %44 = add nuw i64 %.04696, 1
-  %45 = icmp ult i64 %44, %32
+  %45 = icmp ult i64 %44, %33
   br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 .thread:                                          ; preds = %16, %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -1795,7 +1795,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %4, %_ZNSt12_Vecto
 
 .preheader90:                                     ; preds = %.preheader91, %._crit_edge102
   %56 = phi ptr [ %86, %._crit_edge102 ], [ %7, %.preheader91 ]
-  %57 = phi ptr [ %87, %._crit_edge102 ], [ %20, %.preheader91 ]
+  %57 = phi ptr [ %87, %._crit_edge102 ], [ %21, %.preheader91 ]
   %.043103 = phi i64 [ %88, %._crit_edge102 ], [ 0, %.preheader91 ]
   %58 = getelementptr inbounds %"struct.cv::face::training_sample", ptr %56, i64 %.043103
   %59 = getelementptr inbounds i8, ptr %58, i64 8
@@ -1847,7 +1847,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit: ; preds = %4, %_ZNSt12_Vecto
   br i1 %85, label %.lr.ph101, label %._crit_edge102.loopexit, !llvm.loop !36
 
 ._crit_edge102.loopexit:                          ; preds = %.lr.ph101
-  %.pre = load ptr, ptr %19, align 8
+  %.pre = load ptr, ptr %20, align 8
   br label %._crit_edge102
 
 ._crit_edge102:                                   ; preds = %._crit_edge102.loopexit, %.preheader90
@@ -2633,11 +2633,11 @@ _ZSt4copyIPN2cv6Point_IfEES3_ET0_T_S5_S4_.exit.i44: ; preds = %134, %133
   %155 = add i64 %153, %154
   %156 = trunc i64 %155 to i32
   %157 = urem i32 %156, %150
+  %158 = sext i32 %157 to i64
   br label %_ZN2cv3RNG7uniformEii.exit
 
 _ZN2cv3RNG7uniformEii.exit:                       ; preds = %142, %152
-  %158 = phi i32 [ %157, %152 ], [ 0, %142 ]
-  %159 = sext i32 %158 to i64
+  %159 = phi i64 [ %158, %152 ], [ 0, %142 ]
   %160 = getelementptr inbounds %"class.std::vector", ptr %144, i64 %159
   %161 = load ptr, ptr %1, align 8
   %162 = getelementptr inbounds %"struct.cv::face::training_sample", ptr %161, i64 %.191, i32 1

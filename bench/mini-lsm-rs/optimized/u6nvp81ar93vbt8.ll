@@ -1709,7 +1709,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors5array16Channel
   br i1 %43, label %50, label %44
 
 44:                                               ; preds = %38
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.025, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.025, i32 6)
   br label %47
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %47
@@ -1766,7 +1766,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = 
   br label %54
 
 66:                                               ; preds = %58
-  %.0.sroa.speculated.i.i16 = tail call noundef i32 @llvm.umin.i32(i32 %.025, i32 6)
+  %.0.sroa.speculated.i.i16 = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.025, i32 6)
   br label %69
 
 67:                                               ; preds = %69
@@ -1853,7 +1853,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors5array16Channel
   br i1 %42, label %49, label %43
 
 43:                                               ; preds = %37
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.025, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.025, i32 6)
   br label %46
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %46
@@ -1911,7 +1911,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = 
   br label %53
 
 66:                                               ; preds = %57
-  %.0.sroa.speculated.i.i16 = tail call noundef i32 @llvm.umin.i32(i32 %.025, i32 6)
+  %.0.sroa.speculated.i.i16 = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.025, i32 6)
   br label %69
 
 67:                                               ; preds = %69
@@ -2102,7 +2102,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN17crossbeam_channel7flavors5array16
   br i1 %62, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$10start_send17h0e7289e1e864f8ddE.exit", label %63
 
 63:                                               ; preds = %58
-  %.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.02533.i, i32 6)
+  %.0.sroa.speculated.i.i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.02533.i, i32 6)
   br label %66
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit.i: ; preds = %66
@@ -2145,7 +2145,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i: ; preds 
   br i1 %79, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$5write17h4873f07641b267e1E.exit", label %81
 
 81:                                               ; preds = %77
-  %.0.sroa.speculated.i.i16.i = call noundef i32 @llvm.umin.i32(i32 %.02533.i, i32 6)
+  %.0.sroa.speculated.i.i16.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.02533.i, i32 6)
   br label %84
 
 82:                                               ; preds = %84

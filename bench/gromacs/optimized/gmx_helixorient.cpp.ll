@@ -2151,15 +2151,15 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit329:       ; preds = %413, %410, %350, %3
   %1045 = icmp sgt i32 %1044, 0
   br i1 %1045, label %.lr.ph543, label %._crit_edge544
 
-.lr.ph543:                                        ; preds = %1028, %.lr.ph543._crit_edge
-  %indvars.iv601 = phi i64 [ %indvars.iv.next602, %.lr.ph543._crit_edge ], [ 0, %1028 ]
-  %1046 = phi i32 [ %1153, %.lr.ph543._crit_edge ], [ %1044, %1028 ]
+.lr.ph543:                                        ; preds = %1028, %1150
+  %indvars.iv601 = phi i64 [ %indvars.iv.next602, %1150 ], [ 0, %1028 ]
+  %1046 = phi i32 [ %1153, %1150 ], [ %1044, %1028 ]
   %1047 = icmp eq i64 %indvars.iv601, 0
   %1048 = add nsw i32 %1046, -1
   %1049 = zext i32 %1048 to i64
   %1050 = icmp eq i64 %indvars.iv601, %1049
   %or.cond265 = select i1 %1047, i1 true, i1 %1050
-  br i1 %or.cond265, label %.lr.ph543._crit_edge, label %1051
+  br i1 %or.cond265, label %1150, label %1051
 
 1051:                                             ; preds = %.lr.ph543
   %1052 = load i8, ptr @_ZZ15gmx_helixorientiPPcE12bIncremental, align 1
@@ -2316,22 +2316,21 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit329:       ; preds = %413, %410, %350, %3
   %1146 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %307, ptr noundef nonnull @.str.75, double noundef %1145) #17
   %1147 = fpext float %1140 to double
   %1148 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.75, double noundef %1147) #17
-  br label %.lr.ph543._crit_edge
+  %1149 = fpext float %sqrt to double
+  br label %1150
 
-.lr.ph543._crit_edge:                             ; preds = %.lr.ph543, %1122
-  %.0232 = phi float [ %1140, %1122 ], [ 0.000000e+00, %.lr.ph543 ]
-  %.0231 = phi float [ %sqrt, %1122 ], [ 0.000000e+00, %.lr.ph543 ]
-  %1149 = fpext float %.0231 to double
-  %1150 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0233, ptr noundef nonnull @.str.75, double noundef %1149) #17
-  %1151 = fpext float %.0232 to double
-  %1152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0234, ptr noundef nonnull @.str.75, double noundef %1151) #17
+1150:                                             ; preds = %.lr.ph543, %1122
+  %.0232 = phi double [ %1147, %1122 ], [ 0.000000e+00, %.lr.ph543 ]
+  %.0231 = phi double [ %1149, %1122 ], [ 0.000000e+00, %.lr.ph543 ]
+  %1151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0233, ptr noundef nonnull @.str.75, double noundef %.0231) #17
+  %1152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0234, ptr noundef nonnull @.str.75, double noundef %.0232) #17
   %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
   %1153 = load i32, ptr %9, align 4
   %1154 = sext i32 %1153 to i64
   %1155 = icmp slt i64 %indvars.iv.next602, %1154
   br i1 %1155, label %.lr.ph543, label %._crit_edge544, !llvm.loop !16
 
-._crit_edge544:                                   ; preds = %.lr.ph543._crit_edge, %1028
+._crit_edge544:                                   ; preds = %1150, %1028
   %fputc256 = call i32 @fputc(i32 10, ptr %.0233)
   %fputc257 = call i32 @fputc(i32 10, ptr %.0234)
   %fputc258 = call i32 @fputc(i32 10, ptr %301)

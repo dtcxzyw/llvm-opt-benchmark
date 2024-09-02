@@ -1012,28 +1012,28 @@ define internal i32 @dissect_btbredr_rf(ptr noundef %0, ptr noundef %1, ptr noun
   tail call void @col_set_str(ptr noundef %34, i32 noundef 34, ptr noundef nonnull @.str.178) #7
   %35 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   %36 = icmp ugt i32 %35, 20
-  br i1 %36, label %37, label %39
+  br i1 %36, label %37, label %40
 
 37:                                               ; preds = %.thread
   %38 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 20, i32 noundef -2147483648) #7
-  br label %39
+  %39 = zext i16 %38 to i32
+  br label %40
 
-39:                                               ; preds = %.thread, %37
-  %.0876 = phi i16 [ %38, %37 ], [ 0, %.thread ]
-  %40 = zext i16 %.0876 to i32
-  %41 = and i32 %40, 64
+40:                                               ; preds = %.thread, %37
+  %.0876 = phi i32 [ %39, %37 ], [ 0, %.thread ]
+  %41 = and i32 %.0876, 64
   %.not928 = icmp eq i32 %41, 0
   %hf_rf_channel.val = load i32, ptr @hf_rf_channel, align 4
   %hf_uncertain_rf_channel.val = load i32, ptr @hf_uncertain_rf_channel, align 4
   %.0870 = select i1 %.not928, i32 %hf_rf_channel.val, i32 %hf_uncertain_rf_channel.val
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %.0870, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
-  %43 = and i32 %40, 2
+  %43 = and i32 %.0876, 2
   %.not929 = icmp eq i32 %43, 0
   %hf_invalid_signal_power.val = load i32, ptr @hf_invalid_signal_power, align 4
   %hf_signal_power.val = load i32, ptr @hf_signal_power, align 4
   %.1871 = select i1 %.not929, i32 %hf_invalid_signal_power.val, i32 %hf_signal_power.val
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %.1871, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #7
-  %45 = and i32 %40, 4
+  %45 = and i32 %.0876, 4
   %.not930 = icmp eq i32 %45, 0
   %hf_invalid_noise_power.val = load i32, ptr @hf_invalid_noise_power, align 4
   %hf_noise_power.val = load i32, ptr @hf_noise_power, align 4
@@ -1055,12 +1055,12 @@ define internal i32 @dissect_btbredr_rf(ptr noundef %0, ptr noundef %1, ptr noun
   %59 = icmp eq i8 %49, -1
   br i1 %59, label %60, label %63
 
-60:                                               ; preds = %39
+60:                                               ; preds = %40
   %61 = load i32, ptr @hf_payload_transport_rate_ignored, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %61, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #7
   br label %67
 
-63:                                               ; preds = %39
+63:                                               ; preds = %40
   %64 = load i32, ptr @hf_payload_transport_rate, align 4
   %65 = load i32, ptr @ett_payload_transport_rate, align 4
   %66 = tail call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %0, i32 noundef 4, i32 noundef %64, i32 noundef %65, ptr noundef nonnull @hfx_payload_transport_rate, i32 noundef -2147483648) #7
@@ -1118,13 +1118,13 @@ define internal i32 @dissect_btbredr_rf(ptr noundef %0, ptr noundef %1, ptr noun
   %.0907988 = phi ptr [ %86, %88 ], [ null, %77 ], [ null, %67 ]
   %.0910 = phi i32 [ %95, %88 ], [ -1, %77 ], [ -1, %67 ]
   %.0877 = phi i8 [ %97, %88 ], [ 0, %77 ], [ 0, %67 ]
-  %99 = and i32 %40, 16
+  %99 = and i32 %.0876, 16
   %.not932 = icmp eq i32 %99, 0
   %hf_invalid_reference_lower_address_part.val = load i32, ptr @hf_invalid_reference_lower_address_part, align 4
   %hf_reference_lower_address_part.val = load i32, ptr @hf_reference_lower_address_part, align 4
   %.3873 = select i1 %.not932, i32 %hf_invalid_reference_lower_address_part.val, i32 %hf_reference_lower_address_part.val
   %100 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %.3873, ptr noundef %0, i32 noundef 12, i32 noundef 3, i32 noundef -2147483648) #7
-  %101 = and i32 %40, 128
+  %101 = and i32 %.0876, 128
   %102 = icmp ne i32 %101, 0
   br i1 %102, label %103, label %106
 
@@ -1159,7 +1159,7 @@ define internal i32 @dissect_btbredr_rf(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond3, label %129, label %.thread1089
 
 .thread1089:                                      ; preds = %108
-  %122 = lshr i32 %40, 3
+  %122 = lshr i32 %.0876, 3
   %.lobit9951076 = and i32 %122, 1
   %123 = load i32, ptr @hf_invalid_packet_header, align 4
   %124 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %123, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #7
@@ -1171,12 +1171,12 @@ define internal i32 @dissect_btbredr_rf(ptr noundef %0, ptr noundef %1, ptr noun
   br label %411
 
 129:                                              ; preds = %108
-  %130 = and i32 %40, 1
+  %130 = and i32 %.0876, 1
   %.not933 = icmp eq i32 %130, 0
   br i1 %.not933, label %.thread1000, label %132
 
 .thread1000:                                      ; preds = %129
-  %131 = lshr i32 %40, 3
+  %131 = lshr i32 %.0876, 3
   %.lobit1002 = and i32 %131, 1
   br label %402
 
@@ -1247,17 +1247,17 @@ broken_check_hec.exit:                            ; preds = %149
 163:                                              ; preds = %broken_check_hec.exit, %144
   %not.spec.select1079 = xor i1 %spec.select, true
   %.971 = sext i1 %not.spec.select1079 to i32
-  %164 = lshr i32 %40, 3
+  %164 = lshr i32 %.0876, 3
   %.lobit = and i32 %164, 1
   br i1 %spec.select, label %.thread1012, label %402
 
 165:                                              ; preds = %check_hec.exit
-  %166 = lshr i32 %40, 3
+  %166 = lshr i32 %.0876, 3
   %.lobit995 = and i32 %166, 1
   br label %.thread1012
 
 167:                                              ; preds = %broken_check_hec.exit
-  %168 = lshr i32 %40, 3
+  %168 = lshr i32 %.0876, 3
   %.lobit9951086 = and i32 %168, 1
   %169 = load i32, ptr @hf_packet_header, align 4
   %170 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %169, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #7

@@ -4742,16 +4742,16 @@ for.inc130.us:                                    ; preds = %for.cond114.us, %if
   %next131.us = getelementptr inbounds i8, ptr %group.1219.us, i64 24
   %group.1.us = load ptr, ptr %next131.us, align 8
   %tobool112.not.us = icmp eq ptr %group.1.us, null
-  br i1 %tobool112.not.us, label %for.end133.loopexit, label %for.cond114.preheader.us, !llvm.loop !28
+  br i1 %tobool112.not.us, label %for.end133.loopexit236, label %for.cond114.preheader.us, !llvm.loop !28
 
-for.end133.loopexit:                              ; preds = %for.inc130.us
+for.end133.loopexit236:                           ; preds = %for.inc130.us
   %47 = sext i32 %count.1.us to i64
   %48 = shl nsw i64 %47, 2
   %49 = add nsw i64 %48, 12
   br label %for.end133
 
-for.end133:                                       ; preds = %for.end133.loopexit, %for.cond111.preheader
-  %count.0.lcssa = phi i64 [ 12, %for.cond111.preheader ], [ %49, %for.end133.loopexit ]
+for.end133:                                       ; preds = %for.end133.loopexit236, %for.cond111.preheader
+  %count.0.lcssa = phi i64 [ 12, %for.cond111.preheader ], [ %49, %for.end133.loopexit236 ]
   %call137 = tail call noalias ptr @g_malloc0(i64 noundef %count.0.lcssa) #26
   %conv141 = trunc i64 %count.0.lcssa to i32
   store i32 %conv141, ptr %call137, align 4

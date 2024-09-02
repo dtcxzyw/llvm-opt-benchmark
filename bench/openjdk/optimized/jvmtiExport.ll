@@ -9704,44 +9704,44 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %243, %253
 .critedge56:                                      ; preds = %.thread93
   %275 = load ptr, ptr %10, align 8
   %276 = call noundef ptr @_ZN6Method10jmethod_idEv(ptr noundef nonnull align 8 dereferenceable(88) %275) #20
+  %277 = zext nneg i32 %255 to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %272, %.critedge56
   %.sroa.092.395116 = phi ptr [ %.sroa.092.2, %.critedge56 ], [ %.sroa.092.395115, %272 ]
-  %.1 = phi i32 [ %255, %.critedge56 ], [ 0, %272 ]
+  %.1 = phi i64 [ %277, %.critedge56 ], [ 0, %272 ]
   %.0 = phi ptr [ %276, %.critedge56 ], [ null, %272 ]
-  %277 = load ptr, ptr %108, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 800
-  %279 = load ptr, ptr %278, align 8
-  store ptr %279, ptr %124, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 24
-  %281 = load ptr, ptr %280, align 8
-  store ptr %281, ptr %125, align 8
-  %282 = getelementptr inbounds i8, ptr %279, i64 32
-  %283 = load ptr, ptr %282, align 8
-  store ptr %283, ptr %126, align 8
-  %284 = getelementptr inbounds i8, ptr %279, i64 40
-  %285 = load ptr, ptr %284, align 8
-  store ptr %285, ptr %127, align 8
-  %286 = getelementptr inbounds i8, ptr %279, i64 8
-  %287 = load i64, ptr %286, align 8
-  store i64 %287, ptr %128, align 8
+  %278 = load ptr, ptr %108, align 8
+  %279 = getelementptr inbounds i8, ptr %278, i64 800
+  %280 = load ptr, ptr %279, align 8
+  store ptr %280, ptr %124, align 8
+  %281 = getelementptr inbounds i8, ptr %280, i64 24
+  %282 = load ptr, ptr %281, align 8
+  store ptr %282, ptr %125, align 8
+  %283 = getelementptr inbounds i8, ptr %280, i64 32
+  %284 = load ptr, ptr %283, align 8
+  store ptr %284, ptr %126, align 8
+  %285 = getelementptr inbounds i8, ptr %280, i64 40
+  %286 = load ptr, ptr %285, align 8
+  store ptr %286, ptr %127, align 8
+  %287 = getelementptr inbounds i8, ptr %280, i64 8
+  %288 = load i64, ptr %287, align 8
+  store i64 %288, ptr %128, align 8
   store ptr %0, ptr %129, align 8
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %116) #20
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !7
   store volatile i32 4, ptr %130, align 4
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %131, ptr noundef nonnull %0) #20
-  %288 = getelementptr inbounds i8, ptr %190, i64 104
-  %289 = load ptr, ptr %288, align 8
-  %.not55 = icmp eq ptr %289, null
-  br i1 %.not55, label %292, label %290
+  %289 = getelementptr inbounds i8, ptr %190, i64 104
+  %290 = load ptr, ptr %289, align 8
+  %.not55 = icmp eq ptr %290, null
+  br i1 %.not55, label %292, label %291
 
-290:                                              ; preds = %.critedge
-  %291 = zext nneg i32 %.1 to i64
-  call void %289(ptr noundef nonnull %190, ptr noundef nonnull %115, ptr noundef %196, ptr noundef %197, i64 noundef %203, ptr noundef %208, ptr noundef %.0, i64 noundef %291) #20
+291:                                              ; preds = %.critedge
+  call void %290(ptr noundef nonnull %190, ptr noundef nonnull %115, ptr noundef %196, ptr noundef %197, i64 noundef %203, ptr noundef %208, ptr noundef %.0, i64 noundef %.1) #20
   br label %292
 
-292:                                              ; preds = %290, %.critedge
+292:                                              ; preds = %291, %.critedge
   call void @_ZN30JvmtiJavaThreadEventTransitionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #20
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #20
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20

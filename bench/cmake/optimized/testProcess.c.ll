@@ -70,7 +70,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.4 = private unnamed_addr constant [30 x i8] c"No process has been executed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @runChild(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, double noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @runChild(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, double noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #0 {
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
   %16 = alloca double, align 8
@@ -372,7 +372,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @cmsysProcess_Delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 124) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sigaction, align 8
   %4 = alloca [8193 x i8], align 16
   %5 = alloca [10 x i32], align 16
@@ -733,7 +733,7 @@ define internal fastcc void @test4() unnamed_addr #5 {
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc noundef i32 @test5(ptr %.0.val) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @test5(ptr %.0.val) unnamed_addr #6 {
   %1 = alloca [4 x ptr], align 16
   store ptr %.0.val, ptr %1, align 16
   %2 = getelementptr inbounds i8, ptr %1, i64 8
@@ -785,7 +785,7 @@ define internal fastcc void @test7() unnamed_addr #6 {
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc noundef i32 @test8(ptr %.0.val) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @test8(ptr %.0.val) unnamed_addr #6 {
   %1 = alloca [4 x ptr], align 16
   store ptr %.0.val, ptr %1, align 16
   %2 = getelementptr inbounds i8, ptr %1, i64 8
@@ -815,7 +815,7 @@ define internal fastcc noundef i32 @test8(ptr %.0.val) unnamed_addr #6 {
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc noundef i32 @test9(ptr %.0.val) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @test9(ptr %.0.val) unnamed_addr #6 {
   %1 = alloca [4 x ptr], align 16
   store ptr %.0.val, ptr %1, align 16
   %2 = getelementptr inbounds i8, ptr %1, i64 8
@@ -846,7 +846,7 @@ define internal fastcc noundef i32 @test9(ptr %.0.val) unnamed_addr #6 {
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc noundef i32 @test10(ptr %.0.val) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @test10(ptr %.0.val) unnamed_addr #6 {
   %1 = alloca [4 x ptr], align 16
   store ptr %.0.val, ptr %1, align 16
   %2 = getelementptr inbounds i8, ptr %1, i64 8

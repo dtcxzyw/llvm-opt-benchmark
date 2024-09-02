@@ -990,7 +990,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__anon_vma_prepare(ptr noundef %
 declare dso_local ptr @find_mergeable_anon_vma(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @anon_vma_clone(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -12, 1) i32 @anon_vma_clone(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -1280,7 +1280,7 @@ define dso_local void @unlink_anon_vmas(ptr noundef %0) local_unnamed_addr #1 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @anon_vma_fork(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -12, 1) i32 @anon_vma_fork(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2907,39 +2907,39 @@ define dso_local void @folio_add_anon_rmap_ptes(ptr noundef %0, ptr noundef %1, 
   %7 = getelementptr inbounds i8, ptr %0, i64 92
   br label %8
 
-8:                                                ; preds = %23, %6
-  %9 = phi i32 [ %2, %6 ], [ %28, %23 ]
-  %10 = phi ptr [ %1, %6 ], [ %27, %23 ]
-  %11 = phi i32 [ 0, %6 ], [ %26, %23 ]
+8:                                                ; preds = %24, %6
+  %9 = phi i32 [ %2, %6 ], [ %28, %24 ]
+  %10 = phi ptr [ %1, %6 ], [ %27, %24 ]
+  %11 = phi i32 [ 0, %6 ], [ %26, %24 ]
   %12 = getelementptr inbounds i8, ptr %10, i64 48
   %13 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12, ptr elementtype(i32) %12) #17, !srcloc !50
   %14 = icmp ult i8 %13, 2
   tail call void @llvm.assume(i1 %14)
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %23, label %15
+  br i1 %.not, label %24, label %15
 
 15:                                               ; preds = %8
   %16 = load volatile i64, ptr %0, align 8
   %17 = and i64 %16, 64
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %23, label %19
+  br i1 %18, label %24, label %19
 
 19:                                               ; preds = %15
   %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7, i32 1, ptr elementtype(i32) %7) #17, !srcloc !51
   %21 = add i32 %20, 1
   %22 = icmp slt i32 %21, 8388608
-  br label %23
+  %23 = zext i1 %22 to i32
+  br label %24
 
-23:                                               ; preds = %19, %15, %8
-  %24 = phi i1 [ %22, %19 ], [ true, %15 ], [ false, %8 ]
-  %25 = zext i1 %24 to i32
-  %26 = add i32 %11, %25
+24:                                               ; preds = %19, %15, %8
+  %25 = phi i32 [ %23, %19 ], [ 1, %15 ], [ 0, %8 ]
+  %26 = add i32 %25, %11
   %27 = getelementptr i8, ptr %10, i64 64
   %28 = add i32 %9, -1
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %8, label %30, !llvm.loop !52
 
-30:                                               ; preds = %23
+30:                                               ; preds = %24
   %31 = icmp eq i32 %26, 0
   br i1 %31, label %38, label %32
 
@@ -3139,39 +3139,39 @@ define dso_local void @folio_add_file_rmap_ptes(ptr noundef %0, ptr noundef %1, 
   %5 = getelementptr inbounds i8, ptr %0, i64 92
   br label %6
 
-6:                                                ; preds = %21, %4
-  %7 = phi i32 [ %2, %4 ], [ %26, %21 ]
-  %8 = phi ptr [ %1, %4 ], [ %25, %21 ]
-  %9 = phi i32 [ 0, %4 ], [ %24, %21 ]
+6:                                                ; preds = %22, %4
+  %7 = phi i32 [ %2, %4 ], [ %26, %22 ]
+  %8 = phi ptr [ %1, %4 ], [ %25, %22 ]
+  %9 = phi i32 [ 0, %4 ], [ %24, %22 ]
   %10 = getelementptr inbounds i8, ptr %8, i64 48
   %11 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, ptr elementtype(i32) %10) #17, !srcloc !50
   %12 = icmp ult i8 %11, 2
   tail call void @llvm.assume(i1 %12)
   %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %21, label %13
+  br i1 %.not, label %22, label %13
 
 13:                                               ; preds = %6
   %14 = load volatile i64, ptr %0, align 8
   %15 = and i64 %14, 64
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %21, label %17
+  br i1 %16, label %22, label %17
 
 17:                                               ; preds = %13
   %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5, i32 1, ptr elementtype(i32) %5) #17, !srcloc !51
   %19 = add i32 %18, 1
   %20 = icmp slt i32 %19, 8388608
-  br label %21
+  %21 = zext i1 %20 to i32
+  br label %22
 
-21:                                               ; preds = %17, %13, %6
-  %22 = phi i1 [ %20, %17 ], [ true, %13 ], [ false, %6 ]
-  %23 = zext i1 %22 to i32
-  %24 = add i32 %9, %23
+22:                                               ; preds = %17, %13, %6
+  %23 = phi i32 [ %21, %17 ], [ 1, %13 ], [ 0, %6 ]
+  %24 = add i32 %23, %9
   %25 = getelementptr i8, ptr %8, i64 64
   %26 = add i32 %7, -1
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %6, label %28, !llvm.loop !52
 
-28:                                               ; preds = %21
+28:                                               ; preds = %22
   %29 = icmp eq i32 %24, 0
   br i1 %29, label %36, label %30
 
@@ -3218,39 +3218,39 @@ define dso_local void @folio_remove_rmap_ptes(ptr noundef %0, ptr noundef %1, i3
   %5 = getelementptr inbounds i8, ptr %0, i64 92
   br label %6
 
-6:                                                ; preds = %21, %4
-  %7 = phi i32 [ %2, %4 ], [ %26, %21 ]
-  %8 = phi ptr [ %1, %4 ], [ %25, %21 ]
-  %9 = phi i32 [ 0, %4 ], [ %24, %21 ]
+6:                                                ; preds = %22, %4
+  %7 = phi i32 [ %2, %4 ], [ %26, %22 ]
+  %8 = phi ptr [ %1, %4 ], [ %25, %22 ]
+  %9 = phi i32 [ 0, %4 ], [ %24, %22 ]
   %10 = getelementptr inbounds i8, ptr %8, i64 48
   %11 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 -1, ptr elementtype(i32) %10) #17, !srcloc !65
   %12 = icmp ult i8 %11, 2
   tail call void @llvm.assume(i1 %12)
   %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %21, label %13
+  br i1 %.not, label %22, label %13
 
 13:                                               ; preds = %6
   %14 = load volatile i64, ptr %0, align 8
   %15 = and i64 %14, 64
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %21, label %17
+  br i1 %16, label %22, label %17
 
 17:                                               ; preds = %13
   %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5, i32 -1, ptr elementtype(i32) %5) #17, !srcloc !51
   %19 = add i32 %18, -1
   %20 = icmp slt i32 %19, 8388608
-  br label %21
+  %21 = zext i1 %20 to i32
+  br label %22
 
-21:                                               ; preds = %17, %13, %6
-  %22 = phi i1 [ %20, %17 ], [ true, %13 ], [ false, %6 ]
-  %23 = zext i1 %22 to i32
-  %24 = add i32 %9, %23
+22:                                               ; preds = %17, %13, %6
+  %23 = phi i32 [ %21, %17 ], [ 1, %13 ], [ 0, %6 ]
+  %24 = add i32 %23, %9
   %25 = getelementptr i8, ptr %8, i64 64
   %26 = add i32 %7, -1
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %6, label %28, !llvm.loop !66
 
-28:                                               ; preds = %21
+28:                                               ; preds = %22
   %29 = icmp eq i32 %24, 0
   br i1 %29, label %44, label %30
 

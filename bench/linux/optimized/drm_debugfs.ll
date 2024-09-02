@@ -742,8 +742,8 @@ define internal noundef i32 @drm_clients_info(ptr noundef %0, ptr nocapture read
   %10 = icmp eq ptr %9, %7
   br i1 %10, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %2, %23
-  %11 = phi ptr [ %40, %23 ], [ %9, %2 ]
+.preheader:                                       ; preds = %2, %24
+  %11 = phi ptr [ %40, %24 ], [ %9, %2 ]
   %12 = getelementptr i8, ptr %11, i64 -56
   %13 = tail call zeroext i1 @drm_is_current_master(ptr noundef %12) #6
   tail call void @__rcu_read_lock() #6
@@ -751,18 +751,18 @@ define internal noundef i32 @drm_clients_info(ptr noundef %0, ptr nocapture read
   %15 = load volatile ptr, ptr %14, align 8
   %16 = tail call ptr @pid_task(ptr noundef %15, i32 noundef 1) #6
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %23, label %18
+  br i1 %17, label %24, label %18
 
 18:                                               ; preds = %.preheader
   %19 = getelementptr inbounds i8, ptr %16, i64 1776
   %20 = load volatile ptr, ptr %19, align 16
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
-  br label %23
+  %23 = freeze i32 %22
+  br label %24
 
-23:                                               ; preds = %18, %.preheader
-  %24 = phi i32 [ %22, %18 ], [ 0, %.preheader ]
-  %.fr = freeze i32 %24
+24:                                               ; preds = %18, %.preheader
+  %.fr = phi i32 [ %23, %18 ], [ 0, %.preheader ]
   %25 = getelementptr inbounds i8, ptr %16, i64 1800
   %26 = select i1 %17, ptr @.str.28, ptr %25
   %27 = tail call i32 @pid_vnr(ptr noundef %15) #6
@@ -785,7 +785,7 @@ define internal noundef i32 @drm_clients_info(ptr noundef %0, ptr nocapture read
   %41 = icmp eq ptr %40, %7
   br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !15
 
-.loopexit:                                        ; preds = %23, %2
+.loopexit:                                        ; preds = %24, %2
   tail call void @mutex_unlock(ptr noundef %6) #6
   ret i32 0
 }

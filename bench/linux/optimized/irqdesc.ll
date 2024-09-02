@@ -868,16 +868,16 @@ define dso_local i32 @__irq_alloc_descs(i32 noundef %0, i32 noundef %1, i32 noun
   %66 = select i1 %65, i32 0, i32 10485760
   %67 = load i64, ptr %58, align 8
   %68 = icmp eq i64 %67, 0
-  br i1 %68, label %71, label %69
+  br i1 %68, label %73, label %69
 
 69:                                               ; preds = %61
   %70 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %67) #12, !srcloc !10
-  br label %71
+  %71 = shl i64 %70, 32
+  %72 = ashr exact i64 %71, 32
+  br label %73
 
-71:                                               ; preds = %69, %61
-  %72 = phi i64 [ %70, %69 ], [ 64, %61 ]
-  %73 = shl i64 %72, 32
-  %74 = ashr exact i64 %73, 32
+73:                                               ; preds = %69, %61
+  %74 = phi i64 [ %72, %69 ], [ 64, %61 ]
   %75 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %74
   %76 = load i64, ptr %75, align 8
   %77 = add i64 %76, ptrtoint (ptr @numa_node to i64)
@@ -886,10 +886,10 @@ define dso_local i32 @__irq_alloc_descs(i32 noundef %0, i32 noundef %1, i32 noun
   %80 = getelementptr i8, ptr %58, i64 16
   br label %81
 
-81:                                               ; preds = %71, %56
-  %82 = phi i32 [ %79, %71 ], [ %59, %56 ]
-  %83 = phi ptr [ %80, %71 ], [ null, %56 ]
-  %84 = phi i32 [ %66, %71 ], [ 0, %56 ]
+81:                                               ; preds = %73, %56
+  %82 = phi i32 [ %79, %73 ], [ %59, %56 ]
+  %83 = phi ptr [ %80, %73 ], [ null, %56 ]
+  %84 = phi i32 [ %66, %73 ], [ 0, %56 ]
   %85 = trunc i64 %57 to i32
   %86 = add i32 %30, %85
   %87 = call fastcc ptr @alloc_desc(i32 noundef %86, i32 noundef %82, i32 noundef %84, ptr noundef %58, ptr noundef %4)

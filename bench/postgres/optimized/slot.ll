@@ -2643,392 +2643,383 @@ sub_0.lr.ph:                                      ; preds = %8
   br label %sub_0
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
-  %20 = phi ptr [ %10, %sub_0.lr.ph ], [ %37, %.backedge ]
+  %20 = phi ptr [ %10, %sub_0.lr.ph ], [ %31, %.backedge ]
   %21 = getelementptr inbounds i8, ptr %20, i64 19
   %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = add nsw i32 %23, -46
-  %.not89 = icmp eq i32 %24, 0
-  br i1 %.not89, label %.tail, label %.tail10
+  %.not89 = icmp eq i8 %22, 46
+  br i1 %.not89, label %.tail, label %.tail10.thread
 
 .tail:                                            ; preds = %sub_0
-  %25 = getelementptr inbounds i8, ptr %20, i64 20
-  %26 = load i8, ptr %25, align 1
-  %27 = icmp eq i8 %26, 0
-  br i1 %27, label %.backedge, label %sub_112
+  %23 = getelementptr inbounds i8, ptr %20, i64 20
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %.backedge, label %sub_112
 
 sub_112:                                          ; preds = %.tail
-  %28 = getelementptr inbounds i8, ptr %20, i64 20
+  %26 = getelementptr inbounds i8, ptr %20, i64 20
+  %27 = load i8, ptr %26, align 1
+  %.not91 = icmp eq i8 %27, 46
+  br i1 %.not91, label %.tail10, label %.tail10.thread
+
+.tail10:                                          ; preds = %sub_112
+  %28 = getelementptr inbounds i8, ptr %20, i64 21
   %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  %31 = add nsw i32 %30, -46
-  %.not91 = icmp eq i32 %31, 0
-  br i1 %.not91, label %sub_2, label %.tail10
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %.backedge, label %.tail10.thread
 
-sub_2:                                            ; preds = %sub_112
-  %32 = getelementptr inbounds i8, ptr %20, i64 21
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  br label %.tail10
-
-.tail10:                                          ; preds = %sub_0, %sub_112, %sub_2
-  %35 = phi i32 [ %31, %sub_112 ], [ %34, %sub_2 ], [ %24, %sub_0 ]
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.backedge, label %38
-
-.backedge:                                        ; preds = %47, %45, %.tail, %.tail10, %49, %RestoreSlotFromDisk.exit, %38
-  %37 = call ptr @ReadDir(ptr noundef %9, ptr noundef nonnull @.str.35) #15
-  %.not = icmp eq ptr %37, null
+.backedge:                                        ; preds = %40, %38, %.tail, %.tail10, %42, %RestoreSlotFromDisk.exit, %.tail10.thread
+  %31 = call ptr @ReadDir(ptr noundef %9, ptr noundef nonnull @.str.35) #15
+  %.not = icmp eq ptr %31, null
   br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !40
 
-38:                                               ; preds = %.tail10
-  %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1036, ptr noundef nonnull @.str.27, ptr noundef nonnull %21) #15
-  %40 = call i32 @get_dirent_type(ptr noundef nonnull %4, ptr noundef nonnull %20, i1 noundef zeroext false, i32 noundef 14) #15
-  switch i32 %40, label %.backedge [
-    i32 3, label %41
-    i32 0, label %41
+.tail10.thread:                                   ; preds = %sub_0, %sub_112, %.tail10
+  %32 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1036, ptr noundef nonnull @.str.27, ptr noundef nonnull %21) #15
+  %33 = call i32 @get_dirent_type(ptr noundef nonnull %4, ptr noundef nonnull %20, i1 noundef zeroext false, i32 noundef 14) #15
+  switch i32 %33, label %.backedge [
+    i32 3, label %34
+    i32 0, label %34
   ]
 
-41:                                               ; preds = %38, %38
-  %42 = call zeroext i1 @pg_str_endswith(ptr noundef nonnull %21, ptr noundef nonnull @.str.38) #15
-  br i1 %42, label %43, label %50
+34:                                               ; preds = %.tail10.thread, %.tail10.thread
+  %35 = call zeroext i1 @pg_str_endswith(ptr noundef nonnull %21, ptr noundef nonnull @.str.38) #15
+  br i1 %35, label %36, label %43
 
-43:                                               ; preds = %41
-  %44 = call zeroext i1 @rmtree(ptr noundef nonnull %4, i1 noundef zeroext true) #15
-  br i1 %44, label %49, label %45
+36:                                               ; preds = %34
+  %37 = call zeroext i1 @rmtree(ptr noundef nonnull %4, i1 noundef zeroext true) #15
+  br i1 %37, label %42, label %38
 
-45:                                               ; preds = %43
-  %46 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %46, label %47, label %.backedge
+38:                                               ; preds = %36
+  %39 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
+  br i1 %39, label %40, label %.backedge
 
-47:                                               ; preds = %45
-  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, ptr noundef nonnull %4) #15
+40:                                               ; preds = %38
+  %41 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, ptr noundef nonnull %4) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1870, ptr noundef nonnull @__func__.StartupReplicationSlots) #15
   br label %.backedge
 
-49:                                               ; preds = %43
+42:                                               ; preds = %36
   call void @fsync_fname(ptr noundef nonnull @.str.35, i1 noundef zeroext true) #15
   br label %.backedge
 
-50:                                               ; preds = %41
+43:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 1036, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1046, ptr nonnull %3)
-  %51 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.27, ptr noundef nonnull %21) #15
-  %52 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.52, ptr noundef nonnull %2) #15
-  %53 = call i32 @unlink(ptr noundef nonnull %3) #15
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %55, label %62
+  %44 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.27, ptr noundef nonnull %21) #15
+  %45 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.52, ptr noundef nonnull %2) #15
+  %46 = call i32 @unlink(ptr noundef nonnull %3) #15
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %48, label %55
 
-55:                                               ; preds = %50
-  %56 = tail call ptr @__errno_location() #18
-  %57 = load i32, ptr %56, align 4
-  %.not.i = icmp eq i32 %57, 2
-  br i1 %.not.i, label %62, label %58
+48:                                               ; preds = %43
+  %49 = tail call ptr @__errno_location() #18
+  %50 = load i32, ptr %49, align 4
+  %.not.i = icmp eq i32 %50, 2
+  br i1 %.not.i, label %55, label %51
 
-58:                                               ; preds = %55
-  %59 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
-  call void @llvm.assume(i1 %59)
-  %60 = call i32 @errcode_for_file_access() #15
-  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58, ptr noundef nonnull %3) #15
+51:                                               ; preds = %48
+  %52 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+  call void @llvm.assume(i1 %52)
+  %53 = call i32 @errcode_for_file_access() #15
+  %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58, ptr noundef nonnull %3) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2134, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-62:                                               ; preds = %55, %50
-  %63 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.53, ptr noundef nonnull %2) #15
-  %64 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
-  br i1 %64, label %65, label %67
+55:                                               ; preds = %48, %43
+  %56 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.53, ptr noundef nonnull %2) #15
+  %57 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
+  br i1 %57, label %58, label %60
 
-65:                                               ; preds = %62
-  %66 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.59, ptr noundef nonnull %3) #15
+58:                                               ; preds = %55
+  %59 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.59, ptr noundef nonnull %3) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2138, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
-  br label %67
+  br label %60
 
-67:                                               ; preds = %65, %62
-  %68 = call i32 @OpenTransientFile(ptr noundef nonnull %3, i32 noundef 2) #15
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %74
+60:                                               ; preds = %58, %55
+  %61 = call i32 @OpenTransientFile(ptr noundef nonnull %3, i32 noundef 2) #15
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %63, label %67
+
+63:                                               ; preds = %60
+  %64 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+  call void @llvm.assume(i1 %64)
+  %65 = call i32 @errcode_for_file_access() #15
+  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60, ptr noundef nonnull %3) #15
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2150, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
+  unreachable
+
+67:                                               ; preds = %60
+  %68 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772203, ptr %68, align 4
+  %69 = call i32 @pg_fsync(i32 noundef %61) #15
+  %.not36.i = icmp eq i32 %69, 0
+  br i1 %.not36.i, label %74, label %70
 
 70:                                               ; preds = %67
   %71 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
   call void @llvm.assume(i1 %71)
   %72 = call i32 @errcode_for_file_access() #15
-  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60, ptr noundef nonnull %3) #15
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2150, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
+  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56, ptr noundef nonnull %3) #15
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2161, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
 74:                                               ; preds = %67
   %75 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772203, ptr %75, align 4
-  %76 = call i32 @pg_fsync(i32 noundef %68) #15
-  %.not36.i = icmp eq i32 %76, 0
-  br i1 %.not36.i, label %81, label %77
-
-77:                                               ; preds = %74
-  %78 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
-  call void @llvm.assume(i1 %78)
-  %79 = call i32 @errcode_for_file_access() #15
-  %80 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56, ptr noundef nonnull %3) #15
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2161, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
-  unreachable
-
-81:                                               ; preds = %74
+  store volatile i32 0, ptr %75, align 4
+  %76 = load volatile i32, ptr @CritSectionCount, align 4
+  %77 = add i32 %76, 1
+  store volatile i32 %77, ptr @CritSectionCount, align 4
+  call void @fsync_fname(ptr noundef nonnull %2, i1 noundef zeroext true) #15
+  %78 = load volatile i32, ptr @CritSectionCount, align 4
+  %79 = add i32 %78, -1
+  store volatile i32 %79, ptr @CritSectionCount, align 4
+  %80 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772202, ptr %80, align 4
+  %81 = call i64 @read(i32 noundef %61, ptr noundef nonnull %1, i64 noundef 16) #15
   %82 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %82, align 4
-  %83 = load volatile i32, ptr @CritSectionCount, align 4
-  %84 = add i32 %83, 1
-  store volatile i32 %84, ptr @CritSectionCount, align 4
-  call void @fsync_fname(ptr noundef nonnull %2, i1 noundef zeroext true) #15
-  %85 = load volatile i32, ptr @CritSectionCount, align 4
-  %86 = add i32 %85, -1
-  store volatile i32 %86, ptr @CritSectionCount, align 4
-  %87 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772202, ptr %87, align 4
-  %88 = call i64 @read(i32 noundef %68, ptr noundef nonnull %1, i64 noundef 16) #15
-  %89 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %89, align 4
-  %sext.mask.i = and i64 %88, 4294967295
+  %sext.mask.i = and i64 %81, 4294967295
   %.not37.i = icmp eq i64 %sext.mask.i, 16
-  br i1 %.not37.i, label %100, label %90
+  br i1 %.not37.i, label %93, label %83
 
-90:                                               ; preds = %81
-  %91 = trunc i64 %88 to i32
-  %92 = icmp slt i32 %91, 0
-  %93 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
-  call void @llvm.assume(i1 %93)
-  br i1 %92, label %94, label %97
+83:                                               ; preds = %74
+  %84 = trunc i64 %81 to i32
+  %85 = icmp slt i32 %84, 0
+  %86 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+  call void @llvm.assume(i1 %86)
+  br i1 %85, label %87, label %90
 
-94:                                               ; preds = %90
-  %95 = call i32 @errcode_for_file_access() #15
-  %96 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61, ptr noundef nonnull %3) #15
+87:                                               ; preds = %83
+  %88 = call i32 @errcode_for_file_access() #15
+  %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61, ptr noundef nonnull %3) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2178, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-97:                                               ; preds = %90
-  %98 = call i32 @errcode(i32 noundef 16779816) #15
-  %99 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.62, ptr noundef nonnull %3, i32 noundef %91, i64 noundef 16) #15
+90:                                               ; preds = %83
+  %91 = call i32 @errcode(i32 noundef 16779816) #15
+  %92 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.62, ptr noundef nonnull %3, i32 noundef %84, i64 noundef 16) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2184, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-100:                                              ; preds = %81
-  %101 = load i32, ptr %1, align 8
-  %.not38.i = icmp eq i32 %101, 17112225
-  br i1 %.not38.i, label %106, label %102
+93:                                               ; preds = %74
+  %94 = load i32, ptr %1, align 8
+  %.not38.i = icmp eq i32 %94, 17112225
+  br i1 %.not38.i, label %99, label %95
 
-102:                                              ; preds = %100
-  %103 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
-  call void @llvm.assume(i1 %103)
-  %104 = call i32 @errcode(i32 noundef 16779816) #15
-  %105 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull %3, i32 noundef %101, i32 noundef 17112225) #15
+95:                                               ; preds = %93
+  %96 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+  call void @llvm.assume(i1 %96)
+  %97 = call i32 @errcode(i32 noundef 16779816) #15
+  %98 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull %3, i32 noundef %94, i32 noundef 17112225) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2192, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-106:                                              ; preds = %100
-  %107 = load i32, ptr %11, align 8
-  %.not39.i = icmp eq i32 %107, 5
-  br i1 %.not39.i, label %112, label %108
+99:                                               ; preds = %93
+  %100 = load i32, ptr %11, align 8
+  %.not39.i = icmp eq i32 %100, 5
+  br i1 %.not39.i, label %105, label %101
 
-108:                                              ; preds = %106
-  %109 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
-  call void @llvm.assume(i1 %109)
-  %110 = call i32 @errcode(i32 noundef 16779816) #15
-  %111 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, ptr noundef nonnull %3, i32 noundef %107) #15
+101:                                              ; preds = %99
+  %102 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+  call void @llvm.assume(i1 %102)
+  %103 = call i32 @errcode(i32 noundef 16779816) #15
+  %104 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, ptr noundef nonnull %3, i32 noundef %100) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2199, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-112:                                              ; preds = %106
-  %113 = load i32, ptr %12, align 4
-  %.not40.i = icmp eq i32 %113, 184
-  br i1 %.not40.i, label %118, label %114
+105:                                              ; preds = %99
+  %106 = load i32, ptr %12, align 4
+  %.not40.i = icmp eq i32 %106, 184
+  br i1 %.not40.i, label %111, label %107
 
-114:                                              ; preds = %112
-  %115 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
-  call void @llvm.assume(i1 %115)
-  %116 = call i32 @errcode(i32 noundef 16779816) #15
-  %117 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65, ptr noundef nonnull %3, i32 noundef %113) #15
+107:                                              ; preds = %105
+  %108 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+  call void @llvm.assume(i1 %108)
+  %109 = call i32 @errcode(i32 noundef 16779816) #15
+  %110 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65, ptr noundef nonnull %3, i32 noundef %106) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2206, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-118:                                              ; preds = %112
-  %119 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772202, ptr %119, align 4
-  %120 = call i64 @read(i32 noundef %68, ptr noundef nonnull %13, i64 noundef 184) #15
-  %121 = trunc i64 %120 to i32
-  %122 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %122, align 4
-  %123 = load i32, ptr %12, align 4
-  %.not41.i = icmp eq i32 %123, %121
-  br i1 %.not41.i, label %134, label %124
+111:                                              ; preds = %105
+  %112 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772202, ptr %112, align 4
+  %113 = call i64 @read(i32 noundef %61, ptr noundef nonnull %13, i64 noundef 184) #15
+  %114 = trunc i64 %113 to i32
+  %115 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %115, align 4
+  %116 = load i32, ptr %12, align 4
+  %.not41.i = icmp eq i32 %116, %114
+  br i1 %.not41.i, label %127, label %117
 
-124:                                              ; preds = %118
-  %125 = icmp slt i32 %121, 0
-  %126 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
-  call void @llvm.assume(i1 %126)
-  br i1 %125, label %127, label %130
+117:                                              ; preds = %111
+  %118 = icmp slt i32 %114, 0
+  %119 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+  call void @llvm.assume(i1 %119)
+  br i1 %118, label %120, label %123
 
-127:                                              ; preds = %124
-  %128 = call i32 @errcode_for_file_access() #15
-  %129 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61, ptr noundef nonnull %3) #15
+120:                                              ; preds = %117
+  %121 = call i32 @errcode_for_file_access() #15
+  %122 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61, ptr noundef nonnull %3) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2219, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-130:                                              ; preds = %124
-  %131 = call i32 @errcode(i32 noundef 16779816) #15
-  %132 = zext i32 %123 to i64
-  %133 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.62, ptr noundef nonnull %3, i32 noundef %121, i64 noundef %132) #15
+123:                                              ; preds = %117
+  %124 = call i32 @errcode(i32 noundef 16779816) #15
+  %125 = zext i32 %116 to i64
+  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.62, ptr noundef nonnull %3, i32 noundef %114, i64 noundef %125) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2224, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-134:                                              ; preds = %118
-  %135 = call i32 @CloseTransientFile(i32 noundef %68) #15
-  %.not42.i = icmp eq i32 %135, 0
-  br i1 %.not42.i, label %140, label %136
+127:                                              ; preds = %111
+  %128 = call i32 @CloseTransientFile(i32 noundef %61) #15
+  %.not42.i = icmp eq i32 %128, 0
+  br i1 %.not42.i, label %133, label %129
 
-136:                                              ; preds = %134
-  %137 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
-  call void @llvm.assume(i1 %137)
-  %138 = call i32 @errcode_for_file_access() #15
-  %139 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57, ptr noundef nonnull %3) #15
+129:                                              ; preds = %127
+  %130 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+  call void @llvm.assume(i1 %130)
+  %131 = call i32 @errcode_for_file_access() #15
+  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57, ptr noundef nonnull %3) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2230, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-140:                                              ; preds = %134
-  %141 = load ptr, ptr @pg_comp_crc32c, align 8
-  %142 = call i32 %141(i32 noundef -1, ptr noundef nonnull %11, i64 noundef 192) #15
-  %143 = xor i32 %142, -1
-  %144 = load i32, ptr %14, align 4
-  %145 = icmp eq i32 %144, %143
-  br i1 %145, label %150, label %146
+133:                                              ; preds = %127
+  %134 = load ptr, ptr @pg_comp_crc32c, align 8
+  %135 = call i32 %134(i32 noundef -1, ptr noundef nonnull %11, i64 noundef 192) #15
+  %136 = xor i32 %135, -1
+  %137 = load i32, ptr %14, align 4
+  %138 = icmp eq i32 %137, %136
+  br i1 %138, label %143, label %139
 
-146:                                              ; preds = %140
-  %147 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
-  call void @llvm.assume(i1 %147)
-  %148 = load i32, ptr %14, align 4
-  %149 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66, ptr noundef nonnull %3, i32 noundef %143, i32 noundef %148) #15
+139:                                              ; preds = %133
+  %140 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #17
+  call void @llvm.assume(i1 %140)
+  %141 = load i32, ptr %14, align 4
+  %142 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66, ptr noundef nonnull %3, i32 noundef %136, i32 noundef %141) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2242, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-150:                                              ; preds = %140
-  %151 = load i32, ptr %15, align 4
-  %.not43.i = icmp eq i32 %151, 0
-  br i1 %.not43.i, label %159, label %152
+143:                                              ; preds = %133
+  %144 = load i32, ptr %15, align 4
+  %.not43.i = icmp eq i32 %144, 0
+  br i1 %.not43.i, label %152, label %145
 
-152:                                              ; preds = %150
-  %153 = call zeroext i1 @rmtree(ptr noundef nonnull %2, i1 noundef zeroext true) #15
-  br i1 %153, label %158, label %154
+145:                                              ; preds = %143
+  %146 = call zeroext i1 @rmtree(ptr noundef nonnull %2, i1 noundef zeroext true) #15
+  br i1 %146, label %151, label %147
 
-154:                                              ; preds = %152
-  %155 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %155, label %156, label %158
+147:                                              ; preds = %145
+  %148 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
+  br i1 %148, label %149, label %151
 
-156:                                              ; preds = %154
-  %157 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, ptr noundef nonnull %2) #15
+149:                                              ; preds = %147
+  %150 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, ptr noundef nonnull %2) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2254, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
-  br label %158
+  br label %151
 
-158:                                              ; preds = %156, %154, %152
+151:                                              ; preds = %149, %147, %145
   call void @fsync_fname(ptr noundef nonnull @.str.35, i1 noundef zeroext true) #15
   br label %RestoreSlotFromDisk.exit
 
-159:                                              ; preds = %150
-  %160 = load i32, ptr %16, align 8
-  %161 = icmp ne i32 %160, 0
-  %162 = load i32, ptr @wal_level, align 4
-  %163 = icmp slt i32 %162, 2
-  %or.cond.i = select i1 %161, i1 %163, i1 false
-  br i1 %or.cond.i, label %164, label %169
+152:                                              ; preds = %143
+  %153 = load i32, ptr %16, align 8
+  %154 = icmp ne i32 %153, 0
+  %155 = load i32, ptr @wal_level, align 4
+  %156 = icmp slt i32 %155, 2
+  %or.cond.i = select i1 %154, i1 %156, i1 false
+  br i1 %or.cond.i, label %157, label %162
 
-164:                                              ; preds = %159
-  %165 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
-  call void @llvm.assume(i1 %165)
-  %166 = call i32 @errcode(i32 noundef 325) #15
-  %167 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.67, ptr noundef nonnull %13) #15
-  %168 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.68) #15
+157:                                              ; preds = %152
+  %158 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
+  call void @llvm.assume(i1 %158)
+  %159 = call i32 @errcode(i32 noundef 325) #15
+  %160 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.67, ptr noundef nonnull %13) #15
+  %161 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.68) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2277, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-169:                                              ; preds = %159
-  %170 = icmp slt i32 %162, 1
-  br i1 %170, label %174, label %.preheader.i
+162:                                              ; preds = %152
+  %163 = icmp slt i32 %155, 1
+  br i1 %163, label %167, label %.preheader.i
 
-.preheader.i:                                     ; preds = %169
-  %171 = load i32, ptr @max_replication_slots, align 4
-  %172 = icmp sgt i32 %171, 0
-  br i1 %172, label %.lr.ph.i, label %.critedge.i
+.preheader.i:                                     ; preds = %162
+  %164 = load i32, ptr @max_replication_slots, align 4
+  %165 = icmp sgt i32 %164, 0
+  br i1 %165, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %173 = load ptr, ptr @ReplicationSlotCtl, align 8
-  %wide.trip.count.i = zext nneg i32 %171 to i64
-  br label %180
+  %166 = load ptr, ptr @ReplicationSlotCtl, align 8
+  %wide.trip.count.i = zext nneg i32 %164 to i64
+  br label %173
 
-174:                                              ; preds = %169
-  %175 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
-  call void @llvm.assume(i1 %175)
-  %176 = call i32 @errcode(i32 noundef 325) #15
-  %177 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.69, ptr noundef nonnull %13) #15
-  %178 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.70) #15
+167:                                              ; preds = %162
+  %168 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
+  call void @llvm.assume(i1 %168)
+  %169 = call i32 @errcode(i32 noundef 325) #15
+  %170 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.69, ptr noundef nonnull %13) #15
+  %171 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.70) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2283, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-179:                                              ; preds = %180
+172:                                              ; preds = %173
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %180, !llvm.loop !41
+  br i1 %exitcond.not.i, label %.critedge.i, label %173, !llvm.loop !41
 
-180:                                              ; preds = %179, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %179 ]
-  %181 = getelementptr [1 x %struct.ReplicationSlot], ptr %173, i64 0, i64 %indvars.iv.i
-  %182 = getelementptr inbounds i8, ptr %181, i64 1
-  %183 = load i8, ptr %182, align 1
-  %184 = trunc i8 %183 to i1
-  br i1 %184, label %179, label %185
+173:                                              ; preds = %172, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %172 ]
+  %174 = getelementptr [1 x %struct.ReplicationSlot], ptr %166, i64 0, i64 %indvars.iv.i
+  %175 = getelementptr inbounds i8, ptr %174, i64 1
+  %176 = load i8, ptr %175, align 1
+  %177 = trunc i8 %176 to i1
+  br i1 %177, label %172, label %178
 
-185:                                              ; preds = %180
-  %186 = getelementptr inbounds i8, ptr %181, i64 1
-  %187 = getelementptr inbounds i8, ptr %181, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %187, ptr noundef nonnull align 8 dereferenceable(184) %13, i64 184, i1 false)
-  %188 = load i32, ptr %17, align 8
-  %189 = getelementptr inbounds i8, ptr %181, i64 12
-  store i32 %188, ptr %189, align 4
-  %190 = load i32, ptr %18, align 4
-  %191 = getelementptr inbounds i8, ptr %181, i64 16
-  store i32 %190, ptr %191, align 8
-  %192 = load i64, ptr %19, align 8
-  %193 = getelementptr inbounds i8, ptr %181, i64 264
-  store i64 %192, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %181, i64 236
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %194, i8 0, i64 28, i1 false)
-  store i8 1, ptr %186, align 1
-  %195 = getelementptr inbounds i8, ptr %181, i64 4
-  store i32 0, ptr %195, align 4
+178:                                              ; preds = %173
+  %179 = getelementptr inbounds i8, ptr %174, i64 1
+  %180 = getelementptr inbounds i8, ptr %174, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %180, ptr noundef nonnull align 8 dereferenceable(184) %13, i64 184, i1 false)
+  %181 = load i32, ptr %17, align 8
+  %182 = getelementptr inbounds i8, ptr %174, i64 12
+  store i32 %181, ptr %182, align 4
+  %183 = load i32, ptr %18, align 4
+  %184 = getelementptr inbounds i8, ptr %174, i64 16
+  store i32 %183, ptr %184, align 8
+  %185 = load i64, ptr %19, align 8
+  %186 = getelementptr inbounds i8, ptr %174, i64 264
+  store i64 %185, ptr %186, align 8
+  %187 = getelementptr inbounds i8, ptr %174, i64 236
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %187, i8 0, i64 28, i1 false)
+  store i8 1, ptr %179, align 1
+  %188 = getelementptr inbounds i8, ptr %174, i64 4
+  store i32 0, ptr %188, align 4
   br label %RestoreSlotFromDisk.exit
 
-.critedge.i:                                      ; preds = %.preheader.i, %179
-  %196 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
-  call void @llvm.assume(i1 %196)
-  %197 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.71) #15
-  %198 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.72) #15
+.critedge.i:                                      ; preds = %.preheader.i, %172
+  %189 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
+  call void @llvm.assume(i1 %189)
+  %190 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.71) #15
+  %191 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.72) #15
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2319, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #15
   unreachable
 
-RestoreSlotFromDisk.exit:                         ; preds = %158, %185
+RestoreSlotFromDisk.exit:                         ; preds = %151, %178
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 1036, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1046, ptr nonnull %3)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %8
-  %199 = call i32 @FreeDir(ptr noundef %9) #15
-  %200 = load i32, ptr @max_replication_slots, align 4
-  %201 = icmp slt i32 %200, 1
-  br i1 %201, label %203, label %202
+  %192 = call i32 @FreeDir(ptr noundef %9) #15
+  %193 = load i32, ptr @max_replication_slots, align 4
+  %194 = icmp slt i32 %193, 1
+  br i1 %194, label %196, label %195
 
-202:                                              ; preds = %._crit_edge
+195:                                              ; preds = %._crit_edge
   call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false)
   call void @ReplicationSlotsComputeRequiredLSN()
-  br label %203
+  br label %196
 
-203:                                              ; preds = %._crit_edge, %202
+196:                                              ; preds = %._crit_edge, %195
   ret void
 }
 

@@ -5109,12 +5109,12 @@ entry:
   %ref.tmp = alloca %class.anon.238, align 8
   %cond.v = select i1 %is_trailing, i64 1016, i64 448
   %cond = getelementptr inbounds i8, ptr %this, i64 %cond.v
-  %cmp51 = icmp eq i64 %count, 0
-  br i1 %cmp51, label %return, label %for.body
+  %cmp49 = icmp eq i64 %count, 0
+  br i1 %cmp49, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.052 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %struct.grpc_metadata, ptr %metadata, i64 %i.052
+  %i.050 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
+  %arrayidx = getelementptr inbounds %struct.grpc_metadata, ptr %metadata, i64 %i.050
   call void @_Z33grpc_validate_header_key_is_legalRK10grpc_slice(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %0 = load i64, ptr %agg.tmp, align 8
@@ -5262,36 +5262,36 @@ if.else14:                                        ; preds = %if.else, %cleanup.d
   %value15 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %20 = load ptr, ptr %value15, align 8
   %tobool16.not = icmp eq ptr %20, null
-  br i1 %tobool16.not, label %if.else27, label %cond.end23
+  br i1 %tobool16.not, label %if.else27, label %cond.true17
 
-cond.end23:                                       ; preds = %if.else14
+cond.true17:                                      ; preds = %if.else14
   %data = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %21 = load i64, ptr %data, align 8
-  %cmp25 = icmp ugt i64 %21, 4294967294
-  br i1 %cmp25, label %return, label %if.else27
+  %22 = icmp ugt i64 %21, 4294967294
+  br i1 %22, label %return, label %if.else27
 
-if.else27:                                        ; preds = %if.else14, %cond.end23
+if.else27:                                        ; preds = %if.else14, %cond.true17
   %call30 = call i32 @grpc_slice_str_cmp(ptr noundef nonnull byval(%struct.grpc_slice) align 8 %arrayidx, ptr noundef nonnull @.str.30)
   %cmp31 = icmp eq i32 %call30, 0
   br i1 %cmp31, label %for.inc, label %if.end35
 
 if.end35:                                         ; preds = %if.else27
-  %22 = load ptr, ptr %arrayidx, align 8
-  %tobool.not.i = icmp eq ptr %22, null
+  %23 = load ptr, ptr %arrayidx, align 8
+  %tobool.not.i = icmp eq ptr %23, null
   %bytes.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %23 = load ptr, ptr %bytes.i, align 8
+  %24 = load ptr, ptr %bytes.i, align 8
   %bytes2.i = getelementptr inbounds i8, ptr %arrayidx, i64 9
-  %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %23
+  %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %24
   %data6.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %24 = load i64, ptr %data6.i, align 8
-  %conv.i = and i64 %24, 255
-  %cond11.i = select i1 %tobool.not.i, i64 %conv.i, i64 %24
-  %25 = load ptr, ptr %value15, align 8
-  %cmp.i = icmp ugt ptr %25, inttoptr (i64 1 to ptr)
+  %25 = load i64, ptr %data6.i, align 8
+  %conv.i = and i64 %25, 255
+  %cond11.i = select i1 %tobool.not.i, i64 %conv.i, i64 %25
+  %26 = load ptr, ptr %value15, align 8
+  %cmp.i = icmp ugt ptr %26, inttoptr (i64 1 to ptr)
   br i1 %cmp.i, label %if.then.i, label %invoke.cont45
 
 if.then.i:                                        ; preds = %if.end35
-  %26 = atomicrmw add ptr %25, i64 1 monotonic, align 8
+  %27 = atomicrmw add ptr %26, i64 1 monotonic, align 8
   br label %invoke.cont45
 
 invoke.cont45:                                    ; preds = %if.then.i, %if.end35
@@ -5301,45 +5301,45 @@ invoke.cont45:                                    ; preds = %if.then.i, %if.end3
           to label %invoke.cont46 unwind label %lpad44
 
 invoke.cont46:                                    ; preds = %invoke.cont45
-  %27 = load ptr, ptr %agg.tmp39, align 8
-  %cmp.i.i36 = icmp ugt ptr %27, inttoptr (i64 1 to ptr)
+  %28 = load ptr, ptr %agg.tmp39, align 8
+  %cmp.i.i36 = icmp ugt ptr %28, inttoptr (i64 1 to ptr)
   br i1 %cmp.i.i36, label %if.then.i.i37, label %for.inc
 
 if.then.i.i37:                                    ; preds = %invoke.cont46
-  %28 = atomicrmw sub ptr %27, i64 1 acq_rel, align 8
-  %cmp.i.i.i38 = icmp eq i64 %28, 1
+  %29 = atomicrmw sub ptr %28, i64 1 acq_rel, align 8
+  %cmp.i.i.i38 = icmp eq i64 %29, 1
   br i1 %cmp.i.i.i38, label %if.then.i.i.i39, label %for.inc
 
 if.then.i.i.i39:                                  ; preds = %if.then.i.i37
-  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
-  invoke void %29(ptr noundef nonnull %27)
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
+  invoke void %30(ptr noundef nonnull %28)
           to label %for.inc unwind label %terminate.lpad.i40
 
 terminate.lpad.i40:                               ; preds = %if.then.i.i.i39
-  %30 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #32
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #32
   unreachable
 
 for.inc:                                          ; preds = %if.then.i.i.i39, %if.then.i.i37, %invoke.cont46, %if.else27
-  %inc = add nuw i64 %i.052, 1
+  %inc = add nuw i64 %i.050, 1
   %exitcond.not = icmp eq i64 %inc, %count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !64
 
 lpad44:                                           ; preds = %invoke.cont45
-  %32 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp39) #30
   br label %eh.resume
 
-return:                                           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %cleanup.done, %cond.end23, %for.inc, %entry
-  %cmp.lcssa = phi i1 [ true, %entry ], [ true, %for.inc ], [ false, %cond.end23 ], [ false, %cleanup.done ], [ false, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
+return:                                           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %cleanup.done, %cond.true17, %for.inc, %entry
+  %cmp.lcssa = phi i1 [ true, %entry ], [ true, %for.inc ], [ false, %cond.true17 ], [ false, %cleanup.done ], [ false, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
   ret i1 %cmp.lcssa
 
 eh.resume:                                        ; preds = %lpad.i22, %lpad44, %lpad.i
-  %.pn = phi { ptr, i32 } [ %32, %lpad44 ], [ %16, %lpad.i22 ], [ %6, %lpad.i ]
+  %.pn = phi { ptr, i32 } [ %33, %lpad44 ], [ %16, %lpad.i22 ], [ %6, %lpad.i ]
   resume { ptr, i32 } %.pn
 }
 
@@ -8478,12 +8478,12 @@ if.end:                                           ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !108
 
 for.end:                                          ; preds = %if.end
+  %1 = and i32 %or, 40
+  %2 = icmp ne i32 %1, 40
   %is_client_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load i8, ptr %is_client_.i, align 8
-  %tobool.i = trunc i8 %1 to i1
-  %2 = and i32 %or, 40
-  %3 = icmp ne i32 %2, 40
-  %or.cond117 = or i1 %3, %tobool.i
+  %3 = load i8, ptr %is_client_.i, align 8
+  %tobool.i = trunc i8 %3 to i1
+  %or.cond117 = or i1 %2, %tobool.i
   br i1 %or.cond117, label %do.body, label %if.then11
 
 if.then11:                                        ; preds = %for.end
@@ -12538,12 +12538,12 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp135.not = icmp eq i64 %count, 0
-  br i1 %cmp135.not, label %return, label %for.body
+  %cmp133.not = icmp eq i64 %count, 0
+  br i1 %cmp133.not, label %return, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.036 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds %struct.grpc_metadata, ptr %metadata, i64 %i.036
+  %i.034 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %arrayidx = getelementptr inbounds %struct.grpc_metadata, ptr %metadata, i64 %i.034
   call void @_Z33grpc_validate_header_key_is_legalRK10grpc_slice(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %0 = load i64, ptr %agg.tmp, align 8
@@ -12687,21 +12687,21 @@ if.else14:                                        ; preds = %if.else, %cleanup.d
   %value15 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %20 = load ptr, ptr %value15, align 8
   %tobool16.not = icmp eq ptr %20, null
-  br i1 %tobool16.not, label %for.inc, label %cond.end
+  br i1 %tobool16.not, label %for.inc, label %cond.true
 
-cond.end:                                         ; preds = %if.else14
+cond.true:                                        ; preds = %if.else14
   %data = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %21 = load i64, ptr %data, align 8
-  %cmp21 = icmp ugt i64 %21, 4294967294
-  br i1 %cmp21, label %return, label %for.inc
+  %22 = icmp ugt i64 %21, 4294967294
+  br i1 %22, label %return, label %for.inc
 
-for.inc:                                          ; preds = %if.else14, %cond.end
-  %inc = add nuw i64 %i.036, 1
+for.inc:                                          ; preds = %if.else14, %cond.true
+  %inc = add nuw i64 %i.034, 1
   %exitcond.not = icmp eq i64 %inc, %count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !150
 
-return:                                           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %cleanup.done, %cond.end, %for.inc, %for.cond.preheader, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %for.cond.preheader ], [ false, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ false, %cleanup.done ], [ false, %cond.end ], [ true, %for.inc ]
+return:                                           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %cleanup.done, %cond.true, %for.inc, %for.cond.preheader, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %for.cond.preheader ], [ false, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ false, %cleanup.done ], [ false, %cond.true ], [ true, %for.inc ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad.i19, %lpad.i
@@ -13345,7 +13345,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9grpc_core22ClientPromiseBasedCall10StartBatchEPK7grpc_opmPvb(ptr noundef nonnull align 8 dereferenceable(1264) %this, ptr noundef %ops, i64 noundef %nops, ptr noundef %notify_tag, i1 noundef zeroext %is_notify_tag_closure) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 11) i32 @_ZN9grpc_core22ClientPromiseBasedCall10StartBatchEPK7grpc_opmPvb(ptr noundef nonnull align 8 dereferenceable(1264) %this, ptr noundef %ops, i64 noundef %nops, ptr noundef %notify_tag, i1 noundef zeroext %is_notify_tag_closure) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %completion = alloca %"class.grpc_core::PromiseBasedCall::Completion", align 1
   %cmp = icmp eq i64 %nops, 0
@@ -15219,12 +15219,12 @@ call15.i.noexc:                                   ; preds = %if.then12.i
   store i16 %storemerge.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 2
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i32, i64 36
   store i32 %call15.i33, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %17 = and i16 %storemerge.i.i.i.i.i, -2050
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %call15.i.noexc, %land.lhs.true.i, %if.else.i
-  %17 = phi i16 [ %storemerge.i.i.i.i.i, %call15.i.noexc ], [ 0, %land.lhs.true.i ], [ 0, %if.else.i ]
+  %and.i.i.i.i.i.i6.i = phi i16 [ %17, %call15.i.noexc ], [ 0, %land.lhs.true.i ], [ 0, %if.else.i ]
   %arrayidx.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %call.i32, i64 2
-  %and.i.i.i.i.i.i6.i = and i16 %17, -2050
   store i16 %and.i.i.i.i.i.i6.i, ptr %arrayidx.i.i.i.i.i4.i, align 2
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   %data = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -15889,7 +15889,7 @@ _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9grpc_core22ServerPromiseBasedCall10StartBatchEPK7grpc_opmPvb(ptr noundef nonnull align 8 dereferenceable(1200) %this, ptr noundef %ops, i64 noundef %nops, ptr noundef %notify_tag, i1 noundef zeroext %is_notify_tag_closure) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 11) i32 @_ZN9grpc_core22ServerPromiseBasedCall10StartBatchEPK7grpc_opmPvb(ptr noundef nonnull align 8 dereferenceable(1200) %this, ptr noundef %ops, i64 noundef %nops, ptr noundef %notify_tag, i1 noundef zeroext %is_notify_tag_closure) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %completion = alloca %"class.grpc_core::PromiseBasedCall::Completion", align 1
   %cmp = icmp eq i64 %nops, 0

@@ -1190,7 +1190,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZN4base8internal23GetUserCpuTimeSinceBootEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 -2147483648000000, 2147483648000001) i64 @_ZN4base8internal23GetUserCpuTimeSinceBootEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %path = alloca %"class.base::FilePath", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
@@ -1466,7 +1466,7 @@ ehcleanup53:                                      ; preds = %ehcleanup51, %lpad
 declare noundef zeroext i1 @_ZN4base14StringToUint64ERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4base8internal21ClockTicksToTimeDeltaEi(i32 noundef %clock_ticks) local_unnamed_addr #3 {
+define dso_local range(i64 -2147483648000000, 2147483648000001) i64 @_ZN4base8internal21ClockTicksToTimeDeltaEi(i32 noundef %clock_ticks) local_unnamed_addr #3 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4base8internal21ClockTicksToTimeDeltaEiE6kHertz acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0

@@ -9598,11 +9598,11 @@ define void @_ZN6casadi4Fmu26loggerEPvPKc10fmi2StatusS3_S3_z(ptr nocapture readn
   %34 = select i1 %.not, ptr %7, ptr %.03852
   %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull %34)
   %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  br i1 %.not, label %.thread57, label %.thread58
+  br i1 %.not, label %.thread62, label %.thread64
 
-.thread58:                                        ; preds = %.thread
+.thread64:                                        ; preds = %.thread
   call void @_ZdaPv(ptr noundef nonnull %.03852) #27
-  br label %.thread57
+  br label %.thread62
 
 37:                                               ; preds = %22
   call void @_ZdaPv(ptr noundef nonnull %25) #27
@@ -9610,7 +9610,7 @@ define void @_ZN6casadi4Fmu26loggerEPvPKc10fmi2StatusS3_S3_z(ptr nocapture readn
   %38 = call ptr @__cxa_allocate_exception(i64 40) #26
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.49, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %39 unwind label %.thread60
+          to label %39 unwind label %.thread67
 
 39:                                               ; preds = %37
   invoke void @_ZN6casadi9trim_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
@@ -9658,7 +9658,7 @@ define void @_ZN6casadi4Fmu26loggerEPvPKc10fmi2StatusS3_S3_z(ptr nocapture readn
   invoke void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTIN6casadi15CasadiExceptionE, ptr nonnull @_ZN6casadi15CasadiExceptionD2Ev) #28
           to label %82 unwind label %70
 
-.thread60:                                        ; preds = %37
+.thread67:                                        ; preds = %37
   %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #26
@@ -9762,18 +9762,18 @@ define void @_ZN6casadi4Fmu26loggerEPvPKc10fmi2StatusS3_S3_z(ptr nocapture readn
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #26
   br i1 %.2, label %80, label %81
 
-80:                                               ; preds = %.thread60, %79
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn64 = phi { ptr, i32 } [ %53, %.thread60 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %79 ]
+80:                                               ; preds = %.thread67, %79
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn71 = phi { ptr, i32 } [ %53, %.thread67 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %79 ]
   call void @__cxa_free_exception(ptr %38) #26
   br label %81
 
-.thread57:                                        ; preds = %.thread, %.thread58
+.thread62:                                        ; preds = %.thread, %.thread64
   call void @llvm.va_end.p0(ptr nonnull %6)
   ret void
 
 81:                                               ; preds = %79, %80
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn63 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %79 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn64, %80 ]
-  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn63
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn70 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %79 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn71, %80 ]
+  resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn70
 
 82:                                               ; preds = %52
   unreachable

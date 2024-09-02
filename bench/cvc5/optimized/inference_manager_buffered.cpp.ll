@@ -1487,7 +1487,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEE5c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered16numPendingLemmasEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered16numPendingLemmasEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_pendingLem = getelementptr inbounds i8, ptr %this, i64 256
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 264
@@ -1501,7 +1501,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered15numPendingFactsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK4cvc58internal6theory24InferenceManagerBuffered15numPendingFactsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(353) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_pendingFact = getelementptr inbounds i8, ptr %this, i64 280
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 288

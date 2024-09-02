@@ -4218,7 +4218,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZL10package_idPK5Klassb(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef range(i64 0, 281474976710656) i64 @_ZL10package_idPK5Klassb(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL11get_packagePK5Klass.exit.thread, label %_ZL11get_packagePK5Klass.exit
 

@@ -27,110 +27,101 @@ sub_0.lr.ph:                                      ; preds = %2
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %ProcessEvents.exit
   %indvars.iv = phi i64 [ 1, %sub_0.lr.ph ], [ %indvars.iv.next, %ProcessEvents.exit ]
-  %.031 = phi i32 [ 0, %sub_0.lr.ph ], [ %39, %ProcessEvents.exit ]
+  %.031 = phi i32 [ 0, %sub_0.lr.ph ], [ %33, %ProcessEvents.exit ]
   store ptr null, ptr %4, align 8
   store i64 0, ptr %5, align 8
   %8 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 1
-  %11 = zext i8 %10 to i32
-  %12 = add nsw i32 %11, -45
-  %.not32 = icmp eq i32 %12, 0
-  br i1 %.not32, label %sub_1, label %.tail
+  %.not32 = icmp eq i8 %10, 45
+  br i1 %.not32, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %11 = getelementptr inbounds i8, ptr %9, i64 1
+  %12 = load i8, ptr %11, align 1
+  %.not33 = icmp eq i8 %12, 104
+  br i1 %.not33, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %13 = getelementptr inbounds i8, ptr %9, i64 2
   %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i32
-  %16 = add nsw i32 %15, -104
-  %.not33 = icmp eq i32 %16, 0
-  br i1 %.not33, label %sub_2, label %.tail
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %16, label %.tail.thread
 
-sub_2:                                            ; preds = %sub_1
-  %17 = getelementptr inbounds i8, ptr %9, i64 2
-  %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i32
-  br label %.tail
+16:                                               ; preds = %.tail
+  %17 = load ptr, ptr %1, align 8
+  %18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %17)
+  br label %44
 
-.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
-  %20 = phi i32 [ %12, %sub_0 ], [ %16, %sub_1 ], [ %19, %sub_2 ]
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %21, label %24
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %19 = call i32 @ImgIoUtilReadFile(ptr noundef nonnull %9, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
+  %.not19 = icmp eq i32 %19, 0
+  br i1 %.not19, label %20, label %23
 
-21:                                               ; preds = %.tail
-  %22 = load ptr, ptr %1, align 8
-  %23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %22)
-  br label %50
-
-24:                                               ; preds = %.tail
-  %25 = call i32 @ImgIoUtilReadFile(ptr noundef nonnull %9, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
-  %.not19 = icmp eq i32 %25, 0
-  br i1 %.not19, label %26, label %29
-
-26:                                               ; preds = %24
-  %27 = load ptr, ptr @stderr, align 8
-  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.2, ptr noundef nonnull %9) #7
+20:                                               ; preds = %.tail.thread
+  %21 = load ptr, ptr @stderr, align 8
+  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.2, ptr noundef nonnull %9) #7
   br label %.loopexit
 
-29:                                               ; preds = %24
-  %30 = load i64, ptr %5, align 8
-  %31 = add i64 %30, 2147483648
-  %.not20 = icmp ult i64 %31, 4294967296
-  br i1 %.not20, label %36, label %32
+23:                                               ; preds = %.tail.thread
+  %24 = load i64, ptr %5, align 8
+  %25 = add i64 %24, 2147483648
+  %.not20 = icmp ult i64 %25, 4294967296
+  br i1 %.not20, label %30, label %26
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %33) #6
-  %34 = load ptr, ptr @stderr, align 8
-  %35 = call i64 @fwrite(ptr nonnull @.str.3, i64 16, i64 1, ptr %34) #8
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %27) #6
+  %28 = load ptr, ptr @stderr, align 8
+  %29 = call i64 @fwrite(ptr nonnull @.str.3, i64 16, i64 1, ptr %28) #8
   br label %.loopexit
 
-36:                                               ; preds = %29
-  %37 = trunc i64 %30 to i32
-  %38 = load ptr, ptr %4, align 8
-  %39 = call i32 @WebPToSDL(ptr noundef %38, i32 noundef %37) #6
-  %40 = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %40) #6
-  %.not21 = icmp eq i32 %39, 0
-  br i1 %.not21, label %41, label %44
+30:                                               ; preds = %23
+  %31 = trunc i64 %24 to i32
+  %32 = load ptr, ptr %4, align 8
+  %33 = call i32 @WebPToSDL(ptr noundef %32, i32 noundef %31) #6
+  %34 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %34) #6
+  %.not21 = icmp eq i32 %33, 0
+  br i1 %.not21, label %35, label %38
 
-41:                                               ; preds = %36
-  %42 = load ptr, ptr @stderr, align 8
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.4, ptr noundef nonnull %9) #7
+35:                                               ; preds = %30
+  %36 = load ptr, ptr @stderr, align 8
+  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.4, ptr noundef nonnull %9) #7
   br label %.loopexit
 
-44:                                               ; preds = %36
+38:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  br label %45
+  br label %39
 
-45:                                               ; preds = %select.unfold.i, %44
-  %46 = call i32 @SDL_WaitEvent(ptr noundef nonnull %3) #6
-  %.not4.i = icmp eq i32 %46, 0
+39:                                               ; preds = %select.unfold.i, %38
+  %40 = call i32 @SDL_WaitEvent(ptr noundef nonnull %3) #6
+  %.not4.i = icmp eq i32 %40, 0
   br i1 %.not4.i, label %ProcessEvents.exit, label %select.unfold.i
 
-select.unfold.i:                                  ; preds = %45
-  %47 = load i32, ptr %3, align 8
-  %cond.i = icmp ne i32 %47, 769
-  %48 = load i32, ptr %7, align 4
-  %cond1.i = icmp ne i32 %48, 113
+select.unfold.i:                                  ; preds = %39
+  %41 = load i32, ptr %3, align 8
+  %cond.i = icmp ne i32 %41, 769
+  %42 = load i32, ptr %7, align 4
+  %cond1.i = icmp ne i32 %42, 113
   %or.cond.not.i = select i1 %cond.i, i1 true, i1 %cond1.i
-  br i1 %or.cond.not.i, label %45, label %ProcessEvents.exit
+  br i1 %or.cond.not.i, label %39, label %ProcessEvents.exit
 
-ProcessEvents.exit:                               ; preds = %45, %select.unfold.i
+ProcessEvents.exit:                               ; preds = %39, %select.unfold.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %sub_0, !llvm.loop !5
 
-.loopexit:                                        ; preds = %ProcessEvents.exit, %2, %41, %32, %26
-  %.2 = phi i32 [ %.031, %32 ], [ 0, %41 ], [ %.031, %26 ], [ 1, %2 ], [ 1, %ProcessEvents.exit ]
+.loopexit:                                        ; preds = %ProcessEvents.exit, %2, %35, %26, %20
+  %.2 = phi i32 [ %.031, %26 ], [ 0, %35 ], [ %.031, %20 ], [ 1, %2 ], [ 1, %ProcessEvents.exit ]
   call void @SDL_Quit() #6
   %.not22 = icmp eq i32 %.2, 0
-  %49 = zext i1 %.not22 to i32
-  br label %50
+  %43 = zext i1 %.not22 to i32
+  br label %44
 
-50:                                               ; preds = %.loopexit, %21
-  %.015 = phi i32 [ %49, %.loopexit ], [ 0, %21 ]
+44:                                               ; preds = %.loopexit, %16
+  %.015 = phi i32 [ %43, %.loopexit ], [ 0, %16 ]
   ret i32 %.015
 }
 

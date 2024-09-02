@@ -1791,7 +1791,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fra_ClassesRefine1(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define range(i32 -2147483647, -2147483648) i32 @Fra_ClassesRefine1(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
@@ -2548,12 +2548,15 @@ define void @Fra_ClassesPostprocess(ptr nocapture noundef readonly %0) local_unn
   %99 = getelementptr inbounds ptr, ptr %80, i64 %indvars.iv.next147
   %100 = load ptr, ptr %99, align 8
   %.not91 = icmp eq ptr %100, null
-  br i1 %.not91, label %._crit_edge, label %.lr.ph129, !llvm.loop !33
+  br i1 %.not91, label %._crit_edge.loopexit, label %.lr.ph129, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %98, %.lr.ph133
-  %.2.lcssa = phi i32 [ 1, %.lr.ph133 ], [ %.3, %98 ]
-  %101 = sext i32 %.2.lcssa to i64
-  %102 = getelementptr inbounds ptr, ptr %80, i64 %101
+._crit_edge.loopexit:                             ; preds = %98
+  %101 = sext i32 %.3 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph133
+  %.2.lcssa = phi i64 [ 1, %.lr.ph133 ], [ %101, %._crit_edge.loopexit ]
+  %102 = getelementptr inbounds ptr, ptr %80, i64 %.2.lcssa
   store ptr null, ptr %102, align 8
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %103 = load ptr, ptr %42, align 8

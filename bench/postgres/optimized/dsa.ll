@@ -730,7 +730,7 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef %1) unnamed
   %9 = getelementptr i8, ptr %7, i64 24
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %164
+  br i1 %.not, label %11, label %165
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -846,314 +846,314 @@ define internal fastcc i64 @alloc_object(ptr noundef %0, i32 noundef %1) unnamed
 
 ._crit_edge:                                      ; preds = %65
   %.pre = load i64, ptr %9, align 8
-  %.not107.i = icmp eq i64 %.pre, 0
-  br i1 %.not107.i, label %66, label %ensure_active_superblock.exit.thread
+  %66 = icmp eq i64 %.pre, 0
+  br i1 %66, label %67, label %ensure_active_superblock.exit.thread
 
-66:                                               ; preds = %._crit_edge
+67:                                               ; preds = %._crit_edge
   %.pr = load i64, ptr %21, align 8
   %.not.i37.not = icmp eq i64 %.pr, 0
-  br i1 %.not.i37.not, label %.critedge113.i, label %67
+  br i1 %.not.i37.not, label %.critedge113.i, label %68
 
-67:                                               ; preds = %66
-  %68 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %.pr)
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
-  %70 = load i64, ptr %69, align 8
-  store i64 %70, ptr %21, align 8
-  %.not28.i38 = icmp eq i64 %70, 0
-  br i1 %.not28.i38, label %74, label %71
+68:                                               ; preds = %67
+  %69 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %.pr)
+  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %71 = load i64, ptr %70, align 8
+  store i64 %71, ptr %21, align 8
+  %.not28.i38 = icmp eq i64 %71, 0
+  br i1 %.not28.i38, label %75, label %72
 
-71:                                               ; preds = %67
-  %72 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %70)
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
-  store i64 0, ptr %73, align 8
-  br label %74
+72:                                               ; preds = %68
+  %73 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %71)
+  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  store i64 0, ptr %74, align 8
+  br label %75
 
-74:                                               ; preds = %71, %67
-  %75 = load i64, ptr %9, align 8
-  store i64 %75, ptr %69, align 8
+75:                                               ; preds = %72, %68
+  %76 = load i64, ptr %9, align 8
+  store i64 %76, ptr %70, align 8
   store i64 %.pr, ptr %9, align 8
-  %76 = load i64, ptr %69, align 8
-  %.not29.i39 = icmp eq i64 %76, 0
+  %77 = load i64, ptr %70, align 8
+  %.not29.i39 = icmp eq i64 %77, 0
   br i1 %.not29.i39, label %ensure_active_superblock.exit.thread.sink.split, label %ensure_active_superblock.exit.thread.sink.split.sink.split
 
-.critedge113.i:                                   ; preds = %.critedge.i, %66
-  %77 = load i64, ptr %20, align 8
-  %.not.i33.not = icmp eq i64 %77, 0
-  br i1 %.not.i33.not, label %transfer_first_span.exit36, label %78
+.critedge113.i:                                   ; preds = %.critedge.i, %67
+  %78 = load i64, ptr %20, align 8
+  %.not.i33.not = icmp eq i64 %78, 0
+  br i1 %.not.i33.not, label %transfer_first_span.exit36, label %79
 
-78:                                               ; preds = %.critedge113.i
-  %79 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %77)
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
-  %81 = load i64, ptr %80, align 8
-  store i64 %81, ptr %20, align 8
-  %.not28.i34 = icmp eq i64 %81, 0
-  br i1 %.not28.i34, label %85, label %82
+79:                                               ; preds = %.critedge113.i
+  %80 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %78)
+  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %82 = load i64, ptr %81, align 8
+  store i64 %82, ptr %20, align 8
+  %.not28.i34 = icmp eq i64 %82, 0
+  br i1 %.not28.i34, label %86, label %83
 
-82:                                               ; preds = %78
-  %83 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %81)
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
-  store i64 0, ptr %84, align 8
-  br label %85
+83:                                               ; preds = %79
+  %84 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %82)
+  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  store i64 0, ptr %85, align 8
+  br label %86
 
-85:                                               ; preds = %82, %78
-  %86 = load i64, ptr %9, align 8
-  store i64 %86, ptr %80, align 8
-  store i64 %77, ptr %9, align 8
-  %87 = load i64, ptr %80, align 8
-  %.not29.i35 = icmp eq i64 %87, 0
+86:                                               ; preds = %83, %79
+  %87 = load i64, ptr %9, align 8
+  store i64 %87, ptr %81, align 8
+  store i64 %78, ptr %9, align 8
+  %88 = load i64, ptr %81, align 8
+  %.not29.i35 = icmp eq i64 %88, 0
   br i1 %.not29.i35, label %ensure_active_superblock.exit.thread.sink.split, label %ensure_active_superblock.exit.thread.sink.split.sink.split
 
 transfer_first_span.exit36:                       ; preds = %.critedge113.i
-  br i1 %14, label %90, label %88
+  br i1 %14, label %91, label %89
 
-88:                                               ; preds = %transfer_first_span.exit36
-  %89 = tail call fastcc i64 @alloc_object(ptr noundef %0, i32 noundef 0)
-  %.not105.i = icmp eq i64 %89, 0
-  br i1 %.not105.i, label %ensure_active_superblock.exit, label %90
+89:                                               ; preds = %transfer_first_span.exit36
+  %90 = tail call fastcc i64 @alloc_object(ptr noundef %0, i32 noundef 0)
+  %.not105.i = icmp eq i64 %90, 0
+  br i1 %.not105.i, label %ensure_active_superblock.exit, label %91
 
-90:                                               ; preds = %88, %transfer_first_span.exit36
-  %.097.i = phi i64 [ 1, %transfer_first_span.exit36 ], [ 16, %88 ]
-  %.2.i = phi i64 [ 0, %transfer_first_span.exit36 ], [ %89, %88 ]
-  %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 6156
-  %93 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %92, i32 noundef 0) #10
-  %94 = tail call fastcc ptr @get_best_segment(ptr noundef nonnull %0, i64 noundef %.097.i)
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %102
+91:                                               ; preds = %89, %transfer_first_span.exit36
+  %.097.i = phi i64 [ 1, %transfer_first_span.exit36 ], [ 16, %89 ]
+  %.2.i = phi i64 [ 0, %transfer_first_span.exit36 ], [ %90, %89 ]
+  %92 = load ptr, ptr %0, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 6156
+  %94 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %93, i32 noundef 0) #10
+  %95 = tail call fastcc ptr @get_best_segment(ptr noundef nonnull %0, i64 noundef %.097.i)
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %97, label %103
 
-96:                                               ; preds = %90
-  %97 = tail call fastcc ptr @make_new_segment(ptr noundef nonnull %0, i64 noundef %.097.i)
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %99, label %102
+97:                                               ; preds = %91
+  %98 = tail call fastcc ptr @make_new_segment(ptr noundef nonnull %0, i64 noundef %.097.i)
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %103
 
-99:                                               ; preds = %96
-  %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 6156
-  tail call void @LWLockRelease(ptr noundef nonnull %101) #10
+100:                                              ; preds = %97
+  %101 = load ptr, ptr %0, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 6156
+  tail call void @LWLockRelease(ptr noundef nonnull %102) #10
   br label %ensure_active_superblock.exit
 
-102:                                              ; preds = %96, %90
-  %.095.i = phi ptr [ %97, %96 ], [ %94, %90 ]
-  %103 = getelementptr inbounds i8, ptr %.095.i, i64 24
-  %104 = load ptr, ptr %103, align 8
-  %105 = call zeroext i1 @FreePageManagerGet(ptr noundef %104, i64 noundef %.097.i, ptr noundef nonnull %3) #10
-  br i1 %105, label %109, label %106
+103:                                              ; preds = %97, %91
+  %.095.i = phi ptr [ %98, %97 ], [ %95, %91 ]
+  %104 = getelementptr inbounds i8, ptr %.095.i, i64 24
+  %105 = load ptr, ptr %104, align 8
+  %106 = call zeroext i1 @FreePageManagerGet(ptr noundef %105, i64 noundef %.097.i, ptr noundef nonnull %3) #10
+  br i1 %106, label %110, label %107
 
-106:                                              ; preds = %102
-  %107 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  call void @llvm.assume(i1 %107)
-  %108 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i64 noundef %.097.i) #10
+107:                                              ; preds = %103
+  %108 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
+  call void @llvm.assume(i1 %108)
+  %109 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i64 noundef %.097.i) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1713, ptr noundef nonnull @__func__.ensure_active_superblock) #10
   unreachable
 
-109:                                              ; preds = %102
-  %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 6156
-  call void @LWLockRelease(ptr noundef nonnull %111) #10
-  %112 = getelementptr inbounds i8, ptr %0, i64 16
-  %113 = ptrtoint ptr %.095.i to i64
-  %114 = ptrtoint ptr %112 to i64
-  %115 = sub i64 %113, %114
-  %116 = sdiv exact i64 %115, 40
-  %117 = shl i64 %116, 40
-  %118 = load i64, ptr %3, align 8
-  %119 = shl i64 %118, 12
-  %120 = or i64 %119, %117
-  %spec.select.i = select i1 %14, i64 %120, i64 %.2.i
-  %121 = trunc nuw i32 %1 to i16
-  %122 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %spec.select.i)
+110:                                              ; preds = %103
+  %111 = load ptr, ptr %0, align 8
+  %112 = getelementptr inbounds i8, ptr %111, i64 6156
+  call void @LWLockRelease(ptr noundef nonnull %112) #10
+  %113 = getelementptr inbounds i8, ptr %0, i64 16
+  %114 = ptrtoint ptr %.095.i to i64
+  %115 = ptrtoint ptr %113 to i64
+  %116 = sub i64 %114, %115
+  %117 = sdiv exact i64 %116, 40
+  %118 = shl i64 %117, 40
+  %119 = load i64, ptr %3, align 8
+  %120 = shl i64 %119, 12
+  %121 = or i64 %120, %118
+  %spec.select.i = select i1 %14, i64 %121, i64 %.2.i
+  %122 = trunc nuw i32 %1 to i16
+  %123 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %spec.select.i)
   %.mask = and i32 %1, 65535
-  %123 = zext nneg i32 %.mask to i64
-  %124 = getelementptr [38 x i16], ptr @dsa_size_classes, i64 0, i64 %123
-  %125 = load i16, ptr %124, align 2
-  %126 = load i64, ptr %9, align 8
-  %.not.i32 = icmp eq i64 %126, 0
-  br i1 %.not.i32, label %130, label %127
+  %124 = zext nneg i32 %.mask to i64
+  %125 = getelementptr [38 x i16], ptr @dsa_size_classes, i64 0, i64 %124
+  %126 = load i16, ptr %125, align 2
+  %127 = load i64, ptr %9, align 8
+  %.not.i32 = icmp eq i64 %127, 0
+  br i1 %.not.i32, label %131, label %128
 
-127:                                              ; preds = %109
-  %128 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %126)
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
-  store i64 %spec.select.i, ptr %129, align 8
-  br label %130
+128:                                              ; preds = %110
+  %129 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %127)
+  %130 = getelementptr inbounds i8, ptr %129, i64 8
+  store i64 %spec.select.i, ptr %130, align 8
+  br label %131
 
-130:                                              ; preds = %127, %109
-  %131 = load ptr, ptr %0, align 8
-  %132 = ptrtoint ptr %7 to i64
-  %133 = ptrtoint ptr %131 to i64
-  %134 = sub i64 %132, %133
-  store i64 %134, ptr %122, align 8
-  %135 = load i64, ptr %9, align 8
-  %136 = getelementptr inbounds i8, ptr %122, i64 16
-  store i64 %135, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %122, i64 8
-  store i64 0, ptr %137, align 8
+131:                                              ; preds = %128, %110
+  %132 = load ptr, ptr %0, align 8
+  %133 = ptrtoint ptr %7 to i64
+  %134 = ptrtoint ptr %132 to i64
+  %135 = sub i64 %133, %134
+  store i64 %135, ptr %123, align 8
+  %136 = load i64, ptr %9, align 8
+  %137 = getelementptr inbounds i8, ptr %123, i64 16
+  store i64 %136, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %123, i64 8
+  store i64 0, ptr %138, align 8
   store i64 %spec.select.i, ptr %9, align 8
-  %138 = getelementptr inbounds i8, ptr %122, i64 24
-  store i64 %120, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %122, i64 32
-  store i64 %.097.i, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %122, i64 40
-  store i16 %121, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %122, i64 42
-  store i16 0, ptr %141, align 2
-  switch i16 %121, label %146 [
-    i16 0, label %142
+  %139 = getelementptr inbounds i8, ptr %123, i64 24
+  store i64 %121, ptr %139, align 8
+  %140 = getelementptr inbounds i8, ptr %123, i64 32
+  store i64 %.097.i, ptr %140, align 8
+  %141 = getelementptr inbounds i8, ptr %123, i64 40
+  store i16 %122, ptr %141, align 8
+  %142 = getelementptr inbounds i8, ptr %123, i64 42
+  store i16 0, ptr %142, align 2
+  switch i16 %122, label %147 [
+    i16 0, label %143
     i16 1, label %._crit_edge.i
   ]
 
-._crit_edge.i:                                    ; preds = %130
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %122, i64 44
+._crit_edge.i:                                    ; preds = %131
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %123, i64 44
   %.pre.i = load i16, ptr %.phi.trans.insert.i, align 4
   br label %init_span.exit
 
-142:                                              ; preds = %130
-  store i16 1, ptr %141, align 2
-  %143 = udiv i16 4096, %125
-  %144 = add nsw i16 %143, -1
-  %145 = getelementptr inbounds i8, ptr %122, i64 44
-  store i16 %144, ptr %145, align 4
+143:                                              ; preds = %131
+  store i16 1, ptr %142, align 2
+  %144 = udiv i16 4096, %126
+  %145 = add nsw i16 %144, -1
+  %146 = getelementptr inbounds i8, ptr %123, i64 44
+  store i16 %145, ptr %146, align 4
   br label %init_span.exit
 
-146:                                              ; preds = %130
-  %.rhs.trunc.i = zext i16 %125 to i32
-  %147 = udiv i32 65536, %.rhs.trunc.i
-  %148 = trunc i32 %147 to i16
-  %149 = getelementptr inbounds i8, ptr %122, i64 44
-  store i16 %148, ptr %149, align 4
+147:                                              ; preds = %131
+  %.rhs.trunc.i = zext i16 %126 to i32
+  %148 = udiv i32 65536, %.rhs.trunc.i
+  %149 = trunc i32 %148 to i16
+  %150 = getelementptr inbounds i8, ptr %123, i64 44
+  store i16 %149, ptr %150, align 4
   br label %init_span.exit
 
-init_span.exit:                                   ; preds = %._crit_edge.i, %142, %146
-  %150 = phi i16 [ %.pre.i, %._crit_edge.i ], [ %148, %146 ], [ %144, %142 ]
-  %151 = getelementptr inbounds i8, ptr %122, i64 46
-  store i16 -1, ptr %151, align 2
-  %152 = getelementptr inbounds i8, ptr %122, i64 48
-  store i16 %150, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %122, i64 50
-  store i16 1, ptr %153, align 2
-  %154 = getelementptr inbounds i8, ptr %.095.i, i64 32
-  br label %155
+init_span.exit:                                   ; preds = %._crit_edge.i, %143, %147
+  %151 = phi i16 [ %.pre.i, %._crit_edge.i ], [ %149, %147 ], [ %145, %143 ]
+  %152 = getelementptr inbounds i8, ptr %123, i64 46
+  store i16 -1, ptr %152, align 2
+  %153 = getelementptr inbounds i8, ptr %123, i64 48
+  store i16 %151, ptr %153, align 8
+  %154 = getelementptr inbounds i8, ptr %123, i64 50
+  store i16 1, ptr %154, align 2
+  %155 = getelementptr inbounds i8, ptr %.095.i, i64 32
+  br label %156
 
-155:                                              ; preds = %init_span.exit, %155
-  %.096.i47 = phi i64 [ 0, %init_span.exit ], [ %160, %155 ]
-  %156 = load ptr, ptr %154, align 8
-  %157 = load i64, ptr %3, align 8
-  %158 = getelementptr i64, ptr %156, i64 %157
-  %159 = getelementptr i64, ptr %158, i64 %.096.i47
-  store i64 %spec.select.i, ptr %159, align 8
-  %160 = add nuw nsw i64 %.096.i47, 1
-  %exitcond.not = icmp eq i64 %160, %.097.i
-  br i1 %exitcond.not, label %ensure_active_superblock.exit.thread, label %155, !llvm.loop !12
+156:                                              ; preds = %init_span.exit, %156
+  %.096.i47 = phi i64 [ 0, %init_span.exit ], [ %161, %156 ]
+  %157 = load ptr, ptr %155, align 8
+  %158 = load i64, ptr %3, align 8
+  %159 = getelementptr i64, ptr %157, i64 %158
+  %160 = getelementptr i64, ptr %159, i64 %.096.i47
+  store i64 %spec.select.i, ptr %160, align 8
+  %161 = add nuw nsw i64 %.096.i47, 1
+  %exitcond.not = icmp eq i64 %161, %.097.i
+  br i1 %exitcond.not, label %ensure_active_superblock.exit.thread, label %156, !llvm.loop !12
 
-ensure_active_superblock.exit.thread.sink.split.sink.split: ; preds = %85, %74
-  %.sink55 = phi i64 [ %76, %74 ], [ %87, %85 ]
-  %.sink = phi i64 [ %.pr, %74 ], [ %77, %85 ]
-  %.sink52.ph = phi ptr [ %68, %74 ], [ %79, %85 ]
-  %161 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %.sink55)
-  %162 = getelementptr inbounds i8, ptr %161, i64 8
-  store i64 %.sink, ptr %162, align 8
+ensure_active_superblock.exit.thread.sink.split.sink.split: ; preds = %86, %75
+  %.sink55 = phi i64 [ %77, %75 ], [ %88, %86 ]
+  %.sink = phi i64 [ %.pr, %75 ], [ %78, %86 ]
+  %.sink52.ph = phi ptr [ %69, %75 ], [ %80, %86 ]
+  %162 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %.sink55)
+  %163 = getelementptr inbounds i8, ptr %162, i64 8
+  store i64 %.sink, ptr %163, align 8
   br label %ensure_active_superblock.exit.thread.sink.split
 
-ensure_active_superblock.exit.thread.sink.split:  ; preds = %ensure_active_superblock.exit.thread.sink.split.sink.split, %85, %74
-  %.sink52 = phi ptr [ %68, %74 ], [ %79, %85 ], [ %.sink52.ph, %ensure_active_superblock.exit.thread.sink.split.sink.split ]
-  %163 = getelementptr inbounds i8, ptr %.sink52, i64 50
-  store i16 1, ptr %163, align 2
+ensure_active_superblock.exit.thread.sink.split:  ; preds = %ensure_active_superblock.exit.thread.sink.split.sink.split, %86, %75
+  %.sink52 = phi ptr [ %69, %75 ], [ %80, %86 ], [ %.sink52.ph, %ensure_active_superblock.exit.thread.sink.split.sink.split ]
+  %164 = getelementptr inbounds i8, ptr %.sink52, i64 50
+  store i16 1, ptr %164, align 2
   br label %ensure_active_superblock.exit.thread
 
-ensure_active_superblock.exit.thread:             ; preds = %155, %ensure_active_superblock.exit.thread.sink.split, %._crit_edge
+ensure_active_superblock.exit.thread:             ; preds = %156, %ensure_active_superblock.exit.thread.sink.split, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.pre48 = load i64, ptr %9, align 8
-  br label %164
+  br label %165
 
-ensure_active_superblock.exit:                    ; preds = %88, %99
+ensure_active_superblock.exit:                    ; preds = %89, %100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %transfer_first_span.exit
 
-164:                                              ; preds = %ensure_active_superblock.exit.thread, %2
-  %165 = phi i64 [ %.pre48, %ensure_active_superblock.exit.thread ], [ %10, %2 ]
-  %166 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %165)
-  %167 = getelementptr inbounds i8, ptr %166, i64 24
-  %168 = load i64, ptr %167, align 8
-  %169 = getelementptr [38 x i16], ptr @dsa_size_classes, i64 0, i64 %6
-  %170 = load i16, ptr %169, align 2
-  %171 = zext i16 %170 to i64
-  %172 = getelementptr inbounds i8, ptr %166, i64 46
-  %173 = load i16, ptr %172, align 2
-  %.not30 = icmp eq i16 %173, -1
-  br i1 %.not30, label %180, label %174
+165:                                              ; preds = %ensure_active_superblock.exit.thread, %2
+  %166 = phi i64 [ %.pre48, %ensure_active_superblock.exit.thread ], [ %10, %2 ]
+  %167 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %166)
+  %168 = getelementptr inbounds i8, ptr %167, i64 24
+  %169 = load i64, ptr %168, align 8
+  %170 = getelementptr [38 x i16], ptr @dsa_size_classes, i64 0, i64 %6
+  %171 = load i16, ptr %170, align 2
+  %172 = zext i16 %171 to i64
+  %173 = getelementptr inbounds i8, ptr %167, i64 46
+  %174 = load i16, ptr %173, align 2
+  %.not30 = icmp eq i16 %174, -1
+  br i1 %.not30, label %181, label %175
 
-174:                                              ; preds = %164
-  %175 = zext i16 %173 to i64
-  %176 = mul nuw nsw i64 %175, %171
-  %177 = add i64 %176, %168
-  %178 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %177)
-  %179 = load i16, ptr %178, align 2
-  store i16 %179, ptr %172, align 2
-  br label %187
+175:                                              ; preds = %165
+  %176 = zext i16 %174 to i64
+  %177 = mul nuw nsw i64 %176, %172
+  %178 = add i64 %177, %169
+  %179 = call ptr @dsa_get_address(ptr noundef nonnull %0, i64 noundef %178)
+  %180 = load i16, ptr %179, align 2
+  store i16 %180, ptr %173, align 2
+  br label %188
 
-180:                                              ; preds = %164
-  %181 = getelementptr inbounds i8, ptr %166, i64 42
-  %182 = load i16, ptr %181, align 2
-  %183 = zext i16 %182 to i64
-  %184 = mul nuw nsw i64 %183, %171
-  %185 = add i64 %184, %168
-  %186 = add i16 %182, 1
-  store i16 %186, ptr %181, align 2
-  br label %187
+181:                                              ; preds = %165
+  %182 = getelementptr inbounds i8, ptr %167, i64 42
+  %183 = load i16, ptr %182, align 2
+  %184 = zext i16 %183 to i64
+  %185 = mul nuw nsw i64 %184, %172
+  %186 = add i64 %185, %169
+  %187 = add i16 %183, 1
+  store i16 %187, ptr %182, align 2
+  br label %188
 
-187:                                              ; preds = %180, %174
-  %.1 = phi i64 [ %177, %174 ], [ %185, %180 ]
-  %188 = getelementptr inbounds i8, ptr %166, i64 44
-  %189 = load i16, ptr %188, align 4
-  %190 = add i16 %189, -1
-  store i16 %190, ptr %188, align 4
-  %191 = icmp eq i16 %190, 0
-  br i1 %191, label %192, label %transfer_first_span.exit
+188:                                              ; preds = %181, %175
+  %.1 = phi i64 [ %178, %175 ], [ %186, %181 ]
+  %189 = getelementptr inbounds i8, ptr %167, i64 44
+  %190 = load i16, ptr %189, align 4
+  %191 = add i16 %190, -1
+  store i16 %191, ptr %189, align 4
+  %192 = icmp eq i16 %191, 0
+  br i1 %192, label %193, label %transfer_first_span.exit
 
-192:                                              ; preds = %187
-  %193 = load i64, ptr %9, align 8
-  %.not.i31.not = icmp eq i64 %193, 0
-  br i1 %.not.i31.not, label %transfer_first_span.exit, label %194
+193:                                              ; preds = %188
+  %194 = load i64, ptr %9, align 8
+  %.not.i31.not = icmp eq i64 %194, 0
+  br i1 %.not.i31.not, label %transfer_first_span.exit, label %195
 
-194:                                              ; preds = %192
-  %195 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %193)
-  %196 = getelementptr inbounds i8, ptr %195, i64 16
-  %197 = load i64, ptr %196, align 8
-  store i64 %197, ptr %9, align 8
-  %.not28.i = icmp eq i64 %197, 0
-  br i1 %.not28.i, label %201, label %198
+195:                                              ; preds = %193
+  %196 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %194)
+  %197 = getelementptr inbounds i8, ptr %196, i64 16
+  %198 = load i64, ptr %197, align 8
+  store i64 %198, ptr %9, align 8
+  %.not28.i = icmp eq i64 %198, 0
+  br i1 %.not28.i, label %202, label %199
 
-198:                                              ; preds = %194
-  %199 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %197)
-  %200 = getelementptr inbounds i8, ptr %199, i64 8
-  store i64 0, ptr %200, align 8
-  br label %201
+199:                                              ; preds = %195
+  %200 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %198)
+  %201 = getelementptr inbounds i8, ptr %200, i64 8
+  store i64 0, ptr %201, align 8
+  br label %202
 
-201:                                              ; preds = %198, %194
-  %202 = getelementptr i8, ptr %7, i64 40
-  %203 = load i64, ptr %202, align 8
-  store i64 %203, ptr %196, align 8
-  store i64 %193, ptr %202, align 8
-  %204 = load i64, ptr %196, align 8
-  %.not29.i = icmp eq i64 %204, 0
-  br i1 %.not29.i, label %208, label %205
+202:                                              ; preds = %199, %195
+  %203 = getelementptr i8, ptr %7, i64 40
+  %204 = load i64, ptr %203, align 8
+  store i64 %204, ptr %197, align 8
+  store i64 %194, ptr %203, align 8
+  %205 = load i64, ptr %197, align 8
+  %.not29.i = icmp eq i64 %205, 0
+  br i1 %.not29.i, label %209, label %206
 
-205:                                              ; preds = %201
-  %206 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %204)
-  %207 = getelementptr inbounds i8, ptr %206, i64 8
-  store i64 %193, ptr %207, align 8
-  br label %208
+206:                                              ; preds = %202
+  %207 = call ptr @dsa_get_address(ptr noundef %0, i64 noundef %205)
+  %208 = getelementptr inbounds i8, ptr %207, i64 8
+  store i64 %194, ptr %208, align 8
+  br label %209
 
-208:                                              ; preds = %205, %201
-  %209 = getelementptr inbounds i8, ptr %195, i64 50
-  store i16 3, ptr %209, align 2
+209:                                              ; preds = %206, %202
+  %210 = getelementptr inbounds i8, ptr %196, i64 50
+  store i16 3, ptr %210, align 2
   br label %transfer_first_span.exit
 
-transfer_first_span.exit:                         ; preds = %208, %192, %ensure_active_superblock.exit, %187
-  %.0 = phi i64 [ %.1, %187 ], [ 0, %ensure_active_superblock.exit ], [ %.1, %192 ], [ %.1, %208 ]
-  %210 = load ptr, ptr %0, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 4288
-  %212 = getelementptr [38 x %struct.dsa_area_pool], ptr %211, i64 0, i64 %6
-  call void @LWLockRelease(ptr noundef %212) #10
+transfer_first_span.exit:                         ; preds = %209, %193, %ensure_active_superblock.exit, %188
+  %.0 = phi i64 [ %.1, %188 ], [ 0, %ensure_active_superblock.exit ], [ %.1, %193 ], [ %.1, %209 ]
+  %211 = load ptr, ptr %0, align 8
+  %212 = getelementptr inbounds i8, ptr %211, i64 4288
+  %213 = getelementptr [38 x %struct.dsa_area_pool], ptr %212, i64 0, i64 %6
+  call void @LWLockRelease(ptr noundef %213) #10
   ret i64 %.0
 }
 

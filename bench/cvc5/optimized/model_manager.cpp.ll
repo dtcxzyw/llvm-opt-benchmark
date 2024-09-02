@@ -556,6 +556,7 @@ invoke.cont16:                                    ; preds = %for.body
 
 invoke.cont16.cond.true38_crit_edge:              ; preds = %invoke.cont16
   %.pre = load i8, ptr %value, align 1
+  %5 = trunc i8 %.pre to i1
   br label %cond.true38
 
 cond.true21:                                      ; preds = %invoke.cont16
@@ -563,20 +564,19 @@ cond.true21:                                      ; preds = %invoke.cont16
   br label %cond.true38
 
 lpad:                                             ; preds = %cond.end
-  %5 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup72
-
-lpad15:                                           ; preds = %for.body
   %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup72
 
+lpad15:                                           ; preds = %for.body
+  %7 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup72
+
 cond.true38:                                      ; preds = %invoke.cont16.cond.true38_crit_edge, %cond.true21
-  %7 = phi i8 [ %.pre, %invoke.cont16.cond.true38_crit_edge ], [ 0, %cond.true21 ]
+  %tobool64 = phi i1 [ %5, %invoke.cont16.cond.true38_crit_edge ], [ false, %cond.true21 ]
   %8 = load ptr, ptr %d_model, align 8
   store ptr %4, ptr %agg.tmp62, align 8
-  %tobool64 = trunc i8 %7 to i1
   %call67 = invoke noundef zeroext i1 @_ZN4cvc58internal6theory11TheoryModel15assertPredicateENS0_12NodeTemplateILb0EEEb(ptr noundef nonnull align 8 dereferenceable(904) %8, ptr noundef nonnull %agg.tmp62, i1 noundef zeroext %tobool64)
           to label %invoke.cont66 unwind label %lpad65
 
@@ -609,7 +609,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit: ; preds = %c
   ret i1 %cmp.i.not.lcssa
 
 ehcleanup72:                                      ; preds = %lpad15, %lpad65, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad ], [ %9, %lpad65 ], [ %6, %lpad15 ]
+  %.pn.pn = phi { ptr, i32 } [ %6, %lpad ], [ %9, %lpad65 ], [ %7, %lpad15 ]
   %11 = load ptr, ptr %boolVars, align 8
   %tobool.not.i.i.i233 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i233, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit235, label %if.then.i.i.i234

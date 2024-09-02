@@ -837,7 +837,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL7tag_cmpPKN6LogTag4typeES2_(ptr noundef readnone %0, ptr noundef readnone %1) #8 {
+define internal noundef range(i32 -1, 2) i32 @_ZL7tag_cmpPKN6LogTag4typeES2_(ptr noundef readnone %0, ptr noundef readnone %1) #8 {
   %3 = icmp ult ptr %0, %1
   %4 = icmp ne ptr %0, %1
   %5 = zext i1 %4 to i32

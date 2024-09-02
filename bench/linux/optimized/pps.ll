@@ -319,7 +319,7 @@ define internal noundef i32 @pps_cdev_poll(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @pps_cdev_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -110, 1) i64 @pps_cdev_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.pps_kparams, align 8
   %5 = alloca %struct.pps_fdata, align 8
   %6 = alloca %struct.pps_bind_args, align 4
@@ -529,7 +529,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pps_cdev_ioctl(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @pps_cdev_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -110, 1) i64 @pps_cdev_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.pps_fdata_compat, align 4
   %5 = alloca %struct.pps_fdata, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 200

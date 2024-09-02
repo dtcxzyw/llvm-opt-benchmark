@@ -249,7 +249,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIPN6her
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN6hermes2vm16SamplingProfiler22registerNativeFunctionEPNS0_14NativeFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %nativeFunction) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 -1152921504606846977, 1152921504606846976) i64 @_ZN6hermes2vm16SamplingProfiler22registerNativeFunctionEPNS0_14NativeFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %nativeFunction) local_unnamed_addr #0 align 2 {
 entry:
   %nativeFunctions_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %nativeFunctions_, align 8

@@ -472,7 +472,7 @@ GetPgIndexDescriptor.exit87:                      ; preds = %GetPgIndexDescripto
   store i16 %82, ptr %170, align 2
   %171 = getelementptr inbounds i8, ptr %167, i64 16
   store ptr null, ptr %171, align 8
-  br label %174
+  br label %175
 
 172:                                              ; preds = %165
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
@@ -482,22 +482,22 @@ GetPgIndexDescriptor.exit87:                      ; preds = %GetPgIndexDescripto
 ._crit_edge27.i:                                  ; preds = %172
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %167, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  br label %174
+  %174 = icmp eq ptr %.pre.i, null
+  br label %175
 
-174:                                              ; preds = %._crit_edge27.i, %.thread.i.i
-  %175 = phi ptr [ %.pre.i, %._crit_edge27.i ], [ null, %.thread.i.i ]
-  %176 = getelementptr inbounds i8, ptr %167, i64 16
-  %177 = icmp eq ptr %175, null
-  %or.cond.i.i = and i1 %146, %177
+175:                                              ; preds = %._crit_edge27.i, %.thread.i.i
+  %176 = phi i1 [ %174, %._crit_edge27.i ], [ true, %.thread.i.i ]
+  %177 = getelementptr inbounds i8, ptr %167, i64 16
+  %or.cond.i.i = and i1 %146, %176
   br i1 %or.cond.i.i, label %178, label %181
 
-178:                                              ; preds = %174
+178:                                              ; preds = %175
   %179 = load ptr, ptr @CacheMemoryContext, align 8
   %180 = call ptr @MemoryContextAllocZero(ptr noundef %179, i64 noundef %148) #12
-  store ptr %180, ptr %176, align 8
+  store ptr %180, ptr %177, align 8
   br label %181
 
-181:                                              ; preds = %178, %174
+181:                                              ; preds = %178, %175
   %182 = load i8, ptr @criticalRelcachesBuilt, align 1
   %183 = trunc i8 %182 to i1
   %.pre53.i.i = load i32, ptr %2, align 4
@@ -591,7 +591,7 @@ GetPgIndexDescriptor.exit87:                      ; preds = %GetPgIndexDescripto
 239:                                              ; preds = %.lr.ph.i.i
   %240 = getelementptr inbounds i8, ptr %227, i64 20
   %241 = load i32, ptr %240, align 4
-  %242 = load ptr, ptr %176, align 8
+  %242 = load ptr, ptr %177, align 8
   %243 = zext nneg i16 %229 to i64
   %244 = getelementptr i32, ptr %242, i64 %243
   %245 = getelementptr i8, ptr %244, i64 -4
@@ -6166,18 +6166,18 @@ define internal fastcc void @RelationBuildRuleLock(ptr nocapture noundef %0) unn
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @systable_beginscan(ptr noundef %15, i32 noundef 2693, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #12
   %19 = call ptr @systable_getnext(ptr noundef %18) #12
-  %.not79 = icmp eq ptr %19, null
-  br i1 %.not79, label %._crit_edge, label %.lr.ph
+  %.not78 = icmp eq ptr %19, null
+  br i1 %.not78, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %20 = getelementptr inbounds i8, ptr %0, i64 296
   br label %21
 
-21:                                               ; preds = %.lr.ph, %93
-  %22 = phi ptr [ %19, %.lr.ph ], [ %97, %93 ]
-  %.06782 = phi i32 [ 0, %.lr.ph ], [ %94, %93 ]
-  %.06881 = phi ptr [ %11, %.lr.ph ], [ %.1, %93 ]
-  %.06980 = phi i32 [ 4, %.lr.ph ], [ %.170, %93 ]
+21:                                               ; preds = %.lr.ph, %94
+  %22 = phi ptr [ %19, %.lr.ph ], [ %98, %94 ]
+  %.06781 = phi i32 [ 0, %.lr.ph ], [ %95, %94 ]
+  %.06880 = phi ptr [ %11, %.lr.ph ], [ %.1, %94 ]
+  %.06979 = phi i32 [ 4, %.lr.ph ], [ %.170, %94 ]
   %23 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 22
@@ -6257,82 +6257,82 @@ heap_getattr.exit77:                              ; preds = %62, %64
   %71 = load i32, ptr %35, align 4
   %72 = icmp eq i32 %71, 1
   %.pre = load ptr, ptr %7, align 8
-  br i1 %72, label %73, label %.thread
+  br i1 %72, label %73, label %.critedge
 
 73:                                               ; preds = %heap_getattr.exit77
   %74 = getelementptr inbounds i8, ptr %.pre, i64 115
   %75 = load i8, ptr %74, align 1
   %76 = icmp eq i8 %75, 118
-  br i1 %76, label %77, label %.thread
+  br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr %20, align 8
   %.not73 = icmp eq ptr %78, null
-  br i1 %.not73, label %.thread, label %79
+  br i1 %.not73, label %.critedge, label %79
 
 79:                                               ; preds = %77
   %80 = getelementptr inbounds i8, ptr %78, i64 5
   %81 = load i8, ptr %80, align 1
   %82 = and i8 %81, 1
-  %.not74 = icmp eq i8 %82, 0
-  br i1 %.not74, label %.thread, label %85
+  %83 = icmp eq i8 %82, 0
+  br i1 %83, label %.critedge, label %86
 
-.thread:                                          ; preds = %77, %79, %73, %heap_getattr.exit77
-  %83 = getelementptr inbounds i8, ptr %.pre, i64 80
-  %84 = load i32, ptr %83, align 4
-  br label %85
+.critedge:                                        ; preds = %77, %79, %73, %heap_getattr.exit77
+  %84 = getelementptr inbounds i8, ptr %.pre, i64 80
+  %85 = load i32, ptr %84, align 4
+  br label %86
 
-85:                                               ; preds = %79, %.thread
-  %.0 = phi i32 [ %84, %.thread ], [ 0, %79 ]
-  %86 = load ptr, ptr %56, align 8
-  call void @setRuleCheckAsUser(ptr noundef %86, i32 noundef %.0) #12
-  %87 = load ptr, ptr %70, align 8
+86:                                               ; preds = %79, %.critedge
+  %.0 = phi i32 [ %85, %.critedge ], [ 0, %79 ]
+  %87 = load ptr, ptr %56, align 8
   call void @setRuleCheckAsUser(ptr noundef %87, i32 noundef %.0) #12
-  %.not75 = icmp slt i32 %.06782, %.06980
-  br i1 %.not75, label %93, label %88
+  %88 = load ptr, ptr %70, align 8
+  call void @setRuleCheckAsUser(ptr noundef %88, i32 noundef %.0) #12
+  %.not75 = icmp slt i32 %.06781, %.06979
+  br i1 %.not75, label %94, label %89
 
-88:                                               ; preds = %85
-  %89 = shl i32 %.06980, 1
-  %90 = sext i32 %89 to i64
-  %91 = shl nsw i64 %90, 3
-  %92 = call ptr @repalloc(ptr noundef %.06881, i64 noundef %91) #12
-  br label %93
+89:                                               ; preds = %86
+  %90 = shl i32 %.06979, 1
+  %91 = sext i32 %90 to i64
+  %92 = shl nsw i64 %91, 3
+  %93 = call ptr @repalloc(ptr noundef %.06880, i64 noundef %92) #12
+  br label %94
 
-93:                                               ; preds = %88, %85
-  %.170 = phi i32 [ %89, %88 ], [ %.06980, %85 ]
-  %.1 = phi ptr [ %92, %88 ], [ %.06881, %85 ]
-  %94 = add i32 %.06782, 1
-  %95 = sext i32 %.06782 to i64
-  %96 = getelementptr ptr, ptr %.1, i64 %95
-  store ptr %29, ptr %96, align 8
-  %97 = call ptr @systable_getnext(ptr noundef %18) #12
-  %.not = icmp eq ptr %97, null
+94:                                               ; preds = %89, %86
+  %.170 = phi i32 [ %90, %89 ], [ %.06979, %86 ]
+  %.1 = phi ptr [ %93, %89 ], [ %.06880, %86 ]
+  %95 = add i32 %.06781, 1
+  %96 = sext i32 %.06781 to i64
+  %97 = getelementptr ptr, ptr %.1, i64 %96
+  store ptr %29, ptr %97, align 8
+  %98 = call ptr @systable_getnext(ptr noundef %18) #12
+  %.not = icmp eq ptr %98, null
   br i1 %.not, label %._crit_edge, label %21, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %93, %1
-  %.068.lcssa = phi ptr [ %11, %1 ], [ %.1, %93 ]
-  %.067.lcssa = phi i32 [ 0, %1 ], [ %94, %93 ]
+._crit_edge:                                      ; preds = %94, %1
+  %.068.lcssa = phi ptr [ %11, %1 ], [ %.1, %94 ]
+  %.067.lcssa = phi i32 [ 0, %1 ], [ %95, %94 ]
   call void @systable_endscan(ptr noundef %18) #12
   call void @table_close(ptr noundef %15, i32 noundef 1) #12
-  %98 = icmp eq i32 %.067.lcssa, 0
-  br i1 %98, label %99, label %101
+  %99 = icmp eq i32 %.067.lcssa, 0
+  br i1 %99, label %100, label %102
 
-99:                                               ; preds = %._crit_edge
-  %100 = getelementptr inbounds i8, ptr %0, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, i8 0, i64 16, i1 false)
+100:                                              ; preds = %._crit_edge
+  %101 = getelementptr inbounds i8, ptr %0, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
   call void @MemoryContextDelete(ptr noundef %5) #12
-  br label %105
+  br label %106
 
-101:                                              ; preds = %._crit_edge
-  %102 = call ptr @MemoryContextAlloc(ptr noundef %5, i64 noundef 16) #12
-  store i32 %.067.lcssa, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
-  store ptr %.068.lcssa, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %102, ptr %104, align 8
-  br label %105
+102:                                              ; preds = %._crit_edge
+  %103 = call ptr @MemoryContextAlloc(ptr noundef %5, i64 noundef 16) #12
+  store i32 %.067.lcssa, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 8
+  store ptr %.068.lcssa, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %103, ptr %105, align 8
+  br label %106
 
-105:                                              ; preds = %101, %99
+106:                                              ; preds = %102, %100
   ret void
 }
 

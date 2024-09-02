@@ -24,7 +24,7 @@ define range(i32 -1, 1) i32 @H5DOread_chunk(i64 noundef %0, i64 noundef %1, ptr 
 declare i32 @H5Dread_chunk(i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5DOappend(i64 noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5DOappend(i64 noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca [32 x i64], align 16
   %8 = alloca i64, align 8
   %9 = alloca [32 x i64], align 16

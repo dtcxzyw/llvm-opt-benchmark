@@ -120,9 +120,9 @@ define hidden noundef ptr @_ZNK14PhaseIdealLoop23find_unswitch_candidateEPK13Ide
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   br label %12
 
-12:                                               ; preds = %.lr.ph, %72
-  %.023 = phi ptr [ null, %.lr.ph ], [ %.1, %72 ]
-  %.01922 = phi ptr [ %8, %.lr.ph ], [ %.0.lcssa.i.i.i, %72 ]
+12:                                               ; preds = %.lr.ph, %69
+  %.023 = phi ptr [ null, %.lr.ph ], [ %.1, %69 ]
+  %.01922 = phi ptr [ %8, %.lr.ph ], [ %.0.lcssa.i.i.i, %69 ]
   %13 = getelementptr inbounds i8, ptr %.01922, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = load ptr, ptr %9, align 8
@@ -138,87 +138,81 @@ define hidden noundef ptr @_ZNK14PhaseIdealLoop23find_unswitch_candidateEPK13Ide
 .lr.ph.i.i.i:                                     ; preds = %12
   %23 = load i32, ptr %10, align 8
   %24 = load ptr, ptr %11, align 8
-  br label %25
-
-25:                                               ; preds = %_ZNK10Node_ArrayixEj.exit.i.i.i, %.lr.ph.i.i.i
-  %.04.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i ], [ %36, %_ZNK10Node_ArrayixEj.exit.i.i.i ]
-  %26 = getelementptr inbounds i8, ptr %.04.i.i.i, i64 40
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp ult i32 %27, %23
-  br i1 %28, label %29, label %_ZNK10Node_ArrayixEj.exit.i.i.i
-
-29:                                               ; preds = %25
-  %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds ptr, ptr %24, i64 %30
-  %32 = load ptr, ptr %31, align 8
   br label %_ZNK10Node_ArrayixEj.exit.i.i.i
 
-_ZNK10Node_ArrayixEj.exit.i.i.i:                  ; preds = %29, %25
-  %33 = phi ptr [ %32, %29 ], [ null, %25 ]
-  %34 = ptrtoint ptr %33 to i64
-  %35 = and i64 %34, -2
-  %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %25, label %_ZNK14PhaseIdealLoop4idomEP4Node.exit, !llvm.loop !6
+_ZNK10Node_ArrayixEj.exit.i.i.i:                  ; preds = %_ZNK10Node_ArrayixEj.exit.i.i.i, %.lr.ph.i.i.i
+  %.04.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i ], [ %33, %_ZNK10Node_ArrayixEj.exit.i.i.i ]
+  %25 = getelementptr inbounds i8, ptr %.04.i.i.i, i64 40
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp ult i32 %26, %23
+  tail call void @llvm.assume(i1 %27)
+  %28 = zext i32 %26 to i64
+  %29 = getelementptr inbounds ptr, ptr %24, i64 %28
+  %30 = load ptr, ptr %29, align 8
+  %31 = ptrtoint ptr %30 to i64
+  %32 = and i64 %31, -2
+  %33 = inttoptr i64 %32 to ptr
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %_ZNK10Node_ArrayixEj.exit.i.i.i, label %_ZNK14PhaseIdealLoop4idomEP4Node.exit, !llvm.loop !6
 
 _ZNK14PhaseIdealLoop4idomEP4Node.exit:            ; preds = %_ZNK10Node_ArrayixEj.exit.i.i.i, %12
-  %.0.lcssa.i.i.i = phi ptr [ %18, %12 ], [ %36, %_ZNK10Node_ArrayixEj.exit.i.i.i ]
+  %.0.lcssa.i.i.i = phi ptr [ %18, %12 ], [ %33, %_ZNK10Node_ArrayixEj.exit.i.i.i ]
   store ptr %.0.lcssa.i.i.i, ptr %17, align 8
-  %41 = getelementptr inbounds i8, ptr %.01922, i64 44
-  %42 = load i32, ptr %41, align 4
-  %43 = and i32 %42, 63
-  %44 = icmp eq i32 %43, 32
-  br i1 %44, label %45, label %72
+  %38 = getelementptr inbounds i8, ptr %.01922, i64 44
+  %39 = load i32, ptr %38, align 4
+  %40 = and i32 %39, 63
+  %41 = icmp eq i32 %40, 32
+  br i1 %41, label %42, label %69
 
-45:                                               ; preds = %_ZNK14PhaseIdealLoop4idomEP4Node.exit
-  %46 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 44
-  %47 = load i32, ptr %46, align 4
-  %48 = and i32 %47, 31
-  %49 = icmp eq i32 %48, 21
-  br i1 %49, label %50, label %72
+42:                                               ; preds = %_ZNK14PhaseIdealLoop4idomEP4Node.exit
+  %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 44
+  %44 = load i32, ptr %43, align 4
+  %45 = and i32 %44, 31
+  %46 = icmp eq i32 %45, 21
+  br i1 %46, label %47, label %69
 
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 44
-  %56 = load i32, ptr %55, align 4
-  %57 = and i32 %56, 511
-  %58 = icmp eq i32 %57, 256
-  br i1 %58, label %59, label %72
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 44
+  %53 = load i32, ptr %52, align 4
+  %54 = and i32 %53, 511
+  %55 = icmp eq i32 %54, 256
+  br i1 %55, label %56, label %69
 
-59:                                               ; preds = %50
-  %60 = getelementptr inbounds i8, ptr %54, i64 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 44
-  %65 = load i32, ptr %64, align 4
-  %66 = and i32 %65, 255
-  %67 = icmp eq i32 %66, 192
-  br i1 %67, label %68, label %72
+56:                                               ; preds = %47
+  %57 = getelementptr inbounds i8, ptr %51, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 44
+  %62 = load i32, ptr %61, align 4
+  %63 = and i32 %62, 255
+  %64 = icmp eq i32 %63, 192
+  br i1 %64, label %65, label %69
 
-68:                                               ; preds = %59
-  %69 = tail call noundef zeroext i1 @_ZNK13IdealLoopTree12is_invariantEP4Node(ptr noundef nonnull align 8 dereferenceable(113) %1, ptr noundef nonnull %54) #9
-  br i1 %69, label %70, label %72
+65:                                               ; preds = %56
+  %66 = tail call noundef zeroext i1 @_ZNK13IdealLoopTree12is_invariantEP4Node(ptr noundef nonnull align 8 dereferenceable(113) %1, ptr noundef nonnull %51) #9
+  br i1 %66, label %67, label %69
 
-70:                                               ; preds = %68
-  %71 = tail call noundef ptr @_ZNK13IdealLoopTree12is_loop_exitEP4Node(ptr noundef nonnull align 8 dereferenceable(113) %1, ptr noundef nonnull %.0.lcssa.i.i.i) #9
-  %.not20 = icmp eq ptr %71, null
+67:                                               ; preds = %65
+  %68 = tail call noundef ptr @_ZNK13IdealLoopTree12is_loop_exitEP4Node(ptr noundef nonnull align 8 dereferenceable(113) %1, ptr noundef nonnull %.0.lcssa.i.i.i) #9
+  %.not20 = icmp eq ptr %68, null
   %spec.select = select i1 %.not20, ptr %.0.lcssa.i.i.i, ptr %.023
-  br label %72
+  br label %69
 
-72:                                               ; preds = %70, %45, %59, %68, %50, %_ZNK14PhaseIdealLoop4idomEP4Node.exit
-  %.1 = phi ptr [ %.023, %68 ], [ %.023, %59 ], [ %.023, %50 ], [ %.023, %45 ], [ %.023, %_ZNK14PhaseIdealLoop4idomEP4Node.exit ], [ %spec.select, %70 ]
+69:                                               ; preds = %67, %42, %56, %65, %47, %_ZNK14PhaseIdealLoop4idomEP4Node.exit
+  %.1 = phi ptr [ %.023, %65 ], [ %.023, %56 ], [ %.023, %47 ], [ %.023, %42 ], [ %.023, %_ZNK14PhaseIdealLoop4idomEP4Node.exit ], [ %spec.select, %67 ]
   %.not = icmp eq ptr %.0.lcssa.i.i.i, %4
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %72, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ %.1, %72 ]
+._crit_edge:                                      ; preds = %69, %2
+  %.0.lcssa = phi ptr [ null, %2 ], [ %.1, %69 ]
   ret ptr %.0.lcssa
 }
 
@@ -1642,11 +1636,11 @@ declare i32 @llvm.umax.i32(i32, i32) #5
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #5
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #6
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
@@ -1660,8 +1654,8 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }

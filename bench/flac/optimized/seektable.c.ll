@@ -28,43 +28,35 @@ land.rhs.lr.ph:                                   ; preds = %if.end
   %cmp17.not = icmp eq i64 %total_samples_to_encode, 0
   %0 = add i64 %total_samples_to_encode, -1
   %1 = load i8, ptr %spec, align 1
-  %tobool1.not45 = icmp eq i8 %1, 0
-  br i1 %tobool1.not45, label %for.end, label %for.body
+  %tobool1.not46 = icmp eq i8 %1, 0
+  br i1 %tobool1.not46, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs.lr.ph, %if.end107
-  %2 = phi i8 [ %13, %if.end107 ], [ %1, %land.rhs.lr.ph ]
-  %pt.04446 = phi ptr [ %incdec.ptr, %if.end107 ], [ %spec, %land.rhs.lr.ph ]
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %pt.04446, i32 noundef 59) #6
-  %cmp2 = icmp ugt ptr %call, %pt.04446
+  %2 = phi i8 [ %9, %if.end107 ], [ %1, %land.rhs.lr.ph ]
+  %pt.04447 = phi ptr [ %incdec.ptr, %if.end107 ], [ %spec, %land.rhs.lr.ph ]
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %pt.04447, i32 noundef 59) #6
+  %cmp2 = icmp ugt ptr %call, %pt.04447
   br i1 %cmp2, label %sub_0, label %if.end107
 
 sub_0:                                            ; preds = %for.body
-  %3 = zext i8 %2 to i32
-  %4 = add nsw i32 %3, -88
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %sub_1, label %if.then4.tail
+  %.not = icmp eq i8 %2, 88
+  br i1 %.not, label %if.then4.tail, label %if.else
 
-sub_1:                                            ; preds = %sub_0
-  %5 = getelementptr inbounds i8, ptr %pt.04446, i64 1
-  %6 = load i8, ptr %5, align 1
-  %7 = zext i8 %6 to i32
-  %8 = add nsw i32 %7, -59
-  br label %if.then4.tail
-
-if.then4.tail:                                    ; preds = %sub_0, %sub_1
-  %9 = phi i32 [ %4, %sub_0 ], [ %8, %sub_1 ]
-  %cmp6 = icmp eq i32 %9, 0
-  br i1 %cmp6, label %if.then8, label %if.else
+if.then4.tail:                                    ; preds = %sub_0
+  %3 = getelementptr inbounds i8, ptr %pt.04447, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 59
+  br i1 %5, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then4.tail
   %call9 = tail call i32 @FLAC__metadata_object_seektable_template_append_placeholders(ptr noundef %seektable_template, i32 noundef 1) #7
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return, label %if.end107
 
-if.else:                                          ; preds = %if.then4.tail
+if.else:                                          ; preds = %sub_0, %if.then4.tail
   %arrayidx = getelementptr inbounds i8, ptr %call, i64 -1
-  %10 = load i8, ptr %arrayidx, align 1
-  switch i8 %10, label %if.else74 [
+  %6 = load i8, ptr %arrayidx, align 1
+  switch i8 %6, label %if.else74 [
     i8 120, label %if.then16
     i8 115, label %if.then42
   ]
@@ -83,7 +75,7 @@ if.end23:                                         ; preds = %if.then22, %if.then
   br i1 %tobool52.not, label %if.then25, label %if.end107
 
 if.then25:                                        ; preds = %if.end23
-  %call26 = tail call i32 @atoi(ptr nocapture noundef nonnull %pt.04446) #6
+  %call26 = tail call i32 @atoi(ptr nocapture noundef nonnull %pt.04447) #6
   %cmp27 = icmp sgt i32 %call26, 0
   br i1 %cmp27, label %if.then29, label %if.end107
 
@@ -106,7 +98,7 @@ if.end51:                                         ; preds = %if.then50, %if.then
   br i1 %tobool52.not, label %if.then53, label %if.end107
 
 if.then53:                                        ; preds = %if.end51
-  %call54 = tail call double @atof(ptr noundef nonnull %pt.04446) #6
+  %call54 = tail call double @atof(ptr noundef nonnull %pt.04447) #6
   %cmp55 = fcmp ogt double %call54, 0.000000e+00
   br i1 %cmp55, label %if.then57, label %if.end107
 
@@ -133,18 +125,18 @@ if.end78:                                         ; preds = %if.then77, %if.else
   br i1 %tobool52.not, label %if.then80, label %if.end107
 
 if.then80:                                        ; preds = %if.end78
-  %call82 = call i64 @strtoll(ptr noundef nonnull %pt.04446, ptr noundef nonnull %endptr, i32 noundef 10) #7
+  %call82 = call i64 @strtoll(ptr noundef nonnull %pt.04447, ptr noundef nonnull %endptr, i32 noundef 10) #7
   %cmp83 = icmp sgt i64 %call82, 0
   br i1 %cmp83, label %land.lhs.true91, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then80
-  %11 = load ptr, ptr %endptr, align 8
-  %cmp85 = icmp ugt ptr %11, %pt.04446
+  %7 = load ptr, ptr %endptr, align 8
+  %cmp85 = icmp ugt ptr %7, %pt.04447
   br i1 %cmp85, label %land.lhs.true87, label %if.end107
 
 land.lhs.true87:                                  ; preds = %lor.lhs.false
-  %12 = load i8, ptr %11, align 1
-  %cmp89 = icmp ne i8 %12, 59
+  %8 = load i8, ptr %7, align 1
+  %cmp89 = icmp ne i8 %8, 59
   %or.cond41.not = icmp ult i64 %0, %call82
   %or.cond42 = or i1 %or.cond41.not, %cmp89
   br i1 %or.cond42, label %if.end107, label %if.then97
@@ -160,8 +152,8 @@ if.then97:                                        ; preds = %land.lhs.true87, %l
 
 if.end107:                                        ; preds = %land.lhs.true91, %if.then8, %if.end51, %if.then57, %if.then65, %if.then53, %if.then42, %lor.lhs.false, %land.lhs.true87, %if.then97, %if.end78, %if.then16, %if.then25, %if.then29, %if.end23, %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
-  %13 = load i8, ptr %incdec.ptr, align 1
-  %tobool1.not = icmp eq i8 %13, 0
+  %9 = load i8, ptr %incdec.ptr, align 1
+  %tobool1.not = icmp eq i8 %9, 0
   br i1 %tobool1.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %if.end107, %land.rhs.lr.ph, %if.end

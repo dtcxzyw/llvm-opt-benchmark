@@ -1416,7 +1416,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i68, %_
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZZN7msdfgen5Shape14orientContoursEvEN12Intersection7compareEPKvS3_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #8 align 2 {
+define internal noundef range(i32 -1, 2) i32 @_ZZN7msdfgen5Shape14orientContoursEvEN12Intersection7compareEPKvS3_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #8 align 2 {
 entry:
   %0 = load double, ptr %a, align 8
   %1 = load double, ptr %b, align 8

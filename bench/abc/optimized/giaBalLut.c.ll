@@ -3448,7 +3448,7 @@ Vec_IntSelectSortCostLit.exit.i:                  ; preds = %._crit_edge.i.i
 503:                                              ; preds = %505, %.lr.ph.i85
   %.012.in.i.i.i = phi i32 [ %.val52139.i, %.lr.ph.i85 ], [ %.012.i.i.i, %505 ]
   %504 = icmp sgt i32 %.012.in.i.i.i, 1
-  br i1 %504, label %505, label %.lr.ph52.preheader.i.i
+  br i1 %504, label %505, label %.lr.ph52.i.i.preheader
 
 505:                                              ; preds = %503
   %.012.i.i.i = add nsw i32 %.012.in.i.i.i, -1
@@ -3562,7 +3562,7 @@ Bal_ManEvalTwo.exit.thread.i.i:                   ; preds = %560, %558, %Bal_Man
 
 ._crit_edge.i88.i:                                ; preds = %..loopexit3_crit_edge.i.i
   %.not.i89.i = icmp eq i32 %.2.i.i, 1000000000
-  br i1 %.not.i89.i, label %.lr.ph52.preheader.i.i, label %562
+  br i1 %.not.i89.i, label %._crit_edge.thread.i.i, label %562
 
 562:                                              ; preds = %._crit_edge.i88.i
   %563 = sext i32 %.272.i.i to i64
@@ -3577,18 +3577,21 @@ Bal_ManEvalTwo.exit.thread.i.i:                   ; preds = %560, %558, %Bal_Man
   %570 = load i32, ptr %569, align 4
   %.unshifted.i.i = xor i32 %570, %.2.i.i
   %571 = icmp ult i32 %.unshifted.i.i, 16
-  br i1 %571, label %572, label %.lr.ph52.preheader.i.i
+  br i1 %571, label %572, label %._crit_edge.thread.i.i
 
 572:                                              ; preds = %562
   %573 = shl i32 %.272.i.i, 16
   %574 = or i32 %573, %.278.i.i
   br label %Bal_ManFindBestPair.exit.i
 
-.lr.ph52.preheader.i.i:                           ; preds = %503, %._crit_edge.i88.i, %562
-  %.012.lcssa.i7682.i.i100 = phi i32 [ %.012.i.i.i, %562 ], [ %.012.i.i.i, %._crit_edge.i88.i ], [ 0, %503 ]
-  %.076.lcssa83.i.i99 = phi i32 [ %.278.i.i, %562 ], [ %.278.i.i, %._crit_edge.i88.i ], [ -1, %503 ]
-  %.070.lcssa84.i.i98 = phi i32 [ %.272.i.i, %562 ], [ %.272.i.i, %._crit_edge.i88.i ], [ -1, %503 ]
-  %575 = sext i32 %.012.lcssa.i7682.i.i100 to i64
+._crit_edge.thread.i.i:                           ; preds = %562, %._crit_edge.i88.i
+  %575 = sext i32 %.012.i.i.i to i64
+  br label %.lr.ph52.i.i.preheader
+
+.lr.ph52.i.i.preheader:                           ; preds = %503, %._crit_edge.thread.i.i
+  %indvars.iv71.i.i.ph = phi i64 [ %575, %._crit_edge.thread.i.i ], [ 0, %503 ]
+  %.37349.i.i.ph = phi i32 [ %.272.i.i, %._crit_edge.thread.i.i ], [ -1, %503 ]
+  %.37948.i.i.ph = phi i32 [ %.278.i.i, %._crit_edge.thread.i.i ], [ -1, %503 ]
   br label %.lr.ph52.i.i
 
 .loopexit.i.i:                                    ; preds = %Bal_ManEvalTwo.exit111.thread.i.i, %.lr.ph52.i.i
@@ -3598,11 +3601,11 @@ Bal_ManEvalTwo.exit.thread.i.i:                   ; preds = %560, %558, %Bal_Man
   %exitcond.not.i82.i = icmp eq i64 %indvars.iv.next72.i.i, %494
   br i1 %exitcond.not.i82.i, label %._crit_edge53.i.i, label %.lr.ph52.i.i, !llvm.loop !41
 
-.lr.ph52.i.i:                                     ; preds = %.loopexit.i.i, %.lr.ph52.preheader.i.i
-  %indvars.iv71.i.i = phi i64 [ %575, %.lr.ph52.preheader.i.i ], [ %indvars.iv.next72.i.i, %.loopexit.i.i ]
-  %.350.i.i = phi i32 [ 1000000000, %.lr.ph52.preheader.i.i ], [ %.4.lcssa.i.i, %.loopexit.i.i ]
-  %.37349.i.i = phi i32 [ %.070.lcssa84.i.i98, %.lr.ph52.preheader.i.i ], [ %.474.lcssa.i.i, %.loopexit.i.i ]
-  %.37948.i.i = phi i32 [ %.076.lcssa83.i.i99, %.lr.ph52.preheader.i.i ], [ %.480.lcssa.i.i, %.loopexit.i.i ]
+.lr.ph52.i.i:                                     ; preds = %.lr.ph52.i.i.preheader, %.loopexit.i.i
+  %indvars.iv71.i.i = phi i64 [ %indvars.iv.next72.i.i, %.loopexit.i.i ], [ %indvars.iv71.i.i.ph, %.lr.ph52.i.i.preheader ]
+  %.350.i.i = phi i32 [ %.4.lcssa.i.i, %.loopexit.i.i ], [ 1000000000, %.lr.ph52.i.i.preheader ]
+  %.37349.i.i = phi i32 [ %.474.lcssa.i.i, %.loopexit.i.i ], [ %.37349.i.i.ph, %.lr.ph52.i.i.preheader ]
+  %.37948.i.i = phi i32 [ %.480.lcssa.i.i, %.loopexit.i.i ], [ %.37948.i.i.ph, %.lr.ph52.i.i.preheader ]
   %indvars.iv.next72.i.i = add nuw nsw i64 %indvars.iv71.i.i, 1
   %.not93.not37.i.i = icmp ult i64 %indvars.iv.next72.i.i, %494
   br i1 %.not93.not37.i.i, label %.lr.ph.i83.i, label %.loopexit.i.i

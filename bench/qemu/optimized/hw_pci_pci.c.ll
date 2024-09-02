@@ -332,7 +332,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.pci_vga_init = private unnamed_addr constant [9 x ptr] [ptr @.str.37, ptr @.str.35, ptr @.str.38, ptr @.str.35, ptr @.str.36, ptr @.str.35, ptr @.str.35, ptr @.str.35, ptr @.str.39], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @pci_bar(ptr nocapture noundef readonly %d, i32 noundef %reg) local_unnamed_addr #0 {
+define dso_local range(i32 16, 13) i32 @pci_bar(ptr nocapture noundef readonly %d, i32 noundef %reg) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %d, i64 2232
   %d.val = load ptr, ptr %0, align 8
@@ -679,8 +679,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i28
 
 pci_bar.exit.i:                                   ; preds = %if.end2.i.i, %if.then1.i.i
   %retval.0.i.i = phi i64 [ %25, %if.then1.i.i ], [ %cond.i.i, %if.end2.i.i ]
-  %idx.ext.i = and i64 %retval.0.i.i, 4294967295
-  %add.ptr.i = getelementptr i8, ptr %23, i64 %idx.ext.i
+  %add.ptr.i = getelementptr i8, ptr %23, i64 %retval.0.i.i
   %conv12.i = zext i8 %21 to i64
   store i64 %conv12.i, ptr %add.ptr.i, align 1
   br label %for.inc.i
@@ -711,8 +710,7 @@ if.end2.i23.i:                                    ; preds = %if.end.i17.i
 
 pci_bar.exit28.i:                                 ; preds = %if.end2.i23.i, %if.then1.i19.i
   %retval.0.i22.i = phi i64 [ %29, %if.then1.i19.i ], [ %cond.i27.i, %if.end2.i23.i ]
-  %idx.ext15.i = and i64 %retval.0.i22.i, 4294967295
-  %add.ptr16.i = getelementptr i8, ptr %23, i64 %idx.ext15.i
+  %add.ptr16.i = getelementptr i8, ptr %23, i64 %retval.0.i22.i
   store i32 %conv.i, ptr %add.ptr16.i, align 1
   br label %for.inc.i
 
@@ -3558,7 +3556,7 @@ pci_find_capability_list.exit:                    ; preds = %for.body.i, %for.in
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @pci_qdev_find_device(ptr noundef %id, ptr nocapture noundef writeonly %pdev) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @pci_qdev_find_device(ptr noundef %id, ptr nocapture noundef writeonly %pdev) local_unnamed_addr #0 {
 entry:
   %host_bridge.010 = load ptr, ptr @pci_host_bridges, align 8
   %tobool.not11 = icmp eq ptr %host_bridge.010, null

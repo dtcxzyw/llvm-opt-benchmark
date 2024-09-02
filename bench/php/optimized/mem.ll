@@ -382,14 +382,14 @@ define hidden i64 @lexbor_mem_chunk_length_noi(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @lexbor_mem_align_noi(i64 noundef %0) local_unnamed_addr #5 {
+define hidden noundef range(i64 0, -7) i64 @lexbor_mem_align_noi(i64 noundef %0) local_unnamed_addr #5 {
   %.biased.i = add i64 %0, 7
   %2 = and i64 %.biased.i, -8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @lexbor_mem_align_floor_noi(i64 noundef %0) local_unnamed_addr #5 {
+define hidden noundef range(i64 0, -7) i64 @lexbor_mem_align_floor_noi(i64 noundef %0) local_unnamed_addr #5 {
   %2 = and i64 %0, -8
   ret i64 %2
 }

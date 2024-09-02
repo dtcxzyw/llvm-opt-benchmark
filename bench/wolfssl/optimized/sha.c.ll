@@ -1460,7 +1460,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @wc_ShaGetHash(ptr noundef readonly %sha, ptr noundef %hash) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_ShaGetHash(ptr noundef readonly %sha, ptr noundef %hash) local_unnamed_addr #1 {
 entry:
   %tmpSha = alloca [1 x %struct.wc_Sha], align 16
   %cmp = icmp eq ptr %sha, null

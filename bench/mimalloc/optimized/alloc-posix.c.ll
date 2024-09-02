@@ -159,7 +159,7 @@ declare ptr @mi_reallocn(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mi_reallocarr(ptr noundef %p, i64 noundef %count, i64 noundef %size) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @mi_reallocarr(ptr noundef %p, i64 noundef %count, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %p, null
   br i1 %cmp, label %if.then, label %if.end

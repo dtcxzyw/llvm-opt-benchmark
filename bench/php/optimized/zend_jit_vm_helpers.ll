@@ -1140,7 +1140,7 @@ define hidden i32 @zend_jit_loop_trace_helper(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zend_jit_trace_execute(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 128) i32 @zend_jit_trace_execute(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca [14 x ptr], align 16
   %8 = load ptr, ptr %0, align 8
@@ -1233,7 +1233,7 @@ define hidden i32 @zend_jit_trace_execute(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not696, label %65, label %56
 
 56:                                               ; preds = %55
-  %57 = tail call fastcc i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %10, ptr noundef nonnull %2, i32 noundef 2, i32 noundef %4, i32 noundef 0)
+  %57 = tail call fastcc range(i32 -2147483647, -2147483648) i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %10, ptr noundef nonnull %2, i32 noundef 2, i32 noundef %4, i32 noundef 0)
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %59, label %65
 
@@ -2184,7 +2184,7 @@ zend_jit_trace_recursive_ret_count.exit:          ; preds = %.lr.ph.i822, %474
   br i1 %.not760, label %547, label %494
 
 494:                                              ; preds = %490
-  %495 = call fastcc i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %435, ptr noundef %2, i32 noundef %470, i32 noundef 0, i32 noundef 0)
+  %495 = call fastcc range(i32 -2147483647, -2147483648) i32 @zend_jit_trace_record_fake_init_call_ex(ptr noundef nonnull %435, ptr noundef %2, i32 noundef %470, i32 noundef 0, i32 noundef 0)
   %496 = icmp slt i32 %495, 0
   br i1 %496, label %zend_jit_trace_bad_stop_event.exit.thread, label %547
 
@@ -2815,7 +2815,7 @@ declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare i32 @zend_jit_trace_hot_root(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @zend_jit_trace_record_fake_init_call_ex(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @zend_jit_trace_record_fake_init_call_ex(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null

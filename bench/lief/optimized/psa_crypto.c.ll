@@ -7480,7 +7480,7 @@ define internal fastcc range(i32 0, 2) i32 @psa_key_algorithm_permits(i16 nounde
 
 switch.early.test:                                ; preds = %5
   %7 = and i32 %2, -512
-  switch i32 %7, label %.thread [
+  switch i32 %7, label %.critedge [
     i32 100664832, label %8
     i32 100664320, label %8
   ]
@@ -7496,7 +7496,7 @@ switch.early.test:                                ; preds = %5
 
 switch.early.test136:                             ; preds = %8
   %10 = and i32 %1, -512
-  switch i32 %10, label %.thread [
+  switch i32 %10, label %.critedge [
     i32 100664832, label %11
     i32 100664320, label %11
   ]
@@ -7504,13 +7504,13 @@ switch.early.test136:                             ; preds = %8
 11:                                               ; preds = %8, %8, %8, %8, %switch.early.test136, %switch.early.test136
   %12 = and i32 %1, 255
   %13 = icmp eq i32 %12, 255
-  br i1 %13, label %14, label %.thread
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %11
   %15 = icmp eq i32 %9, %6
   br label %psa_mac_key_can_do.exit
 
-.thread:                                          ; preds = %11, %switch.early.test136, %switch.early.test
+.critedge:                                        ; preds = %switch.early.test136, %switch.early.test, %11
   %16 = and i32 %1, 2130706432
   %17 = icmp eq i32 %16, 83886080
   %18 = and i32 %2, 2130706432
@@ -7518,7 +7518,7 @@ switch.early.test136:                             ; preds = %8
   %or.cond106 = and i1 %17, %19
   br i1 %or.cond106, label %20, label %31
 
-20:                                               ; preds = %.thread
+20:                                               ; preds = %.critedge
   %21 = xor i32 %2, %1
   %22 = and i32 %21, -2134867969
   %23 = icmp ne i32 %22, 0
@@ -7535,7 +7535,7 @@ switch.early.test136:                             ; preds = %8
   %30 = icmp ule i32 %27, %29
   br label %psa_mac_key_can_do.exit
 
-31:                                               ; preds = %.thread
+31:                                               ; preds = %.critedge
   %32 = icmp eq i32 %16, 50331648
   %33 = icmp eq i32 %18, 50331648
   %or.cond109 = and i1 %32, %33
@@ -7579,7 +7579,7 @@ switch.early.test136:                             ; preds = %8
   %53 = and i32 %2, 62914560
   switch i32 %53, label %67 [
     i32 58720256, label %54
-    i32 62914560, label %.thread148
+    i32 62914560, label %.thread144
   ]
 
 54:                                               ; preds = %52
@@ -7591,9 +7591,9 @@ switch.early.test136:                             ; preds = %8
 57:                                               ; preds = %switch.hole_check, %54
   %58 = icmp eq i32 %55, 33554451
   %59 = select i1 %58, i32 64, i32 0
-  br label %.thread146
+  br label %.thread
 
-.thread148:                                       ; preds = %52
+.thread144:                                       ; preds = %52
   %60 = zext i16 %0 to i32
   %61 = and i32 %60, 28672
   %62 = icmp eq i32 %61, 8192
@@ -7607,7 +7607,7 @@ switch.early.test136:                             ; preds = %8
   %.pre-phi = phi i32 [ %.pre, %50 ], [ %53, %52 ]
   %68 = phi i32 [ %51, %50 ], [ 0, %52 ]
   switch i32 %.pre-phi, label %84 [
-    i32 58720256, label %.thread146
+    i32 58720256, label %.thread
     i32 62914560, label %75
   ]
 
@@ -7621,9 +7621,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %69 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.26, i64 0, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %.thread146
+  br label %.thread
 
-.thread146:                                       ; preds = %switch.lookup, %57, %67
+.thread:                                          ; preds = %switch.lookup, %57, %67
   %70 = phi i32 [ %68, %67 ], [ %59, %57 ], [ %switch.load, %switch.lookup ]
   %71 = and i32 %2, 33554687
   switch i32 %71, label %72 [
@@ -7641,13 +7641,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
     i32 33554450, label %.fold.split130
   ]
 
-72:                                               ; preds = %.thread146
+72:                                               ; preds = %.thread
   %73 = icmp eq i32 %71, 33554451
   %74 = select i1 %73, i32 64, i32 0
   br label %84
 
-75:                                               ; preds = %.thread148, %67
-  %76 = phi i32 [ %66, %.thread148 ], [ %68, %67 ]
+75:                                               ; preds = %.thread144, %67
+  %76 = phi i32 [ %66, %.thread144 ], [ %68, %67 ]
   %77 = zext i16 %0 to i32
   %78 = and i32 %77, 28672
   %79 = icmp eq i32 %78, 8192
@@ -7657,42 +7657,42 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %83 = select i1 %79, i32 %82, i32 0
   br label %84
 
-.fold.split120:                                   ; preds = %.thread146
+.fold.split120:                                   ; preds = %.thread
   br label %84
 
-.fold.split121:                                   ; preds = %.thread146
+.fold.split121:                                   ; preds = %.thread
   br label %84
 
-.fold.split122:                                   ; preds = %.thread146
+.fold.split122:                                   ; preds = %.thread
   br label %84
 
-.fold.split123:                                   ; preds = %.thread146
+.fold.split123:                                   ; preds = %.thread
   br label %84
 
-.fold.split124:                                   ; preds = %.thread146
+.fold.split124:                                   ; preds = %.thread
   br label %84
 
-.fold.split125:                                   ; preds = %.thread146
+.fold.split125:                                   ; preds = %.thread
   br label %84
 
-.fold.split126:                                   ; preds = %.thread146
+.fold.split126:                                   ; preds = %.thread
   br label %84
 
-.fold.split127:                                   ; preds = %.thread146
+.fold.split127:                                   ; preds = %.thread
   br label %84
 
-.fold.split128:                                   ; preds = %.thread146
+.fold.split128:                                   ; preds = %.thread
   br label %84
 
-.fold.split129:                                   ; preds = %.thread146
+.fold.split129:                                   ; preds = %.thread
   br label %84
 
-.fold.split130:                                   ; preds = %.thread146
+.fold.split130:                                   ; preds = %.thread
   br label %84
 
-84:                                               ; preds = %67, %.thread146, %.fold.split130, %.fold.split129, %.fold.split128, %.fold.split127, %.fold.split126, %.fold.split125, %.fold.split124, %.fold.split123, %.fold.split122, %.fold.split121, %.fold.split120, %72, %75
-  %85 = phi i32 [ %70, %.thread146 ], [ %70, %72 ], [ %76, %75 ], [ %70, %.fold.split120 ], [ %70, %.fold.split121 ], [ %70, %.fold.split122 ], [ %70, %.fold.split123 ], [ %70, %.fold.split124 ], [ %70, %.fold.split125 ], [ %70, %.fold.split126 ], [ %70, %.fold.split127 ], [ %70, %.fold.split128 ], [ %70, %.fold.split129 ], [ %70, %.fold.split130 ], [ %68, %67 ]
-  %86 = phi i32 [ 16, %.thread146 ], [ %74, %72 ], [ %83, %75 ], [ 20, %.fold.split120 ], [ 20, %.fold.split121 ], [ 28, %.fold.split122 ], [ 32, %.fold.split123 ], [ 48, %.fold.split124 ], [ 64, %.fold.split125 ], [ 28, %.fold.split126 ], [ 32, %.fold.split127 ], [ 28, %.fold.split128 ], [ 32, %.fold.split129 ], [ 48, %.fold.split130 ], [ 0, %67 ]
+84:                                               ; preds = %67, %.thread, %.fold.split130, %.fold.split129, %.fold.split128, %.fold.split127, %.fold.split126, %.fold.split125, %.fold.split124, %.fold.split123, %.fold.split122, %.fold.split121, %.fold.split120, %72, %75
+  %85 = phi i32 [ %70, %.thread ], [ %70, %72 ], [ %76, %75 ], [ %70, %.fold.split120 ], [ %70, %.fold.split121 ], [ %70, %.fold.split122 ], [ %70, %.fold.split123 ], [ %70, %.fold.split124 ], [ %70, %.fold.split125 ], [ %70, %.fold.split126 ], [ %70, %.fold.split127 ], [ %70, %.fold.split128 ], [ %70, %.fold.split129 ], [ %70, %.fold.split130 ], [ %68, %67 ]
+  %86 = phi i32 [ 16, %.thread ], [ %74, %72 ], [ %83, %75 ], [ 20, %.fold.split120 ], [ 20, %.fold.split121 ], [ 28, %.fold.split122 ], [ 32, %.fold.split123 ], [ 48, %.fold.split124 ], [ 64, %.fold.split125 ], [ 28, %.fold.split126 ], [ 32, %.fold.split127 ], [ 28, %.fold.split128 ], [ 32, %.fold.split129 ], [ 48, %.fold.split130 ], [ 0, %67 ]
   %87 = lshr i32 %1, 16
   %88 = and i32 %87, 63
   %89 = icmp eq i32 %88, 0
@@ -7774,7 +7774,7 @@ define internal fastcc i32 @psa_key_policy_algorithm_intersection(i16 noundef ze
 
 switch.early.test:                                ; preds = %5
   %7 = and i32 %1, -512
-  switch i32 %7, label %.thread218 [
+  switch i32 %7, label %.critedge182 [
     i32 100664832, label %8
     i32 100664320, label %8
   ]
@@ -7794,65 +7794,65 @@ switch.early.test:                                ; preds = %5
   %or.cond162 = or i1 %13, %11
   %14 = icmp eq i32 %6, %9
   %or.cond163 = and i1 %14, %or.cond162
-  br i1 %or.cond163, label %16, label %.thread218
+  br i1 %or.cond163, label %16, label %.critedge182
 
 15:                                               ; preds = %8, %8, %8
   %.old = icmp eq i32 %6, %9
-  br i1 %.old, label %16, label %.thread218
+  br i1 %.old, label %16, label %.critedge182
 
 16:                                               ; preds = %10, %15
-  switch i32 %6, label %switch.early.test214 [
+  switch i32 %6, label %switch.early.test216 [
     i32 100668160, label %18
     i32 100664064, label %18
     i32 100663808, label %18
     i32 100665600, label %18
   ]
 
-switch.early.test214:                             ; preds = %16
+switch.early.test216:                             ; preds = %16
   %17 = and i32 %1, -512
-  switch i32 %17, label %.thread [
+  switch i32 %17, label %.critedge [
     i32 100664832, label %18
     i32 100664320, label %18
   ]
 
-18:                                               ; preds = %16, %16, %16, %16, %switch.early.test214, %switch.early.test214
+18:                                               ; preds = %16, %16, %16, %16, %switch.early.test216, %switch.early.test216
   %19 = and i32 %1, 255
   %20 = icmp eq i32 %19, 255
-  br i1 %20, label %psa_mac_key_can_do.exit, label %.thread
+  br i1 %20, label %psa_mac_key_can_do.exit, label %.critedge
 
-.thread:                                          ; preds = %18, %switch.early.test214
-  switch i32 %9, label %switch.early.test215 [
+.critedge:                                        ; preds = %switch.early.test216, %18
+  switch i32 %9, label %switch.early.test217 [
     i32 100668160, label %22
     i32 100664064, label %22
     i32 100663808, label %22
     i32 100665600, label %22
   ]
 
-switch.early.test215:                             ; preds = %.thread
+switch.early.test217:                             ; preds = %.critedge
   %21 = and i32 %2, -512
-  switch i32 %21, label %.thread218 [
+  switch i32 %21, label %.critedge182 [
     i32 100664832, label %22
     i32 100664320, label %22
   ]
 
-22:                                               ; preds = %.thread, %.thread, %.thread, %.thread, %switch.early.test215, %switch.early.test215
+22:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %switch.early.test217, %switch.early.test217
   %23 = and i32 %2, 255
   %24 = icmp eq i32 %23, 255
-  br i1 %24, label %psa_mac_key_can_do.exit, label %.thread218
+  br i1 %24, label %psa_mac_key_can_do.exit, label %.critedge182
 
-.thread218:                                       ; preds = %22, %switch.early.test215, %switch.early.test, %10, %15
+.critedge182:                                     ; preds = %switch.early.test217, %switch.early.test, %10, %22, %15
   %25 = and i32 %1, 2130706432
   %26 = icmp eq i32 %25, 83886080
   %27 = and i32 %2, 2130706432
   %28 = icmp eq i32 %27, 83886080
-  %or.cond183 = and i1 %26, %28
-  br i1 %or.cond183, label %29, label %48
+  %or.cond185 = and i1 %26, %28
+  br i1 %or.cond185, label %29, label %48
 
-29:                                               ; preds = %.thread218
+29:                                               ; preds = %.critedge182
   %30 = and i32 %1, -2050981889
   %31 = and i32 %2, -2050981889
   %32 = icmp eq i32 %30, %31
-  br i1 %32, label %33, label %.thread220
+  br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %29
   %34 = lshr i32 %1, 16
@@ -7863,8 +7863,8 @@ switch.early.test215:                             ; preds = %.thread
   %.not144 = icmp eq i32 %38, 0
   %39 = and i32 %1, 32768
   %40 = and i32 %39, %2
-  %or.cond185.not.not = icmp eq i32 %40, 0
-  br i1 %or.cond185.not.not, label %46, label %41
+  %or.cond187.not.not = icmp eq i32 %40, 0
+  br i1 %or.cond187.not.not, label %46, label %41
 
 41:                                               ; preds = %33
   %42 = tail call i32 @llvm.umax.i32(i32 %35, i32 %37)
@@ -7876,22 +7876,22 @@ switch.early.test215:                             ; preds = %.thread
 46:                                               ; preds = %33
   %.not143 = icmp eq i32 %39, 0
   %.not145 = icmp ugt i32 %35, %37
-  %or.cond186 = or i1 %.not143, %.not145
-  br i1 %or.cond186, label %47, label %psa_mac_key_can_do.exit
+  %or.cond188 = or i1 %.not143, %.not145
+  br i1 %or.cond188, label %47, label %psa_mac_key_can_do.exit
 
 47:                                               ; preds = %46
   %.not147 = icmp ugt i32 %37, %35
-  %or.cond187 = or i1 %.not144, %.not147
-  br i1 %or.cond187, label %.thread220, label %psa_mac_key_can_do.exit
+  %or.cond189 = or i1 %.not144, %.not147
+  br i1 %or.cond189, label %.thread, label %psa_mac_key_can_do.exit
 
-.thread220:                                       ; preds = %47, %29
+.thread:                                          ; preds = %47, %29
   br label %psa_mac_key_can_do.exit
 
-48:                                               ; preds = %.thread218
+48:                                               ; preds = %.critedge182
   %49 = icmp eq i32 %25, 50331648
   %50 = icmp eq i32 %27, 50331648
-  %or.cond190 = and i1 %49, %50
-  br i1 %or.cond190, label %51, label %psa_mac_key_can_do.exit
+  %or.cond192 = and i1 %49, %50
+  br i1 %or.cond192, label %51, label %psa_mac_key_can_do.exit
 
 51:                                               ; preds = %48
   %52 = and i32 %1, -2084536321
@@ -7984,11 +7984,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 92:                                               ; preds = %90
   %93 = and i32 %2, 33554687
-  %switch.tableidx229 = add nsw i32 %93, -33554435
-  %94 = icmp ult i32 %switch.tableidx229, 16
-  br i1 %94, label %switch.hole_check230, label %95
+  %switch.tableidx222 = add nsw i32 %93, -33554435
+  %94 = icmp ult i32 %switch.tableidx222, 16
+  br i1 %94, label %switch.hole_check223, label %95
 
-95:                                               ; preds = %switch.hole_check230, %92
+95:                                               ; preds = %switch.hole_check223, %92
   %96 = icmp eq i32 %93, 33554451
   %97 = select i1 %96, i32 64, i32 0
   br label %107
@@ -8003,26 +8003,26 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %105 = select i1 %101, i32 %104, i32 0
   br label %107
 
-switch.hole_check230:                             ; preds = %92
-  %switch.maskindex232 = trunc nuw i32 %switch.tableidx229 to i16
-  %switch.shifted233 = lshr i16 -6169, %switch.maskindex232
-  %switch.lobit234 = trunc i16 %switch.shifted233 to i1
-  br i1 %switch.lobit234, label %switch.lookup231, label %95
+switch.hole_check223:                             ; preds = %92
+  %switch.maskindex225 = trunc nuw i32 %switch.tableidx222 to i16
+  %switch.shifted226 = lshr i16 -6169, %switch.maskindex225
+  %switch.lobit227 = trunc i16 %switch.shifted226 to i1
+  br i1 %switch.lobit227, label %switch.lookup224, label %95
 
-switch.lookup231:                                 ; preds = %switch.hole_check230
-  %106 = zext nneg i32 %switch.tableidx229 to i64
-  %switch.gep235 = getelementptr inbounds [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.26, i64 0, i64 %106
-  %switch.load236 = load i32, ptr %switch.gep235, align 4
+switch.lookup224:                                 ; preds = %switch.hole_check223
+  %106 = zext nneg i32 %switch.tableidx222 to i64
+  %switch.gep228 = getelementptr inbounds [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.26, i64 0, i64 %106
+  %switch.load229 = load i32, ptr %switch.gep228, align 4
   br label %107
 
-107:                                              ; preds = %switch.lookup231, %90, %95, %98, %88
-  %108 = phi i32 [ %89, %88 ], [ %97, %95 ], [ %105, %98 ], [ 0, %90 ], [ %switch.load236, %switch.lookup231 ]
+107:                                              ; preds = %switch.lookup224, %90, %95, %98, %88
+  %108 = phi i32 [ %89, %88 ], [ %97, %95 ], [ %105, %98 ], [ 0, %90 ], [ %switch.load229, %switch.lookup224 ]
   %109 = and i32 %2, 32768
   %.not152 = icmp eq i32 %109, 0
   %110 = and i32 %1, 32768
   %111 = and i32 %110, %2
-  %or.cond213.not.not = icmp eq i32 %111, 0
-  br i1 %or.cond213.not.not, label %118, label %112
+  %or.cond215.not.not = icmp eq i32 %111, 0
+  br i1 %or.cond215.not.not, label %118, label %112
 
 112:                                              ; preds = %107
   %113 = tail call i32 @llvm.umax.i32(i32 %86, i32 %108)
@@ -8059,8 +8059,8 @@ switch.lookup231:                                 ; preds = %switch.hole_check23
   %129 = or disjoint i32 %128, %52
   br label %psa_mac_key_can_do.exit
 
-psa_mac_key_can_do.exit:                          ; preds = %22, %18, %59, %.thread220, %48, %51, %124, %47, %46, %3, %126, %122, %119, %112, %41
-  %.0 = phi i32 [ %45, %41 ], [ %117, %112 ], [ %120, %119 ], [ %123, %122 ], [ %129, %126 ], [ %1, %3 ], [ %2, %46 ], [ %1, %47 ], [ 0, %124 ], [ 0, %51 ], [ 0, %48 ], [ 0, %.thread220 ], [ 0, %59 ], [ %2, %18 ], [ %1, %22 ]
+psa_mac_key_can_do.exit:                          ; preds = %59, %.thread, %48, %51, %124, %47, %46, %22, %18, %3, %126, %122, %119, %112, %41
+  %.0 = phi i32 [ %45, %41 ], [ %117, %112 ], [ %120, %119 ], [ %123, %122 ], [ %129, %126 ], [ %1, %3 ], [ %2, %18 ], [ %1, %22 ], [ %2, %46 ], [ %1, %47 ], [ 0, %124 ], [ 0, %51 ], [ 0, %48 ], [ 0, %.thread ], [ 0, %59 ]
   ret i32 %.0
 }
 

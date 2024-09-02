@@ -3177,20 +3177,20 @@ land.rhs.preheader:                               ; preds = %land.rhs.preheader.
   %27 = phi i32 [ 0, %land.rhs.preheader.lr.ph ], [ %.old, %while.cond.backedge ]
   %destIdx.2283 = phi i32 [ %destIdx.1, %land.rhs.preheader.lr.ph ], [ %destIdx.2.be, %while.cond.backedge ]
   %.pre304 = load i32, ptr %status, align 4
+  %28 = icmp sgt i32 %.pre304, 0
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %if.end348
-  %28 = phi i32 [ %73, %if.end348 ], [ %27, %land.rhs.preheader ]
-  %29 = phi i32 [ %72, %if.end348 ], [ %.pre304, %land.rhs.preheader ]
+  %29 = phi i32 [ %73, %if.end348 ], [ %27, %land.rhs.preheader ]
+  %cmp.i168 = phi i1 [ false, %if.end348 ], [ %28, %land.rhs.preheader ]
   %destIdx.3 = phi i32 [ %add344, %if.end348 ], [ %destIdx.2283, %land.rhs.preheader ]
-  %cmp.i168 = icmp sgt i32 %29, 0
   br i1 %cmp.i168, label %while.end353, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %idxprom63 = sext i32 %28 to i64
+  %idxprom63 = sext i32 %29 to i64
   %arrayidx64 = getelementptr inbounds i16, ptr %replacementText, i64 %idxprom63
   %30 = load i16, ptr %arrayidx64, align 2
-  %inc65 = add nsw i32 %28, 1
+  %inc65 = add nsw i32 %29, 1
   store i32 %inc65, ptr %replIdx, align 4
   switch i16 %30, label %if.then71 [
     i16 92, label %if.then75
@@ -3314,7 +3314,7 @@ do.body:                                          ; preds = %if.end101
   br i1 %or.cond255, label %if.then112, label %if.end144
 
 if.then112:                                       ; preds = %do.body
-  %add113 = add nsw i32 %28, 2
+  %add113 = add nsw i32 %29, 2
   %cmp114.not = icmp eq i32 %add113, %replacementLength.addr.0
   br i1 %cmp114.not, label %if.end144, label %land.lhs.true115
 
@@ -4288,6 +4288,7 @@ if.end38.i:                                       ; preds = %if.else30.i
 uregex_group_75.exitthread-pre-split:             ; preds = %if.end38.i, %if.then24.i, %if.end22.i
   %retval.0.i.ph = phi i32 [ %sub.i, %if.end22.i ], [ %sub.i, %if.then24.i ], [ %call41.i, %if.end38.i ]
   %.pr = load i32, ptr %tStatus, align 4
+  %28 = add nsw i32 %retval.0.i.ph, 1
   br label %uregex_group_75.exit
 
 uregex_group_75.exit.thread:                      ; preds = %if.end.i, %if.end.i.i, %land.lhs.true6.i.i
@@ -4297,11 +4298,10 @@ uregex_group_75.exit.thread:                      ; preds = %if.end.i, %if.end.i
   br label %if.else86
 
 uregex_group_75.exit:                             ; preds = %uregex_group_75.exitthread-pre-split, %if.then9.i, %if.else30.i
-  %28 = phi i32 [ %.pr, %uregex_group_75.exitthread-pre-split ], [ %23, %if.then9.i ], [ %26, %if.else30.i ]
-  %retval.0.i = phi i32 [ %retval.0.i.ph, %uregex_group_75.exitthread-pre-split ], [ 0, %if.then9.i ], [ 0, %if.else30.i ]
-  %add82 = add i32 %destIdx.3127, 1
-  %add83 = add i32 %add82, %retval.0.i
-  %cmp84 = icmp eq i32 %28, 15
+  %29 = phi i32 [ %.pr, %uregex_group_75.exitthread-pre-split ], [ %23, %if.then9.i ], [ %26, %if.else30.i ]
+  %retval.0.i = phi i32 [ %28, %uregex_group_75.exitthread-pre-split ], [ 1, %if.then9.i ], [ 1, %if.else30.i ]
+  %add83 = add nsw i32 %retval.0.i, %destIdx.3127
+  %cmp84 = icmp eq i32 %29, 15
   br i1 %cmp84, label %if.then85, label %if.else86
 
 if.then85:                                        ; preds = %uregex_group_75.exit
@@ -4310,31 +4310,31 @@ if.then85:                                        ; preds = %uregex_group_75.exi
 
 if.else86:                                        ; preds = %uregex_group_75.exit.thread, %uregex_group_75.exit
   %add83109 = phi i32 [ %add83106, %uregex_group_75.exit.thread ], [ %add83, %uregex_group_75.exit ]
-  %29 = phi i32 [ %.ph, %uregex_group_75.exit.thread ], [ %28, %uregex_group_75.exit ]
-  store i32 %29, ptr %status, align 4
+  %30 = phi i32 [ %.ph, %uregex_group_75.exit.thread ], [ %29, %uregex_group_75.exit ]
+  store i32 %30, ptr %status, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then85, %if.else86
   %add83108 = phi i32 [ %add83, %if.then85 ], [ %add83109, %if.else86 ]
   %inc88 = add nuw nsw i32 %groupNum.0128, 1
   %cmp63.not = icmp sge i32 %groupNum.0128, %call4
-  %30 = trunc nsw i64 %indvars.iv.next to i32
-  %cmp65 = icmp eq i32 %sub, %30
+  %31 = trunc nsw i64 %indvars.iv.next to i32
+  %cmp65 = icmp eq i32 %sub, %31
   %or.cond = or i1 %cmp65, %cmp63.not
   br i1 %or.cond, label %for.end, label %if.end.i.i, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %if.end60
-  %i.3.lcssa = phi i32 [ %sub, %if.end60 ], [ %30, %for.inc ]
+  %i.3.lcssa = phi i32 [ %sub, %if.end60 ], [ %31, %for.inc ]
   %destIdx.3.lcssa = phi i32 [ %add57, %if.end60 ], [ %add83108, %for.inc ]
   %cmp89 = icmp eq i64 %17, %3
   br i1 %cmp89, label %if.then90, label %for.inc131
 
 if.then90.loopexit:                               ; preds = %if.end60.us
-  %31 = trunc nuw nsw i64 %indvars.iv244 to i32
+  %32 = trunc nuw nsw i64 %indvars.iv244 to i32
   br label %if.then90
 
 if.then90:                                        ; preds = %for.end, %if.then90.loopexit
-  %.us-phi146 = phi i32 [ %31, %if.then90.loopexit ], [ %i.3.lcssa, %for.end ]
+  %.us-phi146 = phi i32 [ %32, %if.then90.loopexit ], [ %i.3.lcssa, %for.end ]
   %.us-phi147 = phi i32 [ %add57.us, %if.then90.loopexit ], [ %destIdx.3.lcssa, %for.end ]
   %cmp91 = icmp slt i32 %.us-phi147, %destCapacity
   br i1 %cmp91, label %if.then102, label %if.end95
@@ -4363,11 +4363,11 @@ if.end105:                                        ; preds = %if.end95, %if.then1
   br label %for.end133
 
 if.else108.loopexit:                              ; preds = %if.end32.us
-  %32 = trunc nuw nsw i64 %indvars.iv244 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv244 to i32
   br label %if.else108
 
 if.else108:                                       ; preds = %if.end32, %if.else108.loopexit
-  %.us-phi142 = phi i32 [ %32, %if.else108.loopexit ], [ %i.0135, %if.end32 ]
+  %.us-phi142 = phi i32 [ %33, %if.else108.loopexit ], [ %i.0135, %if.end32 ]
   %.us-phi143 = phi i32 [ %destIdx.0136.us, %if.else108.loopexit ], [ %destIdx.0136, %if.end32 ]
   %.us-phi144 = phi i64 [ %nextOutputStringStart.0137.us, %if.else108.loopexit ], [ %nextOutputStringStart.0137, %if.end32 ]
   %idxprom112 = sext i32 %.us-phi143 to i64
@@ -4396,16 +4396,16 @@ for.end133:                                       ; preds = %if.then6, %if.end14
   br i1 %cmp136202, label %for.body137.preheader, label %for.end142
 
 for.body137.preheader:                            ; preds = %for.end133
-  %33 = sext i32 %i.2 to i64
-  %34 = shl nsw i64 %33, 3
-  %35 = getelementptr i8, ptr %destFields, i64 %34
-  %scevgep = getelementptr i8, ptr %35, i64 8
-  %36 = add nsw i32 %destFieldsCapacity, -2
-  %37 = sub i32 %36, %i.2
-  %38 = zext i32 %37 to i64
-  %39 = shl nuw nsw i64 %38, 3
-  %40 = add nuw nsw i64 %39, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %40, i1 false)
+  %34 = sext i32 %i.2 to i64
+  %35 = shl nsw i64 %34, 3
+  %36 = getelementptr i8, ptr %destFields, i64 %35
+  %scevgep = getelementptr i8, ptr %36, i64 8
+  %37 = add nsw i32 %destFieldsCapacity, -2
+  %38 = sub i32 %37, %i.2
+  %39 = zext i32 %38 to i64
+  %40 = shl nuw nsw i64 %39, 3
+  %41 = add nuw nsw i64 %40, 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %41, i1 false)
   br label %for.end142
 
 for.end142:                                       ; preds = %for.body137.preheader, %for.end133

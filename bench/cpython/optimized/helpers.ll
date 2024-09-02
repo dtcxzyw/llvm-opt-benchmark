@@ -951,7 +951,7 @@ entry:
   br i1 %tobool.not17, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %1 = phi i8 [ %8, %for.inc ], [ %0, %entry ]
+  %1 = phi i8 [ %9, %for.inc ], [ %0, %entry ]
   %c.018 = phi ptr [ %add.ptr, %for.inc ], [ %line, %entry ]
   %cmp.i = icmp sgt i8 %1, -1
   br i1 %cmp.i, label %for.inc, label %if.else.i
@@ -1013,7 +1013,7 @@ if.end55.i:                                       ; preds = %cond.false.i, %cond
 for.cond.i:                                       ; preds = %for.body.i
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %6 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %6, label %for.inc, label %for.body.i, !llvm.loop !12
+  br i1 %6, label %for.inc.loopexit, label %for.body.i, !llvm.loop !12
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end55.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond.i ], [ %5, %if.end55.i ]
@@ -1022,22 +1022,25 @@ for.body.i:                                       ; preds = %for.cond.i, %if.end
   %or.cond.i = icmp sgt i8 %7, -65
   br i1 %or.cond.i, label %if.then3, label %for.cond.i
 
-for.inc:                                          ; preds = %for.cond.i, %for.body
-  %retval.0.i = phi i32 [ 1, %for.body ], [ %add.i, %for.cond.i ]
-  %idx.ext = zext nneg i32 %retval.0.i to i64
-  %add.ptr = getelementptr i8, ptr %c.018, i64 %idx.ext
-  %8 = load i8, ptr %add.ptr, align 1
-  %tobool.not = icmp eq i8 %8, 0
+for.inc.loopexit:                                 ; preds = %for.cond.i
+  %8 = zext nneg i32 %add.i to i64
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.inc.loopexit, %for.body
+  %retval.0.i = phi i64 [ 1, %for.body ], [ %8, %for.inc.loopexit ]
+  %add.ptr = getelementptr i8, ptr %c.018, i64 %retval.0.i
+  %9 = load i8, ptr %add.ptr, align 1
+  %tobool.not = icmp eq i8 %9, 0
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !13
 
 if.then3:                                         ; preds = %if.then5.i, %if.else34.i, %land.lhs.true.i, %land.lhs.true26.i, %cond.false.i, %cond.true.i, %for.body.i
   %conv13 = zext i8 %1 to i32
-  %9 = load ptr, ptr @PyExc_SyntaxError, align 8
+  %10 = load ptr, ptr @PyExc_SyntaxError, align 8
   %filename = getelementptr inbounds i8, ptr %tok, i64 2336
-  %10 = load ptr, ptr %filename, align 8
+  %11 = load ptr, ptr %filename, align 8
   %lineno = getelementptr inbounds i8, ptr %tok, i64 512
-  %11 = load i32, ptr %lineno, align 8
-  %call4 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %9, ptr noundef nonnull @.str.5, i32 noundef %conv13, ptr noundef %10, i32 noundef %11) #9
+  %12 = load i32, ptr %lineno, align 8
+  %call4 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.5, i32 noundef %conv13, ptr noundef %11, i32 noundef %12) #9
   br label %return
 
 return:                                           ; preds = %for.inc, %entry, %if.then3

@@ -779,8 +779,8 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %2 = load i32, ptr %status, align 4
-  %cmp.i31 = icmp slt i32 %2, 1
-  br i1 %cmp.i31, label %invoke.cont14, label %cleanup69
+  %cmp.i32 = icmp slt i32 %2, 1
+  br i1 %cmp.i32, label %invoke.cont14, label %cleanup69
 
 lpad:                                             ; preds = %_ZN6icu_755units15ConversionRatesC2ER10UErrorCode.exit
   %3 = landingpad { ptr, i32 }
@@ -816,27 +816,27 @@ invoke.cont14:                                    ; preds = %invoke.cont7
 
 invoke.cont17:                                    ; preds = %invoke.cont14
   %10 = load i32, ptr %unitPrefs, align 8
-  %cmp134 = icmp sgt i32 %10, 0
-  br i1 %cmp134, label %invoke.cont21.lr.ph, label %for.end.i.i
+  %cmp177 = icmp sgt i32 %10, 0
+  br i1 %cmp177, label %invoke.cont21.lr.ph, label %for.end.i.i
 
 invoke.cont21.lr.ph:                              ; preds = %invoke.cont17
   %fPool.i = getelementptr inbounds i8, ptr %unitPrefs, i64 8
   %11 = getelementptr inbounds i8, ptr %agg.tmp23, i64 8
   %fUnion.i = getelementptr inbounds i8, ptr %precision, i64 8
-  %identifier.i = getelementptr inbounds i8, ptr %ref.tmp50, i64 96
-  %singleUnits.i = getelementptr inbounds i8, ptr %ref.tmp50, i64 8
-  %fPool.i.i.i38 = getelementptr inbounds i8, ptr %ref.tmp50, i64 16
-  %needToRelease.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp50, i64 28
+  %identifier.i41 = getelementptr inbounds i8, ptr %ref.tmp50, i64 96
+  %singleUnits.i42 = getelementptr inbounds i8, ptr %ref.tmp50, i64 8
+  %fPool.i.i.i51 = getelementptr inbounds i8, ptr %ref.tmp50, i64 16
+  %needToRelease.i.i.i.i.i45 = getelementptr inbounds i8, ptr %ref.tmp50, i64 28
   %converterPreferences_ = getelementptr inbounds i8, ptr %this, i64 88
-  %identifier.i49 = getelementptr inbounds i8, ptr %complexTargetUnitImpl, i64 96
-  %singleUnits.i50 = getelementptr inbounds i8, ptr %complexTargetUnitImpl, i64 8
-  %fPool.i.i.i59 = getelementptr inbounds i8, ptr %complexTargetUnitImpl, i64 16
-  %needToRelease.i.i.i.i.i53 = getelementptr inbounds i8, ptr %complexTargetUnitImpl, i64 28
+  %identifier.i71 = getelementptr inbounds i8, ptr %complexTargetUnitImpl, i64 96
+  %singleUnits.i72 = getelementptr inbounds i8, ptr %complexTargetUnitImpl, i64 8
+  %fPool.i.i.i81 = getelementptr inbounds i8, ptr %complexTargetUnitImpl, i64 16
+  %needToRelease.i.i.i.i.i75 = getelementptr inbounds i8, ptr %complexTargetUnitImpl, i64 28
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit69, %invoke.cont21.lr.ph
-  %indvars.iv = phi i64 [ 0, %invoke.cont21.lr.ph ], [ %indvars.iv.next, %_ZN6icu_7515MeasureUnitImplD2Ev.exit69 ]
+invoke.cont21:                                    ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit91, %invoke.cont21.lr.ph
+  %indvars.iv = phi i64 [ 0, %invoke.cont21.lr.ph ], [ %indvars.iv.next, %_ZN6icu_7515MeasureUnitImplD2Ev.exit91 ]
   %12 = load ptr, ptr %fPool.i, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
   %13 = load ptr, ptr %arrayidx.i.i, align 8
@@ -853,8 +853,8 @@ invoke.cont26:                                    ; preds = %invoke.cont21
 
 invoke.cont27:                                    ; preds = %invoke.cont26
   %17 = load i32, ptr %status, align 4
-  %cmp.i33 = icmp slt i32 %17, 1
-  br i1 %cmp.i33, label %if.end33, label %cleanup65
+  %cmp.i34 = icmp slt i32 %17, 1
+  br i1 %cmp.i34, label %if.end33, label %cleanup67.critedge
 
 lpad18:                                           ; preds = %invoke.cont26, %invoke.cont21
   %18 = landingpad { ptr, i32 }
@@ -873,29 +873,71 @@ if.end33:                                         ; preds = %invoke.cont27
 
 invoke.cont34:                                    ; preds = %if.end33
   %20 = load i16, ptr %fUnion.i, align 8
-  %cmp.i35 = icmp ugt i16 %20, 31
-  br i1 %cmp.i35, label %land.rhs, label %if.end49
+  %cmp.i36 = icmp ugt i16 %20, 31
+  br i1 %cmp.i36, label %land.rhs, label %if.end49
 
 land.rhs:                                         ; preds = %invoke.cont34
-  %call5.i36 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %precision, i32 noundef 0, i32 noundef 19, ptr noundef nonnull @.str.1, i32 noundef 0, i32 noundef 19)
+  %call5.i37 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %precision, i32 noundef 0, i32 noundef 19, ptr noundef nonnull @.str.1, i32 noundef 0, i32 noundef 19)
           to label %cleanup.done unwind label %lpad41
 
 cleanup.done:                                     ; preds = %land.rhs
-  %tobool44.not = icmp eq i8 %call5.i36, 0
+  %tobool44.not = icmp eq i8 %call5.i37, 0
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1) #11, !srcloc !4
   br i1 %tobool44.not, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %cleanup.done
   store i32 5, ptr %status, align 4
-  br label %cleanup
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %precision) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i71) #11
+  %21 = load i32, ptr %singleUnits.i72, align 8
+  %cmp3.i.i.i = icmp sgt i32 %21, 0
+  br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
 
-lpad35:                                           ; preds = %if.end.i.i42, %if.end49
-  %21 = landingpad { ptr, i32 }
+for.body.i.i.i:                                   ; preds = %if.then48, %for.inc.i.i.i
+  %22 = phi i32 [ %25, %for.inc.i.i.i ], [ %21, %if.then48 ]
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ], [ 0, %if.then48 ]
+  %23 = load ptr, ptr %fPool.i.i.i81, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.i.i.i
+  %24 = load ptr, ptr %arrayidx.i.i.i.i, align 8
+  %isnull.i.i.i = icmp eq ptr %24, null
+  br i1 %isnull.i.i.i, label %for.inc.i.i.i, label %delete.notnull.i.i.i
+
+delete.notnull.i.i.i:                             ; preds = %for.body.i.i.i
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %24) #11
+  %.pre.i.i.i = load i32, ptr %singleUnits.i72, align 8
+  br label %for.inc.i.i.i
+
+for.inc.i.i.i:                                    ; preds = %delete.notnull.i.i.i, %for.body.i.i.i
+  %25 = phi i32 [ %22, %for.body.i.i.i ], [ %.pre.i.i.i, %delete.notnull.i.i.i ]
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %26 = sext i32 %25 to i64
+  %cmp.i.i.i = icmp slt i64 %indvars.iv.next.i.i.i, %26
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !5
+
+for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %if.then48
+  %27 = load i8, ptr %needToRelease.i.i.i.i.i75, align 4
+  %tobool.not.i.i.i.i.i = icmp eq i8 %27, 0
+  br i1 %tobool.not.i.i.i.i.i, label %cleanup67, label %if.then.i.i.i.i.i
+
+if.then.i.i.i.i.i:                                ; preds = %for.end.i.i.i
+  %28 = load ptr, ptr %fPool.i.i.i81, align 8
+  invoke void @uprv_free_75(ptr noundef %28)
+          to label %cleanup67 unwind label %terminate.lpad.i.i.i.i
+
+terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
+  %29 = landingpad { ptr, i32 }
+          catch ptr null
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #13
+  unreachable
+
+lpad35:                                           ; preds = %if.end.i.i64, %if.end49
+  %31 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup64
 
 lpad41:                                           ; preds = %land.rhs
-  %22 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1) #11, !srcloc !4
   br label %ehcleanup64
@@ -909,18 +951,18 @@ invoke.cont51:                                    ; preds = %if.end49
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont51
-  %23 = load i32, ptr %status, align 4
-  %cmp.i.i.i = icmp slt i32 %23, 1
-  br i1 %cmp.i.i.i, label %if.end.i.i, label %invoke.cont55
+  %33 = load i32, ptr %status, align 4
+  %cmp.i.i.i39 = icmp slt i32 %33, 1
+  br i1 %cmp.i.i.i39, label %if.end.i.i, label %invoke.cont55
 
 if.end.i.i:                                       ; preds = %invoke.cont53
-  %call2.i.i37 = invoke noundef ptr @_ZN6icu_7510MemoryPoolINS_11MeasureUnitELi8EE6createIJRS1_EEEPS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp)
+  %call2.i.i40 = invoke noundef ptr @_ZN6icu_7510MemoryPoolINS_11MeasureUnitELi8EE6createIJRS1_EEEPS1_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp)
           to label %call2.i.i.noexc unwind label %lpad54
 
 call2.i.i.noexc:                                  ; preds = %if.end.i.i
-  %24 = load i32, ptr %status, align 4
-  %cmp.i4.i.i = icmp slt i32 %24, 1
-  %cmp.i.i = icmp eq ptr %call2.i.i37, null
+  %34 = load i32, ptr %status, align 4
+  %cmp.i4.i.i = icmp slt i32 %34, 1
+  %cmp.i.i = icmp eq ptr %call2.i.i40, null
   %or.cond.i.i = and i1 %cmp.i.i, %cmp.i4.i.i
   br i1 %or.cond.i.i, label %if.then5.i.i, label %invoke.cont55
 
@@ -930,151 +972,141 @@ if.then5.i.i:                                     ; preds = %call2.i.i.noexc
 
 invoke.cont55:                                    ; preds = %if.then5.i.i, %call2.i.i.noexc, %invoke.cont53
   call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp) #11
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #11
-  %25 = load i32, ptr %singleUnits.i, align 8
-  %cmp3.i.i.i = icmp sgt i32 %25, 0
-  br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i41) #11
+  %35 = load i32, ptr %singleUnits.i42, align 8
+  %cmp3.i.i.i43 = icmp sgt i32 %35, 0
+  br i1 %cmp3.i.i.i43, label %for.body.i.i.i52, label %for.end.i.i.i44
 
-for.body.i.i.i:                                   ; preds = %invoke.cont55, %for.inc.i.i.i
-  %26 = phi i32 [ %29, %for.inc.i.i.i ], [ %25, %invoke.cont55 ]
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ], [ 0, %invoke.cont55 ]
-  %27 = load ptr, ptr %fPool.i.i.i38, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i.i.i
-  %28 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  %isnull.i.i.i = icmp eq ptr %28, null
-  br i1 %isnull.i.i.i, label %for.inc.i.i.i, label %delete.notnull.i.i.i
+for.body.i.i.i52:                                 ; preds = %invoke.cont55, %for.inc.i.i.i58
+  %36 = phi i32 [ %39, %for.inc.i.i.i58 ], [ %35, %invoke.cont55 ]
+  %indvars.iv.i.i.i53 = phi i64 [ %indvars.iv.next.i.i.i59, %for.inc.i.i.i58 ], [ 0, %invoke.cont55 ]
+  %37 = load ptr, ptr %fPool.i.i.i51, align 8
+  %arrayidx.i.i.i.i54 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.i.i.i53
+  %38 = load ptr, ptr %arrayidx.i.i.i.i54, align 8
+  %isnull.i.i.i55 = icmp eq ptr %38, null
+  br i1 %isnull.i.i.i55, label %for.inc.i.i.i58, label %delete.notnull.i.i.i56
 
-delete.notnull.i.i.i:                             ; preds = %for.body.i.i.i
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %28) #11
-  %.pre.i.i.i = load i32, ptr %singleUnits.i, align 8
-  br label %for.inc.i.i.i
+delete.notnull.i.i.i56:                           ; preds = %for.body.i.i.i52
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %38) #11
+  %.pre.i.i.i57 = load i32, ptr %singleUnits.i42, align 8
+  br label %for.inc.i.i.i58
 
-for.inc.i.i.i:                                    ; preds = %delete.notnull.i.i.i, %for.body.i.i.i
-  %29 = phi i32 [ %26, %for.body.i.i.i ], [ %.pre.i.i.i, %delete.notnull.i.i.i ]
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %30 = sext i32 %29 to i64
-  %cmp.i.i.i39 = icmp slt i64 %indvars.iv.next.i.i.i, %30
-  br i1 %cmp.i.i.i39, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !5
+for.inc.i.i.i58:                                  ; preds = %delete.notnull.i.i.i56, %for.body.i.i.i52
+  %39 = phi i32 [ %36, %for.body.i.i.i52 ], [ %.pre.i.i.i57, %delete.notnull.i.i.i56 ]
+  %indvars.iv.next.i.i.i59 = add nuw nsw i64 %indvars.iv.i.i.i53, 1
+  %40 = sext i32 %39 to i64
+  %cmp.i.i.i60 = icmp slt i64 %indvars.iv.next.i.i.i59, %40
+  br i1 %cmp.i.i.i60, label %for.body.i.i.i52, label %for.end.i.i.i44, !llvm.loop !5
 
-for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %invoke.cont55
-  %31 = load i8, ptr %needToRelease.i.i.i.i.i, align 4
-  %tobool.not.i.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %tobool.not.i.i.i.i.i, label %_ZN6icu_7515MeasureUnitImplD2Ev.exit, label %if.then.i.i.i.i.i
+for.end.i.i.i44:                                  ; preds = %for.inc.i.i.i58, %invoke.cont55
+  %41 = load i8, ptr %needToRelease.i.i.i.i.i45, align 4
+  %tobool.not.i.i.i.i.i46 = icmp eq i8 %41, 0
+  br i1 %tobool.not.i.i.i.i.i46, label %_ZN6icu_7515MeasureUnitImplD2Ev.exit61, label %if.then.i.i.i.i.i47
 
-if.then.i.i.i.i.i:                                ; preds = %for.end.i.i.i
-  %32 = load ptr, ptr %fPool.i.i.i38, align 8
-  invoke void @uprv_free_75(ptr noundef %32)
-          to label %_ZN6icu_7515MeasureUnitImplD2Ev.exit unwind label %terminate.lpad.i.i.i.i
+if.then.i.i.i.i.i47:                              ; preds = %for.end.i.i.i44
+  %42 = load ptr, ptr %fPool.i.i.i51, align 8
+  invoke void @uprv_free_75(ptr noundef %42)
+          to label %_ZN6icu_7515MeasureUnitImplD2Ev.exit61 unwind label %terminate.lpad.i.i.i.i49
 
-terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
-  %33 = landingpad { ptr, i32 }
+terminate.lpad.i.i.i.i49:                         ; preds = %if.then.i.i.i.i.i47
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #13
   unreachable
 
-_ZN6icu_7515MeasureUnitImplD2Ev.exit:             ; preds = %for.end.i.i.i, %if.then.i.i.i.i.i
-  %35 = load i32, ptr %status, align 4
-  %cmp.i.i.i40 = icmp slt i32 %35, 1
-  br i1 %cmp.i.i.i40, label %if.end.i.i42, label %invoke.cont57
+_ZN6icu_7515MeasureUnitImplD2Ev.exit61:           ; preds = %for.end.i.i.i44, %if.then.i.i.i.i.i47
+  %45 = load i32, ptr %status, align 4
+  %cmp.i.i.i62 = icmp slt i32 %45, 1
+  br i1 %cmp.i.i.i62, label %if.end.i.i64, label %invoke.cont57
 
-if.end.i.i42:                                     ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit
+if.end.i.i64:                                     ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit61
   %geq = getelementptr inbounds i8, ptr %13, i64 72
-  %call12.i.i46 = invoke noundef ptr @_ZN6icu_7510MemoryPoolINS_5units19ConverterPreferenceELi8EE6createIJRNS_15MeasureUnitImplES6_RKdRNS_13UnicodeStringERNS1_15ConversionRatesER10UErrorCodeEEEPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %converterPreferences_, ptr noundef nonnull align 8 dereferenceable(160) %inputUnitImpl, ptr noundef nonnull align 8 dereferenceable(160) %complexTargetUnitImpl, ptr noundef nonnull align 8 dereferenceable(8) %geq, ptr noundef nonnull align 8 dereferenceable(64) %precision, ptr noundef nonnull align 8 dereferenceable(88) %conversionRates, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call12.i.i68 = invoke noundef ptr @_ZN6icu_7510MemoryPoolINS_5units19ConverterPreferenceELi8EE6createIJRNS_15MeasureUnitImplES6_RKdRNS_13UnicodeStringERNS1_15ConversionRatesER10UErrorCodeEEEPS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %converterPreferences_, ptr noundef nonnull align 8 dereferenceable(160) %inputUnitImpl, ptr noundef nonnull align 8 dereferenceable(160) %complexTargetUnitImpl, ptr noundef nonnull align 8 dereferenceable(8) %geq, ptr noundef nonnull align 8 dereferenceable(64) %precision, ptr noundef nonnull align 8 dereferenceable(88) %conversionRates, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call12.i.i.noexc unwind label %lpad35
 
-call12.i.i.noexc:                                 ; preds = %if.end.i.i42
-  %36 = load i32, ptr %status, align 4
-  %cmp.i4.i.i43 = icmp slt i32 %36, 1
-  %cmp.i.i44 = icmp eq ptr %call12.i.i46, null
-  %or.cond.i.i45 = and i1 %cmp.i.i44, %cmp.i4.i.i43
-  br i1 %or.cond.i.i45, label %if.then15.i.i, label %invoke.cont57
+call12.i.i.noexc:                                 ; preds = %if.end.i.i64
+  %46 = load i32, ptr %status, align 4
+  %cmp.i4.i.i65 = icmp slt i32 %46, 1
+  %cmp.i.i66 = icmp eq ptr %call12.i.i68, null
+  %or.cond.i.i67 = and i1 %cmp.i.i66, %cmp.i4.i.i65
+  br i1 %or.cond.i.i67, label %if.then15.i.i, label %invoke.cont57
 
 if.then15.i.i:                                    ; preds = %call12.i.i.noexc
   store i32 7, ptr %status, align 4
   br label %invoke.cont57
 
-invoke.cont57:                                    ; preds = %if.then15.i.i, %call12.i.i.noexc, %_ZN6icu_7515MeasureUnitImplD2Ev.exit
-  %37 = phi i32 [ 7, %if.then15.i.i ], [ %36, %call12.i.i.noexc ], [ %35, %_ZN6icu_7515MeasureUnitImplD2Ev.exit ]
-  %cmp.i47 = icmp sgt i32 %37, 0
-  %. = zext i1 %cmp.i47 to i32
-  br label %cleanup
+invoke.cont57:                                    ; preds = %if.then15.i.i, %call12.i.i.noexc, %_ZN6icu_7515MeasureUnitImplD2Ev.exit61
+  %47 = phi i32 [ 7, %if.then15.i.i ], [ %46, %call12.i.i.noexc ], [ %45, %_ZN6icu_7515MeasureUnitImplD2Ev.exit61 ]
+  %cmp.i69 = icmp sgt i32 %47, 0
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %precision) #11
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i71) #11
+  %48 = load i32, ptr %singleUnits.i72, align 8
+  %cmp3.i.i.i73 = icmp sgt i32 %48, 0
+  br i1 %cmp3.i.i.i73, label %for.body.i.i.i82, label %for.end.i.i.i74
+
+for.body.i.i.i82:                                 ; preds = %invoke.cont57, %for.inc.i.i.i88
+  %49 = phi i32 [ %52, %for.inc.i.i.i88 ], [ %48, %invoke.cont57 ]
+  %indvars.iv.i.i.i83 = phi i64 [ %indvars.iv.next.i.i.i89, %for.inc.i.i.i88 ], [ 0, %invoke.cont57 ]
+  %50 = load ptr, ptr %fPool.i.i.i81, align 8
+  %arrayidx.i.i.i.i84 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv.i.i.i83
+  %51 = load ptr, ptr %arrayidx.i.i.i.i84, align 8
+  %isnull.i.i.i85 = icmp eq ptr %51, null
+  br i1 %isnull.i.i.i85, label %for.inc.i.i.i88, label %delete.notnull.i.i.i86
+
+delete.notnull.i.i.i86:                           ; preds = %for.body.i.i.i82
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %51) #11
+  %.pre.i.i.i87 = load i32, ptr %singleUnits.i72, align 8
+  br label %for.inc.i.i.i88
+
+for.inc.i.i.i88:                                  ; preds = %delete.notnull.i.i.i86, %for.body.i.i.i82
+  %52 = phi i32 [ %49, %for.body.i.i.i82 ], [ %.pre.i.i.i87, %delete.notnull.i.i.i86 ]
+  %indvars.iv.next.i.i.i89 = add nuw nsw i64 %indvars.iv.i.i.i83, 1
+  %53 = sext i32 %52 to i64
+  %cmp.i.i.i90 = icmp slt i64 %indvars.iv.next.i.i.i89, %53
+  br i1 %cmp.i.i.i90, label %for.body.i.i.i82, label %for.end.i.i.i74, !llvm.loop !5
+
+for.end.i.i.i74:                                  ; preds = %for.inc.i.i.i88, %invoke.cont57
+  %54 = load i8, ptr %needToRelease.i.i.i.i.i75, align 4
+  %tobool.not.i.i.i.i.i76 = icmp eq i8 %54, 0
+  br i1 %tobool.not.i.i.i.i.i76, label %_ZN6icu_7515MeasureUnitImplD2Ev.exit91, label %if.then.i.i.i.i.i77
+
+if.then.i.i.i.i.i77:                              ; preds = %for.end.i.i.i74
+  %55 = load ptr, ptr %fPool.i.i.i81, align 8
+  invoke void @uprv_free_75(ptr noundef %55)
+          to label %_ZN6icu_7515MeasureUnitImplD2Ev.exit91 unwind label %terminate.lpad.i.i.i.i79
+
+terminate.lpad.i.i.i.i79:                         ; preds = %if.then.i.i.i.i.i77
+  %56 = landingpad { ptr, i32 }
+          catch ptr null
+  %57 = extractvalue { ptr, i32 } %56, 0
+  call void @__clang_call_terminate(ptr %57) #13
+  unreachable
+
+_ZN6icu_7515MeasureUnitImplD2Ev.exit91:           ; preds = %for.end.i.i.i74, %if.then.i.i.i.i.i77
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %or.cond = select i1 %cmp.i69, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %cleanup67, label %invoke.cont21, !llvm.loop !7
 
 lpad52:                                           ; preds = %invoke.cont51
-  %38 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad54:                                           ; preds = %if.end.i.i
-  %39 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7511MeasureUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(19) %ref.tmp) #11
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad54, %lpad52
-  %.pn = phi { ptr, i32 } [ %39, %lpad54 ], [ %38, %lpad52 ]
+  %.pn = phi { ptr, i32 } [ %59, %lpad54 ], [ %58, %lpad52 ]
   call void @_ZN6icu_7515MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp50) #11
   br label %ehcleanup64
 
-cleanup:                                          ; preds = %invoke.cont57, %if.then48
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then48 ], [ %., %invoke.cont57 ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %precision) #11
-  br label %cleanup65
-
-cleanup65:                                        ; preds = %invoke.cont27, %cleanup
-  %cleanup.dest.slot.0 = phi i32 [ %cleanup.dest.slot.1, %cleanup ], [ 1, %invoke.cont27 ]
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i49) #11
-  %40 = load i32, ptr %singleUnits.i50, align 8
-  %cmp3.i.i.i51 = icmp sgt i32 %40, 0
-  br i1 %cmp3.i.i.i51, label %for.body.i.i.i60, label %for.end.i.i.i52
-
-for.body.i.i.i60:                                 ; preds = %cleanup65, %for.inc.i.i.i66
-  %41 = phi i32 [ %44, %for.inc.i.i.i66 ], [ %40, %cleanup65 ]
-  %indvars.iv.i.i.i61 = phi i64 [ %indvars.iv.next.i.i.i67, %for.inc.i.i.i66 ], [ 0, %cleanup65 ]
-  %42 = load ptr, ptr %fPool.i.i.i59, align 8
-  %arrayidx.i.i.i.i62 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv.i.i.i61
-  %43 = load ptr, ptr %arrayidx.i.i.i.i62, align 8
-  %isnull.i.i.i63 = icmp eq ptr %43, null
-  br i1 %isnull.i.i.i63, label %for.inc.i.i.i66, label %delete.notnull.i.i.i64
-
-delete.notnull.i.i.i64:                           ; preds = %for.body.i.i.i60
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %43) #11
-  %.pre.i.i.i65 = load i32, ptr %singleUnits.i50, align 8
-  br label %for.inc.i.i.i66
-
-for.inc.i.i.i66:                                  ; preds = %delete.notnull.i.i.i64, %for.body.i.i.i60
-  %44 = phi i32 [ %41, %for.body.i.i.i60 ], [ %.pre.i.i.i65, %delete.notnull.i.i.i64 ]
-  %indvars.iv.next.i.i.i67 = add nuw nsw i64 %indvars.iv.i.i.i61, 1
-  %45 = sext i32 %44 to i64
-  %cmp.i.i.i68 = icmp slt i64 %indvars.iv.next.i.i.i67, %45
-  br i1 %cmp.i.i.i68, label %for.body.i.i.i60, label %for.end.i.i.i52, !llvm.loop !5
-
-for.end.i.i.i52:                                  ; preds = %for.inc.i.i.i66, %cleanup65
-  %46 = load i8, ptr %needToRelease.i.i.i.i.i53, align 4
-  %tobool.not.i.i.i.i.i54 = icmp eq i8 %46, 0
-  br i1 %tobool.not.i.i.i.i.i54, label %_ZN6icu_7515MeasureUnitImplD2Ev.exit69, label %if.then.i.i.i.i.i55
-
-if.then.i.i.i.i.i55:                              ; preds = %for.end.i.i.i52
-  %47 = load ptr, ptr %fPool.i.i.i59, align 8
-  invoke void @uprv_free_75(ptr noundef %47)
-          to label %_ZN6icu_7515MeasureUnitImplD2Ev.exit69 unwind label %terminate.lpad.i.i.i.i57
-
-terminate.lpad.i.i.i.i57:                         ; preds = %if.then.i.i.i.i.i55
-  %48 = landingpad { ptr, i32 }
-          catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #13
-  unreachable
-
-_ZN6icu_7515MeasureUnitImplD2Ev.exit69:           ; preds = %for.end.i.i.i52, %if.then.i.i.i.i.i55
-  %cond = icmp ne i32 %cleanup.dest.slot.0, 0
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %cond, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %cleanup67, label %invoke.cont21, !llvm.loop !7
-
 ehcleanup64:                                      ; preds = %lpad41, %ehcleanup, %lpad35
-  %.pn22 = phi { ptr, i32 } [ %21, %lpad35 ], [ %.pn, %ehcleanup ], [ %22, %lpad41 ]
+  %.pn22 = phi { ptr, i32 } [ %31, %lpad35 ], [ %.pn, %ehcleanup ], [ %32, %lpad41 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %precision) #11
   br label %ehcleanup66
 
@@ -1083,9 +1115,53 @@ ehcleanup66:                                      ; preds = %ehcleanup64, %lpad2
   call void @_ZN6icu_7515MeasureUnitImplD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %complexTargetUnitImpl) #11
   br label %ehcleanup68
 
-cleanup67:                                        ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit69
-  %.pre = load i32, ptr %unitPrefs, align 8
-  %cmp3.i.i = icmp sgt i32 %.pre, 0
+cleanup67.critedge:                               ; preds = %invoke.cont27
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i71) #11
+  %60 = load i32, ptr %singleUnits.i72, align 8
+  %cmp3.i.i.i94 = icmp sgt i32 %60, 0
+  br i1 %cmp3.i.i.i94, label %for.body.i.i.i103, label %for.end.i.i.i95
+
+for.body.i.i.i103:                                ; preds = %cleanup67.critedge, %for.inc.i.i.i109
+  %61 = phi i32 [ %64, %for.inc.i.i.i109 ], [ %60, %cleanup67.critedge ]
+  %indvars.iv.i.i.i104 = phi i64 [ %indvars.iv.next.i.i.i110, %for.inc.i.i.i109 ], [ 0, %cleanup67.critedge ]
+  %62 = load ptr, ptr %fPool.i.i.i81, align 8
+  %arrayidx.i.i.i.i105 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv.i.i.i104
+  %63 = load ptr, ptr %arrayidx.i.i.i.i105, align 8
+  %isnull.i.i.i106 = icmp eq ptr %63, null
+  br i1 %isnull.i.i.i106, label %for.inc.i.i.i109, label %delete.notnull.i.i.i107
+
+delete.notnull.i.i.i107:                          ; preds = %for.body.i.i.i103
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %63) #11
+  %.pre.i.i.i108 = load i32, ptr %singleUnits.i72, align 8
+  br label %for.inc.i.i.i109
+
+for.inc.i.i.i109:                                 ; preds = %delete.notnull.i.i.i107, %for.body.i.i.i103
+  %64 = phi i32 [ %61, %for.body.i.i.i103 ], [ %.pre.i.i.i108, %delete.notnull.i.i.i107 ]
+  %indvars.iv.next.i.i.i110 = add nuw nsw i64 %indvars.iv.i.i.i104, 1
+  %65 = sext i32 %64 to i64
+  %cmp.i.i.i111 = icmp slt i64 %indvars.iv.next.i.i.i110, %65
+  br i1 %cmp.i.i.i111, label %for.body.i.i.i103, label %for.end.i.i.i95, !llvm.loop !5
+
+for.end.i.i.i95:                                  ; preds = %for.inc.i.i.i109, %cleanup67.critedge
+  %66 = load i8, ptr %needToRelease.i.i.i.i.i75, align 4
+  %tobool.not.i.i.i.i.i97 = icmp eq i8 %66, 0
+  br i1 %tobool.not.i.i.i.i.i97, label %cleanup67, label %if.then.i.i.i.i.i98
+
+if.then.i.i.i.i.i98:                              ; preds = %for.end.i.i.i95
+  %67 = load ptr, ptr %fPool.i.i.i81, align 8
+  invoke void @uprv_free_75(ptr noundef %67)
+          to label %cleanup67 unwind label %terminate.lpad.i.i.i.i100
+
+terminate.lpad.i.i.i.i100:                        ; preds = %if.then.i.i.i.i.i98
+  %68 = landingpad { ptr, i32 }
+          catch ptr null
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #13
+  unreachable
+
+cleanup67:                                        ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit91, %if.then.i.i.i.i.i98, %for.end.i.i.i95, %if.then.i.i.i.i.i, %for.end.i.i.i
+  %.pr = load i32, ptr %unitPrefs, align 8
+  %cmp3.i.i = icmp sgt i32 %.pr, 0
   br i1 %cmp3.i.i, label %for.body.lr.ph.i.i, label %for.end.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %cleanup67
@@ -1093,209 +1169,209 @@ for.body.lr.ph.i.i:                               ; preds = %cleanup67
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
-  %50 = phi i32 [ %.pre, %for.body.lr.ph.i.i ], [ %53, %for.inc.i.i ]
+  %70 = phi i32 [ %.pr, %for.body.lr.ph.i.i ], [ %73, %for.inc.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %51 = load ptr, ptr %fPool.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv.i.i
-  %52 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %isnull.i.i = icmp eq ptr %52, null
+  %71 = load ptr, ptr %fPool.i.i, align 8
+  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv.i.i
+  %72 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %isnull.i.i = icmp eq ptr %72, null
   br i1 %isnull.i.i, label %for.inc.i.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %for.body.i.i
-  %skeleton.i.i.i = getelementptr inbounds i8, ptr %52, i64 80
+  %skeleton.i.i.i = getelementptr inbounds i8, ptr %72, i64 80
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %skeleton.i.i.i) #11
-  %unit.i.i.i = getelementptr inbounds i8, ptr %52, i64 8
+  %unit.i.i.i = getelementptr inbounds i8, ptr %72, i64 8
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %unit.i.i.i) #11
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %52) #11
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %72) #11
   %.pre.i.i = load i32, ptr %unitPrefs, align 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %delete.notnull.i.i, %for.body.i.i
-  %53 = phi i32 [ %50, %for.body.i.i ], [ %.pre.i.i, %delete.notnull.i.i ]
+  %73 = phi i32 [ %70, %for.body.i.i ], [ %.pre.i.i, %delete.notnull.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %54 = sext i32 %53 to i64
-  %cmp.i.i71 = icmp slt i64 %indvars.iv.next.i.i, %54
-  br i1 %cmp.i.i71, label %for.body.i.i, label %for.end.i.i, !llvm.loop !8
+  %74 = sext i32 %73 to i64
+  %cmp.i.i114 = icmp slt i64 %indvars.iv.next.i.i, %74
+  br i1 %cmp.i.i114, label %for.body.i.i, label %for.end.i.i, !llvm.loop !8
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %invoke.cont17, %cleanup67
-  %needToRelease.i.i.i.i70 = getelementptr inbounds i8, ptr %unitPrefs, i64 20
-  %55 = load i8, ptr %needToRelease.i.i.i.i70, align 4
-  %tobool.not.i.i.i.i = icmp eq i8 %55, 0
+  %needToRelease.i.i.i.i113 = getelementptr inbounds i8, ptr %unitPrefs, i64 20
+  %75 = load i8, ptr %needToRelease.i.i.i.i113, align 4
+  %tobool.not.i.i.i.i = icmp eq i8 %75, 0
   br i1 %tobool.not.i.i.i.i, label %cleanup69, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.end.i.i
   %fPool2.i.i = getelementptr inbounds i8, ptr %unitPrefs, i64 8
-  %56 = load ptr, ptr %fPool2.i.i, align 8
-  invoke void @uprv_free_75(ptr noundef %56)
+  %76 = load ptr, ptr %fPool2.i.i, align 8
+  invoke void @uprv_free_75(ptr noundef %76)
           to label %cleanup69 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
-  %57 = landingpad { ptr, i32 }
-          catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #13
-  unreachable
-
-cleanup69:                                        ; preds = %if.then.i.i.i.i, %for.end.i.i, %invoke.cont7
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %category) #11
-  %identifier.i72 = getelementptr inbounds i8, ptr %baseUnitImpl, i64 96
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i72) #11
-  %singleUnits.i73 = getelementptr inbounds i8, ptr %baseUnitImpl, i64 8
-  %59 = load i32, ptr %singleUnits.i73, align 8
-  %cmp3.i.i.i74 = icmp sgt i32 %59, 0
-  br i1 %cmp3.i.i.i74, label %for.body.lr.ph.i.i.i81, label %for.end.i.i.i75
-
-for.body.lr.ph.i.i.i81:                           ; preds = %cleanup69
-  %fPool.i.i.i82 = getelementptr inbounds i8, ptr %baseUnitImpl, i64 16
-  br label %for.body.i.i.i83
-
-for.body.i.i.i83:                                 ; preds = %for.inc.i.i.i89, %for.body.lr.ph.i.i.i81
-  %60 = phi i32 [ %59, %for.body.lr.ph.i.i.i81 ], [ %63, %for.inc.i.i.i89 ]
-  %indvars.iv.i.i.i84 = phi i64 [ 0, %for.body.lr.ph.i.i.i81 ], [ %indvars.iv.next.i.i.i90, %for.inc.i.i.i89 ]
-  %61 = load ptr, ptr %fPool.i.i.i82, align 8
-  %arrayidx.i.i.i.i85 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv.i.i.i84
-  %62 = load ptr, ptr %arrayidx.i.i.i.i85, align 8
-  %isnull.i.i.i86 = icmp eq ptr %62, null
-  br i1 %isnull.i.i.i86, label %for.inc.i.i.i89, label %delete.notnull.i.i.i87
-
-delete.notnull.i.i.i87:                           ; preds = %for.body.i.i.i83
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %62) #11
-  %.pre.i.i.i88 = load i32, ptr %singleUnits.i73, align 8
-  br label %for.inc.i.i.i89
-
-for.inc.i.i.i89:                                  ; preds = %delete.notnull.i.i.i87, %for.body.i.i.i83
-  %63 = phi i32 [ %60, %for.body.i.i.i83 ], [ %.pre.i.i.i88, %delete.notnull.i.i.i87 ]
-  %indvars.iv.next.i.i.i90 = add nuw nsw i64 %indvars.iv.i.i.i84, 1
-  %64 = sext i32 %63 to i64
-  %cmp.i.i.i91 = icmp slt i64 %indvars.iv.next.i.i.i90, %64
-  br i1 %cmp.i.i.i91, label %for.body.i.i.i83, label %for.end.i.i.i75, !llvm.loop !5
-
-for.end.i.i.i75:                                  ; preds = %for.inc.i.i.i89, %cleanup69
-  %needToRelease.i.i.i.i.i76 = getelementptr inbounds i8, ptr %baseUnitImpl, i64 28
-  %65 = load i8, ptr %needToRelease.i.i.i.i.i76, align 4
-  %tobool.not.i.i.i.i.i77 = icmp eq i8 %65, 0
-  br i1 %tobool.not.i.i.i.i.i77, label %_ZN6icu_7515MeasureUnitImplD2Ev.exit92, label %if.then.i.i.i.i.i78
-
-if.then.i.i.i.i.i78:                              ; preds = %for.end.i.i.i75
-  %fPool2.i.i.i79 = getelementptr inbounds i8, ptr %baseUnitImpl, i64 16
-  %66 = load ptr, ptr %fPool2.i.i.i79, align 8
-  invoke void @uprv_free_75(ptr noundef %66)
-          to label %_ZN6icu_7515MeasureUnitImplD2Ev.exit92 unwind label %terminate.lpad.i.i.i.i80
-
-terminate.lpad.i.i.i.i80:                         ; preds = %if.then.i.i.i.i.i78
-  %67 = landingpad { ptr, i32 }
-          catch ptr null
-  %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #13
-  unreachable
-
-_ZN6icu_7515MeasureUnitImplD2Ev.exit92:           ; preds = %for.end.i.i.i75, %if.then.i.i.i.i.i78
-  %identifier.i93 = getelementptr inbounds i8, ptr %inputUnitImpl, i64 96
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i93) #11
-  %singleUnits.i94 = getelementptr inbounds i8, ptr %inputUnitImpl, i64 8
-  %69 = load i32, ptr %singleUnits.i94, align 8
-  %cmp3.i.i.i95 = icmp sgt i32 %69, 0
-  br i1 %cmp3.i.i.i95, label %for.body.lr.ph.i.i.i102, label %for.end.i.i.i96
-
-for.body.lr.ph.i.i.i102:                          ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit92
-  %fPool.i.i.i103 = getelementptr inbounds i8, ptr %inputUnitImpl, i64 16
-  br label %for.body.i.i.i104
-
-for.body.i.i.i104:                                ; preds = %for.inc.i.i.i110, %for.body.lr.ph.i.i.i102
-  %70 = phi i32 [ %69, %for.body.lr.ph.i.i.i102 ], [ %73, %for.inc.i.i.i110 ]
-  %indvars.iv.i.i.i105 = phi i64 [ 0, %for.body.lr.ph.i.i.i102 ], [ %indvars.iv.next.i.i.i111, %for.inc.i.i.i110 ]
-  %71 = load ptr, ptr %fPool.i.i.i103, align 8
-  %arrayidx.i.i.i.i106 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv.i.i.i105
-  %72 = load ptr, ptr %arrayidx.i.i.i.i106, align 8
-  %isnull.i.i.i107 = icmp eq ptr %72, null
-  br i1 %isnull.i.i.i107, label %for.inc.i.i.i110, label %delete.notnull.i.i.i108
-
-delete.notnull.i.i.i108:                          ; preds = %for.body.i.i.i104
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %72) #11
-  %.pre.i.i.i109 = load i32, ptr %singleUnits.i94, align 8
-  br label %for.inc.i.i.i110
-
-for.inc.i.i.i110:                                 ; preds = %delete.notnull.i.i.i108, %for.body.i.i.i104
-  %73 = phi i32 [ %70, %for.body.i.i.i104 ], [ %.pre.i.i.i109, %delete.notnull.i.i.i108 ]
-  %indvars.iv.next.i.i.i111 = add nuw nsw i64 %indvars.iv.i.i.i105, 1
-  %74 = sext i32 %73 to i64
-  %cmp.i.i.i112 = icmp slt i64 %indvars.iv.next.i.i.i111, %74
-  br i1 %cmp.i.i.i112, label %for.body.i.i.i104, label %for.end.i.i.i96, !llvm.loop !5
-
-for.end.i.i.i96:                                  ; preds = %for.inc.i.i.i110, %_ZN6icu_7515MeasureUnitImplD2Ev.exit92
-  %needToRelease.i.i.i.i.i97 = getelementptr inbounds i8, ptr %inputUnitImpl, i64 28
-  %75 = load i8, ptr %needToRelease.i.i.i.i.i97, align 4
-  %tobool.not.i.i.i.i.i98 = icmp eq i8 %75, 0
-  br i1 %tobool.not.i.i.i.i.i98, label %_ZN6icu_7515MeasureUnitImplD2Ev.exit113, label %if.then.i.i.i.i.i99
-
-if.then.i.i.i.i.i99:                              ; preds = %for.end.i.i.i96
-  %fPool2.i.i.i100 = getelementptr inbounds i8, ptr %inputUnitImpl, i64 16
-  %76 = load ptr, ptr %fPool2.i.i.i100, align 8
-  invoke void @uprv_free_75(ptr noundef %76)
-          to label %_ZN6icu_7515MeasureUnitImplD2Ev.exit113 unwind label %terminate.lpad.i.i.i.i101
-
-terminate.lpad.i.i.i.i101:                        ; preds = %if.then.i.i.i.i.i99
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
   call void @__clang_call_terminate(ptr %78) #13
   unreachable
 
-_ZN6icu_7515MeasureUnitImplD2Ev.exit113:          ; preds = %for.end.i.i.i96, %if.then.i.i.i.i.i99
-  call void @_ZN6icu_755units15UnitPreferencesD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %prefs) #11
-  %79 = load i32, ptr %conversionRates, align 8
-  %cmp3.i.i.i114 = icmp sgt i32 %79, 0
-  br i1 %cmp3.i.i.i114, label %for.body.i.i.i123, label %for.end.i.i.i115
+cleanup69:                                        ; preds = %if.then.i.i.i.i, %for.end.i.i, %invoke.cont7
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %category) #11
+  %identifier.i115 = getelementptr inbounds i8, ptr %baseUnitImpl, i64 96
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i115) #11
+  %singleUnits.i116 = getelementptr inbounds i8, ptr %baseUnitImpl, i64 8
+  %79 = load i32, ptr %singleUnits.i116, align 8
+  %cmp3.i.i.i117 = icmp sgt i32 %79, 0
+  br i1 %cmp3.i.i.i117, label %for.body.lr.ph.i.i.i124, label %for.end.i.i.i118
 
-for.body.i.i.i123:                                ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit113, %for.inc.i.i.i129
-  %80 = phi i32 [ %83, %for.inc.i.i.i129 ], [ %79, %_ZN6icu_7515MeasureUnitImplD2Ev.exit113 ]
-  %indvars.iv.i.i.i124 = phi i64 [ %indvars.iv.next.i.i.i130, %for.inc.i.i.i129 ], [ 0, %_ZN6icu_7515MeasureUnitImplD2Ev.exit113 ]
-  %81 = load ptr, ptr %fPool.i.i.i, align 8
-  %arrayidx.i.i.i.i125 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv.i.i.i124
-  %82 = load ptr, ptr %arrayidx.i.i.i.i125, align 8
-  %isnull.i.i.i126 = icmp eq ptr %82, null
-  br i1 %isnull.i.i.i126, label %for.inc.i.i.i129, label %delete.notnull.i.i.i127
+for.body.lr.ph.i.i.i124:                          ; preds = %cleanup69
+  %fPool.i.i.i125 = getelementptr inbounds i8, ptr %baseUnitImpl, i64 16
+  br label %for.body.i.i.i126
 
-delete.notnull.i.i.i127:                          ; preds = %for.body.i.i.i123
-  %systems.i.i.i.i = getelementptr inbounds i8, ptr %82, i64 264
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %systems.i.i.i.i) #11
-  %offset.i.i.i.i = getelementptr inbounds i8, ptr %82, i64 200
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %offset.i.i.i.i) #11
-  %factor.i.i.i.i = getelementptr inbounds i8, ptr %82, i64 136
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %factor.i.i.i.i) #11
-  %baseUnit.i.i.i.i = getelementptr inbounds i8, ptr %82, i64 72
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %baseUnit.i.i.i.i) #11
-  %sourceUnit.i.i.i.i = getelementptr inbounds i8, ptr %82, i64 8
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %sourceUnit.i.i.i.i) #11
+for.body.i.i.i126:                                ; preds = %for.inc.i.i.i132, %for.body.lr.ph.i.i.i124
+  %80 = phi i32 [ %79, %for.body.lr.ph.i.i.i124 ], [ %83, %for.inc.i.i.i132 ]
+  %indvars.iv.i.i.i127 = phi i64 [ 0, %for.body.lr.ph.i.i.i124 ], [ %indvars.iv.next.i.i.i133, %for.inc.i.i.i132 ]
+  %81 = load ptr, ptr %fPool.i.i.i125, align 8
+  %arrayidx.i.i.i.i128 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv.i.i.i127
+  %82 = load ptr, ptr %arrayidx.i.i.i.i128, align 8
+  %isnull.i.i.i129 = icmp eq ptr %82, null
+  br i1 %isnull.i.i.i129, label %for.inc.i.i.i132, label %delete.notnull.i.i.i130
+
+delete.notnull.i.i.i130:                          ; preds = %for.body.i.i.i126
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %82) #11
-  %.pre.i.i.i128 = load i32, ptr %conversionRates, align 8
-  br label %for.inc.i.i.i129
+  %.pre.i.i.i131 = load i32, ptr %singleUnits.i116, align 8
+  br label %for.inc.i.i.i132
 
-for.inc.i.i.i129:                                 ; preds = %delete.notnull.i.i.i127, %for.body.i.i.i123
-  %83 = phi i32 [ %80, %for.body.i.i.i123 ], [ %.pre.i.i.i128, %delete.notnull.i.i.i127 ]
-  %indvars.iv.next.i.i.i130 = add nuw nsw i64 %indvars.iv.i.i.i124, 1
+for.inc.i.i.i132:                                 ; preds = %delete.notnull.i.i.i130, %for.body.i.i.i126
+  %83 = phi i32 [ %80, %for.body.i.i.i126 ], [ %.pre.i.i.i131, %delete.notnull.i.i.i130 ]
+  %indvars.iv.next.i.i.i133 = add nuw nsw i64 %indvars.iv.i.i.i127, 1
   %84 = sext i32 %83 to i64
-  %cmp.i.i.i131 = icmp slt i64 %indvars.iv.next.i.i.i130, %84
-  br i1 %cmp.i.i.i131, label %for.body.i.i.i123, label %for.end.i.i.i115, !llvm.loop !9
+  %cmp.i.i.i134 = icmp slt i64 %indvars.iv.next.i.i.i133, %84
+  br i1 %cmp.i.i.i134, label %for.body.i.i.i126, label %for.end.i.i.i118, !llvm.loop !5
 
-for.end.i.i.i115:                                 ; preds = %for.inc.i.i.i129, %_ZN6icu_7515MeasureUnitImplD2Ev.exit113
-  %85 = load i8, ptr %needToRelease.i.i.i.i, align 4
-  %tobool.not.i.i.i.i.i117 = icmp eq i8 %85, 0
-  br i1 %tobool.not.i.i.i.i.i117, label %cleanup.cont79, label %if.then.i.i.i.i.i118
+for.end.i.i.i118:                                 ; preds = %for.inc.i.i.i132, %cleanup69
+  %needToRelease.i.i.i.i.i119 = getelementptr inbounds i8, ptr %baseUnitImpl, i64 28
+  %85 = load i8, ptr %needToRelease.i.i.i.i.i119, align 4
+  %tobool.not.i.i.i.i.i120 = icmp eq i8 %85, 0
+  br i1 %tobool.not.i.i.i.i.i120, label %_ZN6icu_7515MeasureUnitImplD2Ev.exit135, label %if.then.i.i.i.i.i121
 
-if.then.i.i.i.i.i118:                             ; preds = %for.end.i.i.i115
-  %86 = load ptr, ptr %fPool.i.i.i, align 8
+if.then.i.i.i.i.i121:                             ; preds = %for.end.i.i.i118
+  %fPool2.i.i.i122 = getelementptr inbounds i8, ptr %baseUnitImpl, i64 16
+  %86 = load ptr, ptr %fPool2.i.i.i122, align 8
   invoke void @uprv_free_75(ptr noundef %86)
-          to label %cleanup.cont79 unwind label %terminate.lpad.i.i.i.i120
+          to label %_ZN6icu_7515MeasureUnitImplD2Ev.exit135 unwind label %terminate.lpad.i.i.i.i123
 
-terminate.lpad.i.i.i.i120:                        ; preds = %if.then.i.i.i.i.i118
+terminate.lpad.i.i.i.i123:                        ; preds = %if.then.i.i.i.i.i121
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
   call void @__clang_call_terminate(ptr %88) #13
   unreachable
 
-cleanup.cont79:                                   ; preds = %if.then.i.i.i.i.i118, %for.end.i.i.i115, %entry
+_ZN6icu_7515MeasureUnitImplD2Ev.exit135:          ; preds = %for.end.i.i.i118, %if.then.i.i.i.i.i121
+  %identifier.i136 = getelementptr inbounds i8, ptr %inputUnitImpl, i64 96
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i136) #11
+  %singleUnits.i137 = getelementptr inbounds i8, ptr %inputUnitImpl, i64 8
+  %89 = load i32, ptr %singleUnits.i137, align 8
+  %cmp3.i.i.i138 = icmp sgt i32 %89, 0
+  br i1 %cmp3.i.i.i138, label %for.body.lr.ph.i.i.i145, label %for.end.i.i.i139
+
+for.body.lr.ph.i.i.i145:                          ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit135
+  %fPool.i.i.i146 = getelementptr inbounds i8, ptr %inputUnitImpl, i64 16
+  br label %for.body.i.i.i147
+
+for.body.i.i.i147:                                ; preds = %for.inc.i.i.i153, %for.body.lr.ph.i.i.i145
+  %90 = phi i32 [ %89, %for.body.lr.ph.i.i.i145 ], [ %93, %for.inc.i.i.i153 ]
+  %indvars.iv.i.i.i148 = phi i64 [ 0, %for.body.lr.ph.i.i.i145 ], [ %indvars.iv.next.i.i.i154, %for.inc.i.i.i153 ]
+  %91 = load ptr, ptr %fPool.i.i.i146, align 8
+  %arrayidx.i.i.i.i149 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv.i.i.i148
+  %92 = load ptr, ptr %arrayidx.i.i.i.i149, align 8
+  %isnull.i.i.i150 = icmp eq ptr %92, null
+  br i1 %isnull.i.i.i150, label %for.inc.i.i.i153, label %delete.notnull.i.i.i151
+
+delete.notnull.i.i.i151:                          ; preds = %for.body.i.i.i147
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %92) #11
+  %.pre.i.i.i152 = load i32, ptr %singleUnits.i137, align 8
+  br label %for.inc.i.i.i153
+
+for.inc.i.i.i153:                                 ; preds = %delete.notnull.i.i.i151, %for.body.i.i.i147
+  %93 = phi i32 [ %90, %for.body.i.i.i147 ], [ %.pre.i.i.i152, %delete.notnull.i.i.i151 ]
+  %indvars.iv.next.i.i.i154 = add nuw nsw i64 %indvars.iv.i.i.i148, 1
+  %94 = sext i32 %93 to i64
+  %cmp.i.i.i155 = icmp slt i64 %indvars.iv.next.i.i.i154, %94
+  br i1 %cmp.i.i.i155, label %for.body.i.i.i147, label %for.end.i.i.i139, !llvm.loop !5
+
+for.end.i.i.i139:                                 ; preds = %for.inc.i.i.i153, %_ZN6icu_7515MeasureUnitImplD2Ev.exit135
+  %needToRelease.i.i.i.i.i140 = getelementptr inbounds i8, ptr %inputUnitImpl, i64 28
+  %95 = load i8, ptr %needToRelease.i.i.i.i.i140, align 4
+  %tobool.not.i.i.i.i.i141 = icmp eq i8 %95, 0
+  br i1 %tobool.not.i.i.i.i.i141, label %_ZN6icu_7515MeasureUnitImplD2Ev.exit156, label %if.then.i.i.i.i.i142
+
+if.then.i.i.i.i.i142:                             ; preds = %for.end.i.i.i139
+  %fPool2.i.i.i143 = getelementptr inbounds i8, ptr %inputUnitImpl, i64 16
+  %96 = load ptr, ptr %fPool2.i.i.i143, align 8
+  invoke void @uprv_free_75(ptr noundef %96)
+          to label %_ZN6icu_7515MeasureUnitImplD2Ev.exit156 unwind label %terminate.lpad.i.i.i.i144
+
+terminate.lpad.i.i.i.i144:                        ; preds = %if.then.i.i.i.i.i142
+  %97 = landingpad { ptr, i32 }
+          catch ptr null
+  %98 = extractvalue { ptr, i32 } %97, 0
+  call void @__clang_call_terminate(ptr %98) #13
+  unreachable
+
+_ZN6icu_7515MeasureUnitImplD2Ev.exit156:          ; preds = %for.end.i.i.i139, %if.then.i.i.i.i.i142
+  call void @_ZN6icu_755units15UnitPreferencesD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %prefs) #11
+  %99 = load i32, ptr %conversionRates, align 8
+  %cmp3.i.i.i157 = icmp sgt i32 %99, 0
+  br i1 %cmp3.i.i.i157, label %for.body.i.i.i166, label %for.end.i.i.i158
+
+for.body.i.i.i166:                                ; preds = %_ZN6icu_7515MeasureUnitImplD2Ev.exit156, %for.inc.i.i.i172
+  %100 = phi i32 [ %103, %for.inc.i.i.i172 ], [ %99, %_ZN6icu_7515MeasureUnitImplD2Ev.exit156 ]
+  %indvars.iv.i.i.i167 = phi i64 [ %indvars.iv.next.i.i.i173, %for.inc.i.i.i172 ], [ 0, %_ZN6icu_7515MeasureUnitImplD2Ev.exit156 ]
+  %101 = load ptr, ptr %fPool.i.i.i, align 8
+  %arrayidx.i.i.i.i168 = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv.i.i.i167
+  %102 = load ptr, ptr %arrayidx.i.i.i.i168, align 8
+  %isnull.i.i.i169 = icmp eq ptr %102, null
+  br i1 %isnull.i.i.i169, label %for.inc.i.i.i172, label %delete.notnull.i.i.i170
+
+delete.notnull.i.i.i170:                          ; preds = %for.body.i.i.i166
+  %systems.i.i.i.i = getelementptr inbounds i8, ptr %102, i64 264
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %systems.i.i.i.i) #11
+  %offset.i.i.i.i = getelementptr inbounds i8, ptr %102, i64 200
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %offset.i.i.i.i) #11
+  %factor.i.i.i.i = getelementptr inbounds i8, ptr %102, i64 136
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %factor.i.i.i.i) #11
+  %baseUnit.i.i.i.i = getelementptr inbounds i8, ptr %102, i64 72
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %baseUnit.i.i.i.i) #11
+  %sourceUnit.i.i.i.i = getelementptr inbounds i8, ptr %102, i64 8
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %sourceUnit.i.i.i.i) #11
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %102) #11
+  %.pre.i.i.i171 = load i32, ptr %conversionRates, align 8
+  br label %for.inc.i.i.i172
+
+for.inc.i.i.i172:                                 ; preds = %delete.notnull.i.i.i170, %for.body.i.i.i166
+  %103 = phi i32 [ %100, %for.body.i.i.i166 ], [ %.pre.i.i.i171, %delete.notnull.i.i.i170 ]
+  %indvars.iv.next.i.i.i173 = add nuw nsw i64 %indvars.iv.i.i.i167, 1
+  %104 = sext i32 %103 to i64
+  %cmp.i.i.i174 = icmp slt i64 %indvars.iv.next.i.i.i173, %104
+  br i1 %cmp.i.i.i174, label %for.body.i.i.i166, label %for.end.i.i.i158, !llvm.loop !9
+
+for.end.i.i.i158:                                 ; preds = %for.inc.i.i.i172, %_ZN6icu_7515MeasureUnitImplD2Ev.exit156
+  %105 = load i8, ptr %needToRelease.i.i.i.i, align 4
+  %tobool.not.i.i.i.i.i160 = icmp eq i8 %105, 0
+  br i1 %tobool.not.i.i.i.i.i160, label %cleanup.cont79, label %if.then.i.i.i.i.i161
+
+if.then.i.i.i.i.i161:                             ; preds = %for.end.i.i.i158
+  %106 = load ptr, ptr %fPool.i.i.i, align 8
+  invoke void @uprv_free_75(ptr noundef %106)
+          to label %cleanup.cont79 unwind label %terminate.lpad.i.i.i.i163
+
+terminate.lpad.i.i.i.i163:                        ; preds = %if.then.i.i.i.i.i161
+  %107 = landingpad { ptr, i32 }
+          catch ptr null
+  %108 = extractvalue { ptr, i32 } %107, 0
+  call void @__clang_call_terminate(ptr %108) #13
+  unreachable
+
+cleanup.cont79:                                   ; preds = %if.then.i.i.i.i.i161, %for.end.i.i.i158, %entry
   ret void
 
 ehcleanup68:                                      ; preds = %ehcleanup66, %lpad18

@@ -7027,25 +7027,25 @@ virtio_lduw_phys_cached.exit.i205:                ; preds = %if.else8.i.i.i.i209
   %retval.0.i.i.i.i206 = phi i16 [ %add.ptr.val.i.i.i.i204, %if.then5.i.i.i.i202 ], [ %call10.i.i.i.i210, %if.else8.i.i.i.i209 ]
   %shadow_avail_idx.i207 = getelementptr inbounds i8, ptr %arrayidx176, i64 60
   store i16 %retval.0.i.i.i.i206, ptr %shadow_avail_idx.i207, align 4
+  %57 = zext i16 %retval.0.i.i.i.i206 to i32
   br label %vring_avail_idx.exit212
 
 vring_avail_idx.exit212:                          ; preds = %if.then188, %virtio_lduw_phys_cached.exit.i205
-  %retval.0.i208 = phi i16 [ %retval.0.i.i.i.i206, %virtio_lduw_phys_cached.exit.i205 ], [ 0, %if.then188 ]
-  %conv198 = zext i16 %retval.0.i208 to i32
-  %57 = load ptr, ptr %vq141, align 8
-  %last_avail_idx202 = getelementptr %struct.VirtQueue, ptr %57, i64 %indvars.iv273, i32 2
-  %58 = load i16, ptr %last_avail_idx202, align 8
-  %conv203 = zext i16 %58 to i32
-  %59 = trunc nuw nsw i64 %indvars.iv273 to i32
-  tail call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.55, i32 noundef %59, i32 noundef %52, i32 noundef %conv198, i32 noundef %conv203, i32 noundef %conv180)
-  %60 = load ptr, ptr %vq141, align 8
-  %used_idx = getelementptr %struct.VirtQueue, ptr %60, i64 %indvars.iv273, i32 6
-  store i16 0, ptr %used_idx, align 8
+  %retval.0.i208 = phi i32 [ %57, %virtio_lduw_phys_cached.exit.i205 ], [ 0, %if.then188 ]
+  %58 = load ptr, ptr %vq141, align 8
+  %last_avail_idx202 = getelementptr %struct.VirtQueue, ptr %58, i64 %indvars.iv273, i32 2
+  %59 = load i16, ptr %last_avail_idx202, align 8
+  %conv203 = zext i16 %59 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv273 to i32
+  tail call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.55, i32 noundef %60, i32 noundef %52, i32 noundef %retval.0.i208, i32 noundef %conv203, i32 noundef %conv180)
   %61 = load ptr, ptr %vq141, align 8
-  %shadow_avail_idx211 = getelementptr %struct.VirtQueue, ptr %61, i64 %indvars.iv273, i32 4
-  store i16 0, ptr %shadow_avail_idx211, align 4
+  %used_idx = getelementptr %struct.VirtQueue, ptr %61, i64 %indvars.iv273, i32 6
+  store i16 0, ptr %used_idx, align 8
   %62 = load ptr, ptr %vq141, align 8
-  %inuse = getelementptr %struct.VirtQueue, ptr %62, i64 %indvars.iv273, i32 12
+  %shadow_avail_idx211 = getelementptr %struct.VirtQueue, ptr %62, i64 %indvars.iv273, i32 4
+  store i16 0, ptr %shadow_avail_idx211, align 4
+  %63 = load ptr, ptr %vq141, align 8
+  %inuse = getelementptr %struct.VirtQueue, ptr %63, i64 %indvars.iv273, i32 12
   store i32 0, ptr %inuse, align 4
   br label %for.inc278
 
@@ -7053,11 +7053,11 @@ if.end215:                                        ; preds = %vring_avail_idx.exi
   br i1 %tobool.not.i195, label %vring_used_idx.exit, label %if.end.i215
 
 if.end.i215:                                      ; preds = %if.end215
-  %63 = inttoptr i64 %53 to ptr
-  %used.i216 = getelementptr inbounds i8, ptr %63, i64 240
-  %len.i.i.i.i217 = getelementptr inbounds i8, ptr %63, i64 256
-  %64 = load i64, ptr %len.i.i.i.i217, align 16
-  %switch.i218 = icmp ult i64 %64, 4
+  %64 = inttoptr i64 %53 to ptr
+  %used.i216 = getelementptr inbounds i8, ptr %64, i64 240
+  %len.i.i.i.i217 = getelementptr inbounds i8, ptr %64, i64 256
+  %65 = load i64, ptr %len.i.i.i.i217, align 16
+  %switch.i218 = icmp ult i64 %65, 4
   br i1 %switch.i218, label %if.else.i.i.i.i227, label %if.end.i.i.i.i219
 
 if.else.i.i.i.i227:                               ; preds = %if.end.i215
@@ -7065,12 +7065,12 @@ if.else.i.i.i.i227:                               ; preds = %if.end.i215
   unreachable
 
 if.end.i.i.i.i219:                                ; preds = %if.end.i215
-  %65 = load ptr, ptr %used.i216, align 16
-  %tobool.not.i.i.i.i220 = icmp eq ptr %65, null
+  %66 = load ptr, ptr %used.i216, align 16
+  %tobool.not.i.i.i.i220 = icmp eq ptr %66, null
   br i1 %tobool.not.i.i.i.i220, label %if.else8.i.i.i.i225, label %if.then5.i.i.i.i221
 
 if.then5.i.i.i.i221:                              ; preds = %if.end.i.i.i.i219
-  %add.ptr.i.i.i.i222 = getelementptr i8, ptr %65, i64 2
+  %add.ptr.i.i.i.i222 = getelementptr i8, ptr %66, i64 2
   %add.ptr.val.i.i.i.i223 = load i16, ptr %add.ptr.i.i.i.i222, align 1
   br label %vring_used_idx.exit
 
@@ -7080,23 +7080,23 @@ if.else8.i.i.i.i225:                              ; preds = %if.end.i.i.i.i219
 
 vring_used_idx.exit:                              ; preds = %if.end215, %if.then5.i.i.i.i221, %if.else8.i.i.i.i225
   %retval.0.i224 = phi i16 [ 0, %if.end215 ], [ %add.ptr.val.i.i.i.i223, %if.then5.i.i.i.i221 ], [ %call10.i.i.i.i226, %if.else8.i.i.i.i225 ]
-  %66 = load ptr, ptr %vq141, align 8
-  %used_idx223 = getelementptr %struct.VirtQueue, ptr %66, i64 %indvars.iv273, i32 6
-  store i16 %retval.0.i224, ptr %used_idx223, align 8
   %67 = load ptr, ptr %vq141, align 8
-  %arrayidx226 = getelementptr %struct.VirtQueue, ptr %67, i64 %indvars.iv273
+  %used_idx223 = getelementptr %struct.VirtQueue, ptr %67, i64 %indvars.iv273, i32 6
+  store i16 %retval.0.i224, ptr %used_idx223, align 8
+  %68 = load ptr, ptr %vq141, align 8
+  %arrayidx226 = getelementptr %struct.VirtQueue, ptr %68, i64 %indvars.iv273
   %caches.i.i228 = getelementptr inbounds i8, ptr %arrayidx226, i64 40
-  %68 = load atomic i64, ptr %caches.i.i228 monotonic, align 8
+  %69 = load atomic i64, ptr %caches.i.i228 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  %tobool.not.i229 = icmp eq i64 %68, 0
+  %tobool.not.i229 = icmp eq i64 %69, 0
   br i1 %tobool.not.i229, label %vring_avail_idx.exit246, label %if.end.i230
 
 if.end.i230:                                      ; preds = %vring_used_idx.exit
-  %69 = inttoptr i64 %68 to ptr
-  %avail.i231 = getelementptr inbounds i8, ptr %69, i64 128
-  %len.i.i.i.i232 = getelementptr inbounds i8, ptr %69, i64 144
-  %70 = load i64, ptr %len.i.i.i.i232, align 16
-  %switch.i233 = icmp ult i64 %70, 4
+  %70 = inttoptr i64 %69 to ptr
+  %avail.i231 = getelementptr inbounds i8, ptr %70, i64 128
+  %len.i.i.i.i232 = getelementptr inbounds i8, ptr %70, i64 144
+  %71 = load i64, ptr %len.i.i.i.i232, align 16
+  %switch.i233 = icmp ult i64 %71, 4
   br i1 %switch.i233, label %if.else.i.i.i.i245, label %if.end.i.i.i.i234
 
 if.else.i.i.i.i245:                               ; preds = %if.end.i230
@@ -7104,12 +7104,12 @@ if.else.i.i.i.i245:                               ; preds = %if.end.i230
   unreachable
 
 if.end.i.i.i.i234:                                ; preds = %if.end.i230
-  %71 = load ptr, ptr %avail.i231, align 16
-  %tobool.not.i.i.i.i235 = icmp eq ptr %71, null
+  %72 = load ptr, ptr %avail.i231, align 16
+  %tobool.not.i.i.i.i235 = icmp eq ptr %72, null
   br i1 %tobool.not.i.i.i.i235, label %if.else8.i.i.i.i243, label %if.then5.i.i.i.i236
 
 if.then5.i.i.i.i236:                              ; preds = %if.end.i.i.i.i234
-  %add.ptr.i.i.i.i237 = getelementptr i8, ptr %71, i64 2
+  %add.ptr.i.i.i.i237 = getelementptr i8, ptr %72, i64 2
   %add.ptr.val.i.i.i.i238 = load i16, ptr %add.ptr.i.i.i.i237, align 1
   br label %virtio_lduw_phys_cached.exit.i239
 
@@ -7125,36 +7125,36 @@ virtio_lduw_phys_cached.exit.i239:                ; preds = %if.else8.i.i.i.i243
 
 vring_avail_idx.exit246:                          ; preds = %vring_used_idx.exit, %virtio_lduw_phys_cached.exit.i239
   %retval.0.i242 = phi i16 [ %retval.0.i.i.i.i240, %virtio_lduw_phys_cached.exit.i239 ], [ 0, %vring_used_idx.exit ]
-  %72 = load ptr, ptr %vq141, align 8
-  %shadow_avail_idx231 = getelementptr %struct.VirtQueue, ptr %72, i64 %indvars.iv273, i32 4
-  store i16 %retval.0.i242, ptr %shadow_avail_idx231, align 4
   %73 = load ptr, ptr %vq141, align 8
-  %arrayidx234 = getelementptr %struct.VirtQueue, ptr %73, i64 %indvars.iv273
+  %shadow_avail_idx231 = getelementptr %struct.VirtQueue, ptr %73, i64 %indvars.iv273, i32 4
+  store i16 %retval.0.i242, ptr %shadow_avail_idx231, align 4
+  %74 = load ptr, ptr %vq141, align 8
+  %arrayidx234 = getelementptr %struct.VirtQueue, ptr %74, i64 %indvars.iv273
   %last_avail_idx235 = getelementptr inbounds i8, ptr %arrayidx234, i64 56
-  %74 = load i16, ptr %last_avail_idx235, align 8
+  %75 = load i16, ptr %last_avail_idx235, align 8
   %used_idx240 = getelementptr inbounds i8, ptr %arrayidx234, i64 64
-  %75 = load i16, ptr %used_idx240, align 8
-  %sub242 = sub i16 %74, %75
+  %76 = load i16, ptr %used_idx240, align 8
+  %sub242 = sub i16 %75, %76
   %conv244 = zext i16 %sub242 to i32
   %inuse248 = getelementptr inbounds i8, ptr %arrayidx234, i64 76
   store i32 %conv244, ptr %inuse248, align 4
-  %76 = load ptr, ptr %vq141, align 8
-  %arrayidx251 = getelementptr %struct.VirtQueue, ptr %76, i64 %indvars.iv273
+  %77 = load ptr, ptr %vq141, align 8
+  %arrayidx251 = getelementptr %struct.VirtQueue, ptr %77, i64 %indvars.iv273
   %inuse252 = getelementptr inbounds i8, ptr %arrayidx251, i64 76
-  %77 = load i32, ptr %inuse252, align 4
-  %78 = load i32, ptr %arrayidx251, align 8
-  %cmp258 = icmp ugt i32 %77, %78
+  %78 = load i32, ptr %inuse252, align 4
+  %79 = load i32, ptr %arrayidx251, align 8
+  %cmp258 = icmp ugt i32 %78, %79
   br i1 %cmp258, label %if.then260, label %for.inc278
 
 if.then260:                                       ; preds = %vring_avail_idx.exit246
-  %79 = trunc nuw nsw i64 %indvars.iv273 to i32
+  %80 = trunc nuw nsw i64 %indvars.iv273 to i32
   %last_avail_idx269 = getelementptr inbounds i8, ptr %arrayidx251, i64 56
-  %80 = load i16, ptr %last_avail_idx269, align 8
-  %conv270 = zext i16 %80 to i32
+  %81 = load i16, ptr %last_avail_idx269, align 8
+  %conv270 = zext i16 %81 to i32
   %used_idx274 = getelementptr inbounds i8, ptr %arrayidx251, i64 64
-  %81 = load i16, ptr %used_idx274, align 8
-  %conv275 = zext i16 %81 to i32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.56, i32 noundef %79, i32 noundef %78, i32 noundef %conv270, i32 noundef %conv275) #23
+  %82 = load i16, ptr %used_idx274, align 8
+  %conv275 = zext i16 %82 to i32
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.56, i32 noundef %80, i32 noundef %79, i32 noundef %conv270, i32 noundef %conv275) #23
   br label %cleanup
 
 for.inc278:                                       ; preds = %for.body140, %vring_avail_idx.exit246, %vring_avail_idx.exit212, %if.then153
@@ -7164,12 +7164,12 @@ for.inc278:                                       ; preds = %for.body140, %vring
 
 for.end280:                                       ; preds = %for.inc278, %if.end135
   %post_load = getelementptr inbounds i8, ptr %call1.i170, i64 328
-  %82 = load ptr, ptr %post_load, align 8
-  %tobool281.not = icmp eq ptr %82, null
+  %83 = load ptr, ptr %post_load, align 8
+  %tobool281.not = icmp eq ptr %83, null
   br i1 %tobool281.not, label %if.end288, label %if.then282
 
 if.then282:                                       ; preds = %for.end280
-  %call284 = tail call i32 %82(ptr noundef nonnull %vdev) #23
+  %call284 = tail call i32 %83(ptr noundef nonnull %vdev) #23
   %tobool285.not = icmp eq i32 %call284, 0
   br i1 %tobool285.not, label %if.end288, label %cleanup
 

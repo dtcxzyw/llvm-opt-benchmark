@@ -4425,7 +4425,7 @@ dissect_CursorHeader.exit:                        ; preds = %11, %18
 declare signext i16 @tvb_get_letohis(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_DisplayBase(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 21, 10) i32 @dissect_DisplayBase(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @ett_DisplayBase, align 4
   %6 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 21, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.889) #4
@@ -4918,7 +4918,7 @@ define internal fastcc range(i32 0, 14) i32 @dissect_Brush(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_RectList(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 4, 0) i32 @dissect_RectList(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #4
   %.not = icmp eq ptr %1, null
   %.pre = shl i32 %4, 4

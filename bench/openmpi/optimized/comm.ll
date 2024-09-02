@@ -1652,12 +1652,12 @@ define i32 @ompi_comm_split_with_info(ptr noundef %0, i32 noundef %1, i32 nounde
 115:                                              ; preds = %._crit_edge224
   %116 = zext nneg i32 %spec.select193 to i64
   call void @qsort(ptr noundef nonnull %96, i64 noundef %116, i64 noundef 8, ptr noundef nonnull @rankkeycompare) #19
+  %117 = shl nuw nsw i64 %116, 2
   br label %._crit_edge224._crit_edge
 
 ._crit_edge224._crit_edge:                        ; preds = %._crit_edge224, %115
-  %.pre-phi = phi i64 [ %116, %115 ], [ 1, %._crit_edge224 ]
-  %117 = shl nuw nsw i64 %.pre-phi, 2
-  %118 = call noalias ptr @malloc(i64 noundef %117) #20
+  %.pre-phi = phi i64 [ %117, %115 ], [ 4, %._crit_edge224 ]
+  %118 = call noalias ptr @malloc(i64 noundef %.pre-phi) #20
   %119 = icmp eq ptr %118, null
   br i1 %119, label %._crit_edge.thread, label %.lr.ph226.preheader
 
@@ -3677,7 +3677,7 @@ define internal fastcc noundef i32 @ompi_comm_get_rprocs(ptr noundef %0, ptr nou
 24:                                               ; preds = %7
   %25 = tail call ptr @PMIx_Data_buffer_create() #19
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.thread153, label %27
+  br i1 %26, label %.thread149, label %27
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %21, align 8
@@ -3759,19 +3759,19 @@ ompi_group_peer_lookup.exit:                      ; preds = %.lr.ph, %48, %62, %
   %.2 = phi ptr [ null, %32 ], [ %39, %35 ], [ %39, %ompi_group_peer_lookup.exit ]
   %74 = tail call i32 @ompi_proc_pack(ptr noundef %.sink, i32 noundef %.val.val, ptr noundef nonnull %25) #19
   %.not126 = icmp eq i32 %74, 0
-  br i1 %.not126, label %75, label %.thread153
+  br i1 %.not126, label %75, label %.thread149
 
 75:                                               ; preds = %._crit_edge
   call void @PMIx_Data_buffer_unload(ptr noundef nonnull %25, ptr noundef nonnull %13, ptr noundef nonnull %10) #19
   %76 = load ptr, ptr %13, align 8
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.thread153, label %78
+  br i1 %77, label %.thread149, label %78
 
 78:                                               ; preds = %75
   %79 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %80 = call i32 %79(ptr noundef nonnull %12, i64 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef %3, i32 noundef %4, ptr noundef %1, ptr noundef nonnull %8) #19
   %.not127 = icmp eq i32 %80, 0
-  br i1 %.not127, label %81, label %.thread153
+  br i1 %.not127, label %81, label %.thread149
 
 81:                                               ; preds = %78
   %82 = load i64, ptr %10, align 8
@@ -3808,14 +3808,14 @@ ompi_group_peer_lookup.exit:                      ; preds = %.lr.ph, %48, %62, %
   %98 = call i32 %95(ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, i32 noundef %2, ptr noundef nonnull %0, ptr noundef %97) #19
   %.not130 = icmp eq i32 %98, 0
   %or.cond142 = or i1 %23, %.not130
-  br i1 %or.cond142, label %99, label %.thread153
+  br i1 %or.cond142, label %99, label %.thread149
 
 99:                                               ; preds = %91
   %100 = load i32, ptr %12, align 4
   %101 = sext i32 %100 to i64
   %102 = call noalias ptr @malloc(i64 noundef %101) #20
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %.thread153, label %104
+  br i1 %103, label %.thread149, label %104
 
 104:                                              ; preds = %99
   br i1 %23, label %105, label %118
@@ -3824,7 +3824,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %.lr.ph, %48, %62, %
   %106 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %107 = call i32 %106(ptr noundef nonnull %102, i64 noundef %101, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %3, i32 noundef %4, ptr noundef %1, ptr noundef nonnull %8) #19
   %.not132 = icmp eq i32 %107, 0
-  br i1 %.not132, label %108, label %.thread153
+  br i1 %.not132, label %108, label %.thread149
 
 108:                                              ; preds = %105
   %109 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
@@ -3832,7 +3832,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %.lr.ph, %48, %62, %
   %111 = load i32, ptr %11, align 4
   %112 = sext i32 %111 to i64
   %113 = call i32 %109(ptr noundef %110, i64 noundef %112, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %3, i32 noundef %4, i32 noundef 4, ptr noundef %1) #19
-  switch i32 %113, label %.thread153 [
+  switch i32 %113, label %.thread149 [
     i32 77, label %114
     i32 75, label %114
     i32 0, label %114
@@ -3841,7 +3841,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %.lr.ph, %48, %62, %
 114:                                              ; preds = %108, %108, %108
   %115 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
   %116 = call i32 %115(ptr noundef nonnull %8, ptr noundef null) #19
-  switch i32 %116, label %.thread153 [
+  switch i32 %116, label %.thread149 [
     i32 77, label %117
     i32 75, label %117
     i32 0, label %117
@@ -3862,12 +3862,12 @@ ompi_group_peer_lookup.exit:                      ; preds = %.lr.ph, %48, %62, %
   %124 = load ptr, ptr %123, align 8
   %125 = call i32 %122(ptr noundef nonnull %102, i32 noundef %119, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %2, ptr noundef nonnull %0, ptr noundef %124) #19
   %.not133 = icmp eq i32 %125, 0
-  br i1 %.not133, label %126, label %.thread153
+  br i1 %.not133, label %126, label %.thread149
 
 126:                                              ; preds = %118
   %127 = call ptr @PMIx_Data_buffer_create() #19
   %128 = icmp eq ptr %127, null
-  br i1 %128, label %.thread153, label %129
+  br i1 %128, label %.thread149, label %129
 
 129:                                              ; preds = %126
   %130 = load i32, ptr %12, align 4
@@ -3876,124 +3876,126 @@ ompi_group_peer_lookup.exit:                      ; preds = %.lr.ph, %48, %62, %
   %132 = call i32 @ompi_proc_unpack(ptr noundef nonnull %127, i32 noundef %5, ptr noundef nonnull %9, ptr noundef null, ptr noundef null) #19
   call void @PMIx_Data_buffer_release(ptr noundef nonnull %127) #19
   %.not134 = icmp eq i32 %132, 0
-  br i1 %.not134, label %.preheader, label %.thread153
+  br i1 %.not134, label %.preheader, label %.thread149
 
 .preheader:                                       ; preds = %129
   %133 = icmp sgt i32 %5, 0
-  %.pre174 = load ptr, ptr %9, align 8
-  br i1 %133, label %.lr.ph166, label %._crit_edge167
+  %.pre170 = load ptr, ptr %9, align 8
+  br i1 %133, label %.lr.ph162, label %._crit_edge163
 
-.lr.ph166:                                        ; preds = %.preheader
+.lr.ph162:                                        ; preds = %.preheader
   %134 = getelementptr inbounds i8, ptr %16, i64 256
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %135
 
-135:                                              ; preds = %.lr.ph166, %.thread151
-  %136 = phi ptr [ %.pre174, %.lr.ph166 ], [ %161, %.thread151 ]
-  %indvars.iv169 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next170, %.thread151 ]
+135:                                              ; preds = %.lr.ph162, %.thread147
+  %136 = phi ptr [ %.pre170, %.lr.ph162 ], [ %161, %.thread147 ]
+  %indvars.iv165 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next166, %.thread147 ]
   store ptr %15, ptr %14, align 8
   store ptr null, ptr %17, align 8
-  %137 = getelementptr inbounds ptr, ptr %136, i64 %indvars.iv169
+  %137 = getelementptr inbounds ptr, ptr %136, i64 %indvars.iv165
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 40
   %140 = load i32, ptr %139, align 8
   %141 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %16, i32 noundef %140) #19
   %142 = load ptr, ptr %9, align 8
-  %143 = getelementptr inbounds ptr, ptr %142, i64 %indvars.iv169
+  %143 = getelementptr inbounds ptr, ptr %142, i64 %indvars.iv165
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 44
   %146 = load i32, ptr %145, align 4
   %cond = icmp eq i32 %146, -1
-  %spec.select184 = select i1 %cond, i32 -4, i32 %146
-  store i32 %spec.select184, ptr %134, align 4
+  %spec.select = select i1 %cond, i32 -4, i32 %146
+  store i32 %spec.select, ptr %134, align 4
   %147 = call i32 @PMIx_Info_load(ptr noundef nonnull %18, ptr noundef nonnull @.str.42, ptr noundef null, i16 noundef zeroext 1) #19
   %148 = call i32 @PMIx_Get(ptr noundef nonnull %16, ptr noundef nonnull @.str.43, ptr noundef nonnull %18, i64 noundef 1, ptr noundef nonnull %17) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %18) #19
   %149 = load ptr, ptr %17, align 8
   %150 = icmp eq ptr %149, null
-  br i1 %150, label %.thread151, label %151
+  br i1 %150, label %.thread147, label %151
 
 151:                                              ; preds = %135
   %152 = load i16, ptr %149, align 8
   %.not135 = icmp eq i16 %152, 13
-  br i1 %.not135, label %153, label %.thread147
+  %153 = icmp eq i32 %148, 0
+  %or.cond = select i1 %.not135, i1 %153, i1 false
+  br i1 %or.cond, label %154, label %.thread176
 
-153:                                              ; preds = %151
-  %154 = icmp eq i32 %148, 0
-  br i1 %154, label %155, label %.thread147
+.thread176:                                       ; preds = %151
+  call void @PMIx_Value_free(ptr noundef nonnull %149, i64 noundef 1) #19
+  store ptr null, ptr %17, align 8
+  br label %.thread147
 
-155:                                              ; preds = %153
-  %156 = call i32 @PMIx_Value_unload(ptr noundef nonnull %149, ptr noundef nonnull %14, ptr noundef nonnull %19) #19
+154:                                              ; preds = %151
+  %155 = call i32 @PMIx_Value_unload(ptr noundef nonnull %149, ptr noundef nonnull %14, ptr noundef nonnull %19) #19
+  %156 = icmp eq i32 %155, 0
   %.pr.pre = load ptr, ptr %17, align 8
   %.not136 = icmp eq ptr %.pr.pre, null
-  br i1 %.not136, label %158, label %.thread147
+  br i1 %.not136, label %158, label %157
 
-.thread147:                                       ; preds = %153, %151, %155
-  %.2102150 = phi i32 [ %156, %155 ], [ -18, %151 ], [ %148, %153 ]
-  %157 = phi ptr [ %.pr.pre, %155 ], [ %149, %151 ], [ %149, %153 ]
-  call void @PMIx_Value_free(ptr noundef nonnull %157, i64 noundef 1) #19
+157:                                              ; preds = %154
+  call void @PMIx_Value_free(ptr noundef nonnull %.pr.pre, i64 noundef 1) #19
   store ptr null, ptr %17, align 8
-  br label %158
+  br i1 %156, label %159, label %.thread147
 
-158:                                              ; preds = %155, %.thread147
-  %.2102146 = phi i32 [ %156, %155 ], [ %.2102150, %.thread147 ]
-  %159 = icmp eq i32 %.2102146, 0
+158:                                              ; preds = %154
+  br i1 %156, label %159, label %.thread147
+
+159:                                              ; preds = %157, %158
   %160 = load i16, ptr %15, align 2
-  %spec.select = select i1 %159, i16 %160, i16 -32768
-  br label %.thread151
+  br label %.thread147
 
-.thread151:                                       ; preds = %158, %135
-  %.sink179 = phi i16 [ -32768, %135 ], [ %spec.select, %158 ]
+.thread147:                                       ; preds = %158, %157, %135, %.thread176, %159
+  %.sink180 = phi i16 [ %160, %159 ], [ -32768, %.thread176 ], [ -32768, %135 ], [ -32768, %157 ], [ -32768, %158 ]
   %161 = load ptr, ptr %9, align 8
-  %162 = getelementptr inbounds ptr, ptr %161, i64 %indvars.iv169
+  %162 = getelementptr inbounds ptr, ptr %161, i64 %indvars.iv165
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 52
-  store i16 %.sink179, ptr %164, align 4
-  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge167, label %135, !llvm.loop !21
+  store i16 %.sink180, ptr %164, align 4
+  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge163, label %135, !llvm.loop !21
 
-._crit_edge167:                                   ; preds = %.thread151, %.preheader
-  %165 = phi ptr [ %.pre174, %.preheader ], [ %161, %.thread151 ]
+._crit_edge163:                                   ; preds = %.thread147, %.preheader
+  %165 = phi ptr [ %.pre170, %.preheader ], [ %161, %.thread147 ]
   %166 = load ptr, ptr @mca_pml, align 8
   %167 = sext i32 %5 to i64
   %168 = call i32 %166(ptr noundef %165, i64 noundef %167) #19
   %.not137 = icmp eq i32 %168, 0
-  br i1 %.not137, label %172, label %.thread153
+  br i1 %.not137, label %172, label %.thread149
 
-.thread153:                                       ; preds = %126, %99, %91, %75, %24, %129, %118, %114, %108, %105, %78, %._crit_edge, %._crit_edge167
-  %.199162 = phi ptr [ %.098, %._crit_edge167 ], [ %.098, %126 ], [ %.098, %99 ], [ %.098, %91 ], [ %.2, %75 ], [ null, %24 ], [ %.098, %129 ], [ %.098, %118 ], [ %.098, %114 ], [ %.098, %108 ], [ %.098, %105 ], [ %.2, %78 ], [ %.2, %._crit_edge ]
-  %.0100160 = phi i32 [ %168, %._crit_edge167 ], [ -2, %126 ], [ -2, %99 ], [ %98, %91 ], [ -24, %75 ], [ -2, %24 ], [ %132, %129 ], [ %125, %118 ], [ %116, %114 ], [ %113, %108 ], [ %107, %105 ], [ %80, %78 ], [ %74, %._crit_edge ]
-  %.1105158 = phi ptr [ %.2106, %._crit_edge167 ], [ %.2106, %126 ], [ %.0104, %99 ], [ %.0104, %91 ], [ %25, %75 ], [ null, %24 ], [ %.2106, %129 ], [ %.2106, %118 ], [ %.0104, %114 ], [ %.0104, %108 ], [ %.0104, %105 ], [ %25, %78 ], [ %25, %._crit_edge ]
-  %169 = call ptr @opal_strerror(i32 noundef %.0100160) #19
+.thread149:                                       ; preds = %126, %99, %91, %75, %24, %129, %118, %114, %108, %105, %78, %._crit_edge, %._crit_edge163
+  %.199158 = phi ptr [ %.098, %._crit_edge163 ], [ %.098, %126 ], [ %.098, %99 ], [ %.098, %91 ], [ %.2, %75 ], [ null, %24 ], [ %.098, %129 ], [ %.098, %118 ], [ %.098, %114 ], [ %.098, %108 ], [ %.098, %105 ], [ %.2, %78 ], [ %.2, %._crit_edge ]
+  %.0100156 = phi i32 [ %168, %._crit_edge163 ], [ -2, %126 ], [ -2, %99 ], [ %98, %91 ], [ -24, %75 ], [ -2, %24 ], [ %132, %129 ], [ %125, %118 ], [ %116, %114 ], [ %113, %108 ], [ %107, %105 ], [ %80, %78 ], [ %74, %._crit_edge ]
+  %.1105154 = phi ptr [ %.2106, %._crit_edge163 ], [ %.2106, %126 ], [ %.0104, %99 ], [ %.0104, %91 ], [ %25, %75 ], [ null, %24 ], [ %.2106, %129 ], [ %.2106, %118 ], [ %.0104, %114 ], [ %.0104, %108 ], [ %.0104, %105 ], [ %25, %78 ], [ %25, %._crit_edge ]
+  %169 = call ptr @opal_strerror(i32 noundef %.0100156) #19
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef %169, ptr noundef nonnull @.str.46, i32 noundef 2385) #19
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.47, i32 noundef %.val143) #19
   %170 = load ptr, ptr %9, align 8
   %.not138 = icmp eq ptr %170, null
   br i1 %.not138, label %172, label %171
 
-171:                                              ; preds = %.thread153
+171:                                              ; preds = %.thread149
   call void @free(ptr noundef nonnull %170) #19
   store ptr null, ptr %9, align 8
   br label %172
 
-172:                                              ; preds = %.thread153, %171, %._crit_edge167
-  %.199163 = phi ptr [ %.199162, %.thread153 ], [ %.199162, %171 ], [ %.098, %._crit_edge167 ]
-  %.0100161 = phi i32 [ %.0100160, %.thread153 ], [ %.0100160, %171 ], [ 0, %._crit_edge167 ]
-  %.1105159 = phi ptr [ %.1105158, %.thread153 ], [ %.1105158, %171 ], [ %.2106, %._crit_edge167 ]
-  %.not139 = icmp eq ptr %.1105159, null
+172:                                              ; preds = %.thread149, %171, %._crit_edge163
+  %.199159 = phi ptr [ %.199158, %.thread149 ], [ %.199158, %171 ], [ %.098, %._crit_edge163 ]
+  %.0100157 = phi i32 [ %.0100156, %.thread149 ], [ %.0100156, %171 ], [ 0, %._crit_edge163 ]
+  %.1105155 = phi ptr [ %.1105154, %.thread149 ], [ %.1105154, %171 ], [ %.2106, %._crit_edge163 ]
+  %.not139 = icmp eq ptr %.1105155, null
   br i1 %.not139, label %174, label %173
 
 173:                                              ; preds = %172
-  call void @PMIx_Data_buffer_release(ptr noundef nonnull %.1105159) #19
+  call void @PMIx_Data_buffer_release(ptr noundef nonnull %.1105155) #19
   br label %174
 
 174:                                              ; preds = %172, %173
-  %.not140 = icmp eq ptr %.199163, null
+  %.not140 = icmp eq ptr %.199159, null
   br i1 %.not140, label %176, label %175
 
 175:                                              ; preds = %174
-  call void @free(ptr noundef nonnull %.199163) #19
+  call void @free(ptr noundef nonnull %.199159) #19
   br label %176
 
 176:                                              ; preds = %175, %174
@@ -4008,7 +4010,7 @@ ompi_group_peer_lookup.exit:                      ; preds = %.lr.ph, %48, %62, %
 179:                                              ; preds = %178, %176
   %180 = load ptr, ptr %9, align 8
   store ptr %180, ptr %6, align 8
-  ret i32 %.0100161
+  ret i32 %.0100157
 }
 
 declare ptr @ompi_group_allocate_plist_w_procs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -5288,19 +5290,19 @@ define internal fastcc range(i32 -5, 1) i32 @ompi_comm_split_type_get_part(ptr n
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %20
 
-20:                                               ; preds = %.lr.ph, %.thread66
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread66 ]
-  %.03476 = phi i32 [ 0, %.lr.ph ], [ %.1, %.thread66 ]
-  %.val58 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds ptr, ptr %.val58, i64 %indvars.iv
+20:                                               ; preds = %.lr.ph, %.thread63
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread63 ]
+  %.03472 = phi i32 [ 0, %.lr.ph ], [ %.1, %.thread63 ]
+  %.val59 = load ptr, ptr %17, align 8
+  %21 = getelementptr inbounds ptr, ptr %.val59, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
-  %.not72 = icmp eq i64 %24, 0
-  br i1 %.not72, label %43, label %25
+  %.not68 = icmp eq i64 %24, 0
+  br i1 %.not68, label %43, label %25
 
 25:                                               ; preds = %20
-  br i1 %18, label %.thread66, label %26
+  br i1 %18, label %.thread63, label %26
 
 26:                                               ; preds = %25
   %.sroa.2.0.extract.shift = lshr i64 %23, 32
@@ -5314,41 +5316,41 @@ define internal fastcc range(i32 -5, 1) i32 @ompi_comm_split_type_get_part(ptr n
   store ptr null, ptr %8, align 8
   %30 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %7, i32 noundef %.sroa.0.0.extract.trunc) #19
   %cond = icmp eq i64 %.sroa.2.0.extract.shift, 4294967295
-  %spec.select87 = select i1 %cond, i32 -4, i32 %.sroa.2.0.extract.trunc
-  store i32 %spec.select87, ptr %19, align 4
+  %spec.select88 = select i1 %cond, i32 -4, i32 %.sroa.2.0.extract.trunc
+  store i32 %spec.select88, ptr %19, align 4
   %31 = call i32 @PMIx_Info_load(ptr noundef nonnull %9, ptr noundef nonnull @.str.42, ptr noundef null, i16 noundef zeroext 1) #19
   %32 = call i32 @PMIx_Get(ptr noundef nonnull %7, ptr noundef nonnull @.str.43, ptr noundef nonnull %9, i64 noundef 1, ptr noundef nonnull %8) #19
   call void @PMIx_Info_destruct(ptr noundef nonnull %9) #19
   %33 = load ptr, ptr %8, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread66, label %35
+  br i1 %34, label %.thread63, label %35
 
 35:                                               ; preds = %26
   %36 = load i16, ptr %33, align 8
   %.not44 = icmp eq i16 %36, 13
-  br i1 %.not44, label %37, label %.thread62
+  %37 = icmp eq i32 %32, 0
+  %or.cond = select i1 %.not44, i1 %37, i1 false
+  br i1 %or.cond, label %38, label %.thread84
 
-37:                                               ; preds = %35
-  %38 = icmp eq i32 %32, 0
-  br i1 %38, label %39, label %.thread62
+.thread84:                                        ; preds = %35
+  call void @PMIx_Value_free(ptr noundef nonnull %33, i64 noundef 1) #19
+  store ptr null, ptr %8, align 8
+  br label %.thread63
 
-39:                                               ; preds = %37
-  %40 = call i32 @PMIx_Value_unload(ptr noundef nonnull %33, ptr noundef nonnull %6, ptr noundef nonnull %10) #19
+38:                                               ; preds = %35
+  %39 = call i32 @PMIx_Value_unload(ptr noundef nonnull %33, ptr noundef nonnull %6, ptr noundef nonnull %10) #19
+  %40 = icmp eq i32 %39, 0
   %.pr.pre = load ptr, ptr %8, align 8
   %.not45 = icmp eq ptr %.pr.pre, null
-  br i1 %.not45, label %42, label %.thread62
+  br i1 %.not45, label %42, label %41
 
-.thread62:                                        ; preds = %37, %35, %39
-  %.03765 = phi i32 [ %40, %39 ], [ -18, %35 ], [ %32, %37 ]
-  %41 = phi ptr [ %.pr.pre, %39 ], [ %33, %35 ], [ %33, %37 ]
-  call void @PMIx_Value_free(ptr noundef nonnull %41, i64 noundef 1) #19
+41:                                               ; preds = %38
+  call void @PMIx_Value_free(ptr noundef nonnull %.pr.pre, i64 noundef 1) #19
   store ptr null, ptr %8, align 8
-  br label %42
+  br i1 %40, label %46, label %.thread63
 
-42:                                               ; preds = %39, %.thread62
-  %.03761 = phi i32 [ %40, %39 ], [ %.03765, %.thread62 ]
-  %.not46 = icmp eq i32 %.03761, 0
-  br i1 %.not46, label %46, label %.thread66
+42:                                               ; preds = %38
+  br i1 %40, label %46, label %.thread63
 
 43:                                               ; preds = %20
   %44 = getelementptr inbounds i8, ptr %22, i64 52
@@ -5356,8 +5358,8 @@ define internal fastcc range(i32 -5, 1) i32 @ompi_comm_split_type_get_part(ptr n
   store i16 %45, ptr %5, align 2
   br label %46
 
-46:                                               ; preds = %42, %43
-  switch i32 %1, label %.thread66 [
+46:                                               ; preds = %41, %42, %43
+  switch i32 %1, label %.thread63 [
     i32 1, label %47
     i32 2, label %51
     i32 3, label %55
@@ -5370,65 +5372,67 @@ define internal fastcc range(i32 -5, 1) i32 @ompi_comm_split_type_get_part(ptr n
     i32 9, label %84
     i32 10, label %88
     i32 11, label %92
-    i32 13, label %.lr.ph79.preheader
-    i32 12, label %.lr.ph79.preheader
+    i32 13, label %.lr.ph75.preheader
+    i32 12, label %.lr.ph75.preheader
   ]
 
 47:                                               ; preds = %46
   %48 = load i16, ptr %5, align 2
   %49 = lshr i16 %48, 10
-  %.lobit56 = and i16 %49, 1
-  %50 = zext nneg i16 %.lobit56 to i32
+  %.lobit57 = and i16 %49, 1
+  %50 = zext nneg i16 %.lobit57 to i32
   br label %105
 
 51:                                               ; preds = %46
   %52 = load i16, ptr %5, align 2
   %53 = lshr i16 %52, 9
-  %.lobit55 = and i16 %53, 1
-  %54 = zext nneg i16 %.lobit55 to i32
+  %.lobit56 = and i16 %53, 1
+  %54 = zext nneg i16 %.lobit56 to i32
   br label %105
 
 55:                                               ; preds = %46
   %56 = load i16, ptr %5, align 2
   %57 = lshr i16 %56, 8
-  %.lobit54 = and i16 %57, 1
-  %58 = zext nneg i16 %.lobit54 to i32
+  %.lobit55 = and i16 %57, 1
+  %58 = zext nneg i16 %.lobit55 to i32
   br label %105
 
 59:                                               ; preds = %46
   %60 = load i16, ptr %5, align 2
   %61 = lshr i16 %60, 7
-  %.lobit53 = and i16 %61, 1
-  %62 = zext nneg i16 %.lobit53 to i32
+  %.lobit54 = and i16 %61, 1
+  %62 = zext nneg i16 %.lobit54 to i32
   br label %105
 
 63:                                               ; preds = %46
   %64 = load i16, ptr %5, align 2
   %65 = lshr i16 %64, 6
-  %.lobit52 = and i16 %65, 1
-  %66 = zext nneg i16 %.lobit52 to i32
+  %.lobit53 = and i16 %65, 1
+  %66 = zext nneg i16 %.lobit53 to i32
   br label %105
 
 67:                                               ; preds = %46
   %68 = load i16, ptr %5, align 2
   %69 = lshr i16 %68, 5
-  %.lobit51 = and i16 %69, 1
-  %70 = zext nneg i16 %.lobit51 to i32
+  %.lobit52 = and i16 %69, 1
+  %70 = zext nneg i16 %.lobit52 to i32
   br label %105
 
 71:                                               ; preds = %46
   %72 = load i16, ptr %5, align 2
   %73 = lshr i16 %72, 4
-  %.lobit50 = and i16 %73, 1
-  %74 = zext nneg i16 %.lobit50 to i32
+  %.lobit51 = and i16 %73, 1
+  %74 = zext nneg i16 %.lobit51 to i32
   br label %105
 
 75:                                               ; preds = %46
   %76 = load i16, ptr %5, align 2
-  %77 = and i16 %76, 12
-  %78 = icmp eq i16 %77, 12
-  %79 = zext i1 %78 to i32
-  br label %105
+  %77 = zext i16 %76 to i32
+  %78 = and i32 %77, 4
+  %.not49 = icmp eq i32 %78, 0
+  %79 = lshr i32 %77, 3
+  %.lobit50 = and i32 %79, 1
+  br i1 %.not49, label %.thread63, label %105
 
 80:                                               ; preds = %46
   %81 = load i16, ptr %5, align 2
@@ -5457,24 +5461,24 @@ define internal fastcc range(i32 -5, 1) i32 @ompi_comm_split_type_get_part(ptr n
   %95 = zext nneg i16 %94 to i32
   br label %105
 
-.lr.ph79.preheader:                               ; preds = %46, %46
+.lr.ph75.preheader:                               ; preds = %46, %46
   %96 = load ptr, ptr @opal_show_help, align 8
-  br label %.lr.ph79
+  br label %.lr.ph75
 
-.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %97
-  %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i, %97 ], [ 0, %.lr.ph79.preheader ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i77, 1
+.lr.ph75:                                         ; preds = %.lr.ph75.preheader, %97
+  %indvars.iv.i73 = phi i64 [ %indvars.iv.next.i, %97 ], [ 0, %.lr.ph75.preheader ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i73, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 12
   br i1 %exitcond.i, label %102, label %97, !llvm.loop !18
 
-97:                                               ; preds = %.lr.ph79
+97:                                               ; preds = %.lr.ph75
   %98 = getelementptr inbounds [13 x %struct.ompi_comm_split_type_hw_guided_t], ptr @ompi_comm_split_type_hw_guided_support, i64 0, i64 %indvars.iv.next.i
   %99 = getelementptr inbounds i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = icmp eq i32 %1, %100
-  br i1 %101, label %ompi_comm_split_type_to_str.exit.loopexit, label %.lr.ph79, !llvm.loop !18
+  br i1 %101, label %ompi_comm_split_type_to_str.exit.loopexit, label %.lr.ph75, !llvm.loop !18
 
-102:                                              ; preds = %.lr.ph79
+102:                                              ; preds = %.lr.ph75
   %switch.selectcmp.i = icmp eq i32 %1, 12
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.39, ptr @.str.40
   %switch.selectcmp10.i = icmp eq i32 %1, 13
@@ -5491,26 +5495,26 @@ ompi_comm_split_type_to_str.exit:                 ; preds = %ompi_comm_split_typ
   call void @free(ptr noundef %14) #19
   br label %117
 
-105:                                              ; preds = %92, %88, %84, %80, %75, %71, %67, %63, %59, %55, %51, %47
-  %.036 = phi i32 [ %95, %92 ], [ %91, %88 ], [ %87, %84 ], [ %83, %80 ], [ %79, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ]
-  %.not57 = icmp eq i32 %.036, 0
-  br i1 %.not57, label %.thread66, label %106
+105:                                              ; preds = %75, %92, %88, %84, %80, %71, %67, %63, %59, %55, %51, %47
+  %.036 = phi i32 [ %95, %92 ], [ %91, %88 ], [ %87, %84 ], [ %83, %80 ], [ %.lobit50, %75 ], [ %74, %71 ], [ %70, %67 ], [ %66, %63 ], [ %62, %59 ], [ %58, %55 ], [ %54, %51 ], [ %50, %47 ]
+  %.not58 = icmp eq i32 %.036, 0
+  br i1 %.not58, label %.thread63, label %106
 
 106:                                              ; preds = %105
-  %107 = add nsw i32 %.03476, 1
-  %108 = sext i32 %.03476 to i64
+  %107 = add nsw i32 %.03472, 1
+  %108 = sext i32 %.03472 to i64
   %109 = getelementptr inbounds i32, ptr %14, i64 %108
   %110 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %110, ptr %109, align 4
-  br label %.thread66
+  br label %.thread63
 
-.thread66:                                        ; preds = %46, %26, %105, %106, %42, %25
-  %.1 = phi i32 [ %.03476, %25 ], [ %.03476, %42 ], [ %107, %106 ], [ %.03476, %105 ], [ %.03476, %26 ], [ %.03476, %46 ]
+.thread63:                                        ; preds = %.thread84, %75, %46, %26, %41, %105, %106, %42, %25
+  %.1 = phi i32 [ %.03472, %25 ], [ %.03472, %42 ], [ %107, %106 ], [ %.03472, %105 ], [ %.03472, %41 ], [ %.03472, %26 ], [ %.03472, %46 ], [ %.03472, %75 ], [ %.03472, %.thread84 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %.thread66
+._crit_edge:                                      ; preds = %.thread63
   store i32 %.1, ptr %3, align 4
   %111 = icmp eq i32 %.1, 0
   br i1 %111, label %112, label %113

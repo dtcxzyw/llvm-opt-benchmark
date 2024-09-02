@@ -1513,7 +1513,7 @@ define internal void @single_stop(ptr nocapture readnone %0, ptr nocapture readn
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @single_open_size(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @single_open_size(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = icmp ugt i64 %3, 2147479552
   br i1 %5, label %.thread, label %6, !prof !11
 

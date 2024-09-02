@@ -353,10 +353,10 @@ list_head.exit.i:                                 ; preds = %.thread.i, %._crit_
   %85 = getelementptr inbounds i8, ptr %.0198, i64 24
   br label %86
 
-86:                                               ; preds = %130, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %130 ]
-  %87 = phi ptr [ %79, %.lr.ph.i ], [ %135, %130 ]
-  %.02637.i = phi ptr [ %78, %.lr.ph.i ], [ %.1.i, %130 ]
+86:                                               ; preds = %131, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %131 ]
+  %87 = phi ptr [ %79, %.lr.ph.i ], [ %135, %131 ]
+  %.02637.i = phi ptr [ %78, %.lr.ph.i ], [ %.1.i, %131 ]
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr i16, ptr %89, i64 %indvars.iv.i
@@ -385,7 +385,7 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %102 = load ptr, ptr %85, align 8
   %103 = getelementptr i64, ptr %102, i64 %98
   %104 = load i64, ptr %103, align 8
-  br label %130
+  br label %131
 
 105:                                              ; preds = %86
   %106 = icmp eq ptr %.02637.i, null
@@ -429,17 +429,17 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %129 = icmp ult ptr %126, %128
   %..i.i = select i1 %129, ptr %126, ptr null
   %.pre40.i = load i8, ptr %12, align 1
-  br label %130
+  %130 = and i8 %.pre40.i, 1
+  br label %131
 
-130:                                              ; preds = %115, %slot_getattr.exit.i
-  %131 = phi i8 [ %101, %slot_getattr.exit.i ], [ %.pre40.i, %115 ]
+131:                                              ; preds = %115, %slot_getattr.exit.i
+  %132 = phi i8 [ %101, %slot_getattr.exit.i ], [ %130, %115 ]
   %.1.i = phi ptr [ %.02637.i, %slot_getattr.exit.i ], [ %..i.i, %115 ]
   %.0.i = phi i64 [ %104, %slot_getattr.exit.i ], [ %122, %115 ]
-  %132 = getelementptr i64, ptr %13, i64 %indvars.iv.i
-  store i64 %.0.i, ptr %132, align 8
-  %133 = getelementptr i8, ptr %14, i64 %indvars.iv.i
-  %134 = and i8 %131, 1
-  store i8 %134, ptr %133, align 1
+  %133 = getelementptr i64, ptr %13, i64 %indvars.iv.i
+  store i64 %.0.i, ptr %133, align 8
+  %134 = getelementptr i8, ptr %14, i64 %indvars.iv.i
+  store i8 %132, ptr %134, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %135 = load ptr, ptr %66, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 4
@@ -448,10 +448,10 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %139 = icmp slt i64 %indvars.iv.next.i, %138
   br i1 %139, label %86, label %._crit_edge.i, !llvm.loop !5
 
-._crit_edge.i:                                    ; preds = %130, %list_head.exit.i
-  %140 = phi i16 [ %81, %list_head.exit.i ], [ %137, %130 ]
-  %.0100.val = phi ptr [ %79, %list_head.exit.i ], [ %135, %130 ]
-  %.026.lcssa.i = phi ptr [ %78, %list_head.exit.i ], [ %.1.i, %130 ]
+._crit_edge.i:                                    ; preds = %131, %list_head.exit.i
+  %140 = phi i16 [ %81, %list_head.exit.i ], [ %137, %131 ]
+  %.0100.val = phi ptr [ %79, %list_head.exit.i ], [ %135, %131 ]
+  %.026.lcssa.i = phi ptr [ %78, %list_head.exit.i ], [ %.1.i, %131 ]
   %.not31.i = icmp eq ptr %.026.lcssa.i, null
   br i1 %.not31.i, label %FormPartitionKeyDatum.exit, label %141
 

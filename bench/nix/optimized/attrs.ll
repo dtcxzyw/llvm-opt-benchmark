@@ -3119,7 +3119,7 @@ define noundef i64 @_ZN3nix8fetchers10getIntAttrERKSt3mapINSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress uwtable
-define i16 @_ZN3nix8fetchers16maybeGetBoolAttrERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS7_mNS_8ExplicitIbEEEESt4lessIS7_ESaISt4pairIKS7_SB_EEERSF_(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define range(i16 0, 512) i16 @_ZN3nix8fetchers16maybeGetBoolAttrERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS7_mNS_8ExplicitIbEEEESt4lessIS7_ESaISt4pairIKS7_SB_EEERSF_(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3263,53 +3263,52 @@ define noundef zeroext i1 @_ZN3nix8fetchers11getBoolAttrERKSt3mapINSt7__cxx1112b
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = tail call i16 @_ZN3nix8fetchers16maybeGetBoolAttrERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS7_mNS_8ExplicitIbEEEESt4lessIS7_ESaISt4pairIKS7_SB_EEERSF_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %6 = and i16 %5, 256
-  %.not = icmp eq i16 %6, 0
-  br i1 %.not, label %7, label %15
+  %.not = icmp ult i16 %5, 256
+  br i1 %.not, label %6, label %14
 
-7:                                                ; preds = %2
-  %8 = tail call ptr @__cxa_allocate_exception(i64 376) #26
+6:                                                ; preds = %2
+  %7 = tail call ptr @__cxa_allocate_exception(i64 376) #26
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %9 unwind label %.thread
+          to label %8 unwind label %.thread
 
-9:                                                ; preds = %7
-  invoke void @_ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %8, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %10 unwind label %12
+8:                                                ; preds = %6
+  invoke void @_ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
+          to label %9 unwind label %11
 
-10:                                               ; preds = %9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix5ErrorE, i64 16), ptr %8, align 8
-  invoke void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #28
-          to label %18 unwind label %12
+9:                                                ; preds = %8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix5ErrorE, i64 16), ptr %7, align 8
+  invoke void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #28
+          to label %17 unwind label %11
 
-.thread:                                          ; preds = %7
-  %11 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %6
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
-  br label %14
+  br label %13
 
-12:                                               ; preds = %10, %9
-  %.0 = phi i1 [ false, %10 ], [ true, %9 ]
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %9, %8
+  %.0 = phi i1 [ false, %9 ], [ true, %8 ]
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #26
-  br i1 %.0, label %14, label %17
+  br i1 %.0, label %13, label %16
 
-14:                                               ; preds = %.thread, %12
-  %.pn11 = phi { ptr, i32 } [ %11, %.thread ], [ %13, %12 ]
-  call void @__cxa_free_exception(ptr %8) #26
-  br label %17
+13:                                               ; preds = %.thread, %11
+  %.pn11 = phi { ptr, i32 } [ %10, %.thread ], [ %12, %11 ]
+  call void @__cxa_free_exception(ptr %7) #26
+  br label %16
 
-15:                                               ; preds = %2
-  %16 = trunc i16 %5 to i1
-  ret i1 %16
+14:                                               ; preds = %2
+  %15 = trunc i16 %5 to i1
+  ret i1 %15
 
-17:                                               ; preds = %12, %14
-  %.pn10 = phi { ptr, i32 } [ %13, %12 ], [ %.pn11, %14 ]
+16:                                               ; preds = %11, %13
+  %.pn10 = phi { ptr, i32 } [ %12, %11 ], [ %.pn11, %13 ]
   resume { ptr, i32 } %.pn10
 
-18:                                               ; preds = %10
+17:                                               ; preds = %9
   unreachable
 }
 

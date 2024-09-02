@@ -867,7 +867,7 @@ hsts_load.exit:                                   ; preds = %3, %11, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [257 x i8], align 16
   %4 = alloca %struct.curl_hstsentry, align 8
   %.not = icmp eq ptr %1, null

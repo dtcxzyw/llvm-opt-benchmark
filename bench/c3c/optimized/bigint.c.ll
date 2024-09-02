@@ -1500,7 +1500,7 @@ i128_scomp.exit:                                  ; preds = %32, %30, %28, %.cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 0, 511) i32 @i128_popcnt(i64 %0, i64 %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 129) i32 @i128_popcnt(i64 %0, i64 %1) local_unnamed_addr #1 {
   %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
   %4 = trunc nuw nsw i64 %3 to i32
   %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
@@ -1510,7 +1510,7 @@ define dso_local range(i32 0, 511) i32 @i128_popcnt(i64 %0, i64 %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 186) i32 @i128_ctz(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local range(i32 0, 129) i32 @i128_ctz(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -1616,7 +1616,7 @@ define dso_local range(i32 0, 186) i32 @i128_ctz(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 186) i32 @i128_clz(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local range(i32 0, 129) i32 @i128_clz(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %46, label %3
@@ -1722,14 +1722,14 @@ define dso_local range(i32 0, 186) i32 @i128_clz(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 -58, 128) i32 @i128_lsb(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local range(i32 -1, 128) i32 @i128_lsb(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = tail call i32 @i128_ctz(ptr noundef %0)
   %3 = sub nsw i32 127, %2
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 -58, 128) i32 @i128_msb(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local range(i32 -1, 128) i32 @i128_msb(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = tail call i32 @i128_clz(ptr noundef %0)
   %3 = sub nsw i32 127, %2
   ret i32 %3
@@ -2773,7 +2773,7 @@ define dso_local zeroext i1 @int_is_zero(ptr nocapture noundef readonly byval(%s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -57, 130) i32 @int_bits_needed(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #15 {
+define dso_local range(i32 0, 130) i32 @int_bits_needed(ptr nocapture noundef readonly byval(%struct.Int) align 8 %0) local_unnamed_addr #15 {
   %2 = alloca %struct.Int128_, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -2816,7 +2816,7 @@ i128_neg.exit:                                    ; preds = %11, %13
 24:                                               ; preds = %1, %7, %i128_neg.exit
   %.sink = phi i32 [ 129, %i128_neg.exit ], [ 129, %7 ], [ 128, %1 ]
   %25 = call i32 @i128_clz(ptr noundef nonnull %2)
-  %26 = sub nsw i32 %.sink, %25
+  %26 = sub nuw nsw i32 %.sink, %25
   ret i32 %26
 }
 

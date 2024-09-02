@@ -178,11 +178,7 @@ define hidden void @zif_image_type_to_mime_type(ptr noundef %0, ptr nocapture no
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
-  br i1 %cond, label %6, label %.thread132
-
-.thread132:                                       ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #13
-  br label %14
+  br i1 %cond, label %6, label %.thread137
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 80
@@ -194,59 +190,64 @@ define hidden void @zif_image_type_to_mime_type(ptr noundef %0, ptr nocapture no
 .thread127:                                       ; preds = %6
   %11 = load i64, ptr %7, align 8
   store i64 %11, ptr %3, align 8
-  br label %15
+  br label %.thread145
 
 12:                                               ; preds = %6
   %13 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef 1) #13
-  br i1 %13, label %._crit_edge, label %14
+  %.fr = freeze i1 %13
+  br i1 %.fr, label %..thread145_crit_edge, label %14
 
-._crit_edge:                                      ; preds = %12
+..thread145_crit_edge:                            ; preds = %12
   %.pre = load i64, ptr %3, align 8
-  br label %15
+  br label %.thread145
 
-14:                                               ; preds = %12, %.thread132
-  %.0114139 = phi i32 [ 0, %.thread132 ], [ 1, %12 ]
-  %.0115138 = phi i32 [ 1, %.thread132 ], [ 9, %12 ]
-  %.0116137 = phi ptr [ null, %.thread132 ], [ %7, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0115138, i32 noundef %.0114139, ptr noundef null, i32 noundef 0, ptr noundef %.0116137) #13
-  br label %30
+.thread137:                                       ; preds = %2
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #13
+  br label %14
 
-15:                                               ; preds = %._crit_edge, %.thread127
-  %16 = phi i64 [ %.pre, %._crit_edge ], [ %11, %.thread127 ]
-  %17 = trunc i64 %16 to i32
-  %switch.tableidx = add i32 %17, -1
-  %18 = icmp ult i32 %switch.tableidx, 19
-  br i1 %18, label %switch.lookup, label %php_image_type_to_mime_type.exit
+14:                                               ; preds = %12, %.thread137
+  %.0114144 = phi i32 [ 0, %.thread137 ], [ 1, %12 ]
+  %.0115143 = phi i32 [ 1, %.thread137 ], [ 9, %12 ]
+  %.0116142 = phi ptr [ null, %.thread137 ], [ %7, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0115143, i32 noundef %.0114144, ptr noundef null, i32 noundef 0, ptr noundef %.0116142) #13
+  br label %29
 
-switch.lookup:                                    ; preds = %15
-  %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [19 x ptr], ptr @switch.table.php_getimagesize_from_any, i64 0, i64 %19
+.thread145:                                       ; preds = %..thread145_crit_edge, %.thread127
+  %15 = phi i64 [ %.pre, %..thread145_crit_edge ], [ %11, %.thread127 ]
+  %16 = trunc i64 %15 to i32
+  %switch.tableidx = add i32 %16, -1
+  %17 = icmp ult i32 %switch.tableidx, 19
+  br i1 %17, label %switch.lookup, label %php_image_type_to_mime_type.exit
+
+switch.lookup:                                    ; preds = %.thread145
+  %18 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [19 x ptr], ptr @switch.table.php_getimagesize_from_any, i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %php_image_type_to_mime_type.exit
 
-php_image_type_to_mime_type.exit:                 ; preds = %15, %switch.lookup
-  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.9, %15 ]
-  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #14
-  %21 = and i64 %20, -8
-  %22 = add i64 %21, 32
-  %23 = call noalias ptr @_emalloc(i64 noundef %22) #15
-  store i32 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
-  store i32 22, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
-  store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
-  store i64 %20, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 1 %.0.i, i64 %20, i1 false)
-  %28 = getelementptr inbounds [1 x i8], ptr %27, i64 0, i64 %20
-  store i8 0, ptr %28, align 1
-  store ptr %23, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %29, align 8
-  br label %30
+php_image_type_to_mime_type.exit:                 ; preds = %.thread145, %switch.lookup
+  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.9, %.thread145 ]
+  %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #14
+  %20 = and i64 %19, -8
+  %21 = add i64 %20, 32
+  %22 = call noalias ptr @_emalloc(i64 noundef %21) #15
+  store i32 1, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  store i32 22, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  store i64 0, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %22, i64 16
+  store i64 %19, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %22, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %.0.i, i64 %19, i1 false)
+  %27 = getelementptr inbounds [1 x i8], ptr %26, i64 0, i64 %19
+  store i8 0, ptr %27, align 1
+  store ptr %22, ptr %1, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %28, align 8
+  br label %29
 
-30:                                               ; preds = %php_image_type_to_mime_type.exit, %14
+29:                                               ; preds = %php_image_type_to_mime_type.exit, %14
   ret void
 }
 
@@ -273,7 +274,7 @@ define hidden void @zif_image_type_to_extension(ptr noundef %0, ptr nocapture no
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #13
-  br label %.thread181
+  br label %.thread192
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 80
@@ -289,49 +290,49 @@ define hidden void @zif_image_type_to_extension(ptr noundef %0, ptr nocapture no
 
 15:                                               ; preds = %9
   %16 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1) #13
-  br i1 %16, label %17, label %.thread181
+  br i1 %16, label %17, label %.thread192
 
 17:                                               ; preds = %15, %.critedge
   %18 = icmp eq i32 %6, 1
-  br i1 %18, label %.thread191, label %19
+  br i1 %18, label %.thread185, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 104
   %21 = load i8, ptr %20, align 8
   switch i8 %21, label %23 [
-    i8 3, label %.thread202
+    i8 3, label %.thread181
     i8 2, label %22
   ]
 
 22:                                               ; preds = %19
-  br label %.thread202
+  br label %.thread181
 
-.thread202:                                       ; preds = %22, %19
+.thread181:                                       ; preds = %22, %19
   %storemerge = phi i8 [ 0, %22 ], [ 1, %19 ]
   store i8 %storemerge, ptr %4, align 1
-  br label %.thread191
+  br label %.thread185
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %0, i64 96
   %25 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %24, ptr noundef nonnull %4, i32 noundef 2) #13
-  %cond.fr170 = freeze i1 %25
-  br i1 %cond.fr170, label %.thread191, label %.thread181
+  %.fr = freeze i1 %25
+  br i1 %.fr, label %.thread185, label %.thread192
 
-.thread181:                                       ; preds = %23, %15, %8
-  %.0159190 = phi i32 [ 9, %15 ], [ 1, %8 ], [ 9, %23 ]
-  %.0160189 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %23 ]
-  %.0161188 = phi i32 [ 0, %15 ], [ 0, %8 ], [ 2, %23 ]
-  %.0162187 = phi ptr [ %10, %15 ], [ null, %8 ], [ %24, %23 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0159190, i32 noundef %.0160189, ptr noundef null, i32 noundef %.0161188, ptr noundef %.0162187) #13
+.thread192:                                       ; preds = %23, %15, %8
+  %.0159201 = phi i32 [ 9, %15 ], [ 1, %8 ], [ 9, %23 ]
+  %.0160200 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %23 ]
+  %.0161199 = phi i32 [ 0, %15 ], [ 0, %8 ], [ 2, %23 ]
+  %.0162198 = phi ptr [ %10, %15 ], [ null, %8 ], [ %24, %23 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0159201, i32 noundef %.0160200, ptr noundef null, i32 noundef %.0161199, ptr noundef %.0162198) #13
   br label %45
 
-.thread191:                                       ; preds = %23, %.thread202, %17
+.thread185:                                       ; preds = %23, %.thread181, %17
   %26 = load i64, ptr %3, align 8
   %switch.tableidx = add i64 %26, -1
   %27 = icmp ult i64 %switch.tableidx, 19
   br i1 %27, label %switch.lookup, label %43
 
-switch.lookup:                                    ; preds = %.thread191
+switch.lookup:                                    ; preds = %.thread185
   %switch.gep = getelementptr inbounds [19 x ptr], ptr @switch.table.zif_image_type_to_extension, i64 0, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   %28 = load i8, ptr %4, align 1
@@ -359,12 +360,12 @@ switch.lookup:                                    ; preds = %.thread191
   store i32 262, ptr %42, align 8
   br label %45
 
-43:                                               ; preds = %.thread191
+43:                                               ; preds = %.thread185
   %44 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %44, align 8
   br label %45
 
-45:                                               ; preds = %43, %switch.lookup, %.thread181
+45:                                               ; preds = %43, %switch.lookup, %.thread192
   ret void
 }
 

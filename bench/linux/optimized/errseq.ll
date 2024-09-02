@@ -35,7 +35,7 @@ define dso_local i32 @errseq_set(ptr noundef %0, i32 noundef %1) #0 align 16 {
   br label %.thread
 
 .preheader:                                       ; preds = %2, %16
-  %9 = phi i32 [ %21, %16 ], [ %3, %2 ]
+  %9 = phi i32 [ %20, %16 ], [ %3, %2 ]
   %10 = and i32 %9, -8192
   %11 = or disjoint i32 %10, %5
   %12 = shl i32 %9, 1
@@ -46,15 +46,15 @@ define dso_local i32 @errseq_set(ptr noundef %0, i32 noundef %1) #0 align 16 {
 
 16:                                               ; preds = %.preheader
   %17 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 %14, i32 %9, ptr elementtype(i32) %0) #3, !srcloc !11
-  %18 = icmp eq i32 %17, %9
-  %19 = icmp eq i32 %17, %14
-  %20 = or i1 %18, %19
-  %21 = select i1 %19, i32 %9, i32 %17
-  br i1 %20, label %.thread, label %.preheader, !prof !12
+  %18 = icmp ne i32 %17, %9
+  %19 = icmp ne i32 %17, %14
+  %.not4 = and i1 %18, %19
+  %20 = select i1 %19, i32 %17, i32 %9
+  br i1 %.not4, label %.preheader, label %.thread
 
-.thread:                                          ; preds = %16, %.preheader, %8
-  %22 = phi i32 [ %3, %8 ], [ %17, %16 ], [ %9, %.preheader ]
-  ret i32 %22
+.thread:                                          ; preds = %.preheader, %16, %8
+  %21 = phi i32 [ %3, %8 ], [ %9, %.preheader ], [ %17, %16 ]
+  ret i32 %21
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -672,19 +672,19 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %18 = getelementptr inbounds i8, ptr %14, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit29, label %13, !llvm.loop !15
+  br i1 %20, label %.loopexit26, label %13, !llvm.loop !15
 
 21:                                               ; preds = %13
   %22 = getelementptr i8, ptr %14, i64 -592
-  br label %.loopexit29
+  br label %.loopexit26
 
-.loopexit29:                                      ; preds = %17, %21
+.loopexit26:                                      ; preds = %17, %21
   %23 = phi ptr [ %22, %21 ], [ null, %17 ]
   %24 = tail call ptr @scsi_device_lookup_by_target(ptr noundef %0, i64 noundef %1) #17
   %25 = icmp eq ptr %24, null
   br i1 %25, label %45, label %26
 
-26:                                               ; preds = %.loopexit29
+26:                                               ; preds = %.loopexit26
   %27 = icmp eq i32 %4, 0
   br i1 %27, label %28, label %33
 
@@ -709,7 +709,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 
 37:                                               ; preds = %36, %35
   %38 = icmp eq ptr %2, null
-  br i1 %38, label %543, label %39
+  br i1 %38, label %545, label %39
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds i8, ptr %24, i64 232
@@ -718,23 +718,23 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i64 @scsi_get_device_flags(ptr noundef nonnull %24, ptr noundef %41, ptr noundef %43) #17
   store i64 %44, ptr %2, align 8
-  br label %543
+  br label %545
 
 .thread:                                          ; preds = %28
   tail call void @scsi_device_put(ptr noundef nonnull %24) #17
   br label %48
 
-45:                                               ; preds = %.loopexit29
+45:                                               ; preds = %.loopexit26
   %46 = tail call fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr noundef %5)
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %543, label %48
+  br i1 %47, label %545, label %48
 
 48:                                               ; preds = %.thread, %45
   %49 = phi ptr [ %24, %.thread ], [ %46, %45 ]
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
   %51 = tail call noalias align 8 dereferenceable_or_null(256) ptr @kmalloc_trace(ptr noundef %50, i32 noundef 3264, i64 noundef 256) #16
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.thread24, label %53
+  br i1 %52, label %.thread22, label %53
 
 53:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
@@ -772,7 +772,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 72:                                               ; preds = %.backedge, %53
   %73 = phi i1 [ false, %53 ], [ %.be, %.backedge ]
   %74 = phi i1 [ true, %53 ], [ false, %.backedge ]
-  %75 = phi i32 [ %62, %53 ], [ %.be61, %.backedge ]
+  %75 = phi i32 [ %62, %53 ], [ %.be58, %.backedge ]
   %76 = trunc i32 %75 to i8
   %77 = zext nneg i32 %75 to i64
   br label %78
@@ -851,9 +851,9 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %124 = add nsw i32 %113, -1
   %125 = getelementptr i8, ptr %114, i64 1
   %126 = icmp ugt i32 %113, 1
-  br i1 %126, label %.loopexit, label %.preheader28, !llvm.loop !14
+  br i1 %126, label %.loopexit, label %.preheader25, !llvm.loop !14
 
-.preheader28:                                     ; preds = %123, %138
+.preheader25:                                     ; preds = %123, %138
   %127 = phi i32 [ %132, %138 ], [ 0, %123 ]
   %128 = phi i32 [ %139, %138 ], [ 16, %123 ]
   %129 = phi ptr [ %140, %138 ], [ %68, %123 ]
@@ -866,15 +866,15 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %136 = or i1 %135, %133
   br i1 %136, label %137, label %138
 
-137:                                              ; preds = %.preheader28
+137:                                              ; preds = %.preheader25
   store i8 32, ptr %129, align 1
   br label %138
 
-138:                                              ; preds = %137, %.preheader28
+138:                                              ; preds = %137, %.preheader25
   %139 = add nsw i32 %128, -1
   %140 = getelementptr i8, ptr %129, i64 1
   %141 = icmp ugt i32 %128, 1
-  br i1 %141, label %.preheader28, label %.preheader, !llvm.loop !14
+  br i1 %141, label %.preheader25, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %138, %153
   %142 = phi i32 [ %147, %153 ], [ 0, %138 ]
@@ -936,7 +936,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   br i1 %180, label %.backedge, label %183
 
 181:                                              ; preds = %95, %88, %85, %104
-  br i1 %73, label %182, label %534
+  br i1 %73, label %182, label %536
 
 182:                                              ; preds = %181
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.18, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef %75) #17
@@ -944,7 +944,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 
 .backedge:                                        ; preds = %182, %178
   %.be = phi i1 [ false, %182 ], [ true, %178 ]
-  %.be61 = phi i32 [ %62, %182 ], [ %179, %178 ]
+  %.be58 = phi i32 [ %62, %182 ], [ %179, %178 ]
   br label %72
 
 183:                                              ; preds = %157, %178
@@ -1045,7 +1045,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %238 = load i8, ptr %51, align 8
   %239 = lshr i8 %238, 5
   switch i8 %239, label %240 [
-    i8 3, label %.thread26
+    i8 3, label %.thread24
     i8 1, label %248
   ]
 
@@ -1067,7 +1067,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 251:                                              ; preds = %248, %240
   %252 = and i64 %1, 65280
   %253 = icmp eq i64 %252, 49408
-  br i1 %253, label %254, label %.thread26
+  br i1 %253, label %254, label %.thread24
 
 254:                                              ; preds = %251, %248, %240
   %255 = getelementptr inbounds i8, ptr %23, i64 504
@@ -1079,7 +1079,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %261 = getelementptr inbounds i8, ptr %49, i64 224
   store ptr %260, ptr %261, align 8
   %262 = icmp eq ptr %260, null
-  br i1 %262, label %.thread26, label %263
+  br i1 %262, label %.thread24, label %263
 
 263:                                              ; preds = %254
   %264 = getelementptr i8, ptr %260, i64 8
@@ -1104,9 +1104,9 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 275:                                              ; preds = %272, %263
   %276 = and i64 %163, 256
   %277 = icmp eq i64 %276, 0
-  br i1 %277, label %281, label %.thread45
+  br i1 %277, label %281, label %.thread42
 
-.thread45:                                        ; preds = %275
+.thread42:                                        ; preds = %275
   %278 = getelementptr inbounds i8, ptr %49, i64 176
   store i8 5, ptr %278, align 8
   %279 = load i64, ptr %220, align 4
@@ -1134,9 +1134,9 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %296 = icmp ne i64 %295, 49408
   %297 = icmp eq i8 %283, 30
   %298 = select i1 %296, i1 true, i1 %297
-  br i1 %298, label %301, label %.thread44
+  br i1 %298, label %301, label %.thread41
 
-.thread44:                                        ; preds = %281
+.thread41:                                        ; preds = %281
   %299 = zext nneg i8 %283 to i32
   %300 = trunc i64 %294 to i32
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.22, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.scsi_add_lun, i32 noundef %299, i32 noundef %300) #17
@@ -1149,17 +1149,17 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
     i8 5, label %302
   ]
 
-302:                                              ; preds = %.thread45, %301, %301
-  %303 = phi i8 [ 5, %.thread45 ], [ %283, %301 ], [ %283, %301 ]
+302:                                              ; preds = %.thread42, %301, %301
+  %303 = phi i8 [ 5, %.thread42 ], [ %283, %301 ], [ %283, %301 ]
   %304 = shl i64 %163, 1
   %305 = and i64 %304, 262144
   %306 = xor i64 %305, 262144
   %307 = or i64 %306, %163
   br label %308
 
-308:                                              ; preds = %.thread44, %302, %301
-  %309 = phi i8 [ %283, %301 ], [ %303, %302 ], [ 30, %.thread44 ]
-  %310 = phi i64 [ %163, %301 ], [ %307, %302 ], [ %163, %.thread44 ]
+308:                                              ; preds = %.thread41, %302, %301
+  %309 = phi i8 [ %283, %301 ], [ %303, %302 ], [ 30, %.thread41 ]
+  %310 = phi i64 [ %163, %301 ], [ %307, %302 ], [ %163, %.thread41 ]
   %311 = load i8, ptr %51, align 8
   %312 = lshr i8 %311, 5
   %313 = getelementptr inbounds i8, ptr %49, i64 178
@@ -1174,412 +1174,411 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %320 = load i8, ptr %319, align 1
   %321 = and i8 %320, 1
   %322 = icmp eq i8 %321, 0
-  br i1 %322, label %.thread20, label %323
+  br i1 %322, label %329, label %323
 
 323:                                              ; preds = %308
   %324 = getelementptr i8, ptr %51, i64 3
   %325 = load i8, ptr %324, align 1
-  %.fr27 = freeze i8 %325
-  %326 = and i8 %.fr27, 7
+  %326 = and i8 %325, 7
   %327 = icmp eq i8 %326, 2
-  %spec.select = select i1 %327, i64 2048, i64 0
-  br label %.thread20
+  %328 = select i1 %327, i64 2048, i64 0
+  br label %329
 
-.thread20:                                        ; preds = %323, %308
-  %328 = phi i64 [ 0, %308 ], [ %spec.select, %323 ]
-  %329 = and i64 %318, -2049
-  %330 = or disjoint i64 %328, %329
-  store i64 %330, ptr %220, align 4
-  %331 = load i8, ptr %204, align 1
-  %332 = icmp ugt i8 %331, 3
-  br i1 %332, label %341, label %333
+329:                                              ; preds = %323, %308
+  %330 = phi i64 [ 0, %308 ], [ %328, %323 ]
+  %331 = and i64 %318, -2049
+  %332 = or disjoint i64 %330, %331
+  store i64 %332, ptr %220, align 4
+  %333 = load i8, ptr %204, align 1
+  %334 = icmp ugt i8 %333, 3
+  br i1 %334, label %343, label %335
 
-333:                                              ; preds = %.thread20
-  %334 = load i8, ptr %58, align 8
-  %335 = icmp ugt i8 %334, 56
-  br i1 %335, label %336, label %343
+335:                                              ; preds = %329
+  %336 = load i8, ptr %58, align 8
+  %337 = icmp ugt i8 %336, 56
+  br i1 %337, label %338, label %345
 
-336:                                              ; preds = %333
-  %337 = getelementptr i8, ptr %51, i64 56
-  %338 = load i8, ptr %337, align 8
-  %339 = and i8 %338, 4
-  %340 = icmp eq i8 %339, 0
-  br i1 %340, label %343, label %341
+338:                                              ; preds = %335
+  %339 = getelementptr i8, ptr %51, i64 56
+  %340 = load i8, ptr %339, align 8
+  %341 = and i8 %340, 4
+  %342 = icmp eq i8 %341, 0
+  br i1 %342, label %345, label %343
 
-341:                                              ; preds = %336, %.thread20
-  %342 = or i64 %330, 16384
-  store i64 %342, ptr %220, align 4
-  br label %343
+343:                                              ; preds = %338, %329
+  %344 = or i64 %332, 16384
+  store i64 %344, ptr %220, align 4
+  br label %345
 
-343:                                              ; preds = %341, %336, %333
-  %344 = phi i64 [ %342, %341 ], [ %330, %336 ], [ %330, %333 ]
-  %345 = load i8, ptr %319, align 1
-  %346 = and i8 %345, 96
-  %347 = icmp eq i8 %346, 0
-  br i1 %347, label %350, label %348
+345:                                              ; preds = %343, %338, %335
+  %346 = phi i64 [ %344, %343 ], [ %332, %338 ], [ %332, %335 ]
+  %347 = load i8, ptr %319, align 1
+  %348 = and i8 %347, 96
+  %349 = icmp eq i8 %348, 0
+  br i1 %349, label %352, label %350
 
-348:                                              ; preds = %343
-  %349 = or i64 %344, 8192
-  store i64 %349, ptr %220, align 4
+350:                                              ; preds = %345
+  %351 = or i64 %346, 8192
+  store i64 %351, ptr %220, align 4
   %.pre = load i8, ptr %319, align 1
-  br label %350
+  br label %352
 
-350:                                              ; preds = %348, %343
-  %351 = phi i64 [ %349, %348 ], [ %344, %343 ]
-  %352 = phi i8 [ %.pre, %348 ], [ %345, %343 ]
-  %353 = and i8 %352, 16
-  %354 = icmp eq i8 %353, 0
-  br i1 %354, label %357, label %355
+352:                                              ; preds = %350, %345
+  %353 = phi i64 [ %351, %350 ], [ %346, %345 ]
+  %354 = phi i8 [ %.pre, %350 ], [ %347, %345 ]
+  %355 = and i8 %354, 16
+  %356 = icmp eq i8 %355, 0
+  br i1 %356, label %359, label %357
 
-355:                                              ; preds = %350
-  %356 = or i64 %351, 4096
-  store i64 %356, ptr %220, align 4
-  br label %357
+357:                                              ; preds = %352
+  %358 = or i64 %353, 4096
+  store i64 %358, ptr %220, align 4
+  br label %359
 
-357:                                              ; preds = %355, %350
-  %358 = zext nneg i8 %309 to i32
-  %359 = call ptr @scsi_device_type(i32 noundef %358) #17
-  %360 = load ptr, ptr %265, align 8
-  %361 = load ptr, ptr %267, align 8
-  %362 = load ptr, ptr %269, align 8
-  %363 = load i8, ptr %313, align 2
-  %364 = zext i8 %363 to i32
-  %365 = load i8, ptr %71, align 2
-  %366 = and i8 %365, 7
-  %367 = zext nneg i8 %366 to i32
-  %368 = getelementptr i8, ptr %51, i64 3
-  %369 = load i8, ptr %368, align 1
-  %370 = and i8 %369, 15
-  %371 = icmp eq i8 %370, 1
-  %372 = select i1 %371, ptr @.str.26, ptr @.str.27
-  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.24, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %359, ptr noundef %360, ptr noundef %361, ptr noundef %362, i32 noundef %364, i32 noundef %367, ptr noundef nonnull %372) #17
-  %373 = load i8, ptr %204, align 1
-  %374 = icmp ugt i8 %373, 2
-  br i1 %374, label %375, label %385
+359:                                              ; preds = %357, %352
+  %360 = zext nneg i8 %309 to i32
+  %361 = call ptr @scsi_device_type(i32 noundef %360) #17
+  %362 = load ptr, ptr %265, align 8
+  %363 = load ptr, ptr %267, align 8
+  %364 = load ptr, ptr %269, align 8
+  %365 = load i8, ptr %313, align 2
+  %366 = zext i8 %365 to i32
+  %367 = load i8, ptr %71, align 2
+  %368 = and i8 %367, 7
+  %369 = zext nneg i8 %368 to i32
+  %370 = getelementptr i8, ptr %51, i64 3
+  %371 = load i8, ptr %370, align 1
+  %372 = and i8 %371, 15
+  %373 = icmp eq i8 %372, 1
+  %374 = select i1 %373, ptr @.str.26, ptr @.str.27
+  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.24, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %361, ptr noundef %362, ptr noundef %363, ptr noundef %364, i32 noundef %366, i32 noundef %369, ptr noundef nonnull %374) #17
+  %375 = load i8, ptr %204, align 1
+  %376 = icmp ugt i8 %375, 2
+  br i1 %376, label %377, label %387
 
-375:                                              ; preds = %357
-  %376 = load i8, ptr %319, align 1
-  %377 = and i8 %376, 2
-  %378 = icmp ne i8 %377, 0
-  %379 = and i64 %310, 32
-  %380 = icmp eq i64 %379, 0
-  %381 = select i1 %378, i1 %380, i1 false
-  br i1 %381, label %382, label %385
+377:                                              ; preds = %359
+  %378 = load i8, ptr %319, align 1
+  %379 = and i8 %378, 2
+  %380 = icmp ne i8 %379, 0
+  %381 = and i64 %310, 32
+  %382 = icmp eq i64 %381, 0
+  %383 = select i1 %380, i1 %382, i1 false
+  br i1 %383, label %384, label %387
 
-382:                                              ; preds = %375
-  %383 = load i64, ptr %220, align 4
-  %384 = or i64 %383, 98304
-  store i64 %384, ptr %220, align 4
-  br label %385
+384:                                              ; preds = %377
+  %385 = load i64, ptr %220, align 4
+  %386 = or i64 %385, 98304
+  store i64 %386, ptr %220, align 4
+  br label %387
 
-385:                                              ; preds = %382, %375, %357
-  %386 = and i64 %310, 4
-  %387 = icmp eq i64 %386, 0
-  br i1 %387, label %388, label %391
+387:                                              ; preds = %384, %377, %359
+  %388 = and i64 %310, 4
+  %389 = icmp eq i64 %388, 0
+  br i1 %389, label %390, label %393
 
-388:                                              ; preds = %385
-  %389 = load i64, ptr %220, align 4
-  %390 = and i64 %389, -513
-  store i64 %390, ptr %220, align 4
-  br label %391
+390:                                              ; preds = %387
+  %391 = load i64, ptr %220, align 4
+  %392 = and i64 %391, -513
+  store i64 %392, ptr %220, align 4
+  br label %393
 
-391:                                              ; preds = %388, %385
-  %392 = and i64 %310, 1048576
-  %393 = icmp eq i64 %392, 0
-  br i1 %393, label %397, label %394
+393:                                              ; preds = %390, %387
+  %394 = and i64 %310, 1048576
+  %395 = icmp eq i64 %394, 0
+  br i1 %395, label %399, label %396
 
-394:                                              ; preds = %391
-  %395 = load i64, ptr %220, align 4
-  %396 = or i64 %395, 34359738368
-  store i64 %396, ptr %220, align 4
-  br label %397
+396:                                              ; preds = %393
+  %397 = load i64, ptr %220, align 4
+  %398 = or i64 %397, 34359738368
+  store i64 %398, ptr %220, align 4
+  br label %399
 
-397:                                              ; preds = %394, %391
-  %398 = and i64 %310, 2097152
-  %399 = icmp eq i64 %398, 0
-  br i1 %399, label %403, label %400
+399:                                              ; preds = %396, %393
+  %400 = and i64 %310, 2097152
+  %401 = icmp eq i64 %400, 0
+  br i1 %401, label %405, label %402
 
-400:                                              ; preds = %397
-  %401 = load i64, ptr %220, align 4
-  %402 = or i64 %401, 68719476736
-  store i64 %402, ptr %220, align 4
-  br label %403
+402:                                              ; preds = %399
+  %403 = load i64, ptr %220, align 4
+  %404 = or i64 %403, 68719476736
+  store i64 %404, ptr %220, align 4
+  br label %405
 
-403:                                              ; preds = %400, %397
-  %404 = and i64 %310, 8388608
-  %405 = icmp eq i64 %404, 0
-  br i1 %405, label %406, label %409
+405:                                              ; preds = %402, %399
+  %406 = and i64 %310, 8388608
+  %407 = icmp eq i64 %406, 0
+  br i1 %407, label %408, label %411
 
-406:                                              ; preds = %403
-  %407 = and i64 %310, 1073741824
-  %408 = icmp eq i64 %407, 0
-  br i1 %408, label %413, label %409
+408:                                              ; preds = %405
+  %409 = and i64 %310, 1073741824
+  %410 = icmp eq i64 %409, 0
+  br i1 %410, label %415, label %411
 
-409:                                              ; preds = %406, %403
-  %410 = phi i32 [ 512, %403 ], [ 1024, %406 ]
-  %411 = getelementptr inbounds i8, ptr %49, i64 8
-  %412 = load ptr, ptr %411, align 8
-  call void @blk_queue_max_hw_sectors(ptr noundef %412, i32 noundef %410) #17
-  br label %413
+411:                                              ; preds = %408, %405
+  %412 = phi i32 [ 512, %405 ], [ 1024, %408 ]
+  %413 = getelementptr inbounds i8, ptr %49, i64 8
+  %414 = load ptr, ptr %413, align 8
+  call void @blk_queue_max_hw_sectors(ptr noundef %414, i32 noundef %412) #17
+  br label %415
 
-413:                                              ; preds = %409, %406
-  %414 = and i64 %310, 4096
-  %415 = icmp eq i64 %414, 0
-  br i1 %415, label %419, label %416
+415:                                              ; preds = %411, %408
+  %416 = and i64 %310, 4096
+  %417 = icmp eq i64 %416, 0
+  br i1 %417, label %421, label %418
 
-416:                                              ; preds = %413
-  %417 = load i64, ptr %220, align 4
-  %418 = or i64 %417, 4294967296
-  store i64 %418, ptr %220, align 4
-  br label %419
+418:                                              ; preds = %415
+  %419 = load i64, ptr %220, align 4
+  %420 = or i64 %419, 4294967296
+  store i64 %420, ptr %220, align 4
+  br label %421
 
-419:                                              ; preds = %416, %413
-  %420 = and i64 %310, 16
-  %421 = icmp eq i64 %420, 0
-  br i1 %421, label %428, label %422
+421:                                              ; preds = %418, %415
+  %422 = and i64 %310, 16
+  %423 = icmp eq i64 %422, 0
+  br i1 %423, label %430, label %424
 
-422:                                              ; preds = %419
-  %423 = getelementptr inbounds i8, ptr %49, i64 504
-  %424 = load ptr, ptr %423, align 8
-  %425 = getelementptr i8, ptr %424, i64 740
-  %426 = load i8, ptr %425, align 4
-  %427 = or i8 %426, 2
-  store i8 %427, ptr %425, align 4
-  br label %428
+424:                                              ; preds = %421
+  %425 = getelementptr inbounds i8, ptr %49, i64 504
+  %426 = load ptr, ptr %425, align 8
+  %427 = getelementptr i8, ptr %426, i64 740
+  %428 = load i8, ptr %427, align 4
+  %429 = or i8 %428, 2
+  store i8 %429, ptr %427, align 4
+  br label %430
 
-428:                                              ; preds = %422, %419
-  %429 = load i64, ptr %220, align 4
-  %430 = and i64 %310, 536870912
-  %431 = icmp eq i64 %430, 0
-  %432 = select i1 %431, i64 524288, i64 8912896
-  %433 = or i64 %429, %432
-  store i64 %433, ptr %220, align 4
-  %434 = getelementptr inbounds i8, ptr %49, i64 1984
-  call void @mutex_lock(ptr noundef %434) #17
-  %435 = call i32 @scsi_device_set_state(ptr noundef nonnull %49, i32 noundef 2) #17
-  %436 = icmp eq i32 %435, 0
-  br i1 %436, label %444, label %437
+430:                                              ; preds = %424, %421
+  %431 = load i64, ptr %220, align 4
+  %432 = and i64 %310, 536870912
+  %433 = icmp eq i64 %432, 0
+  %434 = select i1 %433, i64 524288, i64 8912896
+  %435 = or i64 %431, %434
+  store i64 %435, ptr %220, align 4
+  %436 = getelementptr inbounds i8, ptr %49, i64 1984
+  call void @mutex_lock(ptr noundef %436) #17
+  %437 = call i32 @scsi_device_set_state(ptr noundef nonnull %49, i32 noundef 2) #17
+  %438 = icmp eq i32 %437, 0
+  br i1 %438, label %446, label %439
 
-437:                                              ; preds = %428
-  %438 = call i32 @scsi_device_set_state(ptr noundef nonnull %49, i32 noundef 8) #17
-  %439 = icmp eq i32 %438, 0
-  call void @mutex_unlock(ptr noundef %434) #17
-  br i1 %439, label %445, label %440
+439:                                              ; preds = %430
+  %440 = call i32 @scsi_device_set_state(ptr noundef nonnull %49, i32 noundef 8) #17
+  %441 = icmp eq i32 %440, 0
+  call void @mutex_unlock(ptr noundef %436) #17
+  br i1 %441, label %447, label %442
 
-440:                                              ; preds = %437
-  %441 = getelementptr inbounds i8, ptr %49, i64 2016
-  %442 = load i32, ptr %441, align 8
-  %443 = call ptr @scsi_device_state_name(i32 noundef %442) #17
-  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.28, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef %443) #17
-  br label %.thread26
+442:                                              ; preds = %439
+  %443 = getelementptr inbounds i8, ptr %49, i64 2016
+  %444 = load i32, ptr %443, align 8
+  %445 = call ptr @scsi_device_state_name(i32 noundef %444) #17
+  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.28, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef %445) #17
+  br label %.thread24
 
-444:                                              ; preds = %428
-  call void @mutex_unlock(ptr noundef %434) #17
-  br label %445
+446:                                              ; preds = %430
+  call void @mutex_unlock(ptr noundef %436) #17
+  br label %447
 
-445:                                              ; preds = %444, %437
-  %446 = and i64 %310, 524288
-  %447 = icmp eq i64 %446, 0
-  br i1 %447, label %451, label %448
+447:                                              ; preds = %446, %439
+  %448 = and i64 %310, 524288
+  %449 = icmp eq i64 %448, 0
+  br i1 %449, label %453, label %450
 
-448:                                              ; preds = %445
-  %449 = load i64, ptr %220, align 4
-  %450 = and i64 %449, -129
-  store i64 %450, ptr %220, align 4
-  br label %451
+450:                                              ; preds = %447
+  %451 = load i64, ptr %220, align 4
+  %452 = and i64 %451, -129
+  store i64 %452, ptr %220, align 4
+  br label %453
 
-451:                                              ; preds = %448, %445
-  %452 = and i64 %310, 4194304
-  %453 = icmp eq i64 %452, 0
-  br i1 %453, label %457, label %454
+453:                                              ; preds = %450, %447
+  %454 = and i64 %310, 4194304
+  %455 = icmp eq i64 %454, 0
+  br i1 %455, label %459, label %456
 
-454:                                              ; preds = %451
-  %455 = load i64, ptr %220, align 4
-  %456 = or i64 %455, 549755813888
-  store i64 %456, ptr %220, align 4
-  br label %457
+456:                                              ; preds = %453
+  %457 = load i64, ptr %220, align 4
+  %458 = or i64 %457, 549755813888
+  store i64 %458, ptr %220, align 4
+  br label %459
 
-457:                                              ; preds = %454, %451
-  %458 = and i64 %310, 33554432
-  %459 = icmp eq i64 %458, 0
-  br i1 %459, label %463, label %460
+459:                                              ; preds = %456, %453
+  %460 = and i64 %310, 33554432
+  %461 = icmp eq i64 %460, 0
+  br i1 %461, label %465, label %462
 
-460:                                              ; preds = %457
-  %461 = load i64, ptr %220, align 4
-  %462 = or i64 %461, 140737488355328
-  store i64 %462, ptr %220, align 4
-  br label %463
+462:                                              ; preds = %459
+  %463 = load i64, ptr %220, align 4
+  %464 = or i64 %463, 140737488355328
+  store i64 %464, ptr %220, align 4
+  br label %465
 
-463:                                              ; preds = %460, %457
-  %464 = and i64 %310, 2147483648
-  %465 = icmp eq i64 %464, 0
-  br i1 %465, label %469, label %466
+465:                                              ; preds = %462, %459
+  %466 = and i64 %310, 2147483648
+  %467 = icmp eq i64 %466, 0
+  br i1 %467, label %471, label %468
 
-466:                                              ; preds = %463
-  %467 = load i64, ptr %220, align 4
-  %468 = or i64 %467, 1125899906842624
-  store i64 %468, ptr %220, align 4
-  br label %469
+468:                                              ; preds = %465
+  %469 = load i64, ptr %220, align 4
+  %470 = or i64 %469, 1125899906842624
+  store i64 %470, ptr %220, align 4
+  br label %471
 
-469:                                              ; preds = %466, %463
-  %470 = and i64 %310, 2048
-  %471 = icmp eq i64 %470, 0
-  br i1 %471, label %475, label %472
+471:                                              ; preds = %468, %465
+  %472 = and i64 %310, 2048
+  %473 = icmp eq i64 %472, 0
+  br i1 %473, label %477, label %474
 
-472:                                              ; preds = %469
-  %473 = load i64, ptr %220, align 4
-  %474 = or i64 %473, 4503599627370496
-  store i64 %474, ptr %220, align 4
-  br label %475
+474:                                              ; preds = %471
+  %475 = load i64, ptr %220, align 4
+  %476 = or i64 %475, 4503599627370496
+  store i64 %476, ptr %220, align 4
+  br label %477
 
-475:                                              ; preds = %472, %469
-  %476 = getelementptr inbounds i8, ptr %49, i64 328
-  store i32 10000, ptr %476, align 8
-  %477 = and i64 %310, 268435456
-  %478 = icmp eq i64 %477, 0
-  br i1 %478, label %479, label %482
+477:                                              ; preds = %474, %471
+  %478 = getelementptr inbounds i8, ptr %49, i64 328
+  store i32 10000, ptr %478, align 8
+  %479 = and i64 %310, 268435456
+  %480 = icmp eq i64 %479, 0
+  br i1 %480, label %481, label %484
 
-479:                                              ; preds = %475
-  %480 = and i64 %310, 67108864
-  %481 = icmp eq i64 %480, 0
-  br i1 %481, label %486, label %482
+481:                                              ; preds = %477
+  %482 = and i64 %310, 67108864
+  %483 = icmp eq i64 %482, 0
+  br i1 %483, label %488, label %484
 
-482:                                              ; preds = %479, %475
-  %483 = phi i64 [ 1073741824, %475 ], [ 536870912, %479 ]
-  %484 = load i64, ptr %220, align 4
-  %485 = or i64 %484, %483
-  store i64 %485, ptr %220, align 4
-  br label %486
+484:                                              ; preds = %481, %477
+  %485 = phi i64 [ 1073741824, %477 ], [ 536870912, %481 ]
+  %486 = load i64, ptr %220, align 4
+  %487 = or i64 %486, %485
+  store i64 %487, ptr %220, align 4
+  br label %488
 
-486:                                              ; preds = %482, %479
-  %487 = and i64 %310, 8192
-  %488 = icmp eq i64 %487, 0
-  br i1 %488, label %492, label %489
+488:                                              ; preds = %484, %481
+  %489 = and i64 %310, 8192
+  %490 = icmp eq i64 %489, 0
+  br i1 %490, label %494, label %491
 
-489:                                              ; preds = %486
-  %490 = load i64, ptr %220, align 4
-  %491 = or i64 %490, 18014398509481984
-  store i64 %491, ptr %220, align 4
-  br label %492
+491:                                              ; preds = %488
+  %492 = load i64, ptr %220, align 4
+  %493 = or i64 %492, 18014398509481984
+  store i64 %493, ptr %220, align 4
+  br label %494
 
-492:                                              ; preds = %489, %486
-  %493 = getelementptr inbounds i8, ptr %49, i64 440
-  call void @transport_configure_device(ptr noundef %493) #17
-  %494 = load ptr, ptr %49, align 8
-  %495 = getelementptr inbounds i8, ptr %494, i64 168
-  %496 = load ptr, ptr %495, align 8
-  %497 = getelementptr inbounds i8, ptr %496, i64 128
+494:                                              ; preds = %491, %488
+  %495 = getelementptr inbounds i8, ptr %49, i64 440
+  call void @transport_configure_device(ptr noundef %495) #17
+  %496 = load ptr, ptr %49, align 8
+  %497 = getelementptr inbounds i8, ptr %496, i64 168
   %498 = load ptr, ptr %497, align 8
-  %499 = icmp eq ptr %498, null
-  br i1 %499, label %508, label %500
+  %499 = getelementptr inbounds i8, ptr %498, i64 128
+  %500 = load ptr, ptr %499, align 8
+  %501 = icmp eq ptr %500, null
+  br i1 %501, label %510, label %502
 
-500:                                              ; preds = %492
-  %501 = call i32 %498(ptr noundef nonnull %49) #17
-  switch i32 %501, label %502 [
-    i32 0, label %503
-    i32 -6, label %.thread26
+502:                                              ; preds = %494
+  %503 = call i32 %500(ptr noundef nonnull %49) #17
+  switch i32 %503, label %504 [
+    i32 0, label %505
+    i32 -6, label %.thread24
   ]
 
-502:                                              ; preds = %500
+504:                                              ; preds = %502
   call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.28, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull @.str.30) #17
-  br label %.thread26
+  br label %.thread24
 
-503:                                              ; preds = %500
-  %504 = getelementptr inbounds i8, ptr %49, i64 112
-  %505 = load i16, ptr %504, align 8
-  %506 = zext i16 %505 to i32
-  %507 = call fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef nonnull %49, i32 noundef %506)
-  br label %508
+505:                                              ; preds = %502
+  %506 = getelementptr inbounds i8, ptr %49, i64 112
+  %507 = load i16, ptr %506, align 8
+  %508 = zext i16 %507 to i32
+  %509 = call fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef nonnull %49, i32 noundef %508)
+  br label %510
 
-508:                                              ; preds = %503, %492
-  %509 = load i8, ptr %204, align 1
-  %510 = icmp ugt i8 %509, 3
-  br i1 %510, label %511, label %512
+510:                                              ; preds = %505, %494
+  %511 = load i8, ptr %204, align 1
+  %512 = icmp ugt i8 %511, 3
+  br i1 %512, label %513, label %514
 
-511:                                              ; preds = %508
+513:                                              ; preds = %510
   call void @scsi_attach_vpd(ptr noundef nonnull %49) #17
-  br label %512
+  br label %514
 
-512:                                              ; preds = %511, %508
+514:                                              ; preds = %513, %510
   call void @scsi_cdl_check(ptr noundef nonnull %49) #17
-  %513 = getelementptr inbounds i8, ptr %49, i64 112
-  %514 = load i16, ptr %513, align 8
-  %515 = getelementptr inbounds i8, ptr %49, i64 114
-  store i16 %514, ptr %515, align 2
-  %516 = zext i16 %514 to i32
-  %517 = getelementptr inbounds i8, ptr %49, i64 48
-  %518 = load i32, ptr %517, align 8
-  %519 = icmp ult i32 %518, %516
-  br i1 %519, label %520, label %521, !prof !8
+  %515 = getelementptr inbounds i8, ptr %49, i64 112
+  %516 = load i16, ptr %515, align 8
+  %517 = getelementptr inbounds i8, ptr %49, i64 114
+  store i16 %516, ptr %517, align 2
+  %518 = zext i16 %516 to i32
+  %519 = getelementptr inbounds i8, ptr %49, i64 48
+  %520 = load i32, ptr %519, align 8
+  %521 = icmp ult i32 %520, %518
+  br i1 %521, label %522, label %523, !prof !8
 
-520:                                              ; preds = %512
+522:                                              ; preds = %514
   call void asm sideeffect "444: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 444b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 444) #17, !srcloc !21
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1093, i32 2307, i64 12) #17, !srcloc !22
   call void asm sideeffect "445: nop\0A\09.pushsection .discard.instr_end\0A\09.long 445b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 445) #17, !srcloc !23
-  br label %521
+  br label %523
 
-521:                                              ; preds = %520, %512
-  %522 = getelementptr inbounds i8, ptr %49, i64 320
-  store i64 %310, ptr %522, align 8
-  %523 = and i16 %256, 32
-  %524 = icmp eq i16 %523, 0
-  br i1 %524, label %525, label %528
+523:                                              ; preds = %522, %514
+  %524 = getelementptr inbounds i8, ptr %49, i64 320
+  store i64 %310, ptr %524, align 8
+  %525 = and i16 %256, 32
+  %526 = icmp eq i16 %525, 0
+  br i1 %526, label %527, label %530
 
-525:                                              ; preds = %521
-  %526 = call i32 @scsi_sysfs_add_sdev(ptr noundef nonnull %49) #17
-  %527 = icmp eq i32 %526, 0
-  br i1 %527, label %528, label %.thread26
+527:                                              ; preds = %523
+  %528 = call i32 @scsi_sysfs_add_sdev(ptr noundef nonnull %49) #17
+  %529 = icmp eq i32 %528, 0
+  br i1 %529, label %530, label %.thread24
 
-528:                                              ; preds = %525, %521
-  %529 = and i64 %310, 8
-  %530 = icmp eq i64 %529, 0
-  br i1 %530, label %535, label %531
+530:                                              ; preds = %527, %523
+  %531 = and i64 %310, 8
+  %532 = icmp eq i64 %531, 0
+  br i1 %532, label %537, label %533
 
-531:                                              ; preds = %528
-  %532 = load i64, ptr %220, align 4
-  %533 = and i64 %532, -129
-  store i64 %533, ptr %220, align 4
+533:                                              ; preds = %530
+  %534 = load i64, ptr %220, align 4
+  %535 = and i64 %534, -129
+  store i64 %535, ptr %220, align 4
   call fastcc void @scsi_unlock_floptical(ptr noundef nonnull %49, ptr noundef nonnull %51)
-  br label %535
+  br label %537
 
-534:                                              ; preds = %181
+536:                                              ; preds = %181
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  br label %.thread26
-
-.thread26:                                        ; preds = %237, %251, %534, %254, %525, %502, %500, %440
-  %.ph = phi i32 [ 0, %534 ], [ 1, %251 ], [ 1, %237 ], [ 0, %254 ], [ 0, %525 ], [ 0, %502 ], [ 0, %500 ], [ 0, %440 ]
-  call void @kfree(ptr noundef nonnull %51) #17
   br label %.thread24
 
-535:                                              ; preds = %531, %528
+.thread24:                                        ; preds = %237, %251, %536, %254, %527, %504, %502, %442
+  %.ph = phi i32 [ 0, %536 ], [ 1, %251 ], [ 1, %237 ], [ 0, %254 ], [ 0, %527 ], [ 0, %504 ], [ 0, %502 ], [ 0, %442 ]
   call void @kfree(ptr noundef nonnull %51) #17
-  %536 = icmp eq ptr %3, null
-  br i1 %536, label %543, label %537
+  br label %.thread22
 
-537:                                              ; preds = %535
-  %538 = call i32 @scsi_device_get(ptr noundef nonnull %49) #17
-  %539 = icmp eq i32 %538, 0
-  br i1 %539, label %540, label %541
+537:                                              ; preds = %533, %530
+  call void @kfree(ptr noundef nonnull %51) #17
+  %538 = icmp eq ptr %3, null
+  br i1 %538, label %545, label %539
 
-540:                                              ; preds = %537
+539:                                              ; preds = %537
+  %540 = call i32 @scsi_device_get(ptr noundef nonnull %49) #17
+  %541 = icmp eq i32 %540, 0
+  br i1 %541, label %542, label %543
+
+542:                                              ; preds = %539
   store ptr %49, ptr %3, align 8
-  br label %543
+  br label %545
 
-541:                                              ; preds = %537
+543:                                              ; preds = %539
   call void @__scsi_remove_device(ptr noundef nonnull %49) #17
-  br label %543
+  br label %545
 
-.thread24:                                        ; preds = %48, %.thread26
-  %542 = phi i32 [ %.ph, %.thread26 ], [ 0, %48 ]
+.thread22:                                        ; preds = %48, %.thread24
+  %544 = phi i32 [ %.ph, %.thread24 ], [ 0, %48 ]
   call void @__scsi_remove_device(ptr noundef nonnull %49) #17
-  br label %543
+  br label %545
 
-543:                                              ; preds = %.thread24, %541, %540, %535, %45, %39, %37
-  %544 = phi i32 [ 2, %39 ], [ 2, %37 ], [ 2, %540 ], [ 0, %541 ], [ 2, %535 ], [ %542, %.thread24 ], [ 0, %45 ]
-  ret i32 %544
+545:                                              ; preds = %.thread22, %543, %542, %537, %45, %39, %37
+  %546 = phi i32 [ 2, %39 ], [ 2, %37 ], [ 2, %542 ], [ 0, %543 ], [ 2, %537 ], [ %544, %.thread22 ], [ 0, %45 ]
+  ret i32 %546
 }
 
 ; Function Attrs: null_pointer_is_valid

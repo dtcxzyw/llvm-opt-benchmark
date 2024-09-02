@@ -959,7 +959,7 @@ stream_write_bit.exit43.i:                        ; preds = %102, %.lr.ph110.i
 104:                                              ; preds = %stream_write_bit.exit43.i
   %105 = add i32 %.1109.i, -1
   %106 = icmp ult i32 %.137108.i, 255
-  br i1 %106, label %.lr.ph96.preheader.i, label %.critedge2.thread.i
+  br i1 %106, label %.lr.ph96.preheader.i, label %.critedge2.thread.i.loopexit53
 
 .lr.ph96.preheader.i:                             ; preds = %104
   %107 = zext nneg i32 %.137108.i to i64
@@ -995,14 +995,10 @@ stream_write_bit.exit44.i:                        ; preds = %116, %.lr.ph96.i
 118:                                              ; preds = %stream_write_bit.exit44.i
   %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, 1
   %exitcond134.not.i = icmp eq i64 %indvars.iv.next132.i, 255
-  br i1 %exitcond134.not.i, label %.critedge2.thread.i, label %.lr.ph96.i
+  br i1 %exitcond134.not.i, label %.critedge.i, label %.lr.ph96.i
 
-.critedge2.thread.i:                              ; preds = %104, %118
-  %.2.lcssa.ph.i36 = phi i32 [ 255, %118 ], [ %.137108.i, %104 ]
-  %.sroa.13.5.ph.i = phi i64 [ %.sroa.13.8.i, %118 ], [ %.sroa.13.7.i, %104 ]
-  %.sroa.0.5.ph.i = phi i64 [ %.sroa.0.8.i37, %118 ], [ %.sroa.0.7.i35, %104 ]
-  %.sroa.19.5.ph.i = phi ptr [ %.sroa.19.8.i, %118 ], [ %.sroa.19.7.i, %104 ]
-  %119 = add nuw i32 %.2.lcssa.ph.i36, 1
+.critedge2.thread.i.loopexit53:                   ; preds = %104
+  %119 = add nuw i32 %.137108.i, 1
   br label %.critedge.i
 
 .critedge2.i:                                     ; preds = %stream_write_bit.exit44.i
@@ -1011,11 +1007,11 @@ stream_write_bit.exit44.i:                        ; preds = %116, %.lr.ph96.i
   %122 = icmp ult i64 %indvars.iv131.i, 255
   br i1 %122, label %.lr.ph110.i, label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge2.i, %stream_write_bit.exit43.i, %.critedge2.thread.i, %.preheader80.i
-  %.137.lcssa.i = phi i32 [ %119, %.critedge2.thread.i ], [ %.036122.i, %.preheader80.i ], [ %.137108.i, %stream_write_bit.exit43.i ], [ %121, %.critedge2.i ]
-  %.sroa.13.3.i = phi i64 [ %.sroa.13.5.ph.i, %.critedge2.thread.i ], [ %.sroa.13.6.i, %.preheader80.i ], [ %.sroa.13.7.i, %stream_write_bit.exit43.i ], [ %.sroa.13.8.i, %.critedge2.i ]
-  %.sroa.0.3.i34 = phi i64 [ %.sroa.0.5.ph.i, %.critedge2.thread.i ], [ %.sroa.0.6.i31, %.preheader80.i ], [ %.sroa.0.7.i35, %stream_write_bit.exit43.i ], [ %.sroa.0.8.i37, %.critedge2.i ]
-  %.sroa.19.3.i = phi ptr [ %.sroa.19.5.ph.i, %.critedge2.thread.i ], [ %.sroa.19.6.i, %.preheader80.i ], [ %.sroa.19.7.i, %stream_write_bit.exit43.i ], [ %.sroa.19.8.i, %.critedge2.i ]
+.critedge.i:                                      ; preds = %.critedge2.i, %stream_write_bit.exit43.i, %118, %.critedge2.thread.i.loopexit53, %.preheader80.i
+  %.137.lcssa.i = phi i32 [ %.036122.i, %.preheader80.i ], [ %119, %.critedge2.thread.i.loopexit53 ], [ 256, %118 ], [ %.137108.i, %stream_write_bit.exit43.i ], [ %121, %.critedge2.i ]
+  %.sroa.13.3.i = phi i64 [ %.sroa.13.6.i, %.preheader80.i ], [ %.sroa.13.7.i, %.critedge2.thread.i.loopexit53 ], [ %.sroa.13.8.i, %118 ], [ %.sroa.13.7.i, %stream_write_bit.exit43.i ], [ %.sroa.13.8.i, %.critedge2.i ]
+  %.sroa.0.3.i34 = phi i64 [ %.sroa.0.6.i31, %.preheader80.i ], [ %.sroa.0.7.i35, %.critedge2.thread.i.loopexit53 ], [ %.sroa.0.8.i37, %118 ], [ %.sroa.0.7.i35, %stream_write_bit.exit43.i ], [ %.sroa.0.8.i37, %.critedge2.i ]
+  %.sroa.19.3.i = phi ptr [ %.sroa.19.6.i, %.preheader80.i ], [ %.sroa.19.7.i, %.critedge2.thread.i.loopexit53 ], [ %.sroa.19.8.i, %118 ], [ %.sroa.19.7.i, %stream_write_bit.exit43.i ], [ %.sroa.19.8.i, %.critedge2.i ]
   %indvars.iv.next136.i = add nsw i64 %indvars.iv135.i, -1
   %123 = icmp ugt i64 %indvars.iv135.i, %75
   br i1 %123, label %.preheader81.i, label %encode_many_ints_prec_uint64.exit

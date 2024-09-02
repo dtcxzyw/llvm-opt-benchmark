@@ -828,47 +828,48 @@ entry:
   %li = alloca %struct.listIter, align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1464), align 8
   call void @listRewind(ptr noundef %0, ptr noundef nonnull %li) #22
-  br label %while.cond.outer
+  %call48 = call ptr @listNext(ptr noundef nonnull %li) #22
+  %tobool.not59 = icmp eq ptr %call48, null
+  br i1 %tobool.not59, label %while.end, label %while.body.lr.ph
 
-while.cond.outer:                                 ; preds = %if.end, %entry
-  %prepared.0.ph = phi i32 [ %spec.select, %if.end ], [ 0, %entry ]
-  br label %while.cond
+while.body.lr.ph:                                 ; preds = %entry, %if.end
+  %call411 = phi ptr [ %call4, %if.end ], [ %call48, %entry ]
+  %prepared.0.ph10 = phi i32 [ %spec.select, %if.end ], [ 0, %entry ]
+  br label %while.body
 
-while.cond:                                       ; preds = %while.cond.outer, %canFeedReplicaReplBuffer.exit
-  %call = call ptr @listNext(ptr noundef nonnull %li) #22
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %while.end, label %while.body
-
-while.body:                                       ; preds = %while.cond
-  %value = getelementptr inbounds i8, ptr %call, i64 16
+while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
+  %call6 = phi ptr [ %call411, %while.body.lr.ph ], [ %call, %while.cond.backedge ]
+  %value = getelementptr inbounds i8, ptr %call6, i64 16
   %1 = load ptr, ptr %value, align 8
   %flags.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %2, 4398046511104
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %if.end.i, label %canFeedReplicaReplBuffer.exit
+  br i1 %tobool.not.i, label %if.end.i, label %while.cond.backedge
 
 if.end.i:                                         ; preds = %while.body
   %replstate.i = getelementptr inbounds i8, ptr %1, i64 260
   %3 = load i32, ptr %replstate.i, align 4
-  %cmp.i = icmp ne i32 %3, 6
-  %..i = zext i1 %cmp.i to i32
-  br label %canFeedReplicaReplBuffer.exit
+  %cmp.i.not = icmp eq i32 %3, 6
+  br i1 %cmp.i.not, label %while.cond.backedge, label %if.end
 
-canFeedReplicaReplBuffer.exit:                    ; preds = %while.body, %if.end.i
-  %retval.0.i = phi i32 [ 0, %while.body ], [ %..i, %if.end.i ]
-  %tobool2.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool2.not, label %while.cond, label %if.end, !llvm.loop !8
+while.cond.backedge:                              ; preds = %if.end.i, %while.body
+  %call = call ptr @listNext(ptr noundef nonnull %li) #22
+  %tobool.not = icmp eq ptr %call, null
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
 
-if.end:                                           ; preds = %canFeedReplicaReplBuffer.exit
+if.end:                                           ; preds = %if.end.i
   %call3 = call i32 @prepareClientToWrite(ptr noundef nonnull %1) #22
   %cmp = icmp ne i32 %call3, -1
   %inc = zext i1 %cmp to i32
-  %spec.select = add nuw nsw i32 %prepared.0.ph, %inc
-  br label %while.cond.outer, !llvm.loop !8
+  %spec.select = add nuw nsw i32 %prepared.0.ph10, %inc
+  %call4 = call ptr @listNext(ptr noundef nonnull %li) #22
+  %tobool.not5 = icmp eq ptr %call4, null
+  br i1 %tobool.not5, label %while.end, label %while.body.lr.ph, !llvm.loop !8
 
-while.end:                                        ; preds = %while.cond
-  ret i32 %prepared.0.ph
+while.end:                                        ; preds = %if.end, %while.cond.backedge, %entry
+  %prepared.0.ph.lcssa = phi i32 [ 0, %entry ], [ %prepared.0.ph10, %while.cond.backedge ], [ %spec.select, %if.end ]
+  ret i32 %prepared.0.ph.lcssa
 }
 
 declare i32 @prepareClientToWrite(ptr noundef) local_unnamed_addr #4
@@ -1084,15 +1085,15 @@ while.body77.us:                                  ; preds = %while.body77.lr.ph,
   %24 = load i64, ptr %flags.i.us, align 8
   %and.i.us = and i64 %24, 4398046511104
   %tobool.not.i.us = icmp eq i64 %and.i.us, 0
-  br i1 %tobool.not.i.us, label %canFeedReplicaReplBuffer.exit.us, label %while.cond74.backedge.us
+  br i1 %tobool.not.i.us, label %if.end.i.us, label %while.cond74.backedge.us
 
-canFeedReplicaReplBuffer.exit.us:                 ; preds = %while.body77.us
+if.end.i.us:                                      ; preds = %while.body77.us
   %replstate.i.us = getelementptr inbounds i8, ptr %23, i64 260
   %25 = load i32, ptr %replstate.i.us, align 4
-  %cmp.i.us.not = icmp eq i32 %25, 6
-  br i1 %cmp.i.us.not, label %while.cond74.backedge.us, label %if.end82.us
+  %cmp.i.not.us = icmp eq i32 %25, 6
+  br i1 %cmp.i.not.us, label %while.cond74.backedge.us, label %if.end82.us
 
-if.end82.us:                                      ; preds = %canFeedReplicaReplBuffer.exit.us
+if.end82.us:                                      ; preds = %if.end.i.us
   %ref_repl_buf_node.us = getelementptr inbounds i8, ptr %23, i64 696
   %26 = load ptr, ptr %ref_repl_buf_node.us, align 8
   %cmp83.us = icmp eq ptr %26, null
@@ -1112,7 +1113,7 @@ if.end89.us:                                      ; preds = %if.then84.us, %if.e
   %call92.us = call i32 @closeClientOnOutputBufferLimitReached(ptr noundef nonnull %23, i32 noundef 1) #22
   br label %while.cond74.backedge.us
 
-while.cond74.backedge.us:                         ; preds = %while.body77.us, %if.end89.us, %canFeedReplicaReplBuffer.exit.us
+while.cond74.backedge.us:                         ; preds = %if.end89.us, %if.end.i.us, %while.body77.us
   %call75.us = call ptr @listNext(ptr noundef nonnull %li) #22
   %tobool76.not.us = icmp eq ptr %call75.us, null
   br i1 %tobool76.not.us, label %while.end, label %while.body77.us, !llvm.loop !9
@@ -1125,15 +1126,15 @@ while.body77:                                     ; preds = %while.body77.lr.ph,
   %30 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %30, 4398046511104
   %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %canFeedReplicaReplBuffer.exit, label %while.cond74.backedge
+  br i1 %tobool.not.i, label %if.end.i, label %while.cond74.backedge
 
-canFeedReplicaReplBuffer.exit:                    ; preds = %while.body77
+if.end.i:                                         ; preds = %while.body77
   %replstate.i = getelementptr inbounds i8, ptr %29, i64 260
   %31 = load i32, ptr %replstate.i, align 4
   %cmp.i.not = icmp eq i32 %31, 6
   br i1 %cmp.i.not, label %while.cond74.backedge, label %if.end82
 
-if.end82:                                         ; preds = %canFeedReplicaReplBuffer.exit
+if.end82:                                         ; preds = %if.end.i
   %ref_repl_buf_node = getelementptr inbounds i8, ptr %29, i64 696
   %32 = load ptr, ptr %ref_repl_buf_node, align 8
   %cmp83 = icmp eq ptr %32, null
@@ -1149,7 +1150,7 @@ if.then84:                                        ; preds = %if.end82
   store i32 %inc88, ptr %33, align 8
   br label %while.cond74.backedge
 
-while.cond74.backedge:                            ; preds = %while.body77, %if.end82, %if.then84, %canFeedReplicaReplBuffer.exit
+while.cond74.backedge:                            ; preds = %if.end82, %if.then84, %if.end.i, %while.body77
   %call75 = call ptr @listNext(ptr noundef nonnull %li) #22
   %tobool76.not = icmp eq ptr %call75, null
   br i1 %tobool76.not, label %while.end, label %while.body77, !llvm.loop !9
@@ -1322,42 +1323,42 @@ cond.end30:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i)
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1464), align 8
   call void @listRewind(ptr noundef %6, ptr noundef nonnull %li.i) #22
-  br label %while.cond.i
+  %call48.i = call ptr @listNext(ptr noundef nonnull %li.i) #22
+  %tobool.not59.i = icmp eq ptr %call48.i, null
+  br i1 %tobool.not59.i, label %prepareReplicasToWrite.exit, label %while.body.i
 
-while.cond.i:                                     ; preds = %while.cond.i.backedge, %cond.end30
-  %call.i = call ptr @listNext(ptr noundef nonnull %li.i) #22
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %prepareReplicasToWrite.exit, label %while.body.i
-
-while.body.i:                                     ; preds = %while.cond.i
-  %value.i = getelementptr inbounds i8, ptr %call.i, i64 16
+while.body.i:                                     ; preds = %cond.end30, %while.body.i.backedge
+  %call6.i = phi ptr [ %call6.i.be, %while.body.i.backedge ], [ %call48.i, %cond.end30 ]
+  %value.i = getelementptr inbounds i8, ptr %call6.i, i64 16
   %7 = load ptr, ptr %value.i, align 8
   %flags.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %flags.i.i, align 8
   %and.i.i = and i64 %8, 4398046511104
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %canFeedReplicaReplBuffer.exit.i
+  br i1 %tobool.not.i.i, label %if.end.i.i, label %while.cond.backedge.i
 
 if.end.i.i:                                       ; preds = %while.body.i
   %replstate.i.i = getelementptr inbounds i8, ptr %7, i64 260
   %9 = load i32, ptr %replstate.i.i, align 4
-  %cmp.i.i = icmp ne i32 %9, 6
-  %..i.i = zext i1 %cmp.i.i to i32
-  br label %canFeedReplicaReplBuffer.exit.i
+  %cmp.i.not.i = icmp eq i32 %9, 6
+  br i1 %cmp.i.not.i, label %while.cond.backedge.i, label %if.end.i
 
-canFeedReplicaReplBuffer.exit.i:                  ; preds = %if.end.i.i, %while.body.i
-  %retval.0.i.i = phi i32 [ 0, %while.body.i ], [ %..i.i, %if.end.i.i ]
-  %tobool2.not.i = icmp eq i32 %retval.0.i.i, 0
-  br i1 %tobool2.not.i, label %while.cond.i.backedge, label %if.end.i
+while.cond.backedge.i:                            ; preds = %if.end.i.i, %while.body.i
+  %call.i = call ptr @listNext(ptr noundef nonnull %li.i) #22
+  %tobool.not.i = icmp eq ptr %call.i, null
+  br i1 %tobool.not.i, label %prepareReplicasToWrite.exit, label %while.body.i.backedge
 
-while.cond.i.backedge:                            ; preds = %canFeedReplicaReplBuffer.exit.i, %if.end.i
-  br label %while.cond.i, !llvm.loop !8
+while.body.i.backedge:                            ; preds = %while.cond.backedge.i, %if.end.i
+  %call6.i.be = phi ptr [ %call.i, %while.cond.backedge.i ], [ %call4.i, %if.end.i ]
+  br label %while.body.i, !llvm.loop !8
 
-if.end.i:                                         ; preds = %canFeedReplicaReplBuffer.exit.i
+if.end.i:                                         ; preds = %if.end.i.i
   %call3.i = call i32 @prepareClientToWrite(ptr noundef nonnull %7) #22
-  br label %while.cond.i.backedge
+  %call4.i = call ptr @listNext(ptr noundef nonnull %li.i) #22
+  %tobool.not5.i = icmp eq ptr %call4.i, null
+  br i1 %tobool.not5.i, label %prepareReplicasToWrite.exit, label %while.body.i.backedge
 
-prepareReplicasToWrite.exit:                      ; preds = %while.cond.i
+prepareReplicasToWrite.exit:                      ; preds = %if.end.i, %while.cond.backedge.i, %cond.end30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4472), align 8
   %cmp34.not = icmp eq i32 %10, %dictid
@@ -1471,8 +1472,8 @@ if.end56:                                         ; preds = %if.end55, %prepareR
   %add68 = add nsw i32 %call60, 3
   %conv69 = sext i32 %add68 to i64
   call void @feedReplicationBuffer(ptr noundef nonnull %aux, i64 noundef %conv69)
-  %cmp7064 = icmp sgt i32 %argc, 0
-  br i1 %cmp7064, label %for.body.preheader, label %for.end
+  %cmp7066 = icmp sgt i32 %argc, 0
+  br i1 %cmp7066, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end56
   %wide.trip.count = zext nneg i32 %argc to i64
@@ -1683,42 +1684,42 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i)
   call void @listRewind(ptr noundef nonnull %0, ptr noundef nonnull %li.i) #22
-  br label %while.cond.i
+  %call48.i = call ptr @listNext(ptr noundef nonnull %li.i) #22
+  %tobool.not59.i = icmp eq ptr %call48.i, null
+  br i1 %tobool.not59.i, label %prepareReplicasToWrite.exit, label %while.body.i
 
-while.cond.i:                                     ; preds = %while.cond.i.backedge, %if.then4
-  %call.i = call ptr @listNext(ptr noundef nonnull %li.i) #22
-  %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %prepareReplicasToWrite.exit, label %while.body.i
-
-while.body.i:                                     ; preds = %while.cond.i
-  %value.i = getelementptr inbounds i8, ptr %call.i, i64 16
+while.body.i:                                     ; preds = %if.then4, %while.body.i.backedge
+  %call6.i = phi ptr [ %call6.i.be, %while.body.i.backedge ], [ %call48.i, %if.then4 ]
+  %value.i = getelementptr inbounds i8, ptr %call6.i, i64 16
   %3 = load ptr, ptr %value.i, align 8
   %flags.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %flags.i.i, align 8
   %and.i.i = and i64 %4, 4398046511104
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %canFeedReplicaReplBuffer.exit.i
+  br i1 %tobool.not.i.i, label %if.end.i.i, label %while.cond.backedge.i
 
 if.end.i.i:                                       ; preds = %while.body.i
   %replstate.i.i = getelementptr inbounds i8, ptr %3, i64 260
   %5 = load i32, ptr %replstate.i.i, align 4
-  %cmp.i.i = icmp ne i32 %5, 6
-  %..i.i = zext i1 %cmp.i.i to i32
-  br label %canFeedReplicaReplBuffer.exit.i
+  %cmp.i.not.i = icmp eq i32 %5, 6
+  br i1 %cmp.i.not.i, label %while.cond.backedge.i, label %if.end.i
 
-canFeedReplicaReplBuffer.exit.i:                  ; preds = %if.end.i.i, %while.body.i
-  %retval.0.i.i = phi i32 [ 0, %while.body.i ], [ %..i.i, %if.end.i.i ]
-  %tobool2.not.i = icmp eq i32 %retval.0.i.i, 0
-  br i1 %tobool2.not.i, label %while.cond.i.backedge, label %if.end.i
+while.cond.backedge.i:                            ; preds = %if.end.i.i, %while.body.i
+  %call.i = call ptr @listNext(ptr noundef nonnull %li.i) #22
+  %tobool.not.i = icmp eq ptr %call.i, null
+  br i1 %tobool.not.i, label %prepareReplicasToWrite.exit, label %while.body.i.backedge
 
-while.cond.i.backedge:                            ; preds = %canFeedReplicaReplBuffer.exit.i, %if.end.i
-  br label %while.cond.i, !llvm.loop !8
+while.body.i.backedge:                            ; preds = %while.cond.backedge.i, %if.end.i
+  %call6.i.be = phi ptr [ %call.i, %while.cond.backedge.i ], [ %call4.i, %if.end.i ]
+  br label %while.body.i, !llvm.loop !8
 
-if.end.i:                                         ; preds = %canFeedReplicaReplBuffer.exit.i
+if.end.i:                                         ; preds = %if.end.i.i
   %call3.i = call i32 @prepareClientToWrite(ptr noundef nonnull %3) #22
-  br label %while.cond.i.backedge
+  %call4.i = call ptr @listNext(ptr noundef nonnull %li.i) #22
+  %tobool.not5.i = icmp eq ptr %call4.i, null
+  br i1 %tobool.not5.i, label %prepareReplicasToWrite.exit, label %while.body.i.backedge
 
-prepareReplicasToWrite.exit:                      ; preds = %while.cond.i
+prepareReplicasToWrite.exit:                      ; preds = %if.end.i, %while.cond.backedge.i, %if.then4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
   call void @feedReplicationBuffer(ptr noundef %buf, i64 noundef %buflen)
   br label %if.end5
@@ -3572,27 +3573,27 @@ if.end186:                                        ; preds = %if.then177
 
 for.body193.preheader:                            ; preds = %if.end186
   %wide.trip.count = zext nneg i32 %48 to i64
-  %and200 = and i32 %or189, -3
+  %49 = and i32 %or189, -3
   br label %for.body193
 
 for.body193:                                      ; preds = %for.body193.preheader, %if.then198
   %indvars.iv = phi i64 [ 0, %for.body193.preheader ], [ %indvars.iv.next, %if.then198 ]
   %arrayidx195 = getelementptr inbounds ptr, ptr %call183, i64 %indvars.iv
-  %49 = load ptr, ptr %arrayidx195, align 8
-  %call196 = call i32 @strcasecmp(ptr noundef %49, ptr noundef nonnull @.str.79) #23
+  %50 = load ptr, ptr %arrayidx195, align 8
+  %call196 = call i32 @strcasecmp(ptr noundef %50, ptr noundef nonnull @.str.79) #23
   %tobool197.not = icmp eq i32 %call196, 0
   br i1 %tobool197.not, label %if.then198, label %if.else201
 
 if.then198:                                       ; preds = %for.body193
-  store i32 %and200, ptr %slave_req, align 4
+  store i32 %49, ptr %slave_req, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body193, !llvm.loop !20
 
 if.else201:                                       ; preds = %for.body193
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.80, ptr noundef %49) #22
-  %50 = load i32, ptr %filter_count, align 4
-  call void @sdsfreesplitres(ptr noundef nonnull %call183, i32 noundef %50) #22
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.80, ptr noundef %50) #22
+  %51 = load i32, ptr %filter_count, align 4
+  call void @sdsfreesplitres(ptr noundef nonnull %call183, i32 noundef %51) #22
   br label %return
 
 for.end:                                          ; preds = %if.then198, %if.end186
@@ -3605,14 +3606,14 @@ if.else205:                                       ; preds = %if.else170
 
 for.inc217:                                       ; preds = %if.end10, %if.else52, %if.then60, %if.then51, %if.then163, %if.else166, %for.end, %if.end30
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 2
-  %51 = load i32, ptr %argc, align 8
-  %52 = trunc nuw i64 %indvars.iv.next176 to i32
-  %cmp2 = icmp sgt i32 %51, %52
+  %52 = load i32, ptr %argc, align 8
+  %53 = trunc nuw i64 %indvars.iv.next176 to i32
+  %cmp2 = icmp sgt i32 %52, %53
   br i1 %cmp2, label %for.body, label %for.end219, !llvm.loop !21
 
 for.end219:                                       ; preds = %for.inc217, %for.cond.preheader
-  %53 = load ptr, ptr @shared, align 8
-  call void @addReply(ptr noundef nonnull %c, ptr noundef %53) #22
+  %54 = load ptr, ptr @shared, align 8
+  call void @addReply(ptr noundef nonnull %c, ptr noundef %54) #22
   br label %return
 
 return:                                           ; preds = %if.then151, %if.then3, %if.then138, %if.then142, %if.end123, %land.lhs.true125, %if.then129, %if.then101, %if.end75, %if.then72, %for.end219, %if.else205, %if.else201, %if.then185, %sdslen.exit97, %if.then
@@ -4494,12 +4495,12 @@ for.inc98:                                        ; preds = %for.body59, %if.end
   br i1 %cmp57, label %for.body59, label %for.end100, !llvm.loop !25
 
 for.end100:                                       ; preds = %for.inc98
-  %cmp101 = icmp eq i32 %stillAlive.1, 0
-  br i1 %cmp101, label %do.body104, label %if.end110
+  %41 = icmp eq i32 %stillAlive.1, 0
+  br i1 %41, label %do.body104, label %if.end110
 
 do.body104:                                       ; preds = %for.cond56.preheader, %for.end100
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp105 = icmp sgt i32 %41, 3
+  %42 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp105 = icmp sgt i32 %42, 3
   br i1 %cmp105, label %if.end110.thread, label %if.end108
 
 if.end108:                                        ; preds = %do.body104
@@ -4511,14 +4512,14 @@ if.end110.thread:                                 ; preds = %if.end108, %do.body
   br label %if.then115
 
 if.end110:                                        ; preds = %for.end100
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4244), align 4
-  %tobool111.not = icmp eq i32 %42, 0
+  %43 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4244), align 4
+  %tobool111.not = icmp eq i32 %43, 0
   br i1 %tobool111.not, label %while.body, label %if.then115
 
 if.then115:                                       ; preds = %if.end110, %if.end110.thread
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
-  %44 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4224), align 8
-  tail call void @aeDeleteFileEvent(ptr noundef %43, i32 noundef %44, i32 noundef 1) #22
+  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 96), align 8
+  %45 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4224), align 8
+  tail call void @aeDeleteFileEvent(ptr noundef %44, i32 noundef %45, i32 noundef 1) #22
   br label %while.end
 
 while.end:                                        ; preds = %if.then7, %if.then115, %do.end53, %for.end
@@ -8602,35 +8603,35 @@ land.lhs.true.i.i:                                ; preds = %if.then5
   %addr.i.i = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load ptr, ptr %addr.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %8, null
-  br i1 %tobool1.not.i.i, label %while.cond.backedge, label %connAddrPeerName.exit
+  br i1 %tobool1.not.i.i, label %while.cond.backedge, label %if.then.i.i
 
-connAddrPeerName.exit:                            ; preds = %land.lhs.true.i.i
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %call.i.i = call i32 %8(ptr noundef nonnull %6, ptr noundef nonnull %ip, i64 noundef 46, ptr noundef null, i32 noundef 1) #22
-  %cmp7 = icmp eq i32 %call.i.i, -1
-  br i1 %cmp7, label %while.cond.backedge, label %if.end11
+  %9 = icmp eq i32 %call.i.i, -1
+  br i1 %9, label %while.cond.backedge, label %if.end11
 
-while.cond.backedge:                              ; preds = %if.then5, %land.lhs.true.i.i, %connAddrPeerName.exit, %if.end11
+while.cond.backedge:                              ; preds = %land.lhs.true.i.i, %if.then5, %if.then.i.i, %if.end11
   %call2 = call ptr @listNext(ptr noundef nonnull %li) #22
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !31
 
-if.end11:                                         ; preds = %connAddrPeerName.exit, %while.body
-  %slaveaddr.0 = phi ptr [ %5, %while.body ], [ %ip, %connAddrPeerName.exit ]
+if.end11:                                         ; preds = %if.then.i.i, %while.body
+  %slaveaddr.0 = phi ptr [ %5, %while.body ], [ %ip, %if.then.i.i ]
   %replstate = getelementptr inbounds i8, ptr %4, i64 260
-  %9 = load i32, ptr %replstate, align 4
-  %cmp12.not = icmp eq i32 %9, 9
+  %10 = load i32, ptr %replstate, align 4
+  %cmp12.not = icmp eq i32 %10, 9
   br i1 %cmp12.not, label %if.end14, label %while.cond.backedge
 
 if.end14:                                         ; preds = %if.end11
   call void @addReplyArrayLen(ptr noundef %c, i64 noundef 3) #22
   call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull %slaveaddr.0) #22
   %slave_listening_port = getelementptr inbounds i8, ptr %4, i64 404
-  %10 = load i32, ptr %slave_listening_port, align 4
-  %conv = sext i32 %10 to i64
+  %11 = load i32, ptr %slave_listening_port, align 4
+  %conv = sext i32 %11 to i64
   call void @addReplyBulkLongLong(ptr noundef %c, i64 noundef %conv) #22
   %repl_ack_off = getelementptr inbounds i8, ptr %4, i64 320
-  %11 = load i64, ptr %repl_ack_off, align 8
-  call void @addReplyBulkLongLong(ptr noundef %c, i64 noundef %11) #22
+  %12 = load i64, ptr %repl_ack_off, align 8
+  call void @addReplyBulkLongLong(ptr noundef %c, i64 noundef %12) #22
   %inc = add nuw nsw i32 %slaves.0.ph29, 1
   %call223 = call ptr @listNext(ptr noundef nonnull %li) #22
   %tobool3.not24 = icmp eq ptr %call223, null
@@ -8645,18 +8646,18 @@ while.end:                                        ; preds = %if.end14, %while.co
 if.else:                                          ; preds = %if.end
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef 5) #22
   tail call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull @.str.206, i64 noundef 5) #22
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
-  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %12) #22
-  %13 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4584), align 8
-  %conv16 = sext i32 %13 to i64
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
+  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %13) #22
+  %14 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4584), align 8
+  %conv16 = sext i32 %14 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv16) #22
-  %14 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4612), align 4
-  %15 = add i32 %14, -11
-  %16 = icmp ult i32 %15, -8
-  br i1 %16, label %if.else20, label %if.end25
+  %15 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4612), align 4
+  %16 = add i32 %15, -11
+  %17 = icmp ult i32 %16, -8
+  br i1 %17, label %if.else20, label %if.end25
 
 if.else20:                                        ; preds = %if.else
-  switch i32 %14, label %sw.default [
+  switch i32 %15, label %sw.default [
     i32 0, label %if.end25
     i32 1, label %sw.bb21
     i32 2, label %sw.bb22
@@ -8682,17 +8683,17 @@ sw.default:                                       ; preds = %if.else20
 if.end25:                                         ; preds = %if.else20, %if.else, %sw.bb21, %sw.bb22, %sw.bb23, %sw.bb24, %sw.default
   %slavestate.0 = phi ptr [ @.str.213, %sw.default ], [ @.str.212, %sw.bb24 ], [ @.str.211, %sw.bb23 ], [ @.str.210, %sw.bb22 ], [ @.str.209, %sw.bb21 ], [ @.str.207, %if.else ], [ @.str.208, %if.else20 ]
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull %slavestate.0) #22
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4592), align 8
-  %tobool26.not = icmp eq ptr %17, null
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4592), align 8
+  %tobool26.not = icmp eq ptr %18, null
   br i1 %tobool26.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end25
-  %reploff = getelementptr inbounds i8, ptr %17, i64 304
-  %18 = load i64, ptr %reploff, align 8
+  %reploff = getelementptr inbounds i8, ptr %18, i64 304
+  %19 = load i64, ptr %reploff, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end25, %cond.true
-  %cond = phi i64 [ %18, %cond.true ], [ -1, %if.end25 ]
+  %cond = phi i64 [ %19, %cond.true ], [ -1, %if.end25 ]
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %cond) #22
   br label %if.end27
 
@@ -9379,7 +9380,7 @@ while.end:                                        ; preds = %while.cond.outer, %
 declare void @unblockClient(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @replicationGetSlaveOffset() local_unnamed_addr #18 {
+define dso_local range(i64 0, -9223372036854775808) i64 @replicationGetSlaveOffset() local_unnamed_addr #18 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
   %cmp.not = icmp eq ptr %0, null
@@ -10033,45 +10034,45 @@ land.lhs.true.i.i:                                ; preds = %if.then17
   %addr.i.i = getelementptr inbounds i8, ptr %16, i64 48
   %17 = load ptr, ptr %addr.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %17, null
-  br i1 %tobool1.not.i.i, label %while.cond.backedge, label %connAddrPeerName.exit
+  br i1 %tobool1.not.i.i, label %while.cond.backedge, label %if.then.i.i
 
-connAddrPeerName.exit:                            ; preds = %land.lhs.true.i.i
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %call.i.i = call i32 %17(ptr noundef nonnull %15, ptr noundef nonnull %ip, i64 noundef 46, ptr noundef null, i32 noundef 1) #22
-  %cmp19 = icmp eq i32 %call.i.i, -1
-  br i1 %cmp19, label %while.cond.backedge, label %if.end26.thread
+  %18 = icmp eq i32 %call.i.i, -1
+  br i1 %18, label %while.cond.backedge, label %if.end26.thread
 
-while.cond.backedge:                              ; preds = %if.then17, %land.lhs.true.i.i, %connAddrPeerName.exit, %while.body
+while.cond.backedge:                              ; preds = %land.lhs.true.i.i, %if.then17, %if.then.i.i, %while.body
   %call12 = call ptr @listNext(ptr noundef nonnull %li) #22
   %tobool13.not = icmp eq ptr %call12, null
   br i1 %tobool13.not, label %land.lhs.true28, label %while.body, !llvm.loop !37
 
-if.end26.thread:                                  ; preds = %if.then15, %connAddrPeerName.exit
-  %replicaaddr.0 = phi ptr [ %14, %if.then15 ], [ %ip, %connAddrPeerName.exit ]
+if.end26.thread:                                  ; preds = %if.then15, %if.then.i.i
+  %replicaaddr.0 = phi ptr [ %14, %if.then15 ], [ %ip, %if.then.i.i ]
   %call24 = call noalias ptr @zstrdup(ptr noundef nonnull %replicaaddr.0) #22
   store ptr %call24, ptr getelementptr inbounds (i8, ptr @server, i64 5632), align 8
   %slave_listening_port = getelementptr inbounds i8, ptr %11, i64 404
-  %18 = load i32, ptr %slave_listening_port, align 4
-  store i32 %18, ptr getelementptr inbounds (i8, ptr @server, i64 5640), align 8
+  %19 = load i32, ptr %slave_listening_port, align 4
+  store i32 %19, ptr getelementptr inbounds (i8, ptr @server, i64 5640), align 8
   br label %land.lhs.true28
 
 if.end26:                                         ; preds = %if.end8
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5640), align 8
-  %call = tail call fastcc ptr @findReplica(ptr noundef nonnull %9, i32 noundef %19)
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5640), align 8
+  %call = tail call fastcc ptr @findReplica(ptr noundef nonnull %9, i32 noundef %20)
   %tobool27.not = icmp eq ptr %call, null
   br i1 %tobool27.not, label %if.end37, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %while.cond.backedge, %if.end26.thread, %if.end26
   %replica.011 = phi ptr [ %11, %if.end26.thread ], [ %call, %if.end26 ], [ %11, %while.cond.backedge ]
   %repl_ack_off29 = getelementptr inbounds i8, ptr %replica.011, i64 320
-  %20 = load i64, ptr %repl_ack_off29, align 8
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4440), align 8
-  %cmp30 = icmp eq i64 %20, %21
+  %21 = load i64, ptr %repl_ack_off29, align 8
+  %22 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4440), align 8
+  %cmp30 = icmp eq i64 %21, %22
   br i1 %cmp30, label %if.then31, label %if.end37
 
 if.then31:                                        ; preds = %land.lhs.true28
   store i32 2, ptr getelementptr inbounds (i8, ptr @server, i64 5644), align 4
-  %22 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
-  %cmp33 = icmp sgt i32 %22, 2
+  %23 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3696), align 8
+  %cmp33 = icmp sgt i32 %23, 2
   %.pre17 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5632), align 8
   %.pre19 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5640), align 8
   br i1 %cmp33, label %do.end36, label %if.end35
@@ -10083,9 +10084,9 @@ if.end35:                                         ; preds = %if.then31
   br label %do.end36
 
 do.end36:                                         ; preds = %if.then31, %if.end35
-  %23 = phi i32 [ %.pre19, %if.then31 ], [ %.pre18, %if.end35 ]
-  %24 = phi ptr [ %.pre17, %if.then31 ], [ %.pre, %if.end35 ]
-  call void @replicationSetMaster(ptr noundef %24, i32 noundef %23)
+  %24 = phi i32 [ %.pre19, %if.then31 ], [ %.pre18, %if.end35 ]
+  %25 = phi ptr [ %.pre17, %if.then31 ], [ %.pre, %if.end35 ]
+  call void @replicationSetMaster(ptr noundef %25, i32 noundef %24)
   br label %if.end37
 
 if.end37:                                         ; preds = %if.else11, %entry, %do.end36, %land.lhs.true28, %if.end26, %if.else, %do.end
@@ -10553,26 +10554,26 @@ land.lhs.true.i.i:                                ; preds = %if.then
   %addr.i.i = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load ptr, ptr %addr.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %5, null
-  br i1 %tobool1.not.i.i, label %while.cond.backedge, label %connAddrPeerName.exit
+  br i1 %tobool1.not.i.i, label %while.cond.backedge, label %if.then.i.i
 
-connAddrPeerName.exit:                            ; preds = %land.lhs.true.i.i
+if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %call.i.i = call i32 %5(ptr noundef nonnull %3, ptr noundef nonnull %ip, i64 noundef 46, ptr noundef null, i32 noundef 1) #22
-  %cmp = icmp eq i32 %call.i.i, -1
-  br i1 %cmp, label %while.cond.backedge, label %if.end5
+  %6 = icmp eq i32 %call.i.i, -1
+  br i1 %6, label %while.cond.backedge, label %if.end5
 
-if.end5:                                          ; preds = %connAddrPeerName.exit, %while.body
-  %replicaip.0 = phi ptr [ %2, %while.body ], [ %ip, %connAddrPeerName.exit ]
+if.end5:                                          ; preds = %if.then.i.i, %while.body
+  %replicaip.0 = phi ptr [ %2, %while.body ], [ %ip, %if.then.i.i ]
   %call6 = call i32 @strcasecmp(ptr noundef %host, ptr noundef nonnull %replicaip.0) #23
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %land.lhs.true, label %while.cond.backedge
 
 land.lhs.true:                                    ; preds = %if.end5
   %slave_listening_port = getelementptr inbounds i8, ptr %1, i64 404
-  %6 = load i32, ptr %slave_listening_port, align 4
-  %cmp8 = icmp eq i32 %port, %6
+  %7 = load i32, ptr %slave_listening_port, align 4
+  %cmp8 = icmp eq i32 %port, %7
   br i1 %cmp8, label %return, label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %if.then, %land.lhs.true.i.i, %if.end5, %land.lhs.true, %connAddrPeerName.exit
+while.cond.backedge:                              ; preds = %if.end5, %land.lhs.true, %land.lhs.true.i.i, %if.then, %if.then.i.i
   %call = call ptr @listNext(ptr noundef nonnull %li) #22
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !40

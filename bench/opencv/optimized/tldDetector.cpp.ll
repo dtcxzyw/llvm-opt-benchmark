@@ -1562,39 +1562,39 @@ _ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit.loopexit: ; pre
   %.pre321 = load ptr, ptr %46, align 8
   %.pre328 = sext i32 %.pre319 to i64
   %.pre333 = trunc i64 %259 to i32
+  %262 = icmp sgt i32 %.pre333, 0
   br label %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit
 
 _ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit: ; preds = %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit.loopexit, %233
-  %.pre-phi334 = phi i32 [ %.pre333, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit.loopexit ], [ %250, %233 ]
+  %.pre-phi334 = phi i1 [ %262, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit.loopexit ], [ false, %233 ]
   %.pre-phi332 = phi i64 [ %259, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit.loopexit ], [ %249, %233 ]
   %.pre-phi = phi i64 [ %.pre328, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit.loopexit ], [ %238, %233 ]
-  %262 = phi ptr [ %255, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit.loopexit ], [ %245, %233 ]
-  %263 = phi ptr [ %.pre321, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit.loopexit ], [ %234, %233 ]
-  %264 = phi ptr [ %.pre320, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit.loopexit ], [ %239, %233 ]
-  %265 = getelementptr inbounds %"class.cv::Mat", ptr %264, i64 %.pre-phi
-  %266 = getelementptr inbounds %"class.cv::Point_", ptr %263, i64 %indvars.iv310
-  %267 = getelementptr inbounds i8, ptr %266, i64 4
-  %268 = load i32, ptr %267, align 4
-  %269 = load i32, ptr %266, align 4
-  %270 = getelementptr inbounds i8, ptr %265, i64 16
-  %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %265, i64 72
-  %273 = load ptr, ptr %272, align 8
-  %274 = load i64, ptr %273, align 8
-  %275 = sext i32 %268 to i64
-  %276 = mul i64 %274, %275
-  %277 = getelementptr inbounds i8, ptr %271, i64 %276
-  %278 = sext i32 %269 to i64
-  %279 = getelementptr inbounds i8, ptr %277, i64 %278
-  %280 = icmp sgt i32 %.pre-phi334, 0
-  br i1 %280, label %.lr.ph.i134, label %.loopexit240
+  %263 = phi ptr [ %255, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit.loopexit ], [ %245, %233 ]
+  %264 = phi ptr [ %.pre321, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit.loopexit ], [ %234, %233 ]
+  %265 = phi ptr [ %.pre320, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit.loopexit ], [ %239, %233 ]
+  %266 = getelementptr inbounds %"class.cv::Mat", ptr %265, i64 %.pre-phi
+  %267 = getelementptr inbounds %"class.cv::Point_", ptr %264, i64 %indvars.iv310
+  %268 = getelementptr inbounds i8, ptr %267, i64 4
+  %269 = load i32, ptr %268, align 4
+  %270 = load i32, ptr %267, align 4
+  %271 = getelementptr inbounds i8, ptr %266, i64 16
+  %272 = load ptr, ptr %271, align 8
+  %273 = getelementptr inbounds i8, ptr %266, i64 72
+  %274 = load ptr, ptr %273, align 8
+  %275 = load i64, ptr %274, align 8
+  %276 = sext i32 %269 to i64
+  %277 = mul i64 %275, %276
+  %278 = getelementptr inbounds i8, ptr %272, i64 %277
+  %279 = sext i32 %270 to i64
+  %280 = getelementptr inbounds i8, ptr %278, i64 %279
+  br i1 %.pre-phi334, label %.lr.ph.i134, label %.loopexit240
 
 .lr.ph.i134:                                      ; preds = %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit, %.noexc138
   %indvars.iv.i135 = phi i64 [ %indvars.iv.next.i136, %.noexc138 ], [ 0, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit ]
-  %281 = phi ptr [ %286, %.noexc138 ], [ %262, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit ]
+  %281 = phi ptr [ %286, %.noexc138 ], [ %263, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit ]
   %.078.i = phi double [ %284, %.noexc138 ], [ 0.000000e+00, %_ZN2cv8tracking4impl3tld11TLDDetector18prepareClassifiersEi.exit ]
   %282 = getelementptr inbounds %"class.cv::tracking::impl::tld::TLDEnsembleClassifier", ptr %281, i64 %indvars.iv.i135
-  %283 = invoke noundef double @_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier24posteriorProbabilityFastEPKh(ptr noundef nonnull align 8 dereferenceable(76) %282, ptr noundef %279)
+  %283 = invoke noundef double @_ZNK2cv8tracking4impl3tld21TLDEnsembleClassifier24posteriorProbabilityFastEPKh(ptr noundef nonnull align 8 dereferenceable(76) %282, ptr noundef %280)
           to label %.noexc138 unwind label %.loopexit.split-lp.loopexit
 
 .noexc138:                                        ; preds = %.lr.ph.i134

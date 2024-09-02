@@ -127,410 +127,408 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %11 = load ptr, ptr %1, align 8
   %12 = tail call ptr @get_progname(ptr noundef %11) #8
   %13 = icmp sgt i32 %0, 1
-  br i1 %13, label %14, label %.preheader
+  br i1 %13, label %14, label %.tail107.thread.preheader
 
-.preheader:                                       ; preds = %sub_0108, %sub_1109, %sub_2110, %2
-  br label %42
+.tail107.thread.preheader:                        ; preds = %.tail.thread.thread, %sub_1109, %.tail107, %2
+  br label %.tail107.thread
 
 14:                                               ; preds = %2
   %15 = getelementptr i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.3) #9
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %31, label %sub_0
+  br i1 %18, label %25, label %sub_0
 
 sub_0:                                            ; preds = %14
   %19 = load i8, ptr %16, align 1
-  %20 = zext i8 %19 to i32
-  %21 = add nsw i32 %20, -45
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %sub_1, label %.tail
+  %.not = icmp eq i8 %19, 45
+  br i1 %.not, label %sub_1, label %.tail.thread.thread
 
 sub_1:                                            ; preds = %sub_0
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %20 = getelementptr inbounds i8, ptr %16, i64 1
+  %21 = load i8, ptr %20, align 1
+  %.not114 = icmp eq i8 %21, 63
+  br i1 %.not114, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %22 = getelementptr inbounds i8, ptr %16, i64 2
   %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = add nsw i32 %24, -63
-  %.not114 = icmp eq i32 %25, 0
-  br i1 %.not114, label %sub_2, label %.tail
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %25, label %.thread
 
-sub_2:                                            ; preds = %sub_1
-  %26 = getelementptr inbounds i8, ptr %16, i64 2
-  %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i32
-  br label %.tail
-
-.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
-  %29 = phi i32 [ %21, %sub_0 ], [ %25, %sub_1 ], [ %28, %sub_2 ]
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %32
-
-31:                                               ; preds = %.tail, %14
+25:                                               ; preds = %.tail, %14
   tail call fastcc void @usage(ptr noundef %12)
   tail call void @exit(i32 noundef 0) #10
   unreachable
 
-32:                                               ; preds = %.tail
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str.5) #9
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %40, label %sub_0108
+.tail.thread:                                     ; preds = %sub_1
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str.5) #9
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %37, label %sub_1109
 
-sub_0108:                                         ; preds = %32
-  br i1 %.not, label %sub_1109, label %.preheader
+.tail.thread.thread:                              ; preds = %sub_0
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str.5) #9
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %37, label %.tail107.thread.preheader
 
-sub_1109:                                         ; preds = %sub_0108
-  %35 = getelementptr inbounds i8, ptr %16, i64 1
-  %36 = load i8, ptr %35, align 1
-  %.not116 = icmp eq i8 %36, 86
-  br i1 %.not116, label %sub_2110, label %.preheader
+.thread:                                          ; preds = %.tail
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str.5) #9
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %37, label %sub_1109
 
-sub_2110:                                         ; preds = %sub_1109
-  %37 = getelementptr inbounds i8, ptr %16, i64 2
-  %38 = load i8, ptr %37, align 1
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %40, label %.preheader
+sub_1109:                                         ; preds = %.tail.thread, %.thread
+  %32 = getelementptr inbounds i8, ptr %16, i64 1
+  %33 = load i8, ptr %32, align 1
+  %.not116 = icmp eq i8 %33, 86
+  br i1 %.not116, label %.tail107, label %.tail107.thread.preheader
 
-40:                                               ; preds = %sub_2110, %32
-  %41 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.7)
+.tail107:                                         ; preds = %sub_1109
+  %34 = getelementptr inbounds i8, ptr %16, i64 2
+  %35 = load i8, ptr %34, align 1
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %37, label %.tail107.thread.preheader
+
+37:                                               ; preds = %.tail.thread.thread, %.thread, %.tail107, %.tail.thread
+  %38 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.7)
   tail call void @exit(i32 noundef 0) #10
   unreachable
 
-42:                                               ; preds = %.preheader, %44
-  %.0 = phi ptr [ %45, %44 ], [ null, %.preheader ]
-  %43 = tail call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @main.long_options, ptr noundef null) #8
-  switch i32 %43, label %46 [
-    i32 -1, label %47
-    i32 68, label %44
+.tail107.thread:                                  ; preds = %.tail107.thread.preheader, %40
+  %.0 = phi ptr [ %41, %40 ], [ null, %.tail107.thread.preheader ]
+  %39 = tail call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @main.long_options, ptr noundef null) #8
+  switch i32 %39, label %42 [
+    i32 -1, label %43
+    i32 68, label %40
   ]
 
-44:                                               ; preds = %42
-  %45 = load ptr, ptr @optarg, align 8
-  br label %42, !llvm.loop !5
+40:                                               ; preds = %.tail107.thread
+  %41 = load ptr, ptr @optarg, align 8
+  br label %.tail107.thread, !llvm.loop !5
 
-46:                                               ; preds = %42
+42:                                               ; preds = %.tail107.thread
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %12) #8
   tail call void @exit(i32 noundef 1) #11
   unreachable
 
-47:                                               ; preds = %42
-  %48 = icmp eq ptr %.0, null
+43:                                               ; preds = %.tail107.thread
+  %44 = icmp eq ptr %.0, null
   %.pre = load i32, ptr @optind, align 4
-  br i1 %48, label %49, label %58
+  br i1 %44, label %45, label %54
 
-49:                                               ; preds = %47
-  %50 = icmp slt i32 %.pre, %0
-  br i1 %50, label %51, label %56
+45:                                               ; preds = %43
+  %46 = icmp slt i32 %.pre, %0
+  br i1 %46, label %47, label %52
 
-51:                                               ; preds = %49
-  %52 = add nsw i32 %.pre, 1
-  store i32 %52, ptr @optind, align 4
-  %53 = sext i32 %.pre to i64
-  %54 = getelementptr ptr, ptr %1, i64 %53
-  %55 = load ptr, ptr %54, align 8
-  br label %58
+47:                                               ; preds = %45
+  %48 = add nsw i32 %.pre, 1
+  store i32 %48, ptr @optind, align 4
+  %49 = sext i32 %.pre to i64
+  %50 = getelementptr ptr, ptr %1, i64 %49
+  %51 = load ptr, ptr %50, align 8
+  br label %54
 
-56:                                               ; preds = %49
-  %57 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #8
-  br label %58
+52:                                               ; preds = %45
+  %53 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #8
+  br label %54
 
-58:                                               ; preds = %51, %56, %47
-  %59 = phi i32 [ %52, %51 ], [ %.pre, %56 ], [ %.pre, %47 ]
-  %.1 = phi ptr [ %55, %51 ], [ %57, %56 ], [ %.0, %47 ]
-  %60 = icmp slt i32 %59, %0
-  br i1 %60, label %61, label %65
+54:                                               ; preds = %47, %52, %43
+  %55 = phi i32 [ %48, %47 ], [ %.pre, %52 ], [ %.pre, %43 ]
+  %.1 = phi ptr [ %51, %47 ], [ %53, %52 ], [ %.0, %43 ]
+  %56 = icmp slt i32 %55, %0
+  br i1 %56, label %57, label %61
 
-61:                                               ; preds = %58
-  %62 = sext i32 %59 to i64
-  %63 = getelementptr ptr, ptr %1, i64 %62
-  %64 = load ptr, ptr %63, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %64) #8
+57:                                               ; preds = %54
+  %58 = sext i32 %55 to i64
+  %59 = getelementptr ptr, ptr %1, i64 %58
+  %60 = load ptr, ptr %59, align 8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %60) #8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %12) #8
   tail call void @exit(i32 noundef 1) #11
   unreachable
 
-65:                                               ; preds = %58
-  %66 = icmp eq ptr %.1, null
-  br i1 %66, label %67, label %68
+61:                                               ; preds = %54
+  %62 = icmp eq ptr %.1, null
+  br i1 %62, label %63, label %64
 
-67:                                               ; preds = %65
+63:                                               ; preds = %61
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.12) #8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %12) #8
   tail call void @exit(i32 noundef 1) #11
   unreachable
 
-68:                                               ; preds = %65
-  %69 = call ptr @get_controlfile(ptr noundef nonnull %.1, ptr noundef nonnull %3) #8
-  %70 = load i8, ptr %3, align 1
-  %71 = trunc i8 %70 to i1
-  br i1 %71, label %73, label %72
+64:                                               ; preds = %61
+  %65 = call ptr @get_controlfile(ptr noundef nonnull %.1, ptr noundef nonnull %3) #8
+  %66 = load i8, ptr %3, align 1
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %69, label %68
 
-72:                                               ; preds = %68
+68:                                               ; preds = %64
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.13) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.14) #8
-  br label %73
+  br label %69
 
-73:                                               ; preds = %72, %68
-  %74 = getelementptr inbounds i8, ptr %69, i64 228
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %77, label %82
+69:                                               ; preds = %68, %64
+  %70 = getelementptr inbounds i8, ptr %65, i64 228
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp sgt i32 %71, 0
+  br i1 %72, label %73, label %78
 
-77:                                               ; preds = %73
-  %78 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %75)
-  %79 = icmp ult i32 %78, 2
-  %80 = add nsw i32 %75, -1048576
-  %81 = icmp ult i32 %80, 1072693249
-  %or.cond3 = and i1 %79, %81
-  br i1 %or.cond3, label %85, label %82
+73:                                               ; preds = %69
+  %74 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %71)
+  %75 = icmp ult i32 %74, 2
+  %76 = add nsw i32 %71, -1048576
+  %77 = icmp ult i32 %76, 1072693249
+  %or.cond3 = and i1 %75, %77
+  br i1 %or.cond3, label %81, label %78
 
-82:                                               ; preds = %77, %73
-  %83 = icmp eq i32 %75, 1
-  %84 = select i1 %83, ptr @.str.15, ptr @.str.16
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull %84, i32 noundef %75) #8
+78:                                               ; preds = %73, %69
+  %79 = icmp eq i32 %71, 1
+  %80 = select i1 %79, ptr @.str.15, ptr @.str.16
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull %80, i32 noundef %71) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.17) #8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.18) #8
-  br label %85
+  br label %81
 
-85:                                               ; preds = %77, %82
-  %86 = getelementptr inbounds i8, ptr %69, i64 24
-  %87 = load i64, ptr %86, align 8
-  store i64 %87, ptr %4, align 8
-  %88 = call ptr @localtime(ptr noundef nonnull %4) #8
-  %89 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %88) #8
-  %90 = getelementptr inbounds i8, ptr %69, i64 40
-  %91 = getelementptr inbounds i8, ptr %69, i64 104
-  %92 = load i64, ptr %91, align 8
-  store i64 %92, ptr %4, align 8
-  %93 = call ptr @localtime(ptr noundef nonnull %4) #8
-  %94 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %93) #8
-  %.not105 = icmp eq i32 %75, 0
-  br i1 %.not105, label %107, label %95
+81:                                               ; preds = %73, %78
+  %82 = getelementptr inbounds i8, ptr %65, i64 24
+  %83 = load i64, ptr %82, align 8
+  store i64 %83, ptr %4, align 8
+  %84 = call ptr @localtime(ptr noundef nonnull %4) #8
+  %85 = call i64 @strftime(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %84) #8
+  %86 = getelementptr inbounds i8, ptr %65, i64 40
+  %87 = getelementptr inbounds i8, ptr %65, i64 104
+  %88 = load i64, ptr %87, align 8
+  store i64 %88, ptr %4, align 8
+  %89 = call ptr @localtime(ptr noundef nonnull %4) #8
+  %90 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef %89) #8
+  %.not105 = icmp eq i32 %71, 0
+  br i1 %.not105, label %103, label %91
 
-95:                                               ; preds = %85
-  %96 = load i64, ptr %90, align 8
-  %97 = sext i32 %75 to i64
-  %98 = udiv i64 %96, %97
-  %99 = getelementptr inbounds i8, ptr %69, i64 48
-  %100 = load i32, ptr %99, align 8
-  %101 = udiv i64 4294967296, %97
-  %102 = udiv i64 %98, %101
-  %103 = trunc i64 %102 to i32
-  %104 = urem i64 %98, %101
-  %105 = trunc nuw i64 %104 to i32
-  %106 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.91, i32 noundef %100, i32 noundef %103, i32 noundef %105) #8
-  br label %108
+91:                                               ; preds = %81
+  %92 = load i64, ptr %86, align 8
+  %93 = sext i32 %71 to i64
+  %94 = udiv i64 %92, %93
+  %95 = getelementptr inbounds i8, ptr %65, i64 48
+  %96 = load i32, ptr %95, align 8
+  %97 = udiv i64 4294967296, %93
+  %98 = udiv i64 %94, %97
+  %99 = trunc i64 %98 to i32
+  %100 = urem i64 %94, %97
+  %101 = trunc nuw i64 %100 to i32
+  %102 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.91, i32 noundef %96, i32 noundef %99, i32 noundef %101) #8
+  br label %104
 
-107:                                              ; preds = %85
+103:                                              ; preds = %81
   store i32 4144959, ptr %8, align 16
-  br label %108
+  br label %104
 
-108:                                              ; preds = %107, %95
-  %109 = getelementptr inbounds i8, ptr %69, i64 256
-  br label %110
+104:                                              ; preds = %103, %91
+  %105 = getelementptr inbounds i8, ptr %65, i64 256
+  br label %106
 
-110:                                              ; preds = %108, %110
-  %indvars.iv = phi i64 [ 0, %108 ], [ %indvars.iv.next, %110 ]
-  %111 = shl nuw nsw i64 %indvars.iv, 1
-  %112 = getelementptr [65 x i8], ptr %7, i64 0, i64 %111
-  %113 = getelementptr [32 x i8], ptr %109, i64 0, i64 %indvars.iv
-  %114 = load i8, ptr %113, align 1
-  %115 = zext i8 %114 to i32
-  %116 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %112, i64 noundef 3, ptr noundef nonnull @.str.20, i32 noundef %115) #8
+106:                                              ; preds = %104, %106
+  %indvars.iv = phi i64 [ 0, %104 ], [ %indvars.iv.next, %106 ]
+  %107 = shl nuw nsw i64 %indvars.iv, 1
+  %108 = getelementptr [65 x i8], ptr %7, i64 0, i64 %107
+  %109 = getelementptr [32 x i8], ptr %105, i64 0, i64 %indvars.iv
+  %110 = load i8, ptr %109, align 1
+  %111 = zext i8 %110 to i32
+  %112 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %108, i64 noundef 3, ptr noundef nonnull @.str.20, i32 noundef %111) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %117, label %110, !llvm.loop !7
+  br i1 %exitcond.not, label %113, label %106, !llvm.loop !7
 
-117:                                              ; preds = %110
-  %118 = getelementptr inbounds i8, ptr %69, i64 8
-  %119 = load i32, ptr %118, align 8
-  %120 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.21, i32 noundef %119) #8
-  %121 = getelementptr inbounds i8, ptr %69, i64 12
-  %122 = load i32, ptr %121, align 4
-  %123 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.22, i32 noundef %122) #8
-  %124 = load i64, ptr %69, align 8
-  %125 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.23, i64 noundef %124) #8
-  %126 = getelementptr inbounds i8, ptr %69, i64 16
-  %127 = load i32, ptr %126, align 8
-  %128 = icmp ult i32 %127, 7
-  br i1 %128, label %switch.lookup, label %dbState.exit
+113:                                              ; preds = %106
+  %114 = getelementptr inbounds i8, ptr %65, i64 8
+  %115 = load i32, ptr %114, align 8
+  %116 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.21, i32 noundef %115) #8
+  %117 = getelementptr inbounds i8, ptr %65, i64 12
+  %118 = load i32, ptr %117, align 4
+  %119 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.22, i32 noundef %118) #8
+  %120 = load i64, ptr %65, align 8
+  %121 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.23, i64 noundef %120) #8
+  %122 = getelementptr inbounds i8, ptr %65, i64 16
+  %123 = load i32, ptr %122, align 8
+  %124 = icmp ult i32 %123, 7
+  br i1 %124, label %switch.lookup, label %dbState.exit
 
-switch.lookup:                                    ; preds = %117
-  %129 = zext nneg i32 %127 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.main, i64 0, i64 %129
+switch.lookup:                                    ; preds = %113
+  %125 = zext nneg i32 %123 to i64
+  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.main, i64 0, i64 %125
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dbState.exit
 
-dbState.exit:                                     ; preds = %117, %switch.lookup
-  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.99, %117 ]
-  %130 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i) #8
-  %131 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.25, ptr noundef nonnull %5) #8
-  %132 = getelementptr inbounds i8, ptr %69, i64 32
-  %133 = load i64, ptr %132, align 8
-  %134 = lshr i64 %133, 32
-  %135 = trunc nuw i64 %134 to i32
-  %136 = trunc i64 %133 to i32
-  %137 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, i32 noundef %135, i32 noundef %136) #8
-  %138 = load i64, ptr %90, align 8
-  %139 = lshr i64 %138, 32
-  %140 = trunc nuw i64 %139 to i32
-  %141 = trunc i64 %138 to i32
-  %142 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.27, i32 noundef %140, i32 noundef %141) #8
-  %143 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.28, ptr noundef nonnull %8) #8
-  %144 = getelementptr inbounds i8, ptr %69, i64 48
-  %145 = load i32, ptr %144, align 8
-  %146 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.29, i32 noundef %145) #8
-  %147 = getelementptr inbounds i8, ptr %69, i64 52
-  %148 = load i32, ptr %147, align 4
-  %149 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.30, i32 noundef %148) #8
-  %150 = getelementptr inbounds i8, ptr %69, i64 56
-  %151 = load i8, ptr %150, align 8
-  %152 = trunc i8 %151 to i1
-  %153 = select i1 %152, ptr @.str.32, ptr @.str.33
-  %154 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.31, ptr noundef nonnull %153) #8
-  %155 = getelementptr inbounds i8, ptr %69, i64 64
-  %156 = load i64, ptr %155, align 8
-  %157 = lshr i64 %156, 32
-  %158 = trunc nuw i64 %157 to i32
-  %159 = trunc i64 %156 to i32
-  %160 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.34, i32 noundef %158, i32 noundef %159) #8
-  %161 = getelementptr inbounds i8, ptr %69, i64 72
-  %162 = load i32, ptr %161, align 8
-  %163 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.35, i32 noundef %162) #8
-  %164 = getelementptr inbounds i8, ptr %69, i64 76
-  %165 = load i32, ptr %164, align 4
-  %166 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, i32 noundef %165) #8
-  %167 = getelementptr inbounds i8, ptr %69, i64 80
-  %168 = load i32, ptr %167, align 8
-  %169 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.37, i32 noundef %168) #8
-  %170 = getelementptr inbounds i8, ptr %69, i64 84
-  %171 = load i32, ptr %170, align 4
-  %172 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.38, i32 noundef %171) #8
-  %173 = getelementptr inbounds i8, ptr %69, i64 88
-  %174 = load i32, ptr %173, align 8
-  %175 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.39, i32 noundef %174) #8
-  %176 = getelementptr inbounds i8, ptr %69, i64 120
-  %177 = load i32, ptr %176, align 8
-  %178 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.40, i32 noundef %177) #8
-  %179 = getelementptr inbounds i8, ptr %69, i64 92
-  %180 = load i32, ptr %179, align 4
-  %181 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.41, i32 noundef %180) #8
-  %182 = getelementptr inbounds i8, ptr %69, i64 96
-  %183 = load i32, ptr %182, align 8
-  %184 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.42, i32 noundef %183) #8
-  %185 = getelementptr inbounds i8, ptr %69, i64 112
-  %186 = load i32, ptr %185, align 8
-  %187 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.43, i32 noundef %186) #8
-  %188 = getelementptr inbounds i8, ptr %69, i64 116
-  %189 = load i32, ptr %188, align 4
-  %190 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.44, i32 noundef %189) #8
-  %191 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.45, ptr noundef nonnull %6) #8
-  %192 = getelementptr inbounds i8, ptr %69, i64 128
-  %193 = load i64, ptr %192, align 8
-  %194 = lshr i64 %193, 32
-  %195 = trunc nuw i64 %194 to i32
-  %196 = trunc i64 %193 to i32
-  %197 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.46, i32 noundef %195, i32 noundef %196) #8
-  %198 = getelementptr inbounds i8, ptr %69, i64 136
-  %199 = load i64, ptr %198, align 8
-  %200 = lshr i64 %199, 32
-  %201 = trunc nuw i64 %200 to i32
-  %202 = trunc i64 %199 to i32
-  %203 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.47, i32 noundef %201, i32 noundef %202) #8
-  %204 = getelementptr inbounds i8, ptr %69, i64 144
-  %205 = load i32, ptr %204, align 8
-  %206 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.48, i32 noundef %205) #8
-  %207 = getelementptr inbounds i8, ptr %69, i64 152
-  %208 = load i64, ptr %207, align 8
-  %209 = lshr i64 %208, 32
-  %210 = trunc nuw i64 %209 to i32
-  %211 = trunc i64 %208 to i32
-  %212 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.49, i32 noundef %210, i32 noundef %211) #8
-  %213 = getelementptr inbounds i8, ptr %69, i64 160
-  %214 = load i64, ptr %213, align 8
-  %215 = lshr i64 %214, 32
-  %216 = trunc nuw i64 %215 to i32
-  %217 = trunc i64 %214 to i32
-  %218 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.50, i32 noundef %216, i32 noundef %217) #8
-  %219 = getelementptr inbounds i8, ptr %69, i64 168
-  %220 = load i8, ptr %219, align 8
-  %221 = trunc i8 %220 to i1
-  %222 = select i1 %221, ptr @.str.52, ptr @.str.53
-  %223 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.51, ptr noundef nonnull %222) #8
-  %224 = getelementptr inbounds i8, ptr %69, i64 172
-  %225 = load i32, ptr %224, align 4
-  %226 = icmp ult i32 %225, 3
-  br i1 %226, label %switch.lookup121, label %wal_level_str.exit
+dbState.exit:                                     ; preds = %113, %switch.lookup
+  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.99, %113 ]
+  %126 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.24, ptr noundef nonnull %.0.i) #8
+  %127 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.25, ptr noundef nonnull %5) #8
+  %128 = getelementptr inbounds i8, ptr %65, i64 32
+  %129 = load i64, ptr %128, align 8
+  %130 = lshr i64 %129, 32
+  %131 = trunc nuw i64 %130 to i32
+  %132 = trunc i64 %129 to i32
+  %133 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, i32 noundef %131, i32 noundef %132) #8
+  %134 = load i64, ptr %86, align 8
+  %135 = lshr i64 %134, 32
+  %136 = trunc nuw i64 %135 to i32
+  %137 = trunc i64 %134 to i32
+  %138 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.27, i32 noundef %136, i32 noundef %137) #8
+  %139 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.28, ptr noundef nonnull %8) #8
+  %140 = getelementptr inbounds i8, ptr %65, i64 48
+  %141 = load i32, ptr %140, align 8
+  %142 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.29, i32 noundef %141) #8
+  %143 = getelementptr inbounds i8, ptr %65, i64 52
+  %144 = load i32, ptr %143, align 4
+  %145 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.30, i32 noundef %144) #8
+  %146 = getelementptr inbounds i8, ptr %65, i64 56
+  %147 = load i8, ptr %146, align 8
+  %148 = trunc i8 %147 to i1
+  %149 = select i1 %148, ptr @.str.32, ptr @.str.33
+  %150 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.31, ptr noundef nonnull %149) #8
+  %151 = getelementptr inbounds i8, ptr %65, i64 64
+  %152 = load i64, ptr %151, align 8
+  %153 = lshr i64 %152, 32
+  %154 = trunc nuw i64 %153 to i32
+  %155 = trunc i64 %152 to i32
+  %156 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.34, i32 noundef %154, i32 noundef %155) #8
+  %157 = getelementptr inbounds i8, ptr %65, i64 72
+  %158 = load i32, ptr %157, align 8
+  %159 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.35, i32 noundef %158) #8
+  %160 = getelementptr inbounds i8, ptr %65, i64 76
+  %161 = load i32, ptr %160, align 4
+  %162 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, i32 noundef %161) #8
+  %163 = getelementptr inbounds i8, ptr %65, i64 80
+  %164 = load i32, ptr %163, align 8
+  %165 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.37, i32 noundef %164) #8
+  %166 = getelementptr inbounds i8, ptr %65, i64 84
+  %167 = load i32, ptr %166, align 4
+  %168 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.38, i32 noundef %167) #8
+  %169 = getelementptr inbounds i8, ptr %65, i64 88
+  %170 = load i32, ptr %169, align 8
+  %171 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.39, i32 noundef %170) #8
+  %172 = getelementptr inbounds i8, ptr %65, i64 120
+  %173 = load i32, ptr %172, align 8
+  %174 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.40, i32 noundef %173) #8
+  %175 = getelementptr inbounds i8, ptr %65, i64 92
+  %176 = load i32, ptr %175, align 4
+  %177 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.41, i32 noundef %176) #8
+  %178 = getelementptr inbounds i8, ptr %65, i64 96
+  %179 = load i32, ptr %178, align 8
+  %180 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.42, i32 noundef %179) #8
+  %181 = getelementptr inbounds i8, ptr %65, i64 112
+  %182 = load i32, ptr %181, align 8
+  %183 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.43, i32 noundef %182) #8
+  %184 = getelementptr inbounds i8, ptr %65, i64 116
+  %185 = load i32, ptr %184, align 4
+  %186 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.44, i32 noundef %185) #8
+  %187 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.45, ptr noundef nonnull %6) #8
+  %188 = getelementptr inbounds i8, ptr %65, i64 128
+  %189 = load i64, ptr %188, align 8
+  %190 = lshr i64 %189, 32
+  %191 = trunc nuw i64 %190 to i32
+  %192 = trunc i64 %189 to i32
+  %193 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.46, i32 noundef %191, i32 noundef %192) #8
+  %194 = getelementptr inbounds i8, ptr %65, i64 136
+  %195 = load i64, ptr %194, align 8
+  %196 = lshr i64 %195, 32
+  %197 = trunc nuw i64 %196 to i32
+  %198 = trunc i64 %195 to i32
+  %199 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.47, i32 noundef %197, i32 noundef %198) #8
+  %200 = getelementptr inbounds i8, ptr %65, i64 144
+  %201 = load i32, ptr %200, align 8
+  %202 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.48, i32 noundef %201) #8
+  %203 = getelementptr inbounds i8, ptr %65, i64 152
+  %204 = load i64, ptr %203, align 8
+  %205 = lshr i64 %204, 32
+  %206 = trunc nuw i64 %205 to i32
+  %207 = trunc i64 %204 to i32
+  %208 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.49, i32 noundef %206, i32 noundef %207) #8
+  %209 = getelementptr inbounds i8, ptr %65, i64 160
+  %210 = load i64, ptr %209, align 8
+  %211 = lshr i64 %210, 32
+  %212 = trunc nuw i64 %211 to i32
+  %213 = trunc i64 %210 to i32
+  %214 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.50, i32 noundef %212, i32 noundef %213) #8
+  %215 = getelementptr inbounds i8, ptr %65, i64 168
+  %216 = load i8, ptr %215, align 8
+  %217 = trunc i8 %216 to i1
+  %218 = select i1 %217, ptr @.str.52, ptr @.str.53
+  %219 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.51, ptr noundef nonnull %218) #8
+  %220 = getelementptr inbounds i8, ptr %65, i64 172
+  %221 = load i32, ptr %220, align 4
+  %222 = icmp ult i32 %221, 3
+  br i1 %222, label %switch.lookup122, label %wal_level_str.exit
 
-switch.lookup121:                                 ; preds = %dbState.exit
-  %227 = zext nneg i32 %225 to i64
-  %switch.gep122 = getelementptr inbounds [3 x ptr], ptr @switch.table.main.1, i64 0, i64 %227
-  %switch.load123 = load ptr, ptr %switch.gep122, align 8
+switch.lookup122:                                 ; preds = %dbState.exit
+  %223 = zext nneg i32 %221 to i64
+  %switch.gep123 = getelementptr inbounds [3 x ptr], ptr @switch.table.main.1, i64 0, i64 %223
+  %switch.load124 = load ptr, ptr %switch.gep123, align 8
   br label %wal_level_str.exit
 
-wal_level_str.exit:                               ; preds = %dbState.exit, %switch.lookup121
-  %.0.i106 = phi ptr [ %switch.load123, %switch.lookup121 ], [ @.str.103, %dbState.exit ]
-  %228 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.54, ptr noundef nonnull %.0.i106) #8
-  %229 = getelementptr inbounds i8, ptr %69, i64 176
-  %230 = load i8, ptr %229, align 8
-  %231 = trunc i8 %230 to i1
-  %232 = select i1 %231, ptr @.str.32, ptr @.str.33
-  %233 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.55, ptr noundef nonnull %232) #8
-  %234 = getelementptr inbounds i8, ptr %69, i64 180
-  %235 = load i32, ptr %234, align 4
-  %236 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.56, i32 noundef %235) #8
-  %237 = getelementptr inbounds i8, ptr %69, i64 184
-  %238 = load i32, ptr %237, align 8
-  %239 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.57, i32 noundef %238) #8
-  %240 = getelementptr inbounds i8, ptr %69, i64 188
-  %241 = load i32, ptr %240, align 4
-  %242 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.58, i32 noundef %241) #8
-  %243 = getelementptr inbounds i8, ptr %69, i64 192
-  %244 = load i32, ptr %243, align 8
-  %245 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.59, i32 noundef %244) #8
-  %246 = getelementptr inbounds i8, ptr %69, i64 196
-  %247 = load i32, ptr %246, align 4
-  %248 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.60, i32 noundef %247) #8
-  %249 = getelementptr inbounds i8, ptr %69, i64 200
-  %250 = load i8, ptr %249, align 8
-  %251 = trunc i8 %250 to i1
-  %252 = select i1 %251, ptr @.str.32, ptr @.str.33
-  %253 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.61, ptr noundef nonnull %252) #8
-  %254 = getelementptr inbounds i8, ptr %69, i64 204
-  %255 = load i32, ptr %254, align 4
-  %256 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.62, i32 noundef %255) #8
-  %257 = getelementptr inbounds i8, ptr %69, i64 216
-  %258 = load i32, ptr %257, align 8
-  %259 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.63, i32 noundef %258) #8
-  %260 = getelementptr inbounds i8, ptr %69, i64 220
-  %261 = load i32, ptr %260, align 4
-  %262 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.64, i32 noundef %261) #8
-  %263 = getelementptr inbounds i8, ptr %69, i64 224
-  %264 = load i32, ptr %263, align 8
-  %265 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.65, i32 noundef %264) #8
-  %266 = load i32, ptr %74, align 4
-  %267 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.66, i32 noundef %266) #8
-  %268 = getelementptr inbounds i8, ptr %69, i64 232
-  %269 = load i32, ptr %268, align 8
-  %270 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.67, i32 noundef %269) #8
-  %271 = getelementptr inbounds i8, ptr %69, i64 236
-  %272 = load i32, ptr %271, align 4
-  %273 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.68, i32 noundef %272) #8
-  %274 = getelementptr inbounds i8, ptr %69, i64 240
-  %275 = load i32, ptr %274, align 8
-  %276 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.69, i32 noundef %275) #8
-  %277 = getelementptr inbounds i8, ptr %69, i64 244
-  %278 = load i32, ptr %277, align 4
-  %279 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.70, i32 noundef %278) #8
-  %280 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72) #8
-  %281 = getelementptr inbounds i8, ptr %69, i64 248
-  %282 = load i8, ptr %281, align 8
-  %283 = trunc i8 %282 to i1
-  %284 = select i1 %283, ptr @.str.74, ptr @.str.75
-  %285 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.73, ptr noundef nonnull %284) #8
-  %286 = getelementptr inbounds i8, ptr %69, i64 252
-  %287 = load i32, ptr %286, align 4
-  %288 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.76, i32 noundef %287) #8
-  %289 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.77, ptr noundef nonnull %7) #8
+wal_level_str.exit:                               ; preds = %dbState.exit, %switch.lookup122
+  %.0.i106 = phi ptr [ %switch.load124, %switch.lookup122 ], [ @.str.103, %dbState.exit ]
+  %224 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.54, ptr noundef nonnull %.0.i106) #8
+  %225 = getelementptr inbounds i8, ptr %65, i64 176
+  %226 = load i8, ptr %225, align 8
+  %227 = trunc i8 %226 to i1
+  %228 = select i1 %227, ptr @.str.32, ptr @.str.33
+  %229 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.55, ptr noundef nonnull %228) #8
+  %230 = getelementptr inbounds i8, ptr %65, i64 180
+  %231 = load i32, ptr %230, align 4
+  %232 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.56, i32 noundef %231) #8
+  %233 = getelementptr inbounds i8, ptr %65, i64 184
+  %234 = load i32, ptr %233, align 8
+  %235 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.57, i32 noundef %234) #8
+  %236 = getelementptr inbounds i8, ptr %65, i64 188
+  %237 = load i32, ptr %236, align 4
+  %238 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.58, i32 noundef %237) #8
+  %239 = getelementptr inbounds i8, ptr %65, i64 192
+  %240 = load i32, ptr %239, align 8
+  %241 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.59, i32 noundef %240) #8
+  %242 = getelementptr inbounds i8, ptr %65, i64 196
+  %243 = load i32, ptr %242, align 4
+  %244 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.60, i32 noundef %243) #8
+  %245 = getelementptr inbounds i8, ptr %65, i64 200
+  %246 = load i8, ptr %245, align 8
+  %247 = trunc i8 %246 to i1
+  %248 = select i1 %247, ptr @.str.32, ptr @.str.33
+  %249 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.61, ptr noundef nonnull %248) #8
+  %250 = getelementptr inbounds i8, ptr %65, i64 204
+  %251 = load i32, ptr %250, align 4
+  %252 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.62, i32 noundef %251) #8
+  %253 = getelementptr inbounds i8, ptr %65, i64 216
+  %254 = load i32, ptr %253, align 8
+  %255 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.63, i32 noundef %254) #8
+  %256 = getelementptr inbounds i8, ptr %65, i64 220
+  %257 = load i32, ptr %256, align 4
+  %258 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.64, i32 noundef %257) #8
+  %259 = getelementptr inbounds i8, ptr %65, i64 224
+  %260 = load i32, ptr %259, align 8
+  %261 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.65, i32 noundef %260) #8
+  %262 = load i32, ptr %70, align 4
+  %263 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.66, i32 noundef %262) #8
+  %264 = getelementptr inbounds i8, ptr %65, i64 232
+  %265 = load i32, ptr %264, align 8
+  %266 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.67, i32 noundef %265) #8
+  %267 = getelementptr inbounds i8, ptr %65, i64 236
+  %268 = load i32, ptr %267, align 4
+  %269 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.68, i32 noundef %268) #8
+  %270 = getelementptr inbounds i8, ptr %65, i64 240
+  %271 = load i32, ptr %270, align 8
+  %272 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.69, i32 noundef %271) #8
+  %273 = getelementptr inbounds i8, ptr %65, i64 244
+  %274 = load i32, ptr %273, align 4
+  %275 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.70, i32 noundef %274) #8
+  %276 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72) #8
+  %277 = getelementptr inbounds i8, ptr %65, i64 248
+  %278 = load i8, ptr %277, align 8
+  %279 = trunc i8 %278 to i1
+  %280 = select i1 %279, ptr @.str.74, ptr @.str.75
+  %281 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.73, ptr noundef nonnull %280) #8
+  %282 = getelementptr inbounds i8, ptr %65, i64 252
+  %283 = load i32, ptr %282, align 4
+  %284 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.76, i32 noundef %283) #8
+  %285 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.77, ptr noundef nonnull %7) #8
   ret i32 0
 }
 

@@ -83,35 +83,33 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i32, ptr %arrayidx, align 4
   %arrayidx1 = getelementptr inbounds i32, ptr %old_settings, i64 %i.037
   %1 = load i32, ptr %arrayidx1, align 4
-  %cmp2.not = icmp ne i32 %0, %1
+  %cmp2.not = icmp eq i32 %0, %1
   %sh_prom = trunc i64 %i.037 to i32
-  %shl = shl nuw i32 1, %sh_prom
-  %and = and i32 %shl, %force_mask
-  %cmp3 = icmp ne i32 %and, 0
-  %2 = select i1 %cmp2.not, i1 true, i1 %cmp3
-  %conv = zext i1 %2 to i32
-  %add = add i32 %n.038, %conv
+  %2 = lshr i32 %force_mask, %sh_prom
+  %3 = and i32 %2, 1
+  %conv = select i1 %cmp2.not, i32 %3, i32 1
+  %add = add i32 %conv, %n.038
   %inc = add nuw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc, %count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
 
 for.end.loopexit:                                 ; preds = %for.body
-  %3 = mul i32 %add, 6
+  %4 = mul i32 %add, 6
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %n.0.lcssa = phi i32 [ 0, %entry ], [ %3, %for.end.loopexit ]
+  %n.0.lcssa = phi i32 [ 0, %entry ], [ %4, %for.end.loopexit ]
   %add4 = add i32 %n.0.lcssa, 9
   %conv5 = zext i32 %add4 to i64
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp, i64 noundef %conv5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
-  %4 = load ptr, ptr %agg.result, align 8
-  %tobool.not = icmp eq ptr %4, null
+  %5 = load ptr, ptr %agg.result, align 8
+  %tobool.not = icmp eq ptr %5, null
   %data = getelementptr inbounds i8, ptr %agg.result, i64 8
   %bytes = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %5 = load ptr, ptr %bytes, align 8
+  %6 = load ptr, ptr %bytes, align 8
   %bytes7 = getelementptr inbounds i8, ptr %agg.result, i64 9
-  %cond = select i1 %tobool.not, ptr %bytes7, ptr %5
+  %cond = select i1 %tobool.not, ptr %bytes7, ptr %6
   %shr.i = lshr i32 %n.0.lcssa, 16
   %conv.i = trunc i32 %shr.i to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %cond, i64 1
@@ -135,10 +133,10 @@ for.body11:                                       ; preds = %for.end, %for.inc42
   %p.041 = phi ptr [ %p.1, %for.inc42 ], [ %incdec.ptr11.i, %for.end ]
   %i.140 = phi i64 [ %inc43, %for.inc42 ], [ 0, %for.end ]
   %arrayidx12 = getelementptr inbounds i32, ptr %new_settings, i64 %i.140
-  %6 = load i32, ptr %arrayidx12, align 4
+  %7 = load i32, ptr %arrayidx12, align 4
   %arrayidx13 = getelementptr inbounds i32, ptr %old_settings, i64 %i.140
-  %7 = load i32, ptr %arrayidx13, align 4
-  %cmp14.not = icmp eq i32 %6, %7
+  %8 = load i32, ptr %arrayidx13, align 4
+  %cmp14.not = icmp eq i32 %7, %8
   br i1 %cmp14.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %for.body11
@@ -150,35 +148,35 @@ lor.lhs.false:                                    ; preds = %for.body11
 
 if.then:                                          ; preds = %lor.lhs.false, %for.body11
   %arrayidx19 = getelementptr inbounds [0 x i16], ptr @grpc_setting_id_to_wire_id, i64 0, i64 %i.140
-  %8 = load i16, ptr %arrayidx19, align 2
-  %9 = lshr i16 %8, 8
-  %conv21 = trunc nuw i16 %9 to i8
+  %9 = load i16, ptr %arrayidx19, align 2
+  %10 = lshr i16 %9, 8
+  %conv21 = trunc nuw i16 %10 to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %p.041, i64 1
   store i8 %conv21, ptr %p.041, align 1
-  %conv23 = trunc i16 %8 to i8
+  %conv23 = trunc i16 %9 to i8
   %incdec.ptr24 = getelementptr inbounds i8, ptr %p.041, i64 2
   store i8 %conv23, ptr %incdec.ptr, align 1
-  %10 = load i32, ptr %arrayidx12, align 4
-  %shr26 = lshr i32 %10, 24
+  %11 = load i32, ptr %arrayidx12, align 4
+  %shr26 = lshr i32 %11, 24
   %conv27 = trunc nuw i32 %shr26 to i8
   %incdec.ptr28 = getelementptr inbounds i8, ptr %p.041, i64 3
   store i8 %conv27, ptr %incdec.ptr24, align 1
-  %11 = load i32, ptr %arrayidx12, align 4
-  %shr30 = lshr i32 %11, 16
+  %12 = load i32, ptr %arrayidx12, align 4
+  %shr30 = lshr i32 %12, 16
   %conv31 = trunc i32 %shr30 to i8
   %incdec.ptr32 = getelementptr inbounds i8, ptr %p.041, i64 4
   store i8 %conv31, ptr %incdec.ptr28, align 1
-  %12 = load i32, ptr %arrayidx12, align 4
-  %shr34 = lshr i32 %12, 8
+  %13 = load i32, ptr %arrayidx12, align 4
+  %shr34 = lshr i32 %13, 8
   %conv35 = trunc i32 %shr34 to i8
   %incdec.ptr36 = getelementptr inbounds i8, ptr %p.041, i64 5
   store i8 %conv35, ptr %incdec.ptr32, align 1
-  %13 = load i32, ptr %arrayidx12, align 4
-  %conv38 = trunc i32 %13 to i8
+  %14 = load i32, ptr %arrayidx12, align 4
+  %conv38 = trunc i32 %14 to i8
   %incdec.ptr39 = getelementptr inbounds i8, ptr %p.041, i64 6
   store i8 %conv38, ptr %incdec.ptr36, align 1
-  %14 = load i32, ptr %arrayidx12, align 4
-  store i32 %14, ptr %arrayidx13, align 4
+  %15 = load i32, ptr %arrayidx12, align 4
+  store i32 %15, ptr %arrayidx13, align 4
   br label %for.inc42
 
 for.inc42:                                        ; preds = %lor.lhs.false, %if.then
@@ -189,13 +187,13 @@ for.inc42:                                        ; preds = %lor.lhs.false, %if.
 
 do.body:                                          ; preds = %for.inc42, %for.end
   %p.0.lcssa = phi ptr [ %incdec.ptr11.i, %for.end ], [ %p.1, %for.inc42 ]
-  %15 = load ptr, ptr %agg.result, align 8
-  %tobool46.not = icmp eq ptr %15, null
-  %16 = load ptr, ptr %bytes, align 8
-  %cond55 = select i1 %tobool46.not, ptr %bytes7, ptr %16
-  %17 = load i64, ptr %data, align 8
-  %conv63 = and i64 %17, 255
-  %cond65 = select i1 %tobool46.not, i64 %conv63, i64 %17
+  %16 = load ptr, ptr %agg.result, align 8
+  %tobool46.not = icmp eq ptr %16, null
+  %17 = load ptr, ptr %bytes, align 8
+  %cond55 = select i1 %tobool46.not, ptr %bytes7, ptr %17
+  %18 = load i64, ptr %data, align 8
+  %conv63 = and i64 %18, 255
+  %cond65 = select i1 %tobool46.not, i64 %conv63, i64 %18
   %add.ptr = getelementptr inbounds i8, ptr %cond55, i64 %cond65
   %cmp66.not = icmp eq ptr %p.0.lcssa, %add.ptr
   br i1 %cmp66.not, label %do.end, label %if.then68

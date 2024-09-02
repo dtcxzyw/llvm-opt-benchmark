@@ -24556,7 +24556,7 @@ _ZN3CFF22cff1_top_dict_values_tD2Ev.exit:         ; preds = %68, %70
   %90 = zext i8 %89 to i32
   %91 = or disjoint i32 %87, %90
   %.not.i = icmp eq i32 %91, 0
-  br i1 %.not.i, label %151, label %92
+  br i1 %.not.i, label %152, label %92
 
 92:                                               ; preds = %83
   %93 = getelementptr inbounds i8, ptr %84, i64 2
@@ -24634,17 +24634,17 @@ _ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.i: ; preds = %129, %114
   %.0.i.i = phi i32 [ %148, %129 ], [ %128, %114 ], [ %113, %104 ], [ %103, %99 ], [ 0, %92 ]
   %149 = add nuw nsw i32 %97, 2
   %150 = add i32 %149, %.0.i.i
-  br label %151
+  %151 = zext i32 %150 to i64
+  br label %152
 
-151:                                              ; preds = %83, %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.i
-  %.0.i = phi i32 [ %150, %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.i ], [ 2, %83 ]
-  %152 = zext i32 %.0.i to i64
-  %153 = getelementptr inbounds i8, ptr %84, i64 %152
+152:                                              ; preds = %83, %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.i
+  %.0.i = phi i64 [ %151, %_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE9offset_atEj.exit.i ], [ 2, %83 ]
+  %153 = getelementptr inbounds i8, ptr %84, i64 %.0.i
   store ptr %153, ptr %21, align 8
   %154 = icmp eq ptr %153, @_hb_NullPool
   br i1 %154, label %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread, label %155
 
-155:                                              ; preds = %151
+155:                                              ; preds = %152
   %156 = invoke noundef zeroext i1 @_ZNK3CFF8CFFIndexIN2OT7IntTypeItLj2EEEE8sanitizeEP21hb_sanitize_context_t(ptr noundef nonnull align 1 dereferenceable(4) %153, ptr noundef nonnull %0)
           to label %157 unwind label %.loopexit.split-lp
 
@@ -25226,7 +25226,7 @@ _ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit74: ; preds = %4
 454:                                              ; preds = %452
   br i1 %453, label %.loopexit, label %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread
 
-_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread: ; preds = %371, %384, %337, %346, %405, %396, %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit64, %363, %356, %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit58, %417, %430, %170, %179, %454, %445, %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit74, %303, %290, %280, %289, %279, %264, %270, %254, %260, %248, %210, %224, %225, %238, %200, %206, %194, %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit, %151, %157, %158, %74, %82, %57
+_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit.thread: ; preds = %371, %384, %337, %346, %405, %396, %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit64, %363, %356, %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit58, %417, %430, %170, %179, %454, %445, %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit74, %303, %290, %280, %289, %279, %264, %270, %254, %260, %248, %210, %224, %225, %238, %200, %206, %194, %_ZNK10hb_array_tIKhE8sanitizeI21hb_sanitize_context_tEEbPT_.exit, %152, %157, %158, %74, %82, %57
   invoke void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE5_finiEv(ptr noundef nonnull align 8 dereferenceable(304) %0)
           to label %.loopexit unwind label %.loopexit.split-lp
 

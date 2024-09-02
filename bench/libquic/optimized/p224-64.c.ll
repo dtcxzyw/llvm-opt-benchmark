@@ -3381,36 +3381,36 @@ if.end.i154.i:                                    ; preds = %for.cond104.prehead
   %arrayidx.i156.i = getelementptr inbounds i8, ptr %secrets.1, i64 %shr.i155.i
   %58 = load i8, ptr %arrayidx.i156.i, align 1
   %shr1.i158.i = lshr i8 %58, %sh_prom.i157.i
-  %and2.i159.i = and i8 %shr1.i158.i, 1
+  %and2.i159.i = shl i8 %shr1.i158.i, 5
+  %59 = and i8 %and2.i159.i, 32
   br label %get_bit.exit161.i
 
 get_bit.exit161.i:                                ; preds = %if.end.i154.i, %for.cond104.preheader.i
-  %retval.0.i160.i = phi i8 [ %and2.i159.i, %if.end.i154.i ], [ 0, %for.cond104.preheader.i ]
-  %59 = shl nuw nsw i8 %retval.0.i160.i, 5
+  %retval.0.i160.i = phi i8 [ %59, %if.end.i154.i ], [ 0, %for.cond104.preheader.i ]
   br i1 %cmp.i162.i, label %get_bit.exit170.i, label %if.end.i163.i
 
 if.end.i163.i:                                    ; preds = %get_bit.exit161.i
   %60 = load i8, ptr %arrayidx.i165.i, align 1
   %shr1.i167.i = lshr i8 %60, %sh_prom.i166.i
-  %and2.i168.i = and i8 %shr1.i167.i, 1
+  %and2.i168.i = shl i8 %shr1.i167.i, 4
+  %61 = and i8 %and2.i168.i, 16
   br label %get_bit.exit170.i
 
 get_bit.exit170.i:                                ; preds = %if.end.i163.i, %get_bit.exit161.i
-  %retval.0.i169.i = phi i8 [ %and2.i168.i, %if.end.i163.i ], [ 0, %get_bit.exit161.i ]
-  %61 = shl nuw nsw i8 %retval.0.i169.i, 4
-  %or12162.i = or disjoint i8 %61, %59
+  %retval.0.i169.i = phi i8 [ %61, %if.end.i163.i ], [ 0, %get_bit.exit161.i ]
+  %or12162.i = or disjoint i8 %retval.0.i169.i, %retval.0.i160.i
   br i1 %cmp.i171.i, label %get_bit.exit179.i, label %if.end.i172.i
 
 if.end.i172.i:                                    ; preds = %get_bit.exit170.i
   %62 = load i8, ptr %arrayidx.i174.i, align 1
   %shr1.i176.i = lshr i8 %62, %sh_prom.i175.i
-  %and2.i177.i = and i8 %shr1.i176.i, 1
+  %and2.i177.i = shl i8 %shr1.i176.i, 3
+  %63 = and i8 %and2.i177.i, 8
   br label %get_bit.exit179.i
 
 get_bit.exit179.i:                                ; preds = %if.end.i172.i, %get_bit.exit170.i
-  %retval.0.i178.i = phi i8 [ %and2.i177.i, %if.end.i172.i ], [ 0, %get_bit.exit170.i ]
-  %63 = shl nuw nsw i8 %retval.0.i178.i, 3
-  %or12963.i = or disjoint i8 %63, %or12162.i
+  %retval.0.i178.i = phi i8 [ %63, %if.end.i172.i ], [ 0, %get_bit.exit170.i ]
+  %or12963.i = or disjoint i8 %or12162.i, %retval.0.i178.i
   br i1 %cmp.i180.i, label %get_bit.exit188.i, label %get_bit.exit188.thread.i
 
 get_bit.exit188.thread.i:                         ; preds = %get_bit.exit179.i
@@ -3428,14 +3428,14 @@ if.end.i190.i:                                    ; preds = %get_bit.exit188.i, 
   %or13764253.i = phi i8 [ %or13764252.i, %get_bit.exit188.thread.i ], [ %or12963.i, %get_bit.exit188.i ]
   %66 = load i8, ptr %arrayidx.i192.i, align 1
   %shr1.i194.i = lshr i8 %66, %sh_prom.i193.i
-  %and2.i195.i = and i8 %shr1.i194.i, 1
+  %and2.i195.i = shl i8 %shr1.i194.i, 1
+  %67 = and i8 %and2.i195.i, 2
   br label %get_bit.exit197.i
 
 get_bit.exit197.i:                                ; preds = %if.end.i190.i, %get_bit.exit188.i
   %or13764254.i = phi i8 [ %or13764253.i, %if.end.i190.i ], [ %or12963.i, %get_bit.exit188.i ]
-  %retval.0.i196.i = phi i8 [ %and2.i195.i, %if.end.i190.i ], [ 0, %get_bit.exit188.i ]
-  %67 = shl nuw nsw i8 %retval.0.i196.i, 1
-  %or14465.i = add nuw nsw i8 %67, %or13764254.i
+  %retval.0.i196.i = phi i8 [ %67, %if.end.i190.i ], [ 0, %get_bit.exit188.i ]
+  %or14465.i = or disjoint i8 %retval.0.i196.i, %or13764254.i
   br i1 %cmp.i198.i, label %get_bit.exit206.i, label %if.end.i199.i
 
 if.end.i199.i:                                    ; preds = %get_bit.exit197.i
@@ -3446,7 +3446,7 @@ if.end.i199.i:                                    ; preds = %get_bit.exit197.i
 
 get_bit.exit206.i:                                ; preds = %if.end.i199.i, %get_bit.exit197.i
   %retval.0.i205.i = phi i8 [ %and2.i204.i, %if.end.i199.i ], [ 0, %get_bit.exit197.i ]
-  %or14966.i = add nuw nsw i8 %retval.0.i205.i, %or14465.i
+  %or14966.i = or disjoint i8 %or14465.i, %retval.0.i205.i
   call void @ec_GFp_nistp_recode_scalar_bits(ptr noundef nonnull %sign.i, ptr noundef nonnull %digit.i, i8 noundef zeroext %or14966.i) #10
   %69 = load i8, ptr %digit.i, align 1
   %conv151.i = zext i8 %69 to i64

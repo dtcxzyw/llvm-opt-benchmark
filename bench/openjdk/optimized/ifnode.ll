@@ -629,7 +629,7 @@ define hidden noundef ptr @_ZN6IfNode21range_check_trap_projERiRP4NodeS3_(ptr no
 declare noundef ptr @_ZNK9MultiNode16proj_out_or_nullEj(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN14RangeCheckNode14is_range_checkERP4NodeS2_Ri(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN14RangeCheckNode14is_range_checkERP4NodeS2_Ri(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 2
@@ -5930,12 +5930,15 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
   %indvars.iv.next513 = add nuw nsw i64 %indvars.iv512, 1
   %525 = zext i32 %524 to i64
   %526 = icmp ult i64 %indvars.iv.next513, %525
-  br i1 %526, label %514, label %._crit_edge458, !llvm.loop !22
+  br i1 %526, label %514, label %._crit_edge458.loopexit, !llvm.loop !22
 
-._crit_edge458:                                   ; preds = %523, %.lr.ph463
-  %.0306.lcssa = phi i32 [ 0, %.lr.ph463 ], [ %.1, %523 ]
-  %527 = zext i32 %.0306.lcssa to i64
-  %528 = sub nsw i64 0, %527
+._crit_edge458.loopexit:                          ; preds = %523
+  %527 = zext i32 %.1 to i64
+  br label %._crit_edge458
+
+._crit_edge458:                                   ; preds = %._crit_edge458.loopexit, %.lr.ph463
+  %.0306.lcssa = phi i64 [ 0, %.lr.ph463 ], [ %527, %._crit_edge458.loopexit ]
+  %528 = sub nsw i64 0, %.0306.lcssa
   %529 = getelementptr inbounds ptr, ptr %.0307461, i64 %528
   %.not362 = icmp ult ptr %529, %502
   br i1 %.not362, label %._crit_edge464, label %.lr.ph463, !llvm.loop !23

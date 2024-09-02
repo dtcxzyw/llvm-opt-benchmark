@@ -4159,6 +4159,7 @@ do.body:                                          ; preds = %_ZNSt20discard_bloc
 
 do.body._ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit_crit_edge: ; preds = %do.body
   %.pre139 = load i64, ptr %_M_p.i.i, align 8, !tbaa !250
+  %3 = add nuw nsw i64 %2, 1
   br label %_ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit
 
 if.then.i:                                        ; preds = %do.body
@@ -4171,27 +4172,27 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
-  %3 = phi i64 [ %.pre140, %for.body.lr.ph.i.i ], [ %spec.select42.i.i.i, %for.body.i.i ]
+  %4 = phi i64 [ %.pre140, %for.body.lr.ph.i.i ], [ %spec.select42.i.i.i, %for.body.i.i ]
   %__z.addr.04.i.i = phi i64 [ %sub.i, %for.body.lr.ph.i.i ], [ %dec.i.i, %for.body.i.i ]
-  %sub.i.i.i = add i64 %3, -5
+  %sub.i.i.i = add i64 %4, -5
   %cmp.i.i.i = icmp slt i64 %sub.i.i.i, 0
-  %add.i.i.i = add i64 %3, 7
+  %add.i.i.i = add i64 %4, 7
   %spec.select.i.i.i = select i1 %cmp.i.i.i, i64 %add.i.i.i, i64 %sub.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds [12 x i64], ptr %__urng, i64 0, i64 %spec.select.i.i.i
-  %4 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !44
-  %arrayidx4.i.i.i = getelementptr inbounds [12 x i64], ptr %__urng, i64 0, i64 %3
-  %5 = load i64, ptr %arrayidx4.i.i.i, align 8, !tbaa !44
-  %6 = load i64, ptr %_M_carry.i.i, align 8, !tbaa !237
-  %add5.i.i.i = add i64 %6, %5
-  %cmp6.not.i.i.i = icmp ult i64 %4, %add5.i.i.i
-  %reass.sub.i.i.i = add i64 %4, 281474976710656
+  %5 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !44
+  %arrayidx4.i.i.i = getelementptr inbounds [12 x i64], ptr %__urng, i64 0, i64 %4
+  %6 = load i64, ptr %arrayidx4.i.i.i, align 8, !tbaa !44
+  %7 = load i64, ptr %_M_carry.i.i, align 8, !tbaa !237
+  %add5.i.i.i = add i64 %7, %6
+  %cmp6.not.i.i.i = icmp ult i64 %5, %add5.i.i.i
+  %reass.sub.i.i.i = add i64 %5, 281474976710656
   %storemerge.i.i.i = zext i1 %cmp6.not.i.i.i to i64
-  %__xi.0.v.i.i.i = select i1 %cmp6.not.i.i.i, i64 %reass.sub.i.i.i, i64 %4
+  %__xi.0.v.i.i.i = select i1 %cmp6.not.i.i.i, i64 %reass.sub.i.i.i, i64 %5
   %__xi.0.i.i.i = sub i64 %__xi.0.v.i.i.i, %add5.i.i.i
   store i64 %storemerge.i.i.i, ptr %_M_carry.i.i, align 8, !tbaa !237
   store i64 %__xi.0.i.i.i, ptr %arrayidx4.i.i.i, align 8, !tbaa !44
-  %7 = load i64, ptr %_M_p.i.i, align 8, !tbaa !250
-  %inc.i.i.i = add i64 %7, 1
+  %8 = load i64, ptr %_M_p.i.i, align 8, !tbaa !250
+  %inc.i.i.i = add i64 %8, 1
   %cmp32.i.i.i = icmp ugt i64 %inc.i.i.i, 11
   %spec.select42.i.i.i = select i1 %cmp32.i.i.i, i64 0, i64 %inc.i.i.i
   store i64 %spec.select42.i.i.i, ptr %_M_p.i.i, align 8, !tbaa !250
@@ -4200,17 +4201,16 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.not.i.i, label %_ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit, label %for.body.i.i, !llvm.loop !251
 
 _ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit: ; preds = %for.body.i.i, %if.then.i, %do.body._ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit_crit_edge
-  %8 = phi i64 [ %.pre139, %do.body._ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit_crit_edge ], [ %.pre140, %if.then.i ], [ %spec.select42.i.i.i, %for.body.i.i ]
-  %9 = phi i64 [ %2, %do.body._ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit_crit_edge ], [ 0, %if.then.i ], [ 0, %for.body.i.i ]
-  %inc.i = add nuw nsw i64 %9, 1
+  %9 = phi i64 [ %.pre139, %do.body._ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit_crit_edge ], [ %.pre140, %if.then.i ], [ %spec.select42.i.i.i, %for.body.i.i ]
+  %inc.i = phi i64 [ %3, %do.body._ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit_crit_edge ], [ 1, %if.then.i ], [ 1, %for.body.i.i ]
   store i64 %inc.i, ptr %_M_n.i, align 8, !tbaa !248
-  %sub.i.i = add i64 %8, -5
+  %sub.i.i = add i64 %9, -5
   %cmp.i.i = icmp slt i64 %sub.i.i, 0
-  %add.i.i = add i64 %8, 7
+  %add.i.i = add i64 %9, 7
   %spec.select.i.i = select i1 %cmp.i.i, i64 %add.i.i, i64 %sub.i.i
   %arrayidx.i.i = getelementptr inbounds [12 x i64], ptr %__urng, i64 0, i64 %spec.select.i.i
   %10 = load i64, ptr %arrayidx.i.i, align 8, !tbaa !44
-  %arrayidx4.i.i = getelementptr inbounds [12 x i64], ptr %__urng, i64 0, i64 %8
+  %arrayidx4.i.i = getelementptr inbounds [12 x i64], ptr %__urng, i64 0, i64 %9
   %11 = load i64, ptr %arrayidx4.i.i, align 8, !tbaa !44
   %12 = load i64, ptr %_M_carry.i.i, align 8, !tbaa !237
   %add5.i.i = add i64 %12, %11
@@ -4258,6 +4258,7 @@ do.body9:                                         ; preds = %_ZNSt20discard_bloc
 
 do.body9._ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit90_crit_edge: ; preds = %do.body9
   %.pre = load i64, ptr %_M_p.i.i.i68, align 8, !tbaa !250
+  %15 = add nuw nsw i64 %14, 1
   br label %_ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit90
 
 if.then.i64:                                      ; preds = %do.body9
@@ -4270,27 +4271,27 @@ for.body.lr.ph.i.i66:                             ; preds = %if.then.i64
   br label %for.body.i.i71
 
 for.body.i.i71:                                   ; preds = %for.body.i.i71, %for.body.lr.ph.i.i66
-  %15 = phi i64 [ %.pre138, %for.body.lr.ph.i.i66 ], [ %spec.select42.i.i.i87, %for.body.i.i71 ]
+  %16 = phi i64 [ %.pre138, %for.body.lr.ph.i.i66 ], [ %spec.select42.i.i.i87, %for.body.i.i71 ]
   %__z.addr.04.i.i72 = phi i64 [ %sub.i67, %for.body.lr.ph.i.i66 ], [ %dec.i.i88, %for.body.i.i71 ]
-  %sub.i.i.i73 = add i64 %15, -5
+  %sub.i.i.i73 = add i64 %16, -5
   %cmp.i.i.i74 = icmp slt i64 %sub.i.i.i73, 0
-  %add.i.i.i75 = add i64 %15, 7
+  %add.i.i.i75 = add i64 %16, 7
   %spec.select.i.i.i76 = select i1 %cmp.i.i.i74, i64 %add.i.i.i75, i64 %sub.i.i.i73
   %arrayidx.i.i.i77 = getelementptr inbounds [12 x i64], ptr %__urng, i64 0, i64 %spec.select.i.i.i76
-  %16 = load i64, ptr %arrayidx.i.i.i77, align 8, !tbaa !44
-  %arrayidx4.i.i.i78 = getelementptr inbounds [12 x i64], ptr %__urng, i64 0, i64 %15
-  %17 = load i64, ptr %arrayidx4.i.i.i78, align 8, !tbaa !44
-  %18 = load i64, ptr %_M_carry.i.i.i69, align 8, !tbaa !237
-  %add5.i.i.i79 = add i64 %18, %17
-  %cmp6.not.i.i.i80 = icmp ult i64 %16, %add5.i.i.i79
-  %reass.sub.i.i.i81 = add i64 %16, 281474976710656
+  %17 = load i64, ptr %arrayidx.i.i.i77, align 8, !tbaa !44
+  %arrayidx4.i.i.i78 = getelementptr inbounds [12 x i64], ptr %__urng, i64 0, i64 %16
+  %18 = load i64, ptr %arrayidx4.i.i.i78, align 8, !tbaa !44
+  %19 = load i64, ptr %_M_carry.i.i.i69, align 8, !tbaa !237
+  %add5.i.i.i79 = add i64 %19, %18
+  %cmp6.not.i.i.i80 = icmp ult i64 %17, %add5.i.i.i79
+  %reass.sub.i.i.i81 = add i64 %17, 281474976710656
   %storemerge.i.i.i82 = zext i1 %cmp6.not.i.i.i80 to i64
-  %__xi.0.v.i.i.i83 = select i1 %cmp6.not.i.i.i80, i64 %reass.sub.i.i.i81, i64 %16
+  %__xi.0.v.i.i.i83 = select i1 %cmp6.not.i.i.i80, i64 %reass.sub.i.i.i81, i64 %17
   %__xi.0.i.i.i84 = sub i64 %__xi.0.v.i.i.i83, %add5.i.i.i79
   store i64 %storemerge.i.i.i82, ptr %_M_carry.i.i.i69, align 8, !tbaa !237
   store i64 %__xi.0.i.i.i84, ptr %arrayidx4.i.i.i78, align 8, !tbaa !44
-  %19 = load i64, ptr %_M_p.i.i.i68, align 8, !tbaa !250
-  %inc.i.i.i85 = add i64 %19, 1
+  %20 = load i64, ptr %_M_p.i.i.i68, align 8, !tbaa !250
+  %inc.i.i.i85 = add i64 %20, 1
   %cmp32.i.i.i86 = icmp ugt i64 %inc.i.i.i85, 11
   %spec.select42.i.i.i87 = select i1 %cmp32.i.i.i86, i64 0, i64 %inc.i.i.i85
   store i64 %spec.select42.i.i.i87, ptr %_M_p.i.i.i68, align 8, !tbaa !250
@@ -4299,17 +4300,16 @@ for.body.i.i71:                                   ; preds = %for.body.i.i71, %fo
   br i1 %cmp.not.i.i89, label %_ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit90, label %for.body.i.i71, !llvm.loop !253
 
 _ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit90: ; preds = %for.body.i.i71, %if.then.i64, %do.body9._ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit90_crit_edge
-  %20 = phi i64 [ %.pre, %do.body9._ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit90_crit_edge ], [ %.pre138, %if.then.i64 ], [ %spec.select42.i.i.i87, %for.body.i.i71 ]
-  %21 = phi i64 [ %14, %do.body9._ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit90_crit_edge ], [ 0, %if.then.i64 ], [ 0, %for.body.i.i71 ]
-  %inc.i46 = add nuw nsw i64 %21, 1
+  %21 = phi i64 [ %.pre, %do.body9._ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit90_crit_edge ], [ %.pre138, %if.then.i64 ], [ %spec.select42.i.i.i87, %for.body.i.i71 ]
+  %inc.i46 = phi i64 [ %15, %do.body9._ZNSt20discard_block_engineISt26subtract_with_carry_engineImLm48ELm5ELm12EELm389ELm11EEclEv.exit90_crit_edge ], [ 1, %if.then.i64 ], [ 1, %for.body.i.i71 ]
   store i64 %inc.i46, ptr %_M_n.i44, align 8, !tbaa !248
-  %sub.i.i48 = add i64 %20, -5
+  %sub.i.i48 = add i64 %21, -5
   %cmp.i.i49 = icmp slt i64 %sub.i.i48, 0
-  %add.i.i50 = add i64 %20, 7
+  %add.i.i50 = add i64 %21, 7
   %spec.select.i.i51 = select i1 %cmp.i.i49, i64 %add.i.i50, i64 %sub.i.i48
   %arrayidx.i.i52 = getelementptr inbounds [12 x i64], ptr %__urng, i64 0, i64 %spec.select.i.i51
   %22 = load i64, ptr %arrayidx.i.i52, align 8, !tbaa !44
-  %arrayidx4.i.i53 = getelementptr inbounds [12 x i64], ptr %__urng, i64 0, i64 %20
+  %arrayidx4.i.i53 = getelementptr inbounds [12 x i64], ptr %__urng, i64 0, i64 %21
   %23 = load i64, ptr %arrayidx4.i.i53, align 8, !tbaa !44
   %24 = load i64, ptr %_M_carry.i.i.i69, align 8, !tbaa !237
   %add5.i.i55 = add i64 %24, %23

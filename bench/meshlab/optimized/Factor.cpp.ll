@@ -96,7 +96,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 declare double @sqrt(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define noundef i32 @_Z6FactorddddPA2_dd(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef writeonly %4, double noundef %5) local_unnamed_addr #2 {
+define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef writeonly %4, double noundef %5) local_unnamed_addr #2 {
   %7 = tail call double @llvm.fabs.f64(double %0)
   %8 = fcmp ugt double %7, %5
   br i1 %8, label %45, label %9
@@ -537,7 +537,7 @@ define void @_Z6DividePKdS0_Pd(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef i32 @_Z6FactordddddPA2_dd(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr nocapture noundef %5, double noundef %6) local_unnamed_addr #4 {
+define noundef range(i32 0, 5) i32 @_Z6FactordddddPA2_dd(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr nocapture noundef %5, double noundef %6) local_unnamed_addr #4 {
   %8 = tail call double @llvm.fabs.f64(double %0)
   %9 = fcmp olt double %8, %6
   br i1 %9, label %10, label %12

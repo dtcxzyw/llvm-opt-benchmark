@@ -493,19 +493,19 @@ define internal i32 @dissect_osmux(ptr noundef %0, ptr noundef %1, ptr noundef %
   %89 = zext nneg i8 %83 to i64
   %90 = getelementptr [9 x i8], ptr @amr_ft_bytes, i64 0, i64 %89
   %91 = load i8, ptr %90, align 1
+  %92 = zext i8 %91 to i32
   br label %amr_ft_to_bytes.exit
 
 amr_ft_to_bytes.exit:                             ; preds = %62, %88
-  %.0.i = phi i8 [ %91, %88 ], [ 0, %62 ]
-  %92 = zext i8 %.0.i to i32
+  %.0.i = phi i32 [ %92, %88 ], [ 0, %62 ]
   br label %93
 
 93:                                               ; preds = %amr_ft_to_bytes.exit, %93
   %.07985 = phi i8 [ 0, %amr_ft_to_bytes.exit ], [ %97, %93 ]
   %.184 = phi i32 [ %80, %amr_ft_to_bytes.exit ], [ %96, %93 ]
   %94 = load i32, ptr @hf_osmux_amr_data, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %94, ptr noundef %0, i32 noundef %.184, i32 noundef %92, i32 noundef 0) #10
-  %96 = add i32 %.184, %92
+  %95 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %94, ptr noundef %0, i32 noundef %.184, i32 noundef %.0.i, i32 noundef 0) #10
+  %96 = add i32 %.184, %.0.i
   %97 = add i8 %.07985, 1
   %98 = load i8, ptr %24, align 1
   %.not81 = icmp ult i8 %98, %97

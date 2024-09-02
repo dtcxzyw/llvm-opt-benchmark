@@ -382,7 +382,7 @@ declare dso_local i32 @security_fs_context_parse_param(ptr noundef, ptr noundef)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @vfs_parse_fs_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local range(i32 -518, -519) i32 @vfs_parse_fs_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca %struct.fs_parameter, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11
   %6 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1128,7 +1128,7 @@ define internal noundef range(i32 -12, 1) i32 @legacy_fs_context_dup(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -519, 1) i32 @legacy_parse_param(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @legacy_parse_param(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

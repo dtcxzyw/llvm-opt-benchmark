@@ -527,8 +527,8 @@ if.end13:                                         ; preds = %if.end7
   %1 = load i32, ptr %call9, align 8
   %cmp14 = icmp eq i32 %1, 4
   %cmp17 = icmp eq i32 %1, 16
-  %spec.select = or i1 %cmp14, %cmp17
-  %lor.ext = zext i1 %spec.select to i32
+  %narrow = or i1 %cmp14, %cmp17
+  %lor.ext = zext i1 %narrow to i32
   %call21 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 195, ptr noundef nonnull @.str.59, i32 noundef %lor.ext) #5
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %end, label %if.end24

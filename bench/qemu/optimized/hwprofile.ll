@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [11 x i8] c"  %s:%08lx\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @qemu_plugin_install(i64 noundef %id, ptr nocapture noundef readonly %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %id, ptr nocapture noundef readonly %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_string_new(ptr noundef nonnull @.str) #6
   %cmp30 = icmp sgt i32 %argc, 0
@@ -256,13 +256,13 @@ for.body:                                         ; preds = %entry, %cond.end
 
 cond.true:                                        ; preds = %for.body
   %call2 = tail call i64 @qemu_plugin_insn_vaddr(ptr noundef %call1) #6
+  %1 = inttoptr i64 %call2 to ptr
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i64 [ %call2, %cond.true ], [ 0, %for.body ]
-  %1 = inttoptr i64 %cond to ptr
+  %cond = phi ptr [ %1, %cond.true ], [ null, %for.body ]
   %2 = load i32, ptr @rw, align 4
-  tail call void @qemu_plugin_register_vcpu_mem_cb(ptr noundef %call1, ptr noundef nonnull @vcpu_haddr, i32 noundef 0, i32 noundef %2, ptr noundef %1) #6
+  tail call void @qemu_plugin_register_vcpu_mem_cb(ptr noundef %call1, ptr noundef nonnull @vcpu_haddr, i32 noundef 0, i32 noundef %2, ptr noundef %cond) #6
   %inc = add nuw i64 %i.06, 1
   %exitcond.not = icmp eq i64 %inc, %call
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6

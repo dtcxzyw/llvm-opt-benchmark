@@ -1476,7 +1476,7 @@ return:                                           ; preds = %if.end, %entry, %bi
 declare i32 @bdrv_dirty_bitmap_check(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_co_remove_persistent_dirty_bitmap(ptr noundef %bs, ptr nocapture noundef readonly %name, ptr noundef %errp) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_co_remove_persistent_dirty_bitmap(ptr noundef %bs, ptr nocapture noundef readonly %name, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2223,6 +2223,7 @@ if.then12.i:                                      ; preds = %if.end4.i
   %24 = trunc i64 %call9.i to i32
   %conv13.i = sub i32 0, %24
   call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 1402, ptr noundef nonnull @__func__.store_bitmap, i32 noundef %conv13.i, ptr noundef nonnull @.str.44, ptr noundef %call.i112) #13
+  %25 = icmp slt i32 %24, 0
   br label %fail.i
 
 if.end15.i:                                       ; preds = %if.end4.i
@@ -2242,31 +2243,31 @@ if.end23.i:                                       ; preds = %if.end15.i
 for.body.i.i:                                     ; preds = %if.end23.i, %for.body.i.i
   %i.06.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end23.i ]
   %arrayidx.i32.i = getelementptr i64, ptr %call6.i.i, i64 %i.06.i.i
-  %25 = load i64, ptr %arrayidx.i32.i, align 8
-  %26 = call noundef i64 @llvm.bswap.i64(i64 %25)
-  store i64 %26, ptr %arrayidx.i32.i, align 8
+  %26 = load i64, ptr %arrayidx.i32.i, align 8
+  %27 = call noundef i64 @llvm.bswap.i64(i64 %26)
+  store i64 %27, ptr %arrayidx.i32.i, align 8
   %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %shr.i.i.i
   br i1 %exitcond.not.i.i, label %bitmap_table_bswap_be.exit.i, label %for.body.i.i, !llvm.loop !22
 
 bitmap_table_bswap_be.exit.i:                     ; preds = %for.body.i.i
-  %27 = load ptr, ptr %file.i.i, align 8
-  %call27.i = call i32 @bdrv_pwrite(ptr noundef %27, i64 noundef %call9.i, i64 noundef %mul.i, ptr noundef nonnull %call6.i.i, i32 noundef 0) #13
+  %28 = load ptr, ptr %file.i.i, align 8
+  %call27.i = call i32 @bdrv_pwrite(ptr noundef %28, i64 noundef %call9.i, i64 noundef %mul.i, ptr noundef nonnull %call6.i.i, i32 noundef 0) #13
   %cmp28.i = icmp slt i32 %call27.i, 0
   br i1 %cmp28.i, label %for.body.i34.i, label %store_bitmap.exit.thread135
 
 bitmap_table_bswap_be.exit.thread.i:              ; preds = %if.end23.i
-  %28 = load ptr, ptr %file.i.i, align 8
-  %call2758.i = call i32 @bdrv_pwrite(ptr noundef %28, i64 noundef %call9.i, i64 noundef %mul.i, ptr noundef nonnull %call6.i.i, i32 noundef 0) #13
+  %29 = load ptr, ptr %file.i.i, align 8
+  %call2758.i = call i32 @bdrv_pwrite(ptr noundef %29, i64 noundef %call9.i, i64 noundef %mul.i, ptr noundef nonnull %call6.i.i, i32 noundef 0) #13
   %cmp2859.i = icmp slt i32 %call2758.i, 0
   br i1 %cmp2859.i, label %bitmap_table_bswap_be.exit39.i, label %store_bitmap.exit.thread135
 
 for.body.i34.i:                                   ; preds = %bitmap_table_bswap_be.exit.i, %for.body.i34.i
   %i.06.i35.i = phi i64 [ %inc.i37.i, %for.body.i34.i ], [ 0, %bitmap_table_bswap_be.exit.i ]
   %arrayidx.i36.i = getelementptr i64, ptr %call6.i.i, i64 %i.06.i35.i
-  %29 = load i64, ptr %arrayidx.i36.i, align 8
-  %30 = call noundef i64 @llvm.bswap.i64(i64 %29)
-  store i64 %30, ptr %arrayidx.i36.i, align 8
+  %30 = load i64, ptr %arrayidx.i36.i, align 8
+  %31 = call noundef i64 @llvm.bswap.i64(i64 %30)
+  store i64 %31, ptr %arrayidx.i36.i, align 8
   %inc.i37.i = add nuw nsw i64 %i.06.i35.i, 1
   %exitcond.not.i38.i = icmp eq i64 %inc.i37.i, %shr.i.i.i
   br i1 %exitcond.not.i38.i, label %bitmap_table_bswap_be.exit39.i, label %for.body.i34.i, !llvm.loop !22
@@ -2285,27 +2286,27 @@ store_bitmap.exit.thread135:                      ; preds = %bitmap_table_bswap_
   br label %for.inc107
 
 fail.i:                                           ; preds = %bitmap_table_bswap_be.exit39.i, %if.then21.i, %if.then12.i
-  %ret.0.i = phi i32 [ %24, %if.then12.i ], [ %call18.i, %if.then21.i ], [ %call276062.i, %bitmap_table_bswap_be.exit39.i ]
+  %ret.0.i = phi i1 [ %25, %if.then12.i ], [ true, %if.then21.i ], [ true, %bitmap_table_bswap_be.exit39.i ]
   %cmp7.not.i.i = icmp eq i64 %shr.i.i.i, 0
   br i1 %cmp7.not.i.i, label %clear_bitmap_table.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %fail.i
-  %31 = load ptr, ptr %opaque, align 8
-  %cluster_size.i.i = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = load ptr, ptr %opaque, align 8
+  %cluster_size.i.i = getelementptr inbounds i8, ptr %32, i64 4
   br label %for.body.i41.i
 
 for.body.i41.i:                                   ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %i.08.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i45.i, %for.inc.i.i ]
   %idxprom.i.i = sext i32 %i.08.i.i to i64
   %arrayidx.i42.i = getelementptr i64, ptr %call6.i.i, i64 %idxprom.i.i
-  %32 = load i64, ptr %arrayidx.i42.i, align 8
-  %and.i.i = and i64 %32, 72057594037927424
+  %33 = load i64, ptr %arrayidx.i42.i, align 8
+  %and.i.i = and i64 %33, 72057594037927424
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
   br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.end.i43.i
 
 if.end.i43.i:                                     ; preds = %for.body.i41.i
-  %33 = load i32, ptr %cluster_size.i.i, align 4
-  %conv.i44.i = sext i32 %33 to i64
+  %34 = load i32, ptr %cluster_size.i.i, align 4
+  %conv.i44.i = sext i32 %34 to i64
   call void @qcow2_free_clusters(ptr noundef %bs, i64 noundef %and.i.i, i64 noundef %conv.i44.i, i32 noundef 1) #13
   store i64 0, ptr %arrayidx.i42.i, align 8
   br label %for.inc.i.i
@@ -2325,8 +2326,7 @@ if.then37.i:                                      ; preds = %clear_bitmap_table.
 
 store_bitmap.exit:                                ; preds = %clear_bitmap_table.exit.i, %if.then37.i
   call void @g_free(ptr noundef nonnull %call6.i.i) #13
-  %cmp103 = icmp slt i32 %ret.0.i, 0
-  br i1 %cmp103, label %fail, label %for.inc107
+  br i1 %ret.0.i, label %fail, label %for.inc107
 
 for.inc107:                                       ; preds = %store_bitmap.exit.thread135, %store_bitmap.exit, %for.body93, %lor.lhs.false97
   %entry108 = getelementptr inbounds i8, ptr %bm.1185, i64 48
@@ -2345,17 +2345,17 @@ if.then114:                                       ; preds = %for.end110
   br label %fail
 
 if.end115:                                        ; preds = %for.end110
-  %34 = load ptr, ptr %drop_tables, align 8
-  %tobool118.not188 = icmp eq ptr %34, null
+  %35 = load ptr, ptr %drop_tables, align 8
+  %tobool118.not188 = icmp eq ptr %35, null
   br i1 %tobool118.not188, label %success, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end115, %land.rhs
-  %tb.0189 = phi ptr [ %35, %land.rhs ], [ %34, %if.end115 ]
+  %tb.0189 = phi ptr [ %36, %land.rhs ], [ %35, %if.end115 ]
   %entry119 = getelementptr inbounds i8, ptr %tb.0189, i64 16
-  %35 = load ptr, ptr %entry119, align 8
+  %36 = load ptr, ptr %entry119, align 8
   call fastcc void @free_bitmap_clusters(ptr noundef %bs, ptr noundef nonnull %tb.0189)
   call void @g_free(ptr noundef nonnull %tb.0189) #13
-  %tobool118.not = icmp eq ptr %35, null
+  %tobool118.not = icmp eq ptr %36, null
   br i1 %tobool118.not, label %success, label %land.rhs, !llvm.loop !24
 
 success:                                          ; preds = %land.rhs, %if.end15, %if.end115, %for.end
@@ -2369,12 +2369,12 @@ for.cond128.preheader:                            ; preds = %success
 for.body130:                                      ; preds = %for.cond128.preheader, %for.inc137
   %bm.2192 = phi ptr [ %bm.2, %for.inc137 ], [ %.pre235, %for.cond128.preheader ]
   %dirty_bitmap131 = getelementptr inbounds i8, ptr %bm.2192, i64 40
-  %36 = load ptr, ptr %dirty_bitmap131, align 8
-  %cmp132 = icmp eq ptr %36, null
+  %37 = load ptr, ptr %dirty_bitmap131, align 8
+  %cmp132 = icmp eq ptr %37, null
   br i1 %cmp132, label %for.inc137, label %if.end135
 
 if.end135:                                        ; preds = %for.body130
-  call void @bdrv_release_dirty_bitmap(ptr noundef nonnull %36) #13
+  call void @bdrv_release_dirty_bitmap(ptr noundef nonnull %37) #13
   br label %for.inc137
 
 for.inc137:                                       ; preds = %for.body130, %if.end135
@@ -2388,8 +2388,8 @@ while.cond.preheader.i.loopexit:                  ; preds = %for.inc137
   br label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %while.cond.preheader.i.loopexit, %success
-  %37 = phi ptr [ %.pre, %while.cond.preheader.i.loopexit ], [ %.pre235, %success ]
-  %cmp1.not8.i = icmp eq ptr %37, null
+  %38 = phi ptr [ %.pre, %while.cond.preheader.i.loopexit ], [ %.pre235, %success ]
+  %cmp1.not8.i = icmp eq ptr %38, null
   br i1 %cmp1.not8.i, label %cleanup.sink.split, label %do.body.lr.ph.i
 
 do.body.lr.ph.i:                                  ; preds = %while.cond.preheader.i
@@ -2397,11 +2397,11 @@ do.body.lr.ph.i:                                  ; preds = %while.cond.preheade
   br label %do.body.i
 
 do.body.i:                                        ; preds = %bitmap_free.exit.i, %do.body.lr.ph.i
-  %38 = phi ptr [ %37, %do.body.lr.ph.i ], [ %41, %bitmap_free.exit.i ]
-  %entry3.i = getelementptr inbounds i8, ptr %38, i64 48
-  %39 = load ptr, ptr %entry3.i, align 8
-  store ptr %39, ptr %bm_list.0, align 8
-  %cmp5.i = icmp eq ptr %39, null
+  %39 = phi ptr [ %38, %do.body.lr.ph.i ], [ %42, %bitmap_free.exit.i ]
+  %entry3.i = getelementptr inbounds i8, ptr %39, i64 48
+  %40 = load ptr, ptr %entry3.i, align 8
+  store ptr %40, ptr %bm_list.0, align 8
+  %cmp5.i = icmp eq ptr %40, null
   br i1 %cmp5.i, label %if.then6.i, label %bitmap_free.exit.i
 
 if.then6.i:                                       ; preds = %do.body.i
@@ -2410,12 +2410,12 @@ if.then6.i:                                       ; preds = %do.body.i
 
 bitmap_free.exit.i:                               ; preds = %if.then6.i, %do.body.i
   store ptr null, ptr %entry3.i, align 8
-  %name.i.i = getelementptr inbounds i8, ptr %38, i64 32
-  %40 = load ptr, ptr %name.i.i, align 8
-  call void @g_free(ptr noundef %40) #13
-  call void @g_free(ptr noundef nonnull %38) #13
-  %41 = load ptr, ptr %bm_list.0, align 8
-  %cmp1.not.i = icmp eq ptr %41, null
+  %name.i.i = getelementptr inbounds i8, ptr %39, i64 32
+  %41 = load ptr, ptr %name.i.i, align 8
+  call void @g_free(ptr noundef %41) #13
+  call void @g_free(ptr noundef nonnull %39) #13
+  %42 = load ptr, ptr %bm_list.0, align 8
+  %cmp1.not.i = icmp eq ptr %42, null
   br i1 %cmp1.not.i, label %cleanup.sink.split, label %do.body.i, !llvm.loop !8
 
 fail:                                             ; preds = %store_bitmap.exit, %clear_bitmap_table.exit.i.i, %if.then9.i.i, %if.then.i.i, %if.then114, %if.then88, %if.then61, %if.then46, %if.then40, %if.then34
@@ -2426,17 +2426,17 @@ fail:                                             ; preds = %store_bitmap.exit, 
 for.body145:                                      ; preds = %fail, %for.inc162
   %bm.3195 = phi ptr [ %bm.3, %for.inc162 ], [ %bm.3193, %fail ]
   %dirty_bitmap146 = getelementptr inbounds i8, ptr %bm.3195, i64 40
-  %42 = load ptr, ptr %dirty_bitmap146, align 8
-  %cmp147 = icmp eq ptr %42, null
+  %43 = load ptr, ptr %dirty_bitmap146, align 8
+  %cmp147 = icmp eq ptr %43, null
   br i1 %cmp147, label %for.inc162, label %lor.lhs.false149
 
 lor.lhs.false149:                                 ; preds = %for.body145
-  %43 = load i64, ptr %bm.3195, align 8
-  %cmp152 = icmp eq i64 %43, 0
+  %44 = load i64, ptr %bm.3195, align 8
+  %cmp152 = icmp eq i64 %44, 0
   br i1 %cmp152, label %for.inc162, label %lor.lhs.false154
 
 lor.lhs.false154:                                 ; preds = %lor.lhs.false149
-  %call156 = call zeroext i1 @bdrv_dirty_bitmap_readonly(ptr noundef nonnull %42) #13
+  %call156 = call zeroext i1 @bdrv_dirty_bitmap_readonly(ptr noundef nonnull %43) #13
   br i1 %call156, label %for.inc162, label %if.end159
 
 if.end159:                                        ; preds = %lor.lhs.false154
@@ -2450,29 +2450,29 @@ for.inc162:                                       ; preds = %for.body145, %lor.l
   br i1 %tobool144.not, label %for.end165, label %for.body145, !llvm.loop !26
 
 for.end165:                                       ; preds = %for.inc162, %fail
-  %44 = load ptr, ptr %drop_tables, align 8
-  %tobool168.not196 = icmp eq ptr %44, null
+  %45 = load ptr, ptr %drop_tables, align 8
+  %tobool168.not196 = icmp eq ptr %45, null
   br i1 %tobool168.not196, label %while.cond.preheader.i116, label %land.rhs169
 
 land.rhs169:                                      ; preds = %for.end165, %land.rhs169
-  %tb.1197 = phi ptr [ %45, %land.rhs169 ], [ %44, %for.end165 ]
+  %tb.1197 = phi ptr [ %46, %land.rhs169 ], [ %45, %for.end165 ]
   %entry170 = getelementptr inbounds i8, ptr %tb.1197, i64 16
-  %45 = load ptr, ptr %entry170, align 8
+  %46 = load ptr, ptr %entry170, align 8
   call void @g_free(ptr noundef nonnull %tb.1197) #13
-  %tobool168.not = icmp eq ptr %45, null
+  %tobool168.not = icmp eq ptr %46, null
   br i1 %tobool168.not, label %while.cond.preheader.i116, label %land.rhs169, !llvm.loop !27
 
 while.cond.preheader.i116:                        ; preds = %land.rhs169, %for.end165
-  %46 = load ptr, ptr %bm_list.0, align 8
-  %cmp1.not8.i117 = icmp eq ptr %46, null
+  %47 = load ptr, ptr %bm_list.0, align 8
+  %cmp1.not8.i117 = icmp eq ptr %47, null
   br i1 %cmp1.not8.i117, label %cleanup.sink.split, label %do.body.i120
 
 do.body.i120:                                     ; preds = %while.cond.preheader.i116, %bitmap_free.exit.i123
-  %47 = phi ptr [ %50, %bitmap_free.exit.i123 ], [ %46, %while.cond.preheader.i116 ]
-  %entry3.i121 = getelementptr inbounds i8, ptr %47, i64 48
-  %48 = load ptr, ptr %entry3.i121, align 8
-  store ptr %48, ptr %bm_list.0, align 8
-  %cmp5.i122 = icmp eq ptr %48, null
+  %48 = phi ptr [ %51, %bitmap_free.exit.i123 ], [ %47, %while.cond.preheader.i116 ]
+  %entry3.i121 = getelementptr inbounds i8, ptr %48, i64 48
+  %49 = load ptr, ptr %entry3.i121, align 8
+  store ptr %49, ptr %bm_list.0, align 8
+  %cmp5.i122 = icmp eq ptr %49, null
   br i1 %cmp5.i122, label %if.then6.i127, label %bitmap_free.exit.i123
 
 if.then6.i127:                                    ; preds = %do.body.i120
@@ -2481,12 +2481,12 @@ if.then6.i127:                                    ; preds = %do.body.i120
 
 bitmap_free.exit.i123:                            ; preds = %if.then6.i127, %do.body.i120
   store ptr null, ptr %entry3.i121, align 8
-  %name.i.i124 = getelementptr inbounds i8, ptr %47, i64 32
-  %49 = load ptr, ptr %name.i.i124, align 8
-  call void @g_free(ptr noundef %49) #13
-  call void @g_free(ptr noundef nonnull %47) #13
-  %50 = load ptr, ptr %bm_list.0, align 8
-  %cmp1.not.i125 = icmp eq ptr %50, null
+  %name.i.i124 = getelementptr inbounds i8, ptr %48, i64 32
+  %50 = load ptr, ptr %name.i.i124, align 8
+  call void @g_free(ptr noundef %50) #13
+  call void @g_free(ptr noundef nonnull %48) #13
+  %51 = load ptr, ptr %bm_list.0, align 8
+  %cmp1.not.i125 = icmp eq ptr %51, null
   br i1 %cmp1.not.i125, label %cleanup.sink.split, label %do.body.i120, !llvm.loop !8
 
 cleanup.sink.split:                               ; preds = %bitmap_free.exit.i123, %bitmap_free.exit.i, %while.cond.preheader.i116, %while.cond.preheader.i, %for.cond128.preheader

@@ -2922,7 +2922,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h165dae0e58d2195
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h199a9d162d3a5f25E(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 5871781006564002454) i64 @_ZN4core4hash11BuildHasher8hash_one17h199a9d162d3a5f25E(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !range !346, !alias.scope !909, !noalias !912, !noundef !23
   %4 = zext nneg i8 %3 to i64
   %5 = mul nuw nsw i64 %4, 5871781006564002453

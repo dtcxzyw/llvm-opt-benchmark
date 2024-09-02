@@ -108,11 +108,11 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 63:                                               ; preds = %59
   %64 = icmp eq i32 %41, 0
-  br i1 %64, label %90, label %65
+  br i1 %64, label %91, label %65
 
 65:                                               ; preds = %63
   %66 = icmp eq i32 %53, 0
-  br i1 %66, label %90, label %67
+  br i1 %66, label %91, label %67
 
 67:                                               ; preds = %65
   %68 = tail call i32 @ilaenv_(ptr noundef nonnull @c__1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @c_n1, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 1) #6
@@ -139,28 +139,28 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %88 = add nsw i32 %87, %43
   store i32 %88, ptr %15, align 4, !tbaa !3
   %89 = tail call i32 @llvm.smax.i32(i32 %86, i32 %88)
+  %90 = sitofp i32 %89 to double
   %.pre = load i32, ptr %11, align 4, !tbaa !3
-  br label %90
+  br label %91
 
-90:                                               ; preds = %67, %65, %63
-  %91 = phi i32 [ %88, %67 ], [ undef, %65 ], [ undef, %63 ]
-  %92 = phi i32 [ %78, %67 ], [ 0, %65 ], [ %53, %63 ]
-  %93 = phi i32 [ %.pre, %67 ], [ %45, %65 ], [ %45, %63 ]
-  %94 = phi i32 [ %81, %67 ], [ 1, %65 ], [ 1, %63 ]
-  %95 = phi i32 [ %89, %67 ], [ 1, %65 ], [ 1, %63 ]
-  %96 = sitofp i32 %95 to double
+91:                                               ; preds = %67, %65, %63
+  %92 = phi i32 [ %88, %67 ], [ undef, %65 ], [ undef, %63 ]
+  %93 = phi i32 [ %78, %67 ], [ 0, %65 ], [ %53, %63 ]
+  %94 = phi i32 [ %.pre, %67 ], [ %45, %65 ], [ %45, %63 ]
+  %95 = phi i32 [ %81, %67 ], [ 1, %65 ], [ 1, %63 ]
+  %96 = phi double [ %90, %67 ], [ 1.000000e+00, %65 ], [ 1.000000e+00, %63 ]
   store double %96, ptr %10, align 8, !tbaa !7
-  %97 = icmp sge i32 %93, %94
+  %97 = icmp sge i32 %94, %95
   %98 = select i1 %97, i1 true, i1 %46
   br i1 %98, label %99, label %.thread16.sink.split
 
-99:                                               ; preds = %90
+99:                                               ; preds = %91
   %.pr14 = load i32, ptr %12, align 4, !tbaa !3
   %100 = icmp eq i32 %.pr14, 0
   br i1 %100, label %104, label %.thread16
 
-.thread16.sink.split:                             ; preds = %90, %59, %55, %52, %49, %13
-  %.sink = phi i32 [ -1, %13 ], [ -2, %49 ], [ -3, %52 ], [ -5, %55 ], [ -7, %59 ], [ -12, %90 ]
+.thread16.sink.split:                             ; preds = %91, %59, %55, %52, %49, %13
+  %.sink = phi i32 [ -1, %13 ], [ -2, %49 ], [ -3, %52 ], [ -5, %55 ], [ -7, %59 ], [ -12, %91 ]
   store i32 %.sink, ptr %12, align 4, !tbaa !3
   br label %.thread16
 
@@ -175,7 +175,7 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %46, label %294, label %105
 
 105:                                              ; preds = %104
-  %106 = icmp eq i32 %92, 0
+  %106 = icmp eq i32 %93, 0
   %or.cond = select i1 %64, i1 true, i1 %106
   br i1 %or.cond, label %107, label %108
 
@@ -410,7 +410,7 @@ define void @dgelsy_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %242, label %.loopexit18, label %.split.us, !llvm.loop !12
 
 .loopexit18:                                      ; preds = %.split.us, %222, %217
-  %243 = phi i32 [ %91, %217 ], [ %.pre24, %222 ], [ %.pre24, %.split.us ]
+  %243 = phi i32 [ %92, %217 ], [ %.pre24, %222 ], [ %.pre24, %.split.us ]
   store i32 %243, ptr %15, align 4, !tbaa !3
   %244 = icmp slt i32 %.pre23, %.pre24
   br i1 %244, label %245, label %257

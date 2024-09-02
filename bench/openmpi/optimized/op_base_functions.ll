@@ -2643,22 +2643,22 @@ define internal void @ompi_op_base_2buff_land_int8_t(ptr nocapture noundef reado
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i8, ptr %.013, align 1
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %12, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i8, ptr %.0912, align 1
   %11 = icmp ne i8 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i8
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ false, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i8
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i8 [ 0, %.lr.ph ], [ %12, %9 ]
   store i8 %14, ptr %.013, align 1
   %15 = getelementptr inbounds i8, ptr %.013, i64 1
   %16 = getelementptr inbounds i8, ptr %.0912, i64 1
@@ -2666,7 +2666,7 @@ define internal void @ompi_op_base_2buff_land_int8_t(ptr nocapture noundef reado
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !110
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -2676,22 +2676,22 @@ define internal void @ompi_op_base_2buff_land_uint8_t(ptr nocapture noundef read
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i8, ptr %.013, align 1
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %12, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i8, ptr %.0912, align 1
   %11 = icmp ne i8 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i8
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ false, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i8
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i8 [ 0, %.lr.ph ], [ %12, %9 ]
   store i8 %14, ptr %.013, align 1
   %15 = getelementptr inbounds i8, ptr %.013, i64 1
   %16 = getelementptr inbounds i8, ptr %.0912, i64 1
@@ -2699,7 +2699,7 @@ define internal void @ompi_op_base_2buff_land_uint8_t(ptr nocapture noundef read
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !111
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -2709,22 +2709,22 @@ define internal void @ompi_op_base_2buff_land_int16_t(ptr nocapture noundef read
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i16, ptr %.013, align 2
   %.not = icmp eq i16 %8, 0
-  br i1 %.not, label %12, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i16, ptr %.0912, align 2
   %11 = icmp ne i16 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i16
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ false, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i16
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i16 [ 0, %.lr.ph ], [ %12, %9 ]
   store i16 %14, ptr %.013, align 2
   %15 = getelementptr inbounds i8, ptr %.013, i64 2
   %16 = getelementptr inbounds i8, ptr %.0912, i64 2
@@ -2732,7 +2732,7 @@ define internal void @ompi_op_base_2buff_land_int16_t(ptr nocapture noundef read
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !112
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -2742,22 +2742,22 @@ define internal void @ompi_op_base_2buff_land_uint16_t(ptr nocapture noundef rea
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i16, ptr %.013, align 2
   %.not = icmp eq i16 %8, 0
-  br i1 %.not, label %12, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i16, ptr %.0912, align 2
   %11 = icmp ne i16 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i16
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ false, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i16
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i16 [ 0, %.lr.ph ], [ %12, %9 ]
   store i16 %14, ptr %.013, align 2
   %15 = getelementptr inbounds i8, ptr %.013, i64 2
   %16 = getelementptr inbounds i8, ptr %.0912, i64 2
@@ -2765,7 +2765,7 @@ define internal void @ompi_op_base_2buff_land_uint16_t(ptr nocapture noundef rea
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !113
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -2775,22 +2775,22 @@ define internal void @ompi_op_base_2buff_land_int32_t(ptr nocapture noundef read
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i32, ptr %.013, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %12, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i32, ptr %.0912, align 4
   %11 = icmp ne i32 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i32
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ false, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i32
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i32 [ 0, %.lr.ph ], [ %12, %9 ]
   store i32 %14, ptr %.013, align 4
   %15 = getelementptr inbounds i8, ptr %.013, i64 4
   %16 = getelementptr inbounds i8, ptr %.0912, i64 4
@@ -2798,7 +2798,7 @@ define internal void @ompi_op_base_2buff_land_int32_t(ptr nocapture noundef read
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !114
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -2808,22 +2808,22 @@ define internal void @ompi_op_base_2buff_land_uint32_t(ptr nocapture noundef rea
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i32, ptr %.013, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %12, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i32, ptr %.0912, align 4
   %11 = icmp ne i32 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i32
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ false, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i32
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i32 [ 0, %.lr.ph ], [ %12, %9 ]
   store i32 %14, ptr %.013, align 4
   %15 = getelementptr inbounds i8, ptr %.013, i64 4
   %16 = getelementptr inbounds i8, ptr %.0912, i64 4
@@ -2831,7 +2831,7 @@ define internal void @ompi_op_base_2buff_land_uint32_t(ptr nocapture noundef rea
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !115
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -2841,22 +2841,22 @@ define internal void @ompi_op_base_2buff_land_int64_t(ptr nocapture noundef read
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i64, ptr %.013, align 8
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %12, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr %.0912, align 8
   %11 = icmp ne i64 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i64
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ false, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i64
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i64 [ 0, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
   %15 = getelementptr inbounds i8, ptr %.013, i64 8
   %16 = getelementptr inbounds i8, ptr %.0912, i64 8
@@ -2864,7 +2864,7 @@ define internal void @ompi_op_base_2buff_land_int64_t(ptr nocapture noundef read
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -2874,22 +2874,22 @@ define internal void @ompi_op_base_2buff_land_uint64_t(ptr nocapture noundef rea
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i64, ptr %.013, align 8
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %12, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr %.0912, align 8
   %11 = icmp ne i64 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i64
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ false, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i64
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i64 [ 0, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
   %15 = getelementptr inbounds i8, ptr %.013, i64 8
   %16 = getelementptr inbounds i8, ptr %.0912, i64 8
@@ -2897,7 +2897,7 @@ define internal void @ompi_op_base_2buff_land_uint64_t(ptr nocapture noundef rea
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !117
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -2907,22 +2907,22 @@ define internal void @ompi_op_base_2buff_land_fortran_logical(ptr nocapture noun
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i32, ptr %.013, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %12, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i32, ptr %.0912, align 4
   %11 = icmp ne i32 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i32
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ false, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i32
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i32 [ 0, %.lr.ph ], [ %12, %9 ]
   store i32 %14, ptr %.013, align 4
   %15 = getelementptr inbounds i8, ptr %.013, i64 4
   %16 = getelementptr inbounds i8, ptr %.0912, i64 4
@@ -2930,7 +2930,7 @@ define internal void @ompi_op_base_2buff_land_fortran_logical(ptr nocapture noun
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !118
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -2940,21 +2940,21 @@ define internal void @ompi_op_base_2buff_land_bool(ptr nocapture noundef readonl
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i8, ptr %.013, align 1
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %12
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %.lr.ph
   %11 = load i8, ptr %.0912, align 1
-  br label %12
+  %12 = and i8 %11, 1
+  br label %13
 
-12:                                               ; preds = %10, %.lr.ph
-  %13 = phi i8 [ 0, %.lr.ph ], [ %11, %10 ]
-  %14 = and i8 %13, 1
+13:                                               ; preds = %10, %.lr.ph
+  %14 = phi i8 [ 0, %.lr.ph ], [ %12, %10 ]
   store i8 %14, ptr %.013, align 1
   %15 = getelementptr inbounds i8, ptr %.013, i64 1
   %16 = getelementptr inbounds i8, ptr %.0912, i64 1
@@ -2962,7 +2962,7 @@ define internal void @ompi_op_base_2buff_land_bool(ptr nocapture noundef readonl
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !119
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -2972,22 +2972,22 @@ define internal void @ompi_op_base_2buff_land_long(ptr nocapture noundef readonl
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i64, ptr %.013, align 8
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %12, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr %.0912, align 8
   %11 = icmp ne i64 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i64
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ false, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i64
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i64 [ 0, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
   %15 = getelementptr inbounds i8, ptr %.013, i64 8
   %16 = getelementptr inbounds i8, ptr %.0912, i64 8
@@ -2995,7 +2995,7 @@ define internal void @ompi_op_base_2buff_land_long(ptr nocapture noundef readonl
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !120
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3005,22 +3005,22 @@ define internal void @ompi_op_base_2buff_land_unsigned_long(ptr nocapture nounde
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i64, ptr %.013, align 8
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %12, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr %.0912, align 8
   %11 = icmp ne i64 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i64
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ false, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i64
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i64 [ 0, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
   %15 = getelementptr inbounds i8, ptr %.013, i64 8
   %16 = getelementptr inbounds i8, ptr %.0912, i64 8
@@ -3028,7 +3028,7 @@ define internal void @ompi_op_base_2buff_land_unsigned_long(ptr nocapture nounde
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !121
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3422,22 +3422,22 @@ define internal void @ompi_op_base_2buff_lor_int8_t(ptr nocapture noundef readon
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i8, ptr %.013, align 1
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %12
+  br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
   %10 = load i8, ptr %.0912, align 1
   %11 = icmp ne i8 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i8
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ true, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i8
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i8 [ 1, %.lr.ph ], [ %12, %9 ]
   store i8 %14, ptr %.013, align 1
   %15 = getelementptr inbounds i8, ptr %.013, i64 1
   %16 = getelementptr inbounds i8, ptr %.0912, i64 1
@@ -3445,7 +3445,7 @@ define internal void @ompi_op_base_2buff_lor_int8_t(ptr nocapture noundef readon
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !138
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3455,22 +3455,22 @@ define internal void @ompi_op_base_2buff_lor_uint8_t(ptr nocapture noundef reado
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i8, ptr %.013, align 1
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %12
+  br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
   %10 = load i8, ptr %.0912, align 1
   %11 = icmp ne i8 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i8
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ true, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i8
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i8 [ 1, %.lr.ph ], [ %12, %9 ]
   store i8 %14, ptr %.013, align 1
   %15 = getelementptr inbounds i8, ptr %.013, i64 1
   %16 = getelementptr inbounds i8, ptr %.0912, i64 1
@@ -3478,7 +3478,7 @@ define internal void @ompi_op_base_2buff_lor_uint8_t(ptr nocapture noundef reado
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !139
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3488,22 +3488,22 @@ define internal void @ompi_op_base_2buff_lor_int16_t(ptr nocapture noundef reado
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i16, ptr %.013, align 2
   %.not = icmp eq i16 %8, 0
-  br i1 %.not, label %9, label %12
+  br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
   %10 = load i16, ptr %.0912, align 2
   %11 = icmp ne i16 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i16
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ true, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i16
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i16 [ 1, %.lr.ph ], [ %12, %9 ]
   store i16 %14, ptr %.013, align 2
   %15 = getelementptr inbounds i8, ptr %.013, i64 2
   %16 = getelementptr inbounds i8, ptr %.0912, i64 2
@@ -3511,7 +3511,7 @@ define internal void @ompi_op_base_2buff_lor_int16_t(ptr nocapture noundef reado
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !140
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3521,22 +3521,22 @@ define internal void @ompi_op_base_2buff_lor_uint16_t(ptr nocapture noundef read
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i16, ptr %.013, align 2
   %.not = icmp eq i16 %8, 0
-  br i1 %.not, label %9, label %12
+  br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
   %10 = load i16, ptr %.0912, align 2
   %11 = icmp ne i16 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i16
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ true, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i16
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i16 [ 1, %.lr.ph ], [ %12, %9 ]
   store i16 %14, ptr %.013, align 2
   %15 = getelementptr inbounds i8, ptr %.013, i64 2
   %16 = getelementptr inbounds i8, ptr %.0912, i64 2
@@ -3544,7 +3544,7 @@ define internal void @ompi_op_base_2buff_lor_uint16_t(ptr nocapture noundef read
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !141
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3554,22 +3554,22 @@ define internal void @ompi_op_base_2buff_lor_int32_t(ptr nocapture noundef reado
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i32, ptr %.013, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %12
+  br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
   %10 = load i32, ptr %.0912, align 4
   %11 = icmp ne i32 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i32
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ true, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i32
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i32 [ 1, %.lr.ph ], [ %12, %9 ]
   store i32 %14, ptr %.013, align 4
   %15 = getelementptr inbounds i8, ptr %.013, i64 4
   %16 = getelementptr inbounds i8, ptr %.0912, i64 4
@@ -3577,7 +3577,7 @@ define internal void @ompi_op_base_2buff_lor_int32_t(ptr nocapture noundef reado
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !142
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3587,22 +3587,22 @@ define internal void @ompi_op_base_2buff_lor_uint32_t(ptr nocapture noundef read
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i32, ptr %.013, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %12
+  br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
   %10 = load i32, ptr %.0912, align 4
   %11 = icmp ne i32 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i32
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ true, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i32
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i32 [ 1, %.lr.ph ], [ %12, %9 ]
   store i32 %14, ptr %.013, align 4
   %15 = getelementptr inbounds i8, ptr %.013, i64 4
   %16 = getelementptr inbounds i8, ptr %.0912, i64 4
@@ -3610,7 +3610,7 @@ define internal void @ompi_op_base_2buff_lor_uint32_t(ptr nocapture noundef read
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !143
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3620,22 +3620,22 @@ define internal void @ompi_op_base_2buff_lor_int64_t(ptr nocapture noundef reado
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i64, ptr %.013, align 8
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %12
+  br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr %.0912, align 8
   %11 = icmp ne i64 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i64
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ true, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i64
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i64 [ 1, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
   %15 = getelementptr inbounds i8, ptr %.013, i64 8
   %16 = getelementptr inbounds i8, ptr %.0912, i64 8
@@ -3643,7 +3643,7 @@ define internal void @ompi_op_base_2buff_lor_int64_t(ptr nocapture noundef reado
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !144
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3653,22 +3653,22 @@ define internal void @ompi_op_base_2buff_lor_uint64_t(ptr nocapture noundef read
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i64, ptr %.013, align 8
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %12
+  br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr %.0912, align 8
   %11 = icmp ne i64 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i64
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ true, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i64
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i64 [ 1, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
   %15 = getelementptr inbounds i8, ptr %.013, i64 8
   %16 = getelementptr inbounds i8, ptr %.0912, i64 8
@@ -3676,7 +3676,7 @@ define internal void @ompi_op_base_2buff_lor_uint64_t(ptr nocapture noundef read
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !145
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3686,22 +3686,22 @@ define internal void @ompi_op_base_2buff_lor_fortran_logical(ptr nocapture nound
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i32, ptr %.013, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %12
+  br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
   %10 = load i32, ptr %.0912, align 4
   %11 = icmp ne i32 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i32
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ true, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i32
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i32 [ 1, %.lr.ph ], [ %12, %9 ]
   store i32 %14, ptr %.013, align 4
   %15 = getelementptr inbounds i8, ptr %.013, i64 4
   %16 = getelementptr inbounds i8, ptr %.0912, i64 4
@@ -3709,7 +3709,7 @@ define internal void @ompi_op_base_2buff_lor_fortran_logical(ptr nocapture nound
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !146
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3719,21 +3719,21 @@ define internal void @ompi_op_base_2buff_lor_bool(ptr nocapture noundef readonly
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i8, ptr %.013, align 1
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %12, label %10
+  br i1 %9, label %13, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load i8, ptr %.0912, align 1
-  br label %12
+  %12 = and i8 %11, 1
+  br label %13
 
-12:                                               ; preds = %10, %.lr.ph
-  %13 = phi i8 [ 1, %.lr.ph ], [ %11, %10 ]
-  %14 = and i8 %13, 1
+13:                                               ; preds = %10, %.lr.ph
+  %14 = phi i8 [ 1, %.lr.ph ], [ %12, %10 ]
   store i8 %14, ptr %.013, align 1
   %15 = getelementptr inbounds i8, ptr %.013, i64 1
   %16 = getelementptr inbounds i8, ptr %.0912, i64 1
@@ -3741,7 +3741,7 @@ define internal void @ompi_op_base_2buff_lor_bool(ptr nocapture noundef readonly
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !147
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3751,22 +3751,22 @@ define internal void @ompi_op_base_2buff_lor_long(ptr nocapture noundef readonly
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i64, ptr %.013, align 8
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %12
+  br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr %.0912, align 8
   %11 = icmp ne i64 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i64
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ true, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i64
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i64 [ 1, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
   %15 = getelementptr inbounds i8, ptr %.013, i64 8
   %16 = getelementptr inbounds i8, ptr %.0912, i64 8
@@ -3774,7 +3774,7 @@ define internal void @ompi_op_base_2buff_lor_long(ptr nocapture noundef readonly
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !148
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -3784,22 +3784,22 @@ define internal void @ompi_op_base_2buff_lor_unsigned_long(ptr nocapture noundef
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %12
-  %.013 = phi ptr [ %15, %12 ], [ %1, %5 ]
-  %.0912 = phi ptr [ %16, %12 ], [ %0, %5 ]
-  %.01011 = phi i32 [ %17, %12 ], [ %6, %5 ]
+.lr.ph:                                           ; preds = %5, %13
+  %.013 = phi ptr [ %15, %13 ], [ %1, %5 ]
+  %.0912 = phi ptr [ %16, %13 ], [ %0, %5 ]
+  %.01011 = phi i32 [ %17, %13 ], [ %6, %5 ]
   %8 = load i64, ptr %.013, align 8
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %12
+  br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %.lr.ph
   %10 = load i64, ptr %.0912, align 8
   %11 = icmp ne i64 %10, 0
-  br label %12
+  %12 = zext i1 %11 to i64
+  br label %13
 
-12:                                               ; preds = %9, %.lr.ph
-  %13 = phi i1 [ true, %.lr.ph ], [ %11, %9 ]
-  %14 = zext i1 %13 to i64
+13:                                               ; preds = %9, %.lr.ph
+  %14 = phi i64 [ 1, %.lr.ph ], [ %12, %9 ]
   store i64 %14, ptr %.013, align 8
   %15 = getelementptr inbounds i8, ptr %.013, i64 8
   %16 = getelementptr inbounds i8, ptr %.0912, i64 8
@@ -3807,7 +3807,7 @@ define internal void @ompi_op_base_2buff_lor_unsigned_long(ptr nocapture noundef
   %18 = icmp sgt i32 %.01011, 1
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !149
 
-._crit_edge:                                      ; preds = %12, %5
+._crit_edge:                                      ; preds = %13, %5
   ret void
 }
 
@@ -8604,23 +8604,23 @@ define internal void @ompi_op_base_3buff_land_int8_t(ptr noalias nocapture nound
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i8, ptr %.01215, align 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %13, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load i8, ptr %.01116, align 1
   %12 = icmp ne i8 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i8
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ false, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i8
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i8 [ 0, %.lr.ph ], [ %13, %10 ]
   store i8 %15, ptr %.017, align 1
   %16 = getelementptr inbounds i8, ptr %.017, i64 1
   %17 = getelementptr inbounds i8, ptr %.01215, i64 1
@@ -8629,7 +8629,7 @@ define internal void @ompi_op_base_3buff_land_int8_t(ptr noalias nocapture nound
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !316
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -8639,23 +8639,23 @@ define internal void @ompi_op_base_3buff_land_uint8_t(ptr noalias nocapture noun
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i8, ptr %.01215, align 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %13, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load i8, ptr %.01116, align 1
   %12 = icmp ne i8 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i8
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ false, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i8
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i8 [ 0, %.lr.ph ], [ %13, %10 ]
   store i8 %15, ptr %.017, align 1
   %16 = getelementptr inbounds i8, ptr %.017, i64 1
   %17 = getelementptr inbounds i8, ptr %.01215, i64 1
@@ -8664,7 +8664,7 @@ define internal void @ompi_op_base_3buff_land_uint8_t(ptr noalias nocapture noun
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !317
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -8674,23 +8674,23 @@ define internal void @ompi_op_base_3buff_land_int16_t(ptr noalias nocapture noun
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i16, ptr %.01215, align 2
   %.not = icmp eq i16 %9, 0
-  br i1 %.not, label %13, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load i16, ptr %.01116, align 2
   %12 = icmp ne i16 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i16
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ false, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i16
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i16 [ 0, %.lr.ph ], [ %13, %10 ]
   store i16 %15, ptr %.017, align 2
   %16 = getelementptr inbounds i8, ptr %.017, i64 2
   %17 = getelementptr inbounds i8, ptr %.01215, i64 2
@@ -8699,7 +8699,7 @@ define internal void @ompi_op_base_3buff_land_int16_t(ptr noalias nocapture noun
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !318
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -8709,23 +8709,23 @@ define internal void @ompi_op_base_3buff_land_uint16_t(ptr noalias nocapture nou
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i16, ptr %.01215, align 2
   %.not = icmp eq i16 %9, 0
-  br i1 %.not, label %13, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load i16, ptr %.01116, align 2
   %12 = icmp ne i16 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i16
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ false, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i16
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i16 [ 0, %.lr.ph ], [ %13, %10 ]
   store i16 %15, ptr %.017, align 2
   %16 = getelementptr inbounds i8, ptr %.017, i64 2
   %17 = getelementptr inbounds i8, ptr %.01215, i64 2
@@ -8734,7 +8734,7 @@ define internal void @ompi_op_base_3buff_land_uint16_t(ptr noalias nocapture nou
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !319
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -8744,23 +8744,23 @@ define internal void @ompi_op_base_3buff_land_int32_t(ptr noalias nocapture noun
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i32, ptr %.01215, align 4
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %13, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load i32, ptr %.01116, align 4
   %12 = icmp ne i32 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i32
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ false, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i32
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i32 [ 0, %.lr.ph ], [ %13, %10 ]
   store i32 %15, ptr %.017, align 4
   %16 = getelementptr inbounds i8, ptr %.017, i64 4
   %17 = getelementptr inbounds i8, ptr %.01215, i64 4
@@ -8769,7 +8769,7 @@ define internal void @ompi_op_base_3buff_land_int32_t(ptr noalias nocapture noun
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !320
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -8779,23 +8779,23 @@ define internal void @ompi_op_base_3buff_land_uint32_t(ptr noalias nocapture nou
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i32, ptr %.01215, align 4
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %13, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load i32, ptr %.01116, align 4
   %12 = icmp ne i32 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i32
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ false, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i32
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i32 [ 0, %.lr.ph ], [ %13, %10 ]
   store i32 %15, ptr %.017, align 4
   %16 = getelementptr inbounds i8, ptr %.017, i64 4
   %17 = getelementptr inbounds i8, ptr %.01215, i64 4
@@ -8804,7 +8804,7 @@ define internal void @ompi_op_base_3buff_land_uint32_t(ptr noalias nocapture nou
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !321
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -8814,23 +8814,23 @@ define internal void @ompi_op_base_3buff_land_int64_t(ptr noalias nocapture noun
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i64, ptr %.01215, align 8
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %13, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load i64, ptr %.01116, align 8
   %12 = icmp ne i64 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i64
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ false, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i64
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
   %16 = getelementptr inbounds i8, ptr %.017, i64 8
   %17 = getelementptr inbounds i8, ptr %.01215, i64 8
@@ -8839,7 +8839,7 @@ define internal void @ompi_op_base_3buff_land_int64_t(ptr noalias nocapture noun
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !322
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -8849,23 +8849,23 @@ define internal void @ompi_op_base_3buff_land_uint64_t(ptr noalias nocapture nou
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i64, ptr %.01215, align 8
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %13, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load i64, ptr %.01116, align 8
   %12 = icmp ne i64 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i64
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ false, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i64
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
   %16 = getelementptr inbounds i8, ptr %.017, i64 8
   %17 = getelementptr inbounds i8, ptr %.01215, i64 8
@@ -8874,7 +8874,7 @@ define internal void @ompi_op_base_3buff_land_uint64_t(ptr noalias nocapture nou
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !323
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -8884,23 +8884,23 @@ define internal void @ompi_op_base_3buff_land_fortran_logical(ptr noalias nocapt
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i32, ptr %.01215, align 4
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %13, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load i32, ptr %.01116, align 4
   %12 = icmp ne i32 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i32
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ false, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i32
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i32 [ 0, %.lr.ph ], [ %13, %10 ]
   store i32 %15, ptr %.017, align 4
   %16 = getelementptr inbounds i8, ptr %.017, i64 4
   %17 = getelementptr inbounds i8, ptr %.01215, i64 4
@@ -8909,7 +8909,7 @@ define internal void @ompi_op_base_3buff_land_fortran_logical(ptr noalias nocapt
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !324
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -8919,22 +8919,22 @@ define internal void @ompi_op_base_3buff_land_bool(ptr noalias nocapture noundef
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i8, ptr %.01215, align 1
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %13
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %.lr.ph
   %12 = load i8, ptr %.01116, align 1
-  br label %13
+  %13 = and i8 %12, 1
+  br label %14
 
-13:                                               ; preds = %11, %.lr.ph
-  %14 = phi i8 [ 0, %.lr.ph ], [ %12, %11 ]
-  %15 = and i8 %14, 1
+14:                                               ; preds = %11, %.lr.ph
+  %15 = phi i8 [ 0, %.lr.ph ], [ %13, %11 ]
   store i8 %15, ptr %.017, align 1
   %16 = getelementptr inbounds i8, ptr %.017, i64 1
   %17 = getelementptr inbounds i8, ptr %.01215, i64 1
@@ -8943,7 +8943,7 @@ define internal void @ompi_op_base_3buff_land_bool(ptr noalias nocapture noundef
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !325
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -8953,23 +8953,23 @@ define internal void @ompi_op_base_3buff_land_long(ptr noalias nocapture noundef
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i64, ptr %.01215, align 8
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %13, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load i64, ptr %.01116, align 8
   %12 = icmp ne i64 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i64
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ false, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i64
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
   %16 = getelementptr inbounds i8, ptr %.017, i64 8
   %17 = getelementptr inbounds i8, ptr %.01215, i64 8
@@ -8978,7 +8978,7 @@ define internal void @ompi_op_base_3buff_land_long(ptr noalias nocapture noundef
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !326
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -8988,23 +8988,23 @@ define internal void @ompi_op_base_3buff_land_unsigned_long(ptr noalias nocaptur
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i64, ptr %.01215, align 8
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %13, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load i64, ptr %.01116, align 8
   %12 = icmp ne i64 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i64
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ false, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i64
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
   %16 = getelementptr inbounds i8, ptr %.017, i64 8
   %17 = getelementptr inbounds i8, ptr %.01215, i64 8
@@ -9013,7 +9013,7 @@ define internal void @ompi_op_base_3buff_land_unsigned_long(ptr noalias nocaptur
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !327
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -9439,23 +9439,23 @@ define internal void @ompi_op_base_3buff_lor_int8_t(ptr noalias nocapture nounde
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i8, ptr %.01215, align 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %13
+  br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
   %11 = load i8, ptr %.01116, align 1
   %12 = icmp ne i8 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i8
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ true, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i8
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i8 [ 1, %.lr.ph ], [ %13, %10 ]
   store i8 %15, ptr %.017, align 1
   %16 = getelementptr inbounds i8, ptr %.017, i64 1
   %17 = getelementptr inbounds i8, ptr %.01215, i64 1
@@ -9464,7 +9464,7 @@ define internal void @ompi_op_base_3buff_lor_int8_t(ptr noalias nocapture nounde
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !344
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -9474,23 +9474,23 @@ define internal void @ompi_op_base_3buff_lor_uint8_t(ptr noalias nocapture nound
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i8, ptr %.01215, align 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %13
+  br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
   %11 = load i8, ptr %.01116, align 1
   %12 = icmp ne i8 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i8
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ true, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i8
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i8 [ 1, %.lr.ph ], [ %13, %10 ]
   store i8 %15, ptr %.017, align 1
   %16 = getelementptr inbounds i8, ptr %.017, i64 1
   %17 = getelementptr inbounds i8, ptr %.01215, i64 1
@@ -9499,7 +9499,7 @@ define internal void @ompi_op_base_3buff_lor_uint8_t(ptr noalias nocapture nound
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !345
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -9509,23 +9509,23 @@ define internal void @ompi_op_base_3buff_lor_int16_t(ptr noalias nocapture nound
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i16, ptr %.01215, align 2
   %.not = icmp eq i16 %9, 0
-  br i1 %.not, label %10, label %13
+  br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
   %11 = load i16, ptr %.01116, align 2
   %12 = icmp ne i16 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i16
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ true, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i16
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i16 [ 1, %.lr.ph ], [ %13, %10 ]
   store i16 %15, ptr %.017, align 2
   %16 = getelementptr inbounds i8, ptr %.017, i64 2
   %17 = getelementptr inbounds i8, ptr %.01215, i64 2
@@ -9534,7 +9534,7 @@ define internal void @ompi_op_base_3buff_lor_int16_t(ptr noalias nocapture nound
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !346
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -9544,23 +9544,23 @@ define internal void @ompi_op_base_3buff_lor_uint16_t(ptr noalias nocapture noun
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i16, ptr %.01215, align 2
   %.not = icmp eq i16 %9, 0
-  br i1 %.not, label %10, label %13
+  br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
   %11 = load i16, ptr %.01116, align 2
   %12 = icmp ne i16 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i16
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ true, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i16
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i16 [ 1, %.lr.ph ], [ %13, %10 ]
   store i16 %15, ptr %.017, align 2
   %16 = getelementptr inbounds i8, ptr %.017, i64 2
   %17 = getelementptr inbounds i8, ptr %.01215, i64 2
@@ -9569,7 +9569,7 @@ define internal void @ompi_op_base_3buff_lor_uint16_t(ptr noalias nocapture noun
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !347
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -9579,23 +9579,23 @@ define internal void @ompi_op_base_3buff_lor_int32_t(ptr noalias nocapture nound
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i32, ptr %.01215, align 4
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %13
+  br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
   %11 = load i32, ptr %.01116, align 4
   %12 = icmp ne i32 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i32
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ true, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i32
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i32 [ 1, %.lr.ph ], [ %13, %10 ]
   store i32 %15, ptr %.017, align 4
   %16 = getelementptr inbounds i8, ptr %.017, i64 4
   %17 = getelementptr inbounds i8, ptr %.01215, i64 4
@@ -9604,7 +9604,7 @@ define internal void @ompi_op_base_3buff_lor_int32_t(ptr noalias nocapture nound
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !348
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -9614,23 +9614,23 @@ define internal void @ompi_op_base_3buff_lor_uint32_t(ptr noalias nocapture noun
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i32, ptr %.01215, align 4
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %13
+  br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
   %11 = load i32, ptr %.01116, align 4
   %12 = icmp ne i32 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i32
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ true, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i32
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i32 [ 1, %.lr.ph ], [ %13, %10 ]
   store i32 %15, ptr %.017, align 4
   %16 = getelementptr inbounds i8, ptr %.017, i64 4
   %17 = getelementptr inbounds i8, ptr %.01215, i64 4
@@ -9639,7 +9639,7 @@ define internal void @ompi_op_base_3buff_lor_uint32_t(ptr noalias nocapture noun
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !349
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -9649,23 +9649,23 @@ define internal void @ompi_op_base_3buff_lor_int64_t(ptr noalias nocapture nound
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i64, ptr %.01215, align 8
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %10, label %13
+  br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
   %11 = load i64, ptr %.01116, align 8
   %12 = icmp ne i64 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i64
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ true, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i64
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i64 [ 1, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
   %16 = getelementptr inbounds i8, ptr %.017, i64 8
   %17 = getelementptr inbounds i8, ptr %.01215, i64 8
@@ -9674,7 +9674,7 @@ define internal void @ompi_op_base_3buff_lor_int64_t(ptr noalias nocapture nound
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !350
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -9684,23 +9684,23 @@ define internal void @ompi_op_base_3buff_lor_uint64_t(ptr noalias nocapture noun
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i64, ptr %.01215, align 8
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %10, label %13
+  br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
   %11 = load i64, ptr %.01116, align 8
   %12 = icmp ne i64 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i64
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ true, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i64
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i64 [ 1, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
   %16 = getelementptr inbounds i8, ptr %.017, i64 8
   %17 = getelementptr inbounds i8, ptr %.01215, i64 8
@@ -9709,7 +9709,7 @@ define internal void @ompi_op_base_3buff_lor_uint64_t(ptr noalias nocapture noun
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !351
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -9719,23 +9719,23 @@ define internal void @ompi_op_base_3buff_lor_fortran_logical(ptr noalias nocaptu
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i32, ptr %.01215, align 4
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %13
+  br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
   %11 = load i32, ptr %.01116, align 4
   %12 = icmp ne i32 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i32
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ true, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i32
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i32 [ 1, %.lr.ph ], [ %13, %10 ]
   store i32 %15, ptr %.017, align 4
   %16 = getelementptr inbounds i8, ptr %.017, i64 4
   %17 = getelementptr inbounds i8, ptr %.01215, i64 4
@@ -9744,7 +9744,7 @@ define internal void @ompi_op_base_3buff_lor_fortran_logical(ptr noalias nocaptu
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !352
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -9754,22 +9754,22 @@ define internal void @ompi_op_base_3buff_lor_bool(ptr noalias nocapture noundef 
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i8, ptr %.01215, align 1
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %13, label %11
+  br i1 %10, label %14, label %11
 
 11:                                               ; preds = %.lr.ph
   %12 = load i8, ptr %.01116, align 1
-  br label %13
+  %13 = and i8 %12, 1
+  br label %14
 
-13:                                               ; preds = %11, %.lr.ph
-  %14 = phi i8 [ 1, %.lr.ph ], [ %12, %11 ]
-  %15 = and i8 %14, 1
+14:                                               ; preds = %11, %.lr.ph
+  %15 = phi i8 [ 1, %.lr.ph ], [ %13, %11 ]
   store i8 %15, ptr %.017, align 1
   %16 = getelementptr inbounds i8, ptr %.017, i64 1
   %17 = getelementptr inbounds i8, ptr %.01215, i64 1
@@ -9778,7 +9778,7 @@ define internal void @ompi_op_base_3buff_lor_bool(ptr noalias nocapture noundef 
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !353
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -9788,23 +9788,23 @@ define internal void @ompi_op_base_3buff_lor_long(ptr noalias nocapture noundef 
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i64, ptr %.01215, align 8
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %10, label %13
+  br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
   %11 = load i64, ptr %.01116, align 8
   %12 = icmp ne i64 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i64
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ true, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i64
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i64 [ 1, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
   %16 = getelementptr inbounds i8, ptr %.017, i64 8
   %17 = getelementptr inbounds i8, ptr %.01215, i64 8
@@ -9813,7 +9813,7 @@ define internal void @ompi_op_base_3buff_lor_long(ptr noalias nocapture noundef 
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !354
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 
@@ -9823,23 +9823,23 @@ define internal void @ompi_op_base_3buff_lor_unsigned_long(ptr noalias nocapture
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %13
-  %.017 = phi ptr [ %16, %13 ], [ %2, %6 ]
-  %.01116 = phi ptr [ %18, %13 ], [ %1, %6 ]
-  %.01215 = phi ptr [ %17, %13 ], [ %0, %6 ]
-  %.01314 = phi i32 [ %19, %13 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %14
+  %.017 = phi ptr [ %16, %14 ], [ %2, %6 ]
+  %.01116 = phi ptr [ %18, %14 ], [ %1, %6 ]
+  %.01215 = phi ptr [ %17, %14 ], [ %0, %6 ]
+  %.01314 = phi i32 [ %19, %14 ], [ %7, %6 ]
   %9 = load i64, ptr %.01215, align 8
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %10, label %13
+  br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
   %11 = load i64, ptr %.01116, align 8
   %12 = icmp ne i64 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i64
+  br label %14
 
-13:                                               ; preds = %10, %.lr.ph
-  %14 = phi i1 [ true, %.lr.ph ], [ %12, %10 ]
-  %15 = zext i1 %14 to i64
+14:                                               ; preds = %10, %.lr.ph
+  %15 = phi i64 [ 1, %.lr.ph ], [ %13, %10 ]
   store i64 %15, ptr %.017, align 8
   %16 = getelementptr inbounds i8, ptr %.017, i64 8
   %17 = getelementptr inbounds i8, ptr %.01215, i64 8
@@ -9848,7 +9848,7 @@ define internal void @ompi_op_base_3buff_lor_unsigned_long(ptr noalias nocapture
   %20 = icmp sgt i32 %.01314, 1
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !355
 
-._crit_edge:                                      ; preds = %13, %6
+._crit_edge:                                      ; preds = %14, %6
   ret void
 }
 

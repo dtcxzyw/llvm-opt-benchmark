@@ -1946,16 +1946,19 @@ _ZN4Luau16TypePackIteratorppEv.exit65:            ; preds = %93, %.lr.ph226, %_Z
   %108 = icmp ne ptr %.sroa.8156.2, null
   %109 = icmp ne i64 %.sroa.18160.2, 0
   %.not3.i = or i1 %109, %108
-  br i1 %.not3.i, label %.lr.ph247, label %.critedge, !llvm.loop !16
+  br i1 %.not3.i, label %.lr.ph247, label %.critedge.loopexit, !llvm.loop !16
 
-.critedge:                                        ; preds = %_ZN4Luau16TypePackIteratorppEv.exit65, %_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE.exit119
-  %.sroa.0141.0.lcssa = phi ptr [ %.sroa.0141.6, %_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE.exit119 ], [ %.sroa.0141.3, %_ZN4Luau16TypePackIteratorppEv.exit65 ]
-  %.sroa.18.0.lcssa = phi i64 [ 0, %_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE.exit119 ], [ %.sroa.18.2, %_ZN4Luau16TypePackIteratorppEv.exit65 ]
-  %.sroa.8.0.lcssa = phi ptr [ %.sroa.8.4, %_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE.exit119 ], [ %.sroa.8.2, %_ZN4Luau16TypePackIteratorppEv.exit65 ]
-  %.sroa.0153.0.lcssa = phi ptr [ %.sroa.0153.6, %_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE.exit119 ], [ %.sroa.0153.3, %_ZN4Luau16TypePackIteratorppEv.exit65 ]
-  %110 = icmp ne ptr %.sroa.8.0.lcssa, null
-  %111 = icmp ne i64 %.sroa.18.0.lcssa, 0
-  %.not3.i67 = or i1 %111, %110
+.critedge.loopexit:                               ; preds = %_ZN4Luau16TypePackIteratorppEv.exit65
+  %110 = icmp ne i64 %.sroa.18.2, 0
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE.exit119
+  %.sroa.0141.0.lcssa = phi ptr [ %.sroa.0141.6, %_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE.exit119 ], [ %.sroa.0141.3, %.critedge.loopexit ]
+  %.sroa.18.0.lcssa = phi i1 [ false, %_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE.exit119 ], [ %110, %.critedge.loopexit ]
+  %.sroa.8.0.lcssa = phi ptr [ %.sroa.8.4, %_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE.exit119 ], [ %.sroa.8.2, %.critedge.loopexit ]
+  %.sroa.0153.0.lcssa = phi ptr [ %.sroa.0153.6, %_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE.exit119 ], [ %.sroa.0153.3, %.critedge.loopexit ]
+  %111 = icmp ne ptr %.sroa.8.0.lcssa, null
+  %.not3.i67 = or i1 %.sroa.18.0.lcssa, %111
   br i1 %.not3.i67, label %.critedge4, label %112
 
 112:                                              ; preds = %.critedge

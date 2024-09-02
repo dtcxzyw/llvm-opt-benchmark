@@ -4640,9 +4640,9 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit
-  %.017 = phi i32 [ %119, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit ], [ %4, %.lr.ph.split.preheader ]
-  %.01016 = phi ptr [ %123, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit ], [ %19, %.lr.ph.split.preheader ]
-  %.01115 = phi ptr [ %121, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit ], [ %24, %.lr.ph.split.preheader ]
+  %.017 = phi i32 [ %120, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit ], [ %4, %.lr.ph.split.preheader ]
+  %.01016 = phi ptr [ %124, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit ], [ %19, %.lr.ph.split.preheader ]
+  %.01115 = phi ptr [ %122, %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit ], [ %24, %.lr.ph.split.preheader ]
   %25 = load i32, ptr %10, align 8
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit
@@ -4689,8 +4689,8 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %55 = add nuw nsw i32 %.02526.us.us.i, 1
   %56 = getelementptr inbounds i8, ptr %.02328.us.us.i, i64 %38
   %57 = getelementptr inbounds i8, ptr %.02427.us.us.i, i64 2
-  %exitcond37.not.i = icmp eq i32 %55, %25
-  br i1 %exitcond37.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit, label %.lr.ph.split.us.split.us.i, !llvm.loop !62
+  %exitcond38.not.i = icmp eq i32 %55, %25
+  br i1 %exitcond38.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit, label %.lr.ph.split.us.split.us.i, !llvm.loop !62
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.split.i
   %.02328.us.i = phi ptr [ %75, %.lr.ph.split.us.split.i ], [ %.01115, %.lr.ph.split.us.i ]
@@ -4716,16 +4716,16 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %74 = add nuw nsw i32 %.02526.us.i, 1
   %75 = getelementptr inbounds i8, ptr %.02328.us.i, i64 %38
   %76 = getelementptr inbounds i8, ptr %.02427.us.i, i64 2
-  %exitcond36.not.i = icmp eq i32 %74, %25
-  br i1 %exitcond36.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit, label %.lr.ph.split.us.split.i, !llvm.loop !62
+  %exitcond37.not.i = icmp eq i32 %74, %25
+  br i1 %exitcond37.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit, label %.lr.ph.split.us.split.i, !llvm.loop !62
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   br i1 %36, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %.lr.ph.split.split.us.i
-  %.02328.us29.i = phi ptr [ %98, %.lr.ph.split.split.us.i ], [ %.01115, %.lr.ph.split.i ]
-  %.02427.us30.i = phi ptr [ %99, %.lr.ph.split.split.us.i ], [ %.01016, %.lr.ph.split.i ]
-  %.02526.us31.i = phi i32 [ %97, %.lr.ph.split.split.us.i ], [ 0, %.lr.ph.split.i ]
+  %.02328.us29.i = phi ptr [ %99, %.lr.ph.split.split.us.i ], [ %.01115, %.lr.ph.split.i ]
+  %.02427.us30.i = phi ptr [ %100, %.lr.ph.split.split.us.i ], [ %.01016, %.lr.ph.split.i ]
+  %.02526.us31.i = phi i32 [ %98, %.lr.ph.split.split.us.i ], [ 0, %.lr.ph.split.i ]
   %77 = getelementptr inbounds i8, ptr %.02328.us29.i, i64 %34
   %78 = load i8, ptr %77, align 1
   %79 = getelementptr inbounds i8, ptr %.02328.us29.i, i64 1
@@ -4734,81 +4734,81 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %82 = load i8, ptr %81, align 1
   %83 = getelementptr inbounds i8, ptr %.02328.us29.i, i64 3
   %84 = load i8, ptr %83, align 1
-  %85 = lshr i8 %82, 3
-  %86 = zext nneg i8 %85 to i16
-  %87 = and i8 %80, -8
-  %88 = zext i8 %87 to i16
-  %89 = shl nuw nsw i16 %88, 2
-  %90 = or disjoint i16 %89, %86
-  %91 = and i8 %78, -8
-  %92 = zext i8 %91 to i16
-  %93 = shl nuw nsw i16 %92, 7
-  %94 = or disjoint i16 %90, %93
-  %.not.us.i = icmp eq i8 %84, 0
-  %95 = select i1 %.not.us.i, i16 0, i16 -32768
-  %96 = or disjoint i16 %94, %95
-  store i16 %96, ptr %.02427.us30.i, align 2
-  %97 = add nuw nsw i32 %.02526.us31.i, 1
-  %98 = getelementptr inbounds i8, ptr %.02328.us29.i, i64 %38
-  %99 = getelementptr inbounds i8, ptr %.02427.us30.i, i64 2
-  %exitcond35.not.i = icmp eq i32 %97, %25
-  br i1 %exitcond35.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit, label %.lr.ph.split.split.us.i, !llvm.loop !62
+  %85 = icmp eq i8 %84, 0
+  %86 = select i1 %85, i16 0, i16 -32768
+  %87 = lshr i8 %82, 3
+  %88 = zext nneg i8 %87 to i16
+  %89 = and i8 %80, -8
+  %90 = zext i8 %89 to i16
+  %91 = shl nuw nsw i16 %90, 2
+  %92 = or disjoint i16 %91, %88
+  %93 = and i8 %78, -8
+  %94 = zext i8 %93 to i16
+  %95 = shl nuw nsw i16 %94, 7
+  %96 = or disjoint i16 %92, %95
+  %97 = or disjoint i16 %96, %86
+  store i16 %97, ptr %.02427.us30.i, align 2
+  %98 = add nuw nsw i32 %.02526.us31.i, 1
+  %99 = getelementptr inbounds i8, ptr %.02328.us29.i, i64 %38
+  %100 = getelementptr inbounds i8, ptr %.02427.us30.i, i64 2
+  %exitcond36.not.i = icmp eq i32 %98, %25
+  br i1 %exitcond36.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit, label %.lr.ph.split.split.us.i, !llvm.loop !62
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %.lr.ph.split.split.i
-  %.02328.i = phi ptr [ %117, %.lr.ph.split.split.i ], [ %.01115, %.lr.ph.split.i ]
-  %.02427.i = phi ptr [ %118, %.lr.ph.split.split.i ], [ %.01016, %.lr.ph.split.i ]
-  %.02526.i = phi i32 [ %116, %.lr.ph.split.split.i ], [ 0, %.lr.ph.split.i ]
-  %100 = getelementptr inbounds i8, ptr %.02328.i, i64 %34
-  %101 = load i8, ptr %100, align 1
-  %102 = getelementptr inbounds i8, ptr %.02328.i, i64 1
-  %103 = load i8, ptr %102, align 1
-  %104 = getelementptr inbounds i8, ptr %.02328.i, i64 %35
-  %105 = load i8, ptr %104, align 1
-  %106 = lshr i8 %105, 3
-  %107 = zext nneg i8 %106 to i16
-  %108 = and i8 %103, -8
-  %109 = zext i8 %108 to i16
-  %110 = shl nuw nsw i16 %109, 2
-  %111 = or disjoint i16 %110, %107
-  %112 = and i8 %101, -8
-  %113 = zext i8 %112 to i16
-  %114 = shl nuw nsw i16 %113, 7
-  %115 = or disjoint i16 %111, %114
-  store i16 %115, ptr %.02427.i, align 2
-  %116 = add nuw nsw i32 %.02526.i, 1
-  %117 = getelementptr inbounds i8, ptr %.02328.i, i64 %38
-  %118 = getelementptr inbounds i8, ptr %.02427.i, i64 2
-  %exitcond.not.i = icmp eq i32 %116, %25
+  %.02328.i = phi ptr [ %118, %.lr.ph.split.split.i ], [ %.01115, %.lr.ph.split.i ]
+  %.02427.i = phi ptr [ %119, %.lr.ph.split.split.i ], [ %.01016, %.lr.ph.split.i ]
+  %.02526.i = phi i32 [ %117, %.lr.ph.split.split.i ], [ 0, %.lr.ph.split.i ]
+  %101 = getelementptr inbounds i8, ptr %.02328.i, i64 %34
+  %102 = load i8, ptr %101, align 1
+  %103 = getelementptr inbounds i8, ptr %.02328.i, i64 1
+  %104 = load i8, ptr %103, align 1
+  %105 = getelementptr inbounds i8, ptr %.02328.i, i64 %35
+  %106 = load i8, ptr %105, align 1
+  %107 = lshr i8 %106, 3
+  %108 = zext nneg i8 %107 to i16
+  %109 = and i8 %104, -8
+  %110 = zext i8 %109 to i16
+  %111 = shl nuw nsw i16 %110, 2
+  %112 = or disjoint i16 %111, %108
+  %113 = and i8 %102, -8
+  %114 = zext i8 %113 to i16
+  %115 = shl nuw nsw i16 %114, 7
+  %116 = or disjoint i16 %112, %115
+  store i16 %116, ptr %.02427.i, align 2
+  %117 = add nuw nsw i32 %.02526.i, 1
+  %118 = getelementptr inbounds i8, ptr %.02328.i, i64 %38
+  %119 = getelementptr inbounds i8, ptr %.02427.i, i64 2
+  %exitcond.not.i = icmp eq i32 %117, %25
   br i1 %exitcond.not.i, label %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit, label %.lr.ph.split.split.i, !llvm.loop !62
 
 _ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit: ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split
-  %119 = add nsw i32 %.017, 1
-  %120 = load i64, ptr %5, align 8
-  %121 = getelementptr inbounds i8, ptr %.01115, i64 %120
-  %122 = load i64, ptr %6, align 8
-  %123 = getelementptr inbounds i8, ptr %.01016, i64 %122
-  %124 = load i32, ptr %7, align 4
-  %125 = icmp slt i32 %119, %124
-  br i1 %125, label %.lr.ph.split, label %._crit_edge, !llvm.loop !63
+  %120 = add nsw i32 %.017, 1
+  %121 = load i64, ptr %5, align 8
+  %122 = getelementptr inbounds i8, ptr %.01115, i64 %121
+  %123 = load i64, ptr %6, align 8
+  %124 = getelementptr inbounds i8, ptr %.01016, i64 %123
+  %125 = load i32, ptr %7, align 4
+  %126 = icmp slt i32 %120, %125
+  br i1 %126, label %.lr.ph.split, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %_ZNK2cv3hal12cpu_baseline12_GLOBAL__N_110RGB2RGB5x5clEPKhPhi.exit, %.lr.ph, %2
-  %126 = getelementptr inbounds i8, ptr %3, i64 8
-  %127 = load i32, ptr %126, align 8
-  %.not.i = icmp eq i32 %127, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %128
+  %127 = getelementptr inbounds i8, ptr %3, i64 8
+  %128 = load i32, ptr %127, align 8
+  %.not.i = icmp eq i32 %128, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %129
 
-128:                                              ; preds = %._crit_edge
+129:                                              ; preds = %._crit_edge
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %3)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %129
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %130
 
-129:                                              ; preds = %128
-  %130 = landingpad { ptr, i32 }
+130:                                              ; preds = %129
+  %131 = landingpad { ptr, i32 }
           catch ptr null
-  %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #14
+  %132 = extractvalue { ptr, i32 } %131, 0
+  call void @__clang_call_terminate(ptr %132) #14
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %128
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %129
   ret void
 }
 

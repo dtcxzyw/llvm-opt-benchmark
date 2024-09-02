@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.archive_string = type { ptr, i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @__archive_cmdline_parse(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @__archive_cmdline_parse(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.archive_string, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)

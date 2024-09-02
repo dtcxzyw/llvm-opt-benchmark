@@ -2985,7 +2985,7 @@ if.then:                                          ; preds = %_ZNSt10unique_ptrIN
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.0144 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %i.0144 = phi i64 [ %i.2, %for.inc ], [ 0, %for.cond.preheader ]
   %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %expressions, i64 noundef %i.0144)
   call void @_ZN6duckdb20StatisticsPropagator19PropagateExpressionERNS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEE(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.38") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %call11)
   %5 = load ptr, ptr %agg.tmp.ensured, align 8, !tbaa !3
@@ -3088,7 +3088,6 @@ _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i.i.i: ; preds = %
 
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i.i.i.i.i, %if.end.i.i
   store ptr null, ptr %incdec.ptr.i.i, align 8, !tbaa !3
-  %dec = add i64 %i.0144, -1
   %15 = load ptr, ptr %expressions, align 8, !tbaa !3
   %16 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
   %cmp.i.i = icmp eq ptr %15, %16
@@ -3212,18 +3211,18 @@ if.else61:                                        ; preds = %if.else61.critedge,
   call void @_ZN6duckdb20StatisticsPropagator22UpdateFilterStatisticsERNS_10ExpressionE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %call62)
   %.pre = load ptr, ptr %_M_finish.i, align 8, !tbaa !7
   %.pre145 = load ptr, ptr %expressions, align 8, !tbaa !9
+  %26 = add nuw i64 %i.0144, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else61, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
-  %26 = phi ptr [ %15, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %.pre145, %if.else61 ]
-  %27 = phi ptr [ %16, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %.pre, %if.else61 ]
-  %i.2 = phi i64 [ %dec, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %i.0144, %if.else61 ]
-  %inc = add i64 %i.2, 1
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %26 to i64
+  %27 = phi ptr [ %15, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %.pre145, %if.else61 ]
+  %28 = phi ptr [ %16, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %.pre, %if.else61 ]
+  %i.2 = phi i64 [ %i.0144, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %26, %if.else61 ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %28 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp9 = icmp ult i64 %inc, %sub.ptr.div.i
+  %cmp9 = icmp ult i64 %i.2, %sub.ptr.div.i
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !142
 
 ehcleanup65:                                      ; preds = %ehcleanup56, %lpad
@@ -3245,8 +3244,8 @@ cleanup66:                                        ; preds = %cleanup.done52, %cl
   br label %return
 
 for.end:                                          ; preds = %for.inc, %_ZNKSt14default_deleteIN6duckdb15LogicalOperatorEEclEPS1_.exit.i.i.i.i.i, %if.then28, %for.cond.preheader
-  %28 = load i64, ptr %node_stats, align 8, !tbaa !3
-  store i64 %28, ptr %agg.result, align 8, !tbaa !3
+  %29 = load i64, ptr %node_stats, align 8, !tbaa !3
+  store i64 %29, ptr %agg.result, align 8, !tbaa !3
   store ptr null, ptr %node_stats, align 8, !tbaa !3
   br label %return
 

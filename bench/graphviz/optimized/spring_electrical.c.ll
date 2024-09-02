@@ -224,43 +224,43 @@ define double @average_edge_length(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %or.cond, label %.lr.ph.split.us.preheader, label %._crit_edge
 
 .lr.ph.split.us.preheader:                        ; preds = %.preheader45
-  %.pre76 = load i32, ptr %5, align 4
   %15 = zext nneg i32 %1 to i64
+  %.pre75 = load i32, ptr %5, align 4
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.loopexit.us
   %16 = phi i32 [ %8, %.lr.ph.split.us.preheader ], [ %21, %.loopexit.us ]
-  %17 = phi i32 [ %.pre76, %.lr.ph.split.us.preheader ], [ %22, %.loopexit.us ]
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next74, %.loopexit.us ]
+  %17 = phi i32 [ %.pre75, %.lr.ph.split.us.preheader ], [ %22, %.loopexit.us ]
+  %indvars.iv72 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next73, %.loopexit.us ]
   %.04154.us = phi double [ 0.000000e+00, %.lr.ph.split.us.preheader ], [ %.1.lcssa.us, %.loopexit.us ]
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %18 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next74
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %18 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next73
   %19 = load i32, ptr %18, align 4
   %20 = icmp slt i32 %17, %19
   br i1 %20, label %.preheader.lr.ph.us, label %.loopexit.us
 
 .loopexit.us.loopexit:                            ; preds = %._crit_edge.us.us
-  %.pre77 = load i32, ptr %0, align 8
+  %.pre76 = load i32, ptr %0, align 8
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.loopexit.us.loopexit, %.lr.ph.split.us
-  %21 = phi i32 [ %16, %.lr.ph.split.us ], [ %.pre77, %.loopexit.us.loopexit ]
+  %21 = phi i32 [ %16, %.lr.ph.split.us ], [ %.pre76, %.loopexit.us.loopexit ]
   %22 = phi i32 [ %19, %.lr.ph.split.us ], [ %39, %.loopexit.us.loopexit ]
   %.1.lcssa.us = phi double [ %.04154.us, %.lr.ph.split.us ], [ %38, %.loopexit.us.loopexit ]
   %23 = sext i32 %21 to i64
-  %24 = icmp slt i64 %indvars.iv.next74, %23
+  %24 = icmp slt i64 %indvars.iv.next73, %23
   br i1 %24, label %.lr.ph.split.us, label %._crit_edge.loopexit
 
 .preheader.lr.ph.us:                              ; preds = %.lr.ph.split.us
-  %25 = mul nuw nsw i64 %indvars.iv73, %15
+  %25 = mul nuw nsw i64 %indvars.iv72, %15
   %26 = sext i32 %17 to i64
   %invariant.gep = getelementptr inbounds double, ptr %2, i64 %25
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %._crit_edge.us.us, %.preheader.lr.ph.us
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %._crit_edge.us.us ], [ %26, %.preheader.lr.ph.us ]
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %._crit_edge.us.us ], [ %26, %.preheader.lr.ph.us ]
   %.149.us.us = phi double [ %38, %._crit_edge.us.us ], [ %.04154.us, %.preheader.lr.ph.us ]
-  %27 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv70
+  %27 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv69
   %28 = load i32, ptr %27, align 4
   %29 = mul nsw i32 %28, %1
   %30 = sext i32 %29 to i64
@@ -269,32 +269,32 @@ define double @average_edge_length(ptr nocapture noundef readonly %0, i32 nounde
   br label %33
 
 33:                                               ; preds = %33, %.preheader.us.us
-  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %33 ], [ 0, %.preheader.us.us ]
+  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %33 ], [ 0, %.preheader.us.us ]
   %.04247.us.us = phi double [ %36, %33 ], [ 0.000000e+00, %.preheader.us.us ]
-  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv65
+  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv64
   %34 = load double, ptr %gep, align 8
   %35 = fsub double %34, %32
   %36 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %.04247.us.us)
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %15
-  br i1 %exitcond69.not, label %._crit_edge.us.us, label %33
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %15
+  br i1 %exitcond68.not, label %._crit_edge.us.us, label %33
 
 ._crit_edge.us.us:                                ; preds = %33
   %37 = tail call double @sqrt(double noundef %36) #25
   %38 = fadd double %.149.us.us, %37
-  %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
+  %indvars.iv.next70 = add nsw i64 %indvars.iv69, 1
   %39 = load i32, ptr %18, align 4
   %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next71, %40
+  %41 = icmp slt i64 %indvars.iv.next70, %40
   br i1 %41, label %.preheader.us.us, label %.loopexit.us.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit.us
   %.phi.trans.insert = getelementptr inbounds i32, ptr %5, i64 %23
-  %.pre78 = load i32, ptr %.phi.trans.insert, align 4
+  %.pre77 = load i32, ptr %.phi.trans.insert, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader45
-  %42 = phi i32 [ %.pre78, %._crit_edge.loopexit ], [ %11, %.preheader45 ]
+  %42 = phi i32 [ %.pre77, %._crit_edge.loopexit ], [ %11, %.preheader45 ]
   %.041.lcssa = phi double [ %.1.lcssa.us, %._crit_edge.loopexit ], [ 0.000000e+00, %.preheader45 ]
   %43 = sitofp i32 %42 to double
   %44 = fdiv double %.041.lcssa, %43
@@ -772,46 +772,46 @@ define void @spring_electrical_embedding_fast(i32 noundef %0, ptr noundef %1, pt
 
 .preheader45.i:                                   ; preds = %49
   %57 = icmp sgt i32 %52, 0
-  br i1 %57, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %57, label %.lr.ph.split.us.preheader.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader45.i
-  %.pre76.i = load i32, ptr %50, align 4
+.lr.ph.split.us.preheader.i:                      ; preds = %.preheader45.i
   %58 = zext nneg i32 %0 to i64
+  %.pre75.i = load i32, ptr %50, align 4
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %.loopexit.us.i, %.lr.ph.i
-  %59 = phi i32 [ %52, %.lr.ph.i ], [ %64, %.loopexit.us.i ]
-  %60 = phi i32 [ %.pre76.i, %.lr.ph.i ], [ %65, %.loopexit.us.i ]
-  %indvars.iv73.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next74.i, %.loopexit.us.i ]
-  %.04154.us.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.lcssa.us.i, %.loopexit.us.i ]
-  %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
-  %61 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv.next74.i
+.lr.ph.split.us.i:                                ; preds = %.loopexit.us.i, %.lr.ph.split.us.preheader.i
+  %59 = phi i32 [ %52, %.lr.ph.split.us.preheader.i ], [ %64, %.loopexit.us.i ]
+  %60 = phi i32 [ %.pre75.i, %.lr.ph.split.us.preheader.i ], [ %65, %.loopexit.us.i ]
+  %indvars.iv72.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next73.i, %.loopexit.us.i ]
+  %.04154.us.i = phi double [ 0.000000e+00, %.lr.ph.split.us.preheader.i ], [ %.1.lcssa.us.i, %.loopexit.us.i ]
+  %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
+  %61 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv.next73.i
   %62 = load i32, ptr %61, align 4
   %63 = icmp slt i32 %60, %62
   br i1 %63, label %.preheader.lr.ph.us.i, label %.loopexit.us.i
 
 .loopexit.us.loopexit.i:                          ; preds = %._crit_edge.us.us.i
-  %.pre77.i = load i32, ptr %36, align 8
+  %.pre76.i = load i32, ptr %36, align 8
   br label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %.loopexit.us.loopexit.i, %.lr.ph.split.us.i
-  %64 = phi i32 [ %59, %.lr.ph.split.us.i ], [ %.pre77.i, %.loopexit.us.loopexit.i ]
+  %64 = phi i32 [ %59, %.lr.ph.split.us.i ], [ %.pre76.i, %.loopexit.us.loopexit.i ]
   %65 = phi i32 [ %62, %.lr.ph.split.us.i ], [ %82, %.loopexit.us.loopexit.i ]
   %.1.lcssa.us.i = phi double [ %.04154.us.i, %.lr.ph.split.us.i ], [ %81, %.loopexit.us.loopexit.i ]
   %66 = sext i32 %64 to i64
-  %67 = icmp slt i64 %indvars.iv.next74.i, %66
+  %67 = icmp slt i64 %indvars.iv.next73.i, %66
   br i1 %67, label %.lr.ph.split.us.i, label %._crit_edge.loopexit.i
 
 .preheader.lr.ph.us.i:                            ; preds = %.lr.ph.split.us.i
-  %68 = mul nuw nsw i64 %indvars.iv73.i, %58
+  %68 = mul nuw nsw i64 %indvars.iv72.i, %58
   %69 = sext i32 %60 to i64
   %invariant.gep.i = getelementptr inbounds double, ptr %3, i64 %68
   br label %.preheader.us.us.i
 
 .preheader.us.us.i:                               ; preds = %._crit_edge.us.us.i, %.preheader.lr.ph.us.i
-  %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %._crit_edge.us.us.i ], [ %69, %.preheader.lr.ph.us.i ]
+  %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %._crit_edge.us.us.i ], [ %69, %.preheader.lr.ph.us.i ]
   %.149.us.us.i = phi double [ %81, %._crit_edge.us.us.i ], [ %.04154.us.i, %.preheader.lr.ph.us.i ]
-  %70 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv70.i
+  %70 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv69.i
   %71 = load i32, ptr %70, align 4
   %72 = mul nsw i32 %71, %0
   %73 = sext i32 %72 to i64
@@ -820,32 +820,32 @@ define void @spring_electrical_embedding_fast(i32 noundef %0, ptr noundef %1, pt
   br label %76
 
 76:                                               ; preds = %76, %.preheader.us.us.i
-  %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %76 ], [ 0, %.preheader.us.us.i ]
+  %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %76 ], [ 0, %.preheader.us.us.i ]
   %.04247.us.us.i = phi double [ %79, %76 ], [ 0.000000e+00, %.preheader.us.us.i ]
-  %gep.i = getelementptr inbounds double, ptr %invariant.gep.i, i64 %indvars.iv65.i
+  %gep.i = getelementptr inbounds double, ptr %invariant.gep.i, i64 %indvars.iv64.i
   %77 = load double, ptr %gep.i, align 8
   %78 = fsub double %77, %75
   %79 = tail call double @llvm.fmuladd.f64(double %78, double %78, double %.04247.us.us.i)
-  %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
-  %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %58
-  br i1 %exitcond69.not.i, label %._crit_edge.us.us.i, label %76
+  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
+  %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %58
+  br i1 %exitcond68.not.i, label %._crit_edge.us.us.i, label %76
 
 ._crit_edge.us.us.i:                              ; preds = %76
   %80 = tail call double @sqrt(double noundef %79) #25
   %81 = fadd double %.149.us.us.i, %80
-  %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, 1
+  %indvars.iv.next70.i = add nsw i64 %indvars.iv69.i, 1
   %82 = load i32, ptr %61, align 4
   %83 = sext i32 %82 to i64
-  %84 = icmp slt i64 %indvars.iv.next71.i, %83
+  %84 = icmp slt i64 %indvars.iv.next70.i, %83
   br i1 %84, label %.preheader.us.us.i, label %.loopexit.us.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.loopexit.us.i
   %.phi.trans.insert.i = getelementptr inbounds i32, ptr %50, i64 %66
-  %.pre78.i = load i32, ptr %.phi.trans.insert.i, align 4
+  %.pre77.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader45.i
-  %85 = phi i32 [ %.pre78.i, %._crit_edge.loopexit.i ], [ %55, %.preheader45.i ]
+  %85 = phi i32 [ %.pre77.i, %._crit_edge.loopexit.i ], [ %55, %.preheader45.i ]
   %.041.lcssa.i = phi double [ %.1.lcssa.us.i, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.preheader45.i ]
   %86 = sitofp i32 %85 to double
   %87 = fdiv double %.041.lcssa.i, %86
@@ -1684,46 +1684,46 @@ define void @spring_electrical_embedding(i32 noundef %0, ptr noundef %1, ptr noc
 
 .preheader45.i:                                   ; preds = %64
   %72 = icmp sgt i32 %67, 0
-  br i1 %72, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %72, label %.lr.ph.split.us.preheader.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader45.i
-  %.pre76.i = load i32, ptr %65, align 4
+.lr.ph.split.us.preheader.i:                      ; preds = %.preheader45.i
   %73 = zext nneg i32 %0 to i64
+  %.pre75.i = load i32, ptr %65, align 4
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %.loopexit.us.i, %.lr.ph.i
-  %74 = phi i32 [ %67, %.lr.ph.i ], [ %79, %.loopexit.us.i ]
-  %75 = phi i32 [ %.pre76.i, %.lr.ph.i ], [ %80, %.loopexit.us.i ]
-  %indvars.iv73.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next74.i, %.loopexit.us.i ]
-  %.04154.us.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.lcssa.us.i, %.loopexit.us.i ]
-  %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
-  %76 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv.next74.i
+.lr.ph.split.us.i:                                ; preds = %.loopexit.us.i, %.lr.ph.split.us.preheader.i
+  %74 = phi i32 [ %67, %.lr.ph.split.us.preheader.i ], [ %79, %.loopexit.us.i ]
+  %75 = phi i32 [ %.pre75.i, %.lr.ph.split.us.preheader.i ], [ %80, %.loopexit.us.i ]
+  %indvars.iv72.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next73.i, %.loopexit.us.i ]
+  %.04154.us.i = phi double [ 0.000000e+00, %.lr.ph.split.us.preheader.i ], [ %.1.lcssa.us.i, %.loopexit.us.i ]
+  %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
+  %76 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv.next73.i
   %77 = load i32, ptr %76, align 4
   %78 = icmp slt i32 %75, %77
   br i1 %78, label %.preheader.lr.ph.us.i, label %.loopexit.us.i
 
 .loopexit.us.loopexit.i:                          ; preds = %._crit_edge.us.us.i
-  %.pre77.i = load i32, ptr %51, align 8
+  %.pre76.i = load i32, ptr %51, align 8
   br label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %.loopexit.us.loopexit.i, %.lr.ph.split.us.i
-  %79 = phi i32 [ %74, %.lr.ph.split.us.i ], [ %.pre77.i, %.loopexit.us.loopexit.i ]
+  %79 = phi i32 [ %74, %.lr.ph.split.us.i ], [ %.pre76.i, %.loopexit.us.loopexit.i ]
   %80 = phi i32 [ %77, %.lr.ph.split.us.i ], [ %97, %.loopexit.us.loopexit.i ]
   %.1.lcssa.us.i = phi double [ %.04154.us.i, %.lr.ph.split.us.i ], [ %96, %.loopexit.us.loopexit.i ]
   %81 = sext i32 %79 to i64
-  %82 = icmp slt i64 %indvars.iv.next74.i, %81
+  %82 = icmp slt i64 %indvars.iv.next73.i, %81
   br i1 %82, label %.lr.ph.split.us.i, label %._crit_edge.loopexit.i
 
 .preheader.lr.ph.us.i:                            ; preds = %.lr.ph.split.us.i
-  %83 = mul nuw nsw i64 %indvars.iv73.i, %73
+  %83 = mul nuw nsw i64 %indvars.iv72.i, %73
   %84 = sext i32 %75 to i64
   %invariant.gep.i = getelementptr inbounds double, ptr %3, i64 %83
   br label %.preheader.us.us.i
 
 .preheader.us.us.i:                               ; preds = %._crit_edge.us.us.i, %.preheader.lr.ph.us.i
-  %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %._crit_edge.us.us.i ], [ %84, %.preheader.lr.ph.us.i ]
+  %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %._crit_edge.us.us.i ], [ %84, %.preheader.lr.ph.us.i ]
   %.149.us.us.i = phi double [ %96, %._crit_edge.us.us.i ], [ %.04154.us.i, %.preheader.lr.ph.us.i ]
-  %85 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv70.i
+  %85 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv69.i
   %86 = load i32, ptr %85, align 4
   %87 = mul nsw i32 %86, %0
   %88 = sext i32 %87 to i64
@@ -1732,32 +1732,32 @@ define void @spring_electrical_embedding(i32 noundef %0, ptr noundef %1, ptr noc
   br label %91
 
 91:                                               ; preds = %91, %.preheader.us.us.i
-  %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %91 ], [ 0, %.preheader.us.us.i ]
+  %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %91 ], [ 0, %.preheader.us.us.i ]
   %.04247.us.us.i = phi double [ %94, %91 ], [ 0.000000e+00, %.preheader.us.us.i ]
-  %gep.i = getelementptr inbounds double, ptr %invariant.gep.i, i64 %indvars.iv65.i
+  %gep.i = getelementptr inbounds double, ptr %invariant.gep.i, i64 %indvars.iv64.i
   %92 = load double, ptr %gep.i, align 8
   %93 = fsub double %92, %90
   %94 = tail call double @llvm.fmuladd.f64(double %93, double %93, double %.04247.us.us.i)
-  %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
-  %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %73
-  br i1 %exitcond69.not.i, label %._crit_edge.us.us.i, label %91
+  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
+  %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %73
+  br i1 %exitcond68.not.i, label %._crit_edge.us.us.i, label %91
 
 ._crit_edge.us.us.i:                              ; preds = %91
   %95 = tail call double @sqrt(double noundef %94) #25
   %96 = fadd double %.149.us.us.i, %95
-  %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, 1
+  %indvars.iv.next70.i = add nsw i64 %indvars.iv69.i, 1
   %97 = load i32, ptr %76, align 4
   %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv.next71.i, %98
+  %99 = icmp slt i64 %indvars.iv.next70.i, %98
   br i1 %99, label %.preheader.us.us.i, label %.loopexit.us.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.loopexit.us.i
   %.phi.trans.insert.i = getelementptr inbounds i32, ptr %65, i64 %81
-  %.pre78.i = load i32, ptr %.phi.trans.insert.i, align 4
+  %.pre77.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader45.i
-  %100 = phi i32 [ %.pre78.i, %._crit_edge.loopexit.i ], [ %70, %.preheader45.i ]
+  %100 = phi i32 [ %.pre77.i, %._crit_edge.loopexit.i ], [ %70, %.preheader45.i ]
   %.041.lcssa.i = phi double [ %.1.lcssa.us.i, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.preheader45.i ]
   %101 = sitofp i32 %100 to double
   %102 = fdiv double %.041.lcssa.i, %101
@@ -2357,46 +2357,46 @@ define void @spring_electrical_spring_embedding(i32 noundef %0, ptr noundef %1, 
 
 .preheader45.i:                                   ; preds = %67
   %75 = icmp sgt i32 %70, 0
-  br i1 %75, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %75, label %.lr.ph.split.us.preheader.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader45.i
-  %.pre76.i = load i32, ptr %68, align 4
+.lr.ph.split.us.preheader.i:                      ; preds = %.preheader45.i
   %76 = zext nneg i32 %0 to i64
+  %.pre75.i = load i32, ptr %68, align 4
   br label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %.loopexit.us.i, %.lr.ph.i
-  %77 = phi i32 [ %70, %.lr.ph.i ], [ %82, %.loopexit.us.i ]
-  %78 = phi i32 [ %.pre76.i, %.lr.ph.i ], [ %83, %.loopexit.us.i ]
-  %indvars.iv73.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next74.i, %.loopexit.us.i ]
-  %.04154.us.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.lcssa.us.i, %.loopexit.us.i ]
-  %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
-  %79 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv.next74.i
+.lr.ph.split.us.i:                                ; preds = %.loopexit.us.i, %.lr.ph.split.us.preheader.i
+  %77 = phi i32 [ %70, %.lr.ph.split.us.preheader.i ], [ %82, %.loopexit.us.i ]
+  %78 = phi i32 [ %.pre75.i, %.lr.ph.split.us.preheader.i ], [ %83, %.loopexit.us.i ]
+  %indvars.iv72.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next73.i, %.loopexit.us.i ]
+  %.04154.us.i = phi double [ 0.000000e+00, %.lr.ph.split.us.preheader.i ], [ %.1.lcssa.us.i, %.loopexit.us.i ]
+  %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
+  %79 = getelementptr inbounds i32, ptr %68, i64 %indvars.iv.next73.i
   %80 = load i32, ptr %79, align 4
   %81 = icmp slt i32 %78, %80
   br i1 %81, label %.preheader.lr.ph.us.i, label %.loopexit.us.i
 
 .loopexit.us.loopexit.i:                          ; preds = %._crit_edge.us.us.i
-  %.pre77.i = load i32, ptr %48, align 8
+  %.pre76.i = load i32, ptr %48, align 8
   br label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %.loopexit.us.loopexit.i, %.lr.ph.split.us.i
-  %82 = phi i32 [ %77, %.lr.ph.split.us.i ], [ %.pre77.i, %.loopexit.us.loopexit.i ]
+  %82 = phi i32 [ %77, %.lr.ph.split.us.i ], [ %.pre76.i, %.loopexit.us.loopexit.i ]
   %83 = phi i32 [ %80, %.lr.ph.split.us.i ], [ %100, %.loopexit.us.loopexit.i ]
   %.1.lcssa.us.i = phi double [ %.04154.us.i, %.lr.ph.split.us.i ], [ %99, %.loopexit.us.loopexit.i ]
   %84 = sext i32 %82 to i64
-  %85 = icmp slt i64 %indvars.iv.next74.i, %84
+  %85 = icmp slt i64 %indvars.iv.next73.i, %84
   br i1 %85, label %.lr.ph.split.us.i, label %._crit_edge.loopexit.i
 
 .preheader.lr.ph.us.i:                            ; preds = %.lr.ph.split.us.i
-  %86 = mul nuw nsw i64 %indvars.iv73.i, %76
+  %86 = mul nuw nsw i64 %indvars.iv72.i, %76
   %87 = sext i32 %78 to i64
   %invariant.gep.i = getelementptr inbounds double, ptr %4, i64 %86
   br label %.preheader.us.us.i
 
 .preheader.us.us.i:                               ; preds = %._crit_edge.us.us.i, %.preheader.lr.ph.us.i
-  %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %._crit_edge.us.us.i ], [ %87, %.preheader.lr.ph.us.i ]
+  %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %._crit_edge.us.us.i ], [ %87, %.preheader.lr.ph.us.i ]
   %.149.us.us.i = phi double [ %99, %._crit_edge.us.us.i ], [ %.04154.us.i, %.preheader.lr.ph.us.i ]
-  %88 = getelementptr inbounds i32, ptr %69, i64 %indvars.iv70.i
+  %88 = getelementptr inbounds i32, ptr %69, i64 %indvars.iv69.i
   %89 = load i32, ptr %88, align 4
   %90 = mul nsw i32 %89, %0
   %91 = sext i32 %90 to i64
@@ -2405,32 +2405,32 @@ define void @spring_electrical_spring_embedding(i32 noundef %0, ptr noundef %1, 
   br label %94
 
 94:                                               ; preds = %94, %.preheader.us.us.i
-  %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %94 ], [ 0, %.preheader.us.us.i ]
+  %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %94 ], [ 0, %.preheader.us.us.i ]
   %.04247.us.us.i = phi double [ %97, %94 ], [ 0.000000e+00, %.preheader.us.us.i ]
-  %gep.i = getelementptr inbounds double, ptr %invariant.gep.i, i64 %indvars.iv65.i
+  %gep.i = getelementptr inbounds double, ptr %invariant.gep.i, i64 %indvars.iv64.i
   %95 = load double, ptr %gep.i, align 8
   %96 = fsub double %95, %93
   %97 = tail call double @llvm.fmuladd.f64(double %96, double %96, double %.04247.us.us.i)
-  %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
-  %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %76
-  br i1 %exitcond69.not.i, label %._crit_edge.us.us.i, label %94
+  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
+  %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %76
+  br i1 %exitcond68.not.i, label %._crit_edge.us.us.i, label %94
 
 ._crit_edge.us.us.i:                              ; preds = %94
   %98 = tail call double @sqrt(double noundef %97) #25
   %99 = fadd double %.149.us.us.i, %98
-  %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, 1
+  %indvars.iv.next70.i = add nsw i64 %indvars.iv69.i, 1
   %100 = load i32, ptr %79, align 4
   %101 = sext i32 %100 to i64
-  %102 = icmp slt i64 %indvars.iv.next71.i, %101
+  %102 = icmp slt i64 %indvars.iv.next70.i, %101
   br i1 %102, label %.preheader.us.us.i, label %.loopexit.us.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.loopexit.us.i
   %.phi.trans.insert.i = getelementptr inbounds i32, ptr %68, i64 %84
-  %.pre78.i = load i32, ptr %.phi.trans.insert.i, align 4
+  %.pre77.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader45.i
-  %103 = phi i32 [ %.pre78.i, %._crit_edge.loopexit.i ], [ %73, %.preheader45.i ]
+  %103 = phi i32 [ %.pre77.i, %._crit_edge.loopexit.i ], [ %73, %.preheader45.i ]
   %.041.lcssa.i = phi double [ %.1.lcssa.us.i, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.preheader45.i ]
   %104 = sitofp i32 %103 to double
   %105 = fdiv double %.041.lcssa.i, %104
@@ -3853,12 +3853,15 @@ attach_edge_label_coordinates.exit:               ; preds = %._crit_edge121.i.lo
   %spec.select.i172 = add nuw nsw i32 %.03646.i, %316
   %indvars.iv.next.i173 = add nsw i64 %indvars.iv.i171, 1
   %exitcond.not.i174 = icmp eq i64 %indvars.iv.next.i173, %wide.trip.count.i170
-  br i1 %exitcond.not.i174, label %._crit_edge.i169, label %.lr.ph47.i
+  br i1 %exitcond.not.i174, label %._crit_edge.loopexit.i, label %.lr.ph47.i
 
-._crit_edge.i169:                                 ; preds = %.lr.ph47.i, %.lr.ph51.i
-  %.036.lcssa.i = phi i32 [ 0, %.lr.ph51.i ], [ %spec.select.i172, %.lr.ph47.i ]
-  %317 = sext i32 %.036.lcssa.i to i64
-  %318 = getelementptr inbounds i32, ptr %304, i64 %317
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph47.i
+  %317 = zext nneg i32 %spec.select.i172 to i64
+  br label %._crit_edge.i169
+
+._crit_edge.i169:                                 ; preds = %._crit_edge.loopexit.i, %.lr.ph51.i
+  %.036.lcssa.i = phi i64 [ 0, %.lr.ph51.i ], [ %317, %._crit_edge.loopexit.i ]
+  %318 = getelementptr inbounds i32, ptr %304, i64 %.036.lcssa.i
   %319 = load i32, ptr %318, align 4
   %320 = add nsw i32 %319, 1
   store i32 %320, ptr %318, align 4
@@ -4451,43 +4454,43 @@ define internal fastcc void @spring_electrical_embedding_slow(i32 noundef %0, pt
   br i1 %or.cond412, label %.lr.ph.split.us.preheader.i, label %._crit_edge.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.preheader45.i
-  %.pre76.i = load i32, ptr %51, align 4
   %60 = zext nneg i32 %0 to i64
+  %.pre75.i = load i32, ptr %51, align 4
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.loopexit.us.i, %.lr.ph.split.us.preheader.i
   %61 = phi i32 [ %53, %.lr.ph.split.us.preheader.i ], [ %66, %.loopexit.us.i ]
-  %62 = phi i32 [ %.pre76.i, %.lr.ph.split.us.preheader.i ], [ %67, %.loopexit.us.i ]
-  %indvars.iv73.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next74.i, %.loopexit.us.i ]
+  %62 = phi i32 [ %.pre75.i, %.lr.ph.split.us.preheader.i ], [ %67, %.loopexit.us.i ]
+  %indvars.iv72.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next73.i, %.loopexit.us.i ]
   %.04154.us.i = phi double [ 0.000000e+00, %.lr.ph.split.us.preheader.i ], [ %.1.lcssa.us.i, %.loopexit.us.i ]
-  %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
-  %63 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next74.i
+  %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
+  %63 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next73.i
   %64 = load i32, ptr %63, align 4
   %65 = icmp slt i32 %62, %64
   br i1 %65, label %.preheader.lr.ph.us.i, label %.loopexit.us.i
 
 .loopexit.us.loopexit.i:                          ; preds = %._crit_edge.us.us.i
-  %.pre77.i = load i32, ptr %36, align 8
+  %.pre76.i = load i32, ptr %36, align 8
   br label %.loopexit.us.i
 
 .loopexit.us.i:                                   ; preds = %.loopexit.us.loopexit.i, %.lr.ph.split.us.i
-  %66 = phi i32 [ %61, %.lr.ph.split.us.i ], [ %.pre77.i, %.loopexit.us.loopexit.i ]
+  %66 = phi i32 [ %61, %.lr.ph.split.us.i ], [ %.pre76.i, %.loopexit.us.loopexit.i ]
   %67 = phi i32 [ %64, %.lr.ph.split.us.i ], [ %84, %.loopexit.us.loopexit.i ]
   %.1.lcssa.us.i = phi double [ %.04154.us.i, %.lr.ph.split.us.i ], [ %83, %.loopexit.us.loopexit.i ]
   %68 = sext i32 %66 to i64
-  %69 = icmp slt i64 %indvars.iv.next74.i, %68
+  %69 = icmp slt i64 %indvars.iv.next73.i, %68
   br i1 %69, label %.lr.ph.split.us.i, label %._crit_edge.loopexit.i
 
 .preheader.lr.ph.us.i:                            ; preds = %.lr.ph.split.us.i
-  %70 = mul nuw nsw i64 %indvars.iv73.i, %60
+  %70 = mul nuw nsw i64 %indvars.iv72.i, %60
   %71 = sext i32 %62 to i64
   %invariant.gep.i = getelementptr inbounds double, ptr %3, i64 %70
   br label %.preheader.us.us.i
 
 .preheader.us.us.i:                               ; preds = %._crit_edge.us.us.i, %.preheader.lr.ph.us.i
-  %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %._crit_edge.us.us.i ], [ %71, %.preheader.lr.ph.us.i ]
+  %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %._crit_edge.us.us.i ], [ %71, %.preheader.lr.ph.us.i ]
   %.149.us.us.i = phi double [ %83, %._crit_edge.us.us.i ], [ %.04154.us.i, %.preheader.lr.ph.us.i ]
-  %72 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv70.i
+  %72 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv69.i
   %73 = load i32, ptr %72, align 4
   %74 = mul nsw i32 %73, %0
   %75 = sext i32 %74 to i64
@@ -4496,32 +4499,32 @@ define internal fastcc void @spring_electrical_embedding_slow(i32 noundef %0, pt
   br label %78
 
 78:                                               ; preds = %78, %.preheader.us.us.i
-  %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %78 ], [ 0, %.preheader.us.us.i ]
+  %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %78 ], [ 0, %.preheader.us.us.i ]
   %.04247.us.us.i = phi double [ %81, %78 ], [ 0.000000e+00, %.preheader.us.us.i ]
-  %gep.i = getelementptr inbounds double, ptr %invariant.gep.i, i64 %indvars.iv65.i
+  %gep.i = getelementptr inbounds double, ptr %invariant.gep.i, i64 %indvars.iv64.i
   %79 = load double, ptr %gep.i, align 8
   %80 = fsub double %79, %77
   %81 = tail call double @llvm.fmuladd.f64(double %80, double %80, double %.04247.us.us.i)
-  %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
-  %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %60
-  br i1 %exitcond69.not.i, label %._crit_edge.us.us.i, label %78
+  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
+  %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %60
+  br i1 %exitcond68.not.i, label %._crit_edge.us.us.i, label %78
 
 ._crit_edge.us.us.i:                              ; preds = %78
   %82 = tail call double @sqrt(double noundef %81) #25
   %83 = fadd double %.149.us.us.i, %82
-  %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, 1
+  %indvars.iv.next70.i = add nsw i64 %indvars.iv69.i, 1
   %84 = load i32, ptr %63, align 4
   %85 = sext i32 %84 to i64
-  %86 = icmp slt i64 %indvars.iv.next71.i, %85
+  %86 = icmp slt i64 %indvars.iv.next70.i, %85
   br i1 %86, label %.preheader.us.us.i, label %.loopexit.us.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.loopexit.us.i
   %.phi.trans.insert.i = getelementptr inbounds i32, ptr %51, i64 %68
-  %.pre78.i = load i32, ptr %.phi.trans.insert.i, align 4
+  %.pre77.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader45.i
-  %87 = phi i32 [ %.pre78.i, %._crit_edge.loopexit.i ], [ %56, %.preheader45.i ]
+  %87 = phi i32 [ %.pre77.i, %._crit_edge.loopexit.i ], [ %56, %.preheader45.i ]
   %.041.lcssa.i = phi double [ %.1.lcssa.us.i, %._crit_edge.loopexit.i ], [ 0.000000e+00, %.preheader45.i ]
   %88 = sitofp i32 %87 to double
   %89 = fdiv double %.041.lcssa.i, %88

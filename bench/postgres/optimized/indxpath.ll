@@ -1112,11 +1112,11 @@ bitmap_and_cost_est.exit:                         ; preds = %.critedge127, %203
 219:                                              ; preds = %218
   %220 = getelementptr inbounds i8, ptr %197, i64 4
   %221 = load i32, ptr %220, align 4
+  %222 = add i32 %221, -1
   br label %list_length.exit131
 
 list_length.exit131:                              ; preds = %218, %219
-  %222 = phi i32 [ %221, %219 ], [ 0, %218 ]
-  %223 = add i32 %222, -1
+  %223 = phi i32 [ %222, %219 ], [ -1, %218 ]
   %224 = call ptr @list_truncate(ptr noundef %197, i32 noundef %223) #7
   br label %.loopexit
 
@@ -3434,11 +3434,11 @@ define internal fastcc ptr @build_paths_for_OR(ptr noundef %0, ptr noundef %1, p
 
 match_clauses_to_index.exit.loopexit:             ; preds = %.lr.ph17.i
   %.pre68 = load i8, ptr %5, align 8
+  %48 = trunc i8 %.pre68 to i1
   br label %match_clauses_to_index.exit
 
 match_clauses_to_index.exit:                      ; preds = %match_clauses_to_index.exit.loopexit, %39, %.lr.ph.i
-  %48 = phi i8 [ %.pre68, %match_clauses_to_index.exit.loopexit ], [ 0, %39 ], [ 0, %.lr.ph.i ]
-  %49 = trunc i8 %48 to i1
+  %49 = phi i1 [ %48, %match_clauses_to_index.exit.loopexit ], [ false, %39 ], [ false, %.lr.ph.i ]
   %brmerge = or i1 %.049, %49
   br i1 %brmerge, label %50, label %61
 
@@ -3974,11 +3974,11 @@ list_length.exit.i.i:                             ; preds = %55
 
 283:                                              ; preds = %282
   %284 = load i32, ptr %277, align 4
+  %285 = sext i32 %284 to i64
   br label %list_length.exit.i.i.i
 
 list_length.exit.i.i.i:                           ; preds = %283, %282
-  %285 = phi i32 [ %284, %283 ], [ 0, %282 ]
-  %286 = sext i32 %285 to i64
+  %286 = phi i64 [ %285, %283 ], [ 0, %282 ]
   %287 = icmp slt i64 %indvars.iv219.i.i.i, %286
   br i1 %287, label %288, label %351
 

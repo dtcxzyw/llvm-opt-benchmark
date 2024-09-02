@@ -3887,7 +3887,7 @@ define dso_local noundef zeroext i1 @check_wal_buffers(ptr nocapture noundef %0,
   %11 = load i32, ptr @wal_segment_size, align 4
   %12 = sdiv i32 %11, 8192
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %12)
-  %spec.store.select.i = tail call range(i32 -67108864, 262144) i32 @llvm.smax.i32(i32 %spec.select.i, i32 8)
+  %spec.store.select.i = tail call range(i32 8, 262144) i32 @llvm.smax.i32(i32 %spec.select.i, i32 8)
   br label %.sink.split
 
 13:                                               ; preds = %3
@@ -4519,7 +4519,7 @@ define dso_local i64 @XLOGShmemSize() local_unnamed_addr #0 {
   %7 = load i32, ptr @wal_segment_size, align 4
   %8 = sdiv i32 %7, 8192
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %6, i32 %8)
-  %spec.store.select.i = tail call range(i32 -67108864, 262144) i32 @llvm.smax.i32(i32 %spec.select.i, i32 8)
+  %spec.store.select.i = tail call range(i32 8, 262144) i32 @llvm.smax.i32(i32 %spec.select.i, i32 8)
   %9 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 32, ptr noundef nonnull @.str.28, i32 noundef %spec.store.select.i) #26
   call void @SetConfigOption(ptr noundef nonnull @.str.29, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 1) #26
   %10 = load i32, ptr @XLOGbuffers, align 4

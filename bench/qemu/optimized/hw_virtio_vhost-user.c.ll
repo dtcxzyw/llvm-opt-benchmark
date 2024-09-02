@@ -621,7 +621,7 @@ if.end6:                                          ; preds = %if.else, %if.then3,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhost_user_backend_init(ptr noundef %dev, ptr noundef %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -71, 1) i32 @vhost_user_backend_init(ptr noundef %dev, ptr noundef %opaque, ptr noundef %errp) #0 {
 entry:
   %msg_reply.i.i = alloca %struct.VhostUserMsg, align 4
   %msg.i96 = alloca %struct.VhostUserMsg, align 4

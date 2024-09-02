@@ -6028,14 +6028,17 @@ define internal fastcc void @assemble_code_blocks(ptr nocapture noundef readonly
   %248 = getelementptr inbounds i8, ptr %.030516, i64 %226
   %249 = add i32 %.030715, -1
   %.not332 = icmp eq i32 %249, 0
-  br i1 %.not332, label %._crit_edge19, label %230
+  br i1 %.not332, label %._crit_edge19.loopexit, label %230
 
-._crit_edge19:                                    ; preds = %247, %.._crit_edge19_crit_edge
-  %.pre-phi = phi i64 [ %.pre48, %.._crit_edge19_crit_edge ], [ %229, %247 ]
-  %.0309.lcssa = phi i32 [ 0, %.._crit_edge19_crit_edge ], [ %.1310, %247 ]
-  %250 = load ptr, ptr %.221, align 8
-  %251 = zext i32 %.0309.lcssa to i64
-  %252 = getelementptr inbounds i32, ptr %250, i64 %251
+._crit_edge19.loopexit:                           ; preds = %247
+  %250 = zext i32 %.1310 to i64
+  br label %._crit_edge19
+
+._crit_edge19:                                    ; preds = %.._crit_edge19_crit_edge, %._crit_edge19.loopexit
+  %.pre-phi = phi i64 [ %.pre48, %.._crit_edge19_crit_edge ], [ %229, %._crit_edge19.loopexit ]
+  %.0309.lcssa = phi i64 [ 0, %.._crit_edge19_crit_edge ], [ %250, %._crit_edge19.loopexit ]
+  %251 = load ptr, ptr %.221, align 8
+  %252 = getelementptr inbounds i32, ptr %251, i64 %.0309.lcssa
   %253 = load i32, ptr %252, align 4
   %254 = sext i32 %253 to i64
   %255 = getelementptr inbounds %struct._zend_basic_block, ptr %4, i64 %254, i32 2

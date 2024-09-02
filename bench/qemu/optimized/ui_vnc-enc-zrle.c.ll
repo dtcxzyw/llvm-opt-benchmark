@@ -111,24 +111,24 @@ if.end30:                                         ; preds = %entry, %if.else19, 
 
 sw.bb:                                            ; preds = %if.end30
   %add.i = add i32 %h, %y
-  %cmp33.i = icmp slt i32 %y, %add.i
-  br i1 %cmp33.i, label %for.body.lr.ph.i, label %sw.epilog
+  %cmp28.i = icmp slt i32 %y, %add.i
+  br i1 %cmp28.i, label %for.body.lr.ph.i, label %sw.epilog
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb
   %add4.i = add i32 %w, %x
-  %cmp531.i = icmp slt i32 %x, %add4.i
-  br i1 %cmp531.i, label %for.body.us.i, label %sw.epilog
+  %cmp526.i = icmp slt i32 %x, %add4.i
+  br i1 %cmp526.i, label %for.body.us.i, label %sw.epilog
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.cond3.for.inc16_crit_edge.us.i
-  %ty.034.us.i = phi i32 [ %add17.us.i, %for.cond3.for.inc16_crit_edge.us.i ], [ %y, %for.body.lr.ph.i ]
-  %sub.us.i = sub i32 %add.i, %ty.034.us.i
+  %ty.029.us.i = phi i32 [ %add17.us.i, %for.cond3.for.inc16_crit_edge.us.i ], [ %y, %for.body.lr.ph.i ]
+  %sub.us.i = sub i32 %add.i, %ty.029.us.i
   %cond.us.i = call i32 @llvm.smin.i32(i32 %sub.us.i, i32 64)
   %cmp110124.i.us.i = icmp sgt i32 %sub.us.i, 0
   br label %for.body6.us.i
 
 for.body6.us.i:                                   ; preds = %zrle_encode_tile8ne.exit.us.i, %for.body.us.i
-  %tx.032.us.i = phi i32 [ %x, %for.body.us.i ], [ %add15.us.i, %zrle_encode_tile8ne.exit.us.i ]
-  %sub8.us.i = sub i32 %add4.i, %tx.032.us.i
+  %tx.027.us.i = phi i32 [ %x, %for.body.us.i ], [ %add15.us.i, %zrle_encode_tile8ne.exit.us.i ]
+  %sub8.us.i = sub i32 %add4.i, %tx.027.us.i
   %cond14.us.i = call i32 @llvm.smin.i32(i32 %sub8.us.i, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i)
   %11 = load ptr, ptr %zrle, align 8
@@ -145,7 +145,7 @@ for.body6.us.i:                                   ; preds = %zrle_encode_tile8ne
   %13 = load ptr, ptr %zrle, align 8
   %fb6.i.us.i = getelementptr inbounds i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i, i64 40, i1 false)
-  %call.i.us.i = call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.032.us.i, i32 noundef %ty.034.us.i, i32 noundef %cond14.us.i, i32 noundef %cond.us.i) #9
+  %call.i.us.i = call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.027.us.i, i32 noundef %ty.029.us.i, i32 noundef %cond14.us.i, i32 noundef %cond.us.i) #9
   %14 = load ptr, ptr %zrle, align 8
   %fb8.i.us.i = getelementptr inbounds i8, ptr %14, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
@@ -324,7 +324,7 @@ while.body118.i.us.i:                             ; preds = %for.body112.i.us.i,
   %or127.i.us.i = or i32 %call123.i.us.i, %shl.i.us.i
   %conv130.i.us.i = add i8 %nbits.0119.i.us.i, %26
   %cmp132.i.us.i = icmp ugt i8 %conv130.i.us.i, 7
-  br i1 %cmp132.i.us.i, label %if.end135.i.thread.us.i, label %if.end135.i.us.i
+  br i1 %cmp132.i.us.i, label %if.end135.thread.i.us.i, label %if.end135.i.us.i
 
 if.end135.i.us.i:                                 ; preds = %while.body118.i.us.i
   %exitcond.not.i.us.i = icmp eq ptr %incdec.ptr120.i.us.i, %add.ptr114.i.us.i
@@ -335,26 +335,26 @@ while.end136.i.us.i:                              ; preds = %if.end135.i.us.i
   br i1 %cmp138.not.i.us.i, label %for.inc147.i.us.i, label %if.then140.i.us.i
 
 if.then140.i.us.i:                                ; preds = %while.end136.i.us.i
+  %28 = trunc i32 %or127.i.us.i to i16
   %narrow.i.us.i = sub nuw nsw i8 8, %conv130.i.us.i
   %sub142.i.us.i = zext nneg i8 %narrow.i.us.i to i16
-  %28 = trunc i32 %or127.i.us.i to i16
   %shl144.i.us.i = shl i16 %28, %sub142.i.us.i
   %conv145.i.us.i = trunc i16 %shl144.i.us.i to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145.i.us.i) #9
   br label %for.inc147.i.us.i
 
-if.end135.i.thread.us.i:                          ; preds = %while.body118.i.us.i
+if.end135.thread.i.us.i:                          ; preds = %while.body118.i.us.i
   %conv128.i.us.i = trunc i32 %or127.i.us.i to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128.i.us.i) #9
-  %exitcond.not.i24.us.i = icmp eq ptr %incdec.ptr120.i.us.i, %add.ptr114.i.us.i
-  br i1 %exitcond.not.i24.us.i, label %for.inc147.i.us.i, label %while.body118.i.us.i.backedge
+  %exitcond.not146.i.us.i = icmp eq ptr %incdec.ptr120.i.us.i, %add.ptr114.i.us.i
+  br i1 %exitcond.not146.i.us.i, label %for.inc147.i.us.i, label %while.body118.i.us.i.backedge
 
-while.body118.i.us.i.backedge:                    ; preds = %if.end135.i.thread.us.i, %if.end135.i.us.i
-  %nbits.0119.i.us.i.be = phi i8 [ 0, %if.end135.i.thread.us.i ], [ %conv130.i.us.i, %if.end135.i.us.i ]
+while.body118.i.us.i.backedge:                    ; preds = %if.end135.thread.i.us.i, %if.end135.i.us.i
+  %nbits.0119.i.us.i.be = phi i8 [ 0, %if.end135.thread.i.us.i ], [ %conv130.i.us.i, %if.end135.i.us.i ]
   br label %while.body118.i.us.i, !llvm.loop !9
 
-for.inc147.i.us.i:                                ; preds = %if.end135.i.thread.us.i, %if.then140.i.us.i, %while.end136.i.us.i, %for.body112.i.us.i
-  %ptr.6.lcssa144.i.us.i = phi ptr [ %add.ptr114.i.us.i, %while.end136.i.us.i ], [ %add.ptr114.i.us.i, %if.then140.i.us.i ], [ %ptr.5125.i.us.i, %for.body112.i.us.i ], [ %add.ptr114.i.us.i, %if.end135.i.thread.us.i ]
+for.inc147.i.us.i:                                ; preds = %if.end135.thread.i.us.i, %if.then140.i.us.i, %while.end136.i.us.i, %for.body112.i.us.i
+  %ptr.6.lcssa144.i.us.i = phi ptr [ %add.ptr114.i.us.i, %while.end136.i.us.i ], [ %add.ptr114.i.us.i, %if.then140.i.us.i ], [ %ptr.5125.i.us.i, %for.body112.i.us.i ], [ %add.ptr114.i.us.i, %if.end135.thread.i.us.i ]
   %inc148.i.us.i = add nuw nsw i32 %i.1126.i.us.i, 1
   %exitcond133.not.i.us.i = icmp eq i32 %inc148.i.us.i, %cond.us.i
   br i1 %exitcond133.not.i.us.i, label %zrle_encode_tile8ne.exit.us.i, label %for.body112.i.us.i, !llvm.loop !10
@@ -387,17 +387,17 @@ while.end64.i.us.i:                               ; preds = %while.cond55.i.us.i
 if.end70.i.us.i:                                  ; preds = %while.end64.i.us.i
   %conv57.le.i.us.i = zext i8 %29 to i32
   %call69.i.us.i = call i32 @palette_idx(ptr noundef nonnull %palette1.i.us.i, i32 noundef %conv57.le.i.us.i) #9
+  %32 = trunc i32 %call69.i.us.i to i8
   %cmp71.i.us.i = icmp slt i32 %conv65.i.us.i, 3
   br i1 %cmp71.i.us.i, label %if.then75.i.us.i, label %if.then84.i.us.i
 
 if.then84.i.us.i:                                 ; preds = %if.end70.i.us.i
-  %32 = trunc i32 %call69.i.us.i to i8
   %conv86.i.us.i = or i8 %32, -128
   br label %if.end88.i.us.i
 
 if.end88.i.us.i:                                  ; preds = %if.then84.i.us.i, %while.end64.i.us.i
-  %.sink.i.us.i = phi i8 [ %conv86.i.us.i, %if.then84.i.us.i ], [ %29, %while.end64.i.us.i ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink.i.us.i) #9
+  %.sink154.i.us.i = phi i8 [ %conv86.i.us.i, %if.then84.i.us.i ], [ %29, %while.end64.i.us.i ]
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink154.i.us.i) #9
   %sub.i.us.i = add i32 %conv65.i.us.i, -1
   %cmp90127.i.us.i = icmp sgt i32 %sub.i.us.i, 254
   br i1 %cmp90127.i.us.i, label %while.body92.i.us.i, label %while.end94.i.us.i
@@ -416,16 +416,15 @@ while.end94.i.us.i:                               ; preds = %while.body92.i.us.i
 
 if.then75.i.us.i:                                 ; preds = %if.end70.i.us.i
   %cmp76.i.us.i = icmp eq i32 %conv65.i.us.i, 2
-  %conv79.i.us.i = trunc i32 %call69.i.us.i to i8
   br i1 %cmp76.i.us.i, label %if.then78.i.us.i, label %while.cond50.backedge.i.us.i
 
 if.then78.i.us.i:                                 ; preds = %if.then75.i.us.i
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.i.us.i) #9
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %32) #9
   br label %while.cond50.backedge.i.us.i
 
 while.cond50.backedge.i.us.i:                     ; preds = %if.then78.i.us.i, %if.then75.i.us.i, %while.end94.i.us.i
-  %conv79.sink.i.us.i = phi i8 [ %conv95.i.us.i, %while.end94.i.us.i ], [ %conv79.i.us.i, %if.then75.i.us.i ], [ %conv79.i.us.i, %if.then78.i.us.i ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink.i.us.i) #9
+  %.sink.i.us.i = phi i8 [ %conv95.i.us.i, %while.end94.i.us.i ], [ %32, %if.then78.i.us.i ], [ %32, %if.then75.i.us.i ]
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink.i.us.i) #9
   br i1 %cmp60.i.us.i, label %while.body53.i.us.i, label %zrle_encode_tile8ne.exit.us.i, !llvm.loop !13
 
 if.then22.i.us.i:                                 ; preds = %while.end18.i.us.i
@@ -438,12 +437,12 @@ if.then22.i.us.i:                                 ; preds = %while.end18.i.us.i
 zrle_encode_tile8ne.exit.us.i:                    ; preds = %for.inc147.i.us.i, %while.cond50.backedge.i.us.i, %if.then22.i.us.i, %while.cond50.preheader.i.us.i, %if.end105.i.us.i, %if.else150.i.us.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %found.i.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %colors.i.i)
-  %add15.us.i = add i32 %tx.032.us.i, 64
+  %add15.us.i = add i32 %tx.027.us.i, 64
   %cmp5.us.i = icmp slt i32 %add15.us.i, %add4.i
   br i1 %cmp5.us.i, label %for.body6.us.i, label %for.cond3.for.inc16_crit_edge.us.i, !llvm.loop !14
 
 for.cond3.for.inc16_crit_edge.us.i:               ; preds = %zrle_encode_tile8ne.exit.us.i
-  %add17.us.i = add i32 %ty.034.us.i, 64
+  %add17.us.i = add i32 %ty.029.us.i, 64
   %cmp.us.i = icmp slt i32 %add17.us.i, %add.i
   br i1 %cmp.us.i, label %for.body.us.i, label %sw.epilog, !llvm.loop !15
 
@@ -1530,25 +1529,24 @@ while.end64:                                      ; preds = %while.cond55
 if.end70:                                         ; preds = %while.end64
   %conv57.le = zext i16 %9 to i32
   %call69 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv57.le) #9
+  %12 = trunc i32 %call69 to i8
   %cmp71 = icmp slt i32 %conv65, 3
   br i1 %cmp71, label %if.then75, label %if.then84
 
 if.then75:                                        ; preds = %if.end70
   %cmp76 = icmp eq i32 %conv65, 2
-  %conv79 = trunc i32 %call69 to i8
   br i1 %cmp76, label %if.then78, label %while.cond50.backedge
 
 if.then78:                                        ; preds = %if.then75
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79) #9
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %12) #9
   br label %while.cond50.backedge
 
-while.cond50.backedge:                            ; preds = %if.then78, %if.then75, %while.end94
-  %conv79.sink = phi i8 [ %conv95, %while.end94 ], [ %conv79, %if.then75 ], [ %conv79, %if.then78 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink) #9
+while.cond50.backedge:                            ; preds = %if.then75, %if.then78, %while.end94
+  %.sink = phi i8 [ %conv95, %while.end94 ], [ %12, %if.then78 ], [ %12, %if.then75 ]
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink) #9
   br i1 %cmp60, label %while.body53, label %if.end165, !llvm.loop !40
 
 if.then84:                                        ; preds = %if.end70
-  %12 = trunc i32 %call69 to i8
   %conv86 = or i8 %12, -128
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv86) #9
   br label %if.end88
@@ -1601,15 +1599,15 @@ for.body112.lr.ph:                                ; preds = %if.end105
 
 for.body112:                                      ; preds = %for.body112.lr.ph, %for.inc147
   %i.1122 = phi i32 [ 0, %for.body112.lr.ph ], [ %inc148, %for.inc147 ]
-  %ptr.5121 = phi ptr [ %data, %for.body112.lr.ph ], [ %ptr.6.lcssa134, %for.inc147 ]
+  %ptr.5121 = phi ptr [ %data, %for.body112.lr.ph ], [ %ptr.6.lcssa133, %for.inc147 ]
   %add.ptr114 = getelementptr i16, ptr %ptr.5121, i64 %idx.ext113
   %cmp116113 = icmp ult ptr %ptr.5121, %add.ptr114
   br i1 %cmp116113, label %while.body118, label %for.inc147
 
-while.body118:                                    ; preds = %for.body112, %if.end135
-  %byte.0116 = phi i32 [ %or127, %if.end135 ], [ 0, %for.body112 ]
-  %nbits.0115 = phi i8 [ %nbits.1, %if.end135 ], [ 0, %for.body112 ]
-  %ptr.6114 = phi ptr [ %incdec.ptr120, %if.end135 ], [ %ptr.5121, %for.body112 ]
+while.body118:                                    ; preds = %for.body112, %while.body118.backedge
+  %byte.0116 = phi i32 [ %or127, %while.body118.backedge ], [ 0, %for.body112 ]
+  %nbits.0115 = phi i8 [ %nbits.0115.be, %while.body118.backedge ], [ 0, %for.body112 ]
+  %ptr.6114 = phi ptr [ %incdec.ptr120, %while.body118.backedge ], [ %ptr.5121, %for.body112 ]
   %incdec.ptr120 = getelementptr i8, ptr %ptr.6114, i64 2
   %15 = load i16, ptr %ptr.6114, align 2
   %conv122 = zext i16 %15 to i32
@@ -1619,33 +1617,37 @@ while.body118:                                    ; preds = %for.body112, %if.en
   %or127 = or i32 %call123, %shl
   %conv130 = add i8 %nbits.0115, %14
   %cmp132 = icmp ugt i8 %conv130, 7
-  br i1 %cmp132, label %if.then134, label %if.end135
+  br i1 %cmp132, label %if.end135.thread, label %if.end135
 
-if.then134:                                       ; preds = %while.body118
+if.end135:                                        ; preds = %while.body118
+  %cmp116 = icmp ult ptr %incdec.ptr120, %add.ptr114
+  br i1 %cmp116, label %while.body118.backedge, label %while.end136
+
+while.body118.backedge:                           ; preds = %if.end135, %if.end135.thread
+  %nbits.0115.be = phi i8 [ %conv130, %if.end135 ], [ 0, %if.end135.thread ]
+  br label %while.body118, !llvm.loop !42
+
+if.end135.thread:                                 ; preds = %while.body118
   %conv128 = trunc i32 %or127 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128) #9
-  br label %if.end135
-
-if.end135:                                        ; preds = %if.then134, %while.body118
-  %nbits.1 = phi i8 [ 0, %if.then134 ], [ %conv130, %while.body118 ]
-  %cmp116 = icmp ult ptr %incdec.ptr120, %add.ptr114
-  br i1 %cmp116, label %while.body118, label %while.end136, !llvm.loop !42
+  %cmp116135 = icmp ult ptr %incdec.ptr120, %add.ptr114
+  br i1 %cmp116135, label %while.body118.backedge, label %for.inc147
 
 while.end136:                                     ; preds = %if.end135
-  %cmp138.not = icmp eq i8 %nbits.1, 0
+  %cmp138.not = icmp eq i8 %conv130, 0
   br i1 %cmp138.not, label %for.inc147, label %if.then140
 
 if.then140:                                       ; preds = %while.end136
-  %narrow = sub nuw nsw i8 8, %nbits.1
-  %sub142 = zext nneg i8 %narrow to i16
   %16 = trunc i32 %or127 to i16
+  %narrow = sub nuw nsw i8 8, %conv130
+  %sub142 = zext nneg i8 %narrow to i16
   %shl144 = shl i16 %16, %sub142
   %conv145 = trunc i16 %shl144 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145) #9
   br label %for.inc147
 
-for.inc147:                                       ; preds = %for.body112, %while.end136, %if.then140
-  %ptr.6.lcssa134 = phi ptr [ %incdec.ptr120, %while.end136 ], [ %incdec.ptr120, %if.then140 ], [ %ptr.5121, %for.body112 ]
+for.inc147:                                       ; preds = %if.end135.thread, %for.body112, %while.end136, %if.then140
+  %ptr.6.lcssa133 = phi ptr [ %incdec.ptr120, %while.end136 ], [ %incdec.ptr120, %if.then140 ], [ %ptr.5121, %for.body112 ], [ %incdec.ptr120, %if.end135.thread ]
   %inc148 = add nuw nsw i32 %i.1122, 1
   %exitcond.not = icmp eq i32 %inc148, %h
   br i1 %exitcond.not, label %if.end165, label %for.body112, !llvm.loop !43
@@ -2651,25 +2653,24 @@ while.end64:                                      ; preds = %while.cond55
 if.end70:                                         ; preds = %while.end64
   %conv57.le = zext i16 %9 to i32
   %call69 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv57.le) #9
+  %12 = trunc i32 %call69 to i8
   %cmp71 = icmp slt i32 %conv65, 3
   br i1 %cmp71, label %if.then75, label %if.then84
 
 if.then75:                                        ; preds = %if.end70
   %cmp76 = icmp eq i32 %conv65, 2
-  %conv79 = trunc i32 %call69 to i8
   br i1 %cmp76, label %if.then78, label %while.cond50.backedge
 
 if.then78:                                        ; preds = %if.then75
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79) #9
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %12) #9
   br label %while.cond50.backedge
 
-while.cond50.backedge:                            ; preds = %if.then78, %if.then75, %while.end94
-  %conv79.sink = phi i8 [ %conv95, %while.end94 ], [ %conv79, %if.then75 ], [ %conv79, %if.then78 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink) #9
+while.cond50.backedge:                            ; preds = %if.then75, %if.then78, %while.end94
+  %.sink = phi i8 [ %conv95, %while.end94 ], [ %12, %if.then78 ], [ %12, %if.then75 ]
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink) #9
   br i1 %cmp60, label %while.body53, label %if.end165, !llvm.loop !73
 
 if.then84:                                        ; preds = %if.end70
-  %12 = trunc i32 %call69 to i8
   %conv86 = or i8 %12, -128
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv86) #9
   br label %if.end88
@@ -2722,15 +2723,15 @@ for.body112.lr.ph:                                ; preds = %if.end105
 
 for.body112:                                      ; preds = %for.body112.lr.ph, %for.inc147
   %i.1122 = phi i32 [ 0, %for.body112.lr.ph ], [ %inc148, %for.inc147 ]
-  %ptr.5121 = phi ptr [ %data, %for.body112.lr.ph ], [ %ptr.6.lcssa134, %for.inc147 ]
+  %ptr.5121 = phi ptr [ %data, %for.body112.lr.ph ], [ %ptr.6.lcssa133, %for.inc147 ]
   %add.ptr114 = getelementptr i16, ptr %ptr.5121, i64 %idx.ext113
   %cmp116113 = icmp ult ptr %ptr.5121, %add.ptr114
   br i1 %cmp116113, label %while.body118, label %for.inc147
 
-while.body118:                                    ; preds = %for.body112, %if.end135
-  %byte.0116 = phi i32 [ %or127, %if.end135 ], [ 0, %for.body112 ]
-  %nbits.0115 = phi i8 [ %nbits.1, %if.end135 ], [ 0, %for.body112 ]
-  %ptr.6114 = phi ptr [ %incdec.ptr120, %if.end135 ], [ %ptr.5121, %for.body112 ]
+while.body118:                                    ; preds = %for.body112, %while.body118.backedge
+  %byte.0116 = phi i32 [ %or127, %while.body118.backedge ], [ 0, %for.body112 ]
+  %nbits.0115 = phi i8 [ %nbits.0115.be, %while.body118.backedge ], [ 0, %for.body112 ]
+  %ptr.6114 = phi ptr [ %incdec.ptr120, %while.body118.backedge ], [ %ptr.5121, %for.body112 ]
   %incdec.ptr120 = getelementptr i8, ptr %ptr.6114, i64 2
   %15 = load i16, ptr %ptr.6114, align 2
   %conv122 = zext i16 %15 to i32
@@ -2740,33 +2741,37 @@ while.body118:                                    ; preds = %for.body112, %if.en
   %or127 = or i32 %call123, %shl
   %conv130 = add i8 %nbits.0115, %14
   %cmp132 = icmp ugt i8 %conv130, 7
-  br i1 %cmp132, label %if.then134, label %if.end135
+  br i1 %cmp132, label %if.end135.thread, label %if.end135
 
-if.then134:                                       ; preds = %while.body118
+if.end135:                                        ; preds = %while.body118
+  %cmp116 = icmp ult ptr %incdec.ptr120, %add.ptr114
+  br i1 %cmp116, label %while.body118.backedge, label %while.end136
+
+while.body118.backedge:                           ; preds = %if.end135, %if.end135.thread
+  %nbits.0115.be = phi i8 [ %conv130, %if.end135 ], [ 0, %if.end135.thread ]
+  br label %while.body118, !llvm.loop !75
+
+if.end135.thread:                                 ; preds = %while.body118
   %conv128 = trunc i32 %or127 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128) #9
-  br label %if.end135
-
-if.end135:                                        ; preds = %if.then134, %while.body118
-  %nbits.1 = phi i8 [ 0, %if.then134 ], [ %conv130, %while.body118 ]
-  %cmp116 = icmp ult ptr %incdec.ptr120, %add.ptr114
-  br i1 %cmp116, label %while.body118, label %while.end136, !llvm.loop !75
+  %cmp116135 = icmp ult ptr %incdec.ptr120, %add.ptr114
+  br i1 %cmp116135, label %while.body118.backedge, label %for.inc147
 
 while.end136:                                     ; preds = %if.end135
-  %cmp138.not = icmp eq i8 %nbits.1, 0
+  %cmp138.not = icmp eq i8 %conv130, 0
   br i1 %cmp138.not, label %for.inc147, label %if.then140
 
 if.then140:                                       ; preds = %while.end136
-  %narrow = sub nuw nsw i8 8, %nbits.1
-  %sub142 = zext nneg i8 %narrow to i16
   %16 = trunc i32 %or127 to i16
+  %narrow = sub nuw nsw i8 8, %conv130
+  %sub142 = zext nneg i8 %narrow to i16
   %shl144 = shl i16 %16, %sub142
   %conv145 = trunc i16 %shl144 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145) #9
   br label %for.inc147
 
-for.inc147:                                       ; preds = %for.body112, %while.end136, %if.then140
-  %ptr.6.lcssa134 = phi ptr [ %incdec.ptr120, %while.end136 ], [ %incdec.ptr120, %if.then140 ], [ %ptr.5121, %for.body112 ]
+for.inc147:                                       ; preds = %if.end135.thread, %for.body112, %while.end136, %if.then140
+  %ptr.6.lcssa133 = phi ptr [ %incdec.ptr120, %while.end136 ], [ %incdec.ptr120, %if.then140 ], [ %ptr.5121, %for.body112 ], [ %incdec.ptr120, %if.end135.thread ]
   %inc148 = add nuw nsw i32 %i.1122, 1
   %exitcond.not = icmp eq i32 %inc148, %h
   br i1 %exitcond.not, label %if.end165, label %for.body112, !llvm.loop !76
@@ -3387,25 +3392,24 @@ while.end64:                                      ; preds = %while.cond55
 if.end70:                                         ; preds = %while.end64
   %conv57.le = zext i16 %9 to i32
   %call69 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv57.le) #9
+  %12 = trunc i32 %call69 to i8
   %cmp71 = icmp slt i32 %conv65, 3
   br i1 %cmp71, label %if.then75, label %if.then84
 
 if.then75:                                        ; preds = %if.end70
   %cmp76 = icmp eq i32 %conv65, 2
-  %conv79 = trunc i32 %call69 to i8
   br i1 %cmp76, label %if.then78, label %while.cond50.backedge
 
 if.then78:                                        ; preds = %if.then75
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79) #9
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %12) #9
   br label %while.cond50.backedge
 
-while.cond50.backedge:                            ; preds = %if.then78, %if.then75, %while.end94
-  %conv79.sink = phi i8 [ %conv95, %while.end94 ], [ %conv79, %if.then75 ], [ %conv79, %if.then78 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink) #9
+while.cond50.backedge:                            ; preds = %if.then75, %if.then78, %while.end94
+  %.sink = phi i8 [ %conv95, %while.end94 ], [ %12, %if.then78 ], [ %12, %if.then75 ]
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink) #9
   br i1 %cmp60, label %while.body53, label %if.end165, !llvm.loop !99
 
 if.then84:                                        ; preds = %if.end70
-  %12 = trunc i32 %call69 to i8
   %conv86 = or i8 %12, -128
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv86) #9
   br label %if.end88
@@ -3458,15 +3462,15 @@ for.body112.lr.ph:                                ; preds = %if.end105
 
 for.body112:                                      ; preds = %for.body112.lr.ph, %for.inc147
   %i.1122 = phi i32 [ 0, %for.body112.lr.ph ], [ %inc148, %for.inc147 ]
-  %ptr.5121 = phi ptr [ %data, %for.body112.lr.ph ], [ %ptr.6.lcssa134, %for.inc147 ]
+  %ptr.5121 = phi ptr [ %data, %for.body112.lr.ph ], [ %ptr.6.lcssa133, %for.inc147 ]
   %add.ptr114 = getelementptr i16, ptr %ptr.5121, i64 %idx.ext113
   %cmp116113 = icmp ult ptr %ptr.5121, %add.ptr114
   br i1 %cmp116113, label %while.body118, label %for.inc147
 
-while.body118:                                    ; preds = %for.body112, %if.end135
-  %byte.0116 = phi i32 [ %or127, %if.end135 ], [ 0, %for.body112 ]
-  %nbits.0115 = phi i8 [ %nbits.1, %if.end135 ], [ 0, %for.body112 ]
-  %ptr.6114 = phi ptr [ %incdec.ptr120, %if.end135 ], [ %ptr.5121, %for.body112 ]
+while.body118:                                    ; preds = %for.body112, %while.body118.backedge
+  %byte.0116 = phi i32 [ %or127, %while.body118.backedge ], [ 0, %for.body112 ]
+  %nbits.0115 = phi i8 [ %nbits.0115.be, %while.body118.backedge ], [ 0, %for.body112 ]
+  %ptr.6114 = phi ptr [ %incdec.ptr120, %while.body118.backedge ], [ %ptr.5121, %for.body112 ]
   %incdec.ptr120 = getelementptr i8, ptr %ptr.6114, i64 2
   %15 = load i16, ptr %ptr.6114, align 2
   %conv122 = zext i16 %15 to i32
@@ -3476,33 +3480,37 @@ while.body118:                                    ; preds = %for.body112, %if.en
   %or127 = or i32 %call123, %shl
   %conv130 = add i8 %nbits.0115, %14
   %cmp132 = icmp ugt i8 %conv130, 7
-  br i1 %cmp132, label %if.then134, label %if.end135
+  br i1 %cmp132, label %if.end135.thread, label %if.end135
 
-if.then134:                                       ; preds = %while.body118
+if.end135:                                        ; preds = %while.body118
+  %cmp116 = icmp ult ptr %incdec.ptr120, %add.ptr114
+  br i1 %cmp116, label %while.body118.backedge, label %while.end136
+
+while.body118.backedge:                           ; preds = %if.end135, %if.end135.thread
+  %nbits.0115.be = phi i8 [ %conv130, %if.end135 ], [ 0, %if.end135.thread ]
+  br label %while.body118, !llvm.loop !101
+
+if.end135.thread:                                 ; preds = %while.body118
   %conv128 = trunc i32 %or127 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128) #9
-  br label %if.end135
-
-if.end135:                                        ; preds = %if.then134, %while.body118
-  %nbits.1 = phi i8 [ 0, %if.then134 ], [ %conv130, %while.body118 ]
-  %cmp116 = icmp ult ptr %incdec.ptr120, %add.ptr114
-  br i1 %cmp116, label %while.body118, label %while.end136, !llvm.loop !101
+  %cmp116135 = icmp ult ptr %incdec.ptr120, %add.ptr114
+  br i1 %cmp116135, label %while.body118.backedge, label %for.inc147
 
 while.end136:                                     ; preds = %if.end135
-  %cmp138.not = icmp eq i8 %nbits.1, 0
+  %cmp138.not = icmp eq i8 %conv130, 0
   br i1 %cmp138.not, label %for.inc147, label %if.then140
 
 if.then140:                                       ; preds = %while.end136
-  %narrow = sub nuw nsw i8 8, %nbits.1
-  %sub142 = zext nneg i8 %narrow to i16
   %16 = trunc i32 %or127 to i16
+  %narrow = sub nuw nsw i8 8, %conv130
+  %sub142 = zext nneg i8 %narrow to i16
   %shl144 = shl i16 %16, %sub142
   %conv145 = trunc i16 %shl144 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145) #9
   br label %for.inc147
 
-for.inc147:                                       ; preds = %for.body112, %while.end136, %if.then140
-  %ptr.6.lcssa134 = phi ptr [ %incdec.ptr120, %while.end136 ], [ %incdec.ptr120, %if.then140 ], [ %ptr.5121, %for.body112 ]
+for.inc147:                                       ; preds = %if.end135.thread, %for.body112, %while.end136, %if.then140
+  %ptr.6.lcssa133 = phi ptr [ %incdec.ptr120, %while.end136 ], [ %incdec.ptr120, %if.then140 ], [ %ptr.5121, %for.body112 ], [ %incdec.ptr120, %if.end135.thread ]
   %inc148 = add nuw nsw i32 %i.1122, 1
   %exitcond.not = icmp eq i32 %inc148, %h
   br i1 %exitcond.not, label %if.end165, label %for.body112, !llvm.loop !102
@@ -4127,25 +4135,24 @@ while.end64:                                      ; preds = %while.cond55
 if.end70:                                         ; preds = %while.end64
   %conv57.le = zext i16 %9 to i32
   %call69 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %conv57.le) #9
+  %12 = trunc i32 %call69 to i8
   %cmp71 = icmp slt i32 %conv65, 3
   br i1 %cmp71, label %if.then75, label %if.then84
 
 if.then75:                                        ; preds = %if.end70
   %cmp76 = icmp eq i32 %conv65, 2
-  %conv79 = trunc i32 %call69 to i8
   br i1 %cmp76, label %if.then78, label %while.cond50.backedge
 
 if.then78:                                        ; preds = %if.then75
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79) #9
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %12) #9
   br label %while.cond50.backedge
 
-while.cond50.backedge:                            ; preds = %if.then78, %if.then75, %while.end94
-  %conv79.sink = phi i8 [ %conv95, %while.end94 ], [ %conv79, %if.then75 ], [ %conv79, %if.then78 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv79.sink) #9
+while.cond50.backedge:                            ; preds = %if.then75, %if.then78, %while.end94
+  %.sink = phi i8 [ %conv95, %while.end94 ], [ %12, %if.then78 ], [ %12, %if.then75 ]
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink) #9
   br i1 %cmp60, label %while.body53, label %if.end165, !llvm.loop !125
 
 if.then84:                                        ; preds = %if.end70
-  %12 = trunc i32 %call69 to i8
   %conv86 = or i8 %12, -128
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv86) #9
   br label %if.end88
@@ -4198,15 +4205,15 @@ for.body112.lr.ph:                                ; preds = %if.end105
 
 for.body112:                                      ; preds = %for.body112.lr.ph, %for.inc147
   %i.1122 = phi i32 [ 0, %for.body112.lr.ph ], [ %inc148, %for.inc147 ]
-  %ptr.5121 = phi ptr [ %data, %for.body112.lr.ph ], [ %ptr.6.lcssa134, %for.inc147 ]
+  %ptr.5121 = phi ptr [ %data, %for.body112.lr.ph ], [ %ptr.6.lcssa133, %for.inc147 ]
   %add.ptr114 = getelementptr i16, ptr %ptr.5121, i64 %idx.ext113
   %cmp116113 = icmp ult ptr %ptr.5121, %add.ptr114
   br i1 %cmp116113, label %while.body118, label %for.inc147
 
-while.body118:                                    ; preds = %for.body112, %if.end135
-  %byte.0116 = phi i32 [ %or127, %if.end135 ], [ 0, %for.body112 ]
-  %nbits.0115 = phi i8 [ %nbits.1, %if.end135 ], [ 0, %for.body112 ]
-  %ptr.6114 = phi ptr [ %incdec.ptr120, %if.end135 ], [ %ptr.5121, %for.body112 ]
+while.body118:                                    ; preds = %for.body112, %while.body118.backedge
+  %byte.0116 = phi i32 [ %or127, %while.body118.backedge ], [ 0, %for.body112 ]
+  %nbits.0115 = phi i8 [ %nbits.0115.be, %while.body118.backedge ], [ 0, %for.body112 ]
+  %ptr.6114 = phi ptr [ %incdec.ptr120, %while.body118.backedge ], [ %ptr.5121, %for.body112 ]
   %incdec.ptr120 = getelementptr i8, ptr %ptr.6114, i64 2
   %15 = load i16, ptr %ptr.6114, align 2
   %conv122 = zext i16 %15 to i32
@@ -4216,33 +4223,37 @@ while.body118:                                    ; preds = %for.body112, %if.en
   %or127 = or i32 %call123, %shl
   %conv130 = add i8 %nbits.0115, %14
   %cmp132 = icmp ugt i8 %conv130, 7
-  br i1 %cmp132, label %if.then134, label %if.end135
+  br i1 %cmp132, label %if.end135.thread, label %if.end135
 
-if.then134:                                       ; preds = %while.body118
+if.end135:                                        ; preds = %while.body118
+  %cmp116 = icmp ult ptr %incdec.ptr120, %add.ptr114
+  br i1 %cmp116, label %while.body118.backedge, label %while.end136
+
+while.body118.backedge:                           ; preds = %if.end135, %if.end135.thread
+  %nbits.0115.be = phi i8 [ %conv130, %if.end135 ], [ 0, %if.end135.thread ]
+  br label %while.body118, !llvm.loop !127
+
+if.end135.thread:                                 ; preds = %while.body118
   %conv128 = trunc i32 %or127 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv128) #9
-  br label %if.end135
-
-if.end135:                                        ; preds = %if.then134, %while.body118
-  %nbits.1 = phi i8 [ 0, %if.then134 ], [ %conv130, %while.body118 ]
-  %cmp116 = icmp ult ptr %incdec.ptr120, %add.ptr114
-  br i1 %cmp116, label %while.body118, label %while.end136, !llvm.loop !127
+  %cmp116135 = icmp ult ptr %incdec.ptr120, %add.ptr114
+  br i1 %cmp116135, label %while.body118.backedge, label %for.inc147
 
 while.end136:                                     ; preds = %if.end135
-  %cmp138.not = icmp eq i8 %nbits.1, 0
+  %cmp138.not = icmp eq i8 %conv130, 0
   br i1 %cmp138.not, label %for.inc147, label %if.then140
 
 if.then140:                                       ; preds = %while.end136
-  %narrow = sub nuw nsw i8 8, %nbits.1
-  %sub142 = zext nneg i8 %narrow to i16
   %16 = trunc i32 %or127 to i16
+  %narrow = sub nuw nsw i8 8, %conv130
+  %sub142 = zext nneg i8 %narrow to i16
   %shl144 = shl i16 %16, %sub142
   %conv145 = trunc i16 %shl144 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv145) #9
   br label %for.inc147
 
-for.inc147:                                       ; preds = %for.body112, %while.end136, %if.then140
-  %ptr.6.lcssa134 = phi ptr [ %incdec.ptr120, %while.end136 ], [ %incdec.ptr120, %if.then140 ], [ %ptr.5121, %for.body112 ]
+for.inc147:                                       ; preds = %if.end135.thread, %for.body112, %while.end136, %if.then140
+  %ptr.6.lcssa133 = phi ptr [ %incdec.ptr120, %while.end136 ], [ %incdec.ptr120, %if.then140 ], [ %ptr.5121, %for.body112 ], [ %incdec.ptr120, %if.end135.thread ]
   %inc148 = add nuw nsw i32 %i.1122, 1
   %exitcond.not = icmp eq i32 %inc148, %h
   br i1 %exitcond.not, label %if.end165, label %for.body112, !llvm.loop !128
@@ -4864,25 +4875,24 @@ while.end48:                                      ; preds = %while.cond41
 
 if.end53:                                         ; preds = %while.end48
   %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #9
+  %12 = trunc i32 %call52 to i8
   %cmp54 = icmp slt i32 %conv49, 3
   br i1 %cmp54, label %if.then58, label %if.then67
 
 if.then58:                                        ; preds = %if.end53
   %cmp59 = icmp eq i32 %conv49, 2
-  %conv62 = trunc i32 %call52 to i8
   br i1 %cmp59, label %if.then61, label %while.cond36.backedge
 
 if.then61:                                        ; preds = %if.then58
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #9
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %12) #9
   br label %while.cond36.backedge
 
-while.cond36.backedge:                            ; preds = %if.then61, %if.then58, %while.end77
-  %conv62.sink = phi i8 [ %conv78, %while.end77 ], [ %conv62, %if.then58 ], [ %conv62, %if.then61 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #9
+while.cond36.backedge:                            ; preds = %if.then58, %if.then61, %while.end77
+  %.sink = phi i8 [ %conv78, %while.end77 ], [ %12, %if.then61 ], [ %12, %if.then58 ]
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink) #9
   br i1 %cmp44, label %while.body39, label %if.end154, !llvm.loop !151
 
 if.then67:                                        ; preds = %if.end53
-  %12 = trunc i32 %call52 to i8
   %conv69 = or i8 %12, -128
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #9
   br label %if.end71
@@ -4940,10 +4950,10 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   %cmp99121 = icmp ult ptr %ptr.5129, %add.ptr97
   br i1 %cmp99121, label %while.body101, label %for.inc129
 
-while.body101:                                    ; preds = %for.body95, %if.end117
-  %byte.0124 = phi i32 [ %or109, %if.end117 ], [ 0, %for.body95 ]
-  %nbits.0123 = phi i8 [ %nbits.1, %if.end117 ], [ 0, %for.body95 ]
-  %ptr.6122 = phi ptr [ %incdec.ptr103, %if.end117 ], [ %ptr.5129, %for.body95 ]
+while.body101:                                    ; preds = %for.body95, %while.body101.backedge
+  %byte.0124 = phi i32 [ %or109, %while.body101.backedge ], [ 0, %for.body95 ]
+  %nbits.0123 = phi i8 [ %nbits.0123.be, %while.body101.backedge ], [ 0, %for.body95 ]
+  %ptr.6122 = phi ptr [ %incdec.ptr103, %while.body101.backedge ], [ %ptr.5129, %for.body95 ]
   %incdec.ptr103 = getelementptr i8, ptr %ptr.6122, i64 4
   %15 = load i32, ptr %ptr.6122, align 4
   %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #9
@@ -4952,33 +4962,37 @@ while.body101:                                    ; preds = %for.body95, %if.end
   %or109 = or i32 %call105, %shl
   %conv112 = add i8 %nbits.0123, %14
   %cmp114 = icmp ugt i8 %conv112, 7
-  br i1 %cmp114, label %if.then116, label %if.end117
+  br i1 %cmp114, label %if.end117.thread, label %if.end117
 
-if.then116:                                       ; preds = %while.body101
+if.end117:                                        ; preds = %while.body101
+  %cmp99 = icmp ult ptr %incdec.ptr103, %add.ptr97
+  br i1 %cmp99, label %while.body101.backedge, label %while.end118
+
+while.body101.backedge:                           ; preds = %if.end117, %if.end117.thread
+  %nbits.0123.be = phi i8 [ %conv112, %if.end117 ], [ 0, %if.end117.thread ]
+  br label %while.body101, !llvm.loop !153
+
+if.end117.thread:                                 ; preds = %while.body101
   %conv110 = trunc i32 %or109 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #9
-  br label %if.end117
-
-if.end117:                                        ; preds = %if.then116, %while.body101
-  %nbits.1 = phi i8 [ 0, %if.then116 ], [ %conv112, %while.body101 ]
-  %cmp99 = icmp ult ptr %incdec.ptr103, %add.ptr97
-  br i1 %cmp99, label %while.body101, label %while.end118, !llvm.loop !153
+  %cmp99144 = icmp ult ptr %incdec.ptr103, %add.ptr97
+  br i1 %cmp99144, label %while.body101.backedge, label %for.inc129
 
 while.end118:                                     ; preds = %if.end117
-  %cmp120.not = icmp eq i8 %nbits.1, 0
+  %cmp120.not = icmp eq i8 %conv112, 0
   br i1 %cmp120.not, label %for.inc129, label %if.then122
 
 if.then122:                                       ; preds = %while.end118
-  %narrow = sub nuw nsw i8 8, %nbits.1
-  %sub124 = zext nneg i8 %narrow to i16
   %16 = trunc i32 %or109 to i16
+  %narrow = sub nuw nsw i8 8, %conv112
+  %sub124 = zext nneg i8 %narrow to i16
   %shl126 = shl i16 %16, %sub124
   %conv127 = trunc i16 %shl126 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #9
   br label %for.inc129
 
-for.inc129:                                       ; preds = %for.body95, %while.end118, %if.then122
-  %ptr.6.lcssa142 = phi ptr [ %incdec.ptr103, %while.end118 ], [ %incdec.ptr103, %if.then122 ], [ %ptr.5129, %for.body95 ]
+for.inc129:                                       ; preds = %if.end117.thread, %for.body95, %while.end118, %if.then122
+  %ptr.6.lcssa142 = phi ptr [ %incdec.ptr103, %while.end118 ], [ %incdec.ptr103, %if.then122 ], [ %ptr.5129, %for.body95 ], [ %incdec.ptr103, %if.end117.thread ]
   %inc130 = add nuw nsw i32 %i.1130, 1
   %exitcond.not = icmp eq i32 %inc130, %h
   br i1 %exitcond.not, label %if.end154, label %for.body95, !llvm.loop !154
@@ -5674,25 +5688,24 @@ while.end48:                                      ; preds = %while.cond41
 
 if.end53:                                         ; preds = %while.end48
   %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #9
+  %12 = trunc i32 %call52 to i8
   %cmp54 = icmp slt i32 %conv49, 3
   br i1 %cmp54, label %if.then58, label %if.then67
 
 if.then58:                                        ; preds = %if.end53
   %cmp59 = icmp eq i32 %conv49, 2
-  %conv62 = trunc i32 %call52 to i8
   br i1 %cmp59, label %if.then61, label %while.cond36.backedge
 
 if.then61:                                        ; preds = %if.then58
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #9
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %12) #9
   br label %while.cond36.backedge
 
-while.cond36.backedge:                            ; preds = %if.then61, %if.then58, %while.end77
-  %conv62.sink = phi i8 [ %conv78, %while.end77 ], [ %conv62, %if.then58 ], [ %conv62, %if.then61 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #9
+while.cond36.backedge:                            ; preds = %if.then58, %if.then61, %while.end77
+  %.sink = phi i8 [ %conv78, %while.end77 ], [ %12, %if.then61 ], [ %12, %if.then58 ]
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink) #9
   br i1 %cmp44, label %while.body39, label %if.end154, !llvm.loop !178
 
 if.then67:                                        ; preds = %if.end53
-  %12 = trunc i32 %call52 to i8
   %conv69 = or i8 %12, -128
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #9
   br label %if.end71
@@ -5750,10 +5763,10 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   %cmp99121 = icmp ult ptr %ptr.5129, %add.ptr97
   br i1 %cmp99121, label %while.body101, label %for.inc129
 
-while.body101:                                    ; preds = %for.body95, %if.end117
-  %byte.0124 = phi i32 [ %or109, %if.end117 ], [ 0, %for.body95 ]
-  %nbits.0123 = phi i8 [ %nbits.1, %if.end117 ], [ 0, %for.body95 ]
-  %ptr.6122 = phi ptr [ %incdec.ptr103, %if.end117 ], [ %ptr.5129, %for.body95 ]
+while.body101:                                    ; preds = %for.body95, %while.body101.backedge
+  %byte.0124 = phi i32 [ %or109, %while.body101.backedge ], [ 0, %for.body95 ]
+  %nbits.0123 = phi i8 [ %nbits.0123.be, %while.body101.backedge ], [ 0, %for.body95 ]
+  %ptr.6122 = phi ptr [ %incdec.ptr103, %while.body101.backedge ], [ %ptr.5129, %for.body95 ]
   %incdec.ptr103 = getelementptr i8, ptr %ptr.6122, i64 4
   %15 = load i32, ptr %ptr.6122, align 4
   %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #9
@@ -5762,33 +5775,37 @@ while.body101:                                    ; preds = %for.body95, %if.end
   %or109 = or i32 %call105, %shl
   %conv112 = add i8 %nbits.0123, %14
   %cmp114 = icmp ugt i8 %conv112, 7
-  br i1 %cmp114, label %if.then116, label %if.end117
+  br i1 %cmp114, label %if.end117.thread, label %if.end117
 
-if.then116:                                       ; preds = %while.body101
+if.end117:                                        ; preds = %while.body101
+  %cmp99 = icmp ult ptr %incdec.ptr103, %add.ptr97
+  br i1 %cmp99, label %while.body101.backedge, label %while.end118
+
+while.body101.backedge:                           ; preds = %if.end117, %if.end117.thread
+  %nbits.0123.be = phi i8 [ %conv112, %if.end117 ], [ 0, %if.end117.thread ]
+  br label %while.body101, !llvm.loop !180
+
+if.end117.thread:                                 ; preds = %while.body101
   %conv110 = trunc i32 %or109 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #9
-  br label %if.end117
-
-if.end117:                                        ; preds = %if.then116, %while.body101
-  %nbits.1 = phi i8 [ 0, %if.then116 ], [ %conv112, %while.body101 ]
-  %cmp99 = icmp ult ptr %incdec.ptr103, %add.ptr97
-  br i1 %cmp99, label %while.body101, label %while.end118, !llvm.loop !180
+  %cmp99144 = icmp ult ptr %incdec.ptr103, %add.ptr97
+  br i1 %cmp99144, label %while.body101.backedge, label %for.inc129
 
 while.end118:                                     ; preds = %if.end117
-  %cmp120.not = icmp eq i8 %nbits.1, 0
+  %cmp120.not = icmp eq i8 %conv112, 0
   br i1 %cmp120.not, label %for.inc129, label %if.then122
 
 if.then122:                                       ; preds = %while.end118
-  %narrow = sub nuw nsw i8 8, %nbits.1
-  %sub124 = zext nneg i8 %narrow to i16
   %16 = trunc i32 %or109 to i16
+  %narrow = sub nuw nsw i8 8, %conv112
+  %sub124 = zext nneg i8 %narrow to i16
   %shl126 = shl i16 %16, %sub124
   %conv127 = trunc i16 %shl126 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #9
   br label %for.inc129
 
-for.inc129:                                       ; preds = %for.body95, %while.end118, %if.then122
-  %ptr.6.lcssa142 = phi ptr [ %incdec.ptr103, %while.end118 ], [ %incdec.ptr103, %if.then122 ], [ %ptr.5129, %for.body95 ]
+for.inc129:                                       ; preds = %if.end117.thread, %for.body95, %while.end118, %if.then122
+  %ptr.6.lcssa142 = phi ptr [ %incdec.ptr103, %while.end118 ], [ %incdec.ptr103, %if.then122 ], [ %ptr.5129, %for.body95 ], [ %incdec.ptr103, %if.end117.thread ]
   %inc130 = add nuw nsw i32 %i.1130, 1
   %exitcond.not = icmp eq i32 %inc130, %h
   br i1 %exitcond.not, label %if.end154, label %for.body95, !llvm.loop !181
@@ -6488,25 +6505,24 @@ while.end48:                                      ; preds = %while.cond41
 
 if.end53:                                         ; preds = %while.end48
   %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #9
+  %12 = trunc i32 %call52 to i8
   %cmp54 = icmp slt i32 %conv49, 3
   br i1 %cmp54, label %if.then58, label %if.then67
 
 if.then58:                                        ; preds = %if.end53
   %cmp59 = icmp eq i32 %conv49, 2
-  %conv62 = trunc i32 %call52 to i8
   br i1 %cmp59, label %if.then61, label %while.cond36.backedge
 
 if.then61:                                        ; preds = %if.then58
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #9
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %12) #9
   br label %while.cond36.backedge
 
-while.cond36.backedge:                            ; preds = %if.then61, %if.then58, %while.end77
-  %conv62.sink = phi i8 [ %conv78, %while.end77 ], [ %conv62, %if.then58 ], [ %conv62, %if.then61 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #9
+while.cond36.backedge:                            ; preds = %if.then58, %if.then61, %while.end77
+  %.sink = phi i8 [ %conv78, %while.end77 ], [ %12, %if.then61 ], [ %12, %if.then58 ]
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink) #9
   br i1 %cmp44, label %while.body39, label %if.end154, !llvm.loop !205
 
 if.then67:                                        ; preds = %if.end53
-  %12 = trunc i32 %call52 to i8
   %conv69 = or i8 %12, -128
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #9
   br label %if.end71
@@ -6564,10 +6580,10 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   %cmp99125 = icmp ult ptr %ptr.5133, %add.ptr97
   br i1 %cmp99125, label %while.body101, label %for.inc129
 
-while.body101:                                    ; preds = %for.body95, %if.end117
-  %byte.0128 = phi i32 [ %or109, %if.end117 ], [ 0, %for.body95 ]
-  %nbits.0127 = phi i8 [ %nbits.1, %if.end117 ], [ 0, %for.body95 ]
-  %ptr.6126 = phi ptr [ %incdec.ptr103, %if.end117 ], [ %ptr.5133, %for.body95 ]
+while.body101:                                    ; preds = %for.body95, %while.body101.backedge
+  %byte.0128 = phi i32 [ %or109, %while.body101.backedge ], [ 0, %for.body95 ]
+  %nbits.0127 = phi i8 [ %nbits.0127.be, %while.body101.backedge ], [ 0, %for.body95 ]
+  %ptr.6126 = phi ptr [ %incdec.ptr103, %while.body101.backedge ], [ %ptr.5133, %for.body95 ]
   %incdec.ptr103 = getelementptr i8, ptr %ptr.6126, i64 4
   %15 = load i32, ptr %ptr.6126, align 4
   %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #9
@@ -6576,33 +6592,37 @@ while.body101:                                    ; preds = %for.body95, %if.end
   %or109 = or i32 %call105, %shl
   %conv112 = add i8 %nbits.0127, %14
   %cmp114 = icmp ugt i8 %conv112, 7
-  br i1 %cmp114, label %if.then116, label %if.end117
+  br i1 %cmp114, label %if.end117.thread, label %if.end117
 
-if.then116:                                       ; preds = %while.body101
+if.end117:                                        ; preds = %while.body101
+  %cmp99 = icmp ult ptr %incdec.ptr103, %add.ptr97
+  br i1 %cmp99, label %while.body101.backedge, label %while.end118
+
+while.body101.backedge:                           ; preds = %if.end117, %if.end117.thread
+  %nbits.0127.be = phi i8 [ %conv112, %if.end117 ], [ 0, %if.end117.thread ]
+  br label %while.body101, !llvm.loop !207
+
+if.end117.thread:                                 ; preds = %while.body101
   %conv110 = trunc i32 %or109 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #9
-  br label %if.end117
-
-if.end117:                                        ; preds = %if.then116, %while.body101
-  %nbits.1 = phi i8 [ 0, %if.then116 ], [ %conv112, %while.body101 ]
-  %cmp99 = icmp ult ptr %incdec.ptr103, %add.ptr97
-  br i1 %cmp99, label %while.body101, label %while.end118, !llvm.loop !207
+  %cmp99148 = icmp ult ptr %incdec.ptr103, %add.ptr97
+  br i1 %cmp99148, label %while.body101.backedge, label %for.inc129
 
 while.end118:                                     ; preds = %if.end117
-  %cmp120.not = icmp eq i8 %nbits.1, 0
+  %cmp120.not = icmp eq i8 %conv112, 0
   br i1 %cmp120.not, label %for.inc129, label %if.then122
 
 if.then122:                                       ; preds = %while.end118
-  %narrow = sub nuw nsw i8 8, %nbits.1
-  %sub124 = zext nneg i8 %narrow to i16
   %16 = trunc i32 %or109 to i16
+  %narrow = sub nuw nsw i8 8, %conv112
+  %sub124 = zext nneg i8 %narrow to i16
   %shl126 = shl i16 %16, %sub124
   %conv127 = trunc i16 %shl126 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #9
   br label %for.inc129
 
-for.inc129:                                       ; preds = %for.body95, %while.end118, %if.then122
-  %ptr.6.lcssa146 = phi ptr [ %incdec.ptr103, %while.end118 ], [ %incdec.ptr103, %if.then122 ], [ %ptr.5133, %for.body95 ]
+for.inc129:                                       ; preds = %if.end117.thread, %for.body95, %while.end118, %if.then122
+  %ptr.6.lcssa146 = phi ptr [ %incdec.ptr103, %while.end118 ], [ %incdec.ptr103, %if.then122 ], [ %ptr.5133, %for.body95 ], [ %incdec.ptr103, %if.end117.thread ]
   %inc130 = add nuw nsw i32 %i.1134, 1
   %exitcond.not = icmp eq i32 %inc130, %h
   br i1 %exitcond.not, label %if.end154, label %for.body95, !llvm.loop !208
@@ -6798,25 +6818,24 @@ while.end48:                                      ; preds = %while.cond41
 
 if.end53:                                         ; preds = %while.end48
   %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #9
+  %12 = trunc i32 %call52 to i8
   %cmp54 = icmp slt i32 %conv49, 3
   br i1 %cmp54, label %if.then58, label %if.then67
 
 if.then58:                                        ; preds = %if.end53
   %cmp59 = icmp eq i32 %conv49, 2
-  %conv62 = trunc i32 %call52 to i8
   br i1 %cmp59, label %if.then61, label %while.cond36.backedge
 
 if.then61:                                        ; preds = %if.then58
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #9
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %12) #9
   br label %while.cond36.backedge
 
-while.cond36.backedge:                            ; preds = %if.then61, %if.then58, %while.end77
-  %conv62.sink = phi i8 [ %conv78, %while.end77 ], [ %conv62, %if.then58 ], [ %conv62, %if.then61 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #9
+while.cond36.backedge:                            ; preds = %if.then58, %if.then61, %while.end77
+  %.sink = phi i8 [ %conv78, %while.end77 ], [ %12, %if.then61 ], [ %12, %if.then58 ]
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink) #9
   br i1 %cmp44, label %while.body39, label %if.end154, !llvm.loop !214
 
 if.then67:                                        ; preds = %if.end53
-  %12 = trunc i32 %call52 to i8
   %conv69 = or i8 %12, -128
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #9
   br label %if.end71
@@ -6874,10 +6893,10 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   %cmp99125 = icmp ult ptr %ptr.5133, %add.ptr97
   br i1 %cmp99125, label %while.body101, label %for.inc129
 
-while.body101:                                    ; preds = %for.body95, %if.end117
-  %byte.0128 = phi i32 [ %or109, %if.end117 ], [ 0, %for.body95 ]
-  %nbits.0127 = phi i8 [ %nbits.1, %if.end117 ], [ 0, %for.body95 ]
-  %ptr.6126 = phi ptr [ %incdec.ptr103, %if.end117 ], [ %ptr.5133, %for.body95 ]
+while.body101:                                    ; preds = %for.body95, %while.body101.backedge
+  %byte.0128 = phi i32 [ %or109, %while.body101.backedge ], [ 0, %for.body95 ]
+  %nbits.0127 = phi i8 [ %nbits.0127.be, %while.body101.backedge ], [ 0, %for.body95 ]
+  %ptr.6126 = phi ptr [ %incdec.ptr103, %while.body101.backedge ], [ %ptr.5133, %for.body95 ]
   %incdec.ptr103 = getelementptr i8, ptr %ptr.6126, i64 4
   %15 = load i32, ptr %ptr.6126, align 4
   %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #9
@@ -6886,33 +6905,37 @@ while.body101:                                    ; preds = %for.body95, %if.end
   %or109 = or i32 %call105, %shl
   %conv112 = add i8 %nbits.0127, %14
   %cmp114 = icmp ugt i8 %conv112, 7
-  br i1 %cmp114, label %if.then116, label %if.end117
+  br i1 %cmp114, label %if.end117.thread, label %if.end117
 
-if.then116:                                       ; preds = %while.body101
+if.end117:                                        ; preds = %while.body101
+  %cmp99 = icmp ult ptr %incdec.ptr103, %add.ptr97
+  br i1 %cmp99, label %while.body101.backedge, label %while.end118
+
+while.body101.backedge:                           ; preds = %if.end117, %if.end117.thread
+  %nbits.0127.be = phi i8 [ %conv112, %if.end117 ], [ 0, %if.end117.thread ]
+  br label %while.body101, !llvm.loop !216
+
+if.end117.thread:                                 ; preds = %while.body101
   %conv110 = trunc i32 %or109 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #9
-  br label %if.end117
-
-if.end117:                                        ; preds = %if.then116, %while.body101
-  %nbits.1 = phi i8 [ 0, %if.then116 ], [ %conv112, %while.body101 ]
-  %cmp99 = icmp ult ptr %incdec.ptr103, %add.ptr97
-  br i1 %cmp99, label %while.body101, label %while.end118, !llvm.loop !216
+  %cmp99148 = icmp ult ptr %incdec.ptr103, %add.ptr97
+  br i1 %cmp99148, label %while.body101.backedge, label %for.inc129
 
 while.end118:                                     ; preds = %if.end117
-  %cmp120.not = icmp eq i8 %nbits.1, 0
+  %cmp120.not = icmp eq i8 %conv112, 0
   br i1 %cmp120.not, label %for.inc129, label %if.then122
 
 if.then122:                                       ; preds = %while.end118
-  %narrow = sub nuw nsw i8 8, %nbits.1
-  %sub124 = zext nneg i8 %narrow to i16
   %16 = trunc i32 %or109 to i16
+  %narrow = sub nuw nsw i8 8, %conv112
+  %sub124 = zext nneg i8 %narrow to i16
   %shl126 = shl i16 %16, %sub124
   %conv127 = trunc i16 %shl126 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #9
   br label %for.inc129
 
-for.inc129:                                       ; preds = %for.body95, %while.end118, %if.then122
-  %ptr.6.lcssa146 = phi ptr [ %incdec.ptr103, %while.end118 ], [ %incdec.ptr103, %if.then122 ], [ %ptr.5133, %for.body95 ]
+for.inc129:                                       ; preds = %if.end117.thread, %for.body95, %while.end118, %if.then122
+  %ptr.6.lcssa146 = phi ptr [ %incdec.ptr103, %while.end118 ], [ %incdec.ptr103, %if.then122 ], [ %ptr.5133, %for.body95 ], [ %incdec.ptr103, %if.end117.thread ]
   %inc130 = add nuw nsw i32 %i.1134, 1
   %exitcond.not = icmp eq i32 %inc130, %h
   br i1 %exitcond.not, label %if.end154, label %for.body95, !llvm.loop !217
@@ -7098,25 +7121,24 @@ while.end48:                                      ; preds = %while.cond41
 
 if.end53:                                         ; preds = %while.end48
   %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #9
+  %12 = trunc i32 %call52 to i8
   %cmp54 = icmp slt i32 %conv49, 3
   br i1 %cmp54, label %if.then58, label %if.then67
 
 if.then58:                                        ; preds = %if.end53
   %cmp59 = icmp eq i32 %conv49, 2
-  %conv62 = trunc i32 %call52 to i8
   br i1 %cmp59, label %if.then61, label %while.cond36.backedge
 
 if.then61:                                        ; preds = %if.then58
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #9
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %12) #9
   br label %while.cond36.backedge
 
-while.cond36.backedge:                            ; preds = %if.then61, %if.then58, %while.end77
-  %conv62.sink = phi i8 [ %conv78, %while.end77 ], [ %conv62, %if.then58 ], [ %conv62, %if.then61 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #9
+while.cond36.backedge:                            ; preds = %if.then58, %if.then61, %while.end77
+  %.sink = phi i8 [ %conv78, %while.end77 ], [ %12, %if.then61 ], [ %12, %if.then58 ]
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink) #9
   br i1 %cmp44, label %while.body39, label %if.end147, !llvm.loop !223
 
 if.then67:                                        ; preds = %if.end53
-  %12 = trunc i32 %call52 to i8
   %conv69 = or i8 %12, -128
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #9
   br label %if.end71
@@ -7174,10 +7196,10 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   %cmp99113 = icmp ult ptr %ptr.5121, %add.ptr97
   br i1 %cmp99113, label %while.body101, label %for.inc129
 
-while.body101:                                    ; preds = %for.body95, %if.end117
-  %byte.0116 = phi i32 [ %or109, %if.end117 ], [ 0, %for.body95 ]
-  %nbits.0115 = phi i8 [ %nbits.1, %if.end117 ], [ 0, %for.body95 ]
-  %ptr.6114 = phi ptr [ %incdec.ptr103, %if.end117 ], [ %ptr.5121, %for.body95 ]
+while.body101:                                    ; preds = %for.body95, %while.body101.backedge
+  %byte.0116 = phi i32 [ %or109, %while.body101.backedge ], [ 0, %for.body95 ]
+  %nbits.0115 = phi i8 [ %nbits.0115.be, %while.body101.backedge ], [ 0, %for.body95 ]
+  %ptr.6114 = phi ptr [ %incdec.ptr103, %while.body101.backedge ], [ %ptr.5121, %for.body95 ]
   %incdec.ptr103 = getelementptr i8, ptr %ptr.6114, i64 4
   %15 = load i32, ptr %ptr.6114, align 4
   %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #9
@@ -7186,33 +7208,37 @@ while.body101:                                    ; preds = %for.body95, %if.end
   %or109 = or i32 %call105, %shl
   %conv112 = add i8 %nbits.0115, %14
   %cmp114 = icmp ugt i8 %conv112, 7
-  br i1 %cmp114, label %if.then116, label %if.end117
+  br i1 %cmp114, label %if.end117.thread, label %if.end117
 
-if.then116:                                       ; preds = %while.body101
+if.end117:                                        ; preds = %while.body101
+  %cmp99 = icmp ult ptr %incdec.ptr103, %add.ptr97
+  br i1 %cmp99, label %while.body101.backedge, label %while.end118
+
+while.body101.backedge:                           ; preds = %if.end117, %if.end117.thread
+  %nbits.0115.be = phi i8 [ %conv112, %if.end117 ], [ 0, %if.end117.thread ]
+  br label %while.body101, !llvm.loop !225
+
+if.end117.thread:                                 ; preds = %while.body101
   %conv110 = trunc i32 %or109 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #9
-  br label %if.end117
-
-if.end117:                                        ; preds = %if.then116, %while.body101
-  %nbits.1 = phi i8 [ 0, %if.then116 ], [ %conv112, %while.body101 ]
-  %cmp99 = icmp ult ptr %incdec.ptr103, %add.ptr97
-  br i1 %cmp99, label %while.body101, label %while.end118, !llvm.loop !225
+  %cmp99135 = icmp ult ptr %incdec.ptr103, %add.ptr97
+  br i1 %cmp99135, label %while.body101.backedge, label %for.inc129
 
 while.end118:                                     ; preds = %if.end117
-  %cmp120.not = icmp eq i8 %nbits.1, 0
+  %cmp120.not = icmp eq i8 %conv112, 0
   br i1 %cmp120.not, label %for.inc129, label %if.then122
 
 if.then122:                                       ; preds = %while.end118
-  %narrow = sub nuw nsw i8 8, %nbits.1
-  %sub124 = zext nneg i8 %narrow to i16
   %16 = trunc i32 %or109 to i16
+  %narrow = sub nuw nsw i8 8, %conv112
+  %sub124 = zext nneg i8 %narrow to i16
   %shl126 = shl i16 %16, %sub124
   %conv127 = trunc i16 %shl126 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #9
   br label %for.inc129
 
-for.inc129:                                       ; preds = %for.body95, %while.end118, %if.then122
-  %ptr.6.lcssa133 = phi ptr [ %incdec.ptr103, %while.end118 ], [ %incdec.ptr103, %if.then122 ], [ %ptr.5121, %for.body95 ]
+for.inc129:                                       ; preds = %if.end117.thread, %for.body95, %while.end118, %if.then122
+  %ptr.6.lcssa133 = phi ptr [ %incdec.ptr103, %while.end118 ], [ %incdec.ptr103, %if.then122 ], [ %ptr.5121, %for.body95 ], [ %incdec.ptr103, %if.end117.thread ]
   %inc130 = add nuw nsw i32 %i.1122, 1
   %exitcond.not = icmp eq i32 %inc130, %h
   br i1 %exitcond.not, label %if.end147, label %for.body95, !llvm.loop !226
@@ -7386,25 +7412,24 @@ while.end48:                                      ; preds = %while.cond41
 
 if.end53:                                         ; preds = %while.end48
   %call52 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %9) #9
+  %12 = trunc i32 %call52 to i8
   %cmp54 = icmp slt i32 %conv49, 3
   br i1 %cmp54, label %if.then58, label %if.then67
 
 if.then58:                                        ; preds = %if.end53
   %cmp59 = icmp eq i32 %conv49, 2
-  %conv62 = trunc i32 %call52 to i8
   br i1 %cmp59, label %if.then61, label %while.cond36.backedge
 
 if.then61:                                        ; preds = %if.then58
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62) #9
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %12) #9
   br label %while.cond36.backedge
 
-while.cond36.backedge:                            ; preds = %if.then61, %if.then58, %while.end77
-  %conv62.sink = phi i8 [ %conv78, %while.end77 ], [ %conv62, %if.then58 ], [ %conv62, %if.then61 ]
-  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv62.sink) #9
+while.cond36.backedge:                            ; preds = %if.then58, %if.then61, %while.end77
+  %.sink = phi i8 [ %conv78, %while.end77 ], [ %12, %if.then61 ], [ %12, %if.then58 ]
+  call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %.sink) #9
   br i1 %cmp44, label %while.body39, label %if.end147, !llvm.loop !231
 
 if.then67:                                        ; preds = %if.end53
-  %12 = trunc i32 %call52 to i8
   %conv69 = or i8 %12, -128
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv69) #9
   br label %if.end71
@@ -7462,10 +7487,10 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   %cmp99113 = icmp ult ptr %ptr.5121, %add.ptr97
   br i1 %cmp99113, label %while.body101, label %for.inc129
 
-while.body101:                                    ; preds = %for.body95, %if.end117
-  %byte.0116 = phi i32 [ %or109, %if.end117 ], [ 0, %for.body95 ]
-  %nbits.0115 = phi i8 [ %nbits.1, %if.end117 ], [ 0, %for.body95 ]
-  %ptr.6114 = phi ptr [ %incdec.ptr103, %if.end117 ], [ %ptr.5121, %for.body95 ]
+while.body101:                                    ; preds = %for.body95, %while.body101.backedge
+  %byte.0116 = phi i32 [ %or109, %while.body101.backedge ], [ 0, %for.body95 ]
+  %nbits.0115 = phi i8 [ %nbits.0115.be, %while.body101.backedge ], [ 0, %for.body95 ]
+  %ptr.6114 = phi ptr [ %incdec.ptr103, %while.body101.backedge ], [ %ptr.5121, %for.body95 ]
   %incdec.ptr103 = getelementptr i8, ptr %ptr.6114, i64 4
   %15 = load i32, ptr %ptr.6114, align 4
   %call105 = call i32 @palette_idx(ptr noundef nonnull %palette1, i32 noundef %15) #9
@@ -7474,33 +7499,37 @@ while.body101:                                    ; preds = %for.body95, %if.end
   %or109 = or i32 %call105, %shl
   %conv112 = add i8 %nbits.0115, %14
   %cmp114 = icmp ugt i8 %conv112, 7
-  br i1 %cmp114, label %if.then116, label %if.end117
+  br i1 %cmp114, label %if.end117.thread, label %if.end117
 
-if.then116:                                       ; preds = %while.body101
+if.end117:                                        ; preds = %while.body101
+  %cmp99 = icmp ult ptr %incdec.ptr103, %add.ptr97
+  br i1 %cmp99, label %while.body101.backedge, label %while.end118
+
+while.body101.backedge:                           ; preds = %if.end117, %if.end117.thread
+  %nbits.0115.be = phi i8 [ %conv112, %if.end117 ], [ 0, %if.end117.thread ]
+  br label %while.body101, !llvm.loop !233
+
+if.end117.thread:                                 ; preds = %while.body101
   %conv110 = trunc i32 %or109 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv110) #9
-  br label %if.end117
-
-if.end117:                                        ; preds = %if.then116, %while.body101
-  %nbits.1 = phi i8 [ 0, %if.then116 ], [ %conv112, %while.body101 ]
-  %cmp99 = icmp ult ptr %incdec.ptr103, %add.ptr97
-  br i1 %cmp99, label %while.body101, label %while.end118, !llvm.loop !233
+  %cmp99135 = icmp ult ptr %incdec.ptr103, %add.ptr97
+  br i1 %cmp99135, label %while.body101.backedge, label %for.inc129
 
 while.end118:                                     ; preds = %if.end117
-  %cmp120.not = icmp eq i8 %nbits.1, 0
+  %cmp120.not = icmp eq i8 %conv112, 0
   br i1 %cmp120.not, label %for.inc129, label %if.then122
 
 if.then122:                                       ; preds = %while.end118
-  %narrow = sub nuw nsw i8 8, %nbits.1
-  %sub124 = zext nneg i8 %narrow to i16
   %16 = trunc i32 %or109 to i16
+  %narrow = sub nuw nsw i8 8, %conv112
+  %sub124 = zext nneg i8 %narrow to i16
   %shl126 = shl i16 %16, %sub124
   %conv127 = trunc i16 %shl126 to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv127) #9
   br label %for.inc129
 
-for.inc129:                                       ; preds = %for.body95, %while.end118, %if.then122
-  %ptr.6.lcssa133 = phi ptr [ %incdec.ptr103, %while.end118 ], [ %incdec.ptr103, %if.then122 ], [ %ptr.5121, %for.body95 ]
+for.inc129:                                       ; preds = %if.end117.thread, %for.body95, %while.end118, %if.then122
+  %ptr.6.lcssa133 = phi ptr [ %incdec.ptr103, %while.end118 ], [ %incdec.ptr103, %if.then122 ], [ %ptr.5121, %for.body95 ], [ %incdec.ptr103, %if.end117.thread ]
   %inc130 = add nuw nsw i32 %i.1122, 1
   %exitcond.not = icmp eq i32 %inc130, %h
   br i1 %exitcond.not, label %if.end147, label %for.body95, !llvm.loop !234

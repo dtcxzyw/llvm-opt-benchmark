@@ -1228,12 +1228,12 @@ define hidden noundef i32 @_ZN7VM_Exit35wait_for_threads_in_native_to_blockEv() 
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
-  %.not.i32.not42 = icmp eq i32 %13, 0
-  br i1 %.not.i32.not42, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.preheader
+  %.not.i32.not46 = icmp eq i32 %13, 0
+  br i1 %.not.i32.not46, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.preheader
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit.preheader: ; preds = %0, %_ZN13MonitorLockerD2Ev.exit
-  %14 = phi ptr [ %55, %_ZN13MonitorLockerD2Ev.exit ], [ %11, %0 ]
-  %.02143 = phi i32 [ %53, %_ZN13MonitorLockerD2Ev.exit ], [ 0, %0 ]
+  %14 = phi ptr [ %54, %_ZN13MonitorLockerD2Ev.exit ], [ %11, %0 ]
+  %.02147 = phi i32 [ %52, %_ZN13MonitorLockerD2Ev.exit ], [ 0, %0 ]
   br label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.preheader, %44
@@ -1296,33 +1296,31 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %_ZN28JavaThreadIter
   br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !17
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, %44
-  %.023.lcssa = phi i32 [ %.02333, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ %.124, %44 ]
-  %.022.lcssa = phi i32 [ %.02234, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ %.1, %44 ]
-  %49 = icmp eq i32 %.023.lcssa, 0
-  %50 = icmp ugt i32 %.02143, 999
-  %or.cond31 = select i1 %49, i1 true, i1 %50
-  br i1 %or.cond31, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread, label %51
+  %.023.lcssa.ph = phi i32 [ %.02333, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ %.124, %44 ]
+  %.022.lcssa.ph = phi i32 [ %.02234, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ %.1, %44 ]
+  %49 = icmp ne i32 %.022.lcssa.ph, 0
+  %50 = icmp ne i32 %.023.lcssa.ph, 0
+  %51 = icmp ult i32 %.02147, 1000
+  %or.cond31.not45 = select i1 %50, i1 %51, i1 false
+  %.not26 = icmp slt i32 %.02147, %6
+  %or.cond = select i1 %49, i1 true, i1 %.not26
+  %or.cond42 = select i1 %or.cond31.not45, i1 %or.cond, i1 false
+  br i1 %or.cond42, label %_ZN13MonitorLockerD2Ev.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread
 
-51:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
-  %52 = icmp ne i32 %.022.lcssa, 0
-  %.not26 = icmp slt i32 %.02143, %6
-  %or.cond = select i1 %52, i1 true, i1 %.not26
-  br i1 %or.cond, label %_ZN13MonitorLockerD2Ev.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread
-
-_ZN13MonitorLockerD2Ev.exit:                      ; preds = %51
-  %53 = add nuw nsw i32 %.02143, 1
+_ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
+  %52 = add nuw nsw i32 %.02147, 1
   call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #10
-  %54 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef 10) #10
+  %53 = call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef 10) #10
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #10
   store i32 0, ptr %9, align 8
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
-  %57 = load i32, ptr %56, align 4
-  %.not.i32.not = icmp eq i32 %57, 0
+  %54 = load ptr, ptr %10, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %56 = load i32, ptr %55, align 4
+  %.not.i32.not = icmp eq i32 %56, 0
   br i1 %.not.i32.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.preheader, !llvm.loop !18
 
-_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread: ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %51, %_ZN13MonitorLockerD2Ev.exit, %0
-  %.023.lcssa41 = phi i32 [ 0, %0 ], [ %.023.lcssa, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread ], [ %.023.lcssa, %51 ], [ 0, %_ZN13MonitorLockerD2Ev.exit ]
+_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread: ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %_ZN13MonitorLockerD2Ev.exit, %0
+  %.023.lcssa41 = phi i32 [ 0, %0 ], [ %.023.lcssa.ph, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread ], [ 0, %_ZN13MonitorLockerD2Ev.exit ]
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #10
   call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %1) #10
   ret i32 %.023.lcssa41

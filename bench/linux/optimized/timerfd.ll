@@ -199,7 +199,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_timerfd_crea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -2147483648, 2147483648) i64 @__x64_sys_timerfd_settime(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i64 -125, 1) i64 @__x64_sys_timerfd_settime(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.itimerspec64, align 8
   %3 = alloca %struct.itimerspec64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112

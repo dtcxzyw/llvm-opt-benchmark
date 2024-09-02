@@ -1405,7 +1405,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4recv
   br i1 %59, label %66, label %60
 
 60:                                               ; preds = %54
-  %.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.027.i, i32 6)
+  %.0.sroa.speculated.i.i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.027.i, i32 6)
   br label %63
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = %63
@@ -1446,7 +1446,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i: ; preds 
   br i1 %74, label %84, label %76
 
 76:                                               ; preds = %72
-  %.0.sroa.speculated.i.i18.i = call noundef i32 @llvm.umin.i32(i32 %.027.i, i32 6)
+  %.0.sroa.speculated.i.i18.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.027.i, i32 6)
   br label %79
 
 77:                                               ; preds = %79
@@ -1924,7 +1924,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
   br i1 %64, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$10start_send17h57a0ad0191df1c9fE.exit", label %65
 
 65:                                               ; preds = %60
-  %.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.02734.i, i32 6)
+  %.0.sroa.speculated.i.i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.02734.i, i32 6)
   br label %68
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = %68
@@ -1967,7 +1967,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i: ; preds 
   br i1 %81, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$5write17h29037c508c1feff9E.exit.thread", label %83
 
 83:                                               ; preds = %79
-  %.0.sroa.speculated.i.i18.i = call noundef i32 @llvm.umin.i32(i32 %.02734.i, i32 6)
+  %.0.sroa.speculated.i.i18.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.02734.i, i32 6)
   br label %86
 
 84:                                               ; preds = %86

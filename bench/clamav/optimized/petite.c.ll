@@ -68,7 +68,7 @@ define range(i32 0, 2) i32 @petite_inflate2x_1to9(ptr noundef %0, i32 noundef %1
   br i1 %30, label %.outer.split.us.split.us.preheader, label %.outer.split.us.split
 
 .outer.split.us.split.us.preheader:               ; preds = %.outer.split.us.lr.ph, %.outer
-  %.0797.ph1441.fr2208 = phi i32 [ %.0797.ph1441.fr, %.outer ], [ 0, %.outer.split.us.lr.ph ]
+  %.0797.ph1441.fr2208 = phi i32 [ %.1798, %.outer ], [ 0, %.outer.split.us.lr.ph ]
   %.0801.ph14402207 = phi i32 [ %.1802, %.outer ], [ 0, %.outer.split.us.lr.ph ]
   %.0795.ph14422206 = phi i32 [ %.1796, %.outer ], [ 0, %.outer.split.us.lr.ph ]
   %.0793.ph14442205 = phi ptr [ %.1794, %.outer ], [ null, %.outer.split.us.lr.ph ]
@@ -965,78 +965,78 @@ doubledl.exit1023.thread:                         ; preds = %362
   %381 = icmp slt i32 %284, %375
   %382 = zext i1 %381 to i32
   %383 = add nuw nsw i32 %380, %382
-  br label %386
+  br label %387
 
 384:                                              ; preds = %355
-  %385 = add nsw i32 %345, -2
-  br label %386
+  %385 = shl i32 %345, 1
+  %386 = add i32 %385, -4
+  br label %387
 
-386:                                              ; preds = %384, %377
+387:                                              ; preds = %384, %377
   %.41082 = phi ptr [ %.131091, %377 ], [ %.111089, %384 ]
   %.41072 = phi i8 [ %.016.i1018, %377 ], [ %.016.i1011, %384 ]
   %.2781 = phi i32 [ %378, %377 ], [ %.07791437, %384 ]
   %.0778 = phi i32 [ %383, %377 ], [ 0, %384 ]
-  %.1774 = phi i32 [ 0, %377 ], [ %385, %384 ]
-  %387 = shl i8 %.41072, 1
-  %388 = and i8 %.41072, 127
-  %.not.i1024 = icmp eq i8 %388, 0
-  br i1 %.not.i1024, label %389, label %doubledl.exit1030
+  %.1774 = phi i32 [ 0, %377 ], [ %386, %384 ]
+  %388 = shl i8 %.41072, 1
+  %389 = and i8 %.41072, 127
+  %.not.i1024 = icmp eq i8 %389, 0
+  br i1 %.not.i1024, label %390, label %doubledl.exit1030
 
-389:                                              ; preds = %386
-  %390 = icmp uge ptr %.41082, %0
+390:                                              ; preds = %387
+  %391 = icmp uge ptr %.41082, %0
   %.not20.i1028 = icmp ult ptr %.41082, %32
-  %or.cond.i1029 = select i1 %390, i1 %.not20.i1028, i1 false
-  br i1 %or.cond.i1029, label %391, label %doubledl.exit1030.thread
+  %or.cond.i1029 = select i1 %391, i1 %.not20.i1028, i1 false
+  br i1 %or.cond.i1029, label %392, label %doubledl.exit1030.thread
 
-391:                                              ; preds = %389
-  %392 = load i8, ptr %.41082, align 1
-  %393 = shl i8 %392, 1
-  %394 = or disjoint i8 %393, 1
-  %395 = getelementptr inbounds i8, ptr %.41082, i64 1
+392:                                              ; preds = %390
+  %393 = load i8, ptr %.41082, align 1
+  %394 = shl i8 %393, 1
+  %395 = or disjoint i8 %394, 1
+  %396 = getelementptr inbounds i8, ptr %.41082, i64 1
   br label %doubledl.exit1030
 
-doubledl.exit1030:                                ; preds = %386, %391
-  %.15 = phi ptr [ %395, %391 ], [ %.41082, %386 ]
-  %.016.i1025 = phi i8 [ %394, %391 ], [ %387, %386 ]
-  %.0.i1026 = phi i8 [ %392, %391 ], [ %.41072, %386 ]
-  %396 = shl i8 %.016.i1025, 1
-  %397 = and i8 %.016.i1025, 127
-  %.not.i1031 = icmp eq i8 %397, 0
-  br i1 %.not.i1031, label %398, label %doubledl.exit1037
+doubledl.exit1030:                                ; preds = %387, %392
+  %.15 = phi ptr [ %396, %392 ], [ %.41082, %387 ]
+  %.016.i1025 = phi i8 [ %395, %392 ], [ %388, %387 ]
+  %.0.i1026 = phi i8 [ %393, %392 ], [ %.41072, %387 ]
+  %397 = lshr i8 %.0.i1026, 7
+  %398 = zext nneg i8 %397 to i32
+  %399 = shl i8 %.016.i1025, 1
+  %400 = and i8 %.016.i1025, 127
+  %.not.i1031 = icmp eq i8 %400, 0
+  br i1 %.not.i1031, label %401, label %doubledl.exit1037
 
-doubledl.exit1030.thread:                         ; preds = %389
+doubledl.exit1030.thread:                         ; preds = %390
   tail call void @free(ptr noundef %63) #5
   br label %.split.us.thread
 
-398:                                              ; preds = %doubledl.exit1030
-  %399 = icmp uge ptr %.15, %0
+401:                                              ; preds = %doubledl.exit1030
+  %402 = icmp uge ptr %.15, %0
   %.not20.i1035 = icmp ult ptr %.15, %32
-  %or.cond.i1036 = select i1 %399, i1 %.not20.i1035, i1 false
-  br i1 %or.cond.i1036, label %400, label %doubledl.exit1037.thread
+  %or.cond.i1036 = select i1 %402, i1 %.not20.i1035, i1 false
+  br i1 %or.cond.i1036, label %403, label %doubledl.exit1037.thread
 
-400:                                              ; preds = %398
-  %401 = load i8, ptr %.15, align 1
-  %402 = shl i8 %401, 1
-  %403 = or disjoint i8 %402, 1
-  %404 = getelementptr inbounds i8, ptr %.15, i64 1
+403:                                              ; preds = %401
+  %404 = load i8, ptr %.15, align 1
+  %405 = shl i8 %404, 1
+  %406 = or disjoint i8 %405, 1
+  %407 = getelementptr inbounds i8, ptr %.15, i64 1
   br label %doubledl.exit1037
 
-doubledl.exit1037:                                ; preds = %doubledl.exit1030, %400
-  %.17 = phi ptr [ %404, %400 ], [ %.15, %doubledl.exit1030 ]
-  %.016.i1032 = phi i8 [ %403, %400 ], [ %396, %doubledl.exit1030 ]
-  %.0.i1033 = phi i8 [ %401, %400 ], [ %.016.i1025, %doubledl.exit1030 ]
-  %405 = lshr i8 %.0.i1033, 7
-  %406 = zext nneg i8 %405 to i32
-  %407 = shl i32 %.1774, 2
-  %408 = lshr i8 %.0.i1026, 6
-  %409 = and i8 %408, 2
-  %410 = zext nneg i8 %409 to i32
-  %411 = or disjoint i32 %407, %410
-  %412 = or disjoint i32 %411, %406
+doubledl.exit1037:                                ; preds = %doubledl.exit1030, %403
+  %.17 = phi ptr [ %407, %403 ], [ %.15, %doubledl.exit1030 ]
+  %.016.i1032 = phi i8 [ %406, %403 ], [ %399, %doubledl.exit1030 ]
+  %.0.i1033 = phi i8 [ %404, %403 ], [ %.016.i1025, %doubledl.exit1030 ]
+  %408 = lshr i8 %.0.i1033, 7
+  %409 = zext nneg i8 %408 to i32
+  %410 = add i32 %.1774, %398
+  %411 = shl i32 %410, 1
+  %412 = or disjoint i32 %411, %409
   %.not937 = icmp eq i32 %412, 0
   br i1 %.not937, label %.preheader1147, label %437
 
-doubledl.exit1037.thread:                         ; preds = %398
+doubledl.exit1037.thread:                         ; preds = %401
   tail call void @free(ptr noundef %63) #5
   br label %.split.us.thread
 
@@ -1318,11 +1318,12 @@ doubledl.exit1051.thread:                         ; preds = %428
   %.2764 = phi i32 [ %.3765, %532 ], [ %.0762.ph14452204, %500 ], [ %.0762.ph14452204, %.thread1127 ], [ %.0762.ph14452204, %490 ], [ %.0762.ph14452204, %._crit_edge ], [ %.0762.ph14452204, %487 ], [ %.0762.ph14452204, %482 ], [ %.0762.ph14452204, %478 ], [ %.0762.ph14452204, %.thread1119 ]
   %.8 = phi i32 [ %.9, %532 ], [ %.0757.ph14462203, %500 ], [ %.0757.ph14462203, %.thread1127 ], [ %.0757.ph14462203, %490 ], [ %.0757.ph14462203, %._crit_edge ], [ %.0757.ph14462203, %487 ], [ %.0757.ph14462203, %482 ], [ %.0757.ph14462203, %478 ], [ %.0757.ph14462203, %.thread1119 ]
   %536 = add nsw i32 %.0795.ph14422206, 1
+  %537 = freeze i32 %.2799
   br label %.outer
 
 .outer:                                           ; preds = %.thread1124, %254
   %.1802.in = phi i64 [ %indvars.iv, %254 ], [ %indvars.iv.next, %.thread1124 ]
-  %.1798 = phi i32 [ %.0797.ph1441.fr2208, %254 ], [ %.2799, %.thread1124 ]
+  %.1798 = phi i32 [ %.0797.ph1441.fr2208, %254 ], [ %537, %.thread1124 ]
   %.1796 = phi i32 [ 0, %254 ], [ %536, %.thread1124 ]
   %.1794 = phi ptr [ %.0793.us.us, %254 ], [ %63, %.thread1124 ]
   %.1763 = phi i32 [ %.0762.ph14452204, %254 ], [ %.2764, %.thread1124 ]
@@ -1330,7 +1331,6 @@ doubledl.exit1051.thread:                         ; preds = %428
   %.1756 = phi i32 [ %228, %254 ], [ %.0755.ph14472202, %.thread1124 ]
   %.3 = phi ptr [ %255, %254 ], [ %60, %.thread1124 ]
   %.1802 = trunc i64 %.1802.in to i32
-  %.0797.ph1441.fr = freeze i32 %.1798
   br label %.outer.split.us.split.us.preheader
 
 .split.us.thread:                                 ; preds = %25, %.split1333.us, %257, %.split1327.us, %256, %252, %253, %225, %226, %.split1319.us.thread, %220, %.split1310.us, %.split.us, %85, %455, %doubledl.exit1051.thread, %doubledl.exit1044.thread, %doubledl.exit1037.thread, %doubledl.exit1030.thread, %370, %doubledl.exit1023.thread, %doubledl.exit1016.thread, %340, %doubledl.exit1009.thread, %322, %doubledl.exit.thread, %296, %.loopexit1149.thread, %.split1330.us, %219, %218

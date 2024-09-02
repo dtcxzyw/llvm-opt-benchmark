@@ -734,7 +734,7 @@ define hidden void @_ZN13MetaspacePool16get_memory_usageEv(ptr dead_on_unwind no
 declare void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind writable sret(%class.MetaspaceCombinedStats) align 8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN13MetaspacePool13used_in_bytesEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZN13MetaspacePool13used_in_bytesEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN14MetaspaceUtils10used_wordsEv() #10
   %3 = shl i64 %2, 3
   ret i64 %3
@@ -787,7 +787,7 @@ define hidden void @_ZN24CompressedKlassSpacePoolC2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN24CompressedKlassSpacePool13used_in_bytesEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZN24CompressedKlassSpacePool13used_in_bytesEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN14MetaspaceUtils10used_wordsEN9Metaspace12MetadataTypeE(i32 noundef 0) #10
   %3 = shl i64 %2, 3
   ret i64 %3

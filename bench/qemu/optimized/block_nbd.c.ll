@@ -3277,7 +3277,7 @@ declare ptr @nbd_reply_type_lookup(i16 noundef zeroext) local_unnamed_addr #1
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @nbd_co_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr nocapture noundef writeonly %request_ret, ptr noundef %qiov, ptr nocapture noundef writeonly %reply, ptr noundef %payload, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @nbd_co_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr nocapture noundef writeonly %request_ret, ptr noundef %qiov, ptr nocapture noundef writeonly %reply, ptr noundef %payload, ptr noundef %errp) #0 {
 entry:
   %call = tail call i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr noundef %request_ret, ptr noundef %qiov, ptr noundef %payload, ptr noundef %errp)
   %cmp = icmp slt i32 %call, 0
@@ -3363,7 +3363,7 @@ nbd_recv_coroutines_wake.exit:                    ; preds = %for.cond.i, %nbd_re
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr nocapture noundef writeonly %request_ret, ptr noundef %qiov, ptr noundef %payload, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr nocapture noundef writeonly %request_ret, ptr noundef %qiov, ptr noundef %payload, ptr noundef %errp) #0 {
 entry:
   %local_payload = alloca ptr, align 8
   store ptr null, ptr %local_payload, align 8
@@ -3917,7 +3917,7 @@ return:                                           ; preds = %nbd_read64.exit.thr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @nbd_co_receive_structured_payload(ptr nocapture noundef readonly %s, ptr noundef %payload, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @nbd_co_receive_structured_payload(ptr nocapture noundef readonly %s, ptr noundef %payload, ptr noundef %errp) #0 {
 entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   %reply = getelementptr inbounds i8, ptr %s, i64 664
@@ -4208,12 +4208,16 @@ if.else.i24:                                      ; preds = %if.end.i
   %local_reply.i.sroa.0.0.copyload = load i32, ptr %reply1.i, align 8
   %local_reply.i.sroa.5.0.copyload = load i16, ptr %local_reply.i.sroa.5.0.reply1.i.sroa_idx, align 4
   %local_reply.i.sroa.6.0.copyload = load i16, ptr %local_reply.i.sroa.6.0.reply1.i.sroa_idx, align 2
+  %12 = icmp eq i32 %local_reply.i.sroa.0.0.copyload, 1732535960
+  %13 = icmp eq i16 %local_reply.i.sroa.6.0.copyload, 0
+  %14 = and i16 %local_reply.i.sroa.5.0.copyload, 1
+  %15 = icmp eq i16 %14, 0
   br label %if.end.i25
 
 if.end.i25:                                       ; preds = %if.else.i24, %nbd_channel_error.exit.i
-  %local_reply.i.sroa.0.5 = phi i32 [ 0, %nbd_channel_error.exit.i ], [ %local_reply.i.sroa.0.0.copyload, %if.else.i24 ]
-  %local_reply.i.sroa.5.5 = phi i16 [ 0, %nbd_channel_error.exit.i ], [ %local_reply.i.sroa.5.0.copyload, %if.else.i24 ]
-  %local_reply.i.sroa.6.5 = phi i16 [ 0, %nbd_channel_error.exit.i ], [ %local_reply.i.sroa.6.0.copyload, %if.else.i24 ]
+  %local_reply.i.sroa.0.5 = phi i1 [ false, %nbd_channel_error.exit.i ], [ %12, %if.else.i24 ]
+  %local_reply.i.sroa.5.5 = phi i1 [ true, %nbd_channel_error.exit.i ], [ %15, %if.else.i24 ]
+  %local_reply.i.sroa.6.5 = phi i1 [ true, %nbd_channel_error.exit.i ], [ %13, %if.else.i24 ]
   store i64 0, ptr %cookie3.i, align 8
   call void @qemu_co_mutex_lock(ptr noundef nonnull %receive_mutex.i.i) #15
   br label %for.body.i.i
@@ -4227,15 +4231,15 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %if.e
   %indvars.iv.i.i = phi i64 [ 0, %if.end.i25 ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
   %arrayidx.i.i = getelementptr [16 x %struct.NBDClientRequest], ptr %requests.i.i, i64 0, i64 %indvars.iv.i.i
   %receiving.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %12 = load i8, ptr %receiving.i.i.i, align 8
-  %tobool.i.i.i = trunc i8 %12 to i1
+  %16 = load i8, ptr %receiving.i.i.i, align 8
+  %tobool.i.i.i = trunc i8 %16 to i1
   br i1 %tobool.i.i.i, label %nbd_recv_coroutine_wake_one.exit.thread.i.i, label %for.cond.i.i
 
 nbd_recv_coroutine_wake_one.exit.thread.i.i:      ; preds = %for.body.i.i
   %receiving.i.i.i.le = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   store i8 0, ptr %receiving.i.i.i.le, align 8
-  %13 = load ptr, ptr %arrayidx.i.i, align 8
-  call void @aio_co_wake(ptr noundef %13) #15
+  %17 = load ptr, ptr %arrayidx.i.i, align 8
+  call void @aio_co_wake(ptr noundef %17) #15
   br label %nbd_co_receive_one_chunk.exit
 
 nbd_co_receive_one_chunk.exit:                    ; preds = %for.cond.i.i, %nbd_recv_coroutine_wake_one.exit.thread.i.i
@@ -4243,8 +4247,8 @@ nbd_co_receive_one_chunk.exit:                    ; preds = %for.cond.i.i, %nbd_
   br i1 %cmp.i23, label %if.then5.i, label %if.else.i
 
 if.then5.i:                                       ; preds = %nbd_co_receive_one_chunk.exit
-  %14 = load ptr, ptr %local_err.i, align 8
-  %tobool1.not.i.i = icmp eq ptr %14, null
+  %18 = load ptr, ptr %local_err.i, align 8
+  %tobool1.not.i.i = icmp eq ptr %18, null
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %if.end4.i.i
 
 if.else.i.i:                                      ; preds = %if.then5.i
@@ -4252,17 +4256,17 @@ if.else.i.i:                                      ; preds = %if.then5.i
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.then5.i
-  %15 = load i32, ptr %iter.i, align 8
-  %tobool6.not.i.i = icmp eq i32 %15, 0
+  %19 = load i32, ptr %iter.i, align 8
+  %tobool6.not.i.i = icmp eq i32 %19, 0
   br i1 %tobool6.not.i.i, label %if.then7.i.i, label %if.else9.i.i
 
 if.then7.i.i:                                     ; preds = %if.end4.i.i
   store i32 %call.i, ptr %iter.i, align 8
-  call void @error_propagate(ptr noundef nonnull %err.i.i, ptr noundef nonnull %14) #15
+  call void @error_propagate(ptr noundef nonnull %err.i.i, ptr noundef nonnull %18) #15
   br label %nbd_iter_channel_error.exit.i
 
 if.else9.i.i:                                     ; preds = %if.end4.i.i
-  call void @error_free(ptr noundef nonnull %14) #15
+  call void @error_free(ptr noundef nonnull %18) #15
   br label %nbd_iter_channel_error.exit.i
 
 nbd_iter_channel_error.exit.i:                    ; preds = %if.else9.i.i, %if.then7.i.i
@@ -4270,40 +4274,36 @@ nbd_iter_channel_error.exit.i:                    ; preds = %if.else9.i.i, %if.t
   br label %if.end9.i
 
 if.else.i:                                        ; preds = %nbd_co_receive_one_chunk.exit
-  %16 = load i32, ptr %request_ret.i, align 4
-  %cmp6.i = icmp slt i32 %16, 0
-  %17 = load i32, ptr %request_ret.i.i, align 4
-  %tobool.not.i.i = icmp eq i32 %17, 0
+  %20 = load i32, ptr %request_ret.i, align 4
+  %cmp6.i = icmp slt i32 %20, 0
+  %21 = load i32, ptr %request_ret.i.i, align 4
+  %tobool.not.i.i = icmp eq i32 %21, 0
   %or.cond = select i1 %cmp6.i, i1 %tobool.not.i.i, i1 false
   br i1 %or.cond, label %if.then1.i.i, label %if.end9.i
 
 if.then1.i.i:                                     ; preds = %if.else.i
-  store i32 %16, ptr %request_ret.i.i, align 4
+  store i32 %20, ptr %request_ret.i.i, align 4
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then1.i.i, %if.else.i, %nbd_iter_channel_error.exit.i
-  %cmp.i.i = icmp eq i32 %local_reply.i.sroa.0.5, 1732535960
-  %18 = load i32, ptr %iter.i, align 8
-  %cmp12.i = icmp slt i32 %18, 0
-  %or.cond72 = select i1 %cmp.i.i, i1 true, i1 %cmp12.i
-  br i1 %or.cond72, label %nbd_co_receive_return_code.exit, label %if.end14.i
+  %22 = load i32, ptr %iter.i, align 8
+  %cmp12.i = icmp slt i32 %22, 0
+  %or.cond74 = select i1 %local_reply.i.sroa.0.5, i1 true, i1 %cmp12.i
+  br i1 %or.cond74, label %nbd_co_receive_return_code.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end9.i
   store i8 1, ptr %only_structured.i, align 1
-  %cmp16.i = icmp eq i16 %local_reply.i.sroa.6.5, 0
-  %19 = and i16 %local_reply.i.sroa.5.5, 1
-  %tobool20.not.i = icmp eq i16 %19, 0
-  br i1 %cmp16.i, label %if.then18.i, label %if.end24.i
+  br i1 %local_reply.i.sroa.6.5, label %if.then18.i, label %if.end24.i
 
 if.then18.i:                                      ; preds = %if.end14.i
-  br i1 %tobool20.not.i, label %if.else22.i, label %nbd_co_receive_return_code.exit
+  br i1 %local_reply.i.sroa.5.5, label %if.else22.i, label %nbd_co_receive_return_code.exit
 
 if.else22.i:                                      ; preds = %if.then18.i
   call void @__assert_fail(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.1, i32 noundef 1048, ptr noundef nonnull @__PRETTY_FUNCTION__.nbd_reply_chunk_iter_receive) #16
   unreachable
 
 if.end24.i:                                       ; preds = %if.end14.i
-  br i1 %tobool20.not.i, label %nbd_reply_chunk_iter_receive.exit, label %nbd_reply_chunk_iter_receive.exit.thread
+  br i1 %local_reply.i.sroa.5.5, label %nbd_reply_chunk_iter_receive.exit, label %nbd_reply_chunk_iter_receive.exit.thread
 
 nbd_reply_chunk_iter_receive.exit.thread:         ; preds = %if.end24.i
   store i8 1, ptr %done.i, align 8
@@ -4316,70 +4316,70 @@ nbd_reply_chunk_iter_receive.exit.thread:         ; preds = %if.end24.i
 
 nbd_reply_chunk_iter_receive.exit:                ; preds = %if.end24.i
   %.pre = load i8, ptr %done.i, align 8
+  %23 = trunc i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %request_ret.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %request_ret.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   store ptr null, ptr %local_err.i, align 8
-  %tobool.i = trunc i8 %.pre to i1
-  br i1 %tobool.i, label %nbd_co_receive_return_code.exit, label %if.end.i, !llvm.loop !14
+  br i1 %23, label %nbd_co_receive_return_code.exit, label %if.end.i, !llvm.loop !14
 
 nbd_co_receive_return_code.exit:                  ; preds = %if.end9.i, %nbd_reply_chunk_iter_receive.exit, %nbd_reply_chunk_iter_receive.exit.thread, %if.then18.i
-  %20 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %21 = inttoptr i64 %20 to ptr
-  call void %21(ptr noundef nonnull %requests_lock.i.i, ptr noundef nonnull @.str.1, i32 noundef 1061) #15
+  %24 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %25 = inttoptr i64 %24 to ptr
+  call void %25(ptr noundef nonnull %requests_lock.i.i, ptr noundef nonnull @.str.1, i32 noundef 1061) #15
   %sub.i = add i64 %5, -1
   %arrayidx.i = getelementptr [16 x %struct.NBDClientRequest], ptr %requests.i.i, i64 0, i64 %sub.i
   store ptr null, ptr %arrayidx.i, align 8
-  %22 = load i32, ptr %in_flight.i, align 8
-  %dec.i = add i32 %22, -1
+  %26 = load i32, ptr %in_flight.i, align 8
+  %dec.i = add i32 %26, -1
   store i32 %dec.i, ptr %in_flight.i, align 8
   %call32.i = call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %free_sema.i) #15
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i.i, ptr noundef nonnull @.str.1, i32 noundef 1065) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %request_ret.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
-  %23 = load ptr, ptr %err.i.i, align 8
-  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef %23) #15
-  %24 = load i32, ptr %request_ret.i.i, align 4
-  %25 = load i32, ptr %iter.i, align 8
+  %27 = load ptr, ptr %err.i.i, align 8
+  call void @error_propagate(ptr noundef nonnull %local_err, ptr noundef %27) #15
+  %28 = load i32, ptr %request_ret.i.i, align 4
+  %29 = load i32, ptr %iter.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i)
-  %26 = load ptr, ptr %local_err, align 8
-  %tobool30.not = icmp eq ptr %26, null
+  %30 = load ptr, ptr %local_err, align 8
+  %tobool30.not = icmp eq ptr %30, null
   br i1 %tobool30.not, label %do.cond, label %if.then31
 
 if.then31:                                        ; preds = %nbd_co_receive_return_code.exit
-  %27 = load i64, ptr %from, align 8
-  %28 = load i64, ptr %len32, align 8
-  %29 = load i64, ptr %request, align 8
-  %30 = load i16, ptr %flags, align 8
-  %31 = load i16, ptr %type, align 2
-  %call36 = call ptr @nbd_cmd_lookup(i16 noundef zeroext %31) #15
-  %32 = load ptr, ptr %local_err, align 8
-  %call37 = call ptr @error_get_pretty(ptr noundef %32) #15
-  call fastcc void @trace_nbd_co_request_fail(i64 noundef %27, i64 noundef %28, i64 noundef %29, i16 noundef zeroext %30, i16 noundef zeroext %31, ptr noundef %call36, i32 noundef %25, ptr noundef %call37)
-  %33 = load ptr, ptr %local_err, align 8
-  call void @error_free(ptr noundef %33) #15
+  %31 = load i64, ptr %from, align 8
+  %32 = load i64, ptr %len32, align 8
+  %33 = load i64, ptr %request, align 8
+  %34 = load i16, ptr %flags, align 8
+  %35 = load i16, ptr %type, align 2
+  %call36 = call ptr @nbd_cmd_lookup(i16 noundef zeroext %35) #15
+  %36 = load ptr, ptr %local_err, align 8
+  %call37 = call ptr @error_get_pretty(ptr noundef %36) #15
+  call fastcc void @trace_nbd_co_request_fail(i64 noundef %31, i64 noundef %32, i64 noundef %33, i16 noundef zeroext %34, i16 noundef zeroext %35, ptr noundef %call36, i32 noundef %29, ptr noundef %call37)
+  %37 = load ptr, ptr %local_err, align 8
+  call void @error_free(ptr noundef %37) #15
   store ptr null, ptr %local_err, align 8
   br label %do.cond
 
 do.cond:                                          ; preds = %nbd_co_receive_return_code.exit, %if.then31
-  %cmp39 = icmp slt i32 %25, 0
+  %cmp39 = icmp slt i32 %29, 0
   br i1 %cmp39, label %land.rhs, label %do.end
 
 land.rhs:                                         ; preds = %do.body, %do.cond
-  %ret.045 = phi i32 [ %25, %do.cond ], [ %call24, %do.body ]
-  %request_ret.142 = phi i32 [ %24, %do.cond ], [ %request_ret.0, %do.body ]
-  %34 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %35 = inttoptr i64 %34 to ptr
-  call void %35(ptr noundef nonnull %requests_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 122) #15
-  %36 = load i32, ptr %state.i.i.i, align 8
-  %cmp.i = icmp eq i32 %36, 0
+  %ret.045 = phi i32 [ %29, %do.cond ], [ %call24, %do.body ]
+  %request_ret.142 = phi i32 [ %28, %do.cond ], [ %request_ret.0, %do.body ]
+  %38 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %39 = inttoptr i64 %38 to ptr
+  call void %39(ptr noundef nonnull %requests_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 122) #15
+  %40 = load i32, ptr %state.i.i.i, align 8
+  %cmp.i = icmp eq i32 %40, 0
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %requests_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 132) #15
   br i1 %cmp.i, label %do.body, label %do.end, !llvm.loop !15
 
 do.end:                                           ; preds = %do.cond, %land.rhs
-  %ret.044 = phi i32 [ %25, %do.cond ], [ %ret.045, %land.rhs ]
-  %request_ret.143 = phi i32 [ %24, %do.cond ], [ %request_ret.142, %land.rhs ]
+  %ret.044 = phi i32 [ %29, %do.cond ], [ %ret.045, %land.rhs ]
+  %request_ret.143 = phi i32 [ %28, %do.cond ], [ %request_ret.142, %land.rhs ]
   %tobool43.not = icmp eq i32 %ret.044, 0
   %cond = select i1 %tobool43.not, i32 %request_ret.143, i32 %ret.044
   ret i32 %cond

@@ -1217,27 +1217,27 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit.thread: ; preds = %175, %186, %_
   %wide.trip.count = zext nneg i32 %444 to i64
   br label %450
 
-450:                                              ; preds = %.lr.ph176, %456
-  %indvars.iv182 = phi i64 [ 1, %.lr.ph176 ], [ %indvars.iv.next183, %456 ]
-  %451 = phi i8 [ %.pre194, %.lr.ph176 ], [ %458, %456 ]
+450:                                              ; preds = %.lr.ph176, %457
+  %indvars.iv182 = phi i64 [ 1, %.lr.ph176 ], [ %indvars.iv.next183, %457 ]
+  %451 = phi i8 [ %.pre194, %.lr.ph176 ], [ %458, %457 ]
   %452 = trunc i8 %451 to i1
-  br i1 %452, label %456, label %453
+  br i1 %452, label %457, label %453
 
 453:                                              ; preds = %450
   %454 = getelementptr inbounds i8, ptr %449, i64 %indvars.iv182
   %455 = load i8, ptr %454, align 1
-  br label %456
+  %456 = and i8 %455, 1
+  br label %457
 
-456:                                              ; preds = %453, %450
-  %457 = phi i8 [ 1, %450 ], [ %455, %453 ]
-  %458 = and i8 %457, 1
+457:                                              ; preds = %453, %450
+  %458 = phi i8 [ 1, %450 ], [ %456, %453 ]
   store i8 %458, ptr %40, align 1
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %450, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %456, %.preheader171
-  %459 = phi i8 [ %.pre194, %.preheader171 ], [ %458, %456 ]
+._crit_edge:                                      ; preds = %457, %.preheader171
+  %459 = phi i8 [ %.pre194, %.preheader171 ], [ %458, %457 ]
   %460 = trunc i8 %459 to i1
   br i1 %460, label %461, label %474
 

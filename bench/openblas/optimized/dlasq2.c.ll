@@ -830,33 +830,33 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br i1 %514, label %578, label %515
 
 515:                                              ; preds = %509, %501
-  %516 = add nsw i32 %498, -1
-  %517 = shl i32 %498, 2
-  %518 = sext i32 %517 to i64
-  %519 = getelementptr double, ptr %24, i64 %518
-  %520 = getelementptr i8, ptr %519, i64 -24
-  %521 = load double, ptr %520, align 8, !tbaa !7
-  store double %521, ptr %8, align 8, !tbaa !7
-  %522 = getelementptr i8, ptr %519, i64 -8
-  %523 = load double, ptr %522, align 8, !tbaa !7
-  %524 = load double, ptr %519, align 8, !tbaa !7
-  %525 = add i32 %502, -12
-  %526 = icmp sgt i32 %517, %525
-  br i1 %526, label %.loopexit48, label %527
+  %516 = shl i32 %498, 2
+  %517 = sext i32 %516 to i64
+  %518 = getelementptr double, ptr %24, i64 %517
+  %519 = getelementptr i8, ptr %518, i64 -24
+  %520 = load double, ptr %519, align 8, !tbaa !7
+  store double %520, ptr %8, align 8, !tbaa !7
+  %521 = getelementptr i8, ptr %518, i64 -8
+  %522 = load double, ptr %521, align 8, !tbaa !7
+  %523 = load double, ptr %518, align 8, !tbaa !7
+  %524 = add i32 %502, -12
+  %525 = icmp sgt i32 %516, %524
+  br i1 %525, label %.loopexit48, label %526
 
-527:                                              ; preds = %515
+526:                                              ; preds = %515
+  %527 = add nsw i32 %498, -1
   %528 = load double, ptr %14, align 8
   %529 = fmul double %28, %528
   %530 = fneg double %528
-  %531 = sext i32 %525 to i64
+  %531 = sext i32 %524 to i64
   br label %532
 
-532:                                              ; preds = %566, %527
-  %533 = phi i64 [ %518, %527 ], [ %571, %566 ]
-  %534 = phi double [ %524, %527 ], [ %570, %566 ]
-  %535 = phi double [ %523, %527 ], [ %569, %566 ]
-  %536 = phi i32 [ %516, %527 ], [ %568, %566 ]
-  %537 = phi double [ %521, %527 ], [ %567, %566 ]
+532:                                              ; preds = %566, %526
+  %533 = phi i64 [ %517, %526 ], [ %571, %566 ]
+  %534 = phi double [ %523, %526 ], [ %570, %566 ]
+  %535 = phi double [ %522, %526 ], [ %569, %566 ]
+  %536 = phi i32 [ %527, %526 ], [ %568, %566 ]
+  %537 = phi double [ %520, %526 ], [ %567, %566 ]
   %538 = getelementptr inbounds double, ptr %24, i64 %533
   %539 = load double, ptr %538, align 8, !tbaa !7
   %540 = getelementptr i8, ptr %538, i64 -24
@@ -903,17 +903,20 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %570 = phi double [ %556, %548 ], [ %565, %557 ]
   %571 = add nsw i64 %533, 4
   %572 = icmp sgt i64 %571, %531
-  br i1 %572, label %.loopexit48, label %532, !llvm.loop !22
+  br i1 %572, label %.loopexit48.loopexit, label %532, !llvm.loop !22
 
-.loopexit48:                                      ; preds = %566, %515
-  %573 = phi i32 [ %516, %515 ], [ %568, %566 ]
-  %574 = phi double [ %523, %515 ], [ %569, %566 ]
-  %575 = phi double [ %524, %515 ], [ %570, %566 ]
-  %576 = getelementptr i8, ptr %504, i64 -8
-  store double %574, ptr %576, align 8, !tbaa !7
-  store double %575, ptr %504, align 8, !tbaa !7
-  %577 = add nsw i32 %573, 1
-  store i32 %577, ptr %16, align 4, !tbaa !3
+.loopexit48.loopexit:                             ; preds = %566
+  %573 = add nsw i32 %568, 1
+  br label %.loopexit48
+
+.loopexit48:                                      ; preds = %.loopexit48.loopexit, %515
+  %574 = phi i32 [ %498, %515 ], [ %573, %.loopexit48.loopexit ]
+  %575 = phi double [ %522, %515 ], [ %569, %.loopexit48.loopexit ]
+  %576 = phi double [ %523, %515 ], [ %570, %.loopexit48.loopexit ]
+  %577 = getelementptr i8, ptr %504, i64 -8
+  store double %575, ptr %577, align 8, !tbaa !7
+  store double %576, ptr %504, align 8, !tbaa !7
+  store i32 %574, ptr %16, align 4, !tbaa !3
   br label %578
 
 578:                                              ; preds = %.loopexit48, %509, %496, %492

@@ -1445,7 +1445,7 @@ declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @tcp_metrics_nl_cmd_get(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @tcp_metrics_nl_cmd_get(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.in6_addr, align 8
   %4 = alloca %struct.in6_addr, align 8
   %5 = alloca %struct.inetpeer_addr, align 8
@@ -1856,7 +1856,7 @@ define internal i32 @tcp_metrics_nl_dump(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -22, 2) i32 @tcp_metrics_nl_cmd_del(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal range(i32 -22, 1) i32 @tcp_metrics_nl_cmd_del(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.in6_addr, align 8
   %4 = alloca %struct.in6_addr, align 8
   %5 = alloca %struct.inetpeer_addr, align 8

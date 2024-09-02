@@ -525,7 +525,7 @@ declare dso_local void @rcu_barrier() local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_engines_init_mmio(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @intel_engines_init_mmio(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [8 x i8], align 1
   %3 = alloca [9 x i8], align 1
   %4 = alloca [9 x i8], align 1

@@ -1566,23 +1566,26 @@ _ZN2cv3Mat2atIfEERT_i.exit187:                    ; preds = %376, %369, %361
   %.1109.lcssa = phi i32 [ %.0108328, %.preheader ], [ %410, %._crit_edge.loopexit ]
   %413 = add nuw i64 %.0107329, 1
   %exitcond350.not = icmp eq i64 %413, %umax
-  br i1 %exitcond350.not, label %._crit_edge330, label %.preheader, !llvm.loop !43
+  br i1 %exitcond350.not, label %._crit_edge330.loopexit, label %.preheader, !llvm.loop !43
 
-._crit_edge330:                                   ; preds = %._crit_edge, %_ZNK2cv7MatExprcvNS_3MatEEv.exit184
-  %.0108.lcssa = phi i32 [ 0, %_ZNK2cv7MatExprcvNS_3MatEEv.exit184 ], [ %.1109.lcssa, %._crit_edge ]
-  %414 = load ptr, ptr %242, align 8
-  %415 = load ptr, ptr %243, align 8
-  %416 = load i64, ptr %415, align 8
-  %417 = sext i32 %.0108.lcssa to i64
-  %418 = mul i64 %416, %417
-  %419 = getelementptr inbounds i8, ptr %414, i64 %418
+._crit_edge330.loopexit:                          ; preds = %._crit_edge
+  %414 = sext i32 %.1109.lcssa to i64
+  br label %._crit_edge330
+
+._crit_edge330:                                   ; preds = %._crit_edge330.loopexit, %_ZNK2cv7MatExprcvNS_3MatEEv.exit184
+  %.0108.lcssa = phi i64 [ 0, %_ZNK2cv7MatExprcvNS_3MatEEv.exit184 ], [ %414, %._crit_edge330.loopexit ]
+  %415 = load ptr, ptr %242, align 8
+  %416 = load ptr, ptr %243, align 8
+  %417 = load i64, ptr %416, align 8
+  %418 = mul i64 %417, %.0108.lcssa
+  %419 = getelementptr inbounds i8, ptr %415, i64 %418
   %420 = getelementptr inbounds i8, ptr %419, i64 512
   store float 1.000000e+00, ptr %420, align 4
   br label %421
 
 421:                                              ; preds = %._crit_edge330, %_ZN2cv3Mat2atIfEERT_i.exit190
   %indvars.iv353 = phi i64 [ 0, %._crit_edge330 ], [ %indvars.iv.next354, %_ZN2cv3Mat2atIfEERT_i.exit190 ]
-  %indvars.iv351 = phi i64 [ %417, %._crit_edge330 ], [ %indvars.iv.next352, %_ZN2cv3Mat2atIfEERT_i.exit190 ]
+  %indvars.iv351 = phi i64 [ %.0108.lcssa, %._crit_edge330 ], [ %indvars.iv.next352, %_ZN2cv3Mat2atIfEERT_i.exit190 ]
   %indvars.iv.next352 = add nsw i64 %indvars.iv351, 1
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %422 = load i32, ptr %237, align 8

@@ -1111,8 +1111,8 @@ if.end.i289:                                      ; preds = %_ZNK2v820FunctionCa
   %sub.i.i = add i64 %20, 11
   %21 = inttoptr i64 %sub.i.i to ptr
   %22 = load i16, ptr %21, align 2
-  %cmp.i290 = icmp ult i16 %22, 128
-  br i1 %cmp.i290, label %do.body10, label %do.body8
+  %cmp.i290 = icmp ugt i16 %22, 127
+  br i1 %cmp.i290, label %do.body8, label %do.body10
 
 do.body8:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit238, %if.end.i289
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4Blob15StoreDataObjectERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args) #22

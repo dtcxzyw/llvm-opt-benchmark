@@ -2398,7 +2398,7 @@ ossl_ocspcertid_new.exit:                         ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @ossl_ocspsres_get_cert_status(i64 noundef %0) #0 {
+define internal range(i64 1, 4294967296) i64 @ossl_ocspsres_get_cert_status(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ocsp_singleresp_type) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

@@ -6576,7 +6576,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @set_contains(ptr nocapture noundef readonly %so, ptr noundef %key) #0 {
+define internal range(i32 -1, 2) i32 @set_contains(ptr nocapture noundef readonly %so, ptr noundef %key) #0 {
 entry:
   %0 = getelementptr i8, ptr %key, i64 8
   %key.val.i = load ptr, ptr %0, align 8

@@ -18,7 +18,7 @@ define zeroext i1 @rmtree(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_a
 
 6:                                                ; preds = %2
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %0) #4
-  br label %64
+  br label %57
 
 7:                                                ; preds = %2
   %8 = tail call ptr @palloc(i64 noundef 64) #4
@@ -29,156 +29,147 @@ define zeroext i1 @rmtree(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_a
   br i1 %.not5563, label %.outer._crit_edge, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %7, %.outer
-  %11 = phi ptr [ %50, %.outer ], [ %10, %7 ]
+  %11 = phi ptr [ %43, %.outer ], [ %10, %7 ]
   %.031.ph67 = phi ptr [ %.1, %.outer ], [ %8, %7 ]
   %.032.ph66 = phi i64 [ %.133, %.outer ], [ 8, %7 ]
   %.035.ph65 = phi i64 [ %.136, %.outer ], [ 0, %7 ]
   %.037.ph64 = phi i1 [ %.138, %.outer ], [ true, %7 ]
   br label %sub_0
 
-sub_0:                                            ; preds = %sub_0.lr.ph, %29
-  %12 = phi ptr [ %11, %sub_0.lr.ph ], [ %30, %29 ]
+sub_0:                                            ; preds = %sub_0.lr.ph, %23
+  %12 = phi ptr [ %11, %sub_0.lr.ph ], [ %24, %23 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 19
   %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i32
-  %16 = add nsw i32 %15, -46
-  %.not77 = icmp eq i32 %16, 0
-  br i1 %.not77, label %.tail, label %.tail47
+  %.not77 = icmp eq i8 %14, 46
+  br i1 %.not77, label %.tail, label %.tail47.thread
 
 .tail:                                            ; preds = %sub_0
-  %17 = getelementptr inbounds i8, ptr %12, i64 20
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %29, label %sub_149
+  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %23, label %sub_149
 
 sub_149:                                          ; preds = %.tail
-  %20 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %19 = load i8, ptr %18, align 1
+  %.not79 = icmp eq i8 %19, 46
+  br i1 %.not79, label %.tail47, label %.tail47.thread
+
+.tail47:                                          ; preds = %sub_149
+  %20 = getelementptr inbounds i8, ptr %12, i64 21
   %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = add nsw i32 %22, -46
-  %.not79 = icmp eq i32 %23, 0
-  br i1 %.not79, label %sub_2, label %.tail47
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %.tail47.thread
 
-sub_2:                                            ; preds = %sub_149
-  %24 = getelementptr inbounds i8, ptr %12, i64 21
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  br label %.tail47
-
-.tail47:                                          ; preds = %sub_0, %sub_149, %sub_2
-  %27 = phi i32 [ %23, %sub_149 ], [ %26, %sub_2 ], [ %16, %sub_0 ]
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %31
-
-29:                                               ; preds = %.tail47, %.tail
+23:                                               ; preds = %.tail47, %.tail
   store i32 0, ptr %9, align 4
-  %30 = call ptr @readdir(ptr noundef nonnull %4) #4
-  %.not = icmp eq ptr %30, null
+  %24 = call ptr @readdir(ptr noundef nonnull %4) #4
+  %.not = icmp eq ptr %24, null
   br i1 %.not, label %.outer._crit_edge, label %sub_0, !llvm.loop !4
 
-31:                                               ; preds = %.tail47
-  %32 = getelementptr inbounds i8, ptr %12, i64 19
-  %33 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef nonnull %32) #4
-  %34 = call i32 @get_dirent_type(ptr noundef nonnull %3, ptr noundef nonnull %12, i1 noundef zeroext false, i32 noundef 3) #4
-  switch i32 %34, label %45 [
+.tail47.thread:                                   ; preds = %sub_0, %sub_149, %.tail47
+  %25 = getelementptr inbounds i8, ptr %12, i64 19
+  %26 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef nonnull %25) #4
+  %27 = call i32 @get_dirent_type(ptr noundef nonnull %3, ptr noundef nonnull %12, i1 noundef zeroext false, i32 noundef 3) #4
+  switch i32 %27, label %38 [
     i32 0, label %.outer
-    i32 3, label %35
+    i32 3, label %28
   ]
 
-35:                                               ; preds = %31
-  %36 = icmp eq i64 %.035.ph65, %.032.ph66
-  br i1 %36, label %37, label %41
+28:                                               ; preds = %.tail47.thread
+  %29 = icmp eq i64 %.035.ph65, %.032.ph66
+  br i1 %29, label %30, label %34
 
-37:                                               ; preds = %35
-  %38 = shl i64 %.032.ph66, 4
-  %39 = call ptr @repalloc(ptr noundef %.031.ph67, i64 noundef %38) #4
-  %40 = shl i64 %.032.ph66, 1
-  br label %41
+30:                                               ; preds = %28
+  %31 = shl i64 %.032.ph66, 4
+  %32 = call ptr @repalloc(ptr noundef %.031.ph67, i64 noundef %31) #4
+  %33 = shl i64 %.032.ph66, 1
+  br label %34
 
-41:                                               ; preds = %37, %35
-  %.234 = phi i64 [ %40, %37 ], [ %.032.ph66, %35 ]
-  %.2 = phi ptr [ %39, %37 ], [ %.031.ph67, %35 ]
-  %42 = call ptr @pstrdup(ptr noundef nonnull %3) #4
-  %43 = add i64 %.035.ph65, 1
-  %44 = getelementptr ptr, ptr %.2, i64 %.035.ph65
-  store ptr %42, ptr %44, align 8
+34:                                               ; preds = %30, %28
+  %.234 = phi i64 [ %33, %30 ], [ %.032.ph66, %28 ]
+  %.2 = phi ptr [ %32, %30 ], [ %.031.ph67, %28 ]
+  %35 = call ptr @pstrdup(ptr noundef nonnull %3) #4
+  %36 = add i64 %.035.ph65, 1
+  %37 = getelementptr ptr, ptr %.2, i64 %.035.ph65
+  store ptr %35, ptr %37, align 8
   br label %.outer
 
-45:                                               ; preds = %31
-  %46 = call i32 @unlink(ptr noundef nonnull %3) #4
-  %.not45 = icmp eq i32 %46, 0
-  br i1 %.not45, label %.outer, label %47
+38:                                               ; preds = %.tail47.thread
+  %39 = call i32 @unlink(ptr noundef nonnull %3) #4
+  %.not45 = icmp eq i32 %39, 0
+  br i1 %.not45, label %.outer, label %40
 
-47:                                               ; preds = %45
-  %48 = load i32, ptr %9, align 4
-  %.not46 = icmp eq i32 %48, 2
-  br i1 %.not46, label %.outer, label %49
+40:                                               ; preds = %38
+  %41 = load i32, ptr %9, align 4
+  %.not46 = icmp eq i32 %41, 2
+  br i1 %.not46, label %.outer, label %42
 
-49:                                               ; preds = %47
+42:                                               ; preds = %40
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef nonnull %3) #4
   br label %.outer
 
-.outer:                                           ; preds = %45, %47, %49, %31, %41
-  %.138 = phi i1 [ false, %49 ], [ %.037.ph64, %47 ], [ %.037.ph64, %45 ], [ %.037.ph64, %41 ], [ %.037.ph64, %31 ]
-  %.136 = phi i64 [ %.035.ph65, %49 ], [ %.035.ph65, %47 ], [ %.035.ph65, %45 ], [ %43, %41 ], [ %.035.ph65, %31 ]
-  %.133 = phi i64 [ %.032.ph66, %49 ], [ %.032.ph66, %47 ], [ %.032.ph66, %45 ], [ %.234, %41 ], [ %.032.ph66, %31 ]
-  %.1 = phi ptr [ %.031.ph67, %49 ], [ %.031.ph67, %47 ], [ %.031.ph67, %45 ], [ %.2, %41 ], [ %.031.ph67, %31 ]
+.outer:                                           ; preds = %38, %40, %42, %.tail47.thread, %34
+  %.138 = phi i1 [ false, %42 ], [ %.037.ph64, %40 ], [ %.037.ph64, %38 ], [ %.037.ph64, %34 ], [ %.037.ph64, %.tail47.thread ]
+  %.136 = phi i64 [ %.035.ph65, %42 ], [ %.035.ph65, %40 ], [ %.035.ph65, %38 ], [ %36, %34 ], [ %.035.ph65, %.tail47.thread ]
+  %.133 = phi i64 [ %.032.ph66, %42 ], [ %.032.ph66, %40 ], [ %.032.ph66, %38 ], [ %.234, %34 ], [ %.032.ph66, %.tail47.thread ]
+  %.1 = phi ptr [ %.031.ph67, %42 ], [ %.031.ph67, %40 ], [ %.031.ph67, %38 ], [ %.2, %34 ], [ %.031.ph67, %.tail47.thread ]
   store i32 0, ptr %9, align 4
-  %50 = call ptr @readdir(ptr noundef nonnull %4) #4
-  %.not55 = icmp eq ptr %50, null
+  %43 = call ptr @readdir(ptr noundef nonnull %4) #4
+  %.not55 = icmp eq ptr %43, null
   br i1 %.not55, label %.outer._crit_edge, label %sub_0.lr.ph, !llvm.loop !4
 
-.outer._crit_edge:                                ; preds = %.outer, %29, %7
-  %.037.ph.lcssa = phi i1 [ true, %7 ], [ %.037.ph64, %29 ], [ %.138, %.outer ]
-  %.035.ph.lcssa = phi i64 [ 0, %7 ], [ %.035.ph65, %29 ], [ %.136, %.outer ]
-  %.031.ph.lcssa = phi ptr [ %8, %7 ], [ %.031.ph67, %29 ], [ %.1, %.outer ]
-  %51 = load i32, ptr %9, align 4
-  %.not43 = icmp eq i32 %51, 0
-  br i1 %.not43, label %53, label %52
+.outer._crit_edge:                                ; preds = %.outer, %23, %7
+  %.037.ph.lcssa = phi i1 [ true, %7 ], [ %.037.ph64, %23 ], [ %.138, %.outer ]
+  %.035.ph.lcssa = phi i64 [ 0, %7 ], [ %.035.ph65, %23 ], [ %.136, %.outer ]
+  %.031.ph.lcssa = phi ptr [ %8, %7 ], [ %.031.ph67, %23 ], [ %.1, %.outer ]
+  %44 = load i32, ptr %9, align 4
+  %.not43 = icmp eq i32 %44, 0
+  br i1 %.not43, label %46, label %45
 
-52:                                               ; preds = %.outer._crit_edge
+45:                                               ; preds = %.outer._crit_edge
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %0) #4
-  br label %53
+  br label %46
 
-53:                                               ; preds = %52, %.outer._crit_edge
-  %.239 = phi i1 [ false, %52 ], [ %.037.ph.lcssa, %.outer._crit_edge ]
-  %54 = call i32 @closedir(ptr noundef nonnull %4)
+46:                                               ; preds = %45, %.outer._crit_edge
+  %.239 = phi i1 [ false, %45 ], [ %.037.ph.lcssa, %.outer._crit_edge ]
+  %47 = call i32 @closedir(ptr noundef nonnull %4)
   %.not80 = icmp eq i64 %.035.ph.lcssa, 0
   br i1 %.not80, label %._crit_edge75, label %.lr.ph
 
-.lr.ph:                                           ; preds = %53, %.lr.ph
-  %.073 = phi i64 [ %59, %.lr.ph ], [ 0, %53 ]
-  %.372 = phi i1 [ %spec.select, %.lr.ph ], [ %.239, %53 ]
-  %55 = getelementptr ptr, ptr %.031.ph.lcssa, i64 %.073
-  %56 = load ptr, ptr %55, align 8
-  %57 = call zeroext i1 @rmtree(ptr noundef %56, i1 noundef zeroext true)
-  %spec.select = select i1 %57, i1 %.372, i1 false
-  %58 = load ptr, ptr %55, align 8
-  call void @pfree(ptr noundef %58) #4
-  %59 = add nuw i64 %.073, 1
-  %exitcond.not = icmp eq i64 %59, %.035.ph.lcssa
+.lr.ph:                                           ; preds = %46, %.lr.ph
+  %.073 = phi i64 [ %52, %.lr.ph ], [ 0, %46 ]
+  %.372 = phi i1 [ %spec.select, %.lr.ph ], [ %.239, %46 ]
+  %48 = getelementptr ptr, ptr %.031.ph.lcssa, i64 %.073
+  %49 = load ptr, ptr %48, align 8
+  %50 = call zeroext i1 @rmtree(ptr noundef %49, i1 noundef zeroext true)
+  %spec.select = select i1 %50, i1 %.372, i1 false
+  %51 = load ptr, ptr %48, align 8
+  call void @pfree(ptr noundef %51) #4
+  %52 = add nuw i64 %.073, 1
+  %exitcond.not = icmp eq i64 %52, %.035.ph.lcssa
   br i1 %exitcond.not, label %._crit_edge75, label %.lr.ph, !llvm.loop !6
 
-._crit_edge75:                                    ; preds = %.lr.ph, %53
-  %.3.lcssa = phi i1 [ %.239, %53 ], [ %spec.select, %.lr.ph ]
-  br i1 %1, label %60, label %63
+._crit_edge75:                                    ; preds = %.lr.ph, %46
+  %.3.lcssa = phi i1 [ %.239, %46 ], [ %spec.select, %.lr.ph ]
+  br i1 %1, label %53, label %56
 
-60:                                               ; preds = %._crit_edge75
-  %61 = call i32 @rmdir(ptr noundef %0) #4
-  %.not44 = icmp eq i32 %61, 0
-  br i1 %.not44, label %63, label %62
+53:                                               ; preds = %._crit_edge75
+  %54 = call i32 @rmdir(ptr noundef %0) #4
+  %.not44 = icmp eq i32 %54, 0
+  br i1 %.not44, label %56, label %55
 
-62:                                               ; preds = %60
+55:                                               ; preds = %53
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %0) #4
-  br label %63
+  br label %56
 
-63:                                               ; preds = %60, %62, %._crit_edge75
-  %.5 = phi i1 [ false, %62 ], [ %.3.lcssa, %60 ], [ %.3.lcssa, %._crit_edge75 ]
+56:                                               ; preds = %53, %55, %._crit_edge75
+  %.5 = phi i1 [ false, %55 ], [ %.3.lcssa, %53 ], [ %.3.lcssa, %._crit_edge75 ]
   call void @pfree(ptr noundef %.031.ph.lcssa) #4
-  br label %64
+  br label %57
 
-64:                                               ; preds = %63, %6
-  %.040 = phi i1 [ false, %6 ], [ %.5, %63 ]
+57:                                               ; preds = %56, %6
+  %.040 = phi i1 [ false, %6 ], [ %.5, %56 ]
   ret i1 %.040
 }
 

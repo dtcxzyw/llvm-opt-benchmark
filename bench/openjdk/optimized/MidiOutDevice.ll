@@ -42,7 +42,7 @@ define void @Java_com_sun_media_sound_MidiOutDevice_nClose(ptr nocapture noundef
 declare i32 @MIDI_OUT_CloseDevice(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_media_sound_MidiOutDevice_nGetTimeStamp(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i64 -1, -9223372036854775808) i64 @Java_com_sun_media_sound_MidiOutDevice_nGetTimeStamp(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i64 @MIDI_OUT_GetTimeStamp(ptr noundef %4) #3
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %5, i64 -1)

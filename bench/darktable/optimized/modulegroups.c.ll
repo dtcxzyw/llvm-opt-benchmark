@@ -1110,8 +1110,8 @@ define internal fastcc ptr @_preset_retrieve_old_layout(ptr noundef readonly %0,
   br label %15
 
 15:                                               ; preds = %.loopexit, %8
-  %16 = phi i32 [ 0, %8 ], [ %42, %.loopexit ]
-  %17 = phi ptr [ %12, %8 ], [ %41, %.loopexit ]
+  %16 = phi i32 [ 0, %8 ], [ %89, %.loopexit ]
+  %17 = phi ptr [ %12, %8 ], [ %88, %.loopexit ]
   %18 = icmp eq i32 %16, 0
   br i1 %18, label %19, label %22
 
@@ -1159,139 +1159,174 @@ define internal fastcc ptr @_preset_retrieve_old_layout(ptr noundef readonly %0,
   %38 = icmp ne i32 %16, 0
   %39 = and i1 %13, %38
   %40 = and i1 %14, %18
-  br label %44
+  br i1 %39, label %.split.us, label %.split
 
-.loopexit:                                        ; preds = %115, %33
-  %41 = phi ptr [ %34, %33 ], [ %116, %115 ]
-  %42 = add nuw nsw i32 %16, 1
-  %43 = icmp eq i32 %42, 6
-  br i1 %43, label %.loopexit5, label %15
+.split.us:                                        ; preds = %37, %83
+  %41 = phi ptr [ %86, %83 ], [ %35, %37 ]
+  %42 = phi ptr [ %84, %83 ], [ %34, %37 ]
+  %43 = load ptr, ptr %41, align 8, !tbaa !15
+  %44 = tail call i32 @dt_iop_so_is_hidden(ptr noundef %43) #16
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %83
 
-44:                                               ; preds = %115, %37
-  %45 = phi ptr [ %35, %37 ], [ %118, %115 ]
-  %46 = phi ptr [ %34, %37 ], [ %116, %115 ]
-  %47 = load ptr, ptr %45, align 8, !tbaa !15
-  %48 = tail call i32 @dt_iop_so_is_hidden(ptr noundef %47) #16
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %115
+46:                                               ; preds = %.split.us
+  %47 = getelementptr inbounds i8, ptr %43, i64 104
+  %48 = load ptr, ptr %47, align 8, !tbaa !17
+  %49 = tail call i32 %48() #16
+  %50 = and i32 %49, 4
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %83
 
-50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %47, i64 104
-  %52 = load ptr, ptr %51, align 8, !tbaa !17
-  %53 = tail call i32 %52() #16
-  %54 = and i32 %53, 4
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %115
+52:                                               ; preds = %46
+  %53 = getelementptr inbounds i8, ptr %43, i64 504
+  %54 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.154, ptr noundef nonnull %53) #16
+  %55 = getelementptr inbounds i8, ptr %43, i64 96
+  %56 = load ptr, ptr %55, align 8, !tbaa !19
+  %57 = tail call i32 %56() #16
+  %58 = and i32 %57, 1
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %73
 
-56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %47, i64 504
-  %58 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.154, ptr noundef nonnull %57) #16
-  br i1 %39, label %59, label %78
+60:                                               ; preds = %52
+  %61 = and i32 %57, 2
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %73
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %47, i64 96
-  %61 = load ptr, ptr %60, align 8, !tbaa !19
-  %62 = tail call i32 %61() #16
-  %63 = and i32 %62, 1
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %84
+63:                                               ; preds = %60
+  %64 = and i32 %57, 4
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %73
 
-65:                                               ; preds = %59
-  %66 = and i32 %62, 2
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %84
+66:                                               ; preds = %63
+  %67 = and i32 %57, 8
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %69, label %73
 
-68:                                               ; preds = %65
-  %69 = and i32 %62, 4
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %84
+69:                                               ; preds = %66
+  %70 = and i32 %57, 16
+  %71 = icmp eq i32 %70, 0
+  %72 = select i1 %71, i32 -1, i32 5
+  br label %73
 
-71:                                               ; preds = %68
-  %72 = and i32 %62, 8
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %84
+73:                                               ; preds = %69, %66, %63, %60, %52
+  %74 = phi i32 [ %72, %69 ], [ 4, %66 ], [ 3, %63 ], [ 2, %60 ], [ 1, %52 ]
+  %75 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %54) #17
+  %76 = icmp ne ptr %75, null
+  %77 = icmp eq i32 %16, %74
+  %78 = select i1 %77, i1 %76, i1 false
+  br i1 %78, label %79, label %81
 
-74:                                               ; preds = %71
-  %75 = and i32 %62, 16
-  %76 = icmp eq i32 %75, 0
-  %77 = select i1 %76, i32 -1, i32 5
-  br label %84
+79:                                               ; preds = %73
+  %80 = tail call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %42, ptr noundef nonnull @.str.6, ptr noundef nonnull %53) #16
+  br label %81
 
-78:                                               ; preds = %56
-  br i1 %38, label %79, label %82
+81:                                               ; preds = %79, %73
+  %82 = phi ptr [ %80, %79 ], [ %42, %73 ]
+  tail call void @g_free(ptr noundef %54) #16
+  br label %83
 
-79:                                               ; preds = %78
-  %80 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull %57) #16
-  %81 = tail call i32 @dt_conf_get_int(ptr noundef %80) #16
-  tail call void @g_free(ptr noundef %80) #16
-  br label %82
+83:                                               ; preds = %81, %46, %.split.us
+  %84 = phi ptr [ %82, %81 ], [ %42, %46 ], [ %42, %.split.us ]
+  %85 = getelementptr inbounds i8, ptr %41, i64 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !14
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %.loopexit, label %.split.us
 
-82:                                               ; preds = %79, %78
-  %83 = phi i32 [ %81, %79 ], [ -1, %78 ]
-  br i1 %13, label %84, label %89
+.loopexit:                                        ; preds = %137, %83, %33
+  %88 = phi ptr [ %34, %33 ], [ %84, %83 ], [ %138, %137 ]
+  %89 = add nuw nsw i32 %16, 1
+  %90 = icmp eq i32 %89, 6
+  br i1 %90, label %.loopexit5, label %15
 
-84:                                               ; preds = %82, %74, %71, %68, %65, %59
-  %85 = phi i32 [ %83, %82 ], [ %77, %74 ], [ 4, %71 ], [ 3, %68 ], [ 2, %65 ], [ 1, %59 ]
-  %86 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %58) #17
-  %87 = icmp ne ptr %86, null
-  %88 = zext i1 %87 to i32
-  br label %92
+.split:                                           ; preds = %37, %137
+  %91 = phi ptr [ %140, %137 ], [ %35, %37 ]
+  %92 = phi ptr [ %138, %137 ], [ %34, %37 ]
+  %93 = load ptr, ptr %91, align 8, !tbaa !15
+  %94 = tail call i32 @dt_iop_so_is_hidden(ptr noundef %93) #16
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %137
 
-89:                                               ; preds = %82
-  %90 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.156, ptr noundef nonnull %57) #16
-  %91 = tail call i32 @dt_conf_get_bool(ptr noundef %90) #16
-  tail call void @g_free(ptr noundef %90) #16
-  br label %92
+96:                                               ; preds = %.split
+  %97 = getelementptr inbounds i8, ptr %93, i64 104
+  %98 = load ptr, ptr %97, align 8, !tbaa !17
+  %99 = tail call i32 %98() #16
+  %100 = and i32 %99, 4
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %137
 
-92:                                               ; preds = %89, %84
-  %93 = phi i32 [ %85, %84 ], [ %83, %89 ]
-  %94 = phi i32 [ %88, %84 ], [ %91, %89 ]
-  br i1 %40, label %95, label %99
+102:                                              ; preds = %96
+  %103 = getelementptr inbounds i8, ptr %93, i64 504
+  %104 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.154, ptr noundef nonnull %103) #16
+  br i1 %38, label %105, label %108
 
-95:                                               ; preds = %92
-  %96 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %58) #17
-  %97 = icmp ne ptr %96, null
-  %98 = zext i1 %97 to i32
-  br label %103
+105:                                              ; preds = %102
+  %106 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull %103) #16
+  %107 = tail call i32 @dt_conf_get_int(ptr noundef %106) #16
+  tail call void @g_free(ptr noundef %106) #16
+  br label %108
 
-99:                                               ; preds = %92
-  br i1 %18, label %100, label %103
+108:                                              ; preds = %105, %102
+  %109 = phi i32 [ %107, %105 ], [ -1, %102 ]
+  br i1 %13, label %110, label %113
 
-100:                                              ; preds = %99
-  %101 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.157, ptr noundef nonnull %57) #16
-  %102 = tail call i32 @dt_conf_get_bool(ptr noundef %101) #16
-  tail call void @g_free(ptr noundef %101) #16
-  br label %103
+110:                                              ; preds = %108
+  %111 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %104) #17
+  %112 = icmp ne ptr %111, null
+  br label %117
 
-103:                                              ; preds = %100, %99, %95
-  %104 = phi i32 [ %98, %95 ], [ %102, %100 ], [ 0, %99 ]
-  %105 = icmp ne i32 %104, 0
-  %106 = select i1 %18, i1 %105, i1 false
-  %107 = icmp ne i32 %94, 0
-  %108 = icmp eq i32 %16, %93
-  %109 = select i1 %106, i1 true, i1 %108
-  %110 = select i1 %109, i1 %107, i1 false
-  br i1 %110, label %111, label %113
+113:                                              ; preds = %108
+  %114 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.156, ptr noundef nonnull %103) #16
+  %115 = tail call i32 @dt_conf_get_bool(ptr noundef %114) #16
+  tail call void @g_free(ptr noundef %114) #16
+  %116 = icmp ne i32 %115, 0
+  br label %117
 
-111:                                              ; preds = %103
-  %112 = tail call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %46, ptr noundef nonnull @.str.6, ptr noundef nonnull %57) #16
-  br label %113
+117:                                              ; preds = %113, %110
+  %118 = phi i1 [ %112, %110 ], [ %116, %113 ]
+  br i1 %40, label %119, label %122
 
-113:                                              ; preds = %111, %103
-  %114 = phi ptr [ %112, %111 ], [ %46, %103 ]
-  tail call void @g_free(ptr noundef %58) #16
-  br label %115
+119:                                              ; preds = %117
+  %120 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %104) #17
+  %121 = icmp ne ptr %120, null
+  br label %127
 
-115:                                              ; preds = %113, %50, %44
-  %116 = phi ptr [ %114, %113 ], [ %46, %50 ], [ %46, %44 ]
-  %117 = getelementptr inbounds i8, ptr %45, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !14
-  %119 = icmp eq ptr %118, null
-  br i1 %119, label %.loopexit, label %44
+122:                                              ; preds = %117
+  br i1 %18, label %123, label %127
+
+123:                                              ; preds = %122
+  %124 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.157, ptr noundef nonnull %103) #16
+  %125 = tail call i32 @dt_conf_get_bool(ptr noundef %124) #16
+  tail call void @g_free(ptr noundef %124) #16
+  %126 = icmp ne i32 %125, 0
+  br label %127
+
+127:                                              ; preds = %123, %122, %119
+  %128 = phi i1 [ %121, %119 ], [ %126, %123 ], [ false, %122 ]
+  %129 = select i1 %18, i1 %128, i1 false
+  %130 = icmp eq i32 %16, %109
+  %131 = select i1 %129, i1 true, i1 %130
+  %132 = select i1 %131, i1 %118, i1 false
+  br i1 %132, label %133, label %135
+
+133:                                              ; preds = %127
+  %134 = tail call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %92, ptr noundef nonnull @.str.6, ptr noundef nonnull %103) #16
+  br label %135
+
+135:                                              ; preds = %133, %127
+  %136 = phi ptr [ %134, %133 ], [ %92, %127 ]
+  tail call void @g_free(ptr noundef %104) #16
+  br label %137
+
+137:                                              ; preds = %135, %96, %.split
+  %138 = phi ptr [ %136, %135 ], [ %92, %96 ], [ %92, %.split ]
+  %139 = getelementptr inbounds i8, ptr %91, i64 8
+  %140 = load ptr, ptr %139, align 8, !tbaa !14
+  %141 = icmp eq ptr %140, null
+  br i1 %141, label %.loopexit, label %.split
 
 .loopexit5:                                       ; preds = %.loopexit, %6
-  %120 = phi ptr [ %7, %6 ], [ %41, %.loopexit ]
-  ret ptr %120
+  %142 = phi ptr [ %7, %6 ], [ %88, %.loopexit ]
+  ret ptr %142
 }
 
 declare void @dt_conf_set_string(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -2659,26 +2694,26 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %17 = getelementptr inbounds i8, ptr %3, i64 280
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.loopexit31, label %.preheader30
+  br i1 %19, label %.loopexit32, label %.preheader31
 
-.loopexit31:                                      ; preds = %.preheader30, %16
+.loopexit32:                                      ; preds = %.preheader31, %16
   %20 = load ptr, ptr %13, align 8, !tbaa !55
   tail call void @gtk_widget_destroy(ptr noundef %20) #16
   store ptr null, ptr %13, align 8, !tbaa !55
   %21 = load i32, ptr %3, align 8, !tbaa !50
   br label %27
 
-.preheader30:                                     ; preds = %16, %.preheader30
-  %22 = phi ptr [ %25, %.preheader30 ], [ %18, %16 ]
+.preheader31:                                     ; preds = %16, %.preheader31
+  %22 = phi ptr [ %25, %.preheader31 ], [ %18, %16 ]
   %23 = load ptr, ptr %22, align 8, !tbaa !15
   tail call void @_basics_remove_widget(ptr noundef %23)
   %24 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !14
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.loopexit31, label %.preheader30
+  br i1 %26, label %.loopexit32, label %.preheader31
 
-27:                                               ; preds = %.loopexit31, %11
-  %28 = phi i32 [ %12, %11 ], [ %21, %.loopexit31 ]
+27:                                               ; preds = %.loopexit32, %11
+  %28 = phi i32 [ %12, %11 ], [ %21, %.loopexit32 ]
   %29 = icmp eq i32 %28, 10000
   br i1 %29, label %30, label %31
 
@@ -2812,7 +2847,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %111 = getelementptr inbounds i8, ptr %110, i64 2056
   %112 = load ptr, ptr %111, align 8, !tbaa !14
   %113 = icmp eq ptr %112, null
-  br i1 %113, label %.loopexit29, label %114
+  br i1 %113, label %.loopexit30, label %114
 
 114:                                              ; preds = %103
   %115 = getelementptr inbounds i8, ptr %3, i64 304
@@ -2821,7 +2856,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %118 = getelementptr inbounds i8, ptr %3, i64 64
   br label %121
 
-.loopexit29:                                      ; preds = %332, %103
+.loopexit30:                                      ; preds = %332, %103
   %119 = load i32, ptr %3, align 8, !tbaa !50
   %120 = icmp eq i32 %119, 9999
   br i1 %120, label %336, label %424
@@ -2978,7 +3013,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %209 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.115, i32 noundef 5) #16
   %210 = tail call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.116, ptr noundef %209) #16
   %211 = load i32, ptr %3, align 8, !tbaa !50
-  switch i32 %211, label %262 [
+  switch i32 %211, label %261 [
     i32 9999, label %212
     i32 0, label %214
     i32 -1, label %234
@@ -3015,11 +3050,11 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
 
 230:                                              ; preds = %.preheader, %222
   %231 = zext i1 %229 to i32
-  br label %307
+  br label %306
 
 232:                                              ; preds = %214
   %233 = load i32, ptr %126, align 16, !tbaa !126
-  br label %307
+  br label %306
 
 234:                                              ; preds = %208
   %235 = getelementptr inbounds i8, ptr %123, i64 64
@@ -3029,7 +3064,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %239 = icmp eq i32 %238, 0
   %240 = icmp ne i32 %210, 0
   %241 = select i1 %239, i1 true, i1 %240
-  br i1 %241, label %242, label %.loopexit28
+  br i1 %241, label %242, label %.loopexit29
 
 242:                                              ; preds = %234
   %243 = getelementptr inbounds i8, ptr %123, i64 464
@@ -3037,112 +3072,113 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %245 = getelementptr inbounds i8, ptr %244, i64 72
   %246 = load ptr, ptr %245, align 8, !tbaa !14
   %247 = icmp eq ptr %246, null
-  br i1 %247, label %.loopexit28, label %.preheader26
+  br i1 %247, label %.loopexit29, label %.preheader28
 
-248:                                              ; preds = %.preheader26
+248:                                              ; preds = %.preheader28
   %249 = getelementptr inbounds i8, ptr %252, i64 8
   %250 = load ptr, ptr %249, align 8, !tbaa !14
   %251 = icmp eq ptr %250, null
-  br i1 %251, label %.loopexit28, label %.preheader26
+  br i1 %251, label %.loopexit29, label %.preheader28
 
-.preheader26:                                     ; preds = %242, %248
+.preheader28:                                     ; preds = %242, %248
   %252 = phi ptr [ %250, %248 ], [ %246, %242 ]
   %253 = load ptr, ptr %252, align 8, !tbaa !15
   %254 = getelementptr inbounds i8, ptr %253, i64 32
   %255 = load ptr, ptr %254, align 8, !tbaa !53
   %256 = tail call ptr @g_list_find_custom(ptr noundef %255, ptr noundef nonnull %243, ptr noundef nonnull @_iop_compare) #16
   %257 = icmp eq ptr %256, null
-  br i1 %257, label %248, label %.loopexit27
+  br i1 %257, label %248, label %.thread26
 
-.loopexit28:                                      ; preds = %248, %242, %234
+.loopexit29:                                      ; preds = %248, %242, %234
   %258 = load i32, ptr %126, align 16, !tbaa !126
   %259 = icmp ne i32 %258, 0
-  br label %.loopexit27
+  %260 = zext i1 %259 to i32
+  br label %306
 
-.loopexit27:                                      ; preds = %.preheader26, %.loopexit28
-  %260 = phi i1 [ %259, %.loopexit28 ], [ true, %.preheader26 ]
-  %261 = zext i1 %260 to i32
-  br label %307
+261:                                              ; preds = %208
+  %262 = load ptr, ptr %108, align 8, !tbaa !85
+  %263 = icmp eq i32 %210, 0
+  br i1 %263, label %264, label %268
 
-262:                                              ; preds = %208
-  %263 = load ptr, ptr %108, align 8, !tbaa !85
-  %264 = icmp eq i32 %210, 0
-  br i1 %264, label %265, label %268
-
-265:                                              ; preds = %262
-  %266 = load i32, ptr %118, align 8, !tbaa !132
-  %267 = icmp ne i32 %266, 0
+264:                                              ; preds = %261
+  %265 = load i32, ptr %118, align 8, !tbaa !132
+  %266 = icmp ne i32 %265, 0
+  %267 = zext i1 %266 to i32
   br label %268
 
-268:                                              ; preds = %265, %262
-  %269 = phi i1 [ true, %262 ], [ %267, %265 ]
-  %270 = zext i1 %269 to i32
-  tail call void @gtk_widget_set_visible(ptr noundef %263, i32 noundef %270) #16
-  %271 = load i32, ptr %3, align 8, !tbaa !50
-  %272 = icmp eq i32 %271, 0
-  br i1 %272, label %273, label %275
+268:                                              ; preds = %264, %261
+  %269 = phi i32 [ 1, %261 ], [ %267, %264 ]
+  tail call void @gtk_widget_set_visible(ptr noundef %262, i32 noundef %269) #16
+  %270 = load i32, ptr %3, align 8, !tbaa !50
+  %271 = icmp eq i32 %270, 0
+  br i1 %271, label %272, label %274
 
-273:                                              ; preds = %268
-  %274 = load i32, ptr %126, align 16, !tbaa !126
-  br label %291
+272:                                              ; preds = %268
+  %273 = load i32, ptr %126, align 16, !tbaa !126
+  br label %290
 
-275:                                              ; preds = %268
-  %276 = load ptr, ptr %2, align 8, !tbaa !32
-  %277 = getelementptr inbounds i8, ptr %276, i64 72
-  %278 = load ptr, ptr %277, align 8, !tbaa !47
-  %279 = add i32 %271, -1
-  %280 = tail call ptr @g_list_nth_data(ptr noundef %278, i32 noundef %279) #16
-  %281 = icmp eq ptr %280, null
-  br i1 %281, label %304, label %282
+274:                                              ; preds = %268
+  %275 = load ptr, ptr %2, align 8, !tbaa !32
+  %276 = getelementptr inbounds i8, ptr %275, i64 72
+  %277 = load ptr, ptr %276, align 8, !tbaa !47
+  %278 = add i32 %270, -1
+  %279 = tail call ptr @g_list_nth_data(ptr noundef %277, i32 noundef %278) #16
+  %280 = icmp eq ptr %279, null
+  br i1 %280, label %.thread, label %281
 
-282:                                              ; preds = %275
-  %283 = getelementptr inbounds i8, ptr %280, i64 32
-  %284 = load ptr, ptr %283, align 8, !tbaa !53
-  %285 = getelementptr inbounds i8, ptr %123, i64 944
-  %286 = load ptr, ptr %285, align 16, !tbaa !133
-  %287 = getelementptr inbounds i8, ptr %286, i64 504
-  %288 = tail call ptr @g_list_find_custom(ptr noundef %284, ptr noundef nonnull %287, ptr noundef nonnull @_iop_compare) #16
-  %289 = icmp ne ptr %288, null
-  %290 = zext i1 %289 to i32
-  br label %291
+281:                                              ; preds = %274
+  %282 = getelementptr inbounds i8, ptr %279, i64 32
+  %283 = load ptr, ptr %282, align 8, !tbaa !53
+  %284 = getelementptr inbounds i8, ptr %123, i64 944
+  %285 = load ptr, ptr %284, align 16, !tbaa !133
+  %286 = getelementptr inbounds i8, ptr %285, i64 504
+  %287 = tail call ptr @g_list_find_custom(ptr noundef %283, ptr noundef nonnull %286, ptr noundef nonnull @_iop_compare) #16
+  %288 = icmp ne ptr %287, null
+  %289 = zext i1 %288 to i32
+  br label %290
 
-291:                                              ; preds = %282, %273
-  %292 = phi i32 [ %274, %273 ], [ %290, %282 ]
-  %293 = icmp eq i32 %292, 0
-  br i1 %293, label %304, label %294
+290:                                              ; preds = %281, %272
+  %291 = phi i32 [ %273, %272 ], [ %289, %281 ]
+  %292 = icmp eq i32 %291, 0
+  br i1 %292, label %.thread, label %293
 
-294:                                              ; preds = %291
-  %295 = getelementptr inbounds i8, ptr %123, i64 64
-  %296 = load ptr, ptr %295, align 16, !tbaa !129
-  %297 = tail call i32 %296() #16
-  %298 = and i32 %297, 4
-  %299 = icmp eq i32 %298, 0
-  br i1 %299, label %304, label %300
+293:                                              ; preds = %290
+  %294 = getelementptr inbounds i8, ptr %123, i64 64
+  %295 = load ptr, ptr %294, align 16, !tbaa !129
+  %296 = tail call i32 %295() #16
+  %297 = and i32 %296, 4
+  %298 = icmp eq i32 %297, 0
+  br i1 %298, label %.thread26, label %299
 
-300:                                              ; preds = %294
-  %301 = load i32, ptr %126, align 16, !tbaa !126
-  %302 = or i32 %301, %210
-  %303 = icmp ne i32 %302, 0
-  br label %304
+299:                                              ; preds = %293
+  %300 = load i32, ptr %126, align 16, !tbaa !126
+  %301 = or i32 %300, %210
+  %302 = icmp ne i32 %301, 0
+  %303 = zext i1 %302 to i32
+  br label %306
 
-304:                                              ; preds = %300, %294, %291, %275
-  %305 = phi i1 [ false, %291 ], [ true, %294 ], [ %303, %300 ], [ false, %275 ]
-  %306 = zext i1 %305 to i32
-  br label %307
+.thread:                                          ; preds = %290, %274
+  %304 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
+  br label %323
 
-307:                                              ; preds = %304, %.loopexit27, %232, %230
-  %308 = phi i32 [ %306, %304 ], [ %261, %.loopexit27 ], [ %233, %232 ], [ %231, %230 ]
-  %309 = icmp eq i32 %308, 0
-  %310 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
-  br i1 %309, label %323, label %311
+.thread26:                                        ; preds = %.preheader28, %293
+  %305 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
+  br label %310
 
-311:                                              ; preds = %307
-  %312 = getelementptr inbounds i8, ptr %310, i64 88
+306:                                              ; preds = %299, %.loopexit29, %232, %230
+  %307 = phi i32 [ %233, %232 ], [ %231, %230 ], [ %260, %.loopexit29 ], [ %303, %299 ]
+  %308 = icmp eq i32 %307, 0
+  %309 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !86
+  br i1 %308, label %323, label %310
+
+310:                                              ; preds = %.thread26, %306
+  %311 = phi ptr [ %305, %.thread26 ], [ %309, %306 ]
+  %312 = getelementptr inbounds i8, ptr %311, i64 88
   %313 = load ptr, ptr %312, align 8, !tbaa !128
   %314 = icmp eq ptr %313, %123
   br i1 %314, label %315, label %320
 
-315:                                              ; preds = %311
+315:                                              ; preds = %310
   %316 = getelementptr inbounds i8, ptr %123, i64 872
   %317 = load i32, ptr %316, align 8, !tbaa !134
   %318 = icmp eq i32 %317, 0
@@ -3152,7 +3188,7 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   tail call void @dt_iop_request_focus(ptr noundef null) #16
   br label %320
 
-320:                                              ; preds = %319, %315, %311
+320:                                              ; preds = %319, %315, %310
   %321 = icmp eq ptr %125, null
   br i1 %321, label %332, label %322
 
@@ -3160,8 +3196,8 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   tail call void @gtk_widget_show(ptr noundef nonnull %125) #16
   br label %332
 
-323:                                              ; preds = %307, %217, %212
-  %324 = phi ptr [ %213, %212 ], [ %218, %217 ], [ %310, %307 ]
+323:                                              ; preds = %.thread, %306, %217, %212
+  %324 = phi ptr [ %213, %212 ], [ %218, %217 ], [ %309, %306 ], [ %304, %.thread ]
   %325 = getelementptr inbounds i8, ptr %324, i64 88
   %326 = load ptr, ptr %325, align 8, !tbaa !128
   %327 = icmp eq ptr %326, %123
@@ -3183,9 +3219,9 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %333 = getelementptr inbounds i8, ptr %122, i64 8
   %334 = load ptr, ptr %333, align 8, !tbaa !14
   %335 = icmp eq ptr %334, null
-  br i1 %335, label %.loopexit29, label %121
+  br i1 %335, label %.loopexit30, label %121
 
-336:                                              ; preds = %.loopexit29
+336:                                              ; preds = %.loopexit30
   %337 = icmp eq ptr %45, null
   br i1 %337, label %341, label %338
 
@@ -3232,13 +3268,13 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %364 = load ptr, ptr %363, align 8, !tbaa !135
   %365 = tail call ptr @g_list_last(ptr noundef %364) #16
   %366 = icmp eq ptr %365, null
-  br i1 %366, label %.loopexit25, label %367
+  br i1 %366, label %.loopexit27, label %367
 
 367:                                              ; preds = %356
   %368 = getelementptr inbounds i8, ptr %342, i64 280
   br label %370
 
-.loopexit25:                                      ; preds = %419, %356
+.loopexit27:                                      ; preds = %419, %356
   %369 = load ptr, ptr %343, align 8, !tbaa !55
   tail call void @gtk_widget_show(ptr noundef %369) #16
   br label %424
@@ -3322,9 +3358,9 @@ define internal fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef
   %421 = getelementptr inbounds i8, ptr %372, i64 16
   %422 = load ptr, ptr %421, align 8, !tbaa !139
   %423 = icmp eq ptr %422, null
-  br i1 %423, label %.loopexit25, label %370
+  br i1 %423, label %.loopexit27, label %370
 
-424:                                              ; preds = %.loopexit25, %346, %338, %.loopexit29
+424:                                              ; preds = %.loopexit27, %346, %338, %.loopexit30
   ret void
 }
 

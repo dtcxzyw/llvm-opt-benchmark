@@ -1144,14 +1144,17 @@ _ZN5ZXing11PatternView5shiftEi.exit:              ; preds = %_ZN5ZXing8BitArray1
   %456 = add nuw nsw i32 %.07.i.i, %455
   %457 = getelementptr inbounds i8, ptr %.sroa.03.08.i.i, i64 1
   %.not.i.i115 = icmp eq ptr %457, %453
-  br i1 %.not.i.i115, label %_ZN5ZXing6ReduceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiSt4plusIiEEET0_T_SC_SB_T1_.exit, label %.lr.ph.i.i, !llvm.loop !26
+  br i1 %.not.i.i115, label %_ZN5ZXing6ReduceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiSt4plusIiEEET0_T_SC_SB_T1_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !26
 
-_ZN5ZXing6ReduceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiSt4plusIiEEET0_T_SC_SB_T1_.exit: ; preds = %.lr.ph.i.i, %452
-  %.0.lcssa.i.i = phi i32 [ 0, %452 ], [ %456, %.lr.ph.i.i ]
-  %458 = load i8, ptr %453, align 1
-  %459 = srem i32 %.0.lcssa.i.i, 2
-  %460 = zext i8 %458 to i32
-  %.not65 = icmp eq i32 %459, %460
+_ZN5ZXing6ReduceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiSt4plusIiEEET0_T_SC_SB_T1_.exit.loopexit: ; preds = %.lr.ph.i.i
+  %458 = and i32 %456, 1
+  br label %_ZN5ZXing6ReduceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiSt4plusIiEEET0_T_SC_SB_T1_.exit
+
+_ZN5ZXing6ReduceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiSt4plusIiEEET0_T_SC_SB_T1_.exit: ; preds = %_ZN5ZXing6ReduceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiSt4plusIiEEET0_T_SC_SB_T1_.exit.loopexit, %452
+  %.0.lcssa.i.i = phi i32 [ 0, %452 ], [ %458, %_ZN5ZXing6ReduceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiSt4plusIiEEET0_T_SC_SB_T1_.exit.loopexit ]
+  %459 = load i8, ptr %453, align 1
+  %460 = zext i8 %459 to i32
+  %.not65 = icmp eq i32 %.0.lcssa.i.i, %460
   br i1 %.not65, label %461, label %.invoke
 
 461:                                              ; preds = %_ZN5ZXing6ReduceIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEiSt4plusIiEEET0_T_SC_SB_T1_.exit

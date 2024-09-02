@@ -3202,8 +3202,8 @@ define i32 @pmix_bfrops_base_unpack_buf(ptr noundef %0, ptr noundef %1, ptr noun
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %12
 
-12:                                               ; preds = %.lr.ph, %63
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
+12:                                               ; preds = %.lr.ph, %64
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
   %13 = load i32, ptr @pmix_class_init_epoch, align 4
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 32), align 8
   %.not = icmp eq i32 %13, %14
@@ -3281,7 +3281,7 @@ pmix_pointer_array_get_item.exit67:               ; preds = %36
   %48 = trunc i64 %47 to i32
   store i32 %48, ptr %6, align 4
   %.not62 = icmp eq i64 %47, 0
-  br i1 %.not62, label %63, label %49
+  br i1 %.not62, label %64, label %49
 
 49:                                               ; preds = %46
   %50 = call noalias ptr @malloc(i64 noundef %47) #13
@@ -3312,29 +3312,29 @@ pmix_pointer_array_get_item.exit70:               ; preds = %53
 ._crit_edge:                                      ; preds = %59
   %.pre = load i32, ptr %6, align 4
   %.pre102 = load i64, ptr %7, align 8
-  br label %63
+  %63 = sext i32 %.pre to i64
+  br label %64
 
-63:                                               ; preds = %._crit_edge, %46
-  %64 = phi i64 [ %.pre102, %._crit_edge ], [ 0, %46 ]
-  %65 = phi i32 [ %.pre, %._crit_edge ], [ 0, %46 ]
-  %66 = getelementptr inbounds i8, ptr %17, i64 128
-  %67 = load ptr, ptr %66, align 8
-  %68 = sext i32 %65 to i64
-  %69 = getelementptr inbounds i8, ptr %67, i64 %68
+64:                                               ; preds = %._crit_edge, %46
+  %65 = phi i64 [ %.pre102, %._crit_edge ], [ 0, %46 ]
+  %66 = phi i64 [ %63, %._crit_edge ], [ 0, %46 ]
+  %67 = getelementptr inbounds i8, ptr %17, i64 128
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 %66
   %70 = getelementptr inbounds i8, ptr %17, i64 136
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %17, i64 144
-  store ptr %67, ptr %71, align 8
+  store ptr %68, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %17, i64 152
-  store i64 %64, ptr %72, align 8
+  store i64 %65, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %17, i64 160
-  store i64 %68, ptr %73, align 8
+  store i64 %66, ptr %73, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %12, !llvm.loop !40
 
-.thread:                                          ; preds = %31, %42, %49, %59, %63, %pmix_pointer_array_get_item.exit, %pmix_obj_run_constructors.exit, %pmix_pointer_array_get_item.exit67, %36, %pmix_pointer_array_get_item.exit70, %53, %5
-  %.0 = phi i32 [ 0, %5 ], [ -16, %53 ], [ -16, %pmix_pointer_array_get_item.exit70 ], [ -16, %36 ], [ -16, %pmix_pointer_array_get_item.exit67 ], [ -16, %pmix_obj_run_constructors.exit ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %63 ], [ %62, %59 ], [ -32, %49 ], [ %45, %42 ], [ %35, %31 ]
+.thread:                                          ; preds = %31, %42, %49, %59, %64, %pmix_pointer_array_get_item.exit, %pmix_obj_run_constructors.exit, %pmix_pointer_array_get_item.exit67, %36, %pmix_pointer_array_get_item.exit70, %53, %5
+  %.0 = phi i32 [ 0, %5 ], [ -16, %53 ], [ -16, %pmix_pointer_array_get_item.exit70 ], [ -16, %36 ], [ -16, %pmix_pointer_array_get_item.exit67 ], [ -16, %pmix_obj_run_constructors.exit ], [ -16, %pmix_pointer_array_get_item.exit ], [ 0, %64 ], [ %62, %59 ], [ -32, %49 ], [ %45, %42 ], [ %35, %31 ]
   ret i32 %.0
 }
 

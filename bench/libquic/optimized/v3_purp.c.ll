@@ -784,14 +784,14 @@ for.cond:                                         ; preds = %for.inc, %entry
 
 if.end.i:                                         ; preds = %for.cond
   %call.i = tail call i64 @sk_num(ptr noundef nonnull %0) #10
-  %conv.i = add i64 %call.i, 9
+  %conv.i = shl i64 %call.i, 32
+  %sext = add i64 %conv.i, 38654705664
+  %1 = ashr exact i64 %sext, 32
   br label %X509_PURPOSE_get_count.exit
 
 X509_PURPOSE_get_count.exit:                      ; preds = %for.cond, %if.end.i
-  %retval.0.i = phi i64 [ %conv.i, %if.end.i ], [ 9, %for.cond ]
-  %sext = shl i64 %retval.0.i, 32
-  %1 = ashr exact i64 %sext, 32
-  %cmp = icmp slt i64 %indvars.iv, %1
+  %retval.0.i = phi i64 [ %1, %if.end.i ], [ 9, %for.cond ]
+  %cmp = icmp slt i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %return
 
 for.body:                                         ; preds = %X509_PURPOSE_get_count.exit
@@ -1284,7 +1284,7 @@ check_ca.exit:                                    ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_check_issued(ptr noundef %issuer, ptr noundef %subject) local_unnamed_addr #0 {
+define hidden range(i32 0, 40) i32 @X509_check_issued(ptr noundef %issuer, ptr noundef %subject) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @X509_get_subject_name(ptr noundef %issuer) #10
   %call1 = tail call ptr @X509_get_issuer_name(ptr noundef %subject) #10
@@ -1629,7 +1629,7 @@ return:                                           ; preds = %if.then2.i, %check_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @check_purpose_ns_ssl_server(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
+define internal range(i32 0, 6) i32 @check_purpose_ns_ssl_server(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
 entry:
   %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags.i, align 8
@@ -1733,7 +1733,7 @@ return:                                           ; preds = %if.then2.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @check_purpose_smime_sign(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
+define internal range(i32 0, 6) i32 @check_purpose_smime_sign(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
 entry:
   %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags.i, align 8
@@ -1838,7 +1838,7 @@ return:                                           ; preds = %if.then10.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @check_purpose_smime_encrypt(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
+define internal range(i32 0, 6) i32 @check_purpose_smime_encrypt(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
 entry:
   %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 64
   %0 = load i64, ptr %ex_flags.i, align 8
@@ -1943,7 +1943,7 @@ return:                                           ; preds = %if.then10.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @check_purpose_crl_sign(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
+define internal range(i32 0, 6) i32 @check_purpose_crl_sign(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %ca) #7 {
 entry:
   %tobool.not = icmp eq i32 %ca, 0
   %ex_flags = getelementptr inbounds i8, ptr %x, i64 64

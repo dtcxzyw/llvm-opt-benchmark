@@ -581,37 +581,37 @@ if.end36:                                         ; preds = %if.end29
   %8 = load ptr, ptr %vfn, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %.pre = load i32, ptr %4, align 8
-  %cmp38 = icmp eq i32 %.pre, -1
-  br i1 %cmp38, label %for.inc, label %if.end40
+  %9 = icmp eq i32 %.pre, -1
+  br i1 %9, label %for.inc, label %if.end40
 
 if.end40:                                         ; preds = %if.end29, %if.end36
-  %9 = load i32, ptr %arrayidx20, align 4
-  %and44 = and i32 %9, 4
+  %10 = load i32, ptr %arrayidx20, align 4
+  %and44 = and i32 %10, 4
   %tobool45.not = icmp eq i32 %and44, 0
   br i1 %tobool45.not, label %if.end54, label %if.end50
 
 if.end50:                                         ; preds = %if.end40
-  %10 = load ptr, ptr %events, align 8
-  %vtable48 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %events, align 8
+  %vtable48 = load ptr, ptr %11, align 8
   %vfn49 = getelementptr inbounds i8, ptr %vtable48, i64 24
-  %11 = load ptr, ptr %vfn49, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %12 = load ptr, ptr %vfn49, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %.pre27 = load i32, ptr %4, align 8
-  %cmp52 = icmp eq i32 %.pre27, -1
-  br i1 %cmp52, label %for.inc, label %if.end54
+  %13 = icmp eq i32 %.pre27, -1
+  br i1 %13, label %for.inc, label %if.end54
 
 if.end54:                                         ; preds = %if.end40, %if.end50
-  %12 = load i32, ptr %arrayidx20, align 4
-  %and58 = and i32 %12, 1
+  %14 = load i32, ptr %arrayidx20, align 4
+  %and58 = and i32 %14, 1
   %tobool59.not = icmp eq i32 %and58, 0
   br i1 %tobool59.not, label %for.inc, label %if.then60
 
 if.then60:                                        ; preds = %if.end54
-  %13 = load ptr, ptr %events, align 8
-  %vtable62 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %events, align 8
+  %vtable62 = load ptr, ptr %15, align 8
   %vfn63 = getelementptr inbounds i8, ptr %vtable62, i64 16
-  %14 = load ptr, ptr %vfn63, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %16 = load ptr, ptr %vfn63, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end54, %if.then60, %if.end50, %if.end36, %if.end26, %if.end23, %for.body
@@ -620,28 +620,28 @@ for.inc:                                          ; preds = %if.end54, %if.then6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %15 = load ptr, ptr %_retired, align 8
-  %16 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not24 = icmp eq ptr %15, %16
+  %17 = load ptr, ptr %_retired, align 8
+  %18 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i.not24 = icmp eq ptr %17, %18
   br i1 %cmp.i.not24, label %while.body.backedge, label %for.body71
 
 while.body.backedge:                              ; preds = %for.end, %invoke.cont.i.i, %for.end76, %if.then12, %do.body, %if.then
   br label %while.body, !llvm.loop !7
 
 for.body71:                                       ; preds = %for.end, %delete.end
-  %it.sroa.0.025 = phi ptr [ %incdec.ptr.i, %delete.end ], [ %15, %for.end ]
-  %17 = load ptr, ptr %it.sroa.0.025, align 8
-  %isnull = icmp eq ptr %17, null
+  %it.sroa.0.025 = phi ptr [ %incdec.ptr.i, %delete.end ], [ %17, %for.end ]
+  %19 = load ptr, ptr %it.sroa.0.025, align 8
+  %isnull = icmp eq ptr %19, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body71
-  call void @_ZdlPv(ptr noundef nonnull %17) #20
+  call void @_ZdlPv(ptr noundef nonnull %19) #20
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body71
   store ptr null, ptr %it.sroa.0.025, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.025, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %16
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %18
   br i1 %cmp.i.not, label %for.end76, label %for.body71, !llvm.loop !8
 
 for.end76:                                        ; preds = %delete.end

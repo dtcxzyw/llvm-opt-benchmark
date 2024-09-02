@@ -1714,7 +1714,7 @@ define internal i64 @read_vmcore(ptr nocapture noundef %0, ptr noundef %1) #0 al
 declare dso_local i64 @default_llseek(ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mmap_vmcore(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
+define internal range(i32 -22, 1) i32 @mmap_vmcore(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -1955,25 +1955,25 @@ define internal noundef i32 @mmap_vmcore(ptr nocapture readnone %0, ptr noundef 
 
 167:                                              ; preds = %103
   %168 = tail call i32 @remap_oldmem_pfn_range(ptr noundef %1, i64 noundef %111, i64 noundef %112, i64 noundef %105, i64 %113)
+  %169 = icmp eq i32 %168, 0
   br label %.thread23
 
 .thread23:                                        ; preds = %117, %167, %.loopexit30, %158, %157
-  %169 = phi i32 [ %168, %167 ], [ -11, %.loopexit30 ], [ 0, %158 ], [ 0, %157 ], [ 0, %117 ]
-  %170 = icmp ult i32 %114, 2
-  br i1 %170, label %172, label %171, !prof !5
+  %170 = phi i1 [ %169, %167 ], [ false, %.loopexit30 ], [ true, %158 ], [ true, %157 ], [ true, %117 ]
+  %171 = icmp ult i32 %114, 2
+  br i1 %171, label %173, label %172, !prof !5
 
-171:                                              ; preds = %.thread23
+172:                                              ; preds = %.thread23
   tail call void asm sideeffect "117: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 117b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 117) #11, !srcloc !11
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 285, i32 2307, i64 12) #11, !srcloc !12
   tail call void asm sideeffect "118: nop\0A\09.pushsection .discard.instr_end\0A\09.long 118b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 118) #11, !srcloc !13
-  br label %172
+  br label %173
 
-172:                                              ; preds = %171, %.thread23
+173:                                              ; preds = %172, %.thread23
   tail call void @__srcu_read_unlock(ptr noundef nonnull @vmcore_cb_srcu, i32 noundef %114) #11
-  %173 = icmp eq i32 %169, 0
-  br i1 %173, label %174, label %.thread21
+  br i1 %170, label %174, label %.thread21
 
-174:                                              ; preds = %172
+174:                                              ; preds = %173
   %175 = sub i64 %94, %105
   %176 = add i64 %105, %95
   %177 = add i64 %105, %96
@@ -1988,8 +1988,8 @@ define internal noundef i32 @mmap_vmcore(ptr nocapture readnone %0, ptr noundef 
   %183 = icmp eq ptr %182, @vmcore_list
   br i1 %183, label %.thread, label %92, !llvm.loop !34
 
-.thread21:                                        ; preds = %172, %69
-  %184 = phi i64 [ %63, %69 ], [ %96, %172 ]
+.thread21:                                        ; preds = %173, %69
+  %184 = phi i64 [ %63, %69 ], [ %96, %173 ]
   %185 = load ptr, ptr %21, align 8
   %186 = load i64, ptr %1, align 8
   %187 = tail call i32 @do_munmap(ptr noundef %185, i64 noundef %186, i64 noundef %184, ptr noundef null) #11

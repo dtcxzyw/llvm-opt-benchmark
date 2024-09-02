@@ -227,8 +227,8 @@ define dso_local noundef i32 @hid_quirks_init(ptr nocapture noundef readonly %0,
   %8 = zext nneg i32 %2 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %59
-  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %59 ]
+.preheader:                                       ; preds = %.preheader.preheader, %58
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %58 ]
   %9 = getelementptr ptr, ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -241,7 +241,7 @@ define dso_local noundef i32 @hid_quirks_init(ptr nocapture noundef readonly %0,
   %16 = load i16, ptr %5, align 2
   %17 = zext i16 %16 to i32
   %18 = icmp eq i32 %13, 3
-  br i1 %18, label %19, label %.thread
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %12
   %20 = load i32, ptr %6, align 4
@@ -249,90 +249,90 @@ define dso_local noundef i32 @hid_quirks_init(ptr nocapture noundef readonly %0,
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %23 = call noalias noundef align 8 dereferenceable_or_null(7632) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 7632) #8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.thread, label %25
+  br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %27 = call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %26, i32 noundef 3264, i64 noundef 40) #8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %56, label %29
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %.critedge6, label %28
 
-29:                                               ; preds = %25
+28:                                               ; preds = %25
   store i16 %1, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %23, i64 52
-  store i16 %1, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %27, i64 2
+  %29 = getelementptr inbounds i8, ptr %23, i64 52
+  store i16 %1, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %27, i64 2
+  store i16 0, ptr %30, align 2
+  %31 = getelementptr inbounds i8, ptr %23, i64 54
   store i16 0, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %23, i64 54
-  store i16 0, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %27, i64 4
-  store i32 %15, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %23, i64 56
-  store i32 %15, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %27, i64 8
-  store i32 %17, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %23, i64 60
-  store i32 %17, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %27, i64 16
-  store i64 %21, ptr %37, align 8
+  %32 = getelementptr inbounds i8, ptr %27, i64 4
+  store i32 %15, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %23, i64 56
+  store i32 %15, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %27, i64 8
+  store i32 %17, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %23, i64 60
+  store i32 %17, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %27, i64 16
+  store i64 %21, ptr %36, align 8
   call void @mutex_lock(ptr noundef nonnull @dquirks_lock) #7
-  br label %38
+  br label %37
 
-38:                                               ; preds = %42, %29
-  %39 = phi ptr [ @dquirks_list, %29 ], [ %40, %42 ]
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, @dquirks_list
-  br i1 %41, label %52, label %42
+37:                                               ; preds = %41, %28
+  %38 = phi ptr [ @dquirks_list, %28 ], [ %39, %41 ]
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, @dquirks_list
+  br i1 %40, label %51, label %41
 
-42:                                               ; preds = %38
-  %43 = getelementptr i8, ptr %40, i64 -24
-  %44 = call zeroext i1 @hid_match_one_id(ptr noundef nonnull %23, ptr noundef %43) #7
-  br i1 %44, label %45, label %38, !llvm.loop !9
+41:                                               ; preds = %37
+  %42 = getelementptr i8, ptr %39, i64 -24
+  %43 = call zeroext i1 @hid_match_one_id(ptr noundef nonnull %23, ptr noundef %42) #7
+  br i1 %43, label %44, label %37, !llvm.loop !9
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %27, i64 24
-  %47 = load ptr, ptr %40, align 8
-  store ptr %47, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
-  store ptr %46, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %40, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %27, i64 32
-  store ptr %50, ptr %51, align 8
-  store ptr %46, ptr %50, align 8
-  call void @kfree(ptr noundef %43) #7
-  br label %.thread5
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %27, i64 24
+  %46 = load ptr, ptr %39, align 8
+  store ptr %46, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  store ptr %45, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %39, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %27, i64 32
+  store ptr %49, ptr %50, align 8
+  store ptr %45, ptr %49, align 8
+  call void @kfree(ptr noundef %42) #7
+  br label %55
 
-52:                                               ; preds = %38
-  %53 = getelementptr inbounds i8, ptr %27, i64 24
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @dquirks_list, i64 8), align 8
-  store ptr %53, ptr getelementptr inbounds (i8, ptr @dquirks_list, i64 8), align 8
-  store ptr @dquirks_list, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %27, i64 32
-  store ptr %54, ptr %55, align 8
-  store volatile ptr %53, ptr %54, align 8
-  br label %.thread5
+51:                                               ; preds = %37
+  %52 = getelementptr inbounds i8, ptr %27, i64 24
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @dquirks_list, i64 8), align 8
+  store ptr %52, ptr getelementptr inbounds (i8, ptr @dquirks_list, i64 8), align 8
+  store ptr @dquirks_list, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %27, i64 32
+  store ptr %53, ptr %54, align 8
+  store volatile ptr %52, ptr %53, align 8
+  br label %55
 
-.thread5:                                         ; preds = %45, %52
+55:                                               ; preds = %51, %44
   call void @mutex_unlock(ptr noundef nonnull @dquirks_lock) #7
   call void @kfree(ptr noundef nonnull %23) #7
-  br label %59
+  br label %58
 
-56:                                               ; preds = %25
+.critedge6:                                       ; preds = %25
   call void @kfree(ptr noundef nonnull %23) #7
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %19, %56, %12
-  %57 = load ptr, ptr %9, align 8
-  %58 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %57) #9
-  br label %59
+.critedge:                                        ; preds = %19, %.critedge6, %12
+  %56 = load ptr, ptr %9, align 8
+  %57 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef %56) #9
+  br label %58
 
-59:                                               ; preds = %.thread5, %.thread
+58:                                               ; preds = %55, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = icmp eq i64 %indvars.iv.next, %8
-  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !10
+  %59 = icmp eq i64 %indvars.iv.next, %8
+  br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !10
 
-.loopexit:                                        ; preds = %59, %.preheader, %3
+.loopexit:                                        ; preds = %58, %.preheader, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7

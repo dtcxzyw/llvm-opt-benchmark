@@ -2319,7 +2319,7 @@ return:                                           ; preds = %_ZN7rocksdb18SeqnoT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN7rocksdb18SeqnoToTimeMapping20CalculateMaxCapacityEmm(i64 noundef %min_time_duration, i64 noundef %max_time_duration) local_unnamed_addr #6 align 2 {
+define noundef range(i64 0, 1001) i64 @_ZN7rocksdb18SeqnoToTimeMapping20CalculateMaxCapacityEmm(i64 noundef %min_time_duration, i64 noundef %max_time_duration) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq i64 %min_time_duration, 0
   br i1 %cmp, label %return, label %if.end

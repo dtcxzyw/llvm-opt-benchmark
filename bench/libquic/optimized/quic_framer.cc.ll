@@ -1015,7 +1015,7 @@ declare void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 derefe
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN3net10QuicFramer31GetVersionNegotiationPacketSizeEm(i64 noundef %number_versions) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i64 9, 6) i64 @_ZN3net10QuicFramer31GetVersionNegotiationPacketSizeEm(i64 noundef %number_versions) local_unnamed_addr #6 align 2 {
 entry:
   %mul = shl i64 %number_versions, 2
   %add = add i64 %mul, 9
@@ -7254,6 +7254,7 @@ for.body25:                                       ; preds = %for.body, %invoke.c
   %4 = xor i64 %storemerge35, -1
   %sub35 = add i64 %3, %4
   %5 = trunc i64 %sub35 to i8
+  %cond = select i1 %cmp29, i8 -1, i8 %5
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
@@ -7334,8 +7335,7 @@ if.then.i7.i.i:                                   ; preds = %invoke.cont7.i.i
 invoke.cont37:                                    ; preds = %if.then.i7.i.i, %cleanup.thread.i.i, %lor.rhs.i
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %call5.i.i.i.i.i.i.i13, %cleanup.thread.i.i ], [ %9, %if.then.i7.i.i ]
   %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 40
-  %conv36 = select i1 %cmp29, i8 -1, i8 %5
-  store i8 %conv36, ptr %second.i, align 1
+  store i8 %cond, ptr %second.i, align 1
   %add41 = add i64 %storemerge35, 256
   %16 = load i64, ptr %max_.i, align 8
   %cmp = icmp ult i64 %add41, %16
@@ -8729,7 +8729,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN3net10QuicFramer24GetAckFrameTimeStampSizeERKNS_12QuicAckFrameE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %ack) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i64 -1729382256910270462, 1729382256910270464) i64 @_ZN3net10QuicFramer24GetAckFrameTimeStampSizeERKNS_12QuicAckFrameE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %ack) local_unnamed_addr #10 align 2 {
 entry:
   %received_packet_times = getelementptr inbounds i8, ptr %ack, i64 24
   %0 = load ptr, ptr %received_packet_times, align 8

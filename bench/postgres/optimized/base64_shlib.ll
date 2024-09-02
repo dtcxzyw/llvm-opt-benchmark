@@ -312,7 +312,7 @@ define i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pg_b64_enc_len(i32 noundef %0) local_unnamed_addr #2 {
+define noundef range(i32 0, -3) i32 @pg_b64_enc_len(i32 noundef %0) local_unnamed_addr #2 {
   %2 = add i32 %0, 2
   %3 = sdiv i32 %2, 3
   %4 = shl i32 %3, 2

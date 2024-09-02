@@ -183075,7 +183075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef i32 @_ZL3ctzm(i64 noundef %0) unnamed_addr #16 {
+define internal fastcc noundef range(i32 0, 67) i32 @_ZL3ctzm(i64 noundef %0) unnamed_addr #16 {
   %.mask = and i64 %0, 4294967295
   %2 = icmp eq i64 %.mask, 0
   %3 = lshr exact i64 %0, 32
@@ -183115,7 +183115,7 @@ define internal fastcc noundef i32 @_ZL3ctzm(i64 noundef %0) unnamed_addr #16 {
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11processor_t14take_interruptEm(ptr noundef nonnull align 8 dereferenceable(659880) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %132, label %3
+  br i1 %.not, label %131, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 4089
@@ -183123,7 +183123,7 @@ define void @_ZN11processor_t14take_interruptEm(ptr noundef nonnull align 8 dere
   %5 = getelementptr inbounds i8, ptr %0, i64 944
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %6, 3
-  br i1 %7, label %19, label %8
+  br i1 %7, label %17, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 984
@@ -183134,26 +183134,25 @@ define void @_ZN11processor_t14take_interruptEm(ptr noundef nonnull align 8 dere
   %14 = and i64 %12, 8
   %15 = icmp ne i64 %14, 0
   %16 = and i1 %13, %15
-  %17 = freeze i1 %16
-  %18 = xor i1 %17, true
-  br label %19
+  %.neg = sext i1 %16 to i64
+  br label %17
 
-19:                                               ; preds = %8, %3
-  %cond.fr = phi i1 [ false, %3 ], [ %18, %8 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 1160
-  %21 = load ptr, ptr %20, align 8
+17:                                               ; preds = %8, %3
+  %.neg40 = phi i64 [ -1, %3 ], [ %.neg, %8 ]
+  %18 = getelementptr inbounds i8, ptr %0, i64 1160
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(37) %21) #37
-  %26 = xor i64 %25, -1
-  %27 = and i64 %1, %26
-  %28 = icmp eq i64 %27, 0
-  %or.cond64 = or i1 %cond.fr, %28
-  br i1 %or.cond64, label %.thread, label %.thread57
+  %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(37) %19) #37
+  %24 = xor i64 %23, -1
+  %25 = and i64 %.neg40, %24
+  %26 = and i64 %25, %1
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %76
 
-.thread:                                          ; preds = %19
-  %29 = load ptr, ptr %20, align 8
+28:                                               ; preds = %17
+  %29 = load ptr, ptr %18, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -183177,166 +183176,152 @@ define void @_ZN11processor_t14take_interruptEm(ptr noundef nonnull align 8 dere
   %50 = getelementptr inbounds i8, ptr %0, i64 962
   %51 = load i8, ptr %50, align 2
   %52 = trunc i8 %51 to i1
-  br i1 %52, label %62, label %53
+  br i1 %52, label %60, label %.thread
 
-53:                                               ; preds = %.thread
-  %54 = load i64, ptr %5, align 8
-  %.fr66 = freeze i64 %54
-  %55 = icmp eq i64 %.fr66, 0
-  br i1 %55, label %.thread59, label %57
+.thread:                                          ; preds = %28
+  %53 = load i64, ptr %5, align 8
+  %54 = icmp eq i64 %53, 0
+  %55 = icmp eq i64 %53, 1
+  %56 = icmp ne i64 %49, 0
+  %57 = and i1 %56, %55
+  %narrow = or i1 %54, %57
+  %58 = select i1 %narrow, i64 %41, i64 0
+  %59 = and i64 %58, %1
+  br label %76
 
-.thread59:                                        ; preds = %53
-  %56 = and i64 %41, %1
-  br label %.thread57
-
-57:                                               ; preds = %53
-  %58 = icmp eq i64 %.fr66, 1
-  %59 = icmp ne i64 %49, 0
-  %60 = and i1 %59, %58
+60:                                               ; preds = %28
   %61 = and i64 %41, %1
-  %spec.select = select i1 %60, i64 %61, i64 0
-  br label %.thread57
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %63, label %76
 
-62:                                               ; preds = %.thread
-  %63 = and i64 %41, %1
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %.thread57
-
-65:                                               ; preds = %62
-  %66 = load ptr, ptr %34, align 8
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %34, align 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef i64 %69(ptr noundef nonnull align 8 dereferenceable(37) %66) #37
-  %71 = load i64, ptr %5, align 8
-  %.fr67 = freeze i64 %71
-  %72 = icmp eq i64 %.fr67, 0
-  br i1 %72, label %.thread62, label %74
+  %68 = tail call noundef i64 %67(ptr noundef nonnull align 8 dereferenceable(37) %64) #37
+  %69 = load i64, ptr %5, align 8
+  %70 = icmp eq i64 %69, 0
+  %71 = icmp eq i64 %69, 1
+  %72 = icmp ne i64 %49, 0
+  %73 = and i1 %72, %71
+  %narrow60 = or i1 %70, %73
+  %74 = select i1 %narrow60, i64 %68, i64 0
+  %75 = and i64 %74, %1
+  br label %76
 
-.thread62:                                        ; preds = %65
-  %73 = and i64 %70, %1
-  br label %.thread57
+76:                                               ; preds = %.thread, %60, %63, %17
+  %.0 = phi i64 [ %75, %63 ], [ %61, %60 ], [ %26, %17 ], [ %59, %.thread ]
+  %77 = getelementptr inbounds i8, ptr %0, i64 1656
+  %78 = load ptr, ptr %77, align 8
+  %.not61 = icmp eq ptr %78, null
+  br i1 %.not61, label %85, label %79
 
-74:                                               ; preds = %65
-  %75 = icmp eq i64 %.fr67, 1
-  %76 = icmp ne i64 %49, 0
-  %77 = and i1 %76, %75
-  %78 = and i64 %70, %1
-  %spec.select65 = select i1 %77, i64 %78, i64 0
-  br label %.thread57
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %78, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = tail call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(37) %78) #37
+  %84 = and i64 %83, 8
+  %.not45 = icmp ne i64 %84, 0
+  br label %85
 
-.thread57:                                        ; preds = %74, %57, %19, %.thread62, %.thread59, %62
-  %.0 = phi i64 [ %63, %62 ], [ %56, %.thread59 ], [ %73, %.thread62 ], [ %27, %19 ], [ %spec.select, %57 ], [ %spec.select65, %74 ]
-  %79 = getelementptr inbounds i8, ptr %0, i64 1656
-  %80 = load ptr, ptr %79, align 8
-  %.not68 = icmp eq ptr %80, null
-  br i1 %.not68, label %87, label %81
+85:                                               ; preds = %79, %76
+  %86 = phi i1 [ true, %76 ], [ %.not45, %79 ]
+  %87 = getelementptr inbounds i8, ptr %0, i64 2248
+  %88 = load i8, ptr %87, align 8
+  %89 = trunc i8 %88 to i1
+  %.not56 = xor i1 %89, true
+  %90 = icmp ne i64 %.0, 0
+  %91 = and i1 %86, %.not56
+  %or.cond57 = select i1 %91, i1 %90, i1 false
+  br i1 %or.cond57, label %92, label %131
 
-81:                                               ; preds = %.thread57
-  %82 = load ptr, ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef i64 %84(ptr noundef nonnull align 8 dereferenceable(37) %80) #37
-  %86 = and i64 %85, 8
-  %.not40 = icmp ne i64 %86, 0
-  br label %87
+92:                                               ; preds = %85
+  %.not46 = icmp ult i64 %.0, 4096
+  br i1 %.not46, label %95, label %93
 
-87:                                               ; preds = %81, %.thread57
-  %88 = phi i1 [ true, %.thread57 ], [ %.not40, %81 ]
-  %89 = getelementptr inbounds i8, ptr %0, i64 2248
-  %90 = load i8, ptr %89, align 8
-  %91 = trunc i8 %90 to i1
-  %.not51 = xor i1 %91, true
-  %92 = icmp ne i64 %.0, 0
-  %or.cond3 = and i1 %92, %88
-  %or.cond52 = select i1 %.not51, i1 %or.cond3, i1 false
-  br i1 %or.cond52, label %93, label %132
+93:                                               ; preds = %92
+  %94 = and i64 %.0, -4096
+  br label %112
 
-93:                                               ; preds = %87
-  %.not41 = icmp ult i64 %.0, 4096
-  br i1 %.not41, label %96, label %94
+95:                                               ; preds = %92
+  %.not47 = icmp ult i64 %.0, 2048
+  br i1 %.not47, label %96, label %112
 
-94:                                               ; preds = %93
-  %95 = and i64 %.0, -4096
-  br label %113
+96:                                               ; preds = %95
+  %97 = and i64 %.0, 8
+  %.not48 = icmp eq i64 %97, 0
+  br i1 %.not48, label %98, label %112
 
-96:                                               ; preds = %93
-  %.not42 = icmp ult i64 %.0, 2048
-  br i1 %.not42, label %97, label %113
+98:                                               ; preds = %96
+  %99 = and i64 %.0, 128
+  %.not49 = icmp eq i64 %99, 0
+  br i1 %.not49, label %100, label %112
 
-97:                                               ; preds = %96
-  %98 = and i64 %.0, 8
-  %.not43 = icmp eq i64 %98, 0
-  br i1 %.not43, label %99, label %113
+100:                                              ; preds = %98
+  %101 = and i64 %.0, 512
+  %.not50 = icmp eq i64 %101, 0
+  br i1 %.not50, label %102, label %112
 
-99:                                               ; preds = %97
-  %100 = and i64 %.0, 128
-  %.not44 = icmp eq i64 %100, 0
-  br i1 %.not44, label %101, label %113
+102:                                              ; preds = %100
+  %103 = and i64 %.0, 2
+  %.not51 = icmp eq i64 %103, 0
+  br i1 %.not51, label %104, label %112
 
-101:                                              ; preds = %99
-  %102 = and i64 %.0, 512
-  %.not45 = icmp eq i64 %102, 0
-  br i1 %.not45, label %103, label %113
+104:                                              ; preds = %102
+  %105 = and i64 %.0, 32
+  %.not52 = icmp eq i64 %105, 0
+  br i1 %.not52, label %106, label %112
 
-103:                                              ; preds = %101
-  %104 = and i64 %.0, 2
-  %.not46 = icmp eq i64 %104, 0
-  br i1 %.not46, label %105, label %113
+106:                                              ; preds = %104
+  %.not53 = icmp ult i64 %.0, 1024
+  br i1 %.not53, label %107, label %112
 
-105:                                              ; preds = %103
-  %106 = and i64 %.0, 32
-  %.not47 = icmp eq i64 %106, 0
-  br i1 %.not47, label %107, label %113
+107:                                              ; preds = %106
+  %108 = and i64 %.0, 4
+  %.not54 = icmp eq i64 %108, 0
+  br i1 %.not54, label %109, label %112
 
-107:                                              ; preds = %105
-  %.not48 = icmp ult i64 %.0, 1024
-  br i1 %.not48, label %108, label %113
+109:                                              ; preds = %107
+  %110 = and i64 %.0, 64
+  %.not55 = icmp eq i64 %110, 0
+  br i1 %.not55, label %111, label %112
 
-108:                                              ; preds = %107
-  %109 = and i64 %.0, 4
-  %.not49 = icmp eq i64 %109, 0
-  br i1 %.not49, label %110, label %113
-
-110:                                              ; preds = %108
-  %111 = and i64 %.0, 64
-  %.not50 = icmp eq i64 %111, 0
-  br i1 %.not50, label %112, label %113
-
-112:                                              ; preds = %110
+111:                                              ; preds = %109
   tail call void @abort() #39
   unreachable
 
-113:                                              ; preds = %110, %108, %107, %105, %103, %101, %99, %97, %96, %94
-  %.1 = phi i64 [ %95, %94 ], [ 2048, %96 ], [ 8, %97 ], [ 128, %99 ], [ 512, %101 ], [ 2, %103 ], [ 32, %105 ], [ 1024, %107 ], [ 4, %108 ], [ 64, %110 ]
-  %114 = getelementptr inbounds i8, ptr %0, i64 4090
-  %115 = load i8, ptr %114, align 2
-  %116 = trunc i8 %115 to i1
-  br i1 %116, label %117, label %120
+112:                                              ; preds = %109, %107, %106, %104, %102, %100, %98, %96, %95, %93
+  %.1 = phi i64 [ %94, %93 ], [ 2048, %95 ], [ 8, %96 ], [ 128, %98 ], [ 512, %100 ], [ 2, %102 ], [ 32, %104 ], [ 1024, %106 ], [ 4, %107 ], [ 64, %109 ]
+  %113 = getelementptr inbounds i8, ptr %0, i64 4090
+  %114 = load i8, ptr %113, align 2
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %116, label %119
 
-117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %0, i64 659848
-  %119 = tail call { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr noundef nonnull align 8 dereferenceable(32) %118) #37
-  br label %120
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds i8, ptr %0, i64 659848
+  %118 = tail call { i64, i8 } @_ZN8triggers8module_t19detect_icount_matchEv(ptr noundef nonnull align 8 dereferenceable(32) %117) #37
+  br label %119
 
-120:                                              ; preds = %117, %113
-  %121 = tail call ptr @__cxa_allocate_exception(i64 16) #37
-  %122 = getelementptr inbounds i8, ptr %0, i64 16
-  %123 = load ptr, ptr %122, align 8
-  %124 = load i32, ptr %123, align 8
-  %125 = add i32 %124, -1
-  %126 = zext nneg i32 %125 to i64
-  %127 = shl nuw i64 1, %126
-  %128 = tail call fastcc noundef i32 @_ZL3ctzm(i64 noundef %.1)
-  %129 = sext i32 %128 to i64
-  %130 = or i64 %127, %129
-  store ptr getelementptr inbounds (i8, ptr @_ZTV6trap_t, i64 16), ptr %121, align 8
-  %131 = getelementptr inbounds i8, ptr %121, i64 8
-  store i64 %130, ptr %131, align 8
-  tail call void @__cxa_throw(ptr nonnull %121, ptr nonnull @_ZTI6trap_t, ptr nonnull @_ZN6trap_tD2Ev) #38
+119:                                              ; preds = %116, %112
+  %120 = tail call ptr @__cxa_allocate_exception(i64 16) #37
+  %121 = getelementptr inbounds i8, ptr %0, i64 16
+  %122 = load ptr, ptr %121, align 8
+  %123 = load i32, ptr %122, align 8
+  %124 = add i32 %123, -1
+  %125 = zext nneg i32 %124 to i64
+  %126 = shl nuw i64 1, %125
+  %127 = tail call fastcc noundef i32 @_ZL3ctzm(i64 noundef %.1)
+  %128 = zext nneg i32 %127 to i64
+  %129 = or i64 %126, %128
+  store ptr getelementptr inbounds (i8, ptr @_ZTV6trap_t, i64 16), ptr %120, align 8
+  %130 = getelementptr inbounds i8, ptr %120, i64 8
+  store i64 %129, ptr %130, align 8
+  tail call void @__cxa_throw(ptr nonnull %120, ptr nonnull @_ZTI6trap_t, ptr nonnull @_ZN6trap_tD2Ev) #38
   unreachable
 
-132:                                              ; preds = %2, %87
+131:                                              ; preds = %2, %85
   ret void
 }
 

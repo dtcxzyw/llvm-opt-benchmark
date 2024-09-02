@@ -1935,7 +1935,7 @@ _ZN4absl13time_internal16ToChronoDurationINSt6chrono8durationIlSt5ratioILl1ELl1E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @_ZN4absl15ToChronoMinutesENS_8DurationE(i64 %d.coerce0, i32 %d.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 -153722867280912930, -9223372036854775807) i64 @_ZN4absl15ToChronoMinutesENS_8DurationE(i64 %d.coerce0, i32 %d.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i = icmp eq i32 %d.coerce1, -1
   %cmp8.i.i = icmp slt i64 %d.coerce0, 0
@@ -1959,7 +1959,7 @@ _ZN4absl13time_internal16ToChronoDurationINSt6chrono8durationIlSt5ratioILl60ELl1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @_ZN4absl13ToChronoHoursENS_8DurationE(i64 %d.coerce0, i32 %d.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 -2562047788015215, -9223372036854775807) i64 @_ZN4absl13ToChronoHoursENS_8DurationE(i64 %d.coerce0, i32 %d.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i = icmp eq i32 %d.coerce1, -1
   %cmp8.i.i = icmp slt i64 %d.coerce0, 0

@@ -2173,33 +2173,33 @@ emit_byte.exit.i35:                               ; preds = %443, %439, %emit_2b
 emit_byte.exit29.i:                               ; preds = %470, %466, %454
   %475 = load i32, ptr %451, align 4
   %476 = icmp eq i32 %475, 0
-  br i1 %476, label %477, label %483
+  br i1 %476, label %477, label %484
 
 477:                                              ; preds = %emit_byte.exit29.i
   %478 = load i32, ptr %452, align 4
   %479 = icmp eq i32 %478, 0
-  br i1 %479, label %480, label %483
+  br i1 %479, label %480, label %484
 
 480:                                              ; preds = %477
   %481 = getelementptr inbounds i8, ptr %456, i64 20
   %482 = load i32, ptr %481, align 4
-  br label %483
+  %483 = shl i32 %482, 4
+  br label %484
 
-483:                                              ; preds = %480, %477, %emit_byte.exit29.i
-  %484 = phi i32 [ %482, %480 ], [ 0, %477 ], [ 0, %emit_byte.exit29.i ]
-  %485 = load i32, ptr %453, align 8
-  %.not.i38 = icmp eq i32 %485, 0
-  br i1 %.not.i38, label %489, label %486
+484:                                              ; preds = %480, %477, %emit_byte.exit29.i
+  %485 = phi i32 [ %483, %480 ], [ 0, %477 ], [ 0, %emit_byte.exit29.i ]
+  %486 = load i32, ptr %453, align 8
+  %.not.i38 = icmp eq i32 %486, 0
+  br i1 %.not.i38, label %490, label %487
 
-486:                                              ; preds = %483
-  %487 = getelementptr inbounds i8, ptr %456, i64 24
-  %488 = load i32, ptr %487, align 8
-  br label %489
+487:                                              ; preds = %484
+  %488 = getelementptr inbounds i8, ptr %456, i64 24
+  %489 = load i32, ptr %488, align 8
+  br label %490
 
-489:                                              ; preds = %486, %483
-  %490 = phi i32 [ %488, %486 ], [ 0, %483 ]
-  %491 = shl i32 %484, 4
-  %492 = add nsw i32 %490, %491
+490:                                              ; preds = %487, %484
+  %491 = phi i32 [ %489, %487 ], [ 0, %484 ]
+  %492 = add nsw i32 %491, %485
   %493 = load ptr, ptr %358, align 8
   %494 = trunc i32 %492 to i8
   %495 = load ptr, ptr %493, align 8
@@ -2213,7 +2213,7 @@ emit_byte.exit29.i:                               ; preds = %470, %466, %454
   %500 = icmp eq i64 %499, 0
   br i1 %500, label %501, label %emit_byte.exit31.i
 
-501:                                              ; preds = %489
+501:                                              ; preds = %490
   %502 = getelementptr inbounds i8, ptr %493, i64 24
   %503 = load ptr, ptr %502, align 8
   %504 = tail call i32 %503(ptr noundef nonnull %0) #3
@@ -2229,7 +2229,7 @@ emit_byte.exit29.i:                               ; preds = %470, %466, %454
   tail call void %509(ptr noundef nonnull %0) #3
   br label %emit_byte.exit31.i
 
-emit_byte.exit31.i:                               ; preds = %505, %501, %489
+emit_byte.exit31.i:                               ; preds = %505, %501, %490
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i37, 1
   %510 = load i32, ptr %391, align 4
   %511 = sext i32 %510 to i64

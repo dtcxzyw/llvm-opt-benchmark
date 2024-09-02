@@ -1234,10 +1234,10 @@ _ZN27JvmtiVTMSTransitionDisabler21sync_protocol_enabledEv.exit.thread: ; preds =
 _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %24, %26
   %.0.i.i.i.i = phi ptr [ %20, %24 ], [ %27, %26 ]
   store ptr %6, ptr %.0.i.i.i.i, align 8
-  %28 = load i32, ptr @_ZN16java_lang_Thread11_tid_offsetE, align 4
-  %29 = ptrtoint ptr %6 to i64
-  %30 = sext i32 %28 to i64
-  %31 = add nsw i64 %30, %29
+  %28 = ptrtoint ptr %6 to i64
+  %29 = load i32, ptr @_ZN16java_lang_Thread11_tid_offsetE, align 4
+  %30 = sext i32 %29 to i64
+  %31 = add nsw i64 %30, %28
   %32 = inttoptr i64 %31 to ptr
   %33 = load i64, ptr %32, align 8
   %34 = load volatile i32, ptr @_ZN27JvmtiVTMSTransitionDisabler38_VTMS_transition_disable_for_all_countE, align 4

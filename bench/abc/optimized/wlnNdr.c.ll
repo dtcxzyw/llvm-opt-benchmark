@@ -2189,37 +2189,37 @@ Ndr_ObjReadBody.exit499.i.i:                      ; preds = %.lr.ph.i495.i.i
   br i1 %608, label %.lr.ph.i502.i.i, label %Ndr_ObjReadEntry.exit506.i.i
 
 .lr.ph.i502.i.i:                                  ; preds = %601, %Ndr_DataSize.exit.i505.i.i
-  %.016.i504.i.i = phi i32 [ %622, %Ndr_DataSize.exit.i505.i.i ], [ %603, %601 ]
+  %.016.i504.i.i = phi i32 [ %623, %Ndr_DataSize.exit.i505.i.i ], [ %603, %601 ]
   %609 = sext i32 %.016.i504.i.i to i64
   %610 = getelementptr inbounds i8, ptr %.val.i.i, i64 %609
   %611 = load i8, ptr %610, align 1
   %612 = icmp eq i8 %611, 7
-  br i1 %612, label %613, label %616
+  br i1 %612, label %613, label %617
 
 613:                                              ; preds = %.lr.ph.i502.i.i
   %614 = getelementptr inbounds i32, ptr %.val370929.i.i, i64 %609
   %615 = load i32, ptr %614, align 4
+  %616 = sext i32 %615 to i64
   br label %Ndr_ObjReadEntry.exit506.i.i
 
-616:                                              ; preds = %.lr.ph.i502.i.i
-  %617 = icmp ugt i8 %611, 3
-  br i1 %617, label %Ndr_DataSize.exit.i505.i.i, label %618
+617:                                              ; preds = %.lr.ph.i502.i.i
+  %618 = icmp ugt i8 %611, 3
+  br i1 %618, label %Ndr_DataSize.exit.i505.i.i, label %619
 
-618:                                              ; preds = %616
-  %619 = getelementptr inbounds i32, ptr %.val370929.i.i, i64 %609
-  %620 = load i32, ptr %619, align 4
+619:                                              ; preds = %617
+  %620 = getelementptr inbounds i32, ptr %.val370929.i.i, i64 %609
+  %621 = load i32, ptr %620, align 4
   br label %Ndr_DataSize.exit.i505.i.i
 
-Ndr_DataSize.exit.i505.i.i:                       ; preds = %618, %616
-  %621 = phi i32 [ %620, %618 ], [ 1, %616 ]
-  %622 = add nsw i32 %621, %.016.i504.i.i
-  %623 = icmp slt i32 %622, %607
-  br i1 %623, label %.lr.ph.i502.i.i, label %Ndr_ObjReadEntry.exit506.i.i, !llvm.loop !12
+Ndr_DataSize.exit.i505.i.i:                       ; preds = %619, %617
+  %622 = phi i32 [ %621, %619 ], [ 1, %617 ]
+  %623 = add nsw i32 %622, %.016.i504.i.i
+  %624 = icmp slt i32 %623, %607
+  br i1 %624, label %.lr.ph.i502.i.i, label %Ndr_ObjReadEntry.exit506.i.i, !llvm.loop !12
 
 Ndr_ObjReadEntry.exit506.i.i:                     ; preds = %Ndr_DataSize.exit.i505.i.i, %613, %601
-  %.012.i501.i.i = phi i32 [ %615, %613 ], [ -1, %601 ], [ -1, %Ndr_DataSize.exit.i505.i.i ]
-  %624 = sext i32 %.012.i501.i.i to i64
-  %625 = getelementptr inbounds ptr, ptr %7, i64 %624
+  %.012.i501.i.i = phi i64 [ %616, %613 ], [ -1, %601 ], [ -1, %Ndr_DataSize.exit.i505.i.i ]
+  %625 = getelementptr inbounds ptr, ptr %7, i64 %.012.i501.i.i
   %626 = load ptr, ptr %625, align 8
   %627 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.34, ptr noundef %626) #21
   %.val14.i507.i.i = load ptr, ptr %22, align 8
@@ -2263,37 +2263,37 @@ Ndr_ObjReadBody.exit513.i.i:                      ; preds = %632
   br i1 %647, label %.lr.ph.i516.i.i, label %Ndr_ObjReadBody.exit513.thread.i.i
 
 .lr.ph.i516.i.i:                                  ; preds = %Ndr_ObjReadBody.exit513.i.i, %Ndr_DataSize.exit.i519.i.i
-  %.016.i518.i.i = phi i32 [ %661, %Ndr_DataSize.exit.i519.i.i ], [ %553, %Ndr_ObjReadBody.exit513.i.i ]
+  %.016.i518.i.i = phi i32 [ %662, %Ndr_DataSize.exit.i519.i.i ], [ %553, %Ndr_ObjReadBody.exit513.i.i ]
   %648 = sext i32 %.016.i518.i.i to i64
   %649 = getelementptr inbounds i8, ptr %.val13.i510.i.i, i64 %648
   %650 = load i8, ptr %649, align 1
   %651 = icmp eq i8 %650, 7
-  br i1 %651, label %652, label %655
+  br i1 %651, label %652, label %656
 
 652:                                              ; preds = %.lr.ph.i516.i.i
   %653 = getelementptr inbounds i32, ptr %.val14.i507.i.i, i64 %648
   %654 = load i32, ptr %653, align 4
+  %655 = sext i32 %654 to i64
   br label %Ndr_ObjReadBody.exit520.i.i
 
-655:                                              ; preds = %.lr.ph.i516.i.i
-  %656 = icmp ugt i8 %650, 3
-  br i1 %656, label %Ndr_DataSize.exit.i519.i.i, label %657
+656:                                              ; preds = %.lr.ph.i516.i.i
+  %657 = icmp ugt i8 %650, 3
+  br i1 %657, label %Ndr_DataSize.exit.i519.i.i, label %658
 
-657:                                              ; preds = %655
-  %658 = getelementptr inbounds i32, ptr %.val14.i507.i.i, i64 %648
-  %659 = load i32, ptr %658, align 4
+658:                                              ; preds = %656
+  %659 = getelementptr inbounds i32, ptr %.val14.i507.i.i, i64 %648
+  %660 = load i32, ptr %659, align 4
   br label %Ndr_DataSize.exit.i519.i.i
 
-Ndr_DataSize.exit.i519.i.i:                       ; preds = %657, %655
-  %660 = phi i32 [ %659, %657 ], [ 1, %655 ]
-  %661 = add nsw i32 %660, %.016.i518.i.i
-  %662 = icmp slt i32 %661, %630
-  br i1 %662, label %.lr.ph.i516.i.i, label %Ndr_ObjReadBody.exit520.i.i, !llvm.loop !13
+Ndr_DataSize.exit.i519.i.i:                       ; preds = %658, %656
+  %661 = phi i32 [ %660, %658 ], [ 1, %656 ]
+  %662 = add nsw i32 %661, %.016.i518.i.i
+  %663 = icmp slt i32 %662, %630
+  br i1 %663, label %.lr.ph.i516.i.i, label %Ndr_ObjReadBody.exit520.i.i, !llvm.loop !13
 
 Ndr_ObjReadBody.exit520.i.i:                      ; preds = %Ndr_DataSize.exit.i519.i.i, %652
-  %.012.i515.i.i = phi i32 [ %654, %652 ], [ -1, %Ndr_DataSize.exit.i519.i.i ]
-  %663 = sext i32 %.012.i515.i.i to i64
-  %664 = getelementptr inbounds ptr, ptr %7, i64 %663
+  %.012.i515.i.i = phi i64 [ %655, %652 ], [ -1, %Ndr_DataSize.exit.i519.i.i ]
+  %664 = getelementptr inbounds ptr, ptr %7, i64 %.012.i515.i.i
   %665 = load ptr, ptr %664, align 8
   %666 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.35, ptr noundef %665) #21
   br label %Ndr_ObjReadBody.exit513.thread.i.i
@@ -2436,37 +2436,37 @@ Ndr_ObjReadBody.exit532.i.i:                      ; preds = %715
   br i1 %730, label %.lr.ph.i535.i.i, label %Ndr_ObjReadBody.exit532.thread.i.i
 
 .lr.ph.i535.i.i:                                  ; preds = %Ndr_ObjReadBody.exit532.i.i, %Ndr_DataSize.exit.i538.i.i
-  %.016.i537.i.i = phi i32 [ %744, %Ndr_DataSize.exit.i538.i.i ], [ %553, %Ndr_ObjReadBody.exit532.i.i ]
+  %.016.i537.i.i = phi i32 [ %745, %Ndr_DataSize.exit.i538.i.i ], [ %553, %Ndr_ObjReadBody.exit532.i.i ]
   %731 = sext i32 %.016.i537.i.i to i64
   %732 = getelementptr inbounds i8, ptr %.val13.i529.i.i, i64 %731
   %733 = load i8, ptr %732, align 1
   %734 = icmp eq i8 %733, 7
-  br i1 %734, label %735, label %738
+  br i1 %734, label %735, label %739
 
 735:                                              ; preds = %.lr.ph.i535.i.i
   %736 = getelementptr inbounds i32, ptr %.val14.i526.i.i, i64 %731
   %737 = load i32, ptr %736, align 4
+  %738 = sext i32 %737 to i64
   br label %Ndr_ObjReadBody.exit539.i.i
 
-738:                                              ; preds = %.lr.ph.i535.i.i
-  %739 = icmp ugt i8 %733, 3
-  br i1 %739, label %Ndr_DataSize.exit.i538.i.i, label %740
+739:                                              ; preds = %.lr.ph.i535.i.i
+  %740 = icmp ugt i8 %733, 3
+  br i1 %740, label %Ndr_DataSize.exit.i538.i.i, label %741
 
-740:                                              ; preds = %738
-  %741 = getelementptr inbounds i32, ptr %.val14.i526.i.i, i64 %731
-  %742 = load i32, ptr %741, align 4
+741:                                              ; preds = %739
+  %742 = getelementptr inbounds i32, ptr %.val14.i526.i.i, i64 %731
+  %743 = load i32, ptr %742, align 4
   br label %Ndr_DataSize.exit.i538.i.i
 
-Ndr_DataSize.exit.i538.i.i:                       ; preds = %740, %738
-  %743 = phi i32 [ %742, %740 ], [ 1, %738 ]
-  %744 = add nsw i32 %743, %.016.i537.i.i
-  %745 = icmp slt i32 %744, %713
-  br i1 %745, label %.lr.ph.i535.i.i, label %Ndr_ObjReadBody.exit539.i.i, !llvm.loop !13
+Ndr_DataSize.exit.i538.i.i:                       ; preds = %741, %739
+  %744 = phi i32 [ %743, %741 ], [ 1, %739 ]
+  %745 = add nsw i32 %744, %.016.i537.i.i
+  %746 = icmp slt i32 %745, %713
+  br i1 %746, label %.lr.ph.i535.i.i, label %Ndr_ObjReadBody.exit539.i.i, !llvm.loop !13
 
 Ndr_ObjReadBody.exit539.i.i:                      ; preds = %Ndr_DataSize.exit.i538.i.i, %735
-  %.012.i534.i.i = phi i32 [ %737, %735 ], [ -1, %Ndr_DataSize.exit.i538.i.i ]
-  %746 = sext i32 %.012.i534.i.i to i64
-  %747 = getelementptr inbounds ptr, ptr %7, i64 %746
+  %.012.i534.i.i = phi i64 [ %738, %735 ], [ -1, %Ndr_DataSize.exit.i538.i.i ]
+  %747 = getelementptr inbounds ptr, ptr %7, i64 %.012.i534.i.i
   %748 = load ptr, ptr %747, align 8
   %749 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.35, ptr noundef %748) #21
   br label %Ndr_ObjReadBody.exit532.thread.i.i
@@ -2621,37 +2621,37 @@ Ndr_ObjReadBody.exit571.i.i:                      ; preds = %815
   br i1 %830, label %.lr.ph.i574.i.i, label %Ndr_ObjReadBody.exit571.thread.i.i
 
 .lr.ph.i574.i.i:                                  ; preds = %Ndr_ObjReadBody.exit571.i.i, %Ndr_DataSize.exit.i577.i.i
-  %.016.i576.i.i = phi i32 [ %844, %Ndr_DataSize.exit.i577.i.i ], [ %553, %Ndr_ObjReadBody.exit571.i.i ]
+  %.016.i576.i.i = phi i32 [ %845, %Ndr_DataSize.exit.i577.i.i ], [ %553, %Ndr_ObjReadBody.exit571.i.i ]
   %831 = sext i32 %.016.i576.i.i to i64
   %832 = getelementptr inbounds i8, ptr %.val13.i568.i.i, i64 %831
   %833 = load i8, ptr %832, align 1
   %834 = icmp eq i8 %833, 7
-  br i1 %834, label %835, label %838
+  br i1 %834, label %835, label %839
 
 835:                                              ; preds = %.lr.ph.i574.i.i
   %836 = getelementptr inbounds i32, ptr %.val14.i565.i.i, i64 %831
   %837 = load i32, ptr %836, align 4
+  %838 = sext i32 %837 to i64
   br label %Ndr_ObjReadBody.exit578.i.i
 
-838:                                              ; preds = %.lr.ph.i574.i.i
-  %839 = icmp ugt i8 %833, 3
-  br i1 %839, label %Ndr_DataSize.exit.i577.i.i, label %840
+839:                                              ; preds = %.lr.ph.i574.i.i
+  %840 = icmp ugt i8 %833, 3
+  br i1 %840, label %Ndr_DataSize.exit.i577.i.i, label %841
 
-840:                                              ; preds = %838
-  %841 = getelementptr inbounds i32, ptr %.val14.i565.i.i, i64 %831
-  %842 = load i32, ptr %841, align 4
+841:                                              ; preds = %839
+  %842 = getelementptr inbounds i32, ptr %.val14.i565.i.i, i64 %831
+  %843 = load i32, ptr %842, align 4
   br label %Ndr_DataSize.exit.i577.i.i
 
-Ndr_DataSize.exit.i577.i.i:                       ; preds = %840, %838
-  %843 = phi i32 [ %842, %840 ], [ 1, %838 ]
-  %844 = add nsw i32 %843, %.016.i576.i.i
-  %845 = icmp slt i32 %844, %813
-  br i1 %845, label %.lr.ph.i574.i.i, label %Ndr_ObjReadBody.exit578.i.i, !llvm.loop !13
+Ndr_DataSize.exit.i577.i.i:                       ; preds = %841, %839
+  %844 = phi i32 [ %843, %841 ], [ 1, %839 ]
+  %845 = add nsw i32 %844, %.016.i576.i.i
+  %846 = icmp slt i32 %845, %813
+  br i1 %846, label %.lr.ph.i574.i.i, label %Ndr_ObjReadBody.exit578.i.i, !llvm.loop !13
 
 Ndr_ObjReadBody.exit578.i.i:                      ; preds = %Ndr_DataSize.exit.i577.i.i, %835
-  %.012.i573.i.i = phi i32 [ %837, %835 ], [ -1, %Ndr_DataSize.exit.i577.i.i ]
-  %846 = sext i32 %.012.i573.i.i to i64
-  %847 = getelementptr inbounds ptr, ptr %7, i64 %846
+  %.012.i573.i.i = phi i64 [ %838, %835 ], [ -1, %Ndr_DataSize.exit.i577.i.i ]
+  %847 = getelementptr inbounds ptr, ptr %7, i64 %.012.i573.i.i
   %848 = load ptr, ptr %847, align 8
   %849 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.35, ptr noundef %848) #21
   br label %Ndr_ObjReadBody.exit571.thread.i.i
@@ -2842,37 +2842,37 @@ Ndr_ObjReadBody.exit610.i.i:                      ; preds = %951
   br i1 %966, label %.lr.ph.i613.i.i, label %Ndr_ObjReadBody.exit610.thread.i.i
 
 .lr.ph.i613.i.i:                                  ; preds = %Ndr_ObjReadBody.exit610.i.i, %Ndr_DataSize.exit.i616.i.i
-  %.016.i615.i.i = phi i32 [ %980, %Ndr_DataSize.exit.i616.i.i ], [ %553, %Ndr_ObjReadBody.exit610.i.i ]
+  %.016.i615.i.i = phi i32 [ %981, %Ndr_DataSize.exit.i616.i.i ], [ %553, %Ndr_ObjReadBody.exit610.i.i ]
   %967 = sext i32 %.016.i615.i.i to i64
   %968 = getelementptr inbounds i8, ptr %.val13.i607.i.i, i64 %967
   %969 = load i8, ptr %968, align 1
   %970 = icmp eq i8 %969, 7
-  br i1 %970, label %971, label %974
+  br i1 %970, label %971, label %975
 
 971:                                              ; preds = %.lr.ph.i613.i.i
   %972 = getelementptr inbounds i32, ptr %.val14.i604.i.i, i64 %967
   %973 = load i32, ptr %972, align 4
+  %974 = sext i32 %973 to i64
   br label %Ndr_ObjReadBody.exit617.i.i
 
-974:                                              ; preds = %.lr.ph.i613.i.i
-  %975 = icmp ugt i8 %969, 3
-  br i1 %975, label %Ndr_DataSize.exit.i616.i.i, label %976
+975:                                              ; preds = %.lr.ph.i613.i.i
+  %976 = icmp ugt i8 %969, 3
+  br i1 %976, label %Ndr_DataSize.exit.i616.i.i, label %977
 
-976:                                              ; preds = %974
-  %977 = getelementptr inbounds i32, ptr %.val14.i604.i.i, i64 %967
-  %978 = load i32, ptr %977, align 4
+977:                                              ; preds = %975
+  %978 = getelementptr inbounds i32, ptr %.val14.i604.i.i, i64 %967
+  %979 = load i32, ptr %978, align 4
   br label %Ndr_DataSize.exit.i616.i.i
 
-Ndr_DataSize.exit.i616.i.i:                       ; preds = %976, %974
-  %979 = phi i32 [ %978, %976 ], [ 1, %974 ]
-  %980 = add nsw i32 %979, %.016.i615.i.i
-  %981 = icmp slt i32 %980, %949
-  br i1 %981, label %.lr.ph.i613.i.i, label %Ndr_ObjReadBody.exit617.i.i, !llvm.loop !13
+Ndr_DataSize.exit.i616.i.i:                       ; preds = %977, %975
+  %980 = phi i32 [ %979, %977 ], [ 1, %975 ]
+  %981 = add nsw i32 %980, %.016.i615.i.i
+  %982 = icmp slt i32 %981, %949
+  br i1 %982, label %.lr.ph.i613.i.i, label %Ndr_ObjReadBody.exit617.i.i, !llvm.loop !13
 
 Ndr_ObjReadBody.exit617.i.i:                      ; preds = %Ndr_DataSize.exit.i616.i.i, %971
-  %.012.i612.i.i = phi i32 [ %973, %971 ], [ -1, %Ndr_DataSize.exit.i616.i.i ]
-  %982 = sext i32 %.012.i612.i.i to i64
-  %983 = getelementptr inbounds ptr, ptr %7, i64 %982
+  %.012.i612.i.i = phi i64 [ %974, %971 ], [ -1, %Ndr_DataSize.exit.i616.i.i ]
+  %983 = getelementptr inbounds ptr, ptr %7, i64 %.012.i612.i.i
   %984 = load ptr, ptr %983, align 8
   %985 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.35, ptr noundef %984) #21
   br label %Ndr_ObjReadBody.exit610.thread.i.i
@@ -3027,37 +3027,37 @@ Ndr_ObjReadBody.exit649.i.i:                      ; preds = %1051
   br i1 %1066, label %.lr.ph.i652.i.i, label %Ndr_ObjReadBody.exit649.thread.i.i
 
 .lr.ph.i652.i.i:                                  ; preds = %Ndr_ObjReadBody.exit649.i.i, %Ndr_DataSize.exit.i655.i.i
-  %.016.i654.i.i = phi i32 [ %1080, %Ndr_DataSize.exit.i655.i.i ], [ %553, %Ndr_ObjReadBody.exit649.i.i ]
+  %.016.i654.i.i = phi i32 [ %1081, %Ndr_DataSize.exit.i655.i.i ], [ %553, %Ndr_ObjReadBody.exit649.i.i ]
   %1067 = sext i32 %.016.i654.i.i to i64
   %1068 = getelementptr inbounds i8, ptr %.val13.i646.i.i, i64 %1067
   %1069 = load i8, ptr %1068, align 1
   %1070 = icmp eq i8 %1069, 7
-  br i1 %1070, label %1071, label %1074
+  br i1 %1070, label %1071, label %1075
 
 1071:                                             ; preds = %.lr.ph.i652.i.i
   %1072 = getelementptr inbounds i32, ptr %.val14.i643.i.i, i64 %1067
   %1073 = load i32, ptr %1072, align 4
+  %1074 = sext i32 %1073 to i64
   br label %Ndr_ObjReadBody.exit656.i.i
 
-1074:                                             ; preds = %.lr.ph.i652.i.i
-  %1075 = icmp ugt i8 %1069, 3
-  br i1 %1075, label %Ndr_DataSize.exit.i655.i.i, label %1076
+1075:                                             ; preds = %.lr.ph.i652.i.i
+  %1076 = icmp ugt i8 %1069, 3
+  br i1 %1076, label %Ndr_DataSize.exit.i655.i.i, label %1077
 
-1076:                                             ; preds = %1074
-  %1077 = getelementptr inbounds i32, ptr %.val14.i643.i.i, i64 %1067
-  %1078 = load i32, ptr %1077, align 4
+1077:                                             ; preds = %1075
+  %1078 = getelementptr inbounds i32, ptr %.val14.i643.i.i, i64 %1067
+  %1079 = load i32, ptr %1078, align 4
   br label %Ndr_DataSize.exit.i655.i.i
 
-Ndr_DataSize.exit.i655.i.i:                       ; preds = %1076, %1074
-  %1079 = phi i32 [ %1078, %1076 ], [ 1, %1074 ]
-  %1080 = add nsw i32 %1079, %.016.i654.i.i
-  %1081 = icmp slt i32 %1080, %1049
-  br i1 %1081, label %.lr.ph.i652.i.i, label %Ndr_ObjReadBody.exit656.i.i, !llvm.loop !13
+Ndr_DataSize.exit.i655.i.i:                       ; preds = %1077, %1075
+  %1080 = phi i32 [ %1079, %1077 ], [ 1, %1075 ]
+  %1081 = add nsw i32 %1080, %.016.i654.i.i
+  %1082 = icmp slt i32 %1081, %1049
+  br i1 %1082, label %.lr.ph.i652.i.i, label %Ndr_ObjReadBody.exit656.i.i, !llvm.loop !13
 
 Ndr_ObjReadBody.exit656.i.i:                      ; preds = %Ndr_DataSize.exit.i655.i.i, %1071
-  %.012.i651.i.i = phi i32 [ %1073, %1071 ], [ -1, %Ndr_DataSize.exit.i655.i.i ]
-  %1082 = sext i32 %.012.i651.i.i to i64
-  %1083 = getelementptr inbounds ptr, ptr %7, i64 %1082
+  %.012.i651.i.i = phi i64 [ %1074, %1071 ], [ -1, %Ndr_DataSize.exit.i655.i.i ]
+  %1083 = getelementptr inbounds ptr, ptr %7, i64 %.012.i651.i.i
   %1084 = load ptr, ptr %1083, align 8
   %1085 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.35, ptr noundef %1084) #21
   br label %Ndr_ObjReadBody.exit649.thread.i.i
@@ -4112,89 +4112,89 @@ Ndr_DataSize.exit:                                ; preds = %68, %73
   br i1 %91, label %.lr.ph.i74, label %.loopexit.thread
 
 .lr.ph.i74:                                       ; preds = %86, %Ndr_DataSize.exit.i77
-  %.016.i76 = phi i32 [ %105, %Ndr_DataSize.exit.i77 ], [ %87, %86 ]
+  %.016.i76 = phi i32 [ %106, %Ndr_DataSize.exit.i77 ], [ %87, %86 ]
   %92 = sext i32 %.016.i76 to i64
   %93 = getelementptr inbounds i8, ptr %.val.i82129, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = icmp eq i8 %94, 6
-  br i1 %95, label %96, label %99
+  br i1 %95, label %96, label %100
 
 96:                                               ; preds = %.lr.ph.i74
   %97 = getelementptr inbounds i32, ptr %.val61.pre132, i64 %92
   %98 = load i32, ptr %97, align 4
+  %99 = icmp eq i32 %98, 89
   br label %Ndr_ObjReadBody.exit78
 
-99:                                               ; preds = %.lr.ph.i74
-  %100 = icmp ugt i8 %94, 3
-  br i1 %100, label %Ndr_DataSize.exit.i77, label %101
+100:                                              ; preds = %.lr.ph.i74
+  %101 = icmp ugt i8 %94, 3
+  br i1 %101, label %Ndr_DataSize.exit.i77, label %102
 
-101:                                              ; preds = %99
-  %102 = getelementptr inbounds i32, ptr %.val61.pre132, i64 %92
-  %103 = load i32, ptr %102, align 4
+102:                                              ; preds = %100
+  %103 = getelementptr inbounds i32, ptr %.val61.pre132, i64 %92
+  %104 = load i32, ptr %103, align 4
   br label %Ndr_DataSize.exit.i77
 
-Ndr_DataSize.exit.i77:                            ; preds = %101, %99
-  %104 = phi i32 [ %103, %101 ], [ 1, %99 ]
-  %105 = add nsw i32 %104, %.016.i76
-  %106 = icmp slt i32 %105, %90
-  br i1 %106, label %.lr.ph.i74, label %Ndr_ObjReadBody.exit78, !llvm.loop !13
+Ndr_DataSize.exit.i77:                            ; preds = %102, %100
+  %105 = phi i32 [ %104, %102 ], [ 1, %100 ]
+  %106 = add nsw i32 %105, %.016.i76
+  %107 = icmp slt i32 %106, %90
+  br i1 %107, label %.lr.ph.i74, label %Ndr_ObjReadBody.exit78, !llvm.loop !13
 
 Ndr_ObjReadBody.exit78:                           ; preds = %Ndr_DataSize.exit.i77, %96
-  %.012.i73 = phi i32 [ %98, %96 ], [ -1, %Ndr_DataSize.exit.i77 ]
+  %.012.i73 = phi i1 [ %99, %96 ], [ false, %Ndr_DataSize.exit.i77 ]
   br label %.lr.ph.i79
 
 .lr.ph.i79:                                       ; preds = %Ndr_ObjReadBody.exit78, %Ndr_DataSize.exit.i80
   %.088 = phi ptr [ %.189139, %Ndr_DataSize.exit.i80 ], [ null, %Ndr_ObjReadBody.exit78 ]
-  %107 = phi ptr [ %125, %Ndr_DataSize.exit.i80 ], [ null, %Ndr_ObjReadBody.exit78 ]
-  %108 = phi ptr [ %124, %Ndr_DataSize.exit.i80 ], [ null, %Ndr_ObjReadBody.exit78 ]
+  %108 = phi ptr [ %126, %Ndr_DataSize.exit.i80 ], [ null, %Ndr_ObjReadBody.exit78 ]
+  %109 = phi ptr [ %125, %Ndr_DataSize.exit.i80 ], [ null, %Ndr_ObjReadBody.exit78 ]
   %.024.i = phi i32 [ %.1.i140, %Ndr_DataSize.exit.i80 ], [ 0, %Ndr_ObjReadBody.exit78 ]
-  %.01923.i = phi i32 [ %127, %Ndr_DataSize.exit.i80 ], [ %87, %Ndr_ObjReadBody.exit78 ]
-  %109 = sext i32 %.01923.i to i64
-  %110 = getelementptr inbounds i8, ptr %.val.i82129, i64 %109
-  %111 = load i8, ptr %110, align 1
-  %112 = icmp eq i8 %111, 4
-  br i1 %112, label %113, label %118
+  %.01923.i = phi i32 [ %128, %Ndr_DataSize.exit.i80 ], [ %87, %Ndr_ObjReadBody.exit78 ]
+  %110 = sext i32 %.01923.i to i64
+  %111 = getelementptr inbounds i8, ptr %.val.i82129, i64 %110
+  %112 = load i8, ptr %111, align 1
+  %113 = icmp eq i8 %112, 4
+  br i1 %113, label %114, label %119
 
-113:                                              ; preds = %.lr.ph.i79
-  %114 = add nsw i32 %.024.i, 1
-  %115 = icmp eq ptr %107, null
-  br i1 %115, label %116, label %Ndr_DataSize.exit.i80
+114:                                              ; preds = %.lr.ph.i79
+  %115 = add nsw i32 %.024.i, 1
+  %116 = icmp eq ptr %108, null
+  br i1 %116, label %117, label %Ndr_DataSize.exit.i80
 
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds i32, ptr %.val61.pre132, i64 %109
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds i32, ptr %.val61.pre132, i64 %110
   br label %Ndr_DataSize.exit.i80
 
-118:                                              ; preds = %.lr.ph.i79
-  %.not.i = icmp eq ptr %108, null
-  br i1 %.not.i, label %119, label %Ndr_ObjReadArray.exit
+119:                                              ; preds = %.lr.ph.i79
+  %.not.i = icmp eq ptr %109, null
+  br i1 %.not.i, label %120, label %Ndr_ObjReadArray.exit
 
-119:                                              ; preds = %118
-  %120 = icmp ugt i8 %111, 3
-  br i1 %120, label %Ndr_DataSize.exit.i80, label %121
+120:                                              ; preds = %119
+  %121 = icmp ugt i8 %112, 3
+  br i1 %121, label %Ndr_DataSize.exit.i80, label %122
 
-121:                                              ; preds = %119
-  %122 = getelementptr inbounds i32, ptr %.val61.pre132, i64 %109
-  %123 = load i32, ptr %122, align 4
+122:                                              ; preds = %120
+  %123 = getelementptr inbounds i32, ptr %.val61.pre132, i64 %110
+  %124 = load i32, ptr %123, align 4
   br label %Ndr_DataSize.exit.i80
 
-Ndr_DataSize.exit.i80:                            ; preds = %113, %116, %121, %119
-  %.1.i140 = phi i32 [ %.024.i, %121 ], [ %.024.i, %119 ], [ %114, %116 ], [ %114, %113 ]
-  %124 = phi ptr [ null, %121 ], [ null, %119 ], [ %117, %116 ], [ %107, %113 ]
-  %125 = phi ptr [ %107, %121 ], [ %107, %119 ], [ %117, %116 ], [ %107, %113 ]
-  %.189139 = phi ptr [ %.088, %121 ], [ %.088, %119 ], [ %117, %116 ], [ %.088, %113 ]
-  %126 = phi i32 [ %123, %121 ], [ 1, %119 ], [ 1, %116 ], [ 1, %113 ]
-  %127 = add nsw i32 %126, %.01923.i
-  %128 = icmp slt i32 %127, %90
-  br i1 %128, label %.lr.ph.i79, label %Ndr_ObjReadArray.exit, !llvm.loop !16
+Ndr_DataSize.exit.i80:                            ; preds = %114, %117, %122, %120
+  %.1.i140 = phi i32 [ %.024.i, %122 ], [ %.024.i, %120 ], [ %115, %117 ], [ %115, %114 ]
+  %125 = phi ptr [ null, %122 ], [ null, %120 ], [ %118, %117 ], [ %108, %114 ]
+  %126 = phi ptr [ %108, %122 ], [ %108, %120 ], [ %118, %117 ], [ %108, %114 ]
+  %.189139 = phi ptr [ %.088, %122 ], [ %.088, %120 ], [ %118, %117 ], [ %.088, %114 ]
+  %127 = phi i32 [ %124, %122 ], [ 1, %120 ], [ 1, %117 ], [ 1, %114 ]
+  %128 = add nsw i32 %127, %.01923.i
+  %129 = icmp slt i32 %128, %90
+  br i1 %129, label %.lr.ph.i79, label %Ndr_ObjReadArray.exit, !llvm.loop !16
 
-Ndr_ObjReadArray.exit:                            ; preds = %118, %Ndr_DataSize.exit.i80
-  %.2 = phi ptr [ %.088, %118 ], [ %.189139, %Ndr_DataSize.exit.i80 ]
-  %.0.lcssa.i = phi i32 [ %.024.i, %118 ], [ %.1.i140, %Ndr_DataSize.exit.i80 ]
-  %129 = icmp sgt i32 %.0.lcssa.i, 0
-  br i1 %129, label %.lr.ph109, label %.loopexit.thread
+Ndr_ObjReadArray.exit:                            ; preds = %119, %Ndr_DataSize.exit.i80
+  %.2 = phi ptr [ %.088, %119 ], [ %.189139, %Ndr_DataSize.exit.i80 ]
+  %.0.lcssa.i = phi i32 [ %.024.i, %119 ], [ %.1.i140, %Ndr_DataSize.exit.i80 ]
+  %130 = icmp sgt i32 %.0.lcssa.i, 0
+  br i1 %130, label %.lr.ph109, label %.loopexit.thread
 
 .lr.ph109:                                        ; preds = %Ndr_ObjReadArray.exit
-  %130 = icmp eq i32 %.012.i73, 89
   %.promoted = load i32, ptr %3, align 4
   %.promoted110 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %.0.lcssa.i to i64
@@ -4283,7 +4283,7 @@ Vec_IntFillExtra.exit:                            ; preds = %131, %.lr.ph.i86
   %165 = trunc i64 %indvars.iv to i32
   %166 = add i32 %165, -5
   %167 = icmp ult i32 %166, 3
-  %or.cond3 = and i1 %130, %167
+  %or.cond3 = and i1 %.012.i73, %167
   br i1 %or.cond3, label %172, label %168
 
 168:                                              ; preds = %164

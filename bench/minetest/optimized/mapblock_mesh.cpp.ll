@@ -5471,6 +5471,7 @@ terminate.lpad.i.i:                               ; preds = %if.end342
 _ZNSt3mapIjN3irr5video6SColorESt4lessIjESaISt4pairIKjS2_EEED2Ev.exit: ; preds = %if.end342
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %colors) #32
   %.pre1533 = load i8, ptr %m_enable_shaders, align 8, !tbaa !162, !range !34
+  %293 = icmp eq i8 %.pre1533, 0
   br label %invoke.cont362
 
 ehcleanup343:                                     ; preds = %lpad336, %lpad.i1209, %_ZNSt8_Rb_treeIjSt4pairIKjN3irr5video6SColorEESt10_Select1stIS5_ESt4lessIjESaIS5_EE10_Auto_nodeD2Ev.exit.i.i, %lpad315
@@ -5480,7 +5481,7 @@ ehcleanup343:                                     ; preds = %lpad336, %lpad.i120
   br label %ehcleanup496
 
 invoke.cont362:                                   ; preds = %_ZNSt3mapIjN3irr5video6SColorESt4lessIjESaISt4pairIKjS2_EEED2Ev.exit, %if.end300
-  %293 = phi i8 [ %.pre1533, %_ZNSt3mapIjN3irr5video6SColorESt4lessIjESaISt4pairIKjS2_EEED2Ev.exit ], [ 1, %if.end300 ]
+  %tobool365.not = phi i1 [ %293, %_ZNSt3mapIjN3irr5video6SColorESt4lessIjESaISt4pairIKjS2_EEED2Ev.exit ], [ false, %if.end300 ]
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %material) #32
   %bf.load.i.i = load i16, ptr %TextureWrapU.i.i, align 8
   %bf.clear6.i.i = and i16 %bf.load.i.i, -4096
@@ -5532,7 +5533,6 @@ invoke.cont362:                                   ; preds = %_ZNSt3mapIjN3irr5vi
   store i32 0, ptr %MagFilter.i.2.i, align 8, !tbaa !388
   store i32 0, ptr %MinFilter.i.3.i, align 4, !tbaa !387
   store i32 0, ptr %MagFilter.i.3.i, align 8, !tbaa !388
-  %tobool365.not = icmp eq i8 %293, 0
   br i1 %tobool365.not, label %if.else387, label %if.then366
 
 if.then366:                                       ; preds = %invoke.cont362

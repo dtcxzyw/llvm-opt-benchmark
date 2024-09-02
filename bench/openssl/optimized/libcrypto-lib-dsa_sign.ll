@@ -267,7 +267,7 @@ declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #1
 declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @DSA_size(ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @DSA_size(ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
 entry:
   %encoded_len.i = alloca i64, align 8
   %pkt.i = alloca %struct.wpacket_st, align 8

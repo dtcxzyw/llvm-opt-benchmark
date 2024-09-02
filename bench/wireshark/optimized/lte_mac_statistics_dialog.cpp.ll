@@ -5120,7 +5120,7 @@ define linkonce_odr void @_ZN21MacULDLTreeWidgetItem16filterExpressionEbb(ptr de
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = add i32 %28, -1003
-  %spec.select = icmp ult i32 %29, 2
+  %narrow = icmp ult i32 %29, 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %30 = getelementptr inbounds i8, ptr %1, i64 100
   %31 = load i32, ptr %30, align 4
@@ -5405,7 +5405,7 @@ _ZNK7QString3argEjii5QChar.exit71:                ; preds = %126
           to label %_ZNK7QString3argEjii5QChar.exit72 unwind label %158
 
 _ZNK7QString3argEjii5QChar.exit72:                ; preds = %_ZNK7QString3argEjii5QChar.exit71
-  %140 = zext i1 %spec.select to i64
+  %140 = zext i1 %narrow to i64
   invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %140, i32 noundef 0, i32 noundef 10, i16 32)
           to label %_ZNK7QString3argEiii5QChar.exit unwind label %160
 
@@ -5579,7 +5579,7 @@ _ZNK7QString3argEjii5QChar.exit107:               ; preds = %181
           to label %_ZNK7QString3argEjii5QChar.exit108 unwind label %213
 
 _ZNK7QString3argEjii5QChar.exit108:               ; preds = %_ZNK7QString3argEjii5QChar.exit107
-  %195 = zext i1 %spec.select to i64
+  %195 = zext i1 %narrow to i64
   invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %21, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 noundef %195, i32 noundef 0, i32 noundef 10, i16 32)
           to label %_ZNK7QString3argEiii5QChar.exit109 unwind label %215
 

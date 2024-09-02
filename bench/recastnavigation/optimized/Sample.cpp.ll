@@ -104,7 +104,7 @@ define dso_local void @_ZN15SampleToolStateD0Ev(ptr nocapture nonnull readnone a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN15SampleDebugDraw9areaToColEj(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -16776961, -255) i32 @_ZN15SampleDebugDraw9areaToColEj(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = icmp ult i32 %1, 6
   br i1 %3, label %switch.lookup, label %5
 

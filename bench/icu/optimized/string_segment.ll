@@ -664,40 +664,40 @@ if.then.i.i.i:                                    ; preds = %for.body
   %idxprom.i.i.i = sext i32 %add.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %idxprom.i.i.i
   %13 = load i16, ptr %arrayidx.i.i.i, align 2
+  %14 = zext i16 %13 to i32
   br label %_ZNK6icu_7513StringSegment6charAtEi.exit
 
 _ZNK6icu_7513StringSegment6charAtEi.exit:         ; preds = %for.body, %if.then.i.i.i
-  %retval.0.i.i.i = phi i16 [ %13, %if.then.i.i.i ], [ -1, %for.body ]
-  %14 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i.i.i = icmp slt i16 %14, 0
-  %15 = ashr i16 %14, 5
-  %shr.i.i.i.i = sext i16 %15 to i32
-  %16 = load i32, ptr %fLength.i, align 4
-  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %16, i32 %shr.i.i.i.i
-  %17 = zext i32 %cond.i.i.i to i64
-  %cmp.i.i7 = icmp ult i64 %indvars.iv, %17
+  %retval.0.i.i.i = phi i32 [ %14, %if.then.i.i.i ], [ 65535, %for.body ]
+  %15 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i.i.i = icmp slt i16 %15, 0
+  %16 = ashr i16 %15, 5
+  %shr.i.i.i.i = sext i16 %16 to i32
+  %17 = load i32, ptr %fLength.i, align 4
+  %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %17, i32 %shr.i.i.i.i
+  %18 = zext i32 %cond.i.i.i to i64
+  %cmp.i.i7 = icmp ult i64 %indvars.iv, %18
   br i1 %cmp.i.i7, label %if.then.i.i, label %_ZNK6icu_7513UnicodeString6charAtEi.exit
 
 if.then.i.i:                                      ; preds = %_ZNK6icu_7513StringSegment6charAtEi.exit
-  %18 = and i16 %14, 2
-  %tobool.not.i.i.i = icmp eq i16 %18, 0
-  %19 = load ptr, ptr %fArray.i.i.i, align 8
-  %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %19, ptr %fBuffer.i.i.i
+  %19 = and i16 %15, 2
+  %tobool.not.i.i.i = icmp eq i16 %19, 0
+  %20 = load ptr, ptr %fArray.i.i.i, align 8
+  %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %20, ptr %fBuffer.i.i.i
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %indvars.iv
-  %20 = load i16, ptr %arrayidx.i.i, align 2
+  %21 = load i16, ptr %arrayidx.i.i, align 2
+  %22 = zext i16 %21 to i32
   br label %_ZNK6icu_7513UnicodeString6charAtEi.exit
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7513StringSegment6charAtEi.exit, %if.then.i.i
-  %retval.0.i.i = phi i16 [ %20, %if.then.i.i ], [ -1, %_ZNK6icu_7513StringSegment6charAtEi.exit ]
-  %cmp.i = icmp ne i16 %retval.0.i.i.i, %retval.0.i.i
+  %retval.0.i.i = phi i32 [ %22, %if.then.i.i ], [ 65535, %_ZNK6icu_7513StringSegment6charAtEi.exit ]
+  %cmp.i = icmp ne i32 %retval.0.i.i.i, %retval.0.i.i
   %brmerge.i.not = and i1 %foldCase, %cmp.i
   br i1 %brmerge.i.not, label %if.end2.i, label %_ZN6icu_7513StringSegment15codePointsEqualEiib.exit
 
 if.end2.i:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %conv6 = zext i16 %retval.0.i.i to i32
-  %conv = zext i16 %retval.0.i.i.i to i32
-  %call.i = tail call i32 @u_foldCase_75(i32 noundef %conv, i32 noundef 1)
-  %call3.i = tail call i32 @u_foldCase_75(i32 noundef %conv6, i32 noundef 1)
+  %call.i = tail call i32 @u_foldCase_75(i32 noundef %retval.0.i.i.i, i32 noundef 1)
+  %call3.i = tail call i32 @u_foldCase_75(i32 noundef %retval.0.i.i, i32 noundef 1)
   %cmp4.i = icmp eq i32 %call.i, %call3.i
   br i1 %cmp4.i, label %if.end2.i.if.end_crit_edge, label %for.end
 
@@ -714,17 +714,17 @@ _ZN6icu_7513StringSegment15codePointsEqualEiib.exit: ; preds = %_ZNK6icu_7513Uni
 
 if.end:                                           ; preds = %if.end2.i.if.end_crit_edge, %_ZN6icu_7513StringSegment15codePointsEqualEiib.exit
   %shr.i.i.pre-phi = phi i32 [ %.pre21, %if.end2.i.if.end_crit_edge ], [ %shr.i.i.i.i, %_ZN6icu_7513StringSegment15codePointsEqualEiib.exit ]
-  %21 = phi i32 [ %.pre19, %if.end2.i.if.end_crit_edge ], [ %16, %_ZN6icu_7513StringSegment15codePointsEqualEiib.exit ]
-  %22 = phi i16 [ %.pre18, %if.end2.i.if.end_crit_edge ], [ %14, %_ZN6icu_7513StringSegment15codePointsEqualEiib.exit ]
-  %23 = phi i32 [ %.pre, %if.end2.i.if.end_crit_edge ], [ %6, %_ZN6icu_7513StringSegment15codePointsEqualEiib.exit ]
+  %23 = phi i32 [ %.pre19, %if.end2.i.if.end_crit_edge ], [ %17, %_ZN6icu_7513StringSegment15codePointsEqualEiib.exit ]
+  %24 = phi i16 [ %.pre18, %if.end2.i.if.end_crit_edge ], [ %15, %_ZN6icu_7513StringSegment15codePointsEqualEiib.exit ]
+  %25 = phi i32 [ %.pre, %if.end2.i.if.end_crit_edge ], [ %6, %_ZN6icu_7513StringSegment15codePointsEqualEiib.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i32, ptr %fEnd.i, align 4
-  %sub.i = sub nsw i32 %24, %23
-  %cmp.i.i = icmp slt i16 %22, 0
-  %cond.i = select i1 %cmp.i.i, i32 %21, i32 %shr.i.i.pre-phi
+  %26 = load i32, ptr %fEnd.i, align 4
+  %sub.i = sub nsw i32 %26, %25
+  %cmp.i.i = icmp slt i16 %24, 0
+  %cond.i = select i1 %cmp.i.i, i32 %23, i32 %shr.i.i.pre-phi
   %call3 = tail call i32 @uprv_min_75(i32 noundef %sub.i, i32 noundef %cond.i)
-  %25 = sext i32 %call3 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %25
+  %27 = sext i32 %call3 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %27
   br i1 %cmp, label %for.body, label %for.end.loopexit.split.loop.exit24, !llvm.loop !5
 
 for.end.loopexit.split.loop.exit24:               ; preds = %if.end

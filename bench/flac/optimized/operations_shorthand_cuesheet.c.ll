@@ -79,29 +79,27 @@ if.end7:                                          ; preds = %if.then3
   %4 = load i32, ptr %channels, align 4
   %.off = add i32 %4, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %land.lhs.true, label %land.end
+  br i1 %switch, label %land.lhs.true, label %do.cond
 
 land.lhs.true:                                    ; preds = %if.end7
   %bits_per_sample = getelementptr inbounds i8, ptr %call1, i64 40
   %5 = load i32, ptr %bits_per_sample, align 8
   %cmp16 = icmp eq i32 %5, 16
-  %cmp17 = icmp eq i32 %3, 44100
-  %spec.select = select i1 %cmp16, i1 %cmp17, i1 false
-  br label %land.end
+  br i1 %cmp16, label %land.rhs, label %do.cond
 
-land.end:                                         ; preds = %land.lhs.true, %if.end7
-  %6 = phi i1 [ false, %if.end7 ], [ %spec.select, %land.lhs.true ]
-  %land.ext = zext i1 %6 to i32
+land.rhs:                                         ; preds = %land.lhs.true
+  %cmp17 = icmp eq i32 %3, 44100
+  %6 = zext i1 %cmp17 to i32
   br label %do.cond
 
 if.then20:                                        ; preds = %do.body
   br label %do.cond
 
-do.cond:                                          ; preds = %do.body, %land.end, %if.then20
-  %cuesheet.1 = phi ptr [ %cuesheet.0, %do.body ], [ %call1, %if.then20 ], [ %cuesheet.0, %land.end ]
-  %lead_out_offset.1 = phi i64 [ %lead_out_offset.0, %do.body ], [ %lead_out_offset.0, %if.then20 ], [ %1, %land.end ]
-  %is_cdda.1 = phi i32 [ %is_cdda.0, %do.body ], [ %is_cdda.0, %if.then20 ], [ %land.ext, %land.end ]
-  %sample_rate.1 = phi i32 [ %sample_rate.0, %do.body ], [ %sample_rate.0, %if.then20 ], [ %3, %land.end ]
+do.cond:                                          ; preds = %if.end7, %do.body, %land.lhs.true, %land.rhs, %if.then20
+  %cuesheet.1 = phi ptr [ %cuesheet.0, %do.body ], [ %call1, %if.then20 ], [ %cuesheet.0, %land.rhs ], [ %cuesheet.0, %land.lhs.true ], [ %cuesheet.0, %if.end7 ]
+  %lead_out_offset.1 = phi i64 [ %lead_out_offset.0, %do.body ], [ %lead_out_offset.0, %if.then20 ], [ %1, %land.rhs ], [ %1, %land.lhs.true ], [ %1, %if.end7 ]
+  %is_cdda.1 = phi i32 [ %is_cdda.0, %do.body ], [ %is_cdda.0, %if.then20 ], [ %6, %land.rhs ], [ 0, %land.lhs.true ], [ 0, %if.end7 ]
+  %sample_rate.1 = phi i32 [ %sample_rate.0, %do.body ], [ %sample_rate.0, %if.then20 ], [ %3, %land.rhs ], [ %3, %land.lhs.true ], [ %3, %if.end7 ]
   %call23 = tail call i32 @FLAC__metadata_iterator_next(ptr noundef %call) #9
   %tobool.not = icmp eq i32 %call23, 0
   br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !5

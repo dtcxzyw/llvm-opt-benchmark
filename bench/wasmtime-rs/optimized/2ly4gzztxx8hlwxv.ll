@@ -3472,7 +3472,7 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags15with_endianness17he96505b704c4aecbE
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags15with_endianness17he96505b704c4aecbE(i16 noundef %0, i1 noundef zeroext %1) unnamed_addr #2 {
+define noundef range(i16 4, 0) i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags15with_endianness17he96505b704c4aecbE(i16 noundef %0, i1 noundef zeroext %1) unnamed_addr #2 {
   %.0.v = select i1 %1, i16 8, i16 4
   %.0 = or i16 %.0.v, %0
   %3 = and i16 %.0, 12
@@ -3515,7 +3515,7 @@ define void @_ZN17cranelift_codegen2ir8memflags8MemFlags10set_notrap17h051d779e6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags11with_notrap17h4db50efc86d7a317E(i16 noundef %0) unnamed_addr #12 {
+define noundef range(i16 1920, 0) i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags11with_notrap17h4db50efc86d7a317E(i16 noundef %0) unnamed_addr #12 {
   %2 = or i16 %0, 1920
   ret i16 %2
 }
@@ -3536,7 +3536,7 @@ define void @_ZN17cranelift_codegen2ir8memflags8MemFlags11set_aligned17hebf0b751
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags12with_aligned17h3c3c77dd4dc223b9E(i16 noundef %0) unnamed_addr #12 {
+define noundef range(i16 1, 0) i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags12with_aligned17h3c3c77dd4dc223b9E(i16 noundef %0) unnamed_addr #12 {
   %2 = or i16 %0, 1
   ret i16 %2
 }
@@ -3557,7 +3557,7 @@ define void @_ZN17cranelift_codegen2ir8memflags8MemFlags12set_readonly17h4578b36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags13with_readonly17h7be8757796e8c98fE(i16 noundef %0) unnamed_addr #12 {
+define noundef range(i16 2, 0) i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags13with_readonly17h7be8757796e8c98fE(i16 noundef %0) unnamed_addr #12 {
   %2 = or i16 %0, 2
   ret i16 %2
 }
@@ -3578,7 +3578,7 @@ define void @_ZN17cranelift_codegen2ir8memflags8MemFlags11set_checked17h95a5ce66
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags12with_checked17h830132e4c34dbc7eE(i16 noundef %0) unnamed_addr #12 {
+define noundef range(i16 16, 0) i16 @_ZN17cranelift_codegen2ir8memflags8MemFlags12with_checked17h830132e4c34dbc7eE(i16 noundef %0) unnamed_addr #12 {
   %2 = or i16 %0, 16
   ret i16 %2
 }
@@ -4766,7 +4766,7 @@ define hidden noundef i64 @"_ZN70_$LT$cranelift_codegen..fx..FxHasher$u20$as$u20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i16 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$10value_type17h7b6a63310212520dE"(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #0 {
+define internal fastcc noundef range(i16 0, 16384) i16 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$10value_type17h7b6a63310212520dE"(ptr readonly %.0.val, i32 noundef %0) unnamed_addr #0 {
   %2 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %2)
   %3 = load ptr, ptr %.0.val, align 8, !nonnull !5, !align !59, !noundef !5
@@ -6364,7 +6364,7 @@ define hidden void @"_ZN81_$LT$cranelift_codegen..alias_analysis..MemoryLoc$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal fastcc noundef i64 @_ZN17cranelift_codegen4opts14generated_code25constructor_ty_shift_mask17h48ffb9225cf41d6eE(i16 noundef %0) unnamed_addr #12 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i64 -1, 255) i64 @_ZN17cranelift_codegen4opts14generated_code25constructor_ty_shift_mask17h48ffb9225cf41d6eE(i16 noundef %0) unnamed_addr #12 personality ptr @rust_eh_personality {
   %2 = icmp ult i16 %0, 128
   %3 = and i16 %0, 15
   %4 = or disjoint i16 %3, 112
@@ -61538,7 +61538,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %s
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal fastcc noundef range(i64 0, 4294967296) i64 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$11ty_bits_u6417hf237c53fb8af7aa4E"(i16 noundef %0) unnamed_addr #3 {
+define internal fastcc noundef range(i64 0, 2130706433) i64 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$11ty_bits_u6417hf237c53fb8af7aa4E"(i16 noundef %0) unnamed_addr #3 {
   %2 = icmp ugt i16 %0, 255
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, label %3
 

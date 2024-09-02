@@ -1143,12 +1143,12 @@ if.then48:                                        ; preds = %delete.end
 lor.rhs:                                          ; preds = %if.then48
   %call51 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %call46, ptr noundef nonnull dereferenceable(22) @.str.5, i64 noundef 21) #16
   %cmp52 = icmp eq i32 %call51, 0
+  %6 = zext i1 %cmp52 to i8
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.then48
-  %6 = phi i1 [ true, %if.then48 ], [ %cmp52, %lor.rhs ]
+  %frombool53 = phi i8 [ 1, %if.then48 ], [ %6, %lor.rhs ]
   %IsAtiRadeonX = getelementptr inbounds i8, ptr %this, i64 61
-  %frombool53 = zext i1 %6 to i8
   store i8 %frombool53, ptr %IsAtiRadeonX, align 1, !tbaa !32
   br label %if.end54
 

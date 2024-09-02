@@ -2766,7 +2766,7 @@ setup_sparse.exit:                                ; preds = %686
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_archive_read_data_block(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -30, 2) i32 @_archive_read_data_block(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 4, ptr noundef nonnull @.str.34) #17

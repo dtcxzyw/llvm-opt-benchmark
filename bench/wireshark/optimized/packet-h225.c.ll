@@ -3739,176 +3739,176 @@ define internal range(i32 0, 2) i32 @h225_stat_packet(ptr nocapture noundef read
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %82, label %9
+  br i1 %8, label %81, label %9
 
 9:                                                ; preds = %5
   %10 = load i32, ptr %3, align 8
-  switch i32 %10, label %62 [
+  switch i32 %10, label %61 [
     i32 0, label %11
-    i32 1, label %49
+    i32 1, label %48
   ]
 
 11:                                               ; preds = %9
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %7, i32 33)
-  %12 = zext nneg i32 %spec.select to i64
-  %13 = getelementptr [34 x i32], ptr @ras_msg_idx, i64 0, i64 %12
-  %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 12
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %64, label %18
+  %narrow71 = tail call i32 @llvm.umin.i32(i32 %7, i32 33)
+  %spec.select = zext nneg i32 %narrow71 to i64
+  %12 = getelementptr [34 x i32], ptr @ras_msg_idx, i64 0, i64 %spec.select
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %3, i64 12
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %63, label %17
 
-18:                                               ; preds = %11
-  switch i32 %7, label %64 [
-    i32 2, label %19
-    i32 5, label %22
-    i32 6, label %25
-    i32 8, label %28
-    i32 11, label %31
-    i32 14, label %34
-    i32 15, label %37
-    i32 17, label %40
-    i32 20, label %43
-    i32 29, label %46
+17:                                               ; preds = %11
+  switch i32 %7, label %63 [
+    i32 2, label %18
+    i32 5, label %21
+    i32 6, label %24
+    i32 8, label %27
+    i32 11, label %30
+    i32 14, label %33
+    i32 15, label %36
+    i32 17, label %39
+    i32 20, label %42
+    i32 29, label %45
   ]
 
-19:                                               ; preds = %18
-  %narrow80 = tail call i32 @llvm.umin.i32(i32 %16, i32 8)
-  %spec.select56 = zext nneg i32 %narrow80 to i64
-  %20 = getelementptr [9 x i32], ptr @grj_reason_idx, i64 0, i64 %spec.select56
-  %21 = load i32, ptr %20, align 4
-  br label %64
+18:                                               ; preds = %17
+  %narrow81 = tail call i32 @llvm.umin.i32(i32 %15, i32 8)
+  %spec.select56 = zext nneg i32 %narrow81 to i64
+  %19 = getelementptr [9 x i32], ptr @grj_reason_idx, i64 0, i64 %spec.select56
+  %20 = load i32, ptr %19, align 4
+  br label %63
 
-22:                                               ; preds = %18
-  %narrow79 = tail call i32 @llvm.umin.i32(i32 %16, i32 19)
-  %spec.select57 = zext nneg i32 %narrow79 to i64
-  %23 = getelementptr [20 x i32], ptr @rrj_reason_idx, i64 0, i64 %spec.select57
-  %24 = load i32, ptr %23, align 4
-  br label %64
+21:                                               ; preds = %17
+  %narrow80 = tail call i32 @llvm.umin.i32(i32 %15, i32 19)
+  %spec.select57 = zext nneg i32 %narrow80 to i64
+  %22 = getelementptr [20 x i32], ptr @rrj_reason_idx, i64 0, i64 %spec.select57
+  %23 = load i32, ptr %22, align 4
+  br label %63
 
-25:                                               ; preds = %18
-  %narrow78 = tail call i32 @llvm.umin.i32(i32 %16, i32 7)
-  %spec.select58 = zext nneg i32 %narrow78 to i64
-  %26 = getelementptr [8 x i32], ptr @urq_reason_idx, i64 0, i64 %spec.select58
-  %27 = load i32, ptr %26, align 4
-  br label %64
+24:                                               ; preds = %17
+  %narrow79 = tail call i32 @llvm.umin.i32(i32 %15, i32 7)
+  %spec.select58 = zext nneg i32 %narrow79 to i64
+  %25 = getelementptr [8 x i32], ptr @urq_reason_idx, i64 0, i64 %spec.select58
+  %26 = load i32, ptr %25, align 4
+  br label %63
 
-28:                                               ; preds = %18
-  %narrow77 = tail call i32 @llvm.umin.i32(i32 %16, i32 6)
-  %spec.select59 = zext nneg i32 %narrow77 to i64
-  %29 = getelementptr [7 x i32], ptr @urj_reason_idx, i64 0, i64 %spec.select59
-  %30 = load i32, ptr %29, align 4
-  br label %64
+27:                                               ; preds = %17
+  %narrow78 = tail call i32 @llvm.umin.i32(i32 %15, i32 6)
+  %spec.select59 = zext nneg i32 %narrow78 to i64
+  %28 = getelementptr [7 x i32], ptr @urj_reason_idx, i64 0, i64 %spec.select59
+  %29 = load i32, ptr %28, align 4
+  br label %63
 
-31:                                               ; preds = %18
-  %narrow76 = tail call i32 @llvm.umin.i32(i32 %16, i32 23)
-  %spec.select60 = zext nneg i32 %narrow76 to i64
-  %32 = getelementptr [24 x i32], ptr @arj_reason_idx, i64 0, i64 %spec.select60
-  %33 = load i32, ptr %32, align 4
-  br label %64
+30:                                               ; preds = %17
+  %narrow77 = tail call i32 @llvm.umin.i32(i32 %15, i32 23)
+  %spec.select60 = zext nneg i32 %narrow77 to i64
+  %31 = getelementptr [24 x i32], ptr @arj_reason_idx, i64 0, i64 %spec.select60
+  %32 = load i32, ptr %31, align 4
+  br label %63
 
-34:                                               ; preds = %18
-  %narrow75 = tail call i32 @llvm.umin.i32(i32 %16, i32 8)
-  %spec.select61 = zext nneg i32 %narrow75 to i64
-  %35 = getelementptr [9 x i32], ptr @brj_reason_idx, i64 0, i64 %spec.select61
-  %36 = load i32, ptr %35, align 4
-  br label %64
+33:                                               ; preds = %17
+  %narrow76 = tail call i32 @llvm.umin.i32(i32 %15, i32 8)
+  %spec.select61 = zext nneg i32 %narrow76 to i64
+  %34 = getelementptr [9 x i32], ptr @brj_reason_idx, i64 0, i64 %spec.select61
+  %35 = load i32, ptr %34, align 4
+  br label %63
 
-37:                                               ; preds = %18
-  %narrow74 = tail call i32 @llvm.umin.i32(i32 %16, i32 3)
-  %spec.select62 = zext nneg i32 %narrow74 to i64
-  %38 = getelementptr [4 x i32], ptr @drq_reason_idx, i64 0, i64 %spec.select62
-  %39 = load i32, ptr %38, align 4
-  br label %64
+36:                                               ; preds = %17
+  %narrow75 = tail call i32 @llvm.umin.i32(i32 %15, i32 3)
+  %spec.select62 = zext nneg i32 %narrow75 to i64
+  %37 = getelementptr [4 x i32], ptr @drq_reason_idx, i64 0, i64 %spec.select62
+  %38 = load i32, ptr %37, align 4
+  br label %63
 
-40:                                               ; preds = %18
-  %narrow73 = tail call i32 @llvm.umin.i32(i32 %16, i32 4)
-  %spec.select63 = zext nneg i32 %narrow73 to i64
-  %41 = getelementptr [5 x i32], ptr @drj_reason_idx, i64 0, i64 %spec.select63
-  %42 = load i32, ptr %41, align 4
-  br label %64
+39:                                               ; preds = %17
+  %narrow74 = tail call i32 @llvm.umin.i32(i32 %15, i32 4)
+  %spec.select63 = zext nneg i32 %narrow74 to i64
+  %40 = getelementptr [5 x i32], ptr @drj_reason_idx, i64 0, i64 %spec.select63
+  %41 = load i32, ptr %40, align 4
+  br label %63
 
-43:                                               ; preds = %18
-  %narrow72 = tail call i32 @llvm.umin.i32(i32 %16, i32 16)
-  %spec.select64 = zext nneg i32 %narrow72 to i64
-  %44 = getelementptr [17 x i32], ptr @lrj_reason_idx, i64 0, i64 %spec.select64
-  %45 = load i32, ptr %44, align 4
-  br label %64
+42:                                               ; preds = %17
+  %narrow73 = tail call i32 @llvm.umin.i32(i32 %15, i32 16)
+  %spec.select64 = zext nneg i32 %narrow73 to i64
+  %43 = getelementptr [17 x i32], ptr @lrj_reason_idx, i64 0, i64 %spec.select64
+  %44 = load i32, ptr %43, align 4
+  br label %63
 
-46:                                               ; preds = %18
-  %narrow71 = tail call i32 @llvm.umin.i32(i32 %16, i32 4)
-  %spec.select65 = zext nneg i32 %narrow71 to i64
-  %47 = getelementptr [5 x i32], ptr @irqnak_reason_idx, i64 0, i64 %spec.select65
-  %48 = load i32, ptr %47, align 4
-  br label %64
+45:                                               ; preds = %17
+  %narrow72 = tail call i32 @llvm.umin.i32(i32 %15, i32 4)
+  %spec.select65 = zext nneg i32 %narrow72 to i64
+  %46 = getelementptr [5 x i32], ptr @irqnak_reason_idx, i64 0, i64 %spec.select65
+  %47 = load i32, ptr %46, align 4
+  br label %63
 
-49:                                               ; preds = %9
+48:                                               ; preds = %9
   %narrow = tail call i32 @llvm.umin.i32(i32 %7, i32 13)
   %spec.select66 = zext nneg i32 %narrow to i64
-  %50 = getelementptr [14 x i32], ptr @cs_msg_idx, i64 0, i64 %spec.select66
-  %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %3, i64 12
-  %53 = load i32, ptr %52, align 4
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %64, label %55
+  %49 = getelementptr [14 x i32], ptr @cs_msg_idx, i64 0, i64 %spec.select66
+  %50 = load i32, ptr %49, align 4
+  %51 = getelementptr inbounds i8, ptr %3, i64 12
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %63, label %54
 
-55:                                               ; preds = %49
-  switch i32 %7, label %64 [
-    i32 5, label %56
-    i32 6, label %59
+54:                                               ; preds = %48
+  switch i32 %7, label %63 [
+    i32 5, label %55
+    i32 6, label %58
   ]
 
-56:                                               ; preds = %55
-  %narrow70 = tail call i32 @llvm.umin.i32(i32 %53, i32 25)
+55:                                               ; preds = %54
+  %narrow70 = tail call i32 @llvm.umin.i32(i32 %52, i32 25)
   %spec.select67 = zext nneg i32 %narrow70 to i64
-  %57 = getelementptr [26 x i32], ptr @rel_cmp_reason_idx, i64 0, i64 %spec.select67
-  %58 = load i32, ptr %57, align 4
-  br label %64
+  %56 = getelementptr [26 x i32], ptr @rel_cmp_reason_idx, i64 0, i64 %spec.select67
+  %57 = load i32, ptr %56, align 4
+  br label %63
 
-59:                                               ; preds = %55
-  %narrow69 = tail call i32 @llvm.umin.i32(i32 %53, i32 11)
+58:                                               ; preds = %54
+  %narrow69 = tail call i32 @llvm.umin.i32(i32 %52, i32 11)
   %spec.select68 = zext nneg i32 %narrow69 to i64
-  %60 = getelementptr [12 x i32], ptr @facility_reason_idx, i64 0, i64 %spec.select68
-  %61 = load i32, ptr %60, align 4
-  br label %64
+  %59 = getelementptr [12 x i32], ptr @facility_reason_idx, i64 0, i64 %spec.select68
+  %60 = load i32, ptr %59, align 4
+  br label %63
 
-62:                                               ; preds = %9
+61:                                               ; preds = %9
   %.b = load i1, ptr @other_idx, align 4
-  %63 = select i1 %.b, i32 180, i32 0
-  br label %64
+  %62 = select i1 %.b, i32 180, i32 0
+  br label %63
 
-64:                                               ; preds = %56, %59, %55, %49, %19, %22, %25, %28, %31, %34, %37, %40, %43, %46, %18, %11, %62
-  %.052 = phi i32 [ %63, %62 ], [ %51, %49 ], [ %51, %55 ], [ %51, %59 ], [ %51, %56 ], [ %14, %11 ], [ %14, %18 ], [ %14, %46 ], [ %14, %43 ], [ %14, %40 ], [ %14, %37 ], [ %14, %34 ], [ %14, %31 ], [ %14, %28 ], [ %14, %25 ], [ %14, %22 ], [ %14, %19 ]
-  %.051 = phi i32 [ -1, %62 ], [ -1, %49 ], [ -1, %55 ], [ %61, %59 ], [ %58, %56 ], [ -1, %11 ], [ -1, %18 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ]
-  %65 = icmp sgt i32 %.052, -1
-  br i1 %65, label %66, label %82
+63:                                               ; preds = %55, %58, %54, %48, %18, %21, %24, %27, %30, %33, %36, %39, %42, %45, %17, %11, %61
+  %.052 = phi i32 [ %62, %61 ], [ %50, %48 ], [ %50, %54 ], [ %50, %58 ], [ %50, %55 ], [ %13, %11 ], [ %13, %17 ], [ %13, %45 ], [ %13, %42 ], [ %13, %39 ], [ %13, %36 ], [ %13, %33 ], [ %13, %30 ], [ %13, %27 ], [ %13, %24 ], [ %13, %21 ], [ %13, %18 ]
+  %.051 = phi i32 [ -1, %61 ], [ -1, %48 ], [ -1, %54 ], [ %60, %58 ], [ %57, %55 ], [ -1, %11 ], [ -1, %17 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ]
+  %64 = icmp sgt i32 %.052, -1
+  br i1 %64, label %65, label %81
 
-66:                                               ; preds = %64
-  %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 104
+65:                                               ; preds = %63
+  %66 = load ptr, ptr %0, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 104
+  %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = tail call ptr @stat_tap_get_field_data(ptr noundef %71, i32 noundef %.052, i32 noundef 1) #10
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
-  %74 = load i32, ptr %73, align 8
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %73, align 8
-  tail call void @stat_tap_set_field_data(ptr noundef %71, i32 noundef %.052, i32 noundef 1, ptr noundef %72) #10
-  %76 = icmp sgt i32 %.051, -1
-  br i1 %76, label %77, label %82
+  %71 = tail call ptr @stat_tap_get_field_data(ptr noundef %70, i32 noundef %.052, i32 noundef 1) #10
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %73 = load i32, ptr %72, align 8
+  %74 = add i32 %73, 1
+  store i32 %74, ptr %72, align 8
+  tail call void @stat_tap_set_field_data(ptr noundef %70, i32 noundef %.052, i32 noundef 1, ptr noundef %71) #10
+  %75 = icmp sgt i32 %.051, -1
+  br i1 %75, label %76, label %81
 
-77:                                               ; preds = %66
-  %78 = tail call ptr @stat_tap_get_field_data(ptr noundef %71, i32 noundef %.051, i32 noundef 1) #10
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
-  %80 = load i32, ptr %79, align 8
-  %81 = add i32 %80, 1
-  store i32 %81, ptr %79, align 8
-  tail call void @stat_tap_set_field_data(ptr noundef %71, i32 noundef %.051, i32 noundef 1, ptr noundef %78) #10
-  br label %82
+76:                                               ; preds = %65
+  %77 = tail call ptr @stat_tap_get_field_data(ptr noundef %70, i32 noundef %.051, i32 noundef 1) #10
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = load i32, ptr %78, align 8
+  %80 = add i32 %79, 1
+  store i32 %80, ptr %78, align 8
+  tail call void @stat_tap_set_field_data(ptr noundef %70, i32 noundef %.051, i32 noundef 1, ptr noundef %77) #10
+  br label %81
 
-82:                                               ; preds = %64, %66, %77, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %77 ], [ 1, %66 ], [ 0, %64 ]
+81:                                               ; preds = %63, %65, %76, %5
+  %.0 = phi i32 [ 0, %5 ], [ 1, %76 ], [ 1, %65 ], [ 0, %63 ]
   ret i32 %.0
 }
 

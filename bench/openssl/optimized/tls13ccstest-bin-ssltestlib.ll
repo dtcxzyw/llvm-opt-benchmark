@@ -2400,9 +2400,9 @@ if.end8:                                          ; preds = %if.end, %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end8
-  %listen.addr.0 = phi i32 [ %listen, %if.end8 ], [ %listen.addr.1.lcssa117, %do.cond ]
+  %listen.addr.0 = phi i32 [ %listen, %if.end8 ], [ %listen.addr.1.lcssa118, %do.cond ]
   %retc.0 = phi i32 [ -1, %if.end8 ], [ %retc.1.lcssa99, %do.cond ]
-  %rets.0 = phi i32 [ -1, %if.end8 ], [ %rets.1.lcssa118, %do.cond ]
+  %rets.0 = phi i32 [ -1, %if.end8 ], [ %rets.1.lcssa119, %do.cond ]
   %abortctr.0 = phi i32 [ 0, %if.end8 ], [ %inc, %do.cond ]
   %clienterr.0 = phi i32 [ 0, %if.end8 ], [ %clienterr.1, %do.cond ]
   %servererr.0 = phi i32 [ 0, %if.end8 ], [ %servererr.1, %do.cond ]
@@ -2453,11 +2453,12 @@ while.body38:                                     ; preds = %while.cond31.prehea
 
 if.then40:                                        ; preds = %while.body38
   %call41 = call i32 @DTLSv1_listen(ptr noundef %serverssl, ptr noundef %peer.0) #13
-  %cmp42 = icmp slt i32 %call41, 0
+  %rets.2.fr105 = freeze i32 %call41
+  %cmp42 = icmp slt i32 %rets.2.fr105, 0
   br i1 %cmp42, label %if.then64, label %if.else
 
 if.else:                                          ; preds = %if.then40
-  %cmp44 = icmp eq i32 %call41, 0
+  %cmp44 = icmp eq i32 %rets.2.fr105, 0
   %listen.addr.1. = select i1 %cmp44, i32 %listen.addr.176, i32 0
   %. = select i1 %cmp44, i32 2, i32 3
   br label %if.end55
@@ -2465,41 +2466,50 @@ if.else:                                          ; preds = %if.then40
 if.else49:                                        ; preds = %while.body38
   %call50 = call i32 @SSL_accept(ptr noundef %serverssl) #13
   %cmp51 = icmp slt i32 %call50, 1
-  br i1 %cmp51, label %if.then52, label %if.end68
+  br i1 %cmp51, label %if.then52, label %if.end55
 
 if.then52:                                        ; preds = %if.else49
   %call53 = call i32 @SSL_get_error(ptr noundef %serverssl, i32 noundef %call50) #13
   br label %if.end55
 
-if.end55:                                         ; preds = %if.else, %if.then52
-  %listen.addr.2 = phi i32 [ 0, %if.then52 ], [ %listen.addr.1., %if.else ]
-  %rets.2 = phi i32 [ %call50, %if.then52 ], [ 0, %if.else ]
-  %err.3 = phi i32 [ %call53, %if.then52 ], [ %., %if.else ]
+if.end55:                                         ; preds = %if.else, %if.else49, %if.then52
+  %listen.addr.2 = phi i32 [ 0, %if.then52 ], [ 0, %if.else49 ], [ %listen.addr.1., %if.else ]
+  %rets.2 = phi i32 [ %call50, %if.then52 ], [ %call50, %if.else49 ], [ 0, %if.else ]
+  %err.3 = phi i32 [ %call53, %if.then52 ], [ 3, %if.else49 ], [ %., %if.else ]
+  %rets.2.fr = freeze i32 %rets.2
+  %cmp34 = icmp slt i32 %rets.2.fr, 1
+  %cmp36 = icmp eq i32 %err.3, 3
+  %or.cond13 = select i1 %cmp34, i1 %cmp36, i1 false
+  br i1 %or.cond13, label %while.body38, label %while.end56, !llvm.loop !17
+
+while.end56:                                      ; preds = %if.end55
+  br i1 %cmp34, label %switch.early.test, label %if.end68
+
+switch.early.test:                                ; preds = %while.end56
   switch i32 %err.3, label %if.then64 [
-    i32 3, label %while.body38
     i32 4, label %if.end68
     i32 2, label %if.end68
   ]
 
-if.then64:                                        ; preds = %if.then40, %if.end55
-  %listen.addr.1.lcssa121136 = phi i32 [ %listen.addr.2, %if.end55 ], [ %listen.addr.176, %if.then40 ]
-  %rets.1.lcssa122135 = phi i32 [ %rets.2, %if.end55 ], [ %call41, %if.then40 ]
-  %err.2.lcssa123134 = phi i32 [ %err.3, %if.end55 ], [ 1, %if.then40 ]
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 1280, ptr noundef nonnull @.str.66, i32 noundef %rets.1.lcssa122135, i32 noundef %err.2.lcssa123134) #13
+if.then64:                                        ; preds = %if.then40, %switch.early.test
+  %listen.addr.1.lcssa122133 = phi i32 [ %listen.addr.2, %switch.early.test ], [ %listen.addr.176, %if.then40 ]
+  %rets.1.lcssa123132 = phi i32 [ %rets.2.fr, %switch.early.test ], [ %rets.2.fr105, %if.then40 ]
+  %err.2.lcssa124131 = phi i32 [ %err.3, %switch.early.test ], [ 1, %if.then40 ]
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.1, i32 noundef 1280, ptr noundef nonnull @.str.66, i32 noundef %rets.1.lcssa123132, i32 noundef %err.2.lcssa124131) #13
   br i1 %cmp22.not, label %if.end68, label %if.then66
 
 if.then66:                                        ; preds = %if.then64
   call void @test_openssl_errors() #13
   br label %if.end68
 
-if.end68:                                         ; preds = %if.else49, %if.end55, %if.end55, %while.cond31.preheader, %if.then64, %if.then66
-  %cmp34.lcssa120 = phi i1 [ true, %if.then66 ], [ true, %if.then64 ], [ %cmp3474, %while.cond31.preheader ], [ false, %if.else49 ], [ true, %if.end55 ], [ true, %if.end55 ]
-  %err.2.lcssa119 = phi i32 [ %err.2.lcssa123134, %if.then66 ], [ %err.2.lcssa123134, %if.then64 ], [ 3, %while.cond31.preheader ], [ 3, %if.else49 ], [ %err.3, %if.end55 ], [ %err.3, %if.end55 ]
-  %rets.1.lcssa118 = phi i32 [ %rets.1.lcssa122135, %if.then66 ], [ %rets.1.lcssa122135, %if.then64 ], [ %rets.0, %while.cond31.preheader ], [ %call50, %if.else49 ], [ %rets.2, %if.end55 ], [ %rets.2, %if.end55 ]
-  %listen.addr.1.lcssa117 = phi i32 [ %listen.addr.1.lcssa121136, %if.then66 ], [ %listen.addr.1.lcssa121136, %if.then64 ], [ %listen.addr.0, %while.cond31.preheader ], [ 0, %if.else49 ], [ %listen.addr.2, %if.end55 ], [ %listen.addr.2, %if.end55 ]
-  %servererr.1 = phi i32 [ 1, %if.then66 ], [ 1, %if.then64 ], [ %servererr.0, %while.cond31.preheader ], [ %servererr.0, %if.end55 ], [ %servererr.0, %if.end55 ], [ %servererr.0, %if.else49 ]
-  %cmp71 = icmp eq i32 %err.2.lcssa119, %want
-  %or.cond62 = and i1 %cmp26.not, %cmp71
+if.end68:                                         ; preds = %while.cond31.preheader, %switch.early.test, %switch.early.test, %while.end56, %if.then64, %if.then66
+  %cmp34.lcssa121 = phi i1 [ true, %switch.early.test ], [ true, %if.then66 ], [ true, %if.then64 ], [ false, %while.end56 ], [ true, %switch.early.test ], [ %cmp3474, %while.cond31.preheader ]
+  %err.2.lcssa120 = phi i32 [ %err.3, %switch.early.test ], [ %err.2.lcssa124131, %if.then66 ], [ %err.2.lcssa124131, %if.then64 ], [ %err.3, %while.end56 ], [ %err.3, %switch.early.test ], [ 3, %while.cond31.preheader ]
+  %rets.1.lcssa119 = phi i32 [ %rets.2.fr, %switch.early.test ], [ %rets.1.lcssa123132, %if.then66 ], [ %rets.1.lcssa123132, %if.then64 ], [ %rets.2.fr, %while.end56 ], [ %rets.2.fr, %switch.early.test ], [ %rets.0, %while.cond31.preheader ]
+  %listen.addr.1.lcssa118 = phi i32 [ %listen.addr.2, %switch.early.test ], [ %listen.addr.1.lcssa122133, %if.then66 ], [ %listen.addr.1.lcssa122133, %if.then64 ], [ %listen.addr.2, %while.end56 ], [ %listen.addr.2, %switch.early.test ], [ %listen.addr.0, %while.cond31.preheader ]
+  %servererr.1 = phi i32 [ %servererr.0, %switch.early.test ], [ 1, %if.then66 ], [ 1, %if.then64 ], [ %servererr.0, %while.end56 ], [ %servererr.0, %switch.early.test ], [ %servererr.0, %while.cond31.preheader ]
+  %cmp71 = icmp eq i32 %err.2.lcssa120, %want
+  %or.cond62 = select i1 %cmp26.not, i1 %cmp71, i1 false
   br i1 %or.cond62, label %err115, label %if.end73
 
 if.end73:                                         ; preds = %if.end68
@@ -2512,7 +2522,7 @@ if.end78:                                         ; preds = %if.end73
   br i1 %or.cond8, label %if.then82, label %if.end102
 
 if.then82:                                        ; preds = %if.end78
-  %cmp83 = icmp sgt i32 %rets.1.lcssa118, 0
+  %cmp83 = icmp sgt i32 %rets.1.lcssa119, 0
   %or.cond9 = select i1 %cmp83, i1 %cmp.lcssa101, i1 false
   br i1 %or.cond9, label %if.then86, label %if.end91
 
@@ -2527,7 +2537,7 @@ if.then89:                                        ; preds = %if.then86
 
 if.end91:                                         ; preds = %if.then82
   %cmp92 = icmp sgt i32 %retc.1.lcssa99, 0
-  %or.cond10 = select i1 %cmp92, i1 %cmp34.lcssa120, i1 false
+  %or.cond10 = select i1 %cmp92, i1 %cmp34.lcssa121, i1 false
   br i1 %or.cond10, label %if.then95, label %if.end102
 
 if.then95:                                        ; preds = %if.end91
@@ -2561,8 +2571,8 @@ if.then111:                                       ; preds = %if.end105
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end105, %if.then111
-  %1 = select i1 %cmp.lcssa101, i1 true, i1 %cmp34.lcssa120
-  br i1 %1, label %do.body, label %err115, !llvm.loop !17
+  %1 = select i1 %cmp.lcssa101, i1 true, i1 %cmp34.lcssa121
+  br i1 %1, label %do.body, label %err115, !llvm.loop !18
 
 err115:                                           ; preds = %do.cond, %if.end68, %if.end25, %if.end73, %if.then104, %if.then99, %if.then89
   %ret.0 = phi i32 [ 0, %if.then89 ], [ 0, %if.then99 ], [ 0, %if.then104 ], [ 1, %do.cond ], [ 0, %if.end68 ], [ 0, %if.end25 ], [ 0, %if.end73 ]
@@ -2762,7 +2772,7 @@ cond.false:                                       ; preds = %if.end9
 for.cond:                                         ; preds = %if.end17
   %inc = add nuw nsw i32 %i.04, 1
   %exitcond.not = icmp eq i32 %inc, 40
-  br i1 %exitcond.not, label %end, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %end, label %for.body, !llvm.loop !19
 
 for.body:                                         ; preds = %if.end9, %for.cond
   %i.04 = phi i32 [ %inc, %for.cond ], [ 0, %if.end9 ]
@@ -2898,3 +2908,4 @@ attributes #16 = { noreturn nounwind }
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}

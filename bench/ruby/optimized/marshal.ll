@@ -7720,51 +7720,51 @@ define internal fastcc double @load_mantissa(double noundef %0, ptr nocapture no
   %.promoted = load double, ptr %4, align 8
   br label %16
 
-16:                                               ; preds = %34, %11
-  %17 = phi double [ %.promoted, %11 ], [ %46, %34 ]
-  %.pn = phi ptr [ %1, %11 ], [ %.3, %34 ]
-  %.020 = phi i64 [ %7, %11 ], [ %47, %34 ]
-  %.018 = phi i32 [ 0, %11 ], [ %43, %34 ]
+16:                                               ; preds = %35, %11
+  %17 = phi double [ %.promoted, %11 ], [ %46, %35 ]
+  %.pn = phi ptr [ %1, %11 ], [ %.3, %35 ]
+  %.020 = phi i64 [ %7, %11 ], [ %47, %35 ]
+  %.018 = phi i32 [ 0, %11 ], [ %43, %35 ]
   %.021 = getelementptr i8, ptr %.pn, i64 1
   switch i64 %.020, label %18 [
-    i64 3, label %22
-    i64 2, label %28
-    i64 1, label %34
+    i64 3, label %23
+    i64 2, label %29
+    i64 1, label %35
   ]
 
 18:                                               ; preds = %16
   %19 = getelementptr i8, ptr %.pn, i64 2
   %20 = load i8, ptr %.021, align 1
   %21 = zext i8 %20 to i64
-  br label %22
+  %22 = shl nuw nsw i64 %21, 8
+  br label %23
 
-22:                                               ; preds = %18, %16
+23:                                               ; preds = %18, %16
   %.122 = phi ptr [ %19, %18 ], [ %.021, %16 ]
-  %.0 = phi i64 [ %21, %18 ], [ 0, %16 ]
-  %23 = shl nuw nsw i64 %.0, 8
+  %.0 = phi i64 [ %22, %18 ], [ 0, %16 ]
   %24 = getelementptr i8, ptr %.122, i64 1
   %25 = load i8, ptr %.122, align 1
   %26 = zext i8 %25 to i64
-  %27 = or disjoint i64 %23, %26
-  br label %28
+  %27 = or disjoint i64 %.0, %26
+  %28 = shl nuw nsw i64 %27, 8
+  br label %29
 
-28:                                               ; preds = %22, %16
-  %.223 = phi ptr [ %24, %22 ], [ %.021, %16 ]
-  %.1 = phi i64 [ %27, %22 ], [ 0, %16 ]
-  %29 = shl nuw nsw i64 %.1, 8
+29:                                               ; preds = %23, %16
+  %.223 = phi ptr [ %24, %23 ], [ %.021, %16 ]
+  %.1 = phi i64 [ %28, %23 ], [ 0, %16 ]
   %30 = getelementptr i8, ptr %.223, i64 1
   %31 = load i8, ptr %.223, align 1
   %32 = zext i8 %31 to i64
-  %33 = or disjoint i64 %29, %32
-  br label %34
+  %33 = or disjoint i64 %.1, %32
+  %34 = shl nuw nsw i64 %33, 8
+  br label %35
 
-34:                                               ; preds = %28, %16
-  %.3 = phi ptr [ %30, %28 ], [ %.021, %16 ]
-  %.2 = phi i64 [ %33, %28 ], [ 0, %16 ]
-  %35 = shl nuw nsw i64 %.2, 8
+35:                                               ; preds = %29, %16
+  %.3 = phi ptr [ %30, %29 ], [ %.021, %16 ]
+  %.2 = phi i64 [ %34, %29 ], [ 0, %16 ]
   %36 = load i8, ptr %.3, align 1
   %37 = zext i8 %36 to i64
-  %38 = or disjoint i64 %35, %37
+  %38 = or disjoint i64 %.2, %37
   %39 = icmp slt i64 %.020, 4
   %40 = trunc i64 %.020 to i32
   %41 = shl i32 %40, 3
@@ -7778,7 +7778,7 @@ define internal fastcc double @load_mantissa(double noundef %0, ptr nocapture no
   %48 = icmp sgt i64 %.020, 4
   br i1 %48, label %16, label %49, !llvm.loop !87
 
-49:                                               ; preds = %34
+49:                                               ; preds = %35
   %50 = fcmp olt double %0, 0.000000e+00
   %51 = load i32, ptr %5, align 4
   %52 = add i32 %51, -37

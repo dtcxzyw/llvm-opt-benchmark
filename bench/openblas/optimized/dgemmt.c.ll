@@ -201,27 +201,27 @@ define void @dgemmt_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store volatile i32 2143294004, ptr %17, align 4, !tbaa !3
   %.0..0..0..0.6 = load volatile i32, ptr %16, align 4, !tbaa !3
   %155 = icmp eq i32 %.0..0..0..0.6, 0
-  br i1 %155, label %157, label %156
+  br i1 %155, label %158, label %156
 
 156:                                              ; preds = %154
   %.0..0..0..0.7 = load volatile i32, ptr %16, align 4, !tbaa !3
-  br label %157
+  %157 = zext i32 %.0..0..0..0.7 to i64
+  br label %158
 
-157:                                              ; preds = %156, %154
-  %158 = phi i32 [ %.0..0..0..0.7, %156 ], [ 1, %154 ]
-  %159 = zext i32 %158 to i64
+158:                                              ; preds = %156, %154
+  %159 = phi i64 [ %157, %156 ], [ 1, %154 ]
   %160 = call ptr @llvm.stacksave.p0()
   %161 = alloca double, i64 %159, align 32
   %.0..0..0..0.8 = load volatile i32, ptr %16, align 4, !tbaa !3
   %162 = icmp eq i32 %.0..0..0..0.8, 0
   br i1 %162, label %163, label %165
 
-163:                                              ; preds = %157
+163:                                              ; preds = %158
   %164 = call ptr @blas_memory_alloc(i32 noundef 1) #5
   br label %165
 
-165:                                              ; preds = %163, %157
-  %166 = phi ptr [ %164, %163 ], [ %161, %157 ]
+165:                                              ; preds = %163, %158
+  %166 = phi ptr [ %164, %163 ], [ %161, %158 ]
   %167 = mul nsw i64 %136, %95
   %168 = icmp slt i64 %167, 9216
   %169 = load i32, ptr @blas_cpu_number, align 4
@@ -304,27 +304,27 @@ define void @dgemmt_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store volatile i32 2143294004, ptr %19, align 4, !tbaa !3
   %.0..0..0..0.1 = load volatile i32, ptr %18, align 4, !tbaa !3
   %207 = icmp eq i32 %.0..0..0..0.1, 0
-  br i1 %207, label %209, label %208
+  br i1 %207, label %210, label %208
 
 208:                                              ; preds = %206
   %.0..0..0..0.2 = load volatile i32, ptr %18, align 4, !tbaa !3
-  br label %209
+  %209 = zext i32 %.0..0..0..0.2 to i64
+  br label %210
 
-209:                                              ; preds = %208, %206
-  %210 = phi i32 [ %.0..0..0..0.2, %208 ], [ 1, %206 ]
-  %211 = zext i32 %210 to i64
+210:                                              ; preds = %208, %206
+  %211 = phi i64 [ %209, %208 ], [ 1, %206 ]
   %212 = call ptr @llvm.stacksave.p0()
   %213 = alloca double, i64 %211, align 32
   %.0..0..0..0.3 = load volatile i32, ptr %18, align 4, !tbaa !3
   %214 = icmp eq i32 %.0..0..0..0.3, 0
   br i1 %214, label %215, label %217
 
-215:                                              ; preds = %209
+215:                                              ; preds = %210
   %216 = call ptr @blas_memory_alloc(i32 noundef 1) #5
   br label %217
 
-217:                                              ; preds = %215, %209
-  %218 = phi ptr [ %216, %215 ], [ %213, %209 ]
+217:                                              ; preds = %215, %210
+  %218 = phi ptr [ %216, %215 ], [ %213, %210 ]
   %219 = mul nsw i64 %191, %119
   %220 = icmp slt i64 %219, 9216
   %221 = load i32, ptr @blas_cpu_number, align 4

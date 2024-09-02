@@ -353,7 +353,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, -2147483648) i32 @hid_keyboard_poll(ptr nocapture noundef %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i32 0, 9) i32 @hid_keyboard_poll(ptr nocapture noundef %hs, ptr nocapture noundef writeonly %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %idle_pending = getelementptr inbounds i8, ptr %hs, i64 277

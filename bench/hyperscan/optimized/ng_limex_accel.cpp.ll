@@ -11357,7 +11357,7 @@ invoke.cont38:                                    ; preds = %_ZSt25__unguarded_l
   br i1 %cmp.i87.not204, label %for.cond75.preheader, label %for.body42
 
 for.cond75.preheader:                             ; preds = %for.inc69, %invoke.cont38
-  %priority_path.val17.lcssa = phi ptr [ %priority_path.val13.pre, %invoke.cont38 ], [ %priority_path.val17.pre245, %for.inc69 ]
+  %priority_path.val17.lcssa = phi ptr [ %priority_path.val13.pre, %invoke.cont38 ], [ %priority_path.val17.pre244, %for.inc69 ]
   %add.ptr.i86.lcssa = phi ptr [ %add.ptr.i86203, %invoke.cont38 ], [ %incdec.ptr.i.i.i.i.ptr, %for.inc69 ]
   %cmp.i104.not208 = icmp eq ptr %priority_path.val17.lcssa, %add.ptr.i86.lcssa
   br i1 %cmp.i104.not208, label %cleanup, label %for.body77.lr.ph
@@ -11372,7 +11372,7 @@ for.body77.lr.ph:                                 ; preds = %for.cond75.preheade
 
 for.body42:                                       ; preds = %invoke.cont38, %for.inc69
   %priority_path.val18.pre229 = phi i64 [ %priority_path.val18.pre230, %for.inc69 ], [ %priority_path.val18202.pre, %invoke.cont38 ]
-  %priority_path.val17.pre227 = phi ptr [ %priority_path.val17.pre245, %for.inc69 ], [ %priority_path.val13.pre, %invoke.cont38 ]
+  %priority_path.val17.pre227 = phi ptr [ %priority_path.val17.pre244, %for.inc69 ], [ %priority_path.val13.pre, %invoke.cont38 ]
   %it.sroa.0.0205 = phi ptr [ %incdec.ptr.i.i.i.i.ptr, %for.inc69 ], [ %priority_path.val13.pre, %invoke.cont38 ]
   %incdec.ptr.i.i.i.i.ptr = getelementptr inbounds i8, ptr %it.sroa.0.0205, i64 40
   %add.ptr.i88194 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::SAccelScheme", ptr %priority_path.val17.pre227, i64 %priority_path.val18.pre229
@@ -11398,20 +11398,20 @@ for.inc57:                                        ; preds = %invoke.cont53
   br i1 %cmp.i89.not, label %if.then.i92, label %for.body48, !llvm.loop !509
 
 invoke.cont63:                                    ; preds = %invoke.cont53
-  %cmp.i.not.i = icmp eq i64 %jt.sroa.0.0.idx196, 40
-  br i1 %cmp.i.not.i, label %for.inc69, label %if.then.i92
+  %72 = icmp eq i64 %jt.sroa.0.0.idx196, 40
+  br i1 %72, label %for.inc69, label %if.then.i92
 
 if.then.i92:                                      ; preds = %for.inc57, %invoke.cont63
-  %jt.sroa.0.0.ptr.lcssa254 = phi ptr [ %jt.sroa.0.0.ptr197, %invoke.cont63 ], [ %jt.sroa.0.0.ptr, %for.inc57 ]
+  %jt.sroa.0.0.ptr.lcssa.ph248 = phi ptr [ %jt.sroa.0.0.ptr197, %invoke.cont63 ], [ %jt.sroa.0.0.ptr, %for.inc57 ]
   %add.ptr.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::SAccelScheme", ptr %priority_path.val17.pre.pre.pre, i64 %priority_path.val18.pre.pre.pre
-  %cmp.i.i.i94.not = icmp eq ptr %jt.sroa.0.0.ptr.lcssa254, %add.ptr.i.i
+  %cmp.i.i.i94.not = icmp eq ptr %jt.sroa.0.0.ptr.lcssa.ph248, %add.ptr.i.i
   %sub.ptr.lhs.cast.i.i.i95 = ptrtoint ptr %add.ptr.i.i to i64
   br i1 %cmp.i.i.i94.not, label %_ZN5boost9container4moveIPN3ue212_GLOBAL__N_112SAccelSchemeES5_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S9_E4typeES8_S8_S9_.exit.i, label %if.then.i.i.i98
 
 if.then.i.i.i98:                                  ; preds = %if.then.i92
-  %sub.ptr.rhs.cast.i.i.i99 = ptrtoint ptr %jt.sroa.0.0.ptr.lcssa254 to i64
+  %sub.ptr.rhs.cast.i.i.i99 = ptrtoint ptr %jt.sroa.0.0.ptr.lcssa.ph248 to i64
   %sub.ptr.sub.i.i.i100 = sub i64 %sub.ptr.lhs.cast.i.i.i95, %sub.ptr.rhs.cast.i.i.i99
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %incdec.ptr.i.i.i.i.ptr, ptr nonnull align 8 %jt.sroa.0.0.ptr.lcssa254, i64 %sub.ptr.sub.i.i.i100, i1 false), !noalias !510
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %incdec.ptr.i.i.i.i.ptr, ptr nonnull align 8 %jt.sroa.0.0.ptr.lcssa.ph248, i64 %sub.ptr.sub.i.i.i100, i1 false), !noalias !510
   %add.ptr.i.i.i.i101 = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i.ptr, i64 %sub.ptr.sub.i.i.i100
   br label %_ZN5boost9container4moveIPN3ue212_GLOBAL__N_112SAccelSchemeES5_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S9_E4typeES8_S8_S9_.exit.i
 
@@ -11425,64 +11425,64 @@ _ZN5boost9container4moveIPN3ue212_GLOBAL__N_112SAccelSchemeES5_EENS0_3dtl37enabl
   br label %for.inc69
 
 for.inc69:                                        ; preds = %for.body42, %_ZN5boost9container4moveIPN3ue212_GLOBAL__N_112SAccelSchemeES5_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S9_E4typeES8_S8_S9_.exit.i, %invoke.cont63
-  %priority_path.val17.pre245 = phi ptr [ %priority_path.val17.pre.pre.pre, %_ZN5boost9container4moveIPN3ue212_GLOBAL__N_112SAccelSchemeES5_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S9_E4typeES8_S8_S9_.exit.i ], [ %priority_path.val17.pre.pre.pre, %invoke.cont63 ], [ %priority_path.val17.pre227, %for.body42 ]
+  %priority_path.val17.pre244 = phi ptr [ %priority_path.val17.pre.pre.pre, %_ZN5boost9container4moveIPN3ue212_GLOBAL__N_112SAccelSchemeES5_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S9_E4typeES8_S8_S9_.exit.i ], [ %priority_path.val17.pre.pre.pre, %invoke.cont63 ], [ %priority_path.val17.pre227, %for.body42 ]
   %priority_path.val18.pre230 = phi i64 [ %sub.i.i, %_ZN5boost9container4moveIPN3ue212_GLOBAL__N_112SAccelSchemeES5_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S9_E4typeES8_S8_S9_.exit.i ], [ %priority_path.val18.pre.pre.pre, %invoke.cont63 ], [ %priority_path.val18.pre229, %for.body42 ]
-  %add.ptr.i86 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::SAccelScheme", ptr %priority_path.val17.pre245, i64 %priority_path.val18.pre230
+  %add.ptr.i86 = getelementptr inbounds %"struct.ue2::(anonymous namespace)::SAccelScheme", ptr %priority_path.val17.pre244, i64 %priority_path.val18.pre230
   %cmp.i87.not = icmp eq ptr %incdec.ptr.i.i.i.i.ptr, %add.ptr.i86
   br i1 %cmp.i87.not, label %for.cond75.preheader, label %for.body42, !llvm.loop !513
 
 for.body77:                                       ; preds = %for.body77.backedge, %for.body77.lr.ph
   %__begin1.sroa.0.0209 = phi ptr [ %priority_path.val17.lcssa, %for.body77.lr.ph ], [ %__begin1.sroa.0.0209.be, %for.body77.backedge ]
-  %72 = load i64, ptr %best, align 8
-  %73 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %72)
-  %74 = load i64, ptr %arrayidx.i.i44.i.i.i105, align 8
-  %75 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %74)
-  %add9.i.i.i106 = add nuw nsw i64 %75, %73
-  %76 = load i64, ptr %arrayidx.i.i45.i.i.i107, align 8
-  %77 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %76)
-  %add15.i.i.i108 = add nuw nsw i64 %add9.i.i.i106, %77
-  %78 = load i64, ptr %arrayidx.i.i46.i.i.i109, align 8
-  %79 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %78)
-  %add21.i.i.i110 = add nuw nsw i64 %add15.i.i.i108, %79
-  %80 = load i64, ptr %__begin1.sroa.0.0209, align 8
-  %81 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %80)
+  %73 = load i64, ptr %best, align 8
+  %74 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %73)
+  %75 = load i64, ptr %arrayidx.i.i44.i.i.i105, align 8
+  %76 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %75)
+  %add9.i.i.i106 = add nuw nsw i64 %76, %74
+  %77 = load i64, ptr %arrayidx.i.i45.i.i.i107, align 8
+  %78 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %77)
+  %add15.i.i.i108 = add nuw nsw i64 %add9.i.i.i106, %78
+  %79 = load i64, ptr %arrayidx.i.i46.i.i.i109, align 8
+  %80 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %79)
+  %add21.i.i.i110 = add nuw nsw i64 %add15.i.i.i108, %80
+  %81 = load i64, ptr %__begin1.sroa.0.0209, align 8
+  %82 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %81)
   %arrayidx.i.i44.i.i11.i111 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0209, i64 8
-  %82 = load i64, ptr %arrayidx.i.i44.i.i11.i111, align 8
-  %83 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %82)
-  %add9.i.i12.i112 = add nuw nsw i64 %83, %81
+  %83 = load i64, ptr %arrayidx.i.i44.i.i11.i111, align 8
+  %84 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %83)
+  %add9.i.i12.i112 = add nuw nsw i64 %84, %82
   %arrayidx.i.i45.i.i13.i113 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0209, i64 16
-  %84 = load i64, ptr %arrayidx.i.i45.i.i13.i113, align 8
-  %85 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %84)
-  %add15.i.i14.i114 = add nuw nsw i64 %add9.i.i12.i112, %85
+  %85 = load i64, ptr %arrayidx.i.i45.i.i13.i113, align 8
+  %86 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %85)
+  %add15.i.i14.i114 = add nuw nsw i64 %add9.i.i12.i112, %86
   %arrayidx.i.i46.i.i15.i115 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0209, i64 24
-  %86 = load i64, ptr %arrayidx.i.i46.i.i15.i115, align 8
-  %87 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %86)
-  %add21.i.i16.i116 = add nuw nsw i64 %add15.i.i14.i114, %87
+  %87 = load i64, ptr %arrayidx.i.i46.i.i15.i115, align 8
+  %88 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %87)
+  %add21.i.i16.i116 = add nuw nsw i64 %add15.i.i14.i114, %88
   %cmp.not.i117 = icmp eq i64 %add21.i.i.i110, %add21.i.i16.i116
   br i1 %cmp.not.i117, label %do.body.i121, label %invoke.cont82
 
 do.body.i121:                                     ; preds = %for.body77
-  %88 = load i32, ptr %offset.i122, align 8
+  %89 = load i32, ptr %offset.i122, align 8
   %offset5.i123 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0209, i64 32
-  %89 = load i32, ptr %offset5.i123, align 8
-  %cmp6.i124 = icmp ult i32 %88, %89
+  %90 = load i32, ptr %offset5.i123, align 8
+  %cmp6.i124 = icmp ult i32 %89, %90
   br i1 %cmp6.i124, label %for.inc102, label %if.end8.i125
 
 if.end8.i125:                                     ; preds = %do.body.i121
-  %cmp11.i126 = icmp ult i32 %89, %88
+  %cmp11.i126 = icmp ult i32 %90, %89
   br i1 %cmp11.i126, label %if.end88, label %for.body.i.i.i.i.i.i.i.i.i127
 
 for.body.i.i.i.i.i.i.i.i.i127:                    ; preds = %if.end8.i125, %if.end.i.i.i.i.i.i.i.i.i132
   %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i128 = phi i64 [ %__first2.addr.020.i.i.i.i.i.add.i.i.i.i134, %if.end.i.i.i.i.i.i.i.i.i132 ], [ 0, %if.end8.i125 ]
   %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i129 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0209, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i128
   %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i130 = getelementptr inbounds i8, ptr %best, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i128
-  %90 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i130, align 8
-  %91 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i129, align 8
-  %cmp.i15.i.i.i.i.i.i.i.i.i131 = icmp ult i64 %90, %91
+  %91 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i130, align 8
+  %92 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i129, align 8
+  %cmp.i15.i.i.i.i.i.i.i.i.i131 = icmp ult i64 %91, %92
   br i1 %cmp.i15.i.i.i.i.i.i.i.i.i131, label %for.inc102, label %if.end.i.i.i.i.i.i.i.i.i132
 
 if.end.i.i.i.i.i.i.i.i.i132:                      ; preds = %for.body.i.i.i.i.i.i.i.i.i127
-  %cmp.i16.i.i.i.i.i.i.i.i.i133 = icmp ult i64 %91, %90
+  %cmp.i16.i.i.i.i.i.i.i.i.i133 = icmp ult i64 %92, %91
   %__first2.addr.020.i.i.i.i.i.add.i.i.i.i134 = add nuw nsw i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i128, 8
   %cmp.not.i.i.i.i.i.i.i.i.i135 = icmp eq i64 %__first2.addr.020.i.i.i.i.i.add.i.i.i.i134, 32
   %or.cond.i.i.i.i136 = select i1 %cmp.i16.i.i.i.i.i.i.i.i.i133, i1 true, i1 %cmp.not.i.i.i.i.i.i.i.i.i135
@@ -11514,8 +11514,8 @@ for.body77.backedge:                              ; preds = %for.inc102, %invoke
   br label %for.body77
 
 cleanup:                                          ; preds = %invoke.cont98, %for.inc102, %for.cond75.preheader.thread, %for.cond75.preheader
-  %92 = load i64, ptr %m_capacity.i.i.i.i, align 8
-  %tobool.not.i.i.i.i141 = icmp eq i64 %92, 0
+  %93 = load i64, ptr %m_capacity.i.i.i.i, align 8
+  %tobool.not.i.i.i.i141 = icmp eq i64 %93, 0
   br i1 %tobool.not.i.i.i.i141, label %cleanup.cont, label %if.then.i.i.i.i142
 
 if.then.i.i.i.i142:                               ; preds = %cleanup

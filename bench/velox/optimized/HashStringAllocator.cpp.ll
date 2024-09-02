@@ -2333,7 +2333,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN8facebook5velox19HashStringAllocator13freeListIndexEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(37416) %this, i32 noundef %size) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -2147483648, 3058) i32 @_ZN8facebook5velox19HashStringAllocator13freeListIndexEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(37416) %this, i32 noundef %size) local_unnamed_addr #10 align 2 {
 entry:
   %0 = tail call i32 @llvm.smin.i32(i32 %size, i32 3073)
   %.sroa.speculated = add nsw i32 %0, -16

@@ -59,7 +59,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @YGNodeLayoutGetDirection(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @YGNodeLayoutGetDirection(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
 entry:
   %direction_.i = getelementptr inbounds i8, ptr %node, i64 488
   %bf.load.i = load i8, ptr %direction_.i, align 4

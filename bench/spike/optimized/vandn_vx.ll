@@ -314,9 +314,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 119:                                              ; preds = %108, %90
   %120 = getelementptr inbounds i8, ptr %0, i64 659808
   %121 = load i64, ptr %120, align 8
-  %122 = add i64 %121, -8
-  %spec.select = icmp ult i64 %122, 57
-  br i1 %spec.select, label %128, label %123
+  %122 = add i64 %121, -65
+  %spec.select = icmp ult i64 %122, -57
+  br i1 %spec.select, label %123, label %128
 
 123:                                              ; preds = %119
   %124 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -845,9 +845,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 119:                                              ; preds = %108, %90
   %120 = getelementptr inbounds i8, ptr %0, i64 659808
   %121 = load i64, ptr %120, align 8
-  %122 = add i64 %121, -8
-  %spec.select = icmp ult i64 %122, 57
-  br i1 %spec.select, label %128, label %123
+  %122 = add i64 %121, -65
+  %spec.select = icmp ult i64 %122, -57
+  br i1 %spec.select, label %123, label %128
 
 123:                                              ; preds = %119
   %124 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1342,9 +1342,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 119:                                              ; preds = %108, %90
   %120 = getelementptr inbounds i8, ptr %0, i64 659808
   %121 = load i64, ptr %120, align 8
-  %122 = add i64 %121, -8
-  %spec.select = icmp ult i64 %122, 57
-  br i1 %spec.select, label %128, label %123
+  %122 = add i64 %121, -65
+  %spec.select = icmp ult i64 %122, -57
+  br i1 %spec.select, label %123, label %128
 
 123:                                              ; preds = %119
   %124 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1841,9 +1841,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 119:                                              ; preds = %108, %90
   %120 = getelementptr inbounds i8, ptr %0, i64 659808
   %121 = load i64, ptr %120, align 8
-  %122 = add i64 %121, -8
-  %spec.select = icmp ult i64 %122, 57
-  br i1 %spec.select, label %128, label %123
+  %122 = add i64 %121, -65
+  %spec.select = icmp ult i64 %122, -57
+  br i1 %spec.select, label %123, label %128
 
 123:                                              ; preds = %119
   %124 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2338,9 +2338,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 119:                                              ; preds = %108, %90
   %120 = getelementptr inbounds i8, ptr %0, i64 659808
   %121 = load i64, ptr %120, align 8
-  %122 = add i64 %121, -8
-  %spec.select = icmp ult i64 %122, 57
-  br i1 %spec.select, label %128, label %123
+  %122 = add i64 %121, -65
+  %spec.select = icmp ult i64 %122, -57
+  br i1 %spec.select, label %123, label %128
 
 123:                                              ; preds = %119
   %124 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2898,9 +2898,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 119:                                              ; preds = %108, %90
   %120 = getelementptr inbounds i8, ptr %0, i64 659808
   %121 = load i64, ptr %120, align 8
-  %122 = add i64 %121, -8
-  %spec.select = icmp ult i64 %122, 57
-  br i1 %spec.select, label %128, label %123
+  %122 = add i64 %121, -65
+  %spec.select = icmp ult i64 %122, -57
+  br i1 %spec.select, label %123, label %128
 
 123:                                              ; preds = %119
   %124 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -3456,9 +3456,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 119:                                              ; preds = %108, %90
   %120 = getelementptr inbounds i8, ptr %0, i64 659808
   %121 = load i64, ptr %120, align 8
-  %122 = add i64 %121, -8
-  %spec.select = icmp ult i64 %122, 57
-  br i1 %spec.select, label %128, label %123
+  %122 = add i64 %121, -65
+  %spec.select = icmp ult i64 %122, -57
+  br i1 %spec.select, label %123, label %128
 
 123:                                              ; preds = %119
   %124 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -4016,9 +4016,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 119:                                              ; preds = %108, %90
   %120 = getelementptr inbounds i8, ptr %0, i64 659808
   %121 = load i64, ptr %120, align 8
-  %122 = add i64 %121, -8
-  %spec.select = icmp ult i64 %122, 57
-  br i1 %spec.select, label %128, label %123
+  %122 = add i64 %121, -65
+  %spec.select = icmp ult i64 %122, -57
+  br i1 %spec.select, label %123, label %128
 
 123:                                              ; preds = %119
   %124 = tail call ptr @__cxa_allocate_exception(i64 32) #16

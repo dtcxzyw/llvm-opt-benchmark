@@ -1246,21 +1246,14 @@ if.end:                                           ; preds = %for.end
   %lock = getelementptr inbounds i8, ptr %ref_store, i64 48
   %lock.val = load ptr, ptr %lock, align 8
   %tobool.i.i.not = icmp eq ptr %lock.val, null
-  br i1 %tobool.i.i.not, label %if.then10, label %if.end15.thread
-
-if.end15.thread:                                  ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %peeled.i)
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %peeled109.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.write_with_updates.sb, i64 24, i1 false)
-  br label %if.end.i19
+  br i1 %tobool.i.i.not, label %if.then10, label %if.end.i19.critedge
 
 if.then10:                                        ; preds = %if.end
   %call11 = tail call i32 @packed_refs_lock(ptr noundef nonnull %ref_store, i32 noundef 0, ptr noundef %err)
   %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %if.end15, label %failure
+  br i1 %tobool12.not, label %if.end14, label %failure
 
-if.end15:                                         ; preds = %if.then10
+if.end14:                                         ; preds = %if.then10
   store i32 1, ptr %call1, align 8
   %lock.val.i.pr = load ptr, ptr %lock, align 8
   %7 = icmp eq ptr %lock.val.i.pr, null
@@ -1270,11 +1263,18 @@ if.end15:                                         ; preds = %if.then10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.write_with_updates.sb, i64 24, i1 false)
   br i1 %7, label %if.then.i21, label %if.end.i19
 
-if.then.i21:                                      ; preds = %if.end15
+if.then.i21:                                      ; preds = %if.end14
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.6, i32 noundef 1276, ptr noundef nonnull @.str.31) #19
   unreachable
 
-if.end.i19:                                       ; preds = %if.end15.thread, %if.end15
+if.end.i19.critedge:                              ; preds = %if.end
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i)
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %peeled.i)
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %peeled109.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.write_with_updates.sb, i64 24, i1 false)
+  br label %if.end.i19
+
+if.end.i19:                                       ; preds = %if.end.i19.critedge, %if.end14
   %call2.i = tail call ptr @get_locked_file_path(ptr noundef nonnull %lock) #18
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb.i, ptr noundef nonnull @.str.32, ptr noundef %call2.i) #18
   call void @free(ptr noundef %call2.i) #18
@@ -1319,13 +1319,13 @@ if.end20.i:                                       ; preds = %if.end17.i
   %call22.i = call i32 @ref_iterator_advance(ptr noundef %call21.i) #18
   %cmp23.not.i = icmp eq i32 %call22.i, 0
   %nr29121.i = getelementptr inbounds i8, ptr %call1, i64 16
-  %spec.select58 = select i1 %cmp23.not.i, ptr %call21.i, ptr null
+  %spec.select57 = select i1 %cmp23.not.i, ptr %call21.i, ptr null
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.backedge, %if.end20.i
   %ok.0.i = phi i32 [ %call22.i, %if.end20.i ], [ %ok.0.i.be, %while.cond.i.backedge ]
   %i.0.i = phi i64 [ 0, %if.end20.i ], [ %i.0.i.be, %while.cond.i.backedge ]
-  %iter.3.i = phi ptr [ %spec.select58, %if.end20.i ], [ %iter.3.i.be, %while.cond.i.backedge ]
+  %iter.3.i = phi ptr [ %spec.select57, %if.end20.i ], [ %iter.3.i.be, %while.cond.i.backedge ]
   %tobool26.not.i = icmp eq ptr %iter.3.i, null
   %13 = load i64, ptr %nr29121.i, align 8
   %cmp27.i = icmp ult i64 %i.0.i, %13
@@ -2890,7 +2890,7 @@ declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @prefix_ref_iterator_begin(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @packed_ref_iterator_advance(ptr noundef %ref_iterator) #0 {
+define internal range(i32 -2, 1) i32 @packed_ref_iterator_advance(ptr noundef %ref_iterator) #0 {
 entry:
   %p.i = alloca ptr, align 8
   %refname_buf.i = getelementptr inbounds i8, ptr %ref_iterator, i64 168

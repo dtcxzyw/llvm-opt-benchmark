@@ -136,7 +136,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hs_deserialize_database_at(ptr noundef readonly %bytes, i64 noundef %length, ptr noundef %db) local_unnamed_addr #0 {
+define dso_local range(i32 -8, 1) i32 @hs_deserialize_database_at(ptr noundef readonly %bytes, i64 noundef %length, ptr noundef %db) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %bytes, null
   %tobool1 = icmp ne ptr %db, null
@@ -231,7 +231,7 @@ return:                                           ; preds = %if.end12.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @hs_deserialize_database(ptr noundef readonly %bytes, i64 noundef %length, ptr noundef writeonly %db) local_unnamed_addr #0 {
+define dso_local range(i32 -9, 1) i32 @hs_deserialize_database(ptr noundef readonly %bytes, i64 noundef %length, ptr noundef writeonly %db) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %bytes, null
   %tobool1 = icmp ne ptr %db, null
@@ -379,7 +379,7 @@ return:                                           ; preds = %lor.lhs.false.i, %v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @hs_serialized_database_size(ptr noundef readonly %bytes, i64 noundef %length, ptr noundef writeonly %size) local_unnamed_addr #3 {
+define dso_local range(i32 -5, 1) i32 @hs_serialized_database_size(ptr noundef readonly %bytes, i64 noundef %length, ptr noundef writeonly %size) local_unnamed_addr #3 {
 entry:
   %tobool.not.i = icmp eq ptr %bytes, null
   %cmp.i = icmp ult i64 %length, 104
@@ -417,7 +417,7 @@ return:                                           ; preds = %if.end12.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dbIsValid(ptr noundef %db) local_unnamed_addr #0 {
+define hidden range(i32 -6, 1) i32 @dbIsValid(ptr noundef %db) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %db, align 8
   %cmp.not = icmp eq i32 %0, -606348325
@@ -462,7 +462,7 @@ return:                                           ; preds = %if.end16, %if.end10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hs_serialized_database_info(ptr noundef readonly %bytes, i64 noundef %length, ptr noundef writeonly %info) local_unnamed_addr #0 {
+define dso_local range(i32 -9, 1) i32 @hs_serialized_database_info(ptr noundef readonly %bytes, i64 noundef %length, ptr noundef writeonly %info) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -591,7 +591,7 @@ return:                                           ; preds = %do.end, %if.then39,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hs_database_info(ptr noundef %db, ptr noundef writeonly %info) local_unnamed_addr #0 {
+define dso_local range(i32 -9, 1) i32 @hs_database_info(ptr noundef %db, ptr noundef writeonly %info) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end

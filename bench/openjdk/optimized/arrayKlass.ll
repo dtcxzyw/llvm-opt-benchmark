@@ -203,7 +203,7 @@ define hidden void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN5KlassC2Ev(ptr noundef nonnull align 8 dereferenceable(196)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN10ArrayKlass11static_sizeEi(i32 noundef %0) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 -2147483590, -2147483648) i32 @_ZN10ArrayKlass11static_sizeEi(i32 noundef %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr @_ZN8Universe17_base_vtable_sizeE, align 4
   %3 = add nsw i32 %2, 58
   ret i32 %3

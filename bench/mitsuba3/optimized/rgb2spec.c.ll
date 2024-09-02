@@ -235,7 +235,7 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %43
   %.0.lcssa.i = phi i32 [ 0, %43 ], [ %.1.i, %.lr.ph.i ]
-  %79 = tail call i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 %63)
+  %79 = tail call range(i32 -2147483648, 2147483646) i32 @llvm.smin.i32(i32 %.0.lcssa.i, i32 %63)
   %80 = mul nsw i32 %.1, %5
   %81 = add i32 %79, %80
   %82 = mul i32 %81, %5

@@ -926,46 +926,45 @@ i_get_exception_base.exit248:                     ; preds = %163, %167
   br label %181
 
 181:                                              ; preds = %177, %179
-  %.0178 = phi i64 [ %178, %177 ], [ %180, %179 ]
+  %182 = phi i64 [ %178, %177 ], [ %180, %179 ]
+  %183 = trunc i64 %182 to i32
   %.not204 = icmp eq ptr %164, null
-  br i1 %.not204, label %.critedge220, label %182
+  br i1 %.not204, label %.critedge220, label %184
 
-182:                                              ; preds = %181
-  %183 = getelementptr inbounds i8, ptr %164, i64 16
-  %184 = load i64, ptr %183, align 8
-  %.not205 = icmp eq i64 %184, 0
+184:                                              ; preds = %181
+  %185 = getelementptr inbounds i8, ptr %164, i64 16
+  %186 = load i64, ptr %185, align 8
+  %.not205 = icmp eq i64 %186, 0
   %spec.select = select i1 %.not205, ptr null, ptr %164
-  %185 = trunc i64 %.0178 to i32
-  %186 = load ptr, ptr %141, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 24
-  %190 = getelementptr inbounds i8, ptr %6, i64 8
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 24
-  call void (i32, ptr, i32, ptr, ...) @zend_error_va(i32 noundef 2, ptr noundef %spec.select, i32 noundef %185, ptr noundef nonnull @.str.18, ptr noundef nonnull %189, ptr noundef nonnull %192)
-  %193 = getelementptr inbounds i8, ptr %164, i64 4
-  %194 = load i32, ptr %193, align 4
-  %195 = and i32 %194, 64
-  %.not206 = icmp eq i32 %195, 0
-  br i1 %.not206, label %196, label %211
+  %187 = load ptr, ptr %141, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 8
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 24
+  %191 = getelementptr inbounds i8, ptr %6, i64 8
+  %192 = load ptr, ptr %191, align 8
+  %193 = getelementptr inbounds i8, ptr %192, i64 24
+  call void (i32, ptr, i32, ptr, ...) @zend_error_va(i32 noundef 2, ptr noundef %spec.select, i32 noundef %183, ptr noundef nonnull @.str.18, ptr noundef nonnull %190, ptr noundef nonnull %193)
+  %194 = getelementptr inbounds i8, ptr %164, i64 4
+  %195 = load i32, ptr %194, align 4
+  %196 = and i32 %195, 64
+  %.not206 = icmp eq i32 %196, 0
+  br i1 %.not206, label %197, label %211
 
-196:                                              ; preds = %182
-  %197 = load i32, ptr %164, align 4
-  %198 = icmp ne i32 %197, 0
-  call void @llvm.assume(i1 %198)
-  %199 = add i32 %197, -1
-  store i32 %199, ptr %164, align 4
-  %200 = icmp eq i32 %199, 0
-  br i1 %200, label %201, label %211
+197:                                              ; preds = %184
+  %198 = load i32, ptr %164, align 4
+  %199 = icmp ne i32 %198, 0
+  call void @llvm.assume(i1 %199)
+  %200 = add i32 %198, -1
+  store i32 %200, ptr %164, align 4
+  %201 = icmp eq i32 %200, 0
+  br i1 %201, label %202, label %211
 
-201:                                              ; preds = %196
+202:                                              ; preds = %197
   call void @_efree(ptr noundef nonnull %164) #15
   br label %211
 
 .critedge220:                                     ; preds = %139, %181
-  %.0178264 = phi i64 [ %.0178, %181 ], [ 0, %139 ]
-  %202 = trunc i64 %.0178264 to i32
+  %.0178264 = phi i32 [ %183, %181 ], [ 0, %139 ]
   %203 = getelementptr inbounds i8, ptr %130, i64 16
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 8
@@ -974,10 +973,10 @@ i_get_exception_base.exit248:                     ; preds = %163, %167
   %208 = getelementptr inbounds i8, ptr %6, i64 8
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds i8, ptr %209, i64 24
-  call void (i32, ptr, i32, ptr, ...) @zend_error_va(i32 noundef 2, ptr noundef null, i32 noundef %202, ptr noundef nonnull @.str.18, ptr noundef nonnull %207, ptr noundef nonnull %210)
+  call void (i32, ptr, i32, ptr, ...) @zend_error_va(i32 noundef 2, ptr noundef null, i32 noundef %.0178264, ptr noundef nonnull @.str.18, ptr noundef nonnull %207, ptr noundef nonnull %210)
   br label %211
 
-211:                                              ; preds = %.critedge220, %196, %201, %182, %129
+211:                                              ; preds = %.critedge220, %197, %202, %184, %129
   %.val222 = load ptr, ptr %5, align 8
   %212 = load ptr, ptr @zend_ce_exception, align 8
   %213 = icmp eq ptr %.val222, %212

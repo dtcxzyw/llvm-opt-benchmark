@@ -306,7 +306,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %10 = trunc nsw i64 %3 to i32
   store i32 %10, ptr %9, align 4
   %11 = icmp ugt i64 %3, 2147483647
-  br i1 %11, label %12, label %30
+  br i1 %11, label %12, label %28
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %4, i64 48
@@ -317,93 +317,93 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   br label %18
 
 18:                                               ; preds = %12, %18
-  %.045 = phi i64 [ 0, %12 ], [ %28, %18 ]
+  %.045 = phi i64 [ 0, %12 ], [ %26, %18 ]
   %19 = add i64 %.045, 2147483647
   %20 = icmp ugt i64 %19, %3
   %21 = sub nuw i64 %3, %.045
-  %22 = shl i64 %21, 32
+  %sext = shl i64 %21, 32
+  %22 = ashr exact i64 %sext, 32
+  %.039 = select i1 %20, i64 %22, i64 2147483647
   %23 = mul i64 %.045, %17
   %24 = getelementptr inbounds i8, ptr %1, i64 %23
   %25 = getelementptr inbounds i8, ptr %2, i64 %23
-  %26 = ashr exact i64 %22, 32
-  %27 = select i1 %20, i64 %26, i64 2147483647
-  tail call fastcc void @ompi_op_reduce(ptr noundef %0, ptr noundef %24, ptr noundef %25, i64 noundef %27, ptr noundef %4)
-  %28 = add i64 %27, %.045
-  %29 = icmp ult i64 %28, %3
-  br i1 %29, label %18, label %.loopexit, !llvm.loop !8
+  tail call fastcc void @ompi_op_reduce(ptr noundef %0, ptr noundef %24, ptr noundef %25, i64 noundef %.039, ptr noundef %4)
+  %26 = add i64 %.039, %.045
+  %27 = icmp ult i64 %26, %3
+  br i1 %27, label %18, label %.loopexit, !llvm.loop !8
 
-30:                                               ; preds = %5
-  %31 = getelementptr inbounds i8, ptr %0, i64 84
-  %32 = load i32, ptr %31, align 4
-  %33 = and i32 %32, 1
-  %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %47, label %34
+28:                                               ; preds = %5
+  %29 = getelementptr inbounds i8, ptr %0, i64 84
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, 1
+  %.not = icmp eq i32 %31, 0
+  br i1 %.not, label %45, label %32
 
-34:                                               ; preds = %30
-  %35 = getelementptr i8, ptr %4, i64 16
-  %.val = load i16, ptr %35, align 8
-  %36 = and i16 %.val, 512
-  %.not43 = icmp eq i16 %36, 0
-  br i1 %.not43, label %37, label %39
+32:                                               ; preds = %28
+  %33 = getelementptr i8, ptr %4, i64 16
+  %.val = load i16, ptr %33, align 8
+  %34 = and i16 %.val, 512
+  %.not43 = icmp eq i16 %34, 0
+  br i1 %.not43, label %35, label %37
 
-37:                                               ; preds = %34
-  %38 = tail call ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef nonnull %4) #4
-  br label %39
+35:                                               ; preds = %32
+  %36 = tail call ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef nonnull %4) #4
+  br label %37
 
-39:                                               ; preds = %34, %37
-  %.pn44 = phi ptr [ %38, %37 ], [ %4, %34 ]
+37:                                               ; preds = %32, %35
+  %.pn44 = phi ptr [ %36, %35 ], [ %4, %32 ]
   %.pn.in.in = getelementptr inbounds i8, ptr %.pn44, i64 200
   %.pn.in = load i32, ptr %.pn.in.in, align 8
   %.pn = sext i32 %.pn.in to i64
   %.038.in = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %.pn
   %.038 = load i32, ptr %.038.in, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 96
-  %41 = sext i32 %.038 to i64
-  %42 = getelementptr inbounds [43 x ptr], ptr %40, i64 0, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 440
-  %45 = getelementptr inbounds [43 x ptr], ptr %44, i64 0, i64 %41
-  %46 = load ptr, ptr %45, align 8
-  call void %43(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %46) #4
+  %38 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = sext i32 %.038 to i64
+  %40 = getelementptr inbounds [43 x ptr], ptr %38, i64 0, i64 %39
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 440
+  %43 = getelementptr inbounds [43 x ptr], ptr %42, i64 0, i64 %39
+  %44 = load ptr, ptr %43, align 8
+  call void %41(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %44) #4
   br label %.loopexit
 
-47:                                               ; preds = %30
-  %48 = and i32 %32, 2
-  %.not41 = icmp eq i32 %48, 0
-  br i1 %.not41, label %54, label %49
+45:                                               ; preds = %28
+  %46 = and i32 %30, 2
+  %.not41 = icmp eq i32 %46, 0
+  br i1 %.not41, label %52, label %47
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %4, i64 204
-  %51 = load i32, ptr %50, align 4
-  store i32 %51, ptr %7, align 4
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %4, i64 204
+  %49 = load i32, ptr %48, align 4
+  store i32 %49, ptr %7, align 4
   store i32 %10, ptr %8, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 96
-  %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #4
+  %50 = getelementptr inbounds i8, ptr %0, i64 96
+  %51 = load ptr, ptr %50, align 8
+  call void %51(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #4
   br label %.loopexit
 
-54:                                               ; preds = %47
-  %55 = and i32 %32, 8
-  %.not42 = icmp eq i32 %55, 0
-  %56 = getelementptr inbounds i8, ptr %0, i64 96
-  %57 = load ptr, ptr %56, align 8
-  br i1 %.not42, label %65, label %58
+52:                                               ; preds = %45
+  %53 = and i32 %30, 8
+  %.not42 = icmp eq i32 %53, 0
+  %54 = getelementptr inbounds i8, ptr %0, i64 96
+  %55 = load ptr, ptr %54, align 8
+  br i1 %.not42, label %63, label %56
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %0, i64 120
-  %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 104
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %0, i64 120
+  %58 = load i32, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 104
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 112
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 112
-  %64 = load ptr, ptr %63, align 8
-  call void %57(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef %60, ptr noundef %62, ptr noundef %64) #4
+  call void %55(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef %58, ptr noundef %60, ptr noundef %62) #4
   br label %.loopexit
 
-65:                                               ; preds = %54
-  call void %57(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6) #4
+63:                                               ; preds = %52
+  call void %55(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %18, %65, %58, %49, %39
+.loopexit:                                        ; preds = %18, %63, %56, %47, %37
   ret void
 }
 

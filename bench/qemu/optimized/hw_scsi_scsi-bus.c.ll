@@ -472,7 +472,7 @@ if.end6:                                          ; preds = %if.then2, %if.end
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @scsi_req_parse_cdb(ptr nocapture noundef readonly %dev, ptr noundef %cmd, ptr noundef %buf, i64 noundef %buf_len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scsi_req_parse_cdb(ptr nocapture noundef readonly %dev, ptr noundef %cmd, ptr noundef %buf, i64 noundef %buf_len) local_unnamed_addr #0 {
 entry:
   %lba = getelementptr inbounds i8, ptr %cmd, i64 32
   store i64 -1, ptr %lba, align 8

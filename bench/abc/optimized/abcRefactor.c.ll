@@ -776,7 +776,7 @@ define noalias noundef ptr @Abc_NtkManRefStart(i32 noundef %0, i32 noundef %1, i
   store i32 %1, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %calloc, i64 8
   store i32 %3, ptr %16, align 8
-  %17 = tail call noundef i32 @llvm.smax.i32(i32 %0, i32 6)
+  %17 = tail call noundef range(i32 6, -2147483648) i32 @llvm.smax.i32(i32 %0, i32 6)
   %18 = add nsw i32 %17, -5
   %19 = shl nuw i32 1, %18
   %.fr.i = freeze i32 %19

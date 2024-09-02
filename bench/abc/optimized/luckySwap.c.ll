@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Kit_TruthSwapAdjacentVars_64bit.PMasks = internal unnamed_addr constant [5 x [3 x i64]] [[3 x i64] [i64 -7378697629483820647, i64 2459565876494606882, i64 4919131752989213764], [3 x i64] [i64 -4340410370284600381, i64 868082074056920076, i64 3472328296227680304], [3 x i64] [i64 -1148435428713435121, i64 67555025218437360, i64 1080880403494997760], [3 x i64] [i64 -72056494543077121, i64 280375465148160, i64 71776119077928960], [3 x i64] [i64 -281474976645121, i64 4294901760, i64 281470681743360]], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @Kit_TruthWordNum_64bit(i32 noundef %0) local_unnamed_addr #0 {
+define range(i32 1, -2147483647) i32 @Kit_TruthWordNum_64bit(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp slt i32 %0, 7
   %3 = add nsw i32 %0, -6
   %4 = shl nuw i32 1, %3

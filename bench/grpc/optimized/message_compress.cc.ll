@@ -341,62 +341,63 @@ do.end:                                           ; preds = %entry
   store ptr %cond24, ptr %next_out, align 8
   %count = getelementptr inbounds i8, ptr %input, i64 16
   %3 = load i64, ptr %count, align 8
-  %cmp2545.not = icmp eq i64 %3, 0
-  br i1 %cmp2545.not, label %do.body150, label %for.body.lr.ph
+  %cmp2543.not = icmp eq i64 %3, 0
+  br i1 %cmp2543.not, label %do.body150, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end
   %slices = getelementptr inbounds i8, ptr %input, i64 8
   %avail_in = getelementptr inbounds i8, ptr %zs, i64 8
+  %4 = icmp eq i32 %conv15, 0
   br label %for.body
 
 for.cond:                                         ; preds = %do.end142
-  %inc = add nuw i64 %i.047, 1
-  %4 = load i64, ptr %count, align 8
-  %cmp25 = icmp ult i64 %inc, %4
+  %inc = add nuw i64 %i.045, 1
+  %5 = load i64, ptr %count, align 8
+  %cmp25 = icmp ult i64 %inc, %5
   br i1 %cmp25, label %for.body, label %for.end, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %.pr = phi i32 [ %conv15, %for.body.lr.ph ], [ %17, %for.cond ]
-  %5 = phi i64 [ %3, %for.body.lr.ph ], [ %4, %for.cond ]
-  %i.047 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
-  %flush.046 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.cond ]
-  %sub = add i64 %5, -1
-  %cmp27 = icmp eq i64 %i.047, %sub
-  %spec.select = select i1 %cmp27, i32 4, i32 %flush.046
-  %6 = load ptr, ptr %slices, align 8
-  %arrayidx = getelementptr inbounds %struct.grpc_slice, ptr %6, i64 %i.047
-  %7 = load ptr, ptr %arrayidx, align 8
-  %tobool32.not = icmp eq ptr %7, null
+  %.pr = phi i1 [ %4, %for.body.lr.ph ], [ false, %for.cond ]
+  %6 = phi i64 [ %3, %for.body.lr.ph ], [ %5, %for.cond ]
+  %i.045 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
+  %flush.044 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.cond ]
+  %sub = add i64 %6, -1
+  %cmp27 = icmp eq i64 %i.045, %sub
+  %spec.select = select i1 %cmp27, i32 4, i32 %flush.044
+  %7 = load ptr, ptr %slices, align 8
+  %arrayidx = getelementptr inbounds %struct.grpc_slice, ptr %7, i64 %i.045
+  %8 = load ptr, ptr %arrayidx, align 8
+  %tobool32.not = icmp eq ptr %8, null
   %data64 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  br i1 %tobool32.not, label %cond.false61, label %cond.end44
+  br i1 %tobool32.not, label %cond.false61, label %cond.true33
 
-cond.end44:                                       ; preds = %for.body
-  %8 = load i64, ptr %data64, align 8
-  %cmp46 = icmp ugt i64 %8, 4294967295
-  br i1 %cmp46, label %if.then49, label %cond.end67
+cond.true33:                                      ; preds = %for.body
+  %9 = load i64, ptr %data64, align 8
+  %10 = icmp ugt i64 %9, 4294967295
+  br i1 %10, label %if.then49, label %cond.end67
 
-if.then49:                                        ; preds = %cond.end44
+if.then49:                                        ; preds = %cond.true33
   call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 51, ptr noundef nonnull @.str.5) #5
   unreachable
 
 cond.false61:                                     ; preds = %for.body
-  %9 = load i8, ptr %data64, align 8
-  %conv66 = zext i8 %9 to i64
+  %11 = load i8, ptr %data64, align 8
+  %conv66 = zext i8 %11 to i64
   br label %cond.end67
 
-cond.end67:                                       ; preds = %cond.end44, %cond.false61
-  %cond68 = phi i64 [ %conv66, %cond.false61 ], [ %8, %cond.end44 ]
+cond.end67:                                       ; preds = %cond.true33, %cond.false61
+  %cond68 = phi i64 [ %conv66, %cond.false61 ], [ %9, %cond.true33 ]
   %conv69 = trunc nuw i64 %cond68 to i32
   store i32 %conv69, ptr %avail_in, align 8
-  %10 = load ptr, ptr %slices, align 8
-  %arrayidx71 = getelementptr inbounds %struct.grpc_slice, ptr %10, i64 %i.047
-  %11 = load ptr, ptr %arrayidx71, align 8
-  %tobool73.not = icmp eq ptr %11, null
+  %12 = load ptr, ptr %slices, align 8
+  %arrayidx71 = getelementptr inbounds %struct.grpc_slice, ptr %12, i64 %i.045
+  %13 = load ptr, ptr %arrayidx71, align 8
+  %tobool73.not = icmp eq ptr %13, null
   br i1 %tobool73.not, label %cond.false79, label %cond.true74
 
 cond.true74:                                      ; preds = %cond.end67
   %bytes78 = getelementptr inbounds i8, ptr %arrayidx71, i64 16
-  %12 = load ptr, ptr %bytes78, align 8
+  %14 = load ptr, ptr %bytes78, align 8
   br label %cond.end85
 
 cond.false79:                                     ; preds = %cond.end67
@@ -404,23 +405,18 @@ cond.false79:                                     ; preds = %cond.end67
   br label %cond.end85
 
 cond.end85:                                       ; preds = %cond.false79, %cond.true74
-  %cond86 = phi ptr [ %12, %cond.true74 ], [ %bytes83, %cond.false79 ]
+  %cond86 = phi ptr [ %14, %cond.true74 ], [ %bytes83, %cond.false79 ]
   store ptr %cond86, ptr %zs, align 8
-  br label %do.body87
+  br i1 %.pr, label %if.then90, label %if.end134
 
-do.body87:                                        ; preds = %do.cond, %cond.end85
-  %13 = phi i32 [ 0, %do.cond ], [ %.pr, %cond.end85 ]
-  %cmp89 = icmp eq i32 %13, 0
-  br i1 %cmp89, label %if.then90, label %if.end134
-
-if.then90:                                        ; preds = %do.body87
+if.then90:                                        ; preds = %do.cond, %cond.end85
   %call = call i64 @grpc_slice_buffer_add_indexed(ptr noundef %output, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %outbuf)
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp, i64 noundef 1024)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %outbuf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
-  %14 = load ptr, ptr %outbuf, align 8
-  %tobool93.not = icmp ne ptr %14, null
-  %15 = load i64, ptr %data, align 8
-  %cmp10337 = icmp ugt i64 %15, 4294967295
+  %15 = load ptr, ptr %outbuf, align 8
+  %tobool93.not = icmp ne ptr %15, null
+  %16 = load i64, ptr %data, align 8
+  %cmp10337 = icmp ugt i64 %16, 4294967295
   %cmp103.not = select i1 %tobool93.not, i1 %cmp10337, i1 false
   br i1 %cmp103.not, label %if.then106, label %do.end108
 
@@ -429,17 +425,17 @@ if.then106:                                       ; preds = %if.then90
   unreachable
 
 do.end108:                                        ; preds = %if.then90
-  %conv117 = and i64 %15, 255
-  %cond119 = select i1 %tobool93.not, i64 %15, i64 %conv117
+  %conv117 = and i64 %16, 255
+  %cond119 = select i1 %tobool93.not, i64 %16, i64 %conv117
   %conv120 = trunc i64 %cond119 to i32
   store i32 %conv120, ptr %avail_out, align 8
-  %tobool123.not = icmp eq ptr %14, null
-  %16 = load ptr, ptr %bytes, align 8
-  %cond132 = select i1 %tobool123.not, ptr %bytes22, ptr %16
+  %tobool123.not = icmp eq ptr %15, null
+  %17 = load ptr, ptr %bytes, align 8
+  %cond132 = select i1 %tobool123.not, ptr %bytes22, ptr %17
   store ptr %cond132, ptr %next_out, align 8
   br label %if.end134
 
-if.end134:                                        ; preds = %do.end108, %do.body87
+if.end134:                                        ; preds = %do.end108, %cond.end85
   %call135 = call noundef i32 %flate(ptr noundef nonnull %zs, i32 noundef %spec.select), !callees !9
   %cmp136 = icmp slt i32 %call135, 0
   %cmp137 = icmp ne i32 %call135, -5
@@ -451,13 +447,13 @@ if.then138:                                       ; preds = %if.end134
   br label %error
 
 do.cond:                                          ; preds = %if.end134
-  %17 = load i32, ptr %avail_out, align 8
-  %cmp141 = icmp eq i32 %17, 0
-  br i1 %cmp141, label %do.body87, label %do.end142, !llvm.loop !10
+  %18 = load i32, ptr %avail_out, align 8
+  %cmp141 = icmp eq i32 %18, 0
+  br i1 %cmp141, label %if.then90, label %do.end142, !llvm.loop !10
 
 do.end142:                                        ; preds = %do.cond
-  %18 = load i32, ptr %avail_in, align 8
-  %tobool144.not = icmp eq i32 %18, 0
+  %19 = load i32, ptr %avail_in, align 8
+  %tobool144.not = icmp eq i32 %19, 0
   br i1 %tobool144.not, label %for.cond, label %if.then145
 
 if.then145:                                       ; preds = %do.end142
@@ -465,17 +461,17 @@ if.then145:                                       ; preds = %do.end142
   br label %error
 
 for.end:                                          ; preds = %for.cond
-  %19 = icmp eq i32 %call135, 1
-  br i1 %19, label %do.body150, label %if.then148
+  %20 = icmp eq i32 %call135, 1
+  br i1 %20, label %do.body150, label %if.then148
 
 if.then148:                                       ; preds = %for.end
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 74, i32 noundef 1, ptr noundef nonnull @.str.8)
   br label %error
 
 do.body150:                                       ; preds = %do.end, %for.end
-  %20 = phi i32 [ %17, %for.end ], [ %conv15, %do.end ]
-  %21 = load ptr, ptr %outbuf, align 8
-  %tobool152.not = icmp eq ptr %21, null
+  %21 = phi i32 [ %18, %for.end ], [ %conv15, %do.end ]
+  %22 = load ptr, ptr %outbuf, align 8
+  %tobool152.not = icmp eq ptr %22, null
   br i1 %tobool152.not, label %if.then155, label %do.end158
 
 if.then155:                                       ; preds = %do.body150
@@ -483,27 +479,27 @@ if.then155:                                       ; preds = %do.body150
   unreachable
 
 do.end158:                                        ; preds = %do.body150
-  %conv160 = zext i32 %20 to i64
-  %22 = load i64, ptr %data, align 8
-  %sub163 = sub i64 %22, %conv160
+  %conv160 = zext i32 %21 to i64
+  %23 = load i64, ptr %data, align 8
+  %sub163 = sub i64 %23, %conv160
   store i64 %sub163, ptr %data, align 8
   %call165 = call i64 @grpc_slice_buffer_add_indexed(ptr noundef %output, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %outbuf)
   br label %return
 
 error:                                            ; preds = %if.then148, %if.then145, %if.then138
-  %23 = load ptr, ptr %outbuf, align 8
-  %cmp.i = icmp ugt ptr %23, inttoptr (i64 1 to ptr)
+  %24 = load ptr, ptr %outbuf, align 8
+  %cmp.i = icmp ugt ptr %24, inttoptr (i64 1 to ptr)
   br i1 %cmp.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %error
-  %24 = atomicrmw sub ptr %23, i64 1 acq_rel, align 8
-  %cmp.i.i = icmp eq i64 %24, 1
+  %25 = atomicrmw sub ptr %24, i64 1 acq_rel, align 8
+  %cmp.i.i = icmp eq i64 %25, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %23, i64 8
-  %25 = load ptr, ptr %destroyer_fn_.i.i, align 8
-  call void %25(ptr noundef nonnull %23)
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load ptr, ptr %destroyer_fn_.i.i, align 8
+  call void %26(ptr noundef nonnull %24)
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.then.i, %error, %do.end158

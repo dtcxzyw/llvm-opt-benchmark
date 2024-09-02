@@ -4017,20 +4017,20 @@ define hidden void @_ZN8rawspeed15VC5Decompressor21initPrefixCodeDecoderEv(ptr n
   %85 = fdiv double %84, 0x416FA05FE0000000
   %86 = fadd double %85, %81
   %87 = fcmp ogt double %86, 3.276700e+04
-  br i1 %87, label %92, label %88
+  br i1 %87, label %94, label %88
 
 88:                                               ; preds = %74
   %89 = fcmp olt double %86, -3.276800e+04
-  br i1 %89, label %92, label %90
+  br i1 %89, label %94, label %90
 
 90:                                               ; preds = %88
   %91 = fptosi double %86 to i16
-  br label %92
+  %92 = sext i16 %91 to i32
+  %93 = shl nsw i32 %92, 9
+  br label %94
 
-92:                                               ; preds = %90, %88, %74
-  %93 = phi i16 [ %91, %90 ], [ 32767, %74 ], [ -32768, %88 ]
-  %94 = sext i16 %93 to i32
-  %95 = shl nsw i32 %94, 9
+94:                                               ; preds = %90, %88, %74
+  %95 = phi i32 [ %93, %90 ], [ 16776704, %74 ], [ -16777216, %88 ]
   %96 = getelementptr inbounds i8, ptr %75, i64 8
   %97 = load i16, ptr %96, align 4, !tbaa !310
   %98 = zext i16 %97 to i32
@@ -4038,11 +4038,11 @@ define hidden void @_ZN8rawspeed15VC5Decompressor21initPrefixCodeDecoderEv(ptr n
   %100 = icmp eq ptr %77, %76
   br i1 %100, label %102, label %101
 
-101:                                              ; preds = %92
+101:                                              ; preds = %94
   store i32 %99, ptr %77, align 4, !tbaa !19
   br label %131
 
-102:                                              ; preds = %92
+102:                                              ; preds = %94
   %103 = ptrtoint ptr %76 to i64
   %104 = ptrtoint ptr %78 to i64
   %105 = sub i64 %103, %104
@@ -4647,14 +4647,14 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_10VC5Code
   %104 = load i8, ptr %40, align 1, !range !122
   %105 = icmp ne i8 %104, 0
   %106 = select i1 %66, i1 true, i1 %105
-  br i1 %106, label %107, label %117
+  br i1 %106, label %107, label %118
 
 107:                                              ; preds = %102
   store i32 %68, ptr %103, align 4, !tbaa !19
   br i1 %69, label %122, label %108
 
 108:                                              ; preds = %107
-  br i1 %66, label %109, label %117
+  br i1 %66, label %109, label %118
 
 109:                                              ; preds = %108
   tail call void @llvm.assume(i1 %70)
@@ -4665,17 +4665,17 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_10VC5Code
   %114 = icmp eq i32 %113, 0
   %115 = select i1 %114, i32 %76, i32 0
   %116 = add nsw i32 %115, %112
-  br label %117
+  %117 = shl i32 %116, 9
+  br label %118
 
-117:                                              ; preds = %109, %108, %102
-  %118 = phi i32 [ %68, %109 ], [ %68, %108 ], [ %67, %102 ]
-  %119 = phi i32 [ %116, %109 ], [ -32768, %108 ], [ -32768, %102 ]
-  %120 = shl i32 %119, 9
-  %121 = or i32 %120, %118
+118:                                              ; preds = %109, %108, %102
+  %119 = phi i32 [ %68, %109 ], [ %68, %108 ], [ %67, %102 ]
+  %120 = phi i32 [ %117, %109 ], [ -16777216, %108 ], [ -16777216, %102 ]
+  %121 = or i32 %120, %119
   store i32 %121, ptr %103, align 4, !tbaa !19
   br label %122
 
-122:                                              ; preds = %117, %107
+122:                                              ; preds = %118, %107
   %123 = add i16 %99, 1
   %124 = icmp ugt i16 %123, %57
   br i1 %124, label %.loopexit13, label %.preheader17, !llvm.loop !321

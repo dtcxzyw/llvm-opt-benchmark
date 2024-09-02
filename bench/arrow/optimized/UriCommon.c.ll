@@ -598,7 +598,7 @@ uriRemoveDotSegmentsA.exit:                       ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i8 @uriHexdigToIntA(i8 noundef signext %hexdig) local_unnamed_addr #6 {
+define zeroext range(i8 -128, 80) i8 @uriHexdigToIntA(i8 noundef signext %hexdig) local_unnamed_addr #6 {
 entry:
   %switch.tableidx = add i8 %hexdig, -48
   %0 = icmp ult i8 %switch.tableidx, 55
@@ -616,7 +616,7 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define signext range(i8 48, 103) i8 @uriHexToLetterA(i32 noundef %value) local_unnamed_addr #6 {
+define signext range(i8 48, 71) i8 @uriHexToLetterA(i32 noundef %value) local_unnamed_addr #6 {
 entry:
   %0 = icmp ult i32 %value, 15
   br i1 %0, label %switch.lookup, label %uriHexToLetterExA.exit
@@ -1556,7 +1556,7 @@ uriRemoveDotSegmentsW.exit:                       ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i8 @uriHexdigToIntW(i32 noundef %hexdig) local_unnamed_addr #6 {
+define zeroext range(i8 -128, 80) i8 @uriHexdigToIntW(i32 noundef %hexdig) local_unnamed_addr #6 {
 entry:
   %switch.tableidx = add i32 %hexdig, -48
   %0 = icmp ult i32 %switch.tableidx, 55
@@ -1574,7 +1574,7 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 48, 103) i32 @uriHexToLetterW(i32 noundef %value) local_unnamed_addr #6 {
+define range(i32 48, 71) i32 @uriHexToLetterW(i32 noundef %value) local_unnamed_addr #6 {
 entry:
   %0 = icmp ult i32 %value, 15
   br i1 %0, label %switch.lookup, label %uriHexToLetterExW.exit

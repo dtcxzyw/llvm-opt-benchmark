@@ -716,9 +716,9 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
 
 8:                                                ; preds = %4
   %.not169 = icmp eq ptr %.pr, null
-  br i1 %.not169, label %.thread176, label %12
+  br i1 %.not169, label %.critedge.thread, label %12
 
-.thread176:                                       ; preds = %8
+.critedge.thread:                                 ; preds = %8
   %9 = getelementptr inbounds [6 x ptr], ptr @target_names, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #18
@@ -727,36 +727,36 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %.pr, i64 16
   %14 = load i64, ptr %13, align 8
-  %.not170 = icmp eq i64 %14, 0
-  br i1 %.not170, label %25, label %15
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %.critedge, label %16
 
-15:                                               ; preds = %12
-  %16 = add i64 %14, 2
-  %17 = load i64, ptr %3, align 8
-  %.not172 = icmp ult i64 %16, %17
-  br i1 %.not172, label %.thread178, label %18
+16:                                               ; preds = %12
+  %17 = add i64 %14, 2
+  %18 = load i64, ptr %3, align 8
+  %.not172 = icmp ult i64 %17, %18
+  br i1 %.not172, label %.critedge.thread176, label %19
 
-18:                                               ; preds = %15
-  call void @smart_str_erealloc(ptr noundef nonnull %2, i64 noundef %16) #16
+19:                                               ; preds = %16
+  call void @smart_str_erealloc(ptr noundef nonnull %2, i64 noundef %17) #16
   %.pre = load ptr, ptr %2, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
-  %.pre182 = load i64, ptr %.phi.trans.insert, align 8
-  br label %.thread178
+  %.pre180 = load i64, ptr %.phi.trans.insert, align 8
+  br label %.critedge.thread176
 
-.thread178:                                       ; preds = %15, %18
-  %19 = phi i64 [ %14, %15 ], [ %.pre182, %18 ]
-  %20 = phi ptr [ %.pr, %15 ], [ %.pre, %18 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
-  %22 = getelementptr inbounds i8, ptr %21, i64 %19
-  store i16 8236, ptr %22, align 1
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
-  store i64 %16, ptr %24, align 8
-  br label %25
+.critedge.thread176:                              ; preds = %16, %19
+  %20 = phi i64 [ %14, %16 ], [ %.pre180, %19 ]
+  %21 = phi ptr [ %.pr, %16 ], [ %.pre, %19 ]
+  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %23 = getelementptr inbounds i8, ptr %22, i64 %20
+  store i16 8236, ptr %23, align 1
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  store i64 %17, ptr %25, align 8
+  br label %.critedge
 
-25:                                               ; preds = %12, %.thread178
-  %26 = phi i64 [ %16, %.thread178 ], [ 0, %12 ]
-  %27 = phi ptr [ %23, %.thread178 ], [ %.pr, %12 ]
+.critedge:                                        ; preds = %12, %.critedge.thread176
+  %26 = phi i64 [ %17, %.critedge.thread176 ], [ 0, %12 ]
+  %27 = phi ptr [ %24, %.critedge.thread176 ], [ %.pr, %12 ]
   %28 = getelementptr inbounds [6 x ptr], ptr @target_names, i64 0, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #18
@@ -765,22 +765,22 @@ define ptr @zend_get_attribute_target_names(i32 noundef %0) local_unnamed_addr #
   %.not174 = icmp ult i64 %31, %32
   br i1 %.not174, label %36, label %33
 
-33:                                               ; preds = %.thread176, %25
-  %34 = phi i64 [ %30, %25 ], [ %11, %.thread176 ]
-  %35 = phi ptr [ %29, %25 ], [ %10, %.thread176 ]
-  %.0152 = phi i64 [ %31, %25 ], [ %11, %.thread176 ]
+33:                                               ; preds = %.critedge.thread, %.critedge
+  %34 = phi i64 [ %30, %.critedge ], [ %11, %.critedge.thread ]
+  %35 = phi ptr [ %29, %.critedge ], [ %10, %.critedge.thread ]
+  %.0152 = phi i64 [ %31, %.critedge ], [ %11, %.critedge.thread ]
   call void @smart_str_erealloc(ptr noundef nonnull %2, i64 noundef %.0152) #16
-  %.pre183 = load ptr, ptr %2, align 8
-  %.phi.trans.insert184 = getelementptr inbounds i8, ptr %.pre183, i64 16
-  %.pre185 = load i64, ptr %.phi.trans.insert184, align 8
+  %.pre181 = load ptr, ptr %2, align 8
+  %.phi.trans.insert182 = getelementptr inbounds i8, ptr %.pre181, i64 16
+  %.pre183 = load i64, ptr %.phi.trans.insert182, align 8
   br label %36
 
-36:                                               ; preds = %33, %25
-  %37 = phi i64 [ %.pre185, %33 ], [ %26, %25 ]
-  %38 = phi ptr [ %.pre183, %33 ], [ %27, %25 ]
-  %39 = phi i64 [ %34, %33 ], [ %30, %25 ]
-  %40 = phi ptr [ %35, %33 ], [ %29, %25 ]
-  %.1153 = phi i64 [ %.0152, %33 ], [ %31, %25 ]
+36:                                               ; preds = %33, %.critedge
+  %37 = phi i64 [ %.pre183, %33 ], [ %26, %.critedge ]
+  %38 = phi ptr [ %.pre181, %33 ], [ %27, %.critedge ]
+  %39 = phi i64 [ %34, %33 ], [ %30, %.critedge ]
+  %40 = phi ptr [ %35, %33 ], [ %29, %.critedge ]
+  %.1153 = phi i64 [ %.0152, %33 ], [ %31, %.critedge ]
   %41 = getelementptr inbounds i8, ptr %38, i64 24
   %42 = getelementptr inbounds i8, ptr %41, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %40, i64 %39, i1 false)

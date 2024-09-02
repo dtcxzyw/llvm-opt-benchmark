@@ -767,7 +767,7 @@ declare void @llvm.assume(i1 noundef) #12
 declare void @zend_accel_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @zend_shared_memdup_size(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, -7) i32 @zend_shared_memdup_size(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %4, i64 61)

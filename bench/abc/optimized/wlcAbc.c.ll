@@ -69,37 +69,37 @@ define void @Wlc_NtkPrintInputInfo(ptr noundef %0) local_unnamed_addr #0 {
   %wide.trip.count = zext i32 %23 to i64
   br label %24
 
-24:                                               ; preds = %12, %32
-  %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %32 ]
+24:                                               ; preds = %12, %33
+  %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %33 ]
   %25 = load i16, ptr %16, align 8
   %26 = and i16 %25, 63
   %.not = icmp eq i16 %26, 3
-  br i1 %.not, label %27, label %32
+  br i1 %.not, label %27, label %33
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %7, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds i8, ptr %29, i64 %22
   %31 = load i8, ptr %30, align 1
-  br label %32
+  %32 = sext i8 %31 to i32
+  br label %33
 
-32:                                               ; preds = %24, %27
-  %33 = phi i8 [ %31, %27 ], [ 105, %24 ]
+33:                                               ; preds = %24, %27
+  %34 = phi i32 [ %32, %27 ], [ 105, %24 ]
   %.val71 = load ptr, ptr %6, align 8
-  %34 = ptrtoint ptr %.val71 to i64
-  %35 = sub i64 %21, %34
-  %36 = sdiv exact i64 %35, 24
-  %37 = trunc i64 %36 to i32
-  %38 = tail call ptr @Wlc_ObjName(ptr noundef nonnull %0, i32 noundef %37) #10
-  %39 = sext i8 %33 to i32
+  %35 = ptrtoint ptr %.val71 to i64
+  %36 = sub i64 %21, %35
+  %37 = sdiv exact i64 %36, 24
+  %38 = trunc i64 %37 to i32
+  %39 = tail call ptr @Wlc_ObjName(ptr noundef nonnull %0, i32 noundef %38) #10
   %40 = trunc i64 %indvars.iv to i32
   %41 = add i32 %., %40
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef %38, i32 noundef %41, i32 noundef %39) #10
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef %39, i32 noundef %41, i32 noundef %34) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %43, label %24, !llvm.loop !4
 
-43:                                               ; preds = %32
+43:                                               ; preds = %33
   %44 = add nuw nsw i32 %20, 1
   %45 = load i16, ptr %16, align 8
   %46 = and i16 %45, 63

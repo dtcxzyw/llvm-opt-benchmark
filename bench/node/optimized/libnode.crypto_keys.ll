@@ -5451,7 +5451,7 @@ return:                                           ; preds = %_ZNK4node6crypto13K
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEEPKci(ptr nocapture noundef %pkey, ptr noundef %key_pem, i32 noundef %key_pem_len) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN4node6crypto12_GLOBAL__N_117ParsePublicKeyPEMEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEEPKci(ptr nocapture noundef %pkey, ptr noundef %key_pem, i32 noundef %key_pem_len) unnamed_addr #3 {
 entry:
   %bp = alloca %"class.std::unique_ptr.363", align 8
   %ref.tmp = alloca %"class.std::function.451", align 8

@@ -11576,7 +11576,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   br i1 %cmp27, label %return, label %if.end30
 
 if.end30:                                         ; preds = %if.else
-  %sub = add i64 %call26, -62135683200
+  %sub = add nsw i64 %call26, -62135683200
   %conv31 = sitofp i64 %sub to double
   %arrayidx33 = getelementptr i8, ptr %self, i64 32
   %16 = load i8, ptr %arrayidx33, align 1
@@ -12171,7 +12171,7 @@ local_timezone_from_local.exit:                   ; preds = %if.end.i71
   %cmp54.i = icmp eq i8 %6, %21
   %spec.select.i = select i1 %cmp54.i, i64 %call45.i, i64 %call.i
   %seconds.0.i = select i1 %cmp50.not.i, i64 %call.i, i64 %spec.select.i
-  %sub.i = add i64 %seconds.0.i, -62135683200
+  %sub.i = add nsw i64 %seconds.0.i, -62135683200
   %call58.i = call fastcc ptr @local_timezone_from_timestamp(i64 noundef %sub.i)
   %cmp9 = icmp eq ptr %call58.i, null
   br i1 %cmp9, label %return, label %if.end14
@@ -12888,7 +12888,7 @@ declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_CallMethodObjArgs(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @parse_isoformat_time(ptr noundef %dtstr, i64 noundef %dtlen, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr nocapture noundef %microsecond, ptr nocapture noundef writeonly %tzoffset, ptr nocapture noundef %tzmicrosecond) unnamed_addr #8 {
+define internal fastcc range(i32 -5, 2) i32 @parse_isoformat_time(ptr noundef %dtstr, i64 noundef %dtlen, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr nocapture noundef %microsecond, ptr nocapture noundef writeonly %tzoffset, ptr nocapture noundef %tzmicrosecond) unnamed_addr #8 {
 entry:
   %tzhour = alloca i32, align 4
   %tzminute = alloca i32, align 4
@@ -13310,7 +13310,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @local_to_seconds(i32 noundef %year, i32 noundef %month, i32 noundef %day, i32 noundef %hour, i32 noundef %minute, i32 noundef %second, i32 noundef %fold) unnamed_addr #0 {
+define internal fastcc range(i64 -967022624018918, 967022623928858) i64 @local_to_seconds(i32 noundef %year, i32 noundef %month, i32 noundef %day, i32 noundef %hour, i32 noundef %minute, i32 noundef %second, i32 noundef %fold) unnamed_addr #0 {
 entry:
   %0 = add i32 %year, -10000
   %or.cond.i = icmp ult i32 %0, -9999

@@ -4039,12 +4039,12 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 if.end.i.i.i:                                     ; preds = %for.cond.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %34, i64 -4
   %35 = load i32, ptr %arrayidx.i.i.i, align 4
+  %36 = zext i32 %35 to i64
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i: ; preds = %if.end.i.i.i, %for.cond.i
-  %retval.0.i.i.i = phi i32 [ %35, %if.end.i.i.i ], [ 0, %for.cond.i ]
-  %36 = zext i32 %retval.0.i.i.i to i64
-  %cmp.i32 = icmp ult i64 %indvars.iv.i, %36
+  %retval.0.i.i.i = phi i64 [ %36, %if.end.i.i.i ], [ 0, %for.cond.i ]
+  %cmp.i32 = icmp ult i64 %indvars.iv.i, %retval.0.i.i.i
   br i1 %cmp.i32, label %for.body.i, label %invoke.cont23
 
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i

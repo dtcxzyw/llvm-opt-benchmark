@@ -1315,7 +1315,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   %12 = load i8, ptr %1, align 1
   %13 = getelementptr i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1
-  br i1 %11, label %15, label %23
+  br i1 %11, label %15, label %24
 
 15:                                               ; preds = %2
   %16 = getelementptr i8, ptr %1, i64 2
@@ -1325,48 +1325,48 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   %20 = icmp eq i8 %19, 0
   %21 = select i1 %18, i1 true, i1 %20
   %22 = select i1 %21, i1 %8, i1 false
-  br label %28
+  %23 = zext i8 %12 to i32
+  br label %29
 
-23:                                               ; preds = %2
-  %24 = icmp eq i8 %10, 2
-  br i1 %24, label %25, label %28
+24:                                               ; preds = %2
+  %25 = icmp eq i8 %10, 2
+  br i1 %25, label %26, label %29
 
-25:                                               ; preds = %23
-  %26 = lshr i8 %14, 1
-  %27 = and i8 %26, 3
-  br label %28
+26:                                               ; preds = %24
+  %27 = lshr i8 %14, 1
+  %28 = and i8 %27, 3
+  br label %29
 
-28:                                               ; preds = %25, %23, %15
-  %29 = phi i8 [ %27, %25 ], [ 0, %23 ], [ 0, %15 ]
-  %30 = phi i8 [ 0, %25 ], [ 0, %23 ], [ %12, %15 ]
-  %31 = phi i8 [ %12, %25 ], [ %12, %23 ], [ %14, %15 ]
-  %32 = phi i8 [ %14, %25 ], [ %14, %23 ], [ %17, %15 ]
-  %33 = phi i64 [ 2, %25 ], [ 2, %23 ], [ 3, %15 ]
-  %34 = phi i1 [ %8, %25 ], [ %8, %23 ], [ %22, %15 ]
-  %35 = icmp eq ptr %3, null
-  br i1 %35, label %39, label %36
+29:                                               ; preds = %26, %24, %15
+  %30 = phi i8 [ %28, %26 ], [ 0, %24 ], [ 0, %15 ]
+  %31 = phi i32 [ 0, %26 ], [ 0, %24 ], [ %23, %15 ]
+  %32 = phi i8 [ %12, %26 ], [ %12, %24 ], [ %14, %15 ]
+  %33 = phi i8 [ %14, %26 ], [ %14, %24 ], [ %17, %15 ]
+  %34 = phi i64 [ 2, %26 ], [ 2, %24 ], [ 3, %15 ]
+  %35 = phi i1 [ %8, %26 ], [ %8, %24 ], [ %22, %15 ]
+  %36 = icmp eq ptr %3, null
+  br i1 %36, label %40, label %37
 
-36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
-  %38 = load ptr, ptr %37, align 8
-  br label %39
+37:                                               ; preds = %29
+  %38 = getelementptr inbounds i8, ptr %3, i64 8
+  %39 = load ptr, ptr %38, align 8
+  br label %40
 
-39:                                               ; preds = %36, %28
-  %40 = phi ptr [ %38, %36 ], [ null, %28 ]
-  %41 = zext i8 %30 to i32
-  %42 = zext i8 %31 to i32
-  %43 = zext nneg i8 %29 to i32
-  %44 = select i1 %34, ptr @.str.68, ptr @.str.69
-  %45 = and i8 %32, 1
+40:                                               ; preds = %37, %29
+  %41 = phi ptr [ %39, %37 ], [ null, %29 ]
+  %42 = zext i8 %32 to i32
+  %43 = zext nneg i8 %30 to i32
+  %44 = select i1 %35, ptr @.str.68, ptr @.str.69
+  %45 = and i8 %33, 1
   %46 = icmp eq i8 %45, 0
   %47 = select i1 %46, ptr @.str.71, ptr @.str.70
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %40, i32 noundef 2, ptr noundef nonnull @.str.67, i32 noundef %41, i32 noundef %42, i32 noundef %43, ptr noundef nonnull %44, ptr noundef nonnull %47) #8
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %41, i32 noundef 2, ptr noundef nonnull @.str.67, i32 noundef %31, i32 noundef %42, i32 noundef %43, ptr noundef nonnull %44, ptr noundef nonnull %47) #8
   %48 = load i16, ptr %6, align 8
-  br i1 %34, label %49, label %145
+  br i1 %35, label %49, label %145
 
-49:                                               ; preds = %39
+49:                                               ; preds = %40
   %50 = icmp eq i16 %48, 11
-  %51 = icmp ugt i8 %31, 4
+  %51 = icmp ugt i8 %32, 4
   %52 = and i1 %51, %50
   br i1 %52, label %53, label %65, !prof !26
 
@@ -1395,7 +1395,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 65:                                               ; preds = %49
-  switch i8 %31, label %143 [
+  switch i8 %32, label %143 [
     i8 0, label %66
     i8 5, label %66
     i8 1, label %82
@@ -1409,7 +1409,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   ]
 
 66:                                               ; preds = %65, %65
-  %67 = icmp eq i8 %31, 0
+  %67 = icmp eq i8 %32, 0
   %68 = getelementptr inbounds i8, ptr %3, i64 7932
   tail call void @_raw_spin_lock_irq(ptr noundef %68) #8
   %69 = select i1 %67, i32 0, i32 4
@@ -1430,7 +1430,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 82:                                               ; preds = %65, %65
-  %83 = icmp eq i8 %31, 1
+  %83 = icmp eq i8 %32, 1
   %84 = getelementptr inbounds i8, ptr %3, i64 3280
   %85 = load i32, ptr %84, align 8
   %86 = select i1 %83, i32 4, i32 260
@@ -1448,7 +1448,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 97:                                               ; preds = %65, %65
-  %98 = icmp eq i8 %31, 2
+  %98 = icmp eq i8 %32, 2
   %99 = getelementptr inbounds i8, ptr %3, i64 3280
   %100 = load i32, ptr %99, align 8
   %101 = select i1 %98, i32 4, i32 260
@@ -1467,7 +1467,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 113:                                              ; preds = %65, %65
-  %114 = icmp eq i8 %31, 3
+  %114 = icmp eq i8 %32, 3
   %115 = getelementptr inbounds i8, ptr %3, i64 2376
   %116 = load i32, ptr %115, align 8
   %117 = select i1 %114, i32 20500, i32 20504
@@ -1485,7 +1485,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 128:                                              ; preds = %65, %65
-  %129 = icmp eq i8 %31, 4
+  %129 = icmp eq i8 %32, 4
   %130 = getelementptr inbounds i8, ptr %3, i64 2376
   %131 = load i32, ptr %130, align 8
   %132 = select i1 %129, i32 20500, i32 20504
@@ -1504,7 +1504,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
 
 143:                                              ; preds = %65
   tail call void asm sideeffect "975: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 975b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 975) #8, !srcloc !37
-  %144 = zext i8 %31 to i64
+  %144 = zext i8 %32 to i64
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i64 noundef %144) #8
   tail call void asm sideeffect "976: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 976b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 976) #8, !srcloc !38
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.43, i32 385, i32 2313, i64 12) #8, !srcloc !39
@@ -1512,7 +1512,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   tail call void asm sideeffect "978: nop\0A\09.pushsection .discard.instr_end\0A\09.long 978b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 978) #8, !srcloc !41
   br label %328
 
-145:                                              ; preds = %39
+145:                                              ; preds = %40
   %146 = icmp ugt i16 %48, 8
   br i1 %146, label %147, label %155
 
@@ -1528,7 +1528,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
 
 153:                                              ; preds = %150, %147
   %154 = phi ptr [ %152, %150 ], [ null, %147 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %154, ptr noundef nonnull @.str.75, i32 noundef %41, ptr noundef nonnull inttoptr (i64 -38 to ptr)) #9
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %154, ptr noundef nonnull @.str.75, i32 noundef %31, ptr noundef nonnull inttoptr (i64 -38 to ptr)) #9
   br label %328
 
 155:                                              ; preds = %145
@@ -1546,7 +1546,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br i1 %164, label %165, label %180
 
 165:                                              ; preds = %161
-  switch i8 %29, label %173 [
+  switch i8 %30, label %173 [
     i8 1, label %166
     i8 0, label %180
   ]
@@ -1589,7 +1589,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   %185 = getelementptr inbounds i8, ptr %182, i64 16
   store ptr @.str.80, ptr %185, align 8
   %186 = getelementptr inbounds i8, ptr %182, i64 24
-  %187 = zext i8 %31 to i16
+  %187 = zext i8 %32 to i16
   store ptr @.str.78, ptr %186, align 8
   %188 = getelementptr inbounds i8, ptr %182, i64 32
   store i16 %187, ptr %188, align 8
@@ -1626,7 +1626,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br i1 %205, label %206, label %291
 
 206:                                              ; preds = %202
-  %207 = icmp ugt i8 %31, -59
+  %207 = icmp ugt i8 %32, -59
   br i1 %207, label %208, label %229
 
 208:                                              ; preds = %206
@@ -1636,7 +1636,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br i1 %211, label %328, label %212
 
 212:                                              ; preds = %208
-  %213 = add nsw i8 %31, 58
+  %213 = add nsw i8 %32, 58
   %214 = getelementptr inbounds i8, ptr %210, i64 16
   store ptr @.str.80, ptr %214, align 8
   %215 = getelementptr inbounds i8, ptr %210, i64 24
@@ -1667,7 +1667,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 229:                                              ; preds = %206
-  %230 = icmp ugt i8 %31, 99
+  %230 = icmp ugt i8 %32, 99
   br i1 %230, label %231, label %252
 
 231:                                              ; preds = %229
@@ -1677,7 +1677,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br i1 %234, label %328, label %235
 
 235:                                              ; preds = %231
-  %236 = add i8 %31, -100
+  %236 = add i8 %32, -100
   %237 = getelementptr inbounds i8, ptr %233, i64 16
   store ptr @.str.80, ptr %237, align 8
   %238 = getelementptr inbounds i8, ptr %233, i64 24
@@ -1708,7 +1708,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 252:                                              ; preds = %229
-  %253 = icmp ugt i8 %31, 72
+  %253 = icmp ugt i8 %32, 72
   %254 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %255 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %254, i32 noundef 3520, i64 noundef 104) #12
   %256 = icmp eq ptr %255, null
@@ -1718,7 +1718,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br i1 %256, label %328, label %258
 
 258:                                              ; preds = %257
-  %259 = add nsw i8 %31, -73
+  %259 = add nsw i8 %32, -73
   %260 = getelementptr inbounds i8, ptr %255, i64 16
   store ptr @.str.80, ptr %260, align 8
   %261 = getelementptr inbounds i8, ptr %255, i64 24
@@ -1755,7 +1755,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   %277 = getelementptr inbounds i8, ptr %255, i64 16
   store ptr @.str.80, ptr %277, align 8
   %278 = getelementptr inbounds i8, ptr %255, i64 24
-  %279 = zext nneg i8 %31 to i16
+  %279 = zext nneg i8 %32 to i16
   store ptr @.str.88, ptr %278, align 8
   %280 = getelementptr inbounds i8, ptr %255, i64 32
   store i16 %279, ptr %280, align 8
@@ -1781,7 +1781,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 291:                                              ; preds = %202
-  %292 = icmp eq i8 %29, 0
+  %292 = icmp eq i8 %30, 0
   br i1 %292, label %300, label %293
 
 293:                                              ; preds = %291
@@ -1799,7 +1799,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 300:                                              ; preds = %291
-  %301 = icmp ugt i8 %31, 72
+  %301 = icmp ugt i8 %32, 72
   br i1 %301, label %302, label %309
 
 302:                                              ; preds = %300
@@ -1826,7 +1826,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   %314 = getelementptr inbounds i8, ptr %311, i64 16
   store ptr @.str.80, ptr %314, align 8
   %315 = getelementptr inbounds i8, ptr %311, i64 24
-  %316 = zext nneg i8 %31 to i16
+  %316 = zext nneg i8 %32 to i16
   store ptr @.str.88, ptr %315, align 8
   %317 = getelementptr inbounds i8, ptr %311, i64 32
   store i16 %316, ptr %317, align 8
@@ -1852,7 +1852,7 @@ define internal noundef ptr @mipi_exec_gpio(ptr nocapture noundef readonly %0, p
   br label %328
 
 328:                                              ; preds = %326, %309, %307, %298, %289, %275, %273, %257, %250, %231, %227, %208, %199, %197, %180, %178, %171, %153, %143, %128, %113, %97, %82, %66, %63
-  %329 = getelementptr i8, ptr %1, i64 %33
+  %329 = getelementptr i8, ptr %1, i64 %34
   ret ptr %329
 }
 

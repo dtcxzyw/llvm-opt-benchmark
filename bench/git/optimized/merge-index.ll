@@ -122,45 +122,31 @@ land.lhs.true:                                    ; preds = %for.body
 sub_124:                                          ; preds = %land.lhs.true
   %19 = getelementptr inbounds i8, ptr %17, i64 1
   %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  %22 = add nsw i32 %21, -45
-  %.not39 = icmp eq i32 %22, 0
-  br i1 %.not39, label %sub_225, label %if.then21.tail
+  %.not39 = icmp eq i8 %20, 45
+  br i1 %.not39, label %if.then21.tail, label %sub_128
 
-sub_225:                                          ; preds = %sub_124
-  %23 = getelementptr inbounds i8, ptr %17, i64 2
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  br label %if.then21.tail
+if.then21.tail:                                   ; preds = %sub_124
+  %21 = getelementptr inbounds i8, ptr %17, i64 2
+  %22 = load i8, ptr %21, align 1
+  %23 = icmp eq i8 %22, 0
+  br i1 %23, label %for.inc, label %sub_128
 
-if.then21.tail:                                   ; preds = %sub_124, %sub_225
-  %26 = phi i32 [ %22, %sub_124 ], [ %25, %sub_225 ]
-  %tobool23.not = icmp eq i32 %26, 0
-  br i1 %tobool23.not, label %for.inc, label %sub_128
+sub_128:                                          ; preds = %sub_124, %if.then21.tail
+  %24 = getelementptr inbounds i8, ptr %17, i64 1
+  %25 = load i8, ptr %24, align 1
+  %.not41 = icmp eq i8 %25, 97
+  br i1 %.not41, label %if.end25.tail, label %if.end29
 
-sub_128:                                          ; preds = %if.then21.tail
-  %27 = getelementptr inbounds i8, ptr %17, i64 1
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = add nsw i32 %29, -97
-  %.not41 = icmp eq i32 %30, 0
-  br i1 %.not41, label %sub_229, label %if.end25.tail
-
-sub_229:                                          ; preds = %sub_128
-  %31 = getelementptr inbounds i8, ptr %17, i64 2
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i32
-  br label %if.end25.tail
-
-if.end25.tail:                                    ; preds = %sub_128, %sub_229
-  %34 = phi i32 [ %30, %sub_128 ], [ %33, %sub_229 ]
-  %tobool27.not = icmp eq i32 %34, 0
-  br i1 %tobool27.not, label %if.then28, label %if.end29
+if.end25.tail:                                    ; preds = %sub_128
+  %26 = getelementptr inbounds i8, ptr %17, i64 2
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %if.then28, label %if.end29
 
 if.then28:                                        ; preds = %if.end25.tail
   tail call void @ensure_full_index(ptr noundef nonnull @the_index) #7
-  %35 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
-  %cmp6.not.i = icmp eq i32 %35, 0
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
+  %cmp6.not.i = icmp eq i32 %29, 0
   br i1 %cmp6.not.i, label %for.inc, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then28
@@ -168,20 +154,20 @@ for.body.preheader.i:                             ; preds = %if.then28
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %36 = phi i32 [ %41, %for.inc.i ], [ %35, %for.body.preheader.i ]
-  %37 = phi ptr [ %42, %for.inc.i ], [ %.pre8.i, %for.body.preheader.i ]
+  %30 = phi i32 [ %35, %for.inc.i ], [ %29, %for.body.preheader.i ]
+  %31 = phi ptr [ %36, %for.inc.i ], [ %.pre8.i, %for.body.preheader.i ]
   %i.07.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
   %idxprom.i = sext i32 %i.07.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %37, i64 %idxprom.i
-  %38 = load ptr, ptr %arrayidx.i, align 8
-  %ce_flags.i = getelementptr inbounds i8, ptr %38, i64 56
-  %39 = load i32, ptr %ce_flags.i, align 8
-  %40 = and i32 %39, 12288
-  %tobool.not.i = icmp eq i32 %40, 0
+  %arrayidx.i = getelementptr inbounds ptr, ptr %31, i64 %idxprom.i
+  %32 = load ptr, ptr %arrayidx.i, align 8
+  %ce_flags.i = getelementptr inbounds i8, ptr %32, i64 56
+  %33 = load i32, ptr %ce_flags.i, align 8
+  %34 = and i32 %33, 12288
+  %tobool.not.i = icmp eq i32 %34, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %name.i = getelementptr inbounds i8, ptr %38, i64 108
+  %name.i = getelementptr inbounds i8, ptr %32, i64 108
   %call.i = tail call fastcc i32 @merge_entry(i32 noundef %i.07.i, ptr noundef nonnull %name.i)
   %sub.i = add nsw i32 %i.07.i, -1
   %add.i = add i32 %sub.i, %call.i
@@ -190,14 +176,14 @@ if.end.i:                                         ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.body.i
-  %41 = phi i32 [ %.pre9.i, %if.end.i ], [ %36, %for.body.i ]
-  %42 = phi ptr [ %.pre.i, %if.end.i ], [ %37, %for.body.i ]
+  %35 = phi i32 [ %.pre9.i, %if.end.i ], [ %30, %for.body.i ]
+  %36 = phi ptr [ %.pre.i, %if.end.i ], [ %31, %for.body.i ]
   %i.1.i = phi i32 [ %add.i, %if.end.i ], [ %i.07.i, %for.body.i ]
   %inc.i = add nsw i32 %i.1.i, 1
-  %cmp.i = icmp ult i32 %inc.i, %41
+  %cmp.i = icmp ult i32 %inc.i, %35
   br i1 %cmp.i, label %for.body.i, label %for.inc, !llvm.loop !5
 
-if.end29:                                         ; preds = %if.end25.tail
+if.end29:                                         ; preds = %sub_128, %if.end25.tail
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, ptr noundef nonnull %17) #8
   unreachable
 
@@ -220,8 +206,8 @@ for.inc:                                          ; preds = %for.inc.i, %if.then
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end11
-  %43 = load i32, ptr @err, align 4
-  %tobool32 = icmp eq i32 %43, 0
+  %37 = load i32, ptr @err, align 4
+  %tobool32 = icmp eq i32 %37, 0
   %.b = load i1, ptr @quiet, align 4
   %or.cond = select i1 %tobool32, i1 true, i1 %.b
   br i1 %or.cond, label %if.end36, label %if.then35
@@ -231,7 +217,7 @@ if.then35:                                        ; preds = %for.end
   unreachable
 
 if.end36:                                         ; preds = %for.end
-  ret i32 %43
+  ret i32 %37
 }
 
 ; Function Attrs: nounwind

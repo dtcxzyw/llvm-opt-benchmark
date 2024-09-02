@@ -1430,7 +1430,7 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.thread
   %.03646.us = phi i32 [ %.138.us, %.thread ], [ -1, %.preheader.us.preheader ]
-  br label %54
+  br label %55
 
 40:                                               ; preds = %._crit_edge.us
   %41 = icmp slt i32 %.03646.us, %.138.us
@@ -1442,72 +1442,72 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
   %44 = call i32 @ume_notify() #15
   %45 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.137, i32 noundef %44) #15
   %.pre = load i64, ptr @shutdown_time, align 8
-  %.not42.us = icmp eq i64 %.pre, 0
-  br i1 %.not42.us, label %.thread, label %._crit_edge47
+  %46 = icmp eq i64 %.pre, 0
+  br i1 %46, label %.thread, label %._crit_edge47
 
 .thread:                                          ; preds = %40, %43
-  %46 = load i32, ptr @ume_check_interval, align 4
-  %47 = udiv i32 %46, 1000000
-  %48 = zext nneg i32 %47 to i64
-  store i64 %48, ptr %2, align 8
-  %49 = urem i32 %46, 1000000
-  %50 = mul nuw nsw i32 %49, 1000
-  %51 = zext nneg i32 %50 to i64
-  store i64 %51, ptr %39, align 8
-  %52 = call i32 @nanosleep(ptr noundef nonnull %2, ptr noundef null) #15
-  %53 = load i64, ptr @shutdown_time, align 8
-  %.not.us = icmp eq i64 %53, 0
+  %47 = load i32, ptr @ume_check_interval, align 4
+  %48 = udiv i32 %47, 1000000
+  %49 = zext nneg i32 %48 to i64
+  store i64 %49, ptr %2, align 8
+  %50 = urem i32 %47, 1000000
+  %51 = mul nuw nsw i32 %50, 1000
+  %52 = zext nneg i32 %51 to i64
+  store i64 %52, ptr %39, align 8
+  %53 = call i32 @nanosleep(ptr noundef nonnull %2, ptr noundef null) #15
+  %54 = load i64, ptr @shutdown_time, align 8
+  %.not.us = icmp eq i64 %54, 0
   br i1 %.not.us, label %.preheader.us, label %._crit_edge47, !llvm.loop !18
 
-54:                                               ; preds = %.preheader.us, %68
-  %indvars.iv53 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next54, %68 ]
-  %.03743.us = phi i32 [ 0, %.preheader.us ], [ %.138.us, %68 ]
-  %55 = load ptr, ptr %3, align 8
-  %56 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv53
-  %57 = load i32, ptr %56, align 4
-  %58 = call i64 @lseek(i32 noundef %57, i64 noundef 0, i32 noundef 0) #15
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv53
-  %61 = load i32, ptr %60, align 4
-  %62 = call i64 @read(i32 noundef %61, ptr noundef nonnull %4, i64 noundef 7) #15
-  %63 = icmp slt i64 %62, 1
-  br i1 %63, label %68, label %64
+55:                                               ; preds = %.preheader.us, %69
+  %indvars.iv53 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next54, %69 ]
+  %.03743.us = phi i32 [ 0, %.preheader.us ], [ %.138.us, %69 ]
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv53
+  %58 = load i32, ptr %57, align 4
+  %59 = call i64 @lseek(i32 noundef %58, i64 noundef 0, i32 noundef 0) #15
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv53
+  %62 = load i32, ptr %61, align 4
+  %63 = call i64 @read(i32 noundef %62, ptr noundef nonnull %4, i64 noundef 7) #15
+  %64 = icmp slt i64 %63, 1
+  br i1 %64, label %69, label %65
 
-64:                                               ; preds = %54
-  %65 = getelementptr inbounds [8 x i8], ptr %4, i64 0, i64 %62
-  store i8 0, ptr %65, align 1
-  %66 = call i32 @atoi(ptr nocapture noundef nonnull %4) #17
-  %67 = add nsw i32 %66, %.03743.us
-  br label %68
+65:                                               ; preds = %55
+  %66 = getelementptr inbounds [8 x i8], ptr %4, i64 0, i64 %63
+  store i8 0, ptr %66, align 1
+  %67 = call i32 @atoi(ptr nocapture noundef nonnull %4) #17
+  %68 = add nsw i32 %67, %.03743.us
+  br label %69
 
-68:                                               ; preds = %64, %54
-  %.138.us = phi i32 [ %.03743.us, %54 ], [ %67, %64 ]
+69:                                               ; preds = %65, %55
+  %.138.us = phi i32 [ %.03743.us, %55 ], [ %68, %65 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.us, label %55, !llvm.loop !19
 
-._crit_edge.us:                                   ; preds = %68
-  %69 = load i64, ptr @shutdown_time, align 8
-  %.not41.us = icmp eq i64 %69, 0
+._crit_edge.us:                                   ; preds = %69
+  %70 = load i64, ptr @shutdown_time, align 8
+  %.not41.us = icmp eq i64 %70, 0
   br i1 %.not41.us, label %40, label %._crit_edge47
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph, %.preheader.preheader
-  %70 = load i32, ptr @ume_check_interval, align 4
-  %71 = udiv i32 %70, 1000000
-  %72 = zext nneg i32 %71 to i64
-  store i64 %72, ptr %2, align 8
-  %73 = urem i32 %70, 1000000
-  %74 = mul nuw nsw i32 %73, 1000
-  %75 = zext nneg i32 %74 to i64
-  store i64 %75, ptr %39, align 8
-  %76 = call i32 @nanosleep(ptr noundef nonnull %2, ptr noundef null) #15
-  %77 = load i64, ptr @shutdown_time, align 8
-  %.not = icmp eq i64 %77, 0
+  %71 = load i32, ptr @ume_check_interval, align 4
+  %72 = udiv i32 %71, 1000000
+  %73 = zext nneg i32 %72 to i64
+  store i64 %73, ptr %2, align 8
+  %74 = urem i32 %71, 1000000
+  %75 = mul nuw nsw i32 %74, 1000
+  %76 = zext nneg i32 %75 to i64
+  store i64 %76, ptr %39, align 8
+  %77 = call i32 @nanosleep(ptr noundef nonnull %2, ptr noundef null) #15
+  %78 = load i64, ptr @shutdown_time, align 8
+  %.not = icmp eq i64 %78, 0
   br i1 %.not, label %.preheader.preheader, label %._crit_edge47, !llvm.loop !18
 
 ._crit_edge47:                                    ; preds = %.preheader.preheader, %.thread, %._crit_edge.us, %43, %36
-  %78 = icmp sgt i64 %indvars.iv, 0
-  br i1 %78, label %.lr.ph.preheader, label %._crit_edge
+  %79 = icmp sgt i64 %indvars.iv, 0
+  br i1 %79, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge47
   %wide.trip.count62 = zext i32 %indvars.iv56 to i64
@@ -1515,10 +1515,10 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv58 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next59, %.lr.ph ]
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv58
-  %81 = load i32, ptr %80, align 4
-  %82 = call i32 @close(i32 noundef %81) #15
+  %80 = load ptr, ptr %3, align 8
+  %81 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv58
+  %82 = load i32, ptr %81, align 4
+  %83 = call i32 @close(i32 noundef %82) #15
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count62
   br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -2489,22 +2489,25 @@ define range(i32 0, 8002) i32 @node_features_p_job_valid(ptr noundef %0, ptr noc
   %21 = or i16 %20, %.015.i
   %22 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull readonly @.str.92, ptr noundef nonnull %3) #15
   %.not12.i = icmp eq ptr %22, null
-  br i1 %.not12.i, label %_knl_mcdram_parse.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not12.i, label %_knl_mcdram_parse.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
 
-_knl_mcdram_parse.exit:                           ; preds = %.lr.ph.i, %.lr.ph
-  %.0.lcssa.i = phi i16 [ 0, %.lr.ph ], [ %21, %.lr.ph.i ]
+_knl_mcdram_parse.exit.loopexit:                  ; preds = %.lr.ph.i
+  %23 = and i16 %21, 32512
+  %24 = zext nneg i16 %23 to i32
+  br label %_knl_mcdram_parse.exit
+
+_knl_mcdram_parse.exit:                           ; preds = %_knl_mcdram_parse.exit.loopexit, %.lr.ph
+  %.0.lcssa.i = phi i32 [ 0, %.lr.ph ], [ %24, %_knl_mcdram_parse.exit.loopexit ]
   call void @slurm_xfree(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %23 = and i16 %.0.lcssa.i, 32512
-  %24 = zext nneg i16 %23 to i32
   br label %25
 
 25:                                               ; preds = %25, %_knl_mcdram_parse.exit
   %.011.i = phi i32 [ 1, %_knl_mcdram_parse.exit ], [ %29, %25 ]
   %.0710.i = phi i32 [ 0, %_knl_mcdram_parse.exit ], [ %30, %25 ]
   %.089.i = phi i32 [ 0, %_knl_mcdram_parse.exit ], [ %spec.select.i, %25 ]
-  %26 = and i32 %.011.i, %24
+  %26 = and i32 %.011.i, %.0.lcssa.i
   %.not.i32 = icmp ne i32 %26, 0
   %27 = zext i1 %.not.i32 to i32
   %spec.select.i = add nuw nsw i32 %.089.i, %27
@@ -2639,16 +2642,14 @@ define ptr @node_features_p_job_xlate(ptr noundef %0, ptr nocapture noundef read
 
 22:                                               ; preds = %20
   %23 = call i32 @xstrcasecmp(ptr noundef nonnull %.01631, ptr noundef nonnull @.str.66) #15
-  %.not13.i = icmp eq i32 %23, 0
-  %spec.select.i = select i1 %.not13.i, i16 16, i16 0
+  %.not13.i = icmp ne i32 %23, 0
   br label %_knl_numa_token.exit
 
 _knl_numa_token.exit:                             ; preds = %12, %16, %18, %20, %22
-  %.0.i = phi i16 [ 1, %12 ], [ 1, %16 ], [ 1, %18 ], [ 1, %20 ], [ %spec.select.i, %22 ]
-  %.not25 = icmp eq i16 %.0.i, 0
-  %not..not25 = xor i1 %.not25, true
-  %.115 = select i1 %not..not25, i1 true, i1 %.01432
-  %24 = select i1 %.not25, i1 true, i1 %.01432
+  %.0.i = phi i1 [ false, %12 ], [ false, %16 ], [ false, %18 ], [ false, %20 ], [ %.not13.i, %22 ]
+  %not..0.i = xor i1 %.0.i, true
+  %.115 = select i1 %not..0.i, i1 true, i1 %.01432
+  %24 = select i1 %.0.i, i1 true, i1 %.01432
   %25 = select i1 %.not24, i1 %14, i1 false
   %not. = xor i1 %24, true
   %26 = select i1 %not., i1 true, i1 %25

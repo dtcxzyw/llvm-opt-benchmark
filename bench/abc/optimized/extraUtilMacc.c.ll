@@ -58,7 +58,7 @@ define void @Macc_ConstMultSpecOne2(ptr nocapture noundef %0, i32 noundef %1, i3
   %5 = add nsw i32 %3, %2
   %6 = tail call ptr (...) @Extra_TimeStamp() #11
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %5, i32 noundef %1, ptr noundef %6) #11
-  %8 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
+  %8 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %1, i1 true)
   %9 = icmp slt i32 %1, 0
   %10 = select i1 %9, ptr @.str.2, ptr @.str.3
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %8, ptr noundef nonnull %10) #11
@@ -84,7 +84,7 @@ declare ptr @Extra_TimeStamp(...) local_unnamed_addr #2
 define void @Macc_ConstMultSpecOne(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = add i32 %2, -1
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %3, i32 noundef %2, i32 noundef %1) #11
-  %7 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
+  %7 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %1, i1 true)
   %8 = icmp slt i32 %1, 0
   %9 = select i1 %8, ptr @.str.2, ptr @.str.3
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %7, ptr noundef nonnull %9) #11
@@ -895,7 +895,7 @@ define void @Macc_ConstMultGenOne_rec(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %31
 
 28:                                               ; preds = %._crit_edge
-  %29 = tail call i32 @llvm.abs.i32(i32 %24, i1 true)
+  %29 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %24, i1 true)
   %.not73 = icmp eq i32 %29, 1
   br i1 %.not73, label %31, label %30
 
@@ -910,8 +910,8 @@ define void @Macc_ConstMultGenOne_rec(ptr noundef %0, ptr noundef %1, i32 nounde
 32:                                               ; preds = %31
   %33 = add nsw i32 %9, -1
   %34 = zext nneg i8 %16 to i32
-  %35 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
-  %36 = tail call i32 @llvm.abs.i32(i32 %24, i1 true)
+  %35 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %2, i1 true)
+  %36 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %24, i1 true)
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef %34, i32 noundef %36, i32 noundef %.0.lcssa) #11
   br label %common.ret80
 
@@ -929,7 +929,7 @@ common.ret80:                                     ; preds = %47, %31, %32, %49, 
   tail call void @Macc_ConstMultGenOne_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %14, i32 noundef %3, i32 noundef %4)
   %42 = add nsw i32 %9, -1
   %43 = zext nneg i8 %16 to i32
-  %44 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
+  %44 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %2, i1 true)
   %45 = select i1 %.not, i32 43, i32 45
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.28, i32 noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef %13, i32 noundef %45, i32 noundef %14) #11
   br label %common.ret80
@@ -949,7 +949,7 @@ common.ret80:                                     ; preds = %47, %31, %32, %49, 
 define void @Macc_ConstMultGenMult(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = icmp slt i32 %2, 0
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %4, i32 noundef %3, i32 noundef %2) #11
-  %8 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
+  %8 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %2, i1 true)
   %9 = select i1 %6, ptr @.str.2, ptr @.str.3
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %8, ptr noundef nonnull %9) #11
   %11 = add i32 %4, -1
@@ -980,7 +980,7 @@ define void @Macc_ConstMultGenMult(ptr noundef %0, ptr noundef %1, i32 noundef %
 define void @Macc_ConstMultGenMacc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = icmp slt i32 %2, 0
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %4, i32 noundef %3, i32 noundef %2) #11
-  %8 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
+  %8 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %2, i1 true)
   %9 = select i1 %6, ptr @.str.2, ptr @.str.3
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %8, ptr noundef nonnull %9) #11
   %11 = add i32 %4, -1
@@ -1015,7 +1015,7 @@ define void @Macc_ConstMultGenMacc2(ptr noundef %0, ptr noundef %1, i32 noundef 
   %7 = icmp slt i32 %2, 0
   %8 = tail call ptr (...) @Extra_TimeStamp() #11
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.39, i32 noundef %6, i32 noundef %2, ptr noundef %8) #11
-  %10 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
+  %10 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %2, i1 true)
   %11 = select i1 %7, ptr @.str.2, ptr @.str.3
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %10, ptr noundef nonnull %11) #11
   %13 = add nsw i32 %6, -1

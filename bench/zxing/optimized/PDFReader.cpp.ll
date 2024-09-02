@@ -802,7 +802,7 @@ _ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i: ;
   %.0.i27.i = phi i32 [ %86, %76 ], [ 119304646, %_ZN5ZXing6Pdf417L11GetMinWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i ]
   %88 = call i32 @llvm.umin.i32(i32 %.0.i27.i, i32 %.0.i25.i)
   %89 = call i32 @llvm.umin.i32(i32 %.0.i23.i, i32 %.0.i.i)
-  %90 = call noundef i32 @llvm.umin.i32(i32 %88, i32 %89)
+  %90 = call noundef range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %88, i32 %89)
   br i1 %34, label %91, label %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit.i
 
 91:                                               ; preds = %87
@@ -877,7 +877,7 @@ _ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i: ;
   %.0.i27.i52 = phi i32 [ %130, %120 ], [ 0, %_ZN5ZXing6Pdf417L11GetMaxWidthERKNS_8NullableINS_11ResultPointEEES5_.exit26.i ]
   %132 = call i32 @llvm.umax.i32(i32 %.0.i.i43, i32 %.0.i23.i46)
   %133 = call i32 @llvm.umax.i32(i32 %.0.i25.i49, i32 %.0.i27.i52)
-  %134 = call noundef i32 @llvm.umax.i32(i32 %132, i32 %133)
+  %134 = call noundef range(i32 0, -2147483648) i32 @llvm.umax.i32(i32 %132, i32 %133)
   invoke void @_ZN5ZXing6Pdf41715ScanningDecoder6DecodeERKNS_9BitMatrixERKNS_8NullableINS_11ResultPointEEES9_S9_S9_ii(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::DecoderResult") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %31, i32 noundef %90, i32 noundef %134)
           to label %135 unwind label %270
 

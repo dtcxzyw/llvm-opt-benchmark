@@ -30578,32 +30578,35 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5635, %5624
   store i16 %.sink, ptr %5679, align 2
   %indvars.iv.next5732 = add nuw nsw i64 %indvars.iv5731, 2
   %5680 = icmp slt i64 %indvars.iv.next5732, %5642
-  br i1 %5680, label %.lr.ph5332, label %._crit_edge5333, !llvm.loop !62
+  br i1 %5680, label %.lr.ph5332, label %._crit_edge5333.loopexit, !llvm.loop !62
 
-._crit_edge5333:                                  ; preds = %5678, %5644
-  %.03118.lcssa = phi i64 [ 0, %5644 ], [ %indvars.iv.next5732, %5678 ]
-  br i1 %52, label %5681, label %5698
+._crit_edge5333.loopexit:                         ; preds = %5678
+  %5681 = and i64 %indvars.iv.next5732, 4294967294
+  br label %._crit_edge5333
 
-5681:                                             ; preds = %._crit_edge5333
-  %5682 = and i64 %.03118.lcssa, 4294967295
-  %5683 = getelementptr inbounds i16, ptr %5655, i64 %5682
+._crit_edge5333:                                  ; preds = %._crit_edge5333.loopexit, %5644
+  %.03118.lcssa = phi i64 [ 0, %5644 ], [ %5681, %._crit_edge5333.loopexit ]
+  br i1 %52, label %5682, label %5698
+
+5682:                                             ; preds = %._crit_edge5333
+  %5683 = getelementptr inbounds i16, ptr %5655, i64 %.03118.lcssa
   %5684 = load i16, ptr %5683, align 2
   %.not3777 = icmp eq i16 %5684, 0
   br i1 %.not3777, label %5696, label %5685
 
-5685:                                             ; preds = %5681
+5685:                                             ; preds = %5682
   %5686 = zext i16 %5684 to i64
   %5687 = getelementptr inbounds i16, ptr %.sroa.0.0, i64 %5686
   %5688 = load i16, ptr %5687, align 2
-  %5689 = getelementptr inbounds i8, ptr %5649, i64 %5682
+  %5689 = getelementptr inbounds i8, ptr %5649, i64 %.03118.lcssa
   %5690 = load i8, ptr %5689, align 1
   %.not3778 = icmp eq i8 %5690, 0
   %.4776 = select i1 %.not3778, i16 0, i16 %5688
   store i16 %.4776, ptr %5683, align 2
-  %5691 = getelementptr inbounds i8, ptr %5650, i64 %5682
+  %5691 = getelementptr inbounds i8, ptr %5650, i64 %.03118.lcssa
   %5692 = load i8, ptr %5691, align 1
   %.not3779 = icmp eq i8 %5692, 0
-  %5693 = getelementptr inbounds i16, ptr %5656, i64 %5682
+  %5693 = getelementptr inbounds i16, ptr %5656, i64 %.03118.lcssa
   br i1 %.not3779, label %5695, label %5694
 
 5694:                                             ; preds = %5685
@@ -30614,8 +30617,8 @@ _ZN2cv19connectedcomponentsL8flattenLItEET_PS2_S2_.exit: ; preds = %5635, %5624
   store i16 0, ptr %5693, align 2
   br label %5698
 
-5696:                                             ; preds = %5681
-  %5697 = getelementptr inbounds i16, ptr %5656, i64 %5682
+5696:                                             ; preds = %5682
+  %5697 = getelementptr inbounds i16, ptr %5656, i64 %.03118.lcssa
   store i16 0, ptr %5697, align 2
   br label %5698
 
@@ -42253,32 +42256,35 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5640, %5629
   store i32 %.sink, ptr %5685, align 4
   %indvars.iv.next5736 = add nuw nsw i64 %indvars.iv5735, 2
   %5686 = icmp slt i64 %indvars.iv.next5736, %5647
-  br i1 %5686, label %.lr.ph5332, label %._crit_edge5333, !llvm.loop !66
+  br i1 %5686, label %.lr.ph5332, label %._crit_edge5333.loopexit, !llvm.loop !66
 
-._crit_edge5333:                                  ; preds = %5684, %5649
-  %.03118.lcssa = phi i64 [ 0, %5649 ], [ %indvars.iv.next5736, %5684 ]
-  br i1 %52, label %5687, label %5705
+._crit_edge5333.loopexit:                         ; preds = %5684
+  %5687 = and i64 %indvars.iv.next5736, 4294967294
+  br label %._crit_edge5333
 
-5687:                                             ; preds = %._crit_edge5333
-  %5688 = and i64 %.03118.lcssa, 4294967295
-  %5689 = getelementptr inbounds i32, ptr %5660, i64 %5688
+._crit_edge5333:                                  ; preds = %._crit_edge5333.loopexit, %5649
+  %.03118.lcssa = phi i64 [ 0, %5649 ], [ %5687, %._crit_edge5333.loopexit ]
+  br i1 %52, label %5688, label %5705
+
+5688:                                             ; preds = %._crit_edge5333
+  %5689 = getelementptr inbounds i32, ptr %5660, i64 %.03118.lcssa
   %5690 = load i32, ptr %5689, align 4
   %5691 = icmp sgt i32 %5690, 0
   br i1 %5691, label %5692, label %5703
 
-5692:                                             ; preds = %5687
+5692:                                             ; preds = %5688
   %5693 = zext nneg i32 %5690 to i64
   %5694 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %5693
   %5695 = load i32, ptr %5694, align 4
-  %5696 = getelementptr inbounds i8, ptr %5654, i64 %5688
+  %5696 = getelementptr inbounds i8, ptr %5654, i64 %.03118.lcssa
   %5697 = load i8, ptr %5696, align 1
   %.not3779 = icmp eq i8 %5697, 0
   %.4776 = select i1 %.not3779, i32 0, i32 %5695
   store i32 %.4776, ptr %5689, align 4
-  %5698 = getelementptr inbounds i8, ptr %5655, i64 %5688
+  %5698 = getelementptr inbounds i8, ptr %5655, i64 %.03118.lcssa
   %5699 = load i8, ptr %5698, align 1
   %.not3780 = icmp eq i8 %5699, 0
-  %5700 = getelementptr inbounds i32, ptr %5661, i64 %5688
+  %5700 = getelementptr inbounds i32, ptr %5661, i64 %.03118.lcssa
   br i1 %.not3780, label %5702, label %5701
 
 5701:                                             ; preds = %5692
@@ -42289,9 +42295,9 @@ _ZN2cv19connectedcomponentsL8flattenLIiEET_PS2_S2_.exit: ; preds = %5640, %5629
   store i32 0, ptr %5700, align 4
   br label %5705
 
-5703:                                             ; preds = %5687
+5703:                                             ; preds = %5688
   store i32 0, ptr %5689, align 4
-  %5704 = getelementptr inbounds i32, ptr %5661, i64 %5688
+  %5704 = getelementptr inbounds i32, ptr %5661, i64 %.03118.lcssa
   store i32 0, ptr %5704, align 4
   br label %5705
 

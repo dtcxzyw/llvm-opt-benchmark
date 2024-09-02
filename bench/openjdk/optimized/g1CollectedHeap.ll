@@ -1026,7 +1026,7 @@ declare void @_ZN13G1BatchedTask15set_max_workersEj(ptr noundef nonnull align 8 
 declare void @_ZN13WorkerThreads8run_taskEP10WorkerTaskj(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN15G1CollectedHeap21get_chunks_per_regionEv() local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 1, -2147483647) i32 @_ZN15G1CollectedHeap21get_chunks_per_regionEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr @_ZN12G1HeapRegion17LogOfHRGrainBytesE, align 4
   %2 = lshr i32 %1, 1
   %3 = add nsw i32 %2, -4

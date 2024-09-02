@@ -3827,7 +3827,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN16TransferFunction4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16492) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZN16TransferFunction4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16492) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -4032,7 +4032,7 @@ declare noundef float @_Z21absolute2RelativeValfff(float noundef, float noundef)
 declare void @_ZN6QColor7setRgbFEdddd(ptr noundef nonnull align 4 dereferenceable(14), double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define i32 @_ZN16TransferFunction17getColorByQualityEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16492) %0, float noundef %1) local_unnamed_addr #6 align 2 {
+define range(i32 -16777216, 0) i32 @_ZN16TransferFunction17getColorByQualityEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16492) %0, float noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

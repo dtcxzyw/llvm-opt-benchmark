@@ -1972,7 +1972,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %2, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -63, -9223372036854775808) i64 @bit_fls(ptr nocapture noundef readonly %0) #4 {
+define range(i64 -63, 9223372036854775807) i64 @bit_fls(ptr nocapture noundef readonly %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -2344,7 +2344,7 @@ _bit_overlap_internal.exit:                       ; preds = %7, %2, %.split.us.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @bit_overlap_any(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define range(i32 0, 2) i32 @bit_overlap_any(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0

@@ -380,12 +380,12 @@ land.rhs.i:                                       ; preds = %invoke.cont13
           to label %call3.i.noexc unwind label %lpad15
 
 call3.i.noexc:                                    ; preds = %land.rhs.i
-  %cmp4.i = icmp eq i32 %call3.i69, 0
+  %cmp4.i.not = icmp eq i32 %call3.i69, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #23
-  br i1 %cmp4.i, label %if.end50, label %if.then41
+  br i1 %cmp4.i.not, label %if.end50, label %if.then41
 
 if.then41.critedge:                               ; preds = %invoke.cont13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #23

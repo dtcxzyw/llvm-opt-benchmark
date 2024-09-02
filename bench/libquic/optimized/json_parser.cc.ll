@@ -1442,7 +1442,7 @@ cleanup.sink.split:                               ; preds = %if.then53, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %land.lhs.true, %if.then48, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
-  %cleanup.dest.slot.1.ph = phi i32 [ 0, %land.lhs.true ], [ 0, %if.then48 ], [ 0, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ 1, %cleanup.sink.split ]
+  %.ph = phi i1 [ true, %land.lhs.true ], [ true, %if.then48 ], [ true, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ false, %cleanup.sink.split ]
   %token.2.ph = phi i32 [ 1, %land.lhs.true ], [ %call51, %if.then48 ], [ %call46, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ], [ %token.2.ph.ph, %cleanup.sink.split ]
   %.pr = load ptr, ptr %value, align 8
   %cmp.not.i77 = icmp eq ptr %.pr, null
@@ -1457,7 +1457,7 @@ _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78: ; preds = %cleanup
 
 cleanup61:                                        ; preds = %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78, %cleanup, %cleanup.thread, %invoke.cont20, %if.then28
   %value.sink = phi ptr [ %agg.result, %if.then28 ], [ %agg.result, %invoke.cont20 ], [ %value, %cleanup.thread ], [ %value, %cleanup ], [ %value, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78 ]
-  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then28 ], [ 1, %invoke.cont20 ], [ 1, %cleanup.thread ], [ %cleanup.dest.slot.1.ph, %cleanup ], [ %cleanup.dest.slot.1.ph, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78 ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %if.then28 ], [ false, %invoke.cont20 ], [ false, %cleanup.thread ], [ %.ph, %cleanup ], [ %.ph, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78 ]
   %token.1 = phi i32 [ %call26, %if.then28 ], [ 4, %invoke.cont20 ], [ 10, %cleanup.thread ], [ %token.2.ph, %cleanup ], [ %token.2.ph, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i78 ]
   store ptr null, ptr %value.sink, align 8
   %52 = load ptr, ptr %string_.i, align 8
@@ -1470,8 +1470,7 @@ delete.notnull.i:                                 ; preds = %cleanup61
   br label %_ZN4base8internal10JSONParser13StringBuilderD2Ev.exit
 
 _ZN4base8internal10JSONParser13StringBuilderD2Ev.exit: ; preds = %cleanup61, %delete.notnull.i
-  %cond = icmp eq i32 %cleanup.dest.slot.0, 0
-  br i1 %cond, label %while.cond, label %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i, !llvm.loop !26
+  br i1 %cleanup.dest.slot.0, label %while.cond, label %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i, !llvm.loop !26
 
 ehcleanup:                                        ; preds = %lpad37, %lpad.i.i, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit68
   %.pn = phi { ptr, i32 } [ %45, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit68 ], [ %44, %lpad37 ], [ %29, %lpad.i.i ]

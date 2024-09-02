@@ -424,7 +424,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr nocaptur
   %20 = phi i32 [ %81, %73 ], [ %.pre, %4 ]
   %21 = load i32, ptr %14, align 8
   %22 = icmp eq i32 %21, %20
-  br i1 %22, label %23, label %.thread4
+  br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %16, align 8
@@ -434,32 +434,32 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr nocaptur
   %27 = load i32, ptr %14, align 8
   %28 = load i32, ptr %15, align 4
   %29 = icmp eq i32 %27, %28
-  br i1 %29, label %.preheader, label %.thread
+  br i1 %29, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %23, %46
   %30 = load volatile i64, ptr %10, align 8
   %31 = and i64 %30, 131072
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %.thread, !prof !13
+  br i1 %32, label %33, label %.loopexit, !prof !13
 
 33:                                               ; preds = %.preheader
   %34 = load volatile i64, ptr %10, align 8
   %35 = and i64 %34, 4
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %.thread
+  br i1 %36, label %37, label %.loopexit
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %16, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.thread, label %42
+  br i1 %41, label %.loopexit, label %42
 
 42:                                               ; preds = %37
   %43 = load i32, ptr %18, align 8
   %44 = and i32 %43, 2048
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %.thread
+  br i1 %45, label %46, label %.loopexit
 
 46:                                               ; preds = %42
   call void @mutex_unlock(ptr noundef %13) #13
@@ -469,23 +469,23 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr nocaptur
   %48 = load i32, ptr %14, align 8
   %49 = load i32, ptr %15, align 4
   %50 = icmp eq i32 %48, %49
-  br i1 %50, label %.preheader, label %.thread, !llvm.loop !15
+  br i1 %50, label %.preheader, label %.loopexit, !llvm.loop !15
 
-.thread:                                          ; preds = %.preheader, %33, %37, %42, %46, %23
+.loopexit:                                        ; preds = %33, %37, %42, %46, %.preheader, %23
   %51 = phi i1 [ true, %23 ], [ false, %.preheader ], [ false, %42 ], [ false, %37 ], [ false, %33 ], [ true, %46 ]
   %52 = phi i32 [ 0, %23 ], [ -512, %.preheader ], [ -11, %42 ], [ -5, %37 ], [ -512, %33 ], [ 0, %46 ]
   %53 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17, i32 0, ptr elementtype(i32) %17) #13, !srcloc !16
   %54 = load ptr, ptr %16, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   call void @remove_wait_queue(ptr noundef %55, ptr noundef nonnull %5) #13
-  br i1 %51, label %.thread..thread4_crit_edge, label %.loopexit.loopexit
+  br i1 %51, label %.loopexit..thread_crit_edge, label %.loopexit7.loopexit
 
-.thread..thread4_crit_edge:                       ; preds = %.thread
-  %.pre10 = load i32, ptr %15, align 4
-  br label %.thread4
+.loopexit..thread_crit_edge:                      ; preds = %.loopexit
+  %.pre11 = load i32, ptr %15, align 4
+  br label %.thread
 
-.thread4:                                         ; preds = %.thread..thread4_crit_edge, %19
-  %56 = phi i32 [ %.pre10, %.thread..thread4_crit_edge ], [ %20, %19 ]
+.thread:                                          ; preds = %.loopexit..thread_crit_edge, %19
+  %56 = phi i32 [ %.pre11, %.loopexit..thread_crit_edge ], [ %20, %19 ]
   %57 = sext i32 %56 to i64
   %58 = getelementptr [64 x %struct.hidraw_report], ptr %7, i64 0, i64 %57, i32 1
   %59 = load i32, ptr %58, align 8
@@ -497,33 +497,33 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr nocaptur
   %65 = icmp eq ptr %64, null
   br i1 %65, label %73, label %66
 
-66:                                               ; preds = %.thread4
+66:                                               ; preds = %.thread
   %67 = shl i64 %61, 32
   %68 = ashr exact i64 %67, 32
   %69 = icmp ugt i64 %68, 2147483647
-  br i1 %69, label %.thread5, label %70, !prof !17
+  br i1 %69, label %.critedge5, label %70, !prof !17
 
-.thread5:                                         ; preds = %66
+.critedge5:                                       ; preds = %66
   call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #13, !srcloc !18
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 249, i32 2307, i64 12) #13, !srcloc !19
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #13, !srcloc !20
-  br label %.loopexit
+  br label %.loopexit7
 
 70:                                               ; preds = %66
   %71 = call i64 @_copy_to_user(ptr noundef %1, ptr noundef nonnull %64, i64 noundef %68) #13
   %72 = icmp eq i64 %71, 0
-  br i1 %72, label %._crit_edge, label %.loopexit.loopexit
+  br i1 %72, label %._crit_edge, label %.loopexit7.loopexit
 
 ._crit_edge:                                      ; preds = %70
-  %.pre11 = load i32, ptr %15, align 4
-  %.phi.trans.insert = sext i32 %.pre11 to i64
-  %.phi.trans.insert12 = getelementptr [64 x %struct.hidraw_report], ptr %7, i64 0, i64 %.phi.trans.insert
-  %.pre13 = load ptr, ptr %.phi.trans.insert12, align 8
+  %.pre12 = load i32, ptr %15, align 4
+  %.phi.trans.insert = sext i32 %.pre12 to i64
+  %.phi.trans.insert13 = getelementptr [64 x %struct.hidraw_report], ptr %7, i64 0, i64 %.phi.trans.insert
+  %.pre14 = load ptr, ptr %.phi.trans.insert13, align 8
   br label %73
 
-73:                                               ; preds = %._crit_edge, %.thread4
-  %74 = phi ptr [ null, %.thread4 ], [ %.pre13, %._crit_edge ]
-  %75 = phi i32 [ 0, %.thread4 ], [ %62, %._crit_edge ]
+73:                                               ; preds = %._crit_edge, %.thread
+  %74 = phi ptr [ null, %.thread ], [ %.pre14, %._crit_edge ]
+  %75 = phi i32 [ 0, %.thread ], [ %62, %._crit_edge ]
   call void @kfree(ptr noundef %74) #13
   %76 = load i32, ptr %15, align 4
   %77 = sext i32 %76 to i64
@@ -534,15 +534,15 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_read(ptr nocaptur
   %81 = and i32 %80, 63
   store i32 %81, ptr %15, align 4
   %82 = icmp eq i32 %75, 0
-  br i1 %82, label %19, label %.loopexit.loopexit, !llvm.loop !21
+  br i1 %82, label %19, label %.loopexit7.loopexit, !llvm.loop !21
 
-.loopexit.loopexit:                               ; preds = %.thread, %70, %73
-  %.ph9 = phi i32 [ %52, %.thread ], [ %75, %73 ], [ -14, %70 ]
-  %83 = sext i32 %.ph9 to i64
-  br label %.loopexit
+.loopexit7.loopexit:                              ; preds = %.loopexit, %70, %73
+  %.ph10 = phi i32 [ %52, %.loopexit ], [ %75, %73 ], [ -14, %70 ]
+  %83 = sext i32 %.ph10 to i64
+  br label %.loopexit7
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.thread5
-  %84 = phi i64 [ -14, %.thread5 ], [ %83, %.loopexit.loopexit ]
+.loopexit7:                                       ; preds = %.loopexit7.loopexit, %.critedge5
+  %84 = phi i64 [ -14, %.critedge5 ], [ %83, %.loopexit7.loopexit ]
   call void @mutex_unlock(ptr noundef %13) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
   ret i64 %84

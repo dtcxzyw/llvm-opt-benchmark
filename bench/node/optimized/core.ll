@@ -2436,7 +2436,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @uv_translate_sys_error(i32 noundef %sys_errno) local_unnamed_addr #5 {
+define dso_local range(i32 -2147483648, 1) i32 @uv_translate_sys_error(i32 noundef %sys_errno) local_unnamed_addr #5 {
 entry:
   %0 = tail call i32 @llvm.abs.i32(i32 %sys_errno, i1 false)
   %cond = sub i32 0, %0

@@ -738,10 +738,10 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %4 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i, align 8
   %conv1.i.i.i.i.i = and i64 %4, 2147483648
   %cmp4.i.i.i.i.i = icmp eq i64 %conv1.i.i.i.i.i, 0
-  %frombool = zext i1 %cmp4.i.i.i.i.i to i8
-  store i8 %frombool, ptr %ref.tmp, align 1
-  %5 = ptrtoint ptr %gen_2 to i64
-  %and.i.i.i.i.i.i.i.i.i.i24 = and i64 %5, 8
+  %5 = zext i1 %cmp4.i.i.i.i.i to i8
+  store i8 %5, ptr %ref.tmp, align 1
+  %6 = ptrtoint ptr %gen_2 to i64
+  %and.i.i.i.i.i.i.i.i.i.i24 = and i64 %6, 8
   %cond.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %gen_2, i64 %and.i.i.i.i.i.i.i.i.i.i24
   %next_.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %gen_2, i64 264
   %.pre.i.i.i.i.i29 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i26, align 8
@@ -752,49 +752,39 @@ if.then.i.i.i.i.i.i.i.i.i49:                      ; preds = %_ZN4absl15random_in
   %has_crypto_.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %gen_2, i64 280
   %impl_.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %gen_2, i64 272
   store i64 2, ptr %next_.i.i.i.i.i.i.i.i.i26, align 8
-  %6 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i28, align 8
-  %tobool.i.i.i.i.i.i.i.i.i.i50 = trunc i8 %6 to i1
-  %7 = load ptr, ptr %impl_.i.i.i.i.i.i.i.i.i27, align 8
+  %7 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i28, align 8
+  %tobool.i.i.i.i.i.i.i.i.i.i50 = trunc i8 %7 to i1
+  %8 = load ptr, ptr %impl_.i.i.i.i.i.i.i.i.i27, align 8
   br i1 %tobool.i.i.i.i.i.i.i.i.i.i50, label %if.then.i.i.i.i.i.i.i.i.i.i52, label %if.else.i.i.i.i.i.i.i.i.i.i51
 
 if.then.i.i.i.i.i.i.i.i.i.i52:                    ; preds = %if.then.i.i.i.i.i.i.i.i.i49
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %7, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i.i.i25)
-          to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35 unwind label %lpad.loopexit397
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %8, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i.i.i25)
+          to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35 unwind label %lpad.loopexit399
 
 if.else.i.i.i.i.i.i.i.i.i.i51:                    ; preds = %if.then.i.i.i.i.i.i.i.i.i49
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %7, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i.i.i25)
-          to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35 unwind label %lpad.loopexit397
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %8, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i.i.i25)
+          to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35 unwind label %lpad.loopexit399
 
 _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i51, %if.then.i.i.i.i.i.i.i.i.i.i52, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i
-  %8 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i26, align 8
-  %inc.i.i.i.i.i.i.i.i.i36 = add i64 %8, 1
+  %9 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i26, align 8
+  %inc.i.i.i.i.i.i.i.i.i36 = add i64 %9, 1
   store i64 %inc.i.i.i.i.i.i.i.i.i36, ptr %next_.i.i.i.i.i.i.i.i.i26, align 8
-  %arrayidx.i.i.i.i.i.i.i.i.i37 = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i.i.i25, i64 %8
-  %9 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i37, align 8
-  %conv1.i.i.i.i.i38 = and i64 %9, 4294967295
-  %cmp.not.i.i.i.i.i39 = icmp eq i64 %conv1.i.i.i.i.i38, 2147483648
-  br i1 %cmp.not.i.i.i.i.i39, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35.invoke.cont5_crit_edge, label %invoke.cont5
-
-_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35.invoke.cont5_crit_edge: ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35
-  store i8 0, ptr %ref.tmp4, align 1
-  %10 = load i8, ptr %ref.tmp, align 1, !noalias !11
-  %11 = trunc i8 %10 to i1
-  br i1 %11, label %if.end.i.i, label %if.then.i.i
-
-invoke.cont5:                                     ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35
-  %cmp4.i.i.i.i.i41 = icmp ult i64 %conv1.i.i.i.i.i38, 2147483648
-  %frombool7 = zext i1 %cmp4.i.i.i.i.i41 to i8
-  store i8 %frombool7, ptr %ref.tmp4, align 1
+  %arrayidx.i.i.i.i.i.i.i.i.i37 = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i.i.i25, i64 %9
+  %10 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i37, align 8
+  %conv1.i.i.i.i.i38 = and i64 %10, 2147483648
+  %cmp4.i.i.i.i.i41 = icmp eq i64 %conv1.i.i.i.i.i38, 0
+  %11 = zext i1 %cmp4.i.i.i.i.i41 to i8
+  store i8 %11, ptr %ref.tmp4, align 1
   %12 = load i8, ptr %ref.tmp, align 1, !noalias !11
   %13 = trunc i8 %12 to i1
   %14 = xor i1 %cmp4.i.i.i.i.i41, %13
   br i1 %14, label %if.end.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35.invoke.cont5_crit_edge, %invoke.cont5
+if.then.i.i:                                      ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
-if.end.i.i:                                       ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35.invoke.cont5_crit_edge, %invoke.cont5
+if.end.i.i:                                       ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i35
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIbbEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -803,18 +793,18 @@ invoke.cont8:                                     ; preds = %if.then.i.i, %if.en
   %tobool.i = trunc i8 %15 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
-lpad.loopexit397:                                 ; preds = %if.then.i.i.i.i.i.i.i.i.i.i52, %if.else.i.i.i.i.i.i.i.i.i.i51
-  %lpad.loopexit398 = landingpad { ptr, i32 }
+lpad.loopexit399:                                 ; preds = %if.then.i.i.i.i.i.i.i.i.i.i52, %if.else.i.i.i.i.i.i.i.i.i.i51
+  %lpad.loopexit400 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
-  %lpad.loopexit401 = landingpad { ptr, i32 }
+  %lpad.loopexit403 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.end.i.i75, %if.then.i.i76, %invoke.cont24, %_ZN7testing15AssertionResultD2Ev.exit, %if.end.i.i, %if.then.i.i, %invoke.cont, %entry
-  %lpad.loopexit.split-lp402 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp404 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup48
 
@@ -1117,10 +1107,10 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %44 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i118, align 8
   %conv1.i.i.i.i.i119 = and i64 %44, 2147483648
   %cmp4.i.i.i.i.i122 = icmp eq i64 %conv1.i.i.i.i.i119, 0
-  %frombool59 = zext i1 %cmp4.i.i.i.i.i122 to i8
-  store i8 %frombool59, ptr %ref.tmp56, align 1
-  %45 = ptrtoint ptr %gen_253 to i64
-  %and.i.i.i.i.i.i.i.i.i.i137 = and i64 %45, 8
+  %45 = zext i1 %cmp4.i.i.i.i.i122 to i8
+  store i8 %45, ptr %ref.tmp56, align 1
+  %46 = ptrtoint ptr %gen_253 to i64
+  %and.i.i.i.i.i.i.i.i.i.i137 = and i64 %46, 8
   %cond.i.i.i.i.i.i.i.i.i.i138 = getelementptr inbounds i8, ptr %gen_253, i64 %and.i.i.i.i.i.i.i.i.i.i137
   %next_.i.i.i.i.i.i.i.i.i139 = getelementptr inbounds i8, ptr %gen_253, i64 264
   %.pre.i.i.i.i.i142 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i139, align 8
@@ -1131,49 +1121,39 @@ if.then.i.i.i.i.i.i.i.i.i162:                     ; preds = %_ZN4absl15random_in
   %has_crypto_.i.i.i.i.i.i.i.i.i.i141 = getelementptr inbounds i8, ptr %gen_253, i64 280
   %impl_.i.i.i.i.i.i.i.i.i140 = getelementptr inbounds i8, ptr %gen_253, i64 272
   store i64 2, ptr %next_.i.i.i.i.i.i.i.i.i139, align 8
-  %46 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i141, align 8
-  %tobool.i.i.i.i.i.i.i.i.i.i163 = trunc i8 %46 to i1
-  %47 = load ptr, ptr %impl_.i.i.i.i.i.i.i.i.i140, align 8
+  %47 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i141, align 8
+  %tobool.i.i.i.i.i.i.i.i.i.i163 = trunc i8 %47 to i1
+  %48 = load ptr, ptr %impl_.i.i.i.i.i.i.i.i.i140, align 8
   br i1 %tobool.i.i.i.i.i.i.i.i.i.i163, label %if.then.i.i.i.i.i.i.i.i.i.i165, label %if.else.i.i.i.i.i.i.i.i.i.i164
 
 if.then.i.i.i.i.i.i.i.i.i.i165:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i162
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %47, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i.i.i138)
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %48, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i.i.i138)
           to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i148 unwind label %lpad51.loopexit
 
 if.else.i.i.i.i.i.i.i.i.i.i164:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i162
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %47, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i.i.i138)
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %48, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i.i.i138)
           to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i148 unwind label %lpad51.loopexit
 
 _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i148: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i164, %if.then.i.i.i.i.i.i.i.i.i.i165, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i116
-  %48 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i139, align 8
-  %inc.i.i.i.i.i.i.i.i.i149 = add i64 %48, 1
+  %49 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i139, align 8
+  %inc.i.i.i.i.i.i.i.i.i149 = add i64 %49, 1
   store i64 %inc.i.i.i.i.i.i.i.i.i149, ptr %next_.i.i.i.i.i.i.i.i.i139, align 8
-  %arrayidx.i.i.i.i.i.i.i.i.i150 = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i.i.i138, i64 %48
-  %49 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i150, align 8
-  %conv1.i.i.i.i.i151 = and i64 %49, 4294967295
-  %cmp.not.i.i.i.i.i152 = icmp eq i64 %conv1.i.i.i.i.i151, 2147483648
-  br i1 %cmp.not.i.i.i.i.i152, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i148.invoke.cont61_crit_edge, label %invoke.cont61
-
-_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i148.invoke.cont61_crit_edge: ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i148
-  store i8 0, ptr %ref.tmp60, align 1
-  %50 = load i8, ptr %ref.tmp56, align 1, !noalias !24
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %if.end.i.i170, label %if.then.i.i171
-
-invoke.cont61:                                    ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i148
-  %cmp4.i.i.i.i.i154 = icmp ult i64 %conv1.i.i.i.i.i151, 2147483648
-  %frombool63 = zext i1 %cmp4.i.i.i.i.i154 to i8
-  store i8 %frombool63, ptr %ref.tmp60, align 1
+  %arrayidx.i.i.i.i.i.i.i.i.i150 = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i.i.i138, i64 %49
+  %50 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i150, align 8
+  %conv1.i.i.i.i.i151 = and i64 %50, 2147483648
+  %cmp4.i.i.i.i.i154 = icmp eq i64 %conv1.i.i.i.i.i151, 0
+  %51 = zext i1 %cmp4.i.i.i.i.i154 to i8
+  store i8 %51, ptr %ref.tmp60, align 1
   %52 = load i8, ptr %ref.tmp56, align 1, !noalias !24
   %53 = trunc i8 %52 to i1
   %54 = xor i1 %cmp4.i.i.i.i.i154, %53
   br i1 %54, label %if.end.i.i170, label %if.then.i.i171
 
-if.then.i.i171:                                   ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i148.invoke.cont61_crit_edge, %invoke.cont61
+if.then.i.i171:                                   ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i148
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar55)
           to label %invoke.cont64 unwind label %lpad51.loopexit.split-lp.loopexit.split-lp
 
-if.end.i.i170:                                    ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i148.invoke.cont61_crit_edge, %invoke.cont61
+if.end.i.i170:                                    ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i148
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIbbEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar55, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60)
           to label %invoke.cont64 unwind label %lpad51.loopexit.split-lp.loopexit.split-lp
 
@@ -1187,23 +1167,23 @@ ehcleanup47:                                      ; preds = %_ZN7testing7Message
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar22) #18
   br label %ehcleanup48
 
-ehcleanup48:                                      ; preds = %lpad.loopexit397, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %ehcleanup47, %ehcleanup21
-  %.pn3.pn.pn = phi { ptr, i32 } [ %.pn3.pn, %ehcleanup47 ], [ %.pn.pn, %ehcleanup21 ], [ %lpad.loopexit398, %lpad.loopexit397 ], [ %lpad.loopexit401, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp402, %lpad.loopexit.split-lp.loopexit.split-lp ]
+ehcleanup48:                                      ; preds = %lpad.loopexit399, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %ehcleanup47, %ehcleanup21
+  %.pn3.pn.pn = phi { ptr, i32 } [ %.pn3.pn, %ehcleanup47 ], [ %.pn.pn, %ehcleanup21 ], [ %lpad.loopexit400, %lpad.loopexit399 ], [ %lpad.loopexit403, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp404, %lpad.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN4absl15random_internal13SaltedSeedSeqISt8seed_seqED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %my_seed) #18
   br label %eh.resume
 
 lpad51.loopexit:                                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i165, %if.else.i.i.i.i.i.i.i.i.i.i164
-  %lpad.loopexit392 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup109
-
-lpad51.loopexit.split-lp.loopexit:                ; preds = %if.else.i.i.i.i.i.i.i.i.i.i132, %if.then.i.i.i.i.i.i.i.i.i.i133
   %lpad.loopexit394 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup109
 
+lpad51.loopexit.split-lp.loopexit:                ; preds = %if.else.i.i.i.i.i.i.i.i.i.i132, %if.then.i.i.i.i.i.i.i.i.i.i133
+  %lpad.loopexit396 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup109
+
 lpad51.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.end.i.i215, %if.then.i.i216, %invoke.cont85, %_ZN7testing15AssertionResultD2Ev.exit195, %if.end.i.i170, %if.then.i.i171, %invoke.cont52, %_ZN4absl15random_internal13SaltedSeedSeqISt8seed_seqED2Ev.exit
-  %lpad.loopexit.split-lp395 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp397 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup109
 
@@ -1494,10 +1474,10 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %82 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i263, align 8
   %conv1.i.i.i.i.i264 = and i64 %82, 2147483648
   %cmp4.i.i.i.i.i267 = icmp eq i64 %conv1.i.i.i.i.i264, 0
-  %frombool122 = zext i1 %cmp4.i.i.i.i.i267 to i8
-  store i8 %frombool122, ptr %ref.tmp119, align 1
-  %83 = ptrtoint ptr %gen_2116 to i64
-  %and.i.i.i.i.i.i.i.i.i.i282 = and i64 %83, 8
+  %83 = zext i1 %cmp4.i.i.i.i.i267 to i8
+  store i8 %83, ptr %ref.tmp119, align 1
+  %84 = ptrtoint ptr %gen_2116 to i64
+  %and.i.i.i.i.i.i.i.i.i.i282 = and i64 %84, 8
   %cond.i.i.i.i.i.i.i.i.i.i283 = getelementptr inbounds i8, ptr %gen_2116, i64 %and.i.i.i.i.i.i.i.i.i.i282
   %next_.i.i.i.i.i.i.i.i.i284 = getelementptr inbounds i8, ptr %gen_2116, i64 264
   %.pre.i.i.i.i.i287 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i284, align 8
@@ -1508,49 +1488,39 @@ if.then.i.i.i.i.i.i.i.i.i307:                     ; preds = %_ZN4absl15random_in
   %has_crypto_.i.i.i.i.i.i.i.i.i.i286 = getelementptr inbounds i8, ptr %gen_2116, i64 280
   %impl_.i.i.i.i.i.i.i.i.i285 = getelementptr inbounds i8, ptr %gen_2116, i64 272
   store i64 2, ptr %next_.i.i.i.i.i.i.i.i.i284, align 8
-  %84 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i286, align 8
-  %tobool.i.i.i.i.i.i.i.i.i.i308 = trunc i8 %84 to i1
-  %85 = load ptr, ptr %impl_.i.i.i.i.i.i.i.i.i285, align 8
+  %85 = load i8, ptr %has_crypto_.i.i.i.i.i.i.i.i.i.i286, align 8
+  %tobool.i.i.i.i.i.i.i.i.i.i308 = trunc i8 %85 to i1
+  %86 = load ptr, ptr %impl_.i.i.i.i.i.i.i.i.i285, align 8
   br i1 %tobool.i.i.i.i.i.i.i.i.i.i308, label %if.then.i.i.i.i.i.i.i.i.i.i310, label %if.else.i.i.i.i.i.i.i.i.i.i309
 
 if.then.i.i.i.i.i.i.i.i.i.i310:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i307
-  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %85, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i.i.i283)
+  invoke void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef %86, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i.i.i283)
           to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i293 unwind label %lpad114.loopexit
 
 if.else.i.i.i.i.i.i.i.i.i.i309:                   ; preds = %if.then.i.i.i.i.i.i.i.i.i307
-  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %85, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i.i.i283)
+  invoke void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %86, ptr noundef nonnull %cond.i.i.i.i.i.i.i.i.i.i283)
           to label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i293 unwind label %lpad114.loopexit
 
 _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i293: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i309, %if.then.i.i.i.i.i.i.i.i.i.i310, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i261
-  %86 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i284, align 8
-  %inc.i.i.i.i.i.i.i.i.i294 = add i64 %86, 1
+  %87 = load i64, ptr %next_.i.i.i.i.i.i.i.i.i284, align 8
+  %inc.i.i.i.i.i.i.i.i.i294 = add i64 %87, 1
   store i64 %inc.i.i.i.i.i.i.i.i.i294, ptr %next_.i.i.i.i.i.i.i.i.i284, align 8
-  %arrayidx.i.i.i.i.i.i.i.i.i295 = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i.i.i283, i64 %86
-  %87 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i295, align 8
-  %conv1.i.i.i.i.i296 = and i64 %87, 4294967295
-  %cmp.not.i.i.i.i.i297 = icmp eq i64 %conv1.i.i.i.i.i296, 2147483648
-  br i1 %cmp.not.i.i.i.i.i297, label %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i293.invoke.cont124_crit_edge, label %invoke.cont124
-
-_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i293.invoke.cont124_crit_edge: ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i293
-  store i8 0, ptr %ref.tmp123, align 1
-  %88 = load i8, ptr %ref.tmp119, align 1, !noalias !34
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %if.end.i.i315, label %if.then.i.i316
-
-invoke.cont124:                                   ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i293
-  %cmp4.i.i.i.i.i299 = icmp ult i64 %conv1.i.i.i.i.i296, 2147483648
-  %frombool126 = zext i1 %cmp4.i.i.i.i.i299 to i8
-  store i8 %frombool126, ptr %ref.tmp123, align 1
+  %arrayidx.i.i.i.i.i.i.i.i.i295 = getelementptr inbounds i64, ptr %cond.i.i.i.i.i.i.i.i.i.i283, i64 %87
+  %88 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i.i295, align 8
+  %conv1.i.i.i.i.i296 = and i64 %88, 2147483648
+  %cmp4.i.i.i.i.i299 = icmp eq i64 %conv1.i.i.i.i.i296, 0
+  %89 = zext i1 %cmp4.i.i.i.i.i299 to i8
+  store i8 %89, ptr %ref.tmp123, align 1
   %90 = load i8, ptr %ref.tmp119, align 1, !noalias !34
   %91 = trunc i8 %90 to i1
   %92 = xor i1 %cmp4.i.i.i.i.i299, %91
   br i1 %92, label %if.end.i.i315, label %if.then.i.i316
 
-if.then.i.i316:                                   ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i293.invoke.cont124_crit_edge, %invoke.cont124
+if.then.i.i316:                                   ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i293
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar118)
           to label %invoke.cont127 unwind label %lpad114.loopexit.split-lp.loopexit.split-lp
 
-if.end.i.i315:                                    ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i293.invoke.cont124_crit_edge, %invoke.cont124
+if.end.i.i315:                                    ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i293
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIbbEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar118, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp119, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp123)
           to label %invoke.cont127 unwind label %lpad114.loopexit.split-lp.loopexit.split-lp
 
@@ -1565,7 +1535,7 @@ ehcleanup108:                                     ; preds = %_ZN7testing7Message
   br label %ehcleanup109
 
 ehcleanup109:                                     ; preds = %lpad51.loopexit, %lpad51.loopexit.split-lp.loopexit.split-lp, %lpad51.loopexit.split-lp.loopexit, %ehcleanup108, %ehcleanup82
-  %.pn10.pn.pn = phi { ptr, i32 } [ %.pn10.pn, %ehcleanup108 ], [ %.pn7.pn, %ehcleanup82 ], [ %lpad.loopexit392, %lpad51.loopexit ], [ %lpad.loopexit394, %lpad51.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp395, %lpad51.loopexit.split-lp.loopexit.split-lp ]
+  %.pn10.pn.pn = phi { ptr, i32 } [ %.pn10.pn, %ehcleanup108 ], [ %.pn7.pn, %ehcleanup82 ], [ %lpad.loopexit394, %lpad51.loopexit ], [ %lpad.loopexit396, %lpad51.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp397, %lpad51.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN4absl15random_internal13SaltedSeedSeqISt8seed_seqED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %my_seed49) #18
   br label %eh.resume
 
@@ -1575,12 +1545,12 @@ lpad114.loopexit:                                 ; preds = %if.then.i.i.i.i.i.i
   br label %ehcleanup172
 
 lpad114.loopexit.split-lp.loopexit:               ; preds = %if.else.i.i.i.i.i.i.i.i.i.i277, %if.then.i.i.i.i.i.i.i.i.i.i278
-  %lpad.loopexit389 = landingpad { ptr, i32 }
+  %lpad.loopexit391 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup172
 
 lpad114.loopexit.split-lp.loopexit.split-lp:      ; preds = %if.end.i.i360, %if.then.i.i361, %invoke.cont148, %_ZN7testing15AssertionResultD2Ev.exit340, %if.end.i.i315, %if.then.i.i316, %invoke.cont115, %_ZN4absl15random_internal13SaltedSeedSeqISt8seed_seqED2Ev.exit246
-  %lpad.loopexit.split-lp390 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp392 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup172
 
@@ -1824,7 +1794,7 @@ ehcleanup171:                                     ; preds = %_ZN7testing7Message
   br label %ehcleanup172
 
 ehcleanup172:                                     ; preds = %lpad114.loopexit, %lpad114.loopexit.split-lp.loopexit.split-lp, %lpad114.loopexit.split-lp.loopexit, %ehcleanup171, %ehcleanup145
-  %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17.pn, %ehcleanup171 ], [ %.pn14.pn, %ehcleanup145 ], [ %lpad.loopexit, %lpad114.loopexit ], [ %lpad.loopexit389, %lpad114.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp390, %lpad114.loopexit.split-lp.loopexit.split-lp ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17.pn, %ehcleanup171 ], [ %.pn14.pn, %ehcleanup145 ], [ %lpad.loopexit, %lpad114.loopexit ], [ %lpad.loopexit391, %lpad114.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp392, %lpad114.loopexit.split-lp.loopexit.split-lp ]
   %114 = load ptr, ptr %my_seed110, align 8
   %tobool.not.i.i.i.i386 = icmp eq ptr %114, null
   br i1 %tobool.not.i.i.i.i386, label %eh.resume, label %if.then.i.i.i.i387

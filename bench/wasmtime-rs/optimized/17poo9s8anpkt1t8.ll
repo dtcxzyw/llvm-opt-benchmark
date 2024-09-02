@@ -8067,8 +8067,8 @@ default.unreachable:                              ; preds = %"_ZN100_$LT$wasmpar
   %49 = load ptr, ptr %24, align 8, !invariant.load !4, !nonnull !4
   call void %49(ptr noundef nonnull align 1 %2, i32 noundef %.sroa.6113.16.extract.trunc, ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %.sroa.742.0)
   %.pre536 = load i8, ptr %.sroa.627.0..sroa_idx, align 4, !range !40, !alias.scope !332, !noalias !329
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %50 = trunc nuw i8 %.pre536 to i1
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   br i1 %50, label %.loopexit265, label %.lr.ph422thread-pre-split
 
 51:                                               ; preds = %86, %.loopexit266, %.thread

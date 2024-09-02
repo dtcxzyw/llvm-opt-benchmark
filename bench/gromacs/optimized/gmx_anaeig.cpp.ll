@@ -3646,7 +3646,7 @@ _ZL7projectPKcPK10t_topology7PbcTypePA3_fS0_S0_S0_S0_S0_iS0_bfiPK7t_atomsiPibS6_
   %1438 = sext i32 %.084140.i to i64
   %1439 = getelementptr inbounds float, ptr %1426, i64 %1438
   store float %1437, ptr %1439, align 4
-  %1440 = add nsw i32 %.084140.i, 1
+  %1440 = add i32 %.084140.i, 1
   br label %1441
 
 1441:                                             ; preds = %1432, %.lr.ph141.i
@@ -3670,7 +3670,6 @@ _ZL7projectPKcPK10t_topology7PbcTypePA3_fS0_S0_S0_S0_S0_iS0_bfiPK7t_atomsiPibS6_
 .loopexit135.i:                                   ; preds = %.lr.ph.i359, %1441, %.preheader134.i, %.preheader136.i
   %.087.i = phi i32 [ %.0200.lcssa692, %.preheader134.i ], [ %1419, %.preheader136.i ], [ %.0200.lcssa692, %1441 ], [ %1419, %.lr.ph.i359 ]
   %.286.i = phi i32 [ 0, %.preheader134.i ], [ %1422, %.preheader136.i ], [ %.185.i, %1441 ], [ %1422, %.lr.ph.i359 ]
-  %.286.fr.i = freeze i32 %.286.i
   %1447 = load ptr, ptr @stderr, align 8
   %1448 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1447, ptr noundef nonnull @.str.231, i32 noundef %.087.i, i32 noundef %1422) #19
   %1449 = sext i32 %.087.i to i64
@@ -3686,14 +3685,14 @@ _ZL7projectPKcPK10t_topology7PbcTypePA3_fS0_S0_S0_S0_S0_iS0_bfiPK7t_atomsiPibS6_
   br i1 %1452, label %.lr.ph165.i, label %._crit_edge.i347
 
 .lr.ph165.i:                                      ; preds = %.noexc365
-  %1453 = sext i32 %.286.fr.i to i64
-  %1454 = icmp sgt i32 %.286.fr.i, 0
+  %1453 = sext i32 %.286.i to i64
+  %1454 = icmp sgt i32 %.286.i, 0
   %1455 = icmp sgt i32 %1418, 0
   %wide.trip.count220.i = zext nneg i32 %.087.i to i64
   br i1 %1454, label %.lr.ph165.split.us.preheader.i, label %.lr.ph165.split.i
 
 .lr.ph165.split.us.preheader.i:                   ; preds = %.lr.ph165.i
-  %wide.trip.count204.i = zext nneg i32 %.286.fr.i to i64
+  %wide.trip.count204.i = zext nneg i32 %.286.i to i64
   %wide.trip.count215.i = zext nneg i32 %1418 to i64
   br label %.lr.ph165.split.us.i
 
@@ -3823,7 +3822,7 @@ _ZL7projectPKcPK10t_topology7PbcTypePA3_fS0_S0_S0_S0_S0_iS0_bfiPK7t_atomsiPibS6_
   %1511 = fcmp ogt float %1510, %.181147.us.us.i
   %.282.us.us.i = select i1 %1511, float %1510, float %.181147.us.us.i
   %1512 = add nsw i32 %.394.us.us.i, 1
-  %1513 = icmp slt i32 %1512, %.286.fr.i
+  %1513 = icmp slt i32 %1512, %.286.i
   br i1 %1513, label %.lr.ph149.split.us.us.i, label %._crit_edge150.us.i, !llvm.loop !49
 
 .preheader.us158.us.i:                            ; preds = %.lr.ph149.split.us172.i, %.loopexit.us159.us.i
@@ -3853,7 +3852,7 @@ _ZL7projectPKcPK10t_topology7PbcTypePA3_fS0_S0_S0_S0_S0_iS0_bfiPK7t_atomsiPibS6_
   %1525 = fcmp ogt float %1524, %.181147.us152.us.i
   %.282.us157.us.i = select i1 %1525, float %1524, float %.181147.us152.us.i
   %1526 = add nsw i32 %1518, 1
-  %1527 = icmp slt i32 %1526, %.286.fr.i
+  %1527 = icmp slt i32 %1526, %.286.i
   br i1 %1527, label %.preheader.us158.us.i, label %._crit_edge150.us.i, !llvm.loop !49
 
 .lr.ph165.split.i:                                ; preds = %.lr.ph165.i
@@ -4076,7 +4075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit122.i:
   %.sroa.4125.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 16
   store double 1.000000e+00, ptr %.sroa.4125.0..sroa_idx.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  invoke void @_Z9write_xpmP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPKfSA_PKSA_ff5t_rgbSD_Pi(ptr noundef %1554, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %.087.i, i32 noundef %.286.fr.i, ptr noundef %1451, ptr noundef %1426, ptr noundef %1450, float noundef 0.000000e+00, float noundef %.080.lcssa.i, ptr noundef nonnull byval(%struct.t_rgb) align 8 %18, ptr noundef nonnull byval(%struct.t_rgb) align 8 %19, ptr noundef nonnull %8)
+  invoke void @_Z9write_xpmP8_IO_FILEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_iiPKfSA_PKSA_ff5t_rgbSD_Pi(ptr noundef %1554, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %.087.i, i32 noundef %.286.i, ptr noundef %1451, ptr noundef %1426, ptr noundef %1450, float noundef 0.000000e+00, float noundef %.080.lcssa.i, ptr noundef nonnull byval(%struct.t_rgb) align 8 %18, ptr noundef nonnull byval(%struct.t_rgb) align 8 %19, ptr noundef nonnull %8)
           to label %1589 unwind label %1601
 
 1589:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit122.i

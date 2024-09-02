@@ -518,7 +518,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 4294967296) i64 @bochs_display_qext_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #5 {
+define internal range(i64 0, 3200171711) i64 @bochs_display_qext_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #5 {
 entry:
   switch i64 %addr, label %sw.default [
     i64 0, label %return

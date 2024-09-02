@@ -993,7 +993,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge576, %24
   %437 = or disjoint i64 %435, %436
   store i64 %437, ptr %428, align 8
   %438 = icmp ugt i32 %433, 300
-  br i1 %438, label %439, label %449
+  br i1 %438, label %439, label %451
 
 439:                                              ; preds = %.lr.ph602
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -1012,22 +1012,22 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge576, %24
   %448 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %447)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %.pre = load i64, ptr %428, align 8
-  br label %449
+  %449 = lshr i64 %.pre, 52
+  %450 = trunc nuw nsw i64 %449 to i32
+  br label %451
 
-449:                                              ; preds = %439, %.lr.ph602
-  %450 = phi i64 [ %.pre, %439 ], [ %437, %.lr.ph602 ]
-  %451 = lshr i64 %450, 52
-  %452 = trunc nuw nsw i64 %451 to i32
+451:                                              ; preds = %439, %.lr.ph602
+  %452 = phi i32 [ %450, %439 ], [ %433, %.lr.ph602 ]
   %453 = load i32, ptr %85, align 4
   %454 = load i32, ptr %84, align 8
   %455 = icmp eq i32 %453, %454
   br i1 %455, label %456, label %.Vec_IntGrow.exit10_crit_edge.i508
 
-.Vec_IntGrow.exit10_crit_edge.i508:               ; preds = %449
+.Vec_IntGrow.exit10_crit_edge.i508:               ; preds = %451
   %.pre.i510 = load ptr, ptr %87, align 8
   br label %Vec_IntPush.exit514
 
-456:                                              ; preds = %449
+456:                                              ; preds = %451
   %457 = icmp slt i32 %453, 16
   br i1 %457, label %458, label %465
 

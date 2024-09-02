@@ -6258,18 +6258,18 @@ if.end15.thread:                                  ; preds = %if.end15.thread.sin
   store i64 0, ptr %data_offset, align 8
   %write_status = getelementptr inbounds i8, ptr %0, i64 48
   store i8 1, ptr %write_status, align 8
-  %pending1611 = getelementptr inbounds i8, ptr %0, i64 41
+  %pending1612 = getelementptr inbounds i8, ptr %0, i64 41
   br label %if.end15.if.end35_crit_edge
 
 if.end15:                                         ; preds = %if.end
   %pending16.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 41
   %.pre5 = load i8, ptr %pending16.phi.trans.insert, align 1
+  %7 = trunc i8 %.pre5 to i1
   %pending16 = getelementptr inbounds i8, ptr %0, i64 41
-  %tobool17 = trunc i8 %.pre5 to i1
-  br i1 %tobool17, label %if.then18, label %if.end15.if.end35_crit_edge
+  br i1 %7, label %if.then18, label %if.end15.if.end35_crit_edge
 
 if.end15.if.end35_crit_edge:                      ; preds = %if.end15.thread, %if.end15
-  %pending1616 = phi ptr [ %pending1611, %if.end15.thread ], [ %pending16, %if.end15 ]
+  %pending1616 = phi ptr [ %pending1612, %if.end15.thread ], [ %pending16, %if.end15 ]
   %data_len.014 = phi i64 [ %conv6, %if.end15.thread ], [ %1, %if.end15 ]
   %length36.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
   %.pre6 = load i64, ptr %length36.phi.trans.insert, align 8
@@ -6279,29 +6279,29 @@ if.end15.if.end35_crit_edge:                      ; preds = %if.end15.thread, %i
 
 if.then18:                                        ; preds = %if.end15
   %data = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = load ptr, ptr %data, align 8
+  %8 = load ptr, ptr %data, align 8
   %length19 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = load i64, ptr %length19, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %8, i1 false)
   %9 = load i64, ptr %length19, align 8
-  %cmp21.not = icmp eq i64 %9, 524288
+  tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 0, i64 %9, i1 false)
+  %10 = load i64, ptr %length19, align 8
+  %cmp21.not = icmp eq i64 %10, 524288
   br i1 %cmp21.not, label %if.end31, label %if.then23
 
 if.then23:                                        ; preds = %if.then18
-  %conv26 = sub i64 524288, %9
+  %conv26 = sub i64 524288, %10
   %conv.i84 = and i64 %conv26, 4294967295
-  %add.i85 = add i64 %conv.i84, %9
+  %add.i85 = add i64 %conv.i84, %10
   %alloc.i86 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = load i64, ptr %alloc.i86, align 8
-  %cmp.not.i87 = icmp ugt i64 %add.i85, %10
+  %11 = load i64, ptr %alloc.i86, align 8
+  %cmp.not.i87 = icmp ugt i64 %add.i85, %11
   br i1 %cmp.not.i87, label %if.end.i88, label %usb_mtp_realloc.exit93
 
 if.end.i88:                                       ; preds = %if.then23
   %add5.i89 = add i64 %add.i85, 255
   %and.i90 = and i64 %add5.i89, -256
   store i64 %and.i90, ptr %alloc.i86, align 8
-  %11 = load ptr, ptr %data, align 8
-  %call.i92 = tail call ptr @g_realloc(ptr noundef %11, i64 noundef %and.i90) #15
+  %12 = load ptr, ptr %data, align 8
+  %call.i92 = tail call ptr @g_realloc(ptr noundef %12, i64 noundef %and.i90) #15
   store ptr %call.i92, ptr %data, align 8
   br label %usb_mtp_realloc.exit93
 
@@ -6320,47 +6320,47 @@ if.end31:                                         ; preds = %usb_mtp_realloc.exi
 if.end35:                                         ; preds = %if.end15.if.end35_crit_edge, %if.end31
   %pending1615 = phi ptr [ %pending1616, %if.end15.if.end35_crit_edge ], [ %pending16, %if.end31 ]
   %data_len.013 = phi i64 [ %data_len.014, %if.end15.if.end35_crit_edge ], [ %1, %if.end31 ]
-  %12 = phi i64 [ %.pre7, %if.end15.if.end35_crit_edge ], [ 0, %if.end31 ]
-  %13 = phi i64 [ %.pre6, %if.end15.if.end35_crit_edge ], [ 524288, %if.end31 ]
+  %13 = phi i64 [ %.pre7, %if.end15.if.end35_crit_edge ], [ 0, %if.end31 ]
+  %14 = phi i64 [ %.pre6, %if.end15.if.end35_crit_edge ], [ 524288, %if.end31 ]
   %length36 = getelementptr inbounds i8, ptr %0, i64 16
   %data_offset37 = getelementptr inbounds i8, ptr %0, i64 56
-  %sub38 = sub i64 %13, %12
+  %sub38 = sub i64 %14, %13
   %conv39 = and i64 %data_len.013, 4294967295
   %conv39.sub38 = tail call i64 @llvm.umin.i64(i64 %sub38, i64 %conv39)
-  %14 = load i16, ptr %0, align 8
-  switch i16 %14, label %sw.default [
+  %15 = load i16, ptr %0, align 8
+  switch i16 %15, label %sw.default [
     i16 4108, label %sw.bb
     i16 4109, label %sw.bb67
   ]
 
 sw.bb:                                            ; preds = %if.end35
   %data50 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = load ptr, ptr %data50, align 8
-  %add.ptr = getelementptr i8, ptr %15, i64 %12
+  %16 = load ptr, ptr %data50, align 8
+  %add.ptr = getelementptr i8, ptr %16, i64 %13
   tail call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef %add.ptr, i64 noundef %conv39.sub38) #15
   %offset52 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load i64, ptr %offset52, align 8
-  %add53 = add i64 %16, %conv39.sub38
+  %17 = load i64, ptr %offset52, align 8
+  %add53 = add i64 %17, %conv39.sub38
   store i64 %add53, ptr %offset52, align 8
-  %17 = load i64, ptr %data_offset37, align 8
-  %add55 = add i64 %17, %conv39.sub38
+  %18 = load i64, ptr %data_offset37, align 8
+  %add55 = add i64 %18, %conv39.sub38
   store i64 %add55, ptr %data_offset37, align 8
-  %18 = load i64, ptr %length36, align 8
-  %cmp58 = icmp eq i64 %add55, %18
+  %19 = load i64, ptr %length36, align 8
+  %cmp58 = icmp eq i64 %add55, %19
   br i1 %cmp58, label %if.then60, label %sw.epilog
 
 if.then60:                                        ; preds = %sw.bb
   %result = getelementptr inbounds i8, ptr %s, i64 5904
-  %19 = load ptr, ptr %result, align 8
-  %tobool61.not = icmp eq ptr %19, null
+  %20 = load ptr, ptr %result, align 8
+  %tobool61.not = icmp eq ptr %20, null
   br i1 %tobool61.not, label %if.then62, label %if.end63
 
 if.then62:                                        ; preds = %if.then60
-  %20 = load ptr, ptr %data_out, align 8
-  %data.i = getelementptr inbounds i8, ptr %20, i64 32
-  %21 = load ptr, ptr %data.i, align 8
+  %21 = load ptr, ptr %data_out, align 8
+  %data.i = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = load ptr, ptr %data.i, align 8
   %dataset1.i = getelementptr inbounds i8, ptr %s, i64 5976
-  %22 = load i32, ptr %dataset1.i, align 8
+  %23 = load i32, ptr %dataset1.i, align 8
   %objects.i.i = getelementptr inbounds i8, ptr %s, i64 5928
   %o.04.i.i = load ptr, ptr %objects.i.i, align 8
   %tobool.not5.i.i = icmp eq ptr %o.04.i.i, null
@@ -6368,8 +6368,8 @@ if.then62:                                        ; preds = %if.then60
 
 for.body.i.i:                                     ; preds = %if.then62, %for.inc.i.i
   %o.06.i.i = phi ptr [ %o.0.i.i, %for.inc.i.i ], [ %o.04.i.i, %if.then62 ]
-  %23 = load i32, ptr %o.06.i.i, align 8
-  %cmp.i.i = icmp eq i32 %23, %22
+  %24 = load i32, ptr %o.06.i.i, align 8
+  %cmp.i.i = icmp eq i32 %24, %23
   br i1 %cmp.i.i, label %usb_mtp_object_lookup.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
@@ -6381,12 +6381,12 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 usb_mtp_object_lookup.exit.i:                     ; preds = %for.inc.i.i, %for.body.i.i, %if.then62
   %o.0.lcssa.i.i = phi ptr [ null, %if.then62 ], [ null, %for.inc.i.i ], [ %o.06.i.i, %for.body.i.i ]
   %next_handle2.i = getelementptr inbounds i8, ptr %s, i64 5916
-  %24 = load i32, ptr %next_handle2.i, align 4
+  %25 = load i32, ptr %next_handle2.i, align 4
   %sub.i = add nsw i64 %conv39.sub38, -53
   %div28.i = lshr i64 %sub.i, 1
   %write_pending.i = getelementptr inbounds i8, ptr %s, i64 5968
-  %25 = load i8, ptr %write_pending.i, align 8
-  %tobool.i = trunc i8 %25 to i1
+  %26 = load i8, ptr %write_pending.i, align 8
+  %tobool.i = trunc i8 %26 to i1
   br i1 %tobool.i, label %if.else.i98, label %if.end.i94
 
 if.else.i98:                                      ; preds = %usb_mtp_object_lookup.exit.i
@@ -6402,11 +6402,11 @@ if.else4.i:                                       ; preds = %if.end.i94
   unreachable
 
 if.end5.i:                                        ; preds = %if.end.i94
-  %length.i96 = getelementptr inbounds i8, ptr %21, i64 52
-  %26 = load i8, ptr %length.i96, align 1
-  %conv.i97 = zext i8 %26 to i64
+  %length.i96 = getelementptr inbounds i8, ptr %22, i64 52
+  %27 = load i8, ptr %length.i96, align 1
+  %conv.i97 = zext i8 %27 to i64
   %cond.i = tail call i64 @llvm.umin.i64(i64 %div28.i, i64 %conv.i97)
-  %filename9.i = getelementptr inbounds i8, ptr %21, i64 53
+  %filename9.i = getelementptr inbounds i8, ptr %22, i64 53
   %add.i.i = add nuw nsw i64 %cond.i, 1
   %call.i.i = tail call noalias ptr @g_malloc0_n(i64 noundef %add.i.i, i64 noundef 4) #17
   %cmp12.not.i.i = icmp eq i64 %cond.i, 0
@@ -6414,8 +6414,8 @@ if.end5.i:                                        ; preds = %if.end.i94
 
 for.body.i29.i:                                   ; preds = %if.end5.i, %for.body.i29.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i29.i ], [ 0, %if.end5.i ]
-  %27 = shl nuw i64 %indvars.iv.i.i, 1
-  %add.ptr.i.i = getelementptr i8, ptr %filename9.i, i64 %27
+  %28 = shl nuw i64 %indvars.iv.i.i, 1
+  %add.ptr.i.i = getelementptr i8, ptr %filename9.i, i64 %28
   %add.ptr.val.i.i = load i16, ptr %add.ptr.i.i, align 1
   %conv.i.i.i.i = zext i16 %add.ptr.val.i.i to i32
   %arrayidx.i.i = getelementptr i32, ptr %call.i.i, i64 %indvars.iv.i.i
@@ -6439,16 +6439,16 @@ utf16_to_str.exit.i:                              ; preds = %for.body.i29.i, %if
   br i1 %tobool12.not.i, label %if.end14.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %utf16_to_str.exit.i
-  %trans.i = getelementptr inbounds i8, ptr %20, i64 4
-  %28 = load i32, ptr %trans.i, align 4
+  %trans.i = getelementptr inbounds i8, ptr %21, i64 4
+  %29 = load i32, ptr %trans.i, align 4
   %call.i30.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
   store i16 8198, ptr %call.i30.i, align 4
   %trans2.i.i = getelementptr inbounds i8, ptr %call.i30.i, i64 4
-  store i32 %28, ptr %trans2.i.i, align 4
+  store i32 %29, ptr %trans2.i.i, align 4
   %argc3.i.i = getelementptr inbounds i8, ptr %call.i30.i, i64 8
   store i32 0, ptr %argc3.i.i, align 4
-  %29 = load ptr, ptr %result, align 8
-  %cmp14.i.i = icmp eq ptr %29, null
+  %30 = load ptr, ptr %result, align 8
+  %cmp14.i.i = icmp eq ptr %30, null
   br i1 %cmp14.i.i, label %usb_mtp_queue_result.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then13.i
@@ -6475,8 +6475,8 @@ for.body.lr.ph.i.i:                               ; preds = %if.end14.i
 for.body.i33.i:                                   ; preds = %for.inc.i34.i, %for.body.lr.ph.i.i
   %iter.08.i.i = phi ptr [ %iter.06.i.i, %for.body.lr.ph.i.i ], [ %iter.0.i.i, %for.inc.i34.i ]
   %name1.i.i = getelementptr inbounds i8, ptr %iter.08.i.i, i64 8
-  %30 = load ptr, ptr %name1.i.i, align 8
-  %call3.i.i = tail call i32 @strncmp(ptr noundef %30, ptr noundef readonly %call11.i.i, i64 noundef %conv2.i.i) #19
+  %31 = load ptr, ptr %name1.i.i, align 8
+  %call3.i.i = tail call i32 @strncmp(ptr noundef %31, ptr noundef readonly %call11.i.i, i64 noundef %conv2.i.i) #19
   %cmp4.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp4.i.i, label %if.then18.i, label %for.inc.i34.i
 
@@ -6487,23 +6487,23 @@ for.inc.i34.i:                                    ; preds = %for.body.i33.i
   br i1 %tobool.not.i35.i, label %if.end19.i, label %for.body.i33.i, !llvm.loop !11
 
 if.then18.i:                                      ; preds = %for.body.i33.i
-  %31 = load i32, ptr %iter.08.i.i, align 8
+  %32 = load i32, ptr %iter.08.i.i, align 8
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %for.inc.i34.i, %if.then18.i, %if.end14.i
-  %next_handle.0.i = phi i32 [ %31, %if.then18.i ], [ %24, %if.end14.i ], [ %24, %for.inc.i34.i ]
+  %next_handle.0.i = phi i32 [ %32, %if.then18.i ], [ %25, %if.end14.i ], [ %25, %for.inc.i34.i ]
   %filename21.i = getelementptr inbounds i8, ptr %s, i64 5992
   store ptr %call11.i.i, ptr %filename21.i, align 8
-  %format.i = getelementptr inbounds i8, ptr %21, i64 4
-  %32 = load i16, ptr %format.i, align 1
+  %format.i = getelementptr inbounds i8, ptr %22, i64 4
+  %33 = load i16, ptr %format.i, align 1
   %format23.i = getelementptr inbounds i8, ptr %s, i64 5980
-  store i16 %32, ptr %format23.i, align 4
-  %size.i = getelementptr inbounds i8, ptr %21, i64 8
-  %33 = load i32, ptr %size.i, align 1
+  store i16 %33, ptr %format23.i, align 4
+  %size.i = getelementptr inbounds i8, ptr %22, i64 8
+  %34 = load i32, ptr %size.i, align 1
   %size25.i = getelementptr inbounds i8, ptr %s, i64 5984
-  store i32 %33, ptr %size25.i, align 8
+  store i32 %34, ptr %size25.i, align 8
   store i8 1, ptr %write_pending.i, align 8
-  %cmp30.i = icmp eq i16 %32, 12289
+  %cmp30.i = icmp eq i16 %33, 12289
   br i1 %cmp30.i, label %if.then32.i, label %if.else33.i
 
 if.then32.i:                                      ; preds = %if.end19.i
@@ -6511,23 +6511,23 @@ if.then32.i:                                      ; preds = %if.end19.i
   br label %if.end63
 
 if.else33.i:                                      ; preds = %if.end19.i
-  %trans34.i = getelementptr inbounds i8, ptr %20, i64 4
-  %34 = load i32, ptr %trans34.i, align 4
-  %35 = load i32, ptr %dataset1.i, align 8
+  %trans34.i = getelementptr inbounds i8, ptr %21, i64 4
+  %35 = load i32, ptr %trans34.i, align 4
+  %36 = load i32, ptr %dataset1.i, align 8
   %call.i36.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
   store i16 8193, ptr %call.i36.i, align 4
   %trans2.i37.i = getelementptr inbounds i8, ptr %call.i36.i, i64 4
-  store i32 %34, ptr %trans2.i37.i, align 4
+  store i32 %35, ptr %trans2.i37.i, align 4
   %argc3.i38.i = getelementptr inbounds i8, ptr %call.i36.i, i64 8
   store i32 3, ptr %argc3.i38.i, align 4
   %argv.i.i = getelementptr inbounds i8, ptr %call.i36.i, i64 12
   store i32 65537, ptr %argv.i.i, align 4
   %arrayidx7.i.i = getelementptr i8, ptr %call.i36.i, i64 16
-  store i32 %35, ptr %arrayidx7.i.i, align 4
+  store i32 %36, ptr %arrayidx7.i.i, align 4
   %arrayidx12.i.i = getelementptr i8, ptr %call.i36.i, i64 20
   store i32 %next_handle.0.i, ptr %arrayidx12.i.i, align 4
-  %36 = load ptr, ptr %result, align 8
-  %cmp14.i40.i = icmp eq ptr %36, null
+  %37 = load ptr, ptr %result, align 8
+  %cmp14.i40.i = icmp eq ptr %37, null
   br i1 %cmp14.i40.i, label %usb_mtp_queue_result.exit42.i, label %if.else.i41.i
 
 if.else.i41.i:                                    ; preds = %if.else33.i
@@ -6539,25 +6539,25 @@ usb_mtp_queue_result.exit42.i:                    ; preds = %if.else33.i
   br label %if.end63
 
 if.end63:                                         ; preds = %usb_mtp_queue_result.exit42.i, %if.then32.i, %usb_mtp_queue_result.exit.i, %if.then60
-  %37 = load ptr, ptr %data_out, align 8
-  %cmp.i = icmp eq ptr %37, null
+  %38 = load ptr, ptr %data_out, align 8
+  %cmp.i = icmp eq ptr %38, null
   br i1 %cmp.i, label %usb_mtp_data_free.exit, label %if.end.i99
 
 if.end.i99:                                       ; preds = %if.end63
-  %fd.i = getelementptr inbounds i8, ptr %37, i64 44
-  %38 = load i32, ptr %fd.i, align 4
-  %cmp1.not.i = icmp eq i32 %38, -1
+  %fd.i = getelementptr inbounds i8, ptr %38, i64 44
+  %39 = load i32, ptr %fd.i, align 4
+  %cmp1.not.i = icmp eq i32 %39, -1
   br i1 %cmp1.not.i, label %if.end4.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i99
-  %call.i100 = tail call i32 @close(i32 noundef %38) #15
+  %call.i100 = tail call i32 @close(i32 noundef %39) #15
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then2.i, %if.end.i99
-  %data5.i = getelementptr inbounds i8, ptr %37, i64 32
-  %39 = load ptr, ptr %data5.i, align 8
-  tail call void @g_free(ptr noundef %39) #15
-  tail call void @g_free(ptr noundef nonnull %37) #15
+  %data5.i = getelementptr inbounds i8, ptr %38, i64 32
+  %40 = load ptr, ptr %data5.i, align 8
+  tail call void @g_free(ptr noundef %40) #15
+  tail call void @g_free(ptr noundef nonnull %38) #15
   br label %usb_mtp_data_free.exit
 
 usb_mtp_data_free.exit:                           ; preds = %if.end63, %if.end4.i
@@ -6566,28 +6566,28 @@ usb_mtp_data_free.exit:                           ; preds = %if.end63, %if.end4.
 
 sw.bb67:                                          ; preds = %if.end35
   %data68 = getelementptr inbounds i8, ptr %0, i64 32
-  %40 = load ptr, ptr %data68, align 8
-  %add.ptr70 = getelementptr i8, ptr %40, i64 %12
+  %41 = load ptr, ptr %data68, align 8
+  %add.ptr70 = getelementptr i8, ptr %41, i64 %13
   tail call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef %add.ptr70, i64 noundef %conv39.sub38) #15
   %offset71 = getelementptr inbounds i8, ptr %0, i64 8
-  %41 = load i64, ptr %offset71, align 8
-  %add72 = add i64 %41, %conv39.sub38
+  %42 = load i64, ptr %offset71, align 8
+  %add72 = add i64 %42, %conv39.sub38
   store i64 %add72, ptr %offset71, align 8
-  %42 = load i64, ptr %data_offset37, align 8
-  %add74 = add i64 %42, %conv39.sub38
+  %43 = load i64, ptr %data_offset37, align 8
+  %add74 = add i64 %43, %conv39.sub38
   store i64 %add74, ptr %data_offset37, align 8
-  %43 = load i64, ptr %size, align 8
-  %rem = and i64 %43, 63
+  %44 = load i64, ptr %size, align 8
+  %rem = and i64 %44, 63
   %tobool77.not = icmp ne i64 %rem, 0
-  %tobool80.not = icmp eq i64 %43, 0
+  %tobool80.not = icmp eq i64 %44, 0
   %or.cond = or i1 %tobool80.not, %tobool77.not
   br i1 %or.cond, label %if.then81, label %if.end105
 
 if.then81:                                        ; preds = %sw.bb67
   %size82 = getelementptr inbounds i8, ptr %s, i64 5984
-  %44 = load i32, ptr %size82, align 8
-  %cmp83 = icmp eq i32 %44, -1
-  %conv88 = zext i32 %44 to i64
+  %45 = load i32, ptr %size82, align 8
+  %cmp83 = icmp eq i32 %45, -1
+  %conv88 = zext i32 %45 to i64
   %cmp90 = icmp eq i64 %add72, %conv88
   %or.cond1 = select i1 %cmp83, i1 true, i1 %cmp90
   br i1 %or.cond1, label %if.end94, label %if.else93
@@ -6597,31 +6597,31 @@ if.else93:                                        ; preds = %if.then81
   unreachable
 
 if.end94:                                         ; preds = %if.then81
-  %45 = load i64, ptr %length36, align 8
-  %cmp96 = icmp eq i64 %45, 524288
+  %46 = load i64, ptr %length36, align 8
+  %cmp96 = icmp eq i64 %46, 524288
   %spec.select = select i1 %cmp96, i8 3, i8 1
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
-  store i8 %spec.select, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  store i8 %spec.select, ptr %47, align 8
   tail call fastcc void @usb_mtp_write_data(ptr noundef nonnull %s, i32 noundef 0)
-  %47 = load ptr, ptr %data_out, align 8
-  %cmp.i101 = icmp eq ptr %47, null
+  %48 = load ptr, ptr %data_out, align 8
+  %cmp.i101 = icmp eq ptr %48, null
   br i1 %cmp.i101, label %usb_mtp_data_free.exit109, label %if.end.i102
 
 if.end.i102:                                      ; preds = %if.end94
-  %fd.i103 = getelementptr inbounds i8, ptr %47, i64 44
-  %48 = load i32, ptr %fd.i103, align 4
-  %cmp1.not.i104 = icmp eq i32 %48, -1
+  %fd.i103 = getelementptr inbounds i8, ptr %48, i64 44
+  %49 = load i32, ptr %fd.i103, align 4
+  %cmp1.not.i104 = icmp eq i32 %49, -1
   br i1 %cmp1.not.i104, label %if.end4.i107, label %if.then2.i105
 
 if.then2.i105:                                    ; preds = %if.end.i102
-  %call.i106 = tail call i32 @close(i32 noundef %48) #15
+  %call.i106 = tail call i32 @close(i32 noundef %49) #15
   br label %if.end4.i107
 
 if.end4.i107:                                     ; preds = %if.then2.i105, %if.end.i102
-  %data5.i108 = getelementptr inbounds i8, ptr %47, i64 32
-  %49 = load ptr, ptr %data5.i108, align 8
-  tail call void @g_free(ptr noundef %49) #15
-  tail call void @g_free(ptr noundef nonnull %47) #15
+  %data5.i108 = getelementptr inbounds i8, ptr %48, i64 32
+  %50 = load ptr, ptr %data5.i108, align 8
+  tail call void @g_free(ptr noundef %50) #15
+  tail call void @g_free(ptr noundef nonnull %48) #15
   br label %usb_mtp_data_free.exit109
 
 usb_mtp_data_free.exit109:                        ; preds = %if.end94, %if.end4.i107
@@ -6629,8 +6629,8 @@ usb_mtp_data_free.exit109:                        ; preds = %if.end94, %if.end4.
   br label %sw.epilog
 
 if.end105:                                        ; preds = %sw.bb67
-  %50 = load i64, ptr %length36, align 8
-  %cmp108 = icmp eq i64 %add74, %50
+  %51 = load i64, ptr %length36, align 8
+  %cmp108 = icmp eq i64 %add74, %51
   br i1 %cmp108, label %if.then110, label %sw.epilog
 
 if.then110:                                       ; preds = %if.end105

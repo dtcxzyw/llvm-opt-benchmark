@@ -160,7 +160,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @curl_multi_add_handle(ptr noundef %multi, ptr noundef %data) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_add_handle(ptr noundef %multi, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %multi, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -2553,7 +2553,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_multi_add_perform(ptr noundef %multi, ptr noundef %data, ptr noundef %conn) local_unnamed_addr #0 {
+define hidden range(i32 0, 12) i32 @Curl_multi_add_perform(ptr noundef %multi, ptr noundef %data, ptr noundef %conn) local_unnamed_addr #0 {
 entry:
   %in_callback = getelementptr inbounds i8, ptr %multi, i64 457
   %bf.load = load i8, ptr %in_callback, align 1
@@ -2643,7 +2643,7 @@ return:                                           ; preds = %if.then, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483648) i32 @curl_multi_perform(ptr noundef %multi, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_perform(ptr noundef %multi, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
 entry:
   %action.i27 = alloca %struct.sigaction, align 8
   %action.i = alloca %struct.sigaction, align 8
@@ -3030,8 +3030,8 @@ if.end10:                                         ; preds = %mstate.exit.i, %do.
   %or.cond = icmp ult i32 %15, 12
   %.pre = load ptr, ptr %conn, align 8
   %tobool18.not = icmp eq ptr %.pre, null
-  %or.cond773 = select i1 %or.cond, i1 %tobool18.not, i1 false
-  br i1 %or.cond773, label %return, label %if.end21
+  %or.cond772 = select i1 %or.cond, i1 %tobool18.not, i1 false
+  br i1 %or.cond772, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end10
   %tobool23.not = icmp ne ptr %.pre, null
@@ -3317,23 +3317,24 @@ if.then122:                                       ; preds = %sw.bb98
 if.end144:                                        ; preds = %if.then122
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.6, ptr noundef %hostname.0) #19
   %.pr.pre = load ptr, ptr %dns, align 8
-  %tobool145.not = icmp eq ptr %.pr.pre, null
-  br i1 %tobool145.not, label %if.then146, label %if.end148
+  %51 = icmp eq ptr %.pr.pre, null
+  br i1 %51, label %if.then146, label %if.end148
 
 if.then146:                                       ; preds = %sw.bb98, %if.end144
   %call147 = call i32 @Curl_resolv_check(ptr noundef nonnull %data, ptr noundef nonnull %dns) #19
   store i32 %call147, ptr %result, align 4
+  %52 = icmp eq i32 %call147, 0
   br label %if.end148
 
 if.end148:                                        ; preds = %if.then122, %if.then146, %if.end144
-  %.pr678731 = phi i32 [ %call147, %if.then146 ], [ 0, %if.end144 ], [ 0, %if.then122 ]
+  %.pr678731 = phi i1 [ %52, %if.then146 ], [ true, %if.end144 ], [ true, %if.then122 ]
   %call149 = call fastcc i32 @singlesocket(ptr noundef nonnull %multi, ptr noundef nonnull %data)
   %tobool150.not = icmp eq i32 %call149, 0
   br i1 %tobool150.not, label %if.end152, label %return
 
 if.end152:                                        ; preds = %if.end148
-  %51 = load ptr, ptr %dns, align 8
-  %tobool153.not = icmp eq ptr %51, null
+  %53 = load ptr, ptr %dns, align 8
+  %tobool153.not = icmp eq ptr %53, null
   br i1 %tobool153.not, label %if.end165, label %if.then154
 
 if.then154:                                       ; preds = %if.end152
@@ -3347,13 +3348,13 @@ if.end165.thread:                                 ; preds = %if.then154
   br label %if.then167
 
 if.else159:                                       ; preds = %if.then154
-  %52 = load i8, ptr %connected, align 1
-  %tobool160 = trunc i8 %52 to i1
-  %53 = load i32, ptr %mstate, align 8
+  %54 = load i8, ptr %connected, align 1
+  %tobool160 = trunc i8 %54 to i1
+  %55 = load i32, ptr %mstate, align 8
   br i1 %tobool160, label %if.then161, label %if.else162
 
 if.then161:                                       ; preds = %if.else159
-  %cmp.i350 = icmp eq i32 %53, 6
+  %cmp.i350 = icmp eq i32 %55, 6
   br i1 %cmp.i350, label %sw.epilogthread-pre-split, label %if.end.i351
 
 if.end.i351:                                      ; preds = %if.then161
@@ -3361,7 +3362,7 @@ if.end.i351:                                      ; preds = %if.then161
   br label %sw.epilogthread-pre-split
 
 if.else162:                                       ; preds = %if.else159
-  %cmp.i354 = icmp eq i32 %53, 4
+  %cmp.i354 = icmp eq i32 %55, 4
   br i1 %cmp.i354, label %sw.epilogthread-pre-split, label %if.end.i355
 
 if.end.i355:                                      ; preds = %if.else162
@@ -3369,8 +3370,7 @@ if.end.i355:                                      ; preds = %if.else162
   br label %sw.epilogthread-pre-split
 
 if.end165:                                        ; preds = %if.end152
-  %tobool166.not = icmp eq i32 %.pr678731, 0
-  br i1 %tobool166.not, label %sw.epilogthread-pre-split, label %if.then167
+  br i1 %.pr678731, label %sw.epilogthread-pre-split, label %if.then167
 
 if.then167:                                       ; preds = %if.end165.thread, %if.end165
   store i8 1, ptr %stream_error, align 1
@@ -3379,18 +3379,18 @@ if.then167:                                       ; preds = %if.end165.thread, %
 do.end171:                                        ; preds = %if.end34
   %call172 = call i32 @Curl_http_connect(ptr noundef nonnull %data, ptr noundef nonnull %protocol_connected) #19
   store i32 %call172, ptr %result, align 4
-  %54 = load ptr, ptr %conn, align 8
-  %bits174 = getelementptr inbounds i8, ptr %54, i64 704
+  %56 = load ptr, ptr %conn, align 8
+  %bits174 = getelementptr inbounds i8, ptr %56, i64 704
   %bf.load175 = load i32, ptr %bits174, align 8
-  %55 = and i32 %bf.load175, 16
-  %tobool178.not = icmp eq i32 %55, 0
+  %57 = and i32 %bf.load175, 16
+  %tobool178.not = icmp eq i32 %57, 0
   br i1 %tobool178.not, label %if.else181, label %if.then179
 
 if.then179:                                       ; preds = %do.end171
   store i32 0, ptr %result, align 4
   %call180 = call fastcc i32 @multi_done(ptr noundef nonnull %data, i32 noundef 0, i1 noundef zeroext false)
-  %56 = load i32, ptr %mstate, align 8
-  %cmp.i358 = icmp eq i32 %56, 2
+  %58 = load i32, ptr %mstate, align 8
+  %cmp.i358 = icmp eq i32 %58, 2
   br i1 %cmp.i358, label %sw.epilog, label %if.end.i359
 
 if.end.i359:                                      ; preds = %if.then179
@@ -3403,8 +3403,8 @@ if.else181:                                       ; preds = %do.end171
   br i1 %tobool182.not, label %if.then183, label %if.else184
 
 if.then183:                                       ; preds = %if.else181
-  %57 = load i32, ptr %mstate, align 8
-  %cmp.i362 = icmp eq i32 %57, 6
+  %59 = load i32, ptr %mstate, align 8
+  %cmp.i362 = icmp eq i32 %59, 6
   br i1 %cmp.i362, label %sw.epilog, label %if.end.i363
 
 if.end.i363:                                      ; preds = %if.then183
@@ -3418,15 +3418,15 @@ if.else184:                                       ; preds = %if.else181
 do.end189:                                        ; preds = %if.end34
   %call190 = call i32 @Curl_conn_connect(ptr noundef nonnull %data, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %connected) #19
   store i32 %call190, ptr %result, align 4
-  %58 = load i8, ptr %connected, align 1
-  %tobool191 = trunc i8 %58 to i1
+  %60 = load i8, ptr %connected, align 1
+  %tobool191 = trunc i8 %60 to i1
   %tobool194 = icmp eq i32 %call190, 0
   %or.cond.not = select i1 %tobool191, i1 %tobool194, i1 false
   br i1 %or.cond.not, label %if.then195, label %if.else196
 
 if.then195:                                       ; preds = %do.end189
-  %59 = load i32, ptr %mstate, align 8
-  %cmp.i366 = icmp eq i32 %59, 6
+  %61 = load i32, ptr %mstate, align 8
+  %cmp.i366 = icmp eq i32 %61, 6
   br i1 %cmp.i366, label %sw.epilog, label %if.end.i367
 
 if.end.i367:                                      ; preds = %if.then195
@@ -3444,40 +3444,40 @@ if.then198:                                       ; preds = %if.else196
 
 sw.bb203:                                         ; preds = %if.end34
   %bf.load205 = load i32, ptr %wildcardmatch666, align 4
-  %60 = and i32 %bf.load205, 524288
-  %tobool208.not = icmp eq i32 %60, 0
+  %62 = and i32 %bf.load205, 524288
+  %tobool208.not = icmp eq i32 %62, 0
   br i1 %tobool208.not, label %if.end211thread-pre-split, label %if.then209
 
 if.then209:                                       ; preds = %sw.bb203
   %bf.clear.i = and i32 %bf.load205, -524289
   store i32 %bf.clear.i, ptr %wildcardmatch666, align 4
-  %61 = load i32, ptr %keepon.i, align 4
-  %and.i = and i32 %61, -3
+  %63 = load i32, ptr %keepon.i, align 4
+  %and.i = and i32 %63, -3
   store i32 %and.i, ptr %keepon.i, align 4
-  %62 = load ptr, ptr %conn, align 8
-  %handler.i = getelementptr inbounds i8, ptr %62, i64 712
-  %63 = load ptr, ptr %handler.i, align 8
-  %protocol.i = getelementptr inbounds i8, ptr %63, i64 132
-  %64 = load i32, ptr %protocol.i, align 4
-  %and1.i = and i32 %64, 3
+  %64 = load ptr, ptr %conn, align 8
+  %handler.i = getelementptr inbounds i8, ptr %64, i64 712
+  %65 = load ptr, ptr %handler.i, align 8
+  %protocol.i = getelementptr inbounds i8, ptr %65, i64 132
+  %66 = load i32, ptr %protocol.i, align 4
+  %and1.i = and i32 %66, 3
   %tobool.not.i370 = icmp eq i32 %and1.i, 0
   br i1 %tobool.not.i370, label %if.end8.i, label %if.then.i371
 
 if.then.i371:                                     ; preds = %if.then209
-  %65 = load ptr, ptr %mimepost3.i, align 8
-  %tobool4.not.i = icmp eq ptr %65, null
-  %spec.select.i = select i1 %tobool4.not.i, ptr %mimepost.i, ptr %65
+  %67 = load ptr, ptr %mimepost3.i, align 8
+  %tobool4.not.i = icmp eq ptr %67, null
+  %spec.select.i = select i1 %tobool4.not.i, ptr %mimepost.i, ptr %67
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then.i371, %if.then209
   %mimepart.0.i = phi ptr [ %mimepost.i, %if.then209 ], [ %spec.select.i, %if.then.i371 ]
-  %66 = load ptr, ptr %postfields.i, align 8
-  %tobool10.not.i = icmp eq ptr %66, null
+  %68 = load ptr, ptr %postfields.i, align 8
+  %tobool10.not.i = icmp eq ptr %68, null
   br i1 %tobool10.not.i, label %lor.lhs.false.i, label %readrewind.exit
 
 lor.lhs.false.i:                                  ; preds = %if.end8.i
-  %67 = load i8, ptr %httpreq.i, align 2
-  switch i8 %67, label %if.else35.i [
+  %69 = load i8, ptr %httpreq.i, align 2
+  switch i8 %69, label %if.else35.i [
     i8 0, label %readrewind.exit
     i8 5, label %readrewind.exit
     i8 3, label %if.then31.i
@@ -3494,22 +3494,22 @@ if.then33.i:                                      ; preds = %if.then31.i
   br label %readrewind.exit
 
 if.else35.i:                                      ; preds = %lor.lhs.false.i
-  %68 = load ptr, ptr %seek_func.i, align 8
-  %tobool37.not.i = icmp eq ptr %68, null
+  %70 = load ptr, ptr %seek_func.i, align 8
+  %tobool37.not.i = icmp eq ptr %70, null
   br i1 %tobool37.not.i, label %if.else46.i, label %if.then.i.i374
 
 if.then.i.i374:                                   ; preds = %if.else35.i
-  %69 = load ptr, ptr %multi_easy.i, align 8
-  %tobool1.not.i.i = icmp eq ptr %69, null
+  %71 = load ptr, ptr %multi_easy.i, align 8
+  %tobool1.not.i.i = icmp eq ptr %71, null
   br i1 %tobool1.not.i.i, label %if.else.i.i375, label %if.end18.sink.split.i.i
 
 if.else.i.i375:                                   ; preds = %if.then.i.i374
-  %70 = load ptr, ptr %multi.i592, align 8
-  %tobool5.not.i.i = icmp eq ptr %70, null
+  %72 = load ptr, ptr %multi.i592, align 8
+  %tobool5.not.i.i = icmp eq ptr %72, null
   br i1 %tobool5.not.i.i, label %if.then.i36.i, label %if.end18.sink.split.i.i
 
 if.end18.sink.split.i.i:                          ; preds = %if.else.i.i375, %if.then.i.i374
-  %.sink.i.i = phi ptr [ %69, %if.then.i.i374 ], [ %70, %if.else.i.i375 ]
+  %.sink.i.i = phi ptr [ %71, %if.then.i.i374 ], [ %72, %if.else.i.i375 ]
   %in_callback.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 457
   %bf.load.i.i = load i8, ptr %in_callback.i.i, align 1
   %bf.set.i.i = or i8 %bf.load.i.i, 4
@@ -3518,20 +3518,20 @@ if.end18.sink.split.i.i:                          ; preds = %if.else.i.i375, %if
   br label %if.then.i36.i
 
 if.then.i36.i:                                    ; preds = %if.end18.sink.split.i.i, %if.else.i.i375
-  %71 = phi ptr [ %.pre.i, %if.end18.sink.split.i.i ], [ %68, %if.else.i.i375 ]
-  %72 = load ptr, ptr %seek_client.i, align 8
-  %call42.i = call i32 %71(ptr noundef %72, i64 noundef 0, i32 noundef 0) #19
-  %73 = load ptr, ptr %multi_easy.i, align 8
-  %tobool1.not.i38.i = icmp eq ptr %73, null
+  %73 = phi ptr [ %.pre.i, %if.end18.sink.split.i.i ], [ %70, %if.else.i.i375 ]
+  %74 = load ptr, ptr %seek_client.i, align 8
+  %call42.i = call i32 %73(ptr noundef %74, i64 noundef 0, i32 noundef 0) #19
+  %75 = load ptr, ptr %multi_easy.i, align 8
+  %tobool1.not.i38.i = icmp eq ptr %75, null
   br i1 %tobool1.not.i38.i, label %if.else.i45.i, label %if.end18.sink.split.i39.i
 
 if.else.i45.i:                                    ; preds = %if.then.i36.i
-  %74 = load ptr, ptr %multi.i592, align 8
-  %tobool5.not.i47.i = icmp eq ptr %74, null
+  %76 = load ptr, ptr %multi.i592, align 8
+  %tobool5.not.i47.i = icmp eq ptr %76, null
   br i1 %tobool5.not.i47.i, label %Curl_set_in_callback.exit48.i, label %if.end18.sink.split.i39.i
 
 if.end18.sink.split.i39.i:                        ; preds = %if.else.i45.i, %if.then.i36.i
-  %.sink.i40.i = phi ptr [ %73, %if.then.i36.i ], [ %74, %if.else.i45.i ]
+  %.sink.i40.i = phi ptr [ %75, %if.then.i36.i ], [ %76, %if.else.i45.i ]
   %in_callback.i41.i = getelementptr inbounds i8, ptr %.sink.i40.i, i64 457
   %bf.load.i42.i = load i8, ptr %in_callback.i41.i, align 1
   %bf.clear.i43.i = and i8 %bf.load.i42.i, -5
@@ -3547,22 +3547,22 @@ if.then44.i:                                      ; preds = %Curl_set_in_callbac
   br label %readrewind.exit
 
 if.else46.i:                                      ; preds = %if.else35.i
-  %75 = load ptr, ptr %ioctl_func.i, align 8
-  %tobool48.not.i = icmp eq ptr %75, null
+  %77 = load ptr, ptr %ioctl_func.i, align 8
+  %tobool48.not.i = icmp eq ptr %77, null
   br i1 %tobool48.not.i, label %if.else67.i, label %if.then.i50.i
 
 if.then.i50.i:                                    ; preds = %if.else46.i
-  %76 = load ptr, ptr %multi_easy.i, align 8
-  %tobool1.not.i52.i = icmp eq ptr %76, null
+  %78 = load ptr, ptr %multi_easy.i, align 8
+  %tobool1.not.i52.i = icmp eq ptr %78, null
   br i1 %tobool1.not.i52.i, label %if.else.i59.i, label %if.end18.sink.split.i53.i
 
 if.else.i59.i:                                    ; preds = %if.then.i50.i
-  %77 = load ptr, ptr %multi.i592, align 8
-  %tobool5.not.i61.i = icmp eq ptr %77, null
+  %79 = load ptr, ptr %multi.i592, align 8
+  %tobool5.not.i61.i = icmp eq ptr %79, null
   br i1 %tobool5.not.i61.i, label %if.then.i64.i, label %if.end18.sink.split.i53.i
 
 if.end18.sink.split.i53.i:                        ; preds = %if.else.i59.i, %if.then.i50.i
-  %.sink.i54.i = phi ptr [ %76, %if.then.i50.i ], [ %77, %if.else.i59.i ]
+  %.sink.i54.i = phi ptr [ %78, %if.then.i50.i ], [ %79, %if.else.i59.i ]
   %in_callback.i55.i = getelementptr inbounds i8, ptr %.sink.i54.i, i64 457
   %bf.load.i56.i = load i8, ptr %in_callback.i55.i, align 1
   %bf.set.i58.i = or i8 %bf.load.i56.i, 4
@@ -3571,20 +3571,20 @@ if.end18.sink.split.i53.i:                        ; preds = %if.else.i59.i, %if.
   br label %if.then.i64.i
 
 if.then.i64.i:                                    ; preds = %if.end18.sink.split.i53.i, %if.else.i59.i
-  %78 = phi ptr [ %.pre77.i, %if.end18.sink.split.i53.i ], [ %75, %if.else.i59.i ]
-  %79 = load ptr, ptr %ioctl_client.i, align 8
-  %call54.i = call i32 %78(ptr noundef nonnull %data, i32 noundef 1, ptr noundef %79) #19
-  %80 = load ptr, ptr %multi_easy.i, align 8
-  %tobool1.not.i66.i = icmp eq ptr %80, null
+  %80 = phi ptr [ %.pre77.i, %if.end18.sink.split.i53.i ], [ %77, %if.else.i59.i ]
+  %81 = load ptr, ptr %ioctl_client.i, align 8
+  %call54.i = call i32 %80(ptr noundef nonnull %data, i32 noundef 1, ptr noundef %81) #19
+  %82 = load ptr, ptr %multi_easy.i, align 8
+  %tobool1.not.i66.i = icmp eq ptr %82, null
   br i1 %tobool1.not.i66.i, label %if.else.i73.i, label %if.end18.sink.split.i67.i
 
 if.else.i73.i:                                    ; preds = %if.then.i64.i
-  %81 = load ptr, ptr %multi.i592, align 8
-  %tobool5.not.i75.i = icmp eq ptr %81, null
+  %83 = load ptr, ptr %multi.i592, align 8
+  %tobool5.not.i75.i = icmp eq ptr %83, null
   br i1 %tobool5.not.i75.i, label %Curl_set_in_callback.exit76.i, label %if.end18.sink.split.i67.i
 
 if.end18.sink.split.i67.i:                        ; preds = %if.else.i73.i, %if.then.i64.i
-  %.sink.i68.i = phi ptr [ %80, %if.then.i64.i ], [ %81, %if.else.i73.i ]
+  %.sink.i68.i = phi ptr [ %82, %if.then.i64.i ], [ %83, %if.else.i73.i ]
   %in_callback.i69.i = getelementptr inbounds i8, ptr %.sink.i68.i, i64 457
   %bf.load.i70.i = load i8, ptr %in_callback.i69.i, align 1
   %bf.clear.i71.i = and i8 %bf.load.i70.i, -5
@@ -3593,8 +3593,8 @@ if.end18.sink.split.i67.i:                        ; preds = %if.else.i73.i, %if.
 
 Curl_set_in_callback.exit76.i:                    ; preds = %if.end18.sink.split.i67.i, %if.else.i73.i
   %bf.load58.i = load i64, ptr %verbose.i, align 2
-  %82 = and i64 %bf.load58.i, 536870912
-  %tobool60.not.i = icmp eq i64 %82, 0
+  %84 = and i64 %bf.load58.i, 536870912
+  %tobool60.not.i = icmp eq i64 %84, 0
   br i1 %tobool60.not.i, label %do.end63.i, label %if.then61.i
 
 if.then61.i:                                      ; preds = %Curl_set_in_callback.exit76.i
@@ -3610,13 +3610,13 @@ if.then65.i:                                      ; preds = %do.end63.i
   br label %readrewind.exit
 
 if.else67.i:                                      ; preds = %if.else46.i
-  %83 = load ptr, ptr %fread_func.i, align 8
-  %cmp69.i = icmp eq ptr %83, @fread
+  %85 = load ptr, ptr %fread_func.i, align 8
+  %cmp69.i = icmp eq ptr %85, @fread
   br i1 %cmp69.i, label %if.then71.i, label %if.end78.i
 
 if.then71.i:                                      ; preds = %if.else67.i
-  %84 = load ptr, ptr %in.i, align 8
-  %call73.i = call i32 @fseek(ptr noundef %84, i64 noundef 0, i32 noundef 0)
+  %86 = load ptr, ptr %in.i, align 8
+  %call73.i = call i32 @fseek(ptr noundef %86, i64 noundef 0, i32 noundef 0)
   %cmp74.not.i = icmp eq i32 %call73.i, -1
   br i1 %cmp74.not.i, label %if.end78.i, label %readrewind.exit
 
@@ -3639,16 +3639,16 @@ if.end211:                                        ; preds = %if.end211thread-pre
   br i1 %tobool212.not, label %land.lhs.true213, label %if.else233
 
 land.lhs.true213:                                 ; preds = %if.end211
-  %85 = load ptr, ptr %conn, align 8
-  %bits215 = getelementptr inbounds i8, ptr %85, i64 704
+  %87 = load ptr, ptr %conn, align 8
+  %bits215 = getelementptr inbounds i8, ptr %87, i64 704
   %bf.load216 = load i32, ptr %bits215, align 8
-  %86 = and i32 %bf.load216, 128
-  %tobool219.not = icmp eq i32 %86, 0
+  %88 = and i32 %bf.load216, 128
+  %tobool219.not = icmp eq i32 %88, 0
   br i1 %tobool219.not, label %if.then223, label %if.then220
 
 if.then220:                                       ; preds = %land.lhs.true213
-  %87 = load i32, ptr %mstate, align 8
-  %cmp.i377 = icmp eq i32 %87, 8
+  %89 = load i32, ptr %mstate, align 8
+  %cmp.i377 = icmp eq i32 %89, 8
   br i1 %cmp.i377, label %sw.epilog, label %if.end.i378
 
 if.end.i378:                                      ; preds = %if.then220
@@ -3657,19 +3657,19 @@ if.end.i378:                                      ; preds = %if.then220
 
 if.then223:                                       ; preds = %land.lhs.true213
   store i8 0, ptr %protocol_connected, align 1
-  %call.i381 = call zeroext i1 @Curl_conn_is_connected(ptr noundef nonnull %85, i32 noundef 0) #19
+  %call.i381 = call zeroext i1 @Curl_conn_is_connected(ptr noundef nonnull %87, i32 noundef 0) #19
   %bf.load.i382 = load i32, ptr %bits215, align 8
-  %88 = and i32 %bf.load.i382, 16384
-  %tobool.not.i383 = icmp ne i32 %88, 0
+  %90 = and i32 %bf.load.i382, 16384
+  %tobool.not.i383 = icmp ne i32 %90, 0
   %or.cond.not.i = select i1 %call.i381, i1 %tobool.not.i383, i1 false
   br i1 %or.cond.not.i, label %if.then.i386, label %if.end6.i
 
 if.then.i386:                                     ; preds = %if.then223
-  %handler.i387 = getelementptr inbounds i8, ptr %85, i64 712
-  %89 = load ptr, ptr %handler.i387, align 8
-  %connecting.i = getelementptr inbounds i8, ptr %89, i64 48
-  %90 = load ptr, ptr %connecting.i, align 8
-  %tobool4.not.i388 = icmp eq ptr %90, null
+  %handler.i387 = getelementptr inbounds i8, ptr %87, i64 712
+  %91 = load ptr, ptr %handler.i387, align 8
+  %connecting.i = getelementptr inbounds i8, ptr %91, i64 48
+  %92 = load ptr, ptr %connecting.i, align 8
+  %tobool4.not.i388 = icmp eq ptr %92, null
   br i1 %tobool4.not.i388, label %if.then5.i, label %land.lhs.true227
 
 if.then5.i:                                       ; preds = %if.then.i386
@@ -3677,15 +3677,15 @@ if.then5.i:                                       ; preds = %if.then.i386
   br label %land.lhs.true227
 
 if.end6.i:                                        ; preds = %if.then223
-  %tobool11.not.i = icmp eq i32 %88, 0
+  %tobool11.not.i = icmp eq i32 %90, 0
   br i1 %tobool11.not.i, label %if.then12.i, label %land.lhs.true227
 
 if.then12.i:                                      ; preds = %if.end6.i
-  %handler13.i = getelementptr inbounds i8, ptr %85, i64 712
-  %91 = load ptr, ptr %handler13.i, align 8
-  %connect_it.i = getelementptr inbounds i8, ptr %91, i64 40
-  %92 = load ptr, ptr %connect_it.i, align 8
-  %tobool14.not.i = icmp eq ptr %92, null
+  %handler13.i = getelementptr inbounds i8, ptr %87, i64 712
+  %93 = load ptr, ptr %handler13.i, align 8
+  %connect_it.i = getelementptr inbounds i8, ptr %93, i64 40
+  %94 = load ptr, ptr %connect_it.i, align 8
+  %tobool14.not.i = icmp eq ptr %94, null
   br i1 %tobool14.not.i, label %if.end19.thread.i, label %if.end19.i
 
 if.end19.thread.i:                                ; preds = %if.then12.i
@@ -3693,7 +3693,7 @@ if.end19.thread.i:                                ; preds = %if.then12.i
   br label %if.then21.i
 
 if.end19.i:                                       ; preds = %if.then12.i
-  %call18.i = call i32 %92(ptr noundef nonnull %data, ptr noundef nonnull %protocol_connected) #19
+  %call18.i = call i32 %94(ptr noundef nonnull %data, ptr noundef nonnull %protocol_connected) #19
   %tobool20.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool20.not.i, label %if.end19.i.if.then21.i_crit_edge, label %if.end225
 
@@ -3713,13 +3713,13 @@ if.end225:                                        ; preds = %if.end19.i
 
 land.lhs.true227:                                 ; preds = %if.then5.i, %if.then.i386, %if.end6.i, %if.then21.i
   store i32 0, ptr %result, align 4
-  %93 = load i8, ptr %protocol_connected, align 1
-  %tobool228 = trunc i8 %93 to i1
-  %94 = load i32, ptr %mstate, align 8
+  %95 = load i8, ptr %protocol_connected, align 1
+  %tobool228 = trunc i8 %95 to i1
+  %96 = load i32, ptr %mstate, align 8
   br i1 %tobool228, label %if.then232, label %if.then229
 
 if.then229:                                       ; preds = %land.lhs.true227
-  %cmp.i390 = icmp eq i32 %94, 7
+  %cmp.i390 = icmp eq i32 %96, 7
   br i1 %cmp.i390, label %sw.epilog, label %if.end.i391
 
 if.end.i391:                                      ; preds = %if.then229
@@ -3727,7 +3727,7 @@ if.end.i391:                                      ; preds = %if.then229
   br label %sw.epilog
 
 if.then232:                                       ; preds = %land.lhs.true227
-  %cmp.i395 = icmp eq i32 %94, 8
+  %cmp.i395 = icmp eq i32 %96, 8
   br i1 %cmp.i395, label %sw.epilog, label %if.end.i396
 
 if.end.i396:                                      ; preds = %if.then232
@@ -3735,23 +3735,23 @@ if.end.i396:                                      ; preds = %if.then232
   br label %sw.epilog
 
 if.else233:                                       ; preds = %if.end211, %if.end225
-  %95 = phi i32 [ %call18.i, %if.end225 ], [ %.pr683, %if.end211 ]
+  %97 = phi i32 [ %call18.i, %if.end225 ], [ %.pr683, %if.end211 ]
   %call234 = call i32 @Curl_posttransfer(ptr noundef nonnull %data) #19
-  %call235 = call fastcc i32 @multi_done(ptr noundef nonnull %data, i32 noundef %95, i1 noundef zeroext true)
+  %call235 = call fastcc i32 @multi_done(ptr noundef nonnull %data, i32 noundef %97, i1 noundef zeroext true)
   store i8 1, ptr %stream_error, align 1
   br label %sw.epilogthread-pre-split
 
 sw.bb238:                                         ; preds = %if.end34
-  %96 = load ptr, ptr %conn, align 8
-  %tobool.not.i400 = icmp eq ptr %96, null
+  %98 = load ptr, ptr %conn, align 8
+  %tobool.not.i400 = icmp eq ptr %98, null
   br i1 %tobool.not.i400, label %if.then244.thread, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb238
-  %handler.i401 = getelementptr inbounds i8, ptr %96, i64 712
-  %97 = load ptr, ptr %handler.i401, align 8
-  %connecting.i402 = getelementptr inbounds i8, ptr %97, i64 48
-  %98 = load ptr, ptr %connecting.i402, align 8
-  %tobool2.not.i = icmp eq ptr %98, null
+  %handler.i401 = getelementptr inbounds i8, ptr %98, i64 712
+  %99 = load ptr, ptr %handler.i401, align 8
+  %connecting.i402 = getelementptr inbounds i8, ptr %99, i64 48
+  %100 = load ptr, ptr %connecting.i402, align 8
+  %tobool2.not.i = icmp eq ptr %100, null
   br i1 %tobool2.not.i, label %if.then244.thread, label %protocol_connecting.exit
 
 if.then244.thread:                                ; preds = %sw.bb238, %land.lhs.true.i
@@ -3761,20 +3761,20 @@ if.then244.thread:                                ; preds = %sw.bb238, %land.lhs
 
 protocol_connecting.exit:                         ; preds = %land.lhs.true.i
   store i8 0, ptr %protocol_connected, align 1
-  %call.i404 = call i32 %98(ptr noundef nonnull %data, ptr noundef nonnull %protocol_connected) #19
+  %call.i404 = call i32 %100(ptr noundef nonnull %data, ptr noundef nonnull %protocol_connected) #19
   store i32 %call.i404, ptr %result, align 4
   %tobool240.not = icmp eq i32 %call.i404, 0
   br i1 %tobool240.not, label %land.lhs.true241, label %if.then247
 
 land.lhs.true241:                                 ; preds = %protocol_connecting.exit
   %.pre727 = load i8, ptr %protocol_connected, align 1
-  %tobool242 = trunc i8 %.pre727 to i1
-  br i1 %tobool242, label %if.then244, label %sw.epilogthread-pre-split
+  %101 = trunc i8 %.pre727 to i1
+  br i1 %101, label %if.then244, label %sw.epilogthread-pre-split
 
 if.then244:                                       ; preds = %land.lhs.true241
-  %.pre803 = load i32, ptr %mstate, align 8
-  %cmp.i407 = icmp eq i32 %.pre803, 8
-  br i1 %cmp.i407, label %sw.epilog, label %if.end.i408
+  %.pre802 = load i32, ptr %mstate, align 8
+  %102 = icmp eq i32 %.pre802, 8
+  br i1 %102, label %sw.epilog, label %if.end.i408
 
 if.end.i408:                                      ; preds = %if.then244.thread, %if.then244
   store i32 8, ptr %mstate, align 8
@@ -3787,22 +3787,22 @@ if.then247:                                       ; preds = %protocol_connecting
   br label %sw.epilogthread-pre-split
 
 sw.bb252:                                         ; preds = %if.end34
-  %99 = load ptr, ptr %fprereq, align 8
-  %tobool254.not = icmp eq ptr %99, null
+  %103 = load ptr, ptr %fprereq, align 8
+  %tobool254.not = icmp eq ptr %103, null
   br i1 %tobool254.not, label %if.end270, label %if.then.i412
 
 if.then.i412:                                     ; preds = %sw.bb252
-  %100 = load ptr, ptr %multi_easy.i, align 8
-  %tobool1.not.i = icmp eq ptr %100, null
+  %104 = load ptr, ptr %multi_easy.i, align 8
+  %tobool1.not.i = icmp eq ptr %104, null
   br i1 %tobool1.not.i, label %if.else.i416, label %if.end18.sink.split.i
 
 if.else.i416:                                     ; preds = %if.then.i412
-  %101 = load ptr, ptr %multi.i592, align 8
-  %tobool5.not.i418 = icmp eq ptr %101, null
+  %105 = load ptr, ptr %multi.i592, align 8
+  %tobool5.not.i418 = icmp eq ptr %105, null
   br i1 %tobool5.not.i418, label %if.then.i420, label %if.end18.sink.split.i
 
 if.end18.sink.split.i:                            ; preds = %if.else.i416, %if.then.i412
-  %.sink.i = phi ptr [ %100, %if.then.i412 ], [ %101, %if.else.i416 ]
+  %.sink.i = phi ptr [ %104, %if.then.i412 ], [ %105, %if.else.i416 ]
   %in_callback.i = getelementptr inbounds i8, ptr %.sink.i, i64 457
   %bf.load.i413 = load i8, ptr %in_callback.i, align 1
   %bf.set.i415 = or i8 %bf.load.i413, 4
@@ -3811,22 +3811,22 @@ if.end18.sink.split.i:                            ; preds = %if.else.i416, %if.t
   br label %if.then.i420
 
 if.then.i420:                                     ; preds = %if.end18.sink.split.i, %if.else.i416
-  %102 = phi ptr [ %.pre726, %if.end18.sink.split.i ], [ %99, %if.else.i416 ]
-  %103 = load ptr, ptr %prereq_userp, align 8
-  %104 = load i32, ptr %conn_primary_port, align 4
-  %105 = load i32, ptr %conn_local_port, align 4
-  %call263 = call i32 %102(ptr noundef %103, ptr noundef nonnull %conn_primary_ip, ptr noundef nonnull %conn_local_ip, i32 noundef %104, i32 noundef %105) #19
-  %106 = load ptr, ptr %multi_easy.i, align 8
-  %tobool1.not.i422 = icmp eq ptr %106, null
+  %106 = phi ptr [ %.pre726, %if.end18.sink.split.i ], [ %103, %if.else.i416 ]
+  %107 = load ptr, ptr %prereq_userp, align 8
+  %108 = load i32, ptr %conn_primary_port, align 4
+  %109 = load i32, ptr %conn_local_port, align 4
+  %call263 = call i32 %106(ptr noundef %107, ptr noundef nonnull %conn_primary_ip, ptr noundef nonnull %conn_local_ip, i32 noundef %108, i32 noundef %109) #19
+  %110 = load ptr, ptr %multi_easy.i, align 8
+  %tobool1.not.i422 = icmp eq ptr %110, null
   br i1 %tobool1.not.i422, label %if.else.i429, label %if.end18.sink.split.i423
 
 if.else.i429:                                     ; preds = %if.then.i420
-  %107 = load ptr, ptr %multi.i592, align 8
-  %tobool5.not.i431 = icmp eq ptr %107, null
+  %111 = load ptr, ptr %multi.i592, align 8
+  %tobool5.not.i431 = icmp eq ptr %111, null
   br i1 %tobool5.not.i431, label %Curl_set_in_callback.exit432, label %if.end18.sink.split.i423
 
 if.end18.sink.split.i423:                         ; preds = %if.else.i429, %if.then.i420
-  %.sink.i424 = phi ptr [ %106, %if.then.i420 ], [ %107, %if.else.i429 ]
+  %.sink.i424 = phi ptr [ %110, %if.then.i420 ], [ %111, %if.else.i429 ]
   %in_callback.i425 = getelementptr inbounds i8, ptr %.sink.i424, i64 457
   %bf.load.i426 = load i8, ptr %in_callback.i425, align 1
   %bf.clear.i427 = and i8 %bf.load.i426, -5
@@ -3846,15 +3846,15 @@ if.then266:                                       ; preds = %Curl_set_in_callbac
   br label %sw.epilogthread-pre-split
 
 if.end270:                                        ; preds = %Curl_set_in_callback.exit432, %sw.bb252
-  %108 = load i8, ptr %connect_only, align 1
-  %cmp273 = icmp eq i8 %108, 1
-  %109 = load ptr, ptr %conn, align 8
+  %112 = load i8, ptr %connect_only, align 1
+  %cmp273 = icmp eq i8 %112, 1
+  %113 = load ptr, ptr %conn, align 8
   br i1 %cmp273, label %if.then275, label %if.else277
 
 if.then275:                                       ; preds = %if.end270
-  call void @Curl_conncontrol(ptr noundef %109, i32 noundef 0) #19
-  %110 = load i32, ptr %mstate, align 8
-  %cmp.i434 = icmp eq i32 %110, 14
+  call void @Curl_conncontrol(ptr noundef %113, i32 noundef 0) #19
+  %114 = load i32, ptr %mstate, align 8
+  %cmp.i434 = icmp eq i32 %114, 14
   br i1 %cmp.i434, label %mstate.exit437, label %if.end.i435
 
 if.end.i435:                                      ; preds = %if.then275
@@ -3866,11 +3866,11 @@ mstate.exit437:                                   ; preds = %if.then275, %if.end
   br label %sw.epilogthread-pre-split
 
 if.else277:                                       ; preds = %if.end270
-  %handler.i439 = getelementptr inbounds i8, ptr %109, i64 712
-  %111 = load ptr, ptr %handler.i439, align 8
-  %do_it.i = getelementptr inbounds i8, ptr %111, i64 16
-  %112 = load ptr, ptr %do_it.i, align 8
-  %tobool.not.i440 = icmp eq ptr %112, null
+  %handler.i439 = getelementptr inbounds i8, ptr %113, i64 712
+  %115 = load ptr, ptr %handler.i439, align 8
+  %do_it.i = getelementptr inbounds i8, ptr %115, i64 16
+  %116 = load ptr, ptr %do_it.i, align 8
+  %tobool.not.i440 = icmp eq ptr %116, null
   br i1 %tobool.not.i440, label %multi_do.exit.thread, label %multi_do.exit
 
 multi_do.exit.thread:                             ; preds = %if.else277
@@ -3878,7 +3878,7 @@ multi_do.exit.thread:                             ; preds = %if.else277
   br label %if.then280
 
 multi_do.exit:                                    ; preds = %if.else277
-  %call.i442 = call i32 %112(ptr noundef nonnull %data, ptr noundef nonnull %dophase_done) #19
+  %call.i442 = call i32 %116(ptr noundef nonnull %data, ptr noundef nonnull %dophase_done) #19
   store i32 %call.i442, ptr %result, align 4
   switch i32 %call.i442, label %if.else347 [
     i32 0, label %if.then280
@@ -3886,36 +3886,36 @@ multi_do.exit:                                    ; preds = %if.else277
   ]
 
 if.then280:                                       ; preds = %multi_do.exit.thread, %multi_do.exit
-  %113 = load i8, ptr %dophase_done, align 1
-  %tobool281 = trunc i8 %113 to i1
+  %117 = load i8, ptr %dophase_done, align 1
+  %tobool281 = trunc i8 %117 to i1
   br i1 %tobool281, label %if.else303, label %if.then282
 
 if.then282:                                       ; preds = %if.then280
   %bf.load284 = load i32, ptr %wildcardmatch666, align 4
-  %114 = and i32 %bf.load284, 64
-  %tobool287.not = icmp eq i32 %114, 0
+  %118 = and i32 %bf.load284, 64
+  %tobool287.not = icmp eq i32 %118, 0
   br i1 %tobool287.not, label %if.end302, label %if.then288
 
 if.then288:                                       ; preds = %if.then282
-  %115 = load ptr, ptr %wildcard672, align 8
-  %state289 = getelementptr inbounds i8, ptr %115, i64 64
-  %116 = load i8, ptr %state289, align 8
-  switch i8 %116, label %if.end302 [
+  %119 = load ptr, ptr %wildcard672, align 8
+  %state289 = getelementptr inbounds i8, ptr %119, i64 64
+  %120 = load i8, ptr %state289, align 8
+  switch i8 %120, label %if.end302 [
     i8 7, label %if.then297
     i8 5, label %if.then297
   ]
 
 if.then297:                                       ; preds = %if.then288, %if.then288
   %call298 = call fastcc i32 @multi_done(ptr noundef nonnull %data, i32 noundef 0, i1 noundef zeroext false)
-  %117 = load ptr, ptr %conn, align 8
-  %tobool300.not = icmp eq ptr %117, null
+  %121 = load ptr, ptr %conn, align 8
+  %tobool300.not = icmp eq ptr %121, null
   %cond = select i1 %tobool300.not, i32 15, i32 14
   call fastcc void @mstate(ptr noundef nonnull %data, i32 noundef %cond)
   br label %sw.epilogthread-pre-split
 
 if.end302:                                        ; preds = %if.then288, %if.then282
-  %118 = load i32, ptr %mstate, align 8
-  %cmp.i446 = icmp eq i32 %118, 9
+  %122 = load i32, ptr %mstate, align 8
+  %cmp.i446 = icmp eq i32 %122, 9
   br i1 %cmp.i446, label %sw.epilog, label %if.end.i447
 
 if.end.i447:                                      ; preds = %if.end302
@@ -3923,16 +3923,16 @@ if.end.i447:                                      ; preds = %if.end302
   br label %sw.epilog
 
 if.else303:                                       ; preds = %if.then280
-  %119 = load ptr, ptr %conn, align 8
-  %bits305 = getelementptr inbounds i8, ptr %119, i64 704
+  %123 = load ptr, ptr %conn, align 8
+  %bits305 = getelementptr inbounds i8, ptr %123, i64 704
   %bf.load306 = load i32, ptr %bits305, align 8
-  %120 = and i32 %bf.load306, 8192
-  %tobool309.not = icmp eq i32 %120, 0
-  %121 = load i32, ptr %mstate, align 8
+  %124 = and i32 %bf.load306, 8192
+  %tobool309.not = icmp eq i32 %124, 0
+  %125 = load i32, ptr %mstate, align 8
   br i1 %tobool309.not, label %if.else311, label %if.then310
 
 if.then310:                                       ; preds = %if.else303
-  %cmp.i451 = icmp eq i32 %121, 10
+  %cmp.i451 = icmp eq i32 %125, 10
   br i1 %cmp.i451, label %sw.epilog, label %if.end.i452
 
 if.end.i452:                                      ; preds = %if.then310
@@ -3940,7 +3940,7 @@ if.end.i452:                                      ; preds = %if.then310
   br label %sw.epilog
 
 if.else311:                                       ; preds = %if.else303
-  %cmp.i456 = icmp eq i32 %121, 11
+  %cmp.i456 = icmp eq i32 %125, 11
   br i1 %cmp.i456, label %sw.epilog, label %if.end.i457
 
 if.end.i457:                                      ; preds = %if.else311
@@ -3952,11 +3952,11 @@ if.end.i457:                                      ; preds = %if.else311
   br label %sw.epilogthread-pre-split
 
 land.lhs.true317:                                 ; preds = %multi_do.exit
-  %122 = load ptr, ptr %conn, align 8
-  %bits319 = getelementptr inbounds i8, ptr %122, i64 704
+  %126 = load ptr, ptr %conn, align 8
+  %bits319 = getelementptr inbounds i8, ptr %126, i64 704
   %bf.load320 = load i32, ptr %bits319, align 8
-  %123 = and i32 %bf.load320, 128
-  %tobool323.not = icmp eq i32 %123, 0
+  %127 = and i32 %bf.load320, 128
+  %tobool323.not = icmp eq i32 %127, 0
   br i1 %tobool323.not, label %if.else347, label %if.then324
 
 if.then324:                                       ; preds = %land.lhs.true317
@@ -3971,11 +3971,11 @@ if.then327:                                       ; preds = %if.then324
   br label %if.end328
 
 if.end328:                                        ; preds = %if.then327, %if.then324
-  %124 = phi i32 [ %call325, %if.then327 ], [ 55, %if.then324 ]
+  %128 = phi i32 [ %call325, %if.then327 ], [ 55, %if.then324 ]
   %call329 = call i32 @Curl_posttransfer(ptr noundef nonnull %data) #19
-  %call330 = call fastcc i32 @multi_done(ptr noundef nonnull %data, i32 noundef %124, i1 noundef zeroext false)
-  %125 = load ptr, ptr %newurl, align 8
-  %tobool331.not = icmp eq ptr %125, null
+  %call330 = call fastcc i32 @multi_done(ptr noundef nonnull %data, i32 noundef %128, i1 noundef zeroext false)
+  %129 = load ptr, ptr %newurl, align 8
+  %tobool331.not = icmp eq ptr %129, null
   br i1 %tobool331.not, label %if.else345, label %if.then332
 
 if.then332:                                       ; preds = %if.end328
@@ -3985,13 +3985,13 @@ if.then332:                                       ; preds = %if.end328
   ]
 
 if.then337:                                       ; preds = %if.then332, %if.then332
-  %call338 = call i32 @Curl_follow(ptr noundef nonnull %data, ptr noundef nonnull %125, i32 noundef 2) #19
+  %call338 = call i32 @Curl_follow(ptr noundef nonnull %data, ptr noundef nonnull %129, i32 noundef 2) #19
   %tobool339.not = icmp eq i32 %call338, 0
   br i1 %tobool339.not, label %if.then340, label %if.else341
 
 if.then340:                                       ; preds = %if.then337
-  %126 = load i32, ptr %mstate, align 8
-  %cmp.i462 = icmp eq i32 %126, 2
+  %130 = load i32, ptr %mstate, align 8
+  %cmp.i462 = icmp eq i32 %130, 2
   br i1 %cmp.i462, label %mstate.exit466, label %if.end.i463
 
 if.end.i463:                                      ; preds = %if.then340
@@ -4017,15 +4017,15 @@ if.else345:                                       ; preds = %if.end328
 
 if.end346:                                        ; preds = %if.else343, %if.else341, %mstate.exit466, %if.else345
   %rc.3 = phi i32 [ 0, %if.else341 ], [ -1, %mstate.exit466 ], [ 0, %if.else343 ], [ 0, %if.else345 ]
-  %127 = load ptr, ptr @Curl_cfree, align 8
-  %128 = load ptr, ptr %newurl, align 8
-  call void %127(ptr noundef %128) #19
+  %131 = load ptr, ptr @Curl_cfree, align 8
+  %132 = load ptr, ptr %newurl, align 8
+  call void %131(ptr noundef %132) #19
   br label %sw.epilogthread-pre-split
 
 if.else347:                                       ; preds = %multi_do.exit, %land.lhs.true317
   %call348 = call i32 @Curl_posttransfer(ptr noundef nonnull %data) #19
-  %129 = load ptr, ptr %conn, align 8
-  %tobool350.not = icmp eq ptr %129, null
+  %133 = load ptr, ptr %conn, align 8
+  %tobool350.not = icmp eq ptr %133, null
   br i1 %tobool350.not, label %if.end353, label %if.then351
 
 if.then351:                                       ; preds = %if.else347
@@ -4037,50 +4037,50 @@ if.end353:                                        ; preds = %if.then351, %if.els
   br label %sw.epilogthread-pre-split
 
 do.end359:                                        ; preds = %if.end34
-  %130 = load ptr, ptr %conn, align 8
-  %tobool.not.i468 = icmp eq ptr %130, null
+  %134 = load ptr, ptr %conn, align 8
+  %tobool.not.i468 = icmp eq ptr %134, null
   br i1 %tobool.not.i468, label %if.then364.thread, label %land.lhs.true.i469
 
 land.lhs.true.i469:                               ; preds = %do.end359
-  %handler.i470 = getelementptr inbounds i8, ptr %130, i64 712
-  %131 = load ptr, ptr %handler.i470, align 8
-  %doing.i = getelementptr inbounds i8, ptr %131, i64 56
-  %132 = load ptr, ptr %doing.i, align 8
-  %tobool2.not.i471 = icmp eq ptr %132, null
+  %handler.i470 = getelementptr inbounds i8, ptr %134, i64 712
+  %135 = load ptr, ptr %handler.i470, align 8
+  %doing.i = getelementptr inbounds i8, ptr %135, i64 56
+  %136 = load ptr, ptr %doing.i, align 8
+  %tobool2.not.i471 = icmp eq ptr %136, null
   br i1 %tobool2.not.i471, label %if.then364.thread, label %protocol_doing.exit
 
 if.then364.thread:                                ; preds = %do.end359, %land.lhs.true.i469
   store i8 1, ptr %dophase_done, align 1
   store i32 0, ptr %result, align 4
-  %bits366805 = getelementptr inbounds i8, ptr %130, i64 704
-  %bf.load367806 = load i32, ptr %bits366805, align 8
-  %133 = and i32 %bf.load367806, 8192
-  %tobool370.not.not807 = icmp eq i32 %133, 0
-  %cond371808 = select i1 %tobool370.not.not807, i32 11, i32 10
-  store i32 %cond371808, ptr %mstate, align 8
-  br i1 %tobool370.not.not807, label %if.then5.i481, label %sw.epilog
+  %bits366804 = getelementptr inbounds i8, ptr %134, i64 704
+  %bf.load367805 = load i32, ptr %bits366804, align 8
+  %137 = and i32 %bf.load367805, 8192
+  %tobool370.not.not806 = icmp eq i32 %137, 0
+  %cond371807 = select i1 %tobool370.not.not806, i32 11, i32 10
+  store i32 %cond371807, ptr %mstate, align 8
+  br i1 %tobool370.not.not806, label %if.then5.i481, label %sw.epilog
 
 protocol_doing.exit:                              ; preds = %land.lhs.true.i469
   store i8 0, ptr %dophase_done, align 1
-  %call.i473 = call i32 %132(ptr noundef nonnull %data, ptr noundef nonnull %dophase_done) #19
+  %call.i473 = call i32 %136(ptr noundef nonnull %data, ptr noundef nonnull %dophase_done) #19
   store i32 %call.i473, ptr %result, align 4
   %tobool361.not = icmp eq i32 %call.i473, 0
   br i1 %tobool361.not, label %if.then362, label %if.else373
 
 if.then362:                                       ; preds = %protocol_doing.exit
   %.pre725 = load i8, ptr %dophase_done, align 1
-  %tobool363 = trunc i8 %.pre725 to i1
-  br i1 %tobool363, label %if.then364, label %sw.epilogthread-pre-split
+  %138 = trunc i8 %.pre725 to i1
+  br i1 %138, label %if.then364, label %sw.epilogthread-pre-split
 
 if.then364:                                       ; preds = %if.then362
-  %.pre801 = load ptr, ptr %conn, align 8
-  %.pre802 = load i32, ptr %mstate, align 8
-  %bits366 = getelementptr inbounds i8, ptr %.pre801, i64 704
+  %.pre800 = load ptr, ptr %conn, align 8
+  %.pre801 = load i32, ptr %mstate, align 8
+  %bits366 = getelementptr inbounds i8, ptr %.pre800, i64 704
   %bf.load367 = load i32, ptr %bits366, align 8
-  %134 = and i32 %bf.load367, 8192
-  %tobool370.not.not = icmp eq i32 %134, 0
+  %139 = and i32 %bf.load367, 8192
+  %tobool370.not.not = icmp eq i32 %139, 0
   %cond371 = select i1 %tobool370.not.not, i32 11, i32 10
-  %cmp.i478 = icmp eq i32 %.pre802, %cond371
+  %cmp.i478 = icmp eq i32 %.pre801, %cond371
   br i1 %cmp.i478, label %sw.epilog, label %if.end.i479
 
 if.end.i479:                                      ; preds = %if.then364
@@ -4088,10 +4088,10 @@ if.end.i479:                                      ; preds = %if.then364
   br i1 %tobool370.not.not, label %if.then5.i481, label %sw.epilog
 
 if.then5.i481:                                    ; preds = %if.then364.thread, %if.end.i479
-  %bf.load.i775 = load i16, ptr %chunk.i, align 1
-  %bf.clear.i776 = and i16 %bf.load.i775, -129
-  store i16 %bf.clear.i776, ptr %chunk.i, align 1
-  %call.i777 = call { i64, i32 } @Curl_pgrsTime(ptr noundef nonnull %data, i32 noundef 7) #19
+  %bf.load.i774 = load i16, ptr %chunk.i, align 1
+  %bf.clear.i775 = and i16 %bf.load.i774, -129
+  store i16 %bf.clear.i775, ptr %chunk.i, align 1
+  %call.i776 = call { i64, i32 } @Curl_pgrsTime(ptr noundef nonnull %data, i32 noundef 7) #19
   br label %sw.epilogthread-pre-split
 
 if.else373:                                       ; preds = %protocol_doing.exit
@@ -4101,13 +4101,13 @@ if.else373:                                       ; preds = %protocol_doing.exit
   br label %sw.epilogthread-pre-split
 
 do.end379:                                        ; preds = %if.end34
-  %135 = load ptr, ptr %conn, align 8
+  %140 = load ptr, ptr %conn, align 8
   store i32 0, ptr %control, align 4
-  %handler.i487 = getelementptr inbounds i8, ptr %135, i64 712
-  %136 = load ptr, ptr %handler.i487, align 8
-  %do_more.i = getelementptr inbounds i8, ptr %136, i64 32
-  %137 = load ptr, ptr %do_more.i, align 8
-  %tobool.not.i488 = icmp eq ptr %137, null
+  %handler.i487 = getelementptr inbounds i8, ptr %140, i64 712
+  %141 = load ptr, ptr %handler.i487, align 8
+  %do_more.i = getelementptr inbounds i8, ptr %141, i64 32
+  %142 = load ptr, ptr %do_more.i, align 8
+  %tobool.not.i488 = icmp eq ptr %142, null
   br i1 %tobool.not.i488, label %if.then382.thread, label %multi_do_more.exit
 
 if.then382.thread:                                ; preds = %do.end379
@@ -4115,7 +4115,7 @@ if.then382.thread:                                ; preds = %do.end379
   br label %sw.epilogthread-pre-split
 
 multi_do_more.exit:                               ; preds = %do.end379
-  %call.i490 = call i32 %137(ptr noundef nonnull %data, ptr noundef nonnull %control) #19
+  %call.i490 = call i32 %142(ptr noundef nonnull %data, ptr noundef nonnull %control) #19
   store i32 %call.i490, ptr %result, align 4
   %tobool381.not = icmp eq i32 %call.i490, 0
   br i1 %tobool381.not, label %if.then382, label %if.else389
@@ -4128,8 +4128,8 @@ if.then382:                                       ; preds = %multi_do_more.exit
 if.then384:                                       ; preds = %if.then382
   %cmp385.not = icmp eq i32 %.pre724, 1
   %cond387 = select i1 %cmp385.not, i32 11, i32 9
-  %138 = load i32, ptr %mstate, align 8
-  %cmp.i494 = icmp eq i32 %138, %cond387
+  %143 = load i32, ptr %mstate, align 8
+  %cmp.i494 = icmp eq i32 %143, %cond387
   br i1 %cmp.i494, label %sw.epilog, label %if.end.i495
 
 if.end.i495:                                      ; preds = %if.then384
@@ -4137,10 +4137,10 @@ if.end.i495:                                      ; preds = %if.then384
   br i1 %cmp385.not, label %if.then5.i499, label %sw.epilog
 
 if.then5.i499:                                    ; preds = %if.end.i495
-  %bf.load.i779 = load i16, ptr %chunk.i, align 1
-  %bf.clear.i780 = and i16 %bf.load.i779, -129
-  store i16 %bf.clear.i780, ptr %chunk.i, align 1
-  %call.i781 = call { i64, i32 } @Curl_pgrsTime(ptr noundef nonnull %data, i32 noundef 7) #19
+  %bf.load.i778 = load i16, ptr %chunk.i, align 1
+  %bf.clear.i779 = and i16 %bf.load.i778, -129
+  store i16 %bf.clear.i779, ptr %chunk.i, align 1
+  %call.i780 = call { i64, i32 } @Curl_pgrsTime(ptr noundef nonnull %data, i32 noundef 7) #19
   br label %sw.epilogthread-pre-split
 
 if.else389:                                       ; preds = %multi_do_more.exit
@@ -4150,56 +4150,56 @@ if.else389:                                       ; preds = %multi_do_more.exit
   br label %sw.epilogthread-pre-split
 
 do.end395:                                        ; preds = %if.end34
-  %139 = load ptr, ptr %conn, align 8
-  %bits397 = getelementptr inbounds i8, ptr %139, i64 704
+  %144 = load ptr, ptr %conn, align 8
+  %bits397 = getelementptr inbounds i8, ptr %144, i64 704
   %bf.load398 = load i32, ptr %bits397, align 8
-  %140 = and i32 %bf.load398, 8388608
-  %tobool401.not = icmp eq i32 %140, 0
+  %145 = and i32 %bf.load398, 8388608
+  %tobool401.not = icmp eq i32 %145, 0
   br i1 %tobool401.not, label %if.end403, label %if.then402
 
 if.then402:                                       ; preds = %do.end395
-  %141 = load ptr, ptr %pending.i, align 8
-  %tobool.not.i506 = icmp eq ptr %141, null
+  %146 = load ptr, ptr %pending.i, align 8
+  %tobool.not.i506 = icmp eq ptr %146, null
   br i1 %tobool.not.i506, label %if.end403, label %if.then.i507
 
 if.then.i507:                                     ; preds = %if.then402
-  %142 = load ptr, ptr %141, align 8
-  %next.i.i508 = getelementptr inbounds i8, ptr %142, i64 16
+  %147 = load ptr, ptr %146, align 8
+  %next.i.i508 = getelementptr inbounds i8, ptr %147, i64 16
   store ptr null, ptr %next.i.i508, align 8
-  %143 = load ptr, ptr %easyp.i.i, align 8
-  %tobool.not.i.i510 = icmp eq ptr %143, null
+  %148 = load ptr, ptr %easyp.i.i, align 8
+  %tobool.not.i.i510 = icmp eq ptr %148, null
   br i1 %tobool.not.i.i510, label %if.else.i.i525, label %if.then.i.i511
 
 if.then.i.i511:                                   ; preds = %if.then.i507
-  %144 = load ptr, ptr %easylp.i.i, align 8
-  %next1.i.i513 = getelementptr inbounds i8, ptr %144, i64 16
-  store ptr %142, ptr %next1.i.i513, align 8
-  %prev.i.i514 = getelementptr inbounds i8, ptr %142, i64 24
-  store ptr %144, ptr %prev.i.i514, align 8
+  %149 = load ptr, ptr %easylp.i.i, align 8
+  %next1.i.i513 = getelementptr inbounds i8, ptr %149, i64 16
+  store ptr %147, ptr %next1.i.i513, align 8
+  %prev.i.i514 = getelementptr inbounds i8, ptr %147, i64 24
+  store ptr %149, ptr %prev.i.i514, align 8
   br label %link_easy.exit.i515
 
 if.else.i.i525:                                   ; preds = %if.then.i507
-  %prev3.i.i526 = getelementptr inbounds i8, ptr %142, i64 24
+  %prev3.i.i526 = getelementptr inbounds i8, ptr %147, i64 24
   store ptr null, ptr %prev3.i.i526, align 8
-  store ptr %142, ptr %easyp.i.i, align 8
+  store ptr %147, ptr %easyp.i.i, align 8
   br label %link_easy.exit.i515
 
 link_easy.exit.i515:                              ; preds = %if.else.i.i525, %if.then.i.i511
-  store ptr %142, ptr %easylp.i.i, align 8
-  %mstate.i.i517 = getelementptr inbounds i8, ptr %142, i64 88
-  %145 = load i32, ptr %mstate.i.i517, align 8
-  %cmp.i.i518 = icmp eq i32 %145, 2
+  store ptr %147, ptr %easylp.i.i, align 8
+  %mstate.i.i517 = getelementptr inbounds i8, ptr %147, i64 88
+  %150 = load i32, ptr %mstate.i.i517, align 8
+  %cmp.i.i518 = icmp eq i32 %150, 2
   br i1 %cmp.i.i518, label %mstate.exit.i520, label %if.end.i.i519
 
 if.end.i.i519:                                    ; preds = %link_easy.exit.i515
   store i32 2, ptr %mstate.i.i517, align 8
-  call void @Curl_init_CONNECT(ptr noundef nonnull %142) #19
+  call void @Curl_init_CONNECT(ptr noundef nonnull %147) #19
   br label %mstate.exit.i520
 
 mstate.exit.i520:                                 ; preds = %if.end.i.i519, %link_easy.exit.i515
-  call void @Curl_llist_remove(ptr noundef nonnull %pending.i, ptr noundef nonnull %141, ptr noundef null) #19
-  call void @Curl_expire(ptr noundef nonnull %142, i64 noundef 0, i32 noundef 8)
-  %previouslypending.i521 = getelementptr inbounds i8, ptr %142, i64 5044
+  call void @Curl_llist_remove(ptr noundef nonnull %pending.i, ptr noundef nonnull %146, ptr noundef null) #19
+  call void @Curl_expire(ptr noundef nonnull %147, i64 noundef 0, i32 noundef 8)
+  %previouslypending.i521 = getelementptr inbounds i8, ptr %147, i64 5044
   %bf.load.i522 = load i32, ptr %previouslypending.i521, align 4
   %bf.set.i523 = or i32 %bf.load.i522, 4096
   store i32 %bf.set.i523, ptr %previouslypending.i521, align 4
@@ -4207,21 +4207,21 @@ mstate.exit.i520:                                 ; preds = %if.end.i.i519, %lin
   br label %if.end403
 
 if.end403:                                        ; preds = %mstate.exit.i520, %if.then402, %do.end395
-  %146 = phi ptr [ %.pre723, %mstate.exit.i520 ], [ %139, %if.then402 ], [ %139, %do.end395 ]
-  %sockfd = getelementptr inbounds i8, ptr %146, i64 744
-  %147 = load i32, ptr %sockfd, align 8
-  %cmp405.not = icmp eq i32 %147, -1
+  %151 = phi ptr [ %.pre723, %mstate.exit.i520 ], [ %144, %if.then402 ], [ %144, %do.end395 ]
+  %sockfd = getelementptr inbounds i8, ptr %151, i64 744
+  %152 = load i32, ptr %sockfd, align 8
+  %cmp405.not = icmp eq i32 %152, -1
   br i1 %cmp405.not, label %lor.lhs.false407, label %if.then411
 
 lor.lhs.false407:                                 ; preds = %if.end403
-  %writesockfd = getelementptr inbounds i8, ptr %146, i64 748
-  %148 = load i32, ptr %writesockfd, align 4
-  %cmp409.not = icmp eq i32 %148, -1
+  %writesockfd = getelementptr inbounds i8, ptr %151, i64 748
+  %153 = load i32, ptr %writesockfd, align 4
+  %cmp409.not = icmp eq i32 %153, -1
   br i1 %cmp409.not, label %if.else412, label %if.then411
 
 if.then411:                                       ; preds = %lor.lhs.false407, %if.end403
-  %149 = load i32, ptr %mstate, align 8
-  %cmp.i530 = icmp eq i32 %149, 12
+  %154 = load i32, ptr %mstate, align 8
+  %cmp.i530 = icmp eq i32 %154, 12
   br i1 %cmp.i530, label %sw.epilog, label %if.end.i531
 
 if.end.i531:                                      ; preds = %if.then411
@@ -4230,28 +4230,28 @@ if.end.i531:                                      ; preds = %if.then411
 
 if.else412:                                       ; preds = %lor.lhs.false407
   %bf.load415 = load i32, ptr %wildcardmatch666, align 4
-  %150 = and i32 %bf.load415, 64
-  %tobool418.not = icmp eq i32 %150, 0
+  %155 = and i32 %bf.load415, 64
+  %tobool418.not = icmp eq i32 %155, 0
   br i1 %tobool418.not, label %if.end426, label %land.lhs.true419
 
 land.lhs.true419:                                 ; preds = %if.else412
-  %handler = getelementptr inbounds i8, ptr %146, i64 712
-  %151 = load ptr, ptr %handler, align 8
-  %flags = getelementptr inbounds i8, ptr %151, i64 140
-  %152 = load i32, ptr %flags, align 4
-  %and = and i32 %152, 4096
+  %handler = getelementptr inbounds i8, ptr %151, i64 712
+  %156 = load ptr, ptr %handler, align 8
+  %flags = getelementptr inbounds i8, ptr %156, i64 140
+  %157 = load i32, ptr %flags, align 4
+  %and = and i32 %157, 4096
   %cmp421 = icmp eq i32 %and, 0
   br i1 %cmp421, label %if.then423, label %if.end426
 
 if.then423:                                       ; preds = %land.lhs.true419
-  %153 = load ptr, ptr %wildcard672, align 8
-  %state425 = getelementptr inbounds i8, ptr %153, i64 64
+  %158 = load ptr, ptr %wildcard672, align 8
+  %state425 = getelementptr inbounds i8, ptr %158, i64 64
   store i8 7, ptr %state425, align 8
   br label %if.end426
 
 if.end426:                                        ; preds = %if.then423, %land.lhs.true419, %if.else412
-  %154 = load i32, ptr %mstate, align 8
-  %cmp.i535 = icmp eq i32 %154, 14
+  %159 = load i32, ptr %mstate, align 8
+  %cmp.i535 = icmp eq i32 %159, 14
   br i1 %cmp.i535, label %sw.epilog, label %if.end.i536
 
 if.end.i536:                                      ; preds = %if.end426
@@ -4268,28 +4268,28 @@ if.end436.thread:                                 ; preds = %do.end430
   br label %if.then438
 
 if.end436:                                        ; preds = %do.end430
-  %155 = load i64, ptr %nowp, align 8
-  %156 = load i32, ptr %7, align 8
-  %call435 = call i32 @Curl_speedcheck(ptr noundef nonnull %data, i64 %155, i32 %156) #19
+  %160 = load i64, ptr %nowp, align 8
+  %161 = load i32, ptr %7, align 8
+  %call435 = call i32 @Curl_speedcheck(ptr noundef nonnull %data, i64 %160, i32 %161) #19
   store i32 %call435, ptr %result, align 4
   %tobool437.not = icmp eq i32 %call435, 0
   br i1 %tobool437.not, label %if.else452, label %if.then438
 
 if.then438:                                       ; preds = %if.end436.thread, %if.end436
   %storemerge699 = phi i32 [ 42, %if.end436.thread ], [ %call435, %if.end436 ]
-  %157 = load ptr, ptr %conn, align 8
-  %handler440 = getelementptr inbounds i8, ptr %157, i64 712
-  %158 = load ptr, ptr %handler440, align 8
-  %flags441 = getelementptr inbounds i8, ptr %158, i64 140
-  %159 = load i32, ptr %flags441, align 4
-  %and442 = and i32 %159, 2
+  %162 = load ptr, ptr %conn, align 8
+  %handler440 = getelementptr inbounds i8, ptr %162, i64 712
+  %163 = load ptr, ptr %handler440, align 8
+  %flags441 = getelementptr inbounds i8, ptr %163, i64 140
+  %164 = load i32, ptr %flags441, align 4
+  %and442 = and i32 %164, 2
   %tobool443 = icmp eq i32 %and442, 0
   %cmp445 = icmp ne i32 %storemerge699, 92
   %or.cond2 = and i1 %cmp445, %tobool443
   br i1 %or.cond2, label %if.then447, label %if.end449
 
 if.then447:                                       ; preds = %if.then438
-  call void @Curl_conncontrol(ptr noundef nonnull %157, i32 noundef 2) #19
+  call void @Curl_conncontrol(ptr noundef nonnull %162, i32 noundef 2) #19
   br label %if.end449
 
 if.end449:                                        ; preds = %if.then447, %if.then438
@@ -4298,30 +4298,30 @@ if.end449:                                        ; preds = %if.then447, %if.the
   br label %sw.epilogthread-pre-split
 
 if.else452:                                       ; preds = %if.end436
-  %160 = load i64, ptr %max_send_speed489, align 8
-  %tobool454.not = icmp eq i64 %160, 0
+  %165 = load i64, ptr %max_send_speed489, align 8
+  %tobool454.not = icmp eq i64 %165, 0
   br i1 %tobool454.not, label %if.end461, label %if.then455
 
 if.then455:                                       ; preds = %if.else452
-  %161 = load i64, ptr %uploaded493, align 8
-  %162 = load i64, ptr %ul_limit_size495, align 8
-  %163 = load i64, ptr %ul_limit_start499, align 8
-  %164 = load i32, ptr %5, align 8
-  %call460 = call i64 @Curl_pgrsLimitWaitTime(i64 noundef %161, i64 noundef %162, i64 noundef %160, i64 %163, i32 %164, ptr noundef nonnull byval(%struct.curltime) align 8 %nowp) #19
+  %166 = load i64, ptr %uploaded493, align 8
+  %167 = load i64, ptr %ul_limit_size495, align 8
+  %168 = load i64, ptr %ul_limit_start499, align 8
+  %169 = load i32, ptr %5, align 8
+  %call460 = call i64 @Curl_pgrsLimitWaitTime(i64 noundef %166, i64 noundef %167, i64 noundef %165, i64 %168, i32 %169, ptr noundef nonnull byval(%struct.curltime) align 8 %nowp) #19
   br label %if.end461
 
 if.end461:                                        ; preds = %if.then455, %if.else452
   %send_timeout_ms.0 = phi i64 [ %call460, %if.then455 ], [ 0, %if.else452 ]
-  %165 = load i64, ptr %max_recv_speed503, align 8
-  %tobool463.not = icmp eq i64 %165, 0
+  %170 = load i64, ptr %max_recv_speed503, align 8
+  %tobool463.not = icmp eq i64 %170, 0
   br i1 %tobool463.not, label %if.end471, label %if.then464
 
 if.then464:                                       ; preds = %if.end461
-  %166 = load i64, ptr %downloaded507, align 8
-  %167 = load i64, ptr %dl_limit_size509, align 8
-  %168 = load i64, ptr %dl_limit_start513, align 8
-  %169 = load i32, ptr %6, align 8
-  %call470 = call i64 @Curl_pgrsLimitWaitTime(i64 noundef %166, i64 noundef %167, i64 noundef %165, i64 %168, i32 %169, ptr noundef nonnull byval(%struct.curltime) align 8 %nowp) #19
+  %171 = load i64, ptr %downloaded507, align 8
+  %172 = load i64, ptr %dl_limit_size509, align 8
+  %173 = load i64, ptr %dl_limit_start513, align 8
+  %174 = load i32, ptr %6, align 8
+  %call470 = call i64 @Curl_pgrsLimitWaitTime(i64 noundef %171, i64 noundef %172, i64 noundef %170, i64 %173, i32 %174, ptr noundef nonnull byval(%struct.curltime) align 8 %nowp) #19
   br label %if.end471
 
 if.end471:                                        ; preds = %if.then464, %if.end461
@@ -4332,8 +4332,8 @@ if.end471:                                        ; preds = %if.then464, %if.end
   br i1 %or.cond3, label %if.else476, label %if.then475
 
 if.then475:                                       ; preds = %if.end471
-  %170 = load i32, ptr %mstate, align 8
-  %cmp.i540 = icmp eq i32 %170, 12
+  %175 = load i32, ptr %mstate, align 8
+  %cmp.i540 = icmp eq i32 %175, 12
   br i1 %cmp.i540, label %mstate.exit543, label %if.end.i541
 
 if.end.i541:                                      ; preds = %if.then475
@@ -4341,9 +4341,9 @@ if.end.i541:                                      ; preds = %if.then475
   br label %mstate.exit543
 
 mstate.exit543:                                   ; preds = %if.then475, %if.end.i541
-  %171 = load i64, ptr %nowp, align 8
-  %172 = load i32, ptr %7, align 8
-  call void @Curl_ratelimit(ptr noundef nonnull %data, i64 %171, i32 %172) #19
+  %176 = load i64, ptr %nowp, align 8
+  %177 = load i32, ptr %7, align 8
+  call void @Curl_ratelimit(ptr noundef nonnull %data, i64 %176, i32 %177) #19
   br label %sw.epilogthread-pre-split
 
 if.else476:                                       ; preds = %if.end471
@@ -4360,30 +4360,30 @@ if.else480:                                       ; preds = %if.else476
 
 sw.bb484:                                         ; preds = %if.end34
   store ptr null, ptr %newurl485, align 8
-  %173 = load i64, ptr %max_send_speed489, align 8
-  %tobool490.not = icmp eq i64 %173, 0
+  %178 = load i64, ptr %max_send_speed489, align 8
+  %tobool490.not = icmp eq i64 %178, 0
   br i1 %tobool490.not, label %if.end501, label %if.then491
 
 if.then491:                                       ; preds = %sw.bb484
-  %174 = load i64, ptr %uploaded493, align 8
-  %175 = load i64, ptr %ul_limit_size495, align 8
-  %176 = load i64, ptr %ul_limit_start499, align 8
-  %177 = load i32, ptr %5, align 8
-  %call500 = call i64 @Curl_pgrsLimitWaitTime(i64 noundef %174, i64 noundef %175, i64 noundef %173, i64 %176, i32 %177, ptr noundef byval(%struct.curltime) align 8 %nowp) #19
+  %179 = load i64, ptr %uploaded493, align 8
+  %180 = load i64, ptr %ul_limit_size495, align 8
+  %181 = load i64, ptr %ul_limit_start499, align 8
+  %182 = load i32, ptr %5, align 8
+  %call500 = call i64 @Curl_pgrsLimitWaitTime(i64 noundef %179, i64 noundef %180, i64 noundef %178, i64 %181, i32 %182, ptr noundef byval(%struct.curltime) align 8 %nowp) #19
   br label %if.end501
 
 if.end501:                                        ; preds = %if.then491, %sw.bb484
   %send_timeout_ms.1 = phi i64 [ %call500, %if.then491 ], [ 0, %sw.bb484 ]
-  %178 = load i64, ptr %max_recv_speed503, align 8
-  %tobool504.not = icmp eq i64 %178, 0
+  %183 = load i64, ptr %max_recv_speed503, align 8
+  %tobool504.not = icmp eq i64 %183, 0
   br i1 %tobool504.not, label %if.end515, label %if.then505
 
 if.then505:                                       ; preds = %if.end501
-  %179 = load i64, ptr %downloaded507, align 8
-  %180 = load i64, ptr %dl_limit_size509, align 8
-  %181 = load i64, ptr %dl_limit_start513, align 8
-  %182 = load i32, ptr %6, align 8
-  %call514 = call i64 @Curl_pgrsLimitWaitTime(i64 noundef %179, i64 noundef %180, i64 noundef %178, i64 %181, i32 %182, ptr noundef byval(%struct.curltime) align 8 %nowp) #19
+  %184 = load i64, ptr %downloaded507, align 8
+  %185 = load i64, ptr %dl_limit_size509, align 8
+  %186 = load i64, ptr %dl_limit_start513, align 8
+  %187 = load i32, ptr %6, align 8
+  %call514 = call i64 @Curl_pgrsLimitWaitTime(i64 noundef %184, i64 noundef %185, i64 noundef %183, i64 %186, i32 %187, ptr noundef byval(%struct.curltime) align 8 %nowp) #19
   br label %if.end515
 
 if.end515:                                        ; preds = %if.then505, %if.end501
@@ -4394,11 +4394,11 @@ if.end515:                                        ; preds = %if.then505, %if.end
   br i1 %or.cond4, label %if.then519, label %if.end525
 
 if.then519:                                       ; preds = %if.end515
-  %183 = load i64, ptr %nowp, align 8
-  %184 = load i32, ptr %7, align 8
-  call void @Curl_ratelimit(ptr noundef nonnull %data, i64 %183, i32 %184) #19
-  %185 = load i32, ptr %mstate, align 8
-  %cmp.i545 = icmp eq i32 %185, 13
+  %188 = load i64, ptr %nowp, align 8
+  %189 = load i32, ptr %7, align 8
+  call void @Curl_ratelimit(ptr noundef nonnull %data, i64 %188, i32 %189) #19
+  %190 = load i32, ptr %mstate, align 8
+  %cmp.i545 = icmp eq i32 %190, 13
   br i1 %cmp.i545, label %mstate.exit548, label %if.end.i546
 
 if.end.i546:                                      ; preds = %if.then519
@@ -4420,8 +4420,8 @@ if.else523:                                       ; preds = %mstate.exit548
 if.end525:                                        ; preds = %if.end515
   %call526 = call i32 @Curl_readwrite(ptr noundef nonnull %data, ptr noundef nonnull %done) #19
   store i32 %call526, ptr %result, align 4
-  %186 = load i8, ptr %done, align 1
-  %tobool527 = trunc i8 %186 to i1
+  %191 = load i8, ptr %done, align 1
+  %tobool527 = trunc i8 %191 to i1
   %cmp530 = icmp eq i32 %call526, 56
   %or.cond5 = select i1 %tobool527, i1 true, i1 %cmp530
   br i1 %or.cond5, label %if.then532, label %if.end583
@@ -4440,8 +4440,8 @@ if.then541:                                       ; preds = %if.else539
   br label %if.then585
 
 if.end543:                                        ; preds = %if.then532
-  %187 = load ptr, ptr %newurl485, align 8
-  %tobool536.not = icmp eq ptr %187, null
+  %192 = load ptr, ptr %newurl485, align 8
+  %tobool536.not = icmp eq ptr %192, null
   br i1 %tobool536.not, label %if.end583, label %if.then601
 
 if.end583:                                        ; preds = %if.end543, %if.end525
@@ -4449,31 +4449,31 @@ if.end583:                                        ; preds = %if.end543, %if.end5
   br i1 %tobool584.not, label %if.else599, label %if.then585
 
 if.then585:                                       ; preds = %if.then541, %if.else539, %if.end583
-  %188 = phi i32 [ %call526, %if.end583 ], [ %call533, %if.then541 ], [ %call526, %if.else539 ]
-  %189 = load ptr, ptr %conn, align 8
-  %handler587 = getelementptr inbounds i8, ptr %189, i64 712
-  %190 = load ptr, ptr %handler587, align 8
-  %flags588 = getelementptr inbounds i8, ptr %190, i64 140
-  %191 = load i32, ptr %flags588, align 4
-  %and589 = and i32 %191, 2
+  %193 = phi i32 [ %call526, %if.end583 ], [ %call533, %if.then541 ], [ %call526, %if.else539 ]
+  %194 = load ptr, ptr %conn, align 8
+  %handler587 = getelementptr inbounds i8, ptr %194, i64 712
+  %195 = load ptr, ptr %handler587, align 8
+  %flags588 = getelementptr inbounds i8, ptr %195, i64 140
+  %196 = load i32, ptr %flags588, align 4
+  %and589 = and i32 %196, 2
   %tobool590 = icmp eq i32 %and589, 0
-  %cmp592 = icmp ne i32 %188, 92
+  %cmp592 = icmp ne i32 %193, 92
   %or.cond6 = and i1 %cmp592, %tobool590
   br i1 %or.cond6, label %if.then594, label %if.end596
 
 if.then594:                                       ; preds = %if.then585
-  call void @Curl_conncontrol(ptr noundef nonnull %189, i32 noundef 2) #19
+  call void @Curl_conncontrol(ptr noundef nonnull %194, i32 noundef 2) #19
   br label %if.end596
 
 if.end596:                                        ; preds = %if.then594, %if.then585
   %call597 = call i32 @Curl_posttransfer(ptr noundef nonnull %data) #19
-  %call598 = call fastcc i32 @multi_done(ptr noundef nonnull %data, i32 noundef %188, i1 noundef zeroext true)
+  %call598 = call fastcc i32 @multi_done(ptr noundef nonnull %data, i32 noundef %193, i1 noundef zeroext true)
   br label %sw.epilogthread-pre-split
 
 if.else599:                                       ; preds = %if.end583
   %.pre721 = load i8, ptr %done, align 1
-  %tobool600 = trunc i8 %.pre721 to i1
-  br i1 %tobool600, label %if.then601.thread, label %if.else641
+  %197 = trunc i8 %.pre721 to i1
+  br i1 %197, label %if.then601.thread, label %if.else641
 
 if.then601:                                       ; preds = %if.end543
   store i8 1, ptr %done, align 1
@@ -4481,32 +4481,32 @@ if.then601:                                       ; preds = %if.end543
   br label %if.end617
 
 if.then601.thread:                                ; preds = %if.else599
-  %call602783 = call i32 @Curl_posttransfer(ptr noundef nonnull %data) #19
-  %192 = load ptr, ptr %newurl603, align 8
-  %tobool604.not784 = icmp eq ptr %192, null
-  br i1 %tobool604.not784, label %if.else623, label %if.then611
+  %call602782 = call i32 @Curl_posttransfer(ptr noundef nonnull %data) #19
+  %198 = load ptr, ptr %newurl603, align 8
+  %tobool604.not783 = icmp eq ptr %198, null
+  br i1 %tobool604.not783, label %if.else623, label %if.then611
 
 if.then611:                                       ; preds = %if.then601.thread
-  %193 = load ptr, ptr @Curl_cfree, align 8
-  %194 = load ptr, ptr %newurl485, align 8
-  call void %193(ptr noundef %194) #19
-  %195 = load ptr, ptr %newurl603, align 8
-  store ptr %195, ptr %newurl485, align 8
+  %199 = load ptr, ptr @Curl_cfree, align 8
+  %200 = load ptr, ptr %newurl485, align 8
+  call void %199(ptr noundef %200) #19
+  %201 = load ptr, ptr %newurl603, align 8
+  store ptr %201, ptr %newurl485, align 8
   store ptr null, ptr %newurl603, align 8
   br label %if.end617
 
 if.end617:                                        ; preds = %if.then601, %if.then611
   %follow609.0 = phi i32 [ 3, %if.then611 ], [ 2, %if.then601 ]
   %call618 = call fastcc i32 @multi_done(ptr noundef nonnull %data, i32 noundef 0, i1 noundef zeroext false)
-  %196 = load ptr, ptr %newurl485, align 8
-  %call619 = call i32 @Curl_follow(ptr noundef nonnull %data, ptr noundef %196, i32 noundef %follow609.0) #19
+  %202 = load ptr, ptr %newurl485, align 8
+  %call619 = call i32 @Curl_follow(ptr noundef nonnull %data, ptr noundef %202, i32 noundef %follow609.0) #19
   store i32 %call619, ptr %result, align 4
   %tobool620.not = icmp eq i32 %call619, 0
   br i1 %tobool620.not, label %if.then621, label %if.end622
 
 if.then621:                                       ; preds = %if.end617
-  %197 = load i32, ptr %mstate, align 8
-  %cmp.i550 = icmp eq i32 %197, 2
+  %203 = load i32, ptr %mstate, align 8
+  %cmp.i550 = icmp eq i32 %203, 2
   br i1 %cmp.i550, label %if.end622, label %if.end.i551
 
 if.end.i551:                                      ; preds = %if.then621
@@ -4516,28 +4516,28 @@ if.end.i551:                                      ; preds = %if.then621
 
 if.end622:                                        ; preds = %if.end.i551, %if.then621, %if.end617
   %rc.4 = phi i32 [ 0, %if.end617 ], [ -1, %if.then621 ], [ -1, %if.end.i551 ]
-  %198 = load ptr, ptr @Curl_cfree, align 8
-  %199 = load ptr, ptr %newurl485, align 8
-  call void %198(ptr noundef %199) #19
-  br label %sw.epilogthread-pre-split
-
-if.else623:                                       ; preds = %if.then601.thread
-  %200 = load ptr, ptr %location, align 8
-  %tobool625.not = icmp eq ptr %200, null
-  br i1 %tobool625.not, label %if.then638, label %if.then626
-
-if.then626:                                       ; preds = %if.else623
-  %201 = load ptr, ptr @Curl_cfree, align 8
-  %202 = load ptr, ptr %newurl485, align 8
-  call void %201(ptr noundef %202) #19
-  %203 = load ptr, ptr %location, align 8
-  store ptr %203, ptr %newurl485, align 8
-  store ptr null, ptr %location, align 8
-  %call631 = call i32 @Curl_follow(ptr noundef nonnull %data, ptr noundef %203, i32 noundef 1) #19
-  store i32 %call631, ptr %result, align 4
   %204 = load ptr, ptr @Curl_cfree, align 8
   %205 = load ptr, ptr %newurl485, align 8
   call void %204(ptr noundef %205) #19
+  br label %sw.epilogthread-pre-split
+
+if.else623:                                       ; preds = %if.then601.thread
+  %206 = load ptr, ptr %location, align 8
+  %tobool625.not = icmp eq ptr %206, null
+  br i1 %tobool625.not, label %if.then638, label %if.then626
+
+if.then626:                                       ; preds = %if.else623
+  %207 = load ptr, ptr @Curl_cfree, align 8
+  %208 = load ptr, ptr %newurl485, align 8
+  call void %207(ptr noundef %208) #19
+  %209 = load ptr, ptr %location, align 8
+  store ptr %209, ptr %newurl485, align 8
+  store ptr null, ptr %location, align 8
+  %call631 = call i32 @Curl_follow(ptr noundef nonnull %data, ptr noundef %209, i32 noundef 1) #19
+  store i32 %call631, ptr %result, align 4
+  %210 = load ptr, ptr @Curl_cfree, align 8
+  %211 = load ptr, ptr %newurl485, align 8
+  call void %210(ptr noundef %211) #19
   %tobool632.not = icmp eq i32 %call631, 0
   br i1 %tobool632.not, label %if.then638, label %if.end636
 
@@ -4545,12 +4545,12 @@ if.end636:                                        ; preds = %if.then626
   store i8 1, ptr %stream_error, align 1
   %call634 = call fastcc i32 @multi_done(ptr noundef nonnull %data, i32 noundef %call631, i1 noundef zeroext true)
   store i32 %call634, ptr %result, align 4
-  %tobool637.not = icmp eq i32 %call634, 0
-  br i1 %tobool637.not, label %if.then638, label %sw.epilogthread-pre-split
+  %212 = icmp eq i32 %call634, 0
+  br i1 %212, label %if.then638, label %sw.epilogthread-pre-split
 
 if.then638:                                       ; preds = %if.else623, %if.then626, %if.end636
-  %206 = load i32, ptr %mstate, align 8
-  %cmp.i556 = icmp eq i32 %206, 14
+  %213 = load i32, ptr %mstate, align 8
+  %cmp.i556 = icmp eq i32 %213, 14
   br i1 %cmp.i556, label %sw.epilog, label %if.end.i557
 
 if.end.i557:                                      ; preds = %if.then638
@@ -4558,8 +4558,8 @@ if.end.i557:                                      ; preds = %if.then638
   br label %sw.epilog
 
 if.else641:                                       ; preds = %if.else599
-  %207 = load i8, ptr %select_bits, align 1
-  %tobool643.not = icmp eq i8 %207, 0
+  %214 = load i8, ptr %select_bits, align 1
+  %tobool643.not = icmp eq i8 %214, 0
   br i1 %tobool643.not, label %sw.epilogthread-pre-split, label %if.then644
 
 if.then644:                                       ; preds = %if.else641
@@ -4567,69 +4567,69 @@ if.then644:                                       ; preds = %if.else641
   br label %sw.epilogthread-pre-split
 
 sw.bb648:                                         ; preds = %if.end34
-  %208 = load ptr, ptr %conn, align 8
-  %tobool650.not = icmp eq ptr %208, null
+  %215 = load ptr, ptr %conn, align 8
+  %tobool650.not = icmp eq ptr %215, null
   br i1 %tobool650.not, label %if.end664, label %if.then651
 
 if.then651:                                       ; preds = %sw.bb648
-  %bits653 = getelementptr inbounds i8, ptr %208, i64 704
+  %bits653 = getelementptr inbounds i8, ptr %215, i64 704
   %bf.load654 = load i32, ptr %bits653, align 8
-  %209 = and i32 %bf.load654, 8388608
-  %tobool657.not = icmp eq i32 %209, 0
+  %216 = and i32 %bf.load654, 8388608
+  %tobool657.not = icmp eq i32 %216, 0
   br i1 %tobool657.not, label %if.end659, label %if.then658
 
 if.then658:                                       ; preds = %if.then651
-  %210 = load ptr, ptr %pending.i, align 8
-  %tobool.not.i561 = icmp eq ptr %210, null
+  %217 = load ptr, ptr %pending.i, align 8
+  %tobool.not.i561 = icmp eq ptr %217, null
   br i1 %tobool.not.i561, label %if.end659, label %if.then.i562
 
 if.then.i562:                                     ; preds = %if.then658
-  %211 = load ptr, ptr %210, align 8
-  %next.i.i563 = getelementptr inbounds i8, ptr %211, i64 16
+  %218 = load ptr, ptr %217, align 8
+  %next.i.i563 = getelementptr inbounds i8, ptr %218, i64 16
   store ptr null, ptr %next.i.i563, align 8
-  %212 = load ptr, ptr %easyp.i.i, align 8
-  %tobool.not.i.i565 = icmp eq ptr %212, null
+  %219 = load ptr, ptr %easyp.i.i, align 8
+  %tobool.not.i.i565 = icmp eq ptr %219, null
   br i1 %tobool.not.i.i565, label %if.else.i.i580, label %if.then.i.i566
 
 if.then.i.i566:                                   ; preds = %if.then.i562
-  %213 = load ptr, ptr %easylp.i.i, align 8
-  %next1.i.i568 = getelementptr inbounds i8, ptr %213, i64 16
-  store ptr %211, ptr %next1.i.i568, align 8
-  %prev.i.i569 = getelementptr inbounds i8, ptr %211, i64 24
-  store ptr %213, ptr %prev.i.i569, align 8
+  %220 = load ptr, ptr %easylp.i.i, align 8
+  %next1.i.i568 = getelementptr inbounds i8, ptr %220, i64 16
+  store ptr %218, ptr %next1.i.i568, align 8
+  %prev.i.i569 = getelementptr inbounds i8, ptr %218, i64 24
+  store ptr %220, ptr %prev.i.i569, align 8
   br label %link_easy.exit.i570
 
 if.else.i.i580:                                   ; preds = %if.then.i562
-  %prev3.i.i581 = getelementptr inbounds i8, ptr %211, i64 24
+  %prev3.i.i581 = getelementptr inbounds i8, ptr %218, i64 24
   store ptr null, ptr %prev3.i.i581, align 8
-  store ptr %211, ptr %easyp.i.i, align 8
+  store ptr %218, ptr %easyp.i.i, align 8
   br label %link_easy.exit.i570
 
 link_easy.exit.i570:                              ; preds = %if.else.i.i580, %if.then.i.i566
-  store ptr %211, ptr %easylp.i.i, align 8
-  %mstate.i.i572 = getelementptr inbounds i8, ptr %211, i64 88
-  %214 = load i32, ptr %mstate.i.i572, align 8
-  %cmp.i.i573 = icmp eq i32 %214, 2
+  store ptr %218, ptr %easylp.i.i, align 8
+  %mstate.i.i572 = getelementptr inbounds i8, ptr %218, i64 88
+  %221 = load i32, ptr %mstate.i.i572, align 8
+  %cmp.i.i573 = icmp eq i32 %221, 2
   br i1 %cmp.i.i573, label %mstate.exit.i575, label %if.end.i.i574
 
 if.end.i.i574:                                    ; preds = %link_easy.exit.i570
   store i32 2, ptr %mstate.i.i572, align 8
-  call void @Curl_init_CONNECT(ptr noundef nonnull %211) #19
+  call void @Curl_init_CONNECT(ptr noundef nonnull %218) #19
   br label %mstate.exit.i575
 
 mstate.exit.i575:                                 ; preds = %if.end.i.i574, %link_easy.exit.i570
-  call void @Curl_llist_remove(ptr noundef nonnull %pending.i, ptr noundef nonnull %210, ptr noundef null) #19
-  call void @Curl_expire(ptr noundef nonnull %211, i64 noundef 0, i32 noundef 8)
-  %previouslypending.i576 = getelementptr inbounds i8, ptr %211, i64 5044
+  call void @Curl_llist_remove(ptr noundef nonnull %pending.i, ptr noundef nonnull %217, ptr noundef null) #19
+  call void @Curl_expire(ptr noundef nonnull %218, i64 noundef 0, i32 noundef 8)
+  %previouslypending.i576 = getelementptr inbounds i8, ptr %218, i64 5044
   %bf.load.i577 = load i32, ptr %previouslypending.i576, align 4
   %bf.set.i578 = or i32 %bf.load.i577, 4096
   store i32 %bf.set.i578, ptr %previouslypending.i576, align 4
   br label %if.end659
 
 if.end659:                                        ; preds = %mstate.exit.i575, %if.then658, %if.then651
-  %215 = load i32, ptr %result, align 4
-  %call660 = call fastcc i32 @multi_done(ptr noundef nonnull %data, i32 noundef %215, i1 noundef zeroext false)
-  %tobool661.not = icmp eq i32 %215, 0
+  %222 = load i32, ptr %result, align 4
+  %call660 = call fastcc i32 @multi_done(ptr noundef nonnull %data, i32 noundef %222, i1 noundef zeroext false)
+  %tobool661.not = icmp eq i32 %222, 0
   br i1 %tobool661.not, label %if.then662, label %if.end664
 
 if.then662:                                       ; preds = %if.end659
@@ -4638,8 +4638,8 @@ if.then662:                                       ; preds = %if.end659
 
 if.end664:                                        ; preds = %if.end659, %if.then662, %sw.bb648
   %bf.load667 = load i32, ptr %wildcardmatch666, align 4
-  %216 = and i32 %bf.load667, 64
-  %tobool670.not = icmp eq i32 %216, 0
+  %223 = and i32 %bf.load667, 64
+  %tobool670.not = icmp eq i32 %223, 0
   br i1 %tobool670.not, label %if.end664.if.end679_crit_edge, label %if.then671
 
 if.end664.if.end679_crit_edge:                    ; preds = %if.end664
@@ -4647,10 +4647,10 @@ if.end664.if.end679_crit_edge:                    ; preds = %if.end664
   br label %if.end679
 
 if.then671:                                       ; preds = %if.end664
-  %217 = load ptr, ptr %wildcard672, align 8
-  %state673 = getelementptr inbounds i8, ptr %217, i64 64
-  %218 = load i8, ptr %state673, align 8
-  %cmp675.not = icmp eq i8 %218, 7
+  %224 = load ptr, ptr %wildcard672, align 8
+  %state673 = getelementptr inbounds i8, ptr %224, i64 64
+  %225 = load i8, ptr %state673, align 8
+  %cmp675.not = icmp eq i8 %225, 7
   %.pre719 = load i32, ptr %mstate, align 8
   br i1 %cmp675.not, label %if.end679, label %if.then677
 
@@ -4659,16 +4659,16 @@ if.then677:                                       ; preds = %if.then671
   br i1 %cmp.i585, label %if.then705, label %sw.epilog.thread
 
 if.end679:                                        ; preds = %if.end664.if.end679_crit_edge, %if.then671
-  %219 = phi i32 [ %.pre718, %if.end664.if.end679_crit_edge ], [ %.pre719, %if.then671 ]
-  %cmp.i590 = icmp eq i32 %219, 15
+  %226 = phi i32 [ %.pre718, %if.end664.if.end679_crit_edge ], [ %.pre719, %if.then671 ]
+  %cmp.i590 = icmp eq i32 %226, 15
   br i1 %cmp.i590, label %sw.epilogthread-pre-split, label %if.end.i591
 
 if.end.i591:                                      ; preds = %if.end679
   store i32 15, ptr %mstate, align 8
-  %220 = load ptr, ptr %multi.i592, align 8
-  %num_alive.i593 = getelementptr inbounds i8, ptr %220, i64 28
-  %221 = load i32, ptr %num_alive.i593, align 4
-  %dec.i594 = add i32 %221, -1
+  %227 = load ptr, ptr %multi.i592, align 8
+  %num_alive.i593 = getelementptr inbounds i8, ptr %227, i64 28
+  %228 = load i32, ptr %num_alive.i593, align 4
+  %dec.i594 = add i32 %228, -1
   store i32 %dec.i594, ptr %num_alive.i593, align 4
   call void @init_completed(ptr noundef nonnull %data) #19
   br label %sw.epilogthread-pre-split
@@ -4679,10 +4679,10 @@ sw.epilogthread-pre-split:                        ; preds = %if.then161, %if.end
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then364.thread, %sw.epilogthread-pre-split, %if.end.i557, %if.then638, %if.end.i536, %if.end426, %if.end.i531, %if.then411, %if.end.i495, %if.then384, %if.end.i479, %if.then364, %if.else311, %if.end.i452, %if.then310, %if.end.i447, %if.end302, %if.end.i408, %if.then244, %if.end.i396, %if.then232, %if.end.i391, %if.then229, %if.end.i378, %if.then220, %if.end.i367, %if.then195, %if.end.i363, %if.then183, %if.then179, %if.end.i347, %if.else94, %if.end.i343, %if.then93, %if.end.i339, %if.then90
-  %.pr708.pre732 = phi i32 [ %.pr708.pre732.pr, %sw.epilogthread-pre-split ], [ 14, %if.end.i557 ], [ 14, %if.then638 ], [ 14, %if.end.i536 ], [ 14, %if.end426 ], [ 12, %if.end.i531 ], [ 12, %if.then411 ], [ 9, %if.end.i495 ], [ %cond387, %if.then384 ], [ 10, %if.end.i479 ], [ %.pre802, %if.then364 ], [ 11, %if.else311 ], [ 10, %if.end.i452 ], [ 10, %if.then310 ], [ 9, %if.end.i447 ], [ 9, %if.end302 ], [ 8, %if.end.i408 ], [ 8, %if.then244 ], [ 8, %if.end.i396 ], [ 8, %if.then232 ], [ 7, %if.end.i391 ], [ 7, %if.then229 ], [ 8, %if.end.i378 ], [ 8, %if.then220 ], [ 6, %if.end.i367 ], [ 6, %if.then195 ], [ 6, %if.end.i363 ], [ 6, %if.then183 ], [ 2, %if.then179 ], [ 4, %if.end.i347 ], [ 4, %if.else94 ], [ 6, %if.end.i343 ], [ 6, %if.then93 ], [ 3, %if.end.i339 ], [ 3, %if.then90 ], [ 10, %if.then364.thread ]
+  %.pr708.pre732 = phi i32 [ %.pr708.pre732.pr, %sw.epilogthread-pre-split ], [ 14, %if.end.i557 ], [ 14, %if.then638 ], [ 14, %if.end.i536 ], [ 14, %if.end426 ], [ 12, %if.end.i531 ], [ 12, %if.then411 ], [ 9, %if.end.i495 ], [ %cond387, %if.then384 ], [ 10, %if.end.i479 ], [ %.pre801, %if.then364 ], [ 11, %if.else311 ], [ 10, %if.end.i452 ], [ 10, %if.then310 ], [ 9, %if.end.i447 ], [ 9, %if.end302 ], [ 8, %if.end.i408 ], [ 8, %if.then244 ], [ 8, %if.end.i396 ], [ 8, %if.then232 ], [ 7, %if.end.i391 ], [ 7, %if.then229 ], [ 8, %if.end.i378 ], [ 8, %if.then220 ], [ 6, %if.end.i367 ], [ 6, %if.then195 ], [ 6, %if.end.i363 ], [ 6, %if.then183 ], [ 2, %if.then179 ], [ 4, %if.end.i347 ], [ 4, %if.else94 ], [ 6, %if.end.i343 ], [ 6, %if.then93 ], [ 3, %if.end.i339 ], [ 3, %if.then90 ], [ 10, %if.then364.thread ]
   %rc.1 = phi i32 [ %rc.1.ph, %sw.epilogthread-pre-split ], [ -1, %if.end.i557 ], [ -1, %if.then638 ], [ -1, %if.end.i536 ], [ -1, %if.end426 ], [ -1, %if.end.i531 ], [ -1, %if.then411 ], [ -1, %if.end.i495 ], [ -1, %if.then384 ], [ -1, %if.end.i479 ], [ -1, %if.then364 ], [ -1, %if.else311 ], [ -1, %if.end.i452 ], [ -1, %if.then310 ], [ -1, %if.end.i447 ], [ -1, %if.end302 ], [ -1, %if.end.i408 ], [ -1, %if.then244 ], [ -1, %if.end.i396 ], [ -1, %if.then232 ], [ -1, %if.end.i391 ], [ -1, %if.then229 ], [ -1, %if.end.i378 ], [ -1, %if.then220 ], [ -1, %if.end.i367 ], [ -1, %if.then195 ], [ -1, %if.end.i363 ], [ -1, %if.then183 ], [ -1, %if.then179 ], [ -1, %if.end.i347 ], [ -1, %if.else94 ], [ -1, %if.end.i343 ], [ -1, %if.then93 ], [ 0, %if.end.i339 ], [ 0, %if.then90 ], [ -1, %if.then364.thread ]
-  %222 = load ptr, ptr %conn, align 8
-  %tobool685.not = icmp eq ptr %222, null
+  %229 = load ptr, ptr %conn, align 8
+  %tobool685.not = icmp eq ptr %229, null
   br i1 %tobool685.not, label %statemachine_end, label %land.lhs.true686
 
 sw.epilog.thread:                                 ; preds = %if.then677
@@ -4701,8 +4701,8 @@ land.lhs.true690:                                 ; preds = %land.lhs.true686
 
 land.lhs.true697:                                 ; preds = %land.lhs.true690
   %bf.load.i599 = load i8, ptr %dead, align 1
-  %223 = and i8 %bf.load.i599, 2
-  %tobool.i601.not = icmp eq i8 %223, 0
+  %230 = and i8 %bf.load.i599, 2
+  %tobool.i601.not = icmp eq i8 %230, 0
   br i1 %tobool.i601.not, label %if.then699, label %if.then705
 
 if.then699:                                       ; preds = %land.lhs.true697
@@ -4718,81 +4718,81 @@ statemachine_end:                                 ; preds = %sw.epilog, %land.lh
 
 if.then705:                                       ; preds = %if.then677, %sw.epilog.thread, %land.lhs.true697, %land.lhs.true686, %statemachine_end
   %rc.0711 = phi i32 [ %rc.0.ph, %statemachine_end ], [ %rc.1, %land.lhs.true686 ], [ -1, %sw.epilog.thread ], [ 0, %land.lhs.true697 ], [ -1, %if.then677 ]
-  %224 = load i32, ptr %result, align 4
-  %tobool706.not = icmp eq i32 %224, 0
+  %231 = load i32, ptr %result, align 4
+  %tobool706.not = icmp eq i32 %231, 0
   br i1 %tobool706.not, label %if.else728, label %if.then707
 
 if.then707:                                       ; preds = %if.then705
-  %225 = load ptr, ptr %pending.i, align 8
-  %tobool.not.i603 = icmp eq ptr %225, null
+  %232 = load ptr, ptr %pending.i, align 8
+  %tobool.not.i603 = icmp eq ptr %232, null
   br i1 %tobool.not.i603, label %process_pending_handles.exit625, label %if.then.i604
 
 if.then.i604:                                     ; preds = %if.then707
-  %226 = load ptr, ptr %225, align 8
-  %next.i.i605 = getelementptr inbounds i8, ptr %226, i64 16
+  %233 = load ptr, ptr %232, align 8
+  %next.i.i605 = getelementptr inbounds i8, ptr %233, i64 16
   store ptr null, ptr %next.i.i605, align 8
-  %227 = load ptr, ptr %easyp.i.i, align 8
-  %tobool.not.i.i607 = icmp eq ptr %227, null
+  %234 = load ptr, ptr %easyp.i.i, align 8
+  %tobool.not.i.i607 = icmp eq ptr %234, null
   br i1 %tobool.not.i.i607, label %if.else.i.i622, label %if.then.i.i608
 
 if.then.i.i608:                                   ; preds = %if.then.i604
-  %228 = load ptr, ptr %easylp.i.i, align 8
-  %next1.i.i610 = getelementptr inbounds i8, ptr %228, i64 16
-  store ptr %226, ptr %next1.i.i610, align 8
-  %prev.i.i611 = getelementptr inbounds i8, ptr %226, i64 24
-  store ptr %228, ptr %prev.i.i611, align 8
+  %235 = load ptr, ptr %easylp.i.i, align 8
+  %next1.i.i610 = getelementptr inbounds i8, ptr %235, i64 16
+  store ptr %233, ptr %next1.i.i610, align 8
+  %prev.i.i611 = getelementptr inbounds i8, ptr %233, i64 24
+  store ptr %235, ptr %prev.i.i611, align 8
   br label %link_easy.exit.i612
 
 if.else.i.i622:                                   ; preds = %if.then.i604
-  %prev3.i.i623 = getelementptr inbounds i8, ptr %226, i64 24
+  %prev3.i.i623 = getelementptr inbounds i8, ptr %233, i64 24
   store ptr null, ptr %prev3.i.i623, align 8
-  store ptr %226, ptr %easyp.i.i, align 8
+  store ptr %233, ptr %easyp.i.i, align 8
   br label %link_easy.exit.i612
 
 link_easy.exit.i612:                              ; preds = %if.else.i.i622, %if.then.i.i608
-  store ptr %226, ptr %easylp.i.i, align 8
-  %mstate.i.i614 = getelementptr inbounds i8, ptr %226, i64 88
-  %229 = load i32, ptr %mstate.i.i614, align 8
-  %cmp.i.i615 = icmp eq i32 %229, 2
+  store ptr %233, ptr %easylp.i.i, align 8
+  %mstate.i.i614 = getelementptr inbounds i8, ptr %233, i64 88
+  %236 = load i32, ptr %mstate.i.i614, align 8
+  %cmp.i.i615 = icmp eq i32 %236, 2
   br i1 %cmp.i.i615, label %mstate.exit.i617, label %if.end.i.i616
 
 if.end.i.i616:                                    ; preds = %link_easy.exit.i612
   store i32 2, ptr %mstate.i.i614, align 8
-  call void @Curl_init_CONNECT(ptr noundef nonnull %226) #19
+  call void @Curl_init_CONNECT(ptr noundef nonnull %233) #19
   br label %mstate.exit.i617
 
 mstate.exit.i617:                                 ; preds = %if.end.i.i616, %link_easy.exit.i612
-  call void @Curl_llist_remove(ptr noundef nonnull %pending.i, ptr noundef nonnull %225, ptr noundef null) #19
-  call void @Curl_expire(ptr noundef nonnull %226, i64 noundef 0, i32 noundef 8)
-  %previouslypending.i618 = getelementptr inbounds i8, ptr %226, i64 5044
+  call void @Curl_llist_remove(ptr noundef nonnull %pending.i, ptr noundef nonnull %232, ptr noundef null) #19
+  call void @Curl_expire(ptr noundef nonnull %233, i64 noundef 0, i32 noundef 8)
+  %previouslypending.i618 = getelementptr inbounds i8, ptr %233, i64 5044
   %bf.load.i619 = load i32, ptr %previouslypending.i618, align 4
   %bf.set.i620 = or i32 %bf.load.i619, 4096
   store i32 %bf.set.i620, ptr %previouslypending.i618, align 4
   br label %process_pending_handles.exit625
 
 process_pending_handles.exit625:                  ; preds = %if.then707, %mstate.exit.i617
-  %230 = load ptr, ptr %conn, align 8
-  %tobool709.not = icmp eq ptr %230, null
+  %237 = load ptr, ptr %conn, align 8
+  %tobool709.not = icmp eq ptr %237, null
   br i1 %tobool709.not, label %if.else720, label %if.then710
 
 if.then710:                                       ; preds = %process_pending_handles.exit625
-  %231 = load i8, ptr %stream_error, align 1
-  %tobool711 = trunc i8 %231 to i1
+  %238 = load i8, ptr %stream_error, align 1
+  %tobool711 = trunc i8 %238 to i1
   br i1 %tobool711, label %Curl_detach_connection.exit, label %if.end727thread-pre-split
 
 Curl_detach_connection.exit:                      ; preds = %if.then710
-  %cmp713 = icmp eq i32 %224, 28
-  call void @Curl_conn_ev_data_detach(ptr noundef nonnull %230, ptr noundef nonnull %data) #19
-  %easyq.i = getelementptr inbounds i8, ptr %230, i64 752
+  %cmp713 = icmp eq i32 %231, 28
+  call void @Curl_conn_ev_data_detach(ptr noundef nonnull %237, ptr noundef nonnull %data) #19
+  %easyq.i = getelementptr inbounds i8, ptr %237, i64 752
   call void @Curl_llist_remove(ptr noundef nonnull %easyq.i, ptr noundef nonnull %conn_queue.i, ptr noundef null) #19
   store ptr null, ptr %conn, align 8
-  call void @Curl_conncache_remove_conn(ptr noundef nonnull %data, ptr noundef nonnull %230, i1 noundef zeroext true) #19
-  call void @Curl_disconnect(ptr noundef nonnull %data, ptr noundef nonnull %230, i1 noundef zeroext %cmp713) #19
+  call void @Curl_conncache_remove_conn(ptr noundef nonnull %data, ptr noundef nonnull %237, i1 noundef zeroext true) #19
+  call void @Curl_disconnect(ptr noundef nonnull %data, ptr noundef nonnull %237, i1 noundef zeroext %cmp713) #19
   br label %if.end727thread-pre-split
 
 if.else720:                                       ; preds = %process_pending_handles.exit625
-  %232 = load i32, ptr %mstate, align 8
-  %cmp722 = icmp eq i32 %232, 2
+  %239 = load i32, ptr %mstate, align 8
+  %cmp722 = icmp eq i32 %239, 2
   br i1 %cmp722, label %if.then724, label %if.end727
 
 if.then724:                                       ; preds = %if.else720
@@ -4804,8 +4804,8 @@ if.end727thread-pre-split:                        ; preds = %Curl_detach_connect
   br label %if.end727
 
 if.end727:                                        ; preds = %if.end727thread-pre-split, %if.else720
-  %233 = phi i32 [ %.pr712, %if.end727thread-pre-split ], [ %232, %if.else720 ]
-  %cmp.i631 = icmp eq i32 %233, 15
+  %240 = phi i32 [ %.pr712, %if.end727thread-pre-split ], [ %239, %if.else720 ]
+  %cmp.i631 = icmp eq i32 %240, 15
   br i1 %cmp.i631, label %if.end742thread-pre-split, label %if.end.i632
 
 if.end.i632:                                      ; preds = %if.end727
@@ -4813,8 +4813,8 @@ if.end.i632:                                      ; preds = %if.end727
   br label %if.end742thread-pre-split.sink.split
 
 if.else728:                                       ; preds = %if.then705
-  %234 = load ptr, ptr %conn, align 8
-  %tobool730.not = icmp eq ptr %234, null
+  %241 = load ptr, ptr %conn, align 8
+  %tobool730.not = icmp eq ptr %241, null
   br i1 %tobool730.not, label %if.end742thread-pre-split, label %land.lhs.true731
 
 land.lhs.true731:                                 ; preds = %if.else728
@@ -4824,12 +4824,12 @@ land.lhs.true731:                                 ; preds = %if.else728
 
 if.then734:                                       ; preds = %land.lhs.true731
   store i32 42, ptr %result, align 4
-  %235 = load ptr, ptr %conn, align 8
-  call void @Curl_conncontrol(ptr noundef %235, i32 noundef 2) #19
-  %236 = load i32, ptr %mstate, align 8
-  %cmp737 = icmp ugt i32 %236, 13
+  %242 = load ptr, ptr %conn, align 8
+  call void @Curl_conncontrol(ptr noundef %242, i32 noundef 2) #19
+  %243 = load i32, ptr %mstate, align 8
+  %cmp737 = icmp ugt i32 %243, 13
   %cond739 = select i1 %cmp737, i32 15, i32 14
-  %cmp.i640 = icmp eq i32 %236, %cond739
+  %cmp.i640 = icmp eq i32 %243, %cond739
   br i1 %cmp.i640, label %if.end742.thread, label %if.end.i641
 
 if.end.i641:                                      ; preds = %if.then734
@@ -4837,10 +4837,10 @@ if.end.i641:                                      ; preds = %if.then734
   br i1 %cmp737, label %if.end742thread-pre-split.sink.split, label %if.end742thread-pre-split
 
 if.end742thread-pre-split.sink.split:             ; preds = %if.end.i641, %if.end.i632
-  %237 = load ptr, ptr %multi.i592, align 8
-  %num_alive.i634 = getelementptr inbounds i8, ptr %237, i64 28
-  %238 = load i32, ptr %num_alive.i634, align 4
-  %dec.i635 = add i32 %238, -1
+  %244 = load ptr, ptr %multi.i592, align 8
+  %num_alive.i634 = getelementptr inbounds i8, ptr %244, i64 28
+  %245 = load i32, ptr %num_alive.i634, align 4
+  %dec.i635 = add i32 %245, -1
   store i32 %dec.i635, ptr %num_alive.i634, align 4
   call void @init_completed(ptr noundef nonnull %data) #19
   br label %if.end742thread-pre-split
@@ -4851,27 +4851,27 @@ if.end742thread-pre-split:                        ; preds = %if.end742thread-pre
   br label %if.end742
 
 if.end742:                                        ; preds = %if.end742thread-pre-split, %statemachine_end
-  %239 = phi i32 [ %.pr713, %if.end742thread-pre-split ], [ %.pr708, %statemachine_end ]
+  %246 = phi i32 [ %.pr713, %if.end742thread-pre-split ], [ %.pr708, %statemachine_end ]
   %rc.5 = phi i32 [ %rc.5.ph, %if.end742thread-pre-split ], [ %rc.0.ph, %statemachine_end ]
-  %cmp744 = icmp eq i32 %239, 15
+  %cmp744 = icmp eq i32 %246, 15
   br i1 %cmp744, label %if.then746, label %do.cond
 
 if.end742.thread:                                 ; preds = %if.then734
-  %cmp744769 = icmp eq i32 %236, 15
-  br i1 %cmp744769, label %if.then746, label %do.body5.backedge
+  %cmp744768 = icmp eq i32 %243, 15
+  br i1 %cmp744768, label %if.then746, label %do.body5.backedge
 
 do.body5.backedge:                                ; preds = %if.end742.thread, %lor.rhs, %do.cond
   br label %do.body5, !llvm.loop !24
 
 if.then746:                                       ; preds = %if.end742.thread, %if.end742
   %fmultidone = getelementptr inbounds i8, ptr %data, i64 2640
-  %240 = load ptr, ptr %fmultidone, align 8
-  %tobool748.not = icmp eq ptr %240, null
+  %247 = load ptr, ptr %fmultidone, align 8
+  %tobool748.not = icmp eq ptr %247, null
   br i1 %tobool748.not, label %if.else753, label %if.then749
 
 if.then749:                                       ; preds = %if.then746
-  %241 = load i32, ptr %result, align 4
-  %call752 = call i32 %240(ptr noundef nonnull %data, i32 noundef %241) #19
+  %248 = load i32, ptr %result, align 4
+  %call752 = call i32 %247(ptr noundef nonnull %data, i32 noundef %248) #19
   br label %if.end761
 
 if.else753:                                       ; preds = %if.then746
@@ -4880,18 +4880,18 @@ if.else753:                                       ; preds = %if.then746
   store i32 1, ptr %extmsg, align 8
   %easy_handle = getelementptr inbounds i8, ptr %data, i64 128
   store ptr %data, ptr %easy_handle, align 8
-  %242 = load i32, ptr %result, align 4
+  %249 = load i32, ptr %result, align 4
   %data758 = getelementptr inbounds i8, ptr %data, i64 136
-  store i32 %242, ptr %data758, align 8
+  store i32 %249, ptr %data758, align 8
   %msglist.i = getelementptr inbounds i8, ptr %multi, i64 32
   %tail.i = getelementptr inbounds i8, ptr %multi, i64 40
-  %243 = load ptr, ptr %tail.i, align 8
-  call void @Curl_llist_insert_next(ptr noundef nonnull %msglist.i, ptr noundef %243, ptr noundef nonnull %msg754, ptr noundef nonnull %msg754) #19
+  %250 = load ptr, ptr %tail.i, align 8
+  call void @Curl_llist_insert_next(ptr noundef nonnull %msglist.i, ptr noundef %250, ptr noundef nonnull %msg754, ptr noundef nonnull %msg754) #19
   br label %if.end761
 
 if.end761:                                        ; preds = %if.else753, %if.then749
-  %244 = load i32, ptr %mstate, align 8
-  %cmp.i652 = icmp eq i32 %244, 16
+  %251 = load i32, ptr %mstate, align 8
+  %cmp.i652 = icmp eq i32 %251, 16
   br i1 %cmp.i652, label %mstate.exit656, label %if.end.i653
 
 if.end.i653:                                      ; preds = %if.end761
@@ -4901,19 +4901,19 @@ if.end.i653:                                      ; preds = %if.end761
 mstate.exit656:                                   ; preds = %if.end761, %if.end.i653
   %msgsent = getelementptr inbounds i8, ptr %multi, i64 96
   %tail763 = getelementptr inbounds i8, ptr %multi, i64 104
-  %245 = load ptr, ptr %tail763, align 8
-  call void @Curl_llist_insert_next(ptr noundef nonnull %msgsent, ptr noundef %245, ptr noundef nonnull %data, ptr noundef nonnull %connect_queue) #19
-  %246 = load ptr, ptr %prev.i, align 8
-  %tobool.not.i658 = icmp eq ptr %246, null
-  %247 = load ptr, ptr %next3.i, align 8
-  %next2.i661 = getelementptr inbounds i8, ptr %246, i64 16
+  %252 = load ptr, ptr %tail763, align 8
+  call void @Curl_llist_insert_next(ptr noundef nonnull %msgsent, ptr noundef %252, ptr noundef nonnull %data, ptr noundef nonnull %connect_queue) #19
+  %253 = load ptr, ptr %prev.i, align 8
+  %tobool.not.i658 = icmp eq ptr %253, null
+  %254 = load ptr, ptr %next3.i, align 8
+  %next2.i661 = getelementptr inbounds i8, ptr %253, i64 16
   %easyp.sink.i662 = select i1 %tobool.not.i658, ptr %easyp.i.i, ptr %next2.i661
-  store ptr %247, ptr %easyp.sink.i662, align 8
-  %tobool5.not.i663 = icmp eq ptr %247, null
-  %248 = load ptr, ptr %prev.i, align 8
-  %prev9.i665 = getelementptr inbounds i8, ptr %247, i64 24
+  store ptr %254, ptr %easyp.sink.i662, align 8
+  %tobool5.not.i663 = icmp eq ptr %254, null
+  %255 = load ptr, ptr %prev.i, align 8
+  %prev9.i665 = getelementptr inbounds i8, ptr %254, i64 24
   %easylp.sink.i666 = select i1 %tobool5.not.i663, ptr %easylp.i.i, ptr %prev9.i665
-  store ptr %248, ptr %easylp.sink.i666, align 8
+  store ptr %255, ptr %easylp.sink.i666, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next3.i, i8 0, i64 16, i1 false)
   br label %return
 
@@ -4923,14 +4923,14 @@ do.cond:                                          ; preds = %if.end742
 
 lor.rhs:                                          ; preds = %do.cond
   %bf.load.i669 = load i8, ptr %dead, align 1
-  %249 = and i8 %bf.load.i669, 2
-  %tobool.i671.not = icmp eq i8 %249, 0
+  %256 = and i8 %bf.load.i669, 2
+  %tobool.i671.not = icmp eq i8 %256, 0
   br i1 %tobool.i671.not, label %do.end770, label %do.body5.backedge
 
 do.end770:                                        ; preds = %lor.rhs
-  %250 = load i32, ptr %result, align 4
+  %257 = load i32, ptr %result, align 4
   %result771 = getelementptr inbounds i8, ptr %data, i64 92
-  store i32 %250, ptr %result771, align 4
+  store i32 %257, ptr %result771, align 4
   br label %return
 
 return:                                           ; preds = %if.end34, %if.end148, %if.end10, %entry, %do.end770, %mstate.exit656
@@ -5648,7 +5648,7 @@ return:                                           ; preds = %if.end, %entry, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @curl_multi_socket(ptr noundef %multi, i32 noundef %s, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_socket(ptr noundef %multi, i32 noundef %s, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
 entry:
   %in_callback = getelementptr inbounds i8, ptr %multi, i64 457
   %bf.load = load i8, ptr %in_callback, align 1
@@ -5658,7 +5658,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call fastcc i32 @multi_socket(ptr noundef nonnull %multi, i1 noundef zeroext false, i32 noundef %s, i32 noundef 0, ptr noundef %running_handles)
-  %cmp = icmp slt i32 %call, 1
+  %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then1, label %return
 
 if.then1:                                         ; preds = %if.end
@@ -5671,7 +5671,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @multi_socket(ptr noundef %multi, i1 noundef zeroext %checkall, i32 noundef %s, i32 noundef %ev_bitmask, ptr nocapture noundef writeonly %running_handles) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @multi_socket(ptr noundef %multi, i1 noundef zeroext %checkall, i32 noundef %s, i32 noundef %ev_bitmask, ptr nocapture noundef writeonly %running_handles) unnamed_addr #0 {
 entry:
   %action.i43 = alloca %struct.sigaction, align 8
   %action.i = alloca %struct.sigaction, align 8
@@ -5970,7 +5970,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @curl_multi_socket_action(ptr noundef %multi, i32 noundef %s, i32 noundef %ev_bitmask, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_socket_action(ptr noundef %multi, i32 noundef %s, i32 noundef %ev_bitmask, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
 entry:
   %in_callback = getelementptr inbounds i8, ptr %multi, i64 457
   %bf.load = load i8, ptr %in_callback, align 1
@@ -5980,7 +5980,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call fastcc i32 @multi_socket(ptr noundef nonnull %multi, i1 noundef zeroext false, i32 noundef %s, i32 noundef %ev_bitmask, ptr noundef %running_handles)
-  %cmp = icmp slt i32 %call, 1
+  %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then1, label %return
 
 if.then1:                                         ; preds = %if.end
@@ -5993,7 +5993,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483648) i32 @curl_multi_socket_all(ptr noundef %multi, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_socket_all(ptr noundef %multi, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
 entry:
   %in_callback = getelementptr inbounds i8, ptr %multi, i64 457
   %bf.load = load i8, ptr %in_callback, align 1

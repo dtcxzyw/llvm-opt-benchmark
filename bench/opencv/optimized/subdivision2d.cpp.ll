@@ -950,7 +950,7 @@ define void @_ZN2cv8Subdiv2D13setEdgePointsEiii(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2cv8Subdiv2D12connectEdgesEii(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define noundef range(i32 -2147483648, 2147483645) i32 @_ZN2cv8Subdiv2D12connectEdgesEii(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = alloca %"struct.cv::Subdiv2D::QuadEdge", align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1103,7 +1103,7 @@ _ZN2cv8Subdiv2D7newEdgeEv.exit:                   ; preds = %._crit_edge.i, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN2cv8Subdiv2D7newEdgeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #6 align 2 {
+define noundef range(i32 -2147483648, 2147483645) i32 @_ZN2cv8Subdiv2D7newEdgeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #6 align 2 {
   %2 = alloca %"struct.cv::Subdiv2D::QuadEdge", align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
@@ -2474,7 +2474,7 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
   %208 = sext i32 %207 to i64
   %209 = load ptr, ptr %135, align 8
   %210 = getelementptr inbounds %"struct.cv::Subdiv2D::QuadEdge", ptr %209, i64 %208
-  %211 = add i32 %205, 1
+  %211 = add nsw i32 %205, 1
   %212 = and i32 %211, 3
   %213 = zext nneg i32 %212 to i64
   %214 = getelementptr inbounds [4 x i32], ptr %210, i64 0, i64 %213

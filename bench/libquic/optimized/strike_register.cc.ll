@@ -969,7 +969,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, -8388608) i32 @_ZNK3net14StrikeRegister9BestMatchEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %v) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 0, -2147483646) i32 @_ZNK3net14StrikeRegister9BestMatchEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %v) local_unnamed_addr #10 align 2 {
 entry:
   %internal_node_head_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %internal_node_head_, align 8

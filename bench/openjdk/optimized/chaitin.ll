@@ -1872,39 +1872,39 @@ _ZN12LiveRangeMap25compress_uf_map_for_nodesEv.exit93: ; preds = %_ZN12LiveRange
   %.not11.i = icmp ugt i32 %382, %384
   br i1 %.not11.i, label %_ZNK7RegMask15find_first_elemEv.exit, label %.lr.ph.i94
 
-.lr.ph.i94:                                       ; preds = %370, %393
-  %.0712.i = phi i32 [ %394, %393 ], [ %382, %370 ]
+.lr.ph.i94:                                       ; preds = %370, %394
+  %.0712.i = phi i32 [ %395, %394 ], [ %382, %370 ]
   %385 = zext i32 %.0712.i to i64
   %386 = getelementptr inbounds [11 x i64], ptr %371, i64 0, i64 %385
   %387 = load i64, ptr %386, align 8
   %.not9.i95 = icmp eq i64 %387, 0
-  br i1 %.not9.i95, label %393, label %388
+  br i1 %.not9.i95, label %394, label %388
 
 388:                                              ; preds = %.lr.ph.i94
   %389 = shl i32 %.0712.i, 6
   %390 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %387, i1 true)
   %391 = trunc nuw nsw i64 %390 to i32
   %392 = or disjoint i32 %389, %391
+  %393 = trunc i32 %392 to i16
   br label %_ZNK7RegMask15find_first_elemEv.exit
 
-393:                                              ; preds = %.lr.ph.i94
-  %394 = add i32 %.0712.i, 1
-  %.not.i = icmp ugt i32 %394, %384
+394:                                              ; preds = %.lr.ph.i94
+  %395 = add i32 %.0712.i, 1
+  %.not.i = icmp ugt i32 %395, %384
   br i1 %.not.i, label %_ZNK7RegMask15find_first_elemEv.exit, label %.lr.ph.i94, !llvm.loop !22
 
-_ZNK7RegMask15find_first_elemEv.exit:             ; preds = %393, %370, %388
-  %.0.i96 = phi i32 [ %392, %388 ], [ -1, %370 ], [ -1, %393 ]
-  %395 = load ptr, ptr %325, align 8
-  %396 = zext i32 %.045150 to i64
-  %397 = getelementptr inbounds %class.OptoRegPair, ptr %395, i64 %396
-  %398 = trunc i32 %361 to i16
-  store i16 %398, ptr %397, align 2
-  %399 = trunc i32 %.0.i96 to i16
+_ZNK7RegMask15find_first_elemEv.exit:             ; preds = %394, %370, %388
+  %.0.i96 = phi i16 [ %393, %388 ], [ -1, %370 ], [ -1, %394 ]
+  %396 = load ptr, ptr %325, align 8
+  %397 = zext i32 %.045150 to i64
+  %398 = getelementptr inbounds %class.OptoRegPair, ptr %396, i64 %397
+  %399 = trunc i32 %361 to i16
+  store i16 %399, ptr %398, align 2
   br label %400
 
 400:                                              ; preds = %349, %362, %_ZNK7RegMask15find_first_elemEv.exit, %341
-  %.sink161 = phi ptr [ %354, %349 ], [ %365, %362 ], [ %397, %_ZNK7RegMask15find_first_elemEv.exit ], [ %344, %341 ]
-  %.sink159 = phi i16 [ %355, %349 ], [ %368, %362 ], [ %399, %_ZNK7RegMask15find_first_elemEv.exit ], [ -1, %341 ]
+  %.sink161 = phi ptr [ %354, %349 ], [ %365, %362 ], [ %398, %_ZNK7RegMask15find_first_elemEv.exit ], [ %344, %341 ]
+  %.sink159 = phi i16 [ %355, %349 ], [ %368, %362 ], [ %.0.i96, %_ZNK7RegMask15find_first_elemEv.exit ], [ -1, %341 ]
   %401 = getelementptr inbounds i8, ptr %.sink161, i64 2
   store i16 %.sink159, ptr %401, align 2
   %402 = getelementptr inbounds i8, ptr %338, i64 166
@@ -2583,7 +2583,7 @@ _ZN3LRG3ANDERK7RegMask.exit:                      ; preds = %144, %148
 231:                                              ; preds = %177, %205, %208, %211, %214, %217, %220, %223, %226, %193, %185, %201, %197, %70
   %232 = getelementptr inbounds i8, ptr %60, i64 24
   %233 = load i32, ptr %232, align 8
-  br i1 %1, label %234, label %241
+  br i1 %1, label %234, label %242
 
 234:                                              ; preds = %231
   %235 = load ptr, ptr %60, align 8
@@ -2591,28 +2591,28 @@ _ZN3LRG3ANDERK7RegMask.exit:                      ; preds = %144, %148
   %237 = load ptr, ptr %236, align 8
   %238 = tail call noundef i32 %237(ptr noundef nonnull align 8 dereferenceable(52) %60) #14
   %.not150 = icmp eq i32 %238, -1
-  br i1 %.not150, label %241, label %239
+  br i1 %.not150, label %242, label %239
 
 239:                                              ; preds = %234
   %240 = tail call noundef i32 @_ZNK8MachNode13operand_indexEj(ptr noundef nonnull align 8 dereferenceable(64) %60, i32 noundef %238) #14
-  br label %241
+  %241 = zext i32 %240 to i64
+  br label %242
 
-241:                                              ; preds = %234, %239, %231
-  %.0142 = phi i32 [ %240, %239 ], [ -1, %234 ], [ -1, %231 ]
-  %242 = icmp ult i32 %.0140, %233
-  br i1 %242, label %.lr.ph, label %._crit_edge
+242:                                              ; preds = %234, %239, %231
+  %.0142 = phi i64 [ %241, %239 ], [ 4294967295, %234 ], [ 4294967295, %231 ]
+  %243 = icmp ult i32 %.0140, %233
+  br i1 %243, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %241
-  %243 = getelementptr inbounds i8, ptr %60, i64 8
-  %244 = getelementptr inbounds i8, ptr %60, i64 54
-  %245 = zext i32 %.0140 to i64
-  %246 = zext i32 %.0142 to i64
+.lr.ph:                                           ; preds = %242
+  %244 = getelementptr inbounds i8, ptr %60, i64 8
+  %245 = getelementptr inbounds i8, ptr %60, i64 54
+  %246 = zext i32 %.0140 to i64
   %wide.trip.count = zext i32 %233 to i64
   br label %247
 
 247:                                              ; preds = %.lr.ph, %373
-  %indvars.iv = phi i64 [ %245, %.lr.ph ], [ %indvars.iv.next, %373 ]
-  %248 = load ptr, ptr %243, align 8
+  %indvars.iv = phi i64 [ %246, %.lr.ph ], [ %indvars.iv.next, %373 ]
+  %248 = load ptr, ptr %244, align 8
   %249 = getelementptr inbounds ptr, ptr %248, i64 %indvars.iv
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 40
@@ -2625,7 +2625,7 @@ _ZN3LRG3ANDERK7RegMask.exit:                      ; preds = %144, %148
   br i1 %.not151, label %373, label %257
 
 257:                                              ; preds = %247
-  %258 = icmp eq i64 %indvars.iv, %246
+  %258 = icmp eq i64 %.0142, %indvars.iv
   %or.cond = and i1 %1, %258
   br i1 %or.cond, label %259, label %263
 
@@ -2645,7 +2645,7 @@ _ZN3LRG3ANDERK7RegMask.exit:                      ; preds = %144, %148
   br i1 %266, label %267, label %270
 
 267:                                              ; preds = %264
-  %268 = load i16, ptr %244, align 2
+  %268 = load i16, ptr %245, align 2
   %269 = zext i16 %268 to i64
   %.not152 = icmp ult i64 %indvars.iv, %269
   br i1 %.not152, label %270, label %373
@@ -2665,7 +2665,7 @@ _ZN3LRG3ANDERK7RegMask.exit:                      ; preds = %144, %148
 
 281:                                              ; preds = %270
   %282 = load ptr, ptr %4, align 8
-  %283 = load ptr, ptr %243, align 8
+  %283 = load ptr, ptr %244, align 8
   %284 = getelementptr inbounds ptr, ptr %283, i64 %indvars.iv
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr inbounds i8, ptr %285, i64 40
@@ -2733,7 +2733,7 @@ _ZN3LRG3ANDERK7RegMask.exit:                      ; preds = %144, %148
 
 _ZN3LRG3ANDERK7RegMask.exit166:                   ; preds = %321, %317, %281
   %322 = getelementptr inbounds i8, ptr %275, i64 56
-  %323 = load ptr, ptr %243, align 8
+  %323 = load ptr, ptr %244, align 8
   %324 = getelementptr inbounds ptr, ptr %323, i64 %indvars.iv
   %325 = load ptr, ptr %324, align 8
   %326 = load ptr, ptr %325, align 8
@@ -2829,7 +2829,7 @@ _ZN3LRG3ANDERK7RegMask.exit166:                   ; preds = %321, %317, %281
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %247, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %373, %241
+._crit_edge:                                      ; preds = %373, %242
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %374 = load i32, ptr %46, align 8
   %375 = zext i32 %374 to i64

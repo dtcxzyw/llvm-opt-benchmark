@@ -916,7 +916,7 @@ define dso_local noundef range(i32 -22, 1) i32 @init_cache_level(i32 noundef %0)
 declare dso_local ptr @get_cpu_cacheinfo(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @populate_cache_leaves(i32 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @populate_cache_leaves(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct._cpuid4_info_regs, align 8
   %3 = tail call ptr @get_cpu_cacheinfo(i32 noundef %0) #13
   %4 = load ptr, ptr %3, align 8

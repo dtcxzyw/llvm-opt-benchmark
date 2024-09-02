@@ -1167,9 +1167,9 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   %8 = add nsw i32 %2, -1
   br label %9
 
-9:                                                ; preds = %.lr.ph, %55
-  %.050 = phi i32 [ 0, %.lr.ph ], [ %57, %55 ]
-  %.03649 = phi ptr [ %1, %.lr.ph ], [ %56, %55 ]
+9:                                                ; preds = %.lr.ph, %56
+  %.050 = phi i32 [ 0, %.lr.ph ], [ %58, %56 ]
+  %.03649 = phi ptr [ %1, %.lr.ph ], [ %57, %56 ]
   %10 = load i8, ptr %.03649, align 1
   %11 = zext i8 %10 to i64
   %12 = getelementptr [256 x i16], ptr @t61_tab, i64 0, i64 %11
@@ -1179,17 +1179,17 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
 
 14:                                               ; preds = %9
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef 65533) #6
-  br label %55
+  br label %56
 
 15:                                               ; preds = %9
   %16 = icmp slt i32 %.050, %8
-  br i1 %16, label %17, label %53
+  br i1 %16, label %17, label %54
 
 17:                                               ; preds = %15
   %18 = zext i8 %10 to i32
   %19 = and i32 %18, 240
   %20 = icmp eq i32 %19, 192
-  br i1 %20, label %21, label %53
+  br i1 %20, label %21, label %54
 
 21:                                               ; preds = %17
   %22 = and i32 %18, 15
@@ -1215,68 +1215,68 @@ define ptr @get_t61_string(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   %.pre = zext nneg i32 %22 to i64
   %.pre53 = shl nuw nsw i64 1, %.pre
   %.pre55 = and i64 %.pre53, 4609
-  %.not46.not = icmp eq i64 %.pre55, 0
-  br i1 %.not46.not, label %32, label %._crit_edge51
+  %32 = icmp eq i64 %.pre55, 0
+  br i1 %32, label %33, label %._crit_edge51
 
 ._crit_edge51:                                    ; preds = %25, %31
   %.pre57 = zext i8 %24 to i32
-  br label %45
+  br label %46
 
-32:                                               ; preds = %31
-  %33 = getelementptr [16 x ptr], ptr @cx_tab, i64 0, i64 %.pre
-  %34 = load ptr, ptr %33, align 8
-  %35 = zext i8 %24 to i32
-  %36 = lshr i32 %35, 5
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr ptr, ptr %34, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  %.not47 = icmp eq ptr %39, null
-  br i1 %.not47, label %45, label %40
+33:                                               ; preds = %31
+  %34 = getelementptr [16 x ptr], ptr @cx_tab, i64 0, i64 %.pre
+  %35 = load ptr, ptr %34, align 8
+  %36 = zext i8 %24 to i32
+  %37 = lshr i32 %36, 5
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr ptr, ptr %35, i64 %38
+  %40 = load ptr, ptr %39, align 8
+  %.not47 = icmp eq ptr %40, null
+  br i1 %.not47, label %46, label %41
 
-40:                                               ; preds = %32
-  %41 = and i32 %35, 31
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr [32 x i16], ptr %39, i64 0, i64 %42
-  %44 = load i16, ptr %43, align 2
-  %.not48 = icmp eq i16 %44, 0
-  br i1 %.not48, label %45, label %50
+41:                                               ; preds = %33
+  %42 = and i32 %36, 31
+  %43 = zext nneg i32 %42 to i64
+  %44 = getelementptr [32 x i16], ptr %40, i64 0, i64 %43
+  %45 = load i16, ptr %44, align 2
+  %.not48 = icmp eq i16 %45, 0
+  br i1 %.not48, label %46, label %51
 
-45:                                               ; preds = %._crit_edge51, %40, %32
-  %.pre-phi58 = phi i32 [ %.pre57, %._crit_edge51 ], [ %35, %40 ], [ %35, %32 ]
+46:                                               ; preds = %._crit_edge51, %41, %33
+  %.pre-phi58 = phi i32 [ %.pre57, %._crit_edge51 ], [ %36, %41 ], [ %36, %33 ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %.pre-phi58) #6
-  %46 = load i8, ptr %.03649, align 1
-  %47 = zext i8 %46 to i64
-  %48 = getelementptr [256 x i16], ptr @t61_tab, i64 0, i64 %47
+  %47 = load i8, ptr %.03649, align 1
+  %48 = zext i8 %47 to i64
+  %49 = getelementptr [256 x i16], ptr @t61_tab, i64 0, i64 %48
   br label %.sink.split
 
-.sink.split:                                      ; preds = %29, %45
-  %.sink = phi ptr [ %48, %45 ], [ %30, %29 ]
-  %49 = load i16, ptr %.sink, align 2
-  br label %50
+.sink.split:                                      ; preds = %29, %46
+  %.sink = phi ptr [ %49, %46 ], [ %30, %29 ]
+  %50 = load i16, ptr %.sink, align 2
+  br label %51
 
-50:                                               ; preds = %.sink.split, %40
-  %.sink62 = phi i16 [ %44, %40 ], [ %49, %.sink.split ]
-  %51 = zext i16 %.sink62 to i32
-  tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %51) #6
-  %52 = add nsw i32 %.050, 1
-  br label %55
+51:                                               ; preds = %.sink.split, %41
+  %.sink61 = phi i16 [ %45, %41 ], [ %50, %.sink.split ]
+  %52 = zext i16 %.sink61 to i32
+  tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %52) #6
+  %53 = add nsw i32 %.050, 1
+  br label %56
 
-53:                                               ; preds = %17, %15
-  %54 = zext i16 %13 to i32
-  tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %54) #6
-  br label %55
+54:                                               ; preds = %17, %15
+  %55 = zext i16 %13 to i32
+  tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %55) #6
+  br label %56
 
-55:                                               ; preds = %14, %53, %50
-  %.137 = phi ptr [ %23, %50 ], [ %.03649, %53 ], [ %.03649, %14 ]
-  %.1 = phi i32 [ %52, %50 ], [ %.050, %53 ], [ %.050, %14 ]
-  %56 = getelementptr i8, ptr %.137, i64 1
-  %57 = add nsw i32 %.1, 1
-  %58 = icmp slt i32 %57, %2
-  br i1 %58, label %9, label %._crit_edge, !llvm.loop !19
+56:                                               ; preds = %14, %54, %51
+  %.137 = phi ptr [ %23, %51 ], [ %.03649, %54 ], [ %.03649, %14 ]
+  %.1 = phi i32 [ %53, %51 ], [ %.050, %54 ], [ %.050, %14 ]
+  %57 = getelementptr i8, ptr %.137, i64 1
+  %58 = add nsw i32 %.1, 1
+  %59 = icmp slt i32 %58, %2
+  br i1 %59, label %9, label %._crit_edge, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %55, %3
-  %59 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6) #6
-  ret ptr %59
+._crit_edge:                                      ; preds = %56, %3
+  %60 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6) #6
+  ret ptr %60
 }
 
 ; Function Attrs: nounwind uwtable

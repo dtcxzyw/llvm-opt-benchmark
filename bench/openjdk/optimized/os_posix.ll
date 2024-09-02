@@ -731,58 +731,49 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 define hidden noundef zeroext i1 @_ZN2os12dir_is_emptyEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
   %2 = tail call ptr @opendir(ptr noundef %0)
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %22, label %.preheader.preheader
+  br i1 %3, label %18, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %1
   %4 = tail call ptr @readdir64(ptr noundef nonnull %2) #28
-  %.not22 = icmp eq ptr %4, null
-  br i1 %.not22, label %.critedge, label %sub_0
+  %.not23 = icmp eq ptr %4, null
+  br i1 %.not23, label %.critedge, label %sub_0
 
 sub_0:                                            ; preds = %.preheader.preheader, %.preheader.backedge
-  %5 = phi ptr [ %20, %.preheader.backedge ], [ %4, %.preheader.preheader ]
+  %5 = phi ptr [ %16, %.preheader.backedge ], [ %4, %.preheader.preheader ]
   %6 = getelementptr inbounds i8, ptr %5, i64 19
   %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i32
-  %9 = add nsw i32 %8, -46
-  %.not18 = icmp eq i32 %9, 0
-  br i1 %.not18, label %.tail, label %.tail13
+  %.not18 = icmp eq i8 %7, 46
+  br i1 %.not18, label %.tail, label %.critedge
 
 .tail:                                            ; preds = %sub_0
-  %10 = getelementptr inbounds i8, ptr %5, i64 20
-  %11 = load i8, ptr %10, align 1
-  %.not11 = icmp eq i8 %11, 0
-  br i1 %.not11, label %.preheader.backedge, label %sub_115
+  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %.preheader.backedge, label %sub_115
 
 sub_115:                                          ; preds = %.tail
-  %12 = getelementptr inbounds i8, ptr %5, i64 20
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  %15 = add nsw i32 %14, -46
-  %.not20 = icmp eq i32 %15, 0
-  br i1 %.not20, label %sub_2, label %.tail13
+  %11 = getelementptr inbounds i8, ptr %5, i64 20
+  %12 = load i8, ptr %11, align 1
+  %.not20 = icmp eq i8 %12, 46
+  br i1 %.not20, label %sub_2, label %.critedge
 
 sub_2:                                            ; preds = %sub_115
-  %16 = getelementptr inbounds i8, ptr %5, i64 21
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  br label %.tail13
+  %13 = getelementptr inbounds i8, ptr %5, i64 21
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %.preheader.backedge, label %.critedge
 
-.tail13:                                          ; preds = %sub_0, %sub_115, %sub_2
-  %19 = phi i32 [ %15, %sub_115 ], [ %18, %sub_2 ], [ %9, %sub_0 ]
-  %.not12 = icmp eq i32 %19, 0
-  br i1 %.not12, label %.preheader.backedge, label %.critedge
-
-.preheader.backedge:                              ; preds = %.tail, %.tail13
-  %20 = tail call ptr @readdir64(ptr noundef nonnull %2) #28
-  %.not = icmp eq ptr %20, null
+.preheader.backedge:                              ; preds = %.tail, %sub_2
+  %16 = tail call ptr @readdir64(ptr noundef nonnull %2) #28
+  %.not = icmp eq ptr %16, null
   br i1 %.not, label %.critedge, label %sub_0, !llvm.loop !12
 
-.critedge:                                        ; preds = %.preheader.backedge, %.tail13, %.preheader.preheader
-  %.not.lcssa = phi i1 [ true, %.preheader.preheader ], [ true, %.preheader.backedge ], [ false, %.tail13 ]
-  %21 = tail call i32 @closedir(ptr noundef nonnull %2)
-  br label %22
+.critedge:                                        ; preds = %.preheader.backedge, %sub_2, %sub_115, %sub_0, %.preheader.preheader
+  %.not.lcssa = phi i1 [ true, %.preheader.preheader ], [ true, %.preheader.backedge ], [ false, %sub_2 ], [ false, %sub_115 ], [ false, %sub_0 ]
+  %17 = tail call i32 @closedir(ptr noundef nonnull %2)
+  br label %18
 
-22:                                               ; preds = %1, %.critedge
+18:                                               ; preds = %1, %.critedge
   %.08 = phi i1 [ %.not.lcssa, %.critedge ], [ true, %1 ]
   ret i1 %.08
 }

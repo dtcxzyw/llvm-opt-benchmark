@@ -617,7 +617,7 @@ define internal fastcc i32 @exportfs_get_name(ptr noundef %0, ptr noundef %1, pt
 
 17:                                               ; preds = %4
   %18 = tail call i32 %15(ptr noundef %1, ptr noundef %2, ptr noundef %3) #7
-  br label %72
+  br label %71
 
 19:                                               ; preds = %4
   %20 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !19
@@ -644,24 +644,24 @@ define internal fastcc i32 @exportfs_get_name(ptr noundef %0, ptr noundef %1, pt
   %32 = icmp eq ptr %25, null
   %33 = getelementptr inbounds i8, ptr %7, i64 32
   store i64 0, ptr %33, align 8
-  br i1 %32, label %70, label %34
+  br i1 %32, label %69, label %34
 
 34:                                               ; preds = %19
   %35 = load i16, ptr %25, align 8
   %36 = and i16 %35, -4096
   %37 = icmp eq i16 %36, 16384
-  br i1 %37, label %38, label %70
+  br i1 %37, label %38, label %69
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %25, i64 344
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %70, label %42
+  br i1 %41, label %69, label %42
 
 42:                                               ; preds = %38
   %43 = call i32 @vfs_getattr_nosec(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 256, i32 noundef 0) #7
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %70
+  br i1 %44, label %45, label %69
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %5, i64 32
@@ -671,7 +671,7 @@ define internal fastcc i32 @exportfs_get_name(ptr noundef %0, ptr noundef %1, pt
   %49 = ptrtoint ptr %48 to i64
   %50 = trunc i64 %49 to i32
   %51 = icmp ugt ptr %48, inttoptr (i64 -4096 to ptr)
-  br i1 %51, label %70, label %52
+  br i1 %51, label %69, label %52
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds i8, ptr %48, i64 176
@@ -698,25 +698,25 @@ define internal fastcc i32 @exportfs_get_name(ptr noundef %0, ptr noundef %1, pt
 
 66:                                               ; preds = %64
   %67 = load i32, ptr %31, align 4
-  %68 = icmp eq i32 %60, %67
-  br i1 %68, label %.thread, label %59
+  %.not = icmp eq i32 %60, %67
+  br i1 %.not, label %.thread, label %59
 
-.thread:                                          ; preds = %66, %64, %59, %52
-  %69 = phi i32 [ -22, %52 ], [ -2, %66 ], [ 0, %59 ], [ %61, %64 ]
+.thread:                                          ; preds = %64, %59, %66, %52
+  %68 = phi i32 [ -22, %52 ], [ 0, %59 ], [ %61, %64 ], [ -2, %66 ]
   call void @fput(ptr noundef %48) #7
-  br label %70
+  br label %69
 
-70:                                               ; preds = %.thread, %45, %42, %38, %34, %19
-  %71 = phi i32 [ %43, %42 ], [ %50, %45 ], [ %69, %.thread ], [ -22, %38 ], [ -20, %34 ], [ -20, %19 ]
+69:                                               ; preds = %.thread, %45, %42, %38, %34, %19
+  %70 = phi i32 [ %43, %42 ], [ %50, %45 ], [ %68, %.thread ], [ -22, %38 ], [ -20, %34 ], [ -20, %19 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #7
-  br label %72
+  br label %71
 
-72:                                               ; preds = %70, %17
-  %73 = phi i32 [ %18, %17 ], [ %71, %70 ]
+71:                                               ; preds = %69, %17
+  %72 = phi i32 [ %18, %17 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  ret i32 %73
+  ret i32 %72
 }
 
 ; Function Attrs: null_pointer_is_valid

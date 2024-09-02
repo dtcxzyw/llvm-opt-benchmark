@@ -4814,12 +4814,12 @@ _ZN2cv8saliency7CmTimer4StopEv.exit:              ; preds = %_ZN2cv8saliency14Ob
   %136 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   %137 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef %136)
   %.pre87 = load i8, ptr %17, align 8
-  %138 = load i32, ptr %28, align 4
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds [3 x ptr], ptr @_ZN2cv8saliency14ObjectnessBING8_clrNameE, i64 0, i64 %139
-  %141 = load ptr, ptr %140, align 8
-  %142 = trunc i8 %.pre87 to i1
-  br i1 %142, label %143, label %146
+  %138 = trunc i8 %.pre87 to i1
+  %139 = load i32, ptr %28, align 4
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr inbounds [3 x ptr], ptr @_ZN2cv8saliency14ObjectnessBING8_clrNameE, i64 0, i64 %140
+  %142 = load ptr, ptr %141, align 8
+  br i1 %138, label %143, label %146
 
 143:                                              ; preds = %_ZN2cv8saliency7CmTimer4StopEv.exit
   %144 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
@@ -4827,17 +4827,17 @@ _ZN2cv8saliency7CmTimer4StopEv.exit:              ; preds = %_ZN2cv8saliency14Ob
   br label %_ZN2cv8saliency7CmTimer13TimeInSecondsEv.exit
 
 146:                                              ; preds = %_ZN2cv8saliency7CmTimer4StopEv.exit.thread, %_ZN2cv8saliency7CmTimer4StopEv.exit
-  %147 = phi ptr [ %135, %_ZN2cv8saliency7CmTimer4StopEv.exit.thread ], [ %141, %_ZN2cv8saliency7CmTimer4StopEv.exit ]
+  %147 = phi ptr [ %135, %_ZN2cv8saliency7CmTimer4StopEv.exit.thread ], [ %142, %_ZN2cv8saliency7CmTimer4StopEv.exit ]
   %148 = load i64, ptr %27, align 8
   %149 = sitofp i64 %148 to float
   %150 = fdiv float %149, 1.000000e+06
+  %151 = fpext float %150 to double
   br label %_ZN2cv8saliency7CmTimer13TimeInSecondsEv.exit
 
 _ZN2cv8saliency7CmTimer13TimeInSecondsEv.exit:    ; preds = %146, %143
-  %151 = phi ptr [ %141, %143 ], [ %147, %146 ]
-  %.0.i = phi float [ 0.000000e+00, %143 ], [ %150, %146 ]
-  %152 = fpext float %.0.i to double
-  %153 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %151, double noundef %152)
+  %152 = phi ptr [ %142, %143 ], [ %147, %146 ]
+  %.0.i = phi double [ 0.000000e+00, %143 ], [ %151, %146 ]
+  %153 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %152, double noundef %.0.i)
   %154 = load i8, ptr %17, align 8
   %155 = trunc i8 %154 to i1
   br i1 %155, label %156, label %_ZN2cv8saliency7CmTimerD2Ev.exit

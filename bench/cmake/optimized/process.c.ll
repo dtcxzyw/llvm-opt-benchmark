@@ -123,13 +123,13 @@ define dso_local void @uv__wait_children(ptr noundef readonly %0) local_unnamed_
   %52 = icmp eq i32 %51, 0
   %53 = lshr i32 %50, 8
   %54 = and i32 %53, 255
-  %.046 = select i1 %52, i32 %54, i32 0
+  %narrow = select i1 %52, i32 %54, i32 0
+  %.046 = zext nneg i32 %narrow to i64
   %55 = shl nuw nsw i32 %51, 24
   %sext = add nuw i32 %55, 16777216
   %56 = icmp sgt i32 %sext, 33554431
   %.047 = select i1 %56, i32 %51, i32 0
-  %57 = zext nneg i32 %.046 to i64
-  call void %46(ptr noundef nonnull %25, i64 noundef %57, i32 noundef %.047) #12
+  call void %46(ptr noundef nonnull %25, i64 noundef %.046, i32 noundef %.047) #12
   br label %.backedge
 
 .backedge:                                        ; preds = %48, %44

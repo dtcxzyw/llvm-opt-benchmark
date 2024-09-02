@@ -401,7 +401,7 @@ entry:
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 0, 4294967296) i64 @_mi_prim_numa_node_count() local_unnamed_addr #0 {
+define hidden range(i64 1, 4294967296) i64 @_mi_prim_numa_node_count() local_unnamed_addr #0 {
 entry:
   %buf = alloca [128 x i8], align 16
   br label %for.cond

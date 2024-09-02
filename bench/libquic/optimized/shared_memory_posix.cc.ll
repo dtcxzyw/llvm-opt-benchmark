@@ -317,7 +317,7 @@ entry:
 declare noundef i64 @_ZN4base9GetMaxFdsEv() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4base12SharedMemory15DuplicateHandleERKNS_14FileDescriptorE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %handle) local_unnamed_addr #2 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4base12SharedMemory15DuplicateHandleERKNS_14FileDescriptorE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %handle) local_unnamed_addr #2 align 2 {
 entry:
   br label %do.body
 
@@ -1550,7 +1550,7 @@ declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 nounde
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @_ZNK4base12SharedMemory6handleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
+define dso_local range(i64 0, 4294967296) i64 @_ZNK4base12SharedMemory6handleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %retval.sroa.0.0.insert.ext = zext i32 %0 to i64

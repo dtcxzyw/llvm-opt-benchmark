@@ -59,7 +59,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   %18 = lshr i64 %15, 10
   %19 = tail call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %18, i1 false)
   %20 = sub nuw nsw i64 64, %19
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 7)
+  %.0.sroa.speculated.i.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 %20, i64 7)
   %21 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i, 2
   %22 = or disjoint i64 %21, 1
   %23 = getelementptr i8, ptr null, i64 %22
@@ -749,7 +749,7 @@ default.unreachable180:                           ; preds = %3
   %31 = lshr i64 %28, 10
   %32 = tail call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %31, i1 false)
   %33 = sub nuw nsw i64 64, %32
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %33, i64 7)
+  %.0.sroa.speculated.i.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 %33, i64 7)
   %34 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i, 2
   %35 = or disjoint i64 %34, 1
   %36 = getelementptr i8, ptr null, i64 %35

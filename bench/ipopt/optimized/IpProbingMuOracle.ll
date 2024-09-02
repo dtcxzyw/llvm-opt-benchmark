@@ -1909,7 +1909,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit107:     ; preds = %_ZN5Ipopt6Vector4Ax
 _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc109, %._crit_edge.i.i
   %232 = phi double [ %.pre.i.i, %._crit_edge.i.i ], [ %229, %.noexc109 ]
   %233 = fmul double %232, %232
-  br label %243
+  br label %244
 
 234:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit107
   %235 = getelementptr inbounds i8, ptr %162, i64 64
@@ -1933,12 +1933,12 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc109, %._crit_
 
 .noexc112:                                        ; preds = %.noexc111, %.noexc110
   %242 = load double, ptr %8, align 8
-  br label %243
+  %243 = fadd double %242, 0.000000e+00
+  br label %244
 
-243:                                              ; preds = %.noexc112, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i
-  %.0.i = phi double [ %233, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i ], [ %242, %.noexc112 ]
+244:                                              ; preds = %.noexc112, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i
+  %.0.i = phi double [ %233, %_ZNK5Ipopt6Vector4Nrm2Ev.exit.i ], [ %243, %.noexc112 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %244 = fadd double %.0.i, 0.000000e+00
   br label %269
 
 245:                                              ; preds = %4
@@ -1988,12 +1988,12 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit.i:                  ; preds = %.noexc109, %._crit_
   call void %268(ptr noundef nonnull align 8 dereferenceable(205) %.0.i3.i.i.i100) #20
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit124.thread
 
-269:                                              ; preds = %133, %243
-  %.sroa.0373.1 = phi ptr [ %147, %243 ], [ null, %133 ]
-  %.sroa.0389.1 = phi ptr [ %193, %243 ], [ null, %133 ]
-  %.sroa.0413.1 = phi ptr [ %162, %243 ], [ null, %133 ]
-  %.028 = phi i32 [ %138, %243 ], [ 0, %133 ]
-  %.0 = phi double [ %244, %243 ], [ 0.000000e+00, %133 ]
+269:                                              ; preds = %133, %244
+  %.sroa.0373.1 = phi ptr [ %147, %244 ], [ null, %133 ]
+  %.sroa.0389.1 = phi ptr [ %193, %244 ], [ null, %133 ]
+  %.sroa.0413.1 = phi ptr [ %162, %244 ], [ null, %133 ]
+  %.028 = phi i32 [ %138, %244 ], [ 0, %133 ]
+  %.0 = phi double [ %.0.i, %244 ], [ 0.000000e+00, %133 ]
   %270 = load ptr, ptr %10, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 56
   %272 = load ptr, ptr %271, align 8

@@ -1196,8 +1196,8 @@ define i32 @Abc_SopGetLitNum(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.neg = sext i1 %5 to i32
   %6 = add i32 %.017, %.neg
   %7 = and i8 %4, -2
-  %spec.select = icmp eq i8 %7, 48
-  %8 = zext i1 %spec.select to i32
+  %narrow = icmp eq i8 %7, 48
+  %8 = zext i1 %narrow to i32
   %9 = add nsw i32 %6, %8
   %10 = getelementptr inbounds i8, ptr %.01016, i64 1
   %11 = load i8, ptr %10, align 1
@@ -1623,9 +1623,9 @@ Abc_SopGetCubeNum.exit:                           ; preds = %.lr.ph.i, %Abc_SopG
   %22 = sext i32 %21 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %29
-  %23 = phi i8 [ %20, %.preheader.lr.ph ], [ %31, %29 ]
-  %.01527 = phi ptr [ %0, %.preheader.lr.ph ], [ %30, %29 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %30
+  %23 = phi i8 [ %20, %.preheader.lr.ph ], [ %32, %30 ]
+  %.01527 = phi ptr [ %0, %.preheader.lr.ph ], [ %31, %30 ]
   %.not1923 = icmp eq i8 %23, 32
   br i1 %.not1923, label %.loopexit, label %.lr.ph
 
@@ -1642,17 +1642,17 @@ Abc_SopGetCubeNum.exit:                           ; preds = %.lr.ph.i, %Abc_SopG
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.not20 = icmp eq i32 %27, 1
-  br i1 %.not20, label %29, label %.loopexit
+  %29 = icmp eq i32 %27, 1
+  br i1 %29, label %30, label %.loopexit
 
-29:                                               ; preds = %._crit_edge
-  %30 = getelementptr inbounds i8, ptr %.01527, i64 %22
-  %31 = load i8, ptr %30, align 1
-  %.not18 = icmp eq i8 %31, 0
+30:                                               ; preds = %._crit_edge
+  %31 = getelementptr inbounds i8, ptr %.01527, i64 %22
+  %32 = load i8, ptr %31, align 1
+  %.not18 = icmp eq i8 %32, 0
   br i1 %.not18, label %.loopexit, label %.preheader, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.preheader, %._crit_edge, %29, %.preheader21, %Abc_SopGetCubeNum.exit
-  %.013 = phi i32 [ 0, %Abc_SopGetCubeNum.exit ], [ 1, %.preheader21 ], [ 0, %.preheader ], [ 0, %._crit_edge ], [ 1, %29 ]
+.loopexit:                                        ; preds = %.preheader, %._crit_edge, %30, %.preheader21, %Abc_SopGetCubeNum.exit
+  %.013 = phi i32 [ 0, %Abc_SopGetCubeNum.exit ], [ 1, %.preheader21 ], [ 0, %.preheader ], [ 0, %._crit_edge ], [ 1, %30 ]
   ret i32 %.013
 }
 

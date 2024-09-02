@@ -815,7 +815,7 @@ define internal noundef i32 @pcf_property_get(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pcf_load_font(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 4) i32 @pcf_load_font(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.PCF_Compressed_MetricRec_, align 1
   %6 = alloca i32, align 4

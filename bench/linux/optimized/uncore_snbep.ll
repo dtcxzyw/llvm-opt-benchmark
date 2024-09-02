@@ -4973,7 +4973,7 @@ define internal zeroext i16 @skx_upi_mapping_visible(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @skx_upi_topology_cb(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @skx_upi_topology_cb(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = trunc i64 %3 to i32
   %6 = lshr i32 %5, 24
   %7 = getelementptr inbounds i8, ptr %0, i64 12
@@ -5900,7 +5900,7 @@ define internal zeroext i16 @icx_iio_mapping_visible(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @icx_upi_get_topology(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @icx_upi_get_topology(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = tail call fastcc i32 @discover_upi_topology(ptr noundef %0, i32 noundef 13392, i32 noundef 2), !range !5
   ret i32 %2
 }
@@ -6371,7 +6371,7 @@ declare dso_local i64 @intel_generic_uncore_pci_read_counter(ptr noundef, ptr no
 declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @spr_upi_get_topology(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 -2147483648, 1) i32 @spr_upi_get_topology(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = tail call fastcc i32 @discover_upi_topology(ptr noundef %0, i32 noundef 12880, i32 noundef 1), !range !5
   ret i32 %2
 }

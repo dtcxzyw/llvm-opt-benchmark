@@ -731,7 +731,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_muluh_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
+define dso_local range(i64 0, -1) i64 @helper_muluh_i64(i64 noundef %arg1, i64 noundef %arg2) #0 {
 entry:
   %conv.i = zext i64 %arg1 to i128
   %conv1.i = zext i64 %arg2 to i128

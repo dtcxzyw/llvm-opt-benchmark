@@ -230,7 +230,7 @@ define noundef ptr @Hop_ManDfsNode(ptr nocapture noundef readnone %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Hop_ManCountLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Hop_ManCountLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val40 = load ptr, ptr %2, align 8
   store ptr null, ptr %.val40, align 8

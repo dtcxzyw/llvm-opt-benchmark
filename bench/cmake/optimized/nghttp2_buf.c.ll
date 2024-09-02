@@ -746,7 +746,7 @@ buf_chain_new.exit:                               ; preds = %nghttp2_buf_init2.e
 declare ptr @nghttp2_cpymem(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_bufs_addb(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_addb(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -782,7 +782,7 @@ bufs_ensure_addb.exit.thread:                     ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_bufs_addb_hold(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_addb_hold(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -814,7 +814,7 @@ bufs_ensure_addb.exit.thread:                     ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_bufs_orb(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_orb(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -852,7 +852,7 @@ bufs_ensure_addb.exit.thread:                     ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_bufs_orb_hold(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_orb_hold(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16

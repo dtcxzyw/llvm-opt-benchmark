@@ -519,6 +519,7 @@ sw.bb52.i:                                        ; preds = %sw.bb261.i.i
 
 sw.bb52.if.end69_crit_edge.i:                     ; preds = %sw.bb52.i
   %.pre.i = load i16, ptr %len65.i, align 2
+  %37 = add i16 %.pre.i, 1
   br label %if.end69.i
 
 if.then55.i:                                      ; preds = %sw.bb52.i
@@ -526,14 +527,13 @@ if.then55.i:                                      ; preds = %sw.bb52.i
   %sub.ptr.sub58.i = sub i64 %sub.ptr.lhs.cast56.i, %sub.ptr.rhs.cast57.i
   %conv59.i = trunc i64 %sub.ptr.sub58.i to i16
   store i16 %conv59.i, ptr %arrayidx61.i, align 2
-  %37 = or i16 %21, 4
-  store i16 %37, ptr %u, align 2
+  %38 = or i16 %21, 4
+  store i16 %38, ptr %u, align 2
   br label %if.end69.i
 
 if.end69.i:                                       ; preds = %if.then55.i, %sw.bb52.if.end69_crit_edge.i
-  %38 = phi i16 [ 0, %if.then55.i ], [ %.pre.i, %sw.bb52.if.end69_crit_edge.i ]
-  %39 = phi i16 [ %37, %if.then55.i ], [ %21, %sw.bb52.if.end69_crit_edge.i ]
-  %inc73.i = add i16 %38, 1
+  %inc73.i = phi i16 [ 1, %if.then55.i ], [ %37, %sw.bb52.if.end69_crit_edge.i ]
+  %39 = phi i16 [ %38, %if.then55.i ], [ %21, %sw.bb52.if.end69_crit_edge.i ]
   store i16 %inc73.i, ptr %len65.i, align 2
   br label %sw.epilog.i
 
@@ -543,6 +543,7 @@ sw.bb74.i:                                        ; preds = %switch.early.test.i
 
 sw.bb74.if.end92_crit_edge.i:                     ; preds = %sw.bb74.i
   %.pre62.i = load i16, ptr %len87.i, align 2
+  %40 = add i16 %.pre62.i, 1
   br label %if.end92.i
 
 if.then77.i:                                      ; preds = %sw.bb74.i
@@ -550,14 +551,13 @@ if.then77.i:                                      ; preds = %sw.bb74.i
   %sub.ptr.sub80.i = sub i64 %sub.ptr.lhs.cast78.i, %sub.ptr.rhs.cast57.i
   %conv81.i = trunc i64 %sub.ptr.sub80.i to i16
   store i16 %conv81.i, ptr %arrayidx83.i, align 2
-  %40 = or i16 %21, 64
-  store i16 %40, ptr %u, align 2
+  %41 = or i16 %21, 64
+  store i16 %41, ptr %u, align 2
   br label %if.end92.i
 
 if.end92.i:                                       ; preds = %if.then77.i, %sw.bb74.if.end92_crit_edge.i
-  %41 = phi i16 [ 0, %if.then77.i ], [ %.pre62.i, %sw.bb74.if.end92_crit_edge.i ]
-  %42 = phi i16 [ %40, %if.then77.i ], [ %21, %sw.bb74.if.end92_crit_edge.i ]
-  %inc96.i = add i16 %41, 1
+  %inc96.i = phi i16 [ 1, %if.then77.i ], [ %40, %sw.bb74.if.end92_crit_edge.i ]
+  %42 = phi i16 [ %41, %if.then77.i ], [ %21, %sw.bb74.if.end92_crit_edge.i ]
   store i16 %inc96.i, ptr %len87.i, align 2
   br label %sw.epilog.i
 

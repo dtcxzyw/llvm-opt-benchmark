@@ -2577,20 +2577,20 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %60 = getelementptr inbounds i8, ptr %.079.i.i, i64 8
   %61 = getelementptr inbounds [1 x i64], ptr %60, i64 0, i64 %59
   %62 = load i64, ptr %61, align 8
+  %sext = shl i64 %62, 32
+  %63 = ashr exact i64 %sext, 32
   br label %_ZNK12ciMethodData12arg_modifiedEi.exit
 
 _ZNK12ciMethodData12arg_modifiedEi.exit:          ; preds = %53, %42, %56
-  %.0.i = phi i64 [ %62, %56 ], [ 0, %42 ], [ 0, %53 ]
+  %.0.i = phi i64 [ %63, %56 ], [ 0, %42 ], [ 0, %53 ]
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %41) #13
-  %63 = tail call noundef ptr @_ZN10MethodData8arg_infoEv(ptr noundef nonnull align 8 dereferenceable(312) %18) #13
+  %64 = tail call noundef ptr @_ZN10MethodData8arg_infoEv(ptr noundef nonnull align 8 dereferenceable(312) %18) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %sext = shl i64 %.0.i, 32
-  %64 = ashr exact i64 %sext, 32
-  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = getelementptr inbounds [1 x i64], ptr %67, i64 0, i64 %indvars.iv.next
-  store i64 %64, ptr %68, align 8
+  store i64 %.0.i, ptr %68, align 8
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %41) #13
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %42, !llvm.loop !20

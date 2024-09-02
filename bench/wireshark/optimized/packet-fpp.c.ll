@@ -303,16 +303,16 @@ define internal i32 @dissect_fpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, 4
   %.not.i45 = icmp eq i32 %88, 0
-  br i1 %.not.i45, label %92, label %89
+  br i1 %.not.i45, label %93, label %89
 
 89:                                               ; preds = %71
   %90 = getelementptr inbounds i8, ptr %85, i64 76
   %91 = load i32, ptr %90, align 4
-  br label %92
+  %92 = shl i32 %91, 2
+  br label %93
 
-92:                                               ; preds = %89, %71
-  %.0323.i = phi i32 [ %91, %89 ], [ 0, %71 ]
-  %93 = shl i32 %.0323.i, 2
+93:                                               ; preds = %89, %71
+  %.0323.i = phi i32 [ %92, %89 ], [ 0, %71 ]
   %94 = load i32, ptr @hf_fpp_preamble, align 4
   %95 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %94, ptr noundef %0, i32 noundef 0, i32 noundef %72, i32 noundef 0) #3
   %96 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
@@ -322,11 +322,11 @@ define internal i32 @dissect_fpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %98 = icmp eq i32 %spec.select.i46, 64
   br i1 %98, label %99, label %100
 
-99:                                               ; preds = %92
+99:                                               ; preds = %93
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %95, ptr noundef nonnull @.str.71) #3
   br label %106
 
-100:                                              ; preds = %92
+100:                                              ; preds = %93
   %101 = icmp ult i32 %spec.select.i46, 64
   br i1 %101, label %102, label %104
 
@@ -381,7 +381,7 @@ define internal i32 @dissect_fpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.sink.i, ptr noundef nonnull @.str.75, ptr noundef %130) #3
   %131 = getelementptr inbounds i8, ptr %1, i64 20
   %132 = load i32, ptr %131, align 4
-  %133 = or disjoint i32 %93, %switch.select2.i.i
+  %133 = or disjoint i32 %.0323.i, %switch.select2.i.i
   %134 = tail call ptr @find_conversation_by_id(i32 noundef %132, i32 noundef 0, i32 noundef %133) #3
   %135 = icmp eq i32 %115, 3
   br i1 %135, label %136, label %146

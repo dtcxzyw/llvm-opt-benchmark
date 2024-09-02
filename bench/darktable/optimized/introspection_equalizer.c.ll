@@ -975,18 +975,18 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %697 = fpext float %696 to double
   %698 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %697
   %699 = fcmp reassoc nsz arcp contract afn ogt double %698, 1.000000e+00
-  br i1 %699, label %703, label %700
+  br i1 %699, label %704, label %700
 
 700:                                              ; preds = %687
   %701 = fcmp reassoc nsz arcp contract afn olt double %698, 0.000000e+00
-  br i1 %701, label %703, label %702
+  br i1 %701, label %704, label %702
 
 702:                                              ; preds = %700
-  br label %703
+  %703 = fptrunc double %698 to float
+  br label %704
 
-703:                                              ; preds = %702, %700, %687
-  %704 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %687 ], [ %698, %702 ], [ 0.000000e+00, %700 ]
-  %705 = fptrunc double %704 to float
+704:                                              ; preds = %702, %700, %687
+  %705 = phi float [ 1.000000e+00, %687 ], [ %703, %702 ], [ 0.000000e+00, %700 ]
   %706 = shl nuw i32 1, %688
   %707 = sdiv i32 %706, 2
   %708 = icmp slt i32 %707, %12
@@ -1000,8 +1000,8 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %714 = icmp eq i32 %713, %54
   br i1 %714, label %.preheader109, label %687
 
-715:                                              ; preds = %.loopexit111, %703
-  %716 = phi i64 [ 0, %703 ], [ %890, %.loopexit111 ]
+715:                                              ; preds = %.loopexit111, %704
+  %716 = phi i64 [ 0, %704 ], [ %890, %.loopexit111 ]
   %717 = icmp ne i64 %716, 0
   %718 = zext i1 %717 to i64
   %719 = getelementptr inbounds [3 x ptr], ptr %23, i64 0, i64 %718

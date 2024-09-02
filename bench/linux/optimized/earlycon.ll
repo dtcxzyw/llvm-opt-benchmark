@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__setup_param_setup_earlycon], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @setup_earlycon(ptr noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @setup_earlycon(ptr noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit4, label %3
 
@@ -186,7 +186,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @register_earlycon(ptr noun
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @param_setup_earlycon(ptr noundef %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -2147483648, 1) i32 @param_setup_earlycon(ptr noundef %0) #0 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

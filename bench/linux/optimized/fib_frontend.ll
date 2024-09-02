@@ -4461,7 +4461,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_fib_config(ptr noun
   %68 = getelementptr inbounds i8, ptr %3, i64 32
   %69 = getelementptr inbounds i8, ptr %3, i64 12
   %70 = icmp sgt i32 %56, 3
-  br i1 %70, label %.lr.ph, label %.thread25
+  br i1 %70, label %.lr.ph, label %.thread24
 
 .lr.ph:                                           ; preds = %54, %128
   %71 = phi ptr [ %137, %128 ], [ %9, %54 ]
@@ -4473,7 +4473,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_fib_config(ptr noun
   %77 = zext i16 %75 to i32
   %.not = icmp ult i32 %74, %77
   %or.cond = or i1 %76, %.not
-  br i1 %or.cond, label %.thread6, label %78
+  br i1 %or.cond, label %.critedge, label %78
 
 78:                                               ; preds = %.lr.ph
   %79 = getelementptr inbounds i8, ptr %71, i64 2
@@ -4599,21 +4599,21 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_fib_config(ptr noun
   %136 = zext nneg i32 %134 to i64
   %137 = getelementptr i8, ptr %71, i64 %136
   %138 = icmp sgt i32 %135, 3
-  br i1 %138, label %.lr.ph, label %.thread6, !llvm.loop !49
+  br i1 %138, label %.lr.ph, label %.critedge, !llvm.loop !49
 
-.thread6:                                         ; preds = %.lr.ph, %128
-  %.lcssa12.ph = phi i8 [ %73, %.lr.ph ], [ %129, %128 ]
-  %.lcssa9.ph = phi i8 [ %72, %.lr.ph ], [ %130, %128 ]
+.critedge:                                        ; preds = %128, %.lr.ph
+  %.lcssa11.ph = phi i8 [ %129, %128 ], [ %73, %.lr.ph ]
+  %.lcssa8.ph = phi i8 [ %130, %128 ], [ %72, %.lr.ph ]
   %.pre = load i32, ptr %57, align 8
   %139 = icmp eq i32 %.pre, 0
-  %140 = and i8 %.lcssa12.ph, 1
+  %140 = and i8 %.lcssa11.ph, 1
   %141 = icmp eq i8 %140, 0
-  %142 = and i8 %.lcssa9.ph, 1
+  %142 = and i8 %.lcssa8.ph, 1
   %143 = icmp eq i8 %142, 0
   %144 = select i1 %141, i1 true, i1 %143
   br i1 %139, label %160, label %145
 
-145:                                              ; preds = %.thread6
+145:                                              ; preds = %.critedge
   %146 = load i32, ptr %68, align 8
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %148, label %157
@@ -4642,8 +4642,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_fib_config(ptr noun
   store ptr @rtm_to_fib_config.__msg.14, ptr %4, align 8
   br label %.thread
 
-160:                                              ; preds = %154, %.thread6
-  br i1 %144, label %.thread25, label %161
+160:                                              ; preds = %154, %.critedge
+  br i1 %144, label %.thread24, label %161
 
 161:                                              ; preds = %160
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @rtm_to_fib_config.__msg.15) #13
@@ -4654,17 +4654,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtm_to_fib_config(ptr noun
   store ptr @rtm_to_fib_config.__msg.15, ptr %4, align 8
   br label %.thread
 
-.thread25:                                        ; preds = %54, %160
+.thread24:                                        ; preds = %54, %160
   %164 = load i32, ptr %28, align 8
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %.thread
 
-166:                                              ; preds = %.thread25
+166:                                              ; preds = %.thread24
   store i32 254, ptr %28, align 8
   br label %.thread
 
-.thread:                                          ; preds = %93, %5, %166, %.thread25, %163, %161, %159, %157, %124, %119, %53, %51, %20, %18, %8
-  %167 = phi i32 [ -22, %159 ], [ -22, %157 ], [ -22, %163 ], [ -22, %161 ], [ 0, %166 ], [ 0, %.thread25 ], [ %11, %8 ], [ -22, %20 ], [ -22, %18 ], [ -22, %53 ], [ -22, %51 ], [ -95, %119 ], [ -95, %124 ], [ -22, %5 ], [ %94, %93 ]
+.thread:                                          ; preds = %93, %5, %166, %.thread24, %163, %161, %159, %157, %124, %119, %53, %51, %20, %18, %8
+  %167 = phi i32 [ -22, %159 ], [ -22, %157 ], [ -22, %163 ], [ -22, %161 ], [ 0, %166 ], [ 0, %.thread24 ], [ %11, %8 ], [ -22, %20 ], [ -22, %18 ], [ -22, %53 ], [ -22, %51 ], [ -95, %119 ], [ -95, %124 ], [ -22, %5 ], [ %94, %93 ]
   ret i32 %167
 }
 

@@ -107,23 +107,16 @@ if.else17:                                        ; preds = %if.else
 sub_118:                                          ; preds = %if.else17
   %11 = getelementptr inbounds i8, ptr %9, i64 1
   %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = add nsw i32 %13, -113
-  %.not29 = icmp eq i32 %14, 0
-  br i1 %.not29, label %sub_219, label %if.else23.tail
+  %.not29 = icmp eq i8 %12, 113
+  br i1 %.not29, label %if.else23.tail, label %if.else28
 
-sub_219:                                          ; preds = %sub_118
-  %15 = getelementptr inbounds i8, ptr %9, i64 2
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  br label %if.else23.tail
+if.else23.tail:                                   ; preds = %sub_118
+  %13 = getelementptr inbounds i8, ptr %9, i64 2
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %if.end32, label %if.else28
 
-if.else23.tail:                                   ; preds = %sub_118, %sub_219
-  %18 = phi i32 [ %14, %sub_118 ], [ %17, %sub_219 ]
-  %tobool26.not = icmp eq i32 %18, 0
-  br i1 %tobool26.not, label %if.end32, label %if.else28
-
-if.else28:                                        ; preds = %if.else23.tail
+if.else28:                                        ; preds = %sub_118, %if.else23.tail
   call void @usage(ptr noundef nonnull @diff_files_usage) #4
   unreachable
 
@@ -141,8 +134,8 @@ if.end32:                                         ; preds = %if.end32.sink.split
 while.end:                                        ; preds = %land.rhs, %if.end32, %if.end
   %options.0.lcssa = phi i32 [ 0, %if.end ], [ %options.1, %if.end32 ], [ %options.025, %land.rhs ]
   %output_format = getelementptr inbounds i8, ptr %rev, i64 1756
-  %19 = load i32, ptr %output_format, align 4
-  %tobool34.not = icmp eq i32 %19, 0
+  %16 = load i32, ptr %output_format, align 4
+  %tobool34.not = icmp eq i32 %16, 0
   br i1 %tobool34.not, label %if.then35, label %if.end38
 
 if.then35:                                        ; preds = %while.end
@@ -150,23 +143,23 @@ if.then35:                                        ; preds = %while.end
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then35, %while.end
-  %20 = phi i32 [ 1, %if.then35 ], [ %19, %while.end ]
+  %17 = phi i32 [ 1, %if.then35 ], [ %16, %while.end ]
   %rotate_to_strict = getelementptr inbounds i8, ptr %rev, i64 1492
   store i32 1, ptr %rotate_to_strict, align 4
   %pending = getelementptr inbounds i8, ptr %rev, i64 8
-  %21 = load i32, ptr %pending, align 8
-  %tobool40 = icmp ne i32 %21, 0
+  %18 = load i32, ptr %pending, align 8
+  %tobool40 = icmp ne i32 %18, 0
   %min_age = getelementptr inbounds i8, ptr %rev, i64 1432
-  %22 = load i64, ptr %min_age, align 8
-  %cmp41 = icmp ne i64 %22, -1
+  %19 = load i64, ptr %min_age, align 8
+  %cmp41 = icmp ne i64 %19, -1
   %or.cond = select i1 %tobool40, i1 true, i1 %cmp41
   %max_age = getelementptr inbounds i8, ptr %rev, i64 1416
-  %23 = load i64, ptr %max_age, align 8
-  %cmp44 = icmp ne i64 %23, -1
+  %20 = load i64, ptr %max_age, align 8
+  %cmp44 = icmp ne i64 %20, -1
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp44
   %max_count47 = getelementptr inbounds i8, ptr %rev, i64 1412
-  %24 = load i32, ptr %max_count47, align 4
-  %cmp48 = icmp sgt i32 %24, 3
+  %21 = load i32, ptr %max_count47, align 4
+  %cmp48 = icmp sgt i32 %21, 3
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp48
   br i1 %or.cond2, label %if.then50, label %if.end51
 
@@ -175,20 +168,20 @@ if.then50:                                        ; preds = %if.end38
   unreachable
 
 if.end51:                                         ; preds = %if.end38
-  %cmp53 = icmp ne i32 %24, -1
-  %and = and i32 %20, 16
+  %cmp53 = icmp ne i32 %21, -1
+  %and = and i32 %17, 16
   %tobool58.not = icmp eq i32 %and, 0
-  %or.cond31 = or i1 %cmp53, %tobool58.not
-  br i1 %or.cond31, label %if.end60, label %if.then59
+  %or.cond32 = or i1 %cmp53, %tobool58.not
+  br i1 %or.cond32, label %if.end60, label %if.then59
 
 if.then59:                                        ; preds = %if.end51
   call void @diff_merges_set_dense_combined_if_unset(ptr noundef nonnull %rev) #5
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then59, %if.end51
-  %25 = load ptr, ptr @the_repository, align 8
+  %22 = load ptr, ptr @the_repository, align 8
   %pathspec = getelementptr inbounds i8, ptr %rev, i64 1936
-  %call62 = call i32 @repo_read_index_preload(ptr noundef %25, ptr noundef nonnull %pathspec, i32 noundef 0) #5
+  %call62 = call i32 @repo_read_index_preload(ptr noundef %22, ptr noundef nonnull %pathspec, i32 noundef 0) #5
   %cmp63 = icmp slt i32 %call62, 0
   br i1 %cmp63, label %if.then65, label %if.end66
 

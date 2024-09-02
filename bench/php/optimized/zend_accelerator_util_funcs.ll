@@ -1420,7 +1420,7 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
   %370 = getelementptr inbounds i8, ptr %0, i64 392
   %371 = load i32, ptr %370, align 8
   %.not181 = icmp eq i32 %371, 0
-  br i1 %.not181, label %426, label %372
+  br i1 %.not181, label %427, label %372
 
 372:                                              ; preds = %369
   %373 = getelementptr inbounds i8, ptr %3, i64 56
@@ -1493,49 +1493,49 @@ define hidden noalias noundef ptr @zend_accel_load_script(ptr noundef %0, i32 no
 412:                                              ; preds = %405
   %.pre.i194 = load i32, ptr %402, align 4
   %.pre119.i = and i32 %.pre.i194, 8
-  %.not107.i = icmp eq i32 %.pre119.i, 0
-  br i1 %.not107.i, label %.thread112.i, label %.thread.i
+  %413 = icmp eq i32 %.pre119.i, 0
+  br i1 %413, label %.thread112.i, label %.thread.i
 
 .thread.i:                                        ; preds = %412, %410, %400
-  %413 = phi ptr [ null, %412 ], [ %411, %410 ], [ null, %400 ]
-  %414 = load ptr, ptr %391, align 8
-  %415 = tail call ptr @zend_try_early_bind(ptr noundef nonnull %401, ptr noundef %413, ptr noundef %414, ptr noundef nonnull %399) #11
-  %.not108.i = icmp eq ptr %415, null
-  br i1 %.not108.i, label %.thread112.i, label %416
+  %414 = phi ptr [ null, %412 ], [ %411, %410 ], [ null, %400 ]
+  %415 = load ptr, ptr %391, align 8
+  %416 = tail call ptr @zend_try_early_bind(ptr noundef nonnull %401, ptr noundef %414, ptr noundef %415, ptr noundef nonnull %399) #11
+  %.not108.i = icmp eq ptr %416, null
+  br i1 %.not108.i, label %.thread112.i, label %417
 
-416:                                              ; preds = %.thread.i
-  %417 = getelementptr inbounds i8, ptr %391, i64 24
-  %418 = load i32, ptr %417, align 8
-  %.not109.i = icmp eq i32 %418, -1
-  br i1 %.not109.i, label %.thread112.i, label %419
+417:                                              ; preds = %.thread.i
+  %418 = getelementptr inbounds i8, ptr %391, i64 24
+  %419 = load i32, ptr %418, align 8
+  %.not109.i = icmp eq i32 %419, -1
+  br i1 %.not109.i, label %.thread112.i, label %420
 
-419:                                              ; preds = %416
-  %420 = zext i32 %418 to i64
-  %421 = getelementptr inbounds i8, ptr %382, i64 %420
-  store ptr %415, ptr %421, align 8
+420:                                              ; preds = %417
+  %421 = zext i32 %419 to i64
+  %422 = getelementptr inbounds i8, ptr %382, i64 %421
+  store ptr %416, ptr %422, align 8
   br label %.thread112.i
 
-.thread112.i:                                     ; preds = %419, %416, %.thread.i, %412, %395, %389
+.thread112.i:                                     ; preds = %420, %417, %.thread.i, %412, %395, %389
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %422 = load i32, ptr %370, align 8
-  %423 = zext i32 %422 to i64
-  %424 = icmp ult i64 %indvars.iv.next.i, %423
-  br i1 %424, label %389, label %zend_accel_do_delayed_early_binding.exit
+  %423 = load i32, ptr %370, align 8
+  %424 = zext i32 %423 to i64
+  %425 = icmp ult i64 %indvars.iv.next.i, %424
+  br i1 %425, label %389, label %zend_accel_do_delayed_early_binding.exit
 
 zend_accel_do_delayed_early_binding.exit:         ; preds = %.thread112.i, %372
-  %425 = and i8 %385, 1
+  %426 = and i8 %385, 1
   store ptr %384, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 32), align 8
-  store i8 %425, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
-  br label %426
+  store i8 %426, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 81), align 1
+  br label %427
 
-426:                                              ; preds = %zend_accel_do_delayed_early_binding.exit, %369
-  br i1 %.not, label %427, label %428
+427:                                              ; preds = %zend_accel_do_delayed_early_binding.exit, %369
+  br i1 %.not, label %428, label %429
 
-427:                                              ; preds = %426
+428:                                              ; preds = %427
   tail call void @free_persistent_script(ptr noundef nonnull %0, i32 noundef 0)
-  br label %428
+  br label %429
 
-428:                                              ; preds = %427, %426
+429:                                              ; preds = %428, %427
   ret ptr %3
 }
 

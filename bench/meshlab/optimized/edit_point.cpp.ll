@@ -1229,7 +1229,7 @@ _ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit: ; preds = 
   %.1 = select i1 %189, float %sqrt.i.i54, float %.037118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next, %umax160
-  br i1 %exitcond161.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond161.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 191:                                              ; preds = %27
   %192 = landingpad { ptr, i32 }
@@ -1247,10 +1247,13 @@ _ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit: ; preds = 
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #25
   resume { ptr, i32 } %.pn
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit
-  %.038.lcssa = phi i32 [ 0, %_ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit ], [ %.139, %.lr.ph ]
-  %195 = sext i32 %.038.lcssa to i64
-  %196 = getelementptr inbounds %class.CVertexO, ptr %154, i64 %195
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %195 = sext i32 %.139 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit
+  %.038.lcssa = phi i64 [ 0, %_ZN3vcg9GLPickTriI6CMeshOE15PickClosestVertEiiRS1_RP8CVertexOii.exit ], [ %195, %._crit_edge.loopexit ]
+  %196 = getelementptr inbounds %class.CVertexO, ptr %154, i64 %.038.lcssa
   %197 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %196, ptr %197, align 8
   %198 = load float, ptr %33, align 4

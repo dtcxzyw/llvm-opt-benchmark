@@ -1951,8 +1951,8 @@ _ZL17stbi__zlib_flushfPhPjPi.exit401:             ; preds = %_ZL13stbi__sbgrowfP
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge675
   %.0681 = phi i32 [ %633, %._crit_edge675 ], [ 0, %.preheader.preheader ]
   %.0136680 = phi i32 [ 5552, %._crit_edge675 ], [ %622, %.preheader.preheader ]
-  %.0137679 = phi i32 [ %632, %._crit_edge675 ], [ 0, %.preheader.preheader ]
-  %.0138678 = phi i32 [ %631, %._crit_edge675 ], [ 1, %.preheader.preheader ]
+  %.0137679 = phi i32 [ %.1.lcssa, %._crit_edge675 ], [ 0, %.preheader.preheader ]
+  %.0138678 = phi i32 [ %.1139.lcssa, %._crit_edge675 ], [ 1, %.preheader.preheader ]
   %.not685 = icmp eq i32 %.0136680, 0
   br i1 %.not685, label %._crit_edge675, label %.lr.ph674.preheader
 
@@ -1974,20 +1974,23 @@ _ZL17stbi__zlib_flushfPhPjPi.exit401:             ; preds = %_ZL13stbi__sbgrowfP
   %630 = add i32 %629, %.1673
   %indvars.iv.next748 = add nuw nsw i64 %indvars.iv747, 1
   %exitcond751.not = icmp eq i64 %indvars.iv.next748, %wide.trip.count750
-  br i1 %exitcond751.not, label %._crit_edge675, label %.lr.ph674, !llvm.loop !21
+  br i1 %exitcond751.not, label %._crit_edge675.loopexit, label %.lr.ph674, !llvm.loop !21
 
-._crit_edge675:                                   ; preds = %.lr.ph674, %.preheader
-  %.1139.lcssa = phi i32 [ %.0138678, %.preheader ], [ %629, %.lr.ph674 ]
-  %.1.lcssa = phi i32 [ %.0137679, %.preheader ], [ %630, %.lr.ph674 ]
-  %631 = urem i32 %.1139.lcssa, 65521
-  %632 = urem i32 %.1.lcssa, 65521
+._crit_edge675.loopexit:                          ; preds = %.lr.ph674
+  %631 = urem i32 %629, 65521
+  %632 = urem i32 %630, 65521
+  br label %._crit_edge675
+
+._crit_edge675:                                   ; preds = %._crit_edge675.loopexit, %.preheader
+  %.1139.lcssa = phi i32 [ %.0138678, %.preheader ], [ %631, %._crit_edge675.loopexit ]
+  %.1.lcssa = phi i32 [ %.0137679, %.preheader ], [ %632, %._crit_edge675.loopexit ]
   %633 = add i32 %.0681, %.0136680
   %634 = icmp slt i32 %633, %1
   br i1 %634, label %.preheader, label %._crit_edge682, !llvm.loop !22
 
 ._crit_edge682:                                   ; preds = %._crit_edge675, %620
-  %.0138.lcssa = phi i32 [ 1, %620 ], [ %631, %._crit_edge675 ]
-  %.0137.lcssa = phi i32 [ 0, %620 ], [ %632, %._crit_edge675 ]
+  %.0138.lcssa = phi i32 [ 1, %620 ], [ %.1139.lcssa, %._crit_edge675 ]
+  %.0137.lcssa = phi i32 [ 0, %620 ], [ %.1.lcssa, %._crit_edge675 ]
   %635 = icmp eq ptr %storemerge.lcssa, null
   br i1 %635, label %.thread598, label %636
 

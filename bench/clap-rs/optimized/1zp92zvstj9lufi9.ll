@@ -1947,7 +1947,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %18 = load i64, ptr %5, align 8, !noundef !28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %19 = tail call i64 @llvm.uadd.sat.i64(i64 %18, i64 1)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %19, i64 4)
+  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %19, i64 4)
   %20 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h3ab97a64aea5dc85E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
   %21 = extractvalue { i64, ptr } %20, 0
   %22 = extractvalue { i64, ptr } %20, 1
@@ -2679,7 +2679,7 @@ common.resume:                                    ; preds = %92, %.body, %21, %"
   %42 = load i64, ptr %7, align 8, !noundef !28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %43 = tail call i64 @llvm.uadd.sat.i64(i64 %42, i64 1)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %43, i64 4)
+  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %43, i64 4)
   %44 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5ba5ef0af6e01f84E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %45 unwind label %39
 
@@ -3038,7 +3038,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %20 = load i64, ptr %7, align 8, !noundef !28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %21 = tail call i64 @llvm.uadd.sat.i64(i64 %20, i64 1)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %21, i64 4)
+  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %21, i64 4)
   %22 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf539f13ab3db1912E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %23 unwind label %17
 
@@ -6450,9 +6450,9 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
 
 .loopexit69.i.i.i.i:                              ; preds = %26
   %.pr.pre.i.i.i.i = load ptr, ptr %12, align 8, !alias.scope !1897, !noalias !1870
+  %28 = icmp eq ptr %.pr.pre.i.i.i.i, null
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.5.i.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1900)
-  %28 = icmp eq ptr %.pr.pre.i.i.i.i, null
   br i1 %28, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..id..Id$GT$$GT$$GT$17hbb3858a2807adf97E.exit.i.i.i.i", label %29
 
 29:                                               ; preds = %.loopexit69.i.i.i.i, %.loopexit69.thread.i.i.i.i
@@ -7370,7 +7370,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h2cc3e79fa8bab6cbE.llvm.7780793174254504545(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #4 {
+define hidden noundef range(i64 0, 768614336404564651) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h2cc3e79fa8bab6cbE.llvm.7780793174254504545(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !2123, !noalias !2126, !noundef !28
   %4 = getelementptr inbounds i8, ptr %0, i64 16

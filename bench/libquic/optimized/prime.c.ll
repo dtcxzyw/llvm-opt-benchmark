@@ -160,48 +160,45 @@ if.then11.i:                                      ; preds = %for.end.i
   br i1 %cmp12.i, label %if.then14.i, label %if.else.i
 
 if.then14.i:                                      ; preds = %if.then11.i
-  br i1 %cmp.i.i, label %if.then.i.i, label %get_word.exit.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.end25.split.us.i
 
 if.then.i.i:                                      ; preds = %if.then14.i
   %2 = load ptr, ptr %ret, align 8
   %3 = load i64, ptr %2, align 8
-  br label %get_word.exit.i
-
-get_word.exit.i:                                  ; preds = %if.then.i.i, %if.then14.i
-  %retval.0.i.i = phi i64 [ %3, %if.then.i.i ], [ 0, %if.then14.i ]
-  %sub16.i = xor i64 %retval.0.i.i, -1
+  %4 = xor i64 %3, -1
   br label %if.end25.split.us.i
 
 if.else.i:                                        ; preds = %if.then11.i
   br i1 %cmp.i.i, label %if.then.i36.i, label %get_word.exit37.i
 
 if.then.i36.i:                                    ; preds = %if.else.i
-  %4 = load ptr, ptr %ret, align 8
-  %5 = load i64, ptr %4, align 8
+  %5 = load ptr, ptr %ret, align 8
+  %6 = load i64, ptr %5, align 8
+  %7 = xor i64 %6, -1
   br label %get_word.exit37.i
 
 get_word.exit37.i:                                ; preds = %if.then.i36.i, %if.else.i
-  %retval.0.i35.i = phi i64 [ %5, %if.then.i36.i ], [ 0, %if.else.i ]
-  %6 = xor i64 %retval.0.i35.i, -1
-  %sub19.i = add i64 %shl.i, %6
+  %retval.0.i35.i = phi i64 [ %7, %if.then.i36.i ], [ -1, %if.else.i ]
+  %sub19.i = add i64 %retval.0.i35.i, %shl.i
   br label %if.end25.split.us.i
 
-if.end25.split.us.i:                              ; preds = %get_word.exit37.i, %get_word.exit.i
-  %size_limit.0.i = phi i64 [ %sub16.i, %get_word.exit.i ], [ %sub19.i, %get_word.exit37.i ]
+if.end25.split.us.i:                              ; preds = %if.then.i.i, %get_word.exit37.i, %if.then14.i
+  %cmp.i39.us.i = phi i1 [ false, %if.then14.i ], [ %cmp.i.i, %get_word.exit37.i ], [ true, %if.then.i.i ]
+  %size_limit.0.i = phi i64 [ -1, %if.then14.i ], [ %sub19.i, %get_word.exit37.i ], [ %4, %if.then.i.i ]
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %size_limit.0.i, i64 %maxdelta.052.i)
   br label %loop.us.i
 
 loop.us.i:                                        ; preds = %if.then46.us.i, %if.end25.split.us.i
   %delta.0.us.i = phi i64 [ 0, %if.end25.split.us.i ], [ %add47.us.i, %if.then46.us.i ]
-  br i1 %cmp.i.i, label %if.then.i41.us.i, label %get_word.exit42.us.i
+  br i1 %cmp.i39.us.i, label %if.then.i41.us.i, label %get_word.exit42.us.i
 
 if.then.i41.us.i:                                 ; preds = %loop.us.i
-  %7 = load ptr, ptr %ret, align 8
-  %8 = load i64, ptr %7, align 8
+  %8 = load ptr, ptr %ret, align 8
+  %9 = load i64, ptr %8, align 8
   br label %get_word.exit42.us.i
 
 get_word.exit42.us.i:                             ; preds = %if.then.i41.us.i, %loop.us.i
-  %retval.0.i40.us.i = phi i64 [ %8, %if.then.i41.us.i ], [ 0, %loop.us.i ]
+  %retval.0.i40.us.i = phi i64 [ %9, %if.then.i41.us.i ], [ 0, %loop.us.i ]
   br label %land.rhs.us.i
 
 for.cond29.us.i:                                  ; preds = %for.body37.us.i
@@ -212,15 +209,15 @@ for.cond29.us.i:                                  ; preds = %for.body37.us.i
 land.rhs.us.i:                                    ; preds = %for.cond29.us.i, %get_word.exit42.us.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %for.cond29.us.i ], [ 1, %get_word.exit42.us.i ]
   %arrayidx33.us.i = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv64.i
-  %9 = load i16, ptr %arrayidx33.us.i, align 2
-  %conv34.us.i = zext i16 %9 to i64
+  %10 = load i16, ptr %arrayidx33.us.i, align 2
+  %conv34.us.i = zext i16 %10 to i64
   %cmp35.us.i = icmp ugt i64 %retval.0.i40.us.i, %conv34.us.i
   br i1 %cmp35.us.i, label %for.body37.us.i, label %if.end81.i
 
 for.body37.us.i:                                  ; preds = %land.rhs.us.i
   %arrayidx39.us.i = getelementptr inbounds [2048 x i16], ptr %mods.i, i64 0, i64 %indvars.iv64.i
-  %10 = load i16, ptr %arrayidx39.us.i, align 2
-  %conv40.us.i = zext i16 %10 to i64
+  %11 = load i16, ptr %arrayidx39.us.i, align 2
+  %conv40.us.i = zext i16 %11 to i64
   %add.us.i = add i64 %delta.0.us.i, %conv40.us.i
   %rem.us.i = urem i64 %add.us.i, %conv34.us.i
   %cmp44.us.i = icmp eq i64 %rem.us.i, 0
@@ -243,12 +240,12 @@ for.cond57.i:                                     ; preds = %for.body60.i
 for.body60.i:                                     ; preds = %for.cond57.i, %loop.i
   %indvars.iv60.i = phi i64 [ 1, %loop.i ], [ %indvars.iv.next61.i, %for.cond57.i ]
   %arrayidx62.i = getelementptr inbounds [2048 x i16], ptr %mods.i, i64 0, i64 %indvars.iv60.i
-  %11 = load i16, ptr %arrayidx62.i, align 2
-  %conv63.i = zext i16 %11 to i64
+  %12 = load i16, ptr %arrayidx62.i, align 2
+  %conv63.i = zext i16 %12 to i64
   %add64.i = add i64 %delta.0.i, %conv63.i
   %arrayidx66.i = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv60.i
-  %12 = load i16, ptr %arrayidx66.i, align 2
-  %conv67.i = zext i16 %12 to i64
+  %13 = load i16, ptr %arrayidx66.i, align 2
+  %conv67.i = zext i16 %13 to i64
   %rem68.i = urem i64 %add64.i, %conv67.i
   %cmp69.i = icmp ult i64 %rem68.i, 2
   br i1 %cmp69.i, label %if.then71.i, label %for.cond57.i
@@ -355,8 +352,8 @@ for.body.i55.backedge:                            ; preds = %for.cond.i, %if.end
 for.body.i55:                                     ; preds = %if.end36.i, %for.body.i55.backedge
   %indvars.iv.i56 = phi i64 [ %indvars.iv.i56.be, %for.body.i55.backedge ], [ 1, %if.end36.i ]
   %arrayidx.i57 = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv.i56
-  %13 = load i16, ptr %arrayidx.i57, align 2
-  %conv.i = zext i16 %13 to i64
+  %14 = load i16, ptr %arrayidx.i57, align 2
+  %conv.i = zext i16 %14 to i64
   %call42.i = tail call i64 @BN_mod_word(ptr noundef %ret, i64 noundef %conv.i) #5
   %cmp43.i = icmp eq i64 %call42.i, 0
   br i1 %cmp43.i, label %if.then51.i, label %lor.lhs.false.i
@@ -431,8 +428,8 @@ for.body.i68.backedge:                            ; preds = %for.cond.i73, %if.t
 for.body.i68:                                     ; preds = %for.body.i68.backedge, %for.body.i68.preheader
   %indvars.iv.i69 = phi i64 [ 1, %for.body.i68.preheader ], [ %indvars.iv.i69.be, %for.body.i68.backedge ]
   %arrayidx.i70 = getelementptr inbounds [2048 x i16], ptr @primes, i64 0, i64 %indvars.iv.i69
-  %14 = load i16, ptr %arrayidx.i70, align 2
-  %conv.i71 = zext i16 %14 to i64
+  %15 = load i16, ptr %arrayidx.i70, align 2
+  %conv.i71 = zext i16 %15 to i64
   %call24.i72 = tail call i64 @BN_mod_word(ptr noundef %ret, i64 noundef %conv.i71) #5
   %cmp25.i = icmp ult i64 %call24.i72, 2
   br i1 %cmp25.i, label %if.then27.i, label %for.cond.i73
@@ -455,8 +452,8 @@ if.end78:                                         ; preds = %probable_prime_dh.e
   br i1 %tobool.not.i81, label %if.end82, label %BN_GENCB_call.exit
 
 BN_GENCB_call.exit:                               ; preds = %if.end78
-  %15 = load ptr, ptr %callback1.i, align 8
-  %call.i83 = tail call i32 %15(i32 noundef 0, i32 noundef %c1.0, ptr noundef nonnull %cb) #5
+  %16 = load ptr, ptr %callback1.i, align 8
+  %call.i83 = tail call i32 %16(i32 noundef 0, i32 noundef %c1.0, ptr noundef nonnull %cb) #5
   %tobool80.not = icmp eq i32 %call.i83, 0
   br i1 %tobool80.not, label %if.then122.loopexit153, label %if.end82
 
@@ -497,8 +494,8 @@ if.end114:                                        ; preds = %if.end106
   br i1 %tobool.not.i81, label %for.inc, label %BN_GENCB_call.exit90
 
 BN_GENCB_call.exit90:                             ; preds = %if.end114
-  %16 = load ptr, ptr %callback1.i, align 8
-  %call.i88 = tail call i32 %16(i32 noundef %i.0123, i32 noundef %c1.0, ptr noundef nonnull %cb) #5
+  %17 = load ptr, ptr %callback1.i, align 8
+  %call.i88 = tail call i32 %17(i32 noundef %i.0123, i32 noundef %c1.0, ptr noundef nonnull %cb) #5
   %tobool116.not = icmp eq i32 %call.i88, 0
   br i1 %tobool116.not, label %if.then122, label %for.inc
 

@@ -646,7 +646,6 @@ while.end:                                        ; preds = %while.body60.prehea
 
 _ZNK4pstd8optionalIfEdeEv.exit.i:                 ; preds = %while.end
   %25 = load float, ptr %finishTime.i, align 8
-  %conv.i26 = fpext float %25 to double
   br label %invoke.cont66
 
 cond.false.i:                                     ; preds = %while.end
@@ -656,20 +655,20 @@ cond.false.i:                                     ; preds = %while.end
   %div.i.i.i.i = sdiv i64 %sub.i.i.i.i, 1000
   %conv.i.i = sitofp i64 %div.i.i.i.i to double
   %div.i.i = fdiv double %conv.i.i, 1.000000e+06
+  %26 = fptrunc double %div.i.i to float
   br label %invoke.cont66
 
 invoke.cont66:                                    ; preds = %cond.false.i, %_ZNK4pstd8optionalIfEdeEv.exit.i
-  %cond.i = phi double [ %conv.i26, %_ZNK4pstd8optionalIfEdeEv.exit.i ], [ %div.i.i, %cond.false.i ]
-  %conv68 = fptrunc double %cond.i to float
-  %div69 = fdiv float %conv68, %div
-  %sub70 = fsub float %div69, %conv68
-  %26 = load atomic i8, ptr %exitThread seq_cst, align 8
-  %tobool.i.i27 = trunc i8 %26 to i1
+  %cond.i = phi float [ %25, %_ZNK4pstd8optionalIfEdeEv.exit.i ], [ %26, %cond.false.i ]
+  %div69 = fdiv float %cond.i, %div
+  %sub70 = fsub float %div69, %cond.i
+  %27 = load atomic i8, ptr %exitThread seq_cst, align 8
+  %tobool.i.i27 = trunc i8 %27 to i1
   br i1 %tobool.i.i27, label %if.then73, label %if.else79
 
 if.then73:                                        ; preds = %invoke.cont66
-  %27 = load i8, ptr %set.i.i, align 4
-  %tobool.i.i29 = trunc i8 %27 to i1
+  %28 = load i8, ptr %set.i.i, align 4
+  %tobool.i.i29 = trunc i8 %28 to i1
   br i1 %tobool.i.i29, label %invoke.cont74, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.then73
@@ -680,8 +679,8 @@ land.rhs.i.i:                                     ; preds = %if.then73
   unreachable
 
 invoke.cont74:                                    ; preds = %if.then73
-  %28 = load float, ptr %finishTime.i, align 8
-  %conv76 = fpext float %28 to double
+  %29 = load float, ptr %finishTime.i, align 8
+  %conv76 = fpext float %29 to double
   %call78 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %conv76)
   br label %if.end102
 
@@ -690,15 +689,15 @@ if.else79:                                        ; preds = %invoke.cont66
   br i1 %cmp80, label %if.then81, label %if.else85
 
 if.then81:                                        ; preds = %if.else79
-  %conv82 = fpext float %conv68 to double
+  %conv82 = fpext float %cond.i to double
   %call84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %conv82)
   br label %if.end102
 
 if.else85:                                        ; preds = %if.else79
-  %29 = call float @llvm.fabs.f32(float %sub70)
-  %30 = fcmp oeq float %29, 0x7FF0000000000000
-  %conv97 = fpext float %conv68 to double
-  br i1 %30, label %if.else96, label %if.then88
+  %30 = call float @llvm.fabs.f32(float %sub70)
+  %31 = fcmp oeq float %30, 0x7FF0000000000000
+  %conv97 = fpext float %cond.i to double
+  br i1 %31, label %if.else96, label %if.then88
 
 if.then88:                                        ; preds = %if.else85
   %cmp.i30 = fcmp ogt float %sub70, 0.000000e+00
@@ -712,8 +711,8 @@ if.else96:                                        ; preds = %if.else85
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then81, %if.else96, %if.then88, %invoke.cont74
-  %31 = load ptr, ptr @stdout, align 8
-  %call104 = call i32 @fflush(ptr noundef %31)
+  %32 = load ptr, ptr @stdout, align 8
+  %call104 = call i32 @fflush(ptr noundef %32)
   br i1 %tobool.i.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit35, label %while.body, !llvm.loop !10
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit35: ; preds = %if.end102

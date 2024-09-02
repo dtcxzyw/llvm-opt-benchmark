@@ -131,7 +131,7 @@ profile_name_is_valid.exit:                       ; preds = %12
 15:                                               ; preds = %profile_name_is_valid.exit
   %16 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %14) #5
   tail call void @g_free(ptr noundef nonnull %14) #5
-  br label %159
+  br label %161
 
 profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profile_name_is_valid.exit
   %17 = getelementptr inbounds i8, ptr %.06990, i64 8
@@ -171,7 +171,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %38 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef %34, ptr noundef %37) #5
   %39 = load ptr, ptr %1, align 8
   call void @g_free(ptr noundef %39) #5
-  br label %159
+  br label %161
 
 40:                                               ; preds = %29
   store i32 2, ptr %26, align 8
@@ -225,17 +225,17 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %.not7696 = icmp eq ptr %69, null
   br i1 %.not7696, label %._crit_edge100, label %.lr.ph99
 
-.lr.ph99:                                         ; preds = %._crit_edge95, %119
-  %.297 = phi ptr [ %121, %119 ], [ %69, %._crit_edge95 ]
+.lr.ph99:                                         ; preds = %._crit_edge95, %120
+  %.297 = phi ptr [ %122, %120 ], [ %69, %._crit_edge95 ]
   %70 = load ptr, ptr %.297, align 8
   %71 = load ptr, ptr %70, align 8
   %72 = call ptr @g_strchug(ptr noundef %71) #5
   %73 = call ptr @g_strchomp(ptr noundef %72) #5
   %74 = getelementptr inbounds i8, ptr %70, i64 16
   %75 = load i32, ptr %74, align 8
-  switch i32 %75, label %119 [
+  switch i32 %75, label %120 [
     i32 3, label %76
-    i32 4, label %101
+    i32 4, label %102
   ]
 
 76:                                               ; preds = %.lr.ph99
@@ -244,170 +244,170 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %.not82 = icmp eq i32 %78, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %70, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %.not84 = icmp eq i32 %.pre, 0
-  br i1 %.not82, label %95, label %79
+  %79 = icmp eq i32 %.pre, 0
+  br i1 %.not82, label %96, label %80
 
-79:                                               ; preds = %76
-  br i1 %.not84, label %80, label %.thread
+80:                                               ; preds = %76
+  br i1 %79, label %81, label %.thread
 
-80:                                               ; preds = %79
-  %81 = call i32 @create_persconffile_profile(ptr noundef %77, ptr noundef nonnull %1) #5
-  %82 = icmp eq i32 %81, -1
-  br i1 %82, label %83, label %90
+81:                                               ; preds = %80
+  %82 = call i32 @create_persconffile_profile(ptr noundef %77, ptr noundef nonnull %1) #5
+  %83 = icmp eq i32 %82, -1
+  br i1 %83, label %84, label %91
 
-83:                                               ; preds = %80
-  %84 = load ptr, ptr %1, align 8
-  %85 = tail call ptr @__errno_location() #7
-  %86 = load i32, ptr %85, align 4
-  %87 = call ptr @g_strerror(i32 noundef %86) #7
-  %88 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %84, ptr noundef %87) #5
-  %89 = load ptr, ptr %1, align 8
-  call void @g_free(ptr noundef %89) #5
-  br label %90
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %1, align 8
+  %86 = tail call ptr @__errno_location() #7
+  %87 = load i32, ptr %86, align 4
+  %88 = call ptr @g_strerror(i32 noundef %87) #7
+  %89 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %85, ptr noundef %88) #5
+  %90 = load ptr, ptr %1, align 8
+  call void @g_free(ptr noundef %90) #5
+  br label %91
 
-90:                                               ; preds = %83, %80
+91:                                               ; preds = %84, %81
   store i32 2, ptr %74, align 8
-  %91 = getelementptr inbounds i8, ptr %70, i64 8
-  %92 = load ptr, ptr %91, align 8
-  call void @g_free(ptr noundef %92) #5
-  %93 = load ptr, ptr %70, align 8
-  %94 = call noalias ptr @g_strdup(ptr noundef %93) #5
-  store ptr %94, ptr %91, align 8
-  br label %119
+  %92 = getelementptr inbounds i8, ptr %70, i64 8
+  %93 = load ptr, ptr %92, align 8
+  call void @g_free(ptr noundef %93) #5
+  %94 = load ptr, ptr %70, align 8
+  %95 = call noalias ptr @g_strdup(ptr noundef %94) #5
+  store ptr %95, ptr %92, align 8
+  br label %120
 
-95:                                               ; preds = %76
-  br i1 %.not84, label %119, label %.thread
+96:                                               ; preds = %76
+  br i1 %79, label %120, label %.thread
 
-.thread:                                          ; preds = %79, %95
-  %96 = getelementptr inbounds i8, ptr %70, i64 28
+.thread:                                          ; preds = %80, %96
+  %97 = getelementptr inbounds i8, ptr %70, i64 28
   store i32 2, ptr %74, align 8
-  %97 = getelementptr inbounds i8, ptr %70, i64 8
-  %98 = load ptr, ptr %97, align 8
-  call void @g_free(ptr noundef %98) #5
-  %99 = load ptr, ptr %70, align 8
-  %100 = call noalias ptr @g_strdup(ptr noundef %99) #5
-  store ptr %100, ptr %97, align 8
-  store i32 0, ptr %96, align 4
-  br label %119
+  %98 = getelementptr inbounds i8, ptr %70, i64 8
+  %99 = load ptr, ptr %98, align 8
+  call void @g_free(ptr noundef %99) #5
+  %100 = load ptr, ptr %70, align 8
+  %101 = call noalias ptr @g_strdup(ptr noundef %100) #5
+  store ptr %101, ptr %98, align 8
+  store i32 0, ptr %97, align 4
+  br label %120
 
-101:                                              ; preds = %.lr.ph99
-  %102 = getelementptr inbounds i8, ptr %70, i64 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = load ptr, ptr %70, align 8
-  %105 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(1) %104) #6
-  %.not81 = icmp eq i32 %105, 0
-  br i1 %.not81, label %119, label %106
+102:                                              ; preds = %.lr.ph99
+  %103 = getelementptr inbounds i8, ptr %70, i64 8
+  %104 = load ptr, ptr %103, align 8
+  %105 = load ptr, ptr %70, align 8
+  %106 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(1) %105) #6
+  %.not81 = icmp eq i32 %106, 0
+  br i1 %.not81, label %120, label %107
 
-106:                                              ; preds = %101
-  %107 = call i32 @rename_persconffile_profile(ptr noundef %103, ptr noundef %104, ptr noundef nonnull %1, ptr noundef nonnull %2) #5
-  %108 = icmp eq i32 %107, -1
-  br i1 %108, label %109, label %118
+107:                                              ; preds = %102
+  %108 = call i32 @rename_persconffile_profile(ptr noundef %104, ptr noundef %105, ptr noundef nonnull %1, ptr noundef nonnull %2) #5
+  %109 = icmp eq i32 %108, -1
+  br i1 %109, label %110, label %119
 
-109:                                              ; preds = %106
-  %110 = load ptr, ptr %1, align 8
-  %111 = load ptr, ptr %2, align 8
-  %112 = tail call ptr @__errno_location() #7
-  %113 = load i32, ptr %112, align 4
-  %114 = call ptr @g_strerror(i32 noundef %113) #7
-  %115 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %110, ptr noundef %111, ptr noundef %114) #5
-  %116 = load ptr, ptr %1, align 8
-  call void @g_free(ptr noundef %116) #5
-  %117 = load ptr, ptr %2, align 8
+110:                                              ; preds = %107
+  %111 = load ptr, ptr %1, align 8
+  %112 = load ptr, ptr %2, align 8
+  %113 = tail call ptr @__errno_location() #7
+  %114 = load i32, ptr %113, align 4
+  %115 = call ptr @g_strerror(i32 noundef %114) #7
+  %116 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %111, ptr noundef %112, ptr noundef %115) #5
+  %117 = load ptr, ptr %1, align 8
   call void @g_free(ptr noundef %117) #5
-  br label %118
-
-118:                                              ; preds = %109, %106
-  store i32 2, ptr %74, align 8
+  %118 = load ptr, ptr %2, align 8
+  call void @g_free(ptr noundef %118) #5
   br label %119
 
-119:                                              ; preds = %.lr.ph99, %118, %101, %90, %.thread, %95
-  %120 = getelementptr inbounds i8, ptr %.297, i64 8
-  %121 = load ptr, ptr %120, align 8
-  %.not76 = icmp eq ptr %121, null
+119:                                              ; preds = %110, %107
+  store i32 2, ptr %74, align 8
+  br label %120
+
+120:                                              ; preds = %.lr.ph99, %119, %102, %91, %.thread, %96
+  %121 = getelementptr inbounds i8, ptr %.297, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %.not76 = icmp eq ptr %122, null
   br i1 %.not76, label %._crit_edge100, label %.lr.ph99, !llvm.loop !9
 
-._crit_edge100:                                   ; preds = %119, %._crit_edge95
-  %122 = load ptr, ptr @current_profiles, align 8
-  %123 = call ptr @g_list_first(ptr noundef %122) #5
-  %.not77107 = icmp eq ptr %123, null
+._crit_edge100:                                   ; preds = %120, %._crit_edge95
+  %123 = load ptr, ptr @current_profiles, align 8
+  %124 = call ptr @g_list_first(ptr noundef %123) #5
+  %.not77107 = icmp eq ptr %124, null
   br i1 %.not77107, label %._crit_edge111, label %.lr.ph110
 
-.lr.ph110:                                        ; preds = %._crit_edge100, %156
-  %.3108 = phi ptr [ %158, %156 ], [ %123, %._crit_edge100 ]
-  %124 = load ptr, ptr %.3108, align 8
-  %125 = load ptr, ptr @edited_profiles, align 8
-  %126 = call ptr @g_list_first(ptr noundef %125) #5
-  %.not78101 = icmp eq ptr %126, null
+.lr.ph110:                                        ; preds = %._crit_edge100, %158
+  %.3108 = phi ptr [ %160, %158 ], [ %124, %._crit_edge100 ]
+  %125 = load ptr, ptr %.3108, align 8
+  %126 = load ptr, ptr @edited_profiles, align 8
+  %127 = call ptr @g_list_first(ptr noundef %126) #5
+  %.not78101 = icmp eq ptr %127, null
   br i1 %.not78101, label %._crit_edge106.thread, label %.lr.ph105
 
-.lr.ph105:                                        ; preds = %.lr.ph110, %143
-  %.068103 = phi i32 [ %.1, %143 ], [ 0, %.lr.ph110 ]
-  %.071102 = phi ptr [ %145, %143 ], [ %126, %.lr.ph110 ]
-  %127 = load ptr, ptr %.071102, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 20
-  %129 = load i32, ptr %128, align 4
-  %.not80 = icmp eq i32 %129, 0
-  br i1 %.not80, label %130, label %143
+.lr.ph105:                                        ; preds = %.lr.ph110, %144
+  %.068103 = phi i32 [ %.1, %144 ], [ 0, %.lr.ph110 ]
+  %.071102 = phi ptr [ %146, %144 ], [ %127, %.lr.ph110 ]
+  %128 = load ptr, ptr %.071102, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 20
+  %130 = load i32, ptr %129, align 4
+  %.not80 = icmp eq i32 %130, 0
+  br i1 %.not80, label %131, label %144
 
-130:                                              ; preds = %.lr.ph105
-  %131 = load ptr, ptr %124, align 8
-  %132 = load ptr, ptr %127, align 8
-  %133 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(1) %132) #6
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %143, label %135
+131:                                              ; preds = %.lr.ph105
+  %132 = load ptr, ptr %125, align 8
+  %133 = load ptr, ptr %128, align 8
+  %134 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) %133) #6
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %144, label %136
 
-135:                                              ; preds = %130
-  %136 = getelementptr inbounds i8, ptr %127, i64 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(1) %137) #6
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %140, label %143
+136:                                              ; preds = %131
+  %137 = getelementptr inbounds i8, ptr %128, i64 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) %138) #6
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %144
 
-140:                                              ; preds = %135
-  call void @g_free(ptr noundef %137) #5
-  %141 = load ptr, ptr %127, align 8
-  %142 = call noalias ptr @g_strdup(ptr noundef %141) #5
-  store ptr %142, ptr %136, align 8
-  br label %143
+141:                                              ; preds = %136
+  call void @g_free(ptr noundef %138) #5
+  %142 = load ptr, ptr %128, align 8
+  %143 = call noalias ptr @g_strdup(ptr noundef %142) #5
+  store ptr %143, ptr %137, align 8
+  br label %144
 
-143:                                              ; preds = %130, %140, %135, %.lr.ph105
-  %.1 = phi i32 [ %.068103, %.lr.ph105 ], [ 1, %140 ], [ %.068103, %135 ], [ 1, %130 ]
-  %144 = getelementptr inbounds i8, ptr %.071102, i64 8
-  %145 = load ptr, ptr %144, align 8
-  %.not78 = icmp eq ptr %145, null
+144:                                              ; preds = %131, %141, %136, %.lr.ph105
+  %.1 = phi i32 [ %.068103, %.lr.ph105 ], [ 1, %141 ], [ %.068103, %136 ], [ 1, %131 ]
+  %145 = getelementptr inbounds i8, ptr %.071102, i64 8
+  %146 = load ptr, ptr %145, align 8
+  %.not78 = icmp eq ptr %146, null
   br i1 %.not78, label %._crit_edge106, label %.lr.ph105, !llvm.loop !10
 
-._crit_edge106:                                   ; preds = %143
-  %.not79 = icmp eq i32 %.1, 0
-  br i1 %.not79, label %._crit_edge106.thread, label %156
+._crit_edge106:                                   ; preds = %144
+  %147 = icmp eq i32 %.1, 0
+  br i1 %147, label %._crit_edge106.thread, label %158
 
 ._crit_edge106.thread:                            ; preds = %.lr.ph110, %._crit_edge106
-  %146 = load ptr, ptr %124, align 8
-  %147 = call i32 @delete_persconffile_profile(ptr noundef %146, ptr noundef nonnull %1) #5
-  %148 = icmp eq i32 %147, -1
-  br i1 %148, label %149, label %156
+  %148 = load ptr, ptr %125, align 8
+  %149 = call i32 @delete_persconffile_profile(ptr noundef %148, ptr noundef nonnull %1) #5
+  %150 = icmp eq i32 %149, -1
+  br i1 %150, label %151, label %158
 
-149:                                              ; preds = %._crit_edge106.thread
-  %150 = load ptr, ptr %1, align 8
-  %151 = tail call ptr @__errno_location() #7
-  %152 = load i32, ptr %151, align 4
-  %153 = call ptr @g_strerror(i32 noundef %152) #7
-  %154 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %150, ptr noundef %153) #5
-  %155 = load ptr, ptr %1, align 8
-  call void @g_free(ptr noundef %155) #5
-  br label %156
+151:                                              ; preds = %._crit_edge106.thread
+  %152 = load ptr, ptr %1, align 8
+  %153 = tail call ptr @__errno_location() #7
+  %154 = load i32, ptr %153, align 4
+  %155 = call ptr @g_strerror(i32 noundef %154) #7
+  %156 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %152, ptr noundef %155) #5
+  %157 = load ptr, ptr %1, align 8
+  call void @g_free(ptr noundef %157) #5
+  br label %158
 
-156:                                              ; preds = %._crit_edge106.thread, %149, %._crit_edge106
-  %157 = getelementptr inbounds i8, ptr %.3108, i64 8
-  %158 = load ptr, ptr %157, align 8
-  %.not77 = icmp eq ptr %158, null
+158:                                              ; preds = %._crit_edge106.thread, %151, %._crit_edge106
+  %159 = getelementptr inbounds i8, ptr %.3108, i64 8
+  %160 = load ptr, ptr %159, align 8
+  %.not77 = icmp eq ptr %160, null
   br i1 %.not77, label %._crit_edge111, label %.lr.ph110, !llvm.loop !11
 
-._crit_edge111:                                   ; preds = %156, %._crit_edge100
+._crit_edge111:                                   ; preds = %158, %._crit_edge100
   call void @copy_profile_list()
-  br label %159
+  br label %161
 
-159:                                              ; preds = %._crit_edge111, %33, %15
+161:                                              ; preds = %._crit_edge111, %33, %15
   %.0 = phi ptr [ %16, %15 ], [ %38, %33 ], [ null, %._crit_edge111 ]
   ret ptr %.0
 }

@@ -2013,22 +2013,22 @@ proto_item_set_hidden.exit.i173:                  ; preds = %452, %449, %446
   %485 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %459, i32 noundef %484, ptr noundef %0, i32 noundef %476, i32 noundef 1, ptr noundef nonnull %11, i32 noundef 0) #13
   %486 = or disjoint i32 %.126.i.i, 5
   %.pr.i.i = load i64, ptr %11, align 8
+  %487 = icmp eq i64 %.pr.i.i, 0
   %invariant.op.i.i = select i1 %473, i32 32, i32 30
-  %487 = zext nneg i32 %..i.i to i64
-  %488 = add nsw i64 %487, -1
-  %489 = lshr exact i32 %..i.i, 1
-  %490 = zext nneg i32 %489 to i64
-  %491 = getelementptr inbounds i8, ptr %31, i64 56
-  br label %492
+  %488 = zext nneg i32 %..i.i to i64
+  %489 = add nsw i64 %488, -1
+  %490 = lshr exact i32 %..i.i, 1
+  %491 = zext nneg i32 %490 to i64
+  %492 = getelementptr inbounds i8, ptr %31, i64 56
+  br label %493
 
-492:                                              ; preds = %559, %471
-  %493 = phi i64 [ %560, %559 ], [ %.pr.i.i, %471 ]
+493:                                              ; preds = %559, %471
+  %.not117.i.i = phi i1 [ false, %559 ], [ %487, %471 ]
   %.0109.i.i = phi i16 [ %.1110.i.i, %559 ], [ 0, %471 ]
   %.0107.i.i = phi i32 [ %.2.i.i, %559 ], [ %486, %471 ]
-  %.not117.i.i = icmp eq i64 %493, 0
   br i1 %.not117.i.i, label %541, label %494
 
-494:                                              ; preds = %492
+494:                                              ; preds = %493
   %495 = load i32, ptr @hf_rlc_lte_am_nack_sn, align 4
   %496 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %459, i32 noundef %495, ptr noundef %0, i32 noundef %.0107.i.i, i32 noundef %.126.i.i, ptr noundef nonnull %10, i32 noundef 0) #13
   %497 = add i32 %.0107.i.i, %.126.i.i
@@ -2050,10 +2050,10 @@ proto_item_set_hidden.exit.i173:                  ; preds = %452, %449, %446
 506:                                              ; preds = %504, %494
   %507 = phi i64 [ %.pre135.i.i, %504 ], [ %501, %494 ]
   %508 = phi i64 [ %.pre.i.i, %504 ], [ %502, %494 ]
-  %509 = sub i64 %487, %507
+  %509 = sub i64 %488, %507
   %510 = add i64 %509, %508
-  %511 = and i64 %510, %488
-  %512 = icmp ugt i64 %511, %490
+  %511 = and i64 %510, %489
+  %512 = icmp ugt i64 %511, %491
   br i1 %512, label %513, label %515
 
 513:                                              ; preds = %506
@@ -2069,7 +2069,7 @@ proto_item_set_hidden.exit.i173:                  ; preds = %452, %449, %446
   %519 = trunc i64 %518 to i32
   %520 = and i32 %519, 65535
   %521 = zext nneg i16 %.0109.i.i to i64
-  %522 = getelementptr [512 x i32], ptr %491, i64 0, i64 %521
+  %522 = getelementptr [512 x i32], ptr %492, i64 0, i64 %521
   store i32 %520, ptr %522, align 4
   br label %523
 
@@ -2101,9 +2101,9 @@ proto_item_set_hidden.exit.i173:                  ; preds = %452, %449, %446
   %540 = add i32 %497, 2
   br label %541
 
-541:                                              ; preds = %539, %492
-  %.1110.i.i = phi i16 [ %.2111.i.i, %539 ], [ %.0109.i.i, %492 ]
-  %.1.i.i = phi i32 [ %540, %539 ], [ %.0107.i.i, %492 ]
+541:                                              ; preds = %539, %493
+  %.1110.i.i = phi i16 [ %.2111.i.i, %539 ], [ %.0109.i.i, %493 ]
+  %.1.i.i = phi i32 [ %540, %539 ], [ %.0107.i.i, %493 ]
   %542 = load i64, ptr %12, align 8
   %.not119.i.i = icmp eq i64 %542, 0
   br i1 %.not119.i.i, label %559, label %543
@@ -2140,7 +2140,7 @@ proto_item_set_hidden.exit.i173:                  ; preds = %452, %449, %446
   %.2.i.i = phi i32 [ %.reass.i.i, %558 ], [ %.1.i.i, %541 ]
   %560 = load i64, ptr %11, align 8
   %.not120.i.i = icmp eq i64 %560, 0
-  br i1 %.not120.i.i, label %561, label %492, !llvm.loop !9
+  br i1 %.not120.i.i, label %561, label %493, !llvm.loop !9
 
 561:                                              ; preds = %559
   %.not121.i.i = icmp eq i16 %.1110.i.i, 0
@@ -2333,7 +2333,7 @@ thread-pre-split.i.i:                             ; preds = %588
 664:                                              ; preds = %678, %.preheader.us.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.us.i.i.i ], [ %indvars.iv.next.i.i.i, %678 ]
   %.16884.us.i.i.i = phi i16 [ %.06786.us.i.i.i, %.preheader.us.i.i.i ], [ %.2.us.i.i.i, %678 ]
-  %665 = getelementptr [512 x i32], ptr %491, i64 0, i64 %indvars.iv.i.i.i
+  %665 = getelementptr [512 x i32], ptr %492, i64 0, i64 %indvars.iv.i.i.i
   %666 = load i32, ptr %665, align 4
   %667 = icmp eq i32 %666, %663
   br i1 %667, label %668, label %678
@@ -2383,7 +2383,7 @@ thread-pre-split.i.i:                             ; preds = %588
 
 681:                                              ; preds = %681, %.lr.ph.i.i.i
   %indvars.iv106.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next107.i.i.i, %681 ]
-  %682 = getelementptr [512 x i32], ptr %491, i64 0, i64 %indvars.iv106.i.i.i
+  %682 = getelementptr [512 x i32], ptr %492, i64 0, i64 %indvars.iv106.i.i.i
   %683 = load i32, ptr %682, align 4
   %684 = trunc i32 %683 to i16
   %indvars.iv.next107.i.i.i = add nuw nsw i64 %indvars.iv106.i.i.i, 1
@@ -2843,27 +2843,30 @@ show_PDU_in_info.exit.i188:                       ; preds = %940, %937
   %944 = load i8, ptr @s_number_of_extensions, align 1
   %945 = zext i8 %944 to i64
   %946 = icmp ult i64 %indvars.iv.next.i189, %945
-  br i1 %946, label %932, label %._crit_edge.i190, !llvm.loop !13
+  br i1 %946, label %932, label %._crit_edge.loopexit.i, !llvm.loop !13
 
-._crit_edge.i190:                                 ; preds = %show_PDU_in_info.exit.i188, %proto_item_set_generated.exit.i184
-  %.4.lcssa.i = phi i32 [ %.2.i175, %proto_item_set_generated.exit.i184 ], [ %943, %show_PDU_in_info.exit.i188 ]
-  %.lcssa.i191 = phi i8 [ 0, %proto_item_set_generated.exit.i184 ], [ %944, %show_PDU_in_info.exit.i188 ]
-  %947 = load i16, ptr %136, align 2
-  %948 = zext i16 %947 to i32
-  %949 = sub i32 %948, %.4.lcssa.i
-  %950 = icmp eq i8 %.lcssa.i191, 0
-  %951 = icmp sgt i32 %949, 0
+._crit_edge.loopexit.i:                           ; preds = %show_PDU_in_info.exit.i188
+  %947 = icmp eq i8 %944, 0
+  br label %._crit_edge.i190
+
+._crit_edge.i190:                                 ; preds = %._crit_edge.loopexit.i, %proto_item_set_generated.exit.i184
+  %.4.lcssa.i = phi i32 [ %.2.i175, %proto_item_set_generated.exit.i184 ], [ %943, %._crit_edge.loopexit.i ]
+  %.lcssa.i191 = phi i1 [ true, %proto_item_set_generated.exit.i184 ], [ %947, %._crit_edge.loopexit.i ]
+  %948 = load i16, ptr %136, align 2
+  %949 = zext i16 %948 to i32
+  %950 = sub i32 %949, %.4.lcssa.i
+  %951 = icmp sgt i32 %950, 0
   %.not11.i233247.i = icmp ne i32 %910, 0
-  %.not11.i233.i = select i1 %950, i1 %.not11.i233247.i, i1 false
+  %.not11.i233.i = select i1 %.lcssa.i191, i1 %.not11.i233247.i, i1 false
   %952 = select i1 %.not11.i233.i, ptr @.str.323, ptr @.str.322
   br i1 %951, label %953, label %956
 
 953:                                              ; preds = %._crit_edge.i190
-  %.not12.i234.i = icmp eq i32 %949, 1
+  %.not12.i234.i = icmp eq i32 %950, 1
   %954 = select i1 %.not12.i234.i, ptr @.str.299, ptr @.str.324
   %.not13.i.not.i193 = icmp eq i32 %913, 0
   %955 = select i1 %.not13.i.not.i193, ptr @.str.325, ptr @.str.323
-  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %952, i32 noundef %949, ptr noundef nonnull %954, ptr noundef nonnull %955)
+  call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %35, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull @.str.321, ptr noundef nonnull %952, i32 noundef %950, ptr noundef nonnull %954, ptr noundef nonnull %955)
   br label %show_PDU_in_info.exit235.i
 
 956:                                              ; preds = %._crit_edge.i190
@@ -5444,409 +5447,409 @@ proto_item_set_hidden.exit:                       ; preds = %316
   %320 = or i32 %319, 1
   store i32 %320, ptr %318, align 4
   %.pr.pre = load i32, ptr %0, align 4
-  %.not224 = icmp eq i32 %.pr.pre, 0
-  br i1 %.not224, label %proto_item_set_hidden.exit.thread, label %proto_item_set_hidden.exit.thread307
+  %321 = icmp eq i32 %.pr.pre, 0
+  br i1 %321, label %proto_item_set_hidden.exit.thread, label %proto_item_set_hidden.exit.thread307
 
 proto_item_set_hidden.exit.thread:                ; preds = %proto_item_set_generated.exit276, %proto_item_set_generated.exit276.thread, %proto_item_set_hidden.exit
-  %321 = getelementptr inbounds i8, ptr %2, i64 3
-  %322 = load i8, ptr %321, align 1
-  %323 = icmp eq i8 %322, 5
-  %. = select i1 %323, i32 32, i32 1024
-  %324 = getelementptr inbounds i8, ptr %0, i64 24
-  %325 = load i32, ptr %324, align 4
-  switch i32 %325, label %473 [
-    i32 4, label %326
-    i32 1, label %400
-    i32 2, label %439
+  %322 = getelementptr inbounds i8, ptr %2, i64 3
+  %323 = load i8, ptr %322, align 1
+  %324 = icmp eq i8 %323, 5
+  %. = select i1 %324, i32 32, i32 1024
+  %325 = getelementptr inbounds i8, ptr %0, i64 24
+  %326 = load i32, ptr %325, align 4
+  switch i32 %326, label %474 [
+    i32 4, label %327
+    i32 1, label %401
+    i32 2, label %440
   ]
 
-326:                                              ; preds = %proto_item_set_hidden.exit.thread
-  %327 = load i32, ptr @hf_rlc_lte_sequence_analysis_ok, align 4
-  %328 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %327, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 0) #13
-  %.not.i279 = icmp eq ptr %328, null
-  br i1 %.not.i279, label %proto_item_set_generated.exit281, label %329
+327:                                              ; preds = %proto_item_set_hidden.exit.thread
+  %328 = load i32, ptr @hf_rlc_lte_sequence_analysis_ok, align 4
+  %329 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %328, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 0) #13
+  %.not.i279 = icmp eq ptr %329, null
+  br i1 %.not.i279, label %proto_item_set_generated.exit281, label %330
 
-329:                                              ; preds = %326
-  %330 = getelementptr inbounds i8, ptr %328, i64 32
-  %331 = load ptr, ptr %330, align 8
-  %.not5.i280 = icmp eq ptr %331, null
-  br i1 %.not5.i280, label %proto_item_set_generated.exit281, label %332
+330:                                              ; preds = %327
+  %331 = getelementptr inbounds i8, ptr %329, i64 32
+  %332 = load ptr, ptr %331, align 8
+  %.not5.i280 = icmp eq ptr %332, null
+  br i1 %.not5.i280, label %proto_item_set_generated.exit281, label %333
 
-332:                                              ; preds = %329
-  %333 = getelementptr inbounds i8, ptr %331, i64 28
-  %334 = load i32, ptr %333, align 4
-  %335 = or i32 %334, 2
-  store i32 %335, ptr %333, align 4
+333:                                              ; preds = %330
+  %334 = getelementptr inbounds i8, ptr %332, i64 28
+  %335 = load i32, ptr %334, align 4
+  %336 = or i32 %335, 2
+  store i32 %336, ptr %334, align 4
   br label %proto_item_set_generated.exit281
 
-proto_item_set_generated.exit281:                 ; preds = %326, %329, %332
-  %336 = load i32, ptr @hf_rlc_lte_sequence_analysis_skipped, align 4
-  %337 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %336, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
-  %.not.i282 = icmp eq ptr %337, null
-  br i1 %.not.i282, label %proto_item_set_generated.exit284, label %338
+proto_item_set_generated.exit281:                 ; preds = %327, %330, %333
+  %337 = load i32, ptr @hf_rlc_lte_sequence_analysis_skipped, align 4
+  %338 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %337, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
+  %.not.i282 = icmp eq ptr %338, null
+  br i1 %.not.i282, label %proto_item_set_generated.exit284, label %339
 
-338:                                              ; preds = %proto_item_set_generated.exit281
-  %339 = getelementptr inbounds i8, ptr %337, i64 32
-  %340 = load ptr, ptr %339, align 8
-  %.not5.i283 = icmp eq ptr %340, null
-  br i1 %.not5.i283, label %proto_item_set_generated.exit284, label %341
+339:                                              ; preds = %proto_item_set_generated.exit281
+  %340 = getelementptr inbounds i8, ptr %338, i64 32
+  %341 = load ptr, ptr %340, align 8
+  %.not5.i283 = icmp eq ptr %341, null
+  br i1 %.not5.i283, label %proto_item_set_generated.exit284, label %342
 
-341:                                              ; preds = %338
-  %342 = getelementptr inbounds i8, ptr %340, i64 28
-  %343 = load i32, ptr %342, align 4
-  %344 = or i32 %343, 2
-  store i32 %344, ptr %342, align 4
+342:                                              ; preds = %339
+  %343 = getelementptr inbounds i8, ptr %341, i64 28
+  %344 = load i32, ptr %343, align 4
+  %345 = or i32 %344, 2
+  store i32 %345, ptr %343, align 4
   br label %proto_item_set_generated.exit284
 
-proto_item_set_generated.exit284:                 ; preds = %proto_item_set_generated.exit281, %338, %341
-  %345 = getelementptr inbounds i8, ptr %0, i64 22
-  %346 = load i16, ptr %345, align 2
-  %347 = getelementptr inbounds i8, ptr %0, i64 20
-  %348 = load i16, ptr %347, align 4
-  %349 = zext i16 %348 to i32
-  %.not225 = icmp eq i16 %346, %348
-  br i1 %.not225, label %381, label %350
+proto_item_set_generated.exit284:                 ; preds = %proto_item_set_generated.exit281, %339, %342
+  %346 = getelementptr inbounds i8, ptr %0, i64 22
+  %347 = load i16, ptr %346, align 2
+  %348 = getelementptr inbounds i8, ptr %0, i64 20
+  %349 = load i16, ptr %348, align 4
+  %350 = zext i16 %349 to i32
+  %.not225 = icmp eq i16 %347, %349
+  br i1 %.not225, label %382, label %351
 
-350:                                              ; preds = %proto_item_set_generated.exit284
-  %351 = zext i16 %346 to i32
-  %352 = getelementptr inbounds i8, ptr %2, i64 1
-  %353 = load i8, ptr %352, align 1
-  %354 = zext i8 %353 to i32
-  %355 = tail call ptr @val_to_str_const(i32 noundef %354, ptr noundef nonnull @direction_vals, ptr noundef nonnull @.str.305) #13
-  %356 = getelementptr inbounds i8, ptr %2, i64 4
-  %357 = load i16, ptr %356, align 4
-  %358 = zext i16 %357 to i32
-  %359 = getelementptr inbounds i8, ptr %2, i64 6
-  %360 = load i16, ptr %359, align 2
-  %361 = zext i16 %360 to i32
-  %362 = tail call ptr @val_to_str_const(i32 noundef %361, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
-  %363 = getelementptr inbounds i8, ptr %2, i64 8
-  %364 = load i16, ptr %363, align 4
-  %365 = zext i16 %364 to i32
-  %366 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %337, ptr noundef nonnull @ei_rlc_lte_um_sn_missing, ptr noundef nonnull @.str.340, i32 noundef %349, i32 noundef %351, ptr noundef %355, i32 noundef %358, ptr noundef %362, i32 noundef %365) #13
-  %367 = load i16, ptr %347, align 4
-  %368 = zext i16 %367 to i32
-  %369 = load i16, ptr %345, align 2
-  %370 = zext i16 %369 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.335, i32 noundef %368, i32 noundef %370) #13
-  %371 = load i16, ptr %345, align 2
-  %372 = zext i16 %371 to i32
-  %373 = add nuw nsw i32 %., %372
-  %374 = load i16, ptr %347, align 4
-  %375 = zext i16 %374 to i32
-  %376 = sub nsw i32 %373, %375
-  %377 = srem i32 %376, %.
-  %378 = trunc nsw i32 %377 to i16
-  %379 = add nsw i16 %378, 1
-  %380 = getelementptr inbounds i8, ptr %5, i64 2104
-  store i16 %379, ptr %380, align 8
-  br label %550
+351:                                              ; preds = %proto_item_set_generated.exit284
+  %352 = zext i16 %347 to i32
+  %353 = getelementptr inbounds i8, ptr %2, i64 1
+  %354 = load i8, ptr %353, align 1
+  %355 = zext i8 %354 to i32
+  %356 = tail call ptr @val_to_str_const(i32 noundef %355, ptr noundef nonnull @direction_vals, ptr noundef nonnull @.str.305) #13
+  %357 = getelementptr inbounds i8, ptr %2, i64 4
+  %358 = load i16, ptr %357, align 4
+  %359 = zext i16 %358 to i32
+  %360 = getelementptr inbounds i8, ptr %2, i64 6
+  %361 = load i16, ptr %360, align 2
+  %362 = zext i16 %361 to i32
+  %363 = tail call ptr @val_to_str_const(i32 noundef %362, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
+  %364 = getelementptr inbounds i8, ptr %2, i64 8
+  %365 = load i16, ptr %364, align 4
+  %366 = zext i16 %365 to i32
+  %367 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %338, ptr noundef nonnull @ei_rlc_lte_um_sn_missing, ptr noundef nonnull @.str.340, i32 noundef %350, i32 noundef %352, ptr noundef %356, i32 noundef %359, ptr noundef %363, i32 noundef %366) #13
+  %368 = load i16, ptr %348, align 4
+  %369 = zext i16 %368 to i32
+  %370 = load i16, ptr %346, align 2
+  %371 = zext i16 %370 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.335, i32 noundef %369, i32 noundef %371) #13
+  %372 = load i16, ptr %346, align 2
+  %373 = zext i16 %372 to i32
+  %374 = add nuw nsw i32 %., %373
+  %375 = load i16, ptr %348, align 4
+  %376 = zext i16 %375 to i32
+  %377 = sub nsw i32 %374, %376
+  %378 = srem i32 %377, %.
+  %379 = trunc nsw i32 %378 to i16
+  %380 = add nsw i16 %379, 1
+  %381 = getelementptr inbounds i8, ptr %5, i64 2104
+  store i16 %380, ptr %381, align 8
+  br label %551
 
-381:                                              ; preds = %proto_item_set_generated.exit284
-  %382 = getelementptr inbounds i8, ptr %2, i64 1
-  %383 = load i8, ptr %382, align 1
-  %384 = zext i8 %383 to i32
-  %385 = tail call ptr @val_to_str_const(i32 noundef %384, ptr noundef nonnull @direction_vals, ptr noundef nonnull @.str.305) #13
-  %386 = getelementptr inbounds i8, ptr %2, i64 4
-  %387 = load i16, ptr %386, align 4
-  %388 = zext i16 %387 to i32
-  %389 = getelementptr inbounds i8, ptr %2, i64 6
-  %390 = load i16, ptr %389, align 2
-  %391 = zext i16 %390 to i32
-  %392 = tail call ptr @val_to_str_const(i32 noundef %391, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
-  %393 = getelementptr inbounds i8, ptr %2, i64 8
-  %394 = load i16, ptr %393, align 4
-  %395 = zext i16 %394 to i32
-  %396 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %337, ptr noundef nonnull @ei_rlc_lte_um_sn_missing, ptr noundef nonnull @.str.341, i32 noundef %349, ptr noundef %385, i32 noundef %388, ptr noundef %392, i32 noundef %395) #13
-  %397 = load i16, ptr %347, align 4
-  %398 = zext i16 %397 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.337, i32 noundef %398) #13
-  %399 = getelementptr inbounds i8, ptr %5, i64 2104
-  store i16 1, ptr %399, align 8
-  br label %550
+382:                                              ; preds = %proto_item_set_generated.exit284
+  %383 = getelementptr inbounds i8, ptr %2, i64 1
+  %384 = load i8, ptr %383, align 1
+  %385 = zext i8 %384 to i32
+  %386 = tail call ptr @val_to_str_const(i32 noundef %385, ptr noundef nonnull @direction_vals, ptr noundef nonnull @.str.305) #13
+  %387 = getelementptr inbounds i8, ptr %2, i64 4
+  %388 = load i16, ptr %387, align 4
+  %389 = zext i16 %388 to i32
+  %390 = getelementptr inbounds i8, ptr %2, i64 6
+  %391 = load i16, ptr %390, align 2
+  %392 = zext i16 %391 to i32
+  %393 = tail call ptr @val_to_str_const(i32 noundef %392, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
+  %394 = getelementptr inbounds i8, ptr %2, i64 8
+  %395 = load i16, ptr %394, align 4
+  %396 = zext i16 %395 to i32
+  %397 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %338, ptr noundef nonnull @ei_rlc_lte_um_sn_missing, ptr noundef nonnull @.str.341, i32 noundef %350, ptr noundef %386, i32 noundef %389, ptr noundef %393, i32 noundef %396) #13
+  %398 = load i16, ptr %348, align 4
+  %399 = zext i16 %398 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.337, i32 noundef %399) #13
+  %400 = getelementptr inbounds i8, ptr %5, i64 2104
+  store i16 1, ptr %400, align 8
+  br label %551
 
-400:                                              ; preds = %proto_item_set_hidden.exit.thread
-  %401 = load i32, ptr @hf_rlc_lte_sequence_analysis_ok, align 4
-  %402 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %401, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 0) #13
-  %.not.i285 = icmp eq ptr %402, null
-  br i1 %.not.i285, label %proto_item_set_generated.exit287, label %403
+401:                                              ; preds = %proto_item_set_hidden.exit.thread
+  %402 = load i32, ptr @hf_rlc_lte_sequence_analysis_ok, align 4
+  %403 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %402, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 0) #13
+  %.not.i285 = icmp eq ptr %403, null
+  br i1 %.not.i285, label %proto_item_set_generated.exit287, label %404
 
-403:                                              ; preds = %400
-  %404 = getelementptr inbounds i8, ptr %402, i64 32
-  %405 = load ptr, ptr %404, align 8
-  %.not5.i286 = icmp eq ptr %405, null
-  br i1 %.not5.i286, label %proto_item_set_generated.exit287, label %406
+404:                                              ; preds = %401
+  %405 = getelementptr inbounds i8, ptr %403, i64 32
+  %406 = load ptr, ptr %405, align 8
+  %.not5.i286 = icmp eq ptr %406, null
+  br i1 %.not5.i286, label %proto_item_set_generated.exit287, label %407
 
-406:                                              ; preds = %403
-  %407 = getelementptr inbounds i8, ptr %405, i64 28
-  %408 = load i32, ptr %407, align 4
-  %409 = or i32 %408, 2
-  store i32 %409, ptr %407, align 4
+407:                                              ; preds = %404
+  %408 = getelementptr inbounds i8, ptr %406, i64 28
+  %409 = load i32, ptr %408, align 4
+  %410 = or i32 %409, 2
+  store i32 %410, ptr %408, align 4
   br label %proto_item_set_generated.exit287
 
-proto_item_set_generated.exit287:                 ; preds = %400, %403, %406
-  %410 = load i32, ptr @hf_rlc_lte_sequence_analysis_repeated, align 4
-  %411 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %410, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
-  %.not.i288 = icmp eq ptr %411, null
-  br i1 %.not.i288, label %proto_item_set_generated.exit290, label %412
+proto_item_set_generated.exit287:                 ; preds = %401, %404, %407
+  %411 = load i32, ptr @hf_rlc_lte_sequence_analysis_repeated, align 4
+  %412 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %411, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
+  %.not.i288 = icmp eq ptr %412, null
+  br i1 %.not.i288, label %proto_item_set_generated.exit290, label %413
 
-412:                                              ; preds = %proto_item_set_generated.exit287
-  %413 = getelementptr inbounds i8, ptr %411, i64 32
-  %414 = load ptr, ptr %413, align 8
-  %.not5.i289 = icmp eq ptr %414, null
-  br i1 %.not5.i289, label %proto_item_set_generated.exit290, label %415
+413:                                              ; preds = %proto_item_set_generated.exit287
+  %414 = getelementptr inbounds i8, ptr %412, i64 32
+  %415 = load ptr, ptr %414, align 8
+  %.not5.i289 = icmp eq ptr %415, null
+  br i1 %.not5.i289, label %proto_item_set_generated.exit290, label %416
 
-415:                                              ; preds = %412
-  %416 = getelementptr inbounds i8, ptr %414, i64 28
-  %417 = load i32, ptr %416, align 4
-  %418 = or i32 %417, 2
-  store i32 %418, ptr %416, align 4
+416:                                              ; preds = %413
+  %417 = getelementptr inbounds i8, ptr %415, i64 28
+  %418 = load i32, ptr %417, align 4
+  %419 = or i32 %418, 2
+  store i32 %419, ptr %417, align 4
   br label %proto_item_set_generated.exit290
 
-proto_item_set_generated.exit290:                 ; preds = %proto_item_set_generated.exit287, %412, %415
-  %419 = getelementptr inbounds i8, ptr %0, i64 20
-  %420 = load i16, ptr %419, align 4
-  %421 = zext i16 %420 to i32
-  %422 = getelementptr inbounds i8, ptr %2, i64 1
-  %423 = load i8, ptr %422, align 1
-  %424 = zext i8 %423 to i32
-  %425 = tail call ptr @val_to_str_const(i32 noundef %424, ptr noundef nonnull @direction_vals, ptr noundef nonnull @.str.305) #13
-  %426 = getelementptr inbounds i8, ptr %2, i64 4
-  %427 = load i16, ptr %426, align 4
-  %428 = zext i16 %427 to i32
-  %429 = getelementptr inbounds i8, ptr %2, i64 6
-  %430 = load i16, ptr %429, align 2
-  %431 = zext i16 %430 to i32
-  %432 = tail call ptr @val_to_str_const(i32 noundef %431, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
-  %433 = getelementptr inbounds i8, ptr %2, i64 8
-  %434 = load i16, ptr %433, align 4
-  %435 = zext i16 %434 to i32
-  %436 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %411, ptr noundef nonnull @ei_rlc_lte_um_sn_repeated, ptr noundef nonnull @.str.342, i32 noundef %421, ptr noundef %425, i32 noundef %428, ptr noundef %432, i32 noundef %435) #13
-  %437 = load i16, ptr %419, align 4
-  %438 = zext i16 %437 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.333, i32 noundef %438) #13
-  br label %550
+proto_item_set_generated.exit290:                 ; preds = %proto_item_set_generated.exit287, %413, %416
+  %420 = getelementptr inbounds i8, ptr %0, i64 20
+  %421 = load i16, ptr %420, align 4
+  %422 = zext i16 %421 to i32
+  %423 = getelementptr inbounds i8, ptr %2, i64 1
+  %424 = load i8, ptr %423, align 1
+  %425 = zext i8 %424 to i32
+  %426 = tail call ptr @val_to_str_const(i32 noundef %425, ptr noundef nonnull @direction_vals, ptr noundef nonnull @.str.305) #13
+  %427 = getelementptr inbounds i8, ptr %2, i64 4
+  %428 = load i16, ptr %427, align 4
+  %429 = zext i16 %428 to i32
+  %430 = getelementptr inbounds i8, ptr %2, i64 6
+  %431 = load i16, ptr %430, align 2
+  %432 = zext i16 %431 to i32
+  %433 = tail call ptr @val_to_str_const(i32 noundef %432, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
+  %434 = getelementptr inbounds i8, ptr %2, i64 8
+  %435 = load i16, ptr %434, align 4
+  %436 = zext i16 %435 to i32
+  %437 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %412, ptr noundef nonnull @ei_rlc_lte_um_sn_repeated, ptr noundef nonnull @.str.342, i32 noundef %422, ptr noundef %426, i32 noundef %429, ptr noundef %433, i32 noundef %436) #13
+  %438 = load i16, ptr %420, align 4
+  %439 = zext i16 %438 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.333, i32 noundef %439) #13
+  br label %551
 
-439:                                              ; preds = %proto_item_set_hidden.exit.thread
-  %440 = load i32, ptr @hf_rlc_lte_sequence_analysis_ok, align 4
-  %441 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %440, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 0) #13
-  %.not.i291 = icmp eq ptr %441, null
-  br i1 %.not.i291, label %proto_item_set_generated.exit293, label %442
+440:                                              ; preds = %proto_item_set_hidden.exit.thread
+  %441 = load i32, ptr @hf_rlc_lte_sequence_analysis_ok, align 4
+  %442 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %441, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 0) #13
+  %.not.i291 = icmp eq ptr %442, null
+  br i1 %.not.i291, label %proto_item_set_generated.exit293, label %443
 
-442:                                              ; preds = %439
-  %443 = getelementptr inbounds i8, ptr %441, i64 32
-  %444 = load ptr, ptr %443, align 8
-  %.not5.i292 = icmp eq ptr %444, null
-  br i1 %.not5.i292, label %proto_item_set_generated.exit293, label %445
+443:                                              ; preds = %440
+  %444 = getelementptr inbounds i8, ptr %442, i64 32
+  %445 = load ptr, ptr %444, align 8
+  %.not5.i292 = icmp eq ptr %445, null
+  br i1 %.not5.i292, label %proto_item_set_generated.exit293, label %446
 
-445:                                              ; preds = %442
-  %446 = getelementptr inbounds i8, ptr %444, i64 28
-  %447 = load i32, ptr %446, align 4
-  %448 = or i32 %447, 2
-  store i32 %448, ptr %446, align 4
+446:                                              ; preds = %443
+  %447 = getelementptr inbounds i8, ptr %445, i64 28
+  %448 = load i32, ptr %447, align 4
+  %449 = or i32 %448, 2
+  store i32 %449, ptr %447, align 4
   br label %proto_item_set_generated.exit293
 
-proto_item_set_generated.exit293:                 ; preds = %439, %442, %445
-  %449 = load i32, ptr @hf_rlc_lte_sequence_analysis_mac_retx, align 4
-  %450 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %449, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
-  %.not.i294 = icmp eq ptr %450, null
-  br i1 %.not.i294, label %proto_item_set_generated.exit296, label %451
+proto_item_set_generated.exit293:                 ; preds = %440, %443, %446
+  %450 = load i32, ptr @hf_rlc_lte_sequence_analysis_mac_retx, align 4
+  %451 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %450, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
+  %.not.i294 = icmp eq ptr %451, null
+  br i1 %.not.i294, label %proto_item_set_generated.exit296, label %452
 
-451:                                              ; preds = %proto_item_set_generated.exit293
-  %452 = getelementptr inbounds i8, ptr %450, i64 32
-  %453 = load ptr, ptr %452, align 8
-  %.not5.i295 = icmp eq ptr %453, null
-  br i1 %.not5.i295, label %proto_item_set_generated.exit296, label %454
+452:                                              ; preds = %proto_item_set_generated.exit293
+  %453 = getelementptr inbounds i8, ptr %451, i64 32
+  %454 = load ptr, ptr %453, align 8
+  %.not5.i295 = icmp eq ptr %454, null
+  br i1 %.not5.i295, label %proto_item_set_generated.exit296, label %455
 
-454:                                              ; preds = %451
-  %455 = getelementptr inbounds i8, ptr %453, i64 28
-  %456 = load i32, ptr %455, align 4
-  %457 = or i32 %456, 2
-  store i32 %457, ptr %455, align 4
+455:                                              ; preds = %452
+  %456 = getelementptr inbounds i8, ptr %454, i64 28
+  %457 = load i32, ptr %456, align 4
+  %458 = or i32 %457, 2
+  store i32 %458, ptr %456, align 4
   br label %proto_item_set_generated.exit296
 
-proto_item_set_generated.exit296:                 ; preds = %proto_item_set_generated.exit293, %451, %454
-  %458 = getelementptr inbounds i8, ptr %2, i64 1
-  %459 = load i8, ptr %458, align 1
-  %460 = zext i8 %459 to i32
-  %461 = tail call ptr @val_to_str_const(i32 noundef %460, ptr noundef nonnull @direction_vals, ptr noundef nonnull @.str.305) #13
-  %462 = getelementptr inbounds i8, ptr %2, i64 4
-  %463 = load i16, ptr %462, align 4
-  %464 = zext i16 %463 to i32
-  %465 = getelementptr inbounds i8, ptr %2, i64 6
-  %466 = load i16, ptr %465, align 2
-  %467 = zext i16 %466 to i32
-  %468 = tail call ptr @val_to_str_const(i32 noundef %467, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
-  %469 = getelementptr inbounds i8, ptr %2, i64 8
-  %470 = load i16, ptr %469, align 4
-  %471 = zext i16 %470 to i32
-  %472 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %450, ptr noundef nonnull @ei_rlc_lte_sequence_analysis_mac_retx, ptr noundef nonnull @.str.343, ptr noundef %461, i32 noundef %464, ptr noundef %468, i32 noundef %471) #13
-  br label %550
+proto_item_set_generated.exit296:                 ; preds = %proto_item_set_generated.exit293, %452, %455
+  %459 = getelementptr inbounds i8, ptr %2, i64 1
+  %460 = load i8, ptr %459, align 1
+  %461 = zext i8 %460 to i32
+  %462 = tail call ptr @val_to_str_const(i32 noundef %461, ptr noundef nonnull @direction_vals, ptr noundef nonnull @.str.305) #13
+  %463 = getelementptr inbounds i8, ptr %2, i64 4
+  %464 = load i16, ptr %463, align 4
+  %465 = zext i16 %464 to i32
+  %466 = getelementptr inbounds i8, ptr %2, i64 6
+  %467 = load i16, ptr %466, align 2
+  %468 = zext i16 %467 to i32
+  %469 = tail call ptr @val_to_str_const(i32 noundef %468, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
+  %470 = getelementptr inbounds i8, ptr %2, i64 8
+  %471 = load i16, ptr %470, align 4
+  %472 = zext i16 %471 to i32
+  %473 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %451, ptr noundef nonnull @ei_rlc_lte_sequence_analysis_mac_retx, ptr noundef nonnull @.str.343, ptr noundef %462, i32 noundef %465, ptr noundef %469, i32 noundef %472) #13
+  br label %551
 
-473:                                              ; preds = %proto_item_set_hidden.exit.thread
-  %474 = getelementptr inbounds i8, ptr %2, i64 1
-  %475 = load i8, ptr %474, align 1
-  %476 = zext i8 %475 to i32
-  %477 = tail call ptr @val_to_str_const(i32 noundef %476, ptr noundef nonnull @direction_vals, ptr noundef nonnull @.str.305) #13
-  %478 = getelementptr inbounds i8, ptr %2, i64 4
-  %479 = load i16, ptr %478, align 4
-  %480 = zext i16 %479 to i32
-  %481 = zext i16 %3 to i32
-  %482 = load i16, ptr %303, align 4
-  %483 = zext i16 %482 to i32
-  %484 = getelementptr inbounds i8, ptr %2, i64 6
-  %485 = load i16, ptr %484, align 2
-  %486 = zext i16 %485 to i32
-  %487 = tail call ptr @val_to_str_const(i32 noundef %486, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
-  %488 = getelementptr inbounds i8, ptr %2, i64 8
-  %489 = load i16, ptr %488, align 4
-  %490 = zext i16 %489 to i32
-  %491 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %306, ptr noundef nonnull @ei_rlc_lte_wrong_sequence_number, ptr noundef nonnull @.str.344, ptr noundef %477, i32 noundef %480, i32 noundef %481, i32 noundef %483, ptr noundef %487, i32 noundef %490) #13
-  br label %550
+474:                                              ; preds = %proto_item_set_hidden.exit.thread
+  %475 = getelementptr inbounds i8, ptr %2, i64 1
+  %476 = load i8, ptr %475, align 1
+  %477 = zext i8 %476 to i32
+  %478 = tail call ptr @val_to_str_const(i32 noundef %477, ptr noundef nonnull @direction_vals, ptr noundef nonnull @.str.305) #13
+  %479 = getelementptr inbounds i8, ptr %2, i64 4
+  %480 = load i16, ptr %479, align 4
+  %481 = zext i16 %480 to i32
+  %482 = zext i16 %3 to i32
+  %483 = load i16, ptr %303, align 4
+  %484 = zext i16 %483 to i32
+  %485 = getelementptr inbounds i8, ptr %2, i64 6
+  %486 = load i16, ptr %485, align 2
+  %487 = zext i16 %486 to i32
+  %488 = tail call ptr @val_to_str_const(i32 noundef %487, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
+  %489 = getelementptr inbounds i8, ptr %2, i64 8
+  %490 = load i16, ptr %489, align 4
+  %491 = zext i16 %490 to i32
+  %492 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %306, ptr noundef nonnull @ei_rlc_lte_wrong_sequence_number, ptr noundef nonnull @.str.344, ptr noundef %478, i32 noundef %481, i32 noundef %482, i32 noundef %484, ptr noundef %488, i32 noundef %491) #13
+  br label %551
 
 proto_item_set_hidden.exit.thread307:             ; preds = %316, %proto_item_set_generated.exit276.thread, %proto_item_set_hidden.exit
-  %492 = getelementptr i8, ptr %0, i64 12
-  %.val = load i32, ptr %492, align 4
+  %493 = getelementptr i8, ptr %0, i64 12
+  %.val = load i32, ptr %493, align 4
   %.not.i297 = icmp eq i32 %.val, 0
   %.not23.i = icmp eq i32 %4, 0
-  %493 = load i32, ptr @hf_rlc_lte_sequence_analysis_framing_info_correct, align 4
-  br i1 %.not.i297, label %513, label %494
+  %494 = load i32, ptr @hf_rlc_lte_sequence_analysis_framing_info_correct, align 4
+  br i1 %.not.i297, label %514, label %495
 
-494:                                              ; preds = %proto_item_set_hidden.exit.thread307
-  br i1 %.not23.i, label %508, label %495
+495:                                              ; preds = %proto_item_set_hidden.exit.thread307
+  br i1 %.not23.i, label %509, label %496
 
-495:                                              ; preds = %494
-  %496 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %493, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 0) #13
-  %497 = getelementptr inbounds i8, ptr %2, i64 4
-  %498 = load i16, ptr %497, align 4
-  %499 = zext i16 %498 to i32
-  %500 = getelementptr inbounds i8, ptr %2, i64 6
-  %501 = load i16, ptr %500, align 2
-  %502 = zext i16 %501 to i32
-  %503 = tail call ptr @val_to_str_const(i32 noundef %502, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
-  %504 = getelementptr inbounds i8, ptr %2, i64 8
-  %505 = load i16, ptr %504, align 4
-  %506 = zext i16 %505 to i32
-  %507 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %496, ptr noundef nonnull @ei_rlc_lte_sequence_analysis_last_segment_not_continued, ptr noundef nonnull @.str.345, i32 noundef %499, ptr noundef %503, i32 noundef %506) #13
+496:                                              ; preds = %495
+  %497 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %494, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 0) #13
+  %498 = getelementptr inbounds i8, ptr %2, i64 4
+  %499 = load i16, ptr %498, align 4
+  %500 = zext i16 %499 to i32
+  %501 = getelementptr inbounds i8, ptr %2, i64 6
+  %502 = load i16, ptr %501, align 2
+  %503 = zext i16 %502 to i32
+  %504 = tail call ptr @val_to_str_const(i32 noundef %503, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
+  %505 = getelementptr inbounds i8, ptr %2, i64 8
+  %506 = load i16, ptr %505, align 4
+  %507 = zext i16 %506 to i32
+  %508 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %497, ptr noundef nonnull @ei_rlc_lte_sequence_analysis_last_segment_not_continued, ptr noundef nonnull @.str.345, i32 noundef %500, ptr noundef %504, i32 noundef %507) #13
   br label %proto_item_set_hidden.exit.i
 
-508:                                              ; preds = %494
-  %509 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %493, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
-  %.not.i.i = icmp eq ptr %509, null
-  br i1 %.not.i.i, label %checkFIconsistency.exit, label %510
+509:                                              ; preds = %495
+  %510 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %494, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
+  %.not.i.i = icmp eq ptr %510, null
+  br i1 %.not.i.i, label %checkFIconsistency.exit, label %511
 
-510:                                              ; preds = %508
-  %511 = getelementptr inbounds i8, ptr %509, i64 32
-  %512 = load ptr, ptr %511, align 8
-  %.not5.i.i = icmp eq ptr %512, null
+511:                                              ; preds = %509
+  %512 = getelementptr inbounds i8, ptr %510, i64 32
+  %513 = load ptr, ptr %512, align 8
+  %.not5.i.i = icmp eq ptr %513, null
   br i1 %.not5.i.i, label %proto_item_set_hidden.exit.thread.i, label %proto_item_set_hidden.exit.thread.sink.split.i
 
-513:                                              ; preds = %proto_item_set_hidden.exit.thread307
-  br i1 %.not23.i, label %514, label %527
+514:                                              ; preds = %proto_item_set_hidden.exit.thread307
+  br i1 %.not23.i, label %515, label %528
 
-514:                                              ; preds = %513
-  %515 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %493, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 0) #13
-  %516 = getelementptr inbounds i8, ptr %2, i64 4
-  %517 = load i16, ptr %516, align 4
-  %518 = zext i16 %517 to i32
-  %519 = getelementptr inbounds i8, ptr %2, i64 6
-  %520 = load i16, ptr %519, align 2
-  %521 = zext i16 %520 to i32
-  %522 = tail call ptr @val_to_str_const(i32 noundef %521, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
-  %523 = getelementptr inbounds i8, ptr %2, i64 8
-  %524 = load i16, ptr %523, align 4
-  %525 = zext i16 %524 to i32
-  %526 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %515, ptr noundef nonnull @ei_rlc_lte_sequence_analysis_last_segment_complete, ptr noundef nonnull @.str.346, i32 noundef %518, ptr noundef %522, i32 noundef %525) #13
+515:                                              ; preds = %514
+  %516 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %494, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 0) #13
+  %517 = getelementptr inbounds i8, ptr %2, i64 4
+  %518 = load i16, ptr %517, align 4
+  %519 = zext i16 %518 to i32
+  %520 = getelementptr inbounds i8, ptr %2, i64 6
+  %521 = load i16, ptr %520, align 2
+  %522 = zext i16 %521 to i32
+  %523 = tail call ptr @val_to_str_const(i32 noundef %522, ptr noundef nonnull @rlc_channel_type_vals, ptr noundef nonnull @.str.305) #13
+  %524 = getelementptr inbounds i8, ptr %2, i64 8
+  %525 = load i16, ptr %524, align 4
+  %526 = zext i16 %525 to i32
+  %527 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %516, ptr noundef nonnull @ei_rlc_lte_sequence_analysis_last_segment_complete, ptr noundef nonnull @.str.346, i32 noundef %519, ptr noundef %523, i32 noundef %526) #13
   br label %proto_item_set_hidden.exit.i
 
-527:                                              ; preds = %513
-  %528 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %493, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
-  %.not.i25.i = icmp eq ptr %528, null
-  br i1 %.not.i25.i, label %checkFIconsistency.exit, label %529
+528:                                              ; preds = %514
+  %529 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %494, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
+  %.not.i25.i = icmp eq ptr %529, null
+  br i1 %.not.i25.i, label %checkFIconsistency.exit, label %530
 
-529:                                              ; preds = %527
-  %530 = getelementptr inbounds i8, ptr %528, i64 32
-  %531 = load ptr, ptr %530, align 8
-  %.not5.i26.i = icmp eq ptr %531, null
+530:                                              ; preds = %528
+  %531 = getelementptr inbounds i8, ptr %529, i64 32
+  %532 = load ptr, ptr %531, align 8
+  %.not5.i26.i = icmp eq ptr %532, null
   br i1 %.not5.i26.i, label %proto_item_set_hidden.exit.thread.i, label %proto_item_set_hidden.exit.thread.sink.split.i
 
-proto_item_set_hidden.exit.i:                     ; preds = %514, %495
-  %.0.i = phi ptr [ %496, %495 ], [ %515, %514 ]
+proto_item_set_hidden.exit.i:                     ; preds = %515, %496
+  %.0.i = phi ptr [ %497, %496 ], [ %516, %515 ]
   %.not.i28.i = icmp eq ptr %.0.i, null
   br i1 %.not.i28.i, label %checkFIconsistency.exit, label %proto_item_set_hidden.exit.thread.i
 
-proto_item_set_hidden.exit.thread.sink.split.i:   ; preds = %529, %510
-  %.sink11.i = phi ptr [ %512, %510 ], [ %531, %529 ]
-  %.03.ph.i = phi ptr [ %509, %510 ], [ %528, %529 ]
-  %532 = getelementptr inbounds i8, ptr %.sink11.i, i64 28
-  %533 = load i32, ptr %532, align 4
-  %534 = or i32 %533, 1
-  store i32 %534, ptr %532, align 4
+proto_item_set_hidden.exit.thread.sink.split.i:   ; preds = %530, %511
+  %.sink11.i = phi ptr [ %513, %511 ], [ %532, %530 ]
+  %.03.ph.i = phi ptr [ %510, %511 ], [ %529, %530 ]
+  %533 = getelementptr inbounds i8, ptr %.sink11.i, i64 28
+  %534 = load i32, ptr %533, align 4
+  %535 = or i32 %534, 1
+  store i32 %535, ptr %533, align 4
   br label %proto_item_set_hidden.exit.thread.i
 
-proto_item_set_hidden.exit.thread.i:              ; preds = %proto_item_set_hidden.exit.thread.sink.split.i, %proto_item_set_hidden.exit.i, %529, %510
-  %.03.i = phi ptr [ %.0.i, %proto_item_set_hidden.exit.i ], [ %528, %529 ], [ %509, %510 ], [ %.03.ph.i, %proto_item_set_hidden.exit.thread.sink.split.i ]
-  %535 = getelementptr inbounds i8, ptr %.03.i, i64 32
-  %536 = load ptr, ptr %535, align 8
-  %.not5.i29.i = icmp eq ptr %536, null
-  br i1 %.not5.i29.i, label %checkFIconsistency.exit, label %537
+proto_item_set_hidden.exit.thread.i:              ; preds = %proto_item_set_hidden.exit.thread.sink.split.i, %proto_item_set_hidden.exit.i, %530, %511
+  %.03.i = phi ptr [ %.0.i, %proto_item_set_hidden.exit.i ], [ %529, %530 ], [ %510, %511 ], [ %.03.ph.i, %proto_item_set_hidden.exit.thread.sink.split.i ]
+  %536 = getelementptr inbounds i8, ptr %.03.i, i64 32
+  %537 = load ptr, ptr %536, align 8
+  %.not5.i29.i = icmp eq ptr %537, null
+  br i1 %.not5.i29.i, label %checkFIconsistency.exit, label %538
 
-537:                                              ; preds = %proto_item_set_hidden.exit.thread.i
-  %538 = getelementptr inbounds i8, ptr %536, i64 28
-  %539 = load i32, ptr %538, align 4
-  %540 = or i32 %539, 2
-  store i32 %540, ptr %538, align 4
+538:                                              ; preds = %proto_item_set_hidden.exit.thread.i
+  %539 = getelementptr inbounds i8, ptr %537, i64 28
+  %540 = load i32, ptr %539, align 4
+  %541 = or i32 %540, 2
+  store i32 %541, ptr %539, align 4
   br label %checkFIconsistency.exit
 
-checkFIconsistency.exit:                          ; preds = %508, %527, %proto_item_set_hidden.exit.i, %proto_item_set_hidden.exit.thread.i, %537
-  %541 = load i32, ptr @hf_rlc_lte_sequence_analysis_ok, align 4
-  %542 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %541, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
-  %.not.i298 = icmp eq ptr %542, null
-  br i1 %.not.i298, label %proto_item_set_generated.exit300, label %543
+checkFIconsistency.exit:                          ; preds = %509, %528, %proto_item_set_hidden.exit.i, %proto_item_set_hidden.exit.thread.i, %538
+  %542 = load i32, ptr @hf_rlc_lte_sequence_analysis_ok, align 4
+  %543 = tail call ptr @proto_tree_add_boolean(ptr noundef %13, i32 noundef %542, ptr noundef %8, i32 noundef 0, i32 noundef 0, i64 noundef 1) #13
+  %.not.i298 = icmp eq ptr %543, null
+  br i1 %.not.i298, label %proto_item_set_generated.exit300, label %544
 
-543:                                              ; preds = %checkFIconsistency.exit
-  %544 = getelementptr inbounds i8, ptr %542, i64 32
-  %545 = load ptr, ptr %544, align 8
-  %.not5.i299 = icmp eq ptr %545, null
-  br i1 %.not5.i299, label %proto_item_set_generated.exit300, label %546
+544:                                              ; preds = %checkFIconsistency.exit
+  %545 = getelementptr inbounds i8, ptr %543, i64 32
+  %546 = load ptr, ptr %545, align 8
+  %.not5.i299 = icmp eq ptr %546, null
+  br i1 %.not5.i299, label %proto_item_set_generated.exit300, label %547
 
-546:                                              ; preds = %543
-  %547 = getelementptr inbounds i8, ptr %545, i64 28
-  %548 = load i32, ptr %547, align 4
-  %549 = or i32 %548, 2
-  store i32 %549, ptr %547, align 4
+547:                                              ; preds = %544
+  %548 = getelementptr inbounds i8, ptr %546, i64 28
+  %549 = load i32, ptr %548, align 4
+  %550 = or i32 %549, 2
+  store i32 %550, ptr %548, align 4
   br label %proto_item_set_generated.exit300
 
-proto_item_set_generated.exit300:                 ; preds = %checkFIconsistency.exit, %543, %546
+proto_item_set_generated.exit300:                 ; preds = %checkFIconsistency.exit, %544, %547
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.327) #13
-  br label %550
+  br label %551
 
-550:                                              ; preds = %proto_item_set_generated.exit290, %proto_item_set_generated.exit296, %473, %381, %350, %proto_item_set_generated.exit300
-  %551 = getelementptr inbounds i8, ptr %0, i64 16
-  %552 = load i32, ptr %551, align 4
-  %.not226 = icmp eq i32 %552, 0
-  br i1 %.not226, label %proto_item_set_generated.exit303, label %553
+551:                                              ; preds = %proto_item_set_generated.exit290, %proto_item_set_generated.exit296, %474, %382, %351, %proto_item_set_generated.exit300
+  %552 = getelementptr inbounds i8, ptr %0, i64 16
+  %553 = load i32, ptr %552, align 4
+  %.not226 = icmp eq i32 %553, 0
+  br i1 %.not226, label %proto_item_set_generated.exit303, label %554
 
-553:                                              ; preds = %550
-  %554 = load i32, ptr @hf_rlc_lte_sequence_analysis_next_frame, align 4
-  %555 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %554, ptr noundef %8, i32 noundef 0, i32 noundef 0, i32 noundef %552) #13
-  %.not.i301 = icmp eq ptr %555, null
-  br i1 %.not.i301, label %proto_item_set_generated.exit303, label %556
+554:                                              ; preds = %551
+  %555 = load i32, ptr @hf_rlc_lte_sequence_analysis_next_frame, align 4
+  %556 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %555, ptr noundef %8, i32 noundef 0, i32 noundef 0, i32 noundef %553) #13
+  %.not.i301 = icmp eq ptr %556, null
+  br i1 %.not.i301, label %proto_item_set_generated.exit303, label %557
 
-556:                                              ; preds = %553
-  %557 = getelementptr inbounds i8, ptr %555, i64 32
-  %558 = load ptr, ptr %557, align 8
-  %.not5.i302 = icmp eq ptr %558, null
-  br i1 %.not5.i302, label %proto_item_set_generated.exit303, label %559
+557:                                              ; preds = %554
+  %558 = getelementptr inbounds i8, ptr %556, i64 32
+  %559 = load ptr, ptr %558, align 8
+  %.not5.i302 = icmp eq ptr %559, null
+  br i1 %.not5.i302, label %proto_item_set_generated.exit303, label %560
 
-559:                                              ; preds = %556
-  %560 = getelementptr inbounds i8, ptr %558, i64 28
-  %561 = load i32, ptr %560, align 4
-  %562 = or i32 %561, 2
-  store i32 %562, ptr %560, align 4
+560:                                              ; preds = %557
+  %561 = getelementptr inbounds i8, ptr %559, i64 28
+  %562 = load i32, ptr %561, align 4
+  %563 = or i32 %562, 2
+  store i32 %563, ptr %561, align 4
   br label %proto_item_set_generated.exit303
 
-proto_item_set_generated.exit303:                 ; preds = %559, %556, %553, %550, %proto_item_set_generated.exit246, %proto_item_set_generated.exit252, %proto_item_set_generated.exit258, %proto_item_set_generated.exit273, %50, %proto_item_set_generated.exit240, %217, %221, %231, %34, %250, %167, %129, %91, %53, %37, %proto_item_set_generated.exit237
+proto_item_set_generated.exit303:                 ; preds = %560, %557, %554, %551, %proto_item_set_generated.exit246, %proto_item_set_generated.exit252, %proto_item_set_generated.exit258, %proto_item_set_generated.exit273, %50, %proto_item_set_generated.exit240, %217, %221, %231, %34, %250, %167, %129, %91, %53, %37, %proto_item_set_generated.exit237
   ret void
 }
 

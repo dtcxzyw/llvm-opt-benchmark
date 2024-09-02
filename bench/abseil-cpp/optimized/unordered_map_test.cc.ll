@@ -103481,7 +103481,11 @@ cleanup.cont100:                                  ; preds = %invoke.cont68
   %66 = load ptr, ptr %_M_finish.i80, align 8
   %add.ptr.i81 = getelementptr inbounds i8, ptr %54, i64 8
   %cmp.i.not3.i.i = icmp eq ptr %65, %66
-  br i1 %cmp.i.not3.i.i, label %invoke.cont114, label %for.body.i.i
+  br i1 %cmp.i.not3.i.i, label %invoke.cont114.thread, label %for.body.i.i
+
+invoke.cont114.thread:                            ; preds = %cleanup.cont100
+  store i64 0, ptr %ref.tmp104, align 8
+  br label %if.end.i.i
 
 for.body.i.i:                                     ; preds = %cleanup.cont100, %for.body.i.i
   %__n.05.i.i = phi i64 [ %spec.select.i.i, %for.body.i.i ], [ 0, %cleanup.cont100 ]
@@ -103491,25 +103495,20 @@ for.body.i.i:                                     ; preds = %cleanup.cont100, %f
   %spec.select.i.i = add nuw nsw i64 %__n.05.i.i, %inc.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i, i64 64
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %66
-  br i1 %cmp.i.not.i.i, label %invoke.cont114.loopexit, label %for.body.i.i, !llvm.loop !2005
+  br i1 %cmp.i.not.i.i, label %invoke.cont114, label %for.body.i.i, !llvm.loop !2005
 
-invoke.cont114.loopexit:                          ; preds = %for.body.i.i
+invoke.cont114:                                   ; preds = %for.body.i.i
   %.pre235 = load i32, ptr %ref.tmp103, align 4, !noalias !2006
-  br label %invoke.cont114
-
-invoke.cont114:                                   ; preds = %invoke.cont114.loopexit, %cleanup.cont100
-  %67 = phi i32 [ 1, %cleanup.cont100 ], [ %.pre235, %invoke.cont114.loopexit ]
-  %__n.0.lcssa.i.i = phi i64 [ 0, %cleanup.cont100 ], [ %spec.select.i.i, %invoke.cont114.loopexit ]
-  store i64 %__n.0.lcssa.i.i, ptr %ref.tmp104, align 8
-  %conv.i.i = sext i32 %67 to i64
-  %cmp.i.i82 = icmp eq i64 %__n.0.lcssa.i.i, %conv.i.i
+  %67 = sext i32 %.pre235 to i64
+  store i64 %spec.select.i.i, ptr %ref.tmp104, align 8
+  %cmp.i.i82 = icmp eq i64 %spec.select.i.i, %67
   br i1 %cmp.i.i82, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont114
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar102)
           to label %invoke.cont116 unwind label %lpad63.loopexit.split-lp
 
-if.end.i.i:                                       ; preds = %invoke.cont114
+if.end.i.i:                                       ; preds = %invoke.cont114.thread, %invoke.cont114
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIilEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar102, ptr noundef nonnull @.str.192, ptr noundef nonnull @.str.219, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp103, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp104)
           to label %invoke.cont116 unwind label %lpad63.loopexit.split-lp
 
@@ -103866,10 +103865,10 @@ if.end171:                                        ; preds = %_ZN7testing8interna
   br i1 %cmp.not.i.i183, label %cleanup173, label %cleanup173.sink.split
 
 cleanup173.sink.split:                            ; preds = %if.end171, %_ZN7testing7MessageD2Ev.exit66
-  %.sink237 = phi ptr [ %58, %_ZN7testing7MessageD2Ev.exit66 ], [ %101, %if.end171 ]
+  %.sink240 = phi ptr [ %58, %_ZN7testing7MessageD2Ev.exit66 ], [ %101, %if.end171 ]
   %message_.i60.sink.ph = phi ptr [ %message_.i60, %_ZN7testing7MessageD2Ev.exit66 ], [ %message_.i182, %if.end171 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink237) #25
-  call void @_ZdlPv(ptr noundef nonnull %.sink237) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink240) #25
+  call void @_ZdlPv(ptr noundef nonnull %.sink240) #29
   br label %cleanup173
 
 cleanup173:                                       ; preds = %cleanup173.sink.split, %if.end171, %_ZN7testing7MessageD2Ev.exit66
@@ -109630,7 +109629,11 @@ _ZN7testing15AssertionResultD2Ev.exit63:          ; preds = %if.end70, %_ZNKSt14
   %48 = load ptr, ptr %_M_before_begin.i.i, align 8
   %49 = load ptr, ptr %values, align 8
   %cmp.i.not3.i.i = icmp eq ptr %48, null
-  br i1 %cmp.i.not3.i.i, label %invoke.cont88, label %for.body.i.i
+  br i1 %cmp.i.not3.i.i, label %invoke.cont88.thread, label %for.body.i.i
+
+invoke.cont88.thread:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit63
+  store i64 0, ptr %ref.tmp74, align 8
+  br label %if.then.i.i67
 
 for.body.i.i:                                     ; preds = %_ZN7testing15AssertionResultD2Ev.exit63, %for.body.i.i
   %__n.05.i.i = phi i64 [ %spec.select.i.i, %for.body.i.i ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit63 ]
@@ -109641,21 +109644,16 @@ for.body.i.i:                                     ; preds = %_ZN7testing15Assert
   %spec.select.i.i = add nuw nsw i64 %__n.05.i.i, %inc.i.i
   %50 = load ptr, ptr %__first.sroa.0.04.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %50, null
-  br i1 %cmp.i.not.i.i, label %invoke.cont88.loopexit, label %for.body.i.i, !llvm.loop !2128
+  br i1 %cmp.i.not.i.i, label %invoke.cont88, label %for.body.i.i, !llvm.loop !2128
 
-invoke.cont88.loopexit:                           ; preds = %for.body.i.i
+invoke.cont88:                                    ; preds = %for.body.i.i
   %.pre = load i32, ptr %ref.tmp73, align 4, !noalias !2129
-  br label %invoke.cont88
-
-invoke.cont88:                                    ; preds = %invoke.cont88.loopexit, %_ZN7testing15AssertionResultD2Ev.exit63
-  %51 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit63 ], [ %.pre, %invoke.cont88.loopexit ]
-  %__n.0.lcssa.i.i = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit63 ], [ %spec.select.i.i, %invoke.cont88.loopexit ]
-  store i64 %__n.0.lcssa.i.i, ptr %ref.tmp74, align 8
-  %conv.i.i64 = sext i32 %51 to i64
-  %cmp.i.i65 = icmp eq i64 %__n.0.lcssa.i.i, %conv.i.i64
+  %51 = sext i32 %.pre to i64
+  store i64 %spec.select.i.i, ptr %ref.tmp74, align 8
+  %cmp.i.i65 = icmp eq i64 %spec.select.i.i, %51
   br i1 %cmp.i.i65, label %if.then.i.i67, label %if.end.i.i66
 
-if.then.i.i67:                                    ; preds = %invoke.cont88
+if.then.i.i67:                                    ; preds = %invoke.cont88.thread, %invoke.cont88
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar72)
           to label %invoke.cont90 unwind label %lpad24
 
@@ -110017,10 +110015,10 @@ if.end148:                                        ; preds = %_ZN7testing8interna
   br i1 %cmp.not.i.i167, label %cleanup150, label %cleanup150.sink.split
 
 cleanup150.sink.split:                            ; preds = %if.end148, %_ZN7testing7MessageD2Ev.exit
-  %.sink193 = phi ptr [ %29, %_ZN7testing7MessageD2Ev.exit ], [ %85, %if.end148 ]
+  %.sink196 = phi ptr [ %29, %_ZN7testing7MessageD2Ev.exit ], [ %85, %if.end148 ]
   %message_.i.i.sink.ph = phi ptr [ %message_.i.i, %_ZN7testing7MessageD2Ev.exit ], [ %message_.i166, %if.end148 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink193) #25
-  call void @_ZdlPv(ptr noundef nonnull %.sink193) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink196) #25
+  call void @_ZdlPv(ptr noundef nonnull %.sink196) #29
   br label %cleanup150
 
 cleanup150:                                       ; preds = %cleanup150.sink.split, %if.end148, %_ZN7testing7MessageD2Ev.exit

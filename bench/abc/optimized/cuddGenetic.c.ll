@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @large = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddGa(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = tail call i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noundef %2) #8
@@ -1075,7 +1075,7 @@ define internal range(i32 0, 2) i32 @array_compare(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @array_hash(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
+define internal range(i32 0, -2147483648) i32 @array_hash(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
   %3 = load i32, ptr @numvars, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge

@@ -3328,7 +3328,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h111e2dca10c5a557E(ptr noal
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf1ef8b2e2b25c90E.exit.i": ; preds = %177
-  %.0.sroa.speculated.i13.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i75, i64 1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i75, i64 1)
   %183 = sub i64 %.0.sroa.speculated.i.i, %.0133
   invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h87d7b09fdba8c46aE(ptr noalias noundef nonnull align 8 %50, i64 noundef %183, i64 noundef %.0.sroa.speculated.i13.i)
           to label %_ZN4core5slice4sort20provide_sorted_batch17hd162451a410b4359E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4271,7 +4271,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h4bdc8ffb3b38f2ebE(ptr noal
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf1ef8b2e2b25c90E.exit.i": ; preds = %177
-  %.0.sroa.speculated.i13.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i75, i64 1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i75, i64 1)
   %183 = sub i64 %.0.sroa.speculated.i.i, %.0133
   invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h991d45b2caea7763E(ptr noalias noundef nonnull align 8 %50, i64 noundef %183, i64 noundef %.0.sroa.speculated.i13.i)
           to label %_ZN4core5slice4sort20provide_sorted_batch17h4a5ead9ea3fed1adE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -5038,7 +5038,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17h663587dce7207450E(ptr noal
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7fa60fdd173b4d65E.exit.i": ; preds = %78
-  %.0.sroa.speculated.i13.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i75, i64 1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i75, i64 1)
   %84 = sub i64 %.0.sroa.speculated.i.i, %.0133
   invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h8d4cadd0bf3bc4afE(ptr noalias noundef nonnull align 8 %51, i64 noundef %84, i64 noundef %.0.sroa.speculated.i13.i, ptr %.val)
           to label %_ZN4core5slice4sort20provide_sorted_batch17h093e6af9d2c5a113E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -5639,7 +5639,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17he905dd6ba59d3a81E.exit: ; preds
 70:                                               ; preds = %67
   %71 = add i64 %.0142, 10
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %71, i64 %1)
-  %.0.sroa.speculated.i13.i = call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i73, i64 1)
+  %.0.sroa.speculated.i13.i = call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i73, i64 1)
   %72 = icmp ugt i64 %.0142, -11
   br i1 %72, label %.invoke242, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc57df99824cae65bE.exit.i"
 
@@ -6374,7 +6374,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hbf1fe522b93abe32E.exit: ; preds
 70:                                               ; preds = %67
   %71 = add i64 %.0142, 10
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %71, i64 %1)
-  %.0.sroa.speculated.i13.i = call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i73, i64 1)
+  %.0.sroa.speculated.i13.i = call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i73, i64 1)
   %72 = icmp ugt i64 %.0142, -11
   br i1 %72, label %.invoke242, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7e37bb7f904e0c7dE.exit.i"
 
@@ -7102,7 +7102,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i83, %.lr.
   br i1 %82, label %.invoke266, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf304d1272b2f5328E.exit.i"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf304d1272b2f5328E.exit.i": ; preds = %80
-  %.0.sroa.speculated.i13.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i105, i64 1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i105, i64 1)
   %83 = sub i64 %.0.sroa.speculated.i.i, %.0163
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1643)
   %84 = add nsw i64 %.0.sroa.speculated.i13.i, -1
@@ -7844,7 +7844,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h47b94f55769408abE.exit: ; preds
 84:                                               ; preds = %81
   %85 = add i64 %.0108, 10
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %85, i64 %1)
-  %.0.sroa.speculated.i13.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i71, i64 1)
+  %.0.sroa.speculated.i13.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i71, i64 1)
   %86 = icmp ugt i64 %.0108, -11
   br i1 %86, label %.invoke163, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf5858ba05dc5b6dE.exit.i"
 
@@ -8568,7 +8568,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hadde34edf7d9d92dE.exit: ; preds
 70:                                               ; preds = %67
   %71 = add i64 %.0142, 10
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %71, i64 %1)
-  %.0.sroa.speculated.i13.i = call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i73, i64 1)
+  %.0.sroa.speculated.i13.i = call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i73, i64 1)
   %72 = icmp ugt i64 %.0142, -11
   br i1 %72, label %.invoke242, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc2a1e61a3496df17E.exit.i"
 
@@ -9395,7 +9395,7 @@ define hidden void @_ZN4core5slice4sort10merge_sort17heb2c968258649565E(ptr noal
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haf1ef8b2e2b25c90E.exit.i": ; preds = %114
-  %.0.sroa.speculated.i13.i = call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i115, i64 1)
+  %.0.sroa.speculated.i13.i = call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i115, i64 1)
   %120 = sub i64 %.0.sroa.speculated.i.i, %.0173
   invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17hf22423571945c21aE(ptr noalias noundef nonnull align 8 %75, i64 noundef %120, i64 noundef %.0.sroa.speculated.i13.i, ptr %.val)
           to label %_ZN4core5slice4sort20provide_sorted_batch17h689e4831ed680ddeE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -31078,7 +31078,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i.i.i.i: ; preds = %146, 
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc7c34bbbfbba496fE.exit.i.i.i.i": ; preds = %510
-  %.0.sroa.speculated.i13.i.i.i.i = call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.i3.i.i.i, i64 1)
+  %.0.sroa.speculated.i13.i.i.i.i = call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %.sroa.0.0.i3.i.i.i, i64 1)
   %516 = sub i64 %.0.sroa.speculated.i.i.i.i.i, %.061.i.i.i
   invoke fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h913763bfbe490429E(ptr noalias noundef nonnull align 8 %433, i64 noundef %516, i64 noundef %.0.sroa.speculated.i13.i.i.i.i)
           to label %_ZN4core5slice4sort20provide_sorted_batch17h0343145e4c4faf08E.exit.i.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i.i.i
@@ -41517,10 +41517,10 @@ define hidden noundef zeroext i1 @_ZN11ide_assists8handlers16move_from_mod_rs16m
   br i1 %84, label %86, label %89
 
 86:                                               ; preds = %85
-  %87 = icmp eq i32 %55, %81
-  %88 = icmp eq i32 %56, %82
-  %.047 = select i1 %87, i1 %88, i1 false
-  br i1 %.047, label %91, label %179
+  %87 = icmp ne i32 %55, %81
+  %88 = icmp ne i32 %56, %82
+  %.047 = select i1 %87, i1 true, i1 %88
+  br i1 %.047, label %179, label %91
 
 89:                                               ; preds = %85
   %90 = load atomic i64, ptr @_ZN8cov_mark4__rt5LEVEL17hb6c01697fd339c13E monotonic, align 8
@@ -42082,10 +42082,10 @@ define hidden noundef zeroext i1 @_ZN11ide_assists8handlers14move_to_mod_rs14mov
   br i1 %84, label %179, label %86
 
 86:                                               ; preds = %85
-  %87 = icmp eq i32 %55, %81
-  %88 = icmp eq i32 %56, %82
-  %.047 = select i1 %87, i1 %88, i1 false
-  br i1 %.047, label %89, label %177
+  %87 = icmp ne i32 %55, %81
+  %88 = icmp ne i32 %56, %82
+  %.047 = select i1 %87, i1 true, i1 %88
+  br i1 %.047, label %177, label %89
 
 89:                                               ; preds = %86
   %90 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h29e88a43d2d1cb5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24)

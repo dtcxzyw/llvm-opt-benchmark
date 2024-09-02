@@ -334,7 +334,7 @@ declare i32 @uv__slurp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_cpu_info(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = alloca i64, align 8
@@ -716,16 +716,16 @@ read_models.exit:                                 ; preds = %32
 129:                                              ; preds = %128, %126
   %130 = call i32 @fclose(ptr noundef nonnull %124)
   %131 = load i64, ptr %3, align 8
+  %132 = udiv i64 %131, 1000
+  %133 = trunc i64 %132 to i32
   br label %read_cpufreq.exit.i
 
 read_cpufreq.exit.i:                              ; preds = %129, %.lr.ph.i38
-  %.0.i.i = phi i64 [ %131, %129 ], [ 0, %.lr.ph.i38 ]
+  %.0.i.i = phi i32 [ %133, %129 ], [ 0, %.lr.ph.i38 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
-  %132 = udiv i64 %.0.i.i, 1000
-  %133 = trunc i64 %132 to i32
   %134 = getelementptr inbounds %struct.uv_cpu_info_s, ptr %30, i64 %indvars.iv.i39, i32 1
-  store i32 %133, ptr %134, align 8
+  store i32 %.0.i.i, ptr %134, align 8
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, %29
   br i1 %exitcond.not.i41, label %read_speeds.exit, label %.lr.ph.i38, !llvm.loop !14

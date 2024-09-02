@@ -1167,11 +1167,11 @@ complete_tab_node.exit:                           ; preds = %tm_complete_obj_wei
   %209 = getelementptr inbounds double, ptr %198, i64 %indvars.iv91.i.i
   br label %210
 
-210:                                              ; preds = %233, %.preheader.us.i.i
-  %indvars.iv86.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next87.i.i, %233 ]
-  %.172.us.i.i = phi i64 [ %.077.us.i.i, %.preheader.us.i.i ], [ %.2.us.i.i, %233 ]
+210:                                              ; preds = %235, %.preheader.us.i.i
+  %indvars.iv86.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next87.i.i, %235 ]
+  %.172.us.i.i = phi i64 [ %.077.us.i.i, %.preheader.us.i.i ], [ %.2.us.i.i, %235 ]
   %211 = icmp eq i64 %indvars.iv91.i.i, %indvars.iv86.i.i
-  br i1 %211, label %230, label %212
+  br i1 %211, label %232, label %212
 
 212:                                              ; preds = %210
   %213 = load ptr, ptr %206, align 8
@@ -1193,24 +1193,24 @@ complete_tab_node.exit:                           ; preds = %tm_complete_obj_wei
   %228 = load double, ptr %209, align 8
   %229 = fadd double %228, %225
   store double %229, ptr %209, align 8
-  br label %233
+  %230 = fcmp une double %225, 0.000000e+00
+  %231 = zext i1 %230 to i64
+  br label %235
 
-230:                                              ; preds = %210
-  %231 = load ptr, ptr %208, align 8
-  %232 = getelementptr inbounds double, ptr %231, i64 %indvars.iv91.i.i
-  store double 0.000000e+00, ptr %232, align 8
-  br label %233
+232:                                              ; preds = %210
+  %233 = load ptr, ptr %208, align 8
+  %234 = getelementptr inbounds double, ptr %233, i64 %indvars.iv91.i.i
+  store double 0.000000e+00, ptr %234, align 8
+  br label %235
 
-233:                                              ; preds = %230, %212
-  %234 = phi double [ 0.000000e+00, %230 ], [ %225, %212 ]
-  %235 = fcmp une double %234, 0.000000e+00
-  %236 = zext i1 %235 to i64
-  %.2.us.i.i = add nsw i64 %.172.us.i.i, %236
+235:                                              ; preds = %232, %212
+  %236 = phi i64 [ 0, %232 ], [ %231, %212 ]
+  %.2.us.i.i = add nsw i64 %236, %.172.us.i.i
   %indvars.iv.next87.i.i = add nuw nsw i64 %indvars.iv86.i.i, 1
   %exitcond90.not.i.i = icmp eq i64 %indvars.iv.next87.i.i, %wide.trip.count94.i.i
   br i1 %exitcond90.not.i.i, label %._crit_edge74.us.i.i, label %210, !llvm.loop !23
 
-._crit_edge74.us.i.i:                             ; preds = %233
+._crit_edge74.us.i.i:                             ; preds = %235
   %indvars.iv.next92.i.i = add nuw nsw i64 %indvars.iv91.i.i, 1
   %exitcond95.not.i.i = icmp eq i64 %indvars.iv.next92.i.i, %wide.trip.count94.i.i
   br i1 %exitcond95.not.i.i, label %._crit_edge78.i.i, label %.preheader.us.i.i, !llvm.loop !24
@@ -1453,22 +1453,22 @@ fast_grouping.exit.i:                             ; preds = %335, %267
 341:                                              ; preds = %336
   %puts150.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.16)
   %.pre319.i = load i32, ptr @verbose_level, align 4
+  %342 = icmp sgt i32 %.pre319.i, 5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
-  %342 = getelementptr inbounds i8, ptr %.057.i.i, i64 16
-  %343 = load i32, ptr %342, align 8
-  %344 = load ptr, ptr %.057.i.i, align 8
-  store ptr %344, ptr %15, align 8
-  %345 = getelementptr inbounds i8, ptr %15, i64 8
-  store i32 %343, ptr %345, align 8
-  %346 = icmp sgt i32 %.pre319.i, 5
-  br i1 %346, label %347, label %349
+  %343 = getelementptr inbounds i8, ptr %.057.i.i, i64 16
+  %344 = load i32, ptr %343, align 8
+  %345 = load ptr, ptr %.057.i.i, align 8
+  store ptr %345, ptr %15, align 8
+  %346 = getelementptr inbounds i8, ptr %15, i64 8
+  store i32 %344, ptr %346, align 8
+  br i1 %342, label %347, label %349
 
 347:                                              ; preds = %341
-  %348 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %343, i32 noundef %149, i32 noundef %2)
+  %348 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %344, i32 noundef %149, i32 noundef %2)
   br label %349
 
 349:                                              ; preds = %347, %341, %.thread321.i
-  %350 = phi i32 [ %338, %.thread321.i ], [ %343, %347 ], [ %343, %341 ]
+  %350 = phi i32 [ %338, %.thread321.i ], [ %344, %347 ], [ %344, %341 ]
   %351 = call ptr @tm_kpartition(i32 noundef %149, ptr noundef nonnull %15, i32 noundef %350, ptr noundef null, i32 noundef 0) #23
   %352 = call noalias ptr @calloc(i64 noundef %150, i64 noundef 4) #28
   %353 = icmp sgt i32 %350, 0

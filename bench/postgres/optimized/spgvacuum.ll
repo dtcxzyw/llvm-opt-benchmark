@@ -844,8 +844,8 @@ BufferGetPage.exit:                               ; preds = %15, %21
   %32 = trunc i32 %31 to i16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(818) %12, i8 0, i64 818, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(409) %13, i8 0, i64 409, i1 false)
-  %.not131204 = icmp eq i16 %32, 0
-  %.not131 = select i1 %28, i1 true, i1 %.not131204
+  %.not131222 = icmp eq i16 %32, 0
+  %.not131 = select i1 %28, i1 true, i1 %.not131222
   br i1 %.not131, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit
@@ -995,12 +995,12 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %invariant.gep = getelementptr i8, ptr %.0.i.i, i64 4
   br label %107
 
-107:                                              ; preds = %.lr.ph173, %180
-  %.1100171 = phi i16 [ 1, %.lr.ph173 ], [ %182, %180 ]
-  %.promoted154170 = phi i16 [ 0, %.lr.ph173 ], [ %.promoted150, %180 ]
-  %.promoted135159169 = phi i16 [ 0, %.lr.ph173 ], [ %.promoted135155, %180 ]
-  %.promoted136165168 = phi i16 [ 0, %.lr.ph173 ], [ %.promoted136161, %180 ]
-  %108 = phi i16 [ 0, %.lr.ph173 ], [ %181, %180 ]
+107:                                              ; preds = %.lr.ph173, %.thread
+  %.1100171 = phi i16 [ 1, %.lr.ph173 ], [ %182, %.thread ]
+  %.promoted154170 = phi i16 [ 0, %.lr.ph173 ], [ %.promoted150, %.thread ]
+  %.promoted135159169 = phi i16 [ 0, %.lr.ph173 ], [ %.promoted135155, %.thread ]
+  %.promoted136165168 = phi i16 [ 0, %.lr.ph173 ], [ %.promoted136161, %.thread ]
+  %108 = phi i16 [ 0, %.lr.ph173 ], [ %181, %.thread ]
   %109 = zext i16 %.1100171 to i64
   %110 = add nsw i64 %109, -1
   %111 = getelementptr [0 x %struct.ItemIdData], ptr %106, i64 0, i64 %110
@@ -1011,13 +1011,13 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %115 = load i32, ptr %114, align 4
   %116 = and i32 %115, 3
   %.not115 = icmp eq i32 %116, 0
-  br i1 %.not115, label %117, label %180
+  br i1 %.not115, label %117, label %.thread
 
 117:                                              ; preds = %107
   %118 = getelementptr [409 x i16], ptr %12, i64 0, i64 %109
   %119 = load i16, ptr %118, align 2
   %.not116 = icmp eq i16 %119, 0
-  br i1 %.not116, label %120, label %180
+  br i1 %.not116, label %120, label %.thread
 
 120:                                              ; preds = %117
   %121 = getelementptr [409 x i8], ptr %13, i64 0, i64 %109
@@ -1028,7 +1028,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %.0106.in138 = load i16, ptr %gep137, align 4
   %.0106139 = and i16 %.0106.in138, 16383
   %.not117140 = icmp eq i16 %.0106139, 0
-  br i1 %.not117140, label %._crit_edge146, label %.lr.ph145
+  br i1 %.not117140, label %._crit_edge146.thread, label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %120, %164
   %.promoted136163 = phi i16 [ %.promoted136162, %164 ], [ %.promoted136165168, %120 ]
@@ -1119,47 +1119,49 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %.not117 = icmp eq i16 %.0106, 0
   br i1 %.not117, label %._crit_edge146, label %.lr.ph145, !llvm.loop !15
 
-._crit_edge146:                                   ; preds = %164, %120
-  %.promoted136164 = phi i16 [ %.promoted136165168, %120 ], [ %.promoted136162, %164 ]
-  %.promoted135158 = phi i16 [ %.promoted135159169, %120 ], [ %.promoted135156, %164 ]
-  %.promoted153 = phi i16 [ %.promoted154170, %120 ], [ %.promoted151, %164 ]
-  %.0104.lcssa = phi i16 [ %124, %120 ], [ %.1105, %164 ]
-  %.0102.lcssa = phi i8 [ 0, %120 ], [ %.1103, %164 ]
-  %168 = icmp eq i16 %.0104.lcssa, 0
-  br i1 %168, label %169, label %173
+._crit_edge146:                                   ; preds = %164
+  %168 = icmp eq i16 %.1105, 0
+  br i1 %168, label %170, label %174
 
-169:                                              ; preds = %._crit_edge146
-  %170 = zext i16 %108 to i64
-  %171 = getelementptr [408 x i16], ptr %6, i64 0, i64 %170
-  store i16 %.1100171, ptr %171, align 2
-  %172 = add i16 %108, 1
-  store i16 %172, ptr %5, align 8
-  br label %180
+._crit_edge146.thread:                            ; preds = %120
+  %169 = icmp eq i16 %124, 0
+  br i1 %169, label %170, label %.thread
 
-173:                                              ; preds = %._crit_edge146
-  %174 = trunc nuw i8 %.0102.lcssa to i1
-  br i1 %174, label %175, label %180
+170:                                              ; preds = %._crit_edge146.thread, %._crit_edge146
+  %.promoted153207 = phi i16 [ %.promoted154170, %._crit_edge146.thread ], [ %.promoted151, %._crit_edge146 ]
+  %.promoted135158205 = phi i16 [ %.promoted135159169, %._crit_edge146.thread ], [ %.promoted135156, %._crit_edge146 ]
+  %.promoted136164203 = phi i16 [ %.promoted136165168, %._crit_edge146.thread ], [ %.promoted136162, %._crit_edge146 ]
+  %171 = zext i16 %108 to i64
+  %172 = getelementptr [408 x i16], ptr %6, i64 0, i64 %171
+  store i16 %.1100171, ptr %172, align 2
+  %173 = add i16 %108, 1
+  store i16 %173, ptr %5, align 8
+  br label %.thread
 
-175:                                              ; preds = %173
-  %176 = zext i16 %.promoted153 to i64
-  %177 = getelementptr [408 x i16], ptr %10, i64 0, i64 %176
-  store i16 %.0104.lcssa, ptr %177, align 2
-  %178 = getelementptr [408 x i16], ptr %11, i64 0, i64 %176
-  store i16 0, ptr %178, align 2
-  %179 = add i16 %.promoted153, 1
-  store i16 %179, ptr %103, align 2
-  br label %180
+174:                                              ; preds = %._crit_edge146
+  %175 = trunc nuw i8 %.1103 to i1
+  br i1 %175, label %176, label %.thread
 
-180:                                              ; preds = %169, %175, %173, %117, %107
-  %181 = phi i16 [ %172, %169 ], [ %108, %175 ], [ %108, %173 ], [ %108, %117 ], [ %108, %107 ]
-  %.promoted136161 = phi i16 [ %.promoted136164, %169 ], [ %.promoted136164, %175 ], [ %.promoted136164, %173 ], [ %.promoted136165168, %117 ], [ %.promoted136165168, %107 ]
-  %.promoted135155 = phi i16 [ %.promoted135158, %169 ], [ %.promoted135158, %175 ], [ %.promoted135158, %173 ], [ %.promoted135159169, %117 ], [ %.promoted135159169, %107 ]
-  %.promoted150 = phi i16 [ %.promoted153, %169 ], [ %179, %175 ], [ %.promoted153, %173 ], [ %.promoted154170, %117 ], [ %.promoted154170, %107 ]
+176:                                              ; preds = %174
+  %177 = zext i16 %.promoted151 to i64
+  %178 = getelementptr [408 x i16], ptr %10, i64 0, i64 %177
+  store i16 %.1105, ptr %178, align 2
+  %179 = getelementptr [408 x i16], ptr %11, i64 0, i64 %177
+  store i16 0, ptr %179, align 2
+  %180 = add i16 %.promoted151, 1
+  store i16 %180, ptr %103, align 2
+  br label %.thread
+
+.thread:                                          ; preds = %._crit_edge146.thread, %170, %176, %174, %117, %107
+  %181 = phi i16 [ %173, %170 ], [ %108, %176 ], [ %108, %174 ], [ %108, %117 ], [ %108, %107 ], [ %108, %._crit_edge146.thread ]
+  %.promoted136161 = phi i16 [ %.promoted136164203, %170 ], [ %.promoted136162, %176 ], [ %.promoted136162, %174 ], [ %.promoted136165168, %117 ], [ %.promoted136165168, %107 ], [ %.promoted136165168, %._crit_edge146.thread ]
+  %.promoted135155 = phi i16 [ %.promoted135158205, %170 ], [ %.promoted135156, %176 ], [ %.promoted135156, %174 ], [ %.promoted135159169, %117 ], [ %.promoted135159169, %107 ], [ %.promoted135159169, %._crit_edge146.thread ]
+  %.promoted150 = phi i16 [ %.promoted153207, %170 ], [ %180, %176 ], [ %.promoted151, %174 ], [ %.promoted154170, %117 ], [ %.promoted154170, %107 ], [ %.promoted154170, %._crit_edge146.thread ]
   %182 = add i16 %.1100171, 1
   %.not113 = icmp ugt i16 %182, %32
   br i1 %.not113, label %._crit_edge174.loopexit, label %107, !llvm.loop !16
 
-._crit_edge174.loopexit:                          ; preds = %180
+._crit_edge174.loopexit:                          ; preds = %.thread
   %183 = zext i16 %181 to i32
   %184 = zext i16 %.promoted136161 to i32
   %185 = add nuw nsw i32 %184, %183

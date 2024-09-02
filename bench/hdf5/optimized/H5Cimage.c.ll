@@ -2017,9 +2017,9 @@ define range(i32 -1, 1) i32 @H5C__prep_image_for_file_close(ptr noundef %0, ptr 
 35:                                               ; preds = %30
   %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 527620
   %.pre62 = load i8, ptr %.phi.trans.insert, align 4
-  %36 = getelementptr inbounds i8, ptr %10, i64 527620
-  %37 = trunc i8 %.pre62 to i1
-  br i1 %37, label %38, label %475
+  %36 = trunc i8 %.pre62 to i1
+  %37 = getelementptr inbounds i8, ptr %10, i64 527620
+  br i1 %36, label %38, label %475
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %10, i64 527628
@@ -2845,7 +2845,7 @@ H5C__write_cache_image_superblock_msg.exit46:     ; preds = %364
   br label %475
 
 473:                                              ; preds = %466, %463
-  store i8 0, ptr %36, align 4
+  store i8 0, ptr %37, align 4
   br label %474
 
 474:                                              ; preds = %473, %.loopexit

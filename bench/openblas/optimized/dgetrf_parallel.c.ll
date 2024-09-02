@@ -213,7 +213,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   %149 = add i64 %148, %142
   %150 = trunc i64 %149 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  br i1 %146, label %157, label %151
+  br i1 %146, label %158, label %151
 
 151:                                              ; preds = %147
   %152 = and i64 %144, 4294967295
@@ -226,56 +226,56 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   %.pre = load i64, ptr %70, align 8, !tbaa !15
   %.pre42 = add i64 %.pre, %143
   %.pre44 = and i64 %.pre42, 4294967294
-  br label %157
+  %157 = icmp eq i64 %.pre44, 0
+  br label %158
 
-157:                                              ; preds = %151, %147
-  %.pre-phi45 = phi i64 [ %.pre44, %151 ], [ 0, %147 ]
+158:                                              ; preds = %151, %147
+  %.pre-phi45 = phi i1 [ %157, %151 ], [ true, %147 ]
   %.pre-phi43 = phi i64 [ %.pre42, %151 ], [ %144, %147 ]
-  %158 = phi i64 [ %.pre, %151 ], [ %142, %147 ]
-  %159 = phi i32 [ %.0..0..0..0., %151 ], [ %150, %147 ]
+  %159 = phi i64 [ %.pre, %151 ], [ %142, %147 ]
+  %160 = phi i32 [ %.0..0..0..0., %151 ], [ %150, %147 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %160 = zext i32 %159 to i64
-  %161 = icmp eq i32 %159, 0
-  %162 = select i1 %161, i64 %140, i64 %160
-  %163 = call i64 @llvm.umin.i64(i64 %140, i64 %162)
-  %164 = sub nsw i64 %140, %163
-  %165 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %138
-  %166 = load i64, ptr %165, align 8, !tbaa !13
-  %167 = add nsw i64 %163, %166
-  %168 = add nuw nsw i64 %138, 1
-  %169 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %168
-  store i64 %167, ptr %169, align 8, !tbaa !13
-  %170 = add i64 %139, %137
-  %171 = add i64 %170, %158
-  %172 = trunc i64 %171 to i32
+  %161 = zext i32 %160 to i64
+  %162 = icmp eq i32 %160, 0
+  %163 = select i1 %162, i64 %140, i64 %161
+  %164 = call i64 @llvm.umin.i64(i64 %140, i64 %163)
+  %165 = sub nsw i64 %140, %164
+  %166 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %138
+  %167 = load i64, ptr %166, align 8, !tbaa !13
+  %168 = add nsw i64 %164, %167
+  %169 = add nuw nsw i64 %138, 1
+  %170 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %169
+  store i64 %168, ptr %170, align 8, !tbaa !13
+  %171 = add i64 %139, %137
+  %172 = add i64 %171, %159
+  %173 = trunc i64 %172 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %173 = icmp eq i64 %.pre-phi45, 0
-  br i1 %173, label %180, label %174
+  br i1 %.pre-phi45, label %180, label %174
 
-174:                                              ; preds = %157
+174:                                              ; preds = %158
   %175 = and i64 %.pre-phi43, 4294967295
   %176 = getelementptr inbounds [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !21
-  %178 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %177, i32 %172) #6, !srcloc !23
+  %178 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %177, i32 %173) #6, !srcloc !23
   %179 = extractvalue { i32, i32 } %178, 0
   store volatile i32 %179, ptr %9, align 4, !tbaa !21
   %.0..0..0..0.1 = load volatile i32, ptr %9, align 4, !tbaa !21
   br label %180
 
-180:                                              ; preds = %174, %157
-  %181 = phi i32 [ %.0..0..0..0.1, %174 ], [ %172, %157 ]
+180:                                              ; preds = %174, %158
+  %181 = phi i32 [ %.0..0..0..0.1, %174 ], [ %173, %158 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %182 = zext i32 %181 to i64
   %183 = icmp eq i32 %181, 0
   %184 = select i1 %183, i64 %139, i64 %182
   %185 = call i64 @llvm.umin.i64(i64 %139, i64 %184)
-  %186 = icmp slt i64 %164, 1
+  %186 = icmp slt i64 %165, 1
   %187 = select i1 %186, i64 %139, i64 %185
   %188 = sub nsw i64 %139, %187
   %189 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %138
   %190 = load i64, ptr %189, align 8, !tbaa !13
   %191 = add nsw i64 %187, %190
-  %192 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %168
+  %192 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %169
   store i64 %191, ptr %192, align 8, !tbaa !13
   br label %239
 
@@ -284,7 +284,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   %195 = add i64 %194, %142
   %196 = trunc i64 %195 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  br i1 %146, label %203, label %197
+  br i1 %146, label %204, label %197
 
 197:                                              ; preds = %193
   %198 = and i64 %144, 4294967295
@@ -297,63 +297,63 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   %.pre36 = load i64, ptr %70, align 8, !tbaa !15
   %.pre38 = add i64 %.pre36, %143
   %.pre39 = and i64 %.pre38, 4294967294
-  br label %203
+  %203 = icmp eq i64 %.pre39, 0
+  br label %204
 
-203:                                              ; preds = %197, %193
-  %.pre-phi40 = phi i64 [ %.pre39, %197 ], [ 0, %193 ]
+204:                                              ; preds = %197, %193
+  %.pre-phi40 = phi i1 [ %203, %197 ], [ true, %193 ]
   %.pre-phi = phi i64 [ %.pre38, %197 ], [ %144, %193 ]
-  %204 = phi i64 [ %.pre36, %197 ], [ %142, %193 ]
-  %205 = phi i32 [ %.0..0..0..0.2, %197 ], [ %196, %193 ]
+  %205 = phi i64 [ %.pre36, %197 ], [ %142, %193 ]
+  %206 = phi i32 [ %.0..0..0..0.2, %197 ], [ %196, %193 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %206 = zext i32 %205 to i64
-  %207 = icmp eq i32 %205, 0
-  %208 = select i1 %207, i64 %139, i64 %206
-  %209 = call i64 @llvm.smin.i64(i64 %139, i64 %208)
-  %210 = sub nsw i64 %139, %209
-  %211 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %138
-  %212 = load i64, ptr %211, align 8, !tbaa !13
-  %213 = add nsw i64 %209, %212
-  %214 = add nuw nsw i64 %138, 1
-  %215 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %214
-  store i64 %213, ptr %215, align 8, !tbaa !13
-  %216 = add i64 %140, %137
-  %217 = add i64 %216, %204
-  %218 = trunc i64 %217 to i32
+  %207 = zext i32 %206 to i64
+  %208 = icmp eq i32 %206, 0
+  %209 = select i1 %208, i64 %139, i64 %207
+  %210 = call i64 @llvm.smin.i64(i64 %139, i64 %209)
+  %211 = sub nsw i64 %139, %210
+  %212 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %138
+  %213 = load i64, ptr %212, align 8, !tbaa !13
+  %214 = add nsw i64 %210, %213
+  %215 = add nuw nsw i64 %138, 1
+  %216 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %215
+  store i64 %214, ptr %216, align 8, !tbaa !13
+  %217 = add i64 %140, %137
+  %218 = add i64 %217, %205
+  %219 = trunc i64 %218 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %219 = icmp eq i64 %.pre-phi40, 0
-  br i1 %219, label %226, label %220
+  br i1 %.pre-phi40, label %226, label %220
 
-220:                                              ; preds = %203
+220:                                              ; preds = %204
   %221 = and i64 %.pre-phi, 4294967295
   %222 = getelementptr inbounds [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %221
   %223 = load i32, ptr %222, align 4, !tbaa !21
-  %224 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %223, i32 %218) #6, !srcloc !23
+  %224 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %223, i32 %219) #6, !srcloc !23
   %225 = extractvalue { i32, i32 } %224, 0
   store volatile i32 %225, ptr %7, align 4, !tbaa !21
   %.0..0..0..0.3 = load volatile i32, ptr %7, align 4, !tbaa !21
   br label %226
 
-226:                                              ; preds = %220, %203
-  %227 = phi i32 [ %.0..0..0..0.3, %220 ], [ %218, %203 ]
+226:                                              ; preds = %220, %204
+  %227 = phi i32 [ %.0..0..0..0.3, %220 ], [ %219, %204 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %228 = zext i32 %227 to i64
   %229 = icmp eq i32 %227, 0
   %230 = select i1 %229, i64 %140, i64 %228
   %231 = call i64 @llvm.umin.i64(i64 %140, i64 %230)
-  %232 = icmp slt i64 %210, 1
+  %232 = icmp slt i64 %211, 1
   %233 = select i1 %232, i64 %140, i64 %231
   %234 = sub nsw i64 %140, %233
   %235 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %138
   %236 = load i64, ptr %235, align 8, !tbaa !13
   %237 = add nsw i64 %233, %236
-  %238 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %214
+  %238 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %215
   store i64 %237, ptr %238, align 8, !tbaa !13
   br label %239
 
 239:                                              ; preds = %226, %180
-  %.pre-phi41 = phi i64 [ %214, %226 ], [ %168, %180 ]
-  %240 = phi i64 [ %234, %226 ], [ %164, %180 ]
-  %241 = phi i64 [ %210, %226 ], [ %188, %180 ]
+  %.pre-phi41 = phi i64 [ %215, %226 ], [ %169, %180 ]
+  %240 = phi i64 [ %234, %226 ], [ %165, %180 ]
+  %241 = phi i64 [ %211, %226 ], [ %188, %180 ]
   %242 = getelementptr inbounds [16 x %struct.blas_queue], ptr %14, i64 0, i64 %138
   %243 = getelementptr inbounds i8, ptr %242, i64 160
   store i32 3, ptr %243, align 8, !tbaa !24

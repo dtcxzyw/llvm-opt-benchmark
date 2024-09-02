@@ -83,7 +83,7 @@ define hidden noundef i64 @_ZN11ZHeuristics25significant_heap_overheadEv() local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN11ZHeuristics17nparallel_workersEv() local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 1, 0) i32 @_ZN11ZHeuristics17nparallel_workersEv() local_unnamed_addr #1 align 2 {
   %1 = load i32, ptr @_ZN2os31_initial_active_processor_countE, align 4
   %2 = sitofp i32 %1 to double
   %3 = fmul double %2, 6.000000e+01
@@ -101,7 +101,7 @@ define hidden noundef i32 @_ZN11ZHeuristics17nparallel_workersEv() local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN11ZHeuristics19nconcurrent_workersEv() local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 1, 0) i32 @_ZN11ZHeuristics19nconcurrent_workersEv() local_unnamed_addr #1 align 2 {
   %1 = load i32, ptr @_ZN2os31_initial_active_processor_countE, align 4
   %2 = sitofp i32 %1 to double
   %3 = fmul double %2, 2.500000e+01

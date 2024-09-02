@@ -817,7 +817,7 @@ Gia_ObjHaveEdge.exit:                             ; preds = %3, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManEvalEdgeDelay(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Gia_ManEvalEdgeDelay(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1665,7 +1665,7 @@ Vec_IntCountPositive.exit9:                       ; preds = %22, %Vec_IntCountPo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Gia_ObjComputeEdgeDelay(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #6 {
+define range(i32 -2147483638, -2147483648) i32 @Gia_ObjComputeEdgeDelay(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #6 {
   %7 = getelementptr i8, ptr %3, i64 8
   %.val151 = load ptr, ptr %7, align 8
   %8 = sext i32 %1 to i64
@@ -2053,7 +2053,7 @@ Gia_ObjEdgeAdd.exit198:                           ; preds = %Gia_ObjEdgeAdd.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManComputeEdgeDelay(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Gia_ManComputeEdgeDelay(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2931,7 +2931,7 @@ Gia_ObjEdgeAdd.exit194:                           ; preds = %Gia_ObjEdgeAdd.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManComputeEdgeDelay2(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Gia_ManComputeEdgeDelay2(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val65 = load i32, ptr %2, align 8
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
@@ -3367,7 +3367,7 @@ define void @Gia_ManUpdateMapping(ptr nocapture noundef readonly %0, ptr nocaptu
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManEvalWindowInc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Gia_ManEvalWindowInc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.Vec_Int_t_, align 8
   %8 = alloca %struct.Vec_Int_t_, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
@@ -3533,7 +3533,7 @@ Gia_ManUpdateMapping.exit40:                      ; preds = %75, %.critedge
 declare void @Gia_ManCollectTfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManEvalWindow(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Gia_ManEvalWindow(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readnone %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.Vec_Int_t_, align 8
   %8 = alloca %struct.Vec_Int_t_, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
@@ -4072,7 +4072,7 @@ Vec_WecPush.exit55:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Edg_ManEvalEdgeDelay(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Edg_ManEvalEdgeDelay(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -4179,16 +4179,16 @@ Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntGrow.ex
   %42 = getelementptr inbounds i8, ptr %0, i64 360
   br label %43
 
-43:                                               ; preds = %.lr.ph, %75
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %75 ]
-  %.034 = phi i32 [ 0, %.lr.ph ], [ %.1, %75 ]
+43:                                               ; preds = %.lr.ph, %74
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %74 ]
+  %.034 = phi i32 [ 0, %.lr.ph ], [ %.1, %74 ]
   %.val23 = load ptr, ptr %40, align 8
   %44 = getelementptr i8, ptr %.val23, i64 8
   %.val23.val = load ptr, ptr %44, align 8
   %45 = getelementptr %struct.Vec_Int_t_, ptr %.val23.val, i64 %indvars.iv, i32 1
   %.val.i = load i32, ptr %45, align 4
   %.not31 = icmp eq i32 %.val.i, 0
-  br i1 %.not31, label %75, label %46
+  br i1 %.not31, label %74, label %46
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %2, align 8
@@ -4215,7 +4215,7 @@ Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntGrow.ex
 
 55:                                               ; preds = %Gia_ObjHaveEdge.exit.i, %.lr.ph.i25
   %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.i25 ], [ %indvars.iv.next.i29, %Gia_ObjHaveEdge.exit.i ]
-  %.022.i = phi i32 [ 0, %.lr.ph.i25 ], [ %72, %Gia_ObjHaveEdge.exit.i ]
+  %.022.i = phi i32 [ 0, %.lr.ph.i25 ], [ %71, %Gia_ObjHaveEdge.exit.i ]
   %56 = getelementptr inbounds i32, ptr %.val.i19.i, i64 %indvars.iv.i28
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
@@ -4230,42 +4230,41 @@ Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntGrow.ex
   %.val.i20.i = load ptr, ptr %64, align 8
   %65 = getelementptr inbounds i32, ptr %.val.i20.i, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, %57
+  %67 = icmp ne i32 %66, %57
   %68 = zext i1 %67 to i32
   br label %Gia_ObjHaveEdge.exit.i
 
 Gia_ObjHaveEdge.exit.i:                           ; preds = %62, %55
-  %69 = phi i32 [ 1, %55 ], [ %68, %62 ]
-  %70 = xor i32 %69, 1
-  %71 = add nsw i32 %70, %60
-  %72 = tail call noundef i32 @llvm.smax.i32(i32 %.022.i, i32 %71)
+  %69 = phi i32 [ 0, %55 ], [ %68, %62 ]
+  %70 = add nsw i32 %69, %60
+  %71 = tail call noundef i32 @llvm.smax.i32(i32 %.022.i, i32 %70)
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i27
   br i1 %exitcond.not.i30, label %Edg_ObjEvalEdgeDelay.exit, label %55, !llvm.loop !35
 
 Edg_ObjEvalEdgeDelay.exit:                        ; preds = %Gia_ObjHaveEdge.exit.i, %.Edg_ObjEvalEdgeDelay.exit_crit_edge
   %.val22 = phi ptr [ %.val22.pre, %.Edg_ObjEvalEdgeDelay.exit_crit_edge ], [ %.val.i26, %Gia_ObjHaveEdge.exit.i ]
-  %.0.lcssa.i = phi i32 [ 0, %.Edg_ObjEvalEdgeDelay.exit_crit_edge ], [ %72, %Gia_ObjHaveEdge.exit.i ]
-  %73 = getelementptr inbounds i32, ptr %.val22, i64 %indvars.iv
-  store i32 %.0.lcssa.i, ptr %73, align 4
-  %74 = tail call noundef i32 @llvm.smax.i32(i32 %.034, i32 %.0.lcssa.i)
-  br label %75
+  %.0.lcssa.i = phi i32 [ 0, %.Edg_ObjEvalEdgeDelay.exit_crit_edge ], [ %71, %Gia_ObjHaveEdge.exit.i ]
+  %72 = getelementptr inbounds i32, ptr %.val22, i64 %indvars.iv
+  store i32 %.0.lcssa.i, ptr %72, align 4
+  %73 = tail call noundef i32 @llvm.smax.i32(i32 %.034, i32 %.0.lcssa.i)
+  br label %74
 
-75:                                               ; preds = %Edg_ObjEvalEdgeDelay.exit, %43
-  %.1 = phi i32 [ %74, %Edg_ObjEvalEdgeDelay.exit ], [ %.034, %43 ]
+74:                                               ; preds = %Edg_ObjEvalEdgeDelay.exit, %43
+  %.1 = phi i32 [ %73, %Edg_ObjEvalEdgeDelay.exit ], [ %.034, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %38, align 8
-  %76 = sext i32 %.val to i64
-  %77 = icmp slt i64 %indvars.iv.next, %76
-  br i1 %77, label %43, label %._crit_edge, !llvm.loop !36
+  %75 = sext i32 %.val to i64
+  %76 = icmp slt i64 %indvars.iv.next, %75
+  br i1 %76, label %43, label %._crit_edge, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %75, %37
-  %.0.lcssa = phi i32 [ 0, %37 ], [ %.1, %75 ]
+._crit_edge:                                      ; preds = %74, %37
+  %.0.lcssa = phi i32 [ 0, %37 ], [ %.1, %74 ]
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Edg_ManEvalEdgeDelayR(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Edg_ManEvalEdgeDelayR(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -4373,9 +4372,9 @@ Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntGrow.ex
   %43 = zext nneg i32 %.val to i64
   br label %44
 
-44:                                               ; preds = %.lr.ph, %78
-  %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %.033 = phi i32 [ 0, %.lr.ph ], [ %.1, %78 ]
+44:                                               ; preds = %.lr.ph, %77
+  %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %77 ]
+  %.033 = phi i32 [ 0, %.lr.ph ], [ %.1, %77 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.val23 = load ptr, ptr %39, align 8
   %45 = getelementptr i8, ptr %.val23, i64 8
@@ -4383,7 +4382,7 @@ Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntGrow.ex
   %46 = getelementptr %struct.Vec_Int_t_, ptr %.val23.val, i64 %indvars.iv.next, i32 1
   %.val.i = load i32, ptr %46, align 4
   %.not31 = icmp eq i32 %.val.i, 0
-  br i1 %.not31, label %78, label %47
+  br i1 %.not31, label %77, label %47
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %2, align 8
@@ -4415,7 +4414,7 @@ Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntGrow.ex
 
 58:                                               ; preds = %Gia_ObjHaveEdge.exit.i, %.lr.ph.i25
   %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.i25 ], [ %indvars.iv.next.i29, %Gia_ObjHaveEdge.exit.i ]
-  %.022.i = phi i32 [ 0, %.lr.ph.i25 ], [ %75, %Gia_ObjHaveEdge.exit.i ]
+  %.022.i = phi i32 [ 0, %.lr.ph.i25 ], [ %74, %Gia_ObjHaveEdge.exit.i ]
   %59 = getelementptr inbounds i32, ptr %.val.i19.i, i64 %indvars.iv.i28
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
@@ -4430,34 +4429,33 @@ Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntGrow.ex
   %.val.i20.i = load ptr, ptr %67, align 8
   %68 = getelementptr inbounds i32, ptr %.val.i20.i, i64 %indvars.iv.next
   %69 = load i32, ptr %68, align 4
-  %70 = icmp eq i32 %69, %60
+  %70 = icmp ne i32 %69, %60
   %71 = zext i1 %70 to i32
   br label %Gia_ObjHaveEdge.exit.i
 
 Gia_ObjHaveEdge.exit.i:                           ; preds = %65, %58
-  %72 = phi i32 [ 1, %58 ], [ %71, %65 ]
-  %73 = xor i32 %72, 1
-  %74 = add nsw i32 %73, %63
-  %75 = tail call noundef i32 @llvm.smax.i32(i32 %.022.i, i32 %74)
+  %72 = phi i32 [ 0, %58 ], [ %71, %65 ]
+  %73 = add nsw i32 %72, %63
+  %74 = tail call noundef i32 @llvm.smax.i32(i32 %.022.i, i32 %73)
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i27
   br i1 %exitcond.not.i30, label %Edg_ObjEvalEdgeDelayR.exit, label %58, !llvm.loop !37
 
 Edg_ObjEvalEdgeDelayR.exit:                       ; preds = %Gia_ObjHaveEdge.exit.i, %.Edg_ObjEvalEdgeDelayR.exit_crit_edge
   %.val22 = phi ptr [ %.val22.pre, %.Edg_ObjEvalEdgeDelayR.exit_crit_edge ], [ %.val.i26, %Gia_ObjHaveEdge.exit.i ]
-  %.0.lcssa.i = phi i32 [ 0, %.Edg_ObjEvalEdgeDelayR.exit_crit_edge ], [ %75, %Gia_ObjHaveEdge.exit.i ]
-  %76 = getelementptr inbounds i32, ptr %.val22, i64 %indvars.iv.next
-  store i32 %.0.lcssa.i, ptr %76, align 4
-  %77 = tail call noundef i32 @llvm.smax.i32(i32 %.033, i32 %.0.lcssa.i)
-  br label %78
+  %.0.lcssa.i = phi i32 [ 0, %.Edg_ObjEvalEdgeDelayR.exit_crit_edge ], [ %74, %Gia_ObjHaveEdge.exit.i ]
+  %75 = getelementptr inbounds i32, ptr %.val22, i64 %indvars.iv.next
+  store i32 %.0.lcssa.i, ptr %75, align 4
+  %76 = tail call noundef i32 @llvm.smax.i32(i32 %.033, i32 %.0.lcssa.i)
+  br label %77
 
-78:                                               ; preds = %Edg_ObjEvalEdgeDelayR.exit, %44
-  %.1 = phi i32 [ %77, %Edg_ObjEvalEdgeDelayR.exit ], [ %.033, %44 ]
-  %79 = icmp sgt i64 %indvars.iv, 2
-  br i1 %79, label %44, label %._crit_edge, !llvm.loop !38
+77:                                               ; preds = %Edg_ObjEvalEdgeDelayR.exit, %44
+  %.1 = phi i32 [ %76, %Edg_ObjEvalEdgeDelayR.exit ], [ %.033, %44 ]
+  %78 = icmp sgt i64 %indvars.iv, 2
+  br i1 %78, label %44, label %._crit_edge, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %78, %37
-  %.0.lcssa = phi i32 [ 0, %37 ], [ %.1, %78 ]
+._crit_edge:                                      ; preds = %77, %37
+  %.0.lcssa = phi i32 [ 0, %37 ], [ %.1, %77 ]
   ret i32 %.0.lcssa
 }
 
@@ -5226,7 +5224,7 @@ Gia_ObjEdgeAdd.exit212:                           ; preds = %227, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Edg_ManAssignEdgeNew(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Edg_ManAssignEdgeNew(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %4 = getelementptr inbounds i8, ptr %calloc, i64 4
   %5 = getelementptr inbounds i8, ptr %calloc, i64 8

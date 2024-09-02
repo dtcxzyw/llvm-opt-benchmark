@@ -40,7 +40,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN7RegMask13num_registersEjR3LRG(i32 noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1, 17) i32 @_ZN7RegMask13num_registersEjR3LRG(i32 noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i32 %0, -4
   %3 = icmp ult i32 %switch.tableidx, 11
   br i1 %3, label %switch.lookup, label %5

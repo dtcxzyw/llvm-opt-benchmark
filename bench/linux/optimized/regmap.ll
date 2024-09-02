@@ -4086,7 +4086,7 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
   %144 = getelementptr inbounds i8, ptr %3, i64 273
   %145 = load i8, ptr %144, align 1, !range !36, !noundef !37
   %146 = icmp eq i8 %145, 0
-  br i1 %146, label %147, label %159
+  br i1 %146, label %147, label %160
 
 147:                                              ; preds = %141
   %148 = getelementptr inbounds i8, ptr %3, i64 136
@@ -4104,19 +4104,19 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
 156:                                              ; preds = %152, %147
   %157 = phi i1 [ %150, %147 ], [ %155, %152 ]
   %158 = xor i1 %157, true
-  br label %159
+  %159 = zext i1 %158 to i8
+  br label %160
 
-159:                                              ; preds = %156, %141
-  %160 = phi i1 [ true, %141 ], [ %158, %156 ]
-  %161 = getelementptr inbounds i8, ptr %10, i64 596
-  %162 = zext i1 %160 to i8
-  store i8 %162, ptr %161, align 4
+160:                                              ; preds = %156, %141
+  %161 = phi i8 [ 1, %141 ], [ %159, %156 ]
+  %162 = getelementptr inbounds i8, ptr %10, i64 596
+  store i8 %161, ptr %162, align 4
   %163 = getelementptr inbounds i8, ptr %3, i64 274
   %164 = load i8, ptr %163, align 2, !range !36, !noundef !37
   %165 = icmp eq i8 %164, 0
-  br i1 %165, label %166, label %178
+  br i1 %165, label %166, label %179
 
-166:                                              ; preds = %159
+166:                                              ; preds = %160
   %167 = getelementptr inbounds i8, ptr %3, i64 144
   %168 = load ptr, ptr %167, align 8
   %169 = icmp ne ptr %168, null
@@ -4132,19 +4132,19 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
 175:                                              ; preds = %171, %166
   %176 = phi i1 [ %169, %166 ], [ %174, %171 ]
   %177 = xor i1 %176, true
-  br label %178
+  %178 = zext i1 %177 to i8
+  br label %179
 
-178:                                              ; preds = %175, %159
-  %179 = phi i1 [ true, %159 ], [ %177, %175 ]
-  %180 = getelementptr inbounds i8, ptr %10, i64 597
-  %181 = zext i1 %179 to i8
-  store i8 %181, ptr %180, align 1
+179:                                              ; preds = %175, %160
+  %180 = phi i8 [ 1, %160 ], [ %178, %175 ]
+  %181 = getelementptr inbounds i8, ptr %10, i64 597
+  store i8 %180, ptr %181, align 1
   %182 = getelementptr inbounds i8, ptr %3, i64 276
   %183 = load i8, ptr %182, align 4, !range !36, !noundef !37
   %184 = icmp eq i8 %183, 0
   br i1 %184, label %195, label %185
 
-185:                                              ; preds = %178
+185:                                              ; preds = %179
   %186 = getelementptr inbounds i8, ptr %3, i64 144
   %187 = load ptr, ptr %186, align 8
   %188 = icmp ne ptr %187, null
@@ -4160,8 +4160,8 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i8 %194, ptr %193, align 2
   br label %199
 
-195:                                              ; preds = %185, %178
-  %196 = phi i1 [ false, %178 ], [ %188, %185 ]
+195:                                              ; preds = %185, %179
+  %196 = phi i1 [ false, %179 ], [ %188, %185 ]
   %197 = getelementptr inbounds i8, ptr %10, i64 598
   %198 = zext i1 %196 to i8
   store i8 %198, ptr %197, align 2
@@ -4602,7 +4602,7 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %434, label %600, label %435
 
 435:                                              ; preds = %431
-  store i8 1, ptr %180, align 1
+  store i8 1, ptr %181, align 1
   br label %443
 
 .thread39:                                        ; preds = %427
@@ -8921,24 +8921,24 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 ..thread24_crit_edge:                             ; preds = %176
   %.phi.trans.insert = getelementptr inbounds i8, ptr %159, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %184 = icmp ne i32 %.pre, 0
   br label %.thread24
 
 .thread23:                                        ; preds = %171, %.preheader, %176
-  %184 = phi ptr [ %163, %176 ], [ null, %.preheader ], [ null, %171 ]
-  %185 = phi i32 [ %180, %176 ], [ %155, %.preheader ], [ %155, %171 ]
-  %186 = getelementptr inbounds i8, ptr %159, i64 8
-  %187 = load i32, ptr %186, align 4
-  %188 = icmp eq i32 %187, 0
-  br i1 %188, label %250, label %.thread24
+  %185 = phi ptr [ %163, %176 ], [ null, %.preheader ], [ null, %171 ]
+  %186 = phi i32 [ %180, %176 ], [ %155, %.preheader ], [ %155, %171 ]
+  %187 = getelementptr inbounds i8, ptr %159, i64 8
+  %188 = load i32, ptr %187, align 4
+  %189 = icmp eq i32 %188, 0
+  br i1 %189, label %250, label %.thread24
 
 .thread24:                                        ; preds = %..thread24_crit_edge, %.thread23
-  %189 = phi i32 [ %187, %.thread23 ], [ %.pre, %..thread24_crit_edge ]
-  %190 = phi ptr [ %184, %.thread23 ], [ %163, %..thread24_crit_edge ]
-  %191 = phi i1 [ true, %.thread23 ], [ false, %..thread24_crit_edge ]
-  %192 = phi i32 [ %185, %.thread23 ], [ %180, %..thread24_crit_edge ]
-  %193 = icmp ne i32 %189, 0
+  %190 = phi i1 [ true, %.thread23 ], [ %184, %..thread24_crit_edge ]
+  %191 = phi ptr [ %185, %.thread23 ], [ %163, %..thread24_crit_edge ]
+  %192 = phi i1 [ true, %.thread23 ], [ false, %..thread24_crit_edge ]
+  %193 = phi i32 [ %186, %.thread23 ], [ %180, %..thread24_crit_edge ]
   %194 = icmp eq i32 %158, 0
-  %195 = and i1 %194, %193
+  %195 = and i1 %194, %190
   %196 = sext i32 %157 to i64
   %197 = select i1 %195, i64 1, i64 %196
   %198 = call fastcc i32 @_regmap_raw_multi_reg_write(ptr noundef %0, ptr noundef %156, i64 noundef %197)
@@ -8987,23 +8987,23 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 
 220:                                              ; preds = %219, %215, %213, %210, %200
   %221 = getelementptr %struct.reg_sequence, ptr %156, i64 %197
-  br i1 %191, label %250, label %222
+  br i1 %192, label %250, label %222
 
 222:                                              ; preds = %220
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #24
   store i8 0, ptr %4, align 1, !annotation !27
   %223 = load i32, ptr %221, align 4
-  %224 = getelementptr inbounds i8, ptr %190, i64 40
+  %224 = getelementptr inbounds i8, ptr %191, i64 40
   %225 = load i32, ptr %224, align 8
   %226 = sub i32 %223, %225
-  %227 = getelementptr inbounds i8, ptr %190, i64 64
+  %227 = getelementptr inbounds i8, ptr %191, i64 64
   %228 = load i32, ptr %227, align 8
   %229 = urem i32 %226, %228
   %230 = udiv i32 %226, %228
-  %231 = getelementptr inbounds i8, ptr %190, i64 60
+  %231 = getelementptr inbounds i8, ptr %191, i64 60
   %232 = load i32, ptr %231, align 4
   %233 = add i32 %232, %229
-  %234 = getelementptr inbounds i8, ptr %190, i64 48
+  %234 = getelementptr inbounds i8, ptr %191, i64 48
   %235 = load i32, ptr %234, align 8
   %236 = icmp eq i32 %233, %235
   br i1 %236, label %249, label %237
@@ -9013,9 +9013,9 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   %239 = load ptr, ptr %114, align 8
   store ptr %239, ptr %113, align 8
   %240 = load i32, ptr %234, align 8
-  %241 = getelementptr inbounds i8, ptr %190, i64 52
+  %241 = getelementptr inbounds i8, ptr %191, i64 52
   %242 = load i32, ptr %241, align 4
-  %243 = getelementptr inbounds i8, ptr %190, i64 56
+  %243 = getelementptr inbounds i8, ptr %191, i64 56
   %244 = load i32, ptr %243, align 8
   %245 = shl i32 %230, %244
   %246 = call fastcc i32 @_regmap_update_bits(ptr noundef %0, i32 noundef %240, i32 noundef %242, i32 noundef %245, ptr noundef nonnull %4, i1 noundef zeroext false)
@@ -9039,7 +9039,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   br label %250
 
 250:                                              ; preds = %220, %.thread23, %249
-  %.ph = phi i32 [ %192, %249 ], [ %185, %.thread23 ], [ %192, %220 ]
+  %.ph = phi i32 [ %193, %249 ], [ %186, %.thread23 ], [ %193, %220 ]
   %.ph26 = phi i32 [ 0, %249 ], [ %157, %.thread23 ], [ 0, %220 ]
   %.ph27 = phi ptr [ %221, %249 ], [ %156, %.thread23 ], [ %221, %220 ]
   %251 = add i32 %158, 1

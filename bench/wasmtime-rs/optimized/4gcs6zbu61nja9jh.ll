@@ -963,7 +963,7 @@ define hidden noundef nonnull ptr @"_ZN52_$LT$E$u20$as$u20$anyhow..context..ext.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 32) i32 @_ZN5memfd7sealing17seals_to_bitflags17h68064dfeaccf2ab9E(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 32) i32 @_ZN5memfd7sealing17seals_to_bitflags17h68064dfeaccf2ab9E(ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   br label %switch.lookup
 
 2:                                                ; preds = %switch.lookup

@@ -14071,7 +14071,7 @@ thread-pre-split:                                 ; preds = %179, %182, %188, %2
   %383 = load i32, ptr %331, align 8
   %384 = add i32 %383, %382
   %385 = icmp ult i32 %384, 10000
-  br i1 %385, label %396, label %386
+  br i1 %385, label %397, label %386
 
 386:                                              ; preds = %381
   %387 = icmp ugt i32 %382, %383
@@ -14082,19 +14082,19 @@ thread-pre-split:                                 ; preds = %179, %182, %188, %2
   %392 = udiv i32 %390, 10000
   %393 = mul nuw i32 %392, 6000
   %394 = udiv i32 %393, %391
-  %395 = add nuw i32 %394, 2000
-  br label %396
+  %395 = shl i32 %394, 8
+  %396 = add i32 %395, 512000
+  br label %397
 
-396:                                              ; preds = %386, %381
-  %397 = phi i32 [ %395, %386 ], [ 8000, %381 ]
-  %398 = shl i32 %397, 8
+397:                                              ; preds = %386, %381
+  %398 = phi i32 [ %396, %386 ], [ 2048000, %381 ]
   %399 = udiv i32 1000000000, %398
   %400 = getelementptr i8, ptr %0, i64 11728
   %401 = load ptr, ptr %400, align 8
   %402 = icmp eq ptr %401, null
   br i1 %402, label %419, label %403
 
-403:                                              ; preds = %396
+403:                                              ; preds = %397
   %404 = getelementptr i8, ptr %0, i64 11720
   %405 = load i32, ptr %404, align 32
   %406 = icmp eq i32 %405, 0
@@ -14117,7 +14117,7 @@ thread-pre-split:                                 ; preds = %179, %182, %188, %2
   %418 = icmp ult i32 %416, %417
   br i1 %418, label %409, label %.loopexit14, !llvm.loop !26
 
-419:                                              ; preds = %396
+419:                                              ; preds = %397
   %420 = load ptr, ptr %6, align 8
   %421 = getelementptr inbounds i8, ptr %420, i64 11920
   %422 = load i32, ptr %421, align 16
@@ -16166,7 +16166,7 @@ define internal noundef range(i32 -99, 1) i32 @e1000_set_mac(ptr noundef %0, ptr
 declare dso_local i32 @eth_validate_addr(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @e1000_ioctl(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #1 align 16 {
+define internal range(i32 -95, 1) i32 @e1000_ioctl(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #1 align 16 {
   %4 = alloca %struct.hwtstamp_config, align 4
   switch i32 %2, label %90 [
     i32 35143, label %5

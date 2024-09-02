@@ -2822,18 +2822,18 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %sigset1)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %si.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %sigset1, ptr noundef nonnull align 8 dereferenceable(128) %sigset, i64 128, i1 false)
-  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  br label %do.body.i
+  %call8.i = call ptr @PyEval_SaveThread() #15
+  %call19.i = call i32 @sigwaitinfo(ptr noundef nonnull %sigset1, ptr noundef nonnull %si.i) #15
+  call void @PyEval_RestoreThread(ptr noundef %call8.i) #15
+  %cmp10.i = icmp eq i32 %call19.i, -1
+  br i1 %cmp10.i, label %land.lhs.true.lr.ph.i, label %if.end.i
 
-do.body.i:                                        ; preds = %PyErr_CheckSignals.exit.i, %if.end
-  %call.i = call ptr @PyEval_SaveThread() #15
-  %call1.i = call i32 @sigwaitinfo(ptr noundef nonnull %sigset1, ptr noundef nonnull %si.i) #15
-  call void @PyEval_RestoreThread(ptr noundef %call.i) #15
-  %cmp.i = icmp eq i32 %call1.i, -1
-  br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
-
-land.lhs.true.i:                                  ; preds = %do.body.i
+land.lhs.true.lr.ph.i:                            ; preds = %if.end
   %call2.i = tail call ptr @__errno_location() #16
+  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  br label %land.lhs.true.i
+
+land.lhs.true.i:                                  ; preds = %do.body.backedge.i, %land.lhs.true.lr.ph.i
   %1 = load i32, ptr %call2.i, align 4
   %cmp3.i = icmp eq i32 %1, 4
   br i1 %cmp3.i, label %land.rhs.i, label %cond.true.i
@@ -2880,32 +2880,35 @@ if.end.i.i:                                       ; preds = %_Py_set_eval_breake
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i1.i.i.i = icmp ne ptr %12, %14
   %narrow.i.not.i.i = select i1 %cmp.i.not.i.i.i, i1 true, i1 %cmp.i1.i.i.i
-  br i1 %narrow.i.not.i.i, label %PyErr_CheckSignals.exit.i, label %if.end6.i.i
+  br i1 %narrow.i.not.i.i, label %do.body.backedge.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
   %call7.i.i = call i32 @_PyErr_CheckSignalsTstate(ptr noundef nonnull %2)
-  br label %PyErr_CheckSignals.exit.i
+  %15 = icmp eq i32 %call7.i.i, 0
+  br i1 %15, label %do.body.backedge.i, label %signal_sigwaitinfo_impl.exit
 
-PyErr_CheckSignals.exit.i:                        ; preds = %if.end6.i.i, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %call7.i.i, %if.end6.i.i ], [ 0, %if.end.i.i ]
-  %tobool.not.i = icmp eq i32 %retval.0.i.i, 0
-  br i1 %tobool.not.i, label %do.body.i, label %signal_sigwaitinfo_impl.exit, !llvm.loop !11
+do.body.backedge.i:                               ; preds = %if.end6.i.i, %if.end.i.i
+  %call.i = call ptr @PyEval_SaveThread() #15
+  %call1.i = call i32 @sigwaitinfo(ptr noundef nonnull %sigset1, ptr noundef nonnull %si.i) #15
+  call void @PyEval_RestoreThread(ptr noundef %call.i) #15
+  %cmp.i = icmp eq i32 %call1.i, -1
+  br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i, !llvm.loop !11
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
-  %15 = load ptr, ptr @PyExc_OSError, align 8
-  %call7.i = call ptr @PyErr_SetFromErrno(ptr noundef %15) #15
+  %16 = load ptr, ptr @PyExc_OSError, align 8
+  %call7.i = call ptr @PyErr_SetFromErrno(ptr noundef %16) #15
   br label %signal_sigwaitinfo_impl.exit
 
-if.end.i:                                         ; preds = %do.body.i
-  %16 = getelementptr i8, ptr %module, i64 32
-  %module.val.i = load ptr, ptr %16, align 8
-  %17 = getelementptr i8, ptr %module.val.i, i64 24
-  %call8.val.i = load ptr, ptr %17, align 8
+if.end.i:                                         ; preds = %do.body.backedge.i, %if.end
+  %17 = getelementptr i8, ptr %module, i64 32
+  %module.val.i = load ptr, ptr %17, align 8
+  %18 = getelementptr i8, ptr %module.val.i, i64 24
+  %call8.val.i = load ptr, ptr %18, align 8
   %call9.i = call fastcc ptr @fill_siginfo(ptr %call8.val.i, ptr noundef nonnull %si.i)
   br label %signal_sigwaitinfo_impl.exit
 
-signal_sigwaitinfo_impl.exit:                     ; preds = %PyErr_CheckSignals.exit.i, %cond.true.i, %if.end.i
-  %retval.0.i = phi ptr [ %call9.i, %if.end.i ], [ %call7.i, %cond.true.i ], [ null, %PyErr_CheckSignals.exit.i ]
+signal_sigwaitinfo_impl.exit:                     ; preds = %if.end6.i.i, %cond.true.i, %if.end.i
+  %retval.0.i = phi ptr [ %call9.i, %if.end.i ], [ %call7.i, %cond.true.i ], [ null, %if.end6.i.i ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %sigset1)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %si.i)
   br label %exit

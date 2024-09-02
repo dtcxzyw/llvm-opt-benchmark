@@ -727,8 +727,8 @@ return:                                           ; preds = %do.body, %if.end10,
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -4, 2) i64 @big5hkscs_decode(ptr nocapture readnone %state, ptr nocapture noundef readonly %codec, ptr nocapture noundef %inbuf, i64 noundef %inleft, ptr noundef %writer) #0 {
 entry:
-  %cmp177 = icmp sgt i64 %inleft, 0
-  br i1 %cmp177, label %while.body.lr.ph, label %return
+  %cmp169 = icmp sgt i64 %inleft, 0
+  br i1 %cmp169, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
   %modstate = getelementptr inbounds i8, ptr %codec, i64 72
@@ -742,7 +742,7 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %0 = phi ptr [ %.pre, %while.body.lr.ph ], [ %add.ptr, %while.cond.backedge ]
-  %inleft.addr.0178 = phi i64 [ %inleft, %while.body.lr.ph ], [ %sub, %while.cond.backedge ]
+  %inleft.addr.0170 = phi i64 [ %inleft, %while.body.lr.ph ], [ %sub, %while.cond.backedge ]
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
   %cmp1 = icmp sgt i8 %1, -1
@@ -754,17 +754,17 @@ do.body:                                          ; preds = %while.body
   br i1 %cmp4, label %return, label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %do.body, %do.body164, %do.body176, %do.body75, %do.body358
-  %.sink197 = phi i64 [ 2, %do.body358 ], [ 2, %do.body75 ], [ 2, %do.body176 ], [ 2, %do.body164 ], [ 1, %do.body ]
+  %.sink189 = phi i64 [ 2, %do.body358 ], [ 2, %do.body75 ], [ 2, %do.body176 ], [ 2, %do.body164 ], [ 1, %do.body ]
   %.sink = phi i64 [ -2, %do.body358 ], [ -2, %do.body75 ], [ -2, %do.body176 ], [ -2, %do.body164 ], [ -1, %do.body ]
   %2 = load ptr, ptr %inbuf, align 8
-  %add.ptr = getelementptr i8, ptr %2, i64 %.sink197
+  %add.ptr = getelementptr i8, ptr %2, i64 %.sink189
   store ptr %add.ptr, ptr %inbuf, align 8
-  %sub = add nsw i64 %inleft.addr.0178, %.sink
+  %sub = add nsw i64 %inleft.addr.0170, %.sink
   %cmp = icmp sgt i64 %sub, 0
   br i1 %cmp, label %while.body, label %return, !llvm.loop !9
 
 do.body10:                                        ; preds = %while.body
-  %cmp11 = icmp eq i64 %inleft.addr.0178, 1
+  %cmp11 = icmp eq i64 %inleft.addr.0170, 1
   br i1 %cmp11, label %return, label %do.end15
 
 do.end15:                                         ; preds = %do.body10
@@ -827,25 +827,25 @@ if.end87:                                         ; preds = %if.then30, %land.lh
   %12 = load ptr, ptr %arrayidx89, align 16
   %cmp91.not = icmp eq ptr %12, null
   %arrayidx191.phi.trans.insert = getelementptr i8, ptr %0, i64 1
-  %.pre190 = load i8, ptr %arrayidx191.phi.trans.insert, align 1
-  %.pre195 = zext i8 %.pre190 to i32
+  %.pre182 = load i8, ptr %arrayidx191.phi.trans.insert, align 1
+  %.pre187 = zext i8 %.pre182 to i32
   br i1 %cmp91.not, label %if.end188, label %land.lhs.true93
 
 land.lhs.true93:                                  ; preds = %if.end87
   %bottom98 = getelementptr inbounds i8, ptr %arrayidx89, i64 8
   %13 = load i8, ptr %bottom98, align 8
   %conv99 = zext i8 %13 to i32
-  %cmp100.not = icmp ult i8 %.pre190, %13
+  %cmp100.not = icmp ult i8 %.pre182, %13
   br i1 %cmp100.not, label %if.end188, label %land.lhs.true102
 
 land.lhs.true102:                                 ; preds = %land.lhs.true93
   %top107 = getelementptr inbounds i8, ptr %arrayidx89, i64 9
   %14 = load i8, ptr %top107, align 1
-  %cmp109.not = icmp ugt i8 %.pre190, %14
+  %cmp109.not = icmp ugt i8 %.pre182, %14
   br i1 %cmp109.not, label %if.end188, label %land.lhs.true111
 
 land.lhs.true111:                                 ; preds = %land.lhs.true102
-  %sub121 = sub nsw i32 %.pre195, %conv99
+  %sub121 = sub nsw i32 %.pre187, %conv99
   %idxprom122 = sext i32 %sub121 to i64
   %arrayidx123 = getelementptr i16, ptr %12, i64 %idxprom122
   %15 = load i16, ptr %arrayidx123, align 2
@@ -855,7 +855,7 @@ land.lhs.true111:                                 ; preds = %land.lhs.true102
 
 if.then127:                                       ; preds = %land.lhs.true111
   %16 = mul nuw nsw i32 %conv, 191
-  %sub132 = add nuw nsw i32 %16, %.pre195
+  %sub132 = add nuw nsw i32 %16, %.pre187
   %17 = add nsw i32 %sub132, -25849
   %or.cond1 = icmp ult i32 %17, 4966
   br i1 %or.cond1, label %if.end158, label %if.else
@@ -897,7 +897,7 @@ do.body176:                                       ; preds = %if.end158
 
 if.end188:                                        ; preds = %if.end87, %land.lhs.true111, %land.lhs.true102, %land.lhs.true93
   %shl190 = shl nuw nsw i32 %conv, 8
-  %or193 = or disjoint i32 %shl190, %.pre195
+  %or193 = or disjoint i32 %shl190, %.pre187
   %trunc = trunc nuw i32 %or193 to i16
   switch i16 %trunc, label %return [
     i16 -30622, label %do.body194
@@ -909,291 +909,291 @@ if.end188:                                        ; preds = %if.end87, %land.lhs
 do.body194:                                       ; preds = %if.end188
   %21 = load i32, ptr %maxchar324, align 4
   %cmp197 = icmp ugt i32 %21, 771
-  br i1 %cmp197, label %land.lhs.true199, label %cond.end212
+  br i1 %cmp197, label %land.lhs.true199, label %cond.false204
 
 land.lhs.true199:                                 ; preds = %do.body194
   %22 = load i64, ptr %size328, align 8
   %23 = load i64, ptr %pos329, align 8
   %sub200 = sub i64 %22, %23
   %cmp201 = icmp sgt i64 %sub200, 1
-  br i1 %cmp201, label %if.end217, label %cond.end212
+  br i1 %cmp201, label %if.end217, label %cond.false204
 
-cond.end212:                                      ; preds = %do.body194, %land.lhs.true199
+cond.false204:                                    ; preds = %land.lhs.true199, %do.body194
   %call211 = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %writer, i64 noundef 2, i32 noundef 772) #7
-  %cmp214 = icmp slt i32 %call211, 0
-  br i1 %cmp214, label %return, label %cond.end212.if.end217_crit_edge
+  %24 = icmp slt i32 %call211, 0
+  br i1 %24, label %return, label %cond.false204.if.end217_crit_edge
 
-cond.end212.if.end217_crit_edge:                  ; preds = %cond.end212
-  %.pre194 = load i64, ptr %pos329, align 8
+cond.false204.if.end217_crit_edge:                ; preds = %cond.false204
+  %.pre186 = load i64, ptr %pos329, align 8
   br label %if.end217
 
-if.end217:                                        ; preds = %cond.end212.if.end217_crit_edge, %land.lhs.true199
-  %24 = phi i64 [ %.pre194, %cond.end212.if.end217_crit_edge ], [ %23, %land.lhs.true199 ]
-  %25 = load i32, ptr %kind348, align 8
-  %26 = load ptr, ptr %data349, align 8
-  switch i32 %25, label %if.else6.i [
+if.end217:                                        ; preds = %cond.false204.if.end217_crit_edge, %land.lhs.true199
+  %25 = phi i64 [ %.pre186, %cond.false204.if.end217_crit_edge ], [ %23, %land.lhs.true199 ]
+  %26 = load i32, ptr %kind348, align 8
+  %27 = load ptr, ptr %data349, align 8
+  switch i32 %26, label %if.else6.i [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
   ]
 
 if.then.i:                                        ; preds = %if.end217
-  %arrayidx.i = getelementptr i8, ptr %26, i64 %24
+  %arrayidx.i = getelementptr i8, ptr %27, i64 %25
   store i8 -54, ptr %arrayidx.i, align 1
   br label %PyUnicode_WRITE.exit
 
 if.then3.i:                                       ; preds = %if.end217
-  %arrayidx5.i = getelementptr i16, ptr %26, i64 %24
+  %arrayidx5.i = getelementptr i16, ptr %27, i64 %25
   store i16 202, ptr %arrayidx5.i, align 2
   br label %PyUnicode_WRITE.exit
 
 if.else6.i:                                       ; preds = %if.end217
-  %arrayidx7.i = getelementptr i32, ptr %26, i64 %24
+  %arrayidx7.i = getelementptr i32, ptr %27, i64 %25
   store i32 202, ptr %arrayidx7.i, align 4
   br label %PyUnicode_WRITE.exit
 
 PyUnicode_WRITE.exit:                             ; preds = %if.then.i, %if.then3.i, %if.else6.i
-  %27 = load i32, ptr %kind348, align 8
-  %28 = load ptr, ptr %data349, align 8
-  %29 = load i64, ptr %pos329, align 8
-  %add222 = add i64 %29, 1
-  switch i32 %27, label %if.else6.i124 [
+  %28 = load i32, ptr %kind348, align 8
+  %29 = load ptr, ptr %data349, align 8
+  %30 = load i64, ptr %pos329, align 8
+  %add222 = add i64 %30, 1
+  switch i32 %28, label %if.else6.i124 [
     i32 1, label %if.then.i122
     i32 2, label %if.then3.i120
   ]
 
 if.then.i122:                                     ; preds = %PyUnicode_WRITE.exit
-  %arrayidx.i123 = getelementptr i8, ptr %28, i64 %add222
+  %arrayidx.i123 = getelementptr i8, ptr %29, i64 %add222
   store i8 4, ptr %arrayidx.i123, align 1
   br label %do.body358
 
 if.then3.i120:                                    ; preds = %PyUnicode_WRITE.exit
-  %arrayidx5.i121 = getelementptr i16, ptr %28, i64 %add222
+  %arrayidx5.i121 = getelementptr i16, ptr %29, i64 %add222
   store i16 772, ptr %arrayidx5.i121, align 2
   br label %do.body358
 
 if.else6.i124:                                    ; preds = %PyUnicode_WRITE.exit
-  %arrayidx7.i125 = getelementptr i32, ptr %28, i64 %add222
+  %arrayidx7.i125 = getelementptr i32, ptr %29, i64 %add222
   store i32 772, ptr %arrayidx7.i125, align 4
   br label %do.body358
 
 do.body227:                                       ; preds = %if.end188
-  %30 = load i32, ptr %maxchar324, align 4
-  %cmp237 = icmp ugt i32 %30, 779
-  br i1 %cmp237, label %land.lhs.true239, label %cond.end254
+  %31 = load i32, ptr %maxchar324, align 4
+  %cmp237 = icmp ugt i32 %31, 779
+  br i1 %cmp237, label %land.lhs.true239, label %cond.false246
 
 land.lhs.true239:                                 ; preds = %do.body227
-  %31 = load i64, ptr %size328, align 8
-  %32 = load i64, ptr %pos329, align 8
-  %sub242 = sub i64 %31, %32
+  %32 = load i64, ptr %size328, align 8
+  %33 = load i64, ptr %pos329, align 8
+  %sub242 = sub i64 %32, %33
   %cmp243 = icmp sgt i64 %sub242, 1
-  br i1 %cmp243, label %if.end259, label %cond.end254
+  br i1 %cmp243, label %if.end259, label %cond.false246
 
-cond.end254:                                      ; preds = %do.body227, %land.lhs.true239
+cond.false246:                                    ; preds = %land.lhs.true239, %do.body227
   %call253 = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %writer, i64 noundef 2, i32 noundef 780) #7
-  %cmp256 = icmp slt i32 %call253, 0
-  br i1 %cmp256, label %return, label %cond.end254.if.end259_crit_edge
+  %34 = icmp slt i32 %call253, 0
+  br i1 %34, label %return, label %cond.false246.if.end259_crit_edge
 
-cond.end254.if.end259_crit_edge:                  ; preds = %cond.end254
-  %.pre193 = load i64, ptr %pos329, align 8
+cond.false246.if.end259_crit_edge:                ; preds = %cond.false246
+  %.pre185 = load i64, ptr %pos329, align 8
   br label %if.end259
 
-if.end259:                                        ; preds = %cond.end254.if.end259_crit_edge, %land.lhs.true239
-  %33 = phi i64 [ %.pre193, %cond.end254.if.end259_crit_edge ], [ %32, %land.lhs.true239 ]
-  %34 = load i32, ptr %kind348, align 8
-  %35 = load ptr, ptr %data349, align 8
-  switch i32 %34, label %if.else6.i131 [
+if.end259:                                        ; preds = %cond.false246.if.end259_crit_edge, %land.lhs.true239
+  %35 = phi i64 [ %.pre185, %cond.false246.if.end259_crit_edge ], [ %33, %land.lhs.true239 ]
+  %36 = load i32, ptr %kind348, align 8
+  %37 = load ptr, ptr %data349, align 8
+  switch i32 %36, label %if.else6.i131 [
     i32 1, label %if.then.i129
     i32 2, label %if.then3.i127
   ]
 
 if.then.i129:                                     ; preds = %if.end259
-  %arrayidx.i130 = getelementptr i8, ptr %35, i64 %33
+  %arrayidx.i130 = getelementptr i8, ptr %37, i64 %35
   store i8 -54, ptr %arrayidx.i130, align 1
   br label %PyUnicode_WRITE.exit133
 
 if.then3.i127:                                    ; preds = %if.end259
-  %arrayidx5.i128 = getelementptr i16, ptr %35, i64 %33
+  %arrayidx5.i128 = getelementptr i16, ptr %37, i64 %35
   store i16 202, ptr %arrayidx5.i128, align 2
   br label %PyUnicode_WRITE.exit133
 
 if.else6.i131:                                    ; preds = %if.end259
-  %arrayidx7.i132 = getelementptr i32, ptr %35, i64 %33
+  %arrayidx7.i132 = getelementptr i32, ptr %37, i64 %35
   store i32 202, ptr %arrayidx7.i132, align 4
   br label %PyUnicode_WRITE.exit133
 
 PyUnicode_WRITE.exit133:                          ; preds = %if.then.i129, %if.then3.i127, %if.else6.i131
-  %36 = load i32, ptr %kind348, align 8
-  %37 = load ptr, ptr %data349, align 8
-  %38 = load i64, ptr %pos329, align 8
-  %add266 = add i64 %38, 1
-  switch i32 %36, label %if.else6.i138 [
+  %38 = load i32, ptr %kind348, align 8
+  %39 = load ptr, ptr %data349, align 8
+  %40 = load i64, ptr %pos329, align 8
+  %add266 = add i64 %40, 1
+  switch i32 %38, label %if.else6.i138 [
     i32 1, label %if.then.i136
     i32 2, label %if.then3.i134
   ]
 
 if.then.i136:                                     ; preds = %PyUnicode_WRITE.exit133
-  %arrayidx.i137 = getelementptr i8, ptr %37, i64 %add266
+  %arrayidx.i137 = getelementptr i8, ptr %39, i64 %add266
   store i8 12, ptr %arrayidx.i137, align 1
   br label %do.body358
 
 if.then3.i134:                                    ; preds = %PyUnicode_WRITE.exit133
-  %arrayidx5.i135 = getelementptr i16, ptr %37, i64 %add266
+  %arrayidx5.i135 = getelementptr i16, ptr %39, i64 %add266
   store i16 780, ptr %arrayidx5.i135, align 2
   br label %do.body358
 
 if.else6.i138:                                    ; preds = %PyUnicode_WRITE.exit133
-  %arrayidx7.i139 = getelementptr i32, ptr %37, i64 %add266
+  %arrayidx7.i139 = getelementptr i32, ptr %39, i64 %add266
   store i32 780, ptr %arrayidx7.i139, align 4
   br label %do.body358
 
 do.body271:                                       ; preds = %if.end188
-  %39 = load i32, ptr %maxchar324, align 4
-  %cmp281 = icmp ugt i32 %39, 771
-  br i1 %cmp281, label %land.lhs.true283, label %cond.end298
+  %41 = load i32, ptr %maxchar324, align 4
+  %cmp281 = icmp ugt i32 %41, 771
+  br i1 %cmp281, label %land.lhs.true283, label %cond.false290
 
 land.lhs.true283:                                 ; preds = %do.body271
-  %40 = load i64, ptr %size328, align 8
-  %41 = load i64, ptr %pos329, align 8
-  %sub286 = sub i64 %40, %41
+  %42 = load i64, ptr %size328, align 8
+  %43 = load i64, ptr %pos329, align 8
+  %sub286 = sub i64 %42, %43
   %cmp287 = icmp sgt i64 %sub286, 1
-  br i1 %cmp287, label %if.end303, label %cond.end298
+  br i1 %cmp287, label %if.end303, label %cond.false290
 
-cond.end298:                                      ; preds = %do.body271, %land.lhs.true283
+cond.false290:                                    ; preds = %land.lhs.true283, %do.body271
   %call297 = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %writer, i64 noundef 2, i32 noundef 772) #7
-  %cmp300 = icmp slt i32 %call297, 0
-  br i1 %cmp300, label %return, label %cond.end298.if.end303_crit_edge
+  %44 = icmp slt i32 %call297, 0
+  br i1 %44, label %return, label %cond.false290.if.end303_crit_edge
 
-cond.end298.if.end303_crit_edge:                  ; preds = %cond.end298
-  %.pre192 = load i64, ptr %pos329, align 8
+cond.false290.if.end303_crit_edge:                ; preds = %cond.false290
+  %.pre184 = load i64, ptr %pos329, align 8
   br label %if.end303
 
-if.end303:                                        ; preds = %cond.end298.if.end303_crit_edge, %land.lhs.true283
-  %42 = phi i64 [ %.pre192, %cond.end298.if.end303_crit_edge ], [ %41, %land.lhs.true283 ]
-  %43 = load i32, ptr %kind348, align 8
-  %44 = load ptr, ptr %data349, align 8
-  switch i32 %43, label %if.else6.i145 [
+if.end303:                                        ; preds = %cond.false290.if.end303_crit_edge, %land.lhs.true283
+  %45 = phi i64 [ %.pre184, %cond.false290.if.end303_crit_edge ], [ %43, %land.lhs.true283 ]
+  %46 = load i32, ptr %kind348, align 8
+  %47 = load ptr, ptr %data349, align 8
+  switch i32 %46, label %if.else6.i145 [
     i32 1, label %if.then.i143
     i32 2, label %if.then3.i141
   ]
 
 if.then.i143:                                     ; preds = %if.end303
-  %arrayidx.i144 = getelementptr i8, ptr %44, i64 %42
+  %arrayidx.i144 = getelementptr i8, ptr %47, i64 %45
   store i8 -22, ptr %arrayidx.i144, align 1
   br label %PyUnicode_WRITE.exit147
 
 if.then3.i141:                                    ; preds = %if.end303
-  %arrayidx5.i142 = getelementptr i16, ptr %44, i64 %42
+  %arrayidx5.i142 = getelementptr i16, ptr %47, i64 %45
   store i16 234, ptr %arrayidx5.i142, align 2
   br label %PyUnicode_WRITE.exit147
 
 if.else6.i145:                                    ; preds = %if.end303
-  %arrayidx7.i146 = getelementptr i32, ptr %44, i64 %42
+  %arrayidx7.i146 = getelementptr i32, ptr %47, i64 %45
   store i32 234, ptr %arrayidx7.i146, align 4
   br label %PyUnicode_WRITE.exit147
 
 PyUnicode_WRITE.exit147:                          ; preds = %if.then.i143, %if.then3.i141, %if.else6.i145
-  %45 = load i32, ptr %kind348, align 8
-  %46 = load ptr, ptr %data349, align 8
-  %47 = load i64, ptr %pos329, align 8
-  %add310 = add i64 %47, 1
-  switch i32 %45, label %if.else6.i152 [
+  %48 = load i32, ptr %kind348, align 8
+  %49 = load ptr, ptr %data349, align 8
+  %50 = load i64, ptr %pos329, align 8
+  %add310 = add i64 %50, 1
+  switch i32 %48, label %if.else6.i152 [
     i32 1, label %if.then.i150
     i32 2, label %if.then3.i148
   ]
 
 if.then.i150:                                     ; preds = %PyUnicode_WRITE.exit147
-  %arrayidx.i151 = getelementptr i8, ptr %46, i64 %add310
+  %arrayidx.i151 = getelementptr i8, ptr %49, i64 %add310
   store i8 4, ptr %arrayidx.i151, align 1
   br label %do.body358
 
 if.then3.i148:                                    ; preds = %PyUnicode_WRITE.exit147
-  %arrayidx5.i149 = getelementptr i16, ptr %46, i64 %add310
+  %arrayidx5.i149 = getelementptr i16, ptr %49, i64 %add310
   store i16 772, ptr %arrayidx5.i149, align 2
   br label %do.body358
 
 if.else6.i152:                                    ; preds = %PyUnicode_WRITE.exit147
-  %arrayidx7.i153 = getelementptr i32, ptr %46, i64 %add310
+  %arrayidx7.i153 = getelementptr i32, ptr %49, i64 %add310
   store i32 772, ptr %arrayidx7.i153, align 4
   br label %do.body358
 
 do.body315:                                       ; preds = %if.end188
-  %48 = load i32, ptr %maxchar324, align 4
-  %cmp325 = icmp ugt i32 %48, 779
-  br i1 %cmp325, label %land.lhs.true327, label %cond.end342
+  %51 = load i32, ptr %maxchar324, align 4
+  %cmp325 = icmp ugt i32 %51, 779
+  br i1 %cmp325, label %land.lhs.true327, label %cond.false334
 
 land.lhs.true327:                                 ; preds = %do.body315
-  %49 = load i64, ptr %size328, align 8
-  %50 = load i64, ptr %pos329, align 8
-  %sub330 = sub i64 %49, %50
+  %52 = load i64, ptr %size328, align 8
+  %53 = load i64, ptr %pos329, align 8
+  %sub330 = sub i64 %52, %53
   %cmp331 = icmp sgt i64 %sub330, 1
-  br i1 %cmp331, label %if.end347, label %cond.end342
+  br i1 %cmp331, label %if.end347, label %cond.false334
 
-cond.end342:                                      ; preds = %do.body315, %land.lhs.true327
+cond.false334:                                    ; preds = %land.lhs.true327, %do.body315
   %call341 = tail call i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef nonnull %writer, i64 noundef 2, i32 noundef 780) #7
-  %cmp344 = icmp slt i32 %call341, 0
-  br i1 %cmp344, label %return, label %cond.end342.if.end347_crit_edge
+  %54 = icmp slt i32 %call341, 0
+  br i1 %54, label %return, label %cond.false334.if.end347_crit_edge
 
-cond.end342.if.end347_crit_edge:                  ; preds = %cond.end342
-  %.pre191 = load i64, ptr %pos329, align 8
+cond.false334.if.end347_crit_edge:                ; preds = %cond.false334
+  %.pre183 = load i64, ptr %pos329, align 8
   br label %if.end347
 
-if.end347:                                        ; preds = %cond.end342.if.end347_crit_edge, %land.lhs.true327
-  %51 = phi i64 [ %.pre191, %cond.end342.if.end347_crit_edge ], [ %50, %land.lhs.true327 ]
-  %52 = load i32, ptr %kind348, align 8
-  %53 = load ptr, ptr %data349, align 8
-  switch i32 %52, label %if.else6.i159 [
+if.end347:                                        ; preds = %cond.false334.if.end347_crit_edge, %land.lhs.true327
+  %55 = phi i64 [ %.pre183, %cond.false334.if.end347_crit_edge ], [ %53, %land.lhs.true327 ]
+  %56 = load i32, ptr %kind348, align 8
+  %57 = load ptr, ptr %data349, align 8
+  switch i32 %56, label %if.else6.i159 [
     i32 1, label %if.then.i157
     i32 2, label %if.then3.i155
   ]
 
 if.then.i157:                                     ; preds = %if.end347
-  %arrayidx.i158 = getelementptr i8, ptr %53, i64 %51
+  %arrayidx.i158 = getelementptr i8, ptr %57, i64 %55
   store i8 -22, ptr %arrayidx.i158, align 1
   br label %PyUnicode_WRITE.exit161
 
 if.then3.i155:                                    ; preds = %if.end347
-  %arrayidx5.i156 = getelementptr i16, ptr %53, i64 %51
+  %arrayidx5.i156 = getelementptr i16, ptr %57, i64 %55
   store i16 234, ptr %arrayidx5.i156, align 2
   br label %PyUnicode_WRITE.exit161
 
 if.else6.i159:                                    ; preds = %if.end347
-  %arrayidx7.i160 = getelementptr i32, ptr %53, i64 %51
+  %arrayidx7.i160 = getelementptr i32, ptr %57, i64 %55
   store i32 234, ptr %arrayidx7.i160, align 4
   br label %PyUnicode_WRITE.exit161
 
 PyUnicode_WRITE.exit161:                          ; preds = %if.then.i157, %if.then3.i155, %if.else6.i159
-  %54 = load i32, ptr %kind348, align 8
-  %55 = load ptr, ptr %data349, align 8
-  %56 = load i64, ptr %pos329, align 8
-  %add354 = add i64 %56, 1
-  switch i32 %54, label %if.else6.i166 [
+  %58 = load i32, ptr %kind348, align 8
+  %59 = load ptr, ptr %data349, align 8
+  %60 = load i64, ptr %pos329, align 8
+  %add354 = add i64 %60, 1
+  switch i32 %58, label %if.else6.i166 [
     i32 1, label %if.then.i164
     i32 2, label %if.then3.i162
   ]
 
 if.then.i164:                                     ; preds = %PyUnicode_WRITE.exit161
-  %arrayidx.i165 = getelementptr i8, ptr %55, i64 %add354
+  %arrayidx.i165 = getelementptr i8, ptr %59, i64 %add354
   store i8 12, ptr %arrayidx.i165, align 1
   br label %do.body358
 
 if.then3.i162:                                    ; preds = %PyUnicode_WRITE.exit161
-  %arrayidx5.i163 = getelementptr i16, ptr %55, i64 %add354
+  %arrayidx5.i163 = getelementptr i16, ptr %59, i64 %add354
   store i16 780, ptr %arrayidx5.i163, align 2
   br label %do.body358
 
 if.else6.i166:                                    ; preds = %PyUnicode_WRITE.exit161
-  %arrayidx7.i167 = getelementptr i32, ptr %55, i64 %add354
+  %arrayidx7.i167 = getelementptr i32, ptr %59, i64 %add354
   store i32 780, ptr %arrayidx7.i167, align 4
   br label %do.body358
 
 do.body358:                                       ; preds = %if.else6.i166, %if.then3.i162, %if.then.i164, %if.else6.i152, %if.then3.i148, %if.then.i150, %if.else6.i138, %if.then3.i134, %if.then.i136, %if.else6.i124, %if.then3.i120, %if.then.i122
-  %57 = load i64, ptr %pos329, align 8
-  %add224 = add i64 %57, 2
+  %61 = load i64, ptr %pos329, align 8
+  %add224 = add i64 %61, 2
   store i64 %add224, ptr %pos329, align 8
   br label %while.cond.backedge
 
-return:                                           ; preds = %do.body, %do.body10, %do.body75, %if.else147, %do.body164, %do.body176, %cond.end212, %cond.end254, %cond.end298, %cond.end342, %if.end188, %while.cond.backedge, %entry
-  %retval.0 = phi i64 [ 0, %entry ], [ 0, %while.cond.backedge ], [ 1, %if.end188 ], [ -4, %cond.end342 ], [ -4, %cond.end298 ], [ -4, %cond.end254 ], [ -4, %cond.end212 ], [ -4, %do.body176 ], [ -4, %do.body164 ], [ -3, %if.else147 ], [ -4, %do.body75 ], [ -2, %do.body10 ], [ -4, %do.body ]
+return:                                           ; preds = %do.body, %do.body10, %do.body75, %if.else147, %do.body164, %do.body176, %cond.false204, %cond.false246, %cond.false290, %cond.false334, %if.end188, %while.cond.backedge, %entry
+  %retval.0 = phi i64 [ 0, %entry ], [ 0, %while.cond.backedge ], [ 1, %if.end188 ], [ -4, %cond.false334 ], [ -4, %cond.false290 ], [ -4, %cond.false246 ], [ -4, %cond.false204 ], [ -4, %do.body176 ], [ -4, %do.body164 ], [ -3, %if.else147 ], [ -4, %do.body75 ], [ -2, %do.body10 ], [ -4, %do.body ]
   ret i64 %retval.0
 }
 

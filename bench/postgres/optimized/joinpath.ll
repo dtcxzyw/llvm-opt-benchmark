@@ -100,7 +100,7 @@ define dso_local void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %1, ptr 
   %52 = getelementptr inbounds i8, ptr %3, i64 8
   %53 = load i32, ptr %49, align 4
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.lr.ph, label %._crit_edge.loopexit.i
+  br i1 %54, label %.lr.ph, label %._crit_edge.i
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %clause_sides_match_join.exit.thread.i
   %.02840.i137 = phi i1 [ %.129.i, %clause_sides_match_join.exit.thread.i ], [ false, %.lr.ph.i ]
@@ -208,17 +208,15 @@ clause_sides_match_join.exit.thread.i:            ; preds = %114, %108, %101, %9
   %116 = load i32, ptr %49, align 4
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next.i, %117
-  br i1 %118, label %.lr.ph, label %._crit_edge.loopexit.i
+  br i1 %118, label %.lr.ph, label %._crit_edge.loopexit.i.loopexit
 
-._crit_edge.loopexit.i:                           ; preds = %clause_sides_match_join.exit.thread.i, %.lr.ph.i
-  %.041.i.lcssa = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %clause_sides_match_join.exit.thread.i ]
-  %.02840.i.lcssa = phi i1 [ false, %.lr.ph.i ], [ %.129.i, %clause_sides_match_join.exit.thread.i ]
-  %119 = xor i1 %.02840.i.lcssa, true
+._crit_edge.loopexit.i.loopexit:                  ; preds = %clause_sides_match_join.exit.thread.i
+  %119 = xor i1 %.129.i, true
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %46
-  %.028.lcssa.i = phi i1 [ true, %46 ], [ %119, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi ptr [ null, %46 ], [ %.041.i.lcssa, %._crit_edge.loopexit.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge.loopexit.i.loopexit, %46
+  %.028.lcssa.i = phi i1 [ true, %46 ], [ true, %.lr.ph.i ], [ %119, %._crit_edge.loopexit.i.loopexit ]
+  %.0.lcssa.i = phi ptr [ null, %46 ], [ null, %.lr.ph.i ], [ %.1.i, %._crit_edge.loopexit.i.loopexit ]
   switch i32 %4, label %select_mergejoin_clauses.exit [
     i32 3, label %120
     i32 6, label %120

@@ -3856,10 +3856,10 @@ define internal i32 @uart_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   %62 = load volatile i64, ptr %61, align 8
   %63 = and i64 %62, 2
   %64 = icmp eq i64 %63, 0
-  br i1 %64, label %.thread19, label %189
+  br i1 %64, label %.thread18, label %189
 
 65:                                               ; preds = %.thread
-  switch i32 %1, label %.thread19 [
+  switch i32 %1, label %.thread18 [
     i32 21596, label %66
     i32 21551, label %155
   ]
@@ -3960,22 +3960,22 @@ define internal i32 @uart_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   %132 = icmp eq i32 %119, %118
   %133 = select i1 %113, i1 true, i1 %132
   %134 = select i1 %131, i1 %133, i1 false
-  br i1 %134, label %135, label %.thread15
+  br i1 %134, label %135, label %.critedge
 
 135:                                              ; preds = %114
   call void @schedule() #19
   %136 = load volatile i64, ptr %69, align 8
   %137 = and i64 %136, 131072
   %138 = icmp eq i64 %137, 0
-  br i1 %138, label %139, label %.thread15, !prof !21
+  br i1 %138, label %139, label %.critedge, !prof !21
 
 139:                                              ; preds = %135
   %140 = load volatile i64, ptr %69, align 8
   %141 = and i64 %140, 4
   %142 = icmp eq i64 %141, 0
-  br i1 %142, label %114, label %.thread15, !llvm.loop !45
+  br i1 %142, label %114, label %.critedge, !llvm.loop !45
 
-.thread15:                                        ; preds = %135, %139, %114
+.critedge:                                        ; preds = %135, %139, %114
   %143 = phi i32 [ 0, %114 ], [ -512, %139 ], [ -512, %135 ]
   store volatile i32 0, ptr %105, align 8
   call void @remove_wait_queue(ptr noundef %104, ptr noundef nonnull %4) #19
@@ -3988,25 +3988,25 @@ define internal i32 @uart_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   %149 = icmp eq i8 %147, 0
   br i1 %149, label %.thread14, label %150
 
-150:                                              ; preds = %.thread15
+150:                                              ; preds = %.critedge
   %151 = load ptr, ptr %144, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 408
   %153 = call i32 @__wake_up(ptr noundef %152, i32 noundef 3, i32 noundef 1, ptr noundef null) #19
   br label %.thread14
 
-.thread14:                                        ; preds = %81, %66, %84, %.thread15, %150
-  %154 = phi i32 [ -5, %84 ], [ %143, %.thread15 ], [ %143, %150 ], [ -5, %66 ], [ -5, %81 ]
+.thread14:                                        ; preds = %81, %66, %84, %.critedge, %150
+  %154 = phi i32 [ -5, %84 ], [ %143, %.critedge ], [ %143, %150 ], [ -5, %66 ], [ -5, %81 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #19
   br label %189
 
 155:                                              ; preds = %65
   %156 = getelementptr inbounds i8, ptr %0, i64 192
   tail call void @down_write(ptr noundef %156) #19
-  br label %.thread19
+  br label %.thread18
 
-.thread19:                                        ; preds = %65, %.thread10, %155
+.thread18:                                        ; preds = %65, %.thread10, %155
   %157 = phi i1 [ true, %155 ], [ false, %.thread10 ], [ false, %65 ]
-  %.ph1721 = phi ptr [ %57, %155 ], [ %61, %.thread10 ], [ %57, %65 ]
+  %.ph1620 = phi ptr [ %57, %155 ], [ %61, %.thread10 ], [ %57, %65 ]
   %158 = getelementptr inbounds i8, ptr %6, i64 256
   tail call void @mutex_lock(ptr noundef %158) #19
   %159 = getelementptr inbounds i8, ptr %6, i64 432
@@ -4014,8 +4014,8 @@ define internal i32 @uart_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   %161 = icmp eq ptr %160, null
   br i1 %161, label %185, label %162
 
-162:                                              ; preds = %.thread19
-  %163 = load volatile i64, ptr %.ph1721, align 8
+162:                                              ; preds = %.thread18
+  %163 = load volatile i64, ptr %.ph1620, align 8
   %164 = and i64 %163, 2
   %165 = icmp eq i64 %164, 0
   br i1 %165, label %166, label %185
@@ -4061,8 +4061,8 @@ define internal i32 @uart_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   %184 = tail call i32 %181(ptr noundef nonnull %160, i32 noundef %1, i64 noundef %2) #19
   br label %185
 
-185:                                              ; preds = %183, %177, %175, %173, %171, %169, %167, %162, %.thread19
-  %186 = phi i32 [ %184, %183 ], [ -515, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ -5, %162 ], [ -5, %.thread19 ]
+185:                                              ; preds = %183, %177, %175, %173, %171, %169, %167, %162, %.thread18
+  %186 = phi i32 [ %184, %183 ], [ -515, %177 ], [ %176, %175 ], [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ], [ -5, %162 ], [ -5, %.thread18 ]
   tail call void @mutex_unlock(ptr noundef %158) #19
   br i1 %157, label %187, label %189
 
@@ -4933,7 +4933,7 @@ define internal void @uart_wait_until_sent(ptr nocapture noundef readonly %0, i3
 
 67:                                               ; preds = %64, %52, %36
   %.pre-phi = phi i64 [ %.pre, %64 ], [ %44, %52 ], [ %44, %36 ]
-  %.fr6 = phi i32 [ %66, %64 ], [ %1, %52 ], [ %1, %36 ]
+  %.fr5 = phi i32 [ %66, %64 ], [ %1, %52 ], [ %1, %36 ]
   %68 = load volatile i64, ptr @jiffies, align 64
   %69 = add i64 %68, %.pre-phi
   %70 = getelementptr inbounds i8, ptr %19, i64 304
@@ -4941,10 +4941,10 @@ define internal void @uart_wait_until_sent(ptr nocapture noundef readonly %0, i3
   %72 = load ptr, ptr %71, align 8
   %73 = tail call i32 %72(ptr noundef nonnull %19) #19
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %.thread5
+  br i1 %74, label %75, label %.critedge
 
 75:                                               ; preds = %67
-  %76 = icmp eq i32 %.fr6, 0
+  %76 = icmp eq i32 %.fr5, 0
   br i1 %76, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %75, %88
@@ -4955,20 +4955,20 @@ define internal void @uart_wait_until_sent(ptr nocapture noundef readonly %0, i3
   %81 = load volatile i64, ptr %80, align 8
   %82 = and i64 %81, 131072
   %83 = icmp eq i64 %82, 0
-  br i1 %83, label %84, label %.thread5, !prof !21
+  br i1 %83, label %84, label %.critedge, !prof !21
 
 84:                                               ; preds = %.split.us
   %85 = load volatile i64, ptr %80, align 8
   %86 = and i64 %85, 4
   %87 = icmp eq i64 %86, 0
-  br i1 %87, label %88, label %.thread5
+  br i1 %87, label %88, label %.critedge
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %70, align 8
   %90 = load ptr, ptr %89, align 8
   %91 = tail call i32 %90(ptr noundef nonnull %19) #19
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %.split.us, label %.thread5, !llvm.loop !56
+  br i1 %92, label %.split.us, label %.critedge, !llvm.loop !56
 
 .split:                                           ; preds = %75, %108
   %93 = tail call i32 @jiffies_to_msecs(i64 noundef %47) #19
@@ -4978,28 +4978,28 @@ define internal void @uart_wait_until_sent(ptr nocapture noundef readonly %0, i3
   %97 = load volatile i64, ptr %96, align 8
   %98 = and i64 %97, 131072
   %99 = icmp eq i64 %98, 0
-  br i1 %99, label %100, label %.thread5, !prof !21
+  br i1 %99, label %100, label %.critedge, !prof !21
 
 100:                                              ; preds = %.split
   %101 = load volatile i64, ptr %96, align 8
   %102 = and i64 %101, 4
   %103 = icmp eq i64 %102, 0
-  br i1 %103, label %104, label %.thread5
+  br i1 %103, label %104, label %.critedge
 
 104:                                              ; preds = %100
   %105 = load volatile i64, ptr @jiffies, align 64
   %106 = sub i64 %69, %105
   %107 = icmp slt i64 %106, 0
-  br i1 %107, label %.thread5, label %108
+  br i1 %107, label %.critedge, label %108
 
 108:                                              ; preds = %104
   %109 = load ptr, ptr %70, align 8
   %110 = load ptr, ptr %109, align 8
   %111 = tail call i32 %110(ptr noundef nonnull %19) #19
   %112 = icmp eq i32 %111, 0
-  br i1 %112, label %.split, label %.thread5, !llvm.loop !56
+  br i1 %112, label %.split, label %.critedge, !llvm.loop !56
 
-.thread5:                                         ; preds = %100, %104, %108, %.split, %88, %84, %.split.us, %67
+.critedge:                                        ; preds = %100, %104, %108, %.split, %88, %84, %.split.us, %67
   %113 = getelementptr inbounds i8, ptr %19, i64 208
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 400
@@ -5009,14 +5009,14 @@ define internal void @uart_wait_until_sent(ptr nocapture noundef readonly %0, i3
   %118 = icmp eq i8 %116, 0
   br i1 %118, label %.thread4, label %119
 
-119:                                              ; preds = %.thread5, %29
-  %120 = phi ptr [ %30, %29 ], [ %113, %.thread5 ]
+119:                                              ; preds = %.critedge, %29
+  %120 = phi ptr [ %30, %29 ], [ %113, %.critedge ]
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 408
   %123 = tail call i32 @__wake_up(ptr noundef %122, i32 noundef 3, i32 noundef 1, ptr noundef null) #19
   br label %.thread4
 
-.thread4:                                         ; preds = %14, %2, %119, %.thread5, %29, %17
+.thread4:                                         ; preds = %14, %2, %119, %.critedge, %29, %17
   ret void
 }
 
@@ -5336,24 +5336,24 @@ define internal i32 @uart_set_info_user(ptr noundef %0, ptr noundef %1) #0 align
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i16, ptr %29, align 8
   %31 = icmp eq i16 %30, -1
-  br i1 %31, label %36, label %32
+  br i1 %31, label %37, label %32
 
 32:                                               ; preds = %10
   %33 = zext i16 %30 to i32
   %34 = mul nuw nsw i32 %33, 10
   %35 = tail call i64 @__msecs_to_jiffies(i32 noundef %34) #19
-  br label %36
+  %36 = trunc i64 %35 to i32
+  br label %37
 
-36:                                               ; preds = %32, %10
-  %37 = phi i64 [ 65535, %10 ], [ %35, %32 ]
-  %38 = trunc i64 %37 to i32
+37:                                               ; preds = %32, %10
+  %38 = phi i32 [ 65535, %10 ], [ %36, %32 ]
   %39 = getelementptr inbounds i8, ptr %8, i64 272
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 536870912
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %43, label %83
 
-43:                                               ; preds = %36
+43:                                               ; preds = %37
   %44 = load i32, ptr %19, align 4
   %45 = getelementptr inbounds i8, ptr %8, i64 168
   %46 = load i32, ptr %45, align 8
@@ -5405,9 +5405,9 @@ define internal i32 @uart_set_info_user(ptr noundef %0, ptr noundef %1) #0 align
   %82 = icmp ne i32 %79, %81
   br label %83
 
-83:                                               ; preds = %36, %78, %71, %65, %58, %51, %43
-  %84 = phi i1 [ %47, %71 ], [ %47, %65 ], [ %47, %58 ], [ %47, %51 ], [ %47, %43 ], [ %47, %78 ], [ false, %36 ]
-  %85 = phi i1 [ true, %71 ], [ true, %65 ], [ true, %58 ], [ true, %51 ], [ true, %43 ], [ %82, %78 ], [ false, %36 ]
+83:                                               ; preds = %37, %78, %71, %65, %58, %51, %43
+  %84 = phi i1 [ %47, %71 ], [ %47, %65 ], [ %47, %58 ], [ %47, %51 ], [ %47, %43 ], [ %47, %78 ], [ false, %37 ]
+  %85 = phi i1 [ true, %71 ], [ true, %65 ], [ true, %58 ], [ true, %51 ], [ true, %43 ], [ %82, %78 ], [ false, %37 ]
   %86 = getelementptr inbounds i8, ptr %1, i64 16
   %87 = load i32, ptr %86, align 8
   %88 = sext i32 %87 to i64

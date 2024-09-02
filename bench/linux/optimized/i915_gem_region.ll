@@ -260,11 +260,15 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
   %13 = getelementptr i8, ptr %11, i64 -720
   %14 = icmp eq ptr %13, null
   %15 = or i1 %12, %14
-  br i1 %15, label %._crit_edge, label %.lr.ph
+  br i1 %15, label %.thread18, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %select.unfold18
-  %16 = phi ptr [ %112, %select.unfold18 ], [ %13, %2 ]
-  %17 = phi ptr [ %110, %select.unfold18 ], [ %11, %2 ]
+.thread18:                                        ; preds = %.backedge, %2
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #7
+  br label %.loopexit
+
+.lr.ph:                                           ; preds = %2, %.backedge
+  %16 = phi ptr [ %111, %.backedge ], [ %13, %2 ]
+  %17 = phi ptr [ %109, %.backedge ], [ %11, %2 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
@@ -308,7 +312,7 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
 
 38:                                               ; preds = %37, %.thread
   %39 = icmp eq i32 %33, 0
-  br i1 %39, label %select.unfold18, label %40, !llvm.loop !24
+  br i1 %39, label %114, label %40, !llvm.loop !24
 
 40:                                               ; preds = %38
   call void @mutex_unlock(ptr noundef %8) #7
@@ -323,7 +327,7 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
   %47 = getelementptr i8, ptr %17, i64 -16
   br label %48
 
-48:                                               ; preds = %.backedge, %40
+48:                                               ; preds = %.backedge20, %40
   %49 = load ptr, ptr %6, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %58, label %51
@@ -424,11 +428,11 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
 select.unfold:                                    ; preds = %.thread13, %98
   %101 = call i32 @i915_gem_ww_ctx_backoff(ptr noundef nonnull %4) #7
   switch i32 %101, label %.thread15 [
-    i32 -35, label %.backedge
-    i32 0, label %.backedge
+    i32 -35, label %.backedge20
+    i32 0, label %.backedge20
   ]
 
-.backedge:                                        ; preds = %select.unfold, %select.unfold
+.backedge20:                                      ; preds = %select.unfold, %select.unfold
   br label %48
 
 .thread15:                                        ; preds = %select.unfold, %92, %98
@@ -453,42 +457,45 @@ select.unfold:                                    ; preds = %.thread13, %98
 
 .thread17:                                        ; preds = %105, %107, %108
   call void @mutex_lock(ptr noundef %8) #7
-  %109 = icmp eq i32 %102, 0
-  br i1 %109, label %select.unfold18, label %._crit_edge
-
-select.unfold18:                                  ; preds = %.thread17, %38
+  %.not19 = icmp eq i32 %102, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #7
+  br i1 %.not19, label %.backedge, label %.loopexit
+
+.backedge:                                        ; preds = %.thread17, %114
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !19
-  %110 = load volatile ptr, ptr %9, align 8
-  %111 = icmp eq ptr %110, %9
-  %112 = getelementptr i8, ptr %110, i64 -720
-  %113 = icmp eq ptr %112, null
-  %114 = or i1 %111, %113
-  br i1 %114, label %._crit_edge, label %.lr.ph
+  %109 = load volatile ptr, ptr %9, align 8
+  %110 = icmp eq ptr %109, %9
+  %111 = getelementptr i8, ptr %109, i64 -720
+  %112 = icmp eq ptr %111, null
+  %113 = or i1 %110, %112
+  br i1 %113, label %.thread18, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.thread17, %select.unfold18, %2
-  %.ph20 = phi i32 [ 0, %2 ], [ 0, %select.unfold18 ], [ %102, %.thread17 ]
+114:                                              ; preds = %38
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #7
-  %115 = load volatile ptr, ptr %3, align 8
-  %116 = icmp eq ptr %115, %3
-  br i1 %116, label %122, label %117
+  br label %.backedge
 
-117:                                              ; preds = %._crit_edge
-  %118 = getelementptr inbounds i8, ptr %0, i64 232
-  %119 = load ptr, ptr %118, align 8
-  %120 = load ptr, ptr %7, align 8
-  %121 = getelementptr inbounds i8, ptr %115, i64 8
-  store ptr %119, ptr %121, align 8
-  store ptr %115, ptr %119, align 8
-  store ptr %9, ptr %120, align 8
-  store ptr %120, ptr %118, align 8
-  br label %122
+.loopexit:                                        ; preds = %.thread17, %.thread18
+  %115 = phi i32 [ 0, %.thread18 ], [ %102, %.thread17 ]
+  %116 = load volatile ptr, ptr %3, align 8
+  %117 = icmp eq ptr %116, %3
+  br i1 %117, label %123, label %118
 
-122:                                              ; preds = %117, %._crit_edge
+118:                                              ; preds = %.loopexit
+  %119 = getelementptr inbounds i8, ptr %0, i64 232
+  %120 = load ptr, ptr %119, align 8
+  %121 = load ptr, ptr %7, align 8
+  %122 = getelementptr inbounds i8, ptr %116, i64 8
+  store ptr %120, ptr %122, align 8
+  store ptr %116, ptr %120, align 8
+  store ptr %9, ptr %121, align 8
+  store ptr %121, ptr %119, align 8
+  br label %123
+
+123:                                              ; preds = %118, %.loopexit
   call void @mutex_unlock(ptr noundef %8) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
-  ret i32 %.ph20
+  ret i32 %115
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

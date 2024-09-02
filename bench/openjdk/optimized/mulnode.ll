@@ -1433,7 +1433,7 @@ define hidden noundef ptr @_ZN25IntegerTypeMultiplicationIlE13overflow_typeEv() 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN25IntegerTypeMultiplicationIlE13multiply_highEll(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i64 -4611686020574871552, 4611686022722355199) i64 @_ZN25IntegerTypeMultiplicationIlE13multiply_highEll(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = ashr i64 %0, 32
   %4 = and i64 %0, 4294967295
   %5 = ashr i64 %1, 32

@@ -71,7 +71,7 @@ if.end8:                                          ; preds = %if.then, %if.then5,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %pt) local_unnamed_addr #2 align 2 {
+define dso_local noundef range(i32 -1, 4) i32 @_ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %pt) local_unnamed_addr #2 align 2 {
 entry:
   %m_distance1.i = getelementptr inbounds i8, ptr %pt, i64 80
   %0 = load float, ptr %m_distance1.i, align 8
@@ -764,7 +764,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN20btPersistentManifold16addManifoldPointERK15btManifoldPointb(ptr nocapture noundef nonnull align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %newPoint, i1 noundef zeroext %isPredictive) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, -2147483648) i32 @_ZN20btPersistentManifold16addManifoldPointERK15btManifoldPointb(ptr nocapture noundef nonnull align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %newPoint, i1 noundef zeroext %isPredictive) local_unnamed_addr #1 align 2 {
 entry:
   %m_cachedPoints.i = getelementptr inbounds i8, ptr %this, i64 856
   %0 = load i32, ptr %m_cachedPoints.i, align 8

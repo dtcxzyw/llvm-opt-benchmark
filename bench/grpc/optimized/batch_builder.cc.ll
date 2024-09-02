@@ -1428,7 +1428,7 @@ _ZN9grpc_core15metadata_detail10UnknownMap5ClearEv.exit: ; preds = %entry, %whil
 declare noundef i32 @_ZNK4absl12lts_202308026Status4codeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN9grpc_core12BatchBuilder10MakeCancelEP20grpc_stream_refcountN4absl12lts_202308026StatusE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %stream_refcount, ptr nocapture noundef %status) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9grpc_core12BatchBuilder10MakeCancelEP20grpc_stream_refcountN4absl12lts_202308026StatusE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %stream_refcount, ptr nocapture noundef %status) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)
   %1 = load ptr, ptr %0, align 8

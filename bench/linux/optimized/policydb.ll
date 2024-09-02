@@ -1025,7 +1025,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp ugt i64 %7, 7
-  br i1 %8, label %9, label %.thread67
+  br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %1, align 8
@@ -1041,7 +1041,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 
 17:                                               ; preds = %9
   %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %11, i32 noundef -109248628) #24
-  br label %.thread67
+  br label %.critedge
 
 19:                                               ; preds = %9
   %20 = icmp eq i32 %13, 8
@@ -1049,7 +1049,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 
 21:                                               ; preds = %19
   %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef %13, i64 noundef 8) #24
-  br label %.thread67
+  br label %.critedge
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
@@ -1059,7 +1059,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 
 27:                                               ; preds = %23
   %28 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef 8) #24
-  br label %.thread67
+  br label %.critedge
 
 29:                                               ; preds = %23
   %30 = load i64, ptr %6, align 8
@@ -1069,7 +1069,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 32:                                               ; preds = %29
   %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7) #24
   tail call void @kfree(ptr noundef nonnull %25) #22
-  br label %.thread67
+  br label %.critedge
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %1, align 8
@@ -1088,13 +1088,13 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 42:                                               ; preds = %34
   %43 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef nonnull %25, ptr noundef nonnull @.str.8) #24
   tail call void @kfree(ptr noundef nonnull %25) #22
-  br label %.thread67
+  br label %.critedge
 
 44:                                               ; preds = %34
   tail call void @kfree(ptr noundef nonnull %25) #22
   %45 = load i64, ptr %6, align 8
   %46 = icmp ugt i64 %45, 15
-  br i1 %46, label %47, label %.thread67
+  br i1 %46, label %47, label %.critedge
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %1, align 8
@@ -1117,7 +1117,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 
 61:                                               ; preds = %47
   %62 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i32 noundef %49, i32 noundef 15, i32 noundef 33) #24
-  br label %.thread67
+  br label %.critedge
 
 63:                                               ; preds = %47
   %64 = and i32 %51, 1
@@ -1131,7 +1131,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 
 68:                                               ; preds = %66
   %69 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, i32 noundef %49) #24
-  br label %.thread67
+  br label %.critedge
 
 70:                                               ; preds = %66, %63
   %71 = getelementptr inbounds i8, ptr %0, i64 580
@@ -1148,7 +1148,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 79:                                               ; preds = %70
   %80 = tail call i32 @ebitmap_read(ptr noundef %5, ptr noundef %1) #22
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %.thread67
+  br i1 %81, label %82, label %.critedge
 
 82:                                               ; preds = %79
   %.pre = load i32, ptr %58, align 8
@@ -1159,20 +1159,20 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %85 = getelementptr inbounds i8, ptr %0, i64 552
   %86 = tail call i32 @ebitmap_read(ptr noundef %85, ptr noundef %1) #22
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %._crit_edge117, label %.thread67
+  br i1 %87, label %._crit_edge123, label %.critedge
 
-._crit_edge117:                                   ; preds = %84
-  %.pre118 = load i32, ptr %58, align 8
+._crit_edge123:                                   ; preds = %84
+  %.pre124 = load i32, ptr %58, align 8
   br label %.thread
 
-.thread:                                          ; preds = %70, %._crit_edge117, %82
-  %88 = phi i32 [ %.pre118, %._crit_edge117 ], [ %.pre, %82 ], [ %49, %70 ]
+.thread:                                          ; preds = %70, %._crit_edge123, %82
+  %88 = phi i32 [ %.pre124, %._crit_edge123 ], [ %.pre, %82 ], [ %49, %70 ]
   br label %92
 
 89:                                               ; preds = %92
   %90 = add nuw nsw i64 %93, 1
   %91 = icmp eq i64 %90, 19
-  br i1 %91, label %.thread60, label %92, !llvm.loop !18
+  br i1 %91, label %.thread76, label %92, !llvm.loop !18
 
 92:                                               ; preds = %89, %.thread
   %93 = phi i64 [ 0, %.thread ], [ %90, %89 ]
@@ -1183,11 +1183,11 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 
 97:                                               ; preds = %92
   %98 = icmp eq ptr %94, null
-  br i1 %98, label %.thread60, label %100
+  br i1 %98, label %.thread76, label %100
 
-.thread60:                                        ; preds = %89, %97
+.thread76:                                        ; preds = %89, %97
   %99 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, i32 noundef %88) #24
-  br label %.thread67
+  br label %.critedge
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds i8, ptr %94, i64 4
@@ -1196,12 +1196,12 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %104 = getelementptr inbounds i8, ptr %94, i64 8
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %55, %105
-  %or.cond135 = select i1 %103, i1 %106, i1 false
-  br i1 %or.cond135, label %107, label %._crit_edge119
+  %or.cond = select i1 %103, i1 %106, i1 false
+  br i1 %or.cond, label %107, label %._crit_edge125
 
 107:                                              ; preds = %100
   %108 = icmp eq i32 %53, 0
-  br i1 %108, label %.loopexit97, label %109
+  br i1 %108, label %.loopexit103, label %109
 
 109:                                              ; preds = %107
   %110 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1210,15 +1210,15 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %113 = zext i32 %53 to i64
   br label %115
 
-._crit_edge119:                                   ; preds = %100
+._crit_edge125:                                   ; preds = %100
   %114 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, i32 noundef %53, i32 noundef %55, i32 noundef %102, i32 noundef %105) #24
-  br label %.thread67
+  br label %.critedge
 
-115:                                              ; preds = %.loopexit94, %109
-  %116 = phi i64 [ 0, %109 ], [ %161, %.loopexit94 ]
+115:                                              ; preds = %.loopexit100, %109
+  %116 = phi i64 [ 0, %109 ], [ %161, %.loopexit100 ]
   %117 = load i64, ptr %6, align 8
   %118 = icmp ugt i64 %117, 7
-  br i1 %118, label %119, label %.thread67
+  br i1 %118, label %119, label %.critedge
 
 119:                                              ; preds = %115
   %120 = load ptr, ptr %1, align 8
@@ -1232,7 +1232,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %126 = getelementptr [8 x %struct.symtab], ptr %110, i64 0, i64 %116
   %127 = tail call i32 @symtab_init(ptr noundef %126, i32 noundef %123) #22
   %128 = icmp eq i32 %127, 0
-  br i1 %128, label %129, label %.thread62
+  br i1 %128, label %129, label %.thread78
 
 129:                                              ; preds = %119
   %130 = icmp eq i64 %116, 2
@@ -1242,7 +1242,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %132 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %133 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %132, i32 noundef 3520, i64 noundef 40) #25
   %134 = icmp eq ptr %133, null
-  br i1 %134, label %.thread62, label %135
+  br i1 %134, label %.thread78, label %135
 
 135:                                              ; preds = %131
   %136 = load i32, ptr %112, align 8
@@ -1267,11 +1267,11 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %147 = phi i32 [ -22, %135 ], [ %143, %142 ], [ -12, %139 ]
   tail call void @kfree(ptr noundef %146) #22
   tail call void @kfree(ptr noundef nonnull %133) #22
-  br label %.thread62
+  br label %.thread78
 
 148:                                              ; preds = %142, %129
   %149 = icmp eq i32 %123, 0
-  br i1 %149, label %.loopexit94, label %150
+  br i1 %149, label %.loopexit100, label %150
 
 150:                                              ; preds = %148
   %151 = getelementptr [8 x ptr], ptr @read_f, i64 0, i64 %116
@@ -1281,33 +1281,33 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 153:                                              ; preds = %156
   %154 = add nuw i32 %157, 1
   %155 = icmp eq i32 %154, %123
-  br i1 %155, label %.loopexit94, label %156, !llvm.loop !19
+  br i1 %155, label %.loopexit100, label %156, !llvm.loop !19
 
 156:                                              ; preds = %153, %150
   %157 = phi i32 [ 0, %150 ], [ %154, %153 ]
   %158 = tail call i32 %152(ptr noundef %0, ptr noundef %126, ptr noundef %1) #22
   %159 = icmp eq i32 %158, 0
-  br i1 %159, label %153, label %.thread67
+  br i1 %159, label %153, label %.critedge
 
-.loopexit94:                                      ; preds = %153, %148
+.loopexit100:                                     ; preds = %153, %148
   %160 = getelementptr inbounds i8, ptr %126, i64 16
   store i32 %121, ptr %160, align 8
   %161 = add nuw nsw i64 %116, 1
   %162 = icmp ult i64 %161, %113
-  br i1 %162, label %115, label %.loopexit97, !llvm.loop !20
+  br i1 %162, label %115, label %.loopexit103, !llvm.loop !20
 
-.loopexit97:                                      ; preds = %.loopexit94, %107
+.loopexit103:                                     ; preds = %.loopexit100, %107
   %163 = getelementptr i8, ptr %0, i64 32
   %164 = tail call ptr @symtab_search(ptr noundef %163, ptr noundef nonnull @.str.14) #22
   %165 = icmp eq ptr %164, null
-  br i1 %165, label %.thread63, label %167
+  br i1 %165, label %.thread79, label %167
 
-.thread63:                                        ; preds = %.loopexit97
+.thread79:                                        ; preds = %.loopexit103
   %166 = getelementptr inbounds i8, ptr %0, i64 582
   store i16 0, ptr %166, align 2
   br label %172
 
-167:                                              ; preds = %.loopexit97
+167:                                              ; preds = %.loopexit103
   %168 = load i32, ptr %164, align 8
   %169 = trunc i32 %168 to i16
   %170 = getelementptr inbounds i8, ptr %0, i64 582
@@ -1315,14 +1315,14 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %171 = icmp eq i16 %169, 0
   br i1 %171, label %172, label %174
 
-172:                                              ; preds = %.thread63, %167
+172:                                              ; preds = %.thread79, %167
   %173 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15) #24
-  br label %.thread67
+  br label %.critedge
 
 174:                                              ; preds = %167
   %175 = tail call i32 @avtab_read(ptr noundef %3, ptr noundef %1, ptr noundef %0) #22
   %176 = icmp eq i32 %175, 0
-  br i1 %176, label %177, label %.thread67
+  br i1 %176, label %177, label %.critedge
 
 177:                                              ; preds = %174
   %178 = load i32, ptr %58, align 8
@@ -1332,12 +1332,12 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 180:                                              ; preds = %177
   %181 = tail call i32 @cond_read_list(ptr noundef %0, ptr noundef %1) #22
   %182 = icmp eq i32 %181, 0
-  br i1 %182, label %183, label %.thread67
+  br i1 %182, label %183, label %.critedge
 
 183:                                              ; preds = %180, %177
   %184 = load i64, ptr %6, align 8
   %185 = icmp ugt i64 %184, 3
-  br i1 %185, label %186, label %.thread67
+  br i1 %185, label %186, label %.critedge
 
 186:                                              ; preds = %183
   %187 = load ptr, ptr %1, align 8
@@ -1349,11 +1349,11 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %191 = getelementptr inbounds i8, ptr %0, i64 320
   %192 = tail call i32 @hashtab_init(ptr noundef %191, i32 noundef %188) #22
   %193 = icmp eq i32 %192, 0
-  br i1 %193, label %194, label %.thread67
+  br i1 %193, label %194, label %.critedge
 
 194:                                              ; preds = %186
   %195 = icmp eq i32 %188, 0
-  br i1 %195, label %.loopexit92, label %196
+  br i1 %195, label %.loopexit98, label %196
 
 196:                                              ; preds = %194
   %197 = getelementptr i8, ptr %0, i64 72
@@ -1364,25 +1364,25 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 200:                                              ; preds = %249
   %201 = add nuw i32 %204, 1
   %202 = icmp eq i32 %201, %188
-  br i1 %202, label %.loopexit92, label %203, !llvm.loop !21
+  br i1 %202, label %.loopexit98, label %203, !llvm.loop !21
 
 203:                                              ; preds = %200, %196
   %204 = phi i32 [ 0, %196 ], [ %201, %200 ]
   %205 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %206 = tail call noalias align 8 dereferenceable_or_null(12) ptr @kmalloc_trace(ptr noundef %205, i32 noundef 3264, i64 noundef 12) #25
   %207 = icmp eq ptr %206, null
-  br i1 %207, label %.thread67, label %208
+  br i1 %207, label %.critedge, label %208
 
 208:                                              ; preds = %203
   %209 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %210 = tail call noalias align 8 dereferenceable_or_null(4) ptr @kmalloc_trace(ptr noundef %209, i32 noundef 3264, i64 noundef 4) #25
   %211 = icmp eq ptr %210, null
-  br i1 %211, label %.thread67, label %212
+  br i1 %211, label %.critedge, label %212
 
 212:                                              ; preds = %208
   %213 = load i64, ptr %6, align 8
   %214 = icmp ugt i64 %213, 11
-  br i1 %214, label %215, label %.thread67
+  br i1 %214, label %215, label %.critedge
 
 215:                                              ; preds = %212
   %216 = load ptr, ptr %1, align 8
@@ -1405,9 +1405,9 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 
 227:                                              ; preds = %215
   %228 = icmp ugt i64 %223, 3
-  br i1 %228, label %.thread66, label %.thread67
+  br i1 %228, label %.thread82, label %.critedge
 
-.thread66:                                        ; preds = %227
+.thread82:                                        ; preds = %227
   %229 = load i32, ptr %222, align 1
   %230 = getelementptr i8, ptr %216, i64 16
   store ptr %230, ptr %1, align 8
@@ -1420,46 +1420,46 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %234 = zext i16 %233 to i32
   br label %235
 
-235:                                              ; preds = %.thread66, %232
-  %236 = phi i32 [ %234, %232 ], [ %229, %.thread66 ]
+235:                                              ; preds = %.thread82, %232
+  %236 = phi i32 [ %234, %232 ], [ %229, %.thread82 ]
   %237 = getelementptr inbounds i8, ptr %206, i64 8
   store i32 %236, ptr %237, align 8
   %238 = icmp eq i32 %217, 0
-  br i1 %238, label %.thread67, label %239
+  br i1 %238, label %.critedge, label %239
 
 239:                                              ; preds = %235
   %240 = load i32, ptr %197, align 8
   %.not = icmp ult i32 %240, %217
   %241 = icmp eq i32 %219, 0
-  %or.cond = select i1 %.not, i1 true, i1 %241
-  br i1 %or.cond, label %.thread67, label %242
+  %or.cond87 = select i1 %.not, i1 true, i1 %241
+  br i1 %or.cond87, label %.critedge, label %242
 
 242:                                              ; preds = %239
   %243 = load i32, ptr %198, align 8
-  %.not80 = icmp ult i32 %243, %219
+  %.not58 = icmp ult i32 %243, %219
   %244 = icmp eq i32 %236, 0
-  %or.cond77 = select i1 %.not80, i1 true, i1 %244
-  br i1 %or.cond77, label %.thread67, label %245
+  %or.cond88 = select i1 %.not58, i1 true, i1 %244
+  br i1 %or.cond88, label %.critedge, label %245
 
 245:                                              ; preds = %242
   %246 = load i32, ptr %199, align 8
-  %.not81 = icmp ult i32 %246, %236
+  %.not59 = icmp ult i32 %246, %236
   %247 = add i32 %221, -1
   %248 = icmp uge i32 %247, %240
-  %or.cond136 = select i1 %.not81, i1 true, i1 %248
-  br i1 %or.cond136, label %.thread67, label %249
+  %or.cond89 = select i1 %.not59, i1 true, i1 %248
+  br i1 %or.cond89, label %.critedge, label %249
 
 249:                                              ; preds = %245
   %250 = tail call fastcc i32 @hashtab_insert(ptr noundef %191, ptr noundef nonnull %206, ptr noundef nonnull %210, ptr nonnull @role_trans_hash, ptr nonnull @role_trans_cmp)
   %251 = icmp eq i32 %250, 0
-  br i1 %251, label %200, label %.thread67
+  br i1 %251, label %200, label %.critedge
 
-.loopexit92:                                      ; preds = %200, %194
+.loopexit98:                                      ; preds = %200, %194
   %252 = load i64, ptr %6, align 8
   %253 = icmp ugt i64 %252, 3
-  br i1 %253, label %254, label %.thread67
+  br i1 %253, label %254, label %.critedge
 
-254:                                              ; preds = %.loopexit92
+254:                                              ; preds = %.loopexit98
   %255 = load ptr, ptr %1, align 8
   %256 = load i32, ptr %255, align 1
   %257 = getelementptr i8, ptr %255, i64 4
@@ -1485,7 +1485,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %269 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %270 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %269, i32 noundef 3520, i64 noundef 16) #25
   %271 = icmp eq ptr %270, null
-  br i1 %271, label %.thread67, label %272
+  br i1 %271, label %.critedge, label %272
 
 272:                                              ; preds = %266
   %273 = icmp eq ptr %267, null
@@ -1494,7 +1494,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   store ptr %270, ptr %275, align 8
   %276 = load i64, ptr %6, align 8
   %277 = icmp ugt i64 %276, 7
-  br i1 %277, label %278, label %.thread67
+  br i1 %277, label %278, label %.critedge
 
 278:                                              ; preds = %272
   %279 = load ptr, ptr %1, align 8
@@ -1509,25 +1509,25 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %285 = getelementptr inbounds i8, ptr %270, i64 4
   store i32 %282, ptr %285, align 4
   %286 = icmp eq i32 %280, 0
-  br i1 %286, label %.thread67, label %287
+  br i1 %286, label %.critedge, label %287
 
 287:                                              ; preds = %278
   %288 = load i32, ptr %262, align 8
-  %.not83 = icmp ult i32 %288, %280
+  %.not61 = icmp ult i32 %288, %280
   %289 = add i32 %282, -1
   %290 = icmp uge i32 %289, %288
-  %or.cond137 = select i1 %.not83, i1 true, i1 %290
-  br i1 %or.cond137, label %.thread67, label %263
+  %or.cond90 = select i1 %.not61, i1 true, i1 %290
+  br i1 %or.cond90, label %.critedge, label %263
 
 .loopexit:                                        ; preds = %263, %254
   %291 = tail call fastcc i32 @filename_trans_read(ptr noundef %0, ptr noundef %1)
   %292 = icmp eq i32 %291, 0
-  br i1 %292, label %293, label %.thread67
+  br i1 %292, label %293, label %.critedge
 
 293:                                              ; preds = %.loopexit
   %294 = tail call fastcc i32 @policydb_index(ptr noundef %0)
   %295 = icmp eq i32 %294, 0
-  br i1 %295, label %296, label %.thread67
+  br i1 %295, label %296, label %.critedge
 
 296:                                              ; preds = %293
   %297 = load i16, ptr %170, align 2
@@ -1537,7 +1537,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 
 300:                                              ; preds = %296
   %301 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #24
-  br label %.thread67
+  br label %.critedge
 
 302:                                              ; preds = %296
   %303 = getelementptr inbounds i8, ptr %0, i64 584
@@ -1549,7 +1549,7 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 
 307:                                              ; preds = %302
   %308 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #24
-  br label %.thread67
+  br label %.critedge
 
 309:                                              ; preds = %302
   %310 = load i32, ptr %303, align 8
@@ -1557,17 +1557,17 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   store i32 %311, ptr %303, align 8
   %312 = tail call fastcc i32 @ocontext_read(ptr noundef %0, ptr noundef nonnull %94, ptr noundef %1)
   %313 = icmp eq i32 %312, 0
-  br i1 %313, label %314, label %.thread67
+  br i1 %313, label %314, label %.critedge
 
 314:                                              ; preds = %309
   %315 = tail call fastcc i32 @genfs_read(ptr noundef %0, ptr noundef %1)
   %316 = icmp eq i32 %315, 0
-  br i1 %316, label %317, label %.thread67
+  br i1 %316, label %317, label %.critedge
 
 317:                                              ; preds = %314
   %318 = tail call fastcc i32 @range_read(ptr noundef %0, ptr noundef %1)
   %319 = icmp eq i32 %318, 0
-  br i1 %319, label %320, label %.thread67
+  br i1 %319, label %320, label %.critedge
 
 320:                                              ; preds = %317
   %321 = getelementptr i8, ptr %0, i64 96
@@ -1578,19 +1578,19 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %326 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %325, ptr %326, align 8
   %327 = icmp eq ptr %325, null
-  br i1 %327, label %.thread67, label %328
+  br i1 %327, label %.critedge, label %328
 
 328:                                              ; preds = %320
   %329 = load i32, ptr %321, align 8
   %330 = icmp eq i32 %329, 0
-  br i1 %330, label %.thread75, label %.preheader85
+  br i1 %330, label %.thread85, label %.preheader91
 
-331:                                              ; preds = %.preheader85
+331:                                              ; preds = %.preheader91
   %332 = icmp eq i32 %337, 0
-  br i1 %332, label %.thread75, label %.preheader
+  br i1 %332, label %.thread85, label %.preheader
 
-.preheader85:                                     ; preds = %328, %.preheader85
-  %333 = phi i64 [ %336, %.preheader85 ], [ 0, %328 ]
+.preheader91:                                     ; preds = %328, %.preheader91
+  %333 = phi i64 [ %336, %.preheader91 ], [ 0, %328 ]
   %334 = load ptr, ptr %326, align 8
   %335 = getelementptr %struct.ebitmap, ptr %334, i64 %333
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %335, i8 0, i64 16, i1 false)
@@ -1598,14 +1598,14 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
   %337 = load i32, ptr %321, align 8
   %338 = zext i32 %337 to i64
   %339 = icmp ult i64 %336, %338
-  br i1 %339, label %.preheader85, label %331, !llvm.loop !23
+  br i1 %339, label %.preheader91, label %331, !llvm.loop !23
 
 340:                                              ; preds = %353
   %341 = add nuw nsw i64 %345, 1
   %342 = load i32, ptr %321, align 8
   %343 = zext i32 %342 to i64
   %344 = icmp ult i64 %341, %343
-  br i1 %344, label %.preheader, label %.thread75, !llvm.loop !24
+  br i1 %344, label %.preheader, label %.thread85, !llvm.loop !24
 
 .preheader:                                       ; preds = %331, %340
   %345 = phi i64 [ %341, %340 ], [ 0, %331 ]
@@ -1618,29 +1618,29 @@ define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unname
 350:                                              ; preds = %.preheader
   %351 = tail call i32 @ebitmap_read(ptr noundef %347, ptr noundef %1) #22
   %352 = icmp eq i32 %351, 0
-  br i1 %352, label %353, label %.thread67
+  br i1 %352, label %353, label %.critedge
 
 353:                                              ; preds = %.preheader, %350
   %354 = tail call i32 @ebitmap_set_bit(ptr noundef %347, i64 noundef %345, i32 noundef 1) #22
   %355 = icmp eq i32 %354, 0
-  br i1 %355, label %340, label %.thread67
+  br i1 %355, label %340, label %.critedge
 
-.thread75:                                        ; preds = %340, %328, %331
+.thread85:                                        ; preds = %340, %328, %331
   %356 = tail call fastcc i32 @policydb_bounds_sanity_check(ptr noundef %0)
   %357 = icmp eq i32 %356, 0
-  br i1 %357, label %.thread62, label %.thread67
+  br i1 %357, label %.thread78, label %.critedge
 
-.thread67:                                        ; preds = %115, %156, %235, %227, %212, %249, %245, %242, %239, %208, %203, %278, %272, %287, %266, %350, %353, %.loopexit92, %183, %44, %2, %.thread75, %320, %317, %314, %309, %307, %300, %293, %.loopexit, %186, %180, %174, %172, %._crit_edge119, %.thread60, %84, %79, %68, %61, %42, %32, %27, %21, %17
-  %358 = phi i32 [ -22, %17 ], [ -22, %21 ], [ -22, %32 ], [ -22, %42 ], [ -22, %61 ], [ -22, %68 ], [ %80, %79 ], [ %86, %84 ], [ -22, %._crit_edge119 ], [ %175, %174 ], [ %181, %180 ], [ %192, %186 ], [ %291, %.loopexit ], [ %294, %293 ], [ %312, %309 ], [ %315, %314 ], [ %318, %317 ], [ %356, %.thread75 ], [ -12, %320 ], [ -22, %307 ], [ -22, %300 ], [ -22, %172 ], [ -22, %.thread60 ], [ -12, %27 ], [ -22, %2 ], [ -22, %44 ], [ -22, %183 ], [ -22, %.loopexit92 ], [ %351, %350 ], [ %354, %353 ], [ -22, %278 ], [ -22, %272 ], [ -12, %266 ], [ -22, %287 ], [ -22, %235 ], [ -22, %227 ], [ -22, %212 ], [ -12, %203 ], [ -12, %208 ], [ -22, %239 ], [ -22, %242 ], [ -22, %245 ], [ %250, %249 ], [ %158, %156 ], [ -22, %115 ]
-  %359 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %32 ], [ null, %42 ], [ null, %61 ], [ null, %68 ], [ null, %79 ], [ null, %84 ], [ null, %._crit_edge119 ], [ null, %174 ], [ null, %180 ], [ null, %186 ], [ null, %.loopexit ], [ null, %293 ], [ null, %309 ], [ null, %314 ], [ null, %317 ], [ null, %.thread75 ], [ null, %320 ], [ null, %307 ], [ null, %300 ], [ null, %172 ], [ null, %.thread60 ], [ null, %27 ], [ null, %2 ], [ null, %44 ], [ null, %183 ], [ null, %.loopexit92 ], [ null, %353 ], [ null, %350 ], [ null, %266 ], [ null, %287 ], [ null, %272 ], [ null, %278 ], [ %210, %235 ], [ %210, %227 ], [ %210, %212 ], [ null, %203 ], [ null, %208 ], [ %210, %239 ], [ %210, %242 ], [ %210, %245 ], [ %210, %249 ], [ null, %156 ], [ null, %115 ]
-  %360 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %32 ], [ null, %42 ], [ null, %61 ], [ null, %68 ], [ null, %79 ], [ null, %84 ], [ null, %._crit_edge119 ], [ null, %174 ], [ null, %180 ], [ null, %186 ], [ null, %.loopexit ], [ null, %293 ], [ null, %309 ], [ null, %314 ], [ null, %317 ], [ null, %.thread75 ], [ null, %320 ], [ null, %307 ], [ null, %300 ], [ null, %172 ], [ null, %.thread60 ], [ null, %27 ], [ null, %2 ], [ null, %44 ], [ null, %183 ], [ null, %.loopexit92 ], [ null, %353 ], [ null, %350 ], [ null, %266 ], [ null, %287 ], [ null, %272 ], [ null, %278 ], [ %206, %235 ], [ %206, %227 ], [ %206, %212 ], [ null, %203 ], [ %206, %208 ], [ %206, %239 ], [ %206, %242 ], [ %206, %245 ], [ %206, %249 ], [ null, %156 ], [ null, %115 ]
+.critedge:                                        ; preds = %115, %156, %227, %212, %235, %249, %245, %242, %239, %208, %203, %272, %278, %287, %266, %350, %353, %.loopexit98, %183, %44, %2, %.thread85, %320, %317, %314, %309, %307, %300, %293, %.loopexit, %186, %180, %174, %172, %._crit_edge125, %.thread76, %84, %79, %68, %61, %42, %32, %27, %21, %17
+  %358 = phi i32 [ -22, %17 ], [ -22, %21 ], [ -22, %32 ], [ -22, %42 ], [ -22, %61 ], [ -22, %68 ], [ %80, %79 ], [ %86, %84 ], [ -22, %._crit_edge125 ], [ %175, %174 ], [ %181, %180 ], [ %192, %186 ], [ %291, %.loopexit ], [ %294, %293 ], [ %312, %309 ], [ %315, %314 ], [ %318, %317 ], [ %356, %.thread85 ], [ -12, %320 ], [ -22, %307 ], [ -22, %300 ], [ -22, %172 ], [ -22, %.thread76 ], [ -12, %27 ], [ -22, %2 ], [ -22, %44 ], [ -22, %183 ], [ -22, %.loopexit98 ], [ %351, %350 ], [ %354, %353 ], [ -22, %272 ], [ -22, %278 ], [ -12, %266 ], [ -22, %287 ], [ -22, %227 ], [ -22, %212 ], [ -22, %235 ], [ -12, %203 ], [ -12, %208 ], [ -22, %239 ], [ -22, %242 ], [ -22, %245 ], [ %250, %249 ], [ %158, %156 ], [ -22, %115 ]
+  %359 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %32 ], [ null, %42 ], [ null, %61 ], [ null, %68 ], [ null, %79 ], [ null, %84 ], [ null, %._crit_edge125 ], [ null, %174 ], [ null, %180 ], [ null, %186 ], [ null, %.loopexit ], [ null, %293 ], [ null, %309 ], [ null, %314 ], [ null, %317 ], [ null, %.thread85 ], [ null, %320 ], [ null, %307 ], [ null, %300 ], [ null, %172 ], [ null, %.thread76 ], [ null, %27 ], [ null, %2 ], [ null, %44 ], [ null, %183 ], [ null, %.loopexit98 ], [ null, %353 ], [ null, %350 ], [ null, %266 ], [ null, %287 ], [ null, %278 ], [ null, %272 ], [ %210, %227 ], [ %210, %212 ], [ %210, %235 ], [ null, %203 ], [ null, %208 ], [ %210, %239 ], [ %210, %242 ], [ %210, %245 ], [ %210, %249 ], [ null, %156 ], [ null, %115 ]
+  %360 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %32 ], [ null, %42 ], [ null, %61 ], [ null, %68 ], [ null, %79 ], [ null, %84 ], [ null, %._crit_edge125 ], [ null, %174 ], [ null, %180 ], [ null, %186 ], [ null, %.loopexit ], [ null, %293 ], [ null, %309 ], [ null, %314 ], [ null, %317 ], [ null, %.thread85 ], [ null, %320 ], [ null, %307 ], [ null, %300 ], [ null, %172 ], [ null, %.thread76 ], [ null, %27 ], [ null, %2 ], [ null, %44 ], [ null, %183 ], [ null, %.loopexit98 ], [ null, %353 ], [ null, %350 ], [ null, %266 ], [ null, %287 ], [ null, %278 ], [ null, %272 ], [ %206, %227 ], [ %206, %212 ], [ %206, %235 ], [ null, %203 ], [ %206, %208 ], [ %206, %239 ], [ %206, %242 ], [ %206, %245 ], [ %206, %249 ], [ null, %156 ], [ null, %115 ]
   tail call void @kfree(ptr noundef %360) #22
   tail call void @kfree(ptr noundef %359) #22
   tail call void @policydb_destroy(ptr noundef %0)
-  br label %.thread62
+  br label %.thread78
 
-.thread62:                                        ; preds = %131, %119, %145, %.thread67, %.thread75
-  %361 = phi i32 [ %358, %.thread67 ], [ 0, %.thread75 ], [ %147, %145 ], [ -12, %131 ], [ %127, %119 ]
+.thread78:                                        ; preds = %131, %119, %145, %.critedge, %.thread85
+  %361 = phi i32 [ %358, %.critedge ], [ 0, %.thread85 ], [ %147, %145 ], [ -12, %131 ], [ %127, %119 ]
   ret i32 %361
 }
 
@@ -3012,7 +3012,7 @@ define internal fastcc i32 @range_read(ptr noundef %0, ptr noundef %1) unnamed_a
 
 18:                                               ; preds = %10
   %19 = icmp eq i32 %12, 0
-  br i1 %19, label %.thread20, label %20
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 582
@@ -3022,22 +3022,22 @@ define internal fastcc i32 @range_read(ptr noundef %0, ptr noundef %1) unnamed_a
   %25 = getelementptr inbounds i8, ptr %0, i64 524
   br label %29
 
-26:                                               ; preds = %.thread25
+26:                                               ; preds = %.thread28
   %27 = add nuw i32 %30, 1
   %28 = icmp eq i32 %27, %12
-  br i1 %28, label %.thread20, label %29, !llvm.loop !40
+  br i1 %28, label %.critedge, label %29, !llvm.loop !40
 
 29:                                               ; preds = %26, %20
   %30 = phi i32 [ 0, %20 ], [ %27, %26 ]
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %32 = tail call noalias align 8 dereferenceable_or_null(12) ptr @kmalloc_trace(ptr noundef %31, i32 noundef 3520, i64 noundef 12) #25
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread20, label %34
+  br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %29
   %35 = load i64, ptr %7, align 8
   %36 = icmp ugt i64 %35, 7
-  br i1 %36, label %37, label %.thread20
+  br i1 %36, label %37, label %.critedge
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr %1, align 8
@@ -3057,9 +3057,9 @@ define internal fastcc i32 @range_read(ptr noundef %0, ptr noundef %1) unnamed_a
 
 47:                                               ; preds = %37
   %48 = icmp ugt i64 %43, 3
-  br i1 %48, label %.thread19, label %.thread20
+  br i1 %48, label %.thread25, label %.critedge
 
-.thread19:                                        ; preds = %47
+.thread25:                                        ; preds = %47
   %49 = load i32, ptr %42, align 1
   %50 = getelementptr i8, ptr %38, i64 12
   store ptr %50, ptr %1, align 8
@@ -3072,41 +3072,38 @@ define internal fastcc i32 @range_read(ptr noundef %0, ptr noundef %1) unnamed_a
   %54 = zext i16 %53 to i32
   br label %55
 
-55:                                               ; preds = %.thread19, %52
-  %56 = phi i32 [ %54, %52 ], [ %49, %.thread19 ]
+55:                                               ; preds = %.thread25, %52
+  %56 = phi i32 [ %54, %52 ], [ %49, %.thread25 ]
   %57 = getelementptr inbounds i8, ptr %32, i64 8
   store i32 %56, ptr %57, align 8
   %58 = icmp eq i32 %39, 0
-  br i1 %58, label %.thread20, label %59
+  br i1 %58, label %.critedge, label %59
 
 59:                                               ; preds = %55
   %60 = load i32, ptr %22, align 8
   %.not = icmp ult i32 %60, %39
-  %61 = icmp eq i32 %41, 0
-  %or.cond = select i1 %.not, i1 true, i1 %61
-  br i1 %or.cond, label %.thread20, label %62
-
-62:                                               ; preds = %59
-  %.not30 = icmp ult i32 %60, %41
+  %61 = add i32 %41, -1
+  %62 = icmp uge i32 %61, %60
+  %or.cond32 = select i1 %.not, i1 true, i1 %62
   %63 = icmp eq i32 %56, 0
-  %or.cond29 = select i1 %.not30, i1 true, i1 %63
-  br i1 %or.cond29, label %.thread20, label %64
+  %or.cond33 = select i1 %or.cond32, i1 true, i1 %63
+  br i1 %or.cond33, label %.critedge, label %64
 
-64:                                               ; preds = %62
+64:                                               ; preds = %59
   %65 = load i32, ptr %23, align 8
-  %.not31 = icmp ult i32 %65, %56
-  br i1 %.not31, label %.thread20, label %66
+  %.not19 = icmp ult i32 %65, %56
+  br i1 %.not19, label %.critedge, label %66
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %68 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %67, i32 noundef 3520, i64 noundef 48) #25
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.thread20, label %70
+  br i1 %69, label %.critedge, label %70
 
 70:                                               ; preds = %66
   %71 = tail call fastcc i32 @mls_read_range_helper(ptr noundef nonnull %68, ptr noundef %1)
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %.thread20
+  br i1 %72, label %73, label %.critedge
 
 73:                                               ; preds = %70
   %74 = tail call i32 @mls_range_isvalid(ptr noundef %0, ptr noundef nonnull %68) #22
@@ -3115,18 +3112,18 @@ define internal fastcc i32 @range_read(ptr noundef %0, ptr noundef %1) unnamed_a
 
 76:                                               ; preds = %73
   %77 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.44) #24
-  br label %.thread20
+  br label %.critedge
 
 78:                                               ; preds = %73
   %79 = tail call i32 @__SCT__cond_resched() #22
   %80 = load i32, ptr %24, align 8
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %.thread20, label %82
+  br i1 %81, label %.critedge, label %82
 
 82:                                               ; preds = %78
   %83 = load i32, ptr %25, align 4
   %84 = icmp eq i32 %83, -1
-  br i1 %84, label %.thread20, label %85
+  br i1 %84, label %.critedge, label %85
 
 85:                                               ; preds = %82
   %86 = load i32, ptr %32, align 8
@@ -3143,13 +3140,13 @@ define internal fastcc i32 @range_read(ptr noundef %0, ptr noundef %1) unnamed_a
   %97 = getelementptr ptr, ptr %95, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
-  br i1 %99, label %.thread25, label %.lr.ph
+  br i1 %99, label %.thread28, label %.lr.ph
 
-100:                                              ; preds = %.thread23
+100:                                              ; preds = %.thread26
   %101 = getelementptr inbounds i8, ptr %104, i64 16
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %.thread25, label %.lr.ph
+  br i1 %103, label %.thread28, label %.lr.ph
 
 .lr.ph:                                           ; preds = %85, %100
   %104 = phi ptr [ %102, %100 ], [ %98, %85 ]
@@ -3158,46 +3155,46 @@ define internal fastcc i32 @range_read(ptr noundef %0, ptr noundef %1) unnamed_a
   %107 = load i32, ptr %106, align 4
   %108 = sub i32 %86, %107
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %.thread23
+  br i1 %109, label %110, label %.thread26
 
 110:                                              ; preds = %.lr.ph
   %111 = getelementptr inbounds i8, ptr %106, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = sub i32 %87, %112
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %.thread23
+  br i1 %114, label %115, label %.thread26
 
 115:                                              ; preds = %110
   %116 = getelementptr inbounds i8, ptr %106, i64 8
   %117 = load i32, ptr %116, align 4
   %118 = sub i32 %90, %117
   %119 = icmp eq i32 %118, 0
-  br i1 %119, label %.thread20, label %.thread23
+  br i1 %119, label %.critedge, label %.thread26
 
-.thread23:                                        ; preds = %110, %.lr.ph, %115
+.thread26:                                        ; preds = %110, %.lr.ph, %115
   %120 = phi i32 [ %118, %115 ], [ %113, %110 ], [ %108, %.lr.ph ]
   %121 = icmp slt i32 %120, 0
-  br i1 %121, label %.thread25, label %100
+  br i1 %121, label %.thread28, label %100
 
-.thread25:                                        ; preds = %100, %.thread23, %85
-  %.lcssa = phi ptr [ null, %85 ], [ %105, %.thread23 ], [ %104, %100 ]
+.thread28:                                        ; preds = %100, %.thread26, %85
+  %.lcssa = phi ptr [ null, %85 ], [ %105, %.thread26 ], [ %104, %100 ]
   %122 = icmp eq ptr %.lcssa, null
   %123 = getelementptr inbounds i8, ptr %.lcssa, i64 16
   %124 = select i1 %122, ptr %97, ptr %123
   %125 = tail call i32 @__hashtab_insert(ptr noundef %15, ptr noundef %124, ptr noundef nonnull %32, ptr noundef nonnull %68) #22
   %126 = icmp eq i32 %125, 0
-  br i1 %126, label %26, label %.thread20
+  br i1 %126, label %26, label %.critedge
 
-.thread20:                                        ; preds = %78, %82, %55, %47, %34, %.thread25, %70, %66, %64, %62, %59, %29, %26, %115, %76, %18
-  %127 = phi ptr [ %32, %76 ], [ null, %18 ], [ %32, %115 ], [ %32, %78 ], [ %32, %82 ], [ %32, %55 ], [ %32, %47 ], [ %32, %34 ], [ null, %29 ], [ %32, %64 ], [ %32, %62 ], [ %32, %59 ], [ %32, %66 ], [ %32, %70 ], [ %32, %.thread25 ], [ null, %26 ]
-  %128 = phi ptr [ %68, %76 ], [ null, %18 ], [ %68, %115 ], [ %68, %78 ], [ %68, %82 ], [ null, %55 ], [ null, %47 ], [ null, %34 ], [ null, %29 ], [ null, %64 ], [ null, %62 ], [ null, %59 ], [ null, %66 ], [ %68, %70 ], [ %68, %.thread25 ], [ null, %26 ]
-  %129 = phi i32 [ -22, %76 ], [ 0, %18 ], [ -17, %115 ], [ -22, %78 ], [ -22, %82 ], [ -22, %55 ], [ -22, %47 ], [ -22, %34 ], [ -12, %29 ], [ -22, %64 ], [ -22, %62 ], [ -22, %59 ], [ -12, %66 ], [ %71, %70 ], [ %125, %.thread25 ], [ 0, %26 ]
+.critedge:                                        ; preds = %78, %82, %47, %34, %55, %.thread28, %70, %66, %64, %59, %29, %26, %115, %76, %18
+  %127 = phi ptr [ %32, %76 ], [ null, %18 ], [ %32, %115 ], [ %32, %78 ], [ %32, %82 ], [ %32, %47 ], [ %32, %34 ], [ %32, %55 ], [ null, %29 ], [ %32, %64 ], [ %32, %59 ], [ %32, %66 ], [ %32, %70 ], [ %32, %.thread28 ], [ null, %26 ]
+  %128 = phi ptr [ %68, %76 ], [ null, %18 ], [ %68, %115 ], [ %68, %78 ], [ %68, %82 ], [ null, %47 ], [ null, %34 ], [ null, %55 ], [ null, %29 ], [ null, %64 ], [ null, %59 ], [ null, %66 ], [ %68, %70 ], [ %68, %.thread28 ], [ null, %26 ]
+  %129 = phi i32 [ -22, %76 ], [ 0, %18 ], [ -17, %115 ], [ -22, %78 ], [ -22, %82 ], [ -22, %47 ], [ -22, %34 ], [ -22, %55 ], [ -12, %29 ], [ -22, %64 ], [ -22, %59 ], [ -12, %66 ], [ %71, %70 ], [ %125, %.thread28 ], [ 0, %26 ]
   tail call void @kfree(ptr noundef %127) #22
   tail call void @kfree(ptr noundef %128) #22
   br label %130
 
-130:                                              ; preds = %6, %.thread20, %10, %2
-  %131 = phi i32 [ %129, %.thread20 ], [ 0, %2 ], [ %16, %10 ], [ -22, %6 ]
+130:                                              ; preds = %6, %.critedge, %10, %2
+  %131 = phi i32 [ %129, %.critedge ], [ 0, %2 ], [ %16, %10 ], [ -22, %6 ]
   ret i32 %131
 }
 

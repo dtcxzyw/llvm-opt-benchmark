@@ -139,7 +139,7 @@ VP8LEncoderDelete.exit:                           ; preds = %25
 GetHistoBits.exit.i:                              ; preds = %52
   %61 = icmp eq i32 %41, 0
   %62 = call i32 @llvm.smin.i32(i32 %.0.i.i, i32 9)
-  %63 = call range(i32 -2147483640, -2147483648) i32 @llvm.smax.i32(i32 %62, i32 2)
+  %63 = call range(i32 2, 10) i32 @llvm.smax.i32(i32 %62, i32 2)
   %64 = getelementptr inbounds i8, ptr %14, i64 68
   store i32 %63, ptr %64, align 4
   %65 = icmp slt i32 %41, 4
@@ -1154,9 +1154,9 @@ define internal range(i32 0, 2) i32 @EncodeStreamHook(ptr nocapture noundef read
 
 97:                                               ; preds = %.lr.ph, %790
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %790 ]
-  %.0156312 = phi i64 [ -1, %.lr.ph ], [ %.1157, %790 ]
-  %.0228310 = phi i32 [ 0, %.lr.ph ], [ %.2230, %790 ]
-  %.0231309 = phi i32 [ 0, %.lr.ph ], [ %.2233, %790 ]
+  %.0156311 = phi i64 [ -1, %.lr.ph ], [ %.1157, %790 ]
+  %.0227309 = phi i32 [ 0, %.lr.ph ], [ %.2229, %790 ]
+  %.0230308 = phi i32 [ 0, %.lr.ph ], [ %.2232, %790 ]
   %98 = getelementptr inbounds %struct.CrunchConfig, ptr %21, i64 %indvars.iv
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, -2
@@ -1169,13 +1169,13 @@ define internal range(i32 0, 2) i32 @EncodeStreamHook(ptr nocapture noundef read
   %105 = and i32 %99, -3
   %or.cond = icmp eq i32 %105, 1
   %106 = icmp eq i32 %99, 5
-  %spec.select = or i1 %106, %or.cond
-  %107 = zext i1 %spec.select to i32
+  %narrow = or i1 %106, %or.cond
+  %107 = zext i1 %narrow to i32
   store i32 %107, ptr %64, align 4
   %108 = select i1 %33, i1 true, i1 %101
-  %spec.select189 = select i1 %.not165, i32 %107, i32 0
-  %spec.select434 = select i1 %108, i32 0, i32 %spec.select189
-  store i32 %spec.select434, ptr %65, align 4
+  %spec.select = select i1 %.not165, i32 %107, i32 0
+  %spec.select433 = select i1 %108, i32 0, i32 %spec.select
+  store i32 %spec.select433, ptr %65, align 4
   store i32 0, ptr %66, align 8
   call void @VP8LBackwardRefsClear(ptr noundef nonnull %67) #8
   call void @VP8LBackwardRefsClear(ptr noundef nonnull %68) #8
@@ -1186,18 +1186,18 @@ define internal range(i32 0, 2) i32 @EncodeStreamHook(ptr nocapture noundef read
 111:                                              ; preds = %97
   %112 = load i32, ptr %62, align 8
   %.not166 = icmp eq i32 %112, 0
-  br i1 %.not166, label %113, label %.critedge.thread370
+  br i1 %.not166, label %113, label %.critedge.thread369
 
-.critedge.thread370:                              ; preds = %111
+.critedge.thread369:                              ; preds = %111
   store i32 0, ptr %70, align 8
   br label %125
 
 113:                                              ; preds = %111
   %114 = load i32, ptr %64, align 4
   %.not167 = icmp eq i32 %114, 0
-  br i1 %.not167, label %115, label %.thread376
+  br i1 %.not167, label %115, label %.thread375
 
-.thread376:                                       ; preds = %113
+.thread375:                                       ; preds = %113
   store i32 0, ptr %70, align 8
   br label %361
 
@@ -1229,7 +1229,7 @@ define internal range(i32 0, 2) i32 @EncodeStreamHook(ptr nocapture noundef read
   %.not171 = icmp eq i32 %.pr, 0
   br i1 %.not171, label %360, label %125
 
-125:                                              ; preds = %.critedge.thread370, %.critedge
+125:                                              ; preds = %.critedge.thread369, %.critedge
   %126 = getelementptr inbounds i8, ptr %98, i64 4
   %127 = load i32, ptr %126, align 4
   %128 = load ptr, ptr %72, align 8
@@ -1798,15 +1798,15 @@ ApplyPalette.exit.i:                              ; preds = %206
 360:                                              ; preds = %.critedge
   br i1 %110, label %MakeInputImageCopy.exit.thread, label %361
 
-361:                                              ; preds = %.thread376, %360
+361:                                              ; preds = %.thread375, %360
   %362 = load ptr, ptr %72, align 8
   %363 = getelementptr inbounds i8, ptr %362, i64 8
   %364 = load i32, ptr %363, align 8
   %365 = getelementptr inbounds i8, ptr %362, i64 12
   %366 = load i32, ptr %365, align 4
   %367 = call fastcc i32 @AllocateTransformBuffer(ptr noundef nonnull %20, i32 noundef %364, i32 noundef %366)
-  %.not.i190 = icmp eq i32 %367, 0
-  br i1 %.not.i190, label %MakeInputImageCopy.exit, label %368
+  %.not.i189 = icmp eq i32 %367, 0
+  br i1 %.not.i189, label %MakeInputImageCopy.exit, label %368
 
 368:                                              ; preds = %361
   %369 = load i32, ptr %70, align 8
@@ -1815,9 +1815,9 @@ ApplyPalette.exit.i:                              ; preds = %206
 
 371:                                              ; preds = %368
   %372 = icmp sgt i32 %366, 0
-  br i1 %372, label %.lr.ph.i191, label %._crit_edge.i
+  br i1 %372, label %.lr.ph.i190, label %._crit_edge.i
 
-.lr.ph.i191:                                      ; preds = %371
+.lr.ph.i190:                                      ; preds = %371
   %373 = getelementptr inbounds i8, ptr %362, i64 72
   %374 = load ptr, ptr %373, align 8
   %375 = load ptr, ptr %71, align 8
@@ -1826,10 +1826,10 @@ ApplyPalette.exit.i:                              ; preds = %206
   %378 = getelementptr inbounds i8, ptr %362, i64 80
   br label %379
 
-379:                                              ; preds = %379, %.lr.ph.i191
-  %.025.i = phi i32 [ 0, %.lr.ph.i191 ], [ %384, %379 ]
-  %.02024.i = phi ptr [ %374, %.lr.ph.i191 ], [ %383, %379 ]
-  %.02123.i = phi ptr [ %375, %.lr.ph.i191 ], [ %380, %379 ]
+379:                                              ; preds = %379, %.lr.ph.i190
+  %.025.i = phi i32 [ 0, %.lr.ph.i190 ], [ %384, %379 ]
+  %.02024.i = phi ptr [ %374, %.lr.ph.i190 ], [ %383, %379 ]
+  %.02123.i = phi ptr [ %375, %.lr.ph.i190 ], [ %380, %379 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02123.i, ptr align 4 %.02024.i, i64 %377, i1 false)
   %380 = getelementptr inbounds i32, ptr %.02123.i, i64 %376
   %381 = load i32, ptr %378, align 8
@@ -1844,7 +1844,7 @@ ApplyPalette.exit.i:                              ; preds = %206
   br label %MakeInputImageCopy.exit.thread
 
 MakeInputImageCopy.exit.thread:                   ; preds = %354, %357, %368, %._crit_edge.i, %360
-  %.0375 = phi i32 [ %61, %368 ], [ %61, %._crit_edge.i ], [ %61, %360 ], [ %77, %357 ], [ %77, %354 ]
+  %.0374 = phi i32 [ %61, %368 ], [ %61, %._crit_edge.i ], [ %61, %360 ], [ %77, %357 ], [ %77, %354 ]
   %385 = load i32, ptr %63, align 8
   %.not178 = icmp eq i32 %385, 0
   br i1 %.not178, label %408, label %386
@@ -1853,15 +1853,15 @@ MakeInputImageCopy.exit.thread:                   ; preds = %354, %357, %368, %.
   %387 = load i32, ptr %78, align 8
   %388 = load i32, ptr %46, align 8
   %389 = icmp sgt i32 %388, 31
-  br i1 %389, label %390, label %VP8LPutBits.exit.i192
+  br i1 %389, label %390, label %VP8LPutBits.exit.i191
 
 390:                                              ; preds = %386
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %18) #8
-  %.pre.i.i194 = load i32, ptr %46, align 8
-  br label %VP8LPutBits.exit.i192
+  %.pre.i.i193 = load i32, ptr %46, align 8
+  br label %VP8LPutBits.exit.i191
 
-VP8LPutBits.exit.i192:                            ; preds = %390, %386
-  %391 = phi i32 [ %.pre.i.i194, %390 ], [ %388, %386 ]
+VP8LPutBits.exit.i191:                            ; preds = %390, %386
+  %391 = phi i32 [ %.pre.i.i193, %390 ], [ %388, %386 ]
   %392 = zext nneg i32 %391 to i64
   %393 = shl nuw i64 1, %392
   %394 = load i64, ptr %18, align 8
@@ -1872,15 +1872,15 @@ VP8LPutBits.exit.i192:                            ; preds = %390, %386
   %397 = icmp sgt i32 %391, 30
   br i1 %397, label %398, label %ApplySubtractGreen.exit
 
-398:                                              ; preds = %VP8LPutBits.exit.i192
+398:                                              ; preds = %VP8LPutBits.exit.i191
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %18) #8
   %.pre.i4.i = load i32, ptr %46, align 8
-  %.pre.i193 = load i64, ptr %18, align 8
+  %.pre.i192 = load i64, ptr %18, align 8
   br label %ApplySubtractGreen.exit
 
-ApplySubtractGreen.exit:                          ; preds = %VP8LPutBits.exit.i192, %398
-  %399 = phi i64 [ %.pre.i193, %398 ], [ %395, %VP8LPutBits.exit.i192 ]
-  %400 = phi i32 [ %.pre.i4.i, %398 ], [ %396, %VP8LPutBits.exit.i192 ]
+ApplySubtractGreen.exit:                          ; preds = %VP8LPutBits.exit.i191, %398
+  %399 = phi i64 [ %.pre.i192, %398 ], [ %395, %VP8LPutBits.exit.i191 ]
+  %400 = phi i32 [ %.pre.i4.i, %398 ], [ %396, %VP8LPutBits.exit.i191 ]
   %401 = zext nneg i32 %400 to i64
   %402 = shl i64 2, %401
   %403 = or i64 %402, %399
@@ -1899,7 +1899,7 @@ ApplySubtractGreen.exit:                          ; preds = %VP8LPutBits.exit.i1
   br i1 %.not179, label %464, label %410
 
 410:                                              ; preds = %408
-  %411 = sdiv i32 %.0375, 3
+  %411 = sdiv i32 %.0374, 3
   %412 = load i32, ptr %78, align 8
   %413 = load i32, ptr %63, align 8
   %414 = load i32, ptr %81, align 8
@@ -1910,12 +1910,12 @@ ApplySubtractGreen.exit:                          ; preds = %VP8LPutBits.exit.i1
   %418 = add i32 %38, %415
   %419 = lshr i32 %418, %414
   %420 = load i32, ptr %62, align 8
-  %.not.i195 = icmp eq i32 %420, 0
-  %.pre.i196 = load ptr, ptr %20, align 8
-  br i1 %.not.i195, label %421, label %424
+  %.not.i194 = icmp eq i32 %420, 0
+  %.pre.i195 = load ptr, ptr %20, align 8
+  br i1 %.not.i194, label %421, label %424
 
 421:                                              ; preds = %410
-  %422 = getelementptr inbounds i8, ptr %.pre.i196, i64 92
+  %422 = getelementptr inbounds i8, ptr %.pre.i195, i64 92
   %423 = load i32, ptr %422, align 4
   br label %424
 
@@ -1924,10 +1924,10 @@ ApplySubtractGreen.exit:                          ; preds = %VP8LPutBits.exit.i1
   %426 = load ptr, ptr %71, align 8
   %427 = load ptr, ptr %82, align 8
   %428 = load ptr, ptr %83, align 8
-  %429 = getelementptr inbounds i8, ptr %.pre.i196, i64 96
+  %429 = getelementptr inbounds i8, ptr %.pre.i195, i64 96
   %430 = load i32, ptr %429, align 4
   %431 = load ptr, ptr %72, align 8
-  %432 = sdiv i32 %.0375, 6
+  %432 = sdiv i32 %.0374, 6
   %433 = call i32 @VP8LResidualImage(i32 noundef %412, i32 noundef %38, i32 noundef %414, i32 noundef %34, ptr noundef %426, ptr noundef %427, ptr noundef %428, i32 noundef %425, i32 noundef %430, i32 noundef %413, ptr noundef %431, i32 noundef %432, ptr noundef nonnull %11) #8
   %.not36.i = icmp eq i32 %433, 0
   br i1 %.not36.i, label %MakeInputImageCopy.exit, label %434
@@ -1935,15 +1935,15 @@ ApplySubtractGreen.exit:                          ; preds = %VP8LPutBits.exit.i1
 434:                                              ; preds = %424
   %435 = load i32, ptr %46, align 8
   %436 = icmp sgt i32 %435, 31
-  br i1 %436, label %437, label %VP8LPutBits.exit.i197
+  br i1 %436, label %437, label %VP8LPutBits.exit.i196
 
 437:                                              ; preds = %434
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %18) #8
-  %.pre.i.i199 = load i32, ptr %46, align 8
-  br label %VP8LPutBits.exit.i197
+  %.pre.i.i198 = load i32, ptr %46, align 8
+  br label %VP8LPutBits.exit.i196
 
-VP8LPutBits.exit.i197:                            ; preds = %437, %434
-  %438 = phi i32 [ %.pre.i.i199, %437 ], [ %435, %434 ]
+VP8LPutBits.exit.i196:                            ; preds = %437, %434
+  %438 = phi i32 [ %.pre.i.i198, %437 ], [ %435, %434 ]
   %439 = zext nneg i32 %438 to i64
   %440 = shl nuw i64 1, %439
   %441 = load i64, ptr %18, align 8
@@ -1954,13 +1954,13 @@ VP8LPutBits.exit.i197:                            ; preds = %437, %434
   %444 = icmp sgt i32 %438, 30
   br i1 %444, label %445, label %VP8LPutBits.exit38.i
 
-445:                                              ; preds = %VP8LPutBits.exit.i197
+445:                                              ; preds = %VP8LPutBits.exit.i196
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %18) #8
   %.pre.i37.i = load i32, ptr %46, align 8
   br label %VP8LPutBits.exit38.i
 
-VP8LPutBits.exit38.i:                             ; preds = %445, %VP8LPutBits.exit.i197
-  %446 = phi i32 [ %.pre.i37.i, %445 ], [ %443, %VP8LPutBits.exit.i197 ]
+VP8LPutBits.exit38.i:                             ; preds = %445, %VP8LPutBits.exit.i196
+  %446 = phi i32 [ %.pre.i37.i, %445 ], [ %443, %VP8LPutBits.exit.i196 ]
   %447 = add nsw i32 %446, 2
   store i32 %447, ptr %46, align 8
   %448 = add nsw i32 %414, -2
@@ -1990,11 +1990,11 @@ ApplyPredictFilter.exit:                          ; preds = %VP8LPutBits.exit38.
   br i1 %.not180, label %MakeInputImageCopy.exit, label %462
 
 462:                                              ; preds = %ApplyPredictFilter.exit
-  %463 = sub nsw i32 %.0375, %411
+  %463 = sub nsw i32 %.0374, %411
   br label %464
 
 464:                                              ; preds = %462, %408
-  %.1 = phi i32 [ %463, %462 ], [ %.0375, %408 ]
+  %.1 = phi i32 [ %463, %462 ], [ %.0374, %408 ]
   %465 = load i32, ptr %65, align 4
   %.not181 = icmp eq i32 %465, 0
   br i1 %.not181, label %514, label %466
@@ -2003,8 +2003,8 @@ ApplyPredictFilter.exit:                          ; preds = %VP8LPutBits.exit38.
   %467 = sdiv i32 %.1, 2
   %468 = load i32, ptr %78, align 8
   %469 = load i32, ptr %84, align 4
-  %notmask.i200 = shl nsw i32 -1, %469
-  %470 = xor i32 %notmask.i200, -1
+  %notmask.i199 = shl nsw i32 -1, %469
+  %470 = xor i32 %notmask.i199, -1
   %471 = add i32 %468, %470
   %472 = lshr i32 %471, %469
   %473 = add i32 %38, %470
@@ -2014,21 +2014,21 @@ ApplyPredictFilter.exit:                          ; preds = %VP8LPutBits.exit38.
   %477 = load ptr, ptr %72, align 8
   %478 = sdiv i32 %.1, 4
   %479 = call i32 @VP8LColorSpaceTransform(i32 noundef %468, i32 noundef %38, i32 noundef %469, i32 noundef %30, ptr noundef %475, ptr noundef %476, ptr noundef %477, i32 noundef %478, ptr noundef nonnull %11) #8
-  %.not.i201 = icmp eq i32 %479, 0
-  br i1 %.not.i201, label %MakeInputImageCopy.exit, label %480
+  %.not.i200 = icmp eq i32 %479, 0
+  br i1 %.not.i200, label %MakeInputImageCopy.exit, label %480
 
 480:                                              ; preds = %466
   %481 = load i32, ptr %46, align 8
   %482 = icmp sgt i32 %481, 31
-  br i1 %482, label %483, label %VP8LPutBits.exit.i202
+  br i1 %482, label %483, label %VP8LPutBits.exit.i201
 
 483:                                              ; preds = %480
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %18) #8
-  %.pre.i.i208 = load i32, ptr %46, align 8
-  br label %VP8LPutBits.exit.i202
+  %.pre.i.i207 = load i32, ptr %46, align 8
+  br label %VP8LPutBits.exit.i201
 
-VP8LPutBits.exit.i202:                            ; preds = %483, %480
-  %484 = phi i32 [ %.pre.i.i208, %483 ], [ %481, %480 ]
+VP8LPutBits.exit.i201:                            ; preds = %483, %480
+  %484 = phi i32 [ %.pre.i.i207, %483 ], [ %481, %480 ]
   %485 = zext nneg i32 %484 to i64
   %486 = shl nuw i64 1, %485
   %487 = load i64, ptr %18, align 8
@@ -2037,17 +2037,17 @@ VP8LPutBits.exit.i202:                            ; preds = %483, %480
   %489 = add nsw i32 %484, 1
   store i32 %489, ptr %46, align 8
   %490 = icmp sgt i32 %484, 30
-  br i1 %490, label %491, label %VP8LPutBits.exit31.i203
+  br i1 %490, label %491, label %VP8LPutBits.exit31.i202
 
-491:                                              ; preds = %VP8LPutBits.exit.i202
+491:                                              ; preds = %VP8LPutBits.exit.i201
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %18) #8
-  %.pre.i30.i206 = load i32, ptr %46, align 8
-  %.pre.i207 = load i64, ptr %18, align 8
-  br label %VP8LPutBits.exit31.i203
+  %.pre.i30.i205 = load i32, ptr %46, align 8
+  %.pre.i206 = load i64, ptr %18, align 8
+  br label %VP8LPutBits.exit31.i202
 
-VP8LPutBits.exit31.i203:                          ; preds = %491, %VP8LPutBits.exit.i202
-  %492 = phi i64 [ %.pre.i207, %491 ], [ %488, %VP8LPutBits.exit.i202 ]
-  %493 = phi i32 [ %.pre.i30.i206, %491 ], [ %489, %VP8LPutBits.exit.i202 ]
+VP8LPutBits.exit31.i202:                          ; preds = %491, %VP8LPutBits.exit.i201
+  %492 = phi i64 [ %.pre.i206, %491 ], [ %488, %VP8LPutBits.exit.i201 ]
+  %493 = phi i32 [ %.pre.i30.i205, %491 ], [ %489, %VP8LPutBits.exit.i201 ]
   %494 = zext nneg i32 %493 to i64
   %495 = shl nuw i64 1, %494
   %496 = or i64 %495, %492
@@ -2058,15 +2058,15 @@ VP8LPutBits.exit31.i203:                          ; preds = %491, %VP8LPutBits.e
   %499 = icmp sgt i32 %493, 29
   br i1 %499, label %500, label %ApplyCrossColorFilter.exit
 
-500:                                              ; preds = %VP8LPutBits.exit31.i203
+500:                                              ; preds = %VP8LPutBits.exit31.i202
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %18) #8
   %.pre.i32.i = load i32, ptr %46, align 8
-  %.pre34.i205 = load i64, ptr %18, align 8
+  %.pre34.i204 = load i64, ptr %18, align 8
   br label %ApplyCrossColorFilter.exit
 
-ApplyCrossColorFilter.exit:                       ; preds = %VP8LPutBits.exit31.i203, %500
-  %501 = phi i64 [ %.pre34.i205, %500 ], [ %496, %VP8LPutBits.exit31.i203 ]
-  %502 = phi i32 [ %.pre.i32.i, %500 ], [ %497, %VP8LPutBits.exit31.i203 ]
+ApplyCrossColorFilter.exit:                       ; preds = %VP8LPutBits.exit31.i202, %500
+  %501 = phi i64 [ %.pre34.i204, %500 ], [ %496, %VP8LPutBits.exit31.i202 ]
+  %502 = phi i32 [ %.pre.i32.i, %500 ], [ %497, %VP8LPutBits.exit31.i202 ]
   %503 = zext i32 %498 to i64
   %504 = zext nneg i32 %502 to i64
   %505 = shl i64 %503, %504
@@ -2093,11 +2093,11 @@ ApplyCrossColorFilter.exit:                       ; preds = %VP8LPutBits.exit31.
 
 517:                                              ; preds = %514
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %18) #8
-  %.pre.i209 = load i32, ptr %46, align 8
+  %.pre.i208 = load i32, ptr %46, align 8
   br label %VP8LPutBits.exit
 
 VP8LPutBits.exit:                                 ; preds = %514, %517
-  %518 = phi i32 [ %.pre.i209, %517 ], [ %515, %514 ]
+  %518 = phi i32 [ %.pre.i208, %517 ], [ %515, %514 ]
   %519 = add nsw i32 %518, 1
   store i32 %519, ptr %46, align 8
   %520 = load ptr, ptr %71, align 8
@@ -2107,8 +2107,8 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %notmask.i210 = shl nsw i32 -1, %522
-  %523 = xor i32 %notmask.i210, -1
+  %notmask.i209 = shl nsw i32 -1, %522
+  %523 = xor i32 %notmask.i209, -1
   %524 = add i32 %521, %523
   %525 = lshr i32 %524, %522
   %526 = add i32 %38, %523
@@ -2121,8 +2121,8 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %533 = call i32 @VP8LBitWriterInit(ptr noundef nonnull %4, i64 noundef 0) #8
-  %.not.i211 = icmp eq i32 %533, 0
-  br i1 %.not.i211, label %534, label %536
+  %.not.i210 = icmp eq i32 %533, 0
+  br i1 %.not.i210, label %534, label %536
 
 534:                                              ; preds = %VP8LPutBits.exit
   %535 = call i32 @WebPEncodingSetError(ptr noundef %16, i32 noundef 1) #8
@@ -2131,8 +2131,8 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
 536:                                              ; preds = %VP8LPutBits.exit
   %537 = icmp eq ptr %530, null
   %538 = icmp eq ptr %532, null
-  %or.cond.i212 = select i1 %537, i1 true, i1 %538
-  br i1 %or.cond.i212, label %541, label %539
+  %or.cond.i211 = select i1 %537, i1 true, i1 %538
+  br i1 %or.cond.i211, label %541, label %539
 
 539:                                              ; preds = %536
   %540 = call i32 @VP8LHashChainInit(ptr noundef nonnull %5, i32 noundef %528) #8
@@ -2171,7 +2171,7 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   br i1 %.not244.i, label %558, label %._crit_edge355.i
 
 ._crit_edge355.i:                                 ; preds = %556
-  %.pre.i213 = load i32, ptr %550, align 4
+  %.pre.i212 = load i32, ptr %550, align 4
   br label %560
 
 558:                                              ; preds = %556
@@ -2179,7 +2179,7 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   br label %.loopexit.i
 
 560:                                              ; preds = %._crit_edge355.i, %553
-  %561 = phi i32 [ %.pre.i213, %._crit_edge355.i ], [ %551, %553 ]
+  %561 = phi i32 [ %.pre.i212, %._crit_edge355.i ], [ %551, %553 ]
   %562 = icmp sgt i32 %561, 0
   br i1 %562, label %.lr.ph315.i, label %._crit_edge316.i
 
@@ -2191,8 +2191,8 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   br label %566
 
 566:                                              ; preds = %742, %.lr.ph315.i
-  %.3234 = phi i32 [ %.0231309, %.lr.ph315.i ], [ %.6237, %742 ]
-  %.3 = phi i32 [ %.0228310, %.lr.ph315.i ], [ %.6, %742 ]
+  %.3233 = phi i32 [ %.0230308, %.lr.ph315.i ], [ %.6236, %742 ]
+  %.3 = phi i32 [ %.0227309, %.lr.ph315.i ], [ %.6, %742 ]
   %indvars.iv352.i = phi i64 [ 0, %.lr.ph315.i ], [ %indvars.iv.next353.i, %742 ]
   %567 = phi i32 [ %561, %.lr.ph315.i ], [ %743, %742 ]
   %.0216313.i = phi i64 [ -1, %.lr.ph315.i ], [ %.1217.lcssa.i, %742 ]
@@ -2211,7 +2211,7 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   br label %577
 
 577:                                              ; preds = %737, %575
-  %.4235 = phi i32 [ %.3234, %575 ], [ %.5236, %737 ]
+  %.4234 = phi i32 [ %.3233, %575 ], [ %.5235, %737 ]
   %.4 = phi i32 [ %.3, %575 ], [ %.5, %737 ]
   %578 = phi i1 [ true, %575 ], [ false, %737 ]
   %579 = phi i1 [ false, %575 ], [ true, %737 ]
@@ -2271,15 +2271,15 @@ VP8LPutBits.exit:                                 ; preds = %514, %517
   br i1 %606, label %609, label %626
 
 609:                                              ; preds = %605
-  br i1 %608, label %610, label %VP8LPutBits.exit.i225
+  br i1 %608, label %610, label %VP8LPutBits.exit.i224
 
 610:                                              ; preds = %609
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %18) #8
-  %.pre.i.i226 = load i32, ptr %46, align 8
-  br label %VP8LPutBits.exit.i225
+  %.pre.i.i225 = load i32, ptr %46, align 8
+  br label %VP8LPutBits.exit.i224
 
-VP8LPutBits.exit.i225:                            ; preds = %610, %609
-  %611 = phi i32 [ %.pre.i.i226, %610 ], [ %607, %609 ]
+VP8LPutBits.exit.i224:                            ; preds = %610, %609
+  %611 = phi i32 [ %.pre.i.i225, %610 ], [ %607, %609 ]
   %612 = zext nneg i32 %611 to i64
   %613 = shl nuw i64 1, %612
   %614 = load i64, ptr %18, align 8
@@ -2290,15 +2290,15 @@ VP8LPutBits.exit.i225:                            ; preds = %610, %609
   %617 = icmp sgt i32 %611, 30
   br i1 %617, label %618, label %VP8LPutBits.exit256.i
 
-618:                                              ; preds = %VP8LPutBits.exit.i225
+618:                                              ; preds = %VP8LPutBits.exit.i224
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %18) #8
   %.pre.i255.i = load i32, ptr %46, align 8
   %.pre356.i = load i64, ptr %18, align 8
   br label %VP8LPutBits.exit256.i
 
-VP8LPutBits.exit256.i:                            ; preds = %618, %VP8LPutBits.exit.i225
-  %619 = phi i64 [ %.pre356.i, %618 ], [ %615, %VP8LPutBits.exit.i225 ]
-  %620 = phi i32 [ %.pre.i255.i, %618 ], [ %616, %VP8LPutBits.exit.i225 ]
+VP8LPutBits.exit256.i:                            ; preds = %618, %VP8LPutBits.exit.i224
+  %619 = phi i64 [ %.pre356.i, %618 ], [ %615, %VP8LPutBits.exit.i224 ]
+  %620 = phi i32 [ %.pre.i255.i, %618 ], [ %616, %VP8LPutBits.exit.i224 ]
   %621 = zext nneg i32 %581 to i64
   %622 = zext nneg i32 %620 to i64
   %623 = shl i64 %621, %622
@@ -2350,41 +2350,41 @@ VP8LPutBits.exit260.i:                            ; preds = %634, %630
   br i1 %644, label %645, label %.preheader270.i
 
 .preheader270.i:                                  ; preds = %642
-  br i1 %.not317.i, label %._crit_edge.i224, label %.lr.ph.i220
+  br i1 %.not317.i, label %._crit_edge.i223, label %.lr.ph.i219
 
 645:                                              ; preds = %642
   %646 = call i32 @WebPEncodingSetError(ptr noundef %16, i32 noundef 1) #8
   br label %.loopexit.i
 
-.lr.ph.i220:                                      ; preds = %.preheader270.i, %.lr.ph.i220
-  %indvars.iv.i221 = phi i64 [ %indvars.iv.next.i222, %.lr.ph.i220 ], [ 0, %.preheader270.i ]
-  %.0205296.i = phi i32 [ %spec.select253.i, %.lr.ph.i220 ], [ 0, %.preheader270.i ]
-  %647 = getelementptr inbounds i16, ptr %532, i64 %indvars.iv.i221
+.lr.ph.i219:                                      ; preds = %.preheader270.i, %.lr.ph.i219
+  %indvars.iv.i220 = phi i64 [ %indvars.iv.next.i221, %.lr.ph.i219 ], [ 0, %.preheader270.i ]
+  %.0205296.i = phi i32 [ %spec.select253.i, %.lr.ph.i219 ], [ 0, %.preheader270.i ]
+  %647 = getelementptr inbounds i16, ptr %532, i64 %indvars.iv.i220
   %648 = load i16, ptr %647, align 2
   %649 = zext i16 %648 to i32
   %650 = shl nuw nsw i32 %649, 8
-  %651 = getelementptr inbounds i32, ptr %643, i64 %indvars.iv.i221
+  %651 = getelementptr inbounds i32, ptr %643, i64 %indvars.iv.i220
   store i32 %650, ptr %651, align 4
   %.not251.i = icmp sgt i32 %.0205296.i, %649
   %652 = add nuw nsw i32 %649, 1
   %spec.select253.i = select i1 %.not251.i, i32 %.0205296.i, i32 %652
-  %indvars.iv.next.i222 = add nuw nsw i64 %indvars.iv.i221, 1
-  %exitcond.not.i223 = icmp eq i64 %indvars.iv.next.i222, %531
-  br i1 %exitcond.not.i223, label %._crit_edge.i224, label %.lr.ph.i220, !llvm.loop !32
+  %indvars.iv.next.i221 = add nuw nsw i64 %indvars.iv.i220, 1
+  %exitcond.not.i222 = icmp eq i64 %indvars.iv.next.i221, %531
+  br i1 %exitcond.not.i222, label %._crit_edge.i223, label %.lr.ph.i219, !llvm.loop !32
 
-._crit_edge.i224:                                 ; preds = %.lr.ph.i220, %.preheader270.i
-  %.0205.lcssa.i = phi i32 [ 0, %.preheader270.i ], [ %spec.select253.i, %.lr.ph.i220 ]
+._crit_edge.i223:                                 ; preds = %.lr.ph.i219, %.preheader270.i
+  %.0205.lcssa.i = phi i32 [ 0, %.preheader270.i ], [ %spec.select253.i, %.lr.ph.i219 ]
   %653 = load i32, ptr %46, align 8
   %654 = icmp sgt i32 %653, 31
   br i1 %654, label %655, label %VP8LPutBits.exit262.i
 
-655:                                              ; preds = %._crit_edge.i224
+655:                                              ; preds = %._crit_edge.i223
   call void @VP8LPutBitsFlushBits(ptr noundef nonnull %18) #8
   %.pre.i261.i = load i32, ptr %46, align 8
   br label %VP8LPutBits.exit262.i
 
-VP8LPutBits.exit262.i:                            ; preds = %655, %._crit_edge.i224
-  %656 = phi i32 [ %.pre.i261.i, %655 ], [ %653, %._crit_edge.i224 ]
+VP8LPutBits.exit262.i:                            ; preds = %655, %._crit_edge.i223
+  %656 = phi i32 [ %.pre.i261.i, %655 ], [ %653, %._crit_edge.i223 ]
   %657 = zext nneg i32 %656 to i64
   %658 = shl i64 %565, %657
   %659 = load i64, ptr %18, align 8
@@ -2450,22 +2450,22 @@ VP8LPutBits.exit262.i:                            ; preds = %655, %._crit_edge.i
   call fastcc void @StoreHuffmanCode(ptr noundef nonnull %18, ptr noundef %530, ptr noundef nonnull %672, ptr noundef nonnull %678)
   %679 = load i32, ptr %678, align 8
   %680 = icmp sgt i32 %679, 0
-  br i1 %680, label %.lr.ph.i.i214, label %ClearHuffmanTreeIfOnlyOneSymbol.exit.i
+  br i1 %680, label %.lr.ph.i.i213, label %ClearHuffmanTreeIfOnlyOneSymbol.exit.i
 
-.lr.ph.i.i214:                                    ; preds = %.lr.ph306.i
+.lr.ph.i.i213:                                    ; preds = %.lr.ph306.i
   %681 = getelementptr inbounds i8, ptr %678, i64 8
   %682 = load ptr, ptr %681, align 8
-  %wide.trip.count.i.i215 = zext nneg i32 %679 to i64
+  %wide.trip.count.i.i214 = zext nneg i32 %679 to i64
   br label %684
 
-.preheader.i.i219:                                ; preds = %689
+.preheader.i.i218:                                ; preds = %689
   %683 = getelementptr inbounds i8, ptr %678, i64 16
   br label %690
 
-684:                                              ; preds = %689, %.lr.ph.i.i214
-  %indvars.iv.i.i216 = phi i64 [ 0, %.lr.ph.i.i214 ], [ %indvars.iv.next.i.i217, %689 ]
-  %.018.i.i = phi i32 [ 0, %.lr.ph.i.i214 ], [ %.1.i.i, %689 ]
-  %685 = getelementptr inbounds i8, ptr %682, i64 %indvars.iv.i.i216
+684:                                              ; preds = %689, %.lr.ph.i.i213
+  %indvars.iv.i.i215 = phi i64 [ 0, %.lr.ph.i.i213 ], [ %indvars.iv.next.i.i216, %689 ]
+  %.018.i.i = phi i32 [ 0, %.lr.ph.i.i213 ], [ %.1.i.i, %689 ]
+  %685 = getelementptr inbounds i8, ptr %682, i64 %indvars.iv.i.i215
   %686 = load i8, ptr %685, align 1
   %.not.i.i = icmp eq i8 %686, 0
   br i1 %.not.i.i, label %689, label %687
@@ -2476,12 +2476,12 @@ VP8LPutBits.exit262.i:                            ; preds = %655, %._crit_edge.i
 
 689:                                              ; preds = %687, %684
   %.1.i.i = phi i32 [ 1, %687 ], [ %.018.i.i, %684 ]
-  %indvars.iv.next.i.i217 = add nuw nsw i64 %indvars.iv.i.i216, 1
-  %exitcond.not.i.i218 = icmp eq i64 %indvars.iv.next.i.i217, %wide.trip.count.i.i215
-  br i1 %exitcond.not.i.i218, label %.preheader.i.i219, label %684, !llvm.loop !34
+  %indvars.iv.next.i.i216 = add nuw nsw i64 %indvars.iv.i.i215, 1
+  %exitcond.not.i.i217 = icmp eq i64 %indvars.iv.next.i.i216, %wide.trip.count.i.i214
+  br i1 %exitcond.not.i.i217, label %.preheader.i.i218, label %684, !llvm.loop !34
 
-690:                                              ; preds = %690, %.preheader.i.i219
-  %indvars.iv23.i.i = phi i64 [ 0, %.preheader.i.i219 ], [ %indvars.iv.next24.i.i, %690 ]
+690:                                              ; preds = %690, %.preheader.i.i218
+  %indvars.iv23.i.i = phi i64 [ 0, %.preheader.i.i218 ], [ %indvars.iv.next24.i.i, %690 ]
   %691 = load ptr, ptr %681, align 8
   %692 = getelementptr inbounds i8, ptr %691, i64 %indvars.iv23.i.i
   store i8 0, ptr %692, align 1
@@ -2549,7 +2549,7 @@ ClearHuffmanTreeIfOnlyOneSymbol.exit.i:           ; preds = %687, %690, %.lr.ph3
   br label %737
 
 737:                                              ; preds = %724, %712
-  %.5236 = phi i32 [ %710, %724 ], [ %.4235, %712 ]
+  %.5235 = phi i32 [ %710, %724 ], [ %.4234, %712 ]
   %.5 = phi i32 [ %736, %724 ], [ %.4, %712 ]
   %.2218.i = phi i64 [ %722, %724 ], [ %.1217309.i, %712 ]
   call void @WebPSafeFree(ptr noundef nonnull %698) #8
@@ -2563,7 +2563,7 @@ ClearHuffmanTreeIfOnlyOneSymbol.exit.i:           ; preds = %687, %690, %.lr.ph3
   br i1 %741, label %577, label %742, !llvm.loop !37
 
 742:                                              ; preds = %737, %577
-  %.6237 = phi i32 [ %.4235, %577 ], [ %.5236, %737 ]
+  %.6236 = phi i32 [ %.4234, %577 ], [ %.5235, %737 ]
   %.6 = phi i32 [ %.4, %577 ], [ %.5, %737 ]
   %.1217.lcssa.i = phi i64 [ %.1217309.i, %577 ], [ %.2218.i, %737 ]
   %indvars.iv.next353.i = add nuw nsw i64 %indvars.iv352.i, 1
@@ -2573,16 +2573,16 @@ ClearHuffmanTreeIfOnlyOneSymbol.exit.i:           ; preds = %687, %690, %.lr.ph3
   br i1 %745, label %566, label %._crit_edge316.i, !llvm.loop !38
 
 ._crit_edge316.i:                                 ; preds = %742, %560
-  %.1232 = phi i32 [ %.0231309, %560 ], [ %.6237, %742 ]
-  %.1229 = phi i32 [ %.0228310, %560 ], [ %.6, %742 ]
+  %.1231 = phi i32 [ %.0230308, %560 ], [ %.6236, %742 ]
+  %.1228 = phi i32 [ %.0227309, %560 ], [ %.6, %742 ]
   call void @VP8LBitWriterSwap(ptr noundef %18, ptr noundef nonnull %4) #8
   %746 = add i32 %529, %.2
   %747 = call i32 @WebPReportProgress(ptr noundef %16, i32 noundef %746, ptr noundef nonnull %11) #8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %566, %._crit_edge307.i, %590, %._crit_edge316.i, %676, %664, %645, %603, %588, %558, %543, %541, %534
-  %.2233 = phi i32 [ %.0231309, %534 ], [ %.0231309, %541 ], [ %.0231309, %543 ], [ %.0231309, %558 ], [ %.1232, %._crit_edge316.i ], [ %.4235, %588 ], [ %.4235, %603 ], [ %.4235, %645 ], [ %.4235, %664 ], [ %.4235, %676 ], [ %.4235, %590 ], [ %.4235, %._crit_edge307.i ], [ %.3234, %566 ]
-  %.2230 = phi i32 [ %.0228310, %534 ], [ %.0228310, %541 ], [ %.0228310, %543 ], [ %.0228310, %558 ], [ %.1229, %._crit_edge316.i ], [ %.4, %588 ], [ %.4, %603 ], [ %.4, %645 ], [ %.4, %664 ], [ %.4, %676 ], [ %.4, %590 ], [ %.4, %._crit_edge307.i ], [ %.3, %566 ]
+  %.2232 = phi i32 [ %.0230308, %534 ], [ %.0230308, %541 ], [ %.0230308, %543 ], [ %.0230308, %558 ], [ %.1231, %._crit_edge316.i ], [ %.4234, %588 ], [ %.4234, %603 ], [ %.4234, %645 ], [ %.4234, %664 ], [ %.4234, %676 ], [ %.4234, %590 ], [ %.4234, %._crit_edge307.i ], [ %.3233, %566 ]
+  %.2229 = phi i32 [ %.0227309, %534 ], [ %.0227309, %541 ], [ %.0227309, %543 ], [ %.0227309, %558 ], [ %.1228, %._crit_edge316.i ], [ %.4, %588 ], [ %.4, %603 ], [ %.4, %645 ], [ %.4, %664 ], [ %.4, %676 ], [ %.4, %590 ], [ %.4, %._crit_edge307.i ], [ %.3, %566 ]
   %.0222.i = phi ptr [ null, %534 ], [ null, %541 ], [ null, %543 ], [ null, %558 ], [ null, %._crit_edge316.i ], [ null, %588 ], [ %599, %603 ], [ %599, %645 ], [ %599, %664 ], [ %599, %676 ], [ %599, %._crit_edge307.i ], [ null, %590 ], [ null, %566 ]
   %.0219.i = phi ptr [ null, %534 ], [ null, %541 ], [ null, %543 ], [ null, %558 ], [ null, %._crit_edge316.i ], [ null, %588 ], [ null, %603 ], [ null, %645 ], [ null, %664 ], [ null, %676 ], [ %698, %._crit_edge307.i ], [ null, %590 ], [ null, %566 ]
   %.0209.i = phi ptr [ null, %534 ], [ null, %541 ], [ null, %543 ], [ null, %558 ], [ null, %._crit_edge316.i ], [ %585, %588 ], [ %585, %603 ], [ null, %645 ], [ null, %664 ], [ null, %676 ], [ null, %._crit_edge307.i ], [ %585, %590 ], [ null, %566 ]
@@ -2606,12 +2606,12 @@ EncodeImageInternal.exit:                         ; preds = %.loopexit.i, %748
   call void @WebPSafeFree(ptr noundef %532) #8
   call void @VP8LBitWriterWipeOut(ptr noundef nonnull %4) #8
   %751 = load i32, ptr %87, align 8
-  %.not248 = icmp eq i32 %751, 0
+  %.not247 = icmp eq i32 %751, 0
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br i1 %.not248, label %752, label %MakeInputImageCopy.exit
+  br i1 %.not247, label %752, label %MakeInputImageCopy.exit
 
 752:                                              ; preds = %EncodeImageInternal.exit
   %753 = load ptr, ptr %39, align 8
@@ -2624,7 +2624,7 @@ EncodeImageInternal.exit:                         ; preds = %.loopexit.i, %748
   %760 = ashr i32 %759, 3
   %761 = sext i32 %760 to i64
   %762 = add nsw i64 %757, %761
-  %763 = icmp ult i64 %762, %.0156312
+  %763 = icmp ult i64 %762, %.0156311
   br i1 %763, label %764, label %788
 
 764:                                              ; preds = %752
@@ -2682,12 +2682,12 @@ EncodeImageInternal.exit:                         ; preds = %.loopexit.i, %748
   %786 = sub i64 %762, %51
   %787 = trunc i64 %786 to i32
   store i32 %787, ptr %94, align 4
-  store i32 %.2233, ptr %95, align 4
-  store i32 %.2230, ptr %96, align 4
+  store i32 %.2232, ptr %95, align 4
+  store i32 %.2229, ptr %96, align 4
   br label %788
 
 788:                                              ; preds = %764, %780, %752
-  %.1157 = phi i64 [ %762, %780 ], [ %762, %764 ], [ %.0156312, %752 ]
+  %.1157 = phi i64 [ %762, %780 ], [ %762, %764 ], [ %.0156311, %752 ]
   br i1 %54, label %789, label %790
 
 789:                                              ; preds = %788

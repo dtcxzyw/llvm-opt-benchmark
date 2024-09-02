@@ -1900,11 +1900,11 @@ _ZN6casadi8SparsityaSEOS0_.exit341:               ; preds = %419
 464:                                              ; preds = %463
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %452, ptr %458, i64 %455)
   %.not7.i.i.i.i.i.i = icmp ne i32 %bcmp.i.i.i.i.i.i, 0
+  %465 = zext i1 %.not7.i.i.i.i.i.i to i32
   br label %_ZStneIxSaIxEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZStneIxSaIxEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %464, %463, %449
-  %465 = phi i1 [ true, %449 ], [ %.not7.i.i.i.i.i.i, %464 ], [ false, %463 ]
-  %466 = zext i1 %465 to i32
+  %466 = phi i32 [ 1, %449 ], [ %465, %464 ], [ 0, %463 ]
   store i32 %466, ptr %360, align 4
   %.not.i.i.i = icmp eq ptr %458, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIxSaIxEED2Ev.exit, label %467

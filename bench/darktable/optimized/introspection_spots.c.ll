@@ -176,7 +176,7 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr noundef %0, ptr nocapture 
   %52 = icmp slt i64 %49, %51
   br i1 %52, label %21, label %.loopexit5
 
-53:                                               ; preds = %76
+53:                                               ; preds = %77
   %54 = icmp eq i32 %78, 0
   %55 = select i1 %54, i32 %69, i32 %78
   br label %56
@@ -194,25 +194,25 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr noundef %0, ptr nocapture 
   %64 = getelementptr inbounds i8, ptr %63, i64 24
   br label %82
 
-.preheader:                                       ; preds = %.loopexit5, %76
-  %65 = phi ptr [ %80, %76 ], [ %19, %.loopexit5 ]
-  %66 = phi i32 [ %78, %76 ], [ 0, %.loopexit5 ]
-  %67 = phi i32 [ %69, %76 ], [ 0, %.loopexit5 ]
+.preheader:                                       ; preds = %.loopexit5, %77
+  %65 = phi ptr [ %80, %77 ], [ %19, %.loopexit5 ]
+  %66 = phi i32 [ %78, %77 ], [ 0, %.loopexit5 ]
+  %67 = phi i32 [ %69, %77 ], [ 0, %.loopexit5 ]
   %68 = load ptr, ptr %65, align 8, !tbaa !36
   %69 = add nuw nsw i32 %67, 1
   %70 = getelementptr inbounds i8, ptr %68, i64 32
   %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(6) @.str.6) #20
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %76
+  br i1 %72, label %73, label %77
 
 73:                                               ; preds = %.preheader
   %74 = getelementptr inbounds i8, ptr %68, i64 200
   %75 = load i32, ptr %74, align 8, !tbaa !38
-  br label %76
+  %76 = freeze i32 %75
+  br label %77
 
-76:                                               ; preds = %73, %.preheader
-  %77 = phi i32 [ %66, %.preheader ], [ %75, %73 ]
-  %78 = freeze i32 %77
+77:                                               ; preds = %73, %.preheader
+  %78 = phi i32 [ %66, %.preheader ], [ %76, %73 ]
   %79 = getelementptr inbounds i8, ptr %65, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !20
   %81 = icmp eq ptr %80, null
@@ -1066,7 +1066,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %437 = getelementptr inbounds i8, ptr %78, i64 16
   %438 = load ptr, ptr %437, align 8, !tbaa !96
   %439 = icmp eq ptr %438, null
-  br i1 %439, label %449, label %440
+  br i1 %439, label %453, label %440
 
 440:                                              ; preds = %436
   %441 = getelementptr inbounds i8, ptr %438, i64 88
@@ -1077,25 +1077,25 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %446 = load i32, ptr %20, align 4, !tbaa !34
   %447 = load i32, ptr %17, align 4, !tbaa !34
   %448 = load i32, ptr %19, align 4, !tbaa !34
-  br label %449
+  %449 = sitofp i32 %444 to float
+  %450 = sitofp i32 %446 to float
+  %451 = sitofp i32 %447 to float
+  %452 = sitofp i32 %448 to float
+  br label %453
 
-449:                                              ; preds = %440, %436
-  %450 = phi i32 [ undef, %436 ], [ %448, %440 ]
-  %451 = phi i32 [ undef, %436 ], [ %447, %440 ]
-  %452 = phi i32 [ undef, %436 ], [ %446, %440 ]
-  %453 = phi float [ %84, %436 ], [ %445, %440 ]
-  %454 = phi i32 [ undef, %436 ], [ %444, %440 ]
-  %455 = sitofp i32 %454 to float
-  %456 = fmul reassoc nsz arcp contract afn float %453, %455
-  %457 = fptosi float %456 to i32
-  %458 = sitofp i32 %452 to float
-  %459 = fmul reassoc nsz arcp contract afn float %453, %458
+453:                                              ; preds = %440, %436
+  %454 = phi float [ 0.000000e+00, %436 ], [ %452, %440 ]
+  %455 = phi float [ 0.000000e+00, %436 ], [ %451, %440 ]
+  %456 = phi float [ 0.000000e+00, %436 ], [ %450, %440 ]
+  %457 = phi float [ %84, %436 ], [ %445, %440 ]
+  %458 = phi float [ 0.000000e+00, %436 ], [ %449, %440 ]
+  %459 = fmul reassoc nsz arcp contract afn float %458, %457
   %460 = fptosi float %459 to i32
-  %461 = sitofp i32 %451 to float
-  %462 = fmul reassoc nsz arcp contract afn float %453, %461
-  %463 = fptosi float %462 to i32
-  %464 = sitofp i32 %450 to float
-  %465 = fmul reassoc nsz arcp contract afn float %453, %464
+  %461 = fmul reassoc nsz arcp contract afn float %457, %456
+  %462 = fptosi float %461 to i32
+  %463 = fmul reassoc nsz arcp contract afn float %457, %455
+  %464 = fptosi float %463 to i32
+  %465 = fmul reassoc nsz arcp contract afn float %457, %454
   %466 = fptosi float %465 to i32
   %467 = getelementptr inbounds i8, ptr %78, i64 8
   %468 = load i32, ptr %467, align 8, !tbaa !40
@@ -1103,7 +1103,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %470 = icmp eq i32 %469, 0
   br i1 %470, label %497, label %471
 
-471:                                              ; preds = %449
+471:                                              ; preds = %453
   %472 = load ptr, ptr %78, align 8, !tbaa !30
   %473 = load ptr, ptr %472, align 8, !tbaa !36
   %474 = getelementptr inbounds i8, ptr %78, i64 24
@@ -1116,7 +1116,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %480 = getelementptr i8, ptr %477, i64 144
   %481 = load <2 x i32>, ptr %480, align 16, !tbaa !34
   %482 = sitofp <2 x i32> %481 to <2 x float>
-  %483 = insertelement <2 x float> poison, float %453, i64 0
+  %483 = insertelement <2 x float> poison, float %457, i64 0
   %484 = shufflevector <2 x float> %483, <2 x float> poison, <2 x i32> zeroinitializer
   %485 = fmul reassoc nsz arcp contract afn <2 x float> %484, %482
   %486 = shufflevector <2 x float> %485, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
@@ -1134,7 +1134,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #18
   br label %555
 
-497:                                              ; preds = %449
+497:                                              ; preds = %453
   %498 = and i32 %468, 1
   %499 = icmp eq i32 %498, 0
   br i1 %499, label %526, label %500
@@ -1152,7 +1152,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %509 = getelementptr i8, ptr %506, i64 144
   %510 = load <2 x i32>, ptr %509, align 16, !tbaa !34
   %511 = sitofp <2 x i32> %510 to <2 x float>
-  %512 = insertelement <2 x float> poison, float %453, i64 0
+  %512 = insertelement <2 x float> poison, float %457, i64 0
   %513 = shufflevector <2 x float> %512, <2 x float> poison, <2 x i32> zeroinitializer
   %514 = fmul reassoc nsz arcp contract afn <2 x float> %513, %511
   %515 = shufflevector <2 x float> %514, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
@@ -1188,7 +1188,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %538 = getelementptr i8, ptr %535, i64 144
   %539 = load <2 x i32>, ptr %538, align 16, !tbaa !34
   %540 = sitofp <2 x i32> %539 to <2 x float>
-  %541 = insertelement <2 x float> poison, float %453, i64 0
+  %541 = insertelement <2 x float> poison, float %457, i64 0
   %542 = shufflevector <2 x float> %541, <2 x float> poison, <2 x i32> zeroinitializer
   %543 = fmul reassoc nsz arcp contract afn <2 x float> %542, %540
   %544 = shufflevector <2 x float> %543, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
@@ -1228,18 +1228,18 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %.loopexit46
 
 568:                                              ; preds = %561
-  %569 = add i32 %460, -1
-  %570 = add i32 %569, %457
-  %571 = add nsw i32 %457, 1
+  %569 = add i32 %462, -1
+  %570 = add i32 %569, %460
+  %571 = add nsw i32 %460, 1
   %572 = icmp slt i32 %571, %570
   %573 = load ptr, ptr %16, align 8
   br i1 %572, label %574, label %.loopexit46
 
 574:                                              ; preds = %568
   %575 = load i32, ptr %44, align 4, !tbaa !77
-  %576 = add i32 %463, -1
+  %576 = add i32 %464, -1
   %577 = add i32 %576, %466
-  %578 = add i32 %463, 1
+  %578 = add i32 %464, 1
   %579 = icmp sge i32 %578, %577
   %580 = load i32, ptr %19, align 4
   %581 = getelementptr inbounds i8, ptr %73, i64 12
@@ -1247,7 +1247,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %583 = sext i32 %582 to i64
   %584 = sext i32 %578 to i64
   %585 = add i32 %466, -1
-  %586 = add i32 %585, %463
+  %586 = add i32 %585, %464
   %587 = sext i32 %571 to i64
   %588 = sext i32 %575 to i64
   %589 = extractelement <2 x i32> %557, i64 1
@@ -1284,7 +1284,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 610:                                              ; preds = %604
   %611 = load i32, ptr %5, align 4, !tbaa !79
   %612 = trunc nsw i64 %592 to i32
-  %613 = sub i32 %612, %457
+  %613 = sub i32 %612, %460
   %614 = sitofp i32 %613 to float
   %615 = sub nsw i64 %592, %588
   %616 = sext i32 %611 to i64
@@ -1325,7 +1325,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %640 = fptosi float %639 to i32
   %641 = mul nsw i32 %580, %640
   %642 = trunc nsw i64 %620 to i32
-  %643 = sub i32 %642, %463
+  %643 = sub i32 %642, %464
   %644 = sitofp i32 %643 to float
   %645 = fdiv reassoc nsz arcp contract afn float %644, %638
   %646 = fptosi float %645 to i32

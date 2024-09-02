@@ -520,7 +520,7 @@ define internal void @IDAAhermiteFree(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca [4 x double], align 16
   %8 = alloca [4 x ptr], align 16
   %9 = alloca [4 x ptr], align 16
@@ -1482,16 +1482,16 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   %13 = icmp ne i32 %12, 0
   %14 = icmp ne ptr %4, null
   %or.cond = and i1 %14, %13
-  br i1 %or.cond, label %15, label %18
+  br i1 %or.cond, label %15, label %19
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %0, i64 160
   %17 = load i32, ptr %16, align 8
-  br label %18
+  %18 = freeze i32 %17
+  br label %19
 
-18:                                               ; preds = %6, %15
-  %19 = phi i32 [ %17, %15 ], [ 0, %6 ]
-  %.fr283 = freeze i32 %19
+19:                                               ; preds = %6, %15
+  %.fr283 = phi i32 [ %18, %15 ], [ 0, %6 ]
   %20 = getelementptr inbounds i8, ptr %8, i64 8
   %21 = load double, ptr %20, align 8
   %22 = load double, ptr %8, align 8
@@ -1501,12 +1501,12 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %._crit_edge340, label %26
 
-._crit_edge340:                                   ; preds = %18
+._crit_edge340:                                   ; preds = %19
   %.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 112
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %31
 
-26:                                               ; preds = %18
+26:                                               ; preds = %19
   %27 = getelementptr inbounds i8, ptr %8, i64 128
   %28 = load i64, ptr %27, align 8
   %29 = add nsw i64 %28, -1

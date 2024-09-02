@@ -802,15 +802,15 @@ r_Suffix_Verb_Step1.exit:                         ; preds = %232, %225, %218, %.
   br i1 %.not.i266, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %228, %221, %214, %r_Suffix_Verb_Step1.exit
-  %.0229.lcssa = phi i32 [ %.0229363, %228 ], [ %.0229363, %221 ], [ %.0229363, %214 ], [ %235, %r_Suffix_Verb_Step1.exit ]
-  %.lcssa359 = phi i32 [ %212, %228 ], [ %212, %221 ], [ %212, %214 ], [ %236, %r_Suffix_Verb_Step1.exit ]
-  %.lcssa = phi i32 [ %211, %228 ], [ %211, %221 ], [ %211, %214 ], [ %237, %r_Suffix_Verb_Step1.exit ]
-  %.neg = sub i32 %.lcssa, %.lcssa359
-  %239 = load i32, ptr %12, align 4
-  %240 = add i32 %239, %.neg
-  store i32 %240, ptr %8, align 8
-  %241 = icmp sgt i32 %.0229.lcssa, 0
-  br i1 %241, label %283, label %242
+  %.0229.lcssa.ph = phi i32 [ %.0229363, %228 ], [ %.0229363, %221 ], [ %.0229363, %214 ], [ %235, %r_Suffix_Verb_Step1.exit ]
+  %.lcssa359.ph = phi i32 [ %212, %228 ], [ %212, %221 ], [ %212, %214 ], [ %236, %r_Suffix_Verb_Step1.exit ]
+  %.lcssa.ph = phi i32 [ %211, %228 ], [ %211, %221 ], [ %211, %214 ], [ %237, %r_Suffix_Verb_Step1.exit ]
+  %239 = icmp sgt i32 %.0229.lcssa.ph, 0
+  %.neg = sub i32 %.lcssa.ph, %.lcssa359.ph
+  %240 = load i32, ptr %12, align 4
+  %241 = add i32 %240, %.neg
+  store i32 %241, ptr %8, align 8
+  br i1 %239, label %283, label %242
 
 242:                                              ; preds = %._crit_edge
   %243 = tail call fastcc i32 @r_Suffix_Verb_Step2a(ptr noundef nonnull %0)
@@ -889,7 +889,7 @@ r_Suffix_Verb_Step1.exit:                         ; preds = %232, %225, %218, %.
   br label %283
 
 283:                                              ; preds = %.sink.split, %._crit_edge
-  %284 = phi i32 [ %239, %._crit_edge ], [ %282, %.sink.split ]
+  %284 = phi i32 [ %240, %._crit_edge ], [ %282, %.sink.split ]
   store i32 %284, ptr %8, align 8
   store i32 %284, ptr %37, align 8
   %285 = add i32 %284, -3

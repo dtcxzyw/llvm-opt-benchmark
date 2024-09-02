@@ -12154,17 +12154,17 @@ define internal fastcc i32 @iso_stream_schedule(ptr nocapture noundef %0, ptr no
 
 110:                                              ; preds = %107
   %111 = tail call fastcc i32 @sitd_slot_ok(ptr noundef %0, ptr noundef %2, i32 noundef %83, ptr noundef %35)
+  %112 = icmp eq i32 %111, 0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %101, %110, %107
-  %112 = phi i32 [ 0, %107 ], [ %111, %110 ], [ 0, %101 ]
-  %113 = icmp ugt i32 %83, %48
-  %114 = icmp eq i32 %112, 0
-  %115 = and i1 %113, %114
+  %113 = phi i1 [ true, %107 ], [ %112, %110 ], [ true, %101 ]
+  %114 = icmp ugt i32 %83, %48
+  %115 = and i1 %114, %113
   br i1 %115, label %.splitthread-pre-split, label %.split23.us, !llvm.loop !139
 
 .split23.us:                                      ; preds = %.loopexit
-  br i1 %114, label %.thread15, label %.thread12
+  br i1 %113, label %.thread15, label %.thread12
 
 .thread12:                                        ; preds = %64, %77, %85, %98, %.split23.us
   %116 = phi i32 [ %83, %.split23.us ], [ %83, %98 ], [ %83, %85 ], [ %66, %77 ], [ %66, %64 ]

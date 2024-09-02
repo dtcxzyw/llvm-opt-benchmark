@@ -1542,21 +1542,21 @@ define internal fastcc void @subgInduce(ptr noundef %0, ptr noundef %1, i32 noun
   br label %37
 
 37:                                               ; preds = %28, %34
-  br i1 %.not14, label %38, label %42
+  br i1 %.not14, label %38, label %43
 
 38:                                               ; preds = %37
   %39 = tail call ptr @agnameof(ptr noundef nonnull %.016) #16
   %40 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %39, ptr noundef nonnull dereferenceable(8) @.str.12, i64 noundef 7) #20
   %41 = icmp eq i32 %40, 0
-  br label %42
+  %42 = zext i1 %41 to i32
+  br label %43
 
-42:                                               ; preds = %38, %37
-  %43 = phi i1 [ true, %37 ], [ %41, %38 ]
-  %44 = zext i1 %43 to i32
+43:                                               ; preds = %38, %37
+  %44 = phi i32 [ 1, %37 ], [ %42, %38 ]
   tail call fastcc void @subgInduce(ptr noundef nonnull %.016, ptr noundef nonnull %.3.i, i32 noundef %44)
   br label %projectG.exit
 
-projectG.exit:                                    ; preds = %27, %42, %6
+projectG.exit:                                    ; preds = %27, %43, %6
   %45 = tail call ptr @agnxtsubg(ptr noundef nonnull %.016) #16
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %._crit_edge, label %6

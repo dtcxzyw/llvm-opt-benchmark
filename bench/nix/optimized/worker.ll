@@ -9202,7 +9202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %_Z
   %.sroa.0367.1.lcssa = phi ptr [ %.sroa.0367.0565, %.lr.ph568 ], [ %.sroa.0367.4, %225 ]
   %.sroa.0361.0 = load ptr, ptr %.sroa.0361.0566, align 8
   %165 = icmp eq ptr %.sroa.0361.0, %65
-  br i1 %165, label %._crit_edge569, label %.lr.ph568
+  br i1 %165, label %._crit_edge569.loopexit, label %.lr.ph568
 
 .lr.ph568:                                        ; preds = %158, %.loopexit444
   %.sroa.0361.0566 = phi ptr [ %.sroa.0361.0, %.loopexit444 ], [ %.sroa.0361.0562, %158 ]
@@ -9400,12 +9400,15 @@ _ZNSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2E
           cleanup
   br label %.body148
 
-._crit_edge569:                                   ; preds = %.loopexit444, %158
-  %.sroa.9374.0.lcssa = phi ptr [ null, %158 ], [ %.sroa.9374.1.lcssa, %.loopexit444 ]
-  %.sroa.0367.0.lcssa = phi ptr [ null, %158 ], [ %.sroa.0367.1.lcssa, %.loopexit444 ]
-  %230 = ptrtoint ptr %.sroa.9374.0.lcssa to i64
+._crit_edge569.loopexit:                          ; preds = %.loopexit444
+  %230 = ptrtoint ptr %.sroa.9374.1.lcssa to i64
+  br label %._crit_edge569
+
+._crit_edge569:                                   ; preds = %._crit_edge569.loopexit, %158
+  %.sroa.9374.0.lcssa = phi i64 [ 0, %158 ], [ %230, %._crit_edge569.loopexit ]
+  %.sroa.0367.0.lcssa = phi ptr [ null, %158 ], [ %.sroa.0367.1.lcssa, %._crit_edge569.loopexit ]
   %231 = ptrtoint ptr %.sroa.0367.0.lcssa to i64
-  %232 = sub i64 %230, %231
+  %232 = sub i64 %.sroa.9374.0.lcssa, %231
   %233 = ashr exact i64 %232, 3
   %234 = load i64, ptr %14, align 8
   %235 = trunc i64 %234 to i32
@@ -11499,7 +11502,7 @@ _ZNSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 96, 2) i32 @_ZN3nix6Worker17failingExitStatusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(649) %0) local_unnamed_addr #9 align 2 {
+define noundef range(i32 1, 112) i32 @_ZN3nix6Worker17failingExitStatusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(649) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 520
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1

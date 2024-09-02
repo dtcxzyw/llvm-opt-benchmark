@@ -324,7 +324,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @dgram_ctrl(ptr nocapture noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
+define internal range(i64 -1, -9223372036854775808) i64 @dgram_ctrl(ptr nocapture noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #1 {
 entry:
   %tmp_addr.i118 = alloca %struct.in6_addr, align 4
   %tmp_addr.i = alloca %struct.in6_addr, align 4

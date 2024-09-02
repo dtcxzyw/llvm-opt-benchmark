@@ -3403,7 +3403,7 @@ define internal i32 @ieee80211_start_ap(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -67, 1073741825) i32 @ieee80211_change_beacon(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -67, 1) i32 @ieee80211_change_beacon(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr i8, ptr %1, i64 2304
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
@@ -8813,7 +8813,7 @@ define internal i32 @ieee80211_set_sar_specs(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ieee80211_color_change(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @ieee80211_color_change(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca %struct.ieee80211_color_change_settings, align 2
   %5 = alloca i64, align 8
   %6 = getelementptr i8, ptr %1, i64 2304
@@ -9171,7 +9171,7 @@ declare dso_local void @ieee80211_wake_vif_queues(ptr noundef, ptr noundef, i32 
 declare dso_local void @cfg80211_ch_switch_notify(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 2) i32 @ieee80211_assign_beacon(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ieee80211_assign_beacon(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %1, i64 720
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 456
@@ -9434,18 +9434,21 @@ define internal fastcc noundef range(i32 -22, 2) i32 @ieee80211_assign_beacon(pt
   %188 = load i8, ptr %150, align 8
   %189 = zext i8 %188 to i64
   %190 = icmp ult i64 %187, %189
-  br i1 %190, label %173, label %.loopexit31, !llvm.loop !261
+  br i1 %190, label %173, label %.loopexit31.loopexit, !llvm.loop !261
 
-.loopexit31:                                      ; preds = %173, %161
-  %191 = phi i32 [ 0, %161 ], [ %186, %173 ]
-  %192 = phi i8 [ 0, %161 ], [ %188, %173 ]
-  store i8 %192, ptr %162, align 8
-  %193 = icmp eq ptr %148, null
-  br i1 %193, label %226, label %194
+.loopexit31.loopexit:                             ; preds = %173
+  %191 = sext i32 %186 to i64
+  br label %.loopexit31
 
-194:                                              ; preds = %.loopexit31
-  %195 = sext i32 %191 to i64
-  %196 = getelementptr i8, ptr %168, i64 %195
+.loopexit31:                                      ; preds = %.loopexit31.loopexit, %161
+  %192 = phi i64 [ 0, %161 ], [ %191, %.loopexit31.loopexit ]
+  %193 = phi i8 [ 0, %161 ], [ %188, %.loopexit31.loopexit ]
+  store i8 %193, ptr %162, align 8
+  %194 = icmp eq ptr %148, null
+  br i1 %194, label %226, label %195
+
+195:                                              ; preds = %.loopexit31
+  %196 = getelementptr i8, ptr %168, i64 %192
   %197 = getelementptr inbounds i8, ptr %152, i64 48
   store ptr %196, ptr %197, align 8
   %198 = load i8, ptr %148, align 8
@@ -9456,7 +9459,7 @@ define internal fastcc noundef range(i32 -22, 2) i32 @ieee80211_assign_beacon(pt
   %203 = icmp eq i8 %198, 0
   br i1 %203, label %.loopexit, label %204
 
-204:                                              ; preds = %194
+204:                                              ; preds = %195
   %205 = getelementptr inbounds i8, ptr %148, i64 8
   %206 = getelementptr inbounds i8, ptr %196, i64 8
   br label %207
@@ -9484,8 +9487,8 @@ define internal fastcc noundef range(i32 -22, 2) i32 @ieee80211_assign_beacon(pt
   %224 = icmp ult i64 %221, %223
   br i1 %224, label %207, label %.loopexit, !llvm.loop !262
 
-.loopexit:                                        ; preds = %207, %194
-  %225 = phi i8 [ 0, %194 ], [ %222, %207 ]
+.loopexit:                                        ; preds = %207, %195
+  %225 = phi i8 [ 0, %195 ], [ %222, %207 ]
   store i8 %225, ptr %196, align 8
   br label %226
 

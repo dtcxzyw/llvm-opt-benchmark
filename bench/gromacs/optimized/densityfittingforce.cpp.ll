@@ -179,8 +179,8 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
   %.not = icmp eq i64 %indvars.iv, 0
   %27 = load float, ptr %24, align 8
   %28 = fpext float %27 to double
-  %29 = getelementptr inbounds [3 x %"class.gmx::GaussianOn1DLattice"], ptr %25, i64 0, i64 %indvars.iv
-  %30 = select i1 %.not, double %28, double 1.000000e+00
+  %29 = select i1 %.not, double %28, double 1.000000e+00
+  %30 = getelementptr inbounds [3 x %"class.gmx::GaussianOn1DLattice"], ptr %25, i64 0, i64 %indvars.iv
   %31 = load ptr, ptr %1, align 8
   %32 = getelementptr inbounds [3 x float], ptr %31, i64 0, i64 %indvars.iv
   %33 = load float, ptr %32, align 4
@@ -188,7 +188,7 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
   %35 = load i32, ptr %34, align 4
   %36 = sitofp i32 %35 to float
   %37 = fsub float %33, %36
-  call void @_ZN3gmx19GaussianOn1DLattice6spreadEdf(ptr noundef nonnull align 8 dereferenceable(8) %29, double noundef %30, float noundef %37)
+  call void @_ZN3gmx19GaussianOn1DLattice6spreadEdf(ptr noundef nonnull align 8 dereferenceable(8) %30, double noundef %29, float noundef %37)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %38, label %26, !llvm.loop !5

@@ -435,7 +435,7 @@ _ZNK11id_var_listILin1ELin1EE4sizeEv.exit:        ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK3smt5enode10get_th_varEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %th_id) local_unnamed_addr #6 align 2 {
+define hidden noundef range(i32 -8388608, 8388608) i32 @_ZNK3smt5enode10get_th_varEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, i32 noundef %th_id) local_unnamed_addr #6 align 2 {
 entry:
   %m_th_var_list = getelementptr inbounds i8, ptr %this, i64 64
   %bf.load.i.i.i = load i32, ptr %m_th_var_list, align 8

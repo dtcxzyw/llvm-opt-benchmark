@@ -3094,10 +3094,10 @@ thread-pre-split.i.us:                            ; preds = %1494, %.thread568.i
   br i1 %1522, label %.critedge3.i, label %1523
 
 1523:                                             ; preds = %._crit_edge649.i.us
-  %1524 = load i16, ptr %1437, align 8
-  %1525 = icmp eq i16 %1524, 0
-  %1526 = icmp ne i32 %.2420.i.us, 0
-  %or.cond11.i.us = select i1 %1525, i1 true, i1 %1526
+  %1524 = icmp ne i32 %.2420.i.us, 0
+  %1525 = load i16, ptr %1437, align 8
+  %1526 = icmp eq i16 %1525, 0
+  %or.cond11.i.us = select i1 %1526, i1 true, i1 %1524
   br i1 %or.cond11.i.us, label %1527, label %.critedge3.i
 
 1527:                                             ; preds = %1523

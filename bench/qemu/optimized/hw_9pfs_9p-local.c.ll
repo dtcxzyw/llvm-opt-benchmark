@@ -2567,21 +2567,14 @@ define internal fastcc range(i32 -1, 1) i32 @local_set_mapped_file_attrat(i32 no
 entry:
   %buf = alloca [100 x i8], align 16
   %0 = load i8, ptr %name, align 1
-  %1 = zext i8 %0 to i32
-  %2 = add nsw i32 %1, -46
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %sub_1, label %entry.tail
+  %.not = icmp eq i8 %0, 46
+  br i1 %.not, label %entry.tail, label %if.else7
 
-sub_1:                                            ; preds = %entry
-  %3 = getelementptr inbounds i8, ptr %name, i64 1
-  %4 = load i8, ptr %3, align 1
-  %5 = zext i8 %4 to i32
-  br label %entry.tail
-
-entry.tail:                                       ; preds = %entry, %sub_1
-  %6 = phi i32 [ %2, %entry ], [ %5, %sub_1 ]
-  %tobool.not = icmp eq i32 %6, 0
-  br i1 %tobool.not, label %if.then, label %if.else7
+entry.tail:                                       ; preds = %entry
+  %1 = getelementptr inbounds i8, ptr %name, i64 1
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.then, label %if.else7
 
 if.then:                                          ; preds = %entry.tail
   %call7.i = tail call fastcc i32 @openat_file(i32 noundef %dirfd, ptr noundef nonnull @.str.37, i32 noundef 0, i32 noundef 0)
@@ -2599,19 +2592,19 @@ if.then14.i:                                      ; preds = %if.end12.i
 
 if.then4:                                         ; preds = %if.then, %if.then14.i
   %call5 = tail call ptr @__errno_location() #17
-  %7 = load i32, ptr %call5, align 4
-  %cmp = icmp eq i32 %7, 2
+  %4 = load i32, ptr %call5, align 4
+  %cmp = icmp eq i32 %4, 2
   br i1 %cmp, label %if.then67, label %return
 
-if.else7:                                         ; preds = %entry.tail
+if.else7:                                         ; preds = %entry, %entry.tail
   %call8 = tail call i32 @mkdirat(i32 noundef %dirfd, ptr noundef nonnull @.str.35, i32 noundef 448) #15
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %land.lhs.true, label %if.end13
 
 land.lhs.true:                                    ; preds = %if.else7
   %call10 = tail call ptr @__errno_location() #17
-  %8 = load i32, ptr %call10, align 4
-  %cmp11.not = icmp eq i32 %8, 17
+  %5 = load i32, ptr %call10, align 4
+  %cmp11.not = icmp eq i32 %5, 17
   br i1 %cmp11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %land.lhs.true, %if.else7
@@ -2635,16 +2628,17 @@ if.then14.i47:                                    ; preds = %if.end12.i43
 
 if.then20:                                        ; preds = %if.end17, %if.then14.i47
   %call21 = tail call ptr @__errno_location() #17
-  %9 = load i32, ptr %call21, align 4
-  %cmp22 = icmp eq i32 %9, 2
+  %6 = load i32, ptr %call21, align 4
+  %cmp22 = icmp eq i32 %6, 2
   br i1 %cmp22, label %if.else69, label %if.else24
 
 if.else24:                                        ; preds = %if.then20
   %call1.i = tail call i32 @close(i32 noundef %call.i) #15
-  store i32 %9, ptr %call21, align 4
+  store i32 %6, ptr %call21, align 4
   br label %return
 
 if.end26:                                         ; preds = %if.end12.i43, %if.end12.i
+  %tobool.not126 = phi i1 [ true, %if.end12.i ], [ false, %if.end12.i43 ]
   %map_dirfd.1 = phi i32 [ -1, %if.end12.i ], [ %call.i, %if.end12.i43 ]
   %fp.0 = phi ptr [ %call13.i, %if.end12.i ], [ %call13.i44, %if.end12.i43 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %buf, i8 0, i64 100, i1 false)
@@ -2713,7 +2707,7 @@ update_map_file:                                  ; preds = %if.end63, %if.end26
   %mode.1.lcssa = phi i32 [ -1, %if.end26 ], [ %mode.2, %if.end63 ]
   %rdev.1.lcssa = phi i32 [ -1, %if.end26 ], [ %rdev.2, %if.end63 ]
   %call65 = call i32 @fclose(ptr noundef nonnull %fp.0)
-  br i1 %tobool.not, label %if.then67, label %if.else69
+  br i1 %tobool.not126, label %if.then67, label %if.else69
 
 if.then67:                                        ; preds = %if.then4, %update_map_file
   %rdev.086 = phi i32 [ %rdev.1.lcssa, %update_map_file ], [ -1, %if.then4 ]
@@ -2759,9 +2753,9 @@ local_fopenat.exit67:                             ; preds = %if.else69, %if.end1
 
 if.then72:                                        ; preds = %local_fopenat.exit67
   %call.i68 = tail call ptr @__errno_location() #17
-  %10 = load i32, ptr %call.i68, align 4
+  %7 = load i32, ptr %call.i68, align 4
   %call1.i69 = call i32 @close(i32 noundef %map_dirfd.097) #15
-  store i32 %10, ptr %call.i68, align 4
+  store i32 %7, ptr %call.i68, align 4
   br label %if.end74
 
 if.end74:                                         ; preds = %local_fopenat.exit67, %if.then72
@@ -2792,21 +2786,21 @@ if.else86:                                        ; preds = %if.end82
   unreachable
 
 if.end87:                                         ; preds = %if.end82
-  %11 = load i32, ptr %credp, align 8
-  %cmp88.not = icmp eq i32 %11, -1
-  %spec.select = select i1 %cmp88.not, i32 %uid.079114, i32 %11
+  %8 = load i32, ptr %credp, align 8
+  %cmp88.not = icmp eq i32 %8, -1
+  %spec.select = select i1 %cmp88.not, i32 %uid.079114, i32 %8
   %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
-  %12 = load i32, ptr %fc_gid, align 4
-  %cmp92.not = icmp eq i32 %12, -1
-  %gid.3 = select i1 %cmp92.not, i32 %gid.081113, i32 %12
+  %9 = load i32, ptr %fc_gid, align 4
+  %cmp92.not = icmp eq i32 %9, -1
+  %gid.3 = select i1 %cmp92.not, i32 %gid.081113, i32 %9
   %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
-  %13 = load i32, ptr %fc_mode, align 8
-  %cmp96.not = icmp eq i32 %13, -1
-  %mode.3 = select i1 %cmp96.not, i32 %mode.083112, i32 %13
+  %10 = load i32, ptr %fc_mode, align 8
+  %cmp96.not = icmp eq i32 %10, -1
+  %mode.3 = select i1 %cmp96.not, i32 %mode.083112, i32 %10
   %fc_rdev = getelementptr inbounds i8, ptr %credp, i64 16
-  %14 = load i64, ptr %fc_rdev, align 8
-  %cmp100.not = icmp eq i64 %14, -1
-  %conv = trunc i64 %14 to i32
+  %11 = load i64, ptr %fc_rdev, align 8
+  %cmp100.not = icmp eq i64 %11, -1
+  %conv = trunc i64 %11 to i32
   %rdev.3 = select i1 %cmp100.not, i32 %rdev.085111, i32 %conv
   %cmp104.not = icmp eq i32 %spec.select, -1
   br i1 %cmp104.not, label %if.end108, label %if.then106

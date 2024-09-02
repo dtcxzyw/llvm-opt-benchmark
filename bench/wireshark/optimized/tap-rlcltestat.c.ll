@@ -442,70 +442,70 @@ define internal void @rlc_lte_stat_draw(ptr nocapture noundef readonly %0) #5 {
   %46 = uitofp i32 %45 to float
   %47 = fdiv float %46, %42
   %48 = fdiv float %47, 1.000000e+03
+  %49 = fpext float %48 to double
   br label %calculate_bw.exit
 
 calculate_bw.exit:                                ; preds = %.lr.ph53, %28, %44
-  %.0.i = phi float [ %48, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %.lr.ph53 ]
-  %49 = getelementptr inbounds i8, ptr %.151, i64 80
-  %50 = getelementptr inbounds i8, ptr %.151, i64 96
-  %51 = getelementptr inbounds i8, ptr %.151, i64 72
-  %52 = load i32, ptr %51, align 8
-  %bcmp.i42 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %49, ptr noundef nonnull readonly dereferenceable(16) %50, i64 16)
+  %.0.i = phi double [ %49, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %.lr.ph53 ]
+  %50 = getelementptr inbounds i8, ptr %.151, i64 80
+  %51 = getelementptr inbounds i8, ptr %.151, i64 96
+  %52 = getelementptr inbounds i8, ptr %.151, i64 72
+  %53 = load i32, ptr %52, align 8
+  %bcmp.i42 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %50, ptr noundef nonnull readonly dereferenceable(16) %51, i64 16)
   %.not.i43 = icmp eq i32 %bcmp.i42, 0
-  br i1 %.not.i43, label %calculate_bw.exit45, label %53
+  br i1 %.not.i43, label %calculate_bw.exit45, label %54
 
-53:                                               ; preds = %calculate_bw.exit
-  %54 = load i64, ptr %50, align 8
-  %55 = sitofp i64 %54 to float
-  %56 = load i64, ptr %49, align 8
-  %57 = sitofp i64 %56 to float
-  %58 = fsub float %55, %57
-  %59 = getelementptr inbounds i8, ptr %.151, i64 104
-  %60 = load i32, ptr %59, align 8
-  %61 = sitofp i32 %60 to float
-  %62 = getelementptr inbounds i8, ptr %.151, i64 88
-  %63 = load i32, ptr %62, align 8
-  %64 = sitofp i32 %63 to float
-  %65 = fsub float %61, %64
-  %66 = fdiv float %65, 1.000000e+06
-  %67 = tail call float @llvm.fmuladd.f32(float %58, float 1.000000e+03, float %66)
-  %68 = fcmp olt float %67, 2.000000e+00
-  br i1 %68, label %calculate_bw.exit45, label %69
+54:                                               ; preds = %calculate_bw.exit
+  %55 = load i64, ptr %51, align 8
+  %56 = sitofp i64 %55 to float
+  %57 = load i64, ptr %50, align 8
+  %58 = sitofp i64 %57 to float
+  %59 = fsub float %56, %58
+  %60 = getelementptr inbounds i8, ptr %.151, i64 104
+  %61 = load i32, ptr %60, align 8
+  %62 = sitofp i32 %61 to float
+  %63 = getelementptr inbounds i8, ptr %.151, i64 88
+  %64 = load i32, ptr %63, align 8
+  %65 = sitofp i32 %64 to float
+  %66 = fsub float %62, %65
+  %67 = fdiv float %66, 1.000000e+06
+  %68 = tail call float @llvm.fmuladd.f32(float %59, float 1.000000e+03, float %67)
+  %69 = fcmp olt float %68, 2.000000e+00
+  br i1 %69, label %calculate_bw.exit45, label %70
 
-69:                                               ; preds = %53
-  %70 = shl i32 %52, 3
-  %71 = uitofp i32 %70 to float
-  %72 = fdiv float %71, %67
-  %73 = fdiv float %72, 1.000000e+03
+70:                                               ; preds = %54
+  %71 = shl i32 %53, 3
+  %72 = uitofp i32 %71 to float
+  %73 = fdiv float %72, %68
+  %74 = fdiv float %73, 1.000000e+03
+  %75 = fpext float %74 to double
   br label %calculate_bw.exit45
 
-calculate_bw.exit45:                              ; preds = %calculate_bw.exit, %53, %69
-  %.0.i44 = phi float [ %73, %69 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %calculate_bw.exit ]
-  %74 = load i8, ptr %23, align 8
-  %75 = icmp eq i8 %74, 0
-  %76 = select i1 %75, ptr @.str.11, ptr @.str.12
-  %77 = getelementptr inbounds i8, ptr %.151, i64 10
-  %78 = load i16, ptr %77, align 2
-  %79 = zext i16 %78 to i32
-  %80 = getelementptr inbounds i8, ptr %.151, i64 16
-  %81 = load i32, ptr %80, align 8
-  %82 = fpext float %.0.i to double
-  %83 = getelementptr inbounds i8, ptr %.151, i64 56
-  %84 = load i32, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %.151, i64 60
-  %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %.151, i64 64
-  %88 = load i32, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %.151, i64 68
-  %90 = load i32, ptr %89, align 4
-  %91 = fpext float %.0.i44 to double
+calculate_bw.exit45:                              ; preds = %calculate_bw.exit, %54, %70
+  %.0.i44 = phi double [ %75, %70 ], [ 0.000000e+00, %54 ], [ 0.000000e+00, %calculate_bw.exit ]
+  %76 = load i8, ptr %23, align 8
+  %77 = icmp eq i8 %76, 0
+  %78 = select i1 %77, ptr @.str.11, ptr @.str.12
+  %79 = getelementptr inbounds i8, ptr %.151, i64 10
+  %80 = load i16, ptr %79, align 2
+  %81 = zext i16 %80 to i32
+  %82 = getelementptr inbounds i8, ptr %.151, i64 16
+  %83 = load i32, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %.151, i64 56
+  %85 = load i32, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %.151, i64 60
+  %87 = load i32, ptr %86, align 4
+  %88 = getelementptr inbounds i8, ptr %.151, i64 64
+  %89 = load i32, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %.151, i64 68
+  %91 = load i32, ptr %90, align 4
   %92 = getelementptr inbounds i8, ptr %.151, i64 112
   %93 = load i32, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %.151, i64 116
   %95 = load i32, ptr %94, align 4
   %96 = getelementptr inbounds i8, ptr %.151, i64 120
   %97 = load i32, ptr %96, align 8
-  %98 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %76, i32 noundef %79, i32 noundef %81, i32 noundef %27, double noundef %82, i32 noundef %84, i32 noundef %86, i32 noundef %88, i32 noundef %90, i32 noundef %52, double noundef %91, i32 noundef %93, i32 noundef %95, i32 noundef %97)
+  %98 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %78, i32 noundef %81, i32 noundef %83, i32 noundef %27, double noundef %.0.i, i32 noundef %85, i32 noundef %87, i32 noundef %89, i32 noundef %91, i32 noundef %53, double noundef %.0.i44, i32 noundef %93, i32 noundef %95, i32 noundef %97)
   %99 = load ptr, ptr %.151, align 8
   %.not41 = icmp eq ptr %99, null
   br i1 %.not41, label %._crit_edge54, label %.lr.ph53, !llvm.loop !10

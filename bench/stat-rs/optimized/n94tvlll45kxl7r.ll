@@ -464,7 +464,7 @@ _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.e
 
 ._crit_edge.i:                                    ; preds = %29, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit
   %.sroa.06.0.lcssa.i = phi i64 [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit ], [ %.sroa.06.1.i, %29 ]
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.smax.i64(i64 %.sroa.06.0.lcssa.i, i64 0)
+  %.sroa.0.0.sroa.speculated.i.i = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %.sroa.06.0.lcssa.i, i64 0)
   %.sroa.0.0.sroa.speculated.i11.i = tail call noundef i64 @llvm.umin.i64(i64 %.val1, i64 %.sroa.0.0.sroa.speculated.i.i)
   br label %_ZN6statrs12distribution11categorical12binary_index17h4f996a2b526e59c5E.exit
 
@@ -654,7 +654,7 @@ _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.e
 
 ._crit_edge.i.i:                                  ; preds = %24, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i
   %.sroa.06.0.lcssa.i.i = phi i64 [ 0, %_ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i ], [ %.sroa.06.1.i.i, %24 ]
-  %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smax.i64(i64 %.sroa.06.0.lcssa.i.i, i64 0)
+  %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %.sroa.06.0.lcssa.i.i, i64 0)
   %.sroa.0.0.sroa.speculated.i11.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.val1.i, i64 %.sroa.0.0.sroa.speculated.i.i.i)
   br label %"_ZN117_$LT$statrs..distribution..categorical..Categorical$u20$as$u20$statrs..distribution..DiscreteCDF$LT$u64$C$f64$GT$$GT$11inverse_cdf17h0a08886c322dbd23E.exit"
 

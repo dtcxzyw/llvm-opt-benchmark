@@ -138,7 +138,7 @@ define dso_local noundef range(i32 -14, 1) i32 @input_event_to_user(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @input_ff_effect_from_user(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @input_ff_effect_from_user(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds i8, ptr %5, i64 16

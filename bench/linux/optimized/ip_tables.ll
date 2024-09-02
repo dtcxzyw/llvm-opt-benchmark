@@ -1180,10 +1180,10 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef %1, ptr 
   %184 = icmp slt i32 %183, 0
   %185 = icmp ne i32 %170, 0
   %186 = or i1 %185, %184
-  br i1 %186, label %.preheader178, label %213
+  br i1 %186, label %.preheader178, label %214
 
 .preheader178:                                    ; preds = %187, %181
-  br label %189
+  br label %190
 
 187:                                              ; preds = %177, %174, %163
   %188 = icmp eq i32 %170, 0
@@ -1194,56 +1194,56 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef %1, ptr 
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert114 = getelementptr inbounds i8, ptr %166, i64 2
   %.pre115 = load i8, ptr %.phi.trans.insert114, align 1
-  br label %213
+  %189 = icmp eq i8 %.pre115, 0
+  br label %214
 
-189:                                              ; preds = %.preheader178, %199
-  %190 = phi i32 [ %197, %199 ], [ %169, %.preheader178 ]
-  %191 = phi ptr [ %201, %199 ], [ %168, %.preheader178 ]
-  %192 = getelementptr inbounds i8, ptr %191, i64 92
-  %193 = load i32, ptr %192, align 4
-  %194 = xor i32 %193, 32
-  store i32 %194, ptr %192, align 4
-  %195 = getelementptr inbounds i8, ptr %191, i64 96
-  %196 = load i64, ptr %195, align 8
-  %197 = trunc i64 %196 to i32
-  store i64 0, ptr %195, align 8
-  %198 = icmp eq i32 %190, %197
-  br i1 %198, label %.thread49, label %199
+190:                                              ; preds = %.preheader178, %200
+  %191 = phi i32 [ %198, %200 ], [ %169, %.preheader178 ]
+  %192 = phi ptr [ %202, %200 ], [ %168, %.preheader178 ]
+  %193 = getelementptr inbounds i8, ptr %192, i64 92
+  %194 = load i32, ptr %193, align 4
+  %195 = xor i32 %194, 32
+  store i32 %195, ptr %193, align 4
+  %196 = getelementptr inbounds i8, ptr %192, i64 96
+  %197 = load i64, ptr %196, align 8
+  %198 = trunc i64 %197 to i32
+  store i64 0, ptr %196, align 8
+  %199 = icmp eq i32 %191, %198
+  br i1 %199, label %.thread49, label %200
 
-199:                                              ; preds = %189
-  %200 = and i64 %196, 4294967295
-  %201 = getelementptr i8, ptr %2, i64 %200
-  %202 = getelementptr inbounds i8, ptr %201, i64 90
-  %203 = load i16, ptr %202, align 2
-  %204 = zext i16 %203 to i32
-  %205 = add i32 %204, %197
-  %206 = icmp eq i32 %190, %205
-  br i1 %206, label %189, label %207, !llvm.loop !43
+200:                                              ; preds = %190
+  %201 = and i64 %197, 4294967295
+  %202 = getelementptr i8, ptr %2, i64 %201
+  %203 = getelementptr inbounds i8, ptr %202, i64 90
+  %204 = load i16, ptr %203, align 2
+  %205 = zext i16 %204 to i32
+  %206 = add i32 %205, %198
+  %207 = icmp eq i32 %191, %206
+  br i1 %207, label %190, label %208, !llvm.loop !43
 
-207:                                              ; preds = %199
-  %208 = load i32, ptr %1, align 8
-  %209 = icmp ult i32 %205, %208
-  br i1 %209, label %210, label %.thread
+208:                                              ; preds = %200
+  %209 = load i32, ptr %1, align 8
+  %210 = icmp ult i32 %206, %209
+  br i1 %210, label %211, label %.thread
 
-210:                                              ; preds = %207
-  %211 = zext i16 %203 to i64
-  %212 = getelementptr i8, ptr %201, i64 %211
+211:                                              ; preds = %208
+  %212 = zext i16 %204 to i64
+  %213 = getelementptr i8, ptr %202, i64 %212
   br label %.thread42
 
-213:                                              ; preds = %._crit_edge, %181
-  %214 = phi i8 [ %.pre115, %._crit_edge ], [ 0, %181 ]
-  %215 = phi i32 [ %.pre, %._crit_edge ], [ %183, %181 ]
-  %216 = icmp eq i8 %214, 0
-  %217 = icmp sgt i32 %215, -1
-  %218 = select i1 %216, i1 %217, i1 false
+214:                                              ; preds = %._crit_edge, %181
+  %215 = phi i1 [ %189, %._crit_edge ], [ true, %181 ]
+  %216 = phi i32 [ %.pre, %._crit_edge ], [ %183, %181 ]
+  %217 = icmp sgt i32 %216, -1
+  %218 = select i1 %215, i1 %217, i1 false
   br i1 %218, label %219, label %222
 
-219:                                              ; preds = %213
+219:                                              ; preds = %214
   %220 = load i32, ptr %15, align 4
-  %221 = tail call zeroext i1 @xt_find_jump_offset(ptr noundef nonnull %17, i32 noundef %215, i32 noundef %220) #15
+  %221 = tail call zeroext i1 @xt_find_jump_offset(ptr noundef nonnull %17, i32 noundef %216, i32 noundef %220) #15
   br i1 %221, label %229, label %.thread
 
-222:                                              ; preds = %213
+222:                                              ; preds = %214
   %223 = getelementptr inbounds i8, ptr %168, i64 90
   %224 = load i16, ptr %223, align 2
   %225 = zext i16 %224 to i32
@@ -1253,16 +1253,16 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %228, label %229, label %.thread
 
 229:                                              ; preds = %219, %222
-  %230 = phi i32 [ %215, %219 ], [ %226, %222 ]
+  %230 = phi i32 [ %216, %219 ], [ %226, %222 ]
   %231 = sext i32 %230 to i64
   %232 = getelementptr i8, ptr %2, i64 %231
   %233 = zext i32 %169 to i64
   br label %.thread42
 
-.thread42:                                        ; preds = %210, %229
-  %.sink139 = phi ptr [ %212, %210 ], [ %232, %229 ]
-  %.lcssa136.sink = phi i64 [ %200, %210 ], [ %233, %229 ]
-  %234 = phi i32 [ %205, %210 ], [ %230, %229 ]
+.thread42:                                        ; preds = %211, %229
+  %.sink139 = phi ptr [ %213, %211 ], [ %232, %229 ]
+  %.lcssa136.sink = phi i64 [ %201, %211 ], [ %233, %229 ]
+  %234 = phi i32 [ %206, %211 ], [ %230, %229 ]
   %235 = getelementptr inbounds i8, ptr %.sink139, i64 96
   store i64 %.lcssa136.sink, ptr %235, align 8
   %236 = getelementptr inbounds i8, ptr %.sink139, i64 88
@@ -1275,7 +1275,7 @@ define internal fastcc i32 @translate_table(ptr noundef %0, ptr noundef %1, ptr 
   %243 = icmp eq i32 %242, 0
   br i1 %243, label %163, label %.thread
 
-.thread49:                                        ; preds = %189, %143
+.thread49:                                        ; preds = %190, %143
   %244 = add nuw nsw i64 %144, 1
   %245 = icmp eq i64 %244, 5
   br i1 %245, label %246, label %143, !llvm.loop !44
@@ -1630,8 +1630,8 @@ cleanup_entry.exit:                               ; preds = %.loopexit.i, %447
   %461 = select i1 %459, i1 true, i1 %460
   br i1 %461, label %.thread57, label %411, !llvm.loop !48
 
-.thread:                                          ; preds = %52, %60, %56, %31, %41, %44, %89, %92, %95, %98, %149, %222, %219, %.thread42, %207, %136, %.loopexit67
-  %462 = phi i32 [ -22, %.loopexit67 ], [ %139, %136 ], [ -40, %207 ], [ -40, %.thread42 ], [ -40, %219 ], [ -40, %222 ], [ -40, %149 ], [ -22, %98 ], [ -22, %95 ], [ -22, %92 ], [ -22, %89 ], [ -22, %44 ], [ -22, %41 ], [ -22, %31 ], [ -22, %56 ], [ %65, %60 ], [ -22, %52 ]
+.thread:                                          ; preds = %52, %60, %56, %31, %41, %44, %89, %92, %95, %98, %149, %222, %219, %.thread42, %208, %136, %.loopexit67
+  %462 = phi i32 [ -22, %.loopexit67 ], [ %139, %136 ], [ -40, %208 ], [ -40, %.thread42 ], [ -40, %219 ], [ -40, %222 ], [ -40, %149 ], [ -22, %98 ], [ -22, %95 ], [ -22, %92 ], [ -22, %89 ], [ -22, %44 ], [ -22, %41 ], [ -22, %31 ], [ -22, %56 ], [ %65, %60 ], [ -22, %52 ]
   tail call void @kvfree(ptr noundef nonnull %17) #15
   br label %.thread57
 

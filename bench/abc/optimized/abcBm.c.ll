@@ -9688,12 +9688,12 @@ Vec_IntFind.exit441:                              ; preds = %443, %Vec_IntFind.e
 
 ._crit_edge.loopexit.split.loop.exit12.i448:      ; preds = %477
   %483 = trunc nuw nsw i64 %indvars.iv.i445 to i32
+  %484 = add nsw i32 %483, 1
   br label %Vec_IntFind.exit449
 
 Vec_IntFind.exit449:                              ; preds = %482, %473, %._crit_edge.loopexit.split.loop.exit12.i448
-  %.07.i442 = phi i32 [ -1, %473 ], [ %483, %._crit_edge.loopexit.split.loop.exit12.i448 ], [ -1, %482 ]
-  %484 = add i32 %.1541, 1
-  %485 = add i32 %484, %.07.i442
+  %.07.i442 = phi i32 [ 0, %473 ], [ %484, %._crit_edge.loopexit.split.loop.exit12.i448 ], [ 0, %482 ]
+  %485 = add nsw i32 %.07.i442, %.1541
   br label %486
 
 486:                                              ; preds = %468, %Vec_IntFind.exit449
@@ -9793,16 +9793,16 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge545, %48
 
 ._crit_edge.loopexit.split.loop.exit12.i456:      ; preds = %515
   %521 = trunc nuw nsw i64 %indvars.iv.i453 to i32
+  %522 = add nsw i32 %521, 1
   br label %Vec_IntFind.exit457
 
 Vec_IntFind.exit457:                              ; preds = %520, %511, %._crit_edge.loopexit.split.loop.exit12.i456
-  %.07.i450 = phi i32 [ -1, %511 ], [ %521, %._crit_edge.loopexit.split.loop.exit12.i456 ], [ -1, %520 ]
-  %522 = add nsw i32 %.07.i450, 1
+  %.07.i450 = phi i32 [ 0, %511 ], [ %522, %._crit_edge.loopexit.split.loop.exit12.i456 ], [ 0, %520 ]
   %523 = add nsw i32 %.val385, -1
   %524 = zext i32 %523 to i64
   %525 = getelementptr inbounds i32, ptr %334, i64 %524
   %526 = load i32, ptr %525, align 4
-  %527 = add nsw i32 %522, %526
+  %527 = add nsw i32 %526, %.07.i450
   store i32 %527, ptr %525, align 4
   br label %528
 

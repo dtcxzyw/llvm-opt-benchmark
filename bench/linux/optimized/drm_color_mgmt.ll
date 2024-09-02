@@ -289,20 +289,20 @@ define dso_local i32 @drm_mode_gamma_set_ioctl(ptr noundef %0, ptr nocapture nou
   %80 = load ptr, ptr %70, align 8
   %81 = sext i32 %79 to i64
   %82 = icmp slt i32 %79, 0
-  br i1 %82, label %.thread, label %83, !prof !5
+  br i1 %82, label %.critedge, label %83, !prof !5
 
-.thread:                                          ; preds = %77
+.critedge:                                        ; preds = %77
   call void asm sideeffect "12: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 12b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 12) #6, !srcloc !13
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 249, i32 2307, i64 12) #6, !srcloc !14
   call void asm sideeffect "13: nop\0A\09.pushsection .discard.instr_end\0A\09.long 13b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 13) #6, !srcloc !15
-  br label %.thread15
+  br label %.thread18
 
 83:                                               ; preds = %77
   %84 = load i64, ptr %71, align 8
   %85 = inttoptr i64 %84 to ptr
   %86 = call i64 @_copy_from_user(ptr noundef %80, ptr noundef %85, i64 noundef %81) #6
   %87 = icmp eq i64 %86, 0
-  br i1 %87, label %88, label %.thread15
+  br i1 %87, label %88, label %.thread18
 
 88:                                               ; preds = %83
   %89 = getelementptr i8, ptr %80, i64 %81
@@ -310,7 +310,7 @@ define dso_local i32 @drm_mode_gamma_set_ioctl(ptr noundef %0, ptr nocapture nou
   %91 = inttoptr i64 %90 to ptr
   %92 = call i64 @_copy_from_user(ptr noundef %89, ptr noundef %91, i64 noundef %81) #6
   %93 = icmp eq i64 %92, 0
-  br i1 %93, label %94, label %.thread15
+  br i1 %93, label %94, label %.thread18
 
 94:                                               ; preds = %88
   %95 = getelementptr i8, ptr %89, i64 %81
@@ -318,7 +318,7 @@ define dso_local i32 @drm_mode_gamma_set_ioctl(ptr noundef %0, ptr nocapture nou
   %97 = inttoptr i64 %96 to ptr
   %98 = call i64 @_copy_from_user(ptr noundef %95, ptr noundef %97, i64 noundef %81) #6
   %99 = icmp eq i64 %98, 0
-  br i1 %99, label %100, label %.thread15
+  br i1 %99, label %100, label %.thread18
 
 100:                                              ; preds = %94
   %101 = load i32, ptr %31, align 8
@@ -349,13 +349,13 @@ define dso_local i32 @drm_mode_gamma_set_ioctl(ptr noundef %0, ptr nocapture nou
 120:                                              ; preds = %113
   %121 = call ptr @drm_mode_obj_find_prop_id(ptr noundef %16, i32 noundef %106) #6
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %.thread15, label %123
+  br i1 %122, label %.thread18, label %123
 
 123:                                              ; preds = %120, %113
   %124 = load ptr, ptr %18, align 8
   %125 = call ptr @drm_atomic_state_alloc(ptr noundef %124) #6
   %126 = icmp eq ptr %125, null
-  br i1 %126, label %.thread15, label %127
+  br i1 %126, label %.thread18, label %127
 
 127:                                              ; preds = %123
   %128 = zext i32 %101 to i64
@@ -436,33 +436,33 @@ define dso_local i32 @drm_mode_gamma_set_ioctl(ptr noundef %0, ptr nocapture nou
 
 181:                                              ; preds = %176
   %182 = icmp sgt i32 %179, 0
-  br i1 %182, label %.thread13, label %183, !prof !18
+  br i1 %182, label %.thread, label %183, !prof !18
 
 183:                                              ; preds = %181
   call void @refcount_warn_saturate(ptr noundef nonnull %125, i32 noundef 3) #6
-  br label %.thread13
+  br label %.thread
 
 184:                                              ; preds = %176
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !19
   call void @__drm_atomic_state_free(ptr noundef nonnull %125) #6
-  br label %.thread13
+  br label %.thread
 
-.thread13:                                        ; preds = %181, %183, %184
+.thread:                                          ; preds = %181, %183, %184
   call void @drm_property_blob_put(ptr noundef %177) #6
   br label %185
 
-185:                                              ; preds = %.thread13, %111, %74
-  %186 = phi i32 [ %75, %74 ], [ %112, %111 ], [ %178, %.thread13 ]
+185:                                              ; preds = %.thread, %111, %74
+  %186 = phi i32 [ %75, %74 ], [ %112, %111 ], [ %178, %.thread ]
   %187 = icmp eq i32 %186, -35
-  br i1 %187, label %188, label %.thread15
+  br i1 %187, label %188, label %.thread18
 
 188:                                              ; preds = %185
   %189 = call i32 @drm_modeset_backoff(ptr noundef nonnull %4) #6
   %190 = icmp eq i32 %189, 0
-  br i1 %190, label %74, label %.thread15
+  br i1 %190, label %74, label %.thread18
 
-.thread15:                                        ; preds = %123, %120, %94, %88, %83, %188, %185, %.thread
-  %191 = phi i32 [ -14, %.thread ], [ -14, %83 ], [ -14, %88 ], [ -14, %94 ], [ -19, %120 ], [ -12, %123 ], [ %186, %185 ], [ %189, %188 ]
+.thread18:                                        ; preds = %123, %120, %94, %88, %83, %188, %185, %.critedge
+  %191 = phi i32 [ -14, %.critedge ], [ -14, %83 ], [ -14, %88 ], [ -14, %94 ], [ -19, %120 ], [ -12, %123 ], [ %186, %185 ], [ %189, %188 ]
   call void @drm_modeset_drop_locks(ptr noundef nonnull %4) #6
   call void @drm_modeset_acquire_fini(ptr noundef nonnull %4) #6
   %192 = load ptr, ptr %5, align 8
@@ -474,7 +474,7 @@ define dso_local i32 @drm_mode_gamma_set_ioctl(ptr noundef %0, ptr nocapture nou
   %198 = icmp eq i32 %197, 0
   br i1 %198, label %199, label %209
 
-199:                                              ; preds = %.thread15
+199:                                              ; preds = %.thread18
   %200 = getelementptr inbounds i8, ptr %0, i64 800
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
@@ -491,8 +491,8 @@ define dso_local i32 @drm_mode_gamma_set_ioctl(ptr noundef %0, ptr nocapture nou
   call void @mutex_unlock(ptr noundef %208) #6
   br label %209
 
-209:                                              ; preds = %207, %203, %.thread15, %46, %43, %21, %14, %3
-  %210 = phi i32 [ -95, %3 ], [ -2, %14 ], [ -38, %43 ], [ -22, %46 ], [ %191, %207 ], [ %191, %203 ], [ -38, %21 ], [ %191, %.thread15 ]
+209:                                              ; preds = %207, %203, %.thread18, %46, %43, %21, %14, %3
+  %210 = phi i32 [ -95, %3 ], [ -2, %14 ], [ -38, %43 ], [ -22, %46 ], [ %191, %207 ], [ %191, %203 ], [ -38, %21 ], [ %191, %.thread18 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
   ret i32 %210
 }

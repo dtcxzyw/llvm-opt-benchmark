@@ -493,7 +493,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @isFileModTimeLater(ptr noundef %filePath, ptr noundef %checkAgainst, i8 noundef signext %isDir) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define signext range(i8 0, 2) i8 @isFileModTimeLater(ptr noundef %filePath, ptr noundef %checkAgainst, i8 noundef signext %isDir) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %stbuf1.i19 = alloca %struct.stat, align 8
   %stbuf2.i20 = alloca %struct.stat, align 8
@@ -530,52 +530,43 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call659 = phi ptr [ %call657, %while.body.lr.ph ], [ %call6, %if.end53 ]
   %d_name = getelementptr inbounds i8, ptr %call659, i64 19
   %0 = load i8, ptr %d_name, align 1
-  %1 = zext i8 %0 to i32
-  %2 = add nsw i32 %1, -46
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %while.body.tail, label %land.lhs.true.tail
+  %.not = icmp eq i8 %0, 46
+  br i1 %.not, label %while.body.tail, label %if.then14
 
 while.body.tail:                                  ; preds = %while.body
-  %3 = getelementptr inbounds i8, ptr %call659, i64 20
-  %4 = load i8, ptr %3, align 1
-  %cmp9.not = icmp eq i8 %4, 0
-  br i1 %cmp9.not, label %if.end53, label %sub_148
+  %1 = getelementptr inbounds i8, ptr %call659, i64 20
+  %2 = load i8, ptr %1, align 1
+  %3 = icmp eq i8 %2, 0
+  br i1 %3, label %if.end53, label %sub_148
 
 sub_148:                                          ; preds = %while.body.tail
-  %5 = getelementptr inbounds i8, ptr %call659, i64 20
-  %6 = load i8, ptr %5, align 1
-  %7 = zext i8 %6 to i32
-  %8 = add nsw i32 %7, -46
-  %.not61 = icmp eq i32 %8, 0
-  br i1 %.not61, label %sub_2, label %land.lhs.true.tail
+  %4 = getelementptr inbounds i8, ptr %call659, i64 20
+  %5 = load i8, ptr %4, align 1
+  %.not61 = icmp eq i8 %5, 46
+  br i1 %.not61, label %land.lhs.true.tail, label %if.then14
 
-sub_2:                                            ; preds = %sub_148
-  %9 = getelementptr inbounds i8, ptr %call659, i64 21
-  %10 = load i8, ptr %9, align 1
-  %11 = zext i8 %10 to i32
-  br label %land.lhs.true.tail
+land.lhs.true.tail:                               ; preds = %sub_148
+  %6 = getelementptr inbounds i8, ptr %call659, i64 21
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %if.end53, label %if.then14
 
-land.lhs.true.tail:                               ; preds = %while.body, %sub_148, %sub_2
-  %12 = phi i32 [ %8, %sub_148 ], [ %11, %sub_2 ], [ %2, %while.body ]
-  %cmp13.not = icmp eq i32 %12, 0
-  br i1 %cmp13.not, label %if.end53, label %if.then14
-
-if.then14:                                        ; preds = %land.lhs.true.tail
+if.then14:                                        ; preds = %while.body, %sub_148, %land.lhs.true.tail
   store i32 0, ptr %status, align 4
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath)
   store i32 0, ptr %len.i, align 8
-  %13 = load ptr, ptr %newpath, align 8
-  store i8 0, ptr %13, align 1
+  %9 = load ptr, ptr %newpath, align 8
+  store i8 0, ptr %9, align 1
   %call3.i = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %newpath, ptr noundef %checkAgainst, i32 noundef -1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %_ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %14, %lpad.i ], [ %lpad.loopexit50, %lpad.loopexit ], [ %lpad.loopexit.split-lp51, %lpad.loopexit.split-lp ]
+  %common.resume.op = phi { ptr, i32 } [ %10, %lpad.i ], [ %lpad.loopexit50, %lpad.loopexit ], [ %lpad.loopexit.split-lp51, %lpad.loopexit.split-lp ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath) #13
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then14
-  %14 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -588,13 +579,13 @@ invoke.cont:                                      ; preds = %_ZN6icu_7510CharStr
           to label %invoke.cont18 unwind label %lpad.loopexit
 
 invoke.cont18:                                    ; preds = %invoke.cont
-  %15 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %15, 1
+  %11 = load i32, ptr %status, align 4
+  %cmp.i = icmp slt i32 %11, 1
   br i1 %cmp.i, label %if.end27, label %if.then22
 
 if.then22:                                        ; preds = %invoke.cont18
-  %16 = load ptr, ptr @stderr, align 8
-  %call24 = invoke ptr @u_errorName_75(i32 noundef %15)
+  %12 = load ptr, ptr @stderr, align 8
+  %call24 = invoke ptr @u_errorName_75(i32 noundef %11)
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %_ZN6icu_7510CharStringC2EPKciR10UErrorCode.exit, %invoke.cont, %if.then33
@@ -608,15 +599,15 @@ lpad.loopexit.split-lp:                           ; preds = %if.then22
   br label %common.resume
 
 if.end27:                                         ; preds = %invoke.cont18
-  %17 = load ptr, ptr %newpath, align 8
-  %call31 = call ptr @opendir(ptr noundef %17)
+  %13 = load ptr, ptr %newpath, align 8
+  %call31 = call ptr @opendir(ptr noundef %13)
   %cmp32.not = icmp eq ptr %call31, null
   br i1 %cmp32.not, label %if.else, label %if.then33
 
 if.then33:                                        ; preds = %if.end27
   %call35 = call i32 @closedir(ptr noundef nonnull %call31)
-  %18 = load ptr, ptr %newpath, align 8
-  %call39 = invoke signext i8 @isFileModTimeLater(ptr noundef %filePath, ptr noundef %18, i8 noundef signext 1)
+  %14 = load ptr, ptr %newpath, align 8
+  %call39 = invoke signext i8 @isFileModTimeLater(ptr noundef %filePath, ptr noundef %14, i8 noundef signext 1)
           to label %invoke.cont38 unwind label %lpad.loopexit
 
 invoke.cont38:                                    ; preds = %if.then33
@@ -624,7 +615,7 @@ invoke.cont38:                                    ; preds = %if.then33
   br i1 %tobool40.not, label %cleanup.thread, label %cleanup.thread44
 
 if.else:                                          ; preds = %if.end27
-  %19 = load ptr, ptr %newpath, align 8
+  %15 = load ptr, ptr %newpath, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %stbuf1.i)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %stbuf2.i)
   %call.i = call i32 @stat(ptr noundef %filePath, ptr noundef nonnull %stbuf1.i) #13
@@ -632,14 +623,14 @@ if.else:                                          ; preds = %if.end27
   br i1 %cmp.i18, label %land.lhs.true.i, label %if.else11.i
 
 land.lhs.true.i:                                  ; preds = %if.else
-  %call1.i = call i32 @stat(ptr noundef %19, ptr noundef nonnull %stbuf2.i) #13
+  %call1.i = call i32 @stat(ptr noundef %15, ptr noundef nonnull %stbuf2.i) #13
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %if.then.i, label %if.else11.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %20 = load i64, ptr %st_mtim.i, align 8
-  %21 = load i64, ptr %st_mtim3.i, align 8
-  %call5.i = call double @difftime(i64 noundef %20, i64 noundef %21) #16
+  %16 = load i64, ptr %st_mtim.i, align 8
+  %17 = load i64, ptr %st_mtim3.i, align 8
+  %call5.i = call double @difftime(i64 noundef %16, i64 noundef %17) #16
   %cmp6.i = fcmp olt double %call5.i, 0.000000e+00
   br i1 %cmp6.i, label %invoke.cont45.thread, label %if.else.i
 
@@ -649,8 +640,8 @@ if.else.i:                                        ; preds = %if.then.i
   br label %cleanup.thread44
 
 if.else11.i:                                      ; preds = %land.lhs.true.i, %if.else
-  %22 = load ptr, ptr @stderr, align 8
-  %call12.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.6, ptr noundef %filePath, ptr noundef %19) #17
+  %18 = load ptr, ptr @stderr, align 8
+  %call12.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.6, ptr noundef %filePath, ptr noundef %15) #17
   br label %invoke.cont45.thread
 
 invoke.cont45.thread:                             ; preds = %if.then.i, %if.else11.i
@@ -667,7 +658,7 @@ cleanup.thread:                                   ; preds = %invoke.cont38, %inv
   br label %while.end
 
 cleanup:                                          ; preds = %if.then22
-  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 66, ptr noundef %call24) #17
+  %call26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 66, ptr noundef %call24) #17
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath) #13
   br label %return
 
@@ -682,8 +673,8 @@ while.end:                                        ; preds = %if.end53, %while.co
   br label %return
 
 if.else55:                                        ; preds = %if.then3
-  %23 = load ptr, ptr @stderr, align 8
-  %call56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.5, ptr noundef nonnull %checkAgainst) #17
+  %19 = load ptr, ptr @stderr, align 8
+  %call56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.5, ptr noundef nonnull %checkAgainst) #17
   br label %return
 
 if.else58:                                        ; preds = %if.end
@@ -705,10 +696,10 @@ land.lhs.true.i26:                                ; preds = %if.then61
 
 if.then.i29:                                      ; preds = %land.lhs.true.i26
   %st_mtim.i30 = getelementptr inbounds i8, ptr %stbuf1.i19, i64 88
-  %24 = load i64, ptr %st_mtim.i30, align 8
+  %20 = load i64, ptr %st_mtim.i30, align 8
   %st_mtim3.i31 = getelementptr inbounds i8, ptr %stbuf2.i20, i64 88
-  %25 = load i64, ptr %st_mtim3.i31, align 8
-  %call5.i32 = tail call double @difftime(i64 noundef %24, i64 noundef %25) #16
+  %21 = load i64, ptr %st_mtim3.i31, align 8
+  %call5.i32 = tail call double @difftime(i64 noundef %20, i64 noundef %21) #16
   %cmp6.i33 = fcmp olt double %call5.i32, 0.000000e+00
   br i1 %cmp6.i33, label %_ZL23whichFileModTimeIsLaterPKcS0_.exit37, label %if.else.i34
 
@@ -716,8 +707,8 @@ if.else.i34:                                      ; preds = %if.then.i29
   br label %_ZL23whichFileModTimeIsLaterPKcS0_.exit37
 
 if.else11.i23:                                    ; preds = %land.lhs.true.i26, %if.then61
-  %26 = load ptr, ptr @stderr, align 8
-  %call12.i24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.6, ptr noundef nonnull %filePath, ptr noundef nonnull %checkAgainst) #17
+  %22 = load ptr, ptr @stderr, align 8
+  %call12.i24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.6, ptr noundef nonnull %filePath, ptr noundef nonnull %checkAgainst) #17
   br label %_ZL23whichFileModTimeIsLaterPKcS0_.exit37
 
 _ZL23whichFileModTimeIsLaterPKcS0_.exit37:        ; preds = %if.else.i34, %if.then.i29, %if.else11.i23

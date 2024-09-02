@@ -604,11 +604,11 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   %arrayidx36.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %9
   %10 = load i8, ptr %arrayidx36.i, align 1
   %tobool38.i = icmp ne i8 %10, 0
+  %11 = zext i1 %tobool38.i to i32
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %land.lhs.true.i, %sw.bb30.i
-  %11 = phi i1 [ false, %land.lhs.true.i ], [ false, %sw.bb30.i ], [ %tobool38.i, %land.rhs.i ]
-  %land.ext.i = zext i1 %11 to i32
+  %land.ext.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %sw.bb30.i ], [ %11, %land.rhs.i ]
   %call41.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 516, ptr noundef nonnull @.str.40, i32 noundef %land.ext.i) #7
   %tobool42.not.i = icmp eq i32 %call41.i, 0
   br i1 %tobool42.not.i, label %run_rxfc_script.exit, label %if.end44.i
@@ -643,11 +643,11 @@ land.rhs63.i:                                     ; preds = %land.lhs.true59.i
   %arrayidx65.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %15
   %16 = load i8, ptr %arrayidx65.i, align 1
   %tobool67.i = icmp ne i8 %16, 0
+  %17 = zext i1 %tobool67.i to i32
   br label %land.end68.i
 
 land.end68.i:                                     ; preds = %land.rhs63.i, %land.lhs.true59.i, %sw.bb57.i
-  %17 = phi i1 [ false, %land.lhs.true59.i ], [ false, %sw.bb57.i ], [ %tobool67.i, %land.rhs63.i ]
-  %land.ext69.i = zext i1 %17 to i32
+  %land.ext69.i = phi i32 [ 0, %land.lhs.true59.i ], [ 0, %sw.bb57.i ], [ %17, %land.rhs63.i ]
   %call72.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 528, ptr noundef nonnull @.str.40, i32 noundef %land.ext69.i) #7
   %tobool73.not.i = icmp eq i32 %call72.i, 0
   br i1 %tobool73.not.i, label %run_rxfc_script.exit, label %if.end75.i
@@ -694,11 +694,11 @@ land.rhs106.i:                                    ; preds = %sw.bb102.i
   %arrayidx108.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %23
   %24 = load i8, ptr %arrayidx108.i, align 1
   %tobool110.i = icmp ne i8 %24, 0
+  %25 = zext i1 %tobool110.i to i32
   br label %land.end111.i
 
 land.end111.i:                                    ; preds = %land.rhs106.i, %sw.bb102.i
-  %25 = phi i1 [ false, %sw.bb102.i ], [ %tobool110.i, %land.rhs106.i ]
-  %land.ext112.i = zext i1 %25 to i32
+  %land.ext112.i = phi i32 [ 0, %sw.bb102.i ], [ %25, %land.rhs106.i ]
   %call115.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 547, ptr noundef nonnull @.str.46, i32 noundef %land.ext112.i) #7
   %tobool116.not.i = icmp eq i32 %call115.i, 0
   br i1 %tobool116.not.i, label %run_rxfc_script.exit, label %if.end118.i
@@ -738,11 +738,11 @@ land.rhs144.i:                                    ; preds = %sw.bb140.i
   %arrayidx146.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %29
   %30 = load i8, ptr %arrayidx146.i, align 1
   %tobool148.i = icmp ne i8 %30, 0
+  %31 = zext i1 %tobool148.i to i32
   br label %land.end149.i
 
 land.end149.i:                                    ; preds = %land.rhs144.i, %sw.bb140.i
-  %31 = phi i1 [ false, %sw.bb140.i ], [ %tobool148.i, %land.rhs144.i ]
-  %land.ext150.i = zext i1 %31 to i32
+  %land.ext150.i = phi i32 [ 0, %sw.bb140.i ], [ %31, %land.rhs144.i ]
   %call153.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 562, ptr noundef nonnull @.str.46, i32 noundef %land.ext150.i) #7
   %tobool154.not.i = icmp eq i32 %call153.i, 0
   br i1 %tobool154.not.i, label %run_rxfc_script.exit, label %if.end156.i
@@ -782,11 +782,11 @@ land.rhs182.i:                                    ; preds = %sw.bb178.i
   %arrayidx184.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %35
   %36 = load i8, ptr %arrayidx184.i, align 1
   %tobool186.i = icmp ne i8 %36, 0
+  %37 = zext i1 %tobool186.i to i32
   br label %land.end187.i
 
 land.end187.i:                                    ; preds = %land.rhs182.i, %sw.bb178.i
-  %37 = phi i1 [ false, %sw.bb178.i ], [ %tobool186.i, %land.rhs182.i ]
-  %land.ext188.i = zext i1 %37 to i32
+  %land.ext188.i = phi i32 [ 0, %sw.bb178.i ], [ %37, %land.rhs182.i ]
   %call191.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 577, ptr noundef nonnull @.str.46, i32 noundef %land.ext188.i) #7
   %tobool192.not.i = icmp eq i32 %call191.i, 0
   br i1 %tobool192.not.i, label %run_rxfc_script.exit, label %if.end194.i
@@ -830,11 +830,11 @@ land.rhs223.i:                                    ; preds = %sw.bb219.i
   %arrayidx225.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %42
   %43 = load i8, ptr %arrayidx225.i, align 1
   %tobool227.i = icmp ne i8 %43, 0
+  %44 = zext i1 %tobool227.i to i32
   br label %land.end228.i
 
 land.end228.i:                                    ; preds = %land.rhs223.i, %sw.bb219.i
-  %44 = phi i1 [ false, %sw.bb219.i ], [ %tobool227.i, %land.rhs223.i ]
-  %land.ext229.i = zext i1 %44 to i32
+  %land.ext229.i = phi i32 [ 0, %sw.bb219.i ], [ %44, %land.rhs223.i ]
   %call232.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 593, ptr noundef nonnull @.str.46, i32 noundef %land.ext229.i) #7
   %tobool233.not.i = icmp eq i32 %call232.i, 0
   br i1 %tobool233.not.i, label %run_rxfc_script.exit, label %if.end235.i
@@ -882,11 +882,11 @@ land.rhs267.i:                                    ; preds = %sw.bb263.i
   %arrayidx269.i = getelementptr inbounds [3 x i8], ptr %stream_init_done.i, i64 0, i64 %50
   %51 = load i8, ptr %arrayidx269.i, align 1
   %tobool271.i = icmp ne i8 %51, 0
+  %52 = zext i1 %tobool271.i to i32
   br label %land.end272.i
 
 land.end272.i:                                    ; preds = %land.rhs267.i, %sw.bb263.i
-  %52 = phi i1 [ false, %sw.bb263.i ], [ %tobool271.i, %land.rhs267.i ]
-  %land.ext273.i = zext i1 %52 to i32
+  %land.ext273.i = phi i32 [ 0, %sw.bb263.i ], [ %52, %land.rhs267.i ]
   %call276.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 610, ptr noundef nonnull @.str.46, i32 noundef %land.ext273.i) #7
   %tobool277.not.i = icmp eq i32 %call276.i, 0
   br i1 %tobool277.not.i, label %run_rxfc_script.exit, label %if.end279.i

@@ -4812,22 +4812,20 @@ define internal void @_ZNSt17_Function_handlerIFvP9AstVarRefP8AstIfaceEZN7V3Sche
   %8 = getelementptr inbounds i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %.val3, %9
+  %10 = getelementptr inbounds i8, ptr %7, i64 48
   br i1 %.not.i.i.i, label %11, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %3
   store ptr %.val3, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 48
   store ptr null, ptr %10, align 8
-  br label %12
+  br label %13
 
 11:                                               ; preds = %3
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
-  %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
-  %.not7.i.i.i = icmp eq ptr %.pre.i.i.i, null
-  br i1 %.not7.i.i.i, label %12, label %_ZSt10__invoke_rIvRZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor5visitEP11AstNodeStmtEUlP9AstVarRefP8AstIfaceE_JS6_S8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit
+  %.pre.i.i.i = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %.pre.i.i.i, null
+  br i1 %12, label %13, label %_ZSt10__invoke_rIvRZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor5visitEP11AstNodeStmtEUlP9AstVarRefP8AstIfaceE_JS6_S8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESC_E4typeEOSD_DpOSE_.exit
 
-12:                                               ; preds = %11, %.thread.i.i.i
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
+13:                                               ; preds = %11, %.thread.i.i.i
   %14 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #27
   %15 = getelementptr inbounds i8, ptr %.val, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -4844,7 +4842,7 @@ define internal void @_ZNSt17_Function_handlerIFvP9AstVarRefP8AstIfaceEZN7V3Sche
   %.not.i.i.i.i = select i1 %21, i1 true, i1 %.not23.i.i.i.i
   br i1 %.not.i.i.i.i, label %25, label %72
 
-25:                                               ; preds = %12
+25:                                               ; preds = %13
   %26 = getelementptr inbounds i8, ptr %7, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 240
@@ -4973,7 +4971,7 @@ _ZNSt6vectorISt4pairIPK8AstIfaceP11AstVarScopeESaIS6_EE17_M_realloc_insertIJS6_E
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
   br label %.body.i.i.i
 
-72:                                               ; preds = %_ZNSt6vectorISt4pairIPK8AstIfaceP11AstVarScopeESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i.i, %45, %12
+72:                                               ; preds = %_ZNSt6vectorISt4pairIPK8AstIfaceP11AstVarScopeESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i.i, %45, %13
   %73 = invoke noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #27
           to label %.noexc12.i.i.i unwind label %142
 
@@ -5160,7 +5158,7 @@ _ZN8AstConstC2EP8FileLineNS_7BitTrueEb.exit.i.i.i: ; preds = %126, %.noexc.i13.i
 
 138:                                              ; preds = %135, %.noexc22.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV9AstAssign, i64 16), ptr %14, align 8
-  store ptr %14, ptr %13, align 8
+  store ptr %14, ptr %10, align 8
   %139 = getelementptr inbounds i8, ptr %.val, i64 16
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr %140, align 8

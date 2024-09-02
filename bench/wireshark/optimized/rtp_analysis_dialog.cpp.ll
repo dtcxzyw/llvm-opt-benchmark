@@ -17593,13 +17593,13 @@ _ZN9QtPrivate17QForeachContainerI5QListIP13_rtpstream_idEED2Ev.exit: ; preds = %
   %52 = ptrtoint ptr %47 to i64
   %53 = ptrtoint ptr %43 to i64
   %54 = sub i64 %52, %53
-  %55 = ashr exact i64 %54, 3
+  %55 = lshr exact i64 %54, 3
+  %56 = trunc i64 %55 to i32
   br label %_ZNK23QListSpecialMethodsBaseIP10tab_info_tE7indexOfIS1_EExRKT_x.exit
 
 _ZNK23QListSpecialMethodsBaseIP10tab_info_tE7indexOfIS1_EExRKT_x.exit: ; preds = %46, %39, %51
-  %.0.i.i = phi i64 [ %55, %51 ], [ -1, %39 ], [ -1, %46 ]
-  %56 = trunc i64 %.0.i.i to i32
-  invoke void @_ZN17RtpAnalysisDialog8closeTabEi(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %56)
+  %.0.i.i = phi i32 [ %56, %51 ], [ -1, %39 ], [ -1, %46 ]
+  invoke void @_ZN17RtpAnalysisDialog8closeTabEi(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %.0.i.i)
           to label %63 unwind label %57
 
 57:                                               ; preds = %_ZNK23QListSpecialMethodsBaseIP10tab_info_tE7indexOfIS1_EExRKT_x.exit, %.lr.ph

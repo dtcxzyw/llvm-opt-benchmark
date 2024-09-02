@@ -1723,22 +1723,17 @@ _ZN4absl12lts_202308026StatusD2Ev.exit88:         ; preds = %invoke.cont43, %if.
   %53 = load i64, ptr %max_threads_, align 8
   %cmp48 = icmp ult i64 %2, %53
   %or.cond = select i1 %cmp46, i1 %cmp48, i1 false
-  br i1 %or.cond, label %for.end, label %for.end.thread
+  br i1 %or.cond, label %land.rhs, label %do.cond.critedge
 
-for.end.thread:                                   ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit88
-  store i8 %frombool55, ptr %queued_long_job.le, align 1
-  call void @gpr_mu_unlock(ptr noundef nonnull %ts.1)
-  br label %do.end85
-
-for.end:                                          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit88
+land.rhs:                                         ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit88
   %shutdown49 = getelementptr inbounds i8, ptr %ts.1, i64 56
   %54 = load i8, ptr %shutdown49, align 8
+  %55 = trunc i8 %54 to i1
   store i8 %frombool55, ptr %queued_long_job.le, align 1
   call void @gpr_mu_unlock(ptr noundef nonnull %ts.1)
-  %55 = trunc i8 %54 to i1
   br i1 %55, label %do.end85, label %land.lhs.true58
 
-land.lhs.true58:                                  ; preds = %if.then26, %for.end
+land.lhs.true58:                                  ; preds = %if.then26, %land.rhs
   %56 = cmpxchg ptr %adding_thread_lock_, i64 0, i64 1 acquire monotonic, align 8
   %57 = extractvalue { i64, i1 } %56, 1
   br i1 %57, label %if.then61, label %do.cond
@@ -1781,11 +1776,11 @@ _ZN9grpc_core6ThreadaSEOS0_.exit.thread:          ; preds = %if.then66
 
 _ZN9grpc_core6ThreadaSEOS0_.exit:                 ; preds = %if.then66
   %.pre = load i8, ptr %options_.i, align 8
-  %.pre107 = load ptr, ptr %impl_.i, align 8
-  %tobool.i.i = trunc i8 %.pre to i1
-  %cmp.i92 = icmp ne ptr %.pre107, null
-  %lnot.i = select i1 %tobool.i.i, i1 %cmp.i92, i1 false
-  br i1 %lnot.i, label %if.then.i93, label %_ZN9grpc_core6ThreadD2Ev.exit
+  %.pre117 = load ptr, ptr %impl_.i, align 8
+  %65 = trunc i8 %.pre to i1
+  %66 = icmp ne ptr %.pre117, null
+  %67 = select i1 %65, i1 %66, i1 false
+  br i1 %67, label %if.then.i93, label %_ZN9grpc_core6ThreadD2Ev.exit
 
 if.then.i93:                                      ; preds = %_ZN9grpc_core6ThreadaSEOS0_.exit
   invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.28, i32 noundef 139, ptr noundef nonnull @.str.29) #21
@@ -1795,23 +1790,23 @@ invoke.cont2.i:                                   ; preds = %if.then.i93
   unreachable
 
 terminate.lpad.i94:                               ; preds = %if.then.i93
-  %65 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #22
+  %69 = extractvalue { ptr, i32 } %68, 0
+  call void @__clang_call_terminate(ptr %69) #22
   unreachable
 
 _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %_ZN9grpc_core6ThreadaSEOS0_.exit.thread, %_ZN9grpc_core6ThreadaSEOS0_.exit
-  %67 = load ptr, ptr %thd_state_, align 8
-  %thd78 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %67, i64 %58, i32 8
+  %70 = load ptr, ptr %thd_state_, align 8
+  %thd78 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %70, i64 %58, i32 8
   %impl_.i95 = getelementptr inbounds i8, ptr %thd78, i64 8
-  %68 = load ptr, ptr %impl_.i95, align 8
-  %cmp.not.i96 = icmp eq ptr %68, null
-  %69 = load i32, ptr %thd78, align 8
+  %71 = load ptr, ptr %impl_.i95, align 8
+  %cmp.not.i96 = icmp eq ptr %71, null
+  %72 = load i32, ptr %thd78, align 8
   br i1 %cmp.not.i96, label %do.body6.i, label %do.body.i
 
 do.body.i:                                        ; preds = %_ZN9grpc_core6ThreadD2Ev.exit
-  %cmp2.not.i = icmp eq i32 %69, 1
+  %cmp2.not.i = icmp eq i32 %72, 1
   br i1 %cmp2.not.i, label %do.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.body.i
@@ -1820,14 +1815,14 @@ if.then3.i:                                       ; preds = %do.body.i
 
 do.end.i:                                         ; preds = %do.body.i
   store i32 2, ptr %thd78, align 8
-  %vtable.i = load ptr, ptr %68, align 8
+  %vtable.i = load ptr, ptr %71, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %70 = load ptr, ptr %vfn.i, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(8) %68)
+  %73 = load ptr, ptr %vfn.i, align 8
+  call void %73(ptr noundef nonnull align 8 dereferenceable(8) %71)
   br label %if.end79
 
 do.body6.i:                                       ; preds = %_ZN9grpc_core6ThreadD2Ev.exit
-  %cmp8.not.i = icmp eq i32 %69, 4
+  %cmp8.not.i = icmp eq i32 %72, 4
   br i1 %cmp8.not.i, label %if.end79, label %if.then10.i
 
 if.then10.i:                                      ; preds = %do.body6.i
@@ -1838,10 +1833,15 @@ if.end79:                                         ; preds = %do.body6.i, %do.end
   store atomic i64 0, ptr %adding_thread_lock_ release, align 8
   br label %do.cond
 
+do.cond.critedge:                                 ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit88
+  store i8 %frombool55, ptr %queued_long_job.le, align 1
+  call void @gpr_mu_unlock(ptr noundef nonnull %ts.1)
+  br label %do.end85
+
 do.cond:                                          ; preds = %land.lhs.true58, %if.end79
   br i1 %tobool25, label %do.body, label %do.end85, !llvm.loop !15
 
-do.end85:                                         ; preds = %for.end, %_ZN4absl12lts_202308026StatusD2Ev.exit47, %do.cond, %for.end.thread, %if.then.i.i35, %invoke.cont
+do.end85:                                         ; preds = %land.rhs, %_ZN4absl12lts_202308026StatusD2Ev.exit47, %do.cond, %do.cond.critedge, %if.then.i.i35, %invoke.cont
   ret void
 
 eh.resume:                                        ; preds = %lpad.i66, %lpad9, %lpad.i

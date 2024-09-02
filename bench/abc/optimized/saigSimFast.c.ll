@@ -203,11 +203,11 @@ define noalias noundef ptr @Faig_ManCreate(ptr nocapture noundef readonly %0) lo
   %58 = inttoptr i64 %57 to ptr
   %59 = getelementptr inbounds i8, ptr %58, i64 36
   %60 = load i32, ptr %59, align 4
+  %61 = shl i32 %60, 1
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %54, %56
-  %61 = phi i32 [ %60, %56 ], [ -1, %54 ]
-  %62 = shl i32 %61, 1
+  %62 = phi i32 [ %61, %56 ], [ -2, %54 ]
   %63 = trunc i64 %.pre58 to i32
   %64 = and i32 %63, 1
   %65 = or disjoint i32 %62, %64
@@ -226,11 +226,11 @@ Aig_ObjFaninId0.exit:                             ; preds = %54, %56
   %72 = inttoptr i64 %71 to ptr
   %73 = getelementptr inbounds i8, ptr %72, i64 36
   %74 = load i32, ptr %73, align 4
+  %75 = shl i32 %74, 1
   br label %Aig_ObjFaninId1.exit
 
 Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %70
-  %75 = phi i32 [ %74, %70 ], [ -1, %Aig_ObjFaninId0.exit ]
-  %76 = shl i32 %75, 1
+  %76 = phi i32 [ %75, %70 ], [ -2, %Aig_ObjFaninId0.exit ]
   %77 = trunc i64 %.pre60 to i32
   %78 = and i32 %77, 1
   %79 = or disjoint i32 %76, %78
@@ -262,11 +262,11 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %90 = inttoptr i64 %89 to ptr
   %91 = getelementptr inbounds i8, ptr %90, i64 36
   %92 = load i32, ptr %91, align 4
+  %93 = shl i32 %92, 1
   br label %Aig_ObjFaninId0.exit42
 
 Aig_ObjFaninId0.exit42:                           ; preds = %84, %88
-  %93 = phi i32 [ %92, %88 ], [ -1, %84 ]
-  %94 = shl i32 %93, 1
+  %94 = phi i32 [ %93, %88 ], [ -2, %84 ]
   %95 = trunc i64 %.pre to i32
   %96 = and i32 %95, 1
   %97 = or disjoint i32 %94, %96

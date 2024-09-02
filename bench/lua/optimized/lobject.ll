@@ -1108,44 +1108,44 @@ do.end.i:                                         ; preds = %do.body.i
   %51 = shl i64 %indvars.iv.i, 32
   %sext.i = sub i64 30064771072, %51
   %idxprom11.i = ashr exact i64 %sext.i, 32
+  %sext = shl i64 %indvars.iv.next.i, 32
+  %52 = ashr exact i64 %sext, 32
   br label %luaO_utf8esc.exit
 
 luaO_utf8esc.exit:                                ; preds = %vaarg.end87, %do.end.i
   %idxprom11.sink.i = phi i64 [ %idxprom11.i, %do.end.i ], [ 7, %vaarg.end87 ]
   %conv9.sink.in.i = phi i64 [ %or8.i, %do.end.i ], [ %47, %vaarg.end87 ]
-  %n.0.i = phi i64 [ %indvars.iv.next.i, %do.end.i ], [ 1, %vaarg.end87 ]
+  %n.0.i = phi i64 [ %52, %do.end.i ], [ 1, %vaarg.end87 ]
   %conv9.sink.i = trunc i64 %conv9.sink.in.i to i8
   %arrayidx12.i = getelementptr inbounds i8, ptr %bf76, i64 %idxprom11.sink.i
   store i8 %conv9.sink.i, ptr %arrayidx12.i, align 1
-  %sext = shl i64 %n.0.i, 32
-  %idx.ext = ashr exact i64 %sext, 32
-  %idx.neg = sub nsw i64 0, %idx.ext
+  %idx.neg = sub nsw i64 0, %n.0.i
   %add.ptr92 = getelementptr inbounds i8, ptr %add.ptr91, i64 %idx.neg
-  call fastcc void @addstr2buff(ptr noundef nonnull %buff, ptr noundef nonnull %add.ptr92, i64 noundef %idx.ext)
+  call fastcc void @addstr2buff(ptr noundef nonnull %buff, ptr noundef nonnull %add.ptr92, i64 noundef %n.0.i)
   br label %sw.epilog
 
 sw.bb94:                                          ; preds = %while.body
-  %52 = load i32, ptr %blen, align 4
-  %cmp.i.i28 = icmp sgt i32 %52, 198
+  %53 = load i32, ptr %blen, align 4
+  %cmp.i.i28 = icmp sgt i32 %53, 198
   br i1 %cmp.i.i28, label %if.then.i.i33, label %addstr2buff.exit46
 
 if.then.i.i33:                                    ; preds = %sw.bb94
-  %conv.i.i.i35 = zext nneg i32 %52 to i64
-  %53 = load ptr, ptr %buff, align 8
-  %top.i.i.i.i36 = getelementptr inbounds i8, ptr %53, i64 16
-  %54 = load ptr, ptr %top.i.i.i.i36, align 8
-  %call.i.i.i.i37 = call ptr @luaS_newlstr(ptr noundef %53, ptr noundef nonnull %space.i.i.i34, i64 noundef %conv.i.i.i35) #18
-  store ptr %call.i.i.i.i37, ptr %54, align 8
+  %conv.i.i.i35 = zext nneg i32 %53 to i64
+  %54 = load ptr, ptr %buff, align 8
+  %top.i.i.i.i36 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = load ptr, ptr %top.i.i.i.i36, align 8
+  %call.i.i.i.i37 = call ptr @luaS_newlstr(ptr noundef %54, ptr noundef nonnull %space.i.i.i34, i64 noundef %conv.i.i.i35) #18
+  store ptr %call.i.i.i.i37, ptr %55, align 8
   %tt.i.i.i.i38 = getelementptr inbounds i8, ptr %call.i.i.i.i37, i64 8
-  %55 = load i8, ptr %tt.i.i.i.i38, align 8
-  %56 = or i8 %55, 64
-  %tt_.i.i.i.i39 = getelementptr inbounds i8, ptr %54, i64 8
-  store i8 %56, ptr %tt_.i.i.i.i39, align 8
-  %57 = load ptr, ptr %top.i.i.i.i36, align 8
-  %incdec.ptr.i.i.i.i40 = getelementptr inbounds i8, ptr %57, i64 16
+  %56 = load i8, ptr %tt.i.i.i.i38, align 8
+  %57 = or i8 %56, 64
+  %tt_.i.i.i.i39 = getelementptr inbounds i8, ptr %55, i64 8
+  store i8 %57, ptr %tt_.i.i.i.i39, align 8
+  %58 = load ptr, ptr %top.i.i.i.i36, align 8
+  %incdec.ptr.i.i.i.i40 = getelementptr inbounds i8, ptr %58, i64 16
   store ptr %incdec.ptr.i.i.i.i40, ptr %top.i.i.i.i36, align 8
-  %58 = load i32, ptr %pushed, align 8
-  %tobool.not.i.i.i.i42 = icmp eq i32 %58, 0
+  %59 = load i32, ptr %pushed, align 8
+  %tobool.not.i.i.i.i42 = icmp eq i32 %59, 0
   br i1 %tobool.not.i.i.i.i42, label %if.then.i.i.i.i45, label %if.else.i.i.i.i43
 
 if.then.i.i.i.i45:                                ; preds = %if.then.i.i33
@@ -1153,7 +1153,7 @@ if.then.i.i.i.i45:                                ; preds = %if.then.i.i33
   br label %clearbuff.exit.i.i44
 
 if.else.i.i.i.i43:                                ; preds = %if.then.i.i33
-  call void @luaV_concat(ptr noundef nonnull %53, i32 noundef 2) #18
+  call void @luaV_concat(ptr noundef nonnull %54, i32 noundef 2) #18
   br label %clearbuff.exit.i.i44
 
 clearbuff.exit.i.i44:                             ; preds = %if.else.i.i.i.i43, %if.then.i.i.i.i45
@@ -1161,12 +1161,12 @@ clearbuff.exit.i.i44:                             ; preds = %if.else.i.i.i.i43, 
   br label %addstr2buff.exit46
 
 addstr2buff.exit46:                               ; preds = %sw.bb94, %clearbuff.exit.i.i44
-  %59 = phi i32 [ 0, %clearbuff.exit.i.i44 ], [ %52, %sw.bb94 ]
-  %idx.ext.i.i30 = sext i32 %59 to i64
+  %60 = phi i32 [ 0, %clearbuff.exit.i.i44 ], [ %53, %sw.bb94 ]
+  %idx.ext.i.i30 = sext i32 %60 to i64
   %add.ptr.i.i31 = getelementptr inbounds i8, ptr %space.i.i.i34, i64 %idx.ext.i.i30
   store i8 37, ptr %add.ptr.i.i31, align 1
-  %60 = load i32, ptr %blen, align 4
-  %add.i32 = add nsw i32 %60, 1
+  %61 = load i32, ptr %blen, align 4
+  %add.i32 = add nsw i32 %61, 1
   store i32 %add.i32, ptr %blen, align 4
   br label %sw.epilog
 
@@ -1186,23 +1186,23 @@ while.end:                                        ; preds = %sw.epilog, %entry
   %call98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt.addr.0.lcssa) #19
   call fastcc void @addstr2buff(ptr noundef nonnull %buff, ptr noundef %fmt.addr.0.lcssa, i64 noundef %call98)
   %space.i47 = getelementptr inbounds i8, ptr %buff, i64 16
-  %61 = load i32, ptr %blen, align 4
-  %conv.i = sext i32 %61 to i64
-  %62 = load ptr, ptr %buff, align 8
-  %top.i.i = getelementptr inbounds i8, ptr %62, i64 16
-  %63 = load ptr, ptr %top.i.i, align 8
-  %call.i.i = call ptr @luaS_newlstr(ptr noundef %62, ptr noundef nonnull %space.i47, i64 noundef %conv.i) #18
-  store ptr %call.i.i, ptr %63, align 8
+  %62 = load i32, ptr %blen, align 4
+  %conv.i = sext i32 %62 to i64
+  %63 = load ptr, ptr %buff, align 8
+  %top.i.i = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = load ptr, ptr %top.i.i, align 8
+  %call.i.i = call ptr @luaS_newlstr(ptr noundef %63, ptr noundef nonnull %space.i47, i64 noundef %conv.i) #18
+  store ptr %call.i.i, ptr %64, align 8
   %tt.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  %64 = load i8, ptr %tt.i.i, align 8
-  %65 = or i8 %64, 64
-  %tt_.i.i = getelementptr inbounds i8, ptr %63, i64 8
-  store i8 %65, ptr %tt_.i.i, align 8
-  %66 = load ptr, ptr %top.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %66, i64 16
+  %65 = load i8, ptr %tt.i.i, align 8
+  %66 = or i8 %65, 64
+  %tt_.i.i = getelementptr inbounds i8, ptr %64, i64 8
+  store i8 %66, ptr %tt_.i.i, align 8
+  %67 = load ptr, ptr %top.i.i, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %67, i64 16
   store ptr %incdec.ptr.i.i, ptr %top.i.i, align 8
-  %67 = load i32, ptr %pushed, align 8
-  %tobool.not.i.i = icmp eq i32 %67, 0
+  %68 = load i32, ptr %pushed, align 8
+  %tobool.not.i.i = icmp eq i32 %68, 0
   br i1 %tobool.not.i.i, label %if.then.i.i49, label %if.else.i.i
 
 if.then.i.i49:                                    ; preds = %while.end
@@ -1210,16 +1210,16 @@ if.then.i.i49:                                    ; preds = %while.end
   br label %clearbuff.exit
 
 if.else.i.i:                                      ; preds = %while.end
-  call void @luaV_concat(ptr noundef nonnull %62, i32 noundef 2) #18
+  call void @luaV_concat(ptr noundef nonnull %63, i32 noundef 2) #18
   br label %clearbuff.exit
 
 clearbuff.exit:                                   ; preds = %if.then.i.i49, %if.else.i.i
   store i32 0, ptr %blen, align 4
   %top = getelementptr inbounds i8, ptr %L, i64 16
-  %68 = load ptr, ptr %top, align 8
-  %add.ptr99 = getelementptr inbounds i8, ptr %68, i64 -16
-  %69 = load ptr, ptr %add.ptr99, align 8
-  %contents = getelementptr inbounds i8, ptr %69, i64 24
+  %69 = load ptr, ptr %top, align 8
+  %add.ptr99 = getelementptr inbounds i8, ptr %69, i64 -16
+  %70 = load ptr, ptr %add.ptr99, align 8
+  %contents = getelementptr inbounds i8, ptr %70, i64 24
   ret ptr %contents
 }
 

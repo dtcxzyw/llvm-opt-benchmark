@@ -664,14 +664,17 @@ cdf_read_sector.exit95:                           ; preds = %103
   br i1 %.not25.i.i93, label %.preheader, label %cdf_read_sector.exit95.thread
 
 .preheader:                                       ; preds = %cdf_read_sector.exit95.thread163, %cdf_read_sector.exit95
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %.preheader
   %.pre158.b = load i1, ptr @cdf_bo.0, align 4
   %.pre158 = select i1 %.pre158.b, i32 67305985, i32 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %141
-  %108 = phi i32 [ %142, %141 ], [ %.pre158, %.preheader ]
-  %.4138 = phi i64 [ %144, %141 ], [ %.2142, %.preheader ]
-  %.077137 = phi i64 [ %143, %141 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %141
+  %108 = phi i32 [ %142, %141 ], [ %.pre158, %.lr.ph.preheader ]
+  %.4138 = phi i64 [ %144, %141 ], [ %.2142, %.lr.ph.preheader ]
+  %.077137 = phi i64 [ %143, %141 ], [ 0, %.lr.ph.preheader ]
   %109 = icmp eq i32 %108, 16909060
   %110 = getelementptr inbounds i32, ptr %76, i64 %.077137
   %111 = load i32, ptr %110, align 4
@@ -739,12 +742,15 @@ cdf_read_sector.exit103:                          ; preds = %136
   %143 = add nuw i64 %.077137, 1
   %144 = add nuw i64 %.4138, 1
   %exitcond155.not = icmp eq i64 %143, %10
-  br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond155.not, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %141, %.preheader
-  %145 = phi i32 [ %.pre158, %.preheader ], [ %142, %141 ]
-  %.4.lcssa = phi i64 [ %.2142, %.preheader ], [ %144, %141 ]
-  %146 = icmp eq i32 %145, 16909060
+._crit_edge.loopexit:                             ; preds = %141
+  %145 = icmp eq i32 %142, 16909060
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %146 = phi i1 [ false, %.preheader ], [ %145, %._crit_edge.loopexit ]
+  %.4.lcssa = phi i64 [ %.2142, %.preheader ], [ %144, %._crit_edge.loopexit ]
   %147 = load i32, ptr %84, align 4
   %.sroa.0.0.insert.insert.i104 = tail call i32 @llvm.bswap.i32(i32 %147)
   %148 = select i1 %146, i32 %.sroa.0.0.insert.insert.i104, i32 %147
@@ -1227,7 +1233,7 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
 33:                                               ; preds = %.loopexit96
   %34 = tail call noalias ptr @_emalloc(i64 noundef %9) #23
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %38, label %.preheader95
+  br i1 %35, label %39, label %.preheader95
 
 .preheader95:                                     ; preds = %33
   %.not107 = icmp eq i64 %.0.i.ph, 0
@@ -1238,154 +1244,154 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   %37 = getelementptr inbounds i8, ptr %0, i64 16
   %.not108 = icmp ult i16 %6, 7
   %umax = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
-  br label %40
+  %38 = add nuw nsw i64 %umax, 1
+  br label %41
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %3, align 8
-  tail call void @_efree(ptr noundef %39) #20
+39:                                               ; preds = %33
+  %40 = load ptr, ptr %3, align 8
+  tail call void @_efree(ptr noundef %40) #20
   br label %119
 
-40:                                               ; preds = %.lr.ph104, %._crit_edge
-  %.0103 = phi i32 [ %11, %.lr.ph104 ], [ %114, %._crit_edge ]
-  %.082102 = phi i64 [ 0, %.lr.ph104 ], [ %115, %._crit_edge ]
-  %.083101 = phi i64 [ 0, %.lr.ph104 ], [ %116, %._crit_edge ]
-  %41 = icmp ugt i64 %.083101, 9999
-  br i1 %41, label %cdf_read_sector.exit.thread, label %42
+41:                                               ; preds = %.lr.ph104, %._crit_edge
+  %.0103 = phi i32 [ %11, %.lr.ph104 ], [ %115, %._crit_edge ]
+  %.082102 = phi i64 [ 0, %.lr.ph104 ], [ %116, %._crit_edge ]
+  %.083101 = phi i64 [ 0, %.lr.ph104 ], [ %.184.lcssa, %._crit_edge ]
+  %42 = icmp ugt i64 %.083101, 9999
+  br i1 %42, label %cdf_read_sector.exit.thread, label %43
 
-42:                                               ; preds = %40
-  %43 = load i16, ptr %5, align 2
-  %44 = zext nneg i16 %43 to i32
-  %45 = shl nuw i32 1, %44
-  %46 = sext i32 %45 to i64
-  %47 = sext i32 %.0103 to i64
-  %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %46, i64 %47)
+43:                                               ; preds = %41
+  %44 = load i16, ptr %5, align 2
+  %45 = zext nneg i16 %44 to i32
+  %46 = shl nuw i32 1, %45
+  %47 = sext i32 %46 to i64
+  %48 = sext i32 %.0103 to i64
+  %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %47, i64 %48)
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
-  br i1 %mul.ov.i, label %cdf_read_sector.exit.thread, label %48
+  br i1 %mul.ov.i, label %cdf_read_sector.exit.thread, label %49
 
-48:                                               ; preds = %42
-  %49 = add nsw i64 %47, 1
-  %50 = mul nsw i64 %49, %46
-  %51 = load ptr, ptr %36, align 8
-  %.not.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i, label %56, label %52
+49:                                               ; preds = %43
+  %50 = add nsw i64 %48, 1
+  %51 = mul nsw i64 %50, %47
+  %52 = load ptr, ptr %36, align 8
+  %.not.i.i = icmp eq ptr %52, null
+  br i1 %.not.i.i, label %57, label %53
 
-52:                                               ; preds = %48
-  %53 = add nsw i64 %50, %9
-  %54 = load i64, ptr %37, align 8
-  %.not24.i.i = icmp ult i64 %54, %53
-  br i1 %.not24.i.i, label %56, label %cdf_read_sector.exit.thread115
+53:                                               ; preds = %49
+  %54 = add nsw i64 %51, %9
+  %55 = load i64, ptr %37, align 8
+  %.not24.i.i = icmp ult i64 %55, %54
+  br i1 %.not24.i.i, label %57, label %cdf_read_sector.exit.thread115
 
-cdf_read_sector.exit.thread115:                   ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %51, i64 %50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 1 dereferenceable(1) %55, i64 %9, i1 false)
+cdf_read_sector.exit.thread115:                   ; preds = %53
+  %56 = getelementptr inbounds i8, ptr %52, i64 %51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 1 dereferenceable(1) %56, i64 %9, i1 false)
   br label %.preheader94
 
-56:                                               ; preds = %52, %48
-  %57 = load i32, ptr %0, align 8
-  %58 = icmp eq i32 %57, -1
-  br i1 %58, label %62, label %59
+57:                                               ; preds = %53, %49
+  %58 = load i32, ptr %0, align 8
+  %59 = icmp eq i32 %58, -1
+  br i1 %59, label %63, label %60
 
-59:                                               ; preds = %56
-  %60 = tail call i64 @lseek(i32 noundef %57, i64 noundef %50, i32 noundef 0) #20
-  %61 = icmp eq i64 %60, -1
-  br i1 %61, label %cdf_read_sector.exit.thread, label %cdf_read_sector.exit
+60:                                               ; preds = %57
+  %61 = tail call i64 @lseek(i32 noundef %58, i64 noundef %51, i32 noundef 0) #20
+  %62 = icmp eq i64 %61, -1
+  br i1 %62, label %cdf_read_sector.exit.thread, label %cdf_read_sector.exit
 
-62:                                               ; preds = %56
-  %63 = tail call ptr @__errno_location() #21
-  store i32 22, ptr %63, align 4
+63:                                               ; preds = %57
+  %64 = tail call ptr @__errno_location() #21
+  store i32 22, ptr %64, align 4
   br label %cdf_read_sector.exit.thread
 
-cdf_read_sector.exit:                             ; preds = %59
-  %64 = load i32, ptr %0, align 8
-  %65 = tail call i64 @read(i32 noundef %64, ptr noundef nonnull %34, i64 noundef %9) #20
-  %.not25.i.i = icmp eq i64 %65, %9
+cdf_read_sector.exit:                             ; preds = %60
+  %65 = load i32, ptr %0, align 8
+  %66 = tail call i64 @read(i32 noundef %65, ptr noundef nonnull %34, i64 noundef %9) #20
+  %.not25.i.i = icmp eq i64 %66, %9
   br i1 %.not25.i.i, label %.preheader94, label %cdf_read_sector.exit.thread
 
 .preheader94:                                     ; preds = %cdf_read_sector.exit.thread115, %cdf_read_sector.exit
   br i1 %.not108, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader94
-  %66 = mul i64 %.082102, %28
-  br label %67
+  %67 = mul i64 %.082102, %28
+  br label %68
 
-67:                                               ; preds = %.lr.ph, %67
-  %.184100 = phi i64 [ 0, %.lr.ph ], [ %111, %67 ]
-  %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr %struct.cdf_directory_t, ptr %68, i64 %66
-  %70 = getelementptr %struct.cdf_directory_t, ptr %69, i64 %.184100
-  %71 = shl nuw i64 %.184100, 7
-  %72 = getelementptr inbounds i8, ptr %34, i64 %71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %70, ptr noundef nonnull readonly align 1 dereferenceable(64) %72, i64 64, i1 false)
-  %73 = getelementptr inbounds i8, ptr %70, i64 64
-  %74 = getelementptr inbounds i8, ptr %72, i64 64
-  %75 = load i16, ptr %74, align 1
-  store i16 %75, ptr %73, align 8
-  %76 = getelementptr inbounds i8, ptr %70, i64 66
-  %77 = getelementptr inbounds i8, ptr %72, i64 66
-  %78 = load i8, ptr %77, align 1
-  store i8 %78, ptr %76, align 2
-  %79 = getelementptr inbounds i8, ptr %70, i64 67
-  %80 = getelementptr inbounds i8, ptr %72, i64 67
-  %81 = load i8, ptr %80, align 1
-  store i8 %81, ptr %79, align 1
-  %82 = getelementptr inbounds i8, ptr %70, i64 68
-  %83 = getelementptr inbounds i8, ptr %72, i64 68
-  %84 = load i32, ptr %83, align 1
-  store i32 %84, ptr %82, align 4
-  %85 = getelementptr inbounds i8, ptr %70, i64 72
-  %86 = getelementptr inbounds i8, ptr %72, i64 72
-  %87 = load i32, ptr %86, align 1
-  store i32 %87, ptr %85, align 8
-  %88 = getelementptr inbounds i8, ptr %70, i64 76
-  %89 = getelementptr inbounds i8, ptr %72, i64 76
-  %90 = load i32, ptr %89, align 1
-  store i32 %90, ptr %88, align 4
-  %91 = getelementptr inbounds i8, ptr %70, i64 80
-  %92 = getelementptr inbounds i8, ptr %72, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull readonly align 1 dereferenceable(16) %92, i64 16, i1 false)
-  %93 = getelementptr inbounds i8, ptr %70, i64 96
-  %94 = getelementptr inbounds i8, ptr %72, i64 96
-  %95 = load i32, ptr %94, align 1
-  store i32 %95, ptr %93, align 8
-  %96 = getelementptr inbounds i8, ptr %70, i64 104
-  %97 = getelementptr inbounds i8, ptr %72, i64 100
-  %98 = load i64, ptr %97, align 1
-  store i64 %98, ptr %96, align 8
-  %99 = getelementptr inbounds i8, ptr %70, i64 112
-  %100 = getelementptr inbounds i8, ptr %72, i64 108
-  %101 = load i64, ptr %100, align 1
-  store i64 %101, ptr %99, align 8
-  %102 = getelementptr inbounds i8, ptr %70, i64 120
-  %103 = getelementptr inbounds i8, ptr %72, i64 116
-  %104 = load i32, ptr %103, align 1
-  store i32 %104, ptr %102, align 8
-  %105 = getelementptr inbounds i8, ptr %70, i64 124
-  %106 = getelementptr inbounds i8, ptr %72, i64 120
-  %107 = load i32, ptr %106, align 1
-  store i32 %107, ptr %105, align 4
-  %108 = getelementptr inbounds i8, ptr %70, i64 128
-  %109 = getelementptr inbounds i8, ptr %72, i64 124
-  %110 = load i32, ptr %109, align 1
-  store i32 %110, ptr %108, align 8
-  %111 = add nuw nsw i64 %.184100, 1
-  %exitcond.not = icmp eq i64 %111, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %67
+68:                                               ; preds = %.lr.ph, %68
+  %.184100 = phi i64 [ 0, %.lr.ph ], [ %112, %68 ]
+  %69 = load ptr, ptr %3, align 8
+  %70 = getelementptr %struct.cdf_directory_t, ptr %69, i64 %67
+  %71 = getelementptr %struct.cdf_directory_t, ptr %70, i64 %.184100
+  %72 = shl nuw i64 %.184100, 7
+  %73 = getelementptr inbounds i8, ptr %34, i64 %72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %71, ptr noundef nonnull readonly align 1 dereferenceable(64) %73, i64 64, i1 false)
+  %74 = getelementptr inbounds i8, ptr %71, i64 64
+  %75 = getelementptr inbounds i8, ptr %73, i64 64
+  %76 = load i16, ptr %75, align 1
+  store i16 %76, ptr %74, align 8
+  %77 = getelementptr inbounds i8, ptr %71, i64 66
+  %78 = getelementptr inbounds i8, ptr %73, i64 66
+  %79 = load i8, ptr %78, align 1
+  store i8 %79, ptr %77, align 2
+  %80 = getelementptr inbounds i8, ptr %71, i64 67
+  %81 = getelementptr inbounds i8, ptr %73, i64 67
+  %82 = load i8, ptr %81, align 1
+  store i8 %82, ptr %80, align 1
+  %83 = getelementptr inbounds i8, ptr %71, i64 68
+  %84 = getelementptr inbounds i8, ptr %73, i64 68
+  %85 = load i32, ptr %84, align 1
+  store i32 %85, ptr %83, align 4
+  %86 = getelementptr inbounds i8, ptr %71, i64 72
+  %87 = getelementptr inbounds i8, ptr %73, i64 72
+  %88 = load i32, ptr %87, align 1
+  store i32 %88, ptr %86, align 8
+  %89 = getelementptr inbounds i8, ptr %71, i64 76
+  %90 = getelementptr inbounds i8, ptr %73, i64 76
+  %91 = load i32, ptr %90, align 1
+  store i32 %91, ptr %89, align 4
+  %92 = getelementptr inbounds i8, ptr %71, i64 80
+  %93 = getelementptr inbounds i8, ptr %73, i64 80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull readonly align 1 dereferenceable(16) %93, i64 16, i1 false)
+  %94 = getelementptr inbounds i8, ptr %71, i64 96
+  %95 = getelementptr inbounds i8, ptr %73, i64 96
+  %96 = load i32, ptr %95, align 1
+  store i32 %96, ptr %94, align 8
+  %97 = getelementptr inbounds i8, ptr %71, i64 104
+  %98 = getelementptr inbounds i8, ptr %73, i64 100
+  %99 = load i64, ptr %98, align 1
+  store i64 %99, ptr %97, align 8
+  %100 = getelementptr inbounds i8, ptr %71, i64 112
+  %101 = getelementptr inbounds i8, ptr %73, i64 108
+  %102 = load i64, ptr %101, align 1
+  store i64 %102, ptr %100, align 8
+  %103 = getelementptr inbounds i8, ptr %71, i64 120
+  %104 = getelementptr inbounds i8, ptr %73, i64 116
+  %105 = load i32, ptr %104, align 1
+  store i32 %105, ptr %103, align 8
+  %106 = getelementptr inbounds i8, ptr %71, i64 124
+  %107 = getelementptr inbounds i8, ptr %73, i64 120
+  %108 = load i32, ptr %107, align 1
+  store i32 %108, ptr %106, align 4
+  %109 = getelementptr inbounds i8, ptr %71, i64 128
+  %110 = getelementptr inbounds i8, ptr %73, i64 124
+  %111 = load i32, ptr %110, align 1
+  store i32 %111, ptr %109, align 8
+  %112 = add nuw nsw i64 %.184100, 1
+  %exitcond.not = icmp eq i64 %112, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %68
 
-._crit_edge:                                      ; preds = %67, %.preheader94
-  %.184.lcssa = phi i64 [ 0, %.preheader94 ], [ %umax, %67 ]
-  %112 = load ptr, ptr %2, align 8
-  %113 = getelementptr inbounds i32, ptr %112, i64 %47
-  %114 = load i32, ptr %113, align 4
-  %115 = add nuw nsw i64 %.082102, 1
-  %116 = add nuw nsw i64 %.184.lcssa, 1
-  %exitcond114.not = icmp eq i64 %115, %.0.i.ph
-  br i1 %exitcond114.not, label %.loopexit, label %40
+._crit_edge:                                      ; preds = %68, %.preheader94
+  %.184.lcssa = phi i64 [ 1, %.preheader94 ], [ %38, %68 ]
+  %113 = load ptr, ptr %2, align 8
+  %114 = getelementptr inbounds i32, ptr %113, i64 %48
+  %115 = load i32, ptr %114, align 4
+  %116 = add nuw nsw i64 %.082102, 1
+  %exitcond114.not = icmp eq i64 %116, %.0.i.ph
+  br i1 %exitcond114.not, label %.loopexit, label %41
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader95
   tail call void @_efree(ptr noundef nonnull %34) #20
   br label %119
 
-cdf_read_sector.exit.thread:                      ; preds = %59, %42, %cdf_read_sector.exit, %40, %62
+cdf_read_sector.exit.thread:                      ; preds = %60, %43, %cdf_read_sector.exit, %41, %63
   %117 = load ptr, ptr %3, align 8
   tail call void @_efree(ptr noundef %117) #20
   tail call void @_efree(ptr noundef nonnull %34) #20
@@ -1393,8 +1399,8 @@ cdf_read_sector.exit.thread:                      ; preds = %59, %42, %cdf_read_
   store i32 22, ptr %118, align 4
   br label %119
 
-119:                                              ; preds = %cdf_count_chain.exit, %.loopexit96, %cdf_read_sector.exit.thread, %.loopexit, %38
-  %.081 = phi i32 [ -1, %38 ], [ -1, %cdf_read_sector.exit.thread ], [ 0, %.loopexit ], [ -1, %cdf_count_chain.exit ], [ -1, %.loopexit96 ]
+119:                                              ; preds = %cdf_count_chain.exit, %.loopexit96, %cdf_read_sector.exit.thread, %.loopexit, %39
+  %.081 = phi i32 [ -1, %39 ], [ -1, %cdf_read_sector.exit.thread ], [ 0, %.loopexit ], [ -1, %cdf_count_chain.exit ], [ -1, %.loopexit96 ]
   ret i32 %.081
 }
 

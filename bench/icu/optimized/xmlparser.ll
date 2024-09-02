@@ -2423,7 +2423,7 @@ invoke.cont52.preheader:                          ; preds = %if.then48
 
 for.body:                                         ; preds = %invoke.cont52.preheader, %invoke.cont57
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont57 ], [ 0, %invoke.cont52.preheader ]
-  %18 = phi i16 [ %22, %invoke.cont57 ], [ %15, %invoke.cont52.preheader ]
+  %18 = phi i16 [ %23, %invoke.cont57 ], [ %15, %invoke.cont52.preheader ]
   %val.0108 = phi i32 [ %add, %invoke.cont57 ], [ 0, %invoke.cont52.preheader ]
   %19 = and i16 %18, 2
   %tobool.not.i.i.i = icmp eq i16 %19, 0
@@ -2431,22 +2431,22 @@ for.body:                                         ; preds = %invoke.cont52.prehe
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %20, ptr %fBuffer.i.i.i
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %indvars.iv
   %21 = load i16, ptr %arrayidx.i.i, align 2
-  %conv = zext i16 %21 to i32
-  %call58 = invoke i32 @u_digit_75(i32 noundef %conv, i8 noundef signext 16)
+  %22 = zext i16 %21 to i32
+  %call58 = invoke i32 @u_digit_75(i32 noundef %22, i8 noundef signext 16)
           to label %invoke.cont57 unwind label %lpad51.loopexit
 
 invoke.cont57:                                    ; preds = %for.body
   %shl = shl i32 %val.0108, 4
   %add = add nsw i32 %call58, %shl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i = icmp slt i16 %22, 0
-  %23 = ashr i16 %22, 5
-  %shr.i.i = sext i16 %23 to i32
-  %24 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %24, i32 %shr.i.i
-  %25 = sext i32 %cond.i to i64
-  %cmp54 = icmp slt i64 %indvars.iv.next, %25
+  %23 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i = icmp slt i16 %23, 0
+  %24 = ashr i16 %23, 5
+  %shr.i.i = sext i16 %24 to i32
+  %25 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %25, i32 %shr.i.i
+  %26 = sext i32 %cond.i to i64
+  %cmp54 = icmp slt i64 %indvars.iv.next, %26
   br i1 %cmp54, label %for.body, label %for.end, !llvm.loop !13
 
 lpad51.loopexit:                                  ; preds = %for.body
@@ -2470,12 +2470,12 @@ for.end:                                          ; preds = %invoke.cont57, %inv
           to label %.noexc65 unwind label %lpad51.loopexit.split-lp
 
 .noexc65:                                         ; preds = %for.end
-  %26 = load i16, ptr %fUnion2.i21, align 8
-  %cmp.i.i.i61 = icmp slt i16 %26, 0
-  %27 = ashr i16 %26, 5
-  %shr.i.i.i62 = sext i16 %27 to i32
-  %28 = load i32, ptr %fLength.i.i, align 4
-  %cond.i.i64 = select i1 %cmp.i.i.i61, i32 %28, i32 %shr.i.i.i62
+  %27 = load i16, ptr %fUnion2.i21, align 8
+  %cmp.i.i.i61 = icmp slt i16 %27, 0
+  %28 = ashr i16 %27, 5
+  %shr.i.i.i62 = sext i16 %28 to i32
+  %29 = load i32, ptr %fLength.i.i, align 4
+  %cond.i.i64 = select i1 %cmp.i.i.i61, i32 %29, i32 %shr.i.i.i62
   %call2.i66 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString7replaceEiii(ptr noundef nonnull align 8 dereferenceable(64) %replacement, i32 noundef 0, i32 noundef %cond.i.i64, i32 noundef %val.0.lcssa)
           to label %invoke.cont59 unwind label %lpad51.loopexit.split-lp
 
@@ -2496,41 +2496,41 @@ if.then66:                                        ; preds = %invoke.cont63
           to label %invoke.cont72.preheader unwind label %lpad2.loopexit
 
 invoke.cont72.preheader:                          ; preds = %if.then66
-  %29 = load i16, ptr %fUnion.i.i67, align 8
-  %cmp.i.i68109 = icmp slt i16 %29, 0
-  %30 = ashr i16 %29, 5
-  %shr.i.i69110 = sext i16 %30 to i32
-  %31 = load i32, ptr %fLength.i70, align 4
-  %cond.i71111 = select i1 %cmp.i.i68109, i32 %31, i32 %shr.i.i69110
+  %30 = load i16, ptr %fUnion.i.i67, align 8
+  %cmp.i.i68109 = icmp slt i16 %30, 0
+  %31 = ashr i16 %30, 5
+  %shr.i.i69110 = sext i16 %31 to i32
+  %32 = load i32, ptr %fLength.i70, align 4
+  %cond.i71111 = select i1 %cmp.i.i68109, i32 %32, i32 %shr.i.i69110
   %cmp74112 = icmp sgt i32 %cond.i71111, 0
   br i1 %cmp74112, label %for.body75, label %for.end84
 
 for.body75:                                       ; preds = %invoke.cont72.preheader, %invoke.cont79
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %invoke.cont79 ], [ 0, %invoke.cont72.preheader ]
-  %32 = phi i16 [ %36, %invoke.cont79 ], [ %29, %invoke.cont72.preheader ]
+  %33 = phi i16 [ %38, %invoke.cont79 ], [ %30, %invoke.cont72.preheader ]
   %val69.0114 = phi i32 [ %add81, %invoke.cont79 ], [ 0, %invoke.cont72.preheader ]
-  %33 = and i16 %32, 2
-  %tobool.not.i.i.i80 = icmp eq i16 %33, 0
-  %34 = load ptr, ptr %fArray.i.i.i82, align 8
-  %cond.i2.i.i83 = select i1 %tobool.not.i.i.i80, ptr %34, ptr %fBuffer.i.i.i81
+  %34 = and i16 %33, 2
+  %tobool.not.i.i.i80 = icmp eq i16 %34, 0
+  %35 = load ptr, ptr %fArray.i.i.i82, align 8
+  %cond.i2.i.i83 = select i1 %tobool.not.i.i.i80, ptr %35, ptr %fBuffer.i.i.i81
   %arrayidx.i.i85 = getelementptr inbounds i16, ptr %cond.i2.i.i83, i64 %indvars.iv116
-  %35 = load i16, ptr %arrayidx.i.i85, align 2
-  %conv78 = zext i16 %35 to i32
-  %call80 = invoke i32 @u_digit_75(i32 noundef %conv78, i8 noundef signext 10)
+  %36 = load i16, ptr %arrayidx.i.i85, align 2
+  %37 = zext i16 %36 to i32
+  %call80 = invoke i32 @u_digit_75(i32 noundef %37, i8 noundef signext 10)
           to label %invoke.cont79 unwind label %lpad71.loopexit
 
 invoke.cont79:                                    ; preds = %for.body75
   %mul = mul nsw i32 %val69.0114, 10
   %add81 = add nsw i32 %call80, %mul
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %36 = load i16, ptr %fUnion.i.i67, align 8
-  %cmp.i.i68 = icmp slt i16 %36, 0
-  %37 = ashr i16 %36, 5
-  %shr.i.i69 = sext i16 %37 to i32
-  %38 = load i32, ptr %fLength.i70, align 4
-  %cond.i71 = select i1 %cmp.i.i68, i32 %38, i32 %shr.i.i69
-  %39 = sext i32 %cond.i71 to i64
-  %cmp74 = icmp slt i64 %indvars.iv.next117, %39
+  %38 = load i16, ptr %fUnion.i.i67, align 8
+  %cmp.i.i68 = icmp slt i16 %38, 0
+  %39 = ashr i16 %38, 5
+  %shr.i.i69 = sext i16 %39 to i32
+  %40 = load i32, ptr %fLength.i70, align 4
+  %cond.i71 = select i1 %cmp.i.i68, i32 %40, i32 %shr.i.i69
+  %41 = sext i32 %cond.i71 to i64
+  %cmp74 = icmp slt i64 %indvars.iv.next117, %41
   br i1 %cmp74, label %for.body75, label %for.end84, !llvm.loop !14
 
 lpad71.loopexit:                                  ; preds = %for.body75
@@ -2554,12 +2554,12 @@ for.end84:                                        ; preds = %invoke.cont79, %inv
           to label %.noexc92 unwind label %lpad71.loopexit.split-lp
 
 .noexc92:                                         ; preds = %for.end84
-  %40 = load i16, ptr %fUnion2.i21, align 8
-  %cmp.i.i.i88 = icmp slt i16 %40, 0
-  %41 = ashr i16 %40, 5
-  %shr.i.i.i89 = sext i16 %41 to i32
-  %42 = load i32, ptr %fLength.i.i, align 4
-  %cond.i.i91 = select i1 %cmp.i.i.i88, i32 %42, i32 %shr.i.i.i89
+  %42 = load i16, ptr %fUnion2.i21, align 8
+  %cmp.i.i.i88 = icmp slt i16 %42, 0
+  %43 = ashr i16 %42, 5
+  %shr.i.i.i89 = sext i16 %43 to i32
+  %44 = load i32, ptr %fLength.i.i, align 4
+  %cond.i.i91 = select i1 %cmp.i.i.i88, i32 %44, i32 %shr.i.i.i89
   %call2.i93 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString7replaceEiii(ptr noundef nonnull align 8 dereferenceable(64) %replacement, i32 noundef 0, i32 noundef %cond.i.i91, i32 noundef %val69.0.lcssa)
           to label %invoke.cont85 unwind label %lpad71.loopexit.split-lp
 

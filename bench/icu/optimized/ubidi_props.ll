@@ -80,13 +80,13 @@ if.end11:                                         ; preds = %if.then8, %while.bo
   br i1 %exitcond23.not, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end11
-  %cmp14.not = icmp eq i8 %prev.1, 0
-  br i1 %cmp14.not, label %if.end18, label %if.then15
+  %10 = icmp eq i8 %prev.1, 0
+  br i1 %10, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %while.end
-  %10 = load ptr, ptr %add9, align 8
-  %11 = load ptr, ptr %sa, align 8
-  tail call void %10(ptr noundef %11, i32 noundef %limit.0)
+  %11 = load ptr, ptr %add9, align 8
+  %12 = load ptr, ptr %sa, align 8
+  tail call void %11(ptr noundef %12, i32 noundef %limit.0)
   br label %if.end18
 
 if.end18:                                         ; preds = %for.cond4, %if.then15, %while.end

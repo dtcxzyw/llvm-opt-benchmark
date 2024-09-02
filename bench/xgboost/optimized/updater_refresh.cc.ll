@@ -2679,7 +2679,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc41, %_ZN4dmlc
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10)
           to label %226 unwind label %222
 
-220:                                              ; preds = %235, %229, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, %196, %186, %_ZNK7xgboost10SparsePage4SizeEv.exit44, %200
+220:                                              ; preds = %236, %229, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, %196, %186, %_ZNK7xgboost10SparsePage4SizeEv.exit44, %200
   %221 = landingpad { ptr, i32 }
           cleanup
   br label %244
@@ -2719,17 +2719,17 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
           to label %.noexc43 unwind label %220
 
 .noexc43:                                         ; preds = %229
-  %231 = add i64 %230, -1
+  %231 = trunc i64 %230 to i32
+  %232 = add i32 %231, -1
   br label %_ZNK7xgboost10SparsePage4SizeEv.exit44
 
 _ZNK7xgboost10SparsePage4SizeEv.exit44:           ; preds = %.noexc43, %.noexc42
-  %232 = phi i64 [ %231, %.noexc43 ], [ 0, %.noexc42 ]
-  %233 = load ptr, ptr %39, align 8
-  %234 = invoke noundef i32 @_ZNK7xgboost7Context7ThreadsEv(ptr noundef nonnull align 8 dereferenceable(84) %233)
-          to label %235 unwind label %220
+  %233 = phi i32 [ %232, %.noexc43 ], [ 0, %.noexc42 ]
+  %234 = load ptr, ptr %39, align 8
+  %235 = invoke noundef i32 @_ZNK7xgboost7Context7ThreadsEv(ptr noundef nonnull align 8 dereferenceable(84) %234)
+          to label %236 unwind label %220
 
-235:                                              ; preds = %_ZNK7xgboost10SparsePage4SizeEv.exit44
-  %236 = trunc i64 %232 to i32
+236:                                              ; preds = %_ZNK7xgboost10SparsePage4SizeEv.exit44
   %237 = load ptr, ptr %40, align 8
   %238 = load ptr, ptr %41, align 8
   %239 = load ptr, ptr %42, align 8
@@ -2742,10 +2742,10 @@ _ZNK7xgboost10SparsePage4SizeEv.exit44:           ; preds = %.noexc43, %.noexc42
   store ptr %239, ptr %.sroa.5.0..sroa_idx, align 8
   store ptr %17, ptr %.sroa.6.0..sroa_idx, align 8
   store ptr %240, ptr %.sroa.7.0..sroa_idx, align 8
-  invoke void @_ZN7xgboost6common11ParallelForIjZZNS_4tree13TreeRefresher6UpdateEPKNS2_10TrainParamEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEPNS_7DMatrixENS0_4SpanINS_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS_7RegTreeESaISM_EEENKUlvE0_clEvEUljE_EEvT_iNS0_5SchedET0_(i32 noundef %236, i32 noundef %234, i32 2, i64 0, ptr noundef nonnull byval(%class.anon.154) align 8 %2)
+  invoke void @_ZN7xgboost6common11ParallelForIjZZNS_4tree13TreeRefresher6UpdateEPKNS2_10TrainParamEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEPNS_7DMatrixENS0_4SpanINS_16HostDeviceVectorIiEELm18446744073709551615EEERKSt6vectorIPNS_7RegTreeESaISM_EEENKUlvE0_clEvEUljE_EEvT_iNS0_5SchedET0_(i32 noundef %233, i32 noundef %235, i32 2, i64 0, ptr noundef nonnull byval(%class.anon.154) align 8 %2)
           to label %241 unwind label %220
 
-241:                                              ; preds = %235
+241:                                              ; preds = %236
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   %242 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7xgboost13BatchIteratorINS_10SparsePageEEppEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN7xgboost8BatchSetINS_10SparsePageEE3endEv.exit unwind label %170

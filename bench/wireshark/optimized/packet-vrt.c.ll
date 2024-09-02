@@ -1655,7 +1655,7 @@ define internal range(i32 0, 528365) i32 @dissect_context_assoc_lists(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_context_gps_ascii(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 0, -3) i32 @dissect_context_gps_ascii(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = add i32 %2, 4
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %4) #8
   %6 = shl i32 %5, 2
@@ -1977,7 +1977,7 @@ define internal noundef i32 @dissect_context_ver(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_context_array_of_records(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal range(i32 0, -3) i32 @dissect_context_array_of_records(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #8
   %5 = shl i32 %4, 2
   ret i32 %5

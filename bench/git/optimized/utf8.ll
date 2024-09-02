@@ -92,7 +92,7 @@ return:                                           ; preds = %while.end, %if.end,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @utf8_width(ptr nocapture noundef %start, ptr noundef %remainder_p) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 3) i32 @utf8_width(ptr nocapture noundef %start, ptr noundef %remainder_p) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @pick_one_utf8_char(ptr noundef %start, ptr noundef %remainder_p)
   %0 = load ptr, ptr %start, align 8

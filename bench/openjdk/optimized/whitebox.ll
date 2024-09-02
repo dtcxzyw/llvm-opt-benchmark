@@ -1862,7 +1862,7 @@ declare noundef ptr @_ZN16java_lang_String9as_symbolEP7oopDesc(ptr noundef) loca
 declare void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_GetSymbolRefcount(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden range(i32 0, 65536) i32 @WB_GetSymbolRefcount(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -4014,7 +4014,7 @@ declare noundef zeroext i1 @_ZNK10SerialHeap11is_in_youngEPKv(ptr noundef nonnul
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_GetObjectSize(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden range(i64 0, -7) i64 @WB_GetObjectSize(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
@@ -11425,7 +11425,7 @@ declare noundef ptr @_ZN15DirectivesStack19getDefaultDirectiveEP16AbstractCompil
 declare void @_ZN15DirectivesStack7releaseEP12DirectiveSet(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_GetMethodCompilationLevel(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
+define hidden range(i32 -128, 128) i32 @WB_GetMethodCompilationLevel(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca %class.WeakPreserveExceptionMark, align 8
   %6 = alloca %class.methodHandle, align 8
   %7 = ptrtoint ptr %0 to i64
@@ -26085,7 +26085,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare void @_ZN9metaspace18MetaspaceTestArena10deallocateEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @WB_GetMaxMetaspaceAllocationSize(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden range(i64 -9223372036854775808, 9223372036854775801) i64 @WB_GetMaxMetaspaceAllocationSize(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = alloca %class.WeakPreserveExceptionMark, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
@@ -37993,7 +37993,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @WB_GetKlassMetadataSize(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define hidden range(i32 -2147483648, 2147483641) i32 @WB_GetKlassMetadataSize(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
   %4 = alloca %class.WeakPreserveExceptionMark, align 8
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960

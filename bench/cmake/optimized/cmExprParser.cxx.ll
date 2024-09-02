@@ -557,13 +557,13 @@ define dso_local noundef range(i32 0, 3) i32 @_Z14cmExpr_yyparsePv(ptr noundef %
 
 238:                                              ; preds = %236
   %239 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr %.0275, ptr nonnull %.0198.ptr, i32 %237)
-  switch i32 %239, label %249 [
+  switch i32 %239, label %250 [
     i32 0, label %240
     i32 -1, label %241
   ]
 
 240:                                              ; preds = %238
-  br label %249
+  br label %250
 
 241:                                              ; preds = %238
   %.not238 = icmp eq ptr %.0275, %5
@@ -577,24 +577,24 @@ define dso_local noundef range(i32 0, 3) i32 @_Z14cmExpr_yyparsePv(ptr noundef %
   %244 = load i64, ptr %6, align 8
   %245 = call noalias ptr @malloc(i64 noundef %244) #18
   %.not239 = icmp eq ptr %245, null
-  br i1 %.not239, label %248, label %246
+  br i1 %.not239, label %249, label %246
 
 246:                                              ; preds = %243
   %247 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %245, ptr nonnull %.0198.ptr, i32 %237)
-  br label %249
+  %248 = icmp eq i32 %247, -2
+  br label %250
 
-248:                                              ; preds = %243
+249:                                              ; preds = %243
   store i64 128, ptr %6, align 8
-  br label %249
+  br label %250
 
-249:                                              ; preds = %238, %248, %246, %240
-  %.5280 = phi ptr [ %.0275, %238 ], [ %5, %248 ], [ %245, %246 ], [ %.0275, %240 ]
-  %.0175 = phi ptr [ @.str.10, %238 ], [ @.str.10, %248 ], [ %245, %246 ], [ %.0275, %240 ]
-  %.0 = phi i32 [ -2, %238 ], [ -2, %248 ], [ %247, %246 ], [ 0, %240 ]
-  %250 = call noundef ptr @_Z18cmExpr_yyget_extraPv(ptr noundef %0)
-  call void @_ZN18cmExprParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(160) %250, ptr noundef %.0175)
-  %251 = icmp eq i32 %.0, -2
-  br i1 %251, label %310, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
+250:                                              ; preds = %238, %249, %246, %240
+  %.5280 = phi ptr [ %.0275, %238 ], [ %5, %249 ], [ %245, %246 ], [ %.0275, %240 ]
+  %.0175 = phi ptr [ @.str.10, %238 ], [ @.str.10, %249 ], [ %245, %246 ], [ %.0275, %240 ]
+  %.0 = phi i1 [ true, %238 ], [ true, %249 ], [ %248, %246 ], [ false, %240 ]
+  %251 = call noundef ptr @_Z18cmExpr_yyget_extraPv(ptr noundef %0)
+  call void @_ZN18cmExprParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(160) %251, ptr noundef %.0175)
+  br i1 %.0, label %310, label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
 
 252:                                              ; preds = %236
   %253 = icmp slt i32 %.3, 1
@@ -624,9 +624,9 @@ define dso_local noundef range(i32 0, 3) i32 @_Z14cmExpr_yyparsePv(ptr noundef %
   %fputc.i254 = call i32 @fputc(i32 10, ptr %267)
   br label %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
 
-_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit: ; preds = %236, %249, %258, %256, %46, %254
-  %.3278 = phi ptr [ %.0275, %254 ], [ %.0275, %46 ], [ %.0275, %256 ], [ %.0275, %258 ], [ %.5280, %249 ], [ %.0275, %236 ]
-  %.6 = phi i32 [ %.3, %254 ], [ 257, %46 ], [ -2, %256 ], [ -2, %258 ], [ %.3, %249 ], [ %.3, %236 ]
+_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit: ; preds = %236, %250, %258, %256, %46, %254
+  %.3278 = phi ptr [ %.0275, %254 ], [ %.0275, %46 ], [ %.0275, %256 ], [ %.0275, %258 ], [ %.5280, %250 ], [ %.0275, %236 ]
+  %.6 = phi i32 [ %.3, %254 ], [ 257, %46 ], [ -2, %256 ], [ -2, %258 ], [ %.3, %250 ], [ %.3, %236 ]
   br label %268
 
 268:                                              ; preds = %302, %_ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit
@@ -717,9 +717,9 @@ _ZL10yydestructPKc15yysymbol_kind_tPN18cmExprParserHelper10ParserTypeEPv.exit259
   %fputc243 = call i32 @fputc(i32 10, ptr %309)
   br label %11
 
-310:                                              ; preds = %249, %20
-  %.2277 = phi ptr [ %.5280, %249 ], [ %.0275, %20 ]
-  %.2 = phi i32 [ %.3, %249 ], [ %.0176, %20 ]
+310:                                              ; preds = %250, %20
+  %.2277 = phi ptr [ %.5280, %250 ], [ %.0275, %20 ]
+  %.2 = phi i32 [ %.3, %250 ], [ %.0176, %20 ]
   %311 = call noundef ptr @_Z18cmExpr_yyget_extraPv(ptr noundef %0)
   call void @_ZN18cmExprParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(160) %311, ptr noundef nonnull @.str.13)
   br label %.loopexit336
@@ -985,7 +985,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
 
 .lr.ph.i.i:                                       ; preds = %33, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %18, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %33 ]
-  %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.fr.i, %33 ]
+  %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %33 ]
   %20 = add nsw i64 %indvars.iv.i.i, %19
   %21 = getelementptr inbounds [35 x i8], ptr @_ZL7yycheck, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
@@ -1001,7 +1001,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   br i1 %28, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6, label %29
 
 29:                                               ; preds = %27
-  %30 = add nsw i32 %.14.i.i, 1
+  %30 = add i32 %.14.i.i, 1
   %31 = sext i32 %.14.i.i to i64
   %32 = getelementptr inbounds i32, ptr %4, i64 %31
   store i32 %23, ptr %32, align 4
@@ -1009,13 +1009,12 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
 
 33:                                               ; preds = %29, %.lr.ph.i.i
   %.2.i.i = phi i32 [ %30, %29 ], [ %.14.i.i, %.lr.ph.i.i ]
-  %.2.i.fr.i = freeze i32 %.2.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %33
-  switch i32 %.2.i.fr.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit [
+  switch i32 %.2.i.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit [
     i32 0, label %.thread.i.i
     i32 -2, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8
   ]
@@ -1025,8 +1024,8 @@ define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK1
   br label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit: ; preds = %._crit_edge.i.i
-  %34 = add nsw i32 %.2.i.fr.i, 1
-  switch i32 %.2.i.fr.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6 [
+  %34 = add nsw i32 %.2.i.i, 1
+  switch i32 %.2.i.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6 [
     i32 -3, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8
     i32 4, label %38
     i32 3, label %37
@@ -1198,7 +1197,7 @@ _ZL9yytnamerrPcPKc.exit58:                        ; preds = %65, %.preheader, %.
   br label %.preheader, !llvm.loop !14
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %._crit_edge.i.i, %62, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
-  %.038 = phi i32 [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %62 ], [ %.2.i.fr.i, %._crit_edge.i.i ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
+  %.038 = phi i32 [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %62 ], [ %.2.i.i, %._crit_edge.i.i ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
   ret i32 %.038
 }
 

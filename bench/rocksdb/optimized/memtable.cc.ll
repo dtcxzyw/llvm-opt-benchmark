@@ -9879,17 +9879,18 @@ if.else.preheader.i:                              ; preds = %for.body12
 
 if.then.i:                                        ; preds = %if.end10.i, %for.body12
   %or.lcssa.i = phi i64 [ %or18.i, %for.body12 ], [ %or.i, %if.end10.i ]
-  %.lcssa.i = phi i64 [ %8, %for.body12 ], [ %10, %if.end10.i ]
+  %.lcssa.i = phi i64 [ %8, %for.body12 ], [ %11, %if.end10.i ]
   %and5.i = and i64 %.lcssa.i, %or.lcssa.i
   %cmp6.i = icmp eq i64 %and5.i, %or.lcssa.i
+  %9 = zext i1 %cmp6.i to i8
   br label %_ZNK7rocksdb12DynamicBloom11DoubleProbeEjm.exit
 
 if.else.i:                                        ; preds = %if.end10.i, %if.else.preheader.i
   %indvars.iv.i = phi i64 [ 1, %if.else.preheader.i ], [ %indvars.iv.next.i, %if.end10.i ]
-  %9 = phi i64 [ %8, %if.else.preheader.i ], [ %10, %if.end10.i ]
+  %10 = phi i64 [ %8, %if.else.preheader.i ], [ %11, %if.end10.i ]
   %or22.i = phi i64 [ %or18.i, %if.else.preheader.i ], [ %or.i, %if.end10.i ]
   %h.021.i = phi i64 [ %mul.i, %if.else.preheader.i ], [ %or13.i, %if.end10.i ]
-  %and7.i = and i64 %or22.i, %9
+  %and7.i = and i64 %or22.i, %10
   %cmp8.not.i = icmp eq i64 %and7.i, %or22.i
   br i1 %cmp8.not.i, label %if.end10.i, label %_ZNK7rocksdb12DynamicBloom11DoubleProbeEjm.exit
 
@@ -9903,16 +9904,15 @@ if.end10.i:                                       ; preds = %if.else.i
   %or.i = or i64 %shl3.i, %shl.i
   %xor.i = xor i64 %indvars.iv.i, %5
   %arrayidx.i = getelementptr inbounds %"struct.std::atomic", ptr %6, i64 %xor.i
-  %10 = load atomic i64, ptr %arrayidx.i monotonic, align 8
+  %11 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %if.then.i, label %if.else.i, !llvm.loop !64
 
 _ZNK7rocksdb12DynamicBloom11DoubleProbeEjm.exit:  ; preds = %if.else.i, %if.then.i
-  %retval.0.i = phi i1 [ %cmp6.i, %if.then.i ], [ false, %if.else.i ]
+  %retval.0.i = phi i8 [ %9, %if.then.i ], [ 0, %if.else.i ]
   %arrayidx19 = getelementptr inbounds i8, ptr %may_match, i64 %indvars.iv21
-  %frombool = zext i1 %retval.0.i to i8
-  store i8 %frombool, ptr %arrayidx19, align 1
+  store i8 %retval.0.i, ptr %arrayidx19, align 1
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
   br i1 %exitcond25.not, label %for.end22, label %for.body12, !llvm.loop !101

@@ -14708,7 +14708,7 @@ return:                                           ; preds = %ehcleanup7, %invoke
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @duckdb_bind_decimal(ptr noundef %prepared_statement, i64 noundef %param_idx, ptr nocapture noundef readonly byval(%struct.duckdb_decimal) align 8 %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @duckdb_bind_decimal(ptr noundef %prepared_statement, i64 noundef %param_idx, ptr nocapture noundef readonly byval(%struct.duckdb_decimal) align 8 %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value1 = alloca %"class.duckdb::Value", align 8
   %duck_val = alloca %"class.duckdb::Value", align 8

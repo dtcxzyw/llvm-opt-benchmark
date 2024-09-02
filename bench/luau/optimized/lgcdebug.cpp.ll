@@ -194,32 +194,32 @@ define internal noundef zeroext i1 @_ZL7dumpgcoPvP8lua_PageP8GCObject(ptr nocapt
   %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %_ZL10dumpstringP8_IO_FILEP7TString.exit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %7, %22
-  %.07.i.i.i = phi i64 [ %26, %22 ], [ 0, %7 ]
+.lr.ph.i.i.i:                                     ; preds = %7, %23
+  %.07.i.i.i = phi i64 [ %26, %23 ], [ 0, %7 ]
   %18 = getelementptr inbounds i8, ptr %15, i64 %.07.i.i.i
   %19 = load i8, ptr %18, align 1
   %.fr.i.i.i = freeze i8 %19
   %20 = icmp sgt i8 %.fr.i.i.i, 31
-  br i1 %20, label %switch.early.test.i.i.i, label %22
+  br i1 %20, label %switch.early.test.i.i.i, label %23
 
 switch.early.test.i.i.i:                          ; preds = %.lr.ph.i.i.i
   switch i8 %.fr.i.i.i, label %21 [
-    i8 92, label %22
-    i8 34, label %22
+    i8 92, label %23
+    i8 34, label %23
   ]
 
 21:                                               ; preds = %switch.early.test.i.i.i
-  br label %22
+  %22 = zext nneg i8 %.fr.i.i.i to i32
+  br label %23
 
-22:                                               ; preds = %21, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %.lr.ph.i.i.i
-  %23 = phi i8 [ %.fr.i.i.i, %21 ], [ 63, %switch.early.test.i.i.i ], [ 63, %.lr.ph.i.i.i ], [ 63, %switch.early.test.i.i.i ]
-  %24 = zext nneg i8 %23 to i32
+23:                                               ; preds = %21, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %.lr.ph.i.i.i
+  %24 = phi i32 [ %22, %21 ], [ 63, %switch.early.test.i.i.i ], [ 63, %.lr.ph.i.i.i ], [ 63, %switch.early.test.i.i.i ]
   %25 = tail call i32 @fputc(i32 noundef %24, ptr noundef %0)
   %26 = add nuw nsw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %26, %17
   br i1 %exitcond.not.i.i.i, label %_ZL10dumpstringP8_IO_FILEP7TString.exit.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
-_ZL10dumpstringP8_IO_FILEP7TString.exit.i:        ; preds = %22, %7
+_ZL10dumpstringP8_IO_FILEP7TString.exit.i:        ; preds = %23, %7
   %27 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 2, i64 1, ptr %0)
   br label %_ZL7dumpobjP8_IO_FILEP8GCObject.exit
 
@@ -620,32 +620,32 @@ _ZL9dumpudataP8_IO_FILEP5Udata.exit.i:            ; preds = %201, %188
   %.not.i.i40.i = icmp eq i32 %248, 0
   br i1 %.not.i.i40.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i.i, label %.lr.ph.i.i41.i
 
-.lr.ph.i.i41.i:                                   ; preds = %243, %254
-  %.07.i.i42.i = phi i64 [ %258, %254 ], [ 0, %243 ]
+.lr.ph.i.i41.i:                                   ; preds = %243, %255
+  %.07.i.i42.i = phi i64 [ %258, %255 ], [ 0, %243 ]
   %250 = getelementptr inbounds i8, ptr %246, i64 %.07.i.i42.i
   %251 = load i8, ptr %250, align 1
   %.fr.i.i43.i = freeze i8 %251
   %252 = icmp sgt i8 %.fr.i.i43.i, 31
-  br i1 %252, label %switch.early.test.i.i45.i, label %254
+  br i1 %252, label %switch.early.test.i.i45.i, label %255
 
 switch.early.test.i.i45.i:                        ; preds = %.lr.ph.i.i41.i
   switch i8 %.fr.i.i43.i, label %253 [
-    i8 92, label %254
-    i8 34, label %254
+    i8 92, label %255
+    i8 34, label %255
   ]
 
 253:                                              ; preds = %switch.early.test.i.i45.i
-  br label %254
+  %254 = zext nneg i8 %.fr.i.i43.i to i32
+  br label %255
 
-254:                                              ; preds = %253, %switch.early.test.i.i45.i, %switch.early.test.i.i45.i, %.lr.ph.i.i41.i
-  %255 = phi i8 [ %.fr.i.i43.i, %253 ], [ 63, %switch.early.test.i.i45.i ], [ 63, %.lr.ph.i.i41.i ], [ 63, %switch.early.test.i.i45.i ]
-  %256 = zext nneg i8 %255 to i32
+255:                                              ; preds = %253, %switch.early.test.i.i45.i, %switch.early.test.i.i45.i, %.lr.ph.i.i41.i
+  %256 = phi i32 [ %254, %253 ], [ 63, %switch.early.test.i.i45.i ], [ 63, %.lr.ph.i.i41.i ], [ 63, %switch.early.test.i.i45.i ]
   %257 = tail call i32 @fputc(i32 noundef %256, ptr noundef %0)
   %258 = add nuw nsw i64 %.07.i.i42.i, 1
   %exitcond.not.i.i44.i = icmp eq i64 %258, %249
   br i1 %exitcond.not.i.i44.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i.i, label %.lr.ph.i.i41.i, !llvm.loop !7
 
-_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i.i:       ; preds = %254, %243
+_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i.i:       ; preds = %255, %243
   %259 = getelementptr inbounds i8, ptr %240, i64 164
   %260 = load i32, ptr %259, align 4
   %261 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %260) #8
@@ -778,32 +778,32 @@ _ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i36.i:  ; preds = %285, %267
   %.not.i111.i.i = icmp eq i32 %325, 0
   br i1 %.not.i111.i.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i, label %.lr.ph.i112.i.i
 
-.lr.ph.i112.i.i:                                  ; preds = %322, %331
-  %.07.i113.i.i = phi i64 [ %335, %331 ], [ 0, %322 ]
+.lr.ph.i112.i.i:                                  ; preds = %322, %332
+  %.07.i113.i.i = phi i64 [ %335, %332 ], [ 0, %322 ]
   %327 = getelementptr inbounds i8, ptr %323, i64 %.07.i113.i.i
   %328 = load i8, ptr %327, align 1
   %.fr.i114.i.i = freeze i8 %328
   %329 = icmp sgt i8 %.fr.i114.i.i, 31
-  br i1 %329, label %switch.early.test.i116.i.i, label %331
+  br i1 %329, label %switch.early.test.i116.i.i, label %332
 
 switch.early.test.i116.i.i:                       ; preds = %.lr.ph.i112.i.i
   switch i8 %.fr.i114.i.i, label %330 [
-    i8 92, label %331
-    i8 34, label %331
+    i8 92, label %332
+    i8 34, label %332
   ]
 
 330:                                              ; preds = %switch.early.test.i116.i.i
-  br label %331
+  %331 = zext nneg i8 %.fr.i114.i.i to i32
+  br label %332
 
-331:                                              ; preds = %330, %switch.early.test.i116.i.i, %switch.early.test.i116.i.i, %.lr.ph.i112.i.i
-  %332 = phi i8 [ %.fr.i114.i.i, %330 ], [ 63, %switch.early.test.i116.i.i ], [ 63, %.lr.ph.i112.i.i ], [ 63, %switch.early.test.i116.i.i ]
-  %333 = zext nneg i8 %332 to i32
+332:                                              ; preds = %330, %switch.early.test.i116.i.i, %switch.early.test.i116.i.i, %.lr.ph.i112.i.i
+  %333 = phi i32 [ %331, %330 ], [ 63, %switch.early.test.i116.i.i ], [ 63, %.lr.ph.i112.i.i ], [ 63, %switch.early.test.i116.i.i ]
   %334 = tail call i32 @fputc(i32 noundef %333, ptr noundef %0)
   %335 = add nuw nsw i64 %.07.i113.i.i, 1
   %exitcond.not.i115.i.i = icmp eq i64 %335, %326
   br i1 %exitcond.not.i115.i.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i, label %.lr.ph.i112.i.i, !llvm.loop !7
 
-_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i:    ; preds = %331, %322, %316
+_ZL14dumpstringdataP8_IO_FILEPKcm.exit117.i.i:    ; preds = %332, %322, %316
   %336 = getelementptr inbounds i8, ptr %318, i64 164
   %337 = load i32, ptr %336, align 4
   %338 = getelementptr inbounds i8, ptr %318, i64 96
@@ -946,32 +946,32 @@ _ZL10dumpthreadP8_IO_FILEP9lua_State.exit.i:      ; preds = %._crit_edge.i38.i, 
   %.not.i.i48.i = icmp eq i32 %425, 0
   br i1 %.not.i.i48.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i53.i, label %.lr.ph.i.i49.i
 
-.lr.ph.i.i49.i:                                   ; preds = %420, %431
-  %.07.i.i50.i = phi i64 [ %435, %431 ], [ 0, %420 ]
+.lr.ph.i.i49.i:                                   ; preds = %420, %432
+  %.07.i.i50.i = phi i64 [ %435, %432 ], [ 0, %420 ]
   %427 = getelementptr inbounds i8, ptr %423, i64 %.07.i.i50.i
   %428 = load i8, ptr %427, align 1
   %.fr.i.i51.i = freeze i8 %428
   %429 = icmp sgt i8 %.fr.i.i51.i, 31
-  br i1 %429, label %switch.early.test.i.i67.i, label %431
+  br i1 %429, label %switch.early.test.i.i67.i, label %432
 
 switch.early.test.i.i67.i:                        ; preds = %.lr.ph.i.i49.i
   switch i8 %.fr.i.i51.i, label %430 [
-    i8 92, label %431
-    i8 34, label %431
+    i8 92, label %432
+    i8 34, label %432
   ]
 
 430:                                              ; preds = %switch.early.test.i.i67.i
-  br label %431
+  %431 = zext nneg i8 %.fr.i.i51.i to i32
+  br label %432
 
-431:                                              ; preds = %430, %switch.early.test.i.i67.i, %switch.early.test.i.i67.i, %.lr.ph.i.i49.i
-  %432 = phi i8 [ %.fr.i.i51.i, %430 ], [ 63, %switch.early.test.i.i67.i ], [ 63, %.lr.ph.i.i49.i ], [ 63, %switch.early.test.i.i67.i ]
-  %433 = zext nneg i8 %432 to i32
+432:                                              ; preds = %430, %switch.early.test.i.i67.i, %switch.early.test.i.i67.i, %.lr.ph.i.i49.i
+  %433 = phi i32 [ %431, %430 ], [ 63, %switch.early.test.i.i67.i ], [ 63, %.lr.ph.i.i49.i ], [ 63, %switch.early.test.i.i67.i ]
   %434 = tail call i32 @fputc(i32 noundef %433, ptr noundef %0)
   %435 = add nuw nsw i64 %.07.i.i50.i, 1
   %exitcond.not.i.i52.i = icmp eq i64 %435, %426
   br i1 %exitcond.not.i.i52.i, label %_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i53.i, label %.lr.ph.i.i49.i, !llvm.loop !7
 
-_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i53.i:     ; preds = %431, %420
+_ZL14dumpstringdataP8_IO_FILEPKcm.exit.i53.i:     ; preds = %432, %420
   %436 = getelementptr inbounds i8, ptr %2, i64 64
   %437 = load ptr, ptr %436, align 8
   %.not35.i54.i = icmp eq ptr %437, null

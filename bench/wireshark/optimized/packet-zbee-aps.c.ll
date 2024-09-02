@@ -740,7 +740,7 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   %6 = alloca ptr, align 8
   %7 = alloca %struct.ieee802154_short_addr, align 2
   %8 = icmp eq ptr %3, null
-  br i1 %8, label %456, label %9
+  br i1 %8, label %455, label %9
 
 9:                                                ; preds = %4
   %10 = tail call ptr @wmem_file_scope() #3
@@ -853,7 +853,7 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
 .thread350:                                       ; preds = %74, %75, %78
   %81 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %15, ptr noundef nonnull @ei_zbee_aps_invalid_delivery_mode) #3
   %82 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %456
+  br label %455
 
 83:                                               ; preds = %75
   %.not276.not = icmp eq i32 %26, 0
@@ -1012,7 +1012,7 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %169
 
 169:                                              ; preds = %162, %158
-  %.sroa.44.0 = phi i8 [ %164, %162 ], [ 0, %158 ]
+  %.sroa.44.0 = phi i32 [ %166, %162 ], [ 0, %158 ]
   %.5 = phi i8 [ %168, %162 ], [ %.0261, %158 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %170 = tail call ptr @wmem_file_scope() #3
@@ -1063,25 +1063,24 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @p_add_proto_data(ptr noundef %194, ptr noundef nonnull %1, i32 noundef %195, i32 noundef 0, ptr noundef %193) #3
   %196 = load i32, ptr %.018.i, align 4
   %197 = and i32 %196, -256
-  %198 = zext i8 %.sroa.44.0 to i32
-  %199 = or disjoint i32 %197, %198
-  %200 = add i32 %199, 64
-  %201 = icmp ult i32 %200, %196
-  br i1 %201, label %202, label %204
+  %198 = or disjoint i32 %197, %.sroa.44.0
+  %199 = add i32 %198, 64
+  %200 = icmp ult i32 %199, %196
+  br i1 %200, label %201, label %203
 
-202:                                              ; preds = %191
-  %203 = add i32 %199, 256
+201:                                              ; preds = %191
+  %202 = add i32 %198, 256
   br label %zbee_aps_calculate_extended_counter.exit.i
 
-204:                                              ; preds = %191
-  %205 = add i32 %196, 64
-  %206 = icmp ult i32 %205, %199
-  %207 = add i32 %199, -256
-  %spec.select.i.i = select i1 %206, i32 %207, i32 %199
+203:                                              ; preds = %191
+  %204 = add i32 %196, 64
+  %205 = icmp ult i32 %204, %198
+  %206 = add i32 %198, -256
+  %spec.select.i.i = select i1 %205, i32 %206, i32 %198
   br label %zbee_aps_calculate_extended_counter.exit.i
 
-zbee_aps_calculate_extended_counter.exit.i:       ; preds = %204, %202
-  %.0.i.i = phi i32 [ %203, %202 ], [ %spec.select.i.i, %204 ]
+zbee_aps_calculate_extended_counter.exit.i:       ; preds = %203, %201
+  %.0.i.i = phi i32 [ %202, %201 ], [ %spec.select.i.i, %203 ]
   store i32 %.0.i.i, ptr %.018.i, align 4
   store i32 %.0.i.i, ptr %193, align 4
   br label %zbee_aps_node_packet_info.exit
@@ -1090,452 +1089,452 @@ zbee_aps_node_packet_info.exit:                   ; preds = %169, %zbee_aps_calc
   %.0.i = phi ptr [ %193, %zbee_aps_calculate_extended_counter.exit.i ], [ %172, %169 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %.not279 = icmp eq i32 %30, 0
-  br i1 %.not279, label %.thread366, label %208
+  br i1 %.not279, label %.thread366, label %207
 
-208:                                              ; preds = %zbee_aps_node_packet_info.exit
-  %209 = zext nneg i8 %.5 to i32
-  %210 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %209) #3
-  %211 = zext i8 %210 to i32
-  %212 = and i8 %210, 3
-  %213 = load i32, ptr @ett_zbee_aps_fcf, align 4
-  %214 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %0, i32 noundef %209, i32 noundef 1, i32 noundef %213, ptr noundef null, ptr noundef nonnull @.str.496, i32 noundef %211) #3
-  %215 = load i32, ptr @hf_zbee_aps_fragmentation, align 4
-  %216 = zext nneg i8 %212 to i32
-  %217 = call ptr @proto_tree_add_uint(ptr noundef %214, i32 noundef %215, ptr noundef %0, i32 noundef %209, i32 noundef 1, i32 noundef %216) #3
-  %218 = add nuw nsw i8 %.5, 1
-  %.not280 = icmp eq i8 %212, 0
-  br i1 %.not280, label %.thread366, label %219
+207:                                              ; preds = %zbee_aps_node_packet_info.exit
+  %208 = zext nneg i8 %.5 to i32
+  %209 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %208) #3
+  %210 = zext i8 %209 to i32
+  %211 = and i8 %209, 3
+  %212 = load i32, ptr @ett_zbee_aps_fcf, align 4
+  %213 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %0, i32 noundef %208, i32 noundef 1, i32 noundef %212, ptr noundef null, ptr noundef nonnull @.str.496, i32 noundef %210) #3
+  %214 = load i32, ptr @hf_zbee_aps_fragmentation, align 4
+  %215 = zext nneg i8 %211 to i32
+  %216 = call ptr @proto_tree_add_uint(ptr noundef %213, i32 noundef %214, ptr noundef %0, i32 noundef %208, i32 noundef 1, i32 noundef %215) #3
+  %217 = add nuw nsw i8 %.5, 1
+  %.not280 = icmp eq i8 %211, 0
+  br i1 %.not280, label %.thread366, label %218
 
-219:                                              ; preds = %208
-  %220 = zext nneg i8 %218 to i32
-  %221 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %220) #3
-  %222 = load i32, ptr @hf_zbee_aps_block_number, align 4
-  %223 = zext i8 %221 to i32
-  %224 = call ptr @proto_tree_add_uint(ptr noundef %214, i32 noundef %222, ptr noundef %0, i32 noundef %220, i32 noundef 1, i32 noundef %223) #3
-  %225 = add nuw nsw i8 %.5, 2
-  %226 = icmp eq i8 %23, 2
-  br i1 %226, label %227, label %.thread366
+218:                                              ; preds = %207
+  %219 = zext nneg i8 %217 to i32
+  %220 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %219) #3
+  %221 = load i32, ptr @hf_zbee_aps_block_number, align 4
+  %222 = zext i8 %220 to i32
+  %223 = call ptr @proto_tree_add_uint(ptr noundef %213, i32 noundef %221, ptr noundef %0, i32 noundef %219, i32 noundef 1, i32 noundef %222) #3
+  %224 = add nuw nsw i8 %.5, 2
+  %225 = icmp eq i8 %23, 2
+  br i1 %225, label %226, label %.thread366
 
-227:                                              ; preds = %219
-  %228 = zext nneg i8 %225 to i32
-  %229 = load i32, ptr @hf_zbee_aps_block_ack, align 4
-  %230 = load i32, ptr @ett_zbee_aps_frag_ack, align 4
-  %231 = call ptr @proto_tree_add_bitmask(ptr noundef %214, ptr noundef %0, i32 noundef %228, i32 noundef %229, i32 noundef %230, ptr noundef nonnull @dissect_zbee_aps.frag_ack_flags, i32 noundef 0) #3
-  %232 = add nuw nsw i8 %.5, 3
+226:                                              ; preds = %218
+  %227 = zext nneg i8 %224 to i32
+  %228 = load i32, ptr @hf_zbee_aps_block_ack, align 4
+  %229 = load i32, ptr @ett_zbee_aps_frag_ack, align 4
+  %230 = call ptr @proto_tree_add_bitmask(ptr noundef %213, ptr noundef %0, i32 noundef %227, i32 noundef %228, i32 noundef %229, ptr noundef nonnull @dissect_zbee_aps.frag_ack_flags, i32 noundef 0) #3
+  %231 = add nuw nsw i8 %.5, 3
   br label %.thread366
 
-.thread366:                                       ; preds = %208, %zbee_aps_node_packet_info.exit, %219, %227
-  %.sroa.46.0 = phi i8 [ %212, %227 ], [ %212, %219 ], [ 0, %zbee_aps_node_packet_info.exit ], [ 0, %208 ]
-  %.sroa.53.1 = phi i8 [ %221, %227 ], [ %221, %219 ], [ 0, %zbee_aps_node_packet_info.exit ], [ 0, %208 ]
-  %.7 = phi i8 [ %232, %227 ], [ %225, %219 ], [ %.5, %zbee_aps_node_packet_info.exit ], [ %218, %208 ]
-  %233 = zext nneg i8 %.7 to i32
-  %234 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  %235 = icmp ugt i32 %234, %233
-  %236 = icmp ne i32 %28, 0
-  %or.cond20 = select i1 %235, i1 %236, i1 false
-  br i1 %or.cond20, label %237, label %242
+.thread366:                                       ; preds = %207, %zbee_aps_node_packet_info.exit, %218, %226
+  %.sroa.46.0 = phi i8 [ %211, %226 ], [ %211, %218 ], [ 0, %zbee_aps_node_packet_info.exit ], [ 0, %207 ]
+  %.sroa.53.1 = phi i8 [ %220, %226 ], [ %220, %218 ], [ 0, %zbee_aps_node_packet_info.exit ], [ 0, %207 ]
+  %.7 = phi i8 [ %231, %226 ], [ %224, %218 ], [ %.5, %zbee_aps_node_packet_info.exit ], [ %217, %207 ]
+  %232 = zext nneg i8 %.7 to i32
+  %233 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %234 = icmp ugt i32 %233, %232
+  %235 = icmp ne i32 %28, 0
+  %or.cond20 = select i1 %234, i1 %235, i1 false
+  br i1 %or.cond20, label %236, label %241
 
-237:                                              ; preds = %.thread366
-  %238 = call ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %17, i32 noundef %233) #3
-  %239 = icmp eq ptr %238, null
-  br i1 %239, label %240, label %247
+236:                                              ; preds = %.thread366
+  %237 = call ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %17, i32 noundef %232) #3
+  %238 = icmp eq ptr %237, null
+  br i1 %238, label %239, label %246
 
-240:                                              ; preds = %237
-  %241 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %456
+239:                                              ; preds = %236
+  %240 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %455
 
-242:                                              ; preds = %.thread366
-  %243 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  %244 = icmp ugt i32 %243, %233
-  br i1 %244, label %245, label %.thread370
+241:                                              ; preds = %.thread366
+  %242 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %243 = icmp ugt i32 %242, %232
+  br i1 %243, label %244, label %.thread370
 
-245:                                              ; preds = %242
-  %246 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %233) #3
-  br label %247
+244:                                              ; preds = %241
+  %245 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %232) #3
+  br label %246
 
-247:                                              ; preds = %245, %237
-  %.0262 = phi ptr [ %238, %237 ], [ %246, %245 ]
-  %248 = icmp ne ptr %.0262, null
-  %249 = icmp ne i8 %.sroa.46.0, 0
-  %or.cond24 = and i1 %249, %248
-  br i1 %or.cond24, label %250, label %.thread370
+246:                                              ; preds = %244, %236
+  %.0262 = phi ptr [ %237, %236 ], [ %245, %244 ]
+  %247 = icmp ne ptr %.0262, null
+  %248 = icmp ne i8 %.sroa.46.0, 0
+  %or.cond24 = and i1 %248, %247
+  br i1 %or.cond24, label %249, label %.thread370
 
-250:                                              ; preds = %247
-  %251 = getelementptr inbounds i8, ptr %1, i64 272
-  store i32 1, ptr %251, align 8
-  %252 = getelementptr inbounds i8, ptr %3, i64 30
-  %253 = load i16, ptr %252, align 2
-  %254 = zext i16 %253 to i32
-  %255 = shl nuw i32 %254, 16
-  %256 = load i32, ptr %.0.i, align 4
-  %257 = and i32 %256, 65535
-  %258 = or disjoint i32 %255, %257
+249:                                              ; preds = %246
+  %250 = getelementptr inbounds i8, ptr %1, i64 272
+  store i32 1, ptr %250, align 8
+  %251 = getelementptr inbounds i8, ptr %3, i64 30
+  %252 = load i16, ptr %251, align 2
+  %253 = zext i16 %252 to i32
+  %254 = shl nuw i32 %253, 16
+  %255 = load i32, ptr %.0.i, align 4
+  %256 = and i32 %255, 65535
+  %257 = or disjoint i32 %254, %256
   %.not281 = icmp eq ptr %12, null
-  br i1 %.not281, label %263, label %259
+  br i1 %.not281, label %262, label %258
 
-259:                                              ; preds = %250
-  %260 = load i32, ptr %12, align 8
-  %261 = shl i32 %260, 16
-  %262 = xor i32 %261, %258
-  br label %263
+258:                                              ; preds = %249
+  %259 = load i32, ptr %12, align 8
+  %260 = shl i32 %259, 16
+  %261 = xor i32 %260, %257
+  br label %262
 
-263:                                              ; preds = %259, %250
-  %.0260 = phi i32 [ %262, %259 ], [ %258, %250 ]
-  %264 = icmp ne i8 %.sroa.46.0, 1
-  %265 = zext i8 %.sroa.53.1 to i32
-  %266 = add nsw i32 %265, -1
-  %.0259 = select i1 %264, i32 %265, i32 0
-  %267 = call i32 @tvb_captured_length(ptr noundef nonnull %.0262) #3
-  %268 = call ptr @fragment_add_seq_check(ptr noundef nonnull @zbee_aps_reassembly_table, ptr noundef nonnull %.0262, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %.0260, ptr noundef null, i32 noundef %.0259, i32 noundef %267, i32 noundef 1) #3
-  %.not282385 = icmp eq i32 %266, 0
-  %.not282 = select i1 %264, i1 true, i1 %.not282385
-  br i1 %.not282, label %270, label %269
+262:                                              ; preds = %258, %249
+  %.0260 = phi i32 [ %261, %258 ], [ %257, %249 ]
+  %263 = icmp ne i8 %.sroa.46.0, 1
+  %264 = zext i8 %.sroa.53.1 to i32
+  %265 = add nsw i32 %264, -1
+  %.0259 = select i1 %263, i32 %264, i32 0
+  %266 = call i32 @tvb_captured_length(ptr noundef nonnull %.0262) #3
+  %267 = call ptr @fragment_add_seq_check(ptr noundef nonnull @zbee_aps_reassembly_table, ptr noundef nonnull %.0262, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %.0260, ptr noundef null, i32 noundef %.0259, i32 noundef %266, i32 noundef 1) #3
+  %.not282385 = icmp eq i32 %265, 0
+  %.not282 = select i1 %263, i1 true, i1 %.not282385
+  br i1 %.not282, label %269, label %268
 
-269:                                              ; preds = %263
-  call void @fragment_set_tot_len(ptr noundef nonnull @zbee_aps_reassembly_table, ptr noundef nonnull %1, i32 noundef %.0260, ptr noundef null, i32 noundef %266) #3
-  br label %270
+268:                                              ; preds = %262
+  call void @fragment_set_tot_len(ptr noundef nonnull @zbee_aps_reassembly_table, ptr noundef nonnull %1, i32 noundef %.0260, ptr noundef null, i32 noundef %265) #3
+  br label %269
 
-270:                                              ; preds = %269, %263
-  %271 = call ptr @process_reassembled_data(ptr noundef nonnull %.0262, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.497, ptr noundef %268, ptr noundef nonnull @zbee_aps_frag_items, ptr noundef null, ptr noundef %17) #3
-  %.not283 = icmp eq ptr %271, null
-  br i1 %.not283, label %272, label %.thread370
+269:                                              ; preds = %268, %262
+  %270 = call ptr @process_reassembled_data(ptr noundef nonnull %.0262, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.497, ptr noundef %267, ptr noundef nonnull @zbee_aps_frag_items, ptr noundef null, ptr noundef %17) #3
+  %.not283 = icmp eq ptr %270, null
+  br i1 %.not283, label %271, label %.thread370
 
-272:                                              ; preds = %270
-  %273 = load ptr, ptr %18, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %273, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %.0259) #3
-  %274 = call i32 @call_data_dissector(ptr noundef nonnull %.0262, ptr noundef nonnull %1, ptr noundef %2) #3
-  %275 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %456
+271:                                              ; preds = %269
+  %272 = load ptr, ptr %18, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %272, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %.0259) #3
+  %273 = call i32 @call_data_dissector(ptr noundef nonnull %.0262, ptr noundef nonnull %1, ptr noundef %2) #3
+  %274 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %455
 
-.thread370:                                       ; preds = %242, %270, %247
-  %.1263 = phi ptr [ %.0262, %247 ], [ %271, %270 ], [ null, %242 ]
-  switch i8 %23, label %453 [
-    i8 0, label %276
-    i8 3, label %276
-    i8 1, label %298
+.thread370:                                       ; preds = %241, %269, %246
+  %.1263 = phi ptr [ %.0262, %246 ], [ %270, %269 ], [ null, %241 ]
+  switch i8 %23, label %452 [
+    i8 0, label %275
+    i8 3, label %275
+    i8 1, label %297
   ]
 
-276:                                              ; preds = %.thread370, %.thread370
+275:                                              ; preds = %.thread370, %.thread370
   %.not285 = icmp eq ptr %.1263, null
-  br i1 %.not285, label %.thread382, label %277
+  br i1 %.not285, label %.thread382, label %276
 
-277:                                              ; preds = %276
-  %278 = load i8, ptr %45, align 2
-  %279 = icmp ult i8 %278, 2
-  br i1 %279, label %280, label %283
+276:                                              ; preds = %275
+  %277 = load i8, ptr %45, align 2
+  %278 = icmp ult i8 %277, 2
+  br i1 %278, label %279, label %282
 
-280:                                              ; preds = %277
-  %281 = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr %.0266, ptr %281, align 8
-  %282 = load ptr, ptr @zbee_apf_handle, align 8
-  br label %295
+279:                                              ; preds = %276
+  %280 = getelementptr inbounds i8, ptr %3, i64 64
+  store ptr %.0266, ptr %280, align 8
+  %281 = load ptr, ptr @zbee_apf_handle, align 8
+  br label %294
 
-283:                                              ; preds = %277
-  %284 = icmp eq ptr %.0266, null
-  br i1 %284, label %285, label %295
+282:                                              ; preds = %276
+  %283 = icmp eq ptr %.0266, null
+  br i1 %283, label %284, label %294
 
-285:                                              ; preds = %283
-  %286 = icmp eq i16 %.sroa.37.0, 32513
-  br i1 %286, label %.thread373, label %291
+284:                                              ; preds = %282
+  %285 = icmp eq i16 %.sroa.37.0, 32513
+  br i1 %285, label %.thread373, label %290
 
-.thread373:                                       ; preds = %285
-  %287 = getelementptr inbounds i8, ptr %3, i64 56
-  %288 = load i16, ptr %287, align 8
-  %289 = call fastcc i32 @dissect_zbee_t2(ptr noundef nonnull %.1263, ptr noundef %17, i16 noundef zeroext %288)
-  %290 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %.1263, i32 noundef %289) #3
-  br label %453
+.thread373:                                       ; preds = %284
+  %286 = getelementptr inbounds i8, ptr %3, i64 56
+  %287 = load i16, ptr %286, align 8
+  %288 = call fastcc i32 @dissect_zbee_t2(ptr noundef nonnull %.1263, ptr noundef %17, i16 noundef zeroext %287)
+  %289 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %.1263, i32 noundef %288) #3
+  br label %452
 
-291:                                              ; preds = %285
-  %292 = call ptr @find_dissector(ptr noundef nonnull @.str.499) #3
-  %.not286 = icmp eq ptr %292, null
-  br i1 %.not286, label %.thread378, label %293
+290:                                              ; preds = %284
+  %291 = call ptr @find_dissector(ptr noundef nonnull @.str.499) #3
+  %.not286 = icmp eq ptr %291, null
+  br i1 %.not286, label %.thread378, label %292
 
-293:                                              ; preds = %291
-  %294 = call i32 @call_dissector_with_data(ptr noundef nonnull %292, ptr noundef nonnull %.1263, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #3
+292:                                              ; preds = %290
+  %293 = call i32 @call_dissector_with_data(ptr noundef nonnull %291, ptr noundef nonnull %.1263, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #3
   br label %.thread378
 
-295:                                              ; preds = %283, %280
-  %.1267 = phi ptr [ %282, %280 ], [ %.0266, %283 ]
-  %296 = call i32 @call_dissector_with_data(ptr noundef %.1267, ptr noundef nonnull %.1263, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #3
-  %297 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %456
+294:                                              ; preds = %282, %279
+  %.1267 = phi ptr [ %281, %279 ], [ %.0266, %282 ]
+  %295 = call i32 @call_dissector_with_data(ptr noundef %.1267, ptr noundef nonnull %.1263, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) #3
+  %296 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %455
 
-298:                                              ; preds = %.thread370
+297:                                              ; preds = %.thread370
   %.not284 = icmp eq ptr %.1263, null
-  br i1 %.not284, label %299, label %302
+  br i1 %.not284, label %298, label %301
 
-299:                                              ; preds = %298
-  %300 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %15, ptr noundef nonnull @ei_zbee_aps_missing_payload) #3
-  %301 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %456
+298:                                              ; preds = %297
+  %299 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %15, ptr noundef nonnull @ei_zbee_aps_missing_payload) #3
+  %300 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %455
 
-302:                                              ; preds = %298
-  %303 = load i8, ptr %45, align 2
+301:                                              ; preds = %297
+  %302 = load i8, ptr %45, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %304 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 0) #3
-  %305 = load i32, ptr @ett_zbee_aps_cmd, align 4
-  %306 = zext i8 %304 to i32
-  %307 = call ptr @val_to_str_const(i32 noundef %306, ptr noundef nonnull @zbee_aps_cmd_names, ptr noundef nonnull @.str.487) #3
-  %308 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef nonnull %.1263, i32 noundef 0, i32 noundef -1, i32 noundef %305, ptr noundef nonnull %6, ptr noundef nonnull @.str.515, ptr noundef %307) #3
-  %309 = load i32, ptr @hf_zbee_aps_cmd_id, align 4
-  %310 = call ptr @proto_tree_add_uint(ptr noundef %308, i32 noundef %309, ptr noundef nonnull %.1263, i32 noundef 0, i32 noundef 1, i32 noundef %306) #3
-  %311 = load ptr, ptr %18, align 8
-  %312 = call ptr @val_to_str_const(i32 noundef %306, ptr noundef nonnull @zbee_aps_cmd_names, ptr noundef nonnull @.str.516) #3
-  call void @col_set_str(ptr noundef %311, i32 noundef 25, ptr noundef %312) #3
-  switch i8 %304, label %dissect_zbee_aps_request_key.exit.i [
-    i8 1, label %313
-    i8 2, label %313
-    i8 3, label %320
-    i8 4, label %320
-    i8 5, label %327
-    i8 6, label %361
-    i8 7, label %371
-    i8 8, label %374
-    i8 9, label %383
-    i8 10, label %388
-    i8 11, label %388
-    i8 12, label %408
-    i8 13, label %408
-    i8 14, label %417
-    i8 15, label %425
-    i8 16, label %432
+  %303 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 0) #3
+  %304 = load i32, ptr @ett_zbee_aps_cmd, align 4
+  %305 = zext i8 %303 to i32
+  %306 = call ptr @val_to_str_const(i32 noundef %305, ptr noundef nonnull @zbee_aps_cmd_names, ptr noundef nonnull @.str.487) #3
+  %307 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef nonnull %.1263, i32 noundef 0, i32 noundef -1, i32 noundef %304, ptr noundef nonnull %6, ptr noundef nonnull @.str.515, ptr noundef %306) #3
+  %308 = load i32, ptr @hf_zbee_aps_cmd_id, align 4
+  %309 = call ptr @proto_tree_add_uint(ptr noundef %307, i32 noundef %308, ptr noundef nonnull %.1263, i32 noundef 0, i32 noundef 1, i32 noundef %305) #3
+  %310 = load ptr, ptr %18, align 8
+  %311 = call ptr @val_to_str_const(i32 noundef %305, ptr noundef nonnull @zbee_aps_cmd_names, ptr noundef nonnull @.str.516) #3
+  call void @col_set_str(ptr noundef %310, i32 noundef 25, ptr noundef %311) #3
+  switch i8 %303, label %dissect_zbee_aps_request_key.exit.i [
+    i8 1, label %312
+    i8 2, label %312
+    i8 3, label %319
+    i8 4, label %319
+    i8 5, label %326
+    i8 6, label %360
+    i8 7, label %370
+    i8 8, label %373
+    i8 9, label %382
+    i8 10, label %387
+    i8 11, label %387
+    i8 12, label %407
+    i8 13, label %407
+    i8 14, label %416
+    i8 15, label %424
+    i8 16, label %431
   ]
 
-313:                                              ; preds = %302, %302
-  %314 = load i32, ptr @hf_zbee_aps_cmd_initiator, align 4
-  %315 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %314, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #3
-  %316 = load i32, ptr @hf_zbee_aps_cmd_responder, align 4
-  %317 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %316, ptr noundef nonnull %.1263, i32 noundef 9, i32 noundef 8, i32 noundef -2147483648) #3
-  %318 = load i32, ptr @hf_zbee_aps_cmd_challenge, align 4
-  %319 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %318, ptr noundef nonnull %.1263, i32 noundef 17, i32 noundef 16, i32 noundef 0) #3
+312:                                              ; preds = %301, %301
+  %313 = load i32, ptr @hf_zbee_aps_cmd_initiator, align 4
+  %314 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %313, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #3
+  %315 = load i32, ptr @hf_zbee_aps_cmd_responder, align 4
+  %316 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %315, ptr noundef nonnull %.1263, i32 noundef 9, i32 noundef 8, i32 noundef -2147483648) #3
+  %317 = load i32, ptr @hf_zbee_aps_cmd_challenge, align 4
+  %318 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %317, ptr noundef nonnull %.1263, i32 noundef 17, i32 noundef 16, i32 noundef 0) #3
   br label %dissect_zbee_aps_request_key.exit.i
 
-320:                                              ; preds = %302, %302
-  %321 = load i32, ptr @hf_zbee_aps_cmd_initiator, align 4
-  %322 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %321, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #3
-  %323 = load i32, ptr @hf_zbee_aps_cmd_responder, align 4
-  %324 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %323, ptr noundef nonnull %.1263, i32 noundef 9, i32 noundef 8, i32 noundef -2147483648) #3
-  %325 = load i32, ptr @hf_zbee_aps_cmd_mac, align 4
-  %326 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %325, ptr noundef nonnull %.1263, i32 noundef 17, i32 noundef 16, i32 noundef 0) #3
+319:                                              ; preds = %301, %301
+  %320 = load i32, ptr @hf_zbee_aps_cmd_initiator, align 4
+  %321 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %320, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #3
+  %322 = load i32, ptr @hf_zbee_aps_cmd_responder, align 4
+  %323 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %322, ptr noundef nonnull %.1263, i32 noundef 9, i32 noundef 8, i32 noundef -2147483648) #3
+  %324 = load i32, ptr @hf_zbee_aps_cmd_mac, align 4
+  %325 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %324, ptr noundef nonnull %.1263, i32 noundef 17, i32 noundef 16, i32 noundef 0) #3
   br label %dissect_zbee_aps_request_key.exit.i
 
-327:                                              ; preds = %302
+326:                                              ; preds = %301
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %328 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 1) #3
-  %329 = load i32, ptr @hf_zbee_aps_cmd_key_type, align 4
-  %330 = zext i8 %328 to i32
-  %331 = call ptr @proto_tree_add_uint(ptr noundef %308, i32 noundef %329, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 1, i32 noundef %330) #3
-  br label %332
+  %327 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 1) #3
+  %328 = load i32, ptr @hf_zbee_aps_cmd_key_type, align 4
+  %329 = zext i8 %327 to i32
+  %330 = call ptr @proto_tree_add_uint(ptr noundef %307, i32 noundef %328, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 1, i32 noundef %329) #3
+  br label %331
 
-332:                                              ; preds = %332, %327
-  %indvars.iv.i.i = phi i64 [ 0, %327 ], [ %indvars.iv.next.i.i, %332 ]
-  %333 = trunc i64 %indvars.iv.i.i to i32
-  %334 = add i32 %333, 2
-  %335 = call zeroext i8 @tvb_get_guint8(ptr noundef %.1263, i32 noundef %334) #3
-  %336 = getelementptr [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
-  store i8 %335, ptr %336, align 1
+331:                                              ; preds = %331, %326
+  %indvars.iv.i.i = phi i64 [ 0, %326 ], [ %indvars.iv.next.i.i, %331 ]
+  %332 = trunc i64 %indvars.iv.i.i to i32
+  %333 = add i32 %332, 2
+  %334 = call zeroext i8 @tvb_get_guint8(ptr noundef %.1263, i32 noundef %333) #3
+  %335 = getelementptr [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i
+  store i8 %334, ptr %335, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
-  br i1 %exitcond.not.i.i, label %337, label %332, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %336, label %331, !llvm.loop !4
 
-337:                                              ; preds = %332
-  %338 = load i32, ptr @hf_zbee_aps_cmd_key, align 4
-  %339 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %338, ptr noundef %.1263, i32 noundef 2, i32 noundef 16, i32 noundef 0) #3
+336:                                              ; preds = %331
+  %337 = load i32, ptr @hf_zbee_aps_cmd_key, align 4
+  %338 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %337, ptr noundef %.1263, i32 noundef 2, i32 noundef 16, i32 noundef 0) #3
   call void @zbee_sec_add_key_to_keyring(ptr noundef %1, ptr noundef nonnull %5) #3
-  switch i8 %328, label %dissect_zbee_aps_transport_key.exit.i [
-    i8 1, label %340
-    i8 5, label %340
-    i8 0, label %349
-    i8 4, label %349
-    i8 2, label %354
-    i8 3, label %354
+  switch i8 %327, label %dissect_zbee_aps_transport_key.exit.i [
+    i8 1, label %339
+    i8 5, label %339
+    i8 0, label %348
+    i8 4, label %348
+    i8 2, label %353
+    i8 3, label %353
   ]
 
-340:                                              ; preds = %337, %337
-  %341 = call zeroext i8 @tvb_get_guint8(ptr noundef %.1263, i32 noundef 18) #3
-  %342 = load i32, ptr @hf_zbee_aps_cmd_seqno, align 4
-  %343 = zext i8 %341 to i32
-  %344 = call ptr @proto_tree_add_uint(ptr noundef %308, i32 noundef %342, ptr noundef %.1263, i32 noundef 18, i32 noundef 1, i32 noundef %343) #3
-  %345 = load i32, ptr @hf_zbee_aps_cmd_dst, align 4
-  %346 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %345, ptr noundef %.1263, i32 noundef 19, i32 noundef 8, i32 noundef -2147483648) #3
-  %347 = load i32, ptr @hf_zbee_aps_cmd_src, align 4
-  %348 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %347, ptr noundef %.1263, i32 noundef 27, i32 noundef 8, i32 noundef -2147483648) #3
+339:                                              ; preds = %336, %336
+  %340 = call zeroext i8 @tvb_get_guint8(ptr noundef %.1263, i32 noundef 18) #3
+  %341 = load i32, ptr @hf_zbee_aps_cmd_seqno, align 4
+  %342 = zext i8 %340 to i32
+  %343 = call ptr @proto_tree_add_uint(ptr noundef %307, i32 noundef %341, ptr noundef %.1263, i32 noundef 18, i32 noundef 1, i32 noundef %342) #3
+  %344 = load i32, ptr @hf_zbee_aps_cmd_dst, align 4
+  %345 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %344, ptr noundef %.1263, i32 noundef 19, i32 noundef 8, i32 noundef -2147483648) #3
+  %346 = load i32, ptr @hf_zbee_aps_cmd_src, align 4
+  %347 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %346, ptr noundef %.1263, i32 noundef 27, i32 noundef 8, i32 noundef -2147483648) #3
   br label %dissect_zbee_aps_transport_key.exit.i
 
-349:                                              ; preds = %337, %337
-  %350 = load i32, ptr @hf_zbee_aps_cmd_dst, align 4
-  %351 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %350, ptr noundef %.1263, i32 noundef 18, i32 noundef 8, i32 noundef -2147483648) #3
-  %352 = load i32, ptr @hf_zbee_aps_cmd_src, align 4
-  %353 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %352, ptr noundef %.1263, i32 noundef 26, i32 noundef 8, i32 noundef -2147483648) #3
+348:                                              ; preds = %336, %336
+  %349 = load i32, ptr @hf_zbee_aps_cmd_dst, align 4
+  %350 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %349, ptr noundef %.1263, i32 noundef 18, i32 noundef 8, i32 noundef -2147483648) #3
+  %351 = load i32, ptr @hf_zbee_aps_cmd_src, align 4
+  %352 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %351, ptr noundef %.1263, i32 noundef 26, i32 noundef 8, i32 noundef -2147483648) #3
   br label %dissect_zbee_aps_transport_key.exit.i
 
-354:                                              ; preds = %337, %337
-  %355 = load i32, ptr @hf_zbee_aps_cmd_partner, align 4
-  %356 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %355, ptr noundef %.1263, i32 noundef 18, i32 noundef 8, i32 noundef -2147483648) #3
-  %357 = call zeroext i8 @tvb_get_guint8(ptr noundef %.1263, i32 noundef 26) #3
-  %358 = load i32, ptr @hf_zbee_aps_cmd_initiator_flag, align 4
-  %359 = zext i8 %357 to i64
-  %360 = call ptr @proto_tree_add_boolean(ptr noundef %308, i32 noundef %358, ptr noundef %.1263, i32 noundef 26, i32 noundef 1, i64 noundef %359) #3
+353:                                              ; preds = %336, %336
+  %354 = load i32, ptr @hf_zbee_aps_cmd_partner, align 4
+  %355 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %354, ptr noundef %.1263, i32 noundef 18, i32 noundef 8, i32 noundef -2147483648) #3
+  %356 = call zeroext i8 @tvb_get_guint8(ptr noundef %.1263, i32 noundef 26) #3
+  %357 = load i32, ptr @hf_zbee_aps_cmd_initiator_flag, align 4
+  %358 = zext i8 %356 to i64
+  %359 = call ptr @proto_tree_add_boolean(ptr noundef %307, i32 noundef %357, ptr noundef %.1263, i32 noundef 26, i32 noundef 1, i64 noundef %358) #3
   br label %dissect_zbee_aps_transport_key.exit.i
 
-dissect_zbee_aps_transport_key.exit.i:            ; preds = %354, %349, %340, %337
-  %.0.i.i289 = phi i32 [ 18, %337 ], [ 27, %354 ], [ 34, %349 ], [ 35, %340 ]
+dissect_zbee_aps_transport_key.exit.i:            ; preds = %353, %348, %339, %336
+  %.0.i.i289 = phi i32 [ 18, %336 ], [ 27, %353 ], [ 34, %348 ], [ 35, %339 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %dissect_zbee_aps_request_key.exit.i
 
-361:                                              ; preds = %302
-  %362 = load i32, ptr @hf_zbee_aps_cmd_device, align 4
-  %363 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %362, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #3
-  %364 = icmp ugt i8 %303, 1
-  br i1 %364, label %365, label %dissect_zbee_aps_update_device.exit.i
+360:                                              ; preds = %301
+  %361 = load i32, ptr @hf_zbee_aps_cmd_device, align 4
+  %362 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %361, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #3
+  %363 = icmp ugt i8 %302, 1
+  br i1 %363, label %364, label %dissect_zbee_aps_update_device.exit.i
 
-365:                                              ; preds = %361
-  %366 = load i32, ptr @hf_zbee_aps_cmd_short_addr, align 4
-  %367 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %366, ptr noundef nonnull %.1263, i32 noundef 9, i32 noundef 2, i32 noundef -2147483648) #3
+364:                                              ; preds = %360
+  %365 = load i32, ptr @hf_zbee_aps_cmd_short_addr, align 4
+  %366 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %365, ptr noundef nonnull %.1263, i32 noundef 9, i32 noundef 2, i32 noundef -2147483648) #3
   br label %dissect_zbee_aps_update_device.exit.i
 
-dissect_zbee_aps_update_device.exit.i:            ; preds = %365, %361
-  %.0.i79.i = phi i32 [ 11, %365 ], [ 9, %361 ]
-  %368 = load i32, ptr @hf_zbee_aps_cmd_device_status, align 4
-  %369 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %368, ptr noundef nonnull %.1263, i32 noundef %.0.i79.i, i32 noundef 1, i32 noundef -2147483648) #3
-  %370 = add nuw nsw i32 %.0.i79.i, 1
+dissect_zbee_aps_update_device.exit.i:            ; preds = %364, %360
+  %.0.i79.i = phi i32 [ 11, %364 ], [ 9, %360 ]
+  %367 = load i32, ptr @hf_zbee_aps_cmd_device_status, align 4
+  %368 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %367, ptr noundef nonnull %.1263, i32 noundef %.0.i79.i, i32 noundef 1, i32 noundef -2147483648) #3
+  %369 = add nuw nsw i32 %.0.i79.i, 1
   br label %dissect_zbee_aps_request_key.exit.i
 
-371:                                              ; preds = %302
-  %372 = load i32, ptr @hf_zbee_aps_cmd_device, align 4
-  %373 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %372, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #3
+370:                                              ; preds = %301
+  %371 = load i32, ptr @hf_zbee_aps_cmd_device, align 4
+  %372 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %371, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #3
   br label %dissect_zbee_aps_request_key.exit.i
 
-374:                                              ; preds = %302
-  %375 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 1) #3
-  %376 = load i32, ptr @hf_zbee_aps_cmd_key_type, align 4
-  %377 = zext i8 %375 to i32
-  %378 = call ptr @proto_tree_add_uint(ptr noundef %308, i32 noundef %376, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 1, i32 noundef %377) #3
-  %379 = icmp eq i8 %375, 2
-  br i1 %379, label %380, label %dissect_zbee_aps_request_key.exit.i
+373:                                              ; preds = %301
+  %374 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 1) #3
+  %375 = load i32, ptr @hf_zbee_aps_cmd_key_type, align 4
+  %376 = zext i8 %374 to i32
+  %377 = call ptr @proto_tree_add_uint(ptr noundef %307, i32 noundef %375, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 1, i32 noundef %376) #3
+  %378 = icmp eq i8 %374, 2
+  br i1 %378, label %379, label %dissect_zbee_aps_request_key.exit.i
 
-380:                                              ; preds = %374
-  %381 = load i32, ptr @hf_zbee_aps_cmd_partner, align 4
-  %382 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %381, ptr noundef nonnull %.1263, i32 noundef 2, i32 noundef 8, i32 noundef -2147483648) #3
+379:                                              ; preds = %373
+  %380 = load i32, ptr @hf_zbee_aps_cmd_partner, align 4
+  %381 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %380, ptr noundef nonnull %.1263, i32 noundef 2, i32 noundef 8, i32 noundef -2147483648) #3
   br label %dissect_zbee_aps_request_key.exit.i
 
-383:                                              ; preds = %302
-  %384 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 1) #3
-  %385 = load i32, ptr @hf_zbee_aps_cmd_seqno, align 4
-  %386 = zext i8 %384 to i32
-  %387 = call ptr @proto_tree_add_uint(ptr noundef %308, i32 noundef %385, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 1, i32 noundef %386) #3
+382:                                              ; preds = %301
+  %383 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 1) #3
+  %384 = load i32, ptr @hf_zbee_aps_cmd_seqno, align 4
+  %385 = zext i8 %383 to i32
+  %386 = call ptr @proto_tree_add_uint(ptr noundef %307, i32 noundef %384, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 1, i32 noundef %385) #3
   br label %dissect_zbee_aps_request_key.exit.i
 
-388:                                              ; preds = %302, %302
-  %389 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 1) #3
-  %390 = load i32, ptr @hf_zbee_aps_cmd_ea_key_type, align 4
-  %391 = zext i8 %389 to i32
-  %392 = call ptr @proto_tree_add_uint(ptr noundef %308, i32 noundef %390, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 1, i32 noundef %391) #3
-  %393 = icmp eq i8 %389, 0
-  br i1 %393, label %394, label %dissect_zbee_aps_auth_challenge.exit.i
+387:                                              ; preds = %301, %301
+  %388 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 1) #3
+  %389 = load i32, ptr @hf_zbee_aps_cmd_ea_key_type, align 4
+  %390 = zext i8 %388 to i32
+  %391 = call ptr @proto_tree_add_uint(ptr noundef %307, i32 noundef %389, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 1, i32 noundef %390) #3
+  %392 = icmp eq i8 %388, 0
+  br i1 %392, label %393, label %dissect_zbee_aps_auth_challenge.exit.i
 
-394:                                              ; preds = %388
-  %395 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 2) #3
-  %396 = load i32, ptr @hf_zbee_aps_cmd_seqno, align 4
-  %397 = zext i8 %395 to i32
-  %398 = call ptr @proto_tree_add_uint(ptr noundef %308, i32 noundef %396, ptr noundef nonnull %.1263, i32 noundef 2, i32 noundef 1, i32 noundef %397) #3
+393:                                              ; preds = %387
+  %394 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 2) #3
+  %395 = load i32, ptr @hf_zbee_aps_cmd_seqno, align 4
+  %396 = zext i8 %394 to i32
+  %397 = call ptr @proto_tree_add_uint(ptr noundef %307, i32 noundef %395, ptr noundef nonnull %.1263, i32 noundef 2, i32 noundef 1, i32 noundef %396) #3
   br label %dissect_zbee_aps_auth_challenge.exit.i
 
-dissect_zbee_aps_auth_challenge.exit.i:           ; preds = %394, %388
-  %.0.i81.i = phi i32 [ 3, %394 ], [ 2, %388 ]
-  %399 = load i32, ptr @hf_zbee_aps_cmd_initiator, align 4
-  %400 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %399, ptr noundef nonnull %.1263, i32 noundef %.0.i81.i, i32 noundef 8, i32 noundef -2147483648) #3
-  %401 = or disjoint i32 %.0.i81.i, 8
-  %402 = load i32, ptr @hf_zbee_aps_cmd_responder, align 4
-  %403 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %402, ptr noundef nonnull %.1263, i32 noundef %401, i32 noundef 8, i32 noundef -2147483648) #3
-  %404 = or disjoint i32 %.0.i81.i, 16
-  %405 = load i32, ptr @hf_zbee_aps_cmd_challenge, align 4
-  %406 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %405, ptr noundef nonnull %.1263, i32 noundef %404, i32 noundef 16, i32 noundef 0) #3
-  %407 = or disjoint i32 %.0.i81.i, 32
+dissect_zbee_aps_auth_challenge.exit.i:           ; preds = %393, %387
+  %.0.i81.i = phi i32 [ 3, %393 ], [ 2, %387 ]
+  %398 = load i32, ptr @hf_zbee_aps_cmd_initiator, align 4
+  %399 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %398, ptr noundef nonnull %.1263, i32 noundef %.0.i81.i, i32 noundef 8, i32 noundef -2147483648) #3
+  %400 = or disjoint i32 %.0.i81.i, 8
+  %401 = load i32, ptr @hf_zbee_aps_cmd_responder, align 4
+  %402 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %401, ptr noundef nonnull %.1263, i32 noundef %400, i32 noundef 8, i32 noundef -2147483648) #3
+  %403 = or disjoint i32 %.0.i81.i, 16
+  %404 = load i32, ptr @hf_zbee_aps_cmd_challenge, align 4
+  %405 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %404, ptr noundef nonnull %.1263, i32 noundef %403, i32 noundef 16, i32 noundef 0) #3
+  %406 = or disjoint i32 %.0.i81.i, 32
   br label %dissect_zbee_aps_request_key.exit.i
 
-408:                                              ; preds = %302, %302
-  %409 = load i32, ptr @hf_zbee_aps_cmd_mac, align 4
-  %410 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %409, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
-  %411 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 17) #3
-  %412 = load i32, ptr @hf_zbee_aps_cmd_ea_key_type, align 4
-  %413 = zext i8 %411 to i32
-  %414 = call ptr @proto_tree_add_uint(ptr noundef %308, i32 noundef %412, ptr noundef nonnull %.1263, i32 noundef 17, i32 noundef 1, i32 noundef %413) #3
-  %415 = load i32, ptr @hf_zbee_aps_cmd_ea_data, align 4
-  %416 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %415, ptr noundef nonnull %.1263, i32 noundef 18, i32 noundef 4, i32 noundef 0) #3
+407:                                              ; preds = %301, %301
+  %408 = load i32, ptr @hf_zbee_aps_cmd_mac, align 4
+  %409 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %408, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
+  %410 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 17) #3
+  %411 = load i32, ptr @hf_zbee_aps_cmd_ea_key_type, align 4
+  %412 = zext i8 %410 to i32
+  %413 = call ptr @proto_tree_add_uint(ptr noundef %307, i32 noundef %411, ptr noundef nonnull %.1263, i32 noundef 17, i32 noundef 1, i32 noundef %412) #3
+  %414 = load i32, ptr @hf_zbee_aps_cmd_ea_data, align 4
+  %415 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %414, ptr noundef nonnull %.1263, i32 noundef 18, i32 noundef 4, i32 noundef 0) #3
   br label %dissect_zbee_aps_request_key.exit.i
 
-417:                                              ; preds = %302
-  %418 = load i32, ptr @hf_zbee_aps_cmd_dst, align 4
-  %419 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %418, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #3
-  %420 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %.1263, i32 noundef 9) #3
-  %421 = call ptr @proto_tree_get_root(ptr noundef %308) #3
-  %422 = load ptr, ptr @zbee_aps_handle, align 8
-  %423 = call i32 @call_dissector_with_data(ptr noundef %422, ptr noundef %420, ptr noundef nonnull %1, ptr noundef %421, ptr noundef nonnull %3) #3
-  %424 = call i32 @tvb_captured_length(ptr noundef nonnull %.1263) #3
+416:                                              ; preds = %301
+  %417 = load i32, ptr @hf_zbee_aps_cmd_dst, align 4
+  %418 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %417, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #3
+  %419 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %.1263, i32 noundef 9) #3
+  %420 = call ptr @proto_tree_get_root(ptr noundef %307) #3
+  %421 = load ptr, ptr @zbee_aps_handle, align 8
+  %422 = call i32 @call_dissector_with_data(ptr noundef %421, ptr noundef %419, ptr noundef nonnull %1, ptr noundef %420, ptr noundef nonnull %3) #3
+  %423 = call i32 @tvb_captured_length(ptr noundef nonnull %.1263) #3
   br label %dissect_zbee_aps_request_key.exit.i
 
-425:                                              ; preds = %302
-  %426 = load i32, ptr @hf_zbee_aps_cmd_key_type, align 4
-  %427 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %426, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
-  %428 = load i32, ptr @hf_zbee_aps_cmd_src, align 4
-  %429 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %428, ptr noundef nonnull %.1263, i32 noundef 2, i32 noundef 8, i32 noundef -2147483648) #3
-  %430 = load i32, ptr @hf_zbee_aps_cmd_key_hash, align 4
-  %431 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %430, ptr noundef nonnull %.1263, i32 noundef 10, i32 noundef 16, i32 noundef 0) #3
+424:                                              ; preds = %301
+  %425 = load i32, ptr @hf_zbee_aps_cmd_key_type, align 4
+  %426 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %425, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %427 = load i32, ptr @hf_zbee_aps_cmd_src, align 4
+  %428 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %427, ptr noundef nonnull %.1263, i32 noundef 2, i32 noundef 8, i32 noundef -2147483648) #3
+  %429 = load i32, ptr @hf_zbee_aps_cmd_key_hash, align 4
+  %430 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %429, ptr noundef nonnull %.1263, i32 noundef 10, i32 noundef 16, i32 noundef 0) #3
   br label %dissect_zbee_aps_request_key.exit.i
 
-432:                                              ; preds = %302
-  %433 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 1) #3
-  %434 = zext i8 %433 to i32
-  %435 = load i32, ptr @hf_zbee_aps_cmd_status, align 4
-  %436 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %435, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
-  %437 = load i32, ptr @hf_zbee_aps_cmd_key_type, align 4
-  %438 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %437, ptr noundef nonnull %.1263, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
-  %439 = load i32, ptr @hf_zbee_aps_cmd_dst, align 4
-  %440 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %439, ptr noundef nonnull %.1263, i32 noundef 3, i32 noundef 8, i32 noundef -2147483648) #3
-  %441 = call ptr @val_to_str_const(i32 noundef %434, ptr noundef nonnull @zbee_aps_status_names, ptr noundef nonnull @.str.253) #3
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %308, ptr noundef nonnull @.str.252, ptr noundef %441) #3
-  %442 = load ptr, ptr %18, align 8
-  %443 = call ptr @val_to_str_const(i32 noundef %434, ptr noundef nonnull @zbee_aps_status_names, ptr noundef nonnull @.str.253) #3
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %442, i32 noundef 25, ptr noundef nonnull @.str.252, ptr noundef %443) #3
+431:                                              ; preds = %301
+  %432 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.1263, i32 noundef 1) #3
+  %433 = zext i8 %432 to i32
+  %434 = load i32, ptr @hf_zbee_aps_cmd_status, align 4
+  %435 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %434, ptr noundef nonnull %.1263, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #3
+  %436 = load i32, ptr @hf_zbee_aps_cmd_key_type, align 4
+  %437 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %436, ptr noundef nonnull %.1263, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
+  %438 = load i32, ptr @hf_zbee_aps_cmd_dst, align 4
+  %439 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %438, ptr noundef nonnull %.1263, i32 noundef 3, i32 noundef 8, i32 noundef -2147483648) #3
+  %440 = call ptr @val_to_str_const(i32 noundef %433, ptr noundef nonnull @zbee_aps_status_names, ptr noundef nonnull @.str.253) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %307, ptr noundef nonnull @.str.252, ptr noundef %440) #3
+  %441 = load ptr, ptr %18, align 8
+  %442 = call ptr @val_to_str_const(i32 noundef %433, ptr noundef nonnull @zbee_aps_status_names, ptr noundef nonnull @.str.253) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %441, i32 noundef 25, ptr noundef nonnull @.str.252, ptr noundef %442) #3
   br label %dissect_zbee_aps_request_key.exit.i
 
-dissect_zbee_aps_request_key.exit.i:              ; preds = %432, %425, %417, %408, %dissect_zbee_aps_auth_challenge.exit.i, %383, %380, %374, %371, %dissect_zbee_aps_update_device.exit.i, %dissect_zbee_aps_transport_key.exit.i, %320, %313, %302
-  %.0.i288 = phi i32 [ 1, %302 ], [ 11, %432 ], [ 26, %425 ], [ %424, %417 ], [ 22, %408 ], [ %407, %dissect_zbee_aps_auth_challenge.exit.i ], [ 2, %383 ], [ 9, %371 ], [ %370, %dissect_zbee_aps_update_device.exit.i ], [ %.0.i.i289, %dissect_zbee_aps_transport_key.exit.i ], [ 33, %320 ], [ 33, %313 ], [ 10, %380 ], [ 2, %374 ]
-  %444 = call i32 @dissect_zbee_tlvs(ptr noundef %.1263, ptr noundef %1, ptr noundef %17, i32 noundef %.0.i288, ptr noundef nonnull %3, i8 noundef zeroext 2, i32 noundef %306) #3
-  %445 = call i32 @tvb_captured_length(ptr noundef %.1263) #3
-  %446 = icmp ult i32 %444, %445
-  br i1 %446, label %447, label %dissect_zbee_aps_cmd.exit
+dissect_zbee_aps_request_key.exit.i:              ; preds = %431, %424, %416, %407, %dissect_zbee_aps_auth_challenge.exit.i, %382, %379, %373, %370, %dissect_zbee_aps_update_device.exit.i, %dissect_zbee_aps_transport_key.exit.i, %319, %312, %301
+  %.0.i288 = phi i32 [ 1, %301 ], [ 11, %431 ], [ 26, %424 ], [ %423, %416 ], [ 22, %407 ], [ %406, %dissect_zbee_aps_auth_challenge.exit.i ], [ 2, %382 ], [ 9, %370 ], [ %369, %dissect_zbee_aps_update_device.exit.i ], [ %.0.i.i289, %dissect_zbee_aps_transport_key.exit.i ], [ 33, %319 ], [ 33, %312 ], [ 10, %379 ], [ 2, %373 ]
+  %443 = call i32 @dissect_zbee_tlvs(ptr noundef %.1263, ptr noundef %1, ptr noundef %17, i32 noundef %.0.i288, ptr noundef nonnull %3, i8 noundef zeroext 2, i32 noundef %305) #3
+  %444 = call i32 @tvb_captured_length(ptr noundef %.1263) #3
+  %445 = icmp ult i32 %443, %444
+  br i1 %445, label %446, label %dissect_zbee_aps_cmd.exit
 
-447:                                              ; preds = %dissect_zbee_aps_request_key.exit.i
-  %448 = call ptr @tvb_new_subset_remaining(ptr noundef %.1263, i32 noundef %444) #3
-  %449 = call ptr @proto_tree_get_root(ptr noundef %17) #3
-  %450 = load ptr, ptr %6, align 8
-  call void @proto_item_set_len(ptr noundef %450, i32 noundef %444) #3
-  %451 = call i32 @call_data_dissector(ptr noundef %448, ptr noundef %1, ptr noundef %449) #3
+446:                                              ; preds = %dissect_zbee_aps_request_key.exit.i
+  %447 = call ptr @tvb_new_subset_remaining(ptr noundef %.1263, i32 noundef %443) #3
+  %448 = call ptr @proto_tree_get_root(ptr noundef %17) #3
+  %449 = load ptr, ptr %6, align 8
+  call void @proto_item_set_len(ptr noundef %449, i32 noundef %443) #3
+  %450 = call i32 @call_data_dissector(ptr noundef %447, ptr noundef %1, ptr noundef %448) #3
   br label %dissect_zbee_aps_cmd.exit
 
-dissect_zbee_aps_cmd.exit:                        ; preds = %dissect_zbee_aps_request_key.exit.i, %447
+dissect_zbee_aps_cmd.exit:                        ; preds = %dissect_zbee_aps_request_key.exit.i, %446
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %452 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %456
+  %451 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %455
 
-453:                                              ; preds = %.thread373, %.thread370
-  %.2264 = phi ptr [ %.1263, %.thread370 ], [ %290, %.thread373 ]
+452:                                              ; preds = %.thread373, %.thread370
+  %.2264 = phi ptr [ %.1263, %.thread370 ], [ %289, %.thread373 ]
   %.not287 = icmp eq ptr %.2264, null
   br i1 %.not287, label %.thread382, label %.thread378
 
-.thread378:                                       ; preds = %291, %293, %453
-  %.2264381 = phi ptr [ %.2264, %453 ], [ %.1263, %293 ], [ %.1263, %291 ]
-  %454 = call i32 @call_data_dissector(ptr noundef nonnull %.2264381, ptr noundef nonnull %1, ptr noundef %2) #3
+.thread378:                                       ; preds = %290, %292, %452
+  %.2264381 = phi ptr [ %.2264, %452 ], [ %.1263, %292 ], [ %.1263, %290 ]
+  %453 = call i32 @call_data_dissector(ptr noundef nonnull %.2264381, ptr noundef nonnull %1, ptr noundef %2) #3
   br label %.thread382
 
-.thread382:                                       ; preds = %276, %.thread378, %453
-  %455 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %456
+.thread382:                                       ; preds = %275, %.thread378, %452
+  %454 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  br label %455
 
-456:                                              ; preds = %4, %.thread382, %dissect_zbee_aps_cmd.exit, %299, %295, %272, %240, %.thread350
-  %.0 = phi i32 [ %241, %240 ], [ %455, %.thread382 ], [ %452, %dissect_zbee_aps_cmd.exit ], [ %301, %299 ], [ %297, %295 ], [ %275, %272 ], [ %82, %.thread350 ], [ 0, %4 ]
+455:                                              ; preds = %4, %.thread382, %dissect_zbee_aps_cmd.exit, %298, %294, %271, %239, %.thread350
+  %.0 = phi i32 [ %240, %239 ], [ %454, %.thread382 ], [ %451, %dissect_zbee_aps_cmd.exit ], [ %300, %298 ], [ %296, %294 ], [ %274, %271 ], [ %82, %.thread350 ], [ 0, %4 ]
   ret i32 %.0
 }
 

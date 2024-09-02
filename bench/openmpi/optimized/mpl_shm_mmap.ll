@@ -34,13 +34,13 @@ define range(i32 0, 10) i32 @MPLI_shm_lhnd_close(ptr nocapture noundef %0) local
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MPL_shm_seg_create(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @MPL_shm_seg_create(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef %1, ptr noundef null, i32 noundef 1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @MPL_shm_seg_create_attach_templ(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @MPL_shm_seg_create_attach_templ(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [30 x i8], align 16
   %6 = alloca [26 x i8], align 16
   %7 = and i32 %3, 1
@@ -217,7 +217,7 @@ MPLI_shm_lhnd_close.exit:                         ; preds = %80, %76, %MPLI_shm_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MPL_shm_seg_open(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 10) i32 @MPL_shm_seg_open(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %.not49.i = icmp eq i64 %3, -1
   br i1 %.not49.i, label %4, label %MPLI_shm_ghnd_alloc.exit.i.thread
@@ -265,13 +265,13 @@ MPL_shm_seg_create_attach_templ.exit:             ; preds = %MPLI_shm_ghnd_alloc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MPL_shm_seg_create_and_attach(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @MPL_shm_seg_create_and_attach(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef 17)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @MPL_shm_seg_attach(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @MPL_shm_seg_attach(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i64, ptr %0, align 8
   %.not49.i = icmp eq i64 %5, -1
   br i1 %.not49.i, label %6, label %13
@@ -323,13 +323,13 @@ MPL_shm_seg_create_attach_templ.exit:             ; preds = %MPLI_shm_ghnd_alloc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MPL_shm_fixed_seg_create_and_attach(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @MPL_shm_fixed_seg_create_and_attach(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef 4113)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MPL_shm_fixed_seg_attach(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @MPL_shm_fixed_seg_attach(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @MPL_shm_seg_create_attach_templ(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef 4112)
   ret i32 %5
 }

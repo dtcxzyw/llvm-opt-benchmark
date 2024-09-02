@@ -3497,11 +3497,11 @@ define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readon
 102:                                              ; preds = %101
   %103 = getelementptr inbounds i8, ptr %.3, i64 4
   %104 = load i32, ptr %103, align 4
+  %105 = sext i32 %104 to i64
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %101, %102
-  %105 = phi i32 [ %104, %102 ], [ 0, %101 ]
-  %106 = sext i32 %105 to i64
+  %106 = phi i64 [ %105, %102 ], [ 0, %101 ]
   %107 = icmp slt i64 %indvars.iv223, %106
   br i1 %107, label %108, label %178
 

@@ -62,7 +62,7 @@ define hidden i32 @WebPEstimateBestFilter(ptr nocapture noundef readonly %0, i32
   %44 = zext i8 %42 to i32
   %45 = sub nsw i32 %43, %44
   %46 = tail call i32 @llvm.smax.i32(i32 %45, i32 0)
-  %47 = tail call range(i32 -255, 511) i32 @llvm.umin.i32(i32 %46, i32 255)
+  %47 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %46, i32 255)
   %48 = sub nsw i32 %24, %47
   %49 = tail call i32 @llvm.abs.i32(i32 %48, i1 true)
   %50 = lshr i32 %49, 4

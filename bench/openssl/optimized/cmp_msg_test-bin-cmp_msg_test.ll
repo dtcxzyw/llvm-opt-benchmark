@@ -1048,7 +1048,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_cmp_create_pollreq() #0 {
+define internal range(i32 0, 2) i32 @test_cmp_create_pollreq() #0 {
 entry:
   %call = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.38)
   %cmp = icmp eq ptr %call, null

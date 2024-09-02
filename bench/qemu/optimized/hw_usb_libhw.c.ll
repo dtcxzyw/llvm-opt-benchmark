@@ -23,7 +23,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %2 = phi i32 [ %1, %for.body.lr.ph ], [ %8, %for.inc ]
+  %2 = phi i32 [ %1, %for.body.lr.ph ], [ %9, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %.compoundliteral.sroa.0.037 = phi i32 [ undef, %for.body.lr.ph ], [ %.compoundliteral.sroa.0.1.lcssa, %for.inc ]
   %3 = load ptr, ptr %sgl, align 8
@@ -35,25 +35,24 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 while.body.preheader:                             ; preds = %for.body
   %5 = load i64, ptr %arrayidx, align 8
+  %6 = and i32 %.compoundliteral.sroa.0.037, -67108864
+  %bf.clear8 = or disjoint i32 %6, 1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end
-  %.compoundliteral.sroa.0.134 = phi i32 [ %bf.clear8, %if.end ], [ %.compoundliteral.sroa.0.037, %while.body.preheader ]
   %len.033 = phi i64 [ %sub, %if.end ], [ %4, %while.body.preheader ]
   %base.032 = phi i64 [ %add, %if.end ], [ %5, %while.body.preheader ]
-  %6 = load ptr, ptr %as, align 8
-  %bf.set = and i32 %.compoundliteral.sroa.0.134, -67108864
-  %bf.clear8 = or disjoint i32 %bf.set, 1
+  %7 = load ptr, ptr %as, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xlen.i)
   store i64 %len.033, ptr %xlen.i, align 8
-  %call.i = call ptr @address_space_map(ptr noundef %6, i64 noundef %base.032, ptr noundef nonnull %xlen.i, i1 noundef zeroext %cmp, i32 %bf.clear8) #4
-  %7 = load i64, ptr %xlen.i, align 8
+  %call.i = call ptr @address_space_map(ptr noundef %7, i64 noundef %base.032, ptr noundef nonnull %xlen.i, i1 noundef zeroext %cmp, i32 %bf.clear8) #4
+  %8 = load i64, ptr %xlen.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xlen.i)
   %tobool34.not = icmp eq ptr %call.i, null
   br i1 %tobool34.not, label %err, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %spec.select = call i64 @llvm.umin.i64(i64 %7, i64 %len.033)
+  %spec.select = call i64 @llvm.umin.i64(i64 %8, i64 %len.033)
   call void @qemu_iovec_add(ptr noundef nonnull %iov, ptr noundef nonnull %call.i, i64 noundef %spec.select) #4
   %sub = sub i64 %len.033, %spec.select
   %add = add i64 %spec.select, %base.032
@@ -65,34 +64,34 @@ for.inc.loopexit:                                 ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.loopexit, %for.body
-  %8 = phi i32 [ %2, %for.body ], [ %.pre, %for.inc.loopexit ]
+  %9 = phi i32 [ %2, %for.body ], [ %.pre, %for.inc.loopexit ]
   %.compoundliteral.sroa.0.1.lcssa = phi i32 [ %.compoundliteral.sroa.0.037, %for.body ], [ %bf.clear8, %for.inc.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = sext i32 %8 to i64
-  %cmp1 = icmp slt i64 %indvars.iv.next, %9
+  %10 = sext i32 %9 to i64
+  %cmp1 = icmp slt i64 %indvars.iv.next, %10
   br i1 %cmp1, label %for.body, label %return, !llvm.loop !7
 
 err:                                              ; preds = %while.body
-  %10 = load i32, ptr %p, align 8
-  %cmp.i = icmp eq i32 %10, 105
+  %11 = load i32, ptr %p, align 8
+  %cmp.i = icmp eq i32 %11, 105
   %niov.i = getelementptr inbounds i8, ptr %p, i64 40
-  %11 = load i32, ptr %niov.i, align 8
-  %cmp19.i = icmp sgt i32 %11, 0
+  %12 = load i32, ptr %niov.i, align 8
+  %cmp19.i = icmp sgt i32 %12, 0
   br i1 %cmp19.i, label %for.body.i, label %return
 
 for.body.i:                                       ; preds = %err, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %err ]
-  %12 = load ptr, ptr %as, align 8
-  %13 = load ptr, ptr %iov, align 8
-  %arrayidx.i = getelementptr %struct.iovec, ptr %13, i64 %indvars.iv.i
-  %14 = load ptr, ptr %arrayidx.i, align 8
+  %13 = load ptr, ptr %as, align 8
+  %14 = load ptr, ptr %iov, align 8
+  %arrayidx.i = getelementptr %struct.iovec, ptr %14, i64 %indvars.iv.i
+  %15 = load ptr, ptr %arrayidx.i, align 8
   %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %15 = load i64, ptr %iov_len.i, align 8
-  call void @address_space_unmap(ptr noundef %12, ptr noundef %14, i64 noundef %15, i1 noundef zeroext %cmp.i, i64 noundef %15) #4
+  %16 = load i64, ptr %iov_len.i, align 8
+  call void @address_space_unmap(ptr noundef %13, ptr noundef %15, i64 noundef %16, i1 noundef zeroext %cmp.i, i64 noundef %16) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %16 = load i32, ptr %niov.i, align 8
-  %17 = sext i32 %16 to i64
-  %cmp1.i = icmp slt i64 %indvars.iv.next.i, %17
+  %17 = load i32, ptr %niov.i, align 8
+  %18 = sext i32 %17 to i64
+  %cmp1.i = icmp slt i64 %indvars.iv.next.i, %18
   br i1 %cmp1.i, label %for.body.i, label %return, !llvm.loop !8
 
 return:                                           ; preds = %for.inc, %for.body.i, %entry, %err

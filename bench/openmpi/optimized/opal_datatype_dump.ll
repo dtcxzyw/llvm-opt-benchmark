@@ -111,7 +111,7 @@ define i32 @opal_datatype_contain_basic_datatypes(ptr nocapture noundef readonly
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ult i64 %2, 22
   br i1 %4, label %44, label %5
 

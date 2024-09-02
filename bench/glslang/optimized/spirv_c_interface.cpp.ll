@@ -210,7 +210,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @glslang_program_SPIRV_get_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i64 -2305843009213693952, 2305843009213693952) i64 @glslang_program_SPIRV_get_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8

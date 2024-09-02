@@ -477,73 +477,72 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   %45 = tail call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef %44) #8
   store ptr %45, ptr %2, align 8
   %46 = getelementptr i32, ptr %45, i64 %43
-  br label %47
+  br label %.outer
 
-47:                                               ; preds = %67, %42
-  %.031 = phi ptr [ %45, %42 ], [ %.132, %67 ]
-  %.030 = phi ptr [ %1, %42 ], [ %69, %67 ]
-  %.0 = phi i64 [ 0, %42 ], [ %.1, %67 ]
-  %48 = load i8, ptr %.030, align 1
-  switch i8 %48, label %.thread.loopexit49 [
-    i8 46, label %49
-    i8 49, label %51
-    i8 50, label %51
-    i8 51, label %51
-    i8 52, label %51
-    i8 53, label %51
-    i8 54, label %51
-    i8 55, label %51
-    i8 56, label %51
-    i8 57, label %51
-    i8 48, label %51
+.outer:                                           ; preds = %67, %42
+  %.031.ph = phi ptr [ %68, %67 ], [ %45, %42 ]
+  %.030.ph = phi ptr [ %69, %67 ], [ %1, %42 ]
+  %47 = icmp uge ptr %.031.ph, %46
+  br label %48
+
+48:                                               ; preds = %.outer, %58
+  %.030 = phi ptr [ %66, %58 ], [ %.030.ph, %.outer ]
+  %.0 = phi i64 [ %54, %58 ], [ 0, %.outer ]
+  %49 = load i8, ptr %.030, align 1
+  switch i8 %49, label %.thread.loopexit55 [
+    i8 46, label %67
+    i8 49, label %50
+    i8 50, label %50
+    i8 51, label %50
+    i8 52, label %50
+    i8 53, label %50
+    i8 54, label %50
+    i8 55, label %50
+    i8 56, label %50
+    i8 57, label %50
+    i8 48, label %50
     i8 0, label %.thread
   ]
 
-49:                                               ; preds = %47
-  %50 = getelementptr i8, ptr %.031, i64 4
-  br label %67
+50:                                               ; preds = %48, %48, %48, %48, %48, %48, %48, %48, %48, %48
+  %51 = mul i64 %.0, 10
+  %52 = zext nneg i8 %49 to i64
+  %53 = add i64 %51, -48
+  %54 = add i64 %53, %52
+  %55 = icmp ugt i64 %54, 4294967295
+  %or.cond = select i1 %47, i1 true, i1 %55
+  br i1 %or.cond, label %56, label %58
 
-51:                                               ; preds = %47, %47, %47, %47, %47, %47, %47, %47, %47, %47
-  %52 = mul i64 %.0, 10
-  %53 = zext nneg i8 %48 to i64
-  %54 = add i64 %52, -48
-  %55 = add i64 %54, %53
-  %56 = icmp uge ptr %.031, %46
-  %57 = icmp ugt i64 %55, 4294967295
-  %or.cond = select i1 %56, i1 true, i1 %57
-  br i1 %or.cond, label %58, label %60
-
-58:                                               ; preds = %51
-  %59 = load ptr, ptr %2, align 8
-  tail call void @wmem_free(ptr noundef %0, ptr noundef %59) #8
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %2, align 8
+  tail call void @wmem_free(ptr noundef %0, ptr noundef %57) #8
   store ptr null, ptr %2, align 8
   br label %.thread
 
-60:                                               ; preds = %51
-  %61 = load i32, ptr %.031, align 4
-  %62 = mul i32 %61, 10
-  store i32 %62, ptr %.031, align 4
-  %63 = load i8, ptr %.030, align 1
-  %64 = sext i8 %63 to i32
-  %65 = add i32 %62, -48
-  %66 = add i32 %65, %64
-  store i32 %66, ptr %.031, align 4
+58:                                               ; preds = %50
+  %59 = load i32, ptr %.031.ph, align 4
+  %60 = mul i32 %59, 10
+  store i32 %60, ptr %.031.ph, align 4
+  %61 = load i8, ptr %.030, align 1
+  %62 = sext i8 %61 to i32
+  %63 = add i32 %60, -48
+  %64 = add i32 %63, %62
+  store i32 %64, ptr %.031.ph, align 4
   %.pr = load i8, ptr %.030, align 1
-  br label %67
+  %65 = icmp eq i8 %.pr, 0
+  %66 = getelementptr i8, ptr %.030, i64 1
+  br i1 %65, label %.thread, label %48, !llvm.loop !10
 
-67:                                               ; preds = %60, %49
-  %68 = phi i8 [ %.pr, %60 ], [ 46, %49 ]
-  %.132 = phi ptr [ %.031, %60 ], [ %50, %49 ]
-  %.1 = phi i64 [ %55, %60 ], [ 0, %49 ]
+67:                                               ; preds = %48
+  %68 = getelementptr i8, ptr %.031.ph, i64 4
   %69 = getelementptr i8, ptr %.030, i64 1
-  %.not35 = icmp eq i8 %68, 0
-  br i1 %.not35, label %.thread, label %47, !llvm.loop !10
+  br label %.outer, !llvm.loop !10
 
-.thread.loopexit49:                               ; preds = %47
+.thread.loopexit55:                               ; preds = %48
   br label %.thread
 
-.thread:                                          ; preds = %67, %47, %.thread.loopexit49, %58, %41
-  %.029 = phi i32 [ 0, %58 ], [ 0, %41 ], [ 0, %.thread.loopexit49 ], [ %.012.i, %47 ], [ %.012.i, %67 ]
+.thread:                                          ; preds = %48, %58, %.thread.loopexit55, %56, %41
+  %.029 = phi i32 [ 0, %56 ], [ 0, %41 ], [ 0, %.thread.loopexit55 ], [ %.012.i, %58 ], [ %.012.i, %48 ]
   ret i32 %.029
 }
 

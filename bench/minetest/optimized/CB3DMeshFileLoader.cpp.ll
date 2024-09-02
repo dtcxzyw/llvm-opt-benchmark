@@ -904,11 +904,11 @@ _ZN3irr4core5arrayINS_5scene11SB3dTextureEE9push_backEOS3_.exit: ; preds = %whil
 
 _ZN3irr4core5arrayINS_5scene11SB3dTextureEE9push_backEOS3_.exit._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i_crit_edge: ; preds = %_ZN3irr4core5arrayINS_5scene11SB3dTextureEE9push_backEOS3_.exit
   %.pre15 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !48
+  %14 = icmp ult i64 %.pre15, 16
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN3irr4core5arrayINS_5scene11SB3dTextureEE9push_backEOS3_.exit._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i_crit_edge, %_ZN3irr4core5arrayINS_5scene11SB3dTextureEE9push_backEOS3_.exit.thread
-  %14 = phi i64 [ %.pre15, %_ZN3irr4core5arrayINS_5scene11SB3dTextureEE9push_backEOS3_.exit._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i_crit_edge ], [ 0, %_ZN3irr4core5arrayINS_5scene11SB3dTextureEE9push_backEOS3_.exit.thread ]
-  %cmp3.i.i.i.i = icmp ult i64 %14, 16
+  %cmp3.i.i.i.i = phi i1 [ %14, %_ZN3irr4core5arrayINS_5scene11SB3dTextureEE9push_backEOS3_.exit._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i_crit_edge ], [ true, %_ZN3irr4core5arrayINS_5scene11SB3dTextureEE9push_backEOS3_.exit.thread ]
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN3irr5scene11SB3dTextureD2Ev.exit
 

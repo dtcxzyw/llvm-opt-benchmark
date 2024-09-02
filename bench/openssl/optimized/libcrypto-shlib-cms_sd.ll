@@ -345,14 +345,14 @@ if.end44:                                         ; preds = %if.end38, %if.end31
   call void @X509_ALGOR_set_md(ptr noundef %6, ptr noundef nonnull %md.addr.0) #7
   %digestAlgorithms = getelementptr inbounds i8, ptr %call2, i64 8
   %7 = load ptr, ptr %digestAlgorithms, align 8
-  %call46101 = call i32 @OPENSSL_sk_num(ptr noundef %7) #7
-  %cmp47102 = icmp sgt i32 %call46101, 0
-  br i1 %cmp47102, label %for.body, label %for.end
+  %call4699 = call i32 @OPENSSL_sk_num(ptr noundef %7) #7
+  %cmp47100 = icmp sgt i32 %call4699, 0
+  br i1 %cmp47100, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end44, %for.inc
-  %i.0103 = phi i32 [ %inc, %for.inc ], [ 0, %if.end44 ]
+  %i.0101 = phi i32 [ %inc, %for.inc ], [ 0, %if.end44 ]
   %8 = load ptr, ptr %digestAlgorithms, align 8
-  %call50 = call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %i.0103) #7
+  %call50 = call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %i.0101) #7
   call void @X509_ALGOR_get0(ptr noundef nonnull %aoid, ptr noundef null, ptr noundef null, ptr noundef %call50) #7
   %9 = load ptr, ptr %aoid, align 8
   %call51 = call i32 @OBJ_obj2txt(ptr noundef nonnull %name, i32 noundef 50, ptr noundef %9, i32 noundef 0) #7
@@ -361,14 +361,14 @@ for.body:                                         ; preds = %if.end44, %for.inc
   br i1 %tobool54.not, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i32 %i.0103, 1
+  %inc = add nuw nsw i32 %i.0101, 1
   %10 = load ptr, ptr %digestAlgorithms, align 8
   %call46 = call i32 @OPENSSL_sk_num(ptr noundef %10) #7
   %cmp47 = icmp slt i32 %inc, %call46
   br i1 %cmp47, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %for.body, %if.end44
-  %i.0.lcssa = phi i32 [ 0, %if.end44 ], [ %i.0103, %for.body ], [ %inc, %for.inc ]
+  %i.0.lcssa = phi i32 [ 0, %if.end44 ], [ %i.0101, %for.body ], [ %inc, %for.inc ]
   %11 = load ptr, ptr %digestAlgorithms, align 8
   %call59 = call i32 @OPENSSL_sk_num(ptr noundef %11) #7
   %cmp60 = icmp eq i32 %i.0.lcssa, %call59
@@ -449,25 +449,25 @@ if.then95:                                        ; preds = %if.end92
   %call96 = call i32 @CMS_add_standard_smimecap(ptr noundef nonnull %smcap)
   %tobool97.not = icmp eq i32 %call96, 0
   %14 = load ptr, ptr %smcap, align 8
-  br i1 %tobool97.not, label %if.end100.thread, label %if.end100
+  br i1 %tobool97.not, label %if.then104.critedge, label %if.then98
 
-if.end100.thread:                                 ; preds = %if.then95
+if.then98:                                        ; preds = %if.then95
+  %call99 = call i32 @CMS_add_smimecap(ptr noundef nonnull %call7, ptr noundef %14)
+  %15 = icmp eq i32 %call99, 0
+  call void @OPENSSL_sk_pop_free(ptr noundef %14, ptr noundef nonnull @X509_ALGOR_free) #7
+  br i1 %15, label %if.then104, label %if.end106
+
+if.then104.critedge:                              ; preds = %if.then95
   call void @OPENSSL_sk_pop_free(ptr noundef %14, ptr noundef nonnull @X509_ALGOR_free) #7
   br label %if.then104
 
-if.end100:                                        ; preds = %if.then95
-  %call99 = call i32 @CMS_add_smimecap(ptr noundef nonnull %call7, ptr noundef %14)
-  call void @OPENSSL_sk_pop_free(ptr noundef %14, ptr noundef nonnull @X509_ALGOR_free) #7
-  %tobool103.not = icmp eq i32 %call99, 0
-  br i1 %tobool103.not, label %if.then104, label %if.end106
-
-if.then104:                                       ; preds = %if.end100.thread, %if.end100
+if.then104:                                       ; preds = %if.then104.critedge, %if.then98
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 455, ptr noundef nonnull @__func__.CMS_add1_signer) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 524334, ptr noundef null) #7
   br label %err
 
-if.end106:                                        ; preds = %if.end100, %if.end92
+if.end106:                                        ; preds = %if.then98, %if.end92
   %and107 = and i32 %flags, 1048576
   %tobool108.not = icmp eq i32 %and107, 0
   br i1 %tobool108.not, label %if.end129, label %lor.lhs.false
@@ -513,10 +513,10 @@ if.then132:                                       ; preds = %if.end129
   br i1 %tobool134.not, label %err, label %if.end136
 
 if.end136:                                        ; preds = %if.then132
-  %15 = getelementptr i8, ptr %cms, i64 8
-  %cms.val = load ptr, ptr %15, align 8
-  %16 = getelementptr i8, ptr %cms.val, i64 16
-  %cms.val.val = load ptr, ptr %16, align 8
+  %16 = getelementptr i8, ptr %cms, i64 8
+  %cms.val = load ptr, ptr %16, align 8
+  %17 = getelementptr i8, ptr %cms.val, i64 16
+  %cms.val.val = load ptr, ptr %17, align 8
   %cms.val.val.val = load ptr, ptr %cms.val.val, align 8
   %call.i91 = call i32 @CMS_signed_add1_attr_by_NID(ptr noundef nonnull %call7, i32 noundef 50, i32 noundef 6, ptr noundef %cms.val.val.val, i32 noundef -1) #7
   %cmp.i = icmp slt i32 %call.i91, 1
@@ -556,9 +556,9 @@ if.then160:                                       ; preds = %if.end157
 
 if.then163:                                       ; preds = %if.then160
   %call164 = call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %call) #7
-  %17 = load ptr, ptr %pkey, align 8
+  %18 = load ptr, ptr %pkey, align 8
   %call166 = call ptr @ossl_cms_ctx_get0_propq(ptr noundef %call) #7
-  %call167 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %call164, ptr noundef %17, ptr noundef %call166) #7
+  %call167 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %call164, ptr noundef %18, ptr noundef %call166) #7
   store ptr %call167, ptr %pctx, align 8
   %cmp170 = icmp eq ptr %call167, null
   br i1 %cmp170, label %err, label %if.end172
@@ -569,24 +569,24 @@ if.end172:                                        ; preds = %if.then163
   br i1 %cmp175, label %err, label %if.end177
 
 if.end177:                                        ; preds = %if.end172
-  %18 = load ptr, ptr %pctx, align 8
-  %call179 = call i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef %18, ptr noundef nonnull %md.addr.0) #7
+  %19 = load ptr, ptr %pctx, align 8
+  %call179 = call i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef %19, ptr noundef nonnull %md.addr.0) #7
   %cmp180 = icmp slt i32 %call179, 1
   br i1 %cmp180, label %err, label %if.end194
 
 if.else183:                                       ; preds = %if.then160
-  %19 = load ptr, ptr %mctx, align 8
+  %20 = load ptr, ptr %mctx, align 8
   %call186 = call ptr @EVP_MD_get0_name(ptr noundef nonnull %md.addr.0) #7
   %call187 = call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %call) #7
   %call188 = call ptr @ossl_cms_ctx_get0_propq(ptr noundef %call) #7
-  %call189 = call i32 @EVP_DigestSignInit_ex(ptr noundef %19, ptr noundef nonnull %pctx, ptr noundef %call186, ptr noundef %call187, ptr noundef %call188, ptr noundef %pk, ptr noundef null) #7
+  %call189 = call i32 @EVP_DigestSignInit_ex(ptr noundef %20, ptr noundef nonnull %pctx, ptr noundef %call186, ptr noundef %call187, ptr noundef %call188, ptr noundef %pk, ptr noundef null) #7
   %cmp190 = icmp slt i32 %call189, 1
   br i1 %cmp190, label %err, label %if.end194
 
 if.end194:                                        ; preds = %if.end177, %if.else183, %if.end157
   %signerInfos = getelementptr inbounds i8, ptr %call2, i64 40
-  %20 = load ptr, ptr %signerInfos, align 8
-  %cmp195 = icmp eq ptr %20, null
+  %21 = load ptr, ptr %signerInfos, align 8
+  %cmp195 = icmp eq ptr %21, null
   br i1 %cmp195, label %if.end199, label %lor.lhs.false202
 
 if.end199:                                        ; preds = %if.end194
@@ -596,8 +596,8 @@ if.end199:                                        ; preds = %if.end194
   br i1 %cmp201, label %if.then208, label %lor.lhs.false202
 
 lor.lhs.false202:                                 ; preds = %if.end194, %if.end199
-  %21 = phi ptr [ %call197, %if.end199 ], [ %20, %if.end194 ]
-  %call206 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %21, ptr noundef nonnull %call7) #7
+  %22 = phi ptr [ %call197, %if.end199 ], [ %21, %if.end194 ]
+  %call206 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %22, ptr noundef nonnull %call7) #7
   %tobool207.not = icmp eq i32 %call206, 0
   br i1 %tobool207.not, label %if.then208, label %return
 
@@ -1888,24 +1888,18 @@ cond.true.i:                                      ; preds = %cms_get0_signed.exi
 
 CMS_get0_SignerInfos.exit:                        ; preds = %cms_get0_signed.exit.thread.i, %cms_get0_signed.exit.i, %cond.true.i
   %cond.i = phi ptr [ %2, %cond.true.i ], [ null, %cms_get0_signed.exit.i ], [ null, %cms_get0_signed.exit.thread.i ]
-  %call29 = tail call i32 @OPENSSL_sk_num(ptr noundef %cond.i) #7
-  %cmp10 = icmp sgt i32 %call29, 0
-  br i1 %cmp10, label %for.body.lr.ph, label %for.end
+  %call219 = tail call i32 @OPENSSL_sk_num(ptr noundef %cond.i) #7
+  %cmp20 = icmp sgt i32 %call219, 0
+  br i1 %cmp20, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %CMS_get0_SignerInfos.exit
   %cmp70.not.i = icmp eq ptr %precomp_md, null
   %3 = getelementptr i8, ptr %cms, i64 8
   br label %for.body
 
-for.cond:                                         ; preds = %cms_SignerInfo_content_sign.exit
-  %inc = add nuw nsw i32 %i.011, 1
-  %call2 = call i32 @OPENSSL_sk_num(ptr noundef %cond.i) #7
-  %cmp = icmp slt i32 %inc, %call2
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %i.011 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
-  %call4 = call ptr @OPENSSL_sk_value(ptr noundef %cond.i, i32 noundef %i.011) #7
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %i.021 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %call4 = call ptr @OPENSSL_sk_value(ptr noundef %cond.i, i32 noundef %i.021) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %mdlen.addr.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %computed_md.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %siglen.i)
@@ -1938,14 +1932,14 @@ if.then3.i:                                       ; preds = %if.end.i
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 725, ptr noundef nonnull @__func__.cms_SignerInfo_content_sign) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 133, ptr noundef null) #7
-  br label %cms_SignerInfo_content_sign.exit
+  br label %return.critedge
 
 if.end4.i:                                        ; preds = %if.end.i
   %digestAlgorithm.i = getelementptr inbounds i8, ptr %call4, i64 16
   %5 = load ptr, ptr %digestAlgorithm.i, align 8
   %call5.i = call i32 @ossl_cms_DigestAlgorithm_find_ctx(ptr noundef nonnull %call.i, ptr noundef %chain, ptr noundef %5) #7
   %tobool.not.i = icmp eq i32 %call5.i, 0
-  br i1 %tobool.not.i, label %cms_SignerInfo_content_sign.exit, label %if.end7.i
+  br i1 %tobool.not.i, label %return.critedge, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end4.i
   %pctx8.i = getelementptr inbounds i8, ptr %call4, i64 80
@@ -1956,7 +1950,7 @@ if.end7.i:                                        ; preds = %if.end4.i
 land.lhs.true.i:                                  ; preds = %if.end7.i
   %call10.i = call fastcc i32 @cms_sd_asn1_ctrl(ptr noundef nonnull %call4, i32 noundef 0)
   %tobool11.not.i = icmp eq i32 %call10.i, 0
-  br i1 %tobool11.not.i, label %cms_SignerInfo_content_sign.exit, label %if.end13.i
+  br i1 %tobool11.not.i, label %return.critedge, label %if.end13.i
 
 if.end13.i:                                       ; preds = %land.lhs.true.i, %if.end7.i
   %call14.i = call i32 @CMS_signed_get_attr_count(ptr noundef nonnull %call4) #7
@@ -1969,7 +1963,7 @@ if.then16.i:                                      ; preds = %if.end13.i
 if.then18.i:                                      ; preds = %if.then16.i
   %call19.i = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call.i, ptr noundef nonnull %computed_md.i, ptr noundef nonnull %mdlen.addr.i) #7
   %tobool20.not.i = icmp eq i32 %call19.i, 0
-  br i1 %tobool20.not.i, label %cms_SignerInfo_content_sign.exit, label %if.then18.if.end24_crit_edge.i
+  br i1 %tobool20.not.i, label %return.critedge, label %if.then18.if.end24_crit_edge.i
 
 if.then18.if.end24_crit_edge.i:                   ; preds = %if.then18.i
   %.pre.i = load i32, ptr %mdlen.addr.i, align 4
@@ -1980,7 +1974,7 @@ if.end24.i:                                       ; preds = %if.then18.if.end24_
   %md.addr.0.i = phi ptr [ %precomp_md, %if.then16.i ], [ %computed_md.i, %if.then18.if.end24_crit_edge.i ]
   %call25.i = call i32 @CMS_signed_add1_attr_by_NID(ptr noundef nonnull %call4, i32 noundef 51, i32 noundef 4, ptr noundef nonnull %md.addr.0.i, i32 noundef %7) #7
   %tobool26.not.i = icmp eq i32 %call25.i, 0
-  br i1 %tobool26.not.i, label %cms_SignerInfo_content_sign.exit, label %if.end28.i
+  br i1 %tobool26.not.i, label %return.critedge, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end24.i
   %cms.val.i = load ptr, ptr %3, align 8
@@ -1989,15 +1983,23 @@ if.end28.i:                                       ; preds = %if.end24.i
   %cms.val.val.val.i = load ptr, ptr %cms.val.val.i, align 8
   %call.i.i6 = call i32 @CMS_signed_add1_attr_by_NID(ptr noundef nonnull %call4, i32 noundef 50, i32 noundef 6, ptr noundef %cms.val.val.val.i, i32 noundef -1) #7
   %cmp.i.i = icmp slt i32 %call.i.i6, 1
-  br i1 %cmp.i.i, label %cms_SignerInfo_content_sign.exit, label %if.end32.i
+  br i1 %cmp.i.i, label %return.critedge, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.end28.i
   %call33.i = call i32 @CMS_SignerInfo_sign(ptr noundef nonnull %call4)
-  br label %cms_SignerInfo_content_sign.exit
+  %9 = icmp eq i32 %call33.i, 0
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %call.i) #7
+  call void @EVP_PKEY_CTX_free(ptr noundef null) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mdlen.addr.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %computed_md.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %siglen.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %computed_md40.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %siglen69.i)
+  br i1 %9, label %return, label %for.inc
 
 if.else.i:                                        ; preds = %if.end13.i
-  %9 = load ptr, ptr %pctx8.i, align 8
-  %tobool38.not.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %pctx8.i, align 8
+  %tobool38.not.i = icmp eq ptr %10, null
   br i1 %tobool38.not.i, label %if.else67.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %if.else.i
@@ -2006,40 +2008,40 @@ if.then39.i:                                      ; preds = %if.else.i
 if.then43.i:                                      ; preds = %if.then39.i
   %call45.i = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call.i, ptr noundef nonnull %computed_md40.i, ptr noundef nonnull %mdlen.addr.i) #7
   %tobool46.not.i = icmp eq i32 %call45.i, 0
-  br i1 %tobool46.not.i, label %cms_SignerInfo_content_sign.exit, label %if.end50.i
+  br i1 %tobool46.not.i, label %return.critedge, label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then43.i, %if.then39.i
   %md.addr.1.i = phi ptr [ %precomp_md, %if.then39.i ], [ %computed_md40.i, %if.then43.i ]
-  %10 = load ptr, ptr %pkey.i, align 8
-  %call52.i = call i32 @EVP_PKEY_get_size(ptr noundef %10) #7
+  %11 = load ptr, ptr %pkey.i, align 8
+  %call52.i = call i32 @EVP_PKEY_get_size(ptr noundef %11) #7
   %conv.i = sext i32 %call52.i to i64
   store i64 %conv.i, ptr %siglen.i, align 8
   %cmp53.i = icmp eq i32 %call52.i, 0
-  br i1 %cmp53.i, label %cms_SignerInfo_content_sign.exit, label %lor.lhs.false.i
+  br i1 %cmp53.i, label %return.critedge, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end50.i
   %call55.i = call noalias ptr @CRYPTO_malloc(i64 noundef %conv.i, ptr noundef nonnull @.str, i32 noundef 767) #7
   %cmp56.i = icmp eq ptr %call55.i, null
-  br i1 %cmp56.i, label %cms_SignerInfo_content_sign.exit, label %if.end59.i
+  br i1 %cmp56.i, label %return.critedge, label %if.end59.i
 
 if.end59.i:                                       ; preds = %lor.lhs.false.i
-  %11 = load i32, ptr %mdlen.addr.i, align 4
-  %conv60.i = zext i32 %11 to i64
-  %call61.i = call i32 @EVP_PKEY_sign(ptr noundef nonnull %9, ptr noundef nonnull %call55.i, ptr noundef nonnull %siglen.i, ptr noundef nonnull %md.addr.1.i, i64 noundef %conv60.i) #7
+  %12 = load i32, ptr %mdlen.addr.i, align 4
+  %conv60.i = zext i32 %12 to i64
+  %call61.i = call i32 @EVP_PKEY_sign(ptr noundef nonnull %10, ptr noundef nonnull %call55.i, ptr noundef nonnull %siglen.i, ptr noundef nonnull %md.addr.1.i, i64 noundef %conv60.i) #7
   %cmp62.i = icmp slt i32 %call61.i, 1
   br i1 %cmp62.i, label %if.then64.i, label %if.end65.i
 
 if.then64.i:                                      ; preds = %if.end59.i
   call void @CRYPTO_free(ptr noundef nonnull %call55.i, ptr noundef nonnull @.str, i32 noundef 770) #7
-  br label %cms_SignerInfo_content_sign.exit
+  br label %return.critedge
 
 if.end65.i:                                       ; preds = %if.end59.i
   %signature.i = getelementptr inbounds i8, ptr %call4, i64 40
-  %12 = load ptr, ptr %signature.i, align 8
-  %13 = load i64, ptr %siglen.i, align 8
-  %conv66.i = trunc i64 %13 to i32
-  call void @ASN1_STRING_set0(ptr noundef %12, ptr noundef nonnull %call55.i, i32 noundef %conv66.i) #7
-  br label %cms_SignerInfo_content_sign.exit
+  %13 = load ptr, ptr %signature.i, align 8
+  %14 = load i64, ptr %siglen.i, align 8
+  %conv66.i = trunc i64 %14 to i32
+  call void @ASN1_STRING_set0(ptr noundef %13, ptr noundef nonnull %call55.i, i32 noundef %conv66.i) #7
+  br label %for.inc.critedge
 
 if.else67.i:                                      ; preds = %if.else.i
   br i1 %cmp70.not.i, label %if.end73.i, label %if.then72.i
@@ -2048,26 +2050,26 @@ if.then72.i:                                      ; preds = %if.else67.i
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 779, ptr noundef nonnull @__func__.cms_SignerInfo_content_sign) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 182, ptr noundef null) #7
-  br label %cms_SignerInfo_content_sign.exit
+  br label %return.critedge
 
 if.end73.i:                                       ; preds = %if.else67.i
-  %14 = load ptr, ptr %pkey.i, align 8
-  %call75.i = call i32 @EVP_PKEY_get_size(ptr noundef %14) #7
+  %15 = load ptr, ptr %pkey.i, align 8
+  %call75.i = call i32 @EVP_PKEY_get_size(ptr noundef %15) #7
   store i32 %call75.i, ptr %siglen69.i, align 4
   %cmp76.i = icmp eq i32 %call75.i, 0
-  br i1 %cmp76.i, label %cms_SignerInfo_content_sign.exit, label %lor.lhs.false78.i
+  br i1 %cmp76.i, label %return.critedge, label %lor.lhs.false78.i
 
 lor.lhs.false78.i:                                ; preds = %if.end73.i
   %conv79.i = zext i32 %call75.i to i64
   %call80.i = call noalias ptr @CRYPTO_malloc(i64 noundef %conv79.i, ptr noundef nonnull @.str, i32 noundef 783) #7
   %cmp81.i = icmp eq ptr %call80.i, null
-  br i1 %cmp81.i, label %cms_SignerInfo_content_sign.exit, label %if.end84.i
+  br i1 %cmp81.i, label %return.critedge, label %if.end84.i
 
 if.end84.i:                                       ; preds = %lor.lhs.false78.i
-  %15 = load ptr, ptr %pkey.i, align 8
+  %16 = load ptr, ptr %pkey.i, align 8
   %call86.i = call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %call1.i) #7
   %call87.i = call ptr @ossl_cms_ctx_get0_propq(ptr noundef %call1.i) #7
-  %call88.i = call i32 @EVP_SignFinal_ex(ptr noundef nonnull %call.i, ptr noundef nonnull %call80.i, ptr noundef nonnull %siglen69.i, ptr noundef %15, ptr noundef %call86.i, ptr noundef %call87.i) #7
+  %call88.i = call i32 @EVP_SignFinal_ex(ptr noundef nonnull %call.i, ptr noundef nonnull %call80.i, ptr noundef nonnull %siglen69.i, ptr noundef %16, ptr noundef %call86.i, ptr noundef %call87.i) #7
   %tobool89.not.i = icmp eq i32 %call88.i, 0
   br i1 %tobool89.not.i, label %if.then90.i, label %if.end91.i
 
@@ -2076,39 +2078,53 @@ if.then90.i:                                      ; preds = %if.end84.i
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 788, ptr noundef nonnull @__func__.cms_SignerInfo_content_sign) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 139, ptr noundef null) #7
   call void @CRYPTO_free(ptr noundef nonnull %call80.i, ptr noundef nonnull @.str, i32 noundef 789) #7
-  br label %cms_SignerInfo_content_sign.exit
+  br label %return.critedge
 
 if.end91.i:                                       ; preds = %if.end84.i
   %signature92.i = getelementptr inbounds i8, ptr %call4, i64 40
-  %16 = load ptr, ptr %signature92.i, align 8
-  %17 = load i32, ptr %siglen69.i, align 4
-  call void @ASN1_STRING_set0(ptr noundef %16, ptr noundef nonnull %call80.i, i32 noundef %17) #7
-  br label %cms_SignerInfo_content_sign.exit
+  %17 = load ptr, ptr %signature92.i, align 8
+  %18 = load i32, ptr %siglen69.i, align 4
+  call void @ASN1_STRING_set0(ptr noundef %17, ptr noundef nonnull %call80.i, i32 noundef %18) #7
+  br label %for.inc.critedge
 
-cms_SignerInfo_content_sign.exit:                 ; preds = %if.then3.i, %if.end4.i, %land.lhs.true.i, %if.then18.i, %if.end24.i, %if.end28.i, %if.end32.i, %if.then43.i, %if.end50.i, %lor.lhs.false.i, %if.then64.i, %if.end65.i, %if.then72.i, %if.end73.i, %lor.lhs.false78.i, %if.then90.i, %if.end91.i
-  %pctx.0.i = phi ptr [ null, %if.then3.i ], [ null, %if.end28.i ], [ null, %if.end24.i ], [ null, %if.then18.i ], [ %9, %if.end50.i ], [ %9, %lor.lhs.false.i ], [ %9, %if.then64.i ], [ %9, %if.then43.i ], [ null, %if.then72.i ], [ null, %if.end73.i ], [ null, %lor.lhs.false78.i ], [ null, %if.then90.i ], [ null, %land.lhs.true.i ], [ null, %if.end4.i ], [ %9, %if.end65.i ], [ null, %if.end91.i ], [ null, %if.end32.i ]
-  %r.0.i = phi i32 [ 0, %if.then3.i ], [ 0, %if.end28.i ], [ 0, %if.end24.i ], [ 0, %if.then18.i ], [ 0, %if.end50.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.then64.i ], [ 0, %if.then43.i ], [ 0, %if.then72.i ], [ 0, %if.end73.i ], [ 0, %lor.lhs.false78.i ], [ 0, %if.then90.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end4.i ], [ 1, %if.end65.i ], [ 1, %if.end91.i ], [ %call33.i, %if.end32.i ]
+for.inc.critedge:                                 ; preds = %if.end91.i, %if.end65.i
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call.i) #7
-  call void @EVP_PKEY_CTX_free(ptr noundef %pctx.0.i) #7
+  call void @EVP_PKEY_CTX_free(ptr noundef %10) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mdlen.addr.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %computed_md.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %siglen.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %computed_md40.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %siglen69.i)
-  %tobool.not = icmp eq i32 %r.0.i, 0
-  br i1 %tobool.not, label %return, label %for.cond
+  br label %for.inc
 
-for.end:                                          ; preds = %for.cond, %CMS_get0_SignerInfos.exit
+for.inc:                                          ; preds = %for.inc.critedge, %if.end32.i
+  %inc = add nuw nsw i32 %i.021, 1
+  %call2 = call i32 @OPENSSL_sk_num(ptr noundef %cond.i) #7
+  %cmp = icmp slt i32 %inc, %call2
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+
+for.end:                                          ; preds = %for.inc, %CMS_get0_SignerInfos.exit
   %d = getelementptr inbounds i8, ptr %cms, i64 8
-  %18 = load ptr, ptr %d, align 8
-  %encapContentInfo = getelementptr inbounds i8, ptr %18, i64 16
-  %19 = load ptr, ptr %encapContentInfo, align 8
-  %partial = getelementptr inbounds i8, ptr %19, i64 16
+  %19 = load ptr, ptr %d, align 8
+  %encapContentInfo = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = load ptr, ptr %encapContentInfo, align 8
+  %partial = getelementptr inbounds i8, ptr %20, i64 16
   store i32 0, ptr %partial, align 8
   br label %return
 
-return:                                           ; preds = %cms_SignerInfo_content_sign.exit, %cms_SignerInfo_content_sign.exit.thread, %for.end
-  %retval.0 = phi i32 [ 1, %for.end ], [ 0, %cms_SignerInfo_content_sign.exit.thread ], [ 0, %cms_SignerInfo_content_sign.exit ]
+return.critedge:                                  ; preds = %if.end4.i, %land.lhs.true.i, %lor.lhs.false78.i, %if.end73.i, %if.then43.i, %lor.lhs.false.i, %if.end50.i, %if.then18.i, %if.end24.i, %if.end28.i, %if.then90.i, %if.then72.i, %if.then64.i, %if.then3.i
+  %pctx.0.i.ph = phi ptr [ null, %if.then90.i ], [ null, %if.then72.i ], [ %10, %if.then64.i ], [ null, %if.then3.i ], [ null, %if.end28.i ], [ null, %if.end24.i ], [ null, %if.then18.i ], [ %10, %if.end50.i ], [ %10, %lor.lhs.false.i ], [ %10, %if.then43.i ], [ null, %if.end73.i ], [ null, %lor.lhs.false78.i ], [ null, %land.lhs.true.i ], [ null, %if.end4.i ]
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %call.i) #7
+  call void @EVP_PKEY_CTX_free(ptr noundef %pctx.0.i.ph) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mdlen.addr.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %computed_md.i)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %siglen.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %computed_md40.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %siglen69.i)
+  br label %return
+
+return:                                           ; preds = %if.end32.i, %return.critedge, %cms_SignerInfo_content_sign.exit.thread, %for.end
+  %retval.0 = phi i32 [ 1, %for.end ], [ 0, %cms_SignerInfo_content_sign.exit.thread ], [ 0, %return.critedge ], [ 0, %if.end32.i ]
   ret i32 %retval.0
 }
 

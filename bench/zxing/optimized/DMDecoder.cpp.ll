@@ -763,7 +763,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59: ; 
 .body57:                                          ; preds = %191, %174, %193
   %.pn46 = phi { ptr, i32 } [ %194, %193 ], [ %192, %191 ], [ %175, %174 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #17
-  br label %1073
+  br label %1074
 
 195:                                              ; preds = %.preheader134, %_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev.exit
   %.035 = phi i1 [ %.136, %_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev.exit ], [ false, %.preheader134 ]
@@ -823,7 +823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit66: ; 
 205:                                              ; preds = %195
   %206 = landingpad { ptr, i32 }
           cleanup
-  br label %1073
+  br label %1074
 
 207:                                              ; preds = %.noexc62, %200
   %208 = landingpad { ptr, i32 }
@@ -3302,48 +3302,48 @@ _ZN5ZXing7Content9push_backEh.exit.i:             ; preds = %.noexc107.i, %_ZN5Z
   br label %1058
 
 1058:                                             ; preds = %271, %1045, %275
-  %.139 = phi i32 [ 1, %275 ], [ 1, %1045 ], [ 2, %271 ]
+  %1059 = phi i1 [ false, %275 ], [ false, %1045 ], [ true, %271 ]
   %.237 = phi i1 [ %.035, %275 ], [ %.035, %1045 ], [ true, %271 ]
-  %1059 = load ptr, ptr %54, align 8
-  %.not.i.i.i.i85 = icmp eq ptr %1059, null
-  br i1 %.not.i.i.i.i85, label %_ZN5ZXing9ByteArrayD2Ev.exit, label %1060
+  %1060 = load ptr, ptr %54, align 8
+  %.not.i.i.i.i85 = icmp eq ptr %1060, null
+  br i1 %.not.i.i.i.i85, label %_ZN5ZXing9ByteArrayD2Ev.exit, label %1061
 
-1060:                                             ; preds = %1058
-  call void @_ZdlPv(ptr noundef nonnull %1059) #19
+1061:                                             ; preds = %1058
+  call void @_ZdlPv(ptr noundef nonnull %1060) #19
   br label %_ZN5ZXing9ByteArrayD2Ev.exit
 
 .body73:                                          ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %254, %251, %.loopexit143, %276
   %.pn = phi { ptr, i32 } [ %277, %276 ], [ %252, %254 ], [ %252, %251 ], [ %.merged.i, %.loopexit143 ], [ %lpad.loopexit131, %.loopexit ], [ %lpad.loopexit140, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp141, %.loopexit.split-lp.loopexit.split-lp ]
-  %1061 = load ptr, ptr %54, align 8
-  %.not.i.i.i.i86 = icmp eq ptr %1061, null
-  br i1 %.not.i.i.i.i86, label %_ZN5ZXing9ByteArrayD2Ev.exit87, label %1062
+  %1062 = load ptr, ptr %54, align 8
+  %.not.i.i.i.i86 = icmp eq ptr %1062, null
+  br i1 %.not.i.i.i.i86, label %_ZN5ZXing9ByteArrayD2Ev.exit87, label %1063
 
-1062:                                             ; preds = %.body73
-  call void @_ZdlPv(ptr noundef nonnull %1061) #19
+1063:                                             ; preds = %.body73
+  call void @_ZdlPv(ptr noundef nonnull %1062) #19
   br label %_ZN5ZXing9ByteArrayD2Ev.exit87
 
-_ZN5ZXing9ByteArrayD2Ev.exit:                     ; preds = %1060, %1058, %204
-  %.038 = phi i32 [ 1, %204 ], [ %.139, %1058 ], [ %.139, %1060 ]
-  %.136 = phi i1 [ %.035, %204 ], [ %.237, %1058 ], [ %.237, %1060 ]
-  %1063 = load ptr, ptr %50, align 8
-  %1064 = load ptr, ptr %91, align 8
-  %.not4.i.i.i.i = icmp eq ptr %1063, %1064
+_ZN5ZXing9ByteArrayD2Ev.exit:                     ; preds = %1061, %1058, %204
+  %.038 = phi i1 [ false, %204 ], [ %1059, %1058 ], [ %1059, %1061 ]
+  %.136 = phi i1 [ %.035, %204 ], [ %.237, %1058 ], [ %.237, %1061 ]
+  %1064 = load ptr, ptr %50, align 8
+  %1065 = load ptr, ptr %91, align 8
+  %.not4.i.i.i.i = icmp eq ptr %1064, %1065
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5ZXing9ByteArrayD2Ev.exit, %_ZSt8_DestroyIN5ZXing10DataMatrix9DataBlockEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %1068, %_ZSt8_DestroyIN5ZXing10DataMatrix9DataBlockEEvPT_.exit.i.i.i.i ], [ %1063, %_ZN5ZXing9ByteArrayD2Ev.exit ]
-  %1065 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
-  %1066 = load ptr, ptr %1065, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1066, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5ZXing10DataMatrix9DataBlockEEvPT_.exit.i.i.i.i, label %1067
+  %.05.i.i.i.i = phi ptr [ %1069, %_ZSt8_DestroyIN5ZXing10DataMatrix9DataBlockEEvPT_.exit.i.i.i.i ], [ %1064, %_ZN5ZXing9ByteArrayD2Ev.exit ]
+  %1066 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %1067 = load ptr, ptr %1066, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1067, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5ZXing10DataMatrix9DataBlockEEvPT_.exit.i.i.i.i, label %1068
 
-1067:                                             ; preds = %.lr.ph.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %1066) #19
+1068:                                             ; preds = %.lr.ph.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %1067) #19
   br label %_ZSt8_DestroyIN5ZXing10DataMatrix9DataBlockEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyIN5ZXing10DataMatrix9DataBlockEEvPT_.exit.i.i.i.i: ; preds = %1067, %.lr.ph.i.i.i.i
-  %1068 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i88 = icmp eq ptr %1068, %1064
+_ZSt8_DestroyIN5ZXing10DataMatrix9DataBlockEEvPT_.exit.i.i.i.i: ; preds = %1068, %.lr.ph.i.i.i.i
+  %1069 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i88 = icmp eq ptr %1069, %1065
   br i1 %.not.i.i.i.i88, label %_ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !23
 
 _ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN5ZXing10DataMatrix9DataBlockEEvPT_.exit.i.i.i.i
@@ -3351,47 +3351,46 @@ _ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exitthread-pre-s
   br label %_ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %_ZN5ZXing9ByteArrayD2Ev.exit
-  %1069 = phi ptr [ %.pr.i89, %_ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %1063, %_ZN5ZXing9ByteArrayD2Ev.exit ]
-  %.not.i.i.i90 = icmp eq ptr %1069, null
-  br i1 %.not.i.i.i90, label %_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev.exit, label %1070
+  %1070 = phi ptr [ %.pr.i89, %_ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %1064, %_ZN5ZXing9ByteArrayD2Ev.exit ]
+  %.not.i.i.i90 = icmp eq ptr %1070, null
+  br i1 %.not.i.i.i90, label %_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev.exit, label %1071
 
-1070:                                             ; preds = %_ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %1069) #19
+1071:                                             ; preds = %_ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %1070) #19
   br label %_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exit.i, %1070
-  %cond = icmp eq i32 %.038, 2
-  br i1 %cond, label %195, label %.loopexit144
+_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ZXing10DataMatrix9DataBlockES2_EvT_S4_RSaIT0_E.exit.i, %1071
+  br i1 %.038, label %195, label %.loopexit144
 
-_ZN5ZXing9ByteArrayD2Ev.exit87:                   ; preds = %.loopexit135, %.loopexit.split-lp136, %1062, %.body73, %.body64
-  %.pn43.pn = phi { ptr, i32 } [ %.pn43, %.body64 ], [ %.pn, %.body73 ], [ %.pn, %1062 ], [ %lpad.loopexit137, %.loopexit135 ], [ %lpad.loopexit.split-lp138, %.loopexit.split-lp136 ]
+_ZN5ZXing9ByteArrayD2Ev.exit87:                   ; preds = %.loopexit135, %.loopexit.split-lp136, %1063, %.body73, %.body64
+  %.pn43.pn = phi { ptr, i32 } [ %.pn43, %.body64 ], [ %.pn, %.body73 ], [ %.pn, %1063 ], [ %lpad.loopexit137, %.loopexit135 ], [ %lpad.loopexit.split-lp138, %.loopexit.split-lp136 ]
   call void @_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #17
-  br label %1073
+  br label %1074
 
 .loopexit144:                                     ; preds = %_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EED2Ev.exit, %179
-  %1071 = load ptr, ptr %46, align 8
-  %.not.i.i.i.i91 = icmp eq ptr %1071, null
-  br i1 %.not.i.i.i.i91, label %_ZN5ZXing9ByteArrayD2Ev.exit92, label %1072
+  %1072 = load ptr, ptr %46, align 8
+  %.not.i.i.i.i91 = icmp eq ptr %1072, null
+  br i1 %.not.i.i.i.i91, label %_ZN5ZXing9ByteArrayD2Ev.exit92, label %1073
 
-1072:                                             ; preds = %.loopexit144
-  call void @_ZdlPv(ptr noundef nonnull %1071) #19
+1073:                                             ; preds = %.loopexit144
+  call void @_ZdlPv(ptr noundef nonnull %1072) #19
   br label %_ZN5ZXing9ByteArrayD2Ev.exit92
 
-1073:                                             ; preds = %_ZN5ZXing9ByteArrayD2Ev.exit87, %205, %.body57
+1074:                                             ; preds = %_ZN5ZXing9ByteArrayD2Ev.exit87, %205, %.body57
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %.body57 ], [ %.pn43.pn, %_ZN5ZXing9ByteArrayD2Ev.exit87 ], [ %206, %205 ]
-  %1074 = load ptr, ptr %46, align 8
-  %.not.i.i.i.i93 = icmp eq ptr %1074, null
-  br i1 %.not.i.i.i.i93, label %_ZN5ZXing9ByteArrayD2Ev.exit94, label %1075
+  %1075 = load ptr, ptr %46, align 8
+  %.not.i.i.i.i93 = icmp eq ptr %1075, null
+  br i1 %.not.i.i.i.i93, label %_ZN5ZXing9ByteArrayD2Ev.exit94, label %1076
 
-1075:                                             ; preds = %1073
-  call void @_ZdlPv(ptr noundef nonnull %1074) #19
+1076:                                             ; preds = %1074
+  call void @_ZdlPv(ptr noundef nonnull %1075) #19
   br label %_ZN5ZXing9ByteArrayD2Ev.exit94
 
-_ZN5ZXing9ByteArrayD2Ev.exit92:                   ; preds = %1072, %.loopexit144, %70
+_ZN5ZXing9ByteArrayD2Ev.exit92:                   ; preds = %1073, %.loopexit144, %70
   ret void
 
-_ZN5ZXing9ByteArrayD2Ev.exit94:                   ; preds = %1075, %1073, %.body
-  %.pn49.pn = phi { ptr, i32 } [ %.pn49, %.body ], [ %.pn46.pn, %1073 ], [ %.pn46.pn, %1075 ]
+_ZN5ZXing9ByteArrayD2Ev.exit94:                   ; preds = %1076, %1074, %.body
+  %.pn49.pn = phi { ptr, i32 } [ %.pn49, %.body ], [ %.pn46.pn, %1074 ], [ %.pn46.pn, %1076 ]
   resume { ptr, i32 } %.pn49.pn
 }
 

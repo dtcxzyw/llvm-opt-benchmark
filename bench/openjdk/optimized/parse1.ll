@@ -2121,16 +2121,16 @@ define hidden void @_ZN5ParseC2EP8JVMStateP8ciMethodf(ptr noundef nonnull align 
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not86 = icmp eq ptr %12, null
-  br i1 %.not86, label %16, label %13
+  br i1 %.not86, label %17, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
-  br label %16
+  %16 = add i32 %15, 1
+  br label %17
 
-16:                                               ; preds = %4, %13
-  %17 = phi i32 [ %15, %13 ], [ 0, %4 ]
-  %18 = add i32 %17, 1
+17:                                               ; preds = %4, %13
+  %18 = phi i32 [ %16, %13 ], [ 1, %4 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %18, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 240
@@ -2152,12 +2152,12 @@ define hidden void @_ZN5ParseC2EP8JVMStateP8ciMethodf(ptr noundef nonnull align 
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %34
 
-32:                                               ; preds = %16
+32:                                               ; preds = %17
   %33 = getelementptr inbounds i8, ptr %25, i64 128
   store i8 1, ptr %33, align 8
   br label %34
 
-34:                                               ; preds = %32, %16
+34:                                               ; preds = %32, %17
   %35 = getelementptr inbounds i8, ptr %2, i64 24
   %.sroa.0.0.copyload.i.i = load i64, ptr %35, align 8
   %36 = and i64 %.sroa.0.0.copyload.i.i, 32
@@ -2223,22 +2223,22 @@ _ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit: ; preds = %47, %_ZN8ciMe
   %66 = getelementptr inbounds i8, ptr %65, i64 123
   %67 = load i8, ptr %66, align 1
   %68 = trunc i8 %67 to i1
-  br i1 %68, label %72, label %69
+  br i1 %68, label %73, label %69
 
 69:                                               ; preds = %_ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit
   %70 = load ptr, ptr %9, align 8
   %71 = tail call noundef zeroext i1 @_ZNK8ciMethod9has_loopsEv(ptr noundef nonnull align 8 dereferenceable(160) %70) #14
-  br label %72
+  %72 = zext i1 %71 to i8
+  br label %73
 
-72:                                               ; preds = %69, %_ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit
-  %73 = phi i1 [ true, %_ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit ], [ %71, %69 ]
-  %74 = zext i1 %73 to i8
+73:                                               ; preds = %69, %_ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit
+  %74 = phi i8 [ 1, %_ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit ], [ %72, %69 ]
   store i8 %74, ptr %66, align 1
   %75 = load float, ptr %10, align 8
   %76 = fcmp ugt float %75, 0.000000e+00
   br i1 %76, label %77, label %84
 
-77:                                               ; preds = %72
+77:                                               ; preds = %73
   %78 = getelementptr inbounds i8, ptr %2, i64 92
   %79 = load i32, ptr %78, align 4
   %80 = sitofp i32 %79 to float
@@ -2249,8 +2249,8 @@ _ZN16ciBytecodeStream15reset_to_methodEP8ciMethod.exit: ; preds = %47, %_ZN8ciMe
   %83 = fdiv float %75, %80
   br label %84
 
-84:                                               ; preds = %77, %72, %82
-  %.sink = phi float [ %83, %82 ], [ 1.000000e+00, %72 ], [ 1.000000e+00, %77 ]
+84:                                               ; preds = %77, %73, %82
+  %.sink = phi float [ %83, %82 ], [ 1.000000e+00, %73 ], [ 1.000000e+00, %77 ]
   %85 = getelementptr inbounds i8, ptr %0, i64 100
   store float %.sink, ptr %85, align 4
   %86 = load ptr, ptr %24, align 8

@@ -1256,7 +1256,7 @@ define dso_local void @i915_active_fini(ptr nocapture noundef readonly %0) local
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @i915_active_acquire_preallocate_barrier(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1615,7 +1615,7 @@ define dso_local void @i915_active_acquire_barrier(ptr noundef %0) local_unnamed
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %2, ptr null, ptr elementtype(ptr) %2) #8, !srcloc !13
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %.loopexit6, label %5
+  br i1 %4, label %.loopexit5, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1631,7 +1631,7 @@ define dso_local void @i915_active_acquire_barrier(ptr noundef %0) local_unnamed
   %14 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #8
   %15 = load ptr, ptr %7, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit5, label %17
+  br i1 %16, label %32, label %17
 
 17:                                               ; preds = %8
   %18 = getelementptr i8, ptr %9, i64 32
@@ -1647,53 +1647,53 @@ define dso_local void @i915_active_acquire_barrier(ptr noundef %0) local_unnamed
   %26 = getelementptr inbounds i8, ptr %21, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit5.loopexit, label %20, !llvm.loop !38
+  br i1 %28, label %29, label %20, !llvm.loop !38
 
-.loopexit5.loopexit:                              ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %21, i64 %25
-  br label %.loopexit5
+29:                                               ; preds = %20
+  %30 = getelementptr inbounds i8, ptr %21, i64 %25
+  %31 = ptrtoint ptr %21 to i64
+  br label %32
 
-.loopexit5:                                       ; preds = %.loopexit5.loopexit, %8
-  %30 = phi ptr [ %7, %8 ], [ %29, %.loopexit5.loopexit ]
-  %31 = phi ptr [ null, %8 ], [ %21, %.loopexit5.loopexit ]
-  %32 = ptrtoint ptr %31 to i64
-  store i64 %32, ptr %11, align 8
-  %33 = getelementptr i8, ptr %9, i64 -24
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  store ptr %11, ptr %30, align 8
+32:                                               ; preds = %29, %8
+  %33 = phi ptr [ %30, %29 ], [ %7, %8 ]
+  %34 = phi i64 [ %31, %29 ], [ 0, %8 ]
+  store i64 %34, ptr %11, align 8
+  %35 = getelementptr i8, ptr %9, i64 -24
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+  store ptr %11, ptr %33, align 8
   tail call void @rb_insert_color(ptr noundef %11, ptr noundef %7) #8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %14) #8
-  %34 = getelementptr inbounds i8, ptr %13, i64 168
-  %35 = tail call zeroext i1 @llist_add_batch(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef %34) #8
-  %36 = getelementptr inbounds i8, ptr %13, i64 352
-  %37 = load volatile i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, 1
-  br i1 %38, label %._crit_edge, label %.lr.ph, !prof !6
+  %36 = getelementptr inbounds i8, ptr %13, i64 168
+  %37 = tail call zeroext i1 @llist_add_batch(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef %36) #8
+  %38 = getelementptr inbounds i8, ptr %13, i64 352
+  %39 = load volatile i32, ptr %38, align 4
+  %40 = icmp eq i32 %39, 1
+  br i1 %40, label %._crit_edge, label %.lr.ph, !prof !6
 
-.lr.ph:                                           ; preds = %.loopexit5, %45
-  %39 = phi i32 [ %46, %45 ], [ %37, %.loopexit5 ]
-  %40 = add i32 %39, -1
-  %41 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %36, i32 %40, ptr elementtype(i32) %36, i32 %39) #8, !srcloc !7
-  %42 = extractvalue { i8, i32 } %41, 0
-  %43 = icmp ult i8 %42, 2
-  tail call void @llvm.assume(i1 %43)
-  %44 = icmp eq i8 %42, 0
-  br i1 %44, label %45, label %.loopexit, !prof !8
+.lr.ph:                                           ; preds = %32, %47
+  %41 = phi i32 [ %48, %47 ], [ %39, %32 ]
+  %42 = add i32 %41, -1
+  %43 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38, i32 %42, ptr elementtype(i32) %38, i32 %41) #8, !srcloc !7
+  %44 = extractvalue { i8, i32 } %43, 0
+  %45 = icmp ult i8 %44, 2
+  tail call void @llvm.assume(i1 %45)
+  %46 = icmp eq i8 %44, 0
+  br i1 %46, label %47, label %.loopexit, !prof !8
 
-45:                                               ; preds = %.lr.ph
-  %46 = extractvalue { i8, i32 } %41, 1
-  %47 = icmp eq i32 %46, 1
-  br i1 %47, label %._crit_edge, label %.lr.ph, !prof !9, !llvm.loop !10
+47:                                               ; preds = %.lr.ph
+  %48 = extractvalue { i8, i32 } %43, 1
+  %49 = icmp eq i32 %48, 1
+  br i1 %49, label %._crit_edge, label %.lr.ph, !prof !9, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %45, %.loopexit5
-  tail call void @__intel_wakeref_put_last(ptr noundef %36, i64 noundef 5) #8
+._crit_edge:                                      ; preds = %47, %32
+  tail call void @__intel_wakeref_put_last(ptr noundef %38, i64 noundef 5) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  %48 = icmp eq ptr %10, null
-  br i1 %48, label %.loopexit6, label %8, !llvm.loop !39
+  %50 = icmp eq ptr %10, null
+  br i1 %50, label %.loopexit5, label %8, !llvm.loop !39
 
-.loopexit6:                                       ; preds = %.loopexit, %1
+.loopexit5:                                       ; preds = %.loopexit, %1
   ret void
 }
 

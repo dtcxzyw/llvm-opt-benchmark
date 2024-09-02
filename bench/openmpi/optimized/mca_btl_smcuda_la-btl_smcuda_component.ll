@@ -2018,7 +2018,7 @@ opal_obj_run_destructors.exit7:                   ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @create_rndv_file(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -18, 1) i32 @create_rndv_file(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = icmp eq i32 %0, 1
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 292), align 4

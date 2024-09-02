@@ -9473,7 +9473,7 @@ get_type_length.exit:                             ; preds = %127, %138, %141, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @findUintAttribute(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 65536) i32 @findUintAttribute(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 

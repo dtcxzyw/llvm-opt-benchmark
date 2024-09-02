@@ -52,7 +52,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @estimateObjectIdleTime(ptr nocapture noundef readonly %o) local_unnamed_addr #3 {
+define dso_local range(i64 0, 4311744510001) i64 @estimateObjectIdleTime(ptr nocapture noundef readonly %o) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 112), align 8
   %bf.load = load i32, ptr %o, align 8
@@ -431,7 +431,7 @@ declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define dso_local i64 @LFUDecrAndReturn(ptr nocapture noundef readonly %o) local_unnamed_addr #5 {
+define dso_local range(i64 0, 256) i64 @LFUDecrAndReturn(ptr nocapture noundef readonly %o) local_unnamed_addr #5 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %bf.lshr = lshr i32 %bf.load, 8

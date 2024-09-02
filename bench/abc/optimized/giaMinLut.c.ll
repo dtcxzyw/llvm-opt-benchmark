@@ -4331,14 +4331,17 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %55, %.lr.ph.i
   %75 = add nuw nsw i32 %74, %.08.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Abc_TtCountOnesVec.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %exitcond.not.i, label %Abc_TtCountOnesVec.exit.loopexit, label %.lr.ph.i, !llvm.loop !33
 
-Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.exit.i, %49
-  %.0.lcssa.i = phi i32 [ 0, %49 ], [ %75, %Abc_TtCountOnes2.exit.i ]
-  %76 = sitofp i32 %.0.lcssa.i to float
+Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
+  %76 = uitofp nneg i32 %75 to float
+  br label %Abc_TtCountOnesVec.exit
+
+Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnesVec.exit.loopexit, %49
+  %.0.lcssa.i = phi float [ 0.000000e+00, %49 ], [ %76, %Abc_TtCountOnesVec.exit.loopexit ]
   %77 = shl nsw i32 %.val239, 6
   %78 = sitofp i32 %77 to float
-  %79 = fdiv float %76, %78
+  %79 = fdiv float %.0.lcssa.i, %78
   %80 = fpext float %79 to double
   %81 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, double noundef %80)
   %82 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %5)

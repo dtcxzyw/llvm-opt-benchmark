@@ -2876,8 +2876,8 @@ define internal noundef i32 @dissect_ldac(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %24, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4, %proto_item_set_generated.exit
-  %.0111127 = phi i32 [ %96, %proto_item_set_generated.exit ], [ 1, %4 ]
-  %.0116126 = phi i32 [ %83, %proto_item_set_generated.exit ], [ 1, %4 ]
+  %.0111127 = phi i32 [ %95, %proto_item_set_generated.exit ], [ 1, %4 ]
+  %.0116126 = phi i32 [ %82, %proto_item_set_generated.exit ], [ 1, %4 ]
   %26 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0116126) #6
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0116126) #6
   %.not = icmp eq i8 %27, -86
@@ -2901,8 +2901,8 @@ define internal noundef i32 @dissect_ldac(ptr noundef %0, ptr noundef %1, ptr no
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #6
   %40 = zext i8 %39 to i32
   %41 = lshr i32 %40, 5
-  %42 = lshr i8 %39, 3
-  %43 = and i8 %42, 3
+  %42 = and i8 %39, 24
+  %43 = icmp eq i8 %42, 0
   %.not123 = icmp eq i32 %26, 2
   br i1 %.not123, label %.thread, label %44
 
@@ -2919,7 +2919,7 @@ define internal noundef i32 @dissect_ldac(ptr noundef %0, ptr noundef %1, ptr no
 
 .thread:                                          ; preds = %35, %37, %44
   %.0113122 = phi i32 [ %41, %44 ], [ %41, %37 ], [ 0, %35 ]
-  %.0115121 = phi i8 [ %43, %44 ], [ %43, %37 ], [ 0, %35 ]
+  %.0115121 = phi i1 [ %43, %44 ], [ %43, %37 ], [ true, %35 ]
   %.2 = phi i32 [ %52, %44 ], [ 0, %37 ], [ 0, %35 ]
   %53 = add nuw nsw i32 %.2, 3
   %54 = icmp sgt i32 %53, %26
@@ -2936,71 +2936,70 @@ define internal noundef i32 @dissect_ldac(ptr noundef %0, ptr noundef %1, ptr no
   %61 = load i32, ptr @hf_ldac_syncword, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %61, ptr noundef %0, i32 noundef %.0116126, i32 noundef 1, i32 noundef 0) #6
   %63 = add i32 %.0116126, 1
-  %64 = icmp eq i8 %.0115121, 0
-  %. = select i1 %64, i32 1, i32 2
-  %65 = icmp ult i32 %.0113122, 6
-  br i1 %65, label %switch.lookup, label %68
+  %. = select i1 %.0115121, i32 1, i32 2
+  %64 = icmp ult i32 %.0113122, 6
+  br i1 %64, label %switch.lookup, label %67
 
 switch.lookup:                                    ; preds = %60
-  %66 = zext nneg i32 %.0113122 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.dissect_ldac, i64 0, i64 %66
+  %65 = zext nneg i32 %.0113122 to i64
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.dissect_ldac, i64 0, i64 %65
   %switch.load = load i32, ptr %switch.gep, align 4
-  %67 = zext nneg i32 %.0113122 to i64
-  %switch.gep134 = getelementptr inbounds [6 x i32], ptr @switch.table.dissect_ldac.2, i64 0, i64 %67
+  %66 = zext nneg i32 %.0113122 to i64
+  %switch.gep134 = getelementptr inbounds [6 x i32], ptr @switch.table.dissect_ldac.2, i64 0, i64 %66
   %switch.load135 = load i32, ptr %switch.gep134, align 4
-  br label %68
+  br label %67
 
-68:                                               ; preds = %60, %switch.lookup
+67:                                               ; preds = %60, %switch.lookup
   %.1114 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %60 ]
   %.0 = phi i32 [ %switch.load135, %switch.lookup ], [ 1000, %60 ]
-  %69 = load i32, ptr @hf_ldac_sampling_frequency, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %69, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #6
-  %71 = load i32, ptr @hf_ldac_channel_config_index, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %71, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #6
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull @.str.562, i32 noundef %.) #6
-  %73 = load i32, ptr @hf_ldac_frame_length_h, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %73, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #6
-  %75 = add i32 %.0116126, 2
-  %76 = load i32, ptr @hf_ldac_frame_length_l, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef 0) #6
-  %78 = load i32, ptr @hf_ldac_frame_status, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %78, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef 0) #6
-  %80 = add i32 %.0116126, 3
-  %81 = load i32, ptr @hf_ldac_data, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %81, ptr noundef %0, i32 noundef %80, i32 noundef %.2, i32 noundef 0) #6
-  %83 = add i32 %.2, %80
-  %84 = shl nuw nsw i32 %53, 3
-  %85 = mul nuw nsw i32 %84, %.1114
-  %86 = udiv i32 %85, %.0
-  %87 = load i32, ptr @hf_ldac_expected_data_speed, align 4
-  %88 = tail call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %87, ptr noundef %0, i32 noundef %83, i32 noundef 0, i32 noundef %86) #6
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %88, ptr noundef nonnull @.str.563) #6
-  %.not.i = icmp eq ptr %88, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %89
+  %68 = load i32, ptr @hf_ldac_sampling_frequency, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %68, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #6
+  %70 = load i32, ptr @hf_ldac_channel_config_index, align 4
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %70, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %71, ptr noundef nonnull @.str.562, i32 noundef %.) #6
+  %72 = load i32, ptr @hf_ldac_frame_length_h, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %72, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #6
+  %74 = add i32 %.0116126, 2
+  %75 = load i32, ptr @hf_ldac_frame_length_l, align 4
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 1, i32 noundef 0) #6
+  %77 = load i32, ptr @hf_ldac_frame_status, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %77, ptr noundef %0, i32 noundef %74, i32 noundef 1, i32 noundef 0) #6
+  %79 = add i32 %.0116126, 3
+  %80 = load i32, ptr @hf_ldac_data, align 4
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %80, ptr noundef %0, i32 noundef %79, i32 noundef %.2, i32 noundef 0) #6
+  %82 = add i32 %.2, %79
+  %83 = shl nuw nsw i32 %53, 3
+  %84 = mul nuw nsw i32 %83, %.1114
+  %85 = udiv i32 %84, %.0
+  %86 = load i32, ptr @hf_ldac_expected_data_speed, align 4
+  %87 = tail call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %86, ptr noundef %0, i32 noundef %82, i32 noundef 0, i32 noundef %85) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %87, ptr noundef nonnull @.str.563) #6
+  %.not.i = icmp eq ptr %87, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %88
 
-89:                                               ; preds = %68
-  %90 = getelementptr inbounds i8, ptr %88, i64 32
-  %91 = load ptr, ptr %90, align 8
-  %.not5.i = icmp eq ptr %91, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %92
+88:                                               ; preds = %67
+  %89 = getelementptr inbounds i8, ptr %87, i64 32
+  %90 = load ptr, ptr %89, align 8
+  %.not5.i = icmp eq ptr %90, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %91
 
-92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %91, i64 28
-  %94 = load i32, ptr %93, align 4
-  %95 = or i32 %94, 2
-  store i32 %95, ptr %93, align 4
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds i8, ptr %90, i64 28
+  %93 = load i32, ptr %92, align 4
+  %94 = or i32 %93, 2
+  store i32 %94, ptr %92, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %68, %89, %92
-  %96 = add i32 %.0111127, 1
-  %97 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %83) #6
-  %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph, label %.loopexit, !llvm.loop !7
+proto_item_set_generated.exit:                    ; preds = %67, %88, %91
+  %95 = add i32 %.0111127, 1
+  %96 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %82) #6
+  %97 = icmp sgt i32 %96, 0
+  br i1 %97, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %proto_item_set_generated.exit, %4, %28
-  %.1117 = phi i32 [ %33, %28 ], [ 1, %4 ], [ %83, %proto_item_set_generated.exit ]
-  %99 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.564, i32 noundef %25) #6
+  %.1117 = phi i32 [ %33, %28 ], [ 1, %4 ], [ %82, %proto_item_set_generated.exit ]
+  %98 = load ptr, ptr %5, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.564, i32 noundef %25) #6
   ret i32 %.1117
 }
 

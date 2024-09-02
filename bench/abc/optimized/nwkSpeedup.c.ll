@@ -769,21 +769,21 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %wide.trip.count442 = zext nneg i32 %.val307.lcssa to i64
   br label %59
 
-59:                                               ; preds = %.lr.ph400, %108
-  %indvars.iv439 = phi i64 [ 0, %.lr.ph400 ], [ %indvars.iv.next440, %108 ]
-  %.0234399 = phi i32 [ 0, %.lr.ph400 ], [ %.1235, %108 ]
-  %.0236398 = phi i32 [ 0, %.lr.ph400 ], [ %109, %108 ]
+59:                                               ; preds = %.lr.ph400, %109
+  %indvars.iv439 = phi i64 [ 0, %.lr.ph400 ], [ %indvars.iv.next440, %109 ]
+  %.0234399 = phi i32 [ 0, %.lr.ph400 ], [ %.1235, %109 ]
+  %.0236398 = phi i32 [ 0, %.lr.ph400 ], [ %.3239, %109 ]
   %60 = getelementptr inbounds ptr, ptr %.val316, i64 %indvars.iv439
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %108, label %63
+  br i1 %62, label %109, label %63
 
 63:                                               ; preds = %59
   %64 = getelementptr i8, ptr %61, i64 32
   %.val323 = load i32, ptr %64, align 8
   %65 = and i32 %.val323, 7
   %.not374 = icmp eq i32 %65, 3
-  br i1 %.not374, label %.preheader385, label %108
+  br i1 %.not374, label %.preheader385, label %109
 
 .preheader385:                                    ; preds = %63
   %66 = getelementptr inbounds i8, ptr %61, i64 60
@@ -855,19 +855,19 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %105 = lshr i32 %103, 16
   %106 = add i32 %105, %.0234399
   %107 = add i32 %106, %104
-  br label %108
+  %108 = freeze i32 %.1237.lcssa
+  br label %109
 
-108:                                              ; preds = %.critedge4, %63, %59
-  %.3239 = phi i32 [ %.0236398, %59 ], [ %.1237.lcssa, %.critedge4 ], [ %.0236398, %63 ]
+109:                                              ; preds = %.critedge4, %63, %59
+  %.3239 = phi i32 [ %.0236398, %59 ], [ %108, %.critedge4 ], [ %.0236398, %63 ]
   %.1235 = phi i32 [ %.0234399, %59 ], [ %107, %.critedge4 ], [ %.0234399, %63 ]
-  %109 = freeze i32 %.3239
   %indvars.iv.next440 = add nuw nsw i64 %indvars.iv439, 1
   %exitcond443.not = icmp eq i64 %indvars.iv.next440, %wide.trip.count442
   br i1 %exitcond443.not, label %.critedge2, label %59, !llvm.loop !19
 
-.critedge2:                                       ; preds = %108, %.preheader386
-  %.0236.lcssa = phi i32 [ 0, %.preheader386 ], [ %109, %108 ]
-  %.0234.lcssa = phi i32 [ 0, %.preheader386 ], [ %.1235, %108 ]
+.critedge2:                                       ; preds = %109, %.preheader386
+  %.0236.lcssa = phi i32 [ 0, %.preheader386 ], [ %.3239, %109 ]
+  %.0234.lcssa = phi i32 [ 0, %.preheader386 ], [ %.1235, %109 ]
   %110 = tail call i32 @Nwk_ManGetTotalFanins(ptr noundef %0) #12
   %.not269 = icmp eq i32 %.0236.lcssa, 0
   %111 = sitofp i32 %.0234.lcssa to double
@@ -1175,10 +1175,10 @@ Vec_PtrPushUnique.exit:                           ; preds = %216, %Vec_PtrPush.e
   br i1 %or.cond372, label %.critedge11.thread, label %255
 
 255:                                              ; preds = %.critedge11
-  %256 = add nsw i32 %.2427, 1
+  %256 = icmp sgt i32 %252, 0
+  %257 = add nsw i32 %.2427, 1
   store i32 0, ptr %132, align 4
-  %257 = icmp sgt i32 %252, 0
-  br i1 %257, label %.lr.ph419, label %.critedge15
+  br i1 %256, label %.lr.ph419, label %.critedge15
 
 .lr.ph419:                                        ; preds = %255, %.critedge17
   %indvars.iv458 = phi i64 [ %indvars.iv.next459, %.critedge17 ], [ 0, %255 ]
@@ -1434,7 +1434,7 @@ Vec_PtrPushUnique.exit364:                        ; preds = %278, %Vec_PtrPush.e
 
 .critedge11.thread:                               ; preds = %.preheader383, %173, %.thread, %145, %139, %340, %.critedge11, %.critedge8, %148
   %.5 = phi i32 [ %.4426, %139 ], [ %.4426, %148 ], [ %.4426, %.critedge8 ], [ %174, %.critedge11 ], [ %174, %340 ], [ %174, %.thread ], [ %.4426, %145 ], [ %174, %173 ], [ %174, %.preheader383 ]
-  %.3 = phi i32 [ %.2427, %139 ], [ %.2427, %148 ], [ %.2427, %.critedge8 ], [ %.2427, %.critedge11 ], [ %256, %340 ], [ %256, %.thread ], [ %.2427, %145 ], [ %.2427, %173 ], [ %.2427, %.preheader383 ]
+  %.3 = phi i32 [ %.2427, %139 ], [ %.2427, %148 ], [ %.2427, %.critedge8 ], [ %.2427, %.critedge11 ], [ %257, %340 ], [ %257, %.thread ], [ %.2427, %145 ], [ %.2427, %173 ], [ %.2427, %.preheader383 ]
   %indvars.iv.next465 = add nuw nsw i64 %indvars.iv464, 1
   %368 = load ptr, ptr %30, align 8
   %369 = getelementptr i8, ptr %368, i64 4

@@ -2078,12 +2078,12 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %for.inc, %entry
-  %3 = phi i16 [ %.pre1010, %entry ], [ %90, %for.inc ]
-  %4 = phi i16 [ %.pre1009, %entry ], [ %91, %for.inc ]
-  %5 = phi i16 [ %.pre1008, %entry ], [ %92, %for.inc ]
-  %6 = phi i16 [ %.pre1007, %entry ], [ %93, %for.inc ]
-  %7 = phi i16 [ %.pre1006, %entry ], [ %94, %for.inc ]
-  %8 = phi i16 [ %.pre, %entry ], [ %95, %for.inc ]
+  %3 = phi i16 [ %.pre1010, %entry ], [ %94, %for.inc ]
+  %4 = phi i16 [ %.pre1009, %entry ], [ %95, %for.inc ]
+  %5 = phi i16 [ %.pre1008, %entry ], [ %96, %for.inc ]
+  %6 = phi i16 [ %.pre1007, %entry ], [ %97, %for.inc ]
+  %7 = phi i16 [ %.pre1006, %entry ], [ %98, %for.inc ]
+  %8 = phi i16 [ %.pre, %entry ], [ %99, %for.inc ]
   %cmp1001 = phi i1 [ true, %entry ], [ %cmp, %for.inc ]
   %i.0999 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
   %add.i = add i16 %8, %7
@@ -2245,12 +2245,12 @@ if.end6.i:                                        ; preds = %if.end.i
   %30 = load ptr, ptr %m_data.i, align 8, !tbaa !65
   %arrayidx11.i = getelementptr inbounds %struct.MapNode, ptr %30, i64 %idxprom.i
   %31 = load i32, ptr %arrayidx11.i, align 4, !tbaa.struct !120
+  %32 = trunc i32 %31 to i16
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end6.i, %if.end.i
-  %retval.sroa.0.0.i = phi i32 [ %31, %if.end6.i ], [ 127, %if.end.i ]
-  %ref.tmp11.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.i to i16
-  %cmp16 = icmp eq i16 %1, %ref.tmp11.sroa.0.0.extract.trunc
+  %retval.sroa.0.0.i = phi i16 [ %32, %if.end6.i ], [ 127, %if.end.i ]
+  %cmp16 = icmp eq i16 %1, %retval.sroa.0.0.i
   br i1 %cmp16, label %if.end.i222, label %if.end.i349
 
 if.end.i222:                                      ; preds = %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
@@ -2261,21 +2261,21 @@ if.end.i222:                                      ; preds = %_ZN16VoxelManipulat
   %add21.i.i.i234 = add nsw i32 %sub20.i.i.i233, %add.i.i.i232
   %idxprom.i235 = sext i32 %add21.i.i.i234 to i64
   %arrayidx.i236 = getelementptr inbounds i8, ptr %25, i64 %idxprom.i235
-  %32 = load i8, ptr %arrayidx.i236, align 1, !tbaa !40
-  %33 = and i8 %32, 2
-  %tobool.not.i237 = icmp eq i8 %33, 0
+  %33 = load i8, ptr %arrayidx.i236, align 1, !tbaa !40
+  %34 = and i8 %33, 2
+  %tobool.not.i237 = icmp eq i8 %34, 0
   br i1 %tobool.not.i237, label %if.end6.i238, label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit242
 
 if.end6.i238:                                     ; preds = %if.end.i222
-  %34 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i240 = getelementptr inbounds %struct.MapNode, ptr %34, i64 %idxprom.i235
-  %35 = load i32, ptr %arrayidx11.i240, align 4, !tbaa.struct !120
+  %35 = load ptr, ptr %m_data.i, align 8, !tbaa !65
+  %arrayidx11.i240 = getelementptr inbounds %struct.MapNode, ptr %35, i64 %idxprom.i235
+  %36 = load i32, ptr %arrayidx11.i240, align 4, !tbaa.struct !120
+  %37 = trunc i32 %36 to i16
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit242
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit242: ; preds = %if.end6.i238, %if.end.i222
-  %retval.sroa.0.0.i219 = phi i32 [ %35, %if.end6.i238 ], [ 127, %if.end.i222 ]
-  %ref.tmp17.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.i219 to i16
-  %cmp25 = icmp eq i16 %1, %ref.tmp17.sroa.0.0.extract.trunc
+  %retval.sroa.0.0.i219 = phi i16 [ %37, %if.end6.i238 ], [ 127, %if.end.i222 ]
+  %cmp25 = icmp eq i16 %1, %retval.sroa.0.0.i219
   br i1 %cmp25, label %if.then26, label %if.end.i349
 
 if.then26:                                        ; preds = %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit242
@@ -2285,8 +2285,8 @@ if.then26:                                        ; preds = %_ZN16VoxelManipulat
   %p.sroa.32.0.result_place.sroa_idx = getelementptr inbounds i8, ptr %result_place, i64 4
   store i16 %add13.i, ptr %p.sroa.32.0.result_place.sroa_idx, align 2, !tbaa !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %result_dir, ptr noundef nonnull align 2 dereferenceable(6) %m_dir, i64 6, i1 false), !tbaa.struct !117
-  %36 = load i8, ptr %diagonal_dirs.i884, align 2, !tbaa !46, !range !54, !noundef !55
-  %tobool.not.i245 = icmp eq i8 %36, 0
+  %38 = load i8, ptr %diagonal_dirs.i884, align 2, !tbaa !46, !range !54, !noundef !55
+  %tobool.not.i245 = icmp eq i8 %38, 0
   %.pre.i.i246 = load i32, ptr %random.i883, align 4, !tbaa !53
   br i1 %tobool.not.i245, label %if.end.i.i253, label %land.lhs.true.i.i247
 
@@ -2305,15 +2305,15 @@ do.body.i.i274:                                   ; preds = %land.lhs.true.i.i24
   %mul.i35.i.i278 = mul i32 %add.i4066.i.i275, 1103515245
   %add.i36.i.i279 = add i32 %mul.i35.i.i278, 12345
   %div.i37.i.i280 = sdiv i32 %add.i36.i.i279, 65536
-  %37 = trunc nsw i32 %div.i37.i.i280 to i16
-  %rem2.lhs.trunc.i.i281 = and i16 %37, 32767
+  %39 = trunc nsw i32 %div.i37.i.i280 to i16
+  %rem2.lhs.trunc.i.i281 = and i16 %39, 32767
   %rem263.i.i282 = urem i16 %rem2.lhs.trunc.i.i281, 3
   %conv.i.i283 = add nsw i16 %rem263.i.i282, -1
   %mul.i39.i.i284 = mul i32 %add.i36.i.i279, 1103515245
   %add.i40.i.i285 = add i32 %mul.i39.i.i284, 12345
   %div.i41.i.i286 = sdiv i32 %add.i40.i.i285, 65536
-  %38 = trunc nsw i32 %div.i41.i.i286 to i16
-  %rem4.lhs.trunc.i.i287 = and i16 %38, 32767
+  %40 = trunc nsw i32 %div.i41.i.i286 to i16
+  %rem4.lhs.trunc.i.i287 = and i16 %40, 32767
   %rem464.i.i288 = urem i16 %rem4.lhs.trunc.i.i287, 3
   %conv6.i.i289 = add nsw i16 %rem464.i.i288, -1
   %cmp9.i.i290 = icmp eq i16 %conv6.i.i289, 0
@@ -2324,22 +2324,22 @@ do.body.i.i274:                                   ; preds = %land.lhs.true.i.i24
   br i1 %or.cond28.i.i294, label %do.body.i.i274, label %return.loopexit.i.i295, !llvm.loop !130
 
 if.end.i.i253:                                    ; preds = %land.lhs.true.i.i247, %if.then26
-  %39 = phi i32 [ %add.i.i.i249, %land.lhs.true.i.i247 ], [ %.pre.i.i246, %if.then26 ]
-  %mul.i43.i.i254 = mul i32 %39, 1103515245
+  %41 = phi i32 [ %add.i.i.i249, %land.lhs.true.i.i247 ], [ %.pre.i.i246, %if.then26 ]
+  %mul.i43.i.i254 = mul i32 %41, 1103515245
   %add.i44.i.i255 = add i32 %mul.i43.i.i254, 12345
   %mul.i47.i.i259 = mul i32 %add.i44.i.i255, 1103515245
   %add.i48.i.i260 = add i32 %mul.i47.i.i259, 12345
   store i32 %add.i48.i.i260, ptr %random.i883, align 4, !tbaa !53
-  %40 = insertelement <2 x i32> poison, i32 %add.i48.i.i260, i64 0
-  %41 = insertelement <2 x i32> %40, i32 %add.i44.i.i255, i64 1
-  %42 = sdiv <2 x i32> %41, <i32 65536, i32 65536>
-  %43 = and <2 x i32> %42, <i32 1, i32 1>
-  %44 = icmp eq <2 x i32> %43, zeroinitializer
-  %45 = extractelement <2 x i1> %44, i64 0
-  %spec.select.i.i264 = select i1 %45, i16 1, i16 -1
-  %46 = extractelement <2 x i1> %44, i64 1
-  %.spec.select.i.i265 = select i1 %46, i16 0, i16 %spec.select.i.i264
-  %spec.select..i.i266 = select i1 %46, i16 %spec.select.i.i264, i16 0
+  %42 = insertelement <2 x i32> poison, i32 %add.i48.i.i260, i64 0
+  %43 = insertelement <2 x i32> %42, i32 %add.i44.i.i255, i64 1
+  %44 = sdiv <2 x i32> %43, <i32 65536, i32 65536>
+  %45 = and <2 x i32> %44, <i32 1, i32 1>
+  %46 = icmp eq <2 x i32> %45, zeroinitializer
+  %47 = extractelement <2 x i1> %46, i64 0
+  %spec.select.i.i264 = select i1 %47, i16 1, i16 -1
+  %48 = extractelement <2 x i1> %46, i64 1
+  %.spec.select.i.i265 = select i1 %48, i16 0, i16 %spec.select.i.i264
+  %spec.select..i.i266 = select i1 %48, i16 %spec.select.i.i264, i16 0
   br label %cleanup
 
 return.loopexit.i.i295:                           ; preds = %do.body.i.i274
@@ -2350,15 +2350,15 @@ if.end.i349:                                      ; preds = %_ZN16VoxelManipulat
   br i1 %tobool.not.i185, label %if.end6.i365, label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit369
 
 if.end6.i365:                                     ; preds = %if.end.i349
-  %47 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i367 = getelementptr inbounds %struct.MapNode, ptr %47, i64 %idxprom.i
-  %48 = load i32, ptr %arrayidx11.i367, align 4, !tbaa.struct !120
+  %49 = load ptr, ptr %m_data.i, align 8, !tbaa !65
+  %arrayidx11.i367 = getelementptr inbounds %struct.MapNode, ptr %49, i64 %idxprom.i
+  %50 = load i32, ptr %arrayidx11.i367, align 4, !tbaa.struct !120
+  %51 = trunc i32 %50 to i16
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit369
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit369: ; preds = %if.end6.i365, %if.end.i349
-  %retval.sroa.0.0.i346 = phi i32 [ %48, %if.end6.i365 ], [ 127, %if.end.i349 ]
-  %ref.tmp29.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.i346 to i16
-  %cmp41 = icmp eq i16 %1, %ref.tmp29.sroa.0.0.extract.trunc
+  %retval.sroa.0.0.i346 = phi i16 [ %51, %if.end6.i365 ], [ 127, %if.end.i349 ]
+  %cmp41 = icmp eq i16 %1, %retval.sroa.0.0.i346
   br i1 %cmp41, label %if.end.i422, label %if.end67
 
 if.end.i422:                                      ; preds = %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit369
@@ -2369,17 +2369,17 @@ if.end.i422:                                      ; preds = %_ZN16VoxelManipulat
   %add21.i.i.i434 = add nsw i32 %sub20.i.i.i433, %add.i.i.i432
   %idxprom.i435 = sext i32 %add21.i.i.i434 to i64
   %arrayidx.i436 = getelementptr inbounds i8, ptr %25, i64 %idxprom.i435
-  %49 = load i8, ptr %arrayidx.i436, align 1, !tbaa !40
-  %50 = and i8 %49, 2
-  %tobool.not.i437 = icmp eq i8 %50, 0
+  %52 = load i8, ptr %arrayidx.i436, align 1, !tbaa !40
+  %53 = and i8 %52, 2
+  %tobool.not.i437 = icmp eq i8 %53, 0
   br i1 %tobool.not.i437, label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit442, label %if.end67
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit442: ; preds = %if.end.i422
-  %51 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i440 = getelementptr inbounds %struct.MapNode, ptr %51, i64 %idxprom.i435
-  %52 = load i32, ptr %arrayidx11.i440, align 4, !tbaa.struct !120
-  %53 = and i32 %52, 65535
-  %cmp51 = icmp eq i32 %53, 126
+  %54 = load ptr, ptr %m_data.i, align 8, !tbaa !65
+  %arrayidx11.i440 = getelementptr inbounds %struct.MapNode, ptr %54, i64 %idxprom.i435
+  %55 = load i32, ptr %arrayidx11.i440, align 4, !tbaa.struct !120
+  %56 = and i32 %55, 65535
+  %cmp51 = icmp eq i32 %56, 126
   br i1 %cmp51, label %land.rhs52, label %if.end67
 
 land.rhs52:                                       ; preds = %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit442
@@ -2410,17 +2410,17 @@ if.end.i495:                                      ; preds = %land.lhs.true9.i.i4
   %add21.i.i.i507 = add nsw i32 %sub20.i.i.i506, %add.i.i.i505
   %idxprom.i508 = sext i32 %add21.i.i.i507 to i64
   %arrayidx.i509 = getelementptr inbounds i8, ptr %25, i64 %idxprom.i508
-  %54 = load i8, ptr %arrayidx.i509, align 1, !tbaa !40
-  %55 = and i8 %54, 2
-  %tobool.not.i510 = icmp eq i8 %55, 0
+  %57 = load i8, ptr %arrayidx.i509, align 1, !tbaa !40
+  %58 = and i8 %57, 2
+  %tobool.not.i510 = icmp eq i8 %58, 0
   br i1 %tobool.not.i510, label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit515, label %if.end67
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit515: ; preds = %if.end.i495
-  %arrayidx11.i513 = getelementptr inbounds %struct.MapNode, ptr %51, i64 %idxprom.i508
-  %56 = load i32, ptr %arrayidx11.i513, align 4, !tbaa.struct !120
-  %.fr1038 = freeze i32 %56
-  %57 = and i32 %.fr1038, 65535
-  %cmp62 = icmp eq i32 %57, 126
+  %arrayidx11.i513 = getelementptr inbounds %struct.MapNode, ptr %54, i64 %idxprom.i508
+  %59 = load i32, ptr %arrayidx11.i513, align 4, !tbaa.struct !120
+  %.fr1038 = freeze i32 %59
+  %60 = and i32 %.fr1038, 65535
+  %cmp62 = icmp eq i32 %60, 126
   %spec.select = select i1 %cmp62, i16 %add8.i138, i16 %add8.i
   %.pre10 = add i16 %spec.select, 1
   %.pre11 = zext i16 %.pre10 to i48
@@ -2455,21 +2455,21 @@ if.end.i577:                                      ; preds = %land.lhs.true9.i.i5
   %add21.i.i.i589 = add nsw i32 %sub20.i.i.i588, %add.i.i.i587
   %idxprom.i590 = sext i32 %add21.i.i.i589 to i64
   %arrayidx.i591 = getelementptr inbounds i8, ptr %25, i64 %idxprom.i590
-  %58 = load i8, ptr %arrayidx.i591, align 1, !tbaa !40
-  %59 = and i8 %58, 2
-  %tobool.not.i592 = icmp eq i8 %59, 0
+  %61 = load i8, ptr %arrayidx.i591, align 1, !tbaa !40
+  %62 = and i8 %61, 2
+  %tobool.not.i592 = icmp eq i8 %62, 0
   br i1 %tobool.not.i592, label %if.end6.i593, label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit597
 
 if.end6.i593:                                     ; preds = %if.end.i577
-  %60 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i595 = getelementptr inbounds %struct.MapNode, ptr %60, i64 %idxprom.i590
-  %61 = load i32, ptr %arrayidx11.i595, align 4, !tbaa.struct !120
+  %63 = load ptr, ptr %m_data.i, align 8, !tbaa !65
+  %arrayidx11.i595 = getelementptr inbounds %struct.MapNode, ptr %63, i64 %idxprom.i590
+  %64 = load i32, ptr %arrayidx11.i595, align 4, !tbaa.struct !120
+  %65 = trunc i32 %64 to i16
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit597
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit597: ; preds = %if.end6.i593, %if.end.i577, %land.lhs.true9.i.i552, %if.end67
-  %retval.sroa.0.0.i574 = phi i32 [ %61, %if.end6.i593 ], [ 127, %if.end.i577 ], [ 127, %land.lhs.true9.i.i552 ], [ 127, %if.end67 ]
-  %ref.tmp68.sroa.0.0.extract.trunc = trunc i32 %retval.sroa.0.0.i574 to i16
-  %cmp80 = icmp eq i16 %1, %ref.tmp68.sroa.0.0.extract.trunc
+  %retval.sroa.0.0.i574 = phi i16 [ %65, %if.end6.i593 ], [ 127, %if.end.i577 ], [ 127, %land.lhs.true9.i.i552 ], [ 127, %if.end67 ]
+  %cmp80 = icmp eq i16 %1, %retval.sroa.0.0.i574
   br i1 %cmp80, label %land.lhs.true81, label %if.end107
 
 land.lhs.true81:                                  ; preds = %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit597
@@ -2499,17 +2499,17 @@ if.end.i650:                                      ; preds = %land.lhs.true9.i.i6
   %add21.i.i.i662 = add nsw i32 %sub20.i.i.i661, %add.i.i.i660
   %idxprom.i663 = sext i32 %add21.i.i.i662 to i64
   %arrayidx.i664 = getelementptr inbounds i8, ptr %25, i64 %idxprom.i663
-  %62 = load i8, ptr %arrayidx.i664, align 1, !tbaa !40
-  %63 = and i8 %62, 2
-  %tobool.not.i665 = icmp eq i8 %63, 0
+  %66 = load i8, ptr %arrayidx.i664, align 1, !tbaa !40
+  %67 = and i8 %66, 2
+  %tobool.not.i665 = icmp eq i8 %67, 0
   br i1 %tobool.not.i665, label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit670, label %if.end107
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit670: ; preds = %if.end.i650
-  %64 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i668 = getelementptr inbounds %struct.MapNode, ptr %64, i64 %idxprom.i663
-  %65 = load i32, ptr %arrayidx11.i668, align 4, !tbaa.struct !120
-  %66 = and i32 %65, 65535
-  %cmp91 = icmp eq i32 %66, 126
+  %68 = load ptr, ptr %m_data.i, align 8, !tbaa !65
+  %arrayidx11.i668 = getelementptr inbounds %struct.MapNode, ptr %68, i64 %idxprom.i663
+  %69 = load i32, ptr %arrayidx11.i668, align 4, !tbaa.struct !120
+  %70 = and i32 %69, 65535
+  %cmp91 = icmp eq i32 %70, 126
   br i1 %cmp91, label %land.rhs92, label %if.end107
 
 land.rhs92:                                       ; preds = %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit670
@@ -2539,17 +2539,17 @@ if.end.i723:                                      ; preds = %land.lhs.true9.i.i6
   %add21.i.i.i735 = add nsw i32 %sub20.i.i.i734, %add.i.i.i733
   %idxprom.i736 = sext i32 %add21.i.i.i735 to i64
   %arrayidx.i737 = getelementptr inbounds i8, ptr %25, i64 %idxprom.i736
-  %67 = load i8, ptr %arrayidx.i737, align 1, !tbaa !40
-  %68 = and i8 %67, 2
-  %tobool.not.i738 = icmp eq i8 %68, 0
+  %71 = load i8, ptr %arrayidx.i737, align 1, !tbaa !40
+  %72 = and i8 %71, 2
+  %tobool.not.i738 = icmp eq i8 %72, 0
   br i1 %tobool.not.i738, label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit743, label %if.end107
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit743: ; preds = %if.end.i723
-  %arrayidx11.i741 = getelementptr inbounds %struct.MapNode, ptr %64, i64 %idxprom.i736
-  %69 = load i32, ptr %arrayidx11.i741, align 4, !tbaa.struct !120
-  %.fr1039 = freeze i32 %69
-  %70 = and i32 %.fr1039, 65535
-  %cmp102 = icmp eq i32 %70, 126
+  %arrayidx11.i741 = getelementptr inbounds %struct.MapNode, ptr %68, i64 %idxprom.i736
+  %73 = load i32, ptr %arrayidx11.i741, align 4, !tbaa.struct !120
+  %.fr1039 = freeze i32 %73
+  %74 = and i32 %.fr1039, 65535
+  %cmp102 = icmp eq i32 %74, 126
   %spec.select1037 = select i1 %cmp102, i16 %add8.i676, i16 %p.sroa.20.0
   br label %if.end107
 
@@ -2581,17 +2581,17 @@ if.end.i789:                                      ; preds = %land.lhs.true9.i.i7
   %add21.i.i.i801 = add nsw i32 %sub20.i.i.i800, %add.i.i.i799
   %idxprom.i802 = sext i32 %add21.i.i.i801 to i64
   %arrayidx.i803 = getelementptr inbounds i8, ptr %25, i64 %idxprom.i802
-  %71 = load i8, ptr %arrayidx.i803, align 1, !tbaa !40
-  %72 = and i8 %71, 2
-  %tobool.not.i804 = icmp eq i8 %72, 0
+  %75 = load i8, ptr %arrayidx.i803, align 1, !tbaa !40
+  %76 = and i8 %75, 2
+  %tobool.not.i804 = icmp eq i8 %76, 0
   br i1 %tobool.not.i804, label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit809, label %if.then124
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit809: ; preds = %if.end.i789
-  %73 = load ptr, ptr %m_data.i, align 8, !tbaa !65
-  %arrayidx11.i807 = getelementptr inbounds %struct.MapNode, ptr %73, i64 %idxprom.i802
-  %74 = load i32, ptr %arrayidx11.i807, align 4, !tbaa.struct !120
-  %75 = and i32 %74, 65535
-  %cmp113.not = icmp eq i32 %75, 126
+  %77 = load ptr, ptr %m_data.i, align 8, !tbaa !65
+  %arrayidx11.i807 = getelementptr inbounds %struct.MapNode, ptr %77, i64 %idxprom.i802
+  %78 = load i32, ptr %arrayidx11.i807, align 4, !tbaa.struct !120
+  %79 = and i32 %78, 65535
+  %cmp113.not = icmp eq i32 %79, 126
   br i1 %cmp113.not, label %lor.rhs, label %if.then124
 
 lor.rhs:                                          ; preds = %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit809
@@ -2621,16 +2621,16 @@ if.end.i862:                                      ; preds = %land.lhs.true9.i.i8
   %add21.i.i.i874 = add nsw i32 %sub20.i.i.i873, %add.i.i.i872
   %idxprom.i875 = sext i32 %add21.i.i.i874 to i64
   %arrayidx.i876 = getelementptr inbounds i8, ptr %25, i64 %idxprom.i875
-  %76 = load i8, ptr %arrayidx.i876, align 1, !tbaa !40
-  %77 = and i8 %76, 2
-  %tobool.not.i877 = icmp eq i8 %77, 0
+  %80 = load i8, ptr %arrayidx.i876, align 1, !tbaa !40
+  %81 = and i8 %80, 2
+  %tobool.not.i877 = icmp eq i8 %81, 0
   br i1 %tobool.not.i877, label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit882, label %if.then124
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit882: ; preds = %if.end.i862
-  %arrayidx11.i880 = getelementptr inbounds %struct.MapNode, ptr %73, i64 %idxprom.i875
-  %78 = load i32, ptr %arrayidx11.i880, align 4, !tbaa.struct !120
-  %79 = and i32 %78, 65535
-  %cmp123.not = icmp eq i32 %79, 126
+  %arrayidx11.i880 = getelementptr inbounds %struct.MapNode, ptr %77, i64 %idxprom.i875
+  %82 = load i32, ptr %arrayidx11.i880, align 4, !tbaa.struct !120
+  %83 = and i32 %82, 65535
+  %cmp123.not = icmp eq i32 %83, 126
   br i1 %cmp123.not, label %if.end125, label %if.then124
 
 if.then124:                                       ; preds = %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit882, %if.end.i862, %land.lhs.true9.i.i837, %lor.rhs, %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit809, %if.end.i789, %land.lhs.true9.i.i764, %if.end107
@@ -2652,15 +2652,15 @@ do.body.i.i914:                                   ; preds = %land.lhs.true.i.i88
   %mul.i35.i.i918 = mul i32 %add.i4066.i.i915, 1103515245
   %add.i36.i.i919 = add i32 %mul.i35.i.i918, 12345
   %div.i37.i.i920 = sdiv i32 %add.i36.i.i919, 65536
-  %80 = trunc nsw i32 %div.i37.i.i920 to i16
-  %rem2.lhs.trunc.i.i921 = and i16 %80, 32767
+  %84 = trunc nsw i32 %div.i37.i.i920 to i16
+  %rem2.lhs.trunc.i.i921 = and i16 %84, 32767
   %rem263.i.i922 = urem i16 %rem2.lhs.trunc.i.i921, 3
   %conv.i.i923 = add nsw i16 %rem263.i.i922, -1
   %mul.i39.i.i924 = mul i32 %add.i36.i.i919, 1103515245
   %add.i40.i.i925 = add i32 %mul.i39.i.i924, 12345
   %div.i41.i.i926 = sdiv i32 %add.i40.i.i925, 65536
-  %81 = trunc nsw i32 %div.i41.i.i926 to i16
-  %rem4.lhs.trunc.i.i927 = and i16 %81, 32767
+  %85 = trunc nsw i32 %div.i41.i.i926 to i16
+  %rem4.lhs.trunc.i.i927 = and i16 %85, 32767
   %rem464.i.i928 = urem i16 %rem4.lhs.trunc.i.i927, 3
   %conv6.i.i929 = add nsw i16 %rem464.i.i928, -1
   %cmp9.i.i930 = icmp eq i16 %conv6.i.i929, 0
@@ -2671,22 +2671,22 @@ do.body.i.i914:                                   ; preds = %land.lhs.true.i.i88
   br i1 %or.cond28.i.i934, label %do.body.i.i914, label %return.loopexit.i.i935, !llvm.loop !130
 
 if.end.i.i893:                                    ; preds = %land.lhs.true.i.i887, %if.then124
-  %82 = phi i32 [ %add.i.i.i889, %land.lhs.true.i.i887 ], [ %.pre.i.i886, %if.then124 ]
-  %mul.i43.i.i894 = mul i32 %82, 1103515245
+  %86 = phi i32 [ %add.i.i.i889, %land.lhs.true.i.i887 ], [ %.pre.i.i886, %if.then124 ]
+  %mul.i43.i.i894 = mul i32 %86, 1103515245
   %add.i44.i.i895 = add i32 %mul.i43.i.i894, 12345
   %mul.i47.i.i899 = mul i32 %add.i44.i.i895, 1103515245
   %add.i48.i.i900 = add i32 %mul.i47.i.i899, 12345
   store i32 %add.i48.i.i900, ptr %random.i883, align 4, !tbaa !53
-  %83 = insertelement <2 x i32> poison, i32 %add.i48.i.i900, i64 0
-  %84 = insertelement <2 x i32> %83, i32 %add.i44.i.i895, i64 1
-  %85 = sdiv <2 x i32> %84, <i32 65536, i32 65536>
-  %86 = and <2 x i32> %85, <i32 1, i32 1>
-  %87 = icmp eq <2 x i32> %86, zeroinitializer
-  %88 = extractelement <2 x i1> %87, i64 0
-  %spec.select.i.i904 = select i1 %88, i16 1, i16 -1
-  %89 = extractelement <2 x i1> %87, i64 1
-  %.spec.select.i.i905 = select i1 %89, i16 0, i16 %spec.select.i.i904
-  %spec.select..i.i906 = select i1 %89, i16 %spec.select.i.i904, i16 0
+  %87 = insertelement <2 x i32> poison, i32 %add.i48.i.i900, i64 0
+  %88 = insertelement <2 x i32> %87, i32 %add.i44.i.i895, i64 1
+  %89 = sdiv <2 x i32> %88, <i32 65536, i32 65536>
+  %90 = and <2 x i32> %89, <i32 1, i32 1>
+  %91 = icmp eq <2 x i32> %90, zeroinitializer
+  %92 = extractelement <2 x i1> %91, i64 0
+  %spec.select.i.i904 = select i1 %92, i16 1, i16 -1
+  %93 = extractelement <2 x i1> %91, i64 1
+  %.spec.select.i.i905 = select i1 %93, i16 0, i16 %spec.select.i.i904
+  %spec.select..i.i906 = select i1 %93, i16 %spec.select.i.i904, i16 0
   br label %_ZN10DungeonGen12randomizeDirEv.exit936
 
 return.loopexit.i.i935:                           ; preds = %do.body.i.i914
@@ -2720,12 +2720,12 @@ cleanup:                                          ; preds = %return.loopexit.i.i
   br label %cleanup128
 
 for.inc:                                          ; preds = %if.end125, %_ZN10DungeonGen12randomizeDirEv.exit936, %_ZN10DungeonGen12randomizeDirEv.exit
-  %90 = phi i16 [ %retval.sroa.13.0.i.i, %_ZN10DungeonGen12randomizeDirEv.exit ], [ %retval.sroa.13.0.i.i907, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %3, %if.end125 ]
-  %91 = phi i16 [ %4, %_ZN10DungeonGen12randomizeDirEv.exit ], [ %4, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %add13.i, %if.end125 ]
-  %92 = phi i16 [ 0, %_ZN10DungeonGen12randomizeDirEv.exit ], [ 0, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %5, %if.end125 ]
-  %93 = phi i16 [ %6, %_ZN10DungeonGen12randomizeDirEv.exit ], [ %6, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %p.sroa.20.1, %if.end125 ]
-  %94 = phi i16 [ %retval.sroa.0.0.i.i, %_ZN10DungeonGen12randomizeDirEv.exit ], [ %retval.sroa.0.0.i.i908, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %7, %if.end125 ]
-  %95 = phi i16 [ %8, %_ZN10DungeonGen12randomizeDirEv.exit ], [ %8, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %add.i, %if.end125 ]
+  %94 = phi i16 [ %retval.sroa.13.0.i.i, %_ZN10DungeonGen12randomizeDirEv.exit ], [ %retval.sroa.13.0.i.i907, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %3, %if.end125 ]
+  %95 = phi i16 [ %4, %_ZN10DungeonGen12randomizeDirEv.exit ], [ %4, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %add13.i, %if.end125 ]
+  %96 = phi i16 [ 0, %_ZN10DungeonGen12randomizeDirEv.exit ], [ 0, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %5, %if.end125 ]
+  %97 = phi i16 [ %6, %_ZN10DungeonGen12randomizeDirEv.exit ], [ %6, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %p.sroa.20.1, %if.end125 ]
+  %98 = phi i16 [ %retval.sroa.0.0.i.i, %_ZN10DungeonGen12randomizeDirEv.exit ], [ %retval.sroa.0.0.i.i908, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %7, %if.end125 ]
+  %99 = phi i16 [ %8, %_ZN10DungeonGen12randomizeDirEv.exit ], [ %8, %_ZN10DungeonGen12randomizeDirEv.exit936 ], [ %add.i, %if.end125 ]
   %inc = add nuw nsw i32 %i.0999, 1
   %cmp = icmp ult i32 %i.0999, 99
   %exitcond.not = icmp eq i32 %inc, 100

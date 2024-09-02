@@ -2222,12 +2222,15 @@ _ZNK4cvc58internal8Rational10complexityEv.exit:   ; preds = %invoke.cont4.i
   %d_nextRow.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %18, i64 %conv.i.i.i, i32 2
   %i.sroa.0.0.i = load i32, ptr %d_nextRow.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %i.sroa.0.0.i, -1
-  br i1 %cmp.i.i, label %_ZNK4cvc58internal6theory5arith6linear7Tableau13rowComplexityEj.exit, label %for.body.i, !llvm.loop !17
+  br i1 %cmp.i.i, label %_ZNK4cvc58internal6theory5arith6linear7Tableau13rowComplexityEj.exit.loopexit, label %for.body.i, !llvm.loop !17
 
-_ZNK4cvc58internal6theory5arith6linear7Tableau13rowComplexityEj.exit: ; preds = %_ZNK4cvc58internal8Rational10complexityEv.exit, %for.body
-  %complexity.0.lcssa.i = phi i32 [ 0, %for.body ], [ %add.i, %_ZNK4cvc58internal8Rational10complexityEv.exit ]
-  %conv = uitofp i32 %complexity.0.lcssa.i to double
-  %add = fadd double %sum.018, %conv
+_ZNK4cvc58internal6theory5arith6linear7Tableau13rowComplexityEj.exit.loopexit: ; preds = %_ZNK4cvc58internal8Rational10complexityEv.exit
+  %19 = uitofp i32 %add.i to double
+  br label %_ZNK4cvc58internal6theory5arith6linear7Tableau13rowComplexityEj.exit
+
+_ZNK4cvc58internal6theory5arith6linear7Tableau13rowComplexityEj.exit: ; preds = %_ZNK4cvc58internal6theory5arith6linear7Tableau13rowComplexityEj.exit.loopexit, %for.body
+  %complexity.0.lcssa.i = phi double [ 0.000000e+00, %for.body ], [ %19, %_ZNK4cvc58internal6theory5arith6linear7Tableau13rowComplexityEj.exit.loopexit ]
+  %add = fadd double %sum.018, %complexity.0.lcssa.i
   %inc = add i32 %rows.019, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %i.sroa.0.017, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
@@ -2237,14 +2240,14 @@ for.end:                                          ; preds = %_ZNK4cvc58internal6
   %cmp = icmp eq i32 %inc, 0
   %conv8 = uitofp i32 %inc to double
   %div = fdiv double %add, %conv8
-  br i1 %cmp, label %for.end.thread, label %19
+  br i1 %cmp, label %for.end.thread, label %20
 
 for.end.thread:                                   ; preds = %entry, %for.end
-  br label %19
+  br label %20
 
-19:                                               ; preds = %for.end, %for.end.thread
-  %20 = phi double [ 0.000000e+00, %for.end.thread ], [ %div, %for.end ]
-  ret double %20
+20:                                               ; preds = %for.end, %for.end.thread
+  %21 = phi double [ 0.000000e+00, %for.end.thread ], [ %div, %for.end ]
+  ret double %21
 }
 
 ; Function Attrs: mustprogress uwtable

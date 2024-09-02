@@ -968,16 +968,16 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJ
   %mNumElements.i.i715 = getelementptr inbounds i8, ptr %testVec, i64 32
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %testVec, i64 8
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %testVec, i64 16
+  %26 = add nsw i64 %.pre.pre, 1
   br label %for.body
 
 for.body:                                         ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE7reserveEm.exit, %_ZN10TestObjectD2Ev.exit
-  %26 = phi i64 [ %.pre.pre, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE7reserveEm.exit ], [ %dec.i, %_ZN10TestObjectD2Ev.exit ]
+  %inc.i = phi i64 [ %26, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE7reserveEm.exit ], [ %37, %_ZN10TestObjectD2Ev.exit ]
   %i.014738 = phi i32 [ 0, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE7reserveEm.exit ], [ %inc, %_ZN10TestObjectD2Ev.exit ]
   %rem244.lhs.trunc = trunc nuw i32 %i.014738 to i8
   %rem24414596 = urem i8 %rem244.lhs.trunc, 3
   %cmp245 = icmp eq i8 %rem24414596, 0
   %frombool = zext i1 %cmp245 to i8
-  %inc.i = add nsw i64 %26, 1
   store i64 %inc.i, ptr @_ZN10TestObject8sTOCountE, align 8
   %27 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i = add nsw i64 %27, 1
@@ -1940,11 +1940,11 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
   store i64 %dec.i.i.i.i1032, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %inc3.i.i.i.i1033, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %.pre15130 = load i64, ptr %mNumElements.i.i715, align 8
+  %210 = icmp eq i64 %.pre15130, 0
   br label %_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE5clearEv.exit
 
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE5clearEv.exit: ; preds = %invoke.cont545, %for.cond.for.end_crit_edge.i.i.i
-  %210 = phi i64 [ 0, %invoke.cont545 ], [ %.pre15130, %for.cond.for.end_crit_edge.i.i.i ]
-  %cmp.i1035 = icmp eq i64 %210, 0
+  %cmp.i1035 = phi i1 [ true, %invoke.cont545 ], [ %210, %for.cond.for.end_crit_edge.i.i.i ]
   %call549 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1035, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 252, ptr noundef nonnull @.str.63)
           to label %invoke.cont548 unwind label %lpad240.loopexit.split-lp
 
@@ -2500,17 +2500,17 @@ for.cond699.preheader:                            ; preds = %invoke.cont693
 
 for.body703.preheader:                            ; preds = %for.cond699.preheader
   %.pre15136 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %313 = add nsw i64 %.pre15136, 1
   br label %for.body703
 
 for.body703:                                      ; preds = %for.body703.preheader, %_ZN10TestObjectD2Ev.exit1336
-  %313 = phi i64 [ %dec.i1334, %_ZN10TestObjectD2Ev.exit1336 ], [ %.pre15136, %for.body703.preheader ]
+  %inc.i1324 = phi i64 [ %318, %_ZN10TestObjectD2Ev.exit1336 ], [ %313, %for.body703.preheader ]
   %conv70014748 = phi i64 [ %conv700, %_ZN10TestObjectD2Ev.exit1336 ], [ 0, %for.body703.preheader ]
   %i698.014747 = phi i32 [ %inc718, %_ZN10TestObjectD2Ev.exit1336 ], [ 0, %for.body703.preheader ]
   %314 = load ptr, ptr %add.ptr.i.i1109, align 8
   %arrayidx707 = getelementptr inbounds %struct.TestObject, ptr %314, i64 %conv70014748
   %div = udiv i32 %i698.014747, 3
   %add709 = add nuw nsw i32 %div, 1
-  %inc.i1324 = add nsw i64 %313, 1
   store i64 %inc.i1324, ptr @_ZN10TestObject8sTOCountE, align 8
   %315 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i1325 = add nsw i64 %315, 1
@@ -3070,16 +3070,16 @@ for.cond847.preheader:                            ; preds = %invoke.cont841
 
 for.body851.preheader:                            ; preds = %for.cond847.preheader
   %.pre15142 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %417 = add nsw i64 %.pre15142, 1
   br label %for.body851
 
 for.body851:                                      ; preds = %for.body851.preheader, %_ZN10TestObjectD2Ev.exit1675
-  %417 = phi i64 [ %dec.i1673, %_ZN10TestObjectD2Ev.exit1675 ], [ %.pre15142, %for.body851.preheader ]
+  %inc.i1663 = phi i64 [ %422, %_ZN10TestObjectD2Ev.exit1675 ], [ %417, %for.body851.preheader ]
   %conv84814751 = phi i64 [ %conv848, %_ZN10TestObjectD2Ev.exit1675 ], [ 0, %for.body851.preheader ]
   %i846.014750 = phi i32 [ %add857, %_ZN10TestObjectD2Ev.exit1675 ], [ 0, %for.body851.preheader ]
   %418 = load ptr, ptr %add.ptr.i.i1443, align 8
   %arrayidx855 = getelementptr inbounds %struct.TestObject, ptr %418, i64 %conv84814751
   %add857 = add i32 %i846.014750, 1
-  %inc.i1663 = add nsw i64 %417, 1
   store i64 %inc.i1663, ptr @_ZN10TestObject8sTOCountE, align 8
   %419 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i1664 = add nsw i64 %419, 1
@@ -3660,17 +3660,17 @@ for.cond1040.preheader:                           ; preds = %invoke.cont1034
 
 for.body1044.preheader:                           ; preds = %for.cond1040.preheader
   %.pre15148 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %529 = add nsw i64 %.pre15148, 1
   br label %for.body1044
 
 for.body1044:                                     ; preds = %for.body1044.preheader, %_ZN10TestObjectD2Ev.exit2165
-  %529 = phi i64 [ %dec.i2163, %_ZN10TestObjectD2Ev.exit2165 ], [ %.pre15148, %for.body1044.preheader ]
+  %inc.i2153 = phi i64 [ %534, %_ZN10TestObjectD2Ev.exit2165 ], [ %529, %for.body1044.preheader ]
   %conv104114755 = phi i64 [ %conv1041, %_ZN10TestObjectD2Ev.exit2165 ], [ 0, %for.body1044.preheader ]
   %i1039.014754 = phi i32 [ %inc1060, %_ZN10TestObjectD2Ev.exit2165 ], [ 0, %for.body1044.preheader ]
   %530 = load ptr, ptr %add.ptr.i.i1799, align 8
   %arrayidx1048 = getelementptr inbounds %struct.TestObject, ptr %530, i64 %conv104114755
   %div1050 = udiv i32 %i1039.014754, 3
   %add1051 = add nuw nsw i32 %div1050, 1
-  %inc.i2153 = add nsw i64 %529, 1
   store i64 %inc.i2153, ptr @_ZN10TestObject8sTOCountE, align 8
   %531 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i2154 = add nsw i64 %531, 1
@@ -4252,16 +4252,16 @@ for.cond1235.preheader:                           ; preds = %invoke.cont1229
 
 for.body1239.preheader:                           ; preds = %for.cond1235.preheader
   %.pre15154 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %641 = add nsw i64 %.pre15154, 1
   br label %for.body1239
 
 for.body1239:                                     ; preds = %for.body1239.preheader, %_ZN10TestObjectD2Ev.exit2750
-  %641 = phi i64 [ %dec.i2748, %_ZN10TestObjectD2Ev.exit2750 ], [ %.pre15154, %for.body1239.preheader ]
+  %inc.i2738 = phi i64 [ %646, %_ZN10TestObjectD2Ev.exit2750 ], [ %641, %for.body1239.preheader ]
   %conv123614759 = phi i64 [ %conv1236, %_ZN10TestObjectD2Ev.exit2750 ], [ 0, %for.body1239.preheader ]
   %i1234.014758 = phi i32 [ %add1245, %_ZN10TestObjectD2Ev.exit2750 ], [ 0, %for.body1239.preheader ]
   %642 = load ptr, ptr %add.ptr.i.i2384, align 8
   %arrayidx1243 = getelementptr inbounds %struct.TestObject, ptr %642, i64 %conv123614759
   %add1245 = add i32 %i1234.014758, 1
-  %inc.i2738 = add nsw i64 %641, 1
   store i64 %inc.i2738, ptr @_ZN10TestObject8sTOCountE, align 8
   %643 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i2739 = add nsw i64 %643, 1
@@ -5157,17 +5157,17 @@ for.cond1701.preheader:                           ; preds = %invoke.cont1695
 
 for.body1705.preheader:                           ; preds = %for.cond1701.preheader
   %.pre15162 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %785 = add nsw i64 %.pre15162, 1
   br label %for.body1705
 
 for.body1705:                                     ; preds = %for.body1705.preheader, %_ZN10TestObjectD2Ev.exit3718
-  %785 = phi i64 [ %dec.i3716, %_ZN10TestObjectD2Ev.exit3718 ], [ %.pre15162, %for.body1705.preheader ]
+  %inc.i3706 = phi i64 [ %790, %_ZN10TestObjectD2Ev.exit3718 ], [ %785, %for.body1705.preheader ]
   %conv170214844 = phi i64 [ %conv1702, %_ZN10TestObjectD2Ev.exit3718 ], [ 0, %for.body1705.preheader ]
   %i1700.014843 = phi i32 [ %inc1721, %_ZN10TestObjectD2Ev.exit3718 ], [ 0, %for.body1705.preheader ]
   %786 = load ptr, ptr %add.ptr.i.i2968, align 8
   %arrayidx1709 = getelementptr inbounds %struct.TestObject, ptr %786, i64 %conv170214844
   %div1711 = udiv i32 %i1700.014843, 3
   %add1712 = add nuw nsw i32 %div1711, 1
-  %inc.i3706 = add nsw i64 %785, 1
   store i64 %inc.i3706, ptr @_ZN10TestObject8sTOCountE, align 8
   %787 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i3707 = add nsw i64 %787, 1
@@ -5935,16 +5935,16 @@ for.cond1851.preheader:                           ; preds = %invoke.cont1845
 
 for.body1855.preheader:                           ; preds = %for.cond1851.preheader
   %.pre15168 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %896 = add nsw i64 %.pre15168, 1
   br label %for.body1855
 
 for.body1855:                                     ; preds = %for.body1855.preheader, %_ZN10TestObjectD2Ev.exit4265
-  %896 = phi i64 [ %dec.i4263, %_ZN10TestObjectD2Ev.exit4265 ], [ %.pre15168, %for.body1855.preheader ]
+  %inc.i4253 = phi i64 [ %901, %_ZN10TestObjectD2Ev.exit4265 ], [ %896, %for.body1855.preheader ]
   %conv185214848 = phi i64 [ %conv1852, %_ZN10TestObjectD2Ev.exit4265 ], [ 0, %for.body1855.preheader ]
   %i1850.014847 = phi i32 [ %add1861, %_ZN10TestObjectD2Ev.exit4265 ], [ 0, %for.body1855.preheader ]
   %897 = load ptr, ptr %add.ptr5.i.i4066, align 8
   %arrayidx1859 = getelementptr inbounds %struct.TestObject, ptr %897, i64 %conv185214848
   %add1861 = add i32 %i1850.014847, 1
-  %inc.i4253 = add nsw i64 %896, 1
   store i64 %inc.i4253, ptr @_ZN10TestObject8sTOCountE, align 8
   %898 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i4254 = add nsw i64 %898, 1
@@ -6621,16 +6621,16 @@ for.cond2005.preheader:                           ; preds = %invoke.cont1999
 
 for.body2009.preheader:                           ; preds = %for.cond2005.preheader
   %.pre15172 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %1021 = add nsw i64 %.pre15172, 1
   br label %for.body2009
 
 for.body2009:                                     ; preds = %for.body2009.preheader, %_ZN10TestObjectD2Ev.exit4592
-  %1021 = phi i64 [ %dec.i4590, %_ZN10TestObjectD2Ev.exit4592 ], [ %.pre15172, %for.body2009.preheader ]
+  %inc.i4580 = phi i64 [ %1026, %_ZN10TestObjectD2Ev.exit4592 ], [ %1021, %for.body2009.preheader ]
   %conv200614852 = phi i64 [ %conv2006, %_ZN10TestObjectD2Ev.exit4592 ], [ 0, %for.body2009.preheader ]
   %i2004.014851 = phi i32 [ %add2015, %_ZN10TestObjectD2Ev.exit4592 ], [ 0, %for.body2009.preheader ]
   %1022 = load ptr, ptr %add.ptr5.i.i4381, align 8
   %arrayidx2013 = getelementptr inbounds %struct.TestObject, ptr %1022, i64 %conv200614852
   %add2015 = add i32 %i2004.014851, 1
-  %inc.i4580 = add nsw i64 %1021, 1
   store i64 %inc.i4580, ptr @_ZN10TestObject8sTOCountE, align 8
   %1023 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i4581 = add nsw i64 %1023, 1
@@ -6904,12 +6904,12 @@ _ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit4694: ; preds = %
   %add.ptr8.i.i4707 = getelementptr inbounds i8, ptr %srcVec, i64 8
   %add.ptr13.i.i4718 = getelementptr inbounds i8, ptr %srcVec, i64 16
   %.pre15173 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %1074 = add nsw i64 %.pre15173, 1
   br label %for.body2033
 
 for.body2033:                                     ; preds = %_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit4694, %_ZN10TestObjectD2Ev.exit4731
-  %1074 = phi i64 [ %.pre15173, %_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit4694 ], [ %dec.i4729, %_ZN10TestObjectD2Ev.exit4731 ]
+  %inc.i4697 = phi i64 [ %1074, %_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit4694 ], [ %1085, %_ZN10TestObjectD2Ev.exit4731 ]
   %i2030.014854 = phi i32 [ 0, %_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit4694 ], [ %inc2044, %_ZN10TestObjectD2Ev.exit4731 ]
-  %inc.i4697 = add nsw i64 %1074, 1
   store i64 %inc.i4697, ptr @_ZN10TestObject8sTOCountE, align 8
   %1075 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i4698 = add nsw i64 %1075, 1
@@ -7259,10 +7259,11 @@ for.cond2186.preheader:                           ; preds = %invoke.cont2180
 
 invoke.cont2201.preheader:                        ; preds = %for.cond2186.preheader
   %.pre15177 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %1136 = add nsw i64 %.pre15177, 2
   br label %invoke.cont2201
 
 invoke.cont2201:                                  ; preds = %invoke.cont2201.preheader, %_ZN10TestObjectD2Ev.exit5045
-  %1136 = phi i64 [ %dec.i5043, %_ZN10TestObjectD2Ev.exit5045 ], [ %.pre15177, %invoke.cont2201.preheader ]
+  %inc.i.i.i.i.i5023 = phi i64 [ %1148, %_ZN10TestObjectD2Ev.exit5045 ], [ %1136, %invoke.cont2201.preheader ]
   %conv218714857 = phi i64 [ %conv2187, %_ZN10TestObjectD2Ev.exit5045 ], [ 0, %invoke.cont2201.preheader ]
   %i2185.014856 = phi i32 [ %inc2210, %_ZN10TestObjectD2Ev.exit5045 ], [ 0, %invoke.cont2201.preheader ]
   %1137 = load ptr, ptr %testVec2046, align 8, !noalias !188
@@ -7275,7 +7276,6 @@ invoke.cont2201:                                  ; preds = %invoke.cont2201.pre
   %inc4.i5018 = add nsw i64 %1141, 1
   store i64 %inc4.i5018, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %conv2199 = uitofp i32 %i2185.014856 to float
-  %inc.i.i.i.i.i5023 = add nsw i64 %1136, 2
   store i64 %inc.i.i.i.i.i5023, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !193
   %inc5.i.i.i.i.i = add nsw i64 %1140, 2
   store i64 %inc5.i.i.i.i.i, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !193
@@ -7543,10 +7543,11 @@ for.cond2233.preheader:                           ; preds = %_ZN10TestObjectD2Ev
 invoke.cont2247.lr.ph:                            ; preds = %for.cond2233.preheader
   %add.ptr2.i.i5159 = getelementptr inbounds i8, ptr %testVec2219, i64 8
   %add.ptr5.i.i5161 = getelementptr inbounds i8, ptr %testVec2219, i64 16
+  %1181 = add nsw i64 %.pre15179, 2
   br label %invoke.cont2247
 
 invoke.cont2247:                                  ; preds = %invoke.cont2247.lr.ph, %_ZN10TestObjectD2Ev.exit5203
-  %1181 = phi i64 [ %.pre15179, %invoke.cont2247.lr.ph ], [ %dec.i5201, %_ZN10TestObjectD2Ev.exit5203 ]
+  %inc.i.i.i.i.i5175 = phi i64 [ %1181, %invoke.cont2247.lr.ph ], [ %1193, %_ZN10TestObjectD2Ev.exit5203 ]
   %conv223414861 = phi i64 [ 0, %invoke.cont2247.lr.ph ], [ %conv2234, %_ZN10TestObjectD2Ev.exit5203 ]
   %i2232.014860 = phi i32 [ 0, %invoke.cont2247.lr.ph ], [ %inc2256, %_ZN10TestObjectD2Ev.exit5203 ]
   %1182 = load ptr, ptr %testVec2219, align 8, !noalias !197
@@ -7558,7 +7559,6 @@ invoke.cont2247:                                  ; preds = %invoke.cont2247.lr.
   %1186 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i5167 = add nsw i64 %1186, 1
   store i64 %inc4.i5167, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %inc.i.i.i.i.i5175 = add nsw i64 %1181, 2
   store i64 %inc.i.i.i.i.i5175, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !202
   %inc5.i.i.i.i.i5176 = add nsw i64 %1185, 2
   store i64 %inc5.i.i.i.i.i5176, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !202
@@ -7709,10 +7709,11 @@ for.cond2273.preheader:                           ; preds = %_ZN10TestObjectD2Ev
 invoke.cont2287.lr.ph:                            ; preds = %for.cond2273.preheader
   %add.ptr2.i.i5244 = getelementptr inbounds i8, ptr %testVec2219, i64 8
   %add.ptr5.i.i5246 = getelementptr inbounds i8, ptr %testVec2219, i64 16
+  %1215 = add nsw i64 %.pre15181, 2
   br label %invoke.cont2287
 
 invoke.cont2287:                                  ; preds = %invoke.cont2287.lr.ph, %_ZN10TestObjectD2Ev.exit5288
-  %1215 = phi i64 [ %.pre15181, %invoke.cont2287.lr.ph ], [ %dec.i5286, %_ZN10TestObjectD2Ev.exit5288 ]
+  %inc.i.i.i.i.i5260 = phi i64 [ %1215, %invoke.cont2287.lr.ph ], [ %1227, %_ZN10TestObjectD2Ev.exit5288 ]
   %conv227414864 = phi i64 [ 0, %invoke.cont2287.lr.ph ], [ %conv2274, %_ZN10TestObjectD2Ev.exit5288 ]
   %i2272.014863 = phi i32 [ 0, %invoke.cont2287.lr.ph ], [ %inc2296, %_ZN10TestObjectD2Ev.exit5288 ]
   %1216 = load ptr, ptr %testVec2219, align 8, !noalias !206
@@ -7724,7 +7725,6 @@ invoke.cont2287:                                  ; preds = %invoke.cont2287.lr.
   %1220 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i5252 = add nsw i64 %1220, 1
   store i64 %inc4.i5252, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %inc.i.i.i.i.i5260 = add nsw i64 %1215, 2
   store i64 %inc.i.i.i.i.i5260, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !211
   %inc5.i.i.i.i.i5261 = add nsw i64 %1219, 2
   store i64 %inc5.i.i.i.i.i5261, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !211
@@ -7860,10 +7860,11 @@ for.cond2313.preheader:                           ; preds = %_ZN10TestObjectD2Ev
 invoke.cont2327.lr.ph:                            ; preds = %for.cond2313.preheader
   %add.ptr2.i.i5329 = getelementptr inbounds i8, ptr %testVec2219, i64 8
   %add.ptr5.i.i5331 = getelementptr inbounds i8, ptr %testVec2219, i64 16
+  %1248 = add nsw i64 %.pre15183, 2
   br label %invoke.cont2327
 
 invoke.cont2327:                                  ; preds = %invoke.cont2327.lr.ph, %_ZN10TestObjectD2Ev.exit5373
-  %1248 = phi i64 [ %.pre15183, %invoke.cont2327.lr.ph ], [ %dec.i5371, %_ZN10TestObjectD2Ev.exit5373 ]
+  %inc.i.i.i.i.i5345 = phi i64 [ %1248, %invoke.cont2327.lr.ph ], [ %1260, %_ZN10TestObjectD2Ev.exit5373 ]
   %conv231414867 = phi i64 [ 0, %invoke.cont2327.lr.ph ], [ %conv2314, %_ZN10TestObjectD2Ev.exit5373 ]
   %i2312.014866 = phi i32 [ 0, %invoke.cont2327.lr.ph ], [ %inc2336, %_ZN10TestObjectD2Ev.exit5373 ]
   %1249 = load ptr, ptr %testVec2219, align 8, !noalias !215
@@ -7875,7 +7876,6 @@ invoke.cont2327:                                  ; preds = %invoke.cont2327.lr.
   %1253 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i5337 = add nsw i64 %1253, 1
   store i64 %inc4.i5337, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %inc.i.i.i.i.i5345 = add nsw i64 %1248, 2
   store i64 %inc.i.i.i.i.i5345, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !220
   %inc5.i.i.i.i.i5346 = add nsw i64 %1252, 2
   store i64 %inc5.i.i.i.i.i5346, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !220
@@ -9010,10 +9010,11 @@ for.cond2662.preheader:                           ; preds = %_ZN10TestObjectD2Ev
 invoke.cont2679.lr.ph:                            ; preds = %for.cond2662.preheader
   %add.ptr2.i.i6064 = getelementptr inbounds i8, ptr %testVec2598, i64 8
   %add.ptr5.i.i6066 = getelementptr inbounds i8, ptr %testVec2598, i64 16
+  %1462 = add nsw i64 %.pre15185, 2
   br label %invoke.cont2679
 
 invoke.cont2679:                                  ; preds = %invoke.cont2679.lr.ph, %_ZN10TestObjectD2Ev.exit6108
-  %1462 = phi i64 [ %.pre15185, %invoke.cont2679.lr.ph ], [ %dec.i6106, %_ZN10TestObjectD2Ev.exit6108 ]
+  %inc.i.i.i.i.i6080 = phi i64 [ %1462, %invoke.cont2679.lr.ph ], [ %1474, %_ZN10TestObjectD2Ev.exit6108 ]
   %conv266314903 = phi i64 [ 0, %invoke.cont2679.lr.ph ], [ %conv2663, %_ZN10TestObjectD2Ev.exit6108 ]
   %i2661.014902 = phi i32 [ 0, %invoke.cont2679.lr.ph ], [ %add2673, %_ZN10TestObjectD2Ev.exit6108 ]
   %1463 = load ptr, ptr %testVec2598, align 8, !noalias !288
@@ -9028,7 +9029,6 @@ invoke.cont2679:                                  ; preds = %invoke.cont2679.lr.
   store i64 %inc4.i6072, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %conv2676 = uitofp i32 %i2661.014902 to float
   %add2677 = fadd float %conv2676, 1.000000e+00
-  %inc.i.i.i.i.i6080 = add nsw i64 %1462, 2
   store i64 %inc.i.i.i.i.i6080, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !293
   %inc5.i.i.i.i.i6081 = add nsw i64 %1466, 2
   store i64 %inc5.i.i.i.i.i6081, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !293
@@ -9192,10 +9192,11 @@ for.cond2739.preheader:                           ; preds = %_ZN5eastl5tupleIJb1
 invoke.cont2756.lr.ph:                            ; preds = %for.cond2739.preheader
   %add.ptr2.i.i6199 = getelementptr inbounds i8, ptr %testVec2598, i64 8
   %add.ptr5.i.i6201 = getelementptr inbounds i8, ptr %testVec2598, i64 16
+  %1493 = add nsw i64 %.pre15187, 2
   br label %invoke.cont2756
 
 invoke.cont2756:                                  ; preds = %invoke.cont2756.lr.ph, %_ZN10TestObjectD2Ev.exit6243
-  %1493 = phi i64 [ %.pre15187, %invoke.cont2756.lr.ph ], [ %dec.i6241, %_ZN10TestObjectD2Ev.exit6243 ]
+  %inc.i.i.i.i.i6215 = phi i64 [ %1493, %invoke.cont2756.lr.ph ], [ %1505, %_ZN10TestObjectD2Ev.exit6243 ]
   %conv274014920 = phi i64 [ 0, %invoke.cont2756.lr.ph ], [ %conv2740, %_ZN10TestObjectD2Ev.exit6243 ]
   %i2738.014919 = phi i32 [ 0, %invoke.cont2756.lr.ph ], [ %inc2765, %_ZN10TestObjectD2Ev.exit6243 ]
   %1494 = load ptr, ptr %testVec2598, align 8, !noalias !297
@@ -9209,7 +9210,6 @@ invoke.cont2756:                                  ; preds = %invoke.cont2756.lr.
   store i64 %inc4.i6207, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %conv2753 = uitofp i32 %i2738.014919 to float
   %add2754 = fadd float %conv2753, 4.000000e+00
-  %inc.i.i.i.i.i6215 = add nsw i64 %1493, 2
   store i64 %inc.i.i.i.i.i6215, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !302
   %inc5.i.i.i.i.i6216 = add nsw i64 %1497, 2
   store i64 %inc5.i.i.i.i.i6216, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !302
@@ -9378,10 +9378,11 @@ for.cond2824.preheader:                           ; preds = %_ZN10TestObjectD2Ev
 invoke.cont2841.lr.ph:                            ; preds = %for.cond2824.preheader
   %add.ptr2.i.i6335 = getelementptr inbounds i8, ptr %testVec2598, i64 8
   %add.ptr5.i.i6337 = getelementptr inbounds i8, ptr %testVec2598, i64 16
+  %1525 = add nsw i64 %.pre15189, 2
   br label %invoke.cont2841
 
 invoke.cont2841:                                  ; preds = %invoke.cont2841.lr.ph, %_ZN10TestObjectD2Ev.exit6379
-  %1525 = phi i64 [ %.pre15189, %invoke.cont2841.lr.ph ], [ %dec.i6377, %_ZN10TestObjectD2Ev.exit6379 ]
+  %inc.i.i.i.i.i6351 = phi i64 [ %1525, %invoke.cont2841.lr.ph ], [ %1537, %_ZN10TestObjectD2Ev.exit6379 ]
   %conv282514937 = phi i64 [ 0, %invoke.cont2841.lr.ph ], [ %conv2825, %_ZN10TestObjectD2Ev.exit6379 ]
   %i2823.014936 = phi i32 [ 0, %invoke.cont2841.lr.ph ], [ %inc2850, %_ZN10TestObjectD2Ev.exit6379 ]
   %1526 = load ptr, ptr %testVec2598, align 8, !noalias !306
@@ -9395,7 +9396,6 @@ invoke.cont2841:                                  ; preds = %invoke.cont2841.lr.
   store i64 %inc4.i6343, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %conv2838 = uitofp i32 %i2823.014936 to float
   %add2839 = fadd float %conv2838, 5.000000e+00
-  %inc.i.i.i.i.i6351 = add nsw i64 %1525, 2
   store i64 %inc.i.i.i.i.i6351, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !311
   %inc5.i.i.i.i.i6352 = add nsw i64 %1529, 2
   store i64 %inc5.i.i.i.i.i6352, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !311
@@ -10604,12 +10604,12 @@ _ZN5eastl12tuple_vectorIJb10TestObjectfEED2Ev.exit7218: ; preds = %invoke.cont17
   %add.ptr8.i.i7231 = getelementptr inbounds i8, ptr %srcVec3124, i64 8
   %add.ptr13.i.i7242 = getelementptr inbounds i8, ptr %srcVec3124, i64 16
   %.pre15194 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %1751 = add nsw i64 %.pre15194, 1
   br label %for.body3128
 
 for.body3128:                                     ; preds = %_ZN5eastl12tuple_vectorIJb10TestObjectfEED2Ev.exit7218, %_ZN10TestObjectD2Ev.exit7255
-  %1751 = phi i64 [ %.pre15194, %_ZN5eastl12tuple_vectorIJb10TestObjectfEED2Ev.exit7218 ], [ %dec.i7253, %_ZN10TestObjectD2Ev.exit7255 ]
+  %inc.i7221 = phi i64 [ %1751, %_ZN5eastl12tuple_vectorIJb10TestObjectfEED2Ev.exit7218 ], [ %1762, %_ZN10TestObjectD2Ev.exit7255 ]
   %i3125.014951 = phi i32 [ 0, %_ZN5eastl12tuple_vectorIJb10TestObjectfEED2Ev.exit7218 ], [ %inc3139, %_ZN10TestObjectD2Ev.exit7255 ]
-  %inc.i7221 = add nsw i64 %1751, 1
   store i64 %inc.i7221, ptr @_ZN10TestObject8sTOCountE, align 8
   %1752 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i7222 = add nsw i64 %1752, 1
@@ -14316,12 +14316,12 @@ _ZN5eastl18tuple_vector_allocI15MallocAllocatorJb10TestObjectfEED2Ev.exit9604: ;
   %add.ptr8.i9616 = getelementptr inbounds i8, ptr %srcMoveVec, i64 8
   %add.ptr13.i = getelementptr inbounds i8, ptr %srcMoveVec, i64 16
   %.pre15204 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %2378 = add nsw i64 %.pre15204, 1
   br label %for.body4123
 
 for.body4123:                                     ; preds = %_ZN5eastl18tuple_vector_allocI15MallocAllocatorJb10TestObjectfEED2Ev.exit9604, %_ZN10TestObjectD2Ev.exit9638
-  %2378 = phi i64 [ %.pre15204, %_ZN5eastl18tuple_vector_allocI15MallocAllocatorJb10TestObjectfEED2Ev.exit9604 ], [ %dec.i9636, %_ZN10TestObjectD2Ev.exit9638 ]
+  %inc.i9607 = phi i64 [ %2378, %_ZN5eastl18tuple_vector_allocI15MallocAllocatorJb10TestObjectfEED2Ev.exit9604 ], [ %2389, %_ZN10TestObjectD2Ev.exit9638 ]
   %storemerge15001 = phi i32 [ 0, %_ZN5eastl18tuple_vector_allocI15MallocAllocatorJb10TestObjectfEED2Ev.exit9604 ], [ %inc4135, %_ZN10TestObjectD2Ev.exit9638 ]
-  %inc.i9607 = add nsw i64 %2378, 1
   store i64 %inc.i9607, ptr @_ZN10TestObject8sTOCountE, align 8
   %2379 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i9608 = add nsw i64 %2379, 1
@@ -14658,12 +14658,12 @@ _ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit9772: ; preds = %
   %add.ptr8.i9784 = getelementptr inbounds i8, ptr %srcMoveVec4192, i64 8
   %add.ptr13.i9786 = getelementptr inbounds i8, ptr %srcMoveVec4192, i64 16
   %.pre15205 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %2433 = add nsw i64 %.pre15205, 1
   br label %for.body4197
 
 for.body4197:                                     ; preds = %_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit9772, %_ZN10TestObjectD2Ev.exit9811
-  %2433 = phi i64 [ %.pre15205, %_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit9772 ], [ %dec.i9809, %_ZN10TestObjectD2Ev.exit9811 ]
+  %inc.i9775 = phi i64 [ %2433, %_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit9772 ], [ %2444, %_ZN10TestObjectD2Ev.exit9811 ]
   %storemerge39715003 = phi i32 [ 0, %_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit9772 ], [ %inc4209, %_ZN10TestObjectD2Ev.exit9811 ]
-  %inc.i9775 = add nsw i64 %2433, 1
   store i64 %inc.i9775, ptr @_ZN10TestObject8sTOCountE, align 8
   %2434 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i9776 = add nsw i64 %2434, 1
@@ -15282,12 +15282,12 @@ _ZN5eastl18tuple_vector_allocI15MallocAllocatorJi12MoveOnlyType10TestObjectEED2E
   %add.ptr8.i10081 = getelementptr inbounds i8, ptr %srcMoveVec4322, i64 8
   %add.ptr13.i10083 = getelementptr inbounds i8, ptr %srcMoveVec4322, i64 16
   %.pre15206 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %2562 = add nsw i64 %.pre15206, 1
   br label %for.body4327
 
 for.body4327:                                     ; preds = %_ZN5eastl18tuple_vector_allocI15MallocAllocatorJi12MoveOnlyType10TestObjectEED2Ev.exit10069, %_ZN10TestObjectD2Ev.exit10109
-  %2562 = phi i64 [ %.pre15206, %_ZN5eastl18tuple_vector_allocI15MallocAllocatorJi12MoveOnlyType10TestObjectEED2Ev.exit10069 ], [ %dec.i10107, %_ZN10TestObjectD2Ev.exit10109 ]
+  %inc.i10072 = phi i64 [ %2562, %_ZN5eastl18tuple_vector_allocI15MallocAllocatorJi12MoveOnlyType10TestObjectEED2Ev.exit10069 ], [ %2573, %_ZN10TestObjectD2Ev.exit10109 ]
   %storemerge39815006 = phi i32 [ 0, %_ZN5eastl18tuple_vector_allocI15MallocAllocatorJi12MoveOnlyType10TestObjectEED2Ev.exit10069 ], [ %inc4339, %_ZN10TestObjectD2Ev.exit10109 ]
-  %inc.i10072 = add nsw i64 %2562, 1
   store i64 %inc.i10072, ptr @_ZN10TestObject8sTOCountE, align 8
   %2563 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i10073 = add nsw i64 %2563, 1
@@ -16848,16 +16848,16 @@ for.cond5068.preheader:                           ; preds = %invoke.cont5062
 
 for.body5072.preheader:                           ; preds = %for.cond5068.preheader
   %.pre15213 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %2795 = add nsw i64 %.pre15213, 1
   br label %for.body5072
 
 for.body5072:                                     ; preds = %for.body5072.preheader, %_ZN10TestObjectD2Ev.exit11269
-  %2795 = phi i64 [ %dec.i11267, %_ZN10TestObjectD2Ev.exit11269 ], [ %.pre15213, %for.body5072.preheader ]
+  %inc.i11257 = phi i64 [ %2800, %_ZN10TestObjectD2Ev.exit11269 ], [ %2795, %for.body5072.preheader ]
   %conv506915018 = phi i64 [ %conv5069, %_ZN10TestObjectD2Ev.exit11269 ], [ 0, %for.body5072.preheader ]
   %i5067.015017 = phi i32 [ %add5078, %_ZN10TestObjectD2Ev.exit11269 ], [ 0, %for.body5072.preheader ]
   %2796 = load ptr, ptr %add.ptr5.i.i11087, align 8
   %arrayidx5076 = getelementptr inbounds %struct.TestObject, ptr %2796, i64 %conv506915018
   %add5078 = add i32 %i5067.015017, 1
-  %inc.i11257 = add nsw i64 %2795, 1
   store i64 %inc.i11257, ptr @_ZN10TestObject8sTOCountE, align 8
   %2797 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i11258 = add nsw i64 %2797, 1
@@ -18263,16 +18263,16 @@ _ZN5eastl18tuple_vector_allocI15MallocAllocatorJb10TestObjectfEECI2NS_16TupleVec
   %mNumElements.i.i11993 = getelementptr inbounds i8, ptr %lessThanVec, i64 32
   %mNumElements.i.i12030 = getelementptr inbounds i8, ptr %greaterThanVec, i64 32
   %.pre15218 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %3057 = add nsw i64 %.pre15218, 1
   br label %for.body5288
 
 for.body5288:                                     ; preds = %_ZN5eastl18tuple_vector_allocI15MallocAllocatorJb10TestObjectfEECI2NS_16TupleVecInternal12TupleVecImplIS1_NS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEEEmRKS1_.exit, %_ZN10TestObjectD2Ev.exit12059
-  %3057 = phi i64 [ %.pre15218, %_ZN5eastl18tuple_vector_allocI15MallocAllocatorJb10TestObjectfEECI2NS_16TupleVecInternal12TupleVecImplIS1_NS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEEEmRKS1_.exit ], [ %dec.i12057, %_ZN10TestObjectD2Ev.exit12059 ]
+  %inc.i11989 = phi i64 [ %3057, %_ZN5eastl18tuple_vector_allocI15MallocAllocatorJb10TestObjectfEECI2NS_16TupleVecInternal12TupleVecImplIS1_NS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEEEmRKS1_.exit ], [ %3079, %_ZN10TestObjectD2Ev.exit12059 ]
   %i5285.015021 = phi i32 [ 0, %_ZN5eastl18tuple_vector_allocI15MallocAllocatorJb10TestObjectfEECI2NS_16TupleVecInternal12TupleVecImplIS1_NS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEEEmRKS1_.exit ], [ %inc5314, %_ZN10TestObjectD2Ev.exit12059 ]
   %rem5290.lhs.trunc = trunc nuw i32 %i5285.015021 to i8
   %rem529014603 = urem i8 %rem5290.lhs.trunc, 3
   %cmp5291 = icmp eq i8 %rem529014603, 0
   %frombool5292 = zext i1 %cmp5291 to i8
-  %inc.i11989 = add nsw i64 %3057, 1
   store i64 %inc.i11989, ptr @_ZN10TestObject8sTOCountE, align 8
   %3058 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i11990 = add nsw i64 %3058, 1
@@ -19122,16 +19122,16 @@ _ZN5eastl12tuple_vectorIJb10TestObjectfEED2Ev.exit12386: ; preds = %invoke.cont1
   %add.ptr15.i.i12410 = getelementptr inbounds i8, ptr %vec, i64 16
   %add.ptr20.i.i = getelementptr inbounds i8, ptr %vec, i64 24
   %.pre15219 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %3203 = add nsw i64 %.pre15219, 1
   br label %for.body5356
 
 for.body5356:                                     ; preds = %_ZN5eastl12tuple_vectorIJb10TestObjectfEED2Ev.exit12386, %_ZN10TestObjectD2Ev.exit12421
-  %3203 = phi i64 [ %.pre15219, %_ZN5eastl12tuple_vectorIJb10TestObjectfEED2Ev.exit12386 ], [ %dec.i12419, %_ZN10TestObjectD2Ev.exit12421 ]
+  %inc.i12389 = phi i64 [ %3203, %_ZN5eastl12tuple_vectorIJb10TestObjectfEED2Ev.exit12386 ], [ %3215, %_ZN10TestObjectD2Ev.exit12421 ]
   %i5353.015022 = phi i32 [ 0, %_ZN5eastl12tuple_vectorIJb10TestObjectfEED2Ev.exit12386 ], [ %inc5372, %_ZN10TestObjectD2Ev.exit12421 ]
   %rem5358.lhs.trunc = trunc nuw i32 %i5353.015022 to i8
   %rem535814604 = urem i8 %rem5358.lhs.trunc, 3
   %cmp5359 = icmp eq i8 %rem535814604, 0
   %frombool5360 = zext i1 %cmp5359 to i8
-  %inc.i12389 = add nsw i64 %3203, 1
   store i64 %inc.i12389, ptr @_ZN10TestObject8sTOCountE, align 8
   %3204 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i12390 = add nsw i64 %3204, 1

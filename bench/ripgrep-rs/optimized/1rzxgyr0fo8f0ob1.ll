@@ -371,7 +371,7 @@ _ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exi
 
 13:                                               ; preds = %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit
   %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 1)
+  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %7, i64 1)
   %15 = load i64, ptr %0, align 8, !range !22, !noundef !18
   %trunc = trunc nuw i64 %15 to i1
   br i1 %trunc, label %16, label %24

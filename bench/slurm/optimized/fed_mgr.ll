@@ -2776,11 +2776,11 @@ define internal fastcc void @_cleanup_removed_origin_jobs() unnamed_addr #0 {
 
 38:                                               ; preds = %33
   %39 = load i32, ptr %25, align 8
-  %.not42 = icmp ne i32 %39, 0
+  %.not42 = icmp eq i32 %39, 0
   br label %40
 
 40:                                               ; preds = %38, %33
-  %.0 = phi i1 [ false, %33 ], [ %.not42, %38 ]
+  %.0 = phi i1 [ true, %33 ], [ %.not42, %38 ]
   tail call void @free_job_fed_details(ptr noundef nonnull %24) #17
   %41 = load i32, ptr %21, align 8
   %42 = and i32 %41, 255
@@ -2810,8 +2810,7 @@ define internal fastcc void @_cleanup_removed_origin_jobs() unnamed_addr #0 {
   br i1 %or.cond51, label %.outer.backedge, label %55
 
 55:                                               ; preds = %51
-  %.0.not = xor i1 %.0, true
-  %or.cond52 = and i1 %37, %.0.not
+  %or.cond52 = and i1 %37, %.0
   br i1 %or.cond52, label %58, label %56
 
 56:                                               ; preds = %55

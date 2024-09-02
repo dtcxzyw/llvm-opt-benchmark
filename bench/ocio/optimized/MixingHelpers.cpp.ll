@@ -1395,7 +1395,7 @@ declare void @_ZN19OpenColorIO_v2_4dev14ColorSpaceInfo20CreateFromSingleRoleERKS
 declare noundef ptr @_ZNK19OpenColorIO_v2_4dev14ColorSpaceInfo9getUINameEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl18getNumMixingSpacesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #11 align 2 {
+define hidden noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl18getNumMixingSpacesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #11 align 2 {
 entry:
   %m_mixingSpaces = getelementptr inbounds i8, ptr %this, i64 48
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1760,7 +1760,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl21getNumMixingEncodingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #11 align 2 {
+define hidden noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZNK19OpenColorIO_v2_4dev27MixingColorSpaceManagerImpl21getNumMixingEncodingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) unnamed_addr #11 align 2 {
 entry:
   %m_mixingEncodings = getelementptr inbounds i8, ptr %this, i64 72
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80

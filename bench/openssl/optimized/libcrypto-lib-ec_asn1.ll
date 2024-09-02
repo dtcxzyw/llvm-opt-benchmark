@@ -2342,7 +2342,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ECDSA_size(ptr noundef %ec) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @ECDSA_size(ptr noundef %ec) local_unnamed_addr #0 {
 entry:
   %encoded_len.i = alloca i64, align 8
   %pkt.i = alloca %struct.wpacket_st, align 8

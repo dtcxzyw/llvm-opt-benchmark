@@ -1124,8 +1124,8 @@ define internal fastcc void @_preempt_job_dequeue() unnamed_addr #0 {
   %2 = load ptr, ptr @preempt_job_list, align 8
   %3 = tail call ptr @list_pop(ptr noundef %2) #9
   store ptr %3, ptr %1, align 8
-  %.not44 = icmp eq ptr %3, null
-  br i1 %.not44, label %._crit_edge, label %.lr.ph
+  %.not40 = icmp eq ptr %3, null
+  br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.backedge
   %4 = phi ptr [ %11, %.backedge ], [ %3, %0 ]
@@ -1139,7 +1139,7 @@ define internal fastcc void @_preempt_job_dequeue() unnamed_addr #0 {
   %9 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.60, ptr noundef nonnull @__func__._preempt_job_dequeue, i32 noundef %5) #9
   br label %.backedge
 
-.backedge:                                        ; preds = %52, %53, %50, %51, %22, %19, %40, %37, %14, %14, %8, %44
+.backedge:                                        ; preds = %52, %53, %50, %51, %37, %40, %19, %22, %14, %14, %8, %44
   %10 = load ptr, ptr @preempt_job_list, align 8
   %11 = call ptr @list_pop(ptr noundef %10) #9
   store ptr %11, ptr %1, align 8
@@ -1148,7 +1148,7 @@ define internal fastcc void @_preempt_job_dequeue() unnamed_addr #0 {
 
 12:                                               ; preds = %.lr.ph
   %13 = call zeroext i16 @slurm_job_preempt_mode(ptr noundef nonnull %6) #9
-  switch i16 %13, label %.thread [
+  switch i16 %13, label %.critedge39 [
     i16 1, label %14
     i16 8, label %16
     i16 2, label %23
@@ -1157,7 +1157,7 @@ define internal fastcc void @_preempt_job_dequeue() unnamed_addr #0 {
 
 14:                                               ; preds = %12
   %15 = call fastcc i32 @_suspend_job(ptr noundef nonnull %6)
-  switch i32 %15, label %.thread [
+  switch i32 %15, label %.critedge39 [
     i32 2037, label %.backedge
     i32 0, label %.backedge
   ]
@@ -1165,7 +1165,7 @@ define internal fastcc void @_preempt_job_dequeue() unnamed_addr #0 {
 16:                                               ; preds = %12
   %17 = call i32 @job_signal(ptr noundef nonnull %6, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #9
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %.thread
+  br i1 %18, label %19, label %.critedge39
 
 19:                                               ; preds = %16
   %20 = call i32 @get_log_level() #9
@@ -1180,19 +1180,19 @@ define internal fastcc void @_preempt_job_dequeue() unnamed_addr #0 {
   %24 = getelementptr inbounds i8, ptr %6, i64 88
   %25 = load i16, ptr %24, align 8
   %.not34 = icmp eq i16 %25, 0
-  br i1 %.not34, label %.thread, label %26
+  br i1 %.not34, label %.critedge39, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %6, i64 216
   %28 = load ptr, ptr %27, align 8
   %.not35 = icmp eq ptr %28, null
-  br i1 %.not35, label %.thread, label %29
+  br i1 %.not35, label %.critedge39, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %28, i64 392
   %31 = load i16, ptr %30, align 8
   %.not36 = icmp eq i16 %31, 0
-  br i1 %.not36, label %.thread, label %32
+  br i1 %.not36, label %.critedge39, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %6, i64 392
@@ -1213,27 +1213,27 @@ define internal fastcc void @_preempt_job_dequeue() unnamed_addr #0 {
 41:                                               ; preds = %32
   %42 = call ptr @slurm_strerror(i32 noundef %35) #9
   %43 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.63, ptr noundef nonnull %6, ptr noundef %42) #9
-  br label %.thread
+  br label %.critedge39
 
 44:                                               ; preds = %12
   %45 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.64, i32 noundef 0, ptr noundef nonnull %6) #9
   br label %.backedge
 
-.thread:                                          ; preds = %14, %23, %26, %29, %12, %41, %16
+.critedge39:                                      ; preds = %23, %26, %29, %16, %41, %12, %14
   %46 = call i32 @job_signal(ptr noundef nonnull %6, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #9
   %47 = icmp eq i32 %46, 0
   %48 = call i32 @get_log_level() #9
   %49 = icmp sgt i32 %48, 2
   br i1 %47, label %50, label %52
 
-50:                                               ; preds = %.thread
+50:                                               ; preds = %.critedge39
   br i1 %49, label %51, label %.backedge
 
 51:                                               ; preds = %50
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.65, ptr noundef nonnull @__func__._preempt_job_dequeue, ptr noundef nonnull %6) #9
   br label %.backedge
 
-52:                                               ; preds = %.thread
+52:                                               ; preds = %.critedge39
   br i1 %49, label %53, label %.backedge
 
 53:                                               ; preds = %52

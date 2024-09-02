@@ -306,7 +306,7 @@ define internal range(i32 0, 2) i32 @iseries_read(ptr nocapture noundef readonly
   br label %13
 
 13:                                               ; preds = %48, %6
-  %.02426.i = phi i32 [ 0, %6 ], [ %49, %48 ]
+  %.02427.i = phi i32 [ 0, %6 ], [ %49, %48 ]
   %14 = load ptr, ptr %0, align 8
   %15 = call ptr @file_gets(ptr noundef nonnull %7, i32 noundef 270, ptr noundef %14) #14
   %16 = icmp eq ptr %15, null
@@ -339,7 +339,7 @@ define internal range(i32 0, 2) i32 @iseries_read(ptr nocapture noundef readonly
   %26 = getelementptr i8, ptr %.017.i.i, i64 1
   %.pr.i.i = load i8, ptr %23, align 1
   %27 = icmp eq i8 %.pr.i.i, 10
-  br i1 %27, label %iseries_UNICODE_to_ASCII.exit.i, label %.thread.i.i
+  br i1 %27, label %.split.loop.exit.i.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %25, %.preheader.i, %.preheader.i, %.preheader.i
   %.115.i.i = phi ptr [ %26, %25 ], [ %.017.i.i, %.preheader.i ], [ %.017.i.i, %.preheader.i ], [ %.017.i.i, %.preheader.i ]
@@ -347,12 +347,15 @@ define internal range(i32 0, 2) i32 @iseries_read(ptr nocapture noundef readonly
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 270
   br i1 %exitcond.not.i.i, label %iseries_UNICODE_to_ASCII.exit.i, label %.preheader.i, !llvm.loop !7
 
-iseries_UNICODE_to_ASCII.exit.i:                  ; preds = %.thread.i.i, %25
-  %.013.lcssa.i.i = phi i64 [ 270, %.thread.i.i ], [ %indvars.iv.i.i, %25 ]
-  %.2.i.i = phi ptr [ %.115.i.i, %.thread.i.i ], [ %26, %25 ]
-  store i8 0, ptr %.2.i.i, align 1
-  %sext.i = shl i64 %.013.lcssa.i.i, 32
+.split.loop.exit.i.i:                             ; preds = %25
+  %sext.i = shl i64 %indvars.iv.i.i, 32
   %28 = ashr exact i64 %sext.i, 32
+  br label %iseries_UNICODE_to_ASCII.exit.i
+
+iseries_UNICODE_to_ASCII.exit.i:                  ; preds = %.thread.i.i, %.split.loop.exit.i.i
+  %.013.lcssa.i.i = phi i64 [ %28, %.split.loop.exit.i.i ], [ 270, %.thread.i.i ]
+  %.2.i.i = phi ptr [ %26, %.split.loop.exit.i.i ], [ %.115.i.i, %.thread.i.i ]
+  store i8 0, ptr %.2.i.i, align 1
   br label %31
 
 29:                                               ; preds = %20
@@ -360,7 +363,7 @@ iseries_UNICODE_to_ASCII.exit.i:                  ; preds = %.thread.i.i, %25
   br label %31
 
 31:                                               ; preds = %29, %iseries_UNICODE_to_ASCII.exit.i
-  %.0.i = phi i64 [ %28, %iseries_UNICODE_to_ASCII.exit.i ], [ %30, %29 ]
+  %.0.i = phi i64 [ %.013.lcssa.i.i, %iseries_UNICODE_to_ASCII.exit.i ], [ %30, %29 ]
   %32 = call ptr @ascii_strup_inplace(ptr noundef nonnull %7) #14
   %33 = icmp slt i64 %.0.i, 78
   br i1 %33, label %48, label %34
@@ -389,7 +392,7 @@ iseries_UNICODE_to_ASCII.exit.i:                  ; preds = %.thread.i.i, %25
   br i1 %47, label %iseries_seek_next_packet.exit.thread, label %iseries_seek_next_packet.exit
 
 48:                                               ; preds = %34, %31
-  %49 = add nuw nsw i32 %.02426.i, 1
+  %49 = add nuw nsw i32 %.02427.i, 1
   %exitcond.not.i = icmp eq i32 %49, 99999999
   br i1 %exitcond.not.i, label %50, label %13, !llvm.loop !9
 

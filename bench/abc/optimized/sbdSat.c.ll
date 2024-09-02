@@ -1391,13 +1391,13 @@ define void @Sbd_ProblemLoad1(ptr nocapture noundef readonly %0, ptr nocapture n
 .critedge.loopexit:                               ; preds = %55
   %57 = trunc nsw i64 %indvars.iv.next52 to i32
   %.pre = add nsw i32 %57, 1
+  %58 = zext nneg i32 %35 to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %.critedge.loopexit
   %.pre-phi = phi i32 [ %.pre, %.critedge.loopexit ], [ %25, %33 ]
-  %.0.lcssa = phi i32 [ %35, %.critedge.loopexit ], [ 0, %33 ]
-  %58 = zext nneg i32 %.0.lcssa to i64
-  %59 = getelementptr inbounds i32, ptr %7, i64 %58
+  %.0.lcssa = phi i64 [ %58, %.critedge.loopexit ], [ 0, %33 ]
+  %59 = getelementptr inbounds i32, ptr %7, i64 %.0.lcssa
   %60 = call i32 @sat_solver_addclause(ptr noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %59) #19
   %.val = load i32, ptr %19, align 4
   %61 = icmp slt i32 %.pre-phi, %.val
@@ -1491,12 +1491,15 @@ define void @Sbd_ProblemLoad2(ptr nocapture noundef readonly %0, ptr nocapture n
   %.val41 = load i32, ptr %25, align 4
   %49 = sext i32 %.val41 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %28, label %.critedge2, !llvm.loop !29
+  br i1 %50, label %28, label %.critedge2.loopexit, !llvm.loop !29
 
-.critedge2:                                       ; preds = %48, %23
-  %.0.lcssa = phi i32 [ 0, %23 ], [ %.1, %48 ]
-  %51 = sext i32 %.0.lcssa to i64
-  %52 = getelementptr inbounds i32, ptr %7, i64 %51
+.critedge2.loopexit:                              ; preds = %48
+  %51 = sext i32 %.1 to i64
+  br label %.critedge2
+
+.critedge2:                                       ; preds = %.critedge2.loopexit, %23
+  %.0.lcssa = phi i64 [ 0, %23 ], [ %51, %.critedge2.loopexit ]
+  %52 = getelementptr inbounds i32, ptr %7, i64 %.0.lcssa
   %53 = call i32 @sat_solver_addclause(ptr noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %52) #19
   %.val43.pre = load i32, ptr %19, align 4
   br label %.critedge2.thread
@@ -1721,13 +1724,13 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntGrow.exit.i.
 
 ._crit_edge483.loopexit:                          ; preds = %._crit_edge481.us
   %.val342.pre = load i32, ptr %10, align 4
+  %69 = sext i32 %.val342.pre to i64
   br label %._crit_edge483
 
 ._crit_edge483:                                   ; preds = %33, %._crit_edge483.loopexit
-  %.val342 = phi i32 [ %.val342.pre, %._crit_edge483.loopexit ], [ 0, %33 ]
+  %.val342 = phi i64 [ %69, %._crit_edge483.loopexit ], [ 0, %33 ]
   %.val = load ptr, ptr %12, align 8
-  %69 = sext i32 %.val342 to i64
-  %70 = getelementptr inbounds i32, ptr %.val, i64 %69
+  %70 = getelementptr inbounds i32, ptr %.val, i64 %.val342
   %71 = tail call i32 @sat_solver_addclause(ptr noundef %28, ptr noundef %.val, ptr noundef %70) #19
   %indvars.iv.next653 = add nuw nsw i64 %indvars.iv652, 1
   %exitcond656.not = icmp eq i64 %indvars.iv.next653, %wide.trip.count655
@@ -1775,8 +1778,8 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntGrow.exit.i.
   br label %._crit_edge504.us
 
 ._crit_edge493.us:                                ; preds = %Vec_IntPush.exit368.us
-  %.val333.us = load ptr, ptr %12, align 8
   %81 = sext i32 %.val344.us.pre to i64
+  %.val333.us = load ptr, ptr %12, align 8
   %82 = getelementptr inbounds i32, ptr %.val333.us, i64 %81
   %83 = tail call i32 @sat_solver_addclause(ptr noundef %28, ptr noundef %.val333.us, ptr noundef %82) #19
   br label %.lr.ph503.us
@@ -3164,13 +3167,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 ._crit_edge.loopexit:                             ; preds = %62
   %.val.pre = load ptr, ptr %15, align 8
   %.val31.pre = load i32, ptr %13, align 4
+  %66 = sext i32 %.val31.pre to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %26
-  %.val31 = phi i32 [ %.val31.pre, %._crit_edge.loopexit ], [ 0, %26 ]
+  %.val31 = phi i64 [ %66, %._crit_edge.loopexit ], [ 0, %26 ]
   %.val = phi ptr [ %.val.pre, %._crit_edge.loopexit ], [ %.val42, %26 ]
-  %66 = sext i32 %.val31 to i64
-  %67 = getelementptr inbounds i32, ptr %.val, i64 %66
+  %67 = getelementptr inbounds i32, ptr %.val, i64 %.val31
   %68 = call i32 @sat_solver_addclause(ptr noundef %16, ptr noundef %.val, ptr noundef %67) #19
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %18

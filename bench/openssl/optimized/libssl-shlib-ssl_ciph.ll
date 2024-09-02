@@ -1330,7 +1330,7 @@ if.end14.i:                                       ; preds = %if.else4.i
   br i1 %cmp10.not.i, label %if.end20.i.thread, label %if.end20.i
 
 if.end20.i.thread:                                ; preds = %if.end, %if.else.i, %if.else4.i, %if.end14.i
-  %tobool28.not19.i = phi i1 [ true, %if.end14.i ], [ true, %if.else4.i ], [ false, %if.else.i ], [ true, %if.end ]
+  %tobool28.not19.i = phi ptr [ @.str.69, %if.end14.i ], [ @.str.69, %if.else4.i ], [ @.str.68, %if.else.i ], [ @.str.69, %if.end ]
   %suiteb_flags.017.i = phi i32 [ 131072, %if.end14.i ], [ 196608, %if.else4.i ], [ 196608, %if.else.i ], [ 65536, %if.end ]
   %cert_flags.i = getelementptr inbounds i8, ptr %c, i64 28
   %1 = load i32, ptr %cert_flags.i, align 4
@@ -1348,7 +1348,7 @@ if.end20.i:                                       ; preds = %if.end14.i
 
 if.end23.i:                                       ; preds = %if.end20.i.thread, %if.end20.i
   %suiteb_flags.1.i798 = phi i32 [ %suiteb_flags.017.i, %if.end20.i.thread ], [ %and19.i, %if.end20.i ]
-  %tobool28.not18.i797 = phi i1 [ %tobool28.not19.i, %if.end20.i.thread ], [ true, %if.end20.i ]
+  %tobool28.not18.i797 = phi ptr [ %tobool28.not19.i, %if.end20.i.thread ], [ @.str.69, %if.end20.i ]
   %ssl3_enc.i = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load ptr, ptr %ssl3_enc.i, align 8
   %enc_flags.i = getelementptr inbounds i8, ptr %3, i64 80
@@ -1365,7 +1365,6 @@ if.end27.i:                                       ; preds = %if.end23.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end27.i
-  %spec.select810 = select i1 %tobool28.not18.i797, ptr @.str.69, ptr @.str.68
   br label %if.end5
 
 sw.bb32.i:                                        ; preds = %if.end27.i
@@ -1381,7 +1380,7 @@ check_suiteb_cipher_list.exit:                    ; preds = %if.end23.i
   br label %return
 
 if.end5:                                          ; preds = %sw.bb.i, %if.end20.i, %sw.bb33.i, %sw.bb32.i, %if.end27.i
-  %rule_str.addr.0.ph = phi ptr [ @.str.70, %sw.bb32.i ], [ @.str.68, %sw.bb33.i ], [ %rule_str, %if.end27.i ], [ %rule_str, %if.end20.i ], [ %spec.select810, %sw.bb.i ]
+  %rule_str.addr.0.ph = phi ptr [ @.str.70, %sw.bb32.i ], [ @.str.68, %sw.bb33.i ], [ %rule_str, %if.end27.i ], [ %rule_str, %if.end20.i ], [ %tobool28.not18.i797, %sw.bb.i ]
   %disabled_mkey_mask = getelementptr inbounds i8, ptr %ctx, i64 1656
   %5 = load i32, ptr %disabled_mkey_mask, align 8
   %disabled_auth_mask = getelementptr inbounds i8, ptr %ctx, i64 1660
@@ -3589,10 +3588,10 @@ for.condthread-pre-split:                         ; preds = %entry, %if.then43
   br label %for.cond
 
 for.cond:                                         ; preds = %for.condthread-pre-split, %if.end395
-  %0 = phi i8 [ %.pr, %for.condthread-pre-split ], [ %30, %if.end395 ]
+  %0 = phi i8 [ %.pr, %for.condthread-pre-split ], [ %31, %if.end395 ]
   %l.0 = phi ptr [ %l.0.ph, %for.condthread-pre-split ], [ %l.7, %if.end395 ]
   %retval1.0 = phi i32 [ %retval1.0.ph, %for.condthread-pre-split ], [ %retval1.3, %if.end395 ]
-  switch i8 %0, label %for.cond46.preheader256 [
+  switch i8 %0, label %for.cond46.preheader254 [
     i8 0, label %return
     i8 45, label %if.then6
     i8 43, label %if.then10
@@ -3606,19 +3605,19 @@ for.cond:                                         ; preds = %for.condthread-pre-
 
 if.then6:                                         ; preds = %for.cond
   %incdec.ptr = getelementptr inbounds i8, ptr %l.0, i64 1
-  br label %for.cond46.preheader256
+  br label %for.cond46.preheader254
 
 if.then10:                                        ; preds = %for.cond
   %incdec.ptr11 = getelementptr inbounds i8, ptr %l.0, i64 1
-  br label %for.cond46.preheader256
+  br label %for.cond46.preheader254
 
 if.then16:                                        ; preds = %for.cond
   %incdec.ptr17 = getelementptr inbounds i8, ptr %l.0, i64 1
-  br label %for.cond46.preheader256
+  br label %for.cond46.preheader254
 
-for.cond46.preheader256:                          ; preds = %for.cond, %if.then6, %if.then10, %if.then16
-  %l.1283290 = phi ptr [ %incdec.ptr, %if.then6 ], [ %incdec.ptr11, %if.then10 ], [ %incdec.ptr17, %if.then16 ], [ %l.0, %for.cond ]
-  %rule.0285289 = phi i32 [ 3, %if.then6 ], [ 4, %if.then10 ], [ 2, %if.then16 ], [ 1, %for.cond ]
+for.cond46.preheader254:                          ; preds = %for.cond, %if.then6, %if.then10, %if.then16
+  %l.1281288 = phi ptr [ %incdec.ptr, %if.then6 ], [ %incdec.ptr11, %if.then10 ], [ %incdec.ptr17, %if.then16 ], [ %l.0, %for.cond ]
+  %rule.0283287 = phi i32 [ 3, %if.then6 ], [ 4, %if.then10 ], [ 2, %if.then16 ], [ 1, %for.cond ]
   br label %for.cond46
 
 while.cond.us.preheader:                          ; preds = %for.cond
@@ -3635,8 +3634,8 @@ while.cond.us:                                    ; preds = %while.cond.us.prehe
   %2 = and i8 %ch.0.fr.us, -33
   %3 = add i8 %2, -65
   %4 = icmp ult i8 %3, 26
-  %or.cond212.us = or i1 %4, %or.cond4.us
-  br i1 %or.cond212.us, label %while.body.us, label %switch.early.test.us
+  %or.cond210.us = or i1 %4, %or.cond4.us
+  br i1 %or.cond210.us, label %while.body.us, label %switch.early.test.us
 
 switch.early.test.us:                             ; preds = %while.cond.us
   switch i8 %ch.0.fr.us, label %while.end.us [
@@ -3662,14 +3661,14 @@ if.then43:                                        ; preds = %for.cond, %for.cond
   %incdec.ptr44 = getelementptr inbounds i8, ptr %l.0, i64 1
   br label %for.condthread-pre-split
 
-for.cond46:                                       ; preds = %for.cond46.preheader256, %if.end302
-  %alg_mkey.0 = phi i32 [ %alg_mkey.2, %if.end302 ], [ 0, %for.cond46.preheader256 ]
-  %alg_auth.0 = phi i32 [ %alg_auth.2, %if.end302 ], [ 0, %for.cond46.preheader256 ]
-  %alg_enc.0 = phi i32 [ %alg_enc.2, %if.end302 ], [ 0, %for.cond46.preheader256 ]
-  %alg_mac.0 = phi i32 [ %alg_mac.2, %if.end302 ], [ 0, %for.cond46.preheader256 ]
-  %algo_strength.0 = phi i32 [ %algo_strength.3, %if.end302 ], [ 0, %for.cond46.preheader256 ]
-  %min_tls.0 = phi i32 [ %min_tls.2, %if.end302 ], [ 0, %for.cond46.preheader256 ]
-  %l.2 = phi ptr [ %incdec.ptr97, %if.end302 ], [ %l.1283290, %for.cond46.preheader256 ]
+for.cond46:                                       ; preds = %for.cond46.preheader254, %if.end302
+  %alg_mkey.0 = phi i32 [ %alg_mkey.2, %if.end302 ], [ 0, %for.cond46.preheader254 ]
+  %alg_auth.0 = phi i32 [ %alg_auth.2, %if.end302 ], [ 0, %for.cond46.preheader254 ]
+  %alg_enc.0 = phi i32 [ %alg_enc.2, %if.end302 ], [ 0, %for.cond46.preheader254 ]
+  %alg_mac.0 = phi i32 [ %alg_mac.2, %if.end302 ], [ 0, %for.cond46.preheader254 ]
+  %algo_strength.0 = phi i32 [ %algo_strength.3, %if.end302 ], [ 0, %for.cond46.preheader254 ]
+  %min_tls.0 = phi i32 [ %min_tls.2, %if.end302 ], [ 0, %for.cond46.preheader254 ]
+  %l.2 = phi ptr [ %incdec.ptr97, %if.end302 ], [ %l.1281288, %for.cond46.preheader254 ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %for.cond46
@@ -3682,8 +3681,8 @@ while.cond:                                       ; preds = %while.body, %for.co
   %6 = and i8 %ch.0.fr, -33
   %7 = add i8 %6, -65
   %8 = icmp ult i8 %7, 26
-  %or.cond212 = or i1 %8, %or.cond4
-  br i1 %or.cond212, label %while.body, label %switch.early.test
+  %or.cond210 = or i1 %8, %or.cond4
+  br i1 %or.cond210, label %while.body, label %switch.early.test
 
 switch.early.test:                                ; preds = %while.cond
   switch i8 %ch.0.fr, label %while.end [
@@ -3712,8 +3711,8 @@ if.end88:                                         ; preds = %while.end
   %cmp94.not = icmp eq i8 %ch.0.fr, 43
   %incdec.ptr97 = getelementptr inbounds i8, ptr %l.3, i64 1
   %9 = load ptr, ptr %ca_list, align 8
-  %tobool.not241 = icmp eq ptr %9, null
-  br i1 %tobool.not241, label %for.end, label %while.body101.lr.ph
+  %tobool.not239 = icmp eq ptr %9, null
+  br i1 %tobool.not239, label %for.end, label %while.body101.lr.ph
 
 while.body101.lr.ph:                              ; preds = %if.end88
   %conv104 = zext nneg i32 %buflen.0 to i64
@@ -3877,7 +3876,7 @@ if.end302:                                        ; preds = %if.then286, %if.els
   br i1 %cmp94.not, label %for.cond46, label %if.then366
 
 for.end:                                          ; preds = %if.then286, %if.then231, %if.then209, %if.then190, %if.then171, %if.then153, %if.end88, %if.else140
-  %l.5.le244 = select i1 %cmp94.not, ptr %incdec.ptr97, ptr %l.3
+  %l.5.le242 = select i1 %cmp94.not, ptr %incdec.ptr97, ptr %l.3
   br label %while.cond368
 
 land.lhs.true311:                                 ; preds = %while.end.us
@@ -3895,19 +3894,19 @@ cond.true:                                        ; preds = %land.lhs.true320
   %24 = load i8, ptr %add.ptr, align 1
   %25 = add i8 %24, -54
   %or.cond9 = icmp ult i8 %25, -6
-  br i1 %or.cond9, label %if.end336.thread.sink.split, label %if.end336.thread173
+  br i1 %or.cond9, label %if.end336.thread.sink.split, label %if.end336.thread172
 
-if.end336.thread173:                              ; preds = %cond.true
+if.end336.thread172:                              ; preds = %cond.true
   %conv325 = zext nneg i8 %24 to i32
   %sub = add nsw i32 %conv325, -48
   store i32 %sub, ptr %sec_level, align 8
-  br label %26
+  br label %27
 
 if.end336:                                        ; preds = %land.lhs.true311
   %call316 = tail call fastcc i32 @ssl_cipher_strength_sort(ptr noundef %head_p, ptr noundef %tail_p)
   %call316.fr = freeze i32 %call316
-  %cmp337 = icmp eq i32 %call316.fr, 0
-  br i1 %cmp337, label %if.end336.thread, label %26
+  %26 = icmp eq i32 %call316.fr, 0
+  br i1 %26, label %if.end336.thread, label %27
 
 if.end336.thread.sink.split:                      ; preds = %land.lhs.true320, %land.lhs.true311, %while.end.us, %cond.true
   %.sink = phi i32 [ 1231, %cond.true ], [ 1237, %while.end.us ], [ 1237, %land.lhs.true311 ], [ 1237, %land.lhs.true320 ]
@@ -3917,16 +3916,16 @@ if.end336.thread.sink.split:                      ; preds = %land.lhs.true320, %
   br label %if.end336.thread
 
 if.end336.thread:                                 ; preds = %if.end336.thread.sink.split, %if.end336
-  br label %26
+  br label %27
 
-26:                                               ; preds = %if.end336.thread173, %if.end336, %if.end336.thread
-  %27 = phi i32 [ 0, %if.end336.thread ], [ %retval1.0, %if.end336 ], [ %retval1.0, %if.end336.thread173 ]
+27:                                               ; preds = %if.end336.thread172, %if.end336, %if.end336.thread
+  %28 = phi i32 [ 0, %if.end336.thread ], [ %retval1.0, %if.end336 ], [ %retval1.0, %if.end336.thread172 ]
   br label %while.cond341
 
-while.cond341:                                    ; preds = %lor.rhs356, %26
-  %l.6 = phi ptr [ %l.3.us, %26 ], [ %incdec.ptr362, %lor.rhs356 ]
-  %28 = load i8, ptr %l.6, align 1
-  switch i8 %28, label %lor.rhs356 [
+while.cond341:                                    ; preds = %lor.rhs356, %27
+  %l.6 = phi ptr [ %l.3.us, %27 ], [ %incdec.ptr362, %lor.rhs356 ]
+  %29 = load i8, ptr %l.6, align 1
+  switch i8 %29, label %lor.rhs356 [
     i8 0, label %if.end395
     i8 58, label %if.end395
     i8 32, label %if.end395
@@ -3939,14 +3938,14 @@ lor.rhs356:                                       ; preds = %while.cond341
   br label %while.cond341, !llvm.loop !21
 
 if.then366:                                       ; preds = %if.end302
-  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id.3, i32 noundef %alg_mkey.2, i32 noundef %alg_auth.2, i32 noundef %alg_enc.2, i32 noundef %alg_mac.2, i32 noundef %min_tls.2, i32 noundef %algo_strength.3, i32 noundef %rule.0285289, i32 noundef -1, ptr noundef %head_p, ptr noundef %tail_p)
-  %.pr211 = load i8, ptr %l.3, align 1
+  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id.3, i32 noundef %alg_mkey.2, i32 noundef %alg_auth.2, i32 noundef %alg_enc.2, i32 noundef %alg_mac.2, i32 noundef %min_tls.2, i32 noundef %algo_strength.3, i32 noundef %rule.0283287, i32 noundef -1, ptr noundef %head_p, ptr noundef %tail_p)
+  %.pr209 = load i8, ptr %l.3, align 1
   br label %if.end395
 
 while.cond368:                                    ; preds = %for.end, %lor.rhs384
-  %l.8 = phi ptr [ %incdec.ptr392, %lor.rhs384 ], [ %l.5.le244, %for.end ]
-  %29 = load i8, ptr %l.8, align 1
-  switch i8 %29, label %lor.rhs384 [
+  %l.8 = phi ptr [ %incdec.ptr392, %lor.rhs384 ], [ %l.5.le242, %for.end ]
+  %30 = load i8, ptr %l.8, align 1
+  switch i8 %30, label %lor.rhs384 [
     i8 0, label %if.end395
     i8 58, label %if.end395
     i8 32, label %if.end395
@@ -3959,10 +3958,10 @@ lor.rhs384:                                       ; preds = %while.cond368
   br label %while.cond368, !llvm.loop !22
 
 if.end395:                                        ; preds = %while.cond341, %while.cond341, %while.cond341, %while.cond341, %while.cond341, %while.cond368, %while.cond368, %while.cond368, %while.cond368, %while.cond368, %if.then366
-  %30 = phi i8 [ %.pr211, %if.then366 ], [ %29, %while.cond368 ], [ %29, %while.cond368 ], [ %29, %while.cond368 ], [ %29, %while.cond368 ], [ %29, %while.cond368 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ]
+  %31 = phi i8 [ %.pr209, %if.then366 ], [ %30, %while.cond368 ], [ %30, %while.cond368 ], [ %30, %while.cond368 ], [ %30, %while.cond368 ], [ %30, %while.cond368 ], [ %29, %while.cond341 ], [ %29, %while.cond341 ], [ %29, %while.cond341 ], [ %29, %while.cond341 ], [ %29, %while.cond341 ]
   %l.7 = phi ptr [ %l.3, %if.then366 ], [ %l.8, %while.cond368 ], [ %l.8, %while.cond368 ], [ %l.8, %while.cond368 ], [ %l.8, %while.cond368 ], [ %l.8, %while.cond368 ], [ %l.6, %while.cond341 ], [ %l.6, %while.cond341 ], [ %l.6, %while.cond341 ], [ %l.6, %while.cond341 ], [ %l.6, %while.cond341 ]
-  %retval1.3 = phi i32 [ %retval1.0, %if.then366 ], [ %retval1.0, %while.cond368 ], [ %retval1.0, %while.cond368 ], [ %retval1.0, %while.cond368 ], [ %retval1.0, %while.cond368 ], [ %retval1.0, %while.cond368 ], [ %27, %while.cond341 ], [ %27, %while.cond341 ], [ %27, %while.cond341 ], [ %27, %while.cond341 ], [ %27, %while.cond341 ]
-  %cmp397 = icmp eq i8 %30, 0
+  %retval1.3 = phi i32 [ %retval1.0, %if.then366 ], [ %retval1.0, %while.cond368 ], [ %retval1.0, %while.cond368 ], [ %retval1.0, %while.cond368 ], [ %retval1.0, %while.cond368 ], [ %retval1.0, %while.cond368 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ], [ %28, %while.cond341 ]
+  %cmp397 = icmp eq i8 %31, 0
   br i1 %cmp397, label %return, label %for.cond
 
 return:                                           ; preds = %if.end395, %for.cond, %if.then87

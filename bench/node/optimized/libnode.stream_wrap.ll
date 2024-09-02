@@ -1351,7 +1351,7 @@ declare void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 de
 declare void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i8 @_ZN4node15LibuvStreamWrap8OnUvReadElPK8uv_buf_t(ptr noundef nonnull align 8 dereferenceable(160) %this, i64 noundef %nread, ptr noundef %buf) local_unnamed_addr #3 align 2 {
+define dso_local range(i8 0, 2) i8 @_ZN4node15LibuvStreamWrap8OnUvReadElPK8uv_buf_t(ptr noundef nonnull align 8 dereferenceable(160) %this, i64 noundef %nread, ptr noundef %buf) local_unnamed_addr #3 align 2 {
 entry:
   %scope.i48 = alloca %"class.v8::EscapableHandleScope", align 8
   %scope.i14 = alloca %"class.v8::EscapableHandleScope", align 8

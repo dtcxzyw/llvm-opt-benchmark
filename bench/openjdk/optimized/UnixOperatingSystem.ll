@@ -479,7 +479,7 @@ define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getHostTotalCpu
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_management_internal_OperatingSystemImpl_getHostOnlineCpuCount0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 1, -2147483648) i32 @Java_com_sun_management_internal_OperatingSystemImpl_getHostOnlineCpuCount0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = tail call i64 @sysconf(i32 noundef 84) #9
   %4 = trunc i64 %3 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %4, i32 1)

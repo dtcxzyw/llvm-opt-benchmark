@@ -426,7 +426,7 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
   %29 = icmp eq i64 %26, 0
   %30 = icmp eq i64 %28, 0
   %31 = select i1 %29, i1 true, i1 %30
-  br i1 %31, label %.loopexit11, label %32
+  br i1 %31, label %.loopexit10, label %32
 
 32:                                               ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !5
@@ -454,30 +454,30 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
   %46 = sub i64 %38, %44
   %47 = load i64, ptr %34, align 8
   %48 = icmp ult i64 %47, 36
-  br i1 %48, label %49, label %.preheader12
+  br i1 %48, label %49, label %.preheader11
 
 49:                                               ; preds = %43
   %50 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef nonnull %2, ptr noundef %35) #13
   br label %92
 
-.preheader12:                                     ; preds = %43, %55
+.preheader11:                                     ; preds = %43, %55
   %51 = phi i64 [ %56, %55 ], [ 0, %43 ]
   %52 = getelementptr [45 x [4 x i8]], ptr @table_sigs, i64 0, i64 %51
   %53 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %41, ptr noundef dereferenceable(4) %52, i64 4)
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %58, label %55
 
-55:                                               ; preds = %.preheader12
+55:                                               ; preds = %.preheader11
   %56 = add nuw nsw i64 %51, 1
   %57 = icmp eq i64 %56, 45
-  br i1 %57, label %.thread, label %.preheader12, !llvm.loop !6
+  br i1 %57, label %.critedge, label %.preheader11, !llvm.loop !6
 
-58:                                               ; preds = %.preheader12
+58:                                               ; preds = %.preheader11
   %59 = trunc i64 %51 to i32
   %60 = icmp ugt i32 %59, 44
-  br i1 %60, label %.thread, label %62
+  br i1 %60, label %.critedge, label %62
 
-.thread:                                          ; preds = %55, %58
+.critedge:                                        ; preds = %55, %58
   %61 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef nonnull %2, ptr noundef %35) #13
   br label %92
 
@@ -495,7 +495,7 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
 69:                                               ; preds = %62
   %70 = getelementptr i8, ptr %41, i64 %47
   %71 = icmp ugt ptr %70, %41
-  br i1 %71, label %.preheader, label %.thread10
+  br i1 %71, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %69, %.preheader
   %72 = phi i8 [ %76, %.preheader ], [ 0, %69 ]
@@ -508,13 +508,13 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
 
 78:                                               ; preds = %.preheader
   %79 = icmp eq i8 %76, 0
-  br i1 %79, label %.thread10, label %80
+  br i1 %79, label %.thread, label %80
 
 80:                                               ; preds = %78
   %81 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef nonnull %2, ptr noundef %35) #13
   br label %92
 
-.thread10:                                        ; preds = %69, %78
+.thread:                                          ; preds = %69, %78
   %82 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef nonnull %41, ptr noundef nonnull %2, ptr noundef %35, i32 noundef %64) #13
   %83 = load i32, ptr %63, align 1
   %84 = load i32, ptr @all_tables_size, align 4
@@ -530,8 +530,8 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
   %91 = add i32 %40, 1
   br label %92
 
-92:                                               ; preds = %.thread10, %80, %67, %.thread, %49
-  %93 = phi i32 [ %40, %49 ], [ %40, %.thread ], [ %40, %67 ], [ %40, %80 ], [ %91, %.thread10 ]
+92:                                               ; preds = %.thread, %80, %67, %.critedge, %49
+  %93 = phi i32 [ %40, %49 ], [ %40, %.critedge ], [ %40, %67 ], [ %40, %80 ], [ %91, %.thread ]
   %94 = add nuw nsw i32 %39, 1
   %95 = icmp eq i32 %94, 64
   br i1 %95, label %96, label %36, !llvm.loop !10
@@ -539,7 +539,7 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
 96:                                               ; preds = %92, %36
   %97 = phi i32 [ %40, %36 ], [ %93, %92 ]
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %.loopexit11, label %99
+  br i1 %98, label %.loopexit10, label %99
 
 99:                                               ; preds = %96
   %100 = call i32 @security_locked_down(i32 noundef 9) #14
@@ -548,7 +548,7 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
 
 102:                                              ; preds = %99
   %103 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15) #13
-  br label %.loopexit11
+  br label %.loopexit10
 
 104:                                              ; preds = %99
   %105 = load i32, ptr @all_tables_size, align 4
@@ -564,14 +564,14 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
   call void asm sideeffect "351: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 351b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 351) #14, !srcloc !11
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.16, i32 484, i32 2305, i64 12) #14, !srcloc !12
   call void asm sideeffect "352: nop\0A\09.pushsection .discard.instr_end\0A\09.long 352b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 352) #14, !srcloc !13
-  br label %.loopexit11
+  br label %.loopexit10
 
 112:                                              ; preds = %104
   %113 = load i32, ptr @all_tables_size, align 4
   %114 = sext i32 %113 to i64
   call void @arch_reserve_mem_area(i64 noundef %109, i64 noundef %114) #14
   %115 = icmp sgt i32 %97, 0
-  br i1 %115, label %116, label %.loopexit11
+  br i1 %115, label %116, label %.loopexit10
 
 116:                                              ; preds = %112
   %117 = zext nneg i32 %97 to i64
@@ -617,9 +617,9 @@ define dso_local void @acpi_table_upgrade() local_unnamed_addr #3 section ".init
 .loopexit:                                        ; preds = %132, %118
   %147 = add nuw nsw i64 %119, 1
   %148 = icmp eq i64 %147, %117
-  br i1 %148, label %.loopexit11, label %118, !llvm.loop !15
+  br i1 %148, label %.loopexit10, label %118, !llvm.loop !15
 
-.loopexit11:                                      ; preds = %.loopexit, %112, %111, %102, %96, %0
+.loopexit10:                                      ; preds = %.loopexit, %112, %111, %102, %96, %0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #14
@@ -922,7 +922,7 @@ define internal fastcc void @check_multiple_madt() unnamed_addr #3 section ".ini
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i32 @acpi_table_init() local_unnamed_addr #3 section ".init.text" align 16 {
+define dso_local range(i32 -22, 1) i32 @acpi_table_init() local_unnamed_addr #3 section ".init.text" align 16 {
   %1 = tail call i32 @acpi_locate_initial_tables() #15, !range !26
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %4

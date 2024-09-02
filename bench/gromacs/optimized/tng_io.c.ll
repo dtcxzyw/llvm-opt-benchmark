@@ -159,7 +159,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 define range(i32 0, 3) i32 @tng_atom_name_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
-  %6 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 1024)
+  %6 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %5, i64 1024)
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -225,7 +225,7 @@ define range(i32 0, 2) i32 @tng_atom_type_get(ptr nocapture noundef readnone %0,
 define range(i32 0, 3) i32 @tng_atom_type_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
-  %6 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 1024)
+  %6 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %5, i64 1024)
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -362,7 +362,7 @@ define range(i32 0, 3) i32 @tng_molecule_w_id_add(ptr nocapture noundef %0, ptr 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, i8 0, i64 72, i1 false)
   %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #25
   %32 = add i64 %31, 1
-  %33 = tail call noundef i64 @llvm.umin.i64(i64 %32, i64 1024)
+  %33 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %32, i64 1024)
   %34 = getelementptr inbounds i8, ptr %28, i64 48
   %35 = tail call noalias ptr @malloc(i64 noundef %33) #26
   store ptr %35, ptr %34, align 8
@@ -411,7 +411,7 @@ define noundef i32 @tng_molecule_init(ptr nocapture noundef readnone %0, ptr noc
 define range(i32 0, 3) i32 @tng_molecule_name_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
-  %6 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 1024)
+  %6 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %5, i64 1024)
   %7 = getelementptr inbounds i8, ptr %1, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -1262,7 +1262,7 @@ define range(i32 0, 3) i32 @tng_molecule_chain_w_id_add(ptr nocapture readnone %
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #25
   %21 = add i64 %20, 1
-  %22 = tail call noundef i64 @llvm.umin.i64(i64 %21, i64 1024)
+  %22 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %21, i64 1024)
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #26
   store ptr %23, ptr %19, align 8
   %.not15.i = icmp eq ptr %23, null
@@ -1459,7 +1459,7 @@ tng_molecule_atoms_residue_pointers_update.exit:  ; preds = %._crit_edge.i, %tng
   %90 = load ptr, ptr %4, align 8
   %91 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #25
   %92 = add i64 %91, 1
-  %93 = tail call noundef i64 @llvm.umin.i64(i64 %92, i64 1024)
+  %93 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %92, i64 1024)
   %94 = getelementptr inbounds i8, ptr %90, i64 16
   %95 = load ptr, ptr %94, align 8
   %.not.i = icmp eq ptr %95, null
@@ -1558,7 +1558,7 @@ define range(i32 0, 3) i32 @tng_residue_atom_w_id_add(ptr nocapture readnone %0,
   store i64 0, ptr %27, align 8
   %28 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #25
   %29 = add i64 %28, 1
-  %30 = tail call noundef i64 @llvm.umin.i64(i64 %29, i64 1024)
+  %30 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %29, i64 1024)
   %31 = getelementptr inbounds i8, ptr %26, i64 24
   %32 = tail call noalias ptr @malloc(i64 noundef %30) #26
   store ptr %32, ptr %31, align 8
@@ -1582,7 +1582,7 @@ tng_atom_name_set.exit:                           ; preds = %33, %36
   %39 = phi ptr [ %.pre35, %33 ], [ %26, %36 ]
   %40 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #25
   %41 = add i64 %40, 1
-  %42 = tail call noundef i64 @llvm.umin.i64(i64 %41, i64 1024)
+  %42 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %41, i64 1024)
   %43 = getelementptr inbounds i8, ptr %39, i64 16
   %.not.i30 = icmp eq ptr %38, null
   br i1 %.not.i30, label %.thread.i32, label %44
@@ -1811,7 +1811,7 @@ define range(i32 0, 3) i32 @tng_molecule_chain_add(ptr nocapture noundef readnon
 define range(i32 0, 3) i32 @tng_chain_name_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
-  %6 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 1024)
+  %6 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %5, i64 1024)
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -2100,7 +2100,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define range(i32 0, 3) i32 @tng_residue_name_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #25
   %5 = add i64 %4, 1
-  %6 = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 1024)
+  %6 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %5, i64 1024)
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -4826,7 +4826,7 @@ define range(i32 0, 3) i32 @tng_input_file_set(ptr nocapture noundef %0, ptr noc
   %13 = phi ptr [ %.pre, %10 ], [ %3, %7 ]
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %15 = add i64 %14, 1
-  %16 = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 1024)
+  %16 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %15, i64 1024)
   %17 = tail call ptr @realloc(ptr noundef %13, i64 noundef %16) #28
   %.not21 = icmp eq ptr %17, null
   br i1 %.not21, label %18, label %22
@@ -4946,7 +4946,7 @@ define range(i32 0, 3) i32 @tng_output_file_set(ptr nocapture noundef %0, ptr no
   %14 = phi ptr [ %.pre, %11 ], [ %4, %8 ]
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %16 = add i64 %15, 1
-  %17 = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 1024)
+  %17 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %16, i64 1024)
   %18 = tail call ptr @realloc(ptr noundef %14, i64 noundef %17) #28
   %.not21 = icmp eq ptr %18, null
   br i1 %.not21, label %19, label %23
@@ -5010,7 +5010,7 @@ define range(i32 0, 3) i32 @tng_output_append_file_set(ptr nocapture noundef %0,
   %14 = phi ptr [ %.pre, %11 ], [ %4, %8 ]
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %16 = add i64 %15, 1
-  %17 = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 1024)
+  %17 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %16, i64 1024)
   %18 = tail call ptr @realloc(ptr noundef %14, i64 noundef %17) #28
   %.not27 = icmp eq ptr %18, null
   br i1 %.not27, label %19, label %23
@@ -5360,7 +5360,7 @@ define range(i32 0, 2) i32 @tng_first_program_name_get(ptr nocapture noundef rea
 define range(i32 0, 3) i32 @tng_first_program_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
-  %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
+  %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5417,7 +5417,7 @@ define range(i32 0, 2) i32 @tng_last_program_name_get(ptr nocapture noundef read
 define range(i32 0, 3) i32 @tng_last_program_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
-  %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
+  %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5474,7 +5474,7 @@ define range(i32 0, 2) i32 @tng_first_user_name_get(ptr nocapture noundef readon
 define range(i32 0, 3) i32 @tng_first_user_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
-  %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
+  %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5531,7 +5531,7 @@ define range(i32 0, 2) i32 @tng_last_user_name_get(ptr nocapture noundef readonl
 define range(i32 0, 3) i32 @tng_last_user_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
-  %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
+  %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5588,7 +5588,7 @@ define range(i32 0, 2) i32 @tng_first_computer_name_get(ptr nocapture noundef re
 define range(i32 0, 3) i32 @tng_first_computer_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
-  %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
+  %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5645,7 +5645,7 @@ define range(i32 0, 2) i32 @tng_last_computer_name_get(ptr nocapture noundef rea
 define range(i32 0, 3) i32 @tng_last_computer_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
-  %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
+  %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5702,7 +5702,7 @@ define range(i32 0, 2) i32 @tng_first_signature_get(ptr nocapture noundef readon
 define range(i32 0, 3) i32 @tng_first_signature_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
-  %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
+  %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5759,7 +5759,7 @@ define range(i32 0, 2) i32 @tng_last_signature_get(ptr nocapture noundef readonl
 define range(i32 0, 3) i32 @tng_last_signature_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
-  %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
+  %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5816,7 +5816,7 @@ define range(i32 0, 2) i32 @tng_forcefield_name_get(ptr nocapture noundef readon
 define range(i32 0, 3) i32 @tng_forcefield_name_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %4 = add i64 %3, 1
-  %5 = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 1024)
+  %5 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %4, i64 1024)
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -8424,7 +8424,7 @@ tng_block_destroy.exit:                           ; preds = %48, %33, %tng_block
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_block_read_next(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef signext %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_block_read_next(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef signext %2) local_unnamed_addr #4 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = alloca i64, align 8
@@ -11052,7 +11052,7 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   %1182 = getelementptr inbounds i8, ptr %.0261.i.i, i64 %.2179324.us.us.us.i.i
   %1183 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1182) #25
   %1184 = add i64 %1183, 1
-  %1185 = call noundef i64 @llvm.umin.i64(i64 %1184, i64 1024)
+  %1185 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %1184, i64 1024)
   %1186 = getelementptr inbounds ptr, ptr %1180, i64 %.0181323.us.us.us.i.i
   %1187 = load ptr, ptr %1186, align 8
   %.not217.us.us.us.i.i = icmp eq ptr %1187, null
@@ -11104,7 +11104,7 @@ tng_uncompress.exit.i.i:                          ; preds = %tng_gzip_uncompress
   %1201 = getelementptr inbounds i8, ptr %.0261.i.i, i64 %.4339.us.i.i
   %1202 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1201) #25
   %1203 = add i64 %1202, 1
-  %1204 = call noundef i64 @llvm.umin.i64(i64 %1203, i64 1024)
+  %1204 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %1203, i64 1024)
   %1205 = load ptr, ptr %1199, align 8
   %1206 = load ptr, ptr %1205, align 8
   %1207 = getelementptr inbounds ptr, ptr %1206, i64 %.1170344.us.i.i
@@ -13027,7 +13027,7 @@ tng_block_destroy.exit:                           ; preds = %42, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tng_file_headers_write(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_file_headers_write(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #4 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -13245,7 +13245,7 @@ tng_block_header_len_calculate.exit:              ; preds = %tng_block_init.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %104, ptr noundef nonnull align 1 dereferenceable(13) @.str.23, i64 13, i1 false) #24
   %109 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #25
   %110 = add i64 %109, 1
-  %111 = tail call noundef i64 @llvm.umin.i64(i64 %110, i64 1024)
+  %111 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %110, i64 1024)
   %112 = add nuw nsw i64 %111, 48
   store i64 %112, ptr %21, align 8
   %113 = call fastcc i32 @tng_general_info_block_len_calculate(ptr noundef nonnull %0, ptr noundef nonnull %21)
@@ -13276,7 +13276,7 @@ tng_block_header_len_calculate.exit:              ; preds = %tng_block_init.exit
   %125 = phi ptr [ %119, %123 ], [ %117, %tng_block_header_len_calculate.exit ]
   %126 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %125) #25
   %127 = add i64 %126, 1
-  %128 = tail call noundef i64 @llvm.umin.i64(i64 %127, i64 1024)
+  %128 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %127, i64 1024)
   %129 = add nuw nsw i64 %128, 48
   store i64 %129, ptr %21, align 8
   br label %tng_block_header_len_calculate.exit94
@@ -13343,7 +13343,7 @@ tng_block_header_len_calculate.exit94:            ; preds = %120, %124
   %158 = phi ptr [ %152, %156 ], [ %150, %144 ]
   %159 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %158) #25
   %160 = add i64 %159, 1
-  %161 = tail call noundef i64 @llvm.umin.i64(i64 %160, i64 1024)
+  %161 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %160, i64 1024)
   %162 = add nuw nsw i64 %161, 48
   br label %tng_block_header_len_calculate.exit98
 
@@ -13453,7 +13453,7 @@ tng_data_block_len_calculate.exit:                ; preds = %.lr.ph.i99, %tng_bl
   %216 = phi ptr [ %210, %214 ], [ %208, %202 ]
   %217 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %216) #25
   %218 = add i64 %217, 1
-  %219 = tail call noundef i64 @llvm.umin.i64(i64 %218, i64 1024)
+  %219 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %218, i64 1024)
   %220 = add nuw nsw i64 %219, 48
   br label %tng_block_header_len_calculate.exit103
 
@@ -14524,7 +14524,7 @@ tng_block_destroy.exit85.i:                       ; preds = %649, %646
   %.val.i = load ptr, ptr %23, align 8
   %663 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %662) #25
   %664 = add i64 %663, 1
-  %665 = call noundef i64 @llvm.umin.i64(i64 %664, i64 1024)
+  %665 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %664, i64 1024)
   %666 = call i64 @fwrite(ptr noundef %662, i64 noundef %665, i64 noundef 1, ptr noundef %.val.i)
   %.not.i86.i = icmp eq i64 %666, 1
   br i1 %.not.i86.i, label %667, label %tng_fwritestr.exit.i
@@ -14548,7 +14548,7 @@ tng_fwritestr.exit.i:                             ; preds = %660
   %.val70.i = load ptr, ptr %23, align 8
   %675 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %674) #25
   %676 = add i64 %675, 1
-  %677 = call noundef i64 @llvm.umin.i64(i64 %676, i64 1024)
+  %677 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %676, i64 1024)
   %678 = call i64 @fwrite(ptr noundef %674, i64 noundef %677, i64 noundef 1, ptr noundef %.val70.i)
   %.not.i88.i = icmp eq i64 %678, 1
   br i1 %.not.i88.i, label %679, label %tng_fwritestr.exit90.i
@@ -14572,7 +14572,7 @@ tng_fwritestr.exit90.i:                           ; preds = %672
   %.val71.i = load ptr, ptr %23, align 8
   %687 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %686) #25
   %688 = add i64 %687, 1
-  %689 = call noundef i64 @llvm.umin.i64(i64 %688, i64 1024)
+  %689 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %688, i64 1024)
   %690 = call i64 @fwrite(ptr noundef %686, i64 noundef %689, i64 noundef 1, ptr noundef %.val71.i)
   %.not.i91.i = icmp eq i64 %690, 1
   br i1 %.not.i91.i, label %691, label %tng_fwritestr.exit93.i
@@ -14596,7 +14596,7 @@ tng_fwritestr.exit93.i:                           ; preds = %684
   %.val72.i = load ptr, ptr %23, align 8
   %699 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %698) #25
   %700 = add i64 %699, 1
-  %701 = call noundef i64 @llvm.umin.i64(i64 %700, i64 1024)
+  %701 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %700, i64 1024)
   %702 = call i64 @fwrite(ptr noundef %698, i64 noundef %701, i64 noundef 1, ptr noundef %.val72.i)
   %.not.i94.i = icmp eq i64 %702, 1
   br i1 %.not.i94.i, label %703, label %tng_fwritestr.exit96.i
@@ -14620,7 +14620,7 @@ tng_fwritestr.exit96.i:                           ; preds = %696
   %.val73.i = load ptr, ptr %23, align 8
   %711 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %710) #25
   %712 = add i64 %711, 1
-  %713 = call noundef i64 @llvm.umin.i64(i64 %712, i64 1024)
+  %713 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %712, i64 1024)
   %714 = call i64 @fwrite(ptr noundef %710, i64 noundef %713, i64 noundef 1, ptr noundef %.val73.i)
   %.not.i151 = icmp eq i64 %714, 1
   br i1 %.not.i151, label %715, label %tng_fwritestr.exit153
@@ -14644,7 +14644,7 @@ tng_fwritestr.exit153:                            ; preds = %708
   %.val74.i = load ptr, ptr %23, align 8
   %723 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %722) #25
   %724 = add i64 %723, 1
-  %725 = call noundef i64 @llvm.umin.i64(i64 %724, i64 1024)
+  %725 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %724, i64 1024)
   %726 = call i64 @fwrite(ptr noundef %722, i64 noundef %725, i64 noundef 1, ptr noundef %.val74.i)
   %.not.i148 = icmp eq i64 %726, 1
   br i1 %.not.i148, label %727, label %tng_fwritestr.exit150
@@ -14668,7 +14668,7 @@ tng_fwritestr.exit150:                            ; preds = %720
   %.val75.i = load ptr, ptr %23, align 8
   %735 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %734) #25
   %736 = add i64 %735, 1
-  %737 = call noundef i64 @llvm.umin.i64(i64 %736, i64 1024)
+  %737 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %736, i64 1024)
   %738 = call i64 @fwrite(ptr noundef %734, i64 noundef %737, i64 noundef 1, ptr noundef %.val75.i)
   %.not.i146 = icmp eq i64 %738, 1
   br i1 %.not.i146, label %739, label %tng_fwritestr.exit
@@ -15048,7 +15048,7 @@ tng_file_output_numerical.exit143.i:              ; preds = %903
   %.val.i125 = load ptr, ptr %23, align 8
   %913 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %912) #25
   %914 = add i64 %913, 1
-  %915 = call noundef i64 @llvm.umin.i64(i64 %914, i64 1024)
+  %915 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %914, i64 1024)
   %916 = call i64 @fwrite(ptr noundef %912, i64 noundef %915, i64 noundef 1, ptr noundef %.val.i125)
   %.not.i144.i = icmp eq i64 %916, 1
   br i1 %.not.i144.i, label %917, label %tng_fwritestr.exit.i126
@@ -15328,7 +15328,7 @@ tng_file_output_numerical.exit.i.i:               ; preds = %1020
   %.val.i.i = load ptr, ptr %23, align 8
   %1030 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1029) #25
   %1031 = add i64 %1030, 1
-  %1032 = call noundef i64 @llvm.umin.i64(i64 %1031, i64 1024)
+  %1032 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %1031, i64 1024)
   %1033 = call i64 @fwrite(ptr noundef %1029, i64 noundef %1032, i64 noundef 1, ptr noundef %.val.i.i)
   %.not.i.i.i131 = icmp eq i64 %1033, 1
   br i1 %.not.i.i.i131, label %1034, label %tng_fwritestr.exit.i.i
@@ -16045,31 +16045,31 @@ define internal fastcc range(i32 0, 3) i32 @tng_general_info_block_len_calculate
   %92 = phi ptr [ %86, %90 ], [ %84, %81 ]
   %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #25
   %94 = add i64 %93, 1
-  %95 = tail call noundef i64 @llvm.umin.i64(i64 %94, i64 1024)
+  %95 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %94, i64 1024)
   %96 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #25
   %97 = add i64 %96, 1
-  %98 = tail call noundef i64 @llvm.umin.i64(i64 %97, i64 1024)
+  %98 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %97, i64 1024)
   %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #25
   %100 = add i64 %99, 1
-  %101 = tail call noundef i64 @llvm.umin.i64(i64 %100, i64 1024)
+  %101 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %100, i64 1024)
   %102 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #25
   %103 = add i64 %102, 1
-  %104 = tail call noundef i64 @llvm.umin.i64(i64 %103, i64 1024)
+  %104 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %103, i64 1024)
   %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #25
   %106 = add i64 %105, 1
-  %107 = tail call noundef i64 @llvm.umin.i64(i64 %106, i64 1024)
+  %107 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %106, i64 1024)
   %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #25
   %109 = add i64 %108, 1
-  %110 = tail call noundef i64 @llvm.umin.i64(i64 %109, i64 1024)
+  %110 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %109, i64 1024)
   %111 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #25
   %112 = add i64 %111, 1
-  %113 = tail call noundef i64 @llvm.umin.i64(i64 %112, i64 1024)
+  %113 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %112, i64 1024)
   %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #25
   %115 = add i64 %114, 1
-  %116 = tail call noundef i64 @llvm.umin.i64(i64 %115, i64 1024)
+  %116 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %115, i64 1024)
   %117 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #25
   %118 = add i64 %117, 1
-  %119 = tail call noundef i64 @llvm.umin.i64(i64 %118, i64 1024)
+  %119 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %118, i64 1024)
   %120 = add nuw nsw i64 %95, 57
   %121 = add nuw nsw i64 %120, %98
   %122 = add nuw nsw i64 %121, %101
@@ -16130,7 +16130,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
   %21 = phi ptr [ %14, %18 ], [ %12, %7 ]
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #25
   %23 = add i64 %22, 1
-  %24 = tail call noundef i64 @llvm.umin.i64(i64 %23, i64 1024)
+  %24 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %23, i64 1024)
   %25 = add i64 %24, %20
   store i64 %25, ptr %1, align 8
   %26 = getelementptr inbounds i8, ptr %10, i64 16
@@ -16175,7 +16175,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
   %43 = phi ptr [ %36, %40 ], [ %34, %.lr.ph ]
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #25
   %45 = add i64 %44, 1
-  %46 = tail call noundef i64 @llvm.umin.i64(i64 %45, i64 1024)
+  %46 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %45, i64 1024)
   %47 = add i64 %42, 8
   %48 = add i64 %47, %46
   store i64 %48, ptr %1, align 8
@@ -16229,7 +16229,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
   %71 = phi ptr [ %64, %68 ], [ %62, %.lr.ph102 ]
   %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #25
   %73 = add i64 %72, 1
-  %74 = tail call noundef i64 @llvm.umin.i64(i64 %73, i64 1024)
+  %74 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %73, i64 1024)
   %75 = add i64 %70, 8
   %76 = add i64 %75, %74
   store i64 %76, ptr %1, align 8
@@ -16290,7 +16290,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
   %103 = phi ptr [ %96, %100 ], [ %94, %.lr.ph107 ]
   %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %103) #25
   %105 = add i64 %104, 1
-  %106 = tail call noundef i64 @llvm.umin.i64(i64 %105, i64 1024)
+  %106 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %105, i64 1024)
   %107 = add i64 %106, %102
   store i64 %107, ptr %1, align 8
   %108 = getelementptr inbounds i8, ptr %.0105, i64 16
@@ -16319,7 +16319,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_molecules_block_len_calculate(pt
   %118 = phi ptr [ %111, %115 ], [ %109, %101 ]
   %119 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #25
   %120 = add i64 %119, 1
-  %121 = tail call noundef i64 @llvm.umin.i64(i64 %120, i64 1024)
+  %121 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %120, i64 1024)
   %122 = add i64 %121, %117
   store i64 %122, ptr %1, align 8
   %123 = getelementptr inbounds i8, ptr %.0105, i64 32
@@ -17504,12 +17504,12 @@ tng_file_output_numerical.exit327:                ; preds = %251
 .lr.ph361:                                        ; preds = %397
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 56
   %.pre398 = load ptr, ptr %.phi.trans.insert, align 8
-  %398 = fptrunc double %388 to float
-  %399 = icmp eq ptr %.pre398, null
-  br i1 %399, label %.lr.ph361.split.us, label %.lr.ph361.split.preheader
+  %398 = icmp eq ptr %.pre398, null
+  %399 = fptrunc double %388 to float
+  br i1 %398, label %.lr.ph361.split.us, label %.lr.ph361.split.preheader
 
 .lr.ph361.split.preheader:                        ; preds = %.lr.ph361.thread, %.lr.ph361
-  %400 = phi float [ %396, %.lr.ph361.thread ], [ %398, %.lr.ph361 ]
+  %400 = phi float [ %396, %.lr.ph361.thread ], [ %399, %.lr.ph361 ]
   %401 = getelementptr inbounds i8, ptr %0, i64 56
   br label %.lr.ph361.split
 
@@ -17517,7 +17517,7 @@ tng_file_output_numerical.exit327:                ; preds = %251
   %.3360.us = phi i64 [ %405, %.lr.ph361.split.us ], [ 0, %.lr.ph361 ]
   %402 = getelementptr inbounds i8, ptr %361, i64 %.3360.us
   %403 = load float, ptr %402, align 4
-  %404 = fmul float %403, %398
+  %404 = fmul float %403, %399
   store float %404, ptr %402, align 4
   %405 = add nuw nsw i64 %.3360.us, %.0260
   %406 = icmp slt i64 %405, %360
@@ -18283,7 +18283,7 @@ tng_block_destroy.exit:                           ; preds = %40, %25, %2, %tng_b
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_frame_set_read_current_only_data_from_block_id(ptr noundef %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_frame_set_read_current_only_data_from_block_id(ptr noundef %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = alloca ptr, align 8
   %5 = tail call fastcc i32 @tng_input_file_init(ptr noundef %0)
   %.not = icmp eq i32 %5, 0
@@ -18593,7 +18593,7 @@ define range(i32 0, 3) i32 @tng_frame_set_read_next(ptr noundef %0, i8 noundef s
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_frame_set_read_next_only_data_from_block_id(ptr noundef %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_frame_set_read_next_only_data_from_block_id(ptr noundef %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = tail call fastcc i32 @tng_input_file_init(ptr noundef %0)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %tng_block_destroy.exit
@@ -20349,7 +20349,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr nocapture
   store i64 %1, ptr %97, align 8
   %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #25
   %99 = add i64 %98, 1
-  %100 = tail call noundef i64 @llvm.umin.i64(i64 %99, i64 1024)
+  %100 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %99, i64 1024)
   %101 = tail call noalias ptr @malloc(i64 noundef %100) #26
   %102 = getelementptr i8, ptr %96, i64 -88
   store ptr %101, ptr %102, align 8
@@ -20538,7 +20538,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %.0140231.us.us.us = phi i64 [ 0, %.lr.ph.us.us.us ], [ %188, %185 ]
   %177 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2135232.us.us.us) #25
   %178 = add i64 %177, 1
-  %179 = tail call noundef i64 @llvm.umin.i64(i64 %178, i64 1024)
+  %179 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %178, i64 1024)
   %180 = getelementptr inbounds ptr, ptr %175, i64 %.0140231.us.us.us
   %181 = load ptr, ptr %180, align 8
   %.not166.us.us.us = icmp eq ptr %181, null
@@ -20593,7 +20593,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %.1142245.us = phi i64 [ 0, %.lr.ph247.us ], [ %209, %206 ]
   %198 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4246.us) #25
   %199 = add i64 %198, 1
-  %200 = tail call noundef i64 @llvm.umin.i64(i64 %199, i64 1024)
+  %200 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %199, i64 1024)
   %201 = getelementptr inbounds ptr, ptr %196, i64 %.1142245.us
   %202 = load ptr, ptr %201, align 8
   %.not162.us = icmp eq ptr %202, null
@@ -20665,7 +20665,7 @@ define range(i32 0, 3) i32 @tng_particle_data_block_add(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 448
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
@@ -21203,7 +21203,7 @@ define internal fastcc range(i32 0, 2) i32 @tng_data_find(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_data_block_dependency_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_block_dependency_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -21533,7 +21533,7 @@ tng_data_find.exit58.thread:                      ; preds = %.critedge.i49, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_data_block_num_values_per_frame_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_block_num_values_per_frame_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -21865,7 +21865,7 @@ tng_data_find.exit58.thread:                      ; preds = %.critedge.i49, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_frame_set_n_frames_of_data_block_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_frame_set_n_frames_of_data_block_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -25214,7 +25214,7 @@ tng_particle_mapping_get_real_particle.exit:      ; preds = %216, %198, %210
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_data_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #4 {
   %9 = alloca ptr, align 8
   store ptr %5, ptr %9, align 8
   %10 = call fastcc i32 @tng_gen_data_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef 0, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef nonnull %9, ptr noundef null, ptr noundef %6, ptr noundef %7)
@@ -25222,7 +25222,7 @@ define i32 @tng_data_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tng_gen_data_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_gen_data_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9) unnamed_addr #4 {
   %11 = getelementptr inbounds i8, ptr %0, i64 272
   %12 = getelementptr inbounds i8, ptr %0, i64 288
   %13 = load i64, ptr %12, align 8
@@ -26267,13 +26267,13 @@ tng_frame_set_read_next.exit.thread:              ; preds = %391, %396, %386, %t
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #4 {
   %10 = tail call fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef 0, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef %5, ptr noundef null, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef signext %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10) unnamed_addr #4 {
   %12 = alloca i64, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
@@ -27226,19 +27226,19 @@ define range(i32 0, 3) i32 @tng_particle_data_vector_get(ptr noundef %0, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_particle_data_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_particle_data_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #4 {
   %10 = tail call fastcc i32 @tng_gen_data_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef 1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_particle_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_particle_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9) local_unnamed_addr #4 {
   %11 = tail call fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef %1, i32 noundef 1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_data_get_stride_length(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_get_stride_length(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 424
   %6 = load i64, ptr %5, align 8
   %.inv = icmp sgt i64 %6, 0
@@ -27805,7 +27805,7 @@ define range(i32 0, 2) i32 @tng_util_trajectory_close(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_time_of_frame_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_time_of_frame_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = tail call i32 @tng_frame_set_of_frame_find(ptr noundef %0, i64 noundef %1)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
@@ -28220,7 +28220,7 @@ tng_residue_atom_add.exit:                        ; preds = %tng_chain_residue_f
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_pos_read(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_pos_read(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -28232,7 +28232,7 @@ define i32 @tng_util_pos_read(ptr noundef %0, ptr nocapture noundef %1, ptr noca
 9:                                                ; preds = %3
   %10 = load i64, ptr %4, align 8
   %11 = add nsw i64 %10, -1
-  %12 = call fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435457, i32 noundef 1, i64 noundef 0, i64 noundef %11, i8 noundef signext 1, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %12 = call fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435457, i32 noundef 1, i64 noundef 0, i64 noundef %11, i8 noundef signext 1, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %13 = icmp eq i32 %12, 0
   %14 = load i8, ptr %7, align 1
   %15 = icmp ne i8 %14, 2
@@ -28246,7 +28246,7 @@ define i32 @tng_util_pos_read(ptr noundef %0, ptr nocapture noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_vel_read(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_vel_read(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -28258,7 +28258,7 @@ define i32 @tng_util_vel_read(ptr noundef %0, ptr nocapture noundef %1, ptr noca
 9:                                                ; preds = %3
   %10 = load i64, ptr %4, align 8
   %11 = add nsw i64 %10, -1
-  %12 = call fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435458, i32 noundef 1, i64 noundef 0, i64 noundef %11, i8 noundef signext 1, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %12 = call fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435458, i32 noundef 1, i64 noundef 0, i64 noundef %11, i8 noundef signext 1, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %13 = icmp eq i32 %12, 0
   %14 = load i8, ptr %7, align 1
   %15 = icmp ne i8 %14, 2
@@ -28272,7 +28272,7 @@ define i32 @tng_util_vel_read(ptr noundef %0, ptr nocapture noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_force_read(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_force_read(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -28284,7 +28284,7 @@ define i32 @tng_util_force_read(ptr noundef %0, ptr nocapture noundef %1, ptr no
 9:                                                ; preds = %3
   %10 = load i64, ptr %4, align 8
   %11 = add nsw i64 %10, -1
-  %12 = call fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435459, i32 noundef 1, i64 noundef 0, i64 noundef %11, i8 noundef signext 1, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %12 = call fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435459, i32 noundef 1, i64 noundef 0, i64 noundef %11, i8 noundef signext 1, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %13 = icmp eq i32 %12, 0
   %14 = load i8, ptr %7, align 1
   %15 = icmp ne i8 %14, 2
@@ -28298,7 +28298,7 @@ define i32 @tng_util_force_read(ptr noundef %0, ptr nocapture noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_box_shape_read(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_box_shape_read(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
@@ -28309,7 +28309,7 @@ define i32 @tng_util_box_shape_read(ptr noundef %0, ptr nocapture noundef %1, pt
 8:                                                ; preds = %3
   %9 = load i64, ptr %4, align 8
   %10 = add nsw i64 %9, -1
-  %11 = call fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435456, i32 noundef 0, i64 noundef 0, i64 noundef %10, i8 noundef signext 1, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %11 = call fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435456, i32 noundef 0, i64 noundef 0, i64 noundef %10, i8 noundef signext 1, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %12 = icmp eq i32 %11, 0
   %13 = load i8, ptr %6, align 1
   %14 = icmp ne i8 %13, 2
@@ -28323,7 +28323,7 @@ define i32 @tng_util_box_shape_read(ptr noundef %0, ptr nocapture noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_particle_data_next_frame_read(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_particle_data_next_frame_read(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 424
   %8 = load i64, ptr %7, align 8
   %9 = icmp sgt i64 %8, 0
@@ -28659,7 +28659,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_non_particle_data_next_frame_read(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_non_particle_data_next_frame_read(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 424
   %8 = load i64, ptr %7, align 8
   %9 = icmp sgt i64 %8, 0
@@ -29036,11 +29036,11 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i, %34, %.lr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_pos_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_pos_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
-  %9 = call fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435457, i32 noundef 1, i64 noundef %1, i64 noundef %2, i8 noundef signext 1, ptr noundef %3, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %9 = call fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435457, i32 noundef 1, i64 noundef %1, i64 noundef %2, i8 noundef signext 1, ptr noundef %3, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = icmp eq i32 %9, 0
   %11 = load i8, ptr %8, align 1
   %12 = icmp ne i8 %11, 2
@@ -29050,11 +29050,11 @@ define i32 @tng_util_pos_read_range(ptr noundef %0, i64 noundef %1, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_vel_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_vel_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
-  %9 = call fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435458, i32 noundef 1, i64 noundef %1, i64 noundef %2, i8 noundef signext 1, ptr noundef %3, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %9 = call fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435458, i32 noundef 1, i64 noundef %1, i64 noundef %2, i8 noundef signext 1, ptr noundef %3, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = icmp eq i32 %9, 0
   %11 = load i8, ptr %8, align 1
   %12 = icmp ne i8 %11, 2
@@ -29064,11 +29064,11 @@ define i32 @tng_util_vel_read_range(ptr noundef %0, i64 noundef %1, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_force_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_force_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
-  %9 = call fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435459, i32 noundef 1, i64 noundef %1, i64 noundef %2, i8 noundef signext 1, ptr noundef %3, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %9 = call fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435459, i32 noundef 1, i64 noundef %1, i64 noundef %2, i8 noundef signext 1, ptr noundef %3, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = icmp eq i32 %9, 0
   %11 = load i8, ptr %8, align 1
   %12 = icmp ne i8 %11, 2
@@ -29078,10 +29078,10 @@ define i32 @tng_util_force_read_range(ptr noundef %0, i64 noundef %1, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_box_shape_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_box_shape_read_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1
-  %8 = call fastcc i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435456, i32 noundef 0, i64 noundef %1, i64 noundef %2, i8 noundef signext 1, ptr noundef %3, ptr noundef null, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %8 = call fastcc range(i32 0, 3) i32 @tng_gen_data_vector_interval_get(ptr noundef %0, i64 noundef 268435456, i32 noundef 0, i64 noundef %1, i64 noundef %2, i8 noundef signext 1, ptr noundef %3, ptr noundef null, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %9 = icmp eq i32 %8, 0
   %10 = load i8, ptr %7, align 1
   %11 = icmp ne i8 %10, 2
@@ -29091,7 +29091,7 @@ define i32 @tng_util_box_shape_read_range(ptr noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef signext %5, i8 noundef signext %6) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef signext %5, i8 noundef signext %6) local_unnamed_addr #4 {
   %8 = icmp slt i64 %1, 1
   br i1 %8, label %9, label %12
 
@@ -29870,7 +29870,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_allocate_data_mem(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_generic_write_interval_double_set(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef signext %5, i8 noundef signext %6) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_generic_write_interval_double_set(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef signext %5, i8 noundef signext %6) local_unnamed_addr #4 {
   %8 = icmp slt i64 %1, 1
   br i1 %8, label %9, label %12
 
@@ -30135,7 +30135,7 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i69, %109, %
 }
 
 ; Function Attrs: cold nounwind uwtable
-define i32 @tng_util_generic_write_frequency_set(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef signext %5, i8 noundef signext %6) local_unnamed_addr #19 {
+define range(i32 0, 3) i32 @tng_util_generic_write_frequency_set(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef signext %5, i8 noundef signext %6) local_unnamed_addr #19 {
   %8 = load ptr, ptr @stderr, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 15337) #27
   %10 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef signext %5, i8 noundef signext %6)
@@ -30143,87 +30143,87 @@ define i32 @tng_util_generic_write_frequency_set(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_pos_write_interval_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_pos_write_interval_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.43, i8 noundef signext 1, i8 noundef signext 2)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_pos_write_interval_double_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_pos_write_interval_double_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call i32 @tng_util_generic_write_interval_double_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.43, i8 noundef signext 1, i8 noundef signext 2)
   ret i32 %3
 }
 
 ; Function Attrs: cold nounwind uwtable
-define i32 @tng_util_pos_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
+define range(i32 0, 3) i32 @tng_util_pos_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.1, i32 noundef 15367) #27
-  %5 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.43, i8 noundef signext 1, i8 noundef signext 2)
+  %5 = tail call range(i32 0, 3) i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.43, i8 noundef signext 1, i8 noundef signext 2)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_vel_write_interval_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_vel_write_interval_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.45, i8 noundef signext 1, i8 noundef signext 2)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_vel_write_interval_double_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_vel_write_interval_double_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call i32 @tng_util_generic_write_interval_double_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.45, i8 noundef signext 1, i8 noundef signext 2)
   ret i32 %3
 }
 
 ; Function Attrs: cold nounwind uwtable
-define i32 @tng_util_vel_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
+define range(i32 0, 3) i32 @tng_util_vel_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.1, i32 noundef 15398) #27
-  %5 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.45, i8 noundef signext 1, i8 noundef signext 2)
+  %5 = tail call range(i32 0, 3) i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.45, i8 noundef signext 1, i8 noundef signext 2)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_force_write_interval_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_force_write_interval_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull @.str.47, i8 noundef signext 1, i8 noundef signext 3)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_force_write_interval_double_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_force_write_interval_double_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call i32 @tng_util_generic_write_interval_double_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull @.str.47, i8 noundef signext 1, i8 noundef signext 3)
   ret i32 %3
 }
 
 ; Function Attrs: cold nounwind uwtable
-define i32 @tng_util_force_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
+define range(i32 0, 3) i32 @tng_util_force_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 15428) #27
-  %5 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull @.str.47, i8 noundef signext 1, i8 noundef signext 3)
+  %5 = tail call range(i32 0, 3) i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull @.str.47, i8 noundef signext 1, i8 noundef signext 3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_box_shape_write_interval_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_box_shape_write_interval_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 9, i64 noundef 268435456, ptr noundef nonnull @.str.49, i8 noundef signext 0, i8 noundef signext 3)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_box_shape_write_interval_double_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_box_shape_write_interval_double_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call i32 @tng_util_generic_write_interval_double_set(ptr noundef %0, i64 noundef %1, i64 noundef 9, i64 noundef 268435456, ptr noundef nonnull @.str.49, i8 noundef signext 0, i8 noundef signext 3)
   ret i32 %3
 }
 
 ; Function Attrs: cold nounwind uwtable
-define i32 @tng_util_box_shape_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
+define range(i32 0, 3) i32 @tng_util_box_shape_write_frequency_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #19 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.1, i32 noundef 15459) #27
-  %5 = tail call i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 9, i64 noundef 268435456, ptr noundef nonnull @.str.49, i8 noundef signext 0, i8 noundef signext 3)
+  %5 = tail call range(i32 0, 3) i32 @tng_util_generic_write_interval_set(ptr noundef %0, i64 noundef %1, i64 noundef 9, i64 noundef 268435456, ptr noundef nonnull @.str.49, i8 noundef signext 0, i8 noundef signext 3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i8 noundef signext %6, i8 noundef signext %7) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i8 noundef signext %6, i8 noundef signext %7) local_unnamed_addr #4 {
   %9 = icmp eq i8 %6, 1
   br i1 %9, label %10, label %14
 
@@ -30237,7 +30237,7 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
   br label %14
 
 14:                                               ; preds = %10, %8
-  %.0176 = phi i64 [ %storemerge.i, %10 ], [ 0, %8 ]
+  %.0175 = phi i64 [ %storemerge.i, %10 ], [ 0, %8 ]
   %15 = icmp eq ptr %2, null
   br i1 %15, label %233, label %16
 
@@ -30295,7 +30295,7 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 ._crit_edge:                                      ; preds = %41
   %.pre = load i64, ptr %30, align 8
-  %.pre215 = load i64, ptr %32, align 8
+  %.pre214 = load i64, ptr %32, align 8
   br label %50
 
 47:                                               ; preds = %41
@@ -30304,12 +30304,11 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
   br label %233
 
 50:                                               ; preds = %._crit_edge, %29
-  %51 = phi i64 [ %.pre215, %._crit_edge ], [ %33, %29 ]
+  %51 = phi i64 [ %.pre214, %._crit_edge ], [ %33, %29 ]
   %52 = phi i64 [ %.pre, %._crit_edge ], [ %31, %29 ]
   %53 = getelementptr inbounds i8, ptr %0, i64 312
   %54 = load i64, ptr %53, align 8
-  %55 = icmp eq i64 %54, 0
-  %spec.select159 = zext i1 %55 to i32
+  %55 = icmp ne i64 %54, 0
   %56 = add nuw i64 %1, 1
   %57 = sub i64 %56, %52
   store i64 %57, ptr %53, align 8
@@ -30318,7 +30317,7 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
 58:                                               ; preds = %16, %50
   %.0124 = phi i64 [ %51, %50 ], [ 1, %16 ]
   %.0123 = phi i64 [ 100, %50 ], [ 1, %16 ]
-  %.0119 = phi i32 [ %spec.select159, %50 ], [ 0, %16 ]
+  %.0119 = phi i1 [ %55, %50 ], [ true, %16 ]
   %.0 = phi i8 [ 1, %50 ], [ 0, %16 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 424
   %60 = load i64, ptr %59, align 8
@@ -30360,8 +30359,8 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 80:                                               ; preds = %.lr.ph32.i
   %81 = add nuw nsw i64 %.02431.i, 1
-  %exitcond214.not = icmp eq i64 %81, %79
-  br i1 %exitcond214.not, label %.loopexit, label %.lr.ph32.i, !llvm.loop !73
+  %exitcond213.not = icmp eq i64 %81, %79
+  br i1 %exitcond213.not, label %.loopexit, label %.lr.ph32.i, !llvm.loop !73
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %80
   %.02431.i = phi i64 [ %81, %80 ], [ 0, %.lr.ph32.i.preheader ]
@@ -30372,8 +30371,8 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %85 = add nuw nsw i64 %.129.i, 1
-  %exitcond213.not = icmp eq i64 %85, %72
-  br i1 %exitcond213.not, label %.loopexit, label %.lr.ph.i, !llvm.loop !74
+  %exitcond212.not = icmp eq i64 %85, %72
+  br i1 %exitcond212.not, label %.loopexit, label %.lr.ph.i, !llvm.loop !74
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %85, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
@@ -30384,7 +30383,7 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 .loopexit:                                        ; preds = %.critedge.i, %80, %73, %.critedge.preheader.i
   %89 = sext i8 %7 to i64
-  %90 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 1, ptr noundef readonly %5, i8 noundef signext 2, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef %.0176, i64 noundef %89, ptr noundef null)
+  %90 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 1, ptr noundef readonly %5, i8 noundef signext 2, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef %.0175, i64 noundef %89, ptr noundef null)
   %.not152 = icmp eq i32 %90, 0
   br i1 %.not152, label %94, label %91
 
@@ -30395,15 +30394,15 @@ define i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 94:                                               ; preds = %.loopexit
   %. = select i1 %17, i64 456, i64 400
-  %.242 = select i1 %17, i64 448, i64 392
+  %.241 = select i1 %17, i64 448, i64 392
   %95 = getelementptr inbounds i8, ptr %0, i64 %.
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 %.242
+  %97 = getelementptr inbounds i8, ptr %0, i64 %.241
   %98 = load i32, ptr %97, align 8
   %99 = sext i32 %98 to i64
   %100 = getelementptr %struct.tng_data, ptr %96, i64 %99
   %storemerge154 = getelementptr i8, ptr %100, i64 -96
-  %101 = tail call fastcc i32 @tng_allocate_particle_data_mem(ptr noundef %storemerge154, i64 noundef %.0124, i64 noundef %.0123, i64 noundef %.0176, i64 noundef %3)
+  %101 = tail call fastcc i32 @tng_allocate_particle_data_mem(ptr noundef %storemerge154, i64 noundef %.0124, i64 noundef %.0123, i64 noundef %.0175, i64 noundef %3)
   %.not156 = icmp eq i32 %101, 0
   br i1 %.not156, label %115, label %102
 
@@ -30422,7 +30421,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 108:                                              ; preds = %tng_particle_data_find.exit
   %109 = getelementptr inbounds i8, ptr %.2, i64 48
   %110 = load i64, ptr %109, align 8
-  %111 = tail call fastcc i32 @tng_allocate_particle_data_mem(ptr noundef nonnull %.2, i64 noundef %.0124, i64 noundef %110, i64 noundef %.0176, i64 noundef %3)
+  %111 = tail call fastcc i32 @tng_allocate_particle_data_mem(ptr noundef nonnull %.2, i64 noundef %.0124, i64 noundef %110, i64 noundef %.0175, i64 noundef %3)
   %.not151 = icmp eq i32 %111, 0
   br i1 %.not151, label %115, label %112
 
@@ -30432,17 +30431,16 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br label %233
 
 115:                                              ; preds = %tng_particle_data_find.exit, %108, %94
-  %.0177 = phi ptr [ %.2, %108 ], [ %.2, %tng_particle_data_find.exit ], [ %storemerge154, %94 ]
+  %.0176 = phi ptr [ %.2, %108 ], [ %.2, %tng_particle_data_find.exit ], [ %storemerge154, %94 ]
   br i1 %17, label %139, label %116
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds i8, ptr %.0177, i64 48
+  %117 = getelementptr inbounds i8, ptr %.0176, i64 48
   %118 = load i64, ptr %117, align 8
-  %.not158 = icmp eq i32 %.0119, 0
-  br i1 %.not158, label %119, label %125
+  br i1 %.0119, label %119, label %125
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %.0177, i64 24
+  %120 = getelementptr inbounds i8, ptr %.0176, i64 24
   %121 = load i64, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %0, i64 288
   %123 = load i64, ptr %122, align 8
@@ -30450,7 +30448,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %119, %116
-  %126 = getelementptr inbounds i8, ptr %.0177, i64 24
+  %126 = getelementptr inbounds i8, ptr %.0176, i64 24
   store i64 %1, ptr %126, align 8
   br label %131
 
@@ -30462,21 +30460,21 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 131:                                              ; preds = %127, %125
   %.0121 = phi i64 [ 0, %125 ], [ %130, %127 ]
-  %132 = getelementptr inbounds i8, ptr %.0177, i64 80
+  %132 = getelementptr inbounds i8, ptr %.0176, i64 80
   %133 = load ptr, ptr %132, align 8
-  %134 = mul i64 %.0176, %3
+  %134 = mul i64 %.0175, %3
   %135 = mul i64 %134, %.0121
   %136 = getelementptr inbounds i8, ptr %133, i64 %135
   %137 = shl i64 %3, 2
-  %138 = mul i64 %137, %.0176
+  %138 = mul i64 %137, %.0175
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %136, ptr nonnull align 4 %2, i64 %138, i1 false)
   br label %233
 
 139:                                              ; preds = %115
-  %140 = getelementptr inbounds i8, ptr %.0177, i64 80
+  %140 = getelementptr inbounds i8, ptr %.0176, i64 80
   %141 = load ptr, ptr %140, align 8
   %142 = shl i64 %3, 2
-  %143 = mul i64 %142, %.0176
+  %143 = mul i64 %142, %.0175
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %141, ptr nonnull align 4 %2, i64 %143, i1 false)
   br label %233
 
@@ -30487,19 +30485,19 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %146 = getelementptr inbounds i8, ptr %0, i64 432
   %147 = load i64, ptr %146, align 8
   %148 = icmp sgt i64 %147, 0
-  br i1 %148, label %155, label %.critedge.preheader.i160
+  br i1 %148, label %155, label %.critedge.preheader.i159
 
-.critedge.preheader.i160:                         ; preds = %145
+.critedge.preheader.i159:                         ; preds = %145
   %149 = getelementptr inbounds i8, ptr %0, i64 464
   %150 = load i32, ptr %149, align 8
   %151 = icmp sgt i32 %150, 0
-  br i1 %151, label %.lr.ph.i161.preheader, label %.loopexit184
+  br i1 %151, label %.lr.ph.i160.preheader, label %.loopexit183
 
-.lr.ph.i161.preheader:                            ; preds = %.critedge.preheader.i160
+.lr.ph.i160.preheader:                            ; preds = %.critedge.preheader.i159
   %152 = getelementptr inbounds i8, ptr %0, i64 472
   %153 = load ptr, ptr %152, align 8
   %154 = zext nneg i32 %150 to i64
-  br label %.lr.ph.i161
+  br label %.lr.ph.i160
 
 155:                                              ; preds = %145, %144
   %156 = getelementptr inbounds i8, ptr %0, i64 408
@@ -30515,14 +30513,14 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 161:                                              ; preds = %169
   %162 = add nuw nsw i64 %.03446.i, 1
-  %exitcond211.not = icmp eq i64 %162, %160
-  br i1 %exitcond211.not, label %.critedge38.preheader.i, label %169, !llvm.loop !75
+  %exitcond210.not = icmp eq i64 %162, %160
+  br i1 %exitcond210.not, label %.critedge38.preheader.i, label %169, !llvm.loop !75
 
 .critedge38.preheader.i:                          ; preds = %161, %155
   %163 = getelementptr inbounds i8, ptr %0, i64 464
   %164 = load i32, ptr %163, align 8
   %165 = icmp sgt i32 %164, 0
-  br i1 %165, label %.lr.ph49.i.preheader, label %.loopexit184
+  br i1 %165, label %.lr.ph49.i.preheader, label %.loopexit183
 
 .lr.ph49.i.preheader:                             ; preds = %.critedge38.preheader.i
   %166 = getelementptr inbounds i8, ptr %0, i64 472
@@ -30539,8 +30537,8 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .critedge38.i:                                    ; preds = %.lr.ph49.i
   %173 = add nuw nsw i64 %.148.i, 1
-  %exitcond212.not = icmp eq i64 %173, %168
-  br i1 %exitcond212.not, label %.loopexit184, label %.lr.ph49.i, !llvm.loop !76
+  %exitcond211.not = icmp eq i64 %173, %168
+  br i1 %exitcond211.not, label %.loopexit183, label %.lr.ph49.i, !llvm.loop !76
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %173, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
@@ -30549,35 +30547,35 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %176 = icmp eq i64 %175, %4
   br i1 %176, label %tng_data_find.exit, label %.critedge38.i
 
-.critedge.i162:                                   ; preds = %.lr.ph.i161
+.critedge.i161:                                   ; preds = %.lr.ph.i160
   %177 = add nuw nsw i64 %.243.i, 1
   %exitcond.not = icmp eq i64 %177, %154
-  br i1 %exitcond.not, label %.loopexit184, label %.lr.ph.i161, !llvm.loop !77
+  br i1 %exitcond.not, label %.loopexit183, label %.lr.ph.i160, !llvm.loop !77
 
-.lr.ph.i161:                                      ; preds = %.lr.ph.i161.preheader, %.critedge.i162
-  %.243.i = phi i64 [ %177, %.critedge.i162 ], [ 0, %.lr.ph.i161.preheader ]
+.lr.ph.i160:                                      ; preds = %.lr.ph.i160.preheader, %.critedge.i161
+  %.243.i = phi i64 [ %177, %.critedge.i161 ], [ 0, %.lr.ph.i160.preheader ]
   %178 = getelementptr inbounds %struct.tng_data, ptr %153, i64 %.243.i
   %179 = load i64, ptr %178, align 8
   %180 = icmp eq i64 %179, %4
-  br i1 %180, label %tng_data_find.exit, label %.critedge.i162
+  br i1 %180, label %tng_data_find.exit, label %.critedge.i161
 
-.loopexit184:                                     ; preds = %.critedge.i162, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i160
+.loopexit183:                                     ; preds = %.critedge.i161, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i159
   %181 = sext i8 %7 to i64
   %182 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 0, ptr noundef readonly %5, i8 noundef signext 2, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef 0, i64 noundef %181, ptr noundef null)
   %.not145 = icmp eq i32 %182, 0
   br i1 %.not145, label %186, label %183
 
-183:                                              ; preds = %.loopexit184
+183:                                              ; preds = %.loopexit183
   %184 = load ptr, ptr @stderr, align 8
   %185 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.39, ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 15618) #27
   br label %233
 
-186:                                              ; preds = %.loopexit184
-  %.243 = select i1 %17, i64 472, i64 416
-  %.244 = select i1 %17, i64 464, i64 408
-  %187 = getelementptr inbounds i8, ptr %0, i64 %.243
+186:                                              ; preds = %.loopexit183
+  %.242 = select i1 %17, i64 472, i64 416
+  %.243 = select i1 %17, i64 464, i64 408
+  %187 = getelementptr inbounds i8, ptr %0, i64 %.242
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %0, i64 %.244
+  %189 = getelementptr inbounds i8, ptr %0, i64 %.243
   %190 = load i32, ptr %189, align 8
   %191 = sext i32 %190 to i64
   %192 = getelementptr %struct.tng_data, ptr %188, i64 %191
@@ -30591,8 +30589,8 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15633) #27
   br label %233
 
-tng_data_find.exit:                               ; preds = %.lr.ph.i161, %169, %.lr.ph49.i
-  %.4 = phi ptr [ %174, %.lr.ph49.i ], [ %170, %169 ], [ %178, %.lr.ph.i161 ]
+tng_data_find.exit:                               ; preds = %.lr.ph.i160, %169, %.lr.ph49.i
+  %.4 = phi ptr [ %174, %.lr.ph49.i ], [ %170, %169 ], [ %178, %.lr.ph.i160 ]
   %197 = getelementptr inbounds i8, ptr %.4, i64 32
   %198 = load i64, ptr %197, align 8
   %199 = icmp sgt i64 %.0124, %198
@@ -30617,8 +30615,7 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i161, %169, 
 208:                                              ; preds = %207
   %209 = getelementptr inbounds i8, ptr %.1, i64 48
   %210 = load i64, ptr %209, align 8
-  %.not149 = icmp eq i32 %.0119, 0
-  br i1 %.not149, label %211, label %217
+  br i1 %.0119, label %211, label %217
 
 211:                                              ; preds = %208
   %212 = getelementptr inbounds i8, ptr %.1, i64 24
@@ -30662,7 +30659,7 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i161, %169, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i8 noundef signext %6, i8 noundef signext %7) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i8 noundef signext %6, i8 noundef signext %7) local_unnamed_addr #4 {
   %9 = icmp eq i8 %6, 1
   br i1 %9, label %10, label %14
 
@@ -30676,7 +30673,7 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
   br label %14
 
 14:                                               ; preds = %10, %8
-  %.0176 = phi i64 [ %storemerge.i, %10 ], [ 0, %8 ]
+  %.0175 = phi i64 [ %storemerge.i, %10 ], [ 0, %8 ]
   %15 = icmp eq ptr %2, null
   br i1 %15, label %233, label %16
 
@@ -30734,7 +30731,7 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
 
 ._crit_edge:                                      ; preds = %41
   %.pre = load i64, ptr %30, align 8
-  %.pre215 = load i64, ptr %32, align 8
+  %.pre214 = load i64, ptr %32, align 8
   br label %50
 
 47:                                               ; preds = %41
@@ -30743,12 +30740,11 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
   br label %233
 
 50:                                               ; preds = %._crit_edge, %29
-  %51 = phi i64 [ %.pre215, %._crit_edge ], [ %33, %29 ]
+  %51 = phi i64 [ %.pre214, %._crit_edge ], [ %33, %29 ]
   %52 = phi i64 [ %.pre, %._crit_edge ], [ %31, %29 ]
   %53 = getelementptr inbounds i8, ptr %0, i64 312
   %54 = load i64, ptr %53, align 8
-  %55 = icmp eq i64 %54, 0
-  %spec.select159 = zext i1 %55 to i32
+  %55 = icmp ne i64 %54, 0
   %56 = add nuw i64 %1, 1
   %57 = sub i64 %56, %52
   store i64 %57, ptr %53, align 8
@@ -30757,7 +30753,7 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
 58:                                               ; preds = %16, %50
   %.0124 = phi i64 [ %51, %50 ], [ 1, %16 ]
   %.0123 = phi i64 [ 100, %50 ], [ 1, %16 ]
-  %.0119 = phi i32 [ %spec.select159, %50 ], [ 0, %16 ]
+  %.0119 = phi i1 [ %55, %50 ], [ true, %16 ]
   %.0 = phi i8 [ 1, %50 ], [ 0, %16 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 424
   %60 = load i64, ptr %59, align 8
@@ -30799,8 +30795,8 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
 
 80:                                               ; preds = %.lr.ph32.i
   %81 = add nuw nsw i64 %.02431.i, 1
-  %exitcond214.not = icmp eq i64 %81, %79
-  br i1 %exitcond214.not, label %.loopexit, label %.lr.ph32.i, !llvm.loop !73
+  %exitcond213.not = icmp eq i64 %81, %79
+  br i1 %exitcond213.not, label %.loopexit, label %.lr.ph32.i, !llvm.loop !73
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %80
   %.02431.i = phi i64 [ %81, %80 ], [ 0, %.lr.ph32.i.preheader ]
@@ -30811,8 +30807,8 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %85 = add nuw nsw i64 %.129.i, 1
-  %exitcond213.not = icmp eq i64 %85, %72
-  br i1 %exitcond213.not, label %.loopexit, label %.lr.ph.i, !llvm.loop !74
+  %exitcond212.not = icmp eq i64 %85, %72
+  br i1 %exitcond212.not, label %.loopexit, label %.lr.ph.i, !llvm.loop !74
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge.i
   %.129.i = phi i64 [ %85, %.critedge.i ], [ 0, %.lr.ph.i.preheader ]
@@ -30823,7 +30819,7 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
 
 .loopexit:                                        ; preds = %.critedge.i, %80, %73, %.critedge.preheader.i
   %89 = sext i8 %7 to i64
-  %90 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 1, ptr noundef readonly %5, i8 noundef signext 3, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef %.0176, i64 noundef %89, ptr noundef null)
+  %90 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 1, ptr noundef readonly %5, i8 noundef signext 3, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef %.0175, i64 noundef %89, ptr noundef null)
   %.not152 = icmp eq i32 %90, 0
   br i1 %.not152, label %94, label %91
 
@@ -30834,15 +30830,15 @@ define i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr no
 
 94:                                               ; preds = %.loopexit
   %. = select i1 %17, i64 456, i64 400
-  %.242 = select i1 %17, i64 448, i64 392
+  %.241 = select i1 %17, i64 448, i64 392
   %95 = getelementptr inbounds i8, ptr %0, i64 %.
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 %.242
+  %97 = getelementptr inbounds i8, ptr %0, i64 %.241
   %98 = load i32, ptr %97, align 8
   %99 = sext i32 %98 to i64
   %100 = getelementptr %struct.tng_data, ptr %96, i64 %99
   %storemerge154 = getelementptr i8, ptr %100, i64 -96
-  %101 = tail call fastcc i32 @tng_allocate_particle_data_mem(ptr noundef %storemerge154, i64 noundef %.0124, i64 noundef %.0123, i64 noundef %.0176, i64 noundef %3)
+  %101 = tail call fastcc i32 @tng_allocate_particle_data_mem(ptr noundef %storemerge154, i64 noundef %.0124, i64 noundef %.0123, i64 noundef %.0175, i64 noundef %3)
   %.not156 = icmp eq i32 %101, 0
   br i1 %.not156, label %115, label %102
 
@@ -30861,7 +30857,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 108:                                              ; preds = %tng_particle_data_find.exit
   %109 = getelementptr inbounds i8, ptr %.2, i64 48
   %110 = load i64, ptr %109, align 8
-  %111 = tail call fastcc i32 @tng_allocate_particle_data_mem(ptr noundef nonnull %.2, i64 noundef %.0124, i64 noundef %110, i64 noundef %.0176, i64 noundef %3)
+  %111 = tail call fastcc i32 @tng_allocate_particle_data_mem(ptr noundef nonnull %.2, i64 noundef %.0124, i64 noundef %110, i64 noundef %.0175, i64 noundef %3)
   %.not151 = icmp eq i32 %111, 0
   br i1 %.not151, label %115, label %112
 
@@ -30871,17 +30867,16 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br label %233
 
 115:                                              ; preds = %tng_particle_data_find.exit, %108, %94
-  %.0177 = phi ptr [ %.2, %108 ], [ %.2, %tng_particle_data_find.exit ], [ %storemerge154, %94 ]
+  %.0176 = phi ptr [ %.2, %108 ], [ %.2, %tng_particle_data_find.exit ], [ %storemerge154, %94 ]
   br i1 %17, label %139, label %116
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds i8, ptr %.0177, i64 48
+  %117 = getelementptr inbounds i8, ptr %.0176, i64 48
   %118 = load i64, ptr %117, align 8
-  %.not158 = icmp eq i32 %.0119, 0
-  br i1 %.not158, label %119, label %125
+  br i1 %.0119, label %119, label %125
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %.0177, i64 24
+  %120 = getelementptr inbounds i8, ptr %.0176, i64 24
   %121 = load i64, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %0, i64 288
   %123 = load i64, ptr %122, align 8
@@ -30889,7 +30884,7 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %119, %116
-  %126 = getelementptr inbounds i8, ptr %.0177, i64 24
+  %126 = getelementptr inbounds i8, ptr %.0176, i64 24
   store i64 %1, ptr %126, align 8
   br label %131
 
@@ -30901,21 +30896,21 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 131:                                              ; preds = %127, %125
   %.0121 = phi i64 [ 0, %125 ], [ %130, %127 ]
-  %132 = getelementptr inbounds i8, ptr %.0177, i64 80
+  %132 = getelementptr inbounds i8, ptr %.0176, i64 80
   %133 = load ptr, ptr %132, align 8
-  %134 = mul i64 %.0176, %3
+  %134 = mul i64 %.0175, %3
   %135 = mul i64 %134, %.0121
   %136 = getelementptr inbounds i8, ptr %133, i64 %135
   %137 = shl i64 %3, 3
-  %138 = mul i64 %137, %.0176
+  %138 = mul i64 %137, %.0175
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %136, ptr nonnull align 8 %2, i64 %138, i1 false)
   br label %233
 
 139:                                              ; preds = %115
-  %140 = getelementptr inbounds i8, ptr %.0177, i64 80
+  %140 = getelementptr inbounds i8, ptr %.0176, i64 80
   %141 = load ptr, ptr %140, align 8
   %142 = shl i64 %3, 3
-  %143 = mul i64 %142, %.0176
+  %143 = mul i64 %142, %.0175
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %141, ptr nonnull align 8 %2, i64 %143, i1 false)
   br label %233
 
@@ -30926,19 +30921,19 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %146 = getelementptr inbounds i8, ptr %0, i64 432
   %147 = load i64, ptr %146, align 8
   %148 = icmp sgt i64 %147, 0
-  br i1 %148, label %155, label %.critedge.preheader.i160
+  br i1 %148, label %155, label %.critedge.preheader.i159
 
-.critedge.preheader.i160:                         ; preds = %145
+.critedge.preheader.i159:                         ; preds = %145
   %149 = getelementptr inbounds i8, ptr %0, i64 464
   %150 = load i32, ptr %149, align 8
   %151 = icmp sgt i32 %150, 0
-  br i1 %151, label %.lr.ph.i161.preheader, label %.loopexit184
+  br i1 %151, label %.lr.ph.i160.preheader, label %.loopexit183
 
-.lr.ph.i161.preheader:                            ; preds = %.critedge.preheader.i160
+.lr.ph.i160.preheader:                            ; preds = %.critedge.preheader.i159
   %152 = getelementptr inbounds i8, ptr %0, i64 472
   %153 = load ptr, ptr %152, align 8
   %154 = zext nneg i32 %150 to i64
-  br label %.lr.ph.i161
+  br label %.lr.ph.i160
 
 155:                                              ; preds = %145, %144
   %156 = getelementptr inbounds i8, ptr %0, i64 408
@@ -30954,14 +30949,14 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 161:                                              ; preds = %169
   %162 = add nuw nsw i64 %.03446.i, 1
-  %exitcond211.not = icmp eq i64 %162, %160
-  br i1 %exitcond211.not, label %.critedge38.preheader.i, label %169, !llvm.loop !75
+  %exitcond210.not = icmp eq i64 %162, %160
+  br i1 %exitcond210.not, label %.critedge38.preheader.i, label %169, !llvm.loop !75
 
 .critedge38.preheader.i:                          ; preds = %161, %155
   %163 = getelementptr inbounds i8, ptr %0, i64 464
   %164 = load i32, ptr %163, align 8
   %165 = icmp sgt i32 %164, 0
-  br i1 %165, label %.lr.ph49.i.preheader, label %.loopexit184
+  br i1 %165, label %.lr.ph49.i.preheader, label %.loopexit183
 
 .lr.ph49.i.preheader:                             ; preds = %.critedge38.preheader.i
   %166 = getelementptr inbounds i8, ptr %0, i64 472
@@ -30978,8 +30973,8 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
 
 .critedge38.i:                                    ; preds = %.lr.ph49.i
   %173 = add nuw nsw i64 %.148.i, 1
-  %exitcond212.not = icmp eq i64 %173, %168
-  br i1 %exitcond212.not, label %.loopexit184, label %.lr.ph49.i, !llvm.loop !76
+  %exitcond211.not = icmp eq i64 %173, %168
+  br i1 %exitcond211.not, label %.loopexit183, label %.lr.ph49.i, !llvm.loop !76
 
 .lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %.critedge38.i
   %.148.i = phi i64 [ %173, %.critedge38.i ], [ 0, %.lr.ph49.i.preheader ]
@@ -30988,35 +30983,35 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %176 = icmp eq i64 %175, %4
   br i1 %176, label %tng_data_find.exit, label %.critedge38.i
 
-.critedge.i162:                                   ; preds = %.lr.ph.i161
+.critedge.i161:                                   ; preds = %.lr.ph.i160
   %177 = add nuw nsw i64 %.243.i, 1
   %exitcond.not = icmp eq i64 %177, %154
-  br i1 %exitcond.not, label %.loopexit184, label %.lr.ph.i161, !llvm.loop !77
+  br i1 %exitcond.not, label %.loopexit183, label %.lr.ph.i160, !llvm.loop !77
 
-.lr.ph.i161:                                      ; preds = %.lr.ph.i161.preheader, %.critedge.i162
-  %.243.i = phi i64 [ %177, %.critedge.i162 ], [ 0, %.lr.ph.i161.preheader ]
+.lr.ph.i160:                                      ; preds = %.lr.ph.i160.preheader, %.critedge.i161
+  %.243.i = phi i64 [ %177, %.critedge.i161 ], [ 0, %.lr.ph.i160.preheader ]
   %178 = getelementptr inbounds %struct.tng_data, ptr %153, i64 %.243.i
   %179 = load i64, ptr %178, align 8
   %180 = icmp eq i64 %179, %4
-  br i1 %180, label %tng_data_find.exit, label %.critedge.i162
+  br i1 %180, label %tng_data_find.exit, label %.critedge.i161
 
-.loopexit184:                                     ; preds = %.critedge.i162, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i160
+.loopexit183:                                     ; preds = %.critedge.i161, %.critedge38.i, %.critedge38.preheader.i, %.critedge.preheader.i159
   %181 = sext i8 %7 to i64
   %182 = tail call fastcc range(i32 0, 3) i32 @tng_gen_data_block_add(ptr noundef nonnull %0, i64 noundef %4, i32 noundef 0, ptr noundef readonly %5, i8 noundef signext 3, i8 noundef signext %.0, i64 noundef %.0124, i64 noundef %3, i64 noundef %.0123, i64 noundef 0, i64 noundef 0, i64 noundef %181, ptr noundef null)
   %.not145 = icmp eq i32 %182, 0
   br i1 %.not145, label %186, label %183
 
-183:                                              ; preds = %.loopexit184
+183:                                              ; preds = %.loopexit183
   %184 = load ptr, ptr @stderr, align 8
   %185 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.39, ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 15831) #27
   br label %233
 
-186:                                              ; preds = %.loopexit184
-  %.243 = select i1 %17, i64 472, i64 416
-  %.244 = select i1 %17, i64 464, i64 408
-  %187 = getelementptr inbounds i8, ptr %0, i64 %.243
+186:                                              ; preds = %.loopexit183
+  %.242 = select i1 %17, i64 472, i64 416
+  %.243 = select i1 %17, i64 464, i64 408
+  %187 = getelementptr inbounds i8, ptr %0, i64 %.242
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %0, i64 %.244
+  %189 = getelementptr inbounds i8, ptr %0, i64 %.243
   %190 = load i32, ptr %189, align 8
   %191 = sext i32 %190 to i64
   %192 = getelementptr %struct.tng_data, ptr %188, i64 %191
@@ -31030,8 +31025,8 @@ tng_particle_data_find.exit:                      ; preds = %.lr.ph.i, %.lr.ph32
   %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 15846) #27
   br label %233
 
-tng_data_find.exit:                               ; preds = %.lr.ph.i161, %169, %.lr.ph49.i
-  %.4 = phi ptr [ %174, %.lr.ph49.i ], [ %170, %169 ], [ %178, %.lr.ph.i161 ]
+tng_data_find.exit:                               ; preds = %.lr.ph.i160, %169, %.lr.ph49.i
+  %.4 = phi ptr [ %174, %.lr.ph49.i ], [ %170, %169 ], [ %178, %.lr.ph.i160 ]
   %197 = getelementptr inbounds i8, ptr %.4, i64 32
   %198 = load i64, ptr %197, align 8
   %199 = icmp sgt i64 %.0124, %198
@@ -31056,8 +31051,7 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i161, %169, 
 208:                                              ; preds = %207
   %209 = getelementptr inbounds i8, ptr %.1, i64 48
   %210 = load i64, ptr %209, align 8
-  %.not149 = icmp eq i32 %.0119, 0
-  br i1 %.not149, label %211, label %217
+  br i1 %.0119, label %211, label %217
 
 211:                                              ; preds = %208
   %212 = getelementptr inbounds i8, ptr %.1, i64 24
@@ -31101,55 +31095,55 @@ tng_data_find.exit:                               ; preds = %.lr.ph.i161, %169, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_pos_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_pos_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.43, i8 noundef signext 1, i8 noundef signext 2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_pos_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_pos_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.43, i8 noundef signext 1, i8 noundef signext 2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_vel_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_vel_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.45, i8 noundef signext 1, i8 noundef signext 2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_vel_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_vel_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.45, i8 noundef signext 1, i8 noundef signext 2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_force_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_force_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull @.str.47, i8 noundef signext 1, i8 noundef signext 3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_force_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_force_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull @.str.47, i8 noundef signext 1, i8 noundef signext 3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_box_shape_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_box_shape_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef 9, i64 noundef 268435456, ptr noundef nonnull @.str.49, i8 noundef signext 0, i8 noundef signext 3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_box_shape_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_box_shape_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = tail call i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef 9, i64 noundef 268435456, ptr noundef nonnull @.str.49, i8 noundef signext 0, i8 noundef signext 3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_generic_with_time_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i8 noundef signext %7, i8 noundef signext %8) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_generic_with_time_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i8 noundef signext %7, i8 noundef signext %8) local_unnamed_addr #4 {
   %10 = tail call i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i8 noundef signext %7, i8 noundef signext %8)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %26
@@ -31185,7 +31179,7 @@ define i32 @tng_util_generic_with_time_write(ptr noundef %0, i64 noundef %1, dou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_generic_with_time_double_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i8 noundef signext %7, i8 noundef signext %8) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_generic_with_time_double_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i8 noundef signext %7, i8 noundef signext %8) local_unnamed_addr #4 {
   %10 = tail call i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i8 noundef signext %7, i8 noundef signext %8)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %26
@@ -31221,7 +31215,7 @@ define i32 @tng_util_generic_with_time_double_write(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_pos_with_time_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_pos_with_time_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = tail call i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef %3, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.43, i8 noundef signext 1, i8 noundef signext 2)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %tng_util_generic_with_time_write.exit
@@ -31257,7 +31251,7 @@ tng_util_generic_with_time_write.exit:            ; preds = %4, %6, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_pos_with_time_double_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_pos_with_time_double_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = tail call i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %3, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.43, i8 noundef signext 1, i8 noundef signext 2)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %tng_util_generic_with_time_double_write.exit
@@ -31293,7 +31287,7 @@ tng_util_generic_with_time_double_write.exit:     ; preds = %4, %6, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_vel_with_time_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_vel_with_time_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = tail call i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef %3, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.45, i8 noundef signext 1, i8 noundef signext 2)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %tng_util_generic_with_time_write.exit
@@ -31329,7 +31323,7 @@ tng_util_generic_with_time_write.exit:            ; preds = %4, %6, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_vel_with_time_double_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_vel_with_time_double_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = tail call i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %3, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.45, i8 noundef signext 1, i8 noundef signext 2)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %tng_util_generic_with_time_double_write.exit
@@ -31365,7 +31359,7 @@ tng_util_generic_with_time_double_write.exit:     ; preds = %4, %6, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_force_with_time_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_force_with_time_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = tail call i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef %3, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull @.str.47, i8 noundef signext 1, i8 noundef signext 3)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %tng_util_generic_with_time_write.exit
@@ -31401,7 +31395,7 @@ tng_util_generic_with_time_write.exit:            ; preds = %4, %6, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_force_with_time_double_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_force_with_time_double_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = tail call i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %3, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull @.str.47, i8 noundef signext 1, i8 noundef signext 3)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %tng_util_generic_with_time_double_write.exit
@@ -31437,7 +31431,7 @@ tng_util_generic_with_time_double_write.exit:     ; preds = %4, %6, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_box_shape_with_time_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_box_shape_with_time_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = tail call i32 @tng_util_generic_write(ptr noundef %0, i64 noundef %1, ptr noundef %3, i64 noundef 9, i64 noundef 268435456, ptr noundef nonnull @.str.49, i8 noundef signext 0, i8 noundef signext 3)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %tng_util_generic_with_time_write.exit
@@ -31473,7 +31467,7 @@ tng_util_generic_with_time_write.exit:            ; preds = %4, %6, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_box_shape_with_time_double_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_box_shape_with_time_double_write(ptr noundef %0, i64 noundef %1, double noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = tail call i32 @tng_util_generic_double_write(ptr noundef %0, i64 noundef %1, ptr noundef %3, i64 noundef 9, i64 noundef 268435456, ptr noundef nonnull @.str.49, i8 noundef signext 0, i8 noundef signext 3)
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %tng_util_generic_with_time_double_write.exit
@@ -31509,7 +31503,7 @@ tng_util_generic_with_time_double_write.exit:     ; preds = %4, %6, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_frame_current_compression_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_frame_current_compression_get(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 424
   %6 = load i64, ptr %5, align 8
   %7 = icmp sgt i64 %6, 0
@@ -31851,7 +31845,7 @@ tng_data_find.exit73.thread:                      ; preds = %.critedge.i64, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tng_util_trajectory_next_frame_present_data_blocks_find(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr nocapture noundef %6) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_trajectory_next_frame_present_data_blocks_find(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr nocapture noundef %6) local_unnamed_addr #4 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %17, label %8
 
@@ -32364,7 +32358,7 @@ tng_block_destroy.exit:                           ; preds = %.critedge, %91
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @tng_util_prepare_append_after_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_util_prepare_append_after_frame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -32650,7 +32644,7 @@ tng_output_file_init.exit:                        ; preds = %17, %12
   %35 = phi ptr [ %27, %28 ], [ %25, %23 ]
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #25
   %37 = add i64 %36, 1
-  %38 = tail call noundef i64 @llvm.umin.i64(i64 %37, i64 1024)
+  %38 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %37, i64 1024)
   %39 = add nuw nsw i64 %38, 48
   store i64 %39, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -32764,7 +32758,7 @@ tng_file_output_numerical.exit31.thread:          ; preds = %75
   %.val = load ptr, ptr %7, align 8
   %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #25
   %90 = add i64 %89, 1
-  %91 = call noundef i64 @llvm.umin.i64(i64 %90, i64 1024)
+  %91 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %90, i64 1024)
   %92 = call i64 @fwrite(ptr noundef %88, i64 noundef %91, i64 noundef 1, ptr noundef %.val)
   %.not.i32 = icmp eq i64 %92, 1
   br i1 %.not.i32, label %tng_fwritestr.exit, label %tng_fwritestr.exit.thread
@@ -32818,7 +32812,7 @@ tng_file_output_numerical.exit38:                 ; preds = %103
 define internal fastcc range(i32 0, 3) i32 @tng_fwritestr(ptr nocapture %.32.val, ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3) unnamed_addr #4 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #25
   %6 = add i64 %5, 1
-  %7 = tail call noundef i64 @llvm.umin.i64(i64 %6, i64 1024)
+  %7 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %6, i64 1024)
   %8 = tail call i64 @fwrite(ptr noundef %0, i64 noundef %7, i64 noundef 1, ptr noundef %.32.val)
   %.not = icmp eq i64 %8, 1
   br i1 %.not, label %12, label %9
@@ -33004,7 +32998,7 @@ tng_file_output_numerical.exit:                   ; preds = %16
   %.val = load ptr, ptr %17, align 8
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #25
   %29 = add i64 %28, 1
-  %30 = call noundef i64 @llvm.umin.i64(i64 %29, i64 1024)
+  %30 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %29, i64 1024)
   %31 = call i64 @fwrite(ptr noundef %27, i64 noundef %30, i64 noundef 1, ptr noundef %.val)
   %.not.i = icmp eq i64 %31, 1
   br i1 %.not.i, label %32, label %tng_fwritestr.exit
@@ -33118,7 +33112,7 @@ tng_file_output_numerical.exit:                   ; preds = %15
   %.val12 = load ptr, ptr %16, align 8
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #25
   %28 = add i64 %27, 1
-  %29 = call noundef i64 @llvm.umin.i64(i64 %28, i64 1024)
+  %29 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %28, i64 1024)
   %30 = call i64 @fwrite(ptr noundef %26, i64 noundef %29, i64 noundef 1, ptr noundef %.val12)
   %.not.i = icmp eq i64 %30, 1
   br i1 %.not.i, label %31, label %tng_fwritestr.exit
@@ -33142,7 +33136,7 @@ tng_fwritestr.exit:                               ; preds = %24
   %.val = load ptr, ptr %16, align 8
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #25
   %40 = add i64 %39, 1
-  %41 = call noundef i64 @llvm.umin.i64(i64 %40, i64 1024)
+  %41 = call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %40, i64 1024)
   %42 = call i64 @fwrite(ptr noundef %38, i64 noundef %41, i64 noundef 1, ptr noundef %.val)
   %.not.i14 = icmp eq i64 %42, 1
   br i1 %.not.i14, label %43, label %46

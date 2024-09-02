@@ -2283,13 +2283,16 @@ define internal fastcc void @QuadTree_get_nearest_internal(ptr noundef readonly 
   %.1 = phi double [ %60, %63 ], [ %.06494, %57 ], [ %.06494, %.lr.ph ]
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
-  br i1 %exitcond116.not, label %tailrecurse, label %.lr.ph
+  br i1 %exitcond116.not, label %tailrecurse.loopexit, label %.lr.ph
 
-tailrecurse:                                      ; preds = %65, %.preheader84
-  %.065.lcssa = phi i32 [ -1, %.preheader84 ], [ %.166, %65 ]
-  %66 = load ptr, ptr %34, align 8
-  %67 = sext i32 %.065.lcssa to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+tailrecurse.loopexit:                             ; preds = %65
+  %66 = sext i32 %.166 to i64
+  br label %tailrecurse
+
+tailrecurse:                                      ; preds = %tailrecurse.loopexit, %.preheader84
+  %.065.lcssa = phi i64 [ -1, %.preheader84 ], [ %66, %tailrecurse.loopexit ]
+  %67 = load ptr, ptr %34, align 8
+  %68 = getelementptr inbounds ptr, ptr %67, i64 %.065.lcssa
   %69 = load ptr, ptr %68, align 8
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %.loopexit, label %.lr.ph100

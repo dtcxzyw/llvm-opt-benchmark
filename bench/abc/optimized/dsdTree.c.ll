@@ -432,7 +432,7 @@ Dsd_TreeUnmark.exit:                              ; preds = %20, %1, %._crit_edg
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Dsd_TreeCountNonTerminalNodes_rec(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNonTerminalNodes_rec(ptr nocapture noundef %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 42
   %3 = load i16, ptr %2, align 2
   %4 = add i16 %3, 1
@@ -477,7 +477,7 @@ define internal fastcc i32 @Dsd_TreeCountNonTerminalNodes_rec(ptr nocapture noun
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Dsd_TreeCountNonTerminalNodesOne(ptr noundef %0) local_unnamed_addr #5 {
+define range(i32 -2147483647, -2147483648) i32 @Dsd_TreeCountNonTerminalNodesOne(ptr noundef %0) local_unnamed_addr #5 {
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
   %4 = inttoptr i64 %3 to ptr

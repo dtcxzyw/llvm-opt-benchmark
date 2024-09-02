@@ -2005,8 +2005,8 @@ Vec_IntAlloc.exit:                                ; preds = %5, %14
   %wide.trip.count.i = zext nneg i32 %.val86 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %67, %.lr.ph.preheader.i
-  %indvars.iv22.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next23.i, %67 ]
+.lr.ph.i:                                         ; preds = %68, %.lr.ph.preheader.i
+  %indvars.iv22.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next23.i, %68 ]
   %52 = getelementptr inbounds i64, ptr %44, i64 %indvars.iv22.i
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv22.i
@@ -2014,36 +2014,36 @@ Vec_IntAlloc.exit:                                ; preds = %5, %14
   %56 = xor i64 %55, %53
   br label %57
 
-57:                                               ; preds = %66, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %66 ]
+57:                                               ; preds = %67, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %67 ]
   %58 = shl nuw nsw i64 %indvars.iv.i, 1
   %59 = shl nuw i64 3, %58
   %60 = and i64 %59, %56
   %.not.i114 = icmp eq i64 %60, 0
-  br i1 %.not.i114, label %66, label %61
+  br i1 %.not.i114, label %67, label %61
 
 61:                                               ; preds = %57
   %62 = trunc nuw nsw i64 %indvars.iv22.i to i32
   %63 = trunc nuw nsw i64 %indvars.iv.i to i32
   %64 = shl nsw i32 %62, 5
   %65 = add nuw nsw i32 %64, %63
+  %66 = sext i32 %65 to i64
   br label %Mop_ManFindDiffVar.exit
 
-66:                                               ; preds = %57
+67:                                               ; preds = %57
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %67, label %57, !llvm.loop !30
+  br i1 %exitcond.not.i, label %68, label %57, !llvm.loop !30
 
-67:                                               ; preds = %66
+68:                                               ; preds = %67
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count.i
   br i1 %exitcond25.not.i, label %Mop_ManFindDiffVar.exit, label %.lr.ph.i, !llvm.loop !31
 
-Mop_ManFindDiffVar.exit:                          ; preds = %67, %32, %61
-  %.0.i = phi i32 [ %65, %61 ], [ -1, %32 ], [ -1, %67 ]
+Mop_ManFindDiffVar.exit:                          ; preds = %68, %32, %61
+  %.0.i = phi i64 [ %66, %61 ], [ -1, %32 ], [ -1, %68 ]
   %.val108 = load ptr, ptr %25, align 8
-  %68 = sext i32 %.0.i to i64
-  %69 = getelementptr inbounds i32, ptr %.val108, i64 %68
+  %69 = getelementptr inbounds i32, ptr %.val108, i64 %.0.i
   %70 = load i32, ptr %69, align 4
   %71 = icmp sgt i32 %70, %4
   br i1 %71, label %194, label %72

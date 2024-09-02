@@ -255,7 +255,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @set_ps_title(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define hidden range(i32 0, 4) i32 @set_ps_title(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr @save_argv, align 8
   %.not.i = icmp eq ptr %2, null
   %3 = load ptr, ptr @ps_buffer, align 8
@@ -293,7 +293,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden i32 @get_ps_title(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
+define hidden range(i32 0, 4) i32 @get_ps_title(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
   %3 = load ptr, ptr @save_argv, align 8
   %.not.i = icmp eq ptr %3, null
   %4 = load ptr, ptr @ps_buffer, align 8

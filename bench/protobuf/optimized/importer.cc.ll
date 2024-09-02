@@ -1032,14 +1032,14 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
 
 invoke.cont7.loopexit:                            ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i
   %.pre = load i32, ptr %state_.i.i, align 8
+  %7 = icmp ne i32 %.pre, 2
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %invoke.cont7.loopexit, %if.then.i.i.i7, %if.then.i.i8
-  %7 = phi i64 [ %add21.i.i.i, %invoke.cont7.loopexit ], [ %1, %if.then.i.i.i7 ], [ %path.coerce0, %if.then.i.i8 ]
-  %8 = phi i32 [ %.pre, %invoke.cont7.loopexit ], [ 2, %if.then.i.i.i7 ], [ 2, %if.then.i.i8 ]
+  %8 = phi i64 [ %add21.i.i.i, %invoke.cont7.loopexit ], [ %1, %if.then.i.i.i7 ], [ %path.coerce0, %if.then.i.i8 ]
+  %cmp.i.i17147 = phi i1 [ %7, %invoke.cont7.loopexit ], [ false, %if.then.i.i.i7 ], [ false, %if.then.i.i8 ]
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %ref.tmp2, align 8, !noalias !13
-  %cmp.i.i17147 = icmp ne i32 %8, 2
-  %cmp3.i.i148 = icmp ne i64 %7, %retval.sroa.0.0.copyload.i.i.i
+  %cmp3.i.i148 = icmp ne i64 %8, %retval.sroa.0.0.copyload.i.i.i
   %.not.i149 = select i1 %cmp.i.i17147, i1 true, i1 %cmp3.i.i148
   br i1 %.not.i149, label %for.body.lr.ph, label %for.end
 
@@ -1198,13 +1198,13 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
 
 _ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.loopexit: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
   %.pre172 = load i32, ptr %state_.i.i, align 8
+  %16 = icmp ne i32 %.pre172, 2
   br label %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit
 
 _ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit: ; preds = %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.loopexit, %if.then.i35
-  %16 = phi i64 [ %add21.i, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.loopexit ], [ %.pre173, %if.then.i35 ]
-  %17 = phi i32 [ %.pre172, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.loopexit ], [ 2, %if.then.i35 ]
-  %cmp.i.i17 = icmp ne i32 %17, 2
-  %cmp3.i.i = icmp ne i64 %16, %retval.sroa.0.0.copyload.i.i.i
+  %17 = phi i64 [ %add21.i, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.loopexit ], [ %.pre173, %if.then.i35 ]
+  %cmp.i.i17 = phi i1 [ %16, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.loopexit ], [ false, %if.then.i35 ]
+  %cmp3.i.i = icmp ne i64 %17, %retval.sroa.0.0.copyload.i.i.i
   %.not.i = select i1 %cmp.i.i17, i1 true, i1 %cmp3.i.i
   br i1 %.not.i, label %for.body, label %for.end
 

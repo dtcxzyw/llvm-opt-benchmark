@@ -10482,7 +10482,7 @@ invoke.cont52:                                    ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp.i.i49283, label %while.end115, label %while.body55
 
 while.body55:                                     ; preds = %invoke.cont52, %while.cond53.backedge
-  %36 = phi ptr [ %86, %while.cond53.backedge ], [ %35, %invoke.cont52 ]
+  %36 = phi ptr [ %87, %while.cond53.backedge ], [ %35, %invoke.cont52 ]
   %oom.0284 = phi i8 [ %oom.1, %while.cond53.backedge ], [ 0, %invoke.cont52 ]
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %_M_last.i51, align 8
@@ -10809,19 +10809,19 @@ if.then105:                                       ; preds = %for.end103
 lor.rhs:                                          ; preds = %if.then105
   %flag_.i = getelementptr inbounds i8, ptr %37, i64 12
   %82 = load i32, ptr %flag_.i, align 4
-  %and.i = and i32 %82, 256
-  %cmp.i97 = icmp ne i32 %and.i, 0
+  %and.i = lshr i32 %82, 8
+  %83 = trunc i32 %and.i to i8
+  %84 = and i8 %83, 1
   br label %if.end.i100
 
 if.end.i100:                                      ; preds = %if.then105, %lor.rhs
-  %83 = phi i1 [ true, %if.then105 ], [ %cmp.i97, %lor.rhs ]
+  %frombool.i = phi i8 [ 1, %if.then105 ], [ %84, %lor.rhs ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i)
   store ptr %spec.select, ptr %__args.addr.i, align 8
-  %frombool.i = zext i1 %83 to i8
   store i8 %frombool.i, ptr %__args.addr2.i, align 1
-  %84 = load ptr, ptr %_M_invoker.i, align 8
-  invoke void %84(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i)
+  %85 = load ptr, ptr %_M_invoker.i, align 8
+  invoke void %85(ptr noundef nonnull align 8 dereferenceable(16) %cb, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i)
           to label %if.end111 unwind label %lpad65.loopexit.split-lp
 
 if.end111:                                        ; preds = %if.end.i100
@@ -10830,14 +10830,14 @@ if.end111:                                        ; preds = %if.end.i100
   br i1 %.pre, label %while.end115, label %while.cond53.backedge
 
 while.cond53.backedge:                            ; preds = %if.end111, %for.end103.if.end111_crit_edge
-  %85 = load ptr, ptr %_M_finish.i, align 8
-  %86 = load ptr, ptr %_M_start.i, align 8
-  %cmp.i.i49 = icmp eq ptr %85, %86
+  %86 = load ptr, ptr %_M_finish.i, align 8
+  %87 = load ptr, ptr %_M_start.i, align 8
+  %cmp.i.i49 = icmp eq ptr %86, %87
   br i1 %cmp.i.i49, label %while.end115, label %while.body55, !llvm.loop !89
 
 while.end115:                                     ; preds = %while.cond53.backedge, %if.end111, %for.end103.if.end111_crit_edge, %invoke.cont52
-  %87 = load i64, ptr %size_.i, align 8
-  %conv118 = trunc i64 %87 to i32
+  %88 = load i64, ptr %size_.i, align 8
+  %conv118 = trunc i64 %88 to i32
   %tobool.not.i.i.i106 = icmp eq ptr %output.sroa.0.0, null
   br i1 %tobool.not.i.i.i106, label %_ZNSt6vectorIiSaIiEED2Ev.exit108, label %if.then.i.i.i107
 
@@ -10854,24 +10854,24 @@ if.then.i.i.i111:                                 ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit112
 
 _ZNSt6vectorIiSaIiEED2Ev.exit112:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit108, %if.then.i.i.i111
-  %88 = load ptr, ptr %q, align 8
-  %tobool.not.i.i113 = icmp eq ptr %88, null
+  %89 = load ptr, ptr %q, align 8
+  %tobool.not.i.i113 = icmp eq ptr %89, null
   br i1 %tobool.not.i.i113, label %_ZNSt5dequeIPN3re23DFA5StateESaIS3_EED2Ev.exit, label %if.then.i.i114
 
 if.then.i.i114:                                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit112
   %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %q, i64 72
-  %89 = load ptr, ptr %_M_node.i.i, align 8
-  %90 = load ptr, ptr %_M_node5.i.i6.i, align 8
-  %add.ptr.i.i115 = getelementptr inbounds i8, ptr %90, i64 8
-  %cmp3.i.i.i = icmp ult ptr %89, %add.ptr.i.i115
+  %90 = load ptr, ptr %_M_node.i.i, align 8
+  %91 = load ptr, ptr %_M_node5.i.i6.i, align 8
+  %add.ptr.i.i115 = getelementptr inbounds i8, ptr %91, i64 8
+  %cmp3.i.i.i = icmp ult ptr %90, %add.ptr.i.i115
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPN3re23DFA5StateESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i
 
 for.body.i.i.i:                                   ; preds = %if.then.i.i114, %for.body.i.i.i
-  %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %89, %if.then.i.i114 ]
-  %91 = load ptr, ptr %__n.04.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %91) #23
+  %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %90, %if.then.i.i114 ]
+  %92 = load ptr, ptr %__n.04.i.i.i, align 8
+  call void @_ZdlPv(ptr noundef %92) #23
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
-  %cmp.i.i.i116 = icmp ult ptr %__n.04.i.i.i, %90
+  %cmp.i.i.i116 = icmp ult ptr %__n.04.i.i.i, %91
   br i1 %cmp.i.i.i116, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPN3re23DFA5StateESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !90
 
 _ZNSt11_Deque_baseIPN3re23DFA5StateESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i: ; preds = %for.body.i.i.i
@@ -10879,18 +10879,18 @@ _ZNSt11_Deque_baseIPN3re23DFA5StateESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loo
   br label %_ZNSt11_Deque_baseIPN3re23DFA5StateESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i
 
 _ZNSt11_Deque_baseIPN3re23DFA5StateESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i: ; preds = %_ZNSt11_Deque_baseIPN3re23DFA5StateESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, %if.then.i.i114
-  %92 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIPN3re23DFA5StateESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i ], [ %88, %if.then.i.i114 ]
-  call void @_ZdlPv(ptr noundef %92) #23
+  %93 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIPN3re23DFA5StateESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i ], [ %89, %if.then.i.i114 ]
+  call void @_ZdlPv(ptr noundef %93) #23
   br label %_ZNSt5dequeIPN3re23DFA5StateESaIS3_EED2Ev.exit
 
 _ZNSt5dequeIPN3re23DFA5StateESaIS3_EED2Ev.exit:   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit112, %_ZNSt11_Deque_baseIPN3re23DFA5StateESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i.i
-  %93 = load i64, ptr %capacity_.i.i132, align 8
-  %tobool.not.i.i.i.i = icmp eq i64 %93, 0
+  %94 = load i64, ptr %capacity_.i.i132, align 8
+  %tobool.not.i.i.i.i = icmp eq i64 %94, 0
   br i1 %tobool.not.i.i.i.i, label %cleanup, label %for.cond.preheader.i.i.i.i
 
 for.cond.preheader.i.i.i.i:                       ; preds = %_ZNSt5dequeIPN3re23DFA5StateESaIS3_EED2Ev.exit
-  %94 = load ptr, ptr %m, align 8
-  call void @_ZdlPv(ptr noundef %94) #23
+  %95 = load ptr, ptr %m, align 8
+  call void @_ZdlPv(ptr noundef %95) #23
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %m, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slots_.i.i.i, i8 0, i64 32, i1 false)
   br label %cleanup
@@ -10912,13 +10912,13 @@ ehcleanup119:                                     ; preds = %if.then.i.i.i119, %
 ehcleanup120:                                     ; preds = %ehcleanup119, %lpad11
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup119 ], [ %29, %lpad11 ]
   %capacity_.i.i.i.i121 = getelementptr inbounds i8, ptr %m, i64 24
-  %95 = load i64, ptr %capacity_.i.i.i.i121, align 8
-  %tobool.not.i.i.i.i122 = icmp eq i64 %95, 0
+  %96 = load i64, ptr %capacity_.i.i.i.i121, align 8
+  %tobool.not.i.i.i.i122 = icmp eq i64 %96, 0
   br i1 %tobool.not.i.i.i.i122, label %ehcleanup121, label %for.cond.preheader.i.i.i.i123
 
 for.cond.preheader.i.i.i.i123:                    ; preds = %ehcleanup120
-  %96 = load ptr, ptr %m, align 8
-  call void @_ZdlPv(ptr noundef %96) #23
+  %97 = load ptr, ptr %m, align 8
+  call void @_ZdlPv(ptr noundef %97) #23
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %m, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slots_.i.i.i, i8 0, i64 32, i1 false)
   br label %ehcleanup121

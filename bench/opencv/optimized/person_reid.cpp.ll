@@ -2754,7 +2754,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
   %188 = load i32, ptr %187, align 4
   %189 = sext i32 %188 to i64
   %190 = icmp slt i64 %indvars.iv.next193, %189
-  br i1 %190, label %.lr.ph164, label %._crit_edge165, !llvm.loop !36
+  br i1 %190, label %.lr.ph164, label %._crit_edge165.loopexit, !llvm.loop !36
 
 191:                                              ; preds = %._crit_edge
   %192 = landingpad { ptr, i32 }
@@ -2793,12 +2793,15 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
           cleanup
   br label %.body
 
-._crit_edge165:                                   ; preds = %_ZNSt6vectorIfSaIfEE9push_backERKf.exit, %.preheader
-  %.sroa.0110.2.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.0110.3, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
-  %.sroa.8.2.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.8.3, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
-  %200 = ptrtoint ptr %.sroa.8.2.lcssa to i64
+._crit_edge165.loopexit:                          ; preds = %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
+  %200 = ptrtoint ptr %.sroa.8.3 to i64
+  br label %._crit_edge165
+
+._crit_edge165:                                   ; preds = %._crit_edge165.loopexit, %.preheader
+  %.sroa.0110.2.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.0110.3, %._crit_edge165.loopexit ]
+  %.sroa.8.2.lcssa = phi i64 [ 0, %.preheader ], [ %200, %._crit_edge165.loopexit ]
   %201 = ptrtoint ptr %.sroa.0110.2.lcssa to i64
-  %202 = sub i64 %200, %201
+  %202 = sub i64 %.sroa.8.2.lcssa, %201
   %203 = lshr exact i64 %202, 2
   %204 = trunc i64 %203 to i32
   %205 = icmp sgt i32 %204, 0

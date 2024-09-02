@@ -181,7 +181,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_ALR(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_ns_repair_CID(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_CID(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1

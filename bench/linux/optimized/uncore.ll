@@ -3562,7 +3562,7 @@ define internal void @uncore_pci_remove(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @uncore_type_init(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #9 section ".init.text" align 16 {
+define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #9 section ".init.text" align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64

@@ -595,7 +595,7 @@ define noundef range(i64 0, 4294967295) i64 @"_ZN5salsa9intern_id89_$LT$impl$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %0) unnamed_addr #0 {
+define noundef range(i32 1, 0) i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %0) unnamed_addr #0 {
   %2 = icmp ult i32 %0, -256
   br i1 %2, label %4, label %3
 
@@ -609,7 +609,7 @@ define noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..conve
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN79_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17hf90925f52b1c419aE"(i64 noundef %0) unnamed_addr #0 {
+define noundef range(i32 1, 0) i32 @"_ZN79_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17hf90925f52b1c419aE"(i64 noundef %0) unnamed_addr #0 {
   %2 = icmp ult i64 %0, 4294967040
   br i1 %2, label %4, label %3
 

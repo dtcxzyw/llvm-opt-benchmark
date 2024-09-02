@@ -41,7 +41,7 @@ my_bloom_power.exit:                              ; preds = %my_bloom_power.exit
   %24 = tail call double @llvm.rint.f64(double %23)
   %25 = fptosi double %24 to i32
   %26 = tail call i32 @llvm.smin.i32(i32 %25, i32 10)
-  %27 = tail call i32 @llvm.smax.i32(i32 %26, i32 1)
+  %27 = tail call range(i32 1, 11) i32 @llvm.smax.i32(i32 %26, i32 1)
   store i32 %27, ptr %19, align 8
   %28 = getelementptr inbounds i8, ptr %19, i64 8
   store i64 %2, ptr %28, align 8

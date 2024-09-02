@@ -88,16 +88,16 @@ if.then40.us:                                     ; preds = %if.then37.us
   %and48.us = and i32 %window_val.0.us, %shr
   %spec.select = select i1 %cmp45.not.us, i32 %sub41.us, i32 %and48.us
   %.pre = and i32 %spec.select, 1
+  %6 = icmp eq i32 %.pre, 0
   br label %if.end50.us
 
 if.end50.us:                                      ; preds = %if.then40.us, %if.then37.us
-  %and58.us.pre-phi = phi i32 [ %.pre, %if.then40.us ], [ 1, %if.then37.us ]
+  %and58.us.pre-phi = phi i1 [ %6, %if.then40.us ], [ false, %if.then37.us ]
   %digit.1.us = phi i32 [ %spec.select, %if.then40.us ], [ %window_val.0.us, %if.then37.us ]
   %cmp52.not.us = icmp sle i32 %digit.1.us, %sub51
   %cmp55.not.us = icmp sge i32 %digit.1.us, %shl
   %or.cond53.not58.us = or i1 %cmp52.not.us, %cmp55.not.us
-  %tobool59.not.us = icmp eq i32 %and58.us.pre-phi, 0
-  %or.cond54.us = or i1 %or.cond53.not58.us, %tobool59.not.us
+  %or.cond54.us = or i1 %or.cond53.not58.us, %and58.us.pre-phi
   br i1 %or.cond54.us, label %err.sink.split, label %if.end61.us
 
 if.end61.us:                                      ; preds = %if.end50.us
@@ -124,8 +124,8 @@ if.end72.us:                                      ; preds = %lor.rhs.us, %land.l
   %arrayidx74.us = getelementptr inbounds i8, ptr %call19, i64 %j.0.us
   store i8 %conv73.us, ptr %arrayidx74.us, align 1
   %shr75.us = ashr i32 %window_val.1.us, 1
-  %6 = trunc i64 %inc.us to i32
-  %conv78.us = add i32 %w, %6
+  %7 = trunc i64 %inc.us to i32
+  %conv78.us = add i32 %w, %7
   %call79.us = tail call i32 @BN_is_bit_set(ptr noundef nonnull %scalar, i32 noundef %conv78.us) #7
   %mul8052.us = shl nsw i32 %call79.us, %w
   %add81.us = add nsw i32 %mul8052.us, %shr75.us
@@ -160,16 +160,16 @@ if.then40:                                        ; preds = %if.then37
   %and48 = and i32 %window_val.0, %shr
   %spec.select62 = select i1 %cmp45.not, i32 %sub41, i32 %and48
   %.pre74 = and i32 %spec.select62, 1
+  %8 = icmp eq i32 %.pre74, 0
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then40, %if.then37
-  %and58.pre-phi = phi i32 [ %.pre74, %if.then40 ], [ 1, %if.then37 ]
+  %and58.pre-phi = phi i1 [ %8, %if.then40 ], [ false, %if.then37 ]
   %digit.1 = phi i32 [ %spec.select62, %if.then40 ], [ %window_val.0, %if.then37 ]
   %cmp52.not = icmp sle i32 %digit.1, %sub51
   %cmp55.not = icmp sge i32 %digit.1, %shl
   %or.cond53.not58 = or i1 %cmp52.not, %cmp55.not
-  %tobool59.not = icmp eq i32 %and58.pre-phi, 0
-  %or.cond54 = or i1 %or.cond53.not58, %tobool59.not
+  %or.cond54 = or i1 %or.cond53.not58, %and58.pre-phi
   br i1 %or.cond54, label %err.sink.split, label %if.end61
 
 if.end61:                                         ; preds = %if.end50
@@ -186,14 +186,14 @@ land.lhs.true:                                    ; preds = %if.end61
 if.end72:                                         ; preds = %lor.rhs, %if.end61, %land.lhs.true, %while.body
   %window_val.1 = phi i32 [ %sub62, %land.lhs.true ], [ 0, %if.end61 ], [ %window_val.0, %while.body ], [ 0, %lor.rhs ]
   %digit.0 = phi i32 [ %digit.1, %land.lhs.true ], [ %digit.1, %if.end61 ], [ 0, %while.body ], [ 0, %lor.rhs ]
-  %7 = trunc i32 %digit.0 to i8
-  %conv73 = sub i8 0, %7
+  %9 = trunc i32 %digit.0 to i8
+  %conv73 = sub i8 0, %9
   %inc = add i64 %j.0, 1
   %arrayidx74 = getelementptr inbounds i8, ptr %call19, i64 %j.0
   store i8 %conv73, ptr %arrayidx74, align 1
   %shr75 = ashr i32 %window_val.1, 1
-  %8 = trunc i64 %inc to i32
-  %conv78 = add i32 %w, %8
+  %10 = trunc i64 %inc to i32
+  %conv78 = add i32 %w, %10
   %call79 = tail call i32 @BN_is_bit_set(ptr noundef nonnull %scalar, i32 noundef %conv78) #7
   %mul8052 = shl nsw i32 %call79, %w
   %add81 = add nsw i32 %mul8052, %shr75

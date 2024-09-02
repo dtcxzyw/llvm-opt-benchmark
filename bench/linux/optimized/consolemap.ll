@@ -1128,14 +1128,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr nocaptu
 .loopexit8:                                       ; preds = %45, %.preheader9
   %48 = add nuw nsw i64 %23, 1
   %49 = icmp eq i64 %48, 32
-  br i1 %49, label %.thread, label %.preheader9, !llvm.loop !27
+  br i1 %49, label %.critedge, label %.preheader9, !llvm.loop !27
 
-.loopexit:                                        ; preds = %31, %41, %42, %40
+.loopexit:                                        ; preds = %31, %40, %42, %41
   %50 = and i64 %23, 4294967295
   %51 = icmp eq i64 %50, 32
-  br i1 %51, label %.thread, label %85
+  br i1 %51, label %.critedge, label %85
 
-.thread:                                          ; preds = %.loopexit, %.loopexit8
+.critedge:                                        ; preds = %.loopexit, %.loopexit8
   %52 = getelementptr inbounds i8, ptr %14, i64 256
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, 1
@@ -1147,10 +1147,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr nocaptu
   %58 = icmp eq ptr %57, %1
   br i1 %58, label %59, label %.preheader35
 
-.preheader35:                                     ; preds = %59, %.thread
+.preheader35:                                     ; preds = %59, %.critedge
   br label %62
 
-59:                                               ; preds = %.thread
+59:                                               ; preds = %.critedge
   store ptr null, ptr @dflt, align 8
   br label %.preheader35
 

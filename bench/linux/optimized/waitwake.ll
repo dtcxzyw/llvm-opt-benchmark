@@ -199,34 +199,34 @@ define dso_local i32 @futex_wake(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %28 = getelementptr inbounds i8, ptr %5, i64 16
   br label %29
 
-29:                                               ; preds = %.thread, %26
-  %30 = phi ptr [ %24, %26 ], [ %33, %.thread ]
-  %31 = phi i32 [ 0, %26 ], [ %67, %.thread ]
+29:                                               ; preds = %.critedge, %26
+  %30 = phi ptr [ %24, %26 ], [ %33, %.critedge ]
+  %31 = phi i32 [ 0, %26 ], [ %67, %.critedge ]
   %32 = getelementptr i8, ptr %30, i64 -24
   %33 = load ptr, ptr %30, align 8
   %34 = getelementptr i8, ptr %30, i64 48
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread, label %36
+  br i1 %35, label %.critedge, label %36
 
 36:                                               ; preds = %29
   %37 = getelementptr i8, ptr %30, i64 56
   %38 = load i64, ptr %37, align 8
   %39 = load i64, ptr %27, align 8
   %40 = icmp eq i64 %38, %39
-  br i1 %40, label %41, label %.thread
+  br i1 %40, label %41, label %.critedge
 
 41:                                               ; preds = %36
   %42 = load i64, ptr %34, align 8
   %43 = load i64, ptr %5, align 8
   %44 = icmp eq i64 %42, %43
-  br i1 %44, label %45, label %.thread
+  br i1 %44, label %45, label %.critedge
 
 45:                                               ; preds = %41
   %46 = getelementptr i8, ptr %30, i64 64
   %47 = load i32, ptr %46, align 8
   %48 = load i32, ptr %28, align 8
   %.not = icmp eq i32 %47, %48
-  br i1 %.not, label %49, label %.thread
+  br i1 %.not, label %49, label %.critedge
 
 49:                                               ; preds = %45
   %50 = getelementptr i8, ptr %30, i64 72
@@ -245,7 +245,7 @@ define dso_local i32 @futex_wake(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, %3
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.thread, label %62
+  br i1 %61, label %.critedge, label %62
 
 62:                                               ; preds = %57
   %63 = getelementptr i8, ptr %30, i64 32
@@ -253,15 +253,15 @@ define dso_local i32 @futex_wake(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   call void %64(ptr noundef nonnull %6, ptr noundef %32) #8
   %65 = add i32 %31, 1
   %66 = icmp slt i32 %65, %2
-  br i1 %66, label %.thread, label %.loopexit
+  br i1 %66, label %.critedge, label %.loopexit
 
-.thread:                                          ; preds = %29, %36, %41, %62, %57, %45
-  %67 = phi i32 [ %65, %62 ], [ %31, %57 ], [ %31, %45 ], [ %31, %41 ], [ %31, %36 ], [ %31, %29 ]
+.critedge:                                        ; preds = %41, %36, %29, %62, %57, %45
+  %67 = phi i32 [ %65, %62 ], [ %31, %57 ], [ %31, %45 ], [ %31, %29 ], [ %31, %36 ], [ %31, %41 ]
   %68 = icmp eq ptr %33, %23
   br i1 %68, label %.loopexit, label %29, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.thread, %62, %53, %49, %21
-  %69 = phi i32 [ 0, %21 ], [ -22, %49 ], [ -22, %53 ], [ %65, %62 ], [ %67, %.thread ]
+.loopexit:                                        ; preds = %.critedge, %62, %53, %49, %21
+  %69 = phi i32 [ 0, %21 ], [ -22, %49 ], [ -22, %53 ], [ %65, %62 ], [ %67, %.critedge ]
   call void @_raw_spin_unlock(ptr noundef %22) #8
   call void @wake_up_q(ptr noundef nonnull %6) #8
   br label %70
@@ -301,7 +301,7 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   store ptr %10, ptr %11, align 8
   %12 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %8, i32 noundef 0) #8
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %.loopexit30, !prof !23
+  br i1 %13, label %14, label %.loopexit28, !prof !23
 
 14:                                               ; preds = %6
   %15 = lshr i32 %5, 28
@@ -323,12 +323,12 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
 29:                                               ; preds = %127
   %30 = call i32 @get_futex_key(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %8, i32 noundef 0) #8
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %.loopexit30, !prof !24
+  br i1 %31, label %32, label %.loopexit28, !prof !24
 
 32:                                               ; preds = %29, %14
   %33 = call i32 @get_futex_key(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %9, i32 noundef 1) #8
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %.loopexit30, !prof !16
+  br i1 %34, label %35, label %.loopexit28, !prof !16
 
 35:                                               ; preds = %32
   %36 = call ptr @futex_hash(ptr noundef nonnull %8) #8
@@ -463,7 +463,7 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %102, label %107, label %120
 
 107:                                              ; preds = %100
-  switch i32 %18, label %.thread20 [
+  switch i32 %18, label %.thread22 [
     i32 0, label %108
     i32 1, label %110
     i32 2, label %112
@@ -497,19 +497,19 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.thread
 
 120:                                              ; preds = %100
-  br i1 %103, label %.thread20, label %.thread, !prof !37
+  br i1 %103, label %.thread22, label %.thread, !prof !37
 
-.thread20:                                        ; preds = %107, %120
+.thread22:                                        ; preds = %107, %120
   %121 = phi i32 [ %104, %120 ], [ -38, %107 ]
   call void @_raw_spin_unlock(ptr noundef %44) #8
   br i1 %41, label %123, label %122
 
-122:                                              ; preds = %.thread20
+122:                                              ; preds = %.thread22
   call void @_raw_spin_unlock(ptr noundef %45) #8
   br label %123
 
-123:                                              ; preds = %122, %.thread20
-  switch i32 %121, label %.loopexit30 [
+123:                                              ; preds = %122, %.thread22
+  switch i32 %121, label %.loopexit28 [
     i32 -14, label %124
     i32 -11, label %127
   ]
@@ -517,7 +517,7 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
 124:                                              ; preds = %123
   %125 = call i32 @fault_in_user_writeable(ptr noundef %2) #8
   %126 = icmp eq i32 %125, 0
-  br i1 %126, label %127, label %.loopexit30
+  br i1 %126, label %127, label %.loopexit28
 
 127:                                              ; preds = %124, %123
   %128 = call i32 @__SCT__cond_resched() #8
@@ -528,41 +528,41 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   %129 = getelementptr inbounds i8, ptr %36, i64 8
   %130 = load ptr, ptr %129, align 8
   %131 = icmp eq ptr %130, %129
-  br i1 %131, label %.loopexit28, label %132
+  br i1 %131, label %.loopexit26, label %132
 
 132:                                              ; preds = %.thread
   %133 = getelementptr inbounds i8, ptr %8, i64 8
   %134 = getelementptr inbounds i8, ptr %8, i64 16
   br label %135
 
-135:                                              ; preds = %.thread22, %132
-  %136 = phi ptr [ %130, %132 ], [ %139, %.thread22 ]
-  %137 = phi i32 [ 0, %132 ], [ %168, %.thread22 ]
+135:                                              ; preds = %.critedge, %132
+  %136 = phi ptr [ %130, %132 ], [ %139, %.critedge ]
+  %137 = phi i32 [ 0, %132 ], [ %168, %.critedge ]
   %138 = getelementptr i8, ptr %136, i64 -24
   %139 = load ptr, ptr %136, align 8
   %140 = getelementptr i8, ptr %136, i64 48
   %141 = icmp eq ptr %140, null
-  br i1 %141, label %.thread22, label %142
+  br i1 %141, label %.critedge, label %142
 
 142:                                              ; preds = %135
   %143 = getelementptr i8, ptr %136, i64 56
   %144 = load i64, ptr %143, align 8
   %145 = load i64, ptr %133, align 8
   %146 = icmp eq i64 %144, %145
-  br i1 %146, label %147, label %.thread22
+  br i1 %146, label %147, label %.critedge
 
 147:                                              ; preds = %142
   %148 = load i64, ptr %140, align 8
   %149 = load i64, ptr %8, align 8
   %150 = icmp eq i64 %148, %149
-  br i1 %150, label %151, label %.thread22
+  br i1 %150, label %151, label %.critedge
 
 151:                                              ; preds = %147
   %152 = getelementptr i8, ptr %136, i64 64
   %153 = load i32, ptr %152, align 8
   %154 = load i32, ptr %134, align 8
   %.not = icmp eq i32 %153, %154
-  br i1 %.not, label %155, label %.thread22
+  br i1 %.not, label %155, label %.critedge
 
 155:                                              ; preds = %151
   %156 = getelementptr i8, ptr %136, i64 72
@@ -582,56 +582,56 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void %165(ptr noundef nonnull %10, ptr noundef %138) #8
   %166 = add i32 %137, 1
   %167 = icmp slt i32 %166, %3
-  br i1 %167, label %.thread22, label %.loopexit28
+  br i1 %167, label %.critedge, label %.loopexit26
 
-.thread22:                                        ; preds = %135, %142, %147, %163, %151
-  %168 = phi i32 [ %166, %163 ], [ %137, %151 ], [ %137, %147 ], [ %137, %142 ], [ %137, %135 ]
+.critedge:                                        ; preds = %147, %142, %135, %163, %151
+  %168 = phi i32 [ %166, %163 ], [ %137, %151 ], [ %137, %135 ], [ %137, %142 ], [ %137, %147 ]
   %169 = icmp eq ptr %139, %129
-  br i1 %169, label %.loopexit28, label %135, !llvm.loop !38
+  br i1 %169, label %.loopexit26, label %135, !llvm.loop !38
 
-.loopexit28:                                      ; preds = %.thread22, %163, %.thread
-  %170 = phi i32 [ 0, %.thread ], [ %166, %163 ], [ %168, %.thread22 ]
+.loopexit26:                                      ; preds = %.critedge, %163, %.thread
+  %170 = phi i32 [ 0, %.thread ], [ %166, %163 ], [ %168, %.critedge ]
   br i1 %.shrunk, label %171, label %.loopexit
 
-171:                                              ; preds = %.loopexit28
+171:                                              ; preds = %.loopexit26
   %172 = getelementptr inbounds i8, ptr %37, i64 8
   %173 = load ptr, ptr %172, align 8
   %174 = icmp eq ptr %173, %172
-  br i1 %174, label %.loopexit26, label %175
+  br i1 %174, label %.loopexit24, label %175
 
 175:                                              ; preds = %171
   %176 = getelementptr inbounds i8, ptr %9, i64 8
   %177 = getelementptr inbounds i8, ptr %9, i64 16
   br label %178
 
-178:                                              ; preds = %.thread24, %175
-  %179 = phi ptr [ %173, %175 ], [ %182, %.thread24 ]
-  %180 = phi i32 [ 0, %175 ], [ %211, %.thread24 ]
+178:                                              ; preds = %.critedge21, %175
+  %179 = phi ptr [ %173, %175 ], [ %182, %.critedge21 ]
+  %180 = phi i32 [ 0, %175 ], [ %211, %.critedge21 ]
   %181 = getelementptr i8, ptr %179, i64 -24
   %182 = load ptr, ptr %179, align 8
   %183 = getelementptr i8, ptr %179, i64 48
   %184 = icmp eq ptr %183, null
-  br i1 %184, label %.thread24, label %185
+  br i1 %184, label %.critedge21, label %185
 
 185:                                              ; preds = %178
   %186 = getelementptr i8, ptr %179, i64 56
   %187 = load i64, ptr %186, align 8
   %188 = load i64, ptr %176, align 8
   %189 = icmp eq i64 %187, %188
-  br i1 %189, label %190, label %.thread24
+  br i1 %189, label %190, label %.critedge21
 
 190:                                              ; preds = %185
   %191 = load i64, ptr %183, align 8
   %192 = load i64, ptr %9, align 8
   %193 = icmp eq i64 %191, %192
-  br i1 %193, label %194, label %.thread24
+  br i1 %193, label %194, label %.critedge21
 
 194:                                              ; preds = %190
   %195 = getelementptr i8, ptr %179, i64 64
   %196 = load i32, ptr %195, align 8
   %197 = load i32, ptr %177, align 8
-  %.not25 = icmp eq i32 %196, %197
-  br i1 %.not25, label %198, label %.thread24
+  %.not23 = icmp eq i32 %196, %197
+  br i1 %.not23, label %198, label %.critedge21
 
 198:                                              ; preds = %194
   %199 = getelementptr i8, ptr %179, i64 72
@@ -651,20 +651,20 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void %208(ptr noundef nonnull %10, ptr noundef %181) #8
   %209 = add i32 %180, 1
   %210 = icmp slt i32 %209, %4
-  br i1 %210, label %.thread24, label %.loopexit26
+  br i1 %210, label %.critedge21, label %.loopexit24
 
-.thread24:                                        ; preds = %178, %185, %190, %206, %194
-  %211 = phi i32 [ %209, %206 ], [ %180, %194 ], [ %180, %190 ], [ %180, %185 ], [ %180, %178 ]
+.critedge21:                                      ; preds = %190, %185, %178, %206, %194
+  %211 = phi i32 [ %209, %206 ], [ %180, %194 ], [ %180, %178 ], [ %180, %185 ], [ %180, %190 ]
   %212 = icmp eq ptr %182, %172
-  br i1 %212, label %.loopexit26, label %178, !llvm.loop !39
+  br i1 %212, label %.loopexit24, label %178, !llvm.loop !39
 
-.loopexit26:                                      ; preds = %.thread24, %206, %171
-  %213 = phi i32 [ 0, %171 ], [ %209, %206 ], [ %211, %.thread24 ]
+.loopexit24:                                      ; preds = %.critedge21, %206, %171
+  %213 = phi i32 [ 0, %171 ], [ %209, %206 ], [ %211, %.critedge21 ]
   %214 = add i32 %213, %170
   br label %.loopexit
 
-.loopexit:                                        ; preds = %159, %155, %202, %198, %.loopexit26, %.loopexit28
-  %215 = phi i32 [ %214, %.loopexit26 ], [ %170, %.loopexit28 ], [ -22, %198 ], [ -22, %202 ], [ -22, %155 ], [ -22, %159 ]
+.loopexit:                                        ; preds = %159, %155, %202, %198, %.loopexit24, %.loopexit26
+  %215 = phi i32 [ %214, %.loopexit24 ], [ %170, %.loopexit26 ], [ -22, %198 ], [ -22, %202 ], [ -22, %155 ], [ -22, %159 ]
   call void @_raw_spin_unlock(ptr noundef %44) #8
   br i1 %41, label %217, label %216
 
@@ -674,9 +674,9 @@ define dso_local i32 @futex_wake_op(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 217:                                              ; preds = %216, %.loopexit
   call void @wake_up_q(ptr noundef nonnull %10) #8
-  br label %.loopexit30
+  br label %.loopexit28
 
-.loopexit30:                                      ; preds = %32, %29, %124, %123, %217, %6
+.loopexit28:                                      ; preds = %32, %29, %124, %123, %217, %6
   %218 = phi i32 [ %215, %217 ], [ %12, %6 ], [ %125, %124 ], [ %121, %123 ], [ %30, %29 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #8
@@ -951,7 +951,7 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
 .split.us:                                        ; preds = %7, %50
   %12 = call i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %.split11.us
+  br i1 %13, label %14, label %.split10.us
 
 14:                                               ; preds = %.split.us
   br i1 %5, label %18, label %15
@@ -962,9 +962,9 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %17, label %.preheader.us, label %18
 
 18:                                               ; preds = %15, %14
-  br i1 %9, label %.loopexit7.us, label %.preheader6.us
+  br i1 %9, label %.loopexit6.us, label %.preheader5.us
 
-.preheader6.us:                                   ; preds = %18, %24
+.preheader5.us:                                   ; preds = %18, %24
   %19 = phi ptr [ %26, %24 ], [ %0, %18 ]
   %20 = phi i32 [ %25, %24 ], [ %1, %18 ]
   %21 = getelementptr inbounds i8, ptr %19, i64 72
@@ -972,17 +972,17 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.preheader.us, label %24
 
-24:                                               ; preds = %.preheader6.us
+24:                                               ; preds = %.preheader5.us
   %25 = add i32 %20, -1
   %26 = getelementptr i8, ptr %19, i64 152
   %27 = icmp eq i32 %25, 0
-  br i1 %27, label %.loopexit7.us, label %.preheader6.us, !llvm.loop !46
+  br i1 %27, label %.loopexit6.us, label %.preheader5.us, !llvm.loop !46
 
-.loopexit7.us:                                    ; preds = %24, %18
+.loopexit6.us:                                    ; preds = %24, %18
   tail call void @schedule() #8
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader6.us, %.loopexit7.us, %15
+.preheader.us:                                    ; preds = %.preheader5.us, %.loopexit6.us, %15
   %28 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds i8, ptr %29, i64 24
@@ -1003,7 +1003,7 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
 
 41:                                               ; preds = %31
   %42 = icmp sgt i32 %38, -1
-  br i1 %42, label %.thread5, label %.thread.us
+  br i1 %42, label %.critedge, label %.thread.us
 
 .thread.us:                                       ; preds = %41
   br i1 %5, label %46, label %43
@@ -1011,19 +1011,19 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
 43:                                               ; preds = %.thread.us
   %44 = load ptr, ptr %8, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.thread5, label %46
+  br i1 %45, label %.critedge, label %46
 
 46:                                               ; preds = %43, %.thread.us
   %47 = load volatile i64, ptr %29, align 8
   %48 = and i64 %47, 131072
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %.thread5, !prof !16
+  br i1 %49, label %50, label %.critedge, !prof !16
 
 50:                                               ; preds = %46
   %51 = load volatile i64, ptr %29, align 8
   %52 = and i64 %51, 4
   %53 = icmp eq i64 %52, 0
-  br i1 %53, label %.split.us, label %.thread5, !llvm.loop !47
+  br i1 %53, label %.split.us, label %.critedge, !llvm.loop !47
 
 .split:                                           ; preds = %7
   br i1 %9, label %.split.split.us, label %.split.split
@@ -1034,9 +1034,9 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
 .split.split.us.split.us:                         ; preds = %.split.split.us, %62
   %54 = call i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4)
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.thread.us13.us, label %.split11.us
+  br i1 %55, label %.thread.us12.us, label %.split10.us
 
-.thread.us13.us:                                  ; preds = %.split.split.us.split.us
+.thread.us12.us:                                  ; preds = %.split.split.us.split.us
   tail call void @schedule() #8
   %56 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
   %57 = inttoptr i64 %56 to ptr
@@ -1045,48 +1045,48 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
   %59 = load volatile i64, ptr %57, align 8
   %60 = and i64 %59, 131072
   %61 = icmp eq i64 %60, 0
-  br i1 %61, label %62, label %.thread5, !prof !16
+  br i1 %61, label %62, label %.critedge, !prof !16
 
-62:                                               ; preds = %.thread.us13.us
+62:                                               ; preds = %.thread.us12.us
   %63 = load volatile i64, ptr %57, align 8
   %64 = and i64 %63, 4
   %65 = icmp eq i64 %64, 0
-  br i1 %65, label %.split.split.us.split.us, label %.thread5, !llvm.loop !47
+  br i1 %65, label %.split.split.us.split.us, label %.critedge, !llvm.loop !47
 
 .split.split.us.split:                            ; preds = %.split.split.us, %81
   %66 = call i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4)
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %.split11.us
+  br i1 %67, label %68, label %.split10.us
 
 68:                                               ; preds = %.split.split.us.split
   %69 = load ptr, ptr %8, align 8
   %70 = icmp eq ptr %69, null
-  br i1 %70, label %.thread.us13, label %71
+  br i1 %70, label %.thread.us12, label %71
 
 71:                                               ; preds = %68
   tail call void @schedule() #8
-  br label %.thread.us13
+  br label %.thread.us12
 
-.thread.us13:                                     ; preds = %71, %68
+.thread.us12:                                     ; preds = %71, %68
   %72 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
   %73 = inttoptr i64 %72 to ptr
   %74 = getelementptr inbounds i8, ptr %73, i64 24
   store volatile i32 0, ptr %74, align 8
   %75 = load ptr, ptr %8, align 8
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %.thread5, label %77
+  br i1 %76, label %.critedge, label %77
 
-77:                                               ; preds = %.thread.us13
+77:                                               ; preds = %.thread.us12
   %78 = load volatile i64, ptr %73, align 8
   %79 = and i64 %78, 131072
   %80 = icmp eq i64 %79, 0
-  br i1 %80, label %81, label %.thread5, !prof !16
+  br i1 %80, label %81, label %.critedge, !prof !16
 
 81:                                               ; preds = %77
   %82 = load volatile i64, ptr %73, align 8
   %83 = and i64 %82, 4
   %84 = icmp eq i64 %83, 0
-  br i1 %84, label %.split.split.us.split, label %.thread5, !llvm.loop !47
+  br i1 %84, label %.split.split.us.split, label %.critedge, !llvm.loop !47
 
 .split.split:                                     ; preds = %.split
   br i1 %5, label %.split.split.split.us, label %.split.split.split
@@ -1094,23 +1094,23 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
 .split.split.split.us:                            ; preds = %.split.split, %102
   %85 = call i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.preheader6.us18, label %.split11.us
+  br i1 %86, label %.preheader5.us17, label %.split10.us
 
-.preheader6.us18:                                 ; preds = %.split.split.split.us, %92
+.preheader5.us17:                                 ; preds = %.split.split.split.us, %92
   %87 = phi ptr [ %94, %92 ], [ %0, %.split.split.split.us ]
   %88 = phi i32 [ %93, %92 ], [ %1, %.split.split.split.us ]
   %89 = getelementptr inbounds i8, ptr %87, i64 72
   %90 = load volatile ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread.us19, label %92
+  br i1 %91, label %.thread.us18, label %92
 
-92:                                               ; preds = %.preheader6.us18
+92:                                               ; preds = %.preheader5.us17
   %93 = add i32 %88, -1
   %94 = getelementptr i8, ptr %87, i64 152
   %95 = icmp eq i32 %93, 0
-  br i1 %95, label %.loopexit7.us21, label %.preheader6.us18, !llvm.loop !46
+  br i1 %95, label %.loopexit6.us20, label %.preheader5.us17, !llvm.loop !46
 
-.thread.us19:                                     ; preds = %.preheader6.us18, %.loopexit7.us21
+.thread.us18:                                     ; preds = %.preheader5.us17, %.loopexit6.us20
   %96 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
   %97 = inttoptr i64 %96 to ptr
   %98 = getelementptr inbounds i8, ptr %97, i64 24
@@ -1118,36 +1118,36 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
   %99 = load volatile i64, ptr %97, align 8
   %100 = and i64 %99, 131072
   %101 = icmp eq i64 %100, 0
-  br i1 %101, label %102, label %.thread5, !prof !16
+  br i1 %101, label %102, label %.critedge, !prof !16
 
-102:                                              ; preds = %.thread.us19
+102:                                              ; preds = %.thread.us18
   %103 = load volatile i64, ptr %97, align 8
   %104 = and i64 %103, 4
   %105 = icmp eq i64 %104, 0
-  br i1 %105, label %.split.split.split.us, label %.thread5, !llvm.loop !47
+  br i1 %105, label %.split.split.split.us, label %.critedge, !llvm.loop !47
 
-.loopexit7.us21:                                  ; preds = %92
+.loopexit6.us20:                                  ; preds = %92
   tail call void @schedule() #8
-  br label %.thread.us19
+  br label %.thread.us18
 
 .split.split.split:                               ; preds = %.split.split, %132
   %106 = call i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
   %107 = icmp eq i32 %106, 0
-  br i1 %107, label %111, label %.split11.us
+  br i1 %107, label %111, label %.split10.us
 
-.split11.us:                                      ; preds = %.split.split.split, %.split.split.split.us, %.split.split.us.split, %.split.split.us.split.us, %.split.us
+.split10.us:                                      ; preds = %.split.split.split, %.split.split.split.us, %.split.split.us.split, %.split.split.us.split.us, %.split.us
   %.us-phi = phi i32 [ %12, %.split.us ], [ %54, %.split.split.us.split.us ], [ %66, %.split.split.us.split ], [ %85, %.split.split.split.us ], [ %106, %.split.split.split ]
   %108 = icmp sgt i32 %.us-phi, 0
   %109 = load i32, ptr %4, align 4
   %110 = select i1 %108, i32 %109, i32 %.us-phi
-  br label %.thread5
+  br label %.critedge
 
 111:                                              ; preds = %.split.split.split
   %112 = load ptr, ptr %8, align 8
   %113 = icmp eq ptr %112, null
-  br i1 %113, label %.thread, label %.preheader6
+  br i1 %113, label %.thread, label %.preheader5
 
-.preheader6:                                      ; preds = %111, %119
+.preheader5:                                      ; preds = %111, %119
   %114 = phi ptr [ %121, %119 ], [ %0, %111 ]
   %115 = phi i32 [ %120, %119 ], [ %1, %111 ]
   %116 = getelementptr inbounds i8, ptr %114, i64 72
@@ -1155,39 +1155,39 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
   %118 = icmp eq ptr %117, null
   br i1 %118, label %.thread, label %119
 
-119:                                              ; preds = %.preheader6
+119:                                              ; preds = %.preheader5
   %120 = add i32 %115, -1
   %121 = getelementptr i8, ptr %114, i64 152
   %122 = icmp eq i32 %120, 0
-  br i1 %122, label %.loopexit7, label %.preheader6, !llvm.loop !46
+  br i1 %122, label %.loopexit6, label %.preheader5, !llvm.loop !46
 
-.loopexit7:                                       ; preds = %119
+.loopexit6:                                       ; preds = %119
   tail call void @schedule() #8
   br label %.thread
 
-.thread:                                          ; preds = %.preheader6, %.loopexit7, %111
+.thread:                                          ; preds = %.preheader5, %.loopexit6, %111
   %123 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !26
   %124 = inttoptr i64 %123 to ptr
   %125 = getelementptr inbounds i8, ptr %124, i64 24
   store volatile i32 0, ptr %125, align 8
   %126 = load ptr, ptr %8, align 8
   %127 = icmp eq ptr %126, null
-  br i1 %127, label %.thread5, label %128
+  br i1 %127, label %.critedge, label %128
 
 128:                                              ; preds = %.thread
   %129 = load volatile i64, ptr %124, align 8
   %130 = and i64 %129, 131072
   %131 = icmp eq i64 %130, 0
-  br i1 %131, label %132, label %.thread5, !prof !16
+  br i1 %131, label %132, label %.critedge, !prof !16
 
 132:                                              ; preds = %128
   %133 = load volatile i64, ptr %124, align 8
   %134 = and i64 %133, 4
   %135 = icmp eq i64 %134, 0
-  br i1 %135, label %.split.split.split, label %.thread5, !llvm.loop !47
+  br i1 %135, label %.split.split.split, label %.critedge, !llvm.loop !47
 
-.thread5:                                         ; preds = %.thread, %132, %128, %102, %.thread.us19, %81, %77, %.thread.us13, %62, %.thread.us13.us, %50, %46, %43, %41, %.split11.us
-  %136 = phi i32 [ %110, %.split11.us ], [ -512, %46 ], [ -512, %50 ], [ -110, %43 ], [ %38, %41 ], [ -512, %.thread.us13.us ], [ -512, %62 ], [ -512, %77 ], [ -512, %81 ], [ -110, %.thread.us13 ], [ -512, %.thread.us19 ], [ -512, %102 ], [ -512, %128 ], [ -512, %132 ], [ -110, %.thread ]
+.critedge:                                        ; preds = %.thread, %132, %128, %102, %.thread.us18, %81, %77, %.thread.us12, %62, %.thread.us12.us, %50, %46, %43, %41, %.split10.us
+  %136 = phi i32 [ %110, %.split10.us ], [ -512, %46 ], [ -512, %50 ], [ -110, %43 ], [ %38, %41 ], [ -512, %.thread.us12.us ], [ -512, %62 ], [ -512, %77 ], [ -512, %81 ], [ -110, %.thread.us12 ], [ -512, %.thread.us18 ], [ -512, %102 ], [ -512, %128 ], [ -512, %132 ], [ -110, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
   ret i32 %136
 }
@@ -1287,7 +1287,7 @@ define dso_local i32 @__futex_wait(ptr noundef %0, i32 noundef %1, i32 noundef %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(128) @futex_q_init, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   %8 = icmp eq i32 %4, 0
-  br i1 %8, label %.thread4, label %9
+  br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %5
   store ptr null, ptr %7, align 8, !annotation !25
@@ -1301,7 +1301,7 @@ define dso_local i32 @__futex_wait(ptr noundef %0, i32 noundef %1, i32 noundef %
 .split.us:                                        ; preds = %9, %33
   %14 = call i32 @futex_wait_setup(ptr noundef %0, i32 noundef %2, i32 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %.thread4
+  br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %.split.us
   %17 = load ptr, ptr %7, align 8
@@ -1324,24 +1324,24 @@ define dso_local i32 @__futex_wait(ptr noundef %0, i32 noundef %1, i32 noundef %
   store volatile i32 0, ptr %20, align 8
   %27 = call i32 @futex_unqueue(ptr noundef nonnull %6) #8
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.thread4, label %29
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %26
   %30 = load volatile i64, ptr %19, align 8
   %31 = and i64 %30, 131072
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %.thread4, !prof !16
+  br i1 %32, label %33, label %.critedge, !prof !16
 
 33:                                               ; preds = %29
   %34 = load volatile i64, ptr %19, align 8
   %35 = and i64 %34, 4
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %.split.us, label %.thread4
+  br i1 %36, label %.split.us, label %.critedge
 
 .split:                                           ; preds = %9, %61
   %37 = call i32 @futex_wait_setup(ptr noundef %0, i32 noundef %2, i32 noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.thread, label %.thread4
+  br i1 %38, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %.split
   %39 = load ptr, ptr %7, align 8
@@ -1370,26 +1370,26 @@ define dso_local i32 @__futex_wait(ptr noundef %0, i32 noundef %1, i32 noundef %
   store volatile i32 0, ptr %42, align 8
   %52 = call i32 @futex_unqueue(ptr noundef nonnull %6) #8
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %.thread4, label %54
+  br i1 %53, label %.critedge, label %54
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %11, align 8
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %.thread4, label %57
+  br i1 %56, label %.critedge, label %57
 
 57:                                               ; preds = %54
   %58 = load volatile i64, ptr %41, align 8
   %59 = and i64 %58, 131072
   %60 = icmp eq i64 %59, 0
-  br i1 %60, label %61, label %.thread4, !prof !16
+  br i1 %60, label %61, label %.critedge, !prof !16
 
 61:                                               ; preds = %57
   %62 = load volatile i64, ptr %41, align 8
   %63 = and i64 %62, 4
   %64 = icmp eq i64 %63, 0
-  br i1 %64, label %.split, label %.thread4
+  br i1 %64, label %.split, label %.critedge
 
-.thread4:                                         ; preds = %.split, %51, %54, %61, %57, %33, %29, %26, %.split.us, %5
+.critedge:                                        ; preds = %.split, %51, %54, %61, %57, %33, %29, %26, %.split.us, %5
   %65 = phi i32 [ -22, %5 ], [ -512, %29 ], [ -512, %33 ], [ 0, %26 ], [ %14, %.split.us ], [ -512, %57 ], [ -512, %61 ], [ -110, %54 ], [ 0, %51 ], [ %37, %.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #8

@@ -3614,7 +3614,7 @@ define void @Rsb_DecPrintFunc(ptr nocapture noundef readonly %0, i32 noundef %1,
   br i1 %or.cond.i, label %Abc_TtPrintBinary.exit52.critedge, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %6
-  %55 = tail call noundef i32 @llvm.smin.i32(i32 %13, i32 64)
+  %55 = tail call noundef range(i32 -2147483648, 65) i32 @llvm.smin.i32(i32 %13, i32 64)
   %smax.i = tail call i32 @llvm.smax.i32(i32 %55, i32 1)
   br label %.preheader.us.i
 
@@ -3690,7 +3690,7 @@ Abc_TtPrintBinary.exit52:                         ; preds = %._crit_edge.us.i50,
   br i1 %or.cond.i, label %Abc_TtPrintBinary.exit63, label %.preheader.us.preheader.i55
 
 .preheader.us.preheader.i55:                      ; preds = %Abc_TtPrintBinary.exit52
-  %91 = call noundef i32 @llvm.smin.i32(i32 %13, i32 64)
+  %91 = call noundef range(i32 -2147483648, 65) i32 @llvm.smin.i32(i32 %13, i32 64)
   %smax.i56 = call i32 @llvm.smax.i32(i32 %91, i32 1)
   br label %.preheader.us.i57
 
@@ -3814,15 +3814,14 @@ Abc_TtPrintBinary.exit74:                         ; preds = %._crit_edge.us.i72,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(inaccessiblemem: write) uwtable
-define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc noundef i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #8 {
   %4 = icmp eq i64 %0, 0
   br i1 %4, label %tailrecurse._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %tailrecurse
   %.tr37 = phi i32 [ %.0.lcssa, %tailrecurse ], [ %2, %3 ]
-  %.tr26 = phi i64 [ %52, %tailrecurse ], [ %1, %3 ]
-  %.tr5 = phi i64 [ %51, %tailrecurse ], [ %0, %3 ]
-  %accumulator.tr4 = phi i64 [ %56, %tailrecurse ], [ 0, %3 ]
+  %.tr26 = phi i64 [ %48, %tailrecurse ], [ %1, %3 ]
+  %.tr5 = phi i64 [ %47, %tailrecurse ], [ %0, %3 ]
   %5 = icmp ne i64 %.tr26, -1
   tail call void @llvm.assume(i1 %5)
   %6 = zext i32 %.tr37 to i64
@@ -3888,22 +3887,13 @@ tailrecurse:                                      ; preds = %11, %20, %.tailrecu
   %44 = xor i64 %37, -1
   %45 = and i64 %34, %44
   %46 = tail call fastcc i64 @Abc_Tt6Isop(i64 noundef %45, i64 noundef %40, i32 noundef %.0.lcssa)
-  %47 = xor i64 %43, -1
-  %48 = and i64 %29, %47
-  %49 = xor i64 %46, -1
-  %50 = and i64 %34, %49
-  %51 = or i64 %50, %48
-  %52 = and i64 %40, %37
-  %53 = and i64 %43, %26
-  %54 = and i64 %46, %31
-  %55 = or i64 %53, %accumulator.tr4
-  %56 = or i64 %55, %54
-  %57 = icmp eq i64 %51, 0
-  br i1 %57, label %tailrecurse._crit_edge, label %.lr.ph
+  %47 = or i64 %34, %29
+  %48 = and i64 %40, %37
+  %49 = icmp eq i64 %47, 0
+  br i1 %49, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
-  %accumulator.tr.lcssa = phi i64 [ 0, %3 ], [ %56, %tailrecurse ]
-  ret i64 %accumulator.tr.lcssa
+  ret i64 0
 }
 
 ; Function Attrs: nofree nounwind uwtable

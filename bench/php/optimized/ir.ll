@@ -5998,7 +5998,7 @@ define hidden void @ir_hashtab_init(ptr nocapture noundef writeonly %0, i32 noun
   %12 = lshr i32 %11, 16
   %13 = or i32 %12, %11
   %14 = add i32 %13, 1
-  %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 4)
+  %15 = tail call range(i32 4, 0) i32 @llvm.umax.i32(i32 %14, i32 4)
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 2
   %18 = zext i32 %1 to i64
@@ -6075,7 +6075,7 @@ define hidden zeroext i1 @ir_hashtab_add(ptr nocapture noundef %0, i32 noundef %
   %36 = lshr i32 %35, 16
   %37 = or i32 %36, %35
   %38 = add i32 %37, 1
-  %39 = tail call i32 @llvm.umax.i32(i32 %38, i32 4)
+  %39 = tail call range(i32 4, 0) i32 @llvm.umax.i32(i32 %38, i32 4)
   %40 = zext i32 %39 to i64
   %41 = shl nuw nsw i64 %40, 2
   %42 = zext i32 %26 to i64
@@ -6808,7 +6808,7 @@ define hidden void @ir_hashtab_key_sort(ptr nocapture noundef readonly %0) local
   %18 = lshr i32 %17, 16
   %19 = or i32 %18, %17
   %20 = add i32 %19, 1
-  %21 = tail call i32 @llvm.umax.i32(i32 %20, i32 4)
+  %21 = tail call range(i32 4, 0) i32 @llvm.umax.i32(i32 %20, i32 4)
   %22 = load ptr, ptr %0, align 8
   %23 = zext i32 %21 to i64
   %24 = shl nuw nsw i64 %23, 2
@@ -6871,7 +6871,7 @@ define hidden void @ir_addrtab_init(ptr nocapture noundef writeonly %0, i32 noun
   %12 = lshr i32 %11, 16
   %13 = or i32 %12, %11
   %14 = add i32 %13, 1
-  %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 4)
+  %15 = tail call range(i32 4, 0) i32 @llvm.umax.i32(i32 %14, i32 4)
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 2
   %18 = zext i32 %1 to i64
@@ -6999,7 +6999,7 @@ define hidden void @ir_addrtab_set(ptr nocapture noundef %0, i64 noundef %1, i32
   %35 = lshr i32 %34, 16
   %36 = or i32 %35, %34
   %37 = add i32 %36, 1
-  %38 = tail call i32 @llvm.umax.i32(i32 %37, i32 4)
+  %38 = tail call range(i32 4, 0) i32 @llvm.umax.i32(i32 %37, i32 4)
   %39 = zext i32 %38 to i64
   %40 = shl nuw nsw i64 %39, 2
   %41 = zext i32 %25 to i64

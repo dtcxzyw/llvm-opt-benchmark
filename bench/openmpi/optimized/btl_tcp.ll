@@ -957,7 +957,7 @@ define i32 @mca_btl_tcp_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_btl_tcp_put(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i64 noundef %6, i32 %7, i32 %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
+define range(i32 -2147483648, 1) i32 @mca_btl_tcp_put(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i64 noundef %6, i32 %7, i32 %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
   %13 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 1488))
   %14 = icmp eq ptr %13, null
   br i1 %14, label %67, label %.lr.ph
@@ -1244,7 +1244,7 @@ define internal void @fake_rdma_complete(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_btl_tcp_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readnone %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @mca_btl_tcp_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readnone %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
   %13 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 1488))
   %14 = icmp eq ptr %13, null
   br i1 %14, label %51, label %15

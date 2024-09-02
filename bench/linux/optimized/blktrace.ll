@@ -512,7 +512,7 @@ define internal fastcc void @__blk_trace_remove(ptr noundef %0) unnamed_addr #0 
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blk_trace_setup(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @blk_trace_setup(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
   %6 = alloca %struct.blk_user_trace_setup, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 840
   tail call void @mutex_lock(ptr noundef %7) #21
@@ -682,7 +682,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__blk_trace_startstop(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @blk_trace_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -25, 1) i32 @blk_trace_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.blk_user_trace_setup, align 8
   %5 = alloca %struct.compat_blk_user_trace_setup, align 4
   %6 = alloca %struct.blk_user_trace_setup, align 8

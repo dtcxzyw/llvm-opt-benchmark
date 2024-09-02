@@ -214,7 +214,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %56
 
 51:                                               ; preds = %45, %46
-  %.146 = phi i32 [ 1, %46 ], [ 0, %45 ]
   %.5 = phi i32 [ 1, %46 ], [ %.397, %45 ]
   %52 = load ptr, ptr %15, align 8
   %.not.i.i.i.i = icmp eq ptr %52, null
@@ -234,12 +233,11 @@ _ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i:    ; preds = %53, %51
   br label %_ZN13DepfileParserD2Ev.exit
 
 _ZN13DepfileParserD2Ev.exit:                      ; preds = %55, %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i, %34
-  %.045 = phi i32 [ 1, %34 ], [ %.146, %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i ], [ %.146, %55 ]
+  %.045 = phi i1 [ false, %34 ], [ %44, %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i ], [ %44, %55 ]
   %.4 = phi i32 [ 1, %34 ], [ %.5, %_ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit.i ], [ %.5, %55 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
-  %cond = icmp eq i32 %.045, 0
-  br i1 %cond, label %24, label %thread-pre-split
+  br i1 %.045, label %24, label %thread-pre-split
 
 56:                                               ; preds = %49, %40, %.body
   %.pn58 = phi { ptr, i32 } [ %50, %49 ], [ %41, %40 ], [ %.pn, %.body ]

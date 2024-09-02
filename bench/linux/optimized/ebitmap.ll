@@ -164,7 +164,7 @@ define dso_local void @ebitmap_destroy(ptr noundef %0) local_unnamed_addr #2 ali
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2147483648, 1) i32 @ebitmap_and(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, null
@@ -205,20 +205,20 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @ebitmap_and(ptr nocaptur
   %27 = load i32, ptr %22, align 8
   %28 = zext i32 %27 to i64
   %29 = icmp ult i64 %28, %26
-  br i1 %29, label %.thread, label %.preheader12
+  br i1 %29, label %.critedge, label %.preheader12
 
 .preheader12:                                     ; preds = %23, %38
   %30 = phi ptr [ %31, %38 ], [ %2, %23 ]
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.thread, label %33
+  br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %.preheader12
   %34 = getelementptr inbounds i8, ptr %31, i64 56
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   %37 = icmp ugt i64 %36, %26
-  br i1 %37, label %.thread, label %38
+  br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %33
   %39 = add nuw nsw i64 %36, 384
@@ -246,14 +246,14 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @ebitmap_and(ptr nocaptur
   %53 = shl nuw i64 1, %52
   %54 = and i64 %51, %53
   %55 = icmp eq i64 %54, 0
-  br i1 %55, label %.thread, label %56
+  br i1 %55, label %.critedge, label %56
 
 56:                                               ; preds = %45
   %57 = tail call i32 @ebitmap_set_bit(ptr noundef %0, i64 noundef %26, i32 noundef 1), !range !15
   %58 = icmp slt i32 %57, 0
-  br i1 %58, label %.loopexit, label %.thread
+  br i1 %58, label %.loopexit, label %.critedge
 
-.thread:                                          ; preds = %.preheader12, %33, %23, %56, %45
+.critedge:                                        ; preds = %33, %.preheader12, %23, %56, %45
   %59 = getelementptr inbounds i8, ptr %25, i64 8
   %60 = getelementptr inbounds i8, ptr %25, i64 56
   %61 = load i32, ptr %60, align 8
@@ -265,14 +265,14 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @ebitmap_and(ptr nocaptur
   %67 = icmp ult i64 %66, 384
   br i1 %67, label %68, label %.preheader
 
-68:                                               ; preds = %.thread
+68:                                               ; preds = %.critedge
   %69 = trunc i64 %65 to i32
   %70 = load i32, ptr %60, align 8
   %71 = add i32 %70, %69
   br label %87
 
-.preheader:                                       ; preds = %.thread, %75
-  %72 = phi ptr [ %73, %75 ], [ %25, %.thread ]
+.preheader:                                       ; preds = %.critedge, %75
+  %72 = phi ptr [ %73, %75 ], [ %25, %.critedge ]
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %85, label %75
@@ -1130,7 +1130,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ebitmap_write(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @ebitmap_write(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %.preheader33

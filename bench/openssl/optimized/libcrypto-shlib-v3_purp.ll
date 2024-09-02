@@ -974,12 +974,12 @@ for.cond:                                         ; preds = %for.inc, %entry
 if.end.i:                                         ; preds = %for.cond
   %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #8
   %add.i = add i32 %call1.i, 10
+  %1 = sext i32 %add.i to i64
   br label %X509_PURPOSE_get_count.exit
 
 X509_PURPOSE_get_count.exit:                      ; preds = %for.cond, %if.end.i
-  %retval.0.i = phi i32 [ %add.i, %if.end.i ], [ 10, %for.cond ]
-  %1 = sext i32 %retval.0.i to i64
-  %cmp = icmp slt i64 %indvars.iv, %1
+  %retval.0.i = phi i64 [ %1, %if.end.i ], [ 10, %for.cond ]
+  %cmp = icmp slt i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %return
 
 for.body:                                         ; preds = %X509_PURPOSE_get_count.exit
@@ -1529,7 +1529,7 @@ return:                                           ; preds = %if.end33.i, %land.l
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_check_issued(ptr noundef %issuer, ptr noundef %subject) local_unnamed_addr #0 {
+define range(i32 0, 78) i32 @X509_check_issued(ptr noundef %issuer, ptr noundef %subject) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_x509_likely_issued(ptr noundef %issuer, ptr noundef %subject)
   %cmp.not = icmp eq i32 %call, 0
@@ -2072,7 +2072,7 @@ return:                                           ; preds = %lor.rhs.i, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @check_purpose_ns_ssl_server(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
+define internal range(i32 0, 2) i32 @check_purpose_ns_ssl_server(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
 entry:
   %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 232
   %0 = load i32, ptr %ex_flags.i, align 8
@@ -2176,7 +2176,7 @@ return:                                           ; preds = %lor.rhs.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @check_purpose_smime_sign(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
+define internal range(i32 0, 6) i32 @check_purpose_smime_sign(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
 entry:
   %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 232
   %0 = load i32, ptr %ex_flags.i, align 8
@@ -2280,7 +2280,7 @@ return:                                           ; preds = %if.then10.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @check_purpose_smime_encrypt(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
+define internal range(i32 0, 6) i32 @check_purpose_smime_encrypt(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
 entry:
   %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 232
   %0 = load i32, ptr %ex_flags.i, align 8
@@ -2384,7 +2384,7 @@ return:                                           ; preds = %if.then10.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @check_purpose_crl_sign(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
+define internal range(i32 0, 6) i32 @check_purpose_crl_sign(ptr nocapture readnone %xp, ptr nocapture noundef readonly %x, i32 noundef %non_leaf) #4 {
 entry:
   %tobool.not = icmp eq i32 %non_leaf, 0
   %ex_flags = getelementptr inbounds i8, ptr %x, i64 232

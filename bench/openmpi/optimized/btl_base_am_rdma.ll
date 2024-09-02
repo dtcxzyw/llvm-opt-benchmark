@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [28 x i8] c"am_rdma_queued_descriptor_t\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_btl_base_am_rdma_init(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @mca_btl_base_am_rdma_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4
@@ -398,7 +398,7 @@ define internal i32 @am_rdma_cswap_wrapper(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @opal_btl_base_am_rdma_create(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @opal_btl_base_am_rdma_create(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @am_rdma_internal_init(ptr noundef %0, i1 noundef zeroext %2, ptr noundef %3)
   ret i32 %5
 }

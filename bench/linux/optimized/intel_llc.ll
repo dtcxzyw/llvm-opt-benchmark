@@ -56,14 +56,14 @@ define dso_local void @intel_llc_enable(ptr noundef %0) local_unnamed_addr #0 al
   %37 = icmp ugt i32 %35, %34
   br i1 %37, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %19, %66
-  %38 = phi i32 [ %75, %66 ], [ %35, %19 ]
+.preheader:                                       ; preds = %19, %67
+  %38 = phi i32 [ %75, %67 ], [ %35, %19 ]
   %39 = load ptr, ptr %2, align 8
   %40 = sub i32 %35, %38
   %41 = getelementptr inbounds i8, ptr %39, i64 7176
   %42 = load i8, ptr %41, align 8
   %43 = icmp ugt i8 %42, 8
-  br i1 %43, label %66, label %44
+  br i1 %43, label %67, label %44
 
 44:                                               ; preds = %.preheader
   %45 = icmp eq i8 %42, 8
@@ -71,7 +71,7 @@ define dso_local void @intel_llc_enable(ptr noundef %0) local_unnamed_addr #0 al
 
 46:                                               ; preds = %44
   %47 = tail call i32 @llvm.umax.i32(i32 %33, i32 %38)
-  br label %66
+  br label %67
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %39, i64 7184
@@ -86,33 +86,33 @@ define dso_local void @intel_llc_enable(ptr noundef %0) local_unnamed_addr #0 al
   %56 = mul i32 %54, 5
   %57 = add i32 %56, %55
   %58 = tail call i32 @llvm.umax.i32(i32 %33, i32 %57)
-  br label %66
+  br label %67
 
 59:                                               ; preds = %48
   %60 = icmp ult i32 %38, 15
-  br i1 %60, label %66, label %61
+  br i1 %60, label %67, label %61
 
 61:                                               ; preds = %59
   %62 = mul i32 %40, 180
   %63 = ashr exact i32 %62, 1
   %64 = sub nsw i32 %36, %63
   %65 = udiv i32 %64, 100
-  br label %66
+  %66 = shl i32 %65, 8
+  br label %67
 
-66:                                               ; preds = %61, %59, %53, %46, %.preheader
-  %67 = phi i32 [ %47, %46 ], [ %58, %53 ], [ %38, %.preheader ], [ 0, %59 ], [ 0, %61 ]
-  %68 = phi i32 [ 0, %46 ], [ 0, %53 ], [ 0, %.preheader ], [ 8, %59 ], [ %65, %61 ]
-  %69 = load ptr, ptr %22, align 8
-  %70 = shl i32 %68, 8
-  %71 = shl i32 %67, 16
-  %72 = or i32 %71, %70
+67:                                               ; preds = %61, %59, %53, %46, %.preheader
+  %68 = phi i32 [ %47, %46 ], [ %58, %53 ], [ %38, %.preheader ], [ 0, %59 ], [ 0, %61 ]
+  %69 = phi i32 [ 0, %46 ], [ 0, %53 ], [ 0, %.preheader ], [ 2048, %59 ], [ %66, %61 ]
+  %70 = load ptr, ptr %22, align 8
+  %71 = shl i32 %68, 16
+  %72 = or i32 %69, %71
   %73 = or i32 %72, %38
-  %74 = tail call i32 @snb_pcode_write_timeout(ptr noundef %69, i32 noundef 8, i32 noundef %73, i32 noundef 500, i32 noundef 0) #4
+  %74 = tail call i32 @snb_pcode_write_timeout(ptr noundef %70, i32 noundef 8, i32 noundef %73, i32 noundef 500, i32 noundef 0) #4
   %75 = add i32 %38, -1
   %76 = icmp ult i32 %75, %34
   br i1 %76, label %.thread, label %.preheader, !llvm.loop !5
 
-.thread:                                          ; preds = %66, %1, %19
+.thread:                                          ; preds = %67, %1, %19
   ret void
 }
 

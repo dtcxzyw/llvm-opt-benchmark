@@ -1921,21 +1921,21 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE9push_backERKS1_.exit.i: ; preds = %45
 ._crit_edge.loopexit.i:                           ; preds = %_ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE9push_backERKS1_.exit.i
   %.pre.i380 = load ptr, ptr %30, align 8, !noalias !13
   %.pre68.i = load ptr, ptr %423, align 8, !noalias !13
+  %460 = ptrtoint ptr %.pre68.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.thread605
-  %460 = phi ptr [ %.pre68.i, %._crit_edge.loopexit.i ], [ null, %.thread605 ]
-  %461 = phi ptr [ %.pre.i380, %._crit_edge.loopexit.i ], [ null, %.thread605 ]
-  %462 = getelementptr inbounds i8, ptr %30, i64 8
-  %463 = ptrtoint ptr %460 to i64
-  %464 = ptrtoint ptr %461 to i64
-  %465 = sub i64 %463, %464
+  %461 = phi i64 [ %460, %._crit_edge.loopexit.i ], [ 0, %.thread605 ]
+  %462 = phi ptr [ %.pre.i380, %._crit_edge.loopexit.i ], [ null, %.thread605 ]
+  %463 = getelementptr inbounds i8, ptr %30, i64 8
+  %464 = ptrtoint ptr %462 to i64
+  %465 = sub i64 %461, %464
   %466 = sdiv exact i64 %465, 40
   %.sroa.01.0.copyload.i = load ptr, ptr %404, align 8, !noalias !13
   %467 = load ptr, ptr %313, align 8, !noalias !13
   %468 = getelementptr inbounds i8, ptr %467, i64 48
   %469 = load ptr, ptr %468, align 8
-  invoke void %469(ptr noundef nonnull align 8 dereferenceable(8) %313, ptr %461, i64 %466, ptr %.sroa.01.0.copyload.i)
+  invoke void %469(ptr noundef nonnull align 8 dereferenceable(8) %313, ptr %462, i64 %466, ptr %.sroa.01.0.copyload.i)
           to label %470 unwind label %.loopexit.split-lp.i
 
 470:                                              ; preds = %._crit_edge.i
@@ -2065,18 +2065,18 @@ _ZNSt6vectorIN5vcpkg15FullPackageSpecESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.
 "_ZN5vcpkg4Util6filterISt6vectorINS_15FullPackageSpecESaIS3_EEZN12_GLOBAL__N_117compute_full_planERKNS_10VcpkgPathsERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderERKS5_RKNS_24CreateInstallPlanOptionsEE3$_0EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIST_EESQ_T0_.exit.loopexit.i": ; preds = %_ZNSt6vectorIN5vcpkg15FullPackageSpecESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit.i.i
   %.pre69.i = load ptr, ptr %33, align 8, !noalias !13
   %.pre71.i = load ptr, ptr %473, align 8, !noalias !13
+  %505 = ptrtoint ptr %.pre71.i to i64
   br label %"_ZN5vcpkg4Util6filterISt6vectorINS_15FullPackageSpecESaIS3_EEZN12_GLOBAL__N_117compute_full_planERKNS_10VcpkgPathsERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderERKS5_RKNS_24CreateInstallPlanOptionsEE3$_0EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIST_EESQ_T0_.exit.i"
 
 "_ZN5vcpkg4Util6filterISt6vectorINS_15FullPackageSpecESaIS3_EEZN12_GLOBAL__N_117compute_full_planERKNS_10VcpkgPathsERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderERKS5_RKNS_24CreateInstallPlanOptionsEE3$_0EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIST_EESQ_T0_.exit.i": ; preds = %"_ZN5vcpkg4Util6filterISt6vectorINS_15FullPackageSpecESaIS3_EEZN12_GLOBAL__N_117compute_full_planERKNS_10VcpkgPathsERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderERKS5_RKNS_24CreateInstallPlanOptionsEE3$_0EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIST_EESQ_T0_.exit.loopexit.i", %470
-  %505 = phi ptr [ %.pre71.i, %"_ZN5vcpkg4Util6filterISt6vectorINS_15FullPackageSpecESaIS3_EEZN12_GLOBAL__N_117compute_full_planERKNS_10VcpkgPathsERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderERKS5_RKNS_24CreateInstallPlanOptionsEE3$_0EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIST_EESQ_T0_.exit.loopexit.i" ], [ null, %470 ]
-  %506 = phi ptr [ %.pre69.i, %"_ZN5vcpkg4Util6filterISt6vectorINS_15FullPackageSpecESaIS3_EEZN12_GLOBAL__N_117compute_full_planERKNS_10VcpkgPathsERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderERKS5_RKNS_24CreateInstallPlanOptionsEE3$_0EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIST_EESQ_T0_.exit.loopexit.i" ], [ null, %470 ]
-  %507 = getelementptr inbounds i8, ptr %33, i64 8
-  %508 = ptrtoint ptr %505 to i64
-  %509 = ptrtoint ptr %506 to i64
-  %510 = sub i64 %508, %509
+  %506 = phi i64 [ %505, %"_ZN5vcpkg4Util6filterISt6vectorINS_15FullPackageSpecESaIS3_EEZN12_GLOBAL__N_117compute_full_planERKNS_10VcpkgPathsERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderERKS5_RKNS_24CreateInstallPlanOptionsEE3$_0EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIST_EESQ_T0_.exit.loopexit.i" ], [ 0, %470 ]
+  %507 = phi ptr [ %.pre69.i, %"_ZN5vcpkg4Util6filterISt6vectorINS_15FullPackageSpecESaIS3_EEZN12_GLOBAL__N_117compute_full_planERKNS_10VcpkgPathsERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderERKS5_RKNS_24CreateInstallPlanOptionsEE3$_0EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIST_EESQ_T0_.exit.loopexit.i" ], [ null, %470 ]
+  %508 = getelementptr inbounds i8, ptr %33, i64 8
+  %509 = ptrtoint ptr %507 to i64
+  %510 = sub i64 %506, %509
   %511 = ashr exact i64 %510, 6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false), !noalias !13
-  invoke void @_ZN5vcpkg27create_feature_install_planERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderENS_4SpanIKNS_15FullPackageSpecEEERKNS_16StatusParagraphsERKNS_24CreateInstallPlanOptionsE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ActionPlan") align 8 %72, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %313, ptr %506, i64 %511, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(49) %70)
+  invoke void @_ZN5vcpkg27create_feature_install_planERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderENS_4SpanIKNS_15FullPackageSpecEEERKNS_16StatusParagraphsERKNS_24CreateInstallPlanOptionsE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ActionPlan") align 8 %72, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %313, ptr %507, i64 %511, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(49) %70)
           to label %512 unwind label %562
 
 512:                                              ; preds = %"_ZN5vcpkg4Util6filterISt6vectorINS_15FullPackageSpecESaIS3_EEZN12_GLOBAL__N_117compute_full_planERKNS_10VcpkgPathsERKNS_16PortFileProviderERKNS_9CMakeVars16CMakeVarProviderERKS5_RKNS_24CreateInstallPlanOptionsEE3$_0EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaIST_EESQ_T0_.exit.i"
@@ -2191,7 +2191,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EES
 
 _ZN5vcpkg16StatusParagraphsD2Ev.exit47.i:         ; preds = %544, %_ZSt8_DestroyIPSt10unique_ptrIN5vcpkg15StatusParagraphESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i45.i
   %545 = load ptr, ptr %33, align 8, !noalias !13
-  %546 = load ptr, ptr %507, align 8, !noalias !13
+  %546 = load ptr, ptr %508, align 8, !noalias !13
   %.not4.i.i.i.i.i392 = icmp eq ptr %545, %546
   br i1 %.not4.i.i.i.i.i392, label %_ZSt8_DestroyIPN5vcpkg15FullPackageSpecES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i393
 
@@ -2245,7 +2245,7 @@ _ZSt8_DestroyIPN5vcpkg15FullPackageSpecES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %
 
 _ZNSt6vectorIN5vcpkg15FullPackageSpecESaIS1_EED2Ev.exit.i: ; preds = %556, %_ZSt8_DestroyIPN5vcpkg15FullPackageSpecES1_EvT_S3_RSaIT0_E.exit.i.i
   %557 = load ptr, ptr %30, align 8, !noalias !13
-  %558 = load ptr, ptr %462, align 8, !noalias !13
+  %558 = load ptr, ptr %463, align 8, !noalias !13
   %.not4.i.i.i.i49.i = icmp eq ptr %557, %558
   br i1 %.not4.i.i.i.i49.i, label %_ZSt8_DestroyIPN5vcpkg11PackageSpecES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i50.i
 
@@ -8812,7 +8812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZZN5vcpkg19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_EN18RandomizerInstance6randomEi(ptr noundef nonnull align 8 dereferenceable(5008) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define internal noundef range(i32 0, -2147483648) i32 @_ZZN5vcpkg19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_EN18RandomizerInstance6randomEi(ptr noundef nonnull align 8 dereferenceable(5008) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = icmp slt i32 %1, 2
   br i1 %3, label %23, label %4
 

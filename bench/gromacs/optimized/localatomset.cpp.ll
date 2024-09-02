@@ -59,7 +59,7 @@ define { ptr, ptr } @_ZNK3gmx12LocalAtomSet15collectiveIndexEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK3gmx12LocalAtomSet14numAtomsGlobalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK3gmx12LocalAtomSet14numAtomsGlobalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -72,7 +72,7 @@ define noundef i64 @_ZNK3gmx12LocalAtomSet14numAtomsGlobalEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK3gmx12LocalAtomSet13numAtomsLocalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
+define noundef range(i64 -2305843009213693952, 2305843009213693952) i64 @_ZNK3gmx12LocalAtomSet13numAtomsLocalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   %4 = getelementptr inbounds i8, ptr %2, i64 56

@@ -16,7 +16,7 @@ $_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb1EZNS1_32C
 $_ZN5arrow7compute10KeyCompare35CompareBinaryColumnToRowHelper_avx2ILb0EZNS1_32CompareBinaryColumnToRowImp_avx2ILb0EEEjjjPKtPKjPNS0_12LightContextERKNS0_14KeyColumnArrayERKNS0_12RowTableImplEPhEUlPKhSI_jDv4_xSJ_E4_EEjjjS5_S7_S9_SC_SF_SG_T0_ = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN5arrow7compute10KeyCompare19AndByteVectors_avx2EjPhPKh(i32 noundef %num_elements, ptr nocapture noundef %bytevector_A, ptr nocapture noundef readonly %bytevector_B) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, -31) i32 @_ZN5arrow7compute10KeyCompare19AndByteVectors_avx2EjPhPKh(i32 noundef %num_elements, ptr nocapture noundef %bytevector_A, ptr nocapture noundef readonly %bytevector_B) local_unnamed_addr #0 align 2 {
 entry:
   %cmp9.not = icmp ult i32 %num_elements, 32
   br i1 %cmp9.not, label %for.end, label %for.body.preheader

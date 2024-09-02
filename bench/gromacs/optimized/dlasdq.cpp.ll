@@ -66,7 +66,8 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 52:                                               ; preds = %50
   %53 = load i32, ptr %5, align 4
-  %54 = icmp slt i32 %53, 0
+  %.fr297 = freeze i32 %53
+  %54 = icmp slt i32 %.fr297, 0
   br i1 %54, label %.thread267.sink.split, label %55
 
 55:                                               ; preds = %52
@@ -88,7 +89,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %64, label %.thread267.sink.split, label %65
 
 65:                                               ; preds = %62
-  %66 = icmp eq i32 %53, 0
+  %66 = icmp eq i32 %.fr297, 0
   %67 = load i32, ptr %13, align 4
   br i1 %66, label %68, label %70
 
@@ -105,11 +106,10 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %73, label %.thread267, label %74
 
 74:                                               ; preds = %72
-  %.not327 = icmp ne i32 %40, 0
-  %75 = or i32 %48, %53
+  %.not328 = icmp ne i32 %40, 0
+  %75 = or i32 %48, %.fr297
   %76 = icmp ne i32 %75, 0
-  %spec.select338 = select i1 %76, i1 true, i1 %.not327
-  %.fr = freeze i1 %spec.select338
+  %spec.select339 = select i1 %76, i1 true, i1 %.not328
   %77 = add nuw nsw i32 %39, 1
   store i32 %77, ptr %21, align 4
   %78 = icmp eq i32 %44, 1
@@ -121,19 +121,19 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %.not258.not276.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %wide.trip.count303 = zext nneg i32 %39 to i64
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %wide.trip.count304 = zext nneg i32 %39 to i64
+  br i1 %spec.select339, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv300 = phi i64 [ %indvars.iv.next301, %.lr.ph.split.us ], [ 1, %.lr.ph ]
-  %79 = getelementptr inbounds double, ptr %25, i64 %indvars.iv300
-  %80 = getelementptr inbounds double, ptr %26, i64 %indvars.iv300
+  %indvars.iv301 = phi i64 [ %indvars.iv.next302, %.lr.ph.split.us ], [ 1, %.lr.ph ]
+  %79 = getelementptr inbounds double, ptr %25, i64 %indvars.iv301
+  %80 = getelementptr inbounds double, ptr %26, i64 %indvars.iv301
   call void @dlartg_(ptr noundef nonnull %79, ptr noundef nonnull %80, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18)
   %81 = load double, ptr %18, align 8
   store double %81, ptr %79, align 8
   %82 = load double, ptr %20, align 8
-  %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
-  %83 = getelementptr double, ptr %6, i64 %indvars.iv300
+  %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
+  %83 = getelementptr double, ptr %6, i64 %indvars.iv301
   %84 = load double, ptr %83, align 8
   %85 = fmul double %82, %84
   store double %85, ptr %80, align 8
@@ -141,16 +141,16 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %87 = load double, ptr %83, align 8
   %88 = fmul double %86, %87
   store double %88, ptr %83, align 8
-  %89 = getelementptr inbounds double, ptr %36, i64 %indvars.iv300
+  %89 = getelementptr inbounds double, ptr %36, i64 %indvars.iv301
   store double %86, ptr %89, align 8
   %90 = load i32, ptr %2, align 4
-  %91 = trunc nuw nsw i64 %indvars.iv300 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv301 to i32
   %92 = add nsw i32 %90, %91
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds double, ptr %36, i64 %93
   store double %82, ptr %94, align 8
-  %exitcond304.not = icmp eq i64 %indvars.iv.next301, %wide.trip.count303
-  br i1 %exitcond304.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !4
+  %exitcond305.not = icmp eq i64 %indvars.iv.next302, %wide.trip.count304
+  br i1 %exitcond305.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 1, %.lr.ph ]
@@ -169,7 +169,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %103 = load double, ptr %99, align 8
   %104 = fmul double %102, %103
   store double %104, ptr %99, align 8
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count303
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count304
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
@@ -187,7 +187,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds double, ptr %26, i64 %114
   store double 0.000000e+00, ptr %115, align 8
-  br i1 %.fr, label %116, label %126
+  br i1 %spec.select339, label %116, label %126
 
 116:                                              ; preds = %._crit_edge
   %117 = load double, ptr %19, align 8
@@ -225,19 +225,19 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %.not259.not278, label %.lr.ph280, label %._crit_edge281
 
 .lr.ph280:                                        ; preds = %.thread270
-  %wide.trip.count313 = zext nneg i32 %134 to i64
-  br i1 %.fr, label %.lr.ph280.split.us, label %.lr.ph280.split
+  %wide.trip.count314 = zext nneg i32 %134 to i64
+  br i1 %spec.select339, label %.lr.ph280.split.us, label %.lr.ph280.split
 
 .lr.ph280.split.us:                               ; preds = %.lr.ph280, %.lr.ph280.split.us
-  %indvars.iv310 = phi i64 [ %indvars.iv.next311, %.lr.ph280.split.us ], [ 1, %.lr.ph280 ]
-  %135 = getelementptr inbounds double, ptr %25, i64 %indvars.iv310
-  %136 = getelementptr inbounds double, ptr %26, i64 %indvars.iv310
+  %indvars.iv311 = phi i64 [ %indvars.iv.next312, %.lr.ph280.split.us ], [ 1, %.lr.ph280 ]
+  %135 = getelementptr inbounds double, ptr %25, i64 %indvars.iv311
+  %136 = getelementptr inbounds double, ptr %26, i64 %indvars.iv311
   call void @dlartg_(ptr noundef nonnull %135, ptr noundef nonnull %136, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18)
   %137 = load double, ptr %18, align 8
   store double %137, ptr %135, align 8
   %138 = load double, ptr %20, align 8
-  %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
-  %139 = getelementptr double, ptr %6, i64 %indvars.iv310
+  %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
+  %139 = getelementptr double, ptr %6, i64 %indvars.iv311
   %140 = load double, ptr %139, align 8
   %141 = fmul double %138, %140
   store double %141, ptr %136, align 8
@@ -245,27 +245,27 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %143 = load double, ptr %139, align 8
   %144 = fmul double %142, %143
   store double %144, ptr %139, align 8
-  %145 = getelementptr inbounds double, ptr %36, i64 %indvars.iv310
+  %145 = getelementptr inbounds double, ptr %36, i64 %indvars.iv311
   store double %142, ptr %145, align 8
   %146 = load i32, ptr %2, align 4
-  %147 = trunc nuw nsw i64 %indvars.iv310 to i32
+  %147 = trunc nuw nsw i64 %indvars.iv311 to i32
   %148 = add nsw i32 %146, %147
   %149 = sext i32 %148 to i64
   %150 = getelementptr inbounds double, ptr %36, i64 %149
   store double %138, ptr %150, align 8
-  %exitcond314.not = icmp eq i64 %indvars.iv.next311, %wide.trip.count313
-  br i1 %exitcond314.not, label %._crit_edge281, label %.lr.ph280.split.us, !llvm.loop !6
+  %exitcond315.not = icmp eq i64 %indvars.iv.next312, %wide.trip.count314
+  br i1 %exitcond315.not, label %._crit_edge281, label %.lr.ph280.split.us, !llvm.loop !6
 
 .lr.ph280.split:                                  ; preds = %.lr.ph280, %.lr.ph280.split
-  %indvars.iv305 = phi i64 [ %indvars.iv.next306, %.lr.ph280.split ], [ 1, %.lr.ph280 ]
-  %151 = getelementptr inbounds double, ptr %25, i64 %indvars.iv305
-  %152 = getelementptr inbounds double, ptr %26, i64 %indvars.iv305
+  %indvars.iv306 = phi i64 [ %indvars.iv.next307, %.lr.ph280.split ], [ 1, %.lr.ph280 ]
+  %151 = getelementptr inbounds double, ptr %25, i64 %indvars.iv306
+  %152 = getelementptr inbounds double, ptr %26, i64 %indvars.iv306
   call void @dlartg_(ptr noundef nonnull %151, ptr noundef nonnull %152, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18)
   %153 = load double, ptr %18, align 8
   store double %153, ptr %151, align 8
   %154 = load double, ptr %20, align 8
-  %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
-  %155 = getelementptr double, ptr %6, i64 %indvars.iv305
+  %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
+  %155 = getelementptr double, ptr %6, i64 %indvars.iv306
   %156 = load double, ptr %155, align 8
   %157 = fmul double %154, %156
   store double %157, ptr %152, align 8
@@ -273,8 +273,8 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %159 = load double, ptr %155, align 8
   %160 = fmul double %158, %159
   store double %160, ptr %155, align 8
-  %exitcond309.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count313
-  br i1 %exitcond309.not, label %._crit_edge281, label %.lr.ph280.split, !llvm.loop !6
+  %exitcond310.not = icmp eq i64 %indvars.iv.next307, %wide.trip.count314
+  br i1 %exitcond310.not, label %._crit_edge281, label %.lr.ph280.split, !llvm.loop !6
 
 ._crit_edge281:                                   ; preds = %.lr.ph280.split, %.lr.ph280.split.us, %.thread270
   %161 = icmp eq i32 %.0246273, 1
@@ -291,7 +291,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %169 = sext i32 %168 to i64
   %170 = getelementptr inbounds double, ptr %25, i64 %169
   store double %167, ptr %170, align 8
-  br i1 %.fr, label %171, label %181
+  br i1 %spec.select339, label %171, label %181
 
 171:                                              ; preds = %162
   %172 = load double, ptr %19, align 8
@@ -336,13 +336,13 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 195:                                              ; preds = %190
   %196 = icmp eq i32 %.0246273, 0
-  %spec.select339 = select i1 %196, ptr %2, ptr %21
+  %spec.select340 = select i1 %196, ptr %2, ptr %21
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread274, %195
-  %.sink = phi ptr [ %spec.select339, %195 ], [ %2, %.thread274 ]
-  %.pre326.sink = load i32, ptr %21, align 4
-  %197 = sext i32 %.pre326.sink to i64
+  %.sink = phi ptr [ %spec.select340, %195 ], [ %2, %.thread274 ]
+  %.pre327.sink = load i32, ptr %21, align 4
+  %197 = sext i32 %.pre327.sink to i64
   %198 = getelementptr inbounds double, ptr %36, i64 %197
   call void @dlasr_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %.sink, ptr noundef nonnull %5, ptr noundef %14, ptr noundef nonnull %198, ptr noundef %12, ptr noundef nonnull %13)
   br label %199
@@ -359,21 +359,21 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %202 = sext i32 %30 to i64
   %203 = sext i32 %33 to i64
   %204 = add nuw i32 %200, 1
-  %wide.trip.count324 = zext i32 %204 to i64
-  %invariant.gep330 = getelementptr double, ptr %29, i64 %201
-  %invariant.gep332 = getelementptr double, ptr %35, i64 %203
+  %wide.trip.count325 = zext i32 %204 to i64
+  %invariant.gep331 = getelementptr double, ptr %29, i64 %201
+  %invariant.gep333 = getelementptr double, ptr %35, i64 %203
   br label %.lr.ph296
 
 .lr.ph296:                                        ; preds = %.lr.ph296.preheader, %239
-  %indvars.iv321 = phi i64 [ 1, %.lr.ph296.preheader ], [ %indvars.iv.next322, %239 ]
-  %indvars.iv315 = phi i64 [ 2, %.lr.ph296.preheader ], [ %indvars.iv.next316, %239 ]
-  %205 = getelementptr inbounds double, ptr %25, i64 %indvars.iv321
+  %indvars.iv322 = phi i64 [ 1, %.lr.ph296.preheader ], [ %indvars.iv.next323, %239 ]
+  %indvars.iv316 = phi i64 [ 2, %.lr.ph296.preheader ], [ %indvars.iv.next317, %239 ]
+  %205 = getelementptr inbounds double, ptr %25, i64 %indvars.iv322
   %206 = load double, ptr %205, align 8
   %207 = load i32, ptr %2, align 4
-  %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
+  %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %208 = sext i32 %207 to i64
-  %.not263283.not = icmp slt i64 %indvars.iv321, %208
-  %209 = trunc nuw nsw i64 %indvars.iv321 to i32
+  %.not263283.not = icmp slt i64 %indvars.iv322, %208
+  %209 = trunc nuw nsw i64 %indvars.iv322 to i32
   br i1 %.not263283.not, label %.lr.ph288.preheader, label %._crit_edge289
 
 .lr.ph288.preheader:                              ; preds = %.lr.ph296
@@ -381,25 +381,25 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %.lr.ph288
 
 .lr.ph288:                                        ; preds = %.lr.ph288.preheader, %.lr.ph288
-  %indvars.iv317 = phi i64 [ %indvars.iv315, %.lr.ph288.preheader ], [ %indvars.iv.next318, %.lr.ph288 ]
+  %indvars.iv318 = phi i64 [ %indvars.iv316, %.lr.ph288.preheader ], [ %indvars.iv.next319, %.lr.ph288 ]
   %.0247286 = phi double [ %206, %.lr.ph288.preheader ], [ %.1, %.lr.ph288 ]
   %.0248285 = phi i32 [ %209, %.lr.ph288.preheader ], [ %.1249, %.lr.ph288 ]
-  %211 = getelementptr inbounds double, ptr %25, i64 %indvars.iv317
+  %211 = getelementptr inbounds double, ptr %25, i64 %indvars.iv318
   %212 = load double, ptr %211, align 8
   %213 = fcmp olt double %212, %.0247286
-  %214 = trunc nuw i64 %indvars.iv317 to i32
+  %214 = trunc nuw i64 %indvars.iv318 to i32
   %.1249 = select i1 %213, i32 %214, i32 %.0248285
   %.1 = select i1 %213, double %212, double %.0247286
-  %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next318 to i32
-  %exitcond320.not = icmp eq i32 %210, %lftr.wideiv
-  br i1 %exitcond320.not, label %._crit_edge289, label %.lr.ph288, !llvm.loop !7
+  %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next319 to i32
+  %exitcond321.not = icmp eq i32 %210, %lftr.wideiv
+  br i1 %exitcond321.not, label %._crit_edge289, label %.lr.ph288, !llvm.loop !7
 
 ._crit_edge289:                                   ; preds = %.lr.ph288, %.lr.ph296
   %.0248.lcssa = phi i32 [ %209, %.lr.ph296 ], [ %.1249, %.lr.ph288 ]
   %.0247.lcssa = phi double [ %206, %.lr.ph296 ], [ %.1, %.lr.ph288 ]
   %215 = zext i32 %.0248.lcssa to i64
-  %.not264 = icmp eq i64 %indvars.iv321, %215
+  %.not264 = icmp eq i64 %indvars.iv322, %215
   br i1 %.not264, label %239, label %216
 
 216:                                              ; preds = %._crit_edge289
@@ -415,8 +415,8 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %222 = add nsw i32 %.0248.lcssa, %27
   %223 = sext i32 %222 to i64
   %224 = getelementptr inbounds double, ptr %29, i64 %223
-  %gep331 = getelementptr double, ptr %invariant.gep330, i64 %indvars.iv321
-  call void @dswap_(ptr noundef nonnull %3, ptr noundef %224, ptr noundef nonnull %9, ptr noundef %gep331, ptr noundef nonnull %9)
+  %gep332 = getelementptr double, ptr %invariant.gep331, i64 %indvars.iv322
+  call void @dswap_(ptr noundef nonnull %3, ptr noundef %224, ptr noundef nonnull %9, ptr noundef %gep332, ptr noundef nonnull %9)
   br label %225
 
 225:                                              ; preds = %221, %216
@@ -428,7 +428,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %229 = mul nsw i32 %.0248.lcssa, %30
   %230 = sext i32 %229 to i64
   %gep = getelementptr double, ptr %invariant.gep, i64 %230
-  %231 = mul nsw i64 %indvars.iv321, %202
+  %231 = mul nsw i64 %indvars.iv322, %202
   %gep292 = getelementptr double, ptr %invariant.gep, i64 %231
   call void @dswap_(ptr noundef nonnull %4, ptr noundef %gep, ptr noundef nonnull %17, ptr noundef %gep292, ptr noundef nonnull %17)
   br label %232
@@ -442,18 +442,18 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %236 = add nsw i32 %.0248.lcssa, %33
   %237 = sext i32 %236 to i64
   %238 = getelementptr inbounds double, ptr %35, i64 %237
-  %gep333 = getelementptr double, ptr %invariant.gep332, i64 %indvars.iv321
-  call void @dswap_(ptr noundef nonnull %5, ptr noundef %238, ptr noundef nonnull %13, ptr noundef %gep333, ptr noundef nonnull %13)
+  %gep334 = getelementptr double, ptr %invariant.gep333, i64 %indvars.iv322
+  call void @dswap_(ptr noundef nonnull %5, ptr noundef %238, ptr noundef nonnull %13, ptr noundef %gep334, ptr noundef nonnull %13)
   br label %239
 
 239:                                              ; preds = %._crit_edge289, %235, %232
-  %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
-  %exitcond325.not = icmp eq i64 %indvars.iv.next322, %wide.trip.count324
-  br i1 %exitcond325.not, label %.thread267, label %.lr.ph296, !llvm.loop !8
+  %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
+  %exitcond326.not = icmp eq i64 %indvars.iv.next323, %wide.trip.count325
+  br i1 %exitcond326.not, label %.thread267, label %.lr.ph296, !llvm.loop !8
 
 .thread267.sink.split:                            ; preds = %68, %70, %62, %58, %60, %52, %50, %47, %45, %43, %16
-  %.sink337 = phi i32 [ -1, %16 ], [ -2, %43 ], [ -3, %45 ], [ -4, %47 ], [ -5, %50 ], [ -6, %52 ], [ -10, %60 ], [ -10, %58 ], [ -12, %62 ], [ -14, %70 ], [ -14, %68 ]
-  store i32 %.sink337, ptr %15, align 4
+  %.sink338 = phi i32 [ -1, %16 ], [ -2, %43 ], [ -3, %45 ], [ -4, %47 ], [ -5, %50 ], [ -6, %52 ], [ -10, %60 ], [ -10, %58 ], [ -12, %62 ], [ -14, %70 ], [ -14, %68 ]
+  store i32 %.sink338, ptr %15, align 4
   br label %.thread267
 
 .thread267:                                       ; preds = %239, %.thread267.sink.split, %199, %72

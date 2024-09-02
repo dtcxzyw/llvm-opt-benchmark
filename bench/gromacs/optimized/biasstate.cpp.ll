@@ -260,24 +260,24 @@ define void @_ZNK3gmx9BiasState6getPmfENS_8ArrayRefIfEE(ptr nocapture noundef no
   %.not = icmp eq ptr %6, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %17
-  %8 = phi ptr [ %23, %17 ], [ %7, %3 ]
-  %.05 = phi i64 [ %21, %17 ], [ 0, %3 ]
+.lr.ph:                                           ; preds = %3, %18
+  %8 = phi ptr [ %23, %18 ], [ %7, %3 ]
+  %.05 = phi i64 [ %21, %18 ], [ 0, %3 ]
   %9 = getelementptr inbounds %"class.gmx::PointState", ptr %8, i64 %.05
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load double, ptr %10, align 8
   %12 = fcmp ogt double %11, 0.000000e+00
-  br i1 %12, label %13, label %17
+  br i1 %12, label %13, label %18
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds i8, ptr %9, i64 64
   %15 = load double, ptr %14, align 8
-  %16 = fneg double %15
-  br label %17
+  %16 = fptrunc double %15 to float
+  %17 = fneg float %16
+  br label %18
 
-17:                                               ; preds = %.lr.ph, %13
-  %18 = phi double [ %16, %13 ], [ 0x47EFFFFFE0000000, %.lr.ph ]
-  %19 = fptrunc double %18 to float
+18:                                               ; preds = %.lr.ph, %13
+  %19 = phi float [ %17, %13 ], [ 0x47EFFFFFE0000000, %.lr.ph ]
   %20 = getelementptr inbounds float, ptr %1, i64 %.05
   store float %19, ptr %20, align 4
   %21 = add nuw i64 %.05, 1
@@ -290,7 +290,7 @@ define void @_ZNK3gmx9BiasState6getPmfENS_8ArrayRefIfEE(ptr nocapture noundef no
   %28 = icmp ult i64 %21, %27
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %17, %3
+._crit_edge:                                      ; preds = %18, %3
   ret void
 }
 
@@ -377,30 +377,30 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %umax = tail call i64 @llvm.umax.i64(i64 %42, i64 1)
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %51
-  %.05.i = phi i64 [ %55, %51 ], [ 0, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %52
+  %.05.i = phi i64 [ %55, %52 ], [ 0, %.lr.ph.i.preheader ]
   %43 = getelementptr inbounds %"class.gmx::PointState", ptr %38, i64 %.05.i
   %44 = getelementptr inbounds i8, ptr %43, i64 16
   %45 = load double, ptr %44, align 8
   %46 = fcmp ogt double %45, 0.000000e+00
-  br i1 %46, label %47, label %51
+  br i1 %46, label %47, label %52
 
 47:                                               ; preds = %.lr.ph.i
   %48 = getelementptr inbounds i8, ptr %43, i64 64
   %49 = load double, ptr %48, align 8
-  %50 = fneg double %49
-  br label %51
+  %50 = fptrunc double %49 to float
+  %51 = fneg float %50
+  br label %52
 
-51:                                               ; preds = %47, %.lr.ph.i
-  %52 = phi double [ %50, %47 ], [ 0x47EFFFFFE0000000, %.lr.ph.i ]
-  %53 = fptrunc double %52 to float
+52:                                               ; preds = %47, %.lr.ph.i
+  %53 = phi float [ %51, %47 ], [ 0x47EFFFFFE0000000, %.lr.ph.i ]
   %54 = getelementptr inbounds float, ptr %.sroa.045.0, i64 %.05.i
   store float %53, ptr %54, align 4
   %55 = add nuw i64 %.05.i, 1
   %exitcond.not = icmp eq i64 %55, %umax
   br i1 %exitcond.not, label %_ZNK3gmx9BiasState6getPmfENS_8ArrayRefIfEE.exit, label %.lr.ph.i, !llvm.loop !5
 
-_ZNK3gmx9BiasState6getPmfENS_8ArrayRefIfEE.exit:  ; preds = %51, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
+_ZNK3gmx9BiasState6getPmfENS_8ArrayRefIfEE.exit:  ; preds = %52, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
   br i1 %.not.i.i.i.i, label %._crit_edge62, label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %_ZNK3gmx9BiasState6getPmfENS_8ArrayRefIfEE.exit

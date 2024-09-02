@@ -449,12 +449,12 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h79327661fbd07518E.exit": ; preds = %._crit_edge.i.i.i
   %.sroa.0.0.i.i.ph = getelementptr inbounds i8, ptr %.val.i.i, i64 %.lcssa25
   %lhsc.i.i = load i8, ptr %.sroa.0.0.i.i.ph, align 1, !alias.scope !102
-  %72 = icmp eq i8 %lhsc.i.i, 45
-  br i1 %72, label %.critedge._crit_edge, label %.critedge.backedge
+  %.not = icmp eq i8 %lhsc.i.i, 45
+  br i1 %.not, label %.critedge._crit_edge, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h79327661fbd07518E.exit", %._crit_edge.i.i.i
-  %73 = trunc nuw i8 %71 to i1
-  br i1 %73, label %.critedge._crit_edge, label %15
+  %72 = trunc nuw i8 %71 to i1
+  br i1 %72, label %.critedge._crit_edge, label %15
 
 .critedge._crit_edge:                             ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h79327661fbd07518E.exit", %.critedge.backedge, %67, %1
   %.not12 = phi i1 [ false, %1 ], [ false, %67 ], [ false, %.critedge.backedge ], [ true, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h79327661fbd07518E.exit" ]

@@ -1910,26 +1910,26 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211:       ; preds = %882
 
 _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge.loopexit: ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211
   %908 = fdiv float %900, %904
+  %909 = fpext float %.sroa.speculated231 to double
+  %910 = fpext float %.sroa.speculated to double
   br label %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge
 
 _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge: ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge.loopexit, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211.preheader
-  %.0248.lcssa = phi float [ 0x43ABC16D60000000, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211.preheader ], [ %.sroa.speculated231, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge.loopexit ]
-  %.0.lcssa = phi float [ 0xC3ABC16D60000000, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211.preheader ], [ %.sroa.speculated, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge.loopexit ]
-  %909 = phi float [ 0x7FF8000000000000, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211.preheader ], [ %908, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge.loopexit ]
-  %910 = call noundef float @sqrtf(float noundef %909) #17
-  %911 = fpext float %910 to double
-  %912 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, double noundef %911)
-  %913 = load i8, ptr @_ZZ11gmx_confrmsiPPcE5bBfac, align 1
-  %914 = trunc i8 %913 to i1
-  br i1 %914, label %915, label %919
+  %.0248.lcssa = phi double [ 0x43ABC16D60000000, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211.preheader ], [ %909, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge.loopexit ]
+  %.0.lcssa = phi double [ 0xC3ABC16D60000000, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211.preheader ], [ %910, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge.loopexit ]
+  %911 = phi float [ 0x7FF8000000000000, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211.preheader ], [ %908, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge.loopexit ]
+  %912 = call noundef float @sqrtf(float noundef %911) #17
+  %913 = fpext float %912 to double
+  %914 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, double noundef %913)
+  %915 = load i8, ptr @_ZZ11gmx_confrmsiPPcE5bBfac, align 1
+  %916 = trunc i8 %915 to i1
+  br i1 %916, label %917, label %919
 
-915:                                              ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge
-  %916 = fpext float %.0248.lcssa to double
-  %917 = fpext float %.0.lcssa to double
-  %918 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, double noundef %916, double noundef %917)
+917:                                              ; preds = %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge
+  %918 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, double noundef %.0248.lcssa, double noundef %.0.lcssa)
   br label %919
 
-919:                                              ; preds = %915, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge
+919:                                              ; preds = %917, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit211._crit_edge
   %920 = load i8, ptr @_ZZ11gmx_confrmsiPPcE4bFit, align 1
   %921 = trunc i8 %920 to i1
   br i1 %921, label %.preheader256, label %.loopexit254

@@ -392,8 +392,8 @@ define noundef i32 @opal_infosubscribe_testregister(ptr noundef %0) local_unname
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph57, label %._crit_edge58.thread
 
-.lr.ph57:                                         ; preds = %.preheader51, %39
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.preheader51 ]
+.lr.ph57:                                         ; preds = %.preheader51, %40
+  %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.preheader51 ]
   %9 = getelementptr inbounds [5 x ptr], ptr @testing_keys, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
@@ -445,111 +445,111 @@ define noundef i32 @opal_infosubscribe_testregister(ptr noundef %0) local_unname
   br i1 %.not44, label %._crit_edge, label %20, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %31
+  %33 = icmp eq i32 %.234, 0
   store ptr null, ptr %2, align 8
-  %.not45 = icmp eq i32 %.234, 0
-  br i1 %.not45, label %.thread, label %39
+  br i1 %33, label %.thread, label %40
 
 .thread:                                          ; preds = %.lr.ph57, %._crit_edge.thread, %._crit_edge
-  %33 = load ptr, ptr %9, align 8
-  %34 = getelementptr inbounds [5 x ptr], ptr @testing_initialvals, i64 0, i64 %indvars.iv
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds [5 x ptr], ptr @testing_callbacks, i64 0, i64 %indvars.iv
-  %37 = load ptr, ptr %36, align 8
-  %38 = call i32 @opal_infosubscribe_subscribe(ptr noundef %0, ptr noundef %33, ptr noundef %35, ptr noundef %37)
-  br label %39
+  %34 = load ptr, ptr %9, align 8
+  %35 = getelementptr inbounds [5 x ptr], ptr @testing_initialvals, i64 0, i64 %indvars.iv
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds [5 x ptr], ptr @testing_callbacks, i64 0, i64 %indvars.iv
+  %38 = load ptr, ptr %37, align 8
+  %39 = call i32 @opal_infosubscribe_subscribe(ptr noundef %0, ptr noundef %34, ptr noundef %36, ptr noundef %38)
+  br label %40
 
-39:                                               ; preds = %._crit_edge, %.thread
+40:                                               ; preds = %._crit_edge, %.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = load i32, ptr @ntesting_callbacks, align 4
-  %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph57, label %._crit_edge58, !llvm.loop !10
+  %41 = load i32, ptr @ntesting_callbacks, align 4
+  %42 = sext i32 %41 to i64
+  %43 = icmp slt i64 %indvars.iv.next, %42
+  br i1 %43, label %.lr.ph57, label %._crit_edge58, !llvm.loop !10
 
-._crit_edge58:                                    ; preds = %39
-  %43 = icmp eq i32 %40, 0
-  br i1 %43, label %.thread49, label %._crit_edge58.thread
+._crit_edge58:                                    ; preds = %40
+  %44 = icmp eq i32 %41, 0
+  br i1 %44, label %.thread49, label %._crit_edge58.thread
 
 ._crit_edge58.thread:                             ; preds = %.preheader51, %._crit_edge58
   store ptr null, ptr %3, align 8
-  %44 = call i32 @opal_hash_table_get_first_key_ptr(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
-  %45 = load ptr, ptr %2, align 8
-  %46 = icmp ne ptr %45, null
-  %47 = icmp eq i32 %44, 0
-  %48 = select i1 %46, i1 %47, i1 false
-  br i1 %48, label %.lr.ph74, label %.thread49
+  %45 = call i32 @opal_hash_table_get_first_key_ptr(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  %46 = load ptr, ptr %2, align 8
+  %47 = icmp ne ptr %46, null
+  %48 = icmp eq i32 %45, 0
+  %49 = select i1 %47, i1 %48, i1 false
+  br i1 %49, label %.lr.ph74, label %.thread49
 
 .lr.ph74:                                         ; preds = %._crit_edge58.thread, %._crit_edge71.thread
-  %49 = phi ptr [ %75, %._crit_edge71.thread ], [ %45, %._crit_edge58.thread ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
-  %51 = getelementptr inbounds i8, ptr %49, i64 16
-  %.03067 = load volatile ptr, ptr %50, align 8
-  %.not4168 = icmp eq ptr %.03067, %51
+  %50 = phi ptr [ %76, %._crit_edge71.thread ], [ %46, %._crit_edge58.thread ]
+  %51 = getelementptr inbounds i8, ptr %50, i64 32
+  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  %.03067 = load volatile ptr, ptr %51, align 8
+  %.not4168 = icmp eq ptr %.03067, %52
   br i1 %.not4168, label %._crit_edge71.thread, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph74, %._crit_edge65
   %.03070 = phi ptr [ %.030, %._crit_edge65 ], [ %.03067, %.lr.ph74 ]
   %.069 = phi i32 [ %.1.lcssa, %._crit_edge65 ], [ 0, %.lr.ph74 ]
-  %.02960 = load volatile ptr, ptr %50, align 8
-  %.not4261 = icmp eq ptr %.02960, %51
+  %.02960 = load volatile ptr, ptr %51, align 8
+  %.not4261 = icmp eq ptr %.02960, %52
   br i1 %.not4261, label %._crit_edge65, label %.lr.ph64
 
 .lr.ph64:                                         ; preds = %.preheader
-  %52 = getelementptr inbounds i8, ptr %.03070, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 25
-  %55 = getelementptr inbounds i8, ptr %.03070, i64 48
-  br label %56
+  %53 = getelementptr inbounds i8, ptr %.03070, i64 40
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 25
+  %56 = getelementptr inbounds i8, ptr %.03070, i64 48
+  br label %57
 
-56:                                               ; preds = %.lr.ph64, %68
-  %.02963 = phi ptr [ %.02960, %.lr.ph64 ], [ %.029, %68 ]
-  %.162 = phi i32 [ %.069, %.lr.ph64 ], [ %.2, %68 ]
-  %57 = getelementptr inbounds i8, ptr %.02963, i64 40
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 25
-  %60 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %59) #10
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %68
+57:                                               ; preds = %.lr.ph64, %69
+  %.02963 = phi ptr [ %.02960, %.lr.ph64 ], [ %.029, %69 ]
+  %.162 = phi i32 [ %.069, %.lr.ph64 ], [ %.2, %69 ]
+  %58 = getelementptr inbounds i8, ptr %.02963, i64 40
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 25
+  %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %60) #10
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %69
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %55, align 8
-  %64 = getelementptr inbounds i8, ptr %.02963, i64 48
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %63, %65
-  %67 = zext i1 %66 to i32
-  %spec.select46 = add nsw i32 %.162, %67
-  br label %68
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %56, align 8
+  %65 = getelementptr inbounds i8, ptr %.02963, i64 48
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %64, %66
+  %68 = zext i1 %67 to i32
+  %spec.select46 = add nsw i32 %.162, %68
+  br label %69
 
-68:                                               ; preds = %62, %56
-  %.2 = phi i32 [ %.162, %56 ], [ %spec.select46, %62 ]
-  %69 = getelementptr inbounds i8, ptr %.02963, i64 16
-  %.029 = load volatile ptr, ptr %69, align 8
-  %.not42 = icmp eq ptr %.029, %51
-  br i1 %.not42, label %._crit_edge65, label %56, !llvm.loop !11
+69:                                               ; preds = %63, %57
+  %.2 = phi i32 [ %.162, %57 ], [ %spec.select46, %63 ]
+  %70 = getelementptr inbounds i8, ptr %.02963, i64 16
+  %.029 = load volatile ptr, ptr %70, align 8
+  %.not42 = icmp eq ptr %.029, %52
+  br i1 %.not42, label %._crit_edge65, label %57, !llvm.loop !11
 
-._crit_edge65:                                    ; preds = %68, %.preheader
-  %.1.lcssa = phi i32 [ %.069, %.preheader ], [ %.2, %68 ]
-  %70 = getelementptr inbounds i8, ptr %.03070, i64 16
-  %.030 = load volatile ptr, ptr %70, align 8
-  %.not41 = icmp eq ptr %.030, %51
+._crit_edge65:                                    ; preds = %69, %.preheader
+  %.1.lcssa = phi i32 [ %.069, %.preheader ], [ %.2, %69 ]
+  %71 = getelementptr inbounds i8, ptr %.03070, i64 16
+  %.030 = load volatile ptr, ptr %71, align 8
+  %.not41 = icmp eq ptr %.030, %52
   br i1 %.not41, label %._crit_edge71, label %.preheader, !llvm.loop !12
 
 ._crit_edge71:                                    ; preds = %._crit_edge65
-  %71 = icmp sgt i32 %.1.lcssa, 1
-  br i1 %71, label %72, label %._crit_edge71.thread
+  %72 = icmp sgt i32 %.1.lcssa, 1
+  br i1 %72, label %73, label %._crit_edge71.thread
 
-72:                                               ; preds = %._crit_edge71
+73:                                               ; preds = %._crit_edge71
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   call void @exit(i32 noundef -1) #11
   unreachable
 
 ._crit_edge71.thread:                             ; preds = %.lr.ph74, %._crit_edge71
-  %73 = load ptr, ptr %3, align 8
-  %74 = call i32 @opal_hash_table_get_next_key_ptr(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef %73, ptr noundef nonnull %3) #9
-  %75 = load ptr, ptr %2, align 8
-  %76 = icmp ne ptr %75, null
-  %77 = icmp eq i32 %74, 0
-  %78 = select i1 %76, i1 %77, i1 false
-  br i1 %78, label %.lr.ph74, label %.thread49, !llvm.loop !13
+  %74 = load ptr, ptr %3, align 8
+  %75 = call i32 @opal_hash_table_get_next_key_ptr(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef %74, ptr noundef nonnull %3) #9
+  %76 = load ptr, ptr %2, align 8
+  %77 = icmp ne ptr %76, null
+  %78 = icmp eq i32 %75, 0
+  %79 = select i1 %77, i1 %78, i1 false
+  br i1 %79, label %.lr.ph74, label %.thread49, !llvm.loop !13
 
 .thread49:                                        ; preds = %._crit_edge71.thread, %._crit_edge58.thread, %1, %._crit_edge58
   ret i32 0

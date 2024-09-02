@@ -534,17 +534,21 @@ Ivy_MultiWeight.exit88.i:                         ; preds = %252, %251
   %291 = shl nuw i32 1, %.17510.i
   %292 = and i32 %290, %291
   %.not84.i = icmp eq i32 %292, 0
-  br i1 %.not84.i, label %293, label %._crit_edge13.i
+  br i1 %.not84.i, label %293, label %._crit_edge13.loopexit.i
 
 293:                                              ; preds = %.lr.ph12.i
   %294 = add nuw nsw i32 %.17510.i, 1
   %exitcond.not.i = icmp eq i32 %294, %.val
-  br i1 %exitcond.not.i, label %._crit_edge13.i, label %.lr.ph12.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge13.loopexit.i, label %.lr.ph12.i, !llvm.loop !13
 
-._crit_edge13.i:                                  ; preds = %293, %.lr.ph12.i, %286
-  %.175.lcssa.i = phi i32 [ 0, %286 ], [ %.val, %293 ], [ %.17510.i, %.lr.ph12.i ]
-  %295 = zext nneg i32 %.175.lcssa.i to i64
-  %296 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %295
+._crit_edge13.loopexit.i:                         ; preds = %293, %.lr.ph12.i
+  %.175.lcssa.ph.i = phi i32 [ %.val, %293 ], [ %.17510.i, %.lr.ph12.i ]
+  %295 = zext nneg i32 %.175.lcssa.ph.i to i64
+  br label %._crit_edge13.i
+
+._crit_edge13.i:                                  ; preds = %._crit_edge13.loopexit.i, %286
+  %.175.lcssa.i = phi i64 [ 0, %286 ], [ %295, %._crit_edge13.loopexit.i ]
+  %296 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %.175.lcssa.i
   br label %297
 
 297:                                              ; preds = %._crit_edge13.i, %._crit_edge.i

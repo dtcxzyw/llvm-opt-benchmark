@@ -884,10 +884,10 @@ define range(i32 -1, 1) i32 @common_cgroup_delete(ptr noundef readonly %0) local
   %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.22) #8
   br label %.loopexit
 
-12:                                               ; preds = %.lr.ph, %68
-  %.042 = phi i32 [ 0, %.lr.ph ], [ %70, %68 ]
+12:                                               ; preds = %.lr.ph, %62
+  %.042 = phi i32 [ 0, %.lr.ph ], [ %64, %62 ]
   %13 = load i32, ptr %9, align 4
-  switch i32 %13, label %82 [
+  switch i32 %13, label %76 [
     i32 2, label %.critedge
     i32 16, label %14
   ]
@@ -903,169 +903,158 @@ define range(i32 -1, 1) i32 @common_cgroup_delete(ptr noundef readonly %0) local
   %.not1222.i = icmp eq ptr %17, null
   br i1 %.not1222.i, label %_is_empty_dir.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %42
-  %18 = phi ptr [ %43, %42 ], [ %17, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %36
+  %18 = phi ptr [ %37, %36 ], [ %17, %.preheader.i ]
   %19 = getelementptr inbounds i8, ptr %18, i64 18
   %20 = load i8, ptr %19, align 2
   %21 = icmp eq i8 %20, 4
-  br i1 %21, label %sub_0.i, label %42
+  br i1 %21, label %sub_0.i, label %36
 
 sub_0.i:                                          ; preds = %.lr.ph.i
   %22 = getelementptr inbounds i8, ptr %18, i64 19
   %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = add nsw i32 %24, -46
-  %.not24.i = icmp eq i32 %25, 0
-  br i1 %.not24.i, label %.tail.i, label %.tail16.i
+  %.not24.i = icmp eq i8 %23, 46
+  br i1 %.not24.i, label %.tail.i, label %.tail16.thread.i
 
 .tail.i:                                          ; preds = %sub_0.i
-  %26 = getelementptr inbounds i8, ptr %18, i64 20
+  %24 = getelementptr inbounds i8, ptr %18, i64 20
+  %25 = load i8, ptr %24, align 1
+  switch i8 %25, label %.tail16.thread.i [
+    i8 0, label %36
+    i8 46, label %.tail16.i
+  ]
+
+.tail16.i:                                        ; preds = %.tail.i
+  %26 = getelementptr inbounds i8, ptr %18, i64 21
   %27 = load i8, ptr %26, align 1
-  %.not13.i = icmp eq i8 %27, 0
-  br i1 %.not13.i, label %42, label %sub_118.i
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %36, label %.tail16.thread.i
 
-sub_118.i:                                        ; preds = %.tail.i
-  %28 = zext i8 %27 to i32
-  %29 = add nsw i32 %28, -46
-  %.not26.i = icmp eq i32 %29, 0
-  br i1 %.not26.i, label %sub_2.i, label %.tail16.i
+.tail16.thread.i:                                 ; preds = %.tail.i, %.tail16.i, %sub_0.i
+  %29 = getelementptr inbounds i8, ptr %18, i64 19
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %31 = and i64 %30, 36028797018963968
+  %.not15.i = icmp eq i64 %31, 0
+  br i1 %.not15.i, label %39, label %32
 
-sub_2.i:                                          ; preds = %sub_118.i
-  %30 = getelementptr inbounds i8, ptr %18, i64 21
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  br label %.tail16.i
+32:                                               ; preds = %.tail16.thread.i
+  %33 = call i32 @get_log_level() #8
+  %34 = icmp sgt i32 %33, 3
+  br i1 %34, label %35, label %39
 
-.tail16.i:                                        ; preds = %sub_2.i, %sub_118.i, %sub_0.i
-  %33 = phi i32 [ %29, %sub_118.i ], [ %32, %sub_2.i ], [ %25, %sub_0.i ]
-  %.not14.i = icmp eq i32 %33, 0
-  br i1 %.not14.i, label %42, label %34
+35:                                               ; preds = %32
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.45, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._is_empty_dir, ptr noundef %15, ptr noundef nonnull %29) #8
+  br label %39
 
-34:                                               ; preds = %.tail16.i
-  %35 = getelementptr inbounds i8, ptr %18, i64 19
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %37 = and i64 %36, 36028797018963968
-  %.not15.i = icmp eq i64 %37, 0
-  br i1 %.not15.i, label %45, label %38
-
-38:                                               ; preds = %34
-  %39 = call i32 @get_log_level() #8
-  %40 = icmp sgt i32 %39, 3
-  br i1 %40, label %41, label %45
-
-41:                                               ; preds = %38
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.45, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._is_empty_dir, ptr noundef %15, ptr noundef nonnull %35) #8
-  br label %45
-
-42:                                               ; preds = %.tail16.i, %.tail.i, %.lr.ph.i
-  %43 = call ptr @readdir(ptr noundef nonnull %16) #8
-  %.not12.i = icmp eq ptr %43, null
+36:                                               ; preds = %.tail.i, %.tail16.i, %.lr.ph.i
+  %37 = call ptr @readdir(ptr noundef nonnull %16) #8
+  %.not12.i = icmp eq ptr %37, null
   br i1 %.not12.i, label %_is_empty_dir.exit, label %.lr.ph.i, !llvm.loop !14
 
-_is_empty_dir.exit:                               ; preds = %42, %.preheader.i
-  %44 = call i32 @closedir(ptr noundef nonnull %16)
+_is_empty_dir.exit:                               ; preds = %36, %.preheader.i
+  %38 = call i32 @closedir(ptr noundef nonnull %16)
   br label %_is_empty_dir.exit.thread
 
-45:                                               ; preds = %41, %38, %34
-  %46 = call i32 @closedir(ptr noundef nonnull %16)
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %48 = and i64 %47, 36028797018963968
-  %.not22 = icmp eq i64 %48, 0
-  br i1 %.not22, label %.loopexit, label %49
+39:                                               ; preds = %35, %32, %.tail16.thread.i
+  %40 = call i32 @closedir(ptr noundef nonnull %16)
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %42 = and i64 %41, 36028797018963968
+  %.not22 = icmp eq i64 %42, 0
+  br i1 %.not22, label %.loopexit, label %43
 
-49:                                               ; preds = %45
-  %50 = call i32 @get_log_level() #8
-  %51 = icmp sgt i32 %50, 3
-  br i1 %51, label %52, label %.loopexit
+43:                                               ; preds = %39
+  %44 = call i32 @get_log_level() #8
+  %45 = icmp sgt i32 %44, 3
+  br i1 %45, label %46, label %.loopexit
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %5, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %53) #8
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %5, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %47) #8
   br label %.loopexit
 
 _is_empty_dir.exit.thread:                        ; preds = %14, %_is_empty_dir.exit
-  %54 = load i32, ptr %2, align 4
-  %55 = icmp eq i32 %54, -1
-  br i1 %55, label %56, label %67
+  %48 = load i32, ptr %2, align 4
+  %49 = icmp eq i32 %48, -1
+  br i1 %49, label %50, label %61
 
-56:                                               ; preds = %_is_empty_dir.exit.thread
-  %57 = call i32 @common_cgroup_get_pids(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %2)
-  %.not23 = icmp eq i32 %57, 0
-  br i1 %.not23, label %58, label %.loopexit
+50:                                               ; preds = %_is_empty_dir.exit.thread
+  %51 = call i32 @common_cgroup_get_pids(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %2)
+  %.not23 = icmp eq i32 %51, 0
+  br i1 %.not23, label %52, label %.loopexit
 
-58:                                               ; preds = %56
-  %59 = load i32, ptr %2, align 4
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %61, label %67
+52:                                               ; preds = %50
+  %53 = load i32, ptr %2, align 4
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %55, label %61
 
-61:                                               ; preds = %58
+55:                                               ; preds = %52
   call void @slurm_xfree(ptr noundef nonnull %3) #8
-  %62 = call i32 @get_log_level() #8
-  %63 = icmp sgt i32 %62, 6
-  br i1 %63, label %64, label %.loopexit
+  %56 = call i32 @get_log_level() #8
+  %57 = icmp sgt i32 %56, 6
+  br i1 %57, label %58, label %.loopexit
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %5, align 8
-  %66 = load i32, ptr %2, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %65, i32 noundef %66) #8
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %5, align 8
+  %60 = load i32, ptr %2, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %59, i32 noundef %60) #8
   br label %.loopexit
 
-67:                                               ; preds = %58, %_is_empty_dir.exit.thread
+61:                                               ; preds = %52, %_is_empty_dir.exit.thread
   %exitcond.not = icmp eq i32 %.042, 5
-  br i1 %exitcond.not, label %74, label %68
+  br i1 %exitcond.not, label %68, label %62
 
-68:                                               ; preds = %67
-  %69 = call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef 1000) #8
-  %70 = add nuw nsw i32 %.042, 1
-  %71 = load ptr, ptr %5, align 8
-  %72 = call i32 @rmdir(ptr noundef %71) #8
-  %73 = icmp slt i32 %72, 0
-  br i1 %73, label %12, label %.critedge.thread61, !llvm.loop !15
+62:                                               ; preds = %61
+  %63 = call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef 1000) #8
+  %64 = add nuw nsw i32 %.042, 1
+  %65 = load ptr, ptr %5, align 8
+  %66 = call i32 @rmdir(ptr noundef %65) #8
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %12, label %.critedge.thread61, !llvm.loop !15
 
-74:                                               ; preds = %67
-  %75 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %76 = and i64 %75, 36028797018963968
-  %.not24 = icmp eq i64 %76, 0
-  br i1 %.not24, label %.loopexit, label %77
+68:                                               ; preds = %61
+  %69 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %70 = and i64 %69, 36028797018963968
+  %.not24 = icmp eq i64 %70, 0
+  br i1 %.not24, label %.loopexit, label %71
 
-77:                                               ; preds = %74
-  %78 = call i32 @get_log_level() #8
-  %79 = icmp sgt i32 %78, 3
-  br i1 %79, label %80, label %.loopexit
+71:                                               ; preds = %68
+  %72 = call i32 @get_log_level() #8
+  %73 = icmp sgt i32 %72, 3
+  br i1 %73, label %74, label %.loopexit
 
-80:                                               ; preds = %77
-  %81 = load ptr, ptr %5, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.25, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %81, i32 noundef 5) #8
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %5, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.25, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %75, i32 noundef 5) #8
   br label %.loopexit
 
-82:                                               ; preds = %12
-  %83 = load ptr, ptr %5, align 8
-  %84 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, ptr noundef %83) #8
+76:                                               ; preds = %12
+  %77 = load ptr, ptr %5, align 8
+  %78 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, ptr noundef %77) #8
   br label %.loopexit
 
 .critedge:                                        ; preds = %12
   %.not20 = icmp eq i32 %.042, 0
   br i1 %.not20, label %.loopexit, label %.critedge.thread61
 
-.critedge.thread61:                               ; preds = %68, %.critedge
-  %.0.lcssa64 = phi i32 [ %.042, %.critedge ], [ %70, %68 ]
-  %85 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %86 = and i64 %85, 36028797018963968
-  %.not21 = icmp eq i64 %86, 0
-  br i1 %.not21, label %.loopexit, label %87
+.critedge.thread61:                               ; preds = %62, %.critedge
+  %.0.lcssa64 = phi i32 [ %.042, %.critedge ], [ %64, %62 ]
+  %79 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %80 = and i64 %79, 36028797018963968
+  %.not21 = icmp eq i64 %80, 0
+  br i1 %.not21, label %.loopexit, label %81
 
-87:                                               ; preds = %.critedge.thread61
-  %88 = call i32 @get_log_level() #8
-  %89 = icmp sgt i32 %88, 3
-  br i1 %89, label %90, label %.loopexit
+81:                                               ; preds = %.critedge.thread61
+  %82 = call i32 @get_log_level() #8
+  %83 = icmp sgt i32 %82, 3
+  br i1 %83, label %84, label %.loopexit
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %5, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %91, i32 noundef %.0.lcssa64) #8
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %5, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %85, i32 noundef %.0.lcssa64) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %56, %.preheader, %.critedge, %.critedge.thread61, %87, %90, %82, %74, %77, %80, %61, %64, %52, %49, %45, %10
-  %.015 = phi i32 [ 0, %10 ], [ -1, %45 ], [ -1, %49 ], [ -1, %52 ], [ -1, %64 ], [ -1, %61 ], [ -1, %80 ], [ -1, %77 ], [ -1, %74 ], [ -1, %82 ], [ 0, %90 ], [ 0, %87 ], [ 0, %.critedge.thread61 ], [ 0, %.critedge ], [ 0, %.preheader ], [ -1, %56 ]
+.loopexit:                                        ; preds = %50, %.preheader, %.critedge, %.critedge.thread61, %81, %84, %76, %68, %71, %74, %55, %58, %46, %43, %39, %10
+  %.015 = phi i32 [ 0, %10 ], [ -1, %39 ], [ -1, %43 ], [ -1, %46 ], [ -1, %58 ], [ -1, %55 ], [ -1, %74 ], [ -1, %71 ], [ -1, %68 ], [ -1, %76 ], [ 0, %84 ], [ 0, %81 ], [ 0, %.critedge.thread61 ], [ 0, %.critedge ], [ 0, %.preheader ], [ -1, %50 ]
   ret i32 %.015
 }
 

@@ -1779,7 +1779,7 @@ define dso_local void @intel_uncore_init_early(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_uncore_init_mmio(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -19, 1) i32 @intel_uncore_init_mmio(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 7176

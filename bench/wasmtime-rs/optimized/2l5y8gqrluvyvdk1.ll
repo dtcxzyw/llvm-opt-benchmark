@@ -157,13 +157,13 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
           cleanup
   br label %.loopexit.split-lp.i
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %.loopexit36.i
-  %lpad.loopexit37.i = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.i:                    ; preds = %.loopexit35.i
+  %lpad.loopexit36.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.i:  ; preds = %88, %.backedge.i
-  %lpad.loopexit41.i = landingpad { ptr, i32 }
+  %lpad.loopexit40.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
 
@@ -173,7 +173,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i:                             ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit37.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit41.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit36.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit40.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$cranelift_isle..overlap..Errors$GT$17h7d7470f9a5d5a4aaE"(ptr nonnull align 8 %46) #8
           to label %250 unwind label %159, !noalias !7
 
@@ -196,7 +196,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
   %96 = getelementptr inbounds [0 x { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }], ptr %95, i64 0, i64 %90
   %97 = load i64, ptr %96, align 16, !range !12, !noalias !7, !noundef !3
   %.not.i = icmp eq i64 %97, 3
-  br i1 %.not.i, label %.thread.i, label %100
+  br i1 %.not.i, label %.critedge.i, label %100
 
 98:                                               ; preds = %91
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %90, i64 %92, ptr nonnull align 8 @anon.52c58e60444f7a11faa97e45e4d99f5f.6) #10
@@ -209,12 +209,12 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
   %101 = getelementptr inbounds i8, ptr %96, i64 145
   %102 = load i8, ptr %101, align 1, !range !13, !noalias !7, !noundef !3
   %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %.backedge.i.backedge, label %.thread.i
+  br i1 %103, label %.backedge.i.backedge, label %.critedge.i
 
 .backedge.i.backedge:                             ; preds = %110, %100
   br label %.backedge.i
 
-.thread.i:                                        ; preds = %100, %94
+.critedge.i:                                      ; preds = %100, %94
   %104 = getelementptr inbounds i8, ptr %85, i64 16
   %105 = load ptr, ptr %104, align 8, !noalias !7, !nonnull !3, !noundef !3
   %106 = getelementptr inbounds i8, ptr %85, i64 24
@@ -222,13 +222,13 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
   %108 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, ptr %105, i64 %107
   store ptr %105, ptr %44, align 8, !noalias !7
   store ptr %108, ptr %77, align 8, !noalias !7
-  br label %.loopexit36.i
+  br label %.loopexit35.i
 
-.loopexit36.i:                                    ; preds = %122, %.thread.i
+.loopexit35.i:                                    ; preds = %122, %.critedge.i
   %109 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8cb7c8d583e3ab43E"(ptr nonnull align 8 %44)
           to label %110 unwind label %.loopexit.split-lp.loopexit.i, !noalias !7
 
-110:                                              ; preds = %.loopexit36.i
+110:                                              ; preds = %.loopexit35.i
   %.not23.i = icmp eq ptr %109, null
   br i1 %.not23.i, label %.backedge.i.backedge, label %111
 
@@ -251,7 +251,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
 
 122:                                              ; preds = %120
   %123 = icmp eq ptr %121, null
-  br i1 %123, label %.loopexit36.i, label %124
+  br i1 %123, label %.loopexit35.i, label %124
 
 124:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28), !noalias !7

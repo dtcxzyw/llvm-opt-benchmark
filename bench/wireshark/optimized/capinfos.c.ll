@@ -218,7 +218,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.process_cap_file.3 = private unnamed_addr constant [3 x ptr] [ptr @.str.146, ptr @.str.147, ptr @.str.148], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   %4 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str.2) #16

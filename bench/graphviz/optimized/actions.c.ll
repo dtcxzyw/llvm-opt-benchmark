@@ -4096,295 +4096,291 @@ define ptr @colorx(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonl
 27:                                               ; preds = %23
   store i32 255, ptr %11, align 4
   %28 = icmp eq i8 %24, 35
-  br i1 %28, label %29, label %.thread.i
+  br i1 %28, label %29, label %.thread187.i
 
 29:                                               ; preds = %27
   %30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0112.i, ptr noundef nonnull @.str.47, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #24
   %31 = icmp sgt i32 %30, 2
-  br i1 %31, label %50, label %.threadthread-pre-split.i
+  br i1 %31, label %49, label %.threadthread-pre-split.i
 
 .threadthread-pre-split.i:                        ; preds = %29
   %.pr191.i = load i8, ptr %.0112.i, align 1
-  br label %.thread.i
+  %32 = icmp eq i8 %.pr191.i, 35
+  br i1 %32, label %33, label %.thread187.i
 
-.thread.i:                                        ; preds = %.threadthread-pre-split.i, %27
-  %32 = phi i8 [ %.pr191.i, %.threadthread-pre-split.i ], [ %24, %27 ]
-  %33 = icmp eq i8 %32, 35
-  br i1 %33, label %34, label %.thread187.i
+33:                                               ; preds = %.threadthread-pre-split.i
+  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0112.i) #25
+  %35 = icmp eq i64 %34, 4
+  br i1 %35, label %36, label %.thread187.i
 
-34:                                               ; preds = %.thread.i
-  %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0112.i) #25
-  %36 = icmp eq i64 %35, 4
-  br i1 %36, label %37, label %.thread187.i
+36:                                               ; preds = %33
+  %37 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0112.i, ptr noundef nonnull @.str.48, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #24
+  %38 = icmp eq i32 %37, 3
+  br i1 %38, label %39, label %..thread187_crit_edge.i
 
-37:                                               ; preds = %34
-  %38 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.0112.i, ptr noundef nonnull @.str.48, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #24
-  %39 = icmp eq i32 %38, 3
-  br i1 %39, label %40, label %..thread187_crit_edge.i
-
-..thread187_crit_edge.i:                          ; preds = %37
+..thread187_crit_edge.i:                          ; preds = %36
   %.pre.i = load i8, ptr %.0112.i, align 1
   br label %.thread187.i
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr %8, align 4
-  %42 = shl i32 %41, 4
-  %43 = or i32 %42, %41
-  store i32 %43, ptr %8, align 4
-  %44 = load i32, ptr %9, align 4
-  %45 = shl i32 %44, 4
-  %46 = or i32 %45, %44
-  store i32 %46, ptr %9, align 4
-  %47 = load i32, ptr %10, align 4
-  %48 = shl i32 %47, 4
-  %49 = or i32 %48, %47
-  store i32 %49, ptr %10, align 4
-  br label %50
+39:                                               ; preds = %36
+  %40 = load i32, ptr %8, align 4
+  %41 = shl i32 %40, 4
+  %42 = or i32 %41, %40
+  store i32 %42, ptr %8, align 4
+  %43 = load i32, ptr %9, align 4
+  %44 = shl i32 %43, 4
+  %45 = or i32 %44, %43
+  store i32 %45, ptr %9, align 4
+  %46 = load i32, ptr %10, align 4
+  %47 = shl i32 %46, 4
+  %48 = or i32 %47, %46
+  store i32 %48, ptr %10, align 4
+  br label %49
 
-50:                                               ; preds = %40, %29
+49:                                               ; preds = %39, %29
   switch i32 %.016, label %default.unreachable [
-    i32 0, label %51
-    i32 1, label %97
-    i32 3, label %108
+    i32 0, label %50
+    i32 1, label %96
+    i32 3, label %107
     i32 2, label %.thread288
   ]
 
-51:                                               ; preds = %50
-  %52 = load i32, ptr %8, align 4
-  %53 = uitofp i32 %52 to double
-  %54 = fdiv double %53, 2.550000e+02
-  %55 = load i32, ptr %9, align 4
-  %56 = uitofp i32 %55 to double
-  %57 = fdiv double %56, 2.550000e+02
-  %58 = load i32, ptr %10, align 4
-  %59 = uitofp i32 %58 to double
-  %60 = fdiv double %59, 2.550000e+02
-  %61 = load i32, ptr %11, align 4
-  %62 = uitofp i32 %61 to double
-  %63 = call double @llvm.minnum.f64(double %57, double %60)
-  %64 = call double @llvm.minnum.f64(double %54, double %63)
-  %65 = call double @llvm.maxnum.f64(double %57, double %60)
-  %66 = call double @llvm.maxnum.f64(double %54, double %65)
-  %67 = fcmp ogt double %66, 0.000000e+00
-  %68 = fsub double %66, %64
-  %69 = fdiv double %68, %66
-  %.0.i.i = select i1 %67, double %69, double 0.000000e+00
-  %70 = fcmp ogt double %.0.i.i, 0.000000e+00
-  br i1 %70, label %71, label %rgb2hsv.exit.i
+50:                                               ; preds = %49
+  %51 = load i32, ptr %8, align 4
+  %52 = uitofp i32 %51 to double
+  %53 = fdiv double %52, 2.550000e+02
+  %54 = load i32, ptr %9, align 4
+  %55 = uitofp i32 %54 to double
+  %56 = fdiv double %55, 2.550000e+02
+  %57 = load i32, ptr %10, align 4
+  %58 = uitofp i32 %57 to double
+  %59 = fdiv double %58, 2.550000e+02
+  %60 = load i32, ptr %11, align 4
+  %61 = uitofp i32 %60 to double
+  %62 = call double @llvm.minnum.f64(double %56, double %59)
+  %63 = call double @llvm.minnum.f64(double %53, double %62)
+  %64 = call double @llvm.maxnum.f64(double %56, double %59)
+  %65 = call double @llvm.maxnum.f64(double %53, double %64)
+  %66 = fcmp ogt double %65, 0.000000e+00
+  %67 = fsub double %65, %63
+  %68 = fdiv double %67, %65
+  %.0.i.i = select i1 %66, double %68, double 0.000000e+00
+  %69 = fcmp ogt double %.0.i.i, 0.000000e+00
+  br i1 %69, label %70, label %rgb2hsv.exit.i
 
-71:                                               ; preds = %51
-  %72 = fsub double %66, %54
-  %73 = fdiv double %72, %68
-  %74 = fsub double %66, %57
-  %75 = fdiv double %74, %68
-  %76 = fsub double %66, %60
-  %77 = fdiv double %76, %68
-  %78 = fcmp oeq double %54, %66
-  br i1 %78, label %79, label %81
+70:                                               ; preds = %50
+  %71 = fsub double %65, %53
+  %72 = fdiv double %71, %67
+  %73 = fsub double %65, %56
+  %74 = fdiv double %73, %67
+  %75 = fsub double %65, %59
+  %76 = fdiv double %75, %67
+  %77 = fcmp oeq double %53, %65
+  br i1 %77, label %78, label %80
 
-79:                                               ; preds = %71
-  %80 = fsub double %77, %75
-  br label %91
+78:                                               ; preds = %70
+  %79 = fsub double %76, %74
+  br label %90
 
-81:                                               ; preds = %71
-  %82 = fcmp oeq double %57, %66
-  br i1 %82, label %83, label %86
+80:                                               ; preds = %70
+  %81 = fcmp oeq double %56, %65
+  br i1 %81, label %82, label %85
 
-83:                                               ; preds = %81
-  %84 = fadd double %73, 2.000000e+00
-  %85 = fsub double %84, %77
-  br label %91
+82:                                               ; preds = %80
+  %83 = fadd double %72, 2.000000e+00
+  %84 = fsub double %83, %76
+  br label %90
 
-86:                                               ; preds = %81
-  %87 = fcmp oeq double %60, %66
-  br i1 %87, label %88, label %91
+85:                                               ; preds = %80
+  %86 = fcmp oeq double %59, %65
+  br i1 %86, label %87, label %90
 
-88:                                               ; preds = %86
-  %89 = fadd double %75, 4.000000e+00
-  %90 = fsub double %89, %73
-  br label %91
+87:                                               ; preds = %85
+  %88 = fadd double %74, 4.000000e+00
+  %89 = fsub double %88, %72
+  br label %90
 
-91:                                               ; preds = %88, %86, %83, %79
-  %.1.i.i = phi double [ %80, %79 ], [ %85, %83 ], [ %90, %88 ], [ 0.000000e+00, %86 ]
-  %92 = fmul double %.1.i.i, 6.000000e+01
-  %93 = fcmp olt double %92, 0.000000e+00
-  br i1 %93, label %94, label %rgb2hsv.exit.i
+90:                                               ; preds = %87, %85, %82, %78
+  %.1.i.i = phi double [ %79, %78 ], [ %84, %82 ], [ %89, %87 ], [ 0.000000e+00, %85 ]
+  %91 = fmul double %.1.i.i, 6.000000e+01
+  %92 = fcmp olt double %91, 0.000000e+00
+  br i1 %92, label %93, label %rgb2hsv.exit.i
 
-94:                                               ; preds = %91
-  %95 = fadd double %92, 3.600000e+02
+93:                                               ; preds = %90
+  %94 = fadd double %91, 3.600000e+02
   br label %rgb2hsv.exit.i
 
-rgb2hsv.exit.i:                                   ; preds = %94, %91, %51
-  %.044.i.i = phi double [ %95, %94 ], [ %92, %91 ], [ 0.000000e+00, %51 ]
-  %96 = fdiv double %.044.i.i, 3.600000e+02
+rgb2hsv.exit.i:                                   ; preds = %93, %90, %50
+  %.044.i.i = phi double [ %94, %93 ], [ %91, %90 ], [ 0.000000e+00, %50 ]
+  %95 = fdiv double %.044.i.i, 3.600000e+02
   br label %.thread260
 
-97:                                               ; preds = %50
-  %98 = load i32, ptr %8, align 4
-  %99 = load i32, ptr %9, align 4
-  %100 = shl i32 %99, 8
-  %101 = and i32 %100, 65280
-  %102 = and i32 %98, 255
-  %.sroa.0.1.insert.insert170313 = or disjoint i32 %101, %102
-  %103 = load i32, ptr %10, align 4
-  %104 = shl i32 %103, 16
-  %105 = load i32, ptr %11, align 4
-  %106 = shl i32 %105, 24
-  %.masked315 = and i32 %104, 16711680
-  %107 = or disjoint i32 %.sroa.0.1.insert.insert170313, %.masked315
-  %.sroa.0.3.insert.insert232316 = or disjoint i32 %107, %106
+96:                                               ; preds = %49
+  %97 = load i32, ptr %8, align 4
+  %98 = load i32, ptr %9, align 4
+  %99 = shl i32 %98, 8
+  %100 = and i32 %99, 65280
+  %101 = and i32 %97, 255
+  %.sroa.0.1.insert.insert170313 = or disjoint i32 %100, %101
+  %102 = load i32, ptr %10, align 4
+  %103 = shl i32 %102, 16
+  %104 = load i32, ptr %11, align 4
+  %105 = shl i32 %104, 24
+  %.masked315 = and i32 %103, 16711680
+  %106 = or disjoint i32 %.sroa.0.1.insert.insert170313, %.masked315
+  %.sroa.0.3.insert.insert232316 = or disjoint i32 %106, %105
   br label %.thread271
 
-108:                                              ; preds = %50
-  %109 = load i32, ptr %8, align 4
-  %110 = uitofp i32 %109 to double
-  %111 = load i32, ptr %9, align 4
-  %112 = uitofp i32 %111 to double
-  %113 = load i32, ptr %10, align 4
-  %114 = uitofp i32 %113 to double
+107:                                              ; preds = %49
+  %108 = load i32, ptr %8, align 4
+  %109 = uitofp i32 %108 to double
+  %110 = load i32, ptr %9, align 4
+  %111 = uitofp i32 %110 to double
+  %112 = load i32, ptr %10, align 4
+  %113 = uitofp i32 %112 to double
   br label %.thread279
 
-default.unreachable:                              ; preds = %398, %thread-pre-split.thread.i, %161, %50
+default.unreachable:                              ; preds = %398, %thread-pre-split.thread.i, %161, %49
   unreachable
 
-.thread187.i:                                     ; preds = %..thread187_crit_edge.i, %34, %.thread.i
-  %115 = phi i8 [ %.pre.i, %..thread187_crit_edge.i ], [ %32, %.thread.i ], [ 35, %34 ]
-  %116 = icmp eq i8 %115, 46
-  %117 = sext i8 %115 to i32
-  %118 = add nsw i32 %117, -48
-  %119 = icmp ult i32 %118, 10
-  %or.cond.i = select i1 %116, i1 true, i1 %119
-  br i1 %or.cond.i, label %120, label %agxbfree.exit133.i
+.thread187.i:                                     ; preds = %..thread187_crit_edge.i, %33, %.threadthread-pre-split.i, %27
+  %114 = phi i8 [ %.pre.i, %..thread187_crit_edge.i ], [ %24, %27 ], [ %.pr191.i, %.threadthread-pre-split.i ], [ 35, %33 ]
+  %115 = icmp eq i8 %114, 46
+  %116 = sext i8 %114 to i32
+  %117 = add nsw i32 %116, -48
+  %118 = icmp ult i32 %117, 10
+  %or.cond.i = select i1 %115, i1 true, i1 %118
+  br i1 %or.cond.i, label %119, label %agxbfree.exit133.i
 
-120:                                              ; preds = %.thread187.i
+119:                                              ; preds = %.thread187.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
-  %.not195.i = icmp eq i8 %115, 0
+  %.not195.i = icmp eq i8 %114, 0
   br i1 %.not195.i, label %agxbsizeof.exit.i.i.i, label %agxbsizeof.exit.i.lr.ph.i
 
-agxbsizeof.exit.i.lr.ph.i:                        ; preds = %120
-  %121 = getelementptr inbounds i8, ptr %12, i64 31
-  %122 = getelementptr inbounds i8, ptr %12, i64 8
-  %123 = getelementptr inbounds i8, ptr %12, i64 16
+agxbsizeof.exit.i.lr.ph.i:                        ; preds = %119
+  %120 = getelementptr inbounds i8, ptr %12, i64 31
+  %121 = getelementptr inbounds i8, ptr %12, i64 8
+  %122 = getelementptr inbounds i8, ptr %12, i64 16
   br label %agxbsizeof.exit.i.i
 
 agxbsizeof.exit.i.i:                              ; preds = %agxbputc.exit.i, %agxbsizeof.exit.i.lr.ph.i
   %.val.i.i.i203.i = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph.i ], [ %.val.i.i.i201.i, %agxbputc.exit.i ]
   %.val.i.i.i = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph.i ], [ %.val.i.i200.i, %agxbputc.exit.i ]
-  %124 = phi i8 [ %115, %agxbsizeof.exit.i.lr.ph.i ], [ %142, %agxbputc.exit.i ]
-  %.0111196.i = phi ptr [ %.0112.i, %agxbsizeof.exit.i.lr.ph.i ], [ %125, %agxbputc.exit.i ]
-  %125 = getelementptr inbounds i8, ptr %.0111196.i, i64 1
-  %126 = icmp eq i8 %124, 44
-  %narrow.i = select i1 %126, i8 32, i8 %124
+  %123 = phi i8 [ %114, %agxbsizeof.exit.i.lr.ph.i ], [ %141, %agxbputc.exit.i ]
+  %.0111196.i = phi ptr [ %.0112.i, %agxbsizeof.exit.i.lr.ph.i ], [ %124, %agxbputc.exit.i ]
+  %124 = getelementptr inbounds i8, ptr %.0111196.i, i64 1
+  %125 = icmp eq i8 %123, 44
+  %narrow.i = select i1 %125, i8 32, i8 %123
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
+  %126 = load i64, ptr %121, align 8
   %127 = load i64, ptr %122, align 8
-  %128 = load i64, ptr %123, align 8
-  %129 = zext i8 %.val.i.i.i to i64
-  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %127, i64 %129
-  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %128, i64 31
+  %128 = zext i8 %.val.i.i.i to i64
+  %.0.i20.i.i = select i1 %.not.i.i.i, i64 %126, i64 %128
+  %.0.i14.i.i = select i1 %.not.i.i.i, i64 %127, i64 31
   %.not.i.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
-  br i1 %.not.i.i, label %131, label %130
+  br i1 %.not.i.i, label %130, label %129
 
-130:                                              ; preds = %agxbsizeof.exit.i.i
+129:                                              ; preds = %agxbsizeof.exit.i.i
   call fastcc void @agxbmore(ptr noundef nonnull %12, i64 noundef 1)
-  %.val.i15.pre.i.i = load i8, ptr %121, align 1
-  br label %131
+  %.val.i15.pre.i.i = load i8, ptr %120, align 1
+  br label %130
 
-131:                                              ; preds = %130, %agxbsizeof.exit.i.i
-  %.val.i.i.i202.i = phi i8 [ %.val.i15.pre.i.i, %130 ], [ %.val.i.i.i203.i, %agxbsizeof.exit.i.i ]
-  %.val.i.i198.i = phi i8 [ %.val.i15.pre.i.i, %130 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
+130:                                              ; preds = %129, %agxbsizeof.exit.i.i
+  %.val.i.i.i202.i = phi i8 [ %.val.i15.pre.i.i, %129 ], [ %.val.i.i.i203.i, %agxbsizeof.exit.i.i ]
+  %.val.i.i198.i = phi i8 [ %.val.i15.pre.i.i, %129 ], [ %.val.i.i.i, %agxbsizeof.exit.i.i ]
   %.not.i16.i.i = icmp eq i8 %.val.i.i198.i, -1
-  br i1 %.not.i16.i.i, label %137, label %132
+  br i1 %.not.i16.i.i, label %136, label %131
 
-132:                                              ; preds = %131
-  %133 = zext i8 %.val.i.i198.i to i64
-  %134 = getelementptr inbounds [31 x i8], ptr %12, i64 0, i64 %133
-  store i8 %narrow.i, ptr %134, align 1
-  %135 = load i8, ptr %121, align 1
-  %136 = add i8 %135, 1
-  store i8 %136, ptr %121, align 1
+131:                                              ; preds = %130
+  %132 = zext i8 %.val.i.i198.i to i64
+  %133 = getelementptr inbounds [31 x i8], ptr %12, i64 0, i64 %132
+  store i8 %narrow.i, ptr %133, align 1
+  %134 = load i8, ptr %120, align 1
+  %135 = add i8 %134, 1
+  store i8 %135, ptr %120, align 1
   br label %agxbputc.exit.i
 
-137:                                              ; preds = %131
-  %138 = load i64, ptr %122, align 8
-  %139 = load ptr, ptr %12, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 %138
-  store i8 %narrow.i, ptr %140, align 1
-  %141 = add i64 %138, 1
-  store i64 %141, ptr %122, align 8
+136:                                              ; preds = %130
+  %137 = load i64, ptr %121, align 8
+  %138 = load ptr, ptr %12, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 %137
+  store i8 %narrow.i, ptr %139, align 1
+  %140 = add i64 %137, 1
+  store i64 %140, ptr %121, align 8
   br label %agxbputc.exit.i
 
-agxbputc.exit.i:                                  ; preds = %137, %132
-  %.val.i.i.i201.i = phi i8 [ %136, %132 ], [ %.val.i.i.i202.i, %137 ]
-  %.val.i.i200.i = phi i8 [ %136, %132 ], [ -1, %137 ]
-  %142 = load i8, ptr %125, align 1
-  %.not.i = icmp eq i8 %142, 0
+agxbputc.exit.i:                                  ; preds = %136, %131
+  %.val.i.i.i201.i = phi i8 [ %135, %131 ], [ %.val.i.i.i202.i, %136 ]
+  %.val.i.i200.i = phi i8 [ %135, %131 ], [ -1, %136 ]
+  %141 = load i8, ptr %124, align 1
+  %.not.i = icmp eq i8 %141, 0
   br i1 %.not.i, label %agxbsizeof.exit.i.i.loopexit.i, label %agxbsizeof.exit.i.i
 
 agxbsizeof.exit.i.i.loopexit.i:                   ; preds = %agxbputc.exit.i
-  %.pre205.i = load i64, ptr %122, align 8
-  %.pre207.i = load i64, ptr %123, align 8
+  %.pre205.i = load i64, ptr %121, align 8
+  %.pre207.i = load i64, ptr %122, align 8
   br label %agxbsizeof.exit.i.i.i
 
-agxbsizeof.exit.i.i.i:                            ; preds = %agxbsizeof.exit.i.i.loopexit.i, %120
-  %143 = phi i64 [ %.pre207.i, %agxbsizeof.exit.i.i.loopexit.i ], [ 0, %120 ]
-  %144 = phi i64 [ %.pre205.i, %agxbsizeof.exit.i.i.loopexit.i ], [ 0, %120 ]
-  %.val.i.i.i.i = phi i8 [ %.val.i.i.i201.i, %agxbsizeof.exit.i.i.loopexit.i ], [ 0, %120 ]
+agxbsizeof.exit.i.i.i:                            ; preds = %agxbsizeof.exit.i.i.loopexit.i, %119
+  %142 = phi i64 [ %.pre207.i, %agxbsizeof.exit.i.i.loopexit.i ], [ 0, %119 ]
+  %143 = phi i64 [ %.pre205.i, %agxbsizeof.exit.i.i.loopexit.i ], [ 0, %119 ]
+  %.val.i.i.i.i = phi i8 [ %.val.i.i.i201.i, %agxbsizeof.exit.i.i.loopexit.i ], [ 0, %119 ]
   store double 1.000000e+00, ptr %7, align 8
-  %145 = getelementptr inbounds i8, ptr %12, i64 31
+  %144 = getelementptr inbounds i8, ptr %12, i64 31
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
-  %146 = getelementptr inbounds i8, ptr %12, i64 8
-  %147 = zext i8 %.val.i.i.i.i to i64
-  %.0.i20.i.i.i = select i1 %.not.i.i.i.i, i64 %144, i64 %147
-  %.0.i14.i.i.i = select i1 %.not.i.i.i.i, i64 %143, i64 31
+  %145 = getelementptr inbounds i8, ptr %12, i64 8
+  %146 = zext i8 %.val.i.i.i.i to i64
+  %.0.i20.i.i.i = select i1 %.not.i.i.i.i, i64 %143, i64 %146
+  %.0.i14.i.i.i = select i1 %.not.i.i.i.i, i64 %142, i64 31
   %.not.i.i124.i = icmp ult i64 %.0.i20.i.i.i, %.0.i14.i.i.i
-  br i1 %.not.i.i124.i, label %149, label %148
+  br i1 %.not.i.i124.i, label %148, label %147
 
-148:                                              ; preds = %agxbsizeof.exit.i.i.i
+147:                                              ; preds = %agxbsizeof.exit.i.i.i
   call fastcc void @agxbmore(ptr noundef nonnull %12, i64 noundef 1)
-  %.val.i15.pre.i.i.i = load i8, ptr %145, align 1
-  br label %149
+  %.val.i15.pre.i.i.i = load i8, ptr %144, align 1
+  br label %148
 
-149:                                              ; preds = %148, %agxbsizeof.exit.i.i.i
-  %.val.i.pr.i.i = phi i8 [ %.val.i15.pre.i.i.i, %148 ], [ %.val.i.i.i.i, %agxbsizeof.exit.i.i.i ]
+148:                                              ; preds = %147, %agxbsizeof.exit.i.i.i
+  %.val.i.pr.i.i = phi i8 [ %.val.i15.pre.i.i.i, %147 ], [ %.val.i.i.i.i, %agxbsizeof.exit.i.i.i ]
   %.not.i16.i.i.i = icmp eq i8 %.val.i.pr.i.i, -1
   br i1 %.not.i16.i.i.i, label %agxbputc.exit.i.thread.i, label %agxbputc.exit.i.i
 
-agxbputc.exit.i.thread.i:                         ; preds = %149
-  %150 = load i64, ptr %146, align 8
-  %151 = load ptr, ptr %12, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 %150
-  store i8 0, ptr %152, align 1
+agxbputc.exit.i.thread.i:                         ; preds = %148
+  %149 = load i64, ptr %145, align 8
+  %150 = load ptr, ptr %12, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 %149
+  store i8 0, ptr %151, align 1
   br label %agxbuse.exit.i
 
-agxbputc.exit.i.i:                                ; preds = %149
-  %153 = zext i8 %.val.i.pr.i.i to i64
-  %154 = getelementptr inbounds [31 x i8], ptr %12, i64 0, i64 %153
-  store i8 0, ptr %154, align 1
-  %155 = load i8, ptr %145, align 1
-  %156 = add i8 %155, 1
-  store i8 %156, ptr %145, align 1
-  %.not.i3.i.i = icmp eq i8 %156, -1
-  br i1 %.not.i3.i.i, label %agxbputc.exit.i.i.agxbuse.exit.i_crit_edge, label %agxbuse.exit.i.thread
+agxbputc.exit.i.i:                                ; preds = %148
+  %152 = zext i8 %.val.i.pr.i.i to i64
+  %153 = getelementptr inbounds [31 x i8], ptr %12, i64 0, i64 %152
+  store i8 0, ptr %153, align 1
+  %154 = load i8, ptr %144, align 1
+  %155 = add i8 %154, 1
+  store i8 %155, ptr %144, align 1
+  %156 = icmp eq i8 %155, -1
+  br i1 %156, label %agxbputc.exit.i.i.agxbuse.exit.i_crit_edge, label %agxbuse.exit.i.thread
 
 agxbputc.exit.i.i.agxbuse.exit.i_crit_edge:       ; preds = %agxbputc.exit.i.i
   %.pre = load ptr, ptr %12, align 8
   br label %agxbuse.exit.i
 
 agxbuse.exit.i:                                   ; preds = %agxbputc.exit.i.i.agxbuse.exit.i_crit_edge, %agxbputc.exit.i.thread.i
-  %.val.i = phi ptr [ %.pre, %agxbputc.exit.i.i.agxbuse.exit.i_crit_edge ], [ %151, %agxbputc.exit.i.thread.i ]
-  store i64 0, ptr %146, align 8
+  %.val.i = phi ptr [ %.pre, %agxbputc.exit.i.i.agxbuse.exit.i_crit_edge ], [ %150, %agxbputc.exit.i.thread.i ]
+  store i64 0, ptr %145, align 8
   %157 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.val.i, ptr noundef nonnull @.str.50, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
   %158 = icmp sgt i32 %157, 2
   br i1 %158, label %161, label %293
 
 agxbuse.exit.i.thread:                            ; preds = %agxbputc.exit.i.i
-  store i8 0, ptr %145, align 1
+  store i8 0, ptr %144, align 1
   %159 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.50, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
   %160 = icmp sgt i32 %159, 2
   br i1 %160, label %161, label %agxbfree.exit133.i
 
 161:                                              ; preds = %agxbuse.exit.i.thread, %agxbuse.exit.i
-  %.not.i3.i211.i247 = phi i1 [ false, %agxbuse.exit.i.thread ], [ true, %agxbuse.exit.i ]
+  %.val.i4.pr.i210.i247 = phi i1 [ false, %agxbuse.exit.i.thread ], [ true, %agxbuse.exit.i ]
   %162 = load double, ptr %4, align 8
   %163 = call double @llvm.minnum.f64(double %162, double 1.000000e+00)
   %164 = call double @llvm.maxnum.f64(double %163, double 0.000000e+00)
@@ -4639,7 +4635,7 @@ hsv2rgb.exit132.i:                                ; preds = %277, %276, %275, %2
   %.sroa.63.0 = phi double [ 0.000000e+00, %hsv2rgb.exit132.i ], [ 0.000000e+00, %hsv2rgb.exit128.i ], [ 0.000000e+00, %hsv2rgb.exit.i ], [ %170, %161 ]
   %.sroa.67.0 = phi double [ 0.000000e+00, %hsv2rgb.exit132.i ], [ 0.000000e+00, %hsv2rgb.exit128.i ], [ 0.000000e+00, %hsv2rgb.exit.i ], [ %173, %161 ]
   %.sroa.0.0 = phi double [ %285, %hsv2rgb.exit132.i ], [ %255, %hsv2rgb.exit128.i ], [ %213, %hsv2rgb.exit.i ], [ %164, %161 ]
-  br i1 %.not.i3.i211.i247, label %292, label %398
+  br i1 %.val.i4.pr.i210.i247, label %292, label %398
 
 292:                                              ; preds = %291
   %.val122.i = load ptr, ptr %12, align 8
@@ -4849,9 +4845,9 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
 
 .thread260:                                       ; preds = %rgb2hsv.exit.i, %352
   %.sroa.51.1.ph.ph = phi double [ %.0.i.i, %rgb2hsv.exit.i ], [ %360, %352 ]
-  %.sroa.63.1.ph.ph = phi double [ %66, %rgb2hsv.exit.i ], [ %364, %352 ]
-  %.sroa.67.1.ph.ph.in = phi double [ %62, %rgb2hsv.exit.i ], [ %367, %352 ]
-  %.sroa.0.1.ph.ph = phi double [ %96, %rgb2hsv.exit.i ], [ %356, %352 ]
+  %.sroa.63.1.ph.ph = phi double [ %65, %rgb2hsv.exit.i ], [ %364, %352 ]
+  %.sroa.67.1.ph.ph.in = phi double [ %61, %rgb2hsv.exit.i ], [ %367, %352 ]
+  %.sroa.0.1.ph.ph = phi double [ %95, %rgb2hsv.exit.i ], [ %356, %352 ]
   %.sroa.67.1.ph.ph = fdiv double %.sroa.67.1.ph.ph.in, 2.550000e+02
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -4865,8 +4861,8 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   br label %399
 
-.thread271:                                       ; preds = %97, %368
-  %.sroa.0.1.ph.ph270.in.in = phi i32 [ %.sroa.0.3.insert.insert232316, %97 ], [ %370, %368 ]
+.thread271:                                       ; preds = %96, %368
+  %.sroa.0.1.ph.ph270.in.in = phi i32 [ %.sroa.0.3.insert.insert232316, %96 ], [ %370, %368 ]
   %.sroa.0.1.ph.ph270.in = zext i32 %.sroa.0.1.ph.ph270.in.in to i64
   %.sroa.0.1.ph.ph270 = bitcast i64 %.sroa.0.1.ph.ph270.in to double
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -4881,10 +4877,10 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   br label %401
 
-.thread279:                                       ; preds = %108, %371
-  %.sink342 = phi double [ %114, %108 ], [ %380, %371 ]
-  %.sink341.in = phi double [ %110, %108 ], [ %374, %371 ]
-  %.sink.in = phi double [ %112, %108 ], [ %377, %371 ]
+.thread279:                                       ; preds = %107, %371
+  %.sink342 = phi double [ %113, %107 ], [ %380, %371 ]
+  %.sink341.in = phi double [ %109, %107 ], [ %374, %371 ]
+  %.sink.in = phi double [ %111, %107 ], [ %377, %371 ]
   %.sink = fdiv double %.sink.in, 2.550000e+02
   %.sink341 = fdiv double %.sink341.in, 2.550000e+02
   %381 = fdiv double %.sink342, 2.550000e+02
@@ -4924,7 +4920,7 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   br label %410
 
-.thread288:                                       ; preds = %thread-pre-split.thread.i, %50
+.thread288:                                       ; preds = %thread-pre-split.thread.i, %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)

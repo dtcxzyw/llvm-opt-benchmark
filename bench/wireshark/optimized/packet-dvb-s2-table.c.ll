@@ -1550,11 +1550,11 @@ thread-pre-split:                                 ; preds = %43, %118, %60
 
 .sink.split:                                      ; preds = %147
   %149 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  %150 = trunc i32 %149 to i16
+  %150 = and i32 %149, 65535
   br label %151
 
 151:                                              ; preds = %147, %.sink.split
-  %.0319 = phi i16 [ 0, %147 ], [ %150, %.sink.split ]
+  %.0319 = phi i32 [ 0, %147 ], [ %150, %.sink.split ]
   switch i8 %.0320, label %dissect_dvb_s2_table_sct.exitthread-pre-split [
     i8 -128, label %152
     i8 -96, label %173
@@ -2893,25 +2893,23 @@ dissect_dvb_s2_table_sct.exitthread-pre-split:    ; preds = %1048, %.loopexit.i,
 
 dissect_dvb_s2_table_sct.exit:                    ; preds = %dissect_dvb_s2_table_sct.exitthread-pre-split, %._crit_edge107.i, %909, %._crit_edge.i, %505, %435, %249, %565
   %1051 = phi i32 [ %.pr357, %dissect_dvb_s2_table_sct.exitthread-pre-split ], [ %976, %._crit_edge107.i ], [ %910, %909 ], [ %559, %._crit_edge.i ], [ %506, %505 ], [ %436, %435 ], [ %250, %249 ], [ %566, %565 ]
-  switch i32 %1051, label %1060 [
+  switch i32 %1051, label %1058 [
     i32 0, label %1052
-    i32 1, label %1056
+    i32 1, label %1055
   ]
 
 1052:                                             ; preds = %dissect_dvb_s2_table_sct.exit
-  %1053 = zext i16 %.0319 to i32
-  %1054 = add i32 %.2, -8
-  %1055 = add i32 %1054, %1053
-  br label %1060
+  %1053 = add i32 %.2, -8
+  %1054 = add i32 %1053, %.0319
+  br label %1058
 
-1056:                                             ; preds = %dissect_dvb_s2_table_sct.exit
-  %1057 = zext i16 %.0319 to i32
-  %1058 = add i32 %.2, -4
-  %1059 = add i32 %1058, %1057
-  br label %1060
+1055:                                             ; preds = %dissect_dvb_s2_table_sct.exit
+  %1056 = add i32 %.2, -4
+  %1057 = add i32 %1056, %.0319
+  br label %1058
 
-1060:                                             ; preds = %dissect_dvb_s2_table_sct.exit, %1056, %1052
-  %.3 = phi i32 [ %1055, %1052 ], [ %1059, %1056 ], [ %.2, %dissect_dvb_s2_table_sct.exit ]
+1058:                                             ; preds = %dissect_dvb_s2_table_sct.exit, %1055, %1052
+  %.3 = phi i32 [ %1054, %1052 ], [ %1057, %1055 ], [ %.2, %dissect_dvb_s2_table_sct.exit ]
   ret i32 %.3
 }
 

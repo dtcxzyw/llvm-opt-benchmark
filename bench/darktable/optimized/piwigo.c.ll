@@ -2087,11 +2087,14 @@ define internal fastcc void @_piwigo_refresh_albums(ptr nocapture noundef %0, pt
   %215 = zext i1 %214 to i32
   %216 = add nuw nsw i32 %211, %215
   %217 = icmp eq i8 %213, 0
-  br i1 %217, label %.loopexit, label %.preheader
+  br i1 %217, label %.loopexit.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %206, %193
-  %218 = phi i32 [ 0, %193 ], [ 0, %206 ], [ %216, %.preheader ]
-  %219 = mul nsw i32 %218, 3
+.loopexit.loopexit:                               ; preds = %.preheader
+  %218 = mul nuw nsw i32 %216, 3
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %206, %193
+  %219 = phi i32 [ 0, %193 ], [ 0, %206 ], [ %218, %.loopexit.loopexit ]
   %220 = load i64, ptr %203, align 8, !tbaa !84
   %221 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.106, i32 noundef %219, i32 noundef 32, ptr noundef nonnull %198, i64 noundef %220) #13
   br i1 %192, label %222, label %224

@@ -424,8 +424,8 @@ lor.lhs.false:                                    ; preds = %entry
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
   %1 = load i32, ptr %a, align 8
-  %cmp11 = icmp sgt i32 %1, 0
-  br i1 %cmp11, label %for.body.preheader, label %return
+  %cmp9 = icmp sgt i32 %1, 0
+  br i1 %cmp9, label %for.body.preheader, label %return
 
 for.body.preheader:                               ; preds = %for.cond.preheader
   %2 = sext i32 %flags_len to i64
@@ -441,18 +441,20 @@ cond.true:                                        ; preds = %for.body
   %arrayidx = getelementptr inbounds i8, ptr %flags, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx, align 1
   %not = xor i8 %4, -1
+  %5 = zext i8 %not to i32
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i8 [ %not, %cond.true ], [ -1, %for.body ]
+  %cond = phi i32 [ %5, %cond.true ], [ 255, %for.body ]
   %arrayidx7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  %5 = load i8, ptr %arrayidx7, align 1
-  %and9 = and i8 %5, %cond
-  %cmp10 = icmp eq i8 %and9, 0
+  %6 = load i8, ptr %arrayidx7, align 1
+  %conv8 = zext i8 %6 to i32
+  %and = and i32 %cond, %conv8
+  %cmp10 = icmp eq i32 %and, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp ult i64 %indvars.iv.next, %3
-  %6 = select i1 %cmp, i1 %cmp10, i1 false
-  br i1 %6, label %for.body, label %return.loopexit, !llvm.loop !7
+  %7 = select i1 %cmp, i1 %cmp10, i1 false
+  br i1 %7, label %for.body, label %return.loopexit, !llvm.loop !7
 
 return.loopexit:                                  ; preds = %cond.end
   %conv11 = zext i1 %cmp10 to i32

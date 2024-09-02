@@ -913,29 +913,29 @@ define internal void @ivch_dump_regs(ptr nocapture noundef readonly %0) #0 align
   store i8 0, ptr %47, align 1
   %66 = call i32 @i2c_transfer(ptr noundef %53, ptr noundef nonnull %49, i32 noundef 3) #8
   %67 = icmp eq i32 %66, 3
-  br i1 %67, label %68, label %70
+  br i1 %67, label %68, label %71
 
 68:                                               ; preds = %1
   %69 = load i16, ptr %48, align 2
-  br label %76
+  %70 = zext i16 %69 to i32
+  br label %77
 
-70:                                               ; preds = %1
-  %71 = load i8, ptr %51, align 2, !range !6, !noundef !7
-  %72 = icmp eq i8 %71, 0
-  br i1 %72, label %73, label %76
+71:                                               ; preds = %1
+  %72 = load i8, ptr %51, align 2, !range !6, !noundef !7
+  %73 = icmp eq i8 %72, 0
+  br i1 %73, label %74, label %77
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %53, i64 852
-  %75 = load i32, ptr %54, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef %74, i32 noundef %75) #8
-  br label %76
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds i8, ptr %53, i64 852
+  %76 = load i32, ptr %54, align 4
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef 0, ptr noundef %75, i32 noundef %76) #8
+  br label %77
 
-76:                                               ; preds = %73, %70, %68
-  %77 = phi i16 [ %69, %68 ], [ 0, %73 ], [ 0, %70 ]
+77:                                               ; preds = %74, %71, %68
+  %78 = phi i32 [ %70, %68 ], [ 0, %74 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %49) #8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %48) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47) #8
-  %78 = zext i16 %77 to i32
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %78) #8
   %79 = load ptr, ptr %50, align 8
   %80 = load ptr, ptr %52, align 8
@@ -970,12 +970,12 @@ define internal void @ivch_dump_regs(ptr nocapture noundef readonly %0) #0 align
   %93 = icmp eq i32 %92, 3
   br i1 %93, label %94, label %96
 
-94:                                               ; preds = %76
+94:                                               ; preds = %77
   %95 = load i16, ptr %45, align 2
   %.pre = zext i16 %95 to i32
   br label %102
 
-96:                                               ; preds = %76
+96:                                               ; preds = %77
   %97 = load i8, ptr %79, align 2, !range !6, !noundef !7
   %98 = icmp eq i8 %97, 0
   br i1 %98, label %99, label %102

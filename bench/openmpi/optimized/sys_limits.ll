@@ -26,21 +26,21 @@ define range(i32 -2, 1) i32 @prte_util_init_sys_limits(ptr nocapture noundef wri
   %2 = alloca i64, align 8
   %3 = load ptr, ptr @prte_set_max_sys_limits, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %105, label %5
+  br i1 %4, label %97, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %3, i32 noundef 44) #6
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %105, label %.preheader
+  br i1 %7, label %97, label %.preheader
 
 .preheader:                                       ; preds = %5
   %8 = load ptr, ptr %6, align 8
   %.not100 = icmp eq ptr %8, null
   br i1 %.not100, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %101
-  %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 0, %.preheader ]
-  %9 = phi ptr [ %103, %101 ], [ %8, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %93
+  %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ 0, %.preheader ]
+  %9 = phi ptr [ %95, %93 ], [ %8, %.preheader ]
   %10 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %9, i32 noundef 58) #6
   %11 = tail call i32 @PMIx_Argv_count(ptr noundef %10) #6
   %12 = icmp eq i32 %11, 1
@@ -55,214 +55,199 @@ sub_0:                                            ; preds = %.lr.ph, %13
   %.046 = phi ptr [ %15, %13 ], [ @.str, %.lr.ph ]
   %16 = load ptr, ptr %10, align 8
   %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = add nsw i32 %18, -49
-  %.not102 = icmp eq i32 %19, 0
-  br i1 %.not102, label %sub_1, label %.tail
+  switch i8 %17, label %.tail71.thread [
+    i8 49, label %.tail
+    i8 48, label %.tail71
+  ]
 
-sub_1:                                            ; preds = %sub_0
-  %20 = getelementptr inbounds i8, ptr %16, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  br label %.tail
+.tail:                                            ; preds = %sub_0
+  %18 = getelementptr inbounds i8, ptr %16, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %21, label %.tail71.thread
 
-.tail:                                            ; preds = %sub_0, %sub_1
-  %23 = phi i32 [ %19, %sub_0 ], [ %22, %sub_1 ]
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %sub_072
+21:                                               ; preds = %.tail
+  %22 = call fastcc i32 @prte_setlimit(i32 noundef 7, ptr noundef nonnull @.str, ptr noundef nonnull %2)
+  %.not58 = icmp eq i32 %22, 0
+  br i1 %.not58, label %25, label %23
 
-25:                                               ; preds = %.tail
-  %26 = call fastcc i32 @prte_setlimit(i32 noundef 7, ptr noundef nonnull @.str, ptr noundef nonnull %2)
-  %.not58 = icmp eq i32 %26, 0
-  br i1 %.not58, label %29, label %27
-
-27:                                               ; preds = %25
-  %28 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str) #6
+23:                                               ; preds = %21
+  %24 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str) #6
   br label %.thread
+
+25:                                               ; preds = %21
+  %26 = load i64, ptr %2, align 8
+  %27 = trunc i64 %26 to i32
+  store i32 %27, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 4), align 4
+  %28 = call fastcc i32 @prte_setlimit(i32 noundef 6, ptr noundef nonnull @.str, ptr noundef nonnull %2)
+  %.not59 = icmp eq i32 %28, 0
+  br i1 %.not59, label %31, label %29
 
 29:                                               ; preds = %25
-  %30 = load i64, ptr %2, align 8
-  %31 = trunc i64 %30 to i32
-  store i32 %31, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 4), align 4
-  %32 = call fastcc i32 @prte_setlimit(i32 noundef 6, ptr noundef nonnull @.str, ptr noundef nonnull %2)
-  %.not59 = icmp eq i32 %32, 0
-  br i1 %.not59, label %35, label %33
-
-33:                                               ; preds = %29
-  %34 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str) #6
+  %30 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str) #6
   br label %.thread
 
-35:                                               ; preds = %29
-  %36 = load i64, ptr %2, align 8
-  %37 = trunc i64 %36 to i32
-  store i32 %37, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 8), align 8
-  %38 = call fastcc i32 @prte_setlimit(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull %2)
-  %.not60 = icmp eq i32 %38, 0
-  br i1 %.not60, label %41, label %39
+31:                                               ; preds = %25
+  %32 = load i64, ptr %2, align 8
+  %33 = trunc i64 %32 to i32
+  store i32 %33, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 8), align 8
+  %34 = call fastcc i32 @prte_setlimit(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull %2)
+  %.not60 = icmp eq i32 %34, 0
+  br i1 %.not60, label %37, label %35
 
-39:                                               ; preds = %35
-  %40 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str) #6
+35:                                               ; preds = %31
+  %36 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str) #6
   br label %.thread
 
-41:                                               ; preds = %35
-  %42 = load i64, ptr %2, align 8
-  store i64 %42, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 16), align 8
+37:                                               ; preds = %31
+  %38 = load i64, ptr %2, align 8
+  store i64 %38, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 16), align 8
   br label %.thread68
 
-sub_072:                                          ; preds = %.tail
-  %43 = add nsw i32 %18, -48
-  %.not103 = icmp eq i32 %43, 0
-  br i1 %.not103, label %sub_173, label %.tail71
+.tail71:                                          ; preds = %sub_0
+  %39 = getelementptr inbounds i8, ptr %16, i64 1
+  %40 = load i8, ptr %39, align 1
+  %41 = icmp eq i8 %40, 0
+  br i1 %41, label %.thread68, label %.tail71.thread
 
-sub_173:                                          ; preds = %sub_072
-  %44 = getelementptr inbounds i8, ptr %16, i64 1
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i32
-  br label %.tail71
+.tail71.thread:                                   ; preds = %sub_0, %.tail, %.tail71
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(5) @.str.8) #7
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %48
 
-.tail71:                                          ; preds = %sub_072, %sub_173
-  %47 = phi i32 [ %43, %sub_072 ], [ %46, %sub_173 ]
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.thread68, label %49
+44:                                               ; preds = %.tail71.thread
+  %45 = call fastcc i32 @prte_setlimit(i32 noundef 4, ptr noundef %.046, ptr noundef nonnull %2)
+  %.not57 = icmp eq i32 %45, 0
+  br i1 %.not57, label %93, label %46
 
-49:                                               ; preds = %.tail71
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(5) @.str.8) #7
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %56
-
-52:                                               ; preds = %49
-  %53 = call fastcc i32 @prte_setlimit(i32 noundef 4, ptr noundef %.046, ptr noundef nonnull %2)
-  %.not57 = icmp eq i32 %53, 0
-  br i1 %.not57, label %101, label %54
-
-54:                                               ; preds = %52
-  %55 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %.046) #6
+46:                                               ; preds = %44
+  %47 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %.046) #6
   br label %.thread
 
-56:                                               ; preds = %49
-  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(9) @.str.6) #7
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %65
+48:                                               ; preds = %.tail71.thread
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(9) @.str.6) #7
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %57
 
-59:                                               ; preds = %56
-  %60 = call fastcc i32 @prte_setlimit(i32 noundef 1, ptr noundef %.046, ptr noundef nonnull %2)
-  %.not56 = icmp eq i32 %60, 0
-  br i1 %.not56, label %63, label %61
+51:                                               ; preds = %48
+  %52 = call fastcc i32 @prte_setlimit(i32 noundef 1, ptr noundef %.046, ptr noundef nonnull %2)
+  %.not56 = icmp eq i32 %52, 0
+  br i1 %.not56, label %55, label %53
 
-61:                                               ; preds = %59
-  %62 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %.046) #6
+53:                                               ; preds = %51
+  %54 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %.046) #6
   br label %.thread
 
-63:                                               ; preds = %59
-  %64 = load i64, ptr %2, align 8
-  store i64 %64, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 16), align 8
-  br label %101
+55:                                               ; preds = %51
+  %56 = load i64, ptr %2, align 8
+  store i64 %56, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 16), align 8
+  br label %93
 
-65:                                               ; preds = %56
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.9) #7
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %72
+57:                                               ; preds = %48
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.9) #7
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %64
 
-68:                                               ; preds = %65
-  %69 = call fastcc i32 @prte_setlimit(i32 noundef 9, ptr noundef %.046, ptr noundef nonnull %2)
-  %.not55 = icmp eq i32 %69, 0
-  br i1 %.not55, label %101, label %70
+60:                                               ; preds = %57
+  %61 = call fastcc i32 @prte_setlimit(i32 noundef 9, ptr noundef %.046, ptr noundef nonnull %2)
+  %.not55 = icmp eq i32 %61, 0
+  br i1 %.not55, label %93, label %62
 
-70:                                               ; preds = %68
-  %71 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %.046) #6
+62:                                               ; preds = %60
+  %63 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %.046) #6
   br label %.thread
 
-72:                                               ; preds = %65
-  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str.4) #7
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %82
+64:                                               ; preds = %57
+  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str.4) #7
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %74
 
-75:                                               ; preds = %72
-  %76 = call fastcc i32 @prte_setlimit(i32 noundef 7, ptr noundef %.046, ptr noundef nonnull %2)
-  %.not54 = icmp eq i32 %76, 0
-  br i1 %.not54, label %79, label %77
+67:                                               ; preds = %64
+  %68 = call fastcc i32 @prte_setlimit(i32 noundef 7, ptr noundef %.046, ptr noundef nonnull %2)
+  %.not54 = icmp eq i32 %68, 0
+  br i1 %.not54, label %71, label %69
 
-77:                                               ; preds = %75
-  %78 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %.046) #6
+69:                                               ; preds = %67
+  %70 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %.046) #6
   br label %.thread
 
-79:                                               ; preds = %75
-  %80 = load i64, ptr %2, align 8
-  %81 = trunc i64 %80 to i32
-  store i32 %81, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 4), align 4
-  br label %101
+71:                                               ; preds = %67
+  %72 = load i64, ptr %2, align 8
+  %73 = trunc i64 %72 to i32
+  store i32 %73, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 4), align 4
+  br label %93
 
-82:                                               ; preds = %72
-  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str.10) #7
-  %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %89
+74:                                               ; preds = %64
+  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(10) @.str.10) #7
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %81
 
-85:                                               ; preds = %82
-  %86 = call fastcc i32 @prte_setlimit(i32 noundef 3, ptr noundef %.046, ptr noundef nonnull %2)
-  %.not53 = icmp eq i32 %86, 0
-  br i1 %.not53, label %101, label %87
+77:                                               ; preds = %74
+  %78 = call fastcc i32 @prte_setlimit(i32 noundef 3, ptr noundef %.046, ptr noundef nonnull %2)
+  %.not53 = icmp eq i32 %78, 0
+  br i1 %.not53, label %93, label %79
 
-87:                                               ; preds = %85
-  %88 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef %.046) #6
+79:                                               ; preds = %77
+  %80 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef %.046) #6
   br label %.thread
 
-89:                                               ; preds = %82
-  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(12) @.str.5) #7
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %99
+81:                                               ; preds = %74
+  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(12) @.str.5) #7
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %84, label %91
 
-92:                                               ; preds = %89
-  %93 = call fastcc i32 @prte_setlimit(i32 noundef 6, ptr noundef %.046, ptr noundef nonnull %2)
-  %.not52 = icmp eq i32 %93, 0
-  br i1 %.not52, label %96, label %94
+84:                                               ; preds = %81
+  %85 = call fastcc i32 @prte_setlimit(i32 noundef 6, ptr noundef %.046, ptr noundef nonnull %2)
+  %.not52 = icmp eq i32 %85, 0
+  br i1 %.not52, label %88, label %86
 
-94:                                               ; preds = %92
-  %95 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %.046) #6
+86:                                               ; preds = %84
+  %87 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %.046) #6
   br label %.thread
 
-96:                                               ; preds = %92
-  %97 = load i64, ptr %2, align 8
-  %98 = trunc i64 %97 to i32
-  store i32 %98, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 8), align 8
-  br label %101
+88:                                               ; preds = %84
+  %89 = load i64, ptr %2, align 8
+  %90 = trunc i64 %89 to i32
+  store i32 %90, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 8), align 8
+  br label %93
 
-99:                                               ; preds = %89
-  %100 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, i32 noundef 1, ptr noundef nonnull %16, ptr noundef %.046) #6
+91:                                               ; preds = %81
+  %92 = tail call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, i32 noundef 1, ptr noundef nonnull %16, ptr noundef %.046) #6
   br label %.thread
 
-101:                                              ; preds = %63, %79, %85, %96, %68, %52
+93:                                               ; preds = %55, %71, %77, %88, %60, %44
   tail call void @PMIx_Argv_free(ptr noundef nonnull %10) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %102 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next
-  %103 = load ptr, ptr %102, align 8
-  %.not = icmp eq ptr %103, null
+  %94 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next
+  %95 = load ptr, ptr %94, align 8
+  %.not = icmp eq ptr %95, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-.thread:                                          ; preds = %27, %33, %39, %54, %61, %70, %77, %87, %94, %99
-  %.sink = phi ptr [ %28, %27 ], [ %34, %33 ], [ %40, %39 ], [ %55, %54 ], [ %62, %61 ], [ %71, %70 ], [ %78, %77 ], [ %88, %87 ], [ %95, %94 ], [ %100, %99 ]
+.thread:                                          ; preds = %23, %29, %35, %46, %53, %62, %69, %79, %86, %91
+  %.sink = phi ptr [ %24, %23 ], [ %30, %29 ], [ %36, %35 ], [ %47, %46 ], [ %54, %53 ], [ %63, %62 ], [ %70, %69 ], [ %80, %79 ], [ %87, %86 ], [ %92, %91 ]
   store ptr %.sink, ptr %0, align 8
-  br label %104
+  br label %96
 
-.thread68:                                        ; preds = %.tail71, %41
+.thread68:                                        ; preds = %.tail71, %37
   store i8 1, ptr @prte_sys_limits, align 8
-  br label %104
+  br label %96
 
-._crit_edge:                                      ; preds = %101, %.preheader
+._crit_edge:                                      ; preds = %93, %.preheader
   store i8 1, ptr @prte_sys_limits, align 8
   br label %.sink.split
 
-104:                                              ; preds = %.thread68, %.thread
+96:                                               ; preds = %.thread68, %.thread
   %.066 = phi i32 [ -1, %.thread ], [ 0, %.thread68 ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %6) #6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %104, %._crit_edge
-  %.sink161 = phi ptr [ %6, %._crit_edge ], [ %10, %104 ]
-  %.048.ph = phi i32 [ 0, %._crit_edge ], [ %.066, %104 ]
-  tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink161) #6
-  br label %105
+.sink.split:                                      ; preds = %96, %._crit_edge
+  %.sink162 = phi ptr [ %6, %._crit_edge ], [ %10, %96 ]
+  %.048.ph = phi i32 [ 0, %._crit_edge ], [ %.066, %96 ]
+  tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink162) #6
+  br label %97
 
-105:                                              ; preds = %.sink.split, %5, %1
+97:                                               ; preds = %.sink.split, %5, %1
   %.048 = phi i32 [ 0, %1 ], [ -2, %5 ], [ %.048.ph, %.sink.split ]
   ret i32 %.048
 }

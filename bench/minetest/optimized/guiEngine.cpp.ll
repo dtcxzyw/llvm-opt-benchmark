@@ -2629,15 +2629,15 @@ if.then.i.i330:                                   ; preds = %invoke.cont79
   call void @_ZdlPv(ptr noundef %67) #27
   %.pre = load i32, ptr %rect, align 4, !tbaa !197
   %.pre560 = load i32, ptr %LowerRightCorner.i, align 4, !tbaa !197
+  %69 = add nsw i32 %.pre, 4
   br label %invoke.cont87
 
 invoke.cont87:                                    ; preds = %if.then.i.i330, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i
-  %69 = phi i32 [ %.pre560, %if.then.i.i330 ], [ %call.i321, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i ]
-  %70 = phi i32 [ %.pre, %if.then.i.i330 ], [ 0, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i ]
+  %70 = phi i32 [ %.pre560, %if.then.i.i330 ], [ %call.i321, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i ]
+  %add.i.i = phi i32 [ %69, %if.then.i.i330 ], [ 4, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp66) #28
-  %add.i.i = add nsw i32 %70, 4
   store i32 %add.i.i, ptr %rect, align 4, !tbaa !197
-  %add.i4.i = add nsw i32 %69, 4
+  %add.i4.i = add nsw i32 %70, 4
   store i32 %add.i4.i, ptr %LowerRightCorner.i, align 4, !tbaa !197
   %71 = load ptr, ptr %m_device.i, align 8, !tbaa !134
   %vtable.i336 = load ptr, ptr %71, align 8, !tbaa !20

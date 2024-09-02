@@ -20273,7 +20273,7 @@ rb_callable_method_entry.exit.thread:             ; preds = %8, %3, %5, %rb_call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, -1) i32 @rb_obj_respond_to(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @rb_obj_respond_to(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %5 = load ptr, ptr %4, align 8
   %6 = and i64 %0, 7
@@ -20330,7 +20330,7 @@ rb_ec_obj_respond_to.exit:                        ; preds = %rb_class_of.exit.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, -1) i32 @rb_ec_obj_respond_to(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @rb_ec_obj_respond_to(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = and i64 %1, 7
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i64 %1, 0
@@ -20746,7 +20746,7 @@ basic_obj_respond_to_missing.exit:                ; preds = %callable_method_ent
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, -1) i32 @rb_respond_to(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @rb_respond_to(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8
   %5 = and i64 %0, 7
@@ -47596,7 +47596,7 @@ define internal i64 @vm_invoke_proc_block(ptr noundef %0, ptr noundef %1, ptr no
 
 vm_proc_to_block_handler.exit:                    ; preds = %vm_proc_to_block_handler.exit.backedge, %6
   %.09 = phi i64 [ %5, %6 ], [ %.09.be, %vm_proc_to_block_handler.exit.backedge ]
-  %.0.in = phi i1 [ %4, %6 ], [ %26, %vm_proc_to_block_handler.exit.backedge ]
+  %.0.in = phi i1 [ %4, %6 ], [ %.0.i10, %vm_proc_to_block_handler.exit.backedge ]
   %7 = and i64 %.09, 3
   switch i64 %7, label %8 [
     i64 1, label %vm_invoke_block.exit
@@ -47606,7 +47606,7 @@ vm_proc_to_block_handler.exit:                    ; preds = %vm_proc_to_block_ha
 8:                                                ; preds = %vm_proc_to_block_handler.exit
   %9 = and i64 %.09, 255
   %10 = icmp eq i64 %9, 12
-  br i1 %10, label %41, label %11
+  br i1 %10, label %39, label %11
 
 11:                                               ; preds = %8
   %12 = and i64 %.09, 7
@@ -47631,51 +47631,49 @@ vm_block_handler_type.exit.thread14:              ; preds = %vm_block_handler_ty
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 32
   %22 = load i8, ptr %21, align 8
-  %23 = lshr i8 %22, 1
-  %24 = and i8 %23, 1
-  %25 = zext nneg i8 %24 to i32
+  %23 = and i8 %22, 2
+  %24 = icmp ne i8 %23, 0
   br label %block_proc_is_lambda.exit
 
 block_proc_is_lambda.exit:                        ; preds = %vm_block_handler_type.exit, %vm_block_handler_type.exit.thread14
-  %.0.i10 = phi i32 [ %25, %vm_block_handler_type.exit.thread14 ], [ 0, %vm_block_handler_type.exit ]
-  %26 = icmp ne i32 %.0.i10, 0
-  %27 = getelementptr inbounds i8, ptr %.pre, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr i8, ptr %28, i64 24
-  %.val.i = load i32, ptr %29, align 8
-  switch i32 %.val.i, label %40 [
-    i32 0, label %30
-    i32 1, label %33
-    i32 2, label %36
-    i32 3, label %38
+  %.0.i10 = phi i1 [ %24, %vm_block_handler_type.exit.thread14 ], [ false, %vm_block_handler_type.exit ]
+  %25 = getelementptr inbounds i8, ptr %.pre, i64 32
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr i8, ptr %26, i64 24
+  %.val.i = load i32, ptr %27, align 8
+  switch i32 %.val.i, label %38 [
+    i32 0, label %28
+    i32 1, label %31
+    i32 2, label %34
+    i32 3, label %36
   ]
 
-30:                                               ; preds = %block_proc_is_lambda.exit
-  %31 = ptrtoint ptr %28 to i64
-  %32 = or i64 %31, 1
+28:                                               ; preds = %block_proc_is_lambda.exit
+  %29 = ptrtoint ptr %26 to i64
+  %30 = or i64 %29, 1
   br label %vm_proc_to_block_handler.exit.backedge
 
-vm_proc_to_block_handler.exit.backedge:           ; preds = %30, %33, %36, %38
-  %.09.be = phi i64 [ %39, %38 ], [ %37, %36 ], [ %35, %33 ], [ %32, %30 ]
+vm_proc_to_block_handler.exit.backedge:           ; preds = %28, %31, %34, %36
+  %.09.be = phi i64 [ %37, %36 ], [ %35, %34 ], [ %33, %31 ], [ %30, %28 ]
   br label %vm_proc_to_block_handler.exit, !llvm.loop !179
 
-33:                                               ; preds = %block_proc_is_lambda.exit
-  %34 = ptrtoint ptr %28 to i64
-  %35 = or i64 %34, 3
+31:                                               ; preds = %block_proc_is_lambda.exit
+  %32 = ptrtoint ptr %26 to i64
+  %33 = or i64 %32, 3
+  br label %vm_proc_to_block_handler.exit.backedge
+
+34:                                               ; preds = %block_proc_is_lambda.exit
+  %35 = load i64, ptr %26, align 8
   br label %vm_proc_to_block_handler.exit.backedge
 
 36:                                               ; preds = %block_proc_is_lambda.exit
-  %37 = load i64, ptr %28, align 8
+  %37 = load i64, ptr %26, align 8
   br label %vm_proc_to_block_handler.exit.backedge
 
 38:                                               ; preds = %block_proc_is_lambda.exit
-  %39 = load i64, ptr %28, align 8
-  br label %vm_proc_to_block_handler.exit.backedge
-
-40:                                               ; preds = %block_proc_is_lambda.exit
   unreachable
 
-41:                                               ; preds = %8
+39:                                               ; preds = %8
   %cond = icmp eq i64 %7, 1
   br i1 %cond, label %vm_invoke_block.exit, label %vm_block_handler_type.exit.i
 
@@ -47684,23 +47682,23 @@ vm_proc_to_block_handler.exit.backedge:           ; preds = %30, %33, %36, %38
   br i1 %cond45, label %vm_invoke_block.exit, label %RB_SYMBOL_P.exit.i.i
 
 RB_SYMBOL_P.exit.i.i:                             ; preds = %.thread
-  %42 = inttoptr i64 %.09 to ptr
-  %43 = load i64, ptr %42, align 8
-  %.fr10.i.i = freeze i64 %43
-  %44 = and i64 %.fr10.i.i, 31
-  %45 = icmp eq i64 %44, 20
-  br i1 %45, label %vm_block_handler_type.exit.i, label %vm_invoke_block.exit
+  %40 = inttoptr i64 %.09 to ptr
+  %41 = load i64, ptr %40, align 8
+  %.fr10.i.i = freeze i64 %41
+  %42 = and i64 %.fr10.i.i, 31
+  %43 = icmp eq i64 %42, 20
+  br i1 %43, label %vm_block_handler_type.exit.i, label %vm_invoke_block.exit
 
-vm_block_handler_type.exit.i:                     ; preds = %41, %RB_SYMBOL_P.exit.i.i
+vm_block_handler_type.exit.i:                     ; preds = %39, %RB_SYMBOL_P.exit.i.i
   br label %vm_invoke_block.exit
 
 vm_invoke_block.exit.loopexit:                    ; preds = %vm_proc_to_block_handler.exit
   br label %vm_invoke_block.exit
 
-vm_invoke_block.exit:                             ; preds = %vm_proc_to_block_handler.exit, %vm_invoke_block.exit.loopexit, %.thread, %41, %RB_SYMBOL_P.exit.i.i, %vm_block_handler_type.exit.i
-  %.0.i12 = phi ptr [ @vm_invoke_symbol_block, %vm_block_handler_type.exit.i ], [ @vm_invoke_proc_block, %RB_SYMBOL_P.exit.i.i ], [ @vm_invoke_iseq_block, %41 ], [ @vm_invoke_iseq_block, %.thread ], [ @vm_invoke_ifunc_block, %vm_invoke_block.exit.loopexit ], [ @vm_invoke_iseq_block, %vm_proc_to_block_handler.exit ]
-  %46 = tail call i64 %.0.i12(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %.0.in, i64 noundef %.09) #21, !callees !25
-  ret i64 %46
+vm_invoke_block.exit:                             ; preds = %vm_proc_to_block_handler.exit, %vm_invoke_block.exit.loopexit, %.thread, %39, %RB_SYMBOL_P.exit.i.i, %vm_block_handler_type.exit.i
+  %.0.i12 = phi ptr [ @vm_invoke_symbol_block, %vm_block_handler_type.exit.i ], [ @vm_invoke_proc_block, %RB_SYMBOL_P.exit.i.i ], [ @vm_invoke_iseq_block, %39 ], [ @vm_invoke_iseq_block, %.thread ], [ @vm_invoke_ifunc_block, %vm_invoke_block.exit.loopexit ], [ @vm_invoke_iseq_block, %vm_proc_to_block_handler.exit ]
+  %44 = tail call i64 %.0.i12(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %.0.in, i64 noundef %.09) #21, !callees !25
+  ret i64 %44
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

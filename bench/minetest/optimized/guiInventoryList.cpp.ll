@@ -2022,11 +2022,11 @@ if.then225:                                       ; preds = %if.end222
 
 if.then225.if.end228_crit_edge:                   ; preds = %if.then225
   %.pre = load i16, ptr %count.i, align 8, !tbaa !225
+  %133 = icmp ne i16 %.pre, 0
   br label %if.end228
 
 if.end228:                                        ; preds = %if.then225.if.end228_crit_edge, %if.end222
-  %133 = phi i16 [ %.pre, %if.then225.if.end228_crit_edge ], [ 0, %if.end222 ]
-  %cmp.i528 = icmp ne i16 %133, 0
+  %cmp.i528 = phi i1 [ %133, %if.then225.if.end228_crit_edge ], [ false, %if.end222 ]
   %134 = and i1 %tobool74.not, %cmp.i528
   %spec.select381 = and i1 %cmp87667668, %134
   %135 = load ptr, ptr %m_fs_menu, align 8, !tbaa !55

@@ -1998,6 +1998,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   br label %15
 
 15:                                               ; preds = %.backedge, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit
+  %.sroa.10.0 = phi ptr [ undef, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit ], [ %17, %.backedge ]
   %.0 = phi ptr [ %6, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit ], [ %.0.be, %.backedge ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !155
@@ -2314,12 +2315,12 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
   br label %154
 
 154:                                              ; preds = %23, %53, %146
-  %.sroa.4.1 = phi ptr [ undef, %146 ], [ %25, %23 ], [ undef, %53 ]
+  %155 = phi ptr [ %.sroa.10.0, %146 ], [ %25, %23 ], [ %.sroa.10.0, %53 ]
   %.sroa.0.1 = phi ptr [ null, %146 ], [ %24, %23 ], [ null, %53 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.0, i64 noundef 8200, i64 noundef 8) #25
-  %155 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %156 = insertvalue { ptr, ptr } %155, ptr %.sroa.4.1, 1
-  ret { ptr, ptr } %156
+  %156 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
+  %157 = insertvalue { ptr, ptr } %156, ptr %155, 1
+  ret { ptr, ptr } %157
 
 .thread59:                                        ; preds = %.thread, %.thread59.loopexit.split-lp, %.thread59.loopexit, %.thread56
   %.pn54 = phi { ptr, i32 } [ %52, %.thread56 ], [ %eh.lpad-body44, %.thread ], [ %lpad.loopexit, %.thread59.loopexit ], [ %lpad.loopexit.split-lp, %.thread59.loopexit.split-lp ]
@@ -2357,6 +2358,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   br label %18
 
 18:                                               ; preds = %.backedge, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit
+  %.sroa.10.0 = phi ptr [ undef, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit ], [ %20, %.backedge ]
   %.0 = phi ptr [ %6, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit ], [ %.0.be, %.backedge ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !219
@@ -2673,12 +2675,12 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
   br label %157
 
 157:                                              ; preds = %26, %56, %149
-  %.sroa.4.1 = phi ptr [ undef, %149 ], [ %28, %26 ], [ undef, %56 ]
+  %158 = phi ptr [ %.sroa.10.0, %149 ], [ %28, %26 ], [ %.sroa.10.0, %56 ]
   %.sroa.0.1 = phi ptr [ null, %149 ], [ %27, %26 ], [ null, %56 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.0, i64 noundef 8200, i64 noundef 8) #25
-  %158 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %159 = insertvalue { ptr, ptr } %158, ptr %.sroa.4.1, 1
-  ret { ptr, ptr } %159
+  %159 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
+  %160 = insertvalue { ptr, ptr } %159, ptr %158, 1
+  ret { ptr, ptr } %160
 
 .thread61:                                        ; preds = %.thread, %.thread61.loopexit.split-lp, %.thread61.loopexit, %.thread58
   %.pn56 = phi { ptr, i32 } [ %55, %.thread58 ], [ %eh.lpad-body46, %.thread ], [ %lpad.loopexit, %.thread61.loopexit ], [ %lpad.loopexit.split-lp, %.thread61.loopexit.split-lp ]
@@ -2711,6 +2713,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   br label %15
 
 15:                                               ; preds = %.backedge, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit
+  %.sroa.10.0 = phi ptr [ undef, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit ], [ %17, %.backedge ]
   %.0 = phi ptr [ %6, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit ], [ %.0.be, %.backedge ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !276
@@ -3027,12 +3030,12 @@ _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; pr
   br label %154
 
 154:                                              ; preds = %23, %53, %146
-  %.sroa.4.1 = phi ptr [ undef, %146 ], [ %25, %23 ], [ undef, %53 ]
+  %155 = phi ptr [ %.sroa.10.0, %146 ], [ %25, %23 ], [ %.sroa.10.0, %53 ]
   %.sroa.0.1 = phi ptr [ null, %146 ], [ %24, %23 ], [ null, %53 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.0, i64 noundef 8200, i64 noundef 8) #25
-  %155 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %156 = insertvalue { ptr, ptr } %155, ptr %.sroa.4.1, 1
-  ret { ptr, ptr } %156
+  %156 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
+  %157 = insertvalue { ptr, ptr } %156, ptr %155, 1
+  ret { ptr, ptr } %157
 
 .thread59:                                        ; preds = %.thread, %.thread59.loopexit.split-lp, %.thread59.loopexit, %.thread56
   %.pn54 = phi { ptr, i32 } [ %52, %.thread56 ], [ %eh.lpad-body44, %.thread ], [ %lpad.loopexit, %.thread59.loopexit ], [ %lpad.loopexit.split-lp, %.thread59.loopexit.split-lp ]
@@ -3521,6 +3524,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   br label %17
 
 17:                                               ; preds = %.backedge, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit
+  %.sroa.9.0 = phi ptr [ undef, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit ], [ %19, %.backedge ]
   %.0 = phi ptr [ %8, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit ], [ %.0.be, %.backedge ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !455)
@@ -3768,12 +3772,12 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %.ph = phi i64 [ %65, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h2bf9ecbaf4b6de3eE.exit" ], [ %.pre, %124 ]
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %209, %124
+._crit_edge:                                      ; preds = %210, %124
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3949a2edd4b15aa2c2251f6dc99c65da.42) #26
           to label %91 unwind label %.thread78.loopexit.split-lp
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %209
-  %131 = phi i64 [ %210, %209 ], [ %.ph, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %210
+  %131 = phi i64 [ %211, %210 ], [ %.ph, %.lr.ph.preheader ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !501)
   %132 = load i64, ptr %14, align 8, !alias.scope !501, !noundef !9
   %133 = add i64 %132, 1
@@ -3793,7 +3797,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %143 = sub i64 %140, %142
   %144 = load i64, ptr %16, align 8, !noundef !9
   %145 = icmp ugt i64 %143, %144
-  br i1 %145, label %209, label %146
+  br i1 %145, label %210, label %146
 
 146:                                              ; preds = %.lr.ph
   %147 = tail call i64 @llvm.usub.sat.i64(i64 %140, i64 %144)
@@ -3954,19 +3958,19 @@ _ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit.i: ; preds =
   br label %206
 
 206:                                              ; preds = %32, %63, %198
-  %.sroa.4.1 = phi ptr [ undef, %198 ], [ %34, %32 ], [ undef, %63 ]
+  %207 = phi ptr [ %.sroa.9.0, %198 ], [ %34, %32 ], [ %.sroa.9.0, %63 ]
   %.sroa.0.1 = phi ptr [ null, %198 ], [ %33, %32 ], [ null, %63 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.0, i64 noundef 8216, i64 noundef 8) #25
-  %207 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %208 = insertvalue { ptr, ptr } %207, ptr %.sroa.4.1, 1
-  ret { ptr, ptr } %208
+  %208 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
+  %209 = insertvalue { ptr, ptr } %208, ptr %207, 1
+  ret { ptr, ptr } %209
 
-209:                                              ; preds = %.lr.ph
+210:                                              ; preds = %.lr.ph
   store i64 %143, ptr %12, align 8
   tail call void @__rust_dealloc(ptr noundef nonnull %139, i64 noundef 8216, i64 noundef 8) #25
-  %210 = load i64, ptr %13, align 8, !alias.scope !541, !noundef !9
-  %211 = icmp eq i64 %210, 0
-  br i1 %211, label %._crit_edge, label %.lr.ph
+  %211 = load i64, ptr %13, align 8, !alias.scope !541, !noundef !9
+  %212 = icmp eq i64 %211, 0
+  br i1 %212, label %._crit_edge, label %.lr.ph
 
 .thread78:                                        ; preds = %.thread, %.thread78.loopexit.split-lp, %.thread78.loopexit, %.thread75
   %.pn73 = phi { ptr, i32 } [ %62, %.thread75 ], [ %eh.lpad-body59, %.thread ], [ %lpad.loopexit, %.thread78.loopexit ], [ %lpad.loopexit.split-lp, %.thread78.loopexit.split-lp ]
@@ -4003,6 +4007,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.e
   br label %17
 
 17:                                               ; preds = %.backedge, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit
+  %.sroa.9.0 = phi ptr [ undef, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit ], [ %19, %.backedge ]
   %.0 = phi ptr [ %8, %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16008789196938893882.exit ], [ %.0.be, %.backedge ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !546)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !549)
@@ -4250,12 +4255,12 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %.ph = phi i64 [ %65, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h2bf9ecbaf4b6de3eE.exit" ], [ %.pre, %124 ]
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %209, %124
+._crit_edge:                                      ; preds = %210, %124
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3949a2edd4b15aa2c2251f6dc99c65da.42) #26
           to label %91 unwind label %.thread78.loopexit.split-lp
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %209
-  %131 = phi i64 [ %210, %209 ], [ %.ph, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %210
+  %131 = phi i64 [ %211, %210 ], [ %.ph, %.lr.ph.preheader ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !595)
   %132 = load i64, ptr %14, align 8, !alias.scope !595, !noundef !9
   %133 = add i64 %132, 1
@@ -4275,7 +4280,7 @@ _ZN7uu_tail6chunks10LinesChunk11count_lines17h96b68fba6e047c30E.exit.i: ; preds 
   %143 = sub i64 %140, %142
   %144 = load i64, ptr %16, align 8, !noundef !9
   %145 = icmp ugt i64 %143, %144
-  br i1 %145, label %209, label %146
+  br i1 %145, label %210, label %146
 
 146:                                              ; preds = %.lr.ph
   %147 = tail call i64 @llvm.usub.sat.i64(i64 %140, i64 %144)
@@ -4436,19 +4441,19 @@ _ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit.i: ; preds =
   br label %206
 
 206:                                              ; preds = %32, %63, %198
-  %.sroa.4.1 = phi ptr [ undef, %198 ], [ %34, %32 ], [ undef, %63 ]
+  %207 = phi ptr [ %.sroa.9.0, %198 ], [ %34, %32 ], [ %.sroa.9.0, %63 ]
   %.sroa.0.1 = phi ptr [ null, %198 ], [ %33, %32 ], [ null, %63 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.0, i64 noundef 8216, i64 noundef 8) #25
-  %207 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %208 = insertvalue { ptr, ptr } %207, ptr %.sroa.4.1, 1
-  ret { ptr, ptr } %208
+  %208 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
+  %209 = insertvalue { ptr, ptr } %208, ptr %207, 1
+  ret { ptr, ptr } %209
 
-209:                                              ; preds = %.lr.ph
+210:                                              ; preds = %.lr.ph
   store i64 %143, ptr %12, align 8
   tail call void @__rust_dealloc(ptr noundef nonnull %139, i64 noundef 8216, i64 noundef 8) #25
-  %210 = load i64, ptr %13, align 8, !alias.scope !635, !noundef !9
-  %211 = icmp eq i64 %210, 0
-  br i1 %211, label %._crit_edge, label %.lr.ph
+  %211 = load i64, ptr %13, align 8, !alias.scope !635, !noundef !9
+  %212 = icmp eq i64 %211, 0
+  br i1 %212, label %._crit_edge, label %.lr.ph
 
 .thread78:                                        ; preds = %.thread, %.thread78.loopexit.split-lp, %.thread78.loopexit, %.thread75
   %.pn73 = phi { ptr, i32 } [ %62, %.thread75 ], [ %eh.lpad-body59, %.thread ], [ %lpad.loopexit, %.thread78.loopexit ], [ %lpad.loopexit.split-lp, %.thread78.loopexit.split-lp ]

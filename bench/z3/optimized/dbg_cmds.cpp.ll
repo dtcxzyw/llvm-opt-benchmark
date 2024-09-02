@@ -4847,12 +4847,12 @@ for.cond:                                         ; preds = %invoke.cont5, %for.
 if.end.i.i:                                       ; preds = %for.cond
   %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 -4
   %5 = load i32, ptr %arrayidx.i.i, align 4
+  %6 = zext i32 %5 to i64
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %if.end.i.i, %for.cond
-  %retval.0.i.i = phi i32 [ %5, %if.end.i.i ], [ 0, %for.cond ]
-  %6 = zext i32 %retval.0.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %6
+  %retval.0.i.i = phi i64 [ %6, %if.end.i.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %invoke.cont11, label %for.end
 
 invoke.cont11:                                    ; preds = %invoke.cont9

@@ -2062,7 +2062,7 @@ define internal fastcc void @png_inflate_read(ptr noalias noundef %0, ptr nounde
   %.043 = phi i32 [ 1024, %12 ], [ %.1, %.critedge2.backedge ]
   %19 = load i32, ptr %16, align 8
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %26
+  br i1 %20, label %21, label %27
 
 21:                                               ; preds = %.critedge2
   %22 = load i32, ptr %2, align 4
@@ -2081,16 +2081,17 @@ png_crc_read.exit:                                ; preds = %21
 25:                                               ; preds = %png_crc_read.exit, %21
   store ptr %1, ptr %13, align 8
   store i32 %spec.select, ptr %16, align 8
-  br label %26
+  %26 = icmp eq i32 %spec.select, 0
+  br label %27
 
-26:                                               ; preds = %25, %.critedge2
-  %27 = phi i32 [ %spec.select, %25 ], [ %19, %.critedge2 ]
+27:                                               ; preds = %25, %.critedge2
+  %.not7.i = phi i1 [ %26, %25 ], [ false, %.critedge2 ]
   %.1 = phi i32 [ %spec.select, %25 ], [ %.043, %.critedge2 ]
   %28 = load i32, ptr %15, align 8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %33
 
-30:                                               ; preds = %26
+30:                                               ; preds = %27
   %31 = load i64, ptr %4, align 8
   %spec.select5053 = tail call i64 @llvm.umin.i64(i64 %31, i64 4294967295)
   %spec.select50 = trunc nuw i64 %spec.select5053 to i32
@@ -2099,17 +2100,16 @@ png_crc_read.exit:                                ; preds = %21
   store i32 %spec.select50, ptr %15, align 8
   br label %33
 
-33:                                               ; preds = %30, %26
-  %34 = phi i32 [ %spec.select50, %30 ], [ %28, %26 ]
+33:                                               ; preds = %30, %27
+  %34 = phi i32 [ %spec.select50, %30 ], [ %28, %27 ]
   %35 = load i32, ptr %2, align 4
   %.not46 = icmp eq i32 %35, 0
   %36 = select i1 %.not46, i32 %17, i32 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %37 = load i8, ptr %18, align 8, !alias.scope !25
   %.not.i = icmp eq i8 %37, 0
-  %.not7.i = icmp eq i32 %27, 0
-  %or.cond = or i1 %.not.i, %.not7.i
-  br i1 %or.cond, label %png_zlib_inflate.exit, label %38
+  %brmerge = or i1 %.not.i, %.not7.i
+  br i1 %brmerge, label %png_zlib_inflate.exit, label %38
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %13, align 8, !alias.scope !25
@@ -6098,7 +6098,7 @@ define void @png_read_IDAT_data(ptr noalias noundef %0, ptr noundef %1, i64 noun
   %.1 = phi i64 [ %spec.select, %3 ], [ %.3, %114 ]
   %25 = load i32, ptr %10, align 8
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.preheader.preheader, label %81
+  br i1 %26, label %.preheader.preheader, label %82
 
 .preheader.preheader:                             ; preds = %24
   %.pre = load i32, ptr %11, align 8
@@ -6233,19 +6233,20 @@ png_crc_read.exit:                                ; preds = %71, %77
   store i32 %80, ptr %11, align 8
   store ptr %.1.i, ptr %6, align 8
   store i32 %spec.select73, ptr %10, align 8
-  br label %81
+  %81 = icmp eq i32 %68, 0
+  br label %82
 
-81:                                               ; preds = %png_crc_read.exit, %24
-  %82 = phi i32 [ %spec.select73, %png_crc_read.exit ], [ %25, %24 ]
+82:                                               ; preds = %png_crc_read.exit, %24
+  %.not7.i = phi i1 [ %81, %png_crc_read.exit ], [ false, %24 ]
   br i1 %9, label %85, label %83
 
-83:                                               ; preds = %81
+83:                                               ; preds = %82
   %spec.select7476 = call i64 @llvm.umin.i64(i64 %.1, i64 4294967295)
   %spec.select74 = trunc nuw i64 %spec.select7476 to i32
   %84 = sub i64 %.1, %spec.select7476
   br label %86
 
-85:                                               ; preds = %81
+85:                                               ; preds = %82
   store ptr %5, ptr %7, align 8
   br label %86
 
@@ -6256,9 +6257,8 @@ png_crc_read.exit:                                ; preds = %71, %77
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %87 = load i8, ptr %22, align 8, !alias.scope !104
   %.not.i75 = icmp eq i8 %87, 0
-  %.not7.i = icmp eq i32 %82, 0
-  %or.cond = select i1 %.not.i75, i1 true, i1 %.not7.i
-  br i1 %or.cond, label %94, label %88
+  %brmerge = select i1 %.not.i75, i1 true, i1 %.not7.i
+  br i1 %brmerge, label %94, label %88
 
 88:                                               ; preds = %86
   %89 = load ptr, ptr %6, align 8, !alias.scope !104
@@ -6274,7 +6274,7 @@ png_crc_read.exit:                                ; preds = %71, %77
   store i8 0, ptr %22, align 8, !alias.scope !104
   br label %94
 
-94:                                               ; preds = %93, %86
+94:                                               ; preds = %86, %93
   %95 = call i32 @inflate(ptr noundef nonnull %6, i32 noundef 0) #12
   br label %png_zlib_inflate.exit
 

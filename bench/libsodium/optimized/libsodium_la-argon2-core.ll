@@ -265,7 +265,7 @@ return:                                           ; preds = %if.then26, %if.end1
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_argon2_initialize(ptr noundef %instance, ptr noundef %context) local_unnamed_addr #0 {
+define hidden range(i32 -25, 1) i32 @_sodium_argon2_initialize(ptr noundef %instance, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %blockhash_bytes.i = alloca [1024 x i8], align 16
   %BlakeHash.i = alloca %struct.crypto_generichash_blake2b_state, align 64

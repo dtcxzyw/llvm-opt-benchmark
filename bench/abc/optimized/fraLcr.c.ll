@@ -1528,13 +1528,13 @@ Abc_Clock.exit:                                   ; preds = %7, %30
   %42 = load i64, ptr %41, align 8
   %43 = sdiv i64 %42, 1000
   %44 = add nsw i64 %43, %40
+  %45 = sitofp i64 %44 to float
   br label %Abc_Clock.exit187
 
 Abc_Clock.exit187:                                ; preds = %35, %38
-  %.0.i186 = phi i64 [ %44, %38 ], [ -1, %35 ]
+  %.0.i186 = phi float [ %45, %38 ], [ -1.000000e+00, %35 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
-  %45 = sitofp i64 %.0.i186 to float
-  %46 = call float @llvm.fmuladd.f32(float %6, float 1.000000e+06, float %45)
+  %46 = call float @llvm.fmuladd.f32(float %6, float 1.000000e+06, float %.0.i186)
   %47 = fptosi float %46 to i64
   br label %48
 

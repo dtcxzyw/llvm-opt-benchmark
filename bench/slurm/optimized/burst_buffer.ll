@@ -312,7 +312,7 @@ define i32 @bb_g_fini() local_unnamed_addr #0 {
 declare i32 @plugin_context_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_g_load_state(i1 noundef zeroext %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @bb_g_load_state(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca [20 x i8], align 16
@@ -452,7 +452,7 @@ define ptr @bb_g_get_status(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 
 declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_g_state_pack(i32 noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @bb_g_state_pack(i32 noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.timeval, align 8
   %6 = alloca [20 x i8], align 16
@@ -539,7 +539,7 @@ define i32 @bb_g_state_pack(i32 noundef %0, ptr noundef %1, i16 noundef zeroext 
 declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_g_reconfig() local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @bb_g_reconfig() local_unnamed_addr #0 {
   %1 = alloca %struct.timeval, align 8
   %2 = alloca %struct.timeval, align 8
   %3 = alloca [20 x i8], align 16
@@ -677,7 +677,7 @@ define i64 @bb_g_get_system_size(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_g_job_validate(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @bb_g_job_validate(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.timeval, align 8
   %6 = alloca [20 x i8], align 16
@@ -732,7 +732,7 @@ define i32 @bb_g_job_validate(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_g_job_validate2(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @bb_g_job_validate2(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8
   %5 = alloca [20 x i8], align 16
@@ -957,7 +957,7 @@ define i64 @bb_g_job_get_est_start(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @time(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_g_job_try_stage_in() local_unnamed_addr #0 {
+define range(i32 1, -2147483648) i32 @bb_g_job_try_stage_in() local_unnamed_addr #0 {
   %1 = alloca %struct.timeval, align 8
   %2 = alloca %struct.timeval, align 8
   %3 = alloca [20 x i8], align 16
@@ -1097,7 +1097,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_queue(ptr nocapture noundef read
 declare void @list_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_g_job_test_stage_in(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @bb_g_job_test_stage_in(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8
   %5 = alloca [20 x i8], align 16
@@ -1264,7 +1264,7 @@ define i32 @bb_g_job_revoke_alloc(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_g_job_start_stage_out(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @bb_g_job_start_stage_out(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca [20 x i8], align 16
@@ -1319,7 +1319,7 @@ define i32 @bb_g_job_start_stage_out(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_g_job_test_post_run(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @bb_g_job_test_post_run(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca [20 x i8], align 16
@@ -1389,7 +1389,7 @@ define i32 @bb_g_job_test_post_run(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_g_job_test_stage_out(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @bb_g_job_test_stage_out(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca [20 x i8], align 16
@@ -1476,7 +1476,7 @@ define i32 @bb_g_job_test_stage_out(ptr noundef %0) local_unnamed_addr #0 {
 declare void @mail_job_info(ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @bb_g_job_cancel(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @bb_g_job_cancel(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca [20 x i8], align 16

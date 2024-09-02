@@ -1302,13 +1302,16 @@ strbuf_addch.exit.i305:                           ; preds = %if.then.i.i313, %wh
   store i8 0, ptr %arrayidx3.i.i308, align 1
   %shr.i309 = lshr i64 %n.addr.03.i298, 8
   %cmp.not.i310 = icmp eq i64 %dec.i300, 0
-  br i1 %cmp.not.i310, label %while.body.i317, label %while.body.i297, !llvm.loop !5
+  br i1 %cmp.not.i310, label %while.body.i317.preheader, label %while.body.i297, !llvm.loop !5
 
-while.body.i317:                                  ; preds = %strbuf_addch.exit.i305, %strbuf_addch.exit.i325
-  %n.addr.03.i318 = phi i32 [ 0, %strbuf_addch.exit.i325 ], [ %method.2, %strbuf_addch.exit.i305 ]
-  %size.addr.02.i319 = phi i64 [ %dec.i320, %strbuf_addch.exit.i325 ], [ 2, %strbuf_addch.exit.i305 ]
+while.body.i317.preheader:                        ; preds = %strbuf_addch.exit.i305
+  %75 = trunc nuw nsw i32 %method.2 to i8
+  br label %while.body.i317
+
+while.body.i317:                                  ; preds = %while.body.i317.preheader, %strbuf_addch.exit.i325
+  %n.addr.03.i318 = phi i8 [ 0, %strbuf_addch.exit.i325 ], [ %75, %while.body.i317.preheader ]
+  %size.addr.02.i319 = phi i64 [ %dec.i320, %strbuf_addch.exit.i325 ], [ 2, %while.body.i317.preheader ]
   %dec.i320 = add nsw i64 %size.addr.02.i319, -1
-  %75 = trunc nuw nsw i32 %n.addr.03.i318 to i8
   %76 = load i64, ptr @zip_dir, align 8
   %tobool.not.i.i.i321 = icmp eq i64 %76, 0
   %77 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
@@ -1329,7 +1332,7 @@ strbuf_addch.exit.i325:                           ; preds = %if.then.i.i333, %wh
   %79 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
   store i64 %inc.pre-phi.i.i326, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
   %arrayidx.i.i327 = getelementptr inbounds i8, ptr %79, i64 %78
-  store i8 %75, ptr %arrayidx.i.i327, align 1
+  store i8 %n.addr.03.i318, ptr %arrayidx.i.i327, align 1
   %80 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
   %81 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
   %arrayidx3.i.i328 = getelementptr inbounds i8, ptr %80, i64 %81
@@ -1658,18 +1661,18 @@ strbuf_addch.exit.i508:                           ; preds = %if.then.i.i516, %wh
 
 strbuf_add_le.exit519:                            ; preds = %strbuf_addch.exit.i508
   %tobool314.not = icmp eq i32 %is_binary.4, 0
-  %conv315 = zext i1 %tobool314.not to i8
+  %146 = zext i1 %tobool314.not to i8
   br label %while.body.i520
 
 while.body.i520:                                  ; preds = %strbuf_addch.exit.i528, %strbuf_add_le.exit519
-  %n.addr.03.i521 = phi i8 [ 0, %strbuf_addch.exit.i528 ], [ %conv315, %strbuf_add_le.exit519 ]
+  %n.addr.03.i521 = phi i8 [ 0, %strbuf_addch.exit.i528 ], [ %146, %strbuf_add_le.exit519 ]
   %size.addr.02.i522 = phi i64 [ %dec.i523, %strbuf_addch.exit.i528 ], [ 2, %strbuf_add_le.exit519 ]
   %dec.i523 = add nsw i64 %size.addr.02.i522, -1
-  %146 = load i64, ptr @zip_dir, align 8
-  %tobool.not.i.i.i524 = icmp eq i64 %146, 0
-  %147 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %.neg.i.i525 = add i64 %147, 1
-  %tobool.not1.i.i526 = icmp eq i64 %146, %.neg.i.i525
+  %147 = load i64, ptr @zip_dir, align 8
+  %tobool.not.i.i.i524 = icmp eq i64 %147, 0
+  %148 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %.neg.i.i525 = add i64 %148, 1
+  %tobool.not1.i.i526 = icmp eq i64 %147, %.neg.i.i525
   %tobool.not.i.i527 = select i1 %tobool.not.i.i.i524, i1 true, i1 %tobool.not1.i.i526
   br i1 %tobool.not.i.i527, label %if.then.i.i536, label %strbuf_addch.exit.i528
 
@@ -1681,14 +1684,14 @@ if.then.i.i536:                                   ; preds = %while.body.i520
 
 strbuf_addch.exit.i528:                           ; preds = %if.then.i.i536, %while.body.i520
   %inc.pre-phi.i.i529 = phi i64 [ %.pre2.i.i538, %if.then.i.i536 ], [ %.neg.i.i525, %while.body.i520 ]
-  %148 = phi i64 [ %.pre.i.i537, %if.then.i.i536 ], [ %147, %while.body.i520 ]
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  store i64 %inc.pre-phi.i.i529, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx.i.i530 = getelementptr inbounds i8, ptr %149, i64 %148
-  store i8 %n.addr.03.i521, ptr %arrayidx.i.i530, align 1
+  %149 = phi i64 [ %.pre.i.i537, %if.then.i.i536 ], [ %148, %while.body.i520 ]
   %150 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  %151 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx3.i.i531 = getelementptr inbounds i8, ptr %150, i64 %151
+  store i64 %inc.pre-phi.i.i529, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx.i.i530 = getelementptr inbounds i8, ptr %150, i64 %149
+  store i8 %n.addr.03.i521, ptr %arrayidx.i.i530, align 1
+  %151 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
+  %152 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx3.i.i531 = getelementptr inbounds i8, ptr %151, i64 %152
   store i8 0, ptr %arrayidx3.i.i531, align 1
   %cmp.not.i533 = icmp eq i64 %dec.i523, 0
   br i1 %cmp.not.i533, label %while.body.i540, label %while.body.i520, !llvm.loop !5
@@ -1697,12 +1700,12 @@ while.body.i540:                                  ; preds = %strbuf_addch.exit.i
   %n.addr.03.i541 = phi i32 [ %shr.i552, %strbuf_addch.exit.i548 ], [ %attr2.0714739.shrunk, %strbuf_addch.exit.i528 ]
   %size.addr.02.i542 = phi i64 [ %dec.i543, %strbuf_addch.exit.i548 ], [ 4, %strbuf_addch.exit.i528 ]
   %dec.i543 = add nsw i64 %size.addr.02.i542, -1
-  %152 = trunc i32 %n.addr.03.i541 to i8
-  %153 = load i64, ptr @zip_dir, align 8
-  %tobool.not.i.i.i544 = icmp eq i64 %153, 0
-  %154 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %.neg.i.i545 = add i64 %154, 1
-  %tobool.not1.i.i546 = icmp eq i64 %153, %.neg.i.i545
+  %153 = trunc i32 %n.addr.03.i541 to i8
+  %154 = load i64, ptr @zip_dir, align 8
+  %tobool.not.i.i.i544 = icmp eq i64 %154, 0
+  %155 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %.neg.i.i545 = add i64 %155, 1
+  %tobool.not1.i.i546 = icmp eq i64 %154, %.neg.i.i545
   %tobool.not.i.i547 = select i1 %tobool.not.i.i.i544, i1 true, i1 %tobool.not1.i.i546
   br i1 %tobool.not.i.i547, label %if.then.i.i556, label %strbuf_addch.exit.i548
 
@@ -1714,14 +1717,14 @@ if.then.i.i556:                                   ; preds = %while.body.i540
 
 strbuf_addch.exit.i548:                           ; preds = %if.then.i.i556, %while.body.i540
   %inc.pre-phi.i.i549 = phi i64 [ %.pre2.i.i558, %if.then.i.i556 ], [ %.neg.i.i545, %while.body.i540 ]
-  %155 = phi i64 [ %.pre.i.i557, %if.then.i.i556 ], [ %154, %while.body.i540 ]
-  %156 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  store i64 %inc.pre-phi.i.i549, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx.i.i550 = getelementptr inbounds i8, ptr %156, i64 %155
-  store i8 %152, ptr %arrayidx.i.i550, align 1
+  %156 = phi i64 [ %.pre.i.i557, %if.then.i.i556 ], [ %155, %while.body.i540 ]
   %157 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  %158 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx3.i.i551 = getelementptr inbounds i8, ptr %157, i64 %158
+  store i64 %inc.pre-phi.i.i549, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx.i.i550 = getelementptr inbounds i8, ptr %157, i64 %156
+  store i8 %153, ptr %arrayidx.i.i550, align 1
+  %158 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
+  %159 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx3.i.i551 = getelementptr inbounds i8, ptr %158, i64 %159
   store i8 0, ptr %arrayidx3.i.i551, align 1
   %shr.i552 = lshr i32 %n.addr.03.i541, 8
   %cmp.not.i553 = icmp eq i64 %dec.i543, 0
@@ -1735,12 +1738,12 @@ while.body.i562:                                  ; preds = %strbuf_addch.exit.i
   %n.addr.03.i563 = phi i64 [ %shr.i574, %strbuf_addch.exit.i570 ], [ %cond.i560, %strbuf_add_le.exit559 ]
   %size.addr.02.i564 = phi i64 [ %dec.i565, %strbuf_addch.exit.i570 ], [ 4, %strbuf_add_le.exit559 ]
   %dec.i565 = add nsw i64 %size.addr.02.i564, -1
-  %159 = trunc i64 %n.addr.03.i563 to i8
-  %160 = load i64, ptr @zip_dir, align 8
-  %tobool.not.i.i.i566 = icmp eq i64 %160, 0
-  %161 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %.neg.i.i567 = add i64 %161, 1
-  %tobool.not1.i.i568 = icmp eq i64 %160, %.neg.i.i567
+  %160 = trunc i64 %n.addr.03.i563 to i8
+  %161 = load i64, ptr @zip_dir, align 8
+  %tobool.not.i.i.i566 = icmp eq i64 %161, 0
+  %162 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %.neg.i.i567 = add i64 %162, 1
+  %tobool.not1.i.i568 = icmp eq i64 %161, %.neg.i.i567
   %tobool.not.i.i569 = select i1 %tobool.not.i.i.i566, i1 true, i1 %tobool.not1.i.i568
   br i1 %tobool.not.i.i569, label %if.then.i.i578, label %strbuf_addch.exit.i570
 
@@ -1752,14 +1755,14 @@ if.then.i.i578:                                   ; preds = %while.body.i562
 
 strbuf_addch.exit.i570:                           ; preds = %if.then.i.i578, %while.body.i562
   %inc.pre-phi.i.i571 = phi i64 [ %.pre2.i.i580, %if.then.i.i578 ], [ %.neg.i.i567, %while.body.i562 ]
-  %162 = phi i64 [ %.pre.i.i579, %if.then.i.i578 ], [ %161, %while.body.i562 ]
-  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  store i64 %inc.pre-phi.i.i571, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx.i.i572 = getelementptr inbounds i8, ptr %163, i64 %162
-  store i8 %159, ptr %arrayidx.i.i572, align 1
+  %163 = phi i64 [ %.pre.i.i579, %if.then.i.i578 ], [ %162, %while.body.i562 ]
   %164 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  %165 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx3.i.i573 = getelementptr inbounds i8, ptr %164, i64 %165
+  store i64 %inc.pre-phi.i.i571, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx.i.i572 = getelementptr inbounds i8, ptr %164, i64 %163
+  store i8 %160, ptr %arrayidx.i.i572, align 1
+  %165 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
+  %166 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx3.i.i573 = getelementptr inbounds i8, ptr %165, i64 %166
   store i8 0, ptr %arrayidx3.i.i573, align 1
   %shr.i574 = lshr i64 %n.addr.03.i563, 8
   %cmp.not.i575 = icmp eq i64 %dec.i565, 0
@@ -1775,11 +1778,11 @@ while.body.i582:                                  ; preds = %strbuf_add_le.exit5
   %n.addr.03.i583 = phi i8 [ 0, %strbuf_addch.exit.i590 ], [ 1, %strbuf_add_le.exit581 ]
   %size.addr.02.i584 = phi i64 [ %dec.i585, %strbuf_addch.exit.i590 ], [ 2, %strbuf_add_le.exit581 ]
   %dec.i585 = add nsw i64 %size.addr.02.i584, -1
-  %166 = load i64, ptr @zip_dir, align 8
-  %tobool.not.i.i.i586 = icmp eq i64 %166, 0
-  %167 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %.neg.i.i587 = add i64 %167, 1
-  %tobool.not1.i.i588 = icmp eq i64 %166, %.neg.i.i587
+  %167 = load i64, ptr @zip_dir, align 8
+  %tobool.not.i.i.i586 = icmp eq i64 %167, 0
+  %168 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %.neg.i.i587 = add i64 %168, 1
+  %tobool.not1.i.i588 = icmp eq i64 %167, %.neg.i.i587
   %tobool.not.i.i589 = select i1 %tobool.not.i.i.i586, i1 true, i1 %tobool.not1.i.i588
   br i1 %tobool.not.i.i589, label %if.then.i.i598, label %strbuf_addch.exit.i590
 
@@ -1791,31 +1794,31 @@ if.then.i.i598:                                   ; preds = %while.body.i582
 
 strbuf_addch.exit.i590:                           ; preds = %if.then.i.i598, %while.body.i582
   %inc.pre-phi.i.i591 = phi i64 [ %.pre2.i.i600, %if.then.i.i598 ], [ %.neg.i.i587, %while.body.i582 ]
-  %168 = phi i64 [ %.pre.i.i599, %if.then.i.i598 ], [ %167, %while.body.i582 ]
-  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  store i64 %inc.pre-phi.i.i591, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx.i.i592 = getelementptr inbounds i8, ptr %169, i64 %168
-  store i8 %n.addr.03.i583, ptr %arrayidx.i.i592, align 1
+  %169 = phi i64 [ %.pre.i.i599, %if.then.i.i598 ], [ %168, %while.body.i582 ]
   %170 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  %171 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx3.i.i593 = getelementptr inbounds i8, ptr %170, i64 %171
+  store i64 %inc.pre-phi.i.i591, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx.i.i592 = getelementptr inbounds i8, ptr %170, i64 %169
+  store i8 %n.addr.03.i583, ptr %arrayidx.i.i592, align 1
+  %171 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
+  %172 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx3.i.i593 = getelementptr inbounds i8, ptr %171, i64 %172
   store i8 0, ptr %arrayidx3.i.i593, align 1
   %cmp.not.i595 = icmp eq i64 %dec.i585, 0
   br i1 %cmp.not.i595, label %while.body.i602.preheader, label %while.body.i582, !llvm.loop !5
 
 while.body.i602.preheader:                        ; preds = %strbuf_addch.exit.i590
-  %172 = trunc nuw nsw i64 %zip64_dir_extra_payload_size.0 to i8
+  %173 = trunc nuw nsw i64 %zip64_dir_extra_payload_size.0 to i8
   br label %while.body.i602
 
 while.body.i602:                                  ; preds = %while.body.i602.preheader, %strbuf_addch.exit.i610
-  %n.addr.03.i603 = phi i8 [ 0, %strbuf_addch.exit.i610 ], [ %172, %while.body.i602.preheader ]
+  %n.addr.03.i603 = phi i8 [ 0, %strbuf_addch.exit.i610 ], [ %173, %while.body.i602.preheader ]
   %size.addr.02.i604 = phi i64 [ %dec.i605, %strbuf_addch.exit.i610 ], [ 2, %while.body.i602.preheader ]
   %dec.i605 = add nsw i64 %size.addr.02.i604, -1
-  %173 = load i64, ptr @zip_dir, align 8
-  %tobool.not.i.i.i606 = icmp eq i64 %173, 0
-  %174 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %.neg.i.i607 = add i64 %174, 1
-  %tobool.not1.i.i608 = icmp eq i64 %173, %.neg.i.i607
+  %174 = load i64, ptr @zip_dir, align 8
+  %tobool.not.i.i.i606 = icmp eq i64 %174, 0
+  %175 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %.neg.i.i607 = add i64 %175, 1
+  %tobool.not1.i.i608 = icmp eq i64 %174, %.neg.i.i607
   %tobool.not.i.i609 = select i1 %tobool.not.i.i.i606, i1 true, i1 %tobool.not1.i.i608
   br i1 %tobool.not.i.i609, label %if.then.i.i618, label %strbuf_addch.exit.i610
 
@@ -1827,33 +1830,33 @@ if.then.i.i618:                                   ; preds = %while.body.i602
 
 strbuf_addch.exit.i610:                           ; preds = %if.then.i.i618, %while.body.i602
   %inc.pre-phi.i.i611 = phi i64 [ %.pre2.i.i620, %if.then.i.i618 ], [ %.neg.i.i607, %while.body.i602 ]
-  %175 = phi i64 [ %.pre.i.i619, %if.then.i.i618 ], [ %174, %while.body.i602 ]
-  %176 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  store i64 %inc.pre-phi.i.i611, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx.i.i612 = getelementptr inbounds i8, ptr %176, i64 %175
-  store i8 %n.addr.03.i603, ptr %arrayidx.i.i612, align 1
+  %176 = phi i64 [ %.pre.i.i619, %if.then.i.i618 ], [ %175, %while.body.i602 ]
   %177 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  %178 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx3.i.i613 = getelementptr inbounds i8, ptr %177, i64 %178
+  store i64 %inc.pre-phi.i.i611, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx.i.i612 = getelementptr inbounds i8, ptr %177, i64 %176
+  store i8 %n.addr.03.i603, ptr %arrayidx.i.i612, align 1
+  %178 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
+  %179 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx3.i.i613 = getelementptr inbounds i8, ptr %178, i64 %179
   store i8 0, ptr %arrayidx3.i.i613, align 1
   %cmp.not.i615 = icmp eq i64 %dec.i605, 0
   br i1 %cmp.not.i615, label %strbuf_add_le.exit621, label %while.body.i602, !llvm.loop !5
 
 strbuf_add_le.exit621:                            ; preds = %strbuf_addch.exit.i610
-  %179 = load i64, ptr %size.addr, align 8
-  %cmp325 = icmp ugt i64 %179, 4294967294
+  %180 = load i64, ptr %size.addr, align 8
+  %cmp325 = icmp ugt i64 %180, 4294967294
   br i1 %cmp325, label %while.body.i622, label %if.end329
 
 while.body.i622:                                  ; preds = %strbuf_add_le.exit621, %strbuf_addch.exit.i630
-  %n.addr.03.i623 = phi i64 [ %shr.i634, %strbuf_addch.exit.i630 ], [ %179, %strbuf_add_le.exit621 ]
+  %n.addr.03.i623 = phi i64 [ %shr.i634, %strbuf_addch.exit.i630 ], [ %180, %strbuf_add_le.exit621 ]
   %size.addr.02.i624 = phi i64 [ %dec.i625, %strbuf_addch.exit.i630 ], [ 8, %strbuf_add_le.exit621 ]
   %dec.i625 = add nsw i64 %size.addr.02.i624, -1
-  %180 = trunc i64 %n.addr.03.i623 to i8
-  %181 = load i64, ptr @zip_dir, align 8
-  %tobool.not.i.i.i626 = icmp eq i64 %181, 0
-  %182 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %.neg.i.i627 = add i64 %182, 1
-  %tobool.not1.i.i628 = icmp eq i64 %181, %.neg.i.i627
+  %181 = trunc i64 %n.addr.03.i623 to i8
+  %182 = load i64, ptr @zip_dir, align 8
+  %tobool.not.i.i.i626 = icmp eq i64 %182, 0
+  %183 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %.neg.i.i627 = add i64 %183, 1
+  %tobool.not1.i.i628 = icmp eq i64 %182, %.neg.i.i627
   %tobool.not.i.i629 = select i1 %tobool.not.i.i.i626, i1 true, i1 %tobool.not1.i.i628
   br i1 %tobool.not.i.i629, label %if.then.i.i638, label %strbuf_addch.exit.i630
 
@@ -1865,14 +1868,14 @@ if.then.i.i638:                                   ; preds = %while.body.i622
 
 strbuf_addch.exit.i630:                           ; preds = %if.then.i.i638, %while.body.i622
   %inc.pre-phi.i.i631 = phi i64 [ %.pre2.i.i640, %if.then.i.i638 ], [ %.neg.i.i627, %while.body.i622 ]
-  %183 = phi i64 [ %.pre.i.i639, %if.then.i.i638 ], [ %182, %while.body.i622 ]
-  %184 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  store i64 %inc.pre-phi.i.i631, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx.i.i632 = getelementptr inbounds i8, ptr %184, i64 %183
-  store i8 %180, ptr %arrayidx.i.i632, align 1
+  %184 = phi i64 [ %.pre.i.i639, %if.then.i.i638 ], [ %183, %while.body.i622 ]
   %185 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  %186 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx3.i.i633 = getelementptr inbounds i8, ptr %185, i64 %186
+  store i64 %inc.pre-phi.i.i631, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx.i.i632 = getelementptr inbounds i8, ptr %185, i64 %184
+  store i8 %181, ptr %arrayidx.i.i632, align 1
+  %186 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
+  %187 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx3.i.i633 = getelementptr inbounds i8, ptr %186, i64 %187
   store i8 0, ptr %arrayidx3.i.i633, align 1
   %shr.i634 = lshr i64 %n.addr.03.i623, 8
   %cmp.not.i635 = icmp eq i64 %dec.i625, 0
@@ -1886,12 +1889,12 @@ while.body.i642:                                  ; preds = %if.end329, %strbuf_
   %n.addr.03.i643 = phi i64 [ %shr.i654, %strbuf_addch.exit.i650 ], [ %compressed_size.1, %if.end329 ]
   %size.addr.02.i644 = phi i64 [ %dec.i645, %strbuf_addch.exit.i650 ], [ 8, %if.end329 ]
   %dec.i645 = add nsw i64 %size.addr.02.i644, -1
-  %187 = trunc i64 %n.addr.03.i643 to i8
-  %188 = load i64, ptr @zip_dir, align 8
-  %tobool.not.i.i.i646 = icmp eq i64 %188, 0
-  %189 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %.neg.i.i647 = add i64 %189, 1
-  %tobool.not1.i.i648 = icmp eq i64 %188, %.neg.i.i647
+  %188 = trunc i64 %n.addr.03.i643 to i8
+  %189 = load i64, ptr @zip_dir, align 8
+  %tobool.not.i.i.i646 = icmp eq i64 %189, 0
+  %190 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %.neg.i.i647 = add i64 %190, 1
+  %tobool.not1.i.i648 = icmp eq i64 %189, %.neg.i.i647
   %tobool.not.i.i649 = select i1 %tobool.not.i.i.i646, i1 true, i1 %tobool.not1.i.i648
   br i1 %tobool.not.i.i649, label %if.then.i.i658, label %strbuf_addch.exit.i650
 
@@ -1903,14 +1906,14 @@ if.then.i.i658:                                   ; preds = %while.body.i642
 
 strbuf_addch.exit.i650:                           ; preds = %if.then.i.i658, %while.body.i642
   %inc.pre-phi.i.i651 = phi i64 [ %.pre2.i.i660, %if.then.i.i658 ], [ %.neg.i.i647, %while.body.i642 ]
-  %190 = phi i64 [ %.pre.i.i659, %if.then.i.i658 ], [ %189, %while.body.i642 ]
-  %191 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  store i64 %inc.pre-phi.i.i651, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx.i.i652 = getelementptr inbounds i8, ptr %191, i64 %190
-  store i8 %187, ptr %arrayidx.i.i652, align 1
+  %191 = phi i64 [ %.pre.i.i659, %if.then.i.i658 ], [ %190, %while.body.i642 ]
   %192 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  %193 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx3.i.i653 = getelementptr inbounds i8, ptr %192, i64 %193
+  store i64 %inc.pre-phi.i.i651, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx.i.i652 = getelementptr inbounds i8, ptr %192, i64 %191
+  store i8 %188, ptr %arrayidx.i.i652, align 1
+  %193 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
+  %194 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx3.i.i653 = getelementptr inbounds i8, ptr %193, i64 %194
   store i8 0, ptr %arrayidx3.i.i653, align 1
   %shr.i654 = lshr i64 %n.addr.03.i643, 8
   %cmp.not.i655 = icmp eq i64 %dec.i645, 0
@@ -1924,12 +1927,12 @@ while.body.i662:                                  ; preds = %if.end334, %strbuf_
   %n.addr.03.i663 = phi i64 [ %shr.i674, %strbuf_addch.exit.i670 ], [ %0, %if.end334 ]
   %size.addr.02.i664 = phi i64 [ %dec.i665, %strbuf_addch.exit.i670 ], [ 8, %if.end334 ]
   %dec.i665 = add nsw i64 %size.addr.02.i664, -1
-  %194 = trunc i64 %n.addr.03.i663 to i8
-  %195 = load i64, ptr @zip_dir, align 8
-  %tobool.not.i.i.i666 = icmp eq i64 %195, 0
-  %196 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %.neg.i.i667 = add i64 %196, 1
-  %tobool.not1.i.i668 = icmp eq i64 %195, %.neg.i.i667
+  %195 = trunc i64 %n.addr.03.i663 to i8
+  %196 = load i64, ptr @zip_dir, align 8
+  %tobool.not.i.i.i666 = icmp eq i64 %196, 0
+  %197 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %.neg.i.i667 = add i64 %197, 1
+  %tobool.not1.i.i668 = icmp eq i64 %196, %.neg.i.i667
   %tobool.not.i.i669 = select i1 %tobool.not.i.i.i666, i1 true, i1 %tobool.not1.i.i668
   br i1 %tobool.not.i.i669, label %if.then.i.i678, label %strbuf_addch.exit.i670
 
@@ -1941,22 +1944,22 @@ if.then.i.i678:                                   ; preds = %while.body.i662
 
 strbuf_addch.exit.i670:                           ; preds = %if.then.i.i678, %while.body.i662
   %inc.pre-phi.i.i671 = phi i64 [ %.pre2.i.i680, %if.then.i.i678 ], [ %.neg.i.i667, %while.body.i662 ]
-  %197 = phi i64 [ %.pre.i.i679, %if.then.i.i678 ], [ %196, %while.body.i662 ]
-  %198 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  store i64 %inc.pre-phi.i.i671, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx.i.i672 = getelementptr inbounds i8, ptr %198, i64 %197
-  store i8 %194, ptr %arrayidx.i.i672, align 1
+  %198 = phi i64 [ %.pre.i.i679, %if.then.i.i678 ], [ %197, %while.body.i662 ]
   %199 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
-  %200 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
-  %arrayidx3.i.i673 = getelementptr inbounds i8, ptr %199, i64 %200
+  store i64 %inc.pre-phi.i.i671, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx.i.i672 = getelementptr inbounds i8, ptr %199, i64 %198
+  store i8 %195, ptr %arrayidx.i.i672, align 1
+  %200 = load ptr, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 16), align 8
+  %201 = load i64, ptr getelementptr inbounds (i8, ptr @zip_dir, i64 8), align 8
+  %arrayidx3.i.i673 = getelementptr inbounds i8, ptr %200, i64 %201
   store i8 0, ptr %arrayidx3.i.i673, align 1
   %shr.i674 = lshr i64 %n.addr.03.i663, 8
   %cmp.not.i675 = icmp eq i64 %dec.i665, 0
   br i1 %cmp.not.i675, label %if.end340, label %while.body.i662, !llvm.loop !5
 
 if.end340:                                        ; preds = %strbuf_addch.exit.i670, %if.end334, %strbuf_add_le.exit581
-  %201 = load i64, ptr @zip_dir_entries, align 8
-  %inc = add i64 %201, 1
+  %202 = load i64, ptr @zip_dir_entries, align 8
+  %inc = add i64 %202, 1
   store i64 %inc, ptr @zip_dir_entries, align 8
   br label %return
 

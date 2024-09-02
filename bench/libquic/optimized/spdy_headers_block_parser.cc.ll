@@ -308,7 +308,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end168
-  %13 = phi i32 [ 0, %while.body.lr.ph ], [ %43, %if.end168 ]
+  %13 = phi i32 [ 0, %while.body.lr.ph ], [ %44, %if.end168 ]
   %14 = load i32, ptr %state_, align 8
   switch i32 %14, label %if.then142.thread [
     i32 0, label %sw.bb
@@ -564,12 +564,12 @@ invoke.cont163:                                   ; preds = %invoke.cont160
 
 invoke.cont163.if.end168_crit_edge:               ; preds = %invoke.cont163
   %.pre69 = load i32, ptr %error_, align 4
+  %43 = icmp eq i32 %.pre69, 0
   br label %if.end168
 
 if.end168:                                        ; preds = %invoke.cont163.if.end168_crit_edge, %if.then142.thread, %if.then142
-  %43 = phi i32 [ %.pre69, %invoke.cont163.if.end168_crit_edge ], [ %13, %if.then142.thread ], [ 0, %if.then142 ]
-  %44 = phi i32 [ %.pre69, %invoke.cont163.if.end168_crit_edge ], [ 0, %if.then142.thread ], [ 0, %if.then142 ]
-  %cmp96 = icmp eq i32 %44, 0
+  %44 = phi i32 [ %.pre69, %invoke.cont163.if.end168_crit_edge ], [ %13, %if.then142.thread ], [ 0, %if.then142 ]
+  %cmp96 = phi i1 [ %43, %invoke.cont163.if.end168_crit_edge ], [ true, %if.then142.thread ], [ true, %if.then142 ]
   br i1 %cmp96, label %while.body, label %while.end.loopexit.loopexit, !llvm.loop !5
 
 while.end.loopexit.sink.split:                    ; preds = %invoke.cont133, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i29, %_ZN3net22SpdyHeadersBlockParser11ParseLengthEPNS_24SpdyPrefixedBufferReaderEPj.exit.i17, %land.lhs.true.i
@@ -578,7 +578,7 @@ while.end.loopexit.sink.split:                    ; preds = %invoke.cont133, %_Z
   br label %while.end
 
 while.end.loopexit.loopexit:                      ; preds = %if.end168, %sw.epilog
-  %.ph = phi i32 [ %43, %if.end168 ], [ %41, %sw.epilog ]
+  %.ph = phi i32 [ %44, %if.end168 ], [ %41, %sw.epilog ]
   %45 = icmp eq i32 %.ph, 0
   br label %while.end
 

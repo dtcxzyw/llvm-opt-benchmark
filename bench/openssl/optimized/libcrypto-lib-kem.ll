@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.evp_kem_from_algorithm = private unnamed_addr constant [23 x i8] c"evp_kem_from_algorithm\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %ctx, ptr noundef %authpriv, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %ctx, ptr noundef %authpriv, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %authpriv, null
   br i1 %cmp, label %return, label %if.end
@@ -420,7 +420,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_auth_decapsulate_init(ptr noundef %ctx, ptr noundef %authpub, ptr noundef %params) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2) i32 @EVP_PKEY_auth_decapsulate_init(ptr noundef %ctx, ptr noundef %authpub, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %authpub, null
   br i1 %cmp, label %return, label %if.end

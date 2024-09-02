@@ -4421,8 +4421,8 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
 
 67:                                               ; preds = %.noexc389
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %29)
   %68 = icmp ugt i64 %.0.i.i.i, 1
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %29)
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %.thread552, %67

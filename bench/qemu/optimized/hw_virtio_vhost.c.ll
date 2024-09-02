@@ -5474,42 +5474,41 @@ if.then23:                                        ; preds = %vhost_dev_has_iommu
 
 while.body.preheader:                             ; preds = %if.then23
   %conv = zext i32 %17 to i64
+  %18 = and i32 %.compoundliteral.sroa.0.088, -67108864
+  %bf.clear31 = or disjoint i32 %18, 1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end65
-  %.compoundliteral.sroa.0.286 = phi i32 [ %bf.clear31, %if.end65 ], [ %.compoundliteral.sroa.0.088, %while.body.preheader ]
   %used_phys24.085 = phi i64 [ %add78, %if.end65 ], [ %.pre94, %while.body.preheader ]
   %used_size26.084 = phi i64 [ %sub77, %if.end65 ], [ %conv, %while.body.preheader ]
   %call.i65 = call ptr @get_ptr_rcu_reader() #19
   %depth.i = getelementptr inbounds i8, ptr %call.i65, i64 12
-  %18 = load i32, ptr %depth.i, align 4
-  %inc.i = add i32 %18, 1
+  %19 = load i32, ptr %depth.i, align 4
+  %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %depth.i, align 4
-  %cmp.not.i = icmp eq i32 %18, 0
+  %cmp.not.i = icmp eq i32 %19, 0
   br i1 %cmp.not.i, label %while.end.i, label %rcu_read_lock.exit
 
 while.end.i:                                      ; preds = %while.body
-  %19 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
-  %conv8.i = and i64 %19, 4294967295
+  %20 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
+  %conv8.i = and i64 %20, 4294967295
   store atomic i64 %conv8.i, ptr %call.i65 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   fence seq_cst
   br label %rcu_read_lock.exit
 
 rcu_read_lock.exit:                               ; preds = %while.body, %while.end.i
-  %20 = load ptr, ptr %dev, align 8
-  %dma_as = getelementptr inbounds i8, ptr %20, i64 472
-  %21 = load ptr, ptr %dma_as, align 8
-  %bf.set = and i32 %.compoundliteral.sroa.0.286, -67108864
-  %bf.clear31 = or disjoint i32 %bf.set, 1
-  call void @address_space_get_iotlb_entry(ptr nonnull sret(%struct.IOMMUTLBEntry) align 8 %tmp29, ptr noundef %21, i64 noundef %used_phys24.085, i1 noundef zeroext true, i32 %bf.clear31) #19
+  %21 = load ptr, ptr %dev, align 8
+  %dma_as = getelementptr inbounds i8, ptr %21, i64 472
+  %22 = load ptr, ptr %dma_as, align 8
+  call void @address_space_get_iotlb_entry(ptr nonnull sret(%struct.IOMMUTLBEntry) align 8 %tmp29, ptr noundef %22, i64 noundef %used_phys24.085, i1 noundef zeroext true, i32 %bf.clear31) #19
   %iotlb.sroa.0.0.copyload = load ptr, ptr %tmp29, align 8
   %iotlb.sroa.223.0.copyload = load i64, ptr %iotlb.sroa.223.0.tmp29.sroa_idx, align 8
   %iotlb.sroa.3.0.copyload = load i64, ptr %iotlb.sroa.3.0.tmp29.sroa_idx, align 8
   %call.i66 = call ptr @get_ptr_rcu_reader() #19
   %depth.i67 = getelementptr inbounds i8, ptr %call.i66, i64 12
-  %22 = load i32, ptr %depth.i67, align 4
-  %cmp.not.i68 = icmp eq i32 %22, 0
+  %23 = load i32, ptr %depth.i67, align 4
+  %cmp.not.i68 = icmp eq i32 %23, 0
   br i1 %cmp.not.i68, label %if.else.i70, label %if.end.i
 
 if.else.i70:                                      ; preds = %rcu_read_lock.exit
@@ -5517,7 +5516,7 @@ if.else.i70:                                      ; preds = %rcu_read_lock.exit
   unreachable
 
 if.end.i:                                         ; preds = %rcu_read_lock.exit
-  %dec.i = add i32 %22, -1
+  %dec.i = add i32 %23, -1
   store i32 %dec.i, ptr %depth.i67, align 4
   %cmp2.not.i = icmp eq i32 %dec.i, 0
   br i1 %cmp2.not.i, label %while.end.i69, label %rcu_read_unlock.exit
@@ -5527,8 +5526,8 @@ while.end.i69:                                    ; preds = %if.end.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !11
   fence seq_cst
   %waiting.i = getelementptr inbounds i8, ptr %call.i66, i64 8
-  %23 = load atomic i8, ptr %waiting.i monotonic, align 8
-  %tobool.i = trunc i8 %23 to i1
+  %24 = load atomic i8, ptr %waiting.i monotonic, align 8
+  %tobool.i = trunc i8 %24 to i1
   br i1 %tobool.i, label %while.end21.i, label %rcu_read_unlock.exit
 
 while.end21.i:                                    ; preds = %while.end.i69
@@ -5541,8 +5540,8 @@ rcu_read_unlock.exit:                             ; preds = %if.end.i, %while.en
   br i1 %tobool57.not, label %do.body, label %if.end65
 
 do.body:                                          ; preds = %rcu_read_unlock.exit
-  %24 = load i32, ptr @qemu_loglevel, align 4
-  %and.i = and i32 %24, 2048
+  %25 = load i32, ptr @qemu_loglevel, align 4
+  %and.i = and i32 %25, 2048
   %cmp.i71.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i71.not, label %return, label %if.then63
 
@@ -5565,20 +5564,20 @@ if.end65:                                         ; preds = %rcu_read_unlock.exi
   br i1 %tobool28.not, label %for.inc85, label %while.body, !llvm.loop !37
 
 if.else:                                          ; preds = %if.then.i.if.else_crit_edge, %if.end21, %vhost_dev_has_iommu.exit
-  %25 = phi i64 [ %.pre, %if.then.i.if.else_crit_edge ], [ %13, %if.end21 ], [ %.pre94, %vhost_dev_has_iommu.exit ]
+  %26 = phi i64 [ %.pre, %if.then.i.if.else_crit_edge ], [ %13, %if.end21 ], [ %.pre94, %vhost_dev_has_iommu.exit ]
   %used_size81 = getelementptr inbounds i8, ptr %add.ptr17, i64 80
-  %26 = load i32, ptr %used_size81, align 8
-  %conv82 = zext i32 %26 to i64
-  %add.i74 = add i64 %25, -1
+  %27 = load i32, ptr %used_size81, align 8
+  %conv82 = zext i32 %27 to i64
+  %add.i74 = add i64 %26, -1
   %sub.i75 = add i64 %add.i74, %conv82
-  call fastcc void @vhost_dev_sync_region(ptr noundef nonnull %dev, ptr noundef nonnull %section, i64 noundef %2, i64 noundef %cond8, i64 noundef %25, i64 noundef %sub.i75)
+  call fastcc void @vhost_dev_sync_region(ptr noundef nonnull %dev, ptr noundef nonnull %section, i64 noundef %2, i64 noundef %cond8, i64 noundef %26, i64 noundef %sub.i75)
   br label %for.inc85
 
 for.inc85:                                        ; preds = %if.end65, %if.then23, %if.else, %land.lhs.true
   %.compoundliteral.sroa.0.1 = phi i32 [ %.compoundliteral.sroa.0.088, %if.else ], [ %.compoundliteral.sroa.0.088, %land.lhs.true ], [ %.compoundliteral.sroa.0.088, %if.then23 ], [ %bf.clear31, %if.end65 ]
   %inc86 = add nuw i32 %i.189, 1
-  %27 = load i32, ptr %nvqs, align 8
-  %cmp14 = icmp ult i32 %inc86, %27
+  %28 = load i32, ptr %nvqs, align 8
+  %cmp14 = icmp ult i32 %inc86, %28
   br i1 %cmp14, label %for.body15, label %return, !llvm.loop !38
 
 return:                                           ; preds = %for.inc85, %for.cond13.preheader, %if.then63, %do.body, %entry, %lor.lhs.false

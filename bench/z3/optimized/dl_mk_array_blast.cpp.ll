@@ -1220,12 +1220,12 @@ for.cond34:                                       ; preds = %for.cond34.preheade
 if.end.i.i41:                                     ; preds = %for.cond34
   %arrayidx.i.i = getelementptr inbounds i8, ptr %22, i64 -4
   %23 = load i32, ptr %arrayidx.i.i, align 4
+  %24 = zext i32 %23 to i64
   br label %invoke.cont35
 
 invoke.cont35:                                    ; preds = %if.end.i.i41, %for.cond34
-  %retval.0.i.i = phi i32 [ %23, %if.end.i.i41 ], [ 0, %for.cond34 ]
-  %24 = zext i32 %retval.0.i.i to i64
-  %cmp37 = icmp ult i64 %indvars.iv984, %24
+  %retval.0.i.i = phi i64 [ %24, %if.end.i.i41 ], [ 0, %for.cond34 ]
+  %cmp37 = icmp ult i64 %indvars.iv984, %retval.0.i.i
   br i1 %cmp37, label %invoke.cont39, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %invoke.cont35
@@ -1988,12 +1988,12 @@ for.cond156:                                      ; preds = %for.cond156.prehead
 if.end.i.i259:                                    ; preds = %for.cond156
   %arrayidx.i.i260 = getelementptr inbounds i8, ptr %126, i64 -4
   %127 = load i32, ptr %arrayidx.i.i260, align 4
+  %128 = zext i32 %127 to i64
   br label %invoke.cont157
 
 invoke.cont157:                                   ; preds = %if.end.i.i259, %for.cond156
-  %retval.0.i.i261 = phi i32 [ %127, %if.end.i.i259 ], [ 0, %for.cond156 ]
-  %128 = zext i32 %retval.0.i.i261 to i64
-  %cmp159 = icmp ult i64 %indvars.iv992, %128
+  %retval.0.i.i261 = phi i64 [ %128, %if.end.i.i259 ], [ 0, %for.cond156 ]
+  %cmp159 = icmp ult i64 %indvars.iv992, %retval.0.i.i261
   br i1 %cmp159, label %invoke.cont163, label %for.end232
 
 invoke.cont163:                                   ; preds = %invoke.cont157
@@ -2691,12 +2691,12 @@ for.cond276:                                      ; preds = %for.cond276.prehead
 
 if.end.i528:                                      ; preds = %for.cond276
   %221 = load i32, ptr %arrayidx.i529, align 4
+  %222 = zext i32 %221 to i64
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit531
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit531:          ; preds = %for.cond276, %if.end.i528
-  %retval.0.i530 = phi i32 [ %221, %if.end.i528 ], [ 0, %for.cond276 ]
-  %222 = zext i32 %retval.0.i530 to i64
-  %cmp279 = icmp ult i64 %indvars.iv995, %222
+  %retval.0.i530 = phi i64 [ %222, %if.end.i528 ], [ 0, %for.cond276 ]
+  %cmp279 = icmp ult i64 %indvars.iv995, %retval.0.i530
   %223 = load ptr, ptr %m, align 8
   br i1 %cmp279, label %for.body280, label %for.end292
 
@@ -3778,12 +3778,12 @@ for.cond28:                                       ; preds = %for.cond28.preheade
 if.end.i.i:                                       ; preds = %for.cond28
   %arrayidx.i.i62 = getelementptr inbounds i8, ptr %27, i64 -4
   %28 = load i32, ptr %arrayidx.i.i62, align 4
+  %29 = zext i32 %28 to i64
   br label %invoke.cont29
 
 invoke.cont29:                                    ; preds = %if.end.i.i, %for.cond28
-  %retval.0.i.i = phi i32 [ %28, %if.end.i.i ], [ 0, %for.cond28 ]
-  %29 = zext i32 %retval.0.i.i to i64
-  %cmp31 = icmp ult i64 %indvars.iv368, %29
+  %retval.0.i.i = phi i64 [ %29, %if.end.i.i ], [ 0, %for.cond28 ]
+  %cmp31 = icmp ult i64 %indvars.iv368, %retval.0.i.i
   br i1 %cmp31, label %invoke.cont33, label %for.end65
 
 invoke.cont33:                                    ; preds = %invoke.cont29

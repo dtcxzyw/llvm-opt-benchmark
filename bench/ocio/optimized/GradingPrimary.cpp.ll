@@ -675,18 +675,12 @@ entry:
   %1 = load double, ptr %m_clampBlack, align 8
   %cmp2 = fcmp oeq double %1, 0xFFEFFFFFFFFFFFFF
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
-  br i1 %or.cond, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
   %m_clampWhite = getelementptr inbounds i8, ptr %v, i64 264
   %2 = load double, ptr %m_clampWhite, align 8
   %cmp4 = fcmp oeq double %2, 0x7FEFFFFFFFFFFFFF
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
+  %narrow = select i1 %or.cond, i1 %cmp4, i1 false
+  %frombool = zext i1 %narrow to i8
   %m_localBypass = getelementptr inbounds i8, ptr %this, i64 81
-  %frombool = zext i1 %3 to i8
   store i8 %frombool, ptr %m_localBypass, align 1
   switch i32 %style, label %sw.epilog654 [
     i32 0, label %sw.bb
@@ -694,7 +688,7 @@ land.end:                                         ; preds = %land.rhs, %entry
     i32 2, label %sw.bb368
   ]
 
-sw.bb:                                            ; preds = %land.end
+sw.bb:                                            ; preds = %entry
   %m_contrast = getelementptr inbounds i8, ptr %v, i64 32
   %m_gamma = getelementptr inbounds i8, ptr %v, i64 64
   switch i32 %dir, label %sw.bb.sw.epilog_crit_edge [
@@ -704,81 +698,81 @@ sw.bb:                                            ; preds = %land.end
 
 sw.bb.sw.epilog_crit_edge:                        ; preds = %sw.bb
   %m_gamma138.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
-  %.pre291 = load float, ptr %m_gamma138.phi.trans.insert, align 8
+  %.pre293 = load float, ptr %m_gamma138.phi.trans.insert, align 8
   %arrayidx.i.i190.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 28
-  %.pre292 = load float, ptr %arrayidx.i.i190.phi.trans.insert, align 4
+  %.pre294 = load float, ptr %arrayidx.i.i190.phi.trans.insert, align 4
   %arrayidx.i.i191.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 32
-  %.pre293 = load float, ptr %arrayidx.i.i191.phi.trans.insert, align 8
+  %.pre295 = load float, ptr %arrayidx.i.i191.phi.trans.insert, align 8
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %sw.bb
   %m_master = getelementptr inbounds i8, ptr %v, i64 24
-  %4 = load double, ptr %m_master, align 8
-  %5 = load double, ptr %v, align 8
-  %add = fadd double %4, %5
+  %3 = load double, ptr %m_master, align 8
+  %4 = load double, ptr %v, align 8
+  %add = fadd double %3, %4
   %mul = fmul double %add, 6.250000e+00
   %div = fdiv double %mul, 1.023000e+03
   %conv = fptrunc double %div to float
   store float %conv, ptr %this, align 8
-  %6 = load double, ptr %m_master, align 8
+  %5 = load double, ptr %m_master, align 8
   %m_green = getelementptr inbounds i8, ptr %v, i64 8
-  %7 = load double, ptr %m_green, align 8
-  %add9 = fadd double %6, %7
+  %6 = load double, ptr %m_green, align 8
+  %add9 = fadd double %5, %6
   %mul10 = fmul double %add9, 6.250000e+00
   %div11 = fdiv double %mul10, 1.023000e+03
   %conv12 = fptrunc double %div11 to float
   %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 4
   store float %conv12, ptr %arrayidx.i.i, align 4
-  %8 = load double, ptr %m_master, align 8
+  %7 = load double, ptr %m_master, align 8
   %m_blue = getelementptr inbounds i8, ptr %v, i64 16
-  %9 = load double, ptr %m_blue, align 8
-  %add16 = fadd double %8, %9
+  %8 = load double, ptr %m_blue, align 8
+  %add16 = fadd double %7, %8
   %mul17 = fmul double %add16, 6.250000e+00
   %div18 = fdiv double %mul17, 1.023000e+03
   %conv19 = fptrunc double %div18 to float
   %arrayidx.i.i173 = getelementptr inbounds i8, ptr %this, i64 8
   store float %conv19, ptr %arrayidx.i.i173, align 8
   %m_master22 = getelementptr inbounds i8, ptr %v, i64 56
-  %10 = load double, ptr %m_master22, align 8
-  %11 = load double, ptr %m_contrast, align 8
-  %mul24 = fmul double %10, %11
+  %9 = load double, ptr %m_master22, align 8
+  %10 = load double, ptr %m_contrast, align 8
+  %mul24 = fmul double %9, %10
   %conv25 = fptrunc double %mul24 to float
   %m_contrast26 = getelementptr inbounds i8, ptr %this, i64 12
   store float %conv25, ptr %m_contrast26, align 4
-  %12 = load double, ptr %m_master22, align 8
+  %11 = load double, ptr %m_master22, align 8
   %m_green29 = getelementptr inbounds i8, ptr %v, i64 40
-  %13 = load double, ptr %m_green29, align 8
-  %mul30 = fmul double %12, %13
+  %12 = load double, ptr %m_green29, align 8
+  %mul30 = fmul double %11, %12
   %conv31 = fptrunc double %mul30 to float
   %arrayidx.i.i175 = getelementptr inbounds i8, ptr %this, i64 16
   store float %conv31, ptr %arrayidx.i.i175, align 8
-  %14 = load double, ptr %m_master22, align 8
+  %13 = load double, ptr %m_master22, align 8
   %m_blue35 = getelementptr inbounds i8, ptr %v, i64 48
-  %15 = load double, ptr %m_blue35, align 8
-  %mul36 = fmul double %14, %15
+  %14 = load double, ptr %m_blue35, align 8
+  %mul36 = fmul double %13, %14
   %conv37 = fptrunc double %mul36 to float
   %arrayidx.i.i176 = getelementptr inbounds i8, ptr %this, i64 20
   store float %conv37, ptr %arrayidx.i.i176, align 4
   %m_master40 = getelementptr inbounds i8, ptr %v, i64 88
-  %16 = load double, ptr %m_master40, align 8
-  %17 = load double, ptr %m_gamma, align 8
-  %mul42 = fmul double %16, %17
+  %15 = load double, ptr %m_master40, align 8
+  %16 = load double, ptr %m_gamma, align 8
+  %mul42 = fmul double %15, %16
   %div43 = fdiv double 1.000000e+00, %mul42
   %conv44 = fptrunc double %div43 to float
   %m_gamma45 = getelementptr inbounds i8, ptr %this, i64 24
   store float %conv44, ptr %m_gamma45, align 8
-  %18 = load double, ptr %m_master40, align 8
+  %17 = load double, ptr %m_master40, align 8
   %m_green48 = getelementptr inbounds i8, ptr %v, i64 72
-  %19 = load double, ptr %m_green48, align 8
-  %mul49 = fmul double %18, %19
+  %18 = load double, ptr %m_green48, align 8
+  %mul49 = fmul double %17, %18
   %div50 = fdiv double 1.000000e+00, %mul49
   %conv51 = fptrunc double %div50 to float
   %arrayidx.i.i178 = getelementptr inbounds i8, ptr %this, i64 28
   store float %conv51, ptr %arrayidx.i.i178, align 4
-  %20 = load double, ptr %m_master40, align 8
+  %19 = load double, ptr %m_master40, align 8
   %m_blue55 = getelementptr inbounds i8, ptr %v, i64 80
-  %21 = load double, ptr %m_blue55, align 8
-  %mul56 = fmul double %20, %21
+  %20 = load double, ptr %m_blue55, align 8
+  %mul56 = fmul double %19, %20
   %div57 = fdiv double 1.000000e+00, %mul56
   %conv58 = fptrunc double %div57 to float
   %arrayidx.i.i179 = getelementptr inbounds i8, ptr %this, i64 32
@@ -787,28 +781,28 @@ sw.bb5:                                           ; preds = %sw.bb
 
 sw.bb61:                                          ; preds = %sw.bb
   %m_master62 = getelementptr inbounds i8, ptr %v, i64 24
-  %22 = load double, ptr %m_master62, align 8
-  %23 = load double, ptr %v, align 8
-  %add64 = fadd double %22, %23
+  %21 = load double, ptr %m_master62, align 8
+  %22 = load double, ptr %v, align 8
+  %add64 = fadd double %21, %22
   %mul65 = fmul double %add64, 6.250000e+00
   %div66 = fdiv double %mul65, 1.023000e+03
   %conv67 = fptrunc double %div66 to float
   %fneg = fneg float %conv67
   store float %fneg, ptr %this, align 8
-  %24 = load double, ptr %m_master62, align 8
+  %23 = load double, ptr %m_master62, align 8
   %m_green71 = getelementptr inbounds i8, ptr %v, i64 8
-  %25 = load double, ptr %m_green71, align 8
-  %add72 = fadd double %24, %25
+  %24 = load double, ptr %m_green71, align 8
+  %add72 = fadd double %23, %24
   %mul73 = fmul double %add72, 6.250000e+00
   %div74 = fdiv double %mul73, 1.023000e+03
   %conv75 = fptrunc double %div74 to float
   %fneg76 = fneg float %conv75
   %arrayidx.i.i181 = getelementptr inbounds i8, ptr %this, i64 4
   store float %fneg76, ptr %arrayidx.i.i181, align 4
-  %26 = load double, ptr %m_master62, align 8
+  %25 = load double, ptr %m_master62, align 8
   %m_blue80 = getelementptr inbounds i8, ptr %v, i64 16
-  %27 = load double, ptr %m_blue80, align 8
-  %add81 = fadd double %26, %27
+  %26 = load double, ptr %m_blue80, align 8
+  %add81 = fadd double %25, %26
   %mul82 = fmul double %add81, 6.250000e+00
   %div83 = fdiv double %mul82, 1.023000e+03
   %conv84 = fptrunc double %div83 to float
@@ -816,106 +810,106 @@ sw.bb61:                                          ; preds = %sw.bb
   %arrayidx.i.i182 = getelementptr inbounds i8, ptr %this, i64 8
   store float %fneg85, ptr %arrayidx.i.i182, align 8
   %m_master88 = getelementptr inbounds i8, ptr %v, i64 56
-  %28 = load double, ptr %m_master88, align 8
-  %29 = load double, ptr %m_contrast, align 8
-  %mul90 = fmul double %28, %29
+  %27 = load double, ptr %m_master88, align 8
+  %28 = load double, ptr %m_contrast, align 8
+  %mul90 = fmul double %27, %28
   %m_green92 = getelementptr inbounds i8, ptr %v, i64 40
-  %30 = load double, ptr %m_green92, align 8
-  %mul93 = fmul double %28, %30
+  %29 = load double, ptr %m_green92, align 8
+  %mul93 = fmul double %27, %29
   %m_blue95 = getelementptr inbounds i8, ptr %v, i64 48
-  %31 = load double, ptr %m_blue95, align 8
-  %mul96 = fmul double %28, %31
+  %30 = load double, ptr %m_blue95, align 8
+  %mul96 = fmul double %27, %30
   %cmp97 = fcmp oeq double %mul90, 0.000000e+00
-  %32 = fdiv double 1.000000e+00, %mul90
-  %div98 = select i1 %cmp97, double 1.000000e+00, double %32
+  %31 = fdiv double 1.000000e+00, %mul90
+  %div98 = select i1 %cmp97, double 1.000000e+00, double %31
   %conv99 = fptrunc double %div98 to float
   %m_contrast100 = getelementptr inbounds i8, ptr %this, i64 12
   store float %conv99, ptr %m_contrast100, align 4
   %cmp102 = fcmp oeq double %mul93, 0.000000e+00
-  %33 = fdiv double 1.000000e+00, %mul93
-  %div107 = select i1 %cmp102, double 1.000000e+00, double %33
+  %32 = fdiv double 1.000000e+00, %mul93
+  %div107 = select i1 %cmp102, double 1.000000e+00, double %32
   %conv108 = fptrunc double %div107 to float
   %arrayidx.i.i184 = getelementptr inbounds i8, ptr %this, i64 16
   store float %conv108, ptr %arrayidx.i.i184, align 8
   %cmp111 = fcmp oeq double %mul96, 0.000000e+00
-  %34 = fdiv double 1.000000e+00, %mul96
-  %div116 = select i1 %cmp111, double 1.000000e+00, double %34
+  %33 = fdiv double 1.000000e+00, %mul96
+  %div116 = select i1 %cmp111, double 1.000000e+00, double %33
   %conv117 = fptrunc double %div116 to float
   %arrayidx.i.i185 = getelementptr inbounds i8, ptr %this, i64 20
   store float %conv117, ptr %arrayidx.i.i185, align 4
   %m_master120 = getelementptr inbounds i8, ptr %v, i64 88
-  %35 = load double, ptr %m_master120, align 8
-  %36 = load double, ptr %m_gamma, align 8
-  %mul122 = fmul double %35, %36
+  %34 = load double, ptr %m_master120, align 8
+  %35 = load double, ptr %m_gamma, align 8
+  %mul122 = fmul double %34, %35
   %conv123 = fptrunc double %mul122 to float
   %m_gamma124 = getelementptr inbounds i8, ptr %this, i64 24
   store float %conv123, ptr %m_gamma124, align 8
-  %37 = load double, ptr %m_master120, align 8
+  %36 = load double, ptr %m_master120, align 8
   %m_green127 = getelementptr inbounds i8, ptr %v, i64 72
-  %38 = load double, ptr %m_green127, align 8
-  %mul128 = fmul double %37, %38
+  %37 = load double, ptr %m_green127, align 8
+  %mul128 = fmul double %36, %37
   %conv129 = fptrunc double %mul128 to float
   %arrayidx.i.i187 = getelementptr inbounds i8, ptr %this, i64 28
   store float %conv129, ptr %arrayidx.i.i187, align 4
-  %39 = load double, ptr %m_master120, align 8
+  %38 = load double, ptr %m_master120, align 8
   %m_blue133 = getelementptr inbounds i8, ptr %v, i64 80
-  %40 = load double, ptr %m_blue133, align 8
-  %mul134 = fmul double %39, %40
+  %39 = load double, ptr %m_blue133, align 8
+  %mul134 = fmul double %38, %39
   %conv135 = fptrunc double %mul134 to float
   %arrayidx.i.i188 = getelementptr inbounds i8, ptr %this, i64 32
   store float %conv135, ptr %arrayidx.i.i188, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb.sw.epilog_crit_edge, %sw.bb61, %sw.bb5
-  %41 = phi float [ %.pre293, %sw.bb.sw.epilog_crit_edge ], [ %conv135, %sw.bb61 ], [ %conv58, %sw.bb5 ]
-  %42 = phi float [ %.pre292, %sw.bb.sw.epilog_crit_edge ], [ %conv129, %sw.bb61 ], [ %conv51, %sw.bb5 ]
-  %43 = phi float [ %.pre291, %sw.bb.sw.epilog_crit_edge ], [ %conv123, %sw.bb61 ], [ %conv44, %sw.bb5 ]
-  %cmp140 = fcmp oeq float %43, 1.000000e+00
-  %cmp144 = fcmp oeq float %42, 1.000000e+00
-  %or.cond262 = select i1 %cmp140, i1 %cmp144, i1 false
-  %cmp148 = fcmp oeq float %41, 1.000000e+00
-  %narrow286 = select i1 %or.cond262, i1 %cmp148, i1 false
-  %frombool150 = zext i1 %narrow286 to i8
+  %40 = phi float [ %.pre295, %sw.bb.sw.epilog_crit_edge ], [ %conv135, %sw.bb61 ], [ %conv58, %sw.bb5 ]
+  %41 = phi float [ %.pre294, %sw.bb.sw.epilog_crit_edge ], [ %conv129, %sw.bb61 ], [ %conv51, %sw.bb5 ]
+  %42 = phi float [ %.pre293, %sw.bb.sw.epilog_crit_edge ], [ %conv123, %sw.bb61 ], [ %conv44, %sw.bb5 ]
+  %cmp140 = fcmp oeq float %42, 1.000000e+00
+  %cmp144 = fcmp oeq float %41, 1.000000e+00
+  %or.cond263 = select i1 %cmp140, i1 %cmp144, i1 false
+  %cmp148 = fcmp oeq float %40, 1.000000e+00
+  %narrow288 = select i1 %or.cond263, i1 %cmp148, i1 false
+  %frombool150 = zext i1 %narrow288 to i8
   %m_isPowerIdentity = getelementptr inbounds i8, ptr %this, i64 80
   store i8 %frombool150, ptr %m_isPowerIdentity, align 8
   %m_pivot = getelementptr inbounds i8, ptr %v, i64 232
-  %44 = load double, ptr %m_pivot, align 8
-  %45 = tail call double @llvm.fmuladd.f64(double %44, double 5.000000e-01, double 5.000000e-01)
+  %43 = load double, ptr %m_pivot, align 8
+  %44 = tail call double @llvm.fmuladd.f64(double %43, double 5.000000e-01, double 5.000000e-01)
   %m_pivot152 = getelementptr inbounds i8, ptr %this, i64 72
-  store double %45, ptr %m_pivot152, align 8
-  br i1 %3, label %land.lhs.true154, label %sw.epilog654.sink.split
+  store double %44, ptr %m_pivot152, align 8
+  br i1 %narrow, label %land.lhs.true154, label %sw.epilog654.sink.split
 
 land.lhs.true154:                                 ; preds = %sw.epilog
-  %46 = load float, ptr %this, align 8
-  %cmp160 = fcmp oeq float %46, 0.000000e+00
-  %or.cond263 = select i1 %narrow286, i1 %cmp160, i1 false
+  %45 = load float, ptr %this, align 8
+  %cmp160 = fcmp oeq float %45, 0.000000e+00
+  %or.cond264 = select i1 %narrow288, i1 %cmp160, i1 false
   %arrayidx.i.i193 = getelementptr inbounds i8, ptr %this, i64 4
-  %47 = load float, ptr %arrayidx.i.i193, align 4
-  %cmp164 = fcmp oeq float %47, 0.000000e+00
-  %or.cond264 = select i1 %or.cond263, i1 %cmp164, i1 false
+  %46 = load float, ptr %arrayidx.i.i193, align 4
+  %cmp164 = fcmp oeq float %46, 0.000000e+00
+  %or.cond265 = select i1 %or.cond264, i1 %cmp164, i1 false
   %arrayidx.i.i194 = getelementptr inbounds i8, ptr %this, i64 8
-  %48 = load float, ptr %arrayidx.i.i194, align 8
-  %cmp168 = fcmp oeq float %48, 0.000000e+00
-  %or.cond265 = select i1 %or.cond264, i1 %cmp168, i1 false
-  br i1 %or.cond265, label %land.lhs.true169, label %sw.epilog654.sink.split
+  %47 = load float, ptr %arrayidx.i.i194, align 8
+  %cmp168 = fcmp oeq float %47, 0.000000e+00
+  %or.cond266 = select i1 %or.cond265, i1 %cmp168, i1 false
+  br i1 %or.cond266, label %land.lhs.true169, label %sw.epilog654.sink.split
 
 land.lhs.true169:                                 ; preds = %land.lhs.true154
   %m_contrast170 = getelementptr inbounds i8, ptr %this, i64 12
-  %49 = load float, ptr %m_contrast170, align 4
-  %cmp172 = fcmp oeq float %49, 1.000000e+00
+  %48 = load float, ptr %m_contrast170, align 4
+  %cmp172 = fcmp oeq float %48, 1.000000e+00
   %arrayidx.i.i196 = getelementptr inbounds i8, ptr %this, i64 16
-  %50 = load float, ptr %arrayidx.i.i196, align 8
-  %cmp176 = fcmp oeq float %50, 1.000000e+00
-  %or.cond266 = select i1 %cmp172, i1 %cmp176, i1 false
-  br i1 %or.cond266, label %land.rhs177, label %sw.epilog654.sink.split
+  %49 = load float, ptr %arrayidx.i.i196, align 8
+  %cmp176 = fcmp oeq float %49, 1.000000e+00
+  %or.cond267 = select i1 %cmp172, i1 %cmp176, i1 false
+  br i1 %or.cond267, label %land.rhs177, label %sw.epilog654.sink.split
 
 land.rhs177:                                      ; preds = %land.lhs.true169
   %arrayidx.i.i197 = getelementptr inbounds i8, ptr %this, i64 20
-  %51 = load float, ptr %arrayidx.i.i197, align 4
-  %cmp180 = fcmp oeq float %51, 1.000000e+00
+  %50 = load float, ptr %arrayidx.i.i197, align 4
+  %cmp180 = fcmp oeq float %50, 1.000000e+00
   br label %sw.epilog654.sink.split
 
-sw.bb184:                                         ; preds = %land.end
+sw.bb184:                                         ; preds = %entry
   %m_offset = getelementptr inbounds i8, ptr %v, i64 96
   %m_exposure = getelementptr inbounds i8, ptr %v, i64 128
   %m_contrast186 = getelementptr inbounds i8, ptr %v, i64 32
@@ -926,77 +920,77 @@ sw.bb184:                                         ; preds = %land.end
 
 sw.bb184.sw.epilog317_crit_edge:                  ; preds = %sw.bb184
   %m_contrast318.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 12
-  %.pre288 = load float, ptr %m_contrast318.phi.trans.insert, align 4
+  %.pre290 = load float, ptr %m_contrast318.phi.trans.insert, align 4
   %arrayidx.i.i222.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
-  %.pre289 = load float, ptr %arrayidx.i.i222.phi.trans.insert, align 8
+  %.pre291 = load float, ptr %arrayidx.i.i222.phi.trans.insert, align 8
   %arrayidx.i.i223.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 20
-  %.pre290 = load float, ptr %arrayidx.i.i223.phi.trans.insert, align 4
+  %.pre292 = load float, ptr %arrayidx.i.i223.phi.trans.insert, align 4
   br label %sw.epilog317
 
 sw.bb187:                                         ; preds = %sw.bb184
   %m_master188 = getelementptr inbounds i8, ptr %v, i64 120
-  %52 = load double, ptr %m_master188, align 8
-  %53 = load double, ptr %m_offset, align 8
-  %add190 = fadd double %52, %53
+  %51 = load double, ptr %m_master188, align 8
+  %52 = load double, ptr %m_offset, align 8
+  %add190 = fadd double %51, %52
   %conv191 = fptrunc double %add190 to float
   %m_offset192 = getelementptr inbounds i8, ptr %this, i64 48
   store float %conv191, ptr %m_offset192, align 8
-  %54 = load double, ptr %m_master188, align 8
+  %53 = load double, ptr %m_master188, align 8
   %m_green195 = getelementptr inbounds i8, ptr %v, i64 104
-  %55 = load double, ptr %m_green195, align 8
-  %add196 = fadd double %54, %55
+  %54 = load double, ptr %m_green195, align 8
+  %add196 = fadd double %53, %54
   %conv197 = fptrunc double %add196 to float
   %arrayidx.i.i199 = getelementptr inbounds i8, ptr %this, i64 52
   store float %conv197, ptr %arrayidx.i.i199, align 4
-  %56 = load double, ptr %m_master188, align 8
+  %55 = load double, ptr %m_master188, align 8
   %m_blue201 = getelementptr inbounds i8, ptr %v, i64 112
-  %57 = load double, ptr %m_blue201, align 8
-  %add202 = fadd double %56, %57
+  %56 = load double, ptr %m_blue201, align 8
+  %add202 = fadd double %55, %56
   %conv203 = fptrunc double %add202 to float
   %arrayidx.i.i200 = getelementptr inbounds i8, ptr %this, i64 56
   store float %conv203, ptr %arrayidx.i.i200, align 8
   %m_master206 = getelementptr inbounds i8, ptr %v, i64 152
-  %58 = load double, ptr %m_master206, align 8
-  %59 = load double, ptr %m_exposure, align 8
-  %add208 = fadd double %58, %59
+  %57 = load double, ptr %m_master206, align 8
+  %58 = load double, ptr %m_exposure, align 8
+  %add208 = fadd double %57, %58
   %conv209 = fptrunc double %add208 to float
-  %exp2f281 = tail call float @exp2f(float %conv209) #8
+  %exp2f282 = tail call float @exp2f(float %conv209) #8
   %m_exposure211 = getelementptr inbounds i8, ptr %this, i64 36
-  store float %exp2f281, ptr %m_exposure211, align 4
-  %60 = load double, ptr %m_master206, align 8
+  store float %exp2f282, ptr %m_exposure211, align 4
+  %59 = load double, ptr %m_master206, align 8
   %m_green214 = getelementptr inbounds i8, ptr %v, i64 136
-  %61 = load double, ptr %m_green214, align 8
-  %add215 = fadd double %60, %61
+  %60 = load double, ptr %m_green214, align 8
+  %add215 = fadd double %59, %60
   %conv216 = fptrunc double %add215 to float
-  %exp2f283 = tail call float @exp2f(float %conv216) #8
+  %exp2f284 = tail call float @exp2f(float %conv216) #8
   %arrayidx.i.i203 = getelementptr inbounds i8, ptr %this, i64 40
-  store float %exp2f283, ptr %arrayidx.i.i203, align 8
-  %62 = load double, ptr %m_master206, align 8
+  store float %exp2f284, ptr %arrayidx.i.i203, align 8
+  %61 = load double, ptr %m_master206, align 8
   %m_blue222 = getelementptr inbounds i8, ptr %v, i64 144
-  %63 = load double, ptr %m_blue222, align 8
-  %add223 = fadd double %62, %63
+  %62 = load double, ptr %m_blue222, align 8
+  %add223 = fadd double %61, %62
   %conv224 = fptrunc double %add223 to float
-  %exp2f285 = tail call float @exp2f(float %conv224) #8
+  %exp2f286 = tail call float @exp2f(float %conv224) #8
   %arrayidx.i.i205 = getelementptr inbounds i8, ptr %this, i64 44
-  store float %exp2f285, ptr %arrayidx.i.i205, align 4
+  store float %exp2f286, ptr %arrayidx.i.i205, align 4
   %m_master229 = getelementptr inbounds i8, ptr %v, i64 56
-  %64 = load double, ptr %m_master229, align 8
-  %65 = load double, ptr %m_contrast186, align 8
-  %mul231 = fmul double %64, %65
+  %63 = load double, ptr %m_master229, align 8
+  %64 = load double, ptr %m_contrast186, align 8
+  %mul231 = fmul double %63, %64
   %conv232 = fptrunc double %mul231 to float
   %m_contrast233 = getelementptr inbounds i8, ptr %this, i64 12
   store float %conv232, ptr %m_contrast233, align 4
-  %66 = load double, ptr %m_master229, align 8
+  %65 = load double, ptr %m_master229, align 8
   %m_green236 = getelementptr inbounds i8, ptr %v, i64 40
-  %67 = load double, ptr %m_green236, align 8
-  %mul237 = fmul double %66, %67
+  %66 = load double, ptr %m_green236, align 8
+  %mul237 = fmul double %65, %66
   %conv238 = fptrunc double %mul237 to float
   %arrayidx.i.i207 = getelementptr inbounds i8, ptr %this, i64 16
   store float %conv238, ptr %arrayidx.i.i207, align 8
-  %68 = load double, ptr %m_master229, align 8
+  %67 = load double, ptr %m_master229, align 8
   %m_blue242 = getelementptr inbounds i8, ptr %v, i64 48
-  %69 = load double, ptr %m_blue242, align 8
-  %mul243 = fmul double %68, %69
+  %68 = load double, ptr %m_blue242, align 8
+  %mul243 = fmul double %67, %68
   %conv244 = fptrunc double %mul243 to float
   %arrayidx.i.i208 = getelementptr inbounds i8, ptr %this, i64 20
   store float %conv244, ptr %arrayidx.i.i208, align 4
@@ -1004,76 +998,76 @@ sw.bb187:                                         ; preds = %sw.bb184
 
 sw.bb247:                                         ; preds = %sw.bb184
   %m_master248 = getelementptr inbounds i8, ptr %v, i64 120
-  %70 = load double, ptr %m_master248, align 8
-  %71 = load double, ptr %m_offset, align 8
-  %add250 = fadd double %70, %71
+  %69 = load double, ptr %m_master248, align 8
+  %70 = load double, ptr %m_offset, align 8
+  %add250 = fadd double %69, %70
   %conv251 = fptrunc double %add250 to float
   %fneg252 = fneg float %conv251
   %m_offset253 = getelementptr inbounds i8, ptr %this, i64 48
   store float %fneg252, ptr %m_offset253, align 8
-  %72 = load double, ptr %m_master248, align 8
+  %71 = load double, ptr %m_master248, align 8
   %m_green256 = getelementptr inbounds i8, ptr %v, i64 104
-  %73 = load double, ptr %m_green256, align 8
-  %add257 = fadd double %72, %73
+  %72 = load double, ptr %m_green256, align 8
+  %add257 = fadd double %71, %72
   %conv258 = fptrunc double %add257 to float
   %fneg259 = fneg float %conv258
   %arrayidx.i.i210 = getelementptr inbounds i8, ptr %this, i64 52
   store float %fneg259, ptr %arrayidx.i.i210, align 4
-  %74 = load double, ptr %m_master248, align 8
+  %73 = load double, ptr %m_master248, align 8
   %m_blue263 = getelementptr inbounds i8, ptr %v, i64 112
-  %75 = load double, ptr %m_blue263, align 8
-  %add264 = fadd double %74, %75
+  %74 = load double, ptr %m_blue263, align 8
+  %add264 = fadd double %73, %74
   %conv265 = fptrunc double %add264 to float
   %fneg266 = fneg float %conv265
   %arrayidx.i.i211 = getelementptr inbounds i8, ptr %this, i64 56
   store float %fneg266, ptr %arrayidx.i.i211, align 8
   %m_master269 = getelementptr inbounds i8, ptr %v, i64 152
-  %76 = load double, ptr %m_master269, align 8
-  %77 = load double, ptr %m_exposure, align 8
-  %add271 = fadd double %76, %77
+  %75 = load double, ptr %m_master269, align 8
+  %76 = load double, ptr %m_exposure, align 8
+  %add271 = fadd double %75, %76
   %conv272 = fptrunc double %add271 to float
   %exp2f = tail call float @exp2f(float %conv272) #8
   %div275 = fdiv float 1.000000e+00, %exp2f
   %m_exposure276 = getelementptr inbounds i8, ptr %this, i64 36
   store float %div275, ptr %m_exposure276, align 4
-  %78 = load double, ptr %m_master269, align 8
+  %77 = load double, ptr %m_master269, align 8
   %m_green279 = getelementptr inbounds i8, ptr %v, i64 136
-  %79 = load double, ptr %m_green279, align 8
-  %add280 = fadd double %78, %79
+  %78 = load double, ptr %m_green279, align 8
+  %add280 = fadd double %77, %78
   %conv281 = fptrunc double %add280 to float
-  %exp2f277 = tail call float @exp2f(float %conv281) #8
-  %div284 = fdiv float 1.000000e+00, %exp2f277
+  %exp2f278 = tail call float @exp2f(float %conv281) #8
+  %div284 = fdiv float 1.000000e+00, %exp2f278
   %arrayidx.i.i215 = getelementptr inbounds i8, ptr %this, i64 40
   store float %div284, ptr %arrayidx.i.i215, align 8
-  %80 = load double, ptr %m_master269, align 8
+  %79 = load double, ptr %m_master269, align 8
   %m_blue288 = getelementptr inbounds i8, ptr %v, i64 144
-  %81 = load double, ptr %m_blue288, align 8
-  %add289 = fadd double %80, %81
+  %80 = load double, ptr %m_blue288, align 8
+  %add289 = fadd double %79, %80
   %conv290 = fptrunc double %add289 to float
-  %exp2f279 = tail call float @exp2f(float %conv290) #8
-  %div293 = fdiv float 1.000000e+00, %exp2f279
+  %exp2f280 = tail call float @exp2f(float %conv290) #8
+  %div293 = fdiv float 1.000000e+00, %exp2f280
   %arrayidx.i.i217 = getelementptr inbounds i8, ptr %this, i64 44
   store float %div293, ptr %arrayidx.i.i217, align 4
   %m_master296 = getelementptr inbounds i8, ptr %v, i64 56
-  %82 = load double, ptr %m_master296, align 8
-  %83 = load double, ptr %m_contrast186, align 8
-  %mul298 = fmul double %82, %83
+  %81 = load double, ptr %m_master296, align 8
+  %82 = load double, ptr %m_contrast186, align 8
+  %mul298 = fmul double %81, %82
   %div299 = fdiv double 1.000000e+00, %mul298
   %conv300 = fptrunc double %div299 to float
   %m_contrast301 = getelementptr inbounds i8, ptr %this, i64 12
   store float %conv300, ptr %m_contrast301, align 4
-  %84 = load double, ptr %m_master296, align 8
+  %83 = load double, ptr %m_master296, align 8
   %m_green304 = getelementptr inbounds i8, ptr %v, i64 40
-  %85 = load double, ptr %m_green304, align 8
-  %mul305 = fmul double %84, %85
+  %84 = load double, ptr %m_green304, align 8
+  %mul305 = fmul double %83, %84
   %div306 = fdiv double 1.000000e+00, %mul305
   %conv307 = fptrunc double %div306 to float
   %arrayidx.i.i219 = getelementptr inbounds i8, ptr %this, i64 16
   store float %conv307, ptr %arrayidx.i.i219, align 8
-  %86 = load double, ptr %m_master296, align 8
+  %85 = load double, ptr %m_master296, align 8
   %m_blue311 = getelementptr inbounds i8, ptr %v, i64 48
-  %87 = load double, ptr %m_blue311, align 8
-  %mul312 = fmul double %86, %87
+  %86 = load double, ptr %m_blue311, align 8
+  %mul312 = fmul double %85, %86
   %div313 = fdiv double 1.000000e+00, %mul312
   %conv314 = fptrunc double %div313 to float
   %arrayidx.i.i220 = getelementptr inbounds i8, ptr %this, i64 20
@@ -1081,76 +1075,76 @@ sw.bb247:                                         ; preds = %sw.bb184
   br label %sw.epilog317
 
 sw.epilog317:                                     ; preds = %sw.bb184.sw.epilog317_crit_edge, %sw.bb247, %sw.bb187
-  %88 = phi float [ %.pre290, %sw.bb184.sw.epilog317_crit_edge ], [ %conv314, %sw.bb247 ], [ %conv244, %sw.bb187 ]
-  %89 = phi float [ %.pre289, %sw.bb184.sw.epilog317_crit_edge ], [ %conv307, %sw.bb247 ], [ %conv238, %sw.bb187 ]
-  %90 = phi float [ %.pre288, %sw.bb184.sw.epilog317_crit_edge ], [ %conv300, %sw.bb247 ], [ %conv232, %sw.bb187 ]
-  %cmp320 = fcmp oeq float %90, 1.000000e+00
-  %cmp324 = fcmp oeq float %89, 1.000000e+00
-  %or.cond267 = select i1 %cmp320, i1 %cmp324, i1 false
-  %cmp328 = fcmp oeq float %88, 1.000000e+00
-  %narrow = select i1 %or.cond267, i1 %cmp328, i1 false
-  %frombool331 = zext i1 %narrow to i8
+  %87 = phi float [ %.pre292, %sw.bb184.sw.epilog317_crit_edge ], [ %conv314, %sw.bb247 ], [ %conv244, %sw.bb187 ]
+  %88 = phi float [ %.pre291, %sw.bb184.sw.epilog317_crit_edge ], [ %conv307, %sw.bb247 ], [ %conv238, %sw.bb187 ]
+  %89 = phi float [ %.pre290, %sw.bb184.sw.epilog317_crit_edge ], [ %conv300, %sw.bb247 ], [ %conv232, %sw.bb187 ]
+  %cmp320 = fcmp oeq float %89, 1.000000e+00
+  %cmp324 = fcmp oeq float %88, 1.000000e+00
+  %or.cond268 = select i1 %cmp320, i1 %cmp324, i1 false
+  %cmp328 = fcmp oeq float %87, 1.000000e+00
+  %narrow287 = select i1 %or.cond268, i1 %cmp328, i1 false
+  %frombool331 = zext i1 %narrow287 to i8
   %m_isPowerIdentity330 = getelementptr inbounds i8, ptr %this, i64 80
   store i8 %frombool331, ptr %m_isPowerIdentity330, align 8
   %m_pivot332 = getelementptr inbounds i8, ptr %v, i64 232
-  %91 = load double, ptr %m_pivot332, align 8
-  %exp2 = tail call double @exp2(double %91) #8
+  %90 = load double, ptr %m_pivot332, align 8
+  %exp2 = tail call double @exp2(double %90) #8
   %mul334 = fmul double %exp2, 1.800000e-01
   %m_pivot335 = getelementptr inbounds i8, ptr %this, i64 72
   store double %mul334, ptr %m_pivot335, align 8
-  %92 = load i8, ptr %m_localBypass, align 1
-  %tobool337 = trunc i8 %92 to i1
+  %91 = load i8, ptr %m_localBypass, align 1
+  %tobool337 = trunc i8 %91 to i1
   br i1 %tobool337, label %land.lhs.true338, label %sw.epilog654.sink.split
 
 land.lhs.true338:                                 ; preds = %sw.epilog317
-  %93 = load i8, ptr %m_isPowerIdentity330, align 8
-  %tobool340 = trunc i8 %93 to i1
+  %92 = load i8, ptr %m_isPowerIdentity330, align 8
+  %tobool340 = trunc i8 %92 to i1
   br i1 %tobool340, label %land.lhs.true341, label %sw.epilog654.sink.split
 
 land.lhs.true341:                                 ; preds = %land.lhs.true338
   %m_exposure342 = getelementptr inbounds i8, ptr %this, i64 36
-  %94 = load float, ptr %m_exposure342, align 4
-  %cmp344 = fcmp oeq float %94, 1.000000e+00
+  %93 = load float, ptr %m_exposure342, align 4
+  %cmp344 = fcmp oeq float %93, 1.000000e+00
   %arrayidx.i.i225 = getelementptr inbounds i8, ptr %this, i64 40
-  %95 = load float, ptr %arrayidx.i.i225, align 8
-  %cmp348 = fcmp oeq float %95, 1.000000e+00
-  %or.cond268 = select i1 %cmp344, i1 %cmp348, i1 false
+  %94 = load float, ptr %arrayidx.i.i225, align 8
+  %cmp348 = fcmp oeq float %94, 1.000000e+00
+  %or.cond269 = select i1 %cmp344, i1 %cmp348, i1 false
   %arrayidx.i.i226 = getelementptr inbounds i8, ptr %this, i64 44
-  %96 = load float, ptr %arrayidx.i.i226, align 4
-  %cmp352 = fcmp oeq float %96, 1.000000e+00
-  %or.cond269 = select i1 %or.cond268, i1 %cmp352, i1 false
-  br i1 %or.cond269, label %land.lhs.true353, label %sw.epilog654.sink.split
+  %95 = load float, ptr %arrayidx.i.i226, align 4
+  %cmp352 = fcmp oeq float %95, 1.000000e+00
+  %or.cond270 = select i1 %or.cond269, i1 %cmp352, i1 false
+  br i1 %or.cond270, label %land.lhs.true353, label %sw.epilog654.sink.split
 
 land.lhs.true353:                                 ; preds = %land.lhs.true341
   %m_offset354 = getelementptr inbounds i8, ptr %this, i64 48
-  %97 = load float, ptr %m_offset354, align 8
-  %cmp356 = fcmp oeq float %97, 0.000000e+00
+  %96 = load float, ptr %m_offset354, align 8
+  %cmp356 = fcmp oeq float %96, 0.000000e+00
   %arrayidx.i.i228 = getelementptr inbounds i8, ptr %this, i64 52
-  %98 = load float, ptr %arrayidx.i.i228, align 4
-  %cmp360 = fcmp oeq float %98, 0.000000e+00
-  %or.cond270 = select i1 %cmp356, i1 %cmp360, i1 false
-  br i1 %or.cond270, label %land.rhs361, label %sw.epilog654.sink.split
+  %97 = load float, ptr %arrayidx.i.i228, align 4
+  %cmp360 = fcmp oeq float %97, 0.000000e+00
+  %or.cond271 = select i1 %cmp356, i1 %cmp360, i1 false
+  br i1 %or.cond271, label %land.rhs361, label %sw.epilog654.sink.split
 
 land.rhs361:                                      ; preds = %land.lhs.true353
   %arrayidx.i.i229 = getelementptr inbounds i8, ptr %this, i64 56
-  %99 = load float, ptr %arrayidx.i.i229, align 8
-  %cmp364 = fcmp oeq float %99, 0.000000e+00
+  %98 = load float, ptr %arrayidx.i.i229, align 8
+  %cmp364 = fcmp oeq float %98, 0.000000e+00
   br label %sw.epilog654.sink.split
 
-sw.bb368:                                         ; preds = %land.end
+sw.bb368:                                         ; preds = %entry
   %m_offset370 = getelementptr inbounds i8, ptr %v, i64 96
   %m_lift = getelementptr inbounds i8, ptr %v, i64 160
   %m_gain = getelementptr inbounds i8, ptr %v, i64 192
   %m_master371 = getelementptr inbounds i8, ptr %v, i64 216
-  %100 = load double, ptr %m_master371, align 8
-  %101 = load double, ptr %m_gain, align 8
-  %mul374 = fmul double %100, %101
+  %99 = load double, ptr %m_master371, align 8
+  %100 = load double, ptr %m_gain, align 8
+  %mul374 = fmul double %99, %100
   %m_green378 = getelementptr inbounds i8, ptr %v, i64 200
-  %102 = load double, ptr %m_green378, align 8
-  %mul379 = fmul double %100, %102
+  %101 = load double, ptr %m_green378, align 8
+  %mul379 = fmul double %99, %101
   %m_blue383 = getelementptr inbounds i8, ptr %v, i64 208
-  %103 = load double, ptr %m_blue383, align 8
-  %mul384 = fmul double %100, %103
+  %102 = load double, ptr %m_blue383, align 8
+  %mul384 = fmul double %99, %102
   %cmp385 = fcmp oeq double %mul374, 0.000000e+00
   %cond389 = select i1 %cmp385, double 1.000000e+00, double %mul374
   %cmp390 = fcmp oeq double %mul379, 0.000000e+00
@@ -1167,85 +1161,85 @@ sw.bb368.sw.epilog607_crit_edge:                  ; preds = %sw.bb368
   %m_gamma608.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load float, ptr %m_gamma608.phi.trans.insert, align 8
   %arrayidx.i.i249.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 28
-  %.pre287 = load float, ptr %arrayidx.i.i249.phi.trans.insert, align 4
+  %.pre289 = load float, ptr %arrayidx.i.i249.phi.trans.insert, align 4
   br label %sw.epilog607
 
 sw.bb402:                                         ; preds = %sw.bb368
   %m_master403 = getelementptr inbounds i8, ptr %v, i64 120
-  %104 = load double, ptr %m_master403, align 8
-  %105 = load double, ptr %m_offset370, align 8
-  %add405 = fadd double %104, %105
+  %103 = load double, ptr %m_master403, align 8
+  %104 = load double, ptr %m_offset370, align 8
+  %add405 = fadd double %103, %104
   %m_master406 = getelementptr inbounds i8, ptr %v, i64 184
-  %106 = load double, ptr %m_master406, align 8
-  %add407 = fadd double %add405, %106
-  %107 = load double, ptr %m_lift, align 8
-  %add409 = fadd double %add407, %107
+  %105 = load double, ptr %m_master406, align 8
+  %add407 = fadd double %add405, %105
+  %106 = load double, ptr %m_lift, align 8
+  %add409 = fadd double %add407, %106
   %conv410 = fptrunc double %add409 to float
   %m_offset411 = getelementptr inbounds i8, ptr %this, i64 48
   store float %conv410, ptr %m_offset411, align 8
-  %108 = load double, ptr %m_master403, align 8
+  %107 = load double, ptr %m_master403, align 8
   %m_green414 = getelementptr inbounds i8, ptr %v, i64 104
-  %109 = load double, ptr %m_green414, align 8
-  %add415 = fadd double %108, %109
-  %110 = load double, ptr %m_master406, align 8
-  %add417 = fadd double %add415, %110
+  %108 = load double, ptr %m_green414, align 8
+  %add415 = fadd double %107, %108
+  %109 = load double, ptr %m_master406, align 8
+  %add417 = fadd double %add415, %109
   %m_green418 = getelementptr inbounds i8, ptr %v, i64 168
-  %111 = load double, ptr %m_green418, align 8
-  %add419 = fadd double %add417, %111
+  %110 = load double, ptr %m_green418, align 8
+  %add419 = fadd double %add417, %110
   %conv420 = fptrunc double %add419 to float
   %arrayidx.i.i231 = getelementptr inbounds i8, ptr %this, i64 52
   store float %conv420, ptr %arrayidx.i.i231, align 4
-  %112 = load double, ptr %m_master403, align 8
+  %111 = load double, ptr %m_master403, align 8
   %m_blue424 = getelementptr inbounds i8, ptr %v, i64 112
-  %113 = load double, ptr %m_blue424, align 8
-  %add425 = fadd double %112, %113
-  %114 = load double, ptr %m_master406, align 8
-  %add427 = fadd double %add425, %114
+  %112 = load double, ptr %m_blue424, align 8
+  %add425 = fadd double %111, %112
+  %113 = load double, ptr %m_master406, align 8
+  %add427 = fadd double %add425, %113
   %m_blue428 = getelementptr inbounds i8, ptr %v, i64 176
-  %115 = load double, ptr %m_blue428, align 8
-  %add429 = fadd double %add427, %115
+  %114 = load double, ptr %m_blue428, align 8
+  %add429 = fadd double %add427, %114
   %conv430 = fptrunc double %add429 to float
   %arrayidx.i.i232 = getelementptr inbounds i8, ptr %this, i64 56
   store float %conv430, ptr %arrayidx.i.i232, align 8
   %m_pivotWhite = getelementptr inbounds i8, ptr %v, i64 248
-  %116 = load double, ptr %m_pivotWhite, align 8
-  %div433 = fdiv double %116, %cond389
-  %117 = load double, ptr %m_master406, align 8
-  %add435 = fadd double %div433, %117
-  %118 = load double, ptr %m_lift, align 8
-  %add437 = fadd double %add435, %118
+  %115 = load double, ptr %m_pivotWhite, align 8
+  %div433 = fdiv double %115, %cond389
+  %116 = load double, ptr %m_master406, align 8
+  %add435 = fadd double %div433, %116
+  %117 = load double, ptr %m_lift, align 8
+  %add437 = fadd double %add435, %117
   %m_pivotBlack = getelementptr inbounds i8, ptr %v, i64 240
-  %119 = load double, ptr %m_pivotBlack, align 8
-  %sub = fsub double %add437, %119
-  %div439 = fdiv double %116, %cond394
-  %add441 = fadd double %div439, %117
-  %120 = load double, ptr %m_green418, align 8
-  %add443 = fadd double %add441, %120
-  %sub445 = fsub double %add443, %119
-  %div447 = fdiv double %116, %cond399
-  %add449 = fadd double %div447, %117
-  %121 = load double, ptr %m_blue428, align 8
-  %add451 = fadd double %add449, %121
-  %sub453 = fsub double %add451, %119
-  %sub456 = fsub double %116, %119
+  %118 = load double, ptr %m_pivotBlack, align 8
+  %sub = fsub double %add437, %118
+  %div439 = fdiv double %115, %cond394
+  %add441 = fadd double %div439, %116
+  %119 = load double, ptr %m_green418, align 8
+  %add443 = fadd double %add441, %119
+  %sub445 = fsub double %add443, %118
+  %div447 = fdiv double %115, %cond399
+  %add449 = fadd double %div447, %116
+  %120 = load double, ptr %m_blue428, align 8
+  %add451 = fadd double %add449, %120
+  %sub453 = fsub double %add451, %118
+  %sub456 = fsub double %115, %118
   %cmp457 = fcmp oeq double %sub, 0.000000e+00
   %cond461 = select i1 %cmp457, double 1.000000e+00, double %sub
   %div462 = fdiv double %sub456, %cond461
   %conv463 = fptrunc double %div462 to float
   %m_slope = getelementptr inbounds i8, ptr %this, i64 60
   store float %conv463, ptr %m_slope, align 4
-  %122 = load double, ptr %m_pivotWhite, align 8
-  %123 = load double, ptr %m_pivotBlack, align 8
-  %sub467 = fsub double %122, %123
+  %121 = load double, ptr %m_pivotWhite, align 8
+  %122 = load double, ptr %m_pivotBlack, align 8
+  %sub467 = fsub double %121, %122
   %cmp468 = fcmp oeq double %sub445, 0.000000e+00
   %cond472 = select i1 %cmp468, double 1.000000e+00, double %sub445
   %div473 = fdiv double %sub467, %cond472
   %conv474 = fptrunc double %div473 to float
   %arrayidx.i.i234 = getelementptr inbounds i8, ptr %this, i64 64
   store float %conv474, ptr %arrayidx.i.i234, align 8
-  %124 = load double, ptr %m_pivotWhite, align 8
-  %125 = load double, ptr %m_pivotBlack, align 8
-  %sub479 = fsub double %124, %125
+  %123 = load double, ptr %m_pivotWhite, align 8
+  %124 = load double, ptr %m_pivotBlack, align 8
+  %sub479 = fsub double %123, %124
   %cmp480 = fcmp oeq double %sub453, 0.000000e+00
   %cond484 = select i1 %cmp480, double 1.000000e+00, double %sub453
   %div485 = fdiv double %sub479, %cond484
@@ -1253,25 +1247,25 @@ sw.bb402:                                         ; preds = %sw.bb368
   %arrayidx.i.i235 = getelementptr inbounds i8, ptr %this, i64 68
   store float %conv486, ptr %arrayidx.i.i235, align 4
   %m_master489 = getelementptr inbounds i8, ptr %v, i64 88
-  %126 = load double, ptr %m_master489, align 8
-  %127 = load double, ptr %m_gamma401, align 8
-  %mul491 = fmul double %126, %127
+  %125 = load double, ptr %m_master489, align 8
+  %126 = load double, ptr %m_gamma401, align 8
+  %mul491 = fmul double %125, %126
   %div492 = fdiv double 1.000000e+00, %mul491
   %conv493 = fptrunc double %div492 to float
   %m_gamma494 = getelementptr inbounds i8, ptr %this, i64 24
   store float %conv493, ptr %m_gamma494, align 8
-  %128 = load double, ptr %m_master489, align 8
+  %127 = load double, ptr %m_master489, align 8
   %m_green497 = getelementptr inbounds i8, ptr %v, i64 72
-  %129 = load double, ptr %m_green497, align 8
-  %mul498 = fmul double %128, %129
+  %128 = load double, ptr %m_green497, align 8
+  %mul498 = fmul double %127, %128
   %div499 = fdiv double 1.000000e+00, %mul498
   %conv500 = fptrunc double %div499 to float
   %arrayidx.i.i237 = getelementptr inbounds i8, ptr %this, i64 28
   store float %conv500, ptr %arrayidx.i.i237, align 4
-  %130 = load double, ptr %m_master489, align 8
+  %129 = load double, ptr %m_master489, align 8
   %m_blue504 = getelementptr inbounds i8, ptr %v, i64 80
-  %131 = load double, ptr %m_blue504, align 8
-  %mul505 = fmul double %130, %131
+  %130 = load double, ptr %m_blue504, align 8
+  %mul505 = fmul double %129, %130
   %div506 = fdiv double 1.000000e+00, %mul505
   %conv507 = fptrunc double %div506 to float
   %arrayidx.i.i238 = getelementptr inbounds i8, ptr %this, i64 32
@@ -1280,115 +1274,115 @@ sw.bb402:                                         ; preds = %sw.bb368
 
 sw.bb510:                                         ; preds = %sw.bb368
   %m_master511 = getelementptr inbounds i8, ptr %v, i64 120
-  %132 = load double, ptr %m_master511, align 8
-  %133 = load double, ptr %m_offset370, align 8
-  %add513 = fadd double %132, %133
+  %131 = load double, ptr %m_master511, align 8
+  %132 = load double, ptr %m_offset370, align 8
+  %add513 = fadd double %131, %132
   %m_master514 = getelementptr inbounds i8, ptr %v, i64 184
-  %134 = load double, ptr %m_master514, align 8
-  %add515 = fadd double %add513, %134
-  %135 = load double, ptr %m_lift, align 8
-  %add517 = fadd double %add515, %135
+  %133 = load double, ptr %m_master514, align 8
+  %add515 = fadd double %add513, %133
+  %134 = load double, ptr %m_lift, align 8
+  %add517 = fadd double %add515, %134
   %conv518 = fptrunc double %add517 to float
   %fneg519 = fneg float %conv518
   %m_offset520 = getelementptr inbounds i8, ptr %this, i64 48
   store float %fneg519, ptr %m_offset520, align 8
-  %136 = load double, ptr %m_master511, align 8
+  %135 = load double, ptr %m_master511, align 8
   %m_green523 = getelementptr inbounds i8, ptr %v, i64 104
-  %137 = load double, ptr %m_green523, align 8
-  %add524 = fadd double %136, %137
-  %138 = load double, ptr %m_master514, align 8
-  %add526 = fadd double %add524, %138
+  %136 = load double, ptr %m_green523, align 8
+  %add524 = fadd double %135, %136
+  %137 = load double, ptr %m_master514, align 8
+  %add526 = fadd double %add524, %137
   %m_green527 = getelementptr inbounds i8, ptr %v, i64 168
-  %139 = load double, ptr %m_green527, align 8
-  %add528 = fadd double %add526, %139
+  %138 = load double, ptr %m_green527, align 8
+  %add528 = fadd double %add526, %138
   %conv529 = fptrunc double %add528 to float
   %fneg530 = fneg float %conv529
   %arrayidx.i.i240 = getelementptr inbounds i8, ptr %this, i64 52
   store float %fneg530, ptr %arrayidx.i.i240, align 4
-  %140 = load double, ptr %m_master511, align 8
+  %139 = load double, ptr %m_master511, align 8
   %m_blue534 = getelementptr inbounds i8, ptr %v, i64 112
-  %141 = load double, ptr %m_blue534, align 8
-  %add535 = fadd double %140, %141
-  %142 = load double, ptr %m_master514, align 8
-  %add537 = fadd double %add535, %142
+  %140 = load double, ptr %m_blue534, align 8
+  %add535 = fadd double %139, %140
+  %141 = load double, ptr %m_master514, align 8
+  %add537 = fadd double %add535, %141
   %m_blue538 = getelementptr inbounds i8, ptr %v, i64 176
-  %143 = load double, ptr %m_blue538, align 8
-  %add539 = fadd double %add537, %143
+  %142 = load double, ptr %m_blue538, align 8
+  %add539 = fadd double %add537, %142
   %conv540 = fptrunc double %add539 to float
   %fneg541 = fneg float %conv540
   %arrayidx.i.i241 = getelementptr inbounds i8, ptr %this, i64 56
   store float %fneg541, ptr %arrayidx.i.i241, align 8
   %m_pivotWhite544 = getelementptr inbounds i8, ptr %v, i64 248
-  %144 = load double, ptr %m_pivotWhite544, align 8
-  %div545 = fdiv double %144, %cond389
-  %145 = load double, ptr %m_master514, align 8
-  %146 = load double, ptr %m_lift, align 8
-  %add548 = fadd double %145, %146
+  %143 = load double, ptr %m_pivotWhite544, align 8
+  %div545 = fdiv double %143, %cond389
+  %144 = load double, ptr %m_master514, align 8
+  %145 = load double, ptr %m_lift, align 8
+  %add548 = fadd double %144, %145
   %m_pivotBlack549 = getelementptr inbounds i8, ptr %v, i64 240
-  %147 = load double, ptr %m_pivotBlack549, align 8
-  %sub550 = fsub double %add548, %147
+  %146 = load double, ptr %m_pivotBlack549, align 8
+  %sub550 = fsub double %add548, %146
   %add551 = fadd double %div545, %sub550
-  %sub554 = fsub double %144, %147
+  %sub554 = fsub double %143, %146
   %div555 = fdiv double %add551, %sub554
   %conv556 = fptrunc double %div555 to float
   %m_slope557 = getelementptr inbounds i8, ptr %this, i64 60
   store float %conv556, ptr %m_slope557, align 4
-  %148 = load double, ptr %m_pivotWhite544, align 8
-  %div560 = fdiv double %148, %cond394
-  %149 = load double, ptr %m_master514, align 8
-  %150 = load double, ptr %m_green527, align 8
-  %add563 = fadd double %149, %150
-  %151 = load double, ptr %m_pivotBlack549, align 8
-  %sub565 = fsub double %add563, %151
+  %147 = load double, ptr %m_pivotWhite544, align 8
+  %div560 = fdiv double %147, %cond394
+  %148 = load double, ptr %m_master514, align 8
+  %149 = load double, ptr %m_green527, align 8
+  %add563 = fadd double %148, %149
+  %150 = load double, ptr %m_pivotBlack549, align 8
+  %sub565 = fsub double %add563, %150
   %add566 = fadd double %div560, %sub565
-  %sub569 = fsub double %148, %151
+  %sub569 = fsub double %147, %150
   %div570 = fdiv double %add566, %sub569
   %conv571 = fptrunc double %div570 to float
   %arrayidx.i.i243 = getelementptr inbounds i8, ptr %this, i64 64
   store float %conv571, ptr %arrayidx.i.i243, align 8
-  %152 = load double, ptr %m_pivotWhite544, align 8
-  %div575 = fdiv double %152, %cond399
-  %153 = load double, ptr %m_master514, align 8
-  %154 = load double, ptr %m_blue538, align 8
-  %add578 = fadd double %153, %154
-  %155 = load double, ptr %m_pivotBlack549, align 8
-  %sub580 = fsub double %add578, %155
+  %151 = load double, ptr %m_pivotWhite544, align 8
+  %div575 = fdiv double %151, %cond399
+  %152 = load double, ptr %m_master514, align 8
+  %153 = load double, ptr %m_blue538, align 8
+  %add578 = fadd double %152, %153
+  %154 = load double, ptr %m_pivotBlack549, align 8
+  %sub580 = fsub double %add578, %154
   %add581 = fadd double %div575, %sub580
-  %sub584 = fsub double %152, %155
+  %sub584 = fsub double %151, %154
   %div585 = fdiv double %add581, %sub584
   %conv586 = fptrunc double %div585 to float
   %arrayidx.i.i244 = getelementptr inbounds i8, ptr %this, i64 68
   store float %conv586, ptr %arrayidx.i.i244, align 4
   %m_master589 = getelementptr inbounds i8, ptr %v, i64 88
-  %156 = load double, ptr %m_master589, align 8
-  %157 = load double, ptr %m_gamma401, align 8
-  %mul591 = fmul double %156, %157
+  %155 = load double, ptr %m_master589, align 8
+  %156 = load double, ptr %m_gamma401, align 8
+  %mul591 = fmul double %155, %156
   %conv592 = fptrunc double %mul591 to float
   %m_gamma593 = getelementptr inbounds i8, ptr %this, i64 24
   store float %conv592, ptr %m_gamma593, align 8
-  %158 = load double, ptr %m_master589, align 8
+  %157 = load double, ptr %m_master589, align 8
   %m_green596 = getelementptr inbounds i8, ptr %v, i64 72
-  %159 = load double, ptr %m_green596, align 8
-  %mul597 = fmul double %158, %159
+  %158 = load double, ptr %m_green596, align 8
+  %mul597 = fmul double %157, %158
   %conv598 = fptrunc double %mul597 to float
   %arrayidx.i.i246 = getelementptr inbounds i8, ptr %this, i64 28
   store float %conv598, ptr %arrayidx.i.i246, align 4
-  %160 = load double, ptr %m_master589, align 8
+  %159 = load double, ptr %m_master589, align 8
   %m_blue602 = getelementptr inbounds i8, ptr %v, i64 80
-  %161 = load double, ptr %m_blue602, align 8
-  %mul603 = fmul double %160, %161
+  %160 = load double, ptr %m_blue602, align 8
+  %mul603 = fmul double %159, %160
   %conv604 = fptrunc double %mul603 to float
   %arrayidx.i.i247 = getelementptr inbounds i8, ptr %this, i64 32
   store float %conv604, ptr %arrayidx.i.i247, align 8
   br label %sw.epilog607
 
 sw.epilog607:                                     ; preds = %sw.bb368.sw.epilog607_crit_edge, %sw.bb510, %sw.bb402
-  %162 = phi float [ %.pre287, %sw.bb368.sw.epilog607_crit_edge ], [ %conv598, %sw.bb510 ], [ %conv500, %sw.bb402 ]
-  %163 = phi float [ %.pre, %sw.bb368.sw.epilog607_crit_edge ], [ %conv592, %sw.bb510 ], [ %conv493, %sw.bb402 ]
-  %cmp610 = fcmp oeq float %163, 1.000000e+00
-  %cmp614 = fcmp oeq float %162, 1.000000e+00
-  %or.cond271 = select i1 %cmp610, i1 %cmp614, i1 false
-  br i1 %or.cond271, label %land.end619, label %land.end619.thread
+  %161 = phi float [ %.pre289, %sw.bb368.sw.epilog607_crit_edge ], [ %conv598, %sw.bb510 ], [ %conv500, %sw.bb402 ]
+  %162 = phi float [ %.pre, %sw.bb368.sw.epilog607_crit_edge ], [ %conv592, %sw.bb510 ], [ %conv493, %sw.bb402 ]
+  %cmp610 = fcmp oeq float %162, 1.000000e+00
+  %cmp614 = fcmp oeq float %161, 1.000000e+00
+  %or.cond272 = select i1 %cmp610, i1 %cmp614, i1 false
+  br i1 %or.cond272, label %land.end619, label %land.end619.thread
 
 land.end619.thread:                               ; preds = %sw.epilog607
   %m_isPowerIdentity620257 = getelementptr inbounds i8, ptr %this, i64 80
@@ -1397,42 +1391,42 @@ land.end619.thread:                               ; preds = %sw.epilog607
 
 land.end619:                                      ; preds = %sw.epilog607
   %arrayidx.i.i250 = getelementptr inbounds i8, ptr %this, i64 32
-  %164 = load float, ptr %arrayidx.i.i250, align 8
-  %cmp618 = fcmp oeq float %164, 1.000000e+00
+  %163 = load float, ptr %arrayidx.i.i250, align 8
+  %cmp618 = fcmp oeq float %163, 1.000000e+00
   %m_isPowerIdentity620 = getelementptr inbounds i8, ptr %this, i64 80
   %frombool621 = zext i1 %cmp618 to i8
   store i8 %frombool621, ptr %m_isPowerIdentity620, align 8
-  %165 = select i1 %3, i1 %cmp618, i1 false
-  br i1 %165, label %land.lhs.true627, label %sw.epilog654.sink.split
+  %164 = select i1 %narrow, i1 %cmp618, i1 false
+  br i1 %164, label %land.lhs.true627, label %sw.epilog654.sink.split
 
 land.lhs.true627:                                 ; preds = %land.end619
   %m_slope628 = getelementptr inbounds i8, ptr %this, i64 60
-  %166 = load float, ptr %m_slope628, align 4
-  %cmp630 = fcmp oeq float %166, 1.000000e+00
+  %165 = load float, ptr %m_slope628, align 4
+  %cmp630 = fcmp oeq float %165, 1.000000e+00
   %arrayidx.i.i252 = getelementptr inbounds i8, ptr %this, i64 64
-  %167 = load float, ptr %arrayidx.i.i252, align 8
-  %cmp634 = fcmp oeq float %167, 1.000000e+00
-  %or.cond272 = select i1 %cmp630, i1 %cmp634, i1 false
+  %166 = load float, ptr %arrayidx.i.i252, align 8
+  %cmp634 = fcmp oeq float %166, 1.000000e+00
+  %or.cond273 = select i1 %cmp630, i1 %cmp634, i1 false
   %arrayidx.i.i253 = getelementptr inbounds i8, ptr %this, i64 68
-  %168 = load float, ptr %arrayidx.i.i253, align 4
-  %cmp638 = fcmp oeq float %168, 1.000000e+00
-  %or.cond273 = select i1 %or.cond272, i1 %cmp638, i1 false
-  br i1 %or.cond273, label %land.lhs.true639, label %sw.epilog654.sink.split
+  %167 = load float, ptr %arrayidx.i.i253, align 4
+  %cmp638 = fcmp oeq float %167, 1.000000e+00
+  %or.cond274 = select i1 %or.cond273, i1 %cmp638, i1 false
+  br i1 %or.cond274, label %land.lhs.true639, label %sw.epilog654.sink.split
 
 land.lhs.true639:                                 ; preds = %land.lhs.true627
   %m_offset640 = getelementptr inbounds i8, ptr %this, i64 48
-  %169 = load float, ptr %m_offset640, align 8
-  %cmp642 = fcmp oeq float %169, 0.000000e+00
+  %168 = load float, ptr %m_offset640, align 8
+  %cmp642 = fcmp oeq float %168, 0.000000e+00
   %arrayidx.i.i255 = getelementptr inbounds i8, ptr %this, i64 52
-  %170 = load float, ptr %arrayidx.i.i255, align 4
-  %cmp646 = fcmp oeq float %170, 0.000000e+00
-  %or.cond274 = select i1 %cmp642, i1 %cmp646, i1 false
-  br i1 %or.cond274, label %land.rhs647, label %sw.epilog654.sink.split
+  %169 = load float, ptr %arrayidx.i.i255, align 4
+  %cmp646 = fcmp oeq float %169, 0.000000e+00
+  %or.cond275 = select i1 %cmp642, i1 %cmp646, i1 false
+  br i1 %or.cond275, label %land.rhs647, label %sw.epilog654.sink.split
 
 land.rhs647:                                      ; preds = %land.lhs.true639
   %arrayidx.i.i256 = getelementptr inbounds i8, ptr %this, i64 56
-  %171 = load float, ptr %arrayidx.i.i256, align 8
-  %cmp650 = fcmp oeq float %171, 0.000000e+00
+  %170 = load float, ptr %arrayidx.i.i256, align 8
+  %cmp650 = fcmp oeq float %170, 0.000000e+00
   br label %sw.epilog654.sink.split
 
 sw.epilog654.sink.split:                          ; preds = %land.lhs.true627, %land.lhs.true639, %land.rhs647, %land.end619, %land.end619.thread, %sw.epilog317, %land.lhs.true338, %land.lhs.true341, %land.lhs.true353, %land.rhs361, %sw.epilog, %land.lhs.true154, %land.lhs.true169, %land.rhs177
@@ -1441,7 +1435,7 @@ sw.epilog654.sink.split:                          ; preds = %land.lhs.true627, %
   store i8 %frombool653.sink, ptr %m_localBypass, align 1
   br label %sw.epilog654
 
-sw.epilog654:                                     ; preds = %sw.epilog654.sink.split, %land.end
+sw.epilog654:                                     ; preds = %sw.epilog654.sink.split, %entry
   ret void
 }
 

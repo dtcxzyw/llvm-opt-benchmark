@@ -1207,7 +1207,7 @@ declare void @_ZN20JfrCheckpointManager14write_type_setEv(ptr noundef nonnull al
 declare void @_ZN13ObjectSampler7releaseEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN18JfrRecorderService5flushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 1, 17179869182) i64 @_ZN18JfrRecorderService5flushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.StackTraceRepository, align 8
   %3 = alloca %class.WriteCheckpointEvent, align 8
   %4 = alloca %class.Content.17, align 8

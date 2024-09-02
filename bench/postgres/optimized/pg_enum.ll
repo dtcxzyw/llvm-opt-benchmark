@@ -917,7 +917,7 @@ define dso_local void @AtEOXact_Enum() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @EstimateUncommittedEnumsSpace() local_unnamed_addr #0 {
+define dso_local range(i64 4, 1) i64 @EstimateUncommittedEnumsSpace() local_unnamed_addr #0 {
   %1 = load ptr, ptr @uncommitted_enums, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2

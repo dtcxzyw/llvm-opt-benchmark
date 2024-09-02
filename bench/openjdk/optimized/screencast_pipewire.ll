@@ -4150,7 +4150,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   store i32 %549, ptr %562, align 4
   %563 = load i32, ptr %534, align 4
   %.not132.i = icmp eq i32 %563, 0
-  br i1 %.not132.i, label %570, label %564
+  br i1 %.not132.i, label %571, label %564
 
 564:                                              ; preds = %560
   %565 = load i32, ptr %.2238.i, align 4
@@ -4158,16 +4158,16 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   %567 = add nsw i64 %566, -8
   %568 = zext i32 %563 to i64
   %569 = udiv i64 %567, %568
-  br label %570
+  %570 = trunc i64 %569 to i32
+  br label %571
 
-570:                                              ; preds = %564, %560
-  %571 = phi i64 [ %569, %564 ], [ 0, %560 ]
-  %572 = trunc i64 %571 to i32
+571:                                              ; preds = %564, %560
+  %572 = phi i32 [ %570, %564 ], [ 0, %560 ]
   %573 = load i32, ptr %2, align 16
   %574 = icmp ult i32 %573, 41
   br i1 %574, label %575, label %580
 
-575:                                              ; preds = %570
+575:                                              ; preds = %571
   %576 = load ptr, ptr %12, align 16
   %577 = zext nneg i32 %573 to i64
   %578 = getelementptr i8, ptr %576, i64 %577
@@ -4175,7 +4175,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   store i32 %579, ptr %2, align 16
   br label %583
 
-580:                                              ; preds = %570
+580:                                              ; preds = %571
   %581 = load ptr, ptr %11, align 8
   %582 = getelementptr i8, ptr %581, i64 8
   store ptr %582, ptr %11, align 8
@@ -5595,13 +5595,13 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
 585:                                              ; preds = %582
   %586 = load ptr, ptr %29, align 8
   %587 = call i32 %584(ptr noundef %586, i32 noundef %576) #15
+  %588 = icmp eq i32 %587, 0
   br label %.critedge.i.i180.i
 
 .critedge.i.i180.i:                               ; preds = %585, %574
-  %.0.i.i.i = phi i32 [ 0, %574 ], [ %587, %585 ]
-  %588 = icmp eq i32 %.0.i.i.i, 0
+  %.0.i.i.i = phi i1 [ true, %574 ], [ %588, %585 ]
   %589 = icmp ne ptr %.0.i179.i, null
-  %or.cond.i.i.i = and i1 %589, %588
+  %or.cond.i.i.i = and i1 %589, %.0.i.i.i
   br i1 %or.cond.i.i.i, label %590, label %.critedge.thread.i.i181.i
 
 590:                                              ; preds = %.critedge.i.i180.i

@@ -1562,24 +1562,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %shr8 = lshr i32 %call6, 24
   %and9 = and i32 %shr8, 31
   %sub10 = add nsw i32 %and9, -15
+  %cmp11 = icmp ult i32 %sub10, 5
   br i1 %cmp7, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %for.body
-  %cmp11 = icmp ult i32 %sub10, 5
-  br i1 %cmp11, label %if.end27, label %if.then16
+  br i1 %cmp11, label %if.end27, label %if.end.thread
 
-if.then16:                                        ; preds = %land.lhs.true
+if.end.thread:                                    ; preds = %land.lhs.true
   %conv = trunc i32 %tr.029 to i16
   store i16 23310, ptr %ot1.i48, align 4
   store i16 %conv, ptr %fold.i47, align 8
   store i16 467, ptr %op2.i51, align 2
   %call17 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
-  br label %if.end
+  br label %if.end27
 
-if.end:                                           ; preds = %for.body, %if.then16
-  %tr.2 = phi i32 [ %call17, %if.then16 ], [ %tr.029, %for.body ]
-  %cmp21 = icmp ult i32 %sub10, 5
-  br i1 %cmp21, label %if.then23, label %if.end27
+if.end:                                           ; preds = %for.body
+  br i1 %cmp11, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end
   %conv24 = trunc i32 %call6 to i16
@@ -1589,10 +1587,10 @@ if.then23:                                        ; preds = %if.end
   %call25 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   br label %if.end27
 
-if.end27:                                         ; preds = %if.end, %if.then23, %land.lhs.true
-  %tr.1 = phi i32 [ %tr.029, %land.lhs.true ], [ %tr.2, %if.then23 ], [ %tr.2, %if.end ]
-  %tr2.0 = phi i32 [ %call6, %land.lhs.true ], [ %call25, %if.then23 ], [ %call6, %if.end ]
-  %t.0 = phi i32 [ 19, %land.lhs.true ], [ 14, %if.then23 ], [ 14, %if.end ]
+if.end27:                                         ; preds = %if.end.thread, %if.end, %if.then23, %land.lhs.true
+  %tr.1 = phi i32 [ %tr.029, %land.lhs.true ], [ %tr.029, %if.then23 ], [ %tr.029, %if.end ], [ %call17, %if.end.thread ]
+  %tr2.0 = phi i32 [ %call6, %land.lhs.true ], [ %call25, %if.then23 ], [ %call6, %if.end ], [ %call6, %if.end.thread ]
+  %t.0 = phi i32 [ 19, %land.lhs.true ], [ 14, %if.then23 ], [ 14, %if.end ], [ 14, %if.end.thread ]
   %or = or disjoint i32 %t.0, %shl
   %conv28 = trunc i32 %or to i16
   %conv29 = trunc i32 %tr.1 to i16

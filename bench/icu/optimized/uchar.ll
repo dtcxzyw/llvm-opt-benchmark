@@ -2560,7 +2560,7 @@ if.end:                                           ; preds = %u_getUnicodePropert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @uscript_getScript_75(i32 noundef %c, ptr noundef %pErrorCode) local_unnamed_addr #4 {
+define range(i32 -1, 65536) i32 @uscript_getScript_75(i32 noundef %c, ptr noundef %pErrorCode) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false

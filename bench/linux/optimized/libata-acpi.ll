@@ -844,56 +844,56 @@ ata_acpi_stm.exit:                                ; preds = %44, %44, %47
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %ata_acpi_stm.exit, %.thread7
-  %54 = phi ptr [ %80, %.thread7 ], [ %52, %ata_acpi_stm.exit ]
+.preheader:                                       ; preds = %ata_acpi_stm.exit, %.critedge6
+  %54 = phi ptr [ %80, %.critedge6 ], [ %52, %ata_acpi_stm.exit ]
   %55 = getelementptr inbounds i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8
   tail call void @kfree(ptr noundef %56) #8
   store ptr null, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %54, i64 800
   %58 = load i32, ptr %57, align 32
-  switch i32 %58, label %.thread7 [
-    i32 7, label %.thread5
-    i32 5, label %.thread5
-    i32 3, label %.thread5
-    i32 1, label %.thread5
-    i32 9, label %.thread5
+  switch i32 %58, label %.critedge6 [
+    i32 7, label %.critedge
+    i32 5, label %.critedge
+    i32 3, label %.critedge
+    i32 1, label %.critedge
+    i32 9, label %.critedge
   ]
 
-.thread5:                                         ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
+.critedge:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
   %59 = getelementptr inbounds i8, ptr %54, i64 16
   %60 = load i64, ptr %59, align 16
   %61 = and i64 %60, 268435456
   %62 = icmp eq i64 %61, 0
-  br i1 %62, label %63, label %.thread7
+  br i1 %62, label %63, label %.critedge6
 
-63:                                               ; preds = %.thread5
+63:                                               ; preds = %.critedge
   %64 = getelementptr inbounds i8, ptr %54, i64 688
   %65 = load ptr, ptr %64, align 8
   %66 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %65) #8
   %67 = getelementptr i8, ptr %65, i64 -16
   %68 = icmp ne ptr %67, null
   %69 = and i1 %66, %68
-  br i1 %69, label %70, label %.thread7
+  br i1 %69, label %70, label %.critedge6
 
 70:                                               ; preds = %63
   %71 = getelementptr i8, ptr %65, i64 -8
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.thread7, label %74
+  br i1 %73, label %.critedge6, label %74
 
 74:                                               ; preds = %70
   %75 = tail call fastcc i32 @ata_dev_get_GTF(ptr noundef nonnull %54, ptr noundef null), !range !11
   %76 = icmp sgt i32 %75, -1
-  br i1 %76, label %77, label %.thread7
+  br i1 %76, label %77, label %.critedge6
 
 77:                                               ; preds = %74
   %78 = load i64, ptr %59, align 16
   %79 = or i64 %78, 32
   store i64 %79, ptr %59, align 16
-  br label %.thread7
+  br label %.critedge6
 
-.thread7:                                         ; preds = %.preheader, %63, %.thread5, %77, %74, %70
+.critedge6:                                       ; preds = %.preheader, %.critedge, %63, %77, %74, %70
   %80 = tail call ptr @ata_dev_next(ptr noundef nonnull %54, ptr noundef %51, i32 noundef 2) #8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.loopexit, label %.preheader, !llvm.loop !12
@@ -902,9 +902,9 @@ ata_acpi_stm.exit:                                ; preds = %44, %44, %47
   %82 = getelementptr inbounds i8, ptr %0, i64 8256
   %83 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef %82, i32 noundef 2) #8
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %.loopexit, label %.preheader11
+  br i1 %84, label %.loopexit, label %.preheader10
 
-.preheader11:                                     ; preds = %.thread, %93
+.preheader10:                                     ; preds = %.thread, %93
   %85 = phi ptr [ %94, %93 ], [ %83, %.thread ]
   %86 = getelementptr inbounds i8, ptr %85, i64 40
   %87 = load ptr, ptr %86, align 8
@@ -913,26 +913,26 @@ ata_acpi_stm.exit:                                ; preds = %44, %44, %47
   %88 = getelementptr inbounds i8, ptr %85, i64 800
   %89 = load i32, ptr %88, align 32
   switch i32 %89, label %93 [
-    i32 7, label %.thread9
-    i32 5, label %.thread9
-    i32 3, label %.thread9
-    i32 1, label %.thread9
-    i32 9, label %.thread9
+    i32 7, label %.critedge9
+    i32 5, label %.critedge9
+    i32 3, label %.critedge9
+    i32 1, label %.critedge9
+    i32 9, label %.critedge9
   ]
 
-.thread9:                                         ; preds = %.preheader11, %.preheader11, %.preheader11, %.preheader11, %.preheader11
+.critedge9:                                       ; preds = %.preheader10, %.preheader10, %.preheader10, %.preheader10, %.preheader10
   %90 = getelementptr inbounds i8, ptr %85, i64 16
   %91 = load i64, ptr %90, align 16
   %92 = or i64 %91, 32
   store i64 %92, ptr %90, align 16
   br label %93
 
-93:                                               ; preds = %.preheader11, %.thread9
+93:                                               ; preds = %.preheader10, %.critedge9
   %94 = tail call ptr @ata_dev_next(ptr noundef nonnull %85, ptr noundef %82, i32 noundef 2) #8
   %95 = icmp eq ptr %94, null
-  br i1 %95, label %.loopexit, label %.preheader11, !llvm.loop !13
+  br i1 %95, label %.loopexit, label %.preheader10, !llvm.loop !13
 
-.loopexit:                                        ; preds = %93, %.thread7, %.thread, %ata_acpi_stm.exit
+.loopexit:                                        ; preds = %93, %.critedge6, %.thread, %ata_acpi_stm.exit
   ret void
 }
 

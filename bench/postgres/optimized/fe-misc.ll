@@ -1422,7 +1422,7 @@ define i32 @PQdsplen(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
 declare i32 @pg_encoding_dsplen(i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @PQenv2encoding() local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @PQenv2encoding() local_unnamed_addr #2 {
   %1 = tail call ptr @getenv(ptr noundef nonnull @.str.7) #19
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2

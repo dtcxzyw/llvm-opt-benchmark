@@ -22693,22 +22693,22 @@ _ZN4abslleENS_8DurationES0_.exit:                 ; preds = %invoke.cont53
   br i1 %cmp8.i.i, label %land.rhs, label %cond.false72
 
 _ZN4abslleENS_8DurationES0_.exit.thread:          ; preds = %invoke.cont53
-  %cmp25.i.i = icmp ugt i32 %retval.sroa.2.0.copyload.i.i, -694967297
-  br i1 %cmp25.i.i, label %while.cond89, label %cond.false72
+  %cmp25.i.i = icmp ult i32 %retval.sroa.2.0.copyload.i.i, -694967296
+  br i1 %cmp25.i.i, label %cond.false72, label %while.cond89
 
 land.rhs:                                         ; preds = %_ZN4abslleENS_8DurationES0_.exit
   %cmp.not.i.i101 = icmp eq i64 %retval.sroa.0.0.copyload.i.i, 2
   br i1 %cmp.not.i.i101, label %land.end, label %cond.true.i.i102
 
 cond.true.i.i102:                                 ; preds = %land.rhs
-  %cmp8.i.i103 = icmp ugt i64 %retval.sroa.0.0.copyload.i.i, 2
-  br i1 %cmp8.i.i103, label %cond.false72, label %while.cond89
+  %cmp8.i.i103.old = icmp ugt i64 %retval.sroa.0.0.copyload.i.i, 2
+  br i1 %cmp8.i.i103.old, label %cond.false72, label %while.cond89
 
 land.end:                                         ; preds = %land.rhs
   %cmp25.i.i109.not = icmp eq i32 %retval.sroa.2.0.copyload.i.i, 0
   br i1 %cmp25.i.i109.not, label %while.cond89, label %cond.false72
 
-cond.false72:                                     ; preds = %cond.true.i.i102, %_ZN4abslleENS_8DurationES0_.exit.thread, %_ZN4abslleENS_8DurationES0_.exit, %land.end
+cond.false72:                                     ; preds = %_ZN4abslleENS_8DurationES0_.exit.thread, %_ZN4abslleENS_8DurationES0_.exit, %cond.true.i.i102, %land.end
   invoke void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp74, ptr noundef nonnull @.str.3, i32 noundef 248, i64 62, ptr nonnull @.str.195) #44
           to label %invoke.cont76 unwind label %lpad23
 
@@ -22838,22 +22838,22 @@ _ZN4abslleENS_8DurationES0_.exit161:              ; preds = %invoke.cont151
   br i1 %cmp8.i.i150, label %land.rhs163, label %cond.false172
 
 _ZN4abslleENS_8DurationES0_.exit161.thread:       ; preds = %invoke.cont151
-  %cmp25.i.i156 = icmp ugt i32 %retval.sroa.2.0.copyload.i.i145, -694967297
-  br i1 %cmp25.i.i156, label %cleanup.done185, label %cond.false172
+  %cmp25.i.i156 = icmp ult i32 %retval.sroa.2.0.copyload.i.i145, -694967296
+  br i1 %cmp25.i.i156, label %cond.false172, label %cleanup.done185
 
 land.rhs163:                                      ; preds = %_ZN4abslleENS_8DurationES0_.exit161
   %cmp.not.i.i162 = icmp eq i64 %retval.sroa.0.0.copyload.i.i143, 2
   br i1 %cmp.not.i.i162, label %land.end169, label %cond.true.i.i163
 
 cond.true.i.i163:                                 ; preds = %land.rhs163
-  %cmp8.i.i164 = icmp ugt i64 %retval.sroa.0.0.copyload.i.i143, 2
-  br i1 %cmp8.i.i164, label %cond.false172, label %cleanup.done185
+  %cmp8.i.i164.old = icmp ugt i64 %retval.sroa.0.0.copyload.i.i143, 2
+  br i1 %cmp8.i.i164.old, label %cond.false172, label %cleanup.done185
 
 land.end169:                                      ; preds = %land.rhs163
   %cmp25.i.i170.not = icmp eq i32 %retval.sroa.2.0.copyload.i.i145, 0
   br i1 %cmp25.i.i170.not, label %cleanup.done185, label %cond.false172
 
-cond.false172:                                    ; preds = %cond.true.i.i163, %_ZN4abslleENS_8DurationES0_.exit161.thread, %_ZN4abslleENS_8DurationES0_.exit161, %land.end169
+cond.false172:                                    ; preds = %_ZN4abslleENS_8DurationES0_.exit161.thread, %_ZN4abslleENS_8DurationES0_.exit161, %cond.true.i.i163, %land.end169
   invoke void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp174, ptr noundef nonnull @.str.3, i32 noundef 260, i64 62, ptr nonnull @.str.195) #44
           to label %invoke.cont176 unwind label %lpad23
 
@@ -22962,22 +22962,22 @@ _ZN4abslleENS_8DurationES0_.exit215:              ; preds = %invoke.cont239
   br i1 %cmp8.i.i204, label %land.rhs251, label %cond.false260
 
 _ZN4abslleENS_8DurationES0_.exit215.thread:       ; preds = %invoke.cont239
-  %cmp25.i.i210 = icmp ugt i32 %retval.sroa.2.0.copyload.i.i199, -694967297
-  br i1 %cmp25.i.i210, label %while.cond277, label %cond.false260
+  %cmp25.i.i210 = icmp ult i32 %retval.sroa.2.0.copyload.i.i199, -694967296
+  br i1 %cmp25.i.i210, label %cond.false260, label %while.cond277
 
 land.rhs251:                                      ; preds = %_ZN4abslleENS_8DurationES0_.exit215
   %cmp.not.i.i216 = icmp eq i64 %retval.sroa.0.0.copyload.i.i197, 6
   br i1 %cmp.not.i.i216, label %land.end257, label %cond.true.i.i217
 
 cond.true.i.i217:                                 ; preds = %land.rhs251
-  %cmp8.i.i218 = icmp ugt i64 %retval.sroa.0.0.copyload.i.i197, 6
-  br i1 %cmp8.i.i218, label %cond.false260, label %while.cond277
+  %cmp8.i.i218.old = icmp ugt i64 %retval.sroa.0.0.copyload.i.i197, 6
+  br i1 %cmp8.i.i218.old, label %cond.false260, label %while.cond277
 
 land.end257:                                      ; preds = %land.rhs251
   %cmp25.i.i224.not = icmp eq i32 %retval.sroa.2.0.copyload.i.i199, 0
   br i1 %cmp25.i.i224.not, label %while.cond277, label %cond.false260
 
-cond.false260:                                    ; preds = %cond.true.i.i217, %_ZN4abslleENS_8DurationES0_.exit215.thread, %_ZN4abslleENS_8DurationES0_.exit215, %land.end257
+cond.false260:                                    ; preds = %_ZN4abslleENS_8DurationES0_.exit215.thread, %_ZN4abslleENS_8DurationES0_.exit215, %cond.true.i.i217, %land.end257
   invoke void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp262, ptr noundef nonnull @.str.3, i32 noundef 275, i64 62, ptr nonnull @.str.198) #44
           to label %invoke.cont264 unwind label %lpad23
 
@@ -23106,22 +23106,22 @@ _ZN4abslleENS_8DurationES0_.exit275:              ; preds = %invoke.cont340
   br i1 %cmp8.i.i264, label %land.rhs352, label %cond.false361
 
 _ZN4abslleENS_8DurationES0_.exit275.thread:       ; preds = %invoke.cont340
-  %cmp25.i.i270 = icmp ugt i32 %retval.sroa.2.0.copyload.i.i259, -694967297
-  br i1 %cmp25.i.i270, label %cleanup.done374, label %cond.false361
+  %cmp25.i.i270 = icmp ult i32 %retval.sroa.2.0.copyload.i.i259, -694967296
+  br i1 %cmp25.i.i270, label %cond.false361, label %cleanup.done374
 
 land.rhs352:                                      ; preds = %_ZN4abslleENS_8DurationES0_.exit275
   %cmp.not.i.i276 = icmp eq i64 %retval.sroa.0.0.copyload.i.i257, 2
   br i1 %cmp.not.i.i276, label %land.end358, label %cond.true.i.i277
 
 cond.true.i.i277:                                 ; preds = %land.rhs352
-  %cmp8.i.i278 = icmp ugt i64 %retval.sroa.0.0.copyload.i.i257, 2
-  br i1 %cmp8.i.i278, label %cond.false361, label %cleanup.done374
+  %cmp8.i.i278.old = icmp ugt i64 %retval.sroa.0.0.copyload.i.i257, 2
+  br i1 %cmp8.i.i278.old, label %cond.false361, label %cleanup.done374
 
 land.end358:                                      ; preds = %land.rhs352
   %cmp25.i.i284.not = icmp eq i32 %retval.sroa.2.0.copyload.i.i259, 0
   br i1 %cmp25.i.i284.not, label %cleanup.done374, label %cond.false361
 
-cond.false361:                                    ; preds = %cond.true.i.i277, %_ZN4abslleENS_8DurationES0_.exit275.thread, %_ZN4abslleENS_8DurationES0_.exit275, %land.end358
+cond.false361:                                    ; preds = %_ZN4abslleENS_8DurationES0_.exit275.thread, %_ZN4abslleENS_8DurationES0_.exit275, %cond.true.i.i277, %land.end358
   invoke void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp363, ptr noundef nonnull @.str.3, i32 noundef 287, i64 62, ptr nonnull @.str.195) #44
           to label %invoke.cont365 unwind label %lpad23
 
@@ -23391,8 +23391,8 @@ invoke.cont536:                                   ; preds = %if.end533
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i.i373)
   %cmp.not.i.i381 = icmp ne i64 %retval.sroa.0.0.copyload.i.i376, 0
   %54 = add i32 %retval.sroa.2.0.copyload.i.i378, 694967295
-  %or.cond476 = icmp ult i32 %54, -2000000001
-  %or.cond = select i1 %cmp.not.i.i381, i1 true, i1 %or.cond476
+  %or.cond492 = icmp ult i32 %54, -2000000001
+  %or.cond = select i1 %cmp.not.i.i381, i1 true, i1 %or.cond492
   br i1 %or.cond, label %cond.false557, label %cleanup.done570
 
 cond.false557:                                    ; preds = %invoke.cont536
@@ -23434,8 +23434,8 @@ if.then580:                                       ; preds = %while.end22
 while.cond585.preheader:                          ; preds = %if.then580
   %g0586 = getelementptr inbounds i8, ptr %cxt, i64 8
   %59 = load i32, ptr %g0586, align 8
-  %cmp587480 = icmp slt i32 %59, 2
-  br i1 %cmp587480, label %while.body588.lr.ph, label %if.end625
+  %cmp587496 = icmp slt i32 %59, 2
+  br i1 %cmp587496, label %while.body588.lr.ph, label %if.end625
 
 while.body588.lr.ph:                              ; preds = %while.cond585.preheader
   %cv589 = getelementptr inbounds i8, ptr %cxt, i64 24
@@ -23458,17 +23458,17 @@ _ZN4absl7CondVar15WaitWithTimeoutEPNS_5MutexENS_8DurationE.exit419: ; preds = %.
   br i1 %cmp587, label %while.body588, label %if.end625
 
 lpad594.loopexit:                                 ; preds = %while.body588, %.noexc417
-  %lpad.loopexit477 = landingpad { ptr, i32 }
+  %lpad.loopexit493 = landingpad { ptr, i32 }
           cleanup
   br label %lpad594
 
 lpad594.loopexit.split-lp:                        ; preds = %cond.false607, %if.else598, %.noexc423
-  %lpad.loopexit.split-lp478 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp494 = landingpad { ptr, i32 }
           cleanup
   br label %lpad594
 
 lpad594:                                          ; preds = %lpad594.loopexit.split-lp, %lpad594.loopexit
-  %lpad.phi479 = phi { ptr, i32 } [ %lpad.loopexit477, %lpad594.loopexit ], [ %lpad.loopexit.split-lp478, %lpad594.loopexit.split-lp ]
+  %lpad.phi495 = phi { ptr, i32 } [ %lpad.loopexit493, %lpad594.loopexit ], [ %lpad.loopexit.split-lp494, %lpad594.loopexit.split-lp ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu631)
           to label %eh.resume unwind label %terminate.lpad.i420
 
@@ -23576,11 +23576,11 @@ if.else643:                                       ; preds = %if.else629
 
 if.else643.if.end646_crit_edge:                   ; preds = %if.else643
   %g0647.phi.trans.insert = getelementptr inbounds i8, ptr %cxt, i64 8
-  %.pre481 = load i32, ptr %g0647.phi.trans.insert, align 8
+  %.pre497 = load i32, ptr %g0647.phi.trans.insert, align 8
   br label %if.end646
 
 if.end646:                                        ; preds = %while.cond634, %if.else643.if.end646_crit_edge
-  %72 = phi i32 [ %.pre481, %if.else643.if.end646_crit_edge ], [ %69, %while.cond634 ]
+  %72 = phi i32 [ %.pre497, %if.else643.if.end646_crit_edge ], [ %69, %while.cond634 ]
   %g0647 = getelementptr inbounds i8, ptr %cxt, i64 8
   %inc648 = add nsw i32 %72, 1
   store i32 %inc648, ptr %g0647, align 8
@@ -23598,7 +23598,7 @@ if.end652:                                        ; preds = %if.end646, %if.end6
   ret void
 
 eh.resume:                                        ; preds = %lpad640, %lpad594, %lpad491, %lpad23
-  %.pn = phi { ptr, i32 } [ %10, %lpad23 ], [ %49, %lpad491 ], [ %lpad.phi479, %lpad594 ], [ %lpad.phi, %lpad640 ]
+  %.pn = phi { ptr, i32 } [ %10, %lpad23 ], [ %49, %lpad491 ], [ %lpad.phi495, %lpad594 ], [ %lpad.phi, %lpad640 ]
   resume { ptr, i32 } %.pn
 }
 

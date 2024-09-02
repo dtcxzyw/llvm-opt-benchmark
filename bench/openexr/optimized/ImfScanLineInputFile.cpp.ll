@@ -4796,35 +4796,39 @@ if.then72:                                        ; preds = %if.end60
   call fastcc void @_ZNK7Imf_3_212_GLOBAL__N_117LineBufferTaskIIF15getWritePointerIN9Imath_3_24halfEEEviRPtRmS7_i(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %y.041, ptr noundef nonnull align 8 dereferenceable(8) %writePtrRight, ptr noundef nonnull align 8 dereferenceable(8) %pixelsToCopySSE, ptr noundef nonnull align 8 dereferenceable(8) %pixelsToCopyNormal, i32 noundef 0)
   %38 = load ptr, ptr %writePtrRight, align 8
   %tobool.not.i = icmp eq ptr %38, null
-  br i1 %tobool.not.i, label %if.end76, label %if.then.i
+  br i1 %tobool.not.i, label %if.end76, label %if.end76.thread
 
-if.then.i:                                        ; preds = %if.then72
+if.end76.thread:                                  ; preds = %if.then72
   call fastcc void @_ZNK7Imf_3_212_GLOBAL__N_117LineBufferTaskIIF15getWritePointerIN9Imath_3_24halfEEEviRPtRmS7_i(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %y.041, ptr noundef nonnull align 8 dereferenceable(8) %writePtrLeft, ptr noundef nonnull align 8 dereferenceable(8) %pixelsToCopySSE, ptr noundef nonnull align 8 dereferenceable(8) %pixelsToCopyNormal, i32 noundef 1)
-  br label %if.end76
+  %39 = load i64, ptr %pixelsToCopySSE, align 8
+  %40 = load i64, ptr %pixelsToCopyNormal, align 8
+  br label %for.cond85.preheader
 
 if.else74:                                        ; preds = %if.end60
   call fastcc void @_ZNK7Imf_3_212_GLOBAL__N_117LineBufferTaskIIF15getWritePointerIN9Imath_3_24halfEEEviRPtRmS7_i(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %y.041, ptr noundef nonnull align 8 dereferenceable(8) %writePtrRight, ptr noundef nonnull align 8 dereferenceable(8) %pixelsToCopySSE, ptr noundef nonnull align 8 dereferenceable(8) %pixelsToCopyNormal, i32 noundef 0)
   %.pre = load ptr, ptr %writePtrRight, align 8
+  %41 = icmp eq ptr %.pre, null
   br label %if.end76
 
-if.end76:                                         ; preds = %if.then.i, %if.then72, %if.else74
-  %39 = phi ptr [ %38, %if.then.i ], [ null, %if.then72 ], [ %.pre, %if.else74 ]
-  %cmp77 = icmp eq ptr %39, null
-  %40 = load i64, ptr %pixelsToCopySSE, align 8
-  %cmp79 = icmp eq i64 %40, 0
+if.end76:                                         ; preds = %if.then72, %if.else74
+  %cmp77 = phi i1 [ true, %if.then72 ], [ %41, %if.else74 ]
+  %42 = load i64, ptr %pixelsToCopySSE, align 8
+  %cmp79 = icmp eq i64 %42, 0
   %or.cond = select i1 %cmp77, i1 %cmp79, i1 false
-  %41 = load i64, ptr %pixelsToCopyNormal, align 8
-  %cmp81 = icmp eq i64 %41, 0
+  %43 = load i64, ptr %pixelsToCopyNormal, align 8
+  %cmp81 = icmp eq i64 %43, 0
   %or.cond1 = select i1 %or.cond, i1 %cmp81, i1 false
   br i1 %or.cond1, label %for.inc167, label %for.cond85.preheader
 
-for.cond85.preheader:                             ; preds = %if.end76
+for.cond85.preheader:                             ; preds = %if.end76.thread, %if.end76
+  %44 = phi i64 [ %40, %if.end76.thread ], [ %43, %if.end76 ]
+  %45 = phi i64 [ %39, %if.end76.thread ], [ %42, %if.end76 ]
   %cmp8638.not = icmp eq ptr %optimizationData.val26, %optimizationData.val
   br i1 %cmp8638.not, label %for.end96, label %for.body87.lr.ph
 
 for.body87.lr.ph:                                 ; preds = %for.cond85.preheader
-  %mul = shl i64 %40, 3
-  %add91 = add i64 %mul, %41
+  %mul = shl i64 %45, 3
+  %add91 = add i64 %mul, %44
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body87
 
@@ -4832,8 +4836,8 @@ for.body87:                                       ; preds = %for.body87.lr.ph, %
   %i84.039 = phi i64 [ 0, %for.body87.lr.ph ], [ %inc95, %for.body87 ]
   %optimizationData89.val = load ptr, ptr %optimizationData, align 8
   %offset = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::sliceOptimizationData", ptr %optimizationData89.val, i64 %i84.039, i32 3
-  %42 = load i64, ptr %offset, align 8
-  %mul92 = mul i64 %42, %add91
+  %46 = load i64, ptr %offset, align 8
+  %mul92 = mul i64 %46, %add91
   %add.ptr93 = getelementptr inbounds i16, ptr %add.ptr, i64 %mul92
   %arrayidx = getelementptr inbounds [8 x ptr], ptr %readPointers, i64 0, i64 %i84.039
   store ptr %add.ptr93, ptr %arrayidx, align 8
@@ -4869,14 +4873,14 @@ if.else111:                                       ; preds = %for.end96
 if.then115:                                       ; preds = %if.else111, %if.else111
   %optimizationData117.val = load ptr, ptr %optimizationData, align 8
   %fill = getelementptr inbounds i8, ptr %optimizationData117.val, i64 176
-  %43 = load i8, ptr %fill, align 8
-  %tobool119 = trunc i8 %43 to i1
+  %47 = load i8, ptr %fill, align 8
+  %tobool119 = trunc i8 %47 to i1
   br i1 %tobool119, label %if.then120, label %if.else129
 
 if.then120:                                       ; preds = %if.then115
   %fillValue = getelementptr inbounds i8, ptr %optimizationData117.val, i64 178
-  %44 = load i16, ptr %fillValue, align 2
-  store i16 %44, ptr %ref.tmp, align 2
+  %48 = load i16, ptr %fillValue, align 2
+  store i16 %48, ptr %ref.tmp, align 2
   invoke void @_ZN7Imf_3_225optimizedWriteToRGBAFillAERPtS1_S1_RKtS1_RKmS5_(ptr noundef nonnull align 8 dereferenceable(8) %readPointers, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx101, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx102, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %writePtrRight, ptr noundef nonnull align 8 dereferenceable(8) %pixelsToCopySSE, ptr noundef nonnull align 8 dereferenceable(8) %pixelsToCopyNormal)
           to label %if.end135 unwind label %lpad.loopexit
 
@@ -4888,18 +4892,18 @@ if.end135:                                        ; preds = %if.else129, %if.the
   br i1 %cmp114, label %if.then137, label %for.inc167
 
 if.then137:                                       ; preds = %if.end135
-  %45 = load ptr, ptr %_ifd45, align 8
-  %optimizationData139 = getelementptr inbounds i8, ptr %45, i64 336
+  %49 = load ptr, ptr %_ifd45, align 8
+  %optimizationData139 = getelementptr inbounds i8, ptr %49, i64 336
   %optimizationData139.val = load ptr, ptr %optimizationData139, align 8
   %fill141 = getelementptr inbounds i8, ptr %optimizationData139.val, i64 400
-  %46 = load i8, ptr %fill141, align 8
-  %tobool142 = trunc i8 %46 to i1
+  %50 = load i8, ptr %fill141, align 8
+  %tobool142 = trunc i8 %50 to i1
   br i1 %tobool142, label %if.then143, label %if.else154
 
 if.then143:                                       ; preds = %if.then137
   %fillValue151 = getelementptr inbounds i8, ptr %optimizationData139.val, i64 402
-  %47 = load i16, ptr %fillValue151, align 2
-  store i16 %47, ptr %ref.tmp147, align 2
+  %51 = load i16, ptr %fillValue151, align 2
+  store i16 %51, ptr %ref.tmp147, align 2
   invoke void @_ZN7Imf_3_225optimizedWriteToRGBAFillAERPtS1_S1_RKtS1_RKmS5_(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx107, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx108, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx157, ptr noundef nonnull align 2 dereferenceable(2) %ref.tmp147, ptr noundef nonnull align 8 dereferenceable(8) %writePtrLeft, ptr noundef nonnull align 8 dereferenceable(8) %pixelsToCopySSE, ptr noundef nonnull align 8 dereferenceable(8) %pixelsToCopyNormal)
           to label %for.inc167 unwind label %lpad.loopexit
 
@@ -4917,35 +4921,35 @@ invoke.cont164:                                   ; preds = %if.else162
           to label %unreachable unwind label %lpad.loopexit.split-lp
 
 lpad163:                                          ; preds = %if.else162
-  %48 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
   call void @__cxa_free_exception(ptr %exception) #30
   br label %catch.dispatch
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad163
-  %.pn = phi { ptr, i32 } [ %48, %lpad163 ], [ %lpad.loopexit33, %lpad.loopexit ], [ %lpad.loopexit.split-lp34, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %52, %lpad163 ], [ %lpad.loopexit33, %lpad.loopexit ], [ %lpad.loopexit.split-lp34, %lpad.loopexit.split-lp ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #30
-  %matches = icmp eq i32 %ehselector.slot.0, %49
-  %50 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
-  %51 = load ptr, ptr %_lineBuffer, align 8
-  %hasException185 = getelementptr inbounds i8, ptr %51, i64 48
-  %52 = load i8, ptr %hasException185, align 8
-  %tobool186 = trunc i8 %52 to i1
+  %53 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #30
+  %matches = icmp eq i32 %ehselector.slot.0, %53
+  %54 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
+  %55 = load ptr, ptr %_lineBuffer, align 8
+  %hasException185 = getelementptr inbounds i8, ptr %55, i64 48
+  %56 = load i8, ptr %hasException185, align 8
+  %tobool186 = trunc i8 %56 to i1
   br i1 %matches, label %catch182, label %catch
 
 catch182:                                         ; preds = %catch.dispatch
   br i1 %tobool186, label %try.cont.sink.split, label %if.then187
 
 if.then187:                                       ; preds = %catch182
-  %vtable188 = load ptr, ptr %50, align 8
+  %vtable188 = load ptr, ptr %54, align 8
   %vfn189 = getelementptr inbounds i8, ptr %vtable188, i64 16
-  %53 = load ptr, ptr %vfn189, align 8
-  %call190 = call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %50) #30
-  %54 = load ptr, ptr %_lineBuffer, align 8
-  %exception192 = getelementptr inbounds i8, ptr %54, i64 56
+  %57 = load ptr, ptr %vfn189, align 8
+  %call190 = call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %54) #30
+  %58 = load ptr, ptr %_lineBuffer, align 8
+  %exception192 = getelementptr inbounds i8, ptr %58, i64 56
   %call195 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %exception192, ptr noundef %call190)
           to label %try.cont.sink.split.sink.split unwind label %lpad193
 
@@ -4953,7 +4957,7 @@ catch:                                            ; preds = %catch.dispatch
   br i1 %tobool186, label %try.cont.sink.split, label %if.then172
 
 if.then172:                                       ; preds = %catch
-  %exception174 = getelementptr inbounds i8, ptr %51, i64 56
+  %exception174 = getelementptr inbounds i8, ptr %55, i64 56
   %call177 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %exception174, ptr noundef nonnull @.str.21)
           to label %try.cont.sink.split.sink.split unwind label %lpad175
 
@@ -4963,20 +4967,20 @@ for.inc167:                                       ; preds = %if.then105, %invoke
   br i1 %cmp55.not, label %try.cont, label %for.body56, !llvm.loop !41
 
 lpad175:                                          ; preds = %if.then172
-  %55 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 lpad193:                                          ; preds = %if.then187
-  %56 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont.sink.split.sink.split:                   ; preds = %if.then172, %if.then187
-  %57 = load ptr, ptr %_lineBuffer, align 8
-  %hasException197 = getelementptr inbounds i8, ptr %57, i64 48
+  %61 = load ptr, ptr %_lineBuffer, align 8
+  %hasException197 = getelementptr inbounds i8, ptr %61, i64 48
   store i8 1, ptr %hasException197, align 8
   br label %try.cont.sink.split
 
@@ -4988,14 +4992,14 @@ try.cont:                                         ; preds = %for.inc167, %try.co
   ret void
 
 eh.resume:                                        ; preds = %lpad193, %lpad175
-  %.pn24 = phi { ptr, i32 } [ %56, %lpad193 ], [ %55, %lpad175 ]
+  %.pn24 = phi { ptr, i32 } [ %60, %lpad193 ], [ %59, %lpad175 ]
   resume { ptr, i32 } %.pn24
 
 terminate.lpad:                                   ; preds = %lpad193, %lpad175
-  %58 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #31
+  %63 = extractvalue { ptr, i32 } %62, 0
+  call void @__clang_call_terminate(ptr %63) #31
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont164

@@ -1119,7 +1119,7 @@ define internal fastcc i32 @__io_read(ptr noundef %0, i32 noundef %1) unnamed_ad
   br label %181
 
 181:                                              ; preds = %.thread14, %169
-  %182 = phi i64 [ %160, %169 ], [ %241, %.thread14 ]
+  %182 = phi i64 [ %160, %169 ], [ %242, %.thread14 ]
   call void @iov_iter_advance(ptr noundef %171, i64 noundef %182) #12
   %183 = load i64, ptr %172, align 8
   %184 = icmp eq i64 %183, 0
@@ -1215,20 +1215,20 @@ define internal fastcc i32 @__io_read(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 ..thread14_crit_edge:                             ; preds = %236
   %.pre18 = load i32, ptr %179, align 8
+  %239 = and i32 %.pre18, -524289
   br label %.thread14
 
 .thread14:                                        ; preds = %..thread14_crit_edge, %230
-  %239 = phi i32 [ %.pre18, %..thread14_crit_edge ], [ %217, %230 ]
-  %240 = phi i32 [ %237, %..thread14_crit_edge ], [ -22, %230 ]
-  %241 = sext i32 %240 to i64
-  %242 = and i32 %239, -524289
-  store i32 %242, ptr %179, align 8
+  %240 = phi i32 [ %239, %..thread14_crit_edge ], [ %216, %230 ]
+  %241 = phi i32 [ %237, %..thread14_crit_edge ], [ -22, %230 ]
+  %242 = sext i32 %241 to i64
+  store i32 %240, ptr %179, align 8
   call void @iov_iter_restore(ptr noundef %171, ptr noundef %174) #12
-  %243 = icmp sgt i32 %240, 0
+  %243 = icmp sgt i32 %241, 0
   br i1 %243, label %181, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.thread14, %181, %165, %152, %.thread13, %129, %120
-  %244 = phi i64 [ %103, %129 ], [ %168, %165 ], [ %103, %120 ], [ %138, %.thread13 ], [ %138, %152 ], [ %182, %181 ], [ %241, %.thread14 ]
+  %244 = phi i64 [ %103, %129 ], [ %168, %165 ], [ %103, %120 ], [ %138, %.thread13 ], [ %138, %152 ], [ %182, %181 ], [ %242, %.thread14 ]
   %245 = load ptr, ptr %4, align 8
   %246 = icmp eq ptr %245, null
   br i1 %246, label %248, label %247

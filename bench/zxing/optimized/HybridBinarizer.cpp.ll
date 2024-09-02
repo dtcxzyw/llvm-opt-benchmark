@@ -232,9 +232,9 @@ _ZN5ZXingL15BlockThresholdsENS_9ImageViewE.exit:  ; preds = %._crit_edge.us.i
   %.sroa.speculate.load.false.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %storemerge86.i, i32 2)
   br label %63
 
-63:                                               ; preds = %100, %.lr.ph.i
-  %64 = phi i32 [ %60, %.lr.ph.i ], [ %110, %100 ]
-  %storemerge3185.i = phi i32 [ 0, %.lr.ph.i ], [ %109, %100 ]
+63:                                               ; preds = %101, %.lr.ph.i
+  %64 = phi i32 [ %60, %.lr.ph.i ], [ %110, %101 ]
+  %storemerge3185.i = phi i32 [ 0, %.lr.ph.i ], [ %109, %101 ]
   %65 = add nsw i32 %64, -3
   %66 = call i32 @llvm.smax.i32(i32 %storemerge3185.i, i32 2)
   %67 = icmp slt i32 %65, %66
@@ -290,15 +290,15 @@ _ZN5ZXingL15BlockThresholdsENS_9ImageViewE.exit:  ; preds = %._crit_edge.us.i
 
 96:                                               ; preds = %94
   %97 = icmp sgt i32 %93, 0
-  br i1 %97, label %98, label %100
+  br i1 %97, label %98, label %101
 
 98:                                               ; preds = %96
   %99 = sdiv i32 %90, %93
-  br label %100
+  %100 = trunc i32 %99 to i8
+  br label %101
 
-100:                                              ; preds = %98, %96
-  %101 = phi i32 [ %99, %98 ], [ 0, %96 ]
-  %102 = trunc i32 %101 to i8
+101:                                              ; preds = %98, %96
+  %102 = phi i8 [ %100, %98 ], [ 0, %96 ]
   %103 = load i32, ptr %3, align 8, !alias.scope !12
   %104 = mul nsw i32 %103, %storemerge86.i
   %105 = add nsw i32 %104, %storemerge3185.i
@@ -311,7 +311,7 @@ _ZN5ZXingL15BlockThresholdsENS_9ImageViewE.exit:  ; preds = %._crit_edge.us.i
   %111 = icmp slt i32 %109, %110
   br i1 %111, label %63, label %._crit_edge.loopexit.i, !llvm.loop !17
 
-._crit_edge.loopexit.i:                           ; preds = %100
+._crit_edge.loopexit.i:                           ; preds = %101
   %.pre.i = load i32, ptr %51, align 4, !noalias !12
   br label %._crit_edge.i
 

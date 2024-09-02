@@ -106,7 +106,7 @@ define hidden range(i32 0, 2) i32 @hb_ot_var_has_data(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @hb_ot_var_get_axis_count(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_var_get_axis_count(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -880,7 +880,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE5lfindIjEEbRKT_Pj14hb_not_found_tj.exit.thre
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @hb_ot_var_get_named_instance_count(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_var_get_named_instance_count(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -901,7 +901,7 @@ define hidden i32 @hb_ot_var_get_named_instance_count(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @hb_ot_var_named_instance_get_subfamily_name_id(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_var_named_instance_get_subfamily_name_id(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -970,7 +970,7 @@ _ZNK2OT4fvar30get_instance_subfamily_name_idEj.exit: ; preds = %2, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @hb_ot_var_named_instance_get_postscript_name_id(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_var_named_instance_get_postscript_name_id(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1052,7 +1052,7 @@ _ZNK2OT4fvar31get_instance_postscript_name_idEj.exit: ; preds = %2, %18, %37
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @hb_ot_var_named_instance_get_design_coords(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_var_named_instance_get_design_coords(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 224
   %6 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1380,7 +1380,7 @@ define linkonce_odr hidden void @_ZNK2OT4avar10map_coordsEPij(ptr noundef nonnul
   %7 = shl nuw nsw i32 %6, 8
   %8 = zext i8 %.val41 to i32
   %9 = or disjoint i32 %7, %8
-  %spec.select.i = tail call noundef i32 @llvm.umin.i32(i32 %2, i32 %9)
+  %spec.select.i = tail call noundef range(i32 0, 65536) i32 @llvm.umin.i32(i32 %2, i32 %9)
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %.not = icmp eq i32 %spec.select.i, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader

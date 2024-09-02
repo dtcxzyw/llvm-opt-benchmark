@@ -1571,7 +1571,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %0) local_unnamed_addr #20 align 2 {
+define noundef range(i64 0, 1073741825) i64 @_ZN5faiss17InterruptCallback15get_period_hintEm(i64 noundef %0) local_unnamed_addr #20 align 2 {
   %2 = load ptr, ptr @_ZN5faiss17InterruptCallback8instanceE, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3

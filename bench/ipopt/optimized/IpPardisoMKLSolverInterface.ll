@@ -2300,7 +2300,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare void @pardisoinit_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt25PardisoMKLSolverInterface10MultiSolveEbPKiS2_iPdbi(ptr noundef nonnull align 8 dereferenceable(140) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #3 align 2 {
+define noundef range(i32 0, 5) i32 @_ZN5Ipopt25PardisoMKLSolverInterface10MultiSolveEbPKiS2_iPdbi(ptr noundef nonnull align 8 dereferenceable(140) %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #3 align 2 {
   br i1 %1, label %9, label %11
 
 9:                                                ; preds = %8
@@ -2536,23 +2536,23 @@ _ZN5Ipopt9TimedTask5StartEv.exit37:               ; preds = %130, %126, %124
   %146 = load i32, ptr %145, align 4
   %147 = load i32, ptr %32, align 4
   %.not27 = icmp eq i32 %146, %147
-  br i1 %.not27, label %._crit_edge, label %148
+  br i1 %.not27, label %._crit_edge, label %149
 
 ._crit_edge:                                      ; preds = %144
   %.pre107 = load i32, ptr %33, align 8
-  br label %149
+  %148 = add nsw i32 %.pre107, 1
+  br label %150
 
-148:                                              ; preds = %144
+149:                                              ; preds = %144
   store i32 0, ptr %33, align 8
   %.pre106 = load i32, ptr %145, align 4
-  br label %149
+  br label %150
 
-149:                                              ; preds = %._crit_edge, %148
-  %150 = phi i32 [ 0, %148 ], [ %.pre107, %._crit_edge ]
-  %151 = phi i32 [ %.pre106, %148 ], [ %146, %._crit_edge ]
-  store i32 %151, ptr %32, align 4
-  %152 = add nsw i32 %150, 1
-  store i32 %152, ptr %33, align 8
+150:                                              ; preds = %._crit_edge, %149
+  %151 = phi i32 [ 1, %149 ], [ %148, %._crit_edge ]
+  %152 = phi i32 [ %.pre106, %149 ], [ %146, %._crit_edge ]
+  store i32 %152, ptr %32, align 4
+  store i32 %151, ptr %33, align 8
   br label %154
 
 153:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit37
@@ -2560,7 +2560,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit37:               ; preds = %130, %126, %124
   store i32 0, ptr %32, align 4
   br label %154
 
-154:                                              ; preds = %153, %149
+154:                                              ; preds = %153, %150
   %155 = load ptr, ptr %24, align 8
   %156 = load ptr, ptr %28, align 8
   %157 = load ptr, ptr %29, align 8

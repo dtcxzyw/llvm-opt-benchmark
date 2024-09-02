@@ -259,7 +259,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.202 = private unnamed_addr constant [25 x i8] c"Received incorrect magic\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 46) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
@@ -2506,19 +2506,22 @@ thread-pre-split:                                 ; preds = %116
   %227 = ptrtoint ptr %226 to i64
   %228 = add i64 %227, add (i64 sub (i64 0, i64 ptrtoint (ptr @capture_android_bluetooth_hcidump.data to i64)), i64 4)
   %229 = icmp slt i64 %228, %203
-  br i1 %229, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %229, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph, %214
-  %.0179.lcssa = phi i32 [ 0, %214 ], [ %225, %.lr.ph ]
-  %230 = load i8, ptr %8, align 1
-  %231 = icmp eq i8 %230, 62
-  %232 = select i1 %231, i32 16777216, i32 0
-  store i32 %232, ptr @capture_android_bluetooth_hcidump.packet, align 16
-  %233 = zext i32 %.0179.lcssa to i64
-  %234 = add nuw nsw i64 %233, 4
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %230 = zext i32 %225 to i64
+  %231 = add nuw nsw i64 %230, 4
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %214
+  %.0179.lcssa = phi i64 [ 4, %214 ], [ %231, %._crit_edge.loopexit ]
+  %232 = load i8, ptr %8, align 1
+  %233 = icmp eq i8 %232, 62
+  %234 = select i1 %233, i32 16777216, i32 0
+  store i32 %234, ptr @capture_android_bluetooth_hcidump.packet, align 16
   %235 = load i32, ptr %6, align 4
   %236 = mul i32 %235, 1000
-  %237 = call fastcc zeroext i1 @extcap_dumper_dump(i32 %10, ptr %11, ptr noundef %1, ptr noundef nonnull @capture_android_bluetooth_hcidump.packet, i64 noundef %234, i64 noundef %234, i64 noundef %.2174, i32 noundef %236)
+  %237 = call fastcc zeroext i1 @extcap_dumper_dump(i32 %10, ptr %11, ptr noundef %1, ptr noundef nonnull @capture_android_bluetooth_hcidump.packet, i64 noundef %.0179.lcssa, i64 noundef %.0179.lcssa, i64 noundef %.2174, i32 noundef %236)
   %238 = zext i1 %237 to i32
   store i32 %238, ptr @endless_loop, align 4
   %239 = getelementptr i8, ptr @capture_android_bluetooth_hcidump.data, i64 %203

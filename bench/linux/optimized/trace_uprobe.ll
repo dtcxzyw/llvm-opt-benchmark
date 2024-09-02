@@ -457,22 +457,22 @@ define internal i32 @process_fetch_insn(ptr nocapture noundef readonly %0, ptr n
   %224 = getelementptr i8, ptr %203, i64 %221
   %225 = getelementptr i8, ptr %224, i64 -1
   store i8 0, ptr %225, align 1
-  br label %228
+  br label %229
 
 226:                                              ; preds = %220
-  %227 = add nuw i64 %218, 1
-  br label %228
+  %227 = trunc i64 %218 to i32
+  %228 = add i32 %227, 1
+  br label %229
 
-228:                                              ; preds = %226, %223
-  %229 = phi i64 [ %221, %223 ], [ %227, %226 ]
-  %230 = trunc i64 %229 to i32
+229:                                              ; preds = %226, %223
+  %230 = phi i32 [ %200, %223 ], [ %228, %226 ]
   %231 = shl i32 %230, 16
   %232 = or disjoint i32 %231, %201
   br label %233
 
-233:                                              ; preds = %._crit_edge85, %228
-  %.pre-phi = phi i32 [ %.pre86, %._crit_edge85 ], [ %230, %228 ]
-  %234 = phi i32 [ %201, %._crit_edge85 ], [ %232, %228 ]
+233:                                              ; preds = %._crit_edge85, %229
+  %.pre-phi = phi i32 [ %.pre86, %._crit_edge85 ], [ %230, %229 ]
+  %234 = phi i32 [ %201, %._crit_edge85 ], [ %232, %229 ]
   store i32 %234, ptr %100, align 4
   br label %288
 
@@ -525,22 +525,22 @@ define internal i32 @process_fetch_insn(ptr nocapture noundef readonly %0, ptr n
   %265 = getelementptr i8, ptr %244, i64 %262
   %266 = getelementptr i8, ptr %265, i64 -1
   store i8 0, ptr %266, align 1
-  br label %269
+  br label %270
 
 267:                                              ; preds = %261
-  %268 = add nuw i64 %259, 1
-  br label %269
+  %268 = trunc i64 %259 to i32
+  %269 = add i32 %268, 1
+  br label %270
 
-269:                                              ; preds = %267, %264
-  %270 = phi i64 [ %262, %264 ], [ %268, %267 ]
-  %271 = trunc i64 %270 to i32
+270:                                              ; preds = %267, %264
+  %271 = phi i32 [ %241, %264 ], [ %269, %267 ]
   %272 = shl i32 %271, 16
   %273 = or disjoint i32 %272, %242
   br label %274
 
-274:                                              ; preds = %._crit_edge84, %269
-  %.pre-phi88 = phi i32 [ %.pre87, %._crit_edge84 ], [ %271, %269 ]
-  %275 = phi i32 [ %242, %._crit_edge84 ], [ %273, %269 ]
+274:                                              ; preds = %._crit_edge84, %270
+  %.pre-phi88 = phi i32 [ %.pre87, %._crit_edge84 ], [ %271, %270 ]
+  %275 = phi i32 [ %242, %._crit_edge84 ], [ %273, %270 ]
   store i32 %275, ptr %100, align 4
   br label %288
 

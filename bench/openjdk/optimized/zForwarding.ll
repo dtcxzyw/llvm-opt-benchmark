@@ -699,12 +699,12 @@ _ZNK5ZPage22object_alignment_shiftEv.exit.i:      ; preds = %32, %26
   %.0.i.in.i = load i32, ptr %.0.i.in.in.i, align 4
   %.0.i1.i = zext nneg i32 %.0.i.in.i to i64
   %35 = lshr i64 %31, %.0.i1.i
+  %36 = and i64 %35, 4294967295
   br label %_ZNK5ZPage16object_max_countEv.exit
 
 _ZNK5ZPage16object_max_countEv.exit:              ; preds = %22, %_ZNK5ZPage22object_alignment_shiftEv.exit.i
-  %.0.i = phi i64 [ %35, %_ZNK5ZPage22object_alignment_shiftEv.exit.i ], [ 1, %22 ]
-  %36 = and i64 %.0.i, 4294967295
-  %37 = icmp ult i64 %23, %36
+  %.0.i = phi i64 [ %36, %_ZNK5ZPage22object_alignment_shiftEv.exit.i ], [ 1, %22 ]
+  %37 = icmp ult i64 %23, %.0.i
   br i1 %37, label %.preheader, label %40
 
 .preheader:                                       ; preds = %_ZNK5ZPage16object_max_countEv.exit

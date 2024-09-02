@@ -2242,8 +2242,8 @@ define i32 @Amap_LibertyCountItems(ptr noundef readonly %0, ptr noundef readnone
   %4 = load i8, ptr %.068, align 1
   %5 = icmp eq i8 %4, 40
   %6 = icmp eq i8 %4, 58
-  %spec.select = or i1 %5, %6
-  %7 = zext i1 %spec.select to i32
+  %narrow = or i1 %5, %6
+  %7 = zext i1 %narrow to i32
   %8 = add nuw nsw i32 %.09, %7
   %9 = getelementptr inbounds i8, ptr %.068, i64 1
   %exitcond.not = icmp eq ptr %9, %1
@@ -2912,9 +2912,9 @@ define internal fastcc i64 @Amap_LibertyUpdateHead(ptr nocapture noundef %0, i64
   br label %11
 
 11:                                               ; preds = %.lr.ph, %Amap_LibertyCharIsSpace.exit
-  %.028 = phi ptr [ %9, %.lr.ph ], [ %25, %Amap_LibertyCharIsSpace.exit ]
-  %.02227 = phi ptr [ null, %.lr.ph ], [ %.1, %Amap_LibertyCharIsSpace.exit ]
-  %.02326 = phi ptr [ null, %.lr.ph ], [ %.124, %Amap_LibertyCharIsSpace.exit ]
+  %.028 = phi ptr [ %9, %.lr.ph ], [ %23, %Amap_LibertyCharIsSpace.exit ]
+  %.02227 = phi ptr [ null, %.lr.ph ], [ %22, %Amap_LibertyCharIsSpace.exit ]
+  %.02326 = phi ptr [ null, %.lr.ph ], [ %.sink, %Amap_LibertyCharIsSpace.exit ]
   %12 = load i8, ptr %.028, align 1
   %13 = icmp eq i8 %12, 10
   br i1 %13, label %14, label %17
@@ -2933,40 +2933,37 @@ define internal fastcc i64 @Amap_LibertyUpdateHead(ptr nocapture noundef %0, i64
     i8 13, label %Amap_LibertyCharIsSpace.exit
     i8 10, label %Amap_LibertyCharIsSpace.exit
     i8 9, label %Amap_LibertyCharIsSpace.exit
+    i8 92, label %Amap_LibertyCharIsSpace.exit
   ]
 
 19:                                               ; preds = %17
-  %20 = icmp eq i8 %18, 92
-  %21 = zext i1 %20 to i32
+  %20 = icmp eq ptr %.02326, null
+  %21 = select i1 %20, ptr %.028, ptr %.02326
   br label %Amap_LibertyCharIsSpace.exit
 
-Amap_LibertyCharIsSpace.exit:                     ; preds = %17, %17, %17, %17, %19
-  %22 = phi i32 [ 1, %17 ], [ %21, %19 ], [ 1, %17 ], [ 1, %17 ], [ 1, %17 ]
-  %.not = icmp eq i32 %22, 0
-  %23 = icmp eq ptr %.02326, null
-  %24 = select i1 %.not, i1 %23, i1 false
-  %.124 = select i1 %24, ptr %.028, ptr %.02326
-  %.1 = select i1 %.not, ptr %.028, ptr %.02227
-  %25 = getelementptr inbounds i8, ptr %.028, i64 1
-  %26 = icmp ult ptr %25, %7
-  br i1 %26, label %11, label %._crit_edge, !llvm.loop !31
+Amap_LibertyCharIsSpace.exit:                     ; preds = %17, %17, %17, %17, %17, %19
+  %.sink = phi ptr [ %21, %19 ], [ %.02326, %17 ], [ %.02326, %17 ], [ %.02326, %17 ], [ %.02326, %17 ], [ %.02326, %17 ]
+  %22 = phi ptr [ %.028, %19 ], [ %.02227, %17 ], [ %.02227, %17 ], [ %.02227, %17 ], [ %.02227, %17 ], [ %.02227, %17 ]
+  %23 = getelementptr inbounds i8, ptr %.028, i64 1
+  %24 = icmp ult ptr %23, %7
+  br i1 %24, label %11, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %Amap_LibertyCharIsSpace.exit, %2
-  %.023.lcssa = phi ptr [ null, %2 ], [ %.124, %Amap_LibertyCharIsSpace.exit ]
-  %.022.lcssa = phi ptr [ null, %2 ], [ %.1, %Amap_LibertyCharIsSpace.exit ]
+  %.023.lcssa = phi ptr [ null, %2 ], [ %.sink, %Amap_LibertyCharIsSpace.exit ]
+  %.022.lcssa = phi ptr [ null, %2 ], [ %22, %Amap_LibertyCharIsSpace.exit ]
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
-  %27 = icmp eq ptr %.023.lcssa, null
-  %28 = icmp eq ptr %.022.lcssa, null
-  %or.cond = select i1 %27, i1 true, i1 %28
-  %29 = ptrtoint ptr %.023.lcssa to i64
-  %30 = ptrtoint ptr %4 to i64
-  %31 = sub i64 %29, %30
-  %32 = ptrtoint ptr %.022.lcssa to i64
-  %reass.sub = sub i64 %32, %30
-  %33 = add i64 %reass.sub, 1
-  %34 = and i64 %33, 4294967295
-  %.sroa.020.0.in = select i1 %or.cond, i64 %1, i64 %31
-  %.sroa.321.0 = select i1 %or.cond, i64 %.sroa.3.0.extract.shift, i64 %34
+  %25 = icmp eq ptr %.023.lcssa, null
+  %26 = icmp eq ptr %.022.lcssa, null
+  %or.cond = select i1 %25, i1 true, i1 %26
+  %27 = ptrtoint ptr %.023.lcssa to i64
+  %28 = ptrtoint ptr %4 to i64
+  %29 = sub i64 %27, %28
+  %30 = ptrtoint ptr %.022.lcssa to i64
+  %reass.sub = sub i64 %30, %28
+  %31 = add i64 %reass.sub, 1
+  %32 = and i64 %31, 4294967295
+  %.sroa.020.0.in = select i1 %or.cond, i64 %1, i64 %29
+  %.sroa.321.0 = select i1 %or.cond, i64 %.sroa.3.0.extract.shift, i64 %32
   %.sroa.321.0.insert.shift = shl nuw i64 %.sroa.321.0, 32
   %.sroa.020.0.insert.ext = and i64 %.sroa.020.0.in, 4294967295
   %.sroa.020.0.insert.insert = or disjoint i64 %.sroa.321.0.insert.shift, %.sroa.020.0.insert.ext
@@ -3124,8 +3121,8 @@ Abc_UtilStrsav.exit:                              ; preds = %16, %26
   %35 = load i8, ptr %.068.i, align 1
   %36 = icmp eq i8 %35, 40
   %37 = icmp eq i8 %35, 58
-  %spec.select.i = or i1 %36, %37
-  %38 = zext i1 %spec.select.i to i32
+  %narrow.i = or i1 %36, %37
+  %38 = zext i1 %narrow.i to i32
   %39 = add nuw nsw i32 %.09.i, %38
   %40 = getelementptr inbounds i8, ptr %.068.i, i64 1
   %exitcond.not.i = icmp eq ptr %40, %33

@@ -255,13 +255,13 @@ default.unreachable5:                             ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = tail call i64 @llvm.sadd.sat.i64(i64 %9, i64 %6)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.smax.i64(i64 %10, i64 0)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %10, i64 0)
   br label %14
 
 11:                                               ; preds = %3
   %12 = load i64, ptr %1, align 8, !noundef !4
   %13 = tail call i64 @llvm.sadd.sat.i64(i64 %12, i64 %6)
-  %.0.sroa.speculated.i3 = tail call noundef i64 @llvm.smax.i64(i64 %13, i64 0)
+  %.0.sroa.speculated.i3 = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %13, i64 0)
   br label %14
 
 14:                                               ; preds = %3, %11, %7

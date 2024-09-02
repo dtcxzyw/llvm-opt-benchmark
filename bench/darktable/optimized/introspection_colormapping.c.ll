@@ -1806,84 +1806,84 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
   %55 = icmp eq i32 %25, 1
   %56 = and i64 %53, 2147483646
   %57 = icmp eq i64 %54, 0
-  br label %58
+  %58 = trunc nuw nsw i64 %56 to i32
+  br label %59
 
-58:                                               ; preds = %128, %51
-  %59 = phi i64 [ 0, %51 ], [ %129, %128 ]
-  %60 = trunc i64 %59 to i32
-  %61 = mul i32 %25, %60
+59:                                               ; preds = %128, %51
+  %60 = phi i64 [ 0, %51 ], [ %129, %128 ]
+  %61 = trunc i64 %60 to i32
+  %62 = mul i32 %25, %61
   br i1 %55, label %.loopexit33, label %.preheader32
 
-.preheader32:                                     ; preds = %58
-  %62 = add i32 %61, 1
-  br label %63
+.preheader32:                                     ; preds = %59
+  %63 = add i32 %62, 1
+  br label %64
 
-63:                                               ; preds = %.preheader32, %97
-  %64 = phi i64 [ %104, %97 ], [ 0, %.preheader32 ]
-  %65 = trunc i64 %64 to i32
-  %66 = add i32 %61, %65
-  %67 = shl nsw i32 %66, 2
-  %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds float, ptr %36, i64 %68
-  %70 = load float, ptr %69, align 16, !tbaa !66
-  %71 = fmul reassoc nsz arcp contract afn float %70, 2.048000e+03
-  %72 = fpext float %71 to double
-  %73 = fmul reassoc nsz arcp contract afn double %72, 1.000000e-02
-  %74 = fcmp reassoc nsz arcp contract afn ogt double %73, 2.047000e+03
-  br i1 %74, label %78, label %75
+64:                                               ; preds = %.preheader32, %100
+  %65 = phi i64 [ %105, %100 ], [ 0, %.preheader32 ]
+  %66 = trunc i64 %65 to i32
+  %67 = add i32 %62, %66
+  %68 = shl nsw i32 %67, 2
+  %69 = zext nneg i32 %68 to i64
+  %70 = getelementptr inbounds float, ptr %36, i64 %69
+  %71 = load float, ptr %70, align 16, !tbaa !66
+  %72 = fmul reassoc nsz arcp contract afn float %71, 2.048000e+03
+  %73 = fpext float %72 to double
+  %74 = fmul reassoc nsz arcp contract afn double %73, 1.000000e-02
+  %75 = fcmp reassoc nsz arcp contract afn ogt double %74, 2.047000e+03
+  br i1 %75, label %81, label %76
 
-75:                                               ; preds = %63
-  %76 = fcmp reassoc nsz arcp contract afn olt double %73, 0.000000e+00
-  br i1 %76, label %78, label %77
+76:                                               ; preds = %64
+  %77 = fcmp reassoc nsz arcp contract afn olt double %74, 0.000000e+00
+  br i1 %77, label %81, label %78
 
-77:                                               ; preds = %75
-  br label %78
+78:                                               ; preds = %76
+  %79 = fptosi double %74 to i32
+  %80 = sext i32 %79 to i64
+  br label %81
 
-78:                                               ; preds = %77, %75, %63
-  %79 = phi reassoc nsz arcp contract afn double [ 2.047000e+03, %63 ], [ %73, %77 ], [ 0.000000e+00, %75 ]
-  %80 = fptosi double %79 to i32
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i32, ptr %3, i64 %81
-  %83 = load i32, ptr %82, align 4, !tbaa !67
-  %84 = add nsw i32 %83, 1
-  store i32 %84, ptr %82, align 4, !tbaa !67
-  %85 = add i32 %62, %65
-  %86 = shl nsw i32 %85, 2
-  %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds float, ptr %36, i64 %87
-  %89 = load float, ptr %88, align 16, !tbaa !66
-  %90 = fmul reassoc nsz arcp contract afn float %89, 2.048000e+03
-  %91 = fpext float %90 to double
-  %92 = fmul reassoc nsz arcp contract afn double %91, 1.000000e-02
-  %93 = fcmp reassoc nsz arcp contract afn ogt double %92, 2.047000e+03
-  br i1 %93, label %97, label %94
+81:                                               ; preds = %78, %76, %64
+  %82 = phi i64 [ 2047, %64 ], [ %80, %78 ], [ 0, %76 ]
+  %83 = getelementptr inbounds i32, ptr %3, i64 %82
+  %84 = load i32, ptr %83, align 4, !tbaa !67
+  %85 = add nsw i32 %84, 1
+  store i32 %85, ptr %83, align 4, !tbaa !67
+  %86 = add i32 %63, %66
+  %87 = shl nsw i32 %86, 2
+  %88 = zext nneg i32 %87 to i64
+  %89 = getelementptr inbounds float, ptr %36, i64 %88
+  %90 = load float, ptr %89, align 16, !tbaa !66
+  %91 = fmul reassoc nsz arcp contract afn float %90, 2.048000e+03
+  %92 = fpext float %91 to double
+  %93 = fmul reassoc nsz arcp contract afn double %92, 1.000000e-02
+  %94 = fcmp reassoc nsz arcp contract afn ogt double %93, 2.047000e+03
+  br i1 %94, label %100, label %95
 
-94:                                               ; preds = %78
-  %95 = fcmp reassoc nsz arcp contract afn olt double %92, 0.000000e+00
-  br i1 %95, label %97, label %96
+95:                                               ; preds = %81
+  %96 = fcmp reassoc nsz arcp contract afn olt double %93, 0.000000e+00
+  br i1 %96, label %100, label %97
 
-96:                                               ; preds = %94
-  br label %97
+97:                                               ; preds = %95
+  %98 = fptosi double %93 to i32
+  %99 = sext i32 %98 to i64
+  br label %100
 
-97:                                               ; preds = %96, %94, %78
-  %98 = phi reassoc nsz arcp contract afn double [ 2.047000e+03, %78 ], [ %92, %96 ], [ 0.000000e+00, %94 ]
-  %99 = fptosi double %98 to i32
-  %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i32, ptr %3, i64 %100
-  %102 = load i32, ptr %101, align 4, !tbaa !67
-  %103 = add nsw i32 %102, 1
-  store i32 %103, ptr %101, align 4, !tbaa !67
-  %104 = add nuw i64 %64, 2
-  %105 = icmp eq i64 %104, %56
-  br i1 %105, label %.loopexit33, label %63
+100:                                              ; preds = %97, %95, %81
+  %101 = phi i64 [ 2047, %81 ], [ %99, %97 ], [ 0, %95 ]
+  %102 = getelementptr inbounds i32, ptr %3, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !67
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr %102, align 4, !tbaa !67
+  %105 = add nuw i64 %65, 2
+  %106 = icmp eq i64 %105, %56
+  br i1 %106, label %.loopexit33, label %64
 
-.loopexit33:                                      ; preds = %97, %58
-  %106 = phi i64 [ 0, %58 ], [ %56, %97 ]
-  br i1 %57, label %128, label %107
+.loopexit33:                                      ; preds = %100, %59
+  %107 = phi i32 [ 0, %59 ], [ %58, %100 ]
+  br i1 %57, label %128, label %108
 
-107:                                              ; preds = %.loopexit33
-  %108 = trunc nuw nsw i64 %106 to i32
-  %109 = add i32 %61, %108
+108:                                              ; preds = %.loopexit33
+  %109 = add i32 %62, %107
   %110 = shl nsw i32 %109, 2
   %111 = zext nneg i32 %110 to i64
   %112 = getelementptr inbounds float, ptr %36, i64 %111
@@ -1892,29 +1892,29 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
   %115 = fpext float %114 to double
   %116 = fmul reassoc nsz arcp contract afn double %115, 1.000000e-02
   %117 = fcmp reassoc nsz arcp contract afn ogt double %116, 2.047000e+03
-  br i1 %117, label %121, label %118
+  br i1 %117, label %123, label %118
 
-118:                                              ; preds = %107
+118:                                              ; preds = %108
   %119 = fcmp reassoc nsz arcp contract afn olt double %116, 0.000000e+00
-  br i1 %119, label %121, label %120
+  br i1 %119, label %123, label %120
 
 120:                                              ; preds = %118
-  br label %121
+  %121 = fptosi double %116 to i32
+  %122 = sext i32 %121 to i64
+  br label %123
 
-121:                                              ; preds = %120, %118, %107
-  %122 = phi reassoc nsz arcp contract afn double [ 2.047000e+03, %107 ], [ %116, %120 ], [ 0.000000e+00, %118 ]
-  %123 = fptosi double %122 to i32
-  %124 = sext i32 %123 to i64
+123:                                              ; preds = %120, %118, %108
+  %124 = phi i64 [ 2047, %108 ], [ %122, %120 ], [ 0, %118 ]
   %125 = getelementptr inbounds i32, ptr %3, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !67
   %127 = add nsw i32 %126, 1
   store i32 %127, ptr %125, align 4, !tbaa !67
   br label %128
 
-128:                                              ; preds = %121, %.loopexit33
-  %129 = add nuw nsw i64 %59, 1
+128:                                              ; preds = %123, %.loopexit33
+  %129 = add nuw nsw i64 %60, 1
   %130 = icmp eq i64 %129, %52
-  br i1 %130, label %.loopexit34.loopexit, label %58
+  br i1 %130, label %.loopexit34.loopexit, label %59
 
 .loopexit34.loopexit:                             ; preds = %128
   %.pre = load i32, ptr %3, align 16
@@ -1977,8 +1977,8 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
   %170 = add nuw nsw i64 %142, 8
   br label %140
 
-171:                                              ; preds = %199, %138
-  %172 = phi i64 [ 0, %138 ], [ %202, %199 ]
+171:                                              ; preds = %200, %138
+  %172 = phi i64 [ 0, %138 ], [ %202, %200 ]
   %173 = getelementptr inbounds i32, ptr %3, i64 %172
   %174 = load i32, ptr %173, align 8, !tbaa !67
   %175 = sitofp i32 %174 to float
@@ -1987,18 +1987,18 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
   %178 = fmul reassoc nsz arcp contract afn float %175, 2.048000e+03
   %179 = fdiv reassoc nsz arcp contract afn float %178, %177
   %180 = fcmp reassoc nsz arcp contract afn ogt float %179, 2.047000e+03
-  br i1 %180, label %184, label %181
+  br i1 %180, label %185, label %181
 
 181:                                              ; preds = %171
   %182 = fcmp reassoc nsz arcp contract afn olt float %179, 0.000000e+00
-  br i1 %182, label %184, label %183
+  br i1 %182, label %185, label %183
 
 183:                                              ; preds = %181
-  br label %184
+  %184 = fptosi float %179 to i32
+  br label %185
 
-184:                                              ; preds = %183, %181, %171
-  %185 = phi reassoc nsz arcp contract afn float [ 2.047000e+03, %171 ], [ %179, %183 ], [ 0.000000e+00, %181 ]
-  %186 = fptosi float %185 to i32
+185:                                              ; preds = %183, %181, %171
+  %186 = phi i32 [ 2047, %171 ], [ %184, %183 ], [ 0, %181 ]
   store i32 %186, ptr %173, align 8, !tbaa !67
   %187 = or disjoint i64 %172, 1
   %188 = getelementptr inbounds i32, ptr %3, i64 %187
@@ -2009,24 +2009,24 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
   %193 = fmul reassoc nsz arcp contract afn float %190, 2.048000e+03
   %194 = fdiv reassoc nsz arcp contract afn float %193, %192
   %195 = fcmp reassoc nsz arcp contract afn ogt float %194, 2.047000e+03
-  br i1 %195, label %199, label %196
+  br i1 %195, label %200, label %196
 
-196:                                              ; preds = %184
+196:                                              ; preds = %185
   %197 = fcmp reassoc nsz arcp contract afn olt float %194, 0.000000e+00
-  br i1 %197, label %199, label %198
+  br i1 %197, label %200, label %198
 
 198:                                              ; preds = %196
-  br label %199
+  %199 = fptosi float %194 to i32
+  br label %200
 
-199:                                              ; preds = %198, %196, %184
-  %200 = phi reassoc nsz arcp contract afn float [ 2.047000e+03, %184 ], [ %194, %198 ], [ 0.000000e+00, %196 ]
-  %201 = fptosi float %200 to i32
+200:                                              ; preds = %198, %196, %185
+  %201 = phi i32 [ 2047, %185 ], [ %199, %198 ], [ 0, %196 ]
   store i32 %201, ptr %188, align 4, !tbaa !67
   %202 = add nuw nsw i64 %172, 2
   %203 = icmp eq i64 %202, 2048
   br i1 %203, label %204, label %171
 
-204:                                              ; preds = %199
+204:                                              ; preds = %200
   %205 = getelementptr inbounds i8, ptr %5, i64 16
   store <8 x float> <float 0.000000e+00, float 0x3FA9000000000000, float 0x3FB9000000000000, float 0x3FC2C00000000000, float 0x3FC9000000000000, float 0x3FCF400000000000, float 0x3FD2C00000000000, float 0x3FD5E00000000000>, ptr %205, align 4, !tbaa !66
   %206 = getelementptr inbounds i8, ptr %5, i64 48
@@ -2147,84 +2147,84 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
   %276 = icmp eq i32 %25, 1
   %277 = and i64 %274, 2147483646
   %278 = icmp eq i64 %275, 0
-  br label %279
+  %279 = trunc nuw nsw i64 %277 to i32
+  br label %280
 
-279:                                              ; preds = %349, %272
-  %280 = phi i64 [ 0, %272 ], [ %350, %349 ]
-  %281 = trunc i64 %280 to i32
-  %282 = mul i32 %25, %281
+280:                                              ; preds = %349, %272
+  %281 = phi i64 [ 0, %272 ], [ %350, %349 ]
+  %282 = trunc i64 %281 to i32
+  %283 = mul i32 %25, %282
   br i1 %276, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %279
-  %283 = add i32 %282, 1
-  br label %284
+.preheader:                                       ; preds = %280
+  %284 = add i32 %283, 1
+  br label %285
 
-284:                                              ; preds = %.preheader, %318
-  %285 = phi i64 [ %325, %318 ], [ 0, %.preheader ]
-  %286 = trunc i64 %285 to i32
-  %287 = add i32 %282, %286
-  %288 = shl nsw i32 %287, 2
-  %289 = zext nneg i32 %288 to i64
-  %290 = getelementptr inbounds float, ptr %36, i64 %289
-  %291 = load float, ptr %290, align 16, !tbaa !66
-  %292 = fmul reassoc nsz arcp contract afn float %291, 2.048000e+03
-  %293 = fpext float %292 to double
-  %294 = fmul reassoc nsz arcp contract afn double %293, 1.000000e-02
-  %295 = fcmp reassoc nsz arcp contract afn ogt double %294, 2.047000e+03
-  br i1 %295, label %299, label %296
+285:                                              ; preds = %.preheader, %321
+  %286 = phi i64 [ %326, %321 ], [ 0, %.preheader ]
+  %287 = trunc i64 %286 to i32
+  %288 = add i32 %283, %287
+  %289 = shl nsw i32 %288, 2
+  %290 = zext nneg i32 %289 to i64
+  %291 = getelementptr inbounds float, ptr %36, i64 %290
+  %292 = load float, ptr %291, align 16, !tbaa !66
+  %293 = fmul reassoc nsz arcp contract afn float %292, 2.048000e+03
+  %294 = fpext float %293 to double
+  %295 = fmul reassoc nsz arcp contract afn double %294, 1.000000e-02
+  %296 = fcmp reassoc nsz arcp contract afn ogt double %295, 2.047000e+03
+  br i1 %296, label %302, label %297
 
-296:                                              ; preds = %284
-  %297 = fcmp reassoc nsz arcp contract afn olt double %294, 0.000000e+00
-  br i1 %297, label %299, label %298
+297:                                              ; preds = %285
+  %298 = fcmp reassoc nsz arcp contract afn olt double %295, 0.000000e+00
+  br i1 %298, label %302, label %299
 
-298:                                              ; preds = %296
-  br label %299
+299:                                              ; preds = %297
+  %300 = fptosi double %295 to i32
+  %301 = sext i32 %300 to i64
+  br label %302
 
-299:                                              ; preds = %298, %296, %284
-  %300 = phi reassoc nsz arcp contract afn double [ 2.047000e+03, %284 ], [ %294, %298 ], [ 0.000000e+00, %296 ]
-  %301 = fptosi double %300 to i32
-  %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds i32, ptr %268, i64 %302
-  %304 = load i32, ptr %303, align 4, !tbaa !67
-  %305 = add nsw i32 %304, 1
-  store i32 %305, ptr %303, align 4, !tbaa !67
-  %306 = add i32 %283, %286
-  %307 = shl nsw i32 %306, 2
-  %308 = zext nneg i32 %307 to i64
-  %309 = getelementptr inbounds float, ptr %36, i64 %308
-  %310 = load float, ptr %309, align 16, !tbaa !66
-  %311 = fmul reassoc nsz arcp contract afn float %310, 2.048000e+03
-  %312 = fpext float %311 to double
-  %313 = fmul reassoc nsz arcp contract afn double %312, 1.000000e-02
-  %314 = fcmp reassoc nsz arcp contract afn ogt double %313, 2.047000e+03
-  br i1 %314, label %318, label %315
+302:                                              ; preds = %299, %297, %285
+  %303 = phi i64 [ 2047, %285 ], [ %301, %299 ], [ 0, %297 ]
+  %304 = getelementptr inbounds i32, ptr %268, i64 %303
+  %305 = load i32, ptr %304, align 4, !tbaa !67
+  %306 = add nsw i32 %305, 1
+  store i32 %306, ptr %304, align 4, !tbaa !67
+  %307 = add i32 %284, %287
+  %308 = shl nsw i32 %307, 2
+  %309 = zext nneg i32 %308 to i64
+  %310 = getelementptr inbounds float, ptr %36, i64 %309
+  %311 = load float, ptr %310, align 16, !tbaa !66
+  %312 = fmul reassoc nsz arcp contract afn float %311, 2.048000e+03
+  %313 = fpext float %312 to double
+  %314 = fmul reassoc nsz arcp contract afn double %313, 1.000000e-02
+  %315 = fcmp reassoc nsz arcp contract afn ogt double %314, 2.047000e+03
+  br i1 %315, label %321, label %316
 
-315:                                              ; preds = %299
-  %316 = fcmp reassoc nsz arcp contract afn olt double %313, 0.000000e+00
-  br i1 %316, label %318, label %317
+316:                                              ; preds = %302
+  %317 = fcmp reassoc nsz arcp contract afn olt double %314, 0.000000e+00
+  br i1 %317, label %321, label %318
 
-317:                                              ; preds = %315
-  br label %318
+318:                                              ; preds = %316
+  %319 = fptosi double %314 to i32
+  %320 = sext i32 %319 to i64
+  br label %321
 
-318:                                              ; preds = %317, %315, %299
-  %319 = phi reassoc nsz arcp contract afn double [ 2.047000e+03, %299 ], [ %313, %317 ], [ 0.000000e+00, %315 ]
-  %320 = fptosi double %319 to i32
-  %321 = sext i32 %320 to i64
-  %322 = getelementptr inbounds i32, ptr %268, i64 %321
-  %323 = load i32, ptr %322, align 4, !tbaa !67
-  %324 = add nsw i32 %323, 1
-  store i32 %324, ptr %322, align 4, !tbaa !67
-  %325 = add nuw i64 %285, 2
-  %326 = icmp eq i64 %325, %277
-  br i1 %326, label %.loopexit, label %284
+321:                                              ; preds = %318, %316, %302
+  %322 = phi i64 [ 2047, %302 ], [ %320, %318 ], [ 0, %316 ]
+  %323 = getelementptr inbounds i32, ptr %268, i64 %322
+  %324 = load i32, ptr %323, align 4, !tbaa !67
+  %325 = add nsw i32 %324, 1
+  store i32 %325, ptr %323, align 4, !tbaa !67
+  %326 = add nuw i64 %286, 2
+  %327 = icmp eq i64 %326, %277
+  br i1 %327, label %.loopexit, label %285
 
-.loopexit:                                        ; preds = %318, %279
-  %327 = phi i64 [ 0, %279 ], [ %277, %318 ]
-  br i1 %278, label %349, label %328
+.loopexit:                                        ; preds = %321, %280
+  %328 = phi i32 [ 0, %280 ], [ %279, %321 ]
+  br i1 %278, label %349, label %329
 
-328:                                              ; preds = %.loopexit
-  %329 = trunc nuw nsw i64 %327 to i32
-  %330 = add i32 %282, %329
+329:                                              ; preds = %.loopexit
+  %330 = add i32 %283, %328
   %331 = shl nsw i32 %330, 2
   %332 = zext nneg i32 %331 to i64
   %333 = getelementptr inbounds float, ptr %36, i64 %332
@@ -2233,29 +2233,29 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
   %336 = fpext float %335 to double
   %337 = fmul reassoc nsz arcp contract afn double %336, 1.000000e-02
   %338 = fcmp reassoc nsz arcp contract afn ogt double %337, 2.047000e+03
-  br i1 %338, label %342, label %339
+  br i1 %338, label %344, label %339
 
-339:                                              ; preds = %328
+339:                                              ; preds = %329
   %340 = fcmp reassoc nsz arcp contract afn olt double %337, 0.000000e+00
-  br i1 %340, label %342, label %341
+  br i1 %340, label %344, label %341
 
 341:                                              ; preds = %339
-  br label %342
+  %342 = fptosi double %337 to i32
+  %343 = sext i32 %342 to i64
+  br label %344
 
-342:                                              ; preds = %341, %339, %328
-  %343 = phi reassoc nsz arcp contract afn double [ 2.047000e+03, %328 ], [ %337, %341 ], [ 0.000000e+00, %339 ]
-  %344 = fptosi double %343 to i32
-  %345 = sext i32 %344 to i64
+344:                                              ; preds = %341, %339, %329
+  %345 = phi i64 [ 2047, %329 ], [ %343, %341 ], [ 0, %339 ]
   %346 = getelementptr inbounds i32, ptr %268, i64 %345
   %347 = load i32, ptr %346, align 4, !tbaa !67
   %348 = add nsw i32 %347, 1
   store i32 %348, ptr %346, align 4, !tbaa !67
   br label %349
 
-349:                                              ; preds = %342, %.loopexit
-  %350 = add nuw nsw i64 %280, 1
+349:                                              ; preds = %344, %.loopexit
+  %350 = add nuw nsw i64 %281, 1
   %351 = icmp eq i64 %350, %273
-  br i1 %351, label %.loopexit30.loopexit, label %279
+  br i1 %351, label %.loopexit30.loopexit, label %280
 
 .loopexit30.loopexit:                             ; preds = %349
   %.pre45 = load i32, ptr %268, align 4
@@ -2318,8 +2318,8 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
   %391 = add nuw nsw i64 %363, 8
   br label %361
 
-392:                                              ; preds = %420, %359
-  %393 = phi i64 [ 0, %359 ], [ %423, %420 ]
+392:                                              ; preds = %421, %359
+  %393 = phi i64 [ 0, %359 ], [ %423, %421 ]
   %394 = getelementptr inbounds i32, ptr %268, i64 %393
   %395 = load i32, ptr %394, align 4, !tbaa !67
   %396 = sitofp i32 %395 to float
@@ -2328,18 +2328,18 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
   %399 = fmul reassoc nsz arcp contract afn float %396, 2.048000e+03
   %400 = fdiv reassoc nsz arcp contract afn float %399, %398
   %401 = fcmp reassoc nsz arcp contract afn ogt float %400, 2.047000e+03
-  br i1 %401, label %405, label %402
+  br i1 %401, label %406, label %402
 
 402:                                              ; preds = %392
   %403 = fcmp reassoc nsz arcp contract afn olt float %400, 0.000000e+00
-  br i1 %403, label %405, label %404
+  br i1 %403, label %406, label %404
 
 404:                                              ; preds = %402
-  br label %405
+  %405 = fptosi float %400 to i32
+  br label %406
 
-405:                                              ; preds = %404, %402, %392
-  %406 = phi reassoc nsz arcp contract afn float [ 2.047000e+03, %392 ], [ %400, %404 ], [ 0.000000e+00, %402 ]
-  %407 = fptosi float %406 to i32
+406:                                              ; preds = %404, %402, %392
+  %407 = phi i32 [ 2047, %392 ], [ %405, %404 ], [ 0, %402 ]
   store i32 %407, ptr %394, align 4, !tbaa !67
   %408 = or disjoint i64 %393, 1
   %409 = getelementptr inbounds i32, ptr %268, i64 %408
@@ -2350,24 +2350,24 @@ define internal void @process_clusters(ptr nocapture readnone %0, ptr noundef %1
   %414 = fmul reassoc nsz arcp contract afn float %411, 2.048000e+03
   %415 = fdiv reassoc nsz arcp contract afn float %414, %413
   %416 = fcmp reassoc nsz arcp contract afn ogt float %415, 2.047000e+03
-  br i1 %416, label %420, label %417
+  br i1 %416, label %421, label %417
 
-417:                                              ; preds = %405
+417:                                              ; preds = %406
   %418 = fcmp reassoc nsz arcp contract afn olt float %415, 0.000000e+00
-  br i1 %418, label %420, label %419
+  br i1 %418, label %421, label %419
 
 419:                                              ; preds = %417
-  br label %420
+  %420 = fptosi float %415 to i32
+  br label %421
 
-420:                                              ; preds = %419, %417, %405
-  %421 = phi reassoc nsz arcp contract afn float [ 2.047000e+03, %405 ], [ %415, %419 ], [ 0.000000e+00, %417 ]
-  %422 = fptosi float %421 to i32
+421:                                              ; preds = %419, %417, %406
+  %422 = phi i32 [ 2047, %406 ], [ %420, %419 ], [ 0, %417 ]
   store i32 %422, ptr %409, align 4, !tbaa !67
   %423 = add nuw nsw i64 %393, 2
   %424 = icmp eq i64 %423, 2048
   br i1 %424, label %425, label %392
 
-425:                                              ; preds = %420
+425:                                              ; preds = %421
   %426 = getelementptr inbounds i8, ptr %5, i64 4
   %427 = load i32, ptr %426, align 4, !tbaa !65
   %428 = getelementptr inbounds i8, ptr %5, i64 16500
@@ -2558,193 +2558,186 @@ define noundef range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 nound
 define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #18 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.37) #27
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %105, label %sub_0
+  br i1 %4, label %100, label %sub_0
 
 sub_0:                                            ; preds = %2
   %5 = load i8, ptr %1, align 1
-  %6 = zext i8 %5 to i32
-  %7 = add nsw i32 %6, -110
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %sub_1, label %.tail
+  %.not = icmp eq i8 %5, 110
+  br i1 %.not, label %.tail, label %.tail.thread
 
-sub_1:                                            ; preds = %sub_0
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
-  %9 = load i8, ptr %8, align 1
-  %10 = zext i8 %9 to i32
-  br label %.tail
+.tail:                                            ; preds = %sub_0
+  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = load i8, ptr %6, align 1
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %9, label %.tail.thread
 
-.tail:                                            ; preds = %sub_0, %sub_1
-  %11 = phi i32 [ %7, %sub_0 ], [ %10, %sub_1 ]
+9:                                                ; preds = %.tail
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  br label %100
+
+.tail.thread:                                     ; preds = %sub_0, %.tail
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.18) #27
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
-13:                                               ; preds = %.tail
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %105
+13:                                               ; preds = %.tail.thread
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %100
 
-15:                                               ; preds = %.tail
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.18) #27
+15:                                               ; preds = %.tail.thread
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.21) #27
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %105
+  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  br label %100
 
 20:                                               ; preds = %15
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.21) #27
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.38) #27
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
-  br label %105
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %100
 
 25:                                               ; preds = %20
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.38) #27
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.39) #27
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %105
+  br label %100
 
 30:                                               ; preds = %25
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.39) #27
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.40) #27
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %105
+  %34 = getelementptr inbounds i8, ptr %0, i64 8208
+  br label %100
 
 35:                                               ; preds = %30
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.40) #27
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.41) #27
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %0, i64 8208
-  br label %105
+  br label %100
 
 40:                                               ; preds = %35
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.41) #27
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.42) #27
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 8208
-  br label %105
+  %44 = getelementptr inbounds i8, ptr %0, i64 8248
+  br label %100
 
 45:                                               ; preds = %40
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.42) #27
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.43) #27
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %0, i64 8248
-  br label %105
+  br label %100
 
 50:                                               ; preds = %45
-  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.43) #27
+  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.44) #27
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %0, i64 8248
-  br label %105
+  %54 = getelementptr inbounds i8, ptr %0, i64 8288
+  br label %100
 
 55:                                               ; preds = %50
-  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.44) #27
+  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.45) #27
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %0, i64 8288
-  br label %105
+  br label %100
 
 60:                                               ; preds = %55
-  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.45) #27
+  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.46) #27
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %0, i64 8288
-  br label %105
+  %64 = getelementptr inbounds i8, ptr %0, i64 8308
+  br label %100
 
 65:                                               ; preds = %60
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.46) #27
+  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.47) #27
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds i8, ptr %0, i64 8308
-  br label %105
+  br label %100
 
 70:                                               ; preds = %65
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.47) #27
+  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.48) #27
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %0, i64 8308
-  br label %105
+  %74 = getelementptr inbounds i8, ptr %0, i64 16500
+  br label %100
 
 75:                                               ; preds = %70
-  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(15) @.str.48) #27
+  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.49) #27
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds i8, ptr %0, i64 16500
-  br label %105
+  br label %100
 
 80:                                               ; preds = %75
-  %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.49) #27
+  %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.50) #27
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %0, i64 16500
-  br label %105
+  %84 = getelementptr inbounds i8, ptr %0, i64 16540
+  br label %100
 
 85:                                               ; preds = %80
-  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.50) #27
+  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.51) #27
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds i8, ptr %0, i64 16540
-  br label %105
+  br label %100
 
 90:                                               ; preds = %85
-  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.51) #27
+  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.52) #27
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %0, i64 16540
-  br label %105
+  %94 = getelementptr inbounds i8, ptr %0, i64 16580
+  br label %100
 
 95:                                               ; preds = %90
-  %96 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.52) #27
+  %96 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.53) #27
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %100
+  %98 = getelementptr inbounds i8, ptr %0, i64 16580
+  %99 = select i1 %97, ptr %98, ptr null
+  br label %100
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %0, i64 16580
-  br label %105
-
-100:                                              ; preds = %95
-  %101 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.53) #27
-  %102 = icmp eq i32 %101, 0
-  %103 = getelementptr inbounds i8, ptr %0, i64 16580
-  %104 = select i1 %102, ptr %103, ptr null
-  br label %105
-
-105:                                              ; preds = %100, %98, %93, %88, %83, %78, %73, %68, %63, %58, %53, %48, %43, %38, %33, %28, %23, %18, %13, %2
-  %106 = phi ptr [ %99, %98 ], [ %94, %93 ], [ %89, %88 ], [ %84, %83 ], [ %79, %78 ], [ %74, %73 ], [ %69, %68 ], [ %64, %63 ], [ %59, %58 ], [ %54, %53 ], [ %49, %48 ], [ %44, %43 ], [ %39, %38 ], [ %34, %33 ], [ %29, %28 ], [ %24, %23 ], [ %19, %18 ], [ %14, %13 ], [ %0, %2 ], [ %104, %100 ]
-  ret ptr %106
+100:                                              ; preds = %95, %93, %88, %83, %78, %73, %68, %63, %58, %53, %48, %43, %38, %33, %28, %23, %18, %13, %9, %2
+  %101 = phi ptr [ %94, %93 ], [ %89, %88 ], [ %84, %83 ], [ %79, %78 ], [ %74, %73 ], [ %69, %68 ], [ %64, %63 ], [ %59, %58 ], [ %54, %53 ], [ %49, %48 ], [ %44, %43 ], [ %39, %38 ], [ %34, %33 ], [ %29, %28 ], [ %24, %23 ], [ %19, %18 ], [ %14, %13 ], [ %10, %9 ], [ %0, %2 ], [ %99, %95 ]
+  ret ptr %101
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

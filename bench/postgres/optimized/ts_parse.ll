@@ -88,27 +88,27 @@ define dso_local void @parsetext(i32 noundef %0, ptr nocapture noundef %1, ptr n
   %47 = load ptr, ptr %23, align 8
   store ptr %47, ptr %18, align 8
   %48 = call fastcc ptr @LexizeExec(ptr noundef nonnull %7, ptr noundef null)
-  %.not52 = icmp eq ptr %48, null
-  br i1 %.not52, label %.loopexit, label %.lr.ph54
+  %.not53 = icmp eq ptr %48, null
+  br i1 %.not53, label %.loopexit, label %.lr.ph55
 
-.lr.ph54:                                         ; preds = %39, %._crit_edge
-  %49 = phi ptr [ %110, %._crit_edge ], [ %48, %39 ]
+.lr.ph55:                                         ; preds = %39, %._crit_edge
+  %49 = phi ptr [ %109, %._crit_edge ], [ %48, %39 ]
   %50 = load i32, ptr %24, align 8
   %51 = add i32 %50, 1
   store i32 %51, ptr %24, align 8
   %52 = getelementptr inbounds i8, ptr %49, i64 8
   %53 = load ptr, ptr %52, align 8
-  %.not4850 = icmp eq ptr %53, null
-  br i1 %.not4850, label %._crit_edge, label %.lr.ph.preheader
+  %.not4851 = icmp eq ptr %53, null
+  br i1 %.not4851, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph54
+.lr.ph.preheader:                                 ; preds = %.lr.ph55
   %.pre = load i32, ptr %25, align 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %71
-  %54 = phi i32 [ %107, %71 ], [ %.pre, %.lr.ph.preheader ]
-  %55 = phi ptr [ %108, %71 ], [ %52, %.lr.ph.preheader ]
-  %.051 = phi ptr [ %105, %71 ], [ %49, %.lr.ph.preheader ]
+  %54 = phi i32 [ %106, %71 ], [ %.pre, %.lr.ph.preheader ]
+  %55 = phi ptr [ %107, %71 ], [ %52, %.lr.ph.preheader ]
+  %.052 = phi ptr [ %104, %71 ], [ %49, %.lr.ph.preheader ]
   %56 = load i32, ptr %26, align 8
   %57 = icmp eq i32 %54, %56
   br i1 %57, label %58, label %64
@@ -124,7 +124,7 @@ define dso_local void @parsetext(i32 noundef %0, ptr nocapture noundef %1, ptr n
   br label %64
 
 64:                                               ; preds = %58, %.lr.ph
-  %65 = getelementptr inbounds i8, ptr %.051, i64 2
+  %65 = getelementptr inbounds i8, ptr %.052, i64 2
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, 1
   %.not49 = icmp eq i16 %67, 0
@@ -151,7 +151,7 @@ define dso_local void @parsetext(i32 noundef %0, ptr nocapture noundef %1, ptr n
   %82 = sext i32 %81 to i64
   %83 = getelementptr %struct.ParsedWord, ptr %80, i64 %82, i32 5
   store ptr %79, ptr %83, align 8
-  %84 = load i16, ptr %.051, align 8
+  %84 = load i16, ptr %.052, align 8
   %85 = load ptr, ptr %1, align 8
   %86 = load i32, ptr %25, align 4
   %87 = sext i32 %86 to i64
@@ -170,34 +170,34 @@ define dso_local void @parsetext(i32 noundef %0, ptr nocapture noundef %1, ptr n
   %98 = getelementptr %struct.ParsedWord, ptr %95, i64 %97, i32 3
   store i16 0, ptr %98, align 2
   %99 = load i32, ptr %24, align 8
-  %spec.select = call i32 @llvm.smin.i32(i32 %99, i32 16383)
-  %100 = trunc i32 %spec.select to i16
-  %101 = load ptr, ptr %1, align 8
-  %102 = load i32, ptr %25, align 4
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr %struct.ParsedWord, ptr %101, i64 %103, i32 4
-  store i16 %100, ptr %104, align 8
-  %105 = getelementptr i8, ptr %.051, i64 16
-  %106 = load i32, ptr %25, align 4
-  %107 = add i32 %106, 1
-  store i32 %107, ptr %25, align 4
-  %108 = getelementptr i8, ptr %.051, i64 24
-  %109 = load ptr, ptr %108, align 8
-  %.not48 = icmp eq ptr %109, null
+  %spec.select50 = call i32 @llvm.smin.i32(i32 %99, i32 16383)
+  %spec.select = trunc i32 %spec.select50 to i16
+  %100 = load ptr, ptr %1, align 8
+  %101 = load i32, ptr %25, align 4
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr %struct.ParsedWord, ptr %100, i64 %102, i32 4
+  store i16 %spec.select, ptr %103, align 8
+  %104 = getelementptr i8, ptr %.052, i64 16
+  %105 = load i32, ptr %25, align 4
+  %106 = add i32 %105, 1
+  store i32 %106, ptr %25, align 4
+  %107 = getelementptr i8, ptr %.052, i64 24
+  %108 = load ptr, ptr %107, align 8
+  %.not48 = icmp eq ptr %108, null
   br i1 %.not48, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %71, %.lr.ph54
+._crit_edge:                                      ; preds = %71, %.lr.ph55
   call void @pfree(ptr noundef nonnull %49) #7
-  %110 = call fastcc ptr @LexizeExec(ptr noundef nonnull %7, ptr noundef null)
-  %.not = icmp eq ptr %110, null
-  br i1 %.not, label %.loopexit, label %.lr.ph54, !llvm.loop !7
+  %109 = call fastcc ptr @LexizeExec(ptr noundef nonnull %7, ptr noundef null)
+  %.not = icmp eq ptr %109, null
+  br i1 %.not, label %.loopexit, label %.lr.ph55, !llvm.loop !7
 
 .loopexit:                                        ; preds = %._crit_edge, %39, %35, %33
-  br i1 %30, label %27, label %111, !llvm.loop !8
+  br i1 %30, label %27, label %110, !llvm.loop !8
 
-111:                                              ; preds = %.loopexit
-  %112 = getelementptr inbounds i8, ptr %11, i64 128
-  %113 = call i64 @FunctionCall1Coll(ptr noundef nonnull %112, i32 noundef 0, i64 noundef %15) #7
+110:                                              ; preds = %.loopexit
+  %111 = getelementptr inbounds i8, ptr %11, i64 128
+  %112 = call i64 @FunctionCall1Coll(ptr noundef nonnull %111, i32 noundef 0, i64 noundef %15) #7
   ret void
 }
 
@@ -1242,17 +1242,19 @@ define dso_local noundef ptr @generateHeadline(ptr nocapture noundef readonly %0
   %35 = add i64 %34, %31
   %36 = sext i32 %.06491 to i64
   %.not83 = icmp slt i64 %35, %36
-  br i1 %.not83, label %._crit_edge, label %.lr.ph
+  br i1 %.not83, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %37 = phi i64 [ %41, %.lr.ph ], [ %34, %.preheader ]
-  %.185 = phi ptr [ %40, %.lr.ph ], [ %.095, %.preheader ]
-  %.16584 = phi i32 [ %38, %.lr.ph ], [ %.06491, %.preheader ]
-  %38 = shl i32 %.16584, 1
-  %39 = sext i32 %38 to i64
-  %40 = tail call ptr @repalloc(ptr noundef %.185, i64 noundef %39) #7
-  %sext = shl i64 %37, 32
-  %41 = ashr exact i64 %sext, 32
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %37 = shl i64 %34, 32
+  %38 = ashr exact i64 %37, 32
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.185 = phi ptr [ %41, %.lr.ph ], [ %.095, %.lr.ph.preheader ]
+  %.16584 = phi i32 [ %39, %.lr.ph ], [ %.06491, %.lr.ph.preheader ]
+  %39 = shl i32 %.16584, 1
+  %40 = sext i32 %39 to i64
+  %41 = tail call ptr @repalloc(ptr noundef %.185, i64 noundef %40) #7
   %42 = load i32, ptr %.05894, align 8
   %43 = lshr i32 %42, 16
   %44 = load i16, ptr %14, align 2
@@ -1265,18 +1267,18 @@ define dso_local noundef ptr @generateHeadline(ptr nocapture noundef readonly %0
   %51 = sext i16 %50 to i32
   %52 = add nsw i32 %49, %51
   %53 = sext i32 %52 to i64
-  %54 = add nsw i64 %41, %53
-  %.not = icmp slt i64 %54, %39
+  %54 = add nsw i64 %38, %53
+  %.not = icmp slt i64 %54, %40
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %55 = getelementptr i8, ptr %40, i64 %41
+  %55 = getelementptr i8, ptr %41, i64 %38
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.167.lcssa = phi ptr [ %.06690, %.preheader ], [ %55, %._crit_edge.loopexit ]
-  %.165.lcssa = phi i32 [ %.06491, %.preheader ], [ %38, %._crit_edge.loopexit ]
-  %.1.lcssa = phi ptr [ %.095, %.preheader ], [ %40, %._crit_edge.loopexit ]
+  %.165.lcssa = phi i32 [ %.06491, %.preheader ], [ %39, %._crit_edge.loopexit ]
+  %.1.lcssa = phi ptr [ %.095, %.preheader ], [ %41, %._crit_edge.loopexit ]
   %.lcssa82 = phi i32 [ %20, %.preheader ], [ %42, %._crit_edge.loopexit ]
   %.lcssa = phi i16 [ %28, %.preheader ], [ %50, %._crit_edge.loopexit ]
   %56 = and i32 %.lcssa82, 10

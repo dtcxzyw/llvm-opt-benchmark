@@ -2982,22 +2982,22 @@ if.then:                                          ; preds = %FLAC__metadata_obje
   %13 = load i32, ptr %num_comments, align 8
   %sub21.i = add i32 %13, -1
   %call.i11 = tail call range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(ptr noundef nonnull %object, i32 noundef %sub21.i)
+  %14 = icmp ne i32 %call.i11, 0
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %FLAC__metadata_object_vorbiscomment_entry_matches.exit, %if.then
   %matching.1 = phi i32 [ %inc, %if.then ], [ %matching.016, %FLAC__metadata_object_vorbiscomment_entry_matches.exit ], [ %matching.016, %for.body ]
-  %ok.1 = phi i32 [ %call.i11, %if.then ], [ 1, %FLAC__metadata_object_vorbiscomment_entry_matches.exit ], [ 1, %for.body ]
-  %tobool = icmp ne i32 %ok.1, 0
+  %ok.1 = phi i1 [ %14, %if.then ], [ true, %FLAC__metadata_object_vorbiscomment_entry_matches.exit ], [ true, %for.body ]
   %cmp = icmp ugt i64 %indvars.iv, 1
-  %14 = and i1 %tobool, %cmp
-  br i1 %14, label %for.body, label %for.end.loopexit, !llvm.loop !27
+  %15 = and i1 %ok.1, %cmp
+  br i1 %15, label %for.body, label %for.end.loopexit, !llvm.loop !27
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %15 = select i1 %tobool, i32 %matching.1, i32 -1
+  %16 = select i1 %ok.1, i32 %matching.1, i32 -1
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %tobool.lcssa = phi i32 [ 0, %entry ], [ %15, %for.end.loopexit ]
+  %tobool.lcssa = phi i32 [ 0, %entry ], [ %16, %for.end.loopexit ]
   ret i32 %tobool.lcssa
 }
 

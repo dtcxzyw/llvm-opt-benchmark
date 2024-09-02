@@ -242,15 +242,15 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noundef %0, ptr noundef %
   tail call void @WebPRescalerImportRowShrink_C(ptr noundef nonnull %0, ptr noundef %1) #6
   br label %.loopexit
 
-30:                                               ; preds = %.lr.ph158, %45
-  %.0157 = phi ptr [ %1, %.lr.ph158 ], [ %.1.lcssa, %45 ]
-  %.0143156 = phi i32 [ 0, %.lr.ph158 ], [ %.1144.lcssa, %45 ]
-  %31 = phi <8 x i16> [ zeroinitializer, %.lr.ph158 ], [ %70, %45 ]
-  %.0147155 = phi ptr [ %14, %.lr.ph158 ], [ %71, %45 ]
+30:                                               ; preds = %.lr.ph158, %._crit_edge
+  %.0157 = phi ptr [ %1, %.lr.ph158 ], [ %.1.lcssa, %._crit_edge ]
+  %.0143156 = phi i32 [ 0, %.lr.ph158 ], [ %.1144.lcssa, %._crit_edge ]
+  %31 = phi <8 x i16> [ zeroinitializer, %.lr.ph158 ], [ %67, %._crit_edge ]
+  %.0147155 = phi ptr [ %14, %.lr.ph158 ], [ %68, %._crit_edge ]
   %32 = load i32, ptr %23, align 4
   %33 = add nsw i32 %32, %.0143156
   %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %.lr.ph, label %45
+  br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %30, %.lr.ph
   %.1150 = phi ptr [ %37, %.lr.ph ], [ %.0157, %30 ]
@@ -267,46 +267,41 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noundef %0, ptr noundef %
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %44 = bitcast <16 x i8> %39 to <2 x i64>
-  br label %45
+._crit_edge:                                      ; preds = %.lr.ph, %30
+  %.0148.lcssa = phi <8 x i16> [ zeroinitializer, %30 ], [ %40, %.lr.ph ]
+  %.lcssa = phi <8 x i16> [ %31, %30 ], [ %41, %.lr.ph ]
+  %.1144.lcssa = phi i32 [ %33, %30 ], [ %42, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %.0157, %30 ], [ %37, %.lr.ph ]
+  %44 = trunc i32 %.1144.lcssa to i16
+  %45 = sub i16 0, %44
+  %46 = insertelement <8 x i16> poison, i16 %45, i64 0
+  %47 = shufflevector <8 x i16> %46, <8 x i16> poison, <8 x i32> zeroinitializer
+  %48 = mul <8 x i16> %47, %.0148.lcssa
+  %49 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %.0148.lcssa, <8 x i16> %47)
+  %50 = shufflevector <8 x i16> %48, <8 x i16> %49, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %51 = bitcast <8 x i16> %50 to <2 x i64>
+  %52 = mul <8 x i16> %.lcssa, %7
+  %53 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %.lcssa, <8 x i16> %7)
+  %54 = shufflevector <8 x i16> %52, <8 x i16> %53, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
+  %55 = bitcast <8 x i16> %54 to <4 x i32>
+  %56 = bitcast <8 x i16> %50 to <4 x i32>
+  %57 = sub <4 x i32> %55, %56
+  %58 = lshr <2 x i64> %51, <i64 32, i64 32>
+  %59 = and <2 x i64> %51, <i64 4294967295, i64 4294967295>
+  %60 = mul nuw <2 x i64> %59, %28
+  %61 = mul nuw <2 x i64> %58, %28
+  %62 = add nuw <2 x i64> %60, <i64 2147483648, i64 2147483648>
+  %63 = add nuw <2 x i64> %61, <i64 2147483648, i64 2147483648>
+  %64 = bitcast <2 x i64> %62 to <4 x i32>
+  %65 = bitcast <2 x i64> %63 to <4 x i32>
+  %66 = shufflevector <4 x i32> %64, <4 x i32> %65, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
+  %67 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %66, <4 x i32> zeroinitializer)
+  store <4 x i32> %57, ptr %.0147155, align 1
+  %68 = getelementptr inbounds i8, ptr %.0147155, i64 16
+  %69 = icmp ult ptr %68, %19
+  br i1 %69, label %30, label %.loopexit, !llvm.loop !6
 
-45:                                               ; preds = %._crit_edge, %30
-  %.0148.lcssa = phi <2 x i64> [ %44, %._crit_edge ], [ zeroinitializer, %30 ]
-  %.lcssa = phi <8 x i16> [ %41, %._crit_edge ], [ %31, %30 ]
-  %.1144.lcssa = phi i32 [ %42, %._crit_edge ], [ %33, %30 ]
-  %.1.lcssa = phi ptr [ %37, %._crit_edge ], [ %.0157, %30 ]
-  %46 = trunc i32 %.1144.lcssa to i16
-  %47 = sub i16 0, %46
-  %48 = insertelement <8 x i16> poison, i16 %47, i64 0
-  %49 = shufflevector <8 x i16> %48, <8 x i16> poison, <8 x i32> zeroinitializer
-  %50 = bitcast <2 x i64> %.0148.lcssa to <8 x i16>
-  %51 = mul <8 x i16> %49, %50
-  %52 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %50, <8 x i16> %49)
-  %53 = shufflevector <8 x i16> %51, <8 x i16> %52, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %54 = bitcast <8 x i16> %53 to <2 x i64>
-  %55 = mul <8 x i16> %.lcssa, %7
-  %56 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %.lcssa, <8 x i16> %7)
-  %57 = shufflevector <8 x i16> %55, <8 x i16> %56, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %58 = bitcast <8 x i16> %57 to <4 x i32>
-  %59 = bitcast <8 x i16> %53 to <4 x i32>
-  %60 = sub <4 x i32> %58, %59
-  %61 = lshr <2 x i64> %54, <i64 32, i64 32>
-  %62 = and <2 x i64> %54, <i64 4294967295, i64 4294967295>
-  %63 = mul nuw <2 x i64> %62, %28
-  %64 = mul nuw <2 x i64> %61, %28
-  %65 = add nuw <2 x i64> %63, <i64 2147483648, i64 2147483648>
-  %66 = add nuw <2 x i64> %64, <i64 2147483648, i64 2147483648>
-  %67 = bitcast <2 x i64> %65 to <4 x i32>
-  %68 = bitcast <2 x i64> %66 to <4 x i32>
-  %69 = shufflevector <4 x i32> %67, <4 x i32> %68, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %70 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %69, <4 x i32> zeroinitializer)
-  store <4 x i32> %60, ptr %.0147155, align 1
-  %71 = getelementptr inbounds i8, ptr %.0147155, i64 16
-  %72 = icmp ult ptr %71, %19
-  br i1 %72, label %30, label %.loopexit, !llvm.loop !6
-
-.loopexit:                                        ; preds = %45, %.preheader, %29
+.loopexit:                                        ; preds = %._crit_edge, %.preheader, %29
   ret void
 }
 

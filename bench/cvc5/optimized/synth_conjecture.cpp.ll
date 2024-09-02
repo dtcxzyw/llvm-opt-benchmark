@@ -12792,14 +12792,14 @@ lpad.i.i402:                                      ; preds = %init.i.i400
 invoke.cont91:                                    ; preds = %invoke.cont.i.i403, %init.check.i.i398, %land.rhs
   %66 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   %cmp.i397 = icmp ne ptr %.pre496, %66
+  %67 = zext i1 %cmp.i397 to i8
   %.pre = load ptr, ptr %nv, align 8
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont91, %invoke.cont89
-  %67 = phi ptr [ %.pre496, %invoke.cont89 ], [ %.pre, %invoke.cont91 ]
-  %68 = phi i1 [ false, %invoke.cont89 ], [ %cmp.i397, %invoke.cont91 ]
-  %frombool = zext i1 %68 to i8
-  %bf.load.i.i408 = load i64, ptr %67, align 8
+  %68 = phi ptr [ %.pre496, %invoke.cont89 ], [ %.pre, %invoke.cont91 ]
+  %frombool = phi i8 [ 0, %invoke.cont89 ], [ %67, %invoke.cont91 ]
+  %bf.load.i.i408 = load i64, ptr %68, align 8
   %69 = and i64 %bf.load.i.i408, 1152920405095219200
   %cmp.not.i.i409 = icmp eq i64 %69, 1152920405095219200
   br i1 %cmp.not.i.i409, label %cleanup93, label %if.then.i.i410
@@ -12809,12 +12809,12 @@ if.then.i.i410:                                   ; preds = %land.end
   %bf.shl.i.i412 = and i64 %bf.value.i.i411, 1152920405095219200
   %bf.clear7.i.i413 = and i64 %bf.load.i.i408, -1152920405095219201
   %bf.set.i.i414 = or disjoint i64 %bf.shl.i.i412, %bf.clear7.i.i413
-  store i64 %bf.set.i.i414, ptr %67, align 8
+  store i64 %bf.set.i.i414, ptr %68, align 8
   %cmp12.i.i415 = icmp eq i64 %bf.shl.i.i412, 0
   br i1 %cmp12.i.i415, label %if.then13.i.i417, label %cleanup93
 
 if.then13.i.i417:                                 ; preds = %if.then.i.i410
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %67)
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %68)
           to label %cleanup93 unwind label %terminate.lpad.i418
 
 terminate.lpad.i418:                              ; preds = %if.then13.i.i417

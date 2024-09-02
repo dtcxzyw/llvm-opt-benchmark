@@ -89,7 +89,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7rocksdb15WriteController8GetDelayEPNS_11SystemClockEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %clock, i64 noundef %num_bytes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 1000, 1) i64 @_ZN7rocksdb15WriteController8GetDelayEPNS_11SystemClockEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %clock, i64 noundef %num_bytes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr %this monotonic, align 8
   %cmp = icmp sgt i32 %0, 0

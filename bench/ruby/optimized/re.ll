@@ -4097,8 +4097,8 @@ rbimpl_rstring_getmem.exit:                       ; preds = %rb_enc_asciicompat.
 .lr.ph:                                           ; preds = %92
   br i1 %.0.i, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %101
-  %.0148208.us = phi ptr [ %104, %101 ], [ %95, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %102
+  %.0148208.us = phi ptr [ %104, %102 ], [ %95, %.lr.ph ]
   store i32 1, ptr %5, align 4
   %97 = load i8, ptr %.0148208.us, align 1
   %98 = icmp slt i8 %97, 0
@@ -4106,15 +4106,15 @@ rbimpl_rstring_getmem.exit:                       ; preds = %rb_enc_asciicompat.
 
 99:                                               ; preds = %.lr.ph.split.us
   %cond = icmp eq i8 %97, 62
-  br i1 %cond, label %.split.us, label %101
+  br i1 %cond, label %.split.us, label %102
 
 .thread194.us:                                    ; preds = %.lr.ph.split.us
   %100 = call i32 @rb_enc_mbclen(ptr noundef nonnull %.0148208.us, ptr noundef nonnull %16, ptr noundef %6) #28
-  br label %101
+  %101 = sext i32 %100 to i64
+  br label %102
 
-101:                                              ; preds = %99, %.thread194.us
-  %102 = phi i32 [ %100, %.thread194.us ], [ 1, %99 ]
-  %103 = sext i32 %102 to i64
+102:                                              ; preds = %99, %.thread194.us
+  %103 = phi i64 [ %101, %.thread194.us ], [ 1, %99 ]
   %104 = getelementptr i8, ptr %.0148208.us, i64 %103
   %105 = icmp ult ptr %104, %16
   br i1 %105, label %.lr.ph.split.us, label %.critedge, !llvm.loop !109
@@ -4185,7 +4185,7 @@ RSTRING_PTR.exit:                                 ; preds = %.split.us, %117
   %134 = getelementptr i8, ptr %.us-phi, i64 %133
   br label %.thread197
 
-.critedge:                                        ; preds = %92, %110, %101
+.critedge:                                        ; preds = %92, %110, %102
   %135 = load i64, ptr @rb_eRuntimeError, align 8
   call void (i64, ptr, ...) @rb_raise(i64 noundef %135, ptr noundef nonnull @.str.2) #29
   unreachable
@@ -5571,7 +5571,7 @@ rb_reg_check.exit:                                ; preds = %8, %RREGEXP_SRC_PTR
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_reg_options_m(i64 noundef %0) #1 {
+define internal range(i64 1, 128) i64 @rb_reg_options_m(i64 noundef %0) #1 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8

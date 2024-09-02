@@ -9463,18 +9463,18 @@ define dso_local range(i32 -1, 1) i32 @cpu_memory_rw_debug(ptr noundef %cpu, i64
 entry:
   %attrs = alloca %struct.MemTxAttrs, align 4
   tail call void @cpu_synchronize_state(ptr noundef %cpu) #28
-  %cmp.not47 = icmp eq i64 %len, 0
-  br i1 %cmp.not47, label %return, label %while.body.lr.ph
+  %cmp.not46 = icmp eq i64 %len, 0
+  br i1 %cmp.not46, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %cpu_ases11 = getelementptr inbounds i8, ptr %cpu, i64 512
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end20
-  %buf.050 = phi ptr [ %ptr, %while.body.lr.ph ], [ %add.ptr, %if.end20 ]
-  %addr.addr.049 = phi i64 [ %addr, %while.body.lr.ph ], [ %add22, %if.end20 ]
-  %len.addr.048 = phi i64 [ %len, %while.body.lr.ph ], [ %sub21, %if.end20 ]
-  %and = and i64 %addr.addr.049, -4096
+  %buf.049 = phi ptr [ %ptr, %while.body.lr.ph ], [ %add.ptr, %if.end20 ]
+  %addr.addr.048 = phi i64 [ %addr, %while.body.lr.ph ], [ %add22, %if.end20 ]
+  %len.addr.047 = phi i64 [ %len, %while.body.lr.ph ], [ %sub21, %if.end20 ]
+  %and = and i64 %addr.addr.048, -4096
   %call = call i64 @cpu_get_phys_page_attrs_debug(ptr noundef %cpu, i64 noundef %and, ptr noundef nonnull %attrs) #28
   %0 = load i32, ptr %attrs, align 4
   %call1 = call i32 @cpu_asidx_from_attrs(ptr noundef %cpu, i32 %0) #28
@@ -9483,9 +9483,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.end:                                           ; preds = %while.body
   %add = add i64 %and, 4096
-  %sub = sub i64 %add, %addr.addr.049
-  %spec.select = call i64 @llvm.umin.i64(i64 %sub, i64 %len.addr.048)
-  %and6 = and i64 %addr.addr.049, 4095
+  %sub = sub i64 %add, %addr.addr.048
+  %spec.select = call i64 @llvm.umin.i64(i64 %sub, i64 %len.addr.047)
+  %and6 = and i64 %addr.addr.048, 4095
   %add7 = add i64 %call, %and6
   %1 = load ptr, ptr %cpu_ases11, align 16
   %idxprom = sext i32 %call1 to i64
@@ -9495,18 +9495,18 @@ if.end:                                           ; preds = %while.body
   br i1 %is_write, label %if.then8, label %if.else11.i
 
 if.then8:                                         ; preds = %if.end
-  call fastcc void @address_space_write_rom_internal(ptr noundef readonly %2, i64 noundef %add7, i32 %3, ptr noundef readonly %buf.050, i64 noundef %spec.select, i32 noundef 0)
+  call fastcc void @address_space_write_rom_internal(ptr noundef readonly %2, i64 noundef %add7, i32 %3, ptr noundef readonly %buf.049, i64 noundef %spec.select, i32 noundef 0)
   br label %if.end20
 
 if.else11.i:                                      ; preds = %if.end
-  %call13.i = call i32 @address_space_read_full(ptr noundef %2, i64 noundef %add7, i32 %3, ptr noundef %buf.050, i64 noundef %spec.select)
-  %cmp18.not = icmp eq i32 %call13.i, 0
-  br i1 %cmp18.not, label %if.end20, label %return
+  %call13.i = call i32 @address_space_read_full(ptr noundef %2, i64 noundef %add7, i32 %3, ptr noundef %buf.049, i64 noundef %spec.select)
+  %4 = icmp eq i32 %call13.i, 0
+  br i1 %4, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then8, %if.else11.i
-  %sub21 = sub i64 %len.addr.048, %spec.select
-  %add.ptr = getelementptr i8, ptr %buf.050, i64 %spec.select
-  %add22 = add i64 %spec.select, %addr.addr.049
+  %sub21 = sub i64 %len.addr.047, %spec.select
+  %add.ptr = getelementptr i8, ptr %buf.049, i64 %spec.select
+  %add22 = add i64 %spec.select, %addr.addr.048
   %cmp.not = icmp eq i64 %sub21, 0
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !80
 

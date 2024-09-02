@@ -771,7 +771,7 @@ define dso_local i64 @__ia32_sys_io_submit(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__ia32_compat_sys_io_submit(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i64 -2147483648, 4294967296) i64 @__ia32_compat_sys_io_submit(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.blk_plug, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -2325,7 +2325,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @ioctx_add_table(ptr nounde
 6:                                                ; preds = %.backedge, %2
   %7 = phi ptr [ %5, %2 ], [ %.be, %.backedge ]
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %9
+  br i1 %8, label %38, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %7, i64 16
@@ -2372,59 +2372,62 @@ define internal fastcc noundef range(i32 -12, 1) i32 @ioctx_add_table(ptr nounde
   %36 = icmp eq i64 %indvars.iv.next, %15
   br i1 %36, label %.loopexit, label %16, !llvm.loop !55
 
-.loopexit:                                        ; preds = %35, %9, %6
-  %37 = phi i32 [ 1, %6 ], [ 0, %9 ], [ %11, %35 ]
-  %38 = shl i32 %37, 2
+.loopexit:                                        ; preds = %35, %9
+  %37 = shl i32 %11, 2
+  br label %38
+
+38:                                               ; preds = %.loopexit, %6
+  %39 = phi i32 [ 4, %6 ], [ %37, %.loopexit ]
   tail call void @_raw_spin_unlock(ptr noundef %3) #14
-  %39 = zext i32 %38 to i64
-  %40 = shl nuw nsw i64 %39, 3
-  %41 = or disjoint i64 %40, 24
-  %42 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %41, i32 noundef 3520) #17
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %.loopexit6, label %44
+  %40 = zext i32 %39 to i64
+  %41 = shl nuw nsw i64 %40, 3
+  %42 = or disjoint i64 %41, 24
+  %43 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %42, i32 noundef 3520) #17
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %.loopexit6, label %45
 
-44:                                               ; preds = %.loopexit
-  %45 = getelementptr inbounds i8, ptr %42, i64 16
-  store i32 %38, ptr %45, align 8
+45:                                               ; preds = %38
+  %46 = getelementptr inbounds i8, ptr %43, i64 16
+  store i32 %39, ptr %46, align 8
   tail call void @_raw_spin_lock(ptr noundef %3) #14
-  %46 = load volatile ptr, ptr %4, align 16
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %49
+  %47 = load volatile ptr, ptr %4, align 16
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %50
 
-48:                                               ; preds = %44
+49:                                               ; preds = %45
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !56
-  store volatile ptr %42, ptr %4, align 16
+  store volatile ptr %43, ptr %4, align 16
   br label %.backedge
 
-49:                                               ; preds = %44
-  %50 = load i32, ptr %45, align 8
-  %51 = getelementptr inbounds i8, ptr %46, i64 16
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp ugt i32 %50, %52
-  br i1 %53, label %54, label %59
+50:                                               ; preds = %45
+  %51 = load i32, ptr %46, align 8
+  %52 = getelementptr inbounds i8, ptr %47, i64 16
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp ugt i32 %51, %53
+  br i1 %54, label %55, label %60
 
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %42, i64 24
-  %56 = getelementptr inbounds i8, ptr %46, i64 24
-  %57 = zext i32 %52 to i64
-  %58 = shl nuw nsw i64 %57, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %55, ptr align 8 %56, i64 %58, i1 false)
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds i8, ptr %43, i64 24
+  %57 = getelementptr inbounds i8, ptr %47, i64 24
+  %58 = zext i32 %53 to i64
+  %59 = shl nuw nsw i64 %58, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 8 %57, i64 %59, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !57
-  store volatile ptr %42, ptr %4, align 16
-  tail call void @kvfree_call_rcu(ptr noundef nonnull %46, ptr noundef nonnull %46) #14
+  store volatile ptr %43, ptr %4, align 16
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %47, ptr noundef nonnull %47) #14
   br label %.backedge
 
-59:                                               ; preds = %49
-  tail call void @kfree(ptr noundef nonnull %42) #14
+60:                                               ; preds = %50
+  tail call void @kfree(ptr noundef nonnull %43) #14
   br label %.backedge
 
-.backedge:                                        ; preds = %59, %54, %48
-  %.be = phi ptr [ %42, %54 ], [ %46, %59 ], [ %42, %48 ]
+.backedge:                                        ; preds = %60, %55, %49
+  %.be = phi ptr [ %43, %55 ], [ %47, %60 ], [ %43, %49 ]
   br label %6, !llvm.loop !58
 
-.loopexit6:                                       ; preds = %.loopexit, %20
-  %60 = phi i32 [ 0, %20 ], [ -12, %.loopexit ]
-  ret i32 %60
+.loopexit6:                                       ; preds = %38, %20
+  %61 = phi i32 [ 0, %20 ], [ -12, %38 ]
+  ret i32 %61
 }
 
 ; Function Attrs: null_pointer_is_valid

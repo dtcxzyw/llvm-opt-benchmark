@@ -65,36 +65,37 @@ for.body.us.i:                                    ; preds = %if.end, %if.else32.
 if.else.us.i:                                     ; preds = %for.body.us.i
   %data_size.us.i = getelementptr inbounds i8, ptr %in.047.us.i, i64 24
   %4 = load i64, ptr %data_size.us.i, align 8
+  %5 = add i64 %4, 7
   br label %if.else32.us.i
 
 if.else32.us.i:                                   ; preds = %if.else.us.i, %for.body.us.i
-  %param_sz.0.us.i = phi i64 [ %4, %if.else.us.i ], [ 8, %for.body.us.i ]
+  %param_sz.0.us.i = phi i64 [ %5, %if.else.us.i ], [ 15, %for.body.us.i ]
   %cmp22.us.i = icmp eq i32 %2, 4
-  %spec.select.us.i = select i1 %cmp22.us.i, i64 8, i64 7
-  %sub.i.us.i = add i64 %spec.select.us.i, %param_sz.0.us.i
+  %inc.us.i = zext i1 %cmp22.us.i to i64
+  %sub.i.us.i = add i64 %param_sz.0.us.i, %inc.us.i
   %div1.i.us.i = lshr i64 %sub.i.us.i, 3
   %idxprom33.us.i = sext i32 %call.us.i to i64
   %blocks.us.i = getelementptr inbounds %struct.OSSL_PARAM_BUF, ptr %buf, i64 %idxprom33.us.i, i32 2
-  %5 = load i64, ptr %blocks.us.i, align 16
-  %add.us.i = add i64 %div1.i.us.i, %5
+  %6 = load i64, ptr %blocks.us.i, align 16
+  %add.us.i = add i64 %div1.i.us.i, %6
   store i64 %add.us.i, ptr %blocks.us.i, align 16
   %inc39.us.i = add nuw nsw i32 %param_count.0, 1
   %incdec.ptr41.us.i = getelementptr inbounds i8, ptr %in.047.us.i, i64 40
-  %6 = load ptr, ptr %incdec.ptr41.us.i, align 8
-  %cmp1.not.us.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %incdec.ptr41.us.i, align 8
+  %cmp1.not.us.i = icmp eq ptr %7, null
   br i1 %cmp1.not.us.i, label %ossl_param_dup.exit.loopexit, label %for.body.us.i, !llvm.loop !4
 
 ossl_param_dup.exit.loopexit:                     ; preds = %if.else32.us.i
   %blocks.i.phi.trans.insert = getelementptr inbounds i8, ptr %buf, i64 16
   %.pre = load i64, ptr %blocks.i.phi.trans.insert, align 16
-  %7 = zext nneg i32 %inc39.us.i to i64
-  %8 = mul nuw nsw i64 %7, 40
-  %9 = shl i64 %.pre, 3
+  %8 = zext nneg i32 %inc39.us.i to i64
+  %9 = mul nuw nsw i64 %8, 40
+  %10 = shl i64 %.pre, 3
   br label %ossl_param_dup.exit
 
 ossl_param_dup.exit:                              ; preds = %ossl_param_dup.exit.loopexit, %if.end
-  %add.i22 = phi i64 [ 0, %if.end ], [ %9, %ossl_param_dup.exit.loopexit ]
-  %param_count.1 = phi i64 [ 40, %if.end ], [ %8, %ossl_param_dup.exit.loopexit ]
+  %add.i22 = phi i64 [ 0, %if.end ], [ %10, %ossl_param_dup.exit.loopexit ]
+  %param_count.1 = phi i64 [ 40, %if.end ], [ %9, %ossl_param_dup.exit.loopexit ]
   %div1.i23 = add i64 %param_count.1, %add.i22
   %call1.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %div1.i23, ptr noundef nonnull @.str, i32 noundef 39) #7
   %cmp.i = icmp eq ptr %call1.i, null
@@ -105,12 +106,12 @@ if.end5:                                          ; preds = %ossl_param_dup.exit
   %cur.i = getelementptr inbounds i8, ptr %buf, i64 8
   store ptr %add.ptr.i, ptr %cur.i, align 8
   %blocks = getelementptr inbounds i8, ptr %buf, i64 48
-  %10 = load i64, ptr %blocks, align 16
-  %cmp7.not = icmp eq i64 %10, 0
+  %11 = load i64, ptr %blocks, align 16
+  %cmp7.not = icmp eq i64 %11, 0
   br i1 %cmp7.not, label %if.end14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end5
-  %mul.i6 = shl i64 %10, 3
+  %mul.i6 = shl i64 %11, 3
   %call.i = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef %mul.i6, ptr noundef nonnull @.str, i32 noundef 39) #7
   %cmp.i7 = icmp eq ptr %call.i, null
   br i1 %cmp.i7, label %if.then12, label %ossl_param_buf_alloc.exit13
@@ -125,66 +126,66 @@ if.then12:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end14:                                         ; preds = %ossl_param_buf_alloc.exit13, %if.end5
-  %11 = phi i64 [ %mul.i6, %ossl_param_buf_alloc.exit13 ], [ 0, %if.end5 ]
-  %12 = phi ptr [ %call.i, %ossl_param_buf_alloc.exit13 ], [ null, %if.end5 ]
-  %13 = load ptr, ptr %src, align 8
-  %cmp1.not46.i14 = icmp eq ptr %13, null
+  %12 = phi i64 [ %mul.i6, %ossl_param_buf_alloc.exit13 ], [ 0, %if.end5 ]
+  %13 = phi ptr [ %call.i, %ossl_param_buf_alloc.exit13 ], [ null, %if.end5 ]
+  %14 = load ptr, ptr %src, align 8
+  %cmp1.not46.i14 = icmp eq ptr %14, null
   br i1 %cmp1.not46.i14, label %ossl_param_dup.exit16, label %for.body.us50.i
 
 for.body.us50.i:                                  ; preds = %if.end14, %if.end20.thread.us.i
   %dst.addr.049.us51.i = phi ptr [ %incdec.ptr.us.i, %if.end20.thread.us.i ], [ %call1.i, %if.end14 ]
   %in.047.us52.i = phi ptr [ %incdec.ptr41.us56.i, %if.end20.thread.us.i ], [ %src, %if.end14 ]
   %data.us53.i = getelementptr inbounds i8, ptr %in.047.us52.i, i64 16
-  %14 = load ptr, ptr %data.us53.i, align 8
-  %call.us54.i = tail call i32 @CRYPTO_secure_allocated(ptr noundef %14) #7
+  %15 = load ptr, ptr %data.us53.i, align 8
+  %call.us54.i = tail call i32 @CRYPTO_secure_allocated(ptr noundef %15) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %dst.addr.049.us51.i, ptr noundef nonnull align 8 dereferenceable(40) %in.047.us52.i, i64 40, i1 false)
   %idxprom.us.i = sext i32 %call.us54.i to i64
   %cur.us.i = getelementptr inbounds %struct.OSSL_PARAM_BUF, ptr %buf, i64 %idxprom.us.i, i32 1
-  %15 = load ptr, ptr %cur.us.i, align 8
+  %16 = load ptr, ptr %cur.us.i, align 8
   %data3.us.i = getelementptr inbounds i8, ptr %dst.addr.049.us51.i, i64 16
-  store ptr %15, ptr %data3.us.i, align 8
+  store ptr %16, ptr %data3.us.i, align 8
   %data_type27.us.i = getelementptr inbounds i8, ptr %in.047.us52.i, i64 8
-  %16 = load i32, ptr %data_type27.us.i, align 8
-  %17 = and i32 %16, -2
-  %switch29.us.i = icmp eq i32 %17, 6
+  %17 = load i32, ptr %data_type27.us.i, align 8
+  %18 = and i32 %17, -2
+  %switch29.us.i = icmp eq i32 %18, 6
   br i1 %switch29.us.i, label %if.then11.us.i, label %if.then16.us.i
 
 if.then16.us.i:                                   ; preds = %for.body.us50.i
   %data_size36.us.i = getelementptr inbounds i8, ptr %in.047.us52.i, i64 24
-  %18 = load i64, ptr %data_size36.us.i, align 8
-  %19 = load ptr, ptr %data.us53.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %19, i64 %18, i1 false)
+  %19 = load i64, ptr %data_size36.us.i, align 8
+  %20 = load ptr, ptr %data.us53.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %20, i64 %19, i1 false)
+  %21 = add i64 %19, 7
   br label %if.end20.thread.us.i
 
 if.then11.us.i:                                   ; preds = %for.body.us50.i
-  %20 = load ptr, ptr %data.us53.i, align 8
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %15, align 8
+  %22 = load ptr, ptr %data.us53.i, align 8
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %16, align 8
   br label %if.end20.thread.us.i
 
 if.end20.thread.us.i:                             ; preds = %if.then11.us.i, %if.then16.us.i
-  %param_sz.0.ph.us.i = phi i64 [ %18, %if.then16.us.i ], [ 8, %if.then11.us.i ]
-  %22 = load i32, ptr %data_type27.us.i, align 8
-  %cmp2240.us.i = icmp eq i32 %22, 4
+  %param_sz.0.ph.us.i = phi i64 [ %21, %if.then16.us.i ], [ 15, %if.then11.us.i ]
+  %24 = load i32, ptr %data_type27.us.i, align 8
+  %cmp2240.us.i = icmp eq i32 %24, 4
   %inc41.us.i = zext i1 %cmp2240.us.i to i64
-  %spec.select42.us.i = add i64 %param_sz.0.ph.us.i, 7
-  %sub.i43.us.i = add i64 %spec.select42.us.i, %inc41.us.i
+  %sub.i43.us.i = add i64 %param_sz.0.ph.us.i, %inc41.us.i
   %div1.i44.us.i = lshr i64 %sub.i43.us.i, 3
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %dst.addr.049.us51.i, i64 40
-  %add.ptr.us.i = getelementptr inbounds %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %15, i64 %div1.i44.us.i
+  %add.ptr.us.i = getelementptr inbounds %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %16, i64 %div1.i44.us.i
   store ptr %add.ptr.us.i, ptr %cur.us.i, align 8
   %incdec.ptr41.us56.i = getelementptr inbounds i8, ptr %in.047.us52.i, i64 40
-  %23 = load ptr, ptr %incdec.ptr41.us56.i, align 8
-  %cmp1.not.us57.i = icmp eq ptr %23, null
+  %25 = load ptr, ptr %incdec.ptr41.us56.i, align 8
+  %cmp1.not.us57.i = icmp eq ptr %25, null
   br i1 %cmp1.not.us57.i, label %ossl_param_dup.exit16, label %for.body.us50.i, !llvm.loop !4
 
 ossl_param_dup.exit16:                            ; preds = %if.end20.thread.us.i, %if.end14
   %dst.addr.0.lcssa.i = phi ptr [ %call1.i, %if.end14 ], [ %incdec.ptr.us.i, %if.end20.thread.us.i ]
   store ptr null, ptr %dst.addr.0.lcssa.i, align 8
   %data_size.i = getelementptr inbounds i8, ptr %dst.addr.0.lcssa.i, i64 24
-  store i64 %11, ptr %data_size.i, align 8
+  store i64 %12, ptr %data_size.i, align 8
   %data.i = getelementptr inbounds i8, ptr %dst.addr.0.lcssa.i, i64 16
-  store ptr %12, ptr %data.i, align 8
+  store ptr %13, ptr %data.i, align 8
   %data_type.i = getelementptr inbounds i8, ptr %dst.addr.0.lcssa.i, i64 8
   store i32 127, ptr %data_type.i, align 8
   br label %return

@@ -7509,7 +7509,7 @@ _ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4Lock4wai
 24:                                               ; preds = %23
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %334
+  br label %333
 
 .lr.ph:                                           ; preds = %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4Lock4waitERSt18condition_variable.exit
   %26 = getelementptr inbounds i8, ptr %4, i64 8
@@ -7743,519 +7743,517 @@ _ZNKSt8functionIFbRKN3nix3refINS0_14LegacySSHStore10ConnectionEEEEEclES6_.exit: 
   %139 = getelementptr inbounds i8, ptr %137, i64 8
   %140 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i23 = icmp eq i8 %140, 0
+  %141 = getelementptr inbounds i8, ptr %0, i64 8
+  %142 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %.not.i.i.i.i.i23, label %145, label %.thread
 
 .thread:                                          ; preds = %138
-  %141 = load i32, ptr %139, align 4, !noalias !40
-  %142 = add nsw i32 %141, 1
-  store i32 %142, ptr %139, align 4, !noalias !40
+  %143 = load i32, ptr %139, align 4, !noalias !40
+  %144 = add nsw i32 %143, 1
+  store i32 %144, ptr %139, align 4, !noalias !40
   store ptr %1, ptr %0, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %136, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %137, ptr %144, align 8
-  br label %149
+  store ptr %136, ptr %141, align 8
+  store ptr %137, ptr %142, align 8
+  br label %148
 
 145:                                              ; preds = %138
   %146 = atomicrmw volatile add ptr %139, i32 1 acq_rel, align 4, !noalias !40
   %.pre82 = load i8, ptr @__libc_single_threaded, align 1
+  %147 = icmp eq i8 %.pre82, 0
   store ptr %1, ptr %0, align 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %136, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %137, ptr %148, align 8
-  %.not.i.i.i.i.i25 = icmp eq i8 %.pre82, 0
-  br i1 %.not.i.i.i.i.i25, label %152, label %149
+  store ptr %136, ptr %141, align 8
+  store ptr %137, ptr %142, align 8
+  br i1 %147, label %151, label %148
 
-149:                                              ; preds = %.thread, %145
-  %150 = load i32, ptr %139, align 4
-  %151 = add nsw i32 %150, 1
-  store i32 %151, ptr %139, align 4
-  br label %157
+148:                                              ; preds = %.thread, %145
+  %149 = load i32, ptr %139, align 4
+  %150 = add nsw i32 %149, 1
+  store i32 %150, ptr %139, align 4
+  br label %156
 
-152:                                              ; preds = %145
-  %153 = atomicrmw volatile add ptr %139, i32 1 acq_rel, align 4
-  br label %157
+151:                                              ; preds = %145
+  %152 = atomicrmw volatile add ptr %139, i32 1 acq_rel, align 4
+  br label %156
 
 _ZN3nix4PoolINS_14LegacySSHStore10ConnectionEE6HandleC2ERS3_St10shared_ptrIS2_E.exit: ; preds = %131
   store ptr %1, ptr %0, align 8
-  %154 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %136, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr null, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 0, ptr %156, align 8
+  %153 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %136, ptr %153, align 8
+  %154 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr null, ptr %154, align 8
+  %155 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 0, ptr %155, align 8
   br label %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit
 
-157:                                              ; preds = %149, %152
-  %158 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 0, ptr %158, align 8
-  %159 = load atomic i64, ptr %139 acquire, align 8
-  %160 = icmp eq i64 %159, 4294967297
-  %161 = trunc i64 %159 to i32
-  br i1 %160, label %162, label %167
+156:                                              ; preds = %148, %151
+  %157 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 0, ptr %157, align 8
+  %158 = load atomic i64, ptr %139 acquire, align 8
+  %159 = icmp eq i64 %158, 4294967297
+  %160 = trunc i64 %158 to i32
+  br i1 %159, label %161, label %166
 
-162:                                              ; preds = %157
+161:                                              ; preds = %156
   store i32 0, ptr %139, align 8
-  %163 = getelementptr inbounds i8, ptr %137, i64 12
-  store i32 0, ptr %163, align 4
-  %164 = load ptr, ptr %137, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 16
-  %166 = load ptr, ptr %165, align 8
-  call void %166(ptr noundef nonnull align 8 dereferenceable(16) %137) #31
+  %162 = getelementptr inbounds i8, ptr %137, i64 12
+  store i32 0, ptr %162, align 4
+  %163 = load ptr, ptr %137, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 16
+  %165 = load ptr, ptr %164, align 8
+  call void %165(ptr noundef nonnull align 8 dereferenceable(16) %137) #31
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
-167:                                              ; preds = %157
-  %168 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i26 = icmp eq i8 %168, 0
-  br i1 %.not.i.i.i.i26, label %171, label %169
+166:                                              ; preds = %156
+  %167 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i26 = icmp eq i8 %167, 0
+  br i1 %.not.i.i.i.i26, label %170, label %168
 
-169:                                              ; preds = %167
-  %170 = add nsw i32 %161, -1
-  store i32 %170, ptr %139, align 4
-  br label %173
+168:                                              ; preds = %166
+  %169 = add nsw i32 %160, -1
+  store i32 %169, ptr %139, align 4
+  br label %172
 
-171:                                              ; preds = %167
-  %172 = atomicrmw volatile add ptr %139, i32 -1 acq_rel, align 4
-  br label %173
+170:                                              ; preds = %166
+  %171 = atomicrmw volatile add ptr %139, i32 -1 acq_rel, align 4
+  br label %172
 
-173:                                              ; preds = %171, %169
-  %.0.i.i.i.i = phi i32 [ %161, %169 ], [ %172, %171 ]
-  %174 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %174, label %175, label %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit
+172:                                              ; preds = %170, %168
+  %.0.i.i.i.i = phi i32 [ %160, %168 ], [ %171, %170 ]
+  %173 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %173, label %174, label %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit
 
-175:                                              ; preds = %173
-  %176 = load ptr, ptr %137, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 16
-  %178 = load ptr, ptr %177, align 8
-  call void %178(ptr noundef nonnull align 8 dereferenceable(16) %137) #31
-  %179 = getelementptr inbounds i8, ptr %137, i64 12
-  %180 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %180, 0
-  br i1 %.not.i.i.i.i.i.i, label %184, label %181
+174:                                              ; preds = %172
+  %175 = load ptr, ptr %137, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i64 16
+  %177 = load ptr, ptr %176, align 8
+  call void %177(ptr noundef nonnull align 8 dereferenceable(16) %137) #31
+  %178 = getelementptr inbounds i8, ptr %137, i64 12
+  %179 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %179, 0
+  br i1 %.not.i.i.i.i.i.i, label %183, label %180
 
-181:                                              ; preds = %175
-  %182 = load i32, ptr %179, align 4
-  %183 = add nsw i32 %182, -1
-  store i32 %183, ptr %179, align 4
-  br label %186
+180:                                              ; preds = %174
+  %181 = load i32, ptr %178, align 4
+  %182 = add nsw i32 %181, -1
+  store i32 %182, ptr %178, align 4
+  br label %185
 
-184:                                              ; preds = %175
-  %185 = atomicrmw volatile add ptr %179, i32 -1 acq_rel, align 4
-  br label %186
+183:                                              ; preds = %174
+  %184 = atomicrmw volatile add ptr %178, i32 -1 acq_rel, align 4
+  br label %185
 
-186:                                              ; preds = %184, %181
-  %.0.i.i.i.i.i.i = phi i32 [ %182, %181 ], [ %185, %184 ]
-  %187 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %187, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit
+185:                                              ; preds = %183, %180
+  %.0.i.i.i.i.i.i = phi i32 [ %181, %180 ], [ %184, %183 ]
+  %186 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %186, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %186, %162
-  %188 = load ptr, ptr %137, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 24
-  %190 = load ptr, ptr %189, align 8
-  call void %190(ptr noundef nonnull align 8 dereferenceable(16) %137) #31
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %185, %161
+  %187 = load ptr, ptr %137, align 8
+  %188 = getelementptr inbounds i8, ptr %187, i64 24
+  %189 = load ptr, ptr %188, align 8
+  call void %189(ptr noundef nonnull align 8 dereferenceable(16) %137) #31
   br label %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit
 
-_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit: ; preds = %_ZN3nix4PoolINS_14LegacySSHStore10ConnectionEE6HandleC2ERS3_St10shared_ptrIS2_E.exit, %173, %186, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %191 = load ptr, ptr %26, align 8
-  %.not.i.i.i.i27 = icmp eq ptr %191, null
-  br i1 %.not.i.i.i.i27, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33, label %192, !llvm.loop !43
+_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit: ; preds = %_ZN3nix4PoolINS_14LegacySSHStore10ConnectionEE6HandleC2ERS3_St10shared_ptrIS2_E.exit, %172, %185, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+  %190 = load ptr, ptr %26, align 8
+  %.not.i.i.i.i27 = icmp eq ptr %190, null
+  br i1 %.not.i.i.i.i27, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33, label %191, !llvm.loop !43
 
-192:                                              ; preds = %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit
-  %193 = getelementptr inbounds i8, ptr %191, i64 8
-  %194 = load atomic i64, ptr %193 acquire, align 8
-  %195 = icmp eq i64 %194, 4294967297
-  %196 = trunc i64 %194 to i32
-  br i1 %195, label %197, label %202
+191:                                              ; preds = %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit
+  %192 = getelementptr inbounds i8, ptr %190, i64 8
+  %193 = load atomic i64, ptr %192 acquire, align 8
+  %194 = icmp eq i64 %193, 4294967297
+  %195 = trunc i64 %193 to i32
+  br i1 %194, label %196, label %201
 
-197:                                              ; preds = %192
-  store i32 0, ptr %193, align 8
-  %198 = getelementptr inbounds i8, ptr %191, i64 12
-  store i32 0, ptr %198, align 4
-  %199 = load ptr, ptr %191, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 16
-  %201 = load ptr, ptr %200, align 8
-  call void %201(ptr noundef nonnull align 8 dereferenceable(16) %191) #31
+196:                                              ; preds = %191
+  store i32 0, ptr %192, align 8
+  %197 = getelementptr inbounds i8, ptr %190, i64 12
+  store i32 0, ptr %197, align 4
+  %198 = load ptr, ptr %190, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 16
+  %200 = load ptr, ptr %199, align 8
+  call void %200(ptr noundef nonnull align 8 dereferenceable(16) %190) #31
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32
 
-202:                                              ; preds = %192
-  %203 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i28 = icmp eq i8 %203, 0
-  br i1 %.not.i.i.i.i.i28, label %206, label %204
+201:                                              ; preds = %191
+  %202 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i28 = icmp eq i8 %202, 0
+  br i1 %.not.i.i.i.i.i28, label %205, label %203
 
-204:                                              ; preds = %202
-  %205 = add nsw i32 %196, -1
-  store i32 %205, ptr %193, align 4
-  br label %208
+203:                                              ; preds = %201
+  %204 = add nsw i32 %195, -1
+  store i32 %204, ptr %192, align 4
+  br label %207
 
-206:                                              ; preds = %202
-  %207 = atomicrmw volatile add ptr %193, i32 -1 acq_rel, align 4
-  br label %208
+205:                                              ; preds = %201
+  %206 = atomicrmw volatile add ptr %192, i32 -1 acq_rel, align 4
+  br label %207
 
-208:                                              ; preds = %206, %204
-  %.0.i.i.i.i.i29 = phi i32 [ %196, %204 ], [ %207, %206 ]
-  %209 = icmp eq i32 %.0.i.i.i.i.i29, 1
-  br i1 %209, label %210, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33, !llvm.loop !43
+207:                                              ; preds = %205, %203
+  %.0.i.i.i.i.i29 = phi i32 [ %195, %203 ], [ %206, %205 ]
+  %208 = icmp eq i32 %.0.i.i.i.i.i29, 1
+  br i1 %208, label %209, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33, !llvm.loop !43
 
-210:                                              ; preds = %208
-  %211 = load ptr, ptr %191, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 16
-  %213 = load ptr, ptr %212, align 8
-  call void %213(ptr noundef nonnull align 8 dereferenceable(16) %191) #31
-  %214 = getelementptr inbounds i8, ptr %191, i64 12
-  %215 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i30 = icmp eq i8 %215, 0
-  br i1 %.not.i.i.i.i.i.i.i30, label %219, label %216
+209:                                              ; preds = %207
+  %210 = load ptr, ptr %190, align 8
+  %211 = getelementptr inbounds i8, ptr %210, i64 16
+  %212 = load ptr, ptr %211, align 8
+  call void %212(ptr noundef nonnull align 8 dereferenceable(16) %190) #31
+  %213 = getelementptr inbounds i8, ptr %190, i64 12
+  %214 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i30 = icmp eq i8 %214, 0
+  br i1 %.not.i.i.i.i.i.i.i30, label %218, label %215
 
-216:                                              ; preds = %210
-  %217 = load i32, ptr %214, align 4
-  %218 = add nsw i32 %217, -1
-  store i32 %218, ptr %214, align 4
-  br label %221
+215:                                              ; preds = %209
+  %216 = load i32, ptr %213, align 4
+  %217 = add nsw i32 %216, -1
+  store i32 %217, ptr %213, align 4
+  br label %220
 
-219:                                              ; preds = %210
-  %220 = atomicrmw volatile add ptr %214, i32 -1 acq_rel, align 4
-  br label %221
+218:                                              ; preds = %209
+  %219 = atomicrmw volatile add ptr %213, i32 -1 acq_rel, align 4
+  br label %220
 
-221:                                              ; preds = %219, %216
-  %.0.i.i.i.i.i.i.i31 = phi i32 [ %217, %216 ], [ %220, %219 ]
-  %222 = icmp eq i32 %.0.i.i.i.i.i.i.i31, 1
-  br i1 %222, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33, !llvm.loop !43
+220:                                              ; preds = %218, %215
+  %.0.i.i.i.i.i.i.i31 = phi i32 [ %216, %215 ], [ %219, %218 ]
+  %221 = icmp eq i32 %.0.i.i.i.i.i.i.i31, 1
+  br i1 %221, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33, !llvm.loop !43
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32: ; preds = %221, %197
-  %223 = load ptr, ptr %191, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 24
-  %225 = load ptr, ptr %224, align 8
-  call void %225(ptr noundef nonnull align 8 dereferenceable(16) %191) #31
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32: ; preds = %220, %196
+  %222 = load ptr, ptr %190, align 8
+  %223 = getelementptr inbounds i8, ptr %222, i64 24
+  %224 = load ptr, ptr %223, align 8
+  call void %224(ptr noundef nonnull align 8 dereferenceable(16) %190) #31
   br label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33, !llvm.loop !43
 
 .loopexit:                                        ; preds = %128
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %226
+  br label %225
 
 .loopexit.split-lp:                               ; preds = %127
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %226
+  br label %225
 
-226:                                              ; preds = %.loopexit.split-lp, %.loopexit
+225:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #31
-  br label %334
+  br label %333
 
 ._crit_edge:                                      ; preds = %18, %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit
   %.lcssa74 = phi ptr [ %65, %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit ], [ %12, %18 ]
-  %227 = getelementptr inbounds i8, ptr %.lcssa74, i64 40
-  %228 = load i64, ptr %227, align 8
-  %229 = add i64 %228, 1
-  store i64 %229, ptr %227, align 8
+  %226 = getelementptr inbounds i8, ptr %.lcssa74, i64 40
+  %227 = load i64, ptr %226, align 8
+  %228 = add i64 %227, 1
+  store i64 %228, ptr %226, align 8
   br label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33
 
-_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32, %221, %208, %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit, %._crit_edge
-  %230 = phi i1 [ false, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32 ], [ false, %221 ], [ false, %208 ], [ false, %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit ], [ true, %._crit_edge ]
-  %231 = load i8, ptr %10, align 8
-  %232 = trunc i8 %231 to i1
-  br i1 %232, label %233, label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit
+_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32, %220, %207, %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit, %._crit_edge
+  %229 = phi i1 [ false, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i32 ], [ false, %220 ], [ false, %207 ], [ false, %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit ], [ true, %._crit_edge ]
+  %230 = load i8, ptr %10, align 8
+  %231 = trunc i8 %230 to i1
+  br i1 %231, label %232, label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit
 
-233:                                              ; preds = %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33
-  %234 = load ptr, ptr %7, align 8
-  %.not.i.i.i34 = icmp eq ptr %234, null
-  br i1 %.not.i.i.i34, label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit, label %235
+232:                                              ; preds = %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33
+  %233 = load ptr, ptr %7, align 8
+  %.not.i.i.i34 = icmp eq ptr %233, null
+  br i1 %.not.i.i.i34, label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit, label %234
 
-235:                                              ; preds = %233
-  %236 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %234) #31
+234:                                              ; preds = %232
+  %235 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %233) #31
   store i8 0, ptr %10, align 8
   br label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit
 
-_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit: ; preds = %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33, %233, %235
-  br i1 %230, label %237, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit57
+_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit: ; preds = %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit33, %232, %234
+  br i1 %229, label %236, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit57
 
-237:                                              ; preds = %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit
-  %238 = getelementptr inbounds i8, ptr %1, i64 16
-  %239 = load ptr, ptr %238, align 8, !noalias !44
-  %.not.i.i35 = icmp eq ptr %239, null
-  br i1 %.not.i.i35, label %240, label %241
+236:                                              ; preds = %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit
+  %237 = getelementptr inbounds i8, ptr %1, i64 16
+  %238 = load ptr, ptr %237, align 8, !noalias !44
+  %.not.i.i35 = icmp eq ptr %238, null
+  br i1 %.not.i.i35, label %239, label %240
 
-240:                                              ; preds = %237
+239:                                              ; preds = %236
   invoke void @_ZSt25__throw_bad_function_callv() #32
-          to label %.noexc36 unwind label %341
+          to label %.noexc36 unwind label %340
 
-.noexc36:                                         ; preds = %240
+.noexc36:                                         ; preds = %239
   unreachable
 
-241:                                              ; preds = %237
-  %242 = getelementptr inbounds i8, ptr %1, i64 24
-  %243 = load ptr, ptr %242, align 8, !noalias !44
-  invoke void %243(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.54") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %_ZNKSt8functionIFN3nix3refINS0_14LegacySSHStore10ConnectionEEEvEEclEv.exit unwind label %341
+240:                                              ; preds = %236
+  %241 = getelementptr inbounds i8, ptr %1, i64 24
+  %242 = load ptr, ptr %241, align 8, !noalias !44
+  invoke void %242(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.54") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
+          to label %_ZNKSt8functionIFN3nix3refINS0_14LegacySSHStore10ConnectionEEEvEEclEv.exit unwind label %340
 
-_ZNKSt8functionIFN3nix3refINS0_14LegacySSHStore10ConnectionEEEvEEclEv.exit: ; preds = %241
-  %244 = load ptr, ptr %5, align 8, !noalias !47
-  %245 = getelementptr inbounds i8, ptr %5, i64 8
-  %246 = load ptr, ptr %245, align 8, !noalias !47
-  %.not.i.i.i.i38 = icmp eq ptr %246, null
-  br i1 %.not.i.i.i.i38, label %_ZN3nix4PoolINS_14LegacySSHStore10ConnectionEE6HandleC2ERS3_St10shared_ptrIS2_E.exit43, label %247
+_ZNKSt8functionIFN3nix3refINS0_14LegacySSHStore10ConnectionEEEvEEclEv.exit: ; preds = %240
+  %243 = load ptr, ptr %5, align 8, !noalias !47
+  %244 = getelementptr inbounds i8, ptr %5, i64 8
+  %245 = load ptr, ptr %244, align 8, !noalias !47
+  %.not.i.i.i.i38 = icmp eq ptr %245, null
+  br i1 %.not.i.i.i.i38, label %_ZN3nix4PoolINS_14LegacySSHStore10ConnectionEE6HandleC2ERS3_St10shared_ptrIS2_E.exit43, label %246
 
-247:                                              ; preds = %_ZNKSt8functionIFN3nix3refINS0_14LegacySSHStore10ConnectionEEEvEEclEv.exit
-  %248 = getelementptr inbounds i8, ptr %246, i64 8
-  %249 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i39 = icmp eq i8 %249, 0
-  %250 = getelementptr inbounds i8, ptr %0, i64 8
-  %251 = getelementptr inbounds i8, ptr %0, i64 16
-  br i1 %.not.i.i.i.i.i39, label %254, label %.thread85
+246:                                              ; preds = %_ZNKSt8functionIFN3nix3refINS0_14LegacySSHStore10ConnectionEEEvEEclEv.exit
+  %247 = getelementptr inbounds i8, ptr %245, i64 8
+  %248 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i39 = icmp eq i8 %248, 0
+  %249 = getelementptr inbounds i8, ptr %0, i64 8
+  %250 = getelementptr inbounds i8, ptr %0, i64 16
+  br i1 %.not.i.i.i.i.i39, label %253, label %.thread85
 
-.thread85:                                        ; preds = %247
-  %252 = load i32, ptr %248, align 4, !noalias !47
-  %253 = add nsw i32 %252, 1
-  store i32 %253, ptr %248, align 4, !noalias !47
+.thread85:                                        ; preds = %246
+  %251 = load i32, ptr %247, align 4, !noalias !47
+  %252 = add nsw i32 %251, 1
+  store i32 %252, ptr %247, align 4, !noalias !47
   store ptr %1, ptr %0, align 8
-  store ptr %244, ptr %250, align 8
-  store ptr %246, ptr %251, align 8
-  br label %257
+  store ptr %243, ptr %249, align 8
+  store ptr %245, ptr %250, align 8
+  br label %256
 
-254:                                              ; preds = %247
-  %255 = atomicrmw volatile add ptr %248, i32 1 acq_rel, align 4, !noalias !47
+253:                                              ; preds = %246
+  %254 = atomicrmw volatile add ptr %247, i32 1 acq_rel, align 4, !noalias !47
   %.pre83 = load i8, ptr @__libc_single_threaded, align 1
-  %256 = icmp eq i8 %.pre83, 0
+  %255 = icmp eq i8 %.pre83, 0
   store ptr %1, ptr %0, align 8
-  store ptr %244, ptr %250, align 8
-  store ptr %246, ptr %251, align 8
-  br i1 %256, label %260, label %257
+  store ptr %243, ptr %249, align 8
+  store ptr %245, ptr %250, align 8
+  br i1 %255, label %259, label %256
 
-257:                                              ; preds = %.thread85, %254
-  %258 = load i32, ptr %248, align 4
-  %259 = add nsw i32 %258, 1
-  store i32 %259, ptr %248, align 4
-  br label %265
+256:                                              ; preds = %.thread85, %253
+  %257 = load i32, ptr %247, align 4
+  %258 = add nsw i32 %257, 1
+  store i32 %258, ptr %247, align 4
+  br label %264
 
-260:                                              ; preds = %254
-  %261 = atomicrmw volatile add ptr %248, i32 1 acq_rel, align 4
-  br label %265
+259:                                              ; preds = %253
+  %260 = atomicrmw volatile add ptr %247, i32 1 acq_rel, align 4
+  br label %264
 
 _ZN3nix4PoolINS_14LegacySSHStore10ConnectionEE6HandleC2ERS3_St10shared_ptrIS2_E.exit43: ; preds = %_ZNKSt8functionIFN3nix3refINS0_14LegacySSHStore10ConnectionEEEvEEclEv.exit
   store ptr %1, ptr %0, align 8
-  %262 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %244, ptr %262, align 8
-  %263 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr null, ptr %263, align 8
-  %264 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 0, ptr %264, align 8
+  %261 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %243, ptr %261, align 8
+  %262 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr null, ptr %262, align 8
+  %263 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 0, ptr %263, align 8
   br label %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit50
 
-265:                                              ; preds = %257, %260
-  %266 = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 0, ptr %266, align 8
-  %267 = load atomic i64, ptr %248 acquire, align 8
-  %268 = icmp eq i64 %267, 4294967297
-  %269 = trunc i64 %267 to i32
-  br i1 %268, label %270, label %275
+264:                                              ; preds = %256, %259
+  %265 = getelementptr inbounds i8, ptr %0, i64 24
+  store i8 0, ptr %265, align 8
+  %266 = load atomic i64, ptr %247 acquire, align 8
+  %267 = icmp eq i64 %266, 4294967297
+  %268 = trunc i64 %266 to i32
+  br i1 %267, label %269, label %274
 
-270:                                              ; preds = %265
-  store i32 0, ptr %248, align 8
-  %271 = getelementptr inbounds i8, ptr %246, i64 12
-  store i32 0, ptr %271, align 4
-  %272 = load ptr, ptr %246, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 16
-  %274 = load ptr, ptr %273, align 8
-  call void %274(ptr noundef nonnull align 8 dereferenceable(16) %246) #31
+269:                                              ; preds = %264
+  store i32 0, ptr %247, align 8
+  %270 = getelementptr inbounds i8, ptr %245, i64 12
+  store i32 0, ptr %270, align 4
+  %271 = load ptr, ptr %245, align 8
+  %272 = getelementptr inbounds i8, ptr %271, i64 16
+  %273 = load ptr, ptr %272, align 8
+  call void %273(ptr noundef nonnull align 8 dereferenceable(16) %245) #31
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i49
 
-275:                                              ; preds = %265
-  %276 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i45 = icmp eq i8 %276, 0
-  br i1 %.not.i.i.i.i45, label %279, label %277
+274:                                              ; preds = %264
+  %275 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i45 = icmp eq i8 %275, 0
+  br i1 %.not.i.i.i.i45, label %278, label %276
 
-277:                                              ; preds = %275
-  %278 = add nsw i32 %269, -1
-  store i32 %278, ptr %248, align 4
-  br label %281
+276:                                              ; preds = %274
+  %277 = add nsw i32 %268, -1
+  store i32 %277, ptr %247, align 4
+  br label %280
 
-279:                                              ; preds = %275
-  %280 = atomicrmw volatile add ptr %248, i32 -1 acq_rel, align 4
-  br label %281
+278:                                              ; preds = %274
+  %279 = atomicrmw volatile add ptr %247, i32 -1 acq_rel, align 4
+  br label %280
 
-281:                                              ; preds = %279, %277
-  %.0.i.i.i.i46 = phi i32 [ %269, %277 ], [ %280, %279 ]
-  %282 = icmp eq i32 %.0.i.i.i.i46, 1
-  br i1 %282, label %283, label %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit50
+280:                                              ; preds = %278, %276
+  %.0.i.i.i.i46 = phi i32 [ %268, %276 ], [ %279, %278 ]
+  %281 = icmp eq i32 %.0.i.i.i.i46, 1
+  br i1 %281, label %282, label %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit50
 
-283:                                              ; preds = %281
-  %284 = load ptr, ptr %246, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 16
-  %286 = load ptr, ptr %285, align 8
-  call void %286(ptr noundef nonnull align 8 dereferenceable(16) %246) #31
-  %287 = getelementptr inbounds i8, ptr %246, i64 12
-  %288 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i47 = icmp eq i8 %288, 0
-  br i1 %.not.i.i.i.i.i.i47, label %292, label %289
+282:                                              ; preds = %280
+  %283 = load ptr, ptr %245, align 8
+  %284 = getelementptr inbounds i8, ptr %283, i64 16
+  %285 = load ptr, ptr %284, align 8
+  call void %285(ptr noundef nonnull align 8 dereferenceable(16) %245) #31
+  %286 = getelementptr inbounds i8, ptr %245, i64 12
+  %287 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i47 = icmp eq i8 %287, 0
+  br i1 %.not.i.i.i.i.i.i47, label %291, label %288
 
-289:                                              ; preds = %283
-  %290 = load i32, ptr %287, align 4
-  %291 = add nsw i32 %290, -1
-  store i32 %291, ptr %287, align 4
-  br label %294
+288:                                              ; preds = %282
+  %289 = load i32, ptr %286, align 4
+  %290 = add nsw i32 %289, -1
+  store i32 %290, ptr %286, align 4
+  br label %293
 
-292:                                              ; preds = %283
-  %293 = atomicrmw volatile add ptr %287, i32 -1 acq_rel, align 4
-  br label %294
+291:                                              ; preds = %282
+  %292 = atomicrmw volatile add ptr %286, i32 -1 acq_rel, align 4
+  br label %293
 
-294:                                              ; preds = %292, %289
-  %.0.i.i.i.i.i.i48 = phi i32 [ %290, %289 ], [ %293, %292 ]
-  %295 = icmp eq i32 %.0.i.i.i.i.i.i48, 1
-  br i1 %295, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i49, label %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit50
+293:                                              ; preds = %291, %288
+  %.0.i.i.i.i.i.i48 = phi i32 [ %289, %288 ], [ %292, %291 ]
+  %294 = icmp eq i32 %.0.i.i.i.i.i.i48, 1
+  br i1 %294, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i49, label %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit50
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i49: ; preds = %294, %270
-  %296 = load ptr, ptr %246, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 24
-  %298 = load ptr, ptr %297, align 8
-  call void %298(ptr noundef nonnull align 8 dereferenceable(16) %246) #31
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i49: ; preds = %293, %269
+  %295 = load ptr, ptr %245, align 8
+  %296 = getelementptr inbounds i8, ptr %295, i64 24
+  %297 = load ptr, ptr %296, align 8
+  call void %297(ptr noundef nonnull align 8 dereferenceable(16) %245) #31
   br label %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit50
 
-_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit50: ; preds = %_ZN3nix4PoolINS_14LegacySSHStore10ConnectionEE6HandleC2ERS3_St10shared_ptrIS2_E.exit43, %281, %294, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i49
-  %299 = load ptr, ptr %245, align 8
-  %.not.i.i.i.i51 = icmp eq ptr %299, null
-  br i1 %.not.i.i.i.i51, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit57, label %300
+_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit50: ; preds = %_ZN3nix4PoolINS_14LegacySSHStore10ConnectionEE6HandleC2ERS3_St10shared_ptrIS2_E.exit43, %280, %293, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i49
+  %298 = load ptr, ptr %244, align 8
+  %.not.i.i.i.i51 = icmp eq ptr %298, null
+  br i1 %.not.i.i.i.i51, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit57, label %299
 
-300:                                              ; preds = %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit50
-  %301 = getelementptr inbounds i8, ptr %299, i64 8
-  %302 = load atomic i64, ptr %301 acquire, align 8
-  %303 = icmp eq i64 %302, 4294967297
-  %304 = trunc i64 %302 to i32
-  br i1 %303, label %305, label %310
+299:                                              ; preds = %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit50
+  %300 = getelementptr inbounds i8, ptr %298, i64 8
+  %301 = load atomic i64, ptr %300 acquire, align 8
+  %302 = icmp eq i64 %301, 4294967297
+  %303 = trunc i64 %301 to i32
+  br i1 %302, label %304, label %309
 
-305:                                              ; preds = %300
-  store i32 0, ptr %301, align 8
-  %306 = getelementptr inbounds i8, ptr %299, i64 12
-  store i32 0, ptr %306, align 4
-  %307 = load ptr, ptr %299, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 16
-  %309 = load ptr, ptr %308, align 8
-  call void %309(ptr noundef nonnull align 8 dereferenceable(16) %299) #31
+304:                                              ; preds = %299
+  store i32 0, ptr %300, align 8
+  %305 = getelementptr inbounds i8, ptr %298, i64 12
+  store i32 0, ptr %305, align 4
+  %306 = load ptr, ptr %298, align 8
+  %307 = getelementptr inbounds i8, ptr %306, i64 16
+  %308 = load ptr, ptr %307, align 8
+  call void %308(ptr noundef nonnull align 8 dereferenceable(16) %298) #31
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i56
 
-310:                                              ; preds = %300
-  %311 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i52 = icmp eq i8 %311, 0
-  br i1 %.not.i.i.i.i.i52, label %314, label %312
+309:                                              ; preds = %299
+  %310 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i52 = icmp eq i8 %310, 0
+  br i1 %.not.i.i.i.i.i52, label %313, label %311
 
-312:                                              ; preds = %310
-  %313 = add nsw i32 %304, -1
-  store i32 %313, ptr %301, align 4
-  br label %316
+311:                                              ; preds = %309
+  %312 = add nsw i32 %303, -1
+  store i32 %312, ptr %300, align 4
+  br label %315
 
-314:                                              ; preds = %310
-  %315 = atomicrmw volatile add ptr %301, i32 -1 acq_rel, align 4
-  br label %316
+313:                                              ; preds = %309
+  %314 = atomicrmw volatile add ptr %300, i32 -1 acq_rel, align 4
+  br label %315
 
-316:                                              ; preds = %314, %312
-  %.0.i.i.i.i.i53 = phi i32 [ %304, %312 ], [ %315, %314 ]
-  %317 = icmp eq i32 %.0.i.i.i.i.i53, 1
-  br i1 %317, label %318, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit57
+315:                                              ; preds = %313, %311
+  %.0.i.i.i.i.i53 = phi i32 [ %303, %311 ], [ %314, %313 ]
+  %316 = icmp eq i32 %.0.i.i.i.i.i53, 1
+  br i1 %316, label %317, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit57
 
-318:                                              ; preds = %316
-  %319 = load ptr, ptr %299, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 16
-  %321 = load ptr, ptr %320, align 8
-  call void %321(ptr noundef nonnull align 8 dereferenceable(16) %299) #31
-  %322 = getelementptr inbounds i8, ptr %299, i64 12
-  %323 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i54 = icmp eq i8 %323, 0
-  br i1 %.not.i.i.i.i.i.i.i54, label %327, label %324
+317:                                              ; preds = %315
+  %318 = load ptr, ptr %298, align 8
+  %319 = getelementptr inbounds i8, ptr %318, i64 16
+  %320 = load ptr, ptr %319, align 8
+  call void %320(ptr noundef nonnull align 8 dereferenceable(16) %298) #31
+  %321 = getelementptr inbounds i8, ptr %298, i64 12
+  %322 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i54 = icmp eq i8 %322, 0
+  br i1 %.not.i.i.i.i.i.i.i54, label %326, label %323
 
-324:                                              ; preds = %318
-  %325 = load i32, ptr %322, align 4
-  %326 = add nsw i32 %325, -1
-  store i32 %326, ptr %322, align 4
-  br label %329
+323:                                              ; preds = %317
+  %324 = load i32, ptr %321, align 4
+  %325 = add nsw i32 %324, -1
+  store i32 %325, ptr %321, align 4
+  br label %328
 
-327:                                              ; preds = %318
-  %328 = atomicrmw volatile add ptr %322, i32 -1 acq_rel, align 4
-  br label %329
+326:                                              ; preds = %317
+  %327 = atomicrmw volatile add ptr %321, i32 -1 acq_rel, align 4
+  br label %328
 
-329:                                              ; preds = %327, %324
-  %.0.i.i.i.i.i.i.i55 = phi i32 [ %325, %324 ], [ %328, %327 ]
-  %330 = icmp eq i32 %.0.i.i.i.i.i.i.i55, 1
-  br i1 %330, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i56, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit57
+328:                                              ; preds = %326, %323
+  %.0.i.i.i.i.i.i.i55 = phi i32 [ %324, %323 ], [ %327, %326 ]
+  %329 = icmp eq i32 %.0.i.i.i.i.i.i.i55, 1
+  br i1 %329, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i56, label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit57
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i56: ; preds = %329, %305
-  %331 = load ptr, ptr %299, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 24
-  %333 = load ptr, ptr %332, align 8
-  call void %333(ptr noundef nonnull align 8 dereferenceable(16) %299) #31
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i56: ; preds = %328, %304
+  %330 = load ptr, ptr %298, align 8
+  %331 = getelementptr inbounds i8, ptr %330, i64 24
+  %332 = load ptr, ptr %331, align 8
+  call void %332(ptr noundef nonnull align 8 dereferenceable(16) %298) #31
   br label %_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit57
 
-334:                                              ; preds = %226, %24
-  %.pn12 = phi { ptr, i32 } [ %25, %24 ], [ %lpad.phi, %226 ]
-  %335 = load i8, ptr %10, align 8
-  %336 = trunc i8 %335 to i1
-  br i1 %336, label %337, label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit59
+333:                                              ; preds = %225, %24
+  %.pn12 = phi { ptr, i32 } [ %25, %24 ], [ %lpad.phi, %225 ]
+  %334 = load i8, ptr %10, align 8
+  %335 = trunc i8 %334 to i1
+  br i1 %335, label %336, label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit59
 
-337:                                              ; preds = %334
-  %338 = load ptr, ptr %7, align 8
-  %.not.i.i.i58 = icmp eq ptr %338, null
-  br i1 %.not.i.i.i58, label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit59, label %339
+336:                                              ; preds = %333
+  %337 = load ptr, ptr %7, align 8
+  %.not.i.i.i58 = icmp eq ptr %337, null
+  br i1 %.not.i.i.i58, label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit59, label %338
 
-339:                                              ; preds = %337
-  %340 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %338) #31
+338:                                              ; preds = %336
+  %339 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %337) #31
   br label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit59
 
-341:                                              ; preds = %241, %240
-  %342 = landingpad { ptr, i32 }
+340:                                              ; preds = %240, %239
+  %341 = landingpad { ptr, i32 }
           catch ptr null
-  %343 = extractvalue { ptr, i32 } %342, 0
-  %344 = call ptr @__cxa_begin_catch(ptr %343) #31
-  %345 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %6) #31, !noalias !50
-  %.not.i.i.i.i.i60 = icmp eq i32 %345, 0
-  br i1 %.not.i.i.i.i.i60, label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4lockEv.exit62, label %346
+  %342 = extractvalue { ptr, i32 } %341, 0
+  %343 = call ptr @__cxa_begin_catch(ptr %342) #31
+  %344 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %6) #31, !noalias !50
+  %.not.i.i.i.i.i60 = icmp eq i32 %344, 0
+  br i1 %.not.i.i.i.i.i60, label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4lockEv.exit62, label %345
 
-346:                                              ; preds = %341
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %345) #32
-          to label %.noexc61 unwind label %350
+345:                                              ; preds = %340
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %344) #32
+          to label %.noexc61 unwind label %349
 
-.noexc61:                                         ; preds = %346
+.noexc61:                                         ; preds = %345
   unreachable
 
-_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4lockEv.exit62: ; preds = %341
-  %347 = getelementptr inbounds i8, ptr %1, i64 104
-  %348 = load i64, ptr %347, align 8
-  %349 = add i64 %348, -1
-  store i64 %349, ptr %347, align 8
+_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4lockEv.exit62: ; preds = %340
+  %346 = getelementptr inbounds i8, ptr %1, i64 104
+  %347 = load i64, ptr %346, align 8
+  %348 = add i64 %347, -1
+  store i64 %348, ptr %346, align 8
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #31
   invoke void @__cxa_rethrow() #32
-          to label %358 unwind label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit64
+          to label %357 unwind label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit64
 
-350:                                              ; preds = %346
-  %351 = landingpad { ptr, i32 }
+349:                                              ; preds = %345
+  %350 = landingpad { ptr, i32 }
           cleanup
-  br label %354
+  br label %353
 
 _ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit64: ; preds = %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4lockEv.exit62
-  %352 = landingpad { ptr, i32 }
+  %351 = landingpad { ptr, i32 }
           cleanup
-  %353 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #31
-  br label %354
+  %352 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #31
+  br label %353
 
-354:                                              ; preds = %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit64, %350
-  %.pn = phi { ptr, i32 } [ %352, %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit64 ], [ %351, %350 ]
+353:                                              ; preds = %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit64, %349
+  %.pn = phi { ptr, i32 } [ %351, %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit64 ], [ %350, %349 ]
   invoke void @__cxa_end_catch()
-          to label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit59 unwind label %355
+          to label %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit59 unwind label %354
 
-_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit57: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i56, %329, %316, %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit50, %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit
+_ZN3nix3refINS_14LegacySSHStore10ConnectionEED2Ev.exit57: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i56, %328, %315, %_ZNSt10shared_ptrIN3nix14LegacySSHStore10ConnectionEED2Ev.exit50, %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit
   ret void
 
-_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit59: ; preds = %339, %337, %334, %354
-  %.pn12.pn = phi { ptr, i32 } [ %.pn, %354 ], [ %.pn12, %334 ], [ %.pn12, %337 ], [ %.pn12, %339 ]
+_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit59: ; preds = %338, %336, %333, %353
+  %.pn12.pn = phi { ptr, i32 } [ %.pn, %353 ], [ %.pn12, %333 ], [ %.pn12, %336 ], [ %.pn12, %338 ]
   resume { ptr, i32 } %.pn12.pn
 
-355:                                              ; preds = %354
-  %356 = landingpad { ptr, i32 }
+354:                                              ; preds = %353
+  %355 = landingpad { ptr, i32 }
           catch ptr null
-  %357 = extractvalue { ptr, i32 } %356, 0
-  call void @__clang_call_terminate(ptr %357) #35
+  %356 = extractvalue { ptr, i32 } %355, 0
+  call void @__clang_call_terminate(ptr %356) #35
   unreachable
 
-358:                                              ; preds = %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4lockEv.exit62
+357:                                              ; preds = %_ZN3nix4SyncINS_4PoolINS_14LegacySSHStore10ConnectionEE5StateESt5mutexE4lockEv.exit62
   unreachable
 }
 

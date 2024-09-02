@@ -11072,7 +11072,7 @@ define internal fastcc range(i32 0, 5) i32 @decode_mp_next_hop_ipv4(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 33) i32 @decode_mp_next_hop_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.e_in6_addr, align 1
   %7 = alloca [46 x i8], align 16
   switch i32 %4, label %30 [
@@ -11158,7 +11158,7 @@ define internal fastcc range(i32 0, 13) i32 @decode_mp_next_hop_vpn_ipv4(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @decode_mp_next_hop_vpn_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 49) i32 @decode_mp_next_hop_vpn_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [8 x i8], align 8
   %7 = alloca %struct.e_in6_addr, align 1
   %8 = alloca [46 x i8], align 16
@@ -11638,7 +11638,7 @@ define internal fastcc range(i32 -1, 258) i32 @decode_mcast_vpn_nlri(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @decode_mdt_safi(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 18) i32 @decode_mdt_safi(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #4
   %.not = icmp eq i8 %5, -128
   br i1 %.not, label %6, label %19

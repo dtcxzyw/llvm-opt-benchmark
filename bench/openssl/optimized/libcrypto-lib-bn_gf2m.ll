@@ -539,7 +539,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_GF2m_mod_mul_arr(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_GF2m_mod_mul_arr(ptr noundef %r, ptr noundef readonly %a, ptr noundef readonly %b, ptr nocapture noundef readonly %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %zz = alloca [4 x i64], align 16
   %cmp = icmp eq ptr %a, %b
@@ -1383,15 +1383,14 @@ for.body69.i:                                     ; preds = %while.body59.i, %fo
   br i1 %exitcond.not.i, label %for.end92.i, label %for.body69.i, !llvm.loop !19
 
 for.end92.i:                                      ; preds = %for.body69.i, %while.body59.i
-  %i.3.lcssa.i = phi i32 [ 0, %while.body59.i ], [ %sub67.i, %for.body69.i ]
+  %i.3.lcssa.i = phi i64 [ 0, %while.body59.i ], [ %wide.trip.count.i, %for.body69.i ]
   %u0.0.lcssa.i = phi i64 [ %18, %while.body59.i ], [ %22, %for.body69.i ]
   %b0.0.lcssa.i = phi i64 [ %xor.i, %while.body59.i ], [ %xor83.i, %for.body69.i ]
   %shr93.i = lshr i64 %u0.0.lcssa.i, 1
-  %idxprom94.i = zext nneg i32 %i.3.lcssa.i to i64
-  %arrayidx95.i = getelementptr inbounds i64, ptr %udp.0.i, i64 %idxprom94.i
+  %arrayidx95.i = getelementptr inbounds i64, ptr %udp.0.i, i64 %i.3.lcssa.i
   store i64 %shr93.i, ptr %arrayidx95.i, align 8
   %shr96.i = lshr i64 %b0.0.lcssa.i, 1
-  %arrayidx98.i = getelementptr inbounds i64, ptr %bdp.0.i, i64 %idxprom94.i
+  %arrayidx98.i = getelementptr inbounds i64, ptr %bdp.0.i, i64 %i.3.lcssa.i
   store i64 %shr96.i, ptr %arrayidx98.i, align 8
   %dec.i = add nsw i32 %ubits.1122.i, -1
   %tobool56.not.i = icmp eq i32 %dec.i, 0

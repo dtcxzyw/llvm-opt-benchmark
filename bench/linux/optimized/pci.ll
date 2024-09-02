@@ -1317,7 +1317,7 @@ define dso_local zeroext range(i16 0, 4093) i16 @pci_find_vsec_capability(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i16 @pci_find_dvsec_capability(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) #5 align 16 {
+define dso_local zeroext range(i16 0, 4093) i16 @pci_find_dvsec_capability(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) #5 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
@@ -3704,7 +3704,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pci_enable_device(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pcim_enable_device(ptr noundef %0) #5 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @pcim_enable_device(ptr noundef %0) #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = tail call ptr @devres_find(ptr noundef %2, ptr noundef nonnull @pcim_release, ptr noundef null, ptr noundef null) #27
   %4 = icmp eq ptr %3, null
@@ -10510,7 +10510,7 @@ define dso_local range(i32 0, 256) i32 @pcie_get_width_cap(ptr noundef %0) #5 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 16320001) i32 @pcie_bandwidth_capable(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 align 16 {
+define dso_local range(i32 0, 4032001) i32 @pcie_bandwidth_capable(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

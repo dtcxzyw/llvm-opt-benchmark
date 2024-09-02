@@ -322,11 +322,11 @@ define void @Saig_SynchTernarySimulate(ptr nocapture noundef readonly %0, ptr no
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds i8, ptr %30, i64 36
   %32 = load i32, ptr %31, align 4
+  %33 = sext i32 %32 to i64
   br label %Aig_ObjFaninId0.exit113.us
 
 Aig_ObjFaninId0.exit113.us:                       ; preds = %.lr.ph140.split.us, %28
-  %33 = phi i32 [ %32, %28 ], [ -1, %.lr.ph140.split.us ]
-  %34 = sext i32 %33 to i64
+  %34 = phi i64 [ %33, %28 ], [ -1, %.lr.ph140.split.us ]
   %35 = getelementptr inbounds ptr, ptr %.val91.us, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = and i64 %.pre, 1
@@ -401,11 +401,11 @@ Aig_ObjFaninId0.exit113.us:                       ; preds = %.lr.ph140.split.us,
   %72 = inttoptr i64 %71 to ptr
   %73 = getelementptr inbounds i8, ptr %72, i64 36
   %74 = load i32, ptr %73, align 4
+  %75 = sext i32 %74 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %62, %69
-  %75 = phi i32 [ %74, %69 ], [ -1, %62 ]
-  %76 = sext i32 %75 to i64
+  %76 = phi i64 [ %75, %69 ], [ -1, %62 ]
   %77 = getelementptr inbounds ptr, ptr %.val95, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr i8, ptr %55, i64 16
@@ -419,11 +419,11 @@ Aig_ObjFaninId0.exit:                             ; preds = %62, %69
   %83 = inttoptr i64 %82 to ptr
   %84 = getelementptr inbounds i8, ptr %83, i64 36
   %85 = load i32, ptr %84, align 4
+  %86 = sext i32 %85 to i64
   br label %Aig_ObjFaninId1.exit
 
 Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %80
-  %86 = phi i32 [ %85, %80 ], [ -1, %Aig_ObjFaninId0.exit ]
-  %87 = sext i32 %86 to i64
+  %87 = phi i64 [ %86, %80 ], [ -1, %Aig_ObjFaninId0.exit ]
   %88 = getelementptr inbounds ptr, ptr %.val95, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = ptrtoint ptr %.val100 to i64

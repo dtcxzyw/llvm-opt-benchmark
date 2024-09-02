@@ -469,10 +469,10 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %127
   %invariant.op.i = add nsw i64 %140, -1
   br label %141
 
-141:                                              ; preds = %194, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %135, %.lr.ph.i ], [ %indvars.iv.next.i, %194 ]
-  %.088.i = phi i1 [ true, %.lr.ph.i ], [ %.282.i, %194 ]
-  %.05587.i = phi i64 [ %135, %.lr.ph.i ], [ %.156.i, %194 ]
+141:                                              ; preds = %197, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %135, %.lr.ph.i ], [ %indvars.iv.next.i, %197 ]
+  %.088.i = phi i1 [ true, %.lr.ph.i ], [ %.282.i, %197 ]
+  %.05587.i = phi i64 [ %135, %.lr.ph.i ], [ %.156.i, %197 ]
   %142 = trunc nuw nsw i64 %indvars.iv.i to i32
   %143 = uitofp nneg i32 %142 to double
   %144 = fmul double %99, %143
@@ -571,50 +571,50 @@ _ZNKSt8functionIFddEEclEd.exit68.i:               ; preds = %.noexc88
   %180 = fmul double %99, %179
   %181 = call double @llvm.fmuladd.f64(double %174, double -2.000000e+00, double %180)
   %182 = add i64 %.05587.i, -1
-  br label %194
+  %183 = fptrunc double %173 to float
+  %184 = fptrunc double %178 to float
+  %185 = fptrunc double %181 to float
+  br label %197
 
 .thread76.i:                                      ; preds = %141, %165
-  %183 = shl i64 %.05587.i, 2
-  %184 = getelementptr inbounds float, ptr %131, i64 %183
-  %185 = load float, ptr %184, align 4
-  %186 = fpext float %185 to double
-  %187 = or disjoint i64 %183, 1
-  %188 = getelementptr inbounds float, ptr %131, i64 %187
-  %189 = load float, ptr %188, align 4
-  %190 = fpext float %189 to double
-  %191 = sub i64 %indvars.iv.i, %.05587.i
-  %192 = uitofp i64 %191 to double
-  %193 = call double @llvm.fmuladd.f64(double %190, double %192, double %186)
-  br label %194
+  %186 = shl i64 %.05587.i, 2
+  %187 = getelementptr inbounds float, ptr %131, i64 %186
+  %188 = load float, ptr %187, align 4
+  %189 = fpext float %188 to double
+  %190 = or disjoint i64 %186, 1
+  %191 = getelementptr inbounds float, ptr %131, i64 %190
+  %192 = load float, ptr %191, align 4
+  %193 = fpext float %192 to double
+  %194 = sub i64 %indvars.iv.i, %.05587.i
+  %195 = uitofp i64 %194 to double
+  %196 = call double @llvm.fmuladd.f64(double %193, double %195, double %189)
+  br label %197
 
-194:                                              ; preds = %.thread76.i, %172
+197:                                              ; preds = %.thread76.i, %172
   %.282.i = phi i1 [ true, %172 ], [ false, %.thread76.i ]
-  %.075.i = phi double [ %151, %172 ], [ %193, %.thread76.i ]
-  %.074.i = phi double [ %173, %172 ], [ %190, %.thread76.i ]
-  %.073.i = phi double [ %178, %172 ], [ 0.000000e+00, %.thread76.i ]
-  %.072.i = phi double [ %181, %172 ], [ 0.000000e+00, %.thread76.i ]
+  %.075.i = phi double [ %151, %172 ], [ %196, %.thread76.i ]
+  %.074.i = phi float [ %183, %172 ], [ %192, %.thread76.i ]
+  %.073.i = phi float [ %184, %172 ], [ 0.000000e+00, %.thread76.i ]
+  %.072.i = phi float [ %185, %172 ], [ 0.000000e+00, %.thread76.i ]
   %.156.i = phi i64 [ %182, %172 ], [ %.05587.i, %.thread76.i ]
-  %195 = fptrunc double %.075.i to float
-  %196 = shl nsw i64 %indvars.iv.i, 2
-  %197 = getelementptr inbounds float, ptr %131, i64 %196
-  store float %195, ptr %197, align 4
-  %198 = fptrunc double %.074.i to float
-  %199 = or disjoint i64 %196, 1
+  %198 = fptrunc double %.075.i to float
+  %199 = shl nsw i64 %indvars.iv.i, 2
   %200 = getelementptr inbounds float, ptr %131, i64 %199
   store float %198, ptr %200, align 4
-  %201 = fptrunc double %.073.i to float
-  %202 = or disjoint i64 %196, 2
-  %203 = getelementptr inbounds float, ptr %131, i64 %202
-  store float %201, ptr %203, align 4
-  %204 = fptrunc double %.072.i to float
-  %205 = or disjoint i64 %196, 3
+  %201 = or disjoint i64 %199, 1
+  %202 = getelementptr inbounds float, ptr %131, i64 %201
+  store float %.074.i, ptr %202, align 4
+  %203 = or disjoint i64 %199, 2
+  %204 = getelementptr inbounds float, ptr %131, i64 %203
+  store float %.073.i, ptr %204, align 4
+  %205 = or disjoint i64 %199, 3
   %206 = getelementptr inbounds float, ptr %131, i64 %205
-  store float %204, ptr %206, align 4
+  store float %.072.i, ptr %206, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %207 = icmp sgt i64 %indvars.iv.i, 0
   br i1 %207, label %141, label %_ZN3gmx12_GLOBAL__N_130fillSingleCubicSplineTableDataERKSt8functionIFddEES5_RKSt4pairIffEdPSt6vectorIfSaIfEE.exit, !llvm.loop !5
 
-_ZN3gmx12_GLOBAL__N_130fillSingleCubicSplineTableDataERKSt8functionIFddEES5_RKSt4pairIffEdPSt6vectorIfSaIfEE.exit: ; preds = %194
+_ZN3gmx12_GLOBAL__N_130fillSingleCubicSplineTableDataERKSt8functionIFddEES5_RKSt4pairIffEdPSt6vectorIfSaIfEE.exit: ; preds = %197
   %.idx265 = shl nuw nsw i64 %126, 2
   %208 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx265) #23
           to label %209 unwind label %.loopexit.split-lp.loopexit

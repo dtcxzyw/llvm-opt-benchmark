@@ -2360,7 +2360,7 @@ lpad333:                                          ; preds = %if.end15.i.i1139
   br label %ehcleanup562
 
 if.end361:                                        ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %if.else.i1205, %invoke.cont325
-  %childChanged.0.shrunk = phi i1 [ false, %invoke.cont325 ], [ %cmp.i1185, %if.else.i1205 ], [ %cmp.i1185, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ]
+  %childChanged.0 = phi i1 [ false, %invoke.cont325 ], [ %cmp.i1185, %if.else.i1205 ], [ %cmp.i1185, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ]
   %233 = load ptr, ptr %ret322, align 8
   %d_kind.i.i.i.i1208 = getelementptr inbounds i8, ptr %233, i64 8
   %bf.load.i.i.i.i1209 = load i16, ptr %d_kind.i.i.i.i1208, align 8
@@ -2386,7 +2386,7 @@ invoke.cont365:                                   ; preds = %if.end361
   br i1 %cmp.i1225.not2030, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont365, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1313
-  %childChanged.1.in2032 = phi i1 [ %254, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1313 ], [ %childChanged.0.shrunk, %invoke.cont365 ]
+  %childChanged.12032 = phi i1 [ %254, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1313 ], [ %childChanged.0, %invoke.cont365 ]
   %__begin6.sroa.0.02031 = phi ptr [ %incdec.ptr.i1314, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1313 ], [ %spec.select.i.i1216, %invoke.cont365 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %235 = load ptr, ptr %__begin6.sroa.0.02031, align 8, !noalias !15
@@ -2485,7 +2485,7 @@ lor.lhs.false.i.i.i.i1255:                        ; preds = %if.end3.i.i.i.i1252
 
 invoke.cont375:                                   ; preds = %lor.lhs.false.i.i.i.i1255, %if.end3.i.i.i.i1252, %for.cond.i.i.i.i1260, %for.body.i.i1270, %for.cond.i.i1266, %if.end.i.i.i.i1247, %call2.i.i.i.noexc1273
   %retval.sroa.0.1.i.i1259 = phi ptr [ null, %call2.i.i.i.noexc1273 ], [ %243, %if.end.i.i.i.i1247 ], [ null, %for.cond.i.i1266 ], [ %retval.sroa.0.0.i.i1268, %for.body.i.i1270 ], [ %250, %for.cond.i.i.i.i1260 ], [ null, %if.end3.i.i.i.i1252 ], [ null, %lor.lhs.false.i.i.i.i1255 ]
-  br i1 %childChanged.1.in2032, label %lor.end385, label %lor.rhs380
+  br i1 %childChanged.12032, label %lor.end385, label %lor.rhs380
 
 lor.rhs380:                                       ; preds = %invoke.cont375
   %second382 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i1259, i64 16
@@ -2579,11 +2579,11 @@ lpad374:                                          ; preds = %if.else.i1299, %if.
   br label %ehcleanup562
 
 for.end:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1313, %invoke.cont365
-  %childChanged.1.in.lcssa = phi i1 [ %childChanged.0.shrunk, %invoke.cont365 ], [ %254, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1313 ]
+  %childChanged.1.lcssa = phi i1 [ %childChanged.0, %invoke.cont365 ], [ %254, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1313 ]
   br i1 %preserveTypes, label %if.then394, label %if.else534
 
 if.then394:                                       ; preds = %for.end
-  br i1 %childChanged.1.in.lcssa, label %if.then396, label %if.end426
+  br i1 %childChanged.1.lcssa, label %if.then396, label %if.end426
 
 if.then396:                                       ; preds = %if.then394
   %265 = load ptr, ptr %ret322, align 8
@@ -3100,7 +3100,7 @@ invoke.cont537:                                   ; preds = %if.else.i.i1764, %i
   %vtable539 = load ptr, ptr %this, align 8
   %vfn540 = getelementptr inbounds i8, ptr %vtable539, i64 40
   %318 = load ptr, ptr %vfn540, align 8
-  invoke void %318(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %cret535, ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull %agg.tmp536, ptr noundef nonnull align 8 dereferenceable(24) %children, i1 noundef zeroext %childChanged.1.in.lcssa)
+  invoke void %318(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %cret535, ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull %agg.tmp536, ptr noundef nonnull align 8 dereferenceable(24) %children, i1 noundef zeroext %childChanged.1.lcssa)
           to label %invoke.cont542 unwind label %lpad541
 
 invoke.cont542:                                   ; preds = %invoke.cont537

@@ -852,10 +852,10 @@ land.rhs.i184:                                    ; preds = %invoke.cont144
           to label %call3.i186.noexc unwind label %lpad146
 
 call3.i186.noexc:                                 ; preds = %land.rhs.i184
-  %cmp4.i187 = icmp eq i32 %call3.i186188, 0
+  %cmp4.i187.not = icmp eq i32 %call3.i186188, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp142) #24
-  br i1 %cmp4.i187, label %do.end, label %do.body.backedge
+  br i1 %cmp4.i187.not, label %do.end, label %do.body.backedge
 
 do.body.backedge:                                 ; preds = %call3.i186.noexc, %do.body.critedge
   br label %do.body, !llvm.loop !4

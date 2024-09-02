@@ -570,7 +570,7 @@ for.end:                                          ; preds = %_ZN4cvc58internal4e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK4cvc58internal11NodeBuilder7getKindEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 -1, 1024) i32 @_ZNK4cvc58internal11NodeBuilder7getKindEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_nv = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_nv, align 8
@@ -599,7 +599,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK4cvc58internal11NodeBuilder14getNumChildrenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 -1, 67108864) i32 @_ZNK4cvc58internal11NodeBuilder14getNumChildrenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_nv = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_nv, align 8

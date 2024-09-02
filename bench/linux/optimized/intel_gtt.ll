@@ -636,7 +636,7 @@ define dso_local void @fill_page_dma(ptr nocapture noundef readonly %0, i64 noun
 declare dso_local void @drm_clflush_virt_range(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @setup_scratch_page(ptr noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -12, 1) i32 @setup_scratch_page(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 328
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, -4294967297
@@ -671,13 +671,13 @@ define dso_local noundef i32 @setup_scratch_page(ptr noundef %0) local_unnamed_a
   %27 = getelementptr inbounds i8, ptr %0, i64 539
   br label %28
 
-28:                                               ; preds = %.thread4, %21
-  %29 = phi i64 [ %22, %21 ], [ 4096, %.thread4 ]
+28:                                               ; preds = %.thread, %21
+  %29 = phi i64 [ %22, %21 ], [ 4096, %.thread ]
   %30 = load ptr, ptr %23, align 8
   %31 = trunc nuw nsw i64 %29 to i32
   %32 = tail call ptr %30(ptr noundef %0, i32 noundef %31) #10
   %33 = icmp ugt ptr %32, inttoptr (i64 -4096 to ptr)
-  br i1 %33, label %.thread4, label %34
+  br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %24, align 8
@@ -690,11 +690,7 @@ define dso_local noundef i32 @setup_scratch_page(ptr noundef %0) local_unnamed_a
   %42 = select i1 %41, i32 %36, i32 1
   %43 = tail call ptr @i915_gem_object_pin_map_unlocked(ptr noundef %32, i32 noundef %42) #10
   %44 = icmp ugt ptr %43, inttoptr (i64 -4096 to ptr)
-  br i1 %44, label %45, label %.thread
-
-.thread:                                          ; preds = %34
-  tail call void @i915_gem_object_make_unshrinkable(ptr noundef %32) #10
-  br label %49
+  br i1 %44, label %45, label %.critedge
 
 45:                                               ; preds = %34
   %46 = ptrtoint ptr %43 to i64
@@ -702,7 +698,11 @@ define dso_local noundef i32 @setup_scratch_page(ptr noundef %0) local_unnamed_a
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %49, label %75
 
-49:                                               ; preds = %.thread, %45
+.critedge:                                        ; preds = %34
+  tail call void @i915_gem_object_make_unshrinkable(ptr noundef %32) #10
+  br label %49
+
+49:                                               ; preds = %.critedge, %45
   %50 = getelementptr inbounds i8, ptr %32, i64 764
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
@@ -718,9 +718,9 @@ define dso_local noundef i32 @setup_scratch_page(ptr noundef %0) local_unnamed_a
   %60 = add nsw i64 %29, -1
   %61 = and i64 %59, %60
   %62 = icmp eq i64 %61, 0
-  br i1 %62, label %.thread5, label %75
+  br i1 %62, label %.thread4, label %75
 
-.thread5:                                         ; preds = %54
+.thread4:                                         ; preds = %54
   %63 = getelementptr inbounds i8, ptr %32, i64 752
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
@@ -746,23 +746,23 @@ define dso_local noundef i32 @setup_scratch_page(ptr noundef %0) local_unnamed_a
 
 78:                                               ; preds = %75
   %79 = icmp sgt i32 %76, 0
-  br i1 %79, label %.thread4, label %80, !prof !8
+  br i1 %79, label %.thread, label %80, !prof !8
 
 80:                                               ; preds = %78
   tail call void @refcount_warn_saturate(ptr noundef %32, i32 noundef 3) #10
-  br label %.thread4
+  br label %.thread
 
 81:                                               ; preds = %75
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !21
   tail call void @drm_gem_object_free(ptr noundef %32) #10, !callees !23
-  br label %.thread4
+  br label %.thread
 
-.thread4:                                         ; preds = %78, %80, %28, %81
+.thread:                                          ; preds = %78, %80, %28, %81
   %.not = icmp eq i64 %29, 4096
   br i1 %.not, label %.loopexit, label %28, !llvm.loop !24
 
-.loopexit:                                        ; preds = %.thread4, %.thread5
-  %82 = phi i32 [ 0, %.thread5 ], [ -12, %.thread4 ]
+.loopexit:                                        ; preds = %.thread, %.thread4
+  %82 = phi i32 [ 0, %.thread4 ], [ -12, %.thread ]
   ret i32 %82
 }
 

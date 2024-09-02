@@ -3356,11 +3356,11 @@ if.end.i.i139:                                    ; preds = %land.rhs.i137
   %56 = load ptr, ptr %gen_verifier, align 8, !tbaa !11
   %bcmp.i140 = call i32 @bcmp(ptr %56, ptr %55, i64 %53)
   %57 = icmp eq i32 %bcmp.i140, 0
+  %58 = zext i1 %57 to i32
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit141
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit141: ; preds = %if.end.i.i139, %land.rhs.i137, %invoke.cont36
-  %58 = phi i1 [ false, %invoke.cont36 ], [ %57, %if.end.i.i139 ], [ true, %land.rhs.i137 ]
-  %conv38 = zext i1 %58 to i32
+  %conv38 = phi i32 [ 0, %invoke.cont36 ], [ %58, %if.end.i.i139 ], [ 1, %land.rhs.i137 ]
   invoke void @lua_pushboolean(ptr noundef %L, i32 noundef %conv38)
           to label %invoke.cont40 unwind label %lpad39
 

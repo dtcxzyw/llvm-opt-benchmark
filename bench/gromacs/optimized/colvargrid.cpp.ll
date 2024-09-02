@@ -9580,10 +9580,11 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 
 ._crit_edge239.loopexit:                          ; preds = %347
   %.pre = load i64, ptr %43, align 8
+  %351 = icmp eq i64 %349, 0
   br label %._crit_edge239
 
 ._crit_edge239:                                   ; preds = %._crit_edge239.loopexit, %.preheader
-  %351 = phi i64 [ %349, %._crit_edge239.loopexit ], [ 0, %.preheader ]
+  %.not248 = phi i1 [ %351, %._crit_edge239.loopexit ], [ true, %.preheader ]
   %352 = phi i64 [ %.pre, %._crit_edge239.loopexit ], [ %343, %.preheader ]
   %353 = icmp eq i64 %352, 0
   br i1 %353, label %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit, label %.lr.ph.i
@@ -9613,7 +9614,6 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit: ; preds = %356, %._crit_edge239
   store i64 0, ptr %32, align 8
-  %.not248 = icmp eq i64 %351, 0
   br i1 %.not248, label %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit.thread, label %.lr.ph241
 
 .lr.ph241:                                        ; preds = %_ZNK11colvar_gridImE8index_okERKSt6vectorIiSaIiEE.exit, %369
@@ -16760,10 +16760,11 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 
 ._crit_edge238.loopexit:                          ; preds = %347
   %.pre = load i64, ptr %43, align 8
+  %351 = icmp eq i64 %349, 0
   br label %._crit_edge238
 
 ._crit_edge238:                                   ; preds = %._crit_edge238.loopexit, %.preheader
-  %351 = phi i64 [ %349, %._crit_edge238.loopexit ], [ 0, %.preheader ]
+  %.not247 = phi i1 [ %351, %._crit_edge238.loopexit ], [ true, %.preheader ]
   %352 = phi i64 [ %.pre, %._crit_edge238.loopexit ], [ %343, %.preheader ]
   %353 = icmp eq i64 %352, 0
   br i1 %353, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit, label %.lr.ph.i
@@ -16793,7 +16794,6 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit: ; preds = %356, %._crit_edge238
   store i64 0, ptr %32, align 8
-  %.not247 = icmp eq i64 %351, 0
   br i1 %.not247, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit.thread, label %.lr.ph240
 
 .lr.ph240:                                        ; preds = %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit, %369

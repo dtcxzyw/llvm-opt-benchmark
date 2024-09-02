@@ -1997,7 +1997,7 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   %62 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next311
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, %57
-  br i1 %64, label %.lr.ph313, label %.critedge.loopexit.split.loop.exit297, !llvm.loop !28
+  br i1 %64, label %.lr.ph313, label %.critedge, !llvm.loop !28
 
 .lr.ph313:                                        ; preds = %.lr.ph231.preheader, %.lr.ph231
   %indvars.iv.next312 = phi i64 [ %indvars.iv.next, %.lr.ph231 ], [ %indvars.iv.next311, %.lr.ph231.preheader ]
@@ -2009,25 +2009,20 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   %66 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %67, %57
-  br i1 %68, label %.lr.ph313, label %.critedge.loopexit.split.loop.exit297.loopexit, !llvm.loop !28
+  br i1 %68, label %.lr.ph313, label %.lr.ph231..critedge.loopexit.split.loop.exit297_crit_edge, !llvm.loop !28
 
-.critedge.loopexit.split.loop.exit297.loopexit:   ; preds = %.lr.ph231
+.lr.ph231..critedge.loopexit.split.loop.exit297_crit_edge: ; preds = %.lr.ph231
   %indvars.le = trunc i64 %indvars.iv.next312 to i32
-  br label %.critedge.loopexit.split.loop.exit297
-
-.critedge.loopexit.split.loop.exit297:            ; preds = %.critedge.loopexit.split.loop.exit297.loopexit, %.lr.ph231.preheader
-  %indvars.iv.lcssa = phi i64 [ %55, %.lr.ph231.preheader ], [ %indvars.iv.next312, %.critedge.loopexit.split.loop.exit297.loopexit ]
-  %.2152229.lcssa = phi i32 [ %.0150245, %.lr.ph231.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit297.loopexit ]
-  %69 = trunc nsw i64 %indvars.iv.lcssa to i32
+  %69 = trunc nsw i64 %indvars.iv.next312 to i32
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %.lr.ph313
   %indvars.le337 = trunc i64 %indvars.iv.next312 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.critedge.loopexit.split.loop.exit297, %.preheader201
-  %.2152.lcssa = phi i32 [ %.0150245, %.preheader201 ], [ %.2152229.lcssa, %.critedge.loopexit.split.loop.exit297 ], [ %indvars.le337, %.critedge.loopexit ]
-  %.6149.lcssa = phi i32 [ %.4147246, %.preheader201 ], [ %69, %.critedge.loopexit.split.loop.exit297 ], [ %indvars.le337, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph231.preheader, %.lr.ph231..critedge.loopexit.split.loop.exit297_crit_edge, %.preheader201
+  %.2152.lcssa = phi i32 [ %.0150245, %.preheader201 ], [ %indvars.le, %.lr.ph231..critedge.loopexit.split.loop.exit297_crit_edge ], [ %.0150245, %.lr.ph231.preheader ], [ %indvars.le337, %.critedge.loopexit ]
+  %.6149.lcssa = phi i32 [ %.4147246, %.preheader201 ], [ %69, %.lr.ph231..critedge.loopexit.split.loop.exit297_crit_edge ], [ %.4147246, %.lr.ph231.preheader ], [ %indvars.le337, %.critedge.loopexit ]
   %70 = sub nsw i32 %.2152.lcssa, %.4147246
   %71 = add nsw i32 %70, 1
   %72 = sext i32 %71 to i64

@@ -1150,7 +1150,7 @@ define hidden void @_ZN9actix_web5error14response_error13ResponseError14error_re
   %37 = lshr i64 %34, 10
   %38 = tail call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %37, i1 false)
   %39 = sub nuw nsw i64 64, %38
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %39, i64 7)
+  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 %39, i64 7)
   %40 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
   %41 = or disjoint i64 %40, 1
   %42 = getelementptr i8, ptr null, i64 %41

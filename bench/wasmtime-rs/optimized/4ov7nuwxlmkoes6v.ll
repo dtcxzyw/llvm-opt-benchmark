@@ -35,7 +35,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0c4ac1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h0d378e98565610b6E(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
+define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h0d378e98565610b6E(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
   %3 = icmp ne ptr %2, null
   %spec.select.i = zext i1 %3 to i64
@@ -43,7 +43,7 @@ define noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h0d
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h41cce0baac1f9c67E(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
+define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h41cce0baac1f9c67E(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !noundef !3
   %3 = icmp ne ptr %2, null
   %spec.select.i = zext i1 %3 to i64

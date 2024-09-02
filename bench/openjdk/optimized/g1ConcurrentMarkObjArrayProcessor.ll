@@ -379,7 +379,7 @@ _ZN8G1CMTask4pushE16G1TaskQueueEntry.exit:        ; preds = %_ZN16GenericTaskQue
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN21G1CMObjArrayProcessor19process_array_sliceEP15objArrayOopDescPP12HeapWordImplm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 2049) i64 @_ZN21G1CMObjArrayProcessor19process_array_sliceEP15objArrayOopDescPP12HeapWordImplm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = icmp ugt i64 %3, 2048
   br i1 %5, label %6, label %_ZN21G1CMObjArrayProcessor16push_array_sliceEPP12HeapWordImpl.exit
 
@@ -474,7 +474,7 @@ _ZN8G1CMTask13scan_objArrayEP15objArrayOopDesc9MemRegion.exit: ; preds = %46, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN21G1CMObjArrayProcessor11process_objEP7oopDesc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 2049) i64 @_ZN21G1CMObjArrayProcessor11process_objEP7oopDesc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @UseCompressedClassPointers, align 1
   %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -648,7 +648,7 @@ _ZN21G1CMObjArrayProcessor19process_array_sliceEP15objArrayOopDescPP12HeapWordIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN21G1CMObjArrayProcessor13process_sliceEPP12HeapWordImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 2049) i64 @_ZN21G1CMObjArrayProcessor13process_sliceEPP12HeapWordImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 520
   %5 = load i64, ptr %4, align 8

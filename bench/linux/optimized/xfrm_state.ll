@@ -730,7 +730,7 @@ define dso_local ptr @xfrm_state_alloc(ptr noundef %0) #0 align 16 {
 declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @xfrm_timer_handler(ptr noundef %0) #0 align 16 {
+define internal range(i32 0, 2) i32 @xfrm_timer_handler(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.km_event, align 8
   %3 = alloca %struct.km_event, align 8
   %4 = getelementptr i8, ptr %0, i64 -568
@@ -5179,7 +5179,7 @@ define internal fastcc ptr @__find_acq_core(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @xfrm_state_update(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xfrm_state_update(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 100
   %3 = load i8, ptr %2, align 4
   %4 = load ptr, ptr %0, align 8
@@ -6692,12 +6692,12 @@ define dso_local i32 @xfrm_state_walk(ptr noundef %0, ptr noundef %1, ptr nocapt
   %21 = getelementptr inbounds i8, ptr %1, i64 24
   br label %22
 
-22:                                               ; preds = %.thread9, %19
-  %23 = phi ptr [ %17, %19 ], [ %116, %.thread9 ]
+22:                                               ; preds = %.critedge10, %19
+  %23 = phi ptr [ %17, %19 ], [ %116, %.critedge10 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load i8, ptr %24, align 8
   %26 = icmp eq i8 %25, 5
-  br i1 %26, label %.thread9, label %27
+  br i1 %26, label %.critedge10, label %27
 
 27:                                               ; preds = %22
   %28 = getelementptr i8, ptr %23, i64 -184
@@ -6707,25 +6707,25 @@ define dso_local i32 @xfrm_state_walk(ptr noundef %0, ptr noundef %1, ptr nocapt
   %32 = icmp eq i8 %31, 0
   %33 = icmp eq i8 %30, %31
   %34 = or i1 %32, %33
-  br i1 %34, label %.thread, label %35
+  br i1 %34, label %.critedge, label %35
 
 35:                                               ; preds = %27
   %36 = icmp eq i8 %31, -1
-  br i1 %36, label %37, label %.thread9
+  br i1 %36, label %37, label %.critedge10
 
 37:                                               ; preds = %35
-  switch i8 %30, label %.thread9 [
-    i8 108, label %.thread
-    i8 51, label %.thread
-    i8 50, label %.thread
+  switch i8 %30, label %.critedge10 [
+    i8 108, label %.critedge
+    i8 51, label %.critedge
+    i8 50, label %.critedge
   ]
 
-.thread:                                          ; preds = %37, %37, %37, %27
+.critedge:                                        ; preds = %37, %37, %37, %27
   %38 = load ptr, ptr %21, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %102, label %40
 
-40:                                               ; preds = %.thread
+40:                                               ; preds = %.critedge
   %41 = getelementptr inbounds i8, ptr %38, i64 32
   %42 = load i16, ptr %41, align 4
   switch i16 %42, label %47 [
@@ -6737,7 +6737,7 @@ define dso_local i32 @xfrm_state_walk(ptr noundef %0, ptr noundef %1, ptr nocapt
   %44 = getelementptr i8, ptr %23, i64 42
   %45 = load i16, ptr %44, align 2
   %46 = icmp eq i16 %45, %42
-  br i1 %46, label %47, label %.thread9
+  br i1 %46, label %47, label %.critedge10
 
 47:                                               ; preds = %43, %40
   %48 = getelementptr i8, ptr %23, i64 44
@@ -6754,7 +6754,7 @@ define dso_local i32 @xfrm_state_walk(ptr noundef %0, ptr noundef %1, ptr nocapt
   %57 = zext nneg i32 %56 to i64
   %58 = tail call i32 @bcmp(ptr %48, ptr nonnull %38, i64 %57)
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %.thread9
+  br i1 %59, label %60, label %.critedge10
 
 60:                                               ; preds = %55, %47
   %61 = icmp eq i32 %53, 0
@@ -6772,7 +6772,7 @@ define dso_local i32 @xfrm_state_walk(ptr noundef %0, ptr noundef %1, ptr nocapt
   %71 = xor i32 %70, %68
   %72 = and i32 %71, %65
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %.thread9
+  br i1 %73, label %74, label %.critedge10
 
 74:                                               ; preds = %62, %60
   %75 = getelementptr i8, ptr %23, i64 -104
@@ -6790,7 +6790,7 @@ define dso_local i32 @xfrm_state_walk(ptr noundef %0, ptr noundef %1, ptr nocapt
   %85 = zext nneg i32 %84 to i64
   %86 = tail call i32 @bcmp(ptr %75, ptr %76, i64 %85)
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %.thread9
+  br i1 %87, label %88, label %.critedge10
 
 88:                                               ; preds = %83, %74
   %89 = icmp eq i32 %81, 0
@@ -6808,9 +6808,9 @@ define dso_local i32 @xfrm_state_walk(ptr noundef %0, ptr noundef %1, ptr nocapt
   %99 = xor i32 %98, %96
   %100 = and i32 %99, %93
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %.thread9
+  br i1 %101, label %102, label %.critedge10
 
-102:                                              ; preds = %90, %88, %.thread
+102:                                              ; preds = %90, %88, %.critedge
   %103 = load i32, ptr %5, align 4
   %104 = tail call i32 %2(ptr noundef %28, i32 noundef %103, ptr noundef %3) #15
   %105 = icmp eq i32 %104, 0
@@ -6834,14 +6834,14 @@ define dso_local i32 @xfrm_state_walk(ptr noundef %0, ptr noundef %1, ptr nocapt
   %114 = load i32, ptr %5, align 4
   %115 = add i32 %114, 1
   store i32 %115, ptr %5, align 4
-  br label %.thread9
+  br label %.critedge10
 
-.thread9:                                         ; preds = %37, %35, %113, %90, %83, %62, %55, %43, %22
+.critedge10:                                      ; preds = %37, %35, %113, %90, %83, %62, %55, %43, %22
   %116 = load ptr, ptr %23, align 8
   %117 = icmp eq ptr %116, %12
   br i1 %117, label %.loopexit, label %22, !llvm.loop !121
 
-.loopexit:                                        ; preds = %.thread9, %11
+.loopexit:                                        ; preds = %.critedge10, %11
   %118 = load i32, ptr %5, align 4
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %128, label %120

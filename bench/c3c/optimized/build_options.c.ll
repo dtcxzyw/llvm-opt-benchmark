@@ -662,9 +662,9 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
   store i32 1, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.preheader58, label %30, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader56, label %30, !llvm.loop !11
 
-.preheader:                                       ; preds = %.preheader58
+.preheader:                                       ; preds = %.preheader56
   store i32 1, ptr @arg_index, align 4
   %32 = load i32, ptr @arg_count, align 4
   %33 = icmp sgt i32 %32, 1
@@ -730,19 +730,19 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
   %90 = getelementptr inbounds i8, ptr %0, i64 41290
   br label %92
 
-.preheader58:                                     ; preds = %30, %.preheader58
-  %indvars.iv378 = phi i64 [ %indvars.iv.next379, %.preheader58 ], [ 13, %30 ]
-  %91 = getelementptr inbounds [18 x i32], ptr %29, i64 0, i64 %indvars.iv378
+.preheader56:                                     ; preds = %30, %.preheader56
+  %indvars.iv376 = phi i64 [ %indvars.iv.next377, %.preheader56 ], [ 13, %30 ]
+  %91 = getelementptr inbounds [18 x i32], ptr %29, i64 0, i64 %indvars.iv376
   store i32 2, ptr %91, align 4
-  %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
-  %exitcond381.not = icmp eq i64 %indvars.iv.next379, 18
-  br i1 %exitcond381.not, label %.preheader, label %.preheader58, !llvm.loop !12
+  %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
+  %exitcond379.not = icmp eq i64 %indvars.iv.next377, 18
+  br i1 %exitcond379.not, label %.preheader, label %.preheader56, !llvm.loop !12
 
 92:                                               ; preds = %.lr.ph, %parse_option.exit
   %93 = phi i32 [ %32, %.lr.ph ], [ %1361, %parse_option.exit ]
-  %storemerge218 = phi i32 [ 1, %.lr.ph ], [ %1360, %parse_option.exit ]
+  %storemerge216 = phi i32 [ 1, %.lr.ph ], [ %1360, %parse_option.exit ]
   %94 = load ptr, ptr @args, align 8
-  %95 = sext i32 %storemerge218 to i64
+  %95 = sext i32 %storemerge216 to i64
   %96 = getelementptr inbounds ptr, ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8
   store ptr %97, ptr @current_arg, align 8
@@ -852,7 +852,7 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
 
 131:                                              ; preds = %.tail275.i
   %132 = add nsw i32 %93, -1
-  %133 = icmp eq i32 %storemerge218, %132
+  %133 = icmp eq i32 %storemerge216, %132
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %131
@@ -860,7 +860,7 @@ define dso_local void @parse_arguments(ptr dead_on_unwind noalias writable sret(
   unreachable
 
 135:                                              ; preds = %131
-  %136 = add nsw i32 %storemerge218, 1
+  %136 = add nsw i32 %storemerge216, 1
   store i32 %136, ptr @arg_index, align 4
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds ptr, ptr %94, i64 %137
@@ -890,7 +890,7 @@ add_linker_arg.exit.i:                            ; preds = %135
 
 149:                                              ; preds = %.tail279.i
   %150 = add nsw i32 %93, -1
-  %151 = icmp eq i32 %storemerge218, %150
+  %151 = icmp eq i32 %storemerge216, %150
   br i1 %151, label %152, label %153
 
 152:                                              ; preds = %149
@@ -898,7 +898,7 @@ add_linker_arg.exit.i:                            ; preds = %135
   unreachable
 
 153:                                              ; preds = %149
-  %154 = add nsw i32 %storemerge218, 1
+  %154 = add nsw i32 %storemerge216, 1
   store i32 %154, ptr @arg_index, align 4
   %155 = sext i32 %154 to i64
   %156 = getelementptr inbounds ptr, ptr %94, i64 %155
@@ -954,7 +954,7 @@ sub_1285.i:                                       ; preds = %100
 
 175:                                              ; preds = %.tail298.i
   %176 = add nsw i32 %93, -1
-  %177 = icmp eq i32 %storemerge218, %176
+  %177 = icmp eq i32 %storemerge216, %176
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %175
@@ -962,7 +962,7 @@ sub_1285.i:                                       ; preds = %100
   unreachable
 
 179:                                              ; preds = %175
-  %180 = add nsw i32 %storemerge218, 1
+  %180 = add nsw i32 %storemerge216, 1
   store i32 %180, ptr @arg_index, align 4
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds ptr, ptr %94, i64 %181
@@ -987,7 +987,7 @@ sub_1285.i:                                       ; preds = %100
 
 190:                                              ; preds = %.tail302.i
   %191 = add nsw i32 %93, -1
-  %192 = icmp eq i32 %storemerge218, %191
+  %192 = icmp eq i32 %storemerge216, %191
   br i1 %192, label %193, label %194
 
 193:                                              ; preds = %190
@@ -995,7 +995,7 @@ sub_1285.i:                                       ; preds = %100
   unreachable
 
 194:                                              ; preds = %190
-  %195 = add nsw i32 %storemerge218, 1
+  %195 = add nsw i32 %storemerge216, 1
   store i32 %195, ptr @arg_index, align 4
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds ptr, ptr %94, i64 %196
@@ -1106,7 +1106,7 @@ sub_1308.i:                                       ; preds = %100
   store i32 7, ptr %13, align 8
   br label %parse_option.exit
 
-.tail341.thread.i:                                ; preds = %sub_1308.i, %.tail311.i, %.tail306.i, %.tail316.i, %.tail321.i, %.tail326.i, %.tail331.i, %.tail336.i, %.tail341.i
+.tail341.thread.i:                                ; preds = %sub_1308.i, %.tail306.i, %.tail311.i, %.tail316.i, %.tail321.i, %.tail326.i, %.tail331.i, %.tail336.i, %.tail341.i
   %236 = load ptr, ptr @stderr, align 8
   %237 = tail call i64 @fwrite(ptr nonnull @.str.170, i64 64, i64 1, ptr %236) #19
   tail call fastcc void @usage()
@@ -1143,7 +1143,7 @@ sub_1308.i:                                       ; preds = %100
 
 250:                                              ; preds = %.tail350.i
   %251 = add nsw i32 %93, -1
-  %252 = icmp eq i32 %storemerge218, %251
+  %252 = icmp eq i32 %storemerge216, %251
   br i1 %252, label %258, label %253
 
 253:                                              ; preds = %250
@@ -1158,7 +1158,7 @@ sub_1308.i:                                       ; preds = %100
   unreachable
 
 259:                                              ; preds = %253
-  %260 = add nsw i32 %storemerge218, 1
+  %260 = add nsw i32 %storemerge216, 1
   store i32 %260, ptr @arg_index, align 4
   store ptr %255, ptr @current_arg, align 8
   %261 = tail call fastcc ptr @check_dir(ptr noundef nonnull %255)
@@ -1178,7 +1178,7 @@ sub_1308.i:                                       ; preds = %100
 
 269:                                              ; preds = %.tail354.i
   %270 = add nsw i32 %93, -1
-  %271 = icmp eq i32 %storemerge218, %270
+  %271 = icmp eq i32 %storemerge216, %270
   br i1 %271, label %277, label %272
 
 272:                                              ; preds = %269
@@ -1193,7 +1193,7 @@ sub_1308.i:                                       ; preds = %100
   unreachable
 
 278:                                              ; preds = %272
-  %279 = add nsw i32 %storemerge218, 1
+  %279 = add nsw i32 %storemerge216, 1
   store i32 %279, ptr @arg_index, align 4
   store ptr %274, ptr @current_arg, align 8
   %280 = load i32, ptr %41, align 8
@@ -1337,8 +1337,8 @@ sub_1308.i:                                       ; preds = %100
   %.not5.i29 = icmp ne i8 %354, 61
   %355 = getelementptr i8, ptr %350, i64 10
   %.not236.i = icmp eq ptr %355, null
-  %or.cond55 = or i1 %.not236.i, %.not5.i29
-  br i1 %or.cond55, label %match_argopt.exit31.thread, label %356
+  %or.cond53 = or i1 %.not236.i, %.not5.i29
+  br i1 %or.cond53, label %match_argopt.exit31.thread, label %356
 
 356:                                              ; preds = %352
   %357 = tail call i32 @str_findlist(ptr noundef nonnull %355, i32 noundef 3, ptr noundef nonnull @fp_math) #17
@@ -1364,8 +1364,8 @@ match_argopt.exit31.thread:                       ; preds = %352, %349
   %.not5.i22 = icmp ne i8 %362, 61
   %363 = getelementptr i8, ptr %350, i64 10
   %.not237.i = icmp eq ptr %363, null
-  %or.cond56 = or i1 %.not237.i, %.not5.i22
-  br i1 %or.cond56, label %match_argopt.exit24.thread, label %364
+  %or.cond54 = or i1 %.not237.i, %.not5.i22
+  br i1 %or.cond54, label %match_argopt.exit24.thread, label %364
 
 364:                                              ; preds = %360
   %365 = tail call i32 @str_findlist(ptr noundef nonnull %363, i32 noundef 3, ptr noundef nonnull @optsizes) #17
@@ -1391,8 +1391,8 @@ match_argopt.exit24.thread:                       ; preds = %360, %match_argopt.
   %.not5.i = icmp ne i8 %370, 61
   %371 = getelementptr i8, ptr %350, i64 11
   %.not238.i = icmp eq ptr %371, null
-  %or.cond57 = or i1 %.not238.i, %.not5.i
-  br i1 %or.cond57, label %match_argopt.exit.thread, label %372
+  %or.cond55 = or i1 %.not238.i, %.not5.i
+  br i1 %or.cond55, label %match_argopt.exit.thread, label %372
 
 372:                                              ; preds = %368
   %373 = tail call i32 @str_findlist(ptr noundef nonnull %371, i32 noundef 4, ptr noundef nonnull @optlevels) #17
@@ -2836,7 +2836,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 1139:                                             ; preds = %1136
   store i32 6, ptr %12, align 4
   %1140 = add nsw i32 %93, -1
-  %1141 = icmp eq i32 %storemerge218, %1140
+  %1141 = icmp eq i32 %storemerge216, %1140
   br i1 %1141, label %1147, label %1142
 
 1142:                                             ; preds = %1139
@@ -2851,7 +2851,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   unreachable
 
 1148:                                             ; preds = %1142
-  %1149 = add nsw i32 %storemerge218, 1
+  %1149 = add nsw i32 %storemerge216, 1
   store i32 %1149, ptr @arg_index, align 4
   store ptr %1144, ptr @current_arg, align 8
   store ptr %1144, ptr %38, align 8
@@ -2865,7 +2865,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 1153:                                             ; preds = %1150
   store i32 7, ptr %12, align 4
   %1154 = add nsw i32 %93, -1
-  %1155 = icmp eq i32 %storemerge218, %1154
+  %1155 = icmp eq i32 %storemerge216, %1154
   br i1 %1155, label %1161, label %1156
 
 1156:                                             ; preds = %1153
@@ -2880,7 +2880,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   unreachable
 
 1162:                                             ; preds = %1156
-  %1163 = add nsw i32 %storemerge218, 1
+  %1163 = add nsw i32 %storemerge216, 1
   store i32 %1163, ptr @arg_index, align 4
   store ptr %1158, ptr @current_arg, align 8
   store ptr %1158, ptr %38, align 8
@@ -2959,7 +2959,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
 1195:                                             ; preds = %1192
   store i32 15, ptr %12, align 4
   %1196 = add nsw i32 %93, -1
-  %1197 = icmp eq i32 %storemerge218, %1196
+  %1197 = icmp eq i32 %storemerge216, %1196
   br i1 %1197, label %1203, label %1198
 
 1198:                                             ; preds = %1195
@@ -2974,7 +2974,7 @@ arch_os_target_from_string.exit.thread.i:         ; preds = %594
   unreachable
 
 .lr.ph.i:                                         ; preds = %1198, %expand_.exit
-  %1204 = phi i32 [ %1245, %expand_.exit ], [ %storemerge218, %1198 ]
+  %1204 = phi i32 [ %1245, %expand_.exit ], [ %storemerge216, %1198 ]
   %1205 = load ptr, ptr @args, align 8
   %1206 = sext i32 %1204 to i64
   %1207 = getelementptr ptr, ptr %1205, i64 %1206
@@ -3066,7 +3066,7 @@ expand_.exit:                                     ; preds = %1220, %1224
 1256:                                             ; preds = %1253
   store i32 8, ptr %12, align 4
   %1257 = add nsw i32 %93, -1
-  %1258 = icmp eq i32 %storemerge218, %1257
+  %1258 = icmp eq i32 %storemerge216, %1257
   br i1 %1258, label %parse_optional_target.exit.i, label %1259
 
 1259:                                             ; preds = %1256
@@ -3077,7 +3077,7 @@ expand_.exit:                                     ; preds = %1220, %1224
   br i1 %1263, label %parse_optional_target.exit.i, label %1264
 
 1264:                                             ; preds = %1259
-  %1265 = add nsw i32 %storemerge218, 1
+  %1265 = add nsw i32 %storemerge216, 1
   store i32 %1265, ptr @arg_index, align 4
   store ptr %1261, ptr @current_arg, align 8
   br label %parse_optional_target.exit.i
@@ -3115,7 +3115,7 @@ parse_optional_target.exit.i:                     ; preds = %1264, %1259, %1256
 1277:                                             ; preds = %1274
   store i32 12, ptr %12, align 4
   %1278 = add nsw i32 %93, -1
-  %1279 = icmp eq i32 %storemerge218, %1278
+  %1279 = icmp eq i32 %storemerge216, %1278
   br i1 %1279, label %parse_optional_target.exit44.i, label %1280
 
 1280:                                             ; preds = %1277
@@ -3126,7 +3126,7 @@ parse_optional_target.exit.i:                     ; preds = %1264, %1259, %1256
   br i1 %1284, label %parse_optional_target.exit44.i, label %1285
 
 1285:                                             ; preds = %1280
-  %1286 = add nsw i32 %storemerge218, 1
+  %1286 = add nsw i32 %storemerge216, 1
   store i32 %1286, ptr @arg_index, align 4
   store ptr %1282, ptr @current_arg, align 8
   br label %parse_optional_target.exit44.i
@@ -3153,7 +3153,7 @@ parse_optional_target.exit44.i:                   ; preds = %1285, %1280, %1277
 1294:                                             ; preds = %1291
   store i32 13, ptr %12, align 4
   %1295 = add nsw i32 %93, -1
-  %1296 = icmp eq i32 %storemerge218, %1295
+  %1296 = icmp eq i32 %storemerge216, %1295
   br i1 %1296, label %parse_optional_target.exit46.i, label %1297
 
 1297:                                             ; preds = %1294
@@ -3164,7 +3164,7 @@ parse_optional_target.exit44.i:                   ; preds = %1285, %1280, %1277
   br i1 %1301, label %parse_optional_target.exit46.i, label %1302
 
 1302:                                             ; preds = %1297
-  %1303 = add nsw i32 %storemerge218, 1
+  %1303 = add nsw i32 %storemerge216, 1
   store i32 %1303, ptr @arg_index, align 4
   store ptr %1299, ptr @current_arg, align 8
   br label %parse_optional_target.exit46.i
@@ -3191,7 +3191,7 @@ parse_optional_target.exit46.i:                   ; preds = %1302, %1297, %1294
 1311:                                             ; preds = %1308
   store i32 13, ptr %12, align 4
   %1312 = add nsw i32 %93, -1
-  %1313 = icmp eq i32 %storemerge218, %1312
+  %1313 = icmp eq i32 %storemerge216, %1312
   br i1 %1313, label %parse_optional_target.exit48.i, label %1314
 
 1314:                                             ; preds = %1311
@@ -3202,7 +3202,7 @@ parse_optional_target.exit46.i:                   ; preds = %1302, %1297, %1294
   br i1 %1318, label %parse_optional_target.exit48.i, label %1319
 
 1319:                                             ; preds = %1314
-  %1320 = add nsw i32 %storemerge218, 1
+  %1320 = add nsw i32 %storemerge216, 1
   store i32 %1320, ptr @arg_index, align 4
   store ptr %1316, ptr @current_arg, align 8
   br label %parse_optional_target.exit48.i
@@ -3220,7 +3220,7 @@ parse_optional_target.exit48.i:                   ; preds = %1319, %1314, %1311
 1324:                                             ; preds = %1321
   store i32 17, ptr %12, align 4
   %1325 = add nsw i32 %93, -1
-  %1326 = icmp eq i32 %storemerge218, %1325
+  %1326 = icmp eq i32 %storemerge216, %1325
   br i1 %1326, label %parse_optional_target.exit50.i, label %1327
 
 1327:                                             ; preds = %1324
@@ -3231,7 +3231,7 @@ parse_optional_target.exit48.i:                   ; preds = %1319, %1314, %1311
   br i1 %1331, label %parse_optional_target.exit50.i, label %1332
 
 1332:                                             ; preds = %1327
-  %1333 = add nsw i32 %storemerge218, 1
+  %1333 = add nsw i32 %storemerge216, 1
   store i32 %1333, ptr @arg_index, align 4
   store ptr %1329, ptr @current_arg, align 8
   br label %parse_optional_target.exit50.i
@@ -3249,7 +3249,7 @@ parse_optional_target.exit50.i:                   ; preds = %1332, %1327, %1324
 1337:                                             ; preds = %1334
   store i32 18, ptr %12, align 4
   %1338 = add nsw i32 %93, -1
-  %1339 = icmp eq i32 %storemerge218, %1338
+  %1339 = icmp eq i32 %storemerge216, %1338
   br i1 %1339, label %parse_optional_target.exit52.i, label %1340
 
 1340:                                             ; preds = %1337
@@ -3260,7 +3260,7 @@ parse_optional_target.exit50.i:                   ; preds = %1332, %1327, %1324
   br i1 %1344, label %parse_optional_target.exit52.i, label %1345
 
 1345:                                             ; preds = %1340
-  %1346 = add nsw i32 %storemerge218, 1
+  %1346 = add nsw i32 %storemerge216, 1
   store i32 %1346, ptr @arg_index, align 4
   store ptr %1342, ptr @current_arg, align 8
   br label %parse_optional_target.exit52.i

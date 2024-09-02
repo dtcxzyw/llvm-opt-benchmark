@@ -55,7 +55,7 @@ define hidden void @psa_wipe_all_key_slots() local_unnamed_addr #2 {
 declare i32 @psa_wipe_key_slot(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @psa_get_empty_key_slot(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define hidden range(i32 -151, 1) i32 @psa_get_empty_key_slot(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @global_data, i64 1792), align 8
   %4 = and i8 %3, 1
   %.not = icmp eq i8 %4, 0

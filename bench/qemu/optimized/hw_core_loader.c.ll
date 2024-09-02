@@ -4833,12 +4833,12 @@ land.rhs:                                         ; preds = %cond.end
 land.rhs.i18:                                     ; preds = %land.rhs
   %readonly.i = getelementptr inbounds i8, ptr %section.sroa.2.0.copyload, i64 43
   %16 = load i8, ptr %readonly.i, align 1
-  %tobool1.i = zext i8 %16 to i32
+  %17 = and i8 %16, 1
+  %18 = zext nneg i8 %17 to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs.i18, %land.rhs, %cond.end
-  %17 = phi i32 [ 0, %cond.end ], [ 0, %land.rhs ], [ %tobool1.i, %land.rhs.i18 ]
-  %land.ext = and i32 %17, 1
+  %land.ext = phi i32 [ 0, %cond.end ], [ 0, %land.rhs ], [ %18, %land.rhs.i18 ]
   %isrom = getelementptr inbounds i8, ptr %rom.035, i64 56
   store i32 %land.ext, ptr %isrom, align 8
   call void @memory_region_unref(ptr noundef %section.sroa.2.0.copyload) #23
@@ -4853,8 +4853,8 @@ for.inc:                                          ; preds = %for.body, %land.end
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.end:                                          ; preds = %for.inc
-  %18 = trunc nuw i8 %found_overlap.1 to i1
-  br i1 %18, label %return, label %if.end20
+  %19 = trunc nuw i8 %found_overlap.1 to i1
+  br i1 %19, label %return, label %if.end20
 
 if.end20:                                         ; preds = %entry, %for.end
   call void @qemu_register_reset(ptr noundef nonnull @rom_reset, ptr noundef null) #23

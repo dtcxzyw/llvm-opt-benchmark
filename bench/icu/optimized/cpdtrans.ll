@@ -491,47 +491,47 @@ if.then6.i:                                       ; preds = %call4.i.noexc
 
 if.end7.i:                                        ; preds = %call4.i.noexc
   %.pre.i = load i32, ptr %status, align 4
-  %cmp.i13.i = icmp slt i32 %.pre.i, 1
-  br i1 %cmp.i13.i, label %for.cond.preheader.i, label %invoke.cont
+  %3 = icmp slt i32 %.pre.i, 1
+  br i1 %3, label %for.cond.preheader.i, label %invoke.cont
 
 for.cond.preheader.i:                             ; preds = %if.end7.i
-  %3 = load i32, ptr %count.i, align 8
-  %cmp1527.i = icmp sgt i32 %3, 0
+  %4 = load i32, ptr %count.i, align 8
+  %cmp1527.i = icmp sgt i32 %4, 0
   br i1 %cmp1527.i, label %for.body.us.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i
 
 for.body.us.i:                                    ; preds = %for.cond.preheader.i, %call19.us.i.noexc
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %call19.us.i.noexc ], [ 0, %for.cond.preheader.i ]
-  %4 = trunc nuw nsw i64 %indvars.iv33.i to i32
-  %call19.us.i2 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %4)
+  %5 = trunc nuw nsw i64 %indvars.iv33.i to i32
+  %call19.us.i2 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %5)
           to label %call19.us.i.noexc unwind label %lpad.loopexit
 
 call19.us.i.noexc:                                ; preds = %for.body.us.i
-  %5 = load ptr, ptr %trans, align 8
-  %arrayidx.us.i = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv33.i
+  %6 = load ptr, ptr %trans, align 8
+  %arrayidx.us.i = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv33.i
   store ptr %call19.us.i2, ptr %arrayidx.us.i, align 8
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %6 = load i32, ptr %count.i, align 8
-  %7 = sext i32 %6 to i64
-  %cmp15.us.i = icmp slt i64 %indvars.iv.next34.i, %7
+  %7 = load i32, ptr %count.i, align 8
+  %8 = sext i32 %7 to i64
+  %cmp15.us.i = icmp slt i64 %indvars.iv.next34.i, %8
   br i1 %cmp15.us.i, label %for.body.us.i, label %for.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %call19.us.i.noexc
-  %cmp5.i.i = icmp sgt i32 %6, 0
+  %cmp5.i.i = icmp sgt i32 %7, 0
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.end.i
-  %8 = load ptr, ptr %trans, align 8
-  %wide.trip.count.i.i = zext nneg i32 %6 to i64
+  %9 = load ptr, ptr %trans, align 8
+  %wide.trip.count.i.i = zext nneg i32 %7 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %max.07.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i.i
-  %9 = load ptr, ptr %arrayidx.i.i, align 8
-  %maximumContextLength.i.i.i = getelementptr inbounds i8, ptr %9, i64 80
-  %10 = load i32, ptr %maximumContextLength.i.i.i, align 8
-  %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %10, i32 %max.07.i.i)
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i.i
+  %10 = load ptr, ptr %arrayidx.i.i, align 8
+  %maximumContextLength.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = load i32, ptr %maximumContextLength.i.i.i, align 8
+  %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %11, i32 %max.07.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i, label %for.body.i.i, !llvm.loop !12
@@ -589,19 +589,19 @@ if.then6:                                         ; preds = %if.then
 
 if.end7:                                          ; preds = %if.then
   %.pre = load i32, ptr %status, align 4
-  %cmp.i13 = icmp slt i32 %.pre, 1
-  br i1 %cmp.i13, label %lor.lhs.false, label %return
+  %2 = icmp slt i32 %.pre, 1
+  br i1 %2, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end7
   %trans10 = getelementptr inbounds i8, ptr %this, i64 88
-  %2 = load ptr, ptr %trans10, align 8
-  %cmp11 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %trans10, align 8
+  %cmp11 = icmp eq ptr %3, null
   br i1 %cmp11, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
   %count14 = getelementptr inbounds i8, ptr %this, i64 96
-  %3 = load i32, ptr %count14, align 8
-  %cmp1527 = icmp sgt i32 %3, 0
+  %4 = load i32, ptr %count14, align 8
+  %cmp1527 = icmp sgt i32 %4, 0
   br i1 %cmp1527, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -610,35 +610,35 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %4 = trunc nuw nsw i64 %indvars.iv33 to i32
-  %call19.us = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %4)
-  %5 = load ptr, ptr %trans10, align 8
-  %arrayidx.us = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv33
+  %5 = trunc nuw nsw i64 %indvars.iv33 to i32
+  %call19.us = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %5)
+  %6 = load ptr, ptr %trans10, align 8
+  %arrayidx.us = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv33
   store ptr %call19.us, ptr %arrayidx.us, align 8
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %6 = load i32, ptr %count14, align 8
-  %7 = sext i32 %6 to i64
-  %cmp15.us = icmp slt i64 %indvars.iv.next34, %7
+  %7 = load i32, ptr %count14, align 8
+  %8 = sext i32 %7 to i64
+  %cmp15.us = icmp slt i64 %indvars.iv.next34, %8
   br i1 %cmp15.us, label %for.body.us, label %for.end, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
-  %8 = phi i32 [ %12, %for.body ], [ %3, %for.body.lr.ph ]
-  %9 = trunc nuw nsw i64 %indvars.iv to i32
-  %10 = xor i32 %9, -1
-  %sub18 = add i32 %8, %10
+  %9 = phi i32 [ %13, %for.body ], [ %4, %for.body.lr.ph ]
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
+  %11 = xor i32 %10, -1
+  %sub18 = add i32 %9, %11
   %call19 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %sub18)
-  %11 = load ptr, ptr %trans10, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = load ptr, ptr %trans10, align 8
+  %arrayidx = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
   store ptr %call19, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = load i32, ptr %count14, align 8
-  %13 = sext i32 %12 to i64
-  %cmp15 = icmp slt i64 %indvars.iv.next, %13
+  %13 = load i32, ptr %count14, align 8
+  %14 = sext i32 %13 to i64
+  %cmp15 = icmp slt i64 %indvars.iv.next, %14
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %for.body.us, %for.cond.preheader
-  %14 = phi i32 [ %3, %for.cond.preheader ], [ %6, %for.body.us ], [ %12, %for.body ]
+  %15 = phi i32 [ %4, %for.cond.preheader ], [ %7, %for.body.us ], [ %13, %for.body ]
   %cmp21 = icmp eq i32 %direction, 1
   %tobool22 = icmp ne i8 %fixReverseID, 0
   %or.cond = and i1 %cmp21, %tobool22
@@ -648,7 +648,7 @@ if.then23:                                        ; preds = %for.end
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %newID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %newID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %cmp2629 = icmp sgt i32 %14, 0
+  %cmp2629 = icmp sgt i32 %15, 0
   br i1 %cmp2629, label %for.body27, label %for.end41
 
 for.body27:                                       ; preds = %if.then23, %for.inc39
@@ -682,32 +682,32 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end31:                                         ; preds = %_ZN6icu_7513UnicodeString6appendEDs.exit, %for.body27
-  %15 = load ptr, ptr %trans10, align 8
-  %arrayidx34 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv36
-  %16 = load ptr, ptr %arrayidx34, align 8
-  %vtable = load ptr, ptr %16, align 8
+  %16 = load ptr, ptr %trans10, align 8
+  %arrayidx34 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv36
+  %17 = load ptr, ptr %arrayidx34, align 8
+  %vtable = load ptr, ptr %17, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
-  %17 = load ptr, ptr %vfn, align 8
-  %call36 = invoke noundef nonnull align 8 dereferenceable(64) ptr %17(ptr noundef nonnull align 8 dereferenceable(84) %16)
+  %18 = load ptr, ptr %vfn, align 8
+  %call36 = invoke noundef nonnull align 8 dereferenceable(64) ptr %18(ptr noundef nonnull align 8 dereferenceable(84) %17)
           to label %invoke.cont35 unwind label %lpad.loopexit
 
 invoke.cont35:                                    ; preds = %if.end31
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %call36, i64 8
-  %18 = load i16, ptr %fUnion.i.i.i, align 8
-  %cmp.i.i.i = icmp slt i16 %18, 0
-  %19 = ashr i16 %18, 5
-  %shr.i.i.i = sext i16 %19 to i32
+  %19 = load i16, ptr %fUnion.i.i.i, align 8
+  %cmp.i.i.i = icmp slt i16 %19, 0
+  %20 = ashr i16 %19, 5
+  %shr.i.i.i = sext i16 %20 to i32
   %fLength.i.i = getelementptr inbounds i8, ptr %call36, i64 12
-  %20 = load i32, ptr %fLength.i.i, align 4
-  %cond.i.i = select i1 %cmp.i.i.i, i32 %20, i32 %shr.i.i.i
+  %21 = load i32, ptr %fLength.i.i, align 4
+  %cond.i.i = select i1 %cmp.i.i.i, i32 %21, i32 %shr.i.i.i
   %call2.i16 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %newID, ptr noundef nonnull align 8 dereferenceable(64) %call36, i32 noundef 0, i32 noundef %cond.i.i)
           to label %for.inc39 unwind label %lpad.loopexit
 
 for.inc39:                                        ; preds = %invoke.cont35
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %21 = load i32, ptr %count14, align 8
-  %22 = sext i32 %21 to i64
-  %cmp26 = icmp slt i64 %indvars.iv.next37, %22
+  %22 = load i32, ptr %count14, align 8
+  %23 = sext i32 %22 to i64
+  %cmp26 = icmp slt i64 %indvars.iv.next37, %23
   br i1 %cmp26, label %for.body27, label %for.end41, !llvm.loop !13
 
 for.end41:                                        ; preds = %for.inc39, %if.then23
@@ -724,15 +724,15 @@ call.i.noexc:                                     ; preds = %for.end41
 call.i.i.noexc:                                   ; preds = %call.i.noexc
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i.i)
   %fUnion.i.i.i17 = getelementptr inbounds i8, ptr %this, i64 16
-  %23 = load i16, ptr %fUnion.i.i.i17, align 8
-  %cmp.i.i.i18 = icmp slt i16 %23, 0
-  %24 = ashr i16 %23, 5
-  %shr.i.i.i19 = sext i16 %24 to i32
+  %24 = load i16, ptr %fUnion.i.i.i17, align 8
+  %cmp.i.i.i18 = icmp slt i16 %24, 0
+  %25 = ashr i16 %24, 5
+  %shr.i.i.i19 = sext i16 %25 to i32
   %fLength.i.i20 = getelementptr inbounds i8, ptr %this, i64 20
-  %25 = load i32, ptr %fLength.i.i20, align 4
-  %cond.i.i21 = select i1 %cmp.i.i.i18, i32 %25, i32 %shr.i.i.i19
+  %26 = load i32, ptr %fLength.i.i20, align 4
+  %cond.i.i21 = select i1 %cmp.i.i.i18, i32 %26, i32 %shr.i.i.i19
   %sub.i = add nsw i32 %cond.i.i21, -1
-  %conv2.i5.i.i = and i16 %23, 1
+  %conv2.i5.i.i = and i16 %24, 1
   %tobool.i.i = icmp ne i16 %conv2.i5.i.i, 0
   %cmp.i.i = icmp eq i32 %sub.i, 0
   %or.cond.i.i = and i1 %tobool.i.i, %cmp.i.i
@@ -751,15 +751,15 @@ if.then4.i.i:                                     ; preds = %if.else.i.i
   br i1 %cmp.i.i2.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then4.i.i
-  %26 = and i16 %23, 31
+  %27 = and i16 %24, 31
   %len.tr.i.i.i.i = trunc i32 %sub.i to i16
-  %27 = shl i16 %len.tr.i.i.i.i, 5
-  %conv2.i.i.i.i = or disjoint i16 %27, %26
+  %28 = shl i16 %len.tr.i.i.i.i, 5
+  %conv2.i.i.i.i = or disjoint i16 %28, %27
   store i16 %conv2.i.i.i.i, ptr %fUnion.i.i.i17, align 8
   br label %invoke.cont42
 
 if.else.i.i.i:                                    ; preds = %if.then4.i.i
-  %or.i.i.i = or i16 %23, -32
+  %or.i.i.i = or i16 %24, -32
   store i16 %or.i.i.i, ptr %fUnion.i.i.i17, align 8
   store i32 %sub.i, ptr %fLength.i.i20, align 4
   br label %invoke.cont42
@@ -770,23 +770,23 @@ invoke.cont42:                                    ; preds = %if.else.i.i.i, %if.
   br label %if.end43
 
 if.end43:                                         ; preds = %invoke.cont42, %for.end
-  %28 = phi i32 [ %.pre39, %invoke.cont42 ], [ %14, %for.end ]
-  %cmp5.i = icmp sgt i32 %28, 0
+  %29 = phi i32 [ %.pre39, %invoke.cont42 ], [ %15, %for.end ]
+  %cmp5.i = icmp sgt i32 %29, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end43
-  %29 = load ptr, ptr %trans10, align 8
-  %wide.trip.count.i = zext nneg i32 %28 to i64
+  %30 = load ptr, ptr %trans10, align 8
+  %wide.trip.count.i = zext nneg i32 %29 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %max.07.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %spec.select.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv.i
-  %30 = load ptr, ptr %arrayidx.i, align 8
-  %maximumContextLength.i.i = getelementptr inbounds i8, ptr %30, i64 80
-  %31 = load i32, ptr %maximumContextLength.i.i, align 8
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %31, i32 %max.07.i)
+  %arrayidx.i = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv.i
+  %31 = load ptr, ptr %arrayidx.i, align 8
+  %maximumContextLength.i.i = getelementptr inbounds i8, ptr %31, i64 80
+  %32 = load i32, ptr %maximumContextLength.i.i, align 8
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %32, i32 %max.07.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit, label %for.body.i, !llvm.loop !12
@@ -842,47 +842,47 @@ if.then6.i:                                       ; preds = %call4.i.noexc
 
 if.end7.i:                                        ; preds = %call4.i.noexc
   %.pre.i = load i32, ptr %status, align 4
-  %cmp.i13.i = icmp slt i32 %.pre.i, 1
-  br i1 %cmp.i13.i, label %for.cond.preheader.i, label %invoke.cont3
+  %3 = icmp slt i32 %.pre.i, 1
+  br i1 %3, label %for.cond.preheader.i, label %invoke.cont3
 
 for.cond.preheader.i:                             ; preds = %if.end7.i
-  %3 = load i32, ptr %count.i, align 8
-  %cmp1527.i = icmp sgt i32 %3, 0
+  %4 = load i32, ptr %count.i, align 8
+  %cmp1527.i = icmp sgt i32 %4, 0
   br i1 %cmp1527.i, label %for.body.us.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i
 
 for.body.us.i:                                    ; preds = %for.cond.preheader.i, %call19.us.i.noexc
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %call19.us.i.noexc ], [ 0, %for.cond.preheader.i ]
-  %4 = trunc nuw nsw i64 %indvars.iv33.i to i32
-  %call19.us.i3 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %4)
+  %5 = trunc nuw nsw i64 %indvars.iv33.i to i32
+  %call19.us.i3 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %5)
           to label %call19.us.i.noexc unwind label %lpad2.loopexit
 
 call19.us.i.noexc:                                ; preds = %for.body.us.i
-  %5 = load ptr, ptr %trans, align 8
-  %arrayidx.us.i = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv33.i
+  %6 = load ptr, ptr %trans, align 8
+  %arrayidx.us.i = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv33.i
   store ptr %call19.us.i3, ptr %arrayidx.us.i, align 8
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %6 = load i32, ptr %count.i, align 8
-  %7 = sext i32 %6 to i64
-  %cmp15.us.i = icmp slt i64 %indvars.iv.next34.i, %7
+  %7 = load i32, ptr %count.i, align 8
+  %8 = sext i32 %7 to i64
+  %cmp15.us.i = icmp slt i64 %indvars.iv.next34.i, %8
   br i1 %cmp15.us.i, label %for.body.us.i, label %for.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %call19.us.i.noexc
-  %cmp5.i.i = icmp sgt i32 %6, 0
+  %cmp5.i.i = icmp sgt i32 %7, 0
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.end.i
-  %8 = load ptr, ptr %trans, align 8
-  %wide.trip.count.i.i = zext nneg i32 %6 to i64
+  %9 = load ptr, ptr %trans, align 8
+  %wide.trip.count.i.i = zext nneg i32 %7 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %max.07.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i.i
-  %9 = load ptr, ptr %arrayidx.i.i, align 8
-  %maximumContextLength.i.i.i = getelementptr inbounds i8, ptr %9, i64 80
-  %10 = load i32, ptr %maximumContextLength.i.i.i, align 8
-  %spec.select.i.i = call i32 @llvm.smax.i32(i32 %10, i32 %max.07.i.i)
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i.i
+  %10 = load ptr, ptr %arrayidx.i.i, align 8
+  %maximumContextLength.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = load i32, ptr %maximumContextLength.i.i.i, align 8
+  %spec.select.i.i = call i32 @llvm.smax.i32(i32 %11, i32 %max.07.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i, label %for.body.i.i, !llvm.loop !12
@@ -896,7 +896,7 @@ invoke.cont3:                                     ; preds = %if.end7.i, %if.then
   ret void
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #14
   br label %eh.resume
@@ -917,7 +917,7 @@ lpad2:                                            ; preds = %lpad2.loopexit.spli
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad2 ], [ %11, %lpad ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad2 ], [ %12, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -963,47 +963,47 @@ if.then6.i:                                       ; preds = %call4.i.noexc
 
 if.end7.i:                                        ; preds = %call4.i.noexc
   %.pre.i = load i32, ptr %status, align 4
-  %cmp.i13.i = icmp slt i32 %.pre.i, 1
-  br i1 %cmp.i13.i, label %for.cond.preheader.i, label %invoke.cont3
+  %3 = icmp slt i32 %.pre.i, 1
+  br i1 %3, label %for.cond.preheader.i, label %invoke.cont3
 
 for.cond.preheader.i:                             ; preds = %if.end7.i
-  %3 = load i32, ptr %count.i, align 8
-  %cmp1527.i = icmp sgt i32 %3, 0
+  %4 = load i32, ptr %count.i, align 8
+  %cmp1527.i = icmp sgt i32 %4, 0
   br i1 %cmp1527.i, label %for.body.us.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i
 
 for.body.us.i:                                    ; preds = %for.cond.preheader.i, %call19.us.i.noexc
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %call19.us.i.noexc ], [ 0, %for.cond.preheader.i ]
-  %4 = trunc nuw nsw i64 %indvars.iv33.i to i32
-  %call19.us.i3 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %4)
+  %5 = trunc nuw nsw i64 %indvars.iv33.i to i32
+  %call19.us.i3 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %list, i32 noundef %5)
           to label %call19.us.i.noexc unwind label %lpad2.loopexit
 
 call19.us.i.noexc:                                ; preds = %for.body.us.i
-  %5 = load ptr, ptr %trans, align 8
-  %arrayidx.us.i = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv33.i
+  %6 = load ptr, ptr %trans, align 8
+  %arrayidx.us.i = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv33.i
   store ptr %call19.us.i3, ptr %arrayidx.us.i, align 8
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %6 = load i32, ptr %count.i, align 8
-  %7 = sext i32 %6 to i64
-  %cmp15.us.i = icmp slt i64 %indvars.iv.next34.i, %7
+  %7 = load i32, ptr %count.i, align 8
+  %8 = sext i32 %7 to i64
+  %cmp15.us.i = icmp slt i64 %indvars.iv.next34.i, %8
   br i1 %cmp15.us.i, label %for.body.us.i, label %for.end.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %call19.us.i.noexc
-  %cmp5.i.i = icmp sgt i32 %6, 0
+  %cmp5.i.i = icmp sgt i32 %7, 0
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.end.i
-  %8 = load ptr, ptr %trans, align 8
-  %wide.trip.count.i.i = zext nneg i32 %6 to i64
+  %9 = load ptr, ptr %trans, align 8
+  %wide.trip.count.i.i = zext nneg i32 %7 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %max.07.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i.i
-  %9 = load ptr, ptr %arrayidx.i.i, align 8
-  %maximumContextLength.i.i.i = getelementptr inbounds i8, ptr %9, i64 80
-  %10 = load i32, ptr %maximumContextLength.i.i.i, align 8
-  %spec.select.i.i = call i32 @llvm.smax.i32(i32 %10, i32 %max.07.i.i)
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i.i
+  %10 = load ptr, ptr %arrayidx.i.i, align 8
+  %maximumContextLength.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = load i32, ptr %maximumContextLength.i.i.i, align 8
+  %spec.select.i.i = call i32 @llvm.smax.i32(i32 %11, i32 %max.07.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i, label %for.body.i.i, !llvm.loop !12
@@ -1017,7 +1017,7 @@ invoke.cont3:                                     ; preds = %if.end7.i, %if.then
   ret void
 
 lpad:                                             ; preds = %entry
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #14
   br label %eh.resume
@@ -1038,7 +1038,7 @@ lpad2:                                            ; preds = %lpad2.loopexit.spli
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad2 ], [ %11, %lpad ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad2 ], [ %12, %lpad ]
   resume { ptr, i32 } %.pn
 }
 

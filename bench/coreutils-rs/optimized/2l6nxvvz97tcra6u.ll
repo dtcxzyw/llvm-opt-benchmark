@@ -712,9 +712,9 @@ define internal fastcc noundef range(i8 -1, 2) i8 @_ZN7uu_join5Input7compare17hc
   %23 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 1
   %24 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !64, !noundef !4
   %25 = add i8 %24, -65
-  %.0.i.i = icmp ult i8 %25, 26
-  %26 = select i1 %.0.i.i, i8 32, i8 0
-  %27 = or i8 %26, %24
+  %26 = icmp ult i8 %25, 26
+  %.0.i.i = select i1 %26, i8 32, i8 0
+  %27 = or i8 %.0.i.i, %24
   store i8 %27, ptr %.sroa.0.06.i.i, align 1, !alias.scope !64
   %28 = icmp eq ptr %23, %21
   br i1 %28, label %"_ZN5alloc5slice30_$LT$impl$u20$$u5b$u8$u5d$$GT$18to_ascii_lowercase17h8f9c8eb4822b2cb4E.exit", label %.lr.ph.i.i
@@ -744,9 +744,9 @@ define internal fastcc noundef range(i8 -1, 2) i8 @_ZN7uu_join5Input7compare17hc
   %35 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i12, i64 1
   %36 = load i8, ptr %.sroa.0.06.i.i12, align 1, !alias.scope !68, !noundef !4
   %37 = add i8 %36, -65
-  %.0.i.i13 = icmp ult i8 %37, 26
-  %38 = select i1 %.0.i.i13, i8 32, i8 0
-  %39 = or i8 %38, %36
+  %38 = icmp ult i8 %37, 26
+  %.0.i.i13 = select i1 %38, i8 32, i8 0
+  %39 = or i8 %.0.i.i13, %36
   store i8 %39, ptr %.sroa.0.06.i.i12, align 1, !alias.scope !68
   %40 = icmp eq ptr %35, %33
   br i1 %40, label %.loopexit.loopexit, label %.lr.ph.i.i11

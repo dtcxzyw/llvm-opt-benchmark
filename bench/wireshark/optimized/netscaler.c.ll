@@ -60,12 +60,12 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @wtap_file_size(ptr noundef %0, ptr noundef %1) #10
   switch i64 %4, label %6 [
-    i64 -1, label %185
+    i64 -1, label %184
     i64 0, label %5
   ]
 
 5:                                                ; preds = %3
-  br label %185
+  br label %184
 
 6:                                                ; preds = %3
   %7 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc(i64 noundef 8192) #11
@@ -79,7 +79,7 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
   %13 = tail call i32 @file_error(ptr noundef %12, ptr noundef %2) #10
   store i32 %13, ptr %1, align 4
   tail call void @g_free(ptr noundef %7) #10
-  br label %185
+  br label %184
 
 14:                                               ; preds = %6
   %15 = icmp eq i32 %9, 0
@@ -87,7 +87,7 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
 
 16:                                               ; preds = %14
   tail call void @g_free(ptr noundef %7) #10
-  br label %185
+  br label %184
 
 17:                                               ; preds = %14
   %18 = icmp ugt i32 %9, 34
@@ -174,7 +174,7 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
 
 .loopexit:                                        ; preds = %50, %17
   tail call void @g_free(ptr noundef %7) #10
-  br label %185
+  br label %184
 
 54:                                               ; preds = %34
   %55 = load i32, ptr @nstrace_1_0_file_type_subtype, align 4
@@ -247,7 +247,7 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
 
 87:                                               ; preds = %72
   tail call void @g_free(ptr noundef %.074100) #10
-  br label %185
+  br label %184
 
 88:                                               ; preds = %72
   %89 = load ptr, ptr %77, align 8
@@ -272,11 +272,11 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
   %100 = tail call i32 @file_error(ptr noundef %99, ptr noundef %2) #10
   store i32 %100, ptr %1, align 4
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %185
+  br i1 %101, label %102, label %184
 
 102:                                              ; preds = %.thread117, %98
   tail call void @g_free(ptr noundef %.074100) #10
-  br label %185
+  br label %184
 
 103:                                              ; preds = %96
   %104 = getelementptr inbounds i8, ptr %89, i64 28
@@ -300,7 +300,7 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
   br label %114
 
 114:                                              ; preds = %nstrace_read_page.exit.i.i, %105
-  %.046.i.i = phi i32 [ %111, %105 ], [ %154, %nstrace_read_page.exit.i.i ]
+  %.046.i.i = phi i32 [ %111, %105 ], [ %spec.select.i.i, %nstrace_read_page.exit.i.i ]
   %.045.i.i = phi i32 [ %109, %105 ], [ 0, %nstrace_read_page.exit.i.i ]
   %115 = icmp ult i32 %.045.i.i, %.046.i.i
   br i1 %115, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -310,15 +310,15 @@ define hidden range(i32 -1, 2) i32 @nstrace_open(ptr noundef %0, ptr noundef %1,
   br label %116
 
 116:                                              ; preds = %144, %.lr.ph.i.i
-  %.181.i.i = phi i32 [ %.045.i.i, %.lr.ph.i.i ], [ %146, %144 ]
-  %117 = icmp ugt i32 %.181.i.i, %.val60.i.i
-  %118 = sub nuw i32 %.val60.i.i, %.181.i.i
+  %.182.i.i = phi i32 [ %.045.i.i, %.lr.ph.i.i ], [ %146, %144 ]
+  %117 = icmp ugt i32 %.182.i.i, %.val60.i.i
+  %118 = sub nuw i32 %.val60.i.i, %.182.i.i
   %119 = icmp ult i32 %118, 4
   %or.cond.i.i.i = select i1 %117, i1 true, i1 %119
   br i1 %or.cond.i.i.i, label %nstrace_set_start_time.exit.threadthread-pre-split.sink.split, label %nstrace_ensure_buflen.exit.i.i
 
 nstrace_ensure_buflen.exit.i.i:                   ; preds = %116
-  %120 = zext i32 %.181.i.i to i64
+  %120 = zext i32 %.182.i.i to i64
   %121 = getelementptr i8, ptr %107, i64 %120
   %.val58.i.i = load i16, ptr %121, align 1
   switch i16 %.val58.i.i, label %136 [
@@ -347,10 +347,10 @@ nstrace_set_start_time.exit.thread119:            ; preds = %122
   %133 = getelementptr inbounds i8, ptr %121, i64 2
   %.val54.i.i = load i16, ptr %133, align 1
   %134 = zext i16 %.val54.i.i to i32
-  %135 = add i32 %.181.i.i, %134
+  %135 = add i32 %.182.i.i, %134
   store i32 %135, ptr %108, align 8
   store i32 %.046.i.i, ptr %110, align 4
-  br label %183
+  br label %182
 
 136:                                              ; preds = %nstrace_ensure_buflen.exit.i.i
   %137 = getelementptr inbounds i8, ptr %121, i64 2
@@ -366,7 +366,7 @@ nstrace_set_start_time.exit.thread119:            ; preds = %122
 
 144:                                              ; preds = %136
   %145 = zext i16 %142 to i32
-  %146 = add i32 %.181.i.i, %145
+  %146 = add i32 %.182.i.i, %145
   %147 = icmp ult i32 %146, %.046.i.i
   br i1 %147, label %116, label %._crit_edge.i.i, !llvm.loop !6
 
@@ -376,45 +376,45 @@ nstrace_set_start_time.exit.thread119:            ; preds = %122
   %150 = add i64 %149, %148
   store i64 %150, ptr %112, align 8
   %151 = load i64, ptr %113, align 8
+  %152 = sub i64 %151, %150
+  %spec.select72.i.i = tail call i64 @llvm.umin.i64(i64 %152, i64 8192)
+  %spec.select.i.i = trunc nuw nsw i64 %spec.select72.i.i to i32
   %.not.i.i = icmp eq i64 %151, %150
-  br i1 %.not.i.i, label %nstrace_set_start_time.exit.threadthread-pre-split, label %152
+  br i1 %.not.i.i, label %nstrace_set_start_time.exit.threadthread-pre-split, label %153
 
-152:                                              ; preds = %._crit_edge.i.i
-  %153 = sub i64 %151, %150
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %153, i64 8192)
-  %154 = trunc nuw nsw i64 %spec.select.i.i to i32
-  %155 = load ptr, ptr %77, align 8
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %155, i64 8
-  %158 = load i32, ptr %157, align 8
-  %159 = load ptr, ptr %0, align 8
-  %160 = tail call i32 @file_read(ptr noundef %156, i32 noundef %158, ptr noundef %159) #10
-  %161 = icmp slt i32 %160, 0
-  br i1 %161, label %162, label %165
+153:                                              ; preds = %._crit_edge.i.i
+  %154 = load ptr, ptr %77, align 8
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds i8, ptr %154, i64 8
+  %157 = load i32, ptr %156, align 8
+  %158 = load ptr, ptr %0, align 8
+  %159 = tail call i32 @file_read(ptr noundef %155, i32 noundef %157, ptr noundef %158) #10
+  %160 = icmp slt i32 %159, 0
+  br i1 %160, label %161, label %164
 
-162:                                              ; preds = %152
-  %163 = load ptr, ptr %0, align 8
-  %164 = tail call i32 @file_error(ptr noundef %163, ptr noundef %2) #10
-  store i32 %164, ptr %1, align 4
+161:                                              ; preds = %153
+  %162 = load ptr, ptr %0, align 8
+  %163 = tail call i32 @file_error(ptr noundef %162, ptr noundef %2) #10
+  store i32 %163, ptr %1, align 4
   br label %nstrace_set_start_time.exit.thread
 
-165:                                              ; preds = %152
-  %166 = icmp eq i32 %160, 0
-  br i1 %166, label %nstrace_set_start_time.exit.thread.thread, label %nstrace_read_page.exit.i.i
+164:                                              ; preds = %153
+  %165 = icmp eq i32 %159, 0
+  br i1 %165, label %nstrace_set_start_time.exit.thread.thread, label %nstrace_read_page.exit.i.i
 
-nstrace_set_start_time.exit.thread.thread:        ; preds = %165
+nstrace_set_start_time.exit.thread.thread:        ; preds = %164
   store i32 0, ptr %1, align 4
-  br label %172
+  br label %171
 
-nstrace_read_page.exit.i.i:                       ; preds = %165
-  %167 = getelementptr inbounds i8, ptr %155, i64 28
-  store i32 %160, ptr %167, align 4
+nstrace_read_page.exit.i.i:                       ; preds = %164
+  %166 = getelementptr inbounds i8, ptr %154, i64 28
+  store i32 %159, ptr %166, align 4
   br label %114, !llvm.loop !7
 
 nstrace_set_start_time.exit:                      ; preds = %103, %103
-  %168 = tail call fastcc i32 @nstrace_set_start_time_v20(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2)
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %nstrace_set_start_time.exit.threadthread-pre-split, label %183
+  %167 = tail call fastcc i32 @nstrace_set_start_time_v20(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2)
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %nstrace_set_start_time.exit.threadthread-pre-split, label %182
 
 default.unreachable:                              ; preds = %103
   unreachable
@@ -422,52 +422,52 @@ default.unreachable:                              ; preds = %103
 nstrace_set_start_time.exit.threadthread-pre-split.sink.split: ; preds = %136, %116, %122
   %.str.8.sink = phi ptr [ @.str.9, %122 ], [ @.str.9, %116 ], [ @.str.8, %136 ]
   store i32 -13, ptr %1, align 4
-  %170 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.8.sink) #10
-  store ptr %170, ptr %2, align 8
+  %169 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.8.sink) #10
+  store ptr %169, ptr %2, align 8
   br label %nstrace_set_start_time.exit.threadthread-pre-split
 
 nstrace_set_start_time.exit.threadthread-pre-split: ; preds = %._crit_edge.i.i, %nstrace_set_start_time.exit.threadthread-pre-split.sink.split, %103, %nstrace_set_start_time.exit
   %.pr = load i32, ptr %1, align 4
   br label %nstrace_set_start_time.exit.thread
 
-nstrace_set_start_time.exit.thread:               ; preds = %nstrace_set_start_time.exit.threadthread-pre-split, %162
-  %171 = phi i32 [ %.pr, %nstrace_set_start_time.exit.threadthread-pre-split ], [ %164, %162 ]
-  %.not78 = icmp eq i32 %171, 0
-  br i1 %.not78, label %172, label %185
+nstrace_set_start_time.exit.thread:               ; preds = %nstrace_set_start_time.exit.threadthread-pre-split, %161
+  %170 = phi i32 [ %.pr, %nstrace_set_start_time.exit.threadthread-pre-split ], [ %163, %161 ]
+  %.not78 = icmp eq i32 %170, 0
+  br i1 %.not78, label %171, label %184
 
-172:                                              ; preds = %nstrace_set_start_time.exit.thread.thread, %nstrace_set_start_time.exit.thread
-  %173 = load ptr, ptr %0, align 8
-  %174 = tail call i64 @file_seek(ptr noundef %173, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %1) #10
-  %175 = icmp eq i64 %174, -1
-  br i1 %175, label %185, label %176
+171:                                              ; preds = %nstrace_set_start_time.exit.thread.thread, %nstrace_set_start_time.exit.thread
+  %172 = load ptr, ptr %0, align 8
+  %173 = tail call i64 @file_seek(ptr noundef %172, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %1) #10
+  %174 = icmp eq i64 %173, -1
+  br i1 %174, label %184, label %175
 
-176:                                              ; preds = %172
-  %177 = tail call fastcc i32 @nstrace_read_page(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
-  %.not79 = icmp eq i32 %177, 0
-  br i1 %.not79, label %178, label %182
+175:                                              ; preds = %171
+  %176 = tail call fastcc i32 @nstrace_read_page(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
+  %.not79 = icmp eq i32 %176, 0
+  br i1 %.not79, label %177, label %181
 
-178:                                              ; preds = %176
-  %179 = load i32, ptr %1, align 4
-  %180 = icmp eq i32 %179, 0
-  br i1 %180, label %181, label %185
+177:                                              ; preds = %175
+  %178 = load i32, ptr %1, align 4
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %180, label %184
 
-181:                                              ; preds = %178
+180:                                              ; preds = %177
   tail call void @g_free(ptr noundef %.074100) #10
-  br label %185
+  br label %184
 
-182:                                              ; preds = %176
+181:                                              ; preds = %175
   store i32 0, ptr %80, align 8
-  br label %183
+  br label %182
 
-183:                                              ; preds = %nstrace_set_start_time.exit.thread119, %182, %nstrace_set_start_time.exit
-  %184 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 9, ptr %184, align 4
+182:                                              ; preds = %nstrace_set_start_time.exit.thread119, %181, %nstrace_set_start_time.exit
+  %183 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 9, ptr %183, align 4
   store i32 0, ptr %1, align 4
   tail call void @wtap_add_generated_idb(ptr noundef nonnull %0) #10
-  br label %185
+  br label %184
 
-185:                                              ; preds = %178, %172, %nstrace_set_start_time.exit.thread, %98, %3, %183, %181, %102, %87, %.loopexit, %16, %11, %5
-  %.0 = phi i32 [ 0, %5 ], [ -1, %11 ], [ 0, %16 ], [ 0, %.loopexit ], [ -1, %87 ], [ 1, %183 ], [ 0, %181 ], [ 0, %102 ], [ -1, %3 ], [ -1, %98 ], [ -1, %nstrace_set_start_time.exit.thread ], [ -1, %172 ], [ -1, %178 ]
+184:                                              ; preds = %177, %171, %nstrace_set_start_time.exit.thread, %98, %3, %182, %180, %102, %87, %.loopexit, %16, %11, %5
+  %.0 = phi i32 [ 0, %5 ], [ -1, %11 ], [ 0, %16 ], [ 0, %.loopexit ], [ -1, %87 ], [ 1, %182 ], [ 0, %180 ], [ 0, %102 ], [ -1, %3 ], [ -1, %98 ], [ -1, %nstrace_set_start_time.exit.thread ], [ -1, %171 ], [ -1, %177 ]
   ret i32 %.0
 }
 
@@ -503,7 +503,7 @@ define internal range(i32 0, 2) i32 @nstrace_read_v10(ptr nocapture noundef read
   br label %21
 
 21:                                               ; preds = %nstrace_read_page.exit, %6
-  %.0171 = phi i32 [ %15, %6 ], [ %224, %nstrace_read_page.exit ]
+  %.0171 = phi i32 [ %15, %6 ], [ %spec.select, %nstrace_read_page.exit ]
   %.0170 = phi i32 [ %13, %6 ], [ 0, %nstrace_read_page.exit ]
   %22 = icmp ult i32 %.0170, %.0171
   %23 = sub i32 %.0171, %.0170
@@ -513,8 +513,8 @@ define internal range(i32 0, 2) i32 @nstrace_read_v10(ptr nocapture noundef read
 
 .lr.ph:                                           ; preds = %21, %211
   %26 = phi i32 [ %215, %211 ], [ %23, %21 ]
-  %.1268 = phi i32 [ %213, %211 ], [ %.0170, %21 ]
-  %27 = zext i32 %.1268 to i64
+  %.1269 = phi i32 [ %213, %211 ], [ %.0170, %21 ]
+  %27 = zext i32 %.1269 to i64
   %28 = getelementptr i8, ptr %11, i64 %27
   %.val = load i16, ptr %28, align 1
   switch i16 %.val, label %197 [
@@ -644,7 +644,7 @@ ns_hrtime2nsec.exit:                              ; preds = %39, %49, %51, %53
   %88 = add i64 %87, %27
   store i64 %88, ptr %5, align 8
   %89 = load i32, ptr %69, align 8
-  %90 = add i32 %89, %.1268
+  %90 = add i32 %89, %.1269
   store i32 %90, ptr %12, align 8
   store i32 %.0171, ptr %14, align 4
   store i64 %55, ptr %9, align 8
@@ -767,7 +767,7 @@ ns_hrtime2nsec.exit209:                           ; preds = %101, %111, %113, %1
   %153 = add i64 %152, %27
   store i64 %153, ptr %5, align 8
   %154 = load i32, ptr %130, align 8
-  %155 = add i32 %154, %.1268
+  %155 = add i32 %154, %.1269
   store i32 %155, ptr %12, align 8
   store i32 %.0171, ptr %14, align 4
   store i64 %117, ptr %9, align 8
@@ -775,8 +775,8 @@ ns_hrtime2nsec.exit209:                           ; preds = %101, %111, %113, %1
 
 156:                                              ; preds = %.lr.ph
   %.val204 = load i32, ptr %14, align 4
-  %157 = icmp ugt i32 %.1268, %.val204
-  %158 = sub nuw i32 %.val204, %.1268
+  %157 = icmp ugt i32 %.1269, %.val204
+  %158 = sub nuw i32 %.val204, %.1269
   %159 = icmp ult i32 %158, 12
   %or.cond.i = select i1 %157, i1 true, i1 %159
   br i1 %or.cond.i, label %nstrace_ensure_buflen.exit.thread, label %nstrace_ensure_buflen.exit
@@ -813,8 +813,8 @@ nstrace_ensure_buflen.exit:                       ; preds = %156
 
 173:                                              ; preds = %.lr.ph
   %.val205 = load i32, ptr %14, align 4
-  %174 = icmp ugt i32 %.1268, %.val205
-  %175 = sub nuw i32 %.val205, %.1268
+  %174 = icmp ugt i32 %.1269, %.val205
+  %175 = sub nuw i32 %.val205, %.1269
   %176 = icmp ult i32 %175, 12
   %or.cond.i211 = select i1 %174, i1 true, i1 %176
   br i1 %or.cond.i211, label %nstrace_ensure_buflen.exit213.thread, label %nstrace_ensure_buflen.exit213
@@ -858,8 +858,8 @@ nstrace_ensure_buflen.exit213:                    ; preds = %173
 
 197:                                              ; preds = %.lr.ph
   %.val206 = load i32, ptr %14, align 4
-  %198 = icmp ugt i32 %.1268, %.val206
-  %199 = sub nuw i32 %.val206, %.1268
+  %198 = icmp ugt i32 %.1269, %.val206
+  %199 = sub nuw i32 %.val206, %.1269
   %200 = icmp ult i32 %199, 12
   %or.cond.i214 = select i1 %198, i1 true, i1 %200
   br i1 %or.cond.i214, label %nstrace_ensure_buflen.exit216.thread, label %nstrace_ensure_buflen.exit216
@@ -889,16 +889,16 @@ nstrace_ensure_buflen.exit216:                    ; preds = %197
   br label %.critedge
 
 .sink.split:                                      ; preds = %165, %182
-  %.sink359 = phi i64 [ %196, %182 ], [ %172, %165 ]
+  %.sink360 = phi i64 [ %196, %182 ], [ %172, %165 ]
   %.sink = phi ptr [ %178, %182 ], [ %161, %165 ]
-  store i64 %.sink359, ptr %17, align 8
+  store i64 %.sink360, ptr %17, align 8
   %.val198 = load i16, ptr %.sink, align 1
   br label %211
 
 211:                                              ; preds = %.sink.split, %nstrace_ensure_buflen.exit216
-  %.sink358 = phi i16 [ %207, %nstrace_ensure_buflen.exit216 ], [ %.val198, %.sink.split ]
-  %212 = zext i16 %.sink358 to i32
-  %213 = add i32 %.1268, %212
+  %.sink359 = phi i16 [ %207, %nstrace_ensure_buflen.exit216 ], [ %.val198, %.sink.split ]
+  %212 = zext i16 %.sink359 to i32
+  %213 = add i32 %.1269, %212
   %214 = icmp ult i32 %213, %.0171
   %215 = sub i32 %.0171, %213
   %216 = icmp ugt i32 %215, 1
@@ -911,43 +911,43 @@ nstrace_ensure_buflen.exit216:                    ; preds = %197
   %220 = add i64 %219, %218
   store i64 %220, ptr %19, align 8
   %221 = load i64, ptr %20, align 8
+  %222 = sub i64 %221, %220
+  %spec.select226 = tail call i64 @llvm.umin.i64(i64 %222, i64 8192)
+  %spec.select = trunc nuw nsw i64 %spec.select226 to i32
   %.not = icmp eq i64 %221, %220
-  br i1 %.not, label %.critedge, label %222
+  br i1 %.not, label %.critedge, label %223
 
-222:                                              ; preds = %._crit_edge
-  %223 = sub i64 %221, %220
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %223, i64 8192)
-  %224 = trunc nuw nsw i64 %spec.select to i32
-  %225 = load ptr, ptr %7, align 8
-  %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %225, i64 8
-  %228 = load i32, ptr %227, align 8
-  %229 = load ptr, ptr %0, align 8
-  %230 = tail call i32 @file_read(ptr noundef %226, i32 noundef %228, ptr noundef %229) #10
-  %231 = icmp slt i32 %230, 0
-  br i1 %231, label %232, label %235
+223:                                              ; preds = %._crit_edge
+  %224 = load ptr, ptr %7, align 8
+  %225 = load ptr, ptr %224, align 8
+  %226 = getelementptr inbounds i8, ptr %224, i64 8
+  %227 = load i32, ptr %226, align 8
+  %228 = load ptr, ptr %0, align 8
+  %229 = tail call i32 @file_read(ptr noundef %225, i32 noundef %227, ptr noundef %228) #10
+  %230 = icmp slt i32 %229, 0
+  br i1 %230, label %231, label %234
 
-232:                                              ; preds = %222
-  %233 = load ptr, ptr %0, align 8
-  %234 = tail call i32 @file_error(ptr noundef %233, ptr noundef nonnull %4) #10
-  store i32 %234, ptr %3, align 4
+231:                                              ; preds = %223
+  %232 = load ptr, ptr %0, align 8
+  %233 = tail call i32 @file_error(ptr noundef %232, ptr noundef nonnull %4) #10
+  store i32 %233, ptr %3, align 4
   br label %.critedge
 
-235:                                              ; preds = %222
-  %236 = icmp eq i32 %230, 0
-  br i1 %236, label %237, label %nstrace_read_page.exit
+234:                                              ; preds = %223
+  %235 = icmp eq i32 %229, 0
+  br i1 %235, label %236, label %nstrace_read_page.exit
 
-237:                                              ; preds = %235
+236:                                              ; preds = %234
   store i32 0, ptr %3, align 4
   br label %.critedge
 
-nstrace_read_page.exit:                           ; preds = %235
-  %238 = getelementptr inbounds i8, ptr %225, i64 28
-  store i32 %230, ptr %238, align 4
+nstrace_read_page.exit:                           ; preds = %234
+  %237 = getelementptr inbounds i8, ptr %224, i64 28
+  store i32 %229, ptr %237, align 4
   br label %21, !llvm.loop !9
 
-.critedge:                                        ; preds = %._crit_edge, %237, %232, %nstrace_ensure_buflen.exit216.thread, %nstrace_ensure_buflen.exit213.thread, %nstrace_ensure_buflen.exit.thread, %209, %180, %163, %144, %142, %99, %93, %79, %77, %37, %31
-  %.0 = phi i32 [ 0, %209 ], [ 0, %180 ], [ 0, %163 ], [ 0, %93 ], [ 0, %99 ], [ 0, %142 ], [ 1, %144 ], [ 0, %31 ], [ 0, %37 ], [ 0, %77 ], [ 1, %79 ], [ 0, %nstrace_ensure_buflen.exit.thread ], [ 0, %nstrace_ensure_buflen.exit213.thread ], [ 0, %nstrace_ensure_buflen.exit216.thread ], [ 0, %232 ], [ 0, %237 ], [ 0, %._crit_edge ]
+.critedge:                                        ; preds = %._crit_edge, %236, %231, %nstrace_ensure_buflen.exit216.thread, %nstrace_ensure_buflen.exit213.thread, %nstrace_ensure_buflen.exit.thread, %209, %180, %163, %144, %142, %99, %93, %79, %77, %37, %31
+  %.0 = phi i32 [ 0, %209 ], [ 0, %180 ], [ 0, %163 ], [ 0, %93 ], [ 0, %99 ], [ 0, %142 ], [ 1, %144 ], [ 0, %31 ], [ 0, %37 ], [ 0, %77 ], [ 1, %79 ], [ 0, %nstrace_ensure_buflen.exit.thread ], [ 0, %nstrace_ensure_buflen.exit213.thread ], [ 0, %nstrace_ensure_buflen.exit216.thread ], [ 0, %231 ], [ 0, %236 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1095,14 +1095,14 @@ define internal noundef i32 @nstrace_read_v20(ptr nocapture noundef readonly %0,
   br label %21
 
 21:                                               ; preds = %nstrace_read_page.exit, %6
-  %.0994 = phi i32 [ %15, %6 ], [ %1396, %nstrace_read_page.exit ]
+  %.0994 = phi i32 [ %15, %6 ], [ %spec.select, %nstrace_read_page.exit ]
   %.0993 = phi i32 [ %13, %6 ], [ 0, %nstrace_read_page.exit ]
   %22 = icmp ult i32 %.0993, %.0994
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %21, %1388
-  %.11280 = phi i32 [ %.2, %1388 ], [ %.0993, %21 ]
-  %23 = zext i32 %.11280 to i64
+  %.11281 = phi i32 [ %.2, %1388 ], [ %.0993, %21 ]
+  %23 = zext i32 %.11281 to i64
   %24 = getelementptr i8, ptr %11, i64 %23
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %1366 [
@@ -1160,7 +1160,7 @@ define internal noundef i32 @nstrace_read_v20(ptr nocapture noundef readonly %0,
   ]
 
 26:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %27 = sub i32 %.0994, %.11280
+  %27 = sub i32 %.0994, %.11281
   %28 = icmp ult i32 %27, 8
   br i1 %28, label %29, label %31
 
@@ -1316,14 +1316,14 @@ ns_hrtime2nsec.exit:                              ; preds = %47, %57, %59, %61
 
 114:                                              ; preds = %95, %107
   %115 = phi i32 [ %113, %107 ], [ %106, %95 ]
-  %116 = add i32 %115, %.11280
+  %116 = add i32 %115, %.11281
   store i32 %116, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %63, ptr %9, align 8
   br label %.critedge
 
 117:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %118 = sub i32 %.0994, %.11280
+  %118 = sub i32 %.0994, %.11281
   %119 = icmp ult i32 %118, 12
   br i1 %119, label %120, label %122
 
@@ -1481,14 +1481,14 @@ ns_hrtime2nsec.exit1092:                          ; preds = %138, %148, %150, %1
 
 208:                                              ; preds = %189, %201
   %209 = phi i32 [ %207, %201 ], [ %200, %189 ]
-  %210 = add i32 %209, %.11280
+  %210 = add i32 %209, %.11281
   store i32 %210, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %154, ptr %9, align 8
   br label %.critedge
 
 211:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %212 = sub i32 %.0994, %.11280
+  %212 = sub i32 %.0994, %.11281
   %213 = icmp ult i32 %212, 16
   br i1 %213, label %214, label %216
 
@@ -1645,14 +1645,14 @@ ns_hrtime2nsec.exit1095:                          ; preds = %232, %242, %244, %2
 
 301:                                              ; preds = %282, %294
   %302 = phi i32 [ %300, %294 ], [ %293, %282 ]
-  %303 = add i32 %302, %.11280
+  %303 = add i32 %302, %.11281
   store i32 %303, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %248, ptr %9, align 8
   br label %.critedge
 
 304:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %305 = sub i32 %.0994, %.11280
+  %305 = sub i32 %.0994, %.11281
   %306 = icmp ult i32 %305, 20
   br i1 %306, label %307, label %309
 
@@ -1814,14 +1814,14 @@ ns_hrtime2nsec.exit1098:                          ; preds = %325, %335, %337, %3
 
 397:                                              ; preds = %378, %390
   %398 = phi i32 [ %396, %390 ], [ %389, %378 ]
-  %399 = add i32 %398, %.11280
+  %399 = add i32 %398, %.11281
   store i32 %399, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %341, ptr %9, align 8
   br label %.critedge
 
 400:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %401 = sub i32 %.0994, %.11280
+  %401 = sub i32 %.0994, %.11281
   %402 = icmp ult i32 %401, 18
   br i1 %402, label %403, label %405
 
@@ -1980,14 +1980,14 @@ ns_hrtime2nsec.exit1101:                          ; preds = %421, %431, %433, %4
 
 491:                                              ; preds = %472, %484
   %492 = phi i32 [ %490, %484 ], [ %483, %472 ]
-  %493 = add i32 %492, %.11280
+  %493 = add i32 %492, %.11281
   store i32 %493, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %437, ptr %9, align 8
   br label %.critedge
 
 494:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %495 = sub i32 %.0994, %.11280
+  %495 = sub i32 %.0994, %.11281
   %496 = icmp ult i32 %495, 22
   br i1 %496, label %497, label %499
 
@@ -2151,14 +2151,14 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 588:                                              ; preds = %569, %581
   %589 = phi i32 [ %587, %581 ], [ %580, %569 ]
-  %590 = add i32 %589, %.11280
+  %590 = add i32 %589, %.11281
   store i32 %590, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %531, ptr %9, align 8
   br label %.critedge
 
 591:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %592 = sub i32 %.0994, %.11280
+  %592 = sub i32 %.0994, %.11281
   %593 = icmp ult i32 %592, 24
   br i1 %593, label %594, label %596
 
@@ -2290,14 +2290,14 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 669:                                              ; preds = %650, %662
   %670 = phi i32 [ %668, %662 ], [ %661, %650 ]
-  %671 = add i32 %670, %.11280
+  %671 = add i32 %670, %.11281
   store i32 %671, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %617, ptr %9, align 8
   br label %.critedge
 
 672:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %673 = sub i32 %.0994, %.11280
+  %673 = sub i32 %.0994, %.11281
   %674 = icmp ult i32 %673, 28
   br i1 %674, label %675, label %677
 
@@ -2434,14 +2434,14 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 753:                                              ; preds = %734, %746
   %754 = phi i32 [ %752, %746 ], [ %745, %734 ]
-  %755 = add i32 %754, %.11280
+  %755 = add i32 %754, %.11281
   store i32 %755, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %698, ptr %9, align 8
   br label %.critedge
 
 756:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %757 = sub i32 %.0994, %.11280
+  %757 = sub i32 %.0994, %.11281
   %758 = icmp ult i32 %757, 29
   br i1 %758, label %759, label %761
 
@@ -2579,14 +2579,14 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 837:                                              ; preds = %818, %830
   %838 = phi i32 [ %836, %830 ], [ %829, %818 ]
-  %839 = add i32 %838, %.11280
+  %839 = add i32 %838, %.11281
   store i32 %839, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %782, ptr %9, align 8
   br label %.critedge
 
 840:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %841 = sub i32 %.0994, %.11280
+  %841 = sub i32 %.0994, %.11281
   %842 = icmp ult i32 %841, 33
   br i1 %842, label %843, label %845
 
@@ -2729,14 +2729,14 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 924:                                              ; preds = %905, %917
   %925 = phi i32 [ %923, %917 ], [ %916, %905 ]
-  %926 = add i32 %925, %.11280
+  %926 = add i32 %925, %.11281
   store i32 %926, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %866, ptr %9, align 8
   br label %.critedge
 
 927:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %928 = sub i32 %.0994, %.11280
+  %928 = sub i32 %.0994, %.11281
   %929 = icmp ult i32 %928, 31
   br i1 %929, label %930, label %932
 
@@ -2880,14 +2880,14 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 1011:                                             ; preds = %992, %1004
   %1012 = phi i32 [ %1010, %1004 ], [ %1003, %992 ]
-  %1013 = add i32 %1012, %.11280
+  %1013 = add i32 %1012, %.11281
   store i32 %1013, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %953, ptr %9, align 8
   br label %.critedge
 
 1014:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %1015 = sub i32 %.0994, %.11280
+  %1015 = sub i32 %.0994, %.11281
   %1016 = icmp ult i32 %1015, 35
   br i1 %1016, label %1017, label %1019
 
@@ -3036,14 +3036,14 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 1101:                                             ; preds = %1082, %1094
   %1102 = phi i32 [ %1100, %1094 ], [ %1093, %1082 ]
-  %1103 = add i32 %1102, %.11280
+  %1103 = add i32 %1102, %.11281
   store i32 %1103, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %1040, ptr %9, align 8
   br label %.critedge
 
 1104:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %1105 = sub i32 %.0994, %.11280
+  %1105 = sub i32 %.0994, %.11281
   %1106 = icmp ult i32 %1105, 48
   br i1 %1106, label %1107, label %1109
 
@@ -3189,14 +3189,14 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 1189:                                             ; preds = %1170, %1182
   %1190 = phi i32 [ %1188, %1182 ], [ %1181, %1170 ]
-  %1191 = add i32 %1190, %.11280
+  %1191 = add i32 %1190, %.11281
   store i32 %1191, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %1130, ptr %9, align 8
   br label %.critedge
 
 1192:                                             ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %1193 = sub i32 %.0994, %.11280
+  %1193 = sub i32 %.0994, %.11281
   %1194 = icmp ult i32 %1193, 52
   br i1 %1194, label %1195, label %1197
 
@@ -3347,7 +3347,7 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 1280:                                             ; preds = %1261, %1273
   %1281 = phi i32 [ %1279, %1273 ], [ %1272, %1261 ]
-  %1282 = add i32 %1281, %.11280
+  %1282 = add i32 %1281, %.11281
   store i32 %1282, ptr %12, align 8
   store i32 %.0994, ptr %14, align 4
   store i64 %1218, ptr %9, align 8
@@ -3355,8 +3355,8 @@ ns_hrtime2nsec.exit1104:                          ; preds = %515, %525, %527, %5
 
 1283:                                             ; preds = %.lr.ph
   %.val1084 = load i32, ptr %14, align 4
-  %1284 = icmp ugt i32 %.11280, %.val1084
-  %1285 = sub nuw i32 %.val1084, %.11280
+  %1284 = icmp ugt i32 %.11281, %.val1084
+  %1285 = sub nuw i32 %.val1084, %.11281
   %1286 = icmp ult i32 %1285, 8
   %or.cond.i = select i1 %1284, i1 true, i1 %1286
   br i1 %or.cond.i, label %nstrace_ensure_buflen.exit.thread, label %nstrace_ensure_buflen.exit
@@ -3372,13 +3372,13 @@ nstrace_ensure_buflen.exit:                       ; preds = %1283
   %1289 = load i8, ptr %1288, align 1
   %1290 = zext i8 %1289 to i32
   %.not1018 = icmp sgt i8 %1289, -1
-  br i1 %.not1018, label %1291, label %.thread1376
+  br i1 %.not1018, label %1291, label %.thread1377
 
 1291:                                             ; preds = %nstrace_ensure_buflen.exit
   %1292 = icmp eq i8 %1289, 0
   br i1 %1292, label %1300, label %nstrace_ensure_buflen.exit1108
 
-.thread1376:                                      ; preds = %nstrace_ensure_buflen.exit
+.thread1377:                                      ; preds = %nstrace_ensure_buflen.exit
   %1293 = getelementptr inbounds i8, ptr %24, i64 2
   %1294 = load i8, ptr %1293, align 1
   %1295 = zext i8 %1294 to i32
@@ -3388,13 +3388,13 @@ nstrace_ensure_buflen.exit:                       ; preds = %1283
   %1299 = icmp eq i32 %1298, 0
   br i1 %1299, label %1300, label %1302
 
-1300:                                             ; preds = %.thread1376, %1291
+1300:                                             ; preds = %.thread1377, %1291
   store i32 -13, ptr %3, align 4
   %1301 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.8) #10
   store ptr %1301, ptr %4, align 8
   br label %.critedge
 
-1302:                                             ; preds = %.thread1376
+1302:                                             ; preds = %.thread1377
   %1303 = getelementptr inbounds i8, ptr %24, i64 2
   %1304 = load i8, ptr %1303, align 1
   %1305 = zext i8 %1304 to i32
@@ -3405,7 +3405,7 @@ nstrace_ensure_buflen.exit:                       ; preds = %1283
 
 nstrace_ensure_buflen.exit1108:                   ; preds = %1291, %1302
   %1309 = phi i32 [ %1308, %1302 ], [ %1290, %1291 ]
-  %1310 = add i32 %1309, %.11280
+  %1310 = add i32 %1309, %.11281
   %1311 = icmp ugt i32 %1310, %.val1084
   %1312 = sub nuw i32 %.val1084, %1310
   %1313 = icmp ult i32 %1312, 8
@@ -3433,8 +3433,8 @@ nstrace_ensure_buflen.exit1111:                   ; preds = %nstrace_ensure_bufl
 
 1321:                                             ; preds = %.lr.ph
   %.val1087 = load i32, ptr %14, align 4
-  %1322 = icmp ugt i32 %.11280, %.val1087
-  %1323 = sub nuw i32 %.val1087, %.11280
+  %1322 = icmp ugt i32 %.11281, %.val1087
+  %1323 = sub nuw i32 %.val1087, %.11281
   %1324 = icmp ult i32 %1323, 8
   %or.cond.i1112 = select i1 %1322, i1 true, i1 %1324
   br i1 %or.cond.i1112, label %nstrace_ensure_buflen.exit1114.thread, label %nstrace_ensure_buflen.exit1114
@@ -3505,18 +3505,18 @@ nstrace_ensure_buflen.exit1117:                   ; preds = %1336
 
 1362:                                             ; preds = %nstrace_ensure_buflen.exit1117, %1356
   %1363 = phi i32 [ %1361, %1356 ], [ %1355, %nstrace_ensure_buflen.exit1117 ]
-  %1364 = add i32 %1363, %.11280
+  %1364 = add i32 %1363, %.11281
   br label %1388
 
 1365:                                             ; preds = %.lr.ph
-  %.inv = icmp ult i32 %.11280, 4096
+  %.inv = icmp ult i32 %.11281, 4096
   %.0994. = select i1 %.inv, i32 4096, i32 %.0994
   br label %1388
 
 1366:                                             ; preds = %.lr.ph
   %.val1089 = load i32, ptr %14, align 4
-  %1367 = icmp ugt i32 %.11280, %.val1089
-  %1368 = sub nuw i32 %.val1089, %.11280
+  %1367 = icmp ugt i32 %.11281, %.val1089
+  %1368 = sub nuw i32 %.val1089, %.11281
   %1369 = icmp ult i32 %1368, 8
   %or.cond.i1118 = select i1 %1367, i1 true, i1 %1369
   br i1 %or.cond.i1118, label %nstrace_ensure_buflen.exit1120.thread, label %nstrace_ensure_buflen.exit1120
@@ -3556,7 +3556,7 @@ nstrace_ensure_buflen.exit1120:                   ; preds = %1366
 
 1385:                                             ; preds = %.thread, %1374
   %1386 = phi i32 [ %1373, %1374 ], [ %1381, %.thread ]
-  %1387 = add i32 %1386, %.11280
+  %1387 = add i32 %1386, %.11281
   br label %1388
 
 1388:                                             ; preds = %1365, %1385, %1362, %nstrace_ensure_buflen.exit1111
@@ -3570,43 +3570,43 @@ nstrace_ensure_buflen.exit1120:                   ; preds = %1366
   %1392 = add i64 %1391, %1390
   store i64 %1392, ptr %19, align 8
   %1393 = load i64, ptr %20, align 8
+  %1394 = sub i64 %1393, %1392
+  %spec.select1137 = tail call i64 @llvm.umin.i64(i64 %1394, i64 8192)
+  %spec.select = trunc nuw nsw i64 %spec.select1137 to i32
   %.not = icmp eq i64 %1393, %1392
-  br i1 %.not, label %.critedge, label %1394
+  br i1 %.not, label %.critedge, label %1395
 
-1394:                                             ; preds = %._crit_edge
-  %1395 = sub i64 %1393, %1392
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %1395, i64 8192)
-  %1396 = trunc nuw nsw i64 %spec.select to i32
-  %1397 = load ptr, ptr %7, align 8
-  %1398 = load ptr, ptr %1397, align 8
-  %1399 = getelementptr inbounds i8, ptr %1397, i64 8
-  %1400 = load i32, ptr %1399, align 8
-  %1401 = load ptr, ptr %0, align 8
-  %1402 = tail call i32 @file_read(ptr noundef %1398, i32 noundef %1400, ptr noundef %1401) #10
-  %1403 = icmp slt i32 %1402, 0
-  br i1 %1403, label %1404, label %1407
+1395:                                             ; preds = %._crit_edge
+  %1396 = load ptr, ptr %7, align 8
+  %1397 = load ptr, ptr %1396, align 8
+  %1398 = getelementptr inbounds i8, ptr %1396, i64 8
+  %1399 = load i32, ptr %1398, align 8
+  %1400 = load ptr, ptr %0, align 8
+  %1401 = tail call i32 @file_read(ptr noundef %1397, i32 noundef %1399, ptr noundef %1400) #10
+  %1402 = icmp slt i32 %1401, 0
+  br i1 %1402, label %1403, label %1406
 
-1404:                                             ; preds = %1394
-  %1405 = load ptr, ptr %0, align 8
-  %1406 = tail call i32 @file_error(ptr noundef %1405, ptr noundef nonnull %4) #10
-  store i32 %1406, ptr %3, align 4
+1403:                                             ; preds = %1395
+  %1404 = load ptr, ptr %0, align 8
+  %1405 = tail call i32 @file_error(ptr noundef %1404, ptr noundef nonnull %4) #10
+  store i32 %1405, ptr %3, align 4
   br label %.critedge
 
-1407:                                             ; preds = %1394
-  %1408 = icmp eq i32 %1402, 0
-  br i1 %1408, label %1409, label %nstrace_read_page.exit
+1406:                                             ; preds = %1395
+  %1407 = icmp eq i32 %1401, 0
+  br i1 %1407, label %1408, label %nstrace_read_page.exit
 
-1409:                                             ; preds = %1407
+1408:                                             ; preds = %1406
   store i32 0, ptr %3, align 4
   br label %.critedge
 
-nstrace_read_page.exit:                           ; preds = %1407
-  %1410 = getelementptr inbounds i8, ptr %1397, i64 28
-  store i32 %1402, ptr %1410, align 4
+nstrace_read_page.exit:                           ; preds = %1406
+  %1409 = getelementptr inbounds i8, ptr %1396, i64 28
+  store i32 %1401, ptr %1409, align 4
   br label %21, !llvm.loop !11
 
-.critedge:                                        ; preds = %._crit_edge, %1409, %1404, %nstrace_ensure_buflen.exit1120.thread, %nstrace_ensure_buflen.exit1114.thread, %nstrace_ensure_buflen.exit1111.thread, %nstrace_ensure_buflen.exit.thread, %1383, %1339, %1300, %1280, %1259, %1211, %1195, %1189, %1168, %1123, %1107, %1101, %1080, %1033, %1017, %1011, %990, %946, %930, %924, %903, %859, %843, %837, %816, %775, %759, %753, %732, %691, %675, %669, %648, %610, %594, %588, %567, %513, %497, %491, %470, %419, %403, %397, %376, %323, %307, %301, %280, %230, %214, %208, %187, %136, %120, %114, %93, %45, %29
-  %.0 = phi i32 [ 0, %1383 ], [ 0, %1339 ], [ 0, %1300 ], [ 0, %1195 ], [ 0, %1211 ], [ 0, %1259 ], [ 1, %1280 ], [ 0, %1107 ], [ 0, %1123 ], [ 0, %1168 ], [ 1, %1189 ], [ 0, %1017 ], [ 0, %1033 ], [ 0, %1080 ], [ 1, %1101 ], [ 0, %930 ], [ 0, %946 ], [ 0, %990 ], [ 1, %1011 ], [ 0, %843 ], [ 0, %859 ], [ 0, %903 ], [ 1, %924 ], [ 0, %759 ], [ 0, %775 ], [ 0, %816 ], [ 1, %837 ], [ 0, %675 ], [ 0, %691 ], [ 0, %732 ], [ 1, %753 ], [ 0, %594 ], [ 0, %610 ], [ 0, %648 ], [ 1, %669 ], [ 0, %497 ], [ 0, %513 ], [ 0, %567 ], [ 1, %588 ], [ 0, %403 ], [ 0, %419 ], [ 0, %470 ], [ 1, %491 ], [ 0, %307 ], [ 0, %323 ], [ 0, %376 ], [ 1, %397 ], [ 0, %214 ], [ 0, %230 ], [ 0, %280 ], [ 1, %301 ], [ 0, %120 ], [ 0, %136 ], [ 0, %187 ], [ 1, %208 ], [ 0, %29 ], [ 0, %45 ], [ 0, %93 ], [ 1, %114 ], [ 0, %nstrace_ensure_buflen.exit.thread ], [ 0, %nstrace_ensure_buflen.exit1111.thread ], [ 0, %nstrace_ensure_buflen.exit1114.thread ], [ 0, %nstrace_ensure_buflen.exit1120.thread ], [ 0, %1404 ], [ 0, %1409 ], [ 0, %._crit_edge ]
+.critedge:                                        ; preds = %._crit_edge, %1408, %1403, %nstrace_ensure_buflen.exit1120.thread, %nstrace_ensure_buflen.exit1114.thread, %nstrace_ensure_buflen.exit1111.thread, %nstrace_ensure_buflen.exit.thread, %1383, %1339, %1300, %1280, %1259, %1211, %1195, %1189, %1168, %1123, %1107, %1101, %1080, %1033, %1017, %1011, %990, %946, %930, %924, %903, %859, %843, %837, %816, %775, %759, %753, %732, %691, %675, %669, %648, %610, %594, %588, %567, %513, %497, %491, %470, %419, %403, %397, %376, %323, %307, %301, %280, %230, %214, %208, %187, %136, %120, %114, %93, %45, %29
+  %.0 = phi i32 [ 0, %1383 ], [ 0, %1339 ], [ 0, %1300 ], [ 0, %1195 ], [ 0, %1211 ], [ 0, %1259 ], [ 1, %1280 ], [ 0, %1107 ], [ 0, %1123 ], [ 0, %1168 ], [ 1, %1189 ], [ 0, %1017 ], [ 0, %1033 ], [ 0, %1080 ], [ 1, %1101 ], [ 0, %930 ], [ 0, %946 ], [ 0, %990 ], [ 1, %1011 ], [ 0, %843 ], [ 0, %859 ], [ 0, %903 ], [ 1, %924 ], [ 0, %759 ], [ 0, %775 ], [ 0, %816 ], [ 1, %837 ], [ 0, %675 ], [ 0, %691 ], [ 0, %732 ], [ 1, %753 ], [ 0, %594 ], [ 0, %610 ], [ 0, %648 ], [ 1, %669 ], [ 0, %497 ], [ 0, %513 ], [ 0, %567 ], [ 1, %588 ], [ 0, %403 ], [ 0, %419 ], [ 0, %470 ], [ 1, %491 ], [ 0, %307 ], [ 0, %323 ], [ 0, %376 ], [ 1, %397 ], [ 0, %214 ], [ 0, %230 ], [ 0, %280 ], [ 1, %301 ], [ 0, %120 ], [ 0, %136 ], [ 0, %187 ], [ 1, %208 ], [ 0, %29 ], [ 0, %45 ], [ 0, %93 ], [ 1, %114 ], [ 0, %nstrace_ensure_buflen.exit.thread ], [ 0, %nstrace_ensure_buflen.exit1111.thread ], [ 0, %nstrace_ensure_buflen.exit1114.thread ], [ 0, %nstrace_ensure_buflen.exit1120.thread ], [ 0, %1403 ], [ 0, %1408 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -5658,7 +5658,7 @@ define internal fastcc range(i32 0, 2) i32 @nstrace_set_start_time_v20(ptr nocap
   br label %13
 
 13:                                               ; preds = %nstrace_read_page.exit, %3
-  %.052 = phi i32 [ %10, %3 ], [ %72, %nstrace_read_page.exit ]
+  %.052 = phi i32 [ %10, %3 ], [ %spec.select, %nstrace_read_page.exit ]
   %.051 = phi i32 [ %8, %3 ], [ 0, %nstrace_read_page.exit ]
   %14 = icmp ult i32 %.051, %.052
   br i1 %14, label %.lr.ph, label %._crit_edge
@@ -5668,9 +5668,9 @@ define internal fastcc range(i32 0, 2) i32 @nstrace_set_start_time_v20(ptr nocap
   br label %15
 
 15:                                               ; preds = %.lr.ph, %63
-  %.183 = phi i32 [ %.051, %.lr.ph ], [ %64, %63 ]
-  %16 = icmp ugt i32 %.183, %.val62
-  %17 = sub nuw i32 %.val62, %.183
+  %.184 = phi i32 [ %.051, %.lr.ph ], [ %64, %63 ]
+  %16 = icmp ugt i32 %.184, %.val62
+  %17 = sub nuw i32 %.val62, %.184
   %18 = icmp ult i32 %17, 3
   %or.cond.i = select i1 %16, i1 true, i1 %18
   br i1 %or.cond.i, label %nstrace_ensure_buflen.exit.thread, label %nstrace_ensure_buflen.exit
@@ -5682,7 +5682,7 @@ nstrace_ensure_buflen.exit.thread:                ; preds = %15
   br label %.critedge
 
 nstrace_ensure_buflen.exit:                       ; preds = %15
-  %20 = zext i32 %.183 to i64
+  %20 = zext i32 %.184 to i64
   %21 = getelementptr i8, ptr %6, i64 %20
   %22 = load i8, ptr %21, align 1
   switch i8 %22, label %47 [
@@ -5730,7 +5730,7 @@ nstrace_ensure_buflen.exit66:                     ; preds = %23
 
 44:                                               ; preds = %nstrace_ensure_buflen.exit66, %38
   %45 = phi i32 [ %43, %38 ], [ %37, %nstrace_ensure_buflen.exit66 ]
-  %46 = add i32 %45, %.183
+  %46 = add i32 %45, %.184
   store i32 %46, ptr %7, align 8
   store i32 %.052, ptr %9, align 4
   br label %.critedge
@@ -5763,7 +5763,7 @@ nstrace_ensure_buflen.exit66:                     ; preds = %23
   br label %.critedge
 
 63:                                               ; preds = %58
-  %64 = add i32 %59, %.183
+  %64 = add i32 %59, %.184
   %65 = icmp ult i32 %64, %.052
   br i1 %65, label %15, label %._crit_edge, !llvm.loop !20
 
@@ -5773,43 +5773,43 @@ nstrace_ensure_buflen.exit66:                     ; preds = %23
   %68 = add i64 %67, %66
   store i64 %68, ptr %11, align 8
   %69 = load i64, ptr %12, align 8
+  %70 = sub i64 %69, %68
+  %spec.select74 = tail call i64 @llvm.umin.i64(i64 %70, i64 8192)
+  %spec.select = trunc nuw nsw i64 %spec.select74 to i32
   %.not = icmp eq i64 %69, %68
-  br i1 %.not, label %.critedge, label %70
+  br i1 %.not, label %.critedge, label %71
 
-70:                                               ; preds = %._crit_edge
-  %71 = sub i64 %69, %68
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %71, i64 8192)
-  %72 = trunc nuw nsw i64 %spec.select to i32
-  %73 = load ptr, ptr %4, align 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %73, i64 8
-  %76 = load i32, ptr %75, align 8
-  %77 = load ptr, ptr %0, align 8
-  %78 = tail call i32 @file_read(ptr noundef %74, i32 noundef %76, ptr noundef %77) #10
-  %79 = icmp slt i32 %78, 0
-  br i1 %79, label %80, label %83
+71:                                               ; preds = %._crit_edge
+  %72 = load ptr, ptr %4, align 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %72, i64 8
+  %75 = load i32, ptr %74, align 8
+  %76 = load ptr, ptr %0, align 8
+  %77 = tail call i32 @file_read(ptr noundef %73, i32 noundef %75, ptr noundef %76) #10
+  %78 = icmp slt i32 %77, 0
+  br i1 %78, label %79, label %82
 
-80:                                               ; preds = %70
-  %81 = load ptr, ptr %0, align 8
-  %82 = tail call i32 @file_error(ptr noundef %81, ptr noundef %2) #10
-  store i32 %82, ptr %1, align 4
+79:                                               ; preds = %71
+  %80 = load ptr, ptr %0, align 8
+  %81 = tail call i32 @file_error(ptr noundef %80, ptr noundef %2) #10
+  store i32 %81, ptr %1, align 4
   br label %.critedge
 
-83:                                               ; preds = %70
-  %84 = icmp eq i32 %78, 0
-  br i1 %84, label %85, label %nstrace_read_page.exit
+82:                                               ; preds = %71
+  %83 = icmp eq i32 %77, 0
+  br i1 %83, label %84, label %nstrace_read_page.exit
 
-85:                                               ; preds = %83
+84:                                               ; preds = %82
   store i32 0, ptr %1, align 4
   br label %.critedge
 
-nstrace_read_page.exit:                           ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %73, i64 28
-  store i32 %78, ptr %86, align 4
+nstrace_read_page.exit:                           ; preds = %82
+  %85 = getelementptr inbounds i8, ptr %72, i64 28
+  store i32 %77, ptr %85, align 4
   br label %13, !llvm.loop !21
 
-.critedge:                                        ; preds = %._crit_edge, %85, %80, %nstrace_ensure_buflen.exit66.thread, %nstrace_ensure_buflen.exit.thread, %61, %44
-  %.0 = phi i32 [ 0, %61 ], [ 1, %44 ], [ 0, %nstrace_ensure_buflen.exit.thread ], [ 0, %nstrace_ensure_buflen.exit66.thread ], [ 0, %80 ], [ 0, %85 ], [ 0, %._crit_edge ]
+.critedge:                                        ; preds = %._crit_edge, %84, %79, %nstrace_ensure_buflen.exit66.thread, %nstrace_ensure_buflen.exit.thread, %61, %44
+  %.0 = phi i32 [ 0, %61 ], [ 1, %44 ], [ 0, %nstrace_ensure_buflen.exit.thread ], [ 0, %nstrace_ensure_buflen.exit66.thread ], [ 0, %79 ], [ 0, %84 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

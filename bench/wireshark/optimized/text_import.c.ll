@@ -2118,7 +2118,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @report_failure(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 9) i32 @text_import(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 9) i32 @text_import(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr @state, align 4
   store i32 0, ptr @curr_offset, align 4
   store i32 0, ptr @packet_start, align 4

@@ -10791,12 +10791,12 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17hc6e79adfb73f9eb9E"(ptr no
   %57 = getelementptr inbounds i8, ptr %52, i64 80
   %58 = load ptr, ptr %57, align 8, !noundef !42
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %..thread150_crit_edge, label %64
+  br i1 %59, label %..thread_crit_edge, label %64
 
-..thread150_crit_edge:                            ; preds = %56
+..thread_crit_edge:                               ; preds = %56
   %.phi.trans.insert263 = getelementptr inbounds i8, ptr %52, i64 32
   %.pre264 = load i64, ptr %.phi.trans.insert263, align 8, !alias.scope !1506, !noalias !1509
-  br label %.thread150
+  br label %.thread
 
 60:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %25)
@@ -10823,13 +10823,13 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17hc6e79adfb73f9eb9E"(ptr no
   %67 = load i64, ptr %66, align 8, !noundef !42
   %68 = load i64, ptr %65, align 8, !noundef !42
   %69 = icmp ult i64 %67, %68
-  br i1 %69, label %.thread150, label %70
+  br i1 %69, label %.thread, label %70
 
 70:                                               ; preds = %64
   br i1 %3, label %82, label %98
 
-.thread150:                                       ; preds = %..thread150_crit_edge, %64
-  %71 = phi i64 [ %.pre264, %..thread150_crit_edge ], [ %67, %64 ]
+.thread:                                          ; preds = %..thread_crit_edge, %64
+  %71 = phi i64 [ %.pre264, %..thread_crit_edge ], [ %67, %64 ]
   %72 = getelementptr inbounds i8, ptr %52, i64 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
@@ -10839,7 +10839,7 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17hc6e79adfb73f9eb9E"(ptr no
   %76 = icmp eq i64 %71, %75
   br i1 %76, label %77, label %161
 
-77:                                               ; preds = %.thread150
+77:                                               ; preds = %.thread
   invoke void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4grow17ha5269ca1e1786423E.llvm.3062767651664570529"(ptr noalias noundef nonnull align 8 dereferenceable(32) %72)
           to label %._crit_edge.i unwind label %78, !noalias !1509
 
@@ -11117,9 +11117,9 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #38
   unreachable
 
-161:                                              ; preds = %.thread150, %._crit_edge.i
-  %162 = phi i64 [ %.pre6.i, %._crit_edge.i ], [ %75, %.thread150 ]
-  %163 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %71, %.thread150 ]
+161:                                              ; preds = %.thread, %._crit_edge.i
+  %162 = phi i64 [ %.pre6.i, %._crit_edge.i ], [ %75, %.thread ]
+  %163 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %71, %.thread ]
   %164 = getelementptr inbounds i8, ptr %52, i64 24
   %165 = load i64, ptr %164, align 8, !alias.scope !1506, !noalias !1509, !noundef !42
   %166 = add i64 %165, %163
@@ -11592,7 +11592,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22)
   br label %.loopexit.thread
 
-.thread:                                          ; preds = %360
+.thread265:                                       ; preds = %360
   %lpad.loopexit204 = landingpad { ptr, i32 }
           cleanup
   br label %.thread156
@@ -11637,7 +11637,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
 360:                                              ; preds = %357
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h3efc33d9b1574fd8E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24)
-          to label %"_ZN4core3ptr194drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h08883f17d94aa2caE.exit123" unwind label %.thread
+          to label %"_ZN4core3ptr194drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h08883f17d94aa2caE.exit123" unwind label %.thread265
 
 "_ZN4core3ptr194drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h08883f17d94aa2caE.exit123": ; preds = %357, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h49016869a93ea856E.exit", %360
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
@@ -11654,9 +11654,9 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.14133294462695460135.exit.t
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$17h405aefef51c28a40E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %22) #37
           to label %.body97 unwind label %159
 
-.thread156:                                       ; preds = %.thread, %.body90, %172
-  %.pn58161 = phi { ptr, i32 } [ %.pn58, %172 ], [ %eh.lpad-body91, %.body90 ], [ %lpad.loopexit204, %.thread ]
-  %.555160 = phi i8 [ %.555, %172 ], [ 1, %.body90 ], [ 1, %.thread ]
+.thread156:                                       ; preds = %.thread265, %.body90, %172
+  %.pn58161 = phi { ptr, i32 } [ %.pn58, %172 ], [ %eh.lpad-body91, %.body90 ], [ %lpad.loopexit204, %.thread265 ]
+  %.555160 = phi i8 [ %.555, %172 ], [ 1, %.body90 ], [ 1, %.thread265 ]
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17h49016869a93ea856E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %25) #37
           to label %.body68 unwind label %159
 

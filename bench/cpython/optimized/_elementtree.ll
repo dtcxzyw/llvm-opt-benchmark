@@ -12376,34 +12376,25 @@ Py_XDECREF.exit177.i:                             ; preds = %if.then1.i.i176.i, 
 
 sub_0.i:                                          ; preds = %if.else133.i
   %71 = load i8, ptr %event_name.0200.i, align 1
-  %72 = zext i8 %71 to i32
-  %73 = add nsw i32 %72, -112
-  %.not.i = icmp eq i32 %73, 0
-  br i1 %.not.i, label %sub_1.i, label %if.else145.tail.i
+  %.not.i = icmp eq i8 %71, 112
+  br i1 %.not.i, label %sub_1.i, label %if.else157.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %74 = getelementptr inbounds i8, ptr %event_name.0200.i, i64 1
+  %72 = getelementptr inbounds i8, ptr %event_name.0200.i, i64 1
+  %73 = load i8, ptr %72, align 1
+  %.not201.i = icmp eq i8 %73, 105
+  br i1 %.not201.i, label %if.else145.tail.i, label %if.else157.i
+
+if.else145.tail.i:                                ; preds = %sub_1.i
+  %74 = getelementptr inbounds i8, ptr %event_name.0200.i, i64 2
   %75 = load i8, ptr %74, align 1
-  %76 = zext i8 %75 to i32
-  %77 = add nsw i32 %76, -105
-  %.not201.i = icmp eq i32 %77, 0
-  br i1 %.not201.i, label %sub_2.i, label %if.else145.tail.i
-
-sub_2.i:                                          ; preds = %sub_1.i
-  %78 = getelementptr inbounds i8, ptr %event_name.0200.i, i64 2
-  %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i32
-  br label %if.else145.tail.i
-
-if.else145.tail.i:                                ; preds = %sub_2.i, %sub_1.i, %sub_0.i
-  %81 = phi i32 [ %73, %sub_0.i ], [ %77, %sub_1.i ], [ %80, %sub_2.i ]
-  %cmp147.i = icmp eq i32 %81, 0
-  br i1 %cmp147.i, label %do.body149.i, label %if.else157.i
+  %76 = icmp eq i8 %75, 0
+  br i1 %76, label %do.body149.i, label %if.else157.i
 
 do.body149.i:                                     ; preds = %if.else145.tail.i
-  %82 = load ptr, ptr %pi_event_obj.i, align 8
-  %83 = load i32, ptr %cond74.i, align 8
-  %add.i.i178.i = add i32 %83, 1
+  %77 = load ptr, ptr %pi_event_obj.i, align 8
+  %78 = load i32, ptr %cond74.i, align 8
+  %add.i.i178.i = add i32 %78, 1
   %cmp.i.i179.i = icmp eq i32 %add.i.i178.i, 0
   br i1 %cmp.i.i179.i, label %_Py_NewRef.exit181.i, label %if.end.i.i180.i
 
@@ -12413,41 +12404,41 @@ if.end.i.i180.i:                                  ; preds = %do.body149.i
 
 _Py_NewRef.exit181.i:                             ; preds = %if.end.i.i180.i, %do.body149.i
   store ptr %cond74.i, ptr %pi_event_obj.i, align 8
-  %cmp.not.i182.i = icmp eq ptr %82, null
+  %cmp.not.i182.i = icmp eq ptr %77, null
   br i1 %cmp.not.i182.i, label %Py_XDECREF.exit190.i, label %if.then.i183.i
 
 if.then.i183.i:                                   ; preds = %_Py_NewRef.exit181.i
-  %84 = load i64, ptr %82, align 8
-  %85 = and i64 %84, 2147483648
-  %cmp.i2.not.i184.i = icmp eq i64 %85, 0
+  %79 = load i64, ptr %77, align 8
+  %80 = and i64 %79, 2147483648
+  %cmp.i2.not.i184.i = icmp eq i64 %80, 0
   br i1 %cmp.i2.not.i184.i, label %if.end.i.i186.i, label %Py_XDECREF.exit190.i
 
 if.end.i.i186.i:                                  ; preds = %if.then.i183.i
-  %dec.i.i187.i = add i64 %84, -1
-  store i64 %dec.i.i187.i, ptr %82, align 8
+  %dec.i.i187.i = add i64 %79, -1
+  store i64 %dec.i.i187.i, ptr %77, align 8
   %cmp.i.i188.i = icmp eq i64 %dec.i.i187.i, 0
   br i1 %cmp.i.i188.i, label %if.then1.i.i189.i, label %Py_XDECREF.exit190.i
 
 if.then1.i.i189.i:                                ; preds = %if.end.i.i186.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %82) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %77) #11
   br label %Py_XDECREF.exit190.i
 
 Py_XDECREF.exit190.i:                             ; preds = %if.then1.i.i189.i, %if.end.i.i186.i, %if.then.i183.i, %_Py_NewRef.exit181.i
-  %86 = load ptr, ptr %expat_capi155.i, align 8
-  %SetProcessingInstructionHandler.i = getelementptr inbounds i8, ptr %86, i64 120
-  %87 = load ptr, ptr %SetProcessingInstructionHandler.i, align 8
-  %88 = load ptr, ptr %parser156.i, align 8
-  tail call void %87(ptr noundef %88, ptr noundef nonnull @expat_pi_handler) #11
+  %81 = load ptr, ptr %expat_capi155.i, align 8
+  %SetProcessingInstructionHandler.i = getelementptr inbounds i8, ptr %81, i64 120
+  %82 = load ptr, ptr %SetProcessingInstructionHandler.i, align 8
+  %83 = load ptr, ptr %parser156.i, align 8
+  tail call void %82(ptr noundef %83, ptr noundef nonnull @expat_pi_handler) #11
   br label %for.inc.i
 
-if.else157.i:                                     ; preds = %if.else145.tail.i
-  %89 = load i64, ptr %call56.i, align 8
-  %90 = and i64 %89, 2147483648
-  %cmp.i265.not.i = icmp eq i64 %90, 0
+if.else157.i:                                     ; preds = %if.else145.tail.i, %sub_1.i, %sub_0.i
+  %84 = load i64, ptr %call56.i, align 8
+  %85 = and i64 %84, 2147483648
+  %cmp.i265.not.i = icmp eq i64 %85, 0
   br i1 %cmp.i265.not.i, label %if.end.i168.i, label %Py_DECREF.exit173.i
 
 if.end.i168.i:                                    ; preds = %if.else157.i
-  %dec.i169.i = add i64 %89, -1
+  %dec.i169.i = add i64 %84, -1
   store i64 %dec.i169.i, ptr %call56.i, align 8
   %cmp.i170.i = icmp eq i64 %dec.i169.i, 0
   br i1 %cmp.i170.i, label %if.then1.i171.i, label %Py_DECREF.exit173.i
@@ -12457,8 +12448,8 @@ if.then1.i171.i:                                  ; preds = %if.end.i168.i
   br label %Py_DECREF.exit173.i
 
 Py_DECREF.exit173.i:                              ; preds = %if.then1.i171.i, %if.end.i168.i, %if.else157.i
-  %91 = load ptr, ptr @PyExc_ValueError, align 8
-  %call158.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %91, ptr noundef nonnull @.str.114, ptr noundef nonnull %event_name.0200.i) #11
+  %86 = load ptr, ptr @PyExc_ValueError, align 8
+  %call158.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %86, ptr noundef nonnull @.str.114, ptr noundef nonnull %event_name.0200.i) #11
   br label %exit
 
 for.inc.i:                                        ; preds = %Py_XDECREF.exit190.i, %Py_XDECREF.exit177.i, %Py_XDECREF.exit164.i, %Py_XDECREF.exit151.i, %if.then1.i.i137.i, %if.end.i.i134.i, %if.then.i131.i, %_Py_NewRef.exit129.i, %if.then1.i.i124.i, %if.end.i.i121.i, %if.then.i118.i, %_Py_NewRef.exit.i
@@ -12466,13 +12457,13 @@ for.inc.i:                                        ; preds = %Py_XDECREF.exit190.
   br label %for.cond.i, !llvm.loop !32
 
 for.end.i:                                        ; preds = %cond.end.thread.i, %cond.end.i
-  %92 = load i64, ptr %call56.i, align 8
-  %93 = and i64 %92, 2147483648
-  %cmp.i269.not.i = icmp eq i64 %93, 0
+  %87 = load i64, ptr %call56.i, align 8
+  %88 = and i64 %87, 2147483648
+  %cmp.i269.not.i = icmp eq i64 %88, 0
   br i1 %cmp.i269.not.i, label %if.end.i.i, label %exit
 
 if.end.i.i:                                       ; preds = %for.end.i
-  %dec.i.i = add i64 %92, -1
+  %dec.i.i = add i64 %87, -1
   store i64 %dec.i.i, ptr %call56.i, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %exit

@@ -3296,58 +3296,53 @@ if.then15.i:                                      ; preds = %land.lhs.true.i
   br i1 %cmp18.not.i, label %if.end22.i, label %error.i
 
 if.end22.i:                                       ; preds = %if.then15.i, %land.lhs.true.i, %if.end6.i
-  %call2522.i = call ptr @PyEval_SaveThread() #7
-  %conv2623.i = trunc i64 %call1.i to i32
-  %add24.i = add i32 %conv2623.i, 1
-  %call2725.i = call i32 @sqlite3_prepare_v2(ptr noundef %18, ptr noundef nonnull %call2, i32 noundef %add24.i, ptr noundef nonnull %stmt.i, ptr noundef nonnull %tail.i) #7
-  %cmp2826.i = icmp eq i32 %call2725.i, 0
-  br i1 %cmp2826.i, label %do.body.preheader.i, label %if.end35.thread.i
+  %call2520.i = call ptr @PyEval_SaveThread() #7
+  %conv2621.i = trunc i64 %call1.i to i32
+  %add22.i = add i32 %conv2621.i, 1
+  %call2723.i = call i32 @sqlite3_prepare_v2(ptr noundef %18, ptr noundef nonnull %call2, i32 noundef %add22.i, ptr noundef nonnull %stmt.i, ptr noundef nonnull %tail.i) #7
+  %cmp2824.i = icmp eq i32 %call2723.i, 0
+  br i1 %cmp2824.i, label %do.body.preheader.i, label %error.critedge.i
 
 do.body.preheader.i:                              ; preds = %if.end22.i, %if.end44.i
-  %call2529.i = phi ptr [ %call25.i, %if.end44.i ], [ %call2522.i, %if.end22.i ]
-  %sql_script.addr.028.i = phi ptr [ %22, %if.end44.i ], [ %call2, %if.end22.i ]
-  %sql_len.027.i = phi i64 [ %sub.i, %if.end44.i ], [ %call1.i, %if.end22.i ]
+  %call2527.i = phi ptr [ %call25.i, %if.end44.i ], [ %call2520.i, %if.end22.i ]
+  %sql_script.addr.026.i = phi ptr [ %23, %if.end44.i ], [ %call2, %if.end22.i ]
+  %sql_len.025.i = phi i64 [ %sub.i, %if.end44.i ], [ %call1.i, %if.end22.i ]
   br label %do.body.i
-
-if.end35.thread.i:                                ; preds = %if.end44.i, %if.end22.i
-  %call25.lcssa.i = phi ptr [ %call2522.i, %if.end22.i ], [ %call25.i, %if.end44.i ]
-  call void @PyEval_RestoreThread(ptr noundef %call25.lcssa.i) #7
-  br label %error.i
 
 do.body.i:                                        ; preds = %do.body.i, %do.body.preheader.i
   %20 = load ptr, ptr %stmt.i, align 8
   %call31.i = call i32 @sqlite3_step(ptr noundef %20) #7
   %cmp32.i = icmp eq i32 %call31.i, 100
-  br i1 %cmp32.i, label %do.body.i, label %if.end35.i, !llvm.loop !12
+  br i1 %cmp32.i, label %do.body.i, label %do.end.i, !llvm.loop !12
 
-if.end35.i:                                       ; preds = %do.body.i
+do.end.i:                                         ; preds = %do.body.i
   %21 = load ptr, ptr %stmt.i, align 8
   %call34.i = call i32 @sqlite3_finalize(ptr noundef %21) #7
-  call void @PyEval_RestoreThread(ptr noundef %call2529.i) #7
-  %cmp36.not.i = icmp eq i32 %call34.i, 0
-  br i1 %cmp36.not.i, label %if.end39.i, label %error.i
+  %22 = icmp eq i32 %call34.i, 0
+  call void @PyEval_RestoreThread(ptr noundef %call2527.i) #7
+  br i1 %22, label %if.end39.i, label %error.i
 
-if.end39.i:                                       ; preds = %if.end35.i
-  %22 = load ptr, ptr %tail.i, align 8
-  %23 = load i8, ptr %22, align 1
-  %cmp41.i = icmp eq i8 %23, 0
+if.end39.i:                                       ; preds = %do.end.i
+  %23 = load ptr, ptr %tail.i, align 8
+  %24 = load i8, ptr %23, align 1
+  %cmp41.i = icmp eq i8 %24, 0
   br i1 %cmp41.i, label %while.end.i, label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.end39.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %22 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %sql_script.addr.028.i to i64
-  %sub.ptr.sub.neg.i = add i64 %sql_len.027.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %sql_script.addr.026.i to i64
+  %sub.ptr.sub.neg.i = add i64 %sql_len.025.i, %sub.ptr.rhs.cast.i
   %sub.i = sub i64 %sub.ptr.sub.neg.i, %sub.ptr.lhs.cast.i
   %call25.i = call ptr @PyEval_SaveThread() #7
   %conv26.i = trunc i64 %sub.i to i32
   %add.i = add i32 %conv26.i, 1
-  %call27.i = call i32 @sqlite3_prepare_v2(ptr noundef %18, ptr noundef nonnull %22, i32 noundef %add.i, ptr noundef nonnull %stmt.i, ptr noundef nonnull %tail.i) #7
+  %call27.i = call i32 @sqlite3_prepare_v2(ptr noundef %18, ptr noundef nonnull %23, i32 noundef %add.i, ptr noundef nonnull %stmt.i, ptr noundef nonnull %tail.i) #7
   %cmp28.i = icmp eq i32 %call27.i, 0
-  br i1 %cmp28.i, label %do.body.preheader.i, label %if.end35.thread.i
+  br i1 %cmp28.i, label %do.body.preheader.i, label %error.critedge.i
 
 while.end.i:                                      ; preds = %if.end39.i
-  %24 = load i32, ptr %self, align 8
-  %add.i.i.i = add i32 %24, 1
+  %25 = load i32, ptr %self, align 8
+  %add.i.i.i = add i32 %25, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i, label %pysqlite_cursor_executescript_impl.exit, label %if.end.i.i.i
 
@@ -3355,11 +3350,16 @@ if.end.i.i.i:                                     ; preds = %while.end.i
   store i32 %add.i.i.i, ptr %self, align 8
   br label %pysqlite_cursor_executescript_impl.exit
 
-error.i:                                          ; preds = %if.end35.i, %if.end35.thread.i, %if.then15.i
-  %25 = load ptr, ptr %connection7.i.i, align 8
-  %state.i = getelementptr inbounds i8, ptr %25, i64 24
-  %26 = load ptr, ptr %state.i, align 8
-  %call47.i = call i32 @_pysqlite_seterror(ptr noundef %26, ptr noundef %18) #7
+error.critedge.i:                                 ; preds = %if.end44.i, %if.end22.i
+  %call25.lcssa.i = phi ptr [ %call2520.i, %if.end22.i ], [ %call25.i, %if.end44.i ]
+  call void @PyEval_RestoreThread(ptr noundef %call25.lcssa.i) #7
+  br label %error.i
+
+error.i:                                          ; preds = %do.end.i, %error.critedge.i, %if.then15.i
+  %26 = load ptr, ptr %connection7.i.i, align 8
+  %state.i = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = load ptr, ptr %state.i, align 8
+  %call47.i = call i32 @_pysqlite_seterror(ptr noundef %27, ptr noundef %18) #7
   br label %pysqlite_cursor_executescript_impl.exit
 
 pysqlite_cursor_executescript_impl.exit:          ; preds = %if.end6.i.i, %land.lhs.true.i.i, %return.sink.split.i.i, %if.then4.i, %while.end.i, %if.end.i.i.i, %error.i

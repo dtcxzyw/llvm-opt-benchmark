@@ -84,7 +84,7 @@ define hidden void @_ZN8NodeHashC2EP5Arenaj(ptr nocapture noundef nonnull align 
   %10 = sub nuw nsw i32 32, %9
   %11 = shl nuw i32 1, %10
   %.0.i.i = select i1 %or.cond.i.i, i32 %7, i32 %11
-  %12 = tail call noundef i32 @llvm.umax.i32(i32 %.0.i.i, i32 16)
+  %12 = tail call noundef range(i32 16, 0) i32 @llvm.umax.i32(i32 %.0.i.i, i32 16)
   store i32 %12, ptr %4, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %13, align 4
@@ -176,7 +176,7 @@ _ZN4NodenwEm.exit:                                ; preds = %46, %48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN8NodeHash8round_upEj(i32 noundef %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 16, 0) i32 @_ZN8NodeHash8round_upEj(i32 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = lshr i32 %0, 2
   %3 = add i32 %2, %0
   %4 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %3)
@@ -3885,10 +3885,13 @@ define hidden void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnul
   %.not71 = icmp eq i32 %25, 0
   br i1 %.not71, label %._crit_edge.split.us.us, label %.lr.ph.us
 
-._crit_edge.split.us.us:                          ; preds = %53, %.lr.ph66.split.us
-  %.044.lcssa.us = phi i32 [ 0, %.lr.ph66.split.us ], [ %.1.us.us, %53 ]
-  %26 = zext i32 %.044.lcssa.us to i64
-  %27 = sub nsw i64 0, %26
+._crit_edge.split.us.us.loopexit:                 ; preds = %53
+  %26 = zext i32 %.1.us.us to i64
+  br label %._crit_edge.split.us.us
+
+._crit_edge.split.us.us:                          ; preds = %._crit_edge.split.us.us.loopexit, %.lr.ph66.split.us
+  %.044.lcssa.us = phi i64 [ 0, %.lr.ph66.split.us ], [ %26, %._crit_edge.split.us.us.loopexit ]
+  %27 = sub nsw i64 0, %.044.lcssa.us
   %28 = getelementptr inbounds ptr, ptr %.064.us, i64 %27
   %.not.us = icmp ult ptr %28, %14
   br i1 %.not.us, label %._crit_edge67, label %.lr.ph66.split.us, !llvm.loop !27
@@ -3945,7 +3948,7 @@ _ZN4Node7del_outEPS_.exit.i.us.us:                ; preds = %47, %35
   %.1.us.us = phi i32 [ %52, %_ZN4Node7del_outEPS_.exit.i.us.us ], [ %.04462.us.us, %30 ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge.split.us.us, label %30, !llvm.loop !29
+  br i1 %exitcond80.not, label %._crit_edge.split.us.us.loopexit, label %30, !llvm.loop !29
 
 .lr.ph66.split:                                   ; preds = %.lr.ph66, %._crit_edge.split
   %.064 = phi ptr [ %97, %._crit_edge.split ], [ %19, %.lr.ph66 ]
@@ -4035,12 +4038,15 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
   %.1 = phi i32 [ %93, %_ZN4Node7set_reqEjPS_.exit ], [ %.04462, %58 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %58, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.split.loopexit, label %58, !llvm.loop !29
 
-._crit_edge.split:                                ; preds = %94, %.lr.ph66.split
-  %.044.lcssa = phi i32 [ 0, %.lr.ph66.split ], [ %.1, %94 ]
-  %95 = zext i32 %.044.lcssa to i64
-  %96 = sub nsw i64 0, %95
+._crit_edge.split.loopexit:                       ; preds = %94
+  %95 = zext i32 %.1 to i64
+  br label %._crit_edge.split
+
+._crit_edge.split:                                ; preds = %._crit_edge.split.loopexit, %.lr.ph66.split
+  %.044.lcssa = phi i64 [ 0, %.lr.ph66.split ], [ %95, %._crit_edge.split.loopexit ]
+  %96 = sub nsw i64 0, %.044.lcssa
   %97 = getelementptr inbounds ptr, ptr %.064, i64 %96
   %.not = icmp ult ptr %97, %14
   br i1 %.not, label %._crit_edge67, label %.lr.ph66.split, !llvm.loop !27
@@ -11175,12 +11181,15 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %99, %_ZN4Node7del_o
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %108 = zext i32 %107 to i64
   %109 = icmp ult i64 %indvars.iv.next, %108
-  br i1 %109, label %21, label %._crit_edge, !llvm.loop !73
+  br i1 %109, label %21, label %._crit_edge.loopexit, !llvm.loop !73
 
-._crit_edge:                                      ; preds = %106, %15
-  %.018.lcssa = phi i32 [ 0, %15 ], [ %.1, %106 ]
-  %110 = zext i32 %.018.lcssa to i64
-  %111 = sub nsw i64 0, %110
+._crit_edge.loopexit:                             ; preds = %106
+  %110 = zext i32 %.1 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %15
+  %.018.lcssa = phi i64 [ 0, %15 ], [ %110, %._crit_edge.loopexit ]
+  %111 = sub nsw i64 0, %.018.lcssa
   %112 = getelementptr inbounds ptr, ptr %.01933, i64 %111
   %.not = icmp ult ptr %112, %4
   br i1 %.not, label %._crit_edge36, label %15, !llvm.loop !74

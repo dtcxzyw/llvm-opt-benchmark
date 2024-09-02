@@ -2740,7 +2740,7 @@ declare noundef zeroext i1 @_ZN6hermes2vm6GCBase9IDTracker13isTrackingIDsEv(ptr 
 declare void @_ZN6hermes2vm6GCBase9IDTracker13untrackSymbolEj(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @_ZN6hermes2vm15IdentifierTable26createNotUniquedLazySymbolEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr %desc.coerce0, i64 %desc.coerce1) local_unnamed_addr #0 align 2 {
+define hidden range(i32 268435456, 0) i32 @_ZN6hermes2vm15IdentifierTable26createNotUniquedLazySymbolEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr %desc.coerce0, i64 %desc.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %firstFreeID_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %firstFreeID_.i, align 8
@@ -2824,7 +2824,7 @@ _ZN6hermes2vm15IdentifierTable11allocNextIDEv.exit: ; preds = %if.then.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN6hermes2vm15IdentifierTable22createNotUniquedSymbolERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %desc.coerce) local_unnamed_addr #0 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes2vm15IdentifierTable22createNotUniquedSymbolERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %desc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %storage.i42 = alloca %"class.llvh::SmallVector", align 8
   %storage.i = alloca %"class.llvh::SmallVector", align 8

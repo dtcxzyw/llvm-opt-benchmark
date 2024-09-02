@@ -92,12 +92,12 @@ define internal fastcc i64 @calculate_database_size(i32 noundef %0) unnamed_addr
   br i1 %.not142022, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.outer
-  %17 = phi ptr [ %44, %.outer ], [ %16, %11 ]
-  %.0.ph23 = phi i64 [ %43, %.outer ], [ %13, %11 ]
+  %17 = phi ptr [ %38, %.outer ], [ %16, %11 ]
+  %.0.ph23 = phi i64 [ %37, %.outer ], [ %13, %11 ]
   br label %18
 
-18:                                               ; preds = %.lr.ph, %38
-  %19 = phi ptr [ %17, %.lr.ph ], [ %39, %38 ]
+18:                                               ; preds = %.lr.ph, %32
+  %19 = phi ptr [ %17, %.lr.ph ], [ %33, %32 ]
   %20 = load volatile i32, ptr @InterruptPending, align 4
   %.not15 = icmp eq i32 %20, 0
   br i1 %.not15, label %sub_0, label %21
@@ -109,53 +109,44 @@ define internal fastcc i64 @calculate_database_size(i32 noundef %0) unnamed_addr
 sub_0:                                            ; preds = %18, %21
   %22 = getelementptr inbounds i8, ptr %19, i64 19
   %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  %25 = add nsw i32 %24, -46
-  %.not25 = icmp eq i32 %25, 0
-  br i1 %.not25, label %.tail, label %.tail16
+  %.not25 = icmp eq i8 %23, 46
+  br i1 %.not25, label %.tail, label %.outer
 
 .tail:                                            ; preds = %sub_0
-  %26 = getelementptr inbounds i8, ptr %19, i64 20
-  %27 = load i8, ptr %26, align 1
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %38, label %sub_118
+  %24 = getelementptr inbounds i8, ptr %19, i64 20
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp eq i8 %25, 0
+  br i1 %26, label %32, label %sub_118
 
 sub_118:                                          ; preds = %.tail
-  %29 = getelementptr inbounds i8, ptr %19, i64 20
+  %27 = getelementptr inbounds i8, ptr %19, i64 20
+  %28 = load i8, ptr %27, align 1
+  %.not27 = icmp eq i8 %28, 46
+  br i1 %.not27, label %.tail16, label %.outer
+
+.tail16:                                          ; preds = %sub_118
+  %29 = getelementptr inbounds i8, ptr %19, i64 21
   %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  %32 = add nsw i32 %31, -46
-  %.not27 = icmp eq i32 %32, 0
-  br i1 %.not27, label %sub_2, label %.tail16
+  %31 = icmp eq i8 %30, 0
+  br i1 %31, label %32, label %.outer
 
-sub_2:                                            ; preds = %sub_118
-  %33 = getelementptr inbounds i8, ptr %19, i64 21
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  br label %.tail16
-
-.tail16:                                          ; preds = %sub_0, %sub_118, %sub_2
-  %36 = phi i32 [ %32, %sub_118 ], [ %35, %sub_2 ], [ %25, %sub_0 ]
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %.outer
-
-38:                                               ; preds = %.tail16, %.tail
-  %39 = call ptr @ReadDir(ptr noundef %15, ptr noundef nonnull %2) #9
-  %.not14 = icmp eq ptr %39, null
+32:                                               ; preds = %.tail16, %.tail
+  %33 = call ptr @ReadDir(ptr noundef %15, ptr noundef nonnull %2) #9
+  %.not14 = icmp eq ptr %33, null
   br i1 %.not14, label %.outer._crit_edge, label %18, !llvm.loop !5
 
-.outer:                                           ; preds = %.tail16
-  %40 = getelementptr inbounds i8, ptr %19, i64 19
-  %41 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1061, ptr noundef nonnull @.str.11, ptr noundef nonnull %40, ptr noundef nonnull @.str.12, i32 noundef %0) #9
-  %42 = call fastcc i64 @db_dir_size(ptr noundef nonnull %3)
-  %43 = add i64 %42, %.0.ph23
-  %44 = call ptr @ReadDir(ptr noundef %15, ptr noundef nonnull %2) #9
-  %.not1420 = icmp eq ptr %44, null
+.outer:                                           ; preds = %sub_0, %sub_118, %.tail16
+  %34 = getelementptr inbounds i8, ptr %19, i64 19
+  %35 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1061, ptr noundef nonnull @.str.11, ptr noundef nonnull %34, ptr noundef nonnull @.str.12, i32 noundef %0) #9
+  %36 = call fastcc i64 @db_dir_size(ptr noundef nonnull %3)
+  %37 = add i64 %36, %.0.ph23
+  %38 = call ptr @ReadDir(ptr noundef %15, ptr noundef nonnull %2) #9
+  %.not1420 = icmp eq ptr %38, null
   br i1 %.not1420, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !5
 
-.outer._crit_edge:                                ; preds = %.outer, %38, %11
-  %.0.ph.lcssa = phi i64 [ %13, %11 ], [ %.0.ph23, %38 ], [ %43, %.outer ]
-  %45 = call i32 @FreeDir(ptr noundef %15) #9
+.outer._crit_edge:                                ; preds = %.outer, %32, %11
+  %.0.ph.lcssa = phi i64 [ %13, %11 ], [ %.0.ph23, %32 ], [ %37, %.outer ]
+  %39 = call i32 @FreeDir(ptr noundef %15) #9
   ret i64 %.0.ph.lcssa
 }
 
@@ -245,7 +236,7 @@ define internal fastcc i64 @calculate_tablespace_size(i32 noundef %0) unnamed_ad
 21:                                               ; preds = %17, %19, %15
   %22 = call ptr @AllocateDir(ptr noundef nonnull %2) #9
   %.not23 = icmp eq ptr %22, null
-  br i1 %.not23, label %71, label %.preheader
+  br i1 %.not23, label %64, label %.preheader
 
 .preheader:                                       ; preds = %21
   %23 = call ptr @ReadDir(ptr noundef nonnull %22, ptr noundef nonnull %2) #9
@@ -258,12 +249,12 @@ define internal fastcc i64 @calculate_tablespace_size(i32 noundef %0) unnamed_ad
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %26 = phi ptr [ %23, %.lr.ph.lr.ph ], [ %69, %.outer ]
-  %.017.ph34 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %68, %.outer ]
+  %26 = phi ptr [ %23, %.lr.ph.lr.ph ], [ %62, %.outer ]
+  %.017.ph34 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %61, %.outer ]
   br label %27
 
 27:                                               ; preds = %.lr.ph, %.backedge
-  %28 = phi ptr [ %26, %.lr.ph ], [ %47, %.backedge ]
+  %28 = phi ptr [ %26, %.lr.ph ], [ %41, %.backedge ]
   %29 = load volatile i32, ptr @InterruptPending, align 4
   %.not25 = icmp eq i32 %29, 0
   br i1 %.not25, label %sub_0, label %30
@@ -275,86 +266,77 @@ define internal fastcc i64 @calculate_tablespace_size(i32 noundef %0) unnamed_ad
 sub_0:                                            ; preds = %27, %30
   %31 = getelementptr inbounds i8, ptr %28, i64 19
   %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i32
-  %34 = add nsw i32 %33, -46
-  %.not36 = icmp eq i32 %34, 0
-  br i1 %.not36, label %.tail, label %.tail26
+  %.not36 = icmp eq i8 %32, 46
+  br i1 %.not36, label %.tail, label %.tail26.thread
 
 .tail:                                            ; preds = %sub_0
-  %35 = getelementptr inbounds i8, ptr %28, i64 20
-  %36 = load i8, ptr %35, align 1
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %.backedge, label %sub_128
+  %33 = getelementptr inbounds i8, ptr %28, i64 20
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %.backedge, label %sub_128
 
 sub_128:                                          ; preds = %.tail
-  %38 = getelementptr inbounds i8, ptr %28, i64 20
+  %36 = getelementptr inbounds i8, ptr %28, i64 20
+  %37 = load i8, ptr %36, align 1
+  %.not38 = icmp eq i8 %37, 46
+  br i1 %.not38, label %.tail26, label %.tail26.thread
+
+.tail26:                                          ; preds = %sub_128
+  %38 = getelementptr inbounds i8, ptr %28, i64 21
   %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = add nsw i32 %40, -46
-  %.not38 = icmp eq i32 %41, 0
-  br i1 %.not38, label %sub_2, label %.tail26
+  %40 = icmp eq i8 %39, 0
+  br i1 %40, label %.backedge, label %.tail26.thread
 
-sub_2:                                            ; preds = %sub_128
-  %42 = getelementptr inbounds i8, ptr %28, i64 21
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  br label %.tail26
-
-.tail26:                                          ; preds = %sub_0, %sub_128, %sub_2
-  %45 = phi i32 [ %41, %sub_128 ], [ %44, %sub_2 ], [ %34, %sub_0 ]
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.backedge, label %48
-
-.backedge:                                        ; preds = %.tail, %.tail26, %52
-  %47 = call ptr @ReadDir(ptr noundef nonnull %22, ptr noundef nonnull %2) #9
-  %.not24 = icmp eq ptr %47, null
+.backedge:                                        ; preds = %.tail, %.tail26, %45
+  %41 = call ptr @ReadDir(ptr noundef nonnull %22, ptr noundef nonnull %2) #9
+  %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %.outer._crit_edge, label %27, !llvm.loop !7
 
-48:                                               ; preds = %.tail26
-  %49 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef nonnull @.str.13, ptr noundef nonnull %2, ptr noundef nonnull %31) #9
-  %50 = call i32 @stat(ptr noundef nonnull %3, ptr noundef nonnull %4) #9
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %60
+.tail26.thread:                                   ; preds = %sub_0, %sub_128, %.tail26
+  %42 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef nonnull @.str.13, ptr noundef nonnull %2, ptr noundef nonnull %31) #9
+  %43 = call i32 @stat(ptr noundef nonnull %3, ptr noundef nonnull %4) #9
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %45, label %53
 
-52:                                               ; preds = %48
-  %53 = tail call ptr @__errno_location() #10
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %54, 2
-  br i1 %55, label %.backedge, label %56
+45:                                               ; preds = %.tail26.thread
+  %46 = tail call ptr @__errno_location() #10
+  %47 = load i32, ptr %46, align 4
+  %48 = icmp eq i32 %47, 2
+  br i1 %48, label %.backedge, label %49
 
-56:                                               ; preds = %52
-  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %57)
-  %58 = call i32 @errcode_for_file_access() #9
-  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %3) #9
+49:                                               ; preds = %45
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %50)
+  %51 = call i32 @errcode_for_file_access() #9
+  %52 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %3) #9
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 258, ptr noundef nonnull @__func__.calculate_tablespace_size) #9
   unreachable
 
-60:                                               ; preds = %48
-  %61 = load i32, ptr %24, align 8
-  %62 = and i32 %61, 61440
-  %63 = icmp eq i32 %62, 16384
-  br i1 %63, label %64, label %.outer
+53:                                               ; preds = %.tail26.thread
+  %54 = load i32, ptr %24, align 8
+  %55 = and i32 %54, 61440
+  %56 = icmp eq i32 %55, 16384
+  br i1 %56, label %57, label %.outer
 
-64:                                               ; preds = %60
-  %65 = call fastcc i64 @db_dir_size(ptr noundef nonnull %3)
-  %66 = add i64 %65, %.017.ph34
+57:                                               ; preds = %53
+  %58 = call fastcc i64 @db_dir_size(ptr noundef nonnull %3)
+  %59 = add i64 %58, %.017.ph34
   br label %.outer
 
-.outer:                                           ; preds = %64, %60
-  %.1 = phi i64 [ %66, %64 ], [ %.017.ph34, %60 ]
-  %67 = load i64, ptr %25, align 8
-  %68 = add i64 %67, %.1
-  %69 = call ptr @ReadDir(ptr noundef nonnull %22, ptr noundef nonnull %2) #9
-  %.not2431 = icmp eq ptr %69, null
+.outer:                                           ; preds = %57, %53
+  %.1 = phi i64 [ %59, %57 ], [ %.017.ph34, %53 ]
+  %60 = load i64, ptr %25, align 8
+  %61 = add i64 %60, %.1
+  %62 = call ptr @ReadDir(ptr noundef nonnull %22, ptr noundef nonnull %2) #9
+  %.not2431 = icmp eq ptr %62, null
   br i1 %.not2431, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
-  %.017.ph.lcssa30 = phi i64 [ 0, %.preheader ], [ %.017.ph34, %.backedge ], [ %68, %.outer ]
-  %70 = call i32 @FreeDir(ptr noundef nonnull %22) #9
-  br label %71
+  %.017.ph.lcssa30 = phi i64 [ 0, %.preheader ], [ %.017.ph34, %.backedge ], [ %61, %.outer ]
+  %63 = call i32 @FreeDir(ptr noundef nonnull %22) #9
+  br label %64
 
-71:                                               ; preds = %21, %.outer._crit_edge
+64:                                               ; preds = %21, %.outer._crit_edge
   %.0 = phi i64 [ %.017.ph.lcssa30, %.outer._crit_edge ], [ -1, %21 ]
   ret i64 %.0
 }
@@ -1545,7 +1527,7 @@ define internal fastcc i64 @db_dir_size(ptr noundef %0) unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = tail call ptr @AllocateDir(ptr noundef %0) #9
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %45, label %.preheader
+  br i1 %.not, label %38, label %.preheader
 
 .preheader:                                       ; preds = %1
   %5 = tail call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef %0) #9
@@ -1557,12 +1539,12 @@ define internal fastcc i64 @db_dir_size(ptr noundef %0) unnamed_addr #0 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %7 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %43, %.outer ]
-  %.011.ph23 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %42, %.outer ]
+  %7 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %36, %.outer ]
+  %.011.ph23 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %35, %.outer ]
   br label %8
 
 8:                                                ; preds = %.lr.ph, %.backedge
-  %9 = phi ptr [ %7, %.lr.ph ], [ %28, %.backedge ]
+  %9 = phi ptr [ %7, %.lr.ph ], [ %22, %.backedge ]
   %10 = load volatile i32, ptr @InterruptPending, align 4
   %.not14 = icmp eq i32 %10, 0
   br i1 %.not14, label %sub_0, label %11
@@ -1574,74 +1556,65 @@ define internal fastcc i64 @db_dir_size(ptr noundef %0) unnamed_addr #0 {
 sub_0:                                            ; preds = %8, %11
   %12 = getelementptr inbounds i8, ptr %9, i64 19
   %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  %15 = add nsw i32 %14, -46
-  %.not25 = icmp eq i32 %15, 0
-  br i1 %.not25, label %.tail, label %.tail15
+  %.not25 = icmp eq i8 %13, 46
+  br i1 %.not25, label %.tail, label %.tail15.thread
 
 .tail:                                            ; preds = %sub_0
-  %16 = getelementptr inbounds i8, ptr %9, i64 20
-  %17 = load i8, ptr %16, align 1
-  %18 = icmp eq i8 %17, 0
-  br i1 %18, label %.backedge, label %sub_117
+  %14 = getelementptr inbounds i8, ptr %9, i64 20
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %.backedge, label %sub_117
 
 sub_117:                                          ; preds = %.tail
-  %19 = getelementptr inbounds i8, ptr %9, i64 20
+  %17 = getelementptr inbounds i8, ptr %9, i64 20
+  %18 = load i8, ptr %17, align 1
+  %.not27 = icmp eq i8 %18, 46
+  br i1 %.not27, label %.tail15, label %.tail15.thread
+
+.tail15:                                          ; preds = %sub_117
+  %19 = getelementptr inbounds i8, ptr %9, i64 21
   %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  %22 = add nsw i32 %21, -46
-  %.not27 = icmp eq i32 %22, 0
-  br i1 %.not27, label %sub_2, label %.tail15
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %.backedge, label %.tail15.thread
 
-sub_2:                                            ; preds = %sub_117
-  %23 = getelementptr inbounds i8, ptr %9, i64 21
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  br label %.tail15
-
-.tail15:                                          ; preds = %sub_0, %sub_117, %sub_2
-  %26 = phi i32 [ %22, %sub_117 ], [ %25, %sub_2 ], [ %15, %sub_0 ]
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.backedge, label %29
-
-.backedge:                                        ; preds = %.tail, %.tail15, %33
-  %28 = call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef %0) #9
-  %.not13 = icmp eq ptr %28, null
+.backedge:                                        ; preds = %.tail, %.tail15, %26
+  %22 = call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef %0) #9
+  %.not13 = icmp eq ptr %22, null
   br i1 %.not13, label %.outer._crit_edge, label %8, !llvm.loop !18
 
-29:                                               ; preds = %.tail15
-  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 2048, ptr noundef nonnull @.str.13, ptr noundef %0, ptr noundef nonnull %12) #9
-  %31 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #9
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %33, label %.outer
+.tail15.thread:                                   ; preds = %sub_0, %sub_117, %.tail15
+  %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 2048, ptr noundef nonnull @.str.13, ptr noundef %0, ptr noundef nonnull %12) #9
+  %24 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %26, label %.outer
 
-33:                                               ; preds = %29
-  %34 = tail call ptr @__errno_location() #10
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %35, 2
-  br i1 %36, label %.backedge, label %37
+26:                                               ; preds = %.tail15.thread
+  %27 = tail call ptr @__errno_location() #10
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp eq i32 %28, 2
+  br i1 %29, label %.backedge, label %30
 
-37:                                               ; preds = %33
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %38)
-  %39 = call i32 @errcode_for_file_access() #9
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %2) #9
+30:                                               ; preds = %26
+  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %31)
+  %32 = call i32 @errcode_for_file_access() #9
+  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %2) #9
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 106, ptr noundef nonnull @__func__.db_dir_size) #9
   unreachable
 
-.outer:                                           ; preds = %29
-  %41 = load i64, ptr %6, align 8
-  %42 = add i64 %41, %.011.ph23
-  %43 = call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef %0) #9
-  %.not1320 = icmp eq ptr %43, null
+.outer:                                           ; preds = %.tail15.thread
+  %34 = load i64, ptr %6, align 8
+  %35 = add i64 %34, %.011.ph23
+  %36 = call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef %0) #9
+  %.not1320 = icmp eq ptr %36, null
   br i1 %.not1320, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !18
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
-  %.011.ph.lcssa19 = phi i64 [ 0, %.preheader ], [ %.011.ph23, %.backedge ], [ %42, %.outer ]
-  %44 = call i32 @FreeDir(ptr noundef nonnull %4) #9
-  br label %45
+  %.011.ph.lcssa19 = phi i64 [ 0, %.preheader ], [ %.011.ph23, %.backedge ], [ %35, %.outer ]
+  %37 = call i32 @FreeDir(ptr noundef nonnull %4) #9
+  br label %38
 
-45:                                               ; preds = %1, %.outer._crit_edge
+38:                                               ; preds = %1, %.outer._crit_edge
   %.0 = phi i64 [ %.011.ph.lcssa19, %.outer._crit_edge ], [ 0, %1 ]
   ret i64 %.0
 }

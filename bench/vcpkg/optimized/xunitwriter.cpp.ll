@@ -670,7 +670,7 @@ define dso_local void @_ZNK5vcpkg11XunitWriter9build_xmlB5cxx11ENS_7TripletE(ptr
   %51 = add nsw i64 %50, %.sroa.0130.0150
   %52 = getelementptr inbounds i8, ptr %.sroa.0127.0149, i64 176
   %.not138 = icmp eq ptr %52, %48
-  br i1 %.not138, label %._crit_edge, label %.lr.ph
+  br i1 %.not138, label %._crit_edge.loopexit, label %.lr.ph
 
 .loopexit140:                                     ; preds = %._crit_edge
   %lpad.loopexit142 = landingpad { ptr, i32 }
@@ -682,10 +682,13 @@ define dso_local void @_ZNK5vcpkg11XunitWriter9build_xmlB5cxx11ENS_7TripletE(ptr
           cleanup
   br label %202
 
-._crit_edge:                                      ; preds = %.lr.ph, %43
-  %.sroa.0130.0.lcssa = phi i64 [ 0, %43 ], [ %51, %.lr.ph ]
-  %53 = sdiv i64 %.sroa.0130.0.lcssa, 1000000000
-  store i64 %53, ptr %19, align 16, !noalias !13
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %53 = sdiv i64 %51, 1000000000
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %43
+  %.sroa.0130.0.lcssa = phi i64 [ 0, %43 ], [ %53, %._crit_edge.loopexit ]
+  store i64 %.sroa.0130.0.lcssa, ptr %19, align 16, !noalias !13
   invoke void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr nonnull @.str.3, i64 2, i64 3, ptr nonnull %19)
           to label %54 unwind label %.loopexit140
 

@@ -834,7 +834,7 @@ if.then:                                          ; preds = %entry
   br label %if.end20
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %3 = phi i16 [ %1, %for.body.lr.ph ], [ %22, %for.inc ]
+  %3 = phi i16 [ %1, %for.body.lr.ph ], [ %23, %for.inc ]
   %i.014 = phi i16 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
   %4 = load ptr, ptr %m_pEdges, align 8
   %idxprom4 = zext i16 %i.014 to i64
@@ -867,52 +867,52 @@ cond.false.i:                                     ; preds = %lor.lhs.false.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %lor.lhs.false.i, %if.then7
-  %cond.i = phi i1 [ true, %cond.false.i ], [ false, %lor.lhs.false.i ], [ false, %if.then7 ]
-  %13 = load float, ptr %arrayidx.i.i, align 4
+  %13 = phi i1 [ false, %cond.false.i ], [ true, %lor.lhs.false.i ], [ true, %if.then7 ]
+  %14 = load float, ptr %arrayidx.i.i, align 4
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 44
-  %14 = load float, ptr %arrayidx.i12.i, align 4
-  %cmp7.i = fcmp ogt float %13, %14
+  %15 = load float, ptr %arrayidx.i12.i, align 4
+  %cmp7.i = fcmp ogt float %14, %15
   br i1 %cmp7.i, label %cond.end15.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %cond.end.i
-  %15 = load float, ptr %arrayidx.i13.i, align 4
+  %16 = load float, ptr %arrayidx.i13.i, align 4
   %arrayidx.i14.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 28
-  %16 = load float, ptr %arrayidx.i14.i, align 4
-  %cmp11.i = fcmp olt float %15, %16
+  %17 = load float, ptr %arrayidx.i14.i, align 4
+  %cmp11.i = fcmp olt float %16, %17
   br i1 %cmp11.i, label %cond.end15.i, label %cond.false13.i
 
 cond.false13.i:                                   ; preds = %lor.lhs.false8.i
   br label %cond.end15.i
 
 cond.end15.i:                                     ; preds = %cond.false13.i, %lor.lhs.false8.i, %cond.end.i
-  %cond16.i = phi i1 [ %cond.i, %cond.false13.i ], [ false, %lor.lhs.false8.i ], [ false, %cond.end.i ]
-  %17 = load float, ptr %arrayidx.i15.i, align 4
+  %cond16.i = phi i1 [ %13, %cond.false13.i ], [ true, %lor.lhs.false8.i ], [ true, %cond.end.i ]
+  %18 = load float, ptr %arrayidx.i15.i, align 4
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
-  %18 = load float, ptr %arrayidx.i16.i, align 4
-  %cmp20.i = fcmp ogt float %17, %18
+  %19 = load float, ptr %arrayidx.i16.i, align 4
+  %cmp20.i = fcmp ogt float %18, %19
   br i1 %cmp20.i, label %for.inc, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %cond.end15.i
-  %19 = load float, ptr %arrayidx.i17.i, align 4
+  %20 = load float, ptr %arrayidx.i17.i, align 4
   %arrayidx.i18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
-  %20 = load float, ptr %arrayidx.i18.i, align 4
-  %cmp24.i = fcmp uge float %19, %20
-  %brmerge.not = and i1 %cond16.i, %cmp24.i
-  br i1 %brmerge.not, label %if.then15, label %for.inc
+  %21 = load float, ptr %arrayidx.i18.i, align 4
+  %cmp24.i = fcmp olt float %20, %21
+  %brmerge = or i1 %cond16.i, %cmp24.i
+  br i1 %brmerge, label %for.inc, label %if.then15
 
 if.then15:                                        ; preds = %lor.lhs.false21.i
   %vtable16 = load ptr, ptr %callback, align 8
   %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 16
-  %21 = load ptr, ptr %vfn17, align 8
-  %call18 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %add.ptr.i)
+  %22 = load ptr, ptr %vfn17, align 8
+  %call18 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %add.ptr.i)
   %.pre = load i16, ptr %m_numHandles, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false21.i, %cond.end15.i, %for.body, %if.then15
-  %22 = phi i16 [ %3, %lor.lhs.false21.i ], [ %3, %cond.end15.i ], [ %3, %for.body ], [ %.pre, %if.then15 ]
+  %23 = phi i16 [ %3, %lor.lhs.false21.i ], [ %3, %cond.end15.i ], [ %3, %for.body ], [ %.pre, %if.then15 ]
   %inc = add i16 %i.014, 1
   %conv = zext i16 %inc to i32
-  %conv3 = zext i16 %22 to i32
+  %conv3 = zext i16 %23 to i32
   %mul = shl nuw nsw i32 %conv3, 1
   %cmp.not = icmp ult i32 %mul, %conv
   br i1 %cmp.not, label %if.end20, label %for.body, !llvm.loop !13
@@ -1496,7 +1496,7 @@ if.then:                                          ; preds = %entry
   br label %if.end19
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %3 = phi i32 [ %1, %for.body.lr.ph ], [ %21, %for.inc ]
+  %3 = phi i32 [ %1, %for.body.lr.ph ], [ %22, %for.inc ]
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %4 = load ptr, ptr %m_pEdges, align 8
   %arrayidx4 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned int>::Edge", ptr %4, i64 %indvars.iv
@@ -1528,53 +1528,53 @@ cond.false.i:                                     ; preds = %lor.lhs.false.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %lor.lhs.false.i, %if.then6
-  %cond.i = phi i1 [ true, %cond.false.i ], [ false, %lor.lhs.false.i ], [ false, %if.then6 ]
-  %12 = load float, ptr %arrayidx.i.i, align 4
+  %12 = phi i1 [ false, %cond.false.i ], [ true, %lor.lhs.false.i ], [ true, %if.then6 ]
+  %13 = load float, ptr %arrayidx.i.i, align 4
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 44
-  %13 = load float, ptr %arrayidx.i12.i, align 4
-  %cmp7.i = fcmp ogt float %12, %13
+  %14 = load float, ptr %arrayidx.i12.i, align 4
+  %cmp7.i = fcmp ogt float %13, %14
   br i1 %cmp7.i, label %cond.end15.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %cond.end.i
-  %14 = load float, ptr %arrayidx.i13.i, align 4
+  %15 = load float, ptr %arrayidx.i13.i, align 4
   %arrayidx.i14.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 28
-  %15 = load float, ptr %arrayidx.i14.i, align 4
-  %cmp11.i = fcmp olt float %14, %15
+  %16 = load float, ptr %arrayidx.i14.i, align 4
+  %cmp11.i = fcmp olt float %15, %16
   br i1 %cmp11.i, label %cond.end15.i, label %cond.false13.i
 
 cond.false13.i:                                   ; preds = %lor.lhs.false8.i
   br label %cond.end15.i
 
 cond.end15.i:                                     ; preds = %cond.false13.i, %lor.lhs.false8.i, %cond.end.i
-  %cond16.i = phi i1 [ %cond.i, %cond.false13.i ], [ false, %lor.lhs.false8.i ], [ false, %cond.end.i ]
-  %16 = load float, ptr %arrayidx.i15.i, align 4
+  %cond16.i = phi i1 [ %12, %cond.false13.i ], [ true, %lor.lhs.false8.i ], [ true, %cond.end.i ]
+  %17 = load float, ptr %arrayidx.i15.i, align 4
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
-  %17 = load float, ptr %arrayidx.i16.i, align 4
-  %cmp20.i = fcmp ogt float %16, %17
+  %18 = load float, ptr %arrayidx.i16.i, align 4
+  %cmp20.i = fcmp ogt float %17, %18
   br i1 %cmp20.i, label %for.inc, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %cond.end15.i
-  %18 = load float, ptr %arrayidx.i17.i, align 4
+  %19 = load float, ptr %arrayidx.i17.i, align 4
   %arrayidx.i18.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
-  %19 = load float, ptr %arrayidx.i18.i, align 4
-  %cmp24.i = fcmp uge float %18, %19
-  %brmerge.not = and i1 %cond16.i, %cmp24.i
-  br i1 %brmerge.not, label %if.then14, label %for.inc
+  %20 = load float, ptr %arrayidx.i18.i, align 4
+  %cmp24.i = fcmp olt float %19, %20
+  %brmerge = or i1 %cond16.i, %cmp24.i
+  br i1 %brmerge, label %for.inc, label %if.then14
 
 if.then14:                                        ; preds = %lor.lhs.false21.i
   %vtable15 = load ptr, ptr %callback, align 8
   %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 16
-  %20 = load ptr, ptr %vfn16, align 8
-  %call17 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %add.ptr.i)
+  %21 = load ptr, ptr %vfn16, align 8
+  %call17 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %add.ptr.i)
   %.pre = load i32, ptr %m_numHandles, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false21.i, %cond.end15.i, %for.body, %if.then14
-  %21 = phi i32 [ %3, %lor.lhs.false21.i ], [ %3, %cond.end15.i ], [ %3, %for.body ], [ %.pre, %if.then14 ]
+  %22 = phi i32 [ %3, %lor.lhs.false21.i ], [ %3, %cond.end15.i ], [ %3, %for.body ], [ %.pre, %if.then14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %mul = shl i32 %21, 1
-  %22 = zext i32 %mul to i64
-  %cmp.not.not = icmp ult i64 %indvars.iv, %22
+  %mul = shl i32 %22, 1
+  %23 = zext i32 %mul to i64
+  %cmp.not.not = icmp ult i64 %indvars.iv, %23
   br i1 %cmp.not.not, label %for.body, label %if.end19, !llvm.loop !20
 
 if.end19:                                         ; preds = %for.inc, %for.cond.preheader, %if.then

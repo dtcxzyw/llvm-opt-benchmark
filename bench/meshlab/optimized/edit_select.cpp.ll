@@ -2305,7 +2305,7 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI7QPoi
   %53 = sub i64 %51, %52
   %54 = ashr exact i64 %53, 3
   %55 = icmp ult i64 %48, %54
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %55, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !21
 
 56:                                               ; preds = %15, %4
   %57 = landingpad { ptr, i32 }
@@ -2327,33 +2327,36 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI7QPoi
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %._crit_edge140.invoke, %._crit_edge, %59, %33, %79, %85
-  %.sroa.097.0126 = phi ptr [ %.sroa.097.0.lcssa, %._crit_edge ], [ %.sroa.097.0.lcssa, %59 ], [ %.sroa.097.0131, %33 ], [ %.sroa.097.0.lcssa, %79 ], [ %.sroa.097.0.lcssa, %85 ], [ %.sroa.097.0.lcssa, %._crit_edge140.invoke ]
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %._crit_edge140.invoke, %._crit_edge, %60, %33, %79, %85
+  %.sroa.097.0126 = phi ptr [ %.sroa.097.0.lcssa, %._crit_edge ], [ %.sroa.097.0.lcssa, %60 ], [ %.sroa.097.0131, %33 ], [ %.sroa.097.0.lcssa, %79 ], [ %.sroa.097.0.lcssa, %85 ], [ %.sroa.097.0.lcssa, %._crit_edge140.invoke ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit, %.preheader116
-  %.sroa.7.0.lcssa = phi ptr [ null, %.preheader116 ], [ %.sroa.7.1, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit ]
-  %.sroa.097.0.lcssa = phi ptr [ null, %.preheader116 ], [ %.sroa.097.1, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit ]
+._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit
+  %58 = ptrtoint ptr %.sroa.7.1 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader116
+  %.sroa.7.0.lcssa = phi i64 [ 0, %.preheader116 ], [ %58, %._crit_edge.loopexit ]
+  %.sroa.097.0.lcssa = phi ptr [ null, %.preheader116 ], [ %.sroa.097.1, %._crit_edge.loopexit ]
   invoke void @_ZN6QBrushC1EN2Qt11GlobalColorENS0_10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 2, i32 noundef 1)
-          to label %58 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %59 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-58:                                               ; preds = %._crit_edge
+59:                                               ; preds = %._crit_edge
   invoke void @_ZN8QPainter8setBrushERK6QBrush(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %59 unwind label %157
+          to label %60 unwind label %157
 
-59:                                               ; preds = %58
+60:                                               ; preds = %59
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
-  %60 = ptrtoint ptr %.sroa.7.0.lcssa to i64
   %61 = ptrtoint ptr %.sroa.097.0.lcssa to i64
-  %62 = sub i64 %60, %61
+  %62 = sub i64 %.sroa.7.0.lcssa, %61
   %63 = lshr exact i64 %62, 4
   %64 = trunc i64 %63 to i32
   invoke void @_ZN8QPainter11drawPolygonEPK7QPointFiN2Qt8FillRuleE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %.sroa.097.0.lcssa, i32 noundef %64, i32 noundef 1)
           to label %65 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-65:                                               ; preds = %59
+65:                                               ; preds = %60
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %10, i32 noundef 2) #25
   %66 = call noundef i32 @_ZNK6QColor3rgbEv(ptr noundef nonnull align 4 dereferenceable(14) %10) #25
   %67 = load atomic i8, ptr @_ZGVZN16EditSelectPlugin11doSelectionER9MeshModelP6GLAreaiE13LastSelMatrix acquire, align 8
@@ -2520,7 +2523,7 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI7QPoi
   store ptr %1, ptr @_ZZN16EditSelectPlugin11doSelectionER9MeshModelP6GLAreaiE13lastMeshModel, align 8
   br label %159
 
-157:                                              ; preds = %58
+157:                                              ; preds = %59
   %158 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
@@ -5381,14 +5384,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerIN
   %47 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 1, ptr %47, align 8
   %.not8 = icmp eq i32 %39, %44
-  br i1 %.not8, label %.critedge, label %.lr.ph
+  br i1 %.not8, label %.critedge, label %.lr.ph.preheader
 
-.critedge.loopexit:                               ; preds = %._crit_edge
-  %.pre11 = load ptr, ptr %2, align 8
+.critedge.loopexit:                               ; preds = %60
+  %.pre10 = load ptr, ptr %2, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
-  %48 = phi ptr [ %.pre11, %.critedge.loopexit ], [ %36, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
+  %48 = phi ptr [ %.pre10, %.critedge.loopexit ], [ %36, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
   %49 = load atomic i32, ptr %48 monotonic, align 4
   switch i32 %49, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
@@ -5416,36 +5419,36 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
-.lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, %._crit_edge
-  %55 = phi ptr [ %59, %._crit_edge ], [ %46, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
-  %56 = phi ptr [ %61, %._crit_edge ], [ %41, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
-  %57 = load ptr, ptr %56, align 8
-  %.not5 = icmp eq ptr %57, null
-  br i1 %.not5, label %._crit_edge, label %.lr.ph.split
+.lr.ph.preheader:                                 ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, %60
+  %.pre912 = phi ptr [ %.pre9, %60 ], [ %46, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
+  %55 = phi ptr [ %61, %60 ], [ %41, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
+  %56 = load ptr, ptr %55, align 8
+  %.not5 = icmp eq ptr %56, null
+  br i1 %.not5, label %60, label %57
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  invoke void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %57)
-          to label %._crit_edge.split.split.us unwind label %.split.us
+57:                                               ; preds = %.lr.ph.preheader
+  invoke void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %56)
+          to label %..critedge7_crit_edge unwind label %58
 
-._crit_edge.split.split.us:                       ; preds = %.lr.ph.split
-  %.pre = load ptr, ptr %35, align 8
-  %.pre10 = load ptr, ptr %42, align 8
-  br label %._crit_edge
+..critedge7_crit_edge:                            ; preds = %57
+  %.pre.pre = load ptr, ptr %35, align 8
+  %.pre9.pre = load ptr, ptr %42, align 8
+  br label %60
 
-.split.us:                                        ; preds = %.lr.ph.split
-  %58 = landingpad { ptr, i32 }
+58:                                               ; preds = %57
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9QtPrivate17QForeachContainerI5QListIP6GLAreaEED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %2) #25
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %59
 
-._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.split.split.us
-  %59 = phi ptr [ %.pre10, %._crit_edge.split.split.us ], [ %55, %.lr.ph ]
-  %60 = phi ptr [ %.pre, %._crit_edge.split.split.us ], [ %56, %.lr.ph ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+60:                                               ; preds = %.lr.ph.preheader, %..critedge7_crit_edge
+  %.pre9 = phi ptr [ %.pre9.pre, %..critedge7_crit_edge ], [ %.pre912, %.lr.ph.preheader ]
+  %.pre = phi ptr [ %.pre.pre, %..critedge7_crit_edge ], [ %55, %.lr.ph.preheader ]
+  %61 = getelementptr inbounds i8, ptr %.pre, i64 8
   store ptr %61, ptr %35, align 8
   store i32 1, ptr %47, align 8
-  %.not = icmp eq ptr %61, %59
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !60
+  %.not = icmp eq ptr %61, %.pre9
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph.preheader, !llvm.loop !60
 
 _ZN9QtPrivate17QForeachContainerI5QListIP6GLAreaEED2Ev.exit: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i, %.critedge, %1
   ret void

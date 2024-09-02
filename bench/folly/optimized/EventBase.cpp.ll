@@ -4429,10 +4429,11 @@ if.end7.i.i.i.i.i.i:                              ; preds = %_ZNSt13__atomic_bas
 
 if.end7.i.i.i.i.i.i._ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit155_crit_edge: ; preds = %if.end7.i.i.i.i.i.i
   %.pre = load i16, ptr %token_.i3.i.i, align 8, !tbaa !289
+  %15 = icmp eq i16 %.pre, 0
   br label %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit155
 
 _ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit155: ; preds = %if.end7.i.i.i.i.i.i._ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit155_crit_edge, %if.then.i.i.i.i.i.i
-  %15 = phi i16 [ %.pre, %if.end7.i.i.i.i.i.i._ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit155_crit_edge ], [ 2, %if.then.i.i.i.i.i.i ]
+  %cmp.i.i.not.i.i = phi i1 [ %15, %if.end7.i.i.i.i.i.i._ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit155_crit_edge ], [ false, %if.then.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i) #53, !noalias !282
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i) #53, !noalias !282
   %16 = load ptr, ptr %ref.tmp, align 8, !tbaa !285
@@ -4444,7 +4445,6 @@ _ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCal
   %tobool.not.i = icmp eq ptr %17, null
   %cmp.i = icmp eq ptr %17, %m_header.i
   %18 = or i1 %tobool.not.i, %cmp.i
-  %cmp.i.i.not.i.i = icmp eq i16 %15, 0
   br i1 %cmp.i.i.not.i.i, label %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_9EventBase21OnDestructionCallbackEJEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSD_22SynchronizedMutexLevelE2ELNSD_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit155
@@ -4775,10 +4775,11 @@ if.end7.i.i.i.i.i.i198:                           ; preds = %_ZNSt13__atomic_bas
 
 if.end7.i.i.i.i.i.i198._ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit147_crit_edge: ; preds = %if.end7.i.i.i.i.i.i198
   %.pre418 = load i16, ptr %token_.i3.i.i194, align 8, !tbaa !289
+  %63 = icmp eq i16 %.pre418, 0
   br label %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit147
 
 _ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit147: ; preds = %if.end7.i.i.i.i.i.i198._ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit147_crit_edge, %if.then.i.i.i.i.i.i202
-  %63 = phi i16 [ %.pre418, %if.end7.i.i.i.i.i.i198._ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit147_crit_edge ], [ 2, %if.then.i.i.i.i.i.i202 ]
+  %cmp.i.i.not.i.i212 = phi i1 [ %63, %if.end7.i.i.i.i.i.i198._ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit147_crit_edge ], [ false, %if.then.i.i.i.i.i.i202 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i191) #53, !noalias !296
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i192) #53, !noalias !296
   %64 = load ptr, ptr %ref.tmp39, align 8, !tbaa !285
@@ -4790,7 +4791,6 @@ _ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCal
   %tobool.not.i209 = icmp eq ptr %65, null
   %cmp.i210 = icmp eq ptr %65, %m_header.i163
   %66 = or i1 %tobool.not.i209, %cmp.i210
-  %cmp.i.i.not.i.i212 = icmp eq i16 %63, 0
   br i1 %cmp.i.i.not.i.i212, label %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_9EventBase21OnDestructionCallbackEJEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSD_22SynchronizedMutexLevelE2ELNSD_23SynchronizedMutexMethodE0EEEED2Ev.exit215, label %if.then.i.i213
 
 if.then.i.i213:                                   ; preds = %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly9EventBase21OnDestructionCallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE0ENS0_7dft_tagELj1EEEmLb1EvE5emptyEv.exit147

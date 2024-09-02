@@ -4929,10 +4929,10 @@ _ZN5Ipopt14IpoptAlgorithm23print_copyright_messageERKNS_10JournalistE.exit: ; pr
   store i1 true, ptr @_ZN5IpoptL25copyright_message_printedE, align 1
   br label %33
 
-31:                                               ; preds = %25, %889, %872, %642, %634, %607, %593, %582, %571, %560, %549, %538, %511, %497, %456, %34
+31:                                               ; preds = %25, %890, %873, %642, %634, %607, %593, %582, %571, %560, %549, %538, %511, %497, %456, %34
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %896
+  br label %897
 
 33:                                               ; preds = %_ZN5Ipopt14IpoptAlgorithm23print_copyright_messageERKNS_10JournalistE.exit, %_ZN5Ipopt9TimedTask5StartEv.exit
   br i1 %1, label %42, label %34
@@ -5029,27 +5029,27 @@ _ZN5Ipopt9TimedTask5StartEv.exit61:               ; preds = %.noexc60, %42
   %83 = load double, ptr %82, align 8
   %84 = fadd double %83, %81
   store double %84, ptr %82, align 8
-  %.pre175.pre = load ptr, ptr %8, align 8
+  %.pre173.pre = load ptr, ptr %8, align 8
   br label %_ZN5Ipopt9TimedTask3EndEv.exit
 
 _ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %.noexc64, %56
-  %.pre175 = phi ptr [ %.pre175.pre, %.noexc64 ], [ %57, %56 ]
+  %.pre173 = phi ptr [ %.pre173.pre, %.noexc64 ], [ %57, %56 ]
   %85 = getelementptr inbounds i8, ptr %0, i64 120
   %86 = load i8, ptr %85, align 8
   %87 = trunc i8 %86 to i1
   br i1 %87, label %130, label %88
 
 88:                                               ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit
-  %89 = getelementptr inbounds i8, ptr %.pre175, i64 288
-  %90 = getelementptr inbounds i8, ptr %.pre175, i64 336
+  %89 = getelementptr inbounds i8, ptr %.pre173, i64 288
+  %90 = getelementptr inbounds i8, ptr %.pre173, i64 336
   %91 = load i8, ptr %90, align 8
   %92 = trunc i8 %91 to i1
   br i1 %92, label %93, label %_ZN5Ipopt9TimedTask5StartEv.exit68
 
 93:                                               ; preds = %88
-  %94 = getelementptr inbounds i8, ptr %.pre175, i64 338
+  %94 = getelementptr inbounds i8, ptr %.pre173, i64 338
   store i8 0, ptr %94, align 2
-  %95 = getelementptr inbounds i8, ptr %.pre175, i64 337
+  %95 = getelementptr inbounds i8, ptr %.pre173, i64 337
   store i8 1, ptr %95, align 1
   %96 = invoke noundef double @_ZN5Ipopt7CpuTimeEv()
           to label %.noexc65 unwind label %.loopexit.split-lp
@@ -5060,13 +5060,13 @@ _ZN5Ipopt9TimedTask3EndEv.exit:                   ; preds = %.noexc64, %56
           to label %.noexc66 unwind label %.loopexit.split-lp
 
 .noexc66:                                         ; preds = %.noexc65
-  %98 = getelementptr inbounds i8, ptr %.pre175, i64 304
+  %98 = getelementptr inbounds i8, ptr %.pre173, i64 304
   store double %97, ptr %98, align 8
   %99 = invoke noundef double @_ZN5Ipopt13WallclockTimeEv()
           to label %.noexc67 unwind label %.loopexit.split-lp
 
 .noexc67:                                         ; preds = %.noexc66
-  %100 = getelementptr inbounds i8, ptr %.pre175, i64 320
+  %100 = getelementptr inbounds i8, ptr %.pre173, i64 320
   store double %99, ptr %100, align 8
   br label %_ZN5Ipopt9TimedTask5StartEv.exit68
 
@@ -5119,7 +5119,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit68:               ; preds = %.noexc67, %88
   %128 = load double, ptr %127, align 8
   %129 = fadd double %128, %126
   store double %129, ptr %127, align 8
-  %.pre174 = load ptr, ptr %8, align 8
+  %.pre172 = load ptr, ptr %8, align 8
   br label %130
 
 .loopexit:                                        ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit120, %_ZN5Ipopt9TimedTask3EndEv.exit124.thread, %432, %_ZN5Ipopt9TimedTask5StartEv.exit140, %748, %756, %_ZN5Ipopt9TimedTask5StartEv.exit148, %192, %.noexc81, %.noexc82, %_ZN5Ipopt9TimedTask5StartEv.exit84, %.noexc85, %.noexc86, %.noexc87, %225, %.noexc89, %.noexc90, %254, %.noexc93, %.noexc94, %_ZN5Ipopt9TimedTask5StartEv.exit96, %266, %280, %.noexc99, %.noexc100, %309, %.noexc103, %.noexc104, %_ZN5Ipopt9TimedTask5StartEv.exit106, %.noexc107, %.noexc108, %.noexc109, %338, %345, %355, %.noexc113, %.noexc114, %384, %.noexc117, %.noexc118, %399, %.noexc121, %.noexc122, %649, %.noexc125, %.noexc126, %_ZN5Ipopt9TimedTask5StartEv.exit128, %.noexc129, %.noexc130, %.noexc131, %682, %.noexc133, %.noexc134, %711, %.noexc137, %.noexc138, %725, %.noexc141, %.noexc142, %763, %.noexc145, %.noexc146, %782, %.noexc149, %.noexc150
@@ -5141,7 +5141,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit68:               ; preds = %.noexc67, %88
           catch ptr @_ZTIN5Ipopt14INTERNAL_ABORTE
   br label %446
 
-.loopexit.split-lp:                               ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit61, %_ZN5Ipopt9TimedTask5StartEv.exit68, %_ZN5Ipopt9TimedTask5StartEv.exit76, %433, %865, %48, %.noexc, %.noexc59, %62, %.noexc62, %.noexc63, %93, %.noexc65, %.noexc66, %107, %.noexc69, %.noexc70, %136, %.noexc73, %.noexc74, %156, %.noexc77, %.noexc78, %811, %.noexc153, %.noexc154, %_ZN5Ipopt9TimedTask5StartEv.exit156, %830, %.noexc159, %.noexc160
+.loopexit.split-lp:                               ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit61, %_ZN5Ipopt9TimedTask5StartEv.exit68, %_ZN5Ipopt9TimedTask5StartEv.exit76, %433, %866, %48, %.noexc, %.noexc59, %62, %.noexc62, %.noexc63, %93, %.noexc65, %.noexc66, %107, %.noexc69, %.noexc70, %136, %.noexc73, %.noexc74, %156, %.noexc77, %.noexc78, %811, %.noexc153, %.noexc154, %_ZN5Ipopt9TimedTask5StartEv.exit156, %830, %.noexc159, %.noexc160
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5Ipopt18TINY_STEP_DETECTEDE
@@ -5161,7 +5161,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit68:               ; preds = %.noexc67, %88
   br label %446
 
 130:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit, %101, %.noexc71
-  %131 = phi ptr [ %.pre175, %_ZN5Ipopt9TimedTask3EndEv.exit ], [ %102, %101 ], [ %.pre174, %.noexc71 ]
+  %131 = phi ptr [ %.pre173, %_ZN5Ipopt9TimedTask3EndEv.exit ], [ %102, %101 ], [ %.pre172, %.noexc71 ]
   %132 = getelementptr inbounds i8, ptr %131, i64 736
   %133 = getelementptr inbounds i8, ptr %131, i64 784
   %134 = load i8, ptr %133, align 8
@@ -5373,11 +5373,11 @@ _ZN5Ipopt9TimedTask5StartEv.exit84:               ; preds = %.noexc83, %186
   %246 = load double, ptr %245, align 8
   %247 = fadd double %246, %244
   store double %247, ptr %245, align 8
-  %.pre176 = load ptr, ptr %8, align 8
+  %.pre174 = load ptr, ptr %8, align 8
   br label %248
 
 248:                                              ; preds = %219, %.noexc91
-  %249 = phi ptr [ %220, %219 ], [ %.pre176, %.noexc91 ]
+  %249 = phi ptr [ %220, %219 ], [ %.pre174, %.noexc91 ]
   %250 = getelementptr inbounds i8, ptr %249, i64 456
   %251 = getelementptr inbounds i8, ptr %249, i64 504
   %252 = load i8, ptr %251, align 8
@@ -5475,11 +5475,11 @@ _ZN5Ipopt9TimedTask5StartEv.exit96:               ; preds = %.noexc95, %248
   %301 = load double, ptr %300, align 8
   %302 = fadd double %301, %299
   store double %302, ptr %300, align 8
-  %.pre177 = load ptr, ptr %8, align 8
+  %.pre175 = load ptr, ptr %8, align 8
   br label %303
 
 303:                                              ; preds = %274, %.noexc101
-  %304 = phi ptr [ %275, %274 ], [ %.pre177, %.noexc101 ]
+  %304 = phi ptr [ %275, %274 ], [ %.pre175, %.noexc101 ]
   %305 = getelementptr inbounds i8, ptr %304, i64 512
   %306 = getelementptr inbounds i8, ptr %304, i64 560
   %307 = load i8, ptr %306, align 8
@@ -5742,7 +5742,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit124.thread:         ; preds = %_ZN5Ipopt9TimedTask
 
 438:                                              ; preds = %437
   invoke void @__cxa_throw(ptr nonnull %435, ptr nonnull @_ZTIN5Ipopt23STEP_COMPUTATION_FAILEDE, ptr nonnull @_ZN5Ipopt23STEP_COMPUTATION_FAILEDD2Ev) #20
-          to label %900 unwind label %442
+          to label %901 unwind label %442
 
 .thread:                                          ; preds = %434
   %439 = landingpad { ptr, i32 }
@@ -5830,27 +5830,27 @@ _ZN5Ipopt9TimedTask3EndEv.exit124.thread:         ; preds = %_ZN5Ipopt9TimedTask
   %451 = getelementptr inbounds i8, ptr %0, i64 16
   %452 = load ptr, ptr %451, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %450, ptr noundef nonnull align 8 dereferenceable(40) %452, i32 noundef 7)
-          to label %453 unwind label %894
+          to label %453 unwind label %895
 
 453:                                              ; preds = %449
   %454 = load ptr, ptr %8, align 8
   %455 = getelementptr inbounds i8, ptr %454, i64 512
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %455)
-          to label %456 unwind label %894
+          to label %456 unwind label %895
 
 456:                                              ; preds = %453
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
-.thread167:                                       ; preds = %859, %_ZN5Ipopt9TimedTask3EndEv.exit162, %853, %856, %857, %858, %889, %872, %863, %865, %642, %634, %607, %593, %582, %571, %560, %549, %538, %511, %497, %456
-  %.044 = phi i32 [ 4, %456 ], [ 5, %497 ], [ 6, %511 ], [ %.145, %889 ], [ 10, %538 ], [ 1, %549 ], [ 2, %560 ], [ 3, %571 ], [ 7, %582 ], [ 11, %593 ], [ 12, %607 ], [ 8, %872 ], [ 13, %634 ], [ 16, %642 ], [ %.246, %865 ], [ %.246, %863 ], [ 0, %_ZN5Ipopt9TimedTask3EndEv.exit162 ], [ 5, %853 ], [ 9, %856 ], [ 7, %857 ], [ 16, %858 ], [ %.246, %859 ]
+.critedge:                                        ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit162, %853, %856, %857, %858, %859, %890, %873, %863, %866, %642, %634, %607, %593, %582, %571, %560, %549, %538, %511, %497, %456
+  %.044 = phi i32 [ 4, %456 ], [ 5, %497 ], [ 6, %511 ], [ %.145, %890 ], [ 10, %538 ], [ 1, %549 ], [ 2, %560 ], [ 3, %571 ], [ 7, %582 ], [ 11, %593 ], [ 12, %607 ], [ 8, %873 ], [ 13, %634 ], [ 16, %642 ], [ %.246, %866 ], [ %.246, %863 ], [ %.246, %859 ], [ 0, %_ZN5Ipopt9TimedTask3EndEv.exit162 ], [ 5, %853 ], [ 9, %856 ], [ 7, %857 ], [ 16, %858 ]
   %457 = load ptr, ptr %3, align 8
   %458 = getelementptr inbounds i8, ptr %457, i64 48
   %459 = load i8, ptr %458, align 8
   %460 = trunc i8 %459 to i1
   br i1 %460, label %461, label %_ZN5Ipopt8EndTasksD2Ev.exit
 
-461:                                              ; preds = %.thread167
+461:                                              ; preds = %.critedge
   %462 = getelementptr inbounds i8, ptr %457, i64 50
   store i8 1, ptr %462, align 2
   %463 = getelementptr inbounds i8, ptr %457, i64 49
@@ -5896,7 +5896,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit124.thread:         ; preds = %_ZN5Ipopt9TimedTask
   call void @__clang_call_terminate(ptr %486) #22
   unreachable
 
-_ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc2.i
+_ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.critedge, %.noexc2.i
   ret i32 %.044
 
 487:                                              ; preds = %446
@@ -5909,17 +5909,17 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc
   %492 = getelementptr inbounds i8, ptr %0, i64 16
   %493 = load ptr, ptr %492, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %491, ptr noundef nonnull align 8 dereferenceable(40) %493, i32 noundef 7)
-          to label %494 unwind label %892
+          to label %494 unwind label %893
 
 494:                                              ; preds = %490
   %495 = load ptr, ptr %8, align 8
   %496 = getelementptr inbounds i8, ptr %495, i64 624
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %496)
-          to label %497 unwind label %892
+          to label %497 unwind label %893
 
 497:                                              ; preds = %494
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
 498:                                              ; preds = %487
   %499 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt18LOCALLY_INFEASIBLEE) #18
@@ -5931,23 +5931,23 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc
   %503 = getelementptr inbounds i8, ptr %0, i64 16
   %504 = load ptr, ptr %503, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %502, ptr noundef nonnull align 8 dereferenceable(40) %504, i32 noundef 7)
-          to label %505 unwind label %890
+          to label %505 unwind label %891
 
 505:                                              ; preds = %501
   %506 = load ptr, ptr %8, align 8
   %507 = getelementptr inbounds i8, ptr %506, i64 624
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %507)
-          to label %508 unwind label %890
+          to label %508 unwind label %891
 
 508:                                              ; preds = %505
   %509 = load ptr, ptr %8, align 8
   %510 = getelementptr inbounds i8, ptr %509, i64 736
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %510)
-          to label %511 unwind label %890
+          to label %511 unwind label %891
 
 511:                                              ; preds = %508
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
 512:                                              ; preds = %498
   %513 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt39RESTORATION_CONVERGED_TO_FEASIBLE_POINTE) #18
@@ -5959,26 +5959,26 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc
   %517 = getelementptr inbounds i8, ptr %0, i64 16
   %518 = load ptr, ptr %517, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %516, ptr noundef nonnull align 8 dereferenceable(40) %518, i32 noundef 7)
-          to label %519 unwind label %887
+          to label %519 unwind label %888
 
 519:                                              ; preds = %515
   %520 = load ptr, ptr %8, align 8
   %521 = getelementptr inbounds i8, ptr %520, i64 624
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %521)
-          to label %522 unwind label %887
+          to label %522 unwind label %888
 
 522:                                              ; preds = %519
   %523 = getelementptr inbounds i8, ptr %0, i64 40
   %524 = load ptr, ptr %523, align 8
   %525 = invoke noundef zeroext i1 @_ZNK5Ipopt25IpoptCalculatedQuantities15IsSquareProblemEv(ptr noundef nonnull align 8 dereferenceable(2185) %524)
-          to label %526 unwind label %887
+          to label %526 unwind label %888
 
 526:                                              ; preds = %522
-  br i1 %525, label %527, label %889
+  br i1 %525, label %527, label %890
 
 527:                                              ; preds = %526
   invoke void @_ZN5Ipopt14IpoptAlgorithm40ComputeFeasibilityMultipliersPostprocessEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
-          to label %889 unwind label %887
+          to label %890 unwind label %888
 
 528:                                              ; preds = %512
   %529 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt18RESTORATION_FAILEDE) #18
@@ -5990,17 +5990,17 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc
   %533 = getelementptr inbounds i8, ptr %0, i64 16
   %534 = load ptr, ptr %533, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %532, ptr noundef nonnull align 8 dereferenceable(40) %534, i32 noundef 7)
-          to label %535 unwind label %885
+          to label %535 unwind label %886
 
 535:                                              ; preds = %531
   %536 = load ptr, ptr %8, align 8
   %537 = getelementptr inbounds i8, ptr %536, i64 624
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %537)
-          to label %538 unwind label %885
+          to label %538 unwind label %886
 
 538:                                              ; preds = %535
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
 539:                                              ; preds = %528
   %540 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt28RESTORATION_MAXITER_EXCEEDEDE) #18
@@ -6012,17 +6012,17 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc
   %544 = getelementptr inbounds i8, ptr %0, i64 16
   %545 = load ptr, ptr %544, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %543, ptr noundef nonnull align 8 dereferenceable(40) %545, i32 noundef 7)
-          to label %546 unwind label %883
+          to label %546 unwind label %884
 
 546:                                              ; preds = %542
   %547 = load ptr, ptr %8, align 8
   %548 = getelementptr inbounds i8, ptr %547, i64 624
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %548)
-          to label %549 unwind label %883
+          to label %549 unwind label %884
 
 549:                                              ; preds = %546
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
 550:                                              ; preds = %539
   %551 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt28RESTORATION_CPUTIME_EXCEEDEDE) #18
@@ -6034,17 +6034,17 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc
   %555 = getelementptr inbounds i8, ptr %0, i64 16
   %556 = load ptr, ptr %555, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %554, ptr noundef nonnull align 8 dereferenceable(40) %556, i32 noundef 7)
-          to label %557 unwind label %881
+          to label %557 unwind label %882
 
 557:                                              ; preds = %553
   %558 = load ptr, ptr %8, align 8
   %559 = getelementptr inbounds i8, ptr %558, i64 624
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %559)
-          to label %560 unwind label %881
+          to label %560 unwind label %882
 
 560:                                              ; preds = %557
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
 561:                                              ; preds = %550
   %562 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt29RESTORATION_WALLTIME_EXCEEDEDE) #18
@@ -6056,17 +6056,17 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc
   %566 = getelementptr inbounds i8, ptr %0, i64 16
   %567 = load ptr, ptr %566, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %565, ptr noundef nonnull align 8 dereferenceable(40) %567, i32 noundef 7)
-          to label %568 unwind label %879
+          to label %568 unwind label %880
 
 568:                                              ; preds = %564
   %569 = load ptr, ptr %8, align 8
   %570 = getelementptr inbounds i8, ptr %569, i64 624
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %570)
-          to label %571 unwind label %879
+          to label %571 unwind label %880
 
 571:                                              ; preds = %568
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
 572:                                              ; preds = %561
   %573 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt21RESTORATION_USER_STOPE) #18
@@ -6078,17 +6078,17 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc
   %577 = getelementptr inbounds i8, ptr %0, i64 16
   %578 = load ptr, ptr %577, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %576, ptr noundef nonnull align 8 dereferenceable(40) %578, i32 noundef 7)
-          to label %579 unwind label %877
+          to label %579 unwind label %878
 
 579:                                              ; preds = %575
   %580 = load ptr, ptr %8, align 8
   %581 = getelementptr inbounds i8, ptr %580, i64 624
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %581)
-          to label %582 unwind label %877
+          to label %582 unwind label %878
 
 582:                                              ; preds = %579
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
 583:                                              ; preds = %572
   %584 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt23STEP_COMPUTATION_FAILEDE) #18
@@ -6100,17 +6100,17 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc
   %588 = getelementptr inbounds i8, ptr %0, i64 16
   %589 = load ptr, ptr %588, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %587, ptr noundef nonnull align 8 dereferenceable(40) %589, i32 noundef 7)
-          to label %590 unwind label %875
+          to label %590 unwind label %876
 
 590:                                              ; preds = %586
   %591 = load ptr, ptr %8, align 8
   %592 = getelementptr inbounds i8, ptr %591, i64 624
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %592)
-          to label %593 unwind label %875
+          to label %593 unwind label %876
 
 593:                                              ; preds = %590
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
 594:                                              ; preds = %583
   %595 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt8IpoptNLP10Eval_ErrorE) #18
@@ -6122,23 +6122,23 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc
   %599 = getelementptr inbounds i8, ptr %0, i64 16
   %600 = load ptr, ptr %599, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %598, ptr noundef nonnull align 8 dereferenceable(40) %600, i32 noundef 7)
-          to label %601 unwind label %873
+          to label %601 unwind label %874
 
 601:                                              ; preds = %597
   %602 = load ptr, ptr %8, align 8
   %603 = getelementptr inbounds i8, ptr %602, i64 344
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %603)
-          to label %604 unwind label %873
+          to label %604 unwind label %874
 
 604:                                              ; preds = %601
   %605 = load ptr, ptr %8, align 8
   %606 = getelementptr inbounds i8, ptr %605, i64 624
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %606)
-          to label %607 unwind label %873
+          to label %607 unwind label %874
 
 607:                                              ; preds = %604
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
 608:                                              ; preds = %594
   %609 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt26FEASIBILITY_PROBLEM_SOLVEDE) #18
@@ -6150,26 +6150,26 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc
   %613 = getelementptr inbounds i8, ptr %0, i64 16
   %614 = load ptr, ptr %613, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %612, ptr noundef nonnull align 8 dereferenceable(40) %614, i32 noundef 7)
-          to label %615 unwind label %870
+          to label %615 unwind label %871
 
 615:                                              ; preds = %611
   %616 = load ptr, ptr %8, align 8
   %617 = getelementptr inbounds i8, ptr %616, i64 624
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %617)
-          to label %618 unwind label %870
+          to label %618 unwind label %871
 
 618:                                              ; preds = %615
   %619 = getelementptr inbounds i8, ptr %0, i64 40
   %620 = load ptr, ptr %619, align 8
   %621 = invoke noundef zeroext i1 @_ZNK5Ipopt25IpoptCalculatedQuantities15IsSquareProblemEv(ptr noundef nonnull align 8 dereferenceable(2185) %620)
-          to label %622 unwind label %870
+          to label %622 unwind label %871
 
 622:                                              ; preds = %618
-  br i1 %621, label %623, label %872
+  br i1 %621, label %623, label %873
 
 623:                                              ; preds = %622
   invoke void @_ZN5Ipopt14IpoptAlgorithm40ComputeFeasibilityMultipliersPostprocessEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
-          to label %872 unwind label %870
+          to label %873 unwind label %871
 
 624:                                              ; preds = %608
   %625 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt11TOO_FEW_DOFE) #18
@@ -6181,33 +6181,33 @@ _ZN5Ipopt8EndTasksD2Ev.exit:                      ; preds = %.thread167, %.noexc
   %629 = getelementptr inbounds i8, ptr %0, i64 16
   %630 = load ptr, ptr %629, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %628, ptr noundef nonnull align 8 dereferenceable(40) %630, i32 noundef 7)
-          to label %631 unwind label %868
+          to label %631 unwind label %869
 
 631:                                              ; preds = %627
   %632 = load ptr, ptr %8, align 8
   %633 = getelementptr inbounds i8, ptr %632, i64 624
   invoke void @_ZN5Ipopt9TimedTask12EndIfStartedEv(ptr noundef nonnull align 8 dereferenceable(51) %633)
-          to label %634 unwind label %868
+          to label %634 unwind label %869
 
 634:                                              ; preds = %631
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
 635:                                              ; preds = %624
   %636 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt14INTERNAL_ABORTE) #18
   %637 = icmp eq i32 %.141, %636
-  br i1 %637, label %638, label %896
+  br i1 %637, label %638, label %897
 
 638:                                              ; preds = %635
   %639 = call ptr @__cxa_begin_catch(ptr %.1) #18
   %640 = getelementptr inbounds i8, ptr %0, i64 16
   %641 = load ptr, ptr %640, align 8
   invoke void @_ZNK5Ipopt14IpoptException15ReportExceptionERKNS_10JournalistENS_13EJournalLevelE(ptr noundef nonnull align 8 dereferenceable(112) %639, ptr noundef nonnull align 8 dereferenceable(40) %641, i32 noundef 1)
-          to label %642 unwind label %866
+          to label %642 unwind label %867
 
 642:                                              ; preds = %638
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
 643:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit124, %432, %.noexc123
   %644 = load ptr, ptr %8, align 8
@@ -6321,11 +6321,11 @@ _ZN5Ipopt9TimedTask5StartEv.exit128:              ; preds = %.noexc127, %643
   %703 = load double, ptr %702, align 8
   %704 = fadd double %703, %701
   store double %704, ptr %702, align 8
-  %.pre178 = load ptr, ptr %8, align 8
+  %.pre176 = load ptr, ptr %8, align 8
   br label %705
 
 705:                                              ; preds = %676, %.noexc135
-  %706 = phi ptr [ %677, %676 ], [ %.pre178, %.noexc135 ]
+  %706 = phi ptr [ %677, %676 ], [ %.pre176, %.noexc135 ]
   %707 = getelementptr inbounds i8, ptr %706, i64 680
   %708 = getelementptr inbounds i8, ptr %706, i64 728
   %709 = load i8, ptr %708, align 8
@@ -6405,11 +6405,11 @@ _ZN5Ipopt9TimedTask5StartEv.exit140:              ; preds = %.noexc139, %705
   %746 = load double, ptr %745, align 8
   %747 = fadd double %746, %744
   store double %747, ptr %745, align 8
-  %.pre179 = load ptr, ptr %8, align 8
+  %.pre177 = load ptr, ptr %8, align 8
   br label %748
 
 748:                                              ; preds = %719, %.noexc143
-  %749 = phi ptr [ %720, %719 ], [ %.pre179, %.noexc143 ]
+  %749 = phi ptr [ %720, %719 ], [ %.pre177, %.noexc143 ]
   %750 = getelementptr inbounds i8, ptr %749, i64 68
   %751 = load i32, ptr %750, align 4
   %752 = add nsw i32 %751, 1
@@ -6607,7 +6607,7 @@ _ZN5Ipopt9TimedTask5StartEv.exit156:              ; preds = %.noexc155, %._crit_
 
 _ZN5Ipopt9TimedTask3EndEv.exit162:                ; preds = %.noexc161, %824
   switch i32 %.047.lcssa, label %858 [
-    i32 1, label %.thread167
+    i32 1, label %.critedge
     i32 2, label %853
     i32 3, label %859
     i32 4, label %854
@@ -6617,7 +6617,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit162:                ; preds = %.noexc161, %824
   ]
 
 853:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit162
-  br label %.thread167
+  br label %.critedge
 
 854:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit162
   br label %859
@@ -6626,136 +6626,136 @@ _ZN5Ipopt9TimedTask3EndEv.exit162:                ; preds = %.noexc161, %824
   br label %859
 
 856:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit162
-  br label %.thread167
+  br label %.critedge
 
 857:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit162
-  br label %.thread167
+  br label %.critedge
 
 858:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit162
-  br label %.thread167
+  br label %.critedge
 
 859:                                              ; preds = %_ZN5Ipopt9TimedTask3EndEv.exit162, %854, %855
   %.246 = phi i32 [ 3, %855 ], [ 2, %854 ], [ 1, %_ZN5Ipopt9TimedTask3EndEv.exit162 ]
   %860 = getelementptr inbounds i8, ptr %0, i64 64
   %861 = load ptr, ptr %860, align 8
   %862 = icmp eq ptr %861, null
-  br i1 %862, label %.thread167, label %863
+  br i1 %862, label %.critedge, label %863
 
 863:                                              ; preds = %859
   %864 = tail call ptr @__dynamic_cast(ptr nonnull %861, ptr nonnull @_ZTIN5Ipopt10LineSearchE, ptr nonnull @_ZTIN5Ipopt22BacktrackingLineSearchE, i64 0) #18
-  %.not = icmp eq ptr %864, null
-  br i1 %.not, label %.thread167, label %865
+  %865 = icmp eq ptr %864, null
+  br i1 %865, label %.critedge, label %866
 
-865:                                              ; preds = %863
+866:                                              ; preds = %863
   invoke void @_ZN5Ipopt22BacktrackingLineSearch12StopWatchDogEv(ptr noundef nonnull align 8 dereferenceable(264) %861)
-          to label %.thread167 unwind label %.loopexit.split-lp
+          to label %.critedge unwind label %.loopexit.split-lp
 
-866:                                              ; preds = %638
-  %867 = landingpad { ptr, i32 }
+867:                                              ; preds = %638
+  %868 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-868:                                              ; preds = %631, %627
-  %869 = landingpad { ptr, i32 }
+869:                                              ; preds = %631, %627
+  %870 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-870:                                              ; preds = %623, %618, %615, %611
-  %871 = landingpad { ptr, i32 }
+871:                                              ; preds = %623, %618, %615, %611
+  %872 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-872:                                              ; preds = %623, %622
+873:                                              ; preds = %623, %622
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
-873:                                              ; preds = %604, %601, %597
-  %874 = landingpad { ptr, i32 }
+874:                                              ; preds = %604, %601, %597
+  %875 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-875:                                              ; preds = %590, %586
-  %876 = landingpad { ptr, i32 }
+876:                                              ; preds = %590, %586
+  %877 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-877:                                              ; preds = %579, %575
-  %878 = landingpad { ptr, i32 }
+878:                                              ; preds = %579, %575
+  %879 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-879:                                              ; preds = %568, %564
-  %880 = landingpad { ptr, i32 }
+880:                                              ; preds = %568, %564
+  %881 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-881:                                              ; preds = %557, %553
-  %882 = landingpad { ptr, i32 }
+882:                                              ; preds = %557, %553
+  %883 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-883:                                              ; preds = %546, %542
-  %884 = landingpad { ptr, i32 }
+884:                                              ; preds = %546, %542
+  %885 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-885:                                              ; preds = %535, %531
-  %886 = landingpad { ptr, i32 }
+886:                                              ; preds = %535, %531
+  %887 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-887:                                              ; preds = %527, %522, %519, %515
-  %888 = landingpad { ptr, i32 }
+888:                                              ; preds = %527, %522, %519, %515
+  %889 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-889:                                              ; preds = %526, %527
+890:                                              ; preds = %526, %527
   %.145 = phi i32 [ 8, %527 ], [ 10, %526 ]
   invoke void @__cxa_end_catch()
-          to label %.thread167 unwind label %31
+          to label %.critedge unwind label %31
 
-890:                                              ; preds = %508, %505, %501
-  %891 = landingpad { ptr, i32 }
+891:                                              ; preds = %508, %505, %501
+  %892 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-892:                                              ; preds = %494, %490
-  %893 = landingpad { ptr, i32 }
+893:                                              ; preds = %494, %490
+  %894 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-894:                                              ; preds = %453, %449
-  %895 = landingpad { ptr, i32 }
+895:                                              ; preds = %453, %449
+  %896 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %896 unwind label %897
+          to label %897 unwind label %898
 
-896:                                              ; preds = %894, %892, %890, %887, %885, %883, %881, %879, %877, %875, %873, %870, %868, %866, %635, %31
-  %.merged = phi { ptr, i32 } [ %32, %31 ], [ %895, %894 ], [ %893, %892 ], [ %891, %890 ], [ %888, %887 ], [ %886, %885 ], [ %884, %883 ], [ %882, %881 ], [ %880, %879 ], [ %878, %877 ], [ %876, %875 ], [ %874, %873 ], [ %871, %870 ], [ %869, %868 ], [ %867, %866 ], [ %.pn57, %635 ]
+897:                                              ; preds = %895, %893, %891, %888, %886, %884, %882, %880, %878, %876, %874, %871, %869, %867, %635, %31
+  %.merged = phi { ptr, i32 } [ %32, %31 ], [ %896, %895 ], [ %894, %893 ], [ %892, %891 ], [ %889, %888 ], [ %887, %886 ], [ %885, %884 ], [ %883, %882 ], [ %881, %880 ], [ %879, %878 ], [ %877, %876 ], [ %875, %874 ], [ %872, %871 ], [ %870, %869 ], [ %868, %867 ], [ %.pn57, %635 ]
   call void @_ZN5Ipopt8EndTasksD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #18
   resume { ptr, i32 } %.merged
 
-897:                                              ; preds = %894, %892, %890, %887, %885, %883, %881, %879, %877, %875, %873, %870, %868, %866
-  %898 = landingpad { ptr, i32 }
+898:                                              ; preds = %895, %893, %891, %888, %886, %884, %882, %880, %878, %876, %874, %871, %869, %867
+  %899 = landingpad { ptr, i32 }
           catch ptr null
-  %899 = extractvalue { ptr, i32 } %898, 0
-  call void @__clang_call_terminate(ptr %899) #22
+  %900 = extractvalue { ptr, i32 } %899, 0
+  call void @__clang_call_terminate(ptr %900) #22
   unreachable
 
-900:                                              ; preds = %438
+901:                                              ; preds = %438
   unreachable
 }
 

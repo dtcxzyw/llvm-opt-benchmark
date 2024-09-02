@@ -1366,7 +1366,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i97:     ; preds = %62
           cleanup
   br label %.body
 
-69:                                               ; preds = %132, %130, %113, %105, %103, %.thread121, %84, %78, %71
+69:                                               ; preds = %132, %130, %114, %105, %103, %.thread121, %84, %78, %71
   %70 = landingpad { ptr, i32 }
           cleanup
   br label %135
@@ -1395,7 +1395,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i97:     ; preds = %62
 81:                                               ; preds = %79
   %.not131 = icmp eq i32 %80, 2
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
-  br i1 %.not131, label %.thread116, label %113
+  br i1 %.not131, label %.thread116, label %114
 
 82:                                               ; preds = %79
   %83 = landingpad { ptr, i32 }
@@ -1434,7 +1434,7 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i97:     ; preds = %62
   %93 = icmp eq i32 %91, 1
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
-  br i1 %93, label %113, label %.thread121
+  br i1 %93, label %114, label %.thread121
 
 94:                                               ; preds = %89, %85
   %95 = landingpad { ptr, i32 }
@@ -1458,12 +1458,12 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i97:     ; preds = %62
 
 99:                                               ; preds = %.thread121
   %100 = invoke noundef i32 @_ZNK8QVariant5toIntEPb(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef null)
-          to label %101 unwind label %111
+          to label %101 unwind label %112
 
 101:                                              ; preds = %99
   %102 = icmp eq i32 %100, 1
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
-  br i1 %102, label %103, label %113
+  br i1 %102, label %103, label %114
 
 103:                                              ; preds = %101
   %104 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN4QMapI7QString16interface_valuesEixERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -1476,22 +1476,22 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i97:     ; preds = %62
 
 108:                                              ; preds = %105
   %109 = load i8, ptr %107, align 1
-  %110 = xor i8 %109, 1
-  br label %113
+  %110 = trunc i8 %109 to i1
+  %111 = xor i1 %110, true
+  br label %114
 
-111:                                              ; preds = %99
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %99
+  %113 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
   br label %135
 
-113:                                              ; preds = %92, %81, %108, %101
-  %.035 = phi i8 [ %110, %108 ], [ 1, %101 ], [ 0, %81 ], [ 0, %92 ]
-  %114 = trunc i8 %.035 to i1
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %75, i1 noundef zeroext %114)
+114:                                              ; preds = %92, %81, %108, %101
+  %.035 = phi i1 [ %111, %108 ], [ true, %101 ], [ false, %81 ], [ false, %92 ]
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %75, i1 noundef zeroext %.035)
           to label %115 unwind label %69
 
-115:                                              ; preds = %113
+115:                                              ; preds = %114
   %116 = load ptr, ptr %46, align 8
   %.not.i64 = icmp eq ptr %116, null
   br i1 %.not.i64, label %_ZNK4QMapIiP7QWidgetE8containsERKi.exit.thread, label %117
@@ -1536,7 +1536,7 @@ _ZNK4QMapIiP7QWidgetE8containsERKi.exit:          ; preds = %_ZNKSt8_Rb_treeIiSt
 
 132:                                              ; preds = %130
   %133 = load ptr, ptr %131, align 8
-  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %133, i1 noundef zeroext %114)
+  invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %133, i1 noundef zeroext %.035)
           to label %_ZNK4QMapIiP7QWidgetE8containsERKi.exit.thread unwind label %69
 
 _ZNK4QMapIiP7QWidgetE8containsERKi.exit.thread:   ; preds = %117, %_ZNKSt8_Rb_treeIiSt4pairIKiP7QWidgetESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %115, %_ZNK4QMapIiP7QWidgetE8containsERKi.exit, %132
@@ -1544,8 +1544,8 @@ _ZNK4QMapIiP7QWidgetE8containsERKi.exit.thread:   ; preds = %117, %_ZNKSt8_Rb_tr
   %.not129 = icmp eq ptr %134, %44
   br i1 %.not129, label %._crit_edge, label %71, !llvm.loop !28
 
-135:                                              ; preds = %98, %82, %111, %69
-  %.pn41 = phi { ptr, i32 } [ %70, %69 ], [ %112, %111 ], [ %.pn39, %98 ], [ %83, %82 ]
+135:                                              ; preds = %98, %82, %112, %69
+  %.pn41 = phi { ptr, i32 } [ %70, %69 ], [ %113, %112 ], [ %.pn39, %98 ], [ %83, %82 ]
   %.not.i.i.i.i66 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i66, label %.body, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i67
 

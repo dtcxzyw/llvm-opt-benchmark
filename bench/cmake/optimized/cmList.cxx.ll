@@ -525,7 +525,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK6cmList4findESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 %1, ptr %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZNK6cmList4findESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i64 %1, ptr %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::basic_string_view", align 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

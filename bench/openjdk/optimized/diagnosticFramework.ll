@@ -1688,66 +1688,57 @@ define hidden noundef zeroext i1 @_ZN4DCmd16reorder_help_cmdE7CmdLineR12stringSt
   %.not11.not = icmp eq ptr %8, null
   br i1 %.not11.not, label %.loopexit, label %sub_0
 
-sub_0:                                            ; preds = %2, %37
-  %.012 = phi ptr [ %39, %37 ], [ %8, %2 ]
+sub_0:                                            ; preds = %2, %30
+  %.012 = phi ptr [ %32, %30 ], [ %8, %2 ]
   %9 = load i8, ptr %.012, align 1
-  %10 = zext i8 %9 to i32
-  %11 = add nsw i32 %10, -45
-  %.not14 = icmp eq i32 %11, 0
-  br i1 %.not14, label %sub_1, label %.tail
+  %.not14 = icmp eq i8 %9, 45
+  br i1 %.not14, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %12 = getelementptr inbounds i8, ptr %.012, i64 1
+  %10 = getelementptr inbounds i8, ptr %.012, i64 1
+  %11 = load i8, ptr %10, align 1
+  %.not15 = icmp eq i8 %11, 104
+  br i1 %.not15, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %12 = getelementptr inbounds i8, ptr %.012, i64 2
   %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  %15 = add nsw i32 %14, -104
-  %.not15 = icmp eq i32 %15, 0
-  br i1 %.not15, label %sub_2, label %.tail
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %20, label %.tail.thread
 
-sub_2:                                            ; preds = %sub_1
-  %16 = getelementptr inbounds i8, ptr %.012, i64 2
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  br label %.tail
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.012, ptr noundef nonnull dereferenceable(7) @.str.24) #18
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %20, label %17
 
-.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
-  %19 = phi i32 [ %11, %sub_0 ], [ %15, %sub_1 ], [ %18, %sub_2 ]
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %27, label %21
+17:                                               ; preds = %.tail.thread
+  %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.012, ptr noundef nonnull dereferenceable(6) @.str.25) #18
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %30
 
-21:                                               ; preds = %.tail
-  %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.012, ptr noundef nonnull dereferenceable(7) @.str.24) #18
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %27, label %24
-
-24:                                               ; preds = %21
-  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.012, ptr noundef nonnull dereferenceable(6) @.str.25) #18
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %37
-
-27:                                               ; preds = %24, %21, %.tail
+20:                                               ; preds = %17, %.tail.thread, %.tail
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.26) #19
-  %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = load ptr, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(129) %1, ptr noundef %28, i64 noundef %30) #19
-  %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(129) %1, ptr noundef nonnull @.str.27, i64 noundef 1) #19
+  %21 = load ptr, ptr %0, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = load ptr, ptr %1, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(129) %1, ptr noundef %21, i64 noundef %23) #19
+  %27 = load ptr, ptr %1, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(129) %1, ptr noundef nonnull @.str.27, i64 noundef 1) #19
   br label %.loopexit
 
-37:                                               ; preds = %24
-  %38 = load ptr, ptr %4, align 8
-  %39 = call ptr @strtok_r(ptr noundef %38, ptr noundef nonnull @.str.22, ptr noundef nonnull %4) #19
-  %.not.not = icmp eq ptr %39, null
+30:                                               ; preds = %17
+  %31 = load ptr, ptr %4, align 8
+  %32 = call ptr @strtok_r(ptr noundef %31, ptr noundef nonnull @.str.22, ptr noundef nonnull %4) #19
+  %.not.not = icmp eq ptr %32, null
   br i1 %.not.not, label %.loopexit, label %sub_0, !llvm.loop !38
 
-.loopexit:                                        ; preds = %37, %2, %27
-  %.not10 = phi i1 [ true, %27 ], [ false, %2 ], [ false, %37 ]
+.loopexit:                                        ; preds = %30, %2, %20
+  %.not10 = phi i1 [ true, %20 ], [ false, %2 ], [ false, %30 ]
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #19
   ret i1 %.not10
 }

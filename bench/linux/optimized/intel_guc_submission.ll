@@ -2906,7 +2906,7 @@ define internal void @guc_submission_tasklet(ptr noundef %0) #0 align 16 {
   store ptr %107, ptr %9, align 8
   %133 = getelementptr inbounds i8, ptr %6, i64 1032
   store i32 1, ptr %133, align 8
-  br label %.loopexit11
+  br label %.loopexit9
 
 134:                                              ; preds = %130, %126, %121, %.thread7, %12
   %135 = phi i8 [ %108, %126 ], [ 1, %12 ], [ %108, %130 ], [ %108, %.thread7 ], [ %108, %121 ]
@@ -2927,7 +2927,7 @@ define internal void @guc_submission_tasklet(ptr noundef %0) #0 align 16 {
 146:                                              ; preds = %142, %134
   %147 = tail call fastcc i32 @guc_wq_item_append(ptr noundef %6, ptr noundef %136)
   switch i32 %147, label %164 [
-    i32 -16, label %.loopexit11
+    i32 -16, label %.loopexit9
     i32 0, label %160
   ]
 
@@ -2953,7 +2953,7 @@ define internal void @guc_submission_tasklet(ptr noundef %0) #0 align 16 {
   %163 = tail call fastcc i32 @guc_add_request(ptr noundef %6, ptr noundef %162)
   switch i32 %163, label %164 [
     i32 0, label %173
-    i32 -16, label %.loopexit11
+    i32 -16, label %.loopexit9
   ], !prof !55
 
 164:                                              ; preds = %160, %146, %130
@@ -2961,20 +2961,20 @@ define internal void @guc_submission_tasklet(ptr noundef %0) #0 align 16 {
   store ptr null, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %8, i64 56
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %166, ptr elementtype(i32) %166) #20, !srcloc !56
-  br label %.thread9
+  br label %.critedge
 
-.loopexit11:                                      ; preds = %160, %146, %132
+.loopexit9:                                       ; preds = %160, %146, %132
   %167 = getelementptr inbounds i8, ptr %8, i64 48
   %168 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %167, i64 0, ptr elementtype(i64) %167) #20, !srcloc !39
   %169 = icmp ult i8 %168, 2
   tail call void @llvm.assume(i1 %169)
   %170 = icmp eq i8 %168, 0
-  br i1 %170, label %171, label %.thread9
+  br i1 %170, label %171, label %.critedge
 
-171:                                              ; preds = %.loopexit11
+171:                                              ; preds = %.loopexit9
   %172 = getelementptr inbounds i8, ptr %8, i64 40
   tail call void @__tasklet_schedule(ptr noundef %172) #20
-  br label %.thread9
+  br label %.critedge
 
 173:                                              ; preds = %.thread, %160
   %174 = phi i8 [ %103, %.thread ], [ %161, %160 ]
@@ -2983,20 +2983,20 @@ define internal void @guc_submission_tasklet(ptr noundef %0) #0 align 16 {
   store i32 0, ptr %175, align 8
   %176 = and i8 %174, 1
   %177 = icmp eq i8 %176, 0
-  br i1 %177, label %.thread9, label %5, !llvm.loop !57
+  br i1 %177, label %.critedge, label %5, !llvm.loop !57
 
-.thread9:                                         ; preds = %173, %171, %.loopexit11, %164
+.critedge:                                        ; preds = %173, %164, %.loopexit9, %171
   %178 = getelementptr i8, ptr %0, i64 96
   %179 = load volatile ptr, ptr %178, align 8
   %180 = icmp eq ptr %179, null
   br i1 %180, label %181, label %183
 
-181:                                              ; preds = %.thread9
+181:                                              ; preds = %.critedge
   %182 = getelementptr i8, ptr %0, i64 112
   store i8 0, ptr %182, align 8
   br label %183
 
-183:                                              ; preds = %181, %.thread9
+183:                                              ; preds = %181, %.critedge
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %3) #20
   ret void
 }
@@ -11164,7 +11164,7 @@ define internal void @guc_parent_context_unpin(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @pin_guc_id(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 2) i32 @pin_guc_id(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1104
   %4 = getelementptr inbounds i8, ptr %1, i64 632
   %5 = getelementptr inbounds i8, ptr %1, i64 716

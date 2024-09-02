@@ -4732,12 +4732,12 @@ for.cond25:                                       ; preds = %for.cond25.preheade
 if.end.i:                                         ; preds = %for.cond25
   %arrayidx.i = getelementptr inbounds i8, ptr %37, i64 -4
   %38 = load i32, ptr %arrayidx.i, align 4
+  %39 = zext i32 %38 to i64
   br label %_ZNK6vectorImLb0EjE4sizeEv.exit
 
 _ZNK6vectorImLb0EjE4sizeEv.exit:                  ; preds = %for.cond25, %if.end.i
-  %retval.0.i = phi i32 [ %38, %if.end.i ], [ 0, %for.cond25 ]
-  %39 = zext i32 %retval.0.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %39
+  %retval.0.i = phi i64 [ %39, %if.end.i ], [ 0, %for.cond25 ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body28, label %for.end
 
 for.body28:                                       ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit

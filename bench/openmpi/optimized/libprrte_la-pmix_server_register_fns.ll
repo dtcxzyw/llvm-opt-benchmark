@@ -221,13 +221,16 @@ define i32 @prte_pmix_server_register_nspace(ptr noundef %0) local_unnamed_addr 
   %62 = xor i32 %61, %60
   %63 = load i8, ptr %57, align 1
   %.not512 = icmp eq i8 %63, 0
-  br i1 %.not512, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not512, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader703
-  %.0443.lcssa = phi i32 [ 0, %.preheader703 ], [ %62, %.lr.ph ]
-  %64 = mul i32 %.0443.lcssa, 9
-  %65 = lshr i32 %64, 11
-  %66 = xor i32 %65, %64
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %64 = mul i32 %62, 9
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader703
+  %.0443.lcssa = phi i32 [ 0, %.preheader703 ], [ %64, %._crit_edge.loopexit ]
+  %65 = lshr i32 %.0443.lcssa, 11
+  %66 = xor i32 %65, %.0443.lcssa
   %67 = mul i32 %66, 32769
   store i32 %67, ptr %17, align 4
   %68 = call i32 @PMIx_Info_list_add(ptr noundef %41, ptr noundef nonnull @.str.6, ptr noundef nonnull %17, i16 noundef zeroext 14) #11

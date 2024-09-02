@@ -13102,19 +13102,19 @@ ehcleanup1872:                                    ; preds = %ehcleanup1871, %if.
 
 ehcleanup1887:                                    ; preds = %ehcleanup1872, %lpad.i6733, %if.then.i.i7.i.i6727, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6730
   %.pn2265.pn.pn = phi { ptr, i32 } [ %1341, %lpad.i6733 ], [ %1338, %if.then.i.i7.i.i6727 ], [ %1338, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6730 ], [ %.pn2265.pn, %ehcleanup1872 ]
-  %cleanup.isactive1859.0 = phi i1 [ true, %lpad.i6733 ], [ true, %if.then.i.i7.i.i6727 ], [ true, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6730 ], [ false, %ehcleanup1872 ]
-  %1439 = load ptr, ptr %ref.tmp1853, align 8, !tbaa !7
-  %cmp.i.i.i6982 = icmp eq ptr %1439, %1336
+  %1439 = phi i1 [ false, %lpad.i6733 ], [ false, %if.then.i.i7.i.i6727 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6730 ], [ true, %ehcleanup1872 ]
+  %1440 = load ptr, ptr %ref.tmp1853, align 8, !tbaa !7
+  %cmp.i.i.i6982 = icmp eq ptr %1440, %1336
   br i1 %cmp.i.i.i6982, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6985, label %if.then.i.i6983
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6985: ; preds = %ehcleanup1887
-  %1440 = load i64, ptr %_M_string_length.i.i.i.i6713, align 8, !tbaa !13
-  %cmp3.i.i.i6987 = icmp ult i64 %1440, 16
+  %1441 = load i64, ptr %_M_string_length.i.i.i.i6713, align 8, !tbaa !13
+  %cmp3.i.i.i6987 = icmp ult i64 %1441, 16
   call void @llvm.assume(i1 %cmp3.i.i.i6987)
   br label %ehcleanup1888
 
 if.then.i.i6983:                                  ; preds = %ehcleanup1887
-  call void @_ZdlPv(ptr noundef %1439) #22
+  call void @_ZdlPv(ptr noundef %1440) #22
   br label %ehcleanup1888
 
 ehcleanup1888:                                    ; preds = %if.then.i.i6983, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6985
@@ -13124,19 +13124,19 @@ ehcleanup1888:                                    ; preds = %if.then.i.i6983, %_
 ehcleanup1891:                                    ; preds = %ehcleanup1888, %lpad.i6706, %if.then.i.i7.i.i6700, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6703
   %.pn2265.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2265.pn.pn, %ehcleanup1888 ], [ %1335, %lpad.i6706 ], [ %1332, %if.then.i.i7.i.i6700 ], [ %1332, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6703 ]
   %arrayinit.endOfInit1747.0 = phi ptr [ %arrayinit.element1852, %ehcleanup1888 ], [ %arrayinit.element1845, %lpad.i6706 ], [ %arrayinit.element1845, %if.then.i.i7.i.i6700 ], [ %arrayinit.element1845, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6703 ]
-  %cleanup.isactive1859.2 = phi i1 [ %cleanup.isactive1859.0, %ehcleanup1888 ], [ true, %lpad.i6706 ], [ true, %if.then.i.i7.i.i6700 ], [ true, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6703 ]
-  %1441 = load ptr, ptr %ref.tmp1846, align 8, !tbaa !7
-  %cmp.i.i.i6989 = icmp eq ptr %1441, %1330
+  %cleanup.isactive1859.2 = phi i1 [ %1439, %ehcleanup1888 ], [ false, %lpad.i6706 ], [ false, %if.then.i.i7.i.i6700 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6703 ]
+  %1442 = load ptr, ptr %ref.tmp1846, align 8, !tbaa !7
+  %cmp.i.i.i6989 = icmp eq ptr %1442, %1330
   br i1 %cmp.i.i.i6989, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6992, label %if.then.i.i6990
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6992: ; preds = %ehcleanup1891
-  %1442 = load i64, ptr %_M_string_length.i.i.i.i6686, align 8, !tbaa !13
-  %cmp3.i.i.i6994 = icmp ult i64 %1442, 16
+  %1443 = load i64, ptr %_M_string_length.i.i.i.i6686, align 8, !tbaa !13
+  %cmp3.i.i.i6994 = icmp ult i64 %1443, 16
   call void @llvm.assume(i1 %cmp3.i.i.i6994)
   br label %ehcleanup1892
 
 if.then.i.i6990:                                  ; preds = %ehcleanup1891
-  call void @_ZdlPv(ptr noundef %1441) #22
+  call void @_ZdlPv(ptr noundef %1442) #22
   br label %ehcleanup1892
 
 ehcleanup1892:                                    ; preds = %if.then.i.i6990, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6992
@@ -13146,30 +13146,29 @@ ehcleanup1892:                                    ; preds = %if.then.i.i6990, %_
 ehcleanup1895:                                    ; preds = %ehcleanup1892, %lpad.i6679, %if.then.i.i7.i.i6673, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6676
   %.pn2265.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2265.pn.pn.pn.pn, %ehcleanup1892 ], [ %1329, %lpad.i6679 ], [ %1326, %if.then.i.i7.i.i6673 ], [ %1326, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6676 ]
   %arrayinit.endOfInit1747.2 = phi ptr [ %arrayinit.endOfInit1747.0, %ehcleanup1892 ], [ %arrayinit.element1838, %lpad.i6679 ], [ %arrayinit.element1838, %if.then.i.i7.i.i6673 ], [ %arrayinit.element1838, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6676 ]
-  %cleanup.isactive1859.4 = phi i1 [ %cleanup.isactive1859.2, %ehcleanup1892 ], [ true, %lpad.i6679 ], [ true, %if.then.i.i7.i.i6673 ], [ true, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6676 ]
-  %1443 = load ptr, ptr %ref.tmp1839, align 8, !tbaa !7
-  %cmp.i.i.i6996 = icmp eq ptr %1443, %1324
+  %cleanup.isactive1859.4 = phi i1 [ %cleanup.isactive1859.2, %ehcleanup1892 ], [ false, %lpad.i6679 ], [ false, %if.then.i.i7.i.i6673 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6676 ]
+  %1444 = load ptr, ptr %ref.tmp1839, align 8, !tbaa !7
+  %cmp.i.i.i6996 = icmp eq ptr %1444, %1324
   br i1 %cmp.i.i.i6996, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6999, label %if.then.i.i6997
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6999: ; preds = %ehcleanup1895
-  %1444 = load i64, ptr %_M_string_length.i.i.i.i6659, align 8, !tbaa !13
-  %cmp3.i.i.i7001 = icmp ult i64 %1444, 16
+  %1445 = load i64, ptr %_M_string_length.i.i.i.i6659, align 8, !tbaa !13
+  %cmp3.i.i.i7001 = icmp ult i64 %1445, 16
   call void @llvm.assume(i1 %cmp3.i.i.i7001)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7002
 
 if.then.i.i6997:                                  ; preds = %ehcleanup1895
-  call void @_ZdlPv(ptr noundef %1443) #22
+  call void @_ZdlPv(ptr noundef %1444) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7002
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7002: ; preds = %if.then.i.i6997, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6999
-  %1445 = xor i1 %cleanup.isactive1859.4, true
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp1839) #23
   br label %ehcleanup1899
 
 ehcleanup1899:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7002, %lpad.i6652, %if.then.i.i7.i.i6646, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6649
   %.pn2265.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn2265.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7002 ], [ %1323, %lpad.i6652 ], [ %1320, %if.then.i.i7.i.i6646 ], [ %1320, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6649 ]
   %arrayinit.endOfInit1747.4 = phi ptr [ %arrayinit.endOfInit1747.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7002 ], [ %arrayinit.element1831, %lpad.i6652 ], [ %arrayinit.element1831, %if.then.i.i7.i.i6646 ], [ %arrayinit.element1831, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6649 ]
-  %cleanup.isactive1859.6 = phi i1 [ %1445, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7002 ], [ false, %lpad.i6652 ], [ false, %if.then.i.i7.i.i6646 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6649 ]
+  %cleanup.isactive1859.6 = phi i1 [ %cleanup.isactive1859.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7002 ], [ false, %lpad.i6652 ], [ false, %if.then.i.i7.i.i6646 ], [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i6649 ]
   %1446 = load ptr, ptr %ref.tmp1832, align 8, !tbaa !7
   %cmp.i.i.i7003 = icmp eq ptr %1446, %1318
   br i1 %cmp.i.i.i7003, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7006, label %if.then.i.i7004

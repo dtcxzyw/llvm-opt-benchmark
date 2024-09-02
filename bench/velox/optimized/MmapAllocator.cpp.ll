@@ -1722,7 +1722,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end18
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end18 ]
-  %7 = phi ptr [ %6, %for.body.lr.ph ], [ %21, %if.end18 ]
+  %7 = phi ptr [ %6, %for.body.lr.ph ], [ %22, %if.end18 ]
   %numFreed.034 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end18 ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.9", ptr %7, i64 %indvars.iv
   %8 = tail call noundef i64 @llvm.x86.rdtsc()
@@ -1761,30 +1761,30 @@ if.end.i.i12:                                     ; preds = %if.then10
   %cast.i.i = trunc nuw nsw i64 %15 to i32
   %sub.i13 = xor i32 %cast.i.i, 63
   %16 = tail call i32 @llvm.umin.i32(i32 %sub.i13, i32 19)
+  %17 = zext nneg i32 %16 to i64
   br label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit: ; preds = %if.then10, %if.end.i.i12
-  %retval.0.i = phi i32 [ %16, %if.end.i.i12 ], [ 0, %if.then10 ]
-  %conv15 = zext nneg i32 %retval.0.i to i64
-  %freeClocks = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %stats_, i64 0, i64 %conv15, i32 2
-  %17 = atomicrmw add ptr %freeClocks, i64 %sub.i seq_cst, align 8
+  %retval.0.i = phi i64 [ %17, %if.end.i.i12 ], [ 0, %if.then10 ]
+  %freeClocks = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %stats_, i64 0, i64 %retval.0.i, i32 2
+  %18 = atomicrmw add ptr %freeClocks, i64 %sub.i seq_cst, align 8
   br label %if.end18
 
 _ZN8facebook5velox10ClockTimerD2Ev.exit22:        ; preds = %for.body
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = tail call noundef i64 @llvm.x86.rdtsc()
-  resume { ptr, i32 } %18
+  %20 = tail call noundef i64 @llvm.x86.rdtsc()
+  resume { ptr, i32 } %19
 
 if.end18:                                         ; preds = %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit, %land.lhs.true, %_ZN8facebook5velox10ClockTimerD2Ev.exit
   %sext = shl i64 %call7, 32
   %conv19 = ashr exact i64 %sext, 32
   %add = add i64 %conv19, %numFreed.034
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = load ptr, ptr %_M_finish.i, align 8
-  %21 = load ptr, ptr %sizeClasses_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %21 to i64
+  %21 = load ptr, ptr %_M_finish.i, align 8
+  %22 = load ptr, ptr %sizeClasses_, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next
@@ -1796,14 +1796,14 @@ for.end.loopexit:                                 ; preds = %if.end18
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
-  %22 = phi ptr [ %2, %for.cond.preheader ], [ %.pre38, %for.end.loopexit ]
-  %23 = phi ptr [ %1, %for.cond.preheader ], [ %.pre, %for.end.loopexit ]
+  %23 = phi ptr [ %2, %for.cond.preheader ], [ %.pre38, %for.end.loopexit ]
+  %24 = phi ptr [ %1, %for.cond.preheader ], [ %.pre, %for.end.loopexit ]
   %numFreed.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %add, %for.end.loopexit ]
-  %tobool.not.i.i.i = icmp eq ptr %22, %23
+  %tobool.not.i.i.i = icmp eq ptr %23, %24
   br i1 %tobool.not.i.i.i, label %_ZN8facebook5velox6memory10Allocation5clearEv.exit, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %for.end
-  store ptr %23, ptr %_M_finish.i.i.i, align 8
+  store ptr %24, ptr %_M_finish.i.i.i, align 8
   br label %_ZN8facebook5velox6memory10Allocation5clearEv.exit
 
 _ZN8facebook5velox6memory10Allocation5clearEv.exit: ; preds = %for.end, %invoke.cont.i.i.i
@@ -2048,7 +2048,7 @@ for.end:                                          ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8facebook5velox6memory13MmapAllocator17freeNonContiguousERNS1_10AllocationE(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %this, ptr nocapture noundef nonnull align 8 dereferenceable(36) %allocation) unnamed_addr #0 align 2 {
+define noundef range(i64 0, -4095) i64 @_ZN8facebook5velox6memory13MmapAllocator17freeNonContiguousERNS1_10AllocationE(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %this, ptr nocapture noundef nonnull align 8 dereferenceable(36) %allocation) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i64 @_ZN8facebook5velox6memory13MmapAllocator25freeNonContiguousInternalERNS1_10AllocationE(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(36) %allocation)
   %numAllocated_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -4632,7 +4632,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc60
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc60 ]
-  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %23, %for.inc60 ]
+  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %24, %for.inc60 ]
   %mappedFreeCount.043 = phi i32 [ 0, %for.body.lr.ph ], [ %add13, %for.inc60 ]
   %mappedCount.042 = phi i32 [ 0, %for.body.lr.ph ], [ %add5, %for.inc60 ]
   %count.041 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.inc60 ]
@@ -4684,25 +4684,28 @@ for.body20:                                       ; preds = %for.body20.preheade
   %add30 = add nuw nsw i32 %mappedFreeInGroup.038, %cast29
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %cmp19 = icmp slt i64 %indvars.iv.next55, %13
-  br i1 %cmp19, label %for.body20, label %for.end, !llvm.loop !54
+  br i1 %cmp19, label %for.body20, label %for.end.loopexit, !llvm.loop !54
 
-for.end:                                          ; preds = %for.body20, %for.cond15.preheader
-  %mappedFreeInGroup.0.lcssa = phi i32 [ 0, %for.cond15.preheader ], [ %add30, %for.body20 ]
-  %17 = load ptr, ptr %mappedFreeLookup_, align 8
+for.end.loopexit:                                 ; preds = %for.body20
+  %17 = icmp eq i32 %add30, 0
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %for.cond15.preheader
+  %mappedFreeInGroup.0.lcssa = phi i1 [ true, %for.cond15.preheader ], [ %17, %for.end.loopexit ]
+  %18 = load ptr, ptr %mappedFreeLookup_, align 8
   %div = lshr i64 %indvars.iv, 3
   %conv.i = lshr i64 %indvars.iv, 9
   %div2.i = and i64 %conv.i, 8388607
-  %arrayidx.i = getelementptr inbounds i64, ptr %17, i64 %div2.i
-  %18 = load i64, ptr %arrayidx.i, align 8
+  %arrayidx.i = getelementptr inbounds i64, ptr %18, i64 %div2.i
+  %19 = load i64, ptr %arrayidx.i, align 8
   %and.i = and i64 %div, 63
   %shl.i = shl nuw i64 1, %and.i
-  %and2.i = and i64 %18, %shl.i
+  %and2.i = and i64 %19, %shl.i
   %tobool.i.not = icmp eq i64 %and2.i, 0
-  %tobool44.not = icmp eq i32 %mappedFreeInGroup.0.lcssa, 0
   br i1 %tobool.i.not, label %if.else, label %if.then33
 
 if.then33:                                        ; preds = %for.end
-  br i1 %tobool44.not, label %if.then34, label %for.inc60
+  br i1 %mappedFreeInGroup.0.lcssa, label %if.then34, label %for.inc60
 
 if.then34:                                        ; preds = %if.then33
   call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35, ptr noundef nonnull @.str.1, i32 noundef 643, i32 noundef 1)
@@ -4723,22 +4726,22 @@ invoke.cont39:                                    ; preds = %invoke.cont37
 
 invoke.cont41:                                    ; preds = %invoke.cont39
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35) #24
-  %19 = load i32, ptr %numErrors, align 4
-  %inc43 = add nsw i32 %19, 1
+  %20 = load i32, ptr %numErrors, align 4
+  %inc43 = add nsw i32 %20, 1
   store i32 %inc43, ptr %numErrors, align 4
   br label %for.inc60
 
 lpad:                                             ; preds = %invoke.cont39, %invoke.cont37, %invoke.cont, %if.then34
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.else:                                          ; preds = %for.end
-  br i1 %tobool44.not, label %for.inc60, label %if.then45
+  br i1 %mappedFreeInGroup.0.lcssa, label %for.inc60, label %if.then45
 
 if.then45:                                        ; preds = %if.else
-  %21 = load i32, ptr %numErrors, align 4
-  %inc46 = add nsw i32 %21, 1
+  %22 = load i32, ptr %numErrors, align 4
+  %inc46 = add nsw i32 %22, 1
   store i32 %inc46, ptr %numErrors, align 4
   call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp47, ptr noundef nonnull @.str.1, i32 noundef 648, i32 noundef 1)
   %call50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp47)
@@ -4761,15 +4764,15 @@ invoke.cont55:                                    ; preds = %invoke.cont53
   br label %for.inc60
 
 lpad48:                                           ; preds = %invoke.cont53, %invoke.cont51, %invoke.cont49, %if.then45
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 for.inc60:                                        ; preds = %for.body, %if.else, %invoke.cont55, %if.then33, %invoke.cont41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i32, ptr %pageBitmapSize_, align 8
-  %24 = sext i32 %23 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %24
+  %24 = load i32, ptr %pageBitmapSize_, align 8
+  %25 = sext i32 %24 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %25
   br i1 %cmp, label %for.body, label %for.end62, !llvm.loop !55
 
 for.end62:                                        ; preds = %for.inc60, %entry
@@ -4777,13 +4780,13 @@ for.end62:                                        ; preds = %for.inc60, %entry
   %mappedCount.0.lcssa = phi i32 [ 0, %entry ], [ %add5, %for.inc60 ]
   %mappedFreeCount.0.lcssa = phi i32 [ 0, %entry ], [ %add13, %for.inc60 ]
   %numMappedFreePages_ = getelementptr inbounds i8, ptr %this, i64 84
-  %25 = load i32, ptr %numMappedFreePages_, align 4
-  %cmp63.not = icmp eq i32 %mappedFreeCount.0.lcssa, %25
+  %26 = load i32, ptr %numMappedFreePages_, align 4
+  %cmp63.not = icmp eq i32 %mappedFreeCount.0.lcssa, %26
   br i1 %cmp63.not, label %if.end89, label %if.then64
 
 if.then64:                                        ; preds = %for.end62
-  %26 = load i32, ptr %numErrors, align 4
-  %inc65 = add nsw i32 %26, 1
+  %27 = load i32, ptr %numErrors, align 4
+  %inc65 = add nsw i32 %27, 1
   store i32 %inc65, ptr %numErrors, align 4
   call void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp66, ptr noundef nonnull @.str.1, i32 noundef 654, i32 noundef 1)
   %call69 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp66)
@@ -4799,8 +4802,8 @@ invoke.cont70:                                    ; preds = %invoke.cont68
 
 invoke.cont72:                                    ; preds = %invoke.cont70
   %unitSize_ = getelementptr inbounds i8, ptr %this, i64 8
-  %27 = load i64, ptr %unitSize_, align 8
-  %call75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call73, i64 noundef %27)
+  %28 = load i64, ptr %unitSize_, align 8
+  %call75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call73, i64 noundef %28)
           to label %invoke.cont74 unwind label %lpad67
 
 invoke.cont74:                                    ; preds = %invoke.cont72
@@ -4816,8 +4819,8 @@ invoke.cont78:                                    ; preds = %invoke.cont76
           to label %invoke.cont80 unwind label %lpad67
 
 invoke.cont80:                                    ; preds = %invoke.cont78
-  %28 = load i32, ptr %numMappedFreePages_, align 4
-  %call84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call81, i32 noundef %28)
+  %29 = load i32, ptr %numMappedFreePages_, align 4
+  %call84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call81, i32 noundef %29)
           to label %invoke.cont83 unwind label %lpad67
 
 invoke.cont83:                                    ; preds = %invoke.cont80
@@ -4833,7 +4836,7 @@ invoke.cont87:                                    ; preds = %invoke.cont85
   br label %if.end89
 
 lpad67:                                           ; preds = %invoke.cont85, %invoke.cont83, %invoke.cont80, %invoke.cont78, %invoke.cont76, %invoke.cont74, %invoke.cont72, %invoke.cont70, %invoke.cont68, %if.then64
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -4843,7 +4846,7 @@ if.end89:                                         ; preds = %invoke.cont87, %for
 
 eh.resume:                                        ; preds = %lpad67, %lpad48, %lpad
   %ref.tmp66.sink = phi ptr [ %ref.tmp66, %lpad67 ], [ %ref.tmp47, %lpad48 ], [ %ref.tmp35, %lpad ]
-  %.pn = phi { ptr, i32 } [ %29, %lpad67 ], [ %22, %lpad48 ], [ %20, %lpad ]
+  %.pn = phi { ptr, i32 } [ %30, %lpad67 ], [ %23, %lpad48 ], [ %21, %lpad ]
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp66.sink) #24
   resume { ptr, i32 } %.pn
 }

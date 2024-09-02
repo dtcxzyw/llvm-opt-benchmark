@@ -5204,11 +5204,11 @@ define hidden void @_ZN16wasmtime_environ9component9translate6inline3run17h7fa8b
   invoke void @"_ZN4core3ptr191drop_in_place$LT$cranelift_entity..primary..PrimaryMap$LT$wasmtime_environ..component..types..ImportIndex$C$$LP$alloc..string..String$C$wasmtime_environ..component..types..TypeDef$RP$$GT$$GT$17hfd80d904f51e806fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #33
           to label %common.resume unwind label %49, !noalias !1396
 
-common.resume:                                    ; preds = %74, %236, %352, %51
-  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %.pn126275329333, %352 ], [ %237, %236 ], [ %75, %74 ]
+common.resume:                                    ; preds = %75, %236, %352, %51
+  %common.resume.op = phi { ptr, i32 } [ %48, %51 ], [ %.pn126275329333, %352 ], [ %237, %236 ], [ %76, %75 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN89_$LT$wasmtime_environ..component..dfg..ComponentDfg$u20$as$u20$core..default..Default$GT$7default17h7548f54863bf43aaE.exit": ; preds = %.noexc.i, %._crit_edge.i.i
+"_ZN89_$LT$wasmtime_environ..component..dfg..ComponentDfg$u20$as$u20$core..default..Default$GT$7default17h7548f54863bf43aaE.exit": ; preds = %._crit_edge.i.i, %.noexc.i
   %.pre1.i.i.i = phi i64 [ %.pre1.i.i, %._crit_edge.i.i ], [ %47, %.noexc.i ]
   %52 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %46, %.noexc.i ]
   %53 = add i64 %52, 1
@@ -5329,33 +5329,34 @@ common.resume:                                    ; preds = %74, %236, %352, %51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !1396
   %69 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !range !4, !noalias !5, !noundef !5
   %trunc.i.i.i = trunc nuw i64 %69 to i1
-  br i1 %trunc.i.i.i, label %._crit_edge.i, label %70
+  br i1 %trunc.i.i.i, label %._crit_edge.i, label %71
 
 ._crit_edge.i:                                    ; preds = %"_ZN89_$LT$wasmtime_environ..component..dfg..ComponentDfg$u20$as$u20$core..default..Default$GT$7default17h7548f54863bf43aaE.exit"
   %.pre1.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !5
-  br label %76
+  %70 = trunc nuw i64 %69 to i1
+  br label %77
 
-70:                                               ; preds = %"_ZN89_$LT$wasmtime_environ..component..dfg..ComponentDfg$u20$as$u20$core..default..Default$GT$7default17h7548f54863bf43aaE.exit"
-  %71 = invoke { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE()
-          to label %.noexc unwind label %74
+71:                                               ; preds = %"_ZN89_$LT$wasmtime_environ..component..dfg..ComponentDfg$u20$as$u20$core..default..Default$GT$7default17h7548f54863bf43aaE.exit"
+  %72 = invoke { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE()
+          to label %.noexc unwind label %75
 
-.noexc:                                           ; preds = %70
-  %72 = extractvalue { i64, i64 } %71, 0
-  %73 = extractvalue { i64, i64 } %71, 1
+.noexc:                                           ; preds = %71
+  %73 = extractvalue { i64, i64 } %72, 0
+  %74 = extractvalue { i64, i64 } %72, 1
   store i64 1, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !noalias !1416
-  store i64 %73, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !1416
-  br label %76
+  store i64 %74, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 16), align 8, !noalias !1416
+  br label %77
 
-74:                                               ; preds = %70
-  %75 = landingpad { ptr, i32 }
+75:                                               ; preds = %71
+  %76 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr67drop_in_place$LT$wasmtime_environ..component..dfg..ComponentDfg$GT$17h8029e632dc700602E"(ptr noalias noundef nonnull align 8 dereferenceable(640) %41) #33
           to label %common.resume unwind label %247
 
-76:                                               ; preds = %.noexc, %._crit_edge.i
-  %77 = phi i64 [ %69, %._crit_edge.i ], [ 1, %.noexc ]
-  %.pre1.i146 = phi i64 [ %.pre1.i, %._crit_edge.i ], [ %73, %.noexc ]
-  %78 = phi i64 [ %58, %._crit_edge.i ], [ %72, %.noexc ]
+77:                                               ; preds = %.noexc, %._crit_edge.i
+  %trunc.i.i.i143 = phi i1 [ %70, %._crit_edge.i ], [ true, %.noexc ]
+  %.pre1.i146 = phi i64 [ %.pre1.i, %._crit_edge.i ], [ %74, %.noexc ]
+  %78 = phi i64 [ %58, %._crit_edge.i ], [ %73, %.noexc ]
   %79 = add i64 %78, 1
   store i64 %79, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !1427
   %80 = getelementptr inbounds i8, ptr %42, i64 664
@@ -5379,10 +5380,9 @@ common.resume:                                    ; preds = %74, %236, %352, %51
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %40)
   %84 = getelementptr inbounds i8, ptr %2, i64 72
   %85 = load i64, ptr %84, align 8, !noundef !5
-  %trunc.i.i.i143 = trunc nuw i64 %77 to i1
   br i1 %trunc.i.i.i143, label %._crit_edge.i144, label %86
 
-86:                                               ; preds = %76
+86:                                               ; preds = %77
   %87 = invoke { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE()
           to label %.noexc147 unwind label %.thread
 
@@ -5401,9 +5401,9 @@ common.resume:                                    ; preds = %74, %236, %352, %51
           cleanup
   br label %336
 
-._crit_edge.i144:                                 ; preds = %76, %.noexc147
-  %92 = phi i64 [ %89, %.noexc147 ], [ %.pre1.i146, %76 ]
-  %93 = phi i64 [ %88, %.noexc147 ], [ %79, %76 ]
+._crit_edge.i144:                                 ; preds = %77, %.noexc147
+  %92 = phi i64 [ %89, %.noexc147 ], [ %.pre1.i146, %77 ]
+  %93 = phi i64 [ %88, %.noexc147 ], [ %79, %77 ]
   %94 = add i64 %93, 1
   store i64 %94, ptr getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), align 8, !noalias !1439
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
@@ -5939,7 +5939,7 @@ common.resume:                                    ; preds = %74, %236, %352, %51
   call void @llvm.lifetime.end.p0(i64 728, ptr nonnull %42)
   ret void
 
-247:                                              ; preds = %.critedge.thread, %264, %262, %352, %.critedge140, %.critedge141, %.critedge139, %.critedge138, %.critedge137, %.critedge136, %.critedge135, %.critedge134, %.critedge133, %.critedge132, %341, %.critedge.thread331, %337, %336, %335, %.thread285, %275, %236, %200, %"_ZN4core3ptr126drop_in_place$LT$indexmap..map..IndexMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17hea276a75b5a0acf0E.exit", %.body202, %74
+247:                                              ; preds = %.critedge.thread, %264, %262, %352, %.critedge140, %.critedge141, %.critedge139, %.critedge138, %.critedge137, %.critedge136, %.critedge135, %.critedge134, %.critedge133, %.critedge132, %341, %.critedge.thread331, %337, %336, %335, %.thread285, %275, %236, %200, %"_ZN4core3ptr126drop_in_place$LT$indexmap..map..IndexMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17hea276a75b5a0acf0E.exit", %.body202, %75
   %248 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34

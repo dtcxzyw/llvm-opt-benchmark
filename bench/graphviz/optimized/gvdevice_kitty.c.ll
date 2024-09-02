@@ -105,20 +105,20 @@ gv_alloc.exit.preheader.i:                        ; preds = %5
   store i8 %24, ptr %25, align 1
   %26 = add nuw i64 %.03945.i, 1
   %27 = icmp ult i64 %26, %1
-  br i1 %27, label %28, label %31
+  br i1 %27, label %28, label %32
 
 28:                                               ; preds = %.lr.ph.i
   %29 = getelementptr inbounds i8, ptr %0, i64 %26
   %30 = load i8, ptr %29, align 1
-  br label %31
+  %31 = zext i8 %30 to i32
+  br label %32
 
-31:                                               ; preds = %28, %.lr.ph.i
-  %32 = phi i8 [ %30, %28 ], [ 0, %.lr.ph.i ]
-  %33 = shl nuw nsw i32 %20, 4
-  %34 = and i32 %33, 48
-  %35 = zext i8 %32 to i32
-  %36 = lshr i32 %35, 4
-  %37 = or disjoint i32 %36, %34
+32:                                               ; preds = %28, %.lr.ph.i
+  %33 = phi i32 [ %31, %28 ], [ 0, %.lr.ph.i ]
+  %34 = shl nuw nsw i32 %20, 4
+  %35 = and i32 %34, 48
+  %36 = lshr i32 %33, 4
+  %37 = or disjoint i32 %36, %35
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds [66 x i8], ptr @base64_alphabet, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
@@ -127,23 +127,23 @@ gv_alloc.exit.preheader.i:                        ; preds = %5
   store i8 %40, ptr %42, align 1
   br i1 %27, label %43, label %gv_alloc.exit._crit_edge.i
 
-43:                                               ; preds = %31
+43:                                               ; preds = %32
   %44 = add i64 %.03945.i, 2
   %45 = icmp ult i64 %44, %1
-  br i1 %45, label %46, label %49
+  br i1 %45, label %46, label %50
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %0, i64 %44
   %48 = load i8, ptr %47, align 1
-  br label %49
+  %49 = zext i8 %48 to i32
+  br label %50
 
-49:                                               ; preds = %46, %43
-  %50 = phi i8 [ %48, %46 ], [ 0, %43 ]
-  %51 = shl nuw nsw i32 %35, 2
-  %52 = and i32 %51, 60
-  %53 = zext i8 %50 to i32
-  %54 = lshr i32 %53, 6
-  %55 = or disjoint i32 %54, %52
+50:                                               ; preds = %46, %43
+  %51 = phi i32 [ %49, %46 ], [ 0, %43 ]
+  %52 = shl nuw nsw i32 %33, 2
+  %53 = and i32 %52, 60
+  %54 = lshr i32 %51, 6
+  %55 = or disjoint i32 %54, %53
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds [66 x i8], ptr @base64_alphabet, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
@@ -152,8 +152,8 @@ gv_alloc.exit.preheader.i:                        ; preds = %5
   store i8 %58, ptr %60, align 1
   br i1 %45, label %gv_alloc.exit.i, label %gv_alloc.exit._crit_edge.i
 
-gv_alloc.exit.i:                                  ; preds = %49
-  %61 = and i32 %53, 63
+gv_alloc.exit.i:                                  ; preds = %50
+  %61 = and i32 %51, 63
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds [66 x i8], ptr @base64_alphabet, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
@@ -164,8 +164,8 @@ gv_alloc.exit.i:                                  ; preds = %49
   %68 = icmp ult i64 %67, %1
   br i1 %68, label %.lr.ph.i, label %gv_alloc.exit._crit_edge.i
 
-gv_alloc.exit._crit_edge.i:                       ; preds = %gv_alloc.exit.i, %49, %31
-  %.1.i = phi i64 [ %41, %31 ], [ %59, %49 ], [ %65, %gv_alloc.exit.i ]
+gv_alloc.exit._crit_edge.i:                       ; preds = %gv_alloc.exit.i, %50, %32
+  %.1.i = phi i64 [ %41, %32 ], [ %59, %50 ], [ %65, %gv_alloc.exit.i ]
   %69 = and i64 %.1.i, 3
   %.not4450.i = icmp eq i64 %69, 0
   br i1 %.not4450.i, label %base64_encode.exit, label %.lr.ph53.preheader.i

@@ -291,7 +291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3re211FilteredRE23AddEN4absl7debian211string_viewERKNS_3RE27OptionsEPi(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr %pattern.coerce0, i64 %pattern.coerce1, ptr noundef nonnull align 8 dereferenceable(23) %options, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 536870912) i32 @_ZN3re211FilteredRE23AddEN4absl7debian211string_viewERKNS_3RE27OptionsEPi(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr %pattern.coerce0, i64 %pattern.coerce1, ptr noundef nonnull align 8 dereferenceable(23) %options, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   %call = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #14

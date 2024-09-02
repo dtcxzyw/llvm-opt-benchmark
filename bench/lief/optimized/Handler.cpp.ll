@@ -1247,7 +1247,7 @@ _ZNSt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS3_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN4LIEF3ELF11DataHandler7Handler9make_holeEmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 5, 4294967302) i64 @_ZN4LIEF3ELF11DataHandler7Handler9make_holeEmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -1290,7 +1290,7 @@ _ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i:          ; preds = %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN4LIEF3ELF11DataHandler7Handler7reserveEmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 5, 4294967302) i64 @_ZN4LIEF3ELF11DataHandler7Handler7reserveEmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = add nsw i64 %2, %1
   %6 = icmp ugt i64 %5, 6442450944

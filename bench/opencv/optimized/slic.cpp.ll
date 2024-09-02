@@ -10971,18 +10971,21 @@ default.unreachable:                              ; preds = %645, %912
   %357 = call float @llvm.fmuladd.f32(float %355, float %355, float %.04401128)
   %indvars.iv.next1260 = add nuw nsw i64 %indvars.iv1259, 1
   %exitcond1264.not = icmp eq i64 %indvars.iv.next1260, %wide.trip.count1263
-  br i1 %exitcond1264.not, label %._crit_edge1132, label %.lr.ph1131, !llvm.loop !136
+  br i1 %exitcond1264.not, label %._crit_edge1132.loopexit, label %.lr.ph1131, !llvm.loop !136
 
-._crit_edge1132:                                  ; preds = %.lr.ph1131, %.preheader1025, %.preheader1027, %.preheader1029, %.preheader1031, %.preheader1033, %.preheader1035, %.preheader1037, %.loopexit1026
-  %.0442.lcssa = phi float [ 0.000000e+00, %.loopexit1026 ], [ 0.000000e+00, %.preheader1037 ], [ 0.000000e+00, %.preheader1035 ], [ 0.000000e+00, %.preheader1033 ], [ 0.000000e+00, %.preheader1031 ], [ 0.000000e+00, %.preheader1029 ], [ 0.000000e+00, %.preheader1027 ], [ 0.000000e+00, %.preheader1025 ], [ %353, %.lr.ph1131 ]
-  %.0441.lcssa = phi float [ 0.000000e+00, %.loopexit1026 ], [ 0.000000e+00, %.preheader1037 ], [ 0.000000e+00, %.preheader1035 ], [ 0.000000e+00, %.preheader1033 ], [ 0.000000e+00, %.preheader1031 ], [ 0.000000e+00, %.preheader1029 ], [ 0.000000e+00, %.preheader1027 ], [ 0.000000e+00, %.preheader1025 ], [ %356, %.lr.ph1131 ]
-  %.0440.lcssa = phi float [ 0.000000e+00, %.loopexit1026 ], [ 0.000000e+00, %.preheader1037 ], [ 0.000000e+00, %.preheader1035 ], [ 0.000000e+00, %.preheader1033 ], [ 0.000000e+00, %.preheader1031 ], [ 0.000000e+00, %.preheader1029 ], [ 0.000000e+00, %.preheader1027 ], [ 0.000000e+00, %.preheader1025 ], [ %357, %.lr.ph1131 ]
-  %358 = fadd float %.0442.lcssa, 1.000000e+00
-  %359 = fadd float %.0440.lcssa, 1.000000e+00
-  %360 = fadd float %.0441.lcssa, 0.000000e+00
-  %361 = fneg float %360
-  %362 = fmul float %360, %361
-  %363 = call float @llvm.fmuladd.f32(float %358, float %359, float %362)
+._crit_edge1132.loopexit:                         ; preds = %.lr.ph1131
+  %358 = fadd float %353, 1.000000e+00
+  %359 = fadd float %357, 1.000000e+00
+  %360 = fadd float %356, 0.000000e+00
+  br label %._crit_edge1132
+
+._crit_edge1132:                                  ; preds = %.preheader1025, %.preheader1027, %.preheader1029, %.preheader1031, %.preheader1033, %.preheader1035, %.preheader1037, %._crit_edge1132.loopexit, %.loopexit1026
+  %.0442.lcssa = phi float [ 1.000000e+00, %.loopexit1026 ], [ %358, %._crit_edge1132.loopexit ], [ 1.000000e+00, %.preheader1037 ], [ 1.000000e+00, %.preheader1035 ], [ 1.000000e+00, %.preheader1033 ], [ 1.000000e+00, %.preheader1031 ], [ 1.000000e+00, %.preheader1029 ], [ 1.000000e+00, %.preheader1027 ], [ 1.000000e+00, %.preheader1025 ]
+  %.0441.lcssa = phi float [ 0.000000e+00, %.loopexit1026 ], [ %360, %._crit_edge1132.loopexit ], [ 0.000000e+00, %.preheader1037 ], [ 0.000000e+00, %.preheader1035 ], [ 0.000000e+00, %.preheader1033 ], [ 0.000000e+00, %.preheader1031 ], [ 0.000000e+00, %.preheader1029 ], [ 0.000000e+00, %.preheader1027 ], [ 0.000000e+00, %.preheader1025 ]
+  %.0440.lcssa = phi float [ 1.000000e+00, %.loopexit1026 ], [ %359, %._crit_edge1132.loopexit ], [ 1.000000e+00, %.preheader1037 ], [ 1.000000e+00, %.preheader1035 ], [ 1.000000e+00, %.preheader1033 ], [ 1.000000e+00, %.preheader1031 ], [ 1.000000e+00, %.preheader1029 ], [ 1.000000e+00, %.preheader1027 ], [ 1.000000e+00, %.preheader1025 ]
+  %361 = fneg float %.0441.lcssa
+  %362 = fmul float %.0441.lcssa, %361
+  %363 = call float @llvm.fmuladd.f32(float %.0442.lcssa, float %.0440.lcssa, float %362)
   %364 = call noundef float @sqrtf(float noundef %363) #23
   %365 = load ptr, ptr %54, align 8
   %366 = load ptr, ptr %55, align 8

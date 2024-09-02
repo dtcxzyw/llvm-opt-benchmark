@@ -208,27 +208,27 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef align 1 dereferenceable(2) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   br label %4
 
-3:                                                ; preds = %13
+3:                                                ; preds = %14
   ret void
 
-4:                                                ; preds = %2, %13
-  %5 = phi i1 [ true, %2 ], [ false, %13 ]
-  %.sroa.8.010 = phi i64 [ 0, %2 ], [ 1, %13 ]
+4:                                                ; preds = %2, %14
+  %5 = phi i1 [ true, %2 ], [ false, %14 ]
+  %.sroa.8.010 = phi i64 [ 0, %2 ], [ 1, %14 ]
   %6 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.010
   %7 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %13, label %9
+  br i1 %8, label %14, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds { i64 }, ptr %0, i64 %.sroa.8.010
   %11 = load atomic i64, ptr %10 seq_cst, align 8
   %12 = icmp eq i64 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i8
+  br label %14
 
-13:                                               ; preds = %4, %9
-  %.0 = phi i1 [ %12, %9 ], [ true, %4 ]
-  %14 = zext i1 %.0 to i8
-  store i8 %14, ptr %6, align 1
+14:                                               ; preds = %4, %9
+  %.0 = phi i8 [ %13, %9 ], [ 1, %4 ]
+  store i8 %.0, ptr %6, align 1
   br i1 %5, label %4, label %3
 }
 
@@ -236,27 +236,27 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11upd
 define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef align 1 dereferenceable(2) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   br label %4
 
-3:                                                ; preds = %13
+3:                                                ; preds = %14
   ret void
 
-4:                                                ; preds = %2, %13
-  %5 = phi i1 [ true, %2 ], [ false, %13 ]
-  %.sroa.8.010 = phi i64 [ 0, %2 ], [ 1, %13 ]
+4:                                                ; preds = %2, %14
+  %5 = phi i1 [ true, %2 ], [ false, %14 ]
+  %.sroa.8.010 = phi i64 [ 0, %2 ], [ 1, %14 ]
   %6 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.010
   %7 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %13, label %9
+  br i1 %8, label %14, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds { i64 }, ptr %0, i64 %.sroa.8.010
   %11 = load atomic i64, ptr %10 seq_cst, align 8
   %12 = icmp eq i64 %11, 0
-  br label %13
+  %13 = zext i1 %12 to i8
+  br label %14
 
-13:                                               ; preds = %4, %9
-  %.0 = phi i1 [ %12, %9 ], [ true, %4 ]
-  %14 = zext i1 %.0 to i8
-  store i8 %14, ptr %6, align 1
+14:                                               ; preds = %4, %9
+  %.0 = phi i8 [ %13, %9 ], [ 1, %4 ]
+  store i8 %.0, ptr %6, align 1
   br i1 %5, label %4, label %3
 }
 
@@ -269,33 +269,33 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13wri
   %.sroa.8.010.i.sroa.gep5 = getelementptr inbounds i8, ptr %2, i64 1
   br label %3
 
-3:                                                ; preds = %11, %1
-  %4 = phi i1 [ true, %1 ], [ false, %11 ]
-  %.sroa.8.010.i.sroa.phi = phi ptr [ %2, %1 ], [ %.sroa.8.010.i.sroa.gep5, %11 ]
-  %.sroa.8.010.i = phi i64 [ 0, %1 ], [ 1, %11 ]
+3:                                                ; preds = %12, %1
+  %4 = phi i1 [ true, %1 ], [ false, %12 ]
+  %.sroa.8.010.i.sroa.phi = phi ptr [ %2, %1 ], [ %.sroa.8.010.i.sroa.gep5, %12 ]
+  %.sroa.8.010.i = phi i64 [ 0, %1 ], [ 1, %12 ]
   %5 = load i8, ptr %.sroa.8.010.i.sroa.phi, align 1, !range !4, !alias.scope !6, !noundef !5
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %11, label %7
+  br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds { i64 }, ptr %0, i64 %.sroa.8.010.i
   %9 = load atomic i64, ptr %8 seq_cst, align 8, !noalias !6
   %10 = icmp eq i64 %9, 0
-  br label %11
+  %11 = zext i1 %10 to i8
+  br label %12
 
-11:                                               ; preds = %7, %3
-  %.0.i = phi i1 [ %10, %7 ], [ true, %3 ]
-  %12 = zext i1 %.0.i to i8
-  store i8 %12, ptr %.sroa.8.010.i.sroa.phi, align 1, !alias.scope !6
+12:                                               ; preds = %7, %3
+  %.0.i = phi i8 [ %11, %7 ], [ 1, %3 ]
+  store i8 %.0.i, ptr %.sroa.8.010.i.sroa.phi, align 1, !alias.scope !6
   br i1 %4, label %3, label %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit"
 
-"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit": ; preds = %11
+"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit": ; preds = %12
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = atomicrmw add ptr %13, i64 1 seq_cst, align 8
   br label %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit4"
 
-"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit4": ; preds = %34, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit"
-  %.0 = phi i64 [ 0, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit" ], [ %19, %34 ]
+"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit4": ; preds = %35, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit"
+  %.0 = phi i64 [ 0, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit" ], [ %19, %35 ]
   br label %15
 
 15:                                               ; preds = %17, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit4"
@@ -332,24 +332,24 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13wri
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   br label %26
 
-26:                                               ; preds = %34, %25
-  %27 = phi i1 [ true, %25 ], [ false, %34 ]
-  %.sroa.8.010.i2.sroa.phi = phi ptr [ %2, %25 ], [ %.sroa.8.010.i.sroa.gep5, %34 ]
-  %.sroa.8.010.i2 = phi i64 [ 0, %25 ], [ 1, %34 ]
+26:                                               ; preds = %35, %25
+  %27 = phi i1 [ true, %25 ], [ false, %35 ]
+  %.sroa.8.010.i2.sroa.phi = phi ptr [ %2, %25 ], [ %.sroa.8.010.i.sroa.gep5, %35 ]
+  %.sroa.8.010.i2 = phi i64 [ 0, %25 ], [ 1, %35 ]
   %28 = load i8, ptr %.sroa.8.010.i2.sroa.phi, align 1, !range !4, !alias.scope !12, !noundef !5
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %34, label %30
+  br i1 %29, label %35, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds { i64 }, ptr %0, i64 %.sroa.8.010.i2
   %32 = load atomic i64, ptr %31 seq_cst, align 8, !noalias !12
   %33 = icmp eq i64 %32, 0
-  br label %34
+  %34 = zext i1 %33 to i8
+  br label %35
 
-34:                                               ; preds = %30, %26
-  %.0.i3 = phi i1 [ %33, %30 ], [ true, %26 ]
-  %35 = zext i1 %.0.i3 to i8
-  store i8 %35, ptr %.sroa.8.010.i2.sroa.phi, align 1, !alias.scope !12
+35:                                               ; preds = %30, %26
+  %.0.i3 = phi i8 [ %34, %30 ], [ 1, %26 ]
+  store i8 %.0.i3, ptr %.sroa.8.010.i2.sroa.phi, align 1, !alias.scope !12
   br i1 %27, label %26, label %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit4"
 }
 
@@ -362,33 +362,33 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13wri
   %.sroa.8.010.i.sroa.gep5 = getelementptr inbounds i8, ptr %2, i64 1
   br label %3
 
-3:                                                ; preds = %11, %1
-  %4 = phi i1 [ true, %1 ], [ false, %11 ]
-  %.sroa.8.010.i.sroa.phi = phi ptr [ %2, %1 ], [ %.sroa.8.010.i.sroa.gep5, %11 ]
-  %.sroa.8.010.i = phi i64 [ 0, %1 ], [ 1, %11 ]
+3:                                                ; preds = %12, %1
+  %4 = phi i1 [ true, %1 ], [ false, %12 ]
+  %.sroa.8.010.i.sroa.phi = phi ptr [ %2, %1 ], [ %.sroa.8.010.i.sroa.gep5, %12 ]
+  %.sroa.8.010.i = phi i64 [ 0, %1 ], [ 1, %12 ]
   %5 = load i8, ptr %.sroa.8.010.i.sroa.phi, align 1, !range !4, !alias.scope !15, !noundef !5
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %11, label %7
+  br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds { i64 }, ptr %0, i64 %.sroa.8.010.i
   %9 = load atomic i64, ptr %8 seq_cst, align 8, !noalias !15
   %10 = icmp eq i64 %9, 0
-  br label %11
+  %11 = zext i1 %10 to i8
+  br label %12
 
-11:                                               ; preds = %7, %3
-  %.0.i = phi i1 [ %10, %7 ], [ true, %3 ]
-  %12 = zext i1 %.0.i to i8
-  store i8 %12, ptr %.sroa.8.010.i.sroa.phi, align 1, !alias.scope !15
+12:                                               ; preds = %7, %3
+  %.0.i = phi i8 [ %11, %7 ], [ 1, %3 ]
+  store i8 %.0.i, ptr %.sroa.8.010.i.sroa.phi, align 1, !alias.scope !15
   br i1 %4, label %3, label %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit"
 
-"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit": ; preds = %11
+"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit": ; preds = %12
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = atomicrmw add ptr %13, i64 1 seq_cst, align 8
   br label %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit4"
 
-"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit4": ; preds = %34, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit"
-  %.0 = phi i64 [ 0, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit" ], [ %19, %34 ]
+"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit4": ; preds = %35, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit"
+  %.0 = phi i64 [ 0, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit" ], [ %19, %35 ]
   br label %15
 
 15:                                               ; preds = %17, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit4"
@@ -425,24 +425,24 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13wri
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   br label %26
 
-26:                                               ; preds = %34, %25
-  %27 = phi i1 [ true, %25 ], [ false, %34 ]
-  %.sroa.8.010.i2.sroa.phi = phi ptr [ %2, %25 ], [ %.sroa.8.010.i.sroa.gep5, %34 ]
-  %.sroa.8.010.i2 = phi i64 [ 0, %25 ], [ 1, %34 ]
+26:                                               ; preds = %35, %25
+  %27 = phi i1 [ true, %25 ], [ false, %35 ]
+  %.sroa.8.010.i2.sroa.phi = phi ptr [ %2, %25 ], [ %.sroa.8.010.i.sroa.gep5, %35 ]
+  %.sroa.8.010.i2 = phi i64 [ 0, %25 ], [ 1, %35 ]
   %28 = load i8, ptr %.sroa.8.010.i2.sroa.phi, align 1, !range !4, !alias.scope !21, !noundef !5
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %34, label %30
+  br i1 %29, label %35, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds { i64 }, ptr %0, i64 %.sroa.8.010.i2
   %32 = load atomic i64, ptr %31 seq_cst, align 8, !noalias !21
   %33 = icmp eq i64 %32, 0
-  br label %34
+  %34 = zext i1 %33 to i8
+  br label %35
 
-34:                                               ; preds = %30, %26
-  %.0.i3 = phi i1 [ %33, %30 ], [ true, %26 ]
-  %35 = zext i1 %.0.i3 to i8
-  store i8 %35, ptr %.sroa.8.010.i2.sroa.phi, align 1, !alias.scope !21
+35:                                               ; preds = %30, %26
+  %.0.i3 = phi i8 [ %34, %30 ], [ 1, %26 ]
+  store i8 %.0.i3, ptr %.sroa.8.010.i2.sroa.phi, align 1, !alias.scope !21
   br i1 %27, label %26, label %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit4"
 }
 
@@ -572,33 +572,33 @@ common.resume:                                    ; preds = %8, %57
   %.sroa.8.010.i.sroa.gep5.i = getelementptr inbounds i8, ptr %3, i64 1
   br label %18
 
-18:                                               ; preds = %26, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0da843d49ec27306E.llvm.5542961546488995764.exit"
-  %19 = phi i1 [ true, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0da843d49ec27306E.llvm.5542961546488995764.exit" ], [ false, %26 ]
-  %.sroa.8.010.i.sroa.phi.i = phi ptr [ %3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0da843d49ec27306E.llvm.5542961546488995764.exit" ], [ %.sroa.8.010.i.sroa.gep5.i, %26 ]
-  %.sroa.8.010.i.i = phi i64 [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0da843d49ec27306E.llvm.5542961546488995764.exit" ], [ 1, %26 ]
+18:                                               ; preds = %27, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0da843d49ec27306E.llvm.5542961546488995764.exit"
+  %19 = phi i1 [ true, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0da843d49ec27306E.llvm.5542961546488995764.exit" ], [ false, %27 ]
+  %.sroa.8.010.i.sroa.phi.i = phi ptr [ %3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0da843d49ec27306E.llvm.5542961546488995764.exit" ], [ %.sroa.8.010.i.sroa.gep5.i, %27 ]
+  %.sroa.8.010.i.i = phi i64 [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0da843d49ec27306E.llvm.5542961546488995764.exit" ], [ 1, %27 ]
   %20 = load i8, ptr %.sroa.8.010.i.sroa.phi.i, align 1, !range !4, !alias.scope !34, !noundef !5
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %26, label %22
+  br i1 %21, label %27, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds { i64 }, ptr %17, i64 %.sroa.8.010.i.i
   %24 = load atomic i64, ptr %23 seq_cst, align 8, !noalias !34
   %25 = icmp eq i64 %24, 0
-  br label %26
+  %26 = zext i1 %25 to i8
+  br label %27
 
-26:                                               ; preds = %22, %18
-  %.0.i.i = phi i1 [ %25, %22 ], [ true, %18 ]
-  %27 = zext i1 %.0.i.i to i8
-  store i8 %27, ptr %.sroa.8.010.i.sroa.phi.i, align 1, !alias.scope !34
+27:                                               ; preds = %22, %18
+  %.0.i.i = phi i8 [ %26, %22 ], [ 1, %18 ]
+  store i8 %.0.i.i, ptr %.sroa.8.010.i.sroa.phi.i, align 1, !alias.scope !34
   br i1 %19, label %18, label %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit.i"
 
-"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit.i": ; preds = %26
+"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit.i": ; preds = %27
   %28 = getelementptr inbounds i8, ptr %17, i64 24
   %29 = atomicrmw add ptr %28, i64 1 seq_cst, align 8
   br label %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit4.i"
 
-"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit4.i": ; preds = %48, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit.i"
-  %.0.i = phi i64 [ 0, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit.i" ], [ %34, %48 ]
+"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit4.i": ; preds = %49, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit.i"
+  %.0.i = phi i64 [ 0, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit.i" ], [ %34, %49 ]
   br label %30
 
 30:                                               ; preds = %32, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit4.i"
@@ -631,24 +631,24 @@ common.resume:                                    ; preds = %8, %57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   br label %40
 
-40:                                               ; preds = %48, %39
-  %41 = phi i1 [ true, %39 ], [ false, %48 ]
-  %.sroa.8.010.i2.sroa.phi.i = phi ptr [ %3, %39 ], [ %.sroa.8.010.i.sroa.gep5.i, %48 ]
-  %.sroa.8.010.i2.i = phi i64 [ 0, %39 ], [ 1, %48 ]
+40:                                               ; preds = %49, %39
+  %41 = phi i1 [ true, %39 ], [ false, %49 ]
+  %.sroa.8.010.i2.sroa.phi.i = phi ptr [ %3, %39 ], [ %.sroa.8.010.i.sroa.gep5.i, %49 ]
+  %.sroa.8.010.i2.i = phi i64 [ 0, %39 ], [ 1, %49 ]
   %42 = load i8, ptr %.sroa.8.010.i2.sroa.phi.i, align 1, !range !4, !alias.scope !40, !noundef !5
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %48, label %44
+  br i1 %43, label %49, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds { i64 }, ptr %17, i64 %.sroa.8.010.i2.i
   %46 = load atomic i64, ptr %45 seq_cst, align 8, !noalias !40
   %47 = icmp eq i64 %46, 0
-  br label %48
+  %48 = zext i1 %47 to i8
+  br label %49
 
-48:                                               ; preds = %44, %40
-  %.0.i3.i = phi i1 [ %47, %44 ], [ true, %40 ]
-  %49 = zext i1 %.0.i3.i to i8
-  store i8 %49, ptr %.sroa.8.010.i2.sroa.phi.i, align 1, !alias.scope !40
+49:                                               ; preds = %44, %40
+  %.0.i3.i = phi i8 [ %48, %44 ], [ 1, %40 ]
+  store i8 %.0.i3.i, ptr %.sroa.8.010.i2.sroa.phi.i, align 1, !alias.scope !40
   br i1 %41, label %40, label %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17h0d7bd15b4ebc000aE.llvm.5542961546488995764.exit4.i"
 
 "_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13write_barrier17hed73c9a291228ea7E.llvm.5542961546488995764.exit": ; preds = %30
@@ -708,33 +708,33 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5542961546488995764.ex
   %.sroa.8.010.i.sroa.gep5.i = getelementptr inbounds i8, ptr %3, i64 1
   br label %14
 
-14:                                               ; preds = %22, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5542961546488995764.exit
-  %15 = phi i1 [ true, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5542961546488995764.exit ], [ false, %22 ]
-  %.sroa.8.010.i.sroa.phi.i = phi ptr [ %3, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5542961546488995764.exit ], [ %.sroa.8.010.i.sroa.gep5.i, %22 ]
-  %.sroa.8.010.i.i = phi i64 [ 0, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5542961546488995764.exit ], [ 1, %22 ]
+14:                                               ; preds = %23, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5542961546488995764.exit
+  %15 = phi i1 [ true, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5542961546488995764.exit ], [ false, %23 ]
+  %.sroa.8.010.i.sroa.phi.i = phi ptr [ %3, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5542961546488995764.exit ], [ %.sroa.8.010.i.sroa.gep5.i, %23 ]
+  %.sroa.8.010.i.i = phi i64 [ 0, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5542961546488995764.exit ], [ 1, %23 ]
   %16 = load i8, ptr %.sroa.8.010.i.sroa.phi.i, align 1, !range !4, !alias.scope !70, !noundef !5
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %22, label %18
+  br i1 %17, label %23, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds { i64 }, ptr %13, i64 %.sroa.8.010.i.i
   %20 = load atomic i64, ptr %19 seq_cst, align 8, !noalias !70
   %21 = icmp eq i64 %20, 0
-  br label %22
+  %22 = zext i1 %21 to i8
+  br label %23
 
-22:                                               ; preds = %18, %14
-  %.0.i.i = phi i1 [ %21, %18 ], [ true, %14 ]
-  %23 = zext i1 %.0.i.i to i8
-  store i8 %23, ptr %.sroa.8.010.i.sroa.phi.i, align 1, !alias.scope !70
+23:                                               ; preds = %18, %14
+  %.0.i.i = phi i8 [ %22, %18 ], [ 1, %14 ]
+  store i8 %.0.i.i, ptr %.sroa.8.010.i.sroa.phi.i, align 1, !alias.scope !70
   br i1 %15, label %14, label %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit.i"
 
-"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit.i": ; preds = %22
+"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit.i": ; preds = %23
   %24 = getelementptr inbounds i8, ptr %13, i64 24
   %25 = atomicrmw add ptr %24, i64 1 seq_cst, align 8
   br label %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit4.i"
 
-"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit4.i": ; preds = %44, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit.i"
-  %.0.i = phi i64 [ 0, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit.i" ], [ %30, %44 ]
+"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit4.i": ; preds = %45, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit.i"
+  %.0.i = phi i64 [ 0, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit.i" ], [ %30, %45 ]
   br label %26
 
 26:                                               ; preds = %28, %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit4.i"
@@ -767,24 +767,24 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5542961546488995764.ex
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   br label %36
 
-36:                                               ; preds = %44, %35
-  %37 = phi i1 [ true, %35 ], [ false, %44 ]
-  %.sroa.8.010.i2.sroa.phi.i = phi ptr [ %3, %35 ], [ %.sroa.8.010.i.sroa.gep5.i, %44 ]
-  %.sroa.8.010.i2.i = phi i64 [ 0, %35 ], [ 1, %44 ]
+36:                                               ; preds = %45, %35
+  %37 = phi i1 [ true, %35 ], [ false, %45 ]
+  %.sroa.8.010.i2.sroa.phi.i = phi ptr [ %3, %35 ], [ %.sroa.8.010.i.sroa.gep5.i, %45 ]
+  %.sroa.8.010.i2.i = phi i64 [ 0, %35 ], [ 1, %45 ]
   %38 = load i8, ptr %.sroa.8.010.i2.sroa.phi.i, align 1, !range !4, !alias.scope !76, !noundef !5
   %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %44, label %40
+  br i1 %39, label %45, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds { i64 }, ptr %13, i64 %.sroa.8.010.i2.i
   %42 = load atomic i64, ptr %41 seq_cst, align 8, !noalias !76
   %43 = icmp eq i64 %42, 0
-  br label %44
+  %44 = zext i1 %43 to i8
+  br label %45
 
-44:                                               ; preds = %40, %36
-  %.0.i3.i = phi i1 [ %43, %40 ], [ true, %36 ]
-  %45 = zext i1 %.0.i3.i to i8
-  store i8 %45, ptr %.sroa.8.010.i2.sroa.phi.i, align 1, !alias.scope !76
+45:                                               ; preds = %40, %36
+  %.0.i3.i = phi i8 [ %44, %40 ], [ 1, %36 ]
+  store i8 %.0.i3.i, ptr %.sroa.8.010.i2.sroa.phi.i, align 1, !alias.scope !76
   br i1 %37, label %36, label %"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11update_seen17hb059b5bcd4bbb4d6E.llvm.5542961546488995764.exit4.i"
 
 "_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13write_barrier17h0eea9bf582cbd2e5E.llvm.5542961546488995764.exit": ; preds = %26
@@ -3731,7 +3731,7 @@ _ZN3std4sync4once4Once9call_once17h577dd9554f35c9e8E.llvm.5542961546488995764.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E(ptr noalias noundef readonly align 1 dereferenceable(12) %0) unnamed_addr #1 {
+define hidden noundef range(i64 0, 64) i64 @_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E(ptr noalias noundef readonly align 1 dereferenceable(12) %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 1, !noundef !5
   %3 = and i32 %2, 3
   %.09.not = icmp ne i32 %3, 0
@@ -3824,7 +3824,7 @@ define noundef zeroext i1 @_ZN5tokio2io5ready5Ready8is_error17he49205da54fe3a16E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5tokio2io5ready5Ready10from_usize17h536e25716e6f9feaE(i64 noundef %0) unnamed_addr #5 {
+define hidden noundef range(i64 0, 64) i64 @_ZN5tokio2io5ready5Ready10from_usize17h536e25716e6f9feaE(i64 noundef %0) unnamed_addr #5 {
   %2 = and i64 %0, 63
   ret i64 %2
 }

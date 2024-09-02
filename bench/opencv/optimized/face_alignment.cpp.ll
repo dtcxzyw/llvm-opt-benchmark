@@ -497,14 +497,14 @@ define hidden void @_ZTv0_n24_N2cv4face18FacemarkKazemiImplD0Ev(ptr noundef %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN2cv4face18FacemarkKazemiImpl4leftEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i64 1, 0) i64 @_ZN2cv4face18FacemarkKazemiImpl4leftEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = shl i64 %1, 1
   %4 = or disjoint i64 %3, 1
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN2cv4face18FacemarkKazemiImpl5rightEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i64 2, 1) i64 @_ZN2cv4face18FacemarkKazemiImpl5rightEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = shl i64 %1, 1
   %4 = add i64 %3, 2
   ret i64 %4

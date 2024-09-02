@@ -2389,7 +2389,7 @@ define hidden void @nvgDeleteGL3(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @nvglCreateImageFromHandleGL3(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define hidden range(i32 -2147483647, -2147483648) i32 @nvglCreateImageFromHandleGL3(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = tail call ptr @nvgInternalParams(ptr noundef %0)
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 40
@@ -5090,7 +5090,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit: ; preds = %._crit_edge, %2
 23:                                               ; preds = %.lr.ph29, %52
   %24 = phi ptr [ %21, %.lr.ph29 ], [ %53, %52 ]
   %.028 = phi ptr [ null, %.lr.ph29 ], [ %spec.select, %52 ]
-  %.02027 = phi ptr [ %1, %.lr.ph29 ], [ %56, %52 ]
+  %.02027 = phi ptr [ %1, %.lr.ph29 ], [ %57, %52 ]
   %25 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %24, %25
   br i1 %.not.i, label %29, label %26
@@ -5160,11 +5160,11 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx
 52:                                               ; preds = %26, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %53 = phi ptr [ %28, %26 ], [ %49, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %54 = tail call ptr @__dynamic_cast(ptr nonnull %.02027, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6WindowE, i64 0) #32
-  %.not9 = icmp eq ptr %54, null
-  %spec.select = select i1 %.not9, ptr %.028, ptr %.02027
-  %55 = getelementptr inbounds i8, ptr %.02027, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %.not = icmp eq ptr %56, null
+  %55 = icmp eq ptr %54, null
+  %spec.select = select i1 %55, ptr %.028, ptr %.02027
+  %56 = getelementptr inbounds i8, ptr %.02027, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %.not = icmp eq ptr %57, null
   br i1 %.not, label %._crit_edge30.loopexit, label %23, !llvm.loop !39
 
 ._crit_edge30.loopexit:                           ; preds = %52
@@ -5172,33 +5172,33 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx
   br label %._crit_edge30
 
 ._crit_edge30:                                    ; preds = %._crit_edge30.loopexit, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit
-  %57 = phi ptr [ %19, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit ], [ %.pre37, %._crit_edge30.loopexit ]
-  %58 = phi ptr [ %21, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit ], [ %53, %._crit_edge30.loopexit ]
+  %58 = phi ptr [ %19, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit ], [ %.pre37, %._crit_edge30.loopexit ]
+  %59 = phi ptr [ %21, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit ], [ %53, %._crit_edge30.loopexit ]
   %.0.lcssa = phi ptr [ null, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit ], [ %spec.select, %._crit_edge30.loopexit ]
-  %.not2231 = icmp eq ptr %58, %57
+  %.not2231 = icmp eq ptr %59, %58
   br i1 %.not2231, label %._crit_edge35, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %._crit_edge30, %.lr.ph34
-  %.sroa.010.032 = phi ptr [ %59, %.lr.ph34 ], [ %58, %._crit_edge30 ]
-  %59 = getelementptr inbounds i8, ptr %.sroa.010.032, i64 -8
-  %60 = load ptr, ptr %59, align 8
+  %.sroa.010.032 = phi ptr [ %60, %.lr.ph34 ], [ %59, %._crit_edge30 ]
+  %60 = getelementptr inbounds i8, ptr %.sroa.010.032, i64 -8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 72
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(140) %60, i1 noundef zeroext true)
-  %65 = load ptr, ptr %3, align 8, !noalias !40
-  %.not22 = icmp eq ptr %59, %65
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 72
+  %64 = load ptr, ptr %63, align 8
+  %65 = tail call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(140) %61, i1 noundef zeroext true)
+  %66 = load ptr, ptr %3, align 8, !noalias !40
+  %.not22 = icmp eq ptr %60, %66
   br i1 %.not22, label %._crit_edge35, label %.lr.ph34, !llvm.loop !43
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %._crit_edge30
   %.not8 = icmp eq ptr %.0.lcssa, null
-  br i1 %.not8, label %67, label %66
+  br i1 %.not8, label %68, label %67
 
-66:                                               ; preds = %._crit_edge35
+67:                                               ; preds = %._crit_edge35
   tail call void @_ZN7nanogui6Screen20move_window_to_frontEPNS_6WindowE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull %.0.lcssa)
-  br label %67
+  br label %68
 
-67:                                               ; preds = %66, %._crit_edge35
+68:                                               ; preds = %67, %._crit_edge35
   ret void
 }
 

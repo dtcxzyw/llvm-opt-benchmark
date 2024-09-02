@@ -871,7 +871,7 @@ return:                                           ; preds = %entry, %sw.bb39, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext i8 @nfaQueueExecToMatch(ptr noundef %nfa, ptr noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %nfa, ptr noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %items = getelementptr inbounds i8, ptr %q, i64 104
   %cur = getelementptr inbounds i8, ptr %q, i64 8

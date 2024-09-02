@@ -33768,12 +33768,12 @@ _ZN3vcg3tri12ForEachTetraI6CMeshOZNS0_6SmoothIS2_E23AccumulateLaplacianInfoERS2_
 97:                                               ; preds = %96, %94, %88
   %.0.i = phi float [ -1.000000e+00, %96 ], [ %92, %94 ], [ 1.000000e+00, %88 ]
   %98 = call noundef float @acosf(float noundef %.0.i) #26
+  %99 = fpext float %98 to double
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit
 
 _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %43, %97
-  %.010.i = phi float [ %98, %97 ], [ -1.000000e+00, %43 ]
-  %99 = fpext float %.010.i to double
-  %100 = fsub double 0x3FF921FB54442D18, %99
+  %.010.i = phi double [ %99, %97 ], [ -1.000000e+00, %43 ]
+  %100 = fsub double 0x3FF921FB54442D18, %.010.i
   %101 = call double @tan(double noundef %100) #26
   %102 = fptrunc double %101 to float
   store float %102, ptr %6, align 4

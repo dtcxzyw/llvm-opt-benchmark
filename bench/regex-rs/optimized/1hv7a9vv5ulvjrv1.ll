@@ -1004,12 +1004,12 @@ _ZN12regex_syntax3hir12ClassUnicode5empty17h26d5991a0702163dE.exit: ; preds = %4
   br label %85
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h046fea223349a6f1E.exit.i.i": ; preds = %58, %67
-  %.sroa.0.018.i.i = phi i8 [ %.sroa.0.1.i.fr.i, %67 ], [ 2, %58 ]
-  %.sroa.3.017.i.i = phi i8 [ %.sroa.3.1.i.fr.i, %67 ], [ 2, %58 ]
-  %.sroa.5.016.i.i = phi i8 [ %.sroa.5.1.i.fr.i, %67 ], [ 2, %58 ]
-  %.sroa.7.015.i.i = phi i8 [ %.sroa.7.1.i.fr.i, %67 ], [ 2, %58 ]
-  %.sroa.9.014.i.i = phi i8 [ %.sroa.9.1.i.fr.i, %67 ], [ 2, %58 ]
-  %.sroa.11.013.i.i = phi i8 [ %.sroa.11.1.i.fr.i, %67 ], [ 2, %58 ]
+  %.sroa.0.018.i.i = phi i8 [ %.sroa.0.1.i.i, %67 ], [ 2, %58 ]
+  %.sroa.3.017.i.i = phi i8 [ %.sroa.3.1.i.i, %67 ], [ 2, %58 ]
+  %.sroa.5.016.i.i = phi i8 [ %.sroa.5.1.i.i, %67 ], [ 2, %58 ]
+  %.sroa.7.015.i.i = phi i8 [ %.sroa.7.1.i.i, %67 ], [ 2, %58 ]
+  %.sroa.9.014.i.i = phi i8 [ %.sroa.9.1.i.i, %67 ], [ 2, %58 ]
+  %.sroa.11.013.i.i = phi i8 [ %.sroa.11.1.i.i, %67 ], [ 2, %58 ]
   %.012.i.i = phi i8 [ %.1.i.i, %67 ], [ 1, %58 ]
   %.sroa.0.0111.i.i = phi ptr [ %64, %67 ], [ %.val12, %58 ]
   %64 = getelementptr inbounds i8, ptr %.sroa.0.0111.i.i, i64 56
@@ -1040,12 +1040,6 @@ default.unreachable:                              ; preds = %"_ZN91_$LT$core..sl
   %.sroa.5.1.i.i = phi i8 [ %.sroa.5.016.i.i, %79 ], [ %.sroa.5.016.i.i, %77 ], [ %.sroa.5.016.i.i, %75 ], [ %74, %73 ], [ %.sroa.5.016.i.i, %71 ], [ %.sroa.5.016.i.i, %69 ], [ %.sroa.5.016.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h046fea223349a6f1E.exit.i.i" ], [ %.sroa.5.016.i.i, %.fold.split.i.i ]
   %.sroa.3.1.i.i = phi i8 [ %.sroa.3.017.i.i, %79 ], [ %.sroa.3.017.i.i, %77 ], [ %.sroa.3.017.i.i, %75 ], [ %.sroa.3.017.i.i, %73 ], [ %72, %71 ], [ %.sroa.3.017.i.i, %69 ], [ %.sroa.3.017.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h046fea223349a6f1E.exit.i.i" ], [ %.sroa.3.017.i.i, %.fold.split.i.i ]
   %.sroa.0.1.i.i = phi i8 [ %.sroa.0.018.i.i, %79 ], [ %.sroa.0.018.i.i, %77 ], [ %.sroa.0.018.i.i, %75 ], [ %.sroa.0.018.i.i, %73 ], [ %.sroa.0.018.i.i, %71 ], [ %70, %69 ], [ %.sroa.0.018.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h046fea223349a6f1E.exit.i.i" ], [ %.sroa.0.018.i.i, %.fold.split.i.i ]
-  %.sroa.11.1.i.fr.i = freeze i8 %.sroa.11.1.i.i
-  %.sroa.9.1.i.fr.i = freeze i8 %.sroa.9.1.i.i
-  %.sroa.7.1.i.fr.i = freeze i8 %.sroa.7.1.i.i
-  %.sroa.5.1.i.fr.i = freeze i8 %.sroa.5.1.i.i
-  %.sroa.3.1.i.fr.i = freeze i8 %.sroa.3.1.i.i
-  %.sroa.0.1.i.fr.i = freeze i8 %.sroa.0.1.i.i
   %68 = icmp eq ptr %64, %62
   br i1 %68, label %_ZN12regex_syntax3hir9translate5Flags8from_ast17hfd36962db6820e39E.exit.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h046fea223349a6f1E.exit.i.i"
 
@@ -1085,18 +1079,18 @@ _ZN12regex_syntax3hir9translate5Flags8from_ast17hfd36962db6820e39E.exit.i: ; pre
   %.sroa.5.0.extract.shift.i = lshr i48 %.sroa.0.0.copyload.i.i, 8
   %.sroa.5.0.extract.trunc.i = trunc i48 %.sroa.5.0.extract.shift.i to i8
   %.sroa.0.0.extract.trunc.i = trunc i48 %.sroa.0.0.copyload.i.i to i8
-  %.not.i.i = icmp eq i8 %.sroa.0.1.i.fr.i, 2
-  %spec.select.i = select i1 %.not.i.i, i8 %.sroa.0.0.extract.trunc.i, i8 %.sroa.0.1.i.fr.i
-  %.not1.i.i = icmp eq i8 %.sroa.3.1.i.fr.i, 2
-  %81 = select i1 %.not1.i.i, i8 %.sroa.5.0.extract.trunc.i, i8 %.sroa.3.1.i.fr.i
-  %.not2.i.i = icmp eq i8 %.sroa.5.1.i.fr.i, 2
-  %82 = select i1 %.not2.i.i, i8 %.sroa.6.0.extract.trunc.i, i8 %.sroa.5.1.i.fr.i
-  %.not3.i.i = icmp eq i8 %.sroa.7.1.i.fr.i, 2
-  %83 = select i1 %.not3.i.i, i8 %.sroa.7.0.extract.trunc.i, i8 %.sroa.7.1.i.fr.i
-  %.not4.i.i = icmp eq i8 %.sroa.9.1.i.fr.i, 2
-  %84 = select i1 %.not4.i.i, i8 %.sroa.8.0.extract.trunc.i, i8 %.sroa.9.1.i.fr.i
-  %.not5.i.i = icmp eq i8 %.sroa.11.1.i.fr.i, 2
-  %spec.select143.i = select i1 %.not5.i.i, i8 %.sroa.9.0.extract.trunc.i, i8 %.sroa.11.1.i.fr.i
+  %.not.i.i = icmp eq i8 %.sroa.0.1.i.i, 2
+  %spec.select.i = select i1 %.not.i.i, i8 %.sroa.0.0.extract.trunc.i, i8 %.sroa.0.1.i.i
+  %.not1.i.i = icmp eq i8 %.sroa.3.1.i.i, 2
+  %81 = select i1 %.not1.i.i, i8 %.sroa.5.0.extract.trunc.i, i8 %.sroa.3.1.i.i
+  %.not2.i.i = icmp eq i8 %.sroa.5.1.i.i, 2
+  %82 = select i1 %.not2.i.i, i8 %.sroa.6.0.extract.trunc.i, i8 %.sroa.5.1.i.i
+  %.not3.i.i = icmp eq i8 %.sroa.7.1.i.i, 2
+  %83 = select i1 %.not3.i.i, i8 %.sroa.7.0.extract.trunc.i, i8 %.sroa.7.1.i.i
+  %.not4.i.i = icmp eq i8 %.sroa.9.1.i.i, 2
+  %84 = select i1 %.not4.i.i, i8 %.sroa.8.0.extract.trunc.i, i8 %.sroa.9.1.i.i
+  %.not5.i.i = icmp eq i8 %.sroa.11.1.i.i, 2
+  %spec.select143.i = select i1 %.not5.i.i, i8 %.sroa.9.0.extract.trunc.i, i8 %.sroa.11.1.i.i
   %extract.t = trunc nuw i48 %.sroa.5.0.extract.shift.i to i40
   br label %85
 
@@ -1456,12 +1450,12 @@ _ZN12regex_syntax3hir10Properties5empty17heee6dc2d9f67e22bE.exit: ; preds = %143
   br label %_ZN12regex_syntax3hir9translate11TranslatorI9set_flags17h58841748df50ec70E.exit
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h046fea223349a6f1E.exit.i.i": ; preds = %147, %158
-  %.sroa.0.018.i.i = phi i8 [ %.sroa.0.1.i.fr.i, %158 ], [ 2, %147 ]
-  %.sroa.3.017.i.i = phi i8 [ %.sroa.3.1.i.fr.i, %158 ], [ 2, %147 ]
-  %.sroa.5.016.i.i = phi i8 [ %.sroa.5.1.i.fr.i, %158 ], [ 2, %147 ]
-  %.sroa.7.015.i.i = phi i8 [ %.sroa.7.1.i.fr.i, %158 ], [ 2, %147 ]
-  %.sroa.9.014.i.i = phi i8 [ %.sroa.9.1.i.fr.i, %158 ], [ 2, %147 ]
-  %.sroa.11.013.i.i = phi i8 [ %.sroa.11.1.i.fr.i, %158 ], [ 2, %147 ]
+  %.sroa.0.018.i.i = phi i8 [ %.sroa.0.1.i.i, %158 ], [ 2, %147 ]
+  %.sroa.3.017.i.i = phi i8 [ %.sroa.3.1.i.i, %158 ], [ 2, %147 ]
+  %.sroa.5.016.i.i = phi i8 [ %.sroa.5.1.i.i, %158 ], [ 2, %147 ]
+  %.sroa.7.015.i.i = phi i8 [ %.sroa.7.1.i.i, %158 ], [ 2, %147 ]
+  %.sroa.9.014.i.i = phi i8 [ %.sroa.9.1.i.i, %158 ], [ 2, %147 ]
+  %.sroa.11.013.i.i = phi i8 [ %.sroa.11.1.i.i, %158 ], [ 2, %147 ]
   %.012.i.i = phi i8 [ %.1.i.i, %158 ], [ 1, %147 ]
   %.sroa.0.0111.i.i = phi ptr [ %155, %158 ], [ %.val228, %147 ]
   %155 = getelementptr inbounds i8, ptr %.sroa.0.0111.i.i, i64 56
@@ -1489,12 +1483,6 @@ _ZN12regex_syntax3hir10Properties5empty17heee6dc2d9f67e22bE.exit: ; preds = %143
   %.sroa.5.1.i.i = phi i8 [ %.sroa.5.016.i.i, %170 ], [ %.sroa.5.016.i.i, %168 ], [ %.sroa.5.016.i.i, %166 ], [ %165, %164 ], [ %.sroa.5.016.i.i, %162 ], [ %.sroa.5.016.i.i, %160 ], [ %.sroa.5.016.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h046fea223349a6f1E.exit.i.i" ], [ %.sroa.5.016.i.i, %.fold.split.i.i ]
   %.sroa.3.1.i.i = phi i8 [ %.sroa.3.017.i.i, %170 ], [ %.sroa.3.017.i.i, %168 ], [ %.sroa.3.017.i.i, %166 ], [ %.sroa.3.017.i.i, %164 ], [ %163, %162 ], [ %.sroa.3.017.i.i, %160 ], [ %.sroa.3.017.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h046fea223349a6f1E.exit.i.i" ], [ %.sroa.3.017.i.i, %.fold.split.i.i ]
   %.sroa.0.1.i.i = phi i8 [ %.sroa.0.018.i.i, %170 ], [ %.sroa.0.018.i.i, %168 ], [ %.sroa.0.018.i.i, %166 ], [ %.sroa.0.018.i.i, %164 ], [ %.sroa.0.018.i.i, %162 ], [ %161, %160 ], [ %.sroa.0.018.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h046fea223349a6f1E.exit.i.i" ], [ %.sroa.0.018.i.i, %.fold.split.i.i ]
-  %.sroa.11.1.i.fr.i = freeze i8 %.sroa.11.1.i.i
-  %.sroa.9.1.i.fr.i = freeze i8 %.sroa.9.1.i.i
-  %.sroa.7.1.i.fr.i = freeze i8 %.sroa.7.1.i.i
-  %.sroa.5.1.i.fr.i = freeze i8 %.sroa.5.1.i.i
-  %.sroa.3.1.i.fr.i = freeze i8 %.sroa.3.1.i.i
-  %.sroa.0.1.i.fr.i = freeze i8 %.sroa.0.1.i.i
   %159 = icmp eq ptr %155, %153
   br i1 %159, label %_ZN12regex_syntax3hir9translate5Flags8from_ast17hfd36962db6820e39E.exit.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h046fea223349a6f1E.exit.i.i"
 
@@ -1534,18 +1522,18 @@ _ZN12regex_syntax3hir9translate5Flags8from_ast17hfd36962db6820e39E.exit.i: ; pre
   %.sroa.5.0.extract.shift.i = lshr i48 %.sroa.0.0.copyload.i.i, 8
   %.sroa.5.0.extract.trunc.i = trunc i48 %.sroa.5.0.extract.shift.i to i8
   %.sroa.0.0.extract.trunc.i = trunc i48 %.sroa.0.0.copyload.i.i to i8
-  %.not.i.i = icmp eq i8 %.sroa.0.1.i.fr.i, 2
-  %spec.select.i = select i1 %.not.i.i, i8 %.sroa.0.0.extract.trunc.i, i8 %.sroa.0.1.i.fr.i
-  %.not1.i.i = icmp eq i8 %.sroa.3.1.i.fr.i, 2
-  %172 = select i1 %.not1.i.i, i8 %.sroa.5.0.extract.trunc.i, i8 %.sroa.3.1.i.fr.i
-  %.not2.i.i = icmp eq i8 %.sroa.5.1.i.fr.i, 2
-  %173 = select i1 %.not2.i.i, i8 %.sroa.6.0.extract.trunc.i, i8 %.sroa.5.1.i.fr.i
-  %.not3.i.i = icmp eq i8 %.sroa.7.1.i.fr.i, 2
-  %174 = select i1 %.not3.i.i, i8 %.sroa.7.0.extract.trunc.i, i8 %.sroa.7.1.i.fr.i
-  %.not4.i.i = icmp eq i8 %.sroa.9.1.i.fr.i, 2
-  %175 = select i1 %.not4.i.i, i8 %.sroa.8.0.extract.trunc.i, i8 %.sroa.9.1.i.fr.i
-  %.not5.i.i = icmp eq i8 %.sroa.11.1.i.fr.i, 2
-  %spec.select143.i = select i1 %.not5.i.i, i8 %.sroa.9.0.extract.trunc.i, i8 %.sroa.11.1.i.fr.i
+  %.not.i.i = icmp eq i8 %.sroa.0.1.i.i, 2
+  %spec.select.i = select i1 %.not.i.i, i8 %.sroa.0.0.extract.trunc.i, i8 %.sroa.0.1.i.i
+  %.not1.i.i = icmp eq i8 %.sroa.3.1.i.i, 2
+  %172 = select i1 %.not1.i.i, i8 %.sroa.5.0.extract.trunc.i, i8 %.sroa.3.1.i.i
+  %.not2.i.i = icmp eq i8 %.sroa.5.1.i.i, 2
+  %173 = select i1 %.not2.i.i, i8 %.sroa.6.0.extract.trunc.i, i8 %.sroa.5.1.i.i
+  %.not3.i.i = icmp eq i8 %.sroa.7.1.i.i, 2
+  %174 = select i1 %.not3.i.i, i8 %.sroa.7.0.extract.trunc.i, i8 %.sroa.7.1.i.i
+  %.not4.i.i = icmp eq i8 %.sroa.9.1.i.i, 2
+  %175 = select i1 %.not4.i.i, i8 %.sroa.8.0.extract.trunc.i, i8 %.sroa.9.1.i.i
+  %.not5.i.i = icmp eq i8 %.sroa.11.1.i.i, 2
+  %spec.select143.i = select i1 %.not5.i.i, i8 %.sroa.9.0.extract.trunc.i, i8 %.sroa.11.1.i.i
   br label %_ZN12regex_syntax3hir9translate11TranslatorI9set_flags17h58841748df50ec70E.exit
 
 _ZN12regex_syntax3hir9translate11TranslatorI9set_flags17h58841748df50ec70E.exit: ; preds = %.thread137.i, %_ZN12regex_syntax3hir9translate5Flags8from_ast17hfd36962db6820e39E.exit.i

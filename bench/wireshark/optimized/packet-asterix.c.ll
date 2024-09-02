@@ -36254,9 +36254,9 @@ asterix_fspec_len.exit.preheader.i.i.i:           ; preds = %50
   br i1 %.not3138.i.i.i, label %asterix_get_active_uap.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %asterix_fspec_len.exit.preheader.i.i.i, %asterix_field_exists.exit.thread.i.i.i
-  %59 = phi ptr [ %86, %asterix_field_exists.exit.thread.i.i.i ], [ %46, %asterix_fspec_len.exit.preheader.i.i.i ]
+  %59 = phi ptr [ %87, %asterix_field_exists.exit.thread.i.i.i ], [ %46, %asterix_fspec_len.exit.preheader.i.i.i ]
   %.02540.i.i.i = phi i32 [ %.1.i.i.i, %asterix_field_exists.exit.thread.i.i.i ], [ %57, %asterix_fspec_len.exit.preheader.i.i.i ]
-  %.02639.i.i.i = phi i32 [ %84, %asterix_field_exists.exit.thread.i.i.i ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ]
+  %.02639.i.i.i = phi i32 [ %85, %asterix_field_exists.exit.thread.i.i.i ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ]
   %60 = sdiv i32 %.02639.i.i.i, 7
   %61 = add i32 %60, %.02639.i.i.i
   %62 = and i32 %61, 248
@@ -36295,46 +36295,46 @@ asterix_field_exists.exit.i.i.i:                  ; preds = %64, %.lr.ph.i.i.i
 74:                                               ; preds = %asterix_field_exists.exit.i.i.i
   %75 = icmp eq i32 %.02639.i.i.i, 1
   %76 = add i32 %.02540.i.i.i, %37
-  br i1 %75, label %77, label %80
+  br i1 %75, label %77, label %81
 
 77:                                               ; preds = %74
   %78 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %76) #3
   %79 = lshr i8 %78, 7
+  %80 = zext nneg i8 %79 to i64
   br label %asterix_get_active_uap.exit.i.i
 
-80:                                               ; preds = %74
-  %81 = load ptr, ptr %59, align 8
-  %82 = tail call fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %76, ptr noundef %81)
-  %83 = add i32 %82, %.02540.i.i.i
+81:                                               ; preds = %74
+  %82 = load ptr, ptr %59, align 8
+  %83 = tail call fastcc i32 @asterix_field_length(ptr noundef %0, i32 noundef %76, ptr noundef %82)
+  %84 = add i32 %83, %.02540.i.i.i
   br label %asterix_field_exists.exit.thread.i.i.i
 
-asterix_field_exists.exit.thread.i.i.i:           ; preds = %.lr.ph.i.i.i.i, %80, %asterix_field_exists.exit.i.i.i
-  %.1.i.i.i = phi i32 [ %83, %80 ], [ %.02540.i.i.i, %asterix_field_exists.exit.i.i.i ], [ %.02540.i.i.i, %.lr.ph.i.i.i.i ]
-  %84 = add i32 %.02639.i.i.i, 1
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr ptr, ptr %46, i64 %85
-  %87 = load ptr, ptr %86, align 8
-  %.not31.i.i.i = icmp eq ptr %87, null
+asterix_field_exists.exit.thread.i.i.i:           ; preds = %.lr.ph.i.i.i.i, %81, %asterix_field_exists.exit.i.i.i
+  %.1.i.i.i = phi i32 [ %84, %81 ], [ %.02540.i.i.i, %asterix_field_exists.exit.i.i.i ], [ %.02540.i.i.i, %.lr.ph.i.i.i.i ]
+  %85 = add i32 %.02639.i.i.i, 1
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr ptr, ptr %46, i64 %86
+  %88 = load ptr, ptr %87, align 8
+  %.not31.i.i.i = icmp eq ptr %88, null
   br i1 %.not31.i.i.i, label %asterix_get_active_uap.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !7
 
 asterix_get_active_uap.exit.i.i:                  ; preds = %asterix_field_exists.exit.thread.i.i.i, %77, %asterix_fspec_len.exit.preheader.i.i.i, %45, %38, %36
-  %.0.i.i.i = phi i8 [ %79, %77 ], [ 0, %38 ], [ 0, %45 ], [ 0, %36 ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ], [ 0, %asterix_field_exists.exit.thread.i.i.i ]
-  %88 = load ptr, ptr %34, align 8
-  %.not.i.i.i = icmp eq ptr %88, null
-  br i1 %.not.i.i.i, label %dissect_asterix_data_block.exit.i, label %89
+  %.0.i.i.i = phi i64 [ %80, %77 ], [ 0, %38 ], [ 0, %45 ], [ 0, %36 ], [ 0, %asterix_fspec_len.exit.preheader.i.i.i ], [ 0, %asterix_field_exists.exit.thread.i.i.i ]
+  %89 = load ptr, ptr %34, align 8
+  %.not.i.i.i = icmp eq ptr %89, null
+  br i1 %.not.i.i.i, label %dissect_asterix_data_block.exit.i, label %90
 
-89:                                               ; preds = %asterix_get_active_uap.exit.i.i
-  %90 = load i32, ptr %35, align 4
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr ptr, ptr %88, i64 %91
-  %93 = load ptr, ptr %92, align 8
-  %94 = zext nneg i8 %.0.i.i.i to i64
-  %95 = getelementptr ptr, ptr %93, i64 %94
+90:                                               ; preds = %asterix_get_active_uap.exit.i.i
+  %91 = load i32, ptr %35, align 4
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr ptr, ptr %89, i64 %92
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr ptr, ptr %94, i64 %.0.i.i.i
   %96 = load ptr, ptr %95, align 8
   %.not24.i.i.i = icmp eq ptr %96, null
   br i1 %.not24.i.i.i, label %dissect_asterix_data_block.exit.i, label %97
 
-97:                                               ; preds = %89
+97:                                               ; preds = %90
   %98 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %99 = sub i32 %98, %37
   br label %100
@@ -36441,9 +36441,9 @@ asterix_message_length.exit.thread.i.i:           ; preds = %141
   %150 = tail call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %149, ptr noundef %0, i32 noundef %37, i32 noundef %148, i32 noundef 0) #3
   %151 = load i32, ptr %35, align 4
   %152 = sext i32 %151 to i64
-  %153 = getelementptr ptr, ptr %88, i64 %152
+  %153 = getelementptr ptr, ptr %89, i64 %152
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr ptr, ptr %154, i64 %94
+  %155 = getelementptr ptr, ptr %154, i64 %.0.i.i.i
   %156 = load ptr, ptr %155, align 8
   %157 = tail call fastcc i32 @dissect_asterix_fields(ptr noundef %0, ptr noundef %1, i32 noundef %37, ptr noundef %138, ptr noundef %156)
   %158 = add i32 %148, %.04267.i.i
@@ -36452,7 +36452,7 @@ asterix_message_length.exit.thread.i.i:           ; preds = %141
   %161 = icmp slt i32 %159, %21
   br i1 %161, label %36, label %dissect_asterix_data_block.exit.i, !llvm.loop !9
 
-dissect_asterix_data_block.exit.i:                ; preds = %asterix_message_length.exit.thread.i.i, %asterix_message_length.exit.i.i, %89, %asterix_get_active_uap.exit.i.i, %.lr.ph.i
+dissect_asterix_data_block.exit.i:                ; preds = %asterix_message_length.exit.thread.i.i, %asterix_message_length.exit.i.i, %90, %asterix_get_active_uap.exit.i.i, %.lr.ph.i
   %162 = add i32 %22, %.031.i
   %163 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %164 = icmp ult i32 %162, %163

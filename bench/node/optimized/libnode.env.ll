@@ -75847,7 +75847,7 @@ cleanup:                                          ; preds = %_ZNK4node13MemoryTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4node12GetPromiseIdEPNS_11EnvironmentEN2v85LocalINS2_7PromiseEEE(ptr nocapture noundef readonly %env, ptr %promise.coerce) local_unnamed_addr #3 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4node12GetPromiseIdEPNS_11EnvironmentEN2v85LocalINS2_7PromiseEEE(ptr nocapture noundef readonly %env, ptr %promise.coerce) local_unnamed_addr #3 {
 entry:
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8

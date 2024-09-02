@@ -2043,7 +2043,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h9e9bfa9c19482e35E.llvm.12014582817787848890(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 768614336404564651) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h9e9bfa9c19482e35E.llvm.12014582817787848890(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !404, !noalias !407, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2056,7 +2056,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hb4e17b227a944756E.llvm.12014582817787848890(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 461168601842738791) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hb4e17b227a944756E.llvm.12014582817787848890(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !409, !noalias !412, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2069,7 +2069,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hccee4b50c1da3ba0E.llvm.12014582817787848890(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #7 {
+define hidden noundef range(i64 0, 384307168202282326) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hccee4b50c1da3ba0E.llvm.12014582817787848890(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !414, !noalias !417, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12903,10 +12903,10 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest23has_duplicate_extension17h26d3b1e9
 
 287:                                              ; preds = %285
   %.fca.1.extract88.i = extractvalue { i16, i16 } %284, 1
-  %288 = icmp ne i16 %.sroa.0.0.i.i, 10
-  %289 = icmp eq i16 %.sroa.4.0.i.i, %.fca.1.extract88.i
-  %or.cond234.i = select i1 %288, i1 true, i1 %289
-  br i1 %or.cond234.i, label %.critedge231.i, label %.critedge233.i
+  %288 = icmp eq i16 %.sroa.0.0.i.i, 10
+  %289 = icmp ne i16 %.sroa.4.0.i.i, %.fca.1.extract88.i
+  %or.cond234.i = select i1 %288, i1 %289, i1 false
+  br i1 %or.cond234.i, label %.critedge233.i, label %.critedge231.i
 
 .critedge233.i:                                   ; preds = %287, %285
   %290 = load ptr, ptr %244, align 8, !alias.scope !2328, !noalias !2380, !nonnull !4, !noundef !4

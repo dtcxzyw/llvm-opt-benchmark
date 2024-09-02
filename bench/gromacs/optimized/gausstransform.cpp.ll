@@ -1386,8 +1386,8 @@ _ZNK3gmx10IntegerBox5emptyEv.exit:                ; preds = %33
   %.not = icmp eq i64 %indvars.iv, 0
   %46 = load float, ptr %43, align 8
   %47 = fpext float %46 to double
-  %48 = getelementptr inbounds [3 x %"class.gmx::GaussianOn1DLattice"], ptr %44, i64 0, i64 %indvars.iv
-  %49 = select i1 %.not, double %47, double 1.000000e+00
+  %48 = select i1 %.not, double %47, double 1.000000e+00
+  %49 = getelementptr inbounds [3 x %"class.gmx::GaussianOn1DLattice"], ptr %44, i64 0, i64 %indvars.iv
   %50 = load ptr, ptr %1, align 8
   %51 = getelementptr inbounds [3 x float], ptr %50, i64 0, i64 %indvars.iv
   %52 = load float, ptr %51, align 4
@@ -1395,8 +1395,8 @@ _ZNK3gmx10IntegerBox5emptyEv.exit:                ; preds = %33
   %54 = load i32, ptr %53, align 4
   %55 = sitofp i32 %54 to float
   %56 = fsub float %52, %55
-  %57 = load ptr, ptr %48, align 8
-  call void @_ZN3gmx19GaussianOn1DLattice4Impl6spreadEdf(ptr noundef nonnull align 8 dereferenceable(64) %57, double noundef %49, float noundef %56)
+  %57 = load ptr, ptr %49, align 8
+  call void @_ZN3gmx19GaussianOn1DLattice4Impl6spreadEdf(ptr noundef nonnull align 8 dereferenceable(64) %57, double noundef %48, float noundef %56)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %58, label %45, !llvm.loop !18

@@ -2534,14 +2534,14 @@ if.end60.i:                                       ; preds = %invoke.cont57.i
 invoke.cont66.loopexit.i:                         ; preds = %if.end60.i, %invoke.cont57.i
   %ok_count.0.lcssa.ph.i = phi i32 [ %ok_count.0288.i, %invoke.cont57.i ], [ %inc.i, %if.end60.i ]
   %.pre318.i = load i32, ptr %delay.i, align 4
+  %275 = zext i32 %.pre318.i to i64
   br label %invoke.cont66.i
 
 invoke.cont66.i:                                  ; preds = %invoke.cont66.loopexit.i, %invoke.cont39.i
-  %275 = phi i32 [ 0, %invoke.cont39.i ], [ %.pre318.i, %invoke.cont66.loopexit.i ]
+  %conv.i.i = phi i64 [ 0, %invoke.cont39.i ], [ %275, %invoke.cont66.loopexit.i ]
   %276 = phi i64 [ %.pre317.i, %invoke.cont39.i ], [ %.pre316.pre.i, %invoke.cont66.loopexit.i ]
   %ok_count.0.lcssa.i = phi i32 [ 0, %invoke.cont39.i ], [ %ok_count.0.lcssa.ph.i, %invoke.cont66.loopexit.i ]
   %cond.i = call i32 @llvm.umin.i32(i32 %allowed_to_remove.1293.i, i32 %ok_count.0.lcssa.i)
-  %conv.i.i = zext i32 %275 to i64
   %add.i.i = add i64 %276, %conv.i.i
   %spec.select.i = call i64 @llvm.umax.i64(i64 %min_succ_lit_len.1292.i, i64 %add.i.i)
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0291.i, i64 128

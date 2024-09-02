@@ -2066,7 +2066,7 @@ define hidden noundef i64 @_ZNK20ShenandoahHeapRegion17get_shared_allocsEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK20ShenandoahHeapRegion15get_tlab_allocsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZNK20ShenandoahHeapRegion15get_tlab_allocsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = shl i64 %3, 3
@@ -2074,7 +2074,7 @@ define hidden noundef i64 @_ZNK20ShenandoahHeapRegion15get_tlab_allocsEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK20ShenandoahHeapRegion16get_gclab_allocsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZNK20ShenandoahHeapRegion16get_gclab_allocsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
   %4 = shl i64 %3, 3

@@ -138,14 +138,14 @@ define noundef i32 @_ZN7mitsuba4util10core_countEv() local_unnamed_addr #0 perso
   %1 = alloca %"class.std::__1::basic_string", align 8
   %2 = load i32, ptr @_ZN7mitsuba4utilL19__cached_core_countE, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %3, label %41
+  br i1 %.not, label %3, label %40
 
 3:                                                ; preds = %0
   %4 = tail call i64 @sysconf(i32 noundef 83) #19
   %5 = trunc i64 %4 to i32
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str) #19
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.preheader, label %40
+  br i1 %7, label %.preheader, label %39
 
 .preheader:                                       ; preds = %3, %22
   %.03548 = phi i32 [ %23, %22 ], [ %5, %3 ]
@@ -198,7 +198,7 @@ define noundef i32 @_ZN7mitsuba4util10core_countEv() local_unnamed_addr #0 perso
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %.03449 = phi i32 [ 0, %.lr.ph.preheader ], [ %39, %37 ]
+  %.03449 = phi i32 [ 0, %.lr.ph.preheader ], [ %38, %37 ]
   %27 = lshr i64 %indvars.iv, 3
   %28 = icmp ult i64 %27, %11
   br i1 %28, label %29, label %37
@@ -214,24 +214,24 @@ define noundef i32 @_ZN7mitsuba4util10core_countEv() local_unnamed_addr #0 perso
   br label %37
 
 37:                                               ; preds = %.lr.ph, %29
-  %38 = phi i32 [ %36, %29 ], [ 0, %.lr.ph ]
-  %39 = add nuw nsw i32 %38, %.03449
+  %.not45 = phi i32 [ %36, %29 ], [ 0, %.lr.ph ]
+  %38 = add nuw nsw i32 %.not45, %.03449
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %37, %25
-  %.034.lcssa = phi i32 [ 0, %25 ], [ %39, %37 ]
+  %.034.lcssa = phi i32 [ 0, %25 ], [ %38, %37 ]
   tail call void @__sched_cpufree(ptr noundef nonnull %12) #19
-  br label %40
+  br label %39
 
-40:                                               ; preds = %3, %._crit_edge
+39:                                               ; preds = %3, %._crit_edge
   %.032 = phi i32 [ %.034.lcssa, %._crit_edge ], [ %5, %3 ]
   store i32 %.032, ptr @_ZN7mitsuba4utilL19__cached_core_countE, align 4
-  br label %41
+  br label %40
 
-41:                                               ; preds = %0, %40
-  %.0 = phi i32 [ %.032, %40 ], [ %2, %0 ]
+40:                                               ; preds = %0, %39
+  %.0 = phi i32 [ %.032, %39 ], [ %2, %0 ]
   ret i32 %.0
 }
 

@@ -79,7 +79,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.nbd_mode_lookup = private unnamed_addr constant [5 x ptr] [ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.9], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @nbd_drop(ptr noundef %ioc, i64 noundef %size, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -5, 1) i32 @nbd_drop(ptr noundef %ioc, i64 noundef %size, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   %small = alloca [1024 x i8], align 16

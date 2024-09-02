@@ -1986,8 +1986,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp50 = icmp ne i32 %i.1137, %23
   %tobool = icmp ne i32 %i.1137, 0
   %24 = select i1 %tobool, i1 %cmp46, i1 false
-  %spec.select = select i1 %24, i1 %cmp50, i1 false
-  %land.ext = zext i1 %spec.select to i32
+  %narrow = select i1 %24, i1 %cmp50, i1 false
+  %land.ext = zext i1 %narrow to i32
   call fastcc void @point_double_internal(ptr noundef %combo, ptr noundef %combo, i32 noundef %land.ext)
   br i1 %cmp46, label %if.end91, label %if.then55
 

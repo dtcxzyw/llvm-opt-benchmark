@@ -291,7 +291,7 @@ define internal i32 @mtrr_close(ptr noundef %0, ptr noundef %1) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #4 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @mtrr_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #4 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

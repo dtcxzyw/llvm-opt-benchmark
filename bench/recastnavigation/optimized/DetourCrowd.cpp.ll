@@ -1225,8 +1225,7 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %147, %152
   %232 = load i32, ptr %231, align 4
   %233 = load i32, ptr %218, align 4
   %.not146 = icmp eq i32 %232, %233
-  %spec.select153 = select i1 %.not146, i1 %224, i1 false
-  br i1 %spec.select153, label %234, label %.sink.split
+  br i1 %.not146, label %234, label %.sink.split
 
 234:                                              ; preds = %228
   %235 = icmp sgt i32 %206, 1
@@ -1329,7 +1328,7 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %147, %152
   store float %292, ptr %178, align 4
   br label %293
 
-293:                                              ; preds = %.loopexit, %289
+293:                                              ; preds = %289, %.loopexit
   %294 = load i32, ptr %8, align 4
   call void @_ZN14dtPathCorridor11setCorridorEPKfPKji(ptr noundef nonnull align 8 dereferenceable(40) %202, ptr noundef nonnull %7, ptr noundef nonnull %218, i32 noundef %294)
   %295 = getelementptr inbounds i8, ptr %186, i64 48
@@ -2216,7 +2215,7 @@ _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityG
   %242 = zext i8 %241 to i64
   %243 = getelementptr inbounds [16 x %class.dtQueryFilter], ptr %53, i64 0, i64 %242
   call void @_ZN14dtPathCorridor22optimizePathVisibilityEPKffP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(40) %220, ptr noundef nonnull %237, float noundef %239, ptr noundef %240, ptr noundef nonnull %243)
-  %244 = icmp eq i64 %indvars.iv506, %11
+  %244 = icmp eq i64 %11, %indvars.iv506
   br i1 %244, label %245, label %259
 
 245:                                              ; preds = %235
@@ -2239,7 +2238,7 @@ _ZL13getNeighboursPKfffPK12dtCrowdAgentP16dtCrowdNeighbouriPPS1_iP15dtProximityG
   br label %259
 
 256:                                              ; preds = %219
-  %257 = icmp eq i64 %indvars.iv506, %11
+  %257 = icmp eq i64 %11, %indvars.iv506
   br i1 %257, label %258, label %259
 
 258:                                              ; preds = %256
@@ -2776,7 +2775,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   br i1 %595, label %570, label %._crit_edge474, !llvm.loop !29
 
 ._crit_edge474:                                   ; preds = %592, %.preheader436
-  %596 = icmp eq i64 %indvars.iv532, %11
+  %596 = icmp eq i64 %11, %indvars.iv532
   br i1 %596, label %597, label %599
 
 597:                                              ; preds = %._crit_edge474

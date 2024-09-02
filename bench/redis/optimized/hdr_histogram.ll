@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @hdr_size_of_equivalent_value_range(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #0 {
+define dso_local range(i64 1, -9223372036854775807) i64 @hdr_size_of_equivalent_value_range(ptr nocapture noundef readonly %h, i64 noundef %value) local_unnamed_addr #0 {
 entry:
   %sub_bucket_mask.i = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load i64, ptr %sub_bucket_mask.i, align 8

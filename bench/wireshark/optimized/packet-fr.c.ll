@@ -731,7 +731,7 @@ define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, p
   %.0224 = phi ptr [ %19, %15 ], [ null, %14 ]
   %.0221 = phi ptr [ %17, %15 ], [ null, %14 ]
   %.not242 = icmp eq i32 %4, 0
-  br i1 %.not242, label %80, label %21
+  br i1 %.not242, label %81, label %21
 
 21:                                               ; preds = %20
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
@@ -830,30 +830,30 @@ define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, p
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 23, i32 noundef %.1227) #2
   %79 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.139, i32 noundef %.1227) #2
-  br label %80
+  %80 = icmp eq i32 %.1227, 0
+  br label %81
 
-80:                                               ; preds = %78, %20
+81:                                               ; preds = %78, %20
   %.0230 = phi i32 [ %.1231, %78 ], [ 0, %20 ]
-  %.0226 = phi i32 [ %.1227, %78 ], [ 0, %20 ]
+  %.0226 = phi i1 [ %80, %78 ], [ true, %20 ]
   %.0 = phi i32 [ %.1, %78 ], [ 0, %20 ]
-  %81 = load i32, ptr @fr_encap, align 4
-  switch i32 %81, label %197 [
-    i32 0, label %82
+  %82 = load i32, ptr @fr_encap, align 4
+  switch i32 %82, label %196 [
+    i32 0, label %83
     i32 1, label %162
-    i32 2, label %177
-    i32 3, label %187
+    i32 2, label %176
+    i32 3, label %186
   ]
 
-82:                                               ; preds = %80
-  %83 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #2
-  %84 = icmp eq i8 %83, 3
-  br i1 %84, label %.critedge261, label %85
+83:                                               ; preds = %81
+  %84 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #2
+  %85 = icmp eq i8 %84, 3
+  br i1 %85, label %.critedge261, label %86
 
-85:                                               ; preds = %82
-  %86 = icmp eq i32 %.0226, 0
-  br i1 %86, label %87, label %96
+86:                                               ; preds = %83
+  br i1 %.0226, label %87, label %96
 
-87:                                               ; preds = %85
+87:                                               ; preds = %86
   %88 = load i32, ptr @hf_fr_control, align 4
   %89 = load i32, ptr @ett_fr_control, align 4
   %90 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %1, ptr noundef %.0224, i32 noundef %88, i32 noundef %89, ptr noundef nonnull @fr_cf_items, ptr noundef nonnull @fr_cf_items_ext, ptr noundef null, ptr noundef null, i32 noundef %.0230, i32 noundef 1, i32 noundef 1) #2
@@ -862,10 +862,10 @@ define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, p
   %93 = load ptr, ptr @data_handle, align 8
   %94 = tail call ptr @tvb_new_subset_remaining(ptr noundef %91, i32 noundef 0) #2
   %95 = tail call i32 @call_dissector(ptr noundef %93, ptr noundef %94, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %197
+  br label %196
 
-96:                                               ; preds = %85
-  %97 = icmp eq i8 %83, -81
+96:                                               ; preds = %86
+  %97 = icmp eq i8 %84, -81
   br i1 %97, label %98, label %107
 
 98:                                               ; preds = %96
@@ -877,7 +877,7 @@ define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, p
   %104 = load ptr, ptr @data_handle, align 8
   %105 = tail call ptr @tvb_new_subset_remaining(ptr noundef %102, i32 noundef 0) #2
   %106 = tail call i32 @call_dissector(ptr noundef %104, ptr noundef %105, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %197
+  br label %196
 
 107:                                              ; preds = %96
   %108 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0, i32 noundef 2) #2
@@ -904,7 +904,7 @@ define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, p
 ._crit_edge:                                      ; preds = %114, %115
   %116 = load i32, ptr @hf_fr_chdlctype, align 4
   tail call void @chdlctype(ptr noundef nonnull %113, i16 noundef zeroext %110, ptr noundef %0, i32 noundef %.pre, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.0224, i32 noundef %116) #2
-  br label %197
+  br label %196
 
 117:                                              ; preds = %109
   %118 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #2
@@ -949,7 +949,7 @@ define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, p
   %.not255 = icmp eq ptr %138, null
   br i1 %.not255, label %.critedge, label %.critedge261
 
-.critedge261:                                     ; preds = %82, %127, %132, %136
+.critedge261:                                     ; preds = %83, %127, %132, %136
   %139 = load i32, ptr @hf_fr_control, align 4
   %140 = load i32, ptr @ett_fr_control, align 4
   %141 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %1, ptr noundef %.0224, i32 noundef %139, i32 noundef %140, ptr noundef nonnull @fr_cf_items, ptr noundef nonnull @fr_cf_items_ext, ptr noundef null, ptr noundef null, i32 noundef %.0230, i32 noundef 1, i32 noundef 1) #2
@@ -957,8 +957,8 @@ define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, p
   %143 = icmp eq i32 %142, 3
   %144 = select i1 %143, i32 1, i32 2
   %145 = add i32 %144, %.0
-  tail call fastcc void @dissect_fr_nlpid(ptr noundef %0, i32 noundef %145, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.0221, ptr noundef %.0224, i8 noundef zeroext %83)
-  br label %197
+  tail call fastcc void @dissect_fr_nlpid(ptr noundef %0, i32 noundef %145, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.0221, ptr noundef %.0224, i8 noundef zeroext %84)
+  br label %196
 
 .critedge:                                        ; preds = %123, %107, %136
   %146 = add i32 %.0, 12
@@ -982,70 +982,67 @@ define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, p
   %156 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #2
   %157 = load ptr, ptr @eth_withfcs_handle, align 8
   %158 = tail call i32 @call_dissector(ptr noundef %157, ptr noundef %156, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %197
+  br label %196
 
 159:                                              ; preds = %151, %.critedge
   %160 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #2
   %161 = tail call i32 @call_data_dissector(ptr noundef %160, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %197
+  br label %196
 
-162:                                              ; preds = %80
-  %163 = icmp eq i32 %.0226, 0
-  br i1 %163, label %164, label %173
+162:                                              ; preds = %81
+  br i1 %.0226, label %163, label %172
 
-164:                                              ; preds = %162
-  %165 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #2
-  %166 = load i32, ptr @hf_fr_control, align 4
-  %167 = load i32, ptr @ett_fr_control, align 4
-  %168 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %1, ptr noundef %.0224, i32 noundef %166, i32 noundef %167, ptr noundef nonnull @fr_cf_items, ptr noundef nonnull @fr_cf_items_ext, ptr noundef null, ptr noundef null, i32 noundef %.0230, i32 noundef 1, i32 noundef 1) #2
-  %169 = and i32 %168, 3
-  %170 = icmp eq i32 %169, 3
-  %171 = select i1 %170, i32 1, i32 2
-  %172 = add i32 %171, %.0
-  tail call fastcc void @dissect_fr_nlpid(ptr noundef %0, i32 noundef %172, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.0221, ptr noundef %.0224, i8 noundef zeroext %165)
-  br label %197
+163:                                              ; preds = %162
+  %164 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #2
+  %165 = load i32, ptr @hf_fr_control, align 4
+  %166 = load i32, ptr @ett_fr_control, align 4
+  %167 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %1, ptr noundef %.0224, i32 noundef %165, i32 noundef %166, ptr noundef nonnull @fr_cf_items, ptr noundef nonnull @fr_cf_items_ext, ptr noundef null, ptr noundef null, i32 noundef %.0230, i32 noundef 1, i32 noundef 1) #2
+  %168 = and i32 %167, 3
+  %169 = icmp eq i32 %168, 3
+  %170 = select i1 %169, i32 1, i32 2
+  %171 = add i32 %170, %.0
+  tail call fastcc void @dissect_fr_nlpid(ptr noundef %0, i32 noundef %171, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.0221, ptr noundef %.0224, i8 noundef zeroext %164)
+  br label %196
 
-173:                                              ; preds = %162
-  %174 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #2
-  %175 = load ptr, ptr @gprs_ns_handle, align 8
-  %176 = tail call i32 @call_dissector(ptr noundef %175, ptr noundef %174, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %197
+172:                                              ; preds = %162
+  %173 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #2
+  %174 = load ptr, ptr @gprs_ns_handle, align 8
+  %175 = tail call i32 @call_dissector(ptr noundef %174, ptr noundef %173, ptr noundef nonnull %1, ptr noundef %2) #2
+  br label %196
 
-177:                                              ; preds = %80
-  %178 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #2
-  %.not249 = icmp eq i32 %.0226, 0
-  br i1 %.not249, label %182, label %179
+176:                                              ; preds = %81
+  %177 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #2
+  br i1 %.0226, label %181, label %178
 
-179:                                              ; preds = %177
-  %180 = load ptr, ptr @eth_withfcs_handle, align 8
-  %181 = tail call i32 @call_dissector(ptr noundef %180, ptr noundef %178, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %197
+178:                                              ; preds = %176
+  %179 = load ptr, ptr @eth_withfcs_handle, align 8
+  %180 = tail call i32 @call_dissector(ptr noundef %179, ptr noundef %177, ptr noundef nonnull %1, ptr noundef %2) #2
+  br label %196
 
-182:                                              ; preds = %177
-  %183 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_fr_frame_relay_lapf, ptr noundef %178, i32 noundef 0, i32 noundef 0) #2
-  %184 = load ptr, ptr @data_handle, align 8
-  %185 = tail call ptr @tvb_new_subset_remaining(ptr noundef %178, i32 noundef 0) #2
-  %186 = tail call i32 @call_dissector(ptr noundef %184, ptr noundef %185, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %197
+181:                                              ; preds = %176
+  %182 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_fr_frame_relay_lapf, ptr noundef %177, i32 noundef 0, i32 noundef 0) #2
+  %183 = load ptr, ptr @data_handle, align 8
+  %184 = tail call ptr @tvb_new_subset_remaining(ptr noundef %177, i32 noundef 0) #2
+  %185 = tail call i32 @call_dissector(ptr noundef %183, ptr noundef %184, ptr noundef nonnull %1, ptr noundef %2) #2
+  br label %196
 
-187:                                              ; preds = %80
-  %188 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #2
-  %.not248 = icmp eq i32 %.0226, 0
-  br i1 %.not248, label %192, label %189
+186:                                              ; preds = %81
+  %187 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #2
+  br i1 %.0226, label %191, label %188
 
-189:                                              ; preds = %187
-  %190 = load ptr, ptr @lapb_handle, align 8
-  %191 = tail call i32 @call_dissector(ptr noundef %190, ptr noundef %188, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %197
+188:                                              ; preds = %186
+  %189 = load ptr, ptr @lapb_handle, align 8
+  %190 = tail call i32 @call_dissector(ptr noundef %189, ptr noundef %187, ptr noundef nonnull %1, ptr noundef %2) #2
+  br label %196
 
-192:                                              ; preds = %187
-  %193 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_fr_frame_relay_lapf, ptr noundef %188, i32 noundef 0, i32 noundef 0) #2
-  %194 = load ptr, ptr @data_handle, align 8
-  %195 = tail call ptr @tvb_new_subset_remaining(ptr noundef %188, i32 noundef 0) #2
-  %196 = tail call i32 @call_dissector(ptr noundef %194, ptr noundef %195, ptr noundef nonnull %1, ptr noundef %2) #2
-  br label %197
+191:                                              ; preds = %186
+  %192 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_fr_frame_relay_lapf, ptr noundef %187, i32 noundef 0, i32 noundef 0) #2
+  %193 = load ptr, ptr @data_handle, align 8
+  %194 = tail call ptr @tvb_new_subset_remaining(ptr noundef %187, i32 noundef 0) #2
+  %195 = tail call i32 @call_dissector(ptr noundef %193, ptr noundef %194, ptr noundef nonnull %1, ptr noundef %2) #2
+  br label %196
 
-197:                                              ; preds = %189, %192, %179, %182, %164, %173, %.critedge261, %159, %155, %._crit_edge, %98, %87, %80
+196:                                              ; preds = %188, %191, %178, %181, %163, %172, %.critedge261, %159, %155, %._crit_edge, %98, %87, %81
   ret void
 }
 

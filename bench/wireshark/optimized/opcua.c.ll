@@ -117,7 +117,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.74 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @hex_to_bin(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, -2147483648) i32 @hex_to_bin(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 1

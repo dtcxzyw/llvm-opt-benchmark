@@ -626,11 +626,11 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr nocapture nou
   %.phi.trans.insert = sext i32 %.pre to i64
   %.phi.trans.insert113 = getelementptr inbounds ptr, ptr %1, i64 %.phi.trans.insert
   %.pre114 = load ptr, ptr %.phi.trans.insert113, align 8
-  br label %83
+  br label %76
 
 7:                                                ; preds = %4
   %.not = icmp slt i32 %.pre, %0
-  br i1 %.not, label %8, label %152
+  br i1 %.not, label %8, label %145
 
 8:                                                ; preds = %7
   %9 = sext i32 %.pre to i64
@@ -638,305 +638,292 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr nocapture nou
   %11 = load ptr, ptr %10, align 8
   %12 = load i8, ptr %11, align 1
   %.not75 = icmp eq i8 %12, 45
-  br i1 %.not75, label %13, label %152
+  br i1 %.not75, label %13, label %145
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %11, i64 1
   %15 = load i8, ptr %14, align 1
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %152, label %sub_1
+  switch i8 %15, label %76 [
+    i8 0, label %145
+    i8 45, label %.tail
+  ]
 
-sub_1:                                            ; preds = %13
-  %17 = zext i8 %15 to i32
-  %18 = add nsw i32 %17, -45
-  %.not107 = icmp eq i32 %18, 0
-  br i1 %.not107, label %sub_2, label %.tail
+.tail:                                            ; preds = %13
+  %16 = getelementptr inbounds i8, ptr %11, i64 2
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %19, label %21
 
-sub_2:                                            ; preds = %sub_1
-  %19 = getelementptr inbounds i8, ptr %11, i64 2
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  br label %.tail
+19:                                               ; preds = %.tail
+  %20 = add nsw i32 %.pre, 1
+  store i32 %20, ptr @H5_optind, align 4
+  br label %145
 
-.tail:                                            ; preds = %sub_1, %sub_2
-  %22 = phi i32 [ %18, %sub_1 ], [ %21, %sub_2 ]
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %26
+21:                                               ; preds = %.tail
+  %22 = getelementptr inbounds i8, ptr %11, i64 2
+  %23 = tail call noalias ptr @strdup(ptr noundef nonnull %22) #15
+  %24 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 61) #17
+  store ptr %24, ptr @H5_optarg, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 2
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #17
+  %.not81 = icmp eq ptr %24, null
+  br i1 %.not81, label %32, label %28
 
-24:                                               ; preds = %.tail
-  %25 = add nsw i32 %.pre, 1
-  store i32 %25, ptr @H5_optind, align 4
-  br label %152
-
-26:                                               ; preds = %.tail
-  %27 = icmp eq i8 %15, 45
-  br i1 %27, label %28, label %83
-
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %11, i64 2
-  %30 = tail call noalias ptr @strdup(ptr noundef nonnull %29) #15
-  %31 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %29, i32 noundef 61) #17
+28:                                               ; preds = %21
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #17
+  %30 = sub i64 %27, %29
+  %31 = getelementptr inbounds i8, ptr %24, i64 1
   store ptr %31, ptr @H5_optarg, align 8
-  %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 2
-  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #17
-  %.not81 = icmp eq ptr %31, null
-  br i1 %.not81, label %39, label %35
+  br label %32
 
-35:                                               ; preds = %28
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #17
-  %37 = sub i64 %34, %36
-  %38 = getelementptr inbounds i8, ptr %31, i64 1
-  store ptr %38, ptr @H5_optarg, align 8
-  br label %39
-
-39:                                               ; preds = %35, %28
-  %.0 = phi i64 [ %37, %35 ], [ %34, %28 ]
-  %40 = getelementptr inbounds i8, ptr %30, i64 %.0
-  store i8 0, ptr %40, align 1
+32:                                               ; preds = %28, %21
+  %.0 = phi i64 [ %30, %28 ], [ %27, %21 ]
+  %33 = getelementptr inbounds i8, ptr %23, i64 %.0
+  store i8 0, ptr %33, align 1
   %.not82 = icmp eq ptr %3, null
   br i1 %.not82, label %.critedge, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %39
-  %41 = load ptr, ptr %3, align 8
-  %.not83103 = icmp eq ptr %41, null
+.lr.ph.split:                                     ; preds = %32
+  %34 = load ptr, ptr %3, align 8
+  %.not83103 = icmp eq ptr %34, null
   br i1 %.not83103, label %.loopexit, label %.lr.ph105
 
-.lr.ph105:                                        ; preds = %.lr.ph.split, %68
-  %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %.lr.ph.split ]
-  %42 = phi ptr [ %70, %68 ], [ %41, %.lr.ph.split ]
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %42) #17
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.split, label %68
+.lr.ph105:                                        ; preds = %.lr.ph.split, %61
+  %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.lr.ph.split ]
+  %35 = phi ptr [ %63, %61 ], [ %34, %.lr.ph.split ]
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %35) #17
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %.split, label %61
 
 .split:                                           ; preds = %.lr.ph105
-  %45 = getelementptr inbounds %struct.h5_long_options, ptr %3, i64 %indvars.iv
-  %46 = getelementptr inbounds i8, ptr %45, i64 12
-  %47 = load i8, ptr %46, align 4
-  %48 = sext i8 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %45, i64 8
-  %50 = load i32, ptr %49, align 8
-  %.not84 = icmp eq i32 %50, 0
-  br i1 %.not84, label %61, label %51
+  %38 = getelementptr inbounds %struct.h5_long_options, ptr %3, i64 %indvars.iv
+  %39 = getelementptr inbounds i8, ptr %38, i64 12
+  %40 = load i8, ptr %39, align 4
+  %41 = sext i8 %40 to i32
+  %42 = getelementptr inbounds i8, ptr %38, i64 8
+  %43 = load i32, ptr %42, align 8
+  %.not84 = icmp eq i32 %43, 0
+  br i1 %.not84, label %54, label %44
 
-51:                                               ; preds = %.split
-  %.not87 = icmp ne i32 %50, 2
+44:                                               ; preds = %.split
+  %.not87 = icmp ne i32 %43, 2
   %or.cond.not95 = and i1 %.not87, %.not81
-  %52 = add nsw i32 %0, -1
-  %53 = icmp slt i32 %.pre, %52
-  %or.cond93 = select i1 %or.cond.not95, i1 %53, i1 false
-  br i1 %or.cond93, label %54, label %.loopexit
+  %45 = add nsw i32 %0, -1
+  %46 = icmp slt i32 %.pre, %45
+  %or.cond93 = select i1 %or.cond.not95, i1 %46, i1 false
+  br i1 %or.cond93, label %47, label %.loopexit
 
-54:                                               ; preds = %51
-  %55 = add nsw i32 %.pre, 1
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr %1, i64 %56
-  %58 = load ptr, ptr %57, align 8
-  %59 = load i8, ptr %58, align 1
-  %.not88 = icmp eq i8 %59, 45
-  br i1 %.not88, label %.loopexit, label %60
+47:                                               ; preds = %44
+  %48 = add nsw i32 %.pre, 1
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds ptr, ptr %1, i64 %49
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i8, ptr %51, align 1
+  %.not88 = icmp eq i8 %52, 45
+  br i1 %.not88, label %.loopexit, label %53
 
-60:                                               ; preds = %54
-  store i32 %55, ptr @H5_optind, align 4
-  store ptr %58, ptr @H5_optarg, align 8
+53:                                               ; preds = %47
+  store i32 %48, ptr @H5_optind, align 4
+  store ptr %51, ptr @H5_optarg, align 8
   br label %.loopexit
 
-61:                                               ; preds = %.split
-  br i1 %.not81, label %.loopexit, label %62
+54:                                               ; preds = %.split
+  br i1 %.not81, label %.loopexit, label %55
 
-62:                                               ; preds = %61
-  %63 = load i32, ptr @H5_opterr, align 4
-  %.not86 = icmp eq i32 %63, 0
-  br i1 %.not86, label %.loopexit, label %64
+55:                                               ; preds = %54
+  %56 = load i32, ptr @H5_opterr, align 4
+  %.not86 = icmp eq i32 %56, 0
+  br i1 %.not86, label %.loopexit, label %57
 
-64:                                               ; preds = %62
-  %65 = load ptr, ptr @stderr, align 8
-  %66 = load ptr, ptr %1, align 8
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.16, ptr noundef %66, ptr noundef %30) #19
+57:                                               ; preds = %55
+  %58 = load ptr, ptr @stderr, align 8
+  %59 = load ptr, ptr %1, align 8
+  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.16, ptr noundef %59, ptr noundef %23) #19
   br label %.loopexit
 
-68:                                               ; preds = %.lr.ph105
+61:                                               ; preds = %.lr.ph105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = getelementptr inbounds %struct.h5_long_options, ptr %3, i64 %indvars.iv.next
-  %70 = load ptr, ptr %69, align 8
-  %.not83 = icmp eq ptr %70, null
+  %62 = getelementptr inbounds %struct.h5_long_options, ptr %3, i64 %indvars.iv.next
+  %63 = load ptr, ptr %62, align 8
+  %.not83 = icmp eq ptr %63, null
   br i1 %.not83, label %.loopexit, label %.lr.ph105
 
-.loopexit:                                        ; preds = %68, %.lr.ph.split, %62, %64, %54, %60, %51, %61
-  %.06298 = phi i64 [ %indvars.iv, %62 ], [ %indvars.iv, %64 ], [ %indvars.iv, %61 ], [ %indvars.iv, %51 ], [ %indvars.iv, %54 ], [ %indvars.iv, %60 ], [ 0, %.lr.ph.split ], [ %indvars.iv.next, %68 ]
-  %.061.ph = phi i32 [ 63, %62 ], [ 63, %64 ], [ %48, %61 ], [ %48, %51 ], [ %48, %54 ], [ %48, %60 ], [ 63, %.lr.ph.split ], [ 63, %68 ]
-  %71 = and i64 %.06298, 4294967295
-  %72 = getelementptr inbounds %struct.h5_long_options, ptr %3, i64 %71
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %.critedge
+.loopexit:                                        ; preds = %61, %.lr.ph.split, %55, %57, %47, %53, %44, %54
+  %.06298 = phi i64 [ %indvars.iv, %55 ], [ %indvars.iv, %57 ], [ %indvars.iv, %54 ], [ %indvars.iv, %44 ], [ %indvars.iv, %47 ], [ %indvars.iv, %53 ], [ 0, %.lr.ph.split ], [ %indvars.iv.next, %61 ]
+  %.061.ph = phi i32 [ 63, %55 ], [ 63, %57 ], [ %41, %54 ], [ %41, %44 ], [ %41, %47 ], [ %41, %53 ], [ 63, %.lr.ph.split ], [ 63, %61 ]
+  %64 = and i64 %.06298, 4294967295
+  %65 = getelementptr inbounds %struct.h5_long_options, ptr %3, i64 %64
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %68, label %.critedge
 
-75:                                               ; preds = %.loopexit
-  %76 = load i32, ptr @H5_opterr, align 4
-  %.not89 = icmp eq i32 %76, 0
-  br i1 %.not89, label %.critedge, label %77
+68:                                               ; preds = %.loopexit
+  %69 = load i32, ptr @H5_opterr, align 4
+  %.not89 = icmp eq i32 %69, 0
+  br i1 %.not89, label %.critedge, label %70
 
-77:                                               ; preds = %75
-  %78 = load ptr, ptr @stderr, align 8
-  %79 = load ptr, ptr %1, align 8
-  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %78, ptr noundef nonnull @.str.17, ptr noundef %79, ptr noundef %30) #19
+70:                                               ; preds = %68
+  %71 = load ptr, ptr @stderr, align 8
+  %72 = load ptr, ptr %1, align 8
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.17, ptr noundef %72, ptr noundef %23) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %39, %75, %77, %.loopexit
-  %.1 = phi i32 [ %.061.ph, %.loopexit ], [ 63, %77 ], [ 63, %75 ], [ 63, %39 ]
-  %81 = load i32, ptr @H5_optind, align 4
-  %82 = add nsw i32 %81, 1
-  store i32 %82, ptr @H5_optind, align 4
+.critedge:                                        ; preds = %32, %68, %70, %.loopexit
+  %.1 = phi i32 [ %.061.ph, %.loopexit ], [ 63, %70 ], [ 63, %68 ], [ 63, %32 ]
+  %74 = load i32, ptr @H5_optind, align 4
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr @H5_optind, align 4
   store i32 1, ptr @H5_get_option.sp, align 4
-  tail call void @free(ptr noundef %30) #15
-  br label %152
+  tail call void @free(ptr noundef %23) #15
+  br label %145
 
-83:                                               ; preds = %._crit_edge112, %26
-  %84 = phi ptr [ %.pre114, %._crit_edge112 ], [ %11, %26 ]
-  %85 = sext i32 %5 to i64
-  %86 = getelementptr inbounds i8, ptr %84, i64 %85
-  %87 = load i8, ptr %86, align 1
-  %88 = sext i8 %87 to i32
-  %89 = icmp eq i8 %87, 58
-  br i1 %89, label %93, label %90
+76:                                               ; preds = %13, %._crit_edge112
+  %77 = phi ptr [ %.pre114, %._crit_edge112 ], [ %11, %13 ]
+  %78 = sext i32 %5 to i64
+  %79 = getelementptr inbounds i8, ptr %77, i64 %78
+  %80 = load i8, ptr %79, align 1
+  %81 = sext i8 %80 to i32
+  %82 = icmp eq i8 %80, 58
+  br i1 %82, label %86, label %83
 
-90:                                               ; preds = %83
-  %91 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %88) #17
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %93, label %110
+83:                                               ; preds = %76
+  %84 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %81) #17
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %86, label %103
 
-93:                                               ; preds = %90, %83
-  %94 = load i32, ptr @H5_opterr, align 4
-  %.not80 = icmp eq i32 %94, 0
-  br i1 %.not80, label %99, label %95
+86:                                               ; preds = %83, %76
+  %87 = load i32, ptr @H5_opterr, align 4
+  %.not80 = icmp eq i32 %87, 0
+  br i1 %.not80, label %92, label %88
 
-95:                                               ; preds = %93
-  %96 = load ptr, ptr @stderr, align 8
-  %97 = load ptr, ptr %1, align 8
-  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.18, ptr noundef %97, i32 noundef %88) #19
+88:                                               ; preds = %86
+  %89 = load ptr, ptr @stderr, align 8
+  %90 = load ptr, ptr %1, align 8
+  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.18, ptr noundef %90, i32 noundef %81) #19
   %.pre115 = load i32, ptr @H5_optind, align 4
   %.phi.trans.insert116 = sext i32 %.pre115 to i64
   %.phi.trans.insert117 = getelementptr inbounds ptr, ptr %1, i64 %.phi.trans.insert116
   %.pre118 = load ptr, ptr %.phi.trans.insert117, align 8
   %.pre119 = load i32, ptr @H5_get_option.sp, align 4
-  br label %99
+  br label %92
 
-99:                                               ; preds = %95, %93
-  %100 = phi i32 [ %.pre119, %95 ], [ %5, %93 ]
-  %101 = phi ptr [ %.pre118, %95 ], [ %84, %93 ]
-  %102 = phi i32 [ %.pre115, %95 ], [ %.pre, %93 ]
-  %103 = add nsw i32 %100, 1
-  store i32 %103, ptr @H5_get_option.sp, align 4
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds i8, ptr %101, i64 %104
-  %106 = load i8, ptr %105, align 1
-  %107 = icmp eq i8 %106, 0
-  br i1 %107, label %108, label %152
+92:                                               ; preds = %88, %86
+  %93 = phi i32 [ %.pre119, %88 ], [ %5, %86 ]
+  %94 = phi ptr [ %.pre118, %88 ], [ %77, %86 ]
+  %95 = phi i32 [ %.pre115, %88 ], [ %.pre, %86 ]
+  %96 = add nsw i32 %93, 1
+  store i32 %96, ptr @H5_get_option.sp, align 4
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds i8, ptr %94, i64 %97
+  %99 = load i8, ptr %98, align 1
+  %100 = icmp eq i8 %99, 0
+  br i1 %100, label %101, label %145
 
-108:                                              ; preds = %99
-  %109 = add nsw i32 %102, 1
-  store i32 %109, ptr @H5_optind, align 4
+101:                                              ; preds = %92
+  %102 = add nsw i32 %95, 1
+  store i32 %102, ptr @H5_optind, align 4
   store i32 1, ptr @H5_get_option.sp, align 4
-  br label %152
+  br label %145
 
-110:                                              ; preds = %90
-  %111 = getelementptr inbounds i8, ptr %91, i64 1
-  %112 = load i8, ptr %111, align 1
-  switch i8 %112, label %143 [
-    i8 58, label %113
-    i8 42, label %131
+103:                                              ; preds = %83
+  %104 = getelementptr inbounds i8, ptr %84, i64 1
+  %105 = load i8, ptr %104, align 1
+  switch i8 %105, label %136 [
+    i8 58, label %106
+    i8 42, label %124
   ]
 
-113:                                              ; preds = %110
-  %114 = getelementptr i8, ptr %86, i64 1
-  %115 = load i8, ptr %114, align 1
-  %.not77 = icmp eq i8 %115, 0
-  %116 = add nsw i32 %.pre, 1
-  store i32 %116, ptr @H5_optind, align 4
-  br i1 %.not77, label %118, label %117
+106:                                              ; preds = %103
+  %107 = getelementptr i8, ptr %79, i64 1
+  %108 = load i8, ptr %107, align 1
+  %.not77 = icmp eq i8 %108, 0
+  %109 = add nsw i32 %.pre, 1
+  store i32 %109, ptr @H5_optind, align 4
+  br i1 %.not77, label %111, label %110
 
-117:                                              ; preds = %113
-  store ptr %114, ptr @H5_optarg, align 8
-  br label %130
+110:                                              ; preds = %106
+  store ptr %107, ptr @H5_optarg, align 8
+  br label %123
 
-118:                                              ; preds = %113
-  %.not78 = icmp slt i32 %116, %0
-  br i1 %.not78, label %125, label %119
+111:                                              ; preds = %106
+  %.not78 = icmp slt i32 %109, %0
+  br i1 %.not78, label %118, label %112
 
-119:                                              ; preds = %118
-  %120 = load i32, ptr @H5_opterr, align 4
-  %.not79 = icmp eq i32 %120, 0
-  br i1 %.not79, label %130, label %121
+112:                                              ; preds = %111
+  %113 = load i32, ptr @H5_opterr, align 4
+  %.not79 = icmp eq i32 %113, 0
+  br i1 %.not79, label %123, label %114
 
-121:                                              ; preds = %119
-  %122 = load ptr, ptr @stderr, align 8
-  %123 = load ptr, ptr %1, align 8
-  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.19, ptr noundef %123, i32 noundef %88) #19
-  br label %130
+114:                                              ; preds = %112
+  %115 = load ptr, ptr @stderr, align 8
+  %116 = load ptr, ptr %1, align 8
+  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.19, ptr noundef %116, i32 noundef %81) #19
+  br label %123
 
-125:                                              ; preds = %118
+118:                                              ; preds = %111
+  %119 = add nsw i32 %.pre, 2
+  store i32 %119, ptr @H5_optind, align 4
+  %120 = sext i32 %109 to i64
+  %121 = getelementptr inbounds ptr, ptr %1, i64 %120
+  %122 = load ptr, ptr %121, align 8
+  store ptr %122, ptr @H5_optarg, align 8
+  br label %123
+
+123:                                              ; preds = %112, %114, %118, %110
+  %.3 = phi i32 [ %81, %110 ], [ %81, %118 ], [ 63, %114 ], [ 63, %112 ]
+  store i32 1, ptr @H5_get_option.sp, align 4
+  br label %145
+
+124:                                              ; preds = %103
+  %125 = add nsw i32 %.pre, 1
+  store i32 %125, ptr @H5_optind, align 4
   %126 = add nsw i32 %.pre, 2
+  %127 = icmp slt i32 %126, %0
+  br i1 %127, label %128, label %135
+
+128:                                              ; preds = %124
+  %129 = sext i32 %125 to i64
+  %130 = getelementptr inbounds ptr, ptr %1, i64 %129
+  %131 = load ptr, ptr %130, align 8
+  %132 = load i8, ptr %131, align 1
+  %.not76 = icmp eq i8 %132, 45
+  br i1 %.not76, label %134, label %133
+
+133:                                              ; preds = %128
   store i32 %126, ptr @H5_optind, align 4
-  %127 = sext i32 %116 to i64
-  %128 = getelementptr inbounds ptr, ptr %1, i64 %127
-  %129 = load ptr, ptr %128, align 8
-  store ptr %129, ptr @H5_optarg, align 8
-  br label %130
+  store ptr %131, ptr @H5_optarg, align 8
+  br label %145
 
-130:                                              ; preds = %119, %121, %125, %117
-  %.3 = phi i32 [ %88, %117 ], [ %88, %125 ], [ 63, %121 ], [ 63, %119 ]
+134:                                              ; preds = %128
+  store ptr null, ptr @H5_optarg, align 8
+  br label %145
+
+135:                                              ; preds = %124
+  store ptr null, ptr @H5_optarg, align 8
+  br label %145
+
+136:                                              ; preds = %103
+  %137 = add nsw i32 %5, 1
+  store i32 %137, ptr @H5_get_option.sp, align 4
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds i8, ptr %77, i64 %138
+  %140 = load i8, ptr %139, align 1
+  %141 = icmp eq i8 %140, 0
+  br i1 %141, label %142, label %144
+
+142:                                              ; preds = %136
+  %143 = add nsw i32 %.pre, 1
+  store i32 %143, ptr @H5_optind, align 4
   store i32 1, ptr @H5_get_option.sp, align 4
-  br label %152
+  br label %144
 
-131:                                              ; preds = %110
-  %132 = add nsw i32 %.pre, 1
-  store i32 %132, ptr @H5_optind, align 4
-  %133 = add nsw i32 %.pre, 2
-  %134 = icmp slt i32 %133, %0
-  br i1 %134, label %135, label %142
-
-135:                                              ; preds = %131
-  %136 = sext i32 %132 to i64
-  %137 = getelementptr inbounds ptr, ptr %1, i64 %136
-  %138 = load ptr, ptr %137, align 8
-  %139 = load i8, ptr %138, align 1
-  %.not76 = icmp eq i8 %139, 45
-  br i1 %.not76, label %141, label %140
-
-140:                                              ; preds = %135
-  store i32 %133, ptr @H5_optind, align 4
-  store ptr %138, ptr @H5_optarg, align 8
-  br label %152
-
-141:                                              ; preds = %135
+144:                                              ; preds = %142, %136
   store ptr null, ptr @H5_optarg, align 8
-  br label %152
+  br label %145
 
-142:                                              ; preds = %131
-  store ptr null, ptr @H5_optarg, align 8
-  br label %152
-
-143:                                              ; preds = %110
-  %144 = add nsw i32 %5, 1
-  store i32 %144, ptr @H5_get_option.sp, align 4
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds i8, ptr %84, i64 %145
-  %147 = load i8, ptr %146, align 1
-  %148 = icmp eq i8 %147, 0
-  br i1 %148, label %149, label %151
-
-149:                                              ; preds = %143
-  %150 = add nsw i32 %.pre, 1
-  store i32 %150, ptr @H5_optind, align 4
-  store i32 1, ptr @H5_get_option.sp, align 4
-  br label %151
-
-151:                                              ; preds = %149, %143
-  store ptr null, ptr @H5_optarg, align 8
-  br label %152
-
-152:                                              ; preds = %.critedge, %151, %140, %141, %142, %130, %99, %108, %7, %8, %13, %24
-  %.060 = phi i32 [ -1, %24 ], [ -1, %13 ], [ -1, %8 ], [ -1, %7 ], [ 63, %108 ], [ 63, %99 ], [ %.1, %.critedge ], [ %.3, %130 ], [ %88, %140 ], [ %88, %141 ], [ %88, %142 ], [ %88, %151 ]
+145:                                              ; preds = %13, %.critedge, %144, %133, %134, %135, %123, %92, %101, %7, %8, %19
+  %.060 = phi i32 [ -1, %19 ], [ -1, %13 ], [ -1, %8 ], [ -1, %7 ], [ 63, %101 ], [ 63, %92 ], [ %.1, %.critedge ], [ %.3, %123 ], [ %81, %133 ], [ %81, %134 ], [ %81, %135 ], [ %81, %144 ]
   ret i32 %.060
 }
 

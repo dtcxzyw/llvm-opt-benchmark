@@ -19194,8 +19194,8 @@ switch.lookup10:                                  ; preds = %switch.lookup
   %62 = extractvalue { i64, i1 } %61, 1
   %63 = extractvalue { i64, i1 } %61, 0
   %64 = icmp ult i64 %3, %63
-  %narrow82.i = or i1 %62, %64
-  br i1 %narrow82.i, label %85, label %65
+  %.041.i = or i1 %62, %64
+  br i1 %.041.i, label %85, label %65
 
 common.resume.i:                                  ; preds = %127, %.body.i50.i, %108, %95, %.body.i.i
   %common.resume.op.i = phi { ptr, i32 } [ %128, %127 ], [ %109, %108 ], [ %96, %95 ], [ %121, %.body.i50.i ], [ %eh.lpad-body.i.i, %.body.i.i ]

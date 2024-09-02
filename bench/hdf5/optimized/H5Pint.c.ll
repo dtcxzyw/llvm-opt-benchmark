@@ -1354,8 +1354,8 @@ H5P__add_prop.exit:                               ; preds = %94
 .lr.ph178:                                        ; preds = %119
   %121 = getelementptr inbounds i8, ptr %120, i64 24
   %122 = load i64, ptr %121, align 8
-  %.fr200 = freeze i64 %122
-  %.not220 = icmp eq i64 %.fr200, 0
+  %.fr191 = freeze i64 %122
+  %.not220 = icmp eq i64 %.fr191, 0
   br i1 %.not220, label %.lr.ph178.split, label %.lr.ph178.split.us
 
 .lr.ph178.split.us:                               ; preds = %.lr.ph178, %.loopexit.us
@@ -1957,7 +1957,7 @@ define range(i32 -1, 1) i32 @H5P_close(ptr noundef %0) local_unnamed_addr #0 {
   %50 = getelementptr inbounds i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i64 @H5SL_count(ptr noundef %51) #13
-  %.fr119 = freeze i64 %52
+  %.fr120 = freeze i64 %52
   %53 = load ptr, ptr %0, align 8
   %.not82 = icmp eq ptr %53, null
   br i1 %.not82, label %._crit_edge, label %54
@@ -1968,15 +1968,15 @@ define range(i32 -1, 1) i32 @H5P_close(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not83, label %.lr.ph117.thread, label %.lr.ph117
 
 .lr.ph117.thread:                                 ; preds = %54
-  %56 = icmp eq i64 %.fr119, 0
+  %56 = icmp eq i64 %.fr120, 0
   br label %.lr.ph117.split
 
 .lr.ph117:                                        ; preds = %54
   %57 = getelementptr inbounds i8, ptr %55, i64 24
   %58 = load i64, ptr %57, align 8
-  %.fr125 = freeze i64 %58
-  %.not136 = icmp eq i64 %.fr125, 0
-  %59 = icmp eq i64 %.fr119, 0
+  %.fr119 = freeze i64 %58
+  %.not136 = icmp eq i64 %.fr119, 0
+  %59 = icmp eq i64 %.fr120, 0
   br i1 %.not136, label %.lr.ph117.split, label %.lr.ph117.split.us
 
 .lr.ph117.split.us:                               ; preds = %.lr.ph117
@@ -4083,7 +4083,7 @@ tailrecurse:                                      ; preds = %5, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5P_isa_class(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @H5P_isa_class(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 11) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9

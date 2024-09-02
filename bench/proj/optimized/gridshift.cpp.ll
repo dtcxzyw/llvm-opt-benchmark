@@ -2648,11 +2648,11 @@ _ZNSt3mapIPKN5osgeo4proj16GenericShiftGridEN12_GLOBAL__N_18GridInfoESt4lessIS4_E
   %212 = getelementptr inbounds i8, ptr %6, i64 44
   %213 = load i32, ptr %212, align 4
   %214 = icmp slt i32 %213, 3
+  %215 = zext i1 %214 to i8
   br label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i
 
 _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i:  ; preds = %211, %207, %191
-  %215 = phi i1 [ true, %207 ], [ true, %191 ], [ %214, %211 ]
-  %216 = zext i1 %215 to i8
+  %216 = phi i8 [ 1, %207 ], [ 1, %191 ], [ %215, %211 ]
   store i8 %216, ptr %187, align 1
   %217 = invoke noalias noundef nonnull dereferenceable(108) ptr @_Znwm(i64 noundef 108) #19
           to label %_ZNSt6vectorIfSaIfEE6resizeEm.exit unwind label %225

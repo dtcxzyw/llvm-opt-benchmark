@@ -1546,11 +1546,11 @@ if.then.i:                                        ; preds = %if.then140
   %or.i.i486 = or i64 %and.i.i485, %51
   store i64 %or.i.i486, ptr %50, align 8, !tbaa !36
   %.pre736 = load i64, ptr %x_parent.2719, align 8, !tbaa !36
+  %53 = and i64 %.pre736, -2
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then140
-  %53 = phi i64 [ %.pre736, %if.then.i ], [ %and.i481, %if.then140 ]
-  %and.i.i.i = and i64 %53, -2
+  %and.i.i.i = phi i64 [ %53, %if.then.i ], [ %and.i481, %if.then140 ]
   %54 = load i64, ptr %47, align 8, !tbaa !36
   %and.i3.i.i = and i64 %54, 1
   %or.i.i.i = or disjoint i64 %and.i3.i.i, %and.i.i.i
@@ -1809,11 +1809,11 @@ if.then.i571:                                     ; preds = %if.then210
   %or.i.i573 = or i64 %and.i.i572, %106
   store i64 %or.i.i573, ptr %105, align 8, !tbaa !36
   %.pre732 = load i64, ptr %x_parent.2719, align 8, !tbaa !36
+  %108 = and i64 %.pre732, -2
   br label %if.end.i574
 
 if.end.i574:                                      ; preds = %if.then.i571, %if.then210
-  %108 = phi i64 [ %.pre732, %if.then.i571 ], [ %and.i567, %if.then210 ]
-  %and.i.i.i575 = and i64 %108, -2
+  %and.i.i.i575 = phi i64 [ %108, %if.then.i571 ], [ %and.i567, %if.then210 ]
   %109 = load i64, ptr %46, align 8, !tbaa !36
   %and.i3.i.i576 = and i64 %109, 1
   %or.i.i.i577 = or disjoint i64 %and.i3.i.i576, %and.i.i.i575
@@ -2518,32 +2518,32 @@ if.then2.i.i179:                                  ; preds = %if.then.i.i173
   store i64 %or.i.i.i181, ptr %add.ptr.i.i.i157, align 8, !tbaa !36
   %right_.i.i.i182 = getelementptr inbounds i8, ptr %41, i64 72
   %.pre216.pre = load i64, ptr %add.ptr.i.i162, align 8, !tbaa !36
+  %69 = and i64 %.pre216.pre, 1
   br label %if.end17.sink.split.i.i171
 
 if.else.i.i176:                                   ; preds = %if.then.i.i173
   %left_.i47.i.i177 = getelementptr inbounds i8, ptr %41, i64 64
-  %69 = load ptr, ptr %left_.i47.i.i177, align 8, !tbaa !34
-  %cmp6.i.i178 = icmp eq ptr %69, %add.ptr.i.i.i157
+  %70 = load ptr, ptr %left_.i47.i.i177, align 8, !tbaa !34
+  %cmp6.i.i178 = icmp eq ptr %70, %add.ptr.i.i.i157
   br i1 %cmp6.i.i178, label %if.end17.sink.split.i.i171, label %cleanup.i
 
 if.else10.i.i163:                                 ; preds = %if.then6.i161
   %right_.i49.i.i164 = getelementptr inbounds i8, ptr %y.0.lcssa.i.i, i64 72
   store ptr %add.ptr.i.i162, ptr %right_.i49.i.i164, align 8, !tbaa !34
   %right_.i50.i.i165 = getelementptr inbounds i8, ptr %41, i64 72
-  %70 = load ptr, ptr %right_.i50.i.i165, align 8, !tbaa !34
-  %cmp13.i.i166 = icmp eq ptr %70, %add.ptr.i.i.i157
+  %71 = load ptr, ptr %right_.i50.i.i165, align 8, !tbaa !34
+  %cmp13.i.i166 = icmp eq ptr %71, %add.ptr.i.i.i157
   br i1 %cmp13.i.i166, label %if.end17.sink.split.i.i171, label %cleanup.i
 
 if.end17.sink.split.i.i171:                       ; preds = %if.else10.i.i163, %if.else.i.i176, %if.then2.i.i179
-  %.pre216 = phi i64 [ %.pre216.pre, %if.then2.i.i179 ], [ undef, %if.else.i.i176 ], [ undef, %if.else10.i.i163 ]
+  %.pre216 = phi i64 [ %69, %if.then2.i.i179 ], [ 0, %if.else.i.i176 ], [ 0, %if.else10.i.i163 ]
   %right_.i50.sink.i.i172 = phi ptr [ %right_.i.i.i182, %if.then2.i.i179 ], [ %left_.i47.i.i177, %if.else.i.i176 ], [ %right_.i50.i.i165, %if.else10.i.i163 ]
   store ptr %add.ptr.i.i162, ptr %right_.i50.sink.i.i172, align 8, !tbaa !34
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.end17.sink.split.i.i171, %if.else10.i.i163, %if.else.i.i176
-  %71 = phi i64 [ %.pre216, %if.end17.sink.split.i.i171 ], [ undef, %if.else10.i.i163 ], [ undef, %if.else.i.i176 ]
+  %and.i52.i.i168 = phi i64 [ %.pre216, %if.end17.sink.split.i.i171 ], [ 0, %if.else10.i.i163 ], [ 0, %if.else.i.i176 ]
   %72 = ptrtoint ptr %add.ptr.i.i.i157 to i64
-  %and.i52.i.i168 = and i64 %71, 1
   %or.i53.i.i169 = or i64 %and.i52.i.i168, %72
   store i64 %or.i53.i.i169, ptr %add.ptr.i.i162, align 8, !tbaa !36
   %left_.i54.i.i170 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i183, i64 64

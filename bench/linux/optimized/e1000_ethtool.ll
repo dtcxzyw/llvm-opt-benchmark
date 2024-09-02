@@ -1458,7 +1458,7 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
 
 88:                                               ; preds = %85, %81
   store i64 1, ptr %2, align 8
-  br label %.loopexit57
+  br label %.loopexit56
 
 89:                                               ; preds = %65
   %90 = load ptr, ptr %31, align 8
@@ -1469,21 +1469,21 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1515870810, ptr elementtype(i32) %93) #18, !srcloc !13
   %94 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %93) #18, !srcloc !6
   %95 = icmp eq i32 %94, 1515870810
-  br i1 %95, label %.preheader68, label %106
+  br i1 %95, label %.preheader67, label %106
 
-.preheader68:                                     ; preds = %89, %99
+.preheader67:                                     ; preds = %89, %99
   %96 = phi i64 [ %97, %99 ], [ 0, %89 ]
   %97 = add nuw nsw i64 %96, 1
   %98 = icmp eq i64 %97, 4
-  br i1 %98, label %.loopexit69, label %99, !llvm.loop !22
+  br i1 %98, label %.loopexit68, label %99, !llvm.loop !22
 
-99:                                               ; preds = %.preheader68
+99:                                               ; preds = %.preheader67
   %100 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %97
   %101 = load i32, ptr %100, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %101, ptr elementtype(i32) %93) #18, !srcloc !13
   %102 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %93) #18, !srcloc !6
   %103 = icmp eq i32 %102, %101
-  br i1 %103, label %.preheader68, label %104, !llvm.loop !22
+  br i1 %103, label %.preheader67, label %104, !llvm.loop !22
 
 104:                                              ; preds = %99
   %105 = icmp ult i64 %96, 3
@@ -1506,39 +1506,39 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
 
 116:                                              ; preds = %113, %106
   store i64 40, ptr %2, align 8
-  br i1 %107, label %.loopexit57, label %.loopexit69
+  br i1 %107, label %.loopexit56, label %.loopexit68
 
-.loopexit69:                                      ; preds = %.preheader68, %116
+.loopexit68:                                      ; preds = %.preheader67, %116
   %117 = load ptr, ptr %31, align 8
   %118 = getelementptr i8, ptr %117, i64 44
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1515870810, ptr elementtype(i32) %118) #18, !srcloc !13
   %119 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %118) #18, !srcloc !6
   %120 = icmp eq i32 %119, 23130
-  br i1 %120, label %.preheader66, label %132
+  br i1 %120, label %.preheader65, label %132
 
-.preheader66:                                     ; preds = %.loopexit69, %124
-  %121 = phi i64 [ %122, %124 ], [ 0, %.loopexit69 ]
+.preheader65:                                     ; preds = %.loopexit68, %124
+  %121 = phi i64 [ %122, %124 ], [ 0, %.loopexit68 ]
   %122 = add nuw nsw i64 %121, 1
   %123 = icmp eq i64 %122, 4
-  br i1 %123, label %.loopexit67, label %124, !llvm.loop !22
+  br i1 %123, label %.loopexit66, label %124, !llvm.loop !22
 
-124:                                              ; preds = %.preheader66
+124:                                              ; preds = %.preheader65
   %125 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %122
   %126 = load i32, ptr %125, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %126, ptr elementtype(i32) %118) #18, !srcloc !13
   %127 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %118) #18, !srcloc !6
   %128 = and i32 %126, 65535
   %129 = icmp eq i32 %127, %128
-  br i1 %129, label %.preheader66, label %130, !llvm.loop !22
+  br i1 %129, label %.preheader65, label %130, !llvm.loop !22
 
 130:                                              ; preds = %124
   %131 = icmp ult i64 %121, 3
   br label %132
 
-132:                                              ; preds = %130, %.loopexit69
-  %133 = phi i1 [ true, %.loopexit69 ], [ %131, %130 ]
-  %134 = phi i32 [ %119, %.loopexit69 ], [ %127, %130 ]
-  %135 = phi i32 [ 23130, %.loopexit69 ], [ %128, %130 ]
+132:                                              ; preds = %130, %.loopexit68
+  %133 = phi i1 [ true, %.loopexit68 ], [ %131, %130 ]
+  %134 = phi i32 [ %119, %.loopexit68 ], [ %127, %130 ]
+  %135 = phi i32 [ 23130, %.loopexit68 ], [ %128, %130 ]
   %136 = load i32, ptr %22, align 8
   %137 = and i32 %136, 1
   %138 = icmp eq i32 %137, 0
@@ -1552,39 +1552,39 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
 
 142:                                              ; preds = %139, %132
   store i64 44, ptr %2, align 8
-  br i1 %133, label %.loopexit57, label %.loopexit67
+  br i1 %133, label %.loopexit56, label %.loopexit66
 
-.loopexit67:                                      ; preds = %.preheader66, %142
+.loopexit66:                                      ; preds = %.preheader65, %142
   %143 = load ptr, ptr %31, align 8
   %144 = getelementptr i8, ptr %143, i64 48
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1515870810, ptr elementtype(i32) %144) #18, !srcloc !13
   %145 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %144) #18, !srcloc !6
   %146 = icmp eq i32 %145, 23130
-  br i1 %146, label %.preheader64, label %158
+  br i1 %146, label %.preheader63, label %158
 
-.preheader64:                                     ; preds = %.loopexit67, %150
-  %147 = phi i64 [ %148, %150 ], [ 0, %.loopexit67 ]
+.preheader63:                                     ; preds = %.loopexit66, %150
+  %147 = phi i64 [ %148, %150 ], [ 0, %.loopexit66 ]
   %148 = add nuw nsw i64 %147, 1
   %149 = icmp eq i64 %148, 4
-  br i1 %149, label %.loopexit65, label %150, !llvm.loop !22
+  br i1 %149, label %.loopexit64, label %150, !llvm.loop !22
 
-150:                                              ; preds = %.preheader64
+150:                                              ; preds = %.preheader63
   %151 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %148
   %152 = load i32, ptr %151, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %152, ptr elementtype(i32) %144) #18, !srcloc !13
   %153 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %144) #18, !srcloc !6
   %154 = and i32 %152, 65535
   %155 = icmp eq i32 %153, %154
-  br i1 %155, label %.preheader64, label %156, !llvm.loop !22
+  br i1 %155, label %.preheader63, label %156, !llvm.loop !22
 
 156:                                              ; preds = %150
   %157 = icmp ult i64 %147, 3
   br label %158
 
-158:                                              ; preds = %156, %.loopexit67
-  %159 = phi i1 [ true, %.loopexit67 ], [ %157, %156 ]
-  %160 = phi i32 [ %145, %.loopexit67 ], [ %153, %156 ]
-  %161 = phi i32 [ 23130, %.loopexit67 ], [ %154, %156 ]
+158:                                              ; preds = %156, %.loopexit66
+  %159 = phi i1 [ true, %.loopexit66 ], [ %157, %156 ]
+  %160 = phi i32 [ %145, %.loopexit66 ], [ %153, %156 ]
+  %161 = phi i32 [ 23130, %.loopexit66 ], [ %154, %156 ]
   %162 = load i32, ptr %22, align 8
   %163 = and i32 %162, 1
   %164 = icmp eq i32 %163, 0
@@ -1598,39 +1598,39 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
 
 168:                                              ; preds = %165, %158
   store i64 48, ptr %2, align 8
-  br i1 %159, label %.loopexit57, label %.loopexit65
+  br i1 %159, label %.loopexit56, label %.loopexit64
 
-.loopexit65:                                      ; preds = %.preheader64, %168
+.loopexit64:                                      ; preds = %.preheader63, %168
   %169 = load ptr, ptr %31, align 8
   %170 = getelementptr i8, ptr %169, i64 56
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1515870810, ptr elementtype(i32) %170) #18, !srcloc !13
   %171 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %170) #18, !srcloc !6
   %172 = icmp eq i32 %171, 23130
-  br i1 %172, label %.preheader62, label %184
+  br i1 %172, label %.preheader61, label %184
 
-.preheader62:                                     ; preds = %.loopexit65, %176
-  %173 = phi i64 [ %174, %176 ], [ 0, %.loopexit65 ]
+.preheader61:                                     ; preds = %.loopexit64, %176
+  %173 = phi i64 [ %174, %176 ], [ 0, %.loopexit64 ]
   %174 = add nuw nsw i64 %173, 1
   %175 = icmp eq i64 %174, 4
-  br i1 %175, label %.loopexit63, label %176, !llvm.loop !22
+  br i1 %175, label %.loopexit62, label %176, !llvm.loop !22
 
-176:                                              ; preds = %.preheader62
+176:                                              ; preds = %.preheader61
   %177 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %174
   %178 = load i32, ptr %177, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %178, ptr elementtype(i32) %170) #18, !srcloc !13
   %179 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %170) #18, !srcloc !6
   %180 = and i32 %178, 65535
   %181 = icmp eq i32 %179, %180
-  br i1 %181, label %.preheader62, label %182, !llvm.loop !22
+  br i1 %181, label %.preheader61, label %182, !llvm.loop !22
 
 182:                                              ; preds = %176
   %183 = icmp ult i64 %173, 3
   br label %184
 
-184:                                              ; preds = %182, %.loopexit65
-  %185 = phi i1 [ true, %.loopexit65 ], [ %183, %182 ]
-  %186 = phi i32 [ %171, %.loopexit65 ], [ %179, %182 ]
-  %187 = phi i32 [ 23130, %.loopexit65 ], [ %180, %182 ]
+184:                                              ; preds = %182, %.loopexit64
+  %185 = phi i1 [ true, %.loopexit64 ], [ %183, %182 ]
+  %186 = phi i32 [ %171, %.loopexit64 ], [ %179, %182 ]
+  %187 = phi i32 [ 23130, %.loopexit64 ], [ %180, %182 ]
   %188 = load i32, ptr %22, align 8
   %189 = and i32 %188, 1
   %190 = icmp eq i32 %189, 0
@@ -1644,9 +1644,9 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
 
 194:                                              ; preds = %191, %184
   store i64 56, ptr %2, align 8
-  br i1 %185, label %.loopexit57, label %.loopexit63
+  br i1 %185, label %.loopexit56, label %.loopexit62
 
-.loopexit63:                                      ; preds = %.preheader62, %194
+.loopexit62:                                      ; preds = %.preheader61, %194
   %195 = load i32, ptr %67, align 8
   %196 = icmp ugt i32 %195, 2
   %197 = select i1 %196, i32 10272, i32 264
@@ -1656,31 +1656,31 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1515870810, ptr elementtype(i32) %200) #18, !srcloc !13
   %201 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %200) #18, !srcloc !6
   %202 = icmp eq i32 %201, 23130
-  br i1 %202, label %.preheader60, label %214
+  br i1 %202, label %.preheader59, label %214
 
-.preheader60:                                     ; preds = %.loopexit63, %206
-  %203 = phi i64 [ %204, %206 ], [ 0, %.loopexit63 ]
+.preheader59:                                     ; preds = %.loopexit62, %206
+  %203 = phi i64 [ %204, %206 ], [ 0, %.loopexit62 ]
   %204 = add nuw nsw i64 %203, 1
   %205 = icmp eq i64 %204, 4
-  br i1 %205, label %.loopexit61, label %206, !llvm.loop !22
+  br i1 %205, label %.loopexit60, label %206, !llvm.loop !22
 
-206:                                              ; preds = %.preheader60
+206:                                              ; preds = %.preheader59
   %207 = getelementptr [4 x i32], ptr @reg_pattern_test.test, i64 0, i64 %204
   %208 = load i32, ptr %207, align 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %208, ptr elementtype(i32) %200) #18, !srcloc !13
   %209 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %200) #18, !srcloc !6
   %210 = and i32 %208, 65535
   %211 = icmp eq i32 %209, %210
-  br i1 %211, label %.preheader60, label %212, !llvm.loop !22
+  br i1 %211, label %.preheader59, label %212, !llvm.loop !22
 
 212:                                              ; preds = %206
   %213 = icmp ult i64 %203, 3
   br label %214
 
-214:                                              ; preds = %212, %.loopexit63
-  %215 = phi i1 [ true, %.loopexit63 ], [ %213, %212 ]
-  %216 = phi i32 [ %201, %.loopexit63 ], [ %209, %212 ]
-  %217 = phi i32 [ 23130, %.loopexit63 ], [ %210, %212 ]
+214:                                              ; preds = %212, %.loopexit62
+  %215 = phi i1 [ true, %.loopexit62 ], [ %213, %212 ]
+  %216 = phi i32 [ %201, %.loopexit62 ], [ %209, %212 ]
+  %217 = phi i32 [ 23130, %.loopexit62 ], [ %210, %212 ]
   %218 = load i32, ptr %22, align 8
   %219 = and i32 %218, 1
   %220 = icmp eq i32 %219, 0
@@ -1694,9 +1694,9 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
 
 224:                                              ; preds = %221, %214
   store i64 %199, ptr %2, align 8
-  br i1 %215, label %.loopexit57, label %.loopexit61
+  br i1 %215, label %.loopexit56, label %.loopexit60
 
-.loopexit61:                                      ; preds = %.preheader60, %224
+.loopexit60:                                      ; preds = %.preheader59, %224
   %225 = load i32, ptr %67, align 8
   %226 = icmp ugt i32 %225, 2
   %227 = select i1 %226, i32 10244, i32 276
@@ -1708,8 +1708,8 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   %232 = icmp eq i32 %231, 1515870810
   br i1 %232, label %.preheader.i, label %243
 
-.preheader.i:                                     ; preds = %.loopexit61, %236
-  %233 = phi i64 [ %234, %236 ], [ 0, %.loopexit61 ]
+.preheader.i:                                     ; preds = %.loopexit60, %236
+  %233 = phi i64 [ %234, %236 ], [ 0, %.loopexit60 ]
   %234 = add nuw nsw i64 %233, 1
   %235 = icmp eq i64 %234, 4
   br i1 %235, label %reg_pattern_test.exit.thread, label %236, !llvm.loop !22
@@ -1726,10 +1726,10 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
   %242 = icmp ult i64 %233, 3
   br label %243
 
-243:                                              ; preds = %241, %.loopexit61
-  %244 = phi i1 [ true, %.loopexit61 ], [ %242, %241 ]
-  %245 = phi i32 [ %231, %.loopexit61 ], [ %239, %241 ]
-  %246 = phi i32 [ 1515870810, %.loopexit61 ], [ %238, %241 ]
+243:                                              ; preds = %241, %.loopexit60
+  %244 = phi i1 [ true, %.loopexit60 ], [ %242, %241 ]
+  %245 = phi i32 [ %231, %.loopexit60 ], [ %239, %241 ]
+  %246 = phi i32 [ 1515870810, %.loopexit60 ], [ %238, %241 ]
   %247 = load i32, ptr %22, align 8
   %248 = and i32 %247, 1
   %249 = icmp eq i32 %248, 0
@@ -1743,69 +1743,69 @@ e1000_link_test.exit:                             ; preds = %37, %50, %.loopexit
 
 reg_pattern_test.exit:                            ; preds = %243, %250
   store i64 %229, ptr %2, align 8
-  br i1 %244, label %.loopexit57, label %reg_pattern_test.exit.thread
+  br i1 %244, label %.loopexit56, label %reg_pattern_test.exit.thread
 
 reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_pattern_test.exit
   %253 = load i32, ptr %67, align 8
   %254 = icmp ugt i32 %253, 2
   %255 = select i1 %254, i32 10248, i32 280
   %256 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %255, i32 noundef 1048448, i32 noundef 1048575)
-  br i1 %256, label %.loopexit57, label %257
+  br i1 %256, label %.loopexit56, label %257
 
 257:                                              ; preds = %reg_pattern_test.exit.thread
   %258 = load i32, ptr %67, align 8
   %259 = icmp ugt i32 %258, 2
   %260 = select i1 %259, i32 10256, i32 288
   %261 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %260, i32 noundef 65535, i32 noundef 65535)
-  br i1 %261, label %.loopexit57, label %262
+  br i1 %261, label %.loopexit56, label %262
 
 262:                                              ; preds = %257
   %263 = load i32, ptr %67, align 8
   %264 = icmp ugt i32 %263, 2
   %265 = select i1 %264, i32 10264, i32 296
   %266 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %265, i32 noundef 65535, i32 noundef 65535)
-  br i1 %266, label %.loopexit57, label %267
+  br i1 %266, label %.loopexit56, label %267
 
 267:                                              ; preds = %262
   %268 = load i32, ptr %67, align 8
   %269 = icmp ugt i32 %268, 2
   %270 = select i1 %269, i32 8552, i32 352
   %271 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %270, i32 noundef 65528, i32 noundef 65528)
-  br i1 %271, label %.loopexit57, label %272
+  br i1 %271, label %.loopexit56, label %272
 
 272:                                              ; preds = %267
   %273 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef 368, i32 noundef 65535, i32 noundef 65535)
-  br i1 %273, label %.loopexit57, label %274
+  br i1 %273, label %.loopexit56, label %274
 
 274:                                              ; preds = %272
   %275 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef 1040, i32 noundef 1073741823, i32 noundef 1073741823)
-  br i1 %275, label %.loopexit57, label %276
+  br i1 %275, label %.loopexit56, label %276
 
 276:                                              ; preds = %274
   %277 = load i32, ptr %67, align 8
   %278 = icmp ugt i32 %277, 2
   %279 = select i1 %278, i32 14340, i32 1060
   %280 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %279, i32 noundef -1, i32 noundef -1)
-  br i1 %280, label %.loopexit57, label %281
+  br i1 %280, label %.loopexit56, label %281
 
 281:                                              ; preds = %276
   %282 = load i32, ptr %67, align 8
   %283 = icmp ugt i32 %282, 2
   %284 = select i1 %283, i32 14344, i32 1064
   %285 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %284, i32 noundef 1048448, i32 noundef 1048575)
-  br i1 %285, label %.loopexit57, label %286
+  br i1 %285, label %.loopexit56, label %286
 
 286:                                              ; preds = %281
   %287 = tail call fastcc zeroext i1 @reg_set_and_check(ptr noundef %6, ptr noundef %2, i32 noundef 256, i32 noundef -1, i32 noundef 0)
-  br i1 %287, label %.loopexit57, label %288
+  br i1 %287, label %.loopexit56, label %288
 
 288:                                              ; preds = %286
   %289 = tail call fastcc zeroext i1 @reg_set_and_check(ptr noundef %6, ptr noundef %2, i32 noundef 256, i32 noundef 115323902, i32 noundef 4194299)
-  br i1 %289, label %.loopexit57, label %290
+  br i1 %289, label %.loopexit56, label %290
 
 290:                                              ; preds = %288
   %291 = tail call fastcc zeroext i1 @reg_set_and_check(ptr noundef %6, ptr noundef %2, i32 noundef 1024, i32 noundef -1, i32 noundef 0)
-  br i1 %291, label %.loopexit57, label %292
+  br i1 %291, label %.loopexit56, label %292
 
 292:                                              ; preds = %290
   %293 = load i32, ptr %67, align 8
@@ -1814,37 +1814,37 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
 
 295:                                              ; preds = %292
   %296 = tail call fastcc zeroext i1 @reg_set_and_check(ptr noundef %6, ptr noundef %2, i32 noundef 256, i32 noundef 115323902, i32 noundef -1)
-  br i1 %296, label %.loopexit57, label %297
+  br i1 %296, label %.loopexit56, label %297
 
 297:                                              ; preds = %295
   %298 = load i32, ptr %67, align 8
   %299 = icmp ugt i32 %298, 2
   %300 = select i1 %299, i32 10240, i32 272
   %301 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %300, i32 noundef -16, i32 noundef -1)
-  br i1 %301, label %.loopexit57, label %302
+  br i1 %301, label %.loopexit56, label %302
 
 302:                                              ; preds = %297
   %303 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef 376, i32 noundef -1073676289, i32 noundef 65535)
-  br i1 %303, label %.loopexit57, label %304
+  br i1 %303, label %.loopexit56, label %304
 
 304:                                              ; preds = %302
   %305 = load i32, ptr %67, align 8
   %306 = icmp ugt i32 %305, 2
   %307 = select i1 %306, i32 14336, i32 1056
   %308 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %307, i32 noundef -16, i32 noundef -1)
-  br i1 %308, label %.loopexit57, label %309
+  br i1 %308, label %.loopexit56, label %309
 
 309:                                              ; preds = %304
   %310 = load i32, ptr %67, align 8
   %311 = icmp ugt i32 %310, 2
   %312 = select i1 %311, i32 14368, i32 1088
   %313 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %312, i32 noundef 65535, i32 noundef 65535)
-  br i1 %313, label %.loopexit57, label %.preheader
+  br i1 %313, label %.loopexit56, label %.preheader
 
 314:                                              ; preds = %.preheader
   %315 = add nuw nsw i32 %317, 1
   %316 = icmp eq i32 %315, 15
-  br i1 %316, label %.loopexit59.preheader, label %.preheader, !llvm.loop !23
+  br i1 %316, label %.loopexit58.preheader, label %.preheader, !llvm.loop !23
 
 .preheader:                                       ; preds = %309, %314
   %317 = phi i32 [ %315, %314 ], [ 0, %309 ]
@@ -1855,59 +1855,59 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %322 = add nuw nsw i32 %320, 68
   %323 = select i1 %319, i32 %321, i32 %322
   %324 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %323, i32 noundef -2147221505, i32 noundef -1)
-  br i1 %324, label %.loopexit57, label %314
+  br i1 %324, label %.loopexit56, label %314
 
 325:                                              ; preds = %292
   %326 = tail call fastcc zeroext i1 @reg_set_and_check(ptr noundef %6, ptr noundef %2, i32 noundef 256, i32 noundef -1, i32 noundef 33554431)
-  br i1 %326, label %.loopexit57, label %327
+  br i1 %326, label %.loopexit56, label %327
 
 327:                                              ; preds = %325
   %328 = load i32, ptr %67, align 8
   %329 = icmp ugt i32 %328, 2
   %330 = select i1 %329, i32 10240, i32 272
   %331 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %330, i32 noundef -4096, i32 noundef -1)
-  br i1 %331, label %.loopexit57, label %332
+  br i1 %331, label %.loopexit56, label %332
 
 332:                                              ; preds = %327
   %333 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef 376, i32 noundef 65535, i32 noundef 65535)
-  br i1 %333, label %.loopexit57, label %334
+  br i1 %333, label %.loopexit56, label %334
 
 334:                                              ; preds = %332
   %335 = load i32, ptr %67, align 8
   %336 = icmp ugt i32 %335, 2
   %337 = select i1 %336, i32 14336, i32 1056
   %338 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %337, i32 noundef -4096, i32 noundef -1)
-  br i1 %338, label %.loopexit57, label %.loopexit59.preheader
+  br i1 %338, label %.loopexit56, label %.loopexit58.preheader
 
-.loopexit59.preheader:                            ; preds = %314, %334
-  br label %.loopexit59
+.loopexit58.preheader:                            ; preds = %314, %334
+  br label %.loopexit58
 
-339:                                              ; preds = %.loopexit59
+339:                                              ; preds = %.loopexit58
   %340 = add nuw nsw i32 %342, 1
   %341 = icmp eq i32 %340, 128
-  br i1 %341, label %349, label %.loopexit59, !llvm.loop !24
+  br i1 %341, label %349, label %.loopexit58, !llvm.loop !24
 
-.loopexit59:                                      ; preds = %.loopexit59.preheader, %339
-  %342 = phi i32 [ %340, %339 ], [ 0, %.loopexit59.preheader ]
+.loopexit58:                                      ; preds = %.loopexit58.preheader, %339
+  %342 = phi i32 [ %340, %339 ], [ 0, %.loopexit58.preheader ]
   %343 = load i32, ptr %67, align 8
   %344 = icmp ugt i32 %343, 2
   %345 = shl nuw nsw i32 %342, 2
   %346 = select i1 %344, i32 20992, i32 512
   %347 = add nuw nsw i32 %346, %345
   %348 = tail call fastcc zeroext i1 @reg_pattern_test(ptr noundef %6, ptr noundef %2, i32 noundef %347, i32 noundef -1, i32 noundef -1)
-  br i1 %348, label %.loopexit57, label %339
+  br i1 %348, label %.loopexit56, label %339
 
 349:                                              ; preds = %339
   store i64 0, ptr %2, align 8
   br label %352
 
-.loopexit57:                                      ; preds = %.preheader, %.loopexit59, %334, %332, %327, %325, %309, %304, %302, %297, %295, %290, %288, %286, %281, %276, %274, %272, %267, %262, %257, %reg_pattern_test.exit.thread, %reg_pattern_test.exit, %224, %194, %168, %142, %116, %88
+.loopexit56:                                      ; preds = %.preheader, %.loopexit58, %334, %332, %327, %325, %309, %304, %302, %297, %295, %290, %288, %286, %281, %276, %274, %272, %267, %262, %257, %reg_pattern_test.exit.thread, %reg_pattern_test.exit, %224, %194, %168, %142, %116, %88
   %350 = load i32, ptr %12, align 4
   %351 = or i32 %350, 2
   store i32 %351, ptr %12, align 4
   br label %352
 
-352:                                              ; preds = %.loopexit57, %349
+352:                                              ; preds = %.loopexit56, %349
   tail call void @e1000_reset(ptr noundef %6) #18
   %353 = getelementptr i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #18
@@ -1920,35 +1920,35 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %356 = phi i16 [ 0, %352 ], [ %361, %359 ]
   %357 = call i32 @e1000_read_eeprom(ptr noundef %31, i16 noundef zeroext %355, i16 noundef zeroext 1, ptr noundef nonnull %5) #18
   %358 = icmp slt i32 %357, 0
-  br i1 %358, label %.thread150, label %359
+  br i1 %358, label %.thread149, label %359
 
 359:                                              ; preds = %354
   %360 = load i16, ptr %5, align 2
   %361 = add i16 %360, %356
   %362 = add nuw nsw i16 %355, 1
   %363 = icmp eq i16 %362, 64
-  br i1 %363, label %.loopexit56, label %354, !llvm.loop !25
+  br i1 %363, label %.loopexit55, label %354, !llvm.loop !25
 
-.loopexit56:                                      ; preds = %359
+.loopexit55:                                      ; preds = %359
   %.pre.pre = load i64, ptr %353, align 8
   %364 = icmp ne i16 %361, -17734
   %365 = icmp eq i64 %.pre.pre, 0
   %or.cond = select i1 %364, i1 %365, i1 false
-  br i1 %or.cond, label %.thread150, label %366
+  br i1 %or.cond, label %.thread149, label %366
 
-.thread150:                                       ; preds = %354, %.loopexit56
-  %.sink = phi i64 [ 2, %.loopexit56 ], [ 1, %354 ]
+.thread149:                                       ; preds = %354, %.loopexit55
+  %.sink = phi i64 [ 2, %.loopexit55 ], [ 1, %354 ]
   store i64 %.sink, ptr %353, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #18
   br label %369
 
-366:                                              ; preds = %.loopexit56
+366:                                              ; preds = %.loopexit55
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #18
   %367 = and i64 %.pre.pre, 4294967295
   %368 = icmp eq i64 %367, 0
   br i1 %368, label %372, label %369
 
-369:                                              ; preds = %.thread150, %366
+369:                                              ; preds = %.thread149, %366
   %370 = load i32, ptr %12, align 4
   %371 = or i32 %370, 2
   store i32 %371, ptr %12, align 4
@@ -1972,9 +1972,9 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
 383:                                              ; preds = %372
   %384 = call i32 @request_threaded_irq(i32 noundef %379, ptr noundef nonnull @e1000_test_intr, ptr noundef null, i64 noundef 128, ptr noundef %380, ptr noundef %375) #18
   %385 = icmp eq i32 %384, 0
-  br i1 %385, label %386, label %.thread
+  br i1 %385, label %386, label %.critedge
 
-.thread:                                          ; preds = %383
+.critedge:                                        ; preds = %383
   store i64 1, ptr %373, align 8
   br label %452
 
@@ -2064,14 +2064,14 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
 438:                                              ; preds = %426, %425
   %439 = add nuw nsw i32 %401, 1
   %440 = icmp eq i32 %439, 10
-  br i1 %440, label %.loopexit55, label %400, !llvm.loop !26
+  br i1 %440, label %.loopexit54, label %400, !llvm.loop !26
 
 441:                                              ; preds = %426, %414, %403
   %442 = phi i64 [ 3, %403 ], [ 4, %414 ], [ 5, %426 ]
   store i64 %442, ptr %373, align 8
-  br label %.loopexit55
+  br label %.loopexit54
 
-.loopexit55:                                      ; preds = %438, %441
+.loopexit54:                                      ; preds = %438, %441
   %443 = load ptr, ptr %31, align 8
   %444 = getelementptr i8, ptr %443, i64 216
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr elementtype(i32) %444) #18, !srcloc !13
@@ -2085,13 +2085,13 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %451 = icmp eq i64 %450, 0
   br i1 %451, label %455, label %452
 
-452:                                              ; preds = %.thread, %.loopexit55
+452:                                              ; preds = %.critedge, %.loopexit54
   %453 = load i32, ptr %12, align 4
   %454 = or i32 %453, 2
   store i32 %454, ptr %12, align 4
   br label %455
 
-455:                                              ; preds = %452, %.loopexit55
+455:                                              ; preds = %452, %.loopexit54
   call void @e1000_reset(ptr noundef %6) #18
   call void @e1000_power_up_phy(ptr noundef %6) #18
   %456 = getelementptr i8, ptr %2, i64 24
@@ -2115,7 +2115,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %469 = getelementptr i8, ptr %0, i64 4384
   store ptr %468, ptr %469, align 8
   %470 = icmp eq ptr %468, null
-  br i1 %470, label %.thread41, label %471
+  br i1 %470, label %.thread, label %471
 
 471:                                              ; preds = %464
   %472 = load i32, ptr %460, align 4
@@ -2130,7 +2130,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %480 = call ptr @dma_alloc_attrs(ptr noundef %477, i64 noundef %478, ptr noundef %479, i32 noundef 3264, i64 noundef 0) #18
   store ptr %480, ptr %457, align 8
   %481 = icmp eq ptr %480, null
-  br i1 %481, label %.thread41, label %482
+  br i1 %481, label %.thread, label %482
 
 482:                                              ; preds = %471
   %483 = getelementptr i8, ptr %0, i64 4380
@@ -2179,7 +2179,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 258298, ptr elementtype(i32) %518) #18, !srcloc !13
   %519 = load i32, ptr %460, align 4
   %520 = icmp eq i32 %519, 0
-  br i1 %520, label %.loopexit54, label %521
+  br i1 %520, label %.loopexit53, label %521
 
 521:                                              ; preds = %482
   %522 = getelementptr inbounds i8, ptr %459, i64 264
@@ -2196,7 +2196,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %528 = add nuw i32 %532, 1
   %529 = load i32, ptr %460, align 4
   %530 = icmp ult i32 %528, %529
-  br i1 %530, label %531, label %.loopexit54, !llvm.loop !27
+  br i1 %530, label %531, label %.loopexit53, !llvm.loop !27
 
 531:                                              ; preds = %523, %521
   %532 = phi i32 [ 0, %521 ], [ %528, %523 ]
@@ -2205,7 +2205,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %535 = getelementptr %struct.e1000_tx_desc, ptr %533, i64 %534
   %536 = call ptr @__alloc_skb(i32 noundef 1024, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #18
   %537 = icmp eq ptr %536, null
-  br i1 %537, label %.thread41, label %538
+  br i1 %537, label %.thread, label %538
 
 538:                                              ; preds = %531
   %539 = call ptr @skb_put(ptr noundef nonnull %536, i32 noundef 1024) #18
@@ -2278,27 +2278,27 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %584 = getelementptr %struct.e1000_tx_buffer, ptr %583, i64 %534, i32 1
   %585 = load i64, ptr %584, align 8
   %586 = icmp eq i64 %585, -1
-  br i1 %586, label %.thread41, label %523
+  br i1 %586, label %.thread, label %523
 
-.loopexit54:                                      ; preds = %523, %482
+.loopexit53:                                      ; preds = %523, %482
   %587 = getelementptr i8, ptr %0, i64 4420
   %588 = load i32, ptr %587, align 4
   %589 = icmp eq i32 %588, 0
   br i1 %589, label %590, label %591
 
-590:                                              ; preds = %.loopexit54
+590:                                              ; preds = %.loopexit53
   store i32 256, ptr %587, align 4
   br label %591
 
-591:                                              ; preds = %590, %.loopexit54
-  %592 = phi i32 [ 256, %590 ], [ %588, %.loopexit54 ]
+591:                                              ; preds = %590, %.loopexit53
+  %592 = phi i32 [ 256, %590 ], [ %588, %.loopexit53 ]
   %593 = zext i32 %592 to i64
   %594 = shl nuw nsw i64 %593, 4
   %595 = call noalias align 8 ptr @__kmalloc(i64 noundef %594, i32 noundef 3520) #20
   %596 = getelementptr i8, ptr %0, i64 4432
   store ptr %595, ptr %596, align 8
   %597 = icmp eq ptr %595, null
-  br i1 %597, label %.thread41, label %598
+  br i1 %597, label %.thread, label %598
 
 598:                                              ; preds = %591
   %599 = load i32, ptr %587, align 4
@@ -2310,7 +2310,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %604 = call ptr @dma_alloc_attrs(ptr noundef %477, i64 noundef %602, ptr noundef %603, i32 noundef 3264, i64 noundef 0) #18
   store ptr %604, ptr %458, align 8
   %605 = icmp eq ptr %604, null
-  br i1 %605, label %.thread41, label %606
+  br i1 %605, label %.thread, label %606
 
 606:                                              ; preds = %598
   %607 = getelementptr i8, ptr %0, i64 4428
@@ -2390,7 +2390,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %665 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %666 = call noalias noundef align 8 dereferenceable_or_null(2112) ptr @kmalloc_trace(ptr noundef %665, i32 noundef 3520, i64 noundef 2112) #21
   %667 = icmp eq ptr %666, null
-  br i1 %667, label %.thread41, label %668
+  br i1 %667, label %.thread, label %668
 
 668:                                              ; preds = %660
   %669 = load ptr, ptr %596, align 8
@@ -2453,9 +2453,9 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %705 = getelementptr %struct.e1000_rx_buffer, ptr %704, i64 %663, i32 1
   %706 = load i64, ptr %705, align 8
   %707 = icmp eq i64 %706, -1
-  br i1 %707, label %.thread41, label %656
+  br i1 %707, label %.thread, label %656
 
-.thread41:                                        ; preds = %579, %531, %700, %660, %464, %471, %591, %598
+.thread:                                          ; preds = %579, %531, %700, %660, %464, %471, %591, %598
   %708 = phi i64 [ 1, %464 ], [ 2, %471 ], [ 5, %591 ], [ 6, %598 ], [ 7, %660 ], [ 8, %700 ], [ 3, %531 ], [ 4, %579 ]
   call fastcc void @e1000_free_desc_rings(ptr noundef %6)
   store i64 %708, ptr %456, align 8
@@ -2464,26 +2464,26 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
 .loopexit:                                        ; preds = %656, %606
   store i64 0, ptr %456, align 8
   %709 = load i32, ptr %32, align 4
-  switch i32 %709, label %.thread48 [
+  switch i32 %709, label %.thread47 [
     i32 1, label %710
     i32 2, label %710
     i32 0, label %718
   ]
 
-.thread48:                                        ; preds = %.loopexit
+.thread47:                                        ; preds = %.loopexit
   store i64 7, ptr %456, align 8
   br label %843
 
 710:                                              ; preds = %.loopexit, %.loopexit
   %711 = load i32, ptr %67, align 8
-  switch i32 %711, label %.thread47 [
+  switch i32 %711, label %.thread46 [
     i32 6, label %718
     i32 8, label %718
     i32 7, label %718
     i32 10, label %718
   ]
 
-.thread47:                                        ; preds = %710
+.thread46:                                        ; preds = %710
   %712 = load ptr, ptr %31, align 8
   %713 = getelementptr i8, ptr %712, i64 256
   %714 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %713) #18, !srcloc !6
@@ -2501,7 +2501,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %721 = icmp eq i32 %719, 0
   br i1 %721, label %722, label %843
 
-722:                                              ; preds = %.thread47, %718
+722:                                              ; preds = %.thread46, %718
   %723 = load ptr, ptr %376, align 8
   %724 = load i32, ptr %587, align 4
   %725 = add i32 %724, -1
@@ -2522,7 +2522,7 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
 737:                                              ; preds = %823
   %738 = add nuw nsw i32 %743, 1
   %739 = icmp eq i32 %743, %735
-  br i1 %739, label %.thread49, label %740, !llvm.loop !36
+  br i1 %739, label %.thread48, label %740, !llvm.loop !36
 
 740:                                              ; preds = %737, %722
   %741 = phi i32 [ 0, %722 ], [ %815, %737 ]
@@ -2583,11 +2583,11 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %782 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %781) #18, !srcloc !6
   call void @msleep(i32 noundef 200) #18
   %783 = load volatile i64, ptr @jiffies, align 64
-  %.pre142 = load ptr, ptr %596, align 8
+  %.pre141 = load ptr, ptr %596, align 8
   br label %784
 
 784:                                              ; preds = %817, %774
-  %785 = phi ptr [ %.pre142, %774 ], [ %791, %817 ]
+  %785 = phi ptr [ %.pre141, %774 ], [ %791, %817 ]
   %786 = phi i32 [ %741, %774 ], [ %815, %817 ]
   %787 = phi i32 [ 0, %774 ], [ %809, %817 ]
   %788 = sext i32 %786 to i64
@@ -2636,23 +2636,23 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
 
 817:                                              ; preds = %814
   %818 = load volatile i64, ptr @jiffies, align 64
-  %reass.sub103 = sub i64 %818, %783
-  %819 = add i64 %reass.sub103, -20
+  %reass.sub102 = sub i64 %818, %783
+  %819 = add i64 %reass.sub102, -20
   %820 = icmp slt i64 %819, 0
-  br i1 %820, label %784, label %.thread49, !llvm.loop !38
+  br i1 %820, label %784, label %.thread48, !llvm.loop !38
 
 821:                                              ; preds = %814
   %822 = icmp eq i32 %809, 64
-  br i1 %822, label %823, label %.thread49
+  br i1 %822, label %823, label %.thread48
 
 823:                                              ; preds = %821
   %824 = load volatile i64, ptr @jiffies, align 64
   %reass.sub = sub i64 %824, %783
   %825 = add i64 %reass.sub, -2
   %826 = icmp sgt i64 %825, -1
-  br i1 %826, label %.thread49, label %737
+  br i1 %826, label %.thread48, label %737
 
-.thread49:                                        ; preds = %823, %821, %737, %817
+.thread48:                                        ; preds = %823, %821, %737, %817
   %827 = phi i64 [ 13, %817 ], [ 14, %823 ], [ 13, %821 ], [ %808, %737 ]
   store i64 %827, ptr %456, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #18
@@ -2671,24 +2671,24 @@ reg_pattern_test.exit.thread:                     ; preds = %.preheader.i, %reg_
   %837 = icmp eq i16 %836, 0
   br i1 %837, label %842, label %838
 
-838:                                              ; preds = %.thread49
+838:                                              ; preds = %.thread48
   %839 = and i16 %835, -16385
   store i16 %839, ptr %4, align 2
   %840 = call i32 @e1000_write_phy_reg(ptr noundef %31, i32 noundef 0, i16 noundef zeroext %839) #18
   %841 = call i32 @e1000_phy_reset(ptr noundef %31) #18
   br label %842
 
-842:                                              ; preds = %838, %.thread49
+842:                                              ; preds = %838, %.thread48
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #18
   br label %843
 
-843:                                              ; preds = %.thread48, %842, %718
+843:                                              ; preds = %.thread47, %842, %718
   call fastcc void @e1000_free_desc_rings(ptr noundef %6)
-  %.pre143 = load i64, ptr %456, align 8
+  %.pre142 = load i64, ptr %456, align 8
   br label %844
 
-844:                                              ; preds = %.thread41, %843
-  %845 = phi i64 [ %708, %.thread41 ], [ %.pre143, %843 ]
+844:                                              ; preds = %.thread, %843
+  %845 = phi i64 [ %708, %.thread ], [ %.pre142, %843 ]
   %846 = and i64 %845, 4294967295
   %847 = icmp eq i64 %846, 0
   br i1 %847, label %851, label %848

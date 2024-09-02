@@ -4601,15 +4601,17 @@ do.end9.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   %2 = load i64, ptr %count_.i.i.i.i, align 8
   %inc.i.i.i.i = add i64 %2, 1
   store i64 %inc.i.i.i.i, ptr %count_.i.i.i.i, align 8
+  %sext.i.i.i = shl i64 %sub.i.i.i.i, 32
+  %3 = ashr exact i64 %sext.i.i.i, 32
   br label %_ZN4node9Histogram11RecordDeltaEv.exit.i.i.i
 
 _ZN4node9Histogram11RecordDeltaEv.exit.i.i.i:     ; preds = %do.end9.i.i.i.i, %entry
-  %delta.0.i.i.i.i = phi i64 [ 0, %entry ], [ %sub.i.i.i.i, %do.end9.i.i.i.i ]
+  %delta.0.i.i.i.i = phi i64 [ 0, %entry ], [ %3, %do.end9.i.i.i.i ]
   store i64 %call.i44.i.i.i, ptr %prev_.i.i.i.i, align 8
   tail call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i.i.i.i) #20
-  %3 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic268.0" seq_cst, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %tobool.not.i.i.i = icmp eq i64 %3, 0
+  %4 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic268.0" seq_cst, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %tobool.not.i.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4node9Histogram11RecordDeltaEv.exit.i.i.i
@@ -4620,21 +4622,21 @@ if.then.i.i.i:                                    ; preds = %_ZN4node9Histogram1
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %call.i45.i.i.i, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
-  %5 = load ptr, ptr %vfn.i.i.i.i, align 8
-  %call2.i.i.i.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %call.i45.i.i.i, ptr noundef nonnull @.str.94) #20
+  %6 = load ptr, ptr %vfn.i.i.i.i, align 8
+  %call2.i.i.i.i = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %call.i45.i.i.i, ptr noundef nonnull @.str.94) #20
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit.i.i.i
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit.i.i.i: ; preds = %if.end.i.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %call2.i.i.i.i, %if.end.i.i.i.i ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then.i.i.i ]
-  %6 = ptrtoint ptr %retval.0.i.i.i.i to i64
-  store atomic i64 %6, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic268.0" seq_cst, align 8
+  %7 = ptrtoint ptr %retval.0.i.i.i.i to i64
+  store atomic i64 %7, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic268.0" seq_cst, align 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit.i.i.i, %_ZN4node9Histogram11RecordDeltaEv.exit.i.i.i
-  %trace_event_unique_category_group_enabled268.0.i.i.i = phi ptr [ %4, %_ZN4node9Histogram11RecordDeltaEv.exit.i.i.i ], [ %retval.0.i.i.i.i, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit.i.i.i ]
-  %7 = load i8, ptr %trace_event_unique_category_group_enabled268.0.i.i.i, align 1
-  %8 = and i8 %7, 5
-  %tobool4.not.i.i.i = icmp eq i8 %8, 0
+  %trace_event_unique_category_group_enabled268.0.i.i.i = phi ptr [ %5, %_ZN4node9Histogram11RecordDeltaEv.exit.i.i.i ], [ %retval.0.i.i.i.i, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit.i.i.i ]
+  %8 = load i8, ptr %trace_event_unique_category_group_enabled268.0.i.i.i, align 1
+  %9 = and i8 %8, 5
+  %tobool4.not.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool4.not.i.i.i, label %do.body9.i.i.i, label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -4643,9 +4645,7 @@ if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg_value.i.i.i.i)
   store ptr @.str.96, ptr %arg1_name.addr.i.i.i.i, align 8
   store i8 3, ptr %arg_type.i.i.i.i, align 1
-  %sext.i.i.i = shl i64 %delta.0.i.i.i.i, 32
-  %conv.i.i.i.i.i = ashr exact i64 %sext.i.i.i, 32
-  store i64 %conv.i.i.i.i.i, ptr %arg_value.i.i.i.i, align 8
+  store i64 %delta.0.i.i.i.i, ptr %arg_value.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arg_convertibles.i.i.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arg_convertibles.i.i.i.i.i, i8 0, i64 16, i1 false)
   %arrayctor.end.i.i.i.i.i = getelementptr inbounds i8, ptr %arg_convertibles.i.i.i.i.i, i64 16
@@ -4656,8 +4656,8 @@ if.then5.i.i.i:                                   ; preds = %if.end.i.i.i
 if.end15.i.i.i.i.i:                               ; preds = %if.then5.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %call.i.i.i.i.i, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
-  %9 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  %call16.i.i.i.i.i = call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i.i.i, i8 noundef signext 67, ptr noundef nonnull %trace_event_unique_category_group_enabled268.0.i.i.i, ptr noundef nonnull @.str.95, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %arg1_name.addr.i.i.i.i, ptr noundef nonnull %arg_type.i.i.i.i, ptr noundef nonnull %arg_value.i.i.i.i, ptr noundef nonnull %arg_convertibles.i.i.i.i.i, i32 noundef 0) #20
+  %10 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  %call16.i.i.i.i.i = call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i.i.i, i8 noundef signext 67, ptr noundef nonnull %trace_event_unique_category_group_enabled268.0.i.i.i, ptr noundef nonnull @.str.95, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %arg1_name.addr.i.i.i.i, ptr noundef nonnull %arg_type.i.i.i.i, ptr noundef nonnull %arg_value.i.i.i.i, ptr noundef nonnull %arg_convertibles.i.i.i.i.i, i32 noundef 0) #20
   br label %arraydestroy.body.i.i.i.i.i.preheader
 
 arraydestroy.body.i.i.i.i.i.preheader:            ; preds = %if.end15.i.i.i.i.i, %if.then5.i.i.i
@@ -4666,15 +4666,15 @@ arraydestroy.body.i.i.i.i.i.preheader:            ; preds = %if.end15.i.i.i.i.i,
 arraydestroy.body.i.i.i.i.i:                      ; preds = %arraydestroy.body.i.i.i.i.i.preheader, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i
   %arraydestroy.elementPast.i.i.i.i.i = phi ptr [ %arraydestroy.element.i.i.i.i.i, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i ], [ %arrayctor.end.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i.preheader ]
   %arraydestroy.element.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i.i.i.i, i64 -8
-  %10 = load ptr, ptr %arraydestroy.element.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %10, null
+  %11 = load ptr, ptr %arraydestroy.element.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %arraydestroy.body.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
-  %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #20
+  %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #20
   br label %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i
 
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i
@@ -4690,9 +4690,9 @@ _ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit.i.i.i: ; preds = %
   br label %do.body9.i.i.i
 
 do.body9.i.i.i:                                   ; preds = %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit.i.i.i, %if.end.i.i.i
-  %12 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic270.0" seq_cst, align 8
-  %13 = inttoptr i64 %12 to ptr
-  %tobool11.not.i.i.i = icmp eq i64 %12, 0
+  %13 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic270.0" seq_cst, align 8
+  %14 = inttoptr i64 %13 to ptr
+  %tobool11.not.i.i.i = icmp eq i64 %13, 0
   br i1 %tobool11.not.i.i.i, label %if.then12.i.i.i, label %if.end14.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %do.body9.i.i.i
@@ -4703,28 +4703,28 @@ if.then12.i.i.i:                                  ; preds = %do.body9.i.i.i
 if.end.i48.i.i.i:                                 ; preds = %if.then12.i.i.i
   %vtable.i49.i.i.i = load ptr, ptr %call.i46.i.i.i, align 8
   %vfn.i50.i.i.i = getelementptr inbounds i8, ptr %vtable.i49.i.i.i, i64 16
-  %14 = load ptr, ptr %vfn.i50.i.i.i, align 8
-  %call2.i51.i.i.i = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %call.i46.i.i.i, ptr noundef nonnull @.str.94) #20
+  %15 = load ptr, ptr %vfn.i50.i.i.i, align 8
+  %call2.i51.i.i.i = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %call.i46.i.i.i, ptr noundef nonnull @.str.94) #20
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit53.i.i.i
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit53.i.i.i: ; preds = %if.end.i48.i.i.i, %if.then12.i.i.i
   %retval.0.i52.i.i.i = phi ptr [ %call2.i51.i.i.i, %if.end.i48.i.i.i ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then12.i.i.i ]
-  %15 = ptrtoint ptr %retval.0.i52.i.i.i to i64
-  store atomic i64 %15, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic270.0" seq_cst, align 8
+  %16 = ptrtoint ptr %retval.0.i52.i.i.i to i64
+  store atomic i64 %16, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic270.0" seq_cst, align 8
   br label %if.end14.i.i.i
 
 if.end14.i.i.i:                                   ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit53.i.i.i, %do.body9.i.i.i
-  %trace_event_unique_category_group_enabled270.0.i.i.i = phi ptr [ %13, %do.body9.i.i.i ], [ %retval.0.i52.i.i.i, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit53.i.i.i ]
-  %16 = load i8, ptr %trace_event_unique_category_group_enabled270.0.i.i.i, align 1
-  %17 = and i8 %16, 5
-  %tobool17.not.i.i.i = icmp eq i8 %17, 0
+  %trace_event_unique_category_group_enabled270.0.i.i.i = phi ptr [ %14, %do.body9.i.i.i ], [ %retval.0.i52.i.i.i, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit53.i.i.i ]
+  %17 = load i8, ptr %trace_event_unique_category_group_enabled270.0.i.i.i, align 1
+  %18 = and i8 %17, 5
+  %tobool17.not.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool17.not.i.i.i, label %do.body25.i.i.i, label %if.then18.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %if.end14.i.i.i
   call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i.i.i.i) #20
   %histogram_.i55.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %18 = load ptr, ptr %histogram_.i55.i.i.i, align 8
-  %call2.i56.i.i.i = call i64 @hdr_min(ptr noundef %18) #20
+  %19 = load ptr, ptr %histogram_.i55.i.i.i, align 8
+  %call2.i56.i.i.i = call i64 @hdr_min(ptr noundef %19) #20
   call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i.i.i.i) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg1_name.addr.i58.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %arg_type.i59.i.i.i)
@@ -4744,8 +4744,8 @@ if.then18.i.i.i:                                  ; preds = %if.end14.i.i.i
 if.end15.i.i65.i.i.i:                             ; preds = %if.then18.i.i.i
   %vtable.i.i66.i.i.i = load ptr, ptr %call.i.i63.i.i.i, align 8
   %vfn.i.i67.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i66.i.i.i, i64 24
-  %19 = load ptr, ptr %vfn.i.i67.i.i.i, align 8
-  %call16.i.i68.i.i.i = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i63.i.i.i, i8 noundef signext 67, ptr noundef nonnull %trace_event_unique_category_group_enabled270.0.i.i.i, ptr noundef nonnull @.str.97, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %arg1_name.addr.i58.i.i.i, ptr noundef nonnull %arg_type.i59.i.i.i, ptr noundef nonnull %arg_value.i60.i.i.i, ptr noundef nonnull %arg_convertibles.i.i57.i.i.i, i32 noundef 0) #20
+  %20 = load ptr, ptr %vfn.i.i67.i.i.i, align 8
+  %call16.i.i68.i.i.i = call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i63.i.i.i, i8 noundef signext 67, ptr noundef nonnull %trace_event_unique_category_group_enabled270.0.i.i.i, ptr noundef nonnull @.str.97, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %arg1_name.addr.i58.i.i.i, ptr noundef nonnull %arg_type.i59.i.i.i, ptr noundef nonnull %arg_value.i60.i.i.i, ptr noundef nonnull %arg_convertibles.i.i57.i.i.i, i32 noundef 0) #20
   br label %arraydestroy.body.i.i71.i.i.i.preheader
 
 arraydestroy.body.i.i71.i.i.i.preheader:          ; preds = %if.end15.i.i65.i.i.i, %if.then18.i.i.i
@@ -4754,15 +4754,15 @@ arraydestroy.body.i.i71.i.i.i.preheader:          ; preds = %if.end15.i.i65.i.i.
 arraydestroy.body.i.i71.i.i.i:                    ; preds = %arraydestroy.body.i.i71.i.i.i.preheader, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i78.i.i.i
   %arraydestroy.elementPast.i.i72.i.i.i = phi ptr [ %arraydestroy.element.i.i73.i.i.i, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i78.i.i.i ], [ %arrayctor.end.i.i62.i.i.i, %arraydestroy.body.i.i71.i.i.i.preheader ]
   %arraydestroy.element.i.i73.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i72.i.i.i, i64 -8
-  %20 = load ptr, ptr %arraydestroy.element.i.i73.i.i.i, align 8
-  %cmp.not.i.i.i74.i.i.i = icmp eq ptr %20, null
+  %21 = load ptr, ptr %arraydestroy.element.i.i73.i.i.i, align 8
+  %cmp.not.i.i.i74.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i74.i.i.i, label %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i78.i.i.i, label %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i75.i.i.i
 
 _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i75.i.i.i: ; preds = %arraydestroy.body.i.i71.i.i.i
-  %vtable.i.i.i.i76.i.i.i = load ptr, ptr %20, align 8
+  %vtable.i.i.i.i76.i.i.i = load ptr, ptr %21, align 8
   %vfn.i.i.i.i77.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i76.i.i.i, i64 8
-  %21 = load ptr, ptr %vfn.i.i.i.i77.i.i.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20) #20
+  %22 = load ptr, ptr %vfn.i.i.i.i77.i.i.i, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %21) #20
   br label %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i78.i.i.i
 
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i78.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i75.i.i.i, %arraydestroy.body.i.i71.i.i.i
@@ -4778,9 +4778,9 @@ _ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit80.i.i.i: ; preds =
   br label %do.body25.i.i.i
 
 do.body25.i.i.i:                                  ; preds = %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit80.i.i.i, %if.end14.i.i.i
-  %22 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic272.0" seq_cst, align 8
-  %23 = inttoptr i64 %22 to ptr
-  %tobool27.not.i.i.i = icmp eq i64 %22, 0
+  %23 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic272.0" seq_cst, align 8
+  %24 = inttoptr i64 %23 to ptr
+  %tobool27.not.i.i.i = icmp eq i64 %23, 0
   br i1 %tobool27.not.i.i.i, label %if.then28.i.i.i, label %if.end30.i.i.i
 
 if.then28.i.i.i:                                  ; preds = %do.body25.i.i.i
@@ -4791,28 +4791,28 @@ if.then28.i.i.i:                                  ; preds = %do.body25.i.i.i
 if.end.i83.i.i.i:                                 ; preds = %if.then28.i.i.i
   %vtable.i84.i.i.i = load ptr, ptr %call.i81.i.i.i, align 8
   %vfn.i85.i.i.i = getelementptr inbounds i8, ptr %vtable.i84.i.i.i, i64 16
-  %24 = load ptr, ptr %vfn.i85.i.i.i, align 8
-  %call2.i86.i.i.i = call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %call.i81.i.i.i, ptr noundef nonnull @.str.94) #20
+  %25 = load ptr, ptr %vfn.i85.i.i.i, align 8
+  %call2.i86.i.i.i = call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %call.i81.i.i.i, ptr noundef nonnull @.str.94) #20
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit88.i.i.i
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit88.i.i.i: ; preds = %if.end.i83.i.i.i, %if.then28.i.i.i
   %retval.0.i87.i.i.i = phi ptr [ %call2.i86.i.i.i, %if.end.i83.i.i.i ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then28.i.i.i ]
-  %25 = ptrtoint ptr %retval.0.i87.i.i.i to i64
-  store atomic i64 %25, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic272.0" seq_cst, align 8
+  %26 = ptrtoint ptr %retval.0.i87.i.i.i to i64
+  store atomic i64 %26, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic272.0" seq_cst, align 8
   br label %if.end30.i.i.i
 
 if.end30.i.i.i:                                   ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit88.i.i.i, %do.body25.i.i.i
-  %trace_event_unique_category_group_enabled272.0.i.i.i = phi ptr [ %23, %do.body25.i.i.i ], [ %retval.0.i87.i.i.i, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit88.i.i.i ]
-  %26 = load i8, ptr %trace_event_unique_category_group_enabled272.0.i.i.i, align 1
-  %27 = and i8 %26, 5
-  %tobool33.not.i.i.i = icmp eq i8 %27, 0
+  %trace_event_unique_category_group_enabled272.0.i.i.i = phi ptr [ %24, %do.body25.i.i.i ], [ %retval.0.i87.i.i.i, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit88.i.i.i ]
+  %27 = load i8, ptr %trace_event_unique_category_group_enabled272.0.i.i.i, align 1
+  %28 = and i8 %27, 5
+  %tobool33.not.i.i.i = icmp eq i8 %28, 0
   br i1 %tobool33.not.i.i.i, label %do.body41.i.i.i, label %if.then34.i.i.i
 
 if.then34.i.i.i:                                  ; preds = %if.end30.i.i.i
   call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i.i.i.i) #20
   %histogram_.i90.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %28 = load ptr, ptr %histogram_.i90.i.i.i, align 8
-  %call2.i91.i.i.i = call i64 @hdr_max(ptr noundef %28) #20
+  %29 = load ptr, ptr %histogram_.i90.i.i.i, align 8
+  %call2.i91.i.i.i = call i64 @hdr_max(ptr noundef %29) #20
   call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i.i.i.i) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg1_name.addr.i93.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %arg_type.i94.i.i.i)
@@ -4832,8 +4832,8 @@ if.then34.i.i.i:                                  ; preds = %if.end30.i.i.i
 if.end15.i.i100.i.i.i:                            ; preds = %if.then34.i.i.i
   %vtable.i.i101.i.i.i = load ptr, ptr %call.i.i98.i.i.i, align 8
   %vfn.i.i102.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i101.i.i.i, i64 24
-  %29 = load ptr, ptr %vfn.i.i102.i.i.i, align 8
-  %call16.i.i103.i.i.i = call noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i98.i.i.i, i8 noundef signext 67, ptr noundef nonnull %trace_event_unique_category_group_enabled272.0.i.i.i, ptr noundef nonnull @.str.98, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %arg1_name.addr.i93.i.i.i, ptr noundef nonnull %arg_type.i94.i.i.i, ptr noundef nonnull %arg_value.i95.i.i.i, ptr noundef nonnull %arg_convertibles.i.i92.i.i.i, i32 noundef 0) #20
+  %30 = load ptr, ptr %vfn.i.i102.i.i.i, align 8
+  %call16.i.i103.i.i.i = call noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i98.i.i.i, i8 noundef signext 67, ptr noundef nonnull %trace_event_unique_category_group_enabled272.0.i.i.i, ptr noundef nonnull @.str.98, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %arg1_name.addr.i93.i.i.i, ptr noundef nonnull %arg_type.i94.i.i.i, ptr noundef nonnull %arg_value.i95.i.i.i, ptr noundef nonnull %arg_convertibles.i.i92.i.i.i, i32 noundef 0) #20
   br label %arraydestroy.body.i.i106.i.i.i.preheader
 
 arraydestroy.body.i.i106.i.i.i.preheader:         ; preds = %if.end15.i.i100.i.i.i, %if.then34.i.i.i
@@ -4842,15 +4842,15 @@ arraydestroy.body.i.i106.i.i.i.preheader:         ; preds = %if.end15.i.i100.i.i
 arraydestroy.body.i.i106.i.i.i:                   ; preds = %arraydestroy.body.i.i106.i.i.i.preheader, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i113.i.i.i
   %arraydestroy.elementPast.i.i107.i.i.i = phi ptr [ %arraydestroy.element.i.i108.i.i.i, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i113.i.i.i ], [ %arrayctor.end.i.i97.i.i.i, %arraydestroy.body.i.i106.i.i.i.preheader ]
   %arraydestroy.element.i.i108.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i107.i.i.i, i64 -8
-  %30 = load ptr, ptr %arraydestroy.element.i.i108.i.i.i, align 8
-  %cmp.not.i.i.i109.i.i.i = icmp eq ptr %30, null
+  %31 = load ptr, ptr %arraydestroy.element.i.i108.i.i.i, align 8
+  %cmp.not.i.i.i109.i.i.i = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i109.i.i.i, label %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i113.i.i.i, label %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i110.i.i.i
 
 _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i110.i.i.i: ; preds = %arraydestroy.body.i.i106.i.i.i
-  %vtable.i.i.i.i111.i.i.i = load ptr, ptr %30, align 8
+  %vtable.i.i.i.i111.i.i.i = load ptr, ptr %31, align 8
   %vfn.i.i.i.i112.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i111.i.i.i, i64 8
-  %31 = load ptr, ptr %vfn.i.i.i.i112.i.i.i, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(8) %30) #20
+  %32 = load ptr, ptr %vfn.i.i.i.i112.i.i.i, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %31) #20
   br label %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i113.i.i.i
 
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i113.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i110.i.i.i, %arraydestroy.body.i.i106.i.i.i
@@ -4866,9 +4866,9 @@ _ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit115.i.i.i: ; preds 
   br label %do.body41.i.i.i
 
 do.body41.i.i.i:                                  ; preds = %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit115.i.i.i, %if.end30.i.i.i
-  %32 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic274.0" seq_cst, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %tobool43.not.i.i.i = icmp eq i64 %32, 0
+  %33 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic274.0" seq_cst, align 8
+  %34 = inttoptr i64 %33 to ptr
+  %tobool43.not.i.i.i = icmp eq i64 %33, 0
   br i1 %tobool43.not.i.i.i, label %if.then44.i.i.i, label %if.end46.i.i.i
 
 if.then44.i.i.i:                                  ; preds = %do.body41.i.i.i
@@ -4879,28 +4879,28 @@ if.then44.i.i.i:                                  ; preds = %do.body41.i.i.i
 if.end.i118.i.i.i:                                ; preds = %if.then44.i.i.i
   %vtable.i119.i.i.i = load ptr, ptr %call.i116.i.i.i, align 8
   %vfn.i120.i.i.i = getelementptr inbounds i8, ptr %vtable.i119.i.i.i, i64 16
-  %34 = load ptr, ptr %vfn.i120.i.i.i, align 8
-  %call2.i121.i.i.i = call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %call.i116.i.i.i, ptr noundef nonnull @.str.94) #20
+  %35 = load ptr, ptr %vfn.i120.i.i.i, align 8
+  %call2.i121.i.i.i = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %call.i116.i.i.i, ptr noundef nonnull @.str.94) #20
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit123.i.i.i
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit123.i.i.i: ; preds = %if.end.i118.i.i.i, %if.then44.i.i.i
   %retval.0.i122.i.i.i = phi ptr [ %call2.i121.i.i.i, %if.end.i118.i.i.i ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then44.i.i.i ]
-  %35 = ptrtoint ptr %retval.0.i122.i.i.i to i64
-  store atomic i64 %35, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic274.0" seq_cst, align 8
+  %36 = ptrtoint ptr %retval.0.i122.i.i.i to i64
+  store atomic i64 %36, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic274.0" seq_cst, align 8
   br label %if.end46.i.i.i
 
 if.end46.i.i.i:                                   ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit123.i.i.i, %do.body41.i.i.i
-  %trace_event_unique_category_group_enabled274.0.i.i.i = phi ptr [ %33, %do.body41.i.i.i ], [ %retval.0.i122.i.i.i, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit123.i.i.i ]
-  %36 = load i8, ptr %trace_event_unique_category_group_enabled274.0.i.i.i, align 1
-  %37 = and i8 %36, 5
-  %tobool49.not.i.i.i = icmp eq i8 %37, 0
+  %trace_event_unique_category_group_enabled274.0.i.i.i = phi ptr [ %34, %do.body41.i.i.i ], [ %retval.0.i122.i.i.i, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit123.i.i.i ]
+  %37 = load i8, ptr %trace_event_unique_category_group_enabled274.0.i.i.i, align 1
+  %38 = and i8 %37, 5
+  %tobool49.not.i.i.i = icmp eq i8 %38, 0
   br i1 %tobool49.not.i.i.i, label %do.body57.i.i.i, label %if.then50.i.i.i
 
 if.then50.i.i.i:                                  ; preds = %if.end46.i.i.i
   call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i.i.i.i) #20
   %histogram_.i125.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %38 = load ptr, ptr %histogram_.i125.i.i.i, align 8
-  %call2.i126.i.i.i = call double @hdr_mean(ptr noundef %38) #20
+  %39 = load ptr, ptr %histogram_.i125.i.i.i, align 8
+  %call2.i126.i.i.i = call double @hdr_mean(ptr noundef %39) #20
   call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i.i.i.i) #20
   %conv53.i.i.i = fptosi double %call2.i126.i.i.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg1_name.addr.i128.i.i.i)
@@ -4920,8 +4920,8 @@ if.then50.i.i.i:                                  ; preds = %if.end46.i.i.i
 if.end15.i.i135.i.i.i:                            ; preds = %if.then50.i.i.i
   %vtable.i.i136.i.i.i = load ptr, ptr %call.i.i133.i.i.i, align 8
   %vfn.i.i137.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i136.i.i.i, i64 24
-  %39 = load ptr, ptr %vfn.i.i137.i.i.i, align 8
-  %call16.i.i138.i.i.i = call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i133.i.i.i, i8 noundef signext 67, ptr noundef nonnull %trace_event_unique_category_group_enabled274.0.i.i.i, ptr noundef nonnull @.str.99, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %arg1_name.addr.i128.i.i.i, ptr noundef nonnull %arg_type.i129.i.i.i, ptr noundef nonnull %arg_value.i130.i.i.i, ptr noundef nonnull %arg_convertibles.i.i127.i.i.i, i32 noundef 0) #20
+  %40 = load ptr, ptr %vfn.i.i137.i.i.i, align 8
+  %call16.i.i138.i.i.i = call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i133.i.i.i, i8 noundef signext 67, ptr noundef nonnull %trace_event_unique_category_group_enabled274.0.i.i.i, ptr noundef nonnull @.str.99, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %arg1_name.addr.i128.i.i.i, ptr noundef nonnull %arg_type.i129.i.i.i, ptr noundef nonnull %arg_value.i130.i.i.i, ptr noundef nonnull %arg_convertibles.i.i127.i.i.i, i32 noundef 0) #20
   br label %arraydestroy.body.i.i141.i.i.i.preheader
 
 arraydestroy.body.i.i141.i.i.i.preheader:         ; preds = %if.end15.i.i135.i.i.i, %if.then50.i.i.i
@@ -4930,15 +4930,15 @@ arraydestroy.body.i.i141.i.i.i.preheader:         ; preds = %if.end15.i.i135.i.i
 arraydestroy.body.i.i141.i.i.i:                   ; preds = %arraydestroy.body.i.i141.i.i.i.preheader, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i148.i.i.i
   %arraydestroy.elementPast.i.i142.i.i.i = phi ptr [ %arraydestroy.element.i.i143.i.i.i, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i148.i.i.i ], [ %arrayctor.end.i.i132.i.i.i, %arraydestroy.body.i.i141.i.i.i.preheader ]
   %arraydestroy.element.i.i143.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i142.i.i.i, i64 -8
-  %40 = load ptr, ptr %arraydestroy.element.i.i143.i.i.i, align 8
-  %cmp.not.i.i.i144.i.i.i = icmp eq ptr %40, null
+  %41 = load ptr, ptr %arraydestroy.element.i.i143.i.i.i, align 8
+  %cmp.not.i.i.i144.i.i.i = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i144.i.i.i, label %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i148.i.i.i, label %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i145.i.i.i
 
 _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i145.i.i.i: ; preds = %arraydestroy.body.i.i141.i.i.i
-  %vtable.i.i.i.i146.i.i.i = load ptr, ptr %40, align 8
+  %vtable.i.i.i.i146.i.i.i = load ptr, ptr %41, align 8
   %vfn.i.i.i.i147.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i146.i.i.i, i64 8
-  %41 = load ptr, ptr %vfn.i.i.i.i147.i.i.i, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(8) %40) #20
+  %42 = load ptr, ptr %vfn.i.i.i.i147.i.i.i, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(8) %41) #20
   br label %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i148.i.i.i
 
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i148.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i145.i.i.i, %arraydestroy.body.i.i141.i.i.i
@@ -4954,9 +4954,9 @@ _ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit150.i.i.i: ; preds 
   br label %do.body57.i.i.i
 
 do.body57.i.i.i:                                  ; preds = %_ZN4node7tracingL13AddTraceEventIiEEmcPKhPKcS5_mmjS5_OT_.exit150.i.i.i, %if.end46.i.i.i
-  %42 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic276.0" seq_cst, align 8
-  %43 = inttoptr i64 %42 to ptr
-  %tobool59.not.i.i.i = icmp eq i64 %42, 0
+  %43 = load atomic i64, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic276.0" seq_cst, align 8
+  %44 = inttoptr i64 %43 to ptr
+  %tobool59.not.i.i.i = icmp eq i64 %43, 0
   br i1 %tobool59.not.i.i.i, label %if.then60.i.i.i, label %if.end62.i.i.i
 
 if.then60.i.i.i:                                  ; preds = %do.body57.i.i.i
@@ -4967,28 +4967,28 @@ if.then60.i.i.i:                                  ; preds = %do.body57.i.i.i
 if.end.i152.i.i.i:                                ; preds = %if.then60.i.i.i
   %vtable.i153.i.i.i = load ptr, ptr %call.i.i.i.i, align 8
   %vfn.i154.i.i.i = getelementptr inbounds i8, ptr %vtable.i153.i.i.i, i64 16
-  %44 = load ptr, ptr %vfn.i154.i.i.i, align 8
-  %call2.i155.i.i.i = call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i.i, ptr noundef nonnull @.str.94) #20
+  %45 = load ptr, ptr %vfn.i154.i.i.i, align 8
+  %call2.i155.i.i.i = call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i.i, ptr noundef nonnull @.str.94) #20
   br label %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit157.i.i.i
 
 _ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit157.i.i.i: ; preds = %if.end.i152.i.i.i, %if.then60.i.i.i
   %retval.0.i156.i.i.i = phi ptr [ %call2.i155.i.i.i, %if.end.i152.i.i.i ], [ @_ZZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKcE8disabled, %if.then60.i.i.i ]
-  %45 = ptrtoint ptr %retval.0.i156.i.i.i to i64
-  store atomic i64 %45, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic276.0" seq_cst, align 8
+  %46 = ptrtoint ptr %retval.0.i156.i.i.i to i64
+  store atomic i64 %46, ptr @"_ZZZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clERNS_9HistogramEE28trace_event_unique_atomic276.0" seq_cst, align 8
   br label %if.end62.i.i.i
 
 if.end62.i.i.i:                                   ; preds = %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit157.i.i.i, %do.body57.i.i.i
-  %trace_event_unique_category_group_enabled276.0.i.i.i = phi ptr [ %43, %do.body57.i.i.i ], [ %retval.0.i156.i.i.i, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit157.i.i.i ]
-  %46 = load i8, ptr %trace_event_unique_category_group_enabled276.0.i.i.i, align 1
-  %47 = and i8 %46, 5
-  %tobool65.not.i.i.i = icmp eq i8 %47, 0
+  %trace_event_unique_category_group_enabled276.0.i.i.i = phi ptr [ %44, %do.body57.i.i.i ], [ %retval.0.i156.i.i.i, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit157.i.i.i ]
+  %47 = load i8, ptr %trace_event_unique_category_group_enabled276.0.i.i.i, align 1
+  %48 = and i8 %47, 5
+  %tobool65.not.i.i.i = icmp eq i8 %48, 0
   br i1 %tobool65.not.i.i.i, label %"_ZSt10__invoke_rIvRZN4node11performance18CreateELDHistogramERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JRNS0_9HistogramEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit", label %if.then66.i.i.i
 
 if.then66.i.i.i:                                  ; preds = %if.end62.i.i.i
   call void @uv_mutex_lock(ptr noundef nonnull %mutex_.i.i.i.i) #20
   %histogram_.i159.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %48 = load ptr, ptr %histogram_.i159.i.i.i, align 8
-  %call2.i160.i.i.i = call double @hdr_stddev(ptr noundef %48) #20
+  %49 = load ptr, ptr %histogram_.i159.i.i.i, align 8
+  %call2.i160.i.i.i = call double @hdr_stddev(ptr noundef %49) #20
   call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i.i.i.i) #20
   %conv69.i.i.i = fptosi double %call2.i160.i.i.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg1_name.addr.i162.i.i.i)
@@ -5008,8 +5008,8 @@ if.then66.i.i.i:                                  ; preds = %if.end62.i.i.i
 if.end15.i.i169.i.i.i:                            ; preds = %if.then66.i.i.i
   %vtable.i.i170.i.i.i = load ptr, ptr %call.i.i167.i.i.i, align 8
   %vfn.i.i171.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i170.i.i.i, i64 24
-  %49 = load ptr, ptr %vfn.i.i171.i.i.i, align 8
-  %call16.i.i172.i.i.i = call noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i167.i.i.i, i8 noundef signext 67, ptr noundef nonnull %trace_event_unique_category_group_enabled276.0.i.i.i, ptr noundef nonnull @.str.100, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %arg1_name.addr.i162.i.i.i, ptr noundef nonnull %arg_type.i163.i.i.i, ptr noundef nonnull %arg_value.i164.i.i.i, ptr noundef nonnull %arg_convertibles.i.i161.i.i.i, i32 noundef 0) #20
+  %50 = load ptr, ptr %vfn.i.i171.i.i.i, align 8
+  %call16.i.i172.i.i.i = call noundef i64 %50(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i167.i.i.i, i8 noundef signext 67, ptr noundef nonnull %trace_event_unique_category_group_enabled276.0.i.i.i, ptr noundef nonnull @.str.100, ptr noundef null, i64 noundef 0, i64 noundef 0, i32 noundef 1, ptr noundef nonnull %arg1_name.addr.i162.i.i.i, ptr noundef nonnull %arg_type.i163.i.i.i, ptr noundef nonnull %arg_value.i164.i.i.i, ptr noundef nonnull %arg_convertibles.i.i161.i.i.i, i32 noundef 0) #20
   br label %arraydestroy.body.i.i175.i.i.i.preheader
 
 arraydestroy.body.i.i175.i.i.i.preheader:         ; preds = %if.end15.i.i169.i.i.i, %if.then66.i.i.i
@@ -5018,15 +5018,15 @@ arraydestroy.body.i.i175.i.i.i.preheader:         ; preds = %if.end15.i.i169.i.i
 arraydestroy.body.i.i175.i.i.i:                   ; preds = %arraydestroy.body.i.i175.i.i.i.preheader, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i182.i.i.i
   %arraydestroy.elementPast.i.i176.i.i.i = phi ptr [ %arraydestroy.element.i.i177.i.i.i, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i182.i.i.i ], [ %arrayctor.end.i.i166.i.i.i, %arraydestroy.body.i.i175.i.i.i.preheader ]
   %arraydestroy.element.i.i177.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i176.i.i.i, i64 -8
-  %50 = load ptr, ptr %arraydestroy.element.i.i177.i.i.i, align 8
-  %cmp.not.i.i.i178.i.i.i = icmp eq ptr %50, null
+  %51 = load ptr, ptr %arraydestroy.element.i.i177.i.i.i, align 8
+  %cmp.not.i.i.i178.i.i.i = icmp eq ptr %51, null
   br i1 %cmp.not.i.i.i178.i.i.i, label %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i182.i.i.i, label %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i179.i.i.i
 
 _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i179.i.i.i: ; preds = %arraydestroy.body.i.i175.i.i.i
-  %vtable.i.i.i.i180.i.i.i = load ptr, ptr %50, align 8
+  %vtable.i.i.i.i180.i.i.i = load ptr, ptr %51, align 8
   %vfn.i.i.i.i181.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i180.i.i.i, i64 8
-  %51 = load ptr, ptr %vfn.i.i.i.i181.i.i.i, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(8) %50) #20
+  %52 = load ptr, ptr %vfn.i.i.i.i181.i.i.i, align 8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %51) #20
   br label %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i182.i.i.i
 
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit.i.i182.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i.i.i179.i.i.i, %arraydestroy.body.i.i175.i.i.i

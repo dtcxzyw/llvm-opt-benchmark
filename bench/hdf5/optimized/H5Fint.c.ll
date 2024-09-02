@@ -5639,7 +5639,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5F__start_swmr_write(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F__start_swmr_write(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i64, align 8

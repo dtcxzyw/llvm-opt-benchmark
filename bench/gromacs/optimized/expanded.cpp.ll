@@ -310,7 +310,7 @@ define void @_Z25PrintFreeEnergyInfoToFileP8_IO_FILEPK8t_lambdaPK10t_expandedPK9
 
 ._crit_edge260:                                   ; preds = %70
   %.pre = add nuw nsw i64 %indvars.iv235, 1
-  br label %95
+  br label %98
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr %60, align 8
@@ -335,129 +335,129 @@ define void @_Z25PrintFreeEnergyInfoToFileP8_IO_FILEPK8t_lambdaPK10t_expandedPK9
   %92 = fmul float %91, %91
   %93 = fsub float %89, %92
   %94 = tail call noundef float @sqrtf(float noundef %93) #21
-  br label %95
+  %95 = fpext float %79 to double
+  %96 = fpext float %85 to double
+  %97 = fpext float %94 to double
+  br label %98
 
-95:                                               ; preds = %._crit_edge260, %72
+98:                                               ; preds = %._crit_edge260, %72
   %indvars.iv.next236.pre-phi = phi i64 [ %.pre, %._crit_edge260 ], [ %74, %72 ]
-  %.0172 = phi float [ 0.000000e+00, %._crit_edge260 ], [ %94, %72 ]
-  %.0171 = phi float [ 0.000000e+00, %._crit_edge260 ], [ %85, %72 ]
-  %.0170 = phi float [ 0.000000e+00, %._crit_edge260 ], [ %79, %72 ]
-  %96 = trunc nuw nsw i64 %indvars.iv.next236.pre-phi to i32
-  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %96) #21
+  %.0172 = phi double [ 0.000000e+00, %._crit_edge260 ], [ %97, %72 ]
+  %.0171 = phi double [ 0.000000e+00, %._crit_edge260 ], [ %96, %72 ]
+  %.0170 = phi double [ 0.000000e+00, %._crit_edge260 ], [ %95, %72 ]
+  %99 = trunc nuw nsw i64 %indvars.iv.next236.pre-phi to i32
+  %100 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %99) #21
   br i1 %.not.not, label %.split201.us, label %.split201
 
-.split201.us:                                     ; preds = %95, %107
-  %indvars.iv232 = phi i64 [ %indvars.iv.next233, %107 ], [ 0, %95 ]
-  %98 = getelementptr inbounds [7 x i8], ptr %30, i64 0, i64 %indvars.iv232
-  %99 = load i8, ptr %98, align 1
-  %100 = trunc i8 %99 to i1
-  br i1 %100, label %101, label %107
+.split201.us:                                     ; preds = %98, %110
+  %indvars.iv232 = phi i64 [ %indvars.iv.next233, %110 ], [ 0, %98 ]
+  %101 = getelementptr inbounds [7 x i8], ptr %30, i64 0, i64 %indvars.iv232
+  %102 = load i8, ptr %101, align 1
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %110
 
-101:                                              ; preds = %.split201.us
-  %102 = getelementptr inbounds [7 x %"class.std::vector.50"], ptr %64, i64 0, i64 %indvars.iv232
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds double, ptr %103, i64 %indvars.iv235
-  %105 = load double, ptr %104, align 8
-  %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, double noundef %105) #21
-  br label %107
+104:                                              ; preds = %.split201.us
+  %105 = getelementptr inbounds [7 x %"class.std::vector.50"], ptr %64, i64 0, i64 %indvars.iv232
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds double, ptr %106, i64 %indvars.iv235
+  %108 = load double, ptr %107, align 8
+  %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, double noundef %108) #21
+  br label %110
 
-107:                                              ; preds = %.split201.us, %101
+110:                                              ; preds = %.split201.us, %104
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %.not195.us = icmp eq i64 %indvars.iv.next233, 7
   br i1 %.not195.us, label %.split203.us, label %.split201.us
 
-.split201:                                        ; preds = %95, %123
-  %indvars.iv229 = phi i64 [ %indvars.iv.next230, %123 ], [ 0, %95 ]
-  %108 = getelementptr inbounds [7 x i8], ptr %30, i64 0, i64 %indvars.iv229
-  %109 = load i8, ptr %108, align 1
-  %110 = trunc i8 %109 to i1
-  br i1 %110, label %111, label %117
+.split201:                                        ; preds = %98, %126
+  %indvars.iv229 = phi i64 [ %indvars.iv.next230, %126 ], [ 0, %98 ]
+  %111 = getelementptr inbounds [7 x i8], ptr %30, i64 0, i64 %indvars.iv229
+  %112 = load i8, ptr %111, align 1
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %120
 
-111:                                              ; preds = %.split201
-  %112 = getelementptr inbounds [7 x %"class.std::vector.50"], ptr %64, i64 0, i64 %indvars.iv229
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds double, ptr %113, i64 %indvars.iv235
-  %115 = load double, ptr %114, align 8
-  %116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, double noundef %115) #21
-  br label %123
+114:                                              ; preds = %.split201
+  %115 = getelementptr inbounds [7 x %"class.std::vector.50"], ptr %64, i64 0, i64 %indvars.iv229
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds double, ptr %116, i64 %indvars.iv235
+  %118 = load double, ptr %117, align 8
+  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, double noundef %118) #21
+  br label %126
 
-117:                                              ; preds = %.split201
+120:                                              ; preds = %.split201
   %.not222 = icmp eq i64 %indvars.iv229, 6
-  br i1 %.not222, label %.thread263, label %123
+  br i1 %.not222, label %.thread263, label %126
 
-.thread263:                                       ; preds = %117
-  %118 = load ptr, ptr %63, align 8
-  %119 = getelementptr inbounds float, ptr %118, i64 %indvars.iv235
-  %120 = load float, ptr %119, align 4
-  %121 = fpext float %120 to double
-  %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, double noundef %121) #21
+.thread263:                                       ; preds = %120
+  %121 = load ptr, ptr %63, align 8
+  %122 = getelementptr inbounds float, ptr %121, i64 %indvars.iv235
+  %123 = load float, ptr %122, align 4
+  %124 = fpext float %123 to double
+  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, double noundef %124) #21
   br label %.split203.us
 
-123:                                              ; preds = %117, %111
+126:                                              ; preds = %120, %114
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %.not195 = icmp eq i64 %indvars.iv.next230, 7
   br i1 %.not195, label %.split203.us, label %.split201
 
-.split203.us:                                     ; preds = %123, %107, %.thread263
-  %124 = load i32, ptr %16, align 4
-  %125 = and i32 %124, -2
-  %switch188 = icmp eq i32 %125, 4
-  br i1 %switch188, label %126, label %140
+.split203.us:                                     ; preds = %126, %110, %.thread263
+  %127 = load i32, ptr %16, align 4
+  %128 = and i32 %127, -2
+  %switch188 = icmp eq i32 %128, 4
+  br i1 %switch188, label %129, label %143
 
-126:                                              ; preds = %.split203.us
-  %127 = load i8, ptr %65, align 4
-  %128 = trunc i8 %127 to i1
-  br i1 %128, label %140, label %129
+129:                                              ; preds = %.split203.us
+  %130 = load i8, ptr %65, align 4
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %143, label %132
 
-129:                                              ; preds = %126
-  %130 = icmp eq i32 %124, 4
-  %131 = load ptr, ptr %66, align 8
-  %132 = getelementptr inbounds float, ptr %131, i64 %indvars.iv235
-  %133 = load float, ptr %132, align 4
-  br i1 %130, label %134, label %137
+132:                                              ; preds = %129
+  %133 = icmp eq i32 %127, 4
+  %134 = load ptr, ptr %66, align 8
+  %135 = getelementptr inbounds float, ptr %134, i64 %indvars.iv235
+  %136 = load float, ptr %135, align 4
+  br i1 %133, label %137, label %140
 
-134:                                              ; preds = %129
-  %135 = fptosi float %133 to i32
-  %136 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %135) #21
-  br label %145
+137:                                              ; preds = %132
+  %138 = fptosi float %136 to i32
+  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %138) #21
+  br label %148
 
-137:                                              ; preds = %129
-  %138 = fpext float %133 to double
-  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, double noundef %138) #21
-  br label %145
+140:                                              ; preds = %132
+  %141 = fpext float %136 to double
+  %142 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, double noundef %141) #21
+  br label %148
 
-140:                                              ; preds = %.split203.us, %126
-  %141 = load ptr, ptr %67, align 8
-  %142 = getelementptr inbounds i32, ptr %141, i64 %indvars.iv235
-  %143 = load i32, ptr %142, align 4
-  %144 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %143) #21
-  br label %145
+143:                                              ; preds = %.split203.us, %129
+  %144 = load ptr, ptr %67, align 8
+  %145 = getelementptr inbounds i32, ptr %144, i64 %indvars.iv235
+  %146 = load i32, ptr %145, align 4
+  %147 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %146) #21
+  br label %148
 
-145:                                              ; preds = %134, %137, %140
-  %146 = load i32, ptr %16, align 4
-  %147 = icmp eq i32 %146, 3
-  %148 = load ptr, ptr %60, align 8
-  %149 = getelementptr inbounds float, ptr %148, i64 %indvars.iv235
-  %150 = load float, ptr %149, align 4
-  %151 = fpext float %150 to double
-  br i1 %147, label %152, label %160
+148:                                              ; preds = %137, %140, %143
+  %149 = load i32, ptr %16, align 4
+  %150 = icmp eq i32 %149, 3
+  %151 = load ptr, ptr %60, align 8
+  %152 = getelementptr inbounds float, ptr %151, i64 %indvars.iv235
+  %153 = load float, ptr %152, align 4
+  %154 = fpext float %153 to double
+  br i1 %150, label %155, label %161
 
-152:                                              ; preds = %145
-  %153 = load ptr, ptr %61, align 8
-  %154 = getelementptr inbounds float, ptr %153, i64 %indvars.iv235
-  %155 = load float, ptr %154, align 4
-  %156 = fpext float %155 to double
-  %157 = fpext float %.0171 to double
-  %158 = fpext float %.0172 to double
-  %159 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, double noundef %151, double noundef %156, double noundef %157, double noundef %158) #21
+155:                                              ; preds = %148
+  %156 = load ptr, ptr %61, align 8
+  %157 = getelementptr inbounds float, ptr %156, i64 %indvars.iv235
+  %158 = load float, ptr %157, align 4
+  %159 = fpext float %158 to double
+  %160 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, double noundef %154, double noundef %159, double noundef %.0171, double noundef %.0172) #21
   br label %163
 
-160:                                              ; preds = %145
-  %161 = fpext float %.0170 to double
-  %162 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %151, double noundef %161) #21
+161:                                              ; preds = %148
+  %162 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %154, double noundef %.0170) #21
   br label %163
 
-163:                                              ; preds = %160, %152
+163:                                              ; preds = %161, %155
   %164 = icmp eq i64 %indvars.iv235, %69
   %.str.15..str.16 = select i1 %164, ptr @.str.15, ptr @.str.16
   %165 = tail call i64 @fwrite(ptr nonnull %.str.15..str.16, i64 4, i64 1, ptr %0)
@@ -1555,42 +1555,42 @@ _ZL34GenerateWeightedGibbsProbabilitiesPKfPdS1_iPff.exit.i: ; preds = %.lr.ph65.
   %485 = fmul float %.0366.i, %.0366.i
   %486 = fdiv float %.0365.i, %485
   %487 = fadd float %486, -1.000000e+00
-  %.0353.i = select i1 %484, float %487, float 0.000000e+00
-  %488 = fcmp oeq float %.0370.i, 0.000000e+00
-  %489 = fcmp oeq float %.0366.i, 0.000000e+00
-  %or.cond19.i = select i1 %488, i1 true, i1 %489
-  br i1 %or.cond19.i, label %490, label %494
+  %488 = fpext float %487 to double
+  %.0353.i = select i1 %484, double %488, double 0.000000e+00
+  %489 = fcmp oeq float %.0370.i, 0.000000e+00
+  %490 = fcmp oeq float %.0366.i, 0.000000e+00
+  %or.cond19.i = select i1 %489, i1 true, i1 %490
+  br i1 %or.cond19.i, label %491, label %495
 
-490:                                              ; preds = %483
-  %491 = load float, ptr %324, align 4
-  %492 = load float, ptr %gep.i, align 4
-  %493 = fsub float %491, %492
-  br label %499
+491:                                              ; preds = %483
+  %492 = load float, ptr %324, align 4
+  %493 = load float, ptr %gep.i, align 4
+  %494 = fsub float %492, %493
+  br label %500
 
-494:                                              ; preds = %483
-  %495 = tail call noundef float @logf(float noundef %.0370.i) #21
-  %496 = tail call noundef float @logf(float noundef %.0366.i) #21
-  %497 = fsub float %495, %496
-  %498 = fadd float %497, %355
-  br label %499
+495:                                              ; preds = %483
+  %496 = tail call noundef float @logf(float noundef %.0370.i) #21
+  %497 = tail call noundef float @logf(float noundef %.0366.i) #21
+  %498 = fsub float %496, %497
+  %499 = fadd float %498, %355
+  br label %500
 
-499:                                              ; preds = %494, %490
-  %.1358.i = phi float [ %493, %490 ], [ %498, %494 ]
-  %500 = uitofp nneg i32 %398 to double
-  %501 = fdiv double 1.000000e+00, %500
-  %502 = fpext float %.1362.i to double
-  %503 = uitofp nneg i32 %.0372.i to double
-  %504 = fdiv double 1.000000e+00, %503
-  %505 = fpext float %.0353.i to double
-  %506 = fmul double %504, %505
-  %507 = tail call double @llvm.fmuladd.f64(double %501, double %502, double %506)
+500:                                              ; preds = %495, %491
+  %.1358.i = phi float [ %494, %491 ], [ %499, %495 ]
+  %501 = uitofp nneg i32 %398 to double
+  %502 = fdiv double 1.000000e+00, %501
+  %503 = fpext float %.1362.i to double
+  %504 = uitofp nneg i32 %.0372.i to double
+  %505 = fdiv double 1.000000e+00, %504
+  %506 = fmul double %505, %.0353.i
+  %507 = tail call double @llvm.fmuladd.f64(double %502, double %503, double %506)
   %508 = fptrunc double %507 to float
   br label %509
 
-509:                                              ; preds = %499, %478, %477
-  %.0361.i = phi float [ %.1362.i, %499 ], [ %.1362.i, %478 ], [ 0.000000e+00, %477 ]
-  %.0357.i = phi float [ %.1358.i, %499 ], [ 0.000000e+00, %478 ], [ 0.000000e+00, %477 ]
-  %.0355.i = phi float [ %508, %499 ], [ 0.000000e+00, %478 ], [ 0.000000e+00, %477 ]
+509:                                              ; preds = %500, %478, %477
+  %.0361.i = phi float [ %.1362.i, %500 ], [ %.1362.i, %478 ], [ 0.000000e+00, %477 ]
+  %.0357.i = phi float [ %.1358.i, %500 ], [ 0.000000e+00, %478 ], [ 0.000000e+00, %477 ]
+  %.0355.i = phi float [ %508, %500 ], [ 0.000000e+00, %478 ], [ 0.000000e+00, %477 ]
   %or.cond27.i = and i1 %323, %408
   br i1 %or.cond27.i, label %510, label %541
 
@@ -1607,35 +1607,35 @@ _ZL34GenerateWeightedGibbsProbabilitiesPKfPdS1_iPff.exit.i: ; preds = %.lr.ph65.
   %517 = fmul float %.0364.i, %.0364.i
   %518 = fdiv float %.0363.i, %517
   %519 = fadd float %518, -1.000000e+00
-  %.0.i = select i1 %516, float %519, float 0.000000e+00
-  %520 = fcmp oeq float %.0364.i, 0.000000e+00
-  %521 = fcmp oeq float %.0369.i, 0.000000e+00
-  %or.cond21.i = select i1 %520, i1 true, i1 %521
-  br i1 %or.cond21.i, label %522, label %526
+  %520 = fpext float %519 to double
+  %.0.i = select i1 %516, double %520, double 0.000000e+00
+  %521 = fcmp oeq float %.0364.i, 0.000000e+00
+  %522 = fcmp oeq float %.0369.i, 0.000000e+00
+  %or.cond21.i = select i1 %521, i1 true, i1 %522
+  br i1 %or.cond21.i, label %523, label %527
 
-522:                                              ; preds = %515
-  %523 = load float, ptr %325, align 4
-  %524 = load float, ptr %324, align 4
-  %525 = fsub float %523, %524
-  br label %531
+523:                                              ; preds = %515
+  %524 = load float, ptr %325, align 4
+  %525 = load float, ptr %324, align 4
+  %526 = fsub float %524, %525
+  br label %532
 
-526:                                              ; preds = %515
-  %527 = tail call noundef float @logf(float noundef %.0364.i) #21
-  %528 = tail call noundef float @logf(float noundef %.0369.i) #21
-  %529 = fsub float %527, %528
-  %530 = fadd float %529, %355
-  br label %531
+527:                                              ; preds = %515
+  %528 = tail call noundef float @logf(float noundef %.0364.i) #21
+  %529 = tail call noundef float @logf(float noundef %.0369.i) #21
+  %530 = fsub float %528, %529
+  %531 = fadd float %530, %355
+  br label %532
 
-531:                                              ; preds = %526, %522
-  %.1.i = phi float [ %525, %522 ], [ %530, %526 ]
-  %532 = uitofp nneg i32 %.0371.i to double
-  %533 = fdiv double 1.000000e+00, %532
-  %534 = fpext float %.0.i to double
+532:                                              ; preds = %527, %523
+  %.1.i = phi float [ %526, %523 ], [ %531, %527 ]
+  %533 = uitofp nneg i32 %.0371.i to double
+  %534 = fdiv double 1.000000e+00, %533
   %535 = uitofp nneg i32 %398 to double
   %536 = fdiv double 1.000000e+00, %535
   %537 = fpext float %.1360.i to double
   %538 = fmul double %536, %537
-  %539 = tail call double @llvm.fmuladd.f64(double %533, double %534, double %538)
+  %539 = tail call double @llvm.fmuladd.f64(double %534, double %.0.i, double %538)
   %540 = fptrunc double %539 to float
   br label %.thread.i
 
@@ -1643,11 +1643,11 @@ _ZL34GenerateWeightedGibbsProbabilitiesPKfPdS1_iPff.exit.i: ; preds = %.lr.ph65.
   %spec.select616.i = select i1 %408, float %.0361.i, float 0.000000e+00
   br label %.thread.i
 
-.thread.i:                                        ; preds = %541, %531, %510
-  %.sink612.i = phi float [ %.0361.i, %510 ], [ %.0361.i, %531 ], [ %spec.select616.i, %541 ]
-  %.0354507.i = phi float [ 0.000000e+00, %510 ], [ %540, %531 ], [ 0.000000e+00, %541 ]
-  %.0356505.i = phi float [ 0.000000e+00, %510 ], [ %.1.i, %531 ], [ 0.000000e+00, %541 ]
-  %.0359503.i = phi float [ %.1360.i, %510 ], [ %.1360.i, %531 ], [ 0.000000e+00, %541 ]
+.thread.i:                                        ; preds = %541, %532, %510
+  %.sink612.i = phi float [ %.0361.i, %510 ], [ %.0361.i, %532 ], [ %spec.select616.i, %541 ]
+  %.0354507.i = phi float [ 0.000000e+00, %510 ], [ %540, %532 ], [ 0.000000e+00, %541 ]
+  %.0356505.i = phi float [ 0.000000e+00, %510 ], [ %.1.i, %532 ], [ 0.000000e+00, %541 ]
+  %.0359503.i = phi float [ %.1360.i, %510 ], [ %.1360.i, %532 ], [ 0.000000e+00, %541 ]
   %542 = getelementptr inbounds float, ptr %309, i64 %indvars.iv585.i
   store float %.sink612.i, ptr %542, align 4
   %543 = getelementptr inbounds float, ptr %310, i64 %indvars.iv585.i

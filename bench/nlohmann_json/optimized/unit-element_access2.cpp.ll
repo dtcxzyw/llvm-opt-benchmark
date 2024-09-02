@@ -50642,15 +50642,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4612 = load ptr, ptr %m_value.i8841, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4612, i64 8
   %cmp.i1.i = icmp ne ptr %retval.sroa.0.0.i.i.i8868, %add.ptr.i.i.i
+  %4613 = zext i1 %cmp.i1.i to i64
   br label %invoke.cont14805
 
 invoke.cont14805:                                 ; preds = %invoke.cont14800, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i8867
-  %4613 = phi i1 [ false, %invoke.cont14800 ], [ %cmp.i1.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i8867 ]
+  %frombool14804 = phi i64 [ 0, %invoke.cont14800 ], [ %4613, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i8867 ]
   %4614 = load i32, ptr %ref.tmp14794, align 4
   %retval.sroa.21.0.insert.ext.i8870 = zext i32 %4614 to i64
   %retval.sroa.21.0.insert.shift.i8871 = shl nuw i64 %retval.sroa.21.0.insert.ext.i8870, 32
-  %retval.sroa.0.0.insert.ext.i8872 = zext i1 %4613 to i64
-  %retval.sroa.0.0.insert.insert.i8873 = or disjoint i64 %retval.sroa.21.0.insert.shift.i8871, %retval.sroa.0.0.insert.ext.i8872
+  %retval.sroa.0.0.insert.insert.i8873 = or disjoint i64 %retval.sroa.21.0.insert.shift.i8871, %frombool14804
   store i64 %retval.sroa.0.0.insert.insert.i8873, ptr %ref.tmp14793, align 8
   store i8 1, ptr %ref.tmp14807, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp14792, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp14793, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14807)
@@ -50734,15 +50734,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4622 = load ptr, ptr %m_value.i8877, align 8
   %add.ptr.i.i.i8905 = getelementptr inbounds i8, ptr %4622, i64 8
   %cmp.i1.i8906 = icmp ne ptr %retval.sroa.0.0.i.i.i8904, %add.ptr.i.i.i8905
+  %4623 = zext i1 %cmp.i1.i8906 to i64
   br label %invoke.cont14828
 
 invoke.cont14828:                                 ; preds = %invoke.cont14823, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i8903
-  %4623 = phi i1 [ false, %invoke.cont14823 ], [ %cmp.i1.i8906, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i8903 ]
+  %frombool14827 = phi i64 [ 0, %invoke.cont14823 ], [ %4623, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i8903 ]
   %4624 = load i32, ptr %ref.tmp14817, align 4
   %retval.sroa.21.0.insert.ext.i8909 = zext i32 %4624 to i64
   %retval.sroa.21.0.insert.shift.i8910 = shl nuw i64 %retval.sroa.21.0.insert.ext.i8909, 32
-  %retval.sroa.0.0.insert.ext.i8911 = zext i1 %4623 to i64
-  %retval.sroa.0.0.insert.insert.i8912 = or disjoint i64 %retval.sroa.21.0.insert.shift.i8910, %retval.sroa.0.0.insert.ext.i8911
+  %retval.sroa.0.0.insert.insert.i8912 = or disjoint i64 %retval.sroa.21.0.insert.shift.i8910, %frombool14827
   store i64 %retval.sroa.0.0.insert.insert.i8912, ptr %ref.tmp14816, align 8
   store i8 1, ptr %ref.tmp14830, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp14815, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp14816, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14830)
@@ -50933,15 +50933,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4641 = load ptr, ptr %m_value.i8918, align 8
   %add.ptr.i.i.i8946 = getelementptr inbounds i8, ptr %4641, i64 8
   %cmp.i1.i8947 = icmp ne ptr %retval.sroa.0.0.i.i.i8945, %add.ptr.i.i.i8946
+  %4642 = zext i1 %cmp.i1.i8947 to i64
   br label %invoke.cont14866
 
 invoke.cont14866:                                 ; preds = %invoke.cont14861, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i8944
-  %4642 = phi i1 [ false, %invoke.cont14861 ], [ %cmp.i1.i8947, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i8944 ]
+  %frombool14865 = phi i64 [ 0, %invoke.cont14861 ], [ %4642, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i8944 ]
   %4643 = load i32, ptr %ref.tmp14855, align 4
   %retval.sroa.21.0.insert.ext.i8950 = zext i32 %4643 to i64
   %retval.sroa.21.0.insert.shift.i8951 = shl nuw i64 %retval.sroa.21.0.insert.ext.i8950, 32
-  %retval.sroa.0.0.insert.ext.i8952 = zext i1 %4642 to i64
-  %retval.sroa.0.0.insert.insert.i8953 = or disjoint i64 %retval.sroa.21.0.insert.shift.i8951, %retval.sroa.0.0.insert.ext.i8952
+  %retval.sroa.0.0.insert.insert.i8953 = or disjoint i64 %retval.sroa.21.0.insert.shift.i8951, %frombool14865
   store i64 %retval.sroa.0.0.insert.insert.i8953, ptr %ref.tmp14854, align 8
   store i8 0, ptr %ref.tmp14868, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp14853, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp14854, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14868)
@@ -51027,15 +51027,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4651 = load ptr, ptr %m_value.i8957, align 8
   %add.ptr.i.i.i8985 = getelementptr inbounds i8, ptr %4651, i64 8
   %cmp.i1.i8986 = icmp ne ptr %retval.sroa.0.0.i.i.i8984, %add.ptr.i.i.i8985
+  %4652 = zext i1 %cmp.i1.i8986 to i64
   br label %invoke.cont14889
 
 invoke.cont14889:                                 ; preds = %invoke.cont14884, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i8983
-  %4652 = phi i1 [ false, %invoke.cont14884 ], [ %cmp.i1.i8986, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i8983 ]
+  %frombool14888 = phi i64 [ 0, %invoke.cont14884 ], [ %4652, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i8983 ]
   %4653 = load i32, ptr %ref.tmp14878, align 4
   %retval.sroa.21.0.insert.ext.i8989 = zext i32 %4653 to i64
   %retval.sroa.21.0.insert.shift.i8990 = shl nuw i64 %retval.sroa.21.0.insert.ext.i8989, 32
-  %retval.sroa.0.0.insert.ext.i8991 = zext i1 %4652 to i64
-  %retval.sroa.0.0.insert.insert.i8992 = or disjoint i64 %retval.sroa.21.0.insert.shift.i8990, %retval.sroa.0.0.insert.ext.i8991
+  %retval.sroa.0.0.insert.insert.i8992 = or disjoint i64 %retval.sroa.21.0.insert.shift.i8990, %frombool14888
   store i64 %retval.sroa.0.0.insert.insert.i8992, ptr %ref.tmp14877, align 8
   store i8 0, ptr %ref.tmp14891, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp14876, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp14877, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14891)
@@ -51232,15 +51232,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4669 = load ptr, ptr %m_value.i.i8996, align 8
   %add.ptr.i.i.i9030 = getelementptr inbounds i8, ptr %4669, i64 8
   %cmp.i1.i9031 = icmp ne ptr %retval.sroa.0.0.i.i.i9029, %add.ptr.i.i.i9030
+  %4670 = zext i1 %cmp.i1.i9031 to i64
   br label %invoke.cont14940
 
 invoke.cont14940:                                 ; preds = %invoke.cont14935, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9028
-  %4670 = phi i1 [ false, %invoke.cont14935 ], [ %cmp.i1.i9031, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9028 ]
+  %frombool14939 = phi i64 [ 0, %invoke.cont14935 ], [ %4670, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9028 ]
   %4671 = load i32, ptr %ref.tmp14928, align 4
   %retval.sroa.21.0.insert.ext.i9034 = zext i32 %4671 to i64
   %retval.sroa.21.0.insert.shift.i9035 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9034, 32
-  %retval.sroa.0.0.insert.ext.i9036 = zext i1 %4670 to i64
-  %retval.sroa.0.0.insert.insert.i9037 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9035, %retval.sroa.0.0.insert.ext.i9036
+  %retval.sroa.0.0.insert.insert.i9037 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9035, %frombool14939
   store i64 %retval.sroa.0.0.insert.insert.i9037, ptr %ref.tmp14927, align 8
   store i8 0, ptr %ref.tmp14942, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp14926, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp14927, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14942)
@@ -51325,15 +51325,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4679 = load ptr, ptr %m_value.i.i8998, align 8
   %add.ptr.i.i.i9069 = getelementptr inbounds i8, ptr %4679, i64 8
   %cmp.i1.i9070 = icmp ne ptr %retval.sroa.0.0.i.i.i9068, %add.ptr.i.i.i9069
+  %4680 = zext i1 %cmp.i1.i9070 to i64
   br label %invoke.cont14963
 
 invoke.cont14963:                                 ; preds = %invoke.cont14958, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9067
-  %4680 = phi i1 [ false, %invoke.cont14958 ], [ %cmp.i1.i9070, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9067 ]
+  %frombool14962 = phi i64 [ 0, %invoke.cont14958 ], [ %4680, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9067 ]
   %4681 = load i32, ptr %ref.tmp14952, align 4
   %retval.sroa.21.0.insert.ext.i9073 = zext i32 %4681 to i64
   %retval.sroa.21.0.insert.shift.i9074 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9073, 32
-  %retval.sroa.0.0.insert.ext.i9075 = zext i1 %4680 to i64
-  %retval.sroa.0.0.insert.insert.i9076 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9074, %retval.sroa.0.0.insert.ext.i9075
+  %retval.sroa.0.0.insert.insert.i9076 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9074, %frombool14962
   store i64 %retval.sroa.0.0.insert.insert.i9076, ptr %ref.tmp14951, align 8
   store i8 0, ptr %ref.tmp14965, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp14950, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp14951, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14965)
@@ -51595,15 +51595,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4708 = load ptr, ptr %m_value.i.i9086, align 8
   %add.ptr.i.i.i9120 = getelementptr inbounds i8, ptr %4708, i64 8
   %cmp.i1.i9121 = icmp ne ptr %retval.sroa.0.0.i.i.i9119, %add.ptr.i.i.i9120
+  %4709 = zext i1 %cmp.i1.i9121 to i64
   br label %invoke.cont15006
 
 invoke.cont15006:                                 ; preds = %invoke.cont15001, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9118
-  %4709 = phi i1 [ false, %invoke.cont15001 ], [ %cmp.i1.i9121, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9118 ]
+  %frombool15005 = phi i64 [ 0, %invoke.cont15001 ], [ %4709, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9118 ]
   %4710 = load i32, ptr %ref.tmp14994, align 4
   %retval.sroa.21.0.insert.ext.i9124 = zext i32 %4710 to i64
   %retval.sroa.21.0.insert.shift.i9125 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9124, 32
-  %retval.sroa.0.0.insert.ext.i9126 = zext i1 %4709 to i64
-  %retval.sroa.0.0.insert.insert.i9127 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9125, %retval.sroa.0.0.insert.ext.i9126
+  %retval.sroa.0.0.insert.insert.i9127 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9125, %frombool15005
   store i64 %retval.sroa.0.0.insert.insert.i9127, ptr %ref.tmp14993, align 8
   store i8 0, ptr %ref.tmp15008, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp14992, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp14993, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15008)
@@ -51688,15 +51688,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4718 = load ptr, ptr %m_value.i.i9088, align 8
   %add.ptr.i.i.i9159 = getelementptr inbounds i8, ptr %4718, i64 8
   %cmp.i1.i9160 = icmp ne ptr %retval.sroa.0.0.i.i.i9158, %add.ptr.i.i.i9159
+  %4719 = zext i1 %cmp.i1.i9160 to i64
   br label %invoke.cont15029
 
 invoke.cont15029:                                 ; preds = %invoke.cont15024, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9157
-  %4719 = phi i1 [ false, %invoke.cont15024 ], [ %cmp.i1.i9160, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9157 ]
+  %frombool15028 = phi i64 [ 0, %invoke.cont15024 ], [ %4719, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9157 ]
   %4720 = load i32, ptr %ref.tmp15018, align 4
   %retval.sroa.21.0.insert.ext.i9163 = zext i32 %4720 to i64
   %retval.sroa.21.0.insert.shift.i9164 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9163, 32
-  %retval.sroa.0.0.insert.ext.i9165 = zext i1 %4719 to i64
-  %retval.sroa.0.0.insert.insert.i9166 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9164, %retval.sroa.0.0.insert.ext.i9165
+  %retval.sroa.0.0.insert.insert.i9166 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9164, %frombool15028
   store i64 %retval.sroa.0.0.insert.insert.i9166, ptr %ref.tmp15017, align 8
   store i8 0, ptr %ref.tmp15031, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp15016, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15017, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15031)
@@ -51942,15 +51942,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4746 = load ptr, ptr %m_value.i.i9176, align 8
   %add.ptr.i.i.i9210 = getelementptr inbounds i8, ptr %4746, i64 8
   %cmp.i1.i9211 = icmp ne ptr %retval.sroa.0.0.i.i.i9209, %add.ptr.i.i.i9210
+  %4747 = zext i1 %cmp.i1.i9211 to i64
   br label %invoke.cont15072
 
 invoke.cont15072:                                 ; preds = %invoke.cont15067, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9208
-  %4747 = phi i1 [ false, %invoke.cont15067 ], [ %cmp.i1.i9211, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9208 ]
+  %frombool15071 = phi i64 [ 0, %invoke.cont15067 ], [ %4747, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9208 ]
   %4748 = load i32, ptr %ref.tmp15060, align 4
   %retval.sroa.21.0.insert.ext.i9214 = zext i32 %4748 to i64
   %retval.sroa.21.0.insert.shift.i9215 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9214, 32
-  %retval.sroa.0.0.insert.ext.i9216 = zext i1 %4747 to i64
-  %retval.sroa.0.0.insert.insert.i9217 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9215, %retval.sroa.0.0.insert.ext.i9216
+  %retval.sroa.0.0.insert.insert.i9217 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9215, %frombool15071
   store i64 %retval.sroa.0.0.insert.insert.i9217, ptr %ref.tmp15059, align 8
   store i8 0, ptr %ref.tmp15074, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp15058, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15059, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15074)
@@ -52035,15 +52035,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4756 = load ptr, ptr %m_value.i.i9178, align 8
   %add.ptr.i.i.i9249 = getelementptr inbounds i8, ptr %4756, i64 8
   %cmp.i1.i9250 = icmp ne ptr %retval.sroa.0.0.i.i.i9248, %add.ptr.i.i.i9249
+  %4757 = zext i1 %cmp.i1.i9250 to i64
   br label %invoke.cont15095
 
 invoke.cont15095:                                 ; preds = %invoke.cont15090, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9247
-  %4757 = phi i1 [ false, %invoke.cont15090 ], [ %cmp.i1.i9250, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9247 ]
+  %frombool15094 = phi i64 [ 0, %invoke.cont15090 ], [ %4757, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9247 ]
   %4758 = load i32, ptr %ref.tmp15084, align 4
   %retval.sroa.21.0.insert.ext.i9253 = zext i32 %4758 to i64
   %retval.sroa.21.0.insert.shift.i9254 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9253, 32
-  %retval.sroa.0.0.insert.ext.i9255 = zext i1 %4757 to i64
-  %retval.sroa.0.0.insert.insert.i9256 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9254, %retval.sroa.0.0.insert.ext.i9255
+  %retval.sroa.0.0.insert.insert.i9256 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9254, %frombool15094
   store i64 %retval.sroa.0.0.insert.insert.i9256, ptr %ref.tmp15083, align 8
   store i8 0, ptr %ref.tmp15097, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp15082, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15083, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15097)
@@ -52275,15 +52275,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4782 = load ptr, ptr %m_value.i.i9266, align 8
   %add.ptr.i.i.i9300 = getelementptr inbounds i8, ptr %4782, i64 8
   %cmp.i1.i9301 = icmp ne ptr %retval.sroa.0.0.i.i.i9299, %add.ptr.i.i.i9300
+  %4783 = zext i1 %cmp.i1.i9301 to i64
   br label %invoke.cont15138
 
 invoke.cont15138:                                 ; preds = %invoke.cont15133, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9298
-  %4783 = phi i1 [ false, %invoke.cont15133 ], [ %cmp.i1.i9301, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9298 ]
+  %frombool15137 = phi i64 [ 0, %invoke.cont15133 ], [ %4783, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9298 ]
   %4784 = load i32, ptr %ref.tmp15126, align 4
   %retval.sroa.21.0.insert.ext.i9304 = zext i32 %4784 to i64
   %retval.sroa.21.0.insert.shift.i9305 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9304, 32
-  %retval.sroa.0.0.insert.ext.i9306 = zext i1 %4783 to i64
-  %retval.sroa.0.0.insert.insert.i9307 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9305, %retval.sroa.0.0.insert.ext.i9306
+  %retval.sroa.0.0.insert.insert.i9307 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9305, %frombool15137
   store i64 %retval.sroa.0.0.insert.insert.i9307, ptr %ref.tmp15125, align 8
   store i8 0, ptr %ref.tmp15140, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp15124, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15125, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15140)
@@ -52368,15 +52368,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4792 = load ptr, ptr %m_value.i.i9268, align 8
   %add.ptr.i.i.i9339 = getelementptr inbounds i8, ptr %4792, i64 8
   %cmp.i1.i9340 = icmp ne ptr %retval.sroa.0.0.i.i.i9338, %add.ptr.i.i.i9339
+  %4793 = zext i1 %cmp.i1.i9340 to i64
   br label %invoke.cont15161
 
 invoke.cont15161:                                 ; preds = %invoke.cont15156, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9337
-  %4793 = phi i1 [ false, %invoke.cont15156 ], [ %cmp.i1.i9340, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9337 ]
+  %frombool15160 = phi i64 [ 0, %invoke.cont15156 ], [ %4793, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9337 ]
   %4794 = load i32, ptr %ref.tmp15150, align 4
   %retval.sroa.21.0.insert.ext.i9343 = zext i32 %4794 to i64
   %retval.sroa.21.0.insert.shift.i9344 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9343, 32
-  %retval.sroa.0.0.insert.ext.i9345 = zext i1 %4793 to i64
-  %retval.sroa.0.0.insert.insert.i9346 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9344, %retval.sroa.0.0.insert.ext.i9345
+  %retval.sroa.0.0.insert.insert.i9346 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9344, %frombool15160
   store i64 %retval.sroa.0.0.insert.insert.i9346, ptr %ref.tmp15149, align 8
   store i8 0, ptr %ref.tmp15163, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp15148, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15149, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15163)
@@ -52598,15 +52598,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4818 = load ptr, ptr %m_value.i.i9356, align 8
   %add.ptr.i.i.i9390 = getelementptr inbounds i8, ptr %4818, i64 8
   %cmp.i1.i9391 = icmp ne ptr %retval.sroa.0.0.i.i.i9389, %add.ptr.i.i.i9390
+  %4819 = zext i1 %cmp.i1.i9391 to i64
   br label %invoke.cont15204
 
 invoke.cont15204:                                 ; preds = %invoke.cont15199, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9388
-  %4819 = phi i1 [ false, %invoke.cont15199 ], [ %cmp.i1.i9391, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9388 ]
+  %frombool15203 = phi i64 [ 0, %invoke.cont15199 ], [ %4819, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9388 ]
   %4820 = load i32, ptr %ref.tmp15192, align 4
   %retval.sroa.21.0.insert.ext.i9394 = zext i32 %4820 to i64
   %retval.sroa.21.0.insert.shift.i9395 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9394, 32
-  %retval.sroa.0.0.insert.ext.i9396 = zext i1 %4819 to i64
-  %retval.sroa.0.0.insert.insert.i9397 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9395, %retval.sroa.0.0.insert.ext.i9396
+  %retval.sroa.0.0.insert.insert.i9397 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9395, %frombool15203
   store i64 %retval.sroa.0.0.insert.insert.i9397, ptr %ref.tmp15191, align 8
   store i8 0, ptr %ref.tmp15206, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp15190, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15191, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15206)
@@ -52691,15 +52691,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4828 = load ptr, ptr %m_value.i.i9358, align 8
   %add.ptr.i.i.i9429 = getelementptr inbounds i8, ptr %4828, i64 8
   %cmp.i1.i9430 = icmp ne ptr %retval.sroa.0.0.i.i.i9428, %add.ptr.i.i.i9429
+  %4829 = zext i1 %cmp.i1.i9430 to i64
   br label %invoke.cont15227
 
 invoke.cont15227:                                 ; preds = %invoke.cont15222, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9427
-  %4829 = phi i1 [ false, %invoke.cont15222 ], [ %cmp.i1.i9430, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9427 ]
+  %frombool15226 = phi i64 [ 0, %invoke.cont15222 ], [ %4829, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9427 ]
   %4830 = load i32, ptr %ref.tmp15216, align 4
   %retval.sroa.21.0.insert.ext.i9433 = zext i32 %4830 to i64
   %retval.sroa.21.0.insert.shift.i9434 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9433, 32
-  %retval.sroa.0.0.insert.ext.i9435 = zext i1 %4829 to i64
-  %retval.sroa.0.0.insert.insert.i9436 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9434, %retval.sroa.0.0.insert.ext.i9435
+  %retval.sroa.0.0.insert.insert.i9436 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9434, %frombool15226
   store i64 %retval.sroa.0.0.insert.insert.i9436, ptr %ref.tmp15215, align 8
   store i8 0, ptr %ref.tmp15229, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp15214, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15215, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15229)
@@ -52912,15 +52912,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4853 = load ptr, ptr %m_value.i.i9446, align 8
   %add.ptr.i.i.i9480 = getelementptr inbounds i8, ptr %4853, i64 8
   %cmp.i1.i9481 = icmp ne ptr %retval.sroa.0.0.i.i.i9479, %add.ptr.i.i.i9480
+  %4854 = zext i1 %cmp.i1.i9481 to i64
   br label %invoke.cont15270
 
 invoke.cont15270:                                 ; preds = %invoke.cont15265, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9478
-  %4854 = phi i1 [ false, %invoke.cont15265 ], [ %cmp.i1.i9481, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9478 ]
+  %frombool15269 = phi i64 [ 0, %invoke.cont15265 ], [ %4854, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9478 ]
   %4855 = load i32, ptr %ref.tmp15258, align 4
   %retval.sroa.21.0.insert.ext.i9484 = zext i32 %4855 to i64
   %retval.sroa.21.0.insert.shift.i9485 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9484, 32
-  %retval.sroa.0.0.insert.ext.i9486 = zext i1 %4854 to i64
-  %retval.sroa.0.0.insert.insert.i9487 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9485, %retval.sroa.0.0.insert.ext.i9486
+  %retval.sroa.0.0.insert.insert.i9487 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9485, %frombool15269
   store i64 %retval.sroa.0.0.insert.insert.i9487, ptr %ref.tmp15257, align 8
   store i8 0, ptr %ref.tmp15272, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp15256, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15257, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15272)
@@ -53005,15 +53005,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4863 = load ptr, ptr %m_value.i.i9448, align 8
   %add.ptr.i.i.i9519 = getelementptr inbounds i8, ptr %4863, i64 8
   %cmp.i1.i9520 = icmp ne ptr %retval.sroa.0.0.i.i.i9518, %add.ptr.i.i.i9519
+  %4864 = zext i1 %cmp.i1.i9520 to i64
   br label %invoke.cont15293
 
 invoke.cont15293:                                 ; preds = %invoke.cont15288, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9517
-  %4864 = phi i1 [ false, %invoke.cont15288 ], [ %cmp.i1.i9520, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9517 ]
+  %frombool15292 = phi i64 [ 0, %invoke.cont15288 ], [ %4864, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9517 ]
   %4865 = load i32, ptr %ref.tmp15282, align 4
   %retval.sroa.21.0.insert.ext.i9523 = zext i32 %4865 to i64
   %retval.sroa.21.0.insert.shift.i9524 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9523, 32
-  %retval.sroa.0.0.insert.ext.i9525 = zext i1 %4864 to i64
-  %retval.sroa.0.0.insert.insert.i9526 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9524, %retval.sroa.0.0.insert.ext.i9525
+  %retval.sroa.0.0.insert.insert.i9526 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9524, %frombool15292
   store i64 %retval.sroa.0.0.insert.insert.i9526, ptr %ref.tmp15281, align 8
   store i8 0, ptr %ref.tmp15295, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp15280, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15281, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15295)
@@ -53226,15 +53226,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4888 = load ptr, ptr %m_value.i.i9536, align 8
   %add.ptr.i.i.i9570 = getelementptr inbounds i8, ptr %4888, i64 8
   %cmp.i1.i9571 = icmp ne ptr %retval.sroa.0.0.i.i.i9569, %add.ptr.i.i.i9570
+  %4889 = zext i1 %cmp.i1.i9571 to i64
   br label %invoke.cont15336
 
 invoke.cont15336:                                 ; preds = %invoke.cont15331, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9568
-  %4889 = phi i1 [ false, %invoke.cont15331 ], [ %cmp.i1.i9571, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9568 ]
+  %frombool15335 = phi i64 [ 0, %invoke.cont15331 ], [ %4889, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9568 ]
   %4890 = load i32, ptr %ref.tmp15324, align 4
   %retval.sroa.21.0.insert.ext.i9574 = zext i32 %4890 to i64
   %retval.sroa.21.0.insert.shift.i9575 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9574, 32
-  %retval.sroa.0.0.insert.ext.i9576 = zext i1 %4889 to i64
-  %retval.sroa.0.0.insert.insert.i9577 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9575, %retval.sroa.0.0.insert.ext.i9576
+  %retval.sroa.0.0.insert.insert.i9577 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9575, %frombool15335
   store i64 %retval.sroa.0.0.insert.insert.i9577, ptr %ref.tmp15323, align 8
   store i8 0, ptr %ref.tmp15338, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp15322, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15323, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15338)
@@ -53319,15 +53319,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4898 = load ptr, ptr %m_value.i.i9538, align 8
   %add.ptr.i.i.i9609 = getelementptr inbounds i8, ptr %4898, i64 8
   %cmp.i1.i9610 = icmp ne ptr %retval.sroa.0.0.i.i.i9608, %add.ptr.i.i.i9609
+  %4899 = zext i1 %cmp.i1.i9610 to i64
   br label %invoke.cont15359
 
 invoke.cont15359:                                 ; preds = %invoke.cont15354, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9607
-  %4899 = phi i1 [ false, %invoke.cont15354 ], [ %cmp.i1.i9610, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9607 ]
+  %frombool15358 = phi i64 [ 0, %invoke.cont15354 ], [ %4899, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9607 ]
   %4900 = load i32, ptr %ref.tmp15348, align 4
   %retval.sroa.21.0.insert.ext.i9613 = zext i32 %4900 to i64
   %retval.sroa.21.0.insert.shift.i9614 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9613, 32
-  %retval.sroa.0.0.insert.ext.i9615 = zext i1 %4899 to i64
-  %retval.sroa.0.0.insert.insert.i9616 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9614, %retval.sroa.0.0.insert.ext.i9615
+  %retval.sroa.0.0.insert.insert.i9616 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9614, %frombool15358
   store i64 %retval.sroa.0.0.insert.insert.i9616, ptr %ref.tmp15347, align 8
   store i8 0, ptr %ref.tmp15361, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp15346, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15347, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15361)
@@ -53540,15 +53540,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_a
   %4923 = load ptr, ptr %m_value.i.i9626, align 8
   %add.ptr.i.i.i9660 = getelementptr inbounds i8, ptr %4923, i64 8
   %cmp.i1.i9661 = icmp ne ptr %retval.sroa.0.0.i.i.i9659, %add.ptr.i.i.i9660
+  %4924 = zext i1 %cmp.i1.i9661 to i64
   br label %invoke.cont15402
 
 invoke.cont15402:                                 ; preds = %invoke.cont15397, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9658
-  %4924 = phi i1 [ false, %invoke.cont15397 ], [ %cmp.i1.i9661, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9658 ]
+  %frombool15401 = phi i64 [ 0, %invoke.cont15397 ], [ %4924, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann16json_abi_v3_11_310basic_jsonIS_St6vectorS5_blmdSaNS7_14adl_serializerES9_IhSaIhEEvEESt4lessIS5_ESaISt4pairIKS5_SD_EEE4findERSH_.exit.i9658 ]
   %4925 = load i32, ptr %ref.tmp15390, align 4
   %retval.sroa.21.0.insert.ext.i9664 = zext i32 %4925 to i64
   %retval.sroa.21.0.insert.shift.i9665 = shl nuw i64 %retval.sroa.21.0.insert.ext.i9664, 32
-  %retval.sroa.0.0.insert.ext.i9666 = zext i1 %4924 to i64
-  %retval.sroa.0.0.insert.insert.i9667 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9665, %retval.sroa.0.0.insert.ext.i9666
+  %retval.sroa.0.0.insert.insert.i9667 = or disjoint i64 %retval.sroa.21.0.insert.shift.i9665, %frombool15401
   store i64 %retval.sroa.0.0.insert.insert.i9667, ptr %ref.tmp15389, align 8
   store i8 0, ptr %ref.tmp15404, align 1
   invoke void @_ZN7doctest6detail14Expression_lhsIbEeqIbEEDTcmcvveqclL_ZNS0_7declvalIbEEOT_vEEclsr7doctest6detailE7declvalIS5_EEtlNS0_6ResultEEES6_(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp15388, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15389, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15404)

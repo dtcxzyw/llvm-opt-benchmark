@@ -747,13 +747,13 @@ define i32 @MixCoder_Code(ptr nocapture noundef %0, ptr noundef %1, ptr nocaptur
   br i1 %104, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %101
-  %.not86 = icmp eq i32 %.175, 0
-  br i1 %.not86, label %.split106.us, label %.split, !llvm.loop !6
+  %105 = icmp eq i32 %.175, 0
+  br i1 %105, label %.split106.us, label %.split, !llvm.loop !6
 
 .split106.us:                                     ; preds = %.split, %._crit_edge
-  %.177.lcssa113 = phi i32 [ %.278, %._crit_edge ], [ %.076, %.split ]
-  %105 = icmp eq i32 %.177.lcssa113, 0
-  br i1 %105, label %.loopexit, label %.split106.us.thread
+  %.177.lcssa112 = phi i32 [ %.278, %._crit_edge ], [ %.076, %.split ]
+  %106 = icmp eq i32 %.177.lcssa112, 0
+  br i1 %106, label %.loopexit, label %.split106.us.thread
 
 .split106.us.thread:                              ; preds = %22, %.split106.us
   store i32 1, ptr %7, align 4

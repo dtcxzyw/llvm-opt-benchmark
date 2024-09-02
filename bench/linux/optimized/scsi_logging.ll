@@ -316,7 +316,7 @@ define dso_local i64 @__scsi_format_command(ptr noundef %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @scsi_format_opcode_name(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -4294967296, 4294967295) i64 @scsi_format_opcode_name(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
@@ -536,7 +536,7 @@ define dso_local void @scsi_print_command(ptr noundef %0) #0 align 16 {
   %48 = sub nuw nsw i64 128, %43
   %49 = getelementptr inbounds i8, ptr %0, i64 164
   %50 = tail call fastcc i64 @scsi_format_opcode_name(ptr noundef %47, i64 noundef %48, ptr noundef %49)
-  %51 = add i64 %50, %43
+  %51 = add nsw i64 %50, %43
   %52 = icmp ult i64 %51, 128
   br i1 %52, label %53, label %117
 

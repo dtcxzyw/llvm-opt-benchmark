@@ -693,7 +693,7 @@ define dso_local i64 @native_calibrate_cpu_early() #6 align 16 {
   %88 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 66) #20, !srcloc !33
   %89 = xor i8 %88, %62
   %90 = icmp eq i8 %89, -1
-  br i1 %90, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  br i1 %90, label %.lr.ph, label %..loopexit.loopexit_crit_edge, !llvm.loop !35
 
 .lr.ph:                                           ; preds = %.preheader, %86
   %91 = phi i64 [ %97, %86 ], [ %81, %.preheader ]
@@ -707,21 +707,24 @@ define dso_local i64 @native_calibrate_cpu_early() #6 align 16 {
   %99 = icmp eq i32 %98, 50000
   br i1 %99, label %.loopexit, label %86, !llvm.loop !35
 
-.loopexit:                                        ; preds = %86, %.lr.ph, %.preheader, %67, %.preheader6
-  %100 = phi i32 [ 0, %.preheader6 ], [ 1, %67 ], [ 2, %.preheader ], [ 50000, %.lr.ph ], [ %98, %86 ]
-  %101 = phi i64 [ 0, %.preheader6 ], [ %72, %67 ], [ %81, %.preheader ], [ %97, %.lr.ph ], [ %97, %86 ]
-  %102 = phi i64 [ 0, %.preheader6 ], [ 0, %67 ], [ %72, %.preheader ], [ %91, %.lr.ph ], [ %91, %86 ]
-  %103 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
-  %104 = icmp ult i32 %100, 6
-  br i1 %104, label %.loopexit7, label %105
+..loopexit.loopexit_crit_edge:                    ; preds = %86
+  %100 = icmp ult i32 %92, 5
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %..loopexit.loopexit_crit_edge, %67, %.preheader6
+  %101 = phi i1 [ true, %.preheader6 ], [ true, %67 ], [ %100, %..loopexit.loopexit_crit_edge ], [ true, %.preheader ], [ false, %.lr.ph ]
+  %102 = phi i64 [ 0, %.preheader6 ], [ %72, %67 ], [ %97, %..loopexit.loopexit_crit_edge ], [ %81, %.preheader ], [ %97, %.lr.ph ]
+  %103 = phi i64 [ 0, %.preheader6 ], [ 0, %67 ], [ %91, %..loopexit.loopexit_crit_edge ], [ %72, %.preheader ], [ %91, %.lr.ph ]
+  %104 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
+  br i1 %101, label %.loopexit7, label %105
 
 105:                                              ; preds = %.loopexit
-  %106 = extractvalue { i64, i64 } %103, 1
+  %106 = extractvalue { i64, i64 } %104, 1
   %107 = shl i64 %106, 32
-  %108 = extractvalue { i64, i64 } %103, 0
+  %108 = extractvalue { i64, i64 } %104, 0
   %109 = or i64 %107, %108
-  %110 = sub i64 %109, %102
-  %111 = sub i64 %101, %53
+  %110 = sub i64 %109, %103
+  %111 = sub i64 %102, %53
   %112 = icmp eq i32 %61, 1
   %113 = add i64 %110, %60
   br i1 %112, label %114, label %._crit_edge
@@ -1926,16 +1929,16 @@ define internal void @tsc_refine_calibration_work(ptr nocapture readnone %0) #6 
   %19 = or i64 %18, %16
   %20 = load i32, ptr @pmtmr_ioport, align 4
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %25, label %22
+  br i1 %21, label %26, label %22
 
 22:                                               ; preds = %.thread9.split.us
   %23 = tail call i32 @acpi_pm_read_verified() #20
   %24 = and i32 %23, 16777215
-  br label %25
+  %25 = zext nneg i32 %24 to i64
+  br label %26
 
-25:                                               ; preds = %22, %.thread9.split.us
-  %26 = phi i32 [ %24, %22 ], [ 0, %.thread9.split.us ]
-  %27 = zext nneg i32 %26 to i64
+26:                                               ; preds = %22, %.thread9.split.us
+  %27 = phi i64 [ %25, %22 ], [ 0, %.thread9.split.us ]
   store i64 %27, ptr @tsc_refine_calibration_work.ref_start, align 8
   %28 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
   %29 = extractvalue { i64, i64 } %28, 0
@@ -1946,7 +1949,7 @@ define internal void @tsc_refine_calibration_work(ptr nocapture readnone %0) #6 
   %34 = icmp ult i64 %33, %12
   br i1 %34, label %.split25.us, label %35
 
-35:                                               ; preds = %25
+35:                                               ; preds = %26
   %36 = add nuw nsw i32 %14, 1
   %37 = icmp eq i32 %36, 5
   br i1 %37, label %.split25.us, label %.thread9.split.us, !llvm.loop !64
@@ -1975,8 +1978,8 @@ define internal void @tsc_refine_calibration_work(ptr nocapture readnone %0) #6 
   %55 = icmp ult i64 %54, %12
   br i1 %55, label %.split25.us, label %38
 
-.split25.us:                                      ; preds = %38, %.thread9.split, %25, %35
-  %.us-phi26 = phi i64 [ %32, %25 ], [ -1, %35 ], [ %53, %.thread9.split ], [ -1, %38 ]
+.split25.us:                                      ; preds = %38, %.thread9.split, %26, %35
+  %.us-phi26 = phi i64 [ %32, %26 ], [ -1, %35 ], [ %53, %.thread9.split ], [ -1, %38 ]
   store i64 %.us-phi26, ptr @tsc_refine_calibration_work.tsc_start, align 8
   %56 = load ptr, ptr @system_wq, align 8
   %57 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %56, ptr noundef nonnull @tsc_irqwork, i64 noundef 1000) #20

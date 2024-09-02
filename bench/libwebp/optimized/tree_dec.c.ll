@@ -1000,17 +1000,17 @@ define hidden void @VP8ParseProba(ptr noundef %0, ptr noundef %1) local_unnamed_
   %8 = getelementptr inbounds i8, ptr %1, i64 2256
   br label %.preheader44
 
-.preheader44:                                     ; preds = %2, %65
-  %indvars.iv63 = phi i64 [ 0, %2 ], [ %indvars.iv.next64, %65 ]
+.preheader44:                                     ; preds = %2, %64
+  %indvars.iv63 = phi i64 [ 0, %2 ], [ %indvars.iv.next64, %64 ]
   br label %.preheader42
 
-.preheader42:                                     ; preds = %.preheader44, %59
-  %indvars.iv55 = phi i64 [ 0, %.preheader44 ], [ %indvars.iv.next56, %59 ]
+.preheader42:                                     ; preds = %.preheader44, %58
+  %indvars.iv55 = phi i64 [ 0, %.preheader44 ], [ %indvars.iv.next56, %58 ]
   %9 = getelementptr inbounds [4 x [8 x %struct.VP8BandProbas]], ptr %7, i64 0, i64 %indvars.iv63, i64 %indvars.iv55
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader42, %58
-  %indvars.iv51 = phi i64 [ 0, %.preheader42 ], [ %indvars.iv.next52, %58 ]
+.preheader:                                       ; preds = %.preheader42, %57
+  %indvars.iv51 = phi i64 [ 0, %.preheader42 ], [ %indvars.iv.next52, %57 ]
   br label %10
 
 10:                                               ; preds = %.preheader, %54
@@ -1080,69 +1080,68 @@ VP8GetBit.exit:                                   ; preds = %35, %41
   store i32 %46, ptr %4, align 4, !alias.scope !100
   %47 = add i32 %45, -1
   store i32 %47, ptr %3, align 8, !alias.scope !100
-  br i1 %.not41, label %48, label %50
+  br i1 %.not41, label %48, label %51
 
 48:                                               ; preds = %VP8GetBit.exit
   %49 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 8) #7
+  %50 = trunc i32 %49 to i8
   br label %54
 
-50:                                               ; preds = %VP8GetBit.exit
-  %51 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr @CoeffsProba0, i64 0, i64 %indvars.iv63, i64 %indvars.iv55, i64 %indvars.iv51, i64 %indvars.iv
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
+51:                                               ; preds = %VP8GetBit.exit
+  %52 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr @CoeffsProba0, i64 0, i64 %indvars.iv63, i64 %indvars.iv55, i64 %indvars.iv51, i64 %indvars.iv
+  %53 = load i8, ptr %52, align 1
   br label %54
 
-54:                                               ; preds = %50, %48
-  %55 = phi i32 [ %49, %48 ], [ %53, %50 ]
-  %56 = trunc i32 %55 to i8
-  %57 = getelementptr inbounds [3 x [11 x i8]], ptr %9, i64 0, i64 %indvars.iv51, i64 %indvars.iv
-  store i8 %56, ptr %57, align 1
+54:                                               ; preds = %51, %48
+  %55 = phi i8 [ %50, %48 ], [ %53, %51 ]
+  %56 = getelementptr inbounds [3 x [11 x i8]], ptr %9, i64 0, i64 %indvars.iv51, i64 %indvars.iv
+  store i8 %55, ptr %56, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %58, label %10, !llvm.loop !107
+  br i1 %exitcond.not, label %57, label %10, !llvm.loop !107
 
-58:                                               ; preds = %54
+57:                                               ; preds = %54
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 3
-  br i1 %exitcond54.not, label %59, label %.preheader, !llvm.loop !108
+  br i1 %exitcond54.not, label %58, label %.preheader, !llvm.loop !108
 
-59:                                               ; preds = %58
+58:                                               ; preds = %57
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 8
   br i1 %exitcond58.not, label %.preheader43, label %.preheader42, !llvm.loop !109
 
-.preheader43:                                     ; preds = %59, %.preheader43
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.preheader43 ], [ 0, %59 ]
-  %60 = getelementptr inbounds [17 x i8], ptr @kBands, i64 0, i64 %indvars.iv59
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds [4 x [8 x %struct.VP8BandProbas]], ptr %7, i64 0, i64 %indvars.iv63, i64 %62
-  %64 = getelementptr inbounds [4 x [17 x ptr]], ptr %8, i64 0, i64 %indvars.iv63, i64 %indvars.iv59
-  store ptr %63, ptr %64, align 8
+.preheader43:                                     ; preds = %58, %.preheader43
+  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.preheader43 ], [ 0, %58 ]
+  %59 = getelementptr inbounds [17 x i8], ptr @kBands, i64 0, i64 %indvars.iv59
+  %60 = load i8, ptr %59, align 1
+  %61 = zext i8 %60 to i64
+  %62 = getelementptr inbounds [4 x [8 x %struct.VP8BandProbas]], ptr %7, i64 0, i64 %indvars.iv63, i64 %61
+  %63 = getelementptr inbounds [4 x [17 x ptr]], ptr %8, i64 0, i64 %indvars.iv63, i64 %indvars.iv59
+  store ptr %62, ptr %63, align 8
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 17
-  br i1 %exitcond62.not, label %65, label %.preheader43, !llvm.loop !110
+  br i1 %exitcond62.not, label %64, label %.preheader43, !llvm.loop !110
 
-65:                                               ; preds = %.preheader43
+64:                                               ; preds = %.preheader43
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 4
-  br i1 %exitcond66.not, label %66, label %.preheader44, !llvm.loop !111
+  br i1 %exitcond66.not, label %65, label %.preheader44, !llvm.loop !111
 
-66:                                               ; preds = %65
-  %67 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #7
-  %68 = getelementptr inbounds i8, ptr %1, i64 2800
-  store i32 %67, ptr %68, align 8
-  %.not = icmp eq i32 %67, 0
-  br i1 %.not, label %73, label %69
+65:                                               ; preds = %64
+  %66 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #7
+  %67 = getelementptr inbounds i8, ptr %1, i64 2800
+  store i32 %66, ptr %67, align 8
+  %.not = icmp eq i32 %66, 0
+  br i1 %.not, label %72, label %68
 
-69:                                               ; preds = %66
-  %70 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 8) #7
-  %71 = trunc i32 %70 to i8
-  %72 = getelementptr inbounds i8, ptr %1, i64 2804
-  store i8 %71, ptr %72, align 4
-  br label %73
+68:                                               ; preds = %65
+  %69 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 8) #7
+  %70 = trunc i32 %69 to i8
+  %71 = getelementptr inbounds i8, ptr %1, i64 2804
+  store i8 %70, ptr %71, align 4
+  br label %72
 
-73:                                               ; preds = %69, %66
+72:                                               ; preds = %68, %65
   ret void
 }
 

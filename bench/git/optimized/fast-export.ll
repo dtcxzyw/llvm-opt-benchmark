@@ -3327,8 +3327,8 @@ if.end:                                           ; preds = %if.then.i, %strbuf_
   %arrayidx3.i = getelementptr inbounds i8, ptr %8, i64 %9
   store i8 0, ptr %arrayidx3.i, align 1
   %.pre = load i8, ptr %incdec.ptr, align 1
-  %tobool.not = icmp eq i8 %.pre, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !20
+  %10 = icmp eq i8 %.pre, 0
+  br i1 %10, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %anonymize_str.exit, %if.end, %entry
   ret void

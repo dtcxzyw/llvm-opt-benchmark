@@ -191,7 +191,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %17 = load i64, ptr %6, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %18 = call i64 @llvm.uadd.sat.i64(i64 %17, i64 1)
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umax.i64(i64 %18, i64 8)
+  %.0.sroa.speculated.i = call noundef range(i64 8, 0) i64 @llvm.umax.i64(i64 %18, i64 8)
   %19 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6e5f59cc06b1616aE"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1

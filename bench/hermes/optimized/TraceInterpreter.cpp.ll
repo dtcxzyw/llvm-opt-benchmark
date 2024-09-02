@@ -13733,13 +13733,13 @@ terminate.lpad.i.i966:                            ; preds = %if.then.i.i964
 for.end574.loopexit:                              ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueEmEED2Ev.exit955
   %.pre1535 = load ptr, ptr %args544, align 8
   %.pre1536 = load ptr, ptr %_M_finish.i938, align 8
+  %592 = ptrtoint ptr %.pre1536 to i64
   br label %for.end574
 
 for.end574:                                       ; preds = %for.end574.loopexit, %_ZN8facebook3jsi6ObjectD2Ev.exit911
-  %592 = phi ptr [ %.pre1536, %for.end574.loopexit ], [ null, %_ZN8facebook3jsi6ObjectD2Ev.exit911 ]
+  %sub.ptr.lhs.cast.i969 = phi i64 [ %592, %for.end574.loopexit ], [ 0, %_ZN8facebook3jsi6ObjectD2Ev.exit911 ]
   %593 = phi ptr [ %.pre1535, %for.end574.loopexit ], [ null, %_ZN8facebook3jsi6ObjectD2Ev.exit911 ]
   %594 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i969 = ptrtoint ptr %592 to i64
   %sub.ptr.rhs.cast.i970 = ptrtoint ptr %593 to i64
   %sub.ptr.sub.i971 = sub i64 %sub.ptr.lhs.cast.i969, %sub.ptr.rhs.cast.i970
   %sub.ptr.div.i972 = ashr exact i64 %sub.ptr.sub.i971, 4

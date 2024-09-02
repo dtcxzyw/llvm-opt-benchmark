@@ -4836,12 +4836,12 @@ _ZNK2cv9SparseMat5beginEv.exit:                   ; preds = %5
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
+  %21 = sext i32 %20 to i64
   br label %_ZNK2cv9SparseMat7nzcountEv.exit.thread
 
 _ZNK2cv9SparseMat7nzcountEv.exit.thread:          ; preds = %_ZNK2cv9SparseMat5beginEv.exit, %16
-  %21 = phi i64 [ %18, %16 ], [ 0, %_ZNK2cv9SparseMat5beginEv.exit ]
-  %22 = phi i32 [ %20, %16 ], [ 0, %_ZNK2cv9SparseMat5beginEv.exit ]
-  %23 = sext i32 %22 to i64
+  %22 = phi i64 [ %18, %16 ], [ 0, %_ZNK2cv9SparseMat5beginEv.exit ]
+  %23 = phi i64 [ %21, %16 ], [ 0, %_ZNK2cv9SparseMat5beginEv.exit ]
   %24 = load i32, ptr %0, align 8
   %25 = and i32 %24, 4095
   switch i32 %25, label %127 [
@@ -4863,7 +4863,7 @@ _ZNK2cv9SparseMat7nzcountEv.exit.thread:          ; preds = %_ZNK2cv9SparseMat5b
   %.071 = phi ptr [ %.172, %70 ], [ null, %.preheader125 ]
   %.069 = phi float [ %.170, %70 ], [ 0x47EFFFFFE0000000, %.preheader125 ]
   %.067 = phi float [ %.168, %70 ], [ 0xC7EFFFFFE0000000, %.preheader125 ]
-  %exitcond168.not = icmp eq i64 %.080, %21
+  %exitcond168.not = icmp eq i64 %.080, %22
   br i1 %exitcond168.not, label %73, label %29
 
 29:                                               ; preds = %28
@@ -5003,7 +5003,7 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit113:   ; preds = %57, %59, %62
   %.374 = phi ptr [ %.4, %121 ], [ null, %.preheader127 ]
   %.061 = phi double [ %.162, %121 ], [ 0x7FEFFFFFFFFFFFFF, %.preheader127 ]
   %.059 = phi double [ %.160, %121 ], [ 0xFFEFFFFFFFFFFFFF, %.preheader127 ]
-  %exitcond.not = icmp eq i64 %.181, %21
+  %exitcond.not = icmp eq i64 %.181, %22
   br i1 %exitcond.not, label %124, label %80
 
 80:                                               ; preds = %79
@@ -5158,7 +5158,7 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit121:   ; preds = %108, %110, %113
   %136 = icmp ne ptr %3, null
   %137 = icmp ne ptr %.277, null
   %or.cond = select i1 %136, i1 %137, i1 false
-  %138 = icmp ne i32 %22, 0
+  %138 = icmp ne i64 %23, 0
   %or.cond150 = select i1 %or.cond, i1 %138, i1 false
   br i1 %or.cond150, label %.lr.ph, label %.loopexit124
 
@@ -5657,7 +5657,7 @@ define linkonce_odr hidden void @_ZN2cv12convertData_IhaEEvPKvPvi(ptr noundef %0
 
 6:                                                ; preds = %3
   %7 = load i8, ptr %0, align 1
-  %8 = tail call noundef i8 @llvm.umin.i8(i8 %7, i8 127)
+  %8 = tail call noundef range(i8 0, -128) i8 @llvm.umin.i8(i8 %7, i8 127)
   store i8 %8, ptr %1, align 1
   br label %.loopexit
 
@@ -5665,7 +5665,7 @@ define linkonce_odr hidden void @_ZN2cv12convertData_IhaEEvPKvPvi(ptr noundef %0
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
-  %11 = tail call noundef i8 @llvm.umin.i8(i8 %10, i8 127)
+  %11 = tail call noundef range(i8 0, -128) i8 @llvm.umin.i8(i8 %10, i8 127)
   %12 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   store i8 %11, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5861,7 +5861,7 @@ define linkonce_odr hidden void @_ZN2cv12convertData_IahEEvPKvPvi(ptr noundef %0
 
 6:                                                ; preds = %3
   %7 = load i8, ptr %0, align 1
-  %8 = tail call noundef i8 @llvm.smax.i8(i8 %7, i8 0)
+  %8 = tail call noundef range(i8 0, -128) i8 @llvm.smax.i8(i8 %7, i8 0)
   store i8 %8, ptr %1, align 1
   br label %.loopexit
 
@@ -5869,7 +5869,7 @@ define linkonce_odr hidden void @_ZN2cv12convertData_IahEEvPKvPvi(ptr noundef %0
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
-  %11 = tail call noundef i8 @llvm.smax.i8(i8 %10, i8 0)
+  %11 = tail call noundef range(i8 0, -128) i8 @llvm.smax.i8(i8 %10, i8 0)
   %12 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   store i8 %11, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6203,7 +6203,7 @@ define linkonce_odr hidden void @_ZN2cv12convertData_ItsEEvPKvPvi(ptr noundef %0
 
 6:                                                ; preds = %3
   %7 = load i16, ptr %0, align 2
-  %8 = tail call noundef i16 @llvm.umin.i16(i16 %7, i16 32767)
+  %8 = tail call noundef range(i16 0, -32768) i16 @llvm.umin.i16(i16 %7, i16 32767)
   store i16 %8, ptr %1, align 2
   br label %.loopexit
 
@@ -6211,7 +6211,7 @@ define linkonce_odr hidden void @_ZN2cv12convertData_ItsEEvPKvPvi(ptr noundef %0
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2
-  %11 = tail call noundef i16 @llvm.umin.i16(i16 %10, i16 32767)
+  %11 = tail call noundef range(i16 0, -32768) i16 @llvm.umin.i16(i16 %10, i16 32767)
   %12 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
   store i16 %11, ptr %12, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6415,7 +6415,7 @@ define linkonce_odr hidden void @_ZN2cv12convertData_IstEEvPKvPvi(ptr noundef %0
 
 6:                                                ; preds = %3
   %7 = load i16, ptr %0, align 2
-  %8 = tail call noundef i16 @llvm.smax.i16(i16 %7, i16 0)
+  %8 = tail call noundef range(i16 0, -32768) i16 @llvm.smax.i16(i16 %7, i16 0)
   store i16 %8, ptr %1, align 2
   br label %.loopexit
 
@@ -6423,7 +6423,7 @@ define linkonce_odr hidden void @_ZN2cv12convertData_IstEEvPKvPvi(ptr noundef %0
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2
-  %11 = tail call noundef i16 @llvm.smax.i16(i16 %10, i16 0)
+  %11 = tail call noundef range(i16 0, -32768) i16 @llvm.smax.i16(i16 %10, i16 0)
   %12 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
   store i16 %11, ptr %12, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

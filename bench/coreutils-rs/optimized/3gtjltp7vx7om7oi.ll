@@ -257,10 +257,10 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN7uu_echo10parse_code17h6a239
   ret i32 %.0
 
 .thread70:                                        ; preds = %114, %120
-  %.sroa.4.0.i4474 = phi i32 [ %.0.i42, %120 ], [ %113, %114 ]
-  %122 = mul i8 %.02677, %1
-  %123 = trunc i32 %.sroa.4.0.i4474 to i8
-  %124 = add i8 %122, %123
+  %.in74 = phi i32 [ %.0.i42, %120 ], [ %113, %114 ]
+  %122 = trunc i32 %.in74 to i8
+  %123 = mul i8 %.02677, %1
+  %124 = add i8 %123, %122
   store i32 1114113, ptr %3, align 8
   %exitcond.not = icmp eq i8 %70, %..i36
   br i1 %exitcond.not, label %.thread63, label %68

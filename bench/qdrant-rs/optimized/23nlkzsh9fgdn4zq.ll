@@ -129,7 +129,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E
 
 36:                                               ; preds = %32
   %.0.in.sroa.speculate.load.4.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %33, i64 128)
-  %.0.in.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i.i.i.i, i64 16)
+  %.0.in.sroa.speculated.i.i.i.i = tail call noundef range(i64 16, 129) i64 @llvm.umax.i64(i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i.i.i.i, i64 16)
   store i64 1, ptr %.val.i, align 8
   %37 = getelementptr inbounds i8, ptr %.val.i, i64 8
   store i64 %.0.in.sroa.speculated.i.i.i.i, ptr %37, align 8

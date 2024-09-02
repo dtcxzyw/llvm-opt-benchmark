@@ -220,7 +220,7 @@ declare i32 @vbe_ioport_read_data(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @vbe_ioport_write_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 4294967296) i64 @pci_vga_qext_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #2 {
+define internal range(i64 0, 3200171711) i64 @pci_vga_qext_read(ptr nocapture noundef readonly %ptr, i64 noundef %addr, i32 %size) #2 {
 entry:
   switch i64 %addr, label %sw.default [
     i64 0, label %return

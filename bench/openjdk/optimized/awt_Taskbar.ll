@@ -276,8 +276,8 @@ define hidden void @fill_menu(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2, %67
-  %.041 = phi i32 [ %68, %67 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %64
+  %.041 = phi i32 [ %65, %64 ], [ 0, %2 ]
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 1384
   %10 = load ptr, ptr %9, align 8
@@ -312,7 +312,7 @@ define hidden void @fill_menu(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %35 = icmp eq i8 %34, 0
   %36 = icmp ne ptr %30, null
   %or.cond = select i1 %35, i1 %36, i1 false
-  br i1 %or.cond, label %37, label %67
+  br i1 %or.cond, label %37, label %64
 
 37:                                               ; preds = %16
   %38 = load ptr, ptr %0, align 8
@@ -320,57 +320,51 @@ define hidden void @fill_menu(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef null) #5
   %.not39 = icmp eq ptr %41, null
-  br i1 %.not39, label %67, label %sub_0
+  br i1 %.not39, label %64, label %sub_0
 
 sub_0:                                            ; preds = %37
   %42 = load ptr, ptr @fp_dbusmenu_menuitem_new, align 8
   %43 = tail call ptr %42() #5
   %44 = load i8, ptr %41, align 1
-  %45 = zext i8 %44 to i32
-  %46 = add nsw i32 %45, -45
-  %.not43 = icmp eq i32 %46, 0
-  br i1 %.not43, label %sub_1, label %.tail
+  %.not43 = icmp eq i8 %44, 45
+  br i1 %.not43, label %.tail, label %.tail.thread
 
-sub_1:                                            ; preds = %sub_0
-  %47 = getelementptr inbounds i8, ptr %41, i64 1
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  br label %.tail
+.tail:                                            ; preds = %sub_0
+  %45 = getelementptr inbounds i8, ptr %41, i64 1
+  %46 = load i8, ptr %45, align 1
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %48, label %.tail.thread
 
-.tail:                                            ; preds = %sub_0, %sub_1
-  %50 = phi i32 [ %46, %sub_0 ], [ %49, %sub_1 ]
-  %.not40 = icmp eq i32 %50, 0
+48:                                               ; preds = %.tail
+  %49 = load ptr, ptr @fp_dbusmenu_menuitem_property_set, align 8
+  %50 = tail call i32 %49(ptr noundef %43, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #5
+  br label %53
+
+.tail.thread:                                     ; preds = %sub_0, %.tail
   %51 = load ptr, ptr @fp_dbusmenu_menuitem_property_set, align 8
-  br i1 %.not40, label %52, label %54
+  %52 = tail call i32 %51(ptr noundef %43, ptr noundef nonnull @.str.8, ptr noundef nonnull %41) #5
+  br label %53
 
-52:                                               ; preds = %.tail
-  %53 = tail call i32 %51(ptr noundef %43, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #5
-  br label %56
+53:                                               ; preds = %.tail.thread, %48
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 1360
+  %56 = load ptr, ptr %55, align 8
+  tail call void %56(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %41) #5
+  %57 = load ptr, ptr @fp_dbusmenu_menuitem_child_append, align 8
+  %58 = load ptr, ptr @menu, align 8
+  %59 = tail call i32 %57(ptr noundef %58, ptr noundef %43) #5
+  %60 = load ptr, ptr @gtk, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 416
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call i64 %62(ptr noundef %43, ptr noundef nonnull @.str.9, ptr noundef nonnull @callback, ptr noundef %20, ptr noundef null, i32 noundef 0) #5
+  br label %64
 
-54:                                               ; preds = %.tail
-  %55 = tail call i32 %51(ptr noundef %43, ptr noundef nonnull @.str.8, ptr noundef nonnull %41) #5
-  br label %56
-
-56:                                               ; preds = %54, %52
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1360
-  %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %41) #5
-  %60 = load ptr, ptr @fp_dbusmenu_menuitem_child_append, align 8
-  %61 = load ptr, ptr @menu, align 8
-  %62 = tail call i32 %60(ptr noundef %61, ptr noundef %43) #5
-  %63 = load ptr, ptr @gtk, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 416
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call i64 %65(ptr noundef %43, ptr noundef nonnull @.str.9, ptr noundef nonnull @callback, ptr noundef %20, ptr noundef null, i32 noundef 0) #5
-  br label %67
-
-67:                                               ; preds = %16, %56, %37
-  %68 = add nuw nsw i32 %.041, 1
-  %exitcond.not = icmp eq i32 %68, %6
+64:                                               ; preds = %16, %53, %37
+  %65 = add nuw nsw i32 %.041, 1
+  %exitcond.not = icmp eq i32 %65, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %67, %.lr.ph, %2
+._crit_edge:                                      ; preds = %64, %.lr.ph, %2
   ret void
 }
 

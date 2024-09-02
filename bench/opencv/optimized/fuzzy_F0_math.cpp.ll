@@ -327,31 +327,34 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc233
   %indvars.iv.next399 = add nsw i64 %indvars.iv398, 1
   %lftr.wideiv403 = trunc i64 %indvars.iv.next399 to i32
   %exitcond404.not = icmp eq i32 %indvars.iv401, %lftr.wideiv403
-  br i1 %exitcond404.not, label %._crit_edge348.us, label %.lr.ph336.us, !llvm.loop !6
+  br i1 %exitcond404.not, label %._crit_edge348.us.loopexit381, label %.lr.ph336.us, !llvm.loop !6
 
-._crit_edge348.us:                                ; preds = %._crit_edge.us, %.lr.ph347.us
-  %.us-phi.us = phi i32 [ 0, %.lr.ph347.us ], [ %122, %._crit_edge.us ]
-  %.us-phi353.us = phi i32 [ 0, %.lr.ph347.us ], [ %121, %._crit_edge.us ]
-  %.us-phi354.us = phi i32 [ 0, %.lr.ph347.us ], [ %116, %._crit_edge.us ]
-  %.us-phi355.us = phi i32 [ 0, %.lr.ph347.us ], [ %111, %._crit_edge.us ]
-  %123 = sitofp i32 %.us-phi.us to float
-  %124 = fdiv float 1.000000e+00, %123
-  %125 = sitofp i32 %.us-phi355.us to float
-  %126 = fmul float %124, %125
-  %127 = insertelement <4 x float> poison, float %126, i64 0
-  %128 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %127)
-  %129 = trunc i32 %128 to i8
-  %130 = getelementptr inbounds i8, ptr %.sroa.0288.0302307, i64 %indvars.iv407
-  store i8 %129, ptr %130, align 1
-  %131 = sitofp i32 %.us-phi354.us to float
-  %132 = fmul float %124, %131
-  %133 = insertelement <4 x float> poison, float %132, i64 0
-  %134 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %133)
-  %135 = trunc i32 %134 to i8
-  %136 = getelementptr inbounds i8, ptr %.sroa.0276.0310, i64 %indvars.iv407
-  store i8 %135, ptr %136, align 1
-  %137 = sitofp i32 %.us-phi353.us to float
-  %138 = fmul float %124, %137
+._crit_edge348.us.loopexit381:                    ; preds = %._crit_edge.us
+  %123 = sitofp i32 %122 to float
+  %124 = sitofp i32 %111 to float
+  %125 = sitofp i32 %116 to float
+  %126 = sitofp i32 %121 to float
+  br label %._crit_edge348.us
+
+._crit_edge348.us:                                ; preds = %.lr.ph347.us, %._crit_edge348.us.loopexit381
+  %.us-phi.us = phi float [ %123, %._crit_edge348.us.loopexit381 ], [ 0.000000e+00, %.lr.ph347.us ]
+  %.us-phi353.us = phi float [ %126, %._crit_edge348.us.loopexit381 ], [ 0.000000e+00, %.lr.ph347.us ]
+  %.us-phi354.us = phi float [ %125, %._crit_edge348.us.loopexit381 ], [ 0.000000e+00, %.lr.ph347.us ]
+  %.us-phi355.us = phi float [ %124, %._crit_edge348.us.loopexit381 ], [ 0.000000e+00, %.lr.ph347.us ]
+  %127 = fdiv float 1.000000e+00, %.us-phi.us
+  %128 = fmul float %127, %.us-phi355.us
+  %129 = insertelement <4 x float> poison, float %128, i64 0
+  %130 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %129)
+  %131 = trunc i32 %130 to i8
+  %132 = getelementptr inbounds i8, ptr %.sroa.0288.0302307, i64 %indvars.iv407
+  store i8 %131, ptr %132, align 1
+  %133 = fmul float %127, %.us-phi354.us
+  %134 = insertelement <4 x float> poison, float %133, i64 0
+  %135 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %134)
+  %136 = trunc i32 %135 to i8
+  %137 = getelementptr inbounds i8, ptr %.sroa.0276.0310, i64 %indvars.iv407
+  store i8 %136, ptr %137, align 1
+  %138 = fmul float %127, %.us-phi353.us
   %139 = insertelement <4 x float> poison, float %138, i64 0
   %140 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %139)
   %141 = trunc i32 %140 to i8
@@ -1177,25 +1180,28 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc234
   %indvars.iv.next400 = add nsw i64 %indvars.iv399, 1
   %lftr.wideiv404 = trunc i64 %indvars.iv.next400 to i32
   %exitcond405.not = icmp eq i32 %indvars.iv402, %lftr.wideiv404
-  br i1 %exitcond405.not, label %._crit_edge349.us, label %.lr.ph337.us, !llvm.loop !14
+  br i1 %exitcond405.not, label %._crit_edge349.us.loopexit382, label %.lr.ph337.us, !llvm.loop !14
 
-._crit_edge349.us:                                ; preds = %._crit_edge.us, %.lr.ph348.us
-  %.us-phi.us = phi i32 [ 0, %.lr.ph348.us ], [ %122, %._crit_edge.us ]
-  %.us-phi354.us = phi i32 [ 0, %.lr.ph348.us ], [ %121, %._crit_edge.us ]
-  %.us-phi355.us = phi i32 [ 0, %.lr.ph348.us ], [ %116, %._crit_edge.us ]
-  %.us-phi356.us = phi i32 [ 0, %.lr.ph348.us ], [ %111, %._crit_edge.us ]
-  %123 = sitofp i32 %.us-phi.us to float
-  %124 = fdiv float 1.000000e+00, %123
-  %125 = sitofp i32 %.us-phi356.us to float
-  %126 = fmul float %124, %125
-  %127 = getelementptr inbounds float, ptr %.sroa.0289.0303308, i64 %indvars.iv408
-  store float %126, ptr %127, align 4
-  %128 = sitofp i32 %.us-phi355.us to float
-  %129 = fmul float %124, %128
-  %130 = getelementptr inbounds float, ptr %.sroa.0277.0311, i64 %indvars.iv408
-  store float %129, ptr %130, align 4
-  %131 = sitofp i32 %.us-phi354.us to float
-  %132 = fmul float %124, %131
+._crit_edge349.us.loopexit382:                    ; preds = %._crit_edge.us
+  %123 = sitofp i32 %122 to float
+  %124 = sitofp i32 %111 to float
+  %125 = sitofp i32 %116 to float
+  %126 = sitofp i32 %121 to float
+  br label %._crit_edge349.us
+
+._crit_edge349.us:                                ; preds = %.lr.ph348.us, %._crit_edge349.us.loopexit382
+  %.us-phi.us = phi float [ %123, %._crit_edge349.us.loopexit382 ], [ 0.000000e+00, %.lr.ph348.us ]
+  %.us-phi354.us = phi float [ %126, %._crit_edge349.us.loopexit382 ], [ 0.000000e+00, %.lr.ph348.us ]
+  %.us-phi355.us = phi float [ %125, %._crit_edge349.us.loopexit382 ], [ 0.000000e+00, %.lr.ph348.us ]
+  %.us-phi356.us = phi float [ %124, %._crit_edge349.us.loopexit382 ], [ 0.000000e+00, %.lr.ph348.us ]
+  %127 = fdiv float 1.000000e+00, %.us-phi.us
+  %128 = fmul float %127, %.us-phi356.us
+  %129 = getelementptr inbounds float, ptr %.sroa.0289.0303308, i64 %indvars.iv408
+  store float %128, ptr %129, align 4
+  %130 = fmul float %127, %.us-phi355.us
+  %131 = getelementptr inbounds float, ptr %.sroa.0277.0311, i64 %indvars.iv408
+  store float %130, ptr %131, align 4
+  %132 = fmul float %127, %.us-phi354.us
   %133 = getelementptr inbounds float, ptr %.sroa.0267.0, i64 %indvars.iv408
   store float %132, ptr %133, align 4
   %indvars.iv.next409 = add nsw i64 %indvars.iv408, 1

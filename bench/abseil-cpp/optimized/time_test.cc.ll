@@ -3215,11 +3215,11 @@ land.rhs.i.i71:                                   ; preds = %for.cond56
   %rem3.i.i74 = srem i64 %add.i69, 400
   %cmp4.i.i75 = icmp eq i64 %rem3.i.i74, 0
   %or.cond.i76 = or i1 %cmp2.not.i.i73, %cmp4.i.i75
-  %spec.select.i77 = select i1 %or.cond.i76, i64 366, i64 365
+  %6 = select i1 %or.cond.i76, i64 366, i64 365
   br label %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
 
 _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78: ; preds = %for.cond56, %land.rhs.i.i71
-  %conv59 = phi i64 [ 365, %for.cond56 ], [ %spec.select.i77, %land.rhs.i.i71 ]
+  %conv59 = phi i64 [ 365, %for.cond56 ], [ %6, %land.rhs.i.i71 ]
   %cmp60.not = icmp ugt i64 %d.addr.4, %conv59
   br i1 %cmp60.not, label %if.end62, label %if.end66
 
@@ -3240,10 +3240,10 @@ for.cond69:                                       ; preds = %if.end66, %if.end75
   %m.addr.1 = phi i8 [ %spec.select57, %if.end75 ], [ %m, %if.end66 ]
   %idxprom.i = sext i8 %m.addr.1 to i64
   %arrayidx.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %idxprom.i
-  %6 = load i32, ptr %arrayidx.i, align 4
+  %7 = load i32, ptr %arrayidx.i, align 4
   %cmp.i79 = icmp eq i8 %m.addr.1, 2
-  %7 = and i64 %ey.7, 3
-  %cmp.i.i80 = icmp eq i64 %7, 0
+  %8 = and i64 %ey.7, 3
+  %cmp.i.i80 = icmp eq i64 %8, 0
   %or.cond.i81 = and i1 %cmp.i.i80, %cmp.i79
   br i1 %or.cond.i81, label %land.rhs.i.i84, label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
@@ -3255,12 +3255,12 @@ land.rhs.i.i84:                                   ; preds = %for.cond69
 lor.rhs.i.i:                                      ; preds = %land.rhs.i.i84
   %rem3.i.i87 = srem i64 %ey.7, 400
   %cmp4.i.i88 = icmp eq i64 %rem3.i.i87, 0
-  %8 = zext i1 %cmp4.i.i88 to i32
+  %9 = zext i1 %cmp4.i.i88 to i32
   br label %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit
 
 _ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %for.cond69, %land.rhs.i.i84, %lor.rhs.i.i
-  %conv1.i82 = phi i32 [ 0, %for.cond69 ], [ 1, %land.rhs.i.i84 ], [ %8, %lor.rhs.i.i ]
-  %add.i83 = add nsw i32 %conv1.i82, %6
+  %conv1.i82 = phi i32 [ 0, %for.cond69 ], [ 1, %land.rhs.i.i84 ], [ %9, %lor.rhs.i.i ]
+  %add.i83 = add nsw i32 %conv1.i82, %7
   %conv72 = sext i32 %add.i83 to i64
   %cmp73.not = icmp sgt i64 %d.addr.6, %conv72
   br i1 %cmp73.not, label %if.end75, label %if.end85

@@ -169,7 +169,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @cli_append_potentially_unwanted(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_check_riff_exploit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @cli_check_riff_exploit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #7

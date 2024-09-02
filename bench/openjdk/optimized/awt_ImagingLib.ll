@@ -3868,7 +3868,7 @@ define internal fastcc void @freeDataArray(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @storeRasterArray(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [32 x i32], align 16
   %5 = alloca [32 x i32], align 16
   %6 = alloca [32 x i32], align 16
@@ -4733,39 +4733,40 @@ switch.lookup:                                    ; preds = %24
   %89 = load i32, ptr %88, align 8
   %90 = icmp eq i32 %89, 3
   %.pre = load ptr, ptr %13, align 8
-  br i1 %90, label %91, label %102
+  br i1 %90, label %91, label %104
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds i8, ptr %.pre, i64 536
   %93 = load i32, ptr %92, align 8
   %94 = icmp eq i32 %93, 3
-  br i1 %94, label %95, label %102
+  br i1 %94, label %95, label %104
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds i8, ptr %85, i64 484
   %97 = load i32, ptr %96, align 4
   %98 = getelementptr inbounds i8, ptr %.pre, i64 484
   %99 = load i32, ptr %98, align 4
-  %100 = icmp eq i32 %97, 1
-  %101 = icmp eq i32 %99, 1
-  %spec.select = and i1 %100, %101
-  br label %102
+  %100 = icmp eq i32 %97, %99
+  br i1 %100, label %101, label %104
 
-102:                                              ; preds = %95, %91, %87
-  %103 = phi i1 [ false, %91 ], [ false, %87 ], [ %spec.select, %95 ]
-  %104 = xor i1 %103, true
-  %105 = zext i1 %104 to i32
+101:                                              ; preds = %95
+  %102 = icmp ne i32 %97, 1
+  %103 = zext i1 %102 to i32
+  br label %104
+
+104:                                              ; preds = %101, %95, %91, %87
+  %105 = phi i32 [ 1, %95 ], [ 1, %91 ], [ 1, %87 ], [ %103, %101 ]
   %106 = call fastcc i32 @setImageHints(ptr noundef nonnull %85, ptr noundef %.pre, i32 noundef %105, ptr noundef nonnull %14)
   %107 = icmp slt i32 %106, 1
   br i1 %107, label %108, label %110
 
-108:                                              ; preds = %102
+108:                                              ; preds = %104
   call void @awt_freeParsedImage(ptr noundef nonnull %85, i32 noundef 1) #14
   %109 = load ptr, ptr %13, align 8
   call void @awt_freeParsedImage(ptr noundef %109, i32 noundef 1) #14
   br label %219
 
-110:                                              ; preds = %102
+110:                                              ; preds = %104
   %111 = getelementptr inbounds i8, ptr %14, i64 8
   %112 = load i32, ptr %111, align 4
   %113 = getelementptr inbounds i8, ptr %14, i64 20
@@ -4834,28 +4835,28 @@ freeArray.exit:                                   ; preds = %137, %138
   %146 = getelementptr inbounds i8, ptr %145, i64 536
   %147 = load i32, ptr %146, align 8
   %148 = icmp eq i32 %147, 3
-  %.pre101 = load ptr, ptr %8, align 8
+  %.pre100 = load ptr, ptr %8, align 8
   br i1 %148, label %149, label %158
 
 149:                                              ; preds = %144
-  %150 = getelementptr i8, ptr %.pre101, i64 24
-  %.val84 = load ptr, ptr %150, align 8
+  %150 = getelementptr i8, ptr %.pre100, i64 24
+  %.val83 = load ptr, ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %145, i64 576
   %152 = load i32, ptr %151, align 8
   %153 = trunc i32 %152 to i8
-  %154 = getelementptr i8, ptr %.pre101, i64 8
-  %.val85 = load i32, ptr %154, align 8
-  %155 = getelementptr i8, ptr %.pre101, i64 12
-  %.val86 = load i32, ptr %155, align 4
-  %156 = mul nsw i32 %.val86, %.val85
+  %154 = getelementptr i8, ptr %.pre100, i64 8
+  %.val84 = load i32, ptr %154, align 8
+  %155 = getelementptr i8, ptr %.pre100, i64 12
+  %.val85 = load i32, ptr %155, align 4
+  %156 = mul nsw i32 %.val85, %.val84
   %157 = sext i32 %156 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %.val84, i8 %153, i64 %157, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %.val83, i8 %153, i64 %157, i1 false)
   br label %158
 
 158:                                              ; preds = %149, %144
   %159 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibFns, i64 16), align 16
   %160 = load ptr, ptr %7, align 8
-  %161 = call i32 (ptr, ptr, ptr, i32, i32, ...) %159(ptr noundef %.pre101, ptr noundef %160, ptr noundef nonnull %9, i32 noundef %switch.tableidx, i32 noundef 5) #14
+  %161 = call i32 (ptr, ptr, ptr, i32, i32, ...) %159(ptr noundef %.pre100, ptr noundef %160, ptr noundef nonnull %9, i32 noundef %switch.tableidx, i32 noundef 5) #14
   %.not = icmp eq i32 %161, 0
   br i1 %.not, label %169, label %162
 
@@ -4864,7 +4865,7 @@ freeArray.exit:                                   ; preds = %137, %138
   %164 = load ptr, ptr %10, align 8
   %165 = load ptr, ptr %13, align 8
   %166 = load ptr, ptr %11, align 8
-  call fastcc void @freeArray(ptr noundef nonnull %0, ptr noundef %163, ptr noundef %160, ptr noundef %164, ptr noundef %165, ptr noundef %.pre101, ptr noundef %166)
+  call fastcc void @freeArray(ptr noundef nonnull %0, ptr noundef %163, ptr noundef %160, ptr noundef %164, ptr noundef %165, ptr noundef %.pre100, ptr noundef %166)
   %167 = load ptr, ptr %12, align 8
   call void @awt_freeParsedImage(ptr noundef %167, i32 noundef 1) #14
   %168 = load ptr, ptr %13, align 8
@@ -4876,7 +4877,7 @@ freeArray.exit:                                   ; preds = %137, %138
   br i1 %.b78, label %170, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %169
-  %.pre102 = load ptr, ptr %11, align 8
+  %.pre101 = load ptr, ptr %11, align 8
   br label %191
 
 170:                                              ; preds = %169
@@ -4886,22 +4887,22 @@ freeArray.exit:                                   ; preds = %137, %138
 
 173:                                              ; preds = %170
   %174 = getelementptr i8, ptr %160, i64 24
-  %.val83 = load ptr, ptr %174, align 8
+  %.val82 = load ptr, ptr %174, align 8
   br label %175
 
 175:                                              ; preds = %170, %173
-  %.065 = phi ptr [ %.val83, %173 ], [ %171, %170 ]
+  %.065 = phi ptr [ %.val82, %173 ], [ %171, %170 ]
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
   br label %176
 
 176:                                              ; preds = %175, %176
-  %indvars.iv93 = phi i64 [ 0, %175 ], [ %indvars.iv.next94, %176 ]
-  %177 = getelementptr inbounds i32, ptr %.065, i64 %indvars.iv93
+  %indvars.iv92 = phi i64 [ 0, %175 ], [ %indvars.iv.next93, %176 ]
+  %177 = getelementptr inbounds i32, ptr %.065, i64 %indvars.iv92
   %178 = load i32, ptr %177, align 4
   %179 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %178)
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next94, 20
-  br i1 %exitcond96.not, label %180, label %176, !llvm.loop !77
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond95.not = icmp eq i64 %indvars.iv.next93, 20
+  br i1 %exitcond95.not, label %180, label %176, !llvm.loop !77
 
 180:                                              ; preds = %176
   %putchar = call i32 @putchar(i32 10)
@@ -4910,7 +4911,7 @@ freeArray.exit:                                   ; preds = %137, %138
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %180
-  %184 = getelementptr i8, ptr %.pre101, i64 24
+  %184 = getelementptr i8, ptr %.pre100, i64 24
   %.val = load ptr, ptr %184, align 8
   br label %185
 
@@ -4920,20 +4921,20 @@ freeArray.exit:                                   ; preds = %137, %138
   br label %186
 
 186:                                              ; preds = %185, %186
-  %indvars.iv97 = phi i64 [ 0, %185 ], [ %indvars.iv.next98, %186 ]
-  %187 = getelementptr inbounds i32, ptr %.166, i64 %indvars.iv97
+  %indvars.iv96 = phi i64 [ 0, %185 ], [ %indvars.iv.next97, %186 ]
+  %187 = getelementptr inbounds i32, ptr %.166, i64 %indvars.iv96
   %188 = load i32, ptr %187, align 4
   %189 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %188)
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 20
-  br i1 %exitcond100.not, label %190, label %186, !llvm.loop !78
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %exitcond99.not = icmp eq i64 %indvars.iv.next97, 20
+  br i1 %exitcond99.not, label %190, label %186, !llvm.loop !78
 
 190:                                              ; preds = %186
   %putchar81 = call i32 @putchar(i32 10)
   br label %191
 
 191:                                              ; preds = %._crit_edge, %190
-  %192 = phi ptr [ %.pre102, %._crit_edge ], [ %181, %190 ]
+  %192 = phi ptr [ %.pre101, %._crit_edge ], [ %181, %190 ]
   %193 = icmp eq ptr %192, null
   %194 = load ptr, ptr %12, align 8
   br i1 %193, label %195, label %212
@@ -4942,8 +4943,8 @@ freeArray.exit:                                   ; preds = %137, %138
   %196 = getelementptr inbounds i8, ptr %194, i64 16
   %197 = load ptr, ptr %196, align 8
   %198 = load ptr, ptr %10, align 8
-  %.not.i87 = icmp eq ptr %160, null
-  br i1 %.not.i87, label %201, label %199
+  %.not.i86 = icmp eq ptr %160, null
+  br i1 %.not.i86, label %201, label %199
 
 199:                                              ; preds = %195
   %200 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
@@ -4964,23 +4965,23 @@ freeArray.exit:                                   ; preds = %137, %138
 freeDataArray.exit:                               ; preds = %201, %202
   %206 = load ptr, ptr %12, align 8
   %207 = load ptr, ptr %13, align 8
-  %208 = call fastcc i32 @storeImageArray(ptr noundef nonnull %0, ptr noundef %206, ptr noundef %207, ptr noundef %.pre101)
+  %208 = call fastcc i32 @storeImageArray(ptr noundef nonnull %0, ptr noundef %206, ptr noundef %207, ptr noundef %.pre100)
   %209 = icmp sgt i32 %208, -1
-  %.not18.i = icmp eq ptr %.pre101, null
-  br i1 %.not18.i, label %freeDataArray.exit88, label %210
+  %.not18.i = icmp eq ptr %.pre100, null
+  br i1 %.not18.i, label %freeDataArray.exit87, label %210
 
 210:                                              ; preds = %freeDataArray.exit
   %211 = load ptr, ptr getelementptr inbounds (i8, ptr @sMlibSysFns, i64 16), align 8
-  call void %211(ptr noundef nonnull %.pre101) #14
-  br label %freeDataArray.exit88
+  call void %211(ptr noundef nonnull %.pre100) #14
+  br label %freeDataArray.exit87
 
 212:                                              ; preds = %191
   %213 = load ptr, ptr %10, align 8
   %214 = load ptr, ptr %13, align 8
-  call fastcc void @freeArray(ptr noundef nonnull %0, ptr noundef %194, ptr noundef %160, ptr noundef %213, ptr noundef %214, ptr noundef %.pre101, ptr noundef nonnull %192)
-  br label %freeDataArray.exit88
+  call fastcc void @freeArray(ptr noundef nonnull %0, ptr noundef %194, ptr noundef %160, ptr noundef %213, ptr noundef %214, ptr noundef %.pre100, ptr noundef nonnull %192)
+  br label %freeDataArray.exit87
 
-freeDataArray.exit88:                             ; preds = %210, %freeDataArray.exit, %212
+freeDataArray.exit87:                             ; preds = %210, %freeDataArray.exit, %212
   %.169.shrunk = phi i1 [ true, %212 ], [ %209, %freeDataArray.exit ], [ %209, %210 ]
   %.169 = zext i1 %.169.shrunk to i32
   %215 = load ptr, ptr %12, align 8
@@ -4990,13 +4991,13 @@ freeDataArray.exit88:                             ; preds = %210, %freeDataArray
   %.b76 = load i1, ptr @s_timeIt, align 4
   br i1 %.b76, label %217, label %219
 
-217:                                              ; preds = %freeDataArray.exit88
+217:                                              ; preds = %freeDataArray.exit87
   %218 = load ptr, ptr @stop_timer, align 8
   call void %218(i32 noundef 3600, i32 noundef 1) #14
   br label %219
 
-219:                                              ; preds = %freeDataArray.exit88, %217, %60, %32, %switch.lookup, %20, %6, %162, %freeArray.exit, %117, %108, %86, %42, %26
-  %.0 = phi i32 [ -1, %26 ], [ 0, %42 ], [ 0, %86 ], [ 0, %108 ], [ 0, %117 ], [ 0, %freeArray.exit ], [ 0, %162 ], [ 0, %6 ], [ 0, %20 ], [ 0, %switch.lookup ], [ 0, %32 ], [ 0, %60 ], [ %.169, %217 ], [ %.169, %freeDataArray.exit88 ]
+219:                                              ; preds = %freeDataArray.exit87, %217, %60, %32, %switch.lookup, %20, %6, %162, %freeArray.exit, %117, %108, %86, %42, %26
+  %.0 = phi i32 [ -1, %26 ], [ 0, %42 ], [ 0, %86 ], [ 0, %108 ], [ 0, %117 ], [ 0, %freeArray.exit ], [ 0, %162 ], [ 0, %6 ], [ 0, %20 ], [ 0, %switch.lookup ], [ 0, %32 ], [ 0, %60 ], [ %.169, %217 ], [ %.169, %freeDataArray.exit87 ]
   ret i32 %.0
 }
 

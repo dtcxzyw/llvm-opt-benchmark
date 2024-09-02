@@ -227,7 +227,7 @@ declare dso_local void @rtnl_lock() local_unnamed_addr #3
 declare dso_local ptr @ethnl_reply_init(i64 noundef, ptr noundef, i8 noundef zeroext, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ethnl_tunnel_info_fill_reply(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -95, 1) i32 @ethnl_tunnel_info_fill_reply(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4
@@ -260,8 +260,8 @@ define internal fastcc noundef i32 @ethnl_tunnel_info_fill_reply(ptr nocapture n
   %28 = getelementptr inbounds i8, ptr %14, i64 36
   br label %29
 
-29:                                               ; preds = %.thread, %27
-  %30 = phi i64 [ 0, %27 ], [ %69, %.thread ]
+29:                                               ; preds = %.critedge, %27
+  %30 = phi i64 [ 0, %27 ], [ %69, %.critedge ]
   %31 = getelementptr [4 x %struct.udp_tunnel_nic_table_info], ptr %28, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
@@ -285,18 +285,18 @@ define internal fastcc noundef i32 @ethnl_tunnel_info_fill_reply(ptr nocapture n
   %45 = call i32 @nla_put(ptr noundef %1, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %.loopexit12
+  br i1 %46, label %47, label %.loopexit11
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %31, i64 4
   %49 = call i32 @ethnl_put_bitset32(ptr noundef %1, i32 noundef 2, ptr noundef %48, ptr noundef null, i32 noundef 3, ptr noundef nonnull @udp_tunnel_type_names, i1 noundef zeroext %11) #6
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %.loopexit12
+  br i1 %50, label %51, label %.loopexit11
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr @udp_tunnel_nic_ops, align 8
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %.thread, label %54
+  br i1 %53, label %.critedge, label %54
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %0, align 8
@@ -305,9 +305,9 @@ define internal fastcc noundef i32 @ethnl_tunnel_info_fill_reply(ptr nocapture n
   %58 = trunc i64 %30 to i32
   %59 = call i32 %57(ptr noundef %55, i32 noundef %58, ptr noundef %1) #6
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.thread, label %.loopexit12
+  br i1 %60, label %.critedge, label %.loopexit11
 
-.thread:                                          ; preds = %51, %54
+.critedge:                                        ; preds = %51, %54
   %61 = load ptr, ptr %17, align 8
   %62 = load i32, ptr %19, align 8
   %63 = zext i32 %62 to i64
@@ -321,7 +321,7 @@ define internal fastcc noundef i32 @ethnl_tunnel_info_fill_reply(ptr nocapture n
   %70 = icmp eq i64 %69, 4
   br i1 %70, label %71, label %29, !llvm.loop !10
 
-71:                                               ; preds = %.thread, %29
+71:                                               ; preds = %.critedge, %29
   %72 = getelementptr inbounds i8, ptr %14, i64 32
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 8
@@ -347,12 +347,12 @@ define internal fastcc noundef i32 @ethnl_tunnel_info_fill_reply(ptr nocapture n
   %86 = call i32 @nla_put(ptr noundef %1, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %.thread10
+  br i1 %87, label %88, label %.thread9
 
 88:                                               ; preds = %85
   %89 = call i32 @ethnl_put_bitset32(ptr noundef %1, i32 noundef 2, ptr noundef nonnull %7, ptr noundef null, i32 noundef 3, ptr noundef nonnull @udp_tunnel_type_names, i1 noundef zeroext %11) #6
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %.thread10
+  br i1 %90, label %91, label %.thread9
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %17, align 8
@@ -379,9 +379,9 @@ define internal fastcc noundef i32 @ethnl_tunnel_info_fill_reply(ptr nocapture n
   %104 = call i32 @nla_put(ptr noundef %1, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %.thread11, label %132
+  br i1 %105, label %.thread10, label %132
 
-.thread11:                                        ; preds = %103
+.thread10:                                        ; preds = %103
   %106 = load ptr, ptr %17, align 8
   %107 = load i32, ptr %19, align 8
   %108 = zext i32 %107 to i64
@@ -403,15 +403,15 @@ define internal fastcc noundef i32 @ethnl_tunnel_info_fill_reply(ptr nocapture n
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   br label %123
 
-.thread10:                                        ; preds = %85, %88
+.thread9:                                         ; preds = %85, %88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  br label %.loopexit12
+  br label %.loopexit11
 
 122:                                              ; preds = %76
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   br label %.loopexit
 
-123:                                              ; preds = %.thread11, %71
+123:                                              ; preds = %.thread10, %71
   %124 = load ptr, ptr %17, align 8
   %125 = load i32, ptr %19, align 8
   %126 = zext i32 %125 to i64
@@ -427,24 +427,24 @@ define internal fastcc noundef i32 @ethnl_tunnel_info_fill_reply(ptr nocapture n
   %.ph = phi ptr [ %95, %100 ], [ %95, %103 ], [ null, %91 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   call fastcc void @nla_nest_cancel(ptr noundef %1, ptr noundef %.ph)
-  br label %.loopexit12
+  br label %.loopexit11
 
-.loopexit12:                                      ; preds = %43, %47, %54, %132, %.thread10
-  %133 = phi ptr [ %80, %132 ], [ %80, %.thread10 ], [ %38, %54 ], [ %38, %47 ], [ %38, %43 ]
+.loopexit11:                                      ; preds = %43, %47, %54, %132, %.thread9
+  %133 = phi ptr [ %80, %132 ], [ %80, %.thread9 ], [ %38, %54 ], [ %38, %47 ], [ %38, %43 ]
   %134 = getelementptr inbounds i8, ptr %1, i64 200
   %135 = load ptr, ptr %134, align 8
   %136 = icmp ugt ptr %135, %133
   br i1 %136, label %137, label %138, !prof !11
 
-137:                                              ; preds = %.loopexit12
+137:                                              ; preds = %.loopexit11
   call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #6, !srcloc !12
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1062, i32 2305, i64 12) #6, !srcloc !13
   call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_end\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #6, !srcloc !14
   %.pre = load ptr, ptr %134, align 8
   br label %138
 
-138:                                              ; preds = %137, %.loopexit12
-  %139 = phi ptr [ %.pre, %137 ], [ %135, %.loopexit12 ]
+138:                                              ; preds = %137, %.loopexit11
+  %139 = phi ptr [ %.pre, %137 ], [ %135, %.loopexit11 ]
   %140 = ptrtoint ptr %133 to i64
   %141 = ptrtoint ptr %139 to i64
   %142 = sub i64 %140, %141
@@ -462,11 +462,11 @@ define internal fastcc noundef i32 @ethnl_tunnel_info_fill_reply(ptr nocapture n
   call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #6, !srcloc !12
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1062, i32 2305, i64 12) #6, !srcloc !13
   call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_end\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #6, !srcloc !14
-  %.pre15 = load ptr, ptr %144, align 8
+  %.pre14 = load ptr, ptr %144, align 8
   br label %148
 
 148:                                              ; preds = %147, %.loopexit
-  %149 = phi ptr [ %.pre15, %147 ], [ %145, %.loopexit ]
+  %149 = phi ptr [ %.pre14, %147 ], [ %145, %.loopexit ]
   %150 = ptrtoint ptr %22 to i64
   %151 = ptrtoint ptr %149 to i64
   %152 = sub i64 %150, %151

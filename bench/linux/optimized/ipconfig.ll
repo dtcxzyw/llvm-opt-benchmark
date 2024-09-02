@@ -295,7 +295,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @ip_auto_config() #0 section ".init.text" align 16 {
+define internal noundef range(i32 -19, 1) i32 @ip_auto_config() #0 section ".init.text" align 16 {
   %1 = load i32, ptr @ic_set_manually, align 4
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %4
@@ -1956,7 +1956,7 @@ declare dso_local i64 @schedule_timeout_uninterruptible(i64 noundef) local_unnam
 declare dso_local void @dev_add_pack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @ic_bootp_recv(ptr noundef %0, ptr noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 section ".init.text" align 16 {
+define internal range(i32 0, 2) i32 @ic_bootp_recv(ptr noundef %0, ptr noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 section ".init.text" align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 272
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, @init_net

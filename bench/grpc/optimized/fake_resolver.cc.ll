@@ -2097,7 +2097,7 @@ _ZNK9grpc_core10RefCountedINS_29FakeResolverResponseGeneratorENS_19PolymorphicRe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZN9grpc_core12_GLOBAL__N_130ResponseGeneratorChannelArgCmpEPvS1_(ptr noundef readnone %a, ptr noundef readnone %b) #10 {
+define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_130ResponseGeneratorChannelArgCmpEPvS1_(ptr noundef readnone %a, ptr noundef readnone %b) #10 {
 entry:
   %cmp.i = icmp ult ptr %a, %b
   %cmp1.i = icmp ult ptr %b, %a

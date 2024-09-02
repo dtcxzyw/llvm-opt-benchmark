@@ -67,13 +67,13 @@ define dso_local ptr @intel_panel_fixed_mode(ptr noundef %0, ptr noundef %1) loc
   %6 = icmp eq ptr %5, %4
   br i1 %6, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %2, %.thread4
-  %7 = phi ptr [ %26, %.thread4 ], [ %5, %2 ]
-  %8 = phi ptr [ %25, %.thread4 ], [ null, %2 ]
+.preheader:                                       ; preds = %2, %26
+  %7 = phi ptr [ %28, %26 ], [ %5, %2 ]
+  %8 = phi ptr [ %27, %26 ], [ null, %2 ]
   %9 = getelementptr i8, ptr %7, i64 -64
   %10 = tail call i32 @drm_mode_vrefresh(ptr noundef %9) #8
   %11 = icmp eq ptr %8, null
-  br i1 %11, label %.thread, label %12
+  br i1 %11, label %26, label %12
 
 12:                                               ; preds = %.preheader
   %13 = tail call zeroext i1 @intel_vrr_is_in_range(ptr noundef %0, i32 noundef %3) #8
@@ -83,30 +83,27 @@ define dso_local ptr @intel_panel_fixed_mode(ptr noundef %0, ptr noundef %1) loc
   %15 = tail call zeroext i1 @intel_vrr_is_in_range(ptr noundef %0, i32 noundef %10) #8
   %16 = icmp slt i32 %10, %3
   %17 = and i1 %16, %15
-  br i1 %17, label %.thread4, label %18
+  br i1 %17, label %26, label %18
 
-18:                                               ; preds = %12, %14
+18:                                               ; preds = %14, %12
   %19 = sub i32 %10, %3
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 false)
   %21 = tail call i32 @drm_mode_vrefresh(ptr noundef nonnull %8) #8
   %22 = sub i32 %21, %3
   %23 = tail call i32 @llvm.abs.i32(i32 %22, i1 false)
   %24 = icmp slt i32 %20, %23
-  %cond.fr = freeze i1 %24
-  br i1 %cond.fr, label %.thread, label %.thread4
+  %25 = select i1 %24, ptr %9, ptr %8
+  br label %26
 
-.thread:                                          ; preds = %.preheader, %18
-  br label %.thread4
+26:                                               ; preds = %18, %14, %.preheader
+  %27 = phi ptr [ %25, %18 ], [ %9, %.preheader ], [ %8, %14 ]
+  %28 = load ptr, ptr %7, align 8
+  %29 = icmp eq ptr %28, %4
+  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !5
 
-.thread4:                                         ; preds = %14, %18, %.thread
-  %25 = phi ptr [ %9, %.thread ], [ %8, %18 ], [ %8, %14 ]
-  %26 = load ptr, ptr %7, align 8
-  %27 = icmp eq ptr %26, %4
-  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !5
-
-.loopexit:                                        ; preds = %.thread4, %2
-  %28 = phi ptr [ null, %2 ], [ %25, %.thread4 ]
-  ret ptr %28
+.loopexit:                                        ; preds = %26, %2
+  %30 = phi ptr [ null, %2 ], [ %27, %26 ]
+  ret ptr %30
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -237,13 +234,13 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_panel_compute_config(ptr n
   %6 = icmp eq ptr %5, %4
   br i1 %6, label %intel_panel_fixed_mode.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %2, %.thread4.i
-  %7 = phi ptr [ %26, %.thread4.i ], [ %5, %2 ]
-  %8 = phi ptr [ %25, %.thread4.i ], [ null, %2 ]
+.preheader.i:                                     ; preds = %2, %26
+  %7 = phi ptr [ %28, %26 ], [ %5, %2 ]
+  %8 = phi ptr [ %27, %26 ], [ null, %2 ]
   %9 = getelementptr i8, ptr %7, i64 -64
   %10 = tail call i32 @drm_mode_vrefresh(ptr noundef %9) #8
   %11 = icmp eq ptr %8, null
-  br i1 %11, label %.thread.i, label %12
+  br i1 %11, label %26, label %12
 
 12:                                               ; preds = %.preheader.i
   %13 = tail call zeroext i1 @intel_vrr_is_in_range(ptr noundef %0, i32 noundef %3) #8
@@ -253,7 +250,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_panel_compute_config(ptr n
   %15 = tail call zeroext i1 @intel_vrr_is_in_range(ptr noundef %0, i32 noundef %10) #8
   %16 = icmp slt i32 %10, %3
   %17 = and i1 %16, %15
-  br i1 %17, label %.thread4.i, label %18
+  br i1 %17, label %26, label %18
 
 18:                                               ; preds = %14, %12
   %19 = sub i32 %10, %3
@@ -262,92 +259,89 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_panel_compute_config(ptr n
   %22 = sub i32 %21, %3
   %23 = tail call i32 @llvm.abs.i32(i32 %22, i1 false)
   %24 = icmp slt i32 %20, %23
-  %cond.fr.i = freeze i1 %24
-  br i1 %cond.fr.i, label %.thread.i, label %.thread4.i
+  %25 = select i1 %24, ptr %9, ptr %8
+  br label %26
 
-.thread.i:                                        ; preds = %18, %.preheader.i
-  br label %.thread4.i
+26:                                               ; preds = %18, %14, %.preheader.i
+  %27 = phi ptr [ %25, %18 ], [ %9, %.preheader.i ], [ %8, %14 ]
+  %28 = load ptr, ptr %7, align 8
+  %29 = icmp eq ptr %28, %4
+  br i1 %29, label %intel_panel_fixed_mode.exit, label %.preheader.i, !llvm.loop !5
 
-.thread4.i:                                       ; preds = %.thread.i, %18, %14
-  %25 = phi ptr [ %9, %.thread.i ], [ %8, %18 ], [ %8, %14 ]
-  %26 = load ptr, ptr %7, align 8
-  %27 = icmp eq ptr %26, %4
-  br i1 %27, label %intel_panel_fixed_mode.exit, label %.preheader.i, !llvm.loop !5
+intel_panel_fixed_mode.exit:                      ; preds = %26
+  %30 = icmp eq ptr %27, null
+  br i1 %30, label %intel_panel_fixed_mode.exit.thread, label %31
 
-intel_panel_fixed_mode.exit:                      ; preds = %.thread4.i
-  %28 = icmp eq ptr %25, null
-  br i1 %28, label %intel_panel_fixed_mode.exit.thread, label %29
+31:                                               ; preds = %intel_panel_fixed_mode.exit
+  %32 = tail call i32 @drm_mode_vrefresh(ptr noundef %1) #8
+  %33 = tail call i32 @drm_mode_vrefresh(ptr noundef nonnull %27) #8
+  %34 = tail call zeroext i1 @intel_vrr_is_in_range(ptr noundef %0, i32 noundef %32) #8
+  br i1 %34, label %35, label %.critedge
 
-29:                                               ; preds = %intel_panel_fixed_mode.exit
-  %30 = tail call i32 @drm_mode_vrefresh(ptr noundef %1) #8
-  %31 = tail call i32 @drm_mode_vrefresh(ptr noundef nonnull %25) #8
-  %32 = tail call zeroext i1 @intel_vrr_is_in_range(ptr noundef %0, i32 noundef %30) #8
-  br i1 %32, label %33, label %.critedge
+35:                                               ; preds = %31
+  %36 = tail call zeroext i1 @intel_vrr_is_in_range(ptr noundef %0, i32 noundef %33) #8
+  br i1 %36, label %53, label %.critedge
 
-33:                                               ; preds = %29
-  %34 = tail call zeroext i1 @intel_vrr_is_in_range(ptr noundef %0, i32 noundef %31) #8
-  br i1 %34, label %51, label %.critedge
+.critedge:                                        ; preds = %31, %35
+  %37 = sub i32 %32, %33
+  %38 = tail call i32 @llvm.abs.i32(i32 %37, i1 false)
+  %39 = icmp sgt i32 %38, 1
+  br i1 %39, label %40, label %52
 
-.critedge:                                        ; preds = %29, %33
-  %35 = sub i32 %30, %31
-  %36 = tail call i32 @llvm.abs.i32(i32 %35, i1 false)
-  %37 = icmp sgt i32 %36, 1
-  br i1 %37, label %38, label %50
+40:                                               ; preds = %.critedge
+  %41 = load ptr, ptr %0, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %46, label %43
 
-38:                                               ; preds = %.critedge
-  %39 = load ptr, ptr %0, align 8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %44, label %41
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = load ptr, ptr %44, align 8
+  br label %46
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
-  %43 = load ptr, ptr %42, align 8
-  br label %44
-
-44:                                               ; preds = %41, %38
-  %45 = phi ptr [ %43, %41 ], [ null, %38 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 64
-  %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 96
-  %49 = load ptr, ptr %48, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %45, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %47, ptr noundef %49, i32 noundef %30, i32 noundef %31) #8
+46:                                               ; preds = %43, %40
+  %47 = phi ptr [ %45, %43 ], [ null, %40 ]
+  %48 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = load i32, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 96
+  %51 = load ptr, ptr %50, align 8
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %47, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %49, ptr noundef %51, i32 noundef %32, i32 noundef %33) #8
   br label %intel_panel_fixed_mode.exit.thread
 
-50:                                               ; preds = %.critedge
-  tail call void @drm_mode_copy(ptr noundef %1, ptr noundef nonnull %25) #8
-  br label %69
+52:                                               ; preds = %.critedge
+  tail call void @drm_mode_copy(ptr noundef %1, ptr noundef nonnull %27) #8
+  br label %71
 
-51:                                               ; preds = %33
-  tail call void @drm_mode_copy(ptr noundef %1, ptr noundef nonnull %25) #8
-  %52 = icmp eq i32 %31, %30
-  br i1 %52, label %69, label %53
+53:                                               ; preds = %35
+  tail call void @drm_mode_copy(ptr noundef %1, ptr noundef nonnull %27) #8
+  %54 = icmp eq i32 %33, %32
+  br i1 %54, label %71, label %55
 
-53:                                               ; preds = %51
-  %54 = load i32, ptr %1, align 8
-  %55 = mul i32 %54, 1000
-  %56 = getelementptr inbounds i8, ptr %1, i64 10
-  %57 = load i16, ptr %56, align 2
-  %58 = zext i16 %57 to i32
-  %59 = mul i32 %30, %58
-  %60 = icmp sgt i32 %55, 0
-  %61 = icmp slt i32 %59, 1
-  %62 = xor i1 %60, %61
-  %63 = select i1 %62, i32 2, i32 -2
-  %64 = sdiv i32 %59, %63
-  %65 = add i32 %64, %55
-  %66 = sdiv i32 %65, %59
-  %67 = trunc i32 %66 to i16
-  %68 = getelementptr inbounds i8, ptr %1, i64 20
-  store i16 %67, ptr %68, align 4
-  br label %69
+55:                                               ; preds = %53
+  %56 = load i32, ptr %1, align 8
+  %57 = mul i32 %56, 1000
+  %58 = getelementptr inbounds i8, ptr %1, i64 10
+  %59 = load i16, ptr %58, align 2
+  %60 = zext i16 %59 to i32
+  %61 = mul i32 %32, %60
+  %62 = icmp sgt i32 %57, 0
+  %63 = icmp slt i32 %61, 1
+  %64 = xor i1 %62, %63
+  %65 = select i1 %64, i32 2, i32 -2
+  %66 = sdiv i32 %61, %65
+  %67 = add i32 %66, %57
+  %68 = sdiv i32 %67, %61
+  %69 = trunc i32 %68 to i16
+  %70 = getelementptr inbounds i8, ptr %1, i64 20
+  store i16 %69, ptr %70, align 4
+  br label %71
 
-69:                                               ; preds = %50, %53, %51
+71:                                               ; preds = %52, %55, %53
   tail call void @drm_mode_set_crtcinfo(ptr noundef %1, i32 noundef 0) #8
   br label %intel_panel_fixed_mode.exit.thread
 
-intel_panel_fixed_mode.exit.thread:               ; preds = %2, %69, %44, %intel_panel_fixed_mode.exit
-  %70 = phi i32 [ 0, %69 ], [ -22, %44 ], [ 0, %intel_panel_fixed_mode.exit ], [ 0, %2 ]
-  ret i32 %70
+intel_panel_fixed_mode.exit.thread:               ; preds = %2, %71, %46, %intel_panel_fixed_mode.exit
+  %72 = phi i32 [ 0, %71 ], [ -22, %46 ], [ 0, %intel_panel_fixed_mode.exit ], [ 0, %2 ]
+  ret i32 %72
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1337,13 +1331,13 @@ define dso_local range(i32 0, 30) i32 @intel_panel_mode_valid(ptr noundef %0, pt
   %6 = icmp eq ptr %5, %4
   br i1 %6, label %intel_panel_fixed_mode.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %2, %.thread4.i
-  %7 = phi ptr [ %26, %.thread4.i ], [ %5, %2 ]
-  %8 = phi ptr [ %25, %.thread4.i ], [ null, %2 ]
+.preheader.i:                                     ; preds = %2, %26
+  %7 = phi ptr [ %28, %26 ], [ %5, %2 ]
+  %8 = phi ptr [ %27, %26 ], [ null, %2 ]
   %9 = getelementptr i8, ptr %7, i64 -64
   %10 = tail call i32 @drm_mode_vrefresh(ptr noundef %9) #8
   %11 = icmp eq ptr %8, null
-  br i1 %11, label %.thread.i, label %12
+  br i1 %11, label %26, label %12
 
 12:                                               ; preds = %.preheader.i
   %13 = tail call zeroext i1 @intel_vrr_is_in_range(ptr noundef %0, i32 noundef %3) #8
@@ -1353,7 +1347,7 @@ define dso_local range(i32 0, 30) i32 @intel_panel_mode_valid(ptr noundef %0, pt
   %15 = tail call zeroext i1 @intel_vrr_is_in_range(ptr noundef %0, i32 noundef %10) #8
   %16 = icmp slt i32 %10, %3
   %17 = and i1 %16, %15
-  br i1 %17, label %.thread4.i, label %18
+  br i1 %17, label %26, label %18
 
 18:                                               ; preds = %14, %12
   %19 = sub i32 %10, %3
@@ -1362,48 +1356,45 @@ define dso_local range(i32 0, 30) i32 @intel_panel_mode_valid(ptr noundef %0, pt
   %22 = sub i32 %21, %3
   %23 = tail call i32 @llvm.abs.i32(i32 %22, i1 false)
   %24 = icmp slt i32 %20, %23
-  %cond.fr.i = freeze i1 %24
-  br i1 %cond.fr.i, label %.thread.i, label %.thread4.i
+  %25 = select i1 %24, ptr %9, ptr %8
+  br label %26
 
-.thread.i:                                        ; preds = %18, %.preheader.i
-  br label %.thread4.i
+26:                                               ; preds = %18, %14, %.preheader.i
+  %27 = phi ptr [ %25, %18 ], [ %9, %.preheader.i ], [ %8, %14 ]
+  %28 = load ptr, ptr %7, align 8
+  %29 = icmp eq ptr %28, %4
+  br i1 %29, label %intel_panel_fixed_mode.exit, label %.preheader.i, !llvm.loop !5
 
-.thread4.i:                                       ; preds = %.thread.i, %18, %14
-  %25 = phi ptr [ %9, %.thread.i ], [ %8, %18 ], [ %8, %14 ]
-  %26 = load ptr, ptr %7, align 8
-  %27 = icmp eq ptr %26, %4
-  br i1 %27, label %intel_panel_fixed_mode.exit, label %.preheader.i, !llvm.loop !5
+intel_panel_fixed_mode.exit:                      ; preds = %26
+  %30 = icmp eq ptr %27, null
+  br i1 %30, label %intel_panel_fixed_mode.exit.thread, label %31
 
-intel_panel_fixed_mode.exit:                      ; preds = %.thread4.i
-  %28 = icmp eq ptr %25, null
-  br i1 %28, label %intel_panel_fixed_mode.exit.thread, label %29
-
-29:                                               ; preds = %intel_panel_fixed_mode.exit
-  %30 = getelementptr inbounds i8, ptr %1, i64 4
-  %31 = load i16, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %25, i64 4
+31:                                               ; preds = %intel_panel_fixed_mode.exit
+  %32 = getelementptr inbounds i8, ptr %1, i64 4
   %33 = load i16, ptr %32, align 4
-  %34 = icmp eq i16 %31, %33
-  br i1 %34, label %35, label %intel_panel_fixed_mode.exit.thread
+  %34 = getelementptr inbounds i8, ptr %27, i64 4
+  %35 = load i16, ptr %34, align 4
+  %36 = icmp eq i16 %33, %35
+  br i1 %36, label %37, label %intel_panel_fixed_mode.exit.thread
 
-35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %1, i64 14
-  %37 = load i16, ptr %36, align 2
-  %38 = getelementptr inbounds i8, ptr %25, i64 14
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds i8, ptr %1, i64 14
   %39 = load i16, ptr %38, align 2
-  %40 = icmp eq i16 %37, %39
-  br i1 %40, label %41, label %intel_panel_fixed_mode.exit.thread
+  %40 = getelementptr inbounds i8, ptr %27, i64 14
+  %41 = load i16, ptr %40, align 2
+  %42 = icmp eq i16 %39, %41
+  br i1 %42, label %43, label %intel_panel_fixed_mode.exit.thread
 
-41:                                               ; preds = %35
-  %42 = tail call i32 @drm_mode_vrefresh(ptr noundef %1) #8
-  %43 = tail call i32 @drm_mode_vrefresh(ptr noundef nonnull %25) #8
-  %44 = icmp eq i32 %42, %43
-  %45 = select i1 %44, i32 0, i32 29
+43:                                               ; preds = %37
+  %44 = tail call i32 @drm_mode_vrefresh(ptr noundef %1) #8
+  %45 = tail call i32 @drm_mode_vrefresh(ptr noundef nonnull %27) #8
+  %46 = icmp eq i32 %44, %45
+  %47 = select i1 %46, i32 0, i32 29
   br label %intel_panel_fixed_mode.exit.thread
 
-intel_panel_fixed_mode.exit.thread:               ; preds = %2, %41, %35, %29, %intel_panel_fixed_mode.exit
-  %46 = phi i32 [ 0, %intel_panel_fixed_mode.exit ], [ 29, %29 ], [ 29, %35 ], [ %45, %41 ], [ 0, %2 ]
-  ret i32 %46
+intel_panel_fixed_mode.exit.thread:               ; preds = %2, %43, %37, %31, %intel_panel_fixed_mode.exit
+  %48 = phi i32 [ 0, %intel_panel_fixed_mode.exit ], [ 29, %31 ], [ 29, %37 ], [ %47, %43 ], [ 0, %2 ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)

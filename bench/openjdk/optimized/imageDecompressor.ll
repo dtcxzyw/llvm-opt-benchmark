@@ -381,7 +381,7 @@ define hidden void @_ZN24SharedStringDecompressor19decompress_resourceEPhS0_P14R
   %37 = or i32 %36, %.02326.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 38:                                               ; preds = %14
   %39 = zext nneg i8 %16 to i32
@@ -402,11 +402,14 @@ define hidden void @_ZN24SharedStringDecompressor19decompress_resourceEPhS0_P14R
   %54 = or disjoint i32 %50, %53
   br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit
 
-_ZN24SharedStringDecompressor14decompress_intERPh.exit: ; preds = %.lr.ph.i, %18, %25, %38
-  %.1.i = phi i32 [ %54, %38 ], [ %28, %25 ], [ %24, %18 ], [ %37, %.lr.ph.i ]
-  %.022.i = phi i32 [ 4, %38 ], [ 0, %25 ], [ 1, %18 ], [ %21, %.lr.ph.i ]
-  %55 = zext nneg i32 %.022.i to i64
-  %56 = getelementptr inbounds i8, ptr %13, i64 %55
+_ZN24SharedStringDecompressor14decompress_intERPh.exit.loopexit: ; preds = %.lr.ph.i
+  %55 = zext nneg i8 %20 to i64
+  br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit
+
+_ZN24SharedStringDecompressor14decompress_intERPh.exit: ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit.loopexit, %18, %25, %38
+  %.1.i = phi i32 [ %54, %38 ], [ %28, %25 ], [ %24, %18 ], [ %37, %_ZN24SharedStringDecompressor14decompress_intERPh.exit.loopexit ]
+  %.022.i = phi i64 [ 4, %38 ], [ 0, %25 ], [ 1, %18 ], [ %55, %_ZN24SharedStringDecompressor14decompress_intERPh.exit.loopexit ]
+  %56 = getelementptr inbounds i8, ptr %13, i64 %.022.i
   %57 = load ptr, ptr %4, align 8
   %58 = zext i32 %.1.i to i64
   %59 = getelementptr inbounds i8, ptr %57, i64 %58
@@ -461,7 +464,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit: ; preds = %.lr.ph.i, %18
   %88 = or i32 %87, %.02326.i132
   %indvars.iv.next.i133 = add nuw nsw i64 %indvars.iv.i131, 1
   %exitcond.not.i134 = icmp eq i64 %indvars.iv.next.i133, %wide.trip.count.i129
-  br i1 %exitcond.not.i134, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit135, label %.lr.ph.i130, !llvm.loop !9
+  br i1 %exitcond.not.i134, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit135.loopexit, label %.lr.ph.i130, !llvm.loop !9
 
 89:                                               ; preds = %65
   %90 = zext nneg i8 %67 to i32
@@ -482,11 +485,14 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit: ; preds = %.lr.ph.i, %18
   %105 = or disjoint i32 %101, %104
   br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit135
 
-_ZN24SharedStringDecompressor14decompress_intERPh.exit135: ; preds = %.lr.ph.i130, %69, %76, %89
-  %.1.i125 = phi i32 [ %105, %89 ], [ %79, %76 ], [ %75, %69 ], [ %88, %.lr.ph.i130 ]
-  %.022.i126 = phi i32 [ 4, %89 ], [ 0, %76 ], [ 1, %69 ], [ %72, %.lr.ph.i130 ]
-  %106 = zext nneg i32 %.022.i126 to i64
-  %107 = getelementptr inbounds i8, ptr %13, i64 %106
+_ZN24SharedStringDecompressor14decompress_intERPh.exit135.loopexit: ; preds = %.lr.ph.i130
+  %106 = zext nneg i8 %71 to i64
+  br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit135
+
+_ZN24SharedStringDecompressor14decompress_intERPh.exit135: ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit135.loopexit, %69, %76, %89
+  %.1.i125 = phi i32 [ %105, %89 ], [ %79, %76 ], [ %75, %69 ], [ %88, %_ZN24SharedStringDecompressor14decompress_intERPh.exit135.loopexit ]
+  %.022.i126 = phi i64 [ 4, %89 ], [ 0, %76 ], [ 1, %69 ], [ %106, %_ZN24SharedStringDecompressor14decompress_intERPh.exit135.loopexit ]
+  %107 = getelementptr inbounds i8, ptr %13, i64 %.022.i126
   %108 = load i8, ptr %107, align 1
   %109 = icmp slt i8 %108, 0
   br i1 %109, label %110, label %130
@@ -525,7 +531,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit135: ; preds = %.lr.ph.i13
   %129 = or i32 %128, %.02326.i143
   %indvars.iv.next.i144 = add nuw nsw i64 %indvars.iv.i142, 1
   %exitcond.not.i145 = icmp eq i64 %indvars.iv.next.i144, %wide.trip.count.i140
-  br i1 %exitcond.not.i145, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit146, label %.lr.ph.i141, !llvm.loop !9
+  br i1 %exitcond.not.i145, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit146.loopexit, label %.lr.ph.i141, !llvm.loop !9
 
 130:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit135
   %131 = zext nneg i8 %108 to i32
@@ -546,11 +552,14 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit135: ; preds = %.lr.ph.i13
   %146 = or disjoint i32 %142, %145
   br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit146
 
-_ZN24SharedStringDecompressor14decompress_intERPh.exit146: ; preds = %.lr.ph.i141, %110, %117, %130
-  %.1.i136 = phi i32 [ %146, %130 ], [ %120, %117 ], [ %116, %110 ], [ %129, %.lr.ph.i141 ]
-  %.022.i137 = phi i32 [ 4, %130 ], [ 0, %117 ], [ 1, %110 ], [ %113, %.lr.ph.i141 ]
-  %147 = zext nneg i32 %.022.i137 to i64
-  %148 = getelementptr inbounds i8, ptr %107, i64 %147
+_ZN24SharedStringDecompressor14decompress_intERPh.exit146.loopexit: ; preds = %.lr.ph.i141
+  %147 = zext nneg i8 %112 to i64
+  br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit146
+
+_ZN24SharedStringDecompressor14decompress_intERPh.exit146: ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit146.loopexit, %110, %117, %130
+  %.1.i136 = phi i32 [ %146, %130 ], [ %120, %117 ], [ %116, %110 ], [ %129, %_ZN24SharedStringDecompressor14decompress_intERPh.exit146.loopexit ]
+  %.022.i137 = phi i64 [ 4, %130 ], [ 0, %117 ], [ 1, %110 ], [ %147, %_ZN24SharedStringDecompressor14decompress_intERPh.exit146.loopexit ]
+  %148 = getelementptr inbounds i8, ptr %107, i64 %.022.i137
   %149 = getelementptr inbounds i8, ptr %.0194, i64 3
   %150 = load ptr, ptr %4, align 8
   %151 = zext i32 %.1.i125 to i64
@@ -614,7 +623,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit146: ; preds = %.lr.ph.i14
   %183 = or i32 %182, %.02326.i154
   %indvars.iv.next.i155 = add nuw nsw i64 %indvars.iv.i153, 1
   %exitcond.not.i156 = icmp eq i64 %indvars.iv.next.i155, %wide.trip.count.i151
-  br i1 %exitcond.not.i156, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157, label %.lr.ph.i152, !llvm.loop !9
+  br i1 %exitcond.not.i156, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit, label %.lr.ph.i152, !llvm.loop !9
 
 184:                                              ; preds = %161
   %185 = zext nneg i8 %162 to i32
@@ -635,11 +644,14 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit146: ; preds = %.lr.ph.i14
   %200 = or disjoint i32 %196, %199
   br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157
 
-_ZN24SharedStringDecompressor14decompress_intERPh.exit157: ; preds = %.lr.ph.i152, %164, %171, %184
-  %.1.i147 = phi i32 [ %200, %184 ], [ %174, %171 ], [ %170, %164 ], [ %183, %.lr.ph.i152 ]
-  %.022.i148 = phi i32 [ 4, %184 ], [ 0, %171 ], [ 1, %164 ], [ %167, %.lr.ph.i152 ]
-  %201 = zext nneg i32 %.022.i148 to i64
-  %202 = getelementptr inbounds i8, ptr %.0183, i64 %201
+_ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit: ; preds = %.lr.ph.i152
+  %201 = zext nneg i8 %166 to i64
+  br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157
+
+_ZN24SharedStringDecompressor14decompress_intERPh.exit157: ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit, %164, %171, %184
+  %.1.i147 = phi i32 [ %200, %184 ], [ %174, %171 ], [ %170, %164 ], [ %183, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit ]
+  %.022.i148 = phi i64 [ 4, %184 ], [ 0, %171 ], [ 1, %164 ], [ %201, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit ]
+  %202 = getelementptr inbounds i8, ptr %.0183, i64 %.022.i148
   %203 = load ptr, ptr %4, align 8
   %204 = zext i32 %.1.i147 to i64
   %205 = getelementptr inbounds i8, ptr %203, i64 %204
@@ -703,7 +715,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit157: ; preds = %.lr.ph.i15
   %239 = or i32 %238, %.02326.i165
   %indvars.iv.next.i166 = add nuw nsw i64 %indvars.iv.i164, 1
   %exitcond.not.i167 = icmp eq i64 %indvars.iv.next.i166, %wide.trip.count.i162
-  br i1 %exitcond.not.i167, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168, label %.lr.ph.i163, !llvm.loop !9
+  br i1 %exitcond.not.i167, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit, label %.lr.ph.i163, !llvm.loop !9
 
 240:                                              ; preds = %217
   %241 = zext nneg i8 %218 to i32
@@ -724,11 +736,14 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit157: ; preds = %.lr.ph.i15
   %256 = or disjoint i32 %252, %255
   br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168
 
-_ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %.lr.ph.i163, %220, %227, %240
-  %.1.i158 = phi i32 [ %256, %240 ], [ %230, %227 ], [ %226, %220 ], [ %239, %.lr.ph.i163 ]
-  %.022.i159 = phi i32 [ 4, %240 ], [ 0, %227 ], [ 1, %220 ], [ %223, %.lr.ph.i163 ]
-  %257 = zext nneg i32 %.022.i159 to i64
-  %258 = getelementptr inbounds i8, ptr %202, i64 %257
+_ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit: ; preds = %.lr.ph.i163
+  %257 = zext nneg i8 %222 to i64
+  br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168
+
+_ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit, %220, %227, %240
+  %.1.i158 = phi i32 [ %256, %240 ], [ %230, %227 ], [ %226, %220 ], [ %239, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit ]
+  %.022.i159 = phi i64 [ 4, %240 ], [ 0, %227 ], [ 1, %220 ], [ %257, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit ]
+  %258 = getelementptr inbounds i8, ptr %202, i64 %.022.i159
   %259 = load ptr, ptr %4, align 8
   %260 = zext i32 %.1.i158 to i64
   %261 = getelementptr inbounds i8, ptr %259, i64 %260

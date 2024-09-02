@@ -785,19 +785,19 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %102
 .noexc104:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %105, ptr align 4 %.val85, i64 %.idx, i1 false)
   %106 = getelementptr inbounds i8, ptr %105, i64 %.idx
+  %107 = ptrtoint ptr %106 to i64
   br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %104, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  %107 = landingpad { ptr, i32 }
+  %108 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %96, %.noexc104
   %.sroa.0.0 = phi ptr [ %105, %.noexc104 ], [ null, %96 ]
-  %.sroa.7.0 = phi ptr [ %106, %.noexc104 ], [ null, %96 ]
-  %108 = ptrtoint ptr %.sroa.7.0 to i64
+  %.sroa.7.0 = phi i64 [ %107, %.noexc104 ], [ 0, %96 ]
   %109 = ptrtoint ptr %.sroa.0.0 to i64
-  %110 = sub i64 %108, %109
+  %110 = sub i64 %.sroa.7.0, %109
   %111 = lshr exact i64 %110, 2
   %112 = trunc i64 %111 to i32
   %113 = sub nsw i32 0, %112
@@ -1089,7 +1089,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3M
   ret void
 
 .body:                                            ; preds = %175, %173, %70, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, %87, %72, %64
-  %.pn79 = phi { ptr, i32 } [ %88, %87 ], [ %.pn, %64 ], [ %73, %72 ], [ %71, %70 ], [ %107, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %174, %173 ], [ %174, %175 ]
+  %.pn79 = phi { ptr, i32 } [ %88, %87 ], [ %.pn, %64 ], [ %73, %72 ], [ %71, %70 ], [ %108, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %174, %173 ], [ %174, %175 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #20
   br label %241
 

@@ -6692,17 +6692,17 @@ define internal fastcc i32 @block_bind_subblock_inner(ptr nocapture noundef writ
   %64 = getelementptr inbounds i8, ptr %.0503, i64 88
   %65 = load ptr, ptr %64, align 8
   %.not60 = icmp eq ptr %65, null
-  br i1 %.not60, label %69, label %66
+  br i1 %.not60, label %70, label %66
 
 66:                                               ; preds = %.critedge
   %67 = getelementptr inbounds i8, ptr %.0503, i64 80
   %68 = load ptr, ptr %67, align 8
   %.not61 = icmp eq ptr %68, null
-  br label %69
+  %69 = zext i1 %.not61 to i32
+  br label %70
 
-69:                                               ; preds = %66, %.critedge
-  %70 = phi i1 [ false, %.critedge ], [ %.not61, %66 ]
-  %71 = zext i1 %70 to i32
+70:                                               ; preds = %66, %.critedge
+  %71 = phi i32 [ 0, %.critedge ], [ %69, %66 ]
   store i32 %71, ptr %11, align 8
   %72 = getelementptr inbounds i8, ptr %.0503, i64 112
   %73 = load ptr, ptr %72, align 8
@@ -6716,13 +6716,13 @@ define internal fastcc i32 @block_bind_subblock_inner(ptr nocapture noundef writ
   %.not62 = icmp eq i32 %80, 0
   br i1 %.not62, label %82, label %81
 
-81:                                               ; preds = %69
+81:                                               ; preds = %70
   store i32 1, ptr %0, align 4
   br label %82
 
-82:                                               ; preds = %69, %81, %10
-  %.152 = phi i32 [ %.0512, %10 ], [ %79, %81 ], [ %79, %69 ]
-  %.1 = phi i32 [ %.04, %10 ], [ %.2, %81 ], [ %.2, %69 ]
+82:                                               ; preds = %70, %81, %10
+  %.152 = phi i32 [ %.0512, %10 ], [ %79, %81 ], [ %79, %70 ]
+  %.1 = phi i32 [ %.04, %10 ], [ %.2, %81 ], [ %.2, %70 ]
   %83 = load ptr, ptr %.0503, align 8
   %.not = icmp eq ptr %83, null
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !36
@@ -7049,12 +7049,12 @@ make_env.exit:                                    ; preds = %40, %42, %._crit_ed
   br i1 %.not7.i.i, label %.backedge, label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %126, %.thread168
-  %.sroa.3.0.i143.sink210 = phi ptr [ %.sroa.3.0.i143, %.thread168 ], [ %.sroa.6.0196, %126 ]
+  %.sroa.3.0.i143.sink209 = phi ptr [ %.sroa.3.0.i143, %.thread168 ], [ %.sroa.6.0196, %126 ]
   %.sroa.084.0.be.ph = phi ptr [ %.sroa.0.1.i144, %.thread168 ], [ %.sroa.084.0195, %126 ]
   %.0.be.ph = phi i32 [ %.1173, %.thread168 ], [ %127, %126 ]
-  store ptr %11, ptr %.sroa.3.0.i143.sink210, align 8
+  store ptr %11, ptr %.sroa.3.0.i143.sink209, align 8
   %128 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %.sroa.3.0.i143.sink210, ptr %128, align 8
+  store ptr %.sroa.3.0.i143.sink209, ptr %128, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.sink.split, %.thread168, %126
@@ -7384,17 +7384,20 @@ block_join.exit140:                               ; preds = %gen_subexp.exit, %2
   %254 = add i16 %.1102178, 1
   %255 = load ptr, ptr %138, align 8
   %256 = icmp eq ptr %255, null
-  br i1 %256, label %block_take.exit131, label %.lr.ph, !llvm.loop !41
+  br i1 %256, label %block_take.exit131.loopexit, label %.lr.ph, !llvm.loop !41
 
-block_take.exit131:                               ; preds = %block_join.exit140, %.preheader
-  %.sroa.5.3.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.3.0.i136, %block_join.exit140 ]
-  %.sroa.0158.3.lcssa = phi ptr [ null, %.preheader ], [ %.pn40.i, %block_join.exit140 ]
-  %.1102.lcssa = phi i16 [ 0, %.preheader ], [ %254, %block_join.exit140 ]
-  %.2.lcssa = phi i32 [ %.0197, %.preheader ], [ %187, %block_join.exit140 ]
+block_take.exit131.loopexit:                      ; preds = %block_join.exit140
+  %257 = add i16 %.1102178, 2
+  br label %block_take.exit131
+
+block_take.exit131:                               ; preds = %block_take.exit131.loopexit, %.preheader
+  %.sroa.5.3.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.3.0.i136, %block_take.exit131.loopexit ]
+  %.sroa.0158.3.lcssa = phi ptr [ null, %.preheader ], [ %.pn40.i, %block_take.exit131.loopexit ]
+  %.1102.lcssa = phi i16 [ 1, %.preheader ], [ %257, %block_take.exit131.loopexit ]
+  %.2.lcssa = phi i32 [ %.0197, %.preheader ], [ %187, %block_take.exit131.loopexit ]
   store i32 27, ptr %18, align 8
-  %257 = add i16 %.1102.lcssa, 1
   %258 = getelementptr inbounds i8, ptr %11, i64 24
-  store i16 %257, ptr %258, align 8
+  store i16 %.1102.lcssa, ptr %258, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %block_take.exit120, %block_take.exit131

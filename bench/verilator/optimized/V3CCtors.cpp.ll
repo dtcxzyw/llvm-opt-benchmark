@@ -793,15 +793,15 @@ _ZNK7AstNode6isWideEv.exit:                       ; preds = %_ZN16VSelfPointerTe
   %188 = load i32, ptr %187, align 8
   %189 = add nsw i32 %188, 31
   %190 = sdiv i32 %189, 32
+  %191 = add nsw i32 %190, -1
   br label %_ZNK7AstNode10widthWordsEv.exit
 
 _ZNK7AstNode10widthWordsEv.exit:                  ; preds = %186, %183
-  %191 = phi i32 [ %190, %186 ], [ 0, %183 ]
+  %192 = phi i32 [ %191, %186 ], [ -1, %183 ]
   invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %182, i16 95, ptr noundef %184)
           to label %.noexc116 unwind label %225
 
 .noexc116:                                        ; preds = %_ZNK7AstNode10widthWordsEv.exit
-  %192 = add nsw i32 %191, -1
   store ptr getelementptr inbounds (i8, ptr @_ZTV8AstConst, i64 16), ptr %182, align 8
   %193 = getelementptr inbounds i8, ptr %182, i64 152
   invoke void @_ZN8V3NumberC2EP7AstNodeijb(ptr noundef nonnull align 8 dereferenceable(56) %193, ptr noundef nonnull %182, i32 noundef 32, i32 noundef %192, i1 noundef zeroext true)
@@ -3267,11 +3267,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %21 = getelementptr inbounds i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %21, align 8
   %22 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 324
+  %23 = zext i1 %22 to i8
   br label %_ZN7AstNode9privateIsI8AstClassP13AstNodeModuleEEbPKS_.exit
 
 _ZN7AstNode9privateIsI8AstClassP13AstNodeModuleEEbPKS_.exit: ; preds = %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %23 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ], [ %22, %20 ]
-  %24 = zext i1 %23 to i8
+  %24 = phi i8 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ], [ %23, %20 ]
   invoke void @_ZN15V3CCtorsBuilderC2EP13AstNodeModuleRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9VCtorType(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %4, i8 %24)
           to label %25 unwind label %57
 

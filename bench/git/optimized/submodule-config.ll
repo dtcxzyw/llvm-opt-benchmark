@@ -230,7 +230,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @online_cpus() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, 3) i32 @parse_fetch_recurse_submodules_arg(ptr noundef %opt, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 3) i32 @parse_fetch_recurse_submodules_arg(ptr noundef %opt, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @git_parse_maybe_bool(ptr noundef %arg) #14
   switch i32 %call.i, label %sw.default.i [

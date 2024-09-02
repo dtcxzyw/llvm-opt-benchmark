@@ -528,14 +528,17 @@ _ZNSt6vectorIiSaIiEED2Ev.exit88.thread.i:         ; preds = %89, %88
   store i32 %138, ptr %136, align 4
   %indvars.iv.next185.i = add nuw i64 %indvars.iv184.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next185.i, %1
-  br i1 %exitcond.not.i, label %._crit_edge155.i, label %98, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge155.loopexit.i, label %98, !llvm.loop !7
 
-._crit_edge155.i:                                 ; preds = %._crit_edge145.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.12.0.lcssa.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %.sroa.12.1.lcssa.i, %._crit_edge145.i ]
-  %.sroa.0101.0.lcssa.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %.sroa.0101.1.lcssa.i, %._crit_edge145.i ]
-  %139 = ptrtoint ptr %.sroa.12.0.lcssa.i to i64
+._crit_edge155.loopexit.i:                        ; preds = %._crit_edge145.i
+  %139 = ptrtoint ptr %.sroa.12.1.lcssa.i to i64
+  br label %._crit_edge155.i
+
+._crit_edge155.i:                                 ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i, %._crit_edge155.loopexit.i
+  %.sroa.12.0.lcssa.i = phi i64 [ %139, %._crit_edge155.loopexit.i ], [ 0, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.sroa.0101.0.lcssa.i = phi ptr [ %.sroa.0101.1.lcssa.i, %._crit_edge155.loopexit.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %140 = ptrtoint ptr %.sroa.0101.0.lcssa.i to i64
-  %141 = sub i64 %139, %140
+  %141 = sub i64 %.sroa.12.0.lcssa.i, %140
   %142 = ashr exact i64 %141, 2
   %143 = add nsw i64 %142, 1
   %144 = icmp ugt i64 %143, 2305843009213693951

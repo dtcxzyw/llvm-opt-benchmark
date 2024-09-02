@@ -252,7 +252,7 @@ define internal void @cf_socket_destroy(ptr noundef %0, ptr noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cf_tcp_connect(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) #2 {
+define internal range(i32 0, 46) i32 @cf_tcp_connect(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3) #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [256 x i8], align 16
@@ -1437,7 +1437,7 @@ define dso_local i32 @Curl_cf_tcp_create(ptr nocapture noundef writeonly %0, ptr
 declare i32 @Curl_cf_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cf_udp_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2, ptr nocapture noundef writeonly %3) #2 {
+define internal range(i32 0, 46) i32 @cf_udp_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2, ptr nocapture noundef writeonly %3) #2 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2201,7 +2201,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 declare void @Curl_bufq_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cf_socket_open(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 46) i32 @cf_socket_open(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = alloca %struct.Curl_sockaddr_storage, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4

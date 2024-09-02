@@ -477,7 +477,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_cancel(ptr noundef %req) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @uv_cancel(ptr noundef %req) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load i32, ptr %type, align 8

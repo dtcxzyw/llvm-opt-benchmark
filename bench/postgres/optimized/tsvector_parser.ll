@@ -14,16 +14,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @init_tsvector_parser(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @palloc(i64 noundef 48) #8
+  %4 = tail call ptr @palloc(i64 noundef 48) #7
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 32, ptr %6, align 8
-  %7 = tail call ptr @palloc(i64 noundef 32) #8
+  %7 = tail call ptr @palloc(i64 noundef 32) #7
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %7, ptr %8, align 8
-  %9 = tail call i32 @pg_database_encoding_max_length() #8
+  %9 = tail call i32 @pg_database_encoding_max_length() #7
   %10 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 %9, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %4, i64 32
@@ -57,8 +57,8 @@ define dso_local void @reset_tsvector_parser(ptr nocapture noundef writeonly %0,
 define dso_local void @close_tsvector_parser(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  tail call void @pfree(ptr noundef %3) #8
-  tail call void @pfree(ptr noundef %0) #8
+  tail call void @pfree(ptr noundef %3) #7
+  tail call void @pfree(ptr noundef %0) #7
   ret void
 }
 
@@ -121,7 +121,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @pg_mblen(ptr noundef nonnull %15) #8
+  %28 = tail call i32 @pg_mblen(ptr noundef nonnull %15) #7
   %29 = icmp eq i32 %28, 1
   %.pre562.pre = load ptr, ptr %0, align 8
   br i1 %29, label %30, label %32
@@ -151,33 +151,33 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 38:                                               ; preds = %30, %30, %30, %30, %30, %30, %35
   %39 = getelementptr inbounds i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call zeroext i1 @errsave_start(ptr noundef %40, ptr noundef null) #8
+  %41 = tail call zeroext i1 @errsave_start(ptr noundef %40, ptr noundef null) #7
   br i1 %41, label %42, label %prssyntaxerror.exit
 
 42:                                               ; preds = %38
-  %43 = tail call i32 @errcode(i32 noundef 16801924) #8
+  %43 = tail call i32 @errcode(i32 noundef 16801924) #7
   %44 = getelementptr inbounds i8, ptr %0, i64 33
   %45 = load i8, ptr %44, align 1
   %46 = trunc i8 %45 to i1
   %47 = getelementptr inbounds i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   %.str.4..str.5.i = select i1 %46, ptr @.str.4, ptr @.str.5
-  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i, ptr noundef %48) #8
-  tail call void @errsave_finish(ptr noundef %40, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #8
+  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i, ptr noundef %48) #7
+  tail call void @errsave_finish(ptr noundef %40, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #7
   br label %prssyntaxerror.exit
 
 50:                                               ; preds = %35, %32
-  %51 = tail call i32 @t_isspace(ptr noundef %.pre562) #8
+  %51 = tail call i32 @t_isspace(ptr noundef %.pre562) #7
   %.not406 = icmp eq i32 %51, 0
   br i1 %.not406, label %52, label %488
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %0, align 8
-  %54 = tail call i32 @pg_mblen(ptr noundef %53) #8
+  %54 = tail call i32 @pg_mblen(ptr noundef %53) #7
   %55 = sext i32 %54 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0318, ptr align 1 %53, i64 %55, i1 false)
   %56 = load ptr, ptr %0, align 8
-  %57 = tail call i32 @pg_mblen(ptr noundef %56) #8
+  %57 = tail call i32 @pg_mblen(ptr noundef %56) #7
   %58 = sext i32 %57 to i64
   %59 = getelementptr i8, ptr %.0318, i64 %58
   br label %488
@@ -191,15 +191,15 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 64:                                               ; preds = %60
   %65 = getelementptr inbounds i8, ptr %0, i64 40
   %66 = load ptr, ptr %65, align 8
-  %67 = tail call zeroext i1 @errsave_start(ptr noundef %66, ptr noundef null) #8
+  %67 = tail call zeroext i1 @errsave_start(ptr noundef %66, ptr noundef null) #7
   br i1 %67, label %68, label %prssyntaxerror.exit
 
 68:                                               ; preds = %64
-  %69 = tail call i32 @errcode(i32 noundef 16801924) #8
+  %69 = tail call i32 @errcode(i32 noundef 16801924) #7
   %70 = getelementptr inbounds i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %71) #8
-  tail call void @errsave_finish(ptr noundef %66, ptr noundef nonnull @.str.1, i32 noundef 222, ptr noundef nonnull @__func__.gettoken_tsvector) #8
+  %72 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %71) #7
+  tail call void @errsave_finish(ptr noundef %66, ptr noundef nonnull @.str.1, i32 noundef 222, ptr noundef nonnull @__func__.gettoken_tsvector) #7
   br label %prssyntaxerror.exit
 
 73:                                               ; preds = %60
@@ -218,7 +218,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %83 = shl i32 %81, 1
   store i32 %83, ptr %11, align 8
   %84 = sext i32 %83 to i64
-  %85 = tail call ptr @repalloc(ptr noundef %74, i64 noundef %84) #8
+  %85 = tail call ptr @repalloc(ptr noundef %74, i64 noundef %84) #7
   store ptr %85, ptr %7, align 8
   %sext405 = shl i64 %77, 32
   %86 = ashr exact i64 %sext405, 32
@@ -229,11 +229,11 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 88:                                               ; preds = %73, %82
   %89 = phi ptr [ %.pre561, %82 ], [ %61, %73 ]
   %.2 = phi ptr [ %87, %82 ], [ %.0318, %73 ]
-  %90 = tail call i32 @pg_mblen(ptr noundef %89) #8
+  %90 = tail call i32 @pg_mblen(ptr noundef %89) #7
   %91 = sext i32 %90 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2, ptr align 1 %89, i64 %91, i1 false)
   %92 = load ptr, ptr %0, align 8
-  %93 = tail call i32 @pg_mblen(ptr noundef %92) #8
+  %93 = tail call i32 @pg_mblen(ptr noundef %92) #7
   %94 = sext i32 %93 to i64
   %95 = getelementptr i8, ptr %.2, i64 %94
   br label %488
@@ -250,7 +250,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %101, label %488, label %102
 
 102:                                              ; preds = %99, %96
-  %103 = tail call i32 @t_isspace(ptr noundef %.pre557) #8
+  %103 = tail call i32 @t_isspace(ptr noundef %.pre557) #7
   %.not389 = icmp eq i32 %103, 0
   br i1 %.not389, label %104, label %119
 
@@ -266,7 +266,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %110, label %111, label %._crit_edge564
 
 111:                                              ; preds = %108
-  %112 = tail call i32 @pg_mblen(ptr noundef nonnull %105) #8
+  %112 = tail call i32 @pg_mblen(ptr noundef nonnull %105) #7
   %113 = icmp eq i32 %112, 1
   %.pre558.pre = load ptr, ptr %0, align 8
   %114 = load i8, ptr %.pre558.pre, align 1
@@ -307,7 +307,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %129 = shl i32 %127, 1
   store i32 %129, ptr %11, align 8
   %130 = sext i32 %129 to i64
-  %131 = tail call ptr @repalloc(ptr noundef %120, i64 noundef %130) #8
+  %131 = tail call ptr @repalloc(ptr noundef %120, i64 noundef %130) #7
   store ptr %131, ptr %7, align 8
   %sext398 = shl i64 %123, 32
   %132 = ashr exact i64 %sext398, 32
@@ -323,19 +323,19 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 137:                                              ; preds = %134
   %138 = getelementptr inbounds i8, ptr %0, i64 40
   %139 = load ptr, ptr %138, align 8
-  %140 = tail call zeroext i1 @errsave_start(ptr noundef %139, ptr noundef null) #8
+  %140 = tail call zeroext i1 @errsave_start(ptr noundef %139, ptr noundef null) #7
   br i1 %140, label %141, label %prssyntaxerror.exit
 
 141:                                              ; preds = %137
-  %142 = tail call i32 @errcode(i32 noundef 16801924) #8
+  %142 = tail call i32 @errcode(i32 noundef 16801924) #7
   %143 = getelementptr inbounds i8, ptr %0, i64 33
   %144 = load i8, ptr %143, align 1
   %145 = trunc i8 %144 to i1
   %146 = getelementptr inbounds i8, ptr %0, i64 8
   %147 = load ptr, ptr %146, align 8
   %.str.4..str.5.i408 = select i1 %145, ptr @.str.4, ptr @.str.5
-  %148 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i408, ptr noundef %147) #8
-  tail call void @errsave_finish(ptr noundef %139, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #8
+  %148 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i408, ptr noundef %147) #7
+  tail call void @errsave_finish(ptr noundef %139, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #7
   br label %prssyntaxerror.exit
 
 149:                                              ; preds = %134
@@ -353,7 +353,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not400, label %153, label %152
 
 152:                                              ; preds = %151
-  tail call void @pfree(ptr noundef nonnull %.0322.ph) #8
+  tail call void @pfree(ptr noundef nonnull %.0322.ph) #7
   br label %153
 
 153:                                              ; preds = %151, %152, %150
@@ -399,19 +399,19 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 171:                                              ; preds = %169
   %172 = getelementptr inbounds i8, ptr %0, i64 40
   %173 = load ptr, ptr %172, align 8
-  %174 = tail call zeroext i1 @errsave_start(ptr noundef %173, ptr noundef null) #8
+  %174 = tail call zeroext i1 @errsave_start(ptr noundef %173, ptr noundef null) #7
   br i1 %174, label %175, label %prssyntaxerror.exit
 
 175:                                              ; preds = %171
-  %176 = tail call i32 @errcode(i32 noundef 16801924) #8
+  %176 = tail call i32 @errcode(i32 noundef 16801924) #7
   %177 = getelementptr inbounds i8, ptr %0, i64 33
   %178 = load i8, ptr %177, align 1
   %179 = trunc i8 %178 to i1
   %180 = getelementptr inbounds i8, ptr %0, i64 8
   %181 = load ptr, ptr %180, align 8
   %.str.4..str.5.i410 = select i1 %179, ptr @.str.4, ptr @.str.5
-  %182 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i410, ptr noundef %181) #8
-  tail call void @errsave_finish(ptr noundef %173, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #8
+  %182 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i410, ptr noundef %181) #7
+  tail call void @errsave_finish(ptr noundef %173, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #7
   br label %prssyntaxerror.exit
 
 183:                                              ; preds = %169
@@ -434,7 +434,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not393, label %190, label %189
 
 189:                                              ; preds = %188
-  tail call void @pfree(ptr noundef nonnull %.0322.ph) #8
+  tail call void @pfree(ptr noundef nonnull %.0322.ph) #7
   br label %190
 
 190:                                              ; preds = %188, %189, %187
@@ -483,7 +483,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %212 = shl i32 %210, 1
   store i32 %212, ptr %11, align 8
   %213 = sext i32 %212 to i64
-  %214 = tail call ptr @repalloc(ptr noundef %168, i64 noundef %213) #8
+  %214 = tail call ptr @repalloc(ptr noundef %168, i64 noundef %213) #7
   store ptr %214, ptr %7, align 8
   %sext391 = shl i64 %206, 32
   %215 = ashr exact i64 %sext391, 32
@@ -494,11 +494,11 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 217:                                              ; preds = %203, %211
   %218 = phi ptr [ %.pre560, %211 ], [ %.pre558, %203 ]
   %.4 = phi ptr [ %216, %211 ], [ %.0318, %203 ]
-  %219 = tail call i32 @pg_mblen(ptr noundef %218) #8
+  %219 = tail call i32 @pg_mblen(ptr noundef %218) #7
   %220 = sext i32 %219 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.4, ptr align 1 %218, i64 %220, i1 false)
   %221 = load ptr, ptr %0, align 8
-  %222 = tail call i32 @pg_mblen(ptr noundef %221) #8
+  %222 = tail call i32 @pg_mblen(ptr noundef %221) #7
   %223 = sext i32 %222 to i64
   %224 = getelementptr i8, ptr %.4, i64 %223
   br label %488
@@ -524,19 +524,19 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 230:                                              ; preds = %228, %.thread
   %231 = getelementptr inbounds i8, ptr %0, i64 40
   %232 = load ptr, ptr %231, align 8
-  %233 = tail call zeroext i1 @errsave_start(ptr noundef %232, ptr noundef null) #8
+  %233 = tail call zeroext i1 @errsave_start(ptr noundef %232, ptr noundef null) #7
   br i1 %233, label %234, label %prssyntaxerror.exit
 
 234:                                              ; preds = %230
-  %235 = tail call i32 @errcode(i32 noundef 16801924) #8
+  %235 = tail call i32 @errcode(i32 noundef 16801924) #7
   %236 = getelementptr inbounds i8, ptr %0, i64 33
   %237 = load i8, ptr %236, align 1
   %238 = trunc i8 %237 to i1
   %239 = getelementptr inbounds i8, ptr %0, i64 8
   %240 = load ptr, ptr %239, align 8
   %.str.4..str.5.i412 = select i1 %238, ptr @.str.4, ptr @.str.5
-  %241 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i412, ptr noundef %240) #8
-  tail call void @errsave_finish(ptr noundef %232, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #8
+  %241 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i412, ptr noundef %240) #7
+  tail call void @errsave_finish(ptr noundef %232, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #7
   br label %prssyntaxerror.exit
 
 242:                                              ; preds = %228, %.thread
@@ -555,7 +555,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %252 = shl i32 %250, 1
   store i32 %252, ptr %11, align 8
   %253 = sext i32 %252 to i64
-  %254 = tail call ptr @repalloc(ptr noundef %243, i64 noundef %253) #8
+  %254 = tail call ptr @repalloc(ptr noundef %243, i64 noundef %253) #7
   store ptr %254, ptr %7, align 8
   %sext388 = shl i64 %246, 32
   %255 = ashr exact i64 %sext388, 32
@@ -566,11 +566,11 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 257:                                              ; preds = %242, %251
   %258 = phi ptr [ %.pre556, %251 ], [ %.pre554, %242 ]
   %.5 = phi ptr [ %256, %251 ], [ %.0318, %242 ]
-  %259 = tail call i32 @pg_mblen(ptr noundef %258) #8
+  %259 = tail call i32 @pg_mblen(ptr noundef %258) #7
   %260 = sext i32 %259 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.5, ptr align 1 %258, i64 %260, i1 false)
   %261 = load ptr, ptr %0, align 8
-  %262 = tail call i32 @pg_mblen(ptr noundef %261) #8
+  %262 = tail call i32 @pg_mblen(ptr noundef %261) #7
   %263 = sext i32 %262 to i64
   %264 = getelementptr i8, ptr %.5, i64 %263
   br label %488
@@ -606,7 +606,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %281 = shl i32 %279, 1
   store i32 %281, ptr %11, align 8
   %282 = sext i32 %281 to i64
-  %283 = tail call ptr @repalloc(ptr noundef %.pre553, i64 noundef %282) #8
+  %283 = tail call ptr @repalloc(ptr noundef %.pre553, i64 noundef %282) #7
   store ptr %283, ptr %7, align 8
   %sext = shl i64 %275, 32
   %284 = ashr exact i64 %sext, 32
@@ -617,11 +617,11 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 286:                                              ; preds = %272, %280
   %287 = phi ptr [ %.pre, %280 ], [ %269, %272 ]
   %.6 = phi ptr [ %285, %280 ], [ %.0318, %272 ]
-  %288 = tail call i32 @pg_mblen(ptr noundef %287) #8
+  %288 = tail call i32 @pg_mblen(ptr noundef %287) #7
   %289 = sext i32 %288 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.6, ptr align 1 %287, i64 %289, i1 false)
   %290 = load ptr, ptr %0, align 8
-  %291 = tail call i32 @pg_mblen(ptr noundef %290) #8
+  %291 = tail call i32 @pg_mblen(ptr noundef %290) #7
   %292 = sext i32 %291 to i64
   %293 = getelementptr i8, ptr %.6, i64 %292
   br label %488
@@ -642,7 +642,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %304 = shl i32 %302, 1
   store i32 %304, ptr %11, align 8
   %305 = sext i32 %304 to i64
-  %306 = tail call ptr @repalloc(ptr noundef %295, i64 noundef %305) #8
+  %306 = tail call ptr @repalloc(ptr noundef %295, i64 noundef %305) #7
   store ptr %306, ptr %7, align 8
   %sext381 = shl i64 %298, 32
   %307 = ashr exact i64 %sext381, 32
@@ -659,19 +659,19 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 312:                                              ; preds = %309
   %313 = getelementptr inbounds i8, ptr %0, i64 40
   %314 = load ptr, ptr %313, align 8
-  %315 = tail call zeroext i1 @errsave_start(ptr noundef %314, ptr noundef null) #8
+  %315 = tail call zeroext i1 @errsave_start(ptr noundef %314, ptr noundef null) #7
   br i1 %315, label %316, label %prssyntaxerror.exit
 
 316:                                              ; preds = %312
-  %317 = tail call i32 @errcode(i32 noundef 16801924) #8
+  %317 = tail call i32 @errcode(i32 noundef 16801924) #7
   %318 = getelementptr inbounds i8, ptr %0, i64 33
   %319 = load i8, ptr %318, align 1
   %320 = trunc i8 %319 to i1
   %321 = getelementptr inbounds i8, ptr %0, i64 8
   %322 = load ptr, ptr %321, align 8
   %.str.4..str.5.i414 = select i1 %320, ptr @.str.4, ptr @.str.5
-  %323 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i414, ptr noundef %322) #8
-  tail call void @errsave_finish(ptr noundef %314, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #8
+  %323 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i414, ptr noundef %322) #7
+  tail call void @errsave_finish(ptr noundef %314, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #7
   br label %prssyntaxerror.exit
 
 324:                                              ; preds = %309
@@ -693,7 +693,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not383, label %331, label %330
 
 330:                                              ; preds = %329
-  tail call void @pfree(ptr noundef nonnull %.0322.ph) #8
+  tail call void @pfree(ptr noundef nonnull %.0322.ph) #7
   br label %331
 
 331:                                              ; preds = %329, %330, %328
@@ -747,7 +747,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not375, label %352, label %351
 
 351:                                              ; preds = %350
-  tail call void @pfree(ptr noundef nonnull %.0322.ph) #8
+  tail call void @pfree(ptr noundef nonnull %.0322.ph) #7
   br label %352
 
 352:                                              ; preds = %350, %351, %349
@@ -783,7 +783,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 
 365:                                              ; preds = %13
   %366 = load ptr, ptr %0, align 8
-  %367 = tail call i32 @t_isdigit(ptr noundef %366) #8
+  %367 = tail call i32 @t_isdigit(ptr noundef %366) #7
   %.not372 = icmp eq i32 %367, 0
   br i1 %.not372, label %403, label %368
 
@@ -792,7 +792,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %369, label %370, label %372
 
 370:                                              ; preds = %368
-  %371 = tail call ptr @palloc(i64 noundef 8) #8
+  %371 = tail call ptr @palloc(i64 noundef 8) #7
   br label %379
 
 372:                                              ; preds = %368
@@ -804,7 +804,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %375 = shl i32 %.0328.ph, 1
   %376 = sext i32 %375 to i64
   %377 = shl nsw i64 %376, 1
-  %378 = tail call ptr @repalloc(ptr noundef %.0322.ph, i64 noundef %377) #8
+  %378 = tail call ptr @repalloc(ptr noundef %.0322.ph, i64 noundef %377) #7
   br label %379
 
 379:                                              ; preds = %372, %374, %370
@@ -816,52 +816,51 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %382 = load i16, ptr %381, align 2
   %383 = and i16 %382, -16384
   %384 = load ptr, ptr %0, align 8
-  %385 = tail call i32 @atoi(ptr nocapture noundef %384) #9
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %385, i32 16383)
-  %386 = trunc i32 %spec.select to i16
-  %387 = and i16 %386, 16383
-  %388 = or disjoint i16 %387, %383
-  store i16 %388, ptr %381, align 2
-  %389 = and i32 %spec.select, 16383
-  %390 = icmp eq i32 %389, 0
-  br i1 %390, label %391, label %400
+  %385 = tail call i32 @atoi(ptr nocapture noundef %384) #8
+  %386 = icmp sgt i32 %385, 16383
+  %387 = trunc i32 %385 to i16
+  %388 = and i16 %387, 16383
+  %389 = select i1 %386, i16 16383, i16 %388
+  %390 = or disjoint i16 %389, %383
+  store i16 %390, ptr %381, align 2
+  %391 = icmp eq i16 %389, 0
+  br i1 %391, label %392, label %401
 
-391:                                              ; preds = %379
-  %392 = getelementptr inbounds i8, ptr %0, i64 40
-  %393 = load ptr, ptr %392, align 8
-  %394 = tail call zeroext i1 @errsave_start(ptr noundef %393, ptr noundef null) #8
-  br i1 %394, label %395, label %prssyntaxerror.exit
+392:                                              ; preds = %379
+  %393 = getelementptr inbounds i8, ptr %0, i64 40
+  %394 = load ptr, ptr %393, align 8
+  %395 = tail call zeroext i1 @errsave_start(ptr noundef %394, ptr noundef null) #7
+  br i1 %395, label %396, label %prssyntaxerror.exit
 
-395:                                              ; preds = %391
-  %396 = tail call i32 @errcode(i32 noundef 16801924) #8
-  %397 = getelementptr inbounds i8, ptr %0, i64 8
-  %398 = load ptr, ptr %397, align 8
-  %399 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %398) #8
-  tail call void @errsave_finish(ptr noundef %393, ptr noundef nonnull @.str.1, i32 noundef 340, ptr noundef nonnull @__func__.gettoken_tsvector) #8
+396:                                              ; preds = %392
+  %397 = tail call i32 @errcode(i32 noundef 16801924) #7
+  %398 = getelementptr inbounds i8, ptr %0, i64 8
+  %399 = load ptr, ptr %398, align 8
+  %400 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %399) #7
+  tail call void @errsave_finish(ptr noundef %394, ptr noundef nonnull @.str.1, i32 noundef 340, ptr noundef nonnull @__func__.gettoken_tsvector) #7
   br label %prssyntaxerror.exit
 
-400:                                              ; preds = %379
-  %401 = add i32 %.2327, 1
-  %402 = trunc nuw nsw i32 %389 to i16
-  store i16 %402, ptr %381, align 2
+401:                                              ; preds = %379
+  %402 = add i32 %.2327, 1
+  store i16 %389, ptr %381, align 2
   br label %488
 
 403:                                              ; preds = %365
   %404 = getelementptr inbounds i8, ptr %0, i64 40
   %405 = load ptr, ptr %404, align 8
-  %406 = tail call zeroext i1 @errsave_start(ptr noundef %405, ptr noundef null) #8
+  %406 = tail call zeroext i1 @errsave_start(ptr noundef %405, ptr noundef null) #7
   br i1 %406, label %407, label %prssyntaxerror.exit
 
 407:                                              ; preds = %403
-  %408 = tail call i32 @errcode(i32 noundef 16801924) #8
+  %408 = tail call i32 @errcode(i32 noundef 16801924) #7
   %409 = getelementptr inbounds i8, ptr %0, i64 33
   %410 = load i8, ptr %409, align 1
   %411 = trunc i8 %410 to i1
   %412 = getelementptr inbounds i8, ptr %0, i64 8
   %413 = load ptr, ptr %412, align 8
   %.str.4..str.5.i416 = select i1 %411, ptr @.str.4, ptr @.str.5
-  %414 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i416, ptr noundef %413) #8
-  tail call void @errsave_finish(ptr noundef %405, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #8
+  %414 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i416, ptr noundef %413) #7
+  tail call void @errsave_finish(ptr noundef %405, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #7
   br label %prssyntaxerror.exit
 
 415:                                              ; preds = %13
@@ -891,19 +890,19 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
 423:                                              ; preds = %418
   %424 = getelementptr inbounds i8, ptr %0, i64 40
   %425 = load ptr, ptr %424, align 8
-  %426 = tail call zeroext i1 @errsave_start(ptr noundef %425, ptr noundef null) #8
+  %426 = tail call zeroext i1 @errsave_start(ptr noundef %425, ptr noundef null) #7
   br i1 %426, label %427, label %prssyntaxerror.exit
 
 427:                                              ; preds = %423
-  %428 = tail call i32 @errcode(i32 noundef 16801924) #8
+  %428 = tail call i32 @errcode(i32 noundef 16801924) #7
   %429 = getelementptr inbounds i8, ptr %0, i64 33
   %430 = load i8, ptr %429, align 1
   %431 = trunc i8 %430 to i1
   %432 = getelementptr inbounds i8, ptr %0, i64 8
   %433 = load ptr, ptr %432, align 8
   %.str.4..str.5.i418 = select i1 %431, ptr @.str.4, ptr @.str.5
-  %434 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i418, ptr noundef %433) #8
-  tail call void @errsave_finish(ptr noundef %425, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #8
+  %434 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5.i418, ptr noundef %433) #7
+  tail call void @errsave_finish(ptr noundef %425, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #7
   br label %prssyntaxerror.exit
 
 435:                                              ; preds = %418
@@ -958,7 +957,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %prssyntaxerror.exit
 
 459:                                              ; preds = %415
-  %460 = tail call i32 @t_isspace(ptr noundef nonnull %416) #8
+  %460 = tail call i32 @t_isspace(ptr noundef nonnull %416) #7
   %.not = icmp eq i32 %460, 0
   br i1 %.not, label %461, label %465
 
@@ -982,7 +981,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br i1 %.not364, label %469, label %468
 
 468:                                              ; preds = %467
-  tail call void @pfree(ptr noundef nonnull %.0322.ph) #8
+  tail call void @pfree(ptr noundef nonnull %.0322.ph) #7
   br label %469
 
 469:                                              ; preds = %467, %468, %466
@@ -1017,7 +1016,7 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %prssyntaxerror.exit
 
 482:                                              ; preds = %461
-  %483 = tail call i32 @t_isdigit(ptr noundef nonnull %462) #8
+  %483 = tail call i32 @t_isdigit(ptr noundef nonnull %462) #7
   %.not362 = icmp eq i32 %483, 0
   br i1 %.not362, label %484, label %488
 
@@ -1026,32 +1025,32 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   br label %prssyntaxerror.exit
 
 485:                                              ; preds = %13
-  %486 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %486 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %486)
-  %487 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %.0320) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 383, ptr noundef nonnull @__func__.gettoken_tsvector) #8
+  %487 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %.0320) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 383, ptr noundef nonnull @__func__.gettoken_tsvector) #7
   unreachable
 
 .fold.split:                                      ; preds = %228
   br label %488
 
-488:                                              ; preds = %228, %.fold.split, %22, %453, %415, %344, %183, %99, %18, %88, %257, %435, %451, %482, %443, %400, %286, %217, %50, %52
-  %.1329 = phi i32 [ %.0328.ph, %50 ], [ %.0328.ph, %52 ], [ %.0328.ph, %88 ], [ %.0328.ph, %217 ], [ %.0328.ph, %257 ], [ %.0328.ph, %286 ], [ %.2330, %400 ], [ %.0328.ph, %435 ], [ %.0328.ph, %443 ], [ %.0328.ph, %451 ], [ %.0328.ph, %482 ], [ %.0328.ph, %18 ], [ %.0328.ph, %99 ], [ %.0328.ph, %183 ], [ %.0328.ph, %228 ], [ %.0328.ph, %344 ], [ %.0328.ph, %415 ], [ %.0328.ph, %453 ], [ %.0328.ph, %22 ], [ %.0328.ph, %.fold.split ]
-  %.1326 = phi i32 [ %.0325.ph, %50 ], [ %.0325.ph, %52 ], [ %.0325.ph, %88 ], [ %.0325.ph, %217 ], [ %.0325.ph, %257 ], [ %.0325.ph, %286 ], [ %401, %400 ], [ %.0325.ph, %435 ], [ %.0325.ph, %443 ], [ %.0325.ph, %451 ], [ %.0325.ph, %482 ], [ %.0325.ph, %18 ], [ %.0325.ph, %99 ], [ %.0325.ph, %183 ], [ %.0325.ph, %228 ], [ %.0325.ph, %344 ], [ %.0325.ph, %415 ], [ %.0325.ph, %453 ], [ %.0325.ph, %22 ], [ %.0325.ph, %.fold.split ]
-  %.1323 = phi ptr [ %.0322.ph, %50 ], [ %.0322.ph, %52 ], [ %.0322.ph, %88 ], [ %.0322.ph, %217 ], [ %.0322.ph, %257 ], [ %.0322.ph, %286 ], [ %.2324, %400 ], [ %.0322.ph, %435 ], [ %.0322.ph, %443 ], [ %.0322.ph, %451 ], [ %.0322.ph, %482 ], [ %.0322.ph, %18 ], [ %.0322.ph, %99 ], [ %.0322.ph, %183 ], [ %.0322.ph, %228 ], [ %.0322.ph, %344 ], [ %.0322.ph, %415 ], [ %.0322.ph, %453 ], [ %.0322.ph, %22 ], [ %.0322.ph, %.fold.split ]
-  %.1321 = phi i32 [ 1, %50 ], [ 2, %52 ], [ %.0317.ph, %88 ], [ 2, %217 ], [ 4, %257 ], [ 4, %286 ], [ 7, %400 ], [ 7, %435 ], [ 7, %443 ], [ 7, %451 ], [ 7, %482 ], [ 4, %18 ], [ 3, %99 ], [ 6, %183 ], [ 8, %228 ], [ 6, %344 ], [ 6, %415 ], [ 7, %453 ], [ 3, %22 ], [ 3, %.fold.split ]
-  %.1319 = phi ptr [ %.0318, %50 ], [ %59, %52 ], [ %95, %88 ], [ %224, %217 ], [ %264, %257 ], [ %293, %286 ], [ %.0318, %400 ], [ %.0318, %435 ], [ %.0318, %443 ], [ %.0318, %451 ], [ %.0318, %482 ], [ %.0318, %18 ], [ %.0318, %99 ], [ %.0318, %183 ], [ %.0318, %228 ], [ %.0318, %344 ], [ %.0318, %415 ], [ %.0318, %453 ], [ %.0318, %22 ], [ %.0318, %.fold.split ]
-  %.1 = phi i32 [ %.0317.ph, %50 ], [ %.0317.ph, %52 ], [ %.0317.ph, %88 ], [ %.0317.ph, %217 ], [ %.0317.ph, %257 ], [ %.0317.ph, %286 ], [ %.0317.ph, %400 ], [ %.0317.ph, %435 ], [ %.0317.ph, %443 ], [ %.0317.ph, %451 ], [ %.0317.ph, %482 ], [ %.0317.ph, %18 ], [ 2, %99 ], [ %.0317.ph, %183 ], [ %.0317.ph, %228 ], [ %.0317.ph, %344 ], [ %.0317.ph, %415 ], [ %.0317.ph, %453 ], [ 2, %22 ], [ 4, %.fold.split ]
+488:                                              ; preds = %228, %.fold.split, %22, %453, %415, %344, %183, %99, %18, %88, %257, %435, %451, %482, %443, %401, %286, %217, %50, %52
+  %.1329 = phi i32 [ %.0328.ph, %50 ], [ %.0328.ph, %52 ], [ %.0328.ph, %88 ], [ %.0328.ph, %217 ], [ %.0328.ph, %257 ], [ %.0328.ph, %286 ], [ %.2330, %401 ], [ %.0328.ph, %435 ], [ %.0328.ph, %443 ], [ %.0328.ph, %451 ], [ %.0328.ph, %482 ], [ %.0328.ph, %18 ], [ %.0328.ph, %99 ], [ %.0328.ph, %183 ], [ %.0328.ph, %228 ], [ %.0328.ph, %344 ], [ %.0328.ph, %415 ], [ %.0328.ph, %453 ], [ %.0328.ph, %22 ], [ %.0328.ph, %.fold.split ]
+  %.1326 = phi i32 [ %.0325.ph, %50 ], [ %.0325.ph, %52 ], [ %.0325.ph, %88 ], [ %.0325.ph, %217 ], [ %.0325.ph, %257 ], [ %.0325.ph, %286 ], [ %402, %401 ], [ %.0325.ph, %435 ], [ %.0325.ph, %443 ], [ %.0325.ph, %451 ], [ %.0325.ph, %482 ], [ %.0325.ph, %18 ], [ %.0325.ph, %99 ], [ %.0325.ph, %183 ], [ %.0325.ph, %228 ], [ %.0325.ph, %344 ], [ %.0325.ph, %415 ], [ %.0325.ph, %453 ], [ %.0325.ph, %22 ], [ %.0325.ph, %.fold.split ]
+  %.1323 = phi ptr [ %.0322.ph, %50 ], [ %.0322.ph, %52 ], [ %.0322.ph, %88 ], [ %.0322.ph, %217 ], [ %.0322.ph, %257 ], [ %.0322.ph, %286 ], [ %.2324, %401 ], [ %.0322.ph, %435 ], [ %.0322.ph, %443 ], [ %.0322.ph, %451 ], [ %.0322.ph, %482 ], [ %.0322.ph, %18 ], [ %.0322.ph, %99 ], [ %.0322.ph, %183 ], [ %.0322.ph, %228 ], [ %.0322.ph, %344 ], [ %.0322.ph, %415 ], [ %.0322.ph, %453 ], [ %.0322.ph, %22 ], [ %.0322.ph, %.fold.split ]
+  %.1321 = phi i32 [ 1, %50 ], [ 2, %52 ], [ %.0317.ph, %88 ], [ 2, %217 ], [ 4, %257 ], [ 4, %286 ], [ 7, %401 ], [ 7, %435 ], [ 7, %443 ], [ 7, %451 ], [ 7, %482 ], [ 4, %18 ], [ 3, %99 ], [ 6, %183 ], [ 8, %228 ], [ 6, %344 ], [ 6, %415 ], [ 7, %453 ], [ 3, %22 ], [ 3, %.fold.split ]
+  %.1319 = phi ptr [ %.0318, %50 ], [ %59, %52 ], [ %95, %88 ], [ %224, %217 ], [ %264, %257 ], [ %293, %286 ], [ %.0318, %401 ], [ %.0318, %435 ], [ %.0318, %443 ], [ %.0318, %451 ], [ %.0318, %482 ], [ %.0318, %18 ], [ %.0318, %99 ], [ %.0318, %183 ], [ %.0318, %228 ], [ %.0318, %344 ], [ %.0318, %415 ], [ %.0318, %453 ], [ %.0318, %22 ], [ %.0318, %.fold.split ]
+  %.1 = phi i32 [ %.0317.ph, %50 ], [ %.0317.ph, %52 ], [ %.0317.ph, %88 ], [ %.0317.ph, %217 ], [ %.0317.ph, %257 ], [ %.0317.ph, %286 ], [ %.0317.ph, %401 ], [ %.0317.ph, %435 ], [ %.0317.ph, %443 ], [ %.0317.ph, %451 ], [ %.0317.ph, %482 ], [ %.0317.ph, %18 ], [ 2, %99 ], [ %.0317.ph, %183 ], [ %.0317.ph, %228 ], [ %.0317.ph, %344 ], [ %.0317.ph, %415 ], [ %.0317.ph, %453 ], [ 2, %22 ], [ 4, %.fold.split ]
   %489 = load ptr, ptr %0, align 8
-  %490 = tail call i32 @pg_mblen(ptr noundef %489) #8
+  %490 = tail call i32 @pg_mblen(ptr noundef %489) #7
   %491 = load ptr, ptr %0, align 8
   %492 = sext i32 %490 to i64
   %493 = getelementptr i8, ptr %491, i64 %492
   store ptr %493, ptr %0, align 8
   br label %.outer
 
-prssyntaxerror.exit:                              ; preds = %14, %427, %423, %407, %403, %316, %312, %234, %230, %175, %171, %141, %137, %42, %38, %479, %480, %395, %391, %362, %363, %341, %342, %200, %201, %163, %164, %68, %64, %484, %458, %450, %442
-  %.0 = phi i1 [ false, %442 ], [ false, %450 ], [ false, %458 ], [ false, %484 ], [ false, %64 ], [ false, %68 ], [ true, %164 ], [ true, %163 ], [ true, %201 ], [ true, %200 ], [ true, %342 ], [ true, %341 ], [ true, %363 ], [ true, %362 ], [ false, %391 ], [ false, %395 ], [ true, %480 ], [ true, %479 ], [ false, %38 ], [ false, %42 ], [ false, %137 ], [ false, %141 ], [ false, %171 ], [ false, %175 ], [ false, %230 ], [ false, %234 ], [ false, %312 ], [ false, %316 ], [ false, %403 ], [ false, %407 ], [ false, %423 ], [ false, %427 ], [ false, %14 ]
+prssyntaxerror.exit:                              ; preds = %14, %427, %423, %407, %403, %316, %312, %234, %230, %175, %171, %141, %137, %42, %38, %479, %480, %396, %392, %362, %363, %341, %342, %200, %201, %163, %164, %68, %64, %484, %458, %450, %442
+  %.0 = phi i1 [ false, %442 ], [ false, %450 ], [ false, %458 ], [ false, %484 ], [ false, %64 ], [ false, %68 ], [ true, %164 ], [ true, %163 ], [ true, %201 ], [ true, %200 ], [ true, %342 ], [ true, %341 ], [ true, %363 ], [ true, %362 ], [ false, %392 ], [ false, %396 ], [ true, %480 ], [ true, %479 ], [ false, %38 ], [ false, %42 ], [ false, %137 ], [ false, %141 ], [ false, %171 ], [ false, %175 ], [ false, %230 ], [ false, %234 ], [ false, %312 ], [ false, %316 ], [ false, %403 ], [ false, %407 ], [ false, %423 ], [ false, %427 ], [ false, %14 ]
   ret i1 %.0
 }
 
@@ -1061,19 +1060,19 @@ declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @prssyntaxerror(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #8
+  %4 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @errcode(i32 noundef 16801924) #8
+  %6 = tail call i32 @errcode(i32 noundef 16801924) #7
   %7 = getelementptr inbounds i8, ptr %0, i64 33
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.str.4..str.5 = select i1 %9, ptr @.str.4, ptr @.str.5
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5, ptr noundef %11) #8
-  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #8
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.4..str.5, ptr noundef %11) #7
+  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 148, ptr noundef nonnull @__func__.prssyntaxerror) #7
   br label %13
 
 13:                                               ; preds = %1, %5
@@ -1110,9 +1109,6 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1120,10 +1116,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

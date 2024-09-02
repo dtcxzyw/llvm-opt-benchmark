@@ -1668,7 +1668,7 @@ Abc_Clock.exit:                                   ; preds = %2, %19
   %26 = getelementptr inbounds i8, ptr %1, i64 64
   %27 = load float, ptr %26, align 4
   %28 = fcmp une float %27, 0.000000e+00
-  br i1 %28, label %29, label %41
+  br i1 %28, label %29, label %42
 
 29:                                               ; preds = %Abc_Clock.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
@@ -1683,18 +1683,18 @@ Abc_Clock.exit:                                   ; preds = %2, %19
   %36 = load i64, ptr %35, align 8
   %37 = sdiv i64 %36, 1000
   %38 = add nsw i64 %37, %34
+  %39 = sitofp i64 %38 to float
   br label %Abc_Clock.exit303
 
 Abc_Clock.exit303:                                ; preds = %29, %32
-  %.0.i302 = phi i64 [ %38, %32 ], [ -1, %29 ]
+  %.0.i302 = phi float [ %39, %32 ], [ -1.000000e+00, %29 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  %39 = sitofp i64 %.0.i302 to float
-  %40 = call float @llvm.fmuladd.f32(float %27, float 1.000000e+06, float %39)
-  br label %41
+  %40 = call float @llvm.fmuladd.f32(float %27, float 1.000000e+06, float %.0.i302)
+  %41 = fptosi float %40 to i64
+  br label %42
 
-41:                                               ; preds = %Abc_Clock.exit, %Abc_Clock.exit303
-  %42 = phi float [ %40, %Abc_Clock.exit303 ], [ 0.000000e+00, %Abc_Clock.exit ]
-  %43 = fptosi float %42 to i64
+42:                                               ; preds = %Abc_Clock.exit, %Abc_Clock.exit303
+  %43 = phi i64 [ %41, %Abc_Clock.exit303 ], [ 0, %Abc_Clock.exit ]
   %44 = getelementptr i8, ptr %0, i64 148
   %.val295 = load i32, ptr %44, align 4
   %45 = getelementptr i8, ptr %0, i64 152
@@ -1703,7 +1703,7 @@ Abc_Clock.exit303:                                ; preds = %29, %32
   %47 = icmp eq i32 %.val296, %46
   br i1 %47, label %48, label %53
 
-48:                                               ; preds = %41
+48:                                               ; preds = %42
   %49 = getelementptr inbounds i8, ptr %1, i64 60
   store i32 0, ptr %49, align 4
   %50 = getelementptr i8, ptr %0, i64 32
@@ -1714,7 +1714,7 @@ Abc_Clock.exit303:                                ; preds = %29, %32
   %52 = call ptr @Aig_ManDupOrdered(ptr noundef nonnull %0) #15
   br label %520
 
-53:                                               ; preds = %41
+53:                                               ; preds = %42
   %54 = getelementptr inbounds i8, ptr %1, i64 44
   %55 = load i32, ptr %54, align 4
   %.not = icmp eq i32 %55, 0

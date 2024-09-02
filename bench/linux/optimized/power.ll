@@ -906,7 +906,7 @@ declare dso_local void @acpi_handle_printk(ptr noundef, ptr noundef, ptr noundef
 declare dso_local i32 @acpi_execute_simple_method(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_enable_wakeup_device_power(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_enable_wakeup_device_power(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [3 x %union.acpi_object], align 16
   %4 = alloca %struct.acpi_object_list, align 8
   %5 = icmp eq ptr %0, null
@@ -1006,7 +1006,7 @@ acpi_device_sleep_wake.exit.thread:               ; preds = %24, %35, %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @acpi_power_on_list(ptr noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @acpi_power_on_list(ptr noundef readonly %0) unnamed_addr #0 align 16 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -1287,7 +1287,7 @@ acpi_device_sleep_wake.exit:                      ; preds = %17, %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_power_get_inferred_state(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @acpi_power_get_inferred_state(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -1378,7 +1378,7 @@ define dso_local noundef i32 @acpi_power_get_inferred_state(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_power_on_resources(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_power_on_resources(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt i32 %1, 3
   %5 = or i1 %3, %4
@@ -1397,7 +1397,7 @@ define dso_local noundef i32 @acpi_power_on_resources(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_power_transition(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_power_transition(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt i32 %1, 4
   %5 = or i1 %3, %4

@@ -80,121 +80,120 @@ define dso_local i32 @nlm_lookup_file(ptr noundef %0, ptr nocapture noundef writ
   tail call void @mutex_lock(ptr noundef nonnull @nlm_file_mutex) #12
   %21 = zext nneg i32 %16 to i64
   %22 = getelementptr [128 x %struct.hlist_head], ptr @nlm_files, i64 0, i64 %21
-  br label %23
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %.critedge._crit_edge, label %.lr.ph
 
-23:                                               ; preds = %38, %14
-  %24 = phi ptr [ %22, %14 ], [ %25, %38 ]
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %55, label %27
+.lr.ph:                                           ; preds = %14
+  %25 = load i16, ptr %15, align 2
+  %26 = zext i16 %25 to i64
+  br label %27
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %25, i64 16
-  %29 = load i16, ptr %28, align 2
-  %30 = load i16, ptr %15, align 2
-  %31 = icmp eq i16 %29, %30
-  br i1 %31, label %32, label %38
+27:                                               ; preds = %.lr.ph, %.critedge.backedge
+  %28 = phi ptr [ %23, %.lr.ph ], [ %35, %.critedge.backedge ]
+  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = load i16, ptr %29, align 2
+  %31 = icmp eq i16 %30, %25
+  br i1 %31, label %32, label %.critedge.backedge
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %25, i64 18
-  %34 = zext i16 %29 to i64
-  %35 = tail call i32 @bcmp(ptr %33, ptr %4, i64 %34)
-  %36 = icmp ne i32 %35, 0
-  %37 = zext i1 %36 to i32
-  br label %38
+  %33 = getelementptr inbounds i8, ptr %28, i64 18
+  %34 = tail call i32 @bcmp(ptr %33, ptr %4, i64 %26)
+  %.not = icmp eq i32 %34, 0
+  br i1 %.not, label %37, label %.critedge.backedge
 
-38:                                               ; preds = %32, %27
-  %39 = phi i32 [ 1, %27 ], [ %37, %32 ]
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %23, !llvm.loop !8
+.critedge.backedge:                               ; preds = %32, %27
+  %35 = load ptr, ptr %28, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %.critedge._crit_edge, label %27, !llvm.loop !8
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %25, i64 200
-  tail call void @mutex_lock(ptr noundef %42) #12
-  %43 = getelementptr inbounds i8, ptr %25, i64 152
-  %44 = zext i1 %19 to i64
-  %45 = getelementptr [2 x ptr], ptr %43, i64 0, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %53
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %28, i64 200
+  tail call void @mutex_lock(ptr noundef %38) #12
+  %39 = getelementptr inbounds i8, ptr %28, i64 152
+  %40 = zext i1 %19 to i64
+  %41 = getelementptr [2 x ptr], ptr %39, i64 0, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %49
 
-48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %25, i64 16
-  %50 = load ptr, ptr @nlmsvc_ops, align 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 %51(ptr noundef %0, ptr noundef %49, ptr noundef %45, i32 noundef %20) #12
-  br label %53
+44:                                               ; preds = %37
+  %45 = getelementptr inbounds i8, ptr %28, i64 16
+  %46 = load ptr, ptr @nlmsvc_ops, align 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call i32 %47(ptr noundef %0, ptr noundef %45, ptr noundef %41, i32 noundef %20) #12
+  br label %49
 
-53:                                               ; preds = %48, %41
-  %54 = phi i32 [ %52, %48 ], [ 0, %41 ]
-  tail call void @mutex_unlock(ptr noundef %42) #12
-  br label %80
+49:                                               ; preds = %44, %37
+  %50 = phi i32 [ %48, %44 ], [ 0, %37 ]
+  tail call void @mutex_unlock(ptr noundef %38) #12
+  br label %75
 
-55:                                               ; preds = %23
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
-  %57 = tail call noalias noundef align 8 dereferenceable_or_null(232) ptr @kmalloc_trace(ptr noundef %56, i32 noundef 3520, i64 noundef 232) #13
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %88, label %59
+.critedge._crit_edge:                             ; preds = %.critedge.backedge, %14
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 64), align 16
+  %52 = tail call noalias noundef align 8 dereferenceable_or_null(232) ptr @kmalloc_trace(ptr noundef %51, i32 noundef 3520, i64 noundef 232) #13
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %83, label %54
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %57, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(130) %60, ptr noundef align 4 dereferenceable(130) %15, i64 130, i1 false)
-  %61 = getelementptr inbounds i8, ptr %57, i64 200
-  tail call void @__mutex_init(ptr noundef %61, ptr noundef nonnull @.str.2, ptr noundef nonnull @nlm_lookup_file.__key) #12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
-  %62 = getelementptr inbounds i8, ptr %57, i64 176
-  store volatile ptr %62, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %57, i64 184
-  store volatile ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %57, i64 152
-  %65 = zext i1 %19 to i64
-  %66 = getelementptr [2 x ptr], ptr %64, i64 0, i64 %65
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %69, label %.thread
+54:                                               ; preds = %.critedge._crit_edge
+  %55 = getelementptr inbounds i8, ptr %52, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(130) %55, ptr noundef align 4 dereferenceable(130) %15, i64 130, i1 false)
+  %56 = getelementptr inbounds i8, ptr %52, i64 200
+  tail call void @__mutex_init(ptr noundef %56, ptr noundef nonnull @.str.2, ptr noundef nonnull @nlm_lookup_file.__key) #12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
+  %57 = getelementptr inbounds i8, ptr %52, i64 176
+  store volatile ptr %57, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %52, i64 184
+  store volatile ptr %57, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %52, i64 152
+  %60 = zext i1 %19 to i64
+  %61 = getelementptr [2 x ptr], ptr %59, i64 0, i64 %60
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %.thread
 
-69:                                               ; preds = %59
-  %70 = load ptr, ptr @nlmsvc_ops, align 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = tail call i32 %71(ptr noundef %0, ptr noundef %60, ptr noundef %66, i32 noundef %20) #12
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.thread, label %86
+64:                                               ; preds = %54
+  %65 = load ptr, ptr @nlmsvc_ops, align 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = tail call i32 %66(ptr noundef %0, ptr noundef %55, ptr noundef %61, i32 noundef %20) #12
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %.thread, label %81
 
-.thread:                                          ; preds = %59, %69
-  %74 = load ptr, ptr %22, align 8
-  store volatile ptr %74, ptr %57, align 8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %78, label %76
+.thread:                                          ; preds = %54, %64
+  %69 = load ptr, ptr %22, align 8
+  store volatile ptr %69, ptr %52, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %73, label %71
 
-76:                                               ; preds = %.thread
-  %77 = getelementptr inbounds i8, ptr %74, i64 8
-  store volatile ptr %57, ptr %77, align 8
-  br label %78
+71:                                               ; preds = %.thread
+  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  store volatile ptr %52, ptr %72, align 8
+  br label %73
 
-78:                                               ; preds = %76, %.thread
-  store volatile ptr %57, ptr %22, align 8
-  %79 = getelementptr inbounds i8, ptr %57, i64 8
-  store volatile ptr %22, ptr %79, align 8
-  br label %80
+73:                                               ; preds = %71, %.thread
+  store volatile ptr %52, ptr %22, align 8
+  %74 = getelementptr inbounds i8, ptr %52, i64 8
+  store volatile ptr %22, ptr %74, align 8
+  br label %75
 
-80:                                               ; preds = %78, %53
-  %81 = phi i32 [ %54, %53 ], [ 0, %78 ]
-  %82 = phi ptr [ %25, %53 ], [ %57, %78 ]
-  store ptr %82, ptr %1, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 196
-  %84 = load i32, ptr %83, align 4
-  %85 = add i32 %84, 1
-  store i32 %85, ptr %83, align 4
-  br label %86
+75:                                               ; preds = %73, %49
+  %76 = phi i32 [ %50, %49 ], [ 0, %73 ]
+  %77 = phi ptr [ %28, %49 ], [ %52, %73 ]
+  store ptr %77, ptr %1, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 196
+  %79 = load i32, ptr %78, align 4
+  %80 = add i32 %79, 1
+  store i32 %80, ptr %78, align 4
+  br label %81
 
-86:                                               ; preds = %88, %80, %69
-  %87 = phi i32 [ %81, %80 ], [ %72, %69 ], [ 33554432, %88 ]
+81:                                               ; preds = %83, %75, %64
+  %82 = phi i32 [ %76, %75 ], [ %67, %64 ], [ 33554432, %83 ]
   tail call void @mutex_unlock(ptr noundef nonnull @nlm_file_mutex) #12
-  ret i32 %87
+  ret i32 %82
 
-88:                                               ; preds = %55
+83:                                               ; preds = %.critedge._crit_edge
   tail call void @kfree(ptr noundef null) #12
-  br label %86
+  br label %81
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

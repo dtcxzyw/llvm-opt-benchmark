@@ -501,7 +501,7 @@ Py_INCREF.exit:                                   ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @PyUnstable_InterpreterFrame_GetLasti(ptr nocapture noundef readonly %frame) local_unnamed_addr #5 {
+define dso_local range(i32 0, -1) i32 @PyUnstable_InterpreterFrame_GetLasti(ptr nocapture noundef readonly %frame) local_unnamed_addr #5 {
 entry:
   %instr_ptr = getelementptr inbounds i8, ptr %frame, i64 56
   %0 = load ptr, ptr %instr_ptr, align 8

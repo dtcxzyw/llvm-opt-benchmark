@@ -2075,9 +2075,9 @@ while.cond:                                       ; preds = %while.cond, %entry
 while.end:                                        ; preds = %while.cond
   %cmp = icmp eq i8 %0, 45
   %cmp3 = icmp eq i8 %0, 43
-  %spec.select = or i1 %cmp3, %cmp
-  %idx.ext = zext i1 %spec.select to i64
-  %add.ptr = getelementptr inbounds i8, ptr %s.0, i64 %idx.ext
+  %narrow = or i1 %cmp3, %cmp
+  %spec.select = zext i1 %narrow to i64
+  %add.ptr = getelementptr inbounds i8, ptr %s.0, i64 %spec.select
   %3 = load i8, ptr %add.ptr, align 1
   %cmp9 = icmp eq i8 %3, 48
   br i1 %cmp9, label %land.lhs.true, label %while.cond42.preheader

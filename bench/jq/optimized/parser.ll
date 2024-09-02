@@ -3340,13 +3340,13 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 2067:                                             ; preds = %2065
   %2068 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %12, ptr %.01247, ptr nonnull %.21165, i32 %2066)
-  switch i32 %2068, label %2078 [
+  switch i32 %2068, label %2079 [
     i32 0, label %2069
     i32 -1, label %2070
   ]
 
 2069:                                             ; preds = %2067
-  br label %2078
+  br label %2079
 
 2070:                                             ; preds = %2067
   %.not1230 = icmp eq ptr %.01247, %11
@@ -3360,32 +3360,32 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %2073 = load i64, ptr %12, align 8
   %2074 = call ptr @jv_mem_alloc(i64 noundef %2073) #9
   %.not1231 = icmp eq ptr %2074, null
-  br i1 %.not1231, label %2077, label %2075
+  br i1 %.not1231, label %2078, label %2075
 
 2075:                                             ; preds = %2072
   %2076 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %12, ptr nonnull %2074, ptr nonnull %.21165, i32 %2066)
-  br label %2078
+  %2077 = icmp eq i32 %2076, -2
+  br label %2079
 
-2077:                                             ; preds = %2072
+2078:                                             ; preds = %2072
   store i64 128, ptr %12, align 8
-  br label %2078
+  br label %2079
 
-2078:                                             ; preds = %2067, %2077, %2075, %2069
-  %.51251 = phi ptr [ %.01247, %2067 ], [ %11, %2077 ], [ %2074, %2075 ], [ %.01247, %2069 ]
-  %.01144 = phi ptr [ @.str.42, %2067 ], [ @.str.42, %2077 ], [ %2074, %2075 ], [ %.01247, %2069 ]
-  %.0 = phi i32 [ -2, %2067 ], [ -2, %2077 ], [ %2076, %2075 ], [ 0, %2069 ]
-  %2079 = load i32, ptr %1, align 4
-  %2080 = add nsw i32 %2079, 1
-  store i32 %2080, ptr %1, align 4
-  %2081 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01144, ptr noundef nonnull dereferenceable(1) @.str) #8
-  %.not.i = icmp eq ptr %2081, null
-  %2082 = load i64, ptr %6, align 8
+2079:                                             ; preds = %2067, %2078, %2075, %2069
+  %.51251 = phi ptr [ %.01247, %2067 ], [ %11, %2078 ], [ %2074, %2075 ], [ %.01247, %2069 ]
+  %.01144 = phi ptr [ @.str.42, %2067 ], [ @.str.42, %2078 ], [ %2074, %2075 ], [ %.01247, %2069 ]
+  %.0 = phi i1 [ true, %2067 ], [ true, %2078 ], [ %2077, %2075 ], [ false, %2069 ]
+  %2080 = load i32, ptr %1, align 4
+  %2081 = add nsw i32 %2080, 1
+  store i32 %2081, ptr %1, align 4
+  %2082 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.01144, ptr noundef nonnull dereferenceable(1) @.str) #8
+  %.not.i = icmp eq ptr %2082, null
+  %2083 = load i64, ptr %6, align 8
   %.str.2..str.1.i = select i1 %.not.i, ptr @.str.2, ptr @.str.1
-  call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %2, i64 %2082, ptr noundef nonnull %.str.2..str.1.i, ptr noundef %.01144) #9
-  %2083 = icmp eq i32 %.0, -2
-  br i1 %2083, label %2122, label %.thread1256
+  call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %2, i64 %2083, ptr noundef nonnull %.str.2..str.1.i, ptr noundef %.01144) #9
+  br i1 %.0, label %2122, label %.thread1256
 
-.thread1256:                                      ; preds = %2078
+.thread1256:                                      ; preds = %2079
   %.sroa.0606.8.copyload6081259 = load i32, ptr %6, align 8
   br label %2091
 
@@ -3468,12 +3468,12 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   store i32 %.sroa.6.16.copyload, ptr %2121, align 4
   br label %30
 
-2122:                                             ; preds = %2078, %43, %36
-  %.21249 = phi ptr [ %.51251, %2078 ], [ %.01247, %36 ], [ %.01247, %43 ]
-  %.31176 = phi ptr [ %.21175, %2078 ], [ %.01173, %36 ], [ %.01173, %43 ]
-  %.31166 = phi ptr [ %.21165, %2078 ], [ %.01163, %36 ], [ %.01163, %43 ]
-  %.21160 = phi ptr [ %.11159, %2078 ], [ %.01158, %36 ], [ %.01158, %43 ]
-  %.2 = phi i32 [ %.81255, %2078 ], [ %.01145, %36 ], [ %.01145, %43 ]
+2122:                                             ; preds = %2079, %43, %36
+  %.21249 = phi ptr [ %.51251, %2079 ], [ %.01247, %36 ], [ %.01247, %43 ]
+  %.31176 = phi ptr [ %.21175, %2079 ], [ %.01173, %36 ], [ %.01173, %43 ]
+  %.31166 = phi ptr [ %.21165, %2079 ], [ %.01163, %36 ], [ %.01163, %43 ]
+  %.21160 = phi ptr [ %.11159, %2079 ], [ %.01158, %36 ], [ %.01158, %43 ]
+  %.2 = phi i32 [ %.81255, %2079 ], [ %.01145, %36 ], [ %.01145, %43 ]
   %2123 = load i32, ptr %1, align 4
   %2124 = add nsw i32 %2123, 1
   store i32 %2124, ptr %1, align 4
@@ -4130,7 +4130,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
 
 .lr.ph.i.i:                                       ; preds = %37, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %17, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %37 ]
-  %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.fr.i, %37 ]
+  %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %37 ]
   %20 = add nsw i64 %indvars.iv.i.i, %18
   %21 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %20
   %22 = load i16, ptr %21, align 2
@@ -4152,7 +4152,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br i1 %32, label %yy_syntax_error_arguments.exit.thread6, label %33
 
 33:                                               ; preds = %31
-  %34 = add nsw i32 %.14.i.i, 1
+  %34 = add i32 %.14.i.i, 1
   %35 = sext i32 %.14.i.i to i64
   %36 = getelementptr inbounds i32, ptr %4, i64 %35
   store i32 %23, ptr %36, align 4
@@ -4160,13 +4160,12 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
 
 37:                                               ; preds = %33, %27, %.lr.ph.i.i
   %.2.i.i = phi i32 [ %.14.i.i, %27 ], [ %34, %33 ], [ %.14.i.i, %.lr.ph.i.i ]
-  %.2.i.fr.i = freeze i32 %.2.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %19
   br i1 %exitcond.not.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %37
-  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit [
+  switch i32 %.2.i.i, label %yy_syntax_error_arguments.exit [
     i32 0, label %.thread.i.i
     i32 -2, label %yy_syntax_error_arguments.exit.thread8
   ]
@@ -4176,8 +4175,8 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br label %yy_syntax_error_arguments.exit.thread6
 
 yy_syntax_error_arguments.exit:                   ; preds = %._crit_edge.i.i
-  %38 = add nsw i32 %.2.i.fr.i, 1
-  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit.thread6 [
+  %38 = add nsw i32 %.2.i.i, 1
+  switch i32 %.2.i.i, label %yy_syntax_error_arguments.exit.thread6 [
     i32 -3, label %yy_syntax_error_arguments.exit.thread8
     i32 4, label %42
     i32 3, label %41
@@ -4349,7 +4348,7 @@ yytnamerr.exit58:                                 ; preds = %69, %.preheader, %.
   br label %.preheader, !llvm.loop !8
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %yytnamerr.exit, %.preheader, %._crit_edge.i.i, %66, %yy_syntax_error_arguments.exit
-  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %66 ], [ %.2.i.fr.i, %._crit_edge.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
+  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %66 ], [ %.2.i.i, %._crit_edge.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
   ret i32 %.038
 }
 

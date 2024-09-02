@@ -2425,12 +2425,15 @@ define linkonce_odr hidden void @_ZZN2cv3dnn23GatherElementsLayerImpl12forward_i
   %.1.i = phi i32 [ %43, %38 ], [ %.0153.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %45 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %45, label %.lr.ph.i, label %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit, !llvm.loop !29
+  br i1 %45, label %.lr.ph.i, label %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit.loopexit, !llvm.loop !29
 
-_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit: ; preds = %44, %18
-  %.015.lcssa.i = phi i32 [ 0, %18 ], [ %.1.i, %44 ]
-  %46 = sext i32 %.015.lcssa.i to i64
-  %47 = getelementptr inbounds i8, ptr %20, i64 %46
+_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit.loopexit: ; preds = %44
+  %46 = sext i32 %.1.i to i64
+  br label %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit
+
+_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit: ; preds = %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit.loopexit, %18
+  %.015.lcssa.i = phi i64 [ 0, %18 ], [ %46, %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit.loopexit ]
+  %47 = getelementptr inbounds i8, ptr %20, i64 %.015.lcssa.i
   %48 = load ptr, ptr %12, align 8
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %13, align 8
@@ -2624,13 +2627,16 @@ define linkonce_odr hidden void @_ZZN2cv3dnn23GatherElementsLayerImpl12forward_i
   %.1.i = phi i32 [ %43, %38 ], [ %.0153.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %45 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %45, label %.lr.ph.i, label %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit, !llvm.loop !29
+  br i1 %45, label %.lr.ph.i, label %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit.loopexit, !llvm.loop !29
 
-_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit: ; preds = %44, %18
-  %.015.lcssa.i = phi i32 [ 0, %18 ], [ %.1.i, %44 ]
-  %46 = sext i32 %.015.lcssa.i to i64
+_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit.loopexit: ; preds = %44
+  %46 = sext i32 %.1.i to i64
   %47 = lshr i64 %46, 2
-  %48 = getelementptr inbounds i32, ptr %20, i64 %47
+  br label %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit
+
+_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit: ; preds = %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit.loopexit, %18
+  %.015.lcssa.i = phi i64 [ 0, %18 ], [ %47, %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit.loopexit ]
+  %48 = getelementptr inbounds i32, ptr %20, i64 %.015.lcssa.i
   %49 = load ptr, ptr %12, align 8
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %13, align 8
@@ -2822,13 +2828,16 @@ define linkonce_odr hidden void @_ZZN2cv3dnn23GatherElementsLayerImpl12forward_i
   %.1.i = phi i32 [ %43, %38 ], [ %.0153.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %45 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %45, label %.lr.ph.i, label %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit, !llvm.loop !29
+  br i1 %45, label %.lr.ph.i, label %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit.loopexit, !llvm.loop !29
 
-_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit: ; preds = %44, %18
-  %.015.lcssa.i = phi i32 [ 0, %18 ], [ %.1.i, %44 ]
-  %46 = sext i32 %.015.lcssa.i to i64
+_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit.loopexit: ; preds = %44
+  %46 = sext i32 %.1.i to i64
   %47 = lshr i64 %46, 2
-  %48 = getelementptr inbounds float, ptr %20, i64 %47
+  br label %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit
+
+_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit: ; preds = %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit.loopexit, %18
+  %.015.lcssa.i = phi i64 [ 0, %18 ], [ %47, %_ZN2cv3dnnL15calculateOffsetEiRKSt6vectorIiSaIiEEiRKNS_7MatStepE.exit.loopexit ]
+  %48 = getelementptr inbounds float, ptr %20, i64 %.015.lcssa.i
   %49 = load ptr, ptr %12, align 8
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %13, align 8

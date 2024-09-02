@@ -287,7 +287,7 @@ define noundef i64 @_Z20fast_rv64i_kmmawt2_uP11processor_t6insn_tm(ptr nocapture
   %51 = and i64 %48, 4294901760
   %52 = icmp ne i64 %51, 2147483648
   %53 = or i1 %50, %52
-  br i1 %53, label %54, label %62
+  br i1 %53, label %54, label %63
 
 54:                                               ; preds = %35
   %sext52 = shl i64 %46, 32
@@ -295,36 +295,36 @@ define noundef i64 @_Z20fast_rv64i_kmmawt2_uP11processor_t6insn_tm(ptr nocapture
   %56 = shl i64 %48, 32
   %57 = ashr i64 %56, 48
   %58 = mul nsw i64 %57, %55
-  %59 = ashr i64 %58, 14
-  %60 = add nsw i64 %59, 1
-  %61 = ashr i64 %60, 1
-  br label %64
+  %59 = lshr i64 %58, 14
+  %60 = add nuw nsw i64 %59, 1
+  %61 = lshr i64 %60, 1
+  %62 = trunc i64 %61 to i32
+  br label %65
 
-62:                                               ; preds = %35
-  %63 = load ptr, ptr %34, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %63, i64 noundef 1) #15
-  br label %64
+63:                                               ; preds = %35
+  %64 = load ptr, ptr %34, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %64, i64 noundef 1) #15
+  br label %65
 
-64:                                               ; preds = %62, %54
-  %.046 = phi i64 [ %61, %54 ], [ 2147483647, %62 ]
-  %65 = trunc i64 %.046 to i32
-  %66 = add i32 %65, %44
+65:                                               ; preds = %63, %54
+  %.046 = phi i32 [ %62, %54 ], [ 2147483647, %63 ]
+  %66 = add i32 %.046, %44
   %67 = lshr i32 %44, 31
   %68 = add nuw i32 %67, 2147483647
-  %69 = xor i32 %68, %65
-  %70 = xor i32 %66, %65
+  %69 = xor i32 %.046, %68
+  %70 = xor i32 %.046, %66
   %71 = xor i32 %70, -1
   %72 = or i32 %69, %71
   %73 = icmp sgt i32 %72, -1
   %spec.select14.i = select i1 %73, i32 %68, i32 %66
   br i1 %73, label %74, label %76
 
-74:                                               ; preds = %64
+74:                                               ; preds = %65
   %75 = load ptr, ptr %34, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %75, i64 noundef 1) #15
   br label %76
 
-76:                                               ; preds = %74, %64
+76:                                               ; preds = %74, %65
   %77 = xor i64 %38, -1
   %78 = and i64 %.04963, %77
   %79 = sext i32 %spec.select14.i to i64
@@ -597,7 +597,7 @@ define noundef i64 @_Z22logged_rv64i_kmmawt2_uP11processor_t6insn_tm(ptr noundef
   %51 = and i64 %48, 4294901760
   %52 = icmp ne i64 %51, 2147483648
   %53 = or i1 %50, %52
-  br i1 %53, label %54, label %62
+  br i1 %53, label %54, label %63
 
 54:                                               ; preds = %35
   %sext55 = shl i64 %46, 32
@@ -605,36 +605,36 @@ define noundef i64 @_Z22logged_rv64i_kmmawt2_uP11processor_t6insn_tm(ptr noundef
   %56 = shl i64 %48, 32
   %57 = ashr i64 %56, 48
   %58 = mul nsw i64 %57, %55
-  %59 = ashr i64 %58, 14
-  %60 = add nsw i64 %59, 1
-  %61 = ashr i64 %60, 1
-  br label %64
+  %59 = lshr i64 %58, 14
+  %60 = add nuw nsw i64 %59, 1
+  %61 = lshr i64 %60, 1
+  %62 = trunc i64 %61 to i32
+  br label %65
 
-62:                                               ; preds = %35
-  %63 = load ptr, ptr %34, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %63, i64 noundef 1) #15
-  br label %64
+63:                                               ; preds = %35
+  %64 = load ptr, ptr %34, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %64, i64 noundef 1) #15
+  br label %65
 
-64:                                               ; preds = %62, %54
-  %.050 = phi i64 [ %61, %54 ], [ 2147483647, %62 ]
-  %65 = trunc i64 %.050 to i32
-  %66 = add i32 %65, %44
+65:                                               ; preds = %63, %54
+  %.050 = phi i32 [ %62, %54 ], [ 2147483647, %63 ]
+  %66 = add i32 %.050, %44
   %67 = lshr i32 %44, 31
   %68 = add nuw i32 %67, 2147483647
-  %69 = xor i32 %68, %65
-  %70 = xor i32 %66, %65
+  %69 = xor i32 %.050, %68
+  %70 = xor i32 %.050, %66
   %71 = xor i32 %70, -1
   %72 = or i32 %69, %71
   %73 = icmp sgt i32 %72, -1
   %spec.select14.i = select i1 %73, i32 %68, i32 %66
   br i1 %73, label %74, label %76
 
-74:                                               ; preds = %64
+74:                                               ; preds = %65
   %75 = load ptr, ptr %34, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %75, i64 noundef 1) #15
   br label %76
 
-76:                                               ; preds = %74, %64
+76:                                               ; preds = %74, %65
   %77 = xor i64 %38, -1
   %78 = and i64 %.05170, %77
   %79 = sext i32 %spec.select14.i to i64
@@ -1003,7 +1003,7 @@ define noundef i64 @_Z20fast_rv64e_kmmawt2_uP11processor_t6insn_tm(ptr nocapture
   %72 = and i64 %69, 4294901760
   %73 = icmp ne i64 %72, 2147483648
   %74 = or i1 %71, %73
-  br i1 %74, label %75, label %83
+  br i1 %74, label %75, label %84
 
 75:                                               ; preds = %56
   %sext60 = shl i64 %67, 32
@@ -1011,36 +1011,36 @@ define noundef i64 @_Z20fast_rv64e_kmmawt2_uP11processor_t6insn_tm(ptr nocapture
   %77 = shl i64 %69, 32
   %78 = ashr i64 %77, 48
   %79 = mul nsw i64 %78, %76
-  %80 = ashr i64 %79, 14
-  %81 = add nsw i64 %80, 1
-  %82 = ashr i64 %81, 1
-  br label %85
+  %80 = lshr i64 %79, 14
+  %81 = add nuw nsw i64 %80, 1
+  %82 = lshr i64 %81, 1
+  %83 = trunc i64 %82 to i32
+  br label %86
 
-83:                                               ; preds = %56
-  %84 = load ptr, ptr %55, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %84, i64 noundef 1) #15
-  br label %85
+84:                                               ; preds = %56
+  %85 = load ptr, ptr %55, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %85, i64 noundef 1) #15
+  br label %86
 
-85:                                               ; preds = %83, %75
-  %.055 = phi i64 [ %82, %75 ], [ 2147483647, %83 ]
-  %86 = trunc i64 %.055 to i32
-  %87 = add i32 %86, %65
+86:                                               ; preds = %84, %75
+  %.055 = phi i32 [ %83, %75 ], [ 2147483647, %84 ]
+  %87 = add i32 %.055, %65
   %88 = lshr i32 %65, 31
   %89 = add nuw i32 %88, 2147483647
-  %90 = xor i32 %89, %86
-  %91 = xor i32 %87, %86
+  %90 = xor i32 %.055, %89
+  %91 = xor i32 %.055, %87
   %92 = xor i32 %91, -1
   %93 = or i32 %90, %92
   %94 = icmp sgt i32 %93, -1
   %spec.select14.i = select i1 %94, i32 %89, i32 %87
   br i1 %94, label %95, label %97
 
-95:                                               ; preds = %85
+95:                                               ; preds = %86
   %96 = load ptr, ptr %55, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %96, i64 noundef 1) #15
   br label %97
 
-97:                                               ; preds = %95, %85
+97:                                               ; preds = %95, %86
   %98 = xor i64 %59, -1
   %99 = and i64 %.05680, %98
   %100 = sext i32 %spec.select14.i to i64
@@ -1409,7 +1409,7 @@ define noundef i64 @_Z22logged_rv64e_kmmawt2_uP11processor_t6insn_tm(ptr noundef
   %72 = and i64 %69, 4294901760
   %73 = icmp ne i64 %72, 2147483648
   %74 = or i1 %71, %73
-  br i1 %74, label %75, label %83
+  br i1 %74, label %75, label %84
 
 75:                                               ; preds = %56
   %sext63 = shl i64 %67, 32
@@ -1417,36 +1417,36 @@ define noundef i64 @_Z22logged_rv64e_kmmawt2_uP11processor_t6insn_tm(ptr noundef
   %77 = shl i64 %69, 32
   %78 = ashr i64 %77, 48
   %79 = mul nsw i64 %78, %76
-  %80 = ashr i64 %79, 14
-  %81 = add nsw i64 %80, 1
-  %82 = ashr i64 %81, 1
-  br label %85
+  %80 = lshr i64 %79, 14
+  %81 = add nuw nsw i64 %80, 1
+  %82 = lshr i64 %81, 1
+  %83 = trunc i64 %82 to i32
+  br label %86
 
-83:                                               ; preds = %56
-  %84 = load ptr, ptr %55, align 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %84, i64 noundef 1) #15
-  br label %85
+84:                                               ; preds = %56
+  %85 = load ptr, ptr %55, align 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %85, i64 noundef 1) #15
+  br label %86
 
-85:                                               ; preds = %83, %75
-  %.059 = phi i64 [ %82, %75 ], [ 2147483647, %83 ]
-  %86 = trunc i64 %.059 to i32
-  %87 = add i32 %86, %65
+86:                                               ; preds = %84, %75
+  %.059 = phi i32 [ %83, %75 ], [ 2147483647, %84 ]
+  %87 = add i32 %.059, %65
   %88 = lshr i32 %65, 31
   %89 = add nuw i32 %88, 2147483647
-  %90 = xor i32 %89, %86
-  %91 = xor i32 %87, %86
+  %90 = xor i32 %.059, %89
+  %91 = xor i32 %.059, %87
   %92 = xor i32 %91, -1
   %93 = or i32 %90, %92
   %94 = icmp sgt i32 %93, -1
   %spec.select14.i = select i1 %94, i32 %89, i32 %87
   br i1 %94, label %95, label %97
 
-95:                                               ; preds = %85
+95:                                               ; preds = %86
   %96 = load ptr, ptr %55, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %96, i64 noundef 1) #15
   br label %97
 
-97:                                               ; preds = %95, %85
+97:                                               ; preds = %95, %86
   %98 = xor i64 %59, -1
   %99 = and i64 %.05886, %98
   %100 = sext i32 %spec.select14.i to i64

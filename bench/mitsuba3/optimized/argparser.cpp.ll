@@ -569,11 +569,11 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %98 = getelementptr inbounds i8, ptr %.sroa.0126.0214, i64 1
   %99 = select i1 %.not.i8.i, ptr %98, ptr %97
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %95, ptr %99, i64 %84)
-  %100 = icmp eq i32 %bcmp.i.i.i.i.i, 0
+  %100 = icmp ne i32 %bcmp.i.i.i.i.i, 0
   br label %_ZN7mitsuba6string11starts_withERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_.exit
 
 _ZN7mitsuba6string11starts_withERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_.exit: ; preds = %93, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit
-  %.0.i = phi i1 [ %100, %93 ], [ false, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit ]
+  %.0.i = phi i1 [ %100, %93 ], [ true, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull @.str.3, i64 noundef 1)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit67 unwind label %.loopexit.split-lp.loopexit
@@ -609,7 +609,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 _ZN7mitsuba6string11starts_withERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_.exit72: ; preds = %114, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit67
   %.0.i71 = phi i1 [ %121, %114 ], [ false, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit67 ]
-  %122 = xor i1 %.0.i, true
+  %122 = and i1 %.0.i, %.0.i71
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
   %123 = load i8, ptr %.sroa.0126.0214, align 8
   %124 = and i8 %123, 1
@@ -652,9 +652,8 @@ _ZN7mitsuba6string11starts_withERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS
   %152 = select i1 %.not.i8.i75, ptr %151, ptr %150
   %bcmp.i.i.i.i.i76 = call i32 @bcmp(ptr %148, ptr %152, i64 %128)
   %153 = icmp ne i32 %bcmp.i.i.i.i.i76, 0
-  %.0.i71.not = xor i1 %.0.i71, true
-  %.not62 = or i1 %.0.i, %.0.i71.not
-  %brmerge = or i1 %.not62, %153
+  %.not62 = xor i1 %122, true
+  %brmerge = or i1 %153, %.not62
   br i1 %brmerge, label %180, label %154
 
 154:                                              ; preds = %_ZN7mitsuba6string11starts_withERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_.exit78
@@ -719,7 +718,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   br label %.thread144
 
 180:                                              ; preds = %_ZN7mitsuba6string11starts_withERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_.exit78
-  %brmerge66 = or i1 %153, %122
+  %brmerge66 = or i1 %.0.i, %153
   br i1 %brmerge66, label %.thread, label %.thread144
 
 .thread:                                          ; preds = %133, %180

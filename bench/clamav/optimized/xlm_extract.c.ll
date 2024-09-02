@@ -1609,7 +1609,7 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
 43:                                               ; preds = %36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %.not60 = icmp eq i8 %38, 0
-  br i1 %.not60, label %47, label %44
+  br i1 %.not60, label %48, label %44
 
 44:                                               ; preds = %43
   %45 = getelementptr inbounds i8, ptr %.04075, i64 44
@@ -1618,28 +1618,28 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   store i8 0, ptr %46, align 1
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1151, ptr noundef nonnull %6) #10
   %.pre = load i8, ptr %37, align 1
-  br label %47
+  %47 = zext i8 %.pre to i64
+  br label %48
 
-47:                                               ; preds = %44, %43
-  %48 = phi i8 [ %.pre, %44 ], [ 0, %43 ]
-  %49 = getelementptr inbounds i8, ptr %.04075, i64 44
-  %50 = zext i8 %48 to i64
-  %51 = getelementptr inbounds i8, ptr %49, i64 %50
-  %52 = sub i64 %40, %50
+48:                                               ; preds = %44, %43
+  %49 = phi i64 [ %47, %44 ], [ 0, %43 ]
+  %50 = getelementptr inbounds i8, ptr %.04075, i64 44
+  %51 = getelementptr inbounds i8, ptr %50, i64 %49
+  %52 = sub i64 %40, %49
   %53 = getelementptr inbounds i8, ptr %.04075, i64 28
   %54 = load i32, ptr %53, align 1
   %55 = zext i32 %54 to i64
   %56 = icmp ult i64 %52, %55
   br i1 %56, label %57, label %59
 
-57:                                               ; preds = %47
+57:                                               ; preds = %48
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1152) #10
   %58 = load i32, ptr %53, align 1
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1153, i32 noundef %58, i64 noundef %52) #10
   br label %59
 
-59:                                               ; preds = %47, %57
-  %.0 = phi i64 [ %52, %57 ], [ %55, %47 ]
+59:                                               ; preds = %48, %57
+  %.0 = phi i64 [ %52, %57 ], [ %55, %48 ]
   %60 = icmp ult i64 %.0, 8
   br i1 %60, label %.loopexit.sink.split, label %61
 

@@ -59,13 +59,16 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   %.1267 = phi i64 [ %18, %17 ], [ %.0266, %19 ]
   %.3 = phi double [ %.2, %17 ], [ %23, %19 ]
   %30 = fcmp ult double %.3, 0x43E0000000000000
-  br i1 %30, label %.loopexit299, label %.preheader298
+  br i1 %30, label %.loopexit299.loopexit, label %.preheader298
 
-.loopexit299:                                     ; preds = %29, %8
-  %.0272 = phi i64 [ 0, %8 ], [ %.2274, %29 ]
-  %.1 = phi double [ %.0251, %8 ], [ %.3, %29 ]
-  %31 = trunc i64 %.0272 to i32
-  store i32 %31, ptr %2, align 4
+.loopexit299.loopexit:                            ; preds = %29
+  %31 = trunc i64 %.2274 to i32
+  br label %.loopexit299
+
+.loopexit299:                                     ; preds = %.loopexit299.loopexit, %8
+  %.0272 = phi i32 [ 0, %8 ], [ %31, %.loopexit299.loopexit ]
+  %.1 = phi double [ %.0251, %8 ], [ %.3, %.loopexit299.loopexit ]
+  store i32 %.0272, ptr %2, align 4
   %32 = fptosi double %.1 to i32
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %248, label %33
@@ -521,7 +524,7 @@ define nonnull ptr @_sfcvt(ptr nocapture noundef readonly %0, i32 noundef %1, pt
   br i1 %247, label %.loopexit362, label %248
 
 248:                                              ; preds = %.loopexit299, %241
-  %.promoted = phi i32 [ %246, %241 ], [ %31, %.loopexit299 ]
+  %.promoted = phi i32 [ %246, %241 ], [ %.0272, %.loopexit299 ]
   %.5277 = phi i64 [ %243, %241 ], [ 0, %.loopexit299 ]
   %.0261 = phi ptr [ %.1253, %241 ], [ getelementptr inbounds (i8, ptr @_sfcvt.Buf, i64 512), %.loopexit299 ]
   %.4 = phi double [ %36, %241 ], [ %.1, %.loopexit299 ]

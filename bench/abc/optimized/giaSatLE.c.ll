@@ -1264,7 +1264,7 @@ Vec_IntFree.exit:                                 ; preds = %168, %170
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Sle_ManComputeDelayCut(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define range(i32 1, -2147483648) i32 @Sle_ManComputeDelayCut(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
   %.val10 = load i32, ptr %1, align 4
   %4 = and i32 %.val10, 15
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -1300,7 +1300,7 @@ define range(i32 -2147483647, -2147483648) i32 @Sle_ManComputeDelayCut(ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Sle_ManComputeDelayOne(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 {
+define range(i32 1, 1000000001) i32 @Sle_ManComputeDelayOne(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %5, align 8
   %6 = sext i32 %1 to i64
@@ -1369,7 +1369,7 @@ Sle_ManComputeDelayCut.exit:                      ; preds = %15, %._crit_edge.lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sle_ManComputeDelay(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 1000000001) i32 @Sle_ManComputeDelay(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val14 = load i32, ptr %3, align 8
   %4 = add i32 %.val14, -1
@@ -1830,8 +1830,8 @@ define void @Sle_ManCollectCutFaninsOne(ptr nocapture readnone %0, i32 noundef %
   br label %78
 
 23:                                               ; preds = %.lr.ph45, %._crit_edge
-  %24 = phi i32 [ %13, %.lr.ph45 ], [ %72, %._crit_edge ]
-  %.043 = phi i32 [ 0, %.lr.ph45 ], [ %73, %._crit_edge ]
+  %24 = phi i32 [ %13, %.lr.ph45 ], [ %74, %._crit_edge ]
+  %.043 = phi i32 [ 0, %.lr.ph45 ], [ %75, %._crit_edge ]
   %.03342 = phi ptr [ %15, %.lr.ph45 ], [ %76, %._crit_edge ]
   %.033.val37 = load i32, ptr %.03342, align 4
   %25 = and i32 %.033.val37, 15
@@ -1943,16 +1943,16 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.033.val.pre = load i32, ptr %.03342, align 4
   %.pre = load i32, ptr %12, align 4
   %.pre55 = and i32 %.033.val.pre, 15
+  %72 = add nuw nsw i32 %.pre55, 1
+  %73 = zext nneg i32 %72 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %23
-  %.pre-phi = phi i32 [ %.pre55, %._crit_edge.loopexit ], [ 0, %23 ]
-  %72 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %24, %23 ]
-  %73 = add nuw nsw i32 %.043, 1
-  %74 = add nuw nsw i32 %.pre-phi, 1
-  %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds i32, ptr %.03342, i64 %75
-  %77 = icmp slt i32 %73, %72
+  %.pre-phi = phi i64 [ %73, %._crit_edge.loopexit ], [ 1, %23 ]
+  %74 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %24, %23 ]
+  %75 = add nuw nsw i32 %.043, 1
+  %76 = getelementptr inbounds i32, ptr %.03342, i64 %.pre-phi
+  %77 = icmp slt i32 %75, %74
   br i1 %77, label %23, label %.preheader, !llvm.loop !27
 
 78:                                               ; preds = %.lr.ph48, %78

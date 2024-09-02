@@ -383,22 +383,22 @@ define internal void @init_hygon(ptr noundef %0) #0 align 16 {
   %45 = getelementptr inbounds i8, ptr %0, i64 296
   %46 = load i16, ptr %45, align 8
   %47 = icmp eq i16 %46, 0
-  br i1 %47, label %53, label %48
+  br i1 %47, label %54, label %48
 
 48:                                               ; preds = %44
   %49 = zext i16 %46 to i32
   %50 = add nsw i32 %49, -1
   %51 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %50, i32 -1) #7, !srcloc !13
-  %52 = add i32 %51, 1
-  br label %53
+  %52 = trunc i32 %51 to i8
+  %53 = add i8 %52, 1
+  br label %54
 
-53:                                               ; preds = %48, %44
-  %54 = phi i32 [ -1, %44 ], [ %52, %48 ]
-  %55 = trunc i32 %54 to i8
+54:                                               ; preds = %48, %44
+  %55 = phi i8 [ -1, %44 ], [ %53, %48 ]
   store i8 %55, ptr %11, align 2
   br label %56
 
-56:                                               ; preds = %53, %41
+56:                                               ; preds = %54, %41
   %57 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
   %58 = and i64 %57, 2147483648
   %59 = icmp eq i64 %58, 0

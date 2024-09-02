@@ -744,11 +744,11 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.if.then.i.i.i.i.i.i.i_crit_edge.i.i: ; preds = %if.then.i.i.i.i.i.i.i
   %.pre.i.i = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !noalias !18
+  %11 = add nsw i32 %.pre.i.i, 1
   br label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.if.then.i.i.i.i.i.i.i_crit_edge.i.i, %if.then.i.i.i.i.thread.i.i.i
-  %11 = phi i32 [ %.pre.i.i, %if.then.i.i.i.i.i.if.then.i.i.i.i.i.i.i_crit_edge.i.i ], [ 2, %if.then.i.i.i.i.thread.i.i.i ]
-  %add.i.i.i.i.i.i.i.i.i = add nsw i32 %11, 1
+  %add.i.i.i.i.i.i.i.i.i = phi i32 [ %11, %if.then.i.i.i.i.i.if.then.i.i.i.i.i.i.i_crit_edge.i.i ], [ 3, %if.then.i.i.i.i.thread.i.i.i ]
   store i32 %add.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !noalias !18
   br label %if.then.i.i.i2.i.i.i
 

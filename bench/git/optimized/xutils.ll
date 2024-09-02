@@ -983,7 +983,7 @@ return:                                           ; preds = %for.end, %xdl_hash_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i32 @xdl_hashbits(i32 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 1, 0) i32 @xdl_hashbits(i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp5 = icmp ugt i32 %size, 1
   br i1 %cmp5, label %for.inc, label %for.end

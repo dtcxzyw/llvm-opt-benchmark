@@ -679,6 +679,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
   %bf.load.i.i.i.i.i.i.i.pre = load i8, ptr %m_kind.i.i.i.i.i.i.i.phi.trans.insert, align 4
   %m_den.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %val, i64 16
   %.pre = load i32, ptr %m_den.i.i.i.i.phi.trans.insert, align 8
+  %0 = icmp eq i32 %.pre, 1
   br label %if.end
 
 land.lhs.true:                                    ; preds = %entry
@@ -687,25 +688,24 @@ land.lhs.true:                                    ; preds = %entry
   %bf.load.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i, 1
   %cmp.i.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i, 0
-  %0 = load i32, ptr %m_den.i.i, align 8
-  %cmp.i.i.i.i = icmp eq i32 %0, 1
-  %1 = select i1 %cmp.i.i.i.i.i, i1 %cmp.i.i.i.i, i1 false
-  br i1 %1, label %if.end, label %if.then
+  %1 = load i32, ptr %m_den.i.i, align 8
+  %cmp.i.i.i.i = icmp eq i32 %1, 1
+  %2 = select i1 %cmp.i.i.i.i.i, i1 %cmp.i.i.i.i, i1 false
+  br i1 %2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %m_manager = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load ptr, ptr %m_manager, align 8
-  tail call void @_ZN11ast_manager15raise_exceptionEPKc(ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef nonnull @.str.39) #22
+  %3 = load ptr, ptr %m_manager, align 8
+  tail call void @_ZN11ast_manager15raise_exceptionEPKc(ptr noundef nonnull align 8 dereferenceable(976) %3, ptr noundef nonnull @.str.39) #22
   unreachable
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %land.lhs.true
-  %3 = phi i32 [ %.pre, %entry.if.end_crit_edge ], [ 1, %land.lhs.true ]
+  %cmp.i.i.i.i.i.i = phi i1 [ %0, %entry.if.end_crit_edge ], [ true, %land.lhs.true ]
   %bf.load.i.i.i.i.i.i.i = phi i8 [ %bf.load.i.i.i.i.i.i.i.pre, %entry.if.end_crit_edge ], [ %bf.load.i.i.i.i.i, %land.lhs.true ]
   %m_den.i.i.i.i = getelementptr inbounds i8, ptr %val, i64 16
   %m_kind.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %val, i64 20
   %bf.clear.i.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i, 0
-  %cmp.i.i.i.i.i.i = icmp eq i32 %3, 1
   %4 = select i1 %cmp.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
   br i1 %4, label %_ZNK8rational9is_uint64Ev.exit.i, label %if.end116
 

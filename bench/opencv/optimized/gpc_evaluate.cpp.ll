@@ -771,7 +771,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 240:                                              ; preds = %.lr.ph, %341
   %241 = phi ptr [ %231, %.lr.ph ], [ %344, %341 ]
   %.025269 = phi i64 [ 0, %.lr.ph ], [ %342, %341 ]
-  %.059268 = phi i32 [ 0, %.lr.ph ], [ %.160.fr, %341 ]
+  %.059268 = phi i32 [ 0, %.lr.ph ], [ %.160, %341 ]
   %.061267 = phi double [ 0.000000e+00, %.lr.ph ], [ %.162, %341 ]
   %242 = getelementptr inbounds %"struct.std::pair", ptr %241, i64 %.025269
   %243 = load i32, ptr %242, align 4
@@ -856,7 +856,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %295 unwind label %313
 
 295:                                              ; preds = %294
-  %296 = add nsw i32 %.059268, 1
+  %296 = add i32 %.059268, 1
   br label %315
 
 297:                                              ; preds = %148
@@ -908,7 +908,6 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 315:                                              ; preds = %240, %265, %295
   %.162 = phi double [ %.061267, %240 ], [ %.061267, %265 ], [ %276, %295 ]
   %.160 = phi i32 [ %.059268, %240 ], [ %.059268, %265 ], [ %296, %295 ]
-  %.160.fr = freeze i32 %.160
   store i64 0, ptr %238, align 8
   store i32 50397184, ptr %42, align 8
   store ptr %37, ptr %237, align 8
@@ -974,8 +973,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %630
 
 ._crit_edge:                                      ; preds = %341
-  %.not = icmp eq i32 %.160.fr, 0
-  %352 = sitofp i32 %.160.fr to double
+  %.not = icmp eq i32 %.160, 0
+  %352 = sitofp i32 %.160 to double
   %353 = fdiv double %.162, %352
   br i1 %.not, label %354, label %._crit_edge.thread
 

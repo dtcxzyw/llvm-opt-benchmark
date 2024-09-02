@@ -7478,7 +7478,7 @@ _ZN2cv3Mat2atIdEERT_i.exit40:                     ; preds = %109, %121, %126
   %150 = fmul double %.024, 5.000000e+00
   %151 = fptosi double %150 to i32
   %spec.select.i = or i32 %151, 1
-  %spec.store.select.i = call noundef i32 @llvm.smax.i32(i32 %spec.select.i, i32 3)
+  %spec.store.select.i = call noundef range(i32 3, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i, i32 3)
   %.sroa.2.0.insert.ext = zext nneg i32 %spec.store.select.i to i64
   %.sroa.0.0.insert.insert = mul nuw nsw i64 %.sroa.2.0.insert.ext, 4294967297
   br label %152
@@ -8483,7 +8483,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d10DAISY_Impl14compute_scales
   %55 = fmul double %54, 3.000000e+00
   %56 = fptosi double %55 to i32
   %spec.select.i46 = or i32 %56, 1
-  %spec.store.select.i47 = call noundef i32 @llvm.smax.i32(i32 %spec.select.i46, i32 3)
+  %spec.store.select.i47 = call noundef range(i32 3, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i46, i32 3)
   store i32 0, ptr %36, align 8
   store i32 0, ptr %37, align 4
   store i32 16842752, ptr %10, align 8
@@ -8763,7 +8763,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d10DAISY_Impl20compute_orient
   %71 = fmul double %70, 5.000000e+00
   %72 = fptosi double %71 to i32
   %spec.select.i.i.i = or i32 %72, 1
-  %spec.store.select.i.i.i = call noundef i32 @llvm.smax.i32(i32 %spec.select.i.i.i, i32 3)
+  %spec.store.select.i.i.i = call noundef range(i32 3, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i.i.i, i32 3)
   store i32 %spec.store.select.i.i.i, ptr %48, align 4
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef -1.000000e+00)
           to label %_ZN2cv11xfeatures2dL13smooth_layersEPNS_3MatEf.exit unwind label %73
@@ -9118,7 +9118,7 @@ _ZN2cv11xfeatures2dL16smooth_histogramEPNS_3MatEi.exit: ; preds = %_ZN2cv3Mat2at
 275:                                              ; preds = %.lr.ph129, %325
   %indvars.iv139 = phi i64 [ 0, %.lr.ph129 ], [ %indvars.iv.next140, %325 ]
   %.068127 = phi float [ -1.000000e+00, %.lr.ph129 ], [ %.169, %325 ]
-  %.070126 = phi i32 [ 0, %.lr.ph129 ], [ %.171.fr, %325 ]
+  %.070126 = phi i32 [ 0, %.lr.ph129 ], [ %.171, %325 ]
   br i1 %.not.i87, label %276, label %279
 
 276:                                              ; preds = %275
@@ -9199,26 +9199,25 @@ _ZN2cv3Mat2atIfEERT_i.exit89:                     ; preds = %279, %284, %288
 _ZN2cv3Mat2atIfEERT_i.exit92:                     ; preds = %304, %309, %313
   %.0.i91 = phi ptr [ %305, %304 ], [ %312, %309 ], [ %322, %313 ]
   %323 = load float, ptr %.0.i91, align 4
-  %324 = trunc nuw nsw i64 %indvars.iv139 to i32
+  %324 = trunc i64 %indvars.iv139 to i32
   br label %325
 
 325:                                              ; preds = %_ZN2cv3Mat2atIfEERT_i.exit89, %_ZN2cv3Mat2atIfEERT_i.exit92
   %.171 = phi i32 [ %324, %_ZN2cv3Mat2atIfEERT_i.exit92 ], [ %.070126, %_ZN2cv3Mat2atIfEERT_i.exit89 ]
   %.169 = phi float [ %323, %_ZN2cv3Mat2atIfEERT_i.exit92 ], [ %.068127, %_ZN2cv3Mat2atIfEERT_i.exit89 ]
-  %.171.fr = freeze i32 %.171
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
+  %indvars.iv.next140 = add i64 %indvars.iv139, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count
   br i1 %exitcond142.not, label %._crit_edge, label %275, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %325
-  %326 = add nsw i32 %.171.fr, -1
-  %.inv = icmp sgt i32 %.171.fr, 0
+  %326 = add nsw i32 %.171, -1
+  %.inv = icmp sgt i32 %.171, 0
   %spec.select174 = select i1 %.inv, i32 0, i32 %153
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader
   %327 = phi i32 [ -1, %.preheader ], [ %326, %._crit_edge ]
-  %.070.lcssa159 = phi i32 [ 0, %.preheader ], [ %.171.fr, %._crit_edge ]
+  %.070.lcssa159 = phi i32 [ 0, %.preheader ], [ %.171, %._crit_edge ]
   %328 = phi i32 [ %153, %.preheader ], [ %spec.select174, %._crit_edge ]
   %spec.select = add nsw i32 %327, %328
   %329 = add nsw i32 %.070.lcssa159, 1

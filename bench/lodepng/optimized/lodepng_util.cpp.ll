@@ -392,7 +392,7 @@ declare noundef i32 @_Z20lodepng_chunk_lengthPKh(ptr noundef) local_unnamed_addr
 declare noundef ptr @_Z24lodepng_chunk_next_constPKhS0_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng9getChunksEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS0_IS0_IhSaIhEESaISB_EERKSB_(ptr noundef %names, ptr noundef %chunks, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng9getChunksEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS0_IS0_IhSaIhEESaISB_EERKSB_(ptr noundef %names, ptr noundef %chunks, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca [5 x i8], align 1
   %name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -643,7 +643,7 @@ eh.resume:                                        ; preds = %ehcleanup41, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng12insertChunksERSt6vectorIhSaIhEEPKS0_IS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %png, ptr nocapture noundef readonly %chunks) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng12insertChunksERSt6vectorIhSaIhEEPKS0_IS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %png, ptr nocapture noundef readonly %chunks) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca [5 x i8], align 1
   %name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1752,7 +1752,7 @@ declare noundef i32 @_ZN7lodepng10decompressERSt6vectorIhSaIhEEPKhmRK25LodePNGDe
 declare noundef i64 @_Z20lodepng_get_raw_sizejjPK16LodePNGColorMode(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7lodepng14getFilterTypesERSt6vectorIhSaIhEERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %filterTypes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng14getFilterTypesERSt6vectorIhSaIhEERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %filterTypes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %png) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %passes = alloca %"class.std::vector.13", align 8
   %state = alloca %"class.lodepng::State", align 8
@@ -2639,8 +2639,8 @@ if.then77:                                        ; preds = %_ZN7lodepngL9isICCw
   br i1 %cmp.i.i312, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit329, label %if.end.i.i313
 
 if.end.i.i313:                                    ; preds = %if.then77
-  %44 = getelementptr inbounds i8, ptr %data, i64 %retval.0.i284
-  %arrayidx.i.i314 = getelementptr inbounds i8, ptr %44, i64 8
+  %44 = getelementptr i8, ptr %data, i64 %retval.0.i284
+  %arrayidx.i.i314 = getelementptr i8, ptr %44, i64 8
   %45 = load i8, ptr %arrayidx.i.i314, align 1
   %conv.i.i315 = zext i8 %45 to i32
   %shl.i.i316 = shl nuw i32 %conv.i.i315, 24
@@ -2752,8 +2752,8 @@ if.then92:                                        ; preds = %_ZN7lodepngL9isICCw
   br i1 %cmp.i.i385, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit402, label %if.end.i.i386
 
 if.end.i.i386:                                    ; preds = %if.then92
-  %66 = getelementptr inbounds i8, ptr %data, i64 %retval.0.i284
-  %arrayidx.i.i387 = getelementptr inbounds i8, ptr %66, i64 8
+  %66 = getelementptr i8, ptr %data, i64 %retval.0.i284
+  %arrayidx.i.i387 = getelementptr i8, ptr %66, i64 8
   %67 = load i8, ptr %arrayidx.i.i387, align 1
   %conv.i.i388 = zext i8 %67 to i32
   %shl.i.i389 = shl nuw i32 %conv.i.i388, 24
@@ -2865,8 +2865,8 @@ if.then107:                                       ; preds = %_ZN7lodepngL9isICCw
   br i1 %cmp.i.i458, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit475, label %if.end.i.i459
 
 if.end.i.i459:                                    ; preds = %if.then107
-  %88 = getelementptr inbounds i8, ptr %data, i64 %retval.0.i284
-  %arrayidx.i.i460 = getelementptr inbounds i8, ptr %88, i64 8
+  %88 = getelementptr i8, ptr %data, i64 %retval.0.i284
+  %arrayidx.i.i460 = getelementptr i8, ptr %88, i64 8
   %89 = load i8, ptr %arrayidx.i.i460, align 1
   %conv.i.i461 = zext i8 %89 to i32
   %shl.i.i462 = shl nuw i32 %conv.i.i461, 24
@@ -2978,8 +2978,8 @@ if.then122:                                       ; preds = %_ZN7lodepngL9isICCw
   br i1 %cmp.i.i531, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit548, label %if.end.i.i532
 
 if.end.i.i532:                                    ; preds = %if.then122
-  %110 = getelementptr inbounds i8, ptr %data, i64 %retval.0.i284
-  %arrayidx.i.i533 = getelementptr inbounds i8, ptr %110, i64 8
+  %110 = getelementptr i8, ptr %data, i64 %retval.0.i284
+  %arrayidx.i.i533 = getelementptr i8, ptr %110, i64 8
   %111 = load i8, ptr %arrayidx.i.i533, align 1
   %conv.i.i534 = zext i8 %111 to i32
   %shl.i.i535 = shl nuw i32 %conv.i.i534, 24
@@ -3158,8 +3158,8 @@ if.then166:                                       ; preds = %if.then157
   br i1 %cmp.i607, label %if.then175, label %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit624
 
 _ZN7lodepngL15decodeICCUint32EPKhmPm.exit624:     ; preds = %if.then166
-  %136 = getelementptr inbounds i8, ptr %data, i64 %retval.0.i284
-  %arrayidx.i609 = getelementptr inbounds i8, ptr %136, i64 8
+  %136 = getelementptr i8, ptr %data, i64 %retval.0.i284
+  %arrayidx.i609 = getelementptr i8, ptr %136, i64 8
   %137 = load i8, ptr %arrayidx.i609, align 1
   %conv.i610 = zext i8 %137 to i32
   %shl.i611 = shl nuw i32 %conv.i610, 24
@@ -3202,14 +3202,14 @@ if.end.i627:                                      ; preds = %if.then179
   %142 = load i8, ptr %arrayidx2.i631, align 1
   %conv3.i632 = zext i8 %142 to i32
   %or.i633 = or disjoint i32 %shl.i630, %conv3.i632
+  %143 = uitofp nneg i32 %or.i633 to float
+  %144 = fmul float %143, 3.906250e-03
   br label %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit
 
 _ZN7lodepngL15decodeICCUint16EPKhmPm.exit:        ; preds = %if.then179, %if.end.i627
-  %retval.0.i634 = phi i32 [ %or.i633, %if.end.i627 ], [ 0, %if.then179 ]
-  %conv182 = uitofp nneg i32 %retval.0.i634 to float
-  %div = fmul float %conv182, 3.906250e-03
+  %retval.0.i634 = phi float [ %144, %if.end.i627 ], [ 0.000000e+00, %if.then179 ]
   %gamma = getelementptr inbounds i8, ptr %arrayidx169, i64 24
-  store float %div, ptr %gamma, align 8
+  store float %retval.0.i634, ptr %gamma, align 8
   br label %if.end206
 
 if.else183:                                       ; preds = %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit624
@@ -3239,22 +3239,22 @@ for.body195:                                      ; preds = %for.body195.prehead
 
 if.end.i637:                                      ; preds = %for.body195
   %arrayidx.i638 = getelementptr inbounds i8, ptr %data, i64 %offset.3865
-  %143 = load i8, ptr %arrayidx.i638, align 1
-  %conv.i639 = zext i8 %143 to i32
+  %145 = load i8, ptr %arrayidx.i638, align 1
+  %conv.i639 = zext i8 %145 to i32
   %shl.i640 = shl nuw nsw i32 %conv.i639, 8
   %arrayidx2.i641 = getelementptr i8, ptr %arrayidx.i638, i64 1
-  %144 = load i8, ptr %arrayidx2.i641, align 1
-  %conv3.i642 = zext i8 %144 to i32
+  %146 = load i8, ptr %arrayidx2.i641, align 1
+  %conv3.i642 = zext i8 %146 to i32
   %or.i643 = or disjoint i32 %shl.i640, %conv3.i642
+  %147 = uitofp nneg i32 %or.i643 to float
+  %148 = fmul float %147, 0x3EF0001000000000
   br label %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit645
 
 _ZN7lodepngL15decodeICCUint16EPKhmPm.exit645:     ; preds = %for.body195, %if.end.i637
-  %retval.0.i644 = phi i32 [ %or.i643, %if.end.i637 ], [ 0, %for.body195 ]
-  %conv197 = uitofp nneg i32 %retval.0.i644 to float
-  %mul198 = fmul float %conv197, 0x3EF0001000000000
-  %145 = load ptr, ptr %lut, align 8
-  %arrayidx200 = getelementptr inbounds float, ptr %145, i64 %j.1866
-  store float %mul198, ptr %arrayidx200, align 4
+  %retval.0.i644 = phi float [ %148, %if.end.i637 ], [ 0.000000e+00, %for.body195 ]
+  %149 = load ptr, ptr %lut, align 8
+  %arrayidx200 = getelementptr inbounds float, ptr %149, i64 %j.1866
+  store float %retval.0.i644, ptr %arrayidx200, align 4
   %inc202 = add nuw nsw i64 %j.1866, 1
   %exitcond876.not = icmp eq i64 %inc202, %conv173
   br i1 %exitcond876.not, label %if.end206, label %for.body195, !llvm.loop !20
@@ -3274,14 +3274,14 @@ if.then209:                                       ; preds = %if.end206
   br i1 %cmp.i647, label %if.end221, label %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit656
 
 _ZN7lodepngL15decodeICCUint16EPKhmPm.exit656:     ; preds = %if.then209
-  %146 = getelementptr i8, ptr %data, i64 %offset.2
-  %arrayidx.i649 = getelementptr i8, ptr %146, i64 8
-  %147 = load i8, ptr %arrayidx.i649, align 1
-  %conv.i650 = zext i8 %147 to i32
+  %150 = getelementptr i8, ptr %data, i64 %offset.2
+  %arrayidx.i649 = getelementptr i8, ptr %150, i64 8
+  %151 = load i8, ptr %arrayidx.i649, align 1
+  %conv.i650 = zext i8 %151 to i32
   %shl.i651 = shl nuw nsw i32 %conv.i650, 8
-  %arrayidx2.i652 = getelementptr i8, ptr %146, i64 9
-  %148 = load i8, ptr %arrayidx2.i652, align 1
-  %conv3.i653 = zext i8 %148 to i32
+  %arrayidx2.i652 = getelementptr i8, ptr %150, i64 9
+  %152 = load i8, ptr %arrayidx2.i652, align 1
+  %conv3.i653 = zext i8 %152 to i32
   %or.i654 = or disjoint i32 %shl.i651, %conv3.i653
   %cmp219 = icmp ugt i32 %or.i654, 4
   br i1 %cmp219, label %return, label %if.end221
@@ -3295,31 +3295,31 @@ if.end221:                                        ; preds = %if.then209, %_ZN7lo
   br i1 %cmp.i.i658, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit675, label %if.end.i.i659
 
 if.end.i.i659:                                    ; preds = %if.end221
-  %149 = getelementptr i8, ptr %data, i64 %offset.2
-  %arrayidx.i.i660 = getelementptr i8, ptr %149, i64 12
-  %150 = load i8, ptr %arrayidx.i.i660, align 1
-  %conv.i.i661 = zext i8 %150 to i32
+  %153 = getelementptr i8, ptr %data, i64 %offset.2
+  %arrayidx.i.i660 = getelementptr i8, ptr %153, i64 12
+  %154 = load i8, ptr %arrayidx.i.i660, align 1
+  %conv.i.i661 = zext i8 %154 to i32
   %shl.i.i662 = shl nuw i32 %conv.i.i661, 24
-  %arrayidx2.i.i663 = getelementptr i8, ptr %149, i64 13
-  %151 = load i8, ptr %arrayidx2.i.i663, align 1
-  %conv3.i.i664 = zext i8 %151 to i32
+  %arrayidx2.i.i663 = getelementptr i8, ptr %153, i64 13
+  %155 = load i8, ptr %arrayidx2.i.i663, align 1
+  %conv3.i.i664 = zext i8 %155 to i32
   %shl4.i.i665 = shl nuw nsw i32 %conv3.i.i664, 16
   %or.i.i666 = or disjoint i32 %shl4.i.i665, %shl.i.i662
-  %arrayidx6.i.i667 = getelementptr i8, ptr %149, i64 14
-  %152 = load i8, ptr %arrayidx6.i.i667, align 1
-  %conv7.i.i668 = zext i8 %152 to i32
+  %arrayidx6.i.i667 = getelementptr i8, ptr %153, i64 14
+  %156 = load i8, ptr %arrayidx6.i.i667, align 1
+  %conv7.i.i668 = zext i8 %156 to i32
   %shl8.i.i669 = shl nuw nsw i32 %conv7.i.i668, 8
   %or9.i.i670 = or disjoint i32 %or.i.i666, %shl8.i.i669
-  %arrayidx11.i.i671 = getelementptr i8, ptr %149, i64 15
-  %153 = load i8, ptr %arrayidx11.i.i671, align 1
-  %conv12.i.i672 = zext i8 %153 to i32
+  %arrayidx11.i.i671 = getelementptr i8, ptr %153, i64 15
+  %157 = load i8, ptr %arrayidx11.i.i671, align 1
+  %conv12.i.i672 = zext i8 %157 to i32
   %or14.i.i673 = or disjoint i32 %or9.i.i670, %conv12.i.i672
-  %154 = sitofp i32 %or14.i.i673 to float
-  %155 = fmul float %154, 0x3EF0000000000000
+  %158 = sitofp i32 %or14.i.i673 to float
+  %159 = fmul float %158, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit675
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit675:  ; preds = %if.end221, %if.end.i.i659
-  %retval.0.i.i674 = phi float [ %155, %if.end.i.i659 ], [ 0.000000e+00, %if.end221 ]
+  %retval.0.i.i674 = phi float [ %159, %if.end.i.i659 ], [ 0.000000e+00, %if.end221 ]
   %gamma225 = getelementptr inbounds i8, ptr %arrayidx214, i64 24
   store float %retval.0.i.i674, ptr %gamma225, align 8
   %cmp226.not = icmp eq i32 %retval.0.i655854, 0
@@ -3332,29 +3332,29 @@ if.then227:                                       ; preds = %_ZN7lodepngL18decod
 
 if.end.i.i678:                                    ; preds = %if.then227
   %arrayidx.i.i679 = getelementptr inbounds i8, ptr %data, i64 %add.i.i657
-  %156 = load i8, ptr %arrayidx.i.i679, align 1
-  %conv.i.i680 = zext i8 %156 to i32
+  %160 = load i8, ptr %arrayidx.i.i679, align 1
+  %conv.i.i680 = zext i8 %160 to i32
   %shl.i.i681 = shl nuw i32 %conv.i.i680, 24
   %arrayidx2.i.i682 = getelementptr i8, ptr %arrayidx.i.i679, i64 1
-  %157 = load i8, ptr %arrayidx2.i.i682, align 1
-  %conv3.i.i683 = zext i8 %157 to i32
+  %161 = load i8, ptr %arrayidx2.i.i682, align 1
+  %conv3.i.i683 = zext i8 %161 to i32
   %shl4.i.i684 = shl nuw nsw i32 %conv3.i.i683, 16
   %or.i.i685 = or disjoint i32 %shl4.i.i684, %shl.i.i681
   %arrayidx6.i.i686 = getelementptr i8, ptr %arrayidx.i.i679, i64 2
-  %158 = load i8, ptr %arrayidx6.i.i686, align 1
-  %conv7.i.i687 = zext i8 %158 to i32
+  %162 = load i8, ptr %arrayidx6.i.i686, align 1
+  %conv7.i.i687 = zext i8 %162 to i32
   %shl8.i.i688 = shl nuw nsw i32 %conv7.i.i687, 8
   %or9.i.i689 = or disjoint i32 %or.i.i685, %shl8.i.i688
   %arrayidx11.i.i690 = getelementptr i8, ptr %arrayidx.i.i679, i64 3
-  %159 = load i8, ptr %arrayidx11.i.i690, align 1
-  %conv12.i.i691 = zext i8 %159 to i32
+  %163 = load i8, ptr %arrayidx11.i.i690, align 1
+  %conv12.i.i691 = zext i8 %163 to i32
   %or14.i.i692 = or disjoint i32 %or9.i.i689, %conv12.i.i691
-  %160 = sitofp i32 %or14.i.i692 to float
-  %161 = fmul float %160, 0x3EF0000000000000
+  %164 = sitofp i32 %or14.i.i692 to float
+  %165 = fmul float %164, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit694
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit694:  ; preds = %if.then227, %if.end.i.i678
-  %retval.0.i.i693 = phi float [ %161, %if.end.i.i678 ], [ 0.000000e+00, %if.then227 ]
+  %retval.0.i.i693 = phi float [ %165, %if.end.i.i678 ], [ 0.000000e+00, %if.then227 ]
   %a = getelementptr inbounds i8, ptr %arrayidx214, i64 28
   store float %retval.0.i.i693, ptr %a, align 4
   %add.i.i695 = add i64 %offset.2, 24
@@ -3363,29 +3363,29 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit694:  ; preds = %if.then227, %if.end
 
 if.end.i.i697:                                    ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit694
   %arrayidx.i.i698 = getelementptr inbounds i8, ptr %data, i64 %add.i.i676
-  %162 = load i8, ptr %arrayidx.i.i698, align 1
-  %conv.i.i699 = zext i8 %162 to i32
+  %166 = load i8, ptr %arrayidx.i.i698, align 1
+  %conv.i.i699 = zext i8 %166 to i32
   %shl.i.i700 = shl nuw i32 %conv.i.i699, 24
   %arrayidx2.i.i701 = getelementptr i8, ptr %arrayidx.i.i698, i64 1
-  %163 = load i8, ptr %arrayidx2.i.i701, align 1
-  %conv3.i.i702 = zext i8 %163 to i32
+  %167 = load i8, ptr %arrayidx2.i.i701, align 1
+  %conv3.i.i702 = zext i8 %167 to i32
   %shl4.i.i703 = shl nuw nsw i32 %conv3.i.i702, 16
   %or.i.i704 = or disjoint i32 %shl4.i.i703, %shl.i.i700
   %arrayidx6.i.i705 = getelementptr i8, ptr %arrayidx.i.i698, i64 2
-  %164 = load i8, ptr %arrayidx6.i.i705, align 1
-  %conv7.i.i706 = zext i8 %164 to i32
+  %168 = load i8, ptr %arrayidx6.i.i705, align 1
+  %conv7.i.i706 = zext i8 %168 to i32
   %shl8.i.i707 = shl nuw nsw i32 %conv7.i.i706, 8
   %or9.i.i708 = or disjoint i32 %or.i.i704, %shl8.i.i707
   %arrayidx11.i.i709 = getelementptr i8, ptr %arrayidx.i.i698, i64 3
-  %165 = load i8, ptr %arrayidx11.i.i709, align 1
-  %conv12.i.i710 = zext i8 %165 to i32
+  %169 = load i8, ptr %arrayidx11.i.i709, align 1
+  %conv12.i.i710 = zext i8 %169 to i32
   %or14.i.i711 = or disjoint i32 %or9.i.i708, %conv12.i.i710
-  %166 = sitofp i32 %or14.i.i711 to float
-  %167 = fmul float %166, 0x3EF0000000000000
+  %170 = sitofp i32 %or14.i.i711 to float
+  %171 = fmul float %170, 0x3EF0000000000000
   br label %if.end230
 
 if.end230:                                        ; preds = %if.end.i.i697, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit694
-  %retval.0.i.i712 = phi float [ %167, %if.end.i.i697 ], [ 0.000000e+00, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit694 ]
+  %retval.0.i.i712 = phi float [ %171, %if.end.i.i697 ], [ 0.000000e+00, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit694 ]
   %b = getelementptr inbounds i8, ptr %arrayidx214, i64 32
   store float %retval.0.i.i712, ptr %b, align 8
   %cmp231.not = icmp eq i32 %retval.0.i655854, 1
@@ -3398,29 +3398,29 @@ if.then232:                                       ; preds = %if.end230
 
 if.end.i.i716:                                    ; preds = %if.then232
   %arrayidx.i.i717 = getelementptr inbounds i8, ptr %data, i64 %add.i.i695
-  %168 = load i8, ptr %arrayidx.i.i717, align 1
-  %conv.i.i718 = zext i8 %168 to i32
+  %172 = load i8, ptr %arrayidx.i.i717, align 1
+  %conv.i.i718 = zext i8 %172 to i32
   %shl.i.i719 = shl nuw i32 %conv.i.i718, 24
   %arrayidx2.i.i720 = getelementptr i8, ptr %arrayidx.i.i717, i64 1
-  %169 = load i8, ptr %arrayidx2.i.i720, align 1
-  %conv3.i.i721 = zext i8 %169 to i32
+  %173 = load i8, ptr %arrayidx2.i.i720, align 1
+  %conv3.i.i721 = zext i8 %173 to i32
   %shl4.i.i722 = shl nuw nsw i32 %conv3.i.i721, 16
   %or.i.i723 = or disjoint i32 %shl4.i.i722, %shl.i.i719
   %arrayidx6.i.i724 = getelementptr i8, ptr %arrayidx.i.i717, i64 2
-  %170 = load i8, ptr %arrayidx6.i.i724, align 1
-  %conv7.i.i725 = zext i8 %170 to i32
+  %174 = load i8, ptr %arrayidx6.i.i724, align 1
+  %conv7.i.i725 = zext i8 %174 to i32
   %shl8.i.i726 = shl nuw nsw i32 %conv7.i.i725, 8
   %or9.i.i727 = or disjoint i32 %or.i.i723, %shl8.i.i726
   %arrayidx11.i.i728 = getelementptr i8, ptr %arrayidx.i.i717, i64 3
-  %171 = load i8, ptr %arrayidx11.i.i728, align 1
-  %conv12.i.i729 = zext i8 %171 to i32
+  %175 = load i8, ptr %arrayidx11.i.i728, align 1
+  %conv12.i.i729 = zext i8 %175 to i32
   %or14.i.i730 = or disjoint i32 %or9.i.i727, %conv12.i.i729
-  %172 = sitofp i32 %or14.i.i730 to float
-  %173 = fmul float %172, 0x3EF0000000000000
+  %176 = sitofp i32 %or14.i.i730 to float
+  %177 = fmul float %176, 0x3EF0000000000000
   br label %if.end235
 
 if.end235:                                        ; preds = %if.end.i.i716, %if.then232
-  %retval.0.i.i731 = phi float [ %173, %if.end.i.i716 ], [ 0.000000e+00, %if.then232 ]
+  %retval.0.i.i731 = phi float [ %177, %if.end.i.i716 ], [ 0.000000e+00, %if.then232 ]
   %c234 = getelementptr inbounds i8, ptr %arrayidx214, i64 36
   store float %retval.0.i.i731, ptr %c234, align 4
   %cmp236 = icmp ugt i32 %retval.0.i655854, 2
@@ -3433,29 +3433,29 @@ if.then237:                                       ; preds = %if.end235
 
 if.end.i.i735:                                    ; preds = %if.then237
   %arrayidx.i.i736 = getelementptr inbounds i8, ptr %data, i64 %add.i.i714
-  %174 = load i8, ptr %arrayidx.i.i736, align 1
-  %conv.i.i737 = zext i8 %174 to i32
+  %178 = load i8, ptr %arrayidx.i.i736, align 1
+  %conv.i.i737 = zext i8 %178 to i32
   %shl.i.i738 = shl nuw i32 %conv.i.i737, 24
   %arrayidx2.i.i739 = getelementptr i8, ptr %arrayidx.i.i736, i64 1
-  %175 = load i8, ptr %arrayidx2.i.i739, align 1
-  %conv3.i.i740 = zext i8 %175 to i32
+  %179 = load i8, ptr %arrayidx2.i.i739, align 1
+  %conv3.i.i740 = zext i8 %179 to i32
   %shl4.i.i741 = shl nuw nsw i32 %conv3.i.i740, 16
   %or.i.i742 = or disjoint i32 %shl4.i.i741, %shl.i.i738
   %arrayidx6.i.i743 = getelementptr i8, ptr %arrayidx.i.i736, i64 2
-  %176 = load i8, ptr %arrayidx6.i.i743, align 1
-  %conv7.i.i744 = zext i8 %176 to i32
+  %180 = load i8, ptr %arrayidx6.i.i743, align 1
+  %conv7.i.i744 = zext i8 %180 to i32
   %shl8.i.i745 = shl nuw nsw i32 %conv7.i.i744, 8
   %or9.i.i746 = or disjoint i32 %or.i.i742, %shl8.i.i745
   %arrayidx11.i.i747 = getelementptr i8, ptr %arrayidx.i.i736, i64 3
-  %177 = load i8, ptr %arrayidx11.i.i747, align 1
-  %conv12.i.i748 = zext i8 %177 to i32
+  %181 = load i8, ptr %arrayidx11.i.i747, align 1
+  %conv12.i.i748 = zext i8 %181 to i32
   %or14.i.i749 = or disjoint i32 %or9.i.i746, %conv12.i.i748
-  %178 = sitofp i32 %or14.i.i749 to float
-  %179 = fmul float %178, 0x3EF0000000000000
+  %182 = sitofp i32 %or14.i.i749 to float
+  %183 = fmul float %182, 0x3EF0000000000000
   br label %if.end239
 
 if.end239:                                        ; preds = %if.end.i.i735, %if.then237
-  %retval.0.i.i750 = phi float [ %179, %if.end.i.i735 ], [ 0.000000e+00, %if.then237 ]
+  %retval.0.i.i750 = phi float [ %183, %if.end.i.i735 ], [ 0.000000e+00, %if.then237 ]
   %d = getelementptr inbounds i8, ptr %arrayidx214, i64 40
   store float %retval.0.i.i750, ptr %d, align 8
   %cmp240 = icmp eq i32 %retval.0.i655854, 4
@@ -3468,29 +3468,29 @@ if.then241:                                       ; preds = %if.end239
 
 if.end.i.i754:                                    ; preds = %if.then241
   %arrayidx.i.i755 = getelementptr inbounds i8, ptr %data, i64 %add.i.i733
-  %180 = load i8, ptr %arrayidx.i.i755, align 1
-  %conv.i.i756 = zext i8 %180 to i32
+  %184 = load i8, ptr %arrayidx.i.i755, align 1
+  %conv.i.i756 = zext i8 %184 to i32
   %shl.i.i757 = shl nuw i32 %conv.i.i756, 24
   %arrayidx2.i.i758 = getelementptr i8, ptr %arrayidx.i.i755, i64 1
-  %181 = load i8, ptr %arrayidx2.i.i758, align 1
-  %conv3.i.i759 = zext i8 %181 to i32
+  %185 = load i8, ptr %arrayidx2.i.i758, align 1
+  %conv3.i.i759 = zext i8 %185 to i32
   %shl4.i.i760 = shl nuw nsw i32 %conv3.i.i759, 16
   %or.i.i761 = or disjoint i32 %shl4.i.i760, %shl.i.i757
   %arrayidx6.i.i762 = getelementptr i8, ptr %arrayidx.i.i755, i64 2
-  %182 = load i8, ptr %arrayidx6.i.i762, align 1
-  %conv7.i.i763 = zext i8 %182 to i32
+  %186 = load i8, ptr %arrayidx6.i.i762, align 1
+  %conv7.i.i763 = zext i8 %186 to i32
   %shl8.i.i764 = shl nuw nsw i32 %conv7.i.i763, 8
   %or9.i.i765 = or disjoint i32 %or.i.i761, %shl8.i.i764
   %arrayidx11.i.i766 = getelementptr i8, ptr %arrayidx.i.i755, i64 3
-  %183 = load i8, ptr %arrayidx11.i.i766, align 1
-  %conv12.i.i767 = zext i8 %183 to i32
+  %187 = load i8, ptr %arrayidx11.i.i766, align 1
+  %conv12.i.i767 = zext i8 %187 to i32
   %or14.i.i768 = or disjoint i32 %or9.i.i765, %conv12.i.i767
-  %184 = sitofp i32 %or14.i.i768 to float
-  %185 = fmul float %184, 0x3EF0000000000000
+  %188 = sitofp i32 %or14.i.i768 to float
+  %189 = fmul float %188, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit770
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit770:  ; preds = %if.then241, %if.end.i.i754
-  %retval.0.i.i769 = phi float [ %185, %if.end.i.i754 ], [ 0.000000e+00, %if.then241 ]
+  %retval.0.i.i769 = phi float [ %189, %if.end.i.i754 ], [ 0.000000e+00, %if.then241 ]
   %e = getelementptr inbounds i8, ptr %arrayidx214, i64 44
   store float %retval.0.i.i769, ptr %e, align 4
   %add.i.i771 = add i64 %offset.2, 40
@@ -3499,29 +3499,29 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit770:  ; preds = %if.then241, %if.end
 
 if.end.i.i773:                                    ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit770
   %arrayidx.i.i774 = getelementptr inbounds i8, ptr %data, i64 %add.i.i752
-  %186 = load i8, ptr %arrayidx.i.i774, align 1
-  %conv.i.i775 = zext i8 %186 to i32
+  %190 = load i8, ptr %arrayidx.i.i774, align 1
+  %conv.i.i775 = zext i8 %190 to i32
   %shl.i.i776 = shl nuw i32 %conv.i.i775, 24
   %arrayidx2.i.i777 = getelementptr i8, ptr %arrayidx.i.i774, i64 1
-  %187 = load i8, ptr %arrayidx2.i.i777, align 1
-  %conv3.i.i778 = zext i8 %187 to i32
+  %191 = load i8, ptr %arrayidx2.i.i777, align 1
+  %conv3.i.i778 = zext i8 %191 to i32
   %shl4.i.i779 = shl nuw nsw i32 %conv3.i.i778, 16
   %or.i.i780 = or disjoint i32 %shl4.i.i779, %shl.i.i776
   %arrayidx6.i.i781 = getelementptr i8, ptr %arrayidx.i.i774, i64 2
-  %188 = load i8, ptr %arrayidx6.i.i781, align 1
-  %conv7.i.i782 = zext i8 %188 to i32
+  %192 = load i8, ptr %arrayidx6.i.i781, align 1
+  %conv7.i.i782 = zext i8 %192 to i32
   %shl8.i.i783 = shl nuw nsw i32 %conv7.i.i782, 8
   %or9.i.i784 = or disjoint i32 %or.i.i780, %shl8.i.i783
   %arrayidx11.i.i785 = getelementptr i8, ptr %arrayidx.i.i774, i64 3
-  %189 = load i8, ptr %arrayidx11.i.i785, align 1
-  %conv12.i.i786 = zext i8 %189 to i32
+  %193 = load i8, ptr %arrayidx11.i.i785, align 1
+  %conv12.i.i786 = zext i8 %193 to i32
   %or14.i.i787 = or disjoint i32 %or9.i.i784, %conv12.i.i786
-  %190 = sitofp i32 %or14.i.i787 to float
-  %191 = fmul float %190, 0x3EF0000000000000
+  %194 = sitofp i32 %or14.i.i787 to float
+  %195 = fmul float %194, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit789
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit789:  ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit770, %if.end.i.i773
-  %retval.0.i.i788 = phi float [ %191, %if.end.i.i773 ], [ 0.000000e+00, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit770 ]
+  %retval.0.i.i788 = phi float [ %195, %if.end.i.i773 ], [ 0.000000e+00, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit770 ]
   %f = getelementptr inbounds i8, ptr %arrayidx214, i64 48
   store float %retval.0.i.i788, ptr %f, align 8
   br label %if.end251
@@ -4210,10 +4210,10 @@ for.body25:                                       ; preds = %for.cond23.preheade
   %8 = load float, ptr %gep, align 4
   %cmp30 = fcmp olt float %8, 0.000000e+00
   %9 = fcmp olt float %8, 1.000000e+00
-  %cmp34 = or i1 %cmp30, %9
+  %cond = or i1 %cmp30, %9
   %10 = xor i1 %9, true
   %brmerge = or i1 %cmp30, %10
-  %.mux = select i1 %cmp34, float 0.000000e+00, float 1.000000e+00
+  %.mux = select i1 %cond, float 0.000000e+00, float 1.000000e+00
   %cond49 = select i1 %brmerge, float %.mux, float %8
   %11 = call float @llvm.fmuladd.f32(float %cond49, float 6.553500e+04, float 5.000000e-01)
   %conv51 = fptosi float %11 to i32
@@ -4250,10 +4250,10 @@ for.body70:                                       ; preds = %for.cond68.preheade
   %12 = load float, ptr %arrayidx73, align 4
   %cmp74 = fcmp olt float %12, 0.000000e+00
   %13 = fcmp olt float %12, 1.000000e+00
-  %cmp82 = or i1 %cmp74, %13
+  %cond81 = or i1 %cmp74, %13
   %14 = xor i1 %13, true
   %brmerge75 = or i1 %cmp74, %14
-  %.mux76 = select i1 %cmp82, float 0.000000e+00, float 1.000000e+00
+  %.mux76 = select i1 %cond81, float 0.000000e+00, float 1.000000e+00
   %cond97 = select i1 %brmerge75, float %.mux76, float %12
   %15 = call float @llvm.fmuladd.f32(float %cond97, float 2.550000e+02, float 5.000000e-01)
   %conv99 = fptoui float %15 to i8
@@ -5028,7 +5028,7 @@ if.end65:                                         ; preds = %for.inc9, %for.inc4
 declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7lodepng19convertFromXYZFloatEPfPKfjjPK12LodePNGStateS2_j(ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %state, ptr nocapture noundef readonly %whitepoint, i32 noundef %rendering_intent) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng19convertFromXYZFloatEPfPKfjjPK12LodePNGStateS2_j(ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %state, ptr nocapture noundef readonly %whitepoint, i32 noundef %rendering_intent) local_unnamed_addr #4 {
 entry:
   %icc = alloca %"struct.lodepng::LodePNGICC", align 8
   %info_png = getelementptr inbounds i8, ptr %state, i64 208

@@ -489,7 +489,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare ptr @_ZN4cvc58internal18StatisticsRegistry13registerTimerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory5arith6linear28DualSimplexDecisionProcedure13dualFindModelEb(ptr noundef nonnull align 8 dereferenceable(424) %this, i1 noundef zeroext %exactResult) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 1, 4) i32 @_ZN4cvc58internal6theory5arith6linear28DualSimplexDecisionProcedure13dualFindModelEb(ptr noundef nonnull align 8 dereferenceable(424) %this, i1 noundef zeroext %exactResult) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_pivots = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %d_pivots, align 8
@@ -826,46 +826,46 @@ if.then.i160:                                     ; preds = %_ZNK4cvc58internal8
   %9 = load ptr, ptr %d_image.i.i, align 8
   %add.ptr.i.i3.i = getelementptr inbounds i32, ptr %9, i64 %conv.i.i
   %10 = load i32, ptr %add.ptr.i.i3.i, align 4
+  %11 = zext i32 %10 to i64
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %if.then.i160, %_ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.i, %if.end72
-  %retval.0.i = phi i32 [ %10, %if.then.i160 ], [ 0, %_ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.i ], [ 0, %if.end72 ]
+  %retval.0.i = phi i64 [ %11, %if.then.i160 ], [ 0, %_ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.i ], [ 0, %if.end72 ]
   %call76 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %invoke.cont75 unwind label %ehcleanup265.loopexit
 
 invoke.cont75:                                    ; preds = %invoke.cont73
-  %conv = zext i32 %retval.0.i to i64
   %arith = getelementptr inbounds i8, ptr %call76, i64 192
-  %11 = load ptr, ptr %arith, align 8
-  %arithPivotThreshold = getelementptr inbounds i8, ptr %11, i64 200
-  %12 = load i64, ptr %arithPivotThreshold, align 8
-  %cmp77.not = icmp ugt i64 %12, %conv
+  %12 = load ptr, ptr %arith, align 8
+  %arithPivotThreshold = getelementptr inbounds i8, ptr %12, i64 200
+  %13 = load i64, ptr %arithPivotThreshold, align 8
+  %cmp77.not = icmp ugt i64 %13, %retval.0.i
   br i1 %cmp77.not, label %if.then78, label %cond.true85
 
 if.then78:                                        ; preds = %invoke.cont75
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %c.addr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   store i32 1, ptr %c.addr.i, align 4
-  %13 = load ptr, ptr %_M_finish.i.i.i.i159, align 8
-  %14 = load ptr, ptr %d_posVector.i.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i164 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i.i.i165 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i.i.i159, align 8
+  %15 = load ptr, ptr %d_posVector.i.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i164 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i.i.i165 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i166 = sub i64 %sub.ptr.lhs.cast.i.i.i.i164, %sub.ptr.rhs.cast.i.i.i.i165
   %sub.ptr.div.i.i.i.i167 = ashr exact i64 %sub.ptr.sub.i.i.i.i166, 2
   %cmp.not.i.i168 = icmp ugt i64 %sub.ptr.div.i.i.i.i167, %conv.i.i
   br i1 %cmp.not.i.i168, label %_ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.i170, label %if.end.i169
 
 _ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.i170: ; preds = %if.then78
-  %add.ptr.i.i.i171 = getelementptr inbounds i32, ptr %14, i64 %conv.i.i
-  %15 = load i32, ptr %add.ptr.i.i.i171, align 4
-  %cmp4.i.not.i172 = icmp eq i32 %15, -1
+  %add.ptr.i.i.i171 = getelementptr inbounds i32, ptr %15, i64 %conv.i.i
+  %16 = load i32, ptr %add.ptr.i.i.i171, align 4
+  %cmp4.i.not.i172 = icmp eq i32 %16, -1
   br i1 %cmp4.i.not.i172, label %if.end.i169, label %if.then.i173
 
 if.then.i173:                                     ; preds = %_ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.i170
-  %16 = load ptr, ptr %d_image.i.i, align 8
-  %add.ptr.i.i5.i = getelementptr inbounds i32, ptr %16, i64 %conv.i.i
-  %17 = load i32, ptr %add.ptr.i.i5.i, align 4
-  %add.i = add i32 %17, 1
+  %17 = load ptr, ptr %d_image.i.i, align 8
+  %add.ptr.i.i5.i = getelementptr inbounds i32, ptr %17, i64 %conv.i.i
+  %18 = load i32, ptr %add.ptr.i.i5.i, align 4
+  %add.i = add i32 %18, 1
   store i32 %add.i, ptr %ref.tmp.i, align 4
   br label %if.end.i169
 
@@ -881,17 +881,17 @@ _ZN4cvc58internal13DenseMultiset3addEjj.exit:     ; preds = %if.end.i169
 
 cond.true85:                                      ; preds = %invoke.cont75, %_ZN4cvc58internal13DenseMultiset3addEjj.exit
   %cond116.fca.0.extract = phi i64 [ ptrtoint (ptr @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11minVarOrderEjj to i64), %invoke.cont75 ], [ ptrtoint (ptr @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule20minBoundAndColLengthEjj to i64), %_ZN4cvc58internal13DenseMultiset3addEjj.exit ]
-  %18 = load ptr, ptr %d_variables, align 8
-  %d_image.i.i403 = getelementptr inbounds i8, ptr %18, i64 48
-  %19 = load ptr, ptr %d_image.i.i403, align 8
-  %d_cmpAssignmentLB.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %19, i64 %conv.i.i, i32 5
-  %20 = load i32, ptr %d_cmpAssignmentLB.i, align 8
-  %cmp122 = icmp slt i32 %20, 0
+  %19 = load ptr, ptr %d_variables, align 8
+  %d_image.i.i403 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = load ptr, ptr %d_image.i.i403, align 8
+  %d_cmpAssignmentLB.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %20, i64 %conv.i.i, i32 5
+  %21 = load i32, ptr %d_cmpAssignmentLB.i, align 8
+  %cmp122 = icmp slt i32 %21, 0
   br i1 %cmp122, label %if.then123, label %if.else143
 
 if.then123:                                       ; preds = %cond.true85
-  %21 = load ptr, ptr %d_linEq149, align 8
-  %call.i406 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11selectSlackILb0EEEjjMS4_KFjjjE(ptr noundef nonnull align 8 dereferenceable(456) %21, i32 noundef %5, i64 %cond116.fca.0.extract, i64 0)
+  %22 = load ptr, ptr %d_linEq149, align 8
+  %call.i406 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11selectSlackILb0EEEjjMS4_KFjjjE(ptr noundef nonnull align 8 dereferenceable(456) %22, i32 noundef %5, i64 %cond116.fca.0.extract, i64 0)
           to label %invoke.cont125 unwind label %ehcleanup265.loopexit
 
 invoke.cont125:                                   ; preds = %if.then123
@@ -915,25 +915,25 @@ invoke.cont134:                                   ; preds = %invoke.cont132
   unreachable
 
 lpad131:                                          ; preds = %invoke.cont132, %invoke.cont130
-  %22 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp129) #21
   unreachable
 
 if.else:                                          ; preds = %invoke.cont125
-  %23 = load ptr, ptr %d_variables, align 8
-  %call139 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear14ArithVariables13getLowerBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %23, i32 noundef %5)
+  %24 = load ptr, ptr %d_variables, align 8
+  %call139 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear14ArithVariables13getLowerBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %24, i32 noundef %5)
           to label %invoke.cont165.invoke unwind label %ehcleanup265.loopexit
 
 if.else143:                                       ; preds = %cond.true85
-  %d_cmpAssignmentUB.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %19, i64 %conv.i.i, i32 6
-  %24 = load i32, ptr %d_cmpAssignmentUB.i, align 4
-  %cmp147 = icmp sgt i32 %24, 0
+  %d_cmpAssignmentUB.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %20, i64 %conv.i.i, i32 6
+  %25 = load i32, ptr %d_cmpAssignmentUB.i, align 4
+  %cmp147 = icmp sgt i32 %25, 0
   br i1 %cmp147, label %if.then148, label %if.end171
 
 if.then148:                                       ; preds = %if.else143
-  %25 = load ptr, ptr %d_linEq149, align 8
-  %call.i410 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11selectSlackILb1EEEjjMS4_KFjjjE(ptr noundef nonnull align 8 dereferenceable(456) %25, i32 noundef %5, i64 %cond116.fca.0.extract, i64 0)
+  %26 = load ptr, ptr %d_linEq149, align 8
+  %call.i410 = invoke noundef i32 @_ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule11selectSlackILb1EEEjjMS4_KFjjjE(ptr noundef nonnull align 8 dereferenceable(456) %26, i32 noundef %5, i64 %cond116.fca.0.extract, i64 0)
           to label %invoke.cont151 unwind label %ehcleanup265.loopexit
 
 invoke.cont151:                                   ; preds = %if.then148
@@ -957,21 +957,21 @@ invoke.cont160:                                   ; preds = %invoke.cont158
   unreachable
 
 lpad157:                                          ; preds = %invoke.cont158, %invoke.cont156
-  %26 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp155) #21
   unreachable
 
 if.else163:                                       ; preds = %invoke.cont151
-  %27 = load ptr, ptr %d_variables, align 8
-  %call166 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear14ArithVariables13getUpperBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %27, i32 noundef %5)
+  %28 = load ptr, ptr %d_variables, align 8
+  %call166 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4cvc58internal6theory5arith6linear14ArithVariables13getUpperBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %28, i32 noundef %5)
           to label %invoke.cont165.invoke unwind label %ehcleanup265.loopexit
 
 invoke.cont165.invoke:                            ; preds = %if.else163, %if.else
-  %28 = phi i32 [ %call.i406, %if.else ], [ %call.i410, %if.else163 ]
-  %29 = phi ptr [ %call139, %if.else ], [ %call166, %if.else163 ]
-  %30 = load ptr, ptr %d_linEq149, align 8
-  invoke void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule14pivotAndUpdateEjjRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(456) %30, i32 noundef %5, i32 noundef %28, ptr noundef nonnull align 8 dereferenceable(64) %29)
+  %29 = phi i32 [ %call.i406, %if.else ], [ %call.i410, %if.else163 ]
+  %30 = phi ptr [ %call139, %if.else ], [ %call166, %if.else163 ]
+  %31 = load ptr, ptr %d_linEq149, align 8
+  invoke void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule14pivotAndUpdateEjjRKNS0_13DeltaRationalE(ptr noundef nonnull align 8 dereferenceable(456) %31, i32 noundef %5, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(64) %30)
           to label %if.end171 unwind label %ehcleanup265.loopexit
 
 if.end171:                                        ; preds = %invoke.cont165.invoke, %if.else143
@@ -979,8 +979,8 @@ if.end171:                                        ; preds = %invoke.cont165.invo
           to label %cleanup.done203 unwind label %ehcleanup265.loopexit
 
 cleanup.done203:                                  ; preds = %if.end171
-  %31 = load i32, ptr %d_pivots, align 8
-  %inc = add i32 %31, 1
+  %32 = load i32, ptr %d_pivots, align 8
+  %inc = add i32 %32, 1
   store i32 %inc, ptr %d_pivots, align 8
   br i1 %call.i412, label %cleanup, label %while.cond, !llvm.loop !11
 

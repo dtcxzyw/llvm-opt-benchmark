@@ -1066,16 +1066,16 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %8 = phi i16 [ %5, %for.body.lr.ph ], [ %14, %for.inc ]
+  %8 = phi i16 [ %5, %for.body.lr.ph ], [ %15, %for.inc ]
   %9 = and i16 %8, 2
   %tobool.not.i.i.i = icmp eq i16 %9, 0
   %10 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %10, ptr %fBuffer.i.i.i
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %indvars.iv
   %11 = load i16, ptr %arrayidx.i.i, align 2
-  %12 = load ptr, ptr %data, align 8
-  %conv = zext i16 %11 to i32
-  %call12 = invoke noundef ptr @_ZNK6icu_7523TransliterationRuleData13lookupMatcherEi(ptr noundef nonnull align 8 dereferenceable(1168) %12, i32 noundef %conv)
+  %12 = zext i16 %11 to i32
+  %13 = load ptr, ptr %data, align 8
+  %call12 = invoke noundef ptr @_ZNK6icu_7523TransliterationRuleData13lookupMatcherEi(ptr noundef nonnull align 8 dereferenceable(1168) %13, i32 noundef %12)
           to label %invoke.cont11 unwind label %lpad2.loopexit
 
 invoke.cont11:                                    ; preds = %for.body
@@ -1083,14 +1083,14 @@ invoke.cont11:                                    ; preds = %for.body
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %invoke.cont11
-  invoke void @_ZN6icu_7511ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(ptr noundef nonnull align 8 dereferenceable(64) %result, i32 noundef %conv, i8 noundef signext 0, i8 noundef signext %escapeUnprintable, ptr noundef nonnull align 8 dereferenceable(64) %quoteBuf)
+  invoke void @_ZN6icu_7511ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(ptr noundef nonnull align 8 dereferenceable(64) %result, i32 noundef %12, i8 noundef signext 0, i8 noundef signext %escapeUnprintable, ptr noundef nonnull align 8 dereferenceable(64) %quoteBuf)
           to label %for.inc unwind label %lpad2.loopexit
 
 if.else:                                          ; preds = %invoke.cont11
   %vtable = load ptr, ptr %call12, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %13 = load ptr, ptr %vfn, align 8
-  %call18 = invoke noundef nonnull align 8 dereferenceable(64) ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull align 8 dereferenceable(64) %str, i8 noundef signext %escapeUnprintable)
+  %14 = load ptr, ptr %vfn, align 8
+  %call18 = invoke noundef nonnull align 8 dereferenceable(64) ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull align 8 dereferenceable(64) %str, i8 noundef signext %escapeUnprintable)
           to label %invoke.cont17 unwind label %lpad2.loopexit
 
 invoke.cont17:                                    ; preds = %if.else
@@ -1099,19 +1099,19 @@ invoke.cont17:                                    ; preds = %if.else
 
 for.inc:                                          ; preds = %if.then14, %invoke.cont17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load i16, ptr %fUnion.i.i17, align 8
-  %cmp.i.i = icmp slt i16 %14, 0
-  %15 = ashr i16 %14, 5
-  %shr.i.i = sext i16 %15 to i32
-  %16 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %16, i32 %shr.i.i
-  %17 = sext i32 %cond.i to i64
-  %cmp7 = icmp slt i64 %indvars.iv.next, %17
+  %15 = load i16, ptr %fUnion.i.i17, align 8
+  %cmp.i.i = icmp slt i16 %15, 0
+  %16 = ashr i16 %15, 5
+  %shr.i.i = sext i16 %16 to i32
+  %17 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %17, i32 %shr.i.i
+  %18 = sext i32 %cond.i to i64
+  %cmp7 = icmp slt i64 %indvars.iv.next, %18
   br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end
-  %18 = load i32, ptr %segmentNumber, align 8
-  %cmp22 = icmp sgt i32 %18, 0
+  %19 = load i32, ptr %segmentNumber, align 8
+  %cmp22 = icmp sgt i32 %19, 0
   br i1 %cmp22, label %if.then23, label %if.end26
 
 if.then23:                                        ; preds = %for.end

@@ -4209,59 +4209,57 @@ define { i64, i64 } @"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$di
   %4 = load ptr, ptr %0, align 8, !nonnull !21, !noundef !21
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8, !noalias !794, !noundef !21
+  %.not = icmp eq i64 %6, 0
+  br i1 %.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h365a203532d88473E.exit, label %.lr.ph.i.preheader
+
+.lr.ph.i.preheader:                               ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = getelementptr inbounds i8, ptr %4, i64 40
-  br label %9
+  br label %.lr.ph.i
 
-9:                                                ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h6205e8915f635805E.exit.i", %3
-  %10 = phi i64 [ %12, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h6205e8915f635805E.exit.i" ], [ 0, %3 ]
-  %exitcond.not = icmp eq i64 %10, %6
-  br i1 %exitcond.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h365a203532d88473E.exit, label %11
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.backedge.i
+  %9 = phi i64 [ %10, %.backedge.i ], [ 0, %.lr.ph.i.preheader ]
+  %10 = add nuw i64 %9, 1
+  %11 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel4util9once_cell17OnceCell$LT$T$GT$11get_or_init17h2f142d5748b9db19E"(ptr noundef nonnull align 8 %8, ptr noundef nonnull align 8 %7), !noalias !797
+  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = load i64, ptr %12, align 8, !noalias !797, !noundef !21
+  %.not.i.i.i.i = icmp ult i64 %9, %13
+  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = load ptr, ptr %14, align 8, !noalias !797, !nonnull !21
+  %16 = getelementptr inbounds { i64, [2 x i64] }, ptr %15, i64 %9
+  br i1 %.not.i.i.i.i, label %17, label %.backedge.i
 
-11:                                               ; preds = %9
-  %12 = add i64 %10, 1
-  %13 = tail call noundef align 8 dereferenceable(24) ptr @"_ZN6diesel4util9once_cell17OnceCell$LT$T$GT$11get_or_init17h2f142d5748b9db19E"(ptr noundef nonnull align 8 %8, ptr noundef nonnull align 8 %7), !noalias !797
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
-  %15 = load i64, ptr %14, align 8, !noalias !797, !noundef !21
-  %.not.i.i.i.i = icmp ult i64 %10, %15
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
-  %17 = load ptr, ptr %16, align 8, !noalias !797, !nonnull !21
-  %18 = getelementptr inbounds { i64, [2 x i64] }, ptr %17, i64 %10
-  br i1 %.not.i.i.i.i, label %19, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h6205e8915f635805E.exit.i"
-
-19:                                               ; preds = %11
-  %.sroa.08.0.copyload.i.i.i.i = load i64, ptr %18, align 8, !noalias !797
+17:                                               ; preds = %.lr.ph.i
+  %.sroa.08.0.copyload.i.i.i.i = load i64, ptr %16, align 8, !noalias !797
   %switch.i.i.i.i = icmp eq i64 %.sroa.08.0.copyload.i.i.i.i, 0
-  br i1 %switch.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h6205e8915f635805E.exit.i", label %_ZN6diesel2pg10connection6result8PgResult11column_name17h4e51df2a551f9a16E.exit.i.i.i
+  br i1 %switch.i.i.i.i, label %.backedge.i, label %_ZN6diesel2pg10connection6result8PgResult11column_name17h4e51df2a551f9a16E.exit.i.i.i
 
-_ZN6diesel2pg10connection6result8PgResult11column_name17h4e51df2a551f9a16E.exit.i.i.i: ; preds = %19
-  %.sroa.5.0..0.1.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
+_ZN6diesel2pg10connection6result8PgResult11column_name17h4e51df2a551f9a16E.exit.i.i.i: ; preds = %17
+  %.sroa.5.0..0.1.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 16
   %.sroa.5.0.copyload.i.i.i.i = load i64, ptr %.sroa.5.0..0.1.sroa_idx.i.i.i.i, align 8, !noalias !797
-  %.sroa.49.0..0.1.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.49.0..0.1.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %.sroa.49.0.copyload.i.i.i.i = load ptr, ptr %.sroa.49.0..0.1.sroa_idx.i.i.i.i, align 8, !noalias !797
-  %20 = icmp ne ptr %.sroa.49.0.copyload.i.i.i.i, null
+  %18 = icmp ne ptr %.sroa.49.0.copyload.i.i.i.i, null
   %.not.i8.i.i.i = icmp eq i64 %.sroa.5.0.copyload.i.i.i.i, %2
-  %or.cond.i.i.i = select i1 %20, i1 %.not.i8.i.i.i, i1 false
-  br i1 %or.cond.i.i.i, label %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i", label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h6205e8915f635805E.exit.i"
+  %or.cond.i.i.i = select i1 %18, i1 %.not.i8.i.i.i, i1 false
+  br i1 %or.cond.i.i.i, label %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i", label %.backedge.i
 
 "_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i": ; preds = %_ZN6diesel2pg10connection6result8PgResult11column_name17h4e51df2a551f9a16E.exit.i.i.i
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %.sroa.49.0.copyload.i.i.i.i, ptr nonnull readonly %1, i64 %2), !alias.scope !805, !noalias !797
   %bcmp.i.i.fr.i.i = freeze i32 %bcmp.i.i.i.i
-  %21 = icmp eq i32 %bcmp.i.i.fr.i.i, 0
-  %spec.select.i.i = zext i1 %21 to i64
-  br label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h6205e8915f635805E.exit.i"
+  %.not.i = icmp eq i32 %bcmp.i.i.fr.i.i, 0
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h365a203532d88473E.exit, label %.backedge.i
 
-"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h6205e8915f635805E.exit.i": ; preds = %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i", %_ZN6diesel2pg10connection6result8PgResult11column_name17h4e51df2a551f9a16E.exit.i.i.i, %19, %11
-  %22 = phi i64 [ 0, %_ZN6diesel2pg10connection6result8PgResult11column_name17h4e51df2a551f9a16E.exit.i.i.i ], [ 0, %11 ], [ 0, %19 ], [ %spec.select.i.i, %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i" ]
-  %switch.not.not.i = icmp eq i64 %22, 0
-  br i1 %switch.not.not.i, label %9, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h365a203532d88473E.exit
+.backedge.i:                                      ; preds = %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i", %_ZN6diesel2pg10connection6result8PgResult11column_name17h4e51df2a551f9a16E.exit.i.i.i, %17, %.lr.ph.i
+  %exitcond.not.i = icmp eq i64 %10, %6
+  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h365a203532d88473E.exit, label %.lr.ph.i
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h365a203532d88473E.exit: ; preds = %9, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h6205e8915f635805E.exit.i"
-  %.lcssa = phi i64 [ %6, %9 ], [ %10, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h6205e8915f635805E.exit.i" ]
-  %.sroa.0.0.i = phi i64 [ 0, %9 ], [ 1, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h6205e8915f635805E.exit.i" ]
-  %23 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %24 = insertvalue { i64, i64 } %23, i64 %.lcssa, 1
-  ret { i64, i64 } %24
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h365a203532d88473E.exit: ; preds = %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i", %.backedge.i, %3
+  %.lcssa.i = phi i64 [ 0, %3 ], [ %9, %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i" ], [ %6, %.backedge.i ]
+  %.sroa.0.0.i = phi i64 [ 0, %3 ], [ 1, %"_ZN91_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$$RF$str$GT$$GT$3idx28_$u7b$$u7b$closure$u7d$$u7d$17h288e6162732f0fecE.exit.i.i" ], [ 0, %.backedge.i ]
+  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %.lcssa.i, 1
+  ret { i64, i64 } %20
 }
 
 ; Function Attrs: nonlazybind uwtable

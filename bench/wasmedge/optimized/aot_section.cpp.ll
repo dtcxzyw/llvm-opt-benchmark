@@ -656,7 +656,7 @@ define void @_ZN8WasmEdge6Loader10AOTSection4loadERKNS_3AST10AOTSectionE(ptr dea
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %24 = phi i64 [ 0, %3 ], [ %23, %._crit_edge.loopexit ]
+  %24 = phi i64 [ %23, %._crit_edge.loopexit ], [ 0, %3 ]
   store i64 %24, ptr %10, align 8
   %25 = tail call noundef ptr @_ZN8WasmEdge9Allocator14allocate_chunkEm(i64 noundef %24) #18
   %26 = getelementptr inbounds i8, ptr %1, i64 24

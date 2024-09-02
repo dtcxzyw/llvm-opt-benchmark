@@ -535,12 +535,15 @@ define i32 @Fra_ClausProcessClausesCut2(ptr nocapture noundef readonly %0, ptr n
   %.137 = or i32 %35, %.03642
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge45, label %27, !llvm.loop !17
+  br i1 %exitcond57.not, label %._crit_edge45.loopexit, label %27, !llvm.loop !17
 
-._crit_edge45:                                    ; preds = %27, %.preheader39
-  %.036.lcssa = phi i32 [ 0, %.preheader39 ], [ %.137, %27 ]
-  %36 = zext nneg i32 %.036.lcssa to i64
-  %37 = getelementptr inbounds i32, ptr %3, i64 %36
+._crit_edge45.loopexit:                           ; preds = %27
+  %36 = zext nneg i32 %.137 to i64
+  br label %._crit_edge45
+
+._crit_edge45:                                    ; preds = %._crit_edge45.loopexit, %.preheader39
+  %.036.lcssa = phi i64 [ 0, %.preheader39 ], [ %36, %._crit_edge45.loopexit ]
+  %37 = getelementptr inbounds i32, ptr %3, i64 %.036.lcssa
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 4
@@ -778,12 +781,15 @@ transpose32a.exit:                                ; preds = %77
   %.1 = or i32 %97, %.05068
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %._crit_edge70, label %89, !llvm.loop !27
+  br i1 %exitcond91.not, label %._crit_edge70.loopexit, label %89, !llvm.loop !27
 
-._crit_edge70:                                    ; preds = %89, %.preheader61
-  %.050.lcssa = phi i32 [ 0, %.preheader61 ], [ %.1, %89 ]
-  %98 = sext i32 %.050.lcssa to i64
-  %99 = getelementptr inbounds i32, ptr %3, i64 %98
+._crit_edge70.loopexit:                           ; preds = %89
+  %98 = sext i32 %.1 to i64
+  br label %._crit_edge70
+
+._crit_edge70:                                    ; preds = %._crit_edge70.loopexit, %.preheader61
+  %.050.lcssa = phi i64 [ 0, %.preheader61 ], [ %98, %._crit_edge70.loopexit ]
+  %99 = getelementptr inbounds i32, ptr %3, i64 %.050.lcssa
   %100 = load i32, ptr %99, align 4
   %101 = add nsw i32 %100, 1
   store i32 %101, ptr %99, align 4
@@ -801,7 +807,7 @@ transpose32a.exit:                                ; preds = %77
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fra_ClausSelectClauses(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 2147483647, 2147483617) i32 @Fra_ClausSelectClauses(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = shl nsw i32 %3, 5

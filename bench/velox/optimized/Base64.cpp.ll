@@ -1378,7 +1378,7 @@ invoke.cont6:
 call.i.noexc:                                     ; preds = %.noexc
   %sext = shl i64 %sub.ptr.sub.i, 32
   %conv2.i = ashr exact i64 %sext, 32
-  %call.i.i4 = invoke noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef readonly %encoded.coerce0, i64 noundef %conv2.i, ptr noundef nonnull %call.i3, i64 noundef %conv.i2, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
+  %call.i.i4 = invoke noundef range(i64 -2, -4611686018427387904) i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef readonly %encoded.coerce0, i64 noundef %conv2.i, ptr noundef nonnull %call.i3, i64 noundef %conv.i2, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %call.i.noexc
@@ -1411,7 +1411,7 @@ entry:
   %2 = load i32, ptr %second, align 8
   %conv2 = sext i32 %2 to i64
   %call = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef 0)
-  %call.i = tail call noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef readonly %1, i64 noundef %conv2, ptr noundef nonnull %call, i64 noundef %conv, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
+  %call.i = tail call noundef range(i64 -2, -4611686018427387904) i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef readonly %1, i64 noundef %conv2, ptr noundef nonnull %call, i64 noundef %conv, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %call.i)
   ret void
 }
@@ -1424,7 +1424,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8facebook5velox8encoding6Base646decodeEPKcmPcm(ptr nocapture noundef readonly %src, i64 noundef %src_len, ptr nocapture noundef writeonly %dst, i64 noundef %dst_len) local_unnamed_addr #2 align 2 {
+define noundef range(i64 -2, -4611686018427387904) i64 @_ZN8facebook5velox8encoding6Base646decodeEPKcmPcm(ptr nocapture noundef readonly %src, i64 noundef %src_len, ptr nocapture noundef writeonly %dst, i64 noundef %dst_len) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef %src, i64 noundef %src_len, ptr noundef %dst, i64 noundef %dst_len, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
   ret i64 %call
@@ -1437,7 +1437,7 @@ define void @_ZN8facebook5velox8encoding6Base646decodeEPKcmPc(ptr nocapture noun
 entry:
   %div2 = lshr i64 %size, 2
   %mul = mul nuw i64 %div2, 3
-  %call.i = tail call noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef readonly %data, i64 noundef %size, ptr noundef %output, i64 noundef %mul, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
+  %call.i = tail call noundef range(i64 -2, -4611686018427387904) i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr noundef readonly %data, i64 noundef %size, ptr noundef %output, i64 noundef %mul, ptr noundef nonnull align 1 dereferenceable(256) @_ZN8facebook5velox8encodingL24kBase64ReverseIndexTableE, i1 noundef zeroext true)
   ret void
 }
 
@@ -1475,7 +1475,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr nocapture noundef readonly %src, i64 noundef %src_len, ptr nocapture noundef writeonly %dst, i64 noundef %dst_len, ptr nocapture noundef nonnull readonly align 1 dereferenceable(256) %reverse_lookup, i1 noundef zeroext %include_pad) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2, -4611686018427387904) i64 @_ZN8facebook5velox8encoding6Base6410decodeImplEPKcmPcmRKSt5arrayIhLm256EEb(ptr nocapture noundef readonly %src, i64 noundef %src_len, ptr nocapture noundef writeonly %dst, i64 noundef %dst_len, ptr nocapture noundef nonnull readonly align 1 dereferenceable(256) %reverse_lookup, i1 noundef zeroext %include_pad) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src_len.addr = alloca i64, align 8
   store i64 %src_len, ptr %src_len.addr, align 8
@@ -1703,7 +1703,7 @@ return:                                           ; preds = %_ZN8facebook5velox8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8facebook5velox8encoding6Base6420calculateDecodedSizeEPKcRmb(ptr nocapture noundef readonly %data, ptr nocapture noundef nonnull align 8 dereferenceable(8) %size, i1 noundef zeroext %withPadding) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2, -4611686018427387904) i64 @_ZN8facebook5velox8encoding6Base6420calculateDecodedSizeEPKcRmb(ptr nocapture noundef readonly %data, ptr nocapture noundef nonnull align 8 dereferenceable(8) %size, i1 noundef zeroext %withPadding) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %0, 0

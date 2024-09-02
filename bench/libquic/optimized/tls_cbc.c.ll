@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i32 @EVP_tls_cbc_remove_padding(ptr nocapture noundef writeonly %out_len, ptr nocapture noundef readonly %in, i32 noundef %in_len, i32 noundef %block_size, i32 noundef %mac_size) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @EVP_tls_cbc_remove_padding(ptr nocapture noundef writeonly %out_len, ptr nocapture noundef readonly %in, i32 noundef %in_len, i32 noundef %block_size, i32 noundef %mac_size) local_unnamed_addr #0 {
 entry:
   %add = add i32 %mac_size, 1
   %cmp = icmp ugt i32 %add, %in_len

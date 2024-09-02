@@ -282,7 +282,7 @@ define hidden noundef zeroext i1 @_ZN14ParsePredicate12is_predicateEP4Node(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN23RegularPredicateWithUCT20uncommon_trap_reasonEP10IfProjNode(ptr noundef nonnull %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 32) i32 @_ZN23RegularPredicateWithUCT20uncommon_trap_reasonEP10IfProjNode(ptr noundef nonnull %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZNK8ProjNode27is_uncommon_trap_if_patternEN14Deoptimization11DeoptReasonE(ptr noundef nonnull align 8 dereferenceable(57) %0, i32 noundef 0) #9
   %3 = icmp eq ptr %2, null
   br i1 %3, label %10, label %4

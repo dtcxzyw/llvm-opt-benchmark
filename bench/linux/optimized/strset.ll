@@ -45,7 +45,7 @@ define internal i32 @strset_parse_request(ptr nocapture noundef %0, ptr nocaptur
   %5 = getelementptr i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.thread, label %8
+  br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %6, i64 4
@@ -54,7 +54,7 @@ define internal i32 @strset_parse_request(ptr nocapture noundef %0, ptr nocaptur
   %12 = zext i16 %11 to i32
   %13 = tail call i32 @__nla_validate(ptr noundef %9, i32 noundef %12, i32 noundef 1, ptr noundef nonnull @strset_stringsets_policy, i32 noundef 31, ptr noundef %2) #8
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %8
   %16 = getelementptr i8, ptr %1, i64 24
@@ -73,7 +73,7 @@ define internal i32 @strset_parse_request(ptr nocapture noundef %0, ptr nocaptur
   %28 = getelementptr inbounds i8, ptr %2, i64 32
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   %30 = icmp ugt i16 %22, 3
-  br i1 %30, label %.lr.ph.preheader, label %.thread
+  br i1 %30, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %15
   %31 = zext i16 %22 to i32
@@ -87,7 +87,7 @@ define internal i32 @strset_parse_request(ptr nocapture noundef %0, ptr nocaptur
   %36 = zext i16 %34 to i32
   %.not = icmp ult i32 %33, %36
   %or.cond = or i1 %35, %.not
-  br i1 %or.cond, label %.thread, label %37
+  br i1 %or.cond, label %.critedge, label %37
 
 37:                                               ; preds = %.lr.ph
   %38 = getelementptr inbounds i8, ptr %32, i64 2
@@ -112,7 +112,7 @@ define internal i32 @strset_parse_request(ptr nocapture noundef %0, ptr nocaptur
   br label %48
 
 48:                                               ; preds = %44, %37
-  br i1 %41, label %49, label %.thread
+  br i1 %41, label %49, label %.critedge
 
 49:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
@@ -123,13 +123,13 @@ define internal i32 @strset_parse_request(ptr nocapture noundef %0, ptr nocaptur
 
 52:                                               ; preds = %49
   call void @do_trace_netlink_extack(ptr noundef nonnull @nla_parse_nested.__msg) #8
-  br i1 %23, label %.thread12, label %53
+  br i1 %23, label %.thread10, label %53
 
 53:                                               ; preds = %52
   store ptr @nla_parse_nested.__msg, ptr %2, align 8
   store ptr %32, ptr %24, align 8
   store ptr null, ptr %25, align 8
-  br label %.thread12
+  br label %.thread10
 
 54:                                               ; preds = %49
   %55 = getelementptr i8, ptr %32, i64 4
@@ -138,7 +138,7 @@ define internal i32 @strset_parse_request(ptr nocapture noundef %0, ptr nocaptur
   %58 = zext i16 %57 to i32
   %59 = call i32 @__nla_parse(ptr noundef nonnull %4, i32 noundef 1, ptr noundef %55, i32 noundef %58, ptr noundef nonnull @get_stringset_policy, i32 noundef 31, ptr noundef %2) #8
   %60 = icmp slt i32 %59, 0
-  br i1 %60, label %.thread12, label %61
+  br i1 %60, label %.thread10, label %61
 
 61:                                               ; preds = %54
   %62 = load ptr, ptr %26, align 8
@@ -146,17 +146,17 @@ define internal i32 @strset_parse_request(ptr nocapture noundef %0, ptr nocaptur
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %61
-  br i1 %23, label %.thread12, label %65
+  br i1 %23, label %.thread10, label %65
 
 65:                                               ; preds = %64
   store ptr %32, ptr %27, align 8
   store i16 1, ptr %28, align 8
-  br label %.thread12
+  br label %.thread10
 
-.thread12:                                        ; preds = %54, %64, %65, %53, %52
+.thread10:                                        ; preds = %54, %64, %65, %53, %52
   %.ph = phi i32 [ -22, %65 ], [ -22, %64 ], [ -22, %53 ], [ -22, %52 ], [ %59, %54 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
-  br label %.thread
+  br label %.critedge
 
 66:                                               ; preds = %61
   %67 = getelementptr i8, ptr %62, i64 4
@@ -167,13 +167,13 @@ define internal i32 @strset_parse_request(ptr nocapture noundef %0, ptr nocaptur
 
 70:                                               ; preds = %66
   call void @do_trace_netlink_extack(ptr noundef nonnull @strset_parse_request.__msg) #8
-  br i1 %23, label %.thread, label %71
+  br i1 %23, label %.critedge, label %71
 
 71:                                               ; preds = %70
   store ptr @strset_parse_request.__msg, ptr %2, align 8
   store ptr %32, ptr %24, align 8
   store ptr null, ptr %25, align 8
-  br label %.thread
+  br label %.critedge
 
 72:                                               ; preds = %66
   %73 = shl nuw nsw i32 1, %68
@@ -188,10 +188,10 @@ define internal i32 @strset_parse_request(ptr nocapture noundef %0, ptr nocaptur
   %81 = zext nneg i32 %79 to i64
   %82 = getelementptr i8, ptr %32, i64 %81
   %83 = icmp sgt i32 %80, 3
-  br i1 %83, label %.lr.ph, label %.thread, !llvm.loop !12
+  br i1 %83, label %.lr.ph, label %.critedge, !llvm.loop !12
 
-.thread:                                          ; preds = %.lr.ph, %72, %48, %15, %.thread12, %70, %71, %8, %3
-  %84 = phi i32 [ 0, %3 ], [ %13, %8 ], [ %.ph, %.thread12 ], [ -95, %70 ], [ -95, %71 ], [ 0, %15 ], [ 0, %.lr.ph ], [ 0, %72 ], [ -22, %48 ]
+.critedge:                                        ; preds = %72, %.lr.ph, %48, %15, %.thread10, %70, %71, %8, %3
+  %84 = phi i32 [ 0, %3 ], [ %13, %8 ], [ %.ph, %.thread10 ], [ -95, %70 ], [ -95, %71 ], [ 0, %15 ], [ 0, %72 ], [ 0, %.lr.ph ], [ -22, %48 ]
   ret i32 %84
 }
 
@@ -591,7 +591,7 @@ define internal i32 @strset_reply_size(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @strset_fill_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

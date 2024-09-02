@@ -4122,7 +4122,7 @@ _ZN5alloc7raw_vec11finish_grow17h35a6db4f4af123a3E.exit.i: ; preds = %19, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17he795f47838a4ac82E(i64 noundef %0, i64 %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 1048577) i64 @_ZN5serde2de9size_hint8cautious17he795f47838a4ac82E(i64 noundef %0, i64 %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
   %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 1048576)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3

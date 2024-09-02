@@ -1017,7 +1017,7 @@ declare void @hi_sdsfree(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @redisFormatCommand(ptr noundef %target, ptr noundef %format, ...) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @redisFormatCommand(ptr noundef %target, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -2585,20 +2585,14 @@ do.body8.preheader:                               ; preds = %do.cond
   %err.i = getelementptr inbounds i8, ptr %c, i64 8
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %buf.i)
   %10 = load i32, ptr %err.i, align 8
-  %tobool.not.i68 = icmp eq i32 %10, 0
-  br i1 %tobool.not.i68, label %if.end.i, label %redisBufferRead.exit.thread
+  %tobool.not.i54 = icmp eq i32 %10, 0
+  br i1 %tobool.not.i54, label %if.end.i, label %redisBufferRead.exit.thread
 
-do.body8.loopexit:                                ; preds = %do.cond.i14
-  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %buf.i)
-  %11 = load i32, ptr %err.i, align 8
-  %tobool.not.i = icmp eq i32 %11, 0
-  br i1 %tobool.not.i, label %if.end.i, label %redisBufferRead.exit.thread
-
-if.end.i:                                         ; preds = %do.body8.preheader, %do.body8.loopexit
-  %12 = load ptr, ptr %c, align 8
-  %read.i = getelementptr inbounds i8, ptr %12, i64 32
-  %13 = load ptr, ptr %read.i, align 8
-  %call.i = call i64 %13(ptr noundef nonnull %c, ptr noundef nonnull %buf.i, i64 noundef 16384) #13
+if.end.i:                                         ; preds = %do.body8.preheader, %do.body8.backedge
+  %11 = load ptr, ptr %c, align 8
+  %read.i = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = load ptr, ptr %read.i, align 8
+  %call.i = call i64 %12(ptr noundef nonnull %c, ptr noundef nonnull %buf.i, i64 noundef 16384) #13
   %conv.i = trunc i64 %call.i to i32
   %cmp.i = icmp slt i32 %conv.i, 0
   br i1 %cmp.i, label %redisBufferRead.exit.thread, label %if.end3.i
@@ -2608,17 +2602,17 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp4.not.i, label %if.end12, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end3.i
-  %14 = load ptr, ptr %reader.i.i, align 8
+  %13 = load ptr, ptr %reader.i.i, align 8
   %conv7.i = and i64 %call.i, 2147483647
-  %call8.i = call i32 @redisReaderFeed(ptr noundef %14, ptr noundef nonnull %buf.i, i64 noundef %conv7.i) #13
+  %call8.i = call i32 @redisReaderFeed(ptr noundef %13, ptr noundef nonnull %buf.i, i64 noundef %conv7.i) #13
   %cmp9.not.i = icmp eq i32 %call8.i, 0
   br i1 %cmp9.not.i, label %if.end12, label %if.then11.i
 
 if.then11.i:                                      ; preds = %land.lhs.true.i
-  %15 = load ptr, ptr %reader.i.i, align 8
-  %16 = load i32, ptr %15, align 8
-  %errstr.i = getelementptr inbounds i8, ptr %15, i64 4
-  store i32 %16, ptr %err.i, align 8
+  %14 = load ptr, ptr %reader.i.i, align 8
+  %15 = load i32, ptr %14, align 8
+  %errstr.i = getelementptr inbounds i8, ptr %14, i64 4
+  store i32 %15, ptr %err.i, align 8
   %errstr4.i.i = getelementptr inbounds i8, ptr %c, i64 12
   %call.i.i7 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %errstr.i) #14
   %cond.i.i = call i64 @llvm.umin.i64(i64 %call.i.i7, i64 127)
@@ -2627,45 +2621,45 @@ if.then11.i:                                      ; preds = %land.lhs.true.i
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %redisBufferRead.exit.thread
 
-redisBufferRead.exit.thread:                      ; preds = %if.end.i, %do.body8.loopexit, %do.body8.preheader, %if.then11.i
+redisBufferRead.exit.thread:                      ; preds = %if.end.i, %do.body8.backedge, %do.body8.preheader, %if.then11.i
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %buf.i)
   br label %return
 
 if.end12:                                         ; preds = %land.lhs.true.i, %if.end3.i
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %buf.i)
-  %17 = load ptr, ptr %reader.i.i, align 8
-  %call.i11.i9 = call i32 @redisReaderGetReply(ptr noundef %17, ptr noundef nonnull %aux) #13
+  %16 = load ptr, ptr %reader.i.i, align 8
+  %call.i11.i9 = call i32 @redisReaderGetReply(ptr noundef %16, ptr noundef nonnull %aux) #13
   %cmp.i12.i10 = icmp eq i32 %call.i11.i9, -1
   br i1 %cmp.i12.i10, label %redisNextInBandReplyFromReader.exit31, label %do.cond.i14
 
 do.cond.i14:                                      ; preds = %if.end12, %redisHandledPushReply.exit.i21
-  %18 = load ptr, ptr %aux, align 8
-  %tobool.not.i.i15 = icmp eq ptr %18, null
-  br i1 %tobool.not.i.i15, label %do.body8.loopexit, label %land.lhs.true.i.i16
+  %17 = load ptr, ptr %aux, align 8
+  %tobool.not.i.i15 = icmp eq ptr %17, null
+  br i1 %tobool.not.i.i15, label %do.body8.backedge, label %land.lhs.true.i.i16
 
 land.lhs.true.i.i16:                              ; preds = %do.cond.i14
-  %19 = load ptr, ptr %push_cb.i.i, align 8
-  %tobool1.not.i.i17 = icmp eq ptr %19, null
+  %18 = load ptr, ptr %push_cb.i.i, align 8
+  %tobool1.not.i.i17 = icmp eq ptr %18, null
   br i1 %tobool1.not.i.i17, label %if.end20, label %land.lhs.true2.i.i18
 
 land.lhs.true2.i.i18:                             ; preds = %land.lhs.true.i.i16
-  %20 = load i32, ptr %18, align 8
-  %cmp.i3.i19 = icmp eq i32 %20, 12
+  %19 = load i32, ptr %17, align 8
+  %cmp.i3.i19 = icmp eq i32 %19, 12
   br i1 %cmp.i3.i19, label %redisHandledPushReply.exit.i21, label %if.end20
 
 redisHandledPushReply.exit.i21:                   ; preds = %land.lhs.true2.i.i18
-  %21 = load ptr, ptr %privdata.i.i, align 8
-  call void %19(ptr noundef %21, ptr noundef nonnull %18) #13
-  %22 = load ptr, ptr %reader.i.i, align 8
-  %call.i.i22 = call i32 @redisReaderGetReply(ptr noundef %22, ptr noundef nonnull %aux) #13
+  %20 = load ptr, ptr %privdata.i.i, align 8
+  call void %18(ptr noundef %20, ptr noundef nonnull %17) #13
+  %21 = load ptr, ptr %reader.i.i, align 8
+  %call.i.i22 = call i32 @redisReaderGetReply(ptr noundef %21, ptr noundef nonnull %aux) #13
   %cmp.i.i23 = icmp eq i32 %call.i.i22, -1
   br i1 %cmp.i.i23, label %redisNextInBandReplyFromReader.exit31, label %do.cond.i14
 
 redisNextInBandReplyFromReader.exit31:            ; preds = %if.end12, %redisHandledPushReply.exit.i21
-  %23 = load ptr, ptr %reader.i.i, align 8
-  %24 = load i32, ptr %23, align 8
-  %errstr.i.i25 = getelementptr inbounds i8, ptr %23, i64 4
-  store i32 %24, ptr %err.i, align 8
+  %22 = load ptr, ptr %reader.i.i, align 8
+  %23 = load i32, ptr %22, align 8
+  %errstr.i.i25 = getelementptr inbounds i8, ptr %22, i64 4
+  store i32 %23, ptr %err.i, align 8
   %errstr4.i.i.i27 = getelementptr inbounds i8, ptr %c, i64 12
   %call.i.i.i28 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %errstr.i.i25) #14
   %cond.i.i.i29 = call i64 @llvm.umin.i64(i64 %call.i.i.i28, i64 127)
@@ -2674,8 +2668,14 @@ redisNextInBandReplyFromReader.exit31:            ; preds = %if.end12, %redisHan
   store i8 0, ptr %arrayidx.i.i.i30, align 1
   br label %return
 
+do.body8.backedge:                                ; preds = %do.cond.i14
+  call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %buf.i)
+  %24 = load i32, ptr %err.i, align 8
+  %tobool.not.i = icmp eq i32 %24, 0
+  br i1 %tobool.not.i, label %if.end.i, label %redisBufferRead.exit.thread
+
 if.end20:                                         ; preds = %land.lhs.true.i.i, %land.lhs.true2.i.i, %land.lhs.true2.i.i18, %land.lhs.true.i.i16, %land.lhs.true
-  %25 = phi ptr [ null, %land.lhs.true ], [ %18, %land.lhs.true.i.i16 ], [ %18, %land.lhs.true2.i.i18 ], [ %1, %land.lhs.true2.i.i ], [ %1, %land.lhs.true.i.i ]
+  %25 = phi ptr [ null, %land.lhs.true ], [ %17, %land.lhs.true.i.i16 ], [ %17, %land.lhs.true2.i.i18 ], [ %1, %land.lhs.true2.i.i ], [ %1, %land.lhs.true.i.i ]
   %cmp21.not = icmp eq ptr %reply, null
   br i1 %cmp21.not, label %if.else, label %if.then22
 

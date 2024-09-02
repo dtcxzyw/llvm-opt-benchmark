@@ -2451,10 +2451,10 @@ define void @_ZNK5faiss8IndexIVF26check_compatible_for_mergeERKNS_5IndexE(ptr no
 28:                                               ; preds = %2
   %29 = getelementptr inbounds i8, ptr %11, i64 8
   %30 = load i32, ptr %29, align 8
-  %.fr108 = freeze i32 %30
+  %.fr106 = freeze i32 %30
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %.fr108, %32
+  %33 = icmp eq i32 %.fr106, %32
   br i1 %33, label %50, label %34
 
 34:                                               ; preds = %28
@@ -2765,8 +2765,8 @@ _ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %120, %_ZNKSt9type_i
   br i1 %179, label %180, label %_ZNSt6vectorIfSaIfEED2Ev.exit64
 
 180:                                              ; preds = %177
-  %181 = sext i32 %.fr108 to i64
-  %182 = icmp slt i32 %.fr108, 0
+  %181 = sext i32 %.fr106 to i64
+  %182 = icmp slt i32 %.fr106, 0
   br i1 %182, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %180
@@ -2774,7 +2774,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread:              ; preds = %120, %_ZNKSt9type_i
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %180
-  %.not.i.i.i.i = icmp eq i32 %.fr108, 0
+  %.not.i.i.i.i = icmp eq i32 %.fr106, 0
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit62, label %.noexc54
 
 .noexc54:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
@@ -2782,7 +2782,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %180
   %184 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %183) #37
   store float 0.000000e+00, ptr %184, align 4
   %185 = getelementptr i8, ptr %184, i64 4
-  %186 = icmp eq i32 %.fr108, 1
+  %186 = icmp eq i32 %.fr106, 1
   br i1 %186, label %189, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc54

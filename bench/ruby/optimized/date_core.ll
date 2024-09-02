@@ -4147,7 +4147,7 @@ define internal range(i64 1, 0) i64 @d_lite_yday(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @d_lite_mon(i64 noundef %0) #0 {
+define internal range(i64 1, 32) i64 @d_lite_mon(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call i32 @m_mon(ptr noundef %2)
   %4 = shl nuw nsw i32 %3, 1
@@ -4157,7 +4157,7 @@ define internal range(i64 1, 0) i64 @d_lite_mon(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @d_lite_mday(i64 noundef %0) #0 {
+define internal range(i64 1, 64) i64 @d_lite_mday(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call i32 @m_mday(ptr noundef %2)
   %4 = shl nuw nsw i32 %3, 1
@@ -4358,7 +4358,7 @@ m_cweek.exit:                                     ; preds = %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @d_lite_cwday(i64 noundef %0) #0 {
+define internal range(i64 1, 16) i64 @d_lite_cwday(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call fastcc i32 @m_local_jd(ptr noundef %2)
   %4 = icmp slt i32 %3, -1
@@ -4386,7 +4386,7 @@ m_cwday.exit:                                     ; preds = %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @d_lite_wday(i64 noundef %0) #0 {
+define internal range(i64 1, 16) i64 @d_lite_wday(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = tail call fastcc i32 @m_local_jd(ptr noundef %2)
   %4 = icmp slt i32 %3, -1
@@ -13159,7 +13159,7 @@ define internal i64 @datetime_s_jisx0301(i32 noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @d_lite_hour(i64 noundef %0) #0 {
+define internal range(i64 1, 64) i64 @d_lite_hour(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 128
@@ -13217,7 +13217,7 @@ m_hour.exit:                                      ; preds = %1, %get_c_time.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @d_lite_min(i64 noundef %0) #0 {
+define internal range(i64 1, 128) i64 @d_lite_min(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 128
@@ -13275,7 +13275,7 @@ m_min.exit:                                       ; preds = %1, %get_c_time.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @d_lite_sec(i64 noundef %0) #0 {
+define internal range(i64 1, 128) i64 @d_lite_sec(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 128
@@ -14505,7 +14505,7 @@ declare void @rb_warning(ptr noundef, ...) local_unnamed_addr #1
 declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @valid_ordinal_p(i64 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @valid_ordinal_p(i64 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
   %10 = tail call double @llvm.fabs.f64(double %2) #21
@@ -15308,7 +15308,7 @@ define internal fastcc i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @valid_civil_p(i64 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef %9) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @valid_civil_p(i64 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i64, align 8
   %13 = tail call double @llvm.fabs.f64(double %3) #21
@@ -15552,7 +15552,7 @@ c_valid_gregorian_p.exit.thread:                  ; preds = %98, %94, %c_gregori
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @valid_commercial_p(i64 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @valid_commercial_p(i64 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i64, align 8
   %13 = tail call double @llvm.fabs.f64(double %3) #21
@@ -23267,9 +23267,9 @@ m_zone.exit:                                      ; preds = %161, %m_of.exit.i
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %190, ptr noundef nonnull @.str.354, i64 noundef %191) #22
   unreachable
 
-192:                                              ; preds = %.preheader, %390
-  %193 = phi i64 [ %.pre, %390 ], [ %181, %.preheader ]
-  %.092 = phi i64 [ %391, %390 ], [ 0, %.preheader ]
+192:                                              ; preds = %.preheader, %388
+  %193 = phi i64 [ %.pre, %388 ], [ %181, %.preheader ]
+  %.092 = phi i64 [ %389, %388 ], [ 0, %.preheader ]
   %194 = and i64 %193, 8192
   %.not.i116 = icmp eq i64 %194, 0
   br i1 %.not.i116, label %rb_array_len.exit, label %rb_array_len.exit.thread
@@ -23371,12 +23371,12 @@ m_wday.exit120:                                   ; preds = %242, %246
   br label %254
 
 254:                                              ; preds = %m_wday.exit120, %236
-  br i1 %.not, label %390, label %255
+  br i1 %.not, label %388, label %255
 
 255:                                              ; preds = %254
   %256 = load i64, ptr @sym_hour, align 8
   %257 = icmp eq i64 %256, %203
-  br i1 %257, label %258, label %290
+  br i1 %257, label %258, label %289
 
 258:                                              ; preds = %255
   %259 = load i32, ptr %5, align 8
@@ -23420,215 +23420,213 @@ m_wday.exit120:                                   ; preds = %242, %246
 
 get_c_time.exit.i123:                             ; preds = %264, %261
   %283 = phi i32 [ %281, %264 ], [ %263, %261 ]
-  %284 = lshr i32 %283, 12
-  %285 = and i32 %284, 31
+  %284 = lshr i32 %283, 11
+  %285 = and i32 %284, 62
+  %286 = or disjoint i32 %285, 1
+  %287 = zext nneg i32 %286 to i64
   br label %m_hour.exit130
 
 m_hour.exit130:                                   ; preds = %258, %get_c_time.exit.i123
-  %.0.i124 = phi i32 [ %285, %get_c_time.exit.i123 ], [ 0, %258 ]
-  %286 = shl nuw nsw i32 %.0.i124, 1
-  %287 = or disjoint i32 %286, 1
-  %288 = zext nneg i32 %287 to i64
-  %289 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %203, i64 noundef %288) #20
-  br label %290
+  %.0.i124 = phi i64 [ %287, %get_c_time.exit.i123 ], [ 1, %258 ]
+  %288 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %203, i64 noundef %.0.i124) #20
+  br label %289
 
-290:                                              ; preds = %m_hour.exit130, %255
-  %291 = load i64, ptr @sym_min, align 8
-  %292 = icmp eq i64 %291, %203
-  br i1 %292, label %293, label %325
+289:                                              ; preds = %m_hour.exit130, %255
+  %290 = load i64, ptr @sym_min, align 8
+  %291 = icmp eq i64 %290, %203
+  br i1 %291, label %292, label %323
 
-293:                                              ; preds = %290
-  %294 = load i32, ptr %5, align 8
-  %295 = and i32 %294, 128
-  %.not.i131 = icmp eq i32 %295, 0
-  br i1 %.not.i131, label %m_min.exit140, label %296
+292:                                              ; preds = %289
+  %293 = load i32, ptr %5, align 8
+  %294 = and i32 %293, 128
+  %.not.i131 = icmp eq i32 %294, 0
+  br i1 %.not.i131, label %m_min.exit140, label %295
 
-296:                                              ; preds = %293
-  %297 = and i32 %294, 8
-  %.not.i.i132 = icmp eq i32 %297, 0
-  %298 = load i32, ptr %186, align 8
-  br i1 %.not.i.i132, label %299, label %get_c_time.exit.i133
+295:                                              ; preds = %292
+  %296 = and i32 %293, 8
+  %.not.i.i132 = icmp eq i32 %296, 0
+  %297 = load i32, ptr %186, align 8
+  br i1 %.not.i.i132, label %298, label %get_c_time.exit.i133
 
-299:                                              ; preds = %296
-  %300 = load i32, ptr %187, align 4
-  %301 = load i32, ptr %188, align 8
-  %302 = add nsw i32 %301, %300
-  %303 = icmp slt i32 %302, 0
-  %304 = add nsw i32 %302, 86400
-  %305 = icmp ugt i32 %302, 86399
-  %306 = add nsw i32 %302, -86400
-  %spec.select.i.i.i135 = select i1 %305, i32 %306, i32 %302
-  %.0.i.i.i136 = select i1 %303, i32 %304, i32 %spec.select.i.i.i135
-  %307 = sdiv i32 %.0.i.i.i136, 3600
-  %308 = srem i32 %.0.i.i.i136, 3600
-  %.lhs.trunc.i.i.i137 = trunc nsw i32 %308 to i16
-  %309 = sdiv i16 %.lhs.trunc.i.i.i137, 60
-  %.sext.i.i.i138 = sext i16 %309 to i32
-  %310 = srem i16 %.lhs.trunc.i.i.i137, 60
-  %.sext7.i.i.i139 = sext i16 %310 to i32
-  %311 = and i32 %298, 66977792
-  %312 = shl i32 %307, 12
-  %313 = or i32 %312, %311
-  %314 = shl nsw i32 %.sext.i.i.i138, 6
-  %315 = or i32 %313, %.sext7.i.i.i139
-  %316 = or i32 %315, %314
-  store i32 %316, ptr %186, align 8
-  %317 = or disjoint i32 %294, 8
-  store i32 %317, ptr %5, align 8
+298:                                              ; preds = %295
+  %299 = load i32, ptr %187, align 4
+  %300 = load i32, ptr %188, align 8
+  %301 = add nsw i32 %300, %299
+  %302 = icmp slt i32 %301, 0
+  %303 = add nsw i32 %301, 86400
+  %304 = icmp ugt i32 %301, 86399
+  %305 = add nsw i32 %301, -86400
+  %spec.select.i.i.i135 = select i1 %304, i32 %305, i32 %301
+  %.0.i.i.i136 = select i1 %302, i32 %303, i32 %spec.select.i.i.i135
+  %306 = sdiv i32 %.0.i.i.i136, 3600
+  %307 = srem i32 %.0.i.i.i136, 3600
+  %.lhs.trunc.i.i.i137 = trunc nsw i32 %307 to i16
+  %308 = sdiv i16 %.lhs.trunc.i.i.i137, 60
+  %.sext.i.i.i138 = sext i16 %308 to i32
+  %309 = srem i16 %.lhs.trunc.i.i.i137, 60
+  %.sext7.i.i.i139 = sext i16 %309 to i32
+  %310 = and i32 %297, 66977792
+  %311 = shl i32 %306, 12
+  %312 = or i32 %311, %310
+  %313 = shl nsw i32 %.sext.i.i.i138, 6
+  %314 = or i32 %312, %.sext7.i.i.i139
+  %315 = or i32 %314, %313
+  store i32 %315, ptr %186, align 8
+  %316 = or disjoint i32 %293, 8
+  store i32 %316, ptr %5, align 8
   br label %get_c_time.exit.i133
 
-get_c_time.exit.i133:                             ; preds = %299, %296
-  %318 = phi i32 [ %316, %299 ], [ %298, %296 ]
-  %319 = lshr i32 %318, 6
-  %320 = and i32 %319, 63
+get_c_time.exit.i133:                             ; preds = %298, %295
+  %317 = phi i32 [ %315, %298 ], [ %297, %295 ]
+  %318 = lshr i32 %317, 5
+  %319 = and i32 %318, 126
+  %320 = or disjoint i32 %319, 1
+  %321 = zext nneg i32 %320 to i64
   br label %m_min.exit140
 
-m_min.exit140:                                    ; preds = %293, %get_c_time.exit.i133
-  %.0.i134 = phi i32 [ %320, %get_c_time.exit.i133 ], [ 0, %293 ]
-  %321 = shl nuw nsw i32 %.0.i134, 1
-  %322 = or disjoint i32 %321, 1
-  %323 = zext nneg i32 %322 to i64
-  %324 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %203, i64 noundef %323) #20
-  br label %325
+m_min.exit140:                                    ; preds = %292, %get_c_time.exit.i133
+  %.0.i134 = phi i64 [ %321, %get_c_time.exit.i133 ], [ 1, %292 ]
+  %322 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %203, i64 noundef %.0.i134) #20
+  br label %323
 
-325:                                              ; preds = %m_min.exit140, %290
-  %326 = load i64, ptr @sym_sec, align 8
-  %327 = icmp eq i64 %326, %203
-  br i1 %327, label %328, label %359
+323:                                              ; preds = %m_min.exit140, %289
+  %324 = load i64, ptr @sym_sec, align 8
+  %325 = icmp eq i64 %324, %203
+  br i1 %325, label %326, label %357
 
-328:                                              ; preds = %325
-  %329 = load i32, ptr %5, align 8
-  %330 = and i32 %329, 128
-  %.not.i141 = icmp eq i32 %330, 0
-  br i1 %.not.i141, label %m_sec.exit150, label %331
+326:                                              ; preds = %323
+  %327 = load i32, ptr %5, align 8
+  %328 = and i32 %327, 128
+  %.not.i141 = icmp eq i32 %328, 0
+  br i1 %.not.i141, label %m_sec.exit150, label %329
 
-331:                                              ; preds = %328
-  %332 = and i32 %329, 8
-  %.not.i.i142 = icmp eq i32 %332, 0
-  %333 = load i32, ptr %186, align 8
-  br i1 %.not.i.i142, label %334, label %get_c_time.exit.i143
+329:                                              ; preds = %326
+  %330 = and i32 %327, 8
+  %.not.i.i142 = icmp eq i32 %330, 0
+  %331 = load i32, ptr %186, align 8
+  br i1 %.not.i.i142, label %332, label %get_c_time.exit.i143
 
-334:                                              ; preds = %331
-  %335 = load i32, ptr %187, align 4
-  %336 = load i32, ptr %188, align 8
-  %337 = add nsw i32 %336, %335
-  %338 = icmp slt i32 %337, 0
-  %339 = add nsw i32 %337, 86400
-  %340 = icmp ugt i32 %337, 86399
-  %341 = add nsw i32 %337, -86400
-  %spec.select.i.i.i145 = select i1 %340, i32 %341, i32 %337
-  %.0.i.i.i146 = select i1 %338, i32 %339, i32 %spec.select.i.i.i145
-  %342 = sdiv i32 %.0.i.i.i146, 3600
-  %343 = srem i32 %.0.i.i.i146, 3600
-  %.lhs.trunc.i.i.i147 = trunc nsw i32 %343 to i16
-  %344 = sdiv i16 %.lhs.trunc.i.i.i147, 60
-  %.sext.i.i.i148 = sext i16 %344 to i32
-  %345 = srem i16 %.lhs.trunc.i.i.i147, 60
-  %.sext7.i.i.i149 = sext i16 %345 to i32
-  %346 = and i32 %333, 66977792
-  %347 = shl i32 %342, 12
-  %348 = or i32 %347, %346
-  %349 = shl nsw i32 %.sext.i.i.i148, 6
-  %350 = or i32 %348, %.sext7.i.i.i149
-  %351 = or i32 %350, %349
-  store i32 %351, ptr %186, align 8
-  %352 = or disjoint i32 %329, 8
-  store i32 %352, ptr %5, align 8
+332:                                              ; preds = %329
+  %333 = load i32, ptr %187, align 4
+  %334 = load i32, ptr %188, align 8
+  %335 = add nsw i32 %334, %333
+  %336 = icmp slt i32 %335, 0
+  %337 = add nsw i32 %335, 86400
+  %338 = icmp ugt i32 %335, 86399
+  %339 = add nsw i32 %335, -86400
+  %spec.select.i.i.i145 = select i1 %338, i32 %339, i32 %335
+  %.0.i.i.i146 = select i1 %336, i32 %337, i32 %spec.select.i.i.i145
+  %340 = sdiv i32 %.0.i.i.i146, 3600
+  %341 = srem i32 %.0.i.i.i146, 3600
+  %.lhs.trunc.i.i.i147 = trunc nsw i32 %341 to i16
+  %342 = sdiv i16 %.lhs.trunc.i.i.i147, 60
+  %.sext.i.i.i148 = sext i16 %342 to i32
+  %343 = srem i16 %.lhs.trunc.i.i.i147, 60
+  %.sext7.i.i.i149 = sext i16 %343 to i32
+  %344 = and i32 %331, 66977792
+  %345 = shl i32 %340, 12
+  %346 = or i32 %345, %344
+  %347 = shl nsw i32 %.sext.i.i.i148, 6
+  %348 = or i32 %346, %.sext7.i.i.i149
+  %349 = or i32 %348, %347
+  store i32 %349, ptr %186, align 8
+  %350 = or disjoint i32 %327, 8
+  store i32 %350, ptr %5, align 8
   br label %get_c_time.exit.i143
 
-get_c_time.exit.i143:                             ; preds = %334, %331
-  %353 = phi i32 [ %351, %334 ], [ %333, %331 ]
-  %354 = and i32 %353, 63
+get_c_time.exit.i143:                             ; preds = %332, %329
+  %351 = phi i32 [ %349, %332 ], [ %331, %329 ]
+  %352 = shl i32 %351, 1
+  %353 = and i32 %352, 126
+  %354 = or disjoint i32 %353, 1
+  %355 = zext nneg i32 %354 to i64
   br label %m_sec.exit150
 
-m_sec.exit150:                                    ; preds = %328, %get_c_time.exit.i143
-  %.0.i144 = phi i32 [ %354, %get_c_time.exit.i143 ], [ 0, %328 ]
-  %355 = shl nuw nsw i32 %.0.i144, 1
-  %356 = or disjoint i32 %355, 1
-  %357 = zext nneg i32 %356 to i64
-  %358 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %203, i64 noundef %357) #20
-  br label %359
+m_sec.exit150:                                    ; preds = %326, %get_c_time.exit.i143
+  %.0.i144 = phi i64 [ %355, %get_c_time.exit.i143 ], [ 1, %326 ]
+  %356 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %203, i64 noundef %.0.i144) #20
+  br label %357
 
-359:                                              ; preds = %m_sec.exit150, %325
-  %360 = load i64, ptr @sym_sec_fraction, align 8
-  %361 = icmp eq i64 %360, %203
-  br i1 %361, label %362, label %372
+357:                                              ; preds = %m_sec.exit150, %323
+  %358 = load i64, ptr @sym_sec_fraction, align 8
+  %359 = icmp eq i64 %358, %203
+  br i1 %359, label %360, label %370
 
-362:                                              ; preds = %359
-  %363 = load i32, ptr %5, align 8
-  %364 = and i32 %363, 128
-  %.not.i.i151 = icmp eq i32 %364, 0
+360:                                              ; preds = %357
+  %361 = load i32, ptr %5, align 8
+  %362 = and i32 %361, 128
+  %.not.i.i151 = icmp eq i32 %362, 0
   br i1 %.not.i.i151, label %m_sf.exit.thread.i154, label %m_sf.exit.i152
 
-m_sf.exit.i152:                                   ; preds = %362
-  %365 = load i64, ptr %189, align 8
-  %366 = and i64 %365, 1
-  %.not.i1.i153 = icmp eq i64 %366, 0
-  br i1 %.not.i1.i153, label %368, label %m_sf.exit.thread.i154
+m_sf.exit.i152:                                   ; preds = %360
+  %363 = load i64, ptr %189, align 8
+  %364 = and i64 %363, 1
+  %.not.i1.i153 = icmp eq i64 %364, 0
+  br i1 %.not.i1.i153, label %366, label %m_sf.exit.thread.i154
 
-m_sf.exit.thread.i154:                            ; preds = %m_sf.exit.i152, %362
-  %.0.i5.i155 = phi i64 [ %365, %m_sf.exit.i152 ], [ 1, %362 ]
-  %367 = tail call i64 @rb_rational_new(i64 noundef %.0.i5.i155, i64 noundef 2000000001) #20
+m_sf.exit.thread.i154:                            ; preds = %m_sf.exit.i152, %360
+  %.0.i5.i155 = phi i64 [ %363, %m_sf.exit.i152 ], [ 1, %360 ]
+  %365 = tail call i64 @rb_rational_new(i64 noundef %.0.i5.i155, i64 noundef 2000000001) #20
   br label %m_sf_in_sec.exit163
 
-368:                                              ; preds = %m_sf.exit.i152
+366:                                              ; preds = %m_sf.exit.i152
   %.pr.i.i.i157 = load i64, ptr @ns_to_sec.rbimpl_id, align 8
   %.not4.i.i.i158 = icmp eq i64 %.pr.i.i.i157, 0
   br i1 %.not4.i.i.i158, label %.lr.ph.i.i.i161, label %rbimpl_intern_const.exit.i.i159
 
-.lr.ph.i.i.i161:                                  ; preds = %368, %.lr.ph.i.i.i161
-  %369 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.329, i64 noundef 3) #20
-  store i64 %369, ptr @ns_to_sec.rbimpl_id, align 8
-  %.not.i.i.i162 = icmp eq i64 %369, 0
+.lr.ph.i.i.i161:                                  ; preds = %366, %.lr.ph.i.i.i161
+  %367 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.329, i64 noundef 3) #20
+  store i64 %367, ptr @ns_to_sec.rbimpl_id, align 8
+  %.not.i.i.i162 = icmp eq i64 %367, 0
   br i1 %.not.i.i.i162, label %.lr.ph.i.i.i161, label %rbimpl_intern_const.exit.i.i159, !llvm.loop !8
 
-rbimpl_intern_const.exit.i.i159:                  ; preds = %.lr.ph.i.i.i161, %368
-  %.lcssa.i.i.i160 = phi i64 [ %.pr.i.i.i157, %368 ], [ %369, %.lr.ph.i.i.i161 ]
-  %370 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %365, i64 noundef %.lcssa.i.i.i160, i32 noundef 1, i64 noundef 2000000001) #20
+rbimpl_intern_const.exit.i.i159:                  ; preds = %.lr.ph.i.i.i161, %366
+  %.lcssa.i.i.i160 = phi i64 [ %.pr.i.i.i157, %366 ], [ %367, %.lr.ph.i.i.i161 ]
+  %368 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %363, i64 noundef %.lcssa.i.i.i160, i32 noundef 1, i64 noundef 2000000001) #20
   br label %m_sf_in_sec.exit163
 
 m_sf_in_sec.exit163:                              ; preds = %m_sf.exit.thread.i154, %rbimpl_intern_const.exit.i.i159
-  %.0.i2.i156 = phi i64 [ %367, %m_sf.exit.thread.i154 ], [ %370, %rbimpl_intern_const.exit.i.i159 ]
-  %371 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %203, i64 noundef %.0.i2.i156) #20
-  br label %372
+  %.0.i2.i156 = phi i64 [ %365, %m_sf.exit.thread.i154 ], [ %368, %rbimpl_intern_const.exit.i.i159 ]
+  %369 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %203, i64 noundef %.0.i2.i156) #20
+  br label %370
 
-372:                                              ; preds = %m_sf_in_sec.exit163, %359
-  %373 = load i64, ptr @sym_zone, align 8
-  %374 = icmp eq i64 %373, %203
-  br i1 %374, label %375, label %390
+370:                                              ; preds = %m_sf_in_sec.exit163, %357
+  %371 = load i64, ptr @sym_zone, align 8
+  %372 = icmp eq i64 %371, %203
+  br i1 %372, label %373, label %388
 
-375:                                              ; preds = %372
-  %376 = load i32, ptr %5, align 8
-  %377 = and i32 %376, 128
-  %.not.i164 = icmp eq i32 %377, 0
-  br i1 %.not.i164, label %378, label %m_of.exit.i165
+373:                                              ; preds = %370
+  %374 = load i32, ptr %5, align 8
+  %375 = and i32 %374, 128
+  %.not.i164 = icmp eq i32 %375, 0
+  br i1 %.not.i164, label %376, label %m_of.exit.i165
 
-378:                                              ; preds = %375
-  %379 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.346, i64 noundef 6) #20
+376:                                              ; preds = %373
+  %377 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.346, i64 noundef 6) #20
   br label %m_zone.exit169
 
-m_of.exit.i165:                                   ; preds = %375
+m_of.exit.i165:                                   ; preds = %373
   tail call fastcc void @get_c_jd(ptr noundef nonnull %5)
-  %380 = load i32, ptr %188, align 8
-  %381 = icmp slt i32 %380, 0
-  %382 = select i1 %381, i32 45, i32 43
-  %383 = tail call i32 @llvm.abs.i32(i32 %380, i1 true)
-  %384 = udiv i32 %383, 3600
-  %385 = urem i32 %383, 3600
-  %.lhs.trunc.i.i166 = trunc nuw nsw i32 %385 to i16
-  %386 = udiv i16 %.lhs.trunc.i.i166, 60
-  %.zext.i.i167 = zext nneg i16 %386 to i32
-  %387 = tail call nonnull ptr @rb_usascii_encoding() #20
-  %388 = tail call i64 (ptr, ptr, ...) @rb_enc_sprintf(ptr noundef nonnull %387, ptr noundef nonnull @.str.347, i32 noundef %382, i32 noundef %384, i32 noundef %.zext.i.i167) #20
+  %378 = load i32, ptr %188, align 8
+  %379 = icmp slt i32 %378, 0
+  %380 = select i1 %379, i32 45, i32 43
+  %381 = tail call i32 @llvm.abs.i32(i32 %378, i1 true)
+  %382 = udiv i32 %381, 3600
+  %383 = urem i32 %381, 3600
+  %.lhs.trunc.i.i166 = trunc nuw nsw i32 %383 to i16
+  %384 = udiv i16 %.lhs.trunc.i.i166, 60
+  %.zext.i.i167 = zext nneg i16 %384 to i32
+  %385 = tail call nonnull ptr @rb_usascii_encoding() #20
+  %386 = tail call i64 (ptr, ptr, ...) @rb_enc_sprintf(ptr noundef nonnull %385, ptr noundef nonnull @.str.347, i32 noundef %380, i32 noundef %382, i32 noundef %.zext.i.i167) #20
   br label %m_zone.exit169
 
-m_zone.exit169:                                   ; preds = %378, %m_of.exit.i165
-  %.0.i168 = phi i64 [ %388, %m_of.exit.i165 ], [ %379, %378 ]
-  %389 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %203, i64 noundef %.0.i168) #20
-  br label %390
+m_zone.exit169:                                   ; preds = %376, %m_of.exit.i165
+  %.0.i168 = phi i64 [ %386, %m_of.exit.i165 ], [ %377, %376 ]
+  %387 = tail call i64 @rb_hash_aset(i64 noundef %4, i64 noundef %203, i64 noundef %.0.i168) #20
+  br label %388
 
-390:                                              ; preds = %254, %m_zone.exit169, %372
-  %391 = add nuw nsw i64 %.092, 1
+388:                                              ; preds = %254, %m_zone.exit169, %370
+  %389 = add nuw nsw i64 %.092, 1
   %.pre = load i64, ptr %180, align 8
   br label %192, !llvm.loop !37
 

@@ -339,7 +339,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9dtNavMesh4initEPhii(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh4initEPhii(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %struct.dtNavMeshParams, align 4
   %6 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %6, 1145979222
@@ -4189,7 +4189,7 @@ _ZN9dtNavMesh14unconnectLinksEP10dtMeshTileS1_.exit117: ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile(ptr nocapture noundef nonnull readnone align 8 dereferenceable(100) %0, ptr noundef readonly %1) local_unnamed_addr #14 align 2 {
+define noundef range(i32 -2147483636, -2147483648) i32 @_ZNK9dtNavMesh16getTileStateSizeEPK10dtMeshTile(ptr nocapture noundef nonnull readnone align 8 dereferenceable(100) %0, ptr noundef readonly %1) local_unnamed_addr #14 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %3
 

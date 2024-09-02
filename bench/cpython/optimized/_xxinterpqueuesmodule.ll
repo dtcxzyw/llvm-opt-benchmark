@@ -1350,7 +1350,7 @@ declare ptr @PyLong_FromLongLong(i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_GetRaisedException() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @queue_destroy(i64 noundef %qid) unnamed_addr #0 {
+define internal fastcc range(i32 -14, 1) i32 @queue_destroy(i64 noundef %qid) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 1) #4

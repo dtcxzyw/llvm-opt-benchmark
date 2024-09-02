@@ -533,7 +533,7 @@ while.cond56:                                     ; preds = %while.cond56.outer,
   %extensions.sroa.7.2 = phi i64 [ %sub.i.i7.i128, %if.end66 ], [ %extensions.sroa.7.2.ph, %while.cond56.outer ]
   %extensions.sroa.0.2 = phi ptr [ %add.ptr.i.i6.i127, %if.end66 ], [ %extensions.sroa.0.2.ph, %while.cond56.outer ]
   switch i64 %extensions.sroa.7.2, label %lor.lhs.false62 [
-    i64 0, label %if.end78
+    i64 0, label %if.end78.loopexit
     i64 1, label %return
   ]
 
@@ -584,27 +584,31 @@ lor.lhs.false72:                                  ; preds = %land.lhs.true69
   %cmp74.not = icmp eq i64 %or.i.i.i122, 2
   br i1 %cmp74.not, label %while.cond56.outer, label %return, !llvm.loop !9
 
-if.end78:                                         ; preds = %while.cond56, %if.end27
-  %negversion.0 = phi i32 [ 0, %if.end27 ], [ %negversion.1.ph, %while.cond56 ]
+if.end78.loopexit:                                ; preds = %while.cond56
+  %21 = icmp eq i32 %negversion.1.ph, 772
+  br label %if.end78
+
+if.end78:                                         ; preds = %if.end78.loopexit, %if.end27
+  %negversion.0 = phi i1 [ false, %if.end27 ], [ %21, %if.end78.loopexit ]
   %tobool.not.i.i145286 = icmp eq i64 %or.i.i.i, 0
   br i1 %tobool.not.i.i145286, label %while.end95, label %while.body82.preheader
 
 while.body82.preheader:                           ; preds = %if.end33, %if.end78
-  %negversion.0306 = phi i32 [ %negversion.0, %if.end78 ], [ 0, %if.end33 ]
+  %negversion.0306 = phi i1 [ %negversion.0, %if.end78 ], [ false, %if.end33 ]
   %cmp34219304 = phi i1 [ %cmp28, %if.end78 ], [ false, %if.end33 ]
-  %21 = add i64 %add, %shl.i.i.i
-  %22 = add i64 %21, %conv2.i.i.i
+  %22 = add i64 %add, %shl.i.i.i
+  %23 = add i64 %22, %conv2.i.i.i
   br label %while.body82
 
 while.body82:                                     ; preds = %while.body82.preheader, %if.end94
   %payload.sroa.0.1288 = phi ptr [ %add.ptr.i.i148, %if.end94 ], [ %add.ptr.i2.i.i, %while.body82.preheader ]
   %payload.sroa.5.1287 = phi i64 [ %sub.i.i149, %if.end94 ], [ %or.i.i.i, %while.body82.preheader ]
-  %23 = load i8, ptr %payload.sroa.0.1288, align 1
+  %24 = load i8, ptr %payload.sroa.0.1288, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %smallrec, ptr noundef nonnull align 1 dereferenceable(6) @__const.async_write.smallrec, i64 5, i1 false)
   store i8 %1, ptr %smallrec, align 1
   store i8 %2, ptr %arrayidx85, align 1
   store i8 %3, ptr %arrayidx87, align 1
-  store i8 %23, ptr %arrayidx89, align 1
+  store i8 %24, ptr %arrayidx89, align 1
   %call90 = call i32 @BIO_write(ptr noundef nonnull %call, ptr noundef nonnull %smallrec, i32 noundef 6) #5
   %cmp91 = icmp slt i32 %call90, 1
   br i1 %cmp91, label %return, label %if.end94
@@ -616,12 +620,11 @@ if.end94:                                         ; preds = %while.body82
   br i1 %tobool.not.i.i145, label %while.end95, label %while.body82, !llvm.loop !10
 
 while.end95:                                      ; preds = %if.end94, %if.end78
-  %negversion.0307 = phi i32 [ %negversion.0, %if.end78 ], [ %negversion.0306, %if.end94 ]
+  %negversion.0307 = phi i1 [ %negversion.0, %if.end78 ], [ %negversion.0306, %if.end94 ]
   %cmp34219305 = phi i1 [ %cmp28, %if.end78 ], [ %cmp34219304, %if.end94 ]
-  %written.2.lcssa = phi i64 [ %add, %if.end78 ], [ %22, %if.end94 ]
+  %written.2.lcssa = phi i64 [ %add, %if.end78 ], [ %23, %if.end94 ]
   %cmp96 = icmp eq i8 %1, 20
-  %cmp99 = icmp eq i32 %negversion.0307, 772
-  %or.cond = and i1 %cmp34219305, %cmp99
+  %or.cond = and i1 %cmp34219305, %negversion.0307
   %or.cond271 = select i1 %cmp96, i1 true, i1 %or.cond
   br i1 %or.cond271, label %if.then104, label %while.cond, !llvm.loop !11
 

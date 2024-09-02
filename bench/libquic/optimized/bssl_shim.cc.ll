@@ -3248,7 +3248,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %if.then.i.i, %_ZNSt
   %spec.select = select i1 %cmp.i.i, ptr %call5, ptr null
   %call8 = tail call ptr @strtok(ptr noundef %spec.select, ptr noundef nonnull @.str.6) #28
   %cmp = icmp eq ptr %call8, null
-  br i1 %cmp, label %for.end, label %if.end
+  br i1 %cmp, label %for.end.loopexit, label %if.end
 
 lpad.loopexit:                                    ; preds = %if.end, %invoke.cont, %cond.true.i.i.i.i
   %lpad.loopexit54 = landingpad { ptr, i32 }
@@ -3279,12 +3279,15 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIiSaIiE
   tail call void @free(ptr noundef nonnull %call5) #28
   br label %eh.resume
 
-for.end:                                          ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, %if.then
-  %digest_list.sroa.0.0.lcssa = phi ptr [ null, %if.then ], [ %digest_list.sroa.0.1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
-  %digest_list.sroa.8.0.lcssa = phi ptr [ null, %if.then ], [ %digest_list.sroa.8.1, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %digest_list.sroa.8.0.lcssa to i64
+for.end.loopexit:                                 ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
+  %2 = ptrtoint ptr %digest_list.sroa.8.1 to i64
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %if.then
+  %digest_list.sroa.0.0.lcssa = phi ptr [ null, %if.then ], [ %digest_list.sroa.0.1, %for.end.loopexit ]
+  %digest_list.sroa.8.0.lcssa = phi i64 [ 0, %if.then ], [ %2, %for.end.loopexit ]
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digest_list.sroa.0.0.lcssa to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.sub.i = sub i64 %digest_list.sroa.8.0.lcssa, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %call17 = invoke i32 @SSL_set_private_key_digest_prefs(ptr noundef %ssl, ptr noundef %digest_list.sroa.0.0.lcssa, i64 noundef %sub.ptr.div.i)
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp
@@ -3325,45 +3328,45 @@ invoke.cont30:                                    ; preds = %if.then23
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont30
-  %2 = load ptr, ptr %ref.tmp24, align 8
+  %3 = load ptr, ptr %ref.tmp24, align 8
   store ptr null, ptr %ref.tmp24, align 8
-  %3 = load ptr, ptr %out_pkey, align 8
-  store ptr %2, ptr %out_pkey, align 8
-  %tobool.not.i.i.i.i26 = icmp eq ptr %3, null
+  %4 = load ptr, ptr %out_pkey, align 8
+  store ptr %3, ptr %out_pkey, align 8
+  %tobool.not.i.i.i.i26 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i26, label %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, label %if.then.i.i.i.i27
 
 if.then.i.i.i.i27:                                ; preds = %invoke.cont32
-  invoke void @EVP_PKEY_free(ptr noundef nonnull %3)
+  invoke void @EVP_PKEY_free(ptr noundef nonnull %4)
           to label %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i27
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #30
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #30
   unreachable
 
 _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit: ; preds = %if.then.i.i.i.i27, %invoke.cont32
   store ptr null, ptr %ref.tmp24, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #28
-  %6 = load ptr, ptr %out_pkey, align 8
-  %cmp.i.not = icmp eq ptr %6, null
+  %7 = load ptr, ptr %out_pkey, align 8
+  %cmp.i.not = icmp eq ptr %7, null
   br i1 %cmp.i.not, label %return, label %if.end37
 
 lpad29:                                           ; preds = %if.then23
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad31:                                           ; preds = %invoke.cont30
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #28
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad31, %lpad29
-  %.pn = phi { ptr, i32 } [ %8, %lpad31 ], [ %7, %lpad29 ]
+  %.pn = phi { ptr, i32 } [ %9, %lpad31 ], [ %8, %lpad29 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp28) #28
   br label %eh.resume
 
@@ -3402,7 +3405,7 @@ invoke.cont.i:                                    ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i, label %if.then.i.i31, label %if.end.i
 
 lpad.i:                                           ; preds = %if.end.i, %lor.lhs.false.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bio.i) #28, !noalias !14
   br label %lpad47.body
@@ -3417,55 +3420,55 @@ if.then.i.i31:                                    ; preds = %if.end.i, %invoke.c
           to label %invoke.cont48 unwind label %terminate.lpad.i.i, !noalias !14
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i31
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #30
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #30
   unreachable
 
 invoke.cont48:                                    ; preds = %if.then.i.i31, %call1.i.noexc
   %ref.tmp40.sroa.0.0 = phi ptr [ %storemerge.ph.i, %if.then.i.i31 ], [ null, %call1.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i)
-  %12 = load ptr, ptr %out_x509, align 8
+  %13 = load ptr, ptr %out_x509, align 8
   store ptr %ref.tmp40.sroa.0.0, ptr %out_x509, align 8
-  %tobool.not.i.i.i.i34 = icmp eq ptr %12, null
+  %tobool.not.i.i.i.i34 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i34, label %_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit, label %if.then.i.i.i.i35
 
 if.then.i.i.i.i35:                                ; preds = %invoke.cont48
-  invoke void @X509_free(ptr noundef nonnull %12)
+  invoke void @X509_free(ptr noundef nonnull %13)
           to label %_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit unwind label %terminate.lpad.i.i.i.i36
 
 terminate.lpad.i.i.i.i36:                         ; preds = %if.then.i.i.i.i35
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #30
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #30
   unreachable
 
 _ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit: ; preds = %if.then.i.i.i.i35, %invoke.cont48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #28
-  %15 = load ptr, ptr %out_x509, align 8
-  %cmp.i41.not = icmp eq ptr %15, null
+  %16 = load ptr, ptr %out_x509, align 8
+  %cmp.i41.not = icmp eq ptr %16, null
   br i1 %cmp.i41.not, label %return, label %if.end55
 
 lpad45:                                           ; preds = %if.then39
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup51
 
 lpad47:                                           ; preds = %call.i30.noexc, %invoke.cont46
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   br label %lpad47.body
 
 lpad47.body:                                      ; preds = %lpad.i, %lpad47
-  %eh.lpad-body = phi { ptr, i32 } [ %17, %lpad47 ], [ %9, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %lpad47 ], [ %10, %lpad.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41) #28
   br label %ehcleanup51
 
 ehcleanup51:                                      ; preds = %lpad47.body, %lpad45
-  %.pn15 = phi { ptr, i32 } [ %eh.lpad-body, %lpad47.body ], [ %16, %lpad45 ]
+  %.pn15 = phi { ptr, i32 } [ %eh.lpad-body, %lpad47.body ], [ %17, %lpad45 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #28
   br label %eh.resume
 
@@ -3476,10 +3479,10 @@ if.end55:                                         ; preds = %_ZNSt10unique_ptrI7
 
 land.lhs.true:                                    ; preds = %if.end55
   %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
-  %18 = load ptr, ptr %ctx, align 8
+  %19 = load ptr, ptr %ctx, align 8
   %call58 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ocsp_response) #28
   %call60 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ocsp_response) #28
-  %call61 = call i32 @SSL_CTX_set_ocsp_response(ptr noundef %18, ptr noundef %call58, i64 noundef %call60)
+  %call61 = call i32 @SSL_CTX_set_ocsp_response(ptr noundef %19, ptr noundef %call58, i64 noundef %call60)
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %return, label %if.end64
 
@@ -4634,49 +4637,49 @@ land.rhs:                                         ; preds = %if.then34
 lor.rhs38:                                        ; preds = %land.rhs
   %expect_ticket_renewal = getelementptr inbounds i8, ptr %call.i, i64 898
   %18 = load i8, ptr %expect_ticket_renewal, align 2
-  %tobool39 = zext i8 %18 to i32
+  %19 = and i8 %18, 1
+  %20 = zext nneg i8 %19 to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %lor.rhs38, %if.then34
-  %19 = phi i32 [ 0, %if.then34 ], [ 1, %land.rhs ], [ %tobool39, %lor.rhs38 ]
-  %conv43 = and i32 %19, 1
-  %20 = load i32, ptr @_ZL13g_state_index, align 4
-  %call.i74 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %20)
+  %conv43 = phi i32 [ 0, %if.then34 ], [ 1, %land.rhs ], [ %20, %lor.rhs38 ]
+  %21 = load i32, ptr @_ZL13g_state_index, align 4
+  %call.i74 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %21)
   %got_new_session = getelementptr inbounds i8, ptr %call.i74, i64 116
-  %21 = load i8, ptr %got_new_session, align 4
-  %22 = and i8 %21, 1
-  %conv46 = zext nneg i8 %22 to i32
+  %22 = load i8, ptr %got_new_session, align 4
+  %23 = and i8 %22, 1
+  %conv46 = zext nneg i8 %23 to i32
   %cmp47.not = icmp eq i32 %conv43, %conv46
   br i1 %cmp47.not, label %if.end55, label %if.then48
 
 if.then48:                                        ; preds = %land.end
-  %23 = load ptr, ptr @stderr, align 8
-  %24 = load i32, ptr @_ZL13g_state_index, align 4
-  %call.i75 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %24)
+  %24 = load ptr, ptr @stderr, align 8
+  %25 = load i32, ptr @_ZL13g_state_index, align 4
+  %call.i75 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %25)
   %got_new_session50 = getelementptr inbounds i8, ptr %call.i75, i64 116
-  %25 = load i8, ptr %got_new_session50, align 4
-  %tobool51 = trunc i8 %25 to i1
+  %26 = load i8, ptr %got_new_session50, align 4
+  %tobool51 = trunc i8 %26 to i1
   %cond52 = select i1 %tobool51, ptr @.str.31, ptr @.str.43
-  %call53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.45, ptr noundef nonnull %cond52) #29
+  %call53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.45, ptr noundef nonnull %cond52) #29
   br label %return
 
 if.end55:                                         ; preds = %land.end, %land.lhs.true32, %if.end30
   %is_server56 = getelementptr inbounds i8, ptr %call.i, i64 4
-  %26 = load i8, ptr %is_server56, align 4
-  %tobool57 = trunc i8 %26 to i1
+  %27 = load i8, ptr %is_server56, align 4
+  %tobool57 = trunc i8 %27 to i1
   br i1 %tobool57, label %land.lhs.true58, label %if.end63
 
 land.lhs.true58:                                  ; preds = %if.end55
-  %27 = load i32, ptr @_ZL13g_state_index, align 4
-  %call.i76 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %27)
+  %28 = load i32, ptr @_ZL13g_state_index, align 4
+  %call.i76 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %28)
   %early_callback_called = getelementptr inbounds i8, ptr %call.i76, i64 72
-  %28 = load i8, ptr %early_callback_called, align 8
-  %tobool60 = trunc i8 %28 to i1
+  %29 = load i8, ptr %early_callback_called, align 8
+  %tobool60 = trunc i8 %29 to i1
   br i1 %tobool60, label %if.end63, label %if.then61
 
 if.then61:                                        ; preds = %land.lhs.true58
-  %29 = load ptr, ptr @stderr, align 8
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 26, i64 1, ptr %29) #29
+  %30 = load ptr, ptr @stderr, align 8
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 26, i64 1, ptr %30) #29
   br label %return
 
 if.end63:                                         ; preds = %land.lhs.true58, %if.end55
@@ -4691,9 +4694,9 @@ if.then65:                                        ; preds = %if.end63
   br i1 %cmp.i.i.not, label %if.end74, label %if.then69
 
 if.then69:                                        ; preds = %if.then65
-  %31 = load ptr, ptr @stderr, align 8
+  %32 = load ptr, ptr @stderr, align 8
   %call71 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_server_name) #28
-  %call72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.47, ptr noundef %call66, ptr noundef %call71) #29
+  %call72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.47, ptr noundef %call66, ptr noundef %call71) #29
   br label %return
 
 if.end74:                                         ; preds = %if.then65, %if.end63
@@ -4708,15 +4711,15 @@ if.then76:                                        ; preds = %if.end74
   br i1 %cmp80.not, label %lor.lhs.false, label %if.then85
 
 lor.lhs.false:                                    ; preds = %if.then76
-  %32 = load ptr, ptr %certificate_types, align 8
+  %33 = load ptr, ptr %certificate_types, align 8
   %call82 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_certificate_types) #28
-  %bcmp = call i32 @bcmp(ptr %32, ptr %call82, i64 %call77)
+  %bcmp = call i32 @bcmp(ptr %33, ptr %call82, i64 %call77)
   %cmp84.not = icmp eq i32 %bcmp, 0
   br i1 %cmp84.not, label %if.end88, label %if.then85
 
 if.then85:                                        ; preds = %lor.lhs.false, %if.then76
-  %33 = load ptr, ptr @stderr, align 8
-  %34 = call i64 @fwrite(ptr nonnull @.str.48, i64 27, i64 1, ptr %33) #29
+  %34 = load ptr, ptr @stderr, align 8
+  %35 = call i64 @fwrite(ptr nonnull @.str.48, i64 27, i64 1, ptr %34) #29
   br label %return
 
 if.end88:                                         ; preds = %lor.lhs.false, %if.end74
@@ -4726,24 +4729,24 @@ if.end88:                                         ; preds = %lor.lhs.false, %if.
 
 if.then90:                                        ; preds = %if.end88
   call void @SSL_get0_next_proto_negotiated(ptr noundef %ssl, ptr noundef nonnull %next_proto, ptr noundef nonnull %next_proto_len)
-  %35 = load i32, ptr %next_proto_len, align 4
-  %conv91 = zext i32 %35 to i64
+  %36 = load i32, ptr %next_proto_len, align 4
+  %conv91 = zext i32 %36 to i64
   %call93 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_next_proto) #28
   %cmp94.not = icmp eq i64 %call93, %conv91
   br i1 %cmp94.not, label %lor.lhs.false95, label %if.then101
 
 lor.lhs.false95:                                  ; preds = %if.then90
-  %36 = load ptr, ptr %next_proto, align 8
+  %37 = load ptr, ptr %next_proto, align 8
   %call97 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_next_proto) #28
-  %37 = load i32, ptr %next_proto_len, align 4
-  %conv98 = zext i32 %37 to i64
-  %bcmp67 = call i32 @bcmp(ptr %36, ptr %call97, i64 %conv98)
+  %38 = load i32, ptr %next_proto_len, align 4
+  %conv98 = zext i32 %38 to i64
+  %bcmp67 = call i32 @bcmp(ptr %37, ptr %call97, i64 %conv98)
   %cmp100.not = icmp eq i32 %bcmp67, 0
   br i1 %cmp100.not, label %if.end104, label %if.then101
 
 if.then101:                                       ; preds = %lor.lhs.false95, %if.then90
-  %38 = load ptr, ptr @stderr, align 8
-  %39 = call i64 @fwrite(ptr nonnull @.str.49, i64 31, i64 1, ptr %38) #29
+  %39 = load ptr, ptr @stderr, align 8
+  %40 = call i64 @fwrite(ptr nonnull @.str.49, i64 31, i64 1, ptr %39) #29
   br label %return
 
 if.end104:                                        ; preds = %lor.lhs.false95, %if.end88
@@ -4753,24 +4756,24 @@ if.end104:                                        ; preds = %lor.lhs.false95, %i
 
 if.then106:                                       ; preds = %if.end104
   call void @SSL_get0_alpn_selected(ptr noundef %ssl, ptr noundef nonnull %alpn_proto, ptr noundef nonnull %alpn_proto_len)
-  %40 = load i32, ptr %alpn_proto_len, align 4
-  %conv107 = zext i32 %40 to i64
+  %41 = load i32, ptr %alpn_proto_len, align 4
+  %conv107 = zext i32 %41 to i64
   %call109 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_alpn) #28
   %cmp110.not = icmp eq i64 %call109, %conv107
   br i1 %cmp110.not, label %lor.lhs.false111, label %if.then117
 
 lor.lhs.false111:                                 ; preds = %if.then106
-  %41 = load ptr, ptr %alpn_proto, align 8
+  %42 = load ptr, ptr %alpn_proto, align 8
   %call113 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_alpn) #28
-  %42 = load i32, ptr %alpn_proto_len, align 4
-  %conv114 = zext i32 %42 to i64
-  %bcmp68 = call i32 @bcmp(ptr %41, ptr %call113, i64 %conv114)
+  %43 = load i32, ptr %alpn_proto_len, align 4
+  %conv114 = zext i32 %43 to i64
+  %bcmp68 = call i32 @bcmp(ptr %42, ptr %call113, i64 %conv114)
   %cmp116.not = icmp eq i32 %bcmp68, 0
   br i1 %cmp116.not, label %if.end120, label %if.then117
 
 if.then117:                                       ; preds = %lor.lhs.false111, %if.then106
-  %43 = load ptr, ptr @stderr, align 8
-  %44 = call i64 @fwrite(ptr nonnull @.str.50, i64 31, i64 1, ptr %43) #29
+  %44 = load ptr, ptr @stderr, align 8
+  %45 = call i64 @fwrite(ptr nonnull @.str.50, i64 31, i64 1, ptr %44) #29
   br label %return
 
 if.end120:                                        ; preds = %lor.lhs.false111, %if.end104
@@ -4784,8 +4787,8 @@ if.then122:                                       ; preds = %if.end120
   br i1 %tobool124.not, label %if.then125, label %if.end127
 
 if.then125:                                       ; preds = %if.then122
-  %45 = load ptr, ptr @stderr, align 8
-  %46 = call i64 @fwrite(ptr nonnull @.str.51, i64 25, i64 1, ptr %45) #29
+  %46 = load ptr, ptr @stderr, align 8
+  %47 = call i64 @fwrite(ptr nonnull @.str.51, i64 25, i64 1, ptr %46) #29
   br label %return
 
 if.end127:                                        ; preds = %if.then122
@@ -4800,28 +4803,28 @@ lor.lhs.false131:                                 ; preds = %if.end127
   br i1 %cmp136.not, label %if.end140, label %if.then137
 
 if.then137:                                       ; preds = %lor.lhs.false131, %if.end127
-  %47 = load ptr, ptr @stderr, align 8
-  %48 = call i64 @fwrite(ptr nonnull @.str.52, i64 20, i64 1, ptr %47) #29
+  %48 = load ptr, ptr @stderr, align 8
+  %49 = call i64 @fwrite(ptr nonnull @.str.52, i64 20, i64 1, ptr %48) #29
   br label %return
 
 if.end140:                                        ; preds = %lor.lhs.false131, %if.end120
   %expect_extended_master_secret = getelementptr inbounds i8, ptr %call.i, i64 522
-  %49 = load i8, ptr %expect_extended_master_secret, align 2
-  %tobool141 = trunc i8 %49 to i1
+  %50 = load i8, ptr %expect_extended_master_secret, align 2
+  %tobool141 = trunc i8 %50 to i1
   br i1 %tobool141, label %if.then142, label %if.end147
 
 if.then142:                                       ; preds = %if.end140
   %session = getelementptr inbounds i8, ptr %ssl, i64 184
-  %50 = load ptr, ptr %session, align 8
-  %extended_master_secret = getelementptr inbounds i8, ptr %50, i64 376
+  %51 = load ptr, ptr %session, align 8
+  %extended_master_secret = getelementptr inbounds i8, ptr %51, i64 376
   %bf.load = load i8, ptr %extended_master_secret, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool143.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool143.not, label %if.then144, label %if.end147
 
 if.then144:                                       ; preds = %if.then142
-  %51 = load ptr, ptr @stderr, align 8
-  %52 = call i64 @fwrite(ptr nonnull @.str.53, i64 32, i64 1, ptr %51) #29
+  %52 = load ptr, ptr @stderr, align 8
+  %53 = call i64 @fwrite(ptr nonnull @.str.53, i64 32, i64 1, ptr %52) #29
   br label %return
 
 if.end147:                                        ; preds = %if.then142, %if.end140
@@ -4832,21 +4835,21 @@ if.end147:                                        ; preds = %if.then142, %if.end
 if.then149:                                       ; preds = %if.end147
   call void @SSL_get0_ocsp_response(ptr noundef %ssl, ptr noundef nonnull %data, ptr noundef nonnull %len)
   %call151 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_ocsp_response) #28
-  %53 = load i64, ptr %len, align 8
-  %cmp152.not = icmp eq i64 %call151, %53
+  %54 = load i64, ptr %len, align 8
+  %cmp152.not = icmp eq i64 %call151, %54
   br i1 %cmp152.not, label %lor.lhs.false153, label %if.then158
 
 lor.lhs.false153:                                 ; preds = %if.then149
   %call155 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_ocsp_response) #28
-  %54 = load ptr, ptr %data, align 8
-  %55 = load i64, ptr %len, align 8
-  %bcmp70 = call i32 @bcmp(ptr %call155, ptr %54, i64 %55)
+  %55 = load ptr, ptr %data, align 8
+  %56 = load i64, ptr %len, align 8
+  %bcmp70 = call i32 @bcmp(ptr %call155, ptr %55, i64 %56)
   %cmp157.not = icmp eq i32 %bcmp70, 0
   br i1 %cmp157.not, label %if.end161, label %if.then158
 
 if.then158:                                       ; preds = %lor.lhs.false153, %if.then149
-  %56 = load ptr, ptr @stderr, align 8
-  %57 = call i64 @fwrite(ptr nonnull @.str.54, i64 23, i64 1, ptr %56) #29
+  %57 = load ptr, ptr @stderr, align 8
+  %58 = call i64 @fwrite(ptr nonnull @.str.54, i64 23, i64 1, ptr %57) #29
   br label %return
 
 if.end161:                                        ; preds = %lor.lhs.false153, %if.end147
@@ -4857,84 +4860,84 @@ if.end161:                                        ; preds = %lor.lhs.false153, %
 if.then163:                                       ; preds = %if.end161
   call void @SSL_get0_signed_cert_timestamp_list(ptr noundef %ssl, ptr noundef nonnull %data164, ptr noundef nonnull %len165)
   %call167 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_signed_cert_timestamps) #28
-  %58 = load i64, ptr %len165, align 8
-  %cmp168.not = icmp eq i64 %call167, %58
+  %59 = load i64, ptr %len165, align 8
+  %cmp168.not = icmp eq i64 %call167, %59
   br i1 %cmp168.not, label %lor.lhs.false169, label %if.then174
 
 lor.lhs.false169:                                 ; preds = %if.then163
   %call171 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_signed_cert_timestamps) #28
-  %59 = load ptr, ptr %data164, align 8
-  %60 = load i64, ptr %len165, align 8
-  %bcmp71 = call i32 @bcmp(ptr %call171, ptr %59, i64 %60)
+  %60 = load ptr, ptr %data164, align 8
+  %61 = load i64, ptr %len165, align 8
+  %bcmp71 = call i32 @bcmp(ptr %call171, ptr %60, i64 %61)
   %cmp173.not = icmp eq i32 %bcmp71, 0
   br i1 %cmp173.not, label %if.end177, label %if.then174
 
 if.then174:                                       ; preds = %lor.lhs.false169, %if.then163
-  %61 = load ptr, ptr @stderr, align 8
-  %62 = call i64 @fwrite(ptr nonnull @.str.55, i64 18, i64 1, ptr %61) #29
+  %62 = load ptr, ptr @stderr, align 8
+  %63 = call i64 @fwrite(ptr nonnull @.str.55, i64 18, i64 1, ptr %62) #29
   br label %return
 
 if.end177:                                        ; preds = %lor.lhs.false169, %if.end161
   %expect_verify_result = getelementptr inbounds i8, ptr %call.i, i64 948
-  %63 = load i8, ptr %expect_verify_result, align 4
-  %tobool178 = trunc i8 %63 to i1
+  %64 = load i8, ptr %expect_verify_result, align 4
+  %tobool178 = trunc i8 %64 to i1
   br i1 %tobool178, label %if.then179, label %if.end188
 
 if.then179:                                       ; preds = %if.end177
   %verify_fail = getelementptr inbounds i8, ptr %call.i, i64 946
-  %64 = load i8, ptr %verify_fail, align 2
-  %tobool180 = trunc i8 %64 to i1
+  %65 = load i8, ptr %verify_fail, align 2
+  %tobool180 = trunc i8 %65 to i1
   %call182 = call i64 @SSL_get_verify_result(ptr noundef %ssl)
   %conv183 = select i1 %tobool180, i64 50, i64 0
   %cmp184.not = icmp eq i64 %call182, %conv183
   br i1 %cmp184.not, label %if.end188, label %if.then185
 
 if.then185:                                       ; preds = %if.then179
-  %65 = load ptr, ptr @stderr, align 8
-  %66 = call i64 @fwrite(ptr nonnull @.str.56, i64 38, i64 1, ptr %65) #29
+  %66 = load ptr, ptr @stderr, align 8
+  %67 = call i64 @fwrite(ptr nonnull @.str.56, i64 38, i64 1, ptr %66) #29
   br label %return
 
 if.end188:                                        ; preds = %if.then179, %if.end177
   %expect_server_key_exchange_hash = getelementptr inbounds i8, ptr %call.i, i64 992
-  %67 = load i32, ptr %expect_server_key_exchange_hash, align 8
-  %cmp189.not = icmp eq i32 %67, 0
+  %68 = load i32, ptr %expect_server_key_exchange_hash, align 8
+  %cmp189.not = icmp eq i32 %68, 0
   br i1 %cmp189.not, label %if.end200, label %land.lhs.true190
 
 land.lhs.true190:                                 ; preds = %if.end188
   %call192 = call zeroext i8 @SSL_get_server_key_exchange_hash(ptr noundef %ssl)
   %conv193 = zext i8 %call192 to i32
-  %cmp194.not = icmp eq i32 %67, %conv193
+  %cmp194.not = icmp eq i32 %68, %conv193
   br i1 %cmp194.not, label %if.end200, label %if.then195
 
 if.then195:                                       ; preds = %land.lhs.true190
-  %68 = load ptr, ptr @stderr, align 8
+  %69 = load ptr, ptr @stderr, align 8
   %call196 = call zeroext i8 @SSL_get_server_key_exchange_hash(ptr noundef %ssl)
   %conv197 = zext i8 %call196 to i32
-  %69 = load i32, ptr %expect_server_key_exchange_hash, align 8
-  %call199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.57, i32 noundef %conv197, i32 noundef %69) #29
+  %70 = load i32, ptr %expect_server_key_exchange_hash, align 8
+  %call199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.57, i32 noundef %conv197, i32 noundef %70) #29
   br label %return
 
 if.end200:                                        ; preds = %land.lhs.true190, %if.end188
   %expect_key_exchange_info = getelementptr inbounds i8, ptr %call.i, i64 1000
-  %70 = load i32, ptr %expect_key_exchange_info, align 8
-  %cmp201.not = icmp eq i32 %70, 0
+  %71 = load i32, ptr %expect_key_exchange_info, align 8
+  %cmp201.not = icmp eq i32 %71, 0
   br i1 %cmp201.not, label %if.end211, label %if.then202
 
 if.then202:                                       ; preds = %if.end200
   %call203 = call ptr @SSL_get_session(ptr noundef %ssl)
   %call204 = call i32 @SSL_SESSION_get_key_exchange_info(ptr noundef %call203)
-  %71 = load i32, ptr %expect_key_exchange_info, align 8
-  %cmp206.not = icmp eq i32 %71, %call204
+  %72 = load i32, ptr %expect_key_exchange_info, align 8
+  %cmp206.not = icmp eq i32 %72, %call204
   br i1 %cmp206.not, label %if.end211, label %if.then207
 
 if.then207:                                       ; preds = %if.then202
-  %72 = load ptr, ptr @stderr, align 8
-  %call209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.58, i32 noundef %call204, i32 noundef %71) #29
+  %73 = load ptr, ptr @stderr, align 8
+  %call209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.58, i32 noundef %call204, i32 noundef %72) #29
   br label %return
 
 if.end211:                                        ; preds = %if.then202, %if.end200
-  %73 = load i8, ptr %is_server56, align 4
-  %tobool213 = trunc i8 %73 to i1
+  %74 = load i8, ptr %is_server56, align 4
+  %tobool213 = trunc i8 %74 to i1
   br i1 %tobool213, label %return, label %if.then214
 
 if.then214:                                       ; preds = %if.end211
@@ -4948,16 +4951,16 @@ if.then216:                                       ; preds = %if.then214
   br i1 %cmp218, label %if.then219, label %return
 
 if.then219:                                       ; preds = %if.then216
-  %74 = load ptr, ptr @stderr, align 8
-  %75 = call i64 @fwrite(ptr nonnull @.str.59, i64 32, i64 1, ptr %74) #29
+  %75 = load ptr, ptr @stderr, align 8
+  %76 = call i64 @fwrite(ptr nonnull @.str.59, i64 32, i64 1, ptr %75) #29
   br label %return
 
 if.else:                                          ; preds = %if.then214
   br i1 %cmp218, label %return, label %if.then224
 
 if.then224:                                       ; preds = %if.else
-  %76 = load ptr, ptr @stderr, align 8
-  %77 = call i64 @fwrite(ptr nonnull @.str.60, i64 35, i64 1, ptr %76) #29
+  %77 = load ptr, ptr @stderr, align 8
+  %78 = call i64 @fwrite(ptr nonnull @.str.60, i64 35, i64 1, ptr %77) #29
   br label %return
 
 return:                                           ; preds = %if.end211, %if.else, %if.then216, %if.then224, %if.then219, %if.then207, %if.then195, %if.then185, %if.then174, %if.then158, %if.then144, %if.then137, %if.then125, %if.then117, %if.then101, %if.then85, %if.then69, %if.then61, %if.then48, %if.then24, %if.then9, %if.then

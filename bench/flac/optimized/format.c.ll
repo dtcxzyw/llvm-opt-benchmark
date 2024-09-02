@@ -982,7 +982,7 @@ return:                                           ; preds = %if.end17, %return.s
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(none) uwtable
-define hidden i32 @FLAC__format_get_max_rice_partition_order_from_blocksize(i32 noundef %blocksize) local_unnamed_addr #8 {
+define hidden range(i32 0, 16) i32 @FLAC__format_get_max_rice_partition_order_from_blocksize(i32 noundef %blocksize) local_unnamed_addr #8 {
 entry:
   %and4 = and i32 %blocksize, 1
   %tobool.not5 = icmp eq i32 %and4, 0

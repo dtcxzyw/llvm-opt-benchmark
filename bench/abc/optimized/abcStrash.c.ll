@@ -1551,7 +1551,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 define ptr @Abc_NtkTopmost(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @Abc_AigLevel(ptr noundef %0) #11
   %4 = sub nsw i32 %3, %1
-  %5 = tail call noundef i32 @llvm.smax.i32(i32 %4, i32 0)
+  %5 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %4, i32 0)
   %6 = tail call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #11
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8

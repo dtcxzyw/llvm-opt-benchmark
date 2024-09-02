@@ -544,7 +544,7 @@ if.end16.lr.ph:                                   ; preds = %if.end11
 
 if.end16:                                         ; preds = %if.end16.lr.ph, %eth_is_ip6_extension_header_type.exit75
   %add91 = phi i64 [ %add88, %if.end16.lr.ph ], [ %add, %eth_is_ip6_extension_header_type.exit75 ]
-  %curr_ext_hdr_type.090 = phi i8 [ %2, %if.end16.lr.ph ], [ %33, %eth_is_ip6_extension_header_type.exit75 ]
+  %curr_ext_hdr_type.090 = phi i8 [ %2, %if.end16.lr.ph ], [ %34, %eth_is_ip6_extension_header_type.exit75 ]
   br i1 %tobool.i.not, label %iov_to_buf.exit53, label %land.lhs.true1.i45
 
 land.lhs.true1.i45:                               ; preds = %if.end16
@@ -780,6 +780,7 @@ if.then.i25.i:                                    ; preds = %land.lhs.true1.i19.
 if.else.i16.i:                                    ; preds = %land.lhs.true1.i19.i, %if.end29.i
   %call.i17.i = call i64 @iov_to_buf_full(ptr noundef %pkt, i32 noundef %pkt_frags, i64 noundef %add25.i, ptr noundef nonnull %rss_ex_src, i64 noundef 16) #8
   %30 = icmp eq i64 %call.i17.i, 16
+  %31 = zext i1 %30 to i8
   br label %_eth_get_rss_ex_src_addr.exit
 
 if.end34.i:                                       ; preds = %if.end19.i
@@ -789,10 +790,9 @@ if.end34.i:                                       ; preds = %if.end19.i
   br i1 %cmp.i68, label %while.body.i, label %_eth_get_rss_ex_src_addr.exit, !llvm.loop !5
 
 _eth_get_rss_ex_src_addr.exit:                    ; preds = %while.body.i, %iov_to_buf.exit.i70, %if.end10.i, %if.end34.i, %while.body.us.i, %if.end.us.i, %if.end10.us.i, %if.end34.us.i, %if.then24.i, %if.then.i25.i, %if.else.i16.i
-  %retval.0.i69 = phi i1 [ false, %if.then24.i ], [ true, %if.then.i25.i ], [ %30, %if.else.i16.i ], [ false, %if.end34.us.i ], [ false, %if.end10.us.i ], [ false, %if.end.us.i ], [ false, %while.body.us.i ], [ false, %if.end34.i ], [ false, %if.end10.i ], [ false, %iov_to_buf.exit.i70 ], [ false, %while.body.i ]
+  %retval.0.i69 = phi i8 [ 0, %if.then24.i ], [ 1, %if.then.i25.i ], [ %31, %if.else.i16.i ], [ 0, %if.end34.us.i ], [ 0, %if.end10.us.i ], [ 0, %if.end.us.i ], [ 0, %while.body.us.i ], [ 0, %if.end34.i ], [ 0, %if.end10.i ], [ 0, %iov_to_buf.exit.i70 ], [ 0, %while.body.i ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %opthdr.i)
-  %frombool43 = zext i1 %retval.0.i69 to i8
-  store i8 %frombool43, ptr %rss_ex_src_valid, align 1
+  store i8 %retval.0.i69, ptr %rss_ex_src_valid, align 1
   br label %if.end52
 
 if.then48:                                        ; preds = %if.end22
@@ -800,15 +800,15 @@ if.then48:                                        ; preds = %if.end22
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end22, %_eth_get_rss_ex_src_addr.exit, %if.then48, %if.then25, %_eth_get_rss_ex_dst_addr.exit
-  %31 = load i8, ptr %3, align 1
-  %conv54 = zext i8 %31 to i64
+  %32 = load i8, ptr %3, align 1
+  %conv54 = zext i8 %32 to i64
   %add55 = shl nuw nsw i64 %conv54, 3
-  %32 = load i64, ptr %full_hdr_len, align 8
-  %mul = add i64 %32, 8
+  %33 = load i64, ptr %full_hdr_len, align 8
+  %mul = add i64 %33, 8
   %add58 = add i64 %mul, %add55
   store i64 %add58, ptr %full_hdr_len, align 8
-  %33 = load i8, ptr %ext_hdr, align 2
-  switch i8 %33, label %do.end [
+  %34 = load i8, ptr %ext_hdr, align 2
+  switch i8 %34, label %do.end [
     i8 0, label %eth_is_ip6_extension_header_type.exit75
     i8 43, label %eth_is_ip6_extension_header_type.exit75
     i8 44, label %eth_is_ip6_extension_header_type.exit75
@@ -823,7 +823,7 @@ eth_is_ip6_extension_header_type.exit75:          ; preds = %if.end52, %if.end52
   br i1 %cmp14, label %return, label %if.end16, !llvm.loop !7
 
 do.end:                                           ; preds = %if.end52
-  store i8 %33, ptr %info, align 8
+  store i8 %34, ptr %info, align 8
   br label %return
 
 return:                                           ; preds = %eth_is_ip6_extension_header_type.exit75, %iov_to_buf.exit53, %if.end11, %iov_to_buf.exit, %entry, %do.end, %if.then7

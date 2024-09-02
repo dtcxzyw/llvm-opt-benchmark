@@ -299,24 +299,24 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 18:                                               ; preds = %8
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nla_validate_parse.__msg) #14
   %19 = icmp eq ptr %5, null
-  br i1 %19, label %.thread54, label %20
+  br i1 %19, label %.thread52, label %20
 
 20:                                               ; preds = %18
   store ptr @__nla_validate_parse.__msg, ptr %5, align 8
-  br label %.thread54
+  br label %.thread52
 
 21:                                               ; preds = %8
   %22 = icmp eq ptr %6, null
-  %.pre222 = add i32 %2, 1
-  %.pre224 = sext i32 %.pre222 to i64
-  br i1 %22, label %._crit_edge221, label %23
+  %.pre217 = add i32 %2, 1
+  %.pre219 = sext i32 %.pre217 to i64
+  br i1 %22, label %._crit_edge216, label %23
 
 23:                                               ; preds = %21
-  %24 = shl nsw i64 %.pre224, 3
+  %24 = shl nsw i64 %.pre219, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %6, i8 0, i64 %24, i1 false)
-  br label %._crit_edge221
+  br label %._crit_edge216
 
-._crit_edge221:                                   ; preds = %21, %23
+._crit_edge216:                                   ; preds = %21, %23
   %25 = getelementptr inbounds i8, ptr %3, i64 8
   %26 = or i32 %4, 31
   %27 = icmp eq ptr %5, null
@@ -327,9 +327,9 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %32 = and i32 %4, 2
   %33 = icmp eq i32 %32, 0
   %34 = icmp sgt i32 %1, 3
-  br i1 %34, label %.lr.ph, label %._crit_edge
+  br i1 %34, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %._crit_edge221
+.lr.ph:                                           ; preds = %._crit_edge216
   %35 = icmp eq ptr %3, null
   br i1 %35, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -347,7 +347,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %40 = zext i16 %38 to i32
   %.not.us.us.us = icmp ult i32 %37, %40
   %or.cond.us.us.us = or i1 %39, %.not.us.us.us
-  br i1 %or.cond.us.us.us, label %.thread56, label %41
+  br i1 %or.cond.us.us.us, label %.critedge.thread, label %41
 
 41:                                               ; preds = %.lr.ph.split.us.split.us.split.us
   %42 = getelementptr inbounds i8, ptr %36, i64 2
@@ -357,34 +357,34 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %46 = icmp eq i16 %44, 0
   %47 = icmp slt i32 %2, %45
   %48 = or i1 %46, %47
-  br i1 %48, label %51, label %.thread51.us.us.us
+  br i1 %48, label %51, label %.thread49.us.us.us
 
-.thread51.us.us.us:                               ; preds = %41
+.thread49.us.us.us:                               ; preds = %41
   %49 = zext nneg i16 %44 to i64
-  %50 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre224, i64 %49) #14, !srcloc !15
-  %.pre215 = load i16, ptr %36, align 2
-  %.pre218 = zext i16 %.pre215 to i32
+  %50 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre219, i64 %49) #14, !srcloc !15
+  %.pre211 = load i16, ptr %36, align 2
+  %.pre213 = zext i16 %.pre211 to i32
   br label %51
 
-51:                                               ; preds = %41, %.thread51.us.us.us
-  %.pre-phi = phi i32 [ %40, %41 ], [ %.pre218, %.thread51.us.us.us ]
+51:                                               ; preds = %41, %.thread49.us.us.us
+  %.pre-phi = phi i32 [ %40, %41 ], [ %.pre213, %.thread49.us.us.us ]
   %52 = add nuw nsw i32 %.pre-phi, 3
   %53 = and i32 %52, 131068
   %54 = sub nsw i32 %37, %53
   %55 = zext nneg i32 %53 to i64
   %56 = getelementptr i8, ptr %36, i64 %55
   %57 = icmp sgt i32 %54, 3
-  br i1 %57, label %.lr.ph.split.us.split.us.split.us, label %._crit_edge, !llvm.loop !16
+  br i1 %57, label %.lr.ph.split.us.split.us.split.us, label %.critedge, !llvm.loop !16
 
-.lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.thread51.us.us
-  %58 = phi ptr [ %79, %.thread51.us.us ], [ %0, %.lr.ph.split.us.split.us ]
-  %59 = phi i32 [ %77, %.thread51.us.us ], [ %1, %.lr.ph.split.us.split.us ]
+.lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.thread49.us.us
+  %58 = phi ptr [ %79, %.thread49.us.us ], [ %0, %.lr.ph.split.us.split.us ]
+  %59 = phi i32 [ %77, %.thread49.us.us ], [ %1, %.lr.ph.split.us.split.us ]
   %60 = load i16, ptr %58, align 2
   %61 = icmp ult i16 %60, 4
   %62 = zext i16 %60 to i32
   %.not.us.us = icmp ult i32 %59, %62
   %or.cond.us.us = or i1 %61, %.not.us.us
-  br i1 %or.cond.us.us, label %.thread56, label %63
+  br i1 %or.cond.us.us, label %.critedge.thread, label %63
 
 63:                                               ; preds = %.lr.ph.split.us.split.us.split
   %64 = getelementptr inbounds i8, ptr %58, i64 2
@@ -394,11 +394,11 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %68 = icmp eq i16 %66, 0
   %69 = icmp slt i32 %2, %67
   %70 = or i1 %68, %69
-  br i1 %70, label %.split.us, label %.thread51.us.us
+  br i1 %70, label %.split.us, label %.thread49.us.us
 
-.thread51.us.us:                                  ; preds = %63
+.thread49.us.us:                                  ; preds = %63
   %71 = zext nneg i16 %66 to i64
-  %72 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre224, i64 %71) #14, !srcloc !15
+  %72 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre219, i64 %71) #14, !srcloc !15
   %73 = load i16, ptr %58, align 2
   %74 = zext i16 %73 to i32
   %75 = add nuw nsw i32 %74, 3
@@ -407,7 +407,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %78 = zext nneg i32 %76 to i64
   %79 = getelementptr i8, ptr %58, i64 %78
   %80 = icmp sgt i32 %77, 3
-  br i1 %80, label %.lr.ph.split.us.split.us.split, label %._crit_edge, !llvm.loop !16
+  br i1 %80, label %.lr.ph.split.us.split.us.split, label %.critedge, !llvm.loop !16
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
   br i1 %33, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
@@ -418,9 +418,9 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %83 = load i16, ptr %81, align 2
   %84 = icmp ult i16 %83, 4
   %85 = zext i16 %83 to i32
-  %.not.us.us119 = icmp ult i32 %82, %85
-  %or.cond.us.us120 = or i1 %84, %.not.us.us119
-  br i1 %or.cond.us.us120, label %.thread56, label %86
+  %.not.us.us115 = icmp ult i32 %82, %85
+  %or.cond.us.us116 = or i1 %84, %.not.us.us115
+  br i1 %or.cond.us.us116, label %.critedge.thread, label %86
 
 86:                                               ; preds = %.lr.ph.split.us.split.split.us
   %87 = getelementptr inbounds i8, ptr %81, i64 2
@@ -430,37 +430,37 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %91 = icmp eq i16 %89, 0
   %92 = icmp slt i32 %2, %90
   %93 = or i1 %91, %92
-  br i1 %93, label %98, label %.thread51.us.us121
+  br i1 %93, label %98, label %.thread49.us.us117
 
-.thread51.us.us121:                               ; preds = %86
+.thread49.us.us117:                               ; preds = %86
   %94 = zext nneg i16 %89 to i64
-  %95 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre224, i64 %94) #14, !srcloc !15
+  %95 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre219, i64 %94) #14, !srcloc !15
   %96 = and i64 %95, %94
   %97 = getelementptr ptr, ptr %6, i64 %96
   store ptr %81, ptr %97, align 8
-  %.pre214 = load i16, ptr %81, align 2
-  %.pre219 = zext i16 %.pre214 to i32
+  %.pre210 = load i16, ptr %81, align 2
+  %.pre214 = zext i16 %.pre210 to i32
   br label %98
 
-98:                                               ; preds = %86, %.thread51.us.us121
-  %.pre-phi220 = phi i32 [ %85, %86 ], [ %.pre219, %.thread51.us.us121 ]
-  %99 = add nuw nsw i32 %.pre-phi220, 3
+98:                                               ; preds = %86, %.thread49.us.us117
+  %.pre-phi215 = phi i32 [ %85, %86 ], [ %.pre214, %.thread49.us.us117 ]
+  %99 = add nuw nsw i32 %.pre-phi215, 3
   %100 = and i32 %99, 131068
   %101 = sub nsw i32 %82, %100
   %102 = zext nneg i32 %100 to i64
   %103 = getelementptr i8, ptr %81, i64 %102
   %104 = icmp sgt i32 %101, 3
-  br i1 %104, label %.lr.ph.split.us.split.split.us, label %._crit_edge, !llvm.loop !16
+  br i1 %104, label %.lr.ph.split.us.split.split.us, label %.critedge, !llvm.loop !16
 
-.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.thread51.us
-  %105 = phi ptr [ %128, %.thread51.us ], [ %0, %.lr.ph.split.us.split ]
-  %106 = phi i32 [ %126, %.thread51.us ], [ %1, %.lr.ph.split.us.split ]
+.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.thread49.us
+  %105 = phi ptr [ %128, %.thread49.us ], [ %0, %.lr.ph.split.us.split ]
+  %106 = phi i32 [ %126, %.thread49.us ], [ %1, %.lr.ph.split.us.split ]
   %107 = load i16, ptr %105, align 2
   %108 = icmp ult i16 %107, 4
   %109 = zext i16 %107 to i32
   %.not.us = icmp ult i32 %106, %109
   %or.cond.us = or i1 %108, %.not.us
-  br i1 %or.cond.us, label %.thread56, label %110
+  br i1 %or.cond.us, label %.critedge.thread, label %110
 
 110:                                              ; preds = %.lr.ph.split.us.split.split
   %111 = getelementptr inbounds i8, ptr %105, i64 2
@@ -470,11 +470,11 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %115 = icmp eq i16 %113, 0
   %116 = icmp slt i32 %2, %114
   %117 = or i1 %115, %116
-  br i1 %117, label %.split.us, label %.thread51.us
+  br i1 %117, label %.split.us, label %.thread49.us
 
-.thread51.us:                                     ; preds = %110
+.thread49.us:                                     ; preds = %110
   %118 = zext nneg i16 %113 to i64
-  %119 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre224, i64 %118) #14, !srcloc !15
+  %119 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre219, i64 %118) #14, !srcloc !15
   %120 = and i64 %119, %118
   %121 = getelementptr ptr, ptr %6, i64 %120
   store ptr %105, ptr %121, align 8
@@ -486,7 +486,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %127 = zext nneg i32 %125 to i64
   %128 = getelementptr i8, ptr %105, i64 %127
   %129 = icmp sgt i32 %126, 3
-  br i1 %129, label %.lr.ph.split.us.split.split, label %._crit_edge, !llvm.loop !16
+  br i1 %129, label %.lr.ph.split.us.split.split, label %.critedge, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %604
   %130 = phi ptr [ %611, %604 ], [ %0, %.lr.ph ]
@@ -496,7 +496,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %134 = zext i16 %132 to i32
   %.not = icmp ult i32 %131, %134
   %or.cond = or i1 %133, %.not
-  br i1 %or.cond, label %.thread56, label %135
+  br i1 %or.cond, label %.critedge.thread, label %135
 
 135:                                              ; preds = %.lr.ph.split
   %136 = getelementptr inbounds i8, ptr %130, i64 2
@@ -512,19 +512,19 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   br i1 %33, label %604, label %.split.us
 
 .split.us:                                        ; preds = %143, %110, %63
-  %.us-phi114 = phi ptr [ %58, %63 ], [ %105, %110 ], [ %130, %143 ]
+  %.us-phi110 = phi ptr [ %58, %63 ], [ %105, %110 ], [ %130, %143 ]
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nla_validate_parse.__msg.1) #14
-  br i1 %27, label %.thread54, label %144
+  br i1 %27, label %.thread52, label %144
 
 144:                                              ; preds = %.split.us
   store ptr @__nla_validate_parse.__msg.1, ptr %5, align 8
-  store ptr %.us-phi114, ptr %28, align 8
+  store ptr %.us-phi110, ptr %28, align 8
   store ptr null, ptr %29, align 8
-  br label %.thread54
+  br label %.thread52
 
 145:                                              ; preds = %135
   %146 = zext nneg i16 %138 to i64
-  %147 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre224, i64 %146) #14, !srcloc !15
+  %147 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre219, i64 %146) #14, !srcloc !15
   %148 = and i64 %147, %146
   %149 = load i16, ptr %25, align 8
   %150 = load i16, ptr %130, align 2
@@ -539,11 +539,11 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %159 = icmp eq i16 %154, 0
   %160 = icmp ult i32 %2, %155
   %161 = or i1 %159, %160
-  br i1 %161, label %.thread51, label %162
+  br i1 %161, label %.thread49, label %162
 
 162:                                              ; preds = %145
   %163 = zext nneg i16 %154 to i64
-  %164 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre224, i64 %163) #14, !srcloc !15
+  %164 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre219, i64 %163) #14, !srcloc !15
   %165 = trunc i64 %164 to i32
   %166 = and i32 %165, %155
   %167 = zext nneg i32 %166 to i64
@@ -586,24 +586,24 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 190:                                              ; preds = %185, %182
   %191 = and i32 %158, 8
   %192 = icmp eq i32 %191, 0
-  br i1 %192, label %._crit_edge216, label %193
+  br i1 %192, label %._crit_edge, label %193
 
-._crit_edge216:                                   ; preds = %190
+._crit_edge:                                      ; preds = %190
   %.pre.pre = load i8, ptr %168, align 8
   br label %195
 
 193:                                              ; preds = %190
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_nla.__msg) #14
-  br i1 %27, label %.thread54, label %194
+  br i1 %27, label %.thread52, label %194
 
 194:                                              ; preds = %193
   store ptr @validate_nla.__msg, ptr %5, align 8
   store ptr %130, ptr %28, align 8
   store ptr %168, ptr %29, align 8
-  br label %.thread54
+  br label %.thread52
 
-195:                                              ; preds = %._crit_edge216, %177, %172
-  %.pre = phi i8 [ %.pre.pre, %._crit_edge216 ], [ %169, %177 ], [ %169, %172 ]
+195:                                              ; preds = %._crit_edge, %177, %172
+  %.pre = phi i8 [ %.pre.pre, %._crit_edge ], [ %169, %177 ], [ %169, %172 ]
   %196 = and i32 %158, 16
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %212, label %198
@@ -620,13 +620,13 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 204:                                              ; preds = %201
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_nla.__msg.5) #14
-  br i1 %27, label %.thread54, label %205
+  br i1 %27, label %.thread52, label %205
 
 205:                                              ; preds = %204
   store ptr @validate_nla.__msg.5, ptr %5, align 8
   store ptr %130, ptr %28, align 8
   store ptr %168, ptr %29, align 8
-  br label %.thread54
+  br label %.thread52
 
 206:                                              ; preds = %201, %198
   switch i8 %.pre, label %207 [
@@ -642,13 +642,13 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 210:                                              ; preds = %207
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_nla.__msg.6) #14
-  br i1 %27, label %.thread54, label %211
+  br i1 %27, label %.thread52, label %211
 
 211:                                              ; preds = %210
   store ptr @validate_nla.__msg.6, ptr %5, align 8
   store ptr %130, ptr %28, align 8
   store ptr %168, ptr %29, align 8
-  br label %.thread54
+  br label %.thread52
 
 212:                                              ; preds = %207, %195
   switch i8 %.pre, label %328 [
@@ -666,19 +666,19 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   ]
 
 213:                                              ; preds = %212
-  br i1 %27, label %.thread45, label %214
+  br i1 %27, label %.thread43, label %214
 
-.thread45:                                        ; preds = %213
+.thread43:                                        ; preds = %213
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_nla.__msg.9) #14
-  br label %.thread54
+  br label %.thread52
 
 214:                                              ; preds = %213
   %215 = getelementptr inbounds i8, ptr %168, i64 8
   %216 = load ptr, ptr %215, align 8
   %217 = icmp eq ptr %216, null
-  br i1 %217, label %.thread46, label %218
+  br i1 %217, label %.thread44, label %218
 
-.thread46:                                        ; preds = %214
+.thread44:                                        ; preds = %214
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_nla.__msg.9) #14
   br label %600
 
@@ -687,11 +687,11 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   store ptr null, ptr %29, align 8
   %219 = load ptr, ptr %215, align 8
   store ptr %219, ptr %5, align 8
-  br label %.thread54
+  br label %.thread52
 
 220:                                              ; preds = %212
   %221 = icmp eq i16 %151, 0
-  br i1 %221, label %342, label %.thread32
+  br i1 %221, label %342, label %.thread
 
 222:                                              ; preds = %212, %212
   switch i16 %150, label %223 [
@@ -701,24 +701,24 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 223:                                              ; preds = %222
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_nla.__msg.7) #14
-  br i1 %27, label %.thread54, label %224
+  br i1 %27, label %.thread52, label %224
 
 224:                                              ; preds = %223
   store ptr @validate_nla.__msg.7, ptr %5, align 8
   store ptr %130, ptr %28, align 8
   store ptr %168, ptr %29, align 8
-  br label %.thread54
+  br label %.thread52
 
 225:                                              ; preds = %212
   %226 = icmp eq i16 %151, 8
-  br i1 %226, label %227, label %.thread32
+  br i1 %226, label %227, label %.thread
 
 227:                                              ; preds = %225
   %228 = getelementptr inbounds i8, ptr %168, i64 8
   %229 = load i32, ptr %228, align 8
   %230 = getelementptr i8, ptr %130, i64 4
   %231 = icmp eq i32 %229, 0
-  br i1 %231, label %.thread32, label %232
+  br i1 %231, label %.thread, label %232
 
 232:                                              ; preds = %227
   %233 = getelementptr i8, ptr %130, i64 8
@@ -726,19 +726,19 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %235 = xor i32 %229, -1
   %236 = and i32 %234, %235
   %237 = icmp eq i32 %236, 0
-  br i1 %237, label %238, label %.thread32
+  br i1 %237, label %238, label %.thread
 
 238:                                              ; preds = %232
   %239 = load i32, ptr %230, align 4
   %240 = and i32 %239, %235
   %241 = icmp eq i32 %240, 0
-  br i1 %241, label %242, label %.thread32
+  br i1 %241, label %242, label %.thread
 
 242:                                              ; preds = %238
   %243 = xor i32 %234, -1
   %244 = and i32 %239, %243
   %245 = icmp eq i32 %244, 0
-  br i1 %245, label %342, label %.thread32
+  br i1 %245, label %342, label %.thread
 
 246:                                              ; preds = %212
   %247 = getelementptr inbounds i8, ptr %168, i64 2
@@ -749,18 +749,18 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %252 = tail call i32 @llvm.umin.i32(i32 %251, i32 %152)
   %253 = select i1 %249, i32 %152, i32 %252
   %254 = icmp eq i32 %253, 0
-  br i1 %254, label %.thread32, label %255
+  br i1 %254, label %.thread, label %255
 
 255:                                              ; preds = %246
   %256 = getelementptr i8, ptr %130, i64 4
   %257 = zext nneg i32 %253 to i64
   %258 = tail call ptr @memchr(ptr noundef %256, i32 noundef 0, i64 noundef %257) #14
   %259 = icmp eq ptr %258, null
-  br i1 %259, label %.thread32, label %260
+  br i1 %259, label %.thread, label %260
 
 260:                                              ; preds = %255, %212
   %261 = icmp eq i16 %151, 0
-  br i1 %261, label %.thread32, label %262
+  br i1 %261, label %.thread, label %262
 
 262:                                              ; preds = %260
   %263 = getelementptr inbounds i8, ptr %168, i64 2
@@ -779,7 +779,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %274 = add nsw i32 %273, %152
   %275 = zext i16 %264 to i32
   %276 = icmp sgt i32 %274, %275
-  br i1 %276, label %.thread32, label %342
+  br i1 %276, label %.thread, label %342
 
 277:                                              ; preds = %212
   %278 = getelementptr inbounds i8, ptr %168, i64 2
@@ -787,7 +787,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %280 = icmp ne i16 %279, 0
   %281 = icmp ugt i16 %151, %279
   %282 = select i1 %280, i1 %281, i1 false
-  br i1 %282, label %.thread32, label %342
+  br i1 %282, label %.thread, label %342
 
 283:                                              ; preds = %206, %212
   %284 = icmp eq i16 %151, 0
@@ -795,7 +795,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 285:                                              ; preds = %283
   %286 = icmp ult i16 %151, 4
-  br i1 %286, label %.thread32, label %287
+  br i1 %286, label %.thread, label %287
 
 287:                                              ; preds = %285
   %288 = getelementptr inbounds i8, ptr %168, i64 8
@@ -813,7 +813,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %298 = zext i16 %297 to i32
   %299 = tail call fastcc i32 @__nla_validate_parse(ptr noundef %292, i32 noundef %295, i32 noundef %298, ptr noundef nonnull %289, i32 noundef %158, ptr noundef %5, ptr noundef null, i32 noundef %30)
   %300 = icmp slt i32 %299, 0
-  br i1 %300, label %.thread54, label %342
+  br i1 %300, label %.thread52, label %342
 
 301:                                              ; preds = %206, %212
   %302 = icmp eq i16 %151, 0
@@ -821,7 +821,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 303:                                              ; preds = %301
   %304 = icmp ult i16 %151, 4
-  br i1 %304, label %.thread32, label %305
+  br i1 %304, label %.thread, label %305
 
 305:                                              ; preds = %303
   %306 = getelementptr inbounds i8, ptr %168, i64 8
@@ -839,7 +839,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %316 = zext i16 %315 to i32
   %317 = tail call fastcc i32 @nla_validate_array(ptr noundef %310, i32 noundef %313, i32 noundef %316, ptr noundef nonnull %307, ptr noundef %5, i32 noundef %158, i32 noundef %7)
   %318 = icmp sgt i32 %317, -1
-  br i1 %318, label %342, label %.thread54
+  br i1 %318, label %342, label %.thread52
 
 319:                                              ; preds = %206, %212
   %320 = and i32 %158, 4
@@ -848,19 +848,19 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 322:                                              ; preds = %319
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_nla.__msg.8) #14
-  br i1 %27, label %.thread54, label %323
+  br i1 %27, label %.thread52, label %323
 
 323:                                              ; preds = %322
   store ptr @validate_nla.__msg.8, ptr %5, align 8
   store ptr %130, ptr %28, align 8
   store ptr null, ptr %29, align 8
-  br label %.thread54
+  br label %.thread52
 
 324:                                              ; preds = %319
   %325 = getelementptr inbounds i8, ptr %168, i64 2
   %326 = load i16, ptr %325, align 2
   %327 = icmp ult i16 %151, %326
-  br i1 %327, label %.thread32, label %342
+  br i1 %327, label %.thread, label %342
 
 328:                                              ; preds = %212
   %329 = getelementptr inbounds i8, ptr %168, i64 2
@@ -882,12 +882,12 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 339:                                              ; preds = %334, %332
   %340 = phi i32 [ %333, %332 ], [ %338, %334 ]
   %341 = icmp ugt i32 %340, %152
-  br i1 %341, label %.thread32, label %342
+  br i1 %341, label %.thread, label %342
 
 342:                                              ; preds = %242, %339, %324, %309, %305, %301, %291, %287, %283, %277, %266, %262, %222, %222, %220
   %343 = getelementptr inbounds i8, ptr %168, i64 1
   %344 = load i8, ptr %343, align 1
-  switch i8 %344, label %.thread51 [
+  switch i8 %344, label %.thread49 [
     i8 7, label %592
     i8 6, label %345
     i8 1, label %345
@@ -909,7 +909,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
     i8 11, label %347
     i8 18, label %347
     i8 19, label %347
-    i8 12, label %.thread35
+    i8 12, label %.thread33
     i8 13, label %485
     i8 14, label %489
     i8 15, label %455
@@ -919,7 +919,7 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 347:                                              ; preds = %345, %345, %345, %345, %345, %345, %345, %345, %345
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !annotation !22
-  switch i8 %346, label %.thread42 [
+  switch i8 %346, label %.thread40 [
     i8 1, label %348
     i8 2, label %352
     i8 3, label %356
@@ -963,8 +963,8 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 367:                                              ; preds = %360
   %368 = getelementptr i8, ptr %13, i64 %365
-  %narrow62 = sub nuw nsw i16 8, %363
-  %369 = zext nneg i16 %narrow62 to i64
+  %narrow58 = sub nuw nsw i16 8, %363
+  %369 = zext nneg i16 %narrow58 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %368, i8 0, i64 %369, i1 false)
   br label %370
 
@@ -997,8 +997,8 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 385:                                              ; preds = %380
   %386 = getelementptr i8, ptr %12, i64 %383
-  %narrow61 = sub nuw nsw i16 8, %381
-  %387 = zext nneg i16 %narrow61 to i64
+  %narrow57 = sub nuw nsw i16 8, %381
+  %387 = zext nneg i16 %narrow57 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %386, i8 0, i64 %387, i1 false)
   br label %388
 
@@ -1021,8 +1021,8 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 397:                                              ; preds = %390
   %398 = getelementptr i8, ptr %11, i64 %395
-  %narrow60 = sub nuw nsw i16 8, %393
-  %399 = zext nneg i16 %narrow60 to i64
+  %narrow56 = sub nuw nsw i16 8, %393
+  %399 = zext nneg i16 %narrow56 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %398, i8 0, i64 %399, i1 false)
   br label %400
 
@@ -1056,13 +1056,13 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   call void @nla_get_range_unsigned(ptr noundef %168, ptr noundef nonnull %14)
   %418 = load i8, ptr %343, align 1
   %419 = icmp eq i8 %418, 2
-  %.pre213 = load i64, ptr %31, align 8
+  %.pre209 = load i64, ptr %31, align 8
   br i1 %419, label %420, label %439
 
 420:                                              ; preds = %416
   %421 = load i8, ptr %168, align 8
   %422 = icmp eq i8 %421, 11
-  %423 = icmp ugt i64 %417, %.pre213
+  %423 = icmp ugt i64 %417, %.pre209
   %424 = select i1 %422, i1 %423, i1 false
   br i1 %424, label %425, label %439
 
@@ -1087,12 +1087,12 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 438:                                              ; preds = %435
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nla_validate_range_unsigned.__msg) #14
-  br i1 %27, label %.thread42, label %449
+  br i1 %27, label %.thread40, label %449
 
 439:                                              ; preds = %420, %416
   %440 = load i64, ptr %14, align 8
   %441 = icmp ult i64 %417, %440
-  %442 = icmp ugt i64 %417, %.pre213
+  %442 = icmp ugt i64 %417, %.pre209
   %443 = select i1 %441, i1 true, i1 %442
   br i1 %443, label %444, label %527
 
@@ -1103,11 +1103,11 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 447:                                              ; preds = %444
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nla_validate_range_unsigned.__msg.10) #14
-  br i1 %27, label %.thread42, label %449
+  br i1 %27, label %.thread40, label %449
 
 448:                                              ; preds = %444
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nla_validate_range_unsigned.__msg.11) #14
-  br i1 %27, label %.thread42, label %449
+  br i1 %27, label %.thread40, label %449
 
 449:                                              ; preds = %448, %447, %438
   %450 = phi ptr [ @nla_validate_range_unsigned.__msg, %438 ], [ @nla_validate_range_unsigned.__msg.10, %447 ], [ @nla_validate_range_unsigned.__msg.11, %448 ]
@@ -1115,9 +1115,9 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   store ptr %450, ptr %5, align 8
   store ptr %130, ptr %28, align 8
   store ptr %168, ptr %29, align 8
-  br label %.thread42
+  br label %.thread40
 
-.thread35:                                        ; preds = %345
+.thread33:                                        ; preds = %345
   %452 = getelementptr i8, ptr %130, i64 4
   %453 = load i8, ptr %452, align 1
   %454 = sext i8 %453 to i64
@@ -1137,8 +1137,8 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 462:                                              ; preds = %455
   %463 = getelementptr i8, ptr %10, i64 %460
-  %narrow59 = sub nuw nsw i16 8, %458
-  %464 = zext nneg i16 %narrow59 to i64
+  %narrow55 = sub nuw nsw i16 8, %458
+  %464 = zext nneg i16 %narrow55 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %463, i8 0, i64 %464, i1 false)
   br label %465
 
@@ -1171,8 +1171,8 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 480:                                              ; preds = %475
   %481 = getelementptr i8, ptr %9, i64 %478
-  %narrow58 = sub nuw nsw i16 8, %476
-  %482 = zext nneg i16 %narrow58 to i64
+  %narrow54 = sub nuw nsw i16 8, %476
+  %482 = zext nneg i16 %narrow54 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %481, i8 0, i64 %482, i1 false)
   br label %483
 
@@ -1193,10 +1193,10 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %492 = sext i32 %491 to i64
   br label %493
 
-493:                                              ; preds = %465, %471, %483, %.thread35, %489, %485
-  %494 = phi i64 [ %492, %489 ], [ %488, %485 ], [ %454, %.thread35 ], [ %484, %483 ], [ %474, %471 ], [ %466, %465 ]
-  %495 = phi i64 [ -2147483648, %489 ], [ -32768, %485 ], [ -128, %.thread35 ], [ -9223372036854775808, %483 ], [ -9223372036854775808, %471 ], [ -9223372036854775808, %465 ]
-  %496 = phi i64 [ 2147483647, %489 ], [ 32767, %485 ], [ 127, %.thread35 ], [ 9223372036854775807, %483 ], [ 9223372036854775807, %471 ], [ 9223372036854775807, %465 ]
+493:                                              ; preds = %465, %471, %483, %.thread33, %489, %485
+  %494 = phi i64 [ %492, %489 ], [ %488, %485 ], [ %454, %.thread33 ], [ %484, %483 ], [ %474, %471 ], [ %466, %465 ]
+  %495 = phi i64 [ -2147483648, %489 ], [ -32768, %485 ], [ -128, %.thread33 ], [ -9223372036854775808, %483 ], [ -9223372036854775808, %471 ], [ -9223372036854775808, %465 ]
+  %496 = phi i64 [ 2147483647, %489 ], [ 32767, %485 ], [ 127, %.thread33 ], [ 9223372036854775807, %483 ], [ 9223372036854775807, %471 ], [ 9223372036854775807, %465 ]
   switch i8 %344, label %518 [
     i8 1, label %497
     i8 6, label %504
@@ -1239,36 +1239,36 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %521 = icmp slt i64 %494, %519
   %522 = icmp sgt i64 %494, %520
   %523 = select i1 %521, i1 true, i1 %522
-  br i1 %523, label %524, label %.thread51
+  br i1 %523, label %524, label %.thread49
 
 524:                                              ; preds = %518
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nla_validate_int_range_signed.__msg) #14
-  br i1 %27, label %.thread54, label %525
+  br i1 %27, label %.thread52, label %525
 
 525:                                              ; preds = %524
   store ptr @nla_validate_int_range_signed.__msg, ptr %5, align 8
   store ptr %130, ptr %28, align 8
   store ptr %168, ptr %29, align 8
-  br label %.thread54
+  br label %.thread52
 
 526:                                              ; preds = %345
   tail call void asm sideeffect "442: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 442b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 442) #14, !srcloc !23
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 348, i32 2305, i64 12) #14, !srcloc !24
   tail call void asm sideeffect "443: nop\0A\09.pushsection .discard.instr_end\0A\09.long 443b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 443) #14, !srcloc !25
-  br label %.thread54
+  br label %.thread52
 
-.thread42:                                        ; preds = %347, %438, %448, %447, %449
-  %.ph41 = phi i32 [ %451, %449 ], [ -34, %447 ], [ -34, %448 ], [ -22, %438 ], [ -22, %347 ]
+.thread40:                                        ; preds = %347, %438, %448, %447, %449
+  %.ph39 = phi i32 [ %451, %449 ], [ -34, %447 ], [ -34, %448 ], [ -22, %438 ], [ -22, %347 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
-  br label %.thread54
+  br label %.thread52
 
 527:                                              ; preds = %435, %439
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
-  br label %.thread51
+  br label %.thread49
 
 528:                                              ; preds = %342
   %529 = load i8, ptr %168, align 8
-  switch i8 %529, label %.thread54 [
+  switch i8 %529, label %.thread52 [
     i8 1, label %530
     i8 2, label %534
     i8 3, label %538
@@ -1310,8 +1310,8 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 
 549:                                              ; preds = %542
   %550 = getelementptr i8, ptr %16, i64 %547
-  %narrow57 = sub nuw nsw i16 8, %545
-  %551 = zext nneg i16 %narrow57 to i64
+  %narrow53 = sub nuw nsw i16 8, %545
+  %551 = zext nneg i16 %narrow53 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %550, i8 0, i64 %551, i1 false)
   br label %552
 
@@ -1376,50 +1376,50 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %587 = xor i64 %586, -1
   %588 = and i64 %583, %587
   %589 = icmp eq i64 %588, 0
-  br i1 %589, label %.thread51, label %590
+  br i1 %589, label %.thread49, label %590
 
 590:                                              ; preds = %582
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nla_validate_mask.__msg) #14
-  br i1 %27, label %.thread54, label %591
+  br i1 %27, label %.thread52, label %591
 
 591:                                              ; preds = %590
   store ptr @nla_validate_mask.__msg, ptr %5, align 8
   store ptr %130, ptr %28, align 8
   store ptr null, ptr %29, align 8
-  br label %.thread54
+  br label %.thread52
 
 592:                                              ; preds = %342
   %593 = getelementptr inbounds i8, ptr %168, i64 8
   %594 = load ptr, ptr %593, align 8
   %595 = icmp eq ptr %594, null
-  br i1 %595, label %.thread51, label %596
+  br i1 %595, label %.thread49, label %596
 
 596:                                              ; preds = %592
   %597 = tail call i32 %594(ptr noundef %130, ptr noundef %5) #14
   %598 = icmp sgt i32 %597, -1
-  br i1 %598, label %.thread51, label %.thread54
+  br i1 %598, label %.thread49, label %.thread52
 
-.thread32:                                        ; preds = %242, %238, %232, %227, %339, %324, %303, %285, %277, %266, %260, %255, %246, %225, %220
+.thread:                                          ; preds = %242, %238, %232, %227, %339, %324, %303, %285, %277, %266, %260, %255, %246, %225, %220
   %599 = phi i32 [ -34, %339 ], [ -34, %324 ], [ -34, %303 ], [ -34, %285 ], [ -34, %260 ], [ -34, %266 ], [ -34, %225 ], [ -34, %220 ], [ -22, %255 ], [ -22, %246 ], [ -34, %277 ], [ -22, %227 ], [ -22, %232 ], [ -22, %238 ], [ -22, %242 ]
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @validate_nla.__msg.9) #14
-  br i1 %27, label %.thread54, label %600
+  br i1 %27, label %.thread52, label %600
 
-600:                                              ; preds = %.thread46, %.thread32
-  %601 = phi i32 [ -22, %.thread46 ], [ %599, %.thread32 ]
+600:                                              ; preds = %.thread44, %.thread
+  %601 = phi i32 [ -22, %.thread44 ], [ %599, %.thread ]
   store ptr @validate_nla.__msg.9, ptr %5, align 8
   store ptr %130, ptr %28, align 8
   store ptr %168, ptr %29, align 8
-  br label %.thread54
+  br label %.thread52
 
-.thread51:                                        ; preds = %342, %592, %596, %527, %582, %518, %145
+.thread49:                                        ; preds = %342, %592, %596, %527, %582, %518, %145
   br i1 %22, label %604, label %602
 
-602:                                              ; preds = %.thread51
+602:                                              ; preds = %.thread49
   %603 = getelementptr ptr, ptr %6, i64 %148
   store ptr %130, ptr %603, align 8
   br label %604
 
-604:                                              ; preds = %143, %.thread51, %602
+604:                                              ; preds = %143, %.thread49, %602
   %605 = load i16, ptr %130, align 2
   %606 = zext i16 %605 to i32
   %607 = add nuw nsw i32 %606, 3
@@ -1428,27 +1428,27 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
   %610 = zext nneg i32 %608 to i64
   %611 = getelementptr i8, ptr %130, i64 %610
   %612 = icmp sgt i32 %609, 3
-  br i1 %612, label %.lr.ph.split, label %._crit_edge, !llvm.loop !16
+  br i1 %612, label %.lr.ph.split, label %.critedge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %604, %.thread51.us, %98, %.thread51.us.us, %51, %._crit_edge221
-  %.lcssa96 = phi i32 [ %1, %._crit_edge221 ], [ %54, %51 ], [ %77, %.thread51.us.us ], [ %101, %98 ], [ %126, %.thread51.us ], [ %609, %604 ]
-  %613 = icmp sgt i32 %.lcssa96, 0
-  br i1 %613, label %.thread56, label %627, !prof !26
+.critedge:                                        ; preds = %604, %.thread49.us, %98, %.thread49.us.us, %51, %._crit_edge216
+  %.lcssa92 = phi i32 [ %1, %._crit_edge216 ], [ %54, %51 ], [ %77, %.thread49.us.us ], [ %101, %98 ], [ %126, %.thread49.us ], [ %609, %604 ]
+  %613 = icmp sgt i32 %.lcssa92, 0
+  br i1 %613, label %.critedge.thread, label %627, !prof !26
 
-.thread56:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %._crit_edge
-  %614 = phi i32 [ %.lcssa96, %._crit_edge ], [ %37, %.lr.ph.split.us.split.us.split.us ], [ %59, %.lr.ph.split.us.split.us.split ], [ %82, %.lr.ph.split.us.split.split.us ], [ %106, %.lr.ph.split.us.split.split ], [ %131, %.lr.ph.split ]
+.critedge.thread:                                 ; preds = %.lr.ph.split, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us, %.critedge
+  %614 = phi i32 [ %.lcssa92, %.critedge ], [ %37, %.lr.ph.split.us.split.us.split.us ], [ %59, %.lr.ph.split.us.split.us.split ], [ %82, %.lr.ph.split.us.split.split.us ], [ %106, %.lr.ph.split.us.split.split ], [ %131, %.lr.ph.split ]
   %615 = tail call i32 @___ratelimit(ptr noundef nonnull @__nla_validate_parse._rs, ptr noundef nonnull @__func__.__nla_validate_parse) #14
   %616 = icmp eq i32 %615, 0
   br i1 %616, label %622, label %617
 
-617:                                              ; preds = %.thread56
+617:                                              ; preds = %.critedge.thread
   %618 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !21
   %619 = inttoptr i64 %618 to ptr
   %620 = getelementptr inbounds i8, ptr %619, i64 1800
   %621 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %614, ptr noundef %620) #16
   br label %622
 
-622:                                              ; preds = %617, %.thread56
+622:                                              ; preds = %617, %.critedge.thread
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @__nla_validate_parse.__msg.3) #14
   br i1 %27, label %624, label %623
 
@@ -1459,13 +1459,13 @@ define internal fastcc i32 @__nla_validate_parse(ptr noundef %0, i32 noundef %1,
 624:                                              ; preds = %623, %622
   %625 = and i32 %4, 1
   %626 = icmp eq i32 %625, 0
-  br i1 %626, label %627, label %.thread54
+  br i1 %626, label %627, label %.thread52
 
-627:                                              ; preds = %624, %._crit_edge
-  br label %.thread54
+627:                                              ; preds = %624, %.critedge
+  br label %.thread52
 
-.thread54:                                        ; preds = %596, %309, %291, %528, %218, %194, %193, %205, %204, %211, %210, %224, %223, %323, %322, %600, %.thread32, %.thread42, %.thread45, %526, %525, %524, %591, %590, %.split.us, %144, %627, %624, %20, %18
-  %628 = phi i32 [ 0, %627 ], [ -22, %20 ], [ -22, %18 ], [ -22, %624 ], [ -22, %.split.us ], [ -22, %144 ], [ -22, %.thread45 ], [ %.ph41, %.thread42 ], [ %599, %.thread32 ], [ %601, %600 ], [ -22, %322 ], [ -22, %323 ], [ -22, %223 ], [ -22, %224 ], [ -22, %210 ], [ -22, %211 ], [ -22, %204 ], [ -22, %205 ], [ -22, %193 ], [ -22, %194 ], [ -22, %218 ], [ -34, %524 ], [ -34, %525 ], [ -22, %526 ], [ -22, %591 ], [ -22, %590 ], [ %597, %596 ], [ -22, %528 ], [ %317, %309 ], [ %299, %291 ]
+.thread52:                                        ; preds = %596, %309, %291, %528, %218, %194, %193, %205, %204, %211, %210, %224, %223, %323, %322, %600, %.thread, %.thread40, %.thread43, %526, %525, %524, %591, %590, %.split.us, %144, %627, %624, %20, %18
+  %628 = phi i32 [ 0, %627 ], [ -22, %20 ], [ -22, %18 ], [ -22, %624 ], [ -22, %.split.us ], [ -22, %144 ], [ -22, %.thread43 ], [ %.ph39, %.thread40 ], [ %599, %.thread ], [ %601, %600 ], [ -22, %322 ], [ -22, %323 ], [ -22, %223 ], [ -22, %224 ], [ -22, %210 ], [ -22, %211 ], [ -22, %204 ], [ -22, %205 ], [ -22, %193 ], [ -22, %194 ], [ -22, %218 ], [ -34, %524 ], [ -34, %525 ], [ -22, %526 ], [ -22, %591 ], [ -22, %590 ], [ %597, %596 ], [ -22, %528 ], [ %317, %309 ], [ %299, %291 ]
   ret i32 %628
 }
 
@@ -1542,7 +1542,7 @@ define dso_local i32 @__nla_parse(ptr noundef %0, i32 noundef %1, ptr noundef %2
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
 define dso_local noundef ptr @nla_find(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
   %4 = icmp sgt i32 %1, 3
-  br i1 %4, label %.lr.ph, label %.thread
+  br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3, %16
   %5 = phi ptr [ %21, %16 ], [ %0, %3 ]
@@ -1552,7 +1552,7 @@ define dso_local noundef ptr @nla_find(ptr noundef readonly %0, i32 noundef %1, 
   %9 = zext i16 %7 to i32
   %.not = icmp ult i32 %6, %9
   %or.cond = or i1 %8, %.not
-  br i1 %or.cond, label %.thread, label %10
+  br i1 %or.cond, label %.critedge, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds i8, ptr %5, i64 2
@@ -1560,7 +1560,7 @@ define dso_local noundef ptr @nla_find(ptr noundef readonly %0, i32 noundef %1, 
   %13 = and i16 %12, 16383
   %14 = zext nneg i16 %13 to i32
   %15 = icmp eq i32 %2, %14
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %10
   %17 = add nuw nsw i32 %9, 3
@@ -1569,10 +1569,10 @@ define dso_local noundef ptr @nla_find(ptr noundef readonly %0, i32 noundef %1, 
   %20 = zext nneg i32 %18 to i64
   %21 = getelementptr i8, ptr %5, i64 %20
   %22 = icmp sgt i32 %19, 3
-  br i1 %22, label %.lr.ph, label %.thread, !llvm.loop !28
+  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !28
 
-.thread:                                          ; preds = %10, %.lr.ph, %16, %3
-  %23 = phi ptr [ null, %3 ], [ null, %16 ], [ null, %.lr.ph ], [ %5, %10 ]
+.critedge:                                        ; preds = %10, %16, %.lr.ph, %3
+  %23 = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ null, %16 ], [ %5, %10 ]
   ret ptr %23
 }
 
@@ -2174,23 +2174,23 @@ define internal fastcc i32 @nla_validate_array(ptr noundef %0, i32 noundef %1, i
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   %12 = icmp sgt i32 %1, 3
-  br i1 %12, label %.lr.ph, label %.thread
+  br i1 %12, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %7, %.thread6
-  %13 = phi ptr [ %37, %.thread6 ], [ %0, %7 ]
-  %14 = phi i32 [ %32, %.thread6 ], [ undef, %7 ]
-  %15 = phi i32 [ %35, %.thread6 ], [ %1, %7 ]
+.lr.ph:                                           ; preds = %7, %.thread4
+  %13 = phi ptr [ %37, %.thread4 ], [ %0, %7 ]
+  %14 = phi i32 [ %34, %.thread4 ], [ undef, %7 ]
+  %15 = phi i32 [ %35, %.thread4 ], [ %1, %7 ]
   %16 = load i16, ptr %13, align 2
   %17 = icmp ult i16 %16, 4
   %18 = zext i16 %16 to i32
   %.not = icmp ult i32 %15, %18
   %or.cond = or i1 %17, %.not
-  br i1 %or.cond, label %.thread, label %19
+  br i1 %or.cond, label %.critedge, label %19
 
 19:                                               ; preds = %.lr.ph
   %20 = add i16 %16, -4
   %21 = icmp eq i16 %20, 0
-  br i1 %21, label %.thread6, label %22
+  br i1 %21, label %.thread4, label %22
 
 22:                                               ; preds = %19
   %23 = icmp ult i16 %20, 4
@@ -2198,13 +2198,13 @@ define internal fastcc i32 @nla_validate_array(ptr noundef %0, i32 noundef %1, i
 
 24:                                               ; preds = %22
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nla_validate_array.__msg) #14
-  br i1 %9, label %.thread, label %25
+  br i1 %9, label %.critedge, label %25
 
 25:                                               ; preds = %24
   store ptr @nla_validate_array.__msg, ptr %4, align 8
   store ptr %13, ptr %10, align 8
   store ptr %3, ptr %11, align 8
-  br label %.thread
+  br label %.critedge
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %13, i64 4
@@ -2213,26 +2213,26 @@ define internal fastcc i32 @nla_validate_array(ptr noundef %0, i32 noundef %1, i
   %30 = icmp slt i32 %29, 0
   %31 = select i1 %30, i32 %29, i32 %14
   %cond = icmp sgt i32 %29, -1
-  br i1 %cond, label %..thread6_crit_edge, label %.thread
+  br i1 %cond, label %..thread4_crit_edge, label %.critedge
 
-..thread6_crit_edge:                              ; preds = %26
+..thread4_crit_edge:                              ; preds = %26
   %.pre = load i16, ptr %13, align 2
-  %.pre13 = zext i16 %.pre to i32
-  br label %.thread6
+  %.pre11 = zext i16 %.pre to i32
+  %32 = add nuw nsw i32 %.pre11, 3
+  %33 = and i32 %32, 131068
+  br label %.thread4
 
-.thread6:                                         ; preds = %..thread6_crit_edge, %19
-  %.pre-phi = phi i32 [ %.pre13, %..thread6_crit_edge ], [ 4, %19 ]
-  %32 = phi i32 [ %31, %..thread6_crit_edge ], [ %14, %19 ]
-  %33 = add nuw nsw i32 %.pre-phi, 3
-  %34 = and i32 %33, 131068
-  %35 = sub nsw i32 %15, %34
-  %36 = zext nneg i32 %34 to i64
+.thread4:                                         ; preds = %..thread4_crit_edge, %19
+  %.pre-phi = phi i32 [ %33, %..thread4_crit_edge ], [ 4, %19 ]
+  %34 = phi i32 [ %31, %..thread4_crit_edge ], [ %14, %19 ]
+  %35 = sub nsw i32 %15, %.pre-phi
+  %36 = zext nneg i32 %.pre-phi to i64
   %37 = getelementptr i8, ptr %13, i64 %36
   %38 = icmp sgt i32 %35, 3
-  br i1 %38, label %.lr.ph, label %.thread, !llvm.loop !33
+  br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !33
 
-.thread:                                          ; preds = %.lr.ph, %.thread6, %26, %7, %24, %25
-  %39 = phi i32 [ -34, %25 ], [ -34, %24 ], [ 0, %7 ], [ 0, %.lr.ph ], [ 0, %.thread6 ], [ %31, %26 ]
+.critedge:                                        ; preds = %.thread4, %.lr.ph, %26, %7, %24, %25
+  %39 = phi i32 [ -34, %25 ], [ -34, %24 ], [ 0, %7 ], [ 0, %.thread4 ], [ 0, %.lr.ph ], [ %31, %26 ]
   ret i32 %39
 }
 

@@ -1387,12 +1387,15 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %.not252329 = icmp eq ptr %465, %466
   br i1 %.not252329, label %.preheader, label %.lr.ph
 
-.preheader:                                       ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, %464
-  %.sroa.8.3.lcssa = phi ptr [ null, %464 ], [ %.sroa.8.4, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
-  %.sroa.0244.3.lcssa = phi ptr [ null, %464 ], [ %.sroa.0244.4, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
-  %467 = ptrtoint ptr %.sroa.8.3.lcssa to i64
+.preheader.loopexit:                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
+  %467 = ptrtoint ptr %.sroa.8.4 to i64
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.loopexit, %464
+  %.sroa.8.3.lcssa = phi i64 [ 0, %464 ], [ %467, %.preheader.loopexit ]
+  %.sroa.0244.3.lcssa = phi ptr [ null, %464 ], [ %.sroa.0244.4, %.preheader.loopexit ]
   %468 = ptrtoint ptr %.sroa.0244.3.lcssa to i64
-  %469 = sub i64 %467, %468
+  %469 = sub i64 %.sroa.8.3.lcssa, %468
   %470 = ashr exact i64 %469, 2
   %471 = lshr i64 %470, 1
   %.not338 = icmp ult i64 %470, 2
@@ -1476,7 +1479,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.8.4 = getelementptr inbounds i8, ptr %.pn253, i64 4
   %496 = getelementptr inbounds i8, ptr %.sroa.0241.0330, i64 32
   %.not252 = icmp eq ptr %496, %466
-  br i1 %.not252, label %.preheader, label %.lr.ph
+  br i1 %.not252, label %.preheader.loopexit, label %.lr.ph
 
 .loopexit257:                                     ; preds = %.lr.ph.i
   %lpad.loopexit259 = landingpad { ptr, i32 }

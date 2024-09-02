@@ -4264,11 +4264,11 @@ _ZN4Node7set_reqEjPS_.exit80:                     ; preds = %_ZN4Node7del_outEPS
   %214 = and i8 %212, -2
   %or.cond.i.i = icmp eq i8 %214, 12
   %spec.select = select i1 %or.cond.i.i, i8 12, i8 %212
+  %215 = zext i8 %spec.select to i64
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %213, %_ZN4Node7set_reqEjPS_.exit80, %_ZN4Node7set_reqEjPS_.exit80, %_ZN4Node7set_reqEjPS_.exit80
-  %215 = phi i8 [ 12, %_ZN4Node7set_reqEjPS_.exit80 ], [ 12, %_ZN4Node7set_reqEjPS_.exit80 ], [ 12, %_ZN4Node7set_reqEjPS_.exit80 ], [ %spec.select, %213 ]
-  %216 = zext i8 %215 to i64
+  %216 = phi i64 [ 12, %_ZN4Node7set_reqEjPS_.exit80 ], [ 12, %_ZN4Node7set_reqEjPS_.exit80 ], [ 12, %_ZN4Node7set_reqEjPS_.exit80 ], [ %215, %213 ]
   %217 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %216
   %218 = load i32, ptr %217, align 4
   %219 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %218, i1 true)
@@ -19648,7 +19648,7 @@ _ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrd
   %.3 = phi i32 [ %286, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit238 ], [ %.0195300, %284 ]
   %.1 = phi i32 [ 1, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit238 ], [ 0, %284 ]
   %.not215 = icmp ult i64 %204, 4294967296
-  br i1 %.not215, label %374, label %312
+  br i1 %.not215, label %375, label %312
 
 312:                                              ; preds = %311
   %313 = add nsw i32 %.3, 1
@@ -19752,20 +19752,20 @@ _ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrd
   %372 = add nuw nsw i32 %.1, 1
   %373 = getelementptr inbounds [2 x ptr], ptr %10, i64 0, i64 %346
   store ptr %.0.i.i.i89.i247, ptr %373, align 8
+  %374 = zext nneg i32 %372 to i64
   br label %.lr.ph297.preheader
 
-374:                                              ; preds = %311
+375:                                              ; preds = %311
   br i1 %.not214.not, label %.loopexit, label %.lr.ph297.preheader
 
-.lr.ph297.preheader:                              ; preds = %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit249, %374
-  %.0189324 = phi i32 [ 1, %374 ], [ 1, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit ], [ %372, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit249 ]
-  %.2197323 = phi i32 [ %.3, %374 ], [ %.0195300, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit ], [ %313, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit249 ]
-  %.2200322 = phi i32 [ %.0198299, %374 ], [ %258, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit ], [ %.0198299, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit249 ]
-  %375 = zext nneg i32 %.0189324 to i64
+.lr.ph297.preheader:                              ; preds = %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit249, %375
+  %.0189324 = phi i64 [ 1, %375 ], [ 1, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit ], [ %374, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit249 ]
+  %.2197323 = phi i32 [ %.3, %375 ], [ %.0195300, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit ], [ %313, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit249 ]
+  %.2200322 = phi i32 [ %.0198299, %375 ], [ %258, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit ], [ %.0198299, %_ZN9StoreNode4makeER8PhaseGVNP4NodeS3_S3_PK7TypePtrS3_9BasicTypeN7MemNode6MemOrdEb.exit249 ]
   br label %.lr.ph297
 
 .lr.ph297:                                        ; preds = %.lr.ph297.preheader, %_ZN4Node7set_reqEjPS_.exit260
-  %indvars.iv311 = phi i64 [ %375, %.lr.ph297.preheader ], [ %indvars.iv.next312, %_ZN4Node7set_reqEjPS_.exit260 ]
+  %indvars.iv311 = phi i64 [ %.0189324, %.lr.ph297.preheader ], [ %indvars.iv.next312, %_ZN4Node7set_reqEjPS_.exit260 ]
   %indvars.iv.next312 = add nsw i64 %indvars.iv311, -1
   %376 = getelementptr inbounds [2 x ptr], ptr %10, i64 0, i64 %indvars.iv.next312
   %377 = load ptr, ptr %376, align 8
@@ -19996,9 +19996,9 @@ _ZN4Node7set_reqEjPS_.exit260:                    ; preds = %488, %477, %_ZN4Nod
   %495 = icmp sgt i64 %indvars.iv311, 1
   br i1 %495, label %.lr.ph297, label %.loopexit, !llvm.loop !58
 
-.loopexit:                                        ; preds = %_ZN4Node7set_reqEjPS_.exit260, %374, %202
-  %.1199 = phi i32 [ %.0198299, %202 ], [ %.0198299, %374 ], [ %.2200322, %_ZN4Node7set_reqEjPS_.exit260 ]
-  %.1196 = phi i32 [ %.0195300, %202 ], [ %.3, %374 ], [ %.2197323, %_ZN4Node7set_reqEjPS_.exit260 ]
+.loopexit:                                        ; preds = %_ZN4Node7set_reqEjPS_.exit260, %375, %202
+  %.1199 = phi i32 [ %.0198299, %202 ], [ %.0198299, %375 ], [ %.2200322, %_ZN4Node7set_reqEjPS_.exit260 ]
+  %.1196 = phi i32 [ %.0195300, %202 ], [ %.3, %375 ], [ %.2197323, %_ZN4Node7set_reqEjPS_.exit260 ]
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %exitcond318.not = icmp eq i64 %indvars.iv.next315, %wide.trip.count317
   br i1 %exitcond318.not, label %._crit_edge302, label %202, !llvm.loop !59
@@ -20033,7 +20033,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 declare void @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN14InitializeNode24find_next_fullword_storeEjP8PhaseGVN(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 -1, -9223372036854775808) i64 @_ZN14InitializeNode24find_next_fullword_storeEjP8PhaseGVN(ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8

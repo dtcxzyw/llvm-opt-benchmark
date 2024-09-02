@@ -9351,11 +9351,11 @@ _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14ModuleInstanceEEclEPS3_.exit
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance14ModuleInstanceESt14default_deleteIS3_EED2Ev.exit274
   %.pre = load ptr, ptr %361, align 8
+  %488 = icmp ne ptr %.pre, null
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread337
-  %488 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %453, %.thread337 ]
-  %489 = icmp ne ptr %488, null
+  %489 = phi i1 [ %488, %._crit_edge.loopexit ], [ true, %.thread337 ]
   call void @llvm.assume(i1 %489)
   %490 = getelementptr inbounds i8, ptr %.097356, i64 88
   %491 = load ptr, ptr %490, align 8

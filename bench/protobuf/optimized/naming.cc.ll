@@ -1439,25 +1439,25 @@ lpad35:                                           ; preds = %if.else.i.i
 while.end.loopexit:                               ; preds = %invoke.cont36
   %.pre = load ptr, ptr %_M_finish.i.i, align 8, !noalias !25
   %.pre63 = load ptr, ptr %modules_from_containing_types, align 8, !noalias !28
+  %19 = ptrtoint ptr %.pre to i64
+  %20 = ptrtoint ptr %.pre63 to i64
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %invoke.cont21
-  %19 = phi ptr [ %.pre63, %while.end.loopexit ], [ null, %invoke.cont21 ]
-  %20 = phi ptr [ %.pre, %while.end.loopexit ], [ null, %invoke.cont21 ]
+  %21 = phi i64 [ %20, %while.end.loopexit ], [ 0, %invoke.cont21 ]
+  %22 = phi i64 [ %19, %while.end.loopexit ], [ 0, %invoke.cont21 ]
   %_M_finish.i11 = getelementptr inbounds i8, ptr %modules, i64 8
-  %21 = load ptr, ptr %_M_finish.i11, align 8
+  %23 = load ptr, ptr %_M_finish.i11, align 8
   %_M_finish.i.i12 = getelementptr inbounds i8, ptr %modules_from_containing_types, i64 8
-  %22 = load ptr, ptr %modules, align 8
-  %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %21 to i64
-  %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %22 to i64
+  %24 = load ptr, ptr %modules, align 8
+  %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
-  %add.ptr.i.i16 = getelementptr inbounds i8, ptr %22, i64 %sub.ptr.sub.i.i15
-  %23 = ptrtoint ptr %20 to i64
-  %24 = ptrtoint ptr %19 to i64
+  %add.ptr.i.i16 = getelementptr inbounds i8, ptr %24, i64 %sub.ptr.sub.i.i15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp3.i.i)
-  store i64 %23, ptr %agg.tmp2.i.i, align 8
-  store i64 %24, ptr %agg.tmp3.i.i, align 8
+  store i64 %22, ptr %agg.tmp2.i.i, align 8
+  store i64 %21, ptr %agg.tmp3.i.i, align 8
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_range_insertISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPS5_S7_EEEEEvSD_T_SF_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %modules, ptr %add.ptr.i.i16, ptr noundef nonnull %agg.tmp2.i.i, ptr noundef nonnull %agg.tmp3.i.i)
           to label %invoke.cont46 unwind label %lpad24.loopexit.split-lp
 
@@ -2312,7 +2312,7 @@ do.body.i:                                        ; preds = %_ZNKSt17basic_strin
 
 do.cond.thread:                                   ; preds = %do.body.i
   store i32 2, ptr %state_.i.i, align 8
-  %inc42 = add nuw nsw i64 %index.0, 1
+  %inc43 = add nuw nsw i64 %index.0, 1
   br label %do.end
 
 if.end.i:                                         ; preds = %do.body.i
@@ -2357,21 +2357,21 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i: ; preds = %if.e
 
 do.cond:                                          ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i
   %.pre41 = load i32, ptr %state_.i.i, align 8
+  %18 = icmp eq i32 %.pre41, 2
   %inc = add nuw nsw i64 %index.0, 1
   %cmp.not = icmp eq i64 %inc, 16
-  %cmp.i15 = icmp eq i32 %.pre41, 2
-  %or.cond = select i1 %cmp.not, i1 true, i1 %cmp.i15
+  %or.cond = select i1 %cmp.not, i1 true, i1 %18
   br i1 %or.cond, label %do.end, label %do.body, !llvm.loop !47
 
 do.end:                                           ; preds = %do.cond, %do.cond.thread
-  %inc46 = phi i64 [ %inc42, %do.cond.thread ], [ %inc, %do.cond ]
-  %18 = load ptr, ptr %_M_finish.i, align 8
+  %inc46 = phi i64 [ %inc43, %do.cond.thread ], [ %inc, %do.cond ]
+  %19 = load ptr, ptr %_M_finish.i, align 8
   %add.ptr = getelementptr inbounds %struct.raw_view, ptr %ar, i64 %inc46
-  %19 = load ptr, ptr %agg.result, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %19 to i64
+  %20 = load ptr, ptr %agg.result, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %19, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 %sub.ptr.sub.i.i
   invoke void @_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE15_M_range_insertIPZNK4absl12lts_2023080216strings_internal8SplitterINS8_6ByCharENS8_9SkipEmptyES3_E18ConvertToContainerIS5_S3_Lb0EEclERKSD_E8raw_viewEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EET_SO_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr %add.ptr.i.i, ptr noundef nonnull %ar, ptr noundef nonnull %add.ptr)
           to label %for.cond unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -2397,12 +2397,12 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit18, %lpad.loopexit ], [ %lpad.loopexit20, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp24, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %20 = load ptr, ptr %agg.result, align 8
-  %tobool.not.i.i.i = icmp eq ptr %20, null
+  %21 = load ptr, ptr %agg.result, align 8
+  %tobool.not.i.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %20) #24
+  call void @_ZdlPv(ptr noundef nonnull %21) #24
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i17

@@ -1789,8 +1789,8 @@ Min_LitJustify.exit.us:                           ; preds = %.lr.ph.i.i116.us, %
 
 Min_LitJustify.exit.thread.us:                    ; preds = %Min_LitJustify.exit.us
   %.val7.i.us.pre = load i32, ptr %63, align 4
-  store i32 0, ptr %21, align 4
   %98 = icmp sgt i32 %.val7.i.us.pre, 0
+  store i32 0, ptr %21, align 4
   br i1 %98, label %.lr.ph.i.us, label %Vec_IntAppend.exit.us
 
 .lr.ph.i.us:                                      ; preds = %Min_LitJustify.exit.thread.us, %Vec_IntPush.exit.i.us
@@ -2800,7 +2800,7 @@ Vec_IntPush.exit146.us:                           ; preds = %Vec_IntGrow.exit.i1
   %putchar = call i32 @putchar(i32 10)
   %.val = load i32, ptr %16, align 4
   %530 = sitofp i32 %.val to double
-  %531 = call noundef i32 @llvm.smax.i32(i32 %.079.lcssa, i32 1)
+  %531 = call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.079.lcssa, i32 1)
   %532 = uitofp nneg i32 %531 to double
   %533 = fdiv double %530, %532
   %534 = fadd double %533, -2.000000e+00
@@ -4547,8 +4547,8 @@ Min_LitJustify.exit:                              ; preds = %.lr.ph.i.i270, %162
 
 Min_LitJustify.exit.thread:                       ; preds = %Min_LitJustify.exit
   %.val8.i.pre = load i32, ptr %135, align 4
-  store i32 0, ptr %64, align 4
   %171 = icmp sgt i32 %.val8.i.pre, 0
+  store i32 0, ptr %64, align 4
   br i1 %171, label %.lr.ph.i273, label %Vec_IntClearAppend.exit.thread
 
 Vec_IntClearAppend.exit.thread:                   ; preds = %Min_LitJustify.exit.thread.thread, %Min_LitJustify.exit.thread
@@ -7087,7 +7087,7 @@ define void @Patt_ManProfileErrors(ptr nocapture noundef readonly %0, ptr nocapt
   %28 = load i32, ptr %3, align 16
   %29 = sub nsw i32 %.val51, %28
   %30 = sitofp i32 %.043.lcssa to double
-  %31 = tail call noundef i32 @llvm.smax.i32(i32 %29, i32 1)
+  %31 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %29, i32 1)
   %32 = uitofp nneg i32 %31 to double
   %33 = fdiv double %30, %32
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %29, double noundef %33)
@@ -8372,7 +8372,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

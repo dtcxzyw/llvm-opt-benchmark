@@ -97,7 +97,7 @@ if.then15:                                        ; preds = %if.then12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4absl13base_internal24SpinLockSuggestedDelayNSEi(i32 noundef %loop) local_unnamed_addr #2 {
+define dso_local noundef range(i32 131072, 4194304) i32 @_ZN4absl13base_internal24SpinLockSuggestedDelayNSEi(i32 noundef %loop) local_unnamed_addr #2 {
 entry:
   %0 = load atomic i64, ptr @_ZN4absl13base_internalL10delay_randE.0 monotonic, align 8
   %mul = mul i64 %0, 25214903917

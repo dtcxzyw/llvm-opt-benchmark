@@ -311,13 +311,16 @@ define i64 @clamav_stats_get_size(ptr noundef %0) local_unnamed_addr #0 {
   %16 = getelementptr inbounds ptr, ptr %10, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not36 = icmp eq ptr %17, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph
+  br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.1.lcssa = phi i64 [ %9, %.preheader ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %15, %.lr.ph ]
-  %18 = shl i64 %.0.lcssa, 3
-  %19 = add i64 %18, %.1.lcssa
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %18 = shl i64 %15, 3
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.1.lcssa = phi i64 [ %9, %.preheader ], [ %14, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %18, %._crit_edge.loopexit ]
+  %19 = add i64 %.0.lcssa, %.1.lcssa
   br label %20
 
 20:                                               ; preds = %.lr.ph46, %._crit_edge

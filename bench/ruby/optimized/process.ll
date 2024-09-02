@@ -672,46 +672,46 @@ define internal i64 @detach_process_watcher(ptr noundef %0) #1 {
   %2 = ptrtoint ptr %0 to i64
   %3 = trunc i64 %2 to i32
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  br label %5
+  br label %.critedge
 
-5:                                                ; preds = %rb_waitpid.exit, %1
-  %6 = tail call i64 @rb_process_status_wait(i32 noundef %3, i32 noundef 0)
-  %7 = icmp eq i64 %6, 4
-  br i1 %7, label %rb_waitpid.exit, label %8
+.critedge:                                        ; preds = %.critedge.backedge, %1
+  %5 = tail call i64 @rb_process_status_wait(i32 noundef %3, i32 noundef 0)
+  %6 = icmp eq i64 %5, 4
+  br i1 %6, label %.critedge.backedge, label %7
 
-8:                                                ; preds = %5
-  %9 = tail call ptr @rb_check_typeddata(i64 noundef %6, ptr noundef nonnull @rb_process_status_type) #26
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, -1
-  br i1 %11, label %rb_waitpid.exit.thread, label %15
+7:                                                ; preds = %.critedge
+  %8 = tail call ptr @rb_check_typeddata(i64 noundef %5, ptr noundef nonnull @rb_process_status_type) #26
+  %9 = load i32, ptr %8, align 4
+  %10 = icmp eq i32 %9, -1
+  br i1 %10, label %rb_waitpid.exit.thread, label %rb_waitpid.exit
 
-rb_waitpid.exit.thread:                           ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
-  %13 = load i32, ptr %12, align 4
-  %14 = tail call ptr @rb_errno_ptr() #26
-  store i32 %13, ptr %14, align 4
+rb_waitpid.exit.thread:                           ; preds = %7
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = load i32, ptr %11, align 4
+  %13 = tail call ptr @rb_errno_ptr() #26
+  store i32 %12, ptr %13, align 4
+  %.pre = load ptr, ptr %4, align 8
   br label %.loopexit
 
-15:                                               ; preds = %8
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr i8, ptr %16, i64 48
-  %.val.i.i = load ptr, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %.val.i.i, i64 208
-  store i64 %6, ptr %18, align 8
-  br label %rb_waitpid.exit
+rb_waitpid.exit:                                  ; preds = %7
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr i8, ptr %14, i64 48
+  %.val.i.i = load ptr, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %.val.i.i, i64 208
+  store i64 %5, ptr %16, align 8
+  %17 = icmp eq i32 %9, 0
+  br i1 %17, label %.critedge.backedge, label %.loopexit
 
-rb_waitpid.exit:                                  ; preds = %5, %15
-  %.0.i = phi i32 [ 0, %5 ], [ %10, %15 ]
-  %19 = icmp eq i32 %.0.i, 0
-  br i1 %19, label %5, label %.loopexit, !llvm.loop !9
+.critedge.backedge:                               ; preds = %rb_waitpid.exit, %.critedge
+  br label %.critedge, !llvm.loop !9
 
 .loopexit:                                        ; preds = %rb_waitpid.exit, %rb_waitpid.exit.thread
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr i8, ptr %20, i64 48
-  %.val.i.i1 = load ptr, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.val.i.i1, i64 208
-  %23 = load i64, ptr %22, align 8
-  ret i64 %23
+  %18 = phi ptr [ %.pre, %rb_waitpid.exit.thread ], [ %14, %rb_waitpid.exit ]
+  %19 = getelementptr i8, ptr %18, i64 48
+  %.val.i.i1 = load ptr, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %.val.i.i1, i64 208
+  %21 = load i64, ptr %20, align 8
+  ret i64 %21
 }
 
 declare i64 @rb_thread_local_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
@@ -4063,8 +4063,8 @@ rb_array_len.exit.i102:                           ; preds = %174, %171
   %179 = getelementptr inbounds i8, ptr %168, i64 32
   br label %180
 
-180:                                              ; preds = %226, %.lr.ph.i
-  %.0174251.i = phi i64 [ 0, %.lr.ph.i ], [ %231, %226 ]
+180:                                              ; preds = %227, %.lr.ph.i
+  %.0174251.i = phi i64 [ 0, %.lr.ph.i ], [ %231, %227 ]
   %181 = load i64, ptr %168, align 8
   %182 = and i64 %181, 8192
   %.not.i.i.i = icmp eq i64 %182, 0
@@ -4131,12 +4131,12 @@ rb_array_len.exit212.i:                           ; preds = %RARRAY_AREF.exit209
   %213 = getelementptr inbounds i8, ptr %187, i64 16
   %214 = load i64, ptr %213, align 8
   %215 = icmp sgt i64 %214, 2
-  br i1 %215, label %219, label %226
+  br i1 %215, label %219, label %227
 
 rb_array_len.exit212.thread.i:                    ; preds = %RARRAY_AREF.exit209.i
   %216 = and i64 %211, 4161536
   %217 = icmp ugt i64 %216, 65536
-  br i1 %217, label %.thread.i, label %226
+  br i1 %217, label %.thread.i, label %227
 
 .thread.i:                                        ; preds = %rb_array_len.exit212.thread.i
   %218 = getelementptr inbounds i8, ptr %187, i64 16
@@ -4153,11 +4153,11 @@ RARRAY_AREF.exit215.i:                            ; preds = %219, %.thread.i
   %223 = load i64, ptr %222, align 8
   %224 = and i64 %223, -5
   %225 = icmp ne i64 %224, 0
-  br label %226
+  %226 = zext i1 %225 to i32
+  br label %227
 
-226:                                              ; preds = %RARRAY_AREF.exit215.i, %rb_array_len.exit212.thread.i, %rb_array_len.exit212.i
-  %227 = phi i1 [ false, %rb_array_len.exit212.i ], [ %225, %RARRAY_AREF.exit215.i ], [ false, %rb_array_len.exit212.thread.i ]
-  %228 = zext i1 %227 to i32
+227:                                              ; preds = %RARRAY_AREF.exit215.i, %rb_array_len.exit212.thread.i, %rb_array_len.exit212.i
+  %228 = phi i32 [ 0, %rb_array_len.exit212.i ], [ %226, %RARRAY_AREF.exit215.i ], [ 0, %rb_array_len.exit212.thread.i ]
   %229 = getelementptr inbounds i8, ptr %199, i64 24
   store i32 %228, ptr %229, align 8
   %230 = getelementptr inbounds i8, ptr %199, i64 8
@@ -4166,7 +4166,7 @@ RARRAY_AREF.exit215.i:                            ; preds = %219, %.thread.i
   %exitcond.not.i = icmp eq i64 %231, %.0.i.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %180, !llvm.loop !75
 
-._crit_edge.i:                                    ; preds = %226
+._crit_edge.i:                                    ; preds = %227
   %intcmp.intrcmp.i = select i1 %.not, ptr @intcmp, ptr @intrcmp
   call void @qsort(ptr noundef nonnull %167, i64 noundef %.0.i.i, i64 noundef 32, ptr noundef nonnull %intcmp.intrcmp.i) #26
   %232 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %167, i64 %.0.i.i
@@ -4907,7 +4907,7 @@ define dso_local noundef i32 @rb_exec_async_signal_safe(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_fork_async_signal_safe(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
+define dso_local range(i32 -1, -2147483648) i32 @rb_fork_async_signal_safe(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.rb_process_status, align 4
   %8 = call fastcc i32 @fork_check_err(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef null)
   %.not = icmp eq ptr %0, null
@@ -4924,7 +4924,7 @@ define dso_local i32 @rb_fork_async_signal_safe(ptr noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @fork_check_err(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly %6) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @fork_check_err(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly %6) unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca [2 x i32], align 4
   %10 = alloca i32, align 4
@@ -5389,7 +5389,7 @@ declare i32 @rb_method_basic_definition_p(i64 noundef, i64 noundef) local_unname
 declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i64 1, 0) i64 @rb_proc__fork(i64 %0) #1 {
+define hidden range(i64 1, 8589934592) i64 @rb_proc__fork(i64 %0) #1 {
   %2 = tail call i32 @rb_fork_ruby(ptr noundef null)
   %3 = icmp eq i32 %2, -1
   br i1 %3, label %4, label %proc_fork_pid.exit
@@ -6946,7 +6946,7 @@ define internal i64 @proc_rb_f_kill(i32 noundef %0, ptr noundef %1, i64 %2) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @proc_m_wait(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define internal range(i64 1, 4294967296) i64 @proc_m_wait(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
   %4 = tail call fastcc i64 @proc_wait(i32 noundef %0, ptr noundef %1)
   ret i64 %4
 }
@@ -6983,20 +6983,20 @@ define internal i64 @proc_waitall(i64 %0) #1 {
   store i64 4, ptr %6, align 8
   br label %7
 
-7:                                                ; preds = %26, %1
+7:                                                ; preds = %29, %1
   %8 = tail call i64 @rb_process_status_wait(i32 noundef -1, i32 noundef 0)
   %9 = icmp eq i64 %8, 4
   br i1 %9, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %7
   %.pre = load ptr, ptr %3, align 8
-  br label %26
+  br label %29
 
 10:                                               ; preds = %7
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %8, ptr noundef nonnull @rb_process_status_type) #26
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %18, label %14
+  br i1 %13, label %21, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %3, align 8
@@ -7004,37 +7004,37 @@ define internal i64 @proc_waitall(i64 %0) #1 {
   %.val.i.i7 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %.val.i.i7, i64 208
   store i64 %8, ptr %17, align 8
-  br label %26
+  %18 = sext i32 %12 to i64
+  %19 = shl nsw i64 %18, 1
+  %20 = or disjoint i64 %19, 1
+  br label %29
 
-18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
-  %20 = load i32, ptr %19, align 4
-  %21 = tail call ptr @rb_errno_ptr() #26
-  store i32 %20, ptr %21, align 4
-  %22 = tail call ptr @rb_errno_ptr() #26
+21:                                               ; preds = %10
+  %22 = getelementptr inbounds i8, ptr %11, i64 8
   %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, 10
-  br i1 %24, label %36, label %25
+  %24 = tail call ptr @rb_errno_ptr() #26
+  store i32 %23, ptr %24, align 4
+  %25 = tail call ptr @rb_errno_ptr() #26
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp eq i32 %26, 10
+  br i1 %27, label %36, label %28
 
-25:                                               ; preds = %18
-  tail call void @rb_syserr_fail(i32 noundef %23, ptr noundef null) #28
+28:                                               ; preds = %21
+  tail call void @rb_syserr_fail(i32 noundef %26, ptr noundef null) #28
   unreachable
 
-26:                                               ; preds = %._crit_edge, %14
-  %27 = phi ptr [ %15, %14 ], [ %.pre, %._crit_edge ]
-  %.0.i.ph = phi i32 [ %12, %14 ], [ 0, %._crit_edge ]
-  %28 = sext i32 %.0.i.ph to i64
-  %29 = shl nsw i64 %28, 1
-  %30 = or disjoint i64 %29, 1
-  %31 = getelementptr i8, ptr %27, i64 48
+29:                                               ; preds = %._crit_edge, %14
+  %30 = phi ptr [ %15, %14 ], [ %.pre, %._crit_edge ]
+  %.0.i.ph = phi i64 [ %20, %14 ], [ 1, %._crit_edge ]
+  %31 = getelementptr i8, ptr %30, i64 48
   %.val.i.i8 = load ptr, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %.val.i.i8, i64 208
   %33 = load i64, ptr %32, align 8
-  %34 = tail call i64 @rb_assoc_new(i64 noundef %30, i64 noundef %33) #26
+  %34 = tail call i64 @rb_assoc_new(i64 noundef %.0.i.ph, i64 noundef %33) #26
   %35 = tail call i64 @rb_ary_push(i64 noundef %2, i64 noundef %34) #26
   br label %7
 
-36:                                               ; preds = %18
+36:                                               ; preds = %21
   ret i64 %2
 }
 
@@ -7268,7 +7268,7 @@ define internal i64 @pst_equal(i64 noundef %0, i64 noundef %1) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @pst_bitand(i64 noundef %0, i64 noundef %1) #1 {
+define internal range(i64 1, 4294967296) i64 @pst_bitand(i64 noundef %0, i64 noundef %1) #1 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_process_status_type) #26
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
@@ -7518,7 +7518,7 @@ define internal range(i64 0, 21) i64 @pst_wifstopped(i64 noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @pst_wstopsig(i64 noundef %0) #1 {
+define internal range(i64 1, 512) i64 @pst_wstopsig(i64 noundef %0) #1 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_process_status_type) #26
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7546,7 +7546,7 @@ define internal range(i64 0, 21) i64 @pst_wifsignaled(i64 noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @pst_wtermsig(i64 noundef %0) #1 {
+define internal range(i64 1, 256) i64 @pst_wtermsig(i64 noundef %0) #1 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_process_status_type) #26
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7573,7 +7573,7 @@ define internal range(i64 0, 21) i64 @pst_wifexited(i64 noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @pst_wexitstatus(i64 noundef %0) #1 {
+define internal range(i64 1, 512) i64 @pst_wexitstatus(i64 noundef %0) #1 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_process_status_type) #26
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
@@ -7641,7 +7641,7 @@ define internal range(i64 1, 0) i64 @proc_get_ppid(i64 %0) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @proc_getpgrp(i64 %0) #1 {
+define internal range(i64 1, 4294967296) i64 @proc_getpgrp(i64 %0) #1 {
   %2 = tail call i32 @getpgid(i32 noundef 0) #26
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %7
@@ -7676,7 +7676,7 @@ define internal noundef i64 @proc_setpgrp(i64 %0) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @proc_getpgid(i64 %0, i64 noundef %1) #1 {
+define internal range(i64 1, 4294967296) i64 @proc_getpgid(i64 %0, i64 noundef %1) #1 {
   %3 = and i64 %1, 1
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %6, label %4
@@ -7756,7 +7756,7 @@ rb_num2int_inline.exit7:                          ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @proc_getsid(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define internal range(i64 1, 4294967296) i64 @proc_getsid(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
   %4 = icmp ugt i32 %0, 1
   br i1 %4, label %5, label %rb_check_arity.exit
 
@@ -7811,7 +7811,7 @@ rb_num2int_inline.exit:                           ; preds = %12, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @proc_setsid(i64 %0) #1 {
+define internal range(i64 1, 4294967296) i64 @proc_setsid(i64 %0) #1 {
   %2 = tail call i32 @setsid() #26
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %7
@@ -8068,7 +8068,7 @@ rb_check_arity.exit:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @proc_getuid(i64 %0) #1 {
+define internal range(i64 1, 8589934592) i64 @proc_getuid(i64 %0) #1 {
   %2 = tail call i32 @getuid() #26
   %3 = zext i32 %2 to i64
   %4 = shl nuw nsw i64 %3, 1
@@ -8116,7 +8116,7 @@ obj2uid0.exit:                                    ; preds = %check_uid_switch.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @proc_getgid(i64 %0) #1 {
+define internal range(i64 1, 8589934592) i64 @proc_getgid(i64 %0) #1 {
   %2 = tail call i32 @getgid() #26
   %3 = zext i32 %2 to i64
   %4 = shl nuw nsw i64 %3, 1
@@ -8125,7 +8125,7 @@ define internal range(i64 1, 0) i64 @proc_getgid(i64 %0) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @proc_setgid(i64 %0, i64 noundef %1) #1 {
+define internal range(i64 1, 8589934592) i64 @proc_setgid(i64 %0, i64 noundef %1) #1 {
   %3 = alloca i64, align 8
   %.b.i = load i1, ptr @under_gid_switch, align 4
   br i1 %.b.i, label %4, label %check_gid_switch.exit
@@ -8167,7 +8167,7 @@ obj2gid0.exit:                                    ; preds = %check_gid_switch.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @proc_geteuid(i64 %0) #1 {
+define internal range(i64 1, 8589934592) i64 @proc_geteuid(i64 %0) #1 {
   %2 = tail call i32 @geteuid() #26
   %3 = zext i32 %2 to i64
   %4 = shl nuw nsw i64 %3, 1
@@ -8215,7 +8215,7 @@ proc_seteuid.exit:                                ; preds = %obj2uid0.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @proc_getegid(i64 %0) #1 {
+define internal range(i64 1, 8589934592) i64 @proc_getegid(i64 %0) #1 {
   %2 = tail call i32 @getegid() #26
   %3 = zext i32 %2 to i64
   %4 = shl nuw nsw i64 %3, 1
@@ -8553,7 +8553,7 @@ maxgroups.exit:                                   ; preds = %1, %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @proc_setmaxgroups(i64 %0, i64 noundef %1) #1 {
+define internal range(i64 1, 8589934592) i64 @proc_setmaxgroups(i64 %0, i64 noundef %1) #1 {
   %3 = tail call i64 @rb_fix2int(i64 noundef %1) #26
   %4 = trunc i64 %3 to i32
   %5 = tail call i64 @sysconf(i32 noundef 3) #26
@@ -8579,7 +8579,7 @@ define internal range(i64 1, 0) i64 @proc_setmaxgroups(i64 %0, i64 noundef %1) #
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @proc_daemon(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define internal range(i64 1, 4294967296) i64 @proc_daemon(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
   %4 = icmp ugt i32 %0, 2
   br i1 %4, label %5, label %rb_check_arity.exit
 
@@ -9429,7 +9429,7 @@ declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnam
 declare i64 @rb_singleton_class(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @p_uid_exchange(i64 %0) #1 {
+define internal range(i64 1, 8589934592) i64 @p_uid_exchange(i64 %0) #1 {
   %.b.i = load i1, ptr @under_uid_switch, align 4
   br i1 %.b.i, label %2, label %check_uid_switch.exit
 
@@ -9460,7 +9460,7 @@ check_uid_switch.exit:                            ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @p_gid_exchange(i64 %0) #1 {
+define internal range(i64 1, 8589934592) i64 @p_gid_exchange(i64 %0) #1 {
   %.b.i = load i1, ptr @under_gid_switch, align 4
   br i1 %.b.i, label %2, label %check_gid_switch.exit
 
@@ -9671,7 +9671,7 @@ check_gid_switch.exit:                            ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @p_uid_from_name(i64 %0, i64 noundef %1) #1 {
+define internal range(i64 1, 8589934592) i64 @p_uid_from_name(i64 %0, i64 noundef %1) #1 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
@@ -9693,7 +9693,7 @@ obj2uid0.exit:                                    ; preds = %2, %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @p_gid_from_name(i64 %0, i64 noundef %1) #1 {
+define internal range(i64 1, 8589934592) i64 @p_gid_from_name(i64 %0, i64 noundef %1) #1 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
@@ -10510,7 +10510,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, 0) i64 @check_exec_redirect_fd(i64 noundef %0) unnamed_addr #1 {
+define internal fastcc range(i64 1, 4294967296) i64 @check_exec_redirect_fd(i64 noundef %0) unnamed_addr #1 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = and i64 %0, 1
@@ -11774,7 +11774,7 @@ declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unname
 declare i64 @rb_ensure(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @do_spawn_process(i64 noundef %0) #1 {
+define internal range(i64 -1, 2147483648) i64 @do_spawn_process(i64 noundef %0) #1 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @rb_execarg_parent_start1(i64 noundef %3)
@@ -11788,7 +11788,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_spawn_process(i64 nou
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %6, i64 32
   %14 = load i64, ptr %13, align 8
-  %15 = tail call fastcc i32 @fork_check_err(ptr noundef %12, ptr noundef nonnull @rb_exec_atfork, ptr noundef %6, i64 noundef %14, ptr noundef %8, i64 noundef %10, ptr noundef %6)
+  %15 = tail call fastcc range(i32 -1, -2147483648) i32 @fork_check_err(ptr noundef %12, ptr noundef nonnull @rb_exec_atfork, ptr noundef %6, i64 noundef %14, ptr noundef %8, i64 noundef %10, ptr noundef %6)
   %16 = sext i32 %15 to i64
   ret i64 %16
 }
@@ -12084,7 +12084,7 @@ declare { i64, i64 } @rb_time_interval(i64 noundef) local_unnamed_addr #2
 declare i64 @rb_f_kill(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, 0) i64 @proc_wait(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc range(i64 1, 4294967296) i64 @proc_wait(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = icmp ugt i32 %0, 2
   br i1 %3, label %4, label %rb_check_arity.exit
 
@@ -13198,7 +13198,7 @@ check_gid_switch.exit:                            ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @p_uid_sw_ensure(i64 noundef %0) #1 {
+define internal range(i64 1, 8589934592) i64 @p_uid_sw_ensure(i64 noundef %0) #1 {
   %2 = trunc i64 %0 to i32
   store i1 false, ptr @under_uid_switch, align 4
   %3 = tail call fastcc i32 @rb_seteuid_core(i32 noundef %2)
@@ -13209,7 +13209,7 @@ define internal range(i64 1, 0) i64 @p_uid_sw_ensure(i64 noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @p_gid_sw_ensure(i64 noundef %0) #1 {
+define internal range(i64 1, 8589934592) i64 @p_gid_sw_ensure(i64 noundef %0) #1 {
   %2 = trunc i64 %0 to i32
   store i1 false, ptr @under_gid_switch, align 4
   %3 = tail call fastcc i32 @rb_setegid_core(i32 noundef %2)

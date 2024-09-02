@@ -1478,13 +1478,13 @@ _ZN7QStringD2Ev.exit:                             ; preds = %69, %_ZN9QtPrivate8
 114:                                              ; preds = %113, %111, %106
   %.0.i.us.us = phi float [ -1.000000e+00, %113 ], [ %109, %111 ], [ 1.000000e+00, %106 ]
   %115 = call noundef float @acosf(float noundef %.0.i.us.us) #24
+  %116 = fpext float %115 to double
+  %117 = fmul double %116, 1.800000e+02
   br label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit.us.us
 
 _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit.us.us: ; preds = %114, %97
-  %.010.i.us.us = phi float [ %115, %114 ], [ -1.000000e+00, %97 ]
-  %116 = fpext float %.010.i.us.us to double
-  %117 = fmul double %116, 1.800000e+02
-  %118 = fdiv double %117, 0x400921FB53C8D4F1
+  %.010.i.us.us = phi double [ %117, %114 ], [ -1.800000e+02, %97 ]
+  %118 = fdiv double %.010.i.us.us, 0x400921FB53C8D4F1
   %119 = fptrunc double %118 to float
   %120 = fmul float %.sroa.070.4.vec.extract.us.us, 0.000000e+00
   %121 = fsub float %.fca.1.extract10.us.us, %120

@@ -707,7 +707,7 @@ define hidden void @zim_DirectoryIterator_next(ptr nocapture noundef readonly %0
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
-  br label %80
+  br label %81
 
 .critedge25:                                      ; preds = %2
   %13 = getelementptr inbounds i8, ptr %4, i64 -312
@@ -720,7 +720,7 @@ define hidden void @zim_DirectoryIterator_next(ptr nocapture noundef readonly %0
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
-  br label %80
+  br label %81
 
 18:                                               ; preds = %.critedge25
   %19 = getelementptr inbounds i8, ptr %4, i64 -296
@@ -829,20 +829,20 @@ spl_filesystem_is_dot.exit:                       ; preds = %18, %spl_filesystem
 
 spl_filesystem_dir_read.exit:                     ; preds = %60
   %.pre = load i8, ptr %22, align 1
-  %.not7.i = icmp eq i8 %.pre, 46
-  br i1 %.not7.i, label %.tail.i, label %.critedge
+  %62 = icmp eq i8 %.pre, 46
+  br i1 %62, label %.tail.i, label %.critedge
 
 .tail.i:                                          ; preds = %spl_filesystem_dir_read.exit
-  %62 = load i8, ptr %25, align 1
-  switch i8 %62, label %.critedge [
+  %63 = load i8, ptr %25, align 1
+  switch i8 %63, label %.critedge [
     i8 0, label %spl_filesystem_is_dot.exit.backedge
     i8 46, label %sub_2.i
   ]
 
 sub_2.i:                                          ; preds = %.tail.i
-  %63 = load i8, ptr %23, align 1
-  %64 = icmp eq i8 %63, 0
-  br i1 %64, label %spl_filesystem_is_dot.exit.backedge, label %.critedge
+  %64 = load i8, ptr %23, align 1
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %spl_filesystem_is_dot.exit.backedge, label %.critedge
 
 spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
   br label %spl_filesystem_is_dot.exit
@@ -852,44 +852,44 @@ spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
   br label %.critedge
 
 .critedge:                                        ; preds = %sub_2.i, %spl_filesystem_dir_read.exit, %.tail.i, %.critedge.sink.split, %.thread
-  %65 = load ptr, ptr %24, align 8
-  %.not21 = icmp eq ptr %65, null
-  br i1 %.not21, label %80, label %66
+  %66 = load ptr, ptr %24, align 8
+  %.not21 = icmp eq ptr %66, null
+  br i1 %.not21, label %81, label %67
 
-66:                                               ; preds = %.critedge
-  %67 = getelementptr inbounds i8, ptr %65, i64 4
-  %68 = load i32, ptr %67, align 4
-  %69 = and i32 %68, 64
-  %.not22 = icmp eq i32 %69, 0
-  br i1 %.not22, label %70, label %79
+67:                                               ; preds = %.critedge
+  %68 = getelementptr inbounds i8, ptr %66, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = and i32 %69, 64
+  %.not22 = icmp eq i32 %70, 0
+  br i1 %.not22, label %71, label %80
 
-70:                                               ; preds = %66
-  %71 = load i32, ptr %65, align 4
-  %72 = icmp ne i32 %71, 0
-  tail call void @llvm.assume(i1 %72)
-  %73 = add i32 %71, -1
-  store i32 %73, ptr %65, align 4
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %79
+71:                                               ; preds = %67
+  %72 = load i32, ptr %66, align 4
+  %73 = icmp ne i32 %72, 0
+  tail call void @llvm.assume(i1 %73)
+  %74 = add i32 %72, -1
+  store i32 %74, ptr %66, align 4
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %76, label %80
 
-75:                                               ; preds = %70
-  %76 = and i32 %68, 128
-  %.not23 = icmp eq i32 %76, 0
-  br i1 %.not23, label %78, label %77
+76:                                               ; preds = %71
+  %77 = and i32 %69, 128
+  %.not23 = icmp eq i32 %77, 0
+  br i1 %.not23, label %79, label %78
 
-77:                                               ; preds = %75
-  tail call void @free(ptr noundef nonnull %65) #18
-  br label %79
-
-78:                                               ; preds = %75
-  tail call void @_efree(ptr noundef nonnull %65) #18
-  br label %79
-
-79:                                               ; preds = %70, %78, %77, %66
-  store ptr null, ptr %24, align 8
+78:                                               ; preds = %76
+  tail call void @free(ptr noundef nonnull %66) #18
   br label %80
 
-80:                                               ; preds = %79, %.critedge, %15, %10
+79:                                               ; preds = %76
+  tail call void @_efree(ptr noundef nonnull %66) #18
+  br label %80
+
+80:                                               ; preds = %71, %79, %78, %67
+  store ptr null, ptr %24, align 8
+  br label %81
+
+81:                                               ; preds = %80, %.critedge, %15, %10
   ret void
 }
 
@@ -5065,20 +5065,20 @@ spl_filesystem_dir_read.exit.thread:              ; preds = %58, %60
 
 spl_filesystem_dir_read.exit:                     ; preds = %60
   %.pre = load i8, ptr %19, align 1
-  %.not7.i = icmp eq i8 %.pre, 46
-  br i1 %.not7.i, label %.tail.i, label %.critedge
+  %62 = icmp eq i8 %.pre, 46
+  br i1 %62, label %.tail.i, label %.critedge
 
 .tail.i:                                          ; preds = %spl_filesystem_dir_read.exit
-  %62 = load i8, ptr %22, align 1
-  switch i8 %62, label %.critedge [
+  %63 = load i8, ptr %22, align 1
+  switch i8 %63, label %.critedge [
     i8 0, label %spl_filesystem_is_dot.exit.backedge
     i8 46, label %sub_2.i
   ]
 
 sub_2.i:                                          ; preds = %.tail.i
-  %63 = load i8, ptr %20, align 1
-  %64 = icmp eq i8 %63, 0
-  br i1 %64, label %spl_filesystem_is_dot.exit.backedge, label %.critedge
+  %64 = load i8, ptr %20, align 1
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %spl_filesystem_is_dot.exit.backedge, label %.critedge
 
 spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
   br label %spl_filesystem_is_dot.exit
@@ -6640,7 +6640,7 @@ define hidden void @zim_SplFileObject_current(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @spl_filesystem_file_read_line(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_line(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @spl_filesystem_file_read_line_ex(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 8
@@ -7106,7 +7106,7 @@ define hidden void @zim_SplFileObject_fgetcsv(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @spl_filesystem_file_read_csv(ptr noundef %0, i8 noundef signext %1, i8 noundef signext %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_csv(ptr noundef %0, i8 noundef signext %1, i8 noundef signext %2, i32 noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 120
   %7 = getelementptr inbounds i8, ptr %0, i64 128
   %8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -9292,7 +9292,7 @@ define internal noundef ptr @spl_filesystem_object_clone(ptr noundef %0) #0 {
   store i64 %22, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 -344
   %25 = load i32, ptr %24, align 8
-  switch i32 %25, label %112 [
+  switch i32 %25, label %113 [
     i32 0, label %26
     i32 1, label %50
   ]
@@ -9325,7 +9325,7 @@ define internal noundef ptr @spl_filesystem_object_clone(ptr noundef %0) #0 {
   %39 = getelementptr inbounds i8, ptr %0, i64 -352
   %40 = load ptr, ptr %39, align 8
   %.not54 = icmp eq ptr %40, null
-  br i1 %.not54, label %112, label %41
+  br i1 %.not54, label %113, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %40, i64 4
@@ -9343,7 +9343,7 @@ define internal noundef ptr @spl_filesystem_object_clone(ptr noundef %0) #0 {
 48:                                               ; preds = %45, %41
   %49 = getelementptr inbounds i8, ptr %15, i64 32
   store ptr %40, ptr %49, align 8
-  br label %112
+  br label %113
 
 50:                                               ; preds = %1
   %51 = getelementptr inbounds i8, ptr %0, i64 -368
@@ -9426,7 +9426,7 @@ spl_filesystem_dir_read.exit.us.us:               ; preds = %82, %80
   br i1 %85, label %spl_filesystem_is_dot.exit.preheader.us, label %._crit_edge
 
 spl_filesystem_is_dot.exit.preheader:             ; preds = %spl_filesystem_is_dot.exit.preheader.lr.ph, %.critedge.split
-  %.058 = phi i32 [ %108, %.critedge.split ], [ 0, %spl_filesystem_is_dot.exit.preheader.lr.ph ]
+  %.058 = phi i32 [ %109, %.critedge.split ], [ 0, %spl_filesystem_is_dot.exit.preheader.lr.ph ]
   br label %spl_filesystem_is_dot.exit
 
 spl_filesystem_is_dot.exit:                       ; preds = %spl_filesystem_is_dot.exit.backedge, %spl_filesystem_is_dot.exit.preheader
@@ -9483,65 +9483,65 @@ spl_filesystem_dir_read.exit.thread:              ; preds = %101, %103
 
 spl_filesystem_dir_read.exit:                     ; preds = %103
   %.pre = load i8, ptr %58, align 1
-  %.not7.i = icmp eq i8 %.pre, 46
-  br i1 %.not7.i, label %.tail.i, label %.critedge.split
+  %105 = icmp eq i8 %.pre, 46
+  br i1 %105, label %.tail.i, label %.critedge.split
 
 .tail.i:                                          ; preds = %spl_filesystem_dir_read.exit
-  %105 = load i8, ptr %62, align 1
-  switch i8 %105, label %.critedge.split [
+  %106 = load i8, ptr %62, align 1
+  switch i8 %106, label %.critedge.split [
     i8 0, label %spl_filesystem_is_dot.exit.backedge
     i8 46, label %sub_2.i
   ]
 
 sub_2.i:                                          ; preds = %.tail.i
-  %106 = load i8, ptr %59, align 1
-  %107 = icmp eq i8 %106, 0
-  br i1 %107, label %spl_filesystem_is_dot.exit.backedge, label %.critedge.split
+  %107 = load i8, ptr %59, align 1
+  %108 = icmp eq i8 %107, 0
+  br i1 %108, label %spl_filesystem_is_dot.exit.backedge, label %.critedge.split
 
 spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
   br label %spl_filesystem_is_dot.exit
 
 .critedge.split:                                  ; preds = %.tail.i, %spl_filesystem_dir_read.exit, %sub_2.i, %spl_filesystem_dir_read.exit.thread
-  %108 = add nuw nsw i32 %.058, 1
-  %109 = load i32, ptr %53, align 8
-  %110 = icmp slt i32 %108, %109
-  br i1 %110, label %spl_filesystem_is_dot.exit.preheader, label %._crit_edge
+  %109 = add nuw nsw i32 %.058, 1
+  %110 = load i32, ptr %53, align 8
+  %111 = icmp slt i32 %109, %110
+  br i1 %111, label %spl_filesystem_is_dot.exit.preheader, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge.split, %spl_filesystem_dir_read.exit.us.us, %50
-  %.0.lcssa = phi i32 [ 0, %50 ], [ %83, %spl_filesystem_dir_read.exit.us.us ], [ %108, %.critedge.split ]
-  %111 = getelementptr inbounds i8, ptr %15, i64 88
-  store i32 %.0.lcssa, ptr %111, align 8
-  br label %112
+  %.0.lcssa = phi i32 [ 0, %50 ], [ %83, %spl_filesystem_dir_read.exit.us.us ], [ %109, %.critedge.split ]
+  %112 = getelementptr inbounds i8, ptr %15, i64 88
+  store i32 %.0.lcssa, ptr %112, align 8
+  br label %113
 
-112:                                              ; preds = %38, %48, %._crit_edge, %1
-  %113 = getelementptr inbounds i8, ptr %0, i64 -328
-  %114 = load ptr, ptr %113, align 8
-  store ptr %114, ptr %17, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 -320
-  %116 = load ptr, ptr %115, align 8
-  store ptr %116, ptr %19, align 8
-  %117 = load ptr, ptr %2, align 8
-  store ptr %117, ptr %15, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 -376
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %119, ptr %120, align 8
+113:                                              ; preds = %38, %48, %._crit_edge, %1
+  %114 = getelementptr inbounds i8, ptr %0, i64 -328
+  %115 = load ptr, ptr %114, align 8
+  store ptr %115, ptr %17, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 -320
+  %117 = load ptr, ptr %116, align 8
+  store ptr %117, ptr %19, align 8
+  %118 = load ptr, ptr %2, align 8
+  store ptr %118, ptr %15, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 -376
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %120, ptr %121, align 8
   tail call void @zend_objects_clone_members(ptr noundef nonnull %20, ptr noundef nonnull %0) #18
-  %121 = load ptr, ptr %120, align 8
-  %.not56 = icmp eq ptr %121, null
-  br i1 %.not56, label %126, label %122
+  %122 = load ptr, ptr %121, align 8
+  %.not56 = icmp eq ptr %122, null
+  br i1 %.not56, label %127, label %123
 
-122:                                              ; preds = %112
-  %123 = getelementptr inbounds i8, ptr %121, i64 8
-  %124 = load ptr, ptr %123, align 8
-  %.not57 = icmp eq ptr %124, null
-  br i1 %.not57, label %126, label %125
+123:                                              ; preds = %113
+  %124 = getelementptr inbounds i8, ptr %122, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %.not57 = icmp eq ptr %125, null
+  br i1 %.not57, label %127, label %126
 
-125:                                              ; preds = %122
-  tail call void %124(ptr noundef nonnull %2, ptr noundef nonnull %15) #18
-  br label %126
+126:                                              ; preds = %123
+  tail call void %125(ptr noundef nonnull %2, ptr noundef nonnull %15) #18
+  br label %127
 
-126:                                              ; preds = %125, %122, %112
+127:                                              ; preds = %126, %123, %113
   ret ptr %20
 }
 
@@ -10105,20 +10105,20 @@ spl_filesystem_dir_read.exit.thread:              ; preds = %85, %87
 
 spl_filesystem_dir_read.exit:                     ; preds = %87
   %.pre = load i8, ptr %42, align 1
-  %.not7.i = icmp eq i8 %.pre, 46
-  br i1 %.not7.i, label %.tail.i, label %.critedge
+  %89 = icmp eq i8 %.pre, 46
+  br i1 %89, label %.tail.i, label %.critedge
 
 .tail.i:                                          ; preds = %spl_filesystem_dir_read.exit
-  %89 = load i8, ptr %45, align 1
-  switch i8 %89, label %.critedge [
+  %90 = load i8, ptr %45, align 1
+  switch i8 %90, label %.critedge [
     i8 0, label %spl_filesystem_is_dot.exit.backedge
     i8 46, label %sub_2.i
   ]
 
 sub_2.i:                                          ; preds = %.tail.i
-  %90 = load i8, ptr %43, align 1
-  %91 = icmp eq i8 %90, 0
-  br i1 %91, label %spl_filesystem_is_dot.exit.backedge, label %.critedge
+  %91 = load i8, ptr %43, align 1
+  %92 = icmp eq i8 %91, 0
+  br i1 %92, label %spl_filesystem_is_dot.exit.backedge, label %.critedge
 
 spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
   br label %spl_filesystem_is_dot.exit
@@ -10192,7 +10192,7 @@ declare ptr @_php_stream_get_line(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @spl_filesystem_file_read_line_ex(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_line_ex(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 8
@@ -10838,20 +10838,20 @@ spl_filesystem_is_dot.exit:                       ; preds = %1, %spl_filesystem_
 
 spl_filesystem_dir_read.exit:                     ; preds = %50
   %.pre = load i8, ptr %9, align 1
-  %.not7.i = icmp eq i8 %.pre, 46
-  br i1 %.not7.i, label %.tail.i, label %.critedge
+  %52 = icmp eq i8 %.pre, 46
+  br i1 %52, label %.tail.i, label %.critedge
 
 .tail.i:                                          ; preds = %spl_filesystem_dir_read.exit
-  %52 = load i8, ptr %13, align 1
-  switch i8 %52, label %.critedge [
+  %53 = load i8, ptr %13, align 1
+  switch i8 %53, label %.critedge [
     i8 0, label %spl_filesystem_is_dot.exit.backedge
     i8 46, label %sub_2.i
   ]
 
 sub_2.i:                                          ; preds = %.tail.i
-  %53 = load i8, ptr %10, align 1
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %spl_filesystem_is_dot.exit.backedge, label %.critedge
+  %54 = load i8, ptr %10, align 1
+  %55 = icmp eq i8 %54, 0
+  br i1 %55, label %spl_filesystem_is_dot.exit.backedge, label %.critedge
 
 spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
   br label %spl_filesystem_is_dot.exit
@@ -10861,56 +10861,56 @@ spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
   br label %.critedge
 
 .critedge:                                        ; preds = %sub_2.i, %spl_filesystem_dir_read.exit, %.tail.i, %.critedge.sink.split, %31
-  %55 = load ptr, ptr %11, align 8
-  %.not22 = icmp eq ptr %55, null
-  br i1 %.not22, label %70, label %56
+  %56 = load ptr, ptr %11, align 8
+  %.not22 = icmp eq ptr %56, null
+  br i1 %.not22, label %71, label %57
 
-56:                                               ; preds = %.critedge
-  %57 = getelementptr inbounds i8, ptr %55, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = and i32 %58, 64
-  %.not23 = icmp eq i32 %59, 0
-  br i1 %.not23, label %60, label %69
+57:                                               ; preds = %.critedge
+  %58 = getelementptr inbounds i8, ptr %56, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = and i32 %59, 64
+  %.not23 = icmp eq i32 %60, 0
+  br i1 %.not23, label %61, label %70
 
-60:                                               ; preds = %56
-  %61 = load i32, ptr %55, align 4
-  %62 = icmp ne i32 %61, 0
-  tail call void @llvm.assume(i1 %62)
-  %63 = add i32 %61, -1
-  store i32 %63, ptr %55, align 4
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %69
+61:                                               ; preds = %57
+  %62 = load i32, ptr %56, align 4
+  %63 = icmp ne i32 %62, 0
+  tail call void @llvm.assume(i1 %63)
+  %64 = add i32 %62, -1
+  store i32 %64, ptr %56, align 4
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %70
 
-65:                                               ; preds = %60
-  %66 = and i32 %58, 128
-  %.not24 = icmp eq i32 %66, 0
-  br i1 %.not24, label %68, label %67
+66:                                               ; preds = %61
+  %67 = and i32 %59, 128
+  %.not24 = icmp eq i32 %67, 0
+  br i1 %.not24, label %69, label %68
 
-67:                                               ; preds = %65
-  tail call void @free(ptr noundef nonnull %55) #18
-  br label %69
-
-68:                                               ; preds = %65
-  tail call void @_efree(ptr noundef nonnull %55) #18
-  br label %69
-
-69:                                               ; preds = %60, %68, %67, %56
-  store ptr null, ptr %11, align 8
+68:                                               ; preds = %66
+  tail call void @free(ptr noundef nonnull %56) #18
   br label %70
 
-70:                                               ; preds = %69, %.critedge
-  %71 = getelementptr inbounds i8, ptr %0, i64 96
-  %72 = load i8, ptr %71, align 8
-  %73 = icmp eq i8 %72, 0
-  br i1 %73, label %76, label %74
+69:                                               ; preds = %66
+  tail call void @_efree(ptr noundef nonnull %56) #18
+  br label %70
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @zval_ptr_dtor(ptr noundef nonnull %75) #18
-  store i32 0, ptr %71, align 8
-  br label %76
+70:                                               ; preds = %61, %69, %68, %57
+  store ptr null, ptr %11, align 8
+  br label %71
 
-76:                                               ; preds = %74, %70
+71:                                               ; preds = %70, %.critedge
+  %72 = getelementptr inbounds i8, ptr %0, i64 96
+  %73 = load i8, ptr %72, align 8
+  %74 = icmp eq i8 %73, 0
+  br i1 %74, label %77, label %75
+
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds i8, ptr %0, i64 88
+  tail call void @zval_ptr_dtor(ptr noundef nonnull %76) #18
+  store i32 0, ptr %72, align 8
+  br label %77
+
+77:                                               ; preds = %75, %71
   ret void
 }
 
@@ -11039,20 +11039,20 @@ spl_filesystem_is_dot.exit:                       ; preds = %11, %spl_filesystem
 
 spl_filesystem_dir_read.exit:                     ; preds = %52
   %.pre = load i8, ptr %12, align 1
-  %.not7.i = icmp eq i8 %.pre, 46
-  br i1 %.not7.i, label %.tail.i, label %.critedge
+  %54 = icmp eq i8 %.pre, 46
+  br i1 %54, label %.tail.i, label %.critedge
 
 .tail.i:                                          ; preds = %spl_filesystem_dir_read.exit
-  %54 = load i8, ptr %15, align 1
-  switch i8 %54, label %.critedge [
+  %55 = load i8, ptr %15, align 1
+  switch i8 %55, label %.critedge [
     i8 0, label %spl_filesystem_is_dot.exit.backedge
     i8 46, label %sub_2.i
   ]
 
 sub_2.i:                                          ; preds = %.tail.i
-  %55 = load i8, ptr %13, align 1
-  %56 = icmp eq i8 %55, 0
-  br i1 %56, label %spl_filesystem_is_dot.exit.backedge, label %.critedge
+  %56 = load i8, ptr %13, align 1
+  %57 = icmp eq i8 %56, 0
+  br i1 %57, label %spl_filesystem_is_dot.exit.backedge, label %.critedge
 
 spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
   br label %spl_filesystem_is_dot.exit
@@ -11062,18 +11062,18 @@ spl_filesystem_is_dot.exit.backedge:              ; preds = %sub_2.i, %.tail.i
   br label %.critedge
 
 .critedge:                                        ; preds = %sub_2.i, %spl_filesystem_dir_read.exit, %.tail.i, %.critedge.sink.split, %33
-  %57 = getelementptr inbounds i8, ptr %0, i64 96
-  %58 = load i8, ptr %57, align 8
-  %59 = icmp eq i8 %58, 0
-  br i1 %59, label %62, label %60
+  %58 = getelementptr inbounds i8, ptr %0, i64 96
+  %59 = load i8, ptr %58, align 8
+  %60 = icmp eq i8 %59, 0
+  br i1 %60, label %63, label %61
 
-60:                                               ; preds = %.critedge
-  %61 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @zval_ptr_dtor(ptr noundef nonnull %61) #18
-  store i32 0, ptr %57, align 8
-  br label %62
+61:                                               ; preds = %.critedge
+  %62 = getelementptr inbounds i8, ptr %0, i64 88
+  tail call void @zval_ptr_dtor(ptr noundef nonnull %62) #18
+  store i32 0, ptr %58, align 8
+  br label %63
 
-62:                                               ; preds = %60, %.critedge
+63:                                               ; preds = %61, %.critedge
   ret void
 }
 

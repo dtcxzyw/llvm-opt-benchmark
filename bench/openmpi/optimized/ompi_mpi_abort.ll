@@ -279,11 +279,11 @@ ompi_group_get_proc_ptr.exit:                     ; preds = %30, %41, %55, %57
   %71 = load ptr, ptr %25, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load i32, ptr %72, align 8
+  %74 = sext i32 %73 to i64
   br label %ompi_comm_remote_size.exit36
 
 ompi_comm_remote_size.exit36:                     ; preds = %67, %70
-  %74 = phi i32 [ %73, %70 ], [ 0, %67 ]
-  %75 = sext i32 %74 to i64
+  %75 = phi i64 [ %74, %70 ], [ 0, %67 ]
   %76 = icmp slt i64 %indvars.iv48, %75
   br i1 %76, label %77, label %108
 

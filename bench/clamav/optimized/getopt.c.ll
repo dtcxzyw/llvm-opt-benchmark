@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [30 x i8] c"%s: option `%s' is ambiguous\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @my_getopt(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -128, 128) i32 @my_getopt(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @getenv(ptr noundef nonnull @.str) #4
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %16
@@ -603,25 +603,23 @@ define internal fastcc i32 @_getopt_internal(i32 noundef %0, ptr noundef %1, ptr
 
 110:                                              ; preds = %106
   %111 = tail call i32 @strncmp(ptr noundef nonnull %107, ptr noundef nonnull %105, i64 noundef %104) #6
-  %112 = icmp eq i32 %111, 0
+  %112 = icmp ne i32 %111, 0
   %113 = trunc nuw nsw i64 %indvars.iv259 to i32
-  %spec.select211 = select i1 %112, i32 %113, i32 %.0152231
-  %spec.select212 = zext i1 %112 to i32
+  %spec.select211 = select i1 %112, i32 %.0152231, i32 %113
   br label %114
 
 114:                                              ; preds = %110, %106
   %.1153 = phi i32 [ %.0152231, %106 ], [ %spec.select211, %110 ]
-  %.1 = phi i32 [ 0, %106 ], [ %spec.select212, %110 ]
+  %.1 = phi i1 [ true, %106 ], [ %112, %110 ]
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %115 = getelementptr inbounds %struct.option, ptr %3, i64 %indvars.iv.next260
   %116 = load ptr, ptr %115, align 8
   %117 = icmp ne ptr %116, null
-  %.not195 = icmp eq i32 %.1, 0
-  %118 = select i1 %117, i1 %.not195, i1 false
+  %118 = select i1 %117, i1 %.1, i1 false
   br i1 %118, label %106, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %114
-  br i1 %.not195, label %.lr.ph239, label %.thread215
+  br i1 %.1, label %.lr.ph239, label %.thread215
 
 .lr.ph239:                                        ; preds = %._crit_edge
   %119 = getelementptr inbounds i8, ptr %24, i64 %95

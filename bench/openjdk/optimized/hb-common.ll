@@ -1082,103 +1082,103 @@ _ZL11parse_spacePPKcS0_.exit.i.i17.i:             ; preds = %48, %.lr.ph.i.i.i19
 57:                                               ; preds = %54
   %58 = load i32, ptr %6, align 4
   store i32 %58, ptr %43, align 4
+  %59 = add i32 %58, 1
   br label %_ZL10parse_uintPPKcS0_Pj.exit.i.i
 
 _ZL10parse_uintPPKcS0_Pj.exit.i.i:                ; preds = %57, %54
-  %59 = phi i32 [ %58, %57 ], [ 0, %54 ]
+  %60 = phi i32 [ %59, %57 ], [ 1, %54 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %.promoted.i.i21.i.i = load ptr, ptr %7, align 8
-  %60 = icmp ult ptr %.promoted.i.i21.i.i, %15
-  br i1 %60, label %.lr.ph.i.i25.i.i, label %_ZL11parse_spacePPKcS0_.exit.i22.i.i
+  %61 = icmp ult ptr %.promoted.i.i21.i.i, %15
+  br i1 %61, label %.lr.ph.i.i25.i.i, label %_ZL11parse_spacePPKcS0_.exit.i22.i.i
 
-.lr.ph.i.i25.i.i:                                 ; preds = %_ZL10parse_uintPPKcS0_Pj.exit.i.i, %63
-  %61 = phi ptr [ %64, %63 ], [ %.promoted.i.i21.i.i, %_ZL10parse_uintPPKcS0_Pj.exit.i.i ]
-  %62 = load i8, ptr %61, align 1
-  switch i8 %62, label %_ZL11parse_spacePPKcS0_.exit.i22.i.i [
-    i8 32, label %63
-    i8 13, label %63
-    i8 12, label %63
-    i8 10, label %63
-    i8 9, label %63
-    i8 11, label %63
+.lr.ph.i.i25.i.i:                                 ; preds = %_ZL10parse_uintPPKcS0_Pj.exit.i.i, %64
+  %62 = phi ptr [ %65, %64 ], [ %.promoted.i.i21.i.i, %_ZL10parse_uintPPKcS0_Pj.exit.i.i ]
+  %63 = load i8, ptr %62, align 1
+  switch i8 %63, label %_ZL11parse_spacePPKcS0_.exit.i22.i.i [
+    i8 32, label %64
+    i8 13, label %64
+    i8 12, label %64
+    i8 10, label %64
+    i8 9, label %64
+    i8 11, label %64
   ]
 
-63:                                               ; preds = %.lr.ph.i.i25.i.i, %.lr.ph.i.i25.i.i, %.lr.ph.i.i25.i.i, %.lr.ph.i.i25.i.i, %.lr.ph.i.i25.i.i, %.lr.ph.i.i25.i.i
-  %64 = getelementptr inbounds i8, ptr %61, i64 1
-  store ptr %64, ptr %7, align 8
-  %exitcond.not.i.i26.i.i = icmp eq ptr %64, %15
+64:                                               ; preds = %.lr.ph.i.i25.i.i, %.lr.ph.i.i25.i.i, %.lr.ph.i.i25.i.i, %.lr.ph.i.i25.i.i, %.lr.ph.i.i25.i.i, %.lr.ph.i.i25.i.i
+  %65 = getelementptr inbounds i8, ptr %62, i64 1
+  store ptr %65, ptr %7, align 8
+  %exitcond.not.i.i26.i.i = icmp eq ptr %65, %15
   br i1 %exitcond.not.i.i26.i.i, label %_ZL11parse_spacePPKcS0_.exit.i22.i.i, label %.lr.ph.i.i25.i.i, !llvm.loop !21
 
-_ZL11parse_spacePPKcS0_.exit.i22.i.i:             ; preds = %63, %.lr.ph.i.i25.i.i, %_ZL10parse_uintPPKcS0_Pj.exit.i.i
-  %.promoted.i.i28.i.i = phi ptr [ %.promoted.i.i21.i.i, %_ZL10parse_uintPPKcS0_Pj.exit.i.i ], [ %64, %63 ], [ %61, %.lr.ph.i.i25.i.i ]
-  %65 = icmp eq ptr %.promoted.i.i28.i.i, %15
-  br i1 %65, label %68, label %66
+_ZL11parse_spacePPKcS0_.exit.i22.i.i:             ; preds = %64, %.lr.ph.i.i25.i.i, %_ZL10parse_uintPPKcS0_Pj.exit.i.i
+  %.promoted.i.i28.i.i = phi ptr [ %.promoted.i.i21.i.i, %_ZL10parse_uintPPKcS0_Pj.exit.i.i ], [ %65, %64 ], [ %62, %.lr.ph.i.i25.i.i ]
+  %66 = icmp eq ptr %.promoted.i.i28.i.i, %15
+  br i1 %66, label %69, label %67
 
-66:                                               ; preds = %_ZL11parse_spacePPKcS0_.exit.i22.i.i
-  %67 = load i8, ptr %.promoted.i.i28.i.i, align 1
-  %.not.i23.i.i = icmp eq i8 %67, 58
-  br i1 %.not.i23.i.i, label %_ZL10parse_charPPKcS0_c.exit27.i.i, label %68
+67:                                               ; preds = %_ZL11parse_spacePPKcS0_.exit.i22.i.i
+  %68 = load i8, ptr %.promoted.i.i28.i.i, align 1
+  %.not.i23.i.i = icmp eq i8 %68, 58
+  br i1 %.not.i23.i.i, label %_ZL10parse_charPPKcS0_c.exit27.i.i, label %69
 
-68:                                               ; preds = %66, %_ZL11parse_spacePPKcS0_.exit.i22.i.i
-  %69 = icmp ult ptr %.promoted.i.i28.i.i, %15
-  br i1 %69, label %.lr.ph.i.i32.i.i, label %_ZL11parse_spacePPKcS0_.exit.i29.i.i
+69:                                               ; preds = %67, %_ZL11parse_spacePPKcS0_.exit.i22.i.i
+  %70 = icmp ult ptr %.promoted.i.i28.i.i, %15
+  br i1 %70, label %.lr.ph.i.i32.i.i, label %_ZL11parse_spacePPKcS0_.exit.i29.i.i
 
-.lr.ph.i.i32.i.i:                                 ; preds = %68, %72
-  %70 = phi ptr [ %73, %72 ], [ %.promoted.i.i28.i.i, %68 ]
-  %71 = load i8, ptr %70, align 1
-  switch i8 %71, label %_ZL11parse_spacePPKcS0_.exit.i29.i.i [
-    i8 32, label %72
-    i8 13, label %72
-    i8 12, label %72
-    i8 10, label %72
-    i8 9, label %72
-    i8 11, label %72
+.lr.ph.i.i32.i.i:                                 ; preds = %69, %73
+  %71 = phi ptr [ %74, %73 ], [ %.promoted.i.i28.i.i, %69 ]
+  %72 = load i8, ptr %71, align 1
+  switch i8 %72, label %_ZL11parse_spacePPKcS0_.exit.i29.i.i [
+    i8 32, label %73
+    i8 13, label %73
+    i8 12, label %73
+    i8 10, label %73
+    i8 9, label %73
+    i8 11, label %73
   ]
 
-72:                                               ; preds = %.lr.ph.i.i32.i.i, %.lr.ph.i.i32.i.i, %.lr.ph.i.i32.i.i, %.lr.ph.i.i32.i.i, %.lr.ph.i.i32.i.i, %.lr.ph.i.i32.i.i
-  %73 = getelementptr inbounds i8, ptr %70, i64 1
-  store ptr %73, ptr %7, align 8
-  %exitcond.not.i.i33.i.i = icmp eq ptr %73, %15
+73:                                               ; preds = %.lr.ph.i.i32.i.i, %.lr.ph.i.i32.i.i, %.lr.ph.i.i32.i.i, %.lr.ph.i.i32.i.i, %.lr.ph.i.i32.i.i, %.lr.ph.i.i32.i.i
+  %74 = getelementptr inbounds i8, ptr %71, i64 1
+  store ptr %74, ptr %7, align 8
+  %exitcond.not.i.i33.i.i = icmp eq ptr %74, %15
   br i1 %exitcond.not.i.i33.i.i, label %_ZL11parse_spacePPKcS0_.exit.i29.i.i, label %.lr.ph.i.i32.i.i, !llvm.loop !21
 
-_ZL11parse_spacePPKcS0_.exit.i29.i.i:             ; preds = %72, %.lr.ph.i.i32.i.i, %68
-  %74 = phi ptr [ %.promoted.i.i28.i.i, %68 ], [ %73, %72 ], [ %70, %.lr.ph.i.i32.i.i ]
-  %75 = icmp eq ptr %74, %15
-  br i1 %75, label %81, label %76
+_ZL11parse_spacePPKcS0_.exit.i29.i.i:             ; preds = %73, %.lr.ph.i.i32.i.i, %69
+  %75 = phi ptr [ %.promoted.i.i28.i.i, %69 ], [ %74, %73 ], [ %71, %.lr.ph.i.i32.i.i ]
+  %76 = icmp eq ptr %75, %15
+  br i1 %76, label %82, label %77
 
-76:                                               ; preds = %_ZL11parse_spacePPKcS0_.exit.i29.i.i
-  %77 = load i8, ptr %74, align 1
-  %.not.i30.i.i = icmp eq i8 %77, 59
-  br i1 %.not.i30.i.i, label %_ZL10parse_charPPKcS0_c.exit27.i.i, label %81
+77:                                               ; preds = %_ZL11parse_spacePPKcS0_.exit.i29.i.i
+  %78 = load i8, ptr %75, align 1
+  %.not.i30.i.i = icmp eq i8 %78, 59
+  br i1 %.not.i30.i.i, label %_ZL10parse_charPPKcS0_c.exit27.i.i, label %82
 
-_ZL10parse_charPPKcS0_c.exit27.i.i:               ; preds = %76, %66
-  %.pn.i.i = phi ptr [ %.promoted.i.i28.i.i, %66 ], [ %74, %76 ]
+_ZL10parse_charPPKcS0_c.exit27.i.i:               ; preds = %77, %67
+  %.pn.i.i = phi ptr [ %.promoted.i.i28.i.i, %67 ], [ %75, %77 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 1
   store ptr %storemerge.i.i, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %78 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %7, ptr noundef %15, ptr noundef nonnull %5, i1 noundef zeroext false)
-  br i1 %78, label %79, label %_ZL10parse_uintPPKcS0_Pj.exit35.i.i
+  %79 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %7, ptr noundef %15, ptr noundef nonnull %5, i1 noundef zeroext false)
+  br i1 %79, label %80, label %_ZL10parse_uintPPKcS0_Pj.exit35.i.i
 
-79:                                               ; preds = %_ZL10parse_charPPKcS0_c.exit27.i.i
-  %80 = load i32, ptr %5, align 4
-  store i32 %80, ptr %44, align 4
+80:                                               ; preds = %_ZL10parse_charPPKcS0_c.exit27.i.i
+  %81 = load i32, ptr %5, align 4
+  store i32 %81, ptr %44, align 4
   br label %_ZL10parse_uintPPKcS0_Pj.exit35.i.i
 
-_ZL10parse_uintPPKcS0_Pj.exit35.i.i:              ; preds = %79, %_ZL10parse_charPPKcS0_c.exit27.i.i
+_ZL10parse_uintPPKcS0_Pj.exit35.i.i:              ; preds = %80, %_ZL10parse_charPPKcS0_c.exit27.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.promoted.i.i36.i.i.pre = load ptr, ptr %7, align 8
   br label %84
 
-81:                                               ; preds = %76, %_ZL11parse_spacePPKcS0_.exit.i29.i.i
-  br i1 %56, label %82, label %84
+82:                                               ; preds = %77, %_ZL11parse_spacePPKcS0_.exit.i29.i.i
+  br i1 %56, label %83, label %84
 
-82:                                               ; preds = %81
-  %83 = add i32 %59, 1
-  store i32 %83, ptr %44, align 4
+83:                                               ; preds = %82
+  store i32 %60, ptr %44, align 4
   br label %84
 
-84:                                               ; preds = %82, %81, %_ZL10parse_uintPPKcS0_Pj.exit35.i.i
-  %.promoted.i.i36.i.i = phi ptr [ %74, %82 ], [ %74, %81 ], [ %.promoted.i.i36.i.i.pre, %_ZL10parse_uintPPKcS0_Pj.exit35.i.i ]
+84:                                               ; preds = %83, %82, %_ZL10parse_uintPPKcS0_Pj.exit35.i.i
+  %.promoted.i.i36.i.i = phi ptr [ %75, %83 ], [ %75, %82 ], [ %.promoted.i.i36.i.i.pre, %_ZL10parse_uintPPKcS0_Pj.exit35.i.i ]
   %85 = icmp ult ptr %.promoted.i.i36.i.i, %15
   br i1 %85, label %.lr.ph.i.i40.i.i, label %_ZL11parse_spacePPKcS0_.exit.i37.i.i
 
@@ -1948,7 +1948,7 @@ _ZL24_hb_ot_name_language_forjPK20hb_ot_language_map_tj.exit: ; preds = %15, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 65536) i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(416) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -1971,7 +1971,7 @@ define hidden noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK9hb_face_t9load_upemEv(ptr noundef nonnull align 8 dereferenceable(416) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 65536) i32 @_ZNK9hb_face_t9load_upemEv(ptr noundef nonnull align 8 dereferenceable(416) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4headE22hb_table_lazy_loader_tIS1_Lj1ELb1EE9hb_face_tLj1E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %4 = getelementptr inbounds i8, ptr %3, i64 16

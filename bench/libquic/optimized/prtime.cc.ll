@@ -1998,9 +1998,9 @@ while.cond1377:                                   ; preds = %while.body1425, %sw
 land.lhs.true1415:                                ; preds = %while.cond1377
   %arrayidx1416 = getelementptr inbounds i8, ptr %rest.4, i64 1
   %154 = load i8, ptr %arrayidx1416, align 1
-  %155 = add i8 %154, -48
-  %spec.select533 = icmp ult i8 %155, 10
-  br i1 %spec.select533, label %while.end1427, label %while.body1425
+  %155 = add i8 %154, -58
+  %spec.select533 = icmp ult i8 %155, -10
+  br i1 %spec.select533, label %while.body1425, label %while.end1427
 
 while.body1425:                                   ; preds = %while.cond1377, %land.lhs.true1415
   %incdec.ptr1426 = getelementptr inbounds i8, ptr %rest.4, i64 1

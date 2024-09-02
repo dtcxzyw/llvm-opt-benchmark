@@ -958,7 +958,7 @@ sw.bb80:                                          ; preds = %if.end51
   store ptr %incdec.ptr.i103, ptr %this, align 8
   %call83 = call i64 @_ZN6hermes2vm9JSONLexer14consumeUnicodeEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
   %cr.sroa.2.0.extract.shift = lshr i64 %call83, 32
-  %cr.sroa.2.0.extract.trunc = trunc i64 %cr.sroa.2.0.extract.shift to i16
+  %cr.sroa.2.0.extract.trunc = trunc nuw i64 %cr.sroa.2.0.extract.shift to i16
   %64 = and i64 %call83, 4294967295
   %cmp.i104 = icmp eq i64 %64, 0
   br i1 %cmp.i104, label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb1EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit, label %if.end87
@@ -1525,7 +1525,7 @@ sw.bb83:                                          ; preds = %if.end54
   store ptr %incdec.ptr.i106, ptr %this, align 8
   %call86 = call i64 @_ZN6hermes2vm9JSONLexer14consumeUnicodeEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
   %cr.sroa.2.0.extract.shift = lshr i64 %call86, 32
-  %cr.sroa.2.0.extract.trunc = trunc i64 %cr.sroa.2.0.extract.shift to i16
+  %cr.sroa.2.0.extract.trunc = trunc nuw i64 %cr.sroa.2.0.extract.shift to i16
   %74 = and i64 %call86, 4294967295
   %cmp.i107 = icmp eq i64 %74, 0
   br i1 %cmp.i107, label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb0EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit, label %if.end90
@@ -1756,7 +1756,7 @@ _ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit: ; preds = %_ZNK6hermes2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN6hermes2vm9JSONLexer14consumeUnicodeEv(ptr noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #0 align 2 {
+define hidden range(i64 0, 281474976710656) i64 @_ZN6hermes2vm9JSONLexer14consumeUnicodeEv(ptr noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ch.addr.i = alloca i16, align 2

@@ -266,7 +266,7 @@ if.end16:                                         ; preds = %if.end13.i, %entry,
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @string_list_has_string(ptr nocapture noundef readonly %list, ptr noundef %string) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @string_list_has_string(ptr nocapture noundef readonly %list, ptr noundef %string) local_unnamed_addr #3 {
 entry:
   %nr.i = getelementptr inbounds i8, ptr %list, i64 8
   %0 = load i64, ptr %nr.i, align 8

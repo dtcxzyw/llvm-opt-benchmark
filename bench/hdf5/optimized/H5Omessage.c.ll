@@ -1165,7 +1165,7 @@ define i32 @H5O__msg_count_real(ptr nocapture noundef readonly %0, ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5O_msg_exists(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @H5O_msg_exists(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 -1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1263,7 +1263,7 @@ define range(i32 0, 2) i32 @H5O_msg_exists_oh(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5O_msg_remove(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O_msg_remove(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
@@ -1364,7 +1364,7 @@ define range(i32 -1, 1) i32 @H5O__msg_remove_real(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @H5O_msg_remove_op(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O_msg_remove_op(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8

@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.b33826fb8f75625982dc851acd84f913.1 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.b33826fb8f75625982dc851acd84f913.0, [16 x i8] c"Z\00\00\00\00\00\00\00z\00\00\00\09\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h188bc99c27f0efb1E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h188bc99c27f0efb1E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8
@@ -33,7 +33,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h188bc99c27
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h31a97a37f845a402E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h31a97a37f845a402E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8
@@ -59,7 +59,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h31a97a37f8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h3369a3d8fd9f1accE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h3369a3d8fd9f1accE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8
@@ -85,7 +85,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h3369a3d8fd
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h37f50fbb05bc92aeE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h37f50fbb05bc92aeE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8
@@ -111,7 +111,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h37f50fbb05
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8c73e10d982ec95cE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8c73e10d982ec95cE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8
@@ -137,7 +137,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8c73e10d98
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hb820a4069dd8ca1fE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hb820a4069dd8ca1fE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8
@@ -163,7 +163,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hb820a4069d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc5ebd34a56499f0eE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc5ebd34a56499f0eE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8
@@ -189,7 +189,7 @@ define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc5ebd34a56
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf8529088fe3431c1E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
+define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf8529088fe3431c1E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = alloca [48 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8

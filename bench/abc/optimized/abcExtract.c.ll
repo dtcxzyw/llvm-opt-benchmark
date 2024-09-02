@@ -1928,12 +1928,15 @@ define void @Abc_NtkSharePrint(ptr nocapture noundef readonly %0) local_unnamed_
   %.val85 = load i32, ptr %26, align 4
   %29 = sext i32 %.val85 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %30, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %.lr.ph, %22
-  %.065.lcssa = phi i64 [ 0, %22 ], [ %indvars.iv.next, %.lr.ph ]
-  %31 = and i64 %.065.lcssa, 4294967295
-  %32 = getelementptr inbounds i8, ptr %7, i64 %31
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %31 = and i64 %indvars.iv.next, 4294967295
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
+  %.065.lcssa = phi i64 [ 0, %22 ], [ %31, %._crit_edge.loopexit ]
+  %32 = getelementptr inbounds i8, ptr %7, i64 %.065.lcssa
   store i8 0, ptr %32, align 1
   %33 = getelementptr i8, ptr %24, i64 4
   %.val8491 = load i32, ptr %33, align 4

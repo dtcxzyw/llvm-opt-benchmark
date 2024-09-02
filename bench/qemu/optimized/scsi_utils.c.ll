@@ -363,7 +363,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @scsi_build_sense_buf(ptr nocapture noundef writeonly %out_buf, i64 noundef %size, i24 %sense.coerce, i1 noundef zeroext %fixed_sense) local_unnamed_addr #4 {
+define dso_local range(i32 0, 19) i32 @scsi_build_sense_buf(ptr nocapture noundef writeonly %out_buf, i64 noundef %size, i24 %sense.coerce, i1 noundef zeroext %fixed_sense) local_unnamed_addr #4 {
 entry:
   %buf = alloca [18 x i8], align 16
   %sense.sroa.0.0.extract.trunc = trunc i24 %sense.coerce to i8

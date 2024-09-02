@@ -1038,7 +1038,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @uart_can_receive(ptr noundef %opaque) #0 {
+define internal range(i32 0, 17) i32 @uart_can_receive(ptr noundef %opaque) #0 {
 entry:
   %refclk = getelementptr inbounds i8, ptr %opaque, i64 1288
   %0 = load ptr, ptr %refclk, align 8

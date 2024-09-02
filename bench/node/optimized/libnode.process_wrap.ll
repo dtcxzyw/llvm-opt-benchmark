@@ -734,8 +734,8 @@ if.end.i1396:                                     ; preds = %_ZN2v810MaybeLocalI
   %sub.i.i1401 = add i64 %60, 11
   %61 = inttoptr i64 %sub.i.i1401 to ptr
   %62 = load i16, ptr %61, align 2
-  %cmp.i1403 = icmp ult i16 %62, 128
-  br i1 %cmp.i1403, label %do.end193, label %do.body190
+  %cmp.i1403 = icmp ugt i16 %62, 127
+  br i1 %cmp.i1403, label %do.body190, label %do.end193
 
 do.body190:                                       ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit1018, %if.end.i1396
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node12_GLOBAL__N_111ProcessWrap5SpawnERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_1) #17

@@ -972,7 +972,7 @@ define internal i64 @usblp_write(ptr nocapture noundef readonly %0, ptr noundef 
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = tail call i32 @mutex_lock_interruptible(ptr noundef %7) #11
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %.thread10
+  br i1 %9, label %10, label %.thread9
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %0, i64 72
@@ -981,16 +981,16 @@ define internal i64 @usblp_write(ptr nocapture noundef readonly %0, ptr noundef 
   %14 = and i32 %13, 1
   %15 = tail call fastcc i32 @usblp_wwait(ptr noundef %6, i32 noundef %14), !range !14
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %.thread12, label %18
+  br i1 %16, label %.thread11, label %18
 
-.thread12:                                        ; preds = %10
+.thread11:                                        ; preds = %10
   tail call void @mutex_unlock(ptr noundef %7) #11
   %17 = sext i32 %15 to i64
-  br label %.thread10
+  br label %.thread9
 
 18:                                               ; preds = %10
   %19 = icmp eq i64 %2, 0
-  br i1 %19, label %.loopexit14, label %20
+  br i1 %19, label %.loopexit13, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %6, i64 216
@@ -1005,7 +1005,7 @@ define internal i64 @usblp_write(ptr nocapture noundef readonly %0, ptr noundef 
   %28 = zext nneg i32 %96 to i64
   %29 = add i64 %32, %28
   %30 = icmp ult i64 %29, %2
-  br i1 %30, label %31, label %.loopexit14, !llvm.loop !24
+  br i1 %30, label %31, label %.loopexit13, !llvm.loop !24
 
 31:                                               ; preds = %27, %20
   %32 = phi i64 [ 0, %20 ], [ %29, %27 ]
@@ -1058,9 +1058,9 @@ define internal i64 @usblp_write(ptr nocapture noundef readonly %0, ptr noundef 
   store i32 %65, ptr %63, align 4
   tail call void @usb_anchor_urb(ptr noundef nonnull %40, ptr noundef %23) #11
   %66 = icmp slt i32 %34, 0
-  br i1 %66, label %.thread9, label %67, !prof !20
+  br i1 %66, label %.critedge, label %67, !prof !20
 
-.thread9:                                         ; preds = %43
+.critedge:                                        ; preds = %43
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #11, !srcloc !21
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.20, i32 249, i32 2307, i64 12) #11, !srcloc !22
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #11, !srcloc !23
@@ -1122,13 +1122,13 @@ define internal i64 @usblp_write(ptr nocapture noundef readonly %0, ptr noundef 
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %.thread, label %27
 
-.loopexit14:                                      ; preds = %27, %18
+.loopexit13:                                      ; preds = %27, %18
   %98 = phi i64 [ 0, %18 ], [ %29, %27 ]
   tail call void @mutex_unlock(ptr noundef %7) #11
-  br label %.thread10
+  br label %.thread9
 
-.loopexit:                                        ; preds = %67, %.thread9, %75
-  %99 = phi i32 [ %80, %75 ], [ -14, %.thread9 ], [ -14, %67 ]
+.loopexit:                                        ; preds = %67, %.critedge, %75
+  %99 = phi i32 [ %80, %75 ], [ -14, %.critedge ], [ -14, %67 ]
   tail call void @usb_unanchor_urb(ptr noundef nonnull %40) #11
   tail call void @usb_free_urb(ptr noundef nonnull %40) #11
   br label %.thread
@@ -1141,10 +1141,10 @@ define internal i64 @usblp_write(ptr nocapture noundef readonly %0, ptr noundef 
   %102 = sext i32 %100 to i64
   %103 = icmp eq i64 %.fr, 0
   %spec.select = select i1 %103, i64 %102, i64 %.fr
-  br label %.thread10
+  br label %.thread9
 
-.thread10:                                        ; preds = %.thread, %4, %.thread12, %.loopexit14
-  %104 = phi i64 [ %98, %.loopexit14 ], [ %17, %.thread12 ], [ -4, %4 ], [ %spec.select, %.thread ]
+.thread9:                                         ; preds = %.thread, %4, %.thread11, %.loopexit13
+  %104 = phi i64 [ %98, %.loopexit13 ], [ %17, %.thread11 ], [ -4, %4 ], [ %spec.select, %.thread ]
   ret i64 %104
 }
 
@@ -1227,7 +1227,7 @@ define internal range(i32 0, 384) i32 @usblp_poll(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @usblp_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
+define internal range(i64 -2147483648, 1024) i64 @usblp_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #2 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca [2 x i32], align 8

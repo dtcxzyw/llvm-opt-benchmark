@@ -92,8 +92,8 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
   br i1 %49, label %55, label %.critedge4.us
 
 .critedge4.us:                                    ; preds = %44, %.lr.ph108.us, %55
-  %.377.lcssa.us = phi i64 [ %indvars.iv, %44 ], [ %indvars.iv, %.lr.ph108.us ], [ %31, %55 ]
-  %50 = and i64 %.377.lcssa.us, 4294967295
+  %.377.lcssa.us.ph = phi i64 [ %indvars.iv, %44 ], [ %indvars.iv, %.lr.ph108.us ], [ %31, %55 ]
+  %50 = and i64 %.377.lcssa.us.ph, 4294967295
   %.not = icmp eq i64 %36, %50
   %.273.us.mux = select i1 %.not, ptr %.071119.us, ptr %.273.us
   %.071119.us.mux = select i1 %.not, ptr %.0122.us, ptr %.071119.us

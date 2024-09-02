@@ -947,7 +947,7 @@ if.end:                                           ; preds = %_ZN6hermes2vm7Hades
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN6hermes2vm7HadesGC6OldGen17getFreelistBucketEj(i32 noundef %size) local_unnamed_addr #6 align 2 {
+define hidden noundef range(i32 0, 536870912) i32 @_ZN6hermes2vm7HadesGC6OldGen17getFreelistBucketEj(i32 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp ult i32 %size, 2048
   %shr = lshr i32 %size, 3
@@ -1617,11 +1617,11 @@ for.body73:                                       ; preds = %if.end69, %_ZN6herm
   %cmp.i.i131.not = icmp eq i32 %43, 0
   %arrayidx.i.i135.phi.trans.insert = getelementptr inbounds [267 x %"struct.hermes::vm::HadesGC::OldGen::SegmentBucket"], ptr %buckets_81, i64 0, i64 %bucket70.0160
   %.pre = load ptr, ptr %arrayidx.i.i135.phi.trans.insert, align 8
-  %tobool83.not = icmp eq ptr %.pre, null
+  %44 = icmp eq ptr %.pre, null
   br i1 %cmp.i.i131.not, label %if.end80, label %if.then78
 
 if.then78:                                        ; preds = %for.body73
-  br i1 %tobool83.not, label %if.end80.thread, label %if.then.i134
+  br i1 %44, label %if.end80.thread, label %if.then.i134
 
 if.then.i134:                                     ; preds = %if.then78
   %prev.i = getelementptr inbounds i8, ptr %.pre, i64 8
@@ -1642,22 +1642,22 @@ if.end80:                                         ; preds = %for.body73
   %rem.i = and i64 %bucket70.0160, 63
   %shl.i = shl nuw i64 1, %rem.i
   %div4.i = lshr i64 %bucket70.0160, 6
-  br i1 %tobool83.not, label %if.else.i, label %if.then.i136
+  br i1 %44, label %if.else.i, label %if.then.i136
 
 if.then.i136:                                     ; preds = %if.end80.thread, %if.end80
   %div4.i175 = phi i64 [ %div4.i173, %if.end80.thread ], [ %div4.i, %if.end80 ]
   %shl.i174 = phi i64 [ %shl.i172, %if.end80.thread ], [ %shl.i, %if.end80 ]
   %arrayidx.i.i.i = getelementptr inbounds [5 x i64], ptr %freelistBucketBitArray_, i64 0, i64 %div4.i175
-  %44 = load i64, ptr %arrayidx.i.i.i, align 8
-  %or.i = or i64 %44, %shl.i174
+  %45 = load i64, ptr %arrayidx.i.i.i, align 8
+  %or.i = or i64 %45, %shl.i174
   store i64 %or.i, ptr %arrayidx.i.i.i, align 8
   br label %_ZN6hermes8BitArrayILm267ELm8EE3setEmb.exit
 
 if.else.i:                                        ; preds = %if.end80
   %not.i = xor i64 %shl.i, -1
   %arrayidx.i.i5.i = getelementptr inbounds [5 x i64], ptr %freelistBucketBitArray_, i64 0, i64 %div4.i
-  %45 = load i64, ptr %arrayidx.i.i5.i, align 8
-  %and.i = and i64 %45, %not.i
+  %46 = load i64, ptr %arrayidx.i.i5.i, align 8
+  %and.i = and i64 %46, %not.i
   store i64 %and.i, ptr %arrayidx.i.i5.i, align 8
   br label %_ZN6hermes8BitArrayILm267ELm8EE3setEmb.exit
 
@@ -1670,59 +1670,59 @@ for.end86:                                        ; preds = %_ZN6hermes8BitArray
   %sub87 = sub nsw i32 0, %segmentSweptBytes.0.lcssa168
   %conv.i137 = sext i32 %sub87 to i64
   %allocatedBytes_.i = getelementptr inbounds i8, ptr %this, i64 104
-  %46 = load i64, ptr %allocatedBytes_.i, align 8
-  %add.i = add i64 %46, %conv.i137
+  %47 = load i64, ptr %allocatedBytes_.i, align 8
+  %add.i = add i64 %47, %conv.i137
   store i64 %add.i, ptr %allocatedBytes_.i, align 8
   %conv88 = sext i32 %segmentSweptBytes.0.lcssa168 to i64
   %sweptBytes = getelementptr inbounds i8, ptr %this, i64 6656
-  %47 = load i64, ptr %sweptBytes, align 8
-  %add90 = add i64 %47, %conv88
+  %48 = load i64, ptr %sweptBytes, align 8
+  %add90 = add i64 %48, %conv88
   store i64 %add90, ptr %sweptBytes, align 8
-  %48 = load i64, ptr %externalBytes_.i, align 8
-  %sub92 = sub i64 %2, %48
+  %49 = load i64, ptr %externalBytes_.i, align 8
+  %sub92 = sub i64 %2, %49
   %sweptExternalBytes = getelementptr inbounds i8, ptr %this, i64 6664
-  %49 = load i64, ptr %sweptExternalBytes, align 8
-  %add94 = add i64 %sub92, %49
+  %50 = load i64, ptr %sweptExternalBytes, align 8
+  %add94 = add i64 %sub92, %50
   store i64 %add94, ptr %sweptExternalBytes, align 8
-  %50 = load i64, ptr %sweepIterator_, align 8
-  %tobool97.not = icmp eq i64 %50, 0
+  %51 = load i64, ptr %sweepIterator_, align 8
+  %tobool97.not = icmp eq i64 %51, 0
   br i1 %tobool97.not, label %if.end99, label %return
 
 if.end99:                                         ; preds = %for.end86
-  %51 = load ptr, ptr %this, align 8
-  %ogCollectionStats_ = getelementptr inbounds i8, ptr %51, i64 7736
-  %52 = load ptr, ptr %ogCollectionStats_, align 8
-  %allocatedBefore_.i = getelementptr inbounds i8, ptr %52, i64 128
-  %53 = load i64, ptr %allocatedBefore_.i, align 8
-  %spec.select = call i64 @llvm.umin.i64(i64 %add90, i64 %53)
-  %sweptBytes_.i = getelementptr inbounds i8, ptr %52, i64 160
+  %52 = load ptr, ptr %this, align 8
+  %ogCollectionStats_ = getelementptr inbounds i8, ptr %52, i64 7736
+  %53 = load ptr, ptr %ogCollectionStats_, align 8
+  %allocatedBefore_.i = getelementptr inbounds i8, ptr %53, i64 128
+  %54 = load i64, ptr %allocatedBefore_.i, align 8
+  %spec.select = call i64 @llvm.umin.i64(i64 %add90, i64 %54)
+  %sweptBytes_.i = getelementptr inbounds i8, ptr %53, i64 160
   store i64 %spec.select, ptr %sweptBytes_.i, align 8
-  %54 = load i64, ptr %sweptExternalBytes, align 8
-  %sweptExternalBytes_.i = getelementptr inbounds i8, ptr %52, i64 168
-  store i64 %54, ptr %sweptExternalBytes_.i, align 8
-  %externalBefore_.i = getelementptr inbounds i8, ptr %52, i64 136
-  %55 = load i64, ptr %externalBefore_.i, align 8
-  %56 = add i64 %spec.select, %54
-  %sub.i = sub i64 %53, %56
-  %add113 = add i64 %sub.i, %55
+  %55 = load i64, ptr %sweptExternalBytes, align 8
+  %sweptExternalBytes_.i = getelementptr inbounds i8, ptr %53, i64 168
+  store i64 %55, ptr %sweptExternalBytes_.i, align 8
+  %externalBefore_.i = getelementptr inbounds i8, ptr %53, i64 136
+  %56 = load i64, ptr %externalBefore_.i, align 8
+  %57 = add i64 %spec.select, %55
+  %sub.i = sub i64 %54, %57
+  %add113 = add i64 %sub.i, %56
   %conv114 = uitofp i64 %add113 to double
-  %57 = load ptr, ptr %this, align 8
-  %occupancyTarget_ = getelementptr inbounds i8, ptr %57, i64 7704
-  %58 = load double, ptr %occupancyTarget_, align 8
-  %div = fdiv double %conv114, %58
+  %58 = load ptr, ptr %this, align 8
+  %occupancyTarget_ = getelementptr inbounds i8, ptr %58, i64 7704
+  %59 = load double, ptr %occupancyTarget_, align 8
+  %div = fdiv double %conv114, %59
   %conv116 = fptoui double %div to i64
-  %maxHeapSize_ = getelementptr inbounds i8, ptr %57, i64 744
-  %59 = load i64, ptr %maxHeapSize_, align 8
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %59, i64 %conv116)
+  %maxHeapSize_ = getelementptr inbounds i8, ptr %58, i64 744
+  %60 = load i64, ptr %maxHeapSize_, align 8
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %60, i64 %conv116)
   %targetSizeBytes_ = getelementptr inbounds i8, ptr %this, i64 88
   %conv119 = uitofp i64 %.sroa.speculated to double
   %avg_.i = getelementptr inbounds i8, ptr %this, i64 96
-  %60 = load double, ptr %avg_.i, align 8
-  %61 = load double, ptr %targetSizeBytes_, align 8
-  %sub.i144 = fsub double 1.000000e+00, %61
-  %mul3.i = fmul double %61, %conv119
-  %62 = call double @llvm.fmuladd.f64(double %60, double %sub.i144, double %mul3.i)
-  store double %62, ptr %avg_.i, align 8
+  %61 = load double, ptr %avg_.i, align 8
+  %62 = load double, ptr %targetSizeBytes_, align 8
+  %sub.i144 = fsub double 1.000000e+00, %62
+  %mul3.i = fmul double %62, %conv119
+  %63 = call double @llvm.fmuladd.f64(double %61, double %sub.i144, double %mul3.i)
+  store double %63, ptr %avg_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sweepIterator_, i8 0, i64 24, i1 false)
   br label %return
 
@@ -5780,7 +5780,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm7HadesGC16segmentFootprintEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i64 0, -4194303) i64 @_ZNK6hermes2vm7HadesGC16segmentFootprintEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 928
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 896
@@ -12774,7 +12774,7 @@ lor.end:                                          ; preds = %"_ZSt6any_ofISt15_D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN6hermes2vm7HadesGC12getDrainRateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i64 8192, 0) i64 @_ZN6hermes2vm7HadesGC12getDrainRateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %this) local_unnamed_addr #8 align 2 {
 entry:
   %avg_.i = getelementptr inbounds i8, ptr %this, i64 8072
   %0 = load double, ptr %avg_.i, align 8

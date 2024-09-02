@@ -37,7 +37,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden i16 @_ZN4cvc58internal6theory5arith16isExpressionZeroERNS0_3EnvENS0_12NodeTemplateILb1EEERKNS2_9ArithSubsEb(ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %expr, ptr noundef nonnull align 8 dereferenceable(56) %subs, i1 noundef zeroext %traverseNlMult) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden range(i16 0, 512) i16 @_ZN4cvc58internal6theory5arith16isExpressionZeroERNS0_3EnvENS0_12NodeTemplateILb1EEERKNS2_9ArithSubsEb(ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %expr, ptr noundef nonnull align 8 dereferenceable(56) %subs, i1 noundef zeroext %traverseNlMult) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.266", align 8

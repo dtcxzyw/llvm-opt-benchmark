@@ -268,12 +268,12 @@ extract_update_targetlist_colnos.exit161:         ; preds = %97, %79, %.lr.ph.i1
 127:                                              ; preds = %126
   %128 = getelementptr inbounds i8, ptr %.4191195, i64 4
   %129 = load i32, ptr %128, align 4
+  %130 = trunc i32 %129 to i16
+  %131 = add i16 %130, 1
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %126, %127
-  %130 = phi i32 [ %129, %127 ], [ 0, %126 ]
-  %131 = trunc i32 %130 to i16
-  %132 = add i16 %131, 1
+  %132 = phi i16 [ %131, %127 ], [ 1, %126 ]
   %133 = tail call ptr @makeTargetEntry(ptr noundef nonnull %117, i16 noundef signext %132, ptr noundef null, i1 noundef zeroext true) #6
   %134 = tail call ptr @lappend(ptr noundef %.4191195, ptr noundef %133) #6
   br label %135
@@ -341,12 +341,12 @@ list_length.exit:                                 ; preds = %126, %127
 165:                                              ; preds = %160
   %166 = getelementptr inbounds i8, ptr %.6207242, i64 4
   %167 = load i32, ptr %166, align 4
+  %168 = trunc i32 %167 to i16
+  %169 = add i16 %168, 1
   br label %list_length.exit164
 
 list_length.exit164:                              ; preds = %160, %165
-  %168 = phi i32 [ %167, %165 ], [ 0, %160 ]
-  %169 = trunc i32 %168 to i16
-  %170 = add i16 %169, 1
+  %170 = phi i16 [ %169, %165 ], [ 1, %160 ]
   %171 = call ptr @pstrdup(ptr noundef nonnull %2) #6
   %172 = call ptr @makeTargetEntry(ptr noundef %161, i16 noundef signext %170, ptr noundef %171, i1 noundef zeroext true) #6
   %173 = call ptr @lappend(ptr noundef %.6207242, ptr noundef %172) #6
@@ -377,12 +377,12 @@ list_length.exit164:                              ; preds = %160, %165
 187:                                              ; preds = %177
   %188 = getelementptr inbounds i8, ptr %.8, i64 4
   %189 = load i32, ptr %188, align 4
+  %190 = trunc i32 %189 to i16
+  %191 = add i16 %190, 1
   br label %list_length.exit166
 
 list_length.exit166:                              ; preds = %177, %187
-  %190 = phi i32 [ %189, %187 ], [ 0, %177 ]
-  %191 = trunc i32 %190 to i16
-  %192 = add i16 %191, 1
+  %192 = phi i16 [ %191, %187 ], [ 1, %177 ]
   %193 = call ptr @pstrdup(ptr noundef nonnull %2) #6
   %194 = call ptr @makeTargetEntry(ptr noundef %183, i16 noundef signext %192, ptr noundef %193, i1 noundef zeroext true) #6
   %195 = call ptr @lappend(ptr noundef %.8, ptr noundef %194) #6
@@ -407,12 +407,12 @@ list_length.exit166:                              ; preds = %177, %187
 206:                                              ; preds = %200
   %207 = getelementptr inbounds i8, ptr %.9, i64 4
   %208 = load i32, ptr %207, align 4
+  %209 = trunc i32 %208 to i16
+  %210 = add i16 %209, 1
   br label %list_length.exit168
 
 list_length.exit168:                              ; preds = %200, %206
-  %209 = phi i32 [ %208, %206 ], [ 0, %200 ]
-  %210 = trunc i32 %209 to i16
-  %211 = add i16 %210, 1
+  %211 = phi i16 [ %210, %206 ], [ 1, %200 ]
   %212 = call ptr @pstrdup(ptr noundef nonnull %2) #6
   %213 = call ptr @makeTargetEntry(ptr noundef %202, i16 noundef signext %211, ptr noundef %212, i1 noundef zeroext true) #6
   %214 = call ptr @lappend(ptr noundef %.9, ptr noundef %213) #6
@@ -484,12 +484,12 @@ list_length.exit170:                              ; preds = %221
 244:                                              ; preds = %243
   %245 = getelementptr inbounds i8, ptr %.11214223, i64 4
   %246 = load i32, ptr %245, align 4
+  %247 = trunc i32 %246 to i16
+  %248 = add i16 %247, 1
   br label %list_length.exit172
 
 list_length.exit172:                              ; preds = %243, %244
-  %247 = phi i32 [ %246, %244 ], [ 0, %243 ]
-  %248 = trunc i32 %247 to i16
-  %249 = add i16 %248, 1
+  %249 = phi i16 [ %248, %244 ], [ 1, %243 ]
   %250 = call ptr @makeTargetEntry(ptr noundef nonnull %234, i16 noundef signext %249, ptr noundef null, i1 noundef zeroext true) #6
   %251 = call ptr @lappend(ptr noundef %.11214223, ptr noundef %250) #6
   br label %252

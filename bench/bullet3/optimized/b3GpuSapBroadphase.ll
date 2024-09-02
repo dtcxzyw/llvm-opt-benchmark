@@ -6086,6 +6086,7 @@ invoke.cont87:                                    ; preds = %invoke.cont69
 
 invoke.cont87.if.end98_crit_edge:                 ; preds = %invoke.cont87
   %.pre1066 = load i32, ptr %axis, align 4
+  %64 = sext i32 %.pre1066 to i64
   br label %if.end98
 
 if.then97:                                        ; preds = %invoke.cont87
@@ -6093,14 +6094,13 @@ if.then97:                                        ; preds = %invoke.cont87
   br label %if.end98
 
 lpad48:                                           ; preds = %if.then3.i.i, %.noexc653, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i, %invoke.cont63, %if.end.i, %invoke.cont69, %invoke.cont64, %invoke.cont58, %invoke.cont54, %invoke.cont51, %invoke.cont47
-  %64 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher) #20
   br label %ehcleanup
 
 if.end98:                                         ; preds = %invoke.cont87.if.end98_crit_edge, %if.then97
-  %65 = phi i32 [ %.pre1066, %invoke.cont87.if.end98_crit_edge ], [ 1, %if.then97 ]
-  %idxprom = sext i32 %65 to i64
+  %idxprom = phi i64 [ %64, %invoke.cont87.if.end98_crit_edge ], [ 1, %if.then97 ]
   %arrayidx104 = getelementptr inbounds float, ptr %v, i64 %idxprom
   %66 = load float, ptr %arrayidx104, align 4
   %cmp105 = fcmp ogt float %sub7.i, %66
@@ -6127,7 +6127,7 @@ terminate.lpad.i:                                 ; preds = %if.end107
   unreachable
 
 ehcleanup:                                        ; preds = %lpad48, %lpad6
-  %.pn = phi { ptr, i32 } [ %64, %lpad48 ], [ %25, %lpad6 ]
+  %.pn = phi { ptr, i32 } [ %65, %lpad48 ], [ %25, %lpad6 ]
   invoke void @b3LeaveProfileZone()
           to label %ehcleanup337 unwind label %terminate.lpad.i87
 

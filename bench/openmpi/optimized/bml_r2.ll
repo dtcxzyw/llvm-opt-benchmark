@@ -542,7 +542,7 @@ define noundef i32 @mca_bml_r2_component_fini() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mca_bml_r2_add_proc(ptr noundef %0) #0 {
+define internal range(i32 -12, 1) i32 @mca_bml_r2_add_proc(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8

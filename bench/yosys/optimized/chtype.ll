@@ -903,16 +903,16 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %_ZSt22__uninitializ
   %316 = lshr exact i64 %315, 2
   %317 = trunc i64 %316 to i32
   %318 = urem i32 %312, %317
+  %319 = sext i32 %318 to i64
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i: ; preds = %311, %.lr.ph.i
-  %.0.i.i = phi i32 [ 0, %.lr.ph.i ], [ %318, %311 ]
-  %319 = sext i32 %.0.i.i to i64
-  %320 = getelementptr inbounds i32, ptr %308, i64 %319
+  %.0.i.i = phi i64 [ 0, %.lr.ph.i ], [ %319, %311 ]
+  %320 = getelementptr inbounds i32, ptr %308, i64 %.0.i.i
   %321 = load i32, ptr %320, align 4
   store i32 %321, ptr %307, align 4
   %322 = load ptr, ptr %9, align 8
-  %323 = getelementptr inbounds i32, ptr %322, i64 %319
+  %323 = getelementptr inbounds i32, ptr %322, i64 %.0.i.i
   %324 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %324, ptr %323, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1185,16 +1185,16 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i94:        ; preds = %_ZSt22__uninitializ
   %465 = lshr exact i64 %464, 2
   %466 = trunc i64 %465 to i32
   %467 = urem i32 %461, %466
+  %468 = sext i32 %467 to i64
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i97
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i97: ; preds = %460, %.lr.ph.i95
-  %.0.i.i98 = phi i32 [ 0, %.lr.ph.i95 ], [ %467, %460 ]
-  %468 = sext i32 %.0.i.i98 to i64
-  %469 = getelementptr inbounds i32, ptr %457, i64 %468
+  %.0.i.i98 = phi i64 [ 0, %.lr.ph.i95 ], [ %468, %460 ]
+  %469 = getelementptr inbounds i32, ptr %457, i64 %.0.i.i98
   %470 = load i32, ptr %469, align 4
   store i32 %470, ptr %456, align 4
   %471 = load ptr, ptr %9, align 8
-  %472 = getelementptr inbounds i32, ptr %471, i64 %468
+  %472 = getelementptr inbounds i32, ptr %471, i64 %.0.i.i98
   %473 = trunc nuw nsw i64 %indvars.iv.i96 to i32
   store i32 %473, ptr %472, align 4
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i96, 1
@@ -2432,16 +2432,16 @@ _ZN5Yosys7hashlib13hash_cstr_ops4hashEPKc.exit.i: ; preds = %.lr.ph.i.i, %48
   %60 = lshr exact i64 %59, 2
   %61 = trunc i64 %60 to i32
   %62 = urem i32 %.0.lcssa.i.i, %61
+  %63 = sext i32 %62 to i64
   br label %_ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit
 
 _ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit: ; preds = %.lr.ph, %_ZN5Yosys7hashlib13hash_cstr_ops4hashEPKc.exit.i
-  %.0.i = phi i32 [ 0, %.lr.ph ], [ %62, %_ZN5Yosys7hashlib13hash_cstr_ops4hashEPKc.exit.i ]
-  %63 = sext i32 %.0.i to i64
-  %64 = getelementptr inbounds i32, ptr %45, i64 %63
+  %.0.i = phi i64 [ 0, %.lr.ph ], [ %63, %_ZN5Yosys7hashlib13hash_cstr_ops4hashEPKc.exit.i ]
+  %64 = getelementptr inbounds i32, ptr %45, i64 %.0.i
   %65 = load i32, ptr %64, align 4
   store i32 %65, ptr %44, align 8
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i32, ptr %66, i64 %63
+  %67 = getelementptr inbounds i32, ptr %66, i64 %.0.i
   %68 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %68, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4250,16 +4250,16 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   %53 = lshr exact i64 %52, 2
   %54 = trunc i64 %53 to i32
   %55 = urem i32 %49, %54
+  %56 = sext i32 %55 to i64
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringES3_NS0_8hash_opsIS3_EEE7do_hashERKS3_.exit: ; preds = %.lr.ph, %48
-  %.0.i = phi i32 [ 0, %.lr.ph ], [ %55, %48 ]
-  %56 = sext i32 %.0.i to i64
-  %57 = getelementptr inbounds i32, ptr %45, i64 %56
+  %.0.i = phi i64 [ 0, %.lr.ph ], [ %56, %48 ]
+  %57 = getelementptr inbounds i32, ptr %45, i64 %.0.i
   %58 = load i32, ptr %57, align 4
   store i32 %58, ptr %44, align 4
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i32, ptr %59, i64 %56
+  %60 = getelementptr inbounds i32, ptr %59, i64 %.0.i
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %61, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

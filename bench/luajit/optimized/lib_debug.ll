@@ -506,7 +506,7 @@ debug_getupvalue.exit:                            ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @lj_cf_debug_setupvalue(ptr noundef %L) #0 {
+define internal range(i32 0, 2) i32 @lj_cf_debug_setupvalue(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checkany(ptr noundef %L, i32 noundef 3) #9
   %call.i = tail call i32 @lj_lib_checkint(ptr noundef %L, i32 noundef 2) #9

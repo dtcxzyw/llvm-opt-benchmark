@@ -531,28 +531,28 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %31 = load i32, ptr %22, align 8
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph.i, label %EvalSegmentedFn.exit
+  br i1 %32, label %.lr.ph.i, label %EvalSegmentedFn.exit.thread
 
 .lr.ph.i:                                         ; preds = %27
   %33 = load ptr, ptr %23, align 8
   %34 = zext nneg i32 %31 to i64
   br label %35
 
-35:                                               ; preds = %77, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %34, %.lr.ph.i ], [ %indvars.iv.next.i, %77 ]
+35:                                               ; preds = %76, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %34, %.lr.ph.i ], [ %indvars.iv.next.i, %76 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %36 = getelementptr inbounds %struct.cmsCurveSegment, ptr %33, i64 %indvars.iv.next.i
   %37 = load float, ptr %36, align 8
   %38 = fpext float %37 to double
   %39 = fcmp ogt double %30, %38
-  br i1 %39, label %40, label %77
+  br i1 %39, label %40, label %76
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds i8, ptr %36, i64 4
   %42 = load float, ptr %41, align 4
   %43 = fpext float %42 to double
   %44 = fcmp ugt double %30, %43
-  br i1 %44, label %77, label %45
+  br i1 %44, label %76, label %45
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %36, i64 8
@@ -595,41 +595,47 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
   %.0.i = phi double [ %66, %49 ], [ %72, %67 ]
   %74 = call double @llvm.fabs.f64(double %.0.i) #14
   %75 = fcmp oeq double %74, 0x7FF0000000000000
-  br i1 %75, label %EvalSegmentedFn.exit, label %76
+  br i1 %75, label %.thread, label %EvalSegmentedFn.exit
 
-76:                                               ; preds = %73
-  br label %EvalSegmentedFn.exit
-
-77:                                               ; preds = %40, %35
-  %78 = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %78, label %35, label %EvalSegmentedFn.exit, !llvm.loop !13
-
-EvalSegmentedFn.exit:                             ; preds = %77, %27, %73, %76
-  %.037.i = phi double [ %.0.i, %76 ], [ 0x4480F0CF00000000, %73 ], [ 0xC480F0CF00000000, %27 ], [ 0xC480F0CF00000000, %77 ]
+.thread:                                          ; preds = %73
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %79 = fmul double %.037.i, 6.553500e+04
-  %80 = fadd double %79, 5.000000e-01
-  %81 = fcmp ugt double %80, 0.000000e+00
-  br i1 %81, label %82, label %_cmsQuickSaturateWord.exit
-
-82:                                               ; preds = %EvalSegmentedFn.exit
-  %83 = fcmp ult double %80, 6.553500e+04
-  br i1 %83, label %84, label %_cmsQuickSaturateWord.exit
-
-84:                                               ; preds = %82
-  %85 = fadd double %80, -3.276700e+04
-  %86 = call double @llvm.floor.f64(double %85)
-  %87 = fptosi double %86 to i32
-  %88 = trunc i32 %87 to i16
-  %89 = add i16 %88, 32767
   br label %_cmsQuickSaturateWord.exit
 
-_cmsQuickSaturateWord.exit:                       ; preds = %EvalSegmentedFn.exit, %82, %84
-  %.0.i22 = phi i16 [ %89, %84 ], [ 0, %EvalSegmentedFn.exit ], [ -1, %82 ]
-  %90 = load ptr, ptr %26, align 8
-  %91 = getelementptr inbounds i16, ptr %90, i64 %indvars.iv
-  store i16 %.0.i22, ptr %91, align 2
+76:                                               ; preds = %40, %35
+  %77 = icmp ugt i64 %indvars.iv.i, 1
+  br i1 %77, label %35, label %EvalSegmentedFn.exit.thread, !llvm.loop !13
+
+EvalSegmentedFn.exit.thread:                      ; preds = %76, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  br label %_cmsQuickSaturateWord.exit
+
+EvalSegmentedFn.exit:                             ; preds = %73
+  %78 = fmul double %.0.i, 6.553500e+04
+  %79 = fadd double %78, 5.000000e-01
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  %80 = fcmp ugt double %79, 0.000000e+00
+  br i1 %80, label %81, label %_cmsQuickSaturateWord.exit
+
+81:                                               ; preds = %EvalSegmentedFn.exit
+  %82 = fcmp ult double %79, 6.553500e+04
+  br i1 %82, label %83, label %_cmsQuickSaturateWord.exit
+
+83:                                               ; preds = %81
+  %84 = fadd double %79, -3.276700e+04
+  %85 = call double @llvm.floor.f64(double %84)
+  %86 = fptosi double %85 to i32
+  %87 = trunc i32 %86 to i16
+  %88 = add i16 %87, 32767
+  br label %_cmsQuickSaturateWord.exit
+
+_cmsQuickSaturateWord.exit:                       ; preds = %.thread, %EvalSegmentedFn.exit.thread, %EvalSegmentedFn.exit, %81, %83
+  %.0.i22 = phi i16 [ %88, %83 ], [ 0, %EvalSegmentedFn.exit ], [ -1, %81 ], [ 0, %EvalSegmentedFn.exit.thread ], [ -1, %.thread ]
+  %89 = load ptr, ptr %26, align 8
+  %90 = getelementptr inbounds i16, ptr %89, i64 %indvars.iv
+  store i16 %.0.i22, ptr %90, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !14

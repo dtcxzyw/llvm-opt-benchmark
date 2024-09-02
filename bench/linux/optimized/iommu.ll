@@ -111,7 +111,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_amd_iommu_pc_init391], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @amd_iommu_pc_init() #0 section ".init.text" align 16 {
+define internal noundef range(i32 -19, 1) i32 @amd_iommu_pc_init() #0 section ".init.text" align 16 {
   %1 = tail call zeroext i1 @amd_iommu_pc_supported() #12
   br i1 %1, label %2, label %22
 

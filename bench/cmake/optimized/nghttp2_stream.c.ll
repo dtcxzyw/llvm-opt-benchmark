@@ -234,7 +234,7 @@ define dso_local void @nghttp2_stream_change_weight(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @nghttp2_stream_dep_distributed_weight(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 1, -2147483648) i32 @nghttp2_stream_dep_distributed_weight(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load i32, ptr %3, align 8
   %5 = mul nsw i32 %4, %1
@@ -863,7 +863,7 @@ define dso_local i32 @nghttp2_stream_dep_remove(ptr noundef %0) local_unnamed_ad
   %13 = mul nsw i32 %12, %11
   %14 = load i32, ptr %6, align 8
   %15 = sdiv i32 %13, %14
-  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 1)
+  %16 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %15, i32 1)
   store i32 %16, ptr %10, align 8
   %17 = add nsw i32 %16, %.02960
   %18 = getelementptr inbounds i8, ptr %.03061, i64 218

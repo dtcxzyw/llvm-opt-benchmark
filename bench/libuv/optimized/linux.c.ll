@@ -483,7 +483,7 @@ return:                                           ; preds = %for.body, %if.end4,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @uv__io_fork(ptr noundef %loop) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__io_fork(ptr noundef %loop) local_unnamed_addr #0 {
 entry:
   %tmp_watcher_list.i = alloca %struct.watcher_list, align 8
   %queue.i = alloca %struct.uv__queue, align 8
@@ -2273,9 +2273,9 @@ if.end:                                           ; preds = %if.then, %entry
   %2 = load i64, ptr %time, align 8
   %3 = load i32, ptr %0, align 8
   %and5 = and i32 %3, 1
-  %tobool6.not.not = icmp eq i32 %and5, 0
-  %.timeout = select i1 %tobool6.not.not, i32 0, i32 %timeout
-  %timeout. = select i1 %tobool6.not.not, i32 %timeout, i32 0
+  %tobool6.not = icmp eq i32 %and5, 0
+  %.timeout = select i1 %tobool6.not, i32 0, i32 %timeout
+  %timeout. = select i1 %tobool6.not, i32 %timeout, i32 0
   %backend_fd = getelementptr inbounds i8, ptr %loop, i64 64
   %4 = load i32, ptr %backend_fd, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %e, i8 0, i64 12, i1 false)
@@ -2344,18 +2344,18 @@ while.end:                                        ; preds = %while.body, %if.end
 for.cond.outer:                                   ; preds = %if.then140, %while.end
   %count.0.ph = phi i32 [ %dec, %if.then140 ], [ 48, %while.end ]
   %real_timeout.0.ph = phi i32 [ %real_timeout.0.ph103, %if.then140 ], [ %timeout, %while.end ]
-  %reset_timeout.1.ph = phi i32 [ 0, %if.then140 ], [ %and5, %while.end ]
+  %reset_timeout.1.ph = phi i1 [ true, %if.then140 ], [ %tobool6.not, %while.end ]
   %timeout.addr.1.ph = phi i32 [ 0, %if.then140 ], [ %timeout., %while.end ]
   br label %for.cond.outer102
 
 for.cond.outer102:                                ; preds = %for.cond.outer, %if.end156
   %real_timeout.0.ph103 = phi i32 [ %real_timeout.0.ph, %for.cond.outer ], [ %conv160, %if.end156 ]
-  %reset_timeout.1.ph104 = phi i32 [ %reset_timeout.1.ph, %for.cond.outer ], [ 0, %if.end156 ]
+  %reset_timeout.1.ph104 = phi i1 [ %reset_timeout.1.ph, %for.cond.outer ], [ true, %if.end156 ]
   %timeout.addr.1.ph105 = phi i32 [ %timeout.addr.1.ph, %for.cond.outer ], [ %conv160, %if.end156 ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.outer102, %update_timeout
-  %reset_timeout.1 = phi i32 [ 0, %update_timeout ], [ %reset_timeout.1.ph104, %for.cond.outer102 ]
+  %reset_timeout.1 = phi i1 [ true, %update_timeout ], [ %reset_timeout.1.ph104, %for.cond.outer102 ]
   %timeout.addr.1 = phi i32 [ %timeout.addr.2, %update_timeout ], [ %timeout.addr.1.ph105, %for.cond.outer102 ]
   %14 = load i32, ptr %nfds24, align 4
   %cmp25 = icmp eq i32 %14, 0
@@ -2441,11 +2441,10 @@ uv__update_time.exit:                             ; preds = %done.i.i, %if.end12
   br i1 %or.cond, label %if.then56, label %if.end64
 
 if.then56:                                        ; preds = %uv__update_time.exit
-  %cmp54 = icmp ne i32 %call42, 0
-  %cmp57.not = icmp ne i32 %reset_timeout.1, 0
-  %brmerge = select i1 %cmp57.not, i1 true, i1 %cmp54
-  %.timeout.mux = select i1 %cmp57.not, i32 %.timeout, i32 %timeout.addr.1
-  br i1 %brmerge, label %update_timeout, label %if.end177
+  %cmp54 = icmp eq i32 %call42, 0
+  %brmerge.not = select i1 %reset_timeout.1, i1 %cmp54, i1 false
+  %.timeout.mux = select i1 %reset_timeout.1, i32 %timeout.addr.1, i32 %.timeout
+  br i1 %brmerge.not, label %if.end177, label %update_timeout
 
 if.end64:                                         ; preds = %uv__update_time.exit
   store i32 %call42, ptr %nfds23, align 8
@@ -2788,8 +2787,7 @@ do.body107:                                       ; preds = %for.inc, %if.end64
   %102 = load i64, ptr %events109, align 8
   %add = add i64 %102, %conv
   store i64 %add, ptr %events109, align 8
-  %cmp111.not = icmp eq i32 %reset_timeout.1, 0
-  br i1 %cmp111.not, label %if.end121, label %if.then113
+  br i1 %reset_timeout.1, label %if.end121, label %if.then113
 
 if.then113:                                       ; preds = %do.body107
   %103 = load ptr, ptr %internal_fields, align 8
@@ -4623,7 +4621,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_fs_event_start(ptr noundef %handle, ptr noundef %cb, ptr noundef %path, i32 %flags) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_fs_event_start(ptr noundef %handle, ptr noundef %cb, ptr noundef %path, i32 %flags) local_unnamed_addr #0 {
 entry:
   %flags1 = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags1, align 8
@@ -4761,9 +4759,9 @@ if.else25.i:                                      ; preds = %if.end19
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.else25.i, %if.then14.i
-  %tmp.026.lcssa41.sink.i = phi ptr [ %6, %if.else25.i ], [ %spec.select.i, %if.then14.i ]
+  %tmp.026.sink.i = phi ptr [ %6, %if.else25.i ], [ %spec.select.i, %if.then14.i ]
   %rbe_parent38.i = phi ptr [ %rbe_parent34.i, %if.else25.i ], [ %rbe_parent.i, %if.then14.i ]
-  store ptr %call16, ptr %tmp.026.lcssa41.sink.i, align 8
+  store ptr %call16, ptr %tmp.026.sink.i, align 8
   %9 = load ptr, ptr %rbe_parent38.i, align 8
   %cmp.not115.i.i = icmp eq ptr %9, null
   br i1 %cmp.not115.i.i, label %watcher_root_RB_INSERT_COLOR.exit.i, label %land.rhs.i.i

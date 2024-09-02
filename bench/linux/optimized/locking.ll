@@ -117,28 +117,28 @@ define internal fastcc range(i32 -512, 1) i32 @netfs_block_o_direct(ptr noundef 
   call void @prepare_to_wait(ptr noundef %13, ptr noundef %16, i32 noundef 1) #4
   %23 = load volatile i32, ptr %8, align 4
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread, label %.preheader
+  br i1 %24, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %11, %32
   %25 = load volatile i64, ptr %19, align 8
   %26 = and i64 %25, 131072
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %.thread, !prof !9
+  br i1 %27, label %28, label %.critedge, !prof !9
 
 28:                                               ; preds = %.preheader
   %29 = load volatile i64, ptr %19, align 8
   %30 = and i64 %29, 4
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %.thread
+  br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %28
   call void @schedule() #4
   call void @prepare_to_wait(ptr noundef %13, ptr noundef %16, i32 noundef 1) #4
   %33 = load volatile i32, ptr %8, align 4
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.thread, label %.preheader, !llvm.loop !10
+  br i1 %34, label %.critedge, label %.preheader, !llvm.loop !10
 
-.thread:                                          ; preds = %.preheader, %32, %28, %11
+.critedge:                                        ; preds = %.preheader, %32, %28, %11
   call void @finish_wait(ptr noundef %13, ptr noundef %16) #4
   %35 = load volatile i32, ptr %8, align 4
   %36 = icmp eq i32 %35, 0
@@ -146,8 +146,8 @@ define internal fastcc range(i32 -512, 1) i32 @netfs_block_o_direct(ptr noundef 
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #4
   br label %38
 
-38:                                               ; preds = %.thread, %7, %1
-  %39 = phi i32 [ 0, %1 ], [ %37, %.thread ], [ 0, %7 ]
+38:                                               ; preds = %.critedge, %7, %1
+  %39 = phi i32 [ 0, %1 ], [ %37, %.critedge ], [ 0, %7 ]
   ret i32 %39
 }
 

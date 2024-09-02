@@ -1797,12 +1797,12 @@ for.cond70:                                       ; preds = %invoke.cont66, %for
 if.end.i.i:                                       ; preds = %for.cond70
   %arrayidx.i.i167 = getelementptr inbounds i8, ptr %111, i64 -4
   %112 = load i32, ptr %arrayidx.i.i167, align 4
+  %113 = zext i32 %112 to i64
   br label %invoke.cont71
 
 invoke.cont71:                                    ; preds = %if.end.i.i, %for.cond70
-  %retval.0.i.i = phi i32 [ %112, %if.end.i.i ], [ 0, %for.cond70 ]
-  %113 = zext i32 %retval.0.i.i to i64
-  %cmp73 = icmp ult i64 %indvars.iv420, %113
+  %retval.0.i.i = phi i64 [ %113, %if.end.i.i ], [ 0, %for.cond70 ]
+  %cmp73 = icmp ult i64 %indvars.iv420, %retval.0.i.i
   br i1 %cmp73, label %invoke.cont77, label %for.end91
 
 invoke.cont77:                                    ; preds = %invoke.cont71

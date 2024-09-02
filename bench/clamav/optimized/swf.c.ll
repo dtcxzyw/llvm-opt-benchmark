@@ -835,32 +835,35 @@ fmap_readn.exit273:                               ; preds = %287
   %294 = zext i8 %290 to i32
   %295 = add nuw i64 %.1232468, 1
   %296 = icmp ugt i32 %291, 8
-  br i1 %296, label %.lr.ph, label %._crit_edge
+  br i1 %296, label %.lr.ph, label %._crit_edge.loopexit
 
 fmap_readn.exit273.thread:                        ; preds = %287, %.lr.ph
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.12) #8
   br label %.loopexit
 
-._crit_edge:                                      ; preds = %fmap_readn.exit273, %279
-  %.1232.lcssa = phi i64 [ 9, %279 ], [ %295, %fmap_readn.exit273 ]
-  %.1227.lcssa = phi i32 [ %282, %279 ], [ %291, %fmap_readn.exit273 ]
-  %.1222.lcssa = phi i32 [ %283, %279 ], [ %294, %fmap_readn.exit273 ]
-  %.1216.lcssa = phi i32 [ 0, %279 ], [ %293, %fmap_readn.exit273 ]
-  %.1.lcssa = phi i32 [ 3, %279 ], [ 8, %fmap_readn.exit273 ]
-  %297 = sub nuw nsw i32 %.1.lcssa, %.1227.lcssa
-  %298 = lshr i32 %.1222.lcssa, %297
-  %299 = sub nuw nsw i32 8, %297
-  %300 = lshr i32 255, %299
-  %301 = and i32 %300, %.1222.lcssa
-  %302 = and i32 %.1216.lcssa, 65535
-  %303 = or i32 %298, %302
-  %304 = icmp ugt i32 %282, %297
+._crit_edge.loopexit:                             ; preds = %fmap_readn.exit273
+  %297 = and i32 %293, 65535
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %279
+  %.1232.lcssa = phi i64 [ 9, %279 ], [ %295, %._crit_edge.loopexit ]
+  %.1227.lcssa = phi i32 [ %282, %279 ], [ %291, %._crit_edge.loopexit ]
+  %.1222.lcssa = phi i32 [ %283, %279 ], [ %294, %._crit_edge.loopexit ]
+  %.1216.lcssa = phi i32 [ 0, %279 ], [ %297, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ 3, %279 ], [ 8, %._crit_edge.loopexit ]
+  %298 = sub nuw nsw i32 %.1.lcssa, %.1227.lcssa
+  %299 = lshr i32 %.1222.lcssa, %298
+  %300 = sub nuw nsw i32 8, %298
+  %301 = lshr i32 255, %300
+  %302 = and i32 %301, %.1222.lcssa
+  %303 = or i32 %299, %.1216.lcssa
+  %304 = icmp ugt i32 %282, %298
   br i1 %304, label %.lr.ph487, label %._crit_edge488
 
 .lr.ph487:                                        ; preds = %._crit_edge, %fmap_readn.exit278
-  %.2485 = phi i32 [ 8, %fmap_readn.exit278 ], [ %297, %._crit_edge ]
+  %.2485 = phi i32 [ 8, %fmap_readn.exit278 ], [ %298, %._crit_edge ]
   %.2217484 = phi i32 [ %312, %fmap_readn.exit278 ], [ 0, %._crit_edge ]
-  %.2223483 = phi i32 [ %313, %fmap_readn.exit278 ], [ %301, %._crit_edge ]
+  %.2223483 = phi i32 [ %313, %fmap_readn.exit278 ], [ %302, %._crit_edge ]
   %.2228482 = phi i32 [ %310, %fmap_readn.exit278 ], [ %282, %._crit_edge ]
   %.2233481 = phi i64 [ %314, %fmap_readn.exit278 ], [ %.1232.lcssa, %._crit_edge ]
   %305 = load i64, ptr %16, align 8
@@ -890,9 +893,9 @@ fmap_readn.exit278.thread:                        ; preds = %306, %.lr.ph487
 ._crit_edge488:                                   ; preds = %fmap_readn.exit278, %._crit_edge
   %.2233.lcssa = phi i64 [ %.1232.lcssa, %._crit_edge ], [ %314, %fmap_readn.exit278 ]
   %.2228.lcssa = phi i32 [ %282, %._crit_edge ], [ %310, %fmap_readn.exit278 ]
-  %.2223.lcssa = phi i32 [ %301, %._crit_edge ], [ %313, %fmap_readn.exit278 ]
+  %.2223.lcssa = phi i32 [ %302, %._crit_edge ], [ %313, %fmap_readn.exit278 ]
   %.2217.lcssa = phi i32 [ 0, %._crit_edge ], [ %312, %fmap_readn.exit278 ]
-  %.2.lcssa = phi i32 [ %297, %._crit_edge ], [ 8, %fmap_readn.exit278 ]
+  %.2.lcssa = phi i32 [ %298, %._crit_edge ], [ 8, %fmap_readn.exit278 ]
   %316 = sub nuw nsw i32 %.2.lcssa, %.2228.lcssa
   %317 = lshr i32 %.2223.lcssa, %316
   %318 = sub nuw nsw i32 8, %316

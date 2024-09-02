@@ -10764,8 +10764,8 @@ if.end:                                           ; preds = %if.end.i71, %if.els
   %_specifiers = getelementptr inbounds i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin2.sroa.0.020 = load ptr, ptr %Next.i.i.i.i, align 8
-  %cmp.i15.not21 = icmp eq ptr %__begin2.sroa.0.020, %_specifiers
-  br i1 %cmp.i15.not21, label %for.end, label %for.body
+  %cmp.i16.not21 = icmp eq ptr %__begin2.sroa.0.020, %_specifiers
+  br i1 %cmp.i16.not21, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %__begin2.sroa.0.024 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.020, %if.end ]
@@ -10774,8 +10774,8 @@ for.body:                                         ; preds = %if.end, %for.inc
   %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.024, i64 16
   %3 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %3, 81
-  %tobool.not18 = icmp eq ptr %__begin2.sroa.0.024, null
-  %tobool.not = or i1 %tobool.not18, %cmp.i.i.i.i.i.i.i
+  %tobool.not19 = icmp eq ptr %__begin2.sroa.0.024, null
+  %tobool.not = or i1 %tobool.not19, %cmp.i.i.i.i.i.i.i
   br i1 %tobool.not, label %for.inc, label %if.then11
 
 if.then11:                                        ; preds = %for.body
@@ -10788,9 +10788,9 @@ if.then11:                                        ; preds = %for.body
 
 if.end.i:                                         ; preds = %if.then11
   %agg.tmp12.sroa.0.0.copyload = load ptr, ptr %4, align 8
-  %bcmp19 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp12.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.24, i64 5)
-  %cmp5.i62 = icmp eq i32 %bcmp19, 0
-  br i1 %cmp5.i62, label %for.inc, label %if.else18
+  %bcmp15 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp12.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.24, i64 5)
+  %5 = icmp eq i32 %bcmp15, 0
+  br i1 %5, label %for.inc, label %if.else18
 
 if.else18:                                        ; preds = %if.then11, %if.end.i
   br label %for.inc
@@ -10800,8 +10800,8 @@ for.inc:                                          ; preds = %if.end.i, %for.body
   %hasValue.2 = phi i1 [ %hasValue.123, %if.else18 ], [ %hasValue.123, %for.body ], [ true, %if.end.i ]
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.024, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
-  %cmp.i15.not = icmp eq ptr %__begin2.sroa.0.0, %_specifiers
-  br i1 %cmp.i15.not, label %for.end, label %for.body
+  %cmp.i16.not = icmp eq ptr %__begin2.sroa.0.0, %_specifiers
+  br i1 %cmp.i16.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end
   %hasType.1.lcssa = phi i1 [ %hasType.0, %if.end ], [ %hasType.2, %for.inc ]
@@ -10810,9 +10810,9 @@ for.end:                                          ; preds = %for.inc, %if.end
 
 if.then23:                                        ; preds = %for.end
   %_value = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load ptr, ptr %_value, align 8
-  %agg.tmp24.sroa.0.0.copyload = load ptr, ptr %5, align 8
-  %agg.tmp24.sroa.2.0.call25.sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = load ptr, ptr %_value, align 8
+  %agg.tmp24.sroa.0.0.copyload = load ptr, ptr %6, align 8
+  %agg.tmp24.sroa.2.0.call25.sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %agg.tmp24.sroa.2.0.copyload = load i64, ptr %agg.tmp24.sroa.2.0.call25.sroa_idx, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS_14DependencyKindE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr %agg.tmp24.sroa.0.0.copyload, i64 %agg.tmp24.sroa.2.0.copyload, i32 noundef 0)
   br label %if.end26
@@ -10822,9 +10822,9 @@ if.end26:                                         ; preds = %if.then23, %for.end
 
 if.then28:                                        ; preds = %if.end26
   %_value30 = getelementptr inbounds i8, ptr %0, i64 48
-  %6 = load ptr, ptr %_value30, align 8
-  %agg.tmp29.sroa.0.0.copyload = load ptr, ptr %6, align 8
-  %agg.tmp29.sroa.2.0.call31.sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = load ptr, ptr %_value30, align 8
+  %agg.tmp29.sroa.0.0.copyload = load ptr, ptr %7, align 8
+  %agg.tmp29.sroa.2.0.call31.sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   %agg.tmp29.sroa.2.0.copyload = load i64, ptr %agg.tmp29.sroa.2.0.call31.sroa_idx, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_119DependencyExtractor13addDependencyEN4llvh9StringRefENS_14DependencyKindE(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr %agg.tmp29.sroa.0.0.copyload, i64 %agg.tmp29.sroa.2.0.copyload, i32 noundef 1)
   br label %if.end32
@@ -10843,8 +10843,8 @@ for.body.i.i:                                     ; preds = %if.end32, %for.body
   br i1 %cmp.i.not.i, label %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit.i, label %for.body.i.i
 
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit.i: ; preds = %for.body.i.i, %if.end32
-  %7 = load ptr, ptr %_source, align 8
-  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %7)
+  %8 = load ptr, ptr %_source, align 8
+  tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_119DependencyExtractorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %8)
   %_assertions.i = getelementptr inbounds i8, ptr %node, i64 72
   %Next.i.i.i.i24.i = getelementptr inbounds i8, ptr %node, i64 80
   %__begin4.i11.sroa.0.032.i = load ptr, ptr %Next.i.i.i.i24.i, align 8

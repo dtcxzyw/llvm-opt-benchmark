@@ -15297,7 +15297,7 @@ _ZNSt12_Vector_baseIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit: ; preds = %17, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
-define internal fastcc i64 @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE"(ptr nocapture readonly %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) unnamed_addr #8 align 2 {
+define internal fastcc range(i64 1851981824, 1885536257) i64 @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_6clERKNS_7ValTypeE"(ptr nocapture readonly %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2
   %3 = load i8, ptr %2, align 2
   %.off.i = add i8 %3, -99

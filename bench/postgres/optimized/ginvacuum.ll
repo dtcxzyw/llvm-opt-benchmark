@@ -163,21 +163,24 @@ define dso_local ptr @ginbulkdelete(ptr nocapture noundef readonly %0, ptr nound
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 2
   %.not.us79 = icmp eq i16 %45, 0
-  br i1 %.not.us79, label %.split.us, label %.lr.ph81
+  br i1 %.not.us79, label %.split.us, label %.lr.ph81.preheader
 
-.lr.ph81:                                         ; preds = %.outer.split.us, %BufferGetPage.exit.us
-  %46 = phi ptr [ %59, %BufferGetPage.exit.us ], [ %39, %.outer.split.us ]
-  %47 = phi ptr [ %58, %BufferGetPage.exit.us ], [ %38, %.outer.split.us ]
-  %.046.us80 = phi i32 [ 1, %BufferGetPage.exit.us ], [ %.sink, %.outer.split.us ]
+.lr.ph81.preheader:                               ; preds = %.outer.split.us
+  %46 = icmp eq i32 %.sink, 1
+  br label %.lr.ph81
+
+.lr.ph81:                                         ; preds = %.lr.ph81.preheader, %BufferGetPage.exit.us
+  %47 = phi ptr [ %59, %BufferGetPage.exit.us ], [ %39, %.lr.ph81.preheader ]
+  %48 = phi ptr [ %58, %BufferGetPage.exit.us ], [ %38, %.lr.ph81.preheader ]
+  %.046.us80 = phi i1 [ true, %BufferGetPage.exit.us ], [ %46, %.lr.ph81.preheader ]
   call void @LockBuffer(i32 noundef %29, i32 noundef 0) #7
   call void @LockBuffer(i32 noundef %29, i32 noundef 2) #7
-  %48 = icmp eq i32 %.046.us80, 1
-  br i1 %48, label %49, label %.split75.us
+  br i1 %.046.us80, label %49, label %.split75.us
 
 49:                                               ; preds = %.lr.ph81
-  %50 = load i16, ptr %46, align 4
+  %50 = load i16, ptr %47, align 4
   %51 = zext i16 %50 to i64
-  %52 = getelementptr i8, ptr %47, i64 %51
+  %52 = getelementptr i8, ptr %48, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 6
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, 2
@@ -212,20 +215,23 @@ BufferGetPage.exit.us:                            ; preds = %49
   %73 = load i16, ptr %72, align 2
   %74 = and i16 %73, 2
   %.not77 = icmp eq i16 %74, 0
-  br i1 %.not77, label %.split.us, label %.lr.ph
+  br i1 %.not77, label %.split.us, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.outer.split, %BufferGetPage.exit
-  %75 = phi ptr [ %88, %BufferGetPage.exit ], [ %68, %.outer.split ]
-  %76 = phi ptr [ %86, %BufferGetPage.exit ], [ %66, %.outer.split ]
-  %.04678 = phi i32 [ 1, %BufferGetPage.exit ], [ %.sink, %.outer.split ]
+.lr.ph.preheader:                                 ; preds = %.outer.split
+  %75 = icmp eq i32 %.sink, 1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %BufferGetPage.exit
+  %76 = phi ptr [ %88, %BufferGetPage.exit ], [ %68, %.lr.ph.preheader ]
+  %77 = phi ptr [ %86, %BufferGetPage.exit ], [ %66, %.lr.ph.preheader ]
+  %.04678 = phi i1 [ true, %BufferGetPage.exit ], [ %75, %.lr.ph.preheader ]
   call void @LockBuffer(i32 noundef %29, i32 noundef 0) #7
   call void @LockBuffer(i32 noundef %29, i32 noundef 2) #7
-  %77 = icmp eq i32 %.04678, 1
-  br i1 %77, label %78, label %.split75.us
+  br i1 %.04678, label %78, label %.split75.us
 
 78:                                               ; preds = %.lr.ph
-  %79 = getelementptr i8, ptr %76, i64 %33
-  %80 = load i16, ptr %75, align 4
+  %79 = getelementptr i8, ptr %77, i64 %33
+  %80 = load i16, ptr %76, align 4
   %81 = zext i16 %80 to i64
   %82 = getelementptr i8, ptr %79, i64 %81
   %83 = getelementptr inbounds i8, ptr %82, i64 6

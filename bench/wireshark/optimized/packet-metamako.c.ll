@@ -335,29 +335,27 @@ validate_metamako_timestamp.exit:                 ; preds = %48, %45, %22
   %.1208 = phi i32 [ 0, %validate_metamako_timestamp.exit ], [ %.2209, %.preheader ], [ %56, %._crit_edge ]
   %.1197 = phi i32 [ 0, %validate_metamako_timestamp.exit ], [ %.2198, %.preheader ], [ %.3199.lcssa, %._crit_edge ]
   %.0193 = phi i32 [ %29, %validate_metamako_timestamp.exit ], [ %.1194, %.preheader ], [ %.2195.lcssa, %._crit_edge ]
-  %74 = icmp ugt i32 %.0193, 3
+  %74 = icmp ult i32 %.0193, 4
   %75 = add i32 %.0193, -4
-  %spec.select = zext i1 %74 to i32
-  %spec.select231 = select i1 %74, i32 %75, i32 %.0190251
+  %spec.select231 = select i1 %74, i32 %.0190251, i32 %75
   br label %validate_metamako_timestamp.exit.thread
 
 validate_metamako_timestamp.exit.thread:          ; preds = %48, %45, %36, %34, %.loopexit239
-  %.1213 = phi i32 [ %spec.select, %.loopexit239 ], [ 0, %34 ], [ 0, %36 ], [ 0, %45 ], [ 0, %48 ]
+  %.1213 = phi i1 [ %74, %.loopexit239 ], [ true, %34 ], [ true, %36 ], [ true, %45 ], [ true, %48 ]
   %.3210 = phi i32 [ %.1208, %.loopexit239 ], [ %.0207248, %34 ], [ %.0207248, %36 ], [ %.0207248, %45 ], [ %.0207248, %48 ]
   %.4200 = phi i32 [ %.1197, %.loopexit239 ], [ %.0196249, %34 ], [ %.0196249, %36 ], [ %.0196249, %45 ], [ %.0196249, %48 ]
   %.1191 = phi i32 [ %spec.select231, %.loopexit239 ], [ %.0190251, %34 ], [ %.0190251, %36 ], [ %.0190251, %45 ], [ %.0190251, %48 ]
   %76 = add nuw nsw i32 %.0188252, 1
   %77 = icmp ult i32 %76, %19
-  %.not = icmp eq i32 %.1213, 0
-  %78 = select i1 %77, i1 %.not, i1 false
+  %78 = select i1 %77, i1 %.1213, i1 false
   br i1 %78, label %22, label %79, !llvm.loop !6
 
 79:                                               ; preds = %validate_metamako_timestamp.exit.thread
   %80 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %28, ptr %80, align 8
-  %.not294 = icmp eq i32 %.0188252, 1
+  %.not = icmp eq i32 %.0188252, 1
   store i64 %31, ptr %5, align 8
-  br i1 %.not, label %.thread, label %81
+  br i1 %.1213, label %.thread, label %81
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds i8, ptr %1, i64 8
@@ -592,7 +590,7 @@ proto_item_set_generated.exit235:                 ; preds = %proto_item_set_gene
   %211 = zext i8 %208 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str.90, i32 noundef %211) #6
   %212 = add i32 %.2, 12
-  br i1 %.not294, label %213, label %.thread
+  br i1 %.not, label %213, label %.thread
 
 213:                                              ; preds = %proto_item_set_generated.exit235
   %214 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %212) #6

@@ -18171,13 +18171,12 @@ invoke.cont877:                                   ; preds = %invoke.cont873
 if.then.i2182:                                    ; preds = %invoke.cont877
   %553 = load i64, ptr %551, align 8
   %and.i.i.i2188 = and i64 %553, 131072
-  %cmp.i.i4.i2189 = icmp ne i64 %and.i.i.i2188, 0
+  %cmp.i.i4.i2189 = icmp eq i64 %and.i.i.i2188, 0
   br label %invoke.cont879
 
 invoke.cont879:                                   ; preds = %if.then.i2182, %invoke.cont877
-  %retval.0.i2181 = phi i1 [ %cmp.i.i4.i2189, %if.then.i2182 ], [ false, %invoke.cont877 ]
-  %cmp882 = xor i1 %retval.0.i2181, true
-  %call884 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp882, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 379, ptr noundef nonnull @.str.60)
+  %retval.0.i2181 = phi i1 [ %cmp.i.i4.i2189, %if.then.i2182 ], [ true, %invoke.cont877 ]
+  %call884 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2181, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 379, ptr noundef nonnull @.str.60)
           to label %invoke.cont883 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont883:                                   ; preds = %invoke.cont879
@@ -18310,13 +18309,12 @@ invoke.cont891:                                   ; preds = %.noexc2228, %invoke
 if.then.i2238:                                    ; preds = %invoke.cont891
   %573 = load i64, ptr %571, align 8
   %and.i.i.i2244 = and i64 %573, 8
-  %cmp.i.i4.i2245 = icmp ne i64 %and.i.i.i2244, 0
+  %cmp.i.i4.i2245 = icmp eq i64 %and.i.i.i2244, 0
   br label %invoke.cont892
 
 invoke.cont892:                                   ; preds = %if.then.i2238, %invoke.cont891
-  %retval.0.i2237 = phi i1 [ %cmp.i.i4.i2245, %if.then.i2238 ], [ true, %invoke.cont891 ]
-  %cmp895 = xor i1 %retval.0.i2237, true
-  %call897 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp895, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 383, ptr noundef nonnull @.str.62)
+  %retval.0.i2237 = phi i1 [ %cmp.i.i4.i2245, %if.then.i2238 ], [ false, %invoke.cont891 ]
+  %call897 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i2237, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 383, ptr noundef nonnull @.str.62)
           to label %invoke.cont896 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont896:                                   ; preds = %invoke.cont892

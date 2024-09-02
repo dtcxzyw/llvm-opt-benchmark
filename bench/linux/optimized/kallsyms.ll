@@ -263,38 +263,41 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %94 = add nsw i32 %84, -1
   %95 = load i8, ptr %92, align 1
   %96 = icmp eq i8 %95, 0
-  br i1 %96, label %.loopexit46, label %.preheader44
+  br i1 %96, label %.loopexit46, label %.preheader44.preheader
 
-.preheader44:                                     ; preds = %.preheader47, %108
-  %97 = phi i8 [ %112, %108 ], [ %95, %.preheader47 ]
-  %98 = phi ptr [ %111, %108 ], [ %92, %.preheader47 ]
-  %99 = phi i32 [ 1, %108 ], [ %83, %.preheader47 ]
-  %100 = phi i64 [ %110, %108 ], [ %85, %.preheader47 ]
-  %101 = phi ptr [ %109, %108 ], [ %86, %.preheader47 ]
-  %102 = icmp eq i32 %99, 0
-  br i1 %102, label %108, label %103
+.preheader44.preheader:                           ; preds = %.preheader47
+  %97 = icmp eq i32 %83, 0
+  br label %.preheader44
+
+.preheader44:                                     ; preds = %.preheader44.preheader, %108
+  %98 = phi i8 [ %112, %108 ], [ %95, %.preheader44.preheader ]
+  %99 = phi ptr [ %111, %108 ], [ %92, %.preheader44.preheader ]
+  %100 = phi i1 [ false, %108 ], [ %97, %.preheader44.preheader ]
+  %101 = phi i64 [ %110, %108 ], [ %85, %.preheader44.preheader ]
+  %102 = phi ptr [ %109, %108 ], [ %86, %.preheader44.preheader ]
+  br i1 %100, label %108, label %103
 
 103:                                              ; preds = %.preheader44
-  %104 = icmp ult i64 %100, 2
+  %104 = icmp ult i64 %101, 2
   br i1 %104, label %.loopexit45, label %105
 
 105:                                              ; preds = %103
-  store i8 %97, ptr %101, align 1
-  %106 = getelementptr i8, ptr %101, i64 1
-  %107 = add i64 %100, -1
+  store i8 %98, ptr %102, align 1
+  %106 = getelementptr i8, ptr %102, i64 1
+  %107 = add i64 %101, -1
   br label %108
 
 108:                                              ; preds = %105, %.preheader44
-  %109 = phi ptr [ %106, %105 ], [ %101, %.preheader44 ]
-  %110 = phi i64 [ %107, %105 ], [ %100, %.preheader44 ]
-  %111 = getelementptr i8, ptr %98, i64 1
+  %109 = phi ptr [ %106, %105 ], [ %102, %.preheader44 ]
+  %110 = phi i64 [ %107, %105 ], [ %101, %.preheader44 ]
+  %111 = getelementptr i8, ptr %99, i64 1
   %112 = load i8, ptr %111, align 1
   %113 = icmp eq i8 %112, 0
   br i1 %113, label %.loopexit46, label %.preheader44, !llvm.loop !12
 
 .loopexit45:                                      ; preds = %.loopexit46, %103
-  %114 = phi ptr [ %101, %103 ], [ %78, %.loopexit46 ]
-  %115 = phi i64 [ %100, %103 ], [ %79, %.loopexit46 ]
+  %114 = phi ptr [ %102, %103 ], [ %78, %.loopexit46 ]
+  %115 = phi i64 [ %101, %103 ], [ %79, %.loopexit46 ]
   %116 = icmp eq i64 %115, 0
   br i1 %116, label %118, label %.thread
 
@@ -441,38 +444,41 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %216 = add nsw i32 %206, -1
   %217 = load i8, ptr %214, align 1
   %218 = icmp eq i8 %217, 0
-  br i1 %218, label %.loopexit38, label %.preheader36
+  br i1 %218, label %.loopexit38, label %.preheader36.preheader
 
-.preheader36:                                     ; preds = %.preheader39, %230
-  %219 = phi i8 [ %234, %230 ], [ %217, %.preheader39 ]
-  %220 = phi ptr [ %233, %230 ], [ %214, %.preheader39 ]
-  %221 = phi i32 [ 1, %230 ], [ %205, %.preheader39 ]
-  %222 = phi i64 [ %232, %230 ], [ %207, %.preheader39 ]
-  %223 = phi ptr [ %231, %230 ], [ %208, %.preheader39 ]
-  %224 = icmp eq i32 %221, 0
-  br i1 %224, label %230, label %225
+.preheader36.preheader:                           ; preds = %.preheader39
+  %219 = icmp eq i32 %205, 0
+  br label %.preheader36
+
+.preheader36:                                     ; preds = %.preheader36.preheader, %230
+  %220 = phi i8 [ %234, %230 ], [ %217, %.preheader36.preheader ]
+  %221 = phi ptr [ %233, %230 ], [ %214, %.preheader36.preheader ]
+  %222 = phi i1 [ false, %230 ], [ %219, %.preheader36.preheader ]
+  %223 = phi i64 [ %232, %230 ], [ %207, %.preheader36.preheader ]
+  %224 = phi ptr [ %231, %230 ], [ %208, %.preheader36.preheader ]
+  br i1 %222, label %230, label %225
 
 225:                                              ; preds = %.preheader36
-  %226 = icmp ult i64 %222, 2
+  %226 = icmp ult i64 %223, 2
   br i1 %226, label %.loopexit37, label %227
 
 227:                                              ; preds = %225
-  store i8 %219, ptr %223, align 1
-  %228 = getelementptr i8, ptr %223, i64 1
-  %229 = add i64 %222, -1
+  store i8 %220, ptr %224, align 1
+  %228 = getelementptr i8, ptr %224, i64 1
+  %229 = add i64 %223, -1
   br label %230
 
 230:                                              ; preds = %227, %.preheader36
-  %231 = phi ptr [ %228, %227 ], [ %223, %.preheader36 ]
-  %232 = phi i64 [ %229, %227 ], [ %222, %.preheader36 ]
-  %233 = getelementptr i8, ptr %220, i64 1
+  %231 = phi ptr [ %228, %227 ], [ %224, %.preheader36 ]
+  %232 = phi i64 [ %229, %227 ], [ %223, %.preheader36 ]
+  %233 = getelementptr i8, ptr %221, i64 1
   %234 = load i8, ptr %233, align 1
   %235 = icmp eq i8 %234, 0
   br i1 %235, label %.loopexit38, label %.preheader36, !llvm.loop !12
 
 .loopexit37:                                      ; preds = %.loopexit38, %225
-  %236 = phi ptr [ %223, %225 ], [ %200, %.loopexit38 ]
-  %237 = phi i64 [ %222, %225 ], [ %201, %.loopexit38 ]
+  %236 = phi ptr [ %224, %225 ], [ %200, %.loopexit38 ]
+  %237 = phi i64 [ %223, %225 ], [ %201, %.loopexit38 ]
   %238 = icmp eq i64 %237, 0
   br i1 %238, label %240, label %.thread29
 
@@ -610,38 +616,41 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %333 = add nsw i32 %323, -1
   %334 = load i8, ptr %331, align 1
   %335 = icmp eq i8 %334, 0
-  br i1 %335, label %.loopexit31, label %.preheader
+  br i1 %335, label %.loopexit31, label %.preheader.preheader
 
-.preheader:                                       ; preds = %.preheader32, %347
-  %336 = phi i8 [ %351, %347 ], [ %334, %.preheader32 ]
-  %337 = phi ptr [ %350, %347 ], [ %331, %.preheader32 ]
-  %338 = phi i32 [ 1, %347 ], [ %322, %.preheader32 ]
-  %339 = phi i64 [ %349, %347 ], [ %324, %.preheader32 ]
-  %340 = phi ptr [ %348, %347 ], [ %325, %.preheader32 ]
-  %341 = icmp eq i32 %338, 0
-  br i1 %341, label %347, label %342
+.preheader.preheader:                             ; preds = %.preheader32
+  %336 = icmp eq i32 %322, 0
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %347
+  %337 = phi i8 [ %351, %347 ], [ %334, %.preheader.preheader ]
+  %338 = phi ptr [ %350, %347 ], [ %331, %.preheader.preheader ]
+  %339 = phi i1 [ false, %347 ], [ %336, %.preheader.preheader ]
+  %340 = phi i64 [ %349, %347 ], [ %324, %.preheader.preheader ]
+  %341 = phi ptr [ %348, %347 ], [ %325, %.preheader.preheader ]
+  br i1 %339, label %347, label %342
 
 342:                                              ; preds = %.preheader
-  %343 = icmp ult i64 %339, 2
+  %343 = icmp ult i64 %340, 2
   br i1 %343, label %.loopexit, label %344
 
 344:                                              ; preds = %342
-  store i8 %336, ptr %340, align 1
-  %345 = getelementptr i8, ptr %340, i64 1
-  %346 = add i64 %339, -1
+  store i8 %337, ptr %341, align 1
+  %345 = getelementptr i8, ptr %341, i64 1
+  %346 = add i64 %340, -1
   br label %347
 
 347:                                              ; preds = %344, %.preheader
-  %348 = phi ptr [ %345, %344 ], [ %340, %.preheader ]
-  %349 = phi i64 [ %346, %344 ], [ %339, %.preheader ]
-  %350 = getelementptr i8, ptr %337, i64 1
+  %348 = phi ptr [ %345, %344 ], [ %341, %.preheader ]
+  %349 = phi i64 [ %346, %344 ], [ %340, %.preheader ]
+  %350 = getelementptr i8, ptr %338, i64 1
   %351 = load i8, ptr %350, align 1
   %352 = icmp eq i8 %351, 0
   br i1 %352, label %.loopexit31, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.loopexit31, %342
-  %353 = phi ptr [ %340, %342 ], [ %317, %.loopexit31 ]
-  %354 = phi i64 [ %339, %342 ], [ %318, %.loopexit31 ]
+  %353 = phi ptr [ %341, %342 ], [ %317, %.loopexit31 ]
+  %354 = phi i64 [ %340, %342 ], [ %318, %.loopexit31 ]
   %355 = icmp eq i64 %354, 0
   br i1 %355, label %357, label %.thread30
 
@@ -734,38 +743,41 @@ define dso_local i32 @kallsyms_on_each_symbol(ptr nocapture noundef readonly %0,
   %45 = add nsw i32 %35, -1
   %46 = load i8, ptr %43, align 1
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %.loopexit9, label %.preheader
+  br i1 %47, label %.loopexit9, label %.preheader.preheader
 
-.preheader:                                       ; preds = %.preheader10, %59
-  %48 = phi i8 [ %63, %59 ], [ %46, %.preheader10 ]
-  %49 = phi ptr [ %62, %59 ], [ %43, %.preheader10 ]
-  %50 = phi i32 [ 1, %59 ], [ %34, %.preheader10 ]
-  %51 = phi i64 [ %61, %59 ], [ %36, %.preheader10 ]
-  %52 = phi ptr [ %60, %59 ], [ %37, %.preheader10 ]
-  %53 = icmp eq i32 %50, 0
-  br i1 %53, label %59, label %54
+.preheader.preheader:                             ; preds = %.preheader10
+  %48 = icmp eq i32 %34, 0
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %59
+  %49 = phi i8 [ %63, %59 ], [ %46, %.preheader.preheader ]
+  %50 = phi ptr [ %62, %59 ], [ %43, %.preheader.preheader ]
+  %51 = phi i1 [ false, %59 ], [ %48, %.preheader.preheader ]
+  %52 = phi i64 [ %61, %59 ], [ %36, %.preheader.preheader ]
+  %53 = phi ptr [ %60, %59 ], [ %37, %.preheader.preheader ]
+  br i1 %51, label %59, label %54
 
 54:                                               ; preds = %.preheader
-  %55 = icmp ult i64 %51, 2
+  %55 = icmp ult i64 %52, 2
   br i1 %55, label %.loopexit, label %56
 
 56:                                               ; preds = %54
-  store i8 %48, ptr %52, align 1
-  %57 = getelementptr i8, ptr %52, i64 1
-  %58 = add i64 %51, -1
+  store i8 %49, ptr %53, align 1
+  %57 = getelementptr i8, ptr %53, i64 1
+  %58 = add i64 %52, -1
   br label %59
 
 59:                                               ; preds = %56, %.preheader
-  %60 = phi ptr [ %57, %56 ], [ %52, %.preheader ]
-  %61 = phi i64 [ %58, %56 ], [ %51, %.preheader ]
-  %62 = getelementptr i8, ptr %49, i64 1
+  %60 = phi ptr [ %57, %56 ], [ %53, %.preheader ]
+  %61 = phi i64 [ %58, %56 ], [ %52, %.preheader ]
+  %62 = getelementptr i8, ptr %50, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 0
   br i1 %64, label %.loopexit9, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.loopexit9, %54
-  %65 = phi ptr [ %52, %54 ], [ %29, %.loopexit9 ]
-  %66 = phi i64 [ %51, %54 ], [ %30, %.loopexit9 ]
+  %65 = phi ptr [ %53, %54 ], [ %29, %.loopexit9 ]
+  %66 = phi i64 [ %52, %54 ], [ %30, %.loopexit9 ]
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %69, label %.thread
 
@@ -1231,38 +1243,41 @@ define internal fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef 
   %85 = add nsw i32 %75, -1
   %86 = load i8, ptr %83, align 1
   %87 = icmp eq i8 %86, 0
-  br i1 %87, label %.loopexit7, label %.preheader
+  br i1 %87, label %.loopexit7, label %.preheader.preheader
 
-.preheader:                                       ; preds = %.preheader8, %99
-  %88 = phi i8 [ %103, %99 ], [ %86, %.preheader8 ]
-  %89 = phi ptr [ %102, %99 ], [ %83, %.preheader8 ]
-  %90 = phi i32 [ 1, %99 ], [ %74, %.preheader8 ]
-  %91 = phi i64 [ %101, %99 ], [ %76, %.preheader8 ]
-  %92 = phi ptr [ %100, %99 ], [ %77, %.preheader8 ]
-  %93 = icmp eq i32 %90, 0
-  br i1 %93, label %99, label %94
+.preheader.preheader:                             ; preds = %.preheader8
+  %88 = icmp eq i32 %74, 0
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %99
+  %89 = phi i8 [ %103, %99 ], [ %86, %.preheader.preheader ]
+  %90 = phi ptr [ %102, %99 ], [ %83, %.preheader.preheader ]
+  %91 = phi i1 [ false, %99 ], [ %88, %.preheader.preheader ]
+  %92 = phi i64 [ %101, %99 ], [ %76, %.preheader.preheader ]
+  %93 = phi ptr [ %100, %99 ], [ %77, %.preheader.preheader ]
+  br i1 %91, label %99, label %94
 
 94:                                               ; preds = %.preheader
-  %95 = icmp ult i64 %91, 2
+  %95 = icmp ult i64 %92, 2
   br i1 %95, label %.loopexit, label %96
 
 96:                                               ; preds = %94
-  store i8 %88, ptr %92, align 1
-  %97 = getelementptr i8, ptr %92, i64 1
-  %98 = add i64 %91, -1
+  store i8 %89, ptr %93, align 1
+  %97 = getelementptr i8, ptr %93, i64 1
+  %98 = add i64 %92, -1
   br label %99
 
 99:                                               ; preds = %96, %.preheader
-  %100 = phi ptr [ %97, %96 ], [ %92, %.preheader ]
-  %101 = phi i64 [ %98, %96 ], [ %91, %.preheader ]
-  %102 = getelementptr i8, ptr %89, i64 1
+  %100 = phi ptr [ %97, %96 ], [ %93, %.preheader ]
+  %101 = phi i64 [ %98, %96 ], [ %92, %.preheader ]
+  %102 = getelementptr i8, ptr %90, i64 1
   %103 = load i8, ptr %102, align 1
   %104 = icmp eq i8 %103, 0
   br i1 %104, label %.loopexit7, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.loopexit7, %94
-  %105 = phi ptr [ %92, %94 ], [ %69, %.loopexit7 ]
-  %106 = phi i64 [ %91, %94 ], [ %70, %.loopexit7 ]
+  %105 = phi ptr [ %93, %94 ], [ %69, %.loopexit7 ]
+  %106 = phi i64 [ %92, %94 ], [ %70, %.loopexit7 ]
   %107 = icmp eq i64 %106, 0
   br i1 %107, label %109, label %.thread
 
@@ -1407,38 +1422,41 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef %1) local_u
   %81 = add nsw i32 %71, -1
   %82 = load i8, ptr %79, align 1
   %83 = icmp eq i8 %82, 0
-  br i1 %83, label %.loopexit6, label %.preheader
+  br i1 %83, label %.loopexit6, label %.preheader.preheader
 
-.preheader:                                       ; preds = %.preheader7, %95
-  %84 = phi i8 [ %99, %95 ], [ %82, %.preheader7 ]
-  %85 = phi ptr [ %98, %95 ], [ %79, %.preheader7 ]
-  %86 = phi i32 [ 1, %95 ], [ %70, %.preheader7 ]
-  %87 = phi i64 [ %97, %95 ], [ %72, %.preheader7 ]
-  %88 = phi ptr [ %96, %95 ], [ %73, %.preheader7 ]
-  %89 = icmp eq i32 %86, 0
-  br i1 %89, label %95, label %90
+.preheader.preheader:                             ; preds = %.preheader7
+  %84 = icmp eq i32 %70, 0
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %95
+  %85 = phi i8 [ %99, %95 ], [ %82, %.preheader.preheader ]
+  %86 = phi ptr [ %98, %95 ], [ %79, %.preheader.preheader ]
+  %87 = phi i1 [ false, %95 ], [ %84, %.preheader.preheader ]
+  %88 = phi i64 [ %97, %95 ], [ %72, %.preheader.preheader ]
+  %89 = phi ptr [ %96, %95 ], [ %73, %.preheader.preheader ]
+  br i1 %87, label %95, label %90
 
 90:                                               ; preds = %.preheader
-  %91 = icmp ult i64 %87, 2
+  %91 = icmp ult i64 %88, 2
   br i1 %91, label %.loopexit, label %92
 
 92:                                               ; preds = %90
-  store i8 %84, ptr %88, align 1
-  %93 = getelementptr i8, ptr %88, i64 1
-  %94 = add i64 %87, -1
+  store i8 %85, ptr %89, align 1
+  %93 = getelementptr i8, ptr %89, i64 1
+  %94 = add i64 %88, -1
   br label %95
 
 95:                                               ; preds = %92, %.preheader
-  %96 = phi ptr [ %93, %92 ], [ %88, %.preheader ]
-  %97 = phi i64 [ %94, %92 ], [ %87, %.preheader ]
-  %98 = getelementptr i8, ptr %85, i64 1
+  %96 = phi ptr [ %93, %92 ], [ %89, %.preheader ]
+  %97 = phi i64 [ %94, %92 ], [ %88, %.preheader ]
+  %98 = getelementptr i8, ptr %86, i64 1
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, 0
   br i1 %100, label %.loopexit6, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.loopexit6, %90
-  %101 = phi ptr [ %88, %90 ], [ %65, %.loopexit6 ]
-  %102 = phi i64 [ %87, %90 ], [ %66, %.loopexit6 ]
+  %101 = phi ptr [ %89, %90 ], [ %65, %.loopexit6 ]
+  %102 = phi i64 [ %88, %90 ], [ %66, %.loopexit6 ]
   %103 = icmp eq i64 %102, 0
   br i1 %103, label %108, label %.thread
 
@@ -1979,38 +1997,41 @@ define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noun
   %163 = add nsw i32 %153, -1
   %164 = load i8, ptr %161, align 1
   %165 = icmp eq i8 %164, 0
-  br i1 %165, label %.loopexit8, label %.preheader
+  br i1 %165, label %.loopexit8, label %.preheader.preheader
 
-.preheader:                                       ; preds = %.preheader9, %177
-  %166 = phi i8 [ %181, %177 ], [ %164, %.preheader9 ]
-  %167 = phi ptr [ %180, %177 ], [ %161, %.preheader9 ]
-  %168 = phi i32 [ 1, %177 ], [ %152, %.preheader9 ]
-  %169 = phi i64 [ %179, %177 ], [ %154, %.preheader9 ]
-  %170 = phi ptr [ %178, %177 ], [ %155, %.preheader9 ]
-  %171 = icmp eq i32 %168, 0
-  br i1 %171, label %177, label %172
+.preheader.preheader:                             ; preds = %.preheader9
+  %166 = icmp eq i32 %152, 0
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %177
+  %167 = phi i8 [ %181, %177 ], [ %164, %.preheader.preheader ]
+  %168 = phi ptr [ %180, %177 ], [ %161, %.preheader.preheader ]
+  %169 = phi i1 [ false, %177 ], [ %166, %.preheader.preheader ]
+  %170 = phi i64 [ %179, %177 ], [ %154, %.preheader.preheader ]
+  %171 = phi ptr [ %178, %177 ], [ %155, %.preheader.preheader ]
+  br i1 %169, label %177, label %172
 
 172:                                              ; preds = %.preheader
-  %173 = icmp ult i64 %169, 2
+  %173 = icmp ult i64 %170, 2
   br i1 %173, label %.loopexit, label %174
 
 174:                                              ; preds = %172
-  store i8 %166, ptr %170, align 1
-  %175 = getelementptr i8, ptr %170, i64 1
-  %176 = add i64 %169, -1
+  store i8 %167, ptr %171, align 1
+  %175 = getelementptr i8, ptr %171, i64 1
+  %176 = add i64 %170, -1
   br label %177
 
 177:                                              ; preds = %174, %.preheader
-  %178 = phi ptr [ %175, %174 ], [ %170, %.preheader ]
-  %179 = phi i64 [ %176, %174 ], [ %169, %.preheader ]
-  %180 = getelementptr i8, ptr %167, i64 1
+  %178 = phi ptr [ %175, %174 ], [ %171, %.preheader ]
+  %179 = phi i64 [ %176, %174 ], [ %170, %.preheader ]
+  %180 = getelementptr i8, ptr %168, i64 1
   %181 = load i8, ptr %180, align 1
   %182 = icmp eq i8 %181, 0
   br i1 %182, label %.loopexit8, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.loopexit8, %172
-  %183 = phi ptr [ %170, %172 ], [ %147, %.loopexit8 ]
-  %184 = phi i64 [ %169, %172 ], [ %148, %.loopexit8 ]
+  %183 = phi ptr [ %171, %172 ], [ %147, %.loopexit8 ]
+  %184 = phi i64 [ %170, %172 ], [ %148, %.loopexit8 ]
   %185 = icmp eq i64 %184, 0
   br i1 %185, label %187, label %.thread
 

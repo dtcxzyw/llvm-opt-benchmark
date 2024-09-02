@@ -288,25 +288,28 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_next(ptr noundef 
   %20 = getelementptr [256 x ptr], ptr %13, i64 0, i64 %17
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.loopexit, label %.preheader
+  br i1 %22, label %.loopexit, label %.preheader.preheader
 
-.preheader:                                       ; preds = %16, %33
-  %23 = phi i64 [ %34, %33 ], [ %19, %16 ]
-  %24 = phi i32 [ 0, %33 ], [ %18, %16 ]
-  %25 = getelementptr [256 x ptr], ptr %21, i64 0, i64 %23
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %33, label %28
+.preheader.preheader:                             ; preds = %16
+  %23 = zext nneg i32 %18 to i64
+  br label %.preheader
 
-28:                                               ; preds = %.preheader
-  %29 = zext nneg i32 %24 to i64
-  %30 = tail call i64 @_find_next_bit(ptr noundef nonnull %26, i64 noundef 16384, i64 noundef %29) #7
+.preheader:                                       ; preds = %.preheader.preheader, %33
+  %24 = phi i64 [ %34, %33 ], [ %19, %.preheader.preheader ]
+  %25 = phi i64 [ 0, %33 ], [ %23, %.preheader.preheader ]
+  %26 = getelementptr [256 x ptr], ptr %21, i64 0, i64 %24
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %33, label %29
+
+29:                                               ; preds = %.preheader
+  %30 = tail call i64 @_find_next_bit(ptr noundef nonnull %27, i64 noundef 16384, i64 noundef %25) #7
   %31 = trunc i64 %30 to i32
   %32 = icmp ult i32 %31, 16384
   br i1 %32, label %39, label %33
 
-33:                                               ; preds = %28, %.preheader
-  %34 = add nuw nsw i64 %23, 1
+33:                                               ; preds = %29, %.preheader
+  %34 = add nuw nsw i64 %24, 1
   %35 = icmp eq i64 %34, 256
   br i1 %35, label %.loopexit, label %.preheader
 
@@ -320,14 +323,14 @@ define dso_local noundef range(i32 -22, 1) i32 @trace_pid_list_next(ptr noundef 
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %0, i64 noundef %12) #7
   br label %49
 
-39:                                               ; preds = %28
+39:                                               ; preds = %29
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %0, i64 noundef %12) #7
   %40 = icmp ugt i64 %17, 255
   br i1 %40, label %49, label %41
 
 41:                                               ; preds = %39
   %42 = trunc nuw nsw i64 %17 to i32
-  %43 = trunc nuw nsw i64 %23 to i32
+  %43 = trunc nuw nsw i64 %24 to i32
   %44 = shl nuw nsw i32 %42, 22
   %45 = shl nuw nsw i32 %43, 14
   %46 = and i32 %45, 4177920

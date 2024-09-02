@@ -186,7 +186,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstIdENS0_4ArchEPKcm(i8 noundef zeroext %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [32 x i8], align 16
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %167, label %6, !prof !9
+  br i1 %5, label %161, label %6, !prof !9
 
 6:                                                ; preds = %3
   %7 = icmp eq i64 %2, -1
@@ -200,21 +200,21 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   %11 = phi i64 [ %9, %8 ], [ %2, %6 ]
   %12 = add i64 %11, -18
   %13 = icmp ult i64 %12, -17
-  br i1 %13, label %167, label %14, !prof !9
+  br i1 %13, label %161, label %14, !prof !9
 
 14:                                               ; preds = %10
   %15 = load i8, ptr %1, align 1, !tbaa !8
   %16 = sext i8 %15 to i32
   %17 = add nsw i32 %16, -97
   %18 = icmp ugt i32 %17, 25
-  br i1 %18, label %167, label %19, !prof !9
+  br i1 %18, label %161, label %19, !prof !9
 
 19:                                               ; preds = %14
   %20 = zext nneg i32 %17 to i64
   %21 = getelementptr inbounds [26 x %"struct.asmjit::_abi_1_10::x86::InstDB::InstNameIndex"], ptr @_ZN6asmjit9_abi_1_103x866InstDB13instNameIndexE, i64 0, i64 %20
   %22 = load i16, ptr %21, align 4, !tbaa !10
   %23 = icmp eq i16 %22, 0
-  br i1 %23, label %167, label %24, !prof !9
+  br i1 %23, label %161, label %24, !prof !9
 
 24:                                               ; preds = %19
   %25 = zext i16 %22 to i64
@@ -236,9 +236,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   %38 = zext i8 %15 to i32
   br label %39
 
-39:                                               ; preds = %161, %31
-  %40 = phi i64 [ %29, %31 ], [ %162, %161 ]
-  %41 = phi i64 [ %25, %31 ], [ %163, %161 ]
+39:                                               ; preds = %155, %31
+  %40 = phi i64 [ %29, %31 ], [ %156, %155 ]
+  %41 = phi i64 [ %25, %31 ], [ %157, %155 ]
   %42 = lshr i64 %40, 1
   %43 = add i64 %42, %41
   %44 = getelementptr inbounds [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB19_instNameIndexTableE, i64 0, i64 %43
@@ -358,12 +358,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   %122 = zext i8 %121 to i32
   %123 = sub nsw i32 %38, %122
   %124 = icmp eq i32 %123, 0
-  br i1 %124, label %.preheader, label %143
+  br i1 %124, label %.preheader, label %.thread
 
 125:                                              ; preds = %116
   %126 = trunc nuw nsw i64 %117 to i32
   %127 = sub nsw i32 %32, %126
-  br label %150
+  br label %.thread
 
 .preheader:                                       ; preds = %120, %131
   %128 = phi i64 [ %129, %131 ], [ 0, %120 ]
@@ -382,55 +382,49 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %.preheader, label %140, !llvm.loop !14
 
-140:                                              ; preds = %131, %.preheader
-  %.lcssa = phi i64 [ %129, %131 ], [ %118, %.preheader ]
-  %141 = phi i32 [ %138, %131 ], [ 0, %.preheader ]
+140:                                              ; preds = %.preheader, %131
+  %.lcssa = phi i64 [ %118, %.preheader ], [ %129, %131 ]
+  %141 = phi i32 [ 0, %.preheader ], [ %138, %131 ]
   %142 = icmp ult i64 %.lcssa, %118
-  br label %143
+  %143 = trunc nuw nsw i64 %117 to i32
+  %144 = sub nsw i32 %32, %143
+  %spec.select = select i1 %142, i32 %141, i32 %144
+  br label %.thread
 
-143:                                              ; preds = %140, %120
-  %144 = phi i1 [ true, %120 ], [ %142, %140 ]
-  %145 = phi i32 [ %123, %120 ], [ %141, %140 ]
-  %146 = trunc nuw nsw i64 %117 to i32
-  %147 = sub nsw i32 %32, %146
-  %148 = freeze i1 %144
-  %149 = select i1 %148, i32 %145, i32 %147
-  br label %150
+.thread:                                          ; preds = %140, %120, %125
+  %145 = phi i32 [ %127, %125 ], [ %123, %120 ], [ %spec.select, %140 ]
+  %146 = icmp slt i32 %145, 0
+  br i1 %146, label %155, label %147
 
-150:                                              ; preds = %143, %125
-  %151 = phi i32 [ %127, %125 ], [ %149, %143 ]
-  %152 = icmp slt i32 %151, 0
-  br i1 %152, label %161, label %153
+147:                                              ; preds = %.thread
+  %148 = icmp eq i32 %145, 0
+  br i1 %148, label %153, label %149
 
-153:                                              ; preds = %150
-  %154 = icmp eq i32 %151, 0
-  br i1 %154, label %159, label %155
+149:                                              ; preds = %147
+  %150 = add i64 %43, 1
+  %151 = add nsw i64 %40, -1
+  %152 = lshr i64 %151, 1
+  br label %155
 
-155:                                              ; preds = %153
-  %156 = add i64 %43, 1
-  %157 = add nsw i64 %40, -1
-  %158 = lshr i64 %157, 1
-  br label %161
-
-159:                                              ; preds = %153
-  %160 = trunc i64 %43 to i32
+153:                                              ; preds = %147
+  %154 = trunc i64 %43 to i32
   br label %.loopexit
 
-161:                                              ; preds = %155, %150
-  %162 = phi i64 [ %158, %155 ], [ %42, %150 ]
-  %163 = phi i64 [ %156, %155 ], [ %41, %150 ]
-  %164 = phi i64 [ %157, %155 ], [ %40, %150 ]
-  %165 = icmp ult i64 %164, 2
-  br i1 %165, label %.loopexit, label %39, !llvm.loop !16
+155:                                              ; preds = %149, %.thread
+  %156 = phi i64 [ %152, %149 ], [ %42, %.thread ]
+  %157 = phi i64 [ %150, %149 ], [ %41, %.thread ]
+  %158 = phi i64 [ %151, %149 ], [ %40, %.thread ]
+  %159 = icmp ult i64 %158, 2
+  br i1 %159, label %.loopexit, label %39, !llvm.loop !16
 
-.loopexit:                                        ; preds = %161, %159, %24
-  %166 = phi i32 [ %160, %159 ], [ 0, %24 ], [ 0, %161 ]
+.loopexit:                                        ; preds = %155, %153, %24
+  %160 = phi i32 [ %154, %153 ], [ 0, %24 ], [ 0, %155 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
-  br label %167
+  br label %161
 
-167:                                              ; preds = %.loopexit, %19, %14, %10, %3
-  %168 = phi i32 [ 0, %3 ], [ 0, %10 ], [ 0, %14 ], [ %166, %.loopexit ], [ 0, %19 ]
-  ret i32 %168
+161:                                              ; preds = %.loopexit, %19, %14, %10, %3
+  %162 = phi i32 [ 0, %3 ], [ 0, %10 ], [ 0, %14 ], [ %160, %.loopexit ], [ 0, %19 ]
+  ret i32 %162
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

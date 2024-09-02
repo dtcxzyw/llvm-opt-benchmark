@@ -16170,18 +16170,20 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   %.2161 = phi i8 [ %.1160381, %.lr.ph ], [ %.1160381, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.thread ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   %112 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0335.0380) #25
   %.not = icmp eq ptr %112, %94
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.critedge, %_ZN29cmLocalUnixMakefileGenerator318GetImplicitDependsB5cxx11EPK17cmGeneratorTarget23cmDependencyScannerKind.exit
-  %.1160.lcssa = phi i8 [ %spec.select, %_ZN29cmLocalUnixMakefileGenerator318GetImplicitDependsB5cxx11EPK17cmGeneratorTarget23cmDependencyScannerKind.exit ], [ %.2161, %.critedge ]
-  %113 = trunc nuw i8 %.1160.lcssa to i1
+._crit_edge.loopexit:                             ; preds = %.critedge
+  %113 = trunc nuw i8 %.2161 to i1
   br i1 %113, label %114, label %116
 
-114:                                              ; preds = %._crit_edge
+._crit_edge:                                      ; preds = %_ZN29cmLocalUnixMakefileGenerator318GetImplicitDependsB5cxx11EPK17cmGeneratorTarget23cmDependencyScannerKind.exit
+  br i1 %73, label %114, label %116
+
+114:                                              ; preds = %._crit_edge.loopexit, %._crit_edge
   %115 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.215)
   br label %116
 
-116:                                              ; preds = %114, %._crit_edge
+116:                                              ; preds = %._crit_edge.loopexit, %114, %._crit_edge
   %117 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.216)
   %118 = getelementptr inbounds i8, ptr %.sroa.05.0.i.i, i64 80
   %119 = load i64, ptr %118, align 8

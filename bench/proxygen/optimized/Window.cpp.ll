@@ -194,7 +194,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8proxygen6Window18getNonNegativeSizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK8proxygen6Window18getNonNegativeSizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %capacity_.i, align 4

@@ -1346,7 +1346,7 @@ return:                                           ; preds = %vhost_vdpa_cvq_map_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhost_vdpa_net_cvq_load(ptr noundef %nc) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhost_vdpa_net_cvq_load(ptr noundef %nc) #0 {
 entry:
   %cfg.i = alloca %struct.virtio_net_rss_config, align 4
   %data.i61 = alloca [4 x %struct.iovec], align 16
@@ -1431,11 +1431,19 @@ if.then.i:                                        ; preds = %if.then2
   store i64 6, ptr %iov_len.i32, align 8
   %call1.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 1, i8 noundef zeroext 1, ptr noundef nonnull %data.i, i64 noundef 1)
   %cmp.i = icmp slt i64 %call1.i, 0
-  br i1 %cmp.i, label %vhost_vdpa_net_load_mac.exit, label %if.then.if.end5_crit_edge.i
+  br i1 %cmp.i, label %vhost_vdpa_net_load_mac.exit.thread77, label %if.then.if.end5_crit_edge.i
 
 if.then.if.end5_crit_edge.i:                      ; preds = %if.then.i
   %n.val.pre.i = load i64, ptr %9, align 8
   br label %if.end5.i
+
+vhost_vdpa_net_load_mac.exit.thread77:            ; preds = %if.then.i
+  %conv4.i = trunc nsw i64 %call1.i to i32
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %uni.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mul17.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data20.i)
+  br label %return
 
 if.end5.i:                                        ; preds = %if.then.if.end5_crit_edge.i, %if.then2
   %n.val.i = phi i64 [ %n.val.pre.i, %if.then.if.end5_crit_edge.i ], [ %n.val17.i, %if.then2 ]
@@ -1447,9 +1455,16 @@ lor.lhs.false.i:                                  ; preds = %if.end5.i
   %mac_table.i = getelementptr inbounds i8, ptr %call.i, i64 632
   %10 = load i32, ptr %mac_table.i, align 8
   %cmp8.i = icmp eq i32 %10, 0
-  br i1 %cmp8.i, label %vhost_vdpa_net_load_mac.exit.thread, label %if.end11.i
+  br i1 %cmp8.i, label %vhost_vdpa_net_load_mac.exit.thread, label %vhost_vdpa_net_load_mac.exit
 
-if.end11.i:                                       ; preds = %lor.lhs.false.i
+vhost_vdpa_net_load_mac.exit.thread:              ; preds = %lor.lhs.false.i, %if.end5.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %uni.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mul17.i)
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data20.i)
+  br label %if.end10
+
+vhost_vdpa_net_load_mac.exit:                     ; preds = %lor.lhs.false.i
   %first_multi.i = getelementptr inbounds i8, ptr %call.i, i64 636
   %11 = load i32, ptr %first_multi.i, align 4
   %mul.i = mul i32 %11, 6
@@ -1478,23 +1493,12 @@ if.end11.i:                                       ; preds = %lor.lhs.false.i
   %conv35.i = zext i32 %mul15.i to i64
   store i64 %conv35.i, ptr %iov_len34.i, align 8
   %call38.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef nonnull %data20.i, i64 noundef 4)
-  br label %vhost_vdpa_net_load_mac.exit
-
-vhost_vdpa_net_load_mac.exit.thread:              ; preds = %lor.lhs.false.i, %if.end5.i
+  %spec.select.i = trunc nsw i64 %call38.i to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %uni.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mul17.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data20.i)
-  br label %if.end10
-
-vhost_vdpa_net_load_mac.exit:                     ; preds = %if.then.i, %if.end11.i
-  %retval.0.i.in = phi i64 [ %call38.i, %if.end11.i ], [ %call1.i, %if.then.i ]
-  %retval.0.i = trunc i64 %retval.0.i.in to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %uni.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mul17.i)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data20.i)
-  %cmp6 = icmp slt i32 %retval.0.i, 0
+  %cmp6 = icmp slt i64 %call38.i, 0
   br i1 %cmp6, label %return, label %if.end10
 
 if.end10:                                         ; preds = %vhost_vdpa_net_load_mac.exit.thread, %vhost_vdpa_net_load_mac.exit
@@ -1514,7 +1518,7 @@ if.end.i:                                         ; preds = %if.end10
   store i64 2, ptr %iov_len.i36, align 8
   %call2.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull %data.i33, i64 noundef 1)
   %cmp.i37 = icmp slt i64 %call2.i, 0
-  br i1 %cmp.i37, label %vhost_vdpa_net_load_mq.exit, label %if.end6.i
+  br i1 %cmp.i37, label %vhost_vdpa_net_load_mq.exit.thread86, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
   %n.val17.i38 = load i64, ptr %9, align 8
@@ -1606,12 +1610,11 @@ vhost_vdpa_net_load_rss.exit:                     ; preds = %vhost_vdpa_net_load
   %iov_len40.i = getelementptr inbounds i8, ptr %data.i61, i64 56
   store i64 40, ptr %iov_len40.i, align 8
   %call45.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 1, ptr noundef nonnull %data.i61, i64 noundef 4)
-  %spec.select.i74 = trunc i64 %call45.i to i32
   call void @g_free(ptr noundef %call.i66) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cfg.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i61)
-  %cmp12.i = icmp slt i32 %spec.select.i74, 0
-  br i1 %cmp12.i, label %vhost_vdpa_net_load_mq.exit.thread83, label %vhost_vdpa_net_load_mq.exit.thread
+  %cmp12.i = icmp slt i64 %call45.i, 0
+  br i1 %cmp12.i, label %vhost_vdpa_net_load_mq.exit.thread86, label %vhost_vdpa_net_load_mq.exit.thread
 
 if.else.i:                                        ; preds = %if.end6.i
   %and.i.i21.i = and i64 %n.val17.i38, 144115188075855872
@@ -1671,32 +1674,15 @@ vhost_vdpa_net_load_rss.exit.i:                   ; preds = %lor.lhs.false.i.i
   %iov_len40.i.i = getelementptr inbounds i8, ptr %data.i.i, i64 56
   store i64 40, ptr %iov_len40.i.i, align 8
   %call45.i.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 2, ptr noundef nonnull %data.i.i, i64 noundef 4)
-  %spec.select.i.i = trunc i64 %call45.i.i to i32
   call void @g_free(ptr noundef nonnull %call.i.i) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cfg.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i.i)
-  %cmp28.i = icmp slt i32 %spec.select.i.i, 0
-  br i1 %cmp28.i, label %vhost_vdpa_net_load_mq.exit.thread83, label %vhost_vdpa_net_load_mq.exit.thread
+  %cmp28.i = icmp slt i64 %call45.i.i, 0
+  br i1 %cmp28.i, label %vhost_vdpa_net_load_mq.exit, label %vhost_vdpa_net_load_mq.exit.thread
 
 vhost_vdpa_net_load_mq.exit.thread:               ; preds = %if.end10, %vhost_vdpa_net_load_rss.exit.thread, %vhost_vdpa_net_load_rss.exit.i, %vhost_vdpa_net_load_rss.exit.thread.i, %if.else.i, %vhost_vdpa_net_load_rss.exit
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %mq.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i33)
-  br label %if.end20
-
-vhost_vdpa_net_load_mq.exit.thread83:             ; preds = %vhost_vdpa_net_load_rss.exit, %vhost_vdpa_net_load_rss.exit.i
-  %retval.0.i39.ph = phi i32 [ %spec.select.i.i, %vhost_vdpa_net_load_rss.exit.i ], [ %spec.select.i74, %vhost_vdpa_net_load_rss.exit ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %mq.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i33)
-  br label %return
-
-vhost_vdpa_net_load_mq.exit:                      ; preds = %if.end.i
-  %conv5.i = trunc i64 %call2.i to i32
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %mq.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i33)
-  %tobool12.not = icmp eq i32 %conv5.i, 0
-  br i1 %tobool12.not, label %if.end20, label %return
-
-if.end20:                                         ; preds = %vhost_vdpa_net_load_mq.exit.thread, %vhost_vdpa_net_load_mq.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %offloads.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i40)
   %n.val.i41 = load i64, ptr %9, align 8
@@ -1704,14 +1690,27 @@ if.end20:                                         ; preds = %vhost_vdpa_net_load
   %tobool.i.i.not.i43 = icmp eq i64 %and.i.i.i42, 0
   br i1 %tobool.i.i.not.i43, label %vhost_vdpa_net_load_offloads.exit.thread, label %if.end.i44
 
-if.end.i44:                                       ; preds = %if.end20
+vhost_vdpa_net_load_mq.exit.thread86:             ; preds = %if.end.i, %vhost_vdpa_net_load_rss.exit
+  %retval.0.i39.ph.in = phi i64 [ %call45.i, %vhost_vdpa_net_load_rss.exit ], [ %call2.i, %if.end.i ]
+  %retval.0.i39.ph = trunc nsw i64 %retval.0.i39.ph.in to i32
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %mq.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i33)
+  br label %return
+
+vhost_vdpa_net_load_mq.exit:                      ; preds = %vhost_vdpa_net_load_rss.exit.i
+  %spec.select.i.i = trunc nsw i64 %call45.i.i to i32
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %mq.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i33)
+  br label %return
+
+if.end.i44:                                       ; preds = %vhost_vdpa_net_load_mq.exit.thread
   %curr_guest_offloads.i = getelementptr inbounds i8, ptr %call.i, i64 8984
   %30 = load i64, ptr %curr_guest_offloads.i, align 8
   %call1.i45 = call i64 @virtio_net_supported_guest_offloads(ptr noundef nonnull %call.i) #13
   %cmp.i46 = icmp eq i64 %30, %call1.i45
   br i1 %cmp.i46, label %vhost_vdpa_net_load_offloads.exit.thread, label %vhost_vdpa_net_load_offloads.exit
 
-vhost_vdpa_net_load_offloads.exit.thread:         ; preds = %if.end20, %if.end.i44
+vhost_vdpa_net_load_offloads.exit.thread:         ; preds = %vhost_vdpa_net_load_mq.exit.thread, %if.end.i44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offloads.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i40)
   br label %if.end30
@@ -1723,10 +1722,10 @@ vhost_vdpa_net_load_offloads.exit:                ; preds = %if.end.i44
   %iov_len.i47 = getelementptr inbounds i8, ptr %data.i40, i64 8
   store i64 8, ptr %iov_len.i47, align 8
   %call6.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 5, i8 noundef zeroext 0, ptr noundef nonnull %data.i40, i64 noundef 1)
-  %spec.select.i48 = trunc i64 %call6.i to i32
+  %spec.select.i48 = trunc nsw i64 %call6.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offloads.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i40)
-  %tobool22.not = icmp eq i32 %spec.select.i48, 0
+  %tobool22.not = icmp eq i64 %call6.i, 0
   br i1 %tobool22.not, label %if.end30, label %return
 
 if.end30:                                         ; preds = %vhost_vdpa_net_load_offloads.exit.thread, %vhost_vdpa_net_load_offloads.exit
@@ -1755,11 +1754,10 @@ if.then2.i:                                       ; preds = %land.lhs.true.i
   %iov_len.i.i58 = getelementptr inbounds i8, ptr %data.i.i50, i64 8
   store i64 1, ptr %iov_len.i.i58, align 8
   %call.i.i59 = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %data.i.i50, i64 noundef 1)
-  %retval.0.i.i = trunc i64 %call.i.i59 to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i.i50)
-  %cmp.i60 = icmp slt i32 %retval.0.i.i, 0
-  br i1 %cmp.i60, label %return, label %if.end11.i54
+  %cmp.i60 = icmp slt i64 %call.i.i59, 0
+  br i1 %cmp.i60, label %vhost_vdpa_net_load_rx.exit, label %if.end11.i54
 
 if.end11.i54:                                     ; preds = %if.then2.i, %land.lhs.true.i, %if.end.i53
   %multi_overflow.i = getelementptr inbounds i8, ptr %call.i, i64 640
@@ -1781,11 +1779,10 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i57, 
   %iov_len.i39.i = getelementptr inbounds i8, ptr %data.i38.i, i64 8
   store i64 1, ptr %iov_len.i39.i, align 8
   %call.i40.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 1, ptr noundef nonnull %data.i38.i, i64 noundef 1)
-  %retval.0.i41.i = trunc i64 %call.i40.i to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i37.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i38.i)
-  %cmp20.i = icmp slt i32 %retval.0.i41.i, 0
-  br i1 %cmp20.i, label %return, label %if.end31.i
+  %cmp20.i = icmp slt i64 %call.i40.i, 0
+  br i1 %cmp20.i, label %vhost_vdpa_net_load_rx.exit, label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then17.i, %lor.lhs.false.i57
   %n.val.i55 = load i64, ptr %9, align 8
@@ -1807,11 +1804,10 @@ if.then37.i:                                      ; preds = %if.end35.i
   %iov_len.i46.i = getelementptr inbounds i8, ptr %data.i45.i, i64 8
   store i64 1, ptr %iov_len.i46.i, align 8
   %call.i47.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 2, ptr noundef nonnull %data.i45.i, i64 noundef 1)
-  %retval.0.i48.i = trunc i64 %call.i47.i to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i44.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i45.i)
-  %cmp40.i = icmp slt i32 %retval.0.i48.i, 0
-  br i1 %cmp40.i, label %return, label %if.end45.i
+  %cmp40.i = icmp slt i64 %call.i47.i, 0
+  br i1 %cmp40.i, label %vhost_vdpa_net_load_rx.exit, label %if.end45.i
 
 if.end45.i:                                       ; preds = %if.then37.i, %if.end35.i
   %nomulti.i = getelementptr inbounds i8, ptr %call.i, i64 623
@@ -1827,11 +1823,10 @@ if.then47.i:                                      ; preds = %if.end45.i
   %iov_len.i51.i = getelementptr inbounds i8, ptr %data.i50.i, i64 8
   store i64 1, ptr %iov_len.i51.i, align 8
   %call.i52.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 3, ptr noundef nonnull %data.i50.i, i64 noundef 1)
-  %retval.0.i53.i = trunc i64 %call.i52.i to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i49.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i50.i)
-  %cmp50.i = icmp slt i32 %retval.0.i53.i, 0
-  br i1 %cmp50.i, label %return, label %if.end55.i
+  %cmp50.i = icmp slt i64 %call.i52.i, 0
+  br i1 %cmp50.i, label %vhost_vdpa_net_load_rx.exit, label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.then47.i, %if.end45.i
   %nouni.i = getelementptr inbounds i8, ptr %call.i, i64 624
@@ -1847,11 +1842,10 @@ if.then57.i:                                      ; preds = %if.end55.i
   %iov_len.i56.i = getelementptr inbounds i8, ptr %data.i55.i, i64 8
   store i64 1, ptr %iov_len.i56.i, align 8
   %call.i57.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 4, ptr noundef nonnull %data.i55.i, i64 noundef 1)
-  %retval.0.i58.i = trunc i64 %call.i57.i to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i54.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i55.i)
-  %cmp60.i = icmp slt i32 %retval.0.i58.i, 0
-  br i1 %cmp60.i, label %return, label %if.end65.i
+  %cmp60.i = icmp slt i64 %call.i57.i, 0
+  br i1 %cmp60.i, label %vhost_vdpa_net_load_rx.exit, label %if.end65.i
 
 if.end65.i:                                       ; preds = %if.then57.i, %if.end55.i
   %nobcast.i = getelementptr inbounds i8, ptr %call.i, i64 625
@@ -1867,11 +1861,15 @@ if.then67.i:                                      ; preds = %if.end65.i
   %iov_len.i61.i = getelementptr inbounds i8, ptr %data.i60.i, i64 8
   store i64 1, ptr %iov_len.i61.i, align 8
   %call.i62.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 5, ptr noundef nonnull %data.i60.i, i64 noundef 1)
-  %retval.0.i63.i = trunc i64 %call.i62.i to i32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i59.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i60.i)
-  %cmp70.i = icmp slt i32 %retval.0.i63.i, 0
-  br i1 %cmp70.i, label %return, label %if.end40
+  %cmp70.i = icmp slt i64 %call.i62.i, 0
+  br i1 %cmp70.i, label %vhost_vdpa_net_load_rx.exit, label %if.end40
+
+vhost_vdpa_net_load_rx.exit:                      ; preds = %if.then2.i, %if.then17.i, %if.then37.i, %if.then47.i, %if.then57.i, %if.then67.i
+  %retval.0.i56.in = phi i64 [ %call.i.i59, %if.then2.i ], [ %call.i40.i, %if.then17.i ], [ %call.i47.i, %if.then37.i ], [ %call.i52.i, %if.then47.i ], [ %call.i57.i, %if.then57.i ], [ %call.i62.i, %if.then67.i ]
+  %retval.0.i56 = trunc nsw i64 %retval.0.i56.in to i32
+  br label %return
 
 if.end40:                                         ; preds = %if.end65.i, %if.then67.i, %if.end31.i, %if.end30
   %call41 = call fastcc i32 @vhost_vdpa_net_load_vlan(ptr noundef nonnull %nc, ptr noundef nonnull %call.i, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor)
@@ -1894,23 +1892,23 @@ if.then60:                                        ; preds = %if.end50
 
 if.end62:                                         ; preds = %if.end50, %if.end
   %42 = load ptr, ptr %dev, align 8
-  %vq_index6490 = getelementptr inbounds i8, ptr %42, i64 444
-  %43 = load i32, ptr %vq_index6490, align 4
-  %cmp6591 = icmp sgt i32 %43, 0
-  br i1 %cmp6591, label %for.body, label %return
+  %vq_index6493 = getelementptr inbounds i8, ptr %42, i64 444
+  %43 = load i32, ptr %vq_index6493, align 4
+  %cmp6594 = icmp sgt i32 %43, 0
+  br i1 %cmp6594, label %for.body, label %return
 
 for.body:                                         ; preds = %if.end62, %for.body
-  %i.092 = phi i32 [ %inc, %for.body ], [ 0, %if.end62 ]
-  %call67 = call i32 @vhost_vdpa_set_vring_ready(ptr noundef nonnull %vhost_vdpa, i32 noundef %i.092) #13
-  %inc = add nuw nsw i32 %i.092, 1
+  %i.095 = phi i32 [ %inc, %for.body ], [ 0, %if.end62 ]
+  %call67 = call i32 @vhost_vdpa_set_vring_ready(ptr noundef nonnull %vhost_vdpa, i32 noundef %i.095) #13
+  %inc = add nuw nsw i32 %i.095, 1
   %44 = load ptr, ptr %dev, align 8
   %vq_index64 = getelementptr inbounds i8, ptr %44, i64 444
   %45 = load i32, ptr %vq_index64, align 4
   %cmp65 = icmp slt i32 %inc, %45
   br i1 %cmp65, label %for.body, label %return, !llvm.loop !11
 
-return:                                           ; preds = %for.body, %if.end62, %if.then67.i, %if.then57.i, %if.then47.i, %if.then37.i, %if.then17.i, %if.then2.i, %vhost_vdpa_net_load_mq.exit.thread83, %if.end40, %vhost_vdpa_net_load_offloads.exit, %vhost_vdpa_net_load_mq.exit, %vhost_vdpa_net_load_mac.exit, %if.then60
-  %retval.0 = phi i32 [ %conv52, %if.then60 ], [ %retval.0.i, %vhost_vdpa_net_load_mac.exit ], [ %conv5.i, %vhost_vdpa_net_load_mq.exit ], [ %spec.select.i48, %vhost_vdpa_net_load_offloads.exit ], [ %call41, %if.end40 ], [ %retval.0.i39.ph, %vhost_vdpa_net_load_mq.exit.thread83 ], [ %retval.0.i63.i, %if.then67.i ], [ %retval.0.i58.i, %if.then57.i ], [ %retval.0.i53.i, %if.then47.i ], [ %retval.0.i48.i, %if.then37.i ], [ %retval.0.i41.i, %if.then17.i ], [ %retval.0.i.i, %if.then2.i ], [ 0, %if.end62 ], [ 0, %for.body ]
+return:                                           ; preds = %for.body, %vhost_vdpa_net_load_rx.exit, %if.end62, %vhost_vdpa_net_load_mq.exit, %vhost_vdpa_net_load_mq.exit.thread86, %vhost_vdpa_net_load_mac.exit.thread77, %if.end40, %vhost_vdpa_net_load_offloads.exit, %vhost_vdpa_net_load_mac.exit, %if.then60
+  %retval.0 = phi i32 [ %conv52, %if.then60 ], [ %spec.select.i, %vhost_vdpa_net_load_mac.exit ], [ %spec.select.i.i, %vhost_vdpa_net_load_mq.exit ], [ %spec.select.i48, %vhost_vdpa_net_load_offloads.exit ], [ %retval.0.i56, %vhost_vdpa_net_load_rx.exit ], [ %call41, %if.end40 ], [ %conv4.i, %vhost_vdpa_net_load_mac.exit.thread77 ], [ %retval.0.i39.ph, %vhost_vdpa_net_load_mq.exit.thread86 ], [ 0, %if.end62 ], [ 0, %for.body ]
   ret i32 %retval.0
 }
 
@@ -2056,7 +2054,7 @@ declare ptr @vhost_iova_tree_find_iova(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @vhost_vdpa_dma_unmap(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhost_vdpa_net_load_vlan(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %n, ptr noundef %out_cursor, ptr noundef %in_cursor) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_vdpa_net_load_vlan(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %n, ptr noundef %out_cursor, ptr noundef %in_cursor) unnamed_addr #0 {
 entry:
   %vid.addr.i = alloca i16, align 2
   %data.i = alloca %struct.iovec, align 8
@@ -2104,11 +2102,10 @@ if.then8:                                         ; preds = %for.body3
   store ptr %vid.addr.i, ptr %data.i, align 8
   store i64 2, ptr %iov_len.i, align 8
   %call.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef readonly %s, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull %data.i, i64 noundef 1)
-  %retval.0.i = trunc i64 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %vid.addr.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
-  %cmp11.not = icmp eq i32 %retval.0.i, 0
-  br i1 %cmp11.not, label %if.then8.for.inc_crit_edge, label %return
+  %cmp11.not = icmp eq i64 %call.i, 0
+  br i1 %cmp11.not, label %if.then8.for.inc_crit_edge, label %return.loopexit
 
 if.then8.for.inc_crit_edge:                       ; preds = %if.then8
   %.pre20 = load ptr, ptr %vlans, align 8
@@ -2131,8 +2128,12 @@ for.inc19:                                        ; preds = %for.inc, %for.cond1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
   br i1 %exitcond.not, label %return, label %for.cond1.preheader, !llvm.loop !13
 
-return:                                           ; preds = %for.inc19, %if.then8, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %retval.0.i, %if.then8 ], [ 0, %for.inc19 ]
+return.loopexit:                                  ; preds = %if.then8
+  %retval.0.i.le = trunc nsw i64 %call.i to i32
+  br label %return
+
+return:                                           ; preds = %for.inc19, %return.loopexit, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %retval.0.i.le, %return.loopexit ], [ 0, %for.inc19 ]
   ret i32 %retval.0
 }
 
@@ -2176,7 +2177,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -9223372036854775808, 1) i64 @vhost_vdpa_net_load_cmd(ptr nocapture noundef readonly %s, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext %class, i8 noundef zeroext %cmd, ptr noundef %data_sg, i64 noundef %data_num) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 1) i64 @vhost_vdpa_net_load_cmd(ptr nocapture noundef readonly %s, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext %class, i8 noundef zeroext %cmd, ptr noundef %data_sg, i64 noundef %data_num) unnamed_addr #0 {
 entry:
   %out_cursor.addr = alloca ptr, align 8
   %in_cursor.addr = alloca ptr, align 8

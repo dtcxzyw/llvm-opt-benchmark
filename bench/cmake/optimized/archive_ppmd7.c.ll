@@ -1705,23 +1705,23 @@ RangeEnc_Encode.exit179:                          ; preds = %RangeEnc_ShiftLow.e
   store i16 %496, ptr %488, align 2
   %497 = tail call i32 @llvm.umax.i32(i32 %494, i32 1)
   %.pre = load i16, ptr %453, align 4
+  %498 = zext i16 %.pre to i32
   br label %Ppmd7_MakeEscFreq.exit
 
 Ppmd7_MakeEscFreq.exit:                           ; preds = %456, %457
-  %498 = phi i16 [ %.pre, %457 ], [ 256, %456 ]
+  %499 = phi i32 [ %498, %457 ], [ 256, %456 ]
   %storemerge.i = phi i32 [ %497, %457 ], [ 1, %456 ]
   %.0.i = phi ptr [ %488, %457 ], [ %435, %456 ]
-  %499 = getelementptr inbounds i8, ptr %453, i64 4
-  %500 = load i32, ptr %499, align 4
-  %501 = zext i32 %500 to i64
-  %502 = getelementptr inbounds i8, ptr %451, i64 %501
-  %503 = zext i16 %498 to i32
+  %500 = getelementptr inbounds i8, ptr %453, i64 4
+  %501 = load i32, ptr %500, align 4
+  %502 = zext i32 %501 to i64
+  %503 = getelementptr inbounds i8, ptr %451, i64 %502
   br label %504
 
 504:                                              ; preds = %589, %Ppmd7_MakeEscFreq.exit
-  %.0144 = phi ptr [ %502, %Ppmd7_MakeEscFreq.exit ], [ %598, %589 ]
+  %.0144 = phi ptr [ %503, %Ppmd7_MakeEscFreq.exit ], [ %598, %589 ]
   %.0142 = phi i32 [ 0, %Ppmd7_MakeEscFreq.exit ], [ %597, %589 ]
-  %.0140 = phi i32 [ %503, %Ppmd7_MakeEscFreq.exit ], [ %599, %589 ]
+  %.0140 = phi i32 [ %499, %Ppmd7_MakeEscFreq.exit ], [ %599, %589 ]
   %505 = load i8, ptr %.0144, align 2
   %506 = zext i8 %505 to i32
   %507 = icmp eq i32 %2, %506

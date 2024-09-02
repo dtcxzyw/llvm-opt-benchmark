@@ -1329,7 +1329,7 @@ define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #5 a
 14:                                               ; preds = %32, %12
   %15 = phi i64 [ %13, %12 ], [ %35, %32 ]
   %16 = icmp sgt i64 %15, 31
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %15
@@ -1349,7 +1349,7 @@ define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #5 a
   store ptr %26, ptr @base_ops, align 8
   br label %27
 
-27:                                               ; preds = %17, %24
+27:                                               ; preds = %24, %17
   %28 = getelementptr inbounds i8, ptr %18, i64 304
   store ptr @univ8250_port_ops, ptr %28, align 16
   %29 = getelementptr inbounds i8, ptr %18, i64 528
@@ -1358,7 +1358,7 @@ define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #5 a
   store ptr @univ8250_driver_ops, ptr %30, align 16
   tail call void @serial8250_set_defaults(ptr noundef %18) #12
   %31 = icmp eq ptr %18, null
-  br i1 %31, label %.thread, label %32
+  br i1 %31, label %.critedge, label %32
 
 32:                                               ; preds = %27
   %33 = load i32, ptr @nr_uarts, align 4
@@ -1377,13 +1377,13 @@ define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #5 a
   store ptr %0, ptr %40, align 8
   %41 = tail call i32 @serial8250_console_setup(ptr noundef %39, ptr noundef %1, i1 noundef zeroext false) #12
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.thread, label %43
+  br i1 %42, label %.critedge, label %43
 
 43:                                               ; preds = %.loopexit
   store ptr null, ptr %40, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %14, %27, %43, %.loopexit
+.critedge:                                        ; preds = %14, %27, %43, %.loopexit
   %44 = phi i32 [ %41, %43 ], [ 0, %.loopexit ], [ -19, %27 ], [ -19, %14 ]
   ret i32 %44
 }

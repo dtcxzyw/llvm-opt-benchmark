@@ -834,7 +834,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
 
 57:                                               ; preds = %33
   %58 = load atomic i64, ptr %7 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.0.lcssa, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0.lcssa, i32 6)
   br label %61
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %61

@@ -893,7 +893,7 @@ _ZN5tokio7runtime9thread_id8ThreadId4next17h8ffabff2ed186df3E.exit.i: ; preds = 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h86b73fa8147d919aE.llvm.11424388141523703806"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h86b73fa8147d919aE.llvm.11424388141523703806"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !nonnull !10, !noundef !10
   %3 = tail call noundef align 8 ptr %2(ptr noalias noundef align 8 dereferenceable_or_null(88) null)
   %4 = icmp eq ptr %3, null
@@ -3168,7 +3168,7 @@ define hidden void @"_ZN5tokio3net4unix4pipe8Receiver17try_read_vectored28_$u7b$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @_ZN5tokio7runtime7context12thread_rng_n17hd2b677d2db23db8cE(i32 noundef %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, -1) i32 @_ZN5tokio7runtime7context12thread_rng_n17hd2b677d2db23db8cE(i32 noundef %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h5f8ec821a32f13ccE, align 1, !noalias !372, !noundef !10
   switch i8 %3, label %12 [

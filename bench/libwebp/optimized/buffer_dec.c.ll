@@ -86,7 +86,7 @@ define hidden range(i32 0, 3) i32 @WebPFlipBuffer(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = icmp eq ptr %3, null

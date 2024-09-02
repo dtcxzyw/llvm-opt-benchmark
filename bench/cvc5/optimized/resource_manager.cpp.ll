@@ -260,7 +260,7 @@ if.end:                                           ; preds = %entry, %if.else
 declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK4cvc58internal14WallClockTimer7elapsedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i64 -9223372036854, 9223372036855) i64 @_ZNK4cvc58internal14WallClockTimer7elapsedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
   %d_limit.i = getelementptr inbounds i8, ptr %this, i64 8
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %d_limit.i, align 8

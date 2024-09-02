@@ -60,7 +60,7 @@ define zeroext i1 @php_odbc_connstr_should_quote(ptr noundef readonly %0) local_
 declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i64 @php_odbc_connstr_estimate_quote_length(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i64 3, 2) i64 @php_odbc_connstr_estimate_quote_length(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
   %3 = shl i64 %2, 1
   %4 = add i64 %3, 3

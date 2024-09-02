@@ -465,8 +465,8 @@ _ZL31manage_number_of_openmp_threadsRKN3gmx8MDLoggerEPK9t_commrecbiiibib.exit: ;
   call void @_Z23gmx_omp_set_num_threadsi(i32 noundef %spec.select.i)
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 48
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   %62 = icmp sgt i32 %.pre, 1
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %_ZL31manage_number_of_openmp_threadsRKN3gmx8MDLoggerEPK9t_commrecbiiibib.exit.thread, %_ZL31manage_number_of_openmp_threadsRKN3gmx8MDLoggerEPK9t_commrecbiiibib.exit

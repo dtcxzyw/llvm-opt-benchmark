@@ -2302,7 +2302,7 @@ define linkonce_odr hidden void @_ZN17LogStreamTemplateILN8LogLevel4typeE1ELN6Lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN12ConstantPool18cp_to_object_indexEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 -1, -2147483648) i32 @_ZN12ConstantPool18cp_to_object_indexEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -4359,7 +4359,7 @@ _ZNK12ConstantPool13reference_mapEv.exit.i.i:     ; preds = %21, %16
 
 _ZN12ConstantPool9string_atEiP10JavaThread.exit:  ; preds = %31, %.critedge.split.loop.exit5.i.i.i.i
   %.lcssa.i.i.i.i = phi i32 [ %indvars.le.i.i.i.i, %.critedge.split.loop.exit5.i.i.i.i ], [ %30, %31 ]
-  %38 = tail call noundef i32 @llvm.smax.i32(i32 %.lcssa.i.i.i.i, i32 -1)
+  %38 = tail call noundef range(i32 -1, -2147483648) i32 @llvm.smax.i32(i32 %.lcssa.i.i.i.i, i32 -1)
   %39 = tail call noundef ptr @_ZN12ConstantPool9string_atEiiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(68) %17, i32 noundef %25, i32 noundef %38, ptr noundef %1)
   %40 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %40, null
@@ -4576,7 +4576,7 @@ _ZNK12ConstantPool13reference_mapEv.exit.i:       ; preds = %22, %18
 
 _ZN12ConstantPool18cp_to_object_indexEi.exit:     ; preds = %31, %.critedge.split.loop.exit5.i.i.i
   %.lcssa.i.i.i = phi i32 [ %indvars.le.i.i.i, %.critedge.split.loop.exit5.i.i.i ], [ %30, %31 ]
-  %38 = tail call noundef i32 @llvm.smax.i32(i32 %.lcssa.i.i.i, i32 -1)
+  %38 = tail call noundef range(i32 -1, -2147483648) i32 @llvm.smax.i32(i32 %.lcssa.i.i.i, i32 -1)
   br label %39
 
 39:                                               ; preds = %_ZN12ConstantPool18cp_to_object_indexEi.exit, %5
@@ -7231,7 +7231,7 @@ define hidden noundef i32 @_ZN12ConstantPool21find_matching_operandEiRK18constan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -2147483645, -2147483648) i32 @_ZN12ConstantPool16cpool_entry_sizeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1, 65539) i32 @_ZN12ConstantPool16cpool_entry_sizeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
@@ -7319,7 +7319,7 @@ define hidden noundef i32 @_ZN12ConstantPool15hash_entries_toEPNS_10SymbolHashES
   %17 = load volatile i8, ptr %16, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
   %18 = tail call noundef i32 @_ZN12ConstantPool16cpool_entry_sizeEi(ptr noundef nonnull align 8 dereferenceable(68) %0, i32 noundef %12)
-  %19 = add nsw i32 %18, %.029
+  %19 = add nuw nsw i32 %18, %.029
   switch i8 %17, label %_ZN12ConstantPool10SymbolHash13add_if_absentEPK6Symbolt.exit [
     i8 1, label %20
     i8 7, label %65
@@ -8052,7 +8052,7 @@ _ZN5Bytes11put_Java_u2EPht.exit121:               ; preds = %294, %295
 
 _ZN5Bytes11put_Java_u4EPhj.exit:                  ; preds = %.lr.ph, %_ZN5Bytes11put_Java_u2EPht.exit, %302, %301, %282, %281, %262, %261, %251, %250, %237, %236, %226, %225, %215, %214, %195, %194, %173, %172, %126, %125, %55, %54, %45, %44, %_ZN5Bytes11put_Java_u8EPhm.exit104, %_ZN5Bytes11put_Java_u8EPhm.exit, %10
   %.1 = phi i32 [ %.0101128, %10 ], [ %75, %_ZN5Bytes11put_Java_u8EPhm.exit104 ], [ %65, %_ZN5Bytes11put_Java_u8EPhm.exit ], [ %.0101128, %44 ], [ %.0101128, %45 ], [ %.0101128, %54 ], [ %.0101128, %55 ], [ %.0101128, %125 ], [ %.0101128, %126 ], [ %.0101128, %172 ], [ %.0101128, %173 ], [ %.0101128, %194 ], [ %.0101128, %195 ], [ %.0101128, %214 ], [ %.0101128, %215 ], [ %.0101128, %225 ], [ %.0101128, %226 ], [ %.0101128, %236 ], [ %.0101128, %237 ], [ %.0101128, %250 ], [ %.0101128, %251 ], [ %.0101128, %261 ], [ %.0101128, %262 ], [ %.0101128, %281 ], [ %.0101128, %282 ], [ %.0101128, %301 ], [ %.0101128, %302 ], [ %.0101128, %_ZN5Bytes11put_Java_u2EPht.exit ], [ %.0101128, %.lr.ph ]
-  %303 = sext i32 %16 to i64
+  %303 = zext nneg i32 %16 to i64
   %304 = getelementptr inbounds i8, ptr %.0129, i64 %303
   %305 = add nsw i32 %.1, 1
   %306 = icmp slt i32 %305, %6

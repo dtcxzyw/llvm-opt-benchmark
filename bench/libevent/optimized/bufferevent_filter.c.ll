@@ -663,7 +663,7 @@ do.body.us.preheader:                             ; preds = %lor.lhs.false3
   %wm_write.i103 = getelementptr inbounds i8, ptr %bevf, i64 288
   br label %do.body10.us.us
 
-if.then46.us:                                     ; preds = %land.lhs.true34.us.us, %land.lhs.true39.us.us, %be_underlying_writebuf_full.exit43.us.us, %do.end.split.us.us
+if.then46.us:                                     ; preds = %land.lhs.true34.us.us, %land.lhs.true39.us.us, %land.rhs.i39.us.us, %do.end.split.us.us
   %11 = load ptr, ptr %output896, align 8
   %call11.i.us = tail call i64 @evbuffer_get_length(ptr noundef %11) #2
   %12 = load i64, ptr %wm_write.i103, align 8
@@ -704,6 +704,10 @@ be_underlying_writebuf_full.exit54.us:            ; preds = %land.lhs.true58.us
   %cmp3.i53.not.us = icmp ult i64 %call.i52.us, %18
   %cond.fr.us = freeze i1 %cmp3.i53.not.us
   br i1 %cond.fr.us, label %do.body10.us.us.backedge, label %do.end66
+
+do.body10.us.us.backedge:                         ; preds = %be_underlying_writebuf_full.exit54.us, %land.lhs.true58.us, %land.rhs.us.us, %land.rhs.i39.us.us
+  %tobool45.not.us.us.be = phi i1 [ true, %be_underlying_writebuf_full.exit54.us ], [ true, %land.lhs.true58.us ], [ false, %land.rhs.us.us ], [ false, %land.rhs.i39.us.us ]
+  br label %do.body10.us.us, !llvm.loop !5
 
 do.body10.us.us:                                  ; preds = %do.body10.us.us.backedge, %do.body.us.preheader
   %tobool45.not.us.us = phi i1 [ true, %do.body.us.preheader ], [ %tobool45.not.us.us.be, %do.body10.us.us.backedge ]
@@ -751,70 +755,60 @@ land.rhs.us.us:                                   ; preds = %land.lhs.true39.us.
   %high.i37.us.us = getelementptr inbounds i8, ptr %bevf.val34.us.us, i64 296
   %30 = load i64, ptr %high.i37.us.us, align 8
   %tobool.not.i38.us.us = icmp eq i64 %30, 0
-  br i1 %tobool.not.i38.us.us, label %be_underlying_writebuf_full.exit43.us.us, label %land.rhs.i39.us.us
+  br i1 %tobool.not.i38.us.us, label %do.body10.us.us.backedge, label %land.rhs.i39.us.us
 
 land.rhs.i39.us.us:                               ; preds = %land.rhs.us.us
   %output.i40.us.us = getelementptr inbounds i8, ptr %bevf.val34.us.us, i64 264
   %31 = load ptr, ptr %output.i40.us.us, align 8
   %call.i41.us.us = tail call i64 @evbuffer_get_length(ptr noundef %31) #2
   %32 = load i64, ptr %high.i37.us.us, align 8
-  %cmp3.i42.us.us = icmp uge i64 %call.i41.us.us, %32
-  %33 = zext i1 %cmp3.i42.us.us to i32
-  br label %be_underlying_writebuf_full.exit43.us.us
-
-be_underlying_writebuf_full.exit43.us.us:         ; preds = %land.rhs.i39.us.us, %land.rhs.us.us
-  %land.ext.i36.us.us = phi i32 [ 0, %land.rhs.us.us ], [ %33, %land.rhs.i39.us.us ]
-  %tobool44.not.us.us = icmp eq i32 %land.ext.i36.us.us, 0
-  br i1 %tobool44.not.us.us, label %do.body10.us.us.backedge, label %if.then46.us
-
-do.body10.us.us.backedge:                         ; preds = %be_underlying_writebuf_full.exit43.us.us, %be_underlying_writebuf_full.exit54.us, %land.lhs.true58.us
-  %tobool45.not.us.us.be = phi i1 [ false, %be_underlying_writebuf_full.exit43.us.us ], [ true, %be_underlying_writebuf_full.exit54.us ], [ true, %land.lhs.true58.us ]
-  br label %do.body10.us.us, !llvm.loop !5
+  %cmp3.i42.not.us.us = icmp ult i64 %call.i41.us.us, %32
+  br i1 %cmp3.i42.not.us.us, label %do.body10.us.us.backedge, label %if.then46.us
 
 do.end.split.us.us:                               ; preds = %if.end21.us.us
   br i1 %tobool45.not.us.us, label %do.end66, label %if.then46.us
 
 do.body:                                          ; preds = %do.body.preheader, %land.lhs.true54
-  %34 = load ptr, ptr %process_out, align 8
-  %35 = load ptr, ptr %output8, align 8
-  %36 = load ptr, ptr %underlying, align 8
-  %output2679 = getelementptr inbounds i8, ptr %36, i64 264
-  %37 = load ptr, ptr %output2679, align 8
-  %38 = load ptr, ptr %context, align 8
-  %call2780 = tail call i32 %34(ptr noundef %35, ptr noundef %37, i64 noundef -1, i32 noundef %state, ptr noundef %38) #2
+  %33 = load ptr, ptr %process_out, align 8
+  %34 = load ptr, ptr %output8, align 8
+  %35 = load ptr, ptr %underlying, align 8
+  %output2679 = getelementptr inbounds i8, ptr %35, i64 264
+  %36 = load ptr, ptr %output2679, align 8
+  %37 = load ptr, ptr %context, align 8
+  %call2780 = tail call i32 %33(ptr noundef %34, ptr noundef %36, i64 noundef -1, i32 noundef %state, ptr noundef %37) #2
   %cmp2881.not = icmp eq i32 %call2780, 0
   br i1 %cmp2881.not, label %land.lhs.true34, label %do.end66
 
 do.body10:                                        ; preds = %land.lhs.true39
-  %39 = load ptr, ptr %process_out, align 8
-  %40 = load ptr, ptr %output8, align 8
-  %41 = load ptr, ptr %underlying, align 8
-  %output26 = getelementptr inbounds i8, ptr %41, i64 264
-  %42 = load ptr, ptr %output26, align 8
-  %43 = load ptr, ptr %context, align 8
-  %call27 = tail call i32 %39(ptr noundef %40, ptr noundef %42, i64 noundef -1, i32 noundef %state, ptr noundef %43) #2
+  %38 = load ptr, ptr %process_out, align 8
+  %39 = load ptr, ptr %output8, align 8
+  %40 = load ptr, ptr %underlying, align 8
+  %output26 = getelementptr inbounds i8, ptr %40, i64 264
+  %41 = load ptr, ptr %output26, align 8
+  %42 = load ptr, ptr %context, align 8
+  %call27 = tail call i32 %38(ptr noundef %39, ptr noundef %41, i64 noundef -1, i32 noundef %state, ptr noundef %42) #2
   %cmp28 = icmp eq i32 %call27, 0
-  br i1 %cmp28, label %land.lhs.true34, label %if.then46
+  br i1 %cmp28, label %land.lhs.true34, label %if.then46, !llvm.loop !5
 
 land.lhs.true34:                                  ; preds = %do.body, %do.body10
   store i32 1, ptr %processed_out, align 4
-  %44 = load i16, ptr %enabled50, align 8
-  %45 = and i16 %44, 4
-  %tobool38.not = icmp eq i16 %45, 0
+  %43 = load i16, ptr %enabled50, align 8
+  %44 = and i16 %43, 4
+  %tobool38.not = icmp eq i16 %44, 0
   br i1 %tobool38.not, label %if.then46, label %land.lhs.true39
 
 land.lhs.true39:                                  ; preds = %land.lhs.true34
-  %46 = load ptr, ptr %output8, align 8
-  %call41 = tail call i64 @evbuffer_get_length(ptr noundef %46) #2
+  %45 = load ptr, ptr %output8, align 8
+  %call41 = tail call i64 @evbuffer_get_length(ptr noundef %45) #2
   %tobool42.not = icmp eq i64 %call41, 0
   br i1 %tobool42.not, label %if.then46, label %do.body10
 
 if.then46:                                        ; preds = %land.lhs.true34, %land.lhs.true39, %do.body10
   %cmp2867 = phi i1 [ false, %do.body10 ], [ true, %land.lhs.true39 ], [ true, %land.lhs.true34 ]
-  %47 = load ptr, ptr %output8, align 8
-  %call11.i = tail call i64 @evbuffer_get_length(ptr noundef %47) #2
-  %48 = load i64, ptr %wm_write.i, align 8
-  %cmp13.not.i = icmp ugt i64 %call11.i, %48
+  %46 = load ptr, ptr %output8, align 8
+  %call11.i = tail call i64 @evbuffer_get_length(ptr noundef %46) #2
+  %47 = load i64, ptr %wm_write.i, align 8
+  %cmp13.not.i = icmp ugt i64 %call11.i, %47
   br i1 %cmp13.not.i, label %bufferevent_trigger_nolock_.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then46
@@ -825,37 +819,37 @@ bufferevent_trigger_nolock_.exit:                 ; preds = %if.then46, %if.then
   br i1 %cmp2867, label %land.lhs.true49, label %do.end66
 
 land.lhs.true49:                                  ; preds = %bufferevent_trigger_nolock_.exit
-  %49 = load i16, ptr %enabled50, align 8
-  %50 = and i16 %49, 4
-  %tobool53.not = icmp eq i16 %50, 0
+  %48 = load i16, ptr %enabled50, align 8
+  %49 = and i16 %48, 4
+  %tobool53.not = icmp eq i16 %49, 0
   br i1 %tobool53.not, label %do.end66, label %land.lhs.true54
 
 land.lhs.true54:                                  ; preds = %land.lhs.true49
-  %51 = load ptr, ptr %output8, align 8
-  %call56 = tail call i64 @evbuffer_get_length(ptr noundef %51) #2
+  %50 = load ptr, ptr %output8, align 8
+  %call56 = tail call i64 @evbuffer_get_length(ptr noundef %50) #2
   %tobool57.not = icmp eq i64 %call56, 0
-  br i1 %tobool57.not, label %do.end66, label %do.body, !llvm.loop !5
+  br i1 %tobool57.not, label %do.end66, label %do.body, !llvm.loop !7
 
 do.end66:                                         ; preds = %do.body, %bufferevent_trigger_nolock_.exit, %land.lhs.true49, %land.lhs.true54, %bufferevent_trigger_nolock_.exit.us, %land.lhs.true49.us, %land.lhs.true54.us, %be_underlying_writebuf_full.exit54.us, %do.end.split.us.us
   %outbuf_cb106 = phi ptr [ %outbuf_cb97, %do.end.split.us.us ], [ %outbuf_cb97, %be_underlying_writebuf_full.exit54.us ], [ %outbuf_cb97, %land.lhs.true54.us ], [ %outbuf_cb97, %land.lhs.true49.us ], [ %outbuf_cb97, %bufferevent_trigger_nolock_.exit.us ], [ %outbuf_cb, %land.lhs.true54 ], [ %outbuf_cb, %land.lhs.true49 ], [ %outbuf_cb, %bufferevent_trigger_nolock_.exit ], [ %outbuf_cb, %do.body ]
   %output8104 = phi ptr [ %output896, %do.end.split.us.us ], [ %output896, %be_underlying_writebuf_full.exit54.us ], [ %output896, %land.lhs.true54.us ], [ %output896, %land.lhs.true49.us ], [ %output896, %bufferevent_trigger_nolock_.exit.us ], [ %output8, %land.lhs.true54 ], [ %output8, %land.lhs.true49 ], [ %output8, %bufferevent_trigger_nolock_.exit ], [ %output8, %do.body ]
-  %52 = load ptr, ptr %output8104, align 8
-  %53 = load ptr, ptr %outbuf_cb106, align 8
-  %call69 = tail call i32 @evbuffer_cb_set_flags(ptr noundef %52, ptr noundef %53, i32 noundef 1) #2
-  %54 = load i32, ptr %processed_out, align 4
-  %tobool70.not = icmp eq i32 %54, 0
+  %51 = load ptr, ptr %output8104, align 8
+  %52 = load ptr, ptr %outbuf_cb106, align 8
+  %call69 = tail call i32 @evbuffer_cb_set_flags(ptr noundef %51, ptr noundef %52, i32 noundef 1) #2
+  %53 = load i32, ptr %processed_out, align 4
+  %tobool70.not = icmp eq i32 %53, 0
   br i1 %tobool70.not, label %return, label %do.body72
 
 do.body72:                                        ; preds = %do.end66
   %timeout_write = getelementptr inbounds i8, ptr %bevf, i64 352
-  %55 = load i64, ptr %timeout_write, align 8
-  %tobool73.not = icmp eq i64 %55, 0
+  %54 = load i64, ptr %timeout_write, align 8
+  %tobool73.not = icmp eq i64 %54, 0
   br i1 %tobool73.not, label %lor.lhs.false74, label %if.then77
 
 lor.lhs.false74:                                  ; preds = %do.body72
   %tv_usec = getelementptr inbounds i8, ptr %bevf, i64 360
-  %56 = load i64, ptr %tv_usec, align 8
-  %tobool76.not = icmp eq i64 %56, 0
+  %55 = load i64, ptr %tv_usec, align 8
+  %tobool76.not = icmp eq i64 %55, 0
   br i1 %tobool76.not, label %return, label %if.then77
 
 if.then77:                                        ; preds = %lor.lhs.false74, %do.body72
@@ -901,13 +895,13 @@ if.then2.split:                                   ; preds = %if.then
   %enabled24.i = getelementptr inbounds i8, ptr %me_, i64 368
   %2 = load ptr, ptr %process_in.i, align 8
   %3 = load ptr, ptr %underlying.i, align 8
-  %input1437.i = getelementptr inbounds i8, ptr %3, i64 256
-  %4 = load ptr, ptr %input1437.i, align 8
+  %input1438.i = getelementptr inbounds i8, ptr %3, i64 256
+  %4 = load ptr, ptr %input1438.i, align 8
   %5 = load ptr, ptr %input.i, align 8
   %6 = load ptr, ptr %context.i, align 8
-  %call1638.i = tail call i32 %2(ptr noundef %4, ptr noundef %5, i64 noundef -1, i32 noundef 2, ptr noundef %6) #2
-  %cmp1739.i.not = icmp eq i32 %call1638.i, 0
-  br i1 %cmp1739.i.not, label %if.then19.i, label %if.end14
+  %call1639.i = tail call i32 %2(ptr noundef %4, ptr noundef %5, i64 noundef -1, i32 noundef 2, ptr noundef %6) #2
+  %cmp1740.i.not = icmp eq i32 %call1639.i, 0
+  br i1 %cmp1740.i.not, label %if.then19.i, label %if.end14
 
 do.body.i:                                        ; preds = %land.lhs.true28.i
   %7 = load ptr, ptr %process_in.i, align 8
@@ -918,7 +912,7 @@ do.body.i:                                        ; preds = %land.lhs.true28.i
   %11 = load ptr, ptr %context.i, align 8
   %call16.i = tail call i32 %7(ptr noundef %9, ptr noundef %10, i64 noundef -1, i32 noundef 2, ptr noundef %11) #2
   %cmp17.i = icmp eq i32 %call16.i, 0
-  br i1 %cmp17.i, label %if.then19.i, label %do.body37.i
+  br i1 %cmp17.i, label %if.then19.i, label %do.body37.i, !llvm.loop !8
 
 if.then19.i:                                      ; preds = %if.then2.split, %do.body.i
   %12 = load i16, ptr %enabled24.i, align 8
@@ -1030,47 +1024,47 @@ be_readbuf_full.exit:                             ; preds = %lor.lhs.false
   br i1 %cmp4.i.not, label %do.body.us.preheader, label %return
 
 do.body.us.preheader:                             ; preds = %lor.lhs.false, %be_readbuf_full.exit
-  %high46 = getelementptr inbounds i8, ptr %bevf, i64 280
-  %input47 = getelementptr inbounds i8, ptr %bevf, i64 256
-  %process_in48 = getelementptr inbounds i8, ptr %bevf, i64 560
-  %underlying49 = getelementptr inbounds i8, ptr %bevf, i64 520
-  %context50 = getelementptr inbounds i8, ptr %bevf, i64 576
-  %enabled2451 = getelementptr inbounds i8, ptr %bevf, i64 368
-  %.pre = load i64, ptr %high46, align 8
+  %high47 = getelementptr inbounds i8, ptr %bevf, i64 280
+  %input48 = getelementptr inbounds i8, ptr %bevf, i64 256
+  %process_in49 = getelementptr inbounds i8, ptr %bevf, i64 560
+  %underlying50 = getelementptr inbounds i8, ptr %bevf, i64 520
+  %context51 = getelementptr inbounds i8, ptr %bevf, i64 576
+  %enabled2452 = getelementptr inbounds i8, ptr %bevf, i64 368
+  %.pre = load i64, ptr %high47, align 8
   br label %do.body.us
 
-do.body.us:                                       ; preds = %do.body.us.preheader, %be_readbuf_full.exit30.us
-  %5 = phi i64 [ %.pre, %do.body.us.preheader ], [ %20, %be_readbuf_full.exit30.us ]
+do.body.us:                                       ; preds = %do.body.us.backedge, %do.body.us.preheader
+  %5 = phi i64 [ %.pre, %do.body.us.preheader ], [ %.be, %do.body.us.backedge ]
   %tobool8.not.us = icmp eq i64 %5, 0
   br i1 %tobool8.not.us, label %if.end13.us, label %if.then9.us
 
 if.then9.us:                                      ; preds = %do.body.us
-  %6 = load ptr, ptr %input47, align 8
+  %6 = load ptr, ptr %input48, align 8
   %call12.us = tail call i64 @evbuffer_get_length(ptr noundef %6) #2
   %sub.us = sub i64 %5, %call12.us
   br label %if.end13.us
 
 if.end13.us:                                      ; preds = %if.then9.us, %do.body.us
   %limit.0.us = phi i64 [ %sub.us, %if.then9.us ], [ -1, %do.body.us ]
-  %7 = load ptr, ptr %process_in48, align 8
-  %8 = load ptr, ptr %underlying49, align 8
+  %7 = load ptr, ptr %process_in49, align 8
+  %8 = load ptr, ptr %underlying50, align 8
   %input14.us = getelementptr inbounds i8, ptr %8, i64 256
   %9 = load ptr, ptr %input14.us, align 8
-  %10 = load ptr, ptr %input47, align 8
-  %11 = load ptr, ptr %context50, align 8
+  %10 = load ptr, ptr %input48, align 8
+  %11 = load ptr, ptr %context51, align 8
   %call16.us = tail call i32 %7(ptr noundef %9, ptr noundef %10, i64 noundef %limit.0.us, i32 noundef 0, ptr noundef %11) #2
   %cmp17.us = icmp eq i32 %call16.us, 0
   br i1 %cmp17.us, label %if.then19.us, label %do.end
 
 if.then19.us:                                     ; preds = %if.end13.us
   store i32 1, ptr %processed_out, align 4
-  %12 = load i16, ptr %enabled2451, align 8
+  %12 = load i16, ptr %enabled2452, align 8
   %13 = and i16 %12, 2
   %tobool27.not.us = icmp eq i16 %13, 0
   br i1 %tobool27.not.us, label %do.body37, label %land.lhs.true28.us
 
 land.lhs.true28.us:                               ; preds = %if.then19.us
-  %14 = load ptr, ptr %underlying49, align 8
+  %14 = load ptr, ptr %underlying50, align 8
   %input30.us = getelementptr inbounds i8, ptr %14, i64 256
   %15 = load ptr, ptr %input30.us, align 8
   %call31.us = tail call i64 @evbuffer_get_length(ptr noundef %15) #2
@@ -1078,23 +1072,20 @@ land.lhs.true28.us:                               ; preds = %if.then19.us
   br i1 %tobool32.not.us, label %do.end, label %land.rhs.us
 
 land.rhs.us:                                      ; preds = %land.lhs.true28.us
-  %16 = load i64, ptr %high46, align 8
+  %16 = load i64, ptr %high47, align 8
   %tobool.not.i25.us = icmp eq i64 %16, 0
-  br i1 %tobool.not.i25.us, label %be_readbuf_full.exit30.us, label %land.rhs.i26.us
+  br i1 %tobool.not.i25.us, label %do.body.us.backedge, label %land.rhs.i26.us
+
+do.body.us.backedge:                              ; preds = %land.rhs.us, %land.rhs.i26.us
+  %.be = phi i64 [ 0, %land.rhs.us ], [ %18, %land.rhs.i26.us ]
+  br label %do.body.us, !llvm.loop !8
 
 land.rhs.i26.us:                                  ; preds = %land.rhs.us
-  %17 = load ptr, ptr %input47, align 8
+  %17 = load ptr, ptr %input48, align 8
   %call.i28.us = tail call i64 @evbuffer_get_length(ptr noundef %17) #2
-  %18 = load i64, ptr %high46, align 8
-  %cmp4.i29.us = icmp uge i64 %call.i28.us, %18
-  %19 = zext i1 %cmp4.i29.us to i32
-  br label %be_readbuf_full.exit30.us
-
-be_readbuf_full.exit30.us:                        ; preds = %land.rhs.i26.us, %land.rhs.us
-  %20 = phi i64 [ 0, %land.rhs.us ], [ %18, %land.rhs.i26.us ]
-  %land.ext.i23.us = phi i32 [ 0, %land.rhs.us ], [ %19, %land.rhs.i26.us ]
-  %tobool34.not.us = icmp eq i32 %land.ext.i23.us, 0
-  br i1 %tobool34.not.us, label %do.body.us, label %do.end, !llvm.loop !7
+  %18 = load i64, ptr %high47, align 8
+  %cmp4.i29.not.us = icmp ult i64 %call.i28.us, %18
+  br i1 %cmp4.i29.not.us, label %do.body.us.backedge, label %do.end
 
 if.end5.split:                                    ; preds = %entry
   %input = getelementptr inbounds i8, ptr %bevf, i64 256
@@ -1102,57 +1093,57 @@ if.end5.split:                                    ; preds = %entry
   %underlying = getelementptr inbounds i8, ptr %bevf, i64 520
   %context = getelementptr inbounds i8, ptr %bevf, i64 576
   %enabled24 = getelementptr inbounds i8, ptr %bevf, i64 368
-  %21 = load ptr, ptr %process_in, align 8
-  %22 = load ptr, ptr %underlying, align 8
-  %input1437 = getelementptr inbounds i8, ptr %22, i64 256
-  %23 = load ptr, ptr %input1437, align 8
-  %24 = load ptr, ptr %input, align 8
-  %25 = load ptr, ptr %context, align 8
-  %call1638 = tail call i32 %21(ptr noundef %23, ptr noundef %24, i64 noundef -1, i32 noundef %state, ptr noundef %25) #2
-  %cmp1739 = icmp eq i32 %call1638, 0
-  br i1 %cmp1739, label %if.then19, label %do.end
+  %19 = load ptr, ptr %process_in, align 8
+  %20 = load ptr, ptr %underlying, align 8
+  %input1438 = getelementptr inbounds i8, ptr %20, i64 256
+  %21 = load ptr, ptr %input1438, align 8
+  %22 = load ptr, ptr %input, align 8
+  %23 = load ptr, ptr %context, align 8
+  %call1639 = tail call i32 %19(ptr noundef %21, ptr noundef %22, i64 noundef -1, i32 noundef %state, ptr noundef %23) #2
+  %cmp1740 = icmp eq i32 %call1639, 0
+  br i1 %cmp1740, label %if.then19, label %do.end
 
 do.body:                                          ; preds = %land.lhs.true28
-  %26 = load ptr, ptr %process_in, align 8
-  %27 = load ptr, ptr %underlying, align 8
-  %input14 = getelementptr inbounds i8, ptr %27, i64 256
-  %28 = load ptr, ptr %input14, align 8
-  %29 = load ptr, ptr %input, align 8
-  %30 = load ptr, ptr %context, align 8
-  %call16 = tail call i32 %26(ptr noundef %28, ptr noundef %29, i64 noundef -1, i32 noundef %state, ptr noundef %30) #2
+  %24 = load ptr, ptr %process_in, align 8
+  %25 = load ptr, ptr %underlying, align 8
+  %input14 = getelementptr inbounds i8, ptr %25, i64 256
+  %26 = load ptr, ptr %input14, align 8
+  %27 = load ptr, ptr %input, align 8
+  %28 = load ptr, ptr %context, align 8
+  %call16 = tail call i32 %24(ptr noundef %26, ptr noundef %27, i64 noundef -1, i32 noundef %state, ptr noundef %28) #2
   %cmp17 = icmp eq i32 %call16, 0
-  br i1 %cmp17, label %if.then19, label %do.end
+  br i1 %cmp17, label %if.then19, label %do.end, !llvm.loop !8
 
 if.then19:                                        ; preds = %if.end5.split, %do.body
   store i32 1, ptr %processed_out, align 4
-  %31 = load i16, ptr %enabled24, align 8
-  %32 = and i16 %31, 2
-  %tobool27.not = icmp eq i16 %32, 0
+  %29 = load i16, ptr %enabled24, align 8
+  %30 = and i16 %29, 2
+  %tobool27.not = icmp eq i16 %30, 0
   br i1 %tobool27.not, label %do.body37, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %if.then19
-  %33 = load ptr, ptr %underlying, align 8
-  %input30 = getelementptr inbounds i8, ptr %33, i64 256
-  %34 = load ptr, ptr %input30, align 8
-  %call31 = tail call i64 @evbuffer_get_length(ptr noundef %34) #2
+  %31 = load ptr, ptr %underlying, align 8
+  %input30 = getelementptr inbounds i8, ptr %31, i64 256
+  %32 = load ptr, ptr %input30, align 8
+  %call31 = tail call i64 @evbuffer_get_length(ptr noundef %32) #2
   %tobool32.not = icmp eq i64 %call31, 0
   br i1 %tobool32.not, label %do.end, label %do.body
 
-do.end:                                           ; preds = %do.body, %land.lhs.true28, %if.end13.us, %land.lhs.true28.us, %be_readbuf_full.exit30.us, %if.end5.split
+do.end:                                           ; preds = %do.body, %land.lhs.true28, %if.end13.us, %land.lhs.true28.us, %land.rhs.i26.us, %if.end5.split
   %.pr = load i32, ptr %processed_out, align 4
   %tobool35.not = icmp eq i32 %.pr, 0
   br i1 %tobool35.not, label %return, label %do.body37
 
 do.body37:                                        ; preds = %if.then19, %if.then19.us, %do.end
   %timeout_read = getelementptr inbounds i8, ptr %bevf, i64 336
-  %35 = load i64, ptr %timeout_read, align 8
-  %tobool38.not = icmp eq i64 %35, 0
+  %33 = load i64, ptr %timeout_read, align 8
+  %tobool38.not = icmp eq i64 %33, 0
   br i1 %tobool38.not, label %lor.lhs.false39, label %if.then42
 
 lor.lhs.false39:                                  ; preds = %do.body37
   %tv_usec = getelementptr inbounds i8, ptr %bevf, i64 344
-  %36 = load i64, ptr %tv_usec, align 8
-  %tobool41.not = icmp eq i64 %36, 0
+  %34 = load i64, ptr %tv_usec, align 8
+  %tobool41.not = icmp eq i64 %34, 0
   br i1 %tobool41.not, label %return, label %if.then42
 
 if.then42:                                        ; preds = %lor.lhs.false39, %do.body37
@@ -1182,3 +1173,4 @@ attributes #2 = { nounwind }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

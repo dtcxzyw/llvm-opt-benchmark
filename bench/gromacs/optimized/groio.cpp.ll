@@ -797,17 +797,22 @@ define internal fastcc noundef zeroext i1 @_ZL10get_w_confP8_IO_FILERKNSt10files
   %213 = getelementptr inbounds i8, ptr %.3150260, i64 1
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %exitcond311.not = icmp eq i64 %indvars.iv.next308, %wide.trip.count310
-  br i1 %exitcond311.not, label %.critedge2, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond311.not, label %.critedge2.loopexit, label %.lr.ph, !llvm.loop !8
 
 .critedge2.loopexit.split.loop.exit361:           ; preds = %.lr.ph
   %214 = trunc nuw nsw i64 %indvars.iv307 to i32
+  br label %.critedge2.loopexit
+
+.critedge2.loopexit:                              ; preds = %211, %.critedge2.loopexit.split.loop.exit361
+  %.1169.lcssa.ph = phi i32 [ %214, %.critedge2.loopexit.split.loop.exit361 ], [ %.1171, %211 ]
+  %.3150.lcssa.ph = phi ptr [ %.3150260, %.critedge2.loopexit.split.loop.exit361 ], [ %213, %211 ]
+  %215 = zext nneg i32 %.1169.lcssa.ph to i64
   br label %.critedge2
 
-.critedge2:                                       ; preds = %211, %.critedge2.loopexit.split.loop.exit361, %.preheader219
-  %.1169.lcssa = phi i32 [ 0, %.preheader219 ], [ %214, %.critedge2.loopexit.split.loop.exit361 ], [ %.1171, %211 ]
-  %.3150.lcssa = phi ptr [ %.2149267, %.preheader219 ], [ %.3150260, %.critedge2.loopexit.split.loop.exit361 ], [ %213, %211 ]
-  %215 = zext nneg i32 %.1169.lcssa to i64
-  %216 = getelementptr inbounds [256 x i8], ptr %15, i64 0, i64 %215
+.critedge2:                                       ; preds = %.critedge2.loopexit, %.preheader219
+  %.1169.lcssa = phi i64 [ 0, %.preheader219 ], [ %215, %.critedge2.loopexit ]
+  %.3150.lcssa = phi ptr [ %.2149267, %.preheader219 ], [ %.3150.lcssa.ph, %.critedge2.loopexit ]
+  %216 = getelementptr inbounds [256 x i8], ptr %15, i64 0, i64 %.1169.lcssa
   store i8 0, ptr %216, align 1
   %217 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %15, ptr noundef nonnull @.str.14, ptr noundef nonnull %16) #16
   %.not192 = icmp eq i32 %217, 1

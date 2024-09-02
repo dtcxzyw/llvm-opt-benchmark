@@ -458,14 +458,17 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit.i:         ; preds = %_ZNSt6vectorIlSaIlE
   %71 = load i32, ptr %33, align 8, !noalias !5
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next.i, %72
-  br i1 %73, label %37, label %_ZN12_GLOBAL__N_120fitGlobalAtomIndicesERK10gmx_mtop_t.exit, !llvm.loop !8
+  br i1 %73, label %37, label %_ZN12_GLOBAL__N_120fitGlobalAtomIndicesERK10gmx_mtop_t.exit.loopexit, !llvm.loop !8
 
-_ZN12_GLOBAL__N_120fitGlobalAtomIndicesERK10gmx_mtop_t.exit: ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit.i, %7
-  %.sroa.7.2 = phi ptr [ null, %7 ], [ %.sroa.7.1, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit.i ]
-  %.sroa.0244.2 = phi ptr [ null, %7 ], [ %.sroa.0244.1, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit.i ]
-  %74 = ptrtoint ptr %.sroa.7.2 to i64
+_ZN12_GLOBAL__N_120fitGlobalAtomIndicesERK10gmx_mtop_t.exit.loopexit: ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit.i
+  %74 = ptrtoint ptr %.sroa.7.1 to i64
+  br label %_ZN12_GLOBAL__N_120fitGlobalAtomIndicesERK10gmx_mtop_t.exit
+
+_ZN12_GLOBAL__N_120fitGlobalAtomIndicesERK10gmx_mtop_t.exit: ; preds = %_ZN12_GLOBAL__N_120fitGlobalAtomIndicesERK10gmx_mtop_t.exit.loopexit, %7
+  %.sroa.7.2 = phi i64 [ 0, %7 ], [ %74, %_ZN12_GLOBAL__N_120fitGlobalAtomIndicesERK10gmx_mtop_t.exit.loopexit ]
+  %.sroa.0244.2 = phi ptr [ null, %7 ], [ %.sroa.0244.1, %_ZN12_GLOBAL__N_120fitGlobalAtomIndicesERK10gmx_mtop_t.exit.loopexit ]
   %75 = ptrtoint ptr %.sroa.0244.2 to i64
-  %76 = sub i64 %74, %75
+  %76 = sub i64 %.sroa.7.2, %75
   %77 = getelementptr inbounds i8, ptr %.sroa.0244.2, i64 %76
   %78 = invoke ptr @_ZN3gmx19LocalAtomSetManager3addENS_8ArrayRefIKlEE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr %.sroa.0244.2, ptr %77)
           to label %79 unwind label %112

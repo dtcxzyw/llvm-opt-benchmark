@@ -1933,35 +1933,35 @@ _ZNK15stack_map_frame5typesEv.exit.thread190:     ; preds = %176
 
 .thread113:                                       ; preds = %172, %176
   %.0.i86.ph115 = phi i32 [ 1, %176 ], [ 0, %172 ]
-  br i1 %.not35.i, label %179, label %.thread113..thread113.thread_crit_edge
+  br i1 %.not35.i, label %180, label %.thread113..thread113.thread_crit_edge
 
 .thread113..thread113.thread_crit_edge:           ; preds = %.thread113
   %.pre163 = and i8 %156, -4
+  %179 = icmp ne i8 %.pre163, -8
   br label %.thread113.thread
 
-179:                                              ; preds = %.thread113
-  %180 = getelementptr inbounds i8, ptr %.168, i64 3
+180:                                              ; preds = %.thread113
+  %181 = getelementptr inbounds i8, ptr %.168, i64 3
   br label %_ZNK15stack_map_frame5typesEv.exit
 
 .thread113.thread:                                ; preds = %.thread113..thread113.thread_crit_edge, %161
-  %.pre-phi = phi i8 [ %.pre163, %.thread113..thread113.thread_crit_edge ], [ -8, %161 ]
+  %.pre-phi = phi i1 [ %179, %.thread113..thread113.thread_crit_edge ], [ false, %161 ]
   %.0.i86.ph115118 = phi i32 [ %.0.i86.ph115, %.thread113..thread113.thread_crit_edge ], [ 0, %161 ]
-  %181 = icmp ugt i8 %156, -6
-  %182 = icmp ne i8 %.pre-phi, -8
-  %spec.select.i.i.not.i90 = or i1 %181, %182
+  %182 = icmp ugt i8 %156, -6
+  %spec.select.i.i.not.i90 = or i1 %182, %.pre-phi
   br i1 %spec.select.i.i.not.i90, label %.thread113.thread..thread113.thread.thread_crit_edge, label %_ZNK15stack_map_frame5typesEv.exit
 
 .thread113.thread..thread113.thread.thread_crit_edge: ; preds = %.thread113.thread
   %.pre164 = zext i8 %156 to i32
   %.pre166 = add nsw i32 %.pre164, -255
+  %183 = icmp ult i32 %.pre166, -4
   br label %.thread113.thread.thread
 
 .thread113.thread.thread:                         ; preds = %.thread113.thread..thread113.thread.thread_crit_edge, %170
-  %.pre-phi167 = phi i32 [ %.pre166, %.thread113.thread..thread113.thread.thread_crit_edge ], [ %168, %170 ]
+  %.pre-phi167 = phi i1 [ %183, %.thread113.thread..thread113.thread.thread_crit_edge ], [ false, %170 ]
   %.0.i86.ph115118121 = phi i32 [ %.0.i86.ph115118, %.thread113.thread..thread113.thread.thread_crit_edge ], [ %171, %170 ]
-  %183 = icmp ult i8 %156, -4
-  %184 = icmp ult i32 %.pre-phi167, -4
-  %spec.select.i.i33.not.i = select i1 %183, i1 true, i1 %184
+  %184 = icmp ult i8 %156, -4
+  %spec.select.i.i33.not.i = select i1 %184, i1 true, i1 %.pre-phi167
   br i1 %spec.select.i.i33.not.i, label %187, label %185
 
 185:                                              ; preds = %.thread113.thread.thread
@@ -1977,10 +1977,10 @@ _ZNK15stack_map_frame5typesEv.exit.thread190:     ; preds = %176
   %spec.select.i = select i1 %.not41.i, ptr %189, ptr null
   br label %_ZNK15stack_map_frame5typesEv.exit
 
-_ZNK15stack_map_frame5typesEv.exit:               ; preds = %179, %.thread113.thread, %185, %187
-  %190 = phi i8 [ -9, %179 ], [ %156, %185 ], [ %156, %.thread113.thread ], [ %188, %187 ]
-  %.0.i86112 = phi i32 [ %.0.i86.ph115, %179 ], [ %.0.i86.ph115118121, %185 ], [ %.0.i86.ph115118, %.thread113.thread ], [ %.0.i86.ph115118121124, %187 ]
-  %.0.i89 = phi ptr [ %180, %179 ], [ %186, %185 ], [ null, %.thread113.thread ], [ %spec.select.i, %187 ]
+_ZNK15stack_map_frame5typesEv.exit:               ; preds = %180, %.thread113.thread, %185, %187
+  %190 = phi i8 [ -9, %180 ], [ %156, %185 ], [ %156, %.thread113.thread ], [ %188, %187 ]
+  %.0.i86112 = phi i32 [ %.0.i86.ph115, %180 ], [ %.0.i86.ph115118121, %185 ], [ %.0.i86.ph115118, %.thread113.thread ], [ %.0.i86.ph115118121124, %187 ]
+  %.0.i89 = phi ptr [ %181, %180 ], [ %186, %185 ], [ null, %.thread113.thread ], [ %spec.select.i, %187 ]
   %.not248 = icmp eq i32 %.0.i86112, 0
   br i1 %.not248, label %._crit_edge, label %.lr.ph.preheader
 

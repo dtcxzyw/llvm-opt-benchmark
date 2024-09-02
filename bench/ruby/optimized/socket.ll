@@ -592,7 +592,7 @@ rb_num2int_inline.exit:                           ; preds = %18, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @sock_connect(i64 noundef %0, i64 noundef %1) #0 {
+define internal range(i64 1, 4294967296) i64 @sock_connect(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 %1, ptr %3, align 8

@@ -1844,7 +1844,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #13
 declare double @llvm.floor.f64(double) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @zfp_stream_set_precision(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define noundef range(i32 0, 65) i32 @zfp_stream_set_precision(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
   store i32 1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 16658, ptr %3, align 4
@@ -4685,7 +4685,7 @@ chunk_count_omp.exit:                             ; preds = %31, %zfp_stream_omp
   %.0.i6 = phi i32 [ %.0.i8, %31 ], [ %.0.i7, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %39 = phi i64 [ %35, %31 ], [ %37, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %40 = tail call i64 @llvm.umin.i64(i64 %39, i64 %38)
-  %41 = tail call i64 @llvm.umin.i64(i64 %40, i64 2147483647)
+  %41 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %40, i64 2147483647)
   store i64 %41, ptr %7, align 8
   %42 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %41, i64 noundef %38)
   store ptr %42, ptr %8, align 8
@@ -4778,7 +4778,7 @@ chunk_count_omp.exit:                             ; preds = %31, %zfp_stream_omp
   %.0.i6 = phi i32 [ %.0.i8, %31 ], [ %.0.i7, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %39 = phi i64 [ %35, %31 ], [ %37, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %40 = tail call i64 @llvm.umin.i64(i64 %39, i64 %38)
-  %41 = tail call i64 @llvm.umin.i64(i64 %40, i64 2147483647)
+  %41 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %40, i64 2147483647)
   store i64 %41, ptr %7, align 8
   %42 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %41, i64 noundef %38)
   store ptr %42, ptr %8, align 8
@@ -4871,7 +4871,7 @@ chunk_count_omp.exit:                             ; preds = %31, %zfp_stream_omp
   %.0.i6 = phi i32 [ %.0.i8, %31 ], [ %.0.i7, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %39 = phi i64 [ %35, %31 ], [ %37, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %40 = tail call i64 @llvm.umin.i64(i64 %39, i64 %38)
-  %41 = tail call i64 @llvm.umin.i64(i64 %40, i64 2147483647)
+  %41 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %40, i64 2147483647)
   store i64 %41, ptr %7, align 8
   %42 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %41, i64 noundef %38)
   store ptr %42, ptr %8, align 8
@@ -4964,7 +4964,7 @@ chunk_count_omp.exit:                             ; preds = %31, %zfp_stream_omp
   %.0.i6 = phi i32 [ %.0.i8, %31 ], [ %.0.i7, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %39 = phi i64 [ %35, %31 ], [ %37, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %40 = tail call i64 @llvm.umin.i64(i64 %39, i64 %38)
-  %41 = tail call i64 @llvm.umin.i64(i64 %40, i64 2147483647)
+  %41 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %40, i64 2147483647)
   store i64 %41, ptr %7, align 8
   %42 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %41, i64 noundef %38)
   store ptr %42, ptr %8, align 8
@@ -5070,7 +5070,7 @@ zfp_stream_omp_chunk_size.exit.thread.i:          ; preds = %zfp_stream_omp_chun
 chunk_count_omp.exit:                             ; preds = %43, %zfp_stream_omp_chunk_size.exit.thread.i
   %49 = phi i64 [ %47, %43 ], [ %48, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %50 = tail call i64 @llvm.umin.i64(i64 %49, i64 %38)
-  %51 = tail call i64 @llvm.umin.i64(i64 %50, i64 2147483647)
+  %51 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %50, i64 2147483647)
   store i64 %51, ptr %11, align 8
   %52 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %51, i64 noundef %38)
   store ptr %52, ptr %12, align 8
@@ -5176,7 +5176,7 @@ zfp_stream_omp_chunk_size.exit.thread.i:          ; preds = %zfp_stream_omp_chun
 chunk_count_omp.exit:                             ; preds = %43, %zfp_stream_omp_chunk_size.exit.thread.i
   %49 = phi i64 [ %47, %43 ], [ %48, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %50 = tail call i64 @llvm.umin.i64(i64 %49, i64 %38)
-  %51 = tail call i64 @llvm.umin.i64(i64 %50, i64 2147483647)
+  %51 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %50, i64 2147483647)
   store i64 %51, ptr %11, align 8
   %52 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %51, i64 noundef %38)
   store ptr %52, ptr %12, align 8
@@ -5282,7 +5282,7 @@ zfp_stream_omp_chunk_size.exit.thread.i:          ; preds = %zfp_stream_omp_chun
 chunk_count_omp.exit:                             ; preds = %43, %zfp_stream_omp_chunk_size.exit.thread.i
   %49 = phi i64 [ %47, %43 ], [ %48, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %50 = tail call i64 @llvm.umin.i64(i64 %49, i64 %38)
-  %51 = tail call i64 @llvm.umin.i64(i64 %50, i64 2147483647)
+  %51 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %50, i64 2147483647)
   store i64 %51, ptr %11, align 8
   %52 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %51, i64 noundef %38)
   store ptr %52, ptr %12, align 8
@@ -5388,7 +5388,7 @@ zfp_stream_omp_chunk_size.exit.thread.i:          ; preds = %zfp_stream_omp_chun
 chunk_count_omp.exit:                             ; preds = %43, %zfp_stream_omp_chunk_size.exit.thread.i
   %49 = phi i64 [ %47, %43 ], [ %48, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %50 = tail call i64 @llvm.umin.i64(i64 %49, i64 %38)
-  %51 = tail call i64 @llvm.umin.i64(i64 %50, i64 2147483647)
+  %51 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %50, i64 2147483647)
   store i64 %51, ptr %11, align 8
   %52 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %51, i64 noundef %38)
   store ptr %52, ptr %12, align 8
@@ -5510,7 +5510,7 @@ zfp_stream_omp_chunk_size.exit.thread.i:          ; preds = %zfp_stream_omp_chun
 chunk_count_omp.exit:                             ; preds = %55, %zfp_stream_omp_chunk_size.exit.thread.i
   %61 = phi i64 [ %59, %55 ], [ %60, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %62 = tail call i64 @llvm.umin.i64(i64 %61, i64 %50)
-  %63 = tail call i64 @llvm.umin.i64(i64 %62, i64 2147483647)
+  %63 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %62, i64 2147483647)
   store i64 %63, ptr %14, align 8
   %64 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %63, i64 noundef %50)
   store ptr %64, ptr %15, align 8
@@ -5632,7 +5632,7 @@ zfp_stream_omp_chunk_size.exit.thread.i:          ; preds = %zfp_stream_omp_chun
 chunk_count_omp.exit:                             ; preds = %55, %zfp_stream_omp_chunk_size.exit.thread.i
   %61 = phi i64 [ %59, %55 ], [ %60, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %62 = tail call i64 @llvm.umin.i64(i64 %61, i64 %50)
-  %63 = tail call i64 @llvm.umin.i64(i64 %62, i64 2147483647)
+  %63 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %62, i64 2147483647)
   store i64 %63, ptr %14, align 8
   %64 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %63, i64 noundef %50)
   store ptr %64, ptr %15, align 8
@@ -5754,7 +5754,7 @@ zfp_stream_omp_chunk_size.exit.thread.i:          ; preds = %zfp_stream_omp_chun
 chunk_count_omp.exit:                             ; preds = %55, %zfp_stream_omp_chunk_size.exit.thread.i
   %61 = phi i64 [ %59, %55 ], [ %60, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %62 = tail call i64 @llvm.umin.i64(i64 %61, i64 %50)
-  %63 = tail call i64 @llvm.umin.i64(i64 %62, i64 2147483647)
+  %63 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %62, i64 2147483647)
   store i64 %63, ptr %14, align 8
   %64 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %63, i64 noundef %50)
   store ptr %64, ptr %15, align 8
@@ -5876,7 +5876,7 @@ zfp_stream_omp_chunk_size.exit.thread.i:          ; preds = %zfp_stream_omp_chun
 chunk_count_omp.exit:                             ; preds = %55, %zfp_stream_omp_chunk_size.exit.thread.i
   %61 = phi i64 [ %59, %55 ], [ %60, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %62 = tail call i64 @llvm.umin.i64(i64 %61, i64 %50)
-  %63 = tail call i64 @llvm.umin.i64(i64 %62, i64 2147483647)
+  %63 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %62, i64 2147483647)
   store i64 %63, ptr %14, align 8
   %64 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %63, i64 noundef %50)
   store ptr %64, ptr %15, align 8
@@ -6014,7 +6014,7 @@ zfp_stream_omp_chunk_size.exit.thread.i:          ; preds = %zfp_stream_omp_chun
 chunk_count_omp.exit:                             ; preds = %66, %zfp_stream_omp_chunk_size.exit.thread.i
   %72 = phi i64 [ %70, %66 ], [ %71, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %73 = tail call i64 @llvm.umin.i64(i64 %72, i64 %61)
-  %74 = tail call i64 @llvm.umin.i64(i64 %73, i64 2147483647)
+  %74 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %73, i64 2147483647)
   store i64 %74, ptr %17, align 8
   %75 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %74, i64 noundef %61)
   store ptr %75, ptr %18, align 8
@@ -6152,7 +6152,7 @@ zfp_stream_omp_chunk_size.exit.thread.i:          ; preds = %zfp_stream_omp_chun
 chunk_count_omp.exit:                             ; preds = %66, %zfp_stream_omp_chunk_size.exit.thread.i
   %72 = phi i64 [ %70, %66 ], [ %71, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %73 = tail call i64 @llvm.umin.i64(i64 %72, i64 %61)
-  %74 = tail call i64 @llvm.umin.i64(i64 %73, i64 2147483647)
+  %74 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %73, i64 2147483647)
   store i64 %74, ptr %17, align 8
   %75 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %74, i64 noundef %61)
   store ptr %75, ptr %18, align 8
@@ -6290,7 +6290,7 @@ zfp_stream_omp_chunk_size.exit.thread.i:          ; preds = %zfp_stream_omp_chun
 chunk_count_omp.exit:                             ; preds = %66, %zfp_stream_omp_chunk_size.exit.thread.i
   %72 = phi i64 [ %70, %66 ], [ %71, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %73 = tail call i64 @llvm.umin.i64(i64 %72, i64 %61)
-  %74 = tail call i64 @llvm.umin.i64(i64 %73, i64 2147483647)
+  %74 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %73, i64 2147483647)
   store i64 %74, ptr %17, align 8
   %75 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %74, i64 noundef %61)
   store ptr %75, ptr %18, align 8
@@ -6428,7 +6428,7 @@ zfp_stream_omp_chunk_size.exit.thread.i:          ; preds = %zfp_stream_omp_chun
 chunk_count_omp.exit:                             ; preds = %66, %zfp_stream_omp_chunk_size.exit.thread.i
   %72 = phi i64 [ %70, %66 ], [ %71, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %73 = tail call i64 @llvm.umin.i64(i64 %72, i64 %61)
-  %74 = tail call i64 @llvm.umin.i64(i64 %73, i64 2147483647)
+  %74 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %73, i64 2147483647)
   store i64 %74, ptr %17, align 8
   %75 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %74, i64 noundef %61)
   store ptr %75, ptr %18, align 8
@@ -6526,7 +6526,7 @@ chunk_count_omp.exit:                             ; preds = %34, %zfp_stream_omp
   %.0.i9 = phi i32 [ %.0.i11, %34 ], [ %.0.i10, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %42 = phi i64 [ %38, %34 ], [ %40, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %43 = tail call i64 @llvm.umin.i64(i64 %42, i64 %41)
-  %44 = tail call i64 @llvm.umin.i64(i64 %43, i64 2147483647)
+  %44 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %43, i64 2147483647)
   store i64 %44, ptr %8, align 8
   %45 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %44, i64 noundef %41)
   store ptr %45, ptr %9, align 8
@@ -6624,7 +6624,7 @@ chunk_count_omp.exit:                             ; preds = %34, %zfp_stream_omp
   %.0.i9 = phi i32 [ %.0.i11, %34 ], [ %.0.i10, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %42 = phi i64 [ %38, %34 ], [ %40, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %43 = tail call i64 @llvm.umin.i64(i64 %42, i64 %41)
-  %44 = tail call i64 @llvm.umin.i64(i64 %43, i64 2147483647)
+  %44 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %43, i64 2147483647)
   store i64 %44, ptr %8, align 8
   %45 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %44, i64 noundef %41)
   store ptr %45, ptr %9, align 8
@@ -6722,7 +6722,7 @@ chunk_count_omp.exit:                             ; preds = %34, %zfp_stream_omp
   %.0.i9 = phi i32 [ %.0.i11, %34 ], [ %.0.i10, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %42 = phi i64 [ %38, %34 ], [ %40, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %43 = tail call i64 @llvm.umin.i64(i64 %42, i64 %41)
-  %44 = tail call i64 @llvm.umin.i64(i64 %43, i64 2147483647)
+  %44 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %43, i64 2147483647)
   store i64 %44, ptr %8, align 8
   %45 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %44, i64 noundef %41)
   store ptr %45, ptr %9, align 8
@@ -6820,7 +6820,7 @@ chunk_count_omp.exit:                             ; preds = %34, %zfp_stream_omp
   %.0.i9 = phi i32 [ %.0.i11, %34 ], [ %.0.i10, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %42 = phi i64 [ %38, %34 ], [ %40, %zfp_stream_omp_chunk_size.exit.thread.i ]
   %43 = tail call i64 @llvm.umin.i64(i64 %42, i64 %41)
-  %44 = tail call i64 @llvm.umin.i64(i64 %43, i64 2147483647)
+  %44 = tail call range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %43, i64 2147483647)
   store i64 %44, ptr %8, align 8
   %45 = tail call fastcc ptr @compress_init_par(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %44, i64 noundef %41)
   store ptr %45, ptr %9, align 8
@@ -11690,7 +11690,7 @@ declare i64 @zfp_decode_block_strided_float_1(ptr noundef, ptr noundef, i64 noun
 declare i64 @zfp_decode_block_strided_double_1(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define i64 @zfp_write_header(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #11 {
+define range(i64 0, 149) i64 @zfp_write_header(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = and i32 %2, 2
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
@@ -11753,7 +11753,7 @@ define i64 @zfp_write_header(ptr nocapture noundef readonly %0, ptr nocapture no
 declare i64 @stream_write_bits(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define i64 @zfp_read_header(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #11 {
+define range(i64 0, 149) i64 @zfp_read_header(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = and i32 %2, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5

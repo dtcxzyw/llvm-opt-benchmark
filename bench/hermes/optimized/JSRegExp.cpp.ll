@@ -1081,7 +1081,7 @@ return:                                           ; preds = %for.body.i, %sw.bb5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm8JSRegExp29initializeGroupNameMappingObjERNS0_7RuntimeENS0_6HandleIS1_EERSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS9_EERNS7_8DenseMapINS7_8ArrayRefIDsEEjNS7_12DenseMapInfoISF_EENS7_6detail12DenseMapPairISF_jEEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %selfHandle.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %orderedNamedGroups, ptr noundef nonnull align 8 dereferenceable(20) %parsedMappings) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm8JSRegExp29initializeGroupNameMappingObjERNS0_7RuntimeENS0_6HandleIS1_EERSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS9_EERNS7_8DenseMapINS7_8ArrayRefIDsEEjNS7_12DenseMapInfoISF_EENS7_6detail12DenseMapPairISF_jEEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %selfHandle.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %orderedNamedGroups, ptr noundef nonnull align 8 dereferenceable(20) %parsedMappings) local_unnamed_addr #0 align 2 {
 entry:
   %ConstFoundBucket.i.i.i = alloca ptr, align 8
   %gcScope = alloca %"class.hermes::vm::GCScope", align 8
@@ -1221,6 +1221,7 @@ if.end22:                                         ; preds = %_ZN6hermes2vm15Iden
 if.end22._ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixEOS3_.exit_crit_edge: ; preds = %if.end22
   %second.i.phi.trans.insert = getelementptr inbounds i8, ptr %18, i64 16
   %.pre69 = load i32, ptr %second.i.phi.trans.insert, align 4
+  %19 = uitofp i32 %.pre69 to double
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixEOS3_.exit
 
 if.end.i.i:                                       ; preds = %if.end22
@@ -1231,8 +1232,7 @@ if.end.i.i:                                       ; preds = %if.end22
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixEOS3_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixEOS3_.exit: ; preds = %if.end22._ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixEOS3_.exit_crit_edge, %if.end.i.i
-  %19 = phi i32 [ 0, %if.end.i.i ], [ %.pre69, %if.end22._ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixEOS3_.exit_crit_edge ]
-  %conv.i = uitofp i32 %19 to double
+  %conv.i = phi double [ 0.000000e+00, %if.end.i.i ], [ %19, %if.end22._ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixEOS3_.exit_crit_edge ]
   store double %conv.i, ptr %retval.0.i.i.i.i.i.i20, align 8
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %call3.i, align 8
   %conv.i.i.i = trunc i64 %retval.sroa.0.0.copyload.i.i to i32

@@ -168,12 +168,12 @@ define noundef zeroext i1 @gres_sched_test(ptr noundef %0, i32 noundef %1) local
 ; Function Attrs: nounwind uwtable
 define void @gres_sched_add(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %41, label %4
+  br i1 %.not, label %42, label %4
 
 4:                                                ; preds = %3
   %5 = load i16, ptr %2, align 2
   %.not37 = icmp eq i16 %5, 0
-  br i1 %.not37, label %41, label %6
+  br i1 %.not37, label %42, label %6
 
 6:                                                ; preds = %4
   %7 = tail call ptr @slurm_list_iterator_create(ptr noundef nonnull %0) #3
@@ -183,10 +183,10 @@ define void @gres_sched_add(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
 
 .outer._crit_edge.thread:                         ; preds = %6
   tail call void @slurm_list_iterator_destroy(ptr noundef %7) #3
-  br label %41
+  br label %42
 
 .lr.ph:                                           ; preds = %6, %.outer
-  %9 = phi ptr [ %39, %.outer ], [ %8, %6 ]
+  %9 = phi ptr [ %40, %.outer ], [ %8, %6 ]
   %.0.ph47 = phi i16 [ %.1, %.outer ], [ 0, %6 ]
   br label %10
 
@@ -213,7 +213,7 @@ define void @gres_sched_add(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   %20 = getelementptr inbounds i8, ptr %13, i64 18
   %21 = load i16, ptr %20, align 2
   %.not42 = icmp eq i16 %21, 0
-  br i1 %.not42, label %33, label %22
+  br i1 %.not42, label %34, label %22
 
 22:                                               ; preds = %19
   %23 = load i16, ptr %2, align 2
@@ -225,37 +225,38 @@ define void @gres_sched_add(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   %28 = zext i16 %.0.ph47 to i64
   %29 = zext i16 %21 to i64
   %30 = mul nuw nsw i64 %., %29
-  %31 = tail call i64 @llvm.umax.i64(i64 %30, i64 %28)
-  %32 = trunc i64 %31 to i16
+  %31 = icmp ult i64 %30, %28
+  %32 = trunc i64 %30 to i16
+  %33 = select i1 %31, i16 %.0.ph47, i16 %32
   br label %.outer
 
-33:                                               ; preds = %19
-  %34 = getelementptr inbounds i8, ptr %18, i64 64
-  %35 = load i64, ptr %34, align 8
+34:                                               ; preds = %19
+  %35 = getelementptr inbounds i8, ptr %18, i64 64
+  %36 = load i64, ptr %35, align 8
   br label %.outer
 
-.outer:                                           ; preds = %33, %22
-  %.028 = phi i64 [ %., %22 ], [ %35, %33 ]
-  %.1 = phi i16 [ %32, %22 ], [ %.0.ph47, %33 ]
-  %36 = getelementptr inbounds i8, ptr %13, i64 112
-  %37 = load i64, ptr %36, align 8
-  %38 = add i64 %37, %.028
-  store i64 %38, ptr %36, align 8
-  %39 = tail call ptr @slurm_list_next(ptr noundef %7) #3
-  %.not3844 = icmp eq ptr %39, null
+.outer:                                           ; preds = %34, %22
+  %.028 = phi i64 [ %., %22 ], [ %36, %34 ]
+  %.1 = phi i16 [ %33, %22 ], [ %.0.ph47, %34 ]
+  %37 = getelementptr inbounds i8, ptr %13, i64 112
+  %38 = load i64, ptr %37, align 8
+  %39 = add i64 %38, %.028
+  store i64 %39, ptr %37, align 8
+  %40 = tail call ptr @slurm_list_next(ptr noundef %7) #3
+  %.not3844 = icmp eq ptr %40, null
   br i1 %.not3844, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !10
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
   %.0.ph.lcssa = phi i16 [ %.0.ph47, %.backedge ], [ %.1, %.outer ]
   tail call void @slurm_list_iterator_destroy(ptr noundef %7) #3
   %.not39 = icmp eq i16 %.0.ph.lcssa, 0
-  br i1 %.not39, label %41, label %40
+  br i1 %.not39, label %42, label %41
 
-40:                                               ; preds = %.outer._crit_edge
+41:                                               ; preds = %.outer._crit_edge
   store i16 %.0.ph.lcssa, ptr %2, align 2
-  br label %41
+  br label %42
 
-41:                                               ; preds = %.outer._crit_edge.thread, %3, %4, %40, %.outer._crit_edge
+42:                                               ; preds = %.outer._crit_edge.thread, %3, %4, %41, %.outer._crit_edge
   ret void
 }
 
@@ -404,9 +405,6 @@ define noundef zeroext i1 @gres_sched_sufficient(ptr noundef %0, ptr noundef %1)
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

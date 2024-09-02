@@ -2172,11 +2172,11 @@ _cancel_jobid_by_state.exit:                      ; preds = %.loopexit.i
 
 246:                                              ; preds = %240
   %.pre = load i32, ptr %245, align 4
-  %247 = getelementptr inbounds i8, ptr %.046137, i64 412
-  %248 = icmp ne i32 %.pre, 0
+  %247 = icmp ne i32 %.pre, 0
+  %248 = getelementptr inbounds i8, ptr %.046137, i64 412
   %.not60 = icmp eq i32 %242, %0
   %or.cond = or i1 %239, %.not60
-  %or.cond266 = and i1 %248, %or.cond
+  %or.cond266 = and i1 %247, %or.cond
   br i1 %or.cond266, label %249, label %340
 
 249:                                              ; preds = %246
@@ -2217,7 +2217,7 @@ _cancel_jobid_by_state.exit:                      ; preds = %.loopexit.i
   br label %_build_jobid_str.exit
 
 268:                                              ; preds = %262
-  %269 = load i32, ptr %247, align 4
+  %269 = load i32, ptr %248, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.17, i32 noundef %269) #13
   br label %_build_jobid_str.exit
 
@@ -2348,7 +2348,7 @@ _build_jobid_str.exit:                            ; preds = %259, %265, %268
   br label %321
 
 321:                                              ; preds = %318, %316
-  store i32 0, ptr %247, align 4
+  store i32 0, ptr %248, align 4
   %322 = load i8, ptr getelementptr inbounds (i8, ptr @opt, i64 43), align 1
   %323 = trunc i8 %322 to i1
   br i1 %323, label %324, label %340
@@ -2397,7 +2397,7 @@ _build_jobid_str.exit:                            ; preds = %259, %265, %268
   unreachable
 
 .sink.split:                                      ; preds = %252, %240
-  %.sink = phi ptr [ %245, %240 ], [ %247, %252 ]
+  %.sink = phi ptr [ %245, %240 ], [ %248, %252 ]
   store i32 0, ptr %.sink, align 4
   br label %340
 

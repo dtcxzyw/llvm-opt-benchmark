@@ -258,9 +258,9 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noun
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %dissect_ipaccess.exit
-  %20 = phi i32 [ %17, %.lr.ph ], [ %136, %dissect_ipaccess.exit ]
+  %20 = phi i32 [ %17, %.lr.ph ], [ %135, %dissect_ipaccess.exit ]
   %.07177 = phi i32 [ 3, %.lr.ph ], [ %.1, %dissect_ipaccess.exit ]
-  %.07276 = phi i32 [ 0, %.lr.ph ], [ %135, %dissect_ipaccess.exit ]
+  %.07276 = phi i32 [ 0, %.lr.ph ], [ %134, %dissect_ipaccess.exit ]
   %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.07276) #2
   %22 = add i32 %.07276, 2
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #2
@@ -286,13 +286,13 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noun
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %37, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0) #2
   %39 = add i32 %.1, %.07276
   %40 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %.pre) #2
-  switch i8 %23, label %130 [
+  switch i8 %23, label %129 [
     i8 -1, label %41
     i8 -2, label %45
-    i8 -3, label %87
-    i8 -4, label %90
-    i8 -18, label %93
-    i8 -35, label %115
+    i8 -3, label %86
+    i8 -4, label %89
+    i8 -18, label %92
+    i8 -35, label %114
   ]
 
 41:                                               ; preds = %._crit_edge
@@ -325,12 +325,12 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noun
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.lr.ph.i.i, label %dissect_ipaccess.exit
 
-.lr.ph.i.i:                                       ; preds = %57, %81
-  %.025.i.i = phi i32 [ %84, %81 ], [ 1, %57 ]
+.lr.ph.i.i:                                       ; preds = %57, %82
+  %.025.i.i = phi i32 [ %83, %82 ], [ 1, %57 ]
   %60 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %40, i32 noundef %.025.i.i) #2
-  switch i8 %60, label %76 [
+  switch i8 %60, label %77 [
     i8 0, label %61
-    i8 1, label %72
+    i8 1, label %73
   ]
 
 61:                                               ; preds = %.lr.ph.i.i
@@ -344,121 +344,120 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noun
   %69 = zext i8 %63 to i32
   %70 = add nsw i32 %69, -1
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %67, ptr noundef %40, i32 noundef %68, i32 noundef %70, i32 noundef 0) #2
-  br label %81
+  %72 = add nuw nsw i32 %69, 2
+  br label %82
 
-72:                                               ; preds = %.lr.ph.i.i
-  %73 = load i32, ptr @hf_ipaccess_attr_tag, align 4
-  %74 = add i32 %.025.i.i, 1
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %73, ptr noundef %40, i32 noundef %74, i32 noundef 1, i32 noundef 0) #2
-  br label %81
+73:                                               ; preds = %.lr.ph.i.i
+  %74 = load i32, ptr @hf_ipaccess_attr_tag, align 4
+  %75 = add i32 %.025.i.i, 1
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %74, ptr noundef %40, i32 noundef %75, i32 noundef 1, i32 noundef 0) #2
+  br label %82
 
-76:                                               ; preds = %.lr.ph.i.i
-  %77 = zext i8 %60 to i32
-  %78 = load i32, ptr @hf_ipaccess_attribute_unk, align 4
-  %79 = add i32 %.025.i.i, 1
-  %80 = tail call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %78, ptr noundef %40, i32 noundef %79, i32 noundef 1, i32 noundef %77) #2
-  br label %81
+77:                                               ; preds = %.lr.ph.i.i
+  %78 = zext i8 %60 to i32
+  %79 = load i32, ptr @hf_ipaccess_attribute_unk, align 4
+  %80 = add i32 %.025.i.i, 1
+  %81 = tail call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %79, ptr noundef %40, i32 noundef %80, i32 noundef 1, i32 noundef %78) #2
+  br label %82
 
-81:                                               ; preds = %76, %72, %61
-  %.024.i.i = phi i8 [ 0, %76 ], [ 0, %72 ], [ %63, %61 ]
-  %82 = zext i8 %.024.i.i to i32
-  %83 = add i32 %.025.i.i, 2
-  %84 = add i32 %83, %82
-  %85 = tail call i32 @tvb_reported_length_remaining(ptr noundef %40, i32 noundef %84) #2
-  %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph.i.i, label %dissect_ipaccess.exit, !llvm.loop !4
+82:                                               ; preds = %77, %73, %61
+  %.024.i.i = phi i32 [ 2, %77 ], [ 2, %73 ], [ %72, %61 ]
+  %83 = add i32 %.024.i.i, %.025.i.i
+  %84 = tail call i32 @tvb_reported_length_remaining(ptr noundef %40, i32 noundef %83) #2
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %.lr.ph.i.i, label %dissect_ipaccess.exit, !llvm.loop !4
 
-87:                                               ; preds = %._crit_edge
-  %88 = load ptr, ptr @sub_handles.2, align 16
-  %89 = tail call i32 @call_dissector(ptr noundef %88, ptr noundef %40, ptr noundef nonnull %1, ptr noundef %2) #2
+86:                                               ; preds = %._crit_edge
+  %87 = load ptr, ptr @sub_handles.2, align 16
+  %88 = tail call i32 @call_dissector(ptr noundef %87, ptr noundef %40, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_ipaccess.exit
 
-90:                                               ; preds = %._crit_edge
-  %91 = load ptr, ptr @sub_handles.3, align 16
-  %92 = tail call i32 @call_dissector(ptr noundef %91, ptr noundef %40, ptr noundef nonnull %1, ptr noundef %2) #2
+89:                                               ; preds = %._crit_edge
+  %90 = load ptr, ptr @sub_handles.3, align 16
+  %91 = tail call i32 @call_dissector(ptr noundef %90, ptr noundef %40, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_ipaccess.exit
 
-93:                                               ; preds = %._crit_edge
-  %94 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %40, i32 noundef 0) #2
-  %95 = zext i8 %94 to i32
-  %96 = tail call ptr @val_to_str(i32 noundef %95, ptr noundef nonnull @ipa_osmo_proto_vals, ptr noundef nonnull @.str.86) #2
-  %97 = load ptr, ptr %14, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %97, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %96) #2
+92:                                               ; preds = %._crit_edge
+  %93 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %40, i32 noundef 0) #2
+  %94 = zext i8 %93 to i32
+  %95 = tail call ptr @val_to_str(i32 noundef %94, ptr noundef nonnull @ipa_osmo_proto_vals, ptr noundef nonnull @.str.86) #2
+  %96 = load ptr, ptr %14, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %96, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %95) #2
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %101, label %98
+  br i1 %.not.i, label %100, label %97
 
-98:                                               ; preds = %93
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.88, ptr noundef %96) #2
-  %99 = load i32, ptr @hf_ipa_osmo_proto, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %34, i32 noundef %99, ptr noundef %40, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
-  br label %101
+97:                                               ; preds = %92
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.88, ptr noundef %95) #2
+  %98 = load i32, ptr @hf_ipa_osmo_proto, align 4
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %34, i32 noundef %98, ptr noundef %40, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  br label %100
 
-101:                                              ; preds = %98, %93
-  %102 = tail call ptr @tvb_new_subset_remaining(ptr noundef %40, i32 noundef 1) #2
-  %103 = load ptr, ptr @osmo_dissector_table, align 8
-  %104 = tail call i32 @dissector_try_uint(ptr noundef %103, i32 noundef %95, ptr noundef %102, ptr noundef nonnull %1, ptr noundef %2) #2
-  %.not25.i = icmp eq i32 %104, 0
-  br i1 %.not25.i, label %105, label %dissect_ipaccess.exit
+100:                                              ; preds = %97, %92
+  %101 = tail call ptr @tvb_new_subset_remaining(ptr noundef %40, i32 noundef 1) #2
+  %102 = load ptr, ptr @osmo_dissector_table, align 8
+  %103 = tail call i32 @dissector_try_uint(ptr noundef %102, i32 noundef %94, ptr noundef %101, ptr noundef nonnull %1, ptr noundef %2) #2
+  %.not25.i = icmp eq i32 %103, 0
+  br i1 %.not25.i, label %104, label %dissect_ipaccess.exit
 
-105:                                              ; preds = %101
-  switch i8 %94, label %112 [
-    i8 1, label %106
-    i8 0, label %109
+104:                                              ; preds = %100
+  switch i8 %93, label %111 [
+    i8 1, label %105
+    i8 0, label %108
   ]
 
-106:                                              ; preds = %105
-  %107 = load ptr, ptr @sub_handles.3, align 16
-  %108 = tail call i32 @call_dissector(ptr noundef %107, ptr noundef %102, ptr noundef nonnull %1, ptr noundef %2) #2
+105:                                              ; preds = %104
+  %106 = load ptr, ptr @sub_handles.3, align 16
+  %107 = tail call i32 @call_dissector(ptr noundef %106, ptr noundef %101, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_ipaccess.exit
 
-109:                                              ; preds = %105
-  %110 = load i32, ptr @hf_ipa_osmo_ctrl_data, align 4
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %110, ptr noundef %102, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+108:                                              ; preds = %104
+  %109 = load i32, ptr @hf_ipa_osmo_ctrl_data, align 4
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %109, ptr noundef %101, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   br label %dissect_ipaccess.exit
 
-112:                                              ; preds = %105
-  %113 = load ptr, ptr @sub_handles.4, align 16
-  %114 = tail call i32 @call_dissector(ptr noundef %113, ptr noundef %102, ptr noundef nonnull %1, ptr noundef %2) #2
+111:                                              ; preds = %104
+  %112 = load ptr, ptr @sub_handles.4, align 16
+  %113 = tail call i32 @call_dissector(ptr noundef %112, ptr noundef %101, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_ipaccess.exit
 
-115:                                              ; preds = %._crit_edge
-  %116 = load i32, ptr @hf_ipa_hsl_debug, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %116, ptr noundef %40, i32 noundef 0, i32 noundef %.pre, i32 noundef 0) #2
-  %118 = load i32, ptr @global_ipa_in_root, align 4
-  %119 = icmp eq i32 %118, 1
-  br i1 %119, label %120, label %123
+114:                                              ; preds = %._crit_edge
+  %115 = load i32, ptr @hf_ipa_hsl_debug, align 4
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %115, ptr noundef %40, i32 noundef 0, i32 noundef %.pre, i32 noundef 0) #2
+  %117 = load i32, ptr @global_ipa_in_root, align 4
+  %118 = icmp eq i32 %117, 1
+  br i1 %118, label %119, label %122
 
-120:                                              ; preds = %115
-  %121 = load i32, ptr @hf_ipa_hsl_debug, align 4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %121, ptr noundef %40, i32 noundef 0, i32 noundef %.pre, i32 noundef 0) #2
-  br label %123
+119:                                              ; preds = %114
+  %120 = load i32, ptr @hf_ipa_hsl_debug, align 4
+  %121 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %120, ptr noundef %40, i32 noundef 0, i32 noundef %.pre, i32 noundef 0) #2
+  br label %122
 
-123:                                              ; preds = %120, %115
-  %124 = load i32, ptr @global_ipa_in_info, align 4
-  %125 = icmp eq i32 %124, 1
-  br i1 %125, label %126, label %dissect_ipaccess.exit
+122:                                              ; preds = %119, %114
+  %123 = load i32, ptr @global_ipa_in_info, align 4
+  %124 = icmp eq i32 %123, 1
+  br i1 %124, label %125, label %dissect_ipaccess.exit
 
-126:                                              ; preds = %123
-  %127 = load ptr, ptr %14, align 8
-  %128 = load ptr, ptr %19, align 8
-  %129 = tail call ptr @tvb_get_stringz_enc(ptr noundef %128, ptr noundef %40, i32 noundef 0, ptr noundef null, i32 noundef 0) #2
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %127, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %129) #2
+125:                                              ; preds = %122
+  %126 = load ptr, ptr %14, align 8
+  %127 = load ptr, ptr %19, align 8
+  %128 = tail call ptr @tvb_get_stringz_enc(ptr noundef %127, ptr noundef %40, i32 noundef 0, ptr noundef null, i32 noundef 0) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %128) #2
   br label %dissect_ipaccess.exit
 
-130:                                              ; preds = %._crit_edge
-  %131 = icmp ult i8 %23, 32
-  br i1 %131, label %132, label %dissect_ipaccess.exit
+129:                                              ; preds = %._crit_edge
+  %130 = icmp ult i8 %23, 32
+  br i1 %130, label %131, label %dissect_ipaccess.exit
 
-132:                                              ; preds = %130
-  %133 = load ptr, ptr @sub_handles.1, align 16
-  %134 = tail call i32 @call_dissector(ptr noundef %133, ptr noundef %40, ptr noundef nonnull %1, ptr noundef %2) #2
+131:                                              ; preds = %129
+  %132 = load ptr, ptr @sub_handles.1, align 16
+  %133 = tail call i32 @call_dissector(ptr noundef %132, ptr noundef %40, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_ipaccess.exit
 
-dissect_ipaccess.exit:                            ; preds = %81, %112, %109, %106, %101, %57, %45, %130, %132, %123, %126, %41, %43, %90, %87
-  %135 = add i32 %30, %.07276
-  %136 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %135) #2
-  %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %._crit_edge, label %.loopexit, !llvm.loop !6
+dissect_ipaccess.exit:                            ; preds = %82, %111, %108, %105, %100, %57, %45, %129, %131, %122, %125, %41, %43, %89, %86
+  %134 = add i32 %30, %.07276
+  %135 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %134) #2
+  %136 = icmp sgt i32 %135, 0
+  br i1 %136, label %._crit_edge, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %dissect_ipaccess.exit, %13, %7, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 1, %13 ], [ 1, %dissect_ipaccess.exit ]

@@ -1355,34 +1355,34 @@ define dso_local range(i32 0, 256) i32 @cipso_v4_validate(ptr noundef readonly %
 
 174:                                              ; preds = %172
   %175 = zext i32 %167 to i64
-  br label %179
+  br label %178
 
 176:                                              ; preds = %192
-  %177 = zext i16 %193 to i32
-  %178 = icmp ult i64 %185, %175
-  br i1 %178, label %179, label %.loopexit17, !llvm.loop !25
+  %177 = icmp ult i64 %184, %175
+  br i1 %177, label %178, label %.loopexit17, !llvm.loop !25
 
-179:                                              ; preds = %176, %174
-  %180 = phi i64 [ 0, %174 ], [ %185, %176 ]
-  %181 = phi i32 [ 65535, %174 ], [ %177, %176 ]
-  %182 = getelementptr i8, ptr %166, i64 %180
-  %183 = load i16, ptr %182, align 1
-  %184 = tail call i16 @llvm.bswap.i16(i16 %183)
-  %185 = add nuw nsw i64 %180, 4
-  %186 = icmp ugt i64 %185, %175
-  br i1 %186, label %192, label %187
+178:                                              ; preds = %176, %174
+  %179 = phi i64 [ 0, %174 ], [ %184, %176 ]
+  %180 = phi i32 [ 65535, %174 ], [ %193, %176 ]
+  %181 = getelementptr i8, ptr %166, i64 %179
+  %182 = load i16, ptr %181, align 1
+  %183 = tail call i16 @llvm.bswap.i16(i16 %182)
+  %184 = add nuw nsw i64 %179, 4
+  %185 = icmp ugt i64 %184, %175
+  br i1 %185, label %192, label %186
 
-187:                                              ; preds = %179
-  %188 = or disjoint i64 %180, 2
-  %189 = getelementptr i8, ptr %166, i64 %188
-  %190 = load i16, ptr %189, align 1
-  %191 = tail call i16 @llvm.bswap.i16(i16 %190)
+186:                                              ; preds = %178
+  %187 = or disjoint i64 %179, 2
+  %188 = getelementptr i8, ptr %166, i64 %187
+  %189 = load i16, ptr %188, align 1
+  %190 = tail call i16 @llvm.bswap.i16(i16 %189)
+  %191 = zext i16 %190 to i32
   br label %192
 
-192:                                              ; preds = %187, %179
-  %193 = phi i16 [ %191, %187 ], [ 0, %179 ]
-  %194 = zext i16 %184 to i32
-  %195 = icmp ult i32 %181, %194
+192:                                              ; preds = %186, %178
+  %193 = phi i32 [ %191, %186 ], [ 0, %178 ]
+  %194 = zext i16 %183 to i32
+  %195 = icmp ult i32 %180, %194
   br i1 %195, label %.loopexit18, label %176
 
 .loopexit18:                                      ; preds = %165, %192
@@ -2707,8 +2707,8 @@ select.unfold:                                    ; preds = %165, %167, %172, %1
   %264 = and i64 %263, 4294967295
   br label %265
 
-265:                                              ; preds = %279, %260
-  %266 = phi i64 [ %272, %279 ], [ 0, %260 ]
+265:                                              ; preds = %280, %260
+  %266 = phi i64 [ %272, %280 ], [ 0, %260 ]
   %267 = icmp ult i64 %266, %264
   br i1 %267, label %268, label %292
 
@@ -2718,24 +2718,24 @@ select.unfold:                                    ; preds = %165, %167, %172, %1
   %271 = tail call i16 @llvm.bswap.i16(i16 %270)
   %272 = add nuw nsw i64 %266, 4
   %273 = icmp ugt i64 %272, %264
-  br i1 %273, label %279, label %274
+  br i1 %273, label %280, label %274
 
 274:                                              ; preds = %268
   %275 = or disjoint i64 %266, 2
   %276 = getelementptr i8, ptr %262, i64 %275
   %277 = load i16, ptr %276, align 1
   %278 = tail call i16 @llvm.bswap.i16(i16 %277)
-  br label %279
+  %279 = zext i16 %278 to i32
+  br label %280
 
-279:                                              ; preds = %274, %268
-  %280 = phi i16 [ %278, %274 ], [ 0, %268 ]
-  %281 = zext i16 %280 to i32
+280:                                              ; preds = %274, %268
+  %281 = phi i32 [ %279, %274 ], [ 0, %268 ]
   %282 = zext i16 %271 to i32
   %283 = tail call i32 @netlbl_catmap_setrng(ptr noundef %255, i32 noundef %281, i32 noundef %282, i32 noundef 2080) #15
   %284 = icmp eq i32 %283, 0
   br i1 %284, label %265, label %285, !llvm.loop !42
 
-285:                                              ; preds = %279
+285:                                              ; preds = %280
   %286 = load ptr, ptr %255, align 8
   %287 = icmp eq ptr %286, null
   br i1 %287, label %.thread, label %.preheader53

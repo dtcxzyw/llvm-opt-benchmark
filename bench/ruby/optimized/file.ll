@@ -4360,7 +4360,7 @@ define internal range(i64 0, 21) i64 @rb_file_readable_real_p(i64 %0, i64 nounde
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_file_world_readable_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 1, 1024) i64 @rb_file_world_readable_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
   %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
   %5 = icmp slt i32 %4, 0
@@ -4402,7 +4402,7 @@ define internal range(i64 0, 21) i64 @rb_file_writable_real_p(i64 %0, i64 nounde
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_file_world_writable_p(i64 %0, i64 noundef %1) #0 {
+define internal range(i64 1, 1024) i64 @rb_file_world_writable_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
   %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
   %5 = icmp slt i32 %4, 0
@@ -5777,7 +5777,7 @@ rb_get_path.exit10:                               ; preds = %32, %rbimpl_intern_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_file_s_umask(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal range(i64 1, 8589934592) i64 @rb_file_s_umask(i32 noundef %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   switch i32 %0, label %12 [
     i32 0, label %4
     i32 1, label %7
@@ -8191,7 +8191,7 @@ rb_ulong2num_inline.exit:                         ; preds = %10, %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_stat_dev_major(i64 noundef %0) #0 {
+define internal range(i64 1, 8589934592) i64 @rb_stat_dev_major(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
@@ -8213,7 +8213,7 @@ get_stat.exit:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_stat_dev_minor(i64 noundef %0) #0 {
+define internal range(i64 1, 8589934592) i64 @rb_stat_dev_minor(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
@@ -8268,7 +8268,7 @@ rb_ulong2num_inline.exit:                         ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_stat_mode(i64 noundef %0) #0 {
+define internal range(i64 1, 8589934592) i64 @rb_stat_mode(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
@@ -8323,7 +8323,7 @@ rb_ulong2num_inline.exit:                         ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_stat_uid(i64 noundef %0) #0 {
+define internal range(i64 1, 8589934592) i64 @rb_stat_uid(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
@@ -8345,7 +8345,7 @@ get_stat.exit:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_stat_gid(i64 noundef %0) #0 {
+define internal range(i64 1, 8589934592) i64 @rb_stat_gid(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
@@ -8400,7 +8400,7 @@ rb_ulong2num_inline.exit:                         ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_stat_rdev_major(i64 noundef %0) #0 {
+define internal range(i64 1, 8589934592) i64 @rb_stat_rdev_major(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
@@ -8423,7 +8423,7 @@ get_stat.exit:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_stat_rdev_minor(i64 noundef %0) #0 {
+define internal range(i64 1, 8589934592) i64 @rb_stat_rdev_minor(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
@@ -8936,7 +8936,7 @@ get_stat.exit10:                                  ; preds = %25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_stat_wr(i64 noundef %0) #0 {
+define internal range(i64 1, 1024) i64 @rb_stat_wr(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
@@ -9128,7 +9128,7 @@ get_stat.exit10:                                  ; preds = %25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 1, 0) i64 @rb_stat_ww(i64 noundef %0) #0 {
+define internal range(i64 1, 1024) i64 @rb_stat_ww(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8

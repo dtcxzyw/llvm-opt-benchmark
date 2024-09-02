@@ -5816,7 +5816,7 @@ return:                                           ; preds = %entry, %err9
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_get_stream_read_state(ptr noundef %ssl) local_unnamed_addr #0 {
+define range(i32 0, 7) i32 @ossl_quic_get_stream_read_state(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %ctx.i = alloca %struct.qctx_st, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ctx.i)
@@ -5887,7 +5887,7 @@ quic_get_stream_state.exit:                       ; preds = %entry, %quic_classi
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_get_stream_write_state(ptr noundef %ssl) local_unnamed_addr #0 {
+define range(i32 0, 7) i32 @ossl_quic_get_stream_write_state(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %final_size.i = alloca i64, align 8
   %ctx.i = alloca %struct.qctx_st, align 8

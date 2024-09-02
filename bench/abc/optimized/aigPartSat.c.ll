@@ -1119,12 +1119,12 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i97, %Vec_Ve
 187:                                              ; preds = %186
   %188 = getelementptr inbounds i8, ptr %181, i64 36
   %189 = load i32, ptr %188, align 4
+  %190 = sext i32 %189 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %186, %187
-  %190 = phi i32 [ %189, %187 ], [ -1, %186 ]
+  %191 = phi i64 [ %190, %187 ], [ -1, %186 ]
   %.val75 = load ptr, ptr %172, align 8
-  %191 = sext i32 %190 to i64
   %192 = getelementptr inbounds i32, ptr %.val75, i64 %191
   %193 = load i32, ptr %192, align 4
   tail call fastcc void @Vec_VecPush(ptr noundef nonnull %158, i32 noundef %193, ptr noundef nonnull %177)
@@ -1896,12 +1896,12 @@ define range(i32 0, 2) i32 @Aig_ManAddNewCnfToSolver(ptr noundef %0, ptr noundef
   %155 = inttoptr i64 %154 to ptr
   %156 = getelementptr inbounds i8, ptr %155, i64 36
   %157 = load i32, ptr %156, align 4
+  %158 = sext i32 %157 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %149, %153
-  %158 = phi i32 [ %157, %153 ], [ -1, %149 ]
+  %159 = phi i64 [ %158, %153 ], [ -1, %149 ]
   %.val137 = load ptr, ptr %129, align 8
-  %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i32, ptr %.val137, i64 %159
   %161 = load i32, ptr %160, align 4
   %162 = shl nsw i32 %161, 1

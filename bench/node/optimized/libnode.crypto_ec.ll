@@ -4236,7 +4236,7 @@ _ZN4node13MemoryTracker10TrackFieldINS_6crypto13KeyObjectDataEEEvPKcRKSt10shared
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6crypto14ECDHBitsTraits12EncodeOutputEPNS_11EnvironmentERKNS0_14ECDHBitsConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr noundef %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %params, ptr noundef nonnull %out, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 1, 258) i16 @_ZN4node6crypto14ECDHBitsTraits12EncodeOutputEPNS_11EnvironmentERKNS0_14ECDHBitsConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr noundef %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %params, ptr noundef nonnull %out, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call ptr @_ZN4node6crypto10ByteSource13ToArrayBufferEPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef %env) #21
   store ptr %call, ptr %result, align 8
@@ -4248,7 +4248,7 @@ entry:
 declare ptr @_ZN4node6crypto10ByteSource13ToArrayBufferEPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node6crypto14ECDHBitsTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_14ECDHBitsConfigE(i32 %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, ptr nocapture noundef %params) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6crypto14ECDHBitsTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_14ECDHBitsConfigE(i32 %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, ptr nocapture noundef %params) local_unnamed_addr #3 align 2 {
 entry:
   %name = alloca %"class.node::Utf8Value", align 8
   %0 = load ptr, ptr %args, align 8
@@ -4322,8 +4322,8 @@ if.end.i225:                                      ; preds = %_ZNK2v820FunctionCa
   %sub.i = add i64 %20, 11
   %21 = inttoptr i64 %sub.i to ptr
   %22 = load i16, ptr %21, align 2
-  %cmp.i227 = icmp ult i16 %22, 128
-  br i1 %cmp.i227, label %do.body10, label %do.body8
+  %cmp.i227 = icmp ugt i16 %22, 127
+  br i1 %cmp.i227, label %do.body8, label %do.body10
 
 do.body8:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit191, %if.end.i225
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto14ECDHBitsTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_14ECDHBitsConfigEE4args) #21
@@ -5427,7 +5427,7 @@ declare i32 @EVP_PKEY_paramgen(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node6crypto14EcKeyGenTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_15EcKeyPairParamsEEE(i32 %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, ptr nocapture noundef %offset, ptr nocapture noundef writeonly %params) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6crypto14EcKeyGenTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_15EcKeyPairParamsEEE(i32 %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, ptr nocapture noundef %offset, ptr nocapture noundef writeonly %params) local_unnamed_addr #3 align 2 {
 entry:
   %curve_name = alloca %"class.node::Utf8Value", align 8
   %0 = load ptr, ptr %args, align 8
@@ -6227,7 +6227,7 @@ declare void @_ZN4node6crypto10ByteSource7FromBIOERKSt10unique_ptrI6bio_stNS_15F
 declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i8 @_ZN4node6crypto14ExportJWKEcKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS6_6ObjectEEE(ptr noundef %env, ptr nocapture noundef readonly %key, ptr %target.coerce) local_unnamed_addr #3 {
+define dso_local range(i8 0, 2) i8 @_ZN4node6crypto14ExportJWKEcKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS6_6ObjectEEE(ptr noundef %env, ptr nocapture noundef readonly %key, ptr %target.coerce) local_unnamed_addr #3 {
 entry:
   %m_pkey = alloca %"class.node::crypto::ManagedEVPPKey", align 8
   %ref.tmp142 = alloca ptr, align 8
@@ -6513,7 +6513,7 @@ entry:
 declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6crypto14ExportJWKEdKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS6_6ObjectEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef readonly %key, ptr %target.coerce) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6crypto14ExportJWKEdKeyEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS6_6ObjectEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef readonly %key, ptr %target.coerce) local_unnamed_addr #3 {
 entry:
   %pkey = alloca %"class.node::crypto::ManagedEVPPKey", align 8
   %len = alloca i64, align 8
@@ -6837,8 +6837,8 @@ if.end.i325:                                      ; preds = %_ZNK2v820FunctionCa
   %sub.i = add i64 %8, 11
   %9 = inttoptr i64 %sub.i to ptr
   %10 = load i16, ptr %9, align 2
-  %cmp.i327 = icmp ult i16 %10, 128
-  br i1 %cmp.i327, label %do.end11, label %do.body10
+  %cmp.i327 = icmp ugt i16 %10, 127
+  br i1 %cmp.i327, label %do.body10, label %do.end11
 
 do.body10:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit229, %if.end.i325
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto14ImportJWKEcKeyEPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS3_20FunctionCallbackInfoINS3_5ValueEEEjE4args) #21

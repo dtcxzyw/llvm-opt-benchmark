@@ -662,12 +662,12 @@ Saig_ObjIsPi.exit:                                ; preds = %34
 48:                                               ; preds = %47
   %49 = getelementptr inbounds i8, ptr %42, i64 36
   %50 = load i32, ptr %49, align 4
+  %51 = sext i32 %50 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %47, %48
-  %51 = phi i32 [ %50, %48 ], [ -1, %47 ]
+  %52 = phi i64 [ %51, %48 ], [ -1, %47 ]
   %.val85 = load ptr, ptr %29, align 8
-  %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds ptr, ptr %.val85, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
@@ -685,12 +685,12 @@ Aig_ObjFaninId0.exit:                             ; preds = %47, %48
   %61 = inttoptr i64 %60 to ptr
   %62 = getelementptr inbounds i8, ptr %61, i64 36
   %63 = load i32, ptr %62, align 4
+  %64 = sext i32 %63 to i64
   br label %Aig_ObjFaninId0.exit110
 
 Aig_ObjFaninId0.exit110:                          ; preds = %56, %58
-  %64 = phi i32 [ %63, %58 ], [ -1, %56 ]
+  %65 = phi i64 [ %64, %58 ], [ -1, %56 ]
   %.val95 = load ptr, ptr %29, align 8
-  %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds ptr, ptr %.val95, i64 %65
   store ptr %57, ptr %66, align 8
   %.val98 = load ptr, ptr %39, align 8
@@ -703,12 +703,12 @@ Aig_ObjFaninId0.exit110:                          ; preds = %56, %58
   %70 = inttoptr i64 %69 to ptr
   %71 = getelementptr inbounds i8, ptr %70, i64 36
   %72 = load i32, ptr %71, align 4
+  %73 = sext i32 %72 to i64
   br label %Aig_ObjFaninId0.exit112
 
 Aig_ObjFaninId0.exit112:                          ; preds = %Aig_ObjFaninId0.exit110, %67
-  %73 = phi i32 [ %72, %67 ], [ -1, %Aig_ObjFaninId0.exit110 ]
+  %74 = phi i64 [ %73, %67 ], [ -1, %Aig_ObjFaninId0.exit110 ]
   %.val94 = load ptr, ptr %30, align 8
-  %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds ptr, ptr %.val94, i64 %74
   store ptr %57, ptr %75, align 8
   br label %Saig_ObjIsPi.exit.thread
@@ -740,12 +740,12 @@ Saig_ObjIsPi.exit117:                             ; preds = %Saig_ObjIsPi.exit.t
 85:                                               ; preds = %84
   %86 = getelementptr inbounds i8, ptr %79, i64 36
   %87 = load i32, ptr %86, align 4
+  %88 = sext i32 %87 to i64
   br label %Aig_ObjFaninId1.exit
 
 Aig_ObjFaninId1.exit:                             ; preds = %84, %85
-  %88 = phi i32 [ %87, %85 ], [ -1, %84 ]
+  %89 = phi i64 [ %88, %85 ], [ -1, %84 ]
   %.val84 = load ptr, ptr %29, align 8
-  %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds ptr, ptr %.val84, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
@@ -763,12 +763,12 @@ Aig_ObjFaninId1.exit:                             ; preds = %84, %85
   %98 = inttoptr i64 %97 to ptr
   %99 = getelementptr inbounds i8, ptr %98, i64 36
   %100 = load i32, ptr %99, align 4
+  %101 = sext i32 %100 to i64
   br label %Aig_ObjFaninId1.exit120
 
 Aig_ObjFaninId1.exit120:                          ; preds = %93, %95
-  %101 = phi i32 [ %100, %95 ], [ -1, %93 ]
+  %102 = phi i64 [ %101, %95 ], [ -1, %93 ]
   %.val93 = load ptr, ptr %29, align 8
-  %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds ptr, ptr %.val93, i64 %102
   store ptr %94, ptr %103, align 8
   %.val101 = load ptr, ptr %76, align 8
@@ -781,12 +781,12 @@ Aig_ObjFaninId1.exit120:                          ; preds = %93, %95
   %107 = inttoptr i64 %106 to ptr
   %108 = getelementptr inbounds i8, ptr %107, i64 36
   %109 = load i32, ptr %108, align 4
+  %110 = sext i32 %109 to i64
   br label %Aig_ObjFaninId1.exit122
 
 Aig_ObjFaninId1.exit122:                          ; preds = %Aig_ObjFaninId1.exit120, %104
-  %110 = phi i32 [ %109, %104 ], [ -1, %Aig_ObjFaninId1.exit120 ]
+  %111 = phi i64 [ %110, %104 ], [ -1, %Aig_ObjFaninId1.exit120 ]
   %.val92 = load ptr, ptr %30, align 8
-  %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds ptr, ptr %.val92, i64 %111
   store ptr %94, ptr %112, align 8
   br label %Saig_ObjIsPi.exit117.thread

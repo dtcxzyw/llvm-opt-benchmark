@@ -299,18 +299,17 @@ lor.lhs.false125:                                 ; preds = %if.end121
 land.rhs:                                         ; preds = %if.end121
   %pending_enable_connect_protocol = getelementptr inbounds i8, ptr %session, i64 2873
   %56 = load i8, ptr %pending_enable_connect_protocol, align 1
-  %tobool135 = icmp ne i8 %56, 0
-  %57 = zext i1 %tobool135 to i32
+  %tobool135.not = icmp eq i8 %56, 0
   br label %land.end
 
 land.end:                                         ; preds = %lor.lhs.false125, %land.rhs
-  %land.ext = phi i32 [ %57, %land.rhs ], [ 0, %lor.lhs.false125 ]
+  %land.ext = phi i1 [ %tobool135.not, %land.rhs ], [ true, %lor.lhs.false125 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %extpri.i)
-  %58 = load ptr, ptr %nv, align 8
-  %base.i = getelementptr inbounds i8, ptr %58, i64 16
-  %59 = load ptr, ptr %base.i, align 8
-  %60 = load i8, ptr %59, align 1
-  %cmp.i46 = icmp eq i8 %60, 58
+  %57 = load ptr, ptr %nv, align 8
+  %base.i = getelementptr inbounds i8, ptr %57, i64 16
+  %58 = load ptr, ptr %base.i, align 8
+  %59 = load i8, ptr %58, align 1
+  %cmp.i46 = icmp eq i8 %59, 58
   br i1 %cmp.i46, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %land.end
@@ -319,14 +318,14 @@ if.then.i:                                        ; preds = %land.end
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
   %http_flags.i = getelementptr inbounds i8, ptr %stream, i64 212
-  %61 = load i32, ptr %http_flags.i, align 4
-  %and.i = and i32 %61, 64
+  %60 = load i32, ptr %http_flags.i, align 4
+  %and.i = and i32 %60, 64
   %tobool2.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool2.not.i, label %if.end4.i, label %http_request_on_header.exit
 
 if.end4.i:                                        ; preds = %lor.lhs.false.i, %land.end
-  %62 = load i32, ptr %token, align 8
-  switch i32 %62, label %sw.default.i [
+  %61 = load i32, ptr %token, align 8
+  switch i32 %61, label %sw.default.i [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb8.i
     i32 3, label %sw.bb72.i
@@ -345,171 +344,171 @@ if.end4.i:                                        ; preds = %lor.lhs.false.i, %l
 
 sw.bb.i:                                          ; preds = %if.end4.i
   %http_flags.i.i = getelementptr inbounds i8, ptr %stream, i64 212
-  %63 = load i32, ptr %http_flags.i.i, align 4
-  %and.i.i = and i32 %63, 1
+  %62 = load i32, ptr %http_flags.i.i, align 4
+  %and.i.i = and i32 %62, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %lor.lhs.false.i.i, label %http_request_on_header.exit
 
 lor.lhs.false.i.i:                                ; preds = %sw.bb.i
   %value.i.i = getelementptr inbounds i8, ptr %nv, i64 8
-  %64 = load ptr, ptr %value.i.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %64, i64 24
-  %65 = load i64, ptr %len.i.i, align 8
-  %cmp.i.i = icmp eq i64 %65, 0
+  %63 = load ptr, ptr %value.i.i, align 8
+  %len.i.i = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = load i64, ptr %len.i.i, align 8
+  %cmp.i.i = icmp eq i64 %64, 0
   br i1 %cmp.i.i, label %http_request_on_header.exit, label %check_pseudo_header.exit.i
 
 check_pseudo_header.exit.i:                       ; preds = %lor.lhs.false.i.i
-  %or.i.i = or disjoint i32 %63, 1
+  %or.i.i = or disjoint i32 %62, 1
   store i32 %or.i.i, ptr %http_flags.i.i, align 4
   br label %sw.epilog216.i
 
 sw.bb8.i:                                         ; preds = %if.end4.i
   %http_flags.i64.i = getelementptr inbounds i8, ptr %stream, i64 212
-  %66 = load i32, ptr %http_flags.i64.i, align 4
-  %and.i65.i = and i32 %66, 4
+  %65 = load i32, ptr %http_flags.i64.i, align 4
+  %and.i65.i = and i32 %65, 4
   %tobool.not.i66.i = icmp eq i32 %and.i65.i, 0
   br i1 %tobool.not.i66.i, label %lor.lhs.false.i68.i, label %http_request_on_header.exit
 
 lor.lhs.false.i68.i:                              ; preds = %sw.bb8.i
   %value.i69.i = getelementptr inbounds i8, ptr %nv, i64 8
-  %67 = load ptr, ptr %value.i69.i, align 8
-  %len.i70.i = getelementptr inbounds i8, ptr %67, i64 24
-  %68 = load i64, ptr %len.i70.i, align 8
-  %cmp.i71.i = icmp eq i64 %68, 0
+  %66 = load ptr, ptr %value.i69.i, align 8
+  %len.i70.i = getelementptr inbounds i8, ptr %66, i64 24
+  %67 = load i64, ptr %len.i70.i, align 8
+  %cmp.i71.i = icmp eq i64 %67, 0
   br i1 %cmp.i71.i, label %http_request_on_header.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %lor.lhs.false.i68.i
-  %or.i73.i = or disjoint i32 %66, 4
+  %or.i73.i = or disjoint i32 %65, 4
   store i32 %or.i73.i, ptr %http_flags.i64.i, align 4
-  %69 = load ptr, ptr %value.i69.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %69, i64 24
-  %70 = load i64, ptr %len.i, align 8
-  switch i64 %70, label %sw.epilog216.i [
+  %68 = load ptr, ptr %value.i69.i, align 8
+  %len.i = getelementptr inbounds i8, ptr %68, i64 24
+  %69 = load i64, ptr %len.i, align 8
+  switch i64 %69, label %sw.epilog216.i [
     i64 4, label %land.lhs.true.i
     i64 7, label %sw.bb28.i
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end12.i
-  %base19.i = getelementptr inbounds i8, ptr %69, i64 16
-  %71 = load ptr, ptr %base19.i, align 8
-  %bcmp63.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.4, ptr noundef nonnull dereferenceable(4) %71, i64 4)
+  %base19.i = getelementptr inbounds i8, ptr %68, i64 16
+  %70 = load ptr, ptr %base19.i, align 8
+  %bcmp63.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.4, ptr noundef nonnull dereferenceable(4) %70, i64 4)
   %cmp23.i = icmp eq i32 %bcmp63.i, 0
   br i1 %cmp23.i, label %if.then25.i, label %sw.epilog216.i
 
 if.then25.i:                                      ; preds = %land.lhs.true.i
-  %or.i = or i32 %66, 260
+  %or.i = or i32 %65, 260
   store i32 %or.i, ptr %http_flags.i64.i, align 4
   br label %sw.epilog216.i
 
 sw.bb28.i:                                        ; preds = %if.end12.i
-  %base30.i = getelementptr inbounds i8, ptr %69, i64 16
-  %72 = load ptr, ptr %base30.i, align 8
-  %arrayidx31.i = getelementptr inbounds i8, ptr %72, i64 6
-  %73 = load i8, ptr %arrayidx31.i, align 1
-  switch i8 %73, label %sw.epilog216.i [
+  %base30.i = getelementptr inbounds i8, ptr %68, i64 16
+  %71 = load ptr, ptr %base30.i, align 8
+  %arrayidx31.i = getelementptr inbounds i8, ptr %71, i64 6
+  %72 = load i8, ptr %arrayidx31.i, align 1
+  switch i8 %72, label %sw.epilog216.i [
     i8 84, label %land.lhs.true38.i
     i8 83, label %land.lhs.true59.i
   ]
 
 land.lhs.true38.i:                                ; preds = %sw.bb28.i
-  %bcmp62.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.3, ptr noundef nonnull dereferenceable(7) %72, i64 7)
+  %bcmp62.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.3, ptr noundef nonnull dereferenceable(7) %71, i64 7)
   %cmp44.i = icmp eq i32 %bcmp62.i, 0
   br i1 %cmp44.i, label %if.then46.i, label %sw.epilog216.i
 
 if.then46.i:                                      ; preds = %land.lhs.true38.i
   %stream_id.i = getelementptr inbounds i8, ptr %stream, i64 168
-  %74 = load i32, ptr %stream_id.i, align 8
-  %75 = and i32 %74, 1
-  %cmp47.i = icmp eq i32 %75, 0
+  %73 = load i32, ptr %stream_id.i, align 8
+  %74 = and i32 %73, 1
+  %cmp47.i = icmp eq i32 %74, 0
   br i1 %cmp47.i, label %http_request_on_header.exit, label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then46.i
-  %or52.i = or i32 %66, 132
+  %or52.i = or i32 %65, 132
   store i32 %or52.i, ptr %http_flags.i64.i, align 4
   br label %sw.epilog216.i
 
 land.lhs.true59.i:                                ; preds = %sw.bb28.i
-  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.5, ptr noundef nonnull dereferenceable(7) %72, i64 7)
+  %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.5, ptr noundef nonnull dereferenceable(7) %71, i64 7)
   %cmp65.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp65.i, label %if.then67.i, label %sw.epilog216.i
 
 if.then67.i:                                      ; preds = %land.lhs.true59.i
-  %or69.i = or i32 %66, 516
+  %or69.i = or i32 %65, 516
   store i32 %or69.i, ptr %http_flags.i64.i, align 4
   br label %sw.epilog216.i
 
 sw.bb72.i:                                        ; preds = %if.end4.i
   %http_flags.i75.i = getelementptr inbounds i8, ptr %stream, i64 212
-  %76 = load i32, ptr %http_flags.i75.i, align 4
-  %and.i76.i = and i32 %76, 2
+  %75 = load i32, ptr %http_flags.i75.i, align 4
+  %and.i76.i = and i32 %75, 2
   %tobool.not.i77.i = icmp eq i32 %and.i76.i, 0
   br i1 %tobool.not.i77.i, label %lor.lhs.false.i79.i, label %http_request_on_header.exit
 
 lor.lhs.false.i79.i:                              ; preds = %sw.bb72.i
   %value.i80.i = getelementptr inbounds i8, ptr %nv, i64 8
-  %77 = load ptr, ptr %value.i80.i, align 8
-  %len.i81.i = getelementptr inbounds i8, ptr %77, i64 24
-  %78 = load i64, ptr %len.i81.i, align 8
-  %cmp.i82.i = icmp eq i64 %78, 0
+  %76 = load ptr, ptr %value.i80.i, align 8
+  %len.i81.i = getelementptr inbounds i8, ptr %76, i64 24
+  %77 = load i64, ptr %len.i81.i, align 8
+  %cmp.i82.i = icmp eq i64 %77, 0
   br i1 %cmp.i82.i, label %http_request_on_header.exit, label %if.end76.i
 
 if.end76.i:                                       ; preds = %lor.lhs.false.i79.i
-  %or.i84.i = or disjoint i32 %76, 2
+  %or.i84.i = or disjoint i32 %75, 2
   store i32 %or.i84.i, ptr %http_flags.i75.i, align 4
-  %79 = load ptr, ptr %value.i80.i, align 8
-  %base78.i = getelementptr inbounds i8, ptr %79, i64 16
-  %80 = load ptr, ptr %base78.i, align 8
-  %81 = load i8, ptr %80, align 1
-  %cmp81.i = icmp eq i8 %81, 47
+  %78 = load ptr, ptr %value.i80.i, align 8
+  %base78.i = getelementptr inbounds i8, ptr %78, i64 16
+  %79 = load ptr, ptr %base78.i, align 8
+  %80 = load i8, ptr %79, align 1
+  %cmp81.i = icmp eq i8 %80, 47
   br i1 %cmp81.i, label %if.then83.i, label %if.else.i
 
 if.then83.i:                                      ; preds = %if.end76.i
-  %or85.i = or i32 %76, 2050
+  %or85.i = or i32 %75, 2050
   store i32 %or85.i, ptr %http_flags.i75.i, align 4
   br label %sw.epilog216.i
 
 if.else.i:                                        ; preds = %if.end76.i
-  %len87.i = getelementptr inbounds i8, ptr %79, i64 24
-  %82 = load i64, ptr %len87.i, align 8
-  %cmp88.i = icmp eq i64 %82, 1
-  %cmp95.i = icmp eq i8 %81, 42
+  %len87.i = getelementptr inbounds i8, ptr %78, i64 24
+  %81 = load i64, ptr %len87.i, align 8
+  %cmp88.i = icmp eq i64 %81, 1
+  %cmp95.i = icmp eq i8 %80, 42
   %or.cond.i = and i1 %cmp95.i, %cmp88.i
   br i1 %or.cond.i, label %if.then97.i, label %sw.epilog216.i
 
 if.then97.i:                                      ; preds = %if.else.i
-  %or99.i = or i32 %76, 4098
+  %or99.i = or i32 %75, 4098
   store i32 %or99.i, ptr %http_flags.i75.i, align 4
   br label %sw.epilog216.i
 
 sw.bb102.i:                                       ; preds = %if.end4.i
   %http_flags.i86.i = getelementptr inbounds i8, ptr %stream, i64 212
-  %83 = load i32, ptr %http_flags.i86.i, align 4
-  %and.i87.i = and i32 %83, 8
+  %82 = load i32, ptr %http_flags.i86.i, align 4
+  %and.i87.i = and i32 %82, 8
   %tobool.not.i88.i = icmp eq i32 %and.i87.i, 0
   br i1 %tobool.not.i88.i, label %lor.lhs.false.i90.i, label %http_request_on_header.exit
 
 lor.lhs.false.i90.i:                              ; preds = %sw.bb102.i
   %value.i91.i = getelementptr inbounds i8, ptr %nv, i64 8
-  %84 = load ptr, ptr %value.i91.i, align 8
-  %len.i92.i = getelementptr inbounds i8, ptr %84, i64 24
-  %85 = load i64, ptr %len.i92.i, align 8
-  %cmp.i93.i = icmp eq i64 %85, 0
+  %83 = load ptr, ptr %value.i91.i, align 8
+  %len.i92.i = getelementptr inbounds i8, ptr %83, i64 24
+  %84 = load i64, ptr %len.i92.i, align 8
+  %cmp.i93.i = icmp eq i64 %84, 0
   br i1 %cmp.i93.i, label %http_request_on_header.exit, label %if.end106.i
 
 if.end106.i:                                      ; preds = %lor.lhs.false.i90.i
-  %or.i95.i = or disjoint i32 %83, 8
+  %or.i95.i = or disjoint i32 %82, 8
   store i32 %or.i95.i, ptr %http_flags.i86.i, align 4
-  %86 = load ptr, ptr %value.i91.i, align 8
-  %len108.i = getelementptr inbounds i8, ptr %86, i64 24
-  %87 = load i64, ptr %len108.i, align 8
-  switch i64 %87, label %sw.epilog216.i [
+  %85 = load ptr, ptr %value.i91.i, align 8
+  %len108.i = getelementptr inbounds i8, ptr %85, i64 24
+  %86 = load i64, ptr %len108.i, align 8
+  switch i64 %86, label %sw.epilog216.i [
     i64 4, label %land.lhs.true111.i
     i64 5, label %land.lhs.true121.i
   ]
 
 land.lhs.true111.i:                               ; preds = %if.end106.i
-  %base113.i = getelementptr inbounds i8, ptr %86, i64 16
-  %88 = load ptr, ptr %base113.i, align 8
+  %base113.i = getelementptr inbounds i8, ptr %85, i64 16
+  %87 = load ptr, ptr %base113.i, align 8
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -520,23 +519,23 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 for.body.i.i:                                     ; preds = %for.cond.i.i, %land.lhs.true111.i
   %i.08.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %land.lhs.true111.i ]
   %arrayidx.i.i = getelementptr inbounds i8, ptr @.str.6, i64 %i.08.i.i
-  %89 = load i8, ptr %arrayidx.i.i, align 1
-  %90 = add i8 %89, -65
-  %or.cond.i.i.i = icmp ult i8 %90, 26
-  %add.i.i.i = or disjoint i8 %89, 32
-  %cond.in.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %89
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %88, i64 %i.08.i.i
-  %91 = load i8, ptr %arrayidx1.i.i, align 1
-  %92 = add i8 %91, -65
-  %or.cond.i4.i.i = icmp ult i8 %92, 26
-  %add.i5.i.i = or disjoint i8 %91, 32
-  %cond.in.i6.i.i = select i1 %or.cond.i4.i.i, i8 %add.i5.i.i, i8 %91
+  %88 = load i8, ptr %arrayidx.i.i, align 1
+  %89 = add i8 %88, -65
+  %or.cond.i.i.i = icmp ult i8 %89, 26
+  %add.i.i.i = or disjoint i8 %88, 32
+  %cond.in.i.i.i = select i1 %or.cond.i.i.i, i8 %add.i.i.i, i8 %88
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %87, i64 %i.08.i.i
+  %90 = load i8, ptr %arrayidx1.i.i, align 1
+  %91 = add i8 %90, -65
+  %or.cond.i4.i.i = icmp ult i8 %91, 26
+  %add.i5.i.i = or disjoint i8 %90, 32
+  %cond.in.i6.i.i = select i1 %or.cond.i4.i.i, i8 %add.i5.i.i, i8 %90
   %cmp4.not.i.i = icmp eq i8 %cond.in.i.i.i, %cond.in.i6.i.i
   br i1 %cmp4.not.i.i, label %for.cond.i.i, label %sw.epilog216.i
 
 land.lhs.true121.i:                               ; preds = %if.end106.i
-  %base123.i = getelementptr inbounds i8, ptr %86, i64 16
-  %93 = load ptr, ptr %base123.i, align 8
+  %base123.i = getelementptr inbounds i8, ptr %85, i64 16
+  %92 = load ptr, ptr %base123.i, align 8
   br label %for.body.i98.i
 
 for.cond.i110.i:                                  ; preds = %for.body.i98.i
@@ -547,98 +546,97 @@ for.cond.i110.i:                                  ; preds = %for.body.i98.i
 for.body.i98.i:                                   ; preds = %for.cond.i110.i, %land.lhs.true121.i
   %i.08.i99.i = phi i64 [ %inc.i111.i, %for.cond.i110.i ], [ 0, %land.lhs.true121.i ]
   %arrayidx.i100.i = getelementptr inbounds i8, ptr @.str.7, i64 %i.08.i99.i
-  %94 = load i8, ptr %arrayidx.i100.i, align 1
-  %95 = add i8 %94, -65
-  %or.cond.i.i101.i = icmp ult i8 %95, 26
-  %add.i.i102.i = or disjoint i8 %94, 32
-  %cond.in.i.i103.i = select i1 %or.cond.i.i101.i, i8 %add.i.i102.i, i8 %94
-  %arrayidx1.i104.i = getelementptr inbounds i8, ptr %93, i64 %i.08.i99.i
-  %96 = load i8, ptr %arrayidx1.i104.i, align 1
-  %97 = add i8 %96, -65
-  %or.cond.i4.i105.i = icmp ult i8 %97, 26
-  %add.i5.i106.i = or disjoint i8 %96, 32
-  %cond.in.i6.i107.i = select i1 %or.cond.i4.i105.i, i8 %add.i5.i106.i, i8 %96
+  %93 = load i8, ptr %arrayidx.i100.i, align 1
+  %94 = add i8 %93, -65
+  %or.cond.i.i101.i = icmp ult i8 %94, 26
+  %add.i.i102.i = or disjoint i8 %93, 32
+  %cond.in.i.i103.i = select i1 %or.cond.i.i101.i, i8 %add.i.i102.i, i8 %93
+  %arrayidx1.i104.i = getelementptr inbounds i8, ptr %92, i64 %i.08.i99.i
+  %95 = load i8, ptr %arrayidx1.i104.i, align 1
+  %96 = add i8 %95, -65
+  %or.cond.i4.i105.i = icmp ult i8 %96, 26
+  %add.i5.i106.i = or disjoint i8 %95, 32
+  %cond.in.i6.i107.i = select i1 %or.cond.i4.i105.i, i8 %add.i5.i106.i, i8 %95
   %cmp4.not.i108.i = icmp eq i8 %cond.in.i.i103.i, %cond.in.i6.i107.i
   br i1 %cmp4.not.i108.i, label %for.cond.i110.i, label %sw.epilog216.i
 
 if.then126.i:                                     ; preds = %for.cond.i110.i, %for.cond.i.i
-  %or128.i = or i32 %83, 8200
+  %or128.i = or i32 %82, 8200
   store i32 %or128.i, ptr %http_flags.i86.i, align 4
   br label %sw.epilog216.i
 
 sw.bb130.i:                                       ; preds = %if.end4.i
-  %tobool131.not.i = icmp eq i32 %land.ext, 0
-  br i1 %tobool131.not.i, label %http_request_on_header.exit, label %if.end133.i
+  br i1 %land.ext, label %http_request_on_header.exit, label %if.end133.i
 
 if.end133.i:                                      ; preds = %sw.bb130.i
   %http_flags.i114.i = getelementptr inbounds i8, ptr %stream, i64 212
-  %98 = load i32, ptr %http_flags.i114.i, align 4
-  %and.i115.i = and i32 %98, 32768
+  %97 = load i32, ptr %http_flags.i114.i, align 4
+  %and.i115.i = and i32 %97, 32768
   %tobool.not.i116.i = icmp eq i32 %and.i115.i, 0
   br i1 %tobool.not.i116.i, label %lor.lhs.false.i118.i, label %http_request_on_header.exit
 
 lor.lhs.false.i118.i:                             ; preds = %if.end133.i
   %value.i119.i = getelementptr inbounds i8, ptr %nv, i64 8
-  %99 = load ptr, ptr %value.i119.i, align 8
-  %len.i120.i = getelementptr inbounds i8, ptr %99, i64 24
-  %100 = load i64, ptr %len.i120.i, align 8
-  %cmp.i121.i = icmp eq i64 %100, 0
+  %98 = load ptr, ptr %value.i119.i, align 8
+  %len.i120.i = getelementptr inbounds i8, ptr %98, i64 24
+  %99 = load i64, ptr %len.i120.i, align 8
+  %cmp.i121.i = icmp eq i64 %99, 0
   br i1 %cmp.i121.i, label %http_request_on_header.exit, label %check_pseudo_header.exit124.i
 
 check_pseudo_header.exit124.i:                    ; preds = %lor.lhs.false.i118.i
-  %or.i123.i = or disjoint i32 %98, 32768
+  %or.i123.i = or disjoint i32 %97, 32768
   store i32 %or.i123.i, ptr %http_flags.i114.i, align 4
   br label %sw.epilog216.i
 
 sw.bb138.i:                                       ; preds = %if.end4.i
   %http_flags.i125.i = getelementptr inbounds i8, ptr %stream, i64 212
-  %101 = load i32, ptr %http_flags.i125.i, align 4
-  %and.i126.i = and i32 %101, 16
+  %100 = load i32, ptr %http_flags.i125.i, align 4
+  %and.i126.i = and i32 %100, 16
   %tobool.not.i127.i = icmp eq i32 %and.i126.i, 0
   br i1 %tobool.not.i127.i, label %lor.lhs.false.i129.i, label %http_request_on_header.exit
 
 lor.lhs.false.i129.i:                             ; preds = %sw.bb138.i
   %value.i130.i = getelementptr inbounds i8, ptr %nv, i64 8
-  %102 = load ptr, ptr %value.i130.i, align 8
-  %len.i131.i = getelementptr inbounds i8, ptr %102, i64 24
-  %103 = load i64, ptr %len.i131.i, align 8
-  %cmp.i132.i = icmp eq i64 %103, 0
+  %101 = load ptr, ptr %value.i130.i, align 8
+  %len.i131.i = getelementptr inbounds i8, ptr %101, i64 24
+  %102 = load i64, ptr %len.i131.i, align 8
+  %cmp.i132.i = icmp eq i64 %102, 0
   br i1 %cmp.i132.i, label %http_request_on_header.exit, label %check_pseudo_header.exit135.i
 
 check_pseudo_header.exit135.i:                    ; preds = %lor.lhs.false.i129.i
-  %or.i134.i = or disjoint i32 %101, 16
+  %or.i134.i = or disjoint i32 %100, 16
   store i32 %or.i134.i, ptr %http_flags.i125.i, align 4
   br label %sw.epilog216.i
 
 sw.bb143.i:                                       ; preds = %if.end4.i
   %content_length.i = getelementptr inbounds i8, ptr %stream, i64 48
-  %104 = load i64, ptr %content_length.i, align 8
-  %cmp144.not.i = icmp eq i64 %104, -1
+  %103 = load i64, ptr %content_length.i, align 8
+  %cmp144.not.i = icmp eq i64 %103, -1
   br i1 %cmp144.not.i, label %if.end147.i, label %http_request_on_header.exit
 
 if.end147.i:                                      ; preds = %sw.bb143.i
   %value148.i = getelementptr inbounds i8, ptr %nv, i64 8
-  %105 = load ptr, ptr %value148.i, align 8
-  %base149.i = getelementptr inbounds i8, ptr %105, i64 16
-  %106 = load ptr, ptr %base149.i, align 8
-  %len151.i = getelementptr inbounds i8, ptr %105, i64 24
-  %107 = load i64, ptr %len151.i, align 8
-  %call152.i = tail call fastcc i64 @parse_uint(ptr noundef %106, i64 noundef %107)
+  %104 = load ptr, ptr %value148.i, align 8
+  %base149.i = getelementptr inbounds i8, ptr %104, i64 16
+  %105 = load ptr, ptr %base149.i, align 8
+  %len151.i = getelementptr inbounds i8, ptr %104, i64 24
+  %106 = load i64, ptr %len151.i, align 8
+  %call152.i = tail call fastcc i64 @parse_uint(ptr noundef %105, i64 noundef %106)
   store i64 %call152.i, ptr %content_length.i, align 8
   %cmp155.i = icmp eq i64 %call152.i, -1
   br i1 %cmp155.i, label %http_request_on_header.exit, label %sw.epilog216.i
 
 sw.bb160.i:                                       ; preds = %if.end4.i
   %value161.i = getelementptr inbounds i8, ptr %nv, i64 8
-  %108 = load ptr, ptr %value161.i, align 8
-  %len162.i = getelementptr inbounds i8, ptr %108, i64 24
-  %109 = load i64, ptr %len162.i, align 8
-  %cmp163.i = icmp eq i64 %109, 8
+  %107 = load ptr, ptr %value161.i, align 8
+  %len162.i = getelementptr inbounds i8, ptr %107, i64 24
+  %108 = load i64, ptr %len162.i, align 8
+  %cmp163.i = icmp eq i64 %108, 8
   br i1 %cmp163.i, label %land.lhs.true165.i, label %http_request_on_header.exit
 
 land.lhs.true165.i:                               ; preds = %sw.bb160.i
-  %base167.i = getelementptr inbounds i8, ptr %108, i64 16
-  %110 = load ptr, ptr %base167.i, align 8
+  %base167.i = getelementptr inbounds i8, ptr %107, i64 16
+  %109 = load ptr, ptr %base167.i, align 8
   br label %for.body.i136.i
 
 for.cond.i148.i:                                  ; preds = %for.body.i136.i
@@ -649,17 +647,17 @@ for.cond.i148.i:                                  ; preds = %for.body.i136.i
 for.body.i136.i:                                  ; preds = %for.cond.i148.i, %land.lhs.true165.i
   %i.08.i137.i = phi i64 [ %inc.i149.i, %for.cond.i148.i ], [ 0, %land.lhs.true165.i ]
   %arrayidx.i138.i = getelementptr inbounds i8, ptr @.str.8, i64 %i.08.i137.i
-  %111 = load i8, ptr %arrayidx.i138.i, align 1
-  %112 = add i8 %111, -65
-  %or.cond.i.i139.i = icmp ult i8 %112, 26
-  %add.i.i140.i = or disjoint i8 %111, 32
-  %cond.in.i.i141.i = select i1 %or.cond.i.i139.i, i8 %add.i.i140.i, i8 %111
-  %arrayidx1.i142.i = getelementptr inbounds i8, ptr %110, i64 %i.08.i137.i
-  %113 = load i8, ptr %arrayidx1.i142.i, align 1
-  %114 = add i8 %113, -65
-  %or.cond.i4.i143.i = icmp ult i8 %114, 26
-  %add.i5.i144.i = or disjoint i8 %113, 32
-  %cond.in.i6.i145.i = select i1 %or.cond.i4.i143.i, i8 %add.i5.i144.i, i8 %113
+  %110 = load i8, ptr %arrayidx.i138.i, align 1
+  %111 = add i8 %110, -65
+  %or.cond.i.i139.i = icmp ult i8 %111, 26
+  %add.i.i140.i = or disjoint i8 %110, 32
+  %cond.in.i.i141.i = select i1 %or.cond.i.i139.i, i8 %add.i.i140.i, i8 %110
+  %arrayidx1.i142.i = getelementptr inbounds i8, ptr %109, i64 %i.08.i137.i
+  %112 = load i8, ptr %arrayidx1.i142.i, align 1
+  %113 = add i8 %112, -65
+  %or.cond.i4.i143.i = icmp ult i8 %113, 26
+  %add.i5.i144.i = or disjoint i8 %112, 32
+  %cond.in.i6.i145.i = select i1 %or.cond.i4.i143.i, i8 %add.i5.i144.i, i8 %112
   %cmp4.not.i146.i = icmp eq i8 %cond.in.i.i141.i, %cond.in.i6.i145.i
   br i1 %cmp4.not.i146.i, label %for.cond.i148.i, label %http_request_on_header.exit
 
@@ -669,50 +667,50 @@ sw.bb174.i:                                       ; preds = %if.end4.i
 
 land.lhs.true176.i:                               ; preds = %sw.bb174.i
   %stream_id177.i = getelementptr inbounds i8, ptr %stream, i64 168
-  %115 = load i32, ptr %stream_id177.i, align 8
-  %and178.i = and i32 %115, 1
+  %114 = load i32, ptr %stream_id177.i, align 8
+  %and178.i = and i32 %114, 1
   %tobool179.not.i = icmp eq i32 %and178.i, 0
   br i1 %tobool179.not.i, label %sw.epilog216.i, label %land.lhs.true180.i
 
 land.lhs.true180.i:                               ; preds = %land.lhs.true176.i
   %flags.i = getelementptr inbounds i8, ptr %stream, i64 216
-  %116 = load i8, ptr %flags.i, align 8
-  %117 = and i8 %116, 16
-  %tobool183.not.i = icmp eq i8 %117, 0
+  %115 = load i8, ptr %flags.i, align 8
+  %116 = and i8 %115, 16
+  %tobool183.not.i = icmp eq i8 %116, 0
   br i1 %tobool183.not.i, label %sw.epilog216.i, label %land.lhs.true184.i
 
 land.lhs.true184.i:                               ; preds = %land.lhs.true180.i
   %http_flags185.i = getelementptr inbounds i8, ptr %stream, i64 212
-  %118 = load i32, ptr %http_flags185.i, align 4
-  %and186.i = and i32 %118, 131072
+  %117 = load i32, ptr %http_flags185.i, align 4
+  %and186.i = and i32 %117, 131072
   %tobool187.not.i = icmp eq i32 %and186.i, 0
   br i1 %tobool187.not.i, label %if.then188.i, label %sw.epilog216.i
 
 if.then188.i:                                     ; preds = %land.lhs.true184.i
   %http_extpri.i = getelementptr inbounds i8, ptr %stream, i64 221
-  %119 = load i8, ptr %http_extpri.i, align 1
-  call void @nghttp2_extpri_from_uint8(ptr noundef nonnull %extpri.i, i8 noundef zeroext %119) #9
+  %118 = load i8, ptr %http_extpri.i, align 1
+  call void @nghttp2_extpri_from_uint8(ptr noundef nonnull %extpri.i, i8 noundef zeroext %118) #9
   %value189.i = getelementptr inbounds i8, ptr %nv, i64 8
-  %120 = load ptr, ptr %value189.i, align 8
-  %base190.i = getelementptr inbounds i8, ptr %120, i64 16
-  %121 = load ptr, ptr %base190.i, align 8
-  %len192.i = getelementptr inbounds i8, ptr %120, i64 24
-  %122 = load i64, ptr %len192.i, align 8
-  %call193.i = call i32 @nghttp2_http_parse_priority(ptr noundef nonnull %extpri.i, ptr noundef %121, i64 noundef %122)
+  %119 = load ptr, ptr %value189.i, align 8
+  %base190.i = getelementptr inbounds i8, ptr %119, i64 16
+  %120 = load ptr, ptr %base190.i, align 8
+  %len192.i = getelementptr inbounds i8, ptr %119, i64 24
+  %121 = load i64, ptr %len192.i, align 8
+  %call193.i = call i32 @nghttp2_http_parse_priority(ptr noundef nonnull %extpri.i, ptr noundef %120, i64 noundef %121)
   %cmp194.i = icmp eq i32 %call193.i, 0
   br i1 %cmp194.i, label %if.then196.i, label %if.else201.i
 
 if.then196.i:                                     ; preds = %if.then188.i
   %call197.i = call zeroext i8 @nghttp2_extpri_to_uint8(ptr noundef nonnull %extpri.i) #9
   store i8 %call197.i, ptr %http_extpri.i, align 1
-  %123 = load i32, ptr %http_flags185.i, align 4
-  %or200.i = or i32 %123, 65536
+  %122 = load i32, ptr %http_flags185.i, align 4
+  %or200.i = or i32 %122, 65536
   store i32 %or200.i, ptr %http_flags185.i, align 4
   br label %sw.epilog216.i
 
 if.else201.i:                                     ; preds = %if.then188.i
-  %124 = load i32, ptr %http_flags185.i, align 4
-  %and203.i = and i32 %124, -196609
+  %123 = load i32, ptr %http_flags185.i, align 4
+  %and203.i = and i32 %123, -196609
   %or205.i = or disjoint i32 %and203.i, 131072
   store i32 %or205.i, ptr %http_flags185.i, align 4
   br label %sw.epilog216.i
@@ -721,17 +719,17 @@ sw.default.i:                                     ; preds = %if.end4.i
   br i1 %cmp.i46, label %http_request_on_header.exit, label %sw.epilog216.i
 
 sw.epilog216.i:                                   ; preds = %for.cond.i148.i, %for.body.i98.i, %for.body.i.i, %sw.default.i, %if.else201.i, %if.then196.i, %land.lhs.true184.i, %land.lhs.true180.i, %land.lhs.true176.i, %sw.bb174.i, %if.end147.i, %check_pseudo_header.exit135.i, %check_pseudo_header.exit124.i, %if.then126.i, %if.end106.i, %if.then97.i, %if.else.i, %if.then83.i, %if.then67.i, %land.lhs.true59.i, %if.end50.i, %land.lhs.true38.i, %sw.bb28.i, %if.then25.i, %land.lhs.true.i, %if.end12.i, %check_pseudo_header.exit.i
-  %125 = load ptr, ptr %nv, align 8
-  %base218.i = getelementptr inbounds i8, ptr %125, i64 16
-  %126 = load ptr, ptr %base218.i, align 8
-  %127 = load i8, ptr %126, align 1
-  %cmp221.not.i = icmp eq i8 %127, 58
+  %124 = load ptr, ptr %nv, align 8
+  %base218.i = getelementptr inbounds i8, ptr %124, i64 16
+  %125 = load ptr, ptr %base218.i, align 8
+  %126 = load i8, ptr %125, align 1
+  %cmp221.not.i = icmp eq i8 %126, 58
   br i1 %cmp221.not.i, label %http_request_on_header.exit, label %if.then223.i
 
 if.then223.i:                                     ; preds = %sw.epilog216.i
   %http_flags224.i = getelementptr inbounds i8, ptr %stream, i64 212
-  %128 = load i32, ptr %http_flags224.i, align 4
-  %or225.i = or i32 %128, 64
+  %127 = load i32, ptr %http_flags224.i, align 4
+  %or225.i = or i32 %127, 64
   store i32 %or225.i, ptr %http_flags224.i, align 4
   br label %http_request_on_header.exit
 
@@ -741,11 +739,11 @@ http_request_on_header.exit:                      ; preds = %for.body.i136.i, %i
   br label %return
 
 if.end137:                                        ; preds = %lor.lhs.false125
-  %129 = load ptr, ptr %nv, align 8
-  %base.i48 = getelementptr inbounds i8, ptr %129, i64 16
-  %130 = load ptr, ptr %base.i48, align 8
-  %131 = load i8, ptr %130, align 1
-  %cmp.i49 = icmp eq i8 %131, 58
+  %128 = load ptr, ptr %nv, align 8
+  %base.i48 = getelementptr inbounds i8, ptr %128, i64 16
+  %129 = load ptr, ptr %base.i48, align 8
+  %130 = load i8, ptr %129, align 1
+  %cmp.i49 = icmp eq i8 %130, 58
   br i1 %cmp.i49, label %if.then.i76, label %if.end4.i50
 
 if.then.i76:                                      ; preds = %if.end137
@@ -754,14 +752,14 @@ if.then.i76:                                      ; preds = %if.end137
 
 lor.lhs.false.i78:                                ; preds = %if.then.i76
   %http_flags.i79 = getelementptr inbounds i8, ptr %stream, i64 212
-  %132 = load i32, ptr %http_flags.i79, align 4
-  %and.i80 = and i32 %132, 64
+  %131 = load i32, ptr %http_flags.i79, align 4
+  %and.i80 = and i32 %131, 64
   %tobool2.not.i81 = icmp eq i32 %and.i80, 0
   br i1 %tobool2.not.i81, label %if.end4.i50, label %return
 
 if.end4.i50:                                      ; preds = %lor.lhs.false.i78, %if.end137
-  %133 = load i32, ptr %token, align 8
-  switch i32 %133, label %sw.default.i75 [
+  %132 = load i32, ptr %token, align 8
+  switch i32 %132, label %sw.default.i75 [
     i32 7, label %sw.bb.i61
     i32 27, label %sw.bb29.i
     i32 62, label %return
@@ -774,48 +772,48 @@ if.end4.i50:                                      ; preds = %lor.lhs.false.i78, 
 
 sw.bb.i61:                                        ; preds = %if.end4.i50
   %http_flags.i.i62 = getelementptr inbounds i8, ptr %stream, i64 212
-  %134 = load i32, ptr %http_flags.i.i62, align 4
-  %and.i.i63 = and i32 %134, 32
+  %133 = load i32, ptr %http_flags.i.i62, align 4
+  %and.i.i63 = and i32 %133, 32
   %tobool.not.i.i64 = icmp eq i32 %and.i.i63, 0
   br i1 %tobool.not.i.i64, label %lor.lhs.false.i.i65, label %return
 
 lor.lhs.false.i.i65:                              ; preds = %sw.bb.i61
   %value.i.i66 = getelementptr inbounds i8, ptr %nv, i64 8
-  %135 = load ptr, ptr %value.i.i66, align 8
-  %len.i.i67 = getelementptr inbounds i8, ptr %135, i64 24
-  %136 = load i64, ptr %len.i.i67, align 8
-  %cmp.i.i68 = icmp eq i64 %136, 0
+  %134 = load ptr, ptr %value.i.i66, align 8
+  %len.i.i67 = getelementptr inbounds i8, ptr %134, i64 24
+  %135 = load i64, ptr %len.i.i67, align 8
+  %cmp.i.i68 = icmp eq i64 %135, 0
   br i1 %cmp.i.i68, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i.i65
-  %or.i.i69 = or disjoint i32 %134, 32
+  %or.i.i69 = or disjoint i32 %133, 32
   store i32 %or.i.i69, ptr %http_flags.i.i62, align 4
-  %137 = load ptr, ptr %value.i.i66, align 8
-  %len.i70 = getelementptr inbounds i8, ptr %137, i64 24
-  %138 = load i64, ptr %len.i70, align 8
-  %cmp8.not.i = icmp eq i64 %138, 3
+  %136 = load ptr, ptr %value.i.i66, align 8
+  %len.i70 = getelementptr inbounds i8, ptr %136, i64 24
+  %137 = load i64, ptr %len.i70, align 8
+  %cmp8.not.i = icmp eq i64 %137, 3
   br i1 %cmp8.not.i, label %if.end11.i, label %return
 
 if.end11.i:                                       ; preds = %if.end7.i
-  %base13.i = getelementptr inbounds i8, ptr %137, i64 16
-  %139 = load ptr, ptr %base13.i, align 8
+  %base13.i = getelementptr inbounds i8, ptr %136, i64 16
+  %138 = load ptr, ptr %base13.i, align 8
   br label %for.body.i.i71
 
 for.body.i.i71:                                   ; preds = %if.end20.i.i, %if.end11.i
   %i.016.i.i = phi i64 [ %inc.i.i73, %if.end20.i.i ], [ 0, %if.end11.i ]
   %n.015.i.i = phi i64 [ %add.i.i, %if.end20.i.i ], [ 0, %if.end11.i ]
-  %arrayidx.i.i72 = getelementptr inbounds i8, ptr %139, i64 %i.016.i.i
-  %140 = load i8, ptr %arrayidx.i.i72, align 1
-  %141 = add i8 %140, -58
-  %or.cond.i.i = icmp ult i8 %141, -10
+  %arrayidx.i.i72 = getelementptr inbounds i8, ptr %138, i64 %i.016.i.i
+  %139 = load i8, ptr %arrayidx.i.i72, align 1
+  %140 = add i8 %139, -58
+  %or.cond.i.i = icmp ult i8 %140, -10
   %cmp9.i.i = icmp sgt i64 %n.015.i.i, 922337203685477580
   %or.cond14.i.i = select i1 %or.cond.i.i, i1 true, i1 %cmp9.i.i
   br i1 %or.cond14.i.i, label %parse_uint.exit.thread.i, label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %for.body.i.i71
   %mul.i.i = mul nsw i64 %n.015.i.i, 10
-  %142 = and i8 %140, 15
-  %conv15.i.i = zext nneg i8 %142 to i64
+  %141 = and i8 %139, 15
+  %conv15.i.i = zext nneg i8 %141 to i64
   %sub16.i.i = xor i64 %conv15.i.i, 9223372036854775807
   %cmp17.i.i = icmp sgt i64 %mul.i.i, %sub16.i.i
   br i1 %cmp17.i.i, label %parse_uint.exit.thread.i, label %if.end20.i.i
@@ -842,32 +840,32 @@ parse_uint.exit.i:                                ; preds = %if.end20.i.i
 
 sw.bb29.i:                                        ; preds = %if.end4.i50
   %status_code30.i = getelementptr inbounds i8, ptr %stream, i64 208
-  %143 = load i16, ptr %status_code30.i, align 8
-  %cmp32.i = icmp eq i16 %143, 204
+  %142 = load i16, ptr %status_code30.i, align 8
+  %cmp32.i = icmp eq i16 %142, 204
   br i1 %cmp32.i, label %if.then34.i, label %if.end52.i
 
 if.then34.i:                                      ; preds = %sw.bb29.i
   %content_length.i54 = getelementptr inbounds i8, ptr %stream, i64 48
-  %144 = load i64, ptr %content_length.i54, align 8
-  %cmp35.not.i = icmp eq i64 %144, -1
+  %143 = load i64, ptr %content_length.i54, align 8
+  %cmp35.not.i = icmp eq i64 %143, -1
   br i1 %cmp35.not.i, label %if.end38.i, label %return
 
 if.end38.i:                                       ; preds = %if.then34.i
   %value39.i = getelementptr inbounds i8, ptr %nv, i64 8
-  %145 = load ptr, ptr %value39.i, align 8
-  %len40.i = getelementptr inbounds i8, ptr %145, i64 24
-  %146 = load i64, ptr %len40.i, align 8
-  %cmp41.i = icmp eq i64 %146, 1
+  %144 = load ptr, ptr %value39.i, align 8
+  %len40.i = getelementptr inbounds i8, ptr %144, i64 24
+  %145 = load i64, ptr %len40.i, align 8
+  %cmp41.i = icmp eq i64 %145, 1
   br i1 %cmp41.i, label %land.lhs.true.i55, label %return
 
 land.lhs.true.i55:                                ; preds = %if.end38.i
-  %base44.i = getelementptr inbounds i8, ptr %145, i64 16
-  %147 = load ptr, ptr %base44.i, align 8
-  %148 = load i8, ptr %147, align 1
-  %149 = add i8 %148, -65
-  %or.cond.i4.i.i56 = icmp ult i8 %149, 26
-  %add.i5.i.i57 = or disjoint i8 %148, 32
-  %cond.in.i6.i.i58 = select i1 %or.cond.i4.i.i56, i8 %add.i5.i.i57, i8 %148
+  %base44.i = getelementptr inbounds i8, ptr %144, i64 16
+  %146 = load ptr, ptr %base44.i, align 8
+  %147 = load i8, ptr %146, align 1
+  %148 = add i8 %147, -65
+  %or.cond.i4.i.i56 = icmp ult i8 %148, 26
+  %add.i5.i.i57 = or disjoint i8 %147, 32
+  %cond.in.i6.i.i58 = select i1 %or.cond.i4.i.i56, i8 %add.i5.i.i57, i8 %147
   %cmp4.not.i.i59 = icmp eq i8 %cond.in.i6.i.i58, 48
   br i1 %cmp4.not.i.i59, label %for.cond.i.i60, label %return
 
@@ -876,51 +874,51 @@ for.cond.i.i60:                                   ; preds = %land.lhs.true.i55
   br label %return
 
 if.end52.i:                                       ; preds = %sw.bb29.i
-  %.off.i = add i16 %143, -100
+  %.off.i = add i16 %142, -100
   %cmp55.i = icmp ult i16 %.off.i, 100
   br i1 %cmp55.i, label %return, label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.end52.i
-  %.off32.i = add i16 %143, -200
+  %.off32.i = add i16 %142, -200
   %cmp62.i = icmp ult i16 %.off32.i, 100
   br i1 %cmp62.i, label %land.lhs.true64.i, label %if.end69.i
 
 land.lhs.true64.i:                                ; preds = %if.end58.i
   %http_flags65.i = getelementptr inbounds i8, ptr %stream, i64 212
-  %150 = load i32, ptr %http_flags65.i, align 4
-  %and66.i = and i32 %150, 128
+  %149 = load i32, ptr %http_flags65.i, align 4
+  %and66.i = and i32 %149, 128
   %tobool67.not.i = icmp eq i32 %and66.i, 0
   br i1 %tobool67.not.i, label %if.end69.i, label %return
 
 if.end69.i:                                       ; preds = %land.lhs.true64.i, %if.end58.i
   %content_length70.i = getelementptr inbounds i8, ptr %stream, i64 48
-  %151 = load i64, ptr %content_length70.i, align 8
-  %cmp71.not.i = icmp eq i64 %151, -1
+  %150 = load i64, ptr %content_length70.i, align 8
+  %cmp71.not.i = icmp eq i64 %150, -1
   br i1 %cmp71.not.i, label %if.end74.i, label %return
 
 if.end74.i:                                       ; preds = %if.end69.i
   %value75.i = getelementptr inbounds i8, ptr %nv, i64 8
-  %152 = load ptr, ptr %value75.i, align 8
-  %base76.i = getelementptr inbounds i8, ptr %152, i64 16
-  %153 = load ptr, ptr %base76.i, align 8
-  %len78.i = getelementptr inbounds i8, ptr %152, i64 24
-  %154 = load i64, ptr %len78.i, align 8
-  %call79.i = tail call fastcc i64 @parse_uint(ptr noundef %153, i64 noundef %154)
+  %151 = load ptr, ptr %value75.i, align 8
+  %base76.i = getelementptr inbounds i8, ptr %151, i64 16
+  %152 = load ptr, ptr %base76.i, align 8
+  %len78.i = getelementptr inbounds i8, ptr %151, i64 24
+  %153 = load i64, ptr %len78.i, align 8
+  %call79.i = tail call fastcc i64 @parse_uint(ptr noundef %152, i64 noundef %153)
   store i64 %call79.i, ptr %content_length70.i, align 8
   %cmp82.i = icmp eq i64 %call79.i, -1
   br i1 %cmp82.i, label %return, label %sw.epilog.i
 
 sw.bb87.i:                                        ; preds = %if.end4.i50
   %value88.i = getelementptr inbounds i8, ptr %nv, i64 8
-  %155 = load ptr, ptr %value88.i, align 8
-  %len89.i = getelementptr inbounds i8, ptr %155, i64 24
-  %156 = load i64, ptr %len89.i, align 8
-  %cmp90.i = icmp eq i64 %156, 8
+  %154 = load ptr, ptr %value88.i, align 8
+  %len89.i = getelementptr inbounds i8, ptr %154, i64 24
+  %155 = load i64, ptr %len89.i, align 8
+  %cmp90.i = icmp eq i64 %155, 8
   br i1 %cmp90.i, label %land.lhs.true92.i, label %return
 
 land.lhs.true92.i:                                ; preds = %sw.bb87.i
-  %base94.i = getelementptr inbounds i8, ptr %155, i64 16
-  %157 = load ptr, ptr %base94.i, align 8
+  %base94.i = getelementptr inbounds i8, ptr %154, i64 16
+  %156 = load ptr, ptr %base94.i, align 8
   br label %for.body.i39.i
 
 for.cond.i51.i:                                   ; preds = %for.body.i39.i
@@ -931,17 +929,17 @@ for.cond.i51.i:                                   ; preds = %for.body.i39.i
 for.body.i39.i:                                   ; preds = %for.cond.i51.i, %land.lhs.true92.i
   %i.08.i40.i = phi i64 [ %inc.i52.i, %for.cond.i51.i ], [ 0, %land.lhs.true92.i ]
   %arrayidx.i41.i = getelementptr inbounds i8, ptr @.str.8, i64 %i.08.i40.i
-  %158 = load i8, ptr %arrayidx.i41.i, align 1
-  %159 = add i8 %158, -65
-  %or.cond.i.i42.i = icmp ult i8 %159, 26
-  %add.i.i43.i = or disjoint i8 %158, 32
-  %cond.in.i.i44.i = select i1 %or.cond.i.i42.i, i8 %add.i.i43.i, i8 %158
-  %arrayidx1.i45.i = getelementptr inbounds i8, ptr %157, i64 %i.08.i40.i
-  %160 = load i8, ptr %arrayidx1.i45.i, align 1
-  %161 = add i8 %160, -65
-  %or.cond.i4.i46.i = icmp ult i8 %161, 26
-  %add.i5.i47.i = or disjoint i8 %160, 32
-  %cond.in.i6.i48.i = select i1 %or.cond.i4.i46.i, i8 %add.i5.i47.i, i8 %160
+  %157 = load i8, ptr %arrayidx.i41.i, align 1
+  %158 = add i8 %157, -65
+  %or.cond.i.i42.i = icmp ult i8 %158, 26
+  %add.i.i43.i = or disjoint i8 %157, 32
+  %cond.in.i.i44.i = select i1 %or.cond.i.i42.i, i8 %add.i.i43.i, i8 %157
+  %arrayidx1.i45.i = getelementptr inbounds i8, ptr %156, i64 %i.08.i40.i
+  %159 = load i8, ptr %arrayidx1.i45.i, align 1
+  %160 = add i8 %159, -65
+  %or.cond.i4.i46.i = icmp ult i8 %160, 26
+  %add.i5.i47.i = or disjoint i8 %159, 32
+  %cond.in.i6.i48.i = select i1 %or.cond.i4.i46.i, i8 %add.i5.i47.i, i8 %159
   %cmp4.not.i49.i = icmp eq i8 %cond.in.i.i44.i, %cond.in.i6.i48.i
   br i1 %cmp4.not.i49.i, label %for.cond.i51.i, label %return
 
@@ -949,17 +947,17 @@ sw.default.i75:                                   ; preds = %if.end4.i50
   br i1 %cmp.i49, label %return, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %for.cond.i51.i, %sw.default.i75, %if.end74.i, %parse_uint.exit.i
-  %162 = load ptr, ptr %nv, align 8
-  %base110.i = getelementptr inbounds i8, ptr %162, i64 16
-  %163 = load ptr, ptr %base110.i, align 8
-  %164 = load i8, ptr %163, align 1
-  %cmp113.not.i = icmp eq i8 %164, 58
+  %161 = load ptr, ptr %nv, align 8
+  %base110.i = getelementptr inbounds i8, ptr %161, i64 16
+  %162 = load ptr, ptr %base110.i, align 8
+  %163 = load i8, ptr %162, align 1
+  %cmp113.not.i = icmp eq i8 %163, 58
   br i1 %cmp113.not.i, label %return, label %if.then115.i
 
 if.then115.i:                                     ; preds = %sw.epilog.i
   %http_flags116.i = getelementptr inbounds i8, ptr %stream, i64 212
-  %165 = load i32, ptr %http_flags116.i, align 4
-  %or.i53 = or i32 %165, 64
+  %164 = load i32, ptr %http_flags116.i, align 4
+  %or.i53 = or i32 %164, 64
   store i32 %or.i53, ptr %http_flags116.i, align 4
   br label %return
 

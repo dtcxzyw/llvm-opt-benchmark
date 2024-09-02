@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [26 x i8] c"USE_ZEND_ALLOC_HUGE_PAGES\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
+define range(i64 0, -4095) i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.preheader, label %256

@@ -5137,14 +5137,17 @@ define void @_ZN8LightGBM17SerialTreeLearner4InitEPKNS_7DatasetEb(ptr noundef no
   %42 = add i64 %41, %.01239
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %26, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %26, %.preheader
-  %.012.lcssa = phi i64 [ 0, %.preheader ], [ %42, %26 ]
-  %43 = fmul double %14, 1.024000e+03
-  %44 = fmul double %43, 1.024000e+03
-  %45 = uitofp i64 %.012.lcssa to double
-  %46 = fdiv double %44, %45
+._crit_edge.loopexit:                             ; preds = %26
+  %43 = uitofp i64 %42 to double
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.012.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %43, %._crit_edge.loopexit ]
+  %44 = fmul double %14, 1.024000e+03
+  %45 = fmul double %44, 1.024000e+03
+  %46 = fdiv double %45, %.012.lcssa
   %47 = fptosi double %46 to i32
   %.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 208
   %.pre = load i32, ptr %.phi.trans.insert, align 4
@@ -5941,7 +5944,7 @@ define linkonce_odr void @_ZN8LightGBM17SerialTreeLearner14SetForcedSplitEPKN24j
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8LightGBM17SerialTreeLearner5TrainEPKfS2_b(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1, ptr noundef %2, i1 zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8LightGBM17SerialTreeLearner5TrainEPKfS2_b(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1, ptr noundef %2, i1 zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.78", align 1
   %7 = alloca i32, align 4
@@ -18918,9 +18921,9 @@ define linkonce_odr void @_ZN8LightGBM23AdvancedLeafConstraints30GoDownToFindCon
   br label %24
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.tailrecurse._crit_edge_crit_edge
-  %17 = phi ptr [ %.pre80, %.tailrecurse._crit_edge_crit_edge ], [ %109, %tailrecurse ]
-  %.tr61.lcssa = phi i32 [ %3, %.tailrecurse._crit_edge_crit_edge ], [ %113, %tailrecurse ]
-  %.tr63.lcssa = phi i32 [ %5, %.tailrecurse._crit_edge_crit_edge ], [ %108, %tailrecurse ]
+  %17 = phi ptr [ %.pre80, %.tailrecurse._crit_edge_crit_edge ], [ %110, %tailrecurse ]
+  %.tr61.lcssa = phi i32 [ %3, %.tailrecurse._crit_edge_crit_edge ], [ %114, %tailrecurse ]
+  %.tr63.lcssa = phi i32 [ %5, %.tailrecurse._crit_edge_crit_edge ], [ %109, %tailrecurse ]
   %18 = xor i32 %.tr61.lcssa, -1
   %19 = getelementptr inbounds i8, ptr %17, i64 336
   %20 = zext nneg i32 %18 to i64
@@ -18931,9 +18934,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.tail
   br label %.loopexit
 
 24:                                               ; preds = %.lr.ph, %tailrecurse
-  %25 = phi i32 [ %5, %.lr.ph ], [ %108, %tailrecurse ]
-  %26 = phi ptr [ %.pre, %.lr.ph ], [ %109, %tailrecurse ]
-  %.tr6174 = phi i32 [ %3, %.lr.ph ], [ %113, %tailrecurse ]
+  %25 = phi i32 [ %5, %.lr.ph ], [ %109, %tailrecurse ]
+  %26 = phi ptr [ %.pre, %.lr.ph ], [ %110, %tailrecurse ]
+  %.tr6174 = phi i32 [ %3, %.lr.ph ], [ %114, %tailrecurse ]
   %27 = getelementptr inbounds i8, ptr %26, i64 64
   %28 = zext nneg i32 %.tr6174 to i64
   %29 = load ptr, ptr %27, align 8
@@ -19035,78 +19038,77 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.tail
   %.026.ph.i = phi i8 [ %.2.i, %79 ], [ %.133.i, %65 ], [ 0, %77 ]
   %81 = trunc nuw i8 %.026.ph.i to i1
   %82 = trunc nuw i8 %.027.ph.i to i1
+  %83 = xor i1 %82, true
   br label %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
 
 _ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit: ; preds = %24, %.preheader.i, %.loopexit.loopexit.i
-  %.027.i = phi i1 [ true, %24 ], [ true, %.preheader.i ], [ %82, %.loopexit.loopexit.i ]
+  %.027.i = phi i1 [ false, %24 ], [ false, %.preheader.i ], [ %83, %.loopexit.loopexit.i ]
   %.026.i = phi i1 [ true, %24 ], [ true, %.preheader.i ], [ %81, %.loopexit.loopexit.i ]
-  %83 = icmp eq i32 %31, %1
-  %84 = and i1 %15, %83
-  br i1 %84, label %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit, label %85
+  %84 = icmp eq i32 %31, %1
+  %85 = and i1 %15, %84
+  br i1 %85, label %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit, label %86
 
-85:                                               ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
-  %86 = getelementptr inbounds i8, ptr %26, i64 88
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i32, ptr %87, i64 %28
-  %89 = load i32, ptr %88, align 4
-  %90 = load ptr, ptr %16, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 520
-  %92 = sext i32 %89 to i64
-  %93 = load ptr, ptr %91, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 %92
-  %95 = load i8, ptr %94, align 1
-  switch i8 %95, label %98 [
+86:                                               ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit
+  %87 = getelementptr inbounds i8, ptr %26, i64 88
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i32, ptr %88, i64 %28
+  %90 = load i32, ptr %89, align 4
+  %91 = load ptr, ptr %16, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 520
+  %93 = sext i32 %90 to i64
+  %94 = load ptr, ptr %92, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 %93
+  %96 = load i8, ptr %95, align 1
+  switch i8 %96, label %99 [
     i8 0, label %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
-    i8 -1, label %96
-    i8 1, label %97
+    i8 -1, label %97
+    i8 1, label %98
   ]
 
-96:                                               ; preds = %85
-  br i1 %4, label %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit, label %98
+97:                                               ; preds = %86
+  br i1 %4, label %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit, label %99
 
-97:                                               ; preds = %85
-  br i1 %4, label %98, label %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
+98:                                               ; preds = %86
+  br i1 %4, label %99, label %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
 
-98:                                               ; preds = %97, %96, %85
+99:                                               ; preds = %98, %97, %86
   br label %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
 
-_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit: ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit, %85, %96, %97, %98
-  %.sroa.0.0.i = phi i1 [ false, %98 ], [ true, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ], [ true, %85 ], [ true, %97 ], [ true, %96 ]
-  %.not.not.not = phi i1 [ false, %98 ], [ false, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ], [ false, %85 ], [ true, %97 ], [ true, %96 ]
-  %.027.i.not = xor i1 %.027.i, true
-  %brmerge = select i1 %.sroa.0.0.i, i1 true, i1 %.027.i.not
-  %or.cond71 = select i1 %.026.i, i1 %brmerge, i1 false
-  br i1 %or.cond71, label %99, label %106
+_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit: ; preds = %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit, %86, %97, %98, %99
+  %.sroa.0.0.i = phi i1 [ %.027.i, %99 ], [ true, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ], [ true, %86 ], [ true, %98 ], [ true, %97 ]
+  %.not.not.not = phi i1 [ false, %99 ], [ false, %_ZN8LightGBM27IntermediateLeafConstraints24ShouldKeepGoingLeftRightEiRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEE.exit ], [ false, %86 ], [ true, %98 ], [ true, %97 ]
+  %or.cond71 = select i1 %.026.i, i1 %.sroa.0.0.i, i1 false
+  br i1 %or.cond71, label %100, label %107
 
-99:                                               ; preds = %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
-  %100 = add i32 %35, 1
-  %.pre78 = tail call i32 @llvm.umin.i32(i32 %6, i32 %100)
-  %101 = select i1 %83, i32 %.pre78, i32 %6
-  %102 = getelementptr inbounds i8, ptr %26, i64 16
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i32, ptr %103, i64 %28
-  %105 = load i32, ptr %104, align 4
-  tail call void @_ZN8LightGBM23AdvancedLeafConstraints30GoDownToFindConstrainingLeavesEiiibjjRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEEPNS_26FeatureMinOrMaxConstraintsEj(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %105, i1 noundef zeroext %4, i32 noundef %25, i32 noundef %101, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %10, i32 noundef %11)
-  br label %106
+100:                                              ; preds = %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
+  %101 = add i32 %35, 1
+  %.pre78 = tail call i32 @llvm.umin.i32(i32 %6, i32 %101)
+  %102 = select i1 %84, i32 %.pre78, i32 %6
+  %103 = getelementptr inbounds i8, ptr %26, i64 16
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds i32, ptr %104, i64 %28
+  %106 = load i32, ptr %105, align 4
+  tail call void @_ZN8LightGBM23AdvancedLeafConstraints30GoDownToFindConstrainingLeavesEiiibjjRKSt6vectorIiSaIiEERKS1_IjSaIjEERKS1_IbSaIbEEPNS_26FeatureMinOrMaxConstraintsEj(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %106, i1 noundef zeroext %4, i32 noundef %25, i32 noundef %102, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %10, i32 noundef %11)
+  br label %107
 
-106:                                              ; preds = %99, %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
+107:                                              ; preds = %100, %_ZN8LightGBM23AdvancedLeafConstraints36LeftRightContainsRelevantInformationEbib.exit
   %brmerge.not = and i1 %.026.i, %.not.not.not
-  %or.cond = select i1 %.027.i.not, i1 true, i1 %brmerge.not
+  %or.cond = select i1 %.027.i, i1 true, i1 %brmerge.not
   br i1 %or.cond, label %.loopexit, label %tailrecurse
 
-tailrecurse:                                      ; preds = %106
-  %107 = add i32 %35, 1
-  %.pre79 = tail call i32 @llvm.umax.i32(i32 %107, i32 %25)
-  %108 = select i1 %83, i32 %.pre79, i32 %25
-  %109 = load ptr, ptr %.phi.trans.insert, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 40
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i32, ptr %111, i64 %28
-  %113 = load i32, ptr %112, align 4
-  %114 = icmp slt i32 %113, 0
-  br i1 %114, label %tailrecurse._crit_edge, label %24
+tailrecurse:                                      ; preds = %107
+  %108 = add i32 %35, 1
+  %.pre79 = tail call i32 @llvm.umax.i32(i32 %108, i32 %25)
+  %109 = select i1 %84, i32 %.pre79, i32 %25
+  %110 = load ptr, ptr %.phi.trans.insert, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 40
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds i32, ptr %112, i64 %28
+  %114 = load i32, ptr %113, align 4
+  %115 = icmp slt i32 %114, 0
+  br i1 %115, label %tailrecurse._crit_edge, label %24
 
-.loopexit:                                        ; preds = %106, %tailrecurse._crit_edge
+.loopexit:                                        ; preds = %107, %tailrecurse._crit_edge
   ret void
 }
 

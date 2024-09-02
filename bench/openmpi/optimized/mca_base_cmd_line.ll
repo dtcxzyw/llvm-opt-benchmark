@@ -53,7 +53,7 @@ declare i32 @opal_cmd_line_make_opt3(ptr noundef, i8 noundef signext, ptr nounde
 declare i32 @opal_cmd_line_make_opt_mca(ptr noundef, ptr noundef byval(%struct.opal_cmd_line_init_t) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_base_cmd_line_process_args(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mca_base_cmd_line_process_args(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

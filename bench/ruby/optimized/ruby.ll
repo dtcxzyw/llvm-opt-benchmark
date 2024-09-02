@@ -3232,7 +3232,7 @@ warn_cr_in_shebang.exit:                          ; preds = %55, %51, %46, %44
   %64 = tail call i64 @rb_io_getbyte(i64 noundef %11) #25
   switch i64 %64, label %.sink.split [
     i64 67, label %65
-    i64 4, label %106
+    i64 4, label %107
   ]
 
 65:                                               ; preds = %63
@@ -3331,171 +3331,171 @@ warn_cr_in_shebang.exit139:                       ; preds = %rbimpl_rstring_getm
   %.2108.ph = phi i64 [ %.1107, %103 ], [ %64, %63 ], [ %64, %65 ]
   %.4.ph = phi i32 [ %.3, %103 ], [ 1, %63 ], [ 1, %65 ]
   %105 = tail call i64 @rb_io_ungetbyte(i64 noundef %11, i64 noundef %.sink) #25
-  br label %106
+  %106 = icmp eq i64 %.2108.ph, 4
+  br label %107
 
-106:                                              ; preds = %.sink.split, %63
-  %.2108 = phi i64 [ %64, %63 ], [ %.2108.ph, %.sink.split ]
+107:                                              ; preds = %.sink.split, %63
+  %.2108 = phi i1 [ true, %63 ], [ %106, %.sink.split ]
   %.4 = phi i32 [ 1, %63 ], [ %.4.ph, %.sink.split ]
-  %107 = tail call i64 @rb_io_ungetbyte(i64 noundef %11, i64 noundef 71) #25
-  br i1 %.not126, label %108, label %128
+  %108 = tail call i64 @rb_io_ungetbyte(i64 noundef %11, i64 noundef 71) #25
+  br i1 %.not126, label %109, label %129
 
-108:                                              ; preds = %106
-  %109 = load i64, ptr %14, align 8
-  %.not132 = icmp eq i64 %109, 0
-  br i1 %.not132, label %128, label %110
+109:                                              ; preds = %107
+  %110 = load i64, ptr %14, align 8
+  %.not132 = icmp eq i64 %110, 0
+  br i1 %.not132, label %129, label %111
 
-110:                                              ; preds = %108
-  %111 = inttoptr i64 %109 to ptr
-  %112 = load i64, ptr %111, align 8, !noalias !50
-  %113 = and i64 %112, 8192
-  %.not.i.i.i = icmp eq i64 %113, 0
-  %114 = getelementptr inbounds i8, ptr %111, i64 24
-  br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %115
+111:                                              ; preds = %109
+  %112 = inttoptr i64 %110 to ptr
+  %113 = load i64, ptr %112, align 8, !noalias !50
+  %114 = and i64 %113, 8192
+  %.not.i.i.i = icmp eq i64 %114, 0
+  %115 = getelementptr inbounds i8, ptr %112, i64 24
+  br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %116
 
-115:                                              ; preds = %110
-  %.sroa.2.0.copyload.i.i = load ptr, ptr %114, align 8
+116:                                              ; preds = %111
+  %.sroa.2.0.copyload.i.i = load ptr, ptr %115, align 8
   br label %RSTRING_PTR.exit.i
 
-RSTRING_PTR.exit.i:                               ; preds = %115, %110
-  %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %115 ], [ %114, %110 ]
-  %116 = tail call i32 @rb_enc_find_index(ptr noundef %.sroa.2.0.i.i) #25
-  %117 = icmp slt i32 %116, 0
-  br i1 %117, label %118, label %120
+RSTRING_PTR.exit.i:                               ; preds = %116, %111
+  %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %116 ], [ %115, %111 ]
+  %117 = tail call i32 @rb_enc_find_index(ptr noundef %.sroa.2.0.i.i) #25
+  %118 = icmp slt i32 %117, 0
+  br i1 %118, label %119, label %121
 
-118:                                              ; preds = %RSTRING_PTR.exit.i
-  %119 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %119, ptr noundef nonnull @.str.119, ptr noundef %.sroa.2.0.i.i) #26
+119:                                              ; preds = %RSTRING_PTR.exit.i
+  %120 = load i64, ptr @rb_eRuntimeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %120, ptr noundef nonnull @.str.119, ptr noundef %.sroa.2.0.i.i) #26
   unreachable
 
-120:                                              ; preds = %RSTRING_PTR.exit.i
-  %121 = tail call ptr @rb_enc_from_index(i32 noundef %116) #25
-  %122 = tail call i32 @rb_enc_dummy_p(ptr noundef %121) #24
-  %.not.i140 = icmp eq i32 %122, 0
-  br i1 %.not.i140, label %opt_enc_index.exit, label %123
+121:                                              ; preds = %RSTRING_PTR.exit.i
+  %122 = tail call ptr @rb_enc_from_index(i32 noundef %117) #25
+  %123 = tail call i32 @rb_enc_dummy_p(ptr noundef %122) #24
+  %.not.i140 = icmp eq i32 %123, 0
+  br i1 %.not.i140, label %opt_enc_index.exit, label %124
 
-123:                                              ; preds = %120
-  %124 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %124, ptr noundef nonnull @.str.120, ptr noundef %.sroa.2.0.i.i) #26
+124:                                              ; preds = %121
+  %125 = load i64, ptr @rb_eRuntimeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %125, ptr noundef nonnull @.str.120, ptr noundef %.sroa.2.0.i.i) #26
   unreachable
 
-opt_enc_index.exit:                               ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %9, i64 32
-  store i32 %116, ptr %125, align 8
-  %126 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 1192
-  store i32 %116, ptr %127, align 8
-  br label %128
+opt_enc_index.exit:                               ; preds = %121
+  %126 = getelementptr inbounds i8, ptr %9, i64 32
+  store i32 %117, ptr %126, align 8
+  %127 = load ptr, ptr @ruby_current_vm_ptr, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 1192
+  store i32 %117, ptr %128, align 8
+  br label %129
 
-128:                                              ; preds = %opt_enc_index.exit, %108, %106
-  br i1 %.not127, label %129, label %147
+129:                                              ; preds = %opt_enc_index.exit, %109, %107
+  br i1 %.not127, label %130, label %148
 
-129:                                              ; preds = %128
-  %130 = load i64, ptr %16, align 8
-  %.not133 = icmp eq i64 %130, 0
-  br i1 %.not133, label %147, label %131
+130:                                              ; preds = %129
+  %131 = load i64, ptr %16, align 8
+  %.not133 = icmp eq i64 %131, 0
+  br i1 %.not133, label %148, label %132
 
-131:                                              ; preds = %129
-  %132 = inttoptr i64 %130 to ptr
-  %133 = load i64, ptr %132, align 8, !noalias !53
-  %134 = and i64 %133, 8192
-  %.not.i.i.i141 = icmp eq i64 %134, 0
-  %135 = getelementptr inbounds i8, ptr %132, i64 24
-  br i1 %.not.i.i.i141, label %RSTRING_PTR.exit.i143, label %136
+132:                                              ; preds = %130
+  %133 = inttoptr i64 %131 to ptr
+  %134 = load i64, ptr %133, align 8, !noalias !53
+  %135 = and i64 %134, 8192
+  %.not.i.i.i141 = icmp eq i64 %135, 0
+  %136 = getelementptr inbounds i8, ptr %133, i64 24
+  br i1 %.not.i.i.i141, label %RSTRING_PTR.exit.i143, label %137
 
-136:                                              ; preds = %131
-  %.sroa.2.0.copyload.i.i142 = load ptr, ptr %135, align 8
+137:                                              ; preds = %132
+  %.sroa.2.0.copyload.i.i142 = load ptr, ptr %136, align 8
   br label %RSTRING_PTR.exit.i143
 
-RSTRING_PTR.exit.i143:                            ; preds = %136, %131
-  %.sroa.2.0.i.i144 = phi ptr [ %.sroa.2.0.copyload.i.i142, %136 ], [ %135, %131 ]
-  %137 = tail call i32 @rb_enc_find_index(ptr noundef %.sroa.2.0.i.i144) #25
-  %138 = icmp slt i32 %137, 0
-  br i1 %138, label %139, label %141
+RSTRING_PTR.exit.i143:                            ; preds = %137, %132
+  %.sroa.2.0.i.i144 = phi ptr [ %.sroa.2.0.copyload.i.i142, %137 ], [ %136, %132 ]
+  %138 = tail call i32 @rb_enc_find_index(ptr noundef %.sroa.2.0.i.i144) #25
+  %139 = icmp slt i32 %138, 0
+  br i1 %139, label %140, label %142
 
-139:                                              ; preds = %RSTRING_PTR.exit.i143
-  %140 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %140, ptr noundef nonnull @.str.119, ptr noundef %.sroa.2.0.i.i144) #26
+140:                                              ; preds = %RSTRING_PTR.exit.i143
+  %141 = load i64, ptr @rb_eRuntimeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %141, ptr noundef nonnull @.str.119, ptr noundef %.sroa.2.0.i.i144) #26
   unreachable
 
-141:                                              ; preds = %RSTRING_PTR.exit.i143
-  %142 = tail call ptr @rb_enc_from_index(i32 noundef %137) #25
-  %143 = tail call i32 @rb_enc_dummy_p(ptr noundef %142) #24
-  %.not.i145 = icmp eq i32 %143, 0
-  br i1 %.not.i145, label %opt_enc_index.exit146, label %144
+142:                                              ; preds = %RSTRING_PTR.exit.i143
+  %143 = tail call ptr @rb_enc_from_index(i32 noundef %138) #25
+  %144 = tail call i32 @rb_enc_dummy_p(ptr noundef %143) #24
+  %.not.i145 = icmp eq i32 %144, 0
+  br i1 %.not.i145, label %opt_enc_index.exit146, label %145
 
-144:                                              ; preds = %141
-  %145 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %145, ptr noundef nonnull @.str.120, ptr noundef %.sroa.2.0.i.i144) #26
+145:                                              ; preds = %142
+  %146 = load i64, ptr @rb_eRuntimeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %146, ptr noundef nonnull @.str.120, ptr noundef %.sroa.2.0.i.i144) #26
   unreachable
 
-opt_enc_index.exit146:                            ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %9, i64 48
-  store i32 %137, ptr %146, align 8
-  br label %147
+opt_enc_index.exit146:                            ; preds = %142
+  %147 = getelementptr inbounds i8, ptr %9, i64 48
+  store i32 %138, ptr %147, align 8
+  br label %148
 
-147:                                              ; preds = %opt_enc_index.exit146, %129, %128
-  br i1 %.not128, label %148, label %167
+148:                                              ; preds = %opt_enc_index.exit146, %130, %129
+  br i1 %.not128, label %149, label %168
 
-148:                                              ; preds = %147
-  %149 = load i64, ptr %18, align 8
-  %.not134 = icmp eq i64 %149, 0
-  br i1 %.not134, label %167, label %150
+149:                                              ; preds = %148
+  %150 = load i64, ptr %18, align 8
+  %.not134 = icmp eq i64 %150, 0
+  br i1 %.not134, label %168, label %151
 
-150:                                              ; preds = %148
-  %151 = inttoptr i64 %149 to ptr
-  %152 = load i64, ptr %151, align 8, !noalias !56
-  %153 = and i64 %152, 8192
-  %.not.i.i.i147 = icmp eq i64 %153, 0
-  %154 = getelementptr inbounds i8, ptr %151, i64 24
-  br i1 %.not.i.i.i147, label %RSTRING_PTR.exit.i149, label %155
+151:                                              ; preds = %149
+  %152 = inttoptr i64 %150 to ptr
+  %153 = load i64, ptr %152, align 8, !noalias !56
+  %154 = and i64 %153, 8192
+  %.not.i.i.i147 = icmp eq i64 %154, 0
+  %155 = getelementptr inbounds i8, ptr %152, i64 24
+  br i1 %.not.i.i.i147, label %RSTRING_PTR.exit.i149, label %156
 
-155:                                              ; preds = %150
-  %.sroa.2.0.copyload.i.i148 = load ptr, ptr %154, align 8
+156:                                              ; preds = %151
+  %.sroa.2.0.copyload.i.i148 = load ptr, ptr %155, align 8
   br label %RSTRING_PTR.exit.i149
 
-RSTRING_PTR.exit.i149:                            ; preds = %155, %150
-  %.sroa.2.0.i.i150 = phi ptr [ %.sroa.2.0.copyload.i.i148, %155 ], [ %154, %150 ]
-  %156 = tail call i32 @rb_enc_find_index(ptr noundef %.sroa.2.0.i.i150) #25
-  %157 = icmp slt i32 %156, 0
-  br i1 %157, label %158, label %160
+RSTRING_PTR.exit.i149:                            ; preds = %156, %151
+  %.sroa.2.0.i.i150 = phi ptr [ %.sroa.2.0.copyload.i.i148, %156 ], [ %155, %151 ]
+  %157 = tail call i32 @rb_enc_find_index(ptr noundef %.sroa.2.0.i.i150) #25
+  %158 = icmp slt i32 %157, 0
+  br i1 %158, label %159, label %161
 
-158:                                              ; preds = %RSTRING_PTR.exit.i149
-  %159 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %159, ptr noundef nonnull @.str.119, ptr noundef %.sroa.2.0.i.i150) #26
+159:                                              ; preds = %RSTRING_PTR.exit.i149
+  %160 = load i64, ptr @rb_eRuntimeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %160, ptr noundef nonnull @.str.119, ptr noundef %.sroa.2.0.i.i150) #26
   unreachable
 
-160:                                              ; preds = %RSTRING_PTR.exit.i149
-  %161 = tail call ptr @rb_enc_from_index(i32 noundef %156) #25
-  %162 = tail call i32 @rb_enc_dummy_p(ptr noundef %161) #24
-  %.not.i151 = icmp eq i32 %162, 0
-  br i1 %.not.i151, label %opt_enc_index.exit152, label %163
+161:                                              ; preds = %RSTRING_PTR.exit.i149
+  %162 = tail call ptr @rb_enc_from_index(i32 noundef %157) #25
+  %163 = tail call i32 @rb_enc_dummy_p(ptr noundef %162) #24
+  %.not.i151 = icmp eq i32 %163, 0
+  br i1 %.not.i151, label %opt_enc_index.exit152, label %164
 
-163:                                              ; preds = %160
-  %164 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %164, ptr noundef nonnull @.str.120, ptr noundef %.sroa.2.0.i.i150) #26
+164:                                              ; preds = %161
+  %165 = load i64, ptr @rb_eRuntimeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %165, ptr noundef nonnull @.str.120, ptr noundef %.sroa.2.0.i.i150) #26
   unreachable
 
-opt_enc_index.exit152:                            ; preds = %160
-  %165 = getelementptr inbounds i8, ptr %9, i64 64
-  store i32 %156, ptr %165, align 8
-  br label %167
+opt_enc_index.exit152:                            ; preds = %161
+  %166 = getelementptr inbounds i8, ptr %9, i64 64
+  store i32 %157, ptr %166, align 8
+  br label %168
 
 .thread170:                                       ; preds = %61
-  %166 = tail call i64 @rb_io_ungetbyte(i64 noundef %11, i64 noundef %62) #25
+  %167 = tail call i64 @rb_io_ungetbyte(i64 noundef %11, i64 noundef %62) #25
   br label %169
 
-167:                                              ; preds = %147, %148, %opt_enc_index.exit152
-  %168 = icmp eq i64 %.2108, 4
-  br i1 %168, label %.thread, label %169
+168:                                              ; preds = %148, %149, %opt_enc_index.exit152
+  br i1 %.2108, label %.thread, label %169
 
-.thread:                                          ; preds = %61, %167
-  %.5161 = phi i32 [ %.4, %167 ], [ 1, %61 ]
+.thread:                                          ; preds = %61, %168
+  %.5161 = phi i32 [ %.4, %168 ], [ 1, %61 ]
   store i64 4, ptr %10, align 8
   br label %169
 
-169:                                              ; preds = %.thread170, %.thread, %167
-  %.5160 = phi i32 [ %.5161, %.thread ], [ %.4, %167 ], [ 1, %.thread170 ]
-  %.1 = phi i64 [ 4, %.thread ], [ %11, %167 ], [ %11, %.thread170 ]
+169:                                              ; preds = %.thread170, %.thread, %168
+  %.5160 = phi i32 [ %.5161, %.thread ], [ %.4, %168 ], [ 1, %.thread170 ]
+  %.1 = phi i64 [ 4, %.thread ], [ %11, %168 ], [ %11, %.thread170 ]
   tail call void @rb_reset_argf_lineno(i64 noundef 0) #25
   tail call fastcc void @ruby_opt_init(ptr noundef %9)
   br label %170

@@ -762,11 +762,11 @@ define linkonce_odr hidden void @_ZN2cv4usac18UniformSamplerImpl14generateSample
   %19 = trunc i64 %18 to i32
   %20 = trunc nsw i64 %indvars.iv to i32
   %21 = urem i32 %19, %20
+  %22 = sext i32 %21 to i64
   br label %_ZN2cv3RNG7uniformEii.exit
 
 _ZN2cv3RNG7uniformEii.exit:                       ; preds = %11, %13
-  %22 = phi i32 [ %21, %13 ], [ 0, %11 ]
-  %23 = sext i32 %22 to i64
+  %23 = phi i64 [ %22, %13 ], [ 0, %11 ]
   %24 = load ptr, ptr %9, align 8
   %25 = getelementptr inbounds i32, ptr %24, i64 %23
   %26 = load i32, ptr %25, align 4

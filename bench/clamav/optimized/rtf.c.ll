@@ -811,8 +811,8 @@ define internal fastcc void @cleanup_stack(ptr nocapture noundef %0, ptr noundef
   %11 = getelementptr inbounds i8, ptr %1, i64 16
   br label %12
 
-12:                                               ; preds = %.lr.ph, %26
-  %13 = phi i64 [ %6, %.lr.ph ], [ %27, %26 ]
+12:                                               ; preds = %.lr.ph, %27
+  %13 = phi i64 [ %6, %.lr.ph ], [ %28, %27 ]
   %14 = load i64, ptr %7, align 8
   %15 = add i64 %14, -1
   store i64 %15, ptr %7, align 8
@@ -826,7 +826,7 @@ pop_state.exit.thread:                            ; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) @base_state, i64 104, i1 false)
   store i64 %17, ptr %8, align 8
   store i32 %18, ptr %9, align 8
-  br label %26
+  br label %27
 
 pop_state.exit:                                   ; preds = %12
   %19 = load ptr, ptr %0, align 8
@@ -835,24 +835,24 @@ pop_state.exit:                                   ; preds = %12
   %21 = getelementptr inbounds %struct.rtf_state, ptr %19, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %21, i64 104, i1 false)
   %.pre = load ptr, ptr %10, align 8
-  %.not14 = icmp eq ptr %.pre, null
-  br i1 %.not14, label %26, label %22
+  %22 = icmp eq ptr %.pre, null
+  br i1 %22, label %27, label %23
 
-22:                                               ; preds = %pop_state.exit
-  %23 = load ptr, ptr %11, align 8
-  %.not15 = icmp eq ptr %23, null
-  br i1 %.not15, label %26, label %24
+23:                                               ; preds = %pop_state.exit
+  %24 = load ptr, ptr %11, align 8
+  %.not15 = icmp eq ptr %24, null
+  br i1 %.not15, label %27, label %25
 
-24:                                               ; preds = %22
-  %25 = tail call i32 %23(ptr noundef nonnull %1, ptr noundef %2) #9
-  br label %26
+25:                                               ; preds = %23
+  %26 = tail call i32 %24(ptr noundef nonnull %1, ptr noundef %2) #9
+  br label %27
 
-26:                                               ; preds = %pop_state.exit.thread, %24, %22, %pop_state.exit
-  %27 = load i64, ptr %5, align 8
-  %.not13 = icmp eq i64 %27, 0
+27:                                               ; preds = %pop_state.exit.thread, %25, %23, %pop_state.exit
+  %28 = load i64, ptr %5, align 8
+  %.not13 = icmp eq i64 %28, 0
   br i1 %.not13, label %.critedge, label %12
 
-.critedge:                                        ; preds = %26, %.preheader, %3
+.critedge:                                        ; preds = %27, %.preheader, %3
   ret void
 }
 

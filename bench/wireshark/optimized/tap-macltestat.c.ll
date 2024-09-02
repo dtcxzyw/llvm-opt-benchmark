@@ -725,89 +725,89 @@ define internal void @mac_lte_stat_draw(ptr nocapture noundef readonly %0) #5 {
   %73 = uitofp i32 %72 to float
   %74 = fdiv float %73, %69
   %75 = fdiv float %74, 1.000000e+03
+  %76 = fpext float %75 to double
   br label %calculate_bw.exit
 
 calculate_bw.exit:                                ; preds = %.lr.ph71, %55, %71
-  %.0.i = phi float [ %75, %71 ], [ 0.000000e+00, %55 ], [ 0.000000e+00, %.lr.ph71 ]
-  %76 = getelementptr inbounds i8, ptr %.169, i64 88
-  %77 = getelementptr inbounds i8, ptr %.169, i64 104
-  %78 = getelementptr inbounds i8, ptr %.169, i64 84
-  %79 = load i32, ptr %78, align 4
-  %bcmp.i60 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %76, ptr noundef nonnull readonly dereferenceable(16) %77, i64 16)
+  %.0.i = phi double [ %76, %71 ], [ 0.000000e+00, %55 ], [ 0.000000e+00, %.lr.ph71 ]
+  %77 = getelementptr inbounds i8, ptr %.169, i64 88
+  %78 = getelementptr inbounds i8, ptr %.169, i64 104
+  %79 = getelementptr inbounds i8, ptr %.169, i64 84
+  %80 = load i32, ptr %79, align 4
+  %bcmp.i60 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %77, ptr noundef nonnull readonly dereferenceable(16) %78, i64 16)
   %.not.i61 = icmp eq i32 %bcmp.i60, 0
-  br i1 %.not.i61, label %calculate_bw.exit63, label %80
+  br i1 %.not.i61, label %calculate_bw.exit63, label %81
 
-80:                                               ; preds = %calculate_bw.exit
-  %81 = load i64, ptr %77, align 8
-  %82 = sitofp i64 %81 to float
-  %83 = load i64, ptr %76, align 8
-  %84 = sitofp i64 %83 to float
-  %85 = fsub float %82, %84
-  %86 = getelementptr inbounds i8, ptr %.169, i64 112
-  %87 = load i32, ptr %86, align 8
-  %88 = sitofp i32 %87 to float
-  %89 = getelementptr inbounds i8, ptr %.169, i64 96
-  %90 = load i32, ptr %89, align 8
-  %91 = sitofp i32 %90 to float
-  %92 = fsub float %88, %91
-  %93 = fdiv float %92, 1.000000e+06
-  %94 = tail call float @llvm.fmuladd.f32(float %85, float 1.000000e+03, float %93)
-  %95 = fcmp olt float %94, 2.000000e+00
-  br i1 %95, label %calculate_bw.exit63, label %96
+81:                                               ; preds = %calculate_bw.exit
+  %82 = load i64, ptr %78, align 8
+  %83 = sitofp i64 %82 to float
+  %84 = load i64, ptr %77, align 8
+  %85 = sitofp i64 %84 to float
+  %86 = fsub float %83, %85
+  %87 = getelementptr inbounds i8, ptr %.169, i64 112
+  %88 = load i32, ptr %87, align 8
+  %89 = sitofp i32 %88 to float
+  %90 = getelementptr inbounds i8, ptr %.169, i64 96
+  %91 = load i32, ptr %90, align 8
+  %92 = sitofp i32 %91 to float
+  %93 = fsub float %89, %92
+  %94 = fdiv float %93, 1.000000e+06
+  %95 = tail call float @llvm.fmuladd.f32(float %86, float 1.000000e+03, float %94)
+  %96 = fcmp olt float %95, 2.000000e+00
+  br i1 %96, label %calculate_bw.exit63, label %97
 
-96:                                               ; preds = %80
-  %97 = shl i32 %79, 3
-  %98 = uitofp i32 %97 to float
-  %99 = fdiv float %98, %94
-  %100 = fdiv float %99, 1.000000e+03
+97:                                               ; preds = %81
+  %98 = shl i32 %80, 3
+  %99 = uitofp i32 %98 to float
+  %100 = fdiv float %99, %95
+  %101 = fdiv float %100, 1.000000e+03
+  %102 = fpext float %101 to double
   br label %calculate_bw.exit63
 
-calculate_bw.exit63:                              ; preds = %calculate_bw.exit, %80, %96
-  %.0.i62 = phi float [ %100, %96 ], [ 0.000000e+00, %80 ], [ 0.000000e+00, %calculate_bw.exit ]
-  %101 = load i8, ptr %50, align 8
-  %102 = icmp eq i8 %101, 0
-  %103 = select i1 %102, ptr @.str.21, ptr @.str.22
-  %104 = getelementptr inbounds i8, ptr %.169, i64 10
-  %105 = load i16, ptr %104, align 2
-  %106 = zext i16 %105 to i32
-  %107 = getelementptr inbounds i8, ptr %.169, i64 12
-  %108 = load i8, ptr %107, align 4
-  %109 = icmp eq i8 %108, 3
-  %110 = select i1 %109, ptr @.str.23, ptr @.str.24
-  %111 = getelementptr inbounds i8, ptr %.169, i64 14
-  %112 = load i16, ptr %111, align 2
-  %113 = zext i16 %112 to i32
-  %114 = getelementptr inbounds i8, ptr %.169, i64 20
-  %115 = load i32, ptr %114, align 4
-  %116 = fpext float %.0.i to double
-  %117 = getelementptr inbounds i8, ptr %.169, i64 24
-  %118 = load i32, ptr %117, align 8
-  %.not58 = icmp eq i32 %118, 0
-  br i1 %.not58, label %127, label %119
+calculate_bw.exit63:                              ; preds = %calculate_bw.exit, %81, %97
+  %.0.i62 = phi double [ %102, %97 ], [ 0.000000e+00, %81 ], [ 0.000000e+00, %calculate_bw.exit ]
+  %103 = load i8, ptr %50, align 8
+  %104 = icmp eq i8 %103, 0
+  %105 = select i1 %104, ptr @.str.21, ptr @.str.22
+  %106 = getelementptr inbounds i8, ptr %.169, i64 10
+  %107 = load i16, ptr %106, align 2
+  %108 = zext i16 %107 to i32
+  %109 = getelementptr inbounds i8, ptr %.169, i64 12
+  %110 = load i8, ptr %109, align 4
+  %111 = icmp eq i8 %110, 3
+  %112 = select i1 %111, ptr @.str.23, ptr @.str.24
+  %113 = getelementptr inbounds i8, ptr %.169, i64 14
+  %114 = load i16, ptr %113, align 2
+  %115 = zext i16 %114 to i32
+  %116 = getelementptr inbounds i8, ptr %.169, i64 20
+  %117 = load i32, ptr %116, align 4
+  %118 = getelementptr inbounds i8, ptr %.169, i64 24
+  %119 = load i32, ptr %118, align 8
+  %.not58 = icmp eq i32 %119, 0
+  br i1 %.not58, label %128, label %120
 
-119:                                              ; preds = %calculate_bw.exit63
-  %120 = getelementptr inbounds i8, ptr %.169, i64 64
-  %121 = load i32, ptr %120, align 8
-  %122 = uitofp i32 %121 to float
-  %123 = uitofp i32 %118 to float
-  %124 = fdiv float %122, %123
-  %125 = fpext float %124 to double
-  %126 = fmul double %125, 1.000000e+02
-  br label %127
+120:                                              ; preds = %calculate_bw.exit63
+  %121 = getelementptr inbounds i8, ptr %.169, i64 64
+  %122 = load i32, ptr %121, align 8
+  %123 = uitofp i32 %122 to float
+  %124 = uitofp i32 %119 to float
+  %125 = fdiv float %123, %124
+  %126 = fpext float %125 to double
+  %127 = fmul double %126, 1.000000e+02
+  br label %128
 
-127:                                              ; preds = %calculate_bw.exit63, %119
-  %128 = phi double [ %126, %119 ], [ 0.000000e+00, %calculate_bw.exit63 ]
-  %129 = getelementptr inbounds i8, ptr %.169, i64 72
-  %130 = load i32, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %.169, i64 76
-  %132 = load i32, ptr %131, align 4
-  %133 = fpext float %.0.i62 to double
+128:                                              ; preds = %calculate_bw.exit63, %120
+  %129 = phi double [ %127, %120 ], [ 0.000000e+00, %calculate_bw.exit63 ]
+  %130 = getelementptr inbounds i8, ptr %.169, i64 72
+  %131 = load i32, ptr %130, align 8
+  %132 = getelementptr inbounds i8, ptr %.169, i64 76
+  %133 = load i32, ptr %132, align 4
   %134 = getelementptr inbounds i8, ptr %.169, i64 80
   %135 = load i32, ptr %134, align 8
   %.not59 = icmp eq i32 %135, 0
   br i1 %.not59, label %144, label %136
 
-136:                                              ; preds = %127
+136:                                              ; preds = %128
   %137 = getelementptr inbounds i8, ptr %.169, i64 120
   %138 = load i32, ptr %137, align 8
   %139 = uitofp i32 %138 to float
@@ -817,13 +817,13 @@ calculate_bw.exit63:                              ; preds = %calculate_bw.exit, 
   %143 = fmul double %142, 1.000000e+02
   br label %144
 
-144:                                              ; preds = %127, %136
-  %145 = phi double [ %143, %136 ], [ 0.000000e+00, %127 ]
+144:                                              ; preds = %128, %136
+  %145 = phi double [ %143, %136 ], [ 0.000000e+00, %128 ]
   %146 = getelementptr inbounds i8, ptr %.169, i64 124
   %147 = load i32, ptr %146, align 4
   %148 = getelementptr inbounds i8, ptr %.169, i64 128
   %149 = load i32, ptr %148, align 8
-  %150 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull %103, i32 noundef %106, ptr noundef nonnull %110, i32 noundef %113, i32 noundef %115, i32 noundef %54, double noundef %116, double noundef %128, i32 noundef %130, i32 noundef %132, i32 noundef %79, double noundef %133, double noundef %145, i32 noundef %147, i32 noundef %149)
+  %150 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef nonnull %105, i32 noundef %108, ptr noundef nonnull %112, i32 noundef %115, i32 noundef %117, i32 noundef %54, double noundef %.0.i, double noundef %129, i32 noundef %131, i32 noundef %133, i32 noundef %80, double noundef %.0.i62, double noundef %145, i32 noundef %147, i32 noundef %149)
   %151 = load ptr, ptr %.169, align 8
   %.not57 = icmp eq ptr %151, null
   br i1 %.not57, label %._crit_edge72, label %.lr.ph71, !llvm.loop !12

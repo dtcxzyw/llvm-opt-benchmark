@@ -157,9 +157,9 @@ define noundef i64 @_Z17fast_rv64i_kabs32P11processor_t6insn_tm(ptr nocapture no
   %30 = getelementptr inbounds i8, ptr %0, i64 659712
   br label %31
 
-31:                                               ; preds = %20, %47
-  %.03950 = phi i64 [ 1, %20 ], [ %54, %47 ]
-  %.04049 = phi i64 [ %25, %20 ], [ %53, %47 ]
+31:                                               ; preds = %20, %48
+  %.03950 = phi i64 [ 1, %20 ], [ %54, %48 ]
+  %.04049 = phi i64 [ %25, %20 ], [ %53, %48 ]
   %32 = shl i64 %.03950, 5
   %33 = and i64 %32, 4294967264
   %34 = shl nuw i64 4294967295, %33
@@ -175,27 +175,27 @@ define noundef i64 @_Z17fast_rv64i_kabs32P11processor_t6insn_tm(ptr nocapture no
 42:                                               ; preds = %31
   %43 = load ptr, ptr %30, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %43, i64 noundef 1) #16
-  br label %47
+  br label %48
 
 44:                                               ; preds = %31
   %45 = icmp slt i32 %40, 0
   %46 = sub nsw i64 0, %39
   %spec.select = select i1 %45, i64 %46, i64 %39
-  br label %47
+  %47 = and i64 %spec.select, 4294967295
+  br label %48
 
-47:                                               ; preds = %44, %42
-  %.038 = phi i64 [ 2147483647, %42 ], [ %spec.select, %44 ]
-  %48 = xor i64 %34, -1
-  %49 = and i64 %.04049, %48
-  %50 = and i64 %.038, 4294967295
-  %51 = mul i64 %50, %38
+48:                                               ; preds = %44, %42
+  %.038 = phi i64 [ 2147483647, %42 ], [ %47, %44 ]
+  %49 = xor i64 %34, -1
+  %50 = and i64 %.04049, %49
+  %51 = mul i64 %.038, %38
   %52 = and i64 %51, %34
-  %53 = or i64 %52, %49
+  %53 = or i64 %52, %50
   %54 = add nsw i64 %.03950, -1
   %.not = icmp eq i64 %.03950, 0
   br i1 %.not, label %55, label %31, !llvm.loop !4
 
-55:                                               ; preds = %47
+55:                                               ; preds = %48
   %.not.i = icmp eq i64 %23, 0
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %56
 
@@ -282,9 +282,9 @@ define noundef i64 @_Z19logged_rv64i_kabs32P11processor_t6insn_tm(ptr noundef %0
   %30 = getelementptr inbounds i8, ptr %0, i64 659712
   br label %31
 
-31:                                               ; preds = %20, %47
-  %.04155 = phi i64 [ %25, %20 ], [ %53, %47 ]
-  %.04354 = phi i64 [ 1, %20 ], [ %54, %47 ]
+31:                                               ; preds = %20, %48
+  %.04155 = phi i64 [ %25, %20 ], [ %53, %48 ]
+  %.04354 = phi i64 [ 1, %20 ], [ %54, %48 ]
   %32 = shl i64 %.04354, 5
   %33 = and i64 %32, 4294967264
   %34 = shl nuw i64 4294967295, %33
@@ -300,27 +300,27 @@ define noundef i64 @_Z19logged_rv64i_kabs32P11processor_t6insn_tm(ptr noundef %0
 42:                                               ; preds = %31
   %43 = load ptr, ptr %30, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %43, i64 noundef 1) #16
-  br label %47
+  br label %48
 
 44:                                               ; preds = %31
   %45 = icmp slt i32 %40, 0
   %46 = sub nsw i64 0, %39
   %spec.select = select i1 %45, i64 %46, i64 %39
-  br label %47
+  %47 = and i64 %spec.select, 4294967295
+  br label %48
 
-47:                                               ; preds = %44, %42
-  %.042 = phi i64 [ 2147483647, %42 ], [ %spec.select, %44 ]
-  %48 = xor i64 %34, -1
-  %49 = and i64 %.04155, %48
-  %50 = and i64 %.042, 4294967295
-  %51 = mul i64 %50, %38
+48:                                               ; preds = %44, %42
+  %.042 = phi i64 [ 2147483647, %42 ], [ %47, %44 ]
+  %49 = xor i64 %34, -1
+  %50 = and i64 %.04155, %49
+  %51 = mul i64 %.042, %38
   %52 = and i64 %51, %34
-  %53 = or i64 %52, %49
+  %53 = or i64 %52, %50
   %54 = add nsw i64 %.04354, -1
   %.not = icmp eq i64 %.04354, 0
   br i1 %.not, label %55, label %31, !llvm.loop !6
 
-55:                                               ; preds = %47
+55:                                               ; preds = %48
   %56 = getelementptr inbounds i8, ptr %0, i64 3672
   %57 = shl nuw nsw i64 %23, 4
   %58 = getelementptr inbounds i8, ptr %0, i64 3680
@@ -490,9 +490,9 @@ define noundef i64 @_Z17fast_rv64e_kabs32P11processor_t6insn_tm(ptr nocapture no
   %44 = getelementptr inbounds i8, ptr %0, i64 659712
   br label %45
 
-45:                                               ; preds = %40, %61
-  %.04562 = phi i64 [ 1, %40 ], [ %68, %61 ]
-  %.04661 = phi i64 [ %41, %40 ], [ %67, %61 ]
+45:                                               ; preds = %40, %62
+  %.04562 = phi i64 [ 1, %40 ], [ %68, %62 ]
+  %.04661 = phi i64 [ %41, %40 ], [ %67, %62 ]
   %46 = shl i64 %.04562, 5
   %47 = and i64 %46, 4294967264
   %48 = shl nuw i64 4294967295, %47
@@ -508,27 +508,27 @@ define noundef i64 @_Z17fast_rv64e_kabs32P11processor_t6insn_tm(ptr nocapture no
 56:                                               ; preds = %45
   %57 = load ptr, ptr %44, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %57, i64 noundef 1) #16
-  br label %61
+  br label %62
 
 58:                                               ; preds = %45
   %59 = icmp slt i32 %54, 0
   %60 = sub nsw i64 0, %53
   %spec.select = select i1 %59, i64 %60, i64 %53
-  br label %61
+  %61 = and i64 %spec.select, 4294967295
+  br label %62
 
-61:                                               ; preds = %58, %56
-  %.044 = phi i64 [ 2147483647, %56 ], [ %spec.select, %58 ]
-  %62 = xor i64 %48, -1
-  %63 = and i64 %.04661, %62
-  %64 = and i64 %.044, 4294967295
-  %65 = mul i64 %64, %52
+62:                                               ; preds = %58, %56
+  %.044 = phi i64 [ 2147483647, %56 ], [ %61, %58 ]
+  %63 = xor i64 %48, -1
+  %64 = and i64 %.04661, %63
+  %65 = mul i64 %.044, %52
   %66 = and i64 %65, %48
-  %67 = or i64 %66, %63
+  %67 = or i64 %66, %64
   %68 = add nsw i64 %.04562, -1
   %.not = icmp eq i64 %.04562, 0
   br i1 %.not, label %69, label %45, !llvm.loop !8
 
-69:                                               ; preds = %61
+69:                                               ; preds = %62
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %70
 
@@ -641,9 +641,9 @@ define noundef i64 @_Z19logged_rv64e_kabs32P11processor_t6insn_tm(ptr noundef %0
   %44 = getelementptr inbounds i8, ptr %0, i64 659712
   br label %45
 
-45:                                               ; preds = %40, %61
-  %.04767 = phi i64 [ %41, %40 ], [ %67, %61 ]
-  %.04966 = phi i64 [ 1, %40 ], [ %68, %61 ]
+45:                                               ; preds = %40, %62
+  %.04767 = phi i64 [ %41, %40 ], [ %67, %62 ]
+  %.04966 = phi i64 [ 1, %40 ], [ %68, %62 ]
   %46 = shl i64 %.04966, 5
   %47 = and i64 %46, 4294967264
   %48 = shl nuw i64 4294967295, %47
@@ -659,27 +659,27 @@ define noundef i64 @_Z19logged_rv64e_kabs32P11processor_t6insn_tm(ptr noundef %0
 56:                                               ; preds = %45
   %57 = load ptr, ptr %44, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %57, i64 noundef 1) #16
-  br label %61
+  br label %62
 
 58:                                               ; preds = %45
   %59 = icmp slt i32 %54, 0
   %60 = sub nsw i64 0, %53
   %spec.select = select i1 %59, i64 %60, i64 %53
-  br label %61
+  %61 = and i64 %spec.select, 4294967295
+  br label %62
 
-61:                                               ; preds = %58, %56
-  %.048 = phi i64 [ 2147483647, %56 ], [ %spec.select, %58 ]
-  %62 = xor i64 %48, -1
-  %63 = and i64 %.04767, %62
-  %64 = and i64 %.048, 4294967295
-  %65 = mul i64 %64, %52
+62:                                               ; preds = %58, %56
+  %.048 = phi i64 [ 2147483647, %56 ], [ %61, %58 ]
+  %63 = xor i64 %48, -1
+  %64 = and i64 %.04767, %63
+  %65 = mul i64 %.048, %52
   %66 = and i64 %65, %48
-  %67 = or i64 %66, %63
+  %67 = or i64 %66, %64
   %68 = add nsw i64 %.04966, -1
   %.not = icmp eq i64 %.04966, 0
   br i1 %.not, label %69, label %45, !llvm.loop !9
 
-69:                                               ; preds = %61
+69:                                               ; preds = %62
   %70 = getelementptr inbounds i8, ptr %0, i64 3672
   %71 = shl nuw nsw i64 %22, 4
   %72 = getelementptr inbounds i8, ptr %0, i64 3680

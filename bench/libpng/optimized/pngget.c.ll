@@ -2048,7 +2048,7 @@ define range(i32 0, 513) i32 @png_get_tIME(ptr noalias noundef readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 32) i32 @png_get_tRNS(ptr noalias noundef readnone %0, ptr noalias noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #3 {
+define range(i32 0, 17) i32 @png_get_tRNS(ptr noalias noundef readnone %0, ptr noalias noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #3 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7

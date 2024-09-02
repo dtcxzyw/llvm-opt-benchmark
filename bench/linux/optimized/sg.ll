@@ -3056,9 +3056,9 @@ define internal fastcc noundef range(i32 -14, 1) i32 @sg_read_oxfer(ptr nocaptur
   %19 = load ptr, ptr %16, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.loopexit, label %.thread
+  br i1 %21, label %.loopexit, label %.critedge
 
-.thread:                                          ; preds = %.split.us
+.critedge:                                        ; preds = %.split.us
   tail call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #17, !srcloc !52
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.16, i32 249, i32 2307, i64 12) #17, !srcloc !53
   tail call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #17, !srcloc !54
@@ -3118,8 +3118,8 @@ define internal fastcc noundef range(i32 -14, 1) i32 @sg_read_oxfer(ptr nocaptur
 .loopexit:                                        ; preds = %.split, %50, %53, %.split.us, %.split19.us, %8
   br label %.loopexit7
 
-.loopexit7:                                       ; preds = %41, %.thread, %.loopexit, %.split19.us, %3
-  %59 = phi i32 [ 0, %.loopexit ], [ 0, %3 ], [ -14, %.split19.us ], [ -14, %.thread ], [ -14, %41 ]
+.loopexit7:                                       ; preds = %41, %.critedge, %.loopexit, %.split19.us, %3
+  %59 = phi i32 [ 0, %.loopexit ], [ 0, %3 ], [ -14, %.split19.us ], [ -14, %.critedge ], [ -14, %41 ]
   ret i32 %59
 }
 
@@ -5327,8 +5327,8 @@ define internal fastcc i32 @open_wait(ptr noundef %0, i32 noundef %1) unnamed_ad
   br label %.sink.split
 
 .thread4:                                         ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #17
   %37 = trunc i64 %28 to i32
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #17
   call void @mutex_lock(ptr noundef %7) #17
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %.loopexit
@@ -5391,8 +5391,8 @@ define internal fastcc i32 @open_wait(ptr noundef %0, i32 noundef %1) unnamed_ad
   br label %.sink.split29
 
 .thread9:                                         ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #17
   %65 = trunc i64 %56 to i32
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #17
   call void @mutex_lock(ptr noundef %7) #17
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %.loopexit

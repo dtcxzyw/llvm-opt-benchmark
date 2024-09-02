@@ -7223,8 +7223,8 @@ default.unreachable:                              ; preds = %23
 73:                                               ; preds = %72
   %74 = getelementptr inbounds i8, ptr %.071, i64 80
   %75 = load ptr, ptr %74, align 8
-  %.not90 = icmp eq ptr %75, null
-  br i1 %.not90, label %.critedge98, label %76
+  %.not90.not = icmp eq ptr %75, null
+  br i1 %.not90.not, label %.critedge98, label %76
 
 76:                                               ; preds = %73
   %77 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.557, i32 noundef 1152, i1 noundef zeroext false)
@@ -10585,7 +10585,7 @@ define dso_local noundef ptr @_ZNK7AstNode13findVoidDTypeEv(ptr nocapture nounde
 declare noundef ptr @_ZN12AstTypeTable13findVoidDTypeEP8FileLine(ptr noundef nonnull align 8 dereferenceable(448), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i8 @_ZN7AstNode15computeCastableEPK12AstNodeDTypeS2_PKS_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i8 0, 7) i8 @_ZN7AstNode15computeCastableEPK12AstNodeDTypeS2_PKS_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

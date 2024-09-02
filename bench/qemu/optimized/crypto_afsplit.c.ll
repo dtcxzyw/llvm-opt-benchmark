@@ -102,7 +102,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @qcrypto_random_bytes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i32 @qcrypto_afsplit_hash(i32 noundef %hash, i64 noundef %blocklen, ptr noundef %block, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @qcrypto_afsplit_hash(i32 noundef %hash, i64 noundef %blocklen, ptr noundef %block, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %out = alloca ptr, align 8
   %outlen = alloca i64, align 8

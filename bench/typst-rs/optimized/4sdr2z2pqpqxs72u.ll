@@ -10304,13 +10304,16 @@ _ZN4core4iter6traits8iterator8Iterator10max_by_key17h2b5d096af3b467fcE.exit.i: ;
 426:                                              ; preds = %.noexc57
   %.sroa.072.0.copyload.i = load i32, ptr %.sroa.3.0.copyload.i.i, align 1, !noalias !1883
   %427 = invoke noundef range(i8 0, 4) i8 @_ZN5typst4text4lang4Lang3dir17hcc17b85e87bfe1a7E(i32 %.sroa.072.0.copyload.i)
-          to label %.thread.i48 unwind label %.body43.thread107
+          to label %.noexc58 unwind label %.body43.thread107
 
-.thread.i48:                                      ; preds = %426, %.noexc57, %_ZN4core4iter6traits8iterator8Iterator10max_by_key17h2b5d096af3b467fcE.exit.thread.i
-  %.sroa.6.0357.i = phi i32 [ undef, %.noexc57 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10max_by_key17h2b5d096af3b467fcE.exit.thread.i ], [ %.sroa.072.0.copyload.i, %426 ]
-  %428 = phi i1 [ false, %.noexc57 ], [ false, %_ZN4core4iter6traits8iterator8Iterator10max_by_key17h2b5d096af3b467fcE.exit.thread.i ], [ true, %426 ]
-  %.0162.i = phi i8 [ 4, %.noexc57 ], [ 4, %_ZN4core4iter6traits8iterator8Iterator10max_by_key17h2b5d096af3b467fcE.exit.thread.i ], [ %427, %426 ]
-  %429 = icmp eq i8 %.0162.i, 1
+.noexc58:                                         ; preds = %426
+  %428 = icmp eq i8 %427, 1
+  br label %.thread.i48
+
+.thread.i48:                                      ; preds = %.noexc58, %.noexc57, %_ZN4core4iter6traits8iterator8Iterator10max_by_key17h2b5d096af3b467fcE.exit.thread.i
+  %.sroa.6.0357.i = phi i32 [ %.sroa.072.0.copyload.i, %.noexc58 ], [ undef, %.noexc57 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10max_by_key17h2b5d096af3b467fcE.exit.thread.i ]
+  %429 = phi i1 [ true, %.noexc58 ], [ false, %.noexc57 ], [ false, %_ZN4core4iter6traits8iterator8Iterator10max_by_key17h2b5d096af3b467fcE.exit.thread.i ]
+  %.0162.i = phi i1 [ %428, %.noexc58 ], [ false, %.noexc57 ], [ false, %_ZN4core4iter6traits8iterator8Iterator10max_by_key17h2b5d096af3b467fcE.exit.thread.i ]
   %430 = invoke noundef i32 @_ZN9typst_pdf7outline13write_outline17h8dd65572b6dd7689E(ptr noalias noundef nonnull align 8 dereferenceable(856) %120)
           to label %.noexc59 unwind label %.body43.thread107
 
@@ -10708,7 +10711,7 @@ _ZN9typst_pdf8pdf_date17ha3a176421769a463E.exit.thread.i: ; preds = %.noexc237.i
 
 577:                                              ; preds = %.noexc237.i
   %578 = trunc i32 %574 to i16
-  %.0.sroa.speculated.i.i.i = call noundef i16 @llvm.umin.i16(i16 %578, i16 9999)
+  %.0.sroa.speculated.i.i.i = call noundef range(i16 0, 10000) i16 @llvm.umin.i16(i16 %578, i16 9999)
   %579 = invoke { i1, i8 } @_ZN5typst11foundations8datetime8Datetime5month17hc99aac5170cf5405E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %42)
           to label %.noexc238.i unwind label %512, !noalias !1883
 
@@ -11219,7 +11222,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit270.i: ; preds = %"_ZN4co
           to label %734 unwind label %731, !noalias !1883
 
 734:                                              ; preds = %733
-  %735 = invoke noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer9structure17ViewerPreferences9direction17h8a817207f904a0c0E(ptr noalias noundef nonnull align 8 dereferenceable(16) %55, i1 noundef zeroext %429)
+  %735 = invoke noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer9structure17ViewerPreferences9direction17h8a817207f904a0c0E(ptr noalias noundef nonnull align 8 dereferenceable(16) %55, i1 noundef zeroext %.0162.i)
           to label %738 unwind label %736, !noalias !1883
 
 736:                                              ; preds = %734
@@ -11467,7 +11470,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit270.i: ; preds = %"_ZN4co
           to label %813 unwind label %"_ZN4core3ptr80drop_in_place$LT$pdf_writer..object..NameTree$LT$pdf_writer..object..Ref$GT$$GT$17h340634093a973501E.exit296.thread458.thread.i", !noalias !1883
 
 813:                                              ; preds = %811, %773
-  br i1 %428, label %814, label %816
+  br i1 %429, label %814, label %816
 
 814:                                              ; preds = %813
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46), !noalias !1894

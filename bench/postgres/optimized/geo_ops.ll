@@ -12068,11 +12068,11 @@ box_ov.exit:                                      ; preds = %19
   br label %46
 
 46:                                               ; preds = %.lr.ph154, %._crit_edge
-  %47 = phi i32 [ %35, %.lr.ph154 ], [ %213, %._crit_edge ]
-  %48 = phi i32 [ %.pre, %.lr.ph154 ], [ %214, %._crit_edge ]
-  %indvars.iv161 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next162, %._crit_edge ]
+  %47 = phi i32 [ %35, %.lr.ph154 ], [ %214, %._crit_edge ]
+  %48 = phi i32 [ %.pre, %.lr.ph154 ], [ %215, %._crit_edge ]
+  %indvars.iv160 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next161, %._crit_edge ]
   %.1151 = phi i8 [ 0, %.lr.ph154 ], [ %.2.lcssa, %._crit_edge ]
-  %49 = getelementptr [0 x %struct.Point], ptr %33, i64 0, i64 %indvars.iv161
+  %49 = getelementptr [0 x %struct.Point], ptr %33, i64 0, i64 %indvars.iv160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false)
   %50 = icmp slt i32 %48, 1
   %51 = trunc nuw i8 %.1151 to i1
@@ -12229,11 +12229,11 @@ float8_mi.exit.i.i:                               ; preds = %float8_mul.exit.i.i
   br i1 %116, label %line_construct.exit.i.sink.split, label %line_construct.exit.i
 
 line_construct.exit.i.sink.split.sink.split:      ; preds = %96, %61, %point_sl.exit, %.lr.ph
-  %.sink172 = phi double [ -1.000000e+00, %.lr.ph ], [ -1.000000e+00, %point_sl.exit ], [ 0.000000e+00, %61 ], [ 0.000000e+00, %96 ]
-  %.sink171 = phi double [ 0.000000e+00, %.lr.ph ], [ 0.000000e+00, %point_sl.exit ], [ -1.000000e+00, %61 ], [ -1.000000e+00, %96 ]
+  %.sink171 = phi double [ -1.000000e+00, %.lr.ph ], [ -1.000000e+00, %point_sl.exit ], [ 0.000000e+00, %61 ], [ 0.000000e+00, %96 ]
+  %.sink170 = phi double [ 0.000000e+00, %.lr.ph ], [ 0.000000e+00, %point_sl.exit ], [ -1.000000e+00, %61 ], [ -1.000000e+00, %96 ]
   %.sink.ph = phi double [ %.sroa.0.sroa.0.0146, %.lr.ph ], [ %.sroa.0.sroa.0.0146, %point_sl.exit ], [ %.sroa.0.sroa.7.0148, %61 ], [ %.sroa.0.sroa.7.0148, %96 ]
-  store double %.sink172, ptr %4, align 8
-  store double %.sink171, ptr %43, align 8
+  store double %.sink171, ptr %4, align 8
+  store double %.sink170, ptr %43, align 8
   br label %line_construct.exit.i
 
 line_construct.exit.i.sink.split:                 ; preds = %float8_mi.exit.i.i
@@ -12453,58 +12453,59 @@ point_dt.exit:                                    ; preds = %float8_mi.exit6.i, 
   %206 = call double @llvm.fabs.f64(double %205)
   %207 = fcmp ole double %206, 0x3EB0C6F7A0B5ED8D
   %208 = or i1 %204, %207
+  %209 = zext i1 %208 to i8
   br label %lseg_interpt_lseg.exit
 
 lseg_interpt_lseg.exit:                           ; preds = %point_dt.exit, %line_construct.exit.i
-  %.0.i = phi i1 [ false, %line_construct.exit.i ], [ %208, %point_dt.exit ]
+  %.0.i = phi i8 [ 0, %line_construct.exit.i ], [ %209, %point_dt.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %209 = load i32, ptr %42, align 4
-  %210 = sext i32 %209 to i64
-  %211 = icmp sge i64 %indvars.iv.next, %210
-  %.not30 = select i1 %211, i1 true, i1 %.0.i
+  %210 = load i32, ptr %42, align 4
+  %211 = sext i32 %210 to i64
+  %212 = icmp sge i64 %indvars.iv.next, %211
+  %213 = trunc nuw i8 %.0.i to i1
+  %.not30 = select i1 %212, i1 true, i1 %213
   br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge.loopexit:                             ; preds = %lseg_interpt_lseg.exit
-  %212 = zext i1 %.0.i to i8
-  %.pre163 = load i32, ptr %34, align 4
+  %.pre162 = load i32, ptr %34, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %46
-  %.pre-phi = phi i1 [ %.0.i, %._crit_edge.loopexit ], [ %51, %46 ]
-  %213 = phi i32 [ %.pre163, %._crit_edge.loopexit ], [ %47, %46 ]
-  %214 = phi i32 [ %209, %._crit_edge.loopexit ], [ %48, %46 ]
-  %.2.lcssa = phi i8 [ %212, %._crit_edge.loopexit ], [ %.1151, %46 ]
+  %.pre-phi = phi i1 [ %213, %._crit_edge.loopexit ], [ %51, %46 ]
+  %214 = phi i32 [ %.pre162, %._crit_edge.loopexit ], [ %47, %46 ]
+  %215 = phi i32 [ %210, %._crit_edge.loopexit ], [ %48, %46 ]
+  %.2.lcssa = phi i8 [ %.0.i, %._crit_edge.loopexit ], [ %.1151, %46 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
-  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %215 = sext i32 %213 to i64
-  %216 = icmp sge i64 %indvars.iv.next162, %215
-  %.not28 = select i1 %216, i1 true, i1 %.pre-phi
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %216 = sext i32 %214 to i64
+  %217 = icmp sge i64 %indvars.iv.next161, %216
+  %.not28 = select i1 %217, i1 true, i1 %.pre-phi
   br i1 %.not28, label %._crit_edge155, label %46, !llvm.loop !48
 
 ._crit_edge155:                                   ; preds = %._crit_edge
   br i1 %.pre-phi, label %box_ov.exit.thread, label %._crit_edge155.thread
 
 ._crit_edge155.thread:                            ; preds = %32, %._crit_edge155
-  %217 = getelementptr inbounds i8, ptr %1, i64 4
-  %218 = load i32, ptr %217, align 4
-  %219 = getelementptr inbounds i8, ptr %1, i64 40
-  %220 = call fastcc i32 @point_inside(ptr noundef nonnull %33, i32 noundef %218, ptr noundef nonnull %219)
-  %.not = icmp eq i32 %220, 0
-  br i1 %.not, label %221, label %box_ov.exit.thread
+  %218 = getelementptr inbounds i8, ptr %1, i64 4
+  %219 = load i32, ptr %218, align 4
+  %220 = getelementptr inbounds i8, ptr %1, i64 40
+  %221 = call fastcc i32 @point_inside(ptr noundef nonnull %33, i32 noundef %219, ptr noundef nonnull %220)
+  %.not = icmp eq i32 %221, 0
+  br i1 %.not, label %222, label %box_ov.exit.thread
 
-221:                                              ; preds = %._crit_edge155.thread
-  %222 = load i32, ptr %34, align 4
-  %223 = call fastcc i32 @point_inside(ptr noundef nonnull %219, i32 noundef %222, ptr noundef nonnull %33)
-  %224 = icmp ne i32 %223, 0
-  %225 = zext i1 %224 to i8
+222:                                              ; preds = %._crit_edge155.thread
+  %223 = load i32, ptr %34, align 4
+  %224 = call fastcc i32 @point_inside(ptr noundef nonnull %220, i32 noundef %223, ptr noundef nonnull %33)
+  %225 = icmp ne i32 %224, 0
+  %226 = zext i1 %225 to i8
   br label %box_ov.exit.thread
 
-box_ov.exit.thread:                               ; preds = %2, %12, %19, %._crit_edge155.thread, %221, %._crit_edge155, %box_ov.exit
-  %.027 = phi i8 [ %.2.lcssa, %._crit_edge155 ], [ 0, %box_ov.exit ], [ 1, %._crit_edge155.thread ], [ %225, %221 ], [ 0, %19 ], [ 0, %12 ], [ 0, %2 ]
-  %226 = trunc nuw i8 %.027 to i1
-  ret i1 %226
+box_ov.exit.thread:                               ; preds = %2, %12, %19, %._crit_edge155.thread, %222, %._crit_edge155, %box_ov.exit
+  %.027 = phi i8 [ %.2.lcssa, %._crit_edge155 ], [ 0, %box_ov.exit ], [ 1, %._crit_edge155.thread ], [ %226, %222 ], [ 0, %19 ], [ 0, %12 ], [ 0, %2 ]
+  %227 = trunc nuw i8 %.027 to i1
+  ret i1 %227
 }
 
 ; Function Attrs: nounwind uwtable

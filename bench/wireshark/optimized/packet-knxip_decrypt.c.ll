@@ -523,27 +523,27 @@ clear_keyring_data.exit:                          ; preds = %.lr.ph29.i, %.prehe
 
 40:                                               ; preds = %clear_keyring_data.exit
   %41 = load i8, ptr %2, align 1
-  switch i8 %41, label %.critedge512 [
+  switch i8 %41, label %.tail.thread [
     i8 0, label %48
-    i8 45, label %sub_1
+    i8 45, label %.tail
   ]
 
-sub_1:                                            ; preds = %40
+.tail:                                            ; preds = %40
   %42 = getelementptr inbounds i8, ptr %2, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %.critedge512
+  br i1 %44, label %45, label %.tail.thread
 
-45:                                               ; preds = %sub_1
+45:                                               ; preds = %.tail
   %46 = load ptr, ptr @stdout, align 8
   br label %48
 
-.critedge512:                                     ; preds = %40, %sub_1
+.tail.thread:                                     ; preds = %40, %.tail
   %47 = tail call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.2)
   br label %48
 
-48:                                               ; preds = %40, %45, %.critedge512, %clear_keyring_data.exit
-  %49 = phi ptr [ null, %40 ], [ null, %clear_keyring_data.exit ], [ %46, %45 ], [ %47, %.critedge512 ]
+48:                                               ; preds = %40, %45, %.tail.thread, %clear_keyring_data.exit
+  %49 = phi ptr [ null, %40 ], [ null, %clear_keyring_data.exit ], [ %46, %45 ], [ %47, %.tail.thread ]
   %.not119 = icmp eq ptr %39, null
   br i1 %.not119, label %318, label %50
 

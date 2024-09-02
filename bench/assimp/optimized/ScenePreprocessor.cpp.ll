@@ -488,7 +488,7 @@ for.cond25.preheader:                             ; preds = %for.body13, %for.co
   br i1 %cmp26102.not, label %if.end.thread, label %for.body27.lr.ph
 
 if.end.thread:                                    ; preds = %for.cond25.preheader
-  %mNumRotationKeys38130 = getelementptr inbounds i8, ptr %2, i64 1040
+  %mNumRotationKeys38131 = getelementptr inbounds i8, ptr %2, i64 1040
   br label %if.then44
 
 for.body27.lr.ph:                                 ; preds = %for.cond25.preheader
@@ -526,40 +526,40 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   br i1 %exitcond124.not, label %if.end.thread137, label %for.body27, !llvm.loop !16
 
 if.end.thread137:                                 ; preds = %for.body27
-  %mNumRotationKeys38140 = getelementptr inbounds i8, ptr %2, i64 1040
+  %mNumRotationKeys38141 = getelementptr inbounds i8, ptr %2, i64 1040
   br label %lor.lhs.false
 
 if.end:                                           ; preds = %for.body
   %mNumRotationKeys38.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 1040
   %.pre = load i32, ptr %mNumRotationKeys38.phi.trans.insert, align 8
+  %13 = icmp eq i32 %.pre, 0
   %mNumRotationKeys38 = getelementptr inbounds i8, ptr %2, i64 1040
-  %tobool.not = icmp eq i32 %.pre, 0
-  br i1 %tobool.not, label %if.then44, label %lor.lhs.false
+  br i1 %13, label %if.then44, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end.thread137, %if.end
-  %mNumRotationKeys38144 = phi ptr [ %mNumRotationKeys38140, %if.end.thread137 ], [ %mNumRotationKeys38, %if.end ]
+  %mNumRotationKeys38144 = phi ptr [ %mNumRotationKeys38141, %if.end.thread137 ], [ %mNumRotationKeys38, %if.end ]
   %first.1143 = phi double [ %.sroa.speculated84, %if.end.thread137 ], [ %first.0110, %if.end ]
   %last.1142 = phi double [ %.sroa.speculated72, %if.end.thread137 ], [ %last.0109, %if.end ]
   %mNumPositionKeys39 = getelementptr inbounds i8, ptr %2, i64 1028
-  %13 = load i32, ptr %mNumPositionKeys39, align 4
-  %tobool40.not = icmp eq i32 %13, 0
+  %14 = load i32, ptr %mNumPositionKeys39, align 4
+  %tobool40.not = icmp eq i32 %14, 0
   br i1 %tobool40.not, label %if.then44, label %lor.lhs.false41
 
 lor.lhs.false41:                                  ; preds = %lor.lhs.false
   %mNumScalingKeys42 = getelementptr inbounds i8, ptr %2, i64 1056
-  %14 = load i32, ptr %mNumScalingKeys42, align 8
-  %tobool43.not = icmp eq i32 %14, 0
+  %15 = load i32, ptr %mNumScalingKeys42, align 8
+  %tobool43.not = icmp eq i32 %15, 0
   br i1 %tobool43.not, label %if.then44, label %for.inc125
 
 if.then44:                                        ; preds = %if.end.thread, %lor.lhs.false41, %lor.lhs.false, %if.end
-  %mNumRotationKeys38136 = phi ptr [ %mNumRotationKeys38130, %if.end.thread ], [ %mNumRotationKeys38144, %lor.lhs.false41 ], [ %mNumRotationKeys38144, %lor.lhs.false ], [ %mNumRotationKeys38, %if.end ]
+  %mNumRotationKeys38136 = phi ptr [ %mNumRotationKeys38131, %if.end.thread ], [ %mNumRotationKeys38144, %lor.lhs.false41 ], [ %mNumRotationKeys38144, %lor.lhs.false ], [ %mNumRotationKeys38, %if.end ]
   %first.1135 = phi double [ %first.3.lcssa, %if.end.thread ], [ %first.1143, %lor.lhs.false41 ], [ %first.1143, %lor.lhs.false ], [ %first.0110, %if.end ]
   %last.1133 = phi double [ %last.3.lcssa, %if.end.thread ], [ %last.1142, %lor.lhs.false41 ], [ %last.1142, %lor.lhs.false ], [ %last.0109, %if.end ]
-  %15 = load ptr, ptr %this, align 8
-  %mRootNode = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load ptr, ptr %mRootNode, align 8
+  %16 = load ptr, ptr %this, align 8
+  %mRootNode = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load ptr, ptr %mRootNode, align 8
   %data.i = getelementptr inbounds i8, ptr %2, i64 4
-  %call.i = call noundef ptr @_ZN6aiNode8FindNodeEPKc(ptr noundef nonnull align 8 dereferenceable(1144) %16, ptr noundef nonnull %data.i)
+  %call.i = call noundef ptr @_ZN6aiNode8FindNodeEPKc(ptr noundef nonnull align 8 dereferenceable(1144) %17, ptr noundef nonnull %data.i)
   %tobool46.not = icmp eq ptr %call.i, null
   br i1 %tobool46.not, label %for.inc125, label %if.then47
 
@@ -576,18 +576,18 @@ if.then47:                                        ; preds = %if.then44
   store float 0.000000e+00, ptr %z.i65, align 4
   %mTransformation = getelementptr inbounds i8, ptr %call.i, i64 1028
   call void @_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfER13aiQuaterniontIfES3_(ptr noundef nonnull align 4 dereferenceable(64) %mTransformation, ptr noundef nonnull align 4 dereferenceable(12) %scaling, ptr noundef nonnull align 4 dereferenceable(16) %rotation, ptr noundef nonnull align 4 dereferenceable(12) %position)
-  %17 = load i32, ptr %mNumRotationKeys38136, align 8
-  %tobool49.not = icmp eq i32 %17, 0
+  %18 = load i32, ptr %mNumRotationKeys38136, align 8
+  %tobool49.not = icmp eq i32 %18, 0
   br i1 %tobool49.not, label %if.then50, label %if.end64
 
 if.then50:                                        ; preds = %if.then47
   %mRotationKeys51 = getelementptr inbounds i8, ptr %2, i64 1048
-  %18 = load ptr, ptr %mRotationKeys51, align 8
-  %tobool52.not = icmp eq ptr %18, null
+  %19 = load ptr, ptr %mRotationKeys51, align 8
+  %tobool52.not = icmp eq ptr %19, null
   br i1 %tobool52.not, label %if.end56, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then50
-  call void @_ZdaPv(ptr noundef nonnull %18) #11
+  call void @_ZdaPv(ptr noundef nonnull %19) #11
   store ptr null, ptr %mRotationKeys51, align 8
   br label %if.end56
 
@@ -604,18 +604,18 @@ if.end56:                                         ; preds = %delete.notnull, %if
 
 if.end64:                                         ; preds = %if.then47, %if.end56
   %mNumScalingKeys65 = getelementptr inbounds i8, ptr %2, i64 1056
-  %19 = load i32, ptr %mNumScalingKeys65, align 8
-  %tobool66.not = icmp eq i32 %19, 0
+  %20 = load i32, ptr %mNumScalingKeys65, align 8
+  %tobool66.not = icmp eq i32 %20, 0
   br i1 %tobool66.not, label %if.then67, label %if.end93
 
 if.then67:                                        ; preds = %if.end64
   %mScalingKeys68 = getelementptr inbounds i8, ptr %2, i64 1064
-  %20 = load ptr, ptr %mScalingKeys68, align 8
-  %tobool69.not = icmp eq ptr %20, null
+  %21 = load ptr, ptr %mScalingKeys68, align 8
+  %tobool69.not = icmp eq ptr %21, null
   br i1 %tobool69.not, label %if.end76, label %delete.notnull73
 
 delete.notnull73:                                 ; preds = %if.then67
-  call void @_ZdaPv(ptr noundef nonnull %20) #11
+  call void @_ZdaPv(ptr noundef nonnull %21) #11
   store ptr null, ptr %mScalingKeys68, align 8
   br label %if.end76
 
@@ -632,18 +632,18 @@ if.end76:                                         ; preds = %delete.notnull73, %
 
 if.end93:                                         ; preds = %if.end64, %if.end76
   %mNumPositionKeys94 = getelementptr inbounds i8, ptr %2, i64 1028
-  %21 = load i32, ptr %mNumPositionKeys94, align 4
-  %tobool95.not = icmp eq i32 %21, 0
+  %22 = load i32, ptr %mNumPositionKeys94, align 4
+  %tobool95.not = icmp eq i32 %22, 0
   br i1 %tobool95.not, label %if.then96, label %for.inc125
 
 if.then96:                                        ; preds = %if.end93
   %mPositionKeys97 = getelementptr inbounds i8, ptr %2, i64 1032
-  %22 = load ptr, ptr %mPositionKeys97, align 8
-  %tobool98.not = icmp eq ptr %22, null
+  %23 = load ptr, ptr %mPositionKeys97, align 8
+  %tobool98.not = icmp eq ptr %23, null
   br i1 %tobool98.not, label %if.end105, label %delete.notnull102
 
 delete.notnull102:                                ; preds = %if.then96
-  call void @_ZdaPv(ptr noundef nonnull %22) #11
+  call void @_ZdaPv(ptr noundef nonnull %23) #11
   store ptr null, ptr %mPositionKeys97, align 8
   br label %if.end105
 
@@ -662,17 +662,17 @@ for.inc125:                                       ; preds = %lor.lhs.false41, %i
   %first.1134 = phi double [ %first.1143, %lor.lhs.false41 ], [ %first.1135, %if.end105 ], [ %first.1135, %if.end93 ], [ %first.1135, %if.then44 ]
   %last.1132 = phi double [ %last.1142, %lor.lhs.false41 ], [ %last.1133, %if.end105 ], [ %last.1133, %if.end93 ], [ %last.1133, %if.then44 ]
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %23 = load i32, ptr %mNumChannels, align 8
-  %24 = zext i32 %23 to i64
-  %cmp = icmp ult i64 %indvars.iv.next126, %24
+  %24 = load i32, ptr %mNumChannels, align 8
+  %25 = zext i32 %24 to i64
+  %cmp = icmp ult i64 %indvars.iv.next126, %25
   br i1 %cmp, label %for.body, label %for.end127, !llvm.loop !17
 
 for.end127:                                       ; preds = %for.inc125, %entry
   %last.0.lcssa = phi double [ -1.000000e+11, %entry ], [ %last.1132, %for.inc125 ]
   %first.0.lcssa = phi double [ 1.000000e+11, %entry ], [ %first.1134, %for.inc125 ]
   %mDuration128 = getelementptr inbounds i8, ptr %anim, i64 1032
-  %25 = load double, ptr %mDuration128, align 8
-  %cmp129 = fcmp oeq double %25, -1.000000e+00
+  %26 = load double, ptr %mDuration128, align 8
+  %cmp129 = fcmp oeq double %26, -1.000000e+00
   br i1 %cmp129, label %if.then130, label %if.end134
 
 if.then130:                                       ; preds = %for.end127

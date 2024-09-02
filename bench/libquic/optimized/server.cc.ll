@@ -481,14 +481,14 @@ lor.lhs.false16.i:                                ; preds = %if.end10.i
           to label %call17.i.noexc unwind label %lpad103
 
 call17.i.noexc:                                   ; preds = %lor.lhs.false16.i
-  %tobool.not.i.not = icmp eq i32 %call17.i89, 0
+  %tobool.not.i = icmp eq i32 %call17.i89, 0
   %call22.i = call i32 @fclose(ptr noundef nonnull %call.i)
   call void @free(ptr noundef nonnull %call7.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp98) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp89) #14
-  br i1 %tobool.not.i.not, label %if.then127, label %if.end140
+  br i1 %tobool.not.i, label %if.then127, label %if.end140
 
 if.then127.critedge104:                           ; preds = %lor.lhs.false.i, %if.end.i, %if.end6.i, %if.end10.i
   %data.0.ph.i.ph = phi ptr [ null, %lor.lhs.false.i ], [ null, %if.end.i ], [ null, %if.end6.i ], [ %call7.i, %if.end10.i ]

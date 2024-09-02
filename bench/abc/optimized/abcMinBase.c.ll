@@ -67,8 +67,8 @@ define range(i32 0, 2) i32 @Abc_NodeMinimumBase(ptr nocapture noundef %0) local_
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %130, %1
-  %ret.known.tr = phi i1 [ false, %1 ], [ true, %130 ]
+tailrecurse:                                      ; preds = %131, %1
+  %ret.known.tr = phi i1 [ false, %1 ], [ true, %131 ]
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 256
   %8 = load ptr, ptr %7, align 8
@@ -345,51 +345,54 @@ Vec_IntRemove.exit104:                            ; preds = %99, %.preheader.i89
   %.val82 = load i32, ptr %3, align 4
   %116 = sext i32 %.val82 to i64
   %117 = icmp slt i64 %indvars.iv.next161, %116
-  br i1 %117, label %.lr.ph139, label %.critedge, !llvm.loop !10
+  br i1 %117, label %.lr.ph139, label %.critedge.loopexit, !llvm.loop !10
 
-.critedge:                                        ; preds = %115, %.preheader113
-  %.070.lcssa = phi i32 [ 0, %.preheader113 ], [ %.171, %115 ]
-  %.069.lcssa = phi i32 [ 0, %.preheader113 ], [ %.1, %115 ]
+.critedge.loopexit:                               ; preds = %115
+  %118 = icmp eq i32 %.1, 0
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %.preheader113
+  %.070.lcssa = phi i32 [ 0, %.preheader113 ], [ %.171, %.critedge.loopexit ]
+  %.069.lcssa = phi i1 [ true, %.preheader113 ], [ %118, %.critedge.loopexit ]
   store i32 %.070.lcssa, ptr %3, align 4
-  %118 = load ptr, ptr %2, align 8
-  %119 = ptrtoint ptr %118 to i64
-  %120 = and i64 %119, -2
-  %121 = inttoptr i64 %120 to ptr
-  %122 = load i32, ptr %121, align 8
-  %123 = icmp eq i32 %122, 2147483647
-  br i1 %123, label %126, label %124
+  %119 = load ptr, ptr %2, align 8
+  %120 = ptrtoint ptr %119 to i64
+  %121 = and i64 %120, -2
+  %122 = inttoptr i64 %121 to ptr
+  %123 = load i32, ptr %122, align 8
+  %124 = icmp eq i32 %123, 2147483647
+  br i1 %124, label %127, label %125
 
-124:                                              ; preds = %.critedge
-  %125 = tail call ptr @Cudd_bddVectorCompose(ptr noundef %8, ptr noundef %118, ptr noundef %25) #15
-  store ptr %125, ptr %2, align 8
-  tail call void @Cudd_Ref(ptr noundef %125) #15
-  tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %118) #15
-  br label %126
+125:                                              ; preds = %.critedge
+  %126 = tail call ptr @Cudd_bddVectorCompose(ptr noundef %8, ptr noundef %119, ptr noundef %25) #15
+  store ptr %126, ptr %2, align 8
+  tail call void @Cudd_Ref(ptr noundef %126) #15
+  tail call void @Cudd_RecursiveDeref(ptr noundef %8, ptr noundef %119) #15
+  br label %127
 
-126:                                              ; preds = %124, %.critedge
-  %127 = load ptr, ptr %12, align 8
-  %.not.i105 = icmp eq ptr %127, null
-  br i1 %.not.i105, label %Vec_StrFree.exit106, label %128
+127:                                              ; preds = %125, %.critedge
+  %128 = load ptr, ptr %12, align 8
+  %.not.i105 = icmp eq ptr %128, null
+  br i1 %.not.i105, label %Vec_StrFree.exit106, label %129
 
-128:                                              ; preds = %126
-  tail call void @free(ptr noundef nonnull %127) #15
+129:                                              ; preds = %127
+  tail call void @free(ptr noundef nonnull %128) #15
   br label %Vec_StrFree.exit106
 
-Vec_StrFree.exit106:                              ; preds = %126, %128
+Vec_StrFree.exit106:                              ; preds = %127, %129
   tail call void @free(ptr noundef nonnull %9) #15
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %130, label %129
+  br i1 %.not, label %131, label %130
 
-129:                                              ; preds = %Vec_StrFree.exit106
+130:                                              ; preds = %Vec_StrFree.exit106
   tail call void @free(ptr noundef nonnull %25) #15
-  br label %130
+  br label %131
 
-130:                                              ; preds = %Vec_StrFree.exit106, %129
-  %.not76 = icmp eq i32 %.069.lcssa, 0
-  br i1 %.not76, label %.loopexit114, label %tailrecurse
+131:                                              ; preds = %Vec_StrFree.exit106, %130
+  br i1 %.069.lcssa, label %.loopexit114, label %tailrecurse
 
-.loopexit114:                                     ; preds = %130, %Vec_StrFree.exit
-  %.0 = phi i32 [ 0, %Vec_StrFree.exit ], [ 1, %130 ]
+.loopexit114:                                     ; preds = %131, %Vec_StrFree.exit
+  %.0 = phi i32 [ 0, %Vec_StrFree.exit ], [ 1, %131 ]
   %current.ret.tr111 = select i1 %ret.known.tr, i32 1, i32 %.0
   ret i32 %current.ret.tr111
 }

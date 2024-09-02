@@ -158,11 +158,11 @@ define hidden void @OGLRenderer_DrawPoly(ptr noundef readnone %0, i32 noundef %1
 
 10:                                               ; preds = %7
   tail call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str) #4
-  br label %65
+  br label %61
 
 11:                                               ; preds = %7
   %12 = icmp eq ptr %0, null
-  br i1 %12, label %65, label %13
+  br i1 %12, label %61, label %13
 
 13:                                               ; preds = %11
   %14 = load i32, ptr %5, align 4
@@ -175,91 +175,83 @@ define hidden void @OGLRenderer_DrawPoly(ptr noundef readnone %0, i32 noundef %1
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
-  %.057 = phi i8 [ 1, %.lr.ph.preheader ], [ %27, %25 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.057 = phi i1 [ true, %.lr.ph.preheader ], [ %narrow, %.lr.ph ]
   %17 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
-  %.not55 = icmp eq i8 %.057, 0
-  br i1 %.not55, label %25, label %21
-
-21:                                               ; preds = %.lr.ph
-  %22 = icmp eq i32 %18, %14
-  %23 = icmp eq i32 %20, %15
-  %24 = select i1 %22, i1 %23, i1 false
-  br label %25
-
-25:                                               ; preds = %21, %.lr.ph
-  %26 = phi i1 [ false, %.lr.ph ], [ %24, %21 ]
-  %27 = zext i1 %26 to i8
-  %28 = load ptr, ptr @j2d_glVertex2f, align 8
-  %29 = add nsw i32 %18, %3
-  %30 = sitofp i32 %29 to float
-  %31 = fadd float %30, 5.000000e-01
-  %32 = add nsw i32 %20, %4
-  %33 = sitofp i32 %32 to float
-  %34 = fadd float %33, 5.000000e-01
-  tail call void %28(float noundef %31, float noundef %34) #4
+  %21 = icmp eq i32 %18, %14
+  %22 = icmp eq i32 %20, %15
+  %23 = select i1 %.057, i1 %21, i1 false
+  %narrow = select i1 %23, i1 %22, i1 false
+  %24 = load ptr, ptr @j2d_glVertex2f, align 8
+  %25 = add nsw i32 %18, %3
+  %26 = sitofp i32 %25 to float
+  %27 = fadd float %26, 5.000000e-01
+  %28 = add nsw i32 %20, %4
+  %29 = sitofp i32 %28 to float
+  %30 = fadd float %29, 5.000000e-01
+  tail call void %24(float noundef %27, float noundef %30) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %25
-  %35 = icmp eq i32 %2, 0
-  %or.cond3 = select i1 %35, i1 true, i1 %26
-  br i1 %or.cond3, label %._crit_edge.thread, label %36
+._crit_edge:                                      ; preds = %.lr.ph
+  %31 = icmp eq i32 %2, 0
+  %or.cond3 = select i1 %31, i1 true, i1 %narrow
+  br i1 %or.cond3, label %._crit_edge.thread, label %32
 
-36:                                               ; preds = %._crit_edge
-  %37 = add nsw i32 %1, -1
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %5, i64 %38
-  %40 = load i32, ptr %39, align 4
-  %.not = icmp eq i32 %40, %14
-  br i1 %.not, label %41, label %44
+32:                                               ; preds = %._crit_edge
+  %33 = add nsw i32 %1, -1
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i32, ptr %5, i64 %34
+  %36 = load i32, ptr %35, align 4
+  %.not = icmp eq i32 %36, %14
+  br i1 %.not, label %37, label %40
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds i32, ptr %6, i64 %38
-  %43 = load i32, ptr %42, align 4
-  %.not54 = icmp eq i32 %43, %15
-  br i1 %.not54, label %64, label %44
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i32, ptr %6, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %.not54 = icmp eq i32 %39, %15
+  br i1 %.not54, label %60, label %40
 
-44:                                               ; preds = %41, %36
-  %45 = load ptr, ptr @j2d_glVertex2f, align 8
-  %46 = add nsw i32 %14, %3
-  %47 = sitofp i32 %46 to float
-  %48 = fadd float %47, 5.000000e-01
-  %49 = add nsw i32 %15, %4
-  %50 = sitofp i32 %49 to float
-  %51 = fadd float %50, 5.000000e-01
-  tail call void %45(float noundef %48, float noundef %51) #4
+40:                                               ; preds = %37, %32
+  %41 = load ptr, ptr @j2d_glVertex2f, align 8
+  %42 = add nsw i32 %14, %3
+  %43 = sitofp i32 %42 to float
+  %44 = fadd float %43, 5.000000e-01
+  %45 = add nsw i32 %15, %4
+  %46 = sitofp i32 %45 to float
+  %47 = fadd float %46, 5.000000e-01
+  tail call void %41(float noundef %44, float noundef %47) #4
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #4
-  br label %65
+  br label %61
 
 ._crit_edge.thread:                               ; preds = %13, %._crit_edge
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef 1) #4
-  %52 = add nsw i32 %1, -1
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %5, i64 %53
-  %55 = load i32, ptr %54, align 4
-  %56 = add nsw i32 %55, %3
-  %57 = getelementptr inbounds i32, ptr %6, i64 %53
-  %58 = load i32, ptr %57, align 4
-  %59 = add nsw i32 %58, %4
-  %60 = load ptr, ptr @j2d_glVertex2i, align 8
-  tail call void %60(i32 noundef %56, i32 noundef %59) #4
-  %61 = load ptr, ptr @j2d_glVertex2i, align 8
-  %62 = add nsw i32 %56, 1
-  %63 = add nsw i32 %59, 1
-  tail call void %61(i32 noundef %62, i32 noundef %63) #4
-  br label %65
+  %48 = add nsw i32 %1, -1
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i32, ptr %5, i64 %49
+  %51 = load i32, ptr %50, align 4
+  %52 = add nsw i32 %51, %3
+  %53 = getelementptr inbounds i32, ptr %6, i64 %49
+  %54 = load i32, ptr %53, align 4
+  %55 = add nsw i32 %54, %4
+  %56 = load ptr, ptr @j2d_glVertex2i, align 8
+  tail call void %56(i32 noundef %52, i32 noundef %55) #4
+  %57 = load ptr, ptr @j2d_glVertex2i, align 8
+  %58 = add nsw i32 %52, 1
+  %59 = add nsw i32 %55, 1
+  tail call void %57(i32 noundef %58, i32 noundef %59) #4
+  br label %61
 
-64:                                               ; preds = %41
+60:                                               ; preds = %37
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef -1) #4
-  br label %65
+  br label %61
 
-65:                                               ; preds = %._crit_edge.thread, %64, %11, %44, %10
+61:                                               ; preds = %._crit_edge.thread, %60, %11, %40, %10
   ret void
 }
 

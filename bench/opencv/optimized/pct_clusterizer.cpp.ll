@@ -843,11 +843,14 @@ _ZN2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl17joinCloseClustersERNS_
   %169 = add nuw nsw i32 %.01520.i, 1
   %170 = load i32, ptr %62, align 8
   %171 = icmp slt i32 %169, %170
-  br i1 %171, label %.lr.ph.i62, label %_ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERKNS_3MatES5_i.exit, !llvm.loop !15
+  br i1 %171, label %.lr.ph.i62, label %_ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERKNS_3MatES5_i.exit.loopexit, !llvm.loop !15
 
-_ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERKNS_3MatES5_i.exit: ; preds = %.noexc64, %.noexc63
-  %.0.lcssa.i = phi i32 [ 0, %.noexc63 ], [ %.1.i, %.noexc64 ]
-  %172 = sext i32 %.0.lcssa.i to i64
+_ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERKNS_3MatES5_i.exit.loopexit: ; preds = %.noexc64
+  %172 = sext i32 %.1.i to i64
+  br label %_ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERKNS_3MatES5_i.exit
+
+_ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERKNS_3MatES5_i.exit: ; preds = %_ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERKNS_3MatES5_i.exit.loopexit, %.noexc63
+  %.0.lcssa.i = phi i64 [ 0, %.noexc63 ], [ %172, %_ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERKNS_3MatES5_i.exit.loopexit ]
   br label %173
 
 173:                                              ; preds = %_ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERKNS_3MatES5_i.exit, %173
@@ -862,7 +865,7 @@ _ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERK
   %181 = load ptr, ptr %131, align 8
   %182 = load ptr, ptr %132, align 8
   %183 = load i64, ptr %182, align 8
-  %184 = mul i64 %183, %172
+  %184 = mul i64 %183, %.0.lcssa.i
   %185 = getelementptr inbounds i8, ptr %181, i64 %184
   %186 = getelementptr inbounds float, ptr %185, i64 %indvars.iv
   %187 = load float, ptr %186, align 4
@@ -928,7 +931,7 @@ _ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERK
   %196 = load ptr, ptr %133, align 8
   %197 = load ptr, ptr %134, align 8
   %198 = load i64, ptr %197, align 8
-  %199 = mul i64 %198, %172
+  %199 = mul i64 %198, %.0.lcssa.i
   %200 = getelementptr inbounds i8, ptr %196, i64 %199
   %201 = load float, ptr %200, align 4
   %202 = fadd float %201, 1.000000e+00
@@ -1003,12 +1006,15 @@ _ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERK
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %249 = sext i32 %248 to i64
   %250 = icmp slt i64 %indvars.iv.next130, %249
-  br i1 %250, label %206, label %._crit_edge, !llvm.loop !19
+  br i1 %250, label %206, label %._crit_edge.loopexit, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %247, %.preheader98
-  %.036.lcssa = phi i32 [ 0, %.preheader98 ], [ %.1, %247 ]
-  %251 = sext i32 %.036.lcssa to i64
-  invoke void @_ZN2cv3Mat6resizeEm(ptr noundef nonnull align 8 dereferenceable(96) %11, i64 noundef %251)
+._crit_edge.loopexit:                             ; preds = %247
+  %251 = sext i32 %.1 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader98
+  %.036.lcssa = phi i64 [ 0, %.preheader98 ], [ %251, %._crit_edge.loopexit ]
+  invoke void @_ZN2cv3Mat6resizeEm(ptr noundef nonnull align 8 dereferenceable(96) %11, i64 noundef %.036.lcssa)
           to label %252 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 252:                                              ; preds = %._crit_edge

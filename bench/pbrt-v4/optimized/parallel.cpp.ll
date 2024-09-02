@@ -2411,7 +2411,7 @@ _ZNSt8functionIFvN4pbrt7Bounds2IiEEEED2Ev.exit:   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4pbrt14AvailableCoresEv() local_unnamed_addr #3 {
+define dso_local noundef range(i32 1, -2147483648) i32 @_ZN4pbrt14AvailableCoresEv() local_unnamed_addr #3 {
 entry:
   %call = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #21
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %call, i32 1)
@@ -2438,7 +2438,7 @@ land.end:                                         ; preds = %entry
 
 if.then:                                          ; preds = %land.end
   %call.i = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #21
-  %.sroa.speculated.i = tail call noundef i32 @llvm.smax.i32(i32 %call.i, i32 1)
+  %.sroa.speculated.i = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %call.i, i32 1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.end

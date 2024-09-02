@@ -846,11 +846,11 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br i1 %exitcond.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .critedge.i.i:                                    ; preds = %179, %.lr.ph.i.i
-  %storemerge.idx.lcssa.i.i = phi i64 [ %storemerge.idx187.i.i, %.lr.ph.i.i ], [ %177, %179 ]
-  %storemerge.ptr.lcssa.i.i = phi ptr [ %storemerge.ptr188.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %179 ]
-  %180 = icmp eq ptr %storemerge.ptr.lcssa.i.i, %126
-  %181 = icmp ult i64 %storemerge.idx.lcssa.i.i, 5
-  %or.cond53.i.i = or i1 %181, %180
+  %storemerge.idx.lcssa.ph.i.i = phi i64 [ %storemerge.idx187.i.i, %.lr.ph.i.i ], [ %177, %179 ]
+  %storemerge.ptr.lcssa.ph.i.i = phi ptr [ %storemerge.ptr188.i.i, %.lr.ph.i.i ], [ %scevgep.i.i, %179 ]
+  %180 = icmp ult i64 %storemerge.idx.lcssa.ph.i.i, 5
+  %181 = icmp eq ptr %storemerge.ptr.lcssa.ph.i.i, %126
+  %or.cond53.i.i = or i1 %180, %181
   br i1 %or.cond53.i.i, label %.loopexit146.i.i, label %182
 
 182:                                              ; preds = %.critedge.i.i
@@ -1034,7 +1034,7 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit70.i.i: ; preds = %swi
   br label %.backedge.i.i, !llvm.loop !16
 
 251:                                              ; preds = %248
-  %252 = getelementptr inbounds i8, ptr %storemerge.ptr.lcssa.i.i, i64 1
+  %252 = getelementptr inbounds i8, ptr %storemerge.ptr.lcssa.ph.i.i, i64 1
   %253 = call fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm(ptr noundef nonnull %252, ptr noundef nonnull %126, ptr noundef nonnull %17), !noalias !8
   %254 = ptrtoint ptr %253 to i64
   %255 = icmp eq ptr %253, %126

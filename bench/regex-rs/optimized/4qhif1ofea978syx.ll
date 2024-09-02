@@ -1064,7 +1064,7 @@ define noundef zeroext i1 @"_ZN63_$LT$regex_syntax..debug..Bytes$u20$as$u20$core
   %.sroa.623.0130 = phi i64 [ %27, %.lr.ph ], [ %.sroa.623.0.be, %.backedge ]
   %.sroa.020.0129 = phi ptr [ %25, %.lr.ph ], [ %.sroa.020.0.be, %.backedge ]
   %.sroa.683.0.extract.trunc132.in = lshr i64 %52, 32
-  %.sroa.683.0.extract.trunc132 = trunc nuw i64 %.sroa.683.0.extract.trunc132.in to i32
+  %.sroa.683.0.extract.trunc132 = trunc nuw nsw i64 %.sroa.683.0.extract.trunc132.in to i32
   %trunc = trunc i64 %52 to i1
   br i1 %trunc, label %60, label %58
 
@@ -1148,9 +1148,9 @@ define noundef zeroext i1 @"_ZN63_$LT$regex_syntax..debug..Bytes$u20$as$u20$core
   unreachable
 
 72:                                               ; preds = %68
-  %73 = add i64 %52, -4294967296
+  %73 = add nsw i64 %52, -4294967296
   %or.cond = icmp ult i64 %73, 34359738368
-  %74 = add i64 %52, -60129542144
+  %74 = add nsw i64 %52, -60129542144
   %or.cond1 = icmp ult i64 %74, 51539607552
   %or.cond103 = or i1 %or.cond, %or.cond1
   br i1 %or.cond103, label %77, label %79
@@ -1310,7 +1310,7 @@ define noundef zeroext i1 @"_ZN63_$LT$regex_syntax..debug..Bytes$u20$as$u20$core
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @_ZN12regex_syntax5debug11utf8_decode17hba173251560b97f0E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 {
+define hidden range(i64 0, 9007194959773699) i64 @_ZN12regex_syntax5debug11utf8_decode17hba173251560b97f0E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %16, label %5

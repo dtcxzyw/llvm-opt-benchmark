@@ -510,8 +510,8 @@ land.lhs.true46:                                  ; preds = %land.lhs.true36
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %cf, ptr noundef nonnull @.str.12) #5
   %bf.load49.pre = load i64, ptr %verbose28, align 2
   %.pre = and i64 %bf.load49.pre, 536870912
-  %tobool53.not = icmp eq i64 %.pre, 0
-  br i1 %tobool53.not, label %do.end59, label %if.then54
+  %23 = icmp eq i64 %.pre, 0
+  br i1 %23, label %do.end59, label %if.then54
 
 if.then54:                                        ; preds = %land.lhs.true36, %land.lhs.true46
   %cmp55 = icmp ne i32 %cond43, 1
@@ -525,19 +525,19 @@ do.end59:                                         ; preds = %do.body24, %land.lh
   br i1 %tobool61.not, label %if.end63, label %return
 
 if.end63:                                         ; preds = %do.end59
-  %23 = load ptr, ptr %next, align 8
-  store ptr %23, ptr %0, align 8
-  %24 = load ptr, ptr %23, align 8
-  %do_connect = getelementptr inbounds i8, ptr %24, i64 24
-  %25 = load ptr, ptr %do_connect, align 8
-  %call = tail call i32 %25(ptr noundef nonnull %23, ptr noundef nonnull %data, i1 noundef zeroext %blocking, ptr noundef nonnull %done) #5
+  %24 = load ptr, ptr %next, align 8
+  store ptr %24, ptr %0, align 8
+  %25 = load ptr, ptr %24, align 8
+  %do_connect = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = load ptr, ptr %do_connect, align 8
+  %call = tail call i32 %26(ptr noundef nonnull %24, ptr noundef nonnull %data, i1 noundef zeroext %blocking, ptr noundef nonnull %done) #5
   %tobool15.not = icmp eq i32 %call, 0
   br i1 %tobool15.not, label %lor.lhs.false, label %return
 
 land.lhs.true67:                                  ; preds = %cond.end
   %bf.load70 = load i64, ptr %verbose28, align 2
-  %26 = and i64 %bf.load70, 536870912
-  %tobool74.not = icmp eq i64 %26, 0
+  %27 = and i64 %bf.load70, 536870912
+  %tobool74.not = icmp eq i64 %27, 0
   br i1 %tobool74.not, label %return, label %if.then75
 
 if.then75:                                        ; preds = %land.lhs.true67

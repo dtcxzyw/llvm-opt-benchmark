@@ -1209,17 +1209,17 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   ]
 
 Gia_ManFindRepr_rec.exit.loopexit:                ; preds = %tailrecurse.i
+  %21 = and i32 %.tr9.i, 268435455
   br label %Gia_ManFindRepr_rec.exit
 
 Gia_ManFindRepr_rec.exit:                         ; preds = %tailrecurse.i, %Gia_ManFindRepr_rec.exit.loopexit
-  %.0.i = phi i32 [ %.tr9.i, %Gia_ManFindRepr_rec.exit.loopexit ], [ 0, %tailrecurse.i ]
+  %.0.i = phi i32 [ %21, %Gia_ManFindRepr_rec.exit.loopexit ], [ %20, %tailrecurse.i ]
   %.val21 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val21, i64 %indvars.iv31
-  %22 = load i32, ptr %21, align 4
-  %23 = and i32 %.0.i, 268435455
-  %24 = and i32 %22, -268435456
-  %25 = or disjoint i32 %24, %23
-  store i32 %25, ptr %21, align 4
+  %22 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val21, i64 %indvars.iv31
+  %23 = load i32, ptr %22, align 4
+  %24 = and i32 %23, -268435456
+  %25 = or disjoint i32 %24, %.0.i
+  store i32 %25, ptr %22, align 4
   %.val.pre = load i32, ptr %3, align 8
   br label %26
 
@@ -1500,22 +1500,22 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %t
   %125 = getelementptr inbounds i32, ptr %20, i64 %124
   %126 = load i32, ptr %125, align 4
   switch i32 %126, label %tailrecurse.i.i [
-    i32 0, label %Gia_ManFindRepr_rec.exit.i.loopexit
-    i32 -1, label %Gia_ManFindRepr_rec.exit.i
+    i32 0, label %Gia_ManFindRepr_rec.exit.i
+    i32 -1, label %Gia_ManFindRepr_rec.exit.loopexit.i
   ]
 
-Gia_ManFindRepr_rec.exit.i.loopexit:              ; preds = %tailrecurse.i.i
+Gia_ManFindRepr_rec.exit.loopexit.i:              ; preds = %tailrecurse.i.i
+  %127 = and i32 %.tr9.i.i, 268435455
   br label %Gia_ManFindRepr_rec.exit.i
 
-Gia_ManFindRepr_rec.exit.i:                       ; preds = %tailrecurse.i.i, %Gia_ManFindRepr_rec.exit.i.loopexit
-  %.0.i.i = phi i32 [ %126, %Gia_ManFindRepr_rec.exit.i.loopexit ], [ %.tr9.i.i, %tailrecurse.i.i ]
+Gia_ManFindRepr_rec.exit.i:                       ; preds = %tailrecurse.i.i, %Gia_ManFindRepr_rec.exit.loopexit.i
+  %.0.i.i = phi i32 [ %127, %Gia_ManFindRepr_rec.exit.loopexit.i ], [ %126, %tailrecurse.i.i ]
   %.val21.i = load ptr, ptr %112, align 8
-  %127 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val21.i, i64 %indvars.iv31.i
-  %128 = load i32, ptr %127, align 4
-  %129 = and i32 %.0.i.i, 268435455
-  %130 = and i32 %128, -268435456
-  %131 = or disjoint i32 %130, %129
-  store i32 %131, ptr %127, align 4
+  %128 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val21.i, i64 %indvars.iv31.i
+  %129 = load i32, ptr %128, align 4
+  %130 = and i32 %129, -268435456
+  %131 = or disjoint i32 %130, %.0.i.i
+  store i32 %131, ptr %128, align 4
   %.val.pre.i = load i32, ptr %17, align 8
   br label %132
 
@@ -1814,7 +1814,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

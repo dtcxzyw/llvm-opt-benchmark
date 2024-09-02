@@ -1190,12 +1190,12 @@ define internal fastcc i32 @create_log_context(ptr nocapture noundef writeonly %
   %27 = load ptr, ptr %3, align 8
   %28 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %27, ptr noundef nonnull @.str.10, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %29 = icmp eq i32 %28, 1
-  br i1 %29, label %30, label %.thread
+  br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %24
   %31 = load i32, ptr %6, align 4
   %32 = icmp ult i32 %31, 2
-  br i1 %32, label %.thread, label %33
+  br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %30
   %34 = zext i32 %31 to i64
@@ -1205,9 +1205,9 @@ define internal fastcc i32 @create_log_context(ptr nocapture noundef writeonly %
   %38 = call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %34), !range !21
   %39 = icmp ugt i64 %38, 1
   %or.cond = select i1 %37, i1 true, i1 %39
-  br i1 %or.cond, label %.thread, label %42
+  br i1 %or.cond, label %.critedge, label %42
 
-.thread:                                          ; preds = %30, %33, %24
+.critedge:                                        ; preds = %33, %30, %24
   %40 = load ptr, ptr %3, align 8
   %41 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef %40) #18
   br label %166
@@ -1433,8 +1433,8 @@ define internal fastcc i32 @create_log_context(ptr nocapture noundef writeonly %
   store ptr %47, ptr %165, align 8
   br label %166
 
-166:                                              ; preds = %163, %160, %141, %119, %111, %100, %71, %49, %.thread, %22, %10
-  %167 = phi i32 [ -22, %10 ], [ -22, %22 ], [ -22, %.thread ], [ -22, %100 ], [ %113, %111 ], [ 0, %163 ], [ -12, %160 ], [ -12, %141 ], [ -12, %119 ], [ -12, %71 ], [ -12, %49 ]
+166:                                              ; preds = %163, %160, %141, %119, %111, %100, %71, %49, %.critedge, %22, %10
+  %167 = phi i32 [ -22, %10 ], [ -22, %22 ], [ -22, %.critedge ], [ -22, %100 ], [ %113, %111 ], [ 0, %163 ], [ -12, %160 ], [ -12, %141 ], [ -12, %119 ], [ -12, %71 ], [ -12, %49 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
   ret i32 %167

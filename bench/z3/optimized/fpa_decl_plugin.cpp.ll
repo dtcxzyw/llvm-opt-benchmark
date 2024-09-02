@@ -10466,12 +10466,12 @@ cond.false.i:                                     ; preds = %for.cond51
 if.end.i.i.i:                                     ; preds = %cond.false.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %30, i64 -4
   %31 = load i32, ptr %arrayidx.i.i.i, align 4
+  %32 = zext i32 %31 to i64
   br label %_ZNK4decl18get_num_parametersEv.exit
 
 _ZNK4decl18get_num_parametersEv.exit:             ; preds = %for.cond51, %cond.false.i, %if.end.i.i.i
-  %cond.i = phi i32 [ 0, %for.cond51 ], [ %31, %if.end.i.i.i ], [ 0, %cond.false.i ]
-  %32 = zext i32 %cond.i to i64
-  %cmp53 = icmp ult i64 %indvars.iv108, %32
+  %cond.i = phi i64 [ 0, %for.cond51 ], [ %32, %if.end.i.i.i ], [ 0, %cond.false.i ]
+  %cmp53 = icmp ult i64 %indvars.iv108, %cond.i
   br i1 %cmp53, label %for.body54, label %sw.epilog
 
 for.body54:                                       ; preds = %_ZNK4decl18get_num_parametersEv.exit
@@ -10536,12 +10536,12 @@ cond.false.i52:                                   ; preds = %for.cond84
 if.end.i.i.i55:                                   ; preds = %cond.false.i52
   %arrayidx.i.i.i56 = getelementptr inbounds i8, ptr %41, i64 -4
   %42 = load i32, ptr %arrayidx.i.i.i56, align 4
+  %43 = zext i32 %42 to i64
   br label %_ZNK4decl18get_num_parametersEv.exit58
 
 _ZNK4decl18get_num_parametersEv.exit58:           ; preds = %for.cond84, %cond.false.i52, %if.end.i.i.i55
-  %cond.i57 = phi i32 [ 0, %for.cond84 ], [ %42, %if.end.i.i.i55 ], [ 0, %cond.false.i52 ]
-  %43 = zext i32 %cond.i57 to i64
-  %cmp86 = icmp ult i64 %indvars.iv105, %43
+  %cond.i57 = phi i64 [ 0, %for.cond84 ], [ %43, %if.end.i.i.i55 ], [ 0, %cond.false.i52 ]
+  %cmp86 = icmp ult i64 %indvars.iv105, %cond.i57
   br i1 %cmp86, label %for.body87, label %sw.epilog
 
 for.body87:                                       ; preds = %_ZNK4decl18get_num_parametersEv.exit58

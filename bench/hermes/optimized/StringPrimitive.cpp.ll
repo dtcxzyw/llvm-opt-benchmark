@@ -4296,7 +4296,7 @@ return:                                           ; preds = %for.body.i.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK6hermes2vm15StringPrimitive7compareEPKS1_(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef %other) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZNK6hermes2vm15StringPrimitive7compareEPKS1_(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr noundef %other) local_unnamed_addr #0 align 2 {
 entry:
   %bf.load.i.i.i = load i32, ptr %this, align 4
   %0 = and i32 %bf.load.i.i.i, 16777216

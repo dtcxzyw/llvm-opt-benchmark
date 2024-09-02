@@ -936,9 +936,9 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit._crit_edge: ; preds = %_ZN3gmx22Uni
   %387 = getelementptr inbounds i8, ptr %1, i64 8
   br label %388
 
-388:                                              ; preds = %.lr.ph, %409
-  %indvars.iv279 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next280, %409 ]
-  %389 = phi i32 [ %385, %.lr.ph ], [ %413, %409 ]
+388:                                              ; preds = %.lr.ph, %410
+  %indvars.iv279 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next280, %410 ]
+  %389 = phi i32 [ %385, %.lr.ph ], [ %413, %410 ]
   %390 = load ptr, ptr %387, align 8
   %391 = getelementptr inbounds i32, ptr %390, i64 %indvars.iv279
   %392 = load i32, ptr %391, align 4
@@ -949,7 +949,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit._crit_edge: ; preds = %_ZN3gmx22Uni
   %397 = add nsw i32 %389, -1
   %398 = sext i32 %397 to i64
   %399 = icmp slt i64 %indvars.iv279, %398
-  br i1 %399, label %400, label %409
+  br i1 %399, label %400, label %410
 
 400:                                              ; preds = %388
   %401 = load ptr, ptr %92, align 8
@@ -960,11 +960,11 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit._crit_edge: ; preds = %_ZN3gmx22Uni
   %406 = sext i32 %405 to i64
   %407 = getelementptr inbounds float, ptr %403, i64 %406
   %408 = load float, ptr %407, align 4
-  br label %409
+  %409 = fpext float %408 to double
+  br label %410
 
-409:                                              ; preds = %388, %400
-  %410 = phi float [ %408, %400 ], [ 0.000000e+00, %388 ]
-  %411 = fpext float %410 to double
+410:                                              ; preds = %388, %400
+  %411 = phi double [ %409, %400 ], [ 0.000000e+00, %388 ]
   %412 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, double noundef %396, i32 noundef %392, double noundef %411) #23
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %413 = load i32, ptr %85, align 4
@@ -972,7 +972,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit._crit_edge: ; preds = %_ZN3gmx22Uni
   %415 = icmp slt i64 %indvars.iv.next280, %414
   br i1 %415, label %388, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %409, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit._crit_edge
+._crit_edge:                                      ; preds = %410, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit._crit_edge
   %.not155 = icmp eq ptr %.0122, null
   br i1 %.not155, label %417, label %416
 
@@ -4259,14 +4259,14 @@ _ZSt4sortIP6t_distPFbRKS0_S3_EEvT_S6_T0_.exit:    ; preds = %_ZSt25__unguarded_l
 
 ._crit_edge71.i:                                  ; preds = %._crit_edge67.us.i
   %215 = icmp sge i32 %.2.us.i, %3
+  %216 = uitofp i1 %215 to float
   br label %_ZL7jp_samePPiiii.exit
 
 _ZL7jp_samePPiiii.exit:                           ; preds = %184, %._crit_edge.i, %.preheader53.i, %._crit_edge61.i, %._crit_edge71.i
-  %.046.i = phi i1 [ %215, %._crit_edge71.i ], [ false, %._crit_edge.i ], [ false, %._crit_edge61.i ], [ false, %184 ], [ false, %.preheader53.i ]
-  %216 = uitofp i1 %.046.i to float
+  %.046.i = phi float [ %216, %._crit_edge71.i ], [ 0.000000e+00, %._crit_edge.i ], [ 0.000000e+00, %._crit_edge61.i ], [ 0.000000e+00, %184 ], [ 0.000000e+00, %.preheader53.i ]
   %217 = load ptr, ptr %183, align 8
   %218 = getelementptr inbounds float, ptr %217, i64 %indvars.iv351
-  store float %216, ptr %218, align 4
+  store float %.046.i, ptr %218, align 4
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
   %exitcond355.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count359
   br i1 %exitcond355.not, label %.loopexit262, label %184, !llvm.loop !58

@@ -190,7 +190,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @wait_for_random_bytes() #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @wait_for_random_bytes() #0 align 16 {
   %1 = alloca %struct.wait_queue_entry, align 8
   br label %2
 
@@ -327,12 +327,12 @@ define internal fastcc void @try_to_generate_entropy() unnamed_addr #2 align 16 
 36:                                               ; preds = %102, %31
   %37 = phi i32 [ -1, %31 ], [ %103, %102 ]
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @crng_is_ready, i1 true) #16
-          to label %.thread [label %38], !srcloc !6
+          to label %.critedge [label %38], !srcloc !6
 
 38:                                               ; preds = %36
   %39 = load i32, ptr @crng_init, align 4
   %40 = icmp ult i32 %39, 2
-  br i1 %40, label %41, label %.thread
+  br i1 %40, label %41, label %.critedge
 
 41:                                               ; preds = %38
   %42 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !12
@@ -340,13 +340,13 @@ define internal fastcc void @try_to_generate_entropy() unnamed_addr #2 align 16 
   %44 = load volatile i64, ptr %43, align 8
   %45 = and i64 %44, 131072
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %.thread, !prof !13
+  br i1 %46, label %47, label %.critedge, !prof !13
 
 47:                                               ; preds = %41
   %48 = load volatile i64, ptr %43, align 8
   %49 = and i64 %48, 4
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %51, label %.thread
+  br i1 %50, label %51, label %.critedge
 
 51:                                               ; preds = %47
   %52 = load volatile ptr, ptr %34, align 16
@@ -449,12 +449,12 @@ define internal fastcc void @try_to_generate_entropy() unnamed_addr #2 align 16 
   store i64 %108, ptr %5, align 64
   br label %36, !llvm.loop !24
 
-.thread:                                          ; preds = %41, %36, %47, %38
+.critedge:                                        ; preds = %36, %41, %47, %38
   call fastcc void @mix_pool_bytes(ptr noundef %5, i64 noundef 8)
   %109 = call i32 @timer_delete_sync(ptr noundef %33) #16
   br label %110
 
-110:                                              ; preds = %.thread, %25
+110:                                              ; preds = %.critedge, %25
   call void @llvm.lifetime.end.p0(i64 119, ptr nonnull %1) #16
   ret void
 }
@@ -1007,15 +1007,15 @@ define dso_local void @random_init_early(ptr noundef %0) local_unnamed_addr #2 s
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false), !annotation !7
   br label %3
 
-3:                                                ; preds = %.thread3, %1
-  %4 = phi i64 [ 0, %1 ], [ %30, %.thread3 ]
-  %5 = phi i64 [ 512, %1 ], [ %29, %.thread3 ]
+3:                                                ; preds = %.critedge4, %1
+  %4 = phi i64 [ 0, %1 ], [ %30, %.critedge4 ]
+  %5 = phi i64 [ 512, %1 ], [ %29, %.critedge4 ]
   br label %6
 
 6:                                                ; preds = %14, %3
   %7 = phi i64 [ %4, %3 ], [ %15, %14 ]
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 306, i32 4, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 78)) #16
-          to label %8 [label %8, label %.thread], !srcloc !45
+          to label %8 [label %8, label %.critedge], !srcloc !45
 
 8:                                                ; preds = %6, %6
   %9 = call { i8, i64 } asm sideeffect "rdseed $1\0A\09/* output condition code c*/\0A", "={@ccc},=r,~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !46
@@ -1025,7 +1025,7 @@ define dso_local void @random_init_early(ptr noundef %0) local_unnamed_addr #2 s
   call void @llvm.assume(i1 %12)
   store i64 %11, ptr %2, align 16
   %13 = icmp eq i8 %10, 0
-  br i1 %13, label %.thread, label %14
+  br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %27, %8
   call void @blake2s_update(ptr noundef nonnull @input_pool, ptr noundef nonnull %2, i64 noundef 8) #16
@@ -1033,11 +1033,11 @@ define dso_local void @random_init_early(ptr noundef %0) local_unnamed_addr #2 s
   %16 = icmp ult i64 %7, 7
   br i1 %16, label %6, label %.loopexit, !llvm.loop !47
 
-.thread:                                          ; preds = %6, %8
+.critedge:                                        ; preds = %6, %8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 158, i32 64, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 59)) #16
-          to label %.preheader [label %.preheader, label %.thread3], !srcloc !45
+          to label %.preheader [label %.preheader, label %.critedge4], !srcloc !45
 
-.preheader:                                       ; preds = %.thread, %.thread
+.preheader:                                       ; preds = %.critedge, %.critedge
   br label %17
 
 17:                                               ; preds = %.preheader, %17
@@ -1056,28 +1056,28 @@ define dso_local void @random_init_early(ptr noundef %0) local_unnamed_addr #2 s
 
 27:                                               ; preds = %17
   %28 = icmp eq i8 %20, 0
-  br i1 %28, label %.thread3, label %14
+  br i1 %28, label %.critedge4, label %14
 
-.thread3:                                         ; preds = %.thread, %27
+.critedge4:                                       ; preds = %.critedge, %27
   %29 = add i64 %5, -64
   %30 = add nuw nsw i64 %7, 1
   %31 = icmp ult i64 %7, 7
   br i1 %31, label %3, label %.loopexit, !llvm.loop !47
 
-.loopexit:                                        ; preds = %.thread3, %14
-  %32 = phi i64 [ %5, %14 ], [ %29, %.thread3 ]
+.loopexit:                                        ; preds = %.critedge4, %14
+  %32 = phi i64 [ %5, %14 ], [ %29, %.critedge4 ]
   call void @blake2s_update(ptr noundef nonnull @input_pool, ptr noundef nonnull @init_uts_ns, i64 noundef 390) #16
   %33 = call i64 @strlen(ptr noundef %0) #16
   call void @blake2s_update(ptr noundef nonnull @input_pool, ptr noundef %0, i64 noundef %33) #16
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @crng_is_ready, i1 true) #16
-          to label %.thread4 [label %34], !srcloc !6
+          to label %.thread [label %34], !srcloc !6
 
 34:                                               ; preds = %.loopexit
   %35 = load i32, ptr @crng_init, align 4
   %36 = icmp ult i32 %35, 2
-  br i1 %36, label %37, label %.thread4
+  br i1 %36, label %37, label %.thread
 
-.thread4:                                         ; preds = %.loopexit, %34
+.thread:                                          ; preds = %.loopexit, %34
   call void @crng_reseed(ptr poison)
   br label %41
 
@@ -1090,7 +1090,7 @@ define dso_local void @random_init_early(ptr noundef %0) local_unnamed_addr #2 s
   call fastcc void @_credit_init_bits(i64 noundef %32) #19
   br label %41
 
-41:                                               ; preds = %40, %37, %.thread4
+41:                                               ; preds = %40, %37, %.thread
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #16
   ret void
 }
@@ -2395,7 +2395,7 @@ define internal fastcc void @extract_entropy(ptr noundef %0) unnamed_addr #0 ali
   %8 = phi i64 [ 0, %1 ], [ %17, %16 ]
   %9 = getelementptr [4 x i64], ptr %6, i64 0, i64 %8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 306, i32 4, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 78)) #16
-          to label %10 [label %10, label %.thread], !srcloc !45
+          to label %10 [label %10, label %.critedge], !srcloc !45
 
 10:                                               ; preds = %7, %7
   %11 = tail call { i8, i64 } asm sideeffect "rdseed $1\0A\09/* output condition code c*/\0A", "={@ccc},=r,~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !46
@@ -2405,18 +2405,18 @@ define internal fastcc void @extract_entropy(ptr noundef %0) unnamed_addr #0 ali
   tail call void @llvm.assume(i1 %14)
   store i64 %13, ptr %9, align 8
   %15 = icmp eq i8 %12, 0
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.critedge, label %16
 
-16:                                               ; preds = %29, %10, %.thread2
+16:                                               ; preds = %29, %10, %.critedge3
   %17 = add nuw nsw i64 %8, 1
   %18 = icmp ult i64 %8, 3
   br i1 %18, label %7, label %36, !llvm.loop !76
 
-.thread:                                          ; preds = %7, %10
+.critedge:                                        ; preds = %7, %10
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 158, i32 64, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 59)) #16
-          to label %.preheader [label %.preheader, label %.thread2], !srcloc !45
+          to label %.preheader [label %.preheader, label %.critedge3], !srcloc !45
 
-.preheader:                                       ; preds = %.thread, %.thread
+.preheader:                                       ; preds = %.critedge, %.critedge
   br label %19
 
 19:                                               ; preds = %.preheader, %19
@@ -2435,9 +2435,9 @@ define internal fastcc void @extract_entropy(ptr noundef %0) unnamed_addr #0 ali
 
 29:                                               ; preds = %19
   %30 = icmp eq i8 %22, 0
-  br i1 %30, label %.thread2, label %16
+  br i1 %30, label %.critedge3, label %16
 
-.thread2:                                         ; preds = %.thread, %29
+.critedge3:                                       ; preds = %.critedge, %29
   %31 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !8
   %32 = extractvalue { i64, i64 } %31, 0
   %33 = extractvalue { i64, i64 } %31, 1
@@ -2841,7 +2841,7 @@ define internal fastcc i64 @get_random_bytes_user(ptr noundef %0) unnamed_addr #
   %27 = icmp eq i64 %26, 0
   %28 = icmp ne i64 %24, 64
   %29 = select i1 %27, i1 true, i1 %28
-  br i1 %29, label %.thread, label %30
+  br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %23
   %31 = and i64 %25, 4032
@@ -2854,13 +2854,13 @@ define internal fastcc i64 @get_random_bytes_user(ptr noundef %0) unnamed_addr #
   %36 = load volatile i64, ptr %35, align 8
   %37 = and i64 %36, 131072
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %.thread, !prof !13
+  br i1 %38, label %39, label %.critedge, !prof !13
 
 39:                                               ; preds = %33
   %40 = load volatile i64, ptr %35, align 8
   %41 = and i64 %40, 4
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %.thread
+  br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %39
   %44 = call i32 @__SCT__cond_resched() #16
@@ -2869,13 +2869,13 @@ define internal fastcc i64 @get_random_bytes_user(ptr noundef %0) unnamed_addr #
 .backedge:                                        ; preds = %43, %30
   br label %16, !llvm.loop !79
 
-.thread:                                          ; preds = %33, %39, %23
+.critedge:                                        ; preds = %33, %39, %23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3) #16, !srcloc !25
   br label %45
 
-45:                                               ; preds = %.thread, %14
-  %46 = phi i64 [ %25, %.thread ], [ %15, %14 ]
+45:                                               ; preds = %.critedge, %14
+  %46 = phi i64 [ %25, %.critedge ], [ %15, %14 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #16, !srcloc !25
   %47 = icmp eq i64 %46, 0
@@ -2919,7 +2919,7 @@ define internal fastcc i64 @write_pool_user(ptr noundef %0) unnamed_addr #0 alig
   %11 = icmp eq i64 %10, 0
   %12 = icmp ne i64 %7, 64
   %13 = or i1 %12, %11
-  br i1 %13, label %.thread, label %14
+  br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %.preheader
   %15 = and i64 %8, 4032
@@ -2932,13 +2932,13 @@ define internal fastcc i64 @write_pool_user(ptr noundef %0) unnamed_addr #0 alig
   %20 = load volatile i64, ptr %19, align 8
   %21 = and i64 %20, 131072
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %.thread, !prof !13
+  br i1 %22, label %23, label %.critedge, !prof !13
 
 23:                                               ; preds = %17
   %24 = load volatile i64, ptr %19, align 8
   %25 = and i64 %24, 4
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %27, label %.thread
+  br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %23
   %28 = call i32 @__SCT__cond_resched() #16
@@ -2947,15 +2947,15 @@ define internal fastcc i64 @write_pool_user(ptr noundef %0) unnamed_addr #0 alig
 .preheader.backedge:                              ; preds = %27, %14
   br label %.preheader, !llvm.loop !80
 
-.thread:                                          ; preds = %17, %23, %.preheader
+.critedge:                                        ; preds = %17, %23, %.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %2) #16, !srcloc !25
   %29 = icmp eq i64 %8, 0
   %30 = select i1 %29, i64 -14, i64 %8
   br label %31
 
-31:                                               ; preds = %.thread, %1
-  %32 = phi i64 [ %30, %.thread ], [ 0, %1 ]
+31:                                               ; preds = %.critedge, %1
+  %32 = phi i64 [ %30, %.critedge ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #16
   ret i64 %32
 }

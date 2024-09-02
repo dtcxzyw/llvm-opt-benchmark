@@ -2985,21 +2985,21 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider10threadLoopESt10shared_ptrINS0_21DefaultThreadPoolDataEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %data) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data.val536 = load ptr, ptr %data, align 8
-  tail call void @_ZN13IlmThread_3_29Semaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(40) %data.val536)
-  %data.val437 = load ptr, ptr %data, align 8
-  %_taskMutex38 = getelementptr inbounds i8, ptr %data.val437, i64 40
-  %call1.i.i.i.i39 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %_taskMutex38) #25
-  %tobool.not.i.i.i40 = icmp eq i32 %call1.i.i.i.i39, 0
-  br i1 %tobool.not.i.i.i40, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
+  %data.val531 = load ptr, ptr %data, align 8
+  tail call void @_ZN13IlmThread_3_29Semaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(40) %data.val531)
+  %data.val432 = load ptr, ptr %data, align 8
+  %_taskMutex33 = getelementptr inbounds i8, ptr %data.val432, i64 40
+  %call1.i.i.i.i34 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %_taskMutex33) #25
+  %tobool.not.i.i.i35 = icmp eq i32 %call1.i.i.i.i34, 0
+  br i1 %tobool.not.i.i.i35, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit21, %entry
-  %call1.i.i.i.i.lcssa = phi i32 [ %call1.i.i.i.i39, %entry ], [ %call1.i.i.i.i, %_ZNSt11unique_lockISt5mutexED2Ev.exit21 ]
+if.then.i.i.i:                                    ; preds = %while.body.backedge, %entry
+  %call1.i.i.i.i.lcssa = phi i32 [ %call1.i.i.i.i34, %entry ], [ %call1.i.i.i.i, %while.body.backedge ]
   tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i.lcssa) #29
   unreachable
 
-_ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry, %_ZNSt11unique_lockISt5mutexED2Ev.exit21
-  %_taskMutex41 = phi ptr [ %_taskMutex, %_ZNSt11unique_lockISt5mutexED2Ev.exit21 ], [ %_taskMutex38, %entry ]
+_ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry, %while.body.backedge
+  %_taskMutex36 = phi ptr [ %_taskMutex, %while.body.backedge ], [ %_taskMutex33, %entry ]
   %data.val3 = load ptr, ptr %data, align 8
   %_tasks = getelementptr inbounds i8, ptr %data.val3, i64 80
   %0 = load ptr, ptr %_tasks, align 8
@@ -3012,9 +3012,9 @@ invoke.cont:                                      ; preds = %_ZNSt11unique_lockI
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %2 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i, align 8
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %_taskMutex41) #25
+  %call1.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %_taskMutex36) #25
   %tobool.not.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit21, label %if.then.i8
+  br i1 %tobool.not.i, label %while.body.backedge, label %if.then.i8
 
 if.then.i8:                                       ; preds = %invoke.cont
   %_group.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -3028,7 +3028,7 @@ if.then.i8:                                       ; preds = %invoke.cont
   %5 = load ptr, ptr %vfn2.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
   %tobool3.not.i = icmp eq ptr %3, null
-  br i1 %tobool3.not.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit21, label %if.then4.i
+  br i1 %tobool3.not.i, label %while.body.backedge, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i8
   %6 = load ptr, ptr %3, align 8
@@ -3044,16 +3044,16 @@ if.then.i.i.i9:                                   ; preds = %if.then4.i
 _ZN13IlmThread_3_29TaskGroup13finishOneTaskEv.exit.i: ; preds = %if.then.i.i.i9, %if.then4.i
   %inFlight.i.i.i = getelementptr inbounds i8, ptr %6, i64 4
   %8 = atomicrmw sub ptr %inFlight.i.i.i, i32 1 seq_cst, align 4
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit21
+  br label %while.body.backedge
 
 if.else:                                          ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %_stopping.i = getelementptr inbounds i8, ptr %data.val3, i64 172
   %9 = load atomic i8, ptr %_stopping.i monotonic, align 1
   %tobool.i.i.i = trunc i8 %9 to i1
-  %call1.i.i.i.i20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %_taskMutex41) #25
-  br i1 %tobool.i.i.i, label %while.end, label %_ZNSt11unique_lockISt5mutexED2Ev.exit21
+  %call1.i.i.i.i20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %_taskMutex36) #25
+  br i1 %tobool.i.i.i, label %while.end, label %while.body.backedge
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit21:          ; preds = %if.else, %_ZN13IlmThread_3_29TaskGroup13finishOneTaskEv.exit.i, %if.then.i8, %invoke.cont
+while.body.backedge:                              ; preds = %invoke.cont, %if.then.i8, %_ZN13IlmThread_3_29TaskGroup13finishOneTaskEv.exit.i, %if.else
   %data.val5 = load ptr, ptr %data, align 8
   tail call void @_ZN13IlmThread_3_29Semaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(40) %data.val5)
   %data.val4 = load ptr, ptr %data, align 8

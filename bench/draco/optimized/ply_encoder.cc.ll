@@ -343,13 +343,13 @@ define noundef zeroext i1 @_ZN5draco10PlyEncoder14EncodeInternalEv(ptr nocapture
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 24
   %61 = load i8, ptr %60, align 8
-  %.not79 = icmp eq i8 %61, 2
+  %.fr = freeze i8 %61
+  %.not79 = icmp eq i8 %.fr, 2
   %spec.select84 = select i1 %.not79, i32 %32, i32 -1
   br label %62
 
 62:                                               ; preds = %53, %51
   %.071 = phi i32 [ %32, %51 ], [ %spec.select84, %53 ]
-  %.071.fr = freeze i32 %.071
   %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.3)
           to label %64 unwind label %38
 
@@ -823,7 +823,7 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit102: ; preds = %256, %255, %25
           to label %284 unwind label %38
 
 284:                                              ; preds = %282
-  %285 = icmp sgt i32 %.071.fr, -1
+  %285 = icmp sgt i32 %.071, -1
   br i1 %285, label %286, label %305
 
 286:                                              ; preds = %284
@@ -833,7 +833,7 @@ _ZN5draco10PlyEncoder20GetAttributeDataTypeEi.exit102: ; preds = %256, %255, %25
 288:                                              ; preds = %286
   %289 = load ptr, ptr %17, align 8
   %290 = getelementptr inbounds i8, ptr %289, i64 16
-  %291 = zext nneg i32 %.071.fr to i64
+  %291 = zext nneg i32 %.071 to i64
   %292 = load ptr, ptr %290, align 8
   %293 = getelementptr inbounds %"class.std::unique_ptr.62", ptr %292, i64 %291
   %294 = load ptr, ptr %293, align 8
@@ -1115,9 +1115,9 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit114:     ; preds = %423, %427, %_ZN5dra
 
 .lr.ph155:                                        ; preds = %.preheader
   %456 = getelementptr inbounds i8, ptr %4, i64 1
-  %457 = icmp sgt i32 %.071.fr, -1
+  %457 = icmp sgt i32 %.071, -1
   %458 = getelementptr inbounds i8, ptr %5, i64 1
-  %459 = zext nneg i32 %.071.fr to i64
+  %459 = zext nneg i32 %.071 to i64
   br i1 %457, label %.lr.ph155.split.us, label %.lr.ph155.split
 
 .lr.ph155.split.us:                               ; preds = %.lr.ph155, %.loopexit.us

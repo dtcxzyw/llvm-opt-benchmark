@@ -321,112 +321,105 @@ sub_0.lr.ph:                                      ; preds = %20
   %28 = ptrtoint ptr %26 to i64
   br label %sub_0
 
-sub_0:                                            ; preds = %sub_0.lr.ph, %76
-  %.02337 = phi i32 [ %14, %sub_0.lr.ph ], [ %77, %76 ]
+sub_0:                                            ; preds = %sub_0.lr.ph, %71
+  %.02337 = phi i32 [ %14, %sub_0.lr.ph ], [ %72, %71 ]
   %29 = load ptr, ptr %22, align 8
   %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  %32 = add nsw i32 %31, -67
-  %.not38 = icmp eq i32 %32, 0
-  br i1 %.not38, label %sub_1, label %.tail
+  %.not38 = icmp eq i8 %30, 67
+  br i1 %.not38, label %.tail, label %.tail.thread
 
-sub_1:                                            ; preds = %sub_0
-  %33 = getelementptr inbounds i8, ptr %29, i64 1
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  br label %.tail
+.tail:                                            ; preds = %sub_0
+  %31 = getelementptr inbounds i8, ptr %29, i64 1
+  %32 = load i8, ptr %31, align 1
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %71, label %.tail.thread
 
-.tail:                                            ; preds = %sub_0, %sub_1
-  %36 = phi i32 [ %32, %sub_0 ], [ %35, %sub_1 ]
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %76, label %38
+.tail.thread:                                     ; preds = %sub_0, %.tail
+  %34 = load ptr, ptr %23, align 8
+  %.not28 = icmp eq ptr %34, null
+  br i1 %.not28, label %38, label %35
 
-38:                                               ; preds = %.tail
-  %39 = load ptr, ptr %23, align 8
-  %.not28 = icmp eq ptr %39, null
-  br i1 %.not28, label %43, label %40
+35:                                               ; preds = %.tail.thread
+  %36 = load ptr, ptr %24, align 8
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #6
+  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef %36, i64 noundef %37)
+  br label %38
 
-40:                                               ; preds = %38
-  %41 = load ptr, ptr %24, align 8
-  %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #6
-  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef %41, i64 noundef %42)
-  br label %43
+38:                                               ; preds = %35, %.tail.thread
+  %39 = load i32, ptr %25, align 4
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %.preheader, label %57
 
-43:                                               ; preds = %40, %38
-  %44 = load i32, ptr %25, align 4
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.preheader, label %62
-
-.preheader:                                       ; preds = %43, %.preheader
-  %.035 = phi i32 [ %50, %.preheader ], [ %44, %43 ]
-  %.02234 = phi ptr [ %49, %.preheader ], [ %26, %43 ]
-  %46 = urem i32 %.035, 10
-  %47 = trunc nuw nsw i32 %46 to i8
-  %48 = or disjoint i8 %47, 48
-  %49 = getelementptr inbounds i8, ptr %.02234, i64 -1
-  store i8 %48, ptr %49, align 1
-  %50 = udiv i32 %.035, 10
+.preheader:                                       ; preds = %38, %.preheader
+  %.035 = phi i32 [ %45, %.preheader ], [ %39, %38 ]
+  %.02234 = phi ptr [ %44, %.preheader ], [ %26, %38 ]
+  %41 = urem i32 %.035, 10
+  %42 = trunc nuw nsw i32 %41 to i8
+  %43 = or disjoint i8 %42, 48
+  %44 = getelementptr inbounds i8, ptr %.02234, i64 -1
+  store i8 %43, ptr %44, align 1
+  %45 = udiv i32 %.035, 10
   %.not29 = icmp ult i32 %.035, 10
-  br i1 %.not29, label %51, label %.preheader, !llvm.loop !7
+  br i1 %.not29, label %46, label %.preheader, !llvm.loop !7
 
-51:                                               ; preds = %.preheader
-  %52 = load ptr, ptr %2, align 8
-  %53 = load ptr, ptr %27, align 8
-  %54 = icmp ult ptr %52, %53
-  br i1 %54, label %57, label %55
+46:                                               ; preds = %.preheader
+  %47 = load ptr, ptr %2, align 8
+  %48 = load ptr, ptr %27, align 8
+  %49 = icmp ult ptr %47, %48
+  br i1 %49, label %52, label %50
 
-55:                                               ; preds = %51
-  %56 = call noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef nonnull %2, i64 noundef 1)
+50:                                               ; preds = %46
+  %51 = call noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef nonnull %2, i64 noundef 1)
   %.pre = load ptr, ptr %2, align 8
+  br label %52
+
+52:                                               ; preds = %50, %46
+  %53 = phi ptr [ %.pre, %50 ], [ %47, %46 ]
+  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  store ptr %54, ptr %2, align 8
+  store i8 58, ptr %53, align 1
+  %55 = ptrtoint ptr %44 to i64
+  %56 = sub i64 %28, %55
+  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef nonnull %44, i64 noundef %56)
   br label %57
 
-57:                                               ; preds = %55, %51
-  %58 = phi ptr [ %.pre, %55 ], [ %52, %51 ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
-  store ptr %59, ptr %2, align 8
-  store i8 58, ptr %58, align 1
-  %60 = ptrtoint ptr %49 to i64
-  %61 = sub i64 %28, %60
-  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef nonnull %49, i64 noundef %61)
+57:                                               ; preds = %52, %38
+  %58 = load ptr, ptr %3, align 8
+  %.not30 = icmp eq ptr %58, null
+  br i1 %.not30, label %62, label %59
+
+59:                                               ; preds = %57
+  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef nonnull @.str.11, i64 noundef 10)
+  %60 = load ptr, ptr %3, align 8
+  %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #6
+  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef %60, i64 noundef %61)
   br label %62
 
-62:                                               ; preds = %57, %43
-  %63 = load ptr, ptr %3, align 8
-  %.not30 = icmp eq ptr %63, null
-  br i1 %.not30, label %67, label %64
+62:                                               ; preds = %59, %57
+  %63 = load ptr, ptr %2, align 8
+  %64 = load ptr, ptr %27, align 8
+  %65 = icmp ult ptr %63, %64
+  br i1 %65, label %68, label %66
 
-64:                                               ; preds = %62
-  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef nonnull @.str.11, i64 noundef 10)
-  %65 = load ptr, ptr %3, align 8
-  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #6
-  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %2, ptr noundef %65, i64 noundef %66)
-  br label %67
-
-67:                                               ; preds = %64, %62
-  %68 = load ptr, ptr %2, align 8
-  %69 = load ptr, ptr %27, align 8
-  %70 = icmp ult ptr %68, %69
-  br i1 %70, label %73, label %71
-
-71:                                               ; preds = %67
-  %72 = call noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef nonnull %2, i64 noundef 1)
+66:                                               ; preds = %62
+  %67 = call noundef ptr @_Z17luaL_prepbuffsizeP11luaL_Strbufm(ptr noundef nonnull %2, i64 noundef 1)
   %.pre39 = load ptr, ptr %2, align 8
-  br label %73
+  br label %68
 
-73:                                               ; preds = %71, %67
-  %74 = phi ptr [ %.pre39, %71 ], [ %68, %67 ]
-  %75 = getelementptr inbounds i8, ptr %74, i64 1
-  store ptr %75, ptr %2, align 8
-  store i8 10, ptr %74, align 1
-  br label %76
+68:                                               ; preds = %66, %62
+  %69 = phi ptr [ %.pre39, %66 ], [ %63, %62 ]
+  %70 = getelementptr inbounds i8, ptr %69, i64 1
+  store ptr %70, ptr %2, align 8
+  store i8 10, ptr %69, align 1
+  br label %71
 
-76:                                               ; preds = %.tail, %73
-  %77 = add nuw nsw i32 %.02337, 1
-  %78 = call noundef i32 @_Z11lua_getinfoP9lua_StateiPKcP9lua_Debug(ptr noundef %.0.i, i32 noundef %77, ptr noundef nonnull @.str.9, ptr noundef nonnull %3)
-  %.not27 = icmp eq i32 %78, 0
+71:                                               ; preds = %.tail, %68
+  %72 = add nuw nsw i32 %.02337, 1
+  %73 = call noundef i32 @_Z11lua_getinfoP9lua_StateiPKcP9lua_Debug(ptr noundef %.0.i, i32 noundef %72, ptr noundef nonnull @.str.9, ptr noundef nonnull %3)
+  %.not27 = icmp eq i32 %73, 0
   br i1 %.not27, label %._crit_edge, label %sub_0, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %76, %20
+._crit_edge:                                      ; preds = %71, %20
   call void @_Z15luaL_pushresultP11luaL_Strbuf(ptr noundef nonnull %2)
   ret i32 1
 }

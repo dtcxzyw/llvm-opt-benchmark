@@ -2531,23 +2531,23 @@ define internal fastcc void @psh_glyph_interpolate_other_points(ptr nocapture no
   %85 = getelementptr inbounds i8, ptr %.4.lcssa.sink, i64 64
   %86 = load i64, ptr %85, align 8
   %87 = icmp sgt i64 %.090, 0
-  br i1 %87, label %88, label %91
+  br i1 %87, label %88, label %92
 
 88:                                               ; preds = %84
   %89 = sub nsw i64 %86, %.sink178
   %90 = tail call i64 @FT_DivFix(i64 noundef %89, i64 noundef %.090) #12
+  %sext124 = shl i64 %90, 32
+  %91 = ashr exact i64 %sext124, 32
   %.pre = load ptr, ptr %68, align 8
-  br label %91
+  br label %92
 
-91:                                               ; preds = %88, %84
-  %92 = phi ptr [ %.pre, %88 ], [ %62, %84 ]
-  %.0 = phi i64 [ %90, %88 ], [ 65536, %84 ]
-  %sext124 = shl i64 %.0, 32
-  %93 = ashr exact i64 %sext124, 32
+92:                                               ; preds = %88, %84
+  %93 = phi ptr [ %.pre, %88 ], [ %62, %84 ]
+  %.0 = phi i64 [ %91, %88 ], [ 65536, %84 ]
   br label %94
 
-94:                                               ; preds = %128, %91
-  %.296 = phi ptr [ %92, %91 ], [ %131, %128 ]
+94:                                               ; preds = %128, %92
+  %.296 = phi ptr [ %93, %92 ], [ %131, %128 ]
   %95 = getelementptr inbounds i8, ptr %.296, i64 48
   %96 = load i64, ptr %95, align 8
   %97 = sub nsw i64 %96, %.091
@@ -2586,7 +2586,7 @@ define internal fastcc void @psh_glyph_interpolate_other_points(ptr nocapture no
 119:                                              ; preds = %108
   %sext123 = shl i64 %97, 32
   %120 = ashr exact i64 %sext123, 32
-  %121 = mul nsw i64 %120, %93
+  %121 = mul nsw i64 %120, %.0
   %122 = ashr i64 %121, 63
   %123 = add nsw i64 %121, 32768
   %124 = add nsw i64 %123, %122

@@ -520,14 +520,14 @@ if.end166:                                        ; preds = %if.end162
 
 land.lhs.true168:                                 ; preds = %if.end166
   %call169 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %17) #11
-  %cmp170 = icmp eq i32 %call169, 65538
+  %call169.fr = freeze i32 %call169
+  %cmp170 = icmp eq i32 %call169.fr, 65538
   %not.cmp170 = xor i1 %cmp170, true
   br label %if.end173
 
 if.end173:                                        ; preds = %land.lhs.true168, %if.end166
   %tobool226 = phi i1 [ false, %if.end166 ], [ %cmp170, %land.lhs.true168 ]
   %cmp493 = phi i1 [ true, %if.end166 ], [ %not.cmp170, %land.lhs.true168 ]
-  %tobool226.fr = freeze i1 %tobool226
   %cmp174.not = icmp eq ptr %digestname.0, null
   br i1 %cmp174.not, label %if.end181, label %if.then176
 
@@ -580,7 +580,7 @@ if.end206:                                        ; preds = %if.then198, %if.end
 
 if.then225:                                       ; preds = %if.end206
   %cmp228 = icmp ne i32 %printkey.0, 2
-  %or.cond5 = select i1 %tobool226.fr, i1 %cmp228, i1 false
+  %or.cond5 = select i1 %tobool226, i1 %cmp228, i1 false
   br i1 %or.cond5, label %if.then230, label %if.end232
 
 if.then230:                                       ; preds = %if.then225
@@ -933,7 +933,7 @@ if.end508:                                        ; preds = %if.end507, %if.end4
 
 if.end514:                                        ; preds = %if.end508
   %call515 = call i64 @BIO_ctrl(ptr noundef nonnull %call510, i32 noundef 129, i64 noundef 0, ptr noundef nonnull %ctx) #11
-  br i1 %tobool226.fr, label %if.then518, label %if.end519
+  br i1 %tobool226, label %if.then518, label %if.end519
 
 if.then518:                                       ; preds = %if.end514
   %61 = load ptr, ptr %ctx, align 8
@@ -967,7 +967,7 @@ if.then527:                                       ; preds = %if.end525
 
 if.end529:                                        ; preds = %if.then527, %if.end525
   %68 = load ptr, ptr %ctx, align 8
-  %or.cond11 = and i1 %cmp466.not481, %tobool226.fr
+  %or.cond11 = and i1 %cmp466.not481, %tobool226
   %cond540 = select i1 %or.cond11, ptr null, ptr %iv
   %call541 = call i32 @EVP_CipherInit_ex(ptr noundef %68, ptr noundef null, ptr noundef null, ptr noundef nonnull %key, ptr noundef %cond540, i32 noundef %enc.0) #11
   %tobool542.not = icmp eq i32 %call541, 0
@@ -1092,7 +1092,7 @@ if.then611:                                       ; preds = %if.end602, %if.end5
 if.end613:                                        ; preds = %if.end348, %if.then611
   %benc.1173 = phi ptr [ %call510, %if.then611 ], [ null, %if.end348 ]
   %wbio.3 = phi ptr [ %call612, %if.then611 ], [ %wbio.2, %if.end348 ]
-  br i1 %tobool226.fr, label %while.cond614.us, label %while.cond614, !llvm.loop !11
+  br i1 %tobool226, label %while.cond614.us, label %while.cond614, !llvm.loop !11
 
 while.cond614.us:                                 ; preds = %if.end613
   %call615.us = call i64 @BIO_ctrl(ptr noundef %rbio.2, i32 noundef 10, i64 noundef 0, ptr noundef null) #11

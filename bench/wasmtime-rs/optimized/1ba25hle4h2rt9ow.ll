@@ -18,9 +18,9 @@ define noundef ptr @_ZN3std2io5Write9write_all17hea0c9108904a85deE(ptr align 4 %
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   br label %7
 
-7:                                                ; preds = %.lr.ph, %29
-  %.sroa.0.023 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.133, %29 ]
-  %.sroa.4.022 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.132, %29 ]
+7:                                                ; preds = %.lr.ph, %30
+  %.sroa.0.023 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.133, %30 ]
+  %.sroa.4.022 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.132, %30 ]
   %8 = icmp ne ptr %.sroa.0.023, null
   call void @llvm.assume(i1 %8)
   call void @"_ZN59_$LT$std..process..ChildStdin$u20$as$u20$std..io..Write$GT$5write17h7f25ed29b4543879E"(ptr nonnull sret({ i64, [1 x i64] }) align 8 %4, ptr align 4 %0, ptr nonnull align 1 %.sroa.0.023, i64 %.sroa.4.022)
@@ -28,8 +28,8 @@ define noundef ptr @_ZN3std2io5Write9write_all17hea0c9108904a85deE(ptr align 4 %
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %14
 
-.loopexit:                                        ; preds = %29, %11, %3, %26
-  %.0 = phi ptr [ %27, %26 ], [ null, %3 ], [ null, %29 ], [ @anon.c748c5e09fe7ca24e7d29149bf3ecd4a.1, %11 ]
+.loopexit:                                        ; preds = %30, %11, %3, %27
+  %.0 = phi ptr [ %28, %27 ], [ null, %3 ], [ null, %30 ], [ @anon.c748c5e09fe7ca24e7d29149bf3ecd4a.1, %11 ]
   ret ptr %.0
 
 11:                                               ; preds = %7
@@ -39,7 +39,7 @@ define noundef ptr @_ZN3std2io5Write9write_all17hea0c9108904a85deE(ptr align 4 %
 
 14:                                               ; preds = %7
   %15 = invoke zeroext i1 @_ZN3std2io5error5Error14is_interrupted17hf70aefbbda133629E(ptr nonnull align 8 %6)
-          to label %25 unwind label %.loopexit16
+          to label %26 unwind label %.loopexit16
 
 16:                                               ; preds = %11
   %17 = icmp ugt i64 %12, %.sroa.4.022
@@ -48,62 +48,62 @@ define noundef ptr @_ZN3std2io5Write9write_all17hea0c9108904a85deE(ptr align 4 %
 .thread:                                          ; preds = %16
   %18 = sub nuw i64 %.sroa.4.022, %12
   %19 = getelementptr inbounds i8, ptr %.sroa.0.023, i64 %12
-  br label %29
+  br label %30
 
 20:                                               ; preds = %16
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 %12, i64 %.sroa.4.022, ptr nonnull align 8 @anon.c748c5e09fe7ca24e7d29149bf3ecd4a.3) #7
-          to label %24 unwind label %.loopexit.split-lp
+          to label %25 unwind label %.loopexit.split-lp
 
-21:                                               ; preds = %25
+21:                                               ; preds = %26
   %.pre = load i64, ptr %4, align 8, !range !3
-  %.not = icmp eq i64 %.pre, 0
-  br i1 %.not, label %29, label %28
+  %22 = icmp eq i64 %.pre, 0
+  br i1 %22, label %30, label %29
 
 .loopexit16:                                      ; preds = %14
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %22
+  br label %23
 
 .loopexit.split-lp:                               ; preds = %20
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %22
+  br label %23
 
-22:                                               ; preds = %.loopexit.split-lp, %.loopexit16
+23:                                               ; preds = %.loopexit.split-lp, %.loopexit16
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit16 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %23 = load i64, ptr %4, align 8, !range !3, !noundef !4
-  %.not15 = icmp eq i64 %23, 0
-  br i1 %.not15, label %32, label %31
+  %24 = load i64, ptr %4, align 8, !range !3, !noundef !4
+  %.not15 = icmp eq i64 %24, 0
+  br i1 %.not15, label %33, label %32
 
-24:                                               ; preds = %20
+25:                                               ; preds = %20
   unreachable
 
-25:                                               ; preds = %14
-  br i1 %15, label %21, label %26
+26:                                               ; preds = %14
+  br i1 %15, label %21, label %27
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   br label %.loopexit
 
-28:                                               ; preds = %21
+29:                                               ; preds = %21
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h458c62b95238965fE"(ptr nonnull align 8 %6)
-  br label %29
+  br label %30
 
-29:                                               ; preds = %.thread, %28, %21
-  %.sroa.0.133 = phi ptr [ %19, %.thread ], [ %.sroa.0.023, %28 ], [ %.sroa.0.023, %21 ]
-  %.sroa.4.132 = phi i64 [ %18, %.thread ], [ %.sroa.4.022, %28 ], [ %.sroa.4.022, %21 ]
-  %30 = icmp eq i64 %.sroa.4.132, 0
-  br i1 %30, label %.loopexit, label %7
+30:                                               ; preds = %.thread, %29, %21
+  %.sroa.0.133 = phi ptr [ %19, %.thread ], [ %.sroa.0.023, %29 ], [ %.sroa.0.023, %21 ]
+  %.sroa.4.132 = phi i64 [ %18, %.thread ], [ %.sroa.4.022, %29 ], [ %.sroa.4.022, %21 ]
+  %31 = icmp eq i64 %.sroa.4.132, 0
+  br i1 %31, label %.loopexit, label %7
 
-31:                                               ; preds = %22
+32:                                               ; preds = %23
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h458c62b95238965fE"(ptr nonnull align 8 %6) #8
-          to label %32 unwind label %33
+          to label %33 unwind label %34
 
-32:                                               ; preds = %31, %22
+33:                                               ; preds = %32, %23
   resume { ptr, i32 } %lpad.phi
 
-33:                                               ; preds = %31
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %32
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
   unreachable

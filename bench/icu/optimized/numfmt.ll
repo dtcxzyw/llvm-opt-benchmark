@@ -3523,8 +3523,8 @@ delete.notnull.i113:                              ; preds = %if.then239
 if.end232:                                        ; preds = %new.notnull213
   store ptr null, ptr %symbolsToAdopt, align 8
   %.pre = load i32, ptr %status, align 4
-  %cmp.i116 = icmp slt i32 %.pre, 1
-  br i1 %cmp.i116, label %if.end237, label %delete.notnull.i131
+  %61 = icmp slt i32 %.pre, 1
+  br i1 %61, label %if.end237, label %delete.notnull.i131
 
 if.end237:                                        ; preds = %if.end232
   br i1 %cmp86, label %if.then239, label %if.end256
@@ -3535,8 +3535,8 @@ if.then239:                                       ; preds = %if.end237
 
 if.end243:                                        ; preds = %if.then239
   %.pre204 = load i32, ptr %status, align 4
-  %61 = icmp slt i32 %.pre204, 1
-  br i1 %61, label %if.end256, label %delete.notnull.i131
+  %62 = icmp slt i32 %.pre204, 1
+  br i1 %62, label %if.end256, label %delete.notnull.i131
 
 cleanup252:                                       ; preds = %if.end208
   store i32 7, ptr %status, align 4
@@ -3545,18 +3545,18 @@ cleanup252:                                       ; preds = %if.end208
 delete.notnull.i131:                              ; preds = %if.end243, %if.end232
   %vtable.i132 = load ptr, ptr %call211, align 8
   %vfn.i133 = getelementptr inbounds i8, ptr %vtable.i132, i64 8
-  %62 = load ptr, ptr %vfn.i133, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(368) %call211) #20
+  %63 = load ptr, ptr %vfn.i133, align 8
+  call void %63(ptr noundef nonnull align 8 dereferenceable(368) %call211) #20
   br label %cleanup277thread-pre-split
 
 if.end256:                                        ; preds = %if.end237, %if.end243, %cleanup
   %f.sroa.0.4 = phi ptr [ %call161, %cleanup ], [ %call211, %if.end243 ], [ %call211, %if.end237 ]
-  %63 = load ptr, ptr %ownedResource, align 8
-  %call262 = invoke ptr @ures_getLocaleByType_75(ptr noundef %63, i32 noundef 1, ptr noundef nonnull %status)
+  %64 = load ptr, ptr %ownedResource, align 8
+  %call262 = invoke ptr @ures_getLocaleByType_75(ptr noundef %64, i32 noundef 1, ptr noundef nonnull %status)
           to label %invoke.cont261 unwind label %ehcleanup276
 
 invoke.cont261:                                   ; preds = %if.end256
-  %call266 = invoke ptr @ures_getLocaleByType_75(ptr noundef %63, i32 noundef 0, ptr noundef nonnull %status)
+  %call266 = invoke ptr @ures_getLocaleByType_75(ptr noundef %64, i32 noundef 0, ptr noundef nonnull %status)
           to label %invoke.cont265 unwind label %ehcleanup276
 
 invoke.cont265:                                   ; preds = %invoke.cont261
@@ -3564,8 +3564,8 @@ invoke.cont265:                                   ; preds = %invoke.cont261
           to label %invoke.cont267 unwind label %ehcleanup276
 
 invoke.cont267:                                   ; preds = %invoke.cont265
-  %64 = load i32, ptr %status, align 4
-  %cmp.i135 = icmp slt i32 %64, 1
+  %65 = load i32, ptr %status, align 4
+  %cmp.i135 = icmp slt i32 %65, 1
   br i1 %cmp.i135, label %cleanup277thread-pre-split, label %cleanup275
 
 cleanup275:                                       ; preds = %invoke.cont267, %cleanup
@@ -3576,17 +3576,17 @@ cleanup275:                                       ; preds = %invoke.cont267, %cl
 delete.notnull.i138:                              ; preds = %cleanup275
   %vtable.i139 = load ptr, ptr %f.sroa.0.3, align 8
   %vfn.i140 = getelementptr inbounds i8, ptr %vtable.i139, i64 8
-  %65 = load ptr, ptr %vfn.i140, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(356) %f.sroa.0.3) #20
+  %66 = load ptr, ptr %vfn.i140, align 8
+  call void %66(ptr noundef nonnull align 8 dereferenceable(356) %f.sroa.0.3) #20
   br label %cleanup277thread-pre-split
 
 ehcleanup276:                                     ; preds = %if.end256, %invoke.cont261, %invoke.cont265
-  %66 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   %vtable.i143 = load ptr, ptr %f.sroa.0.4, align 8
   %vfn.i144 = getelementptr inbounds i8, ptr %vtable.i143, i64 8
-  %67 = load ptr, ptr %vfn.i144, align 8
-  call void %67(ptr noundef nonnull align 8 dereferenceable(356) %f.sroa.0.4) #20
+  %68 = load ptr, ptr %vfn.i144, align 8
+  call void %68(ptr noundef nonnull align 8 dereferenceable(356) %f.sroa.0.4) #20
   br label %ehcleanup278
 
 cleanup277thread-pre-split:                       ; preds = %cleanup252, %invoke.cont267, %delete.notnull.i131, %new.cont, %invoke.cont72, %cleanup275, %delete.notnull.i138
@@ -3595,52 +3595,52 @@ cleanup277thread-pre-split:                       ; preds = %cleanup252, %invoke
   br label %cleanup277
 
 cleanup277:                                       ; preds = %cleanup277thread-pre-split, %invoke.cont50
-  %68 = phi ptr [ %.pr, %cleanup277thread-pre-split ], [ %call49, %invoke.cont50 ]
+  %69 = phi ptr [ %.pr, %cleanup277thread-pre-split ], [ %call49, %invoke.cont50 ]
   %retval.2 = phi ptr [ %retval.2.ph, %cleanup277thread-pre-split ], [ null, %invoke.cont50 ]
-  %cmp.not.i = icmp eq ptr %68, null
+  %cmp.not.i = icmp eq ptr %69, null
   br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup277
-  invoke void @ures_close_75(ptr noundef nonnull %68)
+  invoke void @ures_close_75(ptr noundef nonnull %69)
           to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit unwind label %terminate.lpad.i146
 
 terminate.lpad.i146:                              ; preds = %if.then.i
-  %69 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #22
+  %71 = extractvalue { ptr, i32 } %70, 0
+  call void @__clang_call_terminate(ptr %71) #22
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %cleanup277, %if.then.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern) #20
-  %71 = load ptr, ptr %symbolsToAdopt, align 8
-  %isnull.i148 = icmp eq ptr %71, null
+  %72 = load ptr, ptr %symbolsToAdopt, align 8
+  %isnull.i148 = icmp eq ptr %72, null
   br i1 %isnull.i148, label %cleanup283, label %delete.notnull.i149
 
 delete.notnull.i149:                              ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit
-  %vtable.i150 = load ptr, ptr %71, align 8
+  %vtable.i150 = load ptr, ptr %72, align 8
   %vfn.i151 = getelementptr inbounds i8, ptr %vtable.i150, i64 8
-  %72 = load ptr, ptr %vfn.i151, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(2883) %71) #20
+  %73 = load ptr, ptr %vfn.i151, align 8
+  call void %73(ptr noundef nonnull align 8 dereferenceable(2883) %72) #20
   br label %cleanup283
 
 ehcleanup278:                                     ; preds = %delete.notnull.i113, %ehcleanup182, %ehcleanup207, %lpad216, %ehcleanup276, %ehcleanup276.thread196, %lpad58, %lpad71, %lpad51
-  %.pn75.pn = phi { ptr, i32 } [ %18, %lpad51 ], [ %24, %lpad71 ], [ %20, %lpad58 ], [ %66, %ehcleanup276 ], [ %28, %ehcleanup276.thread196 ], [ %59, %delete.notnull.i113 ], [ %.pn.pn, %ehcleanup207 ], [ %58, %lpad216 ], [ %.pn70.pn, %ehcleanup182 ]
+  %.pn75.pn = phi { ptr, i32 } [ %18, %lpad51 ], [ %24, %lpad71 ], [ %20, %lpad58 ], [ %67, %ehcleanup276 ], [ %28, %ehcleanup276.thread196 ], [ %59, %delete.notnull.i113 ], [ %.pn.pn, %ehcleanup207 ], [ %58, %lpad216 ], [ %.pn70.pn, %ehcleanup182 ]
   call void @_ZN6icu_7527LocalUResourceBundlePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ownedResource) #20
   br label %ehcleanup280
 
 ehcleanup280:                                     ; preds = %ehcleanup278, %lpad45
   %.pn75.pn.pn = phi { ptr, i32 } [ %.pn75.pn, %ehcleanup278 ], [ %17, %lpad45 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pattern) #20
-  %73 = load ptr, ptr %symbolsToAdopt, align 8
-  %isnull.i152 = icmp eq ptr %73, null
+  %74 = load ptr, ptr %symbolsToAdopt, align 8
+  %isnull.i152 = icmp eq ptr %74, null
   br i1 %isnull.i152, label %ehcleanup284, label %delete.notnull.i153
 
 delete.notnull.i153:                              ; preds = %ehcleanup280
-  %vtable.i154 = load ptr, ptr %73, align 8
+  %vtable.i154 = load ptr, ptr %74, align 8
   %vfn.i155 = getelementptr inbounds i8, ptr %vtable.i154, i64 8
-  %74 = load ptr, ptr %vfn.i155, align 8
-  call void %74(ptr noundef nonnull align 8 dereferenceable(2883) %73) #20
+  %75 = load ptr, ptr %vfn.i155, align 8
+  call void %75(ptr noundef nonnull align 8 dereferenceable(2883) %74) #20
   br label %ehcleanup284
 
 cleanup283:                                       ; preds = %delete.notnull.i149, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, %if.end30, %if.then40
@@ -3651,8 +3651,8 @@ cleanup283:                                       ; preds = %delete.notnull.i149
 delete.notnull.i158:                              ; preds = %cleanup283
   %vtable.i159 = load ptr, ptr %ownedNs.sroa.0.2, align 8
   %vfn.i160 = getelementptr inbounds i8, ptr %vtable.i159, i64 8
-  %75 = load ptr, ptr %vfn.i160, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(86) %ownedNs.sroa.0.2) #20
+  %76 = load ptr, ptr %vfn.i160, align 8
+  call void %76(ptr noundef nonnull align 8 dereferenceable(86) %ownedNs.sroa.0.2) #20
   br label %return
 
 ehcleanup284:                                     ; preds = %delete.notnull.i153, %ehcleanup280, %lpad
@@ -3664,8 +3664,8 @@ ehcleanup284:                                     ; preds = %delete.notnull.i153
 delete.notnull.i162:                              ; preds = %ehcleanup284
   %vtable.i163 = load ptr, ptr %ownedNs.sroa.0.1, align 8
   %vfn.i164 = getelementptr inbounds i8, ptr %vtable.i163, i64 8
-  %76 = load ptr, ptr %vfn.i164, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(86) %ownedNs.sroa.0.1) #20
+  %77 = load ptr, ptr %vfn.i164, align 8
+  call void %77(ptr noundef nonnull align 8 dereferenceable(86) %ownedNs.sroa.0.1) #20
   br label %_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit165
 
 _ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit165: ; preds = %lpad15, %ehcleanup284, %delete.notnull.i162

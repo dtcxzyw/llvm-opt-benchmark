@@ -10695,33 +10695,36 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac25FundamentalDegenerac
   %.169 = select i1 %61, float %60, float %.068311
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !143
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !143
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.068.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.169, %.lr.ph ]
-  %.066.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.167, %.lr.ph ]
-  %.064.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.165, %.lr.ph ]
-  %.063.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.1, %.lr.ph ]
-  %62 = fmul float %.063.lcssa, 5.000000e-01
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %62 = fmul float %.1, 5.000000e-01
   %63 = fptosi float %62 to i32
   %64 = add nsw i32 %63, 1
   %65 = sitofp i32 %64 to double
-  %66 = fmul float %.064.lcssa, 5.000000e-01
+  %66 = fmul float %.165, 5.000000e-01
   %67 = fptosi float %66 to i32
   %68 = add nsw i32 %67, 1
   %69 = sitofp i32 %68 to double
-  %70 = fmul float %.066.lcssa, 5.000000e-01
+  %70 = fmul float %.167, 5.000000e-01
   %71 = fptosi float %70 to i32
   %72 = add nsw i32 %71, 1
   %73 = sitofp i32 %72 to double
-  %74 = fmul float %.068.lcssa, 5.000000e-01
+  %74 = fmul float %.169, 5.000000e-01
   %75 = fptosi float %74 to i32
   %76 = add nsw i32 %75, 1
   %77 = sitofp i32 %76 to double
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.068.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %77, %._crit_edge.loopexit ]
+  %.066.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %73, %._crit_edge.loopexit ]
+  %.064.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %69, %._crit_edge.loopexit ]
+  %.063.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %65, %._crit_edge.loopexit ]
   %78 = load ptr, ptr %0, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 96
   %80 = load ptr, ptr %79, align 8
-  tail call void %80(ptr noundef nonnull align 8 dereferenceable(1570) %0, double noundef %65, double noundef %69, double noundef %73, double noundef %77)
+  tail call void %80(ptr noundef nonnull align 8 dereferenceable(1570) %0, double noundef %.063.lcssa, double noundef %.064.lcssa, double noundef %.066.lcssa, double noundef %.068.lcssa)
   br label %81
 
 81:                                               ; preds = %._crit_edge, %6

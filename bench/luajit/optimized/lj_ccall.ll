@@ -85,7 +85,7 @@ return:                                           ; preds = %if.else, %land.lhs.
 declare hidden i32 @lj_ctype_intern(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lj_ccall_func(ptr noundef %L, ptr nocapture noundef readonly %cd) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @lj_ccall_func(ptr noundef %L, ptr nocapture noundef readonly %cd) local_unnamed_addr #0 {
 entry:
   %sp.i.i = alloca [2 x i64], align 16
   %rcl.i42 = alloca [2 x i32], align 4

@@ -235,7 +235,7 @@ pop_level.exit:                                   ; preds = %if.else, %land.lhs.
   %cmp28 = icmp eq i64 %41, 0
   br i1 %cmp28, label %return.sink.split, label %while.body.backedge
 
-while.body.backedge:                              ; preds = %land.rhs.i, %if.then40, %land.lhs.true43, %if.then19, %pop_level.exit, %is_dot_or_dotdot.exit
+while.body.backedge:                              ; preds = %if.then40, %land.lhs.true43, %if.then19, %pop_level.exit, %land.rhs10.i, %land.rhs.i
   %42 = load ptr, ptr %levels, align 8
   %43 = load i64, ptr %levels_nr11, align 8
   %44 = getelementptr %struct.dir_iterator_level, ptr %42, i64 %43
@@ -257,16 +257,16 @@ land.rhs.i:                                       ; preds = %if.end33
   %48 = load i8, ptr %arrayidx2.i, align 1
   switch i8 %48, label %if.end37 [
     i8 0, label %while.body.backedge
-    i8 46, label %is_dot_or_dotdot.exit
+    i8 46, label %land.rhs10.i
   ]
 
-is_dot_or_dotdot.exit:                            ; preds = %land.rhs.i
+land.rhs10.i:                                     ; preds = %land.rhs.i
   %arrayidx11.i = getelementptr inbounds i8, ptr %call14, i64 21
   %49 = load i8, ptr %arrayidx11.i, align 1
   %cmp13.i.not = icmp eq i8 %49, 0
   br i1 %cmp13.i.not, label %while.body.backedge, label %if.end37
 
-if.end37:                                         ; preds = %land.rhs.i, %if.end33, %is_dot_or_dotdot.exit
+if.end37:                                         ; preds = %land.rhs.i, %if.end33, %land.rhs10.i
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #11
   tail call void @strbuf_add(ptr noundef nonnull %dir_iterator, ptr noundef nonnull %d_name, i64 noundef %call.i.i) #9
   %50 = load ptr, ptr %buf.i18, align 8

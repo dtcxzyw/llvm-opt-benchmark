@@ -2124,7 +2124,7 @@ pmix_regex_extract_nodes.exit.thread:             ; preds = %41, %._crit_edge174
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_procs(ptr noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %1, align 8

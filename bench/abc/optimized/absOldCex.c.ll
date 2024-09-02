@@ -1667,11 +1667,11 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 110:                                              ; preds = %89
   %111 = getelementptr inbounds i8, ptr %95, i64 36
   %112 = load i32, ptr %111, align 4
+  %113 = sext i32 %112 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %89, %110
-  %113 = phi i32 [ %112, %110 ], [ -1, %89 ]
-  %114 = sext i32 %113 to i64
+  %114 = phi i64 [ %113, %110 ], [ -1, %89 ]
   %115 = getelementptr inbounds i32, ptr %17, i64 %114
   %116 = load i32, ptr %115, align 4
   %.not.i107 = icmp eq ptr %.val91, null
@@ -1680,11 +1680,11 @@ Aig_ObjFaninId0.exit:                             ; preds = %89, %110
 117:                                              ; preds = %Aig_ObjFaninId0.exit
   %118 = getelementptr inbounds i8, ptr %105, i64 36
   %119 = load i32, ptr %118, align 4
+  %120 = sext i32 %119 to i64
   br label %Aig_ObjFaninId1.exit
 
 Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %117
-  %120 = phi i32 [ %119, %117 ], [ -1, %Aig_ObjFaninId0.exit ]
-  %121 = sext i32 %120 to i64
+  %121 = phi i64 [ %120, %117 ], [ -1, %Aig_ObjFaninId0.exit ]
   %122 = getelementptr inbounds i32, ptr %17, i64 %121
   %123 = load i32, ptr %122, align 4
   %124 = icmp ne i32 %93, %100

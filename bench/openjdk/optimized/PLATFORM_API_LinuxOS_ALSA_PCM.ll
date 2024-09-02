@@ -135,12 +135,12 @@ define hidden void @DAUDIO_GetFormats(i32 noundef %0, i32 noundef %1, i32 nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %8, i8 0, i64 28, i1 false)
   %16 = call i32 @openPCMfromDeviceID(i32 noundef %1, ptr noundef nonnull %5, i32 noundef %2, i32 noundef 1) #8
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %103, label %18
+  br i1 %17, label %104, label %18
 
 18:                                               ; preds = %4
   %19 = call i32 @snd_pcm_format_mask_malloc(ptr noundef nonnull %6) #8
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %20, label %100
+  br i1 %.not, label %20, label %101
 
 20:                                               ; preds = %18
   %21 = call i32 @snd_pcm_hw_params_malloc(ptr noundef nonnull %7) #8
@@ -174,10 +174,10 @@ define hidden void @DAUDIO_GetFormats(i32 noundef %0, i32 noundef %1, i32 nounde
   %36 = call i32 @snd_pcm_hw_params_get_channels_max(ptr noundef %35, ptr noundef nonnull %15) #8
   %37 = icmp eq i32 %36, 0
   store i32 1, ptr %14, align 4
-  br i1 %37, label %.preheader68, label %98
+  br i1 %37, label %.preheader68, label %99
 
 .preheader68:                                     ; preds = %.critedge55, %.loopexit67
-  %.04372 = phi i32 [ %95, %.loopexit67 ], [ 0, %.critedge55 ]
+  %.04372 = phi i32 [ %96, %.loopexit67 ], [ 0, %.critedge55 ]
   %38 = load ptr, ptr %6, align 8
   %39 = call i32 @snd_pcm_format_mask_test(ptr noundef %38, i32 noundef %.04372) #8
   %.not50 = icmp eq i32 %39, 0
@@ -221,31 +221,31 @@ define hidden void @DAUDIO_GetFormats(i32 noundef %0, i32 noundef %1, i32 nounde
   %57 = icmp eq i32 %43, 1
   %58 = icmp eq i32 %44, 8
   %or.cond5.i = and i1 %57, %58
-  %..i = zext i1 %or.cond5.i to i64
+  %59 = zext i1 %or.cond5.i to i64
   br label %getBitIndex.exit.preheader
 
 getBitIndex.exit.preheader:                       ; preds = %42, %46, %51, %52, %54, %.thread.i
-  %indvars.iv.ph = phi i64 [ %..i, %.thread.i ], [ 2, %54 ], [ 3, %52 ], [ 4, %51 ], [ 5, %46 ], [ 6, %42 ]
+  %indvars.iv.ph = phi i64 [ %59, %.thread.i ], [ 2, %54 ], [ 3, %52 ], [ 4, %51 ], [ 5, %46 ], [ 6, %42 ]
   br label %getBitIndex.exit
 
 getBitIndex.exit:                                 ; preds = %getBitIndex.exit.preheader, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ %indvars.iv.ph, %getBitIndex.exit.preheader ]
-  %59 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %59, label %60 [
-    i32 6, label %63
-    i32 0, label %63
+  %60 = trunc nuw nsw i64 %indvars.iv to i32
+  switch i32 %60, label %61 [
+    i32 6, label %64
+    i32 0, label %64
   ]
 
-60:                                               ; preds = %getBitIndex.exit
-  %61 = getelementptr inbounds [7 x i32], ptr %8, i64 0, i64 %indvars.iv
-  %62 = load i32, ptr %61, align 4
-  %.not52 = icmp eq i32 %62, 0
-  br i1 %.not52, label %63, label %.loopexit
+61:                                               ; preds = %getBitIndex.exit
+  %62 = getelementptr inbounds [7 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %63 = load i32, ptr %62, align 4
+  %.not52 = icmp eq i32 %63, 0
+  br i1 %.not52, label %64, label %.loopexit
 
-63:                                               ; preds = %getBitIndex.exit, %getBitIndex.exit, %60
-  %64 = getelementptr inbounds [7 x i32], ptr %8, i64 0, i64 %indvars.iv
-  store i32 1, ptr %64, align 4
-  switch i32 %59, label %65 [
+64:                                               ; preds = %getBitIndex.exit, %getBitIndex.exit, %61
+  %65 = getelementptr inbounds [7 x i32], ptr %8, i64 0, i64 %indvars.iv
+  store i32 1, ptr %65, align 4
+  switch i32 %60, label %66 [
     i32 1, label %getSignificantBits.exit
     i32 2, label %getSampleSizeInBytes.exit.thread61
     i32 3, label %getSampleSizeInBytes.exit
@@ -253,104 +253,104 @@ getBitIndex.exit:                                 ; preds = %getBitIndex.exit.pr
     i32 5, label %getSampleSizeInBytes.exit.thread64
   ]
 
-getSampleSizeInBytes.exit.thread61:               ; preds = %63
+getSampleSizeInBytes.exit.thread61:               ; preds = %64
   br label %getSignificantBits.exit
 
-getSampleSizeInBytes.exit.thread64:               ; preds = %63
+getSampleSizeInBytes.exit.thread64:               ; preds = %64
   br label %getSignificantBits.exit
 
-65:                                               ; preds = %63
-  %66 = load i32, ptr %12, align 4
+66:                                               ; preds = %64
+  %67 = load i32, ptr %12, align 4
   br label %getSampleSizeInBytes.exit
 
-getSampleSizeInBytes.exit:                        ; preds = %63, %63, %65
-  %.0.i57 = phi i32 [ %66, %65 ], [ 3, %63 ], [ 3, %63 ]
-  switch i32 %59, label %68 [
-    i32 4, label %67
+getSampleSizeInBytes.exit:                        ; preds = %64, %64, %66
+  %.0.i57 = phi i32 [ %67, %66 ], [ 3, %64 ], [ 3, %64 ]
+  switch i32 %60, label %69 [
+    i32 4, label %68
     i32 3, label %getSignificantBits.exit
   ]
 
-67:                                               ; preds = %getSampleSizeInBytes.exit
-  br label %getSignificantBits.exit
-
 68:                                               ; preds = %getSampleSizeInBytes.exit
-  %69 = load i32, ptr %13, align 4
   br label %getSignificantBits.exit
 
-getSignificantBits.exit:                          ; preds = %getSampleSizeInBytes.exit, %63, %getSampleSizeInBytes.exit.thread64, %getSampleSizeInBytes.exit.thread61, %67, %68
-  %.0.i5760 = phi i32 [ %.0.i57, %68 ], [ %59, %getSampleSizeInBytes.exit.thread61 ], [ 4, %getSampleSizeInBytes.exit.thread64 ], [ %.0.i57, %67 ], [ %59, %63 ], [ %.0.i57, %getSampleSizeInBytes.exit ]
-  %.0.i58 = phi i32 [ %69, %68 ], [ 16, %getSampleSizeInBytes.exit.thread61 ], [ 24, %getSampleSizeInBytes.exit.thread64 ], [ 24, %67 ], [ 8, %63 ], [ 20, %getSampleSizeInBytes.exit ]
-  %70 = load i32, ptr %15, align 4
-  %71 = load i32, ptr %14, align 4
-  %72 = sub i32 %70, %71
-  %73 = icmp ugt i32 %72, 32
-  br i1 %73, label %74, label %.preheader
+69:                                               ; preds = %getSampleSizeInBytes.exit
+  %70 = load i32, ptr %13, align 4
+  br label %getSignificantBits.exit
+
+getSignificantBits.exit:                          ; preds = %getSampleSizeInBytes.exit, %64, %getSampleSizeInBytes.exit.thread64, %getSampleSizeInBytes.exit.thread61, %68, %69
+  %.0.i5760 = phi i32 [ %.0.i57, %69 ], [ %60, %getSampleSizeInBytes.exit.thread61 ], [ 4, %getSampleSizeInBytes.exit.thread64 ], [ %.0.i57, %68 ], [ %60, %64 ], [ %.0.i57, %getSampleSizeInBytes.exit ]
+  %.0.i58 = phi i32 [ %70, %69 ], [ 16, %getSampleSizeInBytes.exit.thread61 ], [ 24, %getSampleSizeInBytes.exit.thread64 ], [ 24, %68 ], [ 8, %64 ], [ 20, %getSampleSizeInBytes.exit ]
+  %71 = load i32, ptr %15, align 4
+  %72 = load i32, ptr %14, align 4
+  %73 = sub i32 %71, %72
+  %74 = icmp ugt i32 %73, 32
+  br i1 %74, label %75, label %.preheader
 
 .preheader:                                       ; preds = %getSignificantBits.exit
-  %.not5370 = icmp ugt i32 %71, %70
+  %.not5370 = icmp ugt i32 %72, %71
   br i1 %.not5370, label %.loopexit, label %.lr.ph
 
-74:                                               ; preds = %getSignificantBits.exit
-  %75 = load i32, ptr %11, align 4
-  %76 = load i32, ptr %9, align 4
-  %77 = load i32, ptr %10, align 4
-  call void @DAUDIO_AddAudioFormat(ptr noundef %3, i32 noundef %.0.i58, i32 noundef -1, i32 noundef -1, float noundef -1.000000e+00, i32 noundef %75, i32 noundef %76, i32 noundef %77) #8
-  %78 = load i32, ptr %14, align 4
-  %79 = mul i32 %78, %.0.i5760
-  %80 = load i32, ptr %11, align 4
-  %81 = load i32, ptr %9, align 4
-  %82 = load i32, ptr %10, align 4
-  call void @DAUDIO_AddAudioFormat(ptr noundef %3, i32 noundef %.0.i58, i32 noundef %79, i32 noundef %78, float noundef -1.000000e+00, i32 noundef %80, i32 noundef %81, i32 noundef %82) #8
-  %83 = load i32, ptr %15, align 4
-  %84 = mul i32 %83, %.0.i5760
-  %85 = load i32, ptr %11, align 4
-  %86 = load i32, ptr %9, align 4
-  %87 = load i32, ptr %10, align 4
-  call void @DAUDIO_AddAudioFormat(ptr noundef %3, i32 noundef %.0.i58, i32 noundef %84, i32 noundef %83, float noundef -1.000000e+00, i32 noundef %85, i32 noundef %86, i32 noundef %87) #8
+75:                                               ; preds = %getSignificantBits.exit
+  %76 = load i32, ptr %11, align 4
+  %77 = load i32, ptr %9, align 4
+  %78 = load i32, ptr %10, align 4
+  call void @DAUDIO_AddAudioFormat(ptr noundef %3, i32 noundef %.0.i58, i32 noundef -1, i32 noundef -1, float noundef -1.000000e+00, i32 noundef %76, i32 noundef %77, i32 noundef %78) #8
+  %79 = load i32, ptr %14, align 4
+  %80 = mul i32 %79, %.0.i5760
+  %81 = load i32, ptr %11, align 4
+  %82 = load i32, ptr %9, align 4
+  %83 = load i32, ptr %10, align 4
+  call void @DAUDIO_AddAudioFormat(ptr noundef %3, i32 noundef %.0.i58, i32 noundef %80, i32 noundef %79, float noundef -1.000000e+00, i32 noundef %81, i32 noundef %82, i32 noundef %83) #8
+  %84 = load i32, ptr %15, align 4
+  %85 = mul i32 %84, %.0.i5760
+  %86 = load i32, ptr %11, align 4
+  %87 = load i32, ptr %9, align 4
+  %88 = load i32, ptr %10, align 4
+  call void @DAUDIO_AddAudioFormat(ptr noundef %3, i32 noundef %.0.i58, i32 noundef %85, i32 noundef %84, float noundef -1.000000e+00, i32 noundef %86, i32 noundef %87, i32 noundef %88) #8
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.04471 = phi i32 [ %92, %.lr.ph ], [ %71, %.preheader ]
-  %88 = mul i32 %.04471, %.0.i5760
-  %89 = load i32, ptr %11, align 4
-  %90 = load i32, ptr %9, align 4
-  %91 = load i32, ptr %10, align 4
-  call void @DAUDIO_AddAudioFormat(ptr noundef %3, i32 noundef %.0.i58, i32 noundef %88, i32 noundef %.04471, float noundef -1.000000e+00, i32 noundef %89, i32 noundef %90, i32 noundef %91) #8
-  %92 = add i32 %.04471, 1
-  %93 = load i32, ptr %15, align 4
-  %.not53 = icmp ugt i32 %92, %93
+  %.04471 = phi i32 [ %93, %.lr.ph ], [ %72, %.preheader ]
+  %89 = mul i32 %.04471, %.0.i5760
+  %90 = load i32, ptr %11, align 4
+  %91 = load i32, ptr %9, align 4
+  %92 = load i32, ptr %10, align 4
+  call void @DAUDIO_AddAudioFormat(ptr noundef %3, i32 noundef %.0.i58, i32 noundef %89, i32 noundef %.04471, float noundef -1.000000e+00, i32 noundef %90, i32 noundef %91, i32 noundef %92) #8
+  %93 = add i32 %.04471, 1
+  %94 = load i32, ptr %15, align 4
+  %.not53 = icmp ugt i32 %93, %94
   br i1 %.not53, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %60, %74
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %61, %75
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %94 = icmp sgt i64 %indvars.iv, 1
-  br i1 %94, label %getBitIndex.exit, label %.loopexit67, !llvm.loop !8
+  %95 = icmp sgt i64 %indvars.iv, 1
+  br i1 %95, label %getBitIndex.exit, label %.loopexit67, !llvm.loop !8
 
 .loopexit67:                                      ; preds = %.loopexit, %40, %.preheader68
-  %95 = add nuw nsw i32 %.04372, 1
-  %exitcond.not = icmp eq i32 %95, 53
-  br i1 %exitcond.not, label %96, label %.preheader68, !llvm.loop !9
+  %96 = add nuw nsw i32 %.04372, 1
+  %exitcond.not = icmp eq i32 %96, 53
+  br i1 %exitcond.not, label %97, label %.preheader68, !llvm.loop !9
 
-96:                                               ; preds = %.loopexit67
-  %97 = load ptr, ptr %7, align 8
-  call void @snd_pcm_hw_params_free(ptr noundef %97) #8
-  br label %98
+97:                                               ; preds = %.loopexit67
+  %98 = load ptr, ptr %7, align 8
+  call void @snd_pcm_hw_params_free(ptr noundef %98) #8
+  br label %99
 
 .critedge56:                                      ; preds = %22, %.critedge, %29
   store i32 1, ptr %14, align 4
-  br label %98
+  br label %99
 
-98:                                               ; preds = %.critedge56, %96, %.critedge55
-  %99 = load ptr, ptr %6, align 8
-  call void @snd_pcm_format_mask_free(ptr noundef %99) #8
-  br label %100
+99:                                               ; preds = %.critedge56, %97, %.critedge55
+  %100 = load ptr, ptr %6, align 8
+  call void @snd_pcm_format_mask_free(ptr noundef %100) #8
+  br label %101
 
-100:                                              ; preds = %18, %98
-  %101 = load ptr, ptr %5, align 8
-  %102 = call i32 @snd_pcm_close(ptr noundef %101) #8
-  br label %103
+101:                                              ; preds = %18, %99
+  %102 = load ptr, ptr %5, align 8
+  %103 = call i32 @snd_pcm_close(ptr noundef %102) #8
+  br label %104
 
-103:                                              ; preds = %4, %100
+104:                                              ; preds = %4, %101
   ret void
 }
 

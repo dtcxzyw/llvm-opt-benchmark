@@ -2633,7 +2633,7 @@ _ZNK5QListIiE3midExx.exit:                        ; preds = %200, %_ZN17QArrayDa
   %203 = icmp slt i64 %202, 1
   %.not303 = icmp eq i32 %183, 0
   %or.cond = or i1 %203, %.not303
-  br i1 %or.cond, label %.loopexit282, label %.lr.ph
+  br i1 %or.cond, label %_ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit107, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5QListIiE3midExx.exit
   %204 = getelementptr inbounds i8, ptr %17, i64 8
@@ -2798,21 +2798,17 @@ _ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i96: ; preds = %_ZNK
   %267 = ptrtoint ptr %262 to i64
   %268 = ptrtoint ptr %257 to i64
   %269 = sub i64 %267, %268
-  %270 = ashr exact i64 %269, 2
-  br label %_ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit107
-
-_ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit107: ; preds = %261, %251, %266
-  %.0.i.i104 = phi i64 [ %270, %266 ], [ -1, %251 ], [ -1, %261 ]
-  %271 = trunc i64 %.0.i.i104 to i32
+  %270 = lshr exact i64 %269, 2
+  %271 = trunc i64 %270 to i32
   %272 = add i32 %271, 1
-  br label %.loopexit282
+  br label %_ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit107
 
 .loopexit283:                                     ; preds = %_ZN5QListIiE6detachEv.exit.i, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i, %_ZN5QListIiE6detachEv.exit.i87, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i86
   %lpad.loopexit285 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit229
 
-.loopexit.split-lp284:                            ; preds = %.loopexit282, %276, %278, %_ZN5QListIiE6detachEv.exit.i97, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i96, %_ZN7QStringD2Ev.exit.i
+.loopexit.split-lp284:                            ; preds = %_ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit107, %276, %278, %_ZN5QListIiE6detachEv.exit.i97, %_ZNK17QArrayDataPointerIiE11needsDetachEv.exit.thread.i.i.i.i96, %_ZN7QStringD2Ev.exit.i
   %lpad.loopexit.split-lp286 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit229
@@ -2820,14 +2816,14 @@ _ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit107: ; preds = %261, %251
 _ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit82.thread: ; preds = %225, %215, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit82, %240
   %273 = trunc nuw i64 %indvars.iv to i32
   %274 = icmp sgt i32 %273, 1
-  br i1 %274, label %207, label %.loopexit282, !llvm.loop !85
+  br i1 %274, label %207, label %_ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit107, !llvm.loop !85
 
-.loopexit282:                                     ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit82.thread, %_ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit107, %_ZNK5QListIiE3midExx.exit
-  %.030 = phi i32 [ %272, %_ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit107 ], [ 0, %_ZNK5QListIiE3midExx.exit ], [ 0, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit82.thread ]
+_ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit107: ; preds = %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit82.thread, %261, %266, %251, %_ZNK5QListIiE3midExx.exit
+  %.030 = phi i32 [ 0, %_ZNK5QListIiE3midExx.exit ], [ %272, %266 ], [ 0, %251 ], [ 0, %261 ], [ 0, %_ZNK23QListSpecialMethodsBaseIiE8containsIiEEbRKT_.exit82.thread ]
   %275 = invoke noundef ptr @_ZN10TrafficTab10createTreeEi(ptr noundef nonnull align 8 dereferenceable(122) %0, i32 noundef %1)
           to label %276 unwind label %.loopexit.split-lp284
 
-276:                                              ; preds = %.loopexit282
+276:                                              ; preds = %_ZNK23QListSpecialMethodsBaseIiE7indexOfIiEExRKT_x.exit107
   %277 = invoke ptr @find_protocol_by_id(i32 noundef %1)
           to label %278 unwind label %.loopexit.split-lp284
 
@@ -3482,9 +3478,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i222: ; preds = %.body189
   br i1 %.not.i.i.i223, label %_ZN7QStringD2Ev.exit144.sink.split, label %_ZN7QStringD2Ev.exit144
 
 _ZN7QStringD2Ev.exit144.sink.split:               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i222, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142
-  %.sink320 = phi ptr [ %20, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ %19, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i222 ]
+  %.sink322 = phi ptr [ %20, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ %19, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i222 ]
   %.pn37.pn.ph = phi { ptr, i32 } [ %357, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i142 ], [ %.pn37, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i222 ]
-  %487 = load ptr, ptr %.sink320, align 8
+  %487 = load ptr, ptr %.sink322, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %487, i64 noundef 2, i64 noundef 8) #21
   br label %_ZN7QStringD2Ev.exit144
 

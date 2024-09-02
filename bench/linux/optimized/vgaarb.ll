@@ -189,7 +189,7 @@ define dso_local noundef range(i32 -512, 1) i32 @vga_get(ptr noundef readnone %0
   %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
   %10 = load ptr, ptr @vga_list, align 8
   %11 = icmp eq ptr %10, @vga_list
-  br i1 %11, label %.loopexit8, label %.preheader
+  br i1 %11, label %.loopexit7, label %.preheader
 
 .preheader:                                       ; preds = %6, %20
   %12 = phi ptr [ %21, %20 ], [ %10, %6 ]
@@ -208,13 +208,13 @@ define dso_local noundef range(i32 -512, 1) i32 @vga_get(ptr noundef readnone %0
 20:                                               ; preds = %16, %.preheader
   %21 = load ptr, ptr %12, align 8
   %22 = icmp eq ptr %21, @vga_list
-  br i1 %22, label %.loopexit8, label %.preheader, !llvm.loop !6
+  br i1 %22, label %.loopexit7, label %.preheader, !llvm.loop !6
 
-.loopexit8:                                       ; preds = %20, %6
+.loopexit7:                                       ; preds = %20, %6
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %9) #14
   br label %23
 
-23:                                               ; preds = %.loopexit8, %3
+23:                                               ; preds = %.loopexit7, %3
   %24 = icmp eq ptr %0, null
   %25 = load ptr, ptr @vga_default, align 8
   %26 = select i1 %24, ptr %25, ptr %0
@@ -310,15 +310,15 @@ define dso_local noundef range(i32 -512, 1) i32 @vga_get(ptr noundef readnone %0
   %72 = load volatile i64, ptr %69, align 8
   %73 = and i64 %72, 131072
   %74 = icmp eq i64 %73, 0
-  br i1 %74, label %75, label %.thread6, !prof !13
+  br i1 %74, label %75, label %.critedge, !prof !13
 
 75:                                               ; preds = %67
   %76 = load volatile i64, ptr %69, align 8
   %77 = and i64 %76, 4
   %78 = icmp eq i64 %77, 0
-  br i1 %78, label %79, label %.thread6
+  br i1 %78, label %79, label %.critedge
 
-.thread6:                                         ; preds = %67, %75
+.critedge:                                        ; preds = %67, %75
   store volatile i32 0, ptr %70, align 8
   call void @remove_wait_queue(ptr noundef nonnull @vga_wait_queue, ptr noundef nonnull %4) #14
   br label %.loopexit
@@ -328,8 +328,8 @@ define dso_local noundef range(i32 -512, 1) i32 @vga_get(ptr noundef readnone %0
   call void @remove_wait_queue(ptr noundef nonnull @vga_wait_queue, ptr noundef nonnull %4) #14
   br label %.split, !llvm.loop !12
 
-.loopexit:                                        ; preds = %64, %44, %.thread6, %.thread, %23
-  %80 = phi i32 [ 0, %23 ], [ -19, %.thread ], [ -512, %.thread6 ], [ 0, %44 ], [ 0, %64 ]
+.loopexit:                                        ; preds = %64, %44, %.critedge, %.thread, %23
+  %80 = phi i32 [ 0, %23 ], [ -19, %.thread ], [ -512, %.critedge ], [ 0, %44 ], [ 0, %64 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
   ret i32 %80
 }
@@ -2084,7 +2084,7 @@ define internal noundef i32 @vga_arb_release(ptr nocapture readnone %0, ptr noca
   br label %11
 
 11:                                               ; preds = %.loopexit, %2
-  %12 = phi i64 [ 0, %2 ], [ %115, %.loopexit ]
+  %12 = phi i64 [ 0, %2 ], [ %116, %.loopexit ]
   %13 = getelementptr [16 x %struct.vga_arb_user_card], ptr %10, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -2197,14 +2197,14 @@ define internal noundef i32 @vga_arb_release(ptr nocapture readnone %0, ptr noca
   %69 = icmp eq i32 %66, 0
   br i1 %69, label %.loopexit12, label %.preheader11, !llvm.loop !32
 
-.preheader:                                       ; preds = %.preheader.preheader, %110
-  %70 = phi i32 [ %23, %.preheader.preheader ], [ %113, %110 ]
-  %71 = phi ptr [ %.pre20, %.preheader.preheader ], [ %112, %110 ]
+.preheader:                                       ; preds = %.preheader.preheader, %111
+  %70 = phi i32 [ %23, %.preheader.preheader ], [ %114, %111 ]
+  %71 = phi ptr [ %.pre20, %.preheader.preheader ], [ %113, %111 ]
   %72 = load ptr, ptr %13, align 8
   %73 = icmp eq ptr %72, null
   %74 = select i1 %73, ptr %71, ptr %72
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %110, label %76
+  br i1 %75, label %111, label %76
 
 76:                                               ; preds = %.preheader
   %77 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #14
@@ -2232,58 +2232,58 @@ define internal noundef i32 @vga_arb_release(ptr nocapture readnone %0, ptr noca
   %91 = getelementptr inbounds i8, ptr %80, i64 40
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 0
-  br i1 %93, label %96, label %94
+  br i1 %93, label %97, label %94
 
 94:                                               ; preds = %88
   %95 = add i32 %92, -1
   store i32 %95, ptr %91, align 8
-  br label %96
+  %96 = icmp eq i32 %95, 0
+  br label %97
 
-96:                                               ; preds = %94, %88
-  %97 = phi i32 [ %95, %94 ], [ 0, %88 ]
-  %98 = getelementptr inbounds i8, ptr %80, i64 36
-  %99 = load i32, ptr %98, align 4
-  %.not = icmp eq i32 %99, 0
-  %100 = and i32 %90, -2
-  %101 = select i1 %.not, i32 %100, i32 %90
-  %.not24 = icmp eq i32 %97, 0
-  %102 = and i32 %101, -3
-  %103 = select i1 %.not24, i32 %102, i32 %101
-  %104 = or i1 %.not, %.not24
-  br i1 %104, label %105, label %106
+97:                                               ; preds = %94, %88
+  %98 = phi i1 [ %96, %94 ], [ true, %88 ]
+  %99 = getelementptr inbounds i8, ptr %80, i64 36
+  %100 = load i32, ptr %99, align 4
+  %.not = icmp eq i32 %100, 0
+  %101 = and i32 %90, -2
+  %102 = select i1 %.not, i32 %101, i32 %90
+  %103 = and i32 %102, -3
+  %104 = select i1 %98, i32 %103, i32 %102
+  %105 = or i1 %.not, %98
+  br i1 %105, label %106, label %107
 
-105:                                              ; preds = %96
-  store i32 %103, ptr %89, align 8
-  br label %106
+106:                                              ; preds = %97
+  store i32 %104, ptr %89, align 8
+  br label %107
 
-106:                                              ; preds = %96, %105
-  %107 = icmp eq i32 %90, %103
-  br i1 %107, label %.thread10, label %108
+107:                                              ; preds = %97, %106
+  %108 = icmp eq i32 %90, %104
+  br i1 %108, label %.thread10, label %109
 
-108:                                              ; preds = %106
-  %109 = tail call i32 @__wake_up(ptr noundef nonnull @vga_wait_queue, i32 noundef 3, i32 noundef 0, ptr noundef null) #14
+109:                                              ; preds = %107
+  %110 = tail call i32 @__wake_up(ptr noundef nonnull @vga_wait_queue, i32 noundef 3, i32 noundef 0, ptr noundef null) #14
   br label %.thread10
 
-.thread10:                                        ; preds = %78, %108, %106, %86
+.thread10:                                        ; preds = %78, %109, %107, %86
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %77) #14
   %.pre19 = load ptr, ptr @vga_default, align 8
   %.pre21 = load i32, ptr %21, align 8
-  br label %110
+  br label %111
 
-110:                                              ; preds = %.thread10, %.preheader
-  %111 = phi i32 [ %.pre21, %.thread10 ], [ %70, %.preheader ]
-  %112 = phi ptr [ %.pre19, %.thread10 ], [ %71, %.preheader ]
-  %113 = add i32 %111, -1
-  store i32 %113, ptr %21, align 8
-  %114 = icmp eq i32 %111, 0
-  br i1 %114, label %.loopexit, label %.preheader, !llvm.loop !33
+111:                                              ; preds = %.thread10, %.preheader
+  %112 = phi i32 [ %.pre21, %.thread10 ], [ %70, %.preheader ]
+  %113 = phi ptr [ %.pre19, %.thread10 ], [ %71, %.preheader ]
+  %114 = add i32 %112, -1
+  store i32 %114, ptr %21, align 8
+  %115 = icmp eq i32 %112, 0
+  br i1 %115, label %.loopexit, label %.preheader, !llvm.loop !33
 
-.loopexit:                                        ; preds = %110, %.loopexit12, %11
-  %115 = add nuw nsw i64 %12, 1
-  %116 = icmp eq i64 %115, 16
-  br i1 %116, label %117, label %11, !llvm.loop !34
+.loopexit:                                        ; preds = %111, %.loopexit12, %11
+  %116 = add nuw nsw i64 %12, 1
+  %117 = icmp eq i64 %116, 16
+  br i1 %117, label %118, label %11, !llvm.loop !34
 
-117:                                              ; preds = %.loopexit
+118:                                              ; preds = %.loopexit
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_user_lock, i64 noundef %5) #14
   tail call void @kfree(ptr noundef %4) #14
   ret i32 0

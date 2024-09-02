@@ -2809,41 +2809,41 @@ define dso_local void @gmlset_debug(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @gmllex_destroy() local_unnamed_addr #1 {
   %.pr = load ptr, ptr @yy_buffer_stack, align 8
-  %.not8 = icmp eq ptr %.pr, null
-  br i1 %.not8, label %.thread, label %.lr.ph.preheader
+  %.not7 = icmp eq ptr %.pr, null
+  br i1 %.not7, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @yy_buffer_stack_top, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pr, i64 %.pre
-  %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
-  %.not219 = icmp eq ptr %.pre11, null
-  br i1 %.not219, label %.thread, label %.thread.i
+  %.pre10 = load ptr, ptr %.phi.trans.insert, align 8
+  %1 = icmp eq ptr %.pre10, null
+  br i1 %1, label %.critedge, label %.thread.i
 
 .thread.i:                                        ; preds = %.lr.ph.preheader
-  %1 = getelementptr inbounds ptr, ptr %.pr, i64 %.pre
-  store ptr null, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %.pre11, i64 32
-  %3 = load i32, ptr %2, align 8
-  %.not7.i = icmp eq i32 %3, 0
-  br i1 %.not7.i, label %gmlpop_buffer_state.exit, label %4
+  %2 = getelementptr inbounds ptr, ptr %.pr, i64 %.pre
+  store ptr null, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %.pre10, i64 32
+  %4 = load i32, ptr %3, align 8
+  %.not7.i = icmp eq i32 %4, 0
+  br i1 %.not7.i, label %gmlpop_buffer_state.exit, label %5
 
-4:                                                ; preds = %.thread.i
-  %5 = getelementptr inbounds i8, ptr %.pre11, i64 8
-  %6 = load ptr, ptr %5, align 8
-  tail call void @free(ptr noundef %6) #28
-  %.pre12.pre = load ptr, ptr @yy_buffer_stack, align 8
+5:                                                ; preds = %.thread.i
+  %6 = getelementptr inbounds i8, ptr %.pre10, i64 8
+  %7 = load ptr, ptr %6, align 8
+  tail call void @free(ptr noundef %7) #28
+  %.pre11 = load ptr, ptr @yy_buffer_stack, align 8
   br label %gmlpop_buffer_state.exit
 
-gmlpop_buffer_state.exit:                         ; preds = %.thread.i, %4
-  %.pre12 = phi ptr [ %.pre12.pre, %4 ], [ %.pr, %.thread.i ]
-  tail call void @free(ptr noundef nonnull %.pre11) #28
-  %.pre13 = load i64, ptr @yy_buffer_stack_top, align 8
-  %7 = getelementptr inbounds ptr, ptr %.pre12, i64 %.pre13
-  store ptr null, ptr %7, align 8
-  br label %.thread
+gmlpop_buffer_state.exit:                         ; preds = %.thread.i, %5
+  %8 = phi ptr [ %.pr, %.thread.i ], [ %.pre11, %5 ]
+  tail call void @free(ptr noundef nonnull %.pre10) #28
+  %9 = load i64, ptr @yy_buffer_stack_top, align 8
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  store ptr null, ptr %10, align 8
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph.preheader, %gmlpop_buffer_state.exit, %0
-  %.lcssa = phi ptr [ null, %0 ], [ %.pre12, %gmlpop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
+.critedge:                                        ; preds = %.lr.ph.preheader, %gmlpop_buffer_state.exit, %0
+  %.lcssa = phi ptr [ null, %0 ], [ %8, %gmlpop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
   tail call void @free(ptr noundef %.lcssa) #28
   store ptr null, ptr @yy_buffer_stack, align 8
   store i64 0, ptr @yy_buffer_stack_top, align 8

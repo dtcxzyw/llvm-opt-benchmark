@@ -168,11 +168,15 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 1
+  br label %for.cond.outer
+
+for.cond.outer:                                   ; preds = %if.then39.if.end46_crit_edge, %if.end4
+  %c.0.ph = phi ptr [ %add.ptr35, %if.then39.if.end46_crit_edge ], [ %add.ptr, %if.end4 ]
+  %s.0.ph = phi ptr [ %incdec.ptr24, %if.then39.if.end46_crit_edge ], [ %add.ptr, %if.end4 ]
   br label %for.cond
 
-for.cond:                                         ; preds = %if.end46, %if.end4
-  %c.0 = phi ptr [ %add.ptr, %if.end4 ], [ %c.1.ph, %if.end46 ]
-  %s.0 = phi ptr [ %add.ptr, %if.end4 ], [ %incdec.ptr, %if.end46 ]
+for.cond:                                         ; preds = %for.cond.outer, %if.end46
+  %s.0 = phi ptr [ %incdec.ptr, %if.end46 ], [ %s.0.ph, %for.cond.outer ]
   %1 = load i8, ptr %s.0, align 1
   %cmp6 = icmp eq i8 %1, 47
   br i1 %cmp6, label %land.lhs.true, label %lor.lhs.false24
@@ -214,10 +218,10 @@ lor.lhs.false24:                                  ; preds = %lor.lhs.false24thre
 
 if.then28:                                        ; preds = %lor.lhs.false24, %land.lhs.true19, %land.lhs.true10
   %sub.ptr.lhs.cast = ptrtoint ptr %s.0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %c.0 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %c.0.ph to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv29 = trunc i64 %sub.ptr.sub to i32
-  %call30 = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef %c.0, i32 noundef %conv29) #6
+  %call30 = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %c.0.ph, i32 noundef %conv29) #6
   %cmp31.not = icmp eq i32 %call30, %conv29
   br i1 %cmp31.not, label %if.end34, label %err
 
@@ -234,14 +238,13 @@ if.then39:                                        ; preds = %if.end34
 if.then39.if.end46_crit_edge:                     ; preds = %if.then39
   %add.ptr35 = getelementptr inbounds i8, ptr %s.0, i64 1
   %.pr20.pre = load i8, ptr %s.0, align 1
-  br label %if.end46
+  %7 = icmp eq i8 %.pr20.pre, 0
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %s.0, i64 1
+  br i1 %7, label %return.sink.split, label %for.cond.outer
 
-if.end46:                                         ; preds = %if.then39.if.end46_crit_edge, %lor.lhs.false24
-  %.pr20 = phi i8 [ %5, %lor.lhs.false24 ], [ %.pr20.pre, %if.then39.if.end46_crit_edge ]
-  %c.1.ph = phi ptr [ %c.0, %lor.lhs.false24 ], [ %add.ptr35, %if.then39.if.end46_crit_edge ]
-  %cmp48 = icmp eq i8 %.pr20, 0
+if.end46:                                         ; preds = %lor.lhs.false24
   %incdec.ptr = getelementptr inbounds i8, ptr %s.0, i64 1
-  br i1 %cmp48, label %return.sink.split, label %for.cond
+  br label %for.cond
 
 err:                                              ; preds = %if.then39, %if.then28
   tail call void @ERR_new() #6
@@ -249,9 +252,9 @@ err:                                              ; preds = %if.then39, %if.then
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524295, ptr noundef null) #6
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %if.end46, %if.end34, %if.end, %err
-  %.sink = phi i32 [ 542, %err ], [ 512, %if.end ], [ 538, %if.end34 ], [ 538, %if.end46 ]
-  %retval.0.ph = phi i32 [ 0, %err ], [ 1, %if.end ], [ 1, %if.end34 ], [ 1, %if.end46 ]
+return.sink.split:                                ; preds = %if.end34, %if.then39.if.end46_crit_edge, %if.end, %err
+  %.sink = phi i32 [ 542, %err ], [ 512, %if.end ], [ 538, %if.then39.if.end46_crit_edge ], [ 538, %if.end34 ]
+  %retval.0.ph = phi i32 [ 0, %err ], [ 1, %if.end ], [ 1, %if.then39.if.end46_crit_edge ], [ 1, %if.end34 ]
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.2, i32 noundef %.sink) #6
   br label %return
 

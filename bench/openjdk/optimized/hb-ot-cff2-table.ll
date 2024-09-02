@@ -6593,7 +6593,7 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   %63 = shl nuw nsw i32 %62, 8
   %64 = zext i8 %.val17.i to i32
   %65 = or disjoint i32 %63, %64
-  %spec.select.i.i = tail call noundef i32 @llvm.umin.i32(i32 %5, i32 %65)
+  %spec.select.i.i = tail call noundef range(i32 0, 65536) i32 @llvm.umin.i32(i32 %5, i32 %65)
   %.not.i6 = icmp eq i32 %spec.select.i.i, 0
   br i1 %.not.i6, label %.preheader.i, label %.lr.ph.i
 

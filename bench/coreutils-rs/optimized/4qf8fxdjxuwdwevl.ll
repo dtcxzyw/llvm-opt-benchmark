@@ -389,7 +389,7 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, i64 noundef %2) unnamed_addr #0 {
+define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = alloca i64, align 8

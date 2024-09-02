@@ -1296,11 +1296,11 @@ if.end.i56.i:                                     ; preds = %e1000e_rss_enabled.
   %conv16.i = zext nneg i8 %105 to i32
   %queue17.i = getelementptr inbounds i8, ptr %rss_info, i64 8
   store i32 %conv16.i, ptr %queue17.i, align 4
+  %106 = zext nneg i8 %105 to i64
   br label %e1000e_rx_ring_init.exit
 
 e1000e_rx_ring_init.exit:                         ; preds = %if.end.i56.i, %if.then6.i, %trace_e1000e_rx_rss_disabled.exit.i
-  %106 = phi i32 [ 0, %trace_e1000e_rx_rss_disabled.exit.i ], [ 0, %if.then6.i ], [ %conv16.i, %if.end.i56.i ]
-  %conv.i93 = zext nneg i32 %106 to i64
+  %conv.i93 = phi i64 [ 0, %trace_e1000e_rx_rss_disabled.exit.i ], [ 0, %if.then6.i ], [ %106, %if.end.i56.i ]
   %arrayidx.i94 = getelementptr [2 x %struct.E1000ERingInfo], ptr @e1000e_rx_ring_init.i, i64 0, i64 %conv.i93
   %107 = load ptr, ptr %rx_pkt22, align 8
   %call38 = call i64 @net_rx_pkt_get_total_len(ptr noundef %107) #13

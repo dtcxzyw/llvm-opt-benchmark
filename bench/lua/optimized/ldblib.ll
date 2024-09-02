@@ -871,7 +871,7 @@ lor.end7:                                         ; preds = %entry, %entry, %lor
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @db_setupvalue(ptr noundef %L) #0 {
+define internal range(i32 0, 2) i32 @db_setupvalue(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checkany(ptr noundef %L, i32 noundef 3) #7
   %call.i = tail call i64 @luaL_checkinteger(ptr noundef %L, i32 noundef 2) #7

@@ -1186,14 +1186,17 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorI
   %154 = sub i64 %152, %153
   %155 = ashr exact i64 %154, 4
   %156 = icmp ult i64 %149, %155
-  br i1 %156, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %156, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit, %112
-  %.sroa.0132.0.lcssa = phi ptr [ null, %112 ], [ %.sroa.0132.1, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit ]
-  %.sroa.24.0.lcssa = phi ptr [ null, %112 ], [ %.sroa.24.1, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit ]
-  %157 = ptrtoint ptr %.sroa.24.0.lcssa to i64
+._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit
+  %157 = ptrtoint ptr %.sroa.24.1 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %112
+  %.sroa.0132.0.lcssa = phi ptr [ null, %112 ], [ %.sroa.0132.1, %._crit_edge.loopexit ]
+  %.sroa.24.0.lcssa = phi i64 [ 0, %112 ], [ %157, %._crit_edge.loopexit ]
   %158 = ptrtoint ptr %.sroa.0132.0.lcssa to i64
-  %159 = sub i64 %157, %158
+  %159 = sub i64 %.sroa.24.0.lcssa, %158
   %160 = lshr exact i64 %159, 4
   %161 = trunc i64 %160 to i32
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef %161, i32 noundef 2, i32 noundef 5)

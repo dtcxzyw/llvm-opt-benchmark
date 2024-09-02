@@ -20121,232 +20121,223 @@ define internal i32 @dissect_ngap_media_type(ptr noundef %0, ptr noundef %1, ptr
 30:                                               ; preds = %28
   %31 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3946) #10
   %.not130 = icmp eq ptr %31, null
-  br i1 %.not130, label %74, label %.thread
+  br i1 %.not130, label %68, label %.thread
 
 .thread:                                          ; preds = %28, %30
   %.0111160 = phi ptr [ %31, %30 ], [ %29, %28 ]
   %32 = tail call ptr @json_get_string(ptr noundef %18, ptr noundef nonnull %.0111160, ptr noundef nonnull @.str.3947) #10
   %.not131 = icmp eq ptr %32, null
-  br i1 %.not131, label %74, label %sub_0
+  br i1 %.not131, label %68, label %sub_0
 
 sub_0:                                            ; preds = %.thread
   %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = add nsw i32 %34, -83
-  %.not164 = icmp eq i32 %35, 0
-  br i1 %.not164, label %sub_1, label %.tail
+  %.not164 = icmp eq i8 %33, 83
+  br i1 %.not164, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %36 = getelementptr inbounds i8, ptr %32, i64 1
+  %34 = getelementptr inbounds i8, ptr %32, i64 1
+  %35 = load i8, ptr %34, align 1
+  %.not165 = icmp eq i8 %35, 77
+  br i1 %.not165, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %36 = getelementptr inbounds i8, ptr %32, i64 2
   %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  %39 = add nsw i32 %38, -77
-  %.not165 = icmp eq i32 %39, 0
-  br i1 %.not165, label %sub_2, label %.tail
+  %38 = icmp eq i8 %37, 0
+  br i1 %38, label %39, label %.tail.thread
 
-sub_2:                                            ; preds = %sub_1
-  %40 = getelementptr inbounds i8, ptr %32, i64 2
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i32
-  br label %.tail
+39:                                               ; preds = %.tail
+  %40 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef nonnull %.0111160, ptr noundef nonnull @.str.3949) #10
+  %.not133 = icmp eq ptr %40, null
+  br i1 %.not133, label %.tail.thread, label %41
 
-.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
-  %43 = phi i32 [ %35, %sub_0 ], [ %39, %sub_1 ], [ %42, %sub_2 ]
-  %.not132 = icmp eq i32 %43, 0
-  br i1 %.not132, label %44, label %49
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %13, align 8
+  %43 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %40, ptr noundef nonnull @.str.3950, ptr noundef %42, ptr noundef nonnull %5)
+  %.not134 = icmp eq i32 %43, 0
+  br i1 %.not134, label %.tail.thread, label %thread-pre-split
 
-44:                                               ; preds = %.tail
-  %45 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef nonnull %.0111160, ptr noundef nonnull @.str.3949) #10
-  %.not133 = icmp eq ptr %45, null
-  br i1 %.not133, label %49, label %46
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %39, %41, %.tail
+  %.1 = phi ptr [ %.0111160, %.tail ], [ %40, %41 ], [ null, %39 ], [ %.0111160, %sub_0 ], [ %.0111160, %sub_1 ]
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(4) @.str.3951) #11
+  %.not135 = icmp eq i32 %44, 0
+  br i1 %.not135, label %45, label %50
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %13, align 8
-  %48 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %45, ptr noundef nonnull @.str.3950, ptr noundef %47, ptr noundef nonnull %5)
-  %.not134 = icmp eq i32 %48, 0
-  br i1 %.not134, label %49, label %thread-pre-split
+45:                                               ; preds = %.tail.thread
+  %46 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef %.1, ptr noundef nonnull @.str.3952) #10
+  %.not136 = icmp eq ptr %46, null
+  br i1 %.not136, label %50, label %47
 
-49:                                               ; preds = %44, %46, %.tail
-  %.1 = phi ptr [ %.0111160, %.tail ], [ %45, %46 ], [ null, %44 ]
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(4) @.str.3951) #11
-  %.not135 = icmp eq i32 %50, 0
-  br i1 %.not135, label %51, label %56
+47:                                               ; preds = %45
+  %48 = load ptr, ptr %13, align 8
+  %49 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %46, ptr noundef nonnull @.str.3950, ptr noundef %48, ptr noundef nonnull %5)
+  %.not137 = icmp eq i32 %49, 0
+  br i1 %.not137, label %50, label %thread-pre-split
 
-51:                                               ; preds = %49
-  %52 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef %.1, ptr noundef nonnull @.str.3952) #10
-  %.not136 = icmp eq ptr %52, null
-  br i1 %.not136, label %56, label %53
+50:                                               ; preds = %45, %47, %.tail.thread
+  %.2 = phi ptr [ %.1, %.tail.thread ], [ %46, %47 ], [ null, %45 ]
+  %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(6) @.str.3953) #11
+  %.not138 = icmp eq i32 %51, 0
+  br i1 %.not138, label %52, label %57
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %13, align 8
-  %55 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %52, ptr noundef nonnull @.str.3950, ptr noundef %54, ptr noundef nonnull %5)
-  %.not137 = icmp eq i32 %55, 0
-  br i1 %.not137, label %56, label %thread-pre-split
+52:                                               ; preds = %50
+  %53 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef %.2, ptr noundef nonnull @.str.3954) #10
+  %.not139 = icmp eq ptr %53, null
+  br i1 %.not139, label %57, label %54
 
-56:                                               ; preds = %51, %53, %49
-  %.2 = phi ptr [ %.1, %49 ], [ %52, %53 ], [ null, %51 ]
-  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(6) @.str.3953) #11
-  %.not138 = icmp eq i32 %57, 0
-  br i1 %.not138, label %58, label %63
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %13, align 8
+  %56 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %53, ptr noundef nonnull @.str.3955, ptr noundef %55, ptr noundef nonnull %5)
+  %.not140 = icmp eq i32 %56, 0
+  br i1 %.not140, label %57, label %thread-pre-split
 
-58:                                               ; preds = %56
-  %59 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef %.2, ptr noundef nonnull @.str.3954) #10
-  %.not139 = icmp eq ptr %59, null
-  br i1 %.not139, label %63, label %60
+57:                                               ; preds = %52, %54, %50
+  %.3 = phi ptr [ %.2, %50 ], [ %53, %54 ], [ null, %52 ]
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(4) @.str.3956) #11
+  %.not141 = icmp eq i32 %58, 0
+  br i1 %.not141, label %63, label %59
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %13, align 8
-  %62 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %59, ptr noundef nonnull @.str.3955, ptr noundef %61, ptr noundef nonnull %5)
-  %.not140 = icmp eq i32 %62, 0
-  br i1 %.not140, label %63, label %thread-pre-split
+59:                                               ; preds = %57
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(9) @.str.3957) #11
+  %.not142 = icmp eq i32 %60, 0
+  br i1 %.not142, label %63, label %61
 
-63:                                               ; preds = %58, %60, %56
-  %.3 = phi ptr [ %.2, %56 ], [ %59, %60 ], [ null, %58 ]
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(4) @.str.3956) #11
-  %.not141 = icmp eq i32 %64, 0
-  br i1 %.not141, label %69, label %65
+61:                                               ; preds = %59
+  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(7) @.str.3958) #11
+  %.not143 = icmp eq i32 %62, 0
+  br i1 %.not143, label %63, label %68
+
+63:                                               ; preds = %61, %59, %57
+  %64 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef %.3, ptr noundef nonnull @.str.3959) #10
+  %.not144 = icmp eq ptr %64, null
+  br i1 %.not144, label %68, label %65
 
 65:                                               ; preds = %63
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(9) @.str.3957) #11
-  %.not142 = icmp eq i32 %66, 0
-  br i1 %.not142, label %69, label %67
+  %66 = load ptr, ptr %13, align 8
+  %67 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %64, ptr noundef nonnull @.str.3960, ptr noundef %66, ptr noundef nonnull %5)
+  %.not145 = icmp eq i32 %67, 0
+  br i1 %.not145, label %68, label %thread-pre-split
 
-67:                                               ; preds = %65
-  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(7) @.str.3958) #11
-  %.not143 = icmp eq i32 %68, 0
-  br i1 %.not143, label %69, label %74
+68:                                               ; preds = %.thread, %63, %65, %61, %30
+  %69 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3961) #10
+  %.not146 = icmp eq ptr %69, null
+  br i1 %.not146, label %._crit_edge, label %70
 
-69:                                               ; preds = %67, %65, %63
-  %70 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef %.3, ptr noundef nonnull @.str.3959) #10
-  %.not144 = icmp eq ptr %70, null
-  br i1 %.not144, label %74, label %71
-
-71:                                               ; preds = %69
-  %72 = load ptr, ptr %13, align 8
-  %73 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %70, ptr noundef nonnull @.str.3960, ptr noundef %72, ptr noundef nonnull %5)
-  %.not145 = icmp eq i32 %73, 0
-  br i1 %.not145, label %74, label %thread-pre-split
-
-74:                                               ; preds = %.thread, %69, %71, %67, %30
-  %75 = tail call ptr @json_get_object(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3961) #10
-  %.not146 = icmp eq ptr %75, null
-  br i1 %.not146, label %._crit_edge, label %76
-
-._crit_edge:                                      ; preds = %74
+._crit_edge:                                      ; preds = %68
   %.pre = load ptr, ptr %13, align 8
-  br label %85
+  br label %79
+
+70:                                               ; preds = %68
+  %71 = tail call ptr @json_get_string(ptr noundef %18, ptr noundef nonnull %69, ptr noundef nonnull @.str.3962) #10
+  %.not147 = icmp eq ptr %71, null
+  %.pre166 = load ptr, ptr %13, align 8
+  br i1 %.not147, label %79, label %72
+
+72:                                               ; preds = %70
+  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(1) %.pre166) #11
+  %.not148 = icmp eq i32 %73, 0
+  br i1 %.not148, label %74, label %79
+
+74:                                               ; preds = %72
+  %75 = tail call ptr @json_get_string(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3963) #10
+  %.not149 = icmp eq ptr %75, null
+  br i1 %.not149, label %.thread161, label %76
 
 76:                                               ; preds = %74
-  %77 = tail call ptr @json_get_string(ptr noundef %18, ptr noundef nonnull %75, ptr noundef nonnull @.str.3962) #10
-  %.not147 = icmp eq ptr %77, null
-  %.pre166 = load ptr, ptr %13, align 8
-  br i1 %.not147, label %85, label %78
+  %77 = load ptr, ptr @ngap_n2_ie_type_dissector_table, align 8
+  %78 = tail call ptr @dissector_get_string_handle(ptr noundef %77, ptr noundef nonnull %75) #10
+  br label %103
 
-78:                                               ; preds = %76
-  %79 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) %.pre166) #11
-  %.not148 = icmp eq i32 %79, 0
-  br i1 %.not148, label %80, label %85
+79:                                               ; preds = %._crit_edge, %70, %72
+  %80 = phi ptr [ %.pre, %._crit_edge ], [ %.pre166, %70 ], [ %.pre166, %72 ]
+  %81 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3964, ptr noundef %80, ptr noundef nonnull %5)
+  %.not150 = icmp eq i32 %81, 0
+  br i1 %.not150, label %82, label %thread-pre-split
 
-80:                                               ; preds = %78
-  %81 = tail call ptr @json_get_string(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3963) #10
-  %.not149 = icmp eq ptr %81, null
-  br i1 %.not149, label %.thread161, label %82
+82:                                               ; preds = %79
+  %83 = tail call ptr @json_get_array(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3965) #10
+  %.not151 = icmp eq ptr %83, null
+  br i1 %.not151, label %.loopexit, label %84
 
-82:                                               ; preds = %80
-  %83 = load ptr, ptr @ngap_n2_ie_type_dissector_table, align 8
-  %84 = tail call ptr @dissector_get_string_handle(ptr noundef %83, ptr noundef nonnull %81) #10
-  br label %109
+84:                                               ; preds = %82
+  %85 = tail call i32 @json_get_array_len(ptr noundef nonnull %83) #10
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %.lr.ph, label %.loopexit
 
-85:                                               ; preds = %._crit_edge, %76, %78
-  %86 = phi ptr [ %.pre, %._crit_edge ], [ %.pre166, %76 ], [ %.pre166, %78 ]
-  %87 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3964, ptr noundef %86, ptr noundef nonnull %5)
-  %.not150 = icmp eq i32 %87, 0
-  br i1 %.not150, label %88, label %thread-pre-split
-
-88:                                               ; preds = %85
-  %89 = tail call ptr @json_get_array(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3965) #10
-  %.not151 = icmp eq ptr %89, null
-  br i1 %.not151, label %.loopexit, label %90
-
-90:                                               ; preds = %88
-  %91 = tail call i32 @json_get_array_len(ptr noundef nonnull %89) #10
-  %92 = icmp sgt i32 %91, 0
-  br i1 %92, label %.lr.ph, label %.loopexit
-
-93:                                               ; preds = %.lr.ph
-  %94 = add nuw nsw i32 %.0112163, 1
-  %exitcond.not = icmp eq i32 %94, %91
+87:                                               ; preds = %.lr.ph
+  %88 = add nuw nsw i32 %.0112163, 1
+  %exitcond.not = icmp eq i32 %88, %85
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
-.lr.ph:                                           ; preds = %90, %93
-  %.0112163 = phi i32 [ %94, %93 ], [ 0, %90 ]
-  %95 = tail call ptr @json_get_array_index(ptr noundef nonnull %89, i32 noundef %.0112163) #10
-  %96 = load ptr, ptr %13, align 8
-  %97 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %95, ptr noundef nonnull @.str.3950, ptr noundef %96, ptr noundef nonnull %5)
-  %.not155 = icmp eq i32 %97, 0
-  br i1 %.not155, label %93, label %thread-pre-split
+.lr.ph:                                           ; preds = %84, %87
+  %.0112163 = phi i32 [ %88, %87 ], [ 0, %84 ]
+  %89 = tail call ptr @json_get_array_index(ptr noundef nonnull %83, i32 noundef %.0112163) #10
+  %90 = load ptr, ptr %13, align 8
+  %91 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %89, ptr noundef nonnull @.str.3950, ptr noundef %90, ptr noundef nonnull %5)
+  %.not155 = icmp eq i32 %91, 0
+  br i1 %.not155, label %87, label %thread-pre-split
 
-.loopexit:                                        ; preds = %93, %90, %88
+.loopexit:                                        ; preds = %87, %84, %82
+  %92 = load ptr, ptr %13, align 8
+  %93 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3966, ptr noundef %92, ptr noundef nonnull %5)
+  %.not152 = icmp eq i32 %93, 0
+  br i1 %.not152, label %94, label %thread-pre-split
+
+94:                                               ; preds = %.loopexit
+  %95 = load ptr, ptr %13, align 8
+  %96 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3967, ptr noundef %95, ptr noundef nonnull %5)
+  %.not153 = icmp eq i32 %96, 0
+  br i1 %.not153, label %97, label %thread-pre-split
+
+97:                                               ; preds = %94
   %98 = load ptr, ptr %13, align 8
-  %99 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3966, ptr noundef %98, ptr noundef nonnull %5)
-  %.not152 = icmp eq i32 %99, 0
-  br i1 %.not152, label %100, label %thread-pre-split
+  %99 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3968, ptr noundef %98, ptr noundef nonnull %5)
+  %.not154 = icmp eq i32 %99, 0
+  br i1 %.not154, label %100, label %thread-pre-split
 
-100:                                              ; preds = %.loopexit
+100:                                              ; preds = %97
   %101 = load ptr, ptr %13, align 8
-  %102 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3967, ptr noundef %101, ptr noundef nonnull %5)
-  %.not153 = icmp eq i32 %102, 0
-  br i1 %.not153, label %103, label %thread-pre-split
-
-103:                                              ; preds = %100
-  %104 = load ptr, ptr %13, align 8
-  %105 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3968, ptr noundef %104, ptr noundef nonnull %5)
-  %.not154 = icmp eq i32 %105, 0
-  br i1 %.not154, label %106, label %thread-pre-split
-
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %13, align 8
-  %108 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3969, ptr noundef %107, ptr noundef nonnull %5)
+  %102 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3969, ptr noundef %101, ptr noundef nonnull %5)
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %.lr.ph, %46, %53, %60, %71, %85, %.loopexit, %100, %103, %106
+thread-pre-split:                                 ; preds = %.lr.ph, %41, %47, %54, %65, %79, %.loopexit, %94, %97, %100
   %.pr = load ptr, ptr %5, align 8
-  br label %109
+  br label %103
 
-109:                                              ; preds = %thread-pre-split, %82
-  %110 = phi ptr [ %.pr, %thread-pre-split ], [ %84, %82 ]
-  %.not156 = icmp eq ptr %110, null
-  br i1 %.not156, label %.thread161, label %111
+103:                                              ; preds = %thread-pre-split, %76
+  %104 = phi ptr [ %.pr, %thread-pre-split ], [ %78, %76 ]
+  %.not156 = icmp eq ptr %104, null
+  br i1 %.not156, label %.thread161, label %105
 
-111:                                              ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %1, i64 8
-  %113 = load ptr, ptr %112, align 8
-  tail call void @col_append_sep_str(ptr noundef %113, i32 noundef 34, ptr noundef nonnull @.str.3970, ptr noundef nonnull @.str.57) #10
-  %114 = load ptr, ptr @ngap_handle, align 8
-  %.not157 = icmp eq ptr %110, %114
-  br i1 %.not157, label %120, label %115
+105:                                              ; preds = %103
+  %106 = getelementptr inbounds i8, ptr %1, i64 8
+  %107 = load ptr, ptr %106, align 8
+  tail call void @col_append_sep_str(ptr noundef %107, i32 noundef 34, ptr noundef nonnull @.str.3970, ptr noundef nonnull @.str.57) #10
+  %108 = load ptr, ptr @ngap_handle, align 8
+  %.not157 = icmp eq ptr %104, %108
+  br i1 %.not157, label %114, label %109
 
-115:                                              ; preds = %111
-  %116 = load i32, ptr @proto_ngap, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %116, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #10
-  %118 = load i32, ptr @ett_ngap, align 4
-  %119 = tail call ptr @proto_item_add_subtree(ptr noundef %117, i32 noundef %118) #10
-  br label %120
+109:                                              ; preds = %105
+  %110 = load i32, ptr @proto_ngap, align 4
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %110, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #10
+  %112 = load i32, ptr @ett_ngap, align 4
+  %113 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %112) #10
+  br label %114
 
-120:                                              ; preds = %111, %115
-  %.0110 = phi ptr [ %119, %115 ], [ %2, %111 ]
-  %121 = load ptr, ptr %112, align 8
-  %122 = tail call i32 @col_get_writable(ptr noundef %121, i32 noundef 34) #10
-  %123 = load ptr, ptr %112, align 8
-  tail call void @col_set_writable(ptr noundef %123, i32 noundef 34, i32 noundef 0) #10
-  %124 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %110, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0110, ptr noundef null) #10
-  %125 = load ptr, ptr %112, align 8
-  tail call void @col_set_writable(ptr noundef %125, i32 noundef 34, i32 noundef %122) #10
-  %126 = tail call i32 @tvb_captured_length(ptr noundef %0) #10
+114:                                              ; preds = %105, %109
+  %.0110 = phi ptr [ %113, %109 ], [ %2, %105 ]
+  %115 = load ptr, ptr %106, align 8
+  %116 = tail call i32 @col_get_writable(ptr noundef %115, i32 noundef 34) #10
+  %117 = load ptr, ptr %106, align 8
+  tail call void @col_set_writable(ptr noundef %117, i32 noundef 34, i32 noundef 0) #10
+  %118 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %104, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0110, ptr noundef null) #10
+  %119 = load ptr, ptr %106, align 8
+  tail call void @col_set_writable(ptr noundef %119, i32 noundef 34, i32 noundef %116) #10
+  %120 = tail call i32 @tvb_captured_length(ptr noundef %0) #10
   br label %.thread161
 
-.thread161:                                       ; preds = %80, %109, %21, %15, %4, %12, %120
-  %.0 = phi i32 [ %126, %120 ], [ 0, %12 ], [ 0, %4 ], [ 0, %15 ], [ 0, %21 ], [ 0, %109 ], [ 0, %80 ]
+.thread161:                                       ; preds = %74, %103, %21, %15, %4, %12, %114
+  %.0 = phi i32 [ %120, %114 ], [ 0, %12 ], [ 0, %4 ], [ 0, %15 ], [ 0, %21 ], [ 0, %103 ], [ 0, %74 ]
   ret i32 %.0
 }
 

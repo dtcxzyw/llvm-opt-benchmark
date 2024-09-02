@@ -3780,7 +3780,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapISt4pairIiN6hermes10IdentifierEENS3_13Builtin
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i16 @_ZN6hermes3hbc24LowerBuiltinCallsContext17findBuiltinMethodENS_10IdentifierES2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %objectName.coerce, ptr %methodName.coerce) local_unnamed_addr #0 align 2 {
+define hidden range(i16 0, 512) i16 @_ZN6hermes3hbc24LowerBuiltinCallsContext17findBuiltinMethodENS_10IdentifierES2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %objectName.coerce, ptr %methodName.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %ConstFoundBucket.i.i = alloca ptr, align 8
   %ref.tmp6 = alloca %"struct.std::pair", align 8

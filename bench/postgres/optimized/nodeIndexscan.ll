@@ -1043,12 +1043,12 @@ thread-pre-split383:                              ; preds = %list_length.exit.i
 134:                                              ; preds = %131
   %135 = getelementptr inbounds i8, ptr %133, i64 4
   %136 = load i32, ptr %135, align 4
+  %137 = sext i32 %136 to i64
+  %138 = mul nsw i64 %137, 72
   br label %list_length.exit376
 
 list_length.exit376:                              ; preds = %131, %134
-  %137 = phi i32 [ %136, %134 ], [ 0, %131 ]
-  %138 = sext i32 %137 to i64
-  %139 = mul nsw i64 %138, 72
+  %139 = phi i64 [ %138, %134 ], [ 0, %131 ]
   %140 = call ptr @palloc(i64 noundef %139) #8
   %141 = getelementptr inbounds i8, ptr %44, i64 32
   %142 = load ptr, ptr %141, align 8

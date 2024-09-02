@@ -391,7 +391,8 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   %iCnt.0351 = phi i32 [ 0, %for.body26.lr.ph ], [ %add28, %for.body26 ]
   %arrayidx = getelementptr inbounds %struct.aiFace, ptr %11, i64 %indvars.iv380
   %14 = load i32, ptr %arrayidx, align 8
-  %add28 = add i32 %14, %iCnt.0351
+  %.fr = freeze i32 %14
+  %add28 = add i32 %.fr, %iCnt.0351
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next381 to i32
   %exitcond.not = icmp eq i32 %13, %lftr.wideiv
@@ -399,17 +400,16 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
 
 for.end:                                          ; preds = %for.body26, %arrayctor.cont
   %iCnt.0.lcssa = phi i32 [ 0, %arrayctor.cont ], [ %add28, %for.body26 ]
-  %iCnt.0.lcssa.fr = freeze i32 %iCnt.0.lcssa
-  store i32 %iCnt.0.lcssa.fr, ptr %mNumVertices.i, align 4
+  store i32 %iCnt.0.lcssa, ptr %mNumVertices.i, align 4
   %15 = load ptr, ptr %mVertices, align 8
   %cmp29.not = icmp eq ptr %15, null
   br i1 %cmp29.not, label %if.end42, label %if.then30
 
 if.then30:                                        ; preds = %for.end
-  %conv31 = zext i32 %iCnt.0.lcssa.fr to i64
+  %conv31 = zext i32 %iCnt.0.lcssa to i64
   %16 = mul nuw nsw i64 %conv31, 12
   %call32 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #17
-  %isempty33 = icmp eq i32 %iCnt.0.lcssa.fr, 0
+  %isempty33 = icmp eq i32 %iCnt.0.lcssa, 0
   br i1 %isempty33, label %arrayctor.cont40, label %new.ctorloop34
 
 new.ctorloop34:                                   ; preds = %if.then30
@@ -433,10 +433,10 @@ if.end42:                                         ; preds = %arrayctor.cont40, %
   br i1 %23, label %if.then44, label %if.end55
 
 if.then44:                                        ; preds = %if.end42
-  %conv45 = zext i32 %iCnt.0.lcssa.fr to i64
+  %conv45 = zext i32 %iCnt.0.lcssa to i64
   %24 = mul nuw nsw i64 %conv45, 12
   %call46 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %24) #17
-  %isempty47 = icmp eq i32 %iCnt.0.lcssa.fr, 0
+  %isempty47 = icmp eq i32 %iCnt.0.lcssa, 0
   br i1 %isempty47, label %arrayctor.cont54, label %new.ctorloop48
 
 new.ctorloop48:                                   ; preds = %if.then44
@@ -459,13 +459,13 @@ if.end55:                                         ; preds = %arrayctor.cont54, %
   %cmp2.not.i = icmp ne ptr %30, null
   %or.cond.i.not334 = select i1 %cmp.not.i96, i1 %cmp2.not.i, i1 false
   %brmerge.not = select i1 %or.cond.i.not334, i1 %cmp2.i, i1 false
-  %conv58 = zext i32 %iCnt.0.lcssa.fr to i64
+  %conv58 = zext i32 %iCnt.0.lcssa to i64
   %31 = mul nuw nsw i64 %conv58, 12
   br i1 %brmerge.not, label %if.then57, label %if.end78
 
 if.then57:                                        ; preds = %if.end55
   %call59 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %31) #17
-  %isempty60 = icmp eq i32 %iCnt.0.lcssa.fr, 0
+  %isempty60 = icmp eq i32 %iCnt.0.lcssa, 0
   br i1 %isempty60, label %arrayctor.cont67.thread, label %new.ctorloop61
 
 arrayctor.cont67.thread:                          ; preds = %if.then57
@@ -494,11 +494,11 @@ arrayctor.cont77:                                 ; preds = %new.ctorloop61, %ar
 
 if.end78:                                         ; preds = %if.end55, %arrayctor.cont77
   %mNumUVComponents84 = getelementptr inbounds i8, ptr %call7, i64 176
-  %isempty91 = icmp eq i32 %iCnt.0.lcssa.fr, 0
+  %isempty91 = icmp eq i32 %iCnt.0.lcssa, 0
   %mTextureCoords = getelementptr inbounds i8, ptr %call7, i64 112
   %36 = add nsw i64 %31, -12
   %37 = urem i64 %36, 12
-  %38 = sub nuw nsw i64 %36, %37
+  %38 = sub nsw i64 %36, %37
   %39 = add nsw i64 %38, 12
   br label %_ZNK6aiMesh16HasTextureCoordsEj.exit
 

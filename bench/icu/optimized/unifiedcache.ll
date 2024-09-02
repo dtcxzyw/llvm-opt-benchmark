@@ -924,7 +924,7 @@ if.end4:                                          ; preds = %if.else, %delete.no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7512UnifiedCache27_computeCountOfItemsToEvictEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK6icu_7512UnifiedCache27_computeCountOfItemsToEvictEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
   %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fHashtable, align 8
@@ -1759,7 +1759,7 @@ if.end16:                                         ; preds = %if.end16.sink.split
 declare void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %value) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7512UnifiedCache13removeHardRefEPKNS_12SharedObjectE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %value) local_unnamed_addr #10 align 2 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -1784,7 +1784,7 @@ if.end3:                                          ; preds = %if.then, %if.then2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZNK6icu_7512UnifiedCache10addHardRefEPKNS_12SharedObjectE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %value) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_7512UnifiedCache10addHardRefEPKNS_12SharedObjectE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %value) local_unnamed_addr #10 align 2 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.end3, label %if.then

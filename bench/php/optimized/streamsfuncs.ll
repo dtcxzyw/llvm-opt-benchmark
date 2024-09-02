@@ -2356,7 +2356,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
 
 13:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 4, i32 noundef 5) #10
-  br label %.thread344
+  br label %.thread350
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2374,7 +2374,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   %.1235 = phi ptr [ %21, %19 ], [ %15, %14 ]
   %23 = getelementptr inbounds i8, ptr %.1235, i64 8
   %24 = load i8, ptr %23, align 8
-  switch i8 %24, label %.thread344 [
+  switch i8 %24, label %.thread350 [
     i8 7, label %.thread
     i8 1, label %.thread.fold.split
   ]
@@ -2399,7 +2399,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   %.2236 = phi ptr [ %31, %29 ], [ %25, %.thread ]
   %33 = getelementptr inbounds i8, ptr %.2236, i64 8
   %34 = load i8, ptr %33, align 8
-  switch i8 %34, label %.thread344 [
+  switch i8 %34, label %.thread350 [
     i8 7, label %.thread316
     i8 1, label %.thread316.fold.split
   ]
@@ -2424,7 +2424,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   %.3 = phi ptr [ %41, %39 ], [ %35, %.thread316 ]
   %43 = getelementptr inbounds i8, ptr %.3, i64 8
   %44 = load i8, ptr %43, align 8
-  switch i8 %44, label %.thread344 [
+  switch i8 %44, label %.thread350 [
     i8 7, label %.thread319
     i8 1, label %.thread319.fold.split
   ]
@@ -2454,12 +2454,12 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
 
 50:                                               ; preds = %.thread319
   %51 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %45, ptr noundef nonnull %8, i32 noundef 4) #10
-  br i1 %51, label %52, label %.thread344
+  br i1 %51, label %52, label %.thread350
 
 52:                                               ; preds = %.thread322, %50
   %.3275325 = phi i1 [ %.2274, %.thread322 ], [ false, %50 ]
   %53 = icmp eq i32 %11, 4
-  br i1 %53, label %.preheader368, label %54
+  br i1 %53, label %.preheader374.preheader, label %54
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds i8, ptr %0, i64 144
@@ -2467,46 +2467,46 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
   %57 = load i8, ptr %56, align 8
   switch i8 %57, label %60 [
     i8 4, label %58
-    i8 1, label %.thread335
+    i8 1, label %.thread343
   ]
 
 58:                                               ; preds = %54
   %59 = load i64, ptr %55, align 8
-  br label %.thread335
+  br label %.thread343
 
-.thread335:                                       ; preds = %54, %58
+.thread343:                                       ; preds = %58, %54
   %storemerge296 = phi i64 [ %59, %58 ], [ 0, %54 ]
   %.2278 = phi i1 [ false, %58 ], [ true, %54 ]
   store i64 %storemerge296, ptr %9, align 8
-  br label %.preheader368
+  br label %.preheader374.preheader
 
 60:                                               ; preds = %54
   %61 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %55, ptr noundef nonnull %9, i32 noundef 5) #10
-  %cond.fr326 = freeze i1 %61
-  br i1 %cond.fr326, label %.preheader368, label %.thread344
+  %.fr = freeze i1 %61
+  br i1 %.fr, label %.preheader374.preheader, label %.thread350
 
-.preheader368:                                    ; preds = %52, %.thread335, %60
-  %.0276359.ph = phi i1 [ false, %60 ], [ %.2278, %.thread335 ], [ true, %52 ]
+.preheader374.preheader:                          ; preds = %60, %.thread343, %52
+  %.0276 = phi i1 [ true, %52 ], [ %.2278, %.thread343 ], [ false, %60 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   %.not298 = icmp eq ptr %.2265315, null
   br i1 %.not298, label %64, label %62
 
-.thread344:                                       ; preds = %60, %42, %32, %22, %50, %13
-  %.0231358 = phi i32 [ 9, %50 ], [ 1, %13 ], [ 9, %22 ], [ 9, %32 ], [ 9, %42 ], [ 9, %60 ]
-  %.0233357 = phi i32 [ 1, %50 ], [ 0, %13 ], [ 7, %22 ], [ 7, %32 ], [ 7, %42 ], [ 1, %60 ]
-  %.0234356 = phi ptr [ %45, %50 ], [ null, %13 ], [ %.1235, %22 ], [ %.2236, %32 ], [ %.3, %42 ], [ %55, %60 ]
-  %.0237355 = phi i32 [ 4, %50 ], [ 0, %13 ], [ 1, %22 ], [ 2, %32 ], [ 3, %42 ], [ 5, %60 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0231358, i32 noundef %.0237355, ptr noundef null, i32 noundef %.0233357, ptr noundef %.0234356) #10
+.thread350:                                       ; preds = %60, %42, %32, %22, %50, %13
+  %.0231364 = phi i32 [ 9, %50 ], [ 1, %13 ], [ 9, %22 ], [ 9, %32 ], [ 9, %42 ], [ 9, %60 ]
+  %.0233363 = phi i32 [ 1, %50 ], [ 0, %13 ], [ 7, %22 ], [ 7, %32 ], [ 7, %42 ], [ 1, %60 ]
+  %.0234362 = phi ptr [ %45, %50 ], [ null, %13 ], [ %.1235, %22 ], [ %.2236, %32 ], [ %.3, %42 ], [ %55, %60 ]
+  %.0237361 = phi i32 [ 4, %50 ], [ 0, %13 ], [ 1, %22 ], [ 2, %32 ], [ 3, %42 ], [ 5, %60 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0231364, i32 noundef %.0237361, ptr noundef null, i32 noundef %.0233363, ptr noundef %.0234362) #10
   br label %190
 
-62:                                               ; preds = %.preheader368
+62:                                               ; preds = %.preheader374.preheader
   %63 = call fastcc i32 @stream_array_to_fd_set(ptr noundef nonnull %.2265315, ptr noundef nonnull %4, ptr noundef nonnull %7)
   br label %64
 
-64:                                               ; preds = %62, %.preheader368
-  %.0232 = phi i32 [ %63, %62 ], [ 0, %.preheader368 ]
+64:                                               ; preds = %62, %.preheader374.preheader
+  %.0232 = phi i32 [ %63, %62 ], [ 0, %.preheader374.preheader ]
   %.not300 = icmp eq ptr %.2268318, null
   br i1 %.not300, label %68, label %65
 
@@ -2554,7 +2554,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
 82:                                               ; preds = %81
   %83 = load i64, ptr %9, align 8
   %84 = icmp eq i64 %83, 0
-  %or.cond.not = select i1 %.0276359.ph, i1 true, i1 %84
+  %or.cond.not = select i1 %.0276, i1 true, i1 %84
   br i1 %or.cond.not, label %104, label %85
 
 85:                                               ; preds = %82
@@ -2599,7 +2599,7 @@ define hidden void @zif_stream_select(ptr noundef %0, ptr nocapture noundef writ
 
 104:                                              ; preds = %82, %99
   %.0228 = phi ptr [ %3, %99 ], [ null, %82 ]
-  br i1 %.not298, label %stream_array_emulate_read_fd_set.exit.thread.thread381, label %105
+  br i1 %.not298, label %stream_array_emulate_read_fd_set.exit.thread.thread383, label %105
 
 105:                                              ; preds = %104
   %106 = getelementptr inbounds i8, ptr %.2265315, i64 8
@@ -2750,22 +2750,22 @@ stream_array_emulate_read_fd_set.exit.thread:     ; preds = %108, %._crit_edge.i
   %167 = add nsw i32 %.pre, 1
   %168 = call i32 @select(i32 noundef %167, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %.0228) #10
   %169 = icmp eq i32 %168, -1
-  br i1 %169, label %176, label %.thread380
+  br i1 %169, label %176, label %.thread382
 
-stream_array_emulate_read_fd_set.exit.thread.thread381: ; preds = %104
+stream_array_emulate_read_fd_set.exit.thread.thread383: ; preds = %104
   %170 = add nsw i32 %77, 1
   %171 = call i32 @select(i32 noundef %170, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %.0228) #10
   %172 = icmp eq i32 %171, -1
-  br i1 %172, label %176, label %.thread382
+  br i1 %172, label %176, label %.thread384
 
 stream_array_emulate_read_fd_set.exit.thread.thread: ; preds = %105
   %173 = add nsw i32 %77, 1
   %174 = call i32 @select(i32 noundef %173, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %.0228) #10
   %175 = icmp eq i32 %174, -1
-  br i1 %175, label %176, label %.thread380
+  br i1 %175, label %176, label %.thread382
 
-176:                                              ; preds = %stream_array_emulate_read_fd_set.exit.thread.thread381, %stream_array_emulate_read_fd_set.exit.thread.thread, %stream_array_emulate_read_fd_set.exit.thread
-  %177 = phi i32 [ %77, %stream_array_emulate_read_fd_set.exit.thread.thread ], [ %.pre, %stream_array_emulate_read_fd_set.exit.thread ], [ %77, %stream_array_emulate_read_fd_set.exit.thread.thread381 ]
+176:                                              ; preds = %stream_array_emulate_read_fd_set.exit.thread.thread383, %stream_array_emulate_read_fd_set.exit.thread.thread, %stream_array_emulate_read_fd_set.exit.thread
+  %177 = phi i32 [ %77, %stream_array_emulate_read_fd_set.exit.thread.thread ], [ %.pre, %stream_array_emulate_read_fd_set.exit.thread ], [ %77, %stream_array_emulate_read_fd_set.exit.thread.thread383 ]
   %178 = tail call ptr @__errno_location() #11
   %179 = load i32, ptr %178, align 4
   %180 = call ptr @strerror(i32 noundef %179) #10
@@ -2774,20 +2774,20 @@ stream_array_emulate_read_fd_set.exit.thread.thread: ; preds = %105
   store i32 2, ptr %181, align 8
   br label %190
 
-.thread380:                                       ; preds = %stream_array_emulate_read_fd_set.exit.thread, %stream_array_emulate_read_fd_set.exit.thread.thread
+.thread382:                                       ; preds = %stream_array_emulate_read_fd_set.exit.thread, %stream_array_emulate_read_fd_set.exit.thread.thread
   %182 = phi i32 [ %174, %stream_array_emulate_read_fd_set.exit.thread.thread ], [ %168, %stream_array_emulate_read_fd_set.exit.thread ]
   call fastcc void @stream_array_from_fd_set(ptr noundef nonnull %.2265315, ptr noundef nonnull %4)
-  br label %.thread382
+  br label %.thread384
 
-.thread382:                                       ; preds = %stream_array_emulate_read_fd_set.exit.thread.thread381, %.thread380
-  %183 = phi i32 [ %182, %.thread380 ], [ %171, %stream_array_emulate_read_fd_set.exit.thread.thread381 ]
+.thread384:                                       ; preds = %stream_array_emulate_read_fd_set.exit.thread.thread383, %.thread382
+  %183 = phi i32 [ %182, %.thread382 ], [ %171, %stream_array_emulate_read_fd_set.exit.thread.thread383 ]
   br i1 %.not300, label %185, label %184
 
-184:                                              ; preds = %.thread382
+184:                                              ; preds = %.thread384
   call fastcc void @stream_array_from_fd_set(ptr noundef nonnull %.2268318, ptr noundef nonnull %5)
   br label %185
 
-185:                                              ; preds = %184, %.thread382
+185:                                              ; preds = %184, %.thread384
   br i1 %.not301, label %187, label %186
 
 186:                                              ; preds = %185
@@ -2801,7 +2801,7 @@ stream_array_emulate_read_fd_set.exit.thread.thread: ; preds = %105
   store i32 4, ptr %189, align 8
   br label %190
 
-190:                                              ; preds = %187, %176, %164, %96, %90, %85, %79, %73, %.thread344
+190:                                              ; preds = %187, %176, %164, %96, %90, %85, %79, %73, %.thread350
   ret void
 }
 

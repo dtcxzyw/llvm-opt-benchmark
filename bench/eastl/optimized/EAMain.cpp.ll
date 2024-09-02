@@ -202,7 +202,7 @@ while.cond.preheader.i:                           ; preds = %if.then38
   br i1 %tobool1.not19.i, label %for.inc70, label %while.cond2.preheader.i
 
 while.cond2.preheader.i:                          ; preds = %while.cond.preheader.i, %if.end12.i
-  %14 = phi i8 [ %17, %if.end12.i ], [ %13, %while.cond.preheader.i ]
+  %14 = phi i8 [ %18, %if.end12.i ], [ %13, %while.cond.preheader.i ]
   %cp.020.i.idx = phi i64 [ %cp.020.i.add, %if.end12.i ], [ 1, %while.cond.preheader.i ]
   %cp.020.i.ptr = getelementptr inbounds i8, ptr %9, i64 %cp.020.i.idx
   br label %land.lhs.true.i
@@ -232,14 +232,14 @@ while.body7.i:                                    ; preds = %land.rhs.i
 
 while.end.i:                                      ; preds = %while.body7.i
   %.pr12.pre.i = load i8, ptr %incdec.ptr8.i, align 1
-  %cmp10.i = icmp eq i8 %.pr12.pre.i, 0
-  br i1 %cmp10.i, label %cond.end, label %if.end12.i
+  %17 = icmp eq i8 %.pr12.pre.i, 0
+  br i1 %17, label %cond.end, label %if.end12.i
 
 if.end12.i:                                       ; preds = %land.rhs.i, %while.end.i
   %cp.020.i.add = add nuw nsw i64 %cp.020.i.idx, 1
   %incdec.ptr13.i.ptr = getelementptr inbounds i8, ptr %9, i64 %cp.020.i.add
-  %17 = load i8, ptr %incdec.ptr13.i.ptr, align 1
-  %tobool1.not.i = icmp eq i8 %17, 0
+  %18 = load i8, ptr %incdec.ptr13.i.ptr, align 1
+  %tobool1.not.i = icmp eq i8 %18, 0
   br i1 %tobool1.not.i, label %for.inc70, label %while.cond2.preheader.i, !llvm.loop !10
 
 cond.end:                                         ; preds = %while.end.i, %land.lhs.true.i
@@ -249,9 +249,9 @@ cond.end:                                         ; preds = %while.end.i, %land.
 if.then45:                                        ; preds = %if.then38, %cond.end
   %cond39 = phi ptr [ %cp.020.i.ptr, %cond.end ], [ %add.ptr41.ptr, %if.then38 ]
   %add.ptr46 = getelementptr inbounds i8, ptr %cond39, i64 %call
-  %18 = load i8, ptr %add.ptr46, align 1
-  %cmp48 = icmp eq i8 %18, 0
-  %cmp52 = icmp eq i8 %18, %delimeter
+  %19 = load i8, ptr %add.ptr46, align 1
+  %cmp48 = icmp eq i8 %19, 0
+  %cmp52 = icmp eq i8 %19, %delimeter
   %or.cond31 = or i1 %cmp48, %cmp52
   br i1 %or.cond31, label %if.then53, label %for.inc70
 
@@ -265,8 +265,8 @@ if.then53:                                        ; preds = %if.then45, %if.then
 if.then57:                                        ; preds = %if.then53
   %add.ptr46.le = getelementptr inbounds i8, ptr %.us-phi, i64 %call
   %incdec.ptr58 = getelementptr inbounds i8, ptr %add.ptr46.le, i64 1
-  %19 = load i8, ptr %incdec.ptr58, align 1
-  %tobool59 = icmp ne i8 %19, 0
+  %20 = load i8, ptr %incdec.ptr58, align 1
+  %tobool59 = icmp ne i8 %20, 0
   %or.cond = and i1 %tobool, %tobool59
   br i1 %or.cond, label %if.then62, label %return
 

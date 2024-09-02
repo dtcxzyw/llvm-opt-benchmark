@@ -1928,31 +1928,31 @@ if.then.i:                                        ; preds = %if.then.i.i.i, %if.
   %retval.0.i.i.i = phi ptr [ %curr.133.i.i.i, %if.then22.i.i.i ], [ %curr.031.i.i.i, %if.then.i.i.i ]
   %m_value.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   %14 = load i32, ptr %m_value.i, align 8
+  %15 = add i32 %14, 1
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i, %if.then.i, %for.cond18.preheader.i.i.i
-  %occs.0 = phi i32 [ 0, %for.cond18.preheader.i.i.i ], [ %14, %if.then.i ], [ 0, %for.body20.i.i.i ], [ 0, %for.inc36.i.i.i ], [ 0, %for.body.i.i.i ]
-  %inc = add i32 %occs.0, 1
+  %occs.0 = phi i32 [ 1, %for.cond18.preheader.i.i.i ], [ %15, %if.then.i ], [ 1, %for.body20.i.i.i ], [ 1, %for.inc36.i.i.i ], [ 1, %for.body.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %6, ptr %ref.tmp.i, align 8
-  store i32 %inc, ptr %m_value.i.i, align 8
+  store i32 %occs.0, ptr %m_value.i.i, align 8
   invoke void @_ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EE6insertEOS5_(ptr noundef nonnull align 8 dereferenceable(20) %num_occs, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %cmp11 = icmp ugt i32 %inc, %max.017
-  %spec.select = call i32 @llvm.umax.i32(i32 %inc, i32 %max.017)
+  %cmp11 = icmp ugt i32 %occs.0, %max.017
+  %spec.select = call i32 @llvm.umax.i32(i32 %occs.0, i32 %max.017)
   %spec.select6 = select i1 %cmp11, ptr %6, ptr %r_max.018
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.016, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
 lpad:                                             ; preds = %invoke.cont8
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7obj_mapI4exprjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %num_occs) #20
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %16
 
 for.end:                                          ; preds = %invoke.cont10
   %.pre = load ptr, ptr %num_occs, align 8
@@ -1961,15 +1961,15 @@ for.end:                                          ; preds = %invoke.cont10
 
 for.cond.preheader.i.i.i.i:                       ; preds = %if.end, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit, %for.end
   %r_max.0.lcssa29 = phi ptr [ %spec.select6, %for.end ], [ null, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit ], [ null, %if.end ]
-  %16 = phi ptr [ %.pre, %for.end ], [ %call.i.i.i.i, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit ], [ %call.i.i.i.i, %if.end ]
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %16)
+  %17 = phi ptr [ %.pre, %for.end ], [ %call.i.i.i.i, %_ZNK6vectorIP10func_entryLb0EjE3endEv.exit ], [ %call.i.i.i.i, %if.end ]
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %17)
           to label %return unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %for.cond.preheader.i.i.i.i
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #19
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #19
   unreachable
 
 return:                                           ; preds = %for.cond.preheader.i.i.i.i, %for.end, %entry, %_ZNK6vectorIP10func_entryLb0EjE5emptyEv.exit
@@ -3149,11 +3149,11 @@ land.rhs.i40:                                     ; preds = %for.body22
   %bf.load.i.i47 = load i32, ptr %cond.i.i.i46, align 4
   %25 = and i32 %bf.load.i.i47, 65536
   %tobool.i.i48 = icmp ne i32 %25, 0
+  %26 = select i1 %tobool.i.i48, i1 %ground.0.in379, i1 false
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %land.rhs.i40, %for.body22
-  %26 = phi i1 [ false, %for.body22 ], [ %tobool.i.i48, %land.rhs.i40 ]
-  %tobool28 = select i1 %26, i1 %ground.0.in379, i1 false
+  %tobool28 = phi i1 [ false, %for.body22 ], [ %26, %land.rhs.i40 ]
   br i1 %cmp31374.not, label %for.inc45, label %for.body32.lr.ph
 
 for.body32.lr.ph:                                 ; preds = %invoke.cont25

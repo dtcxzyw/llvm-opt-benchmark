@@ -1845,7 +1845,7 @@ IPdr_ManCheckClauses.exit:                        ; preds = %.critedge2.i, %143,
   br i1 %.not456, label %192, label %158
 
 158:                                              ; preds = %157
-  %159 = call noundef i32 @llvm.smax.i32(i32 %123, i32 1)
+  %159 = call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %123, i32 1)
   %160 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %159, ptr %160, align 8
   %161 = getelementptr inbounds i8, ptr %.pre915, i64 100
@@ -2133,7 +2133,7 @@ IPdr_ManRestoreAbsFlops.exit:                     ; preds = %.critedge.i, %Vec_I
 .outer:                                           ; preds = %1192, %IPdr_ManRestoreAbsFlops.exit
   %.0427.ph = phi i64 [ %.2429, %1192 ], [ 0, %IPdr_ManRestoreAbsFlops.exit ]
   %.2.ph = phi i32 [ %1015, %1192 ], [ %.1, %IPdr_ManRestoreAbsFlops.exit ]
-  %304 = call noundef i32 @llvm.smax.i32(i32 %.2.ph, i32 1)
+  %304 = call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.2.ph, i32 1)
   %305 = icmp eq i32 %.2.ph, 1
   br label %306
 

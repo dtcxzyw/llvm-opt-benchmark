@@ -245,7 +245,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.then.i
 while.body.i.i:                                   ; preds = %if.end12.i.i, %while.body.lr.ph.i.i
   %min.021.i.i = phi i32 [ %1, %while.body.lr.ph.i.i ], [ %min.1.i.i, %if.end12.i.i ]
   %best_zero.020.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_zero.1.i.i, %if.end12.i.i ]
-  %best_pos.019.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_pos.1.fr.i.i, %if.end12.i.i ]
+  %best_pos.019.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_pos.1.i.i, %if.end12.i.i ]
   %limit.018.i.i = phi i32 [ %add.i.i, %while.body.lr.ph.i.i ], [ %limit.1.i.i, %if.end12.i.i ]
   %add5.i.i = add i32 %limit.018.i.i, %min.021.i.i
   %div16.i.i = lshr i32 %add5.i.i, 1
@@ -264,14 +264,14 @@ if.else.i.i:                                      ; preds = %while.body.i.i
   %cmp9.not.i.i = icmp eq i64 %5, %txnid
   %best_pos.0.div16.i.i = select i1 %cmp9.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
   %div16.best_zero.0.i.i = select i1 %cmp9.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
+  %6 = freeze i32 %best_pos.0.div16.i.i
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then.i.i
   %limit.1.i.i = phi i32 [ %limit.018.i.i, %if.then.i.i ], [ %div16.i.i, %if.else.i.i ]
-  %best_pos.1.i.i = phi i32 [ %best_pos.019.i.i, %if.then.i.i ], [ %best_pos.0.div16.i.i, %if.else.i.i ]
+  %best_pos.1.i.i = phi i32 [ %best_pos.019.i.i, %if.then.i.i ], [ %6, %if.else.i.i ]
   %best_zero.1.i.i = phi i32 [ %best_zero.020.i.i, %if.then.i.i ], [ %div16.best_zero.0.i.i, %if.else.i.i ]
   %min.1.i.i = phi i32 [ %add8.i.i, %if.then.i.i ], [ %min.021.i.i, %if.else.i.i ]
-  %best_pos.1.fr.i.i = freeze i32 %best_pos.1.i.i
   %cmp.not.i.i = icmp eq i32 %min.1.i.i, %limit.1.i.i
   br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !6
 
@@ -282,14 +282,14 @@ while.end.i.i:                                    ; preds = %if.end12.i.i
 if.then14.i.i:                                    ; preds = %while.end.i.i
   %idxprom19.i.i = zext nneg i32 %best_zero.1.i.i to i64
   %arrayidx20.i.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom19.i.i
-  %6 = load ptr, ptr %arrayidx20.i.i, align 8
-  store ptr %6, ptr %n, align 8
+  %7 = load ptr, ptr %arrayidx20.i.i, align 8
+  store ptr %7, ptr %n, align 8
   %sub.i.i = sub i32 %best_zero.1.i.i, %1
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i
 
 if.end24.i.i:                                     ; preds = %while.end.i.i
-  %cmp25.not.i.i = icmp eq i32 %best_pos.1.fr.i.i, -1
-  %sub29.i.i = sub i32 %best_pos.1.fr.i.i, %1
+  %cmp25.not.i.i = icmp eq i32 %best_pos.1.i.i, -1
+  %sub29.i.i = sub i32 %best_pos.1.i.i, %1
   br i1 %cmp25.not.i.i, label %if.end24.thread.i.i, label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE24find_internal_zero_arrayImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.i
 
 if.end24.thread.i.i:                              ; preds = %if.end24.i.i, %if.then.i
@@ -311,21 +311,21 @@ _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
-  %7 = load i64, ptr %txnid.addr, align 8
+  %8 = load i64, ptr %txnid.addr, align 8
   %call.i = call noundef ptr @_Z12toku_xcallocmm(i64 noundef 1, i64 noundef 40)
-  store i64 %7, ptr %call.i, align 8
+  store i64 %8, ptr %call.i, align 8
   %visited.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i8 0, ptr %visited.i, align 8
   %edges.i = getelementptr inbounds i8, ptr %call.i, i64 8
   call void @_ZN4toku9txnid_set6createEv(ptr noundef nonnull align 8 dereferenceable(24) %edges.i)
   store ptr %call.i, ptr %n, align 8
-  %8 = load i32, ptr %idx, align 4
-  %call4 = call noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9insert_atERKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %n, i32 noundef %8)
+  %9 = load i32, ptr %idx, align 4
+  %call4 = call noundef i32 @_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE9insert_atERKS3_j(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %n, i32 noundef %9)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
-  %9 = load ptr, ptr %n, align 8
-  ret ptr %9
+  %10 = load ptr, ptr %n, align 8
+  ret ptr %10
 }
 
 declare void @_ZN4toku9txnid_set3addEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #1
@@ -436,7 +436,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.then.i
 while.body.i.i:                                   ; preds = %if.end12.i.i, %while.body.lr.ph.i.i
   %min.021.i.i = phi i32 [ %2, %while.body.lr.ph.i.i ], [ %min.1.i.i, %if.end12.i.i ]
   %best_zero.020.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_zero.1.i.i, %if.end12.i.i ]
-  %best_pos.019.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_pos.1.fr.i.i, %if.end12.i.i ]
+  %best_pos.019.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_pos.1.i.i, %if.end12.i.i ]
   %limit.018.i.i = phi i32 [ %add.i.i, %while.body.lr.ph.i.i ], [ %limit.1.i.i, %if.end12.i.i ]
   %add5.i.i = add i32 %limit.018.i.i, %min.021.i.i
   %div16.i.i = lshr i32 %add5.i.i, 1
@@ -455,14 +455,14 @@ if.else.i.i:                                      ; preds = %while.body.i.i
   %cmp9.not.i.i = icmp eq i64 %5, %txnid
   %best_pos.0.div16.i.i = select i1 %cmp9.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
   %div16.best_zero.0.i.i = select i1 %cmp9.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
+  %6 = freeze i32 %best_pos.0.div16.i.i
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then.i.i
   %limit.1.i.i = phi i32 [ %limit.018.i.i, %if.then.i.i ], [ %div16.i.i, %if.else.i.i ]
-  %best_pos.1.i.i = phi i32 [ %best_pos.019.i.i, %if.then.i.i ], [ %best_pos.0.div16.i.i, %if.else.i.i ]
+  %best_pos.1.i.i = phi i32 [ %best_pos.019.i.i, %if.then.i.i ], [ %6, %if.else.i.i ]
   %best_zero.1.i.i = phi i32 [ %best_zero.020.i.i, %if.then.i.i ], [ %div16.best_zero.0.i.i, %if.else.i.i ]
   %min.1.i.i = phi i32 [ %add8.i.i, %if.then.i.i ], [ %min.021.i.i, %if.else.i.i ]
-  %best_pos.1.fr.i.i = freeze i32 %best_pos.1.i.i
   %cmp.not.i.i = icmp eq i32 %min.1.i.i, %limit.1.i.i
   br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !6
 
@@ -481,13 +481,13 @@ if.else.i:                                        ; preds = %entry
 
 _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split: ; preds = %if.else.i, %if.then14.i.i
   %arrayidx20.i.i.sink = phi ptr [ %arrayidx20.i.i, %if.then14.i.i ], [ %n, %if.else.i ]
-  %6 = load ptr, ptr %arrayidx20.i.i.sink, align 8
+  %7 = load ptr, ptr %arrayidx20.i.i.sink, align 8
   br label %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit
 
 _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit: ; preds = %while.end.i.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split, %if.then.i
-  %7 = phi ptr [ null, %if.then.i ], [ %6, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split ], [ null, %while.end.i.i ]
+  %8 = phi ptr [ null, %if.then.i ], [ %7, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_by_txnidES7_RKmEEEEiSA_PS3_Pj.exit.sink.split ], [ null, %while.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp_index.i)
-  ret ptr %7
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -991,11 +991,11 @@ for.inc:                                          ; preds = %if.else.i10.i, %if.
   %14 = load ptr, ptr %arrayidx.i6.lcssa.lcssa.sink.i, align 8
   %15 = load i64, ptr %14, align 8
   %call5 = tail call noundef i32 %fn(i64 noundef %15, ptr noundef %extra)
+  %16 = icmp eq i32 %call5, 0
   %inc = add nuw i32 %i.013, 1
   %cmp = icmp ult i32 %inc, %retval.0.i
-  %cmp2 = icmp eq i32 %call5, 0
-  %16 = and i1 %cmp2, %cmp
-  br i1 %16, label %for.body, label %for.end, !llvm.loop !8
+  %17 = and i1 %16, %cmp
+  br i1 %17, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %if.else.i.i4, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.thread13.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit.i, %for.inc, %if.else.i, %_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE4sizeEv.exit
   ret void

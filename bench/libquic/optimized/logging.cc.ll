@@ -845,7 +845,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN7logging16GetVlogVerbosityEv() local_unnamed_addr #8 {
+define dso_local noundef range(i32 -1, -2147483648) i32 @_ZN7logging16GetVlogVerbosityEv() local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr @_ZN7logging12_GLOBAL__N_115g_min_log_levelE, align 4
   %sub = sub nsw i32 0, %0
@@ -870,7 +870,7 @@ cond.true:                                        ; preds = %if.end
 cond.false:                                       ; preds = %if.end
   %1 = load i32, ptr @_ZN7logging12_GLOBAL__N_115g_min_log_levelE, align 4
   %sub.i = sub nsw i32 0, %1
-  %.sroa.speculated.i = tail call noundef i32 @llvm.smax.i32(i32 %sub.i, i32 -1)
+  %.sroa.speculated.i = tail call noundef range(i32 -1, -2147483648) i32 @llvm.smax.i32(i32 %sub.i, i32 -1)
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true

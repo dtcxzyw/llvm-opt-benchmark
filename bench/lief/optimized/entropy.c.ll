@@ -240,84 +240,79 @@ define hidden i32 @mbedtls_entropy_func(ptr noundef %0, ptr nocapture noundef wr
   %5 = alloca i64, align 8
   %6 = alloca [64 x i8], align 16
   %7 = icmp ugt i64 %2, 64
-  br i1 %7, label %68, label %.preheader55
+  br i1 %7, label %69, label %.preheader55
 
 .preheader55:                                     ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 224
   %9 = getelementptr inbounds i8, ptr %0, i64 232
   br label %10
 
-10:                                               ; preds = %.preheader55, %._crit_edge
-  %.036 = phi i32 [ %11, %._crit_edge ], [ 0, %.preheader55 ]
-  %11 = add nuw nsw i32 %.036, 1
-  %exitcond83 = icmp eq i32 %.036, 257
-  br i1 %exitcond83, label %.loopexit, label %12
-
-12:                                               ; preds = %10
+10:                                               ; preds = %.preheader55, %.backedge
+  %11 = phi i32 [ 1, %.preheader55 ], [ %53, %.backedge ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %13 = load i32, ptr %8, align 8
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %entropy_gather_internal.exit.thread, label %.preheader.i
+  %12 = load i32, ptr %8, align 8
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %entropy_gather_internal.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %12
-  %15 = icmp sgt i32 %13, 0
-  br i1 %15, label %.lr.ph.i, label %entropy_gather_internal.exit.thread51
+.preheader.i:                                     ; preds = %10
+  %14 = icmp sgt i32 %12, 0
+  br i1 %14, label %.lr.ph.i, label %entropy_gather_internal.exit.thread51
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %34
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ 0, %.preheader.i ]
-  %.037.i = phi i32 [ %spec.select.i, %34 ], [ 0, %.preheader.i ]
-  %16 = getelementptr inbounds [20 x %struct.mbedtls_entropy_source_state], ptr %9, i64 0, i64 %indvars.iv.i
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp eq i32 %18, 1
-  %spec.select.i = select i1 %19, i32 1, i32 %.037.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %33
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %33 ], [ 0, %.preheader.i ]
+  %.037.i = phi i32 [ %spec.select.i, %33 ], [ 0, %.preheader.i ]
+  %15 = getelementptr inbounds [20 x %struct.mbedtls_entropy_source_state], ptr %9, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp eq i32 %17, 1
+  %spec.select.i = select i1 %18, i32 1, i32 %.037.i
   store i64 0, ptr %5, align 8
-  %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = call i32 %20(ptr noundef %22, ptr noundef nonnull %4, i64 noundef 128, ptr noundef nonnull %5) #10
-  %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %24, label %entropy_gather_internal.exit.thread51
+  %19 = load ptr, ptr %15, align 8
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = call i32 %19(ptr noundef %21, ptr noundef nonnull %4, i64 noundef 128, ptr noundef nonnull %5) #10
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %23, label %entropy_gather_internal.exit.thread51
 
-24:                                               ; preds = %.lr.ph.i
-  %25 = load i64, ptr %5, align 8
-  %.not26.i = icmp eq i64 %25, 0
-  br i1 %.not26.i, label %34, label %26
+23:                                               ; preds = %.lr.ph.i
+  %24 = load i64, ptr %5, align 8
+  %.not26.i = icmp eq i64 %24, 0
+  br i1 %.not26.i, label %33, label %25
 
-26:                                               ; preds = %24
-  %27 = trunc i64 %indvars.iv.i to i8
-  %28 = call fastcc i32 @entropy_update(ptr noundef nonnull %0, i8 noundef zeroext %27, ptr noundef nonnull %4, i64 noundef %25)
-  %.not27.i = icmp eq i32 %28, 0
-  br i1 %.not27.i, label %29, label %entropy_gather_internal.exit.thread
+25:                                               ; preds = %23
+  %26 = trunc i64 %indvars.iv.i to i8
+  %27 = call fastcc i32 @entropy_update(ptr noundef nonnull %0, i8 noundef zeroext %26, ptr noundef nonnull %4, i64 noundef %24)
+  %.not27.i = icmp eq i32 %27, 0
+  br i1 %.not27.i, label %28, label %entropy_gather_internal.exit.thread
 
-29:                                               ; preds = %26
-  %30 = load i64, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %16, i64 16
-  %32 = load i64, ptr %31, align 8
-  %33 = add i64 %32, %30
-  store i64 %33, ptr %31, align 8
-  br label %34
+28:                                               ; preds = %25
+  %29 = load i64, ptr %5, align 8
+  %30 = getelementptr inbounds i8, ptr %15, i64 16
+  %31 = load i64, ptr %30, align 8
+  %32 = add i64 %31, %29
+  store i64 %32, ptr %30, align 8
+  br label %33
 
-34:                                               ; preds = %29, %24
+33:                                               ; preds = %28, %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %35 = load i32, ptr %8, align 8
-  %36 = sext i32 %35 to i64
-  %37 = icmp slt i64 %indvars.iv.next.i, %36
-  br i1 %37, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !4
+  %34 = load i32, ptr %8, align 8
+  %35 = sext i32 %34 to i64
+  %36 = icmp slt i64 %indvars.iv.next.i, %35
+  br i1 %36, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !4
 
-._crit_edge.loopexit.i:                           ; preds = %34
-  %38 = icmp eq i32 %spec.select.i, 0
-  br i1 %38, label %entropy_gather_internal.exit.thread51, label %entropy_gather_internal.exit
+._crit_edge.loopexit.i:                           ; preds = %33
+  %37 = icmp eq i32 %spec.select.i, 0
+  br i1 %37, label %entropy_gather_internal.exit.thread51, label %entropy_gather_internal.exit
 
-entropy_gather_internal.exit.thread:              ; preds = %12, %26
-  %.020.i.ph = phi i32 [ %28, %26 ], [ -64, %12 ]
+entropy_gather_internal.exit.thread:              ; preds = %10, %25
+  %.020.i.ph = phi i32 [ %27, %25 ], [ -64, %10 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.loopexit
 
 entropy_gather_internal.exit.thread51:            ; preds = %.preheader.i, %._crit_edge.loopexit.i, %.lr.ph.i
-  %.119.i.ph = phi i32 [ %23, %.lr.ph.i ], [ -61, %._crit_edge.loopexit.i ], [ -61, %.preheader.i ]
+  %.119.i.ph = phi i32 [ %22, %.lr.ph.i ], [ -61, %._crit_edge.loopexit.i ], [ -61, %.preheader.i ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 128) #10
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -327,93 +322,96 @@ entropy_gather_internal.exit:                     ; preds = %._crit_edge.loopexi
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 128) #10
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %39 = load i32, ptr %8, align 8
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %.lr.ph.preheader, label %._crit_edge
+  %38 = load i32, ptr %8, align 8
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %.lr.ph.preheader, label %.backedge
 
 .lr.ph.preheader:                                 ; preds = %entropy_gather_internal.exit
-  %wide.trip.count = zext nneg i32 %39 to i64
+  %wide.trip.count = zext nneg i32 %38 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03170 = phi i64 [ 0, %.lr.ph.preheader ], [ %spec.select54, %.lr.ph ]
   %.03269 = phi i32 [ 1, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %41 = getelementptr inbounds [20 x %struct.mbedtls_entropy_source_state], ptr %9, i64 0, i64 %indvars.iv
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 24
-  %45 = load i64, ptr %44, align 8
-  %46 = icmp ult i64 %43, %45
-  %spec.select = select i1 %46, i32 0, i32 %.03269
-  %47 = getelementptr inbounds i8, ptr %41, i64 32
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp eq i32 %48, 1
-  %50 = select i1 %49, i64 %43, i64 0
-  %spec.select54 = add i64 %50, %.03170
+  %40 = getelementptr inbounds [20 x %struct.mbedtls_entropy_source_state], ptr %9, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %40, i64 24
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp ult i64 %42, %44
+  %spec.select = select i1 %45, i32 0, i32 %.03269
+  %46 = getelementptr inbounds i8, ptr %40, i64 32
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp eq i32 %47, 1
+  %49 = select i1 %48, i64 %42, i64 0
+  %spec.select54 = add i64 %49, %.03170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %entropy_gather_internal.exit
-  %.032.lcssa = phi i32 [ 1, %entropy_gather_internal.exit ], [ %spec.select, %.lr.ph ]
-  %.031.lcssa = phi i64 [ 0, %entropy_gather_internal.exit ], [ %spec.select54, %.lr.ph ]
-  %.not43 = icmp eq i32 %.032.lcssa, 0
-  %51 = icmp ult i64 %.031.lcssa, 64
-  %52 = select i1 %.not43, i1 true, i1 %51
-  br i1 %52, label %10, label %53, !llvm.loop !7
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %50 = icmp eq i32 %spec.select, 0
+  %51 = icmp ult i64 %spec.select54, 64
+  %52 = select i1 %50, i1 true, i1 %51
+  br i1 %52, label %.backedge, label %54
 
-53:                                               ; preds = %._crit_edge
+.backedge:                                        ; preds = %entropy_gather_internal.exit, %._crit_edge.loopexit
+  %53 = add nuw nsw i32 %11, 1
+  %exitcond83 = icmp eq i32 %11, 257
+  br i1 %exitcond83, label %.loopexit, label %10, !llvm.loop !7
+
+54:                                               ; preds = %._crit_edge.loopexit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  %55 = call i32 @mbedtls_sha512_finish(ptr noundef nonnull %54, ptr noundef nonnull %6) #10
-  %.not44 = icmp eq i32 %55, 0
-  br i1 %.not44, label %56, label %.loopexit
+  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = call i32 @mbedtls_sha512_finish(ptr noundef nonnull %55, ptr noundef nonnull %6) #10
+  %.not44 = icmp eq i32 %56, 0
+  br i1 %.not44, label %57, label %.loopexit
 
-56:                                               ; preds = %53
-  call void @mbedtls_sha512_free(ptr noundef nonnull %54) #10
-  call void @mbedtls_sha512_init(ptr noundef nonnull %54) #10
-  %57 = call i32 @mbedtls_sha512_starts(ptr noundef nonnull %54, i32 noundef 0) #10
-  %.not45 = icmp eq i32 %57, 0
-  br i1 %.not45, label %58, label %.loopexit
+57:                                               ; preds = %54
+  call void @mbedtls_sha512_free(ptr noundef nonnull %55) #10
+  call void @mbedtls_sha512_init(ptr noundef nonnull %55) #10
+  %58 = call i32 @mbedtls_sha512_starts(ptr noundef nonnull %55, i32 noundef 0) #10
+  %.not45 = icmp eq i32 %58, 0
+  br i1 %.not45, label %59, label %.loopexit
 
-58:                                               ; preds = %56
-  %59 = call i32 @mbedtls_sha512_update(ptr noundef nonnull %54, ptr noundef nonnull %6, i64 noundef 64) #10
-  %.not46 = icmp eq i32 %59, 0
-  br i1 %.not46, label %60, label %.loopexit
+59:                                               ; preds = %57
+  %60 = call i32 @mbedtls_sha512_update(ptr noundef nonnull %55, ptr noundef nonnull %6, i64 noundef 64) #10
+  %.not46 = icmp eq i32 %60, 0
+  br i1 %.not46, label %61, label %.loopexit
 
-60:                                               ; preds = %58
-  %61 = call i32 @mbedtls_sha512(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull %6, i32 noundef 0) #10
-  %.not47 = icmp eq i32 %61, 0
+61:                                               ; preds = %59
+  %62 = call i32 @mbedtls_sha512(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull %6, i32 noundef 0) #10
+  %.not47 = icmp eq i32 %62, 0
   br i1 %.not47, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %60
-  %62 = load i32, ptr %8, align 8
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.lr.ph73, label %._crit_edge74
+.preheader:                                       ; preds = %61
+  %63 = load i32, ptr %8, align 8
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %.lr.ph73, label %._crit_edge74
 
 .lr.ph73:                                         ; preds = %.preheader
-  %64 = zext nneg i32 %62 to i64
-  br label %65
+  %65 = zext nneg i32 %63 to i64
+  br label %66
 
-65:                                               ; preds = %.lr.ph73, %65
-  %indvars.iv84 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next85, %65 ]
-  %66 = getelementptr inbounds [20 x %struct.mbedtls_entropy_source_state], ptr %9, i64 0, i64 %indvars.iv84, i32 2
-  store i64 0, ptr %66, align 8
+66:                                               ; preds = %.lr.ph73, %66
+  %indvars.iv84 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next85, %66 ]
+  %67 = getelementptr inbounds [20 x %struct.mbedtls_entropy_source_state], ptr %9, i64 0, i64 %indvars.iv84, i32 2
+  store i64 0, ptr %67, align 8
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
-  %67 = icmp ult i64 %indvars.iv.next85, %64
-  br i1 %67, label %65, label %._crit_edge74, !llvm.loop !8
+  %68 = icmp ult i64 %indvars.iv.next85, %65
+  br i1 %68, label %66, label %._crit_edge74, !llvm.loop !8
 
-._crit_edge74:                                    ; preds = %65, %.preheader
+._crit_edge74:                                    ; preds = %66, %.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %6, i64 %2, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %10, %entropy_gather_internal.exit.thread51, %entropy_gather_internal.exit.thread, %60, %58, %56, %53, %._crit_edge74
-  %.037 = phi i32 [ %55, %53 ], [ %57, %56 ], [ %59, %58 ], [ %61, %60 ], [ 0, %._crit_edge74 ], [ %.020.i.ph, %entropy_gather_internal.exit.thread ], [ %.119.i.ph, %entropy_gather_internal.exit.thread51 ], [ -60, %10 ]
+.loopexit:                                        ; preds = %.backedge, %entropy_gather_internal.exit.thread51, %entropy_gather_internal.exit.thread, %61, %59, %57, %54, %._crit_edge74
+  %.037 = phi i32 [ %56, %54 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ 0, %._crit_edge74 ], [ %.020.i.ph, %entropy_gather_internal.exit.thread ], [ %.119.i.ph, %entropy_gather_internal.exit.thread51 ], [ -60, %.backedge ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 64) #10
-  br label %68
+  br label %69
 
-68:                                               ; preds = %3, %.loopexit
+69:                                               ; preds = %3, %.loopexit
   %.0 = phi i32 [ %.037, %.loopexit ], [ -60, %3 ]
   ret i32 %.0
 }

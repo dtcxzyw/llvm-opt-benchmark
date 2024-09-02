@@ -149,7 +149,7 @@ define dso_local i32 @sk_stream_wait_connect(ptr noundef %0, ptr nocapture nound
   %14 = getelementptr inbounds i8, ptr %0, i64 284
   br label %15
 
-15:                                               ; preds = %70, %2
+15:                                               ; preds = %66, %2
   %16 = load i32, ptr %10, align 8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.thread, label %18, !prof !5
@@ -157,7 +157,7 @@ define dso_local i32 @sk_stream_wait_connect(ptr noundef %0, ptr nocapture nound
 18:                                               ; preds = %15
   %19 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 0, ptr elementtype(i32) %10) #5, !srcloc !9
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.thread, label %.thread4.loopexit.split.loop.exit
+  br i1 %20, label %.thread, label %.thread3.loopexit.split.loop.exit
 
 .thread:                                          ; preds = %15, %18
   %21 = load volatile i8, ptr %11, align 2
@@ -165,29 +165,29 @@ define dso_local i32 @sk_stream_wait_connect(ptr noundef %0, ptr nocapture nound
   %23 = shl nuw i32 1, %22
   %24 = and i32 %23, -13
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %.thread4
+  br i1 %25, label %26, label %.thread3
 
 26:                                               ; preds = %.thread
   %27 = load i64, ptr %1, align 8
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.thread4, label %29
+  br i1 %28, label %.thread3, label %29
 
 29:                                               ; preds = %26
   %30 = load volatile i64, ptr %6, align 8
   %31 = and i64 %30, 131072
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %.thread3, !prof !5
+  br i1 %32, label %33, label %.critedge, !prof !5
 
 33:                                               ; preds = %29
   %34 = load volatile i64, ptr %6, align 8
   %35 = and i64 %34, 4
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %39, label %.thread3
+  br i1 %36, label %39, label %.critedge
 
-.thread3:                                         ; preds = %29, %33
+.critedge:                                        ; preds = %29, %33
   %37 = icmp eq i64 %27, 9223372036854775807
   %38 = select i1 %37, i32 -512, i32 -4
-  br label %.thread4
+  br label %.thread3
 
 39:                                               ; preds = %33
   %40 = load volatile ptr, ptr %12, align 8
@@ -219,48 +219,42 @@ define dso_local i32 @sk_stream_wait_connect(ptr noundef %0, ptr nocapture nound
   call void @lock_sock_nested(ptr noundef %0, i32 noundef 0) #5
   %56 = load i32, ptr %14, align 4
   %57 = icmp eq i32 %43, %56
-  br i1 %57, label %58, label %70
+  br i1 %57, label %58, label %66
 
 58:                                               ; preds = %55
   %59 = load volatile i32, ptr %10, align 8
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %67
+  br i1 %60, label %61, label %66
 
 61:                                               ; preds = %58
   %62 = load volatile i8, ptr %11, align 2
   %63 = zext nneg i8 %62 to i32
-  %64 = shl nuw i32 1, %63
-  %65 = and i32 %64, -259
-  %66 = icmp eq i32 %65, 0
-  br label %67
+  %64 = lshr i32 258, %63
+  %65 = and i32 %64, 1
+  br label %66
 
-67:                                               ; preds = %61, %58
-  %68 = phi i1 [ false, %58 ], [ %66, %61 ]
-  %69 = zext i1 %68 to i32
-  br label %70
+66:                                               ; preds = %58, %61, %55
+  %67 = phi i32 [ -32, %55 ], [ 0, %58 ], [ %65, %61 ]
+  %68 = load volatile ptr, ptr %12, align 8
+  call void @remove_wait_queue(ptr noundef %68, ptr noundef nonnull %3) #5
+  %69 = load i32, ptr %13, align 4
+  %70 = add i32 %69, -1
+  store i32 %70, ptr %13, align 4
+  %71 = icmp eq i32 %67, 0
+  br i1 %71, label %15, label %72, !llvm.loop !10
 
-70:                                               ; preds = %67, %55
-  %71 = phi i32 [ %69, %67 ], [ -32, %55 ]
-  %72 = load volatile ptr, ptr %12, align 8
-  call void @remove_wait_queue(ptr noundef %72, ptr noundef nonnull %3) #5
-  %73 = load i32, ptr %13, align 4
-  %74 = add i32 %73, -1
-  store i32 %74, ptr %13, align 4
-  %75 = icmp eq i32 %71, 0
-  br i1 %75, label %15, label %76, !llvm.loop !10
+72:                                               ; preds = %66
+  %73 = call i32 @llvm.smin.i32(i32 %67, i32 0)
+  br label %.thread3
 
-76:                                               ; preds = %70
-  %77 = call i32 @llvm.smin.i32(i32 %71, i32 0)
-  br label %.thread4
+.thread3.loopexit.split.loop.exit:                ; preds = %18
+  %74 = sub i32 0, %19
+  br label %.thread3
 
-.thread4.loopexit.split.loop.exit:                ; preds = %18
-  %78 = sub i32 0, %19
-  br label %.thread4
-
-.thread4:                                         ; preds = %.thread, %26, %.thread4.loopexit.split.loop.exit, %.thread3, %76
-  %79 = phi i32 [ %77, %76 ], [ %38, %.thread3 ], [ %78, %.thread4.loopexit.split.loop.exit ], [ -32, %.thread ], [ -11, %26 ]
+.thread3:                                         ; preds = %.thread, %26, %.thread3.loopexit.split.loop.exit, %.critedge, %72
+  %75 = phi i32 [ %73, %72 ], [ %38, %.critedge ], [ %74, %.thread3.loopexit.split.loop.exit ], [ -32, %.thread ], [ -11, %26 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #5
-  ret i32 %79
+  ret i32 %75
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -327,7 +321,7 @@ define dso_local void @sk_stream_wait_close(ptr noundef %0, i64 noundef %1) #0 a
   call void @lock_sock_nested(ptr noundef %0, i32 noundef 0) #5
   %27 = load i32, ptr %14, align 4
   %28 = icmp eq i32 %.pre, %27
-  br i1 %28, label %29, label %.thread
+  br i1 %28, label %29, label %.critedge
 
 29:                                               ; preds = %25
   %30 = load volatile i8, ptr %15, align 2
@@ -335,13 +329,13 @@ define dso_local void @sk_stream_wait_close(ptr noundef %0, i64 noundef %1) #0 a
   %32 = shl nuw i32 1, %31
   %33 = and i32 %32, -2577
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %.thread
+  br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %29
   %36 = load volatile i64, ptr %8, align 8
   %37 = and i64 %36, 131072
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %.thread, !prof !5
+  br i1 %38, label %39, label %.critedge, !prof !5
 
 39:                                               ; preds = %35
   %40 = load volatile i64, ptr %8, align 8
@@ -349,15 +343,15 @@ define dso_local void @sk_stream_wait_close(ptr noundef %0, i64 noundef %1) #0 a
   %42 = icmp eq i64 %41, 0
   %43 = icmp ne i64 %26, 0
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %16, label %.thread, !llvm.loop !13
+  br i1 %44, label %16, label %.critedge, !llvm.loop !13
 
-.thread:                                          ; preds = %35, %25, %39, %29
+.critedge:                                        ; preds = %35, %25, %39, %29
   %45 = load volatile ptr, ptr %12, align 8
   call void @remove_wait_queue(ptr noundef %45, ptr noundef nonnull %3) #5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #5
   br label %46
 
-46:                                               ; preds = %.thread, %2
+46:                                               ; preds = %.critedge, %2
   ret void
 }
 
@@ -470,13 +464,13 @@ define dso_local range(i32 -512, 1) i32 @sk_stream_wait_memory(ptr noundef %0, p
   %70 = load volatile i64, ptr %7, align 8
   %71 = and i64 %70, 131072
   %72 = icmp eq i64 %71, 0
-  br i1 %72, label %73, label %.thread, !prof !5
+  br i1 %72, label %73, label %.critedge, !prof !5
 
 73:                                               ; preds = %69
   %74 = load volatile i64, ptr %7, align 8
   %75 = and i64 %74, 4
   %76 = icmp eq i64 %75, 0
-  br i1 %76, label %77, label %.thread
+  br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %73
   %78 = load volatile i64, ptr %43, align 8
@@ -494,9 +488,9 @@ define dso_local range(i32 -512, 1) i32 @sk_stream_wait_memory(ptr noundef %0, p
   %85 = load volatile i32, ptr %11, align 8
   %86 = load volatile i32, ptr %13, align 4
   %87 = icmp slt i32 %85, %86
-  br i1 %87, label %89, label %.thread7
+  br i1 %87, label %89, label %.thread
 
-.thread7:                                         ; preds = %84
+.thread:                                          ; preds = %84
   %88 = icmp eq i64 %52, 0
   br label %104
 
@@ -525,8 +519,8 @@ define dso_local range(i32 -512, 1) i32 @sk_stream_wait_memory(ptr noundef %0, p
   %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %.loopexit, label %104
 
-104:                                              ; preds = %.thread7, %100
-  %105 = phi i1 [ %88, %.thread7 ], [ %102, %100 ]
+104:                                              ; preds = %.thread, %100
+  %105 = phi i1 [ %88, %.thread ], [ %102, %100 ]
   %106 = load ptr, ptr %47, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 8
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %107, i32 4, ptr elementtype(i8) %107) #5, !srcloc !14
@@ -549,7 +543,7 @@ define dso_local range(i32 -512, 1) i32 @sk_stream_wait_memory(ptr noundef %0, p
   %118 = load volatile i32, ptr %11, align 8
   %119 = load volatile i32, ptr %13, align 4
   %120 = icmp slt i32 %118, %119
-  br i1 %120, label %121, label %.thread8
+  br i1 %120, label %121, label %.thread7
 
 121:                                              ; preds = %117
   %122 = load ptr, ptr %46, align 8
@@ -573,14 +567,14 @@ define dso_local range(i32 -512, 1) i32 @sk_stream_wait_memory(ptr noundef %0, p
 132:                                              ; preds = %130, %128, %121
   %133 = phi i1 [ true, %121 ], [ %129, %128 ], [ %131, %130 ]
   %134 = select i1 %133, i1 %105, i1 false
-  br i1 %134, label %136, label %.thread8
+  br i1 %134, label %136, label %.thread7
 
-.thread8:                                         ; preds = %117, %132
+.thread7:                                         ; preds = %117, %132
   %135 = call i64 @wait_woken(ptr noundef nonnull %3, i32 noundef 1, i64 noundef %51) #5
   br label %136
 
-136:                                              ; preds = %.thread8, %132, %113, %104
-  %137 = phi i64 [ %51, %132 ], [ %135, %.thread8 ], [ %51, %104 ], [ %51, %113 ]
+136:                                              ; preds = %.thread7, %132, %113, %104
+  %137 = phi i64 [ %51, %132 ], [ %135, %.thread7 ], [ %51, %104 ], [ %51, %113 ]
   call void @lock_sock_nested(ptr noundef %0, i32 noundef 0) #5
   %138 = load i32, ptr %49, align 4
   %139 = icmp eq i32 %110, %138
@@ -644,8 +638,8 @@ define dso_local range(i32 -512, 1) i32 @sk_stream_wait_memory(ptr noundef %0, p
   store i64 %173, ptr %1, align 8
   br label %50, !llvm.loop !15
 
-.loopexit:                                        ; preds = %100, %62, %59, %.thread, %184, %181
-  %174 = phi i32 [ %188, %.thread ], [ -11, %184 ], [ -32, %181 ], [ -32, %62 ], [ -32, %59 ], [ 0, %100 ]
+.loopexit:                                        ; preds = %100, %62, %59, %.critedge, %184, %181
+  %174 = phi i32 [ %188, %.critedge ], [ -11, %184 ], [ -32, %181 ], [ -32, %62 ], [ -32, %59 ], [ 0, %100 ]
   %175 = load volatile i64, ptr %43, align 8
   %176 = and i64 %175, 1
   %177 = icmp eq i64 %176, 0
@@ -672,7 +666,7 @@ define dso_local range(i32 -512, 1) i32 @sk_stream_wait_memory(ptr noundef %0, p
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %186, i32 4, ptr elementtype(i8) %186) #5, !srcloc !14
   br label %.loopexit
 
-.thread:                                          ; preds = %69, %73
+.critedge:                                        ; preds = %69, %73
   %187 = icmp eq i64 %67, 9223372036854775807
   %188 = select i1 %187, i32 -512, i32 -4
   br label %.loopexit

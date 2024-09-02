@@ -4288,42 +4288,42 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   %11 = getelementptr inbounds %struct._zend_op, ptr %7, i64 %10
   %12 = getelementptr inbounds i8, ptr %9, i64 28
   %13 = load i8, ptr %12, align 4
-  switch i8 %13, label %._crit_edge105 [
+  switch i8 %13, label %._crit_edge106 [
     i8 -89, label %59
-    i8 68, label %.preheader97
+    i8 68, label %.preheader98
     i8 125, label %18
-    i8 46, label %149
-    i8 47, label %149
-    i8 52, label %149
-    i8 14, label %149
-    i8 109, label %149
-    i8 -110, label %149
-    i8 -94, label %149
+    i8 46, label %148
+    i8 47, label %148
+    i8 52, label %148
+    i8 14, label %148
+    i8 109, label %148
+    i8 -110, label %148
+    i8 -94, label %148
     i8 57, label %16
-    i8 54, label %127
+    i8 54, label %126
     i8 77, label %18
   ]
 
-.preheader97:                                     ; preds = %5
+.preheader98:                                     ; preds = %5
   %14 = getelementptr inbounds i8, ptr %9, i64 32
   %15 = icmp ult ptr %14, %11
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 16:                                               ; preds = %5
   %17 = add nuw i32 %2, 1
-  br label %127
+  br label %126
 
 18:                                               ; preds = %5, %5
   %19 = add nuw i32 %2, 1
-  br label %127
+  br label %126
 
-.lr.ph:                                           ; preds = %.preheader97, %30
-  %20 = phi ptr [ %31, %30 ], [ %14, %.preheader97 ]
-  %.2101 = phi i32 [ %21, %30 ], [ %2, %.preheader97 ]
-  %.080100 = phi i32 [ %.181, %30 ], [ 0, %.preheader97 ]
-  %.08499 = phi ptr [ %20, %30 ], [ %9, %.preheader97 ]
-  %21 = add i32 %.2101, 1
-  %22 = getelementptr inbounds i8, ptr %.08499, i64 60
+.lr.ph:                                           ; preds = %.preheader98, %30
+  %20 = phi ptr [ %31, %30 ], [ %14, %.preheader98 ]
+  %.2102 = phi i32 [ %21, %30 ], [ %2, %.preheader98 ]
+  %.080101 = phi i32 [ %.181, %30 ], [ 0, %.preheader98 ]
+  %.084100 = phi ptr [ %20, %30 ], [ %9, %.preheader98 ]
+  %21 = add i32 %.2102, 1
+  %22 = getelementptr inbounds i8, ptr %.084100, i64 60
   %23 = load i8, ptr %22, align 4
   switch i8 %23, label %30 [
     i8 61, label %24
@@ -4341,25 +4341,25 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   ]
 
 24:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %25 = add nsw i32 %.080100, 1
+  %25 = add nsw i32 %.080101, 1
   br label %30
 
 26:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %27 = icmp eq i32 %.080100, 0
+  %27 = icmp eq i32 %.080101, 0
   br i1 %27, label %._crit_edge, label %28
 
 28:                                               ; preds = %26
-  %29 = add nsw i32 %.080100, -1
+  %29 = add nsw i32 %.080101, -1
   br label %30
 
 30:                                               ; preds = %28, %24, %.lr.ph
-  %.181 = phi i32 [ %.080100, %.lr.ph ], [ %29, %28 ], [ %25, %24 ]
+  %.181 = phi i32 [ %.080101, %.lr.ph ], [ %29, %28 ], [ %25, %24 ]
   %31 = getelementptr inbounds i8, ptr %20, i64 32
   %32 = icmp ult ptr %31, %11
   br i1 %32, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %26, %30, %.preheader97
-  %.3 = phi i32 [ %2, %.preheader97 ], [ %21, %30 ], [ %21, %26 ]
+._crit_edge:                                      ; preds = %26, %30, %.preheader98
+  %.3 = phi i32 [ %2, %.preheader98 ], [ %21, %30 ], [ %21, %26 ]
   %33 = add nuw i32 %2, 1
   %34 = add i32 %.3, 1
   %35 = getelementptr inbounds i8, ptr %0, i64 128
@@ -4389,17 +4389,17 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   %54 = getelementptr i8, ptr %46, i64 -4
   store i32 %34, ptr %54, align 4
   %55 = icmp eq i32 %34, %3
-  br i1 %55, label %149, label %._crit_edge105
+  br i1 %55, label %148, label %._crit_edge106
 
-._crit_edge105:                                   ; preds = %5, %._crit_edge
+._crit_edge106:                                   ; preds = %5, %._crit_edge
   %.079 = phi i32 [ %.3, %._crit_edge ], [ %2, %5 ]
   %56 = add i32 %.079, 1
   %.not94 = icmp eq ptr %4, null
-  br i1 %.not94, label %127, label %57
+  br i1 %.not94, label %126, label %57
 
-57:                                               ; preds = %._crit_edge105
+57:                                               ; preds = %._crit_edge106
   %58 = tail call zeroext i1 %4(ptr noundef nonnull %0, ptr noundef %9) #13
-  br i1 %58, label %127, label %149
+  br i1 %58, label %126, label %148
 
 59:                                               ; preds = %5
   %60 = getelementptr inbounds i8, ptr %0, i64 80
@@ -4412,7 +4412,7 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
 
 65:                                               ; preds = %59
   %66 = tail call zeroext i1 %4(ptr noundef nonnull %0, ptr noundef nonnull %9) #13
-  br i1 %66, label %67, label %149
+  br i1 %66, label %67, label %148
 
 67:                                               ; preds = %65, %59
   %68 = getelementptr inbounds i8, ptr %11, i64 28
@@ -4422,7 +4422,7 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
 
 70:                                               ; preds = %67
   %71 = add nuw i32 %2, 1
-  br label %127
+  br label %126
 
 .preheader:                                       ; preds = %67, %.preheader
   %.0 = phi ptr [ %75, %.preheader ], [ %11, %67 ]
@@ -4472,7 +4472,7 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   %98 = lshr exact i64 %97, 5
   %99 = trunc i64 %98 to i32
   tail call fastcc void @emit_live_range_raw(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %99, i32 noundef %3)
-  br label %149
+  br label %148
 
 100:                                              ; preds = %.critedge96, %88
   %101 = getelementptr inbounds i8, ptr %.083, i64 -3
@@ -4497,60 +4497,60 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
 112:                                              ; preds = %108
   %113 = getelementptr inbounds i8, ptr %.083, i64 -20
   %114 = load i32, ptr %113, align 4
-  %115 = icmp eq i32 %114, %64
-  br i1 %115, label %.critedge, label %.critedge96.backedge
+  %.not97 = icmp eq i32 %114, %64
+  br i1 %.not97, label %.critedge, label %.critedge96.backedge
 
 .critedge96.backedge:                             ; preds = %112, %108
   br label %.critedge96
 
 .critedge:                                        ; preds = %104, %112
-  %116 = getelementptr inbounds i8, ptr %9, i64 32
-  %117 = load ptr, ptr %6, align 8
+  %115 = getelementptr inbounds i8, ptr %9, i64 32
+  %116 = load ptr, ptr %6, align 8
+  %117 = ptrtoint ptr %115 to i64
   %118 = ptrtoint ptr %116 to i64
-  %119 = ptrtoint ptr %117 to i64
-  %120 = sub i64 %118, %119
-  %121 = lshr exact i64 %120, 5
-  %122 = trunc i64 %121 to i32
-  %123 = ptrtoint ptr %84 to i64
-  %124 = sub i64 %123, %119
-  %125 = lshr exact i64 %124, 5
-  %126 = trunc i64 %125 to i32
-  tail call fastcc void @emit_live_range_raw(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %122, i32 noundef %126)
-  br label %149
+  %119 = sub i64 %117, %118
+  %120 = lshr exact i64 %119, 5
+  %121 = trunc i64 %120 to i32
+  %122 = ptrtoint ptr %84 to i64
+  %123 = sub i64 %122, %118
+  %124 = lshr exact i64 %123, 5
+  %125 = trunc i64 %124 to i32
+  tail call fastcc void @emit_live_range_raw(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef %121, i32 noundef %125)
+  br label %148
 
-127:                                              ; preds = %5, %._crit_edge105, %57, %70, %18, %16
-  %.082 = phi i32 [ 0, %57 ], [ 0, %._crit_edge105 ], [ 2, %16 ], [ 1, %18 ], [ 0, %70 ], [ 3, %5 ]
-  %.1 = phi i32 [ %56, %57 ], [ %56, %._crit_edge105 ], [ %17, %16 ], [ %19, %18 ], [ %71, %70 ], [ %2, %5 ]
-  %128 = getelementptr inbounds i8, ptr %0, i64 128
-  %129 = load i32, ptr %128, align 8
-  %130 = add nsw i32 %129, 1
-  store i32 %130, ptr %128, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 136
-  %132 = load ptr, ptr %131, align 8
-  %133 = sext i32 %130 to i64
-  %134 = mul nsw i64 %133, 12
-  %135 = tail call ptr @_erealloc(ptr noundef %132, i64 noundef %134) #15
-  store ptr %135, ptr %131, align 8
-  %136 = icmp ult i32 %.1, %3
-  tail call void @llvm.assume(i1 %136)
-  %137 = load i32, ptr %128, align 8
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr %struct._zend_live_range, ptr %135, i64 %138
-  %140 = getelementptr i8, ptr %139, i64 -12
-  %141 = getelementptr inbounds i8, ptr %0, i64 80
-  %142 = load i32, ptr %141, align 8
-  %143 = add i32 %142, %1
-  %144 = shl i32 %143, 4
-  %145 = add i32 %144, 80
-  %146 = or disjoint i32 %145, %.082
-  store i32 %146, ptr %140, align 4
-  %147 = getelementptr i8, ptr %139, i64 -8
-  store i32 %.1, ptr %147, align 4
-  %148 = getelementptr i8, ptr %139, i64 -4
-  store i32 %3, ptr %148, align 4
-  br label %149
+126:                                              ; preds = %5, %._crit_edge106, %57, %70, %18, %16
+  %.082 = phi i32 [ 0, %57 ], [ 0, %._crit_edge106 ], [ 2, %16 ], [ 1, %18 ], [ 0, %70 ], [ 3, %5 ]
+  %.1 = phi i32 [ %56, %57 ], [ %56, %._crit_edge106 ], [ %17, %16 ], [ %19, %18 ], [ %71, %70 ], [ %2, %5 ]
+  %127 = getelementptr inbounds i8, ptr %0, i64 128
+  %128 = load i32, ptr %127, align 8
+  %129 = add nsw i32 %128, 1
+  store i32 %129, ptr %127, align 8
+  %130 = getelementptr inbounds i8, ptr %0, i64 136
+  %131 = load ptr, ptr %130, align 8
+  %132 = sext i32 %129 to i64
+  %133 = mul nsw i64 %132, 12
+  %134 = tail call ptr @_erealloc(ptr noundef %131, i64 noundef %133) #15
+  store ptr %134, ptr %130, align 8
+  %135 = icmp ult i32 %.1, %3
+  tail call void @llvm.assume(i1 %135)
+  %136 = load i32, ptr %127, align 8
+  %137 = sext i32 %136 to i64
+  %138 = getelementptr %struct._zend_live_range, ptr %134, i64 %137
+  %139 = getelementptr i8, ptr %138, i64 -12
+  %140 = getelementptr inbounds i8, ptr %0, i64 80
+  %141 = load i32, ptr %140, align 8
+  %142 = add i32 %141, %1
+  %143 = shl i32 %142, 4
+  %144 = add i32 %143, 80
+  %145 = or disjoint i32 %144, %.082
+  store i32 %145, ptr %139, align 4
+  %146 = getelementptr i8, ptr %138, i64 -8
+  store i32 %.1, ptr %146, align 4
+  %147 = getelementptr i8, ptr %138, i64 -4
+  store i32 %3, ptr %147, align 4
+  br label %148
 
-149:                                              ; preds = %65, %57, %._crit_edge, %5, %5, %5, %5, %5, %5, %5, %127, %.critedge, %92
+148:                                              ; preds = %65, %57, %._crit_edge, %5, %5, %5, %5, %5, %5, %5, %126, %.critedge, %92
   ret void
 }
 

@@ -1197,14 +1197,17 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit65: ; preds = %146, %154
   %211 = add i32 %210, -1
   %212 = zext i32 %211 to i64
   %213 = icmp ult i64 %indvars.iv.next, %212
-  br i1 %213, label %195, label %._crit_edge, !llvm.loop !39
+  br i1 %213, label %195, label %._crit_edge.loopexit, !llvm.loop !39
 
-._crit_edge:                                      ; preds = %195, %.preheader
-  %214 = phi ptr [ %.pre81, %.preheader ], [ %206, %195 ]
-  %.2.lcssa = phi i32 [ %.047, %.preheader ], [ %209, %195 ]
-  %.lcssa = phi i32 [ 0, %.preheader ], [ %211, %195 ]
-  %215 = zext i32 %.lcssa to i64
-  %216 = getelementptr inbounds i32, ptr %214, i64 %215
+._crit_edge.loopexit:                             ; preds = %195
+  %214 = zext i32 %211 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit
+  %215 = phi ptr [ %206, %._crit_edge.loopexit ], [ %.pre81, %.preheader ]
+  %.2.lcssa = phi i32 [ %209, %._crit_edge.loopexit ], [ %.047, %.preheader ]
+  %.lcssa = phi i64 [ %214, %._crit_edge.loopexit ], [ 0, %.preheader ]
+  %216 = getelementptr inbounds i32, ptr %215, i64 %.lcssa
   %217 = load i32, ptr %216, align 4
   %218 = lshr i32 %217, %.pre82
   %219 = or i32 %218, %.2.lcssa

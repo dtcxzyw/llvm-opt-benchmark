@@ -294,7 +294,7 @@ if.end37:                                         ; preds = %lor.lhs.false29, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @template_public_test(i32 noundef %tstid) #0 {
+define internal range(i32 0, 2) i32 @template_public_test(i32 noundef %tstid) #0 {
 entry:
   %zbn_res = alloca ptr, align 8
   %pbn_res = alloca ptr, align 8

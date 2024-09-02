@@ -10703,12 +10703,15 @@ _ZNK10Node_ArrayixEj.exit:                        ; preds = %_ZNK10Node_ArrayixE
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %58 = zext i32 %57 to i64
   %59 = icmp ult i64 %indvars.iv.next.i, %58
-  br i1 %59, label %47, label %._crit_edge.i, !llvm.loop !78
+  br i1 %59, label %47, label %._crit_edge.loopexit.i, !llvm.loop !78
 
-._crit_edge.i:                                    ; preds = %56, %.lr.ph23.i
-  %.016.lcssa.i = phi i32 [ 0, %.lr.ph23.i ], [ %.1.i, %56 ]
-  %60 = zext i32 %.016.lcssa.i to i64
-  %61 = sub nsw i64 0, %60
+._crit_edge.loopexit.i:                           ; preds = %56
+  %60 = zext i32 %.1.i to i64
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph23.i
+  %.016.lcssa.i = phi i64 [ 0, %.lr.ph23.i ], [ %60, %._crit_edge.loopexit.i ]
+  %61 = sub nsw i64 0, %.016.lcssa.i
   %62 = getelementptr inbounds ptr, ptr %.01721.i, i64 %61
   %.not.i = icmp ult ptr %62, %33
   br i1 %.not.i, label %._crit_edge24.i, label %.lr.ph23.i, !llvm.loop !79
@@ -10844,12 +10847,15 @@ define hidden void @_ZN10Scheduling13cleanup_pinchEP4Node(ptr nocapture noundef 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = zext i32 %28 to i64
   %30 = icmp ult i64 %indvars.iv.next, %29
-  br i1 %30, label %18, label %._crit_edge, !llvm.loop !78
+  br i1 %30, label %18, label %._crit_edge.loopexit, !llvm.loop !78
 
-._crit_edge:                                      ; preds = %27, %.lr.ph23
-  %.016.lcssa = phi i32 [ 0, %.lr.ph23 ], [ %.1, %27 ]
-  %31 = zext i32 %.016.lcssa to i64
-  %32 = sub nsw i64 0, %31
+._crit_edge.loopexit:                             ; preds = %27
+  %31 = zext i32 %.1 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph23
+  %.016.lcssa = phi i64 [ 0, %.lr.ph23 ], [ %31, %._crit_edge.loopexit ]
+  %32 = sub nsw i64 0, %.016.lcssa
   %33 = getelementptr inbounds ptr, ptr %.01721, i64 %32
   %.not = icmp ult ptr %33, %4
   br i1 %.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !79

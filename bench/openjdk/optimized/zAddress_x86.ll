@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_Z26ZPlatformAddressOffsetBitsv() local_unnamed_addr #0 {
+define hidden noundef range(i64 42, 45) i64 @_Z26ZPlatformAddressOffsetBitsv() local_unnamed_addr #0 {
   %1 = load i64, ptr @MaxHeapSize, align 8
   %2 = shl i64 %1, 4
   %3 = tail call range(i64 1, 61) i64 @llvm.ctpop.i64(i64 %2)
@@ -26,7 +26,7 @@ define hidden noundef i64 @_Z26ZPlatformAddressOffsetBitsv() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_Z29ZPlatformAddressHeapBaseShiftv() local_unnamed_addr #0 {
+define hidden noundef range(i64 42, 45) i64 @_Z29ZPlatformAddressHeapBaseShiftv() local_unnamed_addr #0 {
   %1 = load i64, ptr @MaxHeapSize, align 8
   %2 = shl i64 %1, 4
   %3 = tail call range(i64 1, 61) i64 @llvm.ctpop.i64(i64 %2)
@@ -37,7 +37,7 @@ define hidden noundef i64 @_Z29ZPlatformAddressHeapBaseShiftv() local_unnamed_ad
   %.0.i.i = select i1 %or.cond.i.i, i64 %2, i64 %6
   %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i.i, i1 true)
   %8 = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 42)
-  %9 = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 44)
+  %9 = tail call noundef range(i64 42, 45) i64 @llvm.umin.i64(i64 %8, i64 44)
   ret i64 %9
 }
 

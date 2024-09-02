@@ -635,19 +635,19 @@ define void @fstWriterClose(ptr noundef %0) local_unnamed_addr #11 {
   %21 = alloca i64, align 8
   %22 = alloca [32768 x i8], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %634, label %23
+  br i1 %.not, label %633, label %23
 
 23:                                               ; preds = %1
   %24 = getelementptr inbounds i8, ptr %0, i64 235
   %25 = load i8, ptr %24, align 1
   %.not297 = icmp eq i8 %25, 0
-  br i1 %.not297, label %26, label %634
+  br i1 %.not297, label %26, label %633
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %0, i64 234
   %28 = load i8, ptr %27, align 2
   %.not298 = icmp eq i8 %28, 0
-  br i1 %.not298, label %29, label %634
+  br i1 %.not298, label %29, label %633
 
 29:                                               ; preds = %26
   store i8 1, ptr %24, align 1
@@ -718,8 +718,8 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %44, %53
   tail call void @fstWriterEmitTimeChange(ptr noundef nonnull %0, i64 noundef 0)
   %67 = getelementptr inbounds i8, ptr %0, i64 104
   %68 = load i32, ptr %67, align 8
-  %.not469 = icmp eq i32 %68, 0
-  br i1 %.not469, label %.loopexit, label %.lr.ph
+  %.not470 = icmp eq i32 %68, 0
+  br i1 %.not470, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %66
   %69 = getelementptr inbounds i8, ptr %0, i64 72
@@ -988,20 +988,20 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %_ZL15fst
   %201 = call noundef i64 @fwrite(ptr noundef nonnull %16, i64 noundef %200, i64 noundef 1, ptr noundef %188)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %16)
   %202 = load i32, ptr %179, align 8
-  %.not470 = icmp eq i32 %202, 0
-  br i1 %.not470, label %._crit_edge, label %.lr.ph462
+  %.not471 = icmp eq i32 %202, 0
+  br i1 %.not471, label %._crit_edge, label %.lr.ph463
 
-.lr.ph462:                                        ; preds = %_ZL15fstWriterVarintP8_IO_FILEm.exit
+.lr.ph463:                                        ; preds = %_ZL15fstWriterVarintP8_IO_FILEm.exit
   %203 = getelementptr inbounds i8, ptr %0, i64 200
   %204 = ptrtoint ptr %15 to i64
   %205 = getelementptr inbounds i8, ptr %0, i64 208
   %.pre = load ptr, ptr %203, align 8
   br label %206
 
-206:                                              ; preds = %.lr.ph462, %_ZL15fstWriterVarintP8_IO_FILEm.exit353
-  %207 = phi ptr [ %.pre, %.lr.ph462 ], [ %233, %_ZL15fstWriterVarintP8_IO_FILEm.exit353 ]
-  %.0279461 = phi i64 [ 0, %.lr.ph462 ], [ %231, %_ZL15fstWriterVarintP8_IO_FILEm.exit353 ]
-  %.0280460 = phi i32 [ 0, %.lr.ph462 ], [ %234, %_ZL15fstWriterVarintP8_IO_FILEm.exit353 ]
+206:                                              ; preds = %.lr.ph463, %_ZL15fstWriterVarintP8_IO_FILEm.exit353
+  %207 = phi ptr [ %.pre, %.lr.ph463 ], [ %233, %_ZL15fstWriterVarintP8_IO_FILEm.exit353 ]
+  %.0279462 = phi i64 [ 0, %.lr.ph463 ], [ %231, %_ZL15fstWriterVarintP8_IO_FILEm.exit353 ]
+  %.0280461 = phi i32 [ 0, %.lr.ph463 ], [ %234, %_ZL15fstWriterVarintP8_IO_FILEm.exit353 ]
   %208 = getelementptr inbounds i8, ptr %207, i64 16
   %209 = load i8, ptr %208, align 8
   %210 = and i8 %209, 1
@@ -1012,7 +1012,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %_ZL15fst
   %215 = load ptr, ptr %203, align 8
   %216 = getelementptr inbounds i8, ptr %215, i64 8
   %217 = load i64, ptr %216, align 8
-  %218 = sub i64 %217, %.0279461
+  %218 = sub i64 %217, %.0279462
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %15)
   %.not11.i345 = icmp ult i64 %218, 128
   br i1 %.not11.i345, label %_ZL15fstWriterVarintP8_IO_FILEm.exit353, label %.lr.ph.i346
@@ -1048,7 +1048,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit353:          ; preds = %.lr.ph.i346, %206
   call void @free(ptr noundef %229) #37
   %233 = load ptr, ptr %205, align 8
   store ptr %233, ptr %203, align 8
-  %234 = add nuw i32 %.0280460, 1
+  %234 = add nuw i32 %.0280461, 1
   %235 = load i32, ptr %179, align 8
   %236 = icmp ult i32 %234, %235
   br i1 %236, label %206, label %._crit_edge, !llvm.loop !11
@@ -1126,7 +1126,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit361: ; preds = %_ZL15fst
   %274 = load i8, ptr %30, align 1
   %275 = and i8 %274, 1
   %.not310 = icmp eq i8 %275, 0
-  br i1 %.not310, label %423, label %_ZL15fstWriterUint64P8_IO_FILEm.exit366
+  br i1 %.not310, label %422, label %_ZL15fstWriterUint64P8_IO_FILEm.exit366
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit366:          ; preds = %273
   %276 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1169,7 +1169,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit371:          ; preds = %292
   %298 = load i8, ptr %297, align 4
   %299 = and i8 %298, 4
   %.not311 = icmp eq i8 %299, 0
-  br i1 %.not311, label %300, label %332
+  br i1 %.not311, label %300, label %331
 
 300:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit371
   %301 = call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #39
@@ -1180,7 +1180,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit371:          ; preds = %292
   %306 = call i32 @fflush(ptr noundef %305)
   %307 = call ptr @gzdopen(i32 noundef %304, ptr noundef nonnull @.str.5)
   %.not312 = icmp eq ptr %307, null
-  br i1 %.not312, label %330, label %308
+  br i1 %.not312, label %329, label %308
 
 308:                                              ; preds = %300
   %309 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1199,668 +1199,668 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit371:          ; preds = %292
 _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit372: ; preds = %308, %313
   %317 = load i64, ptr %290, align 8
   %318 = icmp sgt i64 %317, 0
-  br i1 %318, label %.lr.ph464, label %._crit_edge465
+  br i1 %318, label %.lr.ph465, label %._crit_edge466
 
-.lr.ph464:                                        ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit372, %.lr.ph464
-  %319 = phi i64 [ %327, %.lr.ph464 ], [ %317, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit372 ]
-  %.0281463 = phi i64 [ %326, %.lr.ph464 ], [ 0, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit372 ]
-  %320 = sub nsw i64 %319, %.0281463
-  %spec.select = call i64 @llvm.smin.i64(i64 %320, i64 32768)
-  %321 = trunc i64 %spec.select to i32
-  %322 = and i64 %spec.select, 4294967295
-  %323 = load ptr, ptr %309, align 8
-  %324 = call noundef i64 @fread(ptr noundef %301, i64 noundef %322, i64 noundef 1, ptr noundef %323)
-  %325 = call i32 @gzwrite(ptr noundef nonnull %307, ptr noundef %301, i32 noundef %321)
-  %326 = add nuw nsw i64 %.0281463, 32768
-  %327 = load i64, ptr %290, align 8
-  %328 = icmp slt i64 %326, %327
-  br i1 %328, label %.lr.ph464, label %._crit_edge465, !llvm.loop !12
+.lr.ph465:                                        ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit372, %.lr.ph465
+  %319 = phi i64 [ %326, %.lr.ph465 ], [ %317, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit372 ]
+  %.0281464 = phi i64 [ %325, %.lr.ph465 ], [ 0, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit372 ]
+  %320 = sub nsw i64 %319, %.0281464
+  %spec.select456 = call i64 @llvm.smin.i64(i64 %320, i64 32768)
+  %spec.select = trunc i64 %spec.select456 to i32
+  %321 = and i64 %spec.select456, 4294967295
+  %322 = load ptr, ptr %309, align 8
+  %323 = call noundef i64 @fread(ptr noundef %301, i64 noundef %321, i64 noundef 1, ptr noundef %322)
+  %324 = call i32 @gzwrite(ptr noundef nonnull %307, ptr noundef %301, i32 noundef %spec.select)
+  %325 = add nuw nsw i64 %.0281464, 32768
+  %326 = load i64, ptr %290, align 8
+  %327 = icmp slt i64 %325, %326
+  br i1 %327, label %.lr.ph465, label %._crit_edge466, !llvm.loop !12
 
-._crit_edge465:                                   ; preds = %.lr.ph464, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit372
-  %329 = call i32 @gzclose(ptr noundef nonnull %307)
-  br label %373
+._crit_edge466:                                   ; preds = %.lr.ph465, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit372
+  %328 = call i32 @gzclose(ptr noundef nonnull %307)
+  br label %372
 
-330:                                              ; preds = %300
-  %331 = call i32 @close(i32 noundef %304)
-  br label %373
+329:                                              ; preds = %300
+  %330 = call i32 @close(i32 noundef %304)
+  br label %372
 
-332:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit371
-  %333 = load ptr, ptr %0, align 8
-  %334 = call i32 @fflush(ptr noundef %333)
-  %335 = load i64, ptr %290, align 8
-  %336 = trunc i64 %335 to i32
-  %337 = call i32 @LZ4_compressBound(i32 noundef %336)
-  %338 = sext i32 %337 to i64
-  %339 = call noalias ptr @malloc(i64 noundef %338) #39
+331:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit371
+  %332 = load ptr, ptr %0, align 8
+  %333 = call i32 @fflush(ptr noundef %332)
+  %334 = load i64, ptr %290, align 8
+  %335 = trunc i64 %334 to i32
+  %336 = call i32 @LZ4_compressBound(i32 noundef %335)
+  %337 = sext i32 %336 to i64
+  %338 = call noalias ptr @malloc(i64 noundef %337) #39
   store i32 0, ptr %112, align 4
-  %340 = load i64, ptr %290, align 8
-  %.not313 = icmp eq i64 %340, 0
-  br i1 %.not313, label %.thread, label %342
+  %339 = load i64, ptr %290, align 8
+  %.not313 = icmp eq i64 %339, 0
+  br i1 %.not313, label %.thread, label %341
 
-.thread:                                          ; preds = %332
-  %341 = call i32 @LZ4_compress(ptr noundef null, ptr noundef %339, i32 noundef 0)
-  br label %353
+.thread:                                          ; preds = %331
+  %340 = call i32 @LZ4_compress(ptr noundef null, ptr noundef %338, i32 noundef 0)
+  br label %352
 
-342:                                              ; preds = %332
-  %343 = getelementptr inbounds i8, ptr %0, i64 8
-  %344 = load ptr, ptr %343, align 8
-  %345 = call i32 @fileno(ptr noundef %344) #37
-  %346 = call ptr @mmap(ptr noundef null, i64 noundef %340, i32 noundef 3, i32 noundef 1, i32 noundef %345, i64 noundef 0) #37
-  call fastcc void @_ZL19fstWriterMmapSanityPvPKciS1_(ptr noundef %346, i32 noundef 1951, ptr noundef nonnull @.str.6)
-  %347 = load i64, ptr %290, align 8
-  %348 = trunc i64 %347 to i32
-  %349 = call i32 @LZ4_compress(ptr noundef %346, ptr noundef %339, i32 noundef %348)
-  %.not314 = icmp eq ptr %346, null
-  br i1 %.not314, label %353, label %350
+341:                                              ; preds = %331
+  %342 = getelementptr inbounds i8, ptr %0, i64 8
+  %343 = load ptr, ptr %342, align 8
+  %344 = call i32 @fileno(ptr noundef %343) #37
+  %345 = call ptr @mmap(ptr noundef null, i64 noundef %339, i32 noundef 3, i32 noundef 1, i32 noundef %344, i64 noundef 0) #37
+  call fastcc void @_ZL19fstWriterMmapSanityPvPKciS1_(ptr noundef %345, i32 noundef 1951, ptr noundef nonnull @.str.6)
+  %346 = load i64, ptr %290, align 8
+  %347 = trunc i64 %346 to i32
+  %348 = call i32 @LZ4_compress(ptr noundef %345, ptr noundef %338, i32 noundef %347)
+  %.not314 = icmp eq ptr %345, null
+  br i1 %.not314, label %352, label %349
 
-350:                                              ; preds = %342
-  %351 = load i64, ptr %290, align 8
-  %352 = call i32 @munmap(ptr noundef nonnull %346, i64 noundef %351) #37
-  br label %353
+349:                                              ; preds = %341
+  %350 = load i64, ptr %290, align 8
+  %351 = call i32 @munmap(ptr noundef nonnull %345, i64 noundef %350) #37
+  br label %352
 
-353:                                              ; preds = %.thread, %350, %342
-  %354 = phi i32 [ %341, %.thread ], [ %349, %350 ], [ %349, %342 ]
-  %355 = load i8, ptr %30, align 1
-  %356 = and i8 %355, 2
-  %.not315 = icmp eq i8 %356, 0
-  br i1 %.not315, label %357, label %.critedge
+352:                                              ; preds = %.thread, %349, %341
+  %353 = phi i32 [ %340, %.thread ], [ %348, %349 ], [ %348, %341 ]
+  %354 = load i8, ptr %30, align 1
+  %355 = and i8 %354, 2
+  %.not315 = icmp eq i8 %355, 0
+  br i1 %.not315, label %356, label %.critedge
 
-357:                                              ; preds = %353
-  %358 = load i64, ptr %290, align 8
-  %359 = icmp sgt i64 %358, 4194304
-  br i1 %359, label %360, label %.critedge
+356:                                              ; preds = %352
+  %357 = load i64, ptr %290, align 8
+  %358 = icmp sgt i64 %357, 4194304
+  br i1 %358, label %359, label %.critedge
 
-360:                                              ; preds = %357
-  %361 = call i32 @LZ4_compressBound(i32 noundef %354)
-  %362 = sext i32 %361 to i64
-  %363 = call noalias ptr @malloc(i64 noundef %362) #39
-  %364 = call i32 @LZ4_compress(ptr noundef %339, ptr noundef %363, i32 noundef %354)
-  %365 = load ptr, ptr %0, align 8
-  %366 = sext i32 %354 to i64
-  call fastcc void @_ZL15fstWriterVarintP8_IO_FILEm(ptr noundef %365, i64 noundef %366)
-  %367 = sext i32 %364 to i64
-  %368 = load ptr, ptr %0, align 8
-  %369 = call noundef i64 @fwrite(ptr noundef %363, i64 noundef %367, i64 noundef 1, ptr noundef %368)
-  call void @free(ptr noundef %363) #37
-  br label %373
+359:                                              ; preds = %356
+  %360 = call i32 @LZ4_compressBound(i32 noundef %353)
+  %361 = sext i32 %360 to i64
+  %362 = call noalias ptr @malloc(i64 noundef %361) #39
+  %363 = call i32 @LZ4_compress(ptr noundef %338, ptr noundef %362, i32 noundef %353)
+  %364 = load ptr, ptr %0, align 8
+  %365 = sext i32 %353 to i64
+  call fastcc void @_ZL15fstWriterVarintP8_IO_FILEm(ptr noundef %364, i64 noundef %365)
+  %366 = sext i32 %363 to i64
+  %367 = load ptr, ptr %0, align 8
+  %368 = call noundef i64 @fwrite(ptr noundef %362, i64 noundef %366, i64 noundef 1, ptr noundef %367)
+  call void @free(ptr noundef %362) #37
+  br label %372
 
-.critedge:                                        ; preds = %353, %357
-  %370 = sext i32 %354 to i64
-  %371 = load ptr, ptr %0, align 8
-  %372 = call noundef i64 @fwrite(ptr noundef %339, i64 noundef %370, i64 noundef 1, ptr noundef %371)
-  br label %373
+.critedge:                                        ; preds = %352, %356
+  %369 = sext i32 %353 to i64
+  %370 = load ptr, ptr %0, align 8
+  %371 = call noundef i64 @fwrite(ptr noundef %338, i64 noundef %369, i64 noundef 1, ptr noundef %370)
+  br label %372
 
-373:                                              ; preds = %360, %.critedge, %._crit_edge465, %330
-  %.sink = phi ptr [ %301, %330 ], [ %301, %._crit_edge465 ], [ %339, %.critedge ], [ %339, %360 ]
-  %.0282 = phi i32 [ 6, %330 ], [ 6, %._crit_edge465 ], [ 6, %.critedge ], [ 7, %360 ]
+372:                                              ; preds = %359, %.critedge, %._crit_edge466, %329
+  %.sink = phi ptr [ %301, %329 ], [ %301, %._crit_edge466 ], [ %338, %.critedge ], [ %338, %359 ]
+  %.0282 = phi i32 [ 6, %329 ], [ 6, %._crit_edge466 ], [ 6, %.critedge ], [ 7, %359 ]
   call void @free(ptr noundef %.sink) #37
-  %374 = load ptr, ptr %0, align 8
-  %375 = call i32 @fseeko(ptr noundef %374, i64 noundef 0, i32 noundef 2)
-  %376 = icmp slt i32 %375, 0
-  br i1 %376, label %377, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit373
+  %373 = load ptr, ptr %0, align 8
+  %374 = call i32 @fseeko(ptr noundef %373, i64 noundef 0, i32 noundef 2)
+  %375 = icmp slt i32 %374, 0
+  br i1 %375, label %376, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit373
 
-377:                                              ; preds = %373
-  %378 = getelementptr inbounds i8, ptr %0, i64 300
-  %379 = load i8, ptr %378, align 4
-  %380 = or i8 %379, 1
-  store i8 %380, ptr %378, align 4
+376:                                              ; preds = %372
+  %377 = getelementptr inbounds i8, ptr %0, i64 300
+  %378 = load i8, ptr %377, align 4
+  %379 = or i8 %378, 1
+  store i8 %379, ptr %377, align 4
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit373
 
-_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit373: ; preds = %373, %377
-  %381 = load ptr, ptr %0, align 8
-  %382 = call i64 @ftello(ptr noundef %381)
-  %383 = load ptr, ptr %0, align 8
-  %384 = call i32 @fseeko(ptr noundef %383, i64 noundef %286, i32 noundef 0)
-  %385 = icmp slt i32 %384, 0
-  br i1 %385, label %386, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit374
+_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit373: ; preds = %372, %376
+  %380 = load ptr, ptr %0, align 8
+  %381 = call i64 @ftello(ptr noundef %380)
+  %382 = load ptr, ptr %0, align 8
+  %383 = call i32 @fseeko(ptr noundef %382, i64 noundef %286, i32 noundef 0)
+  %384 = icmp slt i32 %383, 0
+  br i1 %384, label %385, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit374
 
-386:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit373
-  %387 = getelementptr inbounds i8, ptr %0, i64 300
-  %388 = load i8, ptr %387, align 4
-  %389 = or i8 %388, 1
-  store i8 %389, ptr %387, align 4
+385:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit373
+  %386 = getelementptr inbounds i8, ptr %0, i64 300
+  %387 = load i8, ptr %386, align 4
+  %388 = or i8 %387, 1
+  store i8 %388, ptr %386, align 4
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit374
 
-_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit374: ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit373, %386
-  %390 = load ptr, ptr %0, align 8
-  %391 = sub nsw i64 %382, %286
+_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit374: ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit373, %385
+  %389 = load ptr, ptr %0, align 8
+  %390 = sub nsw i64 %381, %286
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  br label %392
+  br label %391
 
-392:                                              ; preds = %392, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit374
-  %indvars.iv.i375 = phi i64 [ 7, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit374 ], [ %indvars.iv.next.i377, %392 ]
-  %.056.i376 = phi i64 [ %391, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit374 ], [ %395, %392 ]
-  %393 = trunc i64 %.056.i376 to i8
-  %394 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 %indvars.iv.i375
-  store i8 %393, ptr %394, align 1
-  %395 = lshr i64 %.056.i376, 8
+391:                                              ; preds = %391, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit374
+  %indvars.iv.i375 = phi i64 [ 7, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit374 ], [ %indvars.iv.next.i377, %391 ]
+  %.056.i376 = phi i64 [ %390, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit374 ], [ %394, %391 ]
+  %392 = trunc i64 %.056.i376 to i8
+  %393 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 %indvars.iv.i375
+  store i8 %392, ptr %393, align 1
+  %394 = lshr i64 %.056.i376, 8
   %indvars.iv.next.i377 = add nsw i64 %indvars.iv.i375, -1
   %.not.i378 = icmp eq i64 %indvars.iv.i375, 0
-  br i1 %.not.i378, label %_ZL15fstWriterUint64P8_IO_FILEm.exit379, label %392, !llvm.loop !8
+  br i1 %.not.i378, label %_ZL15fstWriterUint64P8_IO_FILEm.exit379, label %391, !llvm.loop !8
 
-_ZL15fstWriterUint64P8_IO_FILEm.exit379:          ; preds = %392
-  %396 = call noundef i64 @fwrite(ptr noundef nonnull %11, i64 noundef 8, i64 noundef 1, ptr noundef %390)
+_ZL15fstWriterUint64P8_IO_FILEm.exit379:          ; preds = %391
+  %395 = call noundef i64 @fwrite(ptr noundef nonnull %11, i64 noundef 8, i64 noundef 1, ptr noundef %389)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %397 = load ptr, ptr %0, align 8
-  %398 = call i32 @fflush(ptr noundef %397)
-  %399 = load ptr, ptr %0, align 8
-  %400 = call i32 @fseeko(ptr noundef %399, i64 noundef %282, i32 noundef 0)
-  %401 = icmp slt i32 %400, 0
-  br i1 %401, label %402, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit380
+  %396 = load ptr, ptr %0, align 8
+  %397 = call i32 @fflush(ptr noundef %396)
+  %398 = load ptr, ptr %0, align 8
+  %399 = call i32 @fseeko(ptr noundef %398, i64 noundef %282, i32 noundef 0)
+  %400 = icmp slt i32 %399, 0
+  br i1 %400, label %401, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit380
 
-402:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit379
-  %403 = getelementptr inbounds i8, ptr %0, i64 300
-  %404 = load i8, ptr %403, align 4
-  %405 = or i8 %404, 1
-  store i8 %405, ptr %403, align 4
+401:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit379
+  %402 = getelementptr inbounds i8, ptr %0, i64 300
+  %403 = load i8, ptr %402, align 4
+  %404 = or i8 %403, 1
+  store i8 %404, ptr %402, align 4
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit380
 
-_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit380: ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit379, %402
-  %406 = load i8, ptr %297, align 4
-  %407 = and i8 %406, 4
-  %.not316 = icmp eq i8 %407, 0
-  %408 = select i1 %.not316, i32 4, i32 %.0282
-  %409 = load ptr, ptr %0, align 8
-  %410 = call i32 @fputc(i32 noundef %408, ptr noundef %409)
-  %411 = load ptr, ptr %0, align 8
-  %412 = call i32 @fseeko(ptr noundef %411, i64 noundef 0, i32 noundef 2)
-  %413 = icmp slt i32 %412, 0
-  br i1 %413, label %414, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit381
+_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit380: ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit379, %401
+  %405 = load i8, ptr %297, align 4
+  %406 = and i8 %405, 4
+  %.not316 = icmp eq i8 %406, 0
+  %407 = select i1 %.not316, i32 4, i32 %.0282
+  %408 = load ptr, ptr %0, align 8
+  %409 = call i32 @fputc(i32 noundef %407, ptr noundef %408)
+  %410 = load ptr, ptr %0, align 8
+  %411 = call i32 @fseeko(ptr noundef %410, i64 noundef 0, i32 noundef 2)
+  %412 = icmp slt i32 %411, 0
+  br i1 %412, label %413, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit381
 
-414:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit380
-  %415 = getelementptr inbounds i8, ptr %0, i64 300
-  %416 = load i8, ptr %415, align 4
-  %417 = or i8 %416, 1
-  store i8 %417, ptr %415, align 4
+413:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit380
+  %414 = getelementptr inbounds i8, ptr %0, i64 300
+  %415 = load i8, ptr %414, align 4
+  %416 = or i8 %415, 1
+  store i8 %416, ptr %414, align 4
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit381
 
-_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit381: ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit380, %414
-  %418 = load ptr, ptr %0, align 8
-  %419 = call i32 @fflush(ptr noundef %418)
-  %420 = load ptr, ptr %276, align 8
-  %421 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %280, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %420) #37
-  %422 = call i32 @unlink(ptr noundef %280) #37
+_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit381: ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit380, %413
+  %417 = load ptr, ptr %0, align 8
+  %418 = call i32 @fflush(ptr noundef %417)
+  %419 = load ptr, ptr %276, align 8
+  %420 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %280, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %419) #37
+  %421 = call i32 @unlink(ptr noundef %280) #37
   call void @free(ptr noundef %280) #37
-  br label %423
+  br label %422
 
-423:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit381, %273
-  %424 = load ptr, ptr %0, align 8
-  %425 = call i32 @fseeko(ptr noundef %424, i64 noundef 9, i32 noundef 0)
-  %426 = icmp slt i32 %425, 0
-  br i1 %426, label %427, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit382
+422:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit381, %273
+  %423 = load ptr, ptr %0, align 8
+  %424 = call i32 @fseeko(ptr noundef %423, i64 noundef 9, i32 noundef 0)
+  %425 = icmp slt i32 %424, 0
+  br i1 %425, label %426, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit382
 
-427:                                              ; preds = %423
-  %428 = getelementptr inbounds i8, ptr %0, i64 300
-  %429 = load i8, ptr %428, align 4
-  %430 = or i8 %429, 1
-  store i8 %430, ptr %428, align 4
+426:                                              ; preds = %422
+  %427 = getelementptr inbounds i8, ptr %0, i64 300
+  %428 = load i8, ptr %427, align 4
+  %429 = or i8 %428, 1
+  store i8 %429, ptr %427, align 4
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit382
 
-_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit382: ; preds = %423, %427
-  %431 = load ptr, ptr %0, align 8
-  %432 = getelementptr inbounds i8, ptr %0, i64 152
-  %433 = load i64, ptr %432, align 8
+_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit382: ; preds = %422, %426
+  %430 = load ptr, ptr %0, align 8
+  %431 = getelementptr inbounds i8, ptr %0, i64 152
+  %432 = load i64, ptr %431, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  br label %434
+  br label %433
 
-434:                                              ; preds = %434, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit382
-  %indvars.iv.i383 = phi i64 [ 7, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit382 ], [ %indvars.iv.next.i385, %434 ]
-  %.056.i384 = phi i64 [ %433, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit382 ], [ %437, %434 ]
-  %435 = trunc i64 %.056.i384 to i8
-  %436 = getelementptr inbounds [8 x i8], ptr %10, i64 0, i64 %indvars.iv.i383
-  store i8 %435, ptr %436, align 1
-  %437 = lshr i64 %.056.i384, 8
+433:                                              ; preds = %433, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit382
+  %indvars.iv.i383 = phi i64 [ 7, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit382 ], [ %indvars.iv.next.i385, %433 ]
+  %.056.i384 = phi i64 [ %432, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit382 ], [ %436, %433 ]
+  %434 = trunc i64 %.056.i384 to i8
+  %435 = getelementptr inbounds [8 x i8], ptr %10, i64 0, i64 %indvars.iv.i383
+  store i8 %434, ptr %435, align 1
+  %436 = lshr i64 %.056.i384, 8
   %indvars.iv.next.i385 = add nsw i64 %indvars.iv.i383, -1
   %.not.i386 = icmp eq i64 %indvars.iv.i383, 0
-  br i1 %.not.i386, label %_ZL15fstWriterUint64P8_IO_FILEm.exit387, label %434, !llvm.loop !8
+  br i1 %.not.i386, label %_ZL15fstWriterUint64P8_IO_FILEm.exit387, label %433, !llvm.loop !8
 
-_ZL15fstWriterUint64P8_IO_FILEm.exit387:          ; preds = %434
-  %438 = call noundef i64 @fwrite(ptr noundef nonnull %10, i64 noundef 8, i64 noundef 1, ptr noundef %431)
+_ZL15fstWriterUint64P8_IO_FILEm.exit387:          ; preds = %433
+  %437 = call noundef i64 @fwrite(ptr noundef nonnull %10, i64 noundef 8, i64 noundef 1, ptr noundef %430)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %439 = load ptr, ptr %0, align 8
-  %440 = getelementptr inbounds i8, ptr %0, i64 144
-  %441 = load i64, ptr %440, align 8
+  %438 = load ptr, ptr %0, align 8
+  %439 = getelementptr inbounds i8, ptr %0, i64 144
+  %440 = load i64, ptr %439, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  br label %442
+  br label %441
 
-442:                                              ; preds = %442, %_ZL15fstWriterUint64P8_IO_FILEm.exit387
-  %indvars.iv.i388 = phi i64 [ 7, %_ZL15fstWriterUint64P8_IO_FILEm.exit387 ], [ %indvars.iv.next.i390, %442 ]
-  %.056.i389 = phi i64 [ %441, %_ZL15fstWriterUint64P8_IO_FILEm.exit387 ], [ %445, %442 ]
-  %443 = trunc i64 %.056.i389 to i8
-  %444 = getelementptr inbounds [8 x i8], ptr %9, i64 0, i64 %indvars.iv.i388
-  store i8 %443, ptr %444, align 1
-  %445 = lshr i64 %.056.i389, 8
+441:                                              ; preds = %441, %_ZL15fstWriterUint64P8_IO_FILEm.exit387
+  %indvars.iv.i388 = phi i64 [ 7, %_ZL15fstWriterUint64P8_IO_FILEm.exit387 ], [ %indvars.iv.next.i390, %441 ]
+  %.056.i389 = phi i64 [ %440, %_ZL15fstWriterUint64P8_IO_FILEm.exit387 ], [ %444, %441 ]
+  %442 = trunc i64 %.056.i389 to i8
+  %443 = getelementptr inbounds [8 x i8], ptr %9, i64 0, i64 %indvars.iv.i388
+  store i8 %442, ptr %443, align 1
+  %444 = lshr i64 %.056.i389, 8
   %indvars.iv.next.i390 = add nsw i64 %indvars.iv.i388, -1
   %.not.i391 = icmp eq i64 %indvars.iv.i388, 0
-  br i1 %.not.i391, label %_ZL15fstWriterUint64P8_IO_FILEm.exit392, label %442, !llvm.loop !8
+  br i1 %.not.i391, label %_ZL15fstWriterUint64P8_IO_FILEm.exit392, label %441, !llvm.loop !8
 
-_ZL15fstWriterUint64P8_IO_FILEm.exit392:          ; preds = %442
-  %446 = call noundef i64 @fwrite(ptr noundef nonnull %9, i64 noundef 8, i64 noundef 1, ptr noundef %439)
+_ZL15fstWriterUint64P8_IO_FILEm.exit392:          ; preds = %441
+  %445 = call noundef i64 @fwrite(ptr noundef nonnull %9, i64 noundef 8, i64 noundef 1, ptr noundef %438)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %447 = load ptr, ptr %0, align 8
-  %448 = call i32 @fseeko(ptr noundef %447, i64 noundef 41, i32 noundef 0)
-  %449 = icmp slt i32 %448, 0
-  br i1 %449, label %450, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit393
+  %446 = load ptr, ptr %0, align 8
+  %447 = call i32 @fseeko(ptr noundef %446, i64 noundef 41, i32 noundef 0)
+  %448 = icmp slt i32 %447, 0
+  br i1 %448, label %449, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit393
 
-450:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit392
-  %451 = getelementptr inbounds i8, ptr %0, i64 300
-  %452 = load i8, ptr %451, align 4
-  %453 = or i8 %452, 1
-  store i8 %453, ptr %451, align 4
+449:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit392
+  %450 = getelementptr inbounds i8, ptr %0, i64 300
+  %451 = load i8, ptr %450, align 4
+  %452 = or i8 %451, 1
+  store i8 %452, ptr %450, align 4
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit393
 
-_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit393: ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit392, %450
-  %454 = load ptr, ptr %0, align 8
-  %455 = getelementptr inbounds i8, ptr %0, i64 184
-  %456 = load i32, ptr %455, align 8
+_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit393: ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit392, %449
+  %453 = load ptr, ptr %0, align 8
+  %454 = getelementptr inbounds i8, ptr %0, i64 184
+  %455 = load i32, ptr %454, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  br label %457
+  br label %456
 
-457:                                              ; preds = %457, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit393
-  %indvars.iv.i394 = phi i64 [ 7, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit393 ], [ %indvars.iv.next.i396, %457 ]
-  %.056.i395 = phi i32 [ %456, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit393 ], [ %460, %457 ]
-  %458 = trunc i32 %.056.i395 to i8
-  %459 = getelementptr inbounds [8 x i8], ptr %8, i64 0, i64 %indvars.iv.i394
-  store i8 %458, ptr %459, align 1
-  %460 = lshr i32 %.056.i395, 8
+456:                                              ; preds = %456, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit393
+  %indvars.iv.i394 = phi i64 [ 7, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit393 ], [ %indvars.iv.next.i396, %456 ]
+  %.056.i395 = phi i32 [ %455, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit393 ], [ %459, %456 ]
+  %457 = trunc i32 %.056.i395 to i8
+  %458 = getelementptr inbounds [8 x i8], ptr %8, i64 0, i64 %indvars.iv.i394
+  store i8 %457, ptr %458, align 1
+  %459 = lshr i32 %.056.i395, 8
   %indvars.iv.next.i396 = add nsw i64 %indvars.iv.i394, -1
   %.not.i397 = icmp eq i64 %indvars.iv.i394, 0
-  br i1 %.not.i397, label %_ZL15fstWriterUint64P8_IO_FILEm.exit398, label %457, !llvm.loop !8
+  br i1 %.not.i397, label %_ZL15fstWriterUint64P8_IO_FILEm.exit398, label %456, !llvm.loop !8
 
-_ZL15fstWriterUint64P8_IO_FILEm.exit398:          ; preds = %457
-  %461 = call noundef i64 @fwrite(ptr noundef nonnull %8, i64 noundef 8, i64 noundef 1, ptr noundef %454)
+_ZL15fstWriterUint64P8_IO_FILEm.exit398:          ; preds = %456
+  %460 = call noundef i64 @fwrite(ptr noundef nonnull %8, i64 noundef 8, i64 noundef 1, ptr noundef %453)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %462 = load ptr, ptr %0, align 8
-  %463 = getelementptr inbounds i8, ptr %0, i64 108
-  %464 = load i32, ptr %463, align 4
+  %461 = load ptr, ptr %0, align 8
+  %462 = getelementptr inbounds i8, ptr %0, i64 108
+  %463 = load i32, ptr %462, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  br label %465
+  br label %464
 
-465:                                              ; preds = %465, %_ZL15fstWriterUint64P8_IO_FILEm.exit398
-  %indvars.iv.i399 = phi i64 [ 7, %_ZL15fstWriterUint64P8_IO_FILEm.exit398 ], [ %indvars.iv.next.i401, %465 ]
-  %.056.i400 = phi i32 [ %464, %_ZL15fstWriterUint64P8_IO_FILEm.exit398 ], [ %468, %465 ]
-  %466 = trunc i32 %.056.i400 to i8
-  %467 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %indvars.iv.i399
-  store i8 %466, ptr %467, align 1
-  %468 = lshr i32 %.056.i400, 8
+464:                                              ; preds = %464, %_ZL15fstWriterUint64P8_IO_FILEm.exit398
+  %indvars.iv.i399 = phi i64 [ 7, %_ZL15fstWriterUint64P8_IO_FILEm.exit398 ], [ %indvars.iv.next.i401, %464 ]
+  %.056.i400 = phi i32 [ %463, %_ZL15fstWriterUint64P8_IO_FILEm.exit398 ], [ %467, %464 ]
+  %465 = trunc i32 %.056.i400 to i8
+  %466 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %indvars.iv.i399
+  store i8 %465, ptr %466, align 1
+  %467 = lshr i32 %.056.i400, 8
   %indvars.iv.next.i401 = add nsw i64 %indvars.iv.i399, -1
   %.not.i402 = icmp eq i64 %indvars.iv.i399, 0
-  br i1 %.not.i402, label %_ZL15fstWriterUint64P8_IO_FILEm.exit403, label %465, !llvm.loop !8
+  br i1 %.not.i402, label %_ZL15fstWriterUint64P8_IO_FILEm.exit403, label %464, !llvm.loop !8
 
-_ZL15fstWriterUint64P8_IO_FILEm.exit403:          ; preds = %465
-  %469 = call noundef i64 @fwrite(ptr noundef nonnull %7, i64 noundef 8, i64 noundef 1, ptr noundef %462)
+_ZL15fstWriterUint64P8_IO_FILEm.exit403:          ; preds = %464
+  %468 = call noundef i64 @fwrite(ptr noundef nonnull %7, i64 noundef 8, i64 noundef 1, ptr noundef %461)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %470 = load ptr, ptr %0, align 8
-  %471 = getelementptr inbounds i8, ptr %0, i64 104
-  %472 = load i32, ptr %471, align 8
+  %469 = load ptr, ptr %0, align 8
+  %470 = getelementptr inbounds i8, ptr %0, i64 104
+  %471 = load i32, ptr %470, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  br label %473
+  br label %472
 
-473:                                              ; preds = %473, %_ZL15fstWriterUint64P8_IO_FILEm.exit403
-  %indvars.iv.i404 = phi i64 [ 7, %_ZL15fstWriterUint64P8_IO_FILEm.exit403 ], [ %indvars.iv.next.i406, %473 ]
-  %.056.i405 = phi i32 [ %472, %_ZL15fstWriterUint64P8_IO_FILEm.exit403 ], [ %476, %473 ]
-  %474 = trunc i32 %.056.i405 to i8
-  %475 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %indvars.iv.i404
-  store i8 %474, ptr %475, align 1
-  %476 = lshr i32 %.056.i405, 8
+472:                                              ; preds = %472, %_ZL15fstWriterUint64P8_IO_FILEm.exit403
+  %indvars.iv.i404 = phi i64 [ 7, %_ZL15fstWriterUint64P8_IO_FILEm.exit403 ], [ %indvars.iv.next.i406, %472 ]
+  %.056.i405 = phi i32 [ %471, %_ZL15fstWriterUint64P8_IO_FILEm.exit403 ], [ %475, %472 ]
+  %473 = trunc i32 %.056.i405 to i8
+  %474 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %indvars.iv.i404
+  store i8 %473, ptr %474, align 1
+  %475 = lshr i32 %.056.i405, 8
   %indvars.iv.next.i406 = add nsw i64 %indvars.iv.i404, -1
   %.not.i407 = icmp eq i64 %indvars.iv.i404, 0
-  br i1 %.not.i407, label %_ZL15fstWriterUint64P8_IO_FILEm.exit408, label %473, !llvm.loop !8
+  br i1 %.not.i407, label %_ZL15fstWriterUint64P8_IO_FILEm.exit408, label %472, !llvm.loop !8
 
-_ZL15fstWriterUint64P8_IO_FILEm.exit408:          ; preds = %473
-  %477 = call noundef i64 @fwrite(ptr noundef nonnull %6, i64 noundef 8, i64 noundef 1, ptr noundef %470)
+_ZL15fstWriterUint64P8_IO_FILEm.exit408:          ; preds = %472
+  %476 = call noundef i64 @fwrite(ptr noundef nonnull %6, i64 noundef 8, i64 noundef 1, ptr noundef %469)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %478 = load ptr, ptr %0, align 8
-  %479 = getelementptr inbounds i8, ptr %0, i64 168
-  %480 = load i32, ptr %479, align 8
+  %477 = load ptr, ptr %0, align 8
+  %478 = getelementptr inbounds i8, ptr %0, i64 168
+  %479 = load i32, ptr %478, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  br label %481
+  br label %480
 
-481:                                              ; preds = %481, %_ZL15fstWriterUint64P8_IO_FILEm.exit408
-  %indvars.iv.i409 = phi i64 [ 7, %_ZL15fstWriterUint64P8_IO_FILEm.exit408 ], [ %indvars.iv.next.i411, %481 ]
-  %.056.i410 = phi i32 [ %480, %_ZL15fstWriterUint64P8_IO_FILEm.exit408 ], [ %484, %481 ]
-  %482 = trunc i32 %.056.i410 to i8
-  %483 = getelementptr inbounds [8 x i8], ptr %5, i64 0, i64 %indvars.iv.i409
-  store i8 %482, ptr %483, align 1
-  %484 = lshr i32 %.056.i410, 8
+480:                                              ; preds = %480, %_ZL15fstWriterUint64P8_IO_FILEm.exit408
+  %indvars.iv.i409 = phi i64 [ 7, %_ZL15fstWriterUint64P8_IO_FILEm.exit408 ], [ %indvars.iv.next.i411, %480 ]
+  %.056.i410 = phi i32 [ %479, %_ZL15fstWriterUint64P8_IO_FILEm.exit408 ], [ %483, %480 ]
+  %481 = trunc i32 %.056.i410 to i8
+  %482 = getelementptr inbounds [8 x i8], ptr %5, i64 0, i64 %indvars.iv.i409
+  store i8 %481, ptr %482, align 1
+  %483 = lshr i32 %.056.i410, 8
   %indvars.iv.next.i411 = add nsw i64 %indvars.iv.i409, -1
   %.not.i412 = icmp eq i64 %indvars.iv.i409, 0
-  br i1 %.not.i412, label %_ZL15fstWriterUint64P8_IO_FILEm.exit413, label %481, !llvm.loop !8
+  br i1 %.not.i412, label %_ZL15fstWriterUint64P8_IO_FILEm.exit413, label %480, !llvm.loop !8
 
-_ZL15fstWriterUint64P8_IO_FILEm.exit413:          ; preds = %481
-  %485 = call noundef i64 @fwrite(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %478)
+_ZL15fstWriterUint64P8_IO_FILEm.exit413:          ; preds = %480
+  %484 = call noundef i64 @fwrite(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %477)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %486 = load ptr, ptr %0, align 8
-  %487 = call i32 @fflush(ptr noundef %486)
-  %488 = getelementptr inbounds i8, ptr %0, i64 40
-  %489 = getelementptr inbounds i8, ptr %0, i64 328
-  %490 = load ptr, ptr %488, align 8
-  %.not12.i = icmp eq ptr %490, null
-  br i1 %.not12.i, label %493, label %491
+  %485 = load ptr, ptr %0, align 8
+  %486 = call i32 @fflush(ptr noundef %485)
+  %487 = getelementptr inbounds i8, ptr %0, i64 40
+  %488 = getelementptr inbounds i8, ptr %0, i64 328
+  %489 = load ptr, ptr %487, align 8
+  %.not12.i = icmp eq ptr %489, null
+  br i1 %.not12.i, label %492, label %490
 
-491:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit413
-  %492 = call i32 @fclose(ptr noundef nonnull %490)
+490:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit413
+  %491 = call i32 @fclose(ptr noundef nonnull %489)
+  store ptr null, ptr %487, align 8
+  br label %492
+
+492:                                              ; preds = %490, %_ZL15fstWriterUint64P8_IO_FILEm.exit413
+  %493 = load ptr, ptr %488, align 8
+  %.not14.i = icmp eq ptr %493, null
+  br i1 %.not14.i, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %494
+
+494:                                              ; preds = %492
+  %495 = call i32 @unlink(ptr noundef nonnull %493) #37
+  %496 = load ptr, ptr %488, align 8
+  call void @free(ptr noundef %496) #37
   store ptr null, ptr %488, align 8
-  br label %493
-
-493:                                              ; preds = %491, %_ZL15fstWriterUint64P8_IO_FILEm.exit413
-  %494 = load ptr, ptr %489, align 8
-  %.not14.i = icmp eq ptr %494, null
-  br i1 %.not14.i, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %495
-
-495:                                              ; preds = %493
-  %496 = call i32 @unlink(ptr noundef nonnull %494) #37
-  %497 = load ptr, ptr %489, align 8
-  call void @free(ptr noundef %497) #37
-  store ptr null, ptr %489, align 8
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
 
-_ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %493, %495
-  %498 = getelementptr inbounds i8, ptr %0, i64 48
-  %499 = load ptr, ptr %498, align 8
-  call void @free(ptr noundef %499) #37
-  store ptr null, ptr %498, align 8
-  %500 = getelementptr inbounds i8, ptr %0, i64 32
-  %501 = getelementptr inbounds i8, ptr %0, i64 320
-  %502 = load ptr, ptr %500, align 8
-  %.not12.i416 = icmp eq ptr %502, null
-  br i1 %.not12.i416, label %505, label %503
+_ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %492, %494
+  %497 = getelementptr inbounds i8, ptr %0, i64 48
+  %498 = load ptr, ptr %497, align 8
+  call void @free(ptr noundef %498) #37
+  store ptr null, ptr %497, align 8
+  %499 = getelementptr inbounds i8, ptr %0, i64 32
+  %500 = getelementptr inbounds i8, ptr %0, i64 320
+  %501 = load ptr, ptr %499, align 8
+  %.not12.i416 = icmp eq ptr %501, null
+  br i1 %.not12.i416, label %504, label %502
 
-503:                                              ; preds = %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
-  %504 = call i32 @fclose(ptr noundef nonnull %502)
+502:                                              ; preds = %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
+  %503 = call i32 @fclose(ptr noundef nonnull %501)
+  store ptr null, ptr %499, align 8
+  br label %504
+
+504:                                              ; preds = %502, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
+  %505 = load ptr, ptr %500, align 8
+  %.not14.i417 = icmp eq ptr %505, null
+  br i1 %.not14.i417, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit418, label %506
+
+506:                                              ; preds = %504
+  %507 = call i32 @unlink(ptr noundef nonnull %505) #37
+  %508 = load ptr, ptr %500, align 8
+  call void @free(ptr noundef %508) #37
   store ptr null, ptr %500, align 8
-  br label %505
-
-505:                                              ; preds = %503, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
-  %506 = load ptr, ptr %501, align 8
-  %.not14.i417 = icmp eq ptr %506, null
-  br i1 %.not14.i417, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit418, label %507
-
-507:                                              ; preds = %505
-  %508 = call i32 @unlink(ptr noundef nonnull %506) #37
-  %509 = load ptr, ptr %501, align 8
-  call void @free(ptr noundef %509) #37
-  store ptr null, ptr %501, align 8
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit418
 
-_ZL13tmpfile_closePP8_IO_FILEPPc.exit418:         ; preds = %505, %507
-  %510 = getelementptr inbounds i8, ptr %0, i64 24
-  %511 = getelementptr inbounds i8, ptr %0, i64 312
-  %512 = load ptr, ptr %510, align 8
-  %.not12.i420 = icmp eq ptr %512, null
-  br i1 %.not12.i420, label %515, label %513
+_ZL13tmpfile_closePP8_IO_FILEPPc.exit418:         ; preds = %504, %506
+  %509 = getelementptr inbounds i8, ptr %0, i64 24
+  %510 = getelementptr inbounds i8, ptr %0, i64 312
+  %511 = load ptr, ptr %509, align 8
+  %.not12.i420 = icmp eq ptr %511, null
+  br i1 %.not12.i420, label %514, label %512
 
-513:                                              ; preds = %_ZL13tmpfile_closePP8_IO_FILEPPc.exit418
-  %514 = call i32 @fclose(ptr noundef nonnull %512)
+512:                                              ; preds = %_ZL13tmpfile_closePP8_IO_FILEPPc.exit418
+  %513 = call i32 @fclose(ptr noundef nonnull %511)
+  store ptr null, ptr %509, align 8
+  br label %514
+
+514:                                              ; preds = %512, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit418
+  %515 = load ptr, ptr %510, align 8
+  %.not14.i421 = icmp eq ptr %515, null
+  br i1 %.not14.i421, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit422, label %516
+
+516:                                              ; preds = %514
+  %517 = call i32 @unlink(ptr noundef nonnull %515) #37
+  %518 = load ptr, ptr %510, align 8
+  call void @free(ptr noundef %518) #37
   store ptr null, ptr %510, align 8
-  br label %515
-
-515:                                              ; preds = %513, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit418
-  %516 = load ptr, ptr %511, align 8
-  %.not14.i421 = icmp eq ptr %516, null
-  br i1 %.not14.i421, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit422, label %517
-
-517:                                              ; preds = %515
-  %518 = call i32 @unlink(ptr noundef nonnull %516) #37
-  %519 = load ptr, ptr %511, align 8
-  call void @free(ptr noundef %519) #37
-  store ptr null, ptr %511, align 8
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit422
 
-_ZL13tmpfile_closePP8_IO_FILEPPc.exit422:         ; preds = %515, %517
-  %520 = getelementptr inbounds i8, ptr %0, i64 304
-  %521 = load ptr, ptr %107, align 8
-  %.not12.i424 = icmp eq ptr %521, null
-  br i1 %.not12.i424, label %524, label %522
+_ZL13tmpfile_closePP8_IO_FILEPPc.exit422:         ; preds = %514, %516
+  %519 = getelementptr inbounds i8, ptr %0, i64 304
+  %520 = load ptr, ptr %107, align 8
+  %.not12.i424 = icmp eq ptr %520, null
+  br i1 %.not12.i424, label %523, label %521
 
-522:                                              ; preds = %_ZL13tmpfile_closePP8_IO_FILEPPc.exit422
-  %523 = call i32 @fclose(ptr noundef nonnull %521)
+521:                                              ; preds = %_ZL13tmpfile_closePP8_IO_FILEPPc.exit422
+  %522 = call i32 @fclose(ptr noundef nonnull %520)
   store ptr null, ptr %107, align 8
-  br label %524
+  br label %523
 
-524:                                              ; preds = %522, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit422
-  %525 = load ptr, ptr %520, align 8
-  %.not14.i425 = icmp eq ptr %525, null
-  br i1 %.not14.i425, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit426, label %526
+523:                                              ; preds = %521, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit422
+  %524 = load ptr, ptr %519, align 8
+  %.not14.i425 = icmp eq ptr %524, null
+  br i1 %.not14.i425, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit426, label %525
 
-526:                                              ; preds = %524
-  %527 = call i32 @unlink(ptr noundef nonnull %525) #37
-  %528 = load ptr, ptr %520, align 8
-  call void @free(ptr noundef %528) #37
-  store ptr null, ptr %520, align 8
+525:                                              ; preds = %523
+  %526 = call i32 @unlink(ptr noundef nonnull %524) #37
+  %527 = load ptr, ptr %519, align 8
+  call void @free(ptr noundef %527) #37
+  store ptr null, ptr %519, align 8
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit426
 
-_ZL13tmpfile_closePP8_IO_FILEPPc.exit426:         ; preds = %524, %526
-  %529 = getelementptr inbounds i8, ptr %0, i64 8
-  %530 = load ptr, ptr %529, align 8
-  %.not318 = icmp eq ptr %530, null
-  br i1 %.not318, label %533, label %531
+_ZL13tmpfile_closePP8_IO_FILEPPc.exit426:         ; preds = %523, %525
+  %528 = getelementptr inbounds i8, ptr %0, i64 8
+  %529 = load ptr, ptr %528, align 8
+  %.not318 = icmp eq ptr %529, null
+  br i1 %.not318, label %532, label %530
 
-531:                                              ; preds = %_ZL13tmpfile_closePP8_IO_FILEPPc.exit426
-  %532 = call i32 @fclose(ptr noundef nonnull %530)
-  store ptr null, ptr %529, align 8
-  br label %533
+530:                                              ; preds = %_ZL13tmpfile_closePP8_IO_FILEPPc.exit426
+  %531 = call i32 @fclose(ptr noundef nonnull %529)
+  store ptr null, ptr %528, align 8
+  br label %532
 
-533:                                              ; preds = %531, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit426
-  %534 = load ptr, ptr %0, align 8
-  %.not319 = icmp eq ptr %534, null
-  br i1 %.not319, label %624, label %535
+532:                                              ; preds = %530, %_ZL13tmpfile_closePP8_IO_FILEPPc.exit426
+  %533 = load ptr, ptr %0, align 8
+  %.not319 = icmp eq ptr %533, null
+  br i1 %.not319, label %623, label %534
 
-535:                                              ; preds = %533
-  %536 = load i8, ptr %30, align 1
-  %537 = and i8 %536, 2
-  %.not320 = icmp eq i8 %537, 0
-  br i1 %.not320, label %622, label %538
+534:                                              ; preds = %532
+  %535 = load i8, ptr %30, align 1
+  %536 = and i8 %535, 2
+  %.not320 = icmp eq i8 %536, 0
+  br i1 %.not320, label %621, label %537
 
-538:                                              ; preds = %535
-  %539 = getelementptr inbounds i8, ptr %0, i64 96
-  %540 = load ptr, ptr %539, align 8
-  %541 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %540) #38
-  %542 = shl i64 %541, 32
-  %sext = add i64 %542, 21474836480
-  %543 = ashr exact i64 %sext, 32
-  %544 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %543) #36
-  %545 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %544, ptr noundef nonnull dereferenceable(1) %540) #37
-  %546 = ashr exact i64 %542, 32
-  %547 = getelementptr inbounds i8, ptr %544, i64 %546
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %547, ptr noundef nonnull align 1 dereferenceable(5) @.str.8, i64 5, i1 false) #37
-  %548 = call noalias ptr @fopen(ptr noundef %544, ptr noundef nonnull @.str.9)
-  %.not322 = icmp eq ptr %548, null
-  br i1 %.not322, label %616, label %549
+537:                                              ; preds = %534
+  %538 = getelementptr inbounds i8, ptr %0, i64 96
+  %539 = load ptr, ptr %538, align 8
+  %540 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %539) #38
+  %541 = shl i64 %540, 32
+  %sext = add i64 %541, 21474836480
+  %542 = ashr exact i64 %sext, 32
+  %543 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %542) #36
+  %544 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %543, ptr noundef nonnull dereferenceable(1) %539) #37
+  %545 = ashr exact i64 %541, 32
+  %546 = getelementptr inbounds i8, ptr %543, i64 %545
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %546, ptr noundef nonnull align 1 dereferenceable(5) @.str.8, i64 5, i1 false) #37
+  %547 = call noalias ptr @fopen(ptr noundef %543, ptr noundef nonnull @.str.9)
+  %.not322 = icmp eq ptr %547, null
+  br i1 %.not322, label %615, label %548
 
-549:                                              ; preds = %538
-  %550 = load ptr, ptr %0, align 8
-  %551 = call i32 @fseeko(ptr noundef %550, i64 noundef 0, i32 noundef 2)
-  %552 = icmp slt i32 %551, 0
-  br i1 %552, label %553, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit427
+548:                                              ; preds = %537
+  %549 = load ptr, ptr %0, align 8
+  %550 = call i32 @fseeko(ptr noundef %549, i64 noundef 0, i32 noundef 2)
+  %551 = icmp slt i32 %550, 0
+  br i1 %551, label %552, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit427
 
-553:                                              ; preds = %549
-  %554 = getelementptr inbounds i8, ptr %0, i64 300
-  %555 = load i8, ptr %554, align 4
-  %556 = or i8 %555, 1
-  store i8 %556, ptr %554, align 4
+552:                                              ; preds = %548
+  %553 = getelementptr inbounds i8, ptr %0, i64 300
+  %554 = load i8, ptr %553, align 4
+  %555 = or i8 %554, 1
+  store i8 %555, ptr %553, align 4
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit427
 
-_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit427: ; preds = %549, %553
-  %557 = load ptr, ptr %0, align 8
-  %558 = call i64 @ftello(ptr noundef %557)
-  %559 = call i32 @fputc(i32 noundef 254, ptr noundef nonnull %548)
+_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit427: ; preds = %548, %552
+  %556 = load ptr, ptr %0, align 8
+  %557 = call i64 @ftello(ptr noundef %556)
+  %558 = call i32 @fputc(i32 noundef 254, ptr noundef nonnull %547)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %4, align 8
-  %560 = call noundef i64 @fwrite(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %548)
+  %559 = call noundef i64 @fwrite(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %547)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  br label %561
+  br label %560
 
-561:                                              ; preds = %561, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit427
-  %indvars.iv.i433 = phi i64 [ 7, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit427 ], [ %indvars.iv.next.i435, %561 ]
-  %.056.i434 = phi i64 [ %558, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit427 ], [ %564, %561 ]
-  %562 = trunc i64 %.056.i434 to i8
-  %563 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i433
-  store i8 %562, ptr %563, align 1
-  %564 = lshr i64 %.056.i434, 8
+560:                                              ; preds = %560, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit427
+  %indvars.iv.i433 = phi i64 [ 7, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit427 ], [ %indvars.iv.next.i435, %560 ]
+  %.056.i434 = phi i64 [ %557, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit427 ], [ %563, %560 ]
+  %561 = trunc i64 %.056.i434 to i8
+  %562 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i433
+  store i8 %561, ptr %562, align 1
+  %563 = lshr i64 %.056.i434, 8
   %indvars.iv.next.i435 = add nsw i64 %indvars.iv.i433, -1
   %.not.i436 = icmp eq i64 %indvars.iv.i433, 0
-  br i1 %.not.i436, label %_ZL15fstWriterUint64P8_IO_FILEm.exit437, label %561, !llvm.loop !8
+  br i1 %.not.i436, label %_ZL15fstWriterUint64P8_IO_FILEm.exit437, label %560, !llvm.loop !8
 
-_ZL15fstWriterUint64P8_IO_FILEm.exit437:          ; preds = %561
-  %565 = call noundef i64 @fwrite(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %548)
+_ZL15fstWriterUint64P8_IO_FILEm.exit437:          ; preds = %560
+  %564 = call noundef i64 @fwrite(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %547)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %566 = call i32 @fflush(ptr noundef nonnull %548)
-  %567 = load ptr, ptr %0, align 8
-  %568 = call i32 @fseeko(ptr noundef %567, i64 noundef 0, i32 noundef 0)
-  %569 = icmp slt i32 %568, 0
-  br i1 %569, label %570, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit438
+  %565 = call i32 @fflush(ptr noundef nonnull %547)
+  %566 = load ptr, ptr %0, align 8
+  %567 = call i32 @fseeko(ptr noundef %566, i64 noundef 0, i32 noundef 0)
+  %568 = icmp slt i32 %567, 0
+  br i1 %568, label %569, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit438
 
-570:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit437
-  %571 = getelementptr inbounds i8, ptr %0, i64 300
-  %572 = load i8, ptr %571, align 4
-  %573 = or i8 %572, 1
-  store i8 %573, ptr %571, align 4
+569:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit437
+  %570 = getelementptr inbounds i8, ptr %0, i64 300
+  %571 = load i8, ptr %570, align 4
+  %572 = or i8 %571, 1
+  store i8 %572, ptr %570, align 4
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit438
 
-_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit438: ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit437, %570
-  %574 = call i32 @fileno(ptr noundef nonnull %548) #37
-  %575 = call i32 @dup(i32 noundef %574) #37
-  %576 = call ptr @gzdopen(i32 noundef %575, ptr noundef nonnull @.str.5)
-  %.not323 = icmp eq ptr %576, null
-  br i1 %.not323, label %587, label %.preheader
+_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit438: ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit437, %569
+  %573 = call i32 @fileno(ptr noundef nonnull %547) #37
+  %574 = call i32 @dup(i32 noundef %573) #37
+  %575 = call ptr @gzdopen(i32 noundef %574, ptr noundef nonnull @.str.5)
+  %.not323 = icmp eq ptr %575, null
+  br i1 %.not323, label %586, label %.preheader
 
 .preheader:                                       ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit438
-  %577 = icmp sgt i64 %558, 0
-  br i1 %577, label %.lr.ph467, label %._crit_edge468
+  %576 = icmp sgt i64 %557, 0
+  br i1 %576, label %.lr.ph468, label %._crit_edge469
 
-.lr.ph467:                                        ; preds = %.preheader, %.lr.ph467
-  %.0283466 = phi i64 [ %584, %.lr.ph467 ], [ 0, %.preheader ]
-  %578 = sub nsw i64 %558, %.0283466
-  %579 = call i64 @llvm.smin.i64(i64 %578, i64 32768)
-  %580 = load ptr, ptr %0, align 8
-  %581 = call noundef i64 @fread(ptr noundef nonnull %22, i64 noundef %579, i64 noundef 1, ptr noundef %580)
-  %582 = trunc i64 %579 to i32
-  %583 = call i32 @gzwrite(ptr noundef nonnull %576, ptr noundef nonnull %22, i32 noundef %582)
-  %584 = add nuw nsw i64 %.0283466, 32768
-  %585 = icmp slt i64 %584, %558
-  br i1 %585, label %.lr.ph467, label %._crit_edge468, !llvm.loop !13
+.lr.ph468:                                        ; preds = %.preheader, %.lr.ph468
+  %.0283467 = phi i64 [ %583, %.lr.ph468 ], [ 0, %.preheader ]
+  %577 = sub nsw i64 %557, %.0283467
+  %578 = call i64 @llvm.smin.i64(i64 %577, i64 32768)
+  %579 = load ptr, ptr %0, align 8
+  %580 = call noundef i64 @fread(ptr noundef nonnull %22, i64 noundef %578, i64 noundef 1, ptr noundef %579)
+  %581 = trunc i64 %578 to i32
+  %582 = call i32 @gzwrite(ptr noundef nonnull %575, ptr noundef nonnull %22, i32 noundef %581)
+  %583 = add nuw nsw i64 %.0283467, 32768
+  %584 = icmp slt i64 %583, %557
+  br i1 %584, label %.lr.ph468, label %._crit_edge469, !llvm.loop !13
 
-._crit_edge468:                                   ; preds = %.lr.ph467, %.preheader
-  %586 = call i32 @gzclose(ptr noundef nonnull %576)
-  br label %589
+._crit_edge469:                                   ; preds = %.lr.ph468, %.preheader
+  %585 = call i32 @gzclose(ptr noundef nonnull %575)
+  br label %588
 
-587:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit438
-  %588 = call i32 @close(i32 noundef %575)
-  br label %589
+586:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit438
+  %587 = call i32 @close(i32 noundef %574)
+  br label %588
 
-589:                                              ; preds = %587, %._crit_edge468
-  %590 = call i32 @fseeko(ptr noundef nonnull %548, i64 noundef 0, i32 noundef 2)
-  %591 = icmp slt i32 %590, 0
-  br i1 %591, label %592, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit439
+588:                                              ; preds = %586, %._crit_edge469
+  %589 = call i32 @fseeko(ptr noundef nonnull %547, i64 noundef 0, i32 noundef 2)
+  %590 = icmp slt i32 %589, 0
+  br i1 %590, label %591, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit439
 
-592:                                              ; preds = %589
-  %593 = getelementptr inbounds i8, ptr %0, i64 300
-  %594 = load i8, ptr %593, align 4
-  %595 = or i8 %594, 1
-  store i8 %595, ptr %593, align 4
+591:                                              ; preds = %588
+  %592 = getelementptr inbounds i8, ptr %0, i64 300
+  %593 = load i8, ptr %592, align 4
+  %594 = or i8 %593, 1
+  store i8 %594, ptr %592, align 4
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit439
 
-_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit439: ; preds = %589, %592
-  %596 = call i64 @ftello(ptr noundef nonnull %548)
-  %597 = call i32 @fseeko(ptr noundef nonnull %548, i64 noundef 1, i32 noundef 0)
-  %598 = icmp slt i32 %597, 0
-  br i1 %598, label %599, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit440
+_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit439: ; preds = %588, %591
+  %595 = call i64 @ftello(ptr noundef nonnull %547)
+  %596 = call i32 @fseeko(ptr noundef nonnull %547, i64 noundef 1, i32 noundef 0)
+  %597 = icmp slt i32 %596, 0
+  br i1 %597, label %598, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit440
 
-599:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit439
-  %600 = getelementptr inbounds i8, ptr %0, i64 300
-  %601 = load i8, ptr %600, align 4
-  %602 = or i8 %601, 1
-  store i8 %602, ptr %600, align 4
+598:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit439
+  %599 = getelementptr inbounds i8, ptr %0, i64 300
+  %600 = load i8, ptr %599, align 4
+  %601 = or i8 %600, 1
+  store i8 %601, ptr %599, align 4
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit440
 
-_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit440: ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit439, %599
-  %603 = add nsw i64 %596, -1
+_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit440: ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit439, %598
+  %602 = add nsw i64 %595, -1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  br label %604
+  br label %603
 
-604:                                              ; preds = %604, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit440
-  %indvars.iv.i441 = phi i64 [ 7, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit440 ], [ %indvars.iv.next.i443, %604 ]
-  %.056.i442 = phi i64 [ %603, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit440 ], [ %607, %604 ]
-  %605 = trunc i64 %.056.i442 to i8
-  %606 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %indvars.iv.i441
-  store i8 %605, ptr %606, align 1
-  %607 = lshr i64 %.056.i442, 8
+603:                                              ; preds = %603, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit440
+  %indvars.iv.i441 = phi i64 [ 7, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit440 ], [ %indvars.iv.next.i443, %603 ]
+  %.056.i442 = phi i64 [ %602, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit440 ], [ %606, %603 ]
+  %604 = trunc i64 %.056.i442 to i8
+  %605 = getelementptr inbounds [8 x i8], ptr %2, i64 0, i64 %indvars.iv.i441
+  store i8 %604, ptr %605, align 1
+  %606 = lshr i64 %.056.i442, 8
   %indvars.iv.next.i443 = add nsw i64 %indvars.iv.i441, -1
   %.not.i444 = icmp eq i64 %indvars.iv.i441, 0
-  br i1 %.not.i444, label %_ZL15fstWriterUint64P8_IO_FILEm.exit445, label %604, !llvm.loop !8
+  br i1 %.not.i444, label %_ZL15fstWriterUint64P8_IO_FILEm.exit445, label %603, !llvm.loop !8
 
-_ZL15fstWriterUint64P8_IO_FILEm.exit445:          ; preds = %604
-  %608 = call noundef i64 @fwrite(ptr noundef nonnull %2, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %548)
+_ZL15fstWriterUint64P8_IO_FILEm.exit445:          ; preds = %603
+  %607 = call noundef i64 @fwrite(ptr noundef nonnull %2, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %547)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %609 = call i32 @fclose(ptr noundef nonnull %548)
-  %610 = load ptr, ptr %0, align 8
-  %611 = call i32 @fclose(ptr noundef %610)
+  %608 = call i32 @fclose(ptr noundef nonnull %547)
+  %609 = load ptr, ptr %0, align 8
+  %610 = call i32 @fclose(ptr noundef %609)
   store ptr null, ptr %0, align 8
-  %612 = load ptr, ptr %539, align 8
-  %613 = call i32 @unlink(ptr noundef %612) #37
-  %614 = load ptr, ptr %539, align 8
-  %615 = call i32 @rename(ptr noundef %544, ptr noundef %614) #37
-  br label %621
+  %611 = load ptr, ptr %538, align 8
+  %612 = call i32 @unlink(ptr noundef %611) #37
+  %613 = load ptr, ptr %538, align 8
+  %614 = call i32 @rename(ptr noundef %543, ptr noundef %613) #37
+  br label %620
 
-616:                                              ; preds = %538
-  %617 = load i8, ptr %30, align 1
-  %618 = and i8 %617, -3
-  store i8 %618, ptr %30, align 1
-  %619 = load ptr, ptr %0, align 8
-  %620 = call i32 @fclose(ptr noundef %619)
+615:                                              ; preds = %537
+  %616 = load i8, ptr %30, align 1
+  %617 = and i8 %616, -3
+  store i8 %617, ptr %30, align 1
+  %618 = load ptr, ptr %0, align 8
+  %619 = call i32 @fclose(ptr noundef %618)
   store ptr null, ptr %0, align 8
-  br label %621
+  br label %620
 
-621:                                              ; preds = %616, %_ZL15fstWriterUint64P8_IO_FILEm.exit445
-  call void @free(ptr noundef %544) #37
-  br label %624
+620:                                              ; preds = %615, %_ZL15fstWriterUint64P8_IO_FILEm.exit445
+  call void @free(ptr noundef %543) #37
+  br label %623
 
-622:                                              ; preds = %535
-  %623 = call i32 @fclose(ptr noundef nonnull %534)
+621:                                              ; preds = %534
+  %622 = call i32 @fclose(ptr noundef nonnull %533)
   store ptr null, ptr %0, align 8
-  br label %624
+  br label %623
 
-624:                                              ; preds = %621, %622, %533
-  %625 = getelementptr inbounds i8, ptr %0, i64 288
-  %626 = load ptr, ptr %625, align 8
-  %.not324 = icmp eq ptr %626, null
-  br i1 %.not324, label %631, label %.preheader.i
+623:                                              ; preds = %620, %621, %532
+  %624 = getelementptr inbounds i8, ptr %0, i64 288
+  %625 = load ptr, ptr %624, align 8
+  %.not324 = icmp eq ptr %625, null
+  br i1 %.not324, label %630, label %.preheader.i
 
-.preheader.i:                                     ; preds = %624, %._crit_edge.i
-  %indvars.iv475 = phi i64 [ %indvars.iv.next476, %._crit_edge.i ], [ 0, %624 ]
-  %627 = getelementptr inbounds ptr, ptr %626, i64 %indvars.iv475
-  %628 = load ptr, ptr %627, align 8
-  %.not1920.i = icmp eq ptr %628, null
+.preheader.i:                                     ; preds = %623, %._crit_edge.i
+  %indvars.iv476 = phi i64 [ %indvars.iv.next477, %._crit_edge.i ], [ 0, %623 ]
+  %626 = getelementptr inbounds ptr, ptr %625, i64 %indvars.iv476
+  %627 = load ptr, ptr %626, align 8
+  %.not1920.i = icmp eq ptr %627, null
   br i1 %.not1920.i, label %._crit_edge.i, label %.lr.ph.i447
 
 .lr.ph.i447:                                      ; preds = %.preheader.i, %.lr.ph.i447
-  %.01421.i = phi ptr [ %629, %.lr.ph.i447 ], [ %628, %.preheader.i ]
-  %629 = load ptr, ptr %.01421.i, align 8
+  %.01421.i = phi ptr [ %628, %.lr.ph.i447 ], [ %627, %.preheader.i ]
+  %628 = load ptr, ptr %.01421.i, align 8
   call void @free(ptr noundef nonnull %.01421.i) #37
-  %.not19.i = icmp eq ptr %629, null
+  %.not19.i = icmp eq ptr %628, null
   br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i447, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i447, %.preheader.i
-  %indvars.iv.next476 = add nuw nsw i64 %indvars.iv475, 1
-  %exitcond = icmp eq i64 %indvars.iv.next476, 65536
+  %indvars.iv.next477 = add nuw nsw i64 %indvars.iv476, 1
+  %exitcond = icmp eq i64 %indvars.iv.next477, 65536
   br i1 %exitcond, label %_Z11JenkinsFreePvj.exit, label %.preheader.i, !llvm.loop !15
 
 _Z11JenkinsFreePvj.exit:                          ; preds = %._crit_edge.i
-  %630 = load ptr, ptr %625, align 8
-  call void @free(ptr noundef %630) #37
-  store ptr null, ptr %625, align 8
-  br label %631
+  %629 = load ptr, ptr %624, align 8
+  call void @free(ptr noundef %629) #37
+  store ptr null, ptr %624, align 8
+  br label %630
 
-631:                                              ; preds = %_Z11JenkinsFreePvj.exit, %624
-  %632 = getelementptr inbounds i8, ptr %0, i64 96
-  %633 = load ptr, ptr %632, align 8
-  call void @free(ptr noundef %633) #37
+630:                                              ; preds = %_Z11JenkinsFreePvj.exit, %623
+  %631 = getelementptr inbounds i8, ptr %0, i64 96
+  %632 = load ptr, ptr %631, align 8
+  call void @free(ptr noundef %632) #37
   call void @free(ptr noundef nonnull %0) #37
-  br label %634
+  br label %633
 
-634:                                              ; preds = %631, %26, %23, %1
+633:                                              ; preds = %630, %26, %23, %1
   ret void
 }
 
@@ -8966,7 +8966,7 @@ define noundef range(i32 0, 2) i32 @_Z13fstReaderInitP16fstReaderContext(ptr nou
   %24 = tail call i32 @fgetc(ptr noundef %23)
   %25 = icmp eq i32 %24, 254
   %.pre = load ptr, ptr %0, align 8
-  br i1 %25, label %26, label %.thread362
+  br i1 %25, label %26, label %.critedge
 
 26:                                               ; preds = %1
   %27 = getelementptr inbounds i8, ptr %0, i64 384
@@ -8996,23 +8996,23 @@ _ZL15fstReaderUint64P8_IO_FILE.exit:              ; preds = %31
   br label %39
 
 39:                                               ; preds = %39, %_ZL15fstReaderUint64P8_IO_FILE.exit
-  %indvars.iv.i274 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit ], [ %indvars.iv.next.i276, %39 ]
-  %.068.i275 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit ], [ %44, %39 ]
-  %40 = shl i64 %.068.i275, 8
-  %41 = getelementptr inbounds [8 x i8], ptr %17, i64 0, i64 %indvars.iv.i274
+  %indvars.iv.i277 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit ], [ %indvars.iv.next.i279, %39 ]
+  %.068.i278 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit ], [ %44, %39 ]
+  %40 = shl i64 %.068.i278, 8
+  %41 = getelementptr inbounds [8 x i8], ptr %17, i64 0, i64 %indvars.iv.i277
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
   %44 = or disjoint i64 %40, %43
-  %indvars.iv.next.i276 = add nuw nsw i64 %indvars.iv.i274, 1
-  %exitcond.not.i277 = icmp eq i64 %indvars.iv.next.i276, 8
-  br i1 %exitcond.not.i277, label %_ZL15fstReaderUint64P8_IO_FILE.exit278, label %39, !llvm.loop !50
+  %indvars.iv.next.i279 = add nuw nsw i64 %indvars.iv.i277, 1
+  %exitcond.not.i280 = icmp eq i64 %indvars.iv.next.i279, 8
+  br i1 %exitcond.not.i280, label %_ZL15fstReaderUint64P8_IO_FILE.exit281, label %39, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit278:           ; preds = %39
+_ZL15fstReaderUint64P8_IO_FILE.exit281:           ; preds = %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %45
 
-45:                                               ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit278
+45:                                               ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit281
   %46 = shl i64 %29, 32
   %sext = add i64 %46, 210453397504
   %47 = ashr exact i64 %sext, 32
@@ -9042,7 +9042,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit278:           ; preds = %39
   br label %.thread
 
 .thread:                                          ; preds = %53, %57, %56
-  %.0357361 = phi ptr [ %52, %57 ], [ %52, %56 ], [ %55, %53 ]
+  %.0364368 = phi ptr [ %52, %57 ], [ %52, %56 ], [ %55, %53 ]
   %59 = load ptr, ptr %0, align 8
   %60 = tail call i32 @fseeko(ptr noundef %59, i64 noundef 17, i32 noundef 0)
   %61 = icmp slt i32 %60, 0
@@ -9066,780 +9066,783 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %.thread, %62
   %73 = tail call i64 @lseek(i32 noundef %70, i64 noundef %72, i32 noundef 0) #37
   %74 = tail call ptr @gzdopen(i32 noundef %70, ptr noundef nonnull @.str.34)
   %.not257 = icmp eq ptr %74, null
-  br i1 %.not257, label %.thread362.critedge, label %.preheader371
+  br i1 %.not257, label %.critedge275, label %.preheader376
 
-.preheader371:                                    ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit
+.preheader376:                                    ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit
   %75 = icmp sgt i64 %44, 0
-  br i1 %75, label %.lr.ph, label %.thread362.critedge485
+  br i1 %75, label %.lr.ph, label %.critedge.critedge
 
 76:                                               ; preds = %84
-  %77 = add nuw nsw i64 %.0241395, 32768
+  %77 = add nuw nsw i64 %.0241400, 32768
   %78 = icmp slt i64 %77, %44
-  br i1 %78, label %.lr.ph, label %.thread362.critedge485, !llvm.loop !68
+  br i1 %78, label %.lr.ph, label %.critedge.critedge, !llvm.loop !68
 
-.lr.ph:                                           ; preds = %.preheader371, %76
-  %.0241395 = phi i64 [ %77, %76 ], [ 0, %.preheader371 ]
-  %79 = sub nsw i64 %44, %.0241395
+.lr.ph:                                           ; preds = %.preheader376, %76
+  %.0241400 = phi i64 [ %77, %76 ], [ 0, %.preheader376 ]
+  %79 = sub nsw i64 %44, %.0241400
   %80 = call i64 @llvm.smin.i64(i64 %79, i64 32768)
   %81 = trunc i64 %80 to i32
   %82 = call i32 @gzread(ptr noundef nonnull %74, ptr noundef nonnull %19, i32 noundef %81)
   %83 = sext i32 %82 to i64
   %.not258 = icmp eq i64 %80, %83
-  br i1 %.not258, label %84, label %._crit_edge
+  br i1 %.not258, label %84, label %86
 
 84:                                               ; preds = %.lr.ph
-  %85 = call noundef i64 @fwrite(ptr noundef nonnull %19, i64 noundef %80, i64 noundef 1, ptr noundef nonnull %.0357361)
+  %85 = call noundef i64 @fwrite(ptr noundef nonnull %19, i64 noundef %80, i64 noundef 1, ptr noundef nonnull %.0364368)
   %.not259 = icmp eq i64 %85, 1
-  br i1 %.not259, label %76, label %._crit_edge
+  br i1 %.not259, label %76, label %86
 
-._crit_edge:                                      ; preds = %.lr.ph, %84
-  %86 = call i32 @gzclose(ptr noundef nonnull %74)
-  %87 = call i32 @fflush(ptr noundef nonnull %.0357361)
-  %88 = load ptr, ptr %0, align 8
-  %89 = call i32 @fclose(ptr noundef %88)
-  store ptr %.0357361, ptr %0, align 8
+86:                                               ; preds = %84, %.lr.ph
+  %87 = call i32 @gzclose(ptr noundef nonnull %74)
+  %88 = call i32 @fflush(ptr noundef nonnull %.0364368)
+  %89 = load ptr, ptr %0, align 8
+  %90 = call i32 @fclose(ptr noundef %89)
+  store ptr %.0364368, ptr %0, align 8
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
 
-.thread362.critedge:                              ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit
-  %90 = tail call i32 @close(i32 noundef %70)
-  br label %.thread362.sink.split
-
-.thread362.critedge485:                           ; preds = %76, %.preheader371
-  %91 = call i32 @gzclose(ptr noundef nonnull %74)
-  br label %.thread362.sink.split
-
-.thread362.sink.split:                            ; preds = %.thread362.critedge, %.thread362.critedge485
-  %92 = call i32 @fflush(ptr noundef nonnull %.0357361)
+.critedge275:                                     ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit
+  %91 = tail call i32 @close(i32 noundef %70)
+  %92 = tail call i32 @fflush(ptr noundef nonnull %.0364368)
   %93 = load ptr, ptr %0, align 8
-  %94 = call i32 @fclose(ptr noundef %93)
-  store ptr %.0357361, ptr %0, align 8
-  br label %.thread362
+  %94 = tail call i32 @fclose(ptr noundef %93)
+  br label %.critedge.sink.split
 
-.thread362:                                       ; preds = %.thread362.sink.split, %1
-  %95 = phi ptr [ %.pre, %1 ], [ %.0357361, %.thread362.sink.split ]
-  %96 = call i32 @fseeko(ptr noundef %95, i64 noundef 0, i32 noundef 2)
-  %97 = icmp slt i32 %96, 0
-  br i1 %97, label %98, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit279
+.critedge.critedge:                               ; preds = %76, %.preheader376
+  %95 = call i32 @gzclose(ptr noundef nonnull %74)
+  %96 = call i32 @fflush(ptr noundef nonnull %.0364368)
+  %97 = load ptr, ptr %0, align 8
+  %98 = call i32 @fclose(ptr noundef %97)
+  br label %.critedge.sink.split
 
-98:                                               ; preds = %.thread362
-  %99 = getelementptr inbounds i8, ptr %0, i64 1687
-  %100 = load i8, ptr %99, align 1
-  %101 = or i8 %100, 1
-  store i8 %101, ptr %99, align 1
-  br label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit279
+.critedge.sink.split:                             ; preds = %.critedge275, %.critedge.critedge
+  store ptr %.0364368, ptr %0, align 8
+  br label %.critedge
 
-_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit279: ; preds = %.thread362, %98
-  %102 = load ptr, ptr %0, align 8
-  %103 = call i64 @ftello(ptr noundef %102)
-  %104 = getelementptr inbounds i8, ptr %0, i64 1687
-  %105 = getelementptr inbounds i8, ptr %0, i64 408
-  %106 = getelementptr inbounds i8, ptr %0, i64 416
-  %107 = getelementptr inbounds i8, ptr %0, i64 424
-  %108 = getelementptr inbounds i8, ptr %0, i64 122
-  %109 = getelementptr inbounds i8, ptr %0, i64 400
-  %110 = getelementptr inbounds i8, ptr %0, i64 56
-  %111 = getelementptr inbounds i8, ptr %0, i64 104
-  %112 = getelementptr inbounds i8, ptr %0, i64 96
-  %113 = getelementptr inbounds i8, ptr %0, i64 80
-  %114 = getelementptr inbounds i8, ptr %0, i64 88
-  %115 = getelementptr inbounds i8, ptr %0, i64 112
-  %116 = getelementptr inbounds i8, ptr %0, i64 24
-  %117 = getelementptr inbounds i8, ptr %0, i64 16
-  %118 = getelementptr inbounds i8, ptr %0, i64 32
-  %119 = getelementptr inbounds i8, ptr %0, i64 40
-  %120 = getelementptr inbounds i8, ptr %0, i64 48
-  %121 = getelementptr inbounds i8, ptr %0, i64 64
-  %122 = getelementptr inbounds i8, ptr %0, i64 72
-  %123 = getelementptr inbounds i8, ptr %0, i64 120
-  %124 = getelementptr inbounds i8, ptr %0, i64 123
-  %125 = getelementptr inbounds i8, ptr %0, i64 251
-  %126 = getelementptr inbounds i8, ptr %0, i64 252
-  %127 = getelementptr inbounds i8, ptr %0, i64 371
-  %128 = getelementptr inbounds i8, ptr %0, i64 121
-  %129 = getelementptr inbounds i8, ptr %0, i64 376
-  br label %130
+.critedge:                                        ; preds = %.critedge.sink.split, %1
+  %99 = phi ptr [ %.pre, %1 ], [ %.0364368, %.critedge.sink.split ]
+  %100 = call i32 @fseeko(ptr noundef %99, i64 noundef 0, i32 noundef 2)
+  %101 = icmp slt i32 %100, 0
+  br i1 %101, label %102, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282
 
-130:                                              ; preds = %.loopexit, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit279
-  %131 = phi i1 [ true, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit279 ], [ false, %.loopexit ]
-  %.1236 = phi i32 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit279 ], [ 1, %.loopexit ]
-  %.0233 = phi i32 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit279 ], [ %.1234, %.loopexit ]
-  %.0230 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit279 ], [ %.2, %.loopexit ]
-  %.0229 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit279 ], [ %434, %.loopexit ]
-  %132 = icmp slt i64 %.0229, %103
-  br i1 %132, label %133, label %435
+102:                                              ; preds = %.critedge
+  %103 = getelementptr inbounds i8, ptr %0, i64 1687
+  %104 = load i8, ptr %103, align 1
+  %105 = or i8 %104, 1
+  store i8 %105, ptr %103, align 1
+  br label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %0, align 8
-  %135 = call i32 @fseeko(ptr noundef %134, i64 noundef %.0229, i32 noundef 0)
-  %136 = icmp slt i32 %135, 0
-  br i1 %136, label %137, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit280
+_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282: ; preds = %.critedge, %102
+  %106 = load ptr, ptr %0, align 8
+  %107 = call i64 @ftello(ptr noundef %106)
+  %108 = getelementptr inbounds i8, ptr %0, i64 1687
+  %109 = getelementptr inbounds i8, ptr %0, i64 408
+  %110 = getelementptr inbounds i8, ptr %0, i64 416
+  %111 = getelementptr inbounds i8, ptr %0, i64 424
+  %112 = getelementptr inbounds i8, ptr %0, i64 122
+  %113 = getelementptr inbounds i8, ptr %0, i64 400
+  %114 = getelementptr inbounds i8, ptr %0, i64 56
+  %115 = getelementptr inbounds i8, ptr %0, i64 104
+  %116 = getelementptr inbounds i8, ptr %0, i64 96
+  %117 = getelementptr inbounds i8, ptr %0, i64 80
+  %118 = getelementptr inbounds i8, ptr %0, i64 88
+  %119 = getelementptr inbounds i8, ptr %0, i64 112
+  %120 = getelementptr inbounds i8, ptr %0, i64 24
+  %121 = getelementptr inbounds i8, ptr %0, i64 16
+  %122 = getelementptr inbounds i8, ptr %0, i64 32
+  %123 = getelementptr inbounds i8, ptr %0, i64 40
+  %124 = getelementptr inbounds i8, ptr %0, i64 48
+  %125 = getelementptr inbounds i8, ptr %0, i64 64
+  %126 = getelementptr inbounds i8, ptr %0, i64 72
+  %127 = getelementptr inbounds i8, ptr %0, i64 120
+  %128 = getelementptr inbounds i8, ptr %0, i64 123
+  %129 = getelementptr inbounds i8, ptr %0, i64 251
+  %130 = getelementptr inbounds i8, ptr %0, i64 252
+  %131 = getelementptr inbounds i8, ptr %0, i64 371
+  %132 = getelementptr inbounds i8, ptr %0, i64 121
+  %133 = getelementptr inbounds i8, ptr %0, i64 376
+  br label %134
 
-137:                                              ; preds = %133
-  %138 = load i8, ptr %104, align 1
-  %139 = or i8 %138, 1
-  store i8 %139, ptr %104, align 1
-  br label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit280
+134:                                              ; preds = %.loopexit, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282
+  %135 = phi i1 [ true, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282 ], [ false, %.loopexit ]
+  %.1236 = phi i32 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282 ], [ 1, %.loopexit ]
+  %.0233 = phi i32 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282 ], [ %.1234, %.loopexit ]
+  %.0230 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282 ], [ %.2, %.loopexit ]
+  %.0229 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit282 ], [ %438, %.loopexit ]
+  %136 = icmp slt i64 %.0229, %107
+  br i1 %136, label %137, label %439
 
-_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit280: ; preds = %133, %137
-  %140 = load ptr, ptr %0, align 8
-  %141 = call i32 @fgetc(ptr noundef %140)
-  %142 = load ptr, ptr %0, align 8
+137:                                              ; preds = %134
+  %138 = load ptr, ptr %0, align 8
+  %139 = call i32 @fseeko(ptr noundef %138, i64 noundef %.0229, i32 noundef 0)
+  %140 = icmp slt i32 %139, 0
+  br i1 %140, label %141, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283
+
+141:                                              ; preds = %137
+  %142 = load i8, ptr %108, align 1
+  %143 = or i8 %142, 1
+  store i8 %143, ptr %108, align 1
+  br label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283
+
+_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283: ; preds = %137, %141
+  %144 = load ptr, ptr %0, align 8
+  %145 = call i32 @fgetc(ptr noundef %144)
+  %146 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  %143 = call noundef i64 @fread(ptr noundef nonnull %16, i64 noundef 8, i64 noundef 1, ptr noundef %142)
-  br label %144
+  %147 = call noundef i64 @fread(ptr noundef nonnull %16, i64 noundef 8, i64 noundef 1, ptr noundef %146)
+  br label %148
 
-144:                                              ; preds = %144, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit280
-  %indvars.iv.i281 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit280 ], [ %indvars.iv.next.i283, %144 ]
-  %.068.i282 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit280 ], [ %149, %144 ]
-  %145 = shl i64 %.068.i282, 8
-  %146 = getelementptr inbounds [8 x i8], ptr %16, i64 0, i64 %indvars.iv.i281
-  %147 = load i8, ptr %146, align 1
-  %148 = zext i8 %147 to i64
-  %149 = or disjoint i64 %145, %148
-  %indvars.iv.next.i283 = add nuw nsw i64 %indvars.iv.i281, 1
-  %exitcond.not.i284 = icmp eq i64 %indvars.iv.next.i283, 8
-  br i1 %exitcond.not.i284, label %_ZL15fstReaderUint64P8_IO_FILE.exit285, label %144, !llvm.loop !50
+148:                                              ; preds = %148, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283
+  %indvars.iv.i284 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283 ], [ %indvars.iv.next.i286, %148 ]
+  %.068.i285 = phi i64 [ 0, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit283 ], [ %153, %148 ]
+  %149 = shl i64 %.068.i285, 8
+  %150 = getelementptr inbounds [8 x i8], ptr %16, i64 0, i64 %indvars.iv.i284
+  %151 = load i8, ptr %150, align 1
+  %152 = zext i8 %151 to i64
+  %153 = or disjoint i64 %149, %152
+  %indvars.iv.next.i286 = add nuw nsw i64 %indvars.iv.i284, 1
+  %exitcond.not.i287 = icmp eq i64 %indvars.iv.next.i286, 8
+  br i1 %exitcond.not.i287, label %_ZL15fstReaderUint64P8_IO_FILE.exit288, label %148, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit285:           ; preds = %144
+_ZL15fstReaderUint64P8_IO_FILE.exit288:           ; preds = %148
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  %150 = icmp eq i32 %141, -1
-  br i1 %150, label %435, label %151
+  %154 = icmp eq i32 %145, -1
+  br i1 %154, label %439, label %155
 
-151:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit285
-  %152 = icmp eq i32 %.0233, 0
-  %153 = icmp ne i64 %149, 0
-  %or.cond = or i1 %152, %153
-  br i1 %or.cond, label %154, label %435
+155:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit288
+  %156 = icmp eq i32 %.0233, 0
+  %157 = icmp ne i64 %153, 0
+  %or.cond = or i1 %156, %157
+  br i1 %or.cond, label %158, label %439
 
-154:                                              ; preds = %151
-  %155 = icmp ne i32 %141, 0
-  %or.cond3 = and i1 %131, %155
-  br i1 %or.cond3, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %156
+158:                                              ; preds = %155
+  %159 = icmp ne i32 %145, 0
+  %or.cond3 = and i1 %135, %159
+  br i1 %or.cond3, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %160
 
-156:                                              ; preds = %154
-  %157 = add nsw i64 %.0229, 1
-  switch i32 %141, label %.loopexit [
-    i32 0, label %158
-    i32 8, label %258
-    i32 5, label %258
-    i32 1, label %258
-    i32 3, label %279
-    i32 4, label %372
-    i32 7, label %377
-    i32 6, label %382
-    i32 2, label %387
+160:                                              ; preds = %158
+  %161 = add nsw i64 %.0229, 1
+  switch i32 %145, label %.loopexit [
+    i32 0, label %162
+    i32 8, label %262
+    i32 5, label %262
+    i32 1, label %262
+    i32 3, label %283
+    i32 4, label %376
+    i32 7, label %381
+    i32 6, label %386
+    i32 2, label %391
   ]
 
-158:                                              ; preds = %156
-  br i1 %131, label %159, label %.loopexit
+162:                                              ; preds = %160
+  br i1 %135, label %163, label %.loopexit
 
-159:                                              ; preds = %158
-  %160 = load ptr, ptr %0, align 8
+163:                                              ; preds = %162
+  %164 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  %161 = call noundef i64 @fread(ptr noundef nonnull %15, i64 noundef 8, i64 noundef 1, ptr noundef %160)
-  br label %162
+  %165 = call noundef i64 @fread(ptr noundef nonnull %15, i64 noundef 8, i64 noundef 1, ptr noundef %164)
+  br label %166
 
-162:                                              ; preds = %162, %159
-  %indvars.iv.i286 = phi i64 [ 0, %159 ], [ %indvars.iv.next.i288, %162 ]
-  %.068.i287 = phi i64 [ 0, %159 ], [ %167, %162 ]
-  %163 = shl i64 %.068.i287, 8
-  %164 = getelementptr inbounds [8 x i8], ptr %15, i64 0, i64 %indvars.iv.i286
-  %165 = load i8, ptr %164, align 1
-  %166 = zext i8 %165 to i64
-  %167 = or disjoint i64 %163, %166
-  %indvars.iv.next.i288 = add nuw nsw i64 %indvars.iv.i286, 1
-  %exitcond.not.i289 = icmp eq i64 %indvars.iv.next.i288, 8
-  br i1 %exitcond.not.i289, label %_ZL15fstReaderUint64P8_IO_FILE.exit290, label %162, !llvm.loop !50
+166:                                              ; preds = %166, %163
+  %indvars.iv.i289 = phi i64 [ 0, %163 ], [ %indvars.iv.next.i291, %166 ]
+  %.068.i290 = phi i64 [ 0, %163 ], [ %171, %166 ]
+  %167 = shl i64 %.068.i290, 8
+  %168 = getelementptr inbounds [8 x i8], ptr %15, i64 0, i64 %indvars.iv.i289
+  %169 = load i8, ptr %168, align 1
+  %170 = zext i8 %169 to i64
+  %171 = or disjoint i64 %167, %170
+  %indvars.iv.next.i291 = add nuw nsw i64 %indvars.iv.i289, 1
+  %exitcond.not.i292 = icmp eq i64 %indvars.iv.next.i291, 8
+  br i1 %exitcond.not.i292, label %_ZL15fstReaderUint64P8_IO_FILE.exit293, label %166, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit290:           ; preds = %162
+_ZL15fstReaderUint64P8_IO_FILE.exit293:           ; preds = %166
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  store i64 %167, ptr %117, align 8
-  %168 = load ptr, ptr %0, align 8
+  store i64 %171, ptr %121, align 8
+  %172 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %169 = call noundef i64 @fread(ptr noundef nonnull %14, i64 noundef 8, i64 noundef 1, ptr noundef %168)
-  br label %170
+  %173 = call noundef i64 @fread(ptr noundef nonnull %14, i64 noundef 8, i64 noundef 1, ptr noundef %172)
+  br label %174
 
-170:                                              ; preds = %170, %_ZL15fstReaderUint64P8_IO_FILE.exit290
-  %indvars.iv.i291 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit290 ], [ %indvars.iv.next.i293, %170 ]
-  %.068.i292 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit290 ], [ %175, %170 ]
-  %171 = shl i64 %.068.i292, 8
-  %172 = getelementptr inbounds [8 x i8], ptr %14, i64 0, i64 %indvars.iv.i291
-  %173 = load i8, ptr %172, align 1
-  %174 = zext i8 %173 to i64
-  %175 = or disjoint i64 %171, %174
-  %indvars.iv.next.i293 = add nuw nsw i64 %indvars.iv.i291, 1
-  %exitcond.not.i294 = icmp eq i64 %indvars.iv.next.i293, 8
-  br i1 %exitcond.not.i294, label %_ZL15fstReaderUint64P8_IO_FILE.exit295, label %170, !llvm.loop !50
+174:                                              ; preds = %174, %_ZL15fstReaderUint64P8_IO_FILE.exit293
+  %indvars.iv.i294 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit293 ], [ %indvars.iv.next.i296, %174 ]
+  %.068.i295 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit293 ], [ %179, %174 ]
+  %175 = shl i64 %.068.i295, 8
+  %176 = getelementptr inbounds [8 x i8], ptr %14, i64 0, i64 %indvars.iv.i294
+  %177 = load i8, ptr %176, align 1
+  %178 = zext i8 %177 to i64
+  %179 = or disjoint i64 %175, %178
+  %indvars.iv.next.i296 = add nuw nsw i64 %indvars.iv.i294, 1
+  %exitcond.not.i297 = icmp eq i64 %indvars.iv.next.i296, 8
+  br i1 %exitcond.not.i297, label %_ZL15fstReaderUint64P8_IO_FILE.exit298, label %174, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit295:           ; preds = %170
+_ZL15fstReaderUint64P8_IO_FILE.exit298:           ; preds = %174
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  store i64 %175, ptr %116, align 8
-  %176 = load i64, ptr %117, align 8
-  %177 = icmp eq i64 %176, 0
-  %178 = icmp eq i64 %175, 0
-  %spec.select = select i1 %177, i1 %178, i1 false
-  %179 = zext i1 %spec.select to i32
-  %180 = load ptr, ptr %0, align 8
-  %181 = call noundef i64 @fread(ptr noundef nonnull %20, i64 noundef 8, i64 noundef 1, ptr noundef %180)
-  %182 = load double, ptr %20, align 8
-  %183 = fcmp une double %182, 0x4005BF0A8B145769
-  %184 = load i8, ptr %108, align 2
-  %185 = select i1 %183, i8 0, i8 2
-  %186 = and i8 %184, -3
-  %187 = or disjoint i8 %186, %185
-  store i8 %187, ptr %108, align 2
-  br i1 %183, label %.preheader370, label %195
+  store i64 %179, ptr %120, align 8
+  %180 = load i64, ptr %121, align 8
+  %181 = icmp eq i64 %180, 0
+  %182 = icmp eq i64 %179, 0
+  %narrow374 = select i1 %181, i1 %182, i1 false
+  %183 = zext i1 %narrow374 to i32
+  %184 = load ptr, ptr %0, align 8
+  %185 = call noundef i64 @fread(ptr noundef nonnull %20, i64 noundef 8, i64 noundef 1, ptr noundef %184)
+  %186 = load double, ptr %20, align 8
+  %187 = fcmp une double %186, 0x4005BF0A8B145769
+  %188 = load i8, ptr %112, align 2
+  %189 = select i1 %187, i8 0, i8 2
+  %190 = and i8 %188, -3
+  %191 = or disjoint i8 %190, %189
+  store i8 %191, ptr %112, align 2
+  br i1 %187, label %.preheader375, label %199
 
-.preheader370:                                    ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit295, %.preheader370
-  %indvars.iv436 = phi i64 [ %indvars.iv.next437, %.preheader370 ], [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit295 ]
-  %188 = sub nuw nsw i64 7, %indvars.iv436
-  %189 = getelementptr inbounds i8, ptr %20, i64 %188
-  %190 = load i8, ptr %189, align 1
-  %191 = getelementptr inbounds [8 x i8], ptr %21, i64 0, i64 %indvars.iv436
-  store i8 %190, ptr %191, align 1
+.preheader375:                                    ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit298, %.preheader375
+  %indvars.iv436 = phi i64 [ %indvars.iv.next437, %.preheader375 ], [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit298 ]
+  %192 = sub nuw nsw i64 7, %indvars.iv436
+  %193 = getelementptr inbounds i8, ptr %20, i64 %192
+  %194 = load i8, ptr %193, align 1
+  %195 = getelementptr inbounds [8 x i8], ptr %21, i64 0, i64 %indvars.iv436
+  store i8 %194, ptr %195, align 1
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next437, 8
-  br i1 %exitcond.not, label %192, label %.preheader370, !llvm.loop !69
+  br i1 %exitcond.not, label %196, label %.preheader375, !llvm.loop !69
 
-192:                                              ; preds = %.preheader370
-  %193 = load double, ptr %21, align 8
-  %194 = fcmp une double %193, 0x4005BF0A8B145769
-  br i1 %194, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %195
+196:                                              ; preds = %.preheader375
+  %197 = load double, ptr %21, align 8
+  %198 = fcmp une double %197, 0x4005BF0A8B145769
+  br i1 %198, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %199
 
-195:                                              ; preds = %192, %_ZL15fstReaderUint64P8_IO_FILE.exit295
-  %196 = load ptr, ptr %0, align 8
+199:                                              ; preds = %196, %_ZL15fstReaderUint64P8_IO_FILE.exit298
+  %200 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %197 = call noundef i64 @fread(ptr noundef nonnull %13, i64 noundef 8, i64 noundef 1, ptr noundef %196)
-  br label %198
+  %201 = call noundef i64 @fread(ptr noundef nonnull %13, i64 noundef 8, i64 noundef 1, ptr noundef %200)
+  br label %202
 
-198:                                              ; preds = %198, %195
-  %indvars.iv.i296 = phi i64 [ 0, %195 ], [ %indvars.iv.next.i298, %198 ]
-  %.068.i297 = phi i64 [ 0, %195 ], [ %203, %198 ]
-  %199 = shl i64 %.068.i297, 8
-  %200 = getelementptr inbounds [8 x i8], ptr %13, i64 0, i64 %indvars.iv.i296
-  %201 = load i8, ptr %200, align 1
-  %202 = zext i8 %201 to i64
-  %203 = or disjoint i64 %199, %202
-  %indvars.iv.next.i298 = add nuw nsw i64 %indvars.iv.i296, 1
-  %exitcond.not.i299 = icmp eq i64 %indvars.iv.next.i298, 8
-  br i1 %exitcond.not.i299, label %_ZL15fstReaderUint64P8_IO_FILE.exit300, label %198, !llvm.loop !50
+202:                                              ; preds = %202, %199
+  %indvars.iv.i299 = phi i64 [ 0, %199 ], [ %indvars.iv.next.i301, %202 ]
+  %.068.i300 = phi i64 [ 0, %199 ], [ %207, %202 ]
+  %203 = shl i64 %.068.i300, 8
+  %204 = getelementptr inbounds [8 x i8], ptr %13, i64 0, i64 %indvars.iv.i299
+  %205 = load i8, ptr %204, align 1
+  %206 = zext i8 %205 to i64
+  %207 = or disjoint i64 %203, %206
+  %indvars.iv.next.i301 = add nuw nsw i64 %indvars.iv.i299, 1
+  %exitcond.not.i302 = icmp eq i64 %indvars.iv.next.i301, 8
+  br i1 %exitcond.not.i302, label %_ZL15fstReaderUint64P8_IO_FILE.exit303, label %202, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit300:           ; preds = %198
+_ZL15fstReaderUint64P8_IO_FILE.exit303:           ; preds = %202
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  store i64 %203, ptr %118, align 8
-  %204 = load ptr, ptr %0, align 8
+  store i64 %207, ptr %122, align 8
+  %208 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %205 = call noundef i64 @fread(ptr noundef nonnull %12, i64 noundef 8, i64 noundef 1, ptr noundef %204)
-  br label %206
+  %209 = call noundef i64 @fread(ptr noundef nonnull %12, i64 noundef 8, i64 noundef 1, ptr noundef %208)
+  br label %210
 
-206:                                              ; preds = %206, %_ZL15fstReaderUint64P8_IO_FILE.exit300
-  %indvars.iv.i301 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit300 ], [ %indvars.iv.next.i303, %206 ]
-  %.068.i302 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit300 ], [ %211, %206 ]
-  %207 = shl i64 %.068.i302, 8
-  %208 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 %indvars.iv.i301
-  %209 = load i8, ptr %208, align 1
-  %210 = zext i8 %209 to i64
-  %211 = or disjoint i64 %207, %210
-  %indvars.iv.next.i303 = add nuw nsw i64 %indvars.iv.i301, 1
-  %exitcond.not.i304 = icmp eq i64 %indvars.iv.next.i303, 8
-  br i1 %exitcond.not.i304, label %_ZL15fstReaderUint64P8_IO_FILE.exit305, label %206, !llvm.loop !50
+210:                                              ; preds = %210, %_ZL15fstReaderUint64P8_IO_FILE.exit303
+  %indvars.iv.i304 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit303 ], [ %indvars.iv.next.i306, %210 ]
+  %.068.i305 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit303 ], [ %215, %210 ]
+  %211 = shl i64 %.068.i305, 8
+  %212 = getelementptr inbounds [8 x i8], ptr %12, i64 0, i64 %indvars.iv.i304
+  %213 = load i8, ptr %212, align 1
+  %214 = zext i8 %213 to i64
+  %215 = or disjoint i64 %211, %214
+  %indvars.iv.next.i306 = add nuw nsw i64 %indvars.iv.i304, 1
+  %exitcond.not.i307 = icmp eq i64 %indvars.iv.next.i306, 8
+  br i1 %exitcond.not.i307, label %_ZL15fstReaderUint64P8_IO_FILE.exit308, label %210, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit305:           ; preds = %206
+_ZL15fstReaderUint64P8_IO_FILE.exit308:           ; preds = %210
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  store i64 %211, ptr %119, align 8
-  %212 = load ptr, ptr %0, align 8
+  store i64 %215, ptr %123, align 8
+  %216 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %213 = call noundef i64 @fread(ptr noundef nonnull %11, i64 noundef 8, i64 noundef 1, ptr noundef %212)
-  br label %214
+  %217 = call noundef i64 @fread(ptr noundef nonnull %11, i64 noundef 8, i64 noundef 1, ptr noundef %216)
+  br label %218
 
-214:                                              ; preds = %214, %_ZL15fstReaderUint64P8_IO_FILE.exit305
-  %indvars.iv.i306 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit305 ], [ %indvars.iv.next.i308, %214 ]
-  %.068.i307 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit305 ], [ %219, %214 ]
-  %215 = shl i64 %.068.i307, 8
-  %216 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 %indvars.iv.i306
-  %217 = load i8, ptr %216, align 1
-  %218 = zext i8 %217 to i64
-  %219 = or disjoint i64 %215, %218
-  %indvars.iv.next.i308 = add nuw nsw i64 %indvars.iv.i306, 1
-  %exitcond.not.i309 = icmp eq i64 %indvars.iv.next.i308, 8
-  br i1 %exitcond.not.i309, label %_ZL15fstReaderUint64P8_IO_FILE.exit310, label %214, !llvm.loop !50
+218:                                              ; preds = %218, %_ZL15fstReaderUint64P8_IO_FILE.exit308
+  %indvars.iv.i309 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit308 ], [ %indvars.iv.next.i311, %218 ]
+  %.068.i310 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit308 ], [ %223, %218 ]
+  %219 = shl i64 %.068.i310, 8
+  %220 = getelementptr inbounds [8 x i8], ptr %11, i64 0, i64 %indvars.iv.i309
+  %221 = load i8, ptr %220, align 1
+  %222 = zext i8 %221 to i64
+  %223 = or disjoint i64 %219, %222
+  %indvars.iv.next.i311 = add nuw nsw i64 %indvars.iv.i309, 1
+  %exitcond.not.i312 = icmp eq i64 %indvars.iv.next.i311, 8
+  br i1 %exitcond.not.i312, label %_ZL15fstReaderUint64P8_IO_FILE.exit313, label %218, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit310:           ; preds = %214
+_ZL15fstReaderUint64P8_IO_FILE.exit313:           ; preds = %218
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  store i64 %219, ptr %120, align 8
-  %220 = load ptr, ptr %0, align 8
+  store i64 %223, ptr %124, align 8
+  %224 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %221 = call noundef i64 @fread(ptr noundef nonnull %10, i64 noundef 8, i64 noundef 1, ptr noundef %220)
-  br label %222
+  %225 = call noundef i64 @fread(ptr noundef nonnull %10, i64 noundef 8, i64 noundef 1, ptr noundef %224)
+  br label %226
 
-222:                                              ; preds = %222, %_ZL15fstReaderUint64P8_IO_FILE.exit310
-  %indvars.iv.i311 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit310 ], [ %indvars.iv.next.i313, %222 ]
-  %.068.i312 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit310 ], [ %227, %222 ]
-  %223 = shl i64 %.068.i312, 8
-  %224 = getelementptr inbounds [8 x i8], ptr %10, i64 0, i64 %indvars.iv.i311
-  %225 = load i8, ptr %224, align 1
-  %226 = zext i8 %225 to i64
-  %227 = or disjoint i64 %223, %226
-  %indvars.iv.next.i313 = add nuw nsw i64 %indvars.iv.i311, 1
-  %exitcond.not.i314 = icmp eq i64 %indvars.iv.next.i313, 8
-  br i1 %exitcond.not.i314, label %_ZL15fstReaderUint64P8_IO_FILE.exit315, label %222, !llvm.loop !50
+226:                                              ; preds = %226, %_ZL15fstReaderUint64P8_IO_FILE.exit313
+  %indvars.iv.i314 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit313 ], [ %indvars.iv.next.i316, %226 ]
+  %.068.i315 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit313 ], [ %231, %226 ]
+  %227 = shl i64 %.068.i315, 8
+  %228 = getelementptr inbounds [8 x i8], ptr %10, i64 0, i64 %indvars.iv.i314
+  %229 = load i8, ptr %228, align 1
+  %230 = zext i8 %229 to i64
+  %231 = or disjoint i64 %227, %230
+  %indvars.iv.next.i316 = add nuw nsw i64 %indvars.iv.i314, 1
+  %exitcond.not.i317 = icmp eq i64 %indvars.iv.next.i316, 8
+  br i1 %exitcond.not.i317, label %_ZL15fstReaderUint64P8_IO_FILE.exit318, label %226, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit315:           ; preds = %222
+_ZL15fstReaderUint64P8_IO_FILE.exit318:           ; preds = %226
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %228 = trunc i64 %227 to i32
-  store i32 %228, ptr %110, align 8
-  %229 = load i64, ptr %120, align 8
-  %230 = and i64 %227, 4294967295
-  %231 = sub i64 %229, %230
-  store i64 %231, ptr %121, align 8
-  %232 = load ptr, ptr %0, align 8
+  %232 = trunc i64 %231 to i32
+  store i32 %232, ptr %114, align 8
+  %233 = load i64, ptr %124, align 8
+  %234 = and i64 %231, 4294967295
+  %235 = sub i64 %233, %234
+  store i64 %235, ptr %125, align 8
+  %236 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %233 = call noundef i64 @fread(ptr noundef nonnull %9, i64 noundef 8, i64 noundef 1, ptr noundef %232)
-  br label %234
+  %237 = call noundef i64 @fread(ptr noundef nonnull %9, i64 noundef 8, i64 noundef 1, ptr noundef %236)
+  br label %238
 
-234:                                              ; preds = %234, %_ZL15fstReaderUint64P8_IO_FILE.exit315
-  %indvars.iv.i316 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit315 ], [ %indvars.iv.next.i318, %234 ]
-  %.068.i317 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit315 ], [ %239, %234 ]
-  %235 = shl i64 %.068.i317, 8
-  %236 = getelementptr inbounds [8 x i8], ptr %9, i64 0, i64 %indvars.iv.i316
-  %237 = load i8, ptr %236, align 1
-  %238 = zext i8 %237 to i64
-  %239 = or disjoint i64 %235, %238
-  %indvars.iv.next.i318 = add nuw nsw i64 %indvars.iv.i316, 1
-  %exitcond.not.i319 = icmp eq i64 %indvars.iv.next.i318, 8
-  br i1 %exitcond.not.i319, label %_ZL15fstReaderUint64P8_IO_FILE.exit320, label %234, !llvm.loop !50
+238:                                              ; preds = %238, %_ZL15fstReaderUint64P8_IO_FILE.exit318
+  %indvars.iv.i319 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit318 ], [ %indvars.iv.next.i321, %238 ]
+  %.068.i320 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit318 ], [ %243, %238 ]
+  %239 = shl i64 %.068.i320, 8
+  %240 = getelementptr inbounds [8 x i8], ptr %9, i64 0, i64 %indvars.iv.i319
+  %241 = load i8, ptr %240, align 1
+  %242 = zext i8 %241 to i64
+  %243 = or disjoint i64 %239, %242
+  %indvars.iv.next.i321 = add nuw nsw i64 %indvars.iv.i319, 1
+  %exitcond.not.i322 = icmp eq i64 %indvars.iv.next.i321, 8
+  br i1 %exitcond.not.i322, label %_ZL15fstReaderUint64P8_IO_FILE.exit323, label %238, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit320:           ; preds = %234
+_ZL15fstReaderUint64P8_IO_FILE.exit323:           ; preds = %238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  store i64 %239, ptr %122, align 8
-  %240 = load ptr, ptr %0, align 8
-  %241 = call i32 @fgetc(ptr noundef %240)
-  %242 = trunc i32 %241 to i8
-  store i8 %242, ptr %123, align 8
-  %243 = load ptr, ptr %0, align 8
-  %244 = call noundef i64 @fread(ptr noundef nonnull %124, i64 noundef 128, i64 noundef 1, ptr noundef %243)
-  store i8 0, ptr %125, align 1
-  %245 = load ptr, ptr %0, align 8
-  %246 = call noundef i64 @fread(ptr noundef nonnull %126, i64 noundef 119, i64 noundef 1, ptr noundef %245)
-  store i8 0, ptr %127, align 1
+  store i64 %243, ptr %126, align 8
+  %244 = load ptr, ptr %0, align 8
+  %245 = call i32 @fgetc(ptr noundef %244)
+  %246 = trunc i32 %245 to i8
+  store i8 %246, ptr %127, align 8
   %247 = load ptr, ptr %0, align 8
-  %248 = call i32 @fgetc(ptr noundef %247)
-  %249 = trunc i32 %248 to i8
-  store i8 %249, ptr %128, align 1
-  %250 = load ptr, ptr %0, align 8
+  %248 = call noundef i64 @fread(ptr noundef nonnull %128, i64 noundef 128, i64 noundef 1, ptr noundef %247)
+  store i8 0, ptr %129, align 1
+  %249 = load ptr, ptr %0, align 8
+  %250 = call noundef i64 @fread(ptr noundef nonnull %130, i64 noundef 119, i64 noundef 1, ptr noundef %249)
+  store i8 0, ptr %131, align 1
+  %251 = load ptr, ptr %0, align 8
+  %252 = call i32 @fgetc(ptr noundef %251)
+  %253 = trunc i32 %252 to i8
+  store i8 %253, ptr %132, align 1
+  %254 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %251 = call noundef i64 @fread(ptr noundef nonnull %8, i64 noundef 8, i64 noundef 1, ptr noundef %250)
-  br label %252
+  %255 = call noundef i64 @fread(ptr noundef nonnull %8, i64 noundef 8, i64 noundef 1, ptr noundef %254)
+  br label %256
 
-252:                                              ; preds = %252, %_ZL15fstReaderUint64P8_IO_FILE.exit320
-  %indvars.iv.i321 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit320 ], [ %indvars.iv.next.i323, %252 ]
-  %.068.i322 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit320 ], [ %257, %252 ]
-  %253 = shl i64 %.068.i322, 8
-  %254 = getelementptr inbounds [8 x i8], ptr %8, i64 0, i64 %indvars.iv.i321
-  %255 = load i8, ptr %254, align 1
-  %256 = zext i8 %255 to i64
-  %257 = or disjoint i64 %253, %256
-  %indvars.iv.next.i323 = add nuw nsw i64 %indvars.iv.i321, 1
-  %exitcond.not.i324 = icmp eq i64 %indvars.iv.next.i323, 8
-  br i1 %exitcond.not.i324, label %_ZL15fstReaderUint64P8_IO_FILE.exit325, label %252, !llvm.loop !50
+256:                                              ; preds = %256, %_ZL15fstReaderUint64P8_IO_FILE.exit323
+  %indvars.iv.i324 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit323 ], [ %indvars.iv.next.i326, %256 ]
+  %.068.i325 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit323 ], [ %261, %256 ]
+  %257 = shl i64 %.068.i325, 8
+  %258 = getelementptr inbounds [8 x i8], ptr %8, i64 0, i64 %indvars.iv.i324
+  %259 = load i8, ptr %258, align 1
+  %260 = zext i8 %259 to i64
+  %261 = or disjoint i64 %257, %260
+  %indvars.iv.next.i326 = add nuw nsw i64 %indvars.iv.i324, 1
+  %exitcond.not.i327 = icmp eq i64 %indvars.iv.next.i326, 8
+  br i1 %exitcond.not.i327, label %_ZL15fstReaderUint64P8_IO_FILE.exit328, label %256, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit325:           ; preds = %252
+_ZL15fstReaderUint64P8_IO_FILE.exit328:           ; preds = %256
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  store i64 %257, ptr %129, align 8
+  store i64 %261, ptr %133, align 8
   br label %.loopexit
 
-258:                                              ; preds = %156, %156, %156
-  br i1 %152, label %277, label %259
+262:                                              ; preds = %160, %160, %160
+  br i1 %156, label %281, label %263
 
-259:                                              ; preds = %258
-  %260 = load ptr, ptr %0, align 8
+263:                                              ; preds = %262
+  %264 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %261 = call noundef i64 @fread(ptr noundef nonnull %7, i64 noundef 8, i64 noundef 1, ptr noundef %260)
-  br label %262
+  %265 = call noundef i64 @fread(ptr noundef nonnull %7, i64 noundef 8, i64 noundef 1, ptr noundef %264)
+  br label %266
 
-262:                                              ; preds = %262, %259
-  %indvars.iv.i326 = phi i64 [ 0, %259 ], [ %indvars.iv.next.i328, %262 ]
-  %.068.i327 = phi i64 [ 0, %259 ], [ %267, %262 ]
-  %263 = shl i64 %.068.i327, 8
-  %264 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %indvars.iv.i326
-  %265 = load i8, ptr %264, align 1
-  %266 = zext i8 %265 to i64
-  %267 = or disjoint i64 %263, %266
-  %indvars.iv.next.i328 = add nuw nsw i64 %indvars.iv.i326, 1
-  %exitcond.not.i329 = icmp eq i64 %indvars.iv.next.i328, 8
-  br i1 %exitcond.not.i329, label %_ZL15fstReaderUint64P8_IO_FILE.exit330, label %262, !llvm.loop !50
+266:                                              ; preds = %266, %263
+  %indvars.iv.i329 = phi i64 [ 0, %263 ], [ %indvars.iv.next.i331, %266 ]
+  %.068.i330 = phi i64 [ 0, %263 ], [ %271, %266 ]
+  %267 = shl i64 %.068.i330, 8
+  %268 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %indvars.iv.i329
+  %269 = load i8, ptr %268, align 1
+  %270 = zext i8 %269 to i64
+  %271 = or disjoint i64 %267, %270
+  %indvars.iv.next.i331 = add nuw nsw i64 %indvars.iv.i329, 1
+  %exitcond.not.i332 = icmp eq i64 %indvars.iv.next.i331, 8
+  br i1 %exitcond.not.i332, label %_ZL15fstReaderUint64P8_IO_FILE.exit333, label %266, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit330:           ; preds = %262
+_ZL15fstReaderUint64P8_IO_FILE.exit333:           ; preds = %266
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %268 = load ptr, ptr %0, align 8
+  %272 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %269 = call noundef i64 @fread(ptr noundef nonnull %6, i64 noundef 8, i64 noundef 1, ptr noundef %268)
-  br label %270
+  %273 = call noundef i64 @fread(ptr noundef nonnull %6, i64 noundef 8, i64 noundef 1, ptr noundef %272)
+  br label %274
 
-270:                                              ; preds = %270, %_ZL15fstReaderUint64P8_IO_FILE.exit330
-  %indvars.iv.i331 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit330 ], [ %indvars.iv.next.i333, %270 ]
-  %.068.i332 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit330 ], [ %275, %270 ]
-  %271 = shl i64 %.068.i332, 8
-  %272 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %indvars.iv.i331
-  %273 = load i8, ptr %272, align 1
-  %274 = zext i8 %273 to i64
-  %275 = or disjoint i64 %271, %274
-  %indvars.iv.next.i333 = add nuw nsw i64 %indvars.iv.i331, 1
-  %exitcond.not.i334 = icmp eq i64 %indvars.iv.next.i333, 8
-  br i1 %exitcond.not.i334, label %_ZL15fstReaderUint64P8_IO_FILE.exit335, label %270, !llvm.loop !50
+274:                                              ; preds = %274, %_ZL15fstReaderUint64P8_IO_FILE.exit333
+  %indvars.iv.i334 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit333 ], [ %indvars.iv.next.i336, %274 ]
+  %.068.i335 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit333 ], [ %279, %274 ]
+  %275 = shl i64 %.068.i335, 8
+  %276 = getelementptr inbounds [8 x i8], ptr %6, i64 0, i64 %indvars.iv.i334
+  %277 = load i8, ptr %276, align 1
+  %278 = zext i8 %277 to i64
+  %279 = or disjoint i64 %275, %278
+  %indvars.iv.next.i336 = add nuw nsw i64 %indvars.iv.i334, 1
+  %exitcond.not.i337 = icmp eq i64 %indvars.iv.next.i336, 8
+  br i1 %exitcond.not.i337, label %_ZL15fstReaderUint64P8_IO_FILE.exit338, label %274, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit335:           ; preds = %270
+_ZL15fstReaderUint64P8_IO_FILE.exit338:           ; preds = %274
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  store i64 %275, ptr %116, align 8
+  store i64 %279, ptr %120, align 8
   %.not267 = icmp eq i64 %.0230, 0
-  br i1 %.not267, label %276, label %277
+  br i1 %.not267, label %280, label %281
 
-276:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit335
-  store i64 %267, ptr %117, align 8
-  br label %277
+280:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit338
+  store i64 %271, ptr %121, align 8
+  br label %281
 
-277:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit335, %276, %258
-  %278 = add i64 %.0230, 1
+281:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit338, %280, %262
+  %282 = add i64 %.0230, 1
   br label %.loopexit
 
-279:                                              ; preds = %156
-  br i1 %152, label %280, label %.loopexit
+283:                                              ; preds = %160
+  br i1 %156, label %284, label %.loopexit
 
-280:                                              ; preds = %279
-  %281 = load ptr, ptr %0, align 8
+284:                                              ; preds = %283
+  %285 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %282 = call noundef i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %281)
-  br label %283
+  %286 = call noundef i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %285)
+  br label %287
 
-283:                                              ; preds = %283, %280
-  %indvars.iv.i336 = phi i64 [ 0, %280 ], [ %indvars.iv.next.i338, %283 ]
-  %.068.i337 = phi i64 [ 0, %280 ], [ %288, %283 ]
-  %284 = shl i64 %.068.i337, 8
-  %285 = getelementptr inbounds [8 x i8], ptr %5, i64 0, i64 %indvars.iv.i336
-  %286 = load i8, ptr %285, align 1
-  %287 = zext i8 %286 to i64
-  %288 = or disjoint i64 %284, %287
-  %indvars.iv.next.i338 = add nuw nsw i64 %indvars.iv.i336, 1
-  %exitcond.not.i339 = icmp eq i64 %indvars.iv.next.i338, 8
-  br i1 %exitcond.not.i339, label %_ZL15fstReaderUint64P8_IO_FILE.exit340, label %283, !llvm.loop !50
+287:                                              ; preds = %287, %284
+  %indvars.iv.i339 = phi i64 [ 0, %284 ], [ %indvars.iv.next.i341, %287 ]
+  %.068.i340 = phi i64 [ 0, %284 ], [ %292, %287 ]
+  %288 = shl i64 %.068.i340, 8
+  %289 = getelementptr inbounds [8 x i8], ptr %5, i64 0, i64 %indvars.iv.i339
+  %290 = load i8, ptr %289, align 1
+  %291 = zext i8 %290 to i64
+  %292 = or disjoint i64 %288, %291
+  %indvars.iv.next.i341 = add nuw nsw i64 %indvars.iv.i339, 1
+  %exitcond.not.i342 = icmp eq i64 %indvars.iv.next.i341, 8
+  br i1 %exitcond.not.i342, label %_ZL15fstReaderUint64P8_IO_FILE.exit343, label %287, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit340:           ; preds = %283
+_ZL15fstReaderUint64P8_IO_FILE.exit343:           ; preds = %287
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %289 = call noalias ptr @malloc(i64 noundef %288) #39
-  %290 = load i8, ptr %108, align 2
-  %291 = or i8 %290, 8
-  store i8 %291, ptr %108, align 2
-  %292 = load ptr, ptr %0, align 8
+  %293 = call noalias ptr @malloc(i64 noundef %292) #39
+  %294 = load i8, ptr %112, align 2
+  %295 = or i8 %294, 8
+  store i8 %295, ptr %112, align 2
+  %296 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %293 = call noundef i64 @fread(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %292)
-  br label %294
+  %297 = call noundef i64 @fread(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %296)
+  br label %298
 
-294:                                              ; preds = %294, %_ZL15fstReaderUint64P8_IO_FILE.exit340
-  %indvars.iv.i341 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit340 ], [ %indvars.iv.next.i343, %294 ]
-  %.068.i342 = phi i32 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit340 ], [ %299, %294 ]
-  %295 = shl i32 %.068.i342, 8
-  %296 = getelementptr inbounds [8 x i8], ptr %4, i64 0, i64 %indvars.iv.i341
-  %297 = load i8, ptr %296, align 1
-  %298 = zext i8 %297 to i32
-  %299 = or disjoint i32 %295, %298
-  %indvars.iv.next.i343 = add nuw nsw i64 %indvars.iv.i341, 1
-  %exitcond.not.i344 = icmp eq i64 %indvars.iv.next.i343, 8
-  br i1 %exitcond.not.i344, label %_ZL15fstReaderUint64P8_IO_FILE.exit345, label %294, !llvm.loop !50
+298:                                              ; preds = %298, %_ZL15fstReaderUint64P8_IO_FILE.exit343
+  %indvars.iv.i344 = phi i64 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit343 ], [ %indvars.iv.next.i346, %298 ]
+  %.068.i345 = phi i32 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit343 ], [ %303, %298 ]
+  %299 = shl i32 %.068.i345, 8
+  %300 = getelementptr inbounds [8 x i8], ptr %4, i64 0, i64 %indvars.iv.i344
+  %301 = load i8, ptr %300, align 1
+  %302 = zext i8 %301 to i32
+  %303 = or disjoint i32 %299, %302
+  %indvars.iv.next.i346 = add nuw nsw i64 %indvars.iv.i344, 1
+  %exitcond.not.i347 = icmp eq i64 %indvars.iv.next.i346, 8
+  br i1 %exitcond.not.i347, label %_ZL15fstReaderUint64P8_IO_FILE.exit348, label %298, !llvm.loop !50
 
-_ZL15fstReaderUint64P8_IO_FILE.exit345:           ; preds = %294
-  %300 = add i64 %149, -24
+_ZL15fstReaderUint64P8_IO_FILE.exit348:           ; preds = %298
+  %304 = add i64 %153, -24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  store i32 %299, ptr %110, align 8
-  store i32 32, ptr %111, align 8
-  %301 = load ptr, ptr %112, align 8
-  call void @free(ptr noundef %301) #37
-  %302 = load i32, ptr %110, align 8
-  %303 = add i32 %302, 7
-  %304 = lshr i32 %303, 3
-  %305 = zext nneg i32 %304 to i64
-  %306 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %305) #36
-  store ptr %306, ptr %112, align 8
-  %.not262 = icmp eq i64 %300, %288
-  br i1 %.not262, label %316, label %307
+  store i32 %303, ptr %114, align 8
+  store i32 32, ptr %115, align 8
+  %305 = load ptr, ptr %116, align 8
+  call void @free(ptr noundef %305) #37
+  %306 = load i32, ptr %114, align 8
+  %307 = add i32 %306, 7
+  %308 = lshr i32 %307, 3
+  %309 = zext nneg i32 %308 to i64
+  %310 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %309) #36
+  store ptr %310, ptr %116, align 8
+  %.not262 = icmp eq i64 %304, %292
+  br i1 %.not262, label %320, label %311
 
-307:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit345
-  %308 = call noalias ptr @malloc(i64 noundef %300) #39
-  store i64 %288, ptr %22, align 8
-  %309 = load ptr, ptr %0, align 8
-  %310 = call noundef i64 @fread(ptr noundef %308, i64 noundef %300, i64 noundef 1, ptr noundef %309)
-  %311 = call i32 @uncompress(ptr noundef %289, ptr noundef nonnull %22, ptr noundef %308, i64 noundef %300)
-  %.not263 = icmp eq i32 %311, 0
-  br i1 %.not263, label %315, label %312
+311:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit348
+  %312 = call noalias ptr @malloc(i64 noundef %304) #39
+  store i64 %292, ptr %22, align 8
+  %313 = load ptr, ptr %0, align 8
+  %314 = call noundef i64 @fread(ptr noundef %312, i64 noundef %304, i64 noundef 1, ptr noundef %313)
+  %315 = call i32 @uncompress(ptr noundef %293, ptr noundef nonnull %22, ptr noundef %312, i64 noundef %304)
+  %.not263 = icmp eq i32 %315, 0
+  br i1 %.not263, label %319, label %316
 
-312:                                              ; preds = %307
-  %313 = load ptr, ptr @stderr, align 8
-  %314 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.35, i32 noundef %311) #41
+316:                                              ; preds = %311
+  %317 = load ptr, ptr @stderr, align 8
+  %318 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %317, ptr noundef nonnull @.str.35, i32 noundef %315) #41
   call void @exit(i32 noundef 255) #44
   unreachable
 
-315:                                              ; preds = %307
-  call void @free(ptr noundef %308) #37
-  br label %319
+319:                                              ; preds = %311
+  call void @free(ptr noundef %312) #37
+  br label %323
 
-316:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit345
-  %317 = load ptr, ptr %0, align 8
-  %318 = call noundef i64 @fread(ptr noundef %289, i64 noundef %288, i64 noundef 1, ptr noundef %317)
-  br label %319
+320:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit348
+  %321 = load ptr, ptr %0, align 8
+  %322 = call noundef i64 @fread(ptr noundef %293, i64 noundef %292, i64 noundef 1, ptr noundef %321)
+  br label %323
 
-319:                                              ; preds = %316, %315
-  %320 = load ptr, ptr %113, align 8
-  call void @free(ptr noundef %320) #37
-  %321 = load i32, ptr %110, align 8
-  %322 = zext i32 %321 to i64
-  %323 = shl nuw nsw i64 %322, 2
-  %324 = call noalias ptr @malloc(i64 noundef %323) #39
-  store ptr %324, ptr %113, align 8
-  %325 = load ptr, ptr %114, align 8
-  call void @free(ptr noundef %325) #37
-  %326 = load i32, ptr %110, align 8
-  %327 = zext i32 %326 to i64
+323:                                              ; preds = %320, %319
+  %324 = load ptr, ptr %117, align 8
+  call void @free(ptr noundef %324) #37
+  %325 = load i32, ptr %114, align 8
+  %326 = zext i32 %325 to i64
+  %327 = shl nuw nsw i64 %326, 2
   %328 = call noalias ptr @malloc(i64 noundef %327) #39
-  store ptr %328, ptr %114, align 8
-  %.not408 = icmp eq i32 %326, 0
-  br i1 %.not408, label %._crit_edge405, label %.preheader
+  store ptr %328, ptr %117, align 8
+  %329 = load ptr, ptr %118, align 8
+  call void @free(ptr noundef %329) #37
+  %330 = load i32, ptr %114, align 8
+  %331 = zext i32 %330 to i64
+  %332 = call noalias ptr @malloc(i64 noundef %331) #39
+  store ptr %332, ptr %118, align 8
+  %.not408 = icmp eq i32 %330, 0
+  br i1 %.not408, label %._crit_edge, label %.preheader
 
-.preheader:                                       ; preds = %319, %363
-  %indvars.iv433 = phi i64 [ %indvars.iv.next434, %363 ], [ 0, %319 ]
-  %.0232403 = phi ptr [ %346, %363 ], [ %289, %319 ]
-  br label %329
+.preheader:                                       ; preds = %323, %367
+  %indvars.iv433 = phi i64 [ %indvars.iv.next434, %367 ], [ 0, %323 ]
+  %.0232404 = phi ptr [ %350, %367 ], [ %293, %323 ]
+  br label %333
 
-329:                                              ; preds = %.preheader, %329
-  %.012.i = phi ptr [ %331, %329 ], [ %.0232403, %.preheader ]
-  %330 = load i8, ptr %.012.i, align 1
-  %.not.i = icmp sgt i8 %330, -1
-  %331 = getelementptr inbounds i8, ptr %.012.i, i64 1
-  br i1 %.not.i, label %332, label %329, !llvm.loop !19
+333:                                              ; preds = %.preheader, %333
+  %.012.i = phi ptr [ %335, %333 ], [ %.0232404, %.preheader ]
+  %334 = load i8, ptr %.012.i, align 1
+  %.not.i = icmp sgt i8 %334, -1
+  %335 = getelementptr inbounds i8, ptr %.012.i, i64 1
+  br i1 %.not.i, label %336, label %333, !llvm.loop !19
 
-332:                                              ; preds = %329
-  %333 = ptrtoint ptr %.0232403 to i64
-  br label %334
+336:                                              ; preds = %333
+  %337 = ptrtoint ptr %.0232404 to i64
+  br label %338
 
-334:                                              ; preds = %334, %332
-  %.1.i = phi ptr [ %.012.i, %332 ], [ %341, %334 ]
-  %.0.i = phi i32 [ 0, %332 ], [ %339, %334 ]
-  %335 = shl i32 %.0.i, 7
-  %336 = load i8, ptr %.1.i, align 1
-  %337 = and i8 %336, 127
-  %338 = zext nneg i8 %337 to i32
-  %339 = or disjoint i32 %335, %338
-  %340 = icmp eq ptr %.1.i, %.0232403
-  %341 = getelementptr inbounds i8, ptr %.1.i, i64 -1
-  br i1 %340, label %_ZL14fstGetVarint32PhPi.exit, label %334, !llvm.loop !20
+338:                                              ; preds = %338, %336
+  %.1.i = phi ptr [ %.012.i, %336 ], [ %345, %338 ]
+  %.0.i = phi i32 [ 0, %336 ], [ %343, %338 ]
+  %339 = shl i32 %.0.i, 7
+  %340 = load i8, ptr %.1.i, align 1
+  %341 = and i8 %340, 127
+  %342 = zext nneg i8 %341 to i32
+  %343 = or disjoint i32 %339, %342
+  %344 = icmp eq ptr %.1.i, %.0232404
+  %345 = getelementptr inbounds i8, ptr %.1.i, i64 -1
+  br i1 %344, label %_ZL14fstGetVarint32PhPi.exit, label %338, !llvm.loop !20
 
-_ZL14fstGetVarint32PhPi.exit:                     ; preds = %334
-  %342 = ptrtoint ptr %.012.i to i64
-  %343 = sub i64 %342, %333
-  %344 = shl i64 %343, 32
-  %sext369 = add i64 %344, 4294967296
-  %345 = ashr exact i64 %sext369, 32
-  %346 = getelementptr inbounds i8, ptr %.0232403, i64 %345
-  %.not264 = icmp eq i32 %339, 0
-  br i1 %.not264, label %358, label %347
+_ZL14fstGetVarint32PhPi.exit:                     ; preds = %338
+  %346 = ptrtoint ptr %.012.i to i64
+  %347 = sub i64 %346, %337
+  %348 = shl i64 %347, 32
+  %sext373 = add i64 %348, 4294967296
+  %349 = ashr exact i64 %sext373, 32
+  %350 = getelementptr inbounds i8, ptr %.0232404, i64 %349
+  %.not264 = icmp eq i32 %343, 0
+  br i1 %.not264, label %362, label %351
 
-347:                                              ; preds = %_ZL14fstGetVarint32PhPi.exit
-  %.not265 = icmp eq i32 %339, -1
-  %narrow = select i1 %.not265, i32 0, i32 %339
-  %348 = load ptr, ptr %113, align 8
-  %349 = getelementptr inbounds i32, ptr %348, i64 %indvars.iv433
-  store i32 %narrow, ptr %349, align 4
-  %350 = load ptr, ptr %114, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 %indvars.iv433
-  store i8 16, ptr %351, align 1
-  %352 = load ptr, ptr %113, align 8
+351:                                              ; preds = %_ZL14fstGetVarint32PhPi.exit
+  %.not265 = icmp eq i32 %343, -1
+  %narrow = select i1 %.not265, i32 0, i32 %343
+  %352 = load ptr, ptr %117, align 8
   %353 = getelementptr inbounds i32, ptr %352, i64 %indvars.iv433
-  %354 = load i32, ptr %353, align 4
-  %355 = load i32, ptr %111, align 8
-  %356 = icmp ugt i32 %354, %355
-  br i1 %356, label %357, label %363
+  store i32 %narrow, ptr %353, align 4
+  %354 = load ptr, ptr %118, align 8
+  %355 = getelementptr inbounds i8, ptr %354, i64 %indvars.iv433
+  store i8 16, ptr %355, align 1
+  %356 = load ptr, ptr %117, align 8
+  %357 = getelementptr inbounds i32, ptr %356, i64 %indvars.iv433
+  %358 = load i32, ptr %357, align 4
+  %359 = load i32, ptr %115, align 8
+  %360 = icmp ugt i32 %358, %359
+  br i1 %360, label %361, label %367
 
-357:                                              ; preds = %347
-  store i32 %354, ptr %111, align 8
-  br label %363
+361:                                              ; preds = %351
+  store i32 %358, ptr %115, align 8
+  br label %367
 
-358:                                              ; preds = %_ZL14fstGetVarint32PhPi.exit
-  %359 = load ptr, ptr %113, align 8
-  %360 = getelementptr inbounds i32, ptr %359, i64 %indvars.iv433
-  store i32 8, ptr %360, align 4
-  %361 = load ptr, ptr %114, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 %indvars.iv433
-  store i8 3, ptr %362, align 1
-  br label %363
+362:                                              ; preds = %_ZL14fstGetVarint32PhPi.exit
+  %363 = load ptr, ptr %117, align 8
+  %364 = getelementptr inbounds i32, ptr %363, i64 %indvars.iv433
+  store i32 8, ptr %364, align 4
+  %365 = load ptr, ptr %118, align 8
+  %366 = getelementptr inbounds i8, ptr %365, i64 %indvars.iv433
+  store i8 3, ptr %366, align 1
+  br label %367
 
-363:                                              ; preds = %358, %357, %347
+367:                                              ; preds = %362, %361, %351
   %indvars.iv.next434 = add nuw nsw i64 %indvars.iv433, 1
-  %364 = load i32, ptr %110, align 8
-  %365 = zext i32 %364 to i64
-  %366 = icmp ult i64 %indvars.iv.next434, %365
-  br i1 %366, label %.preheader, label %._crit_edge405, !llvm.loop !70
+  %368 = load i32, ptr %114, align 8
+  %369 = zext i32 %368 to i64
+  %370 = icmp ult i64 %indvars.iv.next434, %369
+  br i1 %370, label %.preheader, label %._crit_edge, !llvm.loop !70
 
-._crit_edge405:                                   ; preds = %363, %319
-  %367 = load ptr, ptr %115, align 8
-  call void @free(ptr noundef %367) #37
-  %368 = load i32, ptr %111, align 8
-  %369 = add i32 %368, 1
-  %370 = zext i32 %369 to i64
-  %371 = call noalias ptr @malloc(i64 noundef %370) #39
-  store ptr %371, ptr %115, align 8
-  call void @free(ptr noundef %289) #37
+._crit_edge:                                      ; preds = %367, %323
+  %371 = load ptr, ptr %119, align 8
+  call void @free(ptr noundef %371) #37
+  %372 = load i32, ptr %115, align 8
+  %373 = add i32 %372, 1
+  %374 = zext i32 %373 to i64
+  %375 = call noalias ptr @malloc(i64 noundef %374) #39
+  store ptr %375, ptr %119, align 8
+  call void @free(ptr noundef %293) #37
   br label %.loopexit
 
-372:                                              ; preds = %156
-  %373 = load i8, ptr %108, align 2
-  %374 = or i8 %373, 16
-  store i8 %374, ptr %108, align 2
-  %375 = load ptr, ptr %0, align 8
-  %376 = call i64 @ftello(ptr noundef %375)
-  store i64 %376, ptr %109, align 8
+376:                                              ; preds = %160
+  %377 = load i8, ptr %112, align 2
+  %378 = or i8 %377, 16
+  store i8 %378, ptr %112, align 2
+  %379 = load ptr, ptr %0, align 8
+  %380 = call i64 @ftello(ptr noundef %379)
+  store i64 %380, ptr %113, align 8
   br label %.loopexit
 
-377:                                              ; preds = %156
-  %378 = load i8, ptr %108, align 2
-  %379 = or i8 %378, 96
-  store i8 %379, ptr %108, align 2
-  %380 = load ptr, ptr %0, align 8
-  %381 = call i64 @ftello(ptr noundef %380)
-  store i64 %381, ptr %109, align 8
+381:                                              ; preds = %160
+  %382 = load i8, ptr %112, align 2
+  %383 = or i8 %382, 96
+  store i8 %383, ptr %112, align 2
+  %384 = load ptr, ptr %0, align 8
+  %385 = call i64 @ftello(ptr noundef %384)
+  store i64 %385, ptr %113, align 8
   br label %.loopexit
 
-382:                                              ; preds = %156
-  %383 = load i8, ptr %108, align 2
-  %384 = or i8 %383, 64
-  store i8 %384, ptr %108, align 2
-  %385 = load ptr, ptr %0, align 8
-  %386 = call i64 @ftello(ptr noundef %385)
-  store i64 %386, ptr %109, align 8
+386:                                              ; preds = %160
+  %387 = load i8, ptr %112, align 2
+  %388 = or i8 %387, 64
+  store i8 %388, ptr %112, align 2
+  %389 = load ptr, ptr %0, align 8
+  %390 = call i64 @ftello(ptr noundef %389)
+  store i64 %390, ptr %113, align 8
   br label %.loopexit
 
-387:                                              ; preds = %156
-  %388 = load ptr, ptr %0, align 8
+391:                                              ; preds = %160
+  %392 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3)
-  br label %389
+  br label %393
 
-389:                                              ; preds = %389, %387
-  %.0.i346 = phi ptr [ %3, %387 ], [ %392, %389 ]
-  %390 = call i32 @fgetc(ptr noundef %388)
-  %391 = trunc i32 %390 to i8
-  %392 = getelementptr inbounds i8, ptr %.0.i346, i64 1
-  store i8 %391, ptr %.0.i346, align 1
-  %393 = and i32 %390, 128
-  %.not.i347 = icmp eq i32 %393, 0
-  br i1 %.not.i347, label %.preheader.i, label %389, !llvm.loop !58
+393:                                              ; preds = %393, %391
+  %.0.i349 = phi ptr [ %3, %391 ], [ %396, %393 ]
+  %394 = call i32 @fgetc(ptr noundef %392)
+  %395 = trunc i32 %394 to i8
+  %396 = getelementptr inbounds i8, ptr %.0.i349, i64 1
+  store i8 %395, ptr %.0.i349, align 1
+  %397 = and i32 %394, 128
+  %.not.i350 = icmp eq i32 %397, 0
+  br i1 %.not.i350, label %.preheader.i, label %393, !llvm.loop !58
 
-.preheader.i:                                     ; preds = %389, %.preheader.i
-  %.010.i = phi i32 [ %398, %.preheader.i ], [ 0, %389 ]
-  %.1.i348 = phi ptr [ %400, %.preheader.i ], [ %.0.i346, %389 ]
-  %394 = shl i32 %.010.i, 7
-  %395 = load i8, ptr %.1.i348, align 1
-  %396 = and i8 %395, 127
-  %397 = zext nneg i8 %396 to i32
-  %398 = or disjoint i32 %394, %397
-  %399 = icmp eq ptr %.1.i348, %3
-  %400 = getelementptr inbounds i8, ptr %.1.i348, i64 -1
-  br i1 %399, label %_ZL17fstReaderVarint32P8_IO_FILE.exit, label %.preheader.i, !llvm.loop !59
+.preheader.i:                                     ; preds = %393, %.preheader.i
+  %.010.i = phi i32 [ %402, %.preheader.i ], [ 0, %393 ]
+  %.1.i351 = phi ptr [ %404, %.preheader.i ], [ %.0.i349, %393 ]
+  %398 = shl i32 %.010.i, 7
+  %399 = load i8, ptr %.1.i351, align 1
+  %400 = and i8 %399, 127
+  %401 = zext nneg i8 %400 to i32
+  %402 = or disjoint i32 %398, %401
+  %403 = icmp eq ptr %.1.i351, %3
+  %404 = getelementptr inbounds i8, ptr %.1.i351, i64 -1
+  br i1 %403, label %_ZL17fstReaderVarint32P8_IO_FILE.exit, label %.preheader.i, !llvm.loop !59
 
 _ZL17fstReaderVarint32P8_IO_FILE.exit:            ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3)
-  store i32 %398, ptr %105, align 8
-  %401 = load ptr, ptr %106, align 8
-  call void @free(ptr noundef %401) #37
-  %402 = load i32, ptr %105, align 8
-  %403 = zext i32 %402 to i64
-  %404 = call noalias ptr @calloc(i64 noundef %403, i64 noundef 8) #36
-  store ptr %404, ptr %106, align 8
-  %405 = load ptr, ptr %107, align 8
+  store i32 %402, ptr %109, align 8
+  %405 = load ptr, ptr %110, align 8
   call void @free(ptr noundef %405) #37
-  %406 = load i32, ptr %105, align 8
+  %406 = load i32, ptr %109, align 8
   %407 = zext i32 %406 to i64
-  %408 = call noalias ptr @calloc(i64 noundef %407, i64 noundef 1) #36
-  store ptr %408, ptr %107, align 8
-  %.not407 = icmp eq i32 %406, 0
-  br i1 %.not407, label %.loopexit, label %.lr.ph402
+  %408 = call noalias ptr @calloc(i64 noundef %407, i64 noundef 8) #36
+  store ptr %408, ptr %110, align 8
+  %409 = load ptr, ptr %111, align 8
+  call void @free(ptr noundef %409) #37
+  %410 = load i32, ptr %109, align 8
+  %411 = zext i32 %410 to i64
+  %412 = call noalias ptr @calloc(i64 noundef %411, i64 noundef 1) #36
+  store ptr %412, ptr %111, align 8
+  %.not407 = icmp eq i32 %410, 0
+  br i1 %.not407, label %.loopexit, label %.lr.ph403
 
-.lr.ph402:                                        ; preds = %_ZL17fstReaderVarint32P8_IO_FILE.exit, %_ZL17fstReaderVarint64P8_IO_FILE.exit
+.lr.ph403:                                        ; preds = %_ZL17fstReaderVarint32P8_IO_FILE.exit, %_ZL17fstReaderVarint64P8_IO_FILE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL17fstReaderVarint64P8_IO_FILE.exit ], [ 0, %_ZL17fstReaderVarint32P8_IO_FILE.exit ]
-  %.0227401 = phi i64 [ %428, %_ZL17fstReaderVarint64P8_IO_FILE.exit ], [ 0, %_ZL17fstReaderVarint32P8_IO_FILE.exit ]
-  %409 = load ptr, ptr %0, align 8
-  %410 = call i32 @fgetc(ptr noundef %409)
-  %411 = icmp ne i32 %410, 0
-  %412 = zext i1 %411 to i8
-  %413 = load ptr, ptr %107, align 8
-  %414 = getelementptr inbounds i8, ptr %413, i64 %indvars.iv
-  store i8 %412, ptr %414, align 1
-  %415 = load ptr, ptr %0, align 8
+  %.0227402 = phi i64 [ %432, %_ZL17fstReaderVarint64P8_IO_FILE.exit ], [ 0, %_ZL17fstReaderVarint32P8_IO_FILE.exit ]
+  %413 = load ptr, ptr %0, align 8
+  %414 = call i32 @fgetc(ptr noundef %413)
+  %415 = icmp ne i32 %414, 0
+  %416 = zext i1 %415 to i8
+  %417 = load ptr, ptr %111, align 8
+  %418 = getelementptr inbounds i8, ptr %417, i64 %indvars.iv
+  store i8 %416, ptr %418, align 1
+  %419 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  br label %416
+  br label %420
 
-416:                                              ; preds = %416, %.lr.ph402
-  %.0.i349 = phi ptr [ %2, %.lr.ph402 ], [ %419, %416 ]
-  %417 = call i32 @fgetc(ptr noundef %415)
-  %418 = trunc i32 %417 to i8
-  %419 = getelementptr inbounds i8, ptr %.0.i349, i64 1
-  store i8 %418, ptr %.0.i349, align 1
-  %420 = and i32 %417, 128
-  %.not.i350 = icmp eq i32 %420, 0
-  br i1 %.not.i350, label %.preheader.i351, label %416, !llvm.loop !60
+420:                                              ; preds = %420, %.lr.ph403
+  %.0.i352 = phi ptr [ %2, %.lr.ph403 ], [ %423, %420 ]
+  %421 = call i32 @fgetc(ptr noundef %419)
+  %422 = trunc i32 %421 to i8
+  %423 = getelementptr inbounds i8, ptr %.0.i352, i64 1
+  store i8 %422, ptr %.0.i352, align 1
+  %424 = and i32 %421, 128
+  %.not.i353 = icmp eq i32 %424, 0
+  br i1 %.not.i353, label %.preheader.i354, label %420, !llvm.loop !60
 
-.preheader.i351:                                  ; preds = %416, %.preheader.i351
-  %.010.i352 = phi i64 [ %425, %.preheader.i351 ], [ 0, %416 ]
-  %.1.i353 = phi ptr [ %427, %.preheader.i351 ], [ %.0.i349, %416 ]
-  %421 = shl i64 %.010.i352, 7
-  %422 = load i8, ptr %.1.i353, align 1
-  %423 = and i8 %422, 127
-  %424 = zext nneg i8 %423 to i64
-  %425 = or disjoint i64 %421, %424
-  %426 = icmp eq ptr %.1.i353, %2
-  %427 = getelementptr inbounds i8, ptr %.1.i353, i64 -1
-  br i1 %426, label %_ZL17fstReaderVarint64P8_IO_FILE.exit, label %.preheader.i351, !llvm.loop !61
+.preheader.i354:                                  ; preds = %420, %.preheader.i354
+  %.010.i355 = phi i64 [ %429, %.preheader.i354 ], [ 0, %420 ]
+  %.1.i356 = phi ptr [ %431, %.preheader.i354 ], [ %.0.i352, %420 ]
+  %425 = shl i64 %.010.i355, 7
+  %426 = load i8, ptr %.1.i356, align 1
+  %427 = and i8 %426, 127
+  %428 = zext nneg i8 %427 to i64
+  %429 = or disjoint i64 %425, %428
+  %430 = icmp eq ptr %.1.i356, %2
+  %431 = getelementptr inbounds i8, ptr %.1.i356, i64 -1
+  br i1 %430, label %_ZL17fstReaderVarint64P8_IO_FILE.exit, label %.preheader.i354, !llvm.loop !61
 
-_ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i351
+_ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i354
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %428 = add i64 %425, %.0227401
-  %429 = load ptr, ptr %106, align 8
-  %430 = getelementptr inbounds i64, ptr %429, i64 %indvars.iv
-  store i64 %428, ptr %430, align 8
+  %432 = add i64 %429, %.0227402
+  %433 = load ptr, ptr %110, align 8
+  %434 = getelementptr inbounds i64, ptr %433, i64 %indvars.iv
+  store i64 %432, ptr %434, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %431 = load i32, ptr %105, align 8
-  %432 = zext i32 %431 to i64
-  %433 = icmp ult i64 %indvars.iv.next, %432
-  br i1 %433, label %.lr.ph402, label %.loopexit, !llvm.loop !71
+  %435 = load i32, ptr %109, align 8
+  %436 = zext i32 %435 to i64
+  %437 = icmp ult i64 %indvars.iv.next, %436
+  br i1 %437, label %.lr.ph403, label %.loopexit, !llvm.loop !71
 
-.loopexit:                                        ; preds = %_ZL17fstReaderVarint64P8_IO_FILE.exit, %_ZL17fstReaderVarint32P8_IO_FILE.exit, %156, %277, %372, %382, %377, %279, %._crit_edge405, %158, %_ZL15fstReaderUint64P8_IO_FILE.exit325
-  %.3 = phi i32 [ 1, %158 ], [ 1, %_ZL15fstReaderUint64P8_IO_FILE.exit325 ], [ %.1236, %277 ], [ %.1236, %279 ], [ %.1236, %._crit_edge405 ], [ %.1236, %372 ], [ %.1236, %377 ], [ %.1236, %382 ], [ %.1236, %156 ], [ %.1236, %_ZL17fstReaderVarint32P8_IO_FILE.exit ], [ %.1236, %_ZL17fstReaderVarint64P8_IO_FILE.exit ]
-  %.1234 = phi i32 [ %.0233, %158 ], [ %179, %_ZL15fstReaderUint64P8_IO_FILE.exit325 ], [ %.0233, %277 ], [ 1, %279 ], [ 0, %._crit_edge405 ], [ %.0233, %372 ], [ %.0233, %377 ], [ %.0233, %382 ], [ %.0233, %156 ], [ %.0233, %_ZL17fstReaderVarint32P8_IO_FILE.exit ], [ %.0233, %_ZL17fstReaderVarint64P8_IO_FILE.exit ]
-  %.2 = phi i64 [ %.0230, %158 ], [ %.0230, %_ZL15fstReaderUint64P8_IO_FILE.exit325 ], [ %278, %277 ], [ %.0230, %279 ], [ %.0230, %._crit_edge405 ], [ %.0230, %372 ], [ %.0230, %377 ], [ %.0230, %382 ], [ %.0230, %156 ], [ %.0230, %_ZL17fstReaderVarint32P8_IO_FILE.exit ], [ %.0230, %_ZL17fstReaderVarint64P8_IO_FILE.exit ]
-  %434 = add i64 %157, %149
+.loopexit:                                        ; preds = %_ZL17fstReaderVarint64P8_IO_FILE.exit, %_ZL17fstReaderVarint32P8_IO_FILE.exit, %160, %281, %376, %386, %381, %283, %._crit_edge, %162, %_ZL15fstReaderUint64P8_IO_FILE.exit328
+  %.3 = phi i32 [ 1, %162 ], [ 1, %_ZL15fstReaderUint64P8_IO_FILE.exit328 ], [ %.1236, %281 ], [ %.1236, %283 ], [ %.1236, %._crit_edge ], [ %.1236, %376 ], [ %.1236, %381 ], [ %.1236, %386 ], [ %.1236, %160 ], [ %.1236, %_ZL17fstReaderVarint32P8_IO_FILE.exit ], [ %.1236, %_ZL17fstReaderVarint64P8_IO_FILE.exit ]
+  %.1234 = phi i32 [ %.0233, %162 ], [ %183, %_ZL15fstReaderUint64P8_IO_FILE.exit328 ], [ %.0233, %281 ], [ 1, %283 ], [ 0, %._crit_edge ], [ %.0233, %376 ], [ %.0233, %381 ], [ %.0233, %386 ], [ %.0233, %160 ], [ %.0233, %_ZL17fstReaderVarint32P8_IO_FILE.exit ], [ %.0233, %_ZL17fstReaderVarint64P8_IO_FILE.exit ]
+  %.2 = phi i64 [ %.0230, %162 ], [ %.0230, %_ZL15fstReaderUint64P8_IO_FILE.exit328 ], [ %282, %281 ], [ %.0230, %283 ], [ %.0230, %._crit_edge ], [ %.0230, %376 ], [ %.0230, %381 ], [ %.0230, %386 ], [ %.0230, %160 ], [ %.0230, %_ZL17fstReaderVarint32P8_IO_FILE.exit ], [ %.0230, %_ZL17fstReaderVarint64P8_IO_FILE.exit ]
+  %438 = add i64 %161, %153
   %.not270 = icmp eq i32 %.3, 0
-  br i1 %.not270, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %130, !llvm.loop !72
+  br i1 %.not270, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %134, !llvm.loop !72
 
-435:                                              ; preds = %151, %_ZL15fstReaderUint64P8_IO_FILE.exit285, %130
-  br i1 %131, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %436
+439:                                              ; preds = %155, %_ZL15fstReaderUint64P8_IO_FILE.exit288, %134
+  br i1 %135, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit, label %440
 
-436:                                              ; preds = %435
-  %437 = load i64, ptr %122, align 8
-  %.not272 = icmp eq i64 %437, %.0230
-  br i1 %.not272, label %439, label %438
+440:                                              ; preds = %439
+  %441 = load i64, ptr %126, align 8
+  %.not272 = icmp eq i64 %441, %.0230
+  br i1 %.not272, label %443, label %442
 
-438:                                              ; preds = %436
-  store i64 %.0230, ptr %122, align 8
-  br label %439
+442:                                              ; preds = %440
+  store i64 %.0230, ptr %126, align 8
+  br label %443
 
-439:                                              ; preds = %438, %436
-  %440 = load i8, ptr %108, align 2
-  %441 = and i8 %440, 8
-  %.not273 = icmp eq i8 %441, 0
-  br i1 %.not273, label %442, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
+443:                                              ; preds = %442, %440
+  %444 = load i8, ptr %112, align 2
+  %445 = and i8 %444, 8
+  %.not273 = icmp eq i8 %445, 0
+  br i1 %.not273, label %446, label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
 
-442:                                              ; preds = %439
-  %443 = call i32 @fstReaderProcessHier(ptr noundef nonnull %0, ptr noundef null)
+446:                                              ; preds = %443
+  %447 = call i32 @fstReaderProcessHier(ptr noundef nonnull %0, ptr noundef null)
   br label %_ZL13tmpfile_closePP8_IO_FILEPPc.exit
 
-_ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %192, %.loopexit, %154, %._crit_edge, %53, %439, %442, %435, %_ZL15fstReaderUint64P8_IO_FILE.exit278
-  %.0 = phi i32 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit278 ], [ 1, %439 ], [ 1, %442 ], [ 0, %435 ], [ 0, %._crit_edge ], [ 0, %53 ], [ 0, %154 ], [ 0, %.loopexit ], [ 0, %192 ]
+_ZL13tmpfile_closePP8_IO_FILEPPc.exit:            ; preds = %196, %.loopexit, %158, %53, %86, %443, %446, %439, %_ZL15fstReaderUint64P8_IO_FILE.exit281
+  %.0 = phi i32 [ 0, %_ZL15fstReaderUint64P8_IO_FILE.exit281 ], [ 1, %443 ], [ 1, %446 ], [ 0, %439 ], [ 0, %86 ], [ 0, %53 ], [ 0, %158 ], [ 0, %.loopexit ], [ 0, %196 ]
   ret i32 %.0
 }
 
@@ -11239,19 +11242,22 @@ thread-pre-split:                                 ; preds = %.preheader1259, %th
   %554 = or i64 %553, %548
   %indvars.iv.next.i1087 = add nuw nsw i64 %indvars.iv.next.i10871412, 7
   %.not.i1088 = icmp sgt i8 %.pr, -1
-  br i1 %.not.i1088, label %_ZL15fstGetSVarint64PhPi.exit, label %thread-pre-split, !llvm.loop !81
+  br i1 %.not.i1088, label %_ZL15fstGetSVarint64PhPi.exit.loopexit, label %thread-pre-split, !llvm.loop !81
 
-_ZL15fstGetSVarint64PhPi.exit:                    ; preds = %thread-pre-split, %.preheader1259
-  %.lcssa1328 = phi i8 [ %543, %.preheader1259 ], [ %.pr, %thread-pre-split ]
-  %indvars.iv.i1085.lcssa = phi i64 [ 0, %.preheader1259 ], [ %indvars.iv.next.i10871412, %thread-pre-split ]
-  %.lcssa1327 = phi ptr [ %545, %.preheader1259 ], [ %550, %thread-pre-split ]
-  %.lcssa1326 = phi i64 [ %547, %.preheader1259 ], [ %554, %thread-pre-split ]
-  %indvars.iv.next.i1087.lcssa = phi i64 [ 7, %.preheader1259 ], [ %indvars.iv.next.i1087, %thread-pre-split ]
-  %555 = icmp ugt i64 %indvars.iv.i1085.lcssa, 56
+_ZL15fstGetSVarint64PhPi.exit.loopexit:           ; preds = %thread-pre-split
+  %555 = icmp ugt i64 %indvars.iv.next.i10871412, 56
+  %556 = and i64 %indvars.iv.next.i1087, 4294967295
+  br label %_ZL15fstGetSVarint64PhPi.exit
+
+_ZL15fstGetSVarint64PhPi.exit:                    ; preds = %_ZL15fstGetSVarint64PhPi.exit.loopexit, %.preheader1259
+  %.lcssa1328 = phi i8 [ %543, %.preheader1259 ], [ %.pr, %_ZL15fstGetSVarint64PhPi.exit.loopexit ]
+  %indvars.iv.i1085.lcssa = phi i1 [ false, %.preheader1259 ], [ %555, %_ZL15fstGetSVarint64PhPi.exit.loopexit ]
+  %.lcssa1327 = phi ptr [ %545, %.preheader1259 ], [ %550, %_ZL15fstGetSVarint64PhPi.exit.loopexit ]
+  %.lcssa1326 = phi i64 [ %547, %.preheader1259 ], [ %554, %_ZL15fstGetSVarint64PhPi.exit.loopexit ]
+  %indvars.iv.next.i1087.lcssa = phi i64 [ 7, %.preheader1259 ], [ %556, %_ZL15fstGetSVarint64PhPi.exit.loopexit ]
   %.not17.i = icmp ult i8 %.lcssa1328, 64
-  %or.cond.i = or i1 %.not17.i, %555
-  %556 = and i64 %indvars.iv.next.i1087.lcssa, 4294967295
-  %.neg.i = shl nsw i64 -1, %556
+  %or.cond.i = or i1 %.not17.i, %indvars.iv.i1085.lcssa
+  %.neg.i = shl nsw i64 -1, %indvars.iv.next.i1087.lcssa
   %557 = select i1 %or.cond.i, i64 0, i64 %.neg.i
   %.1.i1089 = or i64 %557, %.lcssa1326
   %558 = ptrtoint ptr %.lcssa1327 to i64
@@ -13608,19 +13614,22 @@ thread-pre-split:                                 ; preds = %.preheader725, %thr
   %358 = or i64 %357, %352
   %indvars.iv.next.i673 = add nuw nsw i64 %indvars.iv.next.i673770, 7
   %.not.i674 = icmp sgt i8 %.pr, -1
-  br i1 %.not.i674, label %_ZL15fstGetSVarint64PhPi.exit, label %thread-pre-split, !llvm.loop !81
+  br i1 %.not.i674, label %_ZL15fstGetSVarint64PhPi.exit.loopexit, label %thread-pre-split, !llvm.loop !81
 
-_ZL15fstGetSVarint64PhPi.exit:                    ; preds = %thread-pre-split, %.preheader725
-  %.lcssa739 = phi i8 [ %347, %.preheader725 ], [ %.pr, %thread-pre-split ]
-  %indvars.iv.i671.lcssa = phi i64 [ 0, %.preheader725 ], [ %indvars.iv.next.i673770, %thread-pre-split ]
-  %.lcssa738 = phi ptr [ %349, %.preheader725 ], [ %354, %thread-pre-split ]
-  %.lcssa737 = phi i64 [ %351, %.preheader725 ], [ %358, %thread-pre-split ]
-  %indvars.iv.next.i673.lcssa = phi i64 [ 7, %.preheader725 ], [ %indvars.iv.next.i673, %thread-pre-split ]
-  %359 = icmp ugt i64 %indvars.iv.i671.lcssa, 56
+_ZL15fstGetSVarint64PhPi.exit.loopexit:           ; preds = %thread-pre-split
+  %359 = icmp ugt i64 %indvars.iv.next.i673770, 56
+  %360 = and i64 %indvars.iv.next.i673, 4294967295
+  br label %_ZL15fstGetSVarint64PhPi.exit
+
+_ZL15fstGetSVarint64PhPi.exit:                    ; preds = %_ZL15fstGetSVarint64PhPi.exit.loopexit, %.preheader725
+  %.lcssa739 = phi i8 [ %347, %.preheader725 ], [ %.pr, %_ZL15fstGetSVarint64PhPi.exit.loopexit ]
+  %indvars.iv.i671.lcssa = phi i1 [ false, %.preheader725 ], [ %359, %_ZL15fstGetSVarint64PhPi.exit.loopexit ]
+  %.lcssa738 = phi ptr [ %349, %.preheader725 ], [ %354, %_ZL15fstGetSVarint64PhPi.exit.loopexit ]
+  %.lcssa737 = phi i64 [ %351, %.preheader725 ], [ %358, %_ZL15fstGetSVarint64PhPi.exit.loopexit ]
+  %indvars.iv.next.i673.lcssa = phi i64 [ 7, %.preheader725 ], [ %360, %_ZL15fstGetSVarint64PhPi.exit.loopexit ]
   %.not17.i = icmp ult i8 %.lcssa739, 64
-  %or.cond.i = or i1 %.not17.i, %359
-  %360 = and i64 %indvars.iv.next.i673.lcssa, 4294967295
-  %.neg.i = shl nsw i64 -1, %360
+  %or.cond.i = or i1 %.not17.i, %indvars.iv.i671.lcssa
+  %.neg.i = shl nsw i64 -1, %indvars.iv.next.i673.lcssa
   %361 = select i1 %or.cond.i, i64 0, i64 %.neg.i
   %.1.i675 = or i64 %361, %.lcssa737
   %362 = ptrtoint ptr %.lcssa738 to i64

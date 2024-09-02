@@ -441,7 +441,7 @@ return:                                           ; preds = %bdrv_dirty_bitmap_c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_dirty_bitmap_granularity(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
+define dso_local range(i32 1, -2147483647) i32 @bdrv_dirty_bitmap_granularity(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
 entry:
   %bitmap1 = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load ptr, ptr %bitmap1, align 8
@@ -944,13 +944,13 @@ lor.rhs.i:                                        ; preds = %for.body
 land.rhs.i:                                       ; preds = %lor.rhs.i
   %disabled3.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load i8, ptr %disabled3.i, align 8
-  %lnot.i = xor i8 %7, 1
+  %lnot.i = and i8 %7, 1
+  %8 = xor i8 %lnot.i, 1
   br label %bdrv_dirty_bitmap_recording.exit
 
 bdrv_dirty_bitmap_recording.exit:                 ; preds = %for.body, %lor.rhs.i, %land.rhs.i
-  %8 = phi i8 [ 1, %for.body ], [ 0, %lor.rhs.i ], [ %lnot.i, %land.rhs.i ]
+  %frombool = phi i8 [ 1, %for.body ], [ 0, %lor.rhs.i ], [ %8, %land.rhs.i ]
   %recording = getelementptr inbounds i8, ptr %call, i64 20
-  %frombool = and i8 %8, 1
   store i8 %frombool, ptr %recording, align 4
   %9 = getelementptr i8, ptr %bm.029, i64 16
   %bm.0.val = load i8, ptr %9, align 8
@@ -1032,7 +1032,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 1, -2147483648) i32 @bdrv_get_default_bitmap_granularity(ptr noundef %bs) local_unnamed_addr #0 {
+define dso_local range(i32 4096, 65537) i32 @bdrv_get_default_bitmap_granularity(ptr noundef %bs) local_unnamed_addr #0 {
 entry:
   %bdi = alloca %struct.BlockDriverInfo, align 8
   %call = call i32 @bdrv_get_info(ptr noundef %bs, ptr noundef nonnull %bdi) #14

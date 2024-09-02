@@ -1776,14 +1776,14 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
 
 131:                                              ; preds = %75
   %132 = load i32, ptr %62, align 8
-  %133 = lshr i32 %132, 3
-  %134 = and i32 %133, 1
+  %133 = and i32 %132, 8
+  %134 = icmp eq i32 %133, 0
   br label %135
 
 135:                                              ; preds = %131, %106, %99, %130, %118, %71
   %136 = phi i1 [ false, %71 ], [ false, %131 ], [ true, %130 ], [ false, %118 ], [ true, %106 ], [ false, %99 ]
   %137 = phi i1 [ true, %71 ], [ true, %131 ], [ false, %130 ], [ true, %118 ], [ false, %106 ], [ true, %99 ]
-  %.0363 = phi i32 [ 0, %71 ], [ %134, %131 ], [ 0, %130 ], [ 0, %118 ], [ 0, %106 ], [ 0, %99 ]
+  %.0363 = phi i1 [ true, %71 ], [ %134, %131 ], [ true, %130 ], [ true, %118 ], [ true, %106 ], [ true, %99 ]
   %138 = getelementptr inbounds i8, ptr %1, i64 8
   %139 = load ptr, ptr %138, align 8
   call void @col_set_str(ptr noundef %139, i32 noundef 34, ptr noundef nonnull @.str.217) #13
@@ -1957,8 +1957,7 @@ proto_item_set_generated.exit.i:                  ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit136.i
 
 proto_item_set_generated.exit136.i:               ; preds = %220, %217, %214, %211, %proto_item_set_generated.exit.i
-  %.not121.i = icmp eq i32 %.0363, 0
-  br i1 %.not121.i, label %260, label %224
+  br i1 %.0363, label %260, label %224
 
 224:                                              ; preds = %proto_item_set_generated.exit136.i
   %225 = getelementptr inbounds i8, ptr %1, i64 20

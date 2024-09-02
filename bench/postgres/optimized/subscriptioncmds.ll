@@ -3344,11 +3344,11 @@ list_length.exit123:                              ; preds = %105, %.lr.ph141, %l
 
 117:                                              ; preds = %114
   %118 = load i32, ptr %112, align 4
+  %119 = sext i32 %118 to i64
   br label %list_length.exit125
 
 list_length.exit125:                              ; preds = %114, %117
-  %119 = phi i32 [ %118, %117 ], [ 0, %114 ]
-  %120 = sext i32 %119 to i64
+  %120 = phi i64 [ %119, %117 ], [ 0, %114 ]
   %121 = call ptr @bsearch(ptr noundef nonnull %7, ptr noundef %109, i64 noundef %120, i64 noundef 4, ptr noundef nonnull @oid_cmp) #10
   %.not116 = icmp eq ptr %121, null
   br i1 %.not116, label %122, label %150

@@ -96,12 +96,12 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_unregister_k
 define dso_local ptr @key_user_lookup(i32 %0) local_unnamed_addr #0 align 16 {
   br label %2
 
-2:                                                ; preds = %21, %1
-  %3 = phi ptr [ null, %1 ], [ %23, %21 ]
+2:                                                ; preds = %24, %1
+  %3 = phi ptr [ null, %1 ], [ %26, %24 ]
   tail call void @_raw_spin_lock(ptr noundef nonnull @key_user_lock) #12
   %4 = load ptr, ptr @key_user_tree, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.loopexit, label %.preheader
+  br i1 %5, label %20, label %.preheader
 
 .preheader:                                       ; preds = %2, %12
   %6 = phi ptr [ %15, %12 ], [ %4, %2 ]
@@ -112,83 +112,83 @@ define dso_local ptr @key_user_lookup(i32 %0) local_unnamed_addr #0 align 16 {
 
 10:                                               ; preds = %.preheader
   %11 = icmp ult i32 %8, %0
-  br i1 %11, label %12, label %36
+  br i1 %11, label %12, label %38
 
 12:                                               ; preds = %10, %.preheader
   %13 = phi i64 [ 16, %.preheader ], [ 8, %10 ]
   %14 = getelementptr inbounds i8, ptr %6, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.loopexit.loopexit, label %.preheader, !llvm.loop !5
+  br i1 %16, label %17, label %.preheader, !llvm.loop !5
 
-.loopexit.loopexit:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %6, i64 %13
-  br label %.loopexit
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %6, i64 %13
+  %19 = ptrtoint ptr %6 to i64
+  br label %20
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %2
-  %18 = phi ptr [ @key_user_tree, %2 ], [ %17, %.loopexit.loopexit ]
-  %19 = phi ptr [ null, %2 ], [ %6, %.loopexit.loopexit ]
-  %20 = icmp eq ptr %3, null
-  br i1 %20, label %21, label %25
+20:                                               ; preds = %17, %2
+  %21 = phi ptr [ @key_user_tree, %2 ], [ %18, %17 ]
+  %22 = phi i64 [ 0, %2 ], [ %19, %17 ]
+  %23 = icmp eq ptr %3, null
+  br i1 %23, label %24, label %28
 
-21:                                               ; preds = %.loopexit
+24:                                               ; preds = %20
   tail call void @_raw_spin_unlock(ptr noundef nonnull @key_user_lock) #12
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
-  %23 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3264, i64 noundef 88) #13
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %.loopexit7, label %2, !prof !8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
+  %26 = tail call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3264, i64 noundef 88) #13
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.loopexit, label %2, !prof !8
 
-25:                                               ; preds = %.loopexit
-  %26 = getelementptr inbounds i8, ptr %3, i64 60
-  store volatile i32 1, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %3, i64 64
-  store volatile i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 68
-  store volatile i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 72
-  store i32 %0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 76
-  store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %3, i64 80
-  store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 56
-  store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 24
-  tail call void @__mutex_init(ptr noundef %33, ptr noundef nonnull @.str, ptr noundef nonnull @key_user_lookup.__key) #12
-  %34 = ptrtoint ptr %19 to i64
-  store i64 %34, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  store ptr %3, ptr %18, align 8
+28:                                               ; preds = %20
+  %29 = getelementptr inbounds i8, ptr %3, i64 60
+  store volatile i32 1, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %3, i64 64
+  store volatile i32 0, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %3, i64 68
+  store volatile i32 0, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %3, i64 72
+  store i32 %0, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %3, i64 76
+  store i32 0, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %3, i64 80
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %3, i64 56
+  store i32 0, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %3, i64 24
+  tail call void @__mutex_init(ptr noundef %36, ptr noundef nonnull @.str, ptr noundef nonnull @key_user_lookup.__key) #12
+  store i64 %22, ptr %3, align 8
+  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
+  store ptr %3, ptr %21, align 8
   tail call void @rb_insert_color(ptr noundef nonnull %3, ptr noundef nonnull @key_user_tree) #12
   tail call void @_raw_spin_unlock(ptr noundef nonnull @key_user_lock) #12
-  br label %.loopexit7
+  br label %.loopexit
 
-36:                                               ; preds = %10
-  %37 = getelementptr inbounds i8, ptr %6, i64 60
-  %38 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37, i32 1, ptr elementtype(i32) %37) #12, !srcloc !9
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %44, label %40, !prof !8
+38:                                               ; preds = %10
+  %39 = getelementptr inbounds i8, ptr %6, i64 60
+  %40 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %39, i32 1, ptr elementtype(i32) %39) #12, !srcloc !9
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %46, label %42, !prof !8
 
-40:                                               ; preds = %36
-  %41 = add i32 %38, 1
-  %42 = or i32 %41, %38
-  %43 = icmp sgt i32 %42, -1
-  br i1 %43, label %46, label %44, !prof !10
+42:                                               ; preds = %38
+  %43 = add i32 %40, 1
+  %44 = or i32 %43, %40
+  %45 = icmp sgt i32 %44, -1
+  br i1 %45, label %48, label %46, !prof !10
 
-44:                                               ; preds = %40, %36
-  %45 = phi i32 [ 2, %36 ], [ 1, %40 ]
-  tail call void @refcount_warn_saturate(ptr noundef %37, i32 noundef %45) #12
-  br label %46
+46:                                               ; preds = %42, %38
+  %47 = phi i32 [ 2, %38 ], [ 1, %42 ]
+  tail call void @refcount_warn_saturate(ptr noundef %39, i32 noundef %47) #12
+  br label %48
 
-46:                                               ; preds = %44, %40
+48:                                               ; preds = %46, %42
   tail call void @_raw_spin_unlock(ptr noundef nonnull @key_user_lock) #12
   tail call void @kfree(ptr noundef %3) #12
-  br label %.loopexit7
+  br label %.loopexit
 
-.loopexit7:                                       ; preds = %21, %46, %25
-  %47 = phi ptr [ %6, %46 ], [ %3, %25 ], [ null, %21 ]
-  ret ptr %47
+.loopexit:                                        ; preds = %24, %48, %28
+  %49 = phi ptr [ %6, %48 ], [ %3, %28 ], [ null, %24 ]
+  ret ptr %49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

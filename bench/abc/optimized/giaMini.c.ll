@@ -1549,8 +1549,8 @@ Vec_IntPush.exit:                                 ; preds = %2
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #26
   %25 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %24, ptr %25, align 8
-  store i32 0, ptr %24, align 4
   %26 = icmp eq i32 %spec.store.select.i, 1
+  store i32 0, ptr %24, align 4
   br i1 %26, label %Vec_IntGrow.exit.i81, label %Vec_IntPush.exit82
 
 Vec_IntGrow.exit.i81:                             ; preds = %Vec_IntPush.exit
@@ -1886,8 +1886,8 @@ Vec_IntPush.exit:                                 ; preds = %2
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #26
   %23 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %22, ptr %23, align 8
-  store i32 0, ptr %22, align 4
   %24 = icmp eq i32 %spec.store.select.i, 1
+  store i32 0, ptr %22, align 4
   br i1 %24, label %Vec_IntGrow.exit.i70, label %Vec_IntPush.exit71
 
 Vec_IntGrow.exit.i70:                             ; preds = %Vec_IntPush.exit
@@ -7348,7 +7348,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

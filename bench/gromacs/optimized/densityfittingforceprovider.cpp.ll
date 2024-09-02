@@ -3517,13 +3517,16 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit.thread:         ; preds = %110
   %126 = fadd double %.07.i, %125
   %127 = getelementptr inbounds i8, ptr %.sroa.02.06.i, i64 4
   %.not.i64 = icmp eq ptr %127, %119
-  br i1 %.not.i64, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEdET0_T_S8_S7_.exit, label %.lr.ph.i63, !llvm.loop !65
+  br i1 %.not.i64, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEdET0_T_S8_S7_.exit.loopexit, label %.lr.ph.i63, !llvm.loop !65
 
-_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEdET0_T_S8_S7_.exit: ; preds = %.lr.ph.i63, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit
-  %128 = phi ptr [ %114, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit ], [ %119, %.lr.ph.i63 ]
-  %.0.lcssa.i = phi double [ 0.000000e+00, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit ], [ %126, %.lr.ph.i63 ]
-  %129 = fptrunc double %.0.lcssa.i to float
-  store float %129, ptr %9, align 4
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEdET0_T_S8_S7_.exit.loopexit: ; preds = %.lr.ph.i63
+  %128 = fptrunc double %126 to float
+  br label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEdET0_T_S8_S7_.exit
+
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEdET0_T_S8_S7_.exit: ; preds = %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEdET0_T_S8_S7_.exit.loopexit
+  %129 = phi ptr [ %119, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEdET0_T_S8_S7_.exit.loopexit ], [ %114, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit ]
+  %.0.lcssa.i = phi float [ %128, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEdET0_T_S8_S7_.exit.loopexit ], [ 0.000000e+00, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit ]
+  store float %.0.lcssa.i, ptr %9, align 4
   %130 = getelementptr inbounds i8, ptr %1, i64 112
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 96
@@ -3577,7 +3580,7 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit.thread: ; preds = %_ZSt10accumul
   %144 = fdiv float %143, %141
   store float %144, ptr %.sroa.0100.0140, align 4
   %145 = getelementptr inbounds i8, ptr %.sroa.0100.0140, i64 4
-  %.not125 = icmp eq ptr %145, %128
+  %.not125 = icmp eq ptr %145, %129
   br i1 %.not125, label %.loopexit135, label %142
 
 .loopexit135:                                     ; preds = %142, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit.thread, %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit

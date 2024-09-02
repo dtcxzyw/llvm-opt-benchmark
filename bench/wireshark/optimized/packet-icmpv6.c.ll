@@ -3588,14 +3588,14 @@ dissect_nodeinfo.exit:                            ; preds = %.lr.ph.i680, %800, 
   %878 = shl nuw nsw i32 %877, 2
   %879 = call ptr @proto_tree_add_item(ptr noundef %850, i32 noundef %876, ptr noundef %0, i32 noundef %.1.lcssa.i, i32 noundef %878, i32 noundef 0) #6
   %880 = add i32 %.1.lcssa.i, %878
+  %881 = add nuw nsw i32 %878, 20
   br label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %875, %._crit_edge.i
-  %.pre-phi71.i = phi i32 [ %878, %875 ], [ 0, %._crit_edge.i ]
+  %.pre-phi71.i = phi i32 [ %881, %875 ], [ 20, %._crit_edge.i ]
   %.2.i = phi i32 [ %880, %875 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %881 = shl nuw nsw i32 %874, 4
-  %882 = add nuw nsw i32 %881, 20
-  %883 = add nuw nsw i32 %882, %.pre-phi71.i
+  %882 = shl nuw nsw i32 %874, 4
+  %883 = add nuw nsw i32 %.pre-phi71.i, %882
   call void @proto_item_set_len(ptr noundef %848, i32 noundef %883) #6
   %884 = call i32 @tvb_reported_length(ptr noundef %0) #6
   %885 = icmp slt i32 %.2.i, %884

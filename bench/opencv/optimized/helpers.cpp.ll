@@ -292,7 +292,7 @@ _ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS
   %89 = and i8 %.01037.i, 1
   %90 = zext i1 %87 to i8
   %91 = or i8 %89, %90
-  %.not.i = icmp eq i8 %91, 0
+  %.not.i = icmp ne i8 %91, 0
   br label %_ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i
 
 92:                                               ; preds = %1
@@ -337,7 +337,7 @@ _ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS
 
 _ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i: ; preds = %80, %68, %88, %76
   %.3.i = phi i8 [ %91, %88 ], [ %.01037.i, %76 ], [ %.01037.i, %68 ], [ %.01037.i, %80 ]
-  %.0.i = phi i1 [ %.not.i, %88 ], [ true, %76 ], [ true, %68 ], [ true, %80 ]
+  %.0.i = phi i1 [ %.not.i, %88 ], [ false, %76 ], [ false, %68 ], [ false, %80 ]
   %111 = load ptr, ptr %12, align 8
   %.not.i.i.i.i19.i = icmp eq ptr %111, null
   br i1 %.not.i.i.i.i19.i, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit22.i, label %112
@@ -372,9 +372,9 @@ _ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS
 
 _ZN3ade6HandleINS_4NodeEED2Ev.exit22.i:           ; preds = %122, %120, %_ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i
   %126 = getelementptr inbounds i8, ptr %.sroa.028.036.i, i64 16
-  %127 = icmp ne ptr %126, %.sroa.5.0.copyload.i
-  %or.cond.not.i = select i1 %.0.i, i1 %127, i1 false
-  br i1 %or.cond.not.i, label %14, label %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.loopexit.i
+  %127 = icmp eq ptr %126, %.sroa.5.0.copyload.i
+  %or.cond.i = select i1 %.0.i, i1 true, i1 %127
+  br i1 %or.cond.i, label %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.loopexit.i, label %14
 
 _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.loopexit.i: ; preds = %_ZN3ade6HandleINS_4NodeEED2Ev.exit22.i
   %128 = trunc nuw i8 %.3.i to i1

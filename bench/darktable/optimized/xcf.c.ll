@@ -395,46 +395,46 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %250 = getelementptr inbounds float, ptr %153, i64 %245
   %251 = load float, ptr %250, align 4, !tbaa !40
   %252 = fcmp reassoc nsz arcp contract afn ult float %251, 0.000000e+00
-  br i1 %252, label %256, label %253
+  br i1 %252, label %257, label %253
 
 253:                                              ; preds = %249
   %254 = fcmp reassoc nsz arcp contract afn ugt float %251, 1.000000e+00
-  br i1 %254, label %256, label %255
+  br i1 %254, label %257, label %255
 
 255:                                              ; preds = %253
-  br label %256
+  %256 = fmul reassoc nsz arcp contract afn float %251, 2.550000e+02
+  br label %257
 
-256:                                              ; preds = %255, %253, %249
-  %257 = phi reassoc nsz arcp contract afn float [ %251, %255 ], [ 1.000000e+00, %253 ], [ 0.000000e+00, %249 ]
-  %258 = fmul reassoc nsz arcp contract afn float %257, 2.550000e+02
+257:                                              ; preds = %255, %253, %249
+  %258 = phi float [ %256, %255 ], [ 2.550000e+02, %253 ], [ 0.000000e+00, %249 ]
   %259 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %258)
   %260 = fptoui float %259 to i8
   %261 = getelementptr inbounds i8, ptr %180, i64 %245
   store i8 %260, ptr %261, align 1, !tbaa !44
   br label %262
 
-262:                                              ; preds = %256, %244
-  %263 = phi i64 [ %245, %244 ], [ %246, %256 ]
+262:                                              ; preds = %257, %244
+  %263 = phi i64 [ %245, %244 ], [ %246, %257 ]
   %264 = icmp eq i64 %179, %246
   br i1 %264, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %262, %285
-  %265 = phi i64 [ %291, %285 ], [ %263, %262 ]
+.preheader:                                       ; preds = %262, %286
+  %265 = phi i64 [ %291, %286 ], [ %263, %262 ]
   %266 = getelementptr inbounds float, ptr %153, i64 %265
   %267 = load float, ptr %266, align 4, !tbaa !40
   %268 = fcmp reassoc nsz arcp contract afn ult float %267, 0.000000e+00
-  br i1 %268, label %272, label %269
+  br i1 %268, label %273, label %269
 
 269:                                              ; preds = %.preheader
   %270 = fcmp reassoc nsz arcp contract afn ugt float %267, 1.000000e+00
-  br i1 %270, label %272, label %271
+  br i1 %270, label %273, label %271
 
 271:                                              ; preds = %269
-  br label %272
+  %272 = fmul reassoc nsz arcp contract afn float %267, 2.550000e+02
+  br label %273
 
-272:                                              ; preds = %271, %269, %.preheader
-  %273 = phi reassoc nsz arcp contract afn float [ %267, %271 ], [ 1.000000e+00, %269 ], [ 0.000000e+00, %.preheader ]
-  %274 = fmul reassoc nsz arcp contract afn float %273, 2.550000e+02
+273:                                              ; preds = %271, %269, %.preheader
+  %274 = phi float [ %272, %271 ], [ 2.550000e+02, %269 ], [ 0.000000e+00, %.preheader ]
   %275 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %274)
   %276 = fptoui float %275 to i8
   %277 = getelementptr inbounds i8, ptr %180, i64 %265
@@ -443,18 +443,18 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %279 = getelementptr inbounds float, ptr %153, i64 %278
   %280 = load float, ptr %279, align 4, !tbaa !40
   %281 = fcmp reassoc nsz arcp contract afn ult float %280, 0.000000e+00
-  br i1 %281, label %285, label %282
+  br i1 %281, label %286, label %282
 
-282:                                              ; preds = %272
+282:                                              ; preds = %273
   %283 = fcmp reassoc nsz arcp contract afn ugt float %280, 1.000000e+00
-  br i1 %283, label %285, label %284
+  br i1 %283, label %286, label %284
 
 284:                                              ; preds = %282
-  br label %285
+  %285 = fmul reassoc nsz arcp contract afn float %280, 2.550000e+02
+  br label %286
 
-285:                                              ; preds = %284, %282, %272
-  %286 = phi reassoc nsz arcp contract afn float [ %280, %284 ], [ 1.000000e+00, %282 ], [ 0.000000e+00, %272 ]
-  %287 = fmul reassoc nsz arcp contract afn float %286, 2.550000e+02
+286:                                              ; preds = %284, %282, %273
+  %287 = phi float [ %285, %284 ], [ 2.550000e+02, %282 ], [ 0.000000e+00, %273 ]
   %288 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %287)
   %289 = fptoui float %288 to i8
   %290 = getelementptr inbounds i8, ptr %180, i64 %278
@@ -545,23 +545,23 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %.ph = phi i64 [ %306, %355 ], [ 0, %303 ]
   br label %357
 
-357:                                              ; preds = %.preheader38, %365
-  %358 = phi i64 [ %371, %365 ], [ %.ph, %.preheader38 ]
+357:                                              ; preds = %.preheader38, %366
+  %358 = phi i64 [ %371, %366 ], [ %.ph, %.preheader38 ]
   %359 = getelementptr inbounds float, ptr %153, i64 %358
   %360 = load float, ptr %359, align 4, !tbaa !40
   %361 = fcmp reassoc nsz arcp contract afn ult float %360, 0.000000e+00
-  br i1 %361, label %365, label %362
+  br i1 %361, label %366, label %362
 
 362:                                              ; preds = %357
   %363 = fcmp reassoc nsz arcp contract afn ugt float %360, 1.000000e+00
-  br i1 %363, label %365, label %364
+  br i1 %363, label %366, label %364
 
 364:                                              ; preds = %362
-  br label %365
+  %365 = fmul reassoc nsz arcp contract afn float %360, 6.553500e+04
+  br label %366
 
-365:                                              ; preds = %364, %362, %357
-  %366 = phi reassoc nsz arcp contract afn float [ %360, %364 ], [ 1.000000e+00, %362 ], [ 0.000000e+00, %357 ]
-  %367 = fmul reassoc nsz arcp contract afn float %366, 6.553500e+04
+366:                                              ; preds = %364, %362, %357
+  %367 = phi float [ %365, %364 ], [ 6.553500e+04, %362 ], [ 0.000000e+00, %357 ]
   %368 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %367)
   %369 = fptoui float %368 to i16
   %370 = getelementptr inbounds i16, ptr %300, i64 %358
@@ -574,8 +574,8 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %374 = call i32 @xcf_add_data(ptr noundef %54, ptr noundef nonnull %153, i32 noundef 1) #17
   br label %377
 
-.loopexit:                                        ; preds = %365, %285, %355, %293, %262, %242, %174, %172
-  %375 = phi ptr [ null, %172 ], [ %180, %174 ], [ %300, %293 ], [ %180, %242 ], [ %300, %355 ], [ %180, %262 ], [ %180, %285 ], [ %300, %365 ]
+.loopexit:                                        ; preds = %366, %286, %355, %293, %262, %242, %174, %172
+  %375 = phi ptr [ null, %172 ], [ %180, %174 ], [ %300, %293 ], [ %180, %242 ], [ %300, %355 ], [ %180, %262 ], [ %180, %286 ], [ %300, %366 ]
   %376 = call i32 @xcf_add_data(ptr noundef %54, ptr noundef %375, i32 noundef 1) #17
   call void @free(ptr noundef %375) #17
   br label %377

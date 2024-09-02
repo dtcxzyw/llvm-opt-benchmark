@@ -176,7 +176,7 @@ define hidden range(i32 0, 2) i32 @hb_ot_color_has_palettes(ptr noundef %0) loca
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @hb_ot_color_palette_get_count(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_color_palette_get_count(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 368
   %3 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4CPALE22hb_table_lazy_loader_tIS1_Lj36ELb1EE9hb_face_tLj36E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -197,7 +197,7 @@ define hidden i32 @hb_ot_color_palette_get_count(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @hb_ot_color_palette_get_name_id(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_color_palette_get_name_id(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4CPALE22hb_table_lazy_loader_tIS1_Lj36ELb1EE9hb_face_tLj36E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -292,7 +292,7 @@ _ZNK2OT4CPAL19get_palette_name_idEj.exit:         ; preds = %_ZNK2OT4CPAL2v1Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @hb_ot_color_palette_color_get_name_id(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_color_palette_color_get_name_id(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4CPALE22hb_table_lazy_loader_tIS1_Lj36ELb1EE9hb_face_tLj36E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -491,7 +491,7 @@ _ZNK2OT4CPAL17get_palette_flagsEj.exit:           ; preds = %_ZNK2OT4CPAL2v1Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @hb_ot_color_palette_get_colors(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_ot_color_palette_get_colors(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 368
   %7 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4CPALE22hb_table_lazy_loader_tIS1_Lj36ELb1EE9hb_face_tLj36E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %8 = getelementptr inbounds i8, ptr %7, i64 16

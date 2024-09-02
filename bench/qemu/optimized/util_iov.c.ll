@@ -413,8 +413,8 @@ for.end40:                                        ; preds = %land.rhs26
   br i1 %tobool41.not, label %if.else69, label %if.end47
 
 for.end40.thread:                                 ; preds = %for.body33
-  %tobool41.not91 = icmp eq i64 %sub37, 0
-  br i1 %tobool41.not91, label %if.else69, label %if.else46
+  %8 = icmp eq i64 %sub37, 0
+  br i1 %8, label %if.else69, label %if.else46
 
 if.else46:                                        ; preds = %if.end22, %for.end40.thread
   call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 191, ptr noundef nonnull @__PRETTY_FUNCTION__.iov_send_recv) #17
@@ -423,8 +423,8 @@ if.else46:                                        ; preds = %if.end22, %for.end4
 if.end47:                                         ; preds = %for.end40
   %idxprom48 = and i64 %indvars.iv131, 4294967295
   %iov_len50 = getelementptr %struct.iovec, ptr %add.ptr, i64 %idxprom48, i32 1
-  %8 = load i64, ptr %iov_len50, align 8
-  %cmp51 = icmp ugt i64 %8, %tail.0107
+  %9 = load i64, ptr %iov_len50, align 8
+  %cmp51 = icmp ugt i64 %9, %tail.0107
   br i1 %cmp51, label %if.end55, label %if.else54
 
 if.else54:                                        ; preds = %if.end47
@@ -448,8 +448,8 @@ do.body.us.i:                                     ; preds = %if.end55, %land.rhs
 
 land.rhs.us.i:                                    ; preds = %do.body.us.i
   %call4.us.i = tail call ptr @__errno_location() #20
-  %9 = load i32, ptr %call4.us.i, align 4
-  %cmp5.us.i = icmp eq i32 %9, 4
+  %10 = load i32, ptr %call4.us.i, align 4
+  %cmp5.us.i = icmp eq i32 %10, 4
   br i1 %cmp5.us.i, label %do.body.us.i, label %do_send_recv.exit, !llvm.loop !13
 
 do.body.i:                                        ; preds = %if.end55, %land.rhs.i72
@@ -459,14 +459,14 @@ do.body.i:                                        ; preds = %if.end55, %land.rhs
 
 land.rhs.i72:                                     ; preds = %do.body.i
   %call4.i = tail call ptr @__errno_location() #20
-  %10 = load i32, ptr %call4.i, align 4
-  %cmp5.i = icmp eq i32 %10, 4
+  %11 = load i32, ptr %call4.i, align 4
+  %cmp5.i = icmp eq i32 %11, 4
   br i1 %cmp5.i, label %do.body.i, label %do_send_recv.exit, !llvm.loop !13
 
 do_send_recv.exit:                                ; preds = %do.body.i, %land.rhs.i72, %do.body.us.i, %land.rhs.us.i
   %.us-phi.i = phi i64 [ %call.us.i, %land.rhs.us.i ], [ %call.us.i, %do.body.us.i ], [ %call2.i, %land.rhs.i72 ], [ %call2.i, %do.body.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %msg.i)
-  store i64 %8, ptr %iov_len50, align 8
+  store i64 %9, ptr %iov_len50, align 8
   br label %if.end72
 
 if.else69:                                        ; preds = %for.end40.thread, %for.end40
@@ -485,8 +485,8 @@ do.body.us.i84:                                   ; preds = %if.else69, %land.rh
 
 land.rhs.us.i87:                                  ; preds = %do.body.us.i84
   %call4.us.i88 = tail call ptr @__errno_location() #20
-  %11 = load i32, ptr %call4.us.i88, align 4
-  %cmp5.us.i89 = icmp eq i32 %11, 4
+  %12 = load i32, ptr %call4.us.i88, align 4
+  %cmp5.us.i89 = icmp eq i32 %12, 4
   br i1 %cmp5.us.i89, label %do.body.us.i84, label %do_send_recv.exit90, !llvm.loop !13
 
 do.body.i77:                                      ; preds = %if.else69, %land.rhs.i81
@@ -496,8 +496,8 @@ do.body.i77:                                      ; preds = %if.else69, %land.rh
 
 land.rhs.i81:                                     ; preds = %do.body.i77
   %call4.i82 = tail call ptr @__errno_location() #20
-  %12 = load i32, ptr %call4.i82, align 4
-  %cmp5.i83 = icmp eq i32 %12, 4
+  %13 = load i32, ptr %call4.i82, align 4
+  %cmp5.i83 = icmp eq i32 %13, 4
   br i1 %cmp5.i83, label %do.body.i77, label %do_send_recv.exit90, !llvm.loop !13
 
 do_send_recv.exit90:                              ; preds = %do.body.i77, %land.rhs.i81, %do.body.us.i84, %land.rhs.us.i87
@@ -510,13 +510,13 @@ if.end72:                                         ; preds = %do_send_recv.exit90
   br i1 %tobool.not, label %if.end80, label %if.then74
 
 if.then74:                                        ; preds = %if.end72
-  %13 = load ptr, ptr %add.ptr, align 8
+  %14 = load ptr, ptr %add.ptr, align 8
   %idx.neg = sub i64 0, %offset.addr.1104
-  %add.ptr77 = getelementptr i8, ptr %13, i64 %idx.neg
+  %add.ptr77 = getelementptr i8, ptr %14, i64 %idx.neg
   store ptr %add.ptr77, ptr %add.ptr, align 8
   %iov_len79 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %14 = load i64, ptr %iov_len79, align 8
-  %add = add i64 %14, %offset.addr.1104
+  %15 = load i64, ptr %iov_len79, align 8
+  %add = add i64 %15, %offset.addr.1104
   store i64 %add, ptr %iov_len79, align 8
   br label %if.end80
 
@@ -526,8 +526,8 @@ if.end80:                                         ; preds = %if.then74, %if.end7
 
 if.then83:                                        ; preds = %if.end80
   %call84 = tail call ptr @__errno_location() #20
-  %15 = load i32, ptr %call84, align 4
-  %cmp85.not = icmp eq i32 %15, 4
+  %16 = load i32, ptr %call84, align 4
+  %cmp85.not = icmp eq i32 %16, 4
   br i1 %cmp85.not, label %if.else88, label %if.end89
 
 if.else88:                                        ; preds = %if.then83
@@ -536,8 +536,8 @@ if.else88:                                        ; preds = %if.then83
 
 if.end89:                                         ; preds = %if.then83
   call void @g_free(ptr noundef %call) #19
-  %16 = load i32, ptr %call84, align 4
-  %cmp91 = icmp eq i32 %16, 11
+  %17 = load i32, ptr %call84, align 4
+  %cmp91 = icmp eq i32 %17, 11
   %cmp93 = icmp sgt i64 %total.0114, 0
   %or.cond = select i1 %cmp91, i1 %cmp93, i1 false
   %total.0. = select i1 %or.cond, i64 %total.0114, i64 -1

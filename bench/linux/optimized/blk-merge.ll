@@ -804,31 +804,31 @@ define dso_local i32 @__blk_rq_map_sg(ptr nocapture noundef readonly %0, ptr noc
   %60 = zext i32 %47 to i64
   %61 = zext i32 %48 to i64
   %62 = getelementptr inbounds i8, ptr %44, i64 16
+  %63 = and i8 %46, 1
+  %64 = icmp eq i8 %63, 0
   %invariant.op = add nuw nsw i64 %60, %61
-  br label %63
+  br label %65
 
-63:                                               ; preds = %201, %53
-  %64 = phi i32 [ %45, %53 ], [ %189, %201 ]
-  %65 = phi i8 [ %46, %53 ], [ 0, %201 ]
-  %66 = phi i32 [ %55, %53 ], [ %203, %201 ]
-  %67 = phi i32 [ %57, %53 ], [ %202, %201 ]
-  %68 = phi i32 [ %51, %53 ], [ %204, %201 ]
-  %69 = load ptr, ptr %58, align 8
-  %70 = zext i32 %67 to i64
-  %71 = getelementptr %struct.bio_vec, ptr %69, i64 %70
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 8
-  %74 = load i32, ptr %73, align 8
-  %75 = sub i32 %74, %66
-  %76 = tail call i32 @llvm.umin.i32(i32 %68, i32 %75)
-  %77 = getelementptr inbounds i8, ptr %71, i64 12
-  %78 = load i32, ptr %77, align 4
-  %79 = add i32 %78, %66
-  %80 = and i8 %65, 1
-  %81 = icmp eq i8 %80, 0
-  br i1 %81, label %111, label %82
+65:                                               ; preds = %201, %53
+  %66 = phi i32 [ %45, %53 ], [ %189, %201 ]
+  %67 = phi i1 [ %64, %53 ], [ true, %201 ]
+  %68 = phi i32 [ %55, %53 ], [ %203, %201 ]
+  %69 = phi i32 [ %57, %53 ], [ %202, %201 ]
+  %70 = phi i32 [ %51, %53 ], [ %204, %201 ]
+  %71 = load ptr, ptr %58, align 8
+  %72 = zext i32 %69 to i64
+  %73 = getelementptr %struct.bio_vec, ptr %71, i64 %72
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %73, i64 8
+  %76 = load i32, ptr %75, align 8
+  %77 = sub i32 %76, %68
+  %78 = tail call i32 @llvm.umin.i32(i32 %70, i32 %77)
+  %79 = getelementptr inbounds i8, ptr %73, i64 12
+  %80 = load i32, ptr %79, align 4
+  %81 = add i32 %80, %68
+  br i1 %67, label %111, label %82
 
-82:                                               ; preds = %63
+82:                                               ; preds = %65
   %83 = load ptr, ptr %3, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %111, label %85
@@ -836,7 +836,7 @@ define dso_local i32 @__blk_rq_map_sg(ptr nocapture noundef readonly %0, ptr noc
 85:                                               ; preds = %82
   %86 = getelementptr inbounds i8, ptr %83, i64 12
   %87 = load i32, ptr %86, align 4
-  %88 = add i32 %87, %76
+  %88 = add i32 %87, %78
   %89 = load i32, ptr %41, align 4
   %90 = icmp ugt i32 %88, %89
   br i1 %90, label %111, label %91
@@ -845,10 +845,10 @@ define dso_local i32 @__blk_rq_map_sg(ptr nocapture noundef readonly %0, ptr noc
   %92 = load i64, ptr @vmemmap_base, align 8
   %93 = sub i64 %59, %92
   %94 = shl i64 %93, 6
-  %95 = ptrtoint ptr %72 to i64
+  %95 = ptrtoint ptr %74 to i64
   %96 = sub i64 %95, %92
   %97 = shl i64 %96, 6
-  %98 = zext i32 %79 to i64
+  %98 = zext i32 %81 to i64
   %99 = add i64 %97, %98
   %.reass = add i64 %94, %invariant.op
   %100 = icmp eq i64 %.reass, %99
@@ -858,7 +858,7 @@ define dso_local i32 @__blk_rq_map_sg(ptr nocapture noundef readonly %0, ptr noc
   %102 = add i64 %94, %60
   %103 = load i64, ptr %42, align 8
   %104 = or i64 %103, %102
-  %105 = zext i32 %76 to i64
+  %105 = zext i32 %78 to i64
   %106 = add nsw i64 %105, -1
   %107 = add i64 %106, %99
   %108 = or i64 %103, %107
@@ -869,8 +869,8 @@ define dso_local i32 @__blk_rq_map_sg(ptr nocapture noundef readonly %0, ptr noc
   store i32 %88, ptr %86, align 4
   br label %188
 
-111:                                              ; preds = %101, %91, %85, %82, %63
-  %112 = add i32 %79, %76
+111:                                              ; preds = %101, %91, %85, %82, %65
+  %112 = add i32 %81, %78
   %113 = icmp ult i32 %112, 4097
   br i1 %113, label %114, label %135
 
@@ -890,7 +890,7 @@ define dso_local i32 @__blk_rq_map_sg(ptr nocapture noundef readonly %0, ptr noc
 122:                                              ; preds = %117, %114
   %123 = phi ptr [ %121, %117 ], [ %2, %114 ]
   store ptr %123, ptr %3, align 8
-  %124 = ptrtoint ptr %72 to i64
+  %124 = ptrtoint ptr %74 to i64
   %125 = and i64 %124, 3
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %128, label %127, !prof !20
@@ -906,25 +906,25 @@ define dso_local i32 @__blk_rq_map_sg(ptr nocapture noundef readonly %0, ptr noc
   %131 = or disjoint i64 %130, %124
   store i64 %131, ptr %123, align 8
   %132 = getelementptr inbounds i8, ptr %123, i64 8
-  store i32 %79, ptr %132, align 8
+  store i32 %81, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %123, i64 12
-  store i32 %76, ptr %133, align 4
-  %134 = add i32 %64, 1
+  store i32 %78, ptr %133, align 4
+  %134 = add i32 %66, 1
   br label %188
 
 135:                                              ; preds = %111
-  %136 = icmp eq i32 %74, %66
+  %136 = icmp eq i32 %76, %68
   br i1 %136, label %.loopexit, label %137
 
 137:                                              ; preds = %135
-  %138 = ptrtoint ptr %72 to i64
+  %138 = ptrtoint ptr %74 to i64
   br label %139
 
 139:                                              ; preds = %176, %137
-  %140 = phi i32 [ %76, %137 ], [ %183, %176 ]
+  %140 = phi i32 [ %78, %137 ], [ %183, %176 ]
   %141 = phi i32 [ 0, %137 ], [ %184, %176 ]
   %142 = phi i32 [ 0, %137 ], [ %182, %176 ]
-  %143 = add i32 %142, %79
+  %143 = add i32 %142, %81
   %144 = zext i32 %143 to i64
   %145 = load i64, ptr %42, align 8
   %146 = load i64, ptr @vmemmap_base, align 8
@@ -942,7 +942,7 @@ define dso_local i32 @__blk_rq_map_sg(ptr nocapture noundef readonly %0, ptr noc
   %158 = tail call i32 @llvm.umin.i32(i32 %157, i32 %140)
   %159 = lshr i32 %143, 12
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr %struct.page, ptr %72, i64 %160
+  %161 = getelementptr %struct.page, ptr %74, i64 %160
   %162 = and i32 %143, 4095
   %163 = load ptr, ptr %3, align 8
   %164 = icmp eq ptr %163, null
@@ -986,11 +986,11 @@ define dso_local i32 @__blk_rq_map_sg(ptr nocapture noundef readonly %0, ptr noc
 
 .loopexit:                                        ; preds = %176, %135
   %186 = phi i32 [ 0, %135 ], [ %184, %176 ]
-  %187 = add i32 %186, %64
+  %187 = add i32 %186, %66
   br label %188
 
 188:                                              ; preds = %.loopexit, %128, %110
-  %189 = phi i32 [ %134, %128 ], [ %187, %.loopexit ], [ %64, %110 ]
+  %189 = phi i32 [ %134, %128 ], [ %187, %.loopexit ], [ %66, %110 ]
   %190 = load i32, ptr %62, align 8
   %191 = trunc i32 %190 to i8
   switch i8 %191, label %192 [
@@ -1001,21 +1001,21 @@ define dso_local i32 @__blk_rq_map_sg(ptr nocapture noundef readonly %0, ptr noc
 
 192:                                              ; preds = %188
   %193 = load ptr, ptr %58, align 8
-  %194 = add i32 %76, %66
-  %195 = getelementptr %struct.bio_vec, ptr %193, i64 %70, i32 1
+  %194 = add i32 %78, %68
+  %195 = getelementptr %struct.bio_vec, ptr %193, i64 %72, i32 1
   %196 = load i32, ptr %195, align 8
   %197 = icmp eq i32 %194, %196
   %198 = zext i1 %197 to i32
-  %199 = add i32 %67, %198
+  %199 = add i32 %69, %198
   %200 = select i1 %197, i32 0, i32 %194
   br label %201
 
 201:                                              ; preds = %192, %188, %188, %188
-  %202 = phi i32 [ %199, %192 ], [ %67, %188 ], [ %67, %188 ], [ %67, %188 ]
-  %203 = phi i32 [ %200, %192 ], [ %66, %188 ], [ %66, %188 ], [ %66, %188 ]
-  %204 = sub i32 %68, %76
+  %202 = phi i32 [ %199, %192 ], [ %69, %188 ], [ %69, %188 ], [ %69, %188 ]
+  %203 = phi i32 [ %200, %192 ], [ %68, %188 ], [ %68, %188 ], [ %68, %188 ]
+  %204 = sub i32 %70, %78
   %205 = icmp eq i32 %204, 0
-  br i1 %205, label %206, label %63, !llvm.loop !28
+  br i1 %205, label %206, label %65, !llvm.loop !28
 
 206:                                              ; preds = %201
   %.pr = load i32, ptr %50, align 8
@@ -1027,9 +1027,9 @@ define dso_local i32 @__blk_rq_map_sg(ptr nocapture noundef readonly %0, ptr noc
 
 .thread:                                          ; preds = %43, %208, %206
   %209 = phi i32 [ %189, %206 ], [ %189, %208 ], [ %45, %43 ]
-  %210 = phi ptr [ %49, %206 ], [ %72, %208 ], [ %49, %43 ]
-  %211 = phi i32 [ %48, %206 ], [ %76, %208 ], [ %48, %43 ]
-  %212 = phi i32 [ %47, %206 ], [ %79, %208 ], [ %47, %43 ]
+  %210 = phi ptr [ %49, %206 ], [ %74, %208 ], [ %49, %43 ]
+  %211 = phi i32 [ %48, %206 ], [ %78, %208 ], [ %48, %43 ]
+  %212 = phi i32 [ %47, %206 ], [ %81, %208 ], [ %47, %43 ]
   %213 = phi i8 [ 0, %206 ], [ 1, %208 ], [ %46, %43 ]
   %214 = load ptr, ptr %44, align 8
   %215 = icmp eq ptr %214, null

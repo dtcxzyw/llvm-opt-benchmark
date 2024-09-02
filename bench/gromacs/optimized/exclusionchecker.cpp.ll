@@ -106,10 +106,11 @@ define void @_ZN16ExclusionChecker4ImplC2EPK9t_commrecRK10gmx_mtop_t(ptr nocaptu
   %44 = getelementptr inbounds i8, ptr %30, i64 16
   %45 = load i16, ptr %44, align 4
   %46 = icmp ne i16 %43, %45
+  %47 = freeze i1 %46
   br label %_Z9PERTURBEDRK6t_atom.exit.i
 
 _Z9PERTURBEDRK6t_atom.exit.i:                     ; preds = %41, %35, %29
-  %47 = phi i1 [ true, %35 ], [ true, %29 ], [ %46, %41 ]
+  %.fr.i = phi i1 [ true, %35 ], [ true, %29 ], [ %47, %41 ]
   %48 = getelementptr i32, ptr %18, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4
   %50 = getelementptr i8, ptr %48, i64 4
@@ -122,7 +123,6 @@ _Z9PERTURBEDRK6t_atom.exit.i:                     ; preds = %41, %35, %29
 .lr.ph.i:                                         ; preds = %_Z9PERTURBEDRK6t_atom.exit.i
   %54 = sext i32 %49 to i64
   %55 = getelementptr inbounds i32, ptr %27, i64 %54
-  %.fr.i = freeze i1 %47
   br i1 %.fr.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i

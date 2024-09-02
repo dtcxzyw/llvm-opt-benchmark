@@ -30,10 +30,10 @@ define void @_ZN15pme_spline_workC2Ei(ptr nocapture noundef nonnull writeonly al
 
 8:                                                ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
-  %.not = icmp uge i64 %indvars.iv, %indvars.iv38
+  %.not = icmp ult i64 %indvars.iv, %indvars.iv38
   %9 = icmp slt i64 %indvars.iv, %7
-  %10 = select i1 %.not, i1 %9, i1 false
-  %11 = select i1 %10, float -1.000000e+00, float 1.000000e+00
+  %10 = select i1 %9, float -1.000000e+00, float 1.000000e+00
+  %11 = select i1 %.not, float 1.000000e+00, float %10
   %12 = getelementptr inbounds [8 x float], ptr %2, i64 0, i64 %indvars.iv
   store float %11, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

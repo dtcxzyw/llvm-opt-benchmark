@@ -1458,7 +1458,7 @@ define hidden void @_ZN5KlassC2ENS_9KlassKindE(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN5Klass19array_layout_helperE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 -2146435072, 0) i32 @_ZN5Klass19array_layout_helperE9BasicType(i8 noundef zeroext %0) local_unnamed_addr #9 align 2 {
   %2 = load i8, ptr @UseCompressedClassPointers, align 1
   %3 = trunc i8 %2 to i1
   %4 = select i1 %3, i32 16, i32 20
@@ -1685,7 +1685,7 @@ define hidden void @_ZNK5Klass25print_secondary_supers_onEP12outputStream(ptr no
 _ZN5Klass17compute_home_slotEPS_m.exit.i:         ; preds = %25, %20
   %.0.i.i = phi i32 [ %31, %25 ], [ 0, %20 ]
   %32 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %33 = sub i32 %32, %.0.i.i
+  %33 = sub nsw i32 %32, %.0.i.i
   %34 = and i32 %33, 63
   %35 = add nuw nsw i32 %34, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2216,7 +2216,7 @@ define hidden noundef i64 @_ZN5Klass31compute_secondary_supers_bitmapEP5ArrayIPS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i8 @_ZN5Klass17compute_home_slotEPS_m(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext range(i8 0, 65) i8 @_ZN5Klass17compute_home_slotEPS_m(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 0

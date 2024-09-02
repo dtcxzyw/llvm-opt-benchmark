@@ -1411,7 +1411,7 @@ _ZN8facebook5velox13DecodedVectorD2Ev.exit:       ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN8facebook5velox3row10CompactRow12fixedRowSizeERKSt10shared_ptrIKNS0_7RowTypeEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rowType) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZN8facebook5velox3row10CompactRow12fixedRowSizeERKSt10shared_ptrIKNS0_7RowTypeEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rowType) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %rowType, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -1451,14 +1451,13 @@ if.then4.i:                                       ; preds = %if.end.i
   %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 104
   %9 = load ptr, ptr %vfn8.i, align 8
   %call9.i = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(17) %8)
-  %10 = and i64 %call9.i, 4294967295
+  %sext = shl i64 %call9.i, 32
+  %10 = ashr exact i64 %sext, 32
   br label %_ZNRSt8optionalIiE5valueEv.exit
 
 _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %if.then4.i, %for.body
   %retval.sroa.0.0.i.ph = phi i64 [ 8, %for.body ], [ %10, %if.then4.i ]
-  %sext = shl nuw i64 %retval.sroa.0.0.i.ph, 32
-  %conv16 = ashr exact i64 %sext, 32
-  %add = add i64 %conv16, %size.014
+  %add = add i64 %retval.sroa.0.0.i.ph, %size.014
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.013, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -4673,7 +4672,8 @@ if.then4.i:                                       ; preds = %call3.i.noexc
           to label %call9.i.noexc unwind label %lpad68
 
 call9.i.noexc:                                    ; preds = %if.then4.i
-  %72 = and i64 %call9.i68, 4294967295
+  %sext = shl i64 %call9.i68, 32
+  %72 = ashr exact i64 %sext, 32
   br label %invoke.cont69
 
 invoke.cont69:                                    ; preds = %call9.i.noexc, %invoke.cont67
@@ -4683,8 +4683,6 @@ invoke.cont69:                                    ; preds = %call9.i.noexc, %inv
   br i1 %cmp77160.not, label %if.end95, label %for.body78.lr.ph
 
 for.body78.lr.ph:                                 ; preds = %invoke.cont69
-  %sext = shl nuw i64 %retval.sroa.0.0.i, 32
-  %conv87 = ashr exact i64 %sext, 32
   br i1 %cmp79.not, label %for.body78.us, label %for.body78
 
 for.body78.us:                                    ; preds = %for.body78.lr.ph, %for.body78.us
@@ -4692,7 +4690,7 @@ for.body78.us:                                    ; preds = %for.body78.lr.ph, %
   %74 = load ptr, ptr %offsets, align 8
   %add.ptr.i81.us = getelementptr inbounds i64, ptr %74, i64 %indvars.iv178
   %75 = load i64, ptr %add.ptr.i81.us, align 8
-  %add90.us = add i64 %75, %conv87
+  %add90.us = add i64 %75, %retval.sroa.0.0.i
   store i64 %add90.us, ptr %add.ptr.i81.us, align 8
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %76 = load i64, ptr %numRows, align 8
@@ -4715,7 +4713,7 @@ invoke.cont85:                                    ; preds = %for.body78
   %79 = load ptr, ptr %offsets, align 8
   %add.ptr.i81 = getelementptr inbounds i64, ptr %79, i64 %indvars.iv175
   %80 = load i64, ptr %add.ptr.i81, align 8
-  %add90 = add i64 %80, %conv87
+  %add90 = add i64 %80, %retval.sroa.0.0.i
   store i64 %add90, ptr %add.ptr.i81, align 8
   %.pre185 = load i64, ptr %numRows, align 8
   br label %for.inc92

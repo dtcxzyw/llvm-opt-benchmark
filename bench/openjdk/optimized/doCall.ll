@@ -171,626 +171,626 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
 36:                                               ; preds = %_ZN8ciMethod16java_code_at_bciEi.exit
   %37 = getelementptr inbounds i8, ptr %34, i64 84
   %38 = load i32, ptr %37, align 4
-  %39 = icmp eq i32 %38, 398
-  %40 = icmp eq i32 %38, 401
-  %spec.select367 = or i1 %39, %40
+  %39 = icmp ne i32 %38, 398
+  %40 = icmp ne i32 %38, 401
+  %spec.select367.not = and i1 %39, %40
   br label %41
 
 41:                                               ; preds = %36, %_ZN8ciMethod16java_code_at_bciEi.exit, %_ZN8ciMethod16java_code_at_bciEi.exit
-  %42 = phi i1 [ true, %_ZN8ciMethod16java_code_at_bciEi.exit ], [ true, %_ZN8ciMethod16java_code_at_bciEi.exit ], [ %spec.select367, %36 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 352
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 166
-  %46 = load i8, ptr %45, align 2
-  %47 = trunc i8 %46 to i1
-  %not. = xor i1 %47, true
+  %.not320 = phi i1 [ false, %_ZN8ciMethod16java_code_at_bciEi.exit ], [ false, %_ZN8ciMethod16java_code_at_bciEi.exit ], [ %spec.select367.not, %36 ]
+  %42 = getelementptr inbounds i8, ptr %0, i64 352
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 166
+  %45 = load i8, ptr %44, align 2
+  %46 = trunc i8 %45 to i1
+  %not. = xor i1 %46, true
   %spec.select = and i1 %5, %not.
   call void @_ZN8ciMethod19call_profile_at_bciEi(ptr dead_on_unwind nonnull writable sret(%class.ciCallProfile) align 8 %13, ptr noundef nonnull align 8 dereferenceable(160) %16, i32 noundef %18) #11
-  %48 = getelementptr inbounds i8, ptr %13, i64 8
-  %49 = load i32, ptr %48, align 8
-  br i1 %3, label %50, label %58
+  %47 = getelementptr inbounds i8, ptr %13, i64 8
+  %48 = load i32, ptr %47, align 8
+  br i1 %3, label %49, label %57
 
-50:                                               ; preds = %41
-  %51 = load i8, ptr @UseTypeProfile, align 1
-  %52 = trunc i8 %51 to i1
-  %53 = load i32, ptr %13, align 8
-  %54 = icmp sgt i32 %53, 0
-  %or.cond369 = select i1 %52, i1 %54, i1 false
-  br i1 %or.cond369, label %55, label %58
+49:                                               ; preds = %41
+  %50 = load i8, ptr @UseTypeProfile, align 1
+  %51 = trunc i8 %50 to i1
+  %52 = load i32, ptr %13, align 8
+  %53 = icmp sgt i32 %52, 0
+  %or.cond369 = select i1 %51, i1 %53, i1 false
+  br i1 %or.cond369, label %54, label %57
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %13, i64 12
-  %57 = load i32, ptr %56, align 4
-  br label %58
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds i8, ptr %13, i64 12
+  %56 = load i32, ptr %55, align 4
+  br label %57
 
-58:                                               ; preds = %55, %50, %41
-  %.0257 = phi i32 [ %57, %55 ], [ -1, %50 ], [ -1, %41 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 368
-  %60 = load ptr, ptr %59, align 8
-  %.not = icmp eq ptr %60, null
-  br i1 %.not, label %92, label %61
+57:                                               ; preds = %54, %49, %41
+  %.0257 = phi i32 [ %56, %54 ], [ -1, %49 ], [ -1, %41 ]
+  %58 = getelementptr inbounds i8, ptr %0, i64 368
+  %59 = load ptr, ptr %58, align 8
+  %.not = icmp eq ptr %59, null
+  br i1 %.not, label %91, label %60
 
-61:                                               ; preds = %58
-  %62 = icmp sgt i32 %.0257, -1
-  br i1 %62, label %63, label %.thread
+60:                                               ; preds = %57
+  %61 = icmp sgt i32 %.0257, -1
+  br i1 %61, label %62, label %.thread
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %13, i64 24
-  %65 = load ptr, ptr %64, align 8
-  %66 = call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %60, ptr noundef %65) #11
-  %.not290 = icmp eq i32 %66, -1
-  br i1 %.not290, label %.thread, label %67
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds i8, ptr %13, i64 24
+  %64 = load ptr, ptr %63, align 8
+  %65 = call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %59, ptr noundef %64) #11
+  %.not290 = icmp eq i32 %65, -1
+  br i1 %.not290, label %.thread, label %66
 
-67:                                               ; preds = %63
-  %68 = load i32, ptr %13, align 8
-  %69 = icmp sgt i32 %68, 1
-  br i1 %69, label %70, label %.thread
+66:                                               ; preds = %62
+  %67 = load i32, ptr %13, align 8
+  %68 = icmp sgt i32 %67, 1
+  br i1 %68, label %69, label %.thread
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %13, i64 32
-  %72 = load ptr, ptr %71, align 8
-  %73 = call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %60, ptr noundef %72) #11
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds i8, ptr %13, i64 32
+  %71 = load ptr, ptr %70, align 8
+  %72 = call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %59, ptr noundef %71) #11
   br label %.thread
 
-.thread:                                          ; preds = %61, %63, %67, %70
-  %74 = phi i32 [ %66, %70 ], [ %66, %67 ], [ -1, %63 ], [ -1, %61 ]
-  %75 = phi i32 [ %73, %70 ], [ -1, %67 ], [ -1, %63 ], [ -1, %61 ]
-  %76 = call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %60, ptr noundef %1) #11
-  %77 = fpext float %6 to double
-  call void (ptr, ptr, ...) @_ZN9xmlStream10begin_elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %60, ptr noundef nonnull @.str, i32 noundef %76, i32 noundef %49, double noundef %77) #11
-  br i1 %3, label %78, label %79
+.thread:                                          ; preds = %60, %62, %66, %69
+  %73 = phi i32 [ %65, %69 ], [ %65, %66 ], [ -1, %62 ], [ -1, %60 ]
+  %74 = phi i32 [ %72, %69 ], [ -1, %66 ], [ -1, %62 ], [ -1, %60 ]
+  %75 = call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %59, ptr noundef %1) #11
+  %76 = fpext float %6 to double
+  call void (ptr, ptr, ...) @_ZN9xmlStream10begin_elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %59, ptr noundef nonnull @.str, i32 noundef %75, i32 noundef %48, double noundef %76) #11
+  br i1 %3, label %77, label %78
 
-78:                                               ; preds = %.thread
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull @.str.4) #11
-  br label %79
+77:                                               ; preds = %.thread
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull @.str.4) #11
+  br label %78
 
-79:                                               ; preds = %78, %.thread
-  br i1 %spec.select, label %80, label %81
+78:                                               ; preds = %77, %.thread
+  br i1 %spec.select, label %79, label %80
 
-80:                                               ; preds = %79
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull @.str.5) #11
-  br label %81
+79:                                               ; preds = %78
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull @.str.5) #11
+  br label %80
 
-81:                                               ; preds = %80, %79
-  br i1 %62, label %82, label %88
+80:                                               ; preds = %79, %78
+  br i1 %61, label %81, label %87
 
-82:                                               ; preds = %81
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull @.str.6, i32 noundef %74, i32 noundef %.0257) #11
-  %83 = load i32, ptr %13, align 8
-  %84 = icmp sgt i32 %83, 1
-  br i1 %84, label %85, label %88
+81:                                               ; preds = %80
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull @.str.6, i32 noundef %73, i32 noundef %.0257) #11
+  %82 = load i32, ptr %13, align 8
+  %83 = icmp sgt i32 %82, 1
+  br i1 %83, label %84, label %87
 
-85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %13, i64 16
-  %87 = load i32, ptr %86, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull @.str.7, i32 noundef %75, i32 noundef %87) #11
-  br label %88
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds i8, ptr %13, i64 16
+  %86 = load i32, ptr %85, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull @.str.7, i32 noundef %74, i32 noundef %86) #11
+  br label %87
 
-88:                                               ; preds = %82, %85, %81
-  %89 = call noundef zeroext i1 @_ZNK8ciMethod26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
-  br i1 %89, label %90, label %91
+87:                                               ; preds = %81, %84, %80
+  %88 = call noundef zeroext i1 @_ZNK8ciMethod26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
+  br i1 %88, label %89, label %90
 
-90:                                               ; preds = %88
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %60, ptr noundef nonnull @.str.8) #11
+89:                                               ; preds = %87
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull @.str.8) #11
+  br label %90
+
+90:                                               ; preds = %89, %87
+  call void @_ZN9xmlStream8end_elemEv(ptr noundef nonnull align 8 dereferenceable(152) %59) #11
   br label %91
 
-91:                                               ; preds = %90, %88
-  call void @_ZN9xmlStream8end_elemEv(ptr noundef nonnull align 8 dereferenceable(152) %60) #11
-  br label %92
-
-92:                                               ; preds = %91, %58
+91:                                               ; preds = %90, %57
   %brmerge.not = and i1 %8, %spec.select
-  br i1 %brmerge.not, label %93, label %118
+  br i1 %brmerge.not, label %92, label %117
 
-93:                                               ; preds = %92
-  %94 = call noundef ptr @_ZN7Compile14find_intrinsicEP8ciMethodb(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef %1, i1 noundef zeroext %3) #11
-  %.not291 = icmp eq ptr %94, null
-  br i1 %.not291, label %118, label %95
+92:                                               ; preds = %91
+  %93 = call noundef ptr @_ZN7Compile14find_intrinsicEP8ciMethodb(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef %1, i1 noundef zeroext %3) #11
+  %.not291 = icmp eq ptr %93, null
+  br i1 %.not291, label %117, label %94
 
-95:                                               ; preds = %93
-  %96 = load ptr, ptr %94, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 64
-  %98 = load ptr, ptr %97, align 8
-  %99 = call noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(16) %94) #11
-  br i1 %99, label %100, label %104
+94:                                               ; preds = %92
+  %95 = load ptr, ptr %93, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 64
+  %97 = load ptr, ptr %96, align 8
+  %98 = call noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %93) #11
+  br i1 %98, label %99, label %103
 
-100:                                              ; preds = %95
-  %101 = call noundef ptr @_ZN7Compile14call_generatorEP8ciMethodibP8JVMStatebfP7ciKlassb(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull %4, i1 noundef zeroext true, float noundef %6, ptr noundef %7, i1 noundef zeroext false)
-  %.not292 = icmp eq ptr %101, null
-  br i1 %.not292, label %104, label %102
+99:                                               ; preds = %94
+  %100 = call noundef ptr @_ZN7Compile14call_generatorEP8ciMethodibP8JVMStatebfP7ciKlassb(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull %4, i1 noundef zeroext true, float noundef %6, ptr noundef %7, i1 noundef zeroext false)
+  %.not292 = icmp eq ptr %100, null
+  br i1 %.not292, label %103, label %101
 
-102:                                              ; preds = %100
-  %103 = call noundef ptr @_ZN13CallGenerator24for_predicated_intrinsicEPS_S0_(ptr noundef nonnull %94, ptr noundef nonnull %101) #11
-  br label %104
+101:                                              ; preds = %99
+  %102 = call noundef ptr @_ZN13CallGenerator24for_predicated_intrinsicEPS_S0_(ptr noundef nonnull %93, ptr noundef nonnull %100) #11
+  br label %103
 
-104:                                              ; preds = %100, %102, %95
-  %.0259 = phi ptr [ %103, %102 ], [ %94, %100 ], [ %94, %95 ]
-  %105 = load ptr, ptr %.0259, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 88
-  %107 = load ptr, ptr %106, align 8
-  %108 = call noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %.0259) #11
-  br i1 %108, label %118, label %109
+103:                                              ; preds = %99, %101, %94
+  %.0259 = phi ptr [ %102, %101 ], [ %93, %99 ], [ %93, %94 ]
+  %104 = load ptr, ptr %.0259, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 88
+  %106 = load ptr, ptr %105, align 8
+  %107 = call noundef zeroext i1 %106(ptr noundef nonnull align 8 dereferenceable(16) %.0259) #11
+  br i1 %107, label %117, label %108
 
-109:                                              ; preds = %104
-  %110 = load i8, ptr @IncrementalInline, align 1
-  %111 = trunc i8 %110 to i1
-  br i1 %111, label %112, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
+108:                                              ; preds = %103
+  %109 = load i8, ptr @IncrementalInline, align 1
+  %110 = trunc i8 %109 to i1
+  br i1 %110, label %111, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-112:                                              ; preds = %109
-  %113 = load i8, ptr @EnableVectorSupport, align 1
-  %114 = trunc i8 %113 to i1
-  br i1 %114, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
+111:                                              ; preds = %108
+  %112 = load i8, ptr @EnableVectorSupport, align 1
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit: ; preds = %112
-  %115 = call noundef zeroext i1 @_ZNK8ciMethod16is_vector_methodEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
-  br i1 %115, label %116, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
+_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit: ; preds = %111
+  %114 = call noundef zeroext i1 @_ZNK8ciMethod16is_vector_methodEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
+  br i1 %114, label %115, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-116:                                              ; preds = %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit
-  %117 = call noundef ptr @_ZN13CallGenerator15for_late_inlineEP8ciMethodPS_(ptr noundef nonnull %1, ptr noundef nonnull %.0259) #11
+115:                                              ; preds = %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit
+  %116 = call noundef ptr @_ZN13CallGenerator15for_late_inlineEP8ciMethodPS_(ptr noundef nonnull %1, ptr noundef nonnull %.0259) #11
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-118:                                              ; preds = %104, %92, %93
-  %.0258 = phi ptr [ null, %93 ], [ null, %92 ], [ %.0259, %104 ]
-  %119 = call noundef zeroext i1 @_ZNK8ciMethod26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
-  br i1 %119, label %120, label %122
+117:                                              ; preds = %103, %91, %92
+  %.0258 = phi ptr [ null, %92 ], [ null, %91 ], [ %.0259, %103 ]
+  %118 = call noundef zeroext i1 @_ZNK8ciMethod26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
+  br i1 %118, label %119, label %121
 
-120:                                              ; preds = %118
-  %121 = call noundef ptr @_ZN13CallGenerator22for_method_handle_callEP8JVMStateP8ciMethodS3_b(ptr noundef nonnull %4, ptr noundef nonnull %16, ptr noundef nonnull %1, i1 noundef zeroext %spec.select) #11
+119:                                              ; preds = %117
+  %120 = call noundef ptr @_ZN13CallGenerator22for_method_handle_callEP8JVMStateP8ciMethodS3_b(ptr noundef nonnull %4, ptr noundef nonnull %16, ptr noundef nonnull %1, i1 noundef zeroext %spec.select) #11
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-122:                                              ; preds = %118
-  br i1 %spec.select, label %123, label %333
+121:                                              ; preds = %117
+  br i1 %spec.select, label %122, label %332
 
-123:                                              ; preds = %122
-  %124 = load ptr, ptr %15, align 8
-  %125 = call noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull align 8 dereferenceable(160) %124, i32 noundef %49, float noundef %6) #11
-  %126 = sitofp i32 %125 to float
-  br i1 %3, label %184, label %127
+122:                                              ; preds = %121
+  %123 = load ptr, ptr %15, align 8
+  %124 = call noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull align 8 dereferenceable(160) %123, i32 noundef %48, float noundef %6) #11
+  %125 = sitofp i32 %124 to float
+  br i1 %3, label %183, label %126
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %0, i64 56
-  %129 = load ptr, ptr %128, align 8
-  %130 = load ptr, ptr %4, align 8
-  %131 = load ptr, ptr %15, align 8
-  %132 = call noundef ptr @_ZN10InlineTree22find_subtree_from_rootEPS_P8JVMStateP8ciMethod(ptr noundef %129, ptr noundef %130, ptr noundef %131) #11
-  %133 = load i8, ptr @StressIncrementalInlining, align 1
-  %134 = trunc i8 %133 to i1
-  br i1 %134, label %135, label %_ZN7Compile21should_delay_inliningEv.exit
+126:                                              ; preds = %122
+  %127 = getelementptr inbounds i8, ptr %0, i64 56
+  %128 = load ptr, ptr %127, align 8
+  %129 = load ptr, ptr %4, align 8
+  %130 = load ptr, ptr %15, align 8
+  %131 = call noundef ptr @_ZN10InlineTree22find_subtree_from_rootEPS_P8JVMStateP8ciMethod(ptr noundef %128, ptr noundef %129, ptr noundef %130) #11
+  %132 = load i8, ptr @StressIncrementalInlining, align 1
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %134, label %_ZN7Compile21should_delay_inliningEv.exit
 
-135:                                              ; preds = %127
-  %136 = getelementptr inbounds i8, ptr %0, i64 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = call noundef i32 @_ZN7Compile6randomEv(ptr noundef nonnull align 8 dereferenceable(2316) %137) #11
-  %139 = trunc i32 %138 to i8
-  %140 = and i8 %139, 1
-  %141 = xor i8 %140, 1
+134:                                              ; preds = %126
+  %135 = getelementptr inbounds i8, ptr %0, i64 8
+  %136 = load ptr, ptr %135, align 8
+  %137 = call noundef i32 @_ZN7Compile6randomEv(ptr noundef nonnull align 8 dereferenceable(2316) %136) #11
+  %138 = trunc i32 %137 to i8
+  %139 = and i8 %138, 1
+  %140 = xor i8 %139, 1
   br label %_ZN7Compile21should_delay_inliningEv.exit
 
-_ZN7Compile21should_delay_inliningEv.exit:        ; preds = %127, %135
-  %142 = phi i8 [ 0, %127 ], [ %141, %135 ]
-  store i8 %142, ptr %14, align 1
-  %143 = call noundef zeroext i1 @_ZN10InlineTree12ok_to_inlineEP8ciMethodP8JVMStateR13ciCallProfileRb(ptr noundef nonnull align 8 dereferenceable(81) %132, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 1 dereferenceable(1) %14) #11
-  br i1 %143, label %144, label %.thread365
+_ZN7Compile21should_delay_inliningEv.exit:        ; preds = %126, %134
+  %141 = phi i8 [ 0, %126 ], [ %140, %134 ]
+  store i8 %141, ptr %14, align 1
+  %142 = call noundef zeroext i1 @_ZN10InlineTree12ok_to_inlineEP8ciMethodP8JVMStateR13ciCallProfileRb(ptr noundef nonnull align 8 dereferenceable(81) %131, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 1 dereferenceable(1) %14) #11
+  br i1 %142, label %143, label %.thread365
 
-144:                                              ; preds = %_ZN7Compile21should_delay_inliningEv.exit
-  %145 = call noundef ptr @_ZN13CallGenerator10for_inlineEP8ciMethodf(ptr noundef nonnull %1, float noundef %126) #11
-  %.not293 = icmp ne ptr %145, null
-  %brmerge311.not = and i1 %42, %.not293
-  br i1 %brmerge311.not, label %146, label %154
+143:                                              ; preds = %_ZN7Compile21should_delay_inliningEv.exit
+  %144 = call noundef ptr @_ZN13CallGenerator10for_inlineEP8ciMethodf(ptr noundef nonnull %1, float noundef %125) #11
+  %.not293 = icmp eq ptr %144, null
+  %brmerge311 = or i1 %.not320, %.not293
+  br i1 %brmerge311, label %153, label %145
 
-146:                                              ; preds = %144
-  %147 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i = load i64, ptr %147, align 8
-  %148 = and i64 %.sroa.0.0.copyload.i.i, 8
-  %.not370 = icmp eq i64 %148, 0
-  br i1 %.not370, label %149, label %.thread325
+145:                                              ; preds = %143
+  %146 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load i64, ptr %146, align 8
+  %147 = and i64 %.sroa.0.0.copyload.i.i, 8
+  %.not372 = icmp eq i64 %147, 0
+  br i1 %.not372, label %148, label %.thread325
 
-149:                                              ; preds = %146
-  %150 = call noundef ptr @_ZN13CallGenerator17for_uncommon_trapEP8ciMethodN14Deoptimization11DeoptReasonENS2_11DeoptActionE(ptr noundef nonnull %1, i32 noundef 24, i32 noundef 0) #11
-  %151 = getelementptr inbounds i8, ptr %1, i64 40
-  %152 = load ptr, ptr %151, align 8
-  %153 = call noundef ptr @_ZN13CallGenerator16for_guarded_callEP7ciKlassPS_S2_(ptr noundef %152, ptr noundef %150, ptr noundef nonnull %145) #11
-  br label %154
+148:                                              ; preds = %145
+  %149 = call noundef ptr @_ZN13CallGenerator17for_uncommon_trapEP8ciMethodN14Deoptimization11DeoptReasonENS2_11DeoptActionE(ptr noundef nonnull %1, i32 noundef 24, i32 noundef 0) #11
+  %150 = getelementptr inbounds i8, ptr %1, i64 40
+  %151 = load ptr, ptr %150, align 8
+  %152 = call noundef ptr @_ZN13CallGenerator16for_guarded_callEP7ciKlassPS_S2_(ptr noundef %151, ptr noundef %149, ptr noundef nonnull %144) #11
+  br label %153
 
-154:                                              ; preds = %144, %149
-  %.0260 = phi ptr [ %153, %149 ], [ %145, %144 ]
+153:                                              ; preds = %143, %148
+  %.0260 = phi ptr [ %152, %148 ], [ %144, %143 ]
   %.not294 = icmp eq ptr %.0260, null
   br i1 %.not294, label %.thread365, label %.thread325
 
-.thread325:                                       ; preds = %146, %154
-  %.0260328 = phi ptr [ %.0260, %154 ], [ %145, %146 ]
-  %155 = load i8, ptr %14, align 1
-  %156 = trunc i8 %155 to i1
-  br i1 %156, label %157, label %159
+.thread325:                                       ; preds = %145, %153
+  %.0260328 = phi ptr [ %.0260, %153 ], [ %144, %145 ]
+  %154 = load i8, ptr %14, align 1
+  %155 = trunc i8 %154 to i1
+  br i1 %155, label %156, label %158
 
-157:                                              ; preds = %.thread325
-  %158 = call noundef ptr @_ZN13CallGenerator15for_late_inlineEP8ciMethodPS_(ptr noundef nonnull %1, ptr noundef nonnull %.0260328) #11
+156:                                              ; preds = %.thread325
+  %157 = call noundef ptr @_ZN13CallGenerator15for_late_inlineEP8ciMethodPS_(ptr noundef nonnull %1, ptr noundef nonnull %.0260328) #11
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-159:                                              ; preds = %.thread325
-  %160 = call noundef zeroext i1 @_ZN7Compile28should_delay_string_inliningEP8ciMethodP8JVMState(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
-  br i1 %160, label %161, label %163
+158:                                              ; preds = %.thread325
+  %159 = call noundef zeroext i1 @_ZN7Compile28should_delay_string_inliningEP8ciMethodP8JVMState(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
+  br i1 %159, label %160, label %162
 
-161:                                              ; preds = %159
-  %162 = call noundef ptr @_ZN13CallGenerator22for_string_late_inlineEP8ciMethodPS_(ptr noundef nonnull %1, ptr noundef nonnull %.0260328) #11
+160:                                              ; preds = %158
+  %161 = call noundef ptr @_ZN13CallGenerator22for_string_late_inlineEP8ciMethodPS_(ptr noundef nonnull %1, ptr noundef nonnull %.0260328) #11
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %0, i64 24
-  %165 = load i8, ptr %164, align 8
-  %166 = trunc i8 %165 to i1
-  br i1 %166, label %167, label %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds i8, ptr %0, i64 24
+  %164 = load i8, ptr %163, align 8
+  %165 = trunc i8 %164 to i1
+  br i1 %165, label %166, label %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread
 
-167:                                              ; preds = %163
-  %168 = call noundef zeroext i1 @_ZNK8ciMethod16is_boxing_methodEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
-  br i1 %168, label %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit, label %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread
+166:                                              ; preds = %162
+  %167 = call noundef zeroext i1 @_ZNK8ciMethod16is_boxing_methodEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #11
+  br i1 %167, label %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit, label %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread
 
-_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit: ; preds = %167
-  %169 = getelementptr inbounds i8, ptr %0, i64 127
-  store i8 1, ptr %169, align 1
-  %170 = load i8, ptr %164, align 8
-  %171 = trunc i8 %170 to i1
-  %172 = load i8, ptr @AggressiveUnboxing, align 1
-  %173 = trunc i8 %172 to i1
-  %174 = select i1 %171, i1 %173, i1 false
-  br i1 %174, label %175, label %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread
+_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit: ; preds = %166
+  %168 = getelementptr inbounds i8, ptr %0, i64 127
+  store i8 1, ptr %168, align 1
+  %169 = load i8, ptr %163, align 8
+  %170 = trunc i8 %169 to i1
+  %171 = load i8, ptr @AggressiveUnboxing, align 1
+  %172 = trunc i8 %171 to i1
+  %173 = select i1 %170, i1 %172, i1 false
+  br i1 %173, label %174, label %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread
 
-175:                                              ; preds = %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit
-  %176 = call noundef ptr @_ZN13CallGenerator22for_boxing_late_inlineEP8ciMethodPS_(ptr noundef nonnull %1, ptr noundef nonnull %.0260328) #11
+174:                                              ; preds = %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit
+  %175 = call noundef ptr @_ZN13CallGenerator22for_boxing_late_inlineEP8ciMethodPS_(ptr noundef nonnull %1, ptr noundef nonnull %.0260328) #11
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread: ; preds = %163, %167, %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit
-  %177 = load i8, ptr @EnableVectorSupport, align 1
-  %178 = trunc i8 %177 to i1
-  br i1 %178, label %_ZN7Compile37should_delay_vector_reboxing_inliningEP8ciMethodP8JVMState.exit, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
+_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread: ; preds = %162, %166, %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit
+  %176 = load i8, ptr @EnableVectorSupport, align 1
+  %177 = trunc i8 %176 to i1
+  br i1 %177, label %_ZN7Compile37should_delay_vector_reboxing_inliningEP8ciMethodP8JVMState.exit, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
 _ZN7Compile37should_delay_vector_reboxing_inliningEP8ciMethodP8JVMState.exit: ; preds = %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread
-  %179 = getelementptr inbounds i8, ptr %1, i64 84
-  %180 = load i32, ptr %179, align 4
-  %181 = icmp eq i32 %180, 371
-  br i1 %181, label %182, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
+  %178 = getelementptr inbounds i8, ptr %1, i64 84
+  %179 = load i32, ptr %178, align 4
+  %180 = icmp eq i32 %179, 371
+  br i1 %180, label %181, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-182:                                              ; preds = %_ZN7Compile37should_delay_vector_reboxing_inliningEP8ciMethodP8JVMState.exit
-  %183 = call noundef ptr @_ZN13CallGenerator31for_vector_reboxing_late_inlineEP8ciMethodPS_(ptr noundef nonnull %1, ptr noundef nonnull %.0260328) #11
+181:                                              ; preds = %_ZN7Compile37should_delay_vector_reboxing_inliningEP8ciMethodP8JVMState.exit
+  %182 = call noundef ptr @_ZN13CallGenerator31for_vector_reboxing_late_inlineEP8ciMethodPS_(ptr noundef nonnull %1, ptr noundef nonnull %.0260328) #11
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-184:                                              ; preds = %123
-  %185 = icmp sgt i32 %49, 0
-  br i1 %185, label %186, label %.thread342
+183:                                              ; preds = %122
+  %184 = icmp sgt i32 %48, 0
+  br i1 %184, label %185, label %.thread342
 
-186:                                              ; preds = %184
-  %187 = load i8, ptr @UseTypeProfile, align 1
-  %188 = trunc i8 %187 to i1
-  br i1 %188, label %189, label %.thread342
+185:                                              ; preds = %183
+  %186 = load i8, ptr @UseTypeProfile, align 1
+  %187 = trunc i8 %186 to i1
+  br i1 %187, label %188, label %.thread342
 
-189:                                              ; preds = %186
-  %190 = load i32, ptr %13, align 8
-  %191 = icmp sgt i32 %190, 0
-  br i1 %191, label %192, label %205
+188:                                              ; preds = %185
+  %189 = load i32, ptr %13, align 8
+  %190 = icmp sgt i32 %189, 0
+  br i1 %190, label %191, label %204
 
-192:                                              ; preds = %189
-  %193 = getelementptr inbounds i8, ptr %13, i64 12
-  %194 = load i32, ptr %193, align 4
-  %195 = sitofp i32 %194 to float
-  %196 = load i32, ptr %48, align 8
-  %197 = sitofp i32 %196 to float
-  %198 = fdiv float %195, %197
-  %199 = fpext float %198 to double
-  %200 = fmul double %199, 1.000000e+02
-  %201 = load i64, ptr @TypeProfileMajorReceiverPercent, align 8
-  %202 = sitofp i64 %201 to float
-  %203 = fpext float %202 to double
-  %204 = fcmp oge double %200, %203
-  br label %205
+191:                                              ; preds = %188
+  %192 = getelementptr inbounds i8, ptr %13, i64 12
+  %193 = load i32, ptr %192, align 4
+  %194 = sitofp i32 %193 to float
+  %195 = load i32, ptr %47, align 8
+  %196 = sitofp i32 %195 to float
+  %197 = fdiv float %194, %196
+  %198 = fpext float %197 to double
+  %199 = fmul double %198, 1.000000e+02
+  %200 = load i64, ptr @TypeProfileMajorReceiverPercent, align 8
+  %201 = sitofp i64 %200 to float
+  %202 = fpext float %201 to double
+  %203 = fcmp oge double %199, %202
+  br label %204
 
-205:                                              ; preds = %192, %189
-  %206 = phi i1 [ false, %189 ], [ %204, %192 ]
-  %207 = getelementptr inbounds i8, ptr %13, i64 4
-  %208 = load i32, ptr %207, align 4
+204:                                              ; preds = %191, %188
+  %205 = phi i1 [ false, %188 ], [ %203, %191 ]
+  %206 = getelementptr inbounds i8, ptr %13, i64 4
+  %207 = load i32, ptr %206, align 4
   %.not295 = icmp eq ptr %7, null
-  br i1 %.not295, label %.thread333, label %209
+  br i1 %.not295, label %.thread333, label %208
 
-209:                                              ; preds = %205
-  %210 = call noundef zeroext i1 @_ZN7Compile14too_many_trapsEP8ciMethodiN14Deoptimization11DeoptReasonE(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %16, i32 noundef %18, i32 noundef 19) #11
-  br i1 %210, label %.thread333, label %_ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptReasonE.exit
+208:                                              ; preds = %204
+  %209 = call noundef zeroext i1 @_ZN7Compile14too_many_trapsEP8ciMethodiN14Deoptimization11DeoptReasonE(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %16, i32 noundef %18, i32 noundef 19) #11
+  br i1 %209, label %.thread333, label %_ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptReasonE.exit
 
-_ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptReasonE.exit: ; preds = %209
-  %211 = call noundef zeroext i1 @_ZN7Compile19too_many_recompilesEP8ciMethodiN14Deoptimization11DeoptReasonE(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %16, i32 noundef %18, i32 noundef 19) #11
-  br i1 %211, label %.thread333, label %212
+_ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptReasonE.exit: ; preds = %208
+  %210 = call noundef zeroext i1 @_ZN7Compile19too_many_recompilesEP8ciMethodiN14Deoptimization11DeoptReasonE(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %16, i32 noundef %18, i32 noundef 19) #11
+  br i1 %210, label %.thread333, label %211
 
-212:                                              ; preds = %_ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptReasonE.exit
-  %213 = load ptr, ptr %15, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 40
-  %215 = load ptr, ptr %214, align 8
-  %216 = call noundef ptr @_ZN8ciMethod14resolve_invokeEP7ciKlassS1_bb(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %215, ptr noundef nonnull %7, i1 noundef zeroext true, i1 noundef zeroext false) #11
-  %217 = icmp eq ptr %216, null
-  br i1 %217, label %.thread333, label %.thread347
+211:                                              ; preds = %_ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptReasonE.exit
+  %212 = load ptr, ptr %15, align 8
+  %213 = getelementptr inbounds i8, ptr %212, i64 40
+  %214 = load ptr, ptr %213, align 8
+  %215 = call noundef ptr @_ZN8ciMethod14resolve_invokeEP7ciKlassS1_bb(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %214, ptr noundef nonnull %7, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  %216 = icmp eq ptr %215, null
+  br i1 %216, label %.thread333, label %.thread347
 
-.thread333:                                       ; preds = %209, %_ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptReasonE.exit, %205, %212
-  %218 = icmp eq i32 %208, 1
-  %or.cond5 = or i1 %206, %218
-  br i1 %or.cond5, label %224, label %219
+.thread333:                                       ; preds = %208, %_ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptReasonE.exit, %204, %211
+  %217 = icmp eq i32 %207, 1
+  %or.cond5 = or i1 %205, %217
+  br i1 %or.cond5, label %223, label %218
 
-219:                                              ; preds = %.thread333
-  %220 = icmp eq i32 %208, 2
-  br i1 %220, label %221, label %.thread342
+218:                                              ; preds = %.thread333
+  %219 = icmp eq i32 %207, 2
+  br i1 %219, label %220, label %.thread342
 
-221:                                              ; preds = %219
-  %222 = load i8, ptr @UseBimorphicInlining, align 1
-  %223 = trunc i8 %222 to i1
-  br i1 %223, label %224, label %.thread342
+220:                                              ; preds = %218
+  %221 = load i8, ptr @UseBimorphicInlining, align 1
+  %222 = trunc i8 %221 to i1
+  br i1 %222, label %223, label %.thread342
 
-224:                                              ; preds = %.thread333, %221
-  %225 = load ptr, ptr %15, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 40
-  %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds i8, ptr %13, i64 24
-  %229 = load ptr, ptr %228, align 8
-  %230 = call noundef ptr @_ZN8ciMethod14resolve_invokeEP7ciKlassS1_bb(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %227, ptr noundef %229, i1 noundef zeroext true, i1 noundef zeroext false) #11
-  %.not296 = icmp eq ptr %230, null
+223:                                              ; preds = %.thread333, %220
+  %224 = load ptr, ptr %15, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 40
+  %226 = load ptr, ptr %225, align 8
+  %227 = getelementptr inbounds i8, ptr %13, i64 24
+  %228 = load ptr, ptr %227, align 8
+  %229 = call noundef ptr @_ZN8ciMethod14resolve_invokeEP7ciKlassS1_bb(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %226, ptr noundef %228, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  %.not296 = icmp eq ptr %229, null
   br i1 %.not296, label %.thread342, label %.thread347
 
-.thread347:                                       ; preds = %212, %224
-  %.1354 = phi ptr [ %230, %224 ], [ %216, %212 ]
-  %.0262338353 = phi i32 [ %208, %224 ], [ 1, %212 ]
-  %.0256339352 = phi ptr [ null, %224 ], [ %7, %212 ]
-  %231 = call noundef ptr @_ZN7Compile14call_generatorEP8ciMethodibP8JVMStatebfP7ciKlassb(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %.1354, i32 noundef %2, i1 noundef zeroext false, ptr noundef nonnull %4, i1 noundef zeroext true, float noundef %6, ptr noundef null, i1 noundef zeroext true)
-  %.not297 = icmp eq ptr %231, null
-  br i1 %.not297, label %.thread342, label %232
+.thread347:                                       ; preds = %211, %223
+  %.1354 = phi ptr [ %229, %223 ], [ %215, %211 ]
+  %.0262338353 = phi i32 [ %207, %223 ], [ 1, %211 ]
+  %.0256339352 = phi ptr [ null, %223 ], [ %7, %211 ]
+  %230 = call noundef ptr @_ZN7Compile14call_generatorEP8ciMethodibP8JVMStatebfP7ciKlassb(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %.1354, i32 noundef %2, i1 noundef zeroext false, ptr noundef nonnull %4, i1 noundef zeroext true, float noundef %6, ptr noundef null, i1 noundef zeroext true)
+  %.not297 = icmp eq ptr %230, null
+  br i1 %.not297, label %.thread342, label %231
 
-232:                                              ; preds = %.thread347
-  %233 = icmp eq i32 %.0262338353, 2
-  br i1 %233, label %234, label %254
+231:                                              ; preds = %.thread347
+  %232 = icmp eq i32 %.0262338353, 2
+  br i1 %232, label %233, label %253
 
-234:                                              ; preds = %232
-  %235 = load i8, ptr @UseBimorphicInlining, align 1
-  %236 = trunc i8 %235 to i1
-  br i1 %236, label %237, label %.thread356
+233:                                              ; preds = %231
+  %234 = load i8, ptr @UseBimorphicInlining, align 1
+  %235 = trunc i8 %234 to i1
+  br i1 %235, label %236, label %.thread356
 
-237:                                              ; preds = %234
-  %238 = load ptr, ptr %15, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 40
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %13, i64 32
-  %242 = load ptr, ptr %241, align 8
-  %243 = call noundef ptr @_ZN8ciMethod14resolve_invokeEP7ciKlassS1_bb(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %240, ptr noundef %242, i1 noundef zeroext true, i1 noundef zeroext false) #11
-  %.not298 = icmp eq ptr %243, null
-  br i1 %.not298, label %.thread356, label %244
+236:                                              ; preds = %233
+  %237 = load ptr, ptr %15, align 8
+  %238 = getelementptr inbounds i8, ptr %237, i64 40
+  %239 = load ptr, ptr %238, align 8
+  %240 = getelementptr inbounds i8, ptr %13, i64 32
+  %241 = load ptr, ptr %240, align 8
+  %242 = call noundef ptr @_ZN8ciMethod14resolve_invokeEP7ciKlassS1_bb(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %239, ptr noundef %241, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  %.not298 = icmp eq ptr %242, null
+  br i1 %.not298, label %.thread356, label %243
 
-244:                                              ; preds = %237
-  %245 = call noundef ptr @_ZN7Compile14call_generatorEP8ciMethodibP8JVMStatebfP7ciKlassb(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %243, i32 noundef %2, i1 noundef zeroext false, ptr noundef nonnull %4, i1 noundef zeroext true, float noundef %6, ptr noundef null, i1 noundef zeroext true)
-  %.not299 = icmp eq ptr %245, null
-  br i1 %.not299, label %.thread356, label %246
+243:                                              ; preds = %236
+  %244 = call noundef ptr @_ZN7Compile14call_generatorEP8ciMethodibP8JVMStatebfP7ciKlassb(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %242, i32 noundef %2, i1 noundef zeroext false, ptr noundef nonnull %4, i1 noundef zeroext true, float noundef %6, ptr noundef null, i1 noundef zeroext true)
+  %.not299 = icmp eq ptr %244, null
+  br i1 %.not299, label %.thread356, label %245
 
-246:                                              ; preds = %244
-  %247 = load ptr, ptr %245, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 24
-  %249 = load ptr, ptr %248, align 8
-  %250 = call noundef zeroext i1 %249(ptr noundef nonnull align 8 dereferenceable(16) %245) #11
-  %.not314 = xor i1 %206, true
-  %brmerge315 = select i1 %250, i1 true, i1 %.not314
-  br i1 %brmerge315, label %.thread356, label %251
+245:                                              ; preds = %243
+  %246 = load ptr, ptr %244, align 8
+  %247 = getelementptr inbounds i8, ptr %246, i64 24
+  %248 = load ptr, ptr %247, align 8
+  %249 = call noundef zeroext i1 %248(ptr noundef nonnull align 8 dereferenceable(16) %244) #11
+  %.not314 = xor i1 %205, true
+  %brmerge315 = select i1 %249, i1 true, i1 %.not314
+  br i1 %brmerge315, label %.thread356, label %250
 
-251:                                              ; preds = %246
-  %252 = load i8, ptr @UseOnlyInlinedBimorphic, align 1
-  %253 = trunc i8 %252 to i1
-  %spec.select316 = select i1 %253, ptr null, ptr %245
+250:                                              ; preds = %245
+  %251 = load i8, ptr @UseOnlyInlinedBimorphic, align 1
+  %252 = trunc i8 %251 to i1
+  %spec.select316 = select i1 %252, ptr null, ptr %244
   br label %.thread356
 
-254:                                              ; preds = %232
-  %.not371 = icmp eq ptr %.0256339352, null
-  %255 = select i1 %.not371, i32 4, i32 19
+253:                                              ; preds = %231
+  %.not373 = icmp eq ptr %.0256339352, null
+  %254 = select i1 %.not373, i32 4, i32 19
   br label %.thread356
 
-.thread356:                                       ; preds = %234, %244, %237, %246, %251, %254
-  %.0263360 = phi ptr [ null, %254 ], [ %spec.select316, %251 ], [ null, %234 ], [ null, %237 ], [ null, %244 ], [ %245, %246 ]
-  %.0264359 = phi ptr [ null, %254 ], [ %243, %251 ], [ null, %234 ], [ null, %237 ], [ %243, %244 ], [ %243, %246 ]
-  %256 = phi i32 [ %255, %254 ], [ 7, %251 ], [ 7, %234 ], [ 7, %237 ], [ 7, %244 ], [ 7, %246 ]
-  %257 = icmp eq i32 %.0262338353, 1
-  %258 = icmp ne ptr %.0263360, null
-  %or.cond7 = and i1 %233, %258
-  %or.cond = or i1 %257, %or.cond7
-  br i1 %or.cond, label %259, label %263
+.thread356:                                       ; preds = %233, %243, %236, %245, %250, %253
+  %.0263360 = phi ptr [ null, %253 ], [ %spec.select316, %250 ], [ null, %233 ], [ null, %236 ], [ null, %243 ], [ %244, %245 ]
+  %.0264359 = phi ptr [ null, %253 ], [ %242, %250 ], [ null, %233 ], [ null, %236 ], [ %242, %243 ], [ %242, %245 ]
+  %255 = phi i32 [ %254, %253 ], [ 7, %250 ], [ 7, %233 ], [ 7, %236 ], [ 7, %243 ], [ 7, %245 ]
+  %256 = icmp eq i32 %.0262338353, 1
+  %257 = icmp ne ptr %.0263360, null
+  %or.cond7 = and i1 %232, %257
+  %or.cond = or i1 %256, %or.cond7
+  br i1 %or.cond, label %258, label %262
 
-259:                                              ; preds = %.thread356
-  %260 = call noundef zeroext i1 @_ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptReasonE(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %16, i32 noundef %18, i32 noundef %256)
-  br i1 %260, label %263, label %261
+258:                                              ; preds = %.thread356
+  %259 = call noundef zeroext i1 @_ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptReasonE(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %16, i32 noundef %18, i32 noundef %255)
+  br i1 %259, label %262, label %260
 
-261:                                              ; preds = %259
-  %262 = call noundef ptr @_ZN13CallGenerator17for_uncommon_trapEP8ciMethodN14Deoptimization11DeoptReasonENS2_11DeoptActionE(ptr noundef nonnull %1, i32 noundef %256, i32 noundef 1) #11
-  br label %270
+260:                                              ; preds = %258
+  %261 = call noundef ptr @_ZN13CallGenerator17for_uncommon_trapEP8ciMethodN14Deoptimization11DeoptReasonENS2_11DeoptActionE(ptr noundef nonnull %1, i32 noundef %255, i32 noundef 1) #11
+  br label %269
 
-263:                                              ; preds = %.thread356, %259
-  %264 = load i8, ptr @IncrementalInlineVirtual, align 1
-  %265 = trunc i8 %264 to i1
-  br i1 %265, label %266, label %268
+262:                                              ; preds = %.thread356, %258
+  %263 = load i8, ptr @IncrementalInlineVirtual, align 1
+  %264 = trunc i8 %263 to i1
+  br i1 %264, label %265, label %267
 
-266:                                              ; preds = %263
-  %267 = call noundef ptr @_ZN13CallGenerator23for_late_inline_virtualEP8ciMethodif(ptr noundef nonnull %1, i32 noundef %2, float noundef %6) #11
-  br label %270
+265:                                              ; preds = %262
+  %266 = call noundef ptr @_ZN13CallGenerator23for_late_inline_virtualEP8ciMethodif(ptr noundef nonnull %1, i32 noundef %2, float noundef %6) #11
+  br label %269
 
-268:                                              ; preds = %263
-  %269 = call noundef ptr @_ZN13CallGenerator16for_virtual_callEP8ciMethodi(ptr noundef nonnull %1, i32 noundef %2) #11
-  br label %270
+267:                                              ; preds = %262
+  %268 = call noundef ptr @_ZN13CallGenerator16for_virtual_callEP8ciMethodi(ptr noundef nonnull %1, i32 noundef %2) #11
+  br label %269
 
-270:                                              ; preds = %266, %268, %261
-  %.0265 = phi ptr [ %262, %261 ], [ %267, %266 ], [ %269, %268 ]
+269:                                              ; preds = %265, %267, %260
+  %.0265 = phi ptr [ %261, %260 ], [ %266, %265 ], [ %268, %267 ]
   %.not300 = icmp eq ptr %.0265, null
-  br i1 %.not300, label %.thread342, label %271
+  br i1 %.not300, label %.thread342, label %270
+
+270:                                              ; preds = %269
+  %.not301 = icmp eq ptr %.0263360, null
+  br i1 %.not301, label %.thread361, label %271
 
 271:                                              ; preds = %270
-  %.not301 = icmp eq ptr %.0263360, null
-  br i1 %.not301, label %.thread361, label %272
-
-272:                                              ; preds = %271
-  %273 = getelementptr inbounds i8, ptr %0, i64 8
-  %274 = load ptr, ptr %273, align 8
-  %275 = load ptr, ptr %15, align 8
-  %276 = getelementptr inbounds i8, ptr %4, i64 8
-  %277 = load i32, ptr %276, align 8
-  %278 = add i32 %277, -1
-  %279 = load i32, ptr %17, align 4
-  %280 = getelementptr inbounds i8, ptr %13, i64 32
-  %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %13, i64 16
-  %283 = load i32, ptr %282, align 8
-  call fastcc void @_ZL18trace_type_profileP7CompileP8ciMethodiiS2_P7ciKlassii(ptr noundef %274, ptr noundef %275, i32 noundef %278, i32 noundef %279, ptr noundef %.0264359, ptr noundef %281, i32 noundef %49, i32 noundef %283)
-  %284 = load ptr, ptr %280, align 8
-  %285 = call noundef ptr @_ZN13CallGenerator18for_predicted_callEP7ciKlassPS_S2_f(ptr noundef %284, ptr noundef nonnull %.0265, ptr noundef nonnull %.0263360, float noundef 0x3FEFFFFDE0000000) #11
-  %.not302 = icmp eq ptr %285, null
+  %272 = getelementptr inbounds i8, ptr %0, i64 8
+  %273 = load ptr, ptr %272, align 8
+  %274 = load ptr, ptr %15, align 8
+  %275 = getelementptr inbounds i8, ptr %4, i64 8
+  %276 = load i32, ptr %275, align 8
+  %277 = add i32 %276, -1
+  %278 = load i32, ptr %17, align 4
+  %279 = getelementptr inbounds i8, ptr %13, i64 32
+  %280 = load ptr, ptr %279, align 8
+  %281 = getelementptr inbounds i8, ptr %13, i64 16
+  %282 = load i32, ptr %281, align 8
+  call fastcc void @_ZL18trace_type_profileP7CompileP8ciMethodiiS2_P7ciKlassii(ptr noundef %273, ptr noundef %274, i32 noundef %277, i32 noundef %278, ptr noundef %.0264359, ptr noundef %280, i32 noundef %48, i32 noundef %282)
+  %283 = load ptr, ptr %279, align 8
+  %284 = call noundef ptr @_ZN13CallGenerator18for_predicted_callEP7ciKlassPS_S2_f(ptr noundef %283, ptr noundef nonnull %.0265, ptr noundef nonnull %.0263360, float noundef 0x3FEFFFFDE0000000) #11
+  %.not302 = icmp eq ptr %284, null
   br i1 %.not302, label %.thread342, label %.thread361
 
-.thread361:                                       ; preds = %271, %272
-  %.1266364 = phi ptr [ %285, %272 ], [ %.0265, %271 ]
+.thread361:                                       ; preds = %270, %271
+  %.1266364 = phi ptr [ %284, %271 ], [ %.0265, %270 ]
   %.not303 = icmp eq ptr %.0256339352, null
-  %286 = getelementptr inbounds i8, ptr %13, i64 24
-  %287 = load ptr, ptr %286, align 8
-  %288 = select i1 %.not303, ptr %287, ptr %.0256339352
-  %289 = getelementptr inbounds i8, ptr %0, i64 8
-  %290 = load ptr, ptr %289, align 8
-  %291 = load ptr, ptr %15, align 8
-  %292 = getelementptr inbounds i8, ptr %4, i64 8
-  %293 = load i32, ptr %292, align 8
-  %294 = add i32 %293, -1
-  %295 = load i32, ptr %17, align 4
-  call fastcc void @_ZL18trace_type_profileP7CompileP8ciMethodiiS2_P7ciKlassii(ptr noundef %290, ptr noundef %291, i32 noundef %294, i32 noundef %295, ptr noundef nonnull %.1354, ptr noundef %288, i32 noundef %49, i32 noundef %.0257)
-  br i1 %.not303, label %296, label %303
+  %285 = getelementptr inbounds i8, ptr %13, i64 24
+  %286 = load ptr, ptr %285, align 8
+  %287 = select i1 %.not303, ptr %286, ptr %.0256339352
+  %288 = getelementptr inbounds i8, ptr %0, i64 8
+  %289 = load ptr, ptr %288, align 8
+  %290 = load ptr, ptr %15, align 8
+  %291 = getelementptr inbounds i8, ptr %4, i64 8
+  %292 = load i32, ptr %291, align 8
+  %293 = add i32 %292, -1
+  %294 = load i32, ptr %17, align 4
+  call fastcc void @_ZL18trace_type_profileP7CompileP8ciMethodiiS2_P7ciKlassii(ptr noundef %289, ptr noundef %290, i32 noundef %293, i32 noundef %294, ptr noundef nonnull %.1354, ptr noundef %287, i32 noundef %48, i32 noundef %.0257)
+  br i1 %.not303, label %295, label %302
 
-296:                                              ; preds = %.thread361
-  %297 = getelementptr inbounds i8, ptr %13, i64 12
-  %298 = load i32, ptr %297, align 4
-  %299 = sitofp i32 %298 to float
-  %300 = load i32, ptr %48, align 8
-  %301 = sitofp i32 %300 to float
-  %302 = fdiv float %299, %301
-  br label %303
+295:                                              ; preds = %.thread361
+  %296 = getelementptr inbounds i8, ptr %13, i64 12
+  %297 = load i32, ptr %296, align 4
+  %298 = sitofp i32 %297 to float
+  %299 = load i32, ptr %47, align 8
+  %300 = sitofp i32 %299 to float
+  %301 = fdiv float %298, %300
+  br label %302
 
-303:                                              ; preds = %.thread361, %296
-  %304 = phi float [ %302, %296 ], [ 1.000000e+00, %.thread361 ]
-  %305 = call noundef ptr @_ZN13CallGenerator18for_predicted_callEP7ciKlassPS_S2_f(ptr noundef %288, ptr noundef nonnull %.1266364, ptr noundef nonnull %231, float noundef %304) #11
-  %.not304 = icmp eq ptr %305, null
+302:                                              ; preds = %.thread361, %295
+  %303 = phi float [ %301, %295 ], [ 1.000000e+00, %.thread361 ]
+  %304 = call noundef ptr @_ZN13CallGenerator18for_predicted_callEP7ciKlassPS_S2_f(ptr noundef %287, ptr noundef nonnull %.1266364, ptr noundef nonnull %230, float noundef %303) #11
+  %.not304 = icmp eq ptr %304, null
   br i1 %.not304, label %.thread342, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-.thread342:                                       ; preds = %219, %221, %224, %270, %303, %272, %.thread347, %186, %184
-  br i1 %35, label %306, label %.thread365
+.thread342:                                       ; preds = %218, %220, %223, %269, %302, %271, %.thread347, %185, %183
+  br i1 %35, label %305, label %.thread365
 
-306:                                              ; preds = %.thread342
-  %307 = call noundef ptr @_ZN8ciMethod33get_declared_method_holder_at_bciEi(ptr noundef nonnull align 8 dereferenceable(160) %16, i32 noundef %18) #11
-  %308 = call noundef ptr @_ZN15ciInstanceKlass11implementorEv(ptr noundef nonnull align 8 dereferenceable(144) %307) #11
-  %.not.i = icmp eq ptr %308, %307
-  %.not305372 = icmp eq ptr %308, null
-  %.not305 = or i1 %.not.i, %.not305372
-  br i1 %.not305, label %.thread365, label %309
+305:                                              ; preds = %.thread342
+  %306 = call noundef ptr @_ZN8ciMethod33get_declared_method_holder_at_bciEi(ptr noundef nonnull align 8 dereferenceable(160) %16, i32 noundef %18) #11
+  %307 = call noundef ptr @_ZN15ciInstanceKlass11implementorEv(ptr noundef nonnull align 8 dereferenceable(144) %306) #11
+  %.not.i = icmp eq ptr %307, %306
+  %.not305374 = icmp eq ptr %307, null
+  %.not305 = or i1 %.not.i, %.not305374
+  br i1 %.not305, label %.thread365, label %308
 
-309:                                              ; preds = %306
-  %310 = getelementptr inbounds i8, ptr %16, i64 40
-  %311 = load ptr, ptr %310, align 8
-  %312 = call noundef ptr @_ZN8ciMethod23find_monomorphic_targetEP15ciInstanceKlassS1_S1_b(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %311, ptr noundef nonnull %307, ptr noundef nonnull %308, i1 noundef zeroext true) #11
-  %.not306 = icmp eq ptr %312, null
-  br i1 %.not306, label %.thread365, label %313
+308:                                              ; preds = %305
+  %309 = getelementptr inbounds i8, ptr %16, i64 40
+  %310 = load ptr, ptr %309, align 8
+  %311 = call noundef ptr @_ZN8ciMethod23find_monomorphic_targetEP15ciInstanceKlassS1_S1_b(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %310, ptr noundef nonnull %306, ptr noundef nonnull %307, i1 noundef zeroext true) #11
+  %.not306 = icmp eq ptr %311, null
+  br i1 %.not306, label %.thread365, label %312
 
-313:                                              ; preds = %309
-  %314 = getelementptr inbounds i8, ptr %312, i64 40
-  %315 = load ptr, ptr %314, align 8
-  %316 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
-  %.not307 = icmp eq ptr %315, %316
-  br i1 %.not307, label %.thread365, label %317
+312:                                              ; preds = %308
+  %313 = getelementptr inbounds i8, ptr %311, i64 40
+  %314 = load ptr, ptr %313, align 8
+  %315 = load ptr, ptr @_ZN5ciEnv13_Object_klassE, align 8
+  %.not307 = icmp eq ptr %314, %315
+  br i1 %.not307, label %.thread365, label %316
 
-317:                                              ; preds = %313
-  %318 = call noundef ptr @_ZN7Compile14call_generatorEP8ciMethodibP8JVMStatebfP7ciKlassb(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %312, i32 noundef %2, i1 noundef zeroext false, ptr noundef nonnull %4, i1 noundef zeroext true, float noundef %6, ptr noundef null, i1 noundef zeroext true)
-  %319 = call noundef ptr @_ZN13CallGenerator17for_uncommon_trapEP8ciMethodN14Deoptimization11DeoptReasonENS2_11DeoptActionE(ptr noundef nonnull %1, i32 noundef 4, i32 noundef 0) #11
-  %320 = call noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %315, ptr noundef nonnull %308) #11
-  %321 = select i1 %320, ptr %315, ptr %308
-  %322 = call noundef ptr @_ZN13CallGenerator16for_guarded_callEP7ciKlassPS_S2_(ptr noundef nonnull %321, ptr noundef %319, ptr noundef %318) #11
-  %323 = icmp ne ptr %318, null
-  %324 = icmp ne ptr %322, null
-  %or.cond11 = and i1 %323, %324
-  br i1 %or.cond11, label %325, label %.thread365
+316:                                              ; preds = %312
+  %317 = call noundef ptr @_ZN7Compile14call_generatorEP8ciMethodibP8JVMStatebfP7ciKlassb(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %311, i32 noundef %2, i1 noundef zeroext false, ptr noundef nonnull %4, i1 noundef zeroext true, float noundef %6, ptr noundef null, i1 noundef zeroext true)
+  %318 = call noundef ptr @_ZN13CallGenerator17for_uncommon_trapEP8ciMethodN14Deoptimization11DeoptReasonENS2_11DeoptActionE(ptr noundef nonnull %1, i32 noundef 4, i32 noundef 0) #11
+  %319 = call noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %314, ptr noundef nonnull %307) #11
+  %320 = select i1 %319, ptr %314, ptr %307
+  %321 = call noundef ptr @_ZN13CallGenerator16for_guarded_callEP7ciKlassPS_S2_(ptr noundef nonnull %320, ptr noundef %318, ptr noundef %317) #11
+  %322 = icmp ne ptr %317, null
+  %323 = icmp ne ptr %321, null
+  %or.cond11 = and i1 %322, %323
+  br i1 %or.cond11, label %324, label %.thread365
 
-325:                                              ; preds = %317
-  %326 = load ptr, ptr %43, align 8
-  %327 = getelementptr inbounds i8, ptr %326, i64 80
-  %328 = load ptr, ptr %327, align 8
-  call void @_ZN12Dependencies25assert_unique_implementorEP15ciInstanceKlassS1_(ptr noundef nonnull align 8 dereferenceable(192) %328, ptr noundef nonnull %307, ptr noundef nonnull %308) #11
-  %329 = load ptr, ptr %43, align 8
-  %330 = getelementptr inbounds i8, ptr %329, i64 80
-  %331 = load ptr, ptr %330, align 8
-  call void @_ZN12Dependencies29assert_unique_concrete_methodEP7ciKlassP8ciMethodS1_S3_(ptr noundef nonnull align 8 dereferenceable(192) %331, ptr noundef nonnull %307, ptr noundef nonnull %312, ptr noundef nonnull %307, ptr noundef nonnull %1) #11
+324:                                              ; preds = %316
+  %325 = load ptr, ptr %42, align 8
+  %326 = getelementptr inbounds i8, ptr %325, i64 80
+  %327 = load ptr, ptr %326, align 8
+  call void @_ZN12Dependencies25assert_unique_implementorEP15ciInstanceKlassS1_(ptr noundef nonnull align 8 dereferenceable(192) %327, ptr noundef nonnull %306, ptr noundef nonnull %307) #11
+  %328 = load ptr, ptr %42, align 8
+  %329 = getelementptr inbounds i8, ptr %328, i64 80
+  %330 = load ptr, ptr %329, align 8
+  call void @_ZN12Dependencies29assert_unique_concrete_methodEP7ciKlassP8ciMethodS1_S3_(ptr noundef nonnull align 8 dereferenceable(192) %330, ptr noundef nonnull %306, ptr noundef nonnull %311, ptr noundef nonnull %306, ptr noundef nonnull %1) #11
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-.thread365:                                       ; preds = %_ZN7Compile21should_delay_inliningEv.exit, %154, %306, %317, %313, %309, %.thread342
-  %332 = icmp ne ptr %.0258, null
-  %or.cond13 = and i1 %8, %332
-  br i1 %or.cond13, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread, label %333
+.thread365:                                       ; preds = %_ZN7Compile21should_delay_inliningEv.exit, %153, %305, %316, %312, %308, %.thread342
+  %331 = icmp ne ptr %.0258, null
+  %or.cond13 = and i1 %8, %331
+  br i1 %or.cond13, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread, label %332
 
-333:                                              ; preds = %.thread365, %122
-  br i1 %3, label %334, label %357
+332:                                              ; preds = %.thread365, %121
+  br i1 %3, label %333, label %356
 
-334:                                              ; preds = %333
-  %335 = getelementptr inbounds i8, ptr %0, i64 8
-  %336 = load ptr, ptr %335, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 275
-  %338 = load i8, ptr %337, align 1
-  %339 = trunc i8 %338 to i1
-  br i1 %339, label %340, label %349
+333:                                              ; preds = %332
+  %334 = getelementptr inbounds i8, ptr %0, i64 8
+  %335 = load ptr, ptr %334, align 8
+  %336 = getelementptr inbounds i8, ptr %335, i64 275
+  %337 = load i8, ptr %336, align 1
+  %338 = trunc i8 %337 to i1
+  br i1 %338, label %339, label %348
 
-340:                                              ; preds = %334
-  %341 = getelementptr inbounds i8, ptr %4, i64 8
-  %342 = load i32, ptr %341, align 8
-  %343 = add i32 %342, -1
-  %344 = load i32, ptr %17, align 4
+339:                                              ; preds = %333
+  %340 = getelementptr inbounds i8, ptr %4, i64 8
+  %341 = load i32, ptr %340, align 8
+  %342 = add i32 %341, -1
+  %343 = load i32, ptr %17, align 4
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %10, i64 noundef 0) #11
-  call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %10, ptr noundef nonnull %1, i32 noundef %343, i32 noundef %344, i32 noundef 1, ptr noundef nonnull @.str.9) #11
-  %345 = getelementptr inbounds i8, ptr %0, i64 2096
-  %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds i8, ptr %10, i64 56
-  %348 = load ptr, ptr %347, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %346, ptr noundef nonnull @.str.17, ptr noundef %348) #11
+  call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %10, ptr noundef nonnull %1, i32 noundef %342, i32 noundef %343, i32 noundef 1, ptr noundef nonnull @.str.9) #11
+  %344 = getelementptr inbounds i8, ptr %0, i64 2096
+  %345 = load ptr, ptr %344, align 8
+  %346 = getelementptr inbounds i8, ptr %10, i64 56
+  %347 = load ptr, ptr %346, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %345, ptr noundef nonnull @.str.17, ptr noundef %347) #11
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %10) #11
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10)
-  %.pre = load ptr, ptr %335, align 8
-  br label %349
+  %.pre = load ptr, ptr %334, align 8
+  br label %348
 
-349:                                              ; preds = %340, %334
-  %350 = phi ptr [ %.pre, %340 ], [ %336, %334 ]
-  call void @_ZN7Compile18log_inline_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %350, ptr noundef nonnull @.str.9) #11
-  %351 = load i8, ptr @IncrementalInlineVirtual, align 1
-  %352 = trunc i8 %351 to i1
-  %brmerge319.demorgan = and i1 %spec.select, %352
-  br i1 %brmerge319.demorgan, label %353, label %355
+348:                                              ; preds = %339, %333
+  %349 = phi ptr [ %.pre, %339 ], [ %335, %333 ]
+  call void @_ZN7Compile18log_inline_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %349, ptr noundef nonnull @.str.9) #11
+  %350 = load i8, ptr @IncrementalInlineVirtual, align 1
+  %351 = trunc i8 %350 to i1
+  %brmerge319.demorgan = and i1 %spec.select, %351
+  br i1 %brmerge319.demorgan, label %352, label %354
 
-353:                                              ; preds = %349
-  %354 = call noundef ptr @_ZN13CallGenerator23for_late_inline_virtualEP8ciMethodif(ptr noundef nonnull %1, i32 noundef %2, float noundef %6) #11
+352:                                              ; preds = %348
+  %353 = call noundef ptr @_ZN13CallGenerator23for_late_inline_virtualEP8ciMethodif(ptr noundef nonnull %1, i32 noundef %2, float noundef %6) #11
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-355:                                              ; preds = %349
-  %356 = call noundef ptr @_ZN13CallGenerator16for_virtual_callEP8ciMethodi(ptr noundef nonnull %1, i32 noundef %2) #11
+354:                                              ; preds = %348
+  %355 = call noundef ptr @_ZN13CallGenerator16for_virtual_callEP8ciMethodi(ptr noundef nonnull %1, i32 noundef %2) #11
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-357:                                              ; preds = %333
-  %358 = call noundef zeroext i1 @_ZN7Compile21should_delay_inliningEP8ciMethodP8JVMState(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
-  %359 = call noundef ptr @_ZN13CallGenerator15for_direct_callEP8ciMethodb(ptr noundef nonnull %1, i1 noundef zeroext %358) #11
-  %.not308 = icmp ne ptr %359, null
-  %brmerge321.not = and i1 %42, %.not308
-  br i1 %brmerge321.not, label %360, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
+356:                                              ; preds = %332
+  %357 = call noundef zeroext i1 @_ZN7Compile21should_delay_inliningEP8ciMethodP8JVMState(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
+  %358 = call noundef ptr @_ZN13CallGenerator15for_direct_callEP8ciMethodb(ptr noundef nonnull %1, i1 noundef zeroext %357) #11
+  %.not308 = icmp eq ptr %358, null
+  %brmerge321 = or i1 %.not320, %.not308
+  br i1 %brmerge321, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread, label %359
 
-360:                                              ; preds = %357
-  %361 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i323 = load i64, ptr %361, align 8
-  %362 = and i64 %.sroa.0.0.copyload.i.i323, 8
-  %.not373 = icmp eq i64 %362, 0
-  br i1 %.not373, label %363, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
+359:                                              ; preds = %356
+  %360 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i323 = load i64, ptr %360, align 8
+  %361 = and i64 %.sroa.0.0.copyload.i.i323, 8
+  %.not375 = icmp eq i64 %361, 0
+  br i1 %.not375, label %362, label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-363:                                              ; preds = %360
-  %364 = call noundef ptr @_ZN13CallGenerator17for_uncommon_trapEP8ciMethodN14Deoptimization11DeoptReasonENS2_11DeoptActionE(ptr noundef nonnull %1, i32 noundef 24, i32 noundef 0) #11
-  %365 = getelementptr inbounds i8, ptr %1, i64 40
-  %366 = load ptr, ptr %365, align 8
-  %367 = call noundef ptr @_ZN13CallGenerator16for_guarded_callEP7ciKlassPS_S2_(ptr noundef %366, ptr noundef %364, ptr noundef nonnull %359) #11
+362:                                              ; preds = %359
+  %363 = call noundef ptr @_ZN13CallGenerator17for_uncommon_trapEP8ciMethodN14Deoptimization11DeoptReasonENS2_11DeoptActionE(ptr noundef nonnull %1, i32 noundef 24, i32 noundef 0) #11
+  %364 = getelementptr inbounds i8, ptr %1, i64 40
+  %365 = load ptr, ptr %364, align 8
+  %366 = call noundef ptr @_ZN13CallGenerator16for_guarded_callEP7ciKlassPS_S2_(ptr noundef %365, ptr noundef %363, ptr noundef nonnull %358) #11
   br label %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread
 
-_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread: ; preds = %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread, %112, %360, %363, %357, %.thread365, %303, %_ZN7Compile37should_delay_vector_reboxing_inliningEP8ciMethodP8JVMState.exit, %109, %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit, %355, %353, %325, %182, %175, %161, %157, %120, %116
-  %.0 = phi ptr [ %121, %120 ], [ %322, %325 ], [ %354, %353 ], [ %356, %355 ], [ %158, %157 ], [ %162, %161 ], [ %176, %175 ], [ %183, %182 ], [ %117, %116 ], [ %.0259, %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit ], [ %.0259, %109 ], [ %.0260328, %_ZN7Compile37should_delay_vector_reboxing_inliningEP8ciMethodP8JVMState.exit ], [ %305, %303 ], [ %.0258, %.thread365 ], [ %359, %360 ], [ %367, %363 ], [ %359, %357 ], [ %.0259, %112 ], [ %.0260328, %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread ]
+_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit.thread: ; preds = %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread, %111, %359, %362, %356, %.thread365, %302, %_ZN7Compile37should_delay_vector_reboxing_inliningEP8ciMethodP8JVMState.exit, %108, %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit, %354, %352, %324, %181, %174, %160, %156, %119, %115
+  %.0 = phi ptr [ %120, %119 ], [ %321, %324 ], [ %353, %352 ], [ %355, %354 ], [ %157, %156 ], [ %161, %160 ], [ %175, %174 ], [ %182, %181 ], [ %116, %115 ], [ %.0259, %_ZN7Compile28should_delay_vector_inliningEP8ciMethodP8JVMState.exit ], [ %.0259, %108 ], [ %.0260328, %_ZN7Compile37should_delay_vector_reboxing_inliningEP8ciMethodP8JVMState.exit ], [ %304, %302 ], [ %.0258, %.thread365 ], [ %358, %359 ], [ %366, %362 ], [ %358, %356 ], [ %.0259, %111 ], [ %.0260328, %_ZN7Compile28should_delay_boxing_inliningEP8ciMethodP8JVMState.exit.thread ]
   ret ptr %.0
 }
 

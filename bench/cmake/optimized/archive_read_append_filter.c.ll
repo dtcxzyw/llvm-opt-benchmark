@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [48 x i8] c"Internal error: Unable to append program filter\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_read_append_filter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @archive_read_append_filter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   switch i32 %1, label %27 [
     i32 0, label %55

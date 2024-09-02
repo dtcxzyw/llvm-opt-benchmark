@@ -258,16 +258,16 @@ if.then88:                                        ; preds = %if.end86
   %21 = load ptr, ptr %msg_callback_arg, align 8
   call void %18(i32 noundef 0, i32 noundef %19, i32 noundef 21, ptr noundef %20, i64 noundef 2, ptr noundef nonnull %ssl, ptr noundef %21) #6
   %.pre = load i16, ptr %length, align 2
+  %22 = add i16 %.pre, -2
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then88, %if.end86
-  %22 = phi i16 [ %.pre, %if.then88 ], [ 2, %if.end86 ]
+  %sub97 = phi i16 [ %22, %if.then88 ], [ 0, %if.end86 ]
   %data92 = getelementptr inbounds i8, ptr %0, i64 128
   %23 = load ptr, ptr %data92, align 8
   %24 = load i8, ptr %23, align 1
   %arrayidx94 = getelementptr inbounds i8, ptr %23, i64 1
   %25 = load i8, ptr %arrayidx94, align 1
-  %sub97 = add i16 %22, -2
   store i16 %sub97, ptr %length, align 2
   %add.ptr100 = getelementptr inbounds i8, ptr %23, i64 2
   store ptr %add.ptr100, ptr %data92, align 8

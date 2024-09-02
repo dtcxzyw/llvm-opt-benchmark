@@ -1070,7 +1070,7 @@ if.end125:                                        ; preds = %if.end116
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_issue_161() #0 {
+define internal range(i32 1, 3) i32 @test_issue_161() #0 {
 entry:
   %ptr.i2 = alloca [1024 x ptr], align 16
   %ptr.i = alloca [1024 x ptr], align 16

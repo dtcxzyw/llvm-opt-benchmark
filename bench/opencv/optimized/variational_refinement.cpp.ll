@@ -860,24 +860,24 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17splitCheckerboardERNS0_14
 
 ._crit_edge97.loopexit:                           ; preds = %.lr.ph96
   %54 = trunc nuw nsw i64 %indvars.iv.next119 to i32
+  %55 = and i64 %indvars.iv.next117, 4294967295
   br label %._crit_edge97
 
 ._crit_edge97:                                    ; preds = %._crit_edge97.loopexit, %.preheader
   %.085.lcssa = phi i32 [ 0, %.preheader ], [ %54, %._crit_edge97.loopexit ]
-  %.0.lcssa = phi i64 [ 1, %.preheader ], [ %indvars.iv.next117, %._crit_edge97.loopexit ]
+  %.0.lcssa = phi i64 [ 1, %.preheader ], [ %55, %._crit_edge97.loopexit ]
   %.lcssa89 = phi i32 [ %41, %.preheader ], [ %50, %._crit_edge97.loopexit ]
-  %55 = icmp slt i32 %.085.lcssa, %.lcssa89
-  br i1 %55, label %56, label %63
+  %56 = icmp slt i32 %.085.lcssa, %.lcssa89
+  br i1 %56, label %57, label %63
 
-56:                                               ; preds = %._crit_edge97
-  %57 = zext nneg i32 %.085.lcssa to i64
-  %58 = getelementptr inbounds float, ptr %27, i64 %57
-  %59 = load float, ptr %58, align 4
-  %60 = and i64 %.0.lcssa, 4294967295
-  %61 = getelementptr inbounds float, ptr %37, i64 %60
-  store float %59, ptr %61, align 4
-  %62 = getelementptr inbounds float, ptr %32, i64 %60
-  store float %59, ptr %62, align 4
+57:                                               ; preds = %._crit_edge97
+  %58 = zext nneg i32 %.085.lcssa to i64
+  %59 = getelementptr inbounds float, ptr %27, i64 %58
+  %60 = load float, ptr %59, align 4
+  %61 = getelementptr inbounds float, ptr %37, i64 %.0.lcssa
+  store float %60, ptr %61, align 4
+  %62 = getelementptr inbounds float, ptr %32, i64 %.0.lcssa
+  store float %60, ptr %62, align 4
   br label %87
 
 63:                                               ; preds = %._crit_edge97
@@ -906,32 +906,32 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17splitCheckerboardERNS0_14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %76 = trunc nuw nsw i64 %indvars.iv.next112 to i32
+  %77 = and i64 %indvars.iv.next, 4294967295
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader88
   %.2.lcssa = phi i32 [ 0, %.preheader88 ], [ %76, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i64 [ 1, %.preheader88 ], [ %indvars.iv.next, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i64 [ 1, %.preheader88 ], [ %77, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %41, %.preheader88 ], [ %72, %._crit_edge.loopexit ]
-  %77 = icmp slt i32 %.2.lcssa, %.lcssa
-  br i1 %77, label %78, label %85
+  %78 = icmp slt i32 %.2.lcssa, %.lcssa
+  br i1 %78, label %79, label %85
 
-78:                                               ; preds = %._crit_edge
-  %79 = zext nneg i32 %.2.lcssa to i64
-  %80 = getelementptr inbounds float, ptr %27, i64 %79
-  %81 = load float, ptr %80, align 4
-  %82 = and i64 %.1.lcssa, 4294967295
-  %83 = getelementptr inbounds float, ptr %37, i64 %82
-  store float %81, ptr %83, align 4
-  %84 = getelementptr inbounds float, ptr %32, i64 %82
-  store float %81, ptr %84, align 4
+79:                                               ; preds = %._crit_edge
+  %80 = zext nneg i32 %.2.lcssa to i64
+  %81 = getelementptr inbounds float, ptr %27, i64 %80
+  %82 = load float, ptr %81, align 4
+  %83 = getelementptr inbounds float, ptr %37, i64 %.1.lcssa
+  store float %82, ptr %83, align 4
+  %84 = getelementptr inbounds float, ptr %32, i64 %.1.lcssa
+  store float %82, ptr %84, align 4
   br label %87
 
 85:                                               ; preds = %._crit_edge
   %86 = add nsw i32 %.2.lcssa, -1
   br label %87
 
-87:                                               ; preds = %78, %85, %56, %63
-  %.186 = phi i32 [ %.085.lcssa, %56 ], [ %64, %63 ], [ %.2.lcssa, %78 ], [ %86, %85 ]
+87:                                               ; preds = %79, %85, %57, %63
+  %.186 = phi i32 [ %.085.lcssa, %57 ], [ %64, %63 ], [ %.2.lcssa, %79 ], [ %86, %85 ]
   %88 = sext i32 %.186 to i64
   %89 = getelementptr inbounds float, ptr %27, i64 %88
   %90 = load float, ptr %89, align 4
@@ -1035,8 +1035,8 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17mergeCheckerboardERNS_3Ma
   %14 = getelementptr inbounds i8, ptr %1, i64 12
   br label %15
 
-15:                                               ; preds = %.lr.ph63, %66
-  %indvars.iv83 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next84, %66 ]
+15:                                               ; preds = %.lr.ph63, %70
+  %indvars.iv83 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next84, %70 ]
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %9, align 8
@@ -1087,82 +1087,89 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17mergeCheckerboardERNS_3Ma
 
 ._crit_edge57.loopexit:                           ; preds = %.lr.ph56
   %46 = trunc nuw nsw i64 %indvars.iv.next79 to i32
+  %47 = and i64 %indvars.iv.next77, 4294967295
   br label %._crit_edge57
 
 ._crit_edge57:                                    ; preds = %._crit_edge57.loopexit, %.preheader
   %.045.lcssa = phi i32 [ 0, %.preheader ], [ %46, %._crit_edge57.loopexit ]
-  %.0.lcssa = phi i64 [ 1, %.preheader ], [ %indvars.iv.next77, %._crit_edge57.loopexit ]
+  %.0.lcssa = phi i64 [ 1, %.preheader ], [ %47, %._crit_edge57.loopexit ]
   %.lcssa49 = phi i32 [ %33, %.preheader ], [ %42, %._crit_edge57.loopexit ]
-  %47 = icmp slt i32 %.045.lcssa, %.lcssa49
-  br i1 %47, label %.sink.split, label %66
+  %48 = icmp slt i32 %.045.lcssa, %.lcssa49
+  br i1 %48, label %49, label %70
+
+49:                                               ; preds = %._crit_edge57
+  %50 = getelementptr inbounds float, ptr %20, i64 %.0.lcssa
+  br label %.sink.split
 
 .lr.ph:                                           ; preds = %.preheader48, %.lr.ph
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.lr.ph ], [ 0, %.preheader48 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.preheader48 ]
-  %48 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
-  %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds float, ptr %30, i64 %indvars.iv71
-  store float %49, ptr %50, align 4
-  %51 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
+  %51 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
   %52 = load float, ptr %51, align 4
-  %53 = or disjoint i64 %indvars.iv71, 1
-  %54 = getelementptr inbounds float, ptr %30, i64 %53
-  store float %52, ptr %54, align 4
+  %53 = getelementptr inbounds float, ptr %30, i64 %indvars.iv71
+  store float %52, ptr %53, align 4
+  %54 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
+  %55 = load float, ptr %54, align 4
+  %56 = or disjoint i64 %indvars.iv71, 1
+  %57 = getelementptr inbounds float, ptr %30, i64 %56
+  store float %55, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 2
-  %55 = load i32, ptr %14, align 4
-  %56 = add nsw i32 %55, -1
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next72, %57
-  br i1 %58, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  %58 = load i32, ptr %14, align 4
+  %59 = add nsw i32 %58, -1
+  %60 = sext i32 %59 to i64
+  %61 = icmp slt i64 %indvars.iv.next72, %60
+  br i1 %61, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %59 = trunc nuw nsw i64 %indvars.iv.next72 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv.next72 to i32
+  %63 = and i64 %indvars.iv.next, 4294967295
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader48
-  %.146.lcssa = phi i32 [ 0, %.preheader48 ], [ %59, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i64 [ 1, %.preheader48 ], [ %indvars.iv.next, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ %33, %.preheader48 ], [ %55, %._crit_edge.loopexit ]
-  %60 = icmp slt i32 %.146.lcssa, %.lcssa
-  br i1 %60, label %.sink.split, label %66
+  %.146.lcssa = phi i32 [ 0, %.preheader48 ], [ %62, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i64 [ 1, %.preheader48 ], [ %63, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ %33, %.preheader48 ], [ %58, %._crit_edge.loopexit ]
+  %64 = icmp slt i32 %.146.lcssa, %.lcssa
+  br i1 %64, label %65, label %70
 
-.sink.split:                                      ; preds = %._crit_edge, %._crit_edge57
-  %.0.lcssa.sink = phi i64 [ %.0.lcssa, %._crit_edge57 ], [ %.1.lcssa, %._crit_edge ]
-  %.sink = phi ptr [ %20, %._crit_edge57 ], [ %25, %._crit_edge ]
-  %.045.lcssa.sink = phi i32 [ %.045.lcssa, %._crit_edge57 ], [ %.146.lcssa, %._crit_edge ]
-  %61 = and i64 %.0.lcssa.sink, 4294967295
-  %62 = getelementptr inbounds float, ptr %.sink, i64 %61
-  %63 = load float, ptr %62, align 4
-  %64 = zext nneg i32 %.045.lcssa.sink to i64
-  %65 = getelementptr inbounds float, ptr %30, i64 %64
-  store float %63, ptr %65, align 4
-  br label %66
+65:                                               ; preds = %._crit_edge
+  %66 = getelementptr inbounds float, ptr %25, i64 %.1.lcssa
+  br label %.sink.split
 
-66:                                               ; preds = %.sink.split, %._crit_edge57, %._crit_edge
-  %67 = load i32, ptr %5, align 8
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next84, %68
-  br i1 %69, label %15, label %._crit_edge64, !llvm.loop !10
+.sink.split:                                      ; preds = %65, %49
+  %.sink90 = phi ptr [ %50, %49 ], [ %66, %65 ]
+  %.045.lcssa.sink = phi i32 [ %.045.lcssa, %49 ], [ %.146.lcssa, %65 ]
+  %67 = load float, ptr %.sink90, align 4
+  %68 = zext nneg i32 %.045.lcssa.sink to i64
+  %69 = getelementptr inbounds float, ptr %30, i64 %68
+  store float %67, ptr %69, align 4
+  br label %70
 
-._crit_edge64:                                    ; preds = %66, %3
-  %70 = getelementptr inbounds i8, ptr %4, i64 8
-  %71 = load i32, ptr %70, align 8
-  %.not.i = icmp eq i32 %71, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %72
+70:                                               ; preds = %.sink.split, %._crit_edge57, %._crit_edge
+  %71 = load i32, ptr %5, align 8
+  %72 = sext i32 %71 to i64
+  %73 = icmp slt i64 %indvars.iv.next84, %72
+  br i1 %73, label %15, label %._crit_edge64, !llvm.loop !10
 
-72:                                               ; preds = %._crit_edge64
+._crit_edge64:                                    ; preds = %70, %3
+  %74 = getelementptr inbounds i8, ptr %4, i64 8
+  %75 = load i32, ptr %74, align 8
+  %.not.i = icmp eq i32 %75, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %76
+
+76:                                               ; preds = %._crit_edge64
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %4)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %73
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %77
 
-73:                                               ; preds = %72
-  %74 = landingpad { ptr, i32 }
+77:                                               ; preds = %76
+  %78 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #16
+  %79 = extractvalue { ptr, i32 } %78, 0
+  call void @__clang_call_terminate(ptr %79) #16
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge64, %72
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge64, %76
   ret void
 }
 
@@ -4516,25 +4523,28 @@ define hidden void @_ZNK2cv25VariationalRefinementImpl36ComputeSmoothnessTermHor
   store float %436, ptr %434, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph, %371
-  %.0.lcssa = phi i32 [ 0, %371 ], [ %372, %.lr.ph ]
-  %437 = zext nneg i32 %.0.lcssa to i64
-  %438 = getelementptr inbounds float, ptr %.0253, i64 %437
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %437 = zext nneg i32 %372 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %371
+  %.0.lcssa = phi i64 [ 0, %371 ], [ %437, %._crit_edge.loopexit ]
+  %438 = getelementptr inbounds float, ptr %.0253, i64 %.0.lcssa
   %439 = load float, ptr %438, align 4
-  %440 = getelementptr inbounds float, ptr %.0254, i64 %437
+  %440 = getelementptr inbounds float, ptr %.0254, i64 %.0.lcssa
   %441 = load float, ptr %440, align 4
   %442 = fsub float %439, %441
-  %443 = getelementptr inbounds float, ptr %.0250, i64 %437
+  %443 = getelementptr inbounds float, ptr %.0250, i64 %.0.lcssa
   %444 = load float, ptr %443, align 4
-  %445 = getelementptr inbounds float, ptr %.0251, i64 %437
+  %445 = getelementptr inbounds float, ptr %.0251, i64 %.0.lcssa
   %446 = load float, ptr %445, align 4
   %447 = fsub float %444, %446
-  %448 = getelementptr inbounds float, ptr %.0252, i64 %437
+  %448 = getelementptr inbounds float, ptr %.0252, i64 %.0.lcssa
   %449 = load float, ptr %448, align 4
   %450 = fsub float %449, %441
-  %451 = getelementptr inbounds float, ptr %.0249, i64 %437
+  %451 = getelementptr inbounds float, ptr %.0249, i64 %.0.lcssa
   %452 = load float, ptr %451, align 4
   %453 = fsub float %452, %446
   %454 = fmul float %447, %447
@@ -4544,56 +4554,56 @@ define hidden void @_ZNK2cv25VariationalRefinementImpl36ComputeSmoothnessTermHor
   %458 = fadd float %17, %457
   %sqrt283 = call float @llvm.sqrt.f32(float %458)
   %459 = fdiv float %20, %sqrt283
-  %460 = getelementptr inbounds float, ptr %.0263, i64 %437
+  %460 = getelementptr inbounds float, ptr %.0263, i64 %.0.lcssa
   store float %459, ptr %460, align 4
   br i1 %.0243, label %502, label %461
 
 461:                                              ; preds = %._crit_edge
-  %462 = getelementptr inbounds float, ptr %.0247, i64 %437
+  %462 = getelementptr inbounds float, ptr %.0247, i64 %.0.lcssa
   %463 = load float, ptr %462, align 4
-  %464 = getelementptr inbounds float, ptr %.0248, i64 %437
+  %464 = getelementptr inbounds float, ptr %.0248, i64 %.0.lcssa
   %465 = load float, ptr %464, align 4
   %466 = fsub float %463, %465
   %467 = fmul float %466, %459
-  %468 = getelementptr inbounds float, ptr %.0245, i64 %437
+  %468 = getelementptr inbounds float, ptr %.0245, i64 %.0.lcssa
   %469 = load float, ptr %468, align 4
-  %470 = getelementptr inbounds float, ptr %.0246, i64 %437
+  %470 = getelementptr inbounds float, ptr %.0246, i64 %.0.lcssa
   %471 = load float, ptr %470, align 4
   %472 = fsub float %469, %471
   %473 = fmul float %459, %472
-  %474 = getelementptr inbounds float, ptr %.0258, i64 %437
+  %474 = getelementptr inbounds float, ptr %.0258, i64 %.0.lcssa
   %475 = load float, ptr %474, align 4
   %476 = fadd float %475, %467
   store float %476, ptr %474, align 4
   %477 = load float, ptr %460, align 4
-  %478 = getelementptr inbounds float, ptr %.0262, i64 %437
+  %478 = getelementptr inbounds float, ptr %.0262, i64 %.0.lcssa
   %479 = load float, ptr %478, align 4
   %480 = fadd float %477, %479
   store float %480, ptr %478, align 4
-  %481 = getelementptr inbounds float, ptr %.0256, i64 %437
+  %481 = getelementptr inbounds float, ptr %.0256, i64 %.0.lcssa
   %482 = load float, ptr %481, align 4
   %483 = fadd float %473, %482
   store float %483, ptr %481, align 4
   %484 = load float, ptr %460, align 4
-  %485 = getelementptr inbounds float, ptr %.0260, i64 %437
+  %485 = getelementptr inbounds float, ptr %.0260, i64 %.0.lcssa
   %486 = load float, ptr %485, align 4
   %487 = fadd float %484, %486
   store float %487, ptr %485, align 4
-  %488 = getelementptr inbounds float, ptr %.0257, i64 %437
+  %488 = getelementptr inbounds float, ptr %.0257, i64 %.0.lcssa
   %489 = load float, ptr %488, align 4
   %490 = fsub float %489, %467
   store float %490, ptr %488, align 4
   %491 = load float, ptr %460, align 4
-  %492 = getelementptr inbounds float, ptr %.0261, i64 %437
+  %492 = getelementptr inbounds float, ptr %.0261, i64 %.0.lcssa
   %493 = load float, ptr %492, align 4
   %494 = fadd float %491, %493
   store float %494, ptr %492, align 4
-  %495 = getelementptr inbounds float, ptr %.0255, i64 %437
+  %495 = getelementptr inbounds float, ptr %.0255, i64 %.0.lcssa
   %496 = load float, ptr %495, align 4
   %497 = fsub float %496, %473
   store float %497, ptr %495, align 4
   %498 = load float, ptr %460, align 4
-  %499 = getelementptr inbounds float, ptr %.0259, i64 %437
+  %499 = getelementptr inbounds float, ptr %.0259, i64 %.0.lcssa
   %500 = load float, ptr %499, align 4
   %501 = fadd float %498, %500
   store float %501, ptr %499, align 4

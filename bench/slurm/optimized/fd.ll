@@ -923,56 +923,57 @@ define internal fastcc i32 @_rmdir_recursive(i32 noundef %0) unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__._rmdir_recursive) #10
   %6 = tail call i32 @close(i32 noundef %0) #10
-  br label %59
+  br label %54
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
-  %7 = phi ptr [ %43, %sub_0.lr.ph ], [ %22, %.backedge ]
+  %7 = phi ptr [ %38, %sub_0.lr.ph ], [ %18, %.backedge ]
   %8 = getelementptr inbounds i8, ptr %7, i64 19
   %9 = load i8, ptr %8, align 1
-  %10 = zext i8 %9 to i32
-  %11 = add nsw i32 %10, -46
-  %.not43 = icmp eq i32 %11, 0
-  br i1 %.not43, label %.tail, label %.tail34
+  %.not43 = icmp eq i8 %9, 46
+  br i1 %.not43, label %.tail, label %.tail34.thread
 
 .tail:                                            ; preds = %sub_0
-  %12 = getelementptr inbounds i8, ptr %7, i64 20
-  %13 = load i8, ptr %12, align 1
-  %.not29 = icmp eq i8 %13, 0
-  br i1 %.not29, label %.backedge, label %sub_136
+  %10 = getelementptr inbounds i8, ptr %7, i64 20
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %.backedge, label %sub_136
 
 sub_136:                                          ; preds = %.tail
-  %14 = getelementptr inbounds i8, ptr %7, i64 20
-  %15 = load i8, ptr %14, align 1
-  %16 = zext i8 %15 to i32
-  %17 = add nsw i32 %16, -46
-  %.not45 = icmp eq i32 %17, 0
-  br i1 %.not45, label %sub_2, label %.tail34
+  %13 = getelementptr inbounds i8, ptr %7, i64 20
+  %14 = load i8, ptr %13, align 1
+  %.not45 = icmp eq i8 %14, 46
+  br i1 %.not45, label %.tail34, label %.tail34.thread
 
-sub_2:                                            ; preds = %sub_136
-  %18 = getelementptr inbounds i8, ptr %7, i64 21
-  %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  br label %.tail34
+.tail34:                                          ; preds = %sub_136
+  %15 = getelementptr inbounds i8, ptr %7, i64 21
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %.backedge, label %.tail34.thread
 
-.tail34:                                          ; preds = %sub_0, %sub_136, %sub_2
-  %21 = phi i32 [ %17, %sub_136 ], [ %20, %sub_2 ], [ %11, %sub_0 ]
-  %.not30 = icmp eq i32 %21, 0
-  br i1 %.not30, label %.backedge, label %23
-
-.backedge.sink.split:                             ; preds = %30, %25
-  %.str.39.sink = phi ptr [ @.str.38, %25 ], [ @.str.39, %30 ]
+.backedge.sink.split:                             ; preds = %25, %20
+  %.str.39.sink = phi ptr [ @.str.38, %20 ], [ @.str.39, %25 ]
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull %.str.39.sink, ptr noundef nonnull @__func__._rmdir_recursive, ptr noundef nonnull %8) #10
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %30, %25, %.tail, %.tail34
-  %22 = tail call ptr @readdir(ptr noundef nonnull %2) #10
-  %.not28 = icmp eq ptr %22, null
+.backedge:                                        ; preds = %.backedge.sink.split, %25, %20, %.tail, %.tail34
+  %18 = tail call ptr @readdir(ptr noundef nonnull %2) #10
+  %.not28 = icmp eq ptr %18, null
   br i1 %.not28, label %.outer._crit_edge, label %sub_0, !llvm.loop !12
 
-23:                                               ; preds = %.tail34
-  %24 = tail call i32 @unlinkat(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 0) #10
-  %.not31 = icmp eq i32 %24, -1
-  br i1 %.not31, label %28, label %25
+.tail34.thread:                                   ; preds = %sub_0, %sub_136, %.tail34
+  %19 = tail call i32 @unlinkat(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 0) #10
+  %.not31 = icmp eq i32 %19, -1
+  br i1 %.not31, label %23, label %20
+
+20:                                               ; preds = %.tail34.thread
+  %21 = tail call i32 @get_log_level() #10
+  %22 = icmp sgt i32 %21, 4
+  br i1 %22, label %.backedge.sink.split, label %.backedge
+
+23:                                               ; preds = %.tail34.thread
+  %24 = tail call i32 @unlinkat(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 512) #10
+  %.not32 = icmp eq i32 %24, -1
+  br i1 %.not32, label %28, label %25
 
 25:                                               ; preds = %23
   %26 = tail call i32 @get_log_level() #10
@@ -980,84 +981,74 @@ sub_2:                                            ; preds = %sub_136
   br i1 %27, label %.backedge.sink.split, label %.backedge
 
 28:                                               ; preds = %23
-  %29 = tail call i32 @unlinkat(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 512) #10
-  %.not32 = icmp eq i32 %29, -1
-  br i1 %.not32, label %33, label %30
-
-30:                                               ; preds = %28
+  %29 = tail call i32 (i32, ptr, i32, ...) @openat(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 196608) #10
+  %30 = icmp slt i32 %29, 0
   %31 = tail call i32 @get_log_level() #10
   %32 = icmp sgt i32 %31, 4
-  br i1 %32, label %.backedge.sink.split, label %.backedge
+  br i1 %30, label %33, label %39
 
 33:                                               ; preds = %28
-  %34 = tail call i32 (i32, ptr, i32, ...) @openat(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 196608) #10
-  %35 = icmp slt i32 %34, 0
-  %36 = tail call i32 @get_log_level() #10
-  %37 = icmp sgt i32 %36, 4
-  br i1 %35, label %38, label %44
+  br i1 %32, label %34, label %35
 
-38:                                               ; preds = %33
-  br i1 %37, label %39, label %40
-
-39:                                               ; preds = %38
+34:                                               ; preds = %33
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__._rmdir_recursive, ptr noundef nonnull %8) #10
-  br label %40
+  br label %35
 
-40:                                               ; preds = %39, %38
-  %41 = add nsw i32 %.025.ph41, 1
+35:                                               ; preds = %34, %33
+  %36 = add nsw i32 %.025.ph41, 1
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %56, %53, %52, %40
-  %.025.ph.be = phi i32 [ %41, %40 ], [ %48, %53 ], [ %48, %52 ], [ %57, %56 ]
-  %42 = tail call ptr @readdir(ptr noundef nonnull %2) #10
-  %.not2838 = icmp eq ptr %42, null
+.outer.backedge:                                  ; preds = %51, %48, %47, %35
+  %.025.ph.be = phi i32 [ %36, %35 ], [ %43, %48 ], [ %43, %47 ], [ %52, %51 ]
+  %37 = tail call ptr @readdir(ptr noundef nonnull %2) #10
+  %.not2838 = icmp eq ptr %37, null
   br i1 %.not2838, label %.outer._crit_edge, label %sub_0.lr.ph, !llvm.loop !12
 
 sub_0.lr.ph:                                      ; preds = %.preheader, %.outer.backedge
-  %43 = phi ptr [ %42, %.outer.backedge ], [ %3, %.preheader ]
+  %38 = phi ptr [ %37, %.outer.backedge ], [ %3, %.preheader ]
   %.025.ph41 = phi i32 [ %.025.ph.be, %.outer.backedge ], [ 0, %.preheader ]
   br label %sub_0
 
-44:                                               ; preds = %33
-  br i1 %37, label %45, label %46
+39:                                               ; preds = %28
+  br i1 %32, label %40, label %41
 
-45:                                               ; preds = %44
+40:                                               ; preds = %39
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.41, ptr noundef nonnull @__func__._rmdir_recursive, ptr noundef nonnull %8) #10
-  br label %46
+  br label %41
 
-46:                                               ; preds = %45, %44
-  %47 = tail call fastcc i32 @_rmdir_recursive(i32 noundef %34)
-  %48 = add nsw i32 %47, %.025.ph41
-  %49 = tail call i32 @unlinkat(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 512) #10
-  %.not33 = icmp eq i32 %49, -1
-  %50 = tail call i32 @get_log_level() #10
-  %51 = icmp sgt i32 %50, 4
-  br i1 %.not33, label %54, label %52
+41:                                               ; preds = %40, %39
+  %42 = tail call fastcc i32 @_rmdir_recursive(i32 noundef %29)
+  %43 = add nsw i32 %42, %.025.ph41
+  %44 = tail call i32 @unlinkat(i32 noundef %0, ptr noundef nonnull %8, i32 noundef 512) #10
+  %.not33 = icmp eq i32 %44, -1
+  %45 = tail call i32 @get_log_level() #10
+  %46 = icmp sgt i32 %45, 4
+  br i1 %.not33, label %49, label %47
 
-52:                                               ; preds = %46
-  br i1 %51, label %53, label %.outer.backedge
+47:                                               ; preds = %41
+  br i1 %46, label %48, label %.outer.backedge
 
-53:                                               ; preds = %52
+48:                                               ; preds = %47
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__._rmdir_recursive, ptr noundef nonnull %8) #10
   br label %.outer.backedge
 
-54:                                               ; preds = %46
-  br i1 %51, label %55, label %56
+49:                                               ; preds = %41
+  br i1 %46, label %50, label %51
 
-55:                                               ; preds = %54
+50:                                               ; preds = %49
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__._rmdir_recursive, ptr noundef nonnull %8) #10
-  br label %56
+  br label %51
 
-56:                                               ; preds = %55, %54
-  %57 = add nsw i32 %48, 1
+51:                                               ; preds = %50, %49
+  %52 = add nsw i32 %43, 1
   br label %.outer.backedge
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.backedge, %.preheader
   %.025.ph.lcssa = phi i32 [ 0, %.preheader ], [ %.025.ph41, %.backedge ], [ %.025.ph.be, %.outer.backedge ]
-  %58 = tail call i32 @closedir(ptr noundef nonnull %2)
-  br label %59
+  %53 = tail call i32 @closedir(ptr noundef nonnull %2)
+  br label %54
 
-59:                                               ; preds = %.outer._crit_edge, %4
+54:                                               ; preds = %.outer._crit_edge, %4
   %.0 = phi i32 [ %.025.ph.lcssa, %.outer._crit_edge ], [ 1, %4 ]
   ret i32 %.0
 }

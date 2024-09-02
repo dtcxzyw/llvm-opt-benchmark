@@ -22491,16 +22491,16 @@ _ZN6duckdb16PipelineExecutor11EndOperatorERNS_16PhysicalOperatorENS_12optional_p
   %34 = load ptr, ptr %chunk.i, align 8, !tbaa !837
   call void @_ZN6duckdb9DataChunk6VerifyEv(ptr noundef nonnull align 8 dereferenceable(64) %34)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %chunk.i)
+  %35 = icmp eq i8 %call46, 0
+  %36 = zext i1 %35 to i8
   br label %if.end47
 
 if.end47:                                         ; preds = %_ZN6duckdb16PipelineExecutor11EndOperatorERNS_16PhysicalOperatorENS_12optional_ptrINS_9DataChunkEEE.exit, %cond.end31
-  %finalize_result.0 = phi i8 [ %call46, %_ZN6duckdb16PipelineExecutor11EndOperatorERNS_16PhysicalOperatorENS_12optional_ptrINS_9DataChunkEEE.exit ], [ 0, %cond.end31 ]
-  %35 = load i64, ptr %flushing_idx3, align 8, !tbaa !834
-  %add49 = add i64 %35, 1
+  %finalize_result.0 = phi i8 [ %36, %_ZN6duckdb16PipelineExecutor11EndOperatorERNS_16PhysicalOperatorENS_12optional_ptrINS_9DataChunkEEE.exit ], [ 1, %cond.end31 ]
+  %37 = load i64, ptr %flushing_idx3, align 8, !tbaa !834
+  %add49 = add i64 %37, 1
   %call50 = call noundef zeroext i8 @_ZN6duckdb16PipelineExecutor19ExecutePushInternalERNS_9DataChunkEm(ptr noundef nonnull align 8 dereferenceable(401) %this, ptr noundef nonnull align 8 dereferenceable(64) %cond-lvalue, i64 noundef %add49)
-  %cmp51 = icmp eq i8 %finalize_result.0, 0
-  %spec.select = zext i1 %cmp51 to i8
-  store i8 %spec.select, ptr %should_flush_current_idx, align 8, !tbaa !754
+  store i8 %finalize_result.0, ptr %should_flush_current_idx, align 8, !tbaa !754
   switch i8 %call50, label %if.end47.while.cond.backedge_crit_edge [
     i8 3, label %cleanup.thread
     i8 2, label %return

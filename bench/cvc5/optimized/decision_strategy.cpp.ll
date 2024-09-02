@@ -420,7 +420,7 @@ _ZN4cvc57context3CDOIjE3setERKj.exit:             ; preds = %if.then.i.i, %cond.
 
 nrvo.unused:                                      ; preds = %invoke.cont47, %if.else, %_ZN4cvc57context3CDOIjE3setERKj.exit
   %curr_lit.1.ph = phi i32 [ %add, %_ZN4cvc57context3CDOIjE3setERKj.exit ], [ %curr_lit.0, %if.else ], [ %curr_lit.0, %invoke.cont47 ]
-  %success.0.ph = phi i1 [ false, %_ZN4cvc57context3CDOIjE3setERKj.exit ], [ true, %if.else ], [ true, %invoke.cont47 ]
+  %success.0.ph = phi i1 [ true, %_ZN4cvc57context3CDOIjE3setERKj.exit ], [ false, %if.else ], [ false, %invoke.cont47 ]
   %18 = load ptr, ptr %agg.result, align 8
   %bf.load.i.i = load i64, ptr %18, align 8
   %19 = and i64 %bf.load.i.i, 1152920405095219200
@@ -448,7 +448,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 do.cond:                                          ; preds = %nrvo.unused, %if.then.i.i450, %if.then13.i.i
-  br i1 %success.0.ph, label %do.end, label %cond.true29, !llvm.loop !10
+  br i1 %success.0.ph, label %cond.true29, label %do.end, !llvm.loop !10
 
 do.end:                                           ; preds = %do.cond
   %d_pScope.i.i.i = getelementptr inbounds i8, ptr %this, i64 32

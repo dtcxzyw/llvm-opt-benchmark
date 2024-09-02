@@ -1355,7 +1355,7 @@ Abc_Clock.exit45:                                 ; preds = %108, %111
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fra_SetActivityFactors_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @Fra_SetActivityFactors_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 312

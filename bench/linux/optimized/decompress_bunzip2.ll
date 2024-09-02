@@ -448,12 +448,12 @@ define internal fastcc i32 @get_bits(ptr nocapture noundef %0, i8 noundef zeroex
   %.pre10 = load i64, ptr %9, align 8
   br label %14
 
-14:                                               ; preds = %44, %7
-  %15 = phi i32 [ %4, %7 ], [ %55, %44 ]
-  %16 = phi i64 [ %.pre10, %7 ], [ %34, %44 ]
-  %17 = phi i64 [ %.pre, %7 ], [ %50, %44 ]
-  %18 = phi i32 [ 0, %7 ], [ %47, %44 ]
-  %19 = phi i8 [ %1, %7 ], [ %46, %44 ]
+14:                                               ; preds = %45, %7
+  %15 = phi i32 [ %4, %7 ], [ %46, %45 ]
+  %16 = phi i64 [ %.pre10, %7 ], [ %34, %45 ]
+  %17 = phi i64 [ %.pre, %7 ], [ %51, %45 ]
+  %18 = phi i32 [ 0, %7 ], [ %48, %45 ]
+  %19 = phi i8 [ %1, %7 ], [ %47, %45 ]
   %20 = icmp eq i64 %17, %16
   br i1 %20, label %21, label %31
 
@@ -484,47 +484,47 @@ define internal fastcc i32 @get_bits(ptr nocapture noundef %0, i8 noundef zeroex
   %34 = phi i64 [ %27, %30 ], [ %16, %14 ]
   %35 = icmp ugt i32 %33, 23
   %.pre12 = load i32, ptr %13, align 4
-  br i1 %35, label %36, label %._crit_edge
+  br i1 %35, label %37, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31
   %.pre14 = zext i8 %19 to i32
-  br label %44
+  %36 = add nuw nsw i32 %33, 8
+  br label %45
 
-36:                                               ; preds = %31
-  %37 = shl nsw i32 -1, %33
-  %38 = xor i32 %37, -1
-  %39 = and i32 %.pre12, %38
-  %40 = trunc i32 %33 to i8
-  %41 = sub i8 %19, %40
-  %42 = zext i8 %41 to i32
-  %43 = shl i32 %39, %42
+37:                                               ; preds = %31
+  %38 = shl nsw i32 -1, %33
+  %39 = xor i32 %38, -1
+  %40 = and i32 %.pre12, %39
+  %41 = trunc i32 %33 to i8
+  %42 = sub i8 %19, %41
+  %43 = zext i8 %42 to i32
+  %44 = shl i32 %40, %43
   store i32 0, ptr %3, align 8
-  br label %44
+  br label %45
 
-44:                                               ; preds = %._crit_edge, %36
-  %.pre-phi = phi i32 [ %.pre14, %._crit_edge ], [ %42, %36 ]
-  %45 = phi i32 [ %33, %._crit_edge ], [ 0, %36 ]
-  %46 = phi i8 [ %19, %._crit_edge ], [ %41, %36 ]
-  %47 = phi i32 [ %18, %._crit_edge ], [ %43, %36 ]
-  %48 = shl i32 %.pre12, 8
-  %49 = load ptr, ptr %12, align 8
-  %50 = add i64 %32, 1
-  store i64 %50, ptr %8, align 8
-  %51 = getelementptr i8, ptr %49, i64 %32
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = or disjoint i32 %48, %53
-  store i32 %54, ptr %13, align 4
-  %55 = add nuw nsw i32 %45, 8
-  store i32 %55, ptr %3, align 8
-  %56 = icmp ult i32 %55, %.pre-phi
+45:                                               ; preds = %._crit_edge, %37
+  %.pre-phi = phi i32 [ %.pre14, %._crit_edge ], [ %43, %37 ]
+  %46 = phi i32 [ %36, %._crit_edge ], [ 8, %37 ]
+  %47 = phi i8 [ %19, %._crit_edge ], [ %42, %37 ]
+  %48 = phi i32 [ %18, %._crit_edge ], [ %44, %37 ]
+  %49 = shl i32 %.pre12, 8
+  %50 = load ptr, ptr %12, align 8
+  %51 = add i64 %32, 1
+  store i64 %51, ptr %8, align 8
+  %52 = getelementptr i8, ptr %50, i64 %32
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = or disjoint i32 %49, %54
+  store i32 %55, ptr %13, align 4
+  store i32 %46, ptr %3, align 8
+  %56 = icmp ult i32 %46, %.pre-phi
   br i1 %56, label %14, label %.loopexit5, !llvm.loop !13
 
-.loopexit5:                                       ; preds = %44, %..loopexit5_crit_edge
-  %57 = phi i32 [ %.pre13, %..loopexit5_crit_edge ], [ %54, %44 ]
-  %58 = phi i32 [ 0, %..loopexit5_crit_edge ], [ %47, %44 ]
-  %59 = phi i32 [ %4, %..loopexit5_crit_edge ], [ %55, %44 ]
-  %60 = phi i32 [ %5, %..loopexit5_crit_edge ], [ %.pre-phi, %44 ]
+.loopexit5:                                       ; preds = %45, %..loopexit5_crit_edge
+  %57 = phi i32 [ %.pre13, %..loopexit5_crit_edge ], [ %55, %45 ]
+  %58 = phi i32 [ 0, %..loopexit5_crit_edge ], [ %48, %45 ]
+  %59 = phi i32 [ %4, %..loopexit5_crit_edge ], [ %46, %45 ]
+  %60 = phi i32 [ %5, %..loopexit5_crit_edge ], [ %.pre-phi, %45 ]
   %61 = sub i32 %59, %60
   store i32 %61, ptr %3, align 8
   %62 = lshr i32 %57, %61
@@ -711,7 +711,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   br label %113
 
 105:                                              ; preds = %.loopexit55, %.loopexit54
-  %106 = phi i32 [ %242, %.loopexit55 ], [ %253, %.loopexit54 ]
+  %106 = phi i32 [ %243, %.loopexit55 ], [ %253, %.loopexit54 ]
   %107 = phi ptr [ %183, %.loopexit55 ], [ %115, %.loopexit54 ]
   %108 = phi ptr [ %184, %.loopexit55 ], [ %116, %.loopexit54 ]
   %109 = phi ptr [ %185, %.loopexit55 ], [ %117, %.loopexit54 ]
@@ -917,21 +917,24 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   store i32 %237, ptr %239, align 4
   %240 = trunc i64 %238 to i32
   %241 = icmp sgt i32 %186, %240
-  br i1 %241, label %.preheader200, label %.loopexit55, !llvm.loop !26
+  br i1 %241, label %.preheader200, label %.loopexit55.loopexit, !llvm.loop !26
 
-.loopexit55:                                      ; preds = %.preheader200, %.loopexit57
-  %242 = phi i32 [ 0, %.loopexit57 ], [ %236, %.preheader200 ]
-  %243 = phi i32 [ 0, %.loopexit57 ], [ %235, %.preheader200 ]
-  %244 = zext nneg i32 %186 to i64
-  %245 = getelementptr i32, ptr %183, i64 %244
-  %246 = getelementptr i8, ptr %245, i64 4
-  store i32 2147483647, ptr %246, align 4
-  %247 = getelementptr [21 x i8], ptr %3, i64 0, i64 %244
-  %248 = load i8, ptr %247, align 1
-  %249 = zext i8 %248 to i32
-  %250 = add i32 %243, -1
-  %251 = add i32 %250, %249
-  store i32 %251, ptr %245, align 4
+.loopexit55.loopexit:                             ; preds = %.preheader200
+  %242 = add i32 %235, -1
+  br label %.loopexit55
+
+.loopexit55:                                      ; preds = %.loopexit57, %.loopexit55.loopexit
+  %243 = phi i32 [ %236, %.loopexit55.loopexit ], [ 0, %.loopexit57 ]
+  %244 = phi i32 [ %242, %.loopexit55.loopexit ], [ -1, %.loopexit57 ]
+  %245 = zext nneg i32 %186 to i64
+  %246 = getelementptr i32, ptr %183, i64 %245
+  %247 = getelementptr i8, ptr %246, i64 4
+  store i32 2147483647, ptr %247, align 4
+  %248 = getelementptr [21 x i8], ptr %3, i64 0, i64 %245
+  %249 = load i8, ptr %248, align 1
+  %250 = zext i8 %249 to i32
+  %251 = add i32 %244, %250
+  store i32 %251, ptr %246, align 4
   %252 = getelementptr i32, ptr %184, i64 %213
   store i32 0, ptr %252, align 4
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %3) #9

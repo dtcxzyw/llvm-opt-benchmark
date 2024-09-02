@@ -2240,7 +2240,7 @@ define ptr @FT_Get_X11_Font_Format(ptr noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @FT_GlyphLoader_New(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 65) i32 @FT_GlyphLoader_New(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %4(ptr noundef %0, i64 noundef 176) #34
@@ -2506,7 +2506,7 @@ ft_mem_free.exit:                                 ; preds = %ft_mem_free.exit26.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @FT_GlyphLoader_CreateExtra(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 65) i32 @FT_GlyphLoader_CreateExtra(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -3316,7 +3316,7 @@ FT_GlyphLoader_Adjust_Points.exit:                ; preds = %242, %268, %273, %F
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @FT_GlyphLoader_CheckSubGlyphs(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 65) i32 @FT_GlyphLoader_CheckSubGlyphs(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
@@ -3632,7 +3632,7 @@ FT_GlyphLoader_Adjust_Points.exit.i:              ; preds = %48, %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ft_hash_str_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 65) i32 @ft_hash_str_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 241, ptr %3, align 4
   store i32 80, ptr %0, align 8
@@ -3660,7 +3660,7 @@ hash_init.exit:                                   ; preds = %2, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ft_hash_num_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 65) i32 @ft_hash_num_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 241, ptr %3, align 4
   store i32 80, ptr %0, align 8
@@ -3743,13 +3743,13 @@ ft_mem_free.exit15:                               ; preds = %._crit_edge, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ft_hash_str_insert(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 65) i32 @ft_hash_str_insert(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @hash_insert(ptr %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hash_insert(ptr %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65) i32 @hash_insert(ptr %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %union.FT_Hashkey_, align 8
   %6 = alloca %union.FT_Hashkey_, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -3948,7 +3948,7 @@ hash_rehash.exit:                                 ; preds = %ft_mem_realloc.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ft_hash_num_insert(i32 noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 65) i32 @ft_hash_num_insert(i32 noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.sroa.0.0.insert.ext = zext i32 %0 to i64
   %5 = inttoptr i64 %.sroa.0.0.insert.ext to ptr
   %6 = tail call fastcc i32 @hash_insert(ptr %5, i64 noundef %1, ptr noundef %2, ptr noundef %3)
@@ -4982,7 +4982,7 @@ ft_glyphslot_free_bitmap.exit:                    ; preds = %2, %5, %ft_mem_free
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ft_glyphslot_alloc_bitmap(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 65) i32 @ft_glyphslot_alloc_bitmap(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 184
@@ -6078,23 +6078,23 @@ define internal fastcc i32 @ft_open_face_internal(ptr noundef %0, ptr noundef %1
   %20 = load i32, ptr %1, align 8
   %21 = and i32 %20, 2
   %.not112 = icmp eq i32 %21, 0
-  br i1 %.not112, label %26, label %22
+  br i1 %.not112, label %27, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = icmp ne ptr %24, null
-  br label %26
+  %26 = zext i1 %25 to i8
+  br label %27
 
-26:                                               ; preds = %22, %19
-  %27 = phi i1 [ false, %19 ], [ %25, %22 ]
-  %28 = zext i1 %27 to i8
+27:                                               ; preds = %22, %19
+  %28 = phi i8 [ 0, %19 ], [ %26, %22 ]
   store i8 %28, ptr %12, align 1
   %29 = call i32 @FT_Stream_New(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %10)
   %.not113 = icmp eq i32 %29, 0
   br i1 %.not113, label %30, label %FT_Stream_Seek.exit
 
-30:                                               ; preds = %26
+30:                                               ; preds = %27
   %31 = icmp eq ptr %3, null
   %32 = icmp sgt i64 %.089, -1
   %or.cond = select i1 %31, i1 %32, i1 false
@@ -6292,10 +6292,10 @@ ft_mem_free.exit.i148:                            ; preds = %FT_Stream_Close.exi
   %116 = icmp ult ptr %115, %.ptr288
   br i1 %116, label %71, label %FT_Stream_Seek.exit, !llvm.loop !24
 
-FT_Stream_Seek.exit:                              ; preds = %112, %114, %26
-  %.0191 = phi i32 [ %29, %26 ], [ %.4195, %112 ], [ %.5, %114 ]
-  %.098 = phi ptr [ null, %26 ], [ %34, %114 ], [ %34, %112 ]
-  %.095 = phi ptr [ null, %26 ], [ %72, %112 ], [ %.3, %114 ]
+FT_Stream_Seek.exit:                              ; preds = %112, %114, %27
+  %.0191 = phi i32 [ %29, %27 ], [ %.4195, %112 ], [ %.5, %114 ]
+  %.098 = phi ptr [ null, %27 ], [ %34, %114 ], [ %34, %112 ]
+  %.095 = phi ptr [ null, %27 ], [ %72, %112 ], [ %.3, %114 ]
   %trunc = trunc i32 %.0191 to i8
   switch i8 %trunc, label %FT_Stream_Seek.exit.thread199 [
     i8 81, label %117
@@ -6804,41 +6804,41 @@ FT_List_Add.exit:                                 ; preds = %.loopexit269
   %322 = getelementptr inbounds %struct.FT_Bitmap_Size_, ptr %321, i64 %indvars.iv
   %323 = load i16, ptr %322, align 8
   %324 = icmp slt i16 %323, 0
-  br i1 %324, label %325, label %327
+  br i1 %324, label %325, label %328
 
 325:                                              ; preds = %320
   %326 = sub i16 0, %323
   store i16 %326, ptr %322, align 8
-  br label %327
+  %327 = icmp slt i16 %326, 0
+  br label %328
 
-327:                                              ; preds = %325, %320
-  %328 = phi i16 [ %326, %325 ], [ %323, %320 ]
-  %329 = getelementptr inbounds i8, ptr %322, i64 16
-  %330 = load i64, ptr %329, align 8
-  %331 = icmp slt i64 %330, 0
-  br i1 %331, label %332, label %334
+328:                                              ; preds = %325, %320
+  %329 = phi i1 [ %327, %325 ], [ false, %320 ]
+  %330 = getelementptr inbounds i8, ptr %322, i64 16
+  %331 = load i64, ptr %330, align 8
+  %332 = icmp slt i64 %331, 0
+  br i1 %332, label %333, label %335
 
-332:                                              ; preds = %327
-  %333 = sub nsw i64 0, %330
-  store i64 %333, ptr %329, align 8
-  br label %334
+333:                                              ; preds = %328
+  %334 = sub nsw i64 0, %331
+  store i64 %334, ptr %330, align 8
+  br label %335
 
-334:                                              ; preds = %332, %327
-  %335 = getelementptr inbounds i8, ptr %322, i64 24
-  %336 = load i64, ptr %335, align 8
-  %337 = icmp slt i64 %336, 0
-  br i1 %337, label %338, label %340
+335:                                              ; preds = %333, %328
+  %336 = getelementptr inbounds i8, ptr %322, i64 24
+  %337 = load i64, ptr %336, align 8
+  %338 = icmp slt i64 %337, 0
+  br i1 %338, label %339, label %341
 
-338:                                              ; preds = %334
-  %339 = sub nsw i64 0, %336
-  store i64 %339, ptr %335, align 8
-  br label %340
+339:                                              ; preds = %335
+  %340 = sub nsw i64 0, %337
+  store i64 %340, ptr %336, align 8
+  br label %341
 
-340:                                              ; preds = %338, %334
-  %341 = icmp slt i16 %328, 0
-  br i1 %341, label %342, label %345
+341:                                              ; preds = %339, %335
+  br i1 %329, label %342, label %345
 
-342:                                              ; preds = %340
+342:                                              ; preds = %341
   %343 = getelementptr inbounds i8, ptr %322, i64 2
   store i16 0, ptr %343, align 2
   store i16 0, ptr %322, align 8
@@ -6846,7 +6846,7 @@ FT_List_Add.exit:                                 ; preds = %.loopexit269
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %344, i8 0, i64 24, i1 false)
   br label %345
 
-345:                                              ; preds = %340, %342
+345:                                              ; preds = %341, %342
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %346 = load i32, ptr %316, align 8
   %347 = sext i32 %346 to i64
@@ -12084,7 +12084,7 @@ define range(i32 0, 34) i32 @FT_Reference_Library(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @FT_New_Library(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 0, 65) i32 @FT_New_Library(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -14005,7 +14005,7 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i
 
 43:                                               ; preds = %.lr.ph69, %._crit_edge
   %indvars.iv74 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next75, %._crit_edge ]
-  %.067 = phi i64 [ 0, %.lr.ph69 ], [ %.1.lcssa.fr, %._crit_edge ]
+  %.067 = phi i64 [ 0, %.lr.ph69 ], [ %.1.lcssa, %._crit_edge ]
   %.04366 = phi i32 [ -1, %.lr.ph69 ], [ %46, %._crit_edge ]
   %44 = getelementptr inbounds i16, ptr %40, i64 %indvars.iv74
   %45 = load i16, ptr %44, align 2
@@ -14027,7 +14027,7 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %54, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.164 = phi i64 [ %.067, %.lr.ph.preheader ], [ %64, %.lr.ph ]
+  %.164 = phi i64 [ %.067, %.lr.ph.preheader ], [ %65, %.lr.ph ]
   %.sroa.023.062 = phi i64 [ %53, %.lr.ph.preheader ], [ %57, %.lr.ph ]
   %.sroa.324.061 = phi i64 [ %51, %.lr.ph.preheader ], [ %60, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -14041,29 +14041,29 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i
   %62 = add nsw i64 %57, %.sroa.023.062
   %63 = mul i64 %61, %62
   %64 = add i64 %63, %.164
+  %65 = freeze i64 %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph, %43
-  %.1.lcssa = phi i64 [ %.067, %43 ], [ %64, %.lr.ph ]
-  %.1.lcssa.fr = freeze i64 %.1.lcssa
+  %.1.lcssa = phi i64 [ %.067, %43 ], [ %65, %.lr.ph ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %._crit_edge70, label %43, !llvm.loop !67
 
 ._crit_edge70:                                    ; preds = %._crit_edge
-  %65 = icmp sgt i64 %.1.lcssa.fr, 0
-  br i1 %65, label %FT_Outline_Get_CBox.exit.thread, label %66
+  %66 = icmp sgt i64 %.1.lcssa, 0
+  br i1 %66, label %FT_Outline_Get_CBox.exit.thread, label %67
 
-66:                                               ; preds = %._crit_edge70
-  %.not59 = icmp eq i64 %.1.lcssa.fr, 0
+67:                                               ; preds = %._crit_edge70
+  %.not59 = icmp eq i64 %.1.lcssa, 0
   br i1 %.not59, label %.thread, label %FT_Outline_Get_CBox.exit.thread
 
-.thread:                                          ; preds = %25, %66
+.thread:                                          ; preds = %25, %67
   br label %FT_Outline_Get_CBox.exit.thread
 
-FT_Outline_Get_CBox.exit.thread:                  ; preds = %.thread, %66, %6, %._crit_edge70, %20, %FT_Outline_Get_CBox.exit, %1, %2
-  %.044 = phi i32 [ 0, %2 ], [ 0, %1 ], [ 2, %FT_Outline_Get_CBox.exit ], [ 2, %20 ], [ 1, %._crit_edge70 ], [ 2, %6 ], [ 2, %.thread ], [ 0, %66 ]
+FT_Outline_Get_CBox.exit.thread:                  ; preds = %.thread, %67, %6, %._crit_edge70, %20, %FT_Outline_Get_CBox.exit, %1, %2
+  %.044 = phi i32 [ 0, %2 ], [ 0, %1 ], [ 2, %FT_Outline_Get_CBox.exit ], [ 2, %20 ], [ 1, %._crit_edge70 ], [ 2, %6 ], [ 2, %.thread ], [ 0, %67 ]
   ret i32 %.044
 }
 
@@ -14901,13 +14901,13 @@ FT_Stream_ReadUShort.exit.thread:                 ; preds = %22, %30
   %48 = phi i32 [ 0, %.preheader.thread ], [ %46, %.preheader ]
   br label %.lr.ph
 
-49:                                               ; preds = %120
+49:                                               ; preds = %121
   %50 = add nuw nsw i32 %.057172, 1
   %exitcond.not = icmp eq i32 %.057172, %48
   br i1 %exitcond.not, label %ft_mem_free.exit, label %.lr.ph, !llvm.loop !70
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %49
-  %51 = phi i64 [ %122, %49 ], [ %47, %.lr.ph.preheader ]
+  %51 = phi i64 [ %123, %49 ], [ %47, %.lr.ph.preheader ]
   %.057172 = phi i32 [ %50, %49 ], [ 0, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %52 = add i64 %51, 3
@@ -14934,7 +14934,7 @@ FT_Stream_ReadUShort.exit.thread:                 ; preds = %22, %30
   %60 = load ptr, ptr %1, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %51
   %.not23.i = icmp eq ptr %60, null
-  br i1 %.not23.i, label %79, label %.thread.i87
+  br i1 %.not23.i, label %80, label %.thread.i87
 
 .thread.i87:                                      ; preds = %59, %..thread_crit_edge.i85
   %.pre190 = phi i64 [ %53, %59 ], [ %.pre190.pre, %..thread_crit_edge.i85 ]
@@ -14957,32 +14957,32 @@ FT_Stream_ReadUShort.exit.thread:                 ; preds = %22, %30
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i32
   %78 = or disjoint i32 %74, %77
-  br label %79
+  %79 = sext i32 %78 to i64
+  br label %80
 
 FT_Stream_ReadULong.exit.thread:                  ; preds = %.lr.ph, %57
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %ft_mem_free.exit
 
-79:                                               ; preds = %.thread.i87, %59
-  %80 = phi i64 [ %.pre190, %.thread.i87 ], [ %53, %59 ]
-  %81 = phi i64 [ %.pre.i88, %.thread.i87 ], [ %51, %59 ]
-  %.0.i89 = phi i32 [ %78, %.thread.i87 ], [ 0, %59 ]
-  %82 = add i64 %81, 4
-  store i64 %82, ptr %24, align 8
+80:                                               ; preds = %.thread.i87, %59
+  %81 = phi i64 [ %.pre190, %.thread.i87 ], [ %53, %59 ]
+  %82 = phi i64 [ %.pre.i88, %.thread.i87 ], [ %51, %59 ]
+  %.0.i89 = phi i64 [ %79, %.thread.i87 ], [ 0, %59 ]
+  %83 = add i64 %82, 4
+  store i64 %83, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  %83 = sext i32 %.0.i89 to i64
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
-  %84 = add i64 %81, 5
-  %85 = icmp ult i64 %84, %80
+  %84 = add i64 %82, 5
+  %85 = icmp ult i64 %84, %81
   br i1 %85, label %86, label %FT_Stream_ReadUShort.exit101.thread
 
-86:                                               ; preds = %79
+86:                                               ; preds = %80
   %87 = load ptr, ptr %15, align 8
   %.not.i92 = icmp eq ptr %87, null
   br i1 %.not.i92, label %90, label %88
 
 88:                                               ; preds = %86
-  %89 = call i64 %87(ptr noundef nonnull %1, i64 noundef %82, ptr noundef nonnull %10, i64 noundef 2) #34
+  %89 = call i64 %87(ptr noundef nonnull %1, i64 noundef %83, ptr noundef nonnull %10, i64 noundef 2) #34
   %.not20.i93 = icmp eq i64 %89, 2
   br i1 %.not20.i93, label %..thread_crit_edge.i94, label %FT_Stream_ReadUShort.exit101.thread
 
@@ -14993,13 +14993,13 @@ FT_Stream_ReadULong.exit.thread:                  ; preds = %.lr.ph, %57
 
 90:                                               ; preds = %86
   %91 = load ptr, ptr %1, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 %82
+  %92 = getelementptr inbounds i8, ptr %91, i64 %83
   %.not21.i100 = icmp eq ptr %91, null
   br i1 %.not21.i100, label %100, label %.thread.i96
 
 .thread.i96:                                      ; preds = %90, %..thread_crit_edge.i94
-  %.pre191 = phi i64 [ %80, %90 ], [ %.pre191.pre, %..thread_crit_edge.i94 ]
-  %.pre.i97 = phi i64 [ %82, %90 ], [ %.pre.pre.i95, %..thread_crit_edge.i94 ]
+  %.pre191 = phi i64 [ %81, %90 ], [ %.pre191.pre, %..thread_crit_edge.i94 ]
+  %.pre.i97 = phi i64 [ %83, %90 ], [ %.pre.pre.i95, %..thread_crit_edge.i94 ]
   %.01724.i98 = phi ptr [ %92, %90 ], [ %10, %..thread_crit_edge.i94 ]
   %93 = load i8, ptr %.01724.i98, align 1
   %94 = zext i8 %93 to i16
@@ -15010,13 +15010,13 @@ FT_Stream_ReadULong.exit.thread:                  ; preds = %.lr.ph, %57
   %99 = or disjoint i16 %95, %98
   br label %100
 
-FT_Stream_ReadUShort.exit101.thread:              ; preds = %79, %88
+FT_Stream_ReadUShort.exit101.thread:              ; preds = %80, %88
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
   br label %ft_mem_free.exit
 
 100:                                              ; preds = %.thread.i96, %90
-  %101 = phi i64 [ %.pre191, %.thread.i96 ], [ %80, %90 ]
-  %102 = phi i64 [ %.pre.i97, %.thread.i96 ], [ %82, %90 ]
+  %101 = phi i64 [ %.pre191, %.thread.i96 ], [ %81, %90 ]
+  %102 = phi i64 [ %.pre.i97, %.thread.i96 ], [ %83, %90 ]
   %.0.i99 = phi i16 [ %99, %.thread.i96 ], [ 0, %90 ]
   %103 = add i64 %102, 2
   store i64 %103, ptr %24, align 8
@@ -15044,7 +15044,7 @@ FT_Stream_ReadUShort.exit101.thread:              ; preds = %79, %88
   %111 = load ptr, ptr %1, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 %103
   %.not21.i112 = icmp eq ptr %111, null
-  br i1 %.not21.i112, label %120, label %.thread.i108
+  br i1 %.not21.i112, label %121, label %.thread.i108
 
 .thread.i108:                                     ; preds = %110, %..thread_crit_edge.i106
   %.pre.i109 = phi i64 [ %103, %110 ], [ %.pre.pre.i107, %..thread_crit_edge.i106 ]
@@ -15056,31 +15056,31 @@ FT_Stream_ReadUShort.exit101.thread:              ; preds = %79, %88
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i16
   %119 = or disjoint i16 %115, %118
-  br label %120
+  %120 = sext i16 %119 to i64
+  br label %121
 
 FT_Stream_ReadUShort.exit113.thread:              ; preds = %100, %108
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   br label %ft_mem_free.exit
 
-120:                                              ; preds = %.thread.i108, %110
-  %121 = phi i64 [ %.pre.i109, %.thread.i108 ], [ %103, %110 ]
-  %.0.i111 = phi i16 [ %119, %.thread.i108 ], [ 0, %110 ]
-  %122 = add i64 %121, 2
-  store i64 %122, ptr %24, align 8
+121:                                              ; preds = %.thread.i108, %110
+  %122 = phi i64 [ %.pre.i109, %.thread.i108 ], [ %103, %110 ]
+  %.0.i111 = phi i64 [ %120, %.thread.i108 ], [ 0, %110 ]
+  %123 = add i64 %122, 2
+  store i64 %123, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
-  %123 = icmp eq i64 %4, %83
-  br i1 %123, label %124, label %49
+  %124 = icmp eq i64 %4, %.0.i89
+  br i1 %124, label %125, label %49
 
-124:                                              ; preds = %120
-  %125 = sext i16 %.0.i99 to i64
-  %126 = sext i16 %.0.i111 to i64
-  %127 = add nsw i64 %125, 1
+125:                                              ; preds = %121
+  %126 = sext i16 %.0.i99 to i64
+  %127 = add nsw i64 %126, 1
   store i64 %127, ptr %7, align 8
-  %128 = add nsw i64 %2, %126
+  %128 = add nsw i64 %.0.i111, %2
   %or.cond = icmp ugt i16 %.0.i99, 2726
   br i1 %or.cond, label %ft_mem_free.exit, label %129
 
-129:                                              ; preds = %124
+129:                                              ; preds = %125
   %130 = load ptr, ptr %15, align 8
   %.not.i114 = icmp eq ptr %130, null
   br i1 %.not.i114, label %133, label %131
@@ -15263,8 +15263,8 @@ ft_mem_qrealloc.exit130.thread:                   ; preds = %184, %182, %.loopex
   call void %199(ptr noundef %14, ptr noundef nonnull %.0.i119205) #34
   br label %ft_mem_free.exit
 
-ft_mem_free.exit:                                 ; preds = %49, %.preheader, %141, %139, %135, %133, %131, %19, %17, %.thread, %ft_mem_qrealloc.exit130.thread, %FT_Stream_ReadULong.exit.thread, %FT_Stream_ReadUShort.exit101.thread, %FT_Stream_ReadUShort.exit113.thread, %FT_Stream_ReadUShort.exit.thread, %124, %36
-  %.0 = phi i32 [ 8, %36 ], [ 8, %124 ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 85, %FT_Stream_ReadUShort.exit113.thread ], [ 85, %FT_Stream_ReadUShort.exit101.thread ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ %storemerge, %ft_mem_qrealloc.exit130.thread ], [ %197, %.thread ], [ 85, %17 ], [ 85, %19 ], [ 85, %131 ], [ 85, %133 ], [ 10, %139 ], [ 6, %135 ], [ 64, %141 ], [ 1, %.preheader ], [ 1, %49 ]
+ft_mem_free.exit:                                 ; preds = %49, %.preheader, %141, %139, %135, %133, %131, %19, %17, %.thread, %ft_mem_qrealloc.exit130.thread, %FT_Stream_ReadULong.exit.thread, %FT_Stream_ReadUShort.exit101.thread, %FT_Stream_ReadUShort.exit113.thread, %FT_Stream_ReadUShort.exit.thread, %125, %36
+  %.0 = phi i32 [ 8, %36 ], [ 8, %125 ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 85, %FT_Stream_ReadUShort.exit113.thread ], [ 85, %FT_Stream_ReadUShort.exit101.thread ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ %storemerge, %ft_mem_qrealloc.exit130.thread ], [ %197, %.thread ], [ 85, %17 ], [ 85, %19 ], [ 85, %131 ], [ 85, %133 ], [ 10, %139 ], [ 6, %135 ], [ 64, %141 ], [ 1, %.preheader ], [ 1, %49 ]
   ret i32 %.0
 }
 
@@ -15433,7 +15433,7 @@ define range(i32 0, 65536) i32 @FT_Get_Sfnt_Name_Count(ptr noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @FT_Get_Sfnt_Name(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 7) i32 @FT_Get_Sfnt_Name(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %2, null
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4
@@ -15558,7 +15558,7 @@ ft_mem_free.exit:                                 ; preds = %25, %FT_Stream_Seek
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @FT_Get_Sfnt_LangTag(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @FT_Get_Sfnt_LangTag(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %2, null
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4
@@ -15770,7 +15770,7 @@ define hidden i64 @FT_Stream_TryRead(ptr noundef %0, ptr noundef %1, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @FT_Stream_ExtractFrame(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 86) i32 @FT_Stream_ExtractFrame(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -15877,7 +15877,7 @@ FT_Stream_EnterFrame.exit.thread:                 ; preds = %27, %8, %ft_mem_qal
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @FT_Stream_EnterFrame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 86) i32 @FT_Stream_EnterFrame(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -16414,7 +16414,7 @@ define hidden i32 @FT_Stream_ReadULongLE(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @FT_Stream_ReadFields(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 86) i32 @FT_Stream_ReadFields(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %155, label %4
 
@@ -16732,7 +16732,7 @@ FT_Stream_ExitFrame.exit:                         ; preds = %147, %ft_mem_free.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i64 @FT_Cos(i64 noundef %0) local_unnamed_addr #3 {
+define range(i64 -36028797018963968, 36028797018963968) i64 @FT_Cos(i64 noundef %0) local_unnamed_addr #3 {
   %2 = icmp slt i64 %0, -2949120
   br i1 %2, label %.lr.ph.i.i, label %.preheader53.i.i
 
@@ -16896,7 +16896,7 @@ ft_trig_pseudo_rotate.exit:                       ; preds = %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i64 @FT_Sin(i64 noundef %0) local_unnamed_addr #3 {
+define range(i64 -36028797018963968, 36028797018963968) i64 @FT_Sin(i64 noundef %0) local_unnamed_addr #3 {
   %2 = icmp slt i64 %0, -2949120
   br i1 %2, label %.lr.ph.i.i, label %.preheader53.i.i
 
@@ -17751,7 +17751,7 @@ ft_mem_free.exit:                                 ; preds = %.lr.ph, %ft_mem_fre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @hash_num_lookup(ptr nocapture noundef readonly %0) #6 {
+define internal range(i64 0, 7849921) i64 @hash_num_lookup(ptr nocapture noundef readonly %0) #6 {
   %2 = load i32, ptr %0, align 8
   %3 = zext i32 %2 to i64
   %4 = and i64 %3, 255
@@ -19237,7 +19237,7 @@ ft_mem_free.exit43.thread:                        ; preds = %Mac_Read_sfnt_Resou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @raccess_guess_apple_double(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 0, 86) i32 @raccess_guess_apple_double(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   store ptr null, ptr %3, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %9, label %7
@@ -19252,7 +19252,7 @@ define internal noundef i32 @raccess_guess_apple_double(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @raccess_guess_apple_single(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 0, 86) i32 @raccess_guess_apple_single(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   store ptr null, ptr %3, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %9, label %7
@@ -19331,7 +19331,7 @@ ft_mem_free.exit:                                 ; preds = %8, %ft_mem_free.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @raccess_guess_darwin_newvfs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 0, 65) i32 @raccess_guess_darwin_newvfs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #35
   %7 = icmp sgt i64 %6, 2147483629
   br i1 %7, label %ft_mem_qalloc.exit, label %8
@@ -19368,7 +19368,7 @@ ft_mem_qalloc.exit:                               ; preds = %11, %16, %5, %selec
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @raccess_guess_darwin_hfsplus(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 0, 65) i32 @raccess_guess_darwin_hfsplus(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #35
   %7 = icmp sgt i64 %6, 2147483641
   br i1 %7, label %ft_mem_qalloc.exit, label %8
@@ -19567,7 +19567,7 @@ ft_mem_free.exit:                                 ; preds = %8, %ft_mem_free.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @raccess_guess_apple_generic(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 86) i32 @raccess_guess_apple_generic(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca [2 x i8], align 1
@@ -19841,7 +19841,7 @@ FT_Stream_ReadULong.exit68.thread:                ; preds = %.preheader, %93
   %128 = load ptr, ptr %0, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 %117
   %.not23.i79 = icmp eq ptr %128, null
-  br i1 %.not23.i79, label %147, label %.thread.i75
+  br i1 %.not23.i79, label %148, label %.thread.i75
 
 .thread.i75:                                      ; preds = %127, %..thread_crit_edge.i73
   %.pre.i76 = phi i64 [ %117, %127 ], [ %.pre.pre.i74, %..thread_crit_edge.i73 ]
@@ -19863,28 +19863,28 @@ FT_Stream_ReadULong.exit68.thread:                ; preds = %.preheader, %93
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = or disjoint i32 %142, %145
-  br label %147
+  %147 = sext i32 %146 to i64
+  br label %148
 
 FT_Stream_ReadULong.exit80.thread:                ; preds = %119, %125
   store i32 85, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %162
 
-147:                                              ; preds = %.thread.i75, %127
-  %148 = phi i64 [ %.pre.i76, %.thread.i75 ], [ %117, %127 ]
-  %.0.i78 = phi i32 [ %146, %.thread.i75 ], [ 0, %127 ]
-  %149 = add i64 %148, 4
-  store i64 %149, ptr %10, align 8
+148:                                              ; preds = %.thread.i75, %127
+  %149 = phi i64 [ %.pre.i76, %.thread.i75 ], [ %117, %127 ]
+  %.0.i78 = phi i64 [ %147, %.thread.i75 ], [ 0, %127 ]
+  %150 = add i64 %149, 4
+  store i64 %150, ptr %10, align 8
   store i32 0, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %150 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %0, ptr noundef nonnull %9)
-  %151 = load i32, ptr %9, align 4
-  %.not36 = icmp eq i32 %151, 0
-  br i1 %.not36, label %152, label %162
+  %151 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  %152 = load i32, ptr %9, align 4
+  %.not36 = icmp eq i32 %152, 0
+  br i1 %.not36, label %153, label %162
 
-152:                                              ; preds = %147
-  %153 = sext i32 %.0.i78 to i64
-  store i64 %153, ptr %2, align 8
+153:                                              ; preds = %148
+  store i64 %.0.i78, ptr %2, align 8
   br label %.loopexit
 
 154:                                              ; preds = %99
@@ -19910,13 +19910,13 @@ FT_Stream_Skip.exit85:                            ; preds = %156, %158
   store i32 0, ptr %9, align 4
   br label %162
 
-162:                                              ; preds = %FT_Stream_Skip.exit85, %FT_Stream_ReadULong.exit80.thread, %147
+162:                                              ; preds = %FT_Stream_Skip.exit85, %FT_Stream_ReadULong.exit80.thread, %148
   %163 = add nuw nsw i32 %.02122, 1
   %exitcond.not = icmp eq i32 %163, %85
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !83
 
-.loopexit:                                        ; preds = %162, %158, %156, %58, %56, %FT_Stream_ReadULong.exit68.thread, %.thread, %FT_Stream_ReadUShort.exit.thread, %FT_Stream_ReadULong.exit48.thread, %FT_Stream_ReadULong.exit.thread, %76, %41, %152
-  %.0 = phi i32 [ 0, %152 ], [ 2, %41 ], [ 2, %76 ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ 85, %FT_Stream_ReadULong.exit48.thread ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 2, %.thread ], [ 85, %FT_Stream_ReadULong.exit68.thread ], [ 85, %56 ], [ 85, %58 ], [ 85, %156 ], [ 85, %158 ], [ 2, %162 ]
+.loopexit:                                        ; preds = %162, %158, %156, %58, %56, %FT_Stream_ReadULong.exit68.thread, %.thread, %FT_Stream_ReadUShort.exit.thread, %FT_Stream_ReadULong.exit48.thread, %FT_Stream_ReadULong.exit.thread, %76, %41, %153
+  %.0 = phi i32 [ 0, %153 ], [ 2, %41 ], [ 2, %76 ], [ 85, %FT_Stream_ReadULong.exit.thread ], [ 85, %FT_Stream_ReadULong.exit48.thread ], [ 85, %FT_Stream_ReadUShort.exit.thread ], [ 2, %.thread ], [ 85, %FT_Stream_ReadULong.exit68.thread ], [ 85, %56 ], [ 85, %58 ], [ 85, %156 ], [ 85, %158 ], [ 2, %162 ]
   ret i32 %.0
 }
 

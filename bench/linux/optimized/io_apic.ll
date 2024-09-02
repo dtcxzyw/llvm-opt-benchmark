@@ -2234,7 +2234,7 @@ define dso_local void @enable_IO_APIC() local_unnamed_addr #8 section ".init.tex
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @find_isa_irq_pin(i32 noundef %0, i32 noundef %1) unnamed_addr #8 section ".init.text" align 16 {
+define internal fastcc range(i32 -1, 256) i32 @find_isa_irq_pin(i32 noundef %0, i32 noundef %1) unnamed_addr #8 section ".init.text" align 16 {
   %3 = load i32, ptr @mp_irq_entries, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.preheader, label %.loopexit

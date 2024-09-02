@@ -5045,8 +5045,7 @@ define range(i32 -28, 1) i32 @arkStep_ComputeSolutions(ptr nocapture noundef rea
   %19 = getelementptr inbounds i8, ptr %4, i64 104
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef %20) #12
-  %.not134 = icmp ne i32 %21, 0
-  %spec.select = zext i1 %.not134 to i32
+  %.not134.not = icmp eq i32 %21, 0
   %22 = getelementptr inbounds i8, ptr %4, i64 28
   %23 = load i32, ptr %22, align 4
   %.not135 = icmp eq i32 %23, 0
@@ -5060,17 +5059,16 @@ define range(i32 -28, 1) i32 @arkStep_ComputeSolutions(ptr nocapture noundef rea
 
 26:                                               ; preds = %.thread229, %18
   %27 = phi ptr [ %24, %.thread229 ], [ %22, %18 ]
-  %.0124233 = phi i32 [ 1, %.thread229 ], [ %spec.select, %18 ]
+  %.0124233 = phi i1 [ false, %.thread229 ], [ %.not134.not, %18 ]
   %28 = getelementptr inbounds i8, ptr %4, i64 112
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef %29) #12
   %.not136 = icmp eq i32 %30, 0
-  %.not137 = icmp eq i32 %.0124233, 0
-  %or.cond = select i1 %.not136, i1 true, i1 %.not137
+  %or.cond = select i1 %.not136, i1 true, i1 %.0124233
   br i1 %or.cond, label %.thread, label %.thread234
 
 31:                                               ; preds = %18
-  br i1 %.not134, label %.thread234, label %.thread
+  br i1 %.not134.not, label %.thread, label %.thread234
 
 .thread:                                          ; preds = %26, %31
   %32 = phi ptr [ %27, %26 ], [ %22, %31 ]

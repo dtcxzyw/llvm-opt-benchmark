@@ -919,7 +919,7 @@ define void @WebPDemuxReleaseChunkIterator(ptr nocapture noundef readnone %0) lo
 declare i32 @WebPGetFeaturesInternal(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ParseSingleImage(ptr nocapture noundef %0) #1 {
+define internal range(i32 0, 3) i32 @ParseSingleImage(ptr nocapture noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1083,7 +1083,7 @@ define internal range(i32 0, 2) i32 @IsValidSimpleFormat(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ParseVP8X(ptr nocapture noundef %0) #1 {
+define internal range(i32 0, 3) i32 @ParseVP8X(ptr nocapture noundef %0) #1 {
   %.val33 = load i64, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 8
   %.val34 = load i64, ptr %2, align 8
@@ -1514,7 +1514,7 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ParseVP8XChunks(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr nocapture noundef %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 2

@@ -126,44 +126,35 @@ for.body:                                         ; preds = %if.end3, %opts_visi
   %opt.025 = phi ptr [ %opt.0, %opts_visitor_insert.exit ], [ %opt.023, %if.end3 ]
   %2 = load ptr, ptr %opt.025, align 8
   %3 = load i8, ptr %2, align 1
-  %4 = zext i8 %3 to i32
-  %5 = add nsw i32 %4, -105
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %sub_1, label %for.body.tail
+  %.not = icmp eq i8 %3, 105
+  br i1 %.not, label %sub_1, label %if.end10
 
 sub_1:                                            ; preds = %for.body
-  %6 = getelementptr inbounds i8, ptr %2, i64 1
+  %4 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = load i8, ptr %4, align 1
+  %.not26 = icmp eq i8 %5, 100
+  br i1 %.not26, label %for.body.tail, label %if.end10
+
+for.body.tail:                                    ; preds = %sub_1
+  %6 = getelementptr inbounds i8, ptr %2, i64 2
   %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i32
-  %9 = add nsw i32 %8, -100
-  %.not26 = icmp eq i32 %9, 0
-  br i1 %.not26, label %sub_2, label %for.body.tail
-
-sub_2:                                            ; preds = %sub_1
-  %10 = getelementptr inbounds i8, ptr %2, i64 2
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i32
-  br label %for.body.tail
-
-for.body.tail:                                    ; preds = %for.body, %sub_1, %sub_2
-  %13 = phi i32 [ %5, %for.body ], [ %9, %sub_1 ], [ %12, %sub_2 ]
-  %cmp8.not = icmp eq i32 %13, 0
-  br i1 %cmp8.not, label %if.else, label %if.end10
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %if.else, label %if.end10
 
 if.else:                                          ; preds = %for.body.tail
   tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_start_struct) #8
   unreachable
 
-if.end10:                                         ; preds = %for.body.tail
-  %14 = load ptr, ptr %unprocessed_opts, align 8
-  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %14, ptr noundef nonnull %2) #10
+if.end10:                                         ; preds = %sub_1, %for.body, %for.body.tail
+  %9 = load ptr, ptr %unprocessed_opts, align 8
+  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %2) #10
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then.i, label %opts_visitor_insert.exit
 
 if.then.i:                                        ; preds = %if.end10
   %call1.i = tail call ptr @g_queue_new() #10
-  %15 = load ptr, ptr %opt.025, align 8
-  %call3.i = tail call i32 @g_hash_table_insert(ptr noundef %14, ptr noundef %15, ptr noundef %call1.i) #10
+  %10 = load ptr, ptr %opt.025, align 8
+  %call3.i = tail call i32 @g_hash_table_insert(ptr noundef %9, ptr noundef %10, ptr noundef %call1.i) #10
   br label %opts_visitor_insert.exit
 
 opts_visitor_insert.exit:                         ; preds = %if.end10, %if.then.i
@@ -179,9 +170,9 @@ for.end.loopexit:                                 ; preds = %opts_visitor_insert
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end3
-  %16 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %if.end3 ]
-  %17 = load ptr, ptr %16, align 8
-  %cmp13.not = icmp eq ptr %17, null
+  %11 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %if.end3 ]
+  %12 = load ptr, ptr %11, align 8
+  %cmp13.not = icmp eq ptr %12, null
   br i1 %cmp13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %for.end
@@ -189,30 +180,30 @@ if.then14:                                        ; preds = %for.end
   %fake_id_opt = getelementptr inbounds i8, ptr %v, i64 272
   store ptr %call15, ptr %fake_id_opt, align 8
   %call16 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #10
-  %18 = load ptr, ptr %fake_id_opt, align 8
-  store ptr %call16, ptr %18, align 8
-  %19 = load ptr, ptr %opts_root, align 8
-  %20 = load ptr, ptr %19, align 8
-  %call21 = tail call noalias ptr @g_strdup(ptr noundef %20) #10
-  %21 = load ptr, ptr %fake_id_opt, align 8
-  %str = getelementptr inbounds i8, ptr %21, i64 8
+  %13 = load ptr, ptr %fake_id_opt, align 8
+  store ptr %call16, ptr %13, align 8
+  %14 = load ptr, ptr %opts_root, align 8
+  %15 = load ptr, ptr %14, align 8
+  %call21 = tail call noalias ptr @g_strdup(ptr noundef %15) #10
+  %16 = load ptr, ptr %fake_id_opt, align 8
+  %str = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %call21, ptr %str, align 8
-  %22 = load ptr, ptr %unprocessed_opts, align 8
-  %23 = load ptr, ptr %fake_id_opt, align 8
-  %24 = load ptr, ptr %23, align 8
-  %call.i15 = tail call ptr @g_hash_table_lookup(ptr noundef %22, ptr noundef %24) #10
+  %17 = load ptr, ptr %unprocessed_opts, align 8
+  %18 = load ptr, ptr %fake_id_opt, align 8
+  %19 = load ptr, ptr %18, align 8
+  %call.i15 = tail call ptr @g_hash_table_lookup(ptr noundef %17, ptr noundef %19) #10
   %cmp.i16 = icmp eq ptr %call.i15, null
   br i1 %cmp.i16, label %if.then.i18, label %opts_visitor_insert.exit21
 
 if.then.i18:                                      ; preds = %if.then14
   %call1.i19 = tail call ptr @g_queue_new() #10
-  %25 = load ptr, ptr %23, align 8
-  %call3.i20 = tail call i32 @g_hash_table_insert(ptr noundef %22, ptr noundef %25, ptr noundef %call1.i19) #10
+  %20 = load ptr, ptr %18, align 8
+  %call3.i20 = tail call i32 @g_hash_table_insert(ptr noundef %17, ptr noundef %20, ptr noundef %call1.i19) #10
   br label %opts_visitor_insert.exit21
 
 opts_visitor_insert.exit21:                       ; preds = %if.then14, %if.then.i18
   %list.0.i17 = phi ptr [ %call1.i19, %if.then.i18 ], [ %call.i15, %if.then14 ]
-  tail call void @g_queue_push_tail(ptr noundef %list.0.i17, ptr noundef nonnull %23) #10
+  tail call void @g_queue_push_tail(ptr noundef %list.0.i17, ptr noundef nonnull %18) #10
   br label %return
 
 return:                                           ; preds = %for.end, %opts_visitor_insert.exit21, %if.end

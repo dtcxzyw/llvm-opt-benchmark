@@ -22,14 +22,14 @@ define dso_local noundef range(i32 0, 33554433) i32 @nlmsvc_share_file(ptr nound
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %0
-  br i1 %16, label %17, label %.thread
+  br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %11, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = load i32, ptr %4, align 8
   %21 = icmp eq i32 %19, %20
-  br i1 %21, label %22, label %.thread
+  br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds i8, ptr %11, i64 32
@@ -38,9 +38,9 @@ define dso_local noundef range(i32 0, 33554433) i32 @nlmsvc_share_file(ptr nound
   %26 = zext i32 %19 to i64
   %27 = tail call i32 @bcmp(ptr %24, ptr %25, i64 %26)
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %.loopexit, label %.thread
+  br i1 %.not, label %.loopexit, label %.critedge
 
-.thread:                                          ; preds = %17, %22, %13
+.critedge:                                        ; preds = %17, %22, %13
   %28 = load i32, ptr %7, align 8
   %29 = getelementptr inbounds i8, ptr %11, i64 44
   %30 = load i32, ptr %29, align 4
@@ -48,7 +48,7 @@ define dso_local noundef range(i32 0, 33554433) i32 @nlmsvc_share_file(ptr nound
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %.loopexit3
 
-33:                                               ; preds = %.thread
+33:                                               ; preds = %.critedge
   %34 = load i32, ptr %8, align 4
   %35 = getelementptr inbounds i8, ptr %11, i64 40
   %36 = load i32, ptr %35, align 8
@@ -93,8 +93,8 @@ define dso_local noundef range(i32 0, 33554433) i32 @nlmsvc_share_file(ptr nound
   store i32 %58, ptr %59, align 4
   br label %.loopexit3
 
-.loopexit3:                                       ; preds = %33, %.thread, %.loopexit, %39
-  %60 = phi i32 [ 0, %.loopexit ], [ 33554432, %39 ], [ 16777216, %.thread ], [ 16777216, %33 ]
+.loopexit3:                                       ; preds = %33, %.critedge, %.loopexit, %39
+  %60 = phi i32 [ 0, %.loopexit ], [ 33554432, %39 ], [ 16777216, %.critedge ], [ 16777216, %33 ]
   ret i32 %60
 }
 
@@ -113,20 +113,20 @@ define dso_local noundef i32 @nlmsvc_unshare_file(ptr noundef readnone %0, ptr n
   %9 = getelementptr inbounds i8, ptr %2, i64 192
   br label %10
 
-10:                                               ; preds = %.thread, %8
-  %11 = phi ptr [ %6, %8 ], [ %29, %.thread ]
-  %12 = phi ptr [ %5, %8 ], [ %11, %.thread ]
+10:                                               ; preds = %.critedge, %8
+  %11 = phi ptr [ %6, %8 ], [ %29, %.critedge ]
+  %12 = phi ptr [ %5, %8 ], [ %11, %.critedge ]
   %13 = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %0
-  br i1 %15, label %16, label %.thread
+  br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds i8, ptr %11, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = load i32, ptr %4, align 8
   %20 = icmp eq i32 %18, %19
-  br i1 %20, label %21, label %.thread
+  br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %11, i64 32
@@ -135,7 +135,7 @@ define dso_local noundef i32 @nlmsvc_unshare_file(ptr noundef readnone %0, ptr n
   %25 = zext i32 %18 to i64
   %26 = tail call i32 @bcmp(ptr %23, ptr %24, i64 %25)
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %27, label %.thread
+  br i1 %.not, label %27, label %.critedge
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %11, align 8
@@ -143,12 +143,12 @@ define dso_local noundef i32 @nlmsvc_unshare_file(ptr noundef readnone %0, ptr n
   tail call void @kfree(ptr noundef nonnull %11) #6
   br label %.loopexit
 
-.thread:                                          ; preds = %16, %21, %10
+.critedge:                                        ; preds = %16, %21, %10
   %29 = load ptr, ptr %11, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.loopexit, label %10, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.thread, %27, %3
+.loopexit:                                        ; preds = %.critedge, %27, %3
   ret i32 0
 }
 

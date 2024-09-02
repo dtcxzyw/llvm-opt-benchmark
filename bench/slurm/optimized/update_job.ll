@@ -214,7 +214,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [46 x i8] c"To reset Slurm environment variables, execute\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scontrol_hold(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @scontrol_hold(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.job_descriptor, align 8
   %5 = alloca ptr, align 8
@@ -1298,7 +1298,7 @@ define dso_local void @scontrol_top_job(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @slurm_top_job(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scontrol_update_job(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

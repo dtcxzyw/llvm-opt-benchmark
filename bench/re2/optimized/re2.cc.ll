@@ -894,7 +894,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK3re23RE27Options10ParseFlagsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 4, 8192) i32 @_ZNK3re23RE27Options10ParseFlagsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   %encoding_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1556,7 +1556,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK3re23RE213ProgramFanoutEPSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %this, ptr noundef %histogram) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, 33) i32 @_ZNK3re23RE213ProgramFanoutEPSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %this, ptr noundef %histogram) local_unnamed_addr #2 align 2 {
 entry:
   %prog_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %prog_, align 8
@@ -1573,7 +1573,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -2147483648, 2147483647) i32 @_ZN3re2L6FanoutEPNS_4ProgEPSt6vectorIiSaIiEE(ptr noundef %prog, ptr noundef %histogram) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, 33) i32 @_ZN3re2L6FanoutEPNS_4ProgEPSt6vectorIiSaIiEE(ptr noundef %prog, ptr noundef %histogram) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %fanout = alloca %"class.re2::SparseArray", align 8
   %data = alloca [32 x i32], align 16
@@ -1699,7 +1699,7 @@ _ZN3re211SparseArrayIiED2Ev.exit:                 ; preds = %_ZN3re28PODArrayINS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK3re23RE220ReverseProgramFanoutEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr noundef %histogram) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, 33) i32 @_ZNK3re23RE220ReverseProgramFanoutEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr noundef %histogram) local_unnamed_addr #2 align 2 {
 entry:
   %prog_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %prog_, align 8

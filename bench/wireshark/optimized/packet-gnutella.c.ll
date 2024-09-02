@@ -226,7 +226,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_gnutella_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 23, 4120) i32 @get_gnutella_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
   %5 = add i32 %2, 19
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %5) #3
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %6, i32 4096)

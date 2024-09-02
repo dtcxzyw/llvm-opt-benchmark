@@ -685,66 +685,66 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef %0, p
   %12 = getelementptr inbounds i8, ptr %1, i64 12
   br label %14
 
-.preheader35:                                     ; preds = %18
+.preheader35:                                     ; preds = %19
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   br label %22
 
-14:                                               ; preds = %9, %18
-  %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %18 ]
+14:                                               ; preds = %9, %19
+  %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %19 ]
   %15 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
   %.not34 = icmp eq i32 %15, 0
-  br i1 %.not34, label %18, label %16
+  br i1 %.not34, label %19, label %16
 
 16:                                               ; preds = %14
   %17 = tail call i32 @VP8GetSignedValue(ptr noundef %0, i32 noundef 7) #13
-  br label %18
+  %18 = trunc i32 %17 to i8
+  br label %19
 
-18:                                               ; preds = %14, %16
-  %19 = phi i32 [ %17, %16 ], [ 0, %14 ]
-  %20 = trunc i32 %19 to i8
+19:                                               ; preds = %14, %16
+  %20 = phi i8 [ %18, %16 ], [ 0, %14 ]
   %21 = getelementptr inbounds [4 x i8], ptr %12, i64 0, i64 %indvars.iv
   store i8 %20, ptr %21, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.preheader35, label %14, !llvm.loop !4
 
-22:                                               ; preds = %.preheader35, %26
-  %indvars.iv41 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next42, %26 ]
+22:                                               ; preds = %.preheader35, %27
+  %indvars.iv41 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next42, %27 ]
   %23 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
   %.not33 = icmp eq i32 %23, 0
-  br i1 %.not33, label %26, label %24
+  br i1 %.not33, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = tail call i32 @VP8GetSignedValue(ptr noundef %0, i32 noundef 6) #13
-  br label %26
+  %26 = trunc i32 %25 to i8
+  br label %27
 
-26:                                               ; preds = %22, %24
-  %27 = phi i32 [ %25, %24 ], [ 0, %22 ]
-  %28 = trunc i32 %27 to i8
+27:                                               ; preds = %22, %24
+  %28 = phi i8 [ %26, %24 ], [ 0, %22 ]
   %29 = getelementptr inbounds [4 x i8], ptr %13, i64 0, i64 %indvars.iv41
   store i8 %28, ptr %29, align 1
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 4
   br i1 %exitcond44.not, label %.loopexit36, label %22, !llvm.loop !6
 
-.loopexit36:                                      ; preds = %26, %5
+.loopexit36:                                      ; preds = %27, %5
   %30 = load i32, ptr %7, align 4
   %.not30 = icmp eq i32 %30, 0
   br i1 %.not30, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit36, %34
-  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %34 ], [ 0, %.loopexit36 ]
+.preheader:                                       ; preds = %.loopexit36, %35
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %35 ], [ 0, %.loopexit36 ]
   %31 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
   %.not32 = icmp eq i32 %31, 0
-  br i1 %.not32, label %34, label %32
+  br i1 %.not32, label %35, label %32
 
 32:                                               ; preds = %.preheader
   %33 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 8) #13
-  br label %34
+  %34 = trunc i32 %33 to i8
+  br label %35
 
-34:                                               ; preds = %.preheader, %32
-  %35 = phi i32 [ %33, %32 ], [ 255, %.preheader ]
-  %36 = trunc i32 %35 to i8
+35:                                               ; preds = %.preheader, %32
+  %36 = phi i8 [ %34, %32 ], [ -1, %.preheader ]
   %37 = getelementptr inbounds [3 x i8], ptr %2, i64 0, i64 %indvars.iv45
   store i8 %36, ptr %37, align 1
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
@@ -756,7 +756,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef %0, p
   store i32 0, ptr %39, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %.loopexit36, %38
+.loopexit:                                        ; preds = %35, %.loopexit36, %38
   %40 = getelementptr inbounds i8, ptr %0, i64 40
   %41 = load i32, ptr %40, align 8
   %.not31 = icmp eq i32 %41, 0
@@ -2139,7 +2139,7 @@ VP8GetSigned.exit:                                ; preds = %143, %150, %156
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @GetLargeValue(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 -2147483640, -2147483648) i32 @GetLargeValue(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 3
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32

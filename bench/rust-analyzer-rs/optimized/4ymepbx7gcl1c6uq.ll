@@ -510,7 +510,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4recv
   br i1 %63, label %70, label %64
 
 64:                                               ; preds = %58
-  %.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.027.i, i32 6)
+  %.0.sroa.speculated.i.i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.027.i, i32 6)
   br label %67
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = %67
@@ -551,7 +551,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i: ; preds 
   br i1 %78, label %88, label %80
 
 80:                                               ; preds = %76
-  %.0.sroa.speculated.i.i18.i = call noundef i32 @llvm.umin.i32(i32 %.027.i, i32 6)
+  %.0.sroa.speculated.i.i18.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.027.i, i32 6)
   br label %83
 
 81:                                               ; preds = %83

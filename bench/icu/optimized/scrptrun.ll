@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef signext i8 @_ZN6icu_759ScriptRun7highBitEi(i32 noundef %value) local_unnamed_addr #0 align 2 {
+define dso_local noundef signext range(i8 -32, 33) i8 @_ZN6icu_759ScriptRun7highBitEi(i32 noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp slt i32 %value, 1
   br i1 %cmp, label %return, label %if.end

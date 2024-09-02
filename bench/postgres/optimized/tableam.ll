@@ -679,7 +679,7 @@ define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr noca
 declare void @ss_report_location(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @table_block_relation_size(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 0, -8191) i64 @table_block_relation_size(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, -1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %3, label %.preheader, label %17

@@ -1398,16 +1398,19 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit279:              ; preds = %726
   %.1187 = phi i32 [ %744, %737 ], [ %.0186445, %.lr.ph447 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge448, label %.lr.ph447, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge448.loopexit, label %.lr.ph447, !llvm.loop !42
 
-._crit_edge448:                                   ; preds = %745, %_ZNK2cv7MatExprcvNS_3MatEEv.exit279
-  %.0186.lcssa = phi i32 [ 0, %_ZNK2cv7MatExprcvNS_3MatEEv.exit279 ], [ %.1187, %745 ]
-  %746 = sext i32 %.0186.lcssa to i64
+._crit_edge448.loopexit:                          ; preds = %745
+  %746 = sext i32 %.1187 to i64
+  br label %._crit_edge448
+
+._crit_edge448:                                   ; preds = %._crit_edge448.loopexit, %_ZNK2cv7MatExprcvNS_3MatEEv.exit279
+  %.0186.lcssa = phi i64 [ 0, %_ZNK2cv7MatExprcvNS_3MatEEv.exit279 ], [ %746, %._crit_edge448.loopexit ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %131) #21
   br label %747
 
 747:                                              ; preds = %._crit_edge448, %._crit_edge
-  %.1179 = phi i64 [ %746, %._crit_edge448 ], [ %.0178464, %._crit_edge ]
+  %.1179 = phi i64 [ %.0186.lcssa, %._crit_edge448 ], [ %.0178464, %._crit_edge ]
   %748 = load i32, ptr %372, align 8
   %749 = shl nsw i32 %748, 1
   %750 = sext i32 %749 to i64

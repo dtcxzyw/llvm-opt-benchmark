@@ -2438,21 +2438,17 @@ invoke.cont18:                                    ; preds = %_ZNK6vectorIPN3euf5
 _ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i48: ; preds = %invoke.cont18
   %14 = load i32, ptr %call.i30, align 4
   %cmp.not.i.i.i50 = icmp ult i32 %14, %13
-  br i1 %cmp.not.i.i.i50, label %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.then.i.i51, label %invoke.cont23
+  br i1 %cmp.not.i.i.i50, label %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.then.i.i51, label %lor.end
 
 _ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.then.i.i51: ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i48
   %idxprom.i.i.i52 = zext i32 %14 to i64
   %arrayidx.i.i.i53 = getelementptr inbounds ptr, ptr %11, i64 %idxprom.i.i.i52
   %.then.val.i.i54 = load ptr, ptr %arrayidx.i.i.i53, align 8
-  br label %invoke.cont23
-
-invoke.cont23:                                    ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.then.i.i51, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i48
-  %15 = phi ptr [ %.then.val.i.i54, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.then.i.i51 ], [ null, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i48 ]
-  %tobool25.not = icmp eq ptr %15, null
+  %15 = icmp eq ptr %.then.val.i.i54, null
   br label %lor.end
 
-lor.end:                                          ; preds = %invoke.cont14, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i, %invoke.cont23, %invoke.cont18
-  %16 = phi i1 [ true, %invoke.cont18 ], [ %tobool25.not, %invoke.cont23 ], [ true, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i ], [ true, %invoke.cont14 ]
+lor.end:                                          ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i48, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.then.i.i51, %invoke.cont14, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i, %invoke.cont18
+  %16 = phi i1 [ true, %invoke.cont18 ], [ true, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i ], [ true, %invoke.cont14 ], [ %15, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.then.i.i51 ], [ true, %_ZNK6vectorIPN3euf5enodeELb0EjE3getEjRKS2_.exit.i.i48 ]
   %call32 = invoke noundef ptr @_ZN3euf13th_euf_solver13e_internalizeEP4expr(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef %call.i27)
           to label %invoke.cont31 unwind label %lpad3
 
@@ -7436,12 +7432,12 @@ for.cond:                                         ; preds = %_ZNK17array_recogni
 if.end.i:                                         ; preds = %for.cond
   %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i, align 4
+  %10 = zext i32 %9 to i64
   br label %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit
 
 _ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit:      ; preds = %for.cond, %if.end.i
-  %retval.0.i = phi i32 [ %9, %if.end.i ], [ 0, %for.cond ]
-  %10 = zext i32 %retval.0.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %10
+  %retval.0.i = phi i64 [ %10, %if.end.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %return
 
 for.body:                                         ; preds = %_ZNK6vectorIPN3euf5enodeELb0EjE4sizeEv.exit

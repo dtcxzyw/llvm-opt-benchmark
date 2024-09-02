@@ -3352,7 +3352,7 @@ define internal noundef range(i32 0, 2) i32 @ipip6_rcv(ptr noundef %0) #4 align 
   %154 = getelementptr inbounds i8, ptr %0, i64 120
   %155 = load i16, ptr %154, align 8
   %156 = zext i16 %155 to i32
-  switch i16 %153, label %.loopexit48 [
+  switch i16 %153, label %.loopexit47 [
     i16 -22392, label %157
     i16 129, label %157
   ]
@@ -3412,7 +3412,7 @@ define internal noundef range(i32 0, 2) i32 @ipip6_rcv(ptr noundef %0) #4 align 
   %186 = getelementptr inbounds i8, ptr %179, i64 2
   %187 = load i16, ptr %186, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
-  switch i16 %187, label %.loopexit48 [
+  switch i16 %187, label %.loopexit47 [
     i16 -22392, label %188
     i16 129, label %188
   ]
@@ -3467,7 +3467,7 @@ define internal noundef range(i32 0, 2) i32 @ipip6_rcv(ptr noundef %0) #4 align 
   %216 = getelementptr inbounds i8, ptr %209, i64 2
   %217 = load i16, ptr %216, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
-  switch i16 %217, label %.loopexit48 [
+  switch i16 %217, label %.loopexit47 [
     i16 -22392, label %218
     i16 129, label %218
   ]
@@ -3476,14 +3476,14 @@ define internal noundef range(i32 0, 2) i32 @ipip6_rcv(ptr noundef %0) #4 align 
   %219 = add i32 %193, 4
   br label %.split
 
-.loopexit48:                                      ; preds = %215, %185, %142
+.loopexit47:                                      ; preds = %215, %185, %142
   %220 = phi i16 [ %153, %142 ], [ %187, %185 ], [ %217, %215 ]
   switch i16 %220, label %.thread36 [
     i16 8, label %221
     i16 -8826, label %228
   ]
 
-221:                                              ; preds = %.loopexit48
+221:                                              ; preds = %.loopexit47
   %222 = load ptr, ptr %5, align 8
   %223 = load i16, ptr %7, align 4
   %224 = zext i16 %223 to i64
@@ -3492,7 +3492,7 @@ define internal noundef range(i32 0, 2) i32 @ipip6_rcv(ptr noundef %0) #4 align 
   %227 = load i8, ptr %226, align 1
   br label %237
 
-228:                                              ; preds = %.loopexit48
+228:                                              ; preds = %.loopexit47
   %229 = load ptr, ptr %5, align 8
   %230 = load i16, ptr %7, align 4
   %231 = zext i16 %230 to i64
@@ -3513,7 +3513,7 @@ define internal noundef range(i32 0, 2) i32 @ipip6_rcv(ptr noundef %0) #4 align 
   br i1 %242, label %244, label %246
 
 244:                                              ; preds = %237
-  switch i8 %243, label %default.unreachable71 [
+  switch i8 %243, label %default.unreachable70 [
     i8 0, label %.thread36
     i8 2, label %470
     i8 1, label %470
@@ -3523,7 +3523,7 @@ define internal noundef range(i32 0, 2) i32 @ipip6_rcv(ptr noundef %0) #4 align 
 245:                                              ; preds = %244
   br label %470
 
-default.unreachable71:                            ; preds = %244
+default.unreachable70:                            ; preds = %244
   unreachable
 
 246:                                              ; preds = %237
@@ -3704,7 +3704,7 @@ default.unreachable71:                            ; preds = %244
   %350 = load i16, ptr %152, align 8
   %351 = load i16, ptr %154, align 8
   %352 = zext i16 %351 to i32
-  switch i16 %350, label %.loopexit47 [
+  switch i16 %350, label %.loopexit46 [
     i16 -22392, label %353
     i16 129, label %353
   ]
@@ -3732,25 +3732,25 @@ default.unreachable71:                            ; preds = %244
   %362 = getelementptr inbounds i8, ptr %0, i64 112
   %363 = getelementptr inbounds i8, ptr %0, i64 116
   %364 = icmp eq ptr %0, null
-  br i1 %364, label %.split55.us, label %.split55
+  br i1 %364, label %.split54.us, label %.split54
 
-.split55.us:                                      ; preds = %360
+.split54.us:                                      ; preds = %360
   %365 = load i32, ptr %362, align 8
   %366 = load i32, ptr %363, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #18
   %367 = add i32 %361, %366
   %368 = sub i32 %365, %367
   %369 = icmp sgt i32 %368, 3
-  br i1 %369, label %.lr.ph59, label %.thread32, !prof !51
+  br i1 %369, label %.lr.ph58, label %.thread32, !prof !51
 
-.lr.ph59:                                         ; preds = %.split55.us
+.lr.ph58:                                         ; preds = %.split54.us
   %370 = load ptr, ptr %35, align 8
   %371 = add i32 %365, -4
   br label %372
 
-372:                                              ; preds = %.lr.ph59, %385
-  %373 = phi i32 [ 8, %.lr.ph59 ], [ %380, %385 ]
-  %374 = phi i32 [ %361, %.lr.ph59 ], [ %386, %385 ]
+372:                                              ; preds = %.lr.ph58, %385
+  %373 = phi i32 [ 8, %.lr.ph58 ], [ %380, %385 ]
+  %374 = phi i32 [ %361, %.lr.ph58 ], [ %386, %385 ]
   %375 = sext i32 %374 to i64
   %376 = getelementptr i8, ptr %370, i64 %375
   %377 = icmp eq ptr %376, null
@@ -3764,7 +3764,7 @@ default.unreachable71:                            ; preds = %244
   %383 = getelementptr inbounds i8, ptr %376, i64 2
   %384 = load i16, ptr %383, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #18
-  switch i16 %384, label %.loopexit47 [
+  switch i16 %384, label %.loopexit46 [
     i16 -22392, label %385
     i16 129, label %385
   ]
@@ -3777,7 +3777,7 @@ default.unreachable71:                            ; preds = %244
   %389 = icmp sgt i32 %388, 3
   br i1 %389, label %372, label %.thread32, !prof !53
 
-.split55:                                         ; preds = %360, %415
+.split54:                                         ; preds = %360, %415
   %390 = phi i32 [ %416, %415 ], [ %361, %360 ]
   %391 = phi i32 [ %410, %415 ], [ 8, %360 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #18
@@ -3789,13 +3789,13 @@ default.unreachable71:                            ; preds = %244
   %396 = icmp sgt i32 %395, 3
   br i1 %396, label %397, label %401, !prof !17
 
-397:                                              ; preds = %.split55
+397:                                              ; preds = %.split54
   %398 = load ptr, ptr %35, align 8
   %399 = sext i32 %390 to i64
   %400 = getelementptr i8, ptr %398, i64 %399
   br label %405
 
-401:                                              ; preds = %.split55
+401:                                              ; preds = %.split54
   %402 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %390, ptr noundef nonnull %2, i32 noundef 4) #18
   %403 = icmp slt i32 %402, 0
   %404 = select i1 %403, ptr null, ptr %2, !prof !11
@@ -3810,7 +3810,7 @@ default.unreachable71:                            ; preds = %244
   %411 = select i1 %407, i1 true, i1 %409, !prof !11
   br i1 %411, label %.thread32, label %412, !prof !52
 
-.thread32:                                        ; preds = %405, %385, %372, %.split55.us
+.thread32:                                        ; preds = %405, %385, %372, %.split54.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #18
   br label %.thread36
 
@@ -3818,23 +3818,23 @@ default.unreachable71:                            ; preds = %244
   %413 = getelementptr inbounds i8, ptr %406, i64 2
   %414 = load i16, ptr %413, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #18
-  switch i16 %414, label %.loopexit47 [
+  switch i16 %414, label %.loopexit46 [
     i16 -22392, label %415
     i16 129, label %415
   ]
 
 415:                                              ; preds = %412, %412
   %416 = add i32 %390, 4
-  br label %.split55
+  br label %.split54
 
-.loopexit47:                                      ; preds = %412, %382, %349
+.loopexit46:                                      ; preds = %412, %382, %349
   %417 = phi i16 [ %350, %349 ], [ %384, %382 ], [ %414, %412 ]
   switch i16 %417, label %.thread36 [
     i16 8, label %418
     i16 -8826, label %442
   ]
 
-418:                                              ; preds = %.loopexit47
+418:                                              ; preds = %.loopexit46
   %419 = load ptr, ptr %5, align 8
   %420 = load i16, ptr %7, align 4
   %421 = zext i16 %420 to i64
@@ -3866,7 +3866,7 @@ default.unreachable71:                            ; preds = %244
   store i8 %441, ptr %430, align 1
   br label %.thread36
 
-442:                                              ; preds = %.loopexit47
+442:                                              ; preds = %.loopexit46
   %443 = load ptr, ptr %5, align 8
   %444 = load i16, ptr %7, align 4
   %445 = zext i16 %444 to i64
@@ -3934,7 +3934,7 @@ default.unreachable71:                            ; preds = %244
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %487, ptr elementtype(i64) %487) #18, !srcloc !24
   br label %498
 
-.thread36:                                        ; preds = %246, %.thread32, %357, %.thread25, %255, %244, %.thread15, %161, %464, %457, %453, %442, %434, %429, %418, %.loopexit47, %343, %336, %332, %321, %310, %304, %293, %.loopexit, %.loopexit48, %482
+.thread36:                                        ; preds = %246, %.thread32, %357, %.thread25, %255, %244, %.thread15, %161, %464, %457, %453, %442, %434, %429, %418, %.loopexit46, %343, %336, %332, %321, %310, %304, %293, %.loopexit, %.loopexit47, %482
   %488 = load ptr, ptr %43, align 8
   %489 = getelementptr inbounds i8, ptr %0, i64 112
   %490 = load i32, ptr %489, align 8

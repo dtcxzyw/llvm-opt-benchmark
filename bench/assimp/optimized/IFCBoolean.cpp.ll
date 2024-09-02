@@ -3544,7 +3544,7 @@ for.body146.preheader:                            ; preds = %invoke.cont137
   br label %for.body146
 
 for.body146:                                      ; preds = %for.body146.preheader, %for.end206
-  %142 = phi ptr [ %225, %for.end206 ], [ null, %for.body146.preheader ]
+  %142 = phi ptr [ %227, %for.end206 ], [ null, %for.body146.preheader ]
   %sub.ptr.div.i3441563 = phi i64 [ %sub.ptr.div.i344, %for.end206 ], [ %sub.ptr.div.i3441556, %for.body146.preheader ]
   %143 = phi ptr [ %229, %for.end206 ], [ %141, %for.body146.preheader ]
   %isCurrentlyInside.01562 = phi i1 [ %isCurrentlyInside.1, %for.end206 ], [ %call138, %for.body146.preheader ]
@@ -3864,17 +3864,20 @@ for.inc204:                                       ; preds = %.noexc469, %if.then
   %sub.ptr.sub.i437 = sub i64 %sub.ptr.lhs.cast.i435, %sub.ptr.rhs.cast.i436
   %sub.ptr.div.i438 = ashr exact i64 %sub.ptr.sub.i437, 5
   %cmp195 = icmp ult i64 %inc205, %sub.ptr.div.i438
-  br i1 %cmp195, label %for.body196, label %for.end206, !llvm.loop !153
+  br i1 %cmp195, label %for.body196, label %for.end206.loopexit, !llvm.loop !153
 
-for.end206:                                       ; preds = %for.inc204, %if.end191
-  %225 = phi ptr [ %176, %if.end191 ], [ %224, %for.inc204 ]
-  %intersections.sroa.68.3.lcssa = phi ptr [ %intersections.sroa.68.21558, %if.end191 ], [ %intersections.sroa.68.4, %for.inc204 ]
-  %intersections.sroa.36.3.lcssa = phi ptr [ %intersections.sroa.36.21559, %if.end191 ], [ %intersections.sroa.36.10, %for.inc204 ]
-  %intersections.sroa.0.6.lcssa = phi ptr [ %intersections.sroa.0.21560, %if.end191 ], [ %intersections.sroa.0.7, %for.inc204 ]
-  %sub.ptr.sub.i437.lcssa = phi i64 [ 0, %if.end191 ], [ %sub.ptr.sub.i437, %for.inc204 ]
-  %226 = and i64 %sub.ptr.sub.i437.lcssa, 32
-  %227 = icmp ne i64 %226, 0
-  %isCurrentlyInside.1 = xor i1 %isCurrentlyInside.01562, %227
+for.end206.loopexit:                              ; preds = %for.inc204
+  %225 = and i64 %sub.ptr.sub.i437, 32
+  %226 = icmp ne i64 %225, 0
+  br label %for.end206
+
+for.end206:                                       ; preds = %for.end206.loopexit, %if.end191
+  %227 = phi ptr [ %176, %if.end191 ], [ %224, %for.end206.loopexit ]
+  %intersections.sroa.68.3.lcssa = phi ptr [ %intersections.sroa.68.21558, %if.end191 ], [ %intersections.sroa.68.4, %for.end206.loopexit ]
+  %intersections.sroa.36.3.lcssa = phi ptr [ %intersections.sroa.36.21559, %if.end191 ], [ %intersections.sroa.36.10, %for.end206.loopexit ]
+  %intersections.sroa.0.6.lcssa = phi ptr [ %intersections.sroa.0.21560, %if.end191 ], [ %intersections.sroa.0.7, %for.end206.loopexit ]
+  %sub.ptr.sub.i437.lcssa = phi i1 [ false, %if.end191 ], [ %226, %for.end206.loopexit ]
+  %isCurrentlyInside.1 = xor i1 %isCurrentlyInside.01562, %sub.ptr.sub.i437.lcssa
   %228 = load ptr, ptr %blackside.sroa.gep1401, align 8
   %229 = load ptr, ptr %blackside, align 8
   %sub.ptr.lhs.cast.i341 = ptrtoint ptr %228 to i64

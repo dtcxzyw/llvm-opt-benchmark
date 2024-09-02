@@ -1229,20 +1229,20 @@ define hidden void @_ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIc
 
 45:                                               ; preds = %.lr.ph, %45
   %.082135 = phi i64 [ %42, %.lr.ph ], [ %52, %45 ]
-  %.083.in134 = phi i1 [ %38, %.lr.ph ], [ %51, %45 ]
+  %.083134 = phi i1 [ %38, %.lr.ph ], [ %51, %45 ]
   %46 = getelementptr inbounds i64, ptr %4, i64 %.082135
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds [3 x i64], ptr %44, i64 0, i64 %.082135
   %49 = load i64, ptr %48, align 8
   %50 = icmp ne i64 %47, %49
-  %51 = or i1 %.083.in134, %50
+  %51 = or i1 %.083134, %50
   %52 = add nuw i64 %.082135, 1
   %exitcond.not = icmp eq i64 %52, %3
   br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %45, %31
-  %.083.in.lcssa = phi i1 [ %38, %31 ], [ %51, %45 ]
-  br i1 %.083.in.lcssa, label %53, label %99
+  %.083.lcssa = phi i1 [ %38, %31 ], [ %51, %45 ]
+  br i1 %.083.lcssa, label %53, label %99
 
 53:                                               ; preds = %._crit_edge
   %54 = getelementptr inbounds i8, ptr %9, i64 24

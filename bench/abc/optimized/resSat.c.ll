@@ -1061,13 +1061,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 ._crit_edge.loopexit:                             ; preds = %Vec_IntPush.exit
   %.val72.pre = load ptr, ptr %25, align 8
   %.val74.pre = load i32, ptr %23, align 4
+  %99 = sext i32 %.val74.pre to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %39
-  %.val74 = phi i32 [ %.val74.pre, %._crit_edge.loopexit ], [ 0, %39 ]
+  %.val74 = phi i64 [ %99, %._crit_edge.loopexit ], [ 0, %39 ]
   %.val72 = phi ptr [ %.val72.pre, %._crit_edge.loopexit ], [ %.val7290, %39 ]
-  %99 = sext i32 %.val74 to i64
-  %100 = getelementptr inbounds i32, ptr %.val72, i64 %99
+  %100 = getelementptr inbounds i32, ptr %.val72, i64 %.val74
   %101 = call i32 @sat_solver_addclause(ptr noundef %15, ptr noundef %.val72, ptr noundef %100) #7
   %102 = icmp eq i32 %101, 0
   %103 = add i32 %.05983, 1

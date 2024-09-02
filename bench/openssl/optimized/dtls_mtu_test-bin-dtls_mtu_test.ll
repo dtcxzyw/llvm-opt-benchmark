@@ -195,7 +195,7 @@ declare ptr @DTLS_method() local_unnamed_addr #1
 declare void @SSL_CTX_set_psk_server_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @srvr_psk_callback(ptr nocapture readnone %ssl, ptr nocapture readnone %identity, ptr nocapture noundef writeonly %psk, i32 noundef %max_psk_len) #2 {
+define internal noundef range(i32 0, 21) i32 @srvr_psk_callback(ptr nocapture readnone %ssl, ptr nocapture readnone %identity, ptr nocapture noundef writeonly %psk, i32 noundef %max_psk_len) #2 {
 entry:
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %max_psk_len, i32 20)
   %conv = zext nneg i32 %spec.store.select to i64
@@ -206,7 +206,7 @@ entry:
 declare void @SSL_CTX_set_psk_client_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @clnt_psk_callback(ptr nocapture readnone %ssl, ptr nocapture readnone %hint, ptr noundef %ident, i32 noundef %max_ident_len, ptr nocapture noundef writeonly %psk, i32 noundef %max_psk_len) #0 {
+define internal noundef range(i32 0, 21) i32 @clnt_psk_callback(ptr nocapture readnone %ssl, ptr nocapture readnone %hint, ptr noundef %ident, i32 noundef %max_ident_len, ptr nocapture noundef writeonly %psk, i32 noundef %max_psk_len) #0 {
 entry:
   %conv = zext i32 %max_ident_len to i64
   %call = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %ident, i64 noundef %conv, ptr noundef nonnull @.str.12) #6
@@ -325,13 +325,13 @@ for.end:                                          ; preds = %for.cond
   %11 = load i64, ptr %mtus, align 16
   %arrayidx53 = getelementptr inbounds i8, ptr %mtus, i64 232
   %12 = load i64, ptr %arrayidx53, align 8
-  %cmp54.not47 = icmp ugt i64 %11, %12
-  br i1 %cmp54.not47, label %for.end117, label %for.body56
+  %cmp54.not48 = icmp ugt i64 %11, %12
+  br i1 %cmp54.not48, label %for.end117, label %for.body56
 
 for.body56:                                       ; preds = %for.end, %for.inc115
-  %s.048 = phi i64 [ %inc116, %for.inc115 ], [ %11, %for.end ]
+  %s.049 = phi i64 [ %inc116, %for.inc115 ], [ %11, %for.end ]
   %13 = load ptr, ptr %clnt_ssl, align 8
-  %conv58 = trunc i64 %s.048 to i32
+  %conv58 = trunc i64 %s.049 to i32
   %call59 = call i32 @SSL_write(ptr noundef %13, ptr noundef nonnull %buf, i32 noundef %conv58) #6
   %call61 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 104, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %call59, i32 noundef %conv58) #6
   %tobool62.not = icmp eq i32 %call61, 0
@@ -343,58 +343,58 @@ if.end64:                                         ; preds = %for.body56
   br label %for.body74
 
 for.cond71:                                       ; preds = %if.end91
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next62, 30
-  br i1 %exitcond65.not, label %for.inc115, label %for.body74, !llvm.loop !8
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %exitcond66.not = icmp eq i64 %indvars.iv.next63, 30
+  br i1 %exitcond66.not, label %for.inc115, label %for.body74, !llvm.loop !8
 
 for.body74:                                       ; preds = %if.end64, %for.cond71
-  %indvars.iv61 = phi i64 [ 0, %if.end64 ], [ %indvars.iv.next62, %for.cond71 ]
-  %arrayidx76 = getelementptr inbounds [30 x i64], ptr %mtus, i64 0, i64 %indvars.iv61
+  %indvars.iv62 = phi i64 [ 0, %if.end64 ], [ %indvars.iv.next63, %for.cond71 ]
+  %arrayidx76 = getelementptr inbounds [30 x i64], ptr %mtus, i64 0, i64 %indvars.iv62
   %15 = load i64, ptr %arrayidx76, align 8
-  %cmp77.not = icmp ugt i64 %s.048, %15
-  %16 = add nuw nsw i64 %indvars.iv61, 500
+  %cmp77.not = icmp ule i64 %s.049, %15
+  %16 = add nuw nsw i64 %indvars.iv62, 500
   %cmp81 = icmp ult i64 %16, %14
-  %not.cmp77.not = xor i1 %cmp77.not, true
-  %17 = select i1 %not.cmp77.not, i1 %cmp81, i1 false
-  %land.ext = zext i1 %17 to i32
+  %narrow = select i1 %cmp77.not, i1 %cmp81, i1 false
+  %land.ext = zext i1 %narrow to i32
   %call85 = call i32 @test_false(ptr noundef nonnull @.str.2, i32 noundef 113, ptr noundef nonnull @.str.27, i32 noundef %land.ext) #6
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.then87, label %if.end91
 
 if.then87:                                        ; preds = %for.body74
-  %18 = trunc nuw nsw i64 %16 to i32
-  %conv67.le45 = sext i32 %call66 to i64
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 120, ptr noundef nonnull @.str.28, ptr noundef %cs, i64 noundef %s.048, i64 noundef %15, i64 noundef %conv67.le45, i32 noundef %18) #6
+  %17 = trunc nuw nsw i64 %16 to i32
+  %conv67.le46 = sext i32 %call66 to i64
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 120, ptr noundef nonnull @.str.28, ptr noundef %cs, i64 noundef %s.049, i64 noundef %15, i64 noundef %conv67.le46, i32 noundef %17) #6
   br label %end
 
 if.end91:                                         ; preds = %for.body74
   %cmp99 = icmp uge i64 %16, %14
-  %19 = select i1 %cmp77.not, i1 %cmp99, i1 false
-  %land.ext102 = zext i1 %19 to i32
+  %not.cmp77.not = xor i1 %cmp77.not, true
+  %narrow37 = select i1 %not.cmp77.not, i1 %cmp99, i1 false
+  %land.ext102 = zext i1 %narrow37 to i32
   %call105 = call i32 @test_false(ptr noundef nonnull @.str.2, i32 noundef 123, ptr noundef nonnull @.str.29, i32 noundef %land.ext102) #6
   %tobool106.not = icmp eq i32 %call105, 0
   br i1 %tobool106.not, label %if.then107, label %for.cond71
 
 if.then107:                                       ; preds = %if.end91
-  %20 = trunc nuw nsw i64 %16 to i32
+  %18 = trunc nuw nsw i64 %16 to i32
   %conv67.le = sext i32 %call66 to i64
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 131, ptr noundef nonnull @.str.28, ptr noundef %cs, i64 noundef %s.048, i64 noundef %15, i64 noundef %conv67.le, i32 noundef %20) #6
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 131, ptr noundef nonnull @.str.28, ptr noundef %cs, i64 noundef %s.049, i64 noundef %15, i64 noundef %conv67.le, i32 noundef %18) #6
   br label %end
 
 for.inc115:                                       ; preds = %for.cond71
-  %inc116 = add i64 %s.048, 1
+  %inc116 = add i64 %s.049, 1
   %cmp54.not = icmp ugt i64 %inc116, %12
   br i1 %cmp54.not, label %for.end117, label %for.body56, !llvm.loop !9
 
 for.end117:                                       ; preds = %for.inc115, %for.end
-  %21 = load ptr, ptr %clnt_ssl, align 8
-  %cmp118 = icmp eq ptr %21, null
+  %19 = load ptr, ptr %clnt_ssl, align 8
+  %cmp118 = icmp eq ptr %19, null
   br i1 %cmp118, label %cond.end125, label %cond.false
 
 cond.false:                                       ; preds = %for.end117
-  %22 = load i32, ptr %21, align 8
-  %cmp120 = icmp eq i32 %22, 0
-  %cond124 = select i1 %cmp120, ptr %21, ptr null
+  %20 = load i32, ptr %19, align 8
+  %cmp120 = icmp eq i32 %20, 0
+  %cond124 = select i1 %cmp120, ptr %19, ptr null
   br label %cond.end125
 
 cond.end125:                                      ; preds = %for.end117, %cond.false
@@ -405,18 +405,18 @@ cond.end125:                                      ; preds = %for.end117, %cond.f
 
 if.end130:                                        ; preds = %cond.end125
   %s3 = getelementptr inbounds i8, ptr %cond126, i64 280
-  %23 = load i64, ptr %s3, align 8
-  %and = and i64 %23, 256
+  %21 = load i64, ptr %s3, align 8
+  %and = and i64 %21, 256
   %tobool131.not = icmp eq i64 %and, 0
   %spec.store.select = select i1 %tobool131.not, i32 1, i32 2
   br label %end
 
 end:                                              ; preds = %for.body56, %cond.end125, %if.end5, %lor.lhs.false, %lor.lhs.false16, %lor.lhs.false20, %entry, %if.end130, %if.then107, %if.then87, %if.then47
   %rv.0 = phi i32 [ 0, %if.then47 ], [ 0, %if.then107 ], [ 0, %if.then87 ], [ %spec.store.select, %if.end130 ], [ 0, %cond.end125 ], [ 0, %lor.lhs.false20 ], [ 0, %lor.lhs.false16 ], [ 0, %lor.lhs.false ], [ 0, %if.end5 ], [ 0, %entry ], [ 0, %for.body56 ]
-  %24 = load ptr, ptr %clnt_ssl, align 8
-  call void @SSL_free(ptr noundef %24) #6
-  %25 = load ptr, ptr %srvr_ssl, align 8
-  call void @SSL_free(ptr noundef %25) #6
+  %22 = load ptr, ptr %clnt_ssl, align 8
+  call void @SSL_free(ptr noundef %22) #6
+  %23 = load ptr, ptr %srvr_ssl, align 8
+  call void @SSL_free(ptr noundef %23) #6
   ret i32 %rv.0
 }
 

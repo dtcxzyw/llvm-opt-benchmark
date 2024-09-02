@@ -2126,28 +2126,32 @@ define dso_local ptr @build_sorted_items(ptr nocapture noundef readonly %0, ptr 
 69:                                               ; preds = %65
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge99, label %65, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge99.loopexit, label %65, !llvm.loop !33
 
 ._crit_edge99.loopexit.split.loop.exit:           ; preds = %65
   %70 = trunc nuw nsw i64 %indvars.iv120 to i32
+  br label %._crit_edge99.loopexit
+
+._crit_edge99.loopexit:                           ; preds = %69, %._crit_edge99.loopexit.split.loop.exit
+  %.0.lcssa.ph = phi i32 [ %70, %._crit_edge99.loopexit.split.loop.exit ], [ %62, %69 ]
+  %71 = zext nneg i32 %.0.lcssa.ph to i64
   br label %._crit_edge99
 
-._crit_edge99:                                    ; preds = %69, %._crit_edge99.loopexit.split.loop.exit, %59
-  %.0.lcssa = phi i32 [ 0, %59 ], [ %70, %._crit_edge99.loopexit.split.loop.exit ], [ %62, %69 ]
-  %71 = load ptr, ptr %42, align 8
-  %72 = zext nneg i32 %.0.lcssa to i64
-  %73 = getelementptr ptr, ptr %71, i64 %72
+._crit_edge99:                                    ; preds = %._crit_edge99.loopexit, %59
+  %.0.lcssa = phi i64 [ 0, %59 ], [ %71, %._crit_edge99.loopexit ]
+  %72 = load ptr, ptr %42, align 8
+  %73 = getelementptr ptr, ptr %72, i64 %.0.lcssa
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr i64, ptr %74, i64 %indvars.iv130
   %76 = load i64, ptr %75, align 8
   %77 = load ptr, ptr %43, align 8
-  %78 = getelementptr ptr, ptr %77, i64 %72
+  %78 = getelementptr ptr, ptr %77, i64 %.0.lcssa
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr i8, ptr %79, i64 %indvars.iv130
   %81 = load i8, ptr %80, align 1
   %82 = trunc i8 %81 to i1
   %83 = and i8 %81, 1
-  %84 = getelementptr i32, ptr %34, i64 %72
+  %84 = getelementptr i32, ptr %34, i64 %.0.lcssa
   %85 = load i32, ptr %84, align 4
   %86 = icmp ne i32 %85, -1
   %or.cond.not = select i1 %82, i1 true, i1 %86

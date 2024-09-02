@@ -6372,14 +6372,13 @@ _ZN6casadi9trim_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   br i1 %466, label %.lr.ph.i.i.i.i276, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !64
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %463
-  %gepdiff = and i64 %.idx303, 24
+  %467 = and i64 %443, 3
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %444
-  %.pre-phi50.i.i.i.i = phi i64 [ %gepdiff, %._crit_edge.loopexit.i.i.i.i ], [ %.idx303, %444 ]
+  %.pre-phi50.i.i.i.i = phi i64 [ %467, %._crit_edge.loopexit.i.i.i.i ], [ %443, %444 ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %441, %444 ]
-  %467 = ashr exact i64 %.pre-phi50.i.i.i.i, 3
-  switch i64 %467, label %.thread297 [
+  switch i64 %.pre-phi50.i.i.i.i, label %.thread297 [
     i64 3, label %468
     i64 2, label %473
     i64 1, label %478
@@ -6489,14 +6488,13 @@ _ZN6casadi9trim_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   br i1 %513, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !65
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %510
-  %gepdiff306 = and i64 %.idx305, 24
+  %514 = and i64 %490, 3
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %491
-  %.pre-phi50.i.i.i = phi i64 [ %gepdiff306, %._crit_edge.loopexit.i.i.i ], [ %.idx305, %491 ]
+  %.pre-phi50.i.i.i = phi i64 [ %514, %._crit_edge.loopexit.i.i.i ], [ %490, %491 ]
   %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %489, %491 ]
-  %514 = ashr exact i64 %.pre-phi50.i.i.i, 3
-  switch i64 %514, label %528 [
+  switch i64 %.pre-phi50.i.i.i, label %528 [
     i64 3, label %515
     i64 2, label %520
     i64 1, label %525

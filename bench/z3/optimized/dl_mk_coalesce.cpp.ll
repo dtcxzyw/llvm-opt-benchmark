@@ -840,12 +840,12 @@ for.cond:                                         ; preds = %_ZN7svectorIbjEC2Ej
 if.end.i.i:                                       ; preds = %for.cond
   %arrayidx.i.i42 = getelementptr inbounds i8, ptr %23, i64 -4
   %24 = load i32, ptr %arrayidx.i.i42, align 4
+  %25 = zext i32 %24 to i64
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %24, %if.end.i.i ], [ 0, %for.cond ]
-  %25 = zext i32 %retval.0.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %25
+  %retval.0.i.i = phi i64 [ %25, %if.end.i.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %invoke.cont26, label %for.cond81.preheader
 
 for.cond81.preheader:                             ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
@@ -1127,12 +1127,12 @@ for.cond81:                                       ; preds = %for.cond81.preheade
 if.end.i100:                                      ; preds = %for.cond81
   %arrayidx.i101 = getelementptr inbounds i8, ptr %67, i64 -4
   %68 = load i32, ptr %arrayidx.i101, align 4
+  %69 = zext i32 %68 to i64
   br label %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit103
 
 _ZNK6vectorIP4sortLb0EjE4sizeEv.exit103:          ; preds = %for.cond81, %if.end.i100
-  %retval.0.i102 = phi i32 [ %68, %if.end.i100 ], [ 0, %for.cond81 ]
-  %69 = zext i32 %retval.0.i102 to i64
-  %cmp84 = icmp ult i64 %indvars.iv254, %69
+  %retval.0.i102 = phi i64 [ %69, %if.end.i100 ], [ 0, %for.cond81 ]
+  %cmp84 = icmp ult i64 %indvars.iv254, %retval.0.i102
   br i1 %cmp84, label %for.body85, label %for.end113
 
 for.body85:                                       ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit103
@@ -3379,19 +3379,22 @@ _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74: ; preds = %invoke.co
   %55 = load i32, ptr %arrayidx.i.i, align 4
   %56 = zext i32 %55 to i64
   %cmp140 = icmp ult i64 %indvars.iv.next, %56
-  br i1 %cmp140, label %invoke.cont26, label %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i
+  br i1 %cmp140, label %invoke.cont26, label %invoke.cont23.thread._ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i_crit_edge
 
-_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i: ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74, %invoke.cont23.thread.lr.ph
-  %.lcssa261 = phi i32 [ %15, %invoke.cont23.thread.lr.ph ], [ %55, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74 ]
-  %.lcssa = phi i64 [ %16, %invoke.cont23.thread.lr.ph ], [ %56, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74 ]
+invoke.cont23.thread._ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i_crit_edge: ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit74
+  %57 = icmp eq i32 %55, 0
+  br label %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i
+
+_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i: ; preds = %invoke.cont23.thread._ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i_crit_edge, %invoke.cont23.thread.lr.ph
+  %.lcssa261 = phi i1 [ %57, %invoke.cont23.thread._ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i_crit_edge ], [ true, %invoke.cont23.thread.lr.ph ]
+  %.lcssa = phi i64 [ %56, %invoke.cont23.thread._ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i_crit_edge ], [ %16, %invoke.cont23.thread.lr.ph ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %d_rules.sroa.7.3, i64 %.lcssa
-  %cmp3.i.not.i.i = icmp eq i32 %.lcssa261, 0
-  br i1 %cmp3.i.not.i.i, label %if.then.i.i.i.i.i, label %for.body.i.i.i
+  br i1 %.lcssa261, label %if.then.i.i.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i, %.noexc.i.i
   %it.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %.noexc.i.i ], [ %d_rules.sroa.7.3, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i ]
-  %57 = load ptr, ptr %it.04.i.i.i, align 8
-  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %4, ptr noundef %57)
+  %58 = load ptr, ptr %it.04.i.i.i, align 8
+  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %4, ptr noundef %58)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %for.body.i.i.i
@@ -3405,17 +3408,17 @@ if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i, %_ZNK6v
           to label %_ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
-  %58 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  tail call void @__clang_call_terminate(ptr %59) #16
+  %60 = extractvalue { ptr, i32 } %59, 0
+  tail call void @__clang_call_terminate(ptr %60) #16
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %for.body.i.i.i
-  %60 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #16
+  %62 = extractvalue { ptr, i32 } %61, 0
+  tail call void @__clang_call_terminate(ptr %62) #16
   unreachable
 
 _ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %invoke.cont12, %invoke.cont16, %if.then.i.i.i.i.i
@@ -3425,8 +3428,8 @@ _ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %invoke.
 
 land.rhs.i.i:                                     ; preds = %_ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, %while.body.i.i
   %it.sroa.0.1 = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %incdec.ptr.i, %_ZN10ref_vectorIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
-  %62 = load ptr, ptr %it.sroa.0.1, align 8
-  %switch.i.i = icmp ult ptr %62, inttoptr (i64 2 to ptr)
+  %63 = load ptr, ptr %it.sroa.0.1, align 8
+  %switch.i.i = icmp ult ptr %63, inttoptr (i64 2 to ptr)
   br i1 %switch.i.i, label %while.body.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
@@ -3449,16 +3452,16 @@ _ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80: ; preds = %lpad11.loopexit
   %.pn145 = phi { ptr, i32 } [ %lpad.loopexit.split-lp148, %ehcleanup ], [ %12, %cleanup.action.i ], [ %11, %ehcleanup.i ], [ %lpad.loopexit.split-lp148210, %ehcleanup.thread208 ], [ %lpad.loopexit147, %lpad11.loopexit ], [ %lpad.phi, %if.then.i.i69 ], [ %lpad.phi, %lpad33 ]
   %d_rules.sroa.7.1144 = phi ptr [ %d_rules.sroa.7.2, %ehcleanup ], [ %d_rules.sroa.7.2, %cleanup.action.i ], [ %d_rules.sroa.7.2, %ehcleanup.i ], [ %d_rules.sroa.7.2, %ehcleanup.thread208 ], [ %d_rules.sroa.7.3, %lpad11.loopexit ], [ %d_rules.sroa.7.3, %if.then.i.i69 ], [ %d_rules.sroa.7.3, %lpad33 ]
   %arrayidx.i.i.i81 = getelementptr inbounds i8, ptr %d_rules.sroa.7.1144, i64 -4
-  %63 = load i32, ptr %arrayidx.i.i.i81, align 4
-  %64 = zext i32 %63 to i64
-  %add.ptr.i.i82 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.1144, i64 %64
-  %cmp3.i.not.i.i83 = icmp eq i32 %63, 0
+  %64 = load i32, ptr %arrayidx.i.i.i81, align 4
+  %65 = zext i32 %64 to i64
+  %add.ptr.i.i82 = getelementptr inbounds ptr, ptr %d_rules.sroa.7.1144, i64 %65
+  %cmp3.i.not.i.i83 = icmp eq i32 %64, 0
   br i1 %cmp3.i.not.i.i83, label %if.then.i.i.i.i.i93, label %for.body.i.i.i84
 
 for.body.i.i.i84:                                 ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80, %.noexc.i.i87
   %it.04.i.i.i85 = phi ptr [ %incdec.ptr.i.i.i88, %.noexc.i.i87 ], [ %d_rules.sroa.7.1144, %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit.i.i80 ]
-  %65 = load ptr, ptr %it.04.i.i.i85, align 8
-  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %4, ptr noundef %65)
+  %66 = load ptr, ptr %it.04.i.i.i85, align 8
+  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %4, ptr noundef %66)
           to label %.noexc.i.i87 unwind label %terminate.lpad.i.i86
 
 .noexc.i.i87:                                     ; preds = %for.body.i.i.i84
@@ -3472,17 +3475,17 @@ if.then.i.i.i.i.i93:                              ; preds = %.noexc.i.i87, %_ZNK
           to label %if.end.i.i101 unwind label %terminate.lpad.i.i.i.i95
 
 terminate.lpad.i.i.i.i95:                         ; preds = %if.then.i.i.i.i.i93
-  %66 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #16
+  %68 = extractvalue { ptr, i32 } %67, 0
+  call void @__clang_call_terminate(ptr %68) #16
   unreachable
 
 terminate.lpad.i.i86:                             ; preds = %for.body.i.i.i84
-  %68 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #16
+  %70 = extractvalue { ptr, i32 } %69, 0
+  call void @__clang_call_terminate(ptr %70) #16
   unreachable
 
 _ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %while.body.i.i.i.i.i, %_ZN14core_hashtableIN7obj_mapI9func_declP10ptr_vectorIN7datalog4ruleEEE13obj_map_entryE8obj_hashINS7_8key_dataEE10default_eqISA_EE8iteratorppEv.exit, %invoke.cont6
@@ -3495,10 +3498,10 @@ if.end.i.i101:                                    ; preds = %ehcleanup.thread204
           to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit103 unwind label %terminate.lpad.i102
 
 terminate.lpad.i102:                              ; preds = %if.end.i.i101
-  %70 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #16
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #16
   unreachable
 
 _ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit103: ; preds = %if.end.i.i101

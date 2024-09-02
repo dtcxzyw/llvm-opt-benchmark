@@ -246,7 +246,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [5 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_write_all, ptr @.str.164, ptr @.str.165, i32 482, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_read_eof, ptr @.str.166, ptr @.str.167, i32 1470, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_read_all, ptr @.str.164, ptr @.str.165, i32 463, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @nbd_receive_reply, ptr @.str.166, ptr @.str.167, i32 1514, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qio_channel_yield, ptr @.str.166, ptr @.str.165, i32 740, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @nbd_receive_negotiate(ptr noundef %ioc, ptr noundef %tlscreds, ptr noundef %hostname, ptr noundef %outioc, ptr noundef %info, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @nbd_receive_negotiate(ptr noundef %ioc, ptr noundef %tlscreds, ptr noundef %hostname, ptr noundef %outioc, ptr noundef %info, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i77 = alloca %struct.timeval, align 8
   %_now.i.i9.i = alloca %struct.timeval, align 8
@@ -1999,7 +1999,7 @@ nbd_free_export_list.exit:                        ; preds = %out, %for.end17.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @nbd_receive_list(ptr noundef %ioc, ptr nocapture noundef writeonly %name, ptr noundef writeonly %description, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @nbd_receive_list(ptr noundef %ioc, ptr nocapture noundef writeonly %name, ptr noundef writeonly %description, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   %_auto_errp_prop.i.i = alloca %struct.ErrorPropagator, align 8
@@ -2807,7 +2807,7 @@ entry:
 declare ptr @nbd_cmd_lookup(i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 2) i32 @nbd_receive_reply(ptr nocapture readnone %bs, ptr noundef %ioc, ptr noundef %reply, i32 noundef %mode, ptr noundef %errp) #0 {
+define dso_local range(i32 -22, 2) i32 @nbd_receive_reply(ptr nocapture readnone %bs, ptr noundef %ioc, ptr noundef %reply, i32 noundef %mode, ptr noundef %errp) #0 {
 entry:
   %_now.i.i94 = alloca %struct.timeval, align 8
   %_now.i.i80 = alloca %struct.timeval, align 8

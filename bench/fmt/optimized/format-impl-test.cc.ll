@@ -6678,7 +6678,7 @@ invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i
 
 common.resume:                                    ; preds = %lpad.i.i.i.i65, %lpad.i.i.i.i45, %lpad.i.i.i.i
   %exception.i.i.i.i64.sink = phi ptr [ %exception.i.i.i.i64, %lpad.i.i.i.i65 ], [ %exception.i.i.i.i44, %lpad.i.i.i.i45 ], [ %exception.i.i.i.i, %lpad.i.i.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %13, %lpad.i.i.i.i65 ], [ %11, %lpad.i.i.i.i45 ], [ %9, %lpad.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %lpad.i.i.i.i65 ], [ %12, %lpad.i.i.i.i45 ], [ %9, %lpad.i.i.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.i.i.i.i64.sink) #28
   resume { ptr, i32 } %common.resume.op
 
@@ -6691,11 +6691,11 @@ _ZNK3fmt3v106detail6bigintixEi.exit.i:            ; preds = %cond.true.i
   %idxprom.i.i.i = zext nneg i32 %sub.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i.i.i
   %10 = load i32, ptr %arrayidx.i.i.i, align 4
+  %11 = zext i32 %10 to i64
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit: ; preds = %for.body, %_ZNK3fmt3v106detail6bigintixEi.exit.i
-  %cond.i31 = phi i32 [ %10, %_ZNK3fmt3v106detail6bigintixEi.exit.i ], [ 0, %for.body ]
-  %conv = zext i32 %cond.i31 to i64
+  %cond.i31 = phi i64 [ %11, %_ZNK3fmt3v106detail6bigintixEi.exit.i ], [ 0, %for.body ]
   %cmp.not.i33 = icmp sgt i32 %i.0.in80, %3
   %cmp2.i38 = icmp sle i32 %i.0.in80, %add.i23
   %or.cond72 = and i1 %cmp.not.i33, %cmp2.i38
@@ -6716,20 +6716,20 @@ invoke.cont.i.i.i.i46:                            ; preds = %if.then.i.i.i43
   unreachable
 
 lpad.i.i.i.i45:                                   ; preds = %if.then.i.i.i43
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZNK3fmt3v106detail6bigintixEi.exit.i47:          ; preds = %cond.true.i40
   %idxprom.i.i.i49 = zext nneg i32 %sub.i41 to i64
   %arrayidx.i.i.i50 = getelementptr inbounds i32, ptr %7, i64 %idxprom.i.i.i49
-  %12 = load i32, ptr %arrayidx.i.i.i50, align 4
+  %13 = load i32, ptr %arrayidx.i.i.i50, align 4
+  %14 = zext i32 %13 to i64
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit51
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit51: ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit, %_ZNK3fmt3v106detail6bigintixEi.exit.i47
-  %cond.i39 = phi i32 [ %12, %_ZNK3fmt3v106detail6bigintixEi.exit.i47 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit ]
-  %conv14 = zext i32 %cond.i39 to i64
-  %add15 = add nuw nsw i64 %conv14, %conv
+  %cond.i39 = phi i64 [ %14, %_ZNK3fmt3v106detail6bigintixEi.exit.i47 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit ]
+  %add15 = add nuw nsw i64 %cond.i39, %cond.i31
   %cmp.not.i53 = icmp sgt i32 %i.0.in80, %5
   %cmp2.i58 = icmp sle i32 %i.0.in80, %add.i27
   %or.cond73 = and i1 %cmp.not.i53, %cmp2.i58
@@ -6750,20 +6750,20 @@ invoke.cont.i.i.i.i66:                            ; preds = %if.then.i.i.i63
   unreachable
 
 lpad.i.i.i.i65:                                   ; preds = %if.then.i.i.i63
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZNK3fmt3v106detail6bigintixEi.exit.i67:          ; preds = %cond.true.i60
   %idxprom.i.i.i69 = zext nneg i32 %sub.i61 to i64
   %arrayidx.i.i.i70 = getelementptr inbounds i32, ptr %8, i64 %idxprom.i.i.i69
-  %14 = load i32, ptr %arrayidx.i.i.i70, align 4
+  %16 = load i32, ptr %arrayidx.i.i.i70, align 4
+  %17 = zext i32 %16 to i64
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit71
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit71: ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit51, %_ZNK3fmt3v106detail6bigintixEi.exit.i67
-  %cond.i59 = phi i32 [ %14, %_ZNK3fmt3v106detail6bigintixEi.exit.i67 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit51 ]
-  %conv17 = zext i32 %cond.i59 to i64
-  %add18 = or disjoint i64 %borrow.081, %conv17
+  %cond.i59 = phi i64 [ %17, %_ZNK3fmt3v106detail6bigintixEi.exit.i67 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit51 ]
+  %add18 = or disjoint i64 %cond.i59, %borrow.081
   %cmp19 = icmp ugt i64 %add15, %add18
   br i1 %cmp19, label %return, label %if.end21
 
@@ -6773,12 +6773,12 @@ if.end21:                                         ; preds = %_ZZN3fmt3v106detail
   br i1 %cmp25, label %return, label %for.cond
 
 for.end.loopexit:                                 ; preds = %for.cond
-  %15 = icmp ne i64 %add18, %add15
-  %16 = sext i1 %15 to i32
+  %18 = icmp ne i64 %add18, %add15
+  %19 = sext i1 %18 to i32
   br label %return
 
 return:                                           ; preds = %if.end21, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit71, %if.end6, %for.end.loopexit, %if.end, %entry
-  %retval.0 = phi i32 [ -1, %entry ], [ 1, %if.end ], [ 0, %if.end6 ], [ %16, %for.end.loopexit ], [ -1, %if.end21 ], [ 1, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit71 ]
+  %retval.0 = phi i32 [ -1, %entry ], [ 1, %if.end ], [ 0, %if.end6 ], [ %19, %for.end.loopexit ], [ -1, %if.end21 ], [ 1, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit71 ]
   ret i32 %retval.0
 }
 
@@ -34265,12 +34265,12 @@ if.then.i.i.i.i.i201:                             ; preds = %if.then58
 
 .noexc207:                                        ; preds = %if.then.i.i.i.i.i201
   %.pre.i.i.i.i203 = load i64, ptr %capacity_.i.i.i70, align 8
+  %66 = icmp ne i64 %.pre.i.i.i.i203, 0
+  %67 = zext i1 %66 to i64
   br label %_ZN3fmt3v106detail6bigintaSIyEEvT_.exit
 
 _ZN3fmt3v106detail6bigintaSIyEEvT_.exit:          ; preds = %if.then58, %.noexc207
-  %66 = phi i64 [ %64, %if.then58 ], [ %.pre.i.i.i.i203, %.noexc207 ]
-  %67 = icmp ne i64 %66, 0
-  %.count.i.i.i.i204 = zext i1 %67 to i64
+  %.count.i.i.i.i204 = phi i64 [ 1, %if.then58 ], [ %67, %.noexc207 ]
   store i64 %.count.i.i.i.i204, ptr %3, align 8
   store i32 0, ptr %exp_.i72, align 8
   %extract.t615 = trunc i128 %51 to i32

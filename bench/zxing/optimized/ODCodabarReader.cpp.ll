@@ -479,11 +479,14 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %84, %_ZN5ZXing6Redu
   %90 = add i16 %89, %.057.i.i.i24
   %91 = getelementptr inbounds i8, ptr %.08.i.i.i23, i64 2
   %.not.i.i.i25 = icmp eq ptr %91, %64
-  br i1 %.not.i.i.i25, label %_ZNK5ZXing11PatternView3sumEi.exit, label %.lr.ph.i.i.i22, !llvm.loop !4
+  br i1 %.not.i.i.i25, label %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i26, label %.lr.ph.i.i.i22, !llvm.loop !4
 
-_ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %.lr.ph.i.i.i22, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit
-  %.05.lcssa.i.i.i27 = phi i16 [ 0, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ], [ %90, %.lr.ph.i.i.i22 ]
-  %92 = lshr i16 %.05.lcssa.i.i.i27, 1
+_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i26: ; preds = %.lr.ph.i.i.i22
+  %92 = lshr i16 %90, 1
+  br label %_ZNK5ZXing11PatternView3sumEi.exit
+
+_ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i26
+  %.05.lcssa.i.i.i27 = phi i16 [ 0, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ], [ %92, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i26 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 20)
           to label %93 unwind label %.loopexit.split-lp
@@ -629,7 +632,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %_ZN5ZXing11PatternV
 
 _ZN5ZXing11PatternView10skipSingleEi.exit:        ; preds = %_ZN5ZXing11PatternView5shiftEi.exit.i
   %149 = load i16, ptr %144, align 2
-  %.not79 = icmp ult i16 %92, %149
+  %.not79 = icmp ult i16 %.05.lcssa.i.i.i27, %149
   br i1 %.not79, label %_ZN5ZXing11PatternView10skipSymbolEv.exit.thread, label %167
 
 _ZN5ZXing11PatternView10skipSymbolEv.exit.thread: ; preds = %_ZN5ZXing11PatternView5shiftEi.exit.i, %.preheader, %_ZN5ZXing11PatternView10skipSingleEi.exit, %_ZN5ZXing11PatternView10skipSymbolEv.exit

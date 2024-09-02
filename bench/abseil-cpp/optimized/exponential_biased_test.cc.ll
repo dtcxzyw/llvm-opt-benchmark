@@ -782,49 +782,52 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %10 = call double @llvm.fmuladd.f64(double %conv.i.i, double %call6.i.i, double %ad_sum.014.i.i)
   %inc.i.i = add nuw i64 %i.013.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %umax.i.i
-  br i1 %exitcond.not.i.i, label %_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i, label %for.body.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i.loopexit, label %for.body.i.i, !llvm.loop !12
 
-_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i: ; preds = %for.body.i.i, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %for.end48
-  %sub.ptr.div.i.i.i170 = phi i64 [ %sub.ptr.div.i.i.i, %for.end48 ], [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %sub.ptr.div.i.i.i, %for.body.i.i ]
-  %random_sample.sroa.0.1155168 = phi ptr [ %call5.i.i.i.i2.i.i38, %for.end48 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i2.i.i38, %for.body.i.i ]
-  %sub.ptr.sub.i.i.pre-phi = phi i64 [ 0, %for.end48 ], [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %sub.ptr.sub.i.i.i, %for.body.i.i ]
-  %ad_sum.0.lcssa.i.i = phi double [ 0.000000e+00, %for.end48 ], [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %10, %for.body.i.i ]
+_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i.loopexit: ; preds = %for.body.i.i
+  %11 = lshr exact i64 %sub.ptr.sub.i.i.i, 3
+  %12 = trunc i64 %11 to i32
+  br label %_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i
+
+_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %for.end48, %_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i.loopexit
+  %sub.ptr.div.i.i.i170 = phi i64 [ %sub.ptr.div.i.i.i, %_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i.loopexit ], [ %sub.ptr.div.i.i.i, %for.end48 ], [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %random_sample.sroa.0.1155168 = phi ptr [ %call5.i.i.i.i2.i.i38, %_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i.loopexit ], [ %call5.i.i.i.i2.i.i38, %for.end48 ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %sub.ptr.sub.i.i.pre-phi = phi i32 [ %12, %_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i.loopexit ], [ 0, %for.end48 ], [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %ad_sum.0.lcssa.i.i = phi double [ %10, %_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i.loopexit ], [ 0.000000e+00, %for.end48 ], [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
   %conv8.i.i = uitofp i64 %sub.ptr.div.i.i.i170 to double
   %fneg.i.i = fneg double %conv8.i.i
   %neg.i.i = fdiv double -1.000000e+00, %conv8.i.i
-  %11 = call noundef double @llvm.fmuladd.f64(double %neg.i.i, double %ad_sum.0.lcssa.i.i, double %fneg.i.i)
-  %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i.pre-phi, 3
-  %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %cmp.i.i.i = fcmp olt double %11, 2.000000e+00
+  %13 = call noundef double @llvm.fmuladd.f64(double %neg.i.i, double %ad_sum.0.lcssa.i.i, double %fneg.i.i)
+  %cmp.i.i.i = fcmp olt double %13, 2.000000e+00
   br i1 %cmp.i.i.i, label %if.then.i.i.i42, label %if.end.i.i.i
 
 if.then.i.i.i42:                                  ; preds = %_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i
-  %div.i.i.i = fdiv double 0xBFF3BD4AFF01D33F, %11
+  %div.i.i.i = fdiv double 0xBFF3BD4AFF01D33F, %13
   %call.i.i.i = call double @exp(double noundef %div.i.i.i) #22
-  %call1.i.i.i = call double @sqrt(double noundef %11) #22
+  %call1.i.i.i = call double @sqrt(double noundef %13) #22
   %div2.i.i.i = fdiv double %call.i.i.i, %call1.i.i.i
-  %12 = call double @llvm.fmuladd.f64(double %11, double -1.686910e-03, double 1.167200e-02)
-  %neg.i.i.i = fneg double %12
-  %13 = call double @llvm.fmuladd.f64(double %neg.i.i.i, double %11, double 3.479620e-02)
-  %neg3.i.i.i = fneg double %13
-  %14 = call double @llvm.fmuladd.f64(double %neg3.i.i.i, double %11, double 6.498210e-02)
-  %neg4.i.i.i = fneg double %14
-  %15 = call double @llvm.fmuladd.f64(double %neg4.i.i.i, double %11, double 2.471050e-01)
-  %16 = call double @llvm.fmuladd.f64(double %15, double %11, double 2.000120e+00)
-  %mul.i.i.i = fmul double %16, %div2.i.i.i
+  %14 = call double @llvm.fmuladd.f64(double %13, double -1.686910e-03, double 1.167200e-02)
+  %neg.i.i.i = fneg double %14
+  %15 = call double @llvm.fmuladd.f64(double %neg.i.i.i, double %13, double 3.479620e-02)
+  %neg3.i.i.i = fneg double %15
+  %16 = call double @llvm.fmuladd.f64(double %neg3.i.i.i, double %13, double 6.498210e-02)
+  %neg4.i.i.i = fneg double %16
+  %17 = call double @llvm.fmuladd.f64(double %neg4.i.i.i, double %13, double 2.471050e-01)
+  %18 = call double @llvm.fmuladd.f64(double %17, double %13, double 2.000120e+00)
+  %mul.i.i.i = fmul double %18, %div2.i.i.i
   br label %_ZN4absl18profiling_internal12_GLOBAL__N_118AndersonDarlingInfEd.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN4absl18profiling_internal12_GLOBAL__N_124AndersonDarlingStatisticERKSt6vectorIdSaIdEE.exit.i
-  %17 = call double @llvm.fmuladd.f64(double %11, double -3.146000e-04, double 8.056000e-03)
-  %neg7.i.i.i = fneg double %17
-  %18 = call double @llvm.fmuladd.f64(double %neg7.i.i.i, double %11, double 8.243300e-02)
-  %neg9.i.i.i = fneg double %18
-  %19 = call double @llvm.fmuladd.f64(double %neg9.i.i.i, double %11, double 4.342400e-01)
-  %neg11.i.i.i = fneg double %19
-  %20 = call double @llvm.fmuladd.f64(double %neg11.i.i.i, double %11, double 2.306950e+00)
-  %neg13.i.i.i = fneg double %20
-  %21 = call double @llvm.fmuladd.f64(double %neg13.i.i.i, double %11, double 1.077600e+00)
-  %call14.i.i.i = call double @exp(double noundef %21) #22
+  %19 = call double @llvm.fmuladd.f64(double %13, double -3.146000e-04, double 8.056000e-03)
+  %neg7.i.i.i = fneg double %19
+  %20 = call double @llvm.fmuladd.f64(double %neg7.i.i.i, double %13, double 8.243300e-02)
+  %neg9.i.i.i = fneg double %20
+  %21 = call double @llvm.fmuladd.f64(double %neg9.i.i.i, double %13, double 4.342400e-01)
+  %neg11.i.i.i = fneg double %21
+  %22 = call double @llvm.fmuladd.f64(double %neg11.i.i.i, double %13, double 2.306950e+00)
+  %neg13.i.i.i = fneg double %22
+  %23 = call double @llvm.fmuladd.f64(double %neg13.i.i.i, double %13, double 1.077600e+00)
+  %call14.i.i.i = call double @exp(double noundef %23) #22
   %fneg.i.i.i = fneg double %call14.i.i.i
   %call15.i.i.i = call double @exp(double noundef %fneg.i.i.i) #22
   br label %_ZN4absl18profiling_internal12_GLOBAL__N_118AndersonDarlingInfEd.exit.i.i
@@ -835,20 +838,20 @@ _ZN4absl18profiling_internal12_GLOBAL__N_118AndersonDarlingInfEd.exit.i.i: ; pre
   br i1 %cmp.i2.i.i, label %if.then.i7.i.i, label %if.end.i3.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZN4absl18profiling_internal12_GLOBAL__N_118AndersonDarlingInfEd.exit.i.i
-  %22 = call double @llvm.fmuladd.f64(double %retval.0.i.i.i, double 0xC06FF919CE075F70, double 1.116360e+03)
-  %neg.i8.i.i = fneg double %22
-  %23 = call double @llvm.fmuladd.f64(double %neg.i8.i.i, double %retval.0.i.i.i, double 0x409E7A95810624DD)
-  %neg1.i.i.i = fneg double %23
-  %24 = call double @llvm.fmuladd.f64(double %neg1.i.i.i, double %retval.0.i.i.i, double 0x409AA45D2F1A9FBE)
-  %neg2.i.i.i = fneg double %24
-  %25 = call double @llvm.fmuladd.f64(double %neg2.i.i.i, double %retval.0.i.i.i, double 0x408749DE9E1B089A)
-  %26 = call double @llvm.fmuladd.f64(double %25, double %retval.0.i.i.i, double 0xC06046D6A161E4F7)
-  %conv.i.i.i = sitofp i32 %conv.i to double
-  %div.i9.i.i = fdiv double %26, %conv.i.i.i
+  %24 = call double @llvm.fmuladd.f64(double %retval.0.i.i.i, double 0xC06FF919CE075F70, double 1.116360e+03)
+  %neg.i8.i.i = fneg double %24
+  %25 = call double @llvm.fmuladd.f64(double %neg.i8.i.i, double %retval.0.i.i.i, double 0x409E7A95810624DD)
+  %neg1.i.i.i = fneg double %25
+  %26 = call double @llvm.fmuladd.f64(double %neg1.i.i.i, double %retval.0.i.i.i, double 0x409AA45D2F1A9FBE)
+  %neg2.i.i.i = fneg double %26
+  %27 = call double @llvm.fmuladd.f64(double %neg2.i.i.i, double %retval.0.i.i.i, double 0x408749DE9E1B089A)
+  %28 = call double @llvm.fmuladd.f64(double %27, double %retval.0.i.i.i, double 0xC06046D6A161E4F7)
+  %conv.i.i.i = sitofp i32 %sub.ptr.sub.i.i.pre-phi to double
+  %div.i9.i.i = fdiv double %28, %conv.i.i.i
   br label %invoke.cont50
 
 if.end.i3.i.i:                                    ; preds = %_ZN4absl18profiling_internal12_GLOBAL__N_118AndersonDarlingInfEd.exit.i.i
-  %conv3.i.i.i = sitofp i32 %conv.i to double
+  %conv3.i.i.i = sitofp i32 %sub.ptr.sub.i.i.pre-phi to double
   %div4.i.i.i = fdiv double 1.757000e-01, %conv3.i.i.i
   %add.i.i.i = fadd double %div4.i.i.i, 1.265000e-02
   %cmp5.i.i.i = fcmp olt double %retval.0.i.i.i, %add.i.i.i
@@ -859,9 +862,9 @@ if.then6.i.i.i:                                   ; preds = %if.end.i3.i.i
   %call.i5.i.i = call double @sqrt(double noundef %div7.i.i.i) #22
   %sub.i.i.i = fsub double 1.000000e+00, %div7.i.i.i
   %mul.i6.i.i = fmul double %sub.i.i.i, %call.i5.i.i
-  %27 = call double @llvm.fmuladd.f64(double %div7.i.i.i, double 4.900000e+01, double -1.020000e+02)
-  %mul9.i.i.i = fmul double %27, %mul.i6.i.i
-  %mul10.i.i.i = mul nsw i32 %conv.i, %conv.i
+  %29 = call double @llvm.fmuladd.f64(double %div7.i.i.i, double 4.900000e+01, double -1.020000e+02)
+  %mul9.i.i.i = fmul double %29, %mul.i6.i.i
+  %mul10.i.i.i = mul nsw i32 %sub.ptr.sub.i.i.pre-phi, %sub.ptr.sub.i.i.pre-phi
   %conv11.i.i.i = uitofp nneg i32 %mul10.i.i.i to double
   %div12.i.i.i = fdiv double 3.700000e-03, %conv11.i.i.i
   %div14.i.i.i = fdiv double 7.800000e-04, %conv3.i.i.i
@@ -875,17 +878,17 @@ if.else.i.i.i:                                    ; preds = %if.end.i3.i.i
   %sub21.i.i.i = fsub double %retval.0.i.i.i, %add.i.i.i
   %sub22.i.i.i = fsub double 8.000000e-01, %add.i.i.i
   %div23.i.i.i = fdiv double %sub21.i.i.i, %sub22.i.i.i
-  %28 = call double @llvm.fmuladd.f64(double %div23.i.i.i, double -1.918640e+00, double 8.259000e+00)
-  %neg26.i.i.i = fneg double %28
-  %29 = call double @llvm.fmuladd.f64(double %neg26.i.i.i, double %div23.i.i.i, double 1.445800e+01)
-  %neg28.i.i.i = fneg double %29
-  %30 = call double @llvm.fmuladd.f64(double %neg28.i.i.i, double %div23.i.i.i, double 1.465380e+01)
-  %neg30.i.i.i = fneg double %30
-  %31 = call double @llvm.fmuladd.f64(double %neg30.i.i.i, double %div23.i.i.i, double 6.540340e+00)
-  %32 = call double @llvm.fmuladd.f64(double %31, double %div23.i.i.i, double -2.263300e-04)
+  %30 = call double @llvm.fmuladd.f64(double %div23.i.i.i, double -1.918640e+00, double 8.259000e+00)
+  %neg26.i.i.i = fneg double %30
+  %31 = call double @llvm.fmuladd.f64(double %neg26.i.i.i, double %div23.i.i.i, double 1.445800e+01)
+  %neg28.i.i.i = fneg double %31
+  %32 = call double @llvm.fmuladd.f64(double %neg28.i.i.i, double %div23.i.i.i, double 1.465380e+01)
+  %neg30.i.i.i = fneg double %32
+  %33 = call double @llvm.fmuladd.f64(double %neg30.i.i.i, double %div23.i.i.i, double 6.540340e+00)
+  %34 = call double @llvm.fmuladd.f64(double %33, double %div23.i.i.i, double -2.263300e-04)
   %div33.i.i.i = fdiv double 1.365000e-02, %conv3.i.i.i
   %add34.i.i.i = fadd double %div33.i.i.i, 4.213000e-02
-  %mul35.i.i.i = fmul double %add34.i.i.i, %32
+  %mul35.i.i.i = fmul double %add34.i.i.i, %34
   %div37.i.i.i = fdiv double %mul35.i.i.i, %conv3.i.i.i
   br label %invoke.cont50
 
@@ -898,8 +901,8 @@ invoke.cont50:                                    ; preds = %if.else.i.i.i, %if.
   %cmp.i43 = fcmp olt double %sub, %add.i2.i
   %__b.__a.i = select i1 %cmp.i43, ptr %ref.tmp52, ptr %ad_pvalue
   store double 1.000000e-04, ptr %ref.tmp55, align 8
-  %33 = load double, ptr %__b.__a.i, align 8, !noalias !13
-  %cmp.i44 = fcmp ogt double %33, 1.000000e-04
+  %35 = load double, ptr %__b.__a.i, align 8, !noalias !13
+  %cmp.i44 = fcmp ogt double %35, 1.000000e-04
   br i1 %cmp.i44, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont50
@@ -911,17 +914,17 @@ if.else.i:                                        ; preds = %invoke.cont50
           to label %invoke.cont56 unwind label %lpad49
 
 invoke.cont56:                                    ; preds = %if.then.i, %if.else.i
-  %34 = load i8, ptr %gtest_ar, align 8
-  %tobool.i = trunc i8 %34 to i1
+  %36 = load i8, ptr %gtest_ar, align 8
+  %tobool.i = trunc i8 %36 to i1
   br i1 %tobool.i, label %if.end, label %if.else
 
 lpad49:                                           ; preds = %if.else.i, %if.then.i
-  %35 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup78
 
 lpad57:                                           ; preds = %if.else
-  %36 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup77
 
@@ -930,37 +933,37 @@ if.else:                                          ; preds = %invoke.cont56
           to label %invoke.cont61 unwind label %lpad57
 
 invoke.cont61:                                    ; preds = %if.else
-  %37 = load ptr, ptr %ref.tmp60, align 8
-  %add.ptr.i47 = getelementptr inbounds i8, ptr %37, i64 16
+  %39 = load ptr, ptr %ref.tmp60, align 8
+  %add.ptr.i47 = getelementptr inbounds i8, ptr %39, i64 16
   %call2.i48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i47, ptr noundef nonnull @.str.16)
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %invoke.cont61
-  %38 = load ptr, ptr %ref.tmp60, align 8
-  %add.ptr.i49 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = load ptr, ptr %ref.tmp60, align 8
+  %add.ptr.i49 = getelementptr inbounds i8, ptr %40, i64 16
   %call2.i50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i49, i64 noundef %0)
           to label %invoke.cont65 unwind label %lpad62
 
 invoke.cont65:                                    ; preds = %invoke.cont63
-  %39 = load ptr, ptr %ref.tmp60, align 8
-  %add.ptr.i51 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = load ptr, ptr %ref.tmp60, align 8
+  %add.ptr.i51 = getelementptr inbounds i8, ptr %41, i64 16
   %call2.i52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i51, ptr noundef nonnull @.str.17)
           to label %invoke.cont67 unwind label %lpad62
 
 invoke.cont67:                                    ; preds = %invoke.cont65
-  %40 = load ptr, ptr %ref.tmp60, align 8
-  %add.ptr.i53 = getelementptr inbounds i8, ptr %40, i64 16
-  %41 = load double, ptr %ad_pvalue, align 8
-  %call2.i54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i53, double noundef %41)
+  %42 = load ptr, ptr %ref.tmp60, align 8
+  %add.ptr.i53 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = load double, ptr %ad_pvalue, align 8
+  %call2.i54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i53, double noundef %43)
           to label %invoke.cont69 unwind label %lpad62
 
 invoke.cont69:                                    ; preds = %invoke.cont67
-  %42 = load ptr, ptr %message_.i.i, align 8
-  %cmp.i.i.not.i.i = icmp eq ptr %42, null
+  %44 = load ptr, ptr %message_.i.i, align 8
+  %cmp.i.i.not.i.i = icmp eq ptr %44, null
   br i1 %cmp.i.i.not.i.i, label %invoke.cont72, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %invoke.cont69
-  %call4.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %42) #22
+  %call4.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %44) #22
   br label %invoke.cont72
 
 invoke.cont72:                                    ; preds = %cond.true.i.i, %invoke.cont69
@@ -974,15 +977,15 @@ invoke.cont74:                                    ; preds = %invoke.cont72
 
 invoke.cont76:                                    ; preds = %invoke.cont74
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp71) #22
-  %43 = load ptr, ptr %ref.tmp60, align 8
-  %cmp.not.i.i = icmp eq ptr %43, null
+  %45 = load ptr, ptr %ref.tmp60, align 8
+  %cmp.not.i.i = icmp eq ptr %45, null
   br i1 %cmp.not.i.i, label %_ZN7testing7MessageD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %invoke.cont76
-  %vtable.i.i.i = load ptr, ptr %43, align 8
+  %vtable.i.i.i = load ptr, ptr %45, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
-  %44 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(128) %43) #22
+  %46 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(128) %45) #22
   br label %_ZN7testing7MessageD2Ev.exit
 
 _ZN7testing7MessageD2Ev.exit:                     ; preds = %invoke.cont76, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -990,27 +993,27 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %invoke.cont76, %_ZN
   br label %if.end
 
 lpad62:                                           ; preds = %invoke.cont67, %invoke.cont65, %invoke.cont63, %invoke.cont61, %invoke.cont72
-  %45 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad75:                                           ; preds = %invoke.cont74
-  %46 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp71) #22
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad75, %lpad62
-  %.pn = phi { ptr, i32 } [ %46, %lpad75 ], [ %45, %lpad62 ]
-  %47 = load ptr, ptr %ref.tmp60, align 8
-  %cmp.not.i.i55 = icmp eq ptr %47, null
+  %.pn = phi { ptr, i32 } [ %48, %lpad75 ], [ %47, %lpad62 ]
+  %49 = load ptr, ptr %ref.tmp60, align 8
+  %cmp.not.i.i55 = icmp eq ptr %49, null
   br i1 %cmp.not.i.i55, label %_ZN7testing7MessageD2Ev.exit59, label %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i56
 
 _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i56: ; preds = %ehcleanup
-  %vtable.i.i.i57 = load ptr, ptr %47, align 8
+  %vtable.i.i.i57 = load ptr, ptr %49, align 8
   %vfn.i.i.i58 = getelementptr inbounds i8, ptr %vtable.i.i.i57, i64 8
-  %48 = load ptr, ptr %vfn.i.i.i58, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(128) %47) #22
+  %50 = load ptr, ptr %vfn.i.i.i58, align 8
+  call void %50(ptr noundef nonnull align 8 dereferenceable(128) %49) #22
   br label %_ZN7testing7MessageD2Ev.exit59
 
 _ZN7testing7MessageD2Ev.exit59:                   ; preds = %ehcleanup, %_ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i56
@@ -1018,13 +1021,13 @@ _ZN7testing7MessageD2Ev.exit59:                   ; preds = %ehcleanup, %_ZNKSt1
   br label %ehcleanup77
 
 if.end:                                           ; preds = %invoke.cont56, %_ZN7testing7MessageD2Ev.exit
-  %49 = load ptr, ptr %message_.i.i, align 8
-  %cmp.not.i.i60 = icmp eq ptr %49, null
+  %51 = load ptr, ptr %message_.i.i, align 8
+  %cmp.not.i.i60 = icmp eq ptr %51, null
   br i1 %cmp.not.i.i60, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i: ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #22
-  call void @_ZdlPv(ptr noundef nonnull %49) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #22
+  call void @_ZdlPv(ptr noundef nonnull %51) #23
   br label %_ZN7testing15AssertionResultD2Ev.exit
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -1050,12 +1053,12 @@ _ZNSt6vectorImSaImEED2Ev.exit66:                  ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp.i.not, label %_ZNSt6vectorImSaImEED2Ev.exit, label %for.body
 
 ehcleanup77:                                      ; preds = %_ZN7testing7MessageD2Ev.exit59, %lpad57
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit59 ], [ %36, %lpad57 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN7testing7MessageD2Ev.exit59 ], [ %38, %lpad57 ]
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar) #22
   br label %ehcleanup78
 
 ehcleanup78:                                      ; preds = %ehcleanup77, %lpad49
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup77 ], [ %35, %lpad49 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup77 ], [ %37, %lpad49 ]
   %tobool.not.i.i.i67 = icmp eq ptr %random_sample.sroa.0.1155168, null
   br i1 %tobool.not.i.i.i67, label %ehcleanup79, label %if.then.i.i.i68
 

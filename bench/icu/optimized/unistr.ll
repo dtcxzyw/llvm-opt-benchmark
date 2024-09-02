@@ -179,7 +179,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7513UnicodeString9removeRefEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #6 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_7513UnicodeString9removeRefEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fArray = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %fArray, align 8
@@ -6324,7 +6324,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7513UnicodeString10doHashCodeEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #5 align 2 {
+define noundef range(i32 1, 0) i32 @_ZNK6icu_7513UnicodeString10doHashCodeEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #5 align 2 {
 entry:
   %fUnion.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
@@ -6366,7 +6366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7523UnicodeStringAppendable14appendCodeUnitEDs(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i16 noundef zeroext %c) unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7523UnicodeStringAppendable14appendCodeUnitEDs(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i16 noundef zeroext %c) unnamed_addr #5 align 2 {
 entry:
   %c.addr = alloca i16, align 2
   store i16 %c, ptr %c.addr, align 2
@@ -6427,7 +6427,7 @@ land.end:                                         ; preds = %if.else, %land.rhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7523UnicodeStringAppendable12appendStringEPKDsi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %s, i32 noundef %length) unnamed_addr #5 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7523UnicodeStringAppendable12appendStringEPKDsi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %s, i32 noundef %length) unnamed_addr #5 align 2 {
 entry:
   %str = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %str, align 8
@@ -6549,7 +6549,7 @@ cond.false:                                       ; preds = %entry
   %4 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i2.i.i = select i1 %cmp.i.i.i.i, i32 %4, i32 %shr.i.i.i.i
   %call3.i.i = tail call i32 @ustr_hashUCharsN_75(ptr noundef %cond.i.i.i, i32 noundef %cond.i2.i.i)
-  %spec.store.select.i.i = tail call noundef i32 @llvm.umax.i32(i32 %call3.i.i, i32 1)
+  %spec.store.select.i.i = tail call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %call3.i.i, i32 1)
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.false

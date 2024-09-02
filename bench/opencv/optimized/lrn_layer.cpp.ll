@@ -2291,37 +2291,37 @@ define linkonce_odr hidden void @_ZN2cv3dnn12LRNLayerImpl20spatialNormalizationE
   %32 = load i32, ptr %31, align 8
   %33 = mul nsw i32 %32, %32
   %34 = uitofp nneg i32 %33 to float
+  %35 = select i1 %30, float %34, float 1.000000e+00
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %1)
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %2)
           to label %.preheader45 unwind label %162
 
 .preheader45:                                     ; preds = %3
-  %35 = icmp sgt i32 %25, 0
-  br i1 %35, label %.preheader.lr.ph, label %._crit_edge48
+  %36 = icmp sgt i32 %25, 0
+  br i1 %36, label %.preheader.lr.ph, label %._crit_edge48
 
 .preheader.lr.ph:                                 ; preds = %.preheader45
-  %36 = icmp sgt i32 %27, 0
-  %37 = getelementptr inbounds i8, ptr %13, i64 4
-  %38 = getelementptr inbounds i8, ptr %13, i64 64
-  %39 = getelementptr inbounds i8, ptr %13, i64 16
-  %40 = getelementptr inbounds i8, ptr %13, i64 72
-  %41 = getelementptr inbounds i8, ptr %14, i64 4
-  %42 = getelementptr inbounds i8, ptr %14, i64 64
-  %43 = getelementptr inbounds i8, ptr %14, i64 16
-  %44 = getelementptr inbounds i8, ptr %14, i64 72
-  %45 = getelementptr inbounds i8, ptr %15, i64 8
-  %46 = getelementptr inbounds i8, ptr %15, i64 12
-  %47 = getelementptr inbounds i8, ptr %15, i64 16
-  %48 = getelementptr inbounds i8, ptr %15, i64 72
-  %49 = getelementptr inbounds i8, ptr %5, i64 16
-  %50 = getelementptr inbounds i8, ptr %5, i64 20
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
-  %52 = getelementptr inbounds i8, ptr %6, i64 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 16
-  %54 = getelementptr inbounds i8, ptr %17, i64 8
-  %55 = getelementptr inbounds i8, ptr %17, i64 16
-  %56 = getelementptr inbounds i8, ptr %0, i64 108
-  %57 = select i1 %30, float %34, float 1.000000e+00
+  %37 = icmp sgt i32 %27, 0
+  %38 = getelementptr inbounds i8, ptr %13, i64 4
+  %39 = getelementptr inbounds i8, ptr %13, i64 64
+  %40 = getelementptr inbounds i8, ptr %13, i64 16
+  %41 = getelementptr inbounds i8, ptr %13, i64 72
+  %42 = getelementptr inbounds i8, ptr %14, i64 4
+  %43 = getelementptr inbounds i8, ptr %14, i64 64
+  %44 = getelementptr inbounds i8, ptr %14, i64 16
+  %45 = getelementptr inbounds i8, ptr %14, i64 72
+  %46 = getelementptr inbounds i8, ptr %15, i64 8
+  %47 = getelementptr inbounds i8, ptr %15, i64 12
+  %48 = getelementptr inbounds i8, ptr %15, i64 16
+  %49 = getelementptr inbounds i8, ptr %15, i64 72
+  %50 = getelementptr inbounds i8, ptr %5, i64 16
+  %51 = getelementptr inbounds i8, ptr %5, i64 20
+  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %53 = getelementptr inbounds i8, ptr %6, i64 8
+  %54 = getelementptr inbounds i8, ptr %6, i64 16
+  %55 = getelementptr inbounds i8, ptr %17, i64 8
+  %56 = getelementptr inbounds i8, ptr %17, i64 16
+  %57 = getelementptr inbounds i8, ptr %0, i64 108
   %58 = getelementptr inbounds i8, ptr %0, i64 116
   %59 = getelementptr inbounds i8, ptr %18, i64 16
   %60 = getelementptr inbounds i8, ptr %18, i64 20
@@ -2337,7 +2337,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn12LRNLayerImpl20spatialNormalizationE
   %70 = getelementptr inbounds i8, ptr %21, i64 8
   %71 = getelementptr inbounds i8, ptr %22, i64 8
   %72 = getelementptr inbounds i8, ptr %22, i64 16
-  br i1 %36, label %.preheader.us.preheader, label %._crit_edge48
+  br i1 %37, label %.preheader.us.preheader, label %._crit_edge48
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %wide.trip.count76 = zext nneg i32 %25 to i64
@@ -2353,12 +2353,12 @@ define linkonce_odr hidden void @_ZN2cv3dnn12LRNLayerImpl20spatialNormalizationE
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12)
-  %74 = load i32, ptr %37, align 4, !noalias !10
+  %74 = load i32, ptr %38, align 4, !noalias !10
   %75 = icmp sgt i32 %74, 2
   br i1 %75, label %.preheader.i.us, label %.split.us
 
 .preheader.i.us:                                  ; preds = %73
-  %76 = load ptr, ptr %38, align 8, !noalias !10
+  %76 = load ptr, ptr %39, align 8, !noalias !10
   %wide.trip.count.i.us = zext nneg i32 %74 to i64
   br label %77
 
@@ -2377,8 +2377,8 @@ define linkonce_odr hidden void @_ZN2cv3dnn12LRNLayerImpl20spatialNormalizationE
   %83 = add nsw i32 %74, -2
   %84 = load i32, ptr %13, align 8, !noalias !10
   %85 = and i32 %84, 4095
-  %86 = load ptr, ptr %39, align 8, !noalias !10
-  %87 = load ptr, ptr %40, align 8, !noalias !10
+  %86 = load ptr, ptr %40, align 8, !noalias !10
+  %87 = load ptr, ptr %41, align 8, !noalias !10
   %88 = load i64, ptr %87, align 8, !noalias !10
   %89 = mul i64 %88, %indvars.iv73
   %90 = getelementptr inbounds i8, ptr %86, i64 %89
@@ -2396,12 +2396,12 @@ define linkonce_odr hidden void @_ZN2cv3dnn12LRNLayerImpl20spatialNormalizationE
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9)
-  %96 = load i32, ptr %41, align 4, !noalias !14
+  %96 = load i32, ptr %42, align 4, !noalias !14
   %97 = icmp sgt i32 %96, 2
   br i1 %97, label %.preheader.i35.us, label %.split52.us
 
 .preheader.i35.us:                                ; preds = %95
-  %98 = load ptr, ptr %42, align 8, !noalias !14
+  %98 = load ptr, ptr %43, align 8, !noalias !14
   %wide.trip.count.i36.us = zext nneg i32 %96 to i64
   br label %99
 
@@ -2420,8 +2420,8 @@ define linkonce_odr hidden void @_ZN2cv3dnn12LRNLayerImpl20spatialNormalizationE
   %105 = add nsw i32 %96, -2
   %106 = load i32, ptr %14, align 8, !noalias !14
   %107 = and i32 %106, 4095
-  %108 = load ptr, ptr %43, align 8, !noalias !14
-  %109 = load ptr, ptr %44, align 8, !noalias !14
+  %108 = load ptr, ptr %44, align 8, !noalias !14
+  %109 = load ptr, ptr %45, align 8, !noalias !14
   %110 = load i64, ptr %109, align 8, !noalias !14
   %111 = mul i64 %110, %indvars.iv73
   %112 = getelementptr inbounds i8, ptr %108, i64 %111
@@ -2439,24 +2439,24 @@ define linkonce_odr hidden void @_ZN2cv3dnn12LRNLayerImpl20spatialNormalizationE
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %118 = load i32, ptr %45, align 8
-  %119 = load i32, ptr %46, align 4
+  %118 = load i32, ptr %46, align 8
+  %119 = load i32, ptr %47, align 4
   %120 = load i32, ptr %15, align 8
   %121 = and i32 %120, 4095
-  %122 = load ptr, ptr %47, align 8
-  %123 = load ptr, ptr %48, align 8
+  %122 = load ptr, ptr %48, align 8
+  %123 = load ptr, ptr %49, align 8
   %124 = load i64, ptr %123, align 8
   invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %118, i32 noundef %119, i32 noundef %121, ptr noundef %122, i64 noundef %124)
           to label %.noexc.us unwind label %.split57.us
 
 .noexc.us:                                        ; preds = %117
-  store i32 0, ptr %49, align 8
-  store i32 0, ptr %50, align 4
+  store i32 0, ptr %50, align 8
+  store i32 0, ptr %51, align 4
   store i32 16842752, ptr %5, align 8
-  store ptr %4, ptr %51, align 8
-  store i64 0, ptr %53, align 8
+  store ptr %4, ptr %52, align 8
+  store i64 0, ptr %54, align 8
   store i32 33619968, ptr %6, align 8
-  store ptr %16, ptr %52, align 8
+  store ptr %16, ptr %53, align 8
   %125 = load i32, ptr %16, align 8
   %126 = and i32 %125, 7
   %127 = load i32, ptr %31, align 8
@@ -2471,13 +2471,13 @@ define linkonce_odr hidden void @_ZN2cv3dnn12LRNLayerImpl20spatialNormalizationE
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  store i64 0, ptr %55, align 8
+  store i64 0, ptr %56, align 8
   store i32 33619968, ptr %17, align 8
-  store ptr %16, ptr %54, align 8
+  store ptr %16, ptr %55, align 8
   %129 = load i32, ptr %16, align 8
   %130 = and i32 %129, 4095
-  %131 = load float, ptr %56, align 4
-  %132 = fdiv float %131, %57
+  %131 = load float, ptr %57, align 4
+  %132 = fdiv float %131, %35
   %133 = fpext float %132 to double
   %134 = load float, ptr %58, align 4
   %135 = fpext float %134 to double

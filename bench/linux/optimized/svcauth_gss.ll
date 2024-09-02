@@ -451,7 +451,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @svcauth_gss_accept(ptr noundef %0) #2 align 16 {
+define internal noundef range(i32 1, 11) i32 @svcauth_gss_accept(ptr noundef %0) #2 align 16 {
   %2 = alloca %struct.rsc, align 8
   %3 = alloca %struct.rsc, align 8
   %4 = alloca i64, align 8

@@ -3604,132 +3604,131 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17CheckpointWriteOpI9JfrBuffer
 
 33:                                               ; preds = %32
   %.not16.i.i.i.i.i.i = icmp ult i64 %26, 72057594037927936
-  %..i.i.i.i.i.i = select i1 %.not16.i.i.i.i.i.i, i64 8, i64 9
+  %34 = select i1 %.not16.i.i.i.i.i.i, i64 -23, i64 -22
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit.i.i.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit.i.i.i: ; preds = %33, %32, %31, %30, %29, %28, %27, %13
-  %.0.i.i.i.i.i.i = phi i64 [ 1, %13 ], [ 2, %27 ], [ 3, %28 ], [ 4, %29 ], [ 5, %30 ], [ 6, %31 ], [ 7, %32 ], [ %..i.i.i.i.i.i, %33 ]
-  %34 = getelementptr i8, ptr %.014.i, i64 16
-  %.val22.i.i.i = load i64, ptr %34, align 8
-  %35 = tail call noundef i64 @llvm.bswap.i64(i64 %.val22.i.i.i)
-  %.not.i.i.i26.i.i.i = icmp ult i64 %35, 128
-  br i1 %.not.i.i.i26.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %36
+  %.0.i.i.i.i.i.i = phi i64 [ -30, %13 ], [ -29, %27 ], [ -28, %28 ], [ -27, %29 ], [ -26, %30 ], [ -25, %31 ], [ -24, %32 ], [ %34, %33 ]
+  %35 = getelementptr i8, ptr %.014.i, i64 16
+  %.val22.i.i.i = load i64, ptr %35, align 8
+  %36 = tail call noundef i64 @llvm.bswap.i64(i64 %.val22.i.i.i)
+  %.not.i.i.i26.i.i.i = icmp ult i64 %36, 128
+  br i1 %.not.i.i.i26.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %37
 
-36:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit.i.i.i
-  %.not10.i.i.i27.i.i.i = icmp ult i64 %35, 16384
-  br i1 %.not10.i.i.i27.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %37
-
-37:                                               ; preds = %36
-  %.not11.i.i.i28.i.i.i = icmp ult i64 %35, 2097152
-  br i1 %.not11.i.i.i28.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %38
+37:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit.i.i.i
+  %.not10.i.i.i27.i.i.i = icmp ult i64 %36, 16384
+  br i1 %.not10.i.i.i27.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %38
 
 38:                                               ; preds = %37
-  %.not12.i.i.i29.i.i.i = icmp ult i64 %35, 268435456
-  br i1 %.not12.i.i.i29.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %39
+  %.not11.i.i.i28.i.i.i = icmp ult i64 %36, 2097152
+  br i1 %.not11.i.i.i28.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %39
 
 39:                                               ; preds = %38
-  %.not13.i.i.i30.i.i.i = icmp ult i64 %35, 34359738368
-  br i1 %.not13.i.i.i30.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %40
+  %.not12.i.i.i29.i.i.i = icmp ult i64 %36, 268435456
+  br i1 %.not12.i.i.i29.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %40
 
 40:                                               ; preds = %39
-  %.not14.i.i.i31.i.i.i = icmp ult i64 %35, 4398046511104
-  br i1 %.not14.i.i.i31.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %41
+  %.not13.i.i.i30.i.i.i = icmp ult i64 %36, 34359738368
+  br i1 %.not13.i.i.i30.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %41
 
 41:                                               ; preds = %40
-  %.not15.i.i.i32.i.i.i = icmp ult i64 %35, 562949953421312
-  br i1 %.not15.i.i.i32.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %42
+  %.not14.i.i.i31.i.i.i = icmp ult i64 %36, 4398046511104
+  br i1 %.not14.i.i.i31.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %42
 
 42:                                               ; preds = %41
-  %.not16.i.i.i33.i.i.i = icmp ult i64 %35, 72057594037927936
+  %.not15.i.i.i32.i.i.i = icmp ult i64 %36, 562949953421312
+  br i1 %.not15.i.i.i32.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i, label %43
+
+43:                                               ; preds = %42
+  %.not16.i.i.i33.i.i.i = icmp ult i64 %36, 72057594037927936
   %..i.i.i34.i.i.i = select i1 %.not16.i.i.i33.i.i.i, i64 8, i64 9
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i: ; preds = %42, %41, %40, %39, %38, %37, %36, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit.i.i.i
-  %.0.i.i.i35.i.i.i = phi i64 [ 1, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit.i.i.i ], [ 2, %36 ], [ 3, %37 ], [ 4, %38 ], [ 5, %39 ], [ 6, %40 ], [ 7, %41 ], [ %..i.i.i34.i.i.i, %42 ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i: ; preds = %43, %42, %41, %40, %39, %38, %37, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit.i.i.i
+  %.0.i.i.i35.i.i.i = phi i64 [ 1, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit.i.i.i ], [ 2, %37 ], [ 3, %38 ], [ 4, %39 ], [ 5, %40 ], [ 6, %41 ], [ 7, %42 ], [ %..i.i.i34.i.i.i, %43 ]
   %.not.i.i.i37.i.i.i = icmp ult i64 %24, 128
-  br i1 %.not.i.i.i37.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %43
+  br i1 %.not.i.i.i37.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %44
 
-43:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i
+44:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i
   %.not10.i.i.i38.i.i.i = icmp ult i64 %24, 16384
-  br i1 %.not10.i.i.i38.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %44
-
-44:                                               ; preds = %43
-  %.not11.i.i.i39.i.i.i = icmp ult i64 %24, 2097152
-  br i1 %.not11.i.i.i39.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %45
+  br i1 %.not10.i.i.i38.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %45
 
 45:                                               ; preds = %44
-  %.not12.i.i.i40.i.i.i = icmp ult i64 %24, 268435456
-  br i1 %.not12.i.i.i40.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %46
+  %.not11.i.i.i39.i.i.i = icmp ult i64 %24, 2097152
+  br i1 %.not11.i.i.i39.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %46
 
 46:                                               ; preds = %45
-  %.not13.i.i.i41.i.i.i = icmp ult i64 %24, 34359738368
-  br i1 %.not13.i.i.i41.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %47
+  %.not12.i.i.i40.i.i.i = icmp ult i64 %24, 268435456
+  br i1 %.not12.i.i.i40.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %47
 
 47:                                               ; preds = %46
-  %.not14.i.i.i42.i.i.i = icmp ult i64 %24, 4398046511104
-  br i1 %.not14.i.i.i42.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %48
+  %.not13.i.i.i41.i.i.i = icmp ult i64 %24, 34359738368
+  br i1 %.not13.i.i.i41.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %48
 
 48:                                               ; preds = %47
-  %.not15.i.i.i43.i.i.i = icmp ult i64 %24, 562949953421312
-  br i1 %.not15.i.i.i43.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %49
+  %.not14.i.i.i42.i.i.i = icmp ult i64 %24, 4398046511104
+  br i1 %.not14.i.i.i42.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %49
 
 49:                                               ; preds = %48
+  %.not15.i.i.i43.i.i.i = icmp ult i64 %24, 562949953421312
+  br i1 %.not15.i.i.i43.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i, label %50
+
+50:                                               ; preds = %49
   %.not16.i.i.i44.i.i.i = icmp ult i64 %24, 72057594037927936
   %..i.i.i45.i.i.i = select i1 %.not16.i.i.i44.i.i.i, i64 8, i64 9
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i: ; preds = %49, %48, %47, %46, %45, %44, %43, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i
-  %.0.i.i.i46.i.i.i = phi i64 [ 1, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i ], [ 2, %43 ], [ 3, %44 ], [ 4, %45 ], [ 5, %46 ], [ 6, %47 ], [ 7, %48 ], [ %..i.i.i45.i.i.i, %49 ]
-  %50 = getelementptr i8, ptr %.014.i, i64 24
-  %.val23.i.i.i = load i32, ptr %50, align 4
-  %51 = tail call noundef i32 @llvm.bswap.i32(i32 %.val23.i.i.i)
-  %.not.i.i.i48.i.i.i = icmp ult i32 %51, 128
-  br i1 %.not.i.i.i48.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i, label %52
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i: ; preds = %50, %49, %48, %47, %46, %45, %44, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i
+  %.0.i.i.i46.i.i.i = phi i64 [ 1, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit36.i.i.i ], [ 2, %44 ], [ 3, %45 ], [ 4, %46 ], [ 5, %47 ], [ 6, %48 ], [ 7, %49 ], [ %..i.i.i45.i.i.i, %50 ]
+  %51 = getelementptr i8, ptr %.014.i, i64 24
+  %.val23.i.i.i = load i32, ptr %51, align 4
+  %52 = tail call noundef i32 @llvm.bswap.i32(i32 %.val23.i.i.i)
+  %.not.i.i.i48.i.i.i = icmp ult i32 %52, 128
+  br i1 %.not.i.i.i48.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i, label %53
 
-52:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i
-  %.not10.i.i.i49.i.i.i = icmp ult i32 %51, 16384
-  br i1 %.not10.i.i.i49.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i, label %53
-
-53:                                               ; preds = %52
-  %.not11.i.i.i50.i.i.i = icmp ult i32 %51, 2097152
-  br i1 %.not11.i.i.i50.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i, label %54
+53:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i
+  %.not10.i.i.i49.i.i.i = icmp ult i32 %52, 16384
+  br i1 %.not10.i.i.i49.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i, label %54
 
 54:                                               ; preds = %53
-  %.not12.i.i.i51.i.i.i = icmp ult i32 %51, 268435456
+  %.not11.i.i.i50.i.i.i = icmp ult i32 %52, 2097152
+  br i1 %.not11.i.i.i50.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i, label %55
+
+55:                                               ; preds = %54
+  %.not12.i.i.i51.i.i.i = icmp ult i32 %52, 268435456
   %spec.select.i.i.i.i.i.i = select i1 %.not12.i.i.i51.i.i.i, i64 4, i64 5
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i: ; preds = %54, %53, %52, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i
-  %.0.i.i.i52.i.i.i = phi i64 [ 1, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i ], [ 2, %52 ], [ 3, %53 ], [ %spec.select.i.i.i.i.i.i, %54 ]
-  %55 = getelementptr i8, ptr %.014.i, i64 28
-  %.val24.i.i.i = load i32, ptr %55, align 4
-  %56 = tail call noundef i32 @llvm.bswap.i32(i32 %.val24.i.i.i)
-  %.not.i.i.i53.i.i.i = icmp ult i32 %56, 128
-  br i1 %.not.i.i.i53.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIjEEmT_.exit.i.i.i, label %57
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i: ; preds = %55, %54, %53, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i
+  %.0.i.i.i52.i.i.i = phi i64 [ 1, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIlEEmT_.exit47.i.i.i ], [ 2, %53 ], [ 3, %54 ], [ %spec.select.i.i.i.i.i.i, %55 ]
+  %56 = getelementptr i8, ptr %.014.i, i64 28
+  %.val24.i.i.i = load i32, ptr %56, align 4
+  %57 = tail call noundef i32 @llvm.bswap.i32(i32 %.val24.i.i.i)
+  %.not.i.i.i53.i.i.i = icmp ult i32 %57, 128
+  br i1 %.not.i.i.i53.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIjEEmT_.exit.i.i.i, label %58
 
-57:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i
-  %.not10.i.i.i54.i.i.i = icmp ult i32 %56, 16384
-  br i1 %.not10.i.i.i54.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIjEEmT_.exit.i.i.i, label %58
-
-58:                                               ; preds = %57
-  %.not11.i.i.i55.i.i.i = icmp ult i32 %56, 2097152
-  br i1 %.not11.i.i.i55.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIjEEmT_.exit.i.i.i, label %59
+58:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i
+  %.not10.i.i.i54.i.i.i = icmp ult i32 %57, 16384
+  br i1 %.not10.i.i.i54.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIjEEmT_.exit.i.i.i, label %59
 
 59:                                               ; preds = %58
-  %.not12.i.i.i56.i.i.i = icmp ult i32 %56, 268435456
+  %.not11.i.i.i55.i.i.i = icmp ult i32 %57, 2097152
+  br i1 %.not11.i.i.i55.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIjEEmT_.exit.i.i.i, label %60
+
+60:                                               ; preds = %59
+  %.not12.i.i.i56.i.i.i = icmp ult i32 %57, 268435456
   %spec.select.i.i.i57.i.i.i = select i1 %.not12.i.i.i56.i.i.i, i64 4, i64 5
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIjEEmT_.exit.i.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIjEEmT_.exit.i.i.i: ; preds = %59, %58, %57, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i
-  %.0.i.i.i58.i.i.i = phi i64 [ 1, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i ], [ 2, %57 ], [ 3, %58 ], [ %spec.select.i.i.i57.i.i.i, %59 ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIjEEmT_.exit.i.i.i: ; preds = %60, %59, %58, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i
+  %.0.i.i.i58.i.i.i = phi i64 [ 1, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesIiEEmT_.exit.i.i.i ], [ 2, %58 ], [ 3, %59 ], [ %spec.select.i.i.i57.i.i.i, %60 ]
   %.val25.i.i.i = load i64, ptr %.014.i, align 8
-  %60 = tail call noundef i64 @llvm.bswap.i64(i64 %.val25.i.i.i)
-  %61 = add nuw nsw i64 %.0.i.i.i.i.i.i, -31
-  %62 = add nuw nsw i64 %61, %.0.i.i.i35.i.i.i
+  %61 = tail call noundef i64 @llvm.bswap.i64(i64 %.val25.i.i.i)
+  %62 = add nuw nsw i64 %.0.i.i.i35.i.i.i, %.0.i.i.i.i.i.i
   %63 = add nuw nsw i64 %62, %.0.i.i.i46.i.i.i
   %64 = add nsw i64 %63, %.0.i.i.i52.i.i.i
   %65 = add nsw i64 %64, %.0.i.i.i58.i.i.i
-  %66 = add i64 %65, %60
+  %66 = add i64 %65, %61
   %.not.i.i.i59.i.i.i = icmp ult i64 %66, 128
   br i1 %.not.i.i.i59.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE13size_in_bytesImEEmT_.exit.i.i.i, label %67
 
@@ -3860,11 +3859,11 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
   %.val.i.i = load i64, ptr %25, align 8
   %105 = tail call noundef i64 @llvm.bswap.i64(i64 %.val.i.i)
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(77) %5, i64 noundef %105)
-  %.val27.i.i = load i64, ptr %34, align 8
+  %.val27.i.i = load i64, ptr %35, align 8
   %106 = tail call noundef i64 @llvm.bswap.i64(i64 %.val27.i.i)
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(77) %5, i64 noundef %106)
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIlEEvT_(ptr noundef nonnull align 8 dereferenceable(77) %5, i64 noundef %24)
-  %.val28.i.i = load i32, ptr %50, align 4
+  %.val28.i.i = load i32, ptr %51, align 4
   %107 = tail call noundef i32 @llvm.bswap.i32(i32 %.val28.i.i)
   %108 = load i32, ptr %10, align 8
   %.not.i.i.i32.i.i = icmp eq i32 %108, -1
@@ -3980,7 +3979,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIiEEvT_.exit.i.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIiEEPhPKT_mSC_.exit.i.i.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i33.i.i, %116
   %158 = phi ptr [ %.pre.i.i.i37.i.i, %116 ], [ null, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE11ensure_sizeEm.exit.i.i33.i.i ], [ %157, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIiEEPhPKT_mSC_.exit.i.i.i ]
   %.pr.i.i = load i32, ptr %10, align 8
-  %.val29.i.i = load i32, ptr %55, align 4
+  %.val29.i.i = load i32, ptr %56, align 4
   %159 = tail call noundef i32 @llvm.bswap.i32(i32 %.val29.i.i)
   %.not.i.i.i38.i.i = icmp eq i32 %.pr.i.i, -1
   br i1 %.not.i.i.i38.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjEE5writeIjEEvT_.exit.i.i, label %160

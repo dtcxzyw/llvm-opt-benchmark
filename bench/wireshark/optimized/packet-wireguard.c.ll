@@ -2351,117 +2351,117 @@ define internal void @wg_keylog_process_lines(ptr noundef %0, i32 noundef %1) #0
 .critedge2.thread:                                ; preds = %.critedge5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %.167, i64 %55, i1 false)
   %.pre = load i8, ptr %7, align 16
-  %.not77 = icmp eq i8 %.pre, 0
-  br i1 %.not77, label %.backedge, label %58
+  %58 = icmp eq i8 %.pre, 0
+  br i1 %58, label %.backedge, label %59
 
-58:                                               ; preds = %.critedge2.thread
+59:                                               ; preds = %.critedge2.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %5)
-  %59 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #16
-  %.not.i = icmp eq i64 %59, 44
-  br i1 %.not.i, label %60, label %decode_base64_key.exit.thread
+  %60 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #16
+  %.not.i = icmp eq i64 %60, 44
+  br i1 %.not.i, label %61, label %decode_base64_key.exit.thread
 
-60:                                               ; preds = %58
+61:                                               ; preds = %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(45) %5, ptr noundef nonnull readonly align 16 dereferenceable(45) %7, i64 45, i1 false)
-  %61 = call ptr @g_base64_decode_inplace(ptr noundef nonnull %5, ptr noundef nonnull %4) #15
-  %62 = load i64, ptr %4, align 8
-  %.not3.i = icmp eq i64 %62, 32
-  br i1 %.not3.i, label %66, label %decode_base64_key.exit.thread
+  %62 = call ptr @g_base64_decode_inplace(ptr noundef nonnull %5, ptr noundef nonnull %4) #15
+  %63 = load i64, ptr %4, align 8
+  %.not3.i = icmp eq i64 %63, 32
+  br i1 %.not3.i, label %67, label %decode_base64_key.exit.thread
 
-decode_base64_key.exit.thread:                    ; preds = %58, %60
+decode_base64_key.exit.thread:                    ; preds = %59, %61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 45, ptr nonnull %5)
   br label %.backedge
 
-.backedge:                                        ; preds = %39, %.critedge, %.critedge5, %.critedge2, %67, %wg_add_ephemeral_privkey.exit, %87, %91, %69, %.critedge2.thread, %decode_base64_key.exit.thread
-  %63 = icmp ne ptr %.1, null
-  %64 = icmp ult ptr %.1, %10
-  %65 = and i1 %63, %64
-  br i1 %65, label %15, label %._crit_edge, !llvm.loop !14
+.backedge:                                        ; preds = %39, %.critedge, %.critedge5, %.critedge2, %68, %wg_add_ephemeral_privkey.exit, %88, %92, %70, %.critedge2.thread, %decode_base64_key.exit.thread
+  %64 = icmp ne ptr %.1, null
+  %65 = icmp ult ptr %.1, %10
+  %66 = and i1 %64, %65
+  br i1 %66, label %15, label %._crit_edge, !llvm.loop !14
 
-66:                                               ; preds = %60
+67:                                               ; preds = %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 45, ptr nonnull %5)
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(25) %6, ptr noundef nonnull dereferenceable(25) @.str.131, i64 25)
   %.not79 = icmp eq i32 %bcmp, 0
-  br i1 %.not79, label %67, label %68
+  br i1 %.not79, label %68, label %69
 
-67:                                               ; preds = %66
+68:                                               ; preds = %67
   call fastcc void @wg_add_static_key(ptr noundef nonnull %8, i32 noundef 1)
   br label %.backedge
 
-68:                                               ; preds = %66
+69:                                               ; preds = %67
   %bcmp80 = call i32 @bcmp(ptr noundef nonnull dereferenceable(25) %6, ptr noundef nonnull dereferenceable(25) @.str.132, i64 25)
   %.not81 = icmp eq i32 %bcmp80, 0
-  br i1 %.not81, label %69, label %70
+  br i1 %.not81, label %70, label %71
 
-69:                                               ; preds = %68
+70:                                               ; preds = %69
   call fastcc void @wg_add_static_key(ptr noundef nonnull %8, i32 noundef 0)
   br label %.backedge
 
-70:                                               ; preds = %68
+71:                                               ; preds = %69
   %bcmp82 = call i32 @bcmp(ptr noundef nonnull dereferenceable(28) %6, ptr noundef nonnull dereferenceable(28) @.str.133, i64 28)
   %.not83 = icmp eq i32 %bcmp82, 0
-  br i1 %.not83, label %71, label %87
-
-71:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %.b103 = load i1, ptr @wg_decryption_supported, align 1
-  br i1 %.b103, label %72, label %wg_add_ephemeral_privkey.exit
+  br i1 %.not83, label %72, label %88
 
 72:                                               ; preds = %71
-  %73 = call i32 @crypto_scalarmult_curve25519_base(ptr noundef nonnull %3, ptr noundef nonnull %8) #15
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %priv_to_pub.exit.i, label %75
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  %.b103 = load i1, ptr @wg_decryption_supported, align 1
+  br i1 %.b103, label %73, label %wg_add_ephemeral_privkey.exit
 
-75:                                               ; preds = %72
+73:                                               ; preds = %72
+  %74 = call i32 @crypto_scalarmult_curve25519_base(ptr noundef nonnull %3, ptr noundef nonnull %8) #15
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %priv_to_pub.exit.i, label %76
+
+76:                                               ; preds = %73
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.104, i32 noundef 299, ptr noundef nonnull @.str.108) #17
   unreachable
 
-priv_to_pub.exit.i:                               ; preds = %72
-  %76 = load ptr, ptr @wg_ephemeral_keys, align 8
-  %77 = call ptr @wmem_map_lookup(ptr noundef %76, ptr noundef nonnull %3) #15
-  %.not.i86 = icmp eq ptr %77, null
-  br i1 %.not.i86, label %78, label %wg_add_ephemeral_privkey.exit
+priv_to_pub.exit.i:                               ; preds = %73
+  %77 = load ptr, ptr @wg_ephemeral_keys, align 8
+  %78 = call ptr @wmem_map_lookup(ptr noundef %77, ptr noundef nonnull %3) #15
+  %.not.i86 = icmp eq ptr %78, null
+  br i1 %.not.i86, label %79, label %wg_add_ephemeral_privkey.exit
 
-78:                                               ; preds = %priv_to_pub.exit.i
-  %79 = call ptr @wmem_file_scope() #15
-  %80 = call noalias ptr @wmem_alloc0(ptr noundef %79, i64 noundef 72) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 1 dereferenceable(32) %3, i64 32, i1 false)
-  %81 = getelementptr inbounds i8, ptr %80, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %81, ptr noundef nonnull readonly align 1 dereferenceable(32) %8, i64 32, i1 false)
-  %82 = getelementptr i8, ptr %80, i64 63
-  %83 = load i8, ptr %82, align 1
-  %84 = or i8 %83, 64
-  store i8 %84, ptr %82, align 1
-  %85 = load ptr, ptr @wg_ephemeral_keys, align 8
-  %86 = call ptr @wmem_map_insert(ptr noundef %85, ptr noundef %80, ptr noundef %80) #15
+79:                                               ; preds = %priv_to_pub.exit.i
+  %80 = call ptr @wmem_file_scope() #15
+  %81 = call noalias ptr @wmem_alloc0(ptr noundef %80, i64 noundef 72) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull align 1 dereferenceable(32) %3, i64 32, i1 false)
+  %82 = getelementptr inbounds i8, ptr %81, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %82, ptr noundef nonnull readonly align 1 dereferenceable(32) %8, i64 32, i1 false)
+  %83 = getelementptr i8, ptr %81, i64 63
+  %84 = load i8, ptr %83, align 1
+  %85 = or i8 %84, 64
+  store i8 %85, ptr %83, align 1
+  %86 = load ptr, ptr @wg_ephemeral_keys, align 8
+  %87 = call ptr @wmem_map_insert(ptr noundef %86, ptr noundef %81, ptr noundef %81) #15
   br label %wg_add_ephemeral_privkey.exit
 
-wg_add_ephemeral_privkey.exit:                    ; preds = %71, %priv_to_pub.exit.i, %78
-  %.09.i = phi ptr [ null, %71 ], [ %77, %priv_to_pub.exit.i ], [ %80, %78 ]
+wg_add_ephemeral_privkey.exit:                    ; preds = %72, %priv_to_pub.exit.i, %79
+  %.09.i = phi ptr [ null, %72 ], [ %78, %priv_to_pub.exit.i ], [ %81, %79 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   store ptr %.09.i, ptr @wg_keylog_last_ekey, align 8
   br label %.backedge
 
-87:                                               ; preds = %70
+88:                                               ; preds = %71
   %bcmp84 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %6, ptr noundef nonnull dereferenceable(14) @.str.134, i64 14)
-  %88 = icmp eq i32 %bcmp84, 0
-  %89 = load ptr, ptr @wg_keylog_last_ekey, align 8
-  %90 = icmp ne ptr %89, null
-  %or.cond9 = select i1 %88, i1 %90, i1 false
-  br i1 %or.cond9, label %91, label %.backedge
+  %89 = icmp eq i32 %bcmp84, 0
+  %90 = load ptr, ptr @wg_keylog_last_ekey, align 8
+  %91 = icmp ne ptr %90, null
+  %or.cond9 = select i1 %89, i1 %91, i1 false
+  br i1 %or.cond9, label %92, label %.backedge
 
-91:                                               ; preds = %87
-  %92 = call ptr @wmem_file_scope() #15
-  %93 = call noalias ptr @wmem_alloc0(ptr noundef %92, i64 noundef 40) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull readonly align 1 dereferenceable(32) %8, i64 32, i1 false)
-  %94 = getelementptr inbounds i8, ptr %89, i64 64
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 32
-  store ptr %95, ptr %96, align 8
-  store ptr %93, ptr %94, align 8
+92:                                               ; preds = %88
+  %93 = call ptr @wmem_file_scope() #15
+  %94 = call noalias ptr @wmem_alloc0(ptr noundef %93, i64 noundef 40) #15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull readonly align 1 dereferenceable(32) %8, i64 32, i1 false)
+  %95 = getelementptr inbounds i8, ptr %90, i64 64
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %94, i64 32
+  store ptr %96, ptr %97, align 8
+  store ptr %94, ptr %95, align 8
   store ptr null, ptr @wg_keylog_last_ekey, align 8
   br label %.backedge
 

@@ -3032,13 +3032,13 @@ dissect_sane_word.exit25:                         ; preds = %64, %74
   %99 = load i32, ptr %84, align 4
   %100 = add i32 %99, 4
   store i32 %100, ptr %84, align 4
+  %101 = sitofp i32 %96 to double
+  %102 = fmul double %101, 0x3EF0000000000000
   br label %dissect_sane_word.exit26.us
 
 dissect_sane_word.exit26.us:                      ; preds = %93, %.lr.ph.split.us
-  %.035.us = phi i32 [ 0, %.lr.ph.split.us ], [ %96, %93 ]
-  %101 = sitofp i32 %.035.us to double
-  %102 = fmul double %101, 0x3EF0000000000000
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %88, ptr noundef nonnull @.str.180, double noundef %102) #4
+  %.035.us = phi double [ 0.000000e+00, %.lr.ph.split.us ], [ %102, %93 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %88, ptr noundef nonnull @.str.180, double noundef %.035.us) #4
   %103 = add nuw nsw i32 %.038.us, 1
   %exitcond49.not = icmp eq i32 %103, %.1
   br i1 %exitcond49.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !21

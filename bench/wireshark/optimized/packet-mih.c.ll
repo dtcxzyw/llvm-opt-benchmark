@@ -1073,7 +1073,7 @@ switch.lookup:                                    ; preds = %52
   %81 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %80) #5
   %82 = zext i8 %81 to i64
   %83 = icmp ugt i8 %81, -128
-  br i1 %83, label %84, label %117
+  br i1 %83, label %84, label %118
 
 84:                                               ; preds = %.lr.ph
   %85 = and i8 %81, 127
@@ -1136,18 +1136,18 @@ switch.lookup:                                    ; preds = %52
   %.0176 = phi i64 [ %82, %84 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %98 ], [ %97, %94 ], [ %93, %90 ], [ %89, %86 ]
   %115 = add nuw i8 %85, 1
   %116 = add i64 %.0176, 128
-  br label %117
+  %117 = zext i8 %115 to i32
+  br label %118
 
-117:                                              ; preds = %.lr.ph, %114
+118:                                              ; preds = %.lr.ph, %114
   %.1177 = phi i64 [ %116, %114 ], [ %82, %.lr.ph ]
-  %.0175 = phi i8 [ %115, %114 ], [ 1, %.lr.ph ]
-  %118 = zext nneg i32 %.0178201 to i64
-  %.not196 = icmp ugt i64 %.1177, %118
-  br i1 %.not196, label %.thread204, label %119
+  %.0175 = phi i32 [ %117, %114 ], [ 1, %.lr.ph ]
+  %119 = zext nneg i32 %.0178201 to i64
+  %.not196 = icmp ugt i64 %.1177, %119
+  br i1 %.not196, label %.thread204, label %120
 
-119:                                              ; preds = %117
-  %120 = zext i8 %.0175 to i32
-  %121 = add nuw nsw i32 %120, 1
+120:                                              ; preds = %118
+  %121 = add nuw nsw i32 %.0175, 1
   %122 = trunc nuw nsw i64 %.1177 to i32
   %123 = add nuw i32 %121, %122
   %124 = load i32, ptr @ett_tlv, align 4
@@ -1158,11 +1158,11 @@ switch.lookup:                                    ; preds = %52
   %.not197 = icmp eq ptr %128, null
   br i1 %.not197, label %146, label %129
 
-129:                                              ; preds = %119
+129:                                              ; preds = %120
   %130 = load i32, ptr @hf_mih_type, align 4
   %131 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %128, i32 noundef %130, ptr noundef %0, i32 noundef %.0182199, i32 noundef 1, i32 noundef 0) #5
   %132 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0182199) #5
-  %133 = icmp eq i8 %.0175, 1
+  %133 = icmp eq i32 %.0175, 1
   br i1 %133, label %134, label %137
 
 134:                                              ; preds = %129
@@ -1171,23 +1171,23 @@ switch.lookup:                                    ; preds = %52
   br label %146
 
 137:                                              ; preds = %129
-  %138 = icmp ult i8 %.0175, 6
+  %138 = icmp ult i32 %.0175, 6
   br i1 %138, label %139, label %146
 
 139:                                              ; preds = %137
   %140 = load i32, ptr @hf_mih_type_length_ext, align 4
   %141 = add i32 %.0182199, 2
-  %142 = add nsw i32 %120, -1
+  %142 = add nsw i32 %.0175, -1
   %143 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %128, i32 noundef %140, ptr noundef %0, i32 noundef %141, i32 noundef %142, i32 noundef 0) #5
   br label %146
 
-.thread204:                                       ; preds = %117
+.thread204:                                       ; preds = %118
   %144 = load i32, ptr @hf_fragmented_tlv, align 4
   %145 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %144, ptr noundef %0, i32 noundef %.0182199, i32 noundef -1, i32 noundef 0) #5
   br label %._crit_edge
 
-146:                                              ; preds = %134, %139, %137, %119
-  %.1 = phi i8 [ %132, %134 ], [ %132, %139 ], [ %132, %137 ], [ %.0202, %119 ]
+146:                                              ; preds = %134, %139, %137, %120
+  %.1 = phi i8 [ %132, %134 ], [ %132, %139 ], [ %132, %137 ], [ %.0202, %120 ]
   %147 = add i32 %121, %.0182199
   tail call fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %147, ptr noundef %128, i8 noundef zeroext %.1, i32 noundef %122)
   %148 = add i32 %147, %122

@@ -98,7 +98,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4node4quic16PreferredAddress9GetPolicyEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr nocapture noundef readonly %env, ptr nonnull %value.coerce) local_unnamed_addr #3 align 2 {
+define dso_local range(i64 0, 4294967298) i64 @_ZN4node4quic16PreferredAddress9GetPolicyEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr nocapture noundef readonly %env, ptr nonnull %value.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %val = alloca i32, align 4
   %call3 = tail call noundef zeroext i1 @_ZNK2v85Value8IsUint32Ev(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce) #17
@@ -389,7 +389,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZN4node4quic16PreferredAddress12tryGetPolicyEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr nocapture noundef readnone %env, ptr nonnull %value.coerce) local_unnamed_addr #3 align 2 {
+define dso_local range(i64 0, 4294967298) i64 @_ZN4node4quic16PreferredAddress12tryGetPolicyEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr nocapture noundef readnone %env, ptr nonnull %value.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %call3 = tail call noundef zeroext i1 @_ZNK2v85Value8IsNumberEv(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce) #17
   br i1 %call3, label %if.then, label %return

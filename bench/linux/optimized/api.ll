@@ -843,7 +843,7 @@ define dso_local ptr @crypto_alloc_base(ptr noundef %0, i32 noundef %1, i32 noun
 6:                                                ; preds = %.thread9
   %7 = tail call ptr @__crypto_alloc_tfmgfp(ptr noundef %4, i32 noundef %1, i32 noundef %2, i32 noundef 3264)
   %8 = icmp ugt ptr %7, inttoptr (i64 -4096 to ptr)
-  br i1 %8, label %9, label %.thread8
+  br i1 %8, label %9, label %.thread14
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %4, i64 376
@@ -891,24 +891,25 @@ define dso_local ptr @crypto_alloc_base(ptr noundef %0, i32 noundef %1, i32 noun
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %.thread9.backedge, label %34
 
-.thread9.backedge:                                ; preds = %28, %34
-  br label %.thread9
-
 34:                                               ; preds = %28
   %35 = getelementptr inbounds i8, ptr %30, i64 1936
   %36 = load i64, ptr %35, align 8
-  %37 = and i64 %36, 256
+  %.fr15 = freeze i64 %36
+  %37 = and i64 %.fr15, 256
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %.thread9.backedge, label %39
 
-39:                                               ; preds = %23, %34
-  %.ph = phi i64 [ -4, %34 ], [ %25, %23 ]
+.thread9.backedge:                                ; preds = %34, %28
+  br label %.thread9
+
+39:                                               ; preds = %34, %23
+  %.ph = phi i64 [ %25, %23 ], [ -4, %34 ]
   %sext = shl i64 %.ph, 32
   %40 = ashr exact i64 %sext, 32
   %41 = inttoptr i64 %40 to ptr
-  br label %.thread8
+  br label %.thread14
 
-.thread8:                                         ; preds = %6, %39
+.thread14:                                        ; preds = %6, %39
   %42 = phi ptr [ %41, %39 ], [ %7, %6 ]
   ret ptr %42
 }
@@ -1168,7 +1169,7 @@ define dso_local ptr @crypto_alloc_tfm_node(ptr noundef %0, ptr noundef readonly
 23:                                               ; preds = %18
   %24 = tail call ptr @crypto_create_tfm_node(ptr noundef %21, ptr noundef %1, i32 noundef %4)
   %25 = icmp ugt ptr %24, inttoptr (i64 -4096 to ptr)
-  br i1 %25, label %26, label %.thread8
+  br i1 %25, label %26, label %.thread14
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds i8, ptr %21, i64 376
@@ -1216,24 +1217,25 @@ define dso_local ptr @crypto_alloc_tfm_node(ptr noundef %0, ptr noundef readonly
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %.thread9.backedge, label %51
 
-.thread9.backedge:                                ; preds = %45, %51
-  br label %.thread9
-
 51:                                               ; preds = %45
   %52 = getelementptr inbounds i8, ptr %47, i64 1936
   %53 = load i64, ptr %52, align 8
-  %54 = and i64 %53, 256
+  %.fr15 = freeze i64 %53
+  %54 = and i64 %.fr15, 256
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %.thread9.backedge, label %56
 
-56:                                               ; preds = %40, %51
-  %.ph = phi i64 [ -4, %51 ], [ %42, %40 ]
+.thread9.backedge:                                ; preds = %51, %45
+  br label %.thread9
+
+56:                                               ; preds = %51, %40
+  %.ph = phi i64 [ %42, %40 ], [ -4, %51 ]
   %sext = shl i64 %.ph, 32
   %57 = ashr exact i64 %sext, 32
   %58 = inttoptr i64 %57 to ptr
-  br label %.thread8
+  br label %.thread14
 
-.thread8:                                         ; preds = %23, %56
+.thread14:                                        ; preds = %23, %56
   %59 = phi ptr [ %58, %56 ], [ %24, %23 ]
   ret ptr %59
 }

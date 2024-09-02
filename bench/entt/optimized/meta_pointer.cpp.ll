@@ -4746,15 +4746,15 @@ if.then7.i.i.i.i.i716:                            ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt9meta_typeD2Ev.exit724thread-pre-split:   ; preds = %if.then.i.i.i.i.i718, %invoke.cont.i.i.i.i.i713, %if.then7.i.i.i.i.i716
   %.pr92 = load i8, ptr %gtest_ar_133, align 8, !tbaa !44
-  br label %_ZN4entt9meta_typeD2Ev.exit724
-
-_ZN4entt9meta_typeD2Ev.exit724:                   ; preds = %_ZN4entt9meta_typeD2Ev.exit724thread-pre-split, %_ZNK4entt8meta_any4typeEv.exit702
-  %171 = phi i8 [ %.pr92, %_ZN4entt9meta_typeD2Ev.exit724thread-pre-split ], [ %frombool137, %_ZNK4entt8meta_any4typeEv.exit702 ]
+  %171 = icmp eq i8 %.pr92, 0
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp135) #24
-  %tobool.i725.not = icmp eq i8 %171, 0
-  br i1 %tobool.i725.not, label %if.else147, label %cleanup.cont171.critedge
+  br i1 %171, label %if.else147, label %cleanup.cont171.critedge
 
-if.else147:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit724
+_ZN4entt9meta_typeD2Ev.exit724:                   ; preds = %_ZNK4entt8meta_any4typeEv.exit702
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp135) #24
+  br i1 %call136, label %if.else147, label %cleanup.cont171.critedge
+
+if.else147:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit724thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit724
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp148) #24
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp148)
           to label %invoke.cont150 unwind label %lpad149
@@ -4898,7 +4898,7 @@ ehcleanup165:                                     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_133) #24
   br label %ehcleanup356
 
-cleanup.cont171.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit724
+cleanup.cont171.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit724thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit724
   %191 = load ptr, ptr %message_.i703, align 8, !tbaa !64
   %cmp.not.i.i759 = icmp eq ptr %191, null
   br i1 %cmp.not.i.i759, label %cleanup.cont171, label %delete.notnull.i.i.i760
@@ -7369,15 +7369,15 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt9meta_typeD2Ev.exitthread-pre-split:      ; preds = %if.then.i.i.i.i.i364, %invoke.cont.i.i.i.i.i, %if.then7.i.i.i.i.i
   %.pr66 = load i8, ptr %gtest_ar_23, align 8, !tbaa !44
-  br label %_ZN4entt9meta_typeD2Ev.exit
-
-_ZN4entt9meta_typeD2Ev.exit:                      ; preds = %_ZN4entt9meta_typeD2Ev.exitthread-pre-split, %_ZNK4entt8meta_any4typeEv.exit
-  %36 = phi i8 [ %.pr66, %_ZN4entt9meta_typeD2Ev.exitthread-pre-split ], [ %frombool, %_ZNK4entt8meta_any4typeEv.exit ]
+  %36 = icmp eq i8 %.pr66, 0
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp25) #24
-  %tobool.i365.not = icmp eq i8 %36, 0
-  br i1 %tobool.i365.not, label %if.else36, label %cleanup.cont60.critedge
+  br i1 %36, label %if.else36, label %cleanup.cont60.critedge
 
-if.else36:                                        ; preds = %_ZN4entt9meta_typeD2Ev.exit
+_ZN4entt9meta_typeD2Ev.exit:                      ; preds = %_ZNK4entt8meta_any4typeEv.exit
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp25) #24
+  br i1 %call26, label %if.else36, label %cleanup.cont60.critedge
+
+if.else36:                                        ; preds = %_ZN4entt9meta_typeD2Ev.exitthread-pre-split, %_ZN4entt9meta_typeD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp37) #24
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37)
           to label %invoke.cont39 unwind label %lpad38
@@ -7521,7 +7521,7 @@ ehcleanup54:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_23) #24
   br label %ehcleanup278
 
-cleanup.cont60.critedge:                          ; preds = %_ZN4entt9meta_typeD2Ev.exit
+cleanup.cont60.critedge:                          ; preds = %_ZN4entt9meta_typeD2Ev.exitthread-pre-split, %_ZN4entt9meta_typeD2Ev.exit
   %56 = load ptr, ptr %message_.i362, align 8, !tbaa !64
   %cmp.not.i.i399 = icmp eq ptr %56, null
   br i1 %cmp.not.i.i399, label %cleanup.cont60, label %delete.notnull.i.i.i400
@@ -9263,15 +9263,15 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt9meta_typeD2Ev.exitthread-pre-split:      ; preds = %if.then.i.i.i.i.i324, %invoke.cont.i.i.i.i.i, %if.then7.i.i.i.i.i
   %.pr59 = load i8, ptr %gtest_ar_23, align 8, !tbaa !44
-  br label %_ZN4entt9meta_typeD2Ev.exit
-
-_ZN4entt9meta_typeD2Ev.exit:                      ; preds = %_ZN4entt9meta_typeD2Ev.exitthread-pre-split, %_ZNK4entt8meta_any4typeEv.exit
-  %36 = phi i8 [ %.pr59, %_ZN4entt9meta_typeD2Ev.exitthread-pre-split ], [ %frombool, %_ZNK4entt8meta_any4typeEv.exit ]
+  %36 = icmp eq i8 %.pr59, 0
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp25) #24
-  %tobool.i325.not = icmp eq i8 %36, 0
-  br i1 %tobool.i325.not, label %if.else36, label %cleanup.cont60.critedge
+  br i1 %36, label %if.else36, label %cleanup.cont60.critedge
 
-if.else36:                                        ; preds = %_ZN4entt9meta_typeD2Ev.exit
+_ZN4entt9meta_typeD2Ev.exit:                      ; preds = %_ZNK4entt8meta_any4typeEv.exit
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp25) #24
+  br i1 %call26, label %if.else36, label %cleanup.cont60.critedge
+
+if.else36:                                        ; preds = %_ZN4entt9meta_typeD2Ev.exitthread-pre-split, %_ZN4entt9meta_typeD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp37) #24
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37)
           to label %invoke.cont39 unwind label %lpad38
@@ -9415,7 +9415,7 @@ ehcleanup54:                                      ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_23) #24
   br label %ehcleanup244
 
-cleanup.cont60.critedge:                          ; preds = %_ZN4entt9meta_typeD2Ev.exit
+cleanup.cont60.critedge:                          ; preds = %_ZN4entt9meta_typeD2Ev.exitthread-pre-split, %_ZN4entt9meta_typeD2Ev.exit
   %56 = load ptr, ptr %message_.i322, align 8, !tbaa !64
   %cmp.not.i.i359 = icmp eq ptr %56, null
   br i1 %cmp.not.i.i359, label %cleanup.cont60, label %delete.notnull.i.i.i360
@@ -12601,15 +12601,15 @@ if.then7.i.i.i.i.i670:                            ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt9meta_typeD2Ev.exit678thread-pre-split:   ; preds = %if.then.i.i.i.i.i672, %invoke.cont.i.i.i.i.i667, %if.then7.i.i.i.i.i670
   %.pr85 = load i8, ptr %gtest_ar_133, align 8, !tbaa !44
-  br label %_ZN4entt9meta_typeD2Ev.exit678
-
-_ZN4entt9meta_typeD2Ev.exit678:                   ; preds = %_ZN4entt9meta_typeD2Ev.exit678thread-pre-split, %_ZNK4entt8meta_any4typeEv.exit656
-  %171 = phi i8 [ %.pr85, %_ZN4entt9meta_typeD2Ev.exit678thread-pre-split ], [ %frombool137, %_ZNK4entt8meta_any4typeEv.exit656 ]
+  %171 = icmp eq i8 %.pr85, 0
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp135) #24
-  %tobool.i679.not = icmp eq i8 %171, 0
-  br i1 %tobool.i679.not, label %if.else147, label %cleanup.cont171.critedge
+  br i1 %171, label %if.else147, label %cleanup.cont171.critedge
 
-if.else147:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit678
+_ZN4entt9meta_typeD2Ev.exit678:                   ; preds = %_ZNK4entt8meta_any4typeEv.exit656
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp135) #24
+  br i1 %call136, label %if.else147, label %cleanup.cont171.critedge
+
+if.else147:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit678thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit678
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp148) #24
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp148)
           to label %invoke.cont150 unwind label %lpad149
@@ -12753,7 +12753,7 @@ ehcleanup165:                                     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_133) #24
   br label %ehcleanup318
 
-cleanup.cont171.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit678
+cleanup.cont171.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit678thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit678
   %191 = load ptr, ptr %message_.i657, align 8, !tbaa !64
   %cmp.not.i.i713 = icmp eq ptr %191, null
   br i1 %cmp.not.i.i713, label %cleanup.cont171, label %delete.notnull.i.i.i714
@@ -15153,15 +15153,15 @@ if.then7.i.i.i.i.i678:                            ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt9meta_typeD2Ev.exit686thread-pre-split:   ; preds = %if.then.i.i.i.i.i680, %invoke.cont.i.i.i.i.i675, %if.then7.i.i.i.i.i678
   %.pr87 = load i8, ptr %gtest_ar_135, align 8, !tbaa !44
-  br label %_ZN4entt9meta_typeD2Ev.exit686
-
-_ZN4entt9meta_typeD2Ev.exit686:                   ; preds = %_ZN4entt9meta_typeD2Ev.exit686thread-pre-split, %_ZNK4entt8meta_any4typeEv.exit664
-  %169 = phi i8 [ %.pr87, %_ZN4entt9meta_typeD2Ev.exit686thread-pre-split ], [ %frombool140, %_ZNK4entt8meta_any4typeEv.exit664 ]
+  %169 = icmp eq i8 %.pr87, 0
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp137) #24
-  %tobool.i687.not = icmp eq i8 %169, 0
-  br i1 %tobool.i687.not, label %if.else150, label %cleanup.cont174.critedge
+  br i1 %169, label %if.else150, label %cleanup.cont174.critedge
 
-if.else150:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit686
+_ZN4entt9meta_typeD2Ev.exit686:                   ; preds = %_ZNK4entt8meta_any4typeEv.exit664
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp137) #24
+  br i1 %call138, label %if.else150, label %cleanup.cont174.critedge
+
+if.else150:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit686thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit686
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp151) #24
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp151)
           to label %invoke.cont153 unwind label %lpad152
@@ -15305,7 +15305,7 @@ ehcleanup168:                                     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_135) #24
   br label %ehcleanup325
 
-cleanup.cont174.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit686
+cleanup.cont174.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit686thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit686
   %189 = load ptr, ptr %message_.i665, align 8, !tbaa !64
   %cmp.not.i.i721 = icmp eq ptr %189, null
   br i1 %cmp.not.i.i721, label %cleanup.cont174, label %delete.notnull.i.i.i722
@@ -18935,15 +18935,15 @@ if.then7.i.i.i.i.i671:                            ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt9meta_typeD2Ev.exit679thread-pre-split:   ; preds = %if.then.i.i.i.i.i673, %invoke.cont.i.i.i.i.i668, %if.then7.i.i.i.i.i671
   %.pr85 = load i8, ptr %gtest_ar_132, align 8, !tbaa !44
-  br label %_ZN4entt9meta_typeD2Ev.exit679
-
-_ZN4entt9meta_typeD2Ev.exit679:                   ; preds = %_ZN4entt9meta_typeD2Ev.exit679thread-pre-split, %_ZNK4entt8meta_any4typeEv.exit657
-  %171 = phi i8 [ %.pr85, %_ZN4entt9meta_typeD2Ev.exit679thread-pre-split ], [ %frombool136, %_ZNK4entt8meta_any4typeEv.exit657 ]
+  %171 = icmp eq i8 %.pr85, 0
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp134) #24
-  %tobool.i680.not = icmp eq i8 %171, 0
-  br i1 %tobool.i680.not, label %if.else146, label %cleanup.cont170.critedge
+  br i1 %171, label %if.else146, label %cleanup.cont170.critedge
 
-if.else146:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit679
+_ZN4entt9meta_typeD2Ev.exit679:                   ; preds = %_ZNK4entt8meta_any4typeEv.exit657
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp134) #24
+  br i1 %call135, label %if.else146, label %cleanup.cont170.critedge
+
+if.else146:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit679thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit679
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp147) #24
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp147)
           to label %invoke.cont149 unwind label %lpad148
@@ -19087,7 +19087,7 @@ ehcleanup164:                                     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_132) #24
   br label %ehcleanup317
 
-cleanup.cont170.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit679
+cleanup.cont170.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit679thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit679
   %191 = load ptr, ptr %message_.i658, align 8, !tbaa !64
   %cmp.not.i.i714 = icmp eq ptr %191, null
   br i1 %cmp.not.i.i714, label %cleanup.cont170, label %delete.notnull.i.i.i715
@@ -21509,15 +21509,15 @@ if.then7.i.i.i.i.i671:                            ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt9meta_typeD2Ev.exit679thread-pre-split:   ; preds = %if.then.i.i.i.i.i673, %invoke.cont.i.i.i.i.i668, %if.then7.i.i.i.i.i671
   %.pr85 = load i8, ptr %gtest_ar_132, align 8, !tbaa !44
-  br label %_ZN4entt9meta_typeD2Ev.exit679
-
-_ZN4entt9meta_typeD2Ev.exit679:                   ; preds = %_ZN4entt9meta_typeD2Ev.exit679thread-pre-split, %_ZNK4entt8meta_any4typeEv.exit657
-  %171 = phi i8 [ %.pr85, %_ZN4entt9meta_typeD2Ev.exit679thread-pre-split ], [ %frombool136, %_ZNK4entt8meta_any4typeEv.exit657 ]
+  %171 = icmp eq i8 %.pr85, 0
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp134) #24
-  %tobool.i680.not = icmp eq i8 %171, 0
-  br i1 %tobool.i680.not, label %if.else146, label %cleanup.cont170.critedge
+  br i1 %171, label %if.else146, label %cleanup.cont170.critedge
 
-if.else146:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit679
+_ZN4entt9meta_typeD2Ev.exit679:                   ; preds = %_ZNK4entt8meta_any4typeEv.exit657
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp134) #24
+  br i1 %call135, label %if.else146, label %cleanup.cont170.critedge
+
+if.else146:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit679thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit679
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp147) #24
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp147)
           to label %invoke.cont149 unwind label %lpad148
@@ -21661,7 +21661,7 @@ ehcleanup164:                                     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_132) #24
   br label %ehcleanup317
 
-cleanup.cont170.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit679
+cleanup.cont170.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit679thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit679
   %191 = load ptr, ptr %message_.i658, align 8, !tbaa !64
   %cmp.not.i.i714 = icmp eq ptr %191, null
   br i1 %cmp.not.i.i714, label %cleanup.cont170, label %delete.notnull.i.i.i715
@@ -23680,15 +23680,15 @@ if.then7.i.i.i.i.i535:                            ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt9meta_typeD2Ev.exit543thread-pre-split:   ; preds = %if.then.i.i.i.i.i537, %invoke.cont.i.i.i.i.i532, %if.then7.i.i.i.i.i535
   %.pr71 = load i8, ptr %gtest_ar_101, align 8, !tbaa !44
-  br label %_ZN4entt9meta_typeD2Ev.exit543
-
-_ZN4entt9meta_typeD2Ev.exit543:                   ; preds = %_ZN4entt9meta_typeD2Ev.exit543thread-pre-split, %_ZNK4entt8meta_any4typeEv.exit521
-  %118 = phi i8 [ %.pr71, %_ZN4entt9meta_typeD2Ev.exit543thread-pre-split ], [ %frombool106, %_ZNK4entt8meta_any4typeEv.exit521 ]
+  %118 = icmp eq i8 %.pr71, 0
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp103) #24
-  %tobool.i544.not = icmp eq i8 %118, 0
-  br i1 %tobool.i544.not, label %if.else116, label %cleanup.cont140.critedge
+  br i1 %118, label %if.else116, label %cleanup.cont140.critedge
 
-if.else116:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit543
+_ZN4entt9meta_typeD2Ev.exit543:                   ; preds = %_ZNK4entt8meta_any4typeEv.exit521
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp103) #24
+  br i1 %call104, label %if.else116, label %cleanup.cont140.critedge
+
+if.else116:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit543thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit543
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp117) #24
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp117)
           to label %invoke.cont119 unwind label %lpad118
@@ -23832,7 +23832,7 @@ ehcleanup134:                                     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_101) #24
   br label %ehcleanup286
 
-cleanup.cont140.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit543
+cleanup.cont140.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit543thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit543
   %138 = load ptr, ptr %message_.i522, align 8, !tbaa !64
   %cmp.not.i.i578 = icmp eq ptr %138, null
   br i1 %cmp.not.i.i578, label %cleanup.cont140, label %delete.notnull.i.i.i579
@@ -25849,15 +25849,15 @@ if.then7.i.i.i.i.i535:                            ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt9meta_typeD2Ev.exit543thread-pre-split:   ; preds = %if.then.i.i.i.i.i537, %invoke.cont.i.i.i.i.i532, %if.then7.i.i.i.i.i535
   %.pr71 = load i8, ptr %gtest_ar_101, align 8, !tbaa !44
-  br label %_ZN4entt9meta_typeD2Ev.exit543
-
-_ZN4entt9meta_typeD2Ev.exit543:                   ; preds = %_ZN4entt9meta_typeD2Ev.exit543thread-pre-split, %_ZNK4entt8meta_any4typeEv.exit521
-  %118 = phi i8 [ %.pr71, %_ZN4entt9meta_typeD2Ev.exit543thread-pre-split ], [ %frombool106, %_ZNK4entt8meta_any4typeEv.exit521 ]
+  %118 = icmp eq i8 %.pr71, 0
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp103) #24
-  %tobool.i544.not = icmp eq i8 %118, 0
-  br i1 %tobool.i544.not, label %if.else116, label %cleanup.cont140.critedge
+  br i1 %118, label %if.else116, label %cleanup.cont140.critedge
 
-if.else116:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit543
+_ZN4entt9meta_typeD2Ev.exit543:                   ; preds = %_ZNK4entt8meta_any4typeEv.exit521
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp103) #24
+  br i1 %call104, label %if.else116, label %cleanup.cont140.critedge
+
+if.else116:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit543thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit543
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp117) #24
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp117)
           to label %invoke.cont119 unwind label %lpad118
@@ -26001,7 +26001,7 @@ ehcleanup134:                                     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_101) #24
   br label %ehcleanup286
 
-cleanup.cont140.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit543
+cleanup.cont140.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit543thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit543
   %138 = load ptr, ptr %message_.i522, align 8, !tbaa !64
   %cmp.not.i.i578 = icmp eq ptr %138, null
   br i1 %cmp.not.i.i578, label %cleanup.cont140, label %delete.notnull.i.i.i579
@@ -28070,15 +28070,15 @@ if.then7.i.i.i.i.i495:                            ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt9meta_typeD2Ev.exit503thread-pre-split:   ; preds = %if.then.i.i.i.i.i497, %invoke.cont.i.i.i.i.i492, %if.then7.i.i.i.i.i495
   %.pr64 = load i8, ptr %gtest_ar_101, align 8, !tbaa !44
-  br label %_ZN4entt9meta_typeD2Ev.exit503
-
-_ZN4entt9meta_typeD2Ev.exit503:                   ; preds = %_ZN4entt9meta_typeD2Ev.exit503thread-pre-split, %_ZNK4entt8meta_any4typeEv.exit481
-  %118 = phi i8 [ %.pr64, %_ZN4entt9meta_typeD2Ev.exit503thread-pre-split ], [ %frombool106, %_ZNK4entt8meta_any4typeEv.exit481 ]
+  %118 = icmp eq i8 %.pr64, 0
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp103) #24
-  %tobool.i504.not = icmp eq i8 %118, 0
-  br i1 %tobool.i504.not, label %if.else116, label %cleanup.cont140.critedge
+  br i1 %118, label %if.else116, label %cleanup.cont140.critedge
 
-if.else116:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit503
+_ZN4entt9meta_typeD2Ev.exit503:                   ; preds = %_ZNK4entt8meta_any4typeEv.exit481
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp103) #24
+  br i1 %call104, label %if.else116, label %cleanup.cont140.critedge
+
+if.else116:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit503thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit503
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp117) #24
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp117)
           to label %invoke.cont119 unwind label %lpad118
@@ -28222,7 +28222,7 @@ ehcleanup134:                                     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_101) #24
   br label %ehcleanup252
 
-cleanup.cont140.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit503
+cleanup.cont140.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit503thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit503
   %138 = load ptr, ptr %message_.i482, align 8, !tbaa !64
   %cmp.not.i.i538 = icmp eq ptr %138, null
   br i1 %cmp.not.i.i538, label %cleanup.cont140, label %delete.notnull.i.i.i539
@@ -30067,15 +30067,15 @@ if.then7.i.i.i.i.i495:                            ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt9meta_typeD2Ev.exit503thread-pre-split:   ; preds = %if.then.i.i.i.i.i497, %invoke.cont.i.i.i.i.i492, %if.then7.i.i.i.i.i495
   %.pr64 = load i8, ptr %gtest_ar_101, align 8, !tbaa !44
-  br label %_ZN4entt9meta_typeD2Ev.exit503
-
-_ZN4entt9meta_typeD2Ev.exit503:                   ; preds = %_ZN4entt9meta_typeD2Ev.exit503thread-pre-split, %_ZNK4entt8meta_any4typeEv.exit481
-  %118 = phi i8 [ %.pr64, %_ZN4entt9meta_typeD2Ev.exit503thread-pre-split ], [ %frombool106, %_ZNK4entt8meta_any4typeEv.exit481 ]
+  %118 = icmp eq i8 %.pr64, 0
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp103) #24
-  %tobool.i504.not = icmp eq i8 %118, 0
-  br i1 %tobool.i504.not, label %if.else116, label %cleanup.cont140.critedge
+  br i1 %118, label %if.else116, label %cleanup.cont140.critedge
 
-if.else116:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit503
+_ZN4entt9meta_typeD2Ev.exit503:                   ; preds = %_ZNK4entt8meta_any4typeEv.exit481
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp103) #24
+  br i1 %call104, label %if.else116, label %cleanup.cont140.critedge
+
+if.else116:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit503thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit503
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp117) #24
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp117)
           to label %invoke.cont119 unwind label %lpad118
@@ -30219,7 +30219,7 @@ ehcleanup134:                                     ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_101) #24
   br label %ehcleanup252
 
-cleanup.cont140.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit503
+cleanup.cont140.critedge:                         ; preds = %_ZN4entt9meta_typeD2Ev.exit503thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit503
   %138 = load ptr, ptr %message_.i482, align 8, !tbaa !64
   %cmp.not.i.i538 = icmp eq ptr %138, null
   br i1 %cmp.not.i.i538, label %cleanup.cont140, label %delete.notnull.i.i.i539

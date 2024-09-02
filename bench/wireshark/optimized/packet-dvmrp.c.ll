@@ -425,57 +425,57 @@ define internal noundef i32 @dissect_dvmrp(ptr noundef %0, ptr noundef %1, ptr n
   %or.cond3.i.i = icmp eq i8 %84, 0
   br label %85
 
-85:                                               ; preds = %99, %.lr.ph.i.i
-  %.1.i.i = phi i32 [ %82, %.lr.ph.i.i ], [ %119, %99 ]
+85:                                               ; preds = %102, %.lr.ph.i.i
+  %.1.i.i = phi i32 [ %82, %.lr.ph.i.i ], [ %119, %102 ]
   %86 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1.i.i) #2
   %87 = add i32 %.1.i.i, 1
-  br i1 %.not.i.i, label %91, label %88
+  br i1 %.not.i.i, label %92, label %88
 
 88:                                               ; preds = %85
   %89 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %87) #2
   %90 = add i32 %.1.i.i, 2
-  br label %91
+  %91 = zext i8 %89 to i32
+  br label %92
 
-91:                                               ; preds = %88, %85
-  %.084.i.i = phi i8 [ %89, %88 ], [ 0, %85 ]
+92:                                               ; preds = %88, %85
+  %.084.i.i = phi i32 [ %91, %88 ], [ 0, %85 ]
   %.2.i.i = phi i32 [ %90, %88 ], [ %87, %85 ]
-  br i1 %.not87.i.i, label %95, label %92
+  br i1 %.not87.i.i, label %97, label %93
 
-92:                                               ; preds = %91
-  %93 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2.i.i) #2
-  %94 = add i32 %.2.i.i, 1
-  br label %95
+93:                                               ; preds = %92
+  %94 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2.i.i) #2
+  %95 = add i32 %.2.i.i, 1
+  %96 = zext i8 %94 to i32
+  br label %97
 
-95:                                               ; preds = %92, %91
-  %.085.i.i = phi i8 [ %93, %92 ], [ 0, %91 ]
-  %.3.i.i = phi i32 [ %94, %92 ], [ %.2.i.i, %91 ]
-  br i1 %.not88.i.i, label %99, label %96
+97:                                               ; preds = %93, %92
+  %.085.i.i = phi i32 [ %96, %93 ], [ 0, %92 ]
+  %.3.i.i = phi i32 [ %95, %93 ], [ %.2.i.i, %92 ]
+  br i1 %.not88.i.i, label %102, label %98
 
-96:                                               ; preds = %95
-  %97 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3.i.i) #2
-  %98 = add i32 %.3.i.i, 1
-  br label %99
+98:                                               ; preds = %97
+  %99 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3.i.i) #2
+  %100 = add i32 %.3.i.i, 1
+  %101 = zext i8 %99 to i32
+  br label %102
 
-99:                                               ; preds = %96, %95
-  %.086.i.i = phi i8 [ %97, %96 ], [ 0, %95 ]
-  %.4.i.i = phi i32 [ %98, %96 ], [ %.3.i.i, %95 ]
-  %100 = icmp eq i8 %86, 0
-  %or.cond5.not.i.i = select i1 %or.cond3.i.i, i1 %100, i1 false
+102:                                              ; preds = %98, %97
+  %.086.i.i = phi i32 [ %101, %98 ], [ 0, %97 ]
+  %.4.i.i = phi i32 [ %100, %98 ], [ %.3.i.i, %97 ]
+  %103 = icmp eq i8 %86, 0
+  %or.cond5.not.i.i = select i1 %or.cond3.i.i, i1 %103, i1 false
   %spec.select.i.i = select i1 %or.cond5.not.i.i, ptr @.str.167, ptr @.str.166
   %spec.select92.i.i = select i1 %or.cond5.not.i.i, i32 0, i32 255
-  %101 = zext i8 %.086.i.i to i32
-  %102 = zext i8 %.085.i.i to i32
-  %103 = shl nuw nsw i32 %101, 16
-  %104 = shl nuw nsw i32 %102, 8
-  %105 = or disjoint i32 %103, %104
-  %106 = zext i8 %.084.i.i to i32
-  %107 = or disjoint i32 %105, %106
+  %104 = shl nuw nsw i32 %.086.i.i, 16
+  %105 = shl nuw nsw i32 %.085.i.i, 8
+  %106 = or disjoint i32 %104, %105
+  %107 = or disjoint i32 %106, %.084.i.i
   %108 = shl nuw i32 %107, 8
   %109 = zext i8 %86 to i32
   %110 = or disjoint i32 %108, %109
   %111 = load i32, ptr @hf_saddr, align 4
   %112 = sub i32 %.4.i.i, %.1.i.i
-  %113 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %65, i32 noundef %111, ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %112, i32 noundef %110, ptr noundef nonnull @.str.165, ptr noundef nonnull %spec.select.i.i, i32 noundef %109, i32 noundef %106, i32 noundef %102, i32 noundef %101, i32 noundef %spec.select92.i.i, i32 noundef %76, i32 noundef %72, i32 noundef %71) #2
+  %113 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %65, i32 noundef %111, ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %112, i32 noundef %110, ptr noundef nonnull @.str.165, ptr noundef nonnull %spec.select.i.i, i32 noundef %109, i32 noundef %.084.i.i, i32 noundef %.085.i.i, i32 noundef %.086.i.i, i32 noundef %spec.select92.i.i, i32 noundef %76, i32 noundef %72, i32 noundef %71) #2
   %114 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4.i.i) #2
   %115 = load i32, ptr @hf_metric, align 4
   %116 = and i8 %114, 127
@@ -485,7 +485,7 @@ define internal noundef i32 @dissect_dvmrp(ptr noundef %0, ptr noundef %1, ptr n
   %.not91.i.i = icmp sgt i8 %114, -1
   br i1 %.not91.i.i, label %85, label %120, !llvm.loop !6
 
-120:                                              ; preds = %99
+120:                                              ; preds = %102
   %121 = sub i32 %119, %.093.i.i
   tail call void @proto_item_set_len(ptr noundef %63, i32 noundef %121) #2
   %122 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %119) #2

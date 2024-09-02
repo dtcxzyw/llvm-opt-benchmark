@@ -3483,7 +3483,7 @@ _ZNSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEED2Ev.exit.i.i107: ; preds = %
   unreachable
 
 _ZNSt3anyD2Ev.exit36.i.i:                         ; preds = %643, %_ZNSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEED2Ev.exit.i.i107
-  %647 = call noundef i64 @llvm.usub.sat.i64(i64 %.sroa.194.0.copyload.i.i, i64 1)
+  %647 = call noundef range(i64 0, -1) i64 @llvm.usub.sat.i64(i64 %.sroa.194.0.copyload.i.i, i64 1)
   br label %"_ZN7xgboost4data19HostAdapterDispatchILb1EZZNS0_17SparsePageDMatrixC1EPvS3_PFvS3_EPFiS3_EfiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbENK3$_0clEvEUlRKT_E_EEDcPKNS0_12DMatrixProxyET0_Pb.exit.thread.i"
 
 648:                                              ; preds = %_ZSt8any_castISt10shared_ptrIN7xgboost4data15CSRArrayAdapterEEEPT_PSt3any.exit.thread.i.i.i103

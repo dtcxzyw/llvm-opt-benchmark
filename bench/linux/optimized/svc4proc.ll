@@ -116,7 +116,7 @@ define internal noundef i32 @nlm4svc_proc_granted(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlm4svc_proc_test_msg(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_test_msg(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
@@ -158,7 +158,7 @@ nlm4svc_callback.exit:                            ; preds = %1, %11, %18, %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlm4svc_proc_lock_msg(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_lock_msg(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
@@ -200,7 +200,7 @@ nlm4svc_callback.exit:                            ; preds = %1, %11, %18, %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlm4svc_proc_cancel_msg(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_cancel_msg(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
@@ -242,7 +242,7 @@ nlm4svc_callback.exit:                            ; preds = %1, %11, %18, %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nlm4svc_proc_unlock_msg(ptr noundef %0) #2 align 16 {
+define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unlock_msg(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40

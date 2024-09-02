@@ -2401,12 +2401,12 @@ define internal fastcc i32 @dissect_ospf_v2_lsa(ptr noundef %0, ptr noundef %1, 
 
 ospf_ls_type_to_filter.exit:                      ; preds = %5
   %40 = add nsw i32 %23, -1
+  %41 = sext i32 %40 to i64
   br label %ospf_ls_type_to_filter.exit247
 
 ospf_ls_type_to_filter.exit247:                   ; preds = %38, %ospf_ls_type_to_filter.exit
-  %.0.i246 = phi i32 [ %40, %ospf_ls_type_to_filter.exit ], [ 8, %38 ]
-  %41 = sext i32 %.0.i246 to i64
-  %42 = getelementptr [9 x ptr], ptr @hf_ospf_ls_type_array, i64 0, i64 %41
+  %.0.i246 = phi i64 [ %41, %ospf_ls_type_to_filter.exit ], [ 8, %38 ]
+  %42 = getelementptr [9 x ptr], ptr @hf_ospf_ls_type_array, i64 0, i64 %.0.i246
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 4
   %45 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %44, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef 0) #5

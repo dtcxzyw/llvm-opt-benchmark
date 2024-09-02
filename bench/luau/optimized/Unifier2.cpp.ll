@@ -2241,368 +2241,361 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZN4LuauL14isIrres
 
 151:                                              ; preds = %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit
   %152 = load i32, ptr %150, align 8
-  %153 = icmp eq i32 %152, 2
-  %154 = getelementptr inbounds i8, ptr %150, i64 8
-  %155 = select i1 %153, ptr %154, ptr null
+  %153 = icmp ne i32 %152, 2
   br label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit
 
 _ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit, %151
-  %156 = phi ptr [ %155, %151 ], [ null, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit ]
-  %157 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %68)
-  %.not.i.i153 = icmp eq ptr %157, null
-  br i1 %.not.i.i153, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154.thread, label %158
+  %.not129 = phi i1 [ %153, %151 ], [ true, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit ]
+  %154 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %68)
+  %.not.i.i153 = icmp eq ptr %154, null
+  br i1 %.not.i.i153, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154.thread, label %155
 
-158:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit
-  %159 = load i32, ptr %157, align 8
-  %160 = icmp eq i32 %159, 2
-  br i1 %160, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154.thread
+155:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit
+  %156 = load i32, ptr %154, align 8
+  %157 = icmp eq i32 %156, 2
+  br i1 %157, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154.thread
 
-_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154: ; preds = %158
-  %161 = getelementptr inbounds i8, ptr %157, i64 40
-  %162 = load ptr, ptr %161, align 8
+_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154: ; preds = %155
+  %158 = getelementptr inbounds i8, ptr %154, i64 40
+  %159 = load ptr, ptr %158, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  %163 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %162)
-  %164 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %67)
-  %165 = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.01.0.copyload.i = load ptr, ptr %165, align 8
+  %160 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %159)
+  %161 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %67)
+  %162 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.01.0.copyload.i = load ptr, ptr %162, align 8
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8
-  call void @_ZN4Luau13simplifyUnionENS_7NotNullINS_12BuiltinTypesEEENS0_INS_9TypeArenaEEEPKNS_4TypeES7_(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::SimplifyResult") align 8 %4, ptr %.sroa.01.0.copyload.i, ptr %.sroa.0.0.copyload.i, ptr noundef %163, ptr noundef %164)
-  %166 = load ptr, ptr %4, align 8
-  %167 = getelementptr inbounds i8, ptr %4, i64 8
-  %168 = load ptr, ptr %167, align 8
-  %.not.i.i.i.i = icmp eq ptr %168, null
-  br i1 %.not.i.i.i.i, label %.thread240, label %169
+  call void @_ZN4Luau13simplifyUnionENS_7NotNullINS_12BuiltinTypesEEENS0_INS_9TypeArenaEEEPKNS_4TypeES7_(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::SimplifyResult") align 8 %4, ptr %.sroa.01.0.copyload.i, ptr %.sroa.0.0.copyload.i, ptr noundef %160, ptr noundef %161)
+  %163 = load ptr, ptr %4, align 8
+  %164 = getelementptr inbounds i8, ptr %4, i64 8
+  %165 = load ptr, ptr %164, align 8
+  %.not.i.i.i.i = icmp eq ptr %165, null
+  br i1 %.not.i.i.i.i, label %.thread240, label %166
 
-169:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154
-  call void @_ZdlPv(ptr noundef nonnull %168) #22
+166:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154
+  call void @_ZdlPv(ptr noundef nonnull %165) #22
   br label %.thread240
 
-_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154.thread: ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit, %158
-  %.not129 = icmp eq ptr %156, null
-  br i1 %.not129, label %172, label %170
+_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154.thread: ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit, %155
+  br i1 %.not129, label %169, label %167
 
-.thread240:                                       ; preds = %169, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154
+.thread240:                                       ; preds = %166, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  store ptr %166, ptr %161, align 8
-  %.not129242 = icmp eq ptr %156, null
-  br i1 %.not129242, label %.critedge2, label %170
+  store ptr %163, ptr %158, align 8
+  br i1 %.not129, label %.critedge2, label %167
 
-170:                                              ; preds = %.thread240, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154.thread
-  %171 = call noundef zeroext i1 @_ZN4Luau8Unifier217unifyFreeWithTypeEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %67, ptr noundef %68)
+167:                                              ; preds = %.thread240, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154.thread
+  %168 = call noundef zeroext i1 @_ZN4Luau8Unifier217unifyFreeWithTypeEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %67, ptr noundef %68)
   br label %.critedge2
 
-172:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154.thread
+169:                                              ; preds = %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit154.thread
   br i1 %.not.i.i.i, label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit, label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.thread
 
-_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %172
+_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %169
   %.not.i.i156 = icmp eq ptr %68, null
   br i1 %.not.i.i156, label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit170, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread257
 
-_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %172
-  %173 = load i32, ptr %67, align 8
-  %174 = icmp eq i32 %173, 8
-  %175 = getelementptr inbounds i8, ptr %67, i64 8
-  %176 = select i1 %174, ptr %175, ptr null
+_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %169
+  %170 = load i32, ptr %67, align 8
+  %171 = icmp eq i32 %170, 8
+  %172 = getelementptr inbounds i8, ptr %67, i64 8
+  %173 = select i1 %171, ptr %172, ptr null
   %.not.i.i156298 = icmp eq ptr %68, null
   br i1 %.not.i.i156298, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread, label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit157.thread309
 
 _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit157.thread309: ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.thread
-  %177 = load i32, ptr %68, align 8
-  %178 = icmp eq i32 %177, 8
-  %179 = getelementptr inbounds i8, ptr %68, i64 8
-  %180 = select i1 %178, ptr %179, ptr null
-  %or.cond5311 = and i1 %174, %178
-  br i1 %or.cond5311, label %181, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.thread269
+  %174 = load i32, ptr %68, align 8
+  %175 = icmp eq i32 %174, 8
+  %176 = getelementptr inbounds i8, ptr %68, i64 8
+  %177 = select i1 %175, ptr %176, ptr null
+  %or.cond5311 = and i1 %171, %175
+  br i1 %or.cond5311, label %178, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.thread269
 
-181:                                              ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit157.thread309
-  %182 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %67, ptr noundef nonnull %179)
+178:                                              ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit157.thread309
+  %179 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %67, ptr noundef nonnull %176)
   br label %.critedge2
 
 _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.thread269: ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit157.thread309
-  %183 = icmp eq i32 %173, 13
-  br i1 %183, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread273, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread271
+  %180 = icmp eq i32 %170, 13
+  br i1 %180, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread273, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread271
 
 _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread271: ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.thread269
-  %184 = icmp eq i32 %177, 13
-  br i1 %184, label %.thread263, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread283
+  %181 = icmp eq i32 %174, 13
+  br i1 %181, label %.thread263, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread283
 
 _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread257: ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit
-  %185 = load i32, ptr %68, align 8
-  %186 = icmp eq i32 %185, 13
-  br i1 %186, label %.thread263, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280
+  %182 = load i32, ptr %68, align 8
+  %183 = icmp eq i32 %182, 13
+  br i1 %183, label %.thread263, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280
 
 _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread: ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.thread
-  switch i32 %173, label %.thread355.thread [
+  switch i32 %170, label %.thread355.thread [
     i32 13, label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread273
     i32 14, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit163.thread
   ]
 
 _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread273: ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.thread269
-  %187 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9UnionTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %175, ptr noundef %68)
+  %184 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9UnionTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %172, ptr noundef %68)
   br label %.critedge2
 
 .thread263:                                       ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread271, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread257
-  %188 = getelementptr inbounds i8, ptr %68, i64 8
-  %189 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_9UnionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %67, ptr noundef nonnull %188)
+  %185 = getelementptr inbounds i8, ptr %68, i64 8
+  %186 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_9UnionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %67, ptr noundef nonnull %185)
   br label %.critedge2
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread283: ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread271
-  %190 = icmp eq i32 %173, 14
-  br i1 %190, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit163.thread, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280.thread
+  %187 = icmp eq i32 %170, 14
+  br i1 %187, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit163.thread, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280.thread
 
 .thread355.thread:                                ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread
-  %191 = icmp eq i32 %173, 12
-  %192 = select i1 %191, ptr %175, ptr null
+  %188 = icmp eq i32 %170, 12
   br label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit170
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit163.thread: ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread283
-  %193 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_16IntersectionTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %175, ptr noundef %68)
+  %189 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_16IntersectionTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %172, ptr noundef %68)
   br label %.critedge2
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280: ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread257
-  %194 = icmp eq i32 %185, 8
-  %195 = getelementptr inbounds i8, ptr %68, i64 8
-  %196 = select i1 %194, ptr %195, ptr null
-  %.not379 = icmp eq i32 %185, 14
-  br i1 %.not379, label %197, label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
+  %190 = icmp eq i32 %182, 8
+  %191 = getelementptr inbounds i8, ptr %68, i64 8
+  %192 = select i1 %190, ptr %191, ptr null
+  %.not379 = icmp eq i32 %182, 14
+  br i1 %.not379, label %193, label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280.thread: ; preds = %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread283
-  %.not = icmp eq i32 %177, 14
-  br i1 %.not, label %197, label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167
+  %.not = icmp eq i32 %174, 14
+  br i1 %.not, label %193, label %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167
 
-197:                                              ; preds = %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280.thread, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280
-  %198 = getelementptr inbounds i8, ptr %68, i64 8
-  %199 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_16IntersectionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %67, ptr noundef nonnull %198)
+193:                                              ; preds = %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280.thread, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280
+  %194 = getelementptr inbounds i8, ptr %68, i64 8
+  %195 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_16IntersectionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %67, ptr noundef nonnull %194)
   br label %.critedge2
 
 _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167: ; preds = %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280.thread
-  %200 = icmp eq i32 %173, 17
-  %201 = icmp eq i32 %177, 17
-  %or.cond7 = and i1 %200, %201
-  br i1 %or.cond7, label %.critedge2, label %202
+  %196 = icmp eq i32 %170, 17
+  %197 = icmp eq i32 %174, 17
+  %or.cond7 = and i1 %196, %197
+  br i1 %or.cond7, label %.critedge2, label %198
 
-202:                                              ; preds = %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167
-  %or.cond9 = and i1 %178, %200
-  br i1 %or.cond9, label %203, label %.thread351
+198:                                              ; preds = %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167
+  %or.cond9 = and i1 %175, %196
+  br i1 %or.cond9, label %199, label %.thread351
 
-203:                                              ; preds = %202
-  %204 = getelementptr inbounds i8, ptr %68, i64 224
+199:                                              ; preds = %198
+  %200 = getelementptr inbounds i8, ptr %68, i64 224
+  %201 = load ptr, ptr %200, align 8
+  %202 = getelementptr inbounds i8, ptr %0, i64 8
+  %203 = load ptr, ptr %202, align 8
+  %204 = getelementptr inbounds i8, ptr %203, i64 200
   %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds i8, ptr %0, i64 8
-  %207 = load ptr, ptr %206, align 8
+  %206 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_11TypePackVarES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %201, ptr noundef %205)
+  %207 = load ptr, ptr %202, align 8
   %208 = getelementptr inbounds i8, ptr %207, i64 200
   %209 = load ptr, ptr %208, align 8
-  %210 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_11TypePackVarES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %205, ptr noundef %209)
-  %211 = load ptr, ptr %206, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 200
-  %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %68, i64 232
-  %215 = load ptr, ptr %214, align 8
-  %216 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_11TypePackVarES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %213, ptr noundef %215)
-  %217 = and i1 %210, %216
+  %210 = getelementptr inbounds i8, ptr %68, i64 232
+  %211 = load ptr, ptr %210, align 8
+  %212 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_11TypePackVarES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %209, ptr noundef %211)
+  %213 = and i1 %206, %212
   br label %.critedge2
 
-.thread351:                                       ; preds = %202
-  %or.cond11353 = and i1 %174, %201
-  br i1 %or.cond11353, label %218, label %.thread355
+.thread351:                                       ; preds = %198
+  %or.cond11353 = and i1 %171, %197
+  br i1 %or.cond11353, label %214, label %.thread355
 
-218:                                              ; preds = %.thread351
-  %219 = getelementptr inbounds i8, ptr %0, i64 8
+214:                                              ; preds = %.thread351
+  %215 = getelementptr inbounds i8, ptr %0, i64 8
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds i8, ptr %216, i64 200
+  %218 = load ptr, ptr %217, align 8
+  %219 = getelementptr inbounds i8, ptr %67, i64 224
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 200
-  %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %67, i64 224
-  %224 = load ptr, ptr %223, align 8
-  %225 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_11TypePackVarES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %222, ptr noundef %224)
-  %226 = getelementptr inbounds i8, ptr %67, i64 232
-  %227 = load ptr, ptr %226, align 8
-  %228 = load ptr, ptr %219, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 200
-  %230 = load ptr, ptr %229, align 8
-  %231 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_11TypePackVarES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %227, ptr noundef %230)
-  %232 = and i1 %225, %231
+  %221 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_11TypePackVarES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %218, ptr noundef %220)
+  %222 = getelementptr inbounds i8, ptr %67, i64 232
+  %223 = load ptr, ptr %222, align 8
+  %224 = load ptr, ptr %215, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 200
+  %226 = load ptr, ptr %225, align 8
+  %227 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_11TypePackVarES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %223, ptr noundef %226)
+  %228 = and i1 %221, %227
   br label %.critedge2
 
 .thread355:                                       ; preds = %.thread351
-  %233 = icmp eq i32 %173, 12
-  %234 = select i1 %233, ptr %175, ptr null
+  %229 = icmp eq i32 %170, 12
   br label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
 
 _ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit:  ; preds = %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280, %.thread355
-  %235 = phi i32 [ %177, %.thread355 ], [ %185, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280 ]
-  %236 = phi ptr [ %234, %.thread355 ], [ null, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280 ]
-  %237 = phi ptr [ %176, %.thread355 ], [ null, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280 ]
-  %238 = phi i1 [ %178, %.thread355 ], [ %194, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280 ]
-  %239 = phi i1 [ %174, %.thread355 ], [ false, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280 ]
-  %240 = phi ptr [ %180, %.thread355 ], [ %196, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280 ]
-  %241 = icmp eq i32 %235, 12
+  %230 = phi i32 [ %174, %.thread355 ], [ %182, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280 ]
+  %231 = phi i1 [ %229, %.thread355 ], [ false, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280 ]
+  %232 = phi ptr [ %173, %.thread355 ], [ null, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280 ]
+  %233 = phi i1 [ %175, %.thread355 ], [ %190, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280 ]
+  %234 = phi i1 [ %171, %.thread355 ], [ false, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280 ]
+  %235 = phi ptr [ %177, %.thread355 ], [ %192, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread280 ]
+  %236 = icmp eq i32 %230, 12
   br label %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit170
 
 _ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit170: ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit, %.thread355.thread, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit
-  %242 = phi ptr [ %236, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ %192, %.thread355.thread ], [ null, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %237 = phi i1 [ %231, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ %188, %.thread355.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
   %.not.i.i156300316328350354358360 = phi i1 [ false, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ true, %.thread355.thread ], [ true, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %243 = phi ptr [ %237, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ %176, %.thread355.thread ], [ null, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %244 = phi i1 [ %238, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.thread355.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %245 = phi i1 [ %239, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ %174, %.thread355.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %246 = phi ptr [ %240, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ null, %.thread355.thread ], [ null, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %247 = phi i1 [ %241, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.thread355.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %248 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %67)
-  %.not.i.i171 = icmp eq ptr %248, null
-  br i1 %.not.i.i171, label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit, label %249
+  %238 = phi ptr [ %232, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ %173, %.thread355.thread ], [ null, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %239 = phi i1 [ %233, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.thread355.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %240 = phi i1 [ %234, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ %171, %.thread355.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %241 = phi ptr [ %235, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ null, %.thread355.thread ], [ null, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %242 = phi i1 [ %236, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit ], [ false, %.thread355.thread ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %243 = call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %67)
+  %.not.i.i171 = icmp eq ptr %243, null
+  br i1 %.not.i.i171, label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit, label %244
 
-249:                                              ; preds = %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit170
-  %250 = load i32, ptr %248, align 8
-  %251 = icmp eq i32 %250, 9
-  %252 = getelementptr inbounds i8, ptr %248, i64 8
-  %253 = select i1 %251, ptr %252, ptr null
+244:                                              ; preds = %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit170
+  %245 = load i32, ptr %243, align 8
+  %246 = icmp eq i32 %245, 9
+  %247 = getelementptr inbounds i8, ptr %243, i64 8
+  %248 = select i1 %246, ptr %247, ptr null
   br label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
 
-_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit170, %249
-  %254 = phi ptr [ %253, %249 ], [ null, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit170 ]
-  br i1 %.not.i.i156300316328350354358360, label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit, label %255
+_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit170, %244
+  %249 = phi ptr [ %248, %244 ], [ null, %_ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit170 ]
+  br i1 %.not.i.i156300316328350354358360, label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit, label %250
 
-255:                                              ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
-  %256 = load i32, ptr %68, align 8
-  %257 = icmp eq i32 %256, 9
-  %258 = getelementptr inbounds i8, ptr %68, i64 8
-  %259 = select i1 %257, ptr %258, ptr null
+250:                                              ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
+  %251 = load i32, ptr %68, align 8
+  %252 = icmp eq i32 %251, 9
+  %253 = getelementptr inbounds i8, ptr %68, i64 8
+  %254 = select i1 %252, ptr %253, ptr null
   br label %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit
 
-_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit, %255
-  %260 = phi ptr [ %259, %255 ], [ null, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit ]
-  %261 = icmp ne ptr %242, null
-  %or.cond13 = and i1 %261, %247
-  br i1 %or.cond13, label %.critedge2, label %262
+_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit, %250
+  %255 = phi ptr [ %254, %250 ], [ null, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit ]
+  %or.cond13 = and i1 %237, %242
+  br i1 %or.cond13, label %.critedge2, label %256
 
-262:                                              ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit
-  %or.cond15 = and i1 %261, %244
-  br i1 %or.cond15, label %263, label %265
+256:                                              ; preds = %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit
+  %or.cond15 = and i1 %237, %239
+  br i1 %or.cond15, label %257, label %259
 
-263:                                              ; preds = %262
-  %264 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr nonnull poison, ptr noundef nonnull %246)
+257:                                              ; preds = %256
+  %258 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_12FunctionTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr nonnull poison, ptr noundef nonnull %241)
   br label %.critedge2
 
-265:                                              ; preds = %262
-  %or.cond17 = and i1 %245, %247
-  br i1 %or.cond17, label %266, label %268
+259:                                              ; preds = %256
+  %or.cond17 = and i1 %240, %242
+  br i1 %or.cond17, label %260, label %262
 
-266:                                              ; preds = %265
-  %267 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_12FunctionTypeEPKNS_7AnyTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %243, ptr nonnull poison)
+260:                                              ; preds = %259
+  %261 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_12FunctionTypeEPKNS_7AnyTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %238, ptr nonnull poison)
   br label %.critedge2
 
-268:                                              ; preds = %265
-  %269 = icmp ne ptr %260, null
-  %or.cond19 = and i1 %261, %269
-  br i1 %or.cond19, label %270, label %272
+262:                                              ; preds = %259
+  %263 = icmp ne ptr %255, null
+  %or.cond19 = and i1 %237, %263
+  br i1 %or.cond19, label %264, label %266
 
-270:                                              ; preds = %268
-  %271 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_9TableTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr nonnull poison, ptr noundef nonnull %260)
+264:                                              ; preds = %262
+  %265 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_7AnyTypeEPKNS_9TableTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr nonnull poison, ptr noundef nonnull %255)
   br label %.critedge2
 
-272:                                              ; preds = %268
-  %273 = icmp ne ptr %254, null
-  %or.cond21 = and i1 %247, %273
-  br i1 %or.cond21, label %274, label %276
+266:                                              ; preds = %262
+  %267 = icmp ne ptr %249, null
+  %or.cond21 = and i1 %242, %267
+  br i1 %or.cond21, label %268, label %270
 
-274:                                              ; preds = %272
-  %275 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9TableTypeEPKNS_7AnyTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %254, ptr nonnull poison)
+268:                                              ; preds = %266
+  %269 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9TableTypeEPKNS_7AnyTypeE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %249, ptr nonnull poison)
   br label %.critedge2
 
-276:                                              ; preds = %272
-  %or.cond23 = and i1 %273, %269
-  br i1 %or.cond23, label %277, label %279
+270:                                              ; preds = %266
+  %or.cond23 = and i1 %267, %263
+  br i1 %or.cond23, label %271, label %273
 
-277:                                              ; preds = %276
-  %278 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPNS_9TableTypeEPKS1_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %254, ptr noundef nonnull %260)
+271:                                              ; preds = %270
+  %272 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPNS_9TableTypeEPKS1_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %249, ptr noundef nonnull %255)
   br label %.critedge2
 
-279:                                              ; preds = %276
+273:                                              ; preds = %270
   br i1 %.not.i.i.i, label %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread, label %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit
 
-_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %279
-  %280 = load i32, ptr %67, align 8
-  %281 = icmp eq i32 %280, 10
-  %282 = getelementptr inbounds i8, ptr %67, i64 8
+_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %273
+  %274 = load i32, ptr %67, align 8
+  %275 = icmp eq i32 %274, 10
+  %276 = getelementptr inbounds i8, ptr %67, i64 8
   br i1 %.not.i.i156300316328350354358360, label %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175.thread, label %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175
 
-_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %279
+_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread: ; preds = %273
   br i1 %.not.i.i156300316328350354358360, label %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit, label %.thread267
 
 .thread267:                                       ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread
-  %283 = load i32, ptr %68, align 8
-  %284 = icmp eq i32 %283, 10
-  %285 = getelementptr inbounds i8, ptr %68, i64 8
-  br i1 %284, label %298, label %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread
+  %277 = load i32, ptr %68, align 8
+  %278 = icmp eq i32 %277, 10
+  %279 = getelementptr inbounds i8, ptr %68, i64 8
+  br i1 %278, label %292, label %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread
 
 _ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175.thread: ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit
-  br i1 %281, label %294, label %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297
+  br i1 %275, label %288, label %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297
 
 _ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297: ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175.thread
-  %286 = icmp eq i32 %280, 18
-  %287 = select i1 %286, ptr %282, ptr null
+  %280 = icmp eq i32 %274, 18
+  %281 = select i1 %280, ptr %276, ptr null
   br label %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit
 
 _ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175: ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit
-  %288 = load i32, ptr %68, align 8
-  %289 = icmp eq i32 %288, 10
-  %290 = getelementptr inbounds i8, ptr %68, i64 8
-  %or.cond25 = and i1 %281, %289
-  br i1 %or.cond25, label %291, label %293
+  %282 = load i32, ptr %68, align 8
+  %283 = icmp eq i32 %282, 10
+  %284 = getelementptr inbounds i8, ptr %68, i64 8
+  %or.cond25 = and i1 %275, %283
+  br i1 %or.cond25, label %285, label %287
 
-291:                                              ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175
-  %292 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_13MetatableTypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %282, ptr noundef nonnull %290)
+285:                                              ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175
+  %286 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_13MetatableTypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull %276, ptr noundef nonnull %284)
   br label %.critedge2
 
-293:                                              ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175
-  br i1 %281, label %294, label %297
+287:                                              ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175
+  br i1 %275, label %288, label %291
 
-294:                                              ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175.thread, %293
-  %295 = load ptr, ptr %282, align 8
-  %296 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %295, ptr noundef %68)
+288:                                              ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit175.thread, %287
+  %289 = load ptr, ptr %276, align 8
+  %290 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %289, ptr noundef %68)
   br label %.critedge2
 
-297:                                              ; preds = %293
-  br i1 %289, label %298, label %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i
+291:                                              ; preds = %287
+  br i1 %283, label %292, label %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i
 
-298:                                              ; preds = %.thread267, %297
-  %299 = phi ptr [ %285, %.thread267 ], [ %290, %297 ]
-  %300 = load ptr, ptr %299, align 8
-  %301 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %67, ptr noundef %300)
+292:                                              ; preds = %.thread267, %291
+  %293 = phi ptr [ %279, %.thread267 ], [ %284, %291 ]
+  %294 = load ptr, ptr %293, align 8
+  %295 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %67, ptr noundef %294)
   br label %.critedge2
 
-_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %297
-  %302 = icmp eq i32 %280, 18
-  %303 = select i1 %302, ptr %282, ptr null
+_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %291
+  %296 = icmp eq i32 %274, 18
+  %297 = select i1 %296, ptr %276, ptr null
   br label %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread
 
 _ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread: ; preds = %.thread267, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i
-  %304 = phi i32 [ %288, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i ], [ %283, %.thread267 ]
-  %305 = phi ptr [ %303, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i ], [ null, %.thread267 ]
-  %306 = icmp eq i32 %304, 18
-  %307 = getelementptr inbounds i8, ptr %68, i64 8
-  %308 = select i1 %306, ptr %307, ptr null
+  %298 = phi i32 [ %282, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i ], [ %277, %.thread267 ]
+  %299 = phi ptr [ %297, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i ], [ null, %.thread267 ]
+  %300 = icmp eq i32 %298, 18
+  %301 = getelementptr inbounds i8, ptr %68, i64 8
+  %302 = select i1 %300, ptr %301, ptr null
   br label %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit
 
 _ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit: ; preds = %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread
-  %309 = phi ptr [ %305, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread ], [ %287, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297 ], [ null, %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread ]
-  %310 = phi ptr [ %308, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread ], [ null, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297 ], [ null, %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread ]
-  %.not.i177 = icmp eq ptr %309, null
-  %.not11.i = icmp eq ptr %310, null
-  %..i = select i1 %.not11.i, ptr null, ptr %309
-  %.8.i = select i1 %.not.i177, ptr null, ptr %310
-  %311 = icmp ne ptr %..i, null
-  %312 = icmp ne ptr %.8.i, null
-  %or.cond28 = select i1 %311, i1 %312, i1 false
-  br i1 %or.cond28, label %313, label %.critedge2
+  %303 = phi ptr [ %299, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread ], [ %281, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297 ], [ null, %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread ]
+  %304 = phi ptr [ %302, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread ], [ null, %_ZN4Luau3getINS_12NegationTypeEEEPKT_PKNS_4TypeE.exit.i.thread297 ], [ null, %_ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit.thread ]
+  %.not.i177 = icmp eq ptr %303, null
+  %.not11.i = icmp eq ptr %304, null
+  %..i = select i1 %.not11.i, ptr null, ptr %303
+  %.8.i = select i1 %.not.i177, ptr null, ptr %304
+  %305 = icmp ne ptr %..i, null
+  %306 = icmp ne ptr %.8.i, null
+  %or.cond28 = select i1 %305, i1 %306, i1 false
+  br i1 %or.cond28, label %307, label %.critedge2
 
-313:                                              ; preds = %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit
-  %314 = load ptr, ptr %..i, align 8
-  %315 = load ptr, ptr %.8.i, align 8
-  %316 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %314, ptr noundef %315)
+307:                                              ; preds = %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit
+  %308 = load ptr, ptr %..i, align 8
+  %309 = load ptr, ptr %.8.i, align 8
+  %310 = call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %308, ptr noundef %309)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %96, %.thread240, %133, %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167, %128, %126, %.loopexit, %313, %298, %294, %291, %277, %274, %270, %266, %263, %218, %203, %197, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit163.thread, %.thread263, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread273, %181, %170
-  %.0 = phi i1 [ %171, %170 ], [ %182, %181 ], [ %187, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread273 ], [ %189, %.thread263 ], [ %193, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit163.thread ], [ %199, %197 ], [ %217, %203 ], [ %232, %218 ], [ %264, %263 ], [ %267, %266 ], [ true, %270 ], [ true, %274 ], [ %278, %277 ], [ %292, %291 ], [ %296, %294 ], [ %301, %298 ], [ %316, %313 ], [ true, %.loopexit ], [ true, %126 ], [ true, %128 ], [ true, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167 ], [ true, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit ], [ true, %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit ], [ true, %133 ], [ true, %.thread240 ], [ true, %96 ]
+.critedge2:                                       ; preds = %96, %.thread240, %133, %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167, %128, %126, %.loopexit, %307, %292, %288, %285, %271, %268, %264, %260, %257, %214, %199, %193, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit163.thread, %.thread263, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread273, %178, %167
+  %.0 = phi i1 [ %168, %167 ], [ %179, %178 ], [ %184, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit160.thread273 ], [ %186, %.thread263 ], [ %189, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit163.thread ], [ %195, %193 ], [ %213, %199 ], [ %228, %214 ], [ %258, %257 ], [ %261, %260 ], [ true, %264 ], [ true, %268 ], [ %272, %271 ], [ %286, %285 ], [ %290, %288 ], [ %295, %292 ], [ %310, %307 ], [ true, %.loopexit ], [ true, %126 ], [ true, %128 ], [ true, %_ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit167 ], [ true, %_ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit ], [ true, %_ZN4Luau4get2INS_12NegationTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit ], [ true, %133 ], [ true, %.thread240 ], [ true, %96 ]
   ret i1 %.0
 }
 
@@ -5962,7 +5955,7 @@ _ZN4Luau14SimplifyResultD2Ev.exit:                ; preds = %3, %11
 declare void @_ZN4Luau20simplifyIntersectionENS_7NotNullINS_12BuiltinTypesEEENS0_INS_9TypeArenaEEEPKNS_4TypeES7_(ptr dead_on_unwind writable sret(%"struct.Luau::SimplifyResult") align 8, ptr, ptr, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau8Unifier211occursCheckERNS_12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS4_EEES4_S4_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau8Unifier211occursCheckERNS_12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS4_EEES4_S4_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 296
@@ -6240,61 +6233,58 @@ _ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit38: ; preds = %111
           to label %.noexc40 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc40:                                         ; preds = %.noexc39
-  %119 = icmp eq i32 %115, 1
-  %120 = icmp eq i32 %118, 1
-  %narrow = or i1 %119, %120
-  %spec.select104 = zext i1 %narrow to i32
+  %119 = or i32 %115, %118
   br label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit
 
 _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %111
-  %121 = getelementptr inbounds i8, ptr %24, i64 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %24, i64 16
-  %124 = load ptr, ptr %123, align 8
-  %.not107118 = icmp eq ptr %122, %124
+  %120 = getelementptr inbounds i8, ptr %24, i64 8
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds i8, ptr %24, i64 16
+  %123 = load ptr, ptr %122, align 8
+  %.not107118 = icmp eq ptr %121, %123
   br i1 %.not107118, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph121
 
 .lr.ph121:                                        ; preds = %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit, %.noexc43
-  %.sroa.052.0120 = phi ptr [ %128, %.noexc43 ], [ %122, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %.sroa.052.0120 = phi ptr [ %126, %.noexc43 ], [ %121, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit ]
   %.1119 = phi i32 [ %spec.select105, %.noexc43 ], [ 0, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %125 = load ptr, ptr %.sroa.052.0120, align 8
-  %126 = invoke noundef i32 @_ZN4Luau8Unifier211occursCheckERNS_12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS4_EEES4_S4_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %22, ptr noundef %125)
+  %124 = load ptr, ptr %.sroa.052.0120, align 8
+  %125 = invoke noundef i32 @_ZN4Luau8Unifier211occursCheckERNS_12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS4_EEES4_S4_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %22, ptr noundef %124)
           to label %.noexc43 unwind label %.loopexit
 
 .noexc43:                                         ; preds = %.lr.ph121
-  %127 = icmp eq i32 %126, 1
-  %spec.select105 = select i1 %127, i32 1, i32 %.1119
-  %128 = getelementptr inbounds i8, ptr %.sroa.052.0120, i64 8
-  %.not107 = icmp eq ptr %128, %124
+  %.not126 = icmp eq i32 %125, 0
+  %spec.select105 = select i1 %.not126, i32 %.1119, i32 1
+  %126 = getelementptr inbounds i8, ptr %.sroa.052.0120, i64 8
+  %.not107 = icmp eq ptr %126, %123
   br i1 %.not107, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph121
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %111
-  %129 = getelementptr inbounds i8, ptr %24, i64 8
+  %127 = getelementptr inbounds i8, ptr %24, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %24, i64 16
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %24, i64 16
-  %132 = load ptr, ptr %131, align 8
-  %.not115 = icmp eq ptr %130, %132
+  %.not115 = icmp eq ptr %128, %130
   br i1 %.not115, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit, %.noexc46
-  %.sroa.048.0117 = phi ptr [ %136, %.noexc46 ], [ %130, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit ]
+  %.sroa.048.0117 = phi ptr [ %133, %.noexc46 ], [ %128, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit ]
   %.2116 = phi i32 [ %spec.select106, %.noexc46 ], [ 0, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit ]
-  %133 = load ptr, ptr %.sroa.048.0117, align 8
-  %134 = invoke noundef i32 @_ZN4Luau8Unifier211occursCheckERNS_12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS4_EEES4_S4_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %22, ptr noundef %133)
+  %131 = load ptr, ptr %.sroa.048.0117, align 8
+  %132 = invoke noundef i32 @_ZN4Luau8Unifier211occursCheckERNS_12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS4_EEES4_S4_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %22, ptr noundef %131)
           to label %.noexc46 unwind label %.loopexit.split-lp.loopexit
 
 .noexc46:                                         ; preds = %.lr.ph
-  %135 = icmp eq i32 %134, 1
-  %spec.select106 = select i1 %135, i32 1, i32 %.2116
-  %136 = getelementptr inbounds i8, ptr %.sroa.048.0117, i64 8
-  %.not = icmp eq ptr %136, %132
+  %.not125 = icmp eq i32 %132, 0
+  %spec.select106 = select i1 %.not125, i32 %.2116, i32 1
+  %133 = getelementptr inbounds i8, ptr %.sroa.048.0117, i64 8
+  %.not = icmp eq ptr %133, %130
   br i1 %.not, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit, label %.lr.ph
 
 _ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE4findERKS3_.exit: ; preds = %42, %.noexc46, %.noexc43, %111, %98, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit, %.noexc40, %110, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit
-  %.0 = phi i32 [ 1, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit ], [ 0, %98 ], [ 0, %110 ], [ %spec.select104, %.noexc40 ], [ 0, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit ], [ 0, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit ], [ 0, %111 ], [ %spec.select105, %.noexc43 ], [ %spec.select106, %.noexc46 ], [ 0, %42 ]
-  %137 = load i32, ptr %7, align 8
-  %138 = add nsw i32 %137, -1
-  store i32 %138, ptr %7, align 8
+  %.0 = phi i32 [ 1, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit ], [ 0, %98 ], [ 0, %110 ], [ %119, %.noexc40 ], [ 0, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit ], [ 0, %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit ], [ 0, %111 ], [ %spec.select105, %.noexc43 ], [ %spec.select106, %.noexc46 ], [ 0, %42 ]
+  %134 = load i32, ptr %7, align 8
+  %135 = add nsw i32 %134, -1
+  store i32 %135, ptr %7, align 8
   ret i32 %.0
 }
 

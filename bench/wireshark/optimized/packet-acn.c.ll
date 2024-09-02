@@ -4400,7 +4400,7 @@ default.unreachable:                              ; preds = %810
   br label %get_blob_type_from_fields.exit.i.i.i.i
 
 894:                                              ; preds = %.lr.ph.i.i.i.i.i
-  switch i8 %889, label %905 [
+  switch i8 %889, label %906 [
     i8 1, label %get_field_type_parameters.exit.i.i.i.i.i
     i8 5, label %get_field_type_parameters.exit.i.i.i.i.i
     i8 2, label %895
@@ -4412,7 +4412,7 @@ default.unreachable:                              ; preds = %810
     i8 9, label %898
     i8 10, label %899
     i8 11, label %900
-    i8 12, label %904
+    i8 12, label %905
   ]
 
 895:                                              ; preds = %894, %894
@@ -4434,20 +4434,20 @@ default.unreachable:                              ; preds = %810
   %901 = add i32 %.01223.i.i.i.i.i, 2
   %902 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %901) #6
   %903 = add i8 %902, -2
-  br label %get_field_type_parameters.exit.i.i.i.i.i
-
-904:                                              ; preds = %894
+  %904 = zext i8 %903 to i32
   br label %get_field_type_parameters.exit.i.i.i.i.i
 
 905:                                              ; preds = %894
   br label %get_field_type_parameters.exit.i.i.i.i.i
 
-get_field_type_parameters.exit.i.i.i.i.i:         ; preds = %905, %904, %900, %899, %898, %897, %896, %895, %894, %894
-  %.022.i.i.i.i.i = phi i32 [ 0, %905 ], [ 0, %904 ], [ 1, %900 ], [ 1, %899 ], [ 1, %898 ], [ 1, %897 ], [ 1, %896 ], [ 1, %895 ], [ 1, %894 ], [ 1, %894 ]
-  %.sink.i.i.i.i.i.i = phi i8 [ 1, %905 ], [ 1, %904 ], [ %903, %900 ], [ 8, %899 ], [ 4, %898 ], [ 8, %897 ], [ 4, %896 ], [ 2, %895 ], [ 1, %894 ], [ 1, %894 ]
-  %906 = zext i8 %.sink.i.i.i.i.i.i to i32
+906:                                              ; preds = %894
+  br label %get_field_type_parameters.exit.i.i.i.i.i
+
+get_field_type_parameters.exit.i.i.i.i.i:         ; preds = %906, %905, %900, %899, %898, %897, %896, %895, %894, %894
+  %.022.i.i.i.i.i = phi i32 [ 0, %906 ], [ 0, %905 ], [ 1, %900 ], [ 1, %899 ], [ 1, %898 ], [ 1, %897 ], [ 1, %896 ], [ 1, %895 ], [ 1, %894 ], [ 1, %894 ]
+  %.sink.i.i.i.i.i.i = phi i32 [ 1, %906 ], [ 1, %905 ], [ %904, %900 ], [ 8, %899 ], [ 4, %898 ], [ 8, %897 ], [ 4, %896 ], [ 2, %895 ], [ 1, %894 ], [ 1, %894 ]
   %907 = add nsw i32 %.022.i.i.i.i.i, %.01223.i.i.i.i.i
-  %908 = add i32 %907, %906
+  %908 = add i32 %907, %.sink.i.i.i.i.i.i
   %909 = add nuw nsw i32 %890, 1
   %910 = icmp slt i32 %908, %873
   br i1 %910, label %.lr.ph.i.i.i.i.i, label %get_blob_type_from_fields.exit.i.i.i.i, !llvm.loop !30
@@ -4517,7 +4517,7 @@ dissect_acn_blob_metadata.exit.i.i.i.i:           ; preds = %.lr.phthread-pre-sp
 
 927:                                              ; preds = %.lr.ph31.i.i.i.i.i.outer
   %928 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.ph368) #6
-  switch i8 %928, label %937 [
+  switch i8 %928, label %940 [
     i8 1, label %get_field_type_parameters.exit.i46.i.i.i.i
     i8 5, label %get_field_type_parameters.exit.i46.i.i.i.i
     i8 2, label %929
@@ -4529,7 +4529,7 @@ dissect_acn_blob_metadata.exit.i.i.i.i:           ; preds = %.lr.phthread-pre-sp
     i8 9, label %932
     i8 10, label %933
     i8 11, label %934
-    i8 12, label %936
+    i8 12, label %939
   ]
 
 929:                                              ; preds = %927, %927
@@ -4549,25 +4549,25 @@ dissect_acn_blob_metadata.exit.i.i.i.i:           ; preds = %.lr.phthread-pre-sp
 
 934:                                              ; preds = %927
   %935 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %926) #6
+  %936 = zext i8 %935 to i32
+  %937 = mul nuw nsw i32 %936, 192
+  %938 = add nuw nsw i32 %937, 192
   br label %get_field_type_parameters.exit.i46.i.i.i.i
 
-936:                                              ; preds = %927
+939:                                              ; preds = %927
   br label %get_field_type_parameters.exit.i46.i.i.i.i
 
-937:                                              ; preds = %927
+940:                                              ; preds = %927
   br label %get_field_type_parameters.exit.i46.i.i.i.i
 
-get_field_type_parameters.exit.i46.i.i.i.i:       ; preds = %937, %936, %934, %933, %932, %931, %930, %929, %927, %927
-  %.030.i.i.i.i.i = phi i8 [ 0, %937 ], [ 0, %936 ], [ %935, %934 ], [ 8, %933 ], [ 4, %932 ], [ 8, %931 ], [ 4, %930 ], [ 2, %929 ], [ 1, %927 ], [ 1, %927 ]
-  %938 = call ptr @val_to_str_ext(i32 noundef 17, ptr noundef nonnull @acn_blob_preset_properties_field_name_ext, ptr noundef nonnull @.str.709) #6
-  %939 = load i32, ptr @hf_acn_blob_tree_field_type, align 4
-  %940 = zext i8 %.030.i.i.i.i.i to i32
-  %941 = mul nuw nsw i32 %940, 192
-  %942 = add nuw nsw i32 %941, 192
-  %943 = call ptr @proto_tree_add_item(ptr noundef %872, i32 noundef %939, ptr noundef %0, i32 noundef %.ph368, i32 noundef %942, i32 noundef 0) #6
+get_field_type_parameters.exit.i46.i.i.i.i:       ; preds = %940, %939, %934, %933, %932, %931, %930, %929, %927, %927
+  %.030.i.i.i.i.i = phi i32 [ 192, %940 ], [ 192, %939 ], [ %938, %934 ], [ 1728, %933 ], [ 960, %932 ], [ 1728, %931 ], [ 960, %930 ], [ 576, %929 ], [ 384, %927 ], [ 384, %927 ]
+  %941 = call ptr @val_to_str_ext(i32 noundef 17, ptr noundef nonnull @acn_blob_preset_properties_field_name_ext, ptr noundef nonnull @.str.709) #6
+  %942 = load i32, ptr @hf_acn_blob_tree_field_type, align 4
+  %943 = call ptr @proto_tree_add_item(ptr noundef %872, i32 noundef %942, ptr noundef %0, i32 noundef %.ph368, i32 noundef %.030.i.i.i.i.i, i32 noundef 0) #6
   %944 = load i32, ptr @ett_acn_blob, align 4
   %945 = call ptr @proto_item_add_subtree(ptr noundef %943, i32 noundef %944) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %943, ptr noundef nonnull @.str.710, ptr noundef %938) #6
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %943, ptr noundef nonnull @.str.710, ptr noundef %941) #6
   store i16 18, ptr %116, align 1
   br label %.lr.ph.i47.i.i.i.i
 
@@ -4647,7 +4647,7 @@ dissect_acn_blob_dimming_rack_properties_v2.exit.i.i.i.i: ; preds = %.lr.phthrea
 
 966:                                              ; preds = %.lr.ph31.i52.i.i.i.i.outer
   %967 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.ph370) #6
-  switch i8 %967, label %976 [
+  switch i8 %967, label %979 [
     i8 1, label %get_field_type_parameters.exit.i57.i.i.i.i
     i8 5, label %get_field_type_parameters.exit.i57.i.i.i.i
     i8 2, label %968
@@ -4659,7 +4659,7 @@ dissect_acn_blob_dimming_rack_properties_v2.exit.i.i.i.i: ; preds = %.lr.phthrea
     i8 9, label %971
     i8 10, label %972
     i8 11, label %973
-    i8 12, label %975
+    i8 12, label %978
   ]
 
 968:                                              ; preds = %966, %966
@@ -4679,25 +4679,25 @@ dissect_acn_blob_dimming_rack_properties_v2.exit.i.i.i.i: ; preds = %.lr.phthrea
 
 973:                                              ; preds = %966
   %974 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %965) #6
+  %975 = zext i8 %974 to i32
+  %976 = shl nuw nsw i32 %975, 6
+  %977 = add nuw nsw i32 %976, 64
   br label %get_field_type_parameters.exit.i57.i.i.i.i
 
-975:                                              ; preds = %966
+978:                                              ; preds = %966
   br label %get_field_type_parameters.exit.i57.i.i.i.i
 
-976:                                              ; preds = %966
+979:                                              ; preds = %966
   br label %get_field_type_parameters.exit.i57.i.i.i.i
 
-get_field_type_parameters.exit.i57.i.i.i.i:       ; preds = %976, %975, %973, %972, %971, %970, %969, %968, %966, %966
-  %.030.i58.i.i.i.i = phi i8 [ 0, %976 ], [ 0, %975 ], [ %974, %973 ], [ 8, %972 ], [ 4, %971 ], [ 8, %970 ], [ 4, %969 ], [ 2, %968 ], [ 1, %966 ], [ 1, %966 ]
-  %977 = call ptr @val_to_str_ext(i32 noundef 22, ptr noundef nonnull @acn_blob_dimmer_rack_status_properties2_field_name_ext, ptr noundef nonnull @.str.709) #6
-  %978 = load i32, ptr @hf_acn_blob_tree_field_type, align 4
-  %979 = zext i8 %.030.i58.i.i.i.i to i32
-  %980 = shl nuw nsw i32 %979, 6
-  %981 = add nuw nsw i32 %980, 64
-  %982 = call ptr @proto_tree_add_item(ptr noundef %872, i32 noundef %978, ptr noundef %0, i32 noundef %.ph370, i32 noundef %981, i32 noundef 0) #6
+get_field_type_parameters.exit.i57.i.i.i.i:       ; preds = %979, %978, %973, %972, %971, %970, %969, %968, %966, %966
+  %.030.i58.i.i.i.i = phi i32 [ 64, %979 ], [ 64, %978 ], [ %977, %973 ], [ 576, %972 ], [ 320, %971 ], [ 576, %970 ], [ 320, %969 ], [ 192, %968 ], [ 128, %966 ], [ 128, %966 ]
+  %980 = call ptr @val_to_str_ext(i32 noundef 22, ptr noundef nonnull @acn_blob_dimmer_rack_status_properties2_field_name_ext, ptr noundef nonnull @.str.709) #6
+  %981 = load i32, ptr @hf_acn_blob_tree_field_type, align 4
+  %982 = call ptr @proto_tree_add_item(ptr noundef %872, i32 noundef %981, ptr noundef %0, i32 noundef %.ph370, i32 noundef %.030.i58.i.i.i.i, i32 noundef 0) #6
   %983 = load i32, ptr @ett_acn_blob, align 4
   %984 = call ptr @proto_item_add_subtree(ptr noundef %982, i32 noundef %983) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %982, ptr noundef nonnull @.str.710, ptr noundef %977) #6
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %982, ptr noundef nonnull @.str.710, ptr noundef %980) #6
   store i16 23, ptr %112, align 1
   br label %.lr.ph.i59.i.i.i.i
 
@@ -7427,7 +7427,7 @@ define internal fastcc void @display_blob_field(ptr noundef %0, ptr noundef %1, 
 31:                                               ; preds = %8, %6
   %32 = load i32, ptr %3, align 4
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %32) #6
-  switch i8 %33, label %45 [
+  switch i8 %33, label %46 [
     i8 1, label %get_field_type_parameters.exit
     i8 5, label %get_field_type_parameters.exit
     i8 2, label %34
@@ -7439,7 +7439,7 @@ define internal fastcc void @display_blob_field(ptr noundef %0, ptr noundef %1, 
     i8 9, label %37
     i8 10, label %38
     i8 11, label %39
-    i8 12, label %44
+    i8 12, label %45
   ]
 
 34:                                               ; preds = %31, %31
@@ -7462,29 +7462,29 @@ define internal fastcc void @display_blob_field(ptr noundef %0, ptr noundef %1, 
   %41 = add i32 %40, 2
   %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %41) #6
   %43 = add i8 %42, -2
-  br label %get_field_type_parameters.exit
-
-44:                                               ; preds = %31
+  %44 = zext i8 %42 to i32
   br label %get_field_type_parameters.exit
 
 45:                                               ; preds = %31
   br label %get_field_type_parameters.exit
 
-get_field_type_parameters.exit:                   ; preds = %31, %31, %34, %35, %36, %37, %38, %39, %44, %45
-  %.077 = phi i8 [ 0, %45 ], [ 0, %44 ], [ %42, %39 ], [ 8, %38 ], [ 4, %37 ], [ 8, %36 ], [ 4, %35 ], [ 2, %34 ], [ 1, %31 ], [ 1, %31 ]
-  %.076 = phi i32 [ 0, %45 ], [ 0, %44 ], [ 2, %39 ], [ 0, %38 ], [ 0, %37 ], [ 0, %36 ], [ 0, %35 ], [ 0, %34 ], [ 0, %31 ], [ 0, %31 ]
-  %.075 = phi i32 [ 0, %45 ], [ 0, %44 ], [ 1, %39 ], [ 1, %38 ], [ 1, %37 ], [ 1, %36 ], [ 1, %35 ], [ 1, %34 ], [ 1, %31 ], [ 1, %31 ]
-  %.sink.i = phi i8 [ 1, %45 ], [ 1, %44 ], [ %43, %39 ], [ 8, %38 ], [ 4, %37 ], [ 8, %36 ], [ 4, %35 ], [ 2, %34 ], [ 1, %31 ], [ 1, %31 ]
-  %46 = load i16, ptr %4, align 2
-  %47 = tail call fastcc ptr @get_field_name(i8 noundef zeroext %2, i16 noundef zeroext %46)
-  %48 = load i32, ptr @hf_acn_blob_tree_field_type, align 4
-  %49 = load i32, ptr %3, align 4
-  %50 = zext i8 %.077 to i32
-  %51 = add nuw nsw i32 %50, 1
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %48, ptr noundef %0, i32 noundef %49, i32 noundef %51, i32 noundef 0) #6
+46:                                               ; preds = %31
+  br label %get_field_type_parameters.exit
+
+get_field_type_parameters.exit:                   ; preds = %31, %31, %34, %35, %36, %37, %38, %39, %45, %46
+  %.077 = phi i32 [ 0, %46 ], [ 0, %45 ], [ %44, %39 ], [ 8, %38 ], [ 4, %37 ], [ 8, %36 ], [ 4, %35 ], [ 2, %34 ], [ 1, %31 ], [ 1, %31 ]
+  %.076 = phi i32 [ 0, %46 ], [ 0, %45 ], [ 2, %39 ], [ 0, %38 ], [ 0, %37 ], [ 0, %36 ], [ 0, %35 ], [ 0, %34 ], [ 0, %31 ], [ 0, %31 ]
+  %.075 = phi i32 [ 0, %46 ], [ 0, %45 ], [ 1, %39 ], [ 1, %38 ], [ 1, %37 ], [ 1, %36 ], [ 1, %35 ], [ 1, %34 ], [ 1, %31 ], [ 1, %31 ]
+  %.sink.i = phi i8 [ 1, %46 ], [ 1, %45 ], [ %43, %39 ], [ 8, %38 ], [ 4, %37 ], [ 8, %36 ], [ 4, %35 ], [ 2, %34 ], [ 1, %31 ], [ 1, %31 ]
+  %47 = load i16, ptr %4, align 2
+  %48 = tail call fastcc ptr @get_field_name(i8 noundef zeroext %2, i16 noundef zeroext %47)
+  %49 = load i32, ptr @hf_acn_blob_tree_field_type, align 4
+  %50 = load i32, ptr %3, align 4
+  %51 = add nuw nsw i32 %.077, 1
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %49, ptr noundef %0, i32 noundef %50, i32 noundef %51, i32 noundef 0) #6
   %53 = load i32, ptr @ett_acn_blob, align 4
   %54 = tail call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53) #6
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.710, ptr noundef %47) #6
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.710, ptr noundef %48) #6
   %55 = load i32, ptr @hf_acn_blob_field_type, align 4
   %56 = load i32, ptr %3, align 4
   %57 = zext i8 %33 to i32
@@ -7493,7 +7493,7 @@ get_field_type_parameters.exit:                   ; preds = %31, %31, %34, %35, 
   %60 = add i32 %59, %.076
   store i32 %60, ptr %3, align 4
   %61 = load i32, ptr @hf_acn_blob_field_length, align 4
-  %62 = tail call ptr @proto_tree_add_uint(ptr noundef %54, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef %50) #6
+  %62 = tail call ptr @proto_tree_add_uint(ptr noundef %54, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef %.077) #6
   %63 = load i32, ptr %3, align 4
   %64 = add i32 %63, %.075
   store i32 %64, ptr %3, align 4
@@ -7503,7 +7503,7 @@ get_field_type_parameters.exit:                   ; preds = %31, %31, %34, %35, 
 
 67:                                               ; preds = %get_field_type_parameters.exit
   %68 = load i32, ptr @hf_acn_blob_field_value_string, align 4
-  %69 = tail call ptr @proto_tree_add_string(ptr noundef %54, i32 noundef %68, ptr noundef %0, i32 noundef %64, i32 noundef %50, ptr noundef nonnull @.str.487) #6
+  %69 = tail call ptr @proto_tree_add_string(ptr noundef %54, i32 noundef %68, ptr noundef %0, i32 noundef %64, i32 noundef %.077, ptr noundef nonnull @.str.487) #6
   br label %display_blob_field_value.exit
 
 70:                                               ; preds = %get_field_type_parameters.exit
@@ -7514,13 +7514,13 @@ get_field_type_parameters.exit:                   ; preds = %31, %31, %34, %35, 
 
 71:                                               ; preds = %70
   %72 = load i32, ptr @hf_acn_blob_field_value_ipv4, align 4
-  %73 = add nsw i32 %50, -2
+  %73 = add nsw i32 %.077, -2
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %72, ptr noundef %0, i32 noundef %64, i32 noundef %73, i32 noundef 0) #6
   br label %display_blob_field_value.exit
 
 75:                                               ; preds = %70
   %76 = load i32, ptr @hf_acn_blob_field_value_ipv6, align 4
-  %77 = add nsw i32 %50, -2
+  %77 = add nsw i32 %.077, -2
   %78 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %76, ptr noundef %0, i32 noundef %64, i32 noundef %77, i32 noundef 0) #6
   br label %display_blob_field_value.exit
 
@@ -7703,12 +7703,12 @@ get_field_type_parameters.exit:                   ; preds = %31, %31, %34, %35, 
 
 179:                                              ; preds = %162
   %180 = load i32, ptr @hf_acn_blob_field_value_float, align 4
-  %181 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %180, ptr noundef %0, i32 noundef %64, i32 noundef %50, i32 noundef 0) #6
+  %181 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %180, ptr noundef %0, i32 noundef %64, i32 noundef %.077, i32 noundef 0) #6
   br label %display_blob_field_value.exit
 
 182:                                              ; preds = %162
   %183 = load i32, ptr @hf_acn_blob_field_value_double, align 4
-  %184 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %183, ptr noundef %0, i32 noundef %64, i32 noundef %50, i32 noundef 0) #6
+  %184 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %183, ptr noundef %0, i32 noundef %64, i32 noundef %.077, i32 noundef 0) #6
   br label %display_blob_field_value.exit
 
 185:                                              ; preds = %162
@@ -7727,7 +7727,7 @@ get_field_type_parameters.exit:                   ; preds = %31, %31, %34, %35, 
 
 192:                                              ; preds = %191
   %193 = load i32, ptr @hf_acn_blob_field_value_guid, align 4
-  %194 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %193, ptr noundef %0, i32 noundef %64, i32 noundef %50, i32 noundef 0) #6
+  %194 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %193, ptr noundef %0, i32 noundef %64, i32 noundef %.077, i32 noundef 0) #6
   br label %display_blob_field_value.exit
 
 195:                                              ; preds = %191

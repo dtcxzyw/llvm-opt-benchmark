@@ -633,7 +633,7 @@ _ZSt4swapIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK8proxygen11HeaderTable8getIndexERKNS_11HPACKHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %header) local_unnamed_addr #4 align 2 {
+define range(i64 0, -4294967295) i64 @_ZNK8proxygen11HeaderTable8getIndexERKNS_11HPACKHeaderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %header) local_unnamed_addr #4 align 2 {
 entry:
   %value = getelementptr inbounds i8, ptr %header, i64 8
   %0 = load ptr, ptr %value, align 8
@@ -653,7 +653,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK8proxygen11HeaderTable12getIndexImplERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %headerName, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %nameOnly) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, -4294967295) i64 @_ZNK8proxygen11HeaderTable12getIndexImplERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %headerName, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %nameOnly) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %indexNames_ = getelementptr inbounds i8, ptr %this, i64 52
@@ -943,7 +943,7 @@ return:                                           ; preds = %if.end20.i.i, %whil
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK8proxygen11HeaderTable8getIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #4 align 2 {
+define range(i64 0, -4294967295) i64 @_ZNK8proxygen11HeaderTable8getIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call i64 @_ZNK8proxygen11HeaderTable12getIndexImplERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEb(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext false)
   ret i64 %call
@@ -964,7 +964,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8proxygen11HeaderTable10toExternalEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %internalIndex) local_unnamed_addr #7 align 2 {
+define noundef range(i32 1, 0) i32 @_ZNK8proxygen11HeaderTable10toExternalEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %internalIndex) local_unnamed_addr #7 align 2 {
 entry:
   %head_ = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %head_, align 4
@@ -1915,7 +1915,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef no
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN8proxygen11HeaderTable10toExternalEjjj(i32 noundef %head, i32 noundef %length, i32 noundef %internalIndex) local_unnamed_addr #3 align 2 {
+define noundef range(i32 1, 0) i32 @_ZN8proxygen11HeaderTable10toExternalEjjj(i32 noundef %head, i32 noundef %length, i32 noundef %internalIndex) local_unnamed_addr #3 align 2 {
 entry:
   %add = add i32 %length, %head
   %sub = sub i32 %add, %internalIndex

@@ -300,7 +300,7 @@ define internal ptr @ResOwnerPrintBufferPin(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 8589934592) i64 @PrefetchSharedBuffer(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967297) i64 @PrefetchSharedBuffer(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.buftag, align 4
   %5 = load i32, ptr %0, align 4
   store i32 %5, ptr %4, align 4

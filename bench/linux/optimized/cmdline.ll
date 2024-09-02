@@ -89,81 +89,83 @@ define dso_local ptr @get_options(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %4 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   %5 = icmp eq i32 %1, 0
-  %not. = xor i1 %5, true
   %6 = icmp sgt i32 %1, 1
   %7 = or i1 %5, %6
-  br i1 %7, label %.lr.ph, label %.thread9
+  br i1 %7, label %.lr.ph, label %.thread12
 
-thread-pre-split:                                 ; preds = %.loopexit, %36
-  %.ph = phi i32 [ %11, %36 ], [ %61, %.loopexit ]
-  %8 = add i32 %.ph, 1
-  %.pre10.pr = load ptr, ptr %4, align 8
-  %9 = icmp slt i32 %8, %1
-  %10 = or i1 %5, %9
-  br i1 %10, label %.lr.ph, label %.thread9
+.lr.ph:                                           ; preds = %3
+  %not. = xor i1 %5, true
+  br label %8
 
-.lr.ph:                                           ; preds = %3, %thread-pre-split
-  %11 = phi i32 [ %8, %thread-pre-split ], [ 1, %3 ]
-  %.pre1020 = phi ptr [ %.pre10.pr, %thread-pre-split ], [ %0, %3 ]
-  %12 = select i1 %5, i32 0, i32 %11
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr i32, ptr %2, i64 %13
-  %15 = icmp eq ptr %.pre1020, null
-  br i1 %15, label %.thread9, label %16
+8:                                                ; preds = %.lr.ph, %.backedge
+  %9 = phi i32 [ 1, %.lr.ph ], [ %.be, %.backedge ]
+  %10 = select i1 %5, i32 0, i32 %9
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr i32, ptr %2, i64 %11
+  %13 = load ptr, ptr %4, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %.thread12.loopexit, label %15
 
-16:                                               ; preds = %.lr.ph
-  %17 = load i8, ptr %.pre1020, align 1
-  switch i8 %17, label %23 [
-    i8 0, label %.thread9
-    i8 45, label %18
+15:                                               ; preds = %8
+  %16 = load i8, ptr %13, align 1
+  switch i8 %16, label %22 [
+    i8 0, label %.thread12.loopexit
+    i8 45, label %17
   ]
 
-18:                                               ; preds = %16
-  %19 = getelementptr i8, ptr %.pre1020, i64 1
-  %20 = call i64 @simple_strtoull(ptr noundef %19, ptr noundef nonnull %4, i32 noundef 0) #5
-  %21 = trunc i64 %20 to i32
-  %22 = sub i32 0, %21
-  br label %26
+17:                                               ; preds = %15
+  %18 = getelementptr i8, ptr %13, i64 1
+  %19 = call i64 @simple_strtoull(ptr noundef %18, ptr noundef nonnull %4, i32 noundef 0) #5
+  %20 = trunc i64 %19 to i32
+  %21 = sub i32 0, %20
+  br label %25
 
-23:                                               ; preds = %16
-  %24 = call i64 @simple_strtoull(ptr noundef nonnull %.pre1020, ptr noundef nonnull %4, i32 noundef 0) #5
-  %25 = trunc i64 %24 to i32
-  br label %26
+22:                                               ; preds = %15
+  %23 = call i64 @simple_strtoull(ptr noundef nonnull %13, ptr noundef nonnull %4, i32 noundef 0) #5
+  %24 = trunc i64 %23 to i32
+  br label %25
 
-26:                                               ; preds = %23, %18
-  %27 = phi ptr [ %19, %18 ], [ %.pre1020, %23 ]
-  %28 = phi i32 [ %22, %18 ], [ %25, %23 ]
-  %29 = icmp eq ptr %14, null
-  br i1 %29, label %31, label %30
+25:                                               ; preds = %22, %17
+  %26 = phi ptr [ %18, %17 ], [ %13, %22 ]
+  %27 = phi i32 [ %21, %17 ], [ %24, %22 ]
+  %28 = icmp eq ptr %12, null
+  br i1 %28, label %30, label %29
 
-30:                                               ; preds = %26
-  store i32 %28, ptr %14, align 4
-  br label %31
+29:                                               ; preds = %25
+  store i32 %27, ptr %12, align 4
+  br label %30
 
-31:                                               ; preds = %30, %26
-  %32 = load ptr, ptr %4, align 8
-  %33 = icmp eq ptr %27, %32
-  br i1 %33, label %.thread9, label %34
+30:                                               ; preds = %29, %25
+  %31 = load ptr, ptr %4, align 8
+  %32 = icmp eq ptr %26, %31
+  br i1 %32, label %.thread12.loopexit, label %33
 
-34:                                               ; preds = %31
-  %35 = load i8, ptr %32, align 1
-  switch i8 %35, label %62 [
-    i8 44, label %36
+33:                                               ; preds = %30
+  %34 = load i8, ptr %31, align 1
+  switch i8 %34, label %.thread12 [
+    i8 44, label %.thread8
     i8 45, label %38
   ]
 
-36:                                               ; preds = %34
-  %37 = getelementptr i8, ptr %32, i64 1
-  store ptr %37, ptr %4, align 8
-  br label %thread-pre-split
+.thread8:                                         ; preds = %33
+  %35 = getelementptr i8, ptr %31, i64 1
+  store ptr %35, ptr %4, align 8
+  br label %.backedge
 
-38:                                               ; preds = %34
-  %39 = sub i32 %1, %11
-  %40 = getelementptr i8, ptr %32, i64 1
+.backedge:                                        ; preds = %.loopexit, %.thread8
+  %.be.in = phi i32 [ %9, %.thread8 ], [ %61, %.loopexit ]
+  %.be = add i32 %.be.in, 1
+  %36 = icmp slt i32 %.be, %1
+  %37 = or i1 %5, %36
+  br i1 %37, label %8, label %.thread12.loopexit
+
+38:                                               ; preds = %33
+  %39 = sub i32 %1, %9
+  %40 = getelementptr i8, ptr %31, i64 1
   store ptr %40, ptr %4, align 8
   %41 = call i64 @simple_strtol(ptr noundef %40, ptr noundef null, i32 noundef 0) #5
   %42 = trunc i64 %41 to i32
-  %43 = load i32, ptr %14, align 4
+  %43 = load i32, ptr %12, align 4
   %44 = icmp ne i32 %39, 0
   %45 = and i1 %44, %not.
   %46 = icmp slt i32 %43, %42
@@ -173,7 +175,7 @@ thread-pre-split:                                 ; preds = %.loopexit, %36
 .preheader:                                       ; preds = %38, %.preheader
   %48 = phi i32 [ %52, %.preheader ], [ %43, %38 ]
   %49 = phi i32 [ %53, %.preheader ], [ %39, %38 ]
-  %50 = phi ptr [ %51, %.preheader ], [ %14, %38 ]
+  %50 = phi ptr [ %51, %.preheader ], [ %12, %38 ]
   %51 = getelementptr i8, ptr %50, i64 4
   store i32 %48, ptr %50, align 4
   %52 = add nsw i32 %48, 1
@@ -188,24 +190,20 @@ thread-pre-split:                                 ; preds = %.loopexit, %36
   %58 = icmp sgt i32 %57, -1
   %59 = add nsw i32 %57, -1
   %60 = select i1 %58, i32 %59, i32 0
-  %61 = add i32 %60, %11
-  br i1 %58, label %thread-pre-split, label %..thread9_crit_edge
+  %61 = add i32 %60, %9
+  br i1 %58, label %.backedge, label %.thread12.loopexit
 
-62:                                               ; preds = %34
-  %63 = add i32 %11, 1
-  br label %..thread9_crit_edge
-
-..thread9_crit_edge:                              ; preds = %.loopexit, %62
-  %64 = phi i32 [ %63, %62 ], [ %61, %.loopexit ]
+.thread12.loopexit:                               ; preds = %30, %8, %15, %.loopexit, %.backedge
+  %.ph = phi i32 [ %9, %30 ], [ %9, %8 ], [ %9, %15 ], [ %61, %.loopexit ], [ %.be, %.backedge ]
   %.pre = load ptr, ptr %4, align 8
-  br label %.thread9
+  %62 = add i32 %.ph, -1
+  br label %.thread12
 
-.thread9:                                         ; preds = %thread-pre-split, %31, %.lr.ph, %16, %3, %..thread9_crit_edge
-  %65 = phi ptr [ %.pre, %..thread9_crit_edge ], [ %0, %3 ], [ %.pre1020, %16 ], [ null, %.lr.ph ], [ %32, %31 ], [ %.pre10.pr, %thread-pre-split ]
-  %66 = phi i32 [ %64, %..thread9_crit_edge ], [ 1, %3 ], [ %11, %16 ], [ %11, %.lr.ph ], [ %11, %31 ], [ %8, %thread-pre-split ]
-  %67 = add i32 %66, -1
-  store i32 %67, ptr %2, align 4
-  ret ptr %65
+.thread12:                                        ; preds = %33, %.thread12.loopexit, %3
+  %63 = phi ptr [ %0, %3 ], [ %.pre, %.thread12.loopexit ], [ %31, %33 ]
+  %64 = phi i32 [ 0, %3 ], [ %62, %.thread12.loopexit ], [ %9, %33 ]
+  store i32 %64, ptr %2, align 4
+  ret ptr %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

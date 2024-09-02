@@ -101,13 +101,13 @@ define i32 @Dch_DeriveChoiceCountReprs(ptr nocapture noundef readonly %0) local_
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %22 ]
+8:                                                ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
   %9 = getelementptr inbounds ptr, ptr %.val12, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %22, label %12
+  br i1 %11, label %21, label %12
 
 12:                                               ; preds = %8
   %.val13 = load ptr, ptr %7, align 8
@@ -120,23 +120,23 @@ define i32 @Dch_DeriveChoiceCountReprs(ptr nocapture noundef readonly %0) local_
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %.val13, i64 %16
   %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %18, null
+  %20 = zext i1 %19 to i32
   br label %Aig_ObjRepr.exit
 
 Aig_ObjRepr.exit:                                 ; preds = %12, %13
-  %19 = phi ptr [ %18, %13 ], [ null, %12 ]
-  %20 = icmp ne ptr %19, null
-  %21 = zext i1 %20 to i32
-  %spec.select = add nsw i32 %.015, %21
-  br label %22
+  %not. = phi i32 [ %20, %13 ], [ 0, %12 ]
+  %spec.select = add nsw i32 %not., %.015
+  br label %21
 
-22:                                               ; preds = %Aig_ObjRepr.exit, %8
+21:                                               ; preds = %Aig_ObjRepr.exit, %8
   %.1 = phi i32 [ %.015, %8 ], [ %spec.select, %Aig_ObjRepr.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !4
 
-.critedge:                                        ; preds = %22, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %22 ]
+.critedge:                                        ; preds = %21, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %21 ]
   ret i32 %.0.lcssa
 }
 
@@ -156,13 +156,13 @@ define i32 @Dch_DeriveChoiceCountEquivs(ptr nocapture noundef readonly %0) local
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %22 ]
+8:                                                ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
   %9 = getelementptr inbounds ptr, ptr %.val12, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %22, label %12
+  br i1 %11, label %21, label %12
 
 12:                                               ; preds = %8
   %.val13 = load ptr, ptr %7, align 8
@@ -175,23 +175,23 @@ define i32 @Dch_DeriveChoiceCountEquivs(ptr nocapture noundef readonly %0) local
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %.val13, i64 %16
   %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %18, null
+  %20 = zext i1 %19 to i32
   br label %Aig_ObjEquiv.exit
 
 Aig_ObjEquiv.exit:                                ; preds = %12, %13
-  %19 = phi ptr [ %18, %13 ], [ null, %12 ]
-  %20 = icmp ne ptr %19, null
-  %21 = zext i1 %20 to i32
-  %spec.select = add nsw i32 %.015, %21
-  br label %22
+  %not. = phi i32 [ %20, %13 ], [ 0, %12 ]
+  %spec.select = add nsw i32 %not., %.015
+  br label %21
 
-22:                                               ; preds = %Aig_ObjEquiv.exit, %8
+21:                                               ; preds = %Aig_ObjEquiv.exit, %8
   %.1 = phi i32 [ %.015, %8 ], [ %spec.select, %Aig_ObjEquiv.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !6
 
-.critedge:                                        ; preds = %22, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %22 ]
+.critedge:                                        ; preds = %21, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %21 ]
   ret i32 %.0.lcssa
 }
 

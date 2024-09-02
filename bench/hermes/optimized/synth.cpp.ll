@@ -3829,6 +3829,7 @@ invoke.cont38:                                    ; preds = %if.then.i.i, %invok
   %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN2clL12GCPrintStatsE, i64 152), align 8
   %tobool.i.i34 = trunc i8 %18 to i1
   %19 = select i1 %tobool.i.i34, i8 1, i8 %frombool37
+  %shouldPrintGCStats.0 = select i1 %cmp43, i8 %19, i8 1
   %_ZN2clL11MinHeapSizeE.val = load i32, ptr getelementptr inbounds (i8, ptr @_ZN2clL11MinHeapSizeE, i64 8), align 8
   %_ZN2clL11MinHeapSizeE.val18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN2clL11MinHeapSizeE, i64 152), align 8
   %cmp.i = icmp sgt i32 %_ZN2clL11MinHeapSizeE.val, 0
@@ -3873,9 +3874,8 @@ invoke.cont38:                                    ; preds = %if.then.i.i, %invok
   %cmp.i63 = icmp sgt i32 %_ZN2clL14GCSanitizeRateE.val, 0
   %26 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN2clL20GCSanitizeRandomSeedE, i64 152), align 8
   %tobool.not.not = icmp ne i64 %26, 0
-  %frombool.i69 = select i1 %cmp43, i8 %19, i8 1
   %ShouldRecordStats_.i = getelementptr inbounds i8, ptr %options, i64 48
-  store i8 %frombool.i69, ptr %ShouldRecordStats_.i, align 8
+  store i8 %shouldPrintGCStats.0, ptr %ShouldRecordStats_.i, align 8
   %ShouldRecordStatsExplicit_.i = getelementptr inbounds i8, ptr %options, i64 206
   store i8 1, ptr %ShouldRecordStatsExplicit_.i, align 2
   br i1 %cmp.i, label %invoke.cont99, label %if.end103
@@ -6254,16 +6254,16 @@ entry:
   %1 = load i64, ptr %Length.i.i, align 8
   %cmp.i.i.not = icmp eq i64 %1, 0
   %spec.select = select i1 %cmp.i.i.not, ptr %ArgName.coerce0, ptr %Arg.coerce0
-  %spec.select24 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1, i64 %Arg.coerce1
-  %agg.tmp5.sroa.2.0.copyload.fr = freeze i64 %spec.select24
+  %spec.select22 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1, i64 %Arg.coerce1
+  %agg.tmp5.sroa.2.0.copyload.fr = freeze i64 %spec.select22
   store ptr %spec.select, ptr %ArgVal, align 8
   %2 = getelementptr inbounds i8, ptr %ArgVal, i64 8
   store i64 %agg.tmp5.sroa.2.0.copyload.fr, ptr %2, align 8
   %Size.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %3 to i64
-  %cmp.not12 = icmp eq i32 %3, 0
-  br i1 %cmp.not12, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.lr.ph
+  %cmp.not10 = icmp eq i32 %3, 0
+  br i1 %cmp.not10, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds i8, ptr %this, i64 16
@@ -6276,20 +6276,20 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us
-  %i.013.us = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %inc.us, %for.inc.us ]
-  %gep = getelementptr %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %invariant.gep, i64 %i.013.us
+  %i.011.us = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %inc.us, %for.inc.us ]
+  %gep = getelementptr %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %invariant.gep, i64 %i.011.us
   %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.us, label %if.then7, label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body.us
-  %inc.us = add nuw nsw i64 %i.013.us, 1
+  %inc.us = add nuw nsw i64 %i.011.us, 1
   %cmp.not.us = icmp eq i64 %inc.us, %conv.i
   br i1 %cmp.not.us, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.us, !llvm.loop !30
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.013 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i23 = getelementptr inbounds %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %4, i64 %i.013
+  %i.011 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
+  %arrayidx.i23 = getelementptr inbounds %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %4, i64 %i.011
   %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i23, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx, align 8
   %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %agg.tmp5.sroa.2.0.copyload.fr
@@ -6298,18 +6298,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 land.rhs.i:                                       ; preds = %for.body
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %arrayidx.i23, align 8
   %bcmp = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload, ptr %spec.select, i64 %agg.tmp5.sroa.2.0.copyload.fr)
-  %cmp5.i = icmp eq i32 %bcmp, 0
-  br i1 %cmp5.i, label %if.then7, label %for.inc
+  %5 = icmp eq i32 %bcmp, 0
+  br i1 %5, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %land.rhs.i, %for.body.us
-  %.us-phi14 = phi i64 [ %i.013.us, %for.body.us ], [ %i.013, %land.rhs.i ]
-  %Value.i = getelementptr inbounds %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %4, i64 %.us-phi14, i32 1, i32 0, i32 0, i32 1
-  %5 = load i32, ptr %Value.i, align 4
-  store i32 %5, ptr %V, align 4
+  %.us-phi12 = phi i64 [ %i.011.us, %for.body.us ], [ %i.011, %land.rhs.i ]
+  %Value.i = getelementptr inbounds %"class.llvh::cl::parser<facebook::hermes::tracing::TraceInterpreter::ExecuteOptions::MarkerAction>::OptionInfo", ptr %4, i64 %.us-phi12, i32 1, i32 0, i32 0, i32 1
+  %6 = load i32, ptr %Value.i, align 4
+  store i32 %6, ptr %V, align 4
   br label %return
 
 for.inc:                                          ; preds = %land.rhs.i, %for.body
-  %inc = add nuw nsw i64 %i.013, 1
+  %inc = add nuw nsw i64 %i.011, 1
   %cmp.not = icmp eq i64 %inc, %conv.i
   br i1 %cmp.not, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body, !llvm.loop !30
 
@@ -6662,16 +6662,16 @@ entry:
   %1 = load i64, ptr %Length.i.i, align 8
   %cmp.i.i.not = icmp eq i64 %1, 0
   %spec.select = select i1 %cmp.i.i.not, ptr %ArgName.coerce0, ptr %Arg.coerce0
-  %spec.select24 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1, i64 %Arg.coerce1
-  %agg.tmp5.sroa.2.0.copyload.fr = freeze i64 %spec.select24
+  %spec.select22 = select i1 %cmp.i.i.not, i64 %ArgName.coerce1, i64 %Arg.coerce1
+  %agg.tmp5.sroa.2.0.copyload.fr = freeze i64 %spec.select22
   store ptr %spec.select, ptr %ArgVal, align 8
   %2 = getelementptr inbounds i8, ptr %ArgVal, i64 8
   store i64 %agg.tmp5.sroa.2.0.copyload.fr, ptr %2, align 8
   %Size.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %3 to i64
-  %cmp.not12 = icmp eq i32 %3, 0
-  br i1 %cmp.not12, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.lr.ph
+  %cmp.not10 = icmp eq i32 %3, 0
+  br i1 %cmp.not10, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds i8, ptr %this, i64 16
@@ -6684,20 +6684,20 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.inc.us, %for.body.lr.ph.split.us
-  %i.013.us = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %inc.us, %for.inc.us ]
-  %gep = getelementptr %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %invariant.gep, i64 %i.013.us
+  %i.011.us = phi i64 [ 0, %for.body.lr.ph.split.us ], [ %inc.us, %for.inc.us ]
+  %gep = getelementptr %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %invariant.gep, i64 %i.011.us
   %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.us, label %if.then7, label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body.us
-  %inc.us = add nuw nsw i64 %i.013.us, 1
+  %inc.us = add nuw nsw i64 %i.011.us, 1
   %cmp.not.us = icmp eq i64 %inc.us, %conv.i
   br i1 %cmp.not.us, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body.us, !llvm.loop !39
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.013 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i28 = getelementptr inbounds %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %4, i64 %i.013
+  %i.011 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
+  %arrayidx.i28 = getelementptr inbounds %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %4, i64 %i.011
   %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i28, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx, align 8
   %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %agg.tmp5.sroa.2.0.copyload.fr
@@ -6706,18 +6706,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 land.rhs.i:                                       ; preds = %for.body
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %arrayidx.i28, align 8
   %bcmp = tail call i32 @bcmp(ptr %agg.tmp.sroa.0.0.copyload, ptr %spec.select, i64 %agg.tmp5.sroa.2.0.copyload.fr)
-  %cmp5.i = icmp eq i32 %bcmp, 0
-  br i1 %cmp5.i, label %if.then7, label %for.inc
+  %5 = icmp eq i32 %bcmp, 0
+  br i1 %5, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %land.rhs.i, %for.body.us
-  %.us-phi14 = phi i64 [ %i.013.us, %for.body.us ], [ %i.013, %land.rhs.i ]
-  %Value.i = getelementptr inbounds %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %4, i64 %.us-phi14, i32 1, i32 0, i32 0, i32 1
-  %5 = load i32, ptr %Value.i, align 4
-  store i32 %5, ptr %V, align 4
+  %.us-phi12 = phi i64 [ %i.011.us, %for.body.us ], [ %i.011, %land.rhs.i ]
+  %Value.i = getelementptr inbounds %"class.llvh::cl::parser<hermes::vm::ReleaseUnused>::OptionInfo", ptr %4, i64 %.us-phi12, i32 1, i32 0, i32 0, i32 1
+  %6 = load i32, ptr %Value.i, align 4
+  store i32 %6, ptr %V, align 4
   br label %return
 
 for.inc:                                          ; preds = %land.rhs.i, %for.body
-  %inc = add nuw nsw i64 %i.013, 1
+  %inc = add nuw nsw i64 %i.011, 1
   %cmp.not = icmp eq i64 %inc, %conv.i
   br i1 %cmp.not, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.body, !llvm.loop !39
 
@@ -8886,17 +8886,17 @@ __cxx_global_var_init.109.exit:                   ; preds = %invoke.cont.i144, %
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #20
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #22
-
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24
@@ -8925,9 +8925,9 @@ attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nofree nosync nounwind memory(none) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #23 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nounwind willreturn memory(read) }
 attributes #26 = { nounwind }

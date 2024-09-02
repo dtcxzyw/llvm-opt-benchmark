@@ -697,26 +697,26 @@ land.lhs.true.i:                                  ; preds = %entry
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
   %force_alignment.i = getelementptr inbounds i8, ptr %0, i64 90
   %3 = load i8, ptr %force_alignment.i, align 2
+  %4 = and i8 %3, 1
   br label %raw_needs_alignment.exit
 
 raw_needs_alignment.exit:                         ; preds = %land.lhs.true.i, %if.end.i
-  %retval.0.i = phi i8 [ %3, %if.end.i ], [ 1, %land.lhs.true.i ]
+  %retval.0.i = phi i8 [ %4, %if.end.i ], [ 1, %land.lhs.true.i ]
   %needs_alignment = getelementptr inbounds i8, ptr %0, i64 89
-  %frombool = and i8 %retval.0.i, 1
-  store i8 %frombool, ptr %needs_alignment, align 1
-  %4 = load i32, ptr %0, align 8
-  call fastcc void @raw_probe_alignment(ptr noundef nonnull %bs, i32 noundef %4, ptr noundef %errp)
+  store i8 %retval.0.i, ptr %needs_alignment, align 1
+  %5 = load i32, ptr %0, align 8
+  call fastcc void @raw_probe_alignment(ptr noundef nonnull %bs, i32 noundef %5, ptr noundef %errp)
   %buf_align = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load i64, ptr %buf_align, align 8
+  %6 = load i64, ptr %buf_align, align 8
   %min_mem_alignment = getelementptr inbounds i8, ptr %bs, i64 16528
-  store i64 %5, ptr %min_mem_alignment, align 8
+  store i64 %6, ptr %min_mem_alignment, align 8
   %call.i = tail call i32 @getpagesize() #21
   %conv.i = sext i32 %call.i to i64
-  %spec.select = call i64 @llvm.umax.i64(i64 %5, i64 %conv.i)
+  %spec.select = call i64 @llvm.umax.i64(i64 %6, i64 %conv.i)
   %opt_mem_alignment = getelementptr inbounds i8, ptr %bs, i64 16536
   store i64 %spec.select, ptr %opt_mem_alignment, align 8
-  %6 = load i32, ptr %0, align 8
-  %call7 = call i32 @fstat64(i32 noundef %6, ptr noundef nonnull %st) #18
+  %7 = load i32, ptr %0, align 8
+  %call7 = call i32 @fstat64(i32 noundef %7, ptr noundef nonnull %st) #18
   %tobool.not = icmp eq i32 %call7, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -730,7 +730,7 @@ if.end:                                           ; preds = %raw_needs_alignment
   br i1 %or.cond48, label %if.then10, label %if.end27
 
 if.then10:                                        ; preds = %if.end
-  %7 = load i32, ptr %0, align 8
+  %8 = load i32, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %max_sectors.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %max_bytes.i)
   %and.i24 = and i32 %st.val.pre, 61440
@@ -739,38 +739,38 @@ if.then10:                                        ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.then10
   store i16 0, ptr %max_sectors.i, align 2
-  %call.i26 = call i32 (i32, i64, ...) @ioctl(i32 noundef %7, i64 noundef 4711, ptr noundef nonnull %max_sectors.i) #18
+  %call.i26 = call i32 (i32, i64, ...) @ioctl(i32 noundef %8, i64 noundef 4711, ptr noundef nonnull %max_sectors.i) #18
   %cmp1.i = icmp eq i32 %call.i26, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %8 = load i16, ptr %max_sectors.i, align 2
-  %conv.i27 = zext i16 %8 to i32
+  %9 = load i16, ptr %max_sectors.i, align 2
+  %conv.i27 = zext i16 %9 to i32
   %mul.i = shl nuw nsw i32 %conv.i27, 9
   br label %hdev_get_max_hw_transfer.exit
 
 if.else.i:                                        ; preds = %if.then10
   store i32 0, ptr %max_bytes.i, align 4
-  %call3.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %7, i64 noundef 4711, ptr noundef nonnull %max_bytes.i) #18
+  %call3.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %8, i64 noundef 4711, ptr noundef nonnull %max_bytes.i) #18
   %cmp4.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %9 = load i32, ptr %max_bytes.i, align 4
+  %10 = load i32, ptr %max_bytes.i, align 4
   br label %hdev_get_max_hw_transfer.exit
 
 if.end8.i:                                        ; preds = %if.else.i, %if.then.i
   %call9.i = tail call ptr @__errno_location() #21
-  %10 = load i32, ptr %call9.i, align 4
-  %sub.i = sub i32 0, %10
+  %11 = load i32, ptr %call9.i, align 4
+  %sub.i = sub i32 0, %11
   br label %hdev_get_max_hw_transfer.exit
 
 hdev_get_max_hw_transfer.exit:                    ; preds = %if.then2.i, %if.then6.i, %if.end8.i
-  %retval.0.i25 = phi i32 [ %mul.i, %if.then2.i ], [ %sub.i, %if.end8.i ], [ %9, %if.then6.i ]
+  %retval.0.i25 = phi i32 [ %mul.i, %if.then2.i ], [ %sub.i, %if.end8.i ], [ %10, %if.then6.i ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %max_sectors.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %max_bytes.i)
-  %11 = add i32 %retval.0.i25, -1
-  %or.cond = icmp ult i32 %11, 2147483136
+  %12 = add i32 %retval.0.i25, -1
+  %or.cond = icmp ult i32 %12, 2147483136
   br i1 %or.cond, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %hdev_get_max_hw_transfer.exit
@@ -780,15 +780,15 @@ if.then16:                                        ; preds = %hdev_get_max_hw_tra
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then16, %hdev_get_max_hw_transfer.exit
-  %12 = load i32, ptr %0, align 8
+  %13 = load i32, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ret.i)
   %cmp.i29 = icmp eq i32 %and.i24, 8192
   br i1 %cmp.i29, label %if.then.i32, label %if.end3.i
 
 if.then.i32:                                      ; preds = %if.end19
-  %call.i33 = call i32 (i32, i64, ...) @ioctl(i32 noundef %12, i64 noundef 8831, ptr noundef nonnull %ret.i) #18
+  %call.i33 = call i32 (i32, i64, ...) @ioctl(i32 noundef %13, i64 noundef 8831, ptr noundef nonnull %ret.i) #18
   %cmp1.i34 = icmp eq i32 %call.i33, 0
-  %13 = load i32, ptr %ret.i, align 4
+  %14 = load i32, ptr %ret.i, align 4
   br i1 %cmp1.i34, label %hdev_get_max_segments.exit, label %hdev_get_max_segments.exit.thread
 
 hdev_get_max_segments.exit.thread:                ; preds = %if.then.i32
@@ -801,7 +801,7 @@ if.end3.i:                                        ; preds = %if.end19
   br label %hdev_get_max_segments.exit
 
 hdev_get_max_segments.exit:                       ; preds = %if.then.i32, %if.end3.i
-  %retval.0.i31 = phi i32 [ %conv.i30, %if.end3.i ], [ %13, %if.then.i32 ]
+  %retval.0.i31 = phi i32 [ %conv.i30, %if.end3.i ], [ %14, %if.then.i32 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ret.i)
   %cmp22 = icmp sgt i32 %retval.0.i31, 0
   br i1 %cmp22, label %if.then24, label %if.end27
@@ -812,7 +812,7 @@ if.then24:                                        ; preds = %hdev_get_max_segmen
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end, %hdev_get_max_segments.exit.thread, %hdev_get_max_segments.exit, %if.then24
-  %14 = load ptr, ptr %opaque, align 8
+  %15 = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i)
   store ptr null, ptr %val.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i.i.i)
@@ -822,21 +822,21 @@ if.end27:                                         ; preds = %if.end, %hdev_get_m
 
 if.end.i.i.i:                                     ; preds = %if.end27
   %st_rdev.i.i.i = getelementptr inbounds i8, ptr %st, i64 40
-  %15 = load i64, ptr %st_rdev.i.i.i, align 8
-  %call.i.i.i = call i32 @gnu_dev_major(i64 noundef %15) #21
-  %call2.i.i.i = call i32 @gnu_dev_minor(i64 noundef %15) #21
+  %16 = load i64, ptr %st_rdev.i.i.i, align 8
+  %call.i.i.i = call i32 @gnu_dev_major(i64 noundef %16) #21
+  %call2.i.i.i = call i32 @gnu_dev_minor(i64 noundef %16) #21
   %call3.i.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.62, i32 noundef %call.i.i.i, i32 noundef %call2.i.i.i, ptr noundef nonnull @.str.74) #18
   %call4.i.i.i = call i32 @g_file_get_contents(ptr noundef %call3.i.i.i, ptr noundef nonnull %val.i.i, ptr noundef nonnull %len.i.i.i, ptr noundef null) #18
   %tobool.not.i.i.i = icmp eq i32 %call4.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %get_sysfs_str_val.exit.thread.i.i, label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.end.i.i.i
-  %16 = load ptr, ptr %val.i.i, align 8
-  %17 = load i64, ptr %len.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr i8, ptr %16, i64 %17
+  %17 = load ptr, ptr %val.i.i, align 8
+  %18 = load i64, ptr %len.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr i8, ptr %17, i64 %18
   %add.ptr7.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 -1
-  %18 = load i8, ptr %add.ptr7.i.i.i, align 1
-  %cmp8.i.i.i = icmp eq i8 %18, 10
+  %19 = load i8, ptr %add.ptr7.i.i.i, align 1
+  %cmp8.i.i.i = icmp eq i8 %19, 10
   br i1 %cmp8.i.i.i, label %if.then10.i.i.i, label %if.end.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.end6.i.i.i
@@ -853,25 +853,25 @@ get_sysfs_str_val.exit.thread.i.i:                ; preds = %if.end.i.i.i, %if.e
 if.end.i.i:                                       ; preds = %if.then10.i.i.i, %if.end6.i.i.i
   call void @g_free(ptr noundef %call3.i.i.i) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i.i.i)
-  %19 = load ptr, ptr %val.i.i, align 8
-  %call1.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(13) @.str.75) #22
+  %20 = load ptr, ptr %val.i.i, align 8
+  %call1.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(13) @.str.75) #22
   %cmp2.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %cmp2.i.i, label %get_sysfs_zoned_model.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %call4.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(11) @.str.76) #22
+  %call4.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(11) @.str.76) #22
   %cmp5.i.i = icmp eq i32 %call4.i.i, 0
   br i1 %cmp5.i.i, label %get_sysfs_zoned_model.exit.i, label %get_sysfs_zoned_model.exit.thread.i
 
 get_sysfs_zoned_model.exit.thread.i:              ; preds = %if.else.i.i, %get_sysfs_str_val.exit.thread.i.i
-  %val.val.i.ph.i = phi ptr [ %val.val.pre.i.i, %get_sysfs_str_val.exit.thread.i.i ], [ %19, %if.else.i.i ]
+  %val.val.i.ph.i = phi ptr [ %val.val.pre.i.i, %get_sysfs_str_val.exit.thread.i.i ], [ %20, %if.else.i.i ]
   call void @g_free(ptr noundef %val.val.i.ph.i) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i)
   br label %no_zoned.i
 
 get_sysfs_zoned_model.exit.i:                     ; preds = %if.else.i.i, %if.end.i.i
   %zoned.0.i = phi i32 [ 1, %if.end.i.i ], [ 2, %if.else.i.i ]
-  call void @g_free(ptr noundef %19) #18
+  call void @g_free(ptr noundef %20) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i)
   %zoned2.i = getelementptr inbounds i8, ptr %bs, i64 16552
   store i32 %zoned.0.i, ptr %zoned2.i, align 8
@@ -964,18 +964,18 @@ if.then48.i:                                      ; preds = %if.end43.i
 
 if.end50.i:                                       ; preds = %if.then48.i, %if.end43.i
   %wps.i = getelementptr inbounds i8, ptr %bs, i64 17136
-  %20 = load ptr, ptr %wps.i, align 8
-  call void @g_free(ptr noundef %20) #18
-  %21 = load i32, ptr %nr_zones.i, align 8
-  %conv53.i = zext i32 %21 to i64
+  %21 = load ptr, ptr %wps.i, align 8
+  call void @g_free(ptr noundef %21) #18
+  %22 = load i32, ptr %nr_zones.i, align 8
+  %conv53.i = zext i32 %22 to i64
   %mul.i41 = shl nuw nsw i64 %conv53.i, 3
   %add.i = add nuw nsw i64 %mul.i41, 48
   %call54.i = call noalias ptr @g_malloc(i64 noundef %add.i) #23
   store ptr %call54.i, ptr %wps.i, align 8
-  %22 = load i32, ptr %14, align 8
-  %23 = load i32, ptr %nr_zones.i, align 8
+  %23 = load i32, ptr %15, align 8
+  %24 = load i32, ptr %nr_zones.i, align 8
   %bs.val.i = load i32, ptr %zone_size.i, align 4
-  %call58.i = call fastcc i32 @get_zones_wp(i32 %bs.val.i, ptr %call54.i, i32 noundef %22, i64 noundef 0, i32 noundef %23, i1 noundef zeroext false)
+  %call58.i = call fastcc i32 @get_zones_wp(i32 %bs.val.i, ptr %call54.i, i32 noundef %23, i64 noundef 0, i32 noundef %24, i1 noundef zeroext false)
   %cmp59.i = icmp slt i32 %call58.i, 0
   br i1 %cmp59.i, label %if.then61.i, label %if.end63.i
 
@@ -985,16 +985,16 @@ if.then61.i:                                      ; preds = %if.end50.i
   br label %no_zoned.i
 
 if.end63.i:                                       ; preds = %if.end50.i
-  %24 = load ptr, ptr %wps.i, align 8
-  call void @qemu_co_mutex_init(ptr noundef %24) #18
+  %25 = load ptr, ptr %wps.i, align 8
+  call void @qemu_co_mutex_init(ptr noundef %25) #18
   br label %return
 
 no_zoned.i:                                       ; preds = %if.then61.i, %if.then33.i, %if.then29.i, %if.then21.i, %if.then20.i, %get_sysfs_zoned_model.exit.thread.i
   %zoned66.i = getelementptr inbounds i8, ptr %bs, i64 16552
   store i32 0, ptr %zoned66.i, align 8
   %wps67.i = getelementptr inbounds i8, ptr %bs, i64 17136
-  %25 = load ptr, ptr %wps67.i, align 8
-  call void @g_free(ptr noundef %25) #18
+  %26 = load ptr, ptr %wps67.i, align 8
+  call void @g_free(ptr noundef %26) #18
   store ptr null, ptr %wps67.i, align 8
   br label %return
 
@@ -1549,7 +1549,7 @@ return:                                           ; preds = %if.end5, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @raw_co_block_status(ptr noundef %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal range(i32 -5, 7) i32 @raw_co_block_status(ptr noundef %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
 entry:
   %or = or i64 %bytes, %offset
   %bl = getelementptr inbounds i8, ptr %bs, i64 16464

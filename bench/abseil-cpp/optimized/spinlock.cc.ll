@@ -140,27 +140,27 @@ _ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit: ; preds = %_ZN4absl13
   %6 = cmpxchg ptr %this, i32 %5, i32 %or9.i acquire monotonic, align 4
   %7 = extractvalue { i32, i1 } %6, 0
   %.pre = and i32 %7, 1
-  %cmp = icmp eq i32 %.pre, 0
-  br i1 %cmp, label %while.end, label %if.end
+  %8 = icmp eq i32 %.pre, 0
+  br i1 %8, label %while.end, label %if.end
 
 if.end:                                           ; preds = %_ZN4absl13base_internal8SpinLock8SpinLoopEv.exit, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit
-  %retval.0.i109 = phi i32 [ %7, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit ], [ %5, %_ZN4absl13base_internal8SpinLock8SpinLoopEv.exit ]
-  %and3 = lshr i32 %retval.0.i109, 1
+  %retval.0.i108 = phi i32 [ %7, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit ], [ %5, %_ZN4absl13base_internal8SpinLock8SpinLoopEv.exit ]
+  %and3 = lshr i32 %retval.0.i108, 1
   %and3.lobit = and i32 %and3, 1
-  %8 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
-  %cmp.i = icmp eq i64 %8, 0
+  %9 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
+  %cmp.i = icmp eq i64 %9, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %9 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
-  %asmresult.i.i = extractvalue { i64, i64 } %9, 0
-  %asmresult1.i.i = extractvalue { i64, i64 } %9, 1
+  %10 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
+  %asmresult.i.i = extractvalue { i64, i64 } %10, 0
+  %asmresult1.i.i = extractvalue { i64, i64 } %10, 1
   %shl.i.i = shl i64 %asmresult1.i.i, 32
   %or.i.i = or i64 %shl.i.i, %asmresult.i.i
   br label %while.body.lr.ph.preheader
 
 if.end.i:                                         ; preds = %if.end
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %8 to ptr
+  %atomic-temp.i.0.i.i.i = inttoptr i64 %9 to ptr
   %call2.i = tail call noundef i64 %atomic-temp.i.0.i.i.i()
   br label %while.body.lr.ph.preheader
 
@@ -172,7 +172,7 @@ while.body.lr.ph.preheader:                       ; preds = %if.end.i, %if.then.
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.preheader, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit90
   %lock_wait_call_count.0.ph101 = phi i32 [ %inc, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit90 ], [ 0, %while.body.lr.ph.preheader ]
   %wait_cycles.0.ph100 = phi i32 [ %retval.0.i83, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit90 ], [ 0, %while.body.lr.ph.preheader ]
-  %lock_value.0.ph99 = phi i32 [ %retval.0.i86, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit90 ], [ %retval.0.i109, %while.body.lr.ph.preheader ]
+  %lock_value.0.ph99 = phi i32 [ %retval.0.i86, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit90 ], [ %retval.0.i108, %while.body.lr.ph.preheader ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -182,45 +182,45 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then12:                                        ; preds = %while.body
   %or = or disjoint i32 %lock_value.096, 8
-  %10 = cmpxchg ptr %this, i32 %lock_value.096, i32 %or monotonic monotonic, align 4
-  %11 = extractvalue { i32, i1 } %10, 1
-  %12 = extractvalue { i32, i1 } %10, 0
-  br i1 %11, label %if.end28, label %if.else16
+  %11 = cmpxchg ptr %this, i32 %lock_value.096, i32 %or monotonic monotonic, align 4
+  %12 = extractvalue { i32, i1 } %11, 1
+  %13 = extractvalue { i32, i1 } %11, 0
+  br i1 %12, label %if.end28, label %if.else16
 
 if.else16:                                        ; preds = %if.then12
-  %and17 = and i32 %12, 1
+  %and17 = and i32 %13, 1
   %cmp18 = icmp eq i32 %and17, 0
   br i1 %cmp18, label %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit50, label %if.else21
 
 _ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit50: ; preds = %if.else16
-  %or8.i = or i32 %wait_cycles.0.ph100, %12
+  %or8.i = or i32 %wait_cycles.0.ph100, %13
   %or9.i49 = or i32 %or8.i, 1
-  %13 = cmpxchg ptr %this, i32 %12, i32 %or9.i49 acquire monotonic, align 4
-  %14 = extractvalue { i32, i1 } %13, 0
+  %14 = cmpxchg ptr %this, i32 %13, i32 %or9.i49 acquire monotonic, align 4
+  %15 = extractvalue { i32, i1 } %14, 0
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit50, %if.else21
-  %lock_value.0.be = phi i32 [ %14, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit50 ], [ %12, %if.else21 ]
+  %lock_value.0.be = phi i32 [ %15, %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit50 ], [ %13, %if.else21 ]
   %and8 = and i32 %lock_value.0.be, 1
   %cmp9.not = icmp eq i32 %and8, 0
   br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !8
 
 if.else21:                                        ; preds = %if.else16
-  %cmp23 = icmp ult i32 %12, 8
+  %cmp23 = icmp ult i32 %13, 8
   br i1 %cmp23, label %while.cond.backedge, label %if.end28
 
 if.end28:                                         ; preds = %if.else21, %while.body, %if.then12
-  %lock_value.1 = phi i32 [ %or, %if.then12 ], [ %12, %if.else21 ], [ %lock_value.096, %while.body ]
+  %lock_value.1 = phi i32 [ %or, %if.then12 ], [ %13, %if.else21 ], [ %lock_value.096, %while.body ]
   %inc = add nuw nsw i32 %lock_wait_call_count.0.ph101, 1
   tail call void @AbslInternalSpinLockDelay(ptr noundef nonnull %this, i32 noundef %lock_value.1, i32 noundef %inc, i32 noundef %and3.lobit)
-  %15 = load atomic i32, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count acquire, align 4
-  %cmp.not.i.i51 = icmp eq i32 %15, 221
+  %16 = load atomic i32, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count acquire, align 4
+  %cmp.not.i.i51 = icmp eq i32 %16, 221
   br i1 %cmp.not.i.i51, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56", label %if.then.i.i52
 
 if.then.i.i52:                                    ; preds = %if.end28
-  %16 = cmpxchg ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 0, i32 1707250555 monotonic monotonic, align 4
-  %17 = extractvalue { i32, i1 } %16, 1
-  br i1 %17, label %if.then.i.i.i64, label %lor.lhs.false.i.i.i53
+  %17 = cmpxchg ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 0, i32 1707250555 monotonic monotonic, align 4
+  %18 = extractvalue { i32, i1 } %17, 1
+  br i1 %18, label %if.then.i.i.i64, label %lor.lhs.false.i.i.i53
 
 lor.lhs.false.i.i.i53:                            ; preds = %if.then.i.i52
   %call1.i.i.i54 = tail call noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef nonnull @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 noundef 3, ptr noundef nonnull @"_ZZN4absl13base_internal12CallOnceImplIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPSt6atomicIjENS0_14SchedulingModeEOT_DpOT0_E5trans", i32 noundef 0)
@@ -232,8 +232,8 @@ if.then.i.i.i64:                                  ; preds = %lor.lhs.false.i.i.i
   %cmp.i.i.i.i.i.i.i66 = icmp sgt i32 %call.i.i.i.i39.i.i.i65, 1
   %cond.i.i.i.i.i.i.i67 = select i1 %cmp.i.i.i.i.i.i.i66, i32 1000, i32 1
   store i32 %cond.i.i.i.i.i.i.i67, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE19adaptive_spin_count, align 4
-  %18 = atomicrmw xchg ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 221 release, align 4
-  %cmp4.i.i.i68 = icmp eq i32 %18, 94570706
+  %19 = atomicrmw xchg ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count, i32 221 release, align 4
+  %cmp4.i.i.i68 = icmp eq i32 %19, 94570706
   br i1 %cmp4.i.i.i68, label %if.then5.i.i.i69, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56"
 
 if.then5.i.i.i69:                                 ; preds = %if.then.i.i.i64
@@ -241,13 +241,13 @@ if.then5.i.i.i69:                                 ; preds = %if.then.i.i.i64
   br label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56"
 
 "_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56": ; preds = %if.then5.i.i.i69, %if.then.i.i.i64, %lor.lhs.false.i.i.i53, %if.end28
-  %19 = load i32, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE19adaptive_spin_count, align 4
+  %20 = load i32, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE19adaptive_spin_count, align 4
   br label %do.body.i57
 
 do.body.i57:                                      ; preds = %do.body.i57, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56"
-  %c.0.i58 = phi i32 [ %19, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56" ], [ %dec.i61, %do.body.i57 ]
-  %20 = load atomic i32, ptr %this monotonic, align 4
-  %and.i59 = and i32 %20, 1
+  %c.0.i58 = phi i32 [ %20, %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56" ], [ %dec.i61, %do.body.i57 ]
+  %21 = load atomic i32, ptr %this monotonic, align 4
+  %and.i59 = and i32 %21, 1
   %cmp.not.i60 = icmp ne i32 %and.i59, 0
   %dec.i61 = add nsw i32 %c.0.i58, -1
   %cmp2.i62 = icmp sgt i32 %c.0.i58, 1
@@ -255,20 +255,20 @@ do.body.i57:                                      ; preds = %do.body.i57, %"_ZN4
   br i1 %or.cond.i63, label %do.body.i57, label %_ZN4absl13base_internal8SpinLock8SpinLoopEv.exit70, !llvm.loop !5
 
 _ZN4absl13base_internal8SpinLock8SpinLoopEv.exit70: ; preds = %do.body.i57
-  %21 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
-  %cmp.i71 = icmp eq i64 %21, 0
+  %22 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
+  %cmp.i71 = icmp eq i64 %22, 0
   br i1 %cmp.i71, label %if.then.i77, label %if.end.i72
 
 if.then.i77:                                      ; preds = %_ZN4absl13base_internal8SpinLock8SpinLoopEv.exit70
-  %22 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
-  %asmresult.i.i78 = extractvalue { i64, i64 } %22, 0
-  %asmresult1.i.i79 = extractvalue { i64, i64 } %22, 1
+  %23 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
+  %asmresult.i.i78 = extractvalue { i64, i64 } %23, 0
+  %asmresult1.i.i79 = extractvalue { i64, i64 } %23, 1
   %shl.i.i80 = shl i64 %asmresult1.i.i79, 32
   %or.i.i81 = or i64 %shl.i.i80, %asmresult.i.i78
   br label %_ZN4absl13base_internal10CycleClock3NowEv.exit82
 
 if.end.i72:                                       ; preds = %_ZN4absl13base_internal8SpinLock8SpinLoopEv.exit70
-  %atomic-temp.i.0.i.i.i73 = inttoptr i64 %21 to ptr
+  %atomic-temp.i.0.i.i.i73 = inttoptr i64 %22 to ptr
   %call2.i74 = tail call noundef i64 %atomic-temp.i.0.i.i.i73()
   br label %_ZN4absl13base_internal10CycleClock3NowEv.exit82
 
@@ -297,14 +297,14 @@ _ZN4absl13base_internal8SpinLock16EncodeWaitCyclesEll.exit: ; preds = %_ZN4absl1
   br i1 %cmp.not.i85, label %if.end7.i87, label %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit90
 
 if.end7.i87:                                      ; preds = %_ZN4absl13base_internal8SpinLock16EncodeWaitCyclesEll.exit
-  %or8.i88 = or i32 %20, %retval.0.i83
+  %or8.i88 = or i32 %21, %retval.0.i83
   %or9.i89 = or disjoint i32 %or8.i88, 1
-  %23 = cmpxchg ptr %this, i32 %20, i32 %or9.i89 acquire monotonic, align 4
-  %24 = extractvalue { i32, i1 } %23, 0
+  %24 = cmpxchg ptr %this, i32 %21, i32 %or9.i89 acquire monotonic, align 4
+  %25 = extractvalue { i32, i1 } %24, 0
   br label %_ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit90
 
 _ZN4absl13base_internal8SpinLock15TryLockInternalEjj.exit90: ; preds = %_ZN4absl13base_internal8SpinLock16EncodeWaitCyclesEll.exit, %if.end7.i87
-  %retval.0.i86 = phi i32 [ %20, %_ZN4absl13base_internal8SpinLock16EncodeWaitCyclesEll.exit ], [ %24, %if.end7.i87 ]
+  %retval.0.i86 = phi i32 [ %21, %_ZN4absl13base_internal8SpinLock16EncodeWaitCyclesEll.exit ], [ %25, %if.end7.i87 ]
   %and894 = and i32 %retval.0.i86, 1
   %cmp9.not95 = icmp eq i32 %and894, 0
   br i1 %cmp9.not95, label %while.end, label %while.body.lr.ph, !llvm.loop !8
@@ -314,7 +314,7 @@ while.end:                                        ; preds = %_ZN4absl13base_inte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 1, 0) i32 @_ZN4absl13base_internal8SpinLock16EncodeWaitCyclesEll(i64 noundef %wait_start_time, i64 noundef %wait_end_time) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 1, -7) i32 @_ZN4absl13base_internal8SpinLock16EncodeWaitCyclesEll(i64 noundef %wait_start_time, i64 noundef %wait_end_time) local_unnamed_addr #4 align 2 {
 entry:
   %sub = sub nsw i64 %wait_end_time, %wait_start_time
   %shr = ashr i64 %sub, 7

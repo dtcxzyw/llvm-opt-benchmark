@@ -233,7 +233,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @NAME_CONSTRAINTS_check(ptr noundef %x, ptr nocapture noundef readonly %nc) local_unnamed_addr #1 {
+define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check(ptr noundef %x, ptr nocapture noundef readonly %nc) local_unnamed_addr #1 {
 entry:
   %gntmp = alloca %struct.GENERAL_NAME_st, align 8
   %call = tail call ptr @X509_get_subject_name(ptr noundef %x) #9
@@ -340,7 +340,7 @@ declare i32 @X509_NAME_entry_count(ptr noundef) local_unnamed_addr #2
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nc_match(ptr nocapture noundef readonly %gen, ptr nocapture noundef readonly %nc) unnamed_addr #1 {
+define internal fastcc range(i32 0, 54) i32 @nc_match(ptr nocapture noundef readonly %gen, ptr nocapture noundef readonly %nc) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %gen, align 8
   %cmp = icmp eq i32 %0, 0
@@ -607,7 +607,7 @@ declare ptr @X509_NAME_ENTRY_get_data(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %x, ptr nocapture noundef readonly %nc) local_unnamed_addr #1 {
+define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %x, ptr nocapture noundef readonly %nc) local_unnamed_addr #1 {
 entry:
   %utf8_value.i = alloca ptr, align 8
   %stmp = alloca %struct.asn1_string_st, align 8

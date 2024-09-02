@@ -1306,7 +1306,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 2
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %.thread19, label %24
+  br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %12, i64 8
@@ -1314,7 +1314,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %27 = getelementptr inbounds i8, ptr %26, i64 224
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread19, label %30
+  br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %24
   %31 = call i32 %28(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %7) #11
@@ -1328,7 +1328,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %35 = phi i32 [ %31, %30 ], [ %33, %32 ]
   %36 = icmp eq i32 %35, 0
   %.pre.pre = load ptr, ptr %0, align 64
-  br i1 %36, label %37, label %.thread19
+  br i1 %36, label %37, label %.critedge
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %0, i64 764
@@ -1365,12 +1365,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %58 = add i32 %57, 1
   br label %59
 
-.thread19:                                        ; preds = %34, %24, %19
-  %.pre = phi ptr [ %.pre.pre, %34 ], [ %12, %24 ], [ %12, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  br label %64
-
-59:                                               ; preds = %53, %55
+59:                                               ; preds = %55, %53
   %60 = phi i32 [ 0, %53 ], [ %58, %55 ]
   %61 = load i32, ptr %7, align 4
   %62 = lshr i32 %61, 4
@@ -1379,8 +1374,13 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   br i1 %.not, label %123, label %64
 
-64:                                               ; preds = %.thread19, %59
-  %65 = phi ptr [ %.pre, %.thread19 ], [ %.pre.pre, %59 ]
+.critedge:                                        ; preds = %19, %24, %34
+  %.pre = phi ptr [ %12, %19 ], [ %12, %24 ], [ %.pre.pre, %34 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
+  br label %64
+
+64:                                               ; preds = %.critedge, %59
+  %65 = phi ptr [ %.pre, %.critedge ], [ %.pre.pre, %59 ]
   %66 = getelementptr inbounds i8, ptr %65, i64 8256
   %67 = icmp eq ptr %66, %0
   br i1 %67, label %72, label %68
@@ -1396,7 +1396,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %74, 2
   %76 = icmp eq i64 %75, 0
-  br i1 %76, label %.thread21, label %77
+  br i1 %76, label %.thread19, label %77
 
 77:                                               ; preds = %72
   %78 = getelementptr inbounds i8, ptr %65, i64 8
@@ -1404,7 +1404,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %80 = getelementptr inbounds i8, ptr %79, i64 224
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.thread21, label %83
+  br i1 %82, label %.thread19, label %83
 
 83:                                               ; preds = %77
   %84 = call i32 %81(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %8) #11
@@ -1417,7 +1417,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
 87:                                               ; preds = %85, %83
   %88 = phi i32 [ %84, %83 ], [ %86, %85 ]
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %.thread21
+  br i1 %89, label %90, label %.thread19
 
 90:                                               ; preds = %87
   %91 = load i32, ptr %8, align 4
@@ -1440,7 +1440,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %103 = load i64, ptr %102, align 8
   %104 = and i64 %103, 2
   %105 = icmp eq i64 %104, 0
-  br i1 %105, label %.thread21, label %106
+  br i1 %105, label %.thread19, label %106
 
 106:                                              ; preds = %101
   %107 = getelementptr inbounds i8, ptr %94, i64 8
@@ -1448,7 +1448,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %109 = getelementptr inbounds i8, ptr %108, i64 224
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
-  br i1 %111, label %.thread21, label %112
+  br i1 %111, label %.thread19, label %112
 
 112:                                              ; preds = %106
   %113 = getelementptr inbounds i8, ptr %108, i64 232
@@ -1463,15 +1463,15 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
 118:                                              ; preds = %116, %112
   %119 = phi i32 [ %115, %112 ], [ %117, %116 ]
   %120 = icmp eq i32 %119, 0
-  br i1 %120, label %121, label %.thread21
+  br i1 %120, label %121, label %.thread19
 
 121:                                              ; preds = %118
   %122 = call i32 @sata_set_spd(ptr noundef %0)
-  %.pre28 = load ptr, ptr %0, align 64
+  %.pre26 = load ptr, ptr %0, align 64
   br label %123
 
 123:                                              ; preds = %121, %59
-  %124 = phi ptr [ %.pre28, %121 ], [ %.pre.pre, %59 ]
+  %124 = phi ptr [ %.pre26, %121 ], [ %.pre.pre, %59 ]
   %125 = getelementptr inbounds i8, ptr %124, i64 8256
   %126 = icmp eq ptr %125, %0
   br i1 %126, label %131, label %127
@@ -1487,7 +1487,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %133 = load i64, ptr %132, align 8
   %134 = and i64 %133, 2
   %135 = icmp eq i64 %134, 0
-  br i1 %135, label %.thread21, label %136
+  br i1 %135, label %.thread19, label %136
 
 136:                                              ; preds = %131
   %137 = getelementptr inbounds i8, ptr %124, i64 8
@@ -1495,7 +1495,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %139 = getelementptr inbounds i8, ptr %138, i64 224
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, null
-  br i1 %141, label %.thread21, label %142
+  br i1 %141, label %.thread19, label %142
 
 142:                                              ; preds = %136
   %143 = call i32 %140(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %8) #11
@@ -1508,7 +1508,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
 146:                                              ; preds = %144, %142
   %147 = phi i32 [ %143, %142 ], [ %145, %144 ]
   %148 = icmp eq i32 %147, 0
-  br i1 %148, label %149, label %.thread21
+  br i1 %148, label %149, label %.thread19
 
 149:                                              ; preds = %146
   %150 = load i32, ptr %8, align 4
@@ -1533,7 +1533,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %162 = load i64, ptr %161, align 8
   %163 = and i64 %162, 2
   %164 = icmp eq i64 %163, 0
-  br i1 %164, label %.thread27, label %165
+  br i1 %164, label %.thread25, label %165
 
 165:                                              ; preds = %160
   %166 = getelementptr inbounds i8, ptr %153, i64 8
@@ -1541,14 +1541,14 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %168 = getelementptr inbounds i8, ptr %167, i64 224
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, null
-  br i1 %170, label %.thread27, label %171
+  br i1 %170, label %.thread25, label %171
 
 171:                                              ; preds = %165
   %172 = getelementptr inbounds i8, ptr %167, i64 232
   %173 = load ptr, ptr %172, align 8
   %174 = call i32 %173(ptr noundef %0, i32 noundef 2, i32 noundef %152) #11
   %175 = icmp eq i32 %174, 0
-  br i1 %175, label %176, label %.thread27
+  br i1 %175, label %176, label %.thread25
 
 176:                                              ; preds = %171
   %177 = load ptr, ptr %0, align 64
@@ -1563,27 +1563,27 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %184 = call i32 @sata_pmp_scr_write(ptr noundef %0, i32 noundef 2, i32 noundef %152) #11
   br label %185
 
-.thread27:                                        ; preds = %171, %165, %160
+.thread25:                                        ; preds = %171, %165, %160
   %.ph = phi i32 [ -95, %160 ], [ -95, %165 ], [ %174, %171 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %.thread21
+  br label %.thread19
 
 185:                                              ; preds = %183, %176
   %186 = phi i32 [ %184, %183 ], [ %182, %176 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %187 = icmp eq i32 %186, 0
-  br i1 %187, label %188, label %.thread21
+  br i1 %187, label %188, label %.thread19
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %0, align 64
   call void @ata_msleep(ptr noundef %189, i32 noundef 1) #11
   %190 = call i32 @sata_link_resume(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %191 = icmp eq i32 %190, 0
-  br i1 %191, label %192, label %.thread21
+  br i1 %191, label %192, label %.thread19
 
 192:                                              ; preds = %188
   %193 = call zeroext i1 @ata_phys_link_offline(ptr noundef %0) #11
-  br i1 %193, label %.thread21, label %194
+  br i1 %193, label %.thread19, label %194
 
 194:                                              ; preds = %192
   br i1 %9, label %196, label %195
@@ -1613,7 +1613,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
 
 209:                                              ; preds = %205, %202
   %210 = icmp eq ptr %4, null
-  br i1 %210, label %.thread21, label %211
+  br i1 %210, label %.thread19, label %211
 
 211:                                              ; preds = %209
   %212 = load volatile i64, ptr @jiffies, align 64
@@ -1622,21 +1622,21 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %215 = icmp slt i64 %214, 0
   %216 = select i1 %215, i64 %2, i64 %213
   %217 = call i32 @ata_wait_ready(ptr noundef %0, i64 noundef %216, ptr noundef nonnull %4) #11
-  br label %.thread21
+  br label %.thread19
 
 218:                                              ; preds = %205, %196
   %219 = icmp eq ptr %4, null
-  br i1 %219, label %.thread21, label %220
+  br i1 %219, label %.thread19, label %220
 
 220:                                              ; preds = %218
   %221 = call i32 @ata_wait_ready(ptr noundef %0, i64 noundef %2, ptr noundef nonnull %4) #11
-  br label %.thread21
+  br label %.thread19
 
-.thread21:                                        ; preds = %131, %136, %101, %106, %72, %77, %.thread27, %220, %218, %211, %209, %192, %188, %185, %146, %118, %87
-  %222 = phi i32 [ %88, %87 ], [ %119, %118 ], [ %147, %146 ], [ %186, %185 ], [ %190, %188 ], [ 0, %192 ], [ %221, %220 ], [ 0, %218 ], [ -11, %211 ], [ -11, %209 ], [ %.ph, %.thread27 ], [ -95, %77 ], [ -95, %72 ], [ -95, %106 ], [ -95, %101 ], [ -95, %136 ], [ -95, %131 ]
+.thread19:                                        ; preds = %131, %136, %101, %106, %72, %77, %.thread25, %220, %218, %211, %209, %192, %188, %185, %146, %118, %87
+  %222 = phi i32 [ %88, %87 ], [ %119, %118 ], [ %147, %146 ], [ %186, %185 ], [ %190, %188 ], [ 0, %192 ], [ %221, %220 ], [ 0, %218 ], [ -11, %211 ], [ -11, %209 ], [ %.ph, %.thread25 ], [ -95, %77 ], [ -95, %72 ], [ -95, %106 ], [ -95, %101 ], [ -95, %136 ], [ -95, %131 ]
   br i1 %9, label %225, label %223
 
-223:                                              ; preds = %.thread21
+223:                                              ; preds = %.thread19
   switch i32 %222, label %224 [
     i32 -11, label %225
     i32 0, label %225
@@ -1646,7 +1646,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   store i8 0, ptr %3, align 1
   br label %225
 
-225:                                              ; preds = %224, %223, %223, %.thread21
+225:                                              ; preds = %224, %223, %223, %.thread19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
   ret i32 %222
 }

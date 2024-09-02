@@ -1994,7 +1994,7 @@ _ZNSt10shared_ptrIN7xgboost10collective4CollEED2Ev.exit: ; preds = %_ZNSt16_Sp_c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGTrackerCreate(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGTrackerCreate(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.xgboost::Json", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2943,7 +2943,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGTrackerWorkerArgs(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGTrackerWorkerArgs(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.xgboost::Json", align 8
@@ -3360,7 +3360,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGTrackerRun(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGTrackerRun(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.std::future", align 8
   %5 = alloca %"struct.dmlc::Error", align 8
@@ -3782,7 +3782,7 @@ _ZNSt14__basic_futureIN7xgboost10collective6ResultEED2Ev.exit: ; preds = %1, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGTrackerWaitFor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGTrackerWaitFor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"class.xgboost::Json", align 8
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -4699,7 +4699,7 @@ _ZNSt10shared_ptrIN7xgboost10collective7TrackerEED2Ev.exit: ; preds = %_ZNSt13sh
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGTrackerFree(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGTrackerFree(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %"struct.xgboost::collective::Result", align 8
   %4 = alloca %"class.xgboost::ConsoleLogger", align 8
@@ -5162,7 +5162,7 @@ _ZNSt10shared_ptrIN7xgboost10collective7TrackerEED2Ev.exit: ; preds = %_ZNSt13sh
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGCommunicatorInit(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGCommunicatorInit(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.dmlc::LogMessageFatal", align 1
   %3 = alloca %"class.xgboost::Json", align 8
   %4 = alloca %"class.xgboost::Json", align 8
@@ -5441,7 +5441,7 @@ _ZN7xgboost4JsonD2Ev.exit27:                      ; preds = %49, %45, %_ZN7xgboo
 declare void @_ZN7xgboost10collective19GlobalCommGroupInitENS_4JsonE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGCommunicatorFinalize() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGCommunicatorFinalize() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.dmlc::Error", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
@@ -5584,7 +5584,7 @@ define range(i32 0, 2) i32 @XGCommunicatorIsDistributed() local_unnamed_addr #4 
 declare noundef zeroext i1 @_ZN7xgboost10collective13IsDistributedEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGCommunicatorPrint(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGCommunicatorPrint(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.dmlc::Error", align 8
@@ -5753,7 +5753,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit23:  ; preds = %39
 declare void @_ZN7xgboost10collective5PrintERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGCommunicatorGetProcessorName(ptr noundef writeonly %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGCommunicatorGetProcessorName(ptr noundef writeonly %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.dmlc::LogMessageFatal", align 1
   %4 = alloca %"struct.dmlc::Error", align 8
@@ -5949,7 +5949,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit28:  ; preds = %51
 declare void @_ZN7xgboost10collective16GetProcessorNameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGCommunicatorBroadcast(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGCommunicatorBroadcast(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.dmlc::Error", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -6062,7 +6062,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit19:  ; preds = %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGCommunicatorAllreduce(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGCommunicatorAllreduce(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.dmlc::Error", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -6175,7 +6175,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit20:  ; preds = %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGCommunicatorAllgather(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGCommunicatorAllgather(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.dmlc::Error", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -6288,7 +6288,7 @@ _Z21XGBAPIHandleExceptionRKN4dmlc5ErrorE.exit18:  ; preds = %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @XGCommunicatorSignalError() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 -1, 1) i32 @XGCommunicatorSignalError() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.xgboost::collective::Result", align 8
   %2 = alloca %"struct.xgboost::collective::Result", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8

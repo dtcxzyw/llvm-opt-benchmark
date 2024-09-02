@@ -4569,7 +4569,7 @@ inflateStateCheck.exit.thread:                    ; preds = %12, %16, %2, %4, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @cm_zlib_inflateMark(ptr noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 -140737488355328, 140741783257088) i64 @cm_zlib_inflateMark(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %inflateStateCheck.exit.thread, label %3
 

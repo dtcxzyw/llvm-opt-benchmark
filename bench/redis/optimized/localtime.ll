@@ -52,18 +52,18 @@ if.else.i:                                        ; preds = %while.body
 is_leap_year.exit:                                ; preds = %if.else.i
   %rem5.i52 = urem i32 %storemerge, 400
   %tobool6.not.i = icmp eq i32 %rem5.i52, 0
-  %add14 = select i1 %tobool6.not.i, i64 366, i64 365
-  %cmp = icmp slt i64 %days.0, %add14
+  %1 = select i1 %tobool6.not.i, i64 366, i64 365
+  %cmp = icmp slt i64 %days.0, %1
   br i1 %cmp, label %if.else4.i35, label %if.end
 
 is_leap_year.exit.thread72:                       ; preds = %if.else.i
-  %cmp75 = icmp slt i64 %days.0, 366
-  br i1 %cmp75, label %while.end.thread76, label %if.end
+  %cmp74 = icmp slt i64 %days.0, 366
+  br i1 %cmp74, label %while.end.thread75, label %if.end
 
-while.end.thread76:                               ; preds = %is_leap_year.exit.thread72
-  %conv1977 = trunc i64 %days.0 to i32
-  %tm_yday78 = getelementptr inbounds i8, ptr %tmp, i64 28
-  store i32 %conv1977, ptr %tm_yday78, align 4
+while.end.thread75:                               ; preds = %is_leap_year.exit.thread72
+  %conv1976 = trunc i64 %days.0 to i32
+  %tm_yday77 = getelementptr inbounds i8, ptr %tmp, i64 28
+  store i32 %conv1976, ptr %tm_yday77, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %mdays, ptr noundef nonnull align 16 dereferenceable(48) @__const.nolocks_localtime.mdays, i64 48, i1 false)
   br label %is_leap_year.exit39
 
@@ -79,7 +79,7 @@ while.end.thread:                                 ; preds = %is_leap_year.exit.t
   br label %is_leap_year.exit39
 
 if.end:                                           ; preds = %is_leap_year.exit.thread72, %is_leap_year.exit.thread, %is_leap_year.exit
-  %conv1544 = phi i64 [ 365, %is_leap_year.exit.thread ], [ %add14, %is_leap_year.exit ], [ 366, %is_leap_year.exit.thread72 ]
+  %conv1544 = phi i64 [ 365, %is_leap_year.exit.thread ], [ %1, %is_leap_year.exit ], [ 366, %is_leap_year.exit.thread72 ]
   %sub17 = sub nsw i64 %days.0, %conv1544
   %inc = add nuw nsw i32 %storemerge, 1
   br label %while.body
@@ -91,11 +91,11 @@ if.else4.i35:                                     ; preds = %is_leap_year.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %mdays, ptr noundef nonnull align 16 dereferenceable(48) @__const.nolocks_localtime.mdays, i64 48, i1 false)
   %rem5.i3654 = urem i32 %storemerge, 400
   %tobool6.not.i37 = icmp eq i32 %rem5.i3654, 0
-  %1 = select i1 %tobool6.not.i37, i32 29, i32 28
+  %2 = select i1 %tobool6.not.i37, i32 29, i32 28
   br label %is_leap_year.exit39
 
-is_leap_year.exit39:                              ; preds = %while.end.thread76, %while.end.thread, %if.else4.i35
-  %retval.0.i31 = phi i32 [ %1, %if.else4.i35 ], [ 28, %while.end.thread ], [ 29, %while.end.thread76 ]
+is_leap_year.exit39:                              ; preds = %while.end.thread75, %while.end.thread, %if.else4.i35
+  %retval.0.i31 = phi i32 [ %2, %if.else4.i35 ], [ 28, %while.end.thread ], [ 29, %while.end.thread75 ]
   %arrayidx = getelementptr inbounds i8, ptr %mdays, i64 4
   store i32 %retval.0.i31, ptr %arrayidx, align 4
   %cmp27.not62 = icmp slt i64 %days.0, 31
@@ -108,23 +108,23 @@ while.body29:                                     ; preds = %is_leap_year.exit39
   %sub34 = sub nsw i64 %days.164, %conv2665
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx25 = getelementptr inbounds [12 x i32], ptr %mdays, i64 0, i64 %indvars.iv.next
-  %2 = load i32, ptr %arrayidx25, align 4
-  %conv26 = sext i32 %2 to i64
+  %3 = load i32, ptr %arrayidx25, align 4
+  %conv26 = sext i32 %3 to i64
   %cmp27.not = icmp slt i64 %sub34, %conv26
   br i1 %cmp27.not, label %while.end37.loopexit, label %while.body29, !llvm.loop !5
 
 while.end37.loopexit:                             ; preds = %while.body29
-  %3 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %while.end37
 
 while.end37:                                      ; preds = %while.end37.loopexit, %is_leap_year.exit39
-  %storemerge29.lcssa = phi i32 [ 0, %is_leap_year.exit39 ], [ %3, %while.end37.loopexit ]
+  %storemerge29.lcssa = phi i32 [ 0, %is_leap_year.exit39 ], [ %4, %while.end37.loopexit ]
   %days.1.lcssa = phi i64 [ %days.0, %is_leap_year.exit39 ], [ %sub34, %while.end37.loopexit ]
   %tm_year = getelementptr inbounds i8, ptr %tmp, i64 20
   %tm_mon = getelementptr inbounds i8, ptr %tmp, i64 16
   store i32 %storemerge29.lcssa, ptr %tm_mon, align 8
-  %4 = trunc i64 %days.1.lcssa to i32
-  %conv39 = add i32 %4, 1
+  %5 = trunc i64 %days.1.lcssa to i32
+  %conv39 = add i32 %5, 1
   %tm_mday = getelementptr inbounds i8, ptr %tmp, i64 12
   store i32 %conv39, ptr %tm_mday, align 4
   %sub41 = add nsw i32 %storemerge, -1900

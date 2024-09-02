@@ -1846,7 +1846,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit:  ; preds = %9
   %29 = load i32, ptr %28, align 8, !noalias !33
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %28, align 8, !noalias !33
-  br label %61
+  br label %62
 
 _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit28: ; preds = %20, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit
   %.sroa.037.2.ph = phi ptr [ null, %20 ], [ %.sroa.037.182, %_ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit ]
@@ -1913,28 +1913,28 @@ _ZNK5Ipopt22CompoundSymMatrixSpace12GetCompSpaceEii.exit30: ; preds = %50, %_ZNK
 ._crit_edge96:                                    ; preds = %59
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.sroa.037.2105, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br label %61
+  %61 = add nsw i32 %.pre, -1
+  br label %62
 
-61:                                               ; preds = %._crit_edge96, %.thread67
-  %62 = phi i32 [ %30, %.thread67 ], [ %.pre, %._crit_edge96 ]
-  %63 = phi i1 [ true, %.thread67 ], [ %60, %._crit_edge96 ]
+62:                                               ; preds = %._crit_edge96, %.thread67
+  %63 = phi i32 [ %29, %.thread67 ], [ %61, %._crit_edge96 ]
+  %64 = phi i1 [ true, %.thread67 ], [ %60, %._crit_edge96 ]
   %.sroa.037.3516671 = phi ptr [ %27, %.thread67 ], [ %.sroa.037.2105, %._crit_edge96 ]
-  %64 = getelementptr inbounds i8, ptr %.sroa.037.3516671, i64 8
-  %65 = add nsw i32 %62, -1
-  store i32 %65, ptr %64, align 8
-  %66 = icmp eq i32 %65, 0
+  %65 = getelementptr inbounds i8, ptr %.sroa.037.3516671, i64 8
+  store i32 %63, ptr %65, align 8
+  %66 = icmp eq i32 %63, 0
   br i1 %66, label %67, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32
 
-67:                                               ; preds = %61
+67:                                               ; preds = %62
   %68 = load ptr, ptr %.sroa.037.3516671, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.037.3516671) #18
-  br i1 %63, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread
+  br i1 %64, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread
 
-_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32: ; preds = %61, %59
-  %71 = phi i1 [ %60, %59 ], [ %63, %61 ]
-  %.sroa.037.353 = phi ptr [ null, %59 ], [ %.sroa.037.3516671, %61 ]
+_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32: ; preds = %62, %59
+  %71 = phi i1 [ %60, %59 ], [ %64, %62 ]
+  %.sroa.037.353 = phi ptr [ null, %59 ], [ %.sroa.037.3516671, %62 ]
   br i1 %71, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread79, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread
 
 _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32.thread: ; preds = %55, %_ZNK5Ipopt22CompoundSymMatrixSpace12GetCompSpaceEii.exit30, %67, %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit32

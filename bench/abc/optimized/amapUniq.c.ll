@@ -1450,13 +1450,13 @@ define noundef ptr @Amap_LibLookupTableAlloc(ptr nocapture noundef readonly %0, 
 
 .critedge4.us.loopexit:                           ; preds = %35
   %.pre = load ptr, ptr %24, align 8
+  %29 = and i64 %indvars.iv.next78, 4294967295
   br label %.critedge4.us
 
 .critedge4.us:                                    ; preds = %.critedge4.us.loopexit, %.lr.ph66.split.us
-  %29 = phi ptr [ %23, %.lr.ph66.split.us ], [ %.pre, %.critedge4.us.loopexit ]
-  %.048.lcssa.us = phi i64 [ 0, %.lr.ph66.split.us ], [ %indvars.iv.next78, %.critedge4.us.loopexit ]
-  %30 = and i64 %.048.lcssa.us, 4294967295
-  %31 = getelementptr inbounds i32, ptr %29, i64 %30
+  %30 = phi ptr [ %23, %.lr.ph66.split.us ], [ %.pre, %.critedge4.us.loopexit ]
+  %.048.lcssa.us = phi i64 [ 0, %.lr.ph66.split.us ], [ %29, %.critedge4.us.loopexit ]
+  %31 = getelementptr inbounds i32, ptr %30, i64 %.048.lcssa.us
   store i32 0, ptr %31, align 4
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %.val56.us = load i32, ptr %3, align 4
@@ -1522,14 +1522,17 @@ define noundef ptr @Amap_LibLookupTableAlloc(ptr nocapture noundef readonly %0, 
   %.val50 = load i32, ptr %48, align 4
   %63 = sext i32 %.val50 to i64
   %64 = icmp slt i64 %indvars.iv.next72, %63
-  br i1 %64, label %55, label %.critedge4, !llvm.loop !10
+  br i1 %64, label %55, label %.critedge4.loopexit, !llvm.loop !10
 
-.critedge4:                                       ; preds = %55, %.lr.ph66.split
-  %.048.lcssa = phi i64 [ 0, %.lr.ph66.split ], [ %indvars.iv.next72, %55 ]
+.critedge4.loopexit:                              ; preds = %55
+  %65 = and i64 %indvars.iv.next72, 4294967295
+  br label %.critedge4
+
+.critedge4:                                       ; preds = %.critedge4.loopexit, %.lr.ph66.split
+  %.048.lcssa = phi i64 [ 0, %.lr.ph66.split ], [ %65, %.critedge4.loopexit ]
   %putchar = tail call i32 @putchar(i32 10)
-  %65 = load ptr, ptr %47, align 8
-  %66 = and i64 %.048.lcssa, 4294967295
-  %67 = getelementptr inbounds i32, ptr %65, i64 %66
+  %66 = load ptr, ptr %47, align 8
+  %67 = getelementptr inbounds i32, ptr %66, i64 %.048.lcssa
   store i32 0, ptr %67, align 4
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %.val56 = load i32, ptr %3, align 4

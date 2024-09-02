@@ -6647,19 +6647,19 @@ lpad798:                                          ; preds = %if.else.i.i3867, %i
 for.end803.loopexit:                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit3881
   %.pre10080 = load ptr, ptr %_M_finish.i.i3859, align 8
   %.pre10081 = load ptr, ptr %children, align 8
+  %490 = ptrtoint ptr %.pre10080 to i64
   br label %for.end803
 
 for.end803:                                       ; preds = %for.end803.loopexit, %invoke.cont786
-  %490 = phi ptr [ %.pre10081, %for.end803.loopexit ], [ null, %invoke.cont786 ]
-  %491 = phi ptr [ %.pre10080, %for.end803.loopexit ], [ null, %invoke.cont786 ]
-  %sub.ptr.lhs.cast.i3883 = ptrtoint ptr %491 to i64
-  %sub.ptr.rhs.cast.i3884 = ptrtoint ptr %490 to i64
+  %491 = phi ptr [ %.pre10081, %for.end803.loopexit ], [ null, %invoke.cont786 ]
+  %sub.ptr.lhs.cast.i3883 = phi i64 [ %490, %for.end803.loopexit ], [ 0, %invoke.cont786 ]
+  %sub.ptr.rhs.cast.i3884 = ptrtoint ptr %491 to i64
   %sub.ptr.sub.i3885 = sub i64 %sub.ptr.lhs.cast.i3883, %sub.ptr.rhs.cast.i3884
   %cmp806 = icmp eq i64 %sub.ptr.sub.i3885, 8
   br i1 %cmp806, label %cond.true807, label %cond.false810
 
 cond.true807:                                     ; preds = %for.end803
-  %492 = load ptr, ptr %490, align 8
+  %492 = load ptr, ptr %491, align 8
   store ptr %492, ptr %ref.tmp804, align 8
   %bf.load.i.i3888 = load i64, ptr %492, align 8
   %bf.lshr.i.i3889 = lshr i64 %bf.load.i.i3888, 40
@@ -17687,10 +17687,11 @@ lor.rhs:                                          ; preds = %invoke.cont434
 
 invoke.cont437:                                   ; preds = %lor.rhs
   %163 = load i8, ptr %call438, align 1
+  %164 = and i8 %163, 1
   br label %lor.end
 
 lor.end:                                          ; preds = %invoke.cont437, %invoke.cont434
-  %164 = phi i8 [ 1, %invoke.cont434 ], [ %163, %invoke.cont437 ]
+  %frombool = phi i8 [ 1, %invoke.cont434 ], [ %164, %invoke.cont437 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i989)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i990)
   %165 = load ptr, ptr %_M_parent.i.i.i.i891, align 8
@@ -17745,7 +17746,6 @@ invoke.cont440:                                   ; preds = %lor.rhs.i1011, %if.
           to label %invoke.cont442 unwind label %lpad56.loopexit
 
 invoke.cont442:                                   ; preds = %invoke.cont440
-  %frombool = and i8 %164, 1
   store i8 %frombool, ptr %call443, align 1
   %169 = load i32, ptr %j424, align 4
   %inc445 = add i32 %169, 1

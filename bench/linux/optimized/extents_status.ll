@@ -2363,9 +2363,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %10 = getelementptr inbounds i8, ptr %1, i64 28
   br label %11
 
-11:                                               ; preds = %.thread, %7
-  %12 = phi ptr [ %5, %7 ], [ %224, %.thread ]
-  %13 = phi ptr [ %4, %7 ], [ %223, %.thread ]
+11:                                               ; preds = %.critedge, %7
+  %12 = phi ptr [ %5, %7 ], [ %224, %.critedge ]
+  %13 = phi ptr [ %4, %7 ], [ %223, %.critedge ]
   %14 = load i32, ptr %8, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 24
   %16 = load i32, ptr %15, align 8
@@ -2379,7 +2379,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %22 = xor i64 %21, %19
   %23 = and i64 %22, 8646911284551352320
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %.thread
+  br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %18
   %26 = load i32, ptr %10, align 4
@@ -2396,14 +2396,14 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   tail call void asm sideeffect "2060: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2060b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2060) #11, !srcloc !52
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 545, i32 2305, i64 12) #11, !srcloc !53
   tail call void asm sideeffect "2061: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2061b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2061) #11, !srcloc !54
-  br label %.thread
+  br label %.critedge
 
 35:                                               ; preds = %25
   %36 = zext i32 %14 to i64
   %37 = add nuw nsw i64 %27, %36
   %38 = zext i32 %16 to i64
   %39 = icmp eq i64 %37, %38
-  br i1 %39, label %40, label %.thread
+  br i1 %39, label %40, label %.critedge
 
 40:                                               ; preds = %35
   %41 = and i64 %19, 1729382256910270464
@@ -2418,31 +2418,31 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %48 = and i64 %19, 4611686018427387904
   %49 = icmp eq i64 %48, 0
   %50 = and i1 %49, %47
-  br i1 %50, label %54, label %.thread12
+  br i1 %50, label %54, label %.critedge12
 
 51:                                               ; preds = %40
   %52 = and i64 %19, 4611686018427387904
   %53 = icmp eq i64 %52, 0
-  br i1 %53, label %54, label %.thread12
+  br i1 %53, label %54, label %.critedge12
 
-54:                                               ; preds = %43, %51
+54:                                               ; preds = %51, %43
   %55 = and i64 %19, 3458764513820540928
-  %.not18 = icmp eq i64 %55, 2305843009213693952
-  br i1 %.not18, label %.thread12, label %.thread
+  %.not17 = icmp eq i64 %55, 2305843009213693952
+  br i1 %.not17, label %.critedge12, label %.critedge
 
-.thread12:                                        ; preds = %51, %43, %54
+.critedge12:                                      ; preds = %43, %51, %54
   %56 = getelementptr inbounds i8, ptr %12, i64 24
   %57 = getelementptr inbounds i8, ptr %12, i64 32
   %58 = getelementptr inbounds i8, ptr %12, i64 28
   store i32 %14, ptr %56, align 8
   %59 = load i32, ptr %10, align 4
-  %60 = add i32 %29, %59
+  %60 = add i32 %59, %29
   store i32 %60, ptr %58, align 4
   %61 = and i64 %21, 1729382256910270464
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %68, label %63
 
-63:                                               ; preds = %.thread12
+63:                                               ; preds = %.critedge12
   %64 = load i64, ptr %9, align 8
   %65 = and i64 %64, 576460752303423487
   %66 = and i64 %21, -576460752303423488
@@ -2450,7 +2450,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   store i64 %67, ptr %57, align 8
   br label %68
 
-68:                                               ; preds = %63, %.thread12
+68:                                               ; preds = %63, %.critedge12
   %69 = tail call ptr @rb_prev(ptr noundef nonnull %12) #11
   %70 = icmp eq ptr %69, null
   br i1 %70, label %292, label %71
@@ -2557,7 +2557,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %133 = xor i64 %132, %131
   %134 = and i64 %133, 8646911284551352320
   %135 = icmp eq i64 %134, 0
-  br i1 %135, label %136, label %.thread
+  br i1 %135, label %136, label %.critedge
 
 136:                                              ; preds = %129
   %137 = zext i32 %122 to i64
@@ -2572,14 +2572,14 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   tail call void asm sideeffect "2060: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2060b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2060) #11, !srcloc !52
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 545, i32 2305, i64 12) #11, !srcloc !53
   tail call void asm sideeffect "2061: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2061b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2061) #11, !srcloc !54
-  br label %.thread
+  br label %.critedge
 
 144:                                              ; preds = %136
   %145 = zext i32 %16 to i64
   %146 = add nuw nsw i64 %137, %145
   %147 = zext i32 %14 to i64
   %148 = icmp eq i64 %146, %147
-  br i1 %148, label %149, label %.thread
+  br i1 %148, label %149, label %.critedge
 
 149:                                              ; preds = %144
   %150 = and i64 %131, 1729382256910270464
@@ -2594,29 +2594,29 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %157 = and i64 %131, 4611686018427387904
   %158 = icmp eq i64 %157, 0
   %159 = and i1 %158, %156
-  br i1 %159, label %163, label %.thread16
+  br i1 %159, label %163, label %.critedge16
 
 160:                                              ; preds = %149
   %161 = and i64 %131, 4611686018427387904
   %162 = icmp eq i64 %161, 0
-  br i1 %162, label %163, label %.thread16
+  br i1 %162, label %163, label %.critedge16
 
-163:                                              ; preds = %152, %160
+163:                                              ; preds = %160, %152
   %164 = and i64 %131, 3458764513820540928
   %.not = icmp eq i64 %164, 2305843009213693952
-  br i1 %.not, label %.thread16, label %.thread
+  br i1 %.not, label %.critedge16, label %.critedge
 
-.thread16:                                        ; preds = %160, %152, %163
+.critedge16:                                      ; preds = %152, %160, %163
   %165 = getelementptr inbounds i8, ptr %12, i64 24
   %166 = getelementptr inbounds i8, ptr %12, i64 28
   %167 = getelementptr inbounds i8, ptr %12, i64 32
-  %168 = add i32 %122, %138
+  %168 = add i32 %138, %122
   store i32 %168, ptr %166, align 4
   %169 = tail call ptr @rb_next(ptr noundef nonnull %12) #11
   %170 = icmp eq ptr %169, null
   br i1 %170, label %292, label %171
 
-171:                                              ; preds = %.thread16
+171:                                              ; preds = %.critedge16
   %172 = load i64, ptr %167, align 8
   %173 = getelementptr inbounds i8, ptr %169, i64 32
   %174 = load i64, ptr %173, align 8
@@ -2699,15 +2699,15 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 821, i32 0, i64 12) #11, !srcloc !56
   unreachable
 
-.thread:                                          ; preds = %144, %129, %142, %35, %18, %33, %163, %54
-  %221 = phi i64 [ 16, %54 ], [ 8, %163 ], [ 16, %33 ], [ 16, %18 ], [ 16, %35 ], [ 8, %142 ], [ 8, %129 ], [ 8, %144 ]
+.critedge:                                        ; preds = %142, %129, %144, %33, %18, %35, %163, %54
+  %221 = phi i64 [ 16, %54 ], [ 8, %163 ], [ 16, %35 ], [ 16, %18 ], [ 16, %33 ], [ 8, %144 ], [ 8, %129 ], [ 8, %142 ]
   %222 = load ptr, ptr %13, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 %221
   %224 = load ptr, ptr %223, align 8
   %225 = icmp eq ptr %224, null
   br i1 %225, label %226, label %11, !llvm.loop !57
 
-226:                                              ; preds = %.thread
+226:                                              ; preds = %.critedge
   %227 = ptrtoint ptr %12 to i64
   br label %228
 
@@ -2715,15 +2715,15 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %229 = phi ptr [ %4, %3 ], [ %223, %226 ]
   %230 = phi i64 [ 0, %3 ], [ %227, %226 ]
   %231 = icmp eq ptr %2, null
-  br i1 %231, label %232, label %.thread17
+  br i1 %231, label %232, label %.thread
 
 232:                                              ; preds = %228
   %233 = load ptr, ptr @ext4_es_cachep, align 8
   %234 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %233, i32 noundef 2080) #11
   %235 = icmp eq ptr %234, null
-  br i1 %235, label %295, label %.thread17
+  br i1 %235, label %295, label %.thread
 
-.thread17:                                        ; preds = %228, %232
+.thread:                                          ; preds = %228, %232
   %236 = phi ptr [ %234, %232 ], [ %2, %228 ]
   %237 = getelementptr inbounds i8, ptr %1, i64 24
   %238 = load i32, ptr %237, align 8
@@ -2741,7 +2741,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   %247 = icmp eq i64 %246, 0
   br i1 %247, label %248, label %281
 
-248:                                              ; preds = %.thread17
+248:                                              ; preds = %.thread
   %249 = getelementptr i8, ptr %0, i64 700
   %250 = load i32, ptr %249, align 4
   %251 = add i32 %250, 1
@@ -2795,7 +2795,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   tail call void @percpu_counter_add_batch(ptr noundef %279, i64 noundef 1, i32 noundef %280) #11
   br label %281
 
-281:                                              ; preds = %274, %.thread17
+281:                                              ; preds = %274, %.thread
   %282 = getelementptr i8, ptr %0, i64 696
   %283 = load i32, ptr %282, align 8
   %284 = add i32 %283, 1
@@ -2814,8 +2814,8 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__es_insert_extent(ptr nou
   tail call void @rb_insert_color(ptr noundef nonnull %236, ptr noundef %4) #11
   br label %292
 
-292:                                              ; preds = %281, %219, %210, %188, %186, %171, %.thread16, %119, %110, %88, %86, %71, %68
-  %293 = phi ptr [ %236, %281 ], [ %12, %68 ], [ %69, %119 ], [ %12, %110 ], [ %12, %88 ], [ %12, %71 ], [ %12, %86 ], [ %12, %.thread16 ], [ %12, %171 ], [ %12, %186 ], [ %12, %188 ], [ %12, %210 ], [ %12, %219 ]
+292:                                              ; preds = %281, %219, %210, %188, %186, %171, %.critedge16, %119, %110, %88, %86, %71, %68
+  %293 = phi ptr [ %236, %281 ], [ %12, %68 ], [ %69, %119 ], [ %12, %110 ], [ %12, %88 ], [ %12, %71 ], [ %12, %86 ], [ %12, %.critedge16 ], [ %12, %171 ], [ %12, %186 ], [ %12, %188 ], [ %12, %210 ], [ %12, %219 ]
   %294 = getelementptr i8, ptr %0, i64 664
   store ptr %293, ptr %294, align 8
   br label %295

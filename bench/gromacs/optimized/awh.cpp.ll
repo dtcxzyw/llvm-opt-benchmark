@@ -1937,7 +1937,7 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
           cleanup
   br label %.loopexit.split-lp307
 
-.loopexit.split-lp307.loopexit:                   ; preds = %_ZNSt6vectorIN3gmx19BiasCoupledToSystemESaIS1_EE12emplace_backIJNS0_4BiasERS_IiSaIiEEEEERS1_DpOT_.exit, %329
+.loopexit.split-lp307.loopexit:                   ; preds = %_ZNSt6vectorIN3gmx19BiasCoupledToSystemESaIS1_EE12emplace_backIJNS0_4BiasERS_IiSaIiEEEEERS1_DpOT_.exit, %331
   %lpad.loopexit311 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp307
@@ -2365,37 +2365,40 @@ _ZNSt6vectorIN3gmx9DimParamsESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ; pre
   %.sroa.0248.2 = phi ptr [ %289, %_ZNSt6vectorIN3gmx9DimParamsESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.0248.1363, %274 ], [ %313, %_ZNSt6vectorIN3gmx9DimParamsESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.0248.1363, %298 ]
   %320 = getelementptr inbounds i8, ptr %.sroa.0244.0360, i64 64
   %.not300 = icmp eq ptr %320, %178
-  br i1 %.not300, label %._crit_edge, label %.lr.ph364
+  br i1 %.not300, label %._crit_edge.loopexit, label %.lr.ph364
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIN3gmx9DimParamsESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit, %174
-  %.sroa.8.1.lcssa = phi ptr [ null, %174 ], [ %.sroa.8.2, %_ZNSt6vectorIN3gmx9DimParamsESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ]
-  %.sroa.0248.1.lcssa = phi ptr [ null, %174 ], [ %.sroa.0248.2, %_ZNSt6vectorIN3gmx9DimParamsESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ]
-  %321 = load ptr, ptr %33, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 52
-  %323 = load i32, ptr %322, align 4
-  %324 = icmp eq i32 %323, 0
-  br i1 %324, label %329, label %325
+._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIN3gmx9DimParamsESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
+  %321 = ptrtoint ptr %.sroa.8.2 to i64
+  br label %._crit_edge
 
-325:                                              ; preds = %._crit_edge
-  %326 = getelementptr inbounds i8, ptr %321, i64 48
-  %327 = load i32, ptr %326, align 8
-  %328 = icmp slt i32 %327, 2
-  br label %329
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %174
+  %.sroa.8.1.lcssa = phi i64 [ 0, %174 ], [ %321, %._crit_edge.loopexit ]
+  %.sroa.0248.1.lcssa = phi ptr [ null, %174 ], [ %.sroa.0248.2, %._crit_edge.loopexit ]
+  %322 = load ptr, ptr %33, align 8
+  %323 = getelementptr inbounds i8, ptr %322, i64 52
+  %324 = load i32, ptr %323, align 4
+  %325 = icmp eq i32 %324, 0
+  br i1 %325, label %331, label %326
 
-329:                                              ; preds = %325, %._crit_edge
-  %330 = phi i1 [ true, %._crit_edge ], [ %328, %325 ]
-  %331 = zext i1 %330 to i32
-  %332 = ptrtoint ptr %.sroa.8.1.lcssa to i64
+326:                                              ; preds = %._crit_edge
+  %327 = getelementptr inbounds i8, ptr %322, i64 48
+  %328 = load i32, ptr %327, align 8
+  %329 = icmp slt i32 %328, 2
+  %330 = zext i1 %329 to i32
+  br label %331
+
+331:                                              ; preds = %326, %._crit_edge
+  %332 = phi i32 [ 1, %._crit_edge ], [ %330, %326 ]
   %333 = ptrtoint ptr %.sroa.0248.1.lcssa to i64
-  %334 = sub i64 %332, %333
+  %334 = sub i64 %.sroa.8.1.lcssa, %333
   %335 = getelementptr inbounds i8, ptr %.sroa.0248.1.lcssa, i64 %334
   %336 = load double, ptr %170, align 8
   %337 = load ptr, ptr %34, align 8
   %338 = trunc nuw nsw i64 %indvars.iv410 to i32
-  invoke void @_ZN3gmx4BiasC1EiRKNS_9AwhParamsERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_9DimParamsEEEddPKNS_11BiasSharingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_16ThisRankWillDoIOENS_10BiasParams18DisableUpdateSkipsE(ptr noundef nonnull align 8 dereferenceable(556) %26, i32 noundef %338, ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(93) %175, ptr %.sroa.0248.1.lcssa, ptr %335, double noundef %159, double noundef %336, ptr noundef %337, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %331, i32 noundef 0)
+  invoke void @_ZN3gmx4BiasC1EiRKNS_9AwhParamsERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_9DimParamsEEEddPKNS_11BiasSharingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_16ThisRankWillDoIOENS_10BiasParams18DisableUpdateSkipsE(ptr noundef nonnull align 8 dereferenceable(556) %26, i32 noundef %338, ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(93) %175, ptr %.sroa.0248.1.lcssa, ptr %335, double noundef %159, double noundef %336, ptr noundef %337, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %332, i32 noundef 0)
           to label %339 unwind label %.loopexit.split-lp307.loopexit
 
-339:                                              ; preds = %329
+339:                                              ; preds = %331
   %340 = load ptr, ptr %171, align 8
   %341 = load ptr, ptr %172, align 8
   %.not.i166 = icmp eq ptr %340, %341

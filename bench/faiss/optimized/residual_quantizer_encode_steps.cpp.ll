@@ -4663,12 +4663,15 @@ define void @_ZN5faiss15rq_encode_steps14refine_beam_mpERKNS_17ResidualQuantizer
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.0104196, i32 %.sroa.speculated159)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %13
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !353
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %16, !llvm.loop !353
 
-._crit_edge:                                      ; preds = %16, %9
-  %.0104.lcssa = phi i32 [ 0, %9 ], [ %spec.select, %16 ]
-  %21 = zext nneg i32 %.0104.lcssa to i64
-  %22 = mul i64 %1, %21
+._crit_edge.loopexit:                             ; preds = %16
+  %21 = zext nneg i32 %spec.select to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
+  %.0104.lcssa = phi i64 [ 0, %9 ], [ %21, %._crit_edge.loopexit ]
+  %22 = mul i64 %1, %.0104.lcssa
   %23 = add nuw nsw i64 %13, 1
   %24 = mul i64 %22, %23
   %25 = getelementptr inbounds i8, ptr %8, i64 8
@@ -4960,26 +4963,29 @@ _ZNSt10unique_ptrIN5faiss5IndexESt14default_deleteIS1_EE5resetEPS1_.exit: ; pred
   %175 = fadd float %.0102202, %174
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond248.not = icmp eq i64 %indvars.iv.next246, %159
-  br i1 %exitcond248.not, label %._crit_edge205, label %172, !llvm.loop !355
+  br i1 %exitcond248.not, label %._crit_edge205.loopexit, label %172, !llvm.loop !355
 
-._crit_edge205:                                   ; preds = %172, %.preheader
-  %.0102.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %175, %172 ]
-  %176 = invoke noundef double @_ZN5faiss12getmillisecsEv()
-          to label %177 unwind label %207
+._crit_edge205.loopexit:                          ; preds = %172
+  %176 = fpext float %175 to double
+  br label %._crit_edge205
 
-177:                                              ; preds = %._crit_edge205
-  %178 = fsub double %176, %11
-  %179 = fdiv double %178, 1.000000e+03
-  %180 = load ptr, ptr %139, align 8
-  %181 = getelementptr inbounds i64, ptr %180, i64 %indvars.iv249
-  %182 = load i64, ptr %181, align 8
-  %183 = trunc i64 %182 to i32
-  %184 = fpext float %.0102.lcssa to double
+._crit_edge205:                                   ; preds = %._crit_edge205.loopexit, %.preheader
+  %.0102.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %176, %._crit_edge205.loopexit ]
+  %177 = invoke noundef double @_ZN5faiss12getmillisecsEv()
+          to label %178 unwind label %207
+
+178:                                              ; preds = %._crit_edge205
+  %179 = fsub double %177, %11
+  %180 = fdiv double %179, 1.000000e+03
+  %181 = load ptr, ptr %139, align 8
+  %182 = getelementptr inbounds i64, ptr %181, i64 %indvars.iv249
+  %183 = load i64, ptr %182, align 8
+  %184 = trunc i64 %183 to i32
   %185 = trunc nuw nsw i64 %indvars.iv249 to i32
-  %186 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %179, i32 noundef %185, i32 noundef %183, double noundef %184, i32 noundef %.sroa.speculated)
+  %186 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %180, i32 noundef %185, i32 noundef %184, double noundef %.0102.lcssa, i32 noundef %.sroa.speculated)
   br label %187
 
-187:                                              ; preds = %168, %177
+187:                                              ; preds = %168, %178
   %188 = load i64, ptr %12, align 8
   %189 = icmp ugt i64 %188, %indvars.iv.next250
   br i1 %189, label %144, label %._crit_edge214, !llvm.loop !356
@@ -5190,12 +5196,15 @@ define void @_ZN5faiss15rq_encode_steps18refine_beam_LUT_mpERKNS_17ResidualQuant
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.0100156, i32 %.sroa.speculated138)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !357
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %15, !llvm.loop !357
 
-._crit_edge:                                      ; preds = %15, %8
-  %.0100.lcssa = phi i32 [ 0, %8 ], [ %spec.select, %15 ]
-  %20 = zext nneg i32 %.0100.lcssa to i64
-  %21 = mul i64 %1, %20
+._crit_edge.loopexit:                             ; preds = %15
+  %20 = zext nneg i32 %spec.select to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
+  %.0100.lcssa = phi i64 [ 0, %8 ], [ %20, %._crit_edge.loopexit ]
+  %21 = mul i64 %1, %.0100.lcssa
   %22 = add nuw nsw i64 %12, 1
   %23 = mul i64 %21, %22
   %24 = getelementptr inbounds i8, ptr %7, i64 8
@@ -5456,20 +5465,23 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit123:            ; preds = %83, %85, %87, %89
   %162 = fadd float %.096161, %161
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next196, %116
-  br i1 %exitcond198.not, label %._crit_edge164, label %.lr.ph163, !llvm.loop !359
+  br i1 %exitcond198.not, label %._crit_edge164.loopexit, label %.lr.ph163, !llvm.loop !359
 
-._crit_edge164:                                   ; preds = %.lr.ph163, %.preheader
-  %.096.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %162, %.lr.ph163 ]
-  %163 = tail call noundef double @_ZN5faiss12getmillisecsEv()
-  %164 = fsub double %163, %10
-  %165 = fdiv double %164, 1.000000e+03
-  %166 = load ptr, ptr %100, align 8
-  %167 = getelementptr inbounds i64, ptr %166, i64 %indvars.iv199
-  %168 = load i64, ptr %167, align 8
-  %169 = trunc i64 %168 to i32
-  %170 = fpext float %.096.lcssa to double
+._crit_edge164.loopexit:                          ; preds = %.lr.ph163
+  %163 = fpext float %162 to double
+  br label %._crit_edge164
+
+._crit_edge164:                                   ; preds = %._crit_edge164.loopexit, %.preheader
+  %.096.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %163, %._crit_edge164.loopexit ]
+  %164 = tail call noundef double @_ZN5faiss12getmillisecsEv()
+  %165 = fsub double %164, %10
+  %166 = fdiv double %165, 1.000000e+03
+  %167 = load ptr, ptr %100, align 8
+  %168 = getelementptr inbounds i64, ptr %167, i64 %indvars.iv199
+  %169 = load i64, ptr %168, align 8
+  %170 = trunc i64 %169 to i32
   %171 = trunc nuw nsw i64 %indvars.iv199 to i32
-  %172 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %165, i32 noundef %171, i32 noundef %169, double noundef %170, i32 noundef %.sroa.speculated)
+  %172 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %166, i32 noundef %171, i32 noundef %170, double noundef %.096.lcssa, i32 noundef %.sroa.speculated)
   br label %173
 
 173:                                              ; preds = %145, %._crit_edge164

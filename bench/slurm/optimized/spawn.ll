@@ -533,7 +533,7 @@ define range(i32 -1, 1) i32 @spawn_req_unpack(ptr nocapture noundef writeonly %0
 
 6:                                                ; preds = %2
   %7 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1) #10
-  br label %128
+  br label %129
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 144), align 8
@@ -544,7 +544,7 @@ define range(i32 -1, 1) i32 @spawn_req_unpack(ptr nocapture noundef writeonly %0
 11:                                               ; preds = %8
   %12 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.1) #10
   tail call void @auth_g_destroy(ptr noundef nonnull %4) #10
-  br label %128
+  br label %129
 
 13:                                               ; preds = %8
   %14 = tail call i32 @auth_g_get_uid(ptr noundef nonnull %4) #10
@@ -557,7 +557,7 @@ define range(i32 -1, 1) i32 @spawn_req_unpack(ptr nocapture noundef writeonly %0
 
 16:                                               ; preds = %13
   %17 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.2, i32 noundef %14) #10
-  br label %128
+  br label %129
 
 18:                                               ; preds = %13
   %19 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 224, ptr noundef nonnull @__func__.spawn_req_unpack) #10
@@ -769,51 +769,51 @@ define range(i32 -1, 1) i32 @spawn_req_unpack(ptr nocapture noundef writeonly %0
 
 111:                                              ; preds = %107
   %.pre186 = load i32, ptr %96, align 8
-  %.not170 = icmp eq i32 %.pre186, 0
-  br i1 %.not170, label %.loopexit, label %.lr.ph164
+  %112 = icmp eq i32 %.pre186, 0
+  br i1 %112, label %.loopexit, label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %111
-  %112 = getelementptr inbounds i8, ptr %74, i64 40
-  br label %117
+  %113 = getelementptr inbounds i8, ptr %74, i64 40
+  br label %118
 
-113:                                              ; preds = %121
+114:                                              ; preds = %122
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %114 = load i32, ptr %96, align 8
-  %115 = zext i32 %114 to i64
-  %116 = icmp ult i64 %indvars.iv.next179, %115
-  br i1 %116, label %117, label %.loopexit, !llvm.loop !19
+  %115 = load i32, ptr %96, align 8
+  %116 = zext i32 %115 to i64
+  %117 = icmp ult i64 %indvars.iv.next179, %116
+  br i1 %117, label %118, label %.loopexit, !llvm.loop !19
 
-117:                                              ; preds = %.lr.ph164, %113
-  %indvars.iv178 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next179, %113 ]
-  %118 = load ptr, ptr %103, align 8
-  %119 = getelementptr inbounds ptr, ptr %118, i64 %indvars.iv178
-  %120 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %119, ptr noundef nonnull %3, ptr noundef %1) #10
-  %.not149 = icmp eq i32 %120, 0
-  br i1 %.not149, label %121, label %.loopexit154
+118:                                              ; preds = %.lr.ph164, %114
+  %indvars.iv178 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next179, %114 ]
+  %119 = load ptr, ptr %103, align 8
+  %120 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv178
+  %121 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %120, ptr noundef nonnull %3, ptr noundef %1) #10
+  %.not149 = icmp eq i32 %121, 0
+  br i1 %.not149, label %122, label %.loopexit154
 
-121:                                              ; preds = %117
-  %122 = load ptr, ptr %112, align 8
-  %123 = getelementptr inbounds ptr, ptr %122, i64 %indvars.iv178
-  %124 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %123, ptr noundef nonnull %3, ptr noundef %1) #10
-  %.not150 = icmp eq i32 %124, 0
-  br i1 %.not150, label %113, label %.loopexit154
+122:                                              ; preds = %118
+  %123 = load ptr, ptr %113, align 8
+  %124 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv178
+  %125 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %124, ptr noundef nonnull %3, ptr noundef %1) #10
+  %.not150 = icmp eq i32 %125, 0
+  br i1 %.not150, label %114, label %.loopexit154
 
-.loopexit:                                        ; preds = %113, %.thread188, %111, %98
+.loopexit:                                        ; preds = %114, %.thread188, %111, %98
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %125 = load i32, ptr %25, align 8
-  %126 = zext i32 %125 to i64
-  %127 = icmp ult i64 %indvars.iv.next182, %126
-  br i1 %127, label %68, label %._crit_edge, !llvm.loop !20
+  %126 = load i32, ptr %25, align 8
+  %127 = zext i32 %126 to i64
+  %128 = icmp ult i64 %indvars.iv.next182, %127
+  br i1 %128, label %68, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit158
   store ptr %19, ptr %0, align 8
-  br label %128
+  br label %129
 
-.loopexit154:                                     ; preds = %62, %58, %107, %100, %.loopexit155, %84, %79, %76, %68, %.lr.ph162, %121, %117, %47, %40, %35, %31, %24, %21, %18
+.loopexit154:                                     ; preds = %62, %58, %107, %100, %.loopexit155, %84, %79, %76, %68, %.lr.ph162, %122, %118, %47, %40, %35, %31, %24, %21, %18
   call void @spawn_req_free(ptr noundef %19)
-  br label %128
+  br label %129
 
-128:                                              ; preds = %.loopexit154, %._crit_edge, %16, %11, %6
+129:                                              ; preds = %.loopexit154, %._crit_edge, %16, %11, %6
   %.0 = phi i32 [ -1, %6 ], [ -1, %11 ], [ -1, %16 ], [ -1, %.loopexit154 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }

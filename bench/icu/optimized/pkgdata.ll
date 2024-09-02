@@ -2501,7 +2501,7 @@ if.then356.i:                                     ; preds = %if.end351.i
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %if.then.i74, %_ZL19pkg_installFileModePKcS0_S0_.exit.i, %if.then53.i64, %if.then79.i, %if.then94.i, %if.end99.i, %_ZL21pkg_installCommonModePKcS0_.exit.i, %if.end188.i, %if.else192.i, %if.then195.i, %if.then258.i, %if.then263.i, %if.end272.i, %if.else279.i, %if.then314.i, %if.then330.i, %if.then338.i, %if.end342.i, %if.end351.i, %if.then356.i
-  %retval.0.i65 = phi i32 [ %call51.i, %if.then53.i64 ], [ %call77.i, %if.then79.i ], [ %call86.i72, %if.then94.i ], [ %result.6.i, %if.then314.i ], [ %call354.i, %if.then356.i ], [ 1, %if.then330.i ], [ 1, %if.then338.i ], [ %retval.0.i178.i, %if.then258.i ], [ -1, %if.else279.i ], [ %retval.0.i129.i, %_ZL19pkg_installFileModePKcS0_S0_.exit.i ], [ 0, %if.then.i74 ], [ %retval.0.i146.i, %_ZL21pkg_installCommonModePKcS0_.exit.i ], [ 0, %if.end99.i ], [ %call191.i, %if.end188.i ], [ 0, %if.then195.i ], [ 0, %if.else192.i ], [ %call275.i, %if.end272.i ], [ 0, %if.then263.i ], [ 0, %if.end351.i ], [ 0, %if.end342.i ]
+  %retval.0.i65 = phi i32 [ %call51.i, %if.then53.i64 ], [ %call77.i, %if.then79.i ], [ %call86.i72, %if.then94.i ], [ %result.6.i, %if.then314.i ], [ 1, %if.then356.i ], [ 1, %if.then330.i ], [ 1, %if.then338.i ], [ %retval.0.i178.i, %if.then258.i ], [ -1, %if.else279.i ], [ %retval.0.i129.i, %_ZL19pkg_installFileModePKcS0_S0_.exit.i ], [ 0, %if.then.i74 ], [ %retval.0.i146.i, %_ZL21pkg_installCommonModePKcS0_.exit.i ], [ 0, %if.end99.i ], [ %call191.i, %if.end188.i ], [ 0, %if.then195.i ], [ 0, %if.else192.i ], [ %call275.i, %if.end272.i ], [ 0, %if.then263.i ], [ 0, %if.end351.i ], [ 0, %if.end342.i ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %targetDir.i)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %tmpDir.i)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %datFileName.i)
@@ -2624,7 +2624,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare signext i8 @isFileModTimeLater(ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse uwtable
-define internal fastcc noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef %installDir, ptr noundef %targetDir, i8 noundef signext %noVersion) unnamed_addr #13 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef %installDir, ptr noundef %targetDir, i8 noundef signext %noVersion) unnamed_addr #13 {
 entry:
   %cmd = alloca [512 x i8], align 16
   %0 = load ptr, ptr @_ZL12pkgDataFlags, align 8

@@ -133,9 +133,9 @@ define noundef i64 @_Z16fast_rv64i_clz32P11processor_t6insn_tm(ptr nocapture nou
   %20 = load i64, ptr %19, align 8
   br label %21
 
-21:                                               ; preds = %11, %46
-  %.059 = phi i64 [ %16, %11 ], [ %52, %46 ]
-  %.04958 = phi i64 [ 1, %11 ], [ %53, %46 ]
+21:                                               ; preds = %11, %47
+  %.059 = phi i64 [ %16, %11 ], [ %52, %47 ]
+  %.04958 = phi i64 [ 1, %11 ], [ %53, %47 ]
   %22 = shl i64 %.04958, 5
   %23 = and i64 %22, 4294967264
   %24 = shl nuw i64 4294967295, %23
@@ -146,7 +146,7 @@ define noundef i64 @_Z16fast_rv64i_clz32P11processor_t6insn_tm(ptr nocapture nou
   %29 = udiv i64 %25, %28
   %30 = trunc i64 %29 to i32
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %46, label %32
+  br i1 %31, label %47, label %32
 
 32:                                               ; preds = %21
   %33 = icmp ult i32 %30, 65536
@@ -171,21 +171,21 @@ define noundef i64 @_Z16fast_rv64i_clz32P11processor_t6insn_tm(ptr nocapture nou
   %44 = icmp sgt i32 %.3, -1
   %45 = zext i1 %44 to i32
   %spec.select53 = add nuw nsw i32 %.4, %45
-  br label %46
+  %46 = zext nneg i32 %spec.select53 to i64
+  br label %47
 
-46:                                               ; preds = %32, %21
-  %.045 = phi i32 [ 32, %21 ], [ %spec.select53, %32 ]
-  %47 = xor i64 %24, -1
-  %48 = and i64 %.059, %47
-  %49 = zext nneg i32 %.045 to i64
-  %50 = mul i64 %28, %49
+47:                                               ; preds = %32, %21
+  %.045 = phi i64 [ 32, %21 ], [ %46, %32 ]
+  %48 = xor i64 %24, -1
+  %49 = and i64 %.059, %48
+  %50 = mul i64 %.045, %28
   %51 = and i64 %50, %24
-  %52 = or i64 %51, %48
+  %52 = or i64 %51, %49
   %53 = add nsw i64 %.04958, -1
   %.not = icmp eq i64 %.04958, 0
   br i1 %.not, label %54, label %21, !llvm.loop !4
 
-54:                                               ; preds = %46
+54:                                               ; preds = %47
   %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %55
 
@@ -247,9 +247,9 @@ define noundef i64 @_Z18logged_rv64i_clz32P11processor_t6insn_tm(ptr noundef %0,
   %20 = load i64, ptr %19, align 8
   br label %21
 
-21:                                               ; preds = %11, %46
-  %.064 = phi i64 [ %16, %11 ], [ %52, %46 ]
-  %.04763 = phi i64 [ 1, %11 ], [ %53, %46 ]
+21:                                               ; preds = %11, %47
+  %.064 = phi i64 [ %16, %11 ], [ %52, %47 ]
+  %.04763 = phi i64 [ 1, %11 ], [ %53, %47 ]
   %22 = shl i64 %.04763, 5
   %23 = and i64 %22, 4294967264
   %24 = shl nuw i64 4294967295, %23
@@ -260,7 +260,7 @@ define noundef i64 @_Z18logged_rv64i_clz32P11processor_t6insn_tm(ptr noundef %0,
   %29 = udiv i64 %25, %28
   %30 = trunc i64 %29 to i32
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %46, label %32
+  br i1 %31, label %47, label %32
 
 32:                                               ; preds = %21
   %33 = icmp ult i32 %30, 65536
@@ -285,21 +285,21 @@ define noundef i64 @_Z18logged_rv64i_clz32P11processor_t6insn_tm(ptr noundef %0,
   %44 = icmp sgt i32 %.352, -1
   %45 = zext i1 %44 to i32
   %spec.select56 = add nuw nsw i32 %.4, %45
-  br label %46
+  %46 = zext nneg i32 %spec.select56 to i64
+  br label %47
 
-46:                                               ; preds = %32, %21
-  %.048 = phi i32 [ 32, %21 ], [ %spec.select56, %32 ]
-  %47 = xor i64 %24, -1
-  %48 = and i64 %.064, %47
-  %49 = zext nneg i32 %.048 to i64
-  %50 = mul i64 %28, %49
+47:                                               ; preds = %32, %21
+  %.048 = phi i64 [ 32, %21 ], [ %46, %32 ]
+  %48 = xor i64 %24, -1
+  %49 = and i64 %.064, %48
+  %50 = mul i64 %.048, %28
   %51 = and i64 %50, %24
-  %52 = or i64 %51, %48
+  %52 = or i64 %51, %49
   %53 = add nsw i64 %.04763, -1
   %.not = icmp eq i64 %.04763, 0
   br i1 %.not, label %54, label %21, !llvm.loop !6
 
-54:                                               ; preds = %46
+54:                                               ; preds = %47
   %55 = getelementptr inbounds i8, ptr %0, i64 3672
   %56 = shl nuw nsw i64 %14, 4
   %57 = getelementptr inbounds i8, ptr %0, i64 3680
@@ -447,9 +447,9 @@ define noundef i64 @_Z16fast_rv64e_clz32P11processor_t6insn_tm(ptr nocapture nou
   %34 = load i64, ptr %33, align 8
   br label %35
 
-35:                                               ; preds = %31, %60
-  %.05674 = phi i64 [ 1, %31 ], [ %67, %60 ]
-  %.05773 = phi i64 [ %32, %31 ], [ %66, %60 ]
+35:                                               ; preds = %31, %61
+  %.05674 = phi i64 [ 1, %31 ], [ %67, %61 ]
+  %.05773 = phi i64 [ %32, %31 ], [ %66, %61 ]
   %36 = shl i64 %.05674, 5
   %37 = and i64 %36, 4294967264
   %38 = shl nuw i64 4294967295, %37
@@ -460,7 +460,7 @@ define noundef i64 @_Z16fast_rv64e_clz32P11processor_t6insn_tm(ptr nocapture nou
   %43 = udiv i64 %39, %42
   %44 = trunc i64 %43 to i32
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %60, label %46
+  br i1 %45, label %61, label %46
 
 46:                                               ; preds = %35
   %47 = icmp ult i32 %44, 65536
@@ -485,21 +485,21 @@ define noundef i64 @_Z16fast_rv64e_clz32P11processor_t6insn_tm(ptr nocapture nou
   %58 = icmp sgt i32 %.3, -1
   %59 = zext i1 %58 to i32
   %spec.select62 = add nuw nsw i32 %.4, %59
-  br label %60
+  %60 = zext nneg i32 %spec.select62 to i64
+  br label %61
 
-60:                                               ; preds = %46, %35
-  %.052 = phi i32 [ 32, %35 ], [ %spec.select62, %46 ]
-  %61 = xor i64 %38, -1
-  %62 = and i64 %.05773, %61
-  %63 = zext nneg i32 %.052 to i64
-  %64 = mul i64 %42, %63
+61:                                               ; preds = %46, %35
+  %.052 = phi i64 [ 32, %35 ], [ %60, %46 ]
+  %62 = xor i64 %38, -1
+  %63 = and i64 %.05773, %62
+  %64 = mul i64 %.052, %42
   %65 = and i64 %64, %38
-  %66 = or i64 %65, %62
+  %66 = or i64 %65, %63
   %67 = add nsw i64 %.05674, -1
   %.not = icmp eq i64 %.05674, 0
   br i1 %.not, label %68, label %35, !llvm.loop !8
 
-68:                                               ; preds = %60
+68:                                               ; preds = %61
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %69
 
@@ -590,9 +590,9 @@ define noundef i64 @_Z18logged_rv64e_clz32P11processor_t6insn_tm(ptr noundef %0,
   %34 = load i64, ptr %33, align 8
   br label %35
 
-35:                                               ; preds = %31, %60
-  %.05479 = phi i64 [ %32, %31 ], [ %66, %60 ]
-  %.06078 = phi i64 [ 1, %31 ], [ %67, %60 ]
+35:                                               ; preds = %31, %61
+  %.05479 = phi i64 [ %32, %31 ], [ %66, %61 ]
+  %.06078 = phi i64 [ 1, %31 ], [ %67, %61 ]
   %36 = shl i64 %.06078, 5
   %37 = and i64 %36, 4294967264
   %38 = shl nuw i64 4294967295, %37
@@ -603,7 +603,7 @@ define noundef i64 @_Z18logged_rv64e_clz32P11processor_t6insn_tm(ptr noundef %0,
   %43 = udiv i64 %39, %42
   %44 = trunc i64 %43 to i32
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %60, label %46
+  br i1 %45, label %61, label %46
 
 46:                                               ; preds = %35
   %47 = icmp ult i32 %44, 65536
@@ -628,21 +628,21 @@ define noundef i64 @_Z18logged_rv64e_clz32P11processor_t6insn_tm(ptr noundef %0,
   %58 = icmp sgt i32 %.3, -1
   %59 = zext i1 %58 to i32
   %spec.select65 = add nuw nsw i32 %.4, %59
-  br label %60
+  %60 = zext nneg i32 %spec.select65 to i64
+  br label %61
 
-60:                                               ; preds = %46, %35
-  %.056 = phi i32 [ 32, %35 ], [ %spec.select65, %46 ]
-  %61 = xor i64 %38, -1
-  %62 = and i64 %.05479, %61
-  %63 = zext nneg i32 %.056 to i64
-  %64 = mul i64 %42, %63
+61:                                               ; preds = %46, %35
+  %.056 = phi i64 [ 32, %35 ], [ %60, %46 ]
+  %62 = xor i64 %38, -1
+  %63 = and i64 %.05479, %62
+  %64 = mul i64 %.056, %42
   %65 = and i64 %64, %38
-  %66 = or i64 %65, %62
+  %66 = or i64 %65, %63
   %67 = add nsw i64 %.06078, -1
   %.not = icmp eq i64 %.06078, 0
   br i1 %.not, label %68, label %35, !llvm.loop !9
 
-68:                                               ; preds = %60
+68:                                               ; preds = %61
   %69 = getelementptr inbounds i8, ptr %0, i64 3672
   %70 = shl nuw nsw i64 %13, 4
   %71 = getelementptr inbounds i8, ptr %0, i64 3680

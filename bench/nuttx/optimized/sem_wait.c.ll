@@ -101,7 +101,7 @@ declare void @up_switch_context(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @sched_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @nxsem_wait_uninterruptible(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -32767, 32769) i32 @nxsem_wait_uninterruptible(ptr noundef %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %2, %1

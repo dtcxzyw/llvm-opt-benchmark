@@ -363,7 +363,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i64 @tpci200_read_las0(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #2 {
+define internal range(i64 0, 65536) i64 @tpci200_read_las0(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #2 {
 entry:
   switch i64 %addr, label %sw.epilog [
     i64 12, label %sw.bb8
@@ -504,7 +504,7 @@ declare ptr @ipack_device_find(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tpci200_read_las1(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 65536) i64 @tpci200_read_las1(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %opaque, i64 4385
   %0 = load i8, ptr %arrayidx, align 1
@@ -700,7 +700,7 @@ if.end30:                                         ; preds = %if.end30.sink.split
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @tpci200_read_las2(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 65536) i64 @tpci200_read_las2(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %opaque, i64 4386
   %0 = load i8, ptr %arrayidx, align 2

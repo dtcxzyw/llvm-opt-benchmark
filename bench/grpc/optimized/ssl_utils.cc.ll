@@ -2085,7 +2085,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL30grpc_ssl_session_cache_arg_cmpPvS_(ptr noundef readnone %p, ptr noundef readnone %q) #5 {
+define internal noundef range(i32 -1, 2) i32 @_ZL30grpc_ssl_session_cache_arg_cmpPvS_(ptr noundef readnone %p, ptr noundef readnone %q) #5 {
 entry:
   %cmp.i = icmp ult ptr %p, %q
   %cmp1.i = icmp ult ptr %q, %p

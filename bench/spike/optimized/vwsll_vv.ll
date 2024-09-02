@@ -650,9 +650,9 @@ _ZL19is_overlapped_wideniiii.exit191:             ; preds = %._crit_edge.i184, %
 
 _ZL19is_overlapped_wideniiii.exit191.thread:      ; preds = %271, %_ZL19is_overlapped_wideniiii.exit191, %.thread248
   %283 = phi i64 [ %239, %_ZL19is_overlapped_wideniiii.exit191 ], [ %245, %.thread248 ], [ %239, %271 ]
-  %284 = add i64 %155, -8
-  %spec.select = icmp ult i64 %284, 57
-  br i1 %spec.select, label %290, label %285
+  %284 = add i64 %155, -65
+  %spec.select = icmp ult i64 %284, -57
+  br i1 %spec.select, label %285, label %290
 
 285:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit191.thread
   %286 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1497,9 +1497,9 @@ _ZL19is_overlapped_wideniiii.exit191:             ; preds = %._crit_edge.i184, %
 
 _ZL19is_overlapped_wideniiii.exit191.thread:      ; preds = %271, %_ZL19is_overlapped_wideniiii.exit191, %.thread248
   %283 = phi i64 [ %239, %_ZL19is_overlapped_wideniiii.exit191 ], [ %245, %.thread248 ], [ %239, %271 ]
-  %284 = add i64 %155, -8
-  %spec.select = icmp ult i64 %284, 57
-  br i1 %spec.select, label %290, label %285
+  %284 = add i64 %155, -65
+  %spec.select = icmp ult i64 %284, -57
+  br i1 %spec.select, label %285, label %290
 
 285:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit191.thread
   %286 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2312,9 +2312,9 @@ _ZL19is_overlapped_wideniiii.exit191:             ; preds = %._crit_edge.i184, %
 
 _ZL19is_overlapped_wideniiii.exit191.thread:      ; preds = %271, %_ZL19is_overlapped_wideniiii.exit191, %.thread248
   %283 = phi i64 [ %239, %_ZL19is_overlapped_wideniiii.exit191 ], [ %245, %.thread248 ], [ %239, %271 ]
-  %284 = add i64 %155, -8
-  %spec.select = icmp ult i64 %284, 57
-  br i1 %spec.select, label %290, label %285
+  %284 = add i64 %155, -65
+  %spec.select = icmp ult i64 %284, -57
+  br i1 %spec.select, label %285, label %290
 
 285:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit191.thread
   %286 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -3129,9 +3129,9 @@ _ZL19is_overlapped_wideniiii.exit191:             ; preds = %._crit_edge.i184, %
 
 _ZL19is_overlapped_wideniiii.exit191.thread:      ; preds = %271, %_ZL19is_overlapped_wideniiii.exit191, %.thread248
   %283 = phi i64 [ %239, %_ZL19is_overlapped_wideniiii.exit191 ], [ %245, %.thread248 ], [ %239, %271 ]
-  %284 = add i64 %155, -8
-  %spec.select = icmp ult i64 %284, 57
-  br i1 %spec.select, label %290, label %285
+  %284 = add i64 %155, -65
+  %spec.select = icmp ult i64 %284, -57
+  br i1 %spec.select, label %285, label %290
 
 285:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit191.thread
   %286 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -3944,9 +3944,9 @@ _ZL19is_overlapped_wideniiii.exit191:             ; preds = %._crit_edge.i184, %
 
 _ZL19is_overlapped_wideniiii.exit191.thread:      ; preds = %271, %_ZL19is_overlapped_wideniiii.exit191, %.thread248
   %283 = phi i64 [ %239, %_ZL19is_overlapped_wideniiii.exit191 ], [ %245, %.thread248 ], [ %239, %271 ]
-  %284 = add i64 %155, -8
-  %spec.select = icmp ult i64 %284, 57
-  br i1 %spec.select, label %290, label %285
+  %284 = add i64 %155, -65
+  %spec.select = icmp ult i64 %284, -57
+  br i1 %spec.select, label %285, label %290
 
 285:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit191.thread
   %286 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -4761,9 +4761,9 @@ _ZL19is_overlapped_wideniiii.exit191:             ; preds = %._crit_edge.i184, %
 
 _ZL19is_overlapped_wideniiii.exit191.thread:      ; preds = %271, %_ZL19is_overlapped_wideniiii.exit191, %.thread248
   %283 = phi i64 [ %239, %_ZL19is_overlapped_wideniiii.exit191 ], [ %245, %.thread248 ], [ %239, %271 ]
-  %284 = add i64 %155, -8
-  %spec.select = icmp ult i64 %284, 57
-  br i1 %spec.select, label %290, label %285
+  %284 = add i64 %155, -65
+  %spec.select = icmp ult i64 %284, -57
+  br i1 %spec.select, label %285, label %290
 
 285:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit191.thread
   %286 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -5576,9 +5576,9 @@ _ZL19is_overlapped_wideniiii.exit191:             ; preds = %._crit_edge.i184, %
 
 _ZL19is_overlapped_wideniiii.exit191.thread:      ; preds = %271, %_ZL19is_overlapped_wideniiii.exit191, %.thread248
   %283 = phi i64 [ %239, %_ZL19is_overlapped_wideniiii.exit191 ], [ %245, %.thread248 ], [ %239, %271 ]
-  %284 = add i64 %155, -8
-  %spec.select = icmp ult i64 %284, 57
-  br i1 %spec.select, label %290, label %285
+  %284 = add i64 %155, -65
+  %spec.select = icmp ult i64 %284, -57
+  br i1 %spec.select, label %285, label %290
 
 285:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit191.thread
   %286 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -6393,9 +6393,9 @@ _ZL19is_overlapped_wideniiii.exit191:             ; preds = %._crit_edge.i184, %
 
 _ZL19is_overlapped_wideniiii.exit191.thread:      ; preds = %271, %_ZL19is_overlapped_wideniiii.exit191, %.thread248
   %283 = phi i64 [ %239, %_ZL19is_overlapped_wideniiii.exit191 ], [ %245, %.thread248 ], [ %239, %271 ]
-  %284 = add i64 %155, -8
-  %spec.select = icmp ult i64 %284, 57
-  br i1 %spec.select, label %290, label %285
+  %284 = add i64 %155, -65
+  %spec.select = icmp ult i64 %284, -57
+  br i1 %spec.select, label %285, label %290
 
 285:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit191.thread
   %286 = tail call ptr @__cxa_allocate_exception(i64 32) #16

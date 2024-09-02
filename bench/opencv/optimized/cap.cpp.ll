@@ -6174,12 +6174,12 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParame
   %151 = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = icmp ne i32 %152, 0
+  %154 = zext i1 %153 to i32
   br label %_ZNK2cv15VideoParameters3getIbEET_iS2_.exit
 
 _ZNK2cv15VideoParameters3getIbEET_iS2_.exit:      ; preds = %149, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i, %._crit_edge.i.i.i.i
-  %.0.i = phi i1 [ %153, %149 ], [ true, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i ], [ true, %._crit_edge.i.i.i.i ]
-  %154 = zext i1 %.0.i to i32
-  invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull @.str.52, ptr noundef %101, ptr noundef %102, i32 noundef %3, double noundef %4, i32 noundef %103, i32 noundef %104, i32 noundef %154)
+  %.0.i = phi i32 [ %154, %149 ], [ 1, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN2cv15VideoParameters14VideoParameterESt6vectorIS4_SaIS4_EEEEZNKS3_3getIbEET_iSC_EUlRS5_E_ESC_SC_SC_T0_.exit.i ], [ 1, %._crit_edge.i.i.i.i ]
+  invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull @.str.52, ptr noundef %101, ptr noundef %102, i32 noundef %3, double noundef %4, i32 noundef %103, i32 noundef %104, i32 noundef %.0.i)
           to label %155 unwind label %165
 
 155:                                              ; preds = %_ZNK2cv15VideoParameters3getIbEET_iS2_.exit

@@ -1273,7 +1273,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @BN_bn2bin(ptr nocapture noundef readonly %a, ptr nocapture noundef writeonly %to) local_unnamed_addr #11 {
+define range(i32 -268435455, 268435456) i32 @BN_bn2bin(ptr nocapture noundef readonly %a, ptr nocapture noundef writeonly %to) local_unnamed_addr #11 {
 entry:
   %call.i = tail call i32 @BN_num_bits(ptr noundef readonly %a)
   %add.i = add nsw i32 %call.i, 7
@@ -2086,7 +2086,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @BN_security_bits(i32 noundef %L, i32 noundef %N) local_unnamed_addr #2 {
+define range(i32 0, 257) i32 @BN_security_bits(i32 noundef %L, i32 noundef %N) local_unnamed_addr #2 {
 entry:
   %cmp = icmp sgt i32 %L, 15359
   br i1 %cmp, label %if.end16, label %if.else

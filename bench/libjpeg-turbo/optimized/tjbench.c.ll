@@ -3576,8 +3576,8 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %64 = shl nsw i64 %63, 3
   %65 = sext i32 %62 to i64
   %66 = mul i64 %64, %65
-  %calloc1216 = call ptr @calloc(i64 1, i64 %66)
-  %67 = icmp eq ptr %calloc1216, null
+  %calloc1209 = call ptr @calloc(i64 1, i64 %66)
+  %67 = icmp eq ptr %calloc1209, null
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %58
@@ -3630,7 +3630,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 89:                                               ; preds = %.lr.ph
   %90 = call ptr @tj3Alloc(i64 noundef %84) #21
-  %91 = getelementptr inbounds ptr, ptr %calloc1216, i64 %indvars.iv
+  %91 = getelementptr inbounds ptr, ptr %calloc1209, i64 %indvars.iv
   store ptr %90, ptr %91, align 8
   %92 = icmp eq ptr %90, null
   br i1 %92, label %93, label %83
@@ -4274,7 +4274,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 405:                                              ; preds = %402
   %406 = load i32, ptr @precision, align 4
   %407 = load i32, ptr @pf, align 4
-  %408 = getelementptr inbounds ptr, ptr %calloc1216, i64 %indvars.iv1185
+  %408 = getelementptr inbounds ptr, ptr %calloc1209, i64 %indvars.iv1185
   %409 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1185
   switch i32 %406, label %444 [
     i32 8, label %427
@@ -4432,7 +4432,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 486:                                              ; preds = %482, %481
   %.3542.us = phi double [ %485, %482 ], [ %.2541930.us, %481 ]
   %487 = load i32, ptr @yuvAlign, align 4
-  %488 = getelementptr inbounds ptr, ptr %calloc1216, i64 %indvars.iv1185
+  %488 = getelementptr inbounds ptr, ptr %calloc1209, i64 %indvars.iv1185
   %489 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1185
   %490 = call i32 @tj3CompressFromYUV8(ptr noundef %0, ptr noundef %.2533, i32 noundef %spec.select..us, i32 noundef %487, i32 noundef %400, ptr noundef nonnull %488, ptr noundef nonnull %489) #21
   %491 = icmp eq i32 %490, -1
@@ -4594,11 +4594,11 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %572 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.264, ptr noundef nonnull %571, i32 noundef %spec.select, i32 noundef %.1553)
   %.b617 = load i1, ptr @doYUV, align 4
   %573 = uitofp nneg i32 %533 to double
-  br i1 %.b617, label %574, label %.thread1209
+  br i1 %.b617, label %574, label %._crit_edge1202
 
-.thread1209:                                      ; preds = %570
+._crit_edge1202:                                  ; preds = %570
   %.pre1203 = fmul double %54, %573
-  br label %589
+  br label %590
 
 574:                                              ; preds = %570
   %575 = fdiv double %573, %.1540.lcssa
@@ -4616,20 +4616,19 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %587 = fdiv double %586, %.1540.lcssa
   %588 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.211, double noundef %587)
   %.b616.pre = load i1, ptr @doYUV, align 4
-  %cond.fr = freeze i1 %.b616.pre
-  %spec.select1399 = select i1 %cond.fr, ptr @.str.266, ptr @.str.267
-  br label %589
+  %589 = select i1 %.b616.pre, ptr @.str.266, ptr @.str.267
+  br label %590
 
-589:                                              ; preds = %574, %.thread1209
-  %.pre-phi12041214 = phi double [ %.pre1203, %.thread1209 ], [ %581, %574 ]
-  %590 = phi ptr [ @.str.267, %.thread1209 ], [ %spec.select1399, %574 ]
+590:                                              ; preds = %._crit_edge1202, %574
+  %.pre-phi1204 = phi double [ %.pre1203, %._crit_edge1202 ], [ %581, %574 ]
+  %.b616 = phi ptr [ @.str.267, %._crit_edge1202 ], [ %589, %574 ]
   %591 = fdiv double %573, %.2538
-  %592 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.245, ptr noundef nonnull %590, double noundef %591)
+  %592 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.245, ptr noundef nonnull %.b616, double noundef %591)
   %593 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.208, i64 noundef %.0559.lcssa)
   %594 = uitofp i64 %.0559.lcssa to double
   %595 = fdiv double %56, %594
   %596 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.209, double noundef %595)
-  %597 = fdiv double %.pre-phi12041214, %.2538
+  %597 = fdiv double %.pre-phi1204, %.2538
   %598 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.210, double noundef %597)
   %599 = fmul double %594, 8.000000e+00
   %600 = fdiv double %599, 1.000000e+06
@@ -4638,7 +4637,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %603 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.211, double noundef %602)
   br label %604
 
-604:                                              ; preds = %589, %._crit_edge1201
+604:                                              ; preds = %590, %._crit_edge1201
   %605 = icmp sle i32 %2, %.0550
   br i1 %605, label %606, label %632
 
@@ -4673,7 +4672,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.thread
 
 623:                                              ; preds = %612
-  %624 = load ptr, ptr %calloc1216, align 8
+  %624 = load ptr, ptr %calloc1209, align 8
   %625 = load i64, ptr %calloc, align 8
   %626 = call i64 @fwrite(ptr noundef %624, i64 noundef %625, i64 noundef 1, ptr noundef nonnull %616)
   %.not673 = icmp eq i64 %626, 1
@@ -4694,7 +4693,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %.b622, label %636, label %633
 
 633:                                              ; preds = %632
-  %634 = call fastcc i32 @decomp(ptr noundef nonnull %calloc1216, ptr noundef nonnull %calloc, ptr noundef nonnull %23, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %spec.select, i32 noundef %.1553)
+  %634 = call fastcc i32 @decomp(ptr noundef nonnull %calloc1209, ptr noundef nonnull %calloc, ptr noundef nonnull %23, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %spec.select, i32 noundef %.1553)
   %635 = icmp eq i32 %634, -1
   br i1 %635, label %.thread, label %640
 
@@ -4718,7 +4717,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 .lr.ph988:                                        ; preds = %.lr.ph988.preheader, %.lr.ph988
   %indvars.iv1190 = phi i64 [ 0, %.lr.ph988.preheader ], [ %indvars.iv.next1191, %.lr.ph988 ]
-  %643 = getelementptr inbounds ptr, ptr %calloc1216, i64 %indvars.iv1190
+  %643 = getelementptr inbounds ptr, ptr %calloc1209, i64 %indvars.iv1190
   %644 = load ptr, ptr %643, align 8
   call void @tj3Free(ptr noundef %644) #21
   store ptr null, ptr %643, align 8
@@ -4727,7 +4726,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %exitcond1194.not, label %._crit_edge, label %.lr.ph988, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph988, %640
-  call void @free(ptr noundef %calloc1216) #21
+  call void @free(ptr noundef %calloc1209) #21
   call void @free(ptr noundef %calloc) #21
   %.b615 = load i1, ptr @doYUV, align 4
   br i1 %.b615, label %645, label %646
@@ -4767,7 +4766,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 .lr.ph990:                                        ; preds = %.lr.ph990.preheader, %.lr.ph990
   %indvars.iv1195 = phi i64 [ 0, %.lr.ph990.preheader ], [ %indvars.iv.next1196, %.lr.ph990 ]
-  %659 = getelementptr inbounds ptr, ptr %calloc1216, i64 %indvars.iv1195
+  %659 = getelementptr inbounds ptr, ptr %calloc1209, i64 %indvars.iv1195
   %660 = load ptr, ptr %659, align 8
   call void @tj3Free(ptr noundef %660) #21
   %indvars.iv.next1196 = add nuw nsw i64 %indvars.iv1195, 1
@@ -4777,7 +4776,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 .thread.thread:                                   ; preds = %646, %.lr.ph990, %.thread, %25, %68
   %.0561698712 = phi ptr [ null, %68 ], [ null, %25 ], [ %calloc, %.thread ], [ %calloc, %.lr.ph990 ], [ null, %646 ]
   %.0531700710 = phi ptr [ %.1532, %68 ], [ null, %25 ], [ %.0531700, %.thread ], [ %.0531700, %.lr.ph990 ], [ %.3, %646 ]
-  %.0530701709 = phi ptr [ null, %68 ], [ null, %25 ], [ %calloc1216, %.thread ], [ %calloc1216, %.lr.ph990 ], [ null, %646 ]
+  %.0530701709 = phi ptr [ null, %68 ], [ null, %25 ], [ %calloc1209, %.thread ], [ %calloc1209, %.lr.ph990 ], [ null, %646 ]
   call void @free(ptr noundef %.0530701709) #21
   call void @free(ptr noundef %.0531700710) #21
   call void @free(ptr noundef %.0561698712) #21

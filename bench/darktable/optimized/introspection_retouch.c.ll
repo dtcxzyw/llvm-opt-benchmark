@@ -6450,25 +6450,25 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store float %22, ptr %54, align 8, !tbaa !16
   %55 = getelementptr inbounds i8, ptr %9, i64 40
   store i32 0, ptr %55, align 8, !tbaa !229
-  br i1 %38, label %56, label %74
+  br i1 %38, label %56, label %75
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds i8, ptr %19, i64 8
   %58 = load i32, ptr %57, align 8, !tbaa !139
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %74, label %60
+  br i1 %59, label %75, label %60
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %23, align 8, !tbaa !78
   %62 = load i32, ptr %61, align 16, !tbaa !230
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %74, label %64
+  br i1 %63, label %75, label %64
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds i8, ptr %61, i64 88
   %66 = load ptr, ptr %65, align 8, !tbaa !131
   %67 = icmp eq ptr %66, %0
-  br i1 %67, label %68, label %74
+  br i1 %67, label %68, label %75
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6476,11 +6476,11 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %71 = getelementptr inbounds i8, ptr %61, i64 2696
   %72 = load ptr, ptr %71, align 8, !tbaa !120
   %73 = icmp eq ptr %70, %72
-  br label %74
+  %74 = zext i1 %73 to i32
+  br label %75
 
-74:                                               ; preds = %68, %64, %60, %56, %51
-  %75 = phi i1 [ false, %64 ], [ false, %60 ], [ false, %56 ], [ false, %51 ], [ %73, %68 ]
-  %76 = zext i1 %75 to i32
+75:                                               ; preds = %68, %64, %60, %56, %51
+  %76 = phi i32 [ 0, %64 ], [ 0, %60 ], [ 0, %56 ], [ 0, %51 ], [ %74, %68 ]
   %77 = getelementptr inbounds i8, ptr %9, i64 44
   store i32 %76, ptr %77, align 4, !tbaa !231
   %78 = getelementptr inbounds i8, ptr %17, i64 13208
@@ -6492,7 +6492,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %83 = icmp eq i32 %40, 0
   br i1 %83, label %92, label %84
 
-84:                                               ; preds = %74
+84:                                               ; preds = %75
   %85 = getelementptr inbounds i8, ptr %1, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !212
   %87 = getelementptr inbounds i8, ptr %86, i64 620
@@ -6502,8 +6502,8 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %91 = select i1 %90, i32 0, i32 %79
   br label %92
 
-92:                                               ; preds = %84, %74
-  %93 = phi i32 [ 0, %74 ], [ %91, %84 ]
+92:                                               ; preds = %84, %75
+  %93 = phi i32 [ 0, %75 ], [ %91, %84 ]
   %94 = getelementptr inbounds i8, ptr %17, i64 13212
   %95 = load i32, ptr %94, align 4, !tbaa !159
   %96 = load float, ptr %21, align 4, !tbaa !214

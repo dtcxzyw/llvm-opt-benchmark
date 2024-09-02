@@ -1328,12 +1328,12 @@ for.cond35.i:                                     ; preds = %for.cond35.i.prehea
 if.end.i.i:                                       ; preds = %for.cond35.i
   %arrayidx.i53.i = getelementptr inbounds i8, ptr %m_value.val.i, i64 -4
   %108 = load i32, ptr %arrayidx.i53.i, align 4
+  %109 = zext i32 %108 to i64
   br label %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit.i
 
 _ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit.i: ; preds = %if.end.i.i, %for.cond35.i
-  %retval.0.i.i = phi i32 [ %108, %if.end.i.i ], [ 0, %for.cond35.i ]
-  %109 = zext i32 %retval.0.i.i to i64
-  %cmp38.i = icmp ult i64 %indvars.iv.i, %109
+  %retval.0.i.i = phi i64 [ %109, %if.end.i.i ], [ 0, %for.cond35.i ]
+  %cmp38.i = icmp ult i64 %indvars.iv.i, %retval.0.i.i
   br i1 %cmp38.i, label %for.body39.i, label %for.inc51.i
 
 for.body39.i:                                     ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit.i
@@ -3184,12 +3184,12 @@ for.cond15:                                       ; preds = %for.cond15.preheade
 if.end.i:                                         ; preds = %for.cond15
   %arrayidx.i = getelementptr inbounds i8, ptr %terms.val, i64 -4
   %29 = load i32, ptr %arrayidx.i, align 4
+  %30 = zext i32 %29 to i64
   br label %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit
 
 _ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit: ; preds = %for.cond15, %if.end.i
-  %retval.0.i = phi i32 [ %29, %if.end.i ], [ 0, %for.cond15 ]
-  %30 = zext i32 %retval.0.i to i64
-  %cmp18 = icmp ult i64 %indvars.iv449, %30
+  %retval.0.i = phi i64 [ %30, %if.end.i ], [ 0, %for.cond15 ]
+  %cmp18 = icmp ult i64 %indvars.iv449, %retval.0.i
   br i1 %cmp18, label %invoke.cont25, label %for.end46
 
 invoke.cont25:                                    ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit
@@ -3293,12 +3293,12 @@ for.cond.i:                                       ; preds = %for.inc.i, %for.end
 if.end.i.i93:                                     ; preds = %for.cond.i
   %arrayidx.i.i94 = getelementptr inbounds i8, ptr %terms.val.i, i64 -4
   %45 = load i32, ptr %arrayidx.i.i94, align 4
+  %46 = zext i32 %45 to i64
   br label %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit.i
 
 _ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit.i: ; preds = %if.end.i.i93, %for.cond.i
-  %retval.0.i.i95 = phi i32 [ %45, %if.end.i.i93 ], [ 0, %for.cond.i ]
-  %46 = zext i32 %retval.0.i.i95 to i64
-  %cmp.i96 = icmp ult i64 %indvars.iv.i, %46
+  %retval.0.i.i95 = phi i64 [ %46, %if.end.i.i93 ], [ 0, %for.cond.i ]
+  %cmp.i96 = icmp ult i64 %indvars.iv.i, %retval.0.i.i95
   br i1 %cmp.i96, label %for.body.i, label %invoke.cont47
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit.i
@@ -3764,12 +3764,12 @@ for.cond102:                                      ; preds = %for.cond102.prehead
 if.end.i141:                                      ; preds = %for.cond102
   %arrayidx.i142 = getelementptr inbounds i8, ptr %terms.val40, i64 -4
   %101 = load i32, ptr %arrayidx.i142, align 4
+  %102 = zext i32 %101 to i64
   br label %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit144
 
 _ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit144: ; preds = %for.cond102, %if.end.i141
-  %retval.0.i143 = phi i32 [ %101, %if.end.i141 ], [ 0, %for.cond102 ]
-  %102 = zext i32 %retval.0.i143 to i64
-  %cmp105 = icmp ult i64 %indvars.iv455, %102
+  %retval.0.i143 = phi i64 [ %102, %if.end.i141 ], [ 0, %for.cond102 ]
+  %cmp105 = icmp ult i64 %indvars.iv455, %retval.0.i143
   br i1 %cmp105, label %for.body106, label %for.end189
 
 for.body106:                                      ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit144
@@ -4986,12 +4986,12 @@ for.cond:                                         ; preds = %for.inc, %_ZN9stopw
 if.end.i:                                         ; preds = %for.cond
   %arrayidx.i = getelementptr inbounds i8, ptr %terms.val, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
+  %2 = zext i32 %1 to i64
   br label %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit
 
 _ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
-  %retval.0.i = phi i32 [ %1, %if.end.i ], [ 0, %for.cond ]
-  %2 = zext i32 %retval.0.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %2
+  %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIN12_GLOBAL__N_127get_implied_equalities_impl7term_idELb1EjE4sizeEv.exit

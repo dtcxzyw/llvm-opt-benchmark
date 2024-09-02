@@ -1851,11 +1851,13 @@ for.inc40:                                        ; preds = %_ZNSt6vectorIN4pbrt
 
 for.end41.loopexit:                               ; preds = %for.inc40
   %.pre199 = load ptr, ptr %treeletsToBuild, align 8
+  %58 = ptrtoint ptr %55 to i64
+  %59 = ptrtoint ptr %.pre199 to i64
   br label %for.end41
 
 for.end41:                                        ; preds = %for.end41.loopexit, %invoke.cont19
-  %58 = phi ptr [ %.pre199, %for.end41.loopexit ], [ null, %invoke.cont19 ]
-  %59 = phi ptr [ %55, %for.end41.loopexit ], [ null, %invoke.cont19 ]
+  %sub.ptr.rhs.cast.i75 = phi i64 [ %59, %for.end41.loopexit ], [ 0, %invoke.cont19 ]
+  %sub.ptr.lhs.cast.i74 = phi i64 [ %58, %for.end41.loopexit ], [ 0, %invoke.cont19 ]
   store i32 0, ptr %orderedPrimsOffset, align 4
   %_M_finish.i73 = getelementptr inbounds i8, ptr %treeletsToBuild, i64 8
   %_M_manager.i.i78 = getelementptr inbounds i8, ptr %agg.tmp43, i64 16
@@ -1865,8 +1867,6 @@ for.end41:                                        ; preds = %for.end41.loopexit,
 
 invoke.cont45:                                    ; preds = %for.end41
   %_M_invoker.i79 = getelementptr inbounds i8, ptr %agg.tmp43, i64 24
-  %sub.ptr.lhs.cast.i74 = ptrtoint ptr %59 to i64
-  %sub.ptr.rhs.cast.i75 = ptrtoint ptr %58 to i64
   %sub.ptr.sub.i76 = sub i64 %sub.ptr.lhs.cast.i74, %sub.ptr.rhs.cast.i75
   %sub.ptr.div.i77 = sdiv exact i64 %sub.ptr.sub.i76, 24
   store ptr %treeletsToBuild, ptr %call.i.i2.i80, align 16
@@ -9072,16 +9072,19 @@ if.end143:                                        ; preds = %_ZN4pbrt6Tuple3INS_
   %spec.select121 = add nuw nsw i32 %nBelow.0352, %inc150
   %inc153 = add nuw i64 %i69.0350, 1
   %exitcond374.not = icmp eq i64 %inc153, %mul61
-  br i1 %exitcond374.not, label %for.end154, label %for.body74, !llvm.loop !116
+  br i1 %exitcond374.not, label %for.end154.loopexit, label %for.body74, !llvm.loop !116
 
-for.end154:                                       ; preds = %if.end143, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit"
-  %nAbove.0.lcssa = phi i32 [ %conv68, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit" ], [ %spec.select, %if.end143 ]
-  %nBelow.0.lcssa = phi i32 [ 0, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit" ], [ %spec.select121, %if.end143 ]
-  %bestCost.1.lcssa = phi float [ %bestCost.0, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit" ], [ %bestCost.2, %if.end143 ]
-  %bestOffset.1.lcssa = phi i32 [ %bestOffset.0, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit" ], [ %bestOffset.2, %if.end143 ]
-  %bestAxis.1.lcssa = phi i32 [ -1, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit" ], [ %bestAxis.2, %if.end143 ]
-  %conv155 = sext i32 %nBelow.0.lcssa to i64
-  %cmp156 = icmp eq i64 %primNums.coerce1, %conv155
+for.end154.loopexit:                              ; preds = %if.end143
+  %39 = zext nneg i32 %spec.select121 to i64
+  br label %for.end154
+
+for.end154:                                       ; preds = %for.end154.loopexit, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit"
+  %nAbove.0.lcssa = phi i32 [ %conv68, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit" ], [ %spec.select, %for.end154.loopexit ]
+  %nBelow.0.lcssa = phi i64 [ 0, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit" ], [ %39, %for.end154.loopexit ]
+  %bestCost.1.lcssa = phi float [ %bestCost.0, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit" ], [ %bestCost.2, %for.end154.loopexit ]
+  %bestOffset.1.lcssa = phi i32 [ %bestOffset.0, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit" ], [ %bestOffset.2, %for.end154.loopexit ]
+  %bestAxis.1.lcssa = phi i32 [ -1, %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN4pbrt9BoundEdgeESt6vectorIS3_SaIS3_EEEEZNS2_15KdTreeAggregate9buildTreeEiRKNS2_7Bounds3IfEERKS5_ISB_SaISB_EEN4pstd4spanIKiEEiPS7_NSJ_IiEESN_iE3$_0EvT_SP_T0_.exit" ], [ %bestAxis.2, %for.end154.loopexit ]
+  %cmp156 = icmp eq i64 %primNums.coerce1, %nBelow.0.lcssa
   %cmp158 = icmp eq i32 %nAbove.0.lcssa, 0
   %or.cond2 = select i1 %cmp156, i1 %cmp158, i1 false
   br i1 %or.cond2, label %land.end, label %land.rhs
@@ -9099,8 +9102,8 @@ land.end:                                         ; preds = %for.end154
 if.then162:                                       ; preds = %land.end
   %inc163 = add nuw nsw i32 %retries.0, 1
   %add164 = add i32 %axis.0, 1
-  %39 = icmp eq i32 %add164, 3
-  %rem165 = select i1 %39, i32 0, i32 %add164
+  %40 = icmp eq i32 %add164, 3
+  %rem165 = select i1 %40, i32 0, i32 %add164
   br label %for.body.lr.ph
 
 if.end166:                                        ; preds = %land.end
@@ -9123,25 +9126,25 @@ for.cond187.preheader:                            ; preds = %if.end166
 for.body189.lr.ph:                                ; preds = %for.cond187.preheader
   %idxprom190 = sext i32 %bestAxis.1.lcssa to i64
   %arrayidx191 = getelementptr inbounds %"class.std::vector.88", ptr %edges, i64 %idxprom190
-  %40 = load ptr, ptr %prims0, align 8
+  %41 = load ptr, ptr %prims0, align 8
   %wide.trip.count = zext nneg i32 %bestOffset.1.lcssa to i64
   br label %for.body189
 
 if.then179:                                       ; preds = %if.end166
   %nodes180 = getelementptr inbounds i8, ptr %this, i64 64
-  %41 = load ptr, ptr %nodes180, align 8
+  %42 = load ptr, ptr %nodes180, align 8
   %idxprom181 = sext i32 %nodeNum to i64
-  %arrayidx182 = getelementptr inbounds %"struct.pbrt::KdTreeNode", ptr %41, i64 %idxprom181
+  %arrayidx182 = getelementptr inbounds %"struct.pbrt::KdTreeNode", ptr %42, i64 %idxprom181
   %primitiveIndices184 = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4pbrt10KdTreeNode8InitLeafEN4pstd4spanIKiEEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx182, ptr %primNums.coerce0, i64 %primNums.coerce1, ptr noundef nonnull %primitiveIndices184)
   br label %return
 
 for.cond210.preheader.loopexit:                   ; preds = %for.inc205
-  %42 = sext i32 %n0.1 to i64
+  %43 = sext i32 %n0.1 to i64
   br label %for.cond210.preheader
 
 for.cond210.preheader:                            ; preds = %for.cond210.preheader.loopexit, %for.cond187.preheader
-  %n0.0.lcssa = phi i64 [ 0, %for.cond187.preheader ], [ %42, %for.cond210.preheader.loopexit ]
+  %n0.0.lcssa = phi i64 [ 0, %for.cond187.preheader ], [ %43, %for.cond210.preheader.loopexit ]
   %i208.0364 = add nsw i32 %bestOffset.1.lcssa, 1
   %conv211365 = sext i32 %i208.0364 to i64
   %cmp213366 = icmp ugt i64 %mul61, %conv211365
@@ -9150,26 +9153,26 @@ for.cond210.preheader:                            ; preds = %for.cond210.prehead
 
 for.body214.lr.ph:                                ; preds = %for.cond210.preheader
   %arrayidx216 = getelementptr inbounds %"class.std::vector.88", ptr %edges, i64 %idxprom215
-  %43 = load ptr, ptr %prims1, align 8
+  %44 = load ptr, ptr %prims1, align 8
   br label %for.body214
 
 for.body189:                                      ; preds = %for.body189.lr.ph, %for.inc205
   %indvars.iv = phi i64 [ 0, %for.body189.lr.ph ], [ %indvars.iv.next, %for.inc205 ]
   %n0.0361 = phi i32 [ 0, %for.body189.lr.ph ], [ %n0.1, %for.inc205 ]
-  %44 = load ptr, ptr %arrayidx191, align 8
-  %add.ptr.i232 = getelementptr inbounds %"struct.pbrt::BoundEdge", ptr %44, i64 %indvars.iv
+  %45 = load ptr, ptr %arrayidx191, align 8
+  %add.ptr.i232 = getelementptr inbounds %"struct.pbrt::BoundEdge", ptr %45, i64 %indvars.iv
   %type194 = getelementptr inbounds i8, ptr %add.ptr.i232, i64 8
-  %45 = load i32, ptr %type194, align 4
-  %cmp195 = icmp eq i32 %45, 0
+  %46 = load i32, ptr %type194, align 4
+  %cmp195 = icmp eq i32 %46, 0
   br i1 %cmp195, label %if.then196, label %for.inc205
 
 if.then196:                                       ; preds = %for.body189
   %primNum = getelementptr inbounds i8, ptr %add.ptr.i232, i64 4
-  %46 = load i32, ptr %primNum, align 4
+  %47 = load i32, ptr %primNum, align 4
   %inc201 = add nsw i32 %n0.0361, 1
   %conv202 = sext i32 %n0.0361 to i64
-  %arrayidx.i234 = getelementptr inbounds i32, ptr %40, i64 %conv202
-  store i32 %46, ptr %arrayidx.i234, align 4
+  %arrayidx.i234 = getelementptr inbounds i32, ptr %41, i64 %conv202
+  store i32 %47, ptr %arrayidx.i234, align 4
   br label %for.inc205
 
 for.inc205:                                       ; preds = %for.body189, %if.then196
@@ -9181,20 +9184,20 @@ for.inc205:                                       ; preds = %for.body189, %if.th
 for.body214:                                      ; preds = %for.body214.lr.ph, %for.inc231
   %indvars.iv377 = phi i64 [ %conv211365, %for.body214.lr.ph ], [ %indvars.iv.next378, %for.inc231 ]
   %n1.0367 = phi i32 [ 0, %for.body214.lr.ph ], [ %n1.1, %for.inc231 ]
-  %47 = load ptr, ptr %arrayidx216, align 8
-  %add.ptr.i235 = getelementptr inbounds %"struct.pbrt::BoundEdge", ptr %47, i64 %indvars.iv377
+  %48 = load ptr, ptr %arrayidx216, align 8
+  %add.ptr.i235 = getelementptr inbounds %"struct.pbrt::BoundEdge", ptr %48, i64 %indvars.iv377
   %type219 = getelementptr inbounds i8, ptr %add.ptr.i235, i64 8
-  %48 = load i32, ptr %type219, align 4
-  %cmp220 = icmp eq i32 %48, 1
+  %49 = load i32, ptr %type219, align 4
+  %cmp220 = icmp eq i32 %49, 1
   br i1 %cmp220, label %if.then221, label %for.inc231
 
 if.then221:                                       ; preds = %for.body214
   %primNum226 = getelementptr inbounds i8, ptr %add.ptr.i235, i64 4
-  %49 = load i32, ptr %primNum226, align 4
+  %50 = load i32, ptr %primNum226, align 4
   %inc227 = add nsw i32 %n1.0367, 1
   %conv228 = sext i32 %n1.0367 to i64
-  %arrayidx.i237 = getelementptr inbounds i32, ptr %43, i64 %conv228
-  store i32 %49, ptr %arrayidx.i237, align 4
+  %arrayidx.i237 = getelementptr inbounds i32, ptr %44, i64 %conv228
+  store i32 %50, ptr %arrayidx.i237, align 4
   br label %for.inc231
 
 for.inc231:                                       ; preds = %for.body214, %if.then221
@@ -9204,16 +9207,16 @@ for.inc231:                                       ; preds = %for.body214, %if.th
   br i1 %cmp213, label %for.body214, label %for.end233.loopexit, !llvm.loop !118
 
 for.end233.loopexit:                              ; preds = %for.inc231
-  %50 = sext i32 %n1.1 to i64
+  %51 = sext i32 %n1.1 to i64
   br label %for.end233
 
 for.end233:                                       ; preds = %for.cond210.preheader, %for.end233.loopexit
-  %n1.0.lcssa = phi i64 [ %50, %for.end233.loopexit ], [ 0, %for.cond210.preheader ]
+  %n1.0.lcssa = phi i64 [ %51, %for.end233.loopexit ], [ 0, %for.cond210.preheader ]
   %arrayidx235 = getelementptr inbounds %"class.std::vector.88", ptr %edges, i64 %idxprom215
   %conv236 = sext i32 %bestOffset.1.lcssa to i64
-  %51 = load ptr, ptr %arrayidx235, align 8
-  %add.ptr.i238 = getelementptr inbounds %"struct.pbrt::BoundEdge", ptr %51, i64 %conv236
-  %52 = load float, ptr %add.ptr.i238, align 4
+  %52 = load ptr, ptr %arrayidx235, align 8
+  %add.ptr.i238 = getelementptr inbounds %"struct.pbrt::BoundEdge", ptr %52, i64 %conv236
+  %53 = load float, ptr %add.ptr.i238, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %bounds0, ptr noundef nonnull align 4 dereferenceable(24) %nodeBounds, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %bounds1, ptr noundef nonnull align 4 dereferenceable(24) %nodeBounds, i64 24, i1 false)
   switch i32 %bestAxis.1.lcssa, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit [
@@ -9232,38 +9235,38 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit:           ; preds = %for.end233
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249:        ; preds = %for.end233, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit
   %bounds1.sink = phi ptr [ %y.i240, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337 ], [ %z.i243, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit ], [ %bounds1, %for.end233 ]
   %.sink390.sroa.phi = phi ptr [ %.sink390.sroa.gep, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread337 ], [ %.sink390.sroa.gep397, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit ], [ %.sink390.sroa.gep398, %for.end233 ]
-  store float %52, ptr %bounds1.sink, align 4
-  store float %52, ptr %.sink390.sroa.phi, align 4
+  store float %53, ptr %bounds1.sink, align 4
+  store float %53, ptr %.sink390.sroa.phi, align 4
   %add243 = add nsw i32 %nodeNum, 1
   %n.i.i = getelementptr inbounds i8, ptr %prims0, i64 8
-  %53 = load i64, ptr %n.i.i, align 8
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %n0.0.lcssa, i64 %53)
-  %54 = load ptr, ptr %prims0, align 8
+  %54 = load i64, ptr %n.i.i, align 8
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %n0.0.lcssa, i64 %54)
+  %55 = load ptr, ptr %prims0, align 8
   %sub248 = add nsw i32 %depth, -1
   %n.i.i255 = getelementptr inbounds i8, ptr %prims1, i64 8
-  %55 = load i64, ptr %n.i.i255, align 8
-  %sub.i256 = sub i64 %55, %n1.0.lcssa
-  %56 = load ptr, ptr %prims1, align 8
-  %add.ptr.i258 = getelementptr inbounds i32, ptr %56, i64 %n1.0.lcssa
+  %56 = load i64, ptr %n.i.i255, align 8
+  %sub.i256 = sub i64 %56, %n1.0.lcssa
+  %57 = load ptr, ptr %prims1, align 8
+  %add.ptr.i258 = getelementptr inbounds i32, ptr %57, i64 %n1.0.lcssa
   store ptr %add.ptr.i258, ptr %agg.tmp250, align 8
-  %57 = getelementptr inbounds i8, ptr %agg.tmp250, i64 8
-  store i64 %sub.i256, ptr %57, align 8
-  call void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKSt6vectorIS2_SaIS2_EEN4pstd4spanIKiEEiPS5_INS_9BoundEdgeESaISE_EENSB_IiEESI_i(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %add243, ptr noundef nonnull align 4 dereferenceable(24) %bounds0, ptr noundef nonnull align 8 dereferenceable(24) %allPrimBounds, ptr %54, i64 %spec.select.i, i32 noundef %sub248, ptr noundef nonnull %edges, ptr noundef nonnull byval(%"class.pstd::span.94") align 8 %prims0, ptr noundef nonnull byval(%"class.pstd::span.94") align 8 %agg.tmp250, i32 noundef %badRefines.addr.0)
-  %58 = load i32, ptr %nextFreeNode, align 4
+  %58 = getelementptr inbounds i8, ptr %agg.tmp250, i64 8
+  store i64 %sub.i256, ptr %58, align 8
+  call void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKSt6vectorIS2_SaIS2_EEN4pstd4spanIKiEEiPS5_INS_9BoundEdgeESaISE_EENSB_IiEESI_i(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %add243, ptr noundef nonnull align 4 dereferenceable(24) %bounds0, ptr noundef nonnull align 8 dereferenceable(24) %allPrimBounds, ptr %55, i64 %spec.select.i, i32 noundef %sub248, ptr noundef nonnull %edges, ptr noundef nonnull byval(%"class.pstd::span.94") align 8 %prims0, ptr noundef nonnull byval(%"class.pstd::span.94") align 8 %agg.tmp250, i32 noundef %badRefines.addr.0)
+  %59 = load i32, ptr %nextFreeNode, align 4
   %nodes254 = getelementptr inbounds i8, ptr %this, i64 64
-  %59 = load ptr, ptr %nodes254, align 8
+  %60 = load ptr, ptr %nodes254, align 8
   %idxprom255 = sext i32 %nodeNum to i64
-  %arrayidx256 = getelementptr inbounds %"struct.pbrt::KdTreeNode", ptr %59, i64 %idxprom255
-  store float %52, ptr %arrayidx256, align 8
-  %shl.i = shl i32 %58, 2
+  %arrayidx256 = getelementptr inbounds %"struct.pbrt::KdTreeNode", ptr %60, i64 %idxprom255
+  store float %53, ptr %arrayidx256, align 8
+  %shl.i = shl i32 %59, 2
   %or.i = or i32 %shl.i, %bestAxis.1.lcssa
   %flags.i = getelementptr inbounds i8, ptr %arrayidx256, i64 4
   store i32 %or.i, ptr %flags.i, align 4
-  %spec.select.i263 = tail call i64 @llvm.umin.i64(i64 %n1.0.lcssa, i64 %55)
+  %spec.select.i263 = tail call i64 @llvm.umin.i64(i64 %n1.0.lcssa, i64 %56)
   store ptr %add.ptr.i258, ptr %agg.tmp263, align 8
-  %60 = getelementptr inbounds i8, ptr %agg.tmp263, i64 8
-  store i64 %sub.i256, ptr %60, align 8
-  call void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKSt6vectorIS2_SaIS2_EEN4pstd4spanIKiEEiPS5_INS_9BoundEdgeESaISE_EENSB_IiEESI_i(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %58, ptr noundef nonnull align 4 dereferenceable(24) %bounds1, ptr noundef nonnull align 8 dereferenceable(24) %allPrimBounds, ptr %56, i64 %spec.select.i263, i32 noundef %sub248, ptr noundef nonnull %edges, ptr noundef nonnull byval(%"class.pstd::span.94") align 8 %prims0, ptr noundef nonnull byval(%"class.pstd::span.94") align 8 %agg.tmp263, i32 noundef %badRefines.addr.0)
+  %61 = getelementptr inbounds i8, ptr %agg.tmp263, i64 8
+  store i64 %sub.i256, ptr %61, align 8
+  call void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKSt6vectorIS2_SaIS2_EEN4pstd4spanIKiEEiPS5_INS_9BoundEdgeESaISE_EENSB_IiEESI_i(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %59, ptr noundef nonnull align 4 dereferenceable(24) %bounds1, ptr noundef nonnull align 8 dereferenceable(24) %allPrimBounds, ptr %57, i64 %spec.select.i263, i32 noundef %sub248, ptr noundef nonnull %edges, ptr noundef nonnull byval(%"class.pstd::span.94") align 8 %prims0, ptr noundef nonnull byval(%"class.pstd::span.94") align 8 %agg.tmp263, i32 noundef %badRefines.addr.0)
   br label %return
 
 return:                                           ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit249, %if.then179, %if.then24

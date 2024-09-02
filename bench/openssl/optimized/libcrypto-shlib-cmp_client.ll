@@ -511,7 +511,7 @@ declare i32 @ossl_cmp_ctx_set1_newChain(ptr noundef, ptr noundef) local_unnamed_
 declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_CMP_try_certreq(ptr noundef %ctx, i32 noundef %req_type, ptr noundef %crm, ptr noundef %checkAfter) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @OSSL_CMP_try_certreq(ptr noundef %ctx, i32 noundef %req_type, ptr noundef %crm, ptr noundef %checkAfter) local_unnamed_addr #0 {
 entry:
   %PKIconf.i = alloca ptr, align 8
   %rep = alloca ptr, align 8

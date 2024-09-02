@@ -160,21 +160,21 @@ for.body:                                         ; preds = %entry, %for.inc
 if.end:                                           ; preds = %for.body
   %pem_str = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %pem_str, align 8
-  %cmp3 = icmp eq ptr %2, null
+  %cmp3 = icmp ne ptr %2, null
   %pkey_flags = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %pkey_flags, align 8
-  %and = and i64 %3, 1
-  %cmp9 = icmp eq i64 %and, 0
-  %4 = xor i1 %cmp3, %cmp9
-  %lor.ext = zext i1 %4 to i32
+  %4 = trunc i64 %3 to i32
+  %spec.select = and i32 %4, 1
+  %5 = zext i1 %cmp3 to i32
+  %lor.ext = xor i32 %spec.select, %5
   %call = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 95, ptr noundef nonnull @.str.12, i32 noundef %lor.ext) #3
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then11, label %for.inc
 
 if.then11:                                        ; preds = %if.end
-  %5 = load i32, ptr %0, align 8
-  %call14 = tail call ptr @OBJ_nid2sn(i32 noundef %5) #3
-  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.13, i64 noundef %i.020, i32 noundef %5, ptr noundef %call14) #3
+  %6 = load i32, ptr %0, align 8
+  %call14 = tail call ptr @OBJ_nid2sn(i32 noundef %6) #3
+  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.13, i64 noundef %i.020, i32 noundef %6, ptr noundef %call14) #3
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.then11
@@ -202,10 +202,10 @@ if.end19:                                         ; preds = %for.end
 for.body23:                                       ; preds = %if.end19, %for.body23
   %i.123 = phi i64 [ 0, %if.end19 ], [ %inc28, %for.body23 ]
   %tmp.122 = phi ptr [ @standard_methods, %if.end19 ], [ %incdec.ptr29, %for.body23 ]
-  %6 = load ptr, ptr %tmp.122, align 8
-  %7 = load i32, ptr %6, align 8
-  %call26 = tail call ptr @OBJ_nid2sn(i32 noundef %7) #3
-  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.13, i64 noundef %i.123, i32 noundef %7, ptr noundef %call26) #3
+  %7 = load ptr, ptr %tmp.122, align 8
+  %8 = load i32, ptr %7, align 8
+  %call26 = tail call ptr @OBJ_nid2sn(i32 noundef %8) #3
+  tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.13, i64 noundef %i.123, i32 noundef %8, ptr noundef %call26) #3
   %inc28 = add nuw nsw i64 %i.123, 1
   %incdec.ptr29 = getelementptr inbounds i8, ptr %tmp.122, i64 8
   %exitcond24.not = icmp eq i64 %inc28, 16

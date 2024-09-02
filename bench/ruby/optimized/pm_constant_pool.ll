@@ -86,7 +86,7 @@ define hidden noundef zeroext i1 @pm_constant_id_list_includes(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i64 @pm_constant_id_list_memsize(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i64 24, 21) i64 @pm_constant_id_list_memsize(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = shl i64 %3, 2

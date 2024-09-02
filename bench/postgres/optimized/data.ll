@@ -34,7 +34,7 @@ define noundef range(i32 0, -2147483648) i32 @ecpg_hex_dec_len(i32 noundef %0) l
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @ecpg_hex_encode(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define noundef range(i32 0, -1) i32 @ecpg_hex_encode(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr i8, ptr %0, i64 %4
   %6 = icmp ult ptr %0, %5
@@ -824,30 +824,30 @@ garbage_left.exit663.thread710:                   ; preds = %280, %array_delimit
   %343 = zext nneg i8 %335 to i64
   %344 = getelementptr [128 x i8], ptr @get_hex.hexlookup, i64 0, i64 %343
   %345 = load i8, ptr %344, align 1
+  %346 = shl i8 %345, 4
   br label %get_hex.exit.i
 
 get_hex.exit.i:                                   ; preds = %342, %339
-  %.0.i.i = phi i8 [ %345, %342 ], [ -1, %339 ]
+  %.0.i.i = phi i8 [ %346, %342 ], [ -16, %339 ]
   %.not.i666 = icmp ult ptr %340, %332
-  br i1 %.not.i666, label %346, label %hex_decode.exit
+  br i1 %.not.i666, label %347, label %hex_decode.exit
 
-346:                                              ; preds = %get_hex.exit.i
-  %347 = shl i8 %.0.i.i, 4
+347:                                              ; preds = %get_hex.exit.i
   %348 = getelementptr i8, ptr %.02130.i, i64 2
   %349 = load i8, ptr %340, align 1
   %350 = add i8 %349, -1
   %or.cond.i25.i = icmp ult i8 %350, 126
   br i1 %or.cond.i25.i, label %351, label %get_hex.exit27.i
 
-351:                                              ; preds = %346
+351:                                              ; preds = %347
   %352 = zext nneg i8 %349 to i64
   %353 = getelementptr [128 x i8], ptr @get_hex.hexlookup, i64 0, i64 %352
   %354 = load i8, ptr %353, align 1
   br label %get_hex.exit27.i
 
-get_hex.exit27.i:                                 ; preds = %351, %346
-  %.0.i26.i = phi i8 [ %354, %351 ], [ -1, %346 ]
-  %355 = or i8 %.0.i26.i, %347
+get_hex.exit27.i:                                 ; preds = %351, %347
+  %.0.i26.i = phi i8 [ %354, %351 ], [ -1, %347 ]
+  %355 = or i8 %.0.i26.i, %.0.i.i
   %356 = getelementptr i8, ptr %.0.ph33.i, i64 1
   store i8 %355, ptr %.0.ph33.i, align 1
   %357 = icmp ult ptr %348, %332

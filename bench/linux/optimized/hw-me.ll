@@ -2554,7 +2554,7 @@ define internal zeroext i1 @mei_me_hw_is_ready(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mei_me_hw_reset(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
+define internal noundef range(i32 -62, 1) i32 @mei_me_hw_reset(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
   br i1 %1, label %3, label %12
 
 3:                                                ; preds = %2

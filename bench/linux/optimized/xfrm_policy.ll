@@ -9370,46 +9370,46 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   %80 = sub nsw i64 0, %79
   br label %81
 
-81:                                               ; preds = %.thread, %77
-  %82 = phi ptr [ %102, %.thread ], [ %74, %77 ]
+81:                                               ; preds = %.critedge, %77
+  %82 = phi ptr [ %102, %.critedge ], [ %74, %77 ]
   %83 = getelementptr i8, ptr %82, i64 %80
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, %11
-  br i1 %85, label %86, label %.thread
+  br i1 %85, label %86, label %.critedge
 
 86:                                               ; preds = %81
   %87 = getelementptr inbounds i8, ptr %83, i64 14
   %88 = load i8, ptr %87, align 2
   %89 = icmp eq i8 %88, %1
-  br i1 %89, label %90, label %.thread
+  br i1 %89, label %90, label %.critedge
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds i8, ptr %83, i64 15
   %92 = load i8, ptr %91, align 1
   %93 = icmp eq i8 %10, %92
-  br i1 %93, label %94, label %.thread
+  br i1 %93, label %94, label %.critedge
 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds i8, ptr %83, i64 12
   %96 = load i16, ptr %95, align 4
   %97 = icmp eq i16 %8, %96
-  br i1 %97, label %98, label %.thread
+  br i1 %97, label %98, label %.critedge
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds i8, ptr %83, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = icmp eq i32 %100, %6
-  br i1 %101, label %.loopexit10, label %.thread
+  br i1 %101, label %.loopexit10, label %.critedge
 
-.thread:                                          ; preds = %94, %90, %86, %81, %98
+.critedge:                                        ; preds = %81, %86, %90, %94, %98
   %102 = load volatile ptr, ptr %82, align 8
   %103 = ptrtoint ptr %102 to i64
   %104 = and i64 %103, 1
   %105 = icmp eq i64 %104, 0
   br i1 %105, label %81, label %.loopexit11, !llvm.loop !93
 
-.loopexit11:                                      ; preds = %.thread, %68
-  %106 = phi ptr [ %74, %68 ], [ %102, %.thread ]
+.loopexit11:                                      ; preds = %.critedge, %68
+  %106 = phi ptr [ %74, %68 ], [ %102, %.critedge ]
   %107 = icmp eq ptr %106, %67
   br i1 %107, label %108, label %68, !llvm.loop !94
 
@@ -9646,39 +9646,39 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   %248 = load i32, ptr %122, align 8
   br label %249
 
-249:                                              ; preds = %.thread8, %239
-  %250 = phi ptr [ %272, %.thread8 ], [ %240, %239 ]
-  %251 = phi i32 [ %271, %.thread8 ], [ 16, %239 ]
+249:                                              ; preds = %.thread, %239
+  %250 = phi ptr [ %272, %.thread ], [ %240, %239 ]
+  %251 = phi i32 [ %271, %.thread ], [ 16, %239 ]
   %252 = getelementptr i8, ptr %250, i64 %243
   %253 = load ptr, ptr %252, align 8
   %254 = icmp eq ptr %253, %244
-  br i1 %254, label %255, label %.thread8
+  br i1 %254, label %255, label %.thread
 
 255:                                              ; preds = %249
   %256 = getelementptr inbounds i8, ptr %252, i64 14
   %257 = load i8, ptr %256, align 2
   %258 = icmp eq i8 %245, %257
-  br i1 %258, label %259, label %.thread8
+  br i1 %258, label %259, label %.thread
 
 259:                                              ; preds = %255
   %260 = getelementptr inbounds i8, ptr %252, i64 15
   %261 = load i8, ptr %260, align 1
   %262 = icmp eq i8 %246, %261
-  br i1 %262, label %263, label %.thread8
+  br i1 %262, label %263, label %.thread
 
 263:                                              ; preds = %259
   %264 = getelementptr inbounds i8, ptr %252, i64 12
   %265 = load i16, ptr %264, align 4
   %266 = icmp eq i16 %247, %265
-  br i1 %266, label %267, label %.thread8
+  br i1 %266, label %267, label %.thread
 
 267:                                              ; preds = %263
   %268 = getelementptr inbounds i8, ptr %252, i64 8
   %269 = load i32, ptr %268, align 8
   %270 = icmp eq i32 %248, %269
-  br i1 %270, label %.loopexit, label %.thread8
+  br i1 %270, label %.loopexit, label %.thread
 
-.thread8:                                         ; preds = %263, %259, %255, %249, %267
+.thread:                                          ; preds = %263, %259, %255, %249, %267
   %271 = add i32 %251, -1
   %272 = load ptr, ptr %250, align 8
   %273 = ptrtoint ptr %272 to i64
@@ -9686,7 +9686,7 @@ define internal fastcc ptr @xfrm_policy_inexact_alloc_bin(ptr nocapture noundef 
   %275 = icmp eq i64 %274, 0
   br i1 %275, label %249, label %276, !llvm.loop !116
 
-276:                                              ; preds = %.thread8
+276:                                              ; preds = %.thread
   %277 = icmp slt i32 %271, 1
   br i1 %277, label %216, label %278
 

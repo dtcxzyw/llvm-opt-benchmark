@@ -3125,7 +3125,7 @@ if.end.i:                                         ; preds = %if.then.i
   %tobool15.i = icmp eq i64 %and14.i, 0
   %cmp18.i = icmp ult i16 %narrow.i, -256
   %or.cond1.i = and i1 %cmp18.i, %tobool15.i
-  %..i = select i1 %or.cond1.i, i32 65279, i32 0
+  %8 = select i1 %or.cond1.i, i32 65279, i32 0
   br label %cond.true
 
 if.end22.i:                                       ; preds = %if.then33
@@ -3153,20 +3153,20 @@ if.end63.i:                                       ; preds = %if.end53.i
   %tobool67.i = icmp eq i64 %and66.i, 0
   %cmp70.i = icmp ugt i16 %narrow23.i, 767
   %or.cond5.i = and i1 %cmp70.i, %tobool67.i
-  %.22.i = select i1 %or.cond5.i, i32 768, i32 0
+  %9 = select i1 %or.cond5.i, i32 768, i32 0
   br label %cond.false
 
 cond.true:                                        ; preds = %if.end.i, %if.then.i
-  %retval.0.i = phi i32 [ 65277, %if.then.i ], [ %..i, %if.end.i ]
-  %8 = load i32, ptr %ssl, align 8
-  %conv38 = and i32 %8, 65535
+  %retval.0.i = phi i32 [ 65277, %if.then.i ], [ %8, %if.end.i ]
+  %10 = load i32, ptr %ssl, align 8
+  %conv38 = and i32 %10, 65535
   %cmp40 = icmp ugt i32 %conv38, %retval.0.i
   br i1 %cmp40, label %if.then48, label %while.cond.backedge
 
 cond.false:                                       ; preds = %if.end22.i, %if.end43.i, %if.end53.i, %if.end63.i
-  %retval.0.i.ph = phi i32 [ %.22.i, %if.end63.i ], [ 769, %if.end53.i ], [ 770, %if.end43.i ], [ 771, %if.end22.i ]
-  %9 = load i32, ptr %ssl, align 8
-  %conv44 = and i32 %9, 65535
+  %retval.0.i.ph = phi i32 [ %9, %if.end63.i ], [ 769, %if.end53.i ], [ 770, %if.end43.i ], [ 771, %if.end22.i ]
+  %11 = load i32, ptr %ssl, align 8
+  %conv44 = and i32 %11, 65535
   %cmp46 = icmp ult i32 %conv44, %retval.0.i.ph
   br i1 %cmp46, label %if.then48, label %while.cond.backedge
 
@@ -5713,7 +5713,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i64 1, 0) i64 @SSL_get_client_random(ptr nocapture noundef readonly %ssl, ptr nocapture noundef writeonly %out, i64 noundef %max_out) local_unnamed_addr #11 {
+define hidden range(i64 1, 33) i64 @SSL_get_client_random(ptr nocapture noundef readonly %ssl, ptr nocapture noundef writeonly %out, i64 noundef %max_out) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq i64 %max_out, 0
   br i1 %cmp, label %return, label %if.end
@@ -5732,7 +5732,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i64 1, 0) i64 @SSL_get_server_random(ptr nocapture noundef readonly %ssl, ptr nocapture noundef writeonly %out, i64 noundef %max_out) local_unnamed_addr #11 {
+define hidden range(i64 1, 33) i64 @SSL_get_server_random(ptr nocapture noundef readonly %ssl, ptr nocapture noundef writeonly %out, i64 noundef %max_out) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq i64 %max_out, 0
   br i1 %cmp, label %return, label %if.end

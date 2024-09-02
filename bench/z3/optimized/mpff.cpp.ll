@@ -8724,7 +8724,7 @@ if.else:                                          ; preds = %if.end, %if.then9
   %cmp68.not = icmp ugt i32 %8, %conv64
   %sub70 = add nuw nsw i32 %conv64, 2
   %9 = sub i32 %sub70, %8
-  %inc71 = select i1 %cmp68.not, i32 1, i32 %9
+  %cond = select i1 %cmp68.not, i32 1, i32 %9
   %m_significands.i135 = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %m_significands.i135, align 8
   %bf.lshr.i137 = lshr i32 %bf.load.i136, 1
@@ -8735,7 +8735,7 @@ if.else:                                          ; preds = %if.end, %if.then9
   br i1 %cmp79434.not, label %for.cond92.preheader, label %for.body80
 
 for.cond92.preheader:                             ; preds = %for.inc88, %if.else
-  %cmp93436.not = icmp eq i32 %inc71, 0
+  %cmp93436.not = icmp eq i32 %cond, 0
   br i1 %cmp93436.not, label %for.cond.preheader.i, label %for.body94
 
 for.body80:                                       ; preds = %if.else, %for.inc88
@@ -9086,7 +9086,7 @@ for.inc99:                                        ; preds = %_ZN6bufferIjLb0ELj1
   %inc.i312 = add i32 %48, 1
   store i32 %inc.i312, ptr %m_pos.i.i130, align 8
   %inc100 = add nuw i32 %i91.0437, 1
-  %exitcond.not = icmp eq i32 %inc100, %inc71
+  %exitcond.not = icmp eq i32 %inc100, %cond
   br i1 %exitcond.not, label %for.cond.preheader.i, label %for.body94, !llvm.loop !35
 
 for.cond.preheader.i:                             ; preds = %for.inc99, %for.cond92.preheader

@@ -1159,10 +1159,10 @@ define internal void @tele_param_user_data_cmas(ptr noundef %0, ptr noundef %1, 
   %31 = icmp ugt i32 %30, 2
   br i1 %31, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %14, %._crit_edge248
-  %.0228244 = phi i32 [ %.1, %._crit_edge248 ], [ 1, %14 ]
-  %.0229243 = phi i32 [ %.1230, %._crit_edge248 ], [ %23, %14 ]
-  %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %.0228244) #6
+.lr.ph:                                           ; preds = %14, %._crit_edge247
+  %.0228243 = phi i32 [ %.1, %._crit_edge247 ], [ 1, %14 ]
+  %.0229242 = phi i32 [ %.1230, %._crit_edge247 ], [ %23, %14 ]
+  %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %.0228243) #6
   %33 = zext i8 %32 to i32
   %34 = icmp ult i8 %32, 3
   br i1 %34, label %switch.lookup, label %36
@@ -1177,18 +1177,18 @@ switch.lookup:                                    ; preds = %.lr.ph
 36:                                               ; preds = %switch.lookup, %.lr.ph
   %.0231 = phi i64 [ 3, %.lr.ph ], [ %switch.idx.cast, %switch.lookup ]
   %.0 = phi ptr [ @.str.43, %.lr.ph ], [ %switch.load, %switch.lookup ]
-  %37 = add i32 %.0228244, 1
+  %37 = add i32 %.0228243, 1
   %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %37) #6
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 2
   %41 = getelementptr [4 x i32], ptr @ett_tia_1149_cmas_param, i64 0, i64 %.0231
   %42 = load i32, ptr %41, align 4
-  %43 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %27, i32 noundef %.0228244, i32 noundef %40, i32 noundef %42, ptr noundef null, ptr noundef nonnull %.0) #6
+  %43 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %27, i32 noundef %.0228243, i32 noundef %40, i32 noundef %42, ptr noundef null, ptr noundef nonnull %.0) #6
   %44 = load i32, ptr @hf_ansi_637_tele_cmas_record_type, align 4
-  %45 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %43, i32 noundef %44, ptr noundef %27, i32 noundef %.0228244, i32 noundef 1, i32 noundef %33, ptr noundef nonnull @.str.324, ptr noundef nonnull %.0) #6
+  %45 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %43, i32 noundef %44, ptr noundef %27, i32 noundef %.0228243, i32 noundef 1, i32 noundef %33, ptr noundef nonnull @.str.324, ptr noundef nonnull %.0) #6
   %46 = load i32, ptr @hf_ansi_637_tele_cmas_record_len, align 4
   %47 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %43, i32 noundef %46, ptr noundef %27, i32 noundef %37, i32 noundef 1, i32 noundef %39, ptr noundef nonnull @.str.335, i32 noundef %39) #6
-  %48 = add i32 %.0228244, 2
+  %48 = add i32 %.0228243, 2
   switch i8 %32, label %49 [
     i8 0, label %52
     i8 1, label %93
@@ -1198,7 +1198,7 @@ switch.lookup:                                    ; preds = %.lr.ph
 49:                                               ; preds = %36
   %50 = tail call ptr @proto_tree_add_expert(ptr noundef %43, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_unknown_cmas_record_type, ptr noundef %27, i32 noundef %48, i32 noundef %39) #6
   %51 = add i32 %48, %39
-  br label %._crit_edge248
+  br label %._crit_edge247
 
 52:                                               ; preds = %36
   %53 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %48) #6
@@ -1221,12 +1221,12 @@ switch.lookup:                                    ; preds = %.lr.ph
 61:                                               ; preds = %52
   %62 = lshr i16 %60, 4
   %63 = trunc i16 %62 to i8
-  br label %83
+  br label %84
 
 64:                                               ; preds = %52, %52, %52, %52
   %65 = lshr i16 %60, 3
   %66 = trunc i16 %65 to i8
-  br label %83
+  br label %84
 
 67:                                               ; preds = %52
   %68 = udiv i16 %60, 7
@@ -1250,32 +1250,32 @@ switch.lookup:                                    ; preds = %.lr.ph
   %80 = zext i8 %.1233 to i16
   %.neg = mul nuw i16 %80, 249
   %81 = add i16 %.neg, %60
-  %82 = zext i16 %81 to i32
-  br label %83
+  %82 = and i16 %81, 255
+  %83 = zext nneg i16 %82 to i32
+  br label %84
 
-83:                                               ; preds = %79, %64, %61
-  %.0234 = phi i32 [ %82, %79 ], [ 3, %64 ], [ 3, %61 ]
+84:                                               ; preds = %79, %64, %61
+  %.0234 = phi i32 [ %83, %79 ], [ 3, %64 ], [ 3, %61 ]
   %.0232 = phi i8 [ %.1233, %79 ], [ %66, %64 ], [ %63, %61 ]
   %.not240 = icmp eq i8 %.0232, 0
-  br i1 %.not240, label %86, label %84
+  br i1 %.not240, label %87, label %85
 
-84:                                               ; preds = %83
-  %85 = load i32, ptr @hf_ansi_637_tele_cmas_text, align 4
-  tail call fastcc void @text_decoder(ptr noundef %27, ptr noundef %1, ptr noundef %43, i32 noundef %48, i8 noundef zeroext %54, i8 noundef zeroext %.0232, i16 noundef zeroext %60, i8 noundef zeroext 3, i8 noundef zeroext 0, i32 noundef %85)
-  br label %86
+85:                                               ; preds = %84
+  %86 = load i32, ptr @hf_ansi_637_tele_cmas_text, align 4
+  tail call fastcc void @text_decoder(ptr noundef %27, ptr noundef %1, ptr noundef %43, i32 noundef %48, i8 noundef zeroext %54, i8 noundef zeroext %.0232, i16 noundef zeroext %60, i8 noundef zeroext 3, i8 noundef zeroext 0, i32 noundef %86)
+  br label %87
 
-86:                                               ; preds = %84, %83
-  %87 = and i32 %.0234, 255
-  %.not241 = icmp eq i32 %87, 0
+87:                                               ; preds = %85, %84
+  %.not241 = icmp eq i32 %.0234, 0
   %.pre = add i32 %48, %39
-  br i1 %.not241, label %._crit_edge248, label %88
+  br i1 %.not241, label %._crit_edge247, label %88
 
-88:                                               ; preds = %86
+88:                                               ; preds = %87
   %89 = load i32, ptr @hf_ansi_637_reserved_bits_8_generic, align 4
   %90 = shl i32 %.pre, 3
-  %91 = sub i32 %90, %87
-  %92 = tail call ptr @proto_tree_add_bits_item(ptr noundef %43, i32 noundef %89, ptr noundef %27, i32 noundef %91, i32 noundef %87, i32 noundef 0) #6
-  br label %._crit_edge248
+  %91 = sub i32 %90, %.0234
+  %92 = tail call ptr @proto_tree_add_bits_item(ptr noundef %43, i32 noundef %89, ptr noundef %27, i32 noundef %91, i32 noundef %.0234, i32 noundef 0) #6
+  br label %._crit_edge247
 
 93:                                               ; preds = %36
   %94 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %48) #6
@@ -1283,13 +1283,13 @@ switch.lookup:                                    ; preds = %.lr.ph
   %96 = tail call ptr @val_to_str_const(i32 noundef %95, ptr noundef nonnull @cmas_category_strings, ptr noundef nonnull @.str.43) #6
   %97 = load i32, ptr @hf_ansi_637_tele_cmas_category, align 4
   %98 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %43, i32 noundef %97, ptr noundef %27, i32 noundef %48, i32 noundef 1, i32 noundef %95, ptr noundef nonnull @.str.327, ptr noundef %96, i32 noundef %95) #6
-  %99 = add i32 %.0228244, 3
+  %99 = add i32 %.0228243, 3
   %100 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %99) #6
   %101 = zext i8 %100 to i32
   %102 = tail call ptr @val_to_str_const(i32 noundef %101, ptr noundef nonnull @cmas_response_type_strings, ptr noundef nonnull @.str.43) #6
   %103 = load i32, ptr @hf_ansi_637_tele_cmas_response_type, align 4
   %104 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %43, i32 noundef %103, ptr noundef %27, i32 noundef %99, i32 noundef 1, i32 noundef %101, ptr noundef nonnull @.str.327, ptr noundef %102, i32 noundef %101) #6
-  %105 = add i32 %.0228244, 4
+  %105 = add i32 %.0228243, 4
   %106 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %105) #6
   %107 = zext i8 %106 to i32
   %108 = lshr i32 %107, 4
@@ -1300,7 +1300,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   %113 = tail call ptr @val_to_str_const(i32 noundef %112, ptr noundef nonnull @cmas_urgency_strings, ptr noundef nonnull @.str.43) #6
   %114 = load i32, ptr @hf_ansi_637_tele_cmas_urgency, align 4
   %115 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %43, i32 noundef %114, ptr noundef %27, i32 noundef %105, i32 noundef 1, i32 noundef %107, ptr noundef nonnull @.str.327, ptr noundef %113, i32 noundef %112) #6
-  %116 = add i32 %.0228244, 5
+  %116 = add i32 %.0228243, 5
   %117 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %116) #6
   %118 = zext i8 %117 to i32
   %119 = lshr i32 %118, 4
@@ -1309,16 +1309,16 @@ switch.lookup:                                    ; preds = %.lr.ph
   %122 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %43, i32 noundef %121, ptr noundef %27, i32 noundef %116, i32 noundef 1, i32 noundef %118, ptr noundef nonnull @.str.327, ptr noundef %120, i32 noundef %119) #6
   %123 = load i32, ptr @hf_ansi_637_reserved_bits_8_0f, align 4
   %124 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %123, ptr noundef %27, i32 noundef %116, i32 noundef 1, i32 noundef 0) #6
-  %125 = add i32 %.0228244, 6
-  br label %._crit_edge248
+  %125 = add i32 %.0228243, 6
+  br label %._crit_edge247
 
 126:                                              ; preds = %36
   %127 = load i32, ptr @hf_ansi_637_tele_cmas_identifier, align 4
   %128 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %127, ptr noundef %27, i32 noundef %48, i32 noundef 2, i32 noundef 0) #6
-  %129 = add i32 %.0228244, 4
+  %129 = add i32 %.0228243, 4
   %130 = load i32, ptr @hf_ansi_637_tele_cmas_alert_handling, align 4
   %131 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %130, ptr noundef %27, i32 noundef %129, i32 noundef 1, i32 noundef 0) #6
-  %132 = add i32 %.0228244, 5
+  %132 = add i32 %.0228243, 5
   %133 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %132) #6
   %134 = zext i8 %133 to i32
   %135 = icmp ult i8 %133, 96
@@ -1326,45 +1326,45 @@ switch.lookup:                                    ; preds = %.lr.ph
   %137 = add nuw nsw i32 %136, %134
   %138 = load i32, ptr @hf_ansi_637_tele_cmas_expires_year, align 4
   %139 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %43, i32 noundef %138, ptr noundef %27, i32 noundef %132, i32 noundef 1, i32 noundef %134, ptr noundef nonnull @.str.332, i32 noundef %137, i32 noundef %134) #6
-  %140 = add i32 %.0228244, 6
+  %140 = add i32 %.0228243, 6
   %141 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %140) #6
   %142 = zext i8 %141 to i32
   %143 = add nsw i32 %142, -1
   %144 = tail call ptr @val_to_str_const(i32 noundef %143, ptr noundef nonnull @ansi_tele_month_strings, ptr noundef nonnull @.str.333) #6
   %145 = load i32, ptr @hf_ansi_637_tele_cmas_expires_month, align 4
   %146 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %43, i32 noundef %145, ptr noundef %27, i32 noundef %140, i32 noundef 1, i32 noundef %142, ptr noundef nonnull @.str.334, ptr noundef %144, i32 noundef %142) #6
-  %147 = add i32 %.0228244, 7
+  %147 = add i32 %.0228243, 7
   %148 = load i32, ptr @hf_ansi_637_tele_cmas_expires_day, align 4
   %149 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %148, ptr noundef %27, i32 noundef %147, i32 noundef 1, i32 noundef 0) #6
-  %150 = add i32 %.0228244, 8
+  %150 = add i32 %.0228243, 8
   %151 = load i32, ptr @hf_ansi_637_tele_cmas_expires_hours, align 4
   %152 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %151, ptr noundef %27, i32 noundef %150, i32 noundef 1, i32 noundef 0) #6
-  %153 = add i32 %.0228244, 9
+  %153 = add i32 %.0228243, 9
   %154 = load i32, ptr @hf_ansi_637_tele_cmas_expires_minutes, align 4
   %155 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %154, ptr noundef %27, i32 noundef %153, i32 noundef 1, i32 noundef 0) #6
-  %156 = add i32 %.0228244, 10
+  %156 = add i32 %.0228243, 10
   %157 = load i32, ptr @hf_ansi_637_tele_cmas_expires_seconds, align 4
   %158 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %157, ptr noundef %27, i32 noundef %156, i32 noundef 1, i32 noundef 0) #6
-  %159 = add i32 %.0228244, 11
+  %159 = add i32 %.0228243, 11
   %160 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %159) #6
   %161 = zext i8 %160 to i32
   %162 = tail call ptr @val_to_str_ext_const(i32 noundef %161, ptr noundef nonnull @ansi_tsb58_language_ind_vals_ext, ptr noundef nonnull @.str.43) #6
   %163 = load i32, ptr @hf_ansi_637_tele_cmas_language, align 4
   %164 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %43, i32 noundef %163, ptr noundef %27, i32 noundef %159, i32 noundef 1, i32 noundef %161, ptr noundef nonnull @.str.327, ptr noundef %162, i32 noundef %161) #6
-  %165 = add i32 %.0228244, 12
-  br label %._crit_edge248
+  %165 = add i32 %.0228243, 12
+  br label %._crit_edge247
 
-._crit_edge248:                                   ; preds = %86, %88, %126, %93, %49
-  %.1230 = phi i32 [ %.0229243, %49 ], [ %.0229243, %126 ], [ %.0229243, %93 ], [ %48, %88 ], [ %48, %86 ]
-  %.1 = phi i32 [ %51, %49 ], [ %165, %126 ], [ %125, %93 ], [ %.pre, %88 ], [ %.pre, %86 ]
+._crit_edge247:                                   ; preds = %87, %88, %126, %93, %49
+  %.1230 = phi i32 [ %.0229242, %49 ], [ %.0229242, %126 ], [ %.0229242, %93 ], [ %48, %88 ], [ %48, %87 ]
+  %.1 = phi i32 [ %51, %49 ], [ %165, %126 ], [ %125, %93 ], [ %.pre, %88 ], [ %.pre, %87 ]
   %166 = sub i32 %22, %.1
   %167 = icmp ugt i32 %166, 2
   br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %._crit_edge248, %14
-  %.0229.lcssa = phi i32 [ %23, %14 ], [ %.1230, %._crit_edge248 ]
-  %.0228.lcssa = phi i32 [ 1, %14 ], [ %.1, %._crit_edge248 ]
-  %.lcssa = phi i32 [ %30, %14 ], [ %166, %._crit_edge248 ]
+._crit_edge:                                      ; preds = %._crit_edge247, %14
+  %.0229.lcssa = phi i32 [ %23, %14 ], [ %.1230, %._crit_edge247 ]
+  %.0228.lcssa = phi i32 [ 1, %14 ], [ %.1, %._crit_edge247 ]
+  %.lcssa = phi i32 [ %30, %14 ], [ %166, %._crit_edge247 ]
   %168 = icmp ult i32 %.0228.lcssa, %22
   br i1 %168, label %169, label %171
 

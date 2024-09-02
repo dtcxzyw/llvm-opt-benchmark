@@ -968,77 +968,63 @@ define internal fastcc void @set_frozenxids(i1 noundef zeroext %0) unnamed_addr 
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %sub_0, label %._crit_edge
 
-sub_0:                                            ; preds = %7, %47
-  %.033 = phi i32 [ %48, %47 ], [ 0, %7 ]
+sub_0:                                            ; preds = %7, %.tail29.thread
+  %.033 = phi i32 [ %38, %.tail29.thread ], [ 0, %7 ]
   %16 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.033, i32 noundef %12) #8
   %17 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.033, i32 noundef %13) #8
   %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i32
-  %20 = add nsw i32 %19, -102
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %sub_1, label %.tail
+  %.not = icmp eq i8 %18, 102
+  br i1 %.not, label %.tail, label %.tail.thread
 
-sub_1:                                            ; preds = %sub_0
-  %21 = getelementptr inbounds i8, ptr %17, i64 1
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  br label %.tail
+.tail:                                            ; preds = %sub_0
+  %19 = getelementptr inbounds i8, ptr %17, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %22, label %.tail.thread
 
-.tail:                                            ; preds = %sub_0, %sub_1
-  %24 = phi i32 [ %20, %sub_0 ], [ %23, %sub_1 ]
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %29
+22:                                               ; preds = %.tail
+  %23 = tail call ptr @quote_identifier(ptr noundef %16) #8
+  %24 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %8, ptr noundef nonnull @.str.49, ptr noundef %23) #8
+  tail call void @PQclear(ptr noundef %24) #8
+  br label %.tail.thread
 
-26:                                               ; preds = %.tail
-  %27 = tail call ptr @quote_identifier(ptr noundef %16) #8
-  %28 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %8, ptr noundef nonnull @.str.49, ptr noundef %27) #8
+.tail.thread:                                     ; preds = %sub_0, %22, %.tail
+  %25 = tail call ptr @connectToServer(ptr noundef nonnull @new_cluster, ptr noundef %16) #8
+  br i1 %0, label %sub_030, label %26
+
+26:                                               ; preds = %.tail.thread
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 36), align 4
+  %28 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %25, ptr noundef nonnull @.str.50, i32 noundef %27) #8
   tail call void @PQclear(ptr noundef %28) #8
-  br label %29
-
-29:                                               ; preds = %26, %.tail
-  %30 = tail call ptr @connectToServer(ptr noundef nonnull @new_cluster, ptr noundef %16) #8
-  br i1 %0, label %sub_030, label %31
-
-31:                                               ; preds = %29
-  %32 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 36), align 4
-  %33 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %30, ptr noundef nonnull @.str.50, i32 noundef %32) #8
-  tail call void @PQclear(ptr noundef %33) #8
   br label %sub_030
 
-sub_030:                                          ; preds = %31, %29
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 48), align 8
-  %35 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %30, ptr noundef nonnull @.str.51, i32 noundef %34) #8
-  tail call void @PQclear(ptr noundef %35) #8
-  tail call void @PQfinish(ptr noundef %30) #8
-  %36 = load i8, ptr %17, align 1
-  %37 = zext i8 %36 to i32
-  %38 = add nsw i32 %37, -102
-  %.not34 = icmp eq i32 %38, 0
-  br i1 %.not34, label %sub_131, label %.tail29
+sub_030:                                          ; preds = %26, %.tail.thread
+  %29 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 48), align 8
+  %30 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %25, ptr noundef nonnull @.str.51, i32 noundef %29) #8
+  tail call void @PQclear(ptr noundef %30) #8
+  tail call void @PQfinish(ptr noundef %25) #8
+  %31 = load i8, ptr %17, align 1
+  %.not34 = icmp eq i8 %31, 102
+  br i1 %.not34, label %.tail29, label %.tail29.thread
 
-sub_131:                                          ; preds = %sub_030
-  %39 = getelementptr inbounds i8, ptr %17, i64 1
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  br label %.tail29
+.tail29:                                          ; preds = %sub_030
+  %32 = getelementptr inbounds i8, ptr %17, i64 1
+  %33 = load i8, ptr %32, align 1
+  %34 = icmp eq i8 %33, 0
+  br i1 %34, label %35, label %.tail29.thread
 
-.tail29:                                          ; preds = %sub_030, %sub_131
-  %42 = phi i32 [ %38, %sub_030 ], [ %41, %sub_131 ]
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %47
+35:                                               ; preds = %.tail29
+  %36 = tail call ptr @quote_identifier(ptr noundef %16) #8
+  %37 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %8, ptr noundef nonnull @.str.52, ptr noundef %36) #8
+  tail call void @PQclear(ptr noundef %37) #8
+  br label %.tail29.thread
 
-44:                                               ; preds = %.tail29
-  %45 = tail call ptr @quote_identifier(ptr noundef %16) #8
-  %46 = tail call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %8, ptr noundef nonnull @.str.52, ptr noundef %45) #8
-  tail call void @PQclear(ptr noundef %46) #8
-  br label %47
-
-47:                                               ; preds = %.tail29, %44
-  %48 = add nuw nsw i32 %.033, 1
-  %exitcond.not = icmp eq i32 %48, %14
+.tail29.thread:                                   ; preds = %sub_030, %.tail29, %35
+  %38 = add nuw nsw i32 %.033, 1
+  %exitcond.not = icmp eq i32 %38, %14
   br i1 %exitcond.not, label %._crit_edge, label %sub_0, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %47, %7
+._crit_edge:                                      ; preds = %.tail29.thread, %7
   tail call void @PQclear(ptr noundef %11) #8
   tail call void @PQfinish(ptr noundef %8) #8
   tail call void @check_ok() #8

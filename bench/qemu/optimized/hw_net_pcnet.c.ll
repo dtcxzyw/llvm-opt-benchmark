@@ -382,13 +382,12 @@ while.body149:                                    ; preds = %while.body149.prehe
 while.end158:                                     ; preds = %while.body149
   %45 = load i32, ptr %arrayidx146, align 4
   %call159 = call i32 @htonl(i32 noundef %xor157) #12
-  %cmp160 = icmp ne i32 %45, %call159
-  %conv161 = zext i1 %cmp160 to i32
+  %cmp160.not = icmp eq i32 %45, %call159
   br label %if.end163
 
 if.end163:                                        ; preds = %while.end, %while.end158, %if.then105
   %size.0 = phi i64 [ %add141, %while.end ], [ %size_, %while.end158 ], [ %add117, %if.then105 ]
-  %crc_err.0 = phi i32 [ 0, %while.end ], [ %conv161, %while.end158 ], [ 0, %if.then105 ]
+  %crc_err.0 = phi i1 [ true, %while.end ], [ %cmp160.not, %while.end158 ], [ true, %if.then105 ]
   %arrayidx165 = getelementptr i8, ptr %call, i64 8564
   %46 = load i16, ptr %arrayidx165, align 4
   %47 = and i16 %46, 256
@@ -838,8 +837,7 @@ if.then487:                                       ; preds = %pcnet_rmd_load.exit
   %shl541 = select i1 %176, i16 16, i16 0
   %or542 = or disjoint i16 %shl541, %or526
   store i16 %or542, ptr %status177, align 2
-  %tobool545.not = icmp eq i32 %crc_err.0, 0
-  br i1 %tobool545.not, label %if.end579, label %if.then546
+  br i1 %crc_err.0, label %if.end579, label %if.then546
 
 if.then546:                                       ; preds = %if.then487
   %177 = or i16 %or542, 18432

@@ -854,25 +854,25 @@ define dso_local void @set_cpu_sibling_map(i32 noundef %0) local_unnamed_addr #2
   %284 = load i64, ptr %283, align 8
   %285 = icmp eq i64 %284, 0
   %.pre = load i64, ptr @cpu_sibling_setup_mask, align 8
-  br i1 %285, label %288, label %286
+  br i1 %285, label %289, label %286
 
 286:                                              ; preds = %275
   %287 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %284) #21, !srcloc !9
-  br label %288
+  %288 = trunc i64 %287 to i32
+  br label %289
 
-288:                                              ; preds = %286, %275
-  %289 = phi i64 [ %287, %286 ], [ 64, %275 ]
-  %290 = trunc i64 %289 to i32
+289:                                              ; preds = %286, %275
+  %290 = phi i32 [ %288, %286 ], [ 64, %275 ]
   %291 = icmp eq i32 %290, %261
   br i1 %291, label %292, label %295
 
-292:                                              ; preds = %288
+292:                                              ; preds = %289
   %293 = load i16, ptr %253, align 4
   %294 = add i16 %293, 1
   store i16 %294, ptr %253, align 4
   br label %295
 
-295:                                              ; preds = %292, %288
+295:                                              ; preds = %292, %289
   br i1 %267, label %303, label %296
 
 296:                                              ; preds = %295

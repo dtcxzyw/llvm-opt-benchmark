@@ -292,7 +292,7 @@ _ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit: ; preds = %if.then.
 declare void @_ZN6hermes2vm13RuntimeModule21getStringFromStringIDB5cxx11Ej(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(192), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZNK6hermes2vm9CodeBlock29getDebugSourceLocationsOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZNK6hermes2vm9CodeBlock29getDebugSourceLocationsOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.48", align 8
   %0 = load ptr, ptr %this, align 8
@@ -380,7 +380,7 @@ return:                                           ; preds = %_ZNK6hermes3hbc14BC
 declare void @_ZNK6hermes3hbc9DebugInfo21getLocationForAddressEjj(ptr sret(%"class.hermes::OptValue.29") align 4, ptr noundef nonnull align 8 dereferenceable(136), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @_ZNK6hermes2vm9CodeBlock19getFunctionSourceIDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZNK6hermes2vm9CodeBlock19getFunctionSourceIDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
@@ -435,7 +435,7 @@ return:                                           ; preds = %"_ZSt11lower_boundI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZNK6hermes2vm9CodeBlock22getScopeDescDataOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZNK6hermes2vm9CodeBlock22getScopeDescDataOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.48", align 8
   %0 = load ptr, ptr %this, align 8
@@ -467,7 +467,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZNK6hermes2vm9CodeBlock24getTextifiedCalleeOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZNK6hermes2vm9CodeBlock24getTextifiedCalleeOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.48", align 8
   %0 = load ptr, ptr %this, align 8

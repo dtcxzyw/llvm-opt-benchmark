@@ -2243,12 +2243,12 @@ if.then106.us:                                    ; preds = %if.end104.us
   %22 = load ptr, ptr %uncompressed_buffer_91, align 8
   %call117.us = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %uncompressed_record_, ptr noundef %22, i64 noundef %21)
   %.pre87 = load i64, ptr %uncompressed_size, align 8
+  %23 = icmp eq i64 %.pre87, 32768
   br label %do.cond.us
 
 do.cond.us:                                       ; preds = %if.then106.us, %if.end104.us
-  %23 = phi i64 [ %.pre87, %if.then106.us ], [ 0, %if.end104.us ]
+  %cmp121.us = phi i1 [ %23, %if.then106.us ], [ false, %if.end104.us ]
   %cmp119.us = icmp ne i32 %call100.us, 0
-  %cmp121.us = icmp eq i64 %23, 32768
   %24 = select i1 %cmp119.us, i1 true, i1 %cmp121.us
   br i1 %24, label %do.body.us, label %do.end, !llvm.loop !8
 
@@ -2281,12 +2281,12 @@ if.then106:                                       ; preds = %if.end104
   %32 = load i64, ptr %uncompressed_size, align 8
   %call117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %uncompressed_record_, ptr noundef %31, i64 noundef %32)
   %.pre86 = load i64, ptr %uncompressed_size, align 8
+  %33 = icmp eq i64 %.pre86, 32768
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end104, %if.then106
-  %33 = phi i64 [ 0, %if.end104 ], [ %.pre86, %if.then106 ]
+  %cmp121 = phi i1 [ false, %if.end104 ], [ %33, %if.then106 ]
   %cmp119 = icmp ne i32 %call100, 0
-  %cmp121 = icmp eq i64 %33, 32768
   %34 = select i1 %cmp119, i1 true, i1 %cmp121
   br i1 %34, label %do.body, label %do.end, !llvm.loop !8
 
@@ -4522,12 +4522,12 @@ if.then117:                                       ; preds = %if.end115
   %25 = load ptr, ptr %uncompressed_buffer_, align 8
   %call121 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %uncompressed_record_, ptr noundef %25, i64 noundef %24)
   %.pre79 = load i64, ptr %uncompressed_size, align 8
+  %26 = icmp eq i64 %.pre79, 32768
   br label %do.cond
 
 do.cond:                                          ; preds = %if.end115, %if.then117
-  %26 = phi i64 [ 0, %if.end115 ], [ %.pre79, %if.then117 ]
+  %cmp124 = phi i1 [ false, %if.end115 ], [ %26, %if.then117 ]
   %cmp123 = icmp ne i32 %call111, 0
-  %cmp124 = icmp eq i64 %26, 32768
   %27 = select i1 %cmp123, i1 true, i1 %cmp124
   br i1 %27, label %do.body, label %do.end, !llvm.loop !30
 

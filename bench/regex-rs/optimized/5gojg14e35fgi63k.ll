@@ -821,29 +821,29 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Proper
   %.sroa.31.0.ph = phi i32 [ %.054105, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb7397db20fc158a7E.exit71.thread" ], [ %24, %.outer.backedge ]
   %.sroa.28.0.ph = phi i32 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb7397db20fc158a7E.exit71.thread" ], [ %21, %.outer.backedge ]
   %.sroa.25.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb7397db20fc158a7E.exit71.thread" ], [ %45, %.outer.backedge ]
-  %.sroa.19.0.ph = phi i64 [ %.sroa.010.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb7397db20fc158a7E.exit71.thread" ], [ %.sroa.19.0., %.outer.backedge ]
+  %.sroa.19.0.ph = phi i64 [ %.sroa.010.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb7397db20fc158a7E.exit71.thread" ], [ %..sroa.19.0, %.outer.backedge ]
   %.sroa.15.0.ph = phi i64 [ undef, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb7397db20fc158a7E.exit71.thread" ], [ %.sroa.15.0.ph.be, %.outer.backedge ]
   %.sroa.11.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb7397db20fc158a7E.exit71.thread" ], [ %.sroa.11.0.ph.be, %.outer.backedge ]
   %.sroa.7.0.ph = phi i64 [ undef, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb7397db20fc158a7E.exit71.thread" ], [ %.sroa.7.1, %.outer.backedge ]
   %.sroa.0.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb7397db20fc158a7E.exit71.thread" ], [ %.sroa.0.1, %.outer.backedge ]
   br label %13
 
-13:                                               ; preds = %.outer, %63
-  %.sroa.6.0 = phi ptr [ %.sroa.6.192, %63 ], [ %.sroa.6.0.ph, %.outer ]
-  %.sroa.0.086 = phi i1 [ true, %63 ], [ %.sroa.0.086.ph, %.outer ]
-  %.056 = phi i1 [ true, %63 ], [ %.056.ph, %.outer ]
-  %.055 = phi i1 [ %.1, %63 ], [ %.055.ph, %.outer ]
-  %.sroa.47.0 = phi i8 [ %.052, %63 ], [ %.sroa.47.0.ph, %.outer ]
-  %.sroa.43.0 = phi i8 [ %.053, %63 ], [ %.sroa.43.0.ph, %.outer ]
-  %.sroa.40.0 = phi i32 [ %33, %63 ], [ %.sroa.40.0.ph, %.outer ]
-  %.sroa.37.0 = phi i32 [ %30, %63 ], [ %.sroa.37.0.ph, %.outer ]
-  %.sroa.34.0 = phi i32 [ %27, %63 ], [ %.sroa.34.0.ph, %.outer ]
-  %.sroa.31.0 = phi i32 [ %24, %63 ], [ %.sroa.31.0.ph, %.outer ]
-  %.sroa.28.0 = phi i32 [ %21, %63 ], [ %.sroa.28.0.ph, %.outer ]
-  %.sroa.25.0 = phi i64 [ %45, %63 ], [ %.sroa.25.0.ph, %.outer ]
-  %.sroa.19.0 = phi i64 [ %.sroa.19.0., %63 ], [ %.sroa.19.0.ph, %.outer ]
-  %.sroa.7.0 = phi i64 [ %.sroa.7.1, %63 ], [ %.sroa.7.0.ph, %.outer ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %63 ], [ %.sroa.0.0.ph, %.outer ]
+13:                                               ; preds = %.outer, %62
+  %.sroa.6.0 = phi ptr [ %.sroa.6.192, %62 ], [ %.sroa.6.0.ph, %.outer ]
+  %.sroa.0.086 = phi i1 [ true, %62 ], [ %.sroa.0.086.ph, %.outer ]
+  %.056 = phi i1 [ true, %62 ], [ %.056.ph, %.outer ]
+  %.055 = phi i1 [ %.1, %62 ], [ %.055.ph, %.outer ]
+  %.sroa.47.0 = phi i8 [ %.052, %62 ], [ %.sroa.47.0.ph, %.outer ]
+  %.sroa.43.0 = phi i8 [ %.053, %62 ], [ %.sroa.43.0.ph, %.outer ]
+  %.sroa.40.0 = phi i32 [ %33, %62 ], [ %.sroa.40.0.ph, %.outer ]
+  %.sroa.37.0 = phi i32 [ %30, %62 ], [ %.sroa.37.0.ph, %.outer ]
+  %.sroa.34.0 = phi i32 [ %27, %62 ], [ %.sroa.34.0.ph, %.outer ]
+  %.sroa.31.0 = phi i32 [ %24, %62 ], [ %.sroa.31.0.ph, %.outer ]
+  %.sroa.28.0 = phi i32 [ %21, %62 ], [ %.sroa.28.0.ph, %.outer ]
+  %.sroa.25.0 = phi i64 [ %45, %62 ], [ %.sroa.25.0.ph, %.outer ]
+  %.sroa.19.0 = phi i64 [ %..sroa.19.0, %62 ], [ %.sroa.19.0.ph, %.outer ]
+  %.sroa.7.0 = phi i64 [ %.sroa.7.1, %62 ], [ %.sroa.7.0.ph, %.outer ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %62 ], [ %.sroa.0.0.ph, %.outer ]
   br i1 %.sroa.0.086, label %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdcf4347cf0a940cE.llvm.11684209855903828990.exit"
 
 14:                                               ; preds = %13
@@ -934,76 +934,75 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %"_ZN91_$LT
   %46 = getelementptr inbounds i8, ptr %18, i64 32
   %47 = load i64, ptr %46, align 8, !range !163, !noundef !7
   %switch63 = icmp eq i64 %.sroa.19.0, 0
-  br i1 %switch63, label %48, label %51
+  br i1 %switch63, label %48, label %50
 
 48:                                               ; preds = %42
   %49 = trunc nuw i64 %47 to i1
-  %50 = xor i1 %49, true
-  br label %55
+  br label %54
 
-51:                                               ; preds = %42
-  %52 = getelementptr inbounds i8, ptr %18, i64 40
-  %53 = load i64, ptr %52, align 8
-  %.not59 = icmp ne i64 %47, 0
-  %54 = icmp eq i64 %.sroa.3.0, %53
-  %spec.select = select i1 %.not59, i1 %54, i1 false
-  br label %55
+50:                                               ; preds = %42
+  %51 = getelementptr inbounds i8, ptr %18, i64 40
+  %52 = load i64, ptr %51, align 8
+  %.not59 = icmp eq i64 %47, 0
+  %53 = icmp ne i64 %.sroa.3.0, %52
+  %spec.select = select i1 %.not59, i1 true, i1 %53
+  br label %54
 
-55:                                               ; preds = %51, %48
-  %.050 = phi i1 [ %50, %48 ], [ %spec.select, %51 ]
-  %.sroa.19.0. = select i1 %.050, i64 %.sroa.19.0, i64 0
-  %56 = trunc nuw i8 %.sroa.47.0 to i1
-  br i1 %56, label %57, label %60
+54:                                               ; preds = %50, %48
+  %.050 = phi i1 [ %49, %48 ], [ %spec.select, %50 ]
+  %..sroa.19.0 = select i1 %.050, i64 0, i64 %.sroa.19.0
+  %55 = trunc nuw i8 %.sroa.47.0 to i1
+  br i1 %55, label %56, label %59
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %18, i64 77
-  %59 = load i8, ptr %58, align 1, !range !167, !noundef !7
-  br label %60
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds i8, ptr %18, i64 77
+  %58 = load i8, ptr %57, align 1, !range !167, !noundef !7
+  br label %59
 
-60:                                               ; preds = %55, %57
-  %.052 = phi i8 [ %59, %57 ], [ 0, %55 ]
-  br i1 %.055, label %63, label %61
+59:                                               ; preds = %54, %56
+  %.052 = phi i8 [ %58, %56 ], [ 0, %54 ]
+  br i1 %.055, label %62, label %60
 
-61:                                               ; preds = %60
-  %62 = load i64, ptr %18, align 8, !range !163, !noundef !7
-  %.not60 = icmp eq i64 %62, 0
-  br i1 %.not60, label %63, label %64
+60:                                               ; preds = %59
+  %61 = load i64, ptr %18, align 8, !range !163, !noundef !7
+  %.not60 = icmp eq i64 %61, 0
+  br i1 %.not60, label %62, label %63
 
-63:                                               ; preds = %64, %61, %60
-  %.1 = phi i1 [ true, %60 ], [ false, %64 ], [ true, %61 ]
-  %.sroa.7.1 = phi i64 [ %.sroa.7.0, %60 ], [ %.sroa.7.3, %64 ], [ undef, %61 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %60 ], [ %.sroa.0.3, %64 ], [ 0, %61 ]
-  br i1 %.056, label %13, label %68
+62:                                               ; preds = %63, %60, %59
+  %.1 = phi i1 [ true, %59 ], [ false, %63 ], [ true, %60 ]
+  %.sroa.7.1 = phi i64 [ %.sroa.7.0, %59 ], [ %.sroa.7.3, %63 ], [ undef, %60 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %59 ], [ %.sroa.0.3, %63 ], [ 0, %60 ]
+  br i1 %.056, label %13, label %67
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %18, i64 8
-  %66 = load i64, ptr %65, align 8
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds i8, ptr %18, i64 8
+  %65 = load i64, ptr %64, align 8
   %switch.i = icmp eq i64 %.sroa.0.0, 0
-  %67 = icmp ult i64 %66, %.sroa.7.0
-  %spec.select.i = select i1 %switch.i, i1 true, i1 %67
-  %.sroa.7.3 = select i1 %spec.select.i, i64 %66, i64 %.sroa.7.0
+  %66 = icmp ult i64 %65, %.sroa.7.0
+  %spec.select.i = select i1 %switch.i, i1 true, i1 %66
+  %.sroa.7.3 = select i1 %spec.select.i, i64 %65, i64 %.sroa.7.0
   %.sroa.0.3 = select i1 %spec.select.i, i64 1, i64 %.sroa.0.0
-  br label %63
+  br label %62
 
-68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %18, i64 16
-  %70 = load i64, ptr %69, align 8, !range !163, !noundef !7
-  %.not61 = icmp eq i64 %70, 0
-  br i1 %.not61, label %.outer.backedge, label %71
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds i8, ptr %18, i64 16
+  %69 = load i64, ptr %68, align 8, !range !163, !noundef !7
+  %.not61 = icmp eq i64 %69, 0
+  br i1 %.not61, label %.outer.backedge, label %70
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %18, i64 24
-  %73 = load i64, ptr %72, align 8
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds i8, ptr %18, i64 24
+  %72 = load i64, ptr %71, align 8
   %switch.i72 = icmp eq i64 %.sroa.11.0.ph, 0
-  %74 = icmp ugt i64 %73, %.sroa.15.0.ph
-  %spec.select.i73 = select i1 %switch.i72, i1 true, i1 %74
-  %.sroa.15.3 = select i1 %spec.select.i73, i64 %73, i64 %.sroa.15.0.ph
+  %73 = icmp ugt i64 %72, %.sroa.15.0.ph
+  %spec.select.i73 = select i1 %switch.i72, i1 true, i1 %73
+  %.sroa.15.3 = select i1 %spec.select.i73, i64 %72, i64 %.sroa.15.0.ph
   %.sroa.11.3 = select i1 %spec.select.i73, i64 1, i64 %.sroa.11.0.ph
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %71, %68
-  %.sroa.15.0.ph.be = phi i64 [ undef, %68 ], [ %.sroa.15.3, %71 ]
-  %.sroa.11.0.ph.be = phi i64 [ 0, %68 ], [ %.sroa.11.3, %71 ]
+.outer.backedge:                                  ; preds = %70, %67
+  %.sroa.15.0.ph.be = phi i64 [ undef, %67 ], [ %.sroa.15.3, %70 ]
+  %.sroa.11.0.ph.be = phi i64 [ 0, %67 ], [ %.sroa.11.3, %70 ]
   br label %.outer
 }
 

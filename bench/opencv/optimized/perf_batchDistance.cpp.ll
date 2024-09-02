@@ -16784,21 +16784,21 @@ define internal fastcc void @_ZN7testing8internal16UniversalPrinterIN11opencv_te
   %3 = alloca %"class.std::allocator.5", align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  br label %.preheader1.i.i
+  br label %.preheader3.i.i
 
 4:                                                ; preds = %.critedge32.i.i
-  %indvars.iv.next23.i.i = add nuw nsw i64 %indvars.iv22.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next23.i.i, 5
-  br i1 %exitcond.not.i.i, label %41, label %.preheader1.i.i, !llvm.loop !233
+  %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next25.i.i, 5
+  br i1 %exitcond.not.i.i, label %41, label %.preheader3.i.i, !llvm.loop !233
 
-.preheader1.i.i:                                  ; preds = %4, %1
-  %indvars.iv22.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next23.i.i, %4 ]
-  %.02614.i.i = phi i32 [ 0, %1 ], [ %.2.lcssa.i.i, %4 ]
-  %5 = sext i32 %.02614.i.i to i64
+.preheader3.i.i:                                  ; preds = %4, %1
+  %indvars.iv24.i.i = phi i64 [ 0, %1 ], [ %indvars.iv.next25.i.i, %4 ]
+  %.02615.i.i = phi i32 [ 0, %1 ], [ %.2.lcssa.i.i, %4 ]
+  %5 = sext i32 %.02615.i.i to i64
   br label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %.critedge.i.i, %.preheader1.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.i.i ], [ %5, %.preheader1.i.i ]
+.critedge.i.i:                                    ; preds = %.critedge.i.i, %.preheader3.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.i.i ], [ %5, %.preheader3.i.i ]
   %6 = getelementptr inbounds i8, ptr @.str.66, i64 %indvars.iv.i.i
   %7 = load i8, ptr %6, align 1
   %8 = sext i8 %7 to i32
@@ -16817,38 +16817,38 @@ define internal fastcc void @_ZN7testing8internal16UniversalPrinterIN11opencv_te
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
   %16 = tail call i32 @isspace(i32 noundef %15) #34
-  %.fr4.i.i = freeze i32 %16
-  %.not28.not5.i.i = icmp eq i32 %.fr4.i.i, 0
-  br i1 %.not28.not5.i.i, label %switch.early.test.i.i, label %.critedge32.i.i
+  %.fr.i.i = freeze i32 %16
+  %.not286.i.i = icmp eq i32 %.fr.i.i, 0
+  br i1 %.not286.i.i, label %switch.early.test.i.i, label %.critedge32.i.i
 
 switch.early.test.i.i:                            ; preds = %.preheader.i.i, %18
-  %indvars.iv20.i.i = phi i64 [ %indvars.iv.next21.i.i, %18 ], [ %indvars.iv.i.i, %.preheader.i.i ]
+  %indvars.iv22.i.i = phi i64 [ %indvars.iv.next23.i.i, %18 ], [ %indvars.iv.i.i, %.preheader.i.i ]
   %17 = phi i8 [ %21, %18 ], [ %14, %.preheader.i.i ]
-  %.26.i.i = phi i32 [ %19, %18 ], [ %11, %.preheader.i.i ]
+  %.27.i.i = phi i32 [ %19, %18 ], [ %11, %.preheader.i.i ]
   switch i8 %17, label %18 [
     i8 44, label %.critedge32.loopexit.split.loop.exit.i.i
     i8 0, label %.critedge32.loopexit.split.loop.exit.i.i
   ]
 
 18:                                               ; preds = %switch.early.test.i.i
-  %indvars.iv.next21.i.i = add nsw i64 %indvars.iv20.i.i, 1
-  %19 = add nsw i32 %.26.i.i, 1
-  %20 = getelementptr inbounds i8, ptr @.str.66, i64 %indvars.iv.next21.i.i
+  %indvars.iv.next23.i.i = add nsw i64 %indvars.iv22.i.i, 1
+  %19 = add nsw i32 %.27.i.i, 1
+  %20 = getelementptr inbounds i8, ptr @.str.66, i64 %indvars.iv.next23.i.i
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i32
   %23 = tail call i32 @isspace(i32 noundef %22) #34
-  %.fr.i.i = freeze i32 %23
-  %.not28.not.i.i = icmp eq i32 %.fr.i.i, 0
-  br i1 %.not28.not.i.i, label %switch.early.test.i.i, label %.critedge32.i.i, !llvm.loop !235
+  %.fr17.i.i = freeze i32 %23
+  %.not28.i.i = icmp eq i32 %.fr17.i.i, 0
+  br i1 %.not28.i.i, label %switch.early.test.i.i, label %.critedge32.i.i, !llvm.loop !235
 
 .critedge32.loopexit.split.loop.exit.i.i:         ; preds = %switch.early.test.i.i, %switch.early.test.i.i
-  %24 = trunc nsw i64 %indvars.iv20.i.i to i32
+  %24 = trunc nsw i64 %indvars.iv22.i.i to i32
   br label %.critedge32.i.i
 
 .critedge32.i.i:                                  ; preds = %18, %.critedge32.loopexit.split.loop.exit.i.i, %.preheader.i.i
-  %.lcssa.i.i = phi i64 [ %12, %.preheader.i.i ], [ %indvars.iv20.i.i, %.critedge32.loopexit.split.loop.exit.i.i ], [ %indvars.iv.next21.i.i, %18 ]
+  %.lcssa.i.i = phi i64 [ %12, %.preheader.i.i ], [ %indvars.iv22.i.i, %.critedge32.loopexit.split.loop.exit.i.i ], [ %indvars.iv.next23.i.i, %18 ]
   %.2.lcssa.i.i = phi i32 [ %11, %.preheader.i.i ], [ %24, %.critedge32.loopexit.split.loop.exit.i.i ], [ %19, %18 ]
-  %25 = getelementptr inbounds [5 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_18NormType7PrintToEPSo.vals, i64 0, i64 %indvars.iv22.i.i
+  %25 = getelementptr inbounds [5 x i32], ptr @__const._ZNK11opencv_test12_GLOBAL__N_18NormType7PrintToEPSo.vals, i64 0, i64 %indvars.iv24.i.i
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %.0.val, %26
   br i1 %27, label %28, label %4

@@ -927,7 +927,7 @@ if.end3:                                          ; preds = %entry, %sw.bb.i, %_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr nocapture noundef writeonly %address, ptr nocapture noundef writeonly %num_ipv4_components) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr nocapture noundef writeonly %address, ptr nocapture noundef writeonly %num_ipv4_components) local_unnamed_addr #2 {
 entry:
   %buf.i.i = alloca [17 x i8], align 16
   %components.i = alloca [4 x %"struct.url::Component"], align 16
@@ -1275,7 +1275,7 @@ _ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RK
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr nocapture noundef writeonly %address, ptr nocapture noundef writeonly %num_ipv4_components) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr nocapture noundef writeonly %address, ptr nocapture noundef writeonly %num_ipv4_components) local_unnamed_addr #2 {
 entry:
   %buf.i.i = alloca [17 x i8], align 16
   %components.i = alloca [4 x %"struct.url::Component"], align 16

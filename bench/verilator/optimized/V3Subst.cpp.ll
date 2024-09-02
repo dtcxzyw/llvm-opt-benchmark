@@ -4738,11 +4738,11 @@ _ZNSt6vectorI12SubstVarWordSaIS0_EE6resizeEm.exit.i.i.i: ; preds = %17, %_ZNK7As
   %26 = load i32, ptr %25, align 8
   %27 = add nsw i32 %26, 31
   %28 = sdiv i32 %27, 32
+  %29 = sext i32 %28 to i64
   br label %_ZNK7AstNode10widthWordsEv.exit10.i.i.i
 
 _ZNK7AstNode10widthWordsEv.exit10.i.i.i:          ; preds = %24, %22
-  %29 = phi i32 [ %28, %24 ], [ 0, %22 ]
-  %30 = sext i32 %29 to i64
+  %30 = phi i64 [ %29, %24 ], [ 0, %22 ]
   %31 = icmp slt i64 %indvars.iv.i.i.i, %30
   br i1 %31, label %32, label %_ZNSt16allocator_traitsISaI13SubstVarEntryEE9constructIS0_JRKP6AstVarEEEvRS1_PT_DpOT0_.exit
 
@@ -4934,11 +4934,11 @@ _ZNSt6vectorI12SubstVarWordSaIS0_EE6resizeEm.exit.i.i.i: ; preds = %56, %_ZNK7As
   %65 = load i32, ptr %64, align 8
   %66 = add nsw i32 %65, 31
   %67 = sdiv i32 %66, 32
+  %68 = sext i32 %67 to i64
   br label %_ZNK7AstNode10widthWordsEv.exit10.i.i.i
 
 _ZNK7AstNode10widthWordsEv.exit10.i.i.i:          ; preds = %63, %61
-  %68 = phi i32 [ %67, %63 ], [ 0, %61 ]
-  %69 = sext i32 %68 to i64
+  %69 = phi i64 [ %68, %63 ], [ 0, %61 ]
   %70 = icmp slt i64 %indvars.iv.i.i.i, %69
   br i1 %70, label %71, label %_ZNSt16allocator_traitsISaI13SubstVarEntryEE9constructIS0_JRKP6AstVarEEEvRS1_PT_DpOT0_.exit
 

@@ -825,12 +825,12 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
   tail call void @col_append_str(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.224) #9
   %32 = load i8, ptr @knxip_error, align 1
   %.not142 = icmp eq i8 %32, 0
-  br i1 %.not142, label %33, label %411
+  br i1 %.not142, label %33, label %409
 
 33:                                               ; preds = %30
   store i8 1, ptr @knxip_error, align 1
   tail call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.222) #9
-  br label %411
+  br label %409
 
 34:                                               ; preds = %21
   %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
@@ -1099,7 +1099,7 @@ define internal i32 @dissect_knxip(ptr noundef %0, ptr noundef %1, ptr noundef %
     i16 2385, label %385
     i16 2386, label %388
     i16 2387, label %390
-    i16 2388, label %393
+    i16 2388, label %392
   ]
 
 134:                                              ; preds = %132
@@ -1642,11 +1642,11 @@ dissect_tunneling_feature.exit:                   ; preds = %336, %338
   call fastcc void @dissect_dibs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef null, i8 noundef signext 44, ptr noundef null, ptr noundef nonnull %7)
   %372 = load i32, ptr %8, align 4
   %.not346.i = icmp sgt i32 %372, %371
-  br i1 %.not346.i, label %396, label %373
+  br i1 %.not346.i, label %394, label %373
 
 373:                                              ; preds = %370
   %374 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %27, ptr noundef nonnull @ei_knxip_warning, ptr noundef nonnull @.str.264) #9
-  br label %396
+  br label %394
 
 375:                                              ; preds = %132
   %376 = call fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %7)
@@ -1683,70 +1683,68 @@ dissect_tunneling_feature.exit:                   ; preds = %336, %338
 
 390:                                              ; preds = %132
   %391 = call fastcc zeroext i8 @dissect_session_auth(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8)
-  %392 = and i8 %391, 1
-  store i8 %392, ptr %7, align 1
+  store i8 %391, ptr %7, align 1
   br label %thread-pre-split
 
-393:                                              ; preds = %132
-  %394 = call fastcc zeroext i8 @dissect_session_status(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8)
-  %395 = and i8 %394, 1
-  store i8 %395, ptr %7, align 1
+392:                                              ; preds = %132
+  %393 = call fastcc zeroext i8 @dissect_session_status(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, ptr noundef %29, ptr noundef nonnull %8)
+  store i8 %393, ptr %7, align 1
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %128, %131, %132, %134, %136, %138, %139, %148, %155, %158, %160, %167, %170, %172, %174, %176, %179, %187, %195, %198, %199, %204, %215, %220, %229, %240, %251, %256, %265, %274, %276, %277, %279, %281, %282, %dissect_tunneling_feature.exit, %339, %340, %342, %344, %345, %347, %349, %361, %364, %366, %368, %375, %377, %381, %383, %385, %388, %390, %393
+thread-pre-split:                                 ; preds = %128, %131, %132, %134, %136, %138, %139, %148, %155, %158, %160, %167, %170, %172, %174, %176, %179, %187, %195, %198, %199, %204, %215, %220, %229, %240, %251, %256, %265, %274, %276, %277, %279, %281, %282, %dissect_tunneling_feature.exit, %339, %340, %342, %344, %345, %347, %349, %361, %364, %366, %368, %375, %377, %381, %383, %385, %388, %390, %392
   %.pr = load i32, ptr %8, align 4
-  br label %396
+  br label %394
 
-396:                                              ; preds = %thread-pre-split, %373, %370
-  %397 = phi i32 [ %.pr, %thread-pre-split ], [ %372, %373 ], [ %372, %370 ]
-  %398 = icmp sgt i32 %397, -1
-  br i1 %398, label %.thread151, label %407
+394:                                              ; preds = %thread-pre-split, %373, %370
+  %395 = phi i32 [ %.pr, %thread-pre-split ], [ %372, %373 ], [ %372, %370 ]
+  %396 = icmp sgt i32 %395, -1
+  br i1 %396, label %.thread151, label %405
 
-.thread151:                                       ; preds = %213, %231, %249, %267, %396
-  %399 = phi i32 [ %397, %396 ], [ %211, %213 ], [ %237, %231 ], [ %247, %249 ], [ %273, %267 ]
-  %400 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %399) #9
-  %401 = icmp sgt i32 %400, 0
-  br i1 %401, label %402, label %407
+.thread151:                                       ; preds = %213, %231, %249, %267, %394
+  %397 = phi i32 [ %395, %394 ], [ %211, %213 ], [ %237, %231 ], [ %247, %249 ], [ %273, %267 ]
+  %398 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %397) #9
+  %399 = icmp sgt i32 %398, 0
+  br i1 %399, label %400, label %405
 
-402:                                              ; preds = %.thread151
-  br i1 %.not, label %.thread154, label %403
+400:                                              ; preds = %.thread151
+  br i1 %.not, label %.thread154, label %401
 
-403:                                              ; preds = %402
-  %404 = load i32, ptr @hf_bytes, align 4
-  %405 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %29, i32 noundef %404, ptr noundef %0, i32 noundef %399, i32 noundef %400, ptr noundef null, ptr noundef nonnull @.str.237, i32 noundef %400) #9
-  %406 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %405, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.265) #9
+401:                                              ; preds = %400
+  %402 = load i32, ptr @hf_bytes, align 4
+  %403 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %29, i32 noundef %402, ptr noundef %0, i32 noundef %397, i32 noundef %398, ptr noundef null, ptr noundef nonnull @.str.237, i32 noundef %398) #9
+  %404 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %403, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.265) #9
   br label %.thread154
 
-407:                                              ; preds = %.thread151, %396
+405:                                              ; preds = %.thread151, %394
   %.pr153 = load i8, ptr %7, align 1
   %.not365.i = icmp eq i8 %.pr153, 0
   br i1 %.not365.i, label %.thread154, label %dissect_knxip_data.exit
 
-.thread154:                                       ; preds = %403, %402, %407
-  %408 = load i8, ptr @knxip_error, align 1
-  %.not366.i = icmp eq i8 %408, 0
-  br i1 %.not366.i, label %409, label %410
+.thread154:                                       ; preds = %401, %400, %405
+  %406 = load i8, ptr @knxip_error, align 1
+  %.not366.i = icmp eq i8 %406, 0
+  br i1 %.not366.i, label %407, label %408
 
-409:                                              ; preds = %.thread154
+407:                                              ; preds = %.thread154
   store i8 1, ptr @knxip_error, align 1
   call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.222) #9
-  br label %410
+  br label %408
 
-410:                                              ; preds = %409, %.thread154
+408:                                              ; preds = %407, %.thread154
   call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %27, ptr noundef nonnull @.str.222) #9
   br label %dissect_knxip_data.exit
 
-dissect_knxip_data.exit:                          ; preds = %407, %410
+dissect_knxip_data.exit:                          ; preds = %405, %408
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11)
-  br label %411
+  br label %409
 
-411:                                              ; preds = %30, %33, %dissect_knxip_data.exit
-  %412 = call i32 @tvb_captured_length(ptr noundef %0) #9
-  ret i32 %412
+409:                                              ; preds = %30, %33, %dissect_knxip_data.exit
+  %410 = call i32 @tvb_captured_length(ptr noundef %0) #9
+  ret i32 %410
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
@@ -4399,7 +4397,7 @@ define internal fastcc zeroext i8 @dissect_selector(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @dissect_resetter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @dissect_resetter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %6) #9
   %8 = icmp eq i32 %7, 0
@@ -5070,7 +5068,7 @@ knxip_tree_add_data.exit61:                       ; preds = %.lr.ph.split.us.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @dissect_session_auth(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @dissect_session_auth(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -5151,7 +5149,7 @@ knxip_tree_add_data.exit:                         ; preds = %.lr.ph.split.us.spl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @dissect_session_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext range(i8 0, 2) i8 @dissect_session_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8

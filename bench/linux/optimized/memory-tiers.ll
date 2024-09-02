@@ -917,12 +917,15 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
   %188 = or i64 %187, %185
   %189 = load ptr, ptr %184, align 8
   %190 = icmp eq ptr %189, %181
-  br i1 %190, label %.loopexit35.i, label %.preheader34.i, !llvm.loop !31
+  br i1 %190, label %.loopexit35.loopexit.i, label %.preheader34.i, !llvm.loop !31
 
-.loopexit35.i:                                    ; preds = %.preheader34.i, %180
-  %191 = phi i64 [ 0, %180 ], [ %188, %.preheader34.i ]
-  %192 = xor i64 %191, -1
-  %193 = and i64 %165, %192
+.loopexit35.loopexit.i:                           ; preds = %.preheader34.i
+  %191 = xor i64 %188, -1
+  br label %.loopexit35.i
+
+.loopexit35.i:                                    ; preds = %.loopexit35.loopexit.i, %180
+  %192 = phi i64 [ -1, %180 ], [ %191, %.loopexit35.loopexit.i ]
+  %193 = and i64 %192, %165
   store i64 %193, ptr %1, align 8
   %194 = call i32 @find_next_best_node(i32 noundef %166, ptr noundef nonnull %1) #11
   %195 = icmp eq i32 %194, -1

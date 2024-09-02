@@ -5261,56 +5261,62 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly %
 ._crit_edge.us:                                   ; preds = %26
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %.loopexit68, label %.preheader65.us
+  br i1 %exitcond94.not, label %.loopexit68.loopexit, label %.preheader65.us
 
-.loopexit68:                                      ; preds = %._crit_edge.us, %.preheader67, %18
-  %.048 = phi double [ 0.000000e+00, %18 ], [ 0.000000e+00, %.preheader67 ], [ %32, %._crit_edge.us ]
-  %33 = load ptr, ptr %17, align 8
-  %.not64 = icmp eq ptr %33, null
+.loopexit68.loopexit:                             ; preds = %._crit_edge.us
+  %33 = fcmp ogt double %32, 0x3D19000000000000
+  br label %.loopexit68
+
+.loopexit68:                                      ; preds = %.loopexit68.loopexit, %.preheader67, %18
+  %.048 = phi i1 [ false, %18 ], [ false, %.preheader67 ], [ %33, %.loopexit68.loopexit ]
+  %34 = load ptr, ptr %17, align 8
+  %.not64 = icmp eq ptr %34, null
   br i1 %.not64, label %.loopexit, label %.preheader66
 
 .preheader66:                                     ; preds = %.loopexit68
-  %34 = load i32, ptr %0, align 8
-  %35 = icmp sgt i32 %34, 0
-  %36 = icmp sgt i32 %19, 0
-  %or.cond111 = and i1 %35, %36
+  %35 = load i32, ptr %0, align 8
+  %36 = icmp sgt i32 %35, 0
+  %37 = icmp sgt i32 %19, 0
+  %or.cond111 = and i1 %36, %37
   br i1 %or.cond111, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader66
-  %wide.trip.count103 = zext nneg i32 %34 to i64
+  %wide.trip.count103 = zext nneg i32 %35 to i64
   %wide.trip.count98 = zext nneg i32 %19 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us79
   %indvars.iv100 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next101, %._crit_edge.us79 ]
-  %.177.us = phi double [ 0.000000e+00, %.preheader.us.preheader ], [ %45, %._crit_edge.us79 ]
-  %37 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv100
-  %38 = load ptr, ptr %37, align 8
-  br label %39
+  %.177.us = phi double [ 0.000000e+00, %.preheader.us.preheader ], [ %46, %._crit_edge.us79 ]
+  %38 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv100
+  %39 = load ptr, ptr %38, align 8
+  br label %40
 
-39:                                               ; preds = %.preheader.us, %39
-  %indvars.iv95 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next96, %39 ]
-  %.275.us = phi double [ %.177.us, %.preheader.us ], [ %45, %39 ]
-  %40 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv95
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds double, ptr %41, i64 %indvars.iv105
-  %43 = load double, ptr %42, align 8
-  %44 = tail call double @llvm.fabs.f64(double %43)
-  %45 = fadd double %.275.us, %44
+40:                                               ; preds = %.preheader.us, %40
+  %indvars.iv95 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next96, %40 ]
+  %.275.us = phi double [ %.177.us, %.preheader.us ], [ %46, %40 ]
+  %41 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv95
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds double, ptr %42, i64 %indvars.iv105
+  %44 = load double, ptr %43, align 8
+  %45 = tail call double @llvm.fabs.f64(double %44)
+  %46 = fadd double %.275.us, %45
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %._crit_edge.us79, label %39
+  br i1 %exitcond99.not, label %._crit_edge.us79, label %40
 
-._crit_edge.us79:                                 ; preds = %39
+._crit_edge.us79:                                 ; preds = %40
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %.loopexit, label %.preheader.us
+  br i1 %exitcond104.not, label %.loopexit.loopexit, label %.preheader.us
 
-.loopexit:                                        ; preds = %._crit_edge.us79, %.preheader66, %.loopexit68
-  %.047 = phi double [ 0.000000e+00, %.loopexit68 ], [ 0.000000e+00, %.preheader66 ], [ %45, %._crit_edge.us79 ]
-  %46 = fcmp ogt double %.048, 0x3D19000000000000
-  %47 = fcmp ogt double %.047, 0x3D19000000000000
-  %or.cond3 = select i1 %46, i1 true, i1 %47
+.loopexit.loopexit:                               ; preds = %._crit_edge.us79
+  %47 = fcmp ogt double %46, 0x3D19000000000000
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader66, %.loopexit68
+  %.047 = phi i1 [ false, %.loopexit68 ], [ false, %.preheader66 ], [ %47, %.loopexit.loopexit ]
+  %or.cond3 = select i1 %.048, i1 true, i1 %.047
   %spec.select = select i1 %or.cond3, i32 %.05185, i32 -1
   %48 = zext i1 %or.cond3 to i32
   %spec.select112 = add nuw nsw i32 %.05185, %48

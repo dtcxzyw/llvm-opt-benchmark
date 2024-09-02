@@ -289,31 +289,31 @@ define internal i32 @e100_probe(ptr noundef %0, ptr nocapture noundef readonly %
   store ptr %63, ptr %73, align 8
   %74 = load i32, ptr @use_io, align 4
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %82, label %76
+  br i1 %75, label %84, label %76
 
 76:                                               ; preds = %72
   %77 = load i32, ptr %24, align 64
   %78 = and i32 %77, 2
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %82, label %80
+  br i1 %79, label %84, label %80
 
 80:                                               ; preds = %76
   %81 = load ptr, ptr %26, align 8
   tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %81, ptr noundef nonnull @.str.5) #20
   %.pre = load i32, ptr @use_io, align 4
-  br label %82
+  %82 = icmp ne i32 %.pre, 0
+  %83 = zext i1 %82 to i32
+  br label %84
 
-82:                                               ; preds = %80, %76, %72
-  %83 = phi i32 [ %.pre, %80 ], [ 1, %76 ], [ 0, %72 ]
-  %84 = icmp ne i32 %83, 0
-  %85 = zext i1 %84 to i32
+84:                                               ; preds = %80, %76, %72
+  %85 = phi i32 [ %83, %80 ], [ 1, %76 ], [ 0, %72 ]
   %86 = tail call ptr @pci_iomap(ptr noundef %0, i32 noundef %85, i64 noundef 24) #19
   %87 = getelementptr i8, ptr %3, i64 2440
   store ptr %86, ptr %87, align 8
   %88 = icmp eq ptr %86, null
   br i1 %88, label %89, label %95
 
-89:                                               ; preds = %82
+89:                                               ; preds = %84
   %90 = load i32, ptr %24, align 64
   %91 = and i32 %90, 2
   %92 = icmp eq i32 %91, 0
@@ -324,7 +324,7 @@ define internal i32 @e100_probe(ptr noundef %0, ptr nocapture noundef readonly %
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %94, ptr noundef nonnull @.str.6) #20
   br label %215
 
-95:                                               ; preds = %82
+95:                                               ; preds = %84
   %96 = getelementptr inbounds i8, ptr %1, i64 24
   %97 = load i64, ptr %96, align 8
   %98 = icmp ne i64 %97, 0

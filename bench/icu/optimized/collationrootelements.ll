@@ -53,7 +53,7 @@ if.end.i:                                         ; preds = %for.cond.i, %if.end
   %6 = load i32, ptr %arrayidx11.i, align 4
   %and12.i = and i32 %6, 128
   %cmp13.i = icmp eq i32 %and12.i, 0
-  br i1 %cmp13.i, label %if.end37.loopexit56.i, label %for.cond.i, !llvm.loop !4
+  br i1 %cmp13.i, label %if.end37.loopexit58.i, label %for.cond.i, !llvm.loop !4
 
 for.cond20.preheader.i:                           ; preds = %for.cond.i, %for.cond.preheader.i
   %j.128.i = add nsw i32 %div.i, -1
@@ -82,13 +82,13 @@ if.end37.loopexit.i:                              ; preds = %if.end23.i
   %10 = trunc nsw i64 %indvars.iv43.i to i32
   br label %if.end37.i
 
-if.end37.loopexit56.i:                            ; preds = %if.end.i
+if.end37.loopexit58.i:                            ; preds = %if.end.i
   %11 = trunc nsw i64 %indvars.iv.i to i32
   br label %if.end37.i
 
-if.end37.i:                                       ; preds = %if.end37.loopexit56.i, %if.end37.loopexit.i, %while.body.i
-  %i.0.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit56.i ]
-  %q.0.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit56.i ]
+if.end37.i:                                       ; preds = %if.end37.loopexit58.i, %if.end37.loopexit.i, %while.body.i
+  %i.0.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit58.i ]
+  %q.0.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit58.i ]
   %and38.i = and i32 %q.0.i, -256
   %cmp39.i = icmp ult i32 %p, %and38.i
   %start.0.i.0.i = select i1 %cmp39.i, i32 %start.037.i, i32 %i.0.i
@@ -206,7 +206,7 @@ if.end:                                           ; preds = %if.end.preheader, %
   %6 = load i32, ptr %arrayidx11, align 4
   %and12 = and i32 %6, 128
   %cmp13 = icmp eq i32 %and12, 0
-  br i1 %cmp13, label %if.end37.loopexit56, label %for.cond, !llvm.loop !4
+  br i1 %cmp13, label %if.end37.loopexit58, label %for.cond, !llvm.loop !4
 
 for.cond20.preheader:                             ; preds = %for.cond, %for.cond.preheader
   %j.128 = add nsw i32 %div, -1
@@ -236,13 +236,13 @@ if.end37.loopexit:                                ; preds = %if.end23
   %10 = trunc nsw i64 %indvars.iv43 to i32
   br label %if.end37
 
-if.end37.loopexit56:                              ; preds = %if.end
+if.end37.loopexit58:                              ; preds = %if.end
   %11 = trunc nsw i64 %indvars.iv to i32
   br label %if.end37
 
-if.end37:                                         ; preds = %if.end37.loopexit56, %if.end37.loopexit, %while.body
-  %i.0 = phi i32 [ %div, %while.body ], [ %10, %if.end37.loopexit ], [ %11, %if.end37.loopexit56 ]
-  %q.0 = phi i32 [ %3, %while.body ], [ %9, %if.end37.loopexit ], [ %6, %if.end37.loopexit56 ]
+if.end37:                                         ; preds = %if.end37.loopexit58, %if.end37.loopexit, %while.body
+  %i.0 = phi i32 [ %div, %while.body ], [ %10, %if.end37.loopexit ], [ %11, %if.end37.loopexit58 ]
+  %q.0 = phi i32 [ %3, %while.body ], [ %9, %if.end37.loopexit ], [ %6, %if.end37.loopexit58 ]
   %and38 = and i32 %q.0, -256
   %cmp39 = icmp ult i32 %p, %and38
   %start.0.i.0 = select i1 %cmp39, i32 %start.037, i32 %i.0
@@ -306,7 +306,7 @@ if.end.i:                                         ; preds = %for.cond.i, %if.end
   %6 = load i32, ptr %arrayidx11.i, align 4
   %and12.i = and i32 %6, 128
   %cmp13.i = icmp eq i32 %and12.i, 0
-  br i1 %cmp13.i, label %if.end37.loopexit56.i, label %for.cond.i, !llvm.loop !4
+  br i1 %cmp13.i, label %if.end37.loopexit58.i, label %for.cond.i, !llvm.loop !4
 
 for.cond20.preheader.i:                           ; preds = %for.cond.i, %for.cond.preheader.i
   %j.128.i = add nsw i32 %div.i, -1
@@ -335,13 +335,13 @@ if.end37.loopexit.i:                              ; preds = %if.end23.i
   %10 = trunc nsw i64 %indvars.iv43.i to i32
   br label %if.end37.i
 
-if.end37.loopexit56.i:                            ; preds = %if.end.i
+if.end37.loopexit58.i:                            ; preds = %if.end.i
   %11 = trunc nsw i64 %indvars.iv.i to i32
   br label %if.end37.i
 
-if.end37.i:                                       ; preds = %if.end37.loopexit56.i, %if.end37.loopexit.i, %while.body.i
-  %i.0.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit56.i ]
-  %q.0.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit56.i ]
+if.end37.i:                                       ; preds = %if.end37.loopexit58.i, %if.end37.loopexit.i, %while.body.i
+  %i.0.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit58.i ]
+  %q.0.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit58.i ]
   %and38.i = and i32 %q.0.i, -256
   %cmp39.i = icmp ult i32 %p, %and38.i
   %start.0.i.0.i = select i1 %cmp39.i, i32 %start.037.i, i32 %i.0.i
@@ -426,7 +426,7 @@ if.end.i.i:                                       ; preds = %for.cond.i.i, %if.e
   %6 = load i32, ptr %arrayidx11.i.i, align 4
   %and12.i.i = and i32 %6, 128
   %cmp13.i.i = icmp eq i32 %and12.i.i, 0
-  br i1 %cmp13.i.i, label %if.end37.loopexit56.i.i, label %for.cond.i.i, !llvm.loop !4
+  br i1 %cmp13.i.i, label %if.end37.loopexit58.i.i, label %for.cond.i.i, !llvm.loop !4
 
 for.cond20.preheader.i.i:                         ; preds = %for.cond.i.i, %for.cond.preheader.i.i
   %j.128.i.i = add nsw i32 %div.i.i, -1
@@ -455,13 +455,13 @@ if.end37.loopexit.i.i:                            ; preds = %if.end23.i.i
   %10 = trunc nsw i64 %indvars.iv43.i.i to i32
   br label %if.end37.i.i
 
-if.end37.loopexit56.i.i:                          ; preds = %if.end.i.i
+if.end37.loopexit58.i.i:                          ; preds = %if.end.i.i
   %11 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %if.end37.i.i
 
-if.end37.i.i:                                     ; preds = %if.end37.loopexit56.i.i, %if.end37.loopexit.i.i, %while.body.i.i
-  %i.0.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %10, %if.end37.loopexit.i.i ], [ %11, %if.end37.loopexit56.i.i ]
-  %q.0.i.i = phi i32 [ %3, %while.body.i.i ], [ %9, %if.end37.loopexit.i.i ], [ %6, %if.end37.loopexit56.i.i ]
+if.end37.i.i:                                     ; preds = %if.end37.loopexit58.i.i, %if.end37.loopexit.i.i, %while.body.i.i
+  %i.0.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %10, %if.end37.loopexit.i.i ], [ %11, %if.end37.loopexit58.i.i ]
+  %q.0.i.i = phi i32 [ %3, %while.body.i.i ], [ %9, %if.end37.loopexit.i.i ], [ %6, %if.end37.loopexit58.i.i ]
   %and38.i.i = and i32 %q.0.i.i, -256
   %cmp39.i.i = icmp ult i32 %p, %and38.i.i
   %start.0.i.0.i.i = select i1 %cmp39.i.i, i32 %start.037.i.i, i32 %i.0.i.i
@@ -568,7 +568,7 @@ if.end.i:                                         ; preds = %for.cond.i, %if.end
   %6 = load i32, ptr %arrayidx11.i, align 4
   %and12.i = and i32 %6, 128
   %cmp13.i = icmp eq i32 %and12.i, 0
-  br i1 %cmp13.i, label %if.end37.loopexit56.i, label %for.cond.i, !llvm.loop !4
+  br i1 %cmp13.i, label %if.end37.loopexit58.i, label %for.cond.i, !llvm.loop !4
 
 for.cond20.preheader.i:                           ; preds = %for.cond.i, %for.cond.preheader.i
   %j.128.i = add nsw i32 %div.i, -1
@@ -597,13 +597,13 @@ if.end37.loopexit.i:                              ; preds = %if.end23.i
   %10 = trunc nsw i64 %indvars.iv43.i to i32
   br label %if.end37.i
 
-if.end37.loopexit56.i:                            ; preds = %if.end.i
+if.end37.loopexit58.i:                            ; preds = %if.end.i
   %11 = trunc nsw i64 %indvars.iv.i to i32
   br label %if.end37.i
 
-if.end37.i:                                       ; preds = %if.end37.loopexit56.i, %if.end37.loopexit.i, %while.body.i
-  %i.0.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit56.i ]
-  %q.0.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit56.i ]
+if.end37.i:                                       ; preds = %if.end37.loopexit58.i, %if.end37.loopexit.i, %while.body.i
+  %i.0.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit58.i ]
+  %q.0.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit58.i ]
   %and38.i = and i32 %q.0.i, -256
   %cmp39.i = icmp ult i32 %p, %and38.i
   %start.0.i.0.i = select i1 %cmp39.i, i32 %start.037.i, i32 %i.0.i
@@ -679,7 +679,7 @@ if.end.i.i:                                       ; preds = %for.cond.i.i, %if.e
   %8 = load i32, ptr %arrayidx11.i.i, align 4
   %and12.i.i = and i32 %8, 128
   %cmp13.i.i = icmp eq i32 %and12.i.i, 0
-  br i1 %cmp13.i.i, label %if.end37.loopexit56.i.i, label %for.cond.i.i, !llvm.loop !4
+  br i1 %cmp13.i.i, label %if.end37.loopexit58.i.i, label %for.cond.i.i, !llvm.loop !4
 
 for.cond20.preheader.i.i:                         ; preds = %for.cond.i.i, %for.cond.preheader.i.i
   %j.128.i.i = add nsw i32 %div.i.i, -1
@@ -708,13 +708,13 @@ if.end37.loopexit.i.i:                            ; preds = %if.end23.i.i
   %12 = trunc nsw i64 %indvars.iv43.i.i to i32
   br label %if.end37.i.i
 
-if.end37.loopexit56.i.i:                          ; preds = %if.end.i.i
+if.end37.loopexit58.i.i:                          ; preds = %if.end.i.i
   %13 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %if.end37.i.i
 
-if.end37.i.i:                                     ; preds = %if.end37.loopexit56.i.i, %if.end37.loopexit.i.i, %while.body.i.i
-  %i.0.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %12, %if.end37.loopexit.i.i ], [ %13, %if.end37.loopexit56.i.i ]
-  %q.0.i.i = phi i32 [ %5, %while.body.i.i ], [ %11, %if.end37.loopexit.i.i ], [ %8, %if.end37.loopexit56.i.i ]
+if.end37.i.i:                                     ; preds = %if.end37.loopexit58.i.i, %if.end37.loopexit.i.i, %while.body.i.i
+  %i.0.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %12, %if.end37.loopexit.i.i ], [ %13, %if.end37.loopexit58.i.i ]
+  %q.0.i.i = phi i32 [ %5, %while.body.i.i ], [ %11, %if.end37.loopexit.i.i ], [ %8, %if.end37.loopexit58.i.i ]
   %and38.i.i = and i32 %q.0.i.i, -256
   %cmp39.i.i = icmp ult i32 %p, %and38.i.i
   %start.0.i.0.i.i = select i1 %cmp39.i.i, i32 %start.037.i.i, i32 %i.0.i.i
@@ -840,7 +840,7 @@ if.end.i.i:                                       ; preds = %for.cond.i.i, %if.e
   %8 = load i32, ptr %arrayidx11.i.i, align 4
   %and12.i.i = and i32 %8, 128
   %cmp13.i.i = icmp eq i32 %and12.i.i, 0
-  br i1 %cmp13.i.i, label %if.end37.loopexit56.i.i, label %for.cond.i.i, !llvm.loop !4
+  br i1 %cmp13.i.i, label %if.end37.loopexit58.i.i, label %for.cond.i.i, !llvm.loop !4
 
 for.cond20.preheader.i.i:                         ; preds = %for.cond.i.i, %for.cond.preheader.i.i
   %j.128.i.i = add nsw i32 %div.i.i, -1
@@ -869,13 +869,13 @@ if.end37.loopexit.i.i:                            ; preds = %if.end23.i.i
   %12 = trunc nsw i64 %indvars.iv43.i.i to i32
   br label %if.end37.i.i
 
-if.end37.loopexit56.i.i:                          ; preds = %if.end.i.i
+if.end37.loopexit58.i.i:                          ; preds = %if.end.i.i
   %13 = trunc nsw i64 %indvars.iv.i.i to i32
   br label %if.end37.i.i
 
-if.end37.i.i:                                     ; preds = %if.end37.loopexit56.i.i, %if.end37.loopexit.i.i, %while.body.i.i
-  %i.0.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %12, %if.end37.loopexit.i.i ], [ %13, %if.end37.loopexit56.i.i ]
-  %q.0.i.i = phi i32 [ %5, %while.body.i.i ], [ %11, %if.end37.loopexit.i.i ], [ %8, %if.end37.loopexit56.i.i ]
+if.end37.i.i:                                     ; preds = %if.end37.loopexit58.i.i, %if.end37.loopexit.i.i, %while.body.i.i
+  %i.0.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %12, %if.end37.loopexit.i.i ], [ %13, %if.end37.loopexit58.i.i ]
+  %q.0.i.i = phi i32 [ %5, %while.body.i.i ], [ %11, %if.end37.loopexit.i.i ], [ %8, %if.end37.loopexit58.i.i ]
   %and38.i.i = and i32 %q.0.i.i, -256
   %cmp39.i.i = icmp ult i32 %p, %and38.i.i
   %start.0.i.0.i.i = select i1 %cmp39.i.i, i32 %start.037.i.i, i32 %i.0.i.i
@@ -985,7 +985,7 @@ declare noundef i32 @_ZN6icu_759Collation25incTwoBytePrimaryByOffsetEjai(i32 nou
 declare noundef i32 @_ZN6icu_759Collation27incThreeBytePrimaryByOffsetEjai(i32 noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7521CollationRootElements17getSecondaryAfterEij(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %index, i32 noundef %s) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 65537) i32 @_ZNK6icu_7521CollationRootElements17getSecondaryAfterEij(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %index, i32 noundef %s) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %index, 0
   %0 = load ptr, ptr %this, align 8
@@ -1041,7 +1041,7 @@ return:                                           ; preds = %if.end7, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7521CollationRootElements16getTertiaryAfterEijj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %index, i32 noundef %s, i32 noundef %t) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZNK6icu_7521CollationRootElements16getTertiaryAfterEijj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %index, i32 noundef %s, i32 noundef %t) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %index, 0
   br i1 %cmp, label %if.then, label %if.else8

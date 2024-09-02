@@ -1215,7 +1215,7 @@ declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ReadNextMultiXactId() local_unnamed_addr #0 {
+define dso_local range(i32 1, 0) i32 @ReadNextMultiXactId() local_unnamed_addr #0 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr i8, ptr %1, i64 1664
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef %2, i32 noundef 1) #13

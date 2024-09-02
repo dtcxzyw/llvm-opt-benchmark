@@ -2724,11 +2724,11 @@ ehl_combo_pll_div_frac_wa_needed.exit.thread:     ; preds = %ehl_combo_pll_div_f
   %264 = getelementptr inbounds i8, ptr %205, i64 5976
   %265 = load i32, ptr %264, align 8
   %266 = icmp eq i32 %265, 38400
+  %267 = zext i1 %266 to i32
   br label %ehl_combo_pll_div_frac_wa_needed.exit15
 
 ehl_combo_pll_div_frac_wa_needed.exit15:          ; preds = %259, %263
-  %267 = phi i1 [ %266, %263 ], [ false, %259 ]
-  %268 = zext i1 %267 to i32
+  %268 = phi i32 [ %267, %263 ], [ 0, %259 ]
   %269 = lshr exact i32 %231, %268
   %270 = shl nuw nsw i32 %269, 10
   %271 = or disjoint i32 %270, %232
@@ -5497,7 +5497,7 @@ define internal noundef zeroext i1 @mg_pll_get_hw_state(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bxt_compute_dpll(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @bxt_compute_dpll(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = alloca %struct.dpll, align 4
   %5 = alloca %struct.dpll, align 4
   %6 = alloca %struct.dpll, align 4

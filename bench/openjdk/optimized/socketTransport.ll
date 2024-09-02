@@ -558,7 +558,7 @@ connectToAddr.exit:                               ; preds = %96, %.connectToAddr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @socketTransport_startListening(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 0, 203) i32 @socketTransport_startListening(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca [20 x i8], align 16
   %6 = alloca %struct.sockaddr_storage, align 8
@@ -898,21 +898,26 @@ define internal range(i32 0, 204) i32 @socketTransport_accept(ptr nocapture read
   %12 = getelementptr inbounds i8, ptr %4, i64 11
   %13 = getelementptr inbounds i8, ptr %4, i64 10
   %14 = getelementptr inbounds i8, ptr %4, i64 12
-  br label %15
+  br label %.outer
 
-15:                                               ; preds = %116, %3
-  %.020 = phi i32 [ 0, %3 ], [ %.2, %116 ]
-  %.018 = phi i64 [ 0, %3 ], [ %.119, %116 ]
-  %.017 = phi i64 [ %1, %3 ], [ %.1, %116 ]
-  %16 = icmp sgt i64 %.017, 0
-  br i1 %16, label %17, label %43
+.outer:                                           ; preds = %thread-pre-split34, %3
+  %.020.ph = phi i32 [ %.2, %thread-pre-split34 ], [ 0, %3 ]
+  %.018.ph = phi i64 [ %.119, %thread-pre-split34 ], [ 0, %3 ]
+  %.017.ph = phi i64 [ %.1.ph, %thread-pre-split34 ], [ %1, %3 ]
+  %15 = icmp sgt i64 %.017.ph, 0
+  br label %16
 
-17:                                               ; preds = %15
+16:                                               ; preds = %104, %.outer
+  %.020 = phi i32 [ %.020.ph, %.outer ], [ %.2, %104 ]
+  %.018 = phi i64 [ %.018.ph, %.outer ], [ %.119, %104 ]
+  br i1 %15, label %17, label %43
+
+17:                                               ; preds = %16
   %18 = load i32, ptr @serverSocketFD, align 4
   %19 = call i32 @dbgsysConfigureBlocking(i32 noundef %18, i8 noundef zeroext 0) #13
   %20 = call i64 (...) @dbgsysCurrentTimeMillis() #13
   %21 = load i32, ptr @serverSocketFD, align 4
-  %22 = call i32 @dbgsysPoll(i32 noundef %21, i8 noundef zeroext 1, i8 noundef zeroext 0, i64 noundef %.017) #13
+  %22 = call i32 @dbgsysPoll(i32 noundef %21, i8 noundef zeroext 1, i8 noundef zeroext 0, i64 noundef %.017.ph) #13
   %23 = icmp slt i32 %22, 1
   br i1 %23, label %24, label %43
 
@@ -957,8 +962,8 @@ setLastError.exit:                                ; preds = %35, %39
   %42 = call i32 @dbgsysConfigureBlocking(i32 noundef %41, i8 noundef zeroext 1) #13
   br label %.loopexit
 
-43:                                               ; preds = %17, %15
-  %.119 = phi i64 [ %20, %17 ], [ %.018, %15 ]
+43:                                               ; preds = %17, %16
+  %.119 = phi i64 [ %20, %17 ], [ %.018, %16 ]
   store i32 128, ptr %6, align 4
   %44 = load i32, ptr @serverSocketFD, align 4
   %45 = call i32 @dbgsysAccept(i32 noundef %44, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
@@ -971,7 +976,7 @@ setLastError.exit:                                ; preds = %35, %39
   br label %48
 
 48:                                               ; preds = %47, %43
-  br i1 %16, label %49, label %52
+  br i1 %15, label %49, label %52
 
 49:                                               ; preds = %48
   %50 = load i32, ptr @serverSocketFD, align 4
@@ -1106,12 +1111,12 @@ thread-pre-split:                                 ; preds = %isPeerAllowed.exit,
   %109 = load i32, ptr @socketFD, align 4
   %110 = call i32 @dbgsysSocketClose(i32 noundef %109) #13
   store i32 -1, ptr @socketFD, align 4
-  br i1 %16, label %111, label %116
+  br i1 %15, label %111, label %16, !llvm.loop !14
 
 111:                                              ; preds = %104
   %112 = call i64 (...) @dbgsysCurrentTimeMillis() #13
   %.neg = sub i64 %.119, %112
-  %113 = add i64 %.neg, %.017
+  %113 = add i64 %.neg, %.017.ph
   %114 = icmp slt i64 %113, 1
   br i1 %114, label %115, label %thread-pre-split34
 
@@ -1119,19 +1124,14 @@ thread-pre-split:                                 ; preds = %isPeerAllowed.exit,
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.39)
   br label %.loopexit
 
-thread-pre-split34:                               ; preds = %111, %103
-  %.1.ph = phi i64 [ %.017, %103 ], [ %113, %111 ]
+thread-pre-split34:                               ; preds = %103, %111
+  %.1.ph = phi i64 [ %113, %111 ], [ %.017.ph, %103 ]
   %.pr35 = load i32, ptr @socketFD, align 4
-  br label %116
+  %116 = icmp slt i32 %.pr35, 0
+  br i1 %116, label %.outer, label %.loopexit, !llvm.loop !14
 
-116:                                              ; preds = %thread-pre-split34, %104
-  %117 = phi i32 [ %.pr35, %thread-pre-split34 ], [ -1, %104 ]
-  %.1 = phi i64 [ %.1.ph, %thread-pre-split34 ], [ %.017, %104 ]
-  %118 = icmp slt i32 %117, 0
-  br i1 %118, label %15, label %.loopexit, !llvm.loop !14
-
-.loopexit:                                        ; preds = %116, %52, %.critedge, %115, %setLastError.exit
-  %.0 = phi i32 [ 203, %setLastError.exit ], [ 202, %115 ], [ 202, %.critedge ], [ 0, %116 ], [ 202, %52 ]
+.loopexit:                                        ; preds = %thread-pre-split34, %52, %.critedge, %115, %setLastError.exit
+  %.0 = phi i32 [ 203, %setLastError.exit ], [ 202, %115 ], [ 202, %.critedge ], [ 202, %52 ], [ 0, %thread-pre-split34 ]
   ret i32 %.0
 }
 
@@ -1732,7 +1732,7 @@ define internal range(i32 0, 205) i32 @socketTransport_getLastError(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @socketTransport_setConfiguration(ptr nocapture readnone %0, ptr noundef readonly %1) #0 {
+define internal range(i32 0, 111) i32 @socketTransport_setConfiguration(ptr nocapture readnone %0, ptr noundef readonly %1) #0 {
   %3 = alloca %struct.in_addr, align 4
   %4 = alloca %struct.in6_addr, align 4
   %5 = icmp eq ptr %1, null

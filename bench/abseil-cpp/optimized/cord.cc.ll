@@ -5283,7 +5283,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZNK4absl4Cord16ExpectedChecksumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 8589934592) i64 @_ZNK4absl4Cord16ExpectedChecksumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
@@ -8539,7 +8539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN4absl16strings_internal14CordTestAccess15FlatTagToLengthEh(i8 noundef zeroext %tag) local_unnamed_addr #8 align 2 {
+define dso_local noundef range(i64 -753677, 1044452) i64 @_ZN4absl16strings_internal14CordTestAccess15FlatTagToLengthEh(i8 noundef zeroext %tag) local_unnamed_addr #8 align 2 {
 entry:
   %conv.i.i = zext i8 %tag to i32
   %cmp.i.i = icmp ult i8 %tag, 67

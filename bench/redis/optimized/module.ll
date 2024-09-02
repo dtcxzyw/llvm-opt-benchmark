@@ -2216,7 +2216,7 @@ entry:
 declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @commandFlagsFromString(ptr noundef %s) local_unnamed_addr #0 {
+define dso_local range(i64 -1, 268435456) i64 @commandFlagsFromString(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %count = alloca i32, align 4
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #38
@@ -8979,7 +8979,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 declare i32 @dbAsyncDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @RM_GetExpire(ptr nocapture noundef readonly %key) #0 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @RM_GetExpire(ptr nocapture noundef readonly %key) #0 {
 entry:
   %db = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %db, align 8
@@ -10318,7 +10318,7 @@ return:                                           ; preds = %entry, %if.else33, 
 declare void @listTypeDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i32 @moduleZsetAddFlagsToCoreFlags(i32 noundef %flags) local_unnamed_addr #22 {
+define dso_local range(i32 0, 32) i32 @moduleZsetAddFlagsToCoreFlags(i32 noundef %flags) local_unnamed_addr #22 {
 entry:
   %trunc = trunc i32 %flags to i3
   %0 = and i3 %trunc, 3
@@ -13802,6 +13802,7 @@ if.then148:                                       ; preds = %if.end145
 
 if.then148.if.end196_crit_edge:                   ; preds = %if.then148
   %.pre137 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
+  %33 = icmp ne ptr %.pre137, null
   br label %if.end196
 
 if.then151:                                       ; preds = %if.then148
@@ -13815,28 +13816,28 @@ if.then154:                                       ; preds = %if.then151
   br i1 %tobool52.not, label %if.end400, label %if.then157
 
 if.then157:                                       ; preds = %if.then154
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 320), align 8
-  %ptr159 = getelementptr inbounds i8, ptr %33, i64 8
-  %34 = load ptr, ptr %ptr159, align 8
-  %call160 = call ptr @sdsdup(ptr noundef %34) #34
+  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 320), align 8
+  %ptr159 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = load ptr, ptr %ptr159, align 8
+  %call160 = call ptr @sdsdup(ptr noundef %35) #34
   %call161 = call ptr @callReplyCreateError(ptr noundef %call160, ptr noundef nonnull %ctx) #34
   br label %cleanup
 
 if.end163:                                        ; preds = %if.then151
   %call164 = call i32 @writeCommandsDeniedByDiskError() #34
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
-  %tobool165.not = icmp eq ptr %35, null
+  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
+  %tobool165.not = icmp eq ptr %36, null
   br i1 %tobool165.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end163
-  %call166 = call i32 @mustObeyClient(ptr noundef nonnull %35) #34
+  %call166 = call i32 @mustObeyClient(ptr noundef nonnull %36) #34
   %tobool167 = icmp ne i32 %call166, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end163
-  %36 = phi i1 [ false, %if.end163 ], [ %tobool167, %land.rhs ]
+  %37 = phi i1 [ false, %if.end163 ], [ %tobool167, %land.rhs ]
   %cmp168 = icmp eq i32 %call164, 0
-  %or.cond = select i1 %cmp168, i1 true, i1 %36
+  %or.cond = select i1 %cmp168, i1 true, i1 %37
   br i1 %or.cond, label %if.end180, label %if.then172
 
 if.then172:                                       ; preds = %land.end
@@ -13850,14 +13851,14 @@ if.then175:                                       ; preds = %if.then172
   br label %cleanup
 
 if.end180:                                        ; preds = %land.end
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
-  %tobool181.not = icmp eq ptr %37, null
+  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4576), align 8
+  %tobool181.not = icmp eq ptr %38, null
   br i1 %tobool181.not, label %if.end196, label %land.lhs.true182
 
 land.lhs.true182:                                 ; preds = %if.end180
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4676), align 4
-  %tobool183 = icmp eq i32 %38, 0
-  %or.cond2 = select i1 %tobool183, i1 true, i1 %36
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4676), align 4
+  %tobool183 = icmp eq i32 %39, 0
+  %or.cond2 = select i1 %tobool183, i1 true, i1 %37
   br i1 %or.cond2, label %if.end196, label %if.then186
 
 if.then186:                                       ; preds = %land.lhs.true182
@@ -13866,16 +13867,15 @@ if.then186:                                       ; preds = %land.lhs.true182
   br i1 %tobool52.not, label %if.end400, label %if.then189
 
 if.then189:                                       ; preds = %if.then186
-  %39 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 296), align 8
-  %ptr191 = getelementptr inbounds i8, ptr %39, i64 8
-  %40 = load ptr, ptr %ptr191, align 8
-  %call192 = call ptr @sdsdup(ptr noundef %40) #34
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 296), align 8
+  %ptr191 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = load ptr, ptr %ptr191, align 8
+  %call192 = call ptr @sdsdup(ptr noundef %41) #34
   %call193 = call ptr @callReplyCreateError(ptr noundef %call192, ptr noundef nonnull %ctx) #34
   br label %cleanup
 
 if.end196:                                        ; preds = %if.then148.if.end196_crit_edge, %if.end180, %land.lhs.true182
-  %41 = phi ptr [ %.pre137, %if.then148.if.end196_crit_edge ], [ null, %if.end180 ], [ %37, %land.lhs.true182 ]
-  %tobool197.not = icmp ne ptr %41, null
+  %tobool197.not = phi i1 [ %33, %if.then148.if.end196_crit_edge ], [ false, %if.end180 ], [ true, %land.lhs.true182 ]
   %42 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4612), align 4
   %cmp199.not = icmp ne i32 %42, 12
   %or.cond125.not136 = select i1 %tobool197.not, i1 %cmp199.not, i1 false
@@ -28177,7 +28177,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 0, 128) i32 @maskModuleConfigFlags(i32 noundef %flags) local_unnamed_addr #22 {
+define dso_local noundef range(i32 0, 114) i32 @maskModuleConfigFlags(i32 noundef %flags) local_unnamed_addr #22 {
 entry:
   %new_flags.4 = and i32 %flags, 113
   ret i32 %new_flags.4

@@ -1786,7 +1786,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext i8 @_ZNK6icu_7510DateFormat19getBooleanAttributeE27UDateFormatBooleanAttributeR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %attr, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #9 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7510DateFormat19getBooleanAttributeE27UDateFormatBooleanAttributeR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %attr, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #9 align 2 {
 entry:
   %fBoolFlags = getelementptr inbounds i8, ptr %this, i64 344
   %1 = load i32, ptr %fBoolFlags, align 8

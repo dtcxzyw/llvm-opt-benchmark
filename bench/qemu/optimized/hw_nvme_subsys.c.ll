@@ -66,15 +66,15 @@ nvme_sctrl.exit.thread:                           ; preds = %entry
 nvme_sctrl.exit:                                  ; preds = %entry
   %call3.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %n) #7
   %n.val.pre = load ptr, ptr %1, align 8
+  %2 = icmp eq ptr %n.val.pre, null
   %params = getelementptr inbounds i8, ptr %n, i64 7248
-  %cmp.i.not = icmp eq ptr %n.val.pre, null
-  br i1 %cmp.i.not, label %for.cond.preheader, label %if.then
+  br i1 %2, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %nvme_sctrl.exit.thread, %nvme_sctrl.exit
-  %params65 = phi ptr [ %params60, %nvme_sctrl.exit.thread ], [ %params, %nvme_sctrl.exit ]
-  %sriov_max_vfs66 = getelementptr inbounds i8, ptr %n, i64 7287
-  %2 = load i8, ptr %sriov_max_vfs66, align 1
-  %conv67 = zext i8 %2 to i32
+  %params64 = phi ptr [ %params60, %nvme_sctrl.exit.thread ], [ %params, %nvme_sctrl.exit ]
+  %sriov_max_vfs65 = getelementptr inbounds i8, ptr %n, i64 7287
+  %3 = load i8, ptr %sriov_max_vfs65, align 1
+  %conv66 = zext i8 %3 to i32
   %ctrls = getelementptr inbounds i8, ptr %0, i64 544
   br label %for.body
 
@@ -82,15 +82,15 @@ if.then:                                          ; preds = %nvme_sctrl.exit
   %sec.i = getelementptr inbounds i8, ptr %call1.i, i64 27800
   %idxprom.i = zext i16 %call3.i to i64
   %arrayidx.i = getelementptr [127 x %struct.NvmeSecCtrlEntry], ptr %sec.i, i64 0, i64 %idxprom.i
-  %3 = load i16, ptr %arrayidx.i, align 1
-  %conv4 = zext i16 %3 to i32
+  %4 = load i16, ptr %arrayidx.i, align 1
+  %conv4 = zext i16 %4 to i32
   br label %if.end19
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr [256 x ptr], ptr %ctrls, i64 0, i64 %indvars.iv
-  %4 = load ptr, ptr %arrayidx, align 8
-  %tobool7.not = icmp eq ptr %4, null
+  %5 = load ptr, ptr %arrayidx, align 8
+  %tobool7.not = icmp eq ptr %5, null
   br i1 %tobool7.not, label %if.end13, label %for.inc
 
 for.inc:                                          ; preds = %for.body
@@ -103,15 +103,15 @@ if.then12:                                        ; preds = %for.inc
   br label %return
 
 if.end13:                                         ; preds = %for.body
-  %5 = trunc nuw nsw i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp10.i = icmp ult i64 %indvars.iv, 255
-  %cmp311.i = icmp ne i8 %2, 0
-  %6 = and i1 %cmp311.i, %cmp10.i
-  br i1 %6, label %for.body.lr.ph.i, label %nvme_subsys_reserve_cntlids.exit
+  %cmp311.i = icmp ne i8 %3, 0
+  %7 = and i1 %cmp311.i, %cmp10.i
+  br i1 %7, label %for.body.lr.ph.i, label %nvme_subsys_reserve_cntlids.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end13
-  %7 = load ptr, ptr %subsys1, align 8
-  %ctrls.i = getelementptr inbounds i8, ptr %7, i64 544
+  %8 = load ptr, ptr %subsys1, align 8
+  %ctrls.i = getelementptr inbounds i8, ptr %8, i64 544
   %sec.i30 = getelementptr inbounds i8, ptr %n, i64 27800
   br label %for.body.i
 
@@ -120,8 +120,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %cnt.013.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %cnt.1.i, %for.inc.i ]
   %indvars.iv.i = add nuw nsw i64 %indvars.iv.i.in, 1
   %arrayidx.i31 = getelementptr [256 x ptr], ptr %ctrls.i, i64 0, i64 %indvars.iv.i
-  %8 = load ptr, ptr %arrayidx.i31, align 8
-  %tobool.not.i = icmp eq ptr %8, null
+  %9 = load ptr, ptr %arrayidx.i31, align 8
+  %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %if.then.i33, label %for.inc.i
 
 if.then.i33:                                      ; preds = %for.body.i
@@ -136,39 +136,39 @@ if.then.i33:                                      ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i33, %for.body.i
   %cnt.1.i = phi i32 [ %cnt.013.i, %for.body.i ], [ %inc.i, %if.then.i33 ]
   %cmp.i32 = icmp ult i64 %indvars.iv.i.in, 254
-  %cmp3.i = icmp slt i32 %cnt.1.i, %conv67
-  %9 = select i1 %cmp.i32, i1 %cmp3.i, i1 false
-  br i1 %9, label %for.body.i, label %nvme_subsys_reserve_cntlids.exit, !llvm.loop !7
+  %cmp3.i = icmp slt i32 %cnt.1.i, %conv66
+  %10 = select i1 %cmp.i32, i1 %cmp3.i, i1 false
+  br i1 %10, label %for.body.i, label %nvme_subsys_reserve_cntlids.exit, !llvm.loop !7
 
 nvme_subsys_reserve_cntlids.exit:                 ; preds = %for.inc.i, %if.end13
   %cnt.0.lcssa.i = phi i32 [ 0, %if.end13 ], [ %cnt.1.i, %for.inc.i ]
-  %cmp15.not = icmp eq i32 %cnt.0.lcssa.i, %conv67
+  %cmp15.not = icmp eq i32 %cnt.0.lcssa.i, %conv66
   br i1 %cmp15.not, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %nvme_subsys_reserve_cntlids.exit
-  %10 = load i8, ptr %sriov_max_vfs66, align 1
-  %cmp10.not.i = icmp eq i8 %10, 0
+  %11 = load i8, ptr %sriov_max_vfs65, align 1
+  %cmp10.not.i = icmp eq i8 %11, 0
   br i1 %cmp10.not.i, label %nvme_subsys_unreserve_cntlids.exit, label %for.body.lr.ph.i34
 
 for.body.lr.ph.i34:                               ; preds = %if.then17
-  %11 = load ptr, ptr %subsys1, align 8
+  %12 = load ptr, ptr %subsys1, align 8
   %sec.i36 = getelementptr inbounds i8, ptr %n, i64 27800
-  %ctrls.i37 = getelementptr inbounds i8, ptr %11, i64 544
+  %ctrls.i37 = getelementptr inbounds i8, ptr %12, i64 544
   br label %for.body.i38
 
 for.body.i38:                                     ; preds = %for.inc.i43, %for.body.lr.ph.i34
-  %12 = phi i8 [ %10, %for.body.lr.ph.i34 ], [ %15, %for.inc.i43 ]
+  %13 = phi i8 [ %11, %for.body.lr.ph.i34 ], [ %16, %for.inc.i43 ]
   %indvars.iv.i39 = phi i64 [ 0, %for.body.lr.ph.i34 ], [ %indvars.iv.next.i44, %for.inc.i43 ]
   %arrayidx.i40 = getelementptr [127 x %struct.NvmeSecCtrlEntry], ptr %sec.i36, i64 0, i64 %indvars.iv.i39
-  %13 = load i16, ptr %arrayidx.i40, align 1
-  %tobool.not.i41 = icmp eq i16 %13, 0
+  %14 = load i16, ptr %arrayidx.i40, align 1
+  %tobool.not.i41 = icmp eq i16 %14, 0
   br i1 %tobool.not.i41, label %for.inc.i43, label %if.then.i42
 
 if.then.i42:                                      ; preds = %for.body.i38
-  %idxprom4.i = zext i16 %13 to i64
+  %idxprom4.i = zext i16 %14 to i64
   %arrayidx5.i = getelementptr [256 x ptr], ptr %ctrls.i37, i64 0, i64 %idxprom4.i
-  %14 = load ptr, ptr %arrayidx5.i, align 8
-  %cmp6.i = icmp eq ptr %14, inttoptr (i64 65535 to ptr)
+  %15 = load ptr, ptr %arrayidx5.i, align 8
+  %cmp6.i = icmp eq ptr %15, inttoptr (i64 65535 to ptr)
   br i1 %cmp6.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i42
@@ -178,14 +178,14 @@ if.else.i:                                        ; preds = %if.then.i42
 if.end.i:                                         ; preds = %if.then.i42
   store ptr null, ptr %arrayidx5.i, align 8
   store i16 0, ptr %arrayidx.i40, align 1
-  %.pre.i = load i8, ptr %sriov_max_vfs66, align 1
+  %.pre.i = load i8, ptr %sriov_max_vfs65, align 1
   br label %for.inc.i43
 
 for.inc.i43:                                      ; preds = %if.end.i, %for.body.i38
-  %15 = phi i8 [ %12, %for.body.i38 ], [ %.pre.i, %if.end.i ]
+  %16 = phi i8 [ %13, %for.body.i38 ], [ %.pre.i, %if.end.i ]
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i39, 1
-  %16 = zext i8 %15 to i64
-  %cmp.i45 = icmp ult i64 %indvars.iv.next.i44, %16
+  %17 = zext i8 %16 to i64
+  %cmp.i45 = icmp ult i64 %indvars.iv.next.i44, %17
   br i1 %cmp.i45, label %for.body.i38, label %nvme_subsys_unreserve_cntlids.exit, !llvm.loop !8
 
 nvme_subsys_unreserve_cntlids.exit:               ; preds = %for.inc.i43, %if.then17
@@ -193,21 +193,21 @@ nvme_subsys_unreserve_cntlids.exit:               ; preds = %for.inc.i43, %if.th
   br label %return
 
 if.end19:                                         ; preds = %nvme_subsys_reserve_cntlids.exit, %if.then
-  %params64 = phi ptr [ %params, %if.then ], [ %params65, %nvme_subsys_reserve_cntlids.exit ]
-  %cntlid.0 = phi i32 [ %conv4, %if.then ], [ %5, %nvme_subsys_reserve_cntlids.exit ]
+  %params63 = phi ptr [ %params, %if.then ], [ %params64, %nvme_subsys_reserve_cntlids.exit ]
+  %cntlid.0 = phi i32 [ %conv4, %if.then ], [ %6, %nvme_subsys_reserve_cntlids.exit ]
   %serial = getelementptr inbounds i8, ptr %0, i64 536
-  %17 = load ptr, ptr %serial, align 8
-  %tobool20.not = icmp eq ptr %17, null
-  %18 = load ptr, ptr %params64, align 16
+  %18 = load ptr, ptr %serial, align 8
+  %tobool20.not = icmp eq ptr %18, null
+  %19 = load ptr, ptr %params63, align 16
   br i1 %tobool20.not, label %if.then21, label %if.else26
 
 if.then21:                                        ; preds = %if.end19
-  %call24 = tail call noalias ptr @g_strdup(ptr noundef %18) #7
+  %call24 = tail call noalias ptr @g_strdup(ptr noundef %19) #7
   store ptr %call24, ptr %serial, align 8
   br label %if.end34
 
 if.else26:                                        ; preds = %if.end19
-  %call30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %18) #9
+  %call30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %19) #9
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.end34, label %if.then32
 
@@ -226,24 +226,24 @@ if.end34:                                         ; preds = %if.else26, %if.then
 for.body42:                                       ; preds = %if.end34, %for.inc54
   %indvars.iv53 = phi i64 [ 1, %if.end34 ], [ %indvars.iv.next54, %for.inc54 ]
   %arrayidx44 = getelementptr [257 x ptr], ptr %namespaces, i64 0, i64 %indvars.iv53
-  %19 = load ptr, ptr %arrayidx44, align 8
-  %tobool45.not = icmp eq ptr %19, null
+  %20 = load ptr, ptr %arrayidx44, align 8
+  %tobool45.not = icmp eq ptr %20, null
   br i1 %tobool45.not, label %for.inc54, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body42
-  %shared = getelementptr inbounds i8, ptr %19, i64 8657
-  %20 = load i8, ptr %shared, align 1
-  %tobool47 = trunc i8 %20 to i1
+  %shared = getelementptr inbounds i8, ptr %20, i64 8657
+  %21 = load i8, ptr %shared, align 1
+  %tobool47 = trunc i8 %21 to i1
   br i1 %tobool47, label %land.lhs.true49, label %for.inc54
 
 land.lhs.true49:                                  ; preds = %land.lhs.true
-  %params46 = getelementptr inbounds i8, ptr %19, i64 8656
-  %21 = load i8, ptr %params46, align 8
-  %tobool51 = trunc i8 %21 to i1
+  %params46 = getelementptr inbounds i8, ptr %20, i64 8656
+  %22 = load i8, ptr %params46, align 8
+  %tobool51 = trunc i8 %22 to i1
   br i1 %tobool51, label %for.inc54, label %if.then52
 
 if.then52:                                        ; preds = %land.lhs.true49
-  tail call void @nvme_attach_ns(ptr noundef %n, ptr noundef nonnull %19) #7
+  tail call void @nvme_attach_ns(ptr noundef %n, ptr noundef nonnull %20) #7
   br label %for.inc54
 
 for.inc54:                                        ; preds = %for.body42, %land.lhs.true, %land.lhs.true49, %if.then52

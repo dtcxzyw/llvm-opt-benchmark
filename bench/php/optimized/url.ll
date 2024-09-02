@@ -1305,7 +1305,7 @@ define hidden void @zif_parse_url(ptr noundef %0, ptr nocapture noundef %1) loca
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #16
-  br label %.thread349
+  br label %.thread353
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1321,7 +1321,7 @@ define hidden void @zif_parse_url(ptr noundef %0, ptr nocapture noundef %1) loca
 
 17:                                               ; preds = %11
   %18 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %12, ptr noundef nonnull %3, i32 noundef 1) #16
-  br i1 %18, label %._crit_edge, label %.thread349
+  br i1 %18, label %._crit_edge, label %.thread353
 
 ._crit_edge:                                      ; preds = %17
   %.pre = load ptr, ptr %3, align 8
@@ -1333,43 +1333,44 @@ define hidden void @zif_parse_url(ptr noundef %0, ptr nocapture noundef %1) loca
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 24
   %24 = icmp eq i32 %8, 1
-  br i1 %24, label %.thread338, label %25
+  br i1 %24, label %.thread365, label %25
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %0, i64 96
   %27 = getelementptr inbounds i8, ptr %0, i64 104
   %28 = load i8, ptr %27, align 8
   %29 = icmp eq i8 %28, 4
-  br i1 %29, label %.thread333, label %31
+  br i1 %29, label %.thread338, label %31
 
-.thread333:                                       ; preds = %25
+.thread338:                                       ; preds = %25
   %30 = load i64, ptr %26, align 8
   store i64 %30, ptr %4, align 8
-  br label %.thread338
+  br label %.thread365
 
 31:                                               ; preds = %25
   %32 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %26, ptr noundef nonnull %4, i32 noundef 2) #16
-  br i1 %32, label %.thread338, label %.thread349
+  %.fr = freeze i1 %32
+  br i1 %.fr, label %.thread365, label %.thread353
 
-.thread349:                                       ; preds = %31, %17, %10
-  %.0268360 = phi i32 [ 1, %17 ], [ 0, %10 ], [ 2, %31 ]
-  %.0269359 = phi ptr [ %12, %17 ], [ null, %10 ], [ %26, %31 ]
-  %.0270358 = phi i32 [ 4, %17 ], [ 0, %10 ], [ 0, %31 ]
-  %.0271357 = phi i32 [ 9, %17 ], [ 1, %10 ], [ 9, %31 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0271357, i32 noundef %.0268360, ptr noundef null, i32 noundef %.0270358, ptr noundef %.0269359) #16
+.thread353:                                       ; preds = %17, %10, %31
+  %.0268364 = phi i32 [ 2, %31 ], [ 1, %17 ], [ 0, %10 ]
+  %.0269363 = phi ptr [ %26, %31 ], [ %12, %17 ], [ null, %10 ]
+  %.0270362 = phi i32 [ 0, %31 ], [ 4, %17 ], [ 0, %10 ]
+  %.0271361 = phi i32 [ 9, %31 ], [ 9, %17 ], [ 1, %10 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0271361, i32 noundef %.0268364, ptr noundef null, i32 noundef %.0270362, ptr noundef %.0269363) #16
   br label %274
 
-.thread338:                                       ; preds = %31, %.thread333, %19
+.thread365:                                       ; preds = %31, %.thread338, %19
   %33 = call ptr @php_url_parse_ex2(ptr noundef nonnull %23, i64 noundef %22, ptr noundef nonnull %6)
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %37
 
-35:                                               ; preds = %.thread338
+35:                                               ; preds = %.thread365
   %36 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %36, align 8
   br label %274
 
-37:                                               ; preds = %.thread338
+37:                                               ; preds = %.thread365
   %38 = load i64, ptr %4, align 8
   %39 = icmp sgt i64 %38, -1
   br i1 %39, label %40, label %140
@@ -1613,11 +1614,11 @@ define hidden void @zif_parse_url(ptr noundef %0, ptr nocapture noundef %1) loca
   %149 = load i32, ptr %143, align 4
   %150 = add i32 %149, 1
   store i32 %150, ptr %143, align 4
-  %.pre367 = load ptr, ptr %1, align 8
+  %.pre372 = load ptr, ptr %1, align 8
   br label %151
 
 151:                                              ; preds = %144, %148
-  %152 = phi ptr [ %.pre367, %148 ], [ %141, %144 ]
+  %152 = phi ptr [ %.pre372, %148 ], [ %141, %144 ]
   %.sink = phi i32 [ 262, %148 ], [ 6, %144 ]
   %153 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %.sink, ptr %153, align 8
@@ -1648,9 +1649,9 @@ define hidden void @zif_parse_url(ptr noundef %0, ptr nocapture noundef %1) loca
   br label %168
 
 168:                                              ; preds = %161, %165
-  %.sink361 = phi i32 [ 262, %165 ], [ 6, %161 ]
+  %.sink366 = phi i32 [ 262, %165 ], [ 6, %161 ]
   %169 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.sink361, ptr %169, align 8
+  store i32 %.sink366, ptr %169, align 8
   %170 = load ptr, ptr %1, align 8
   %171 = load ptr, ptr @zend_known_strings, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 240
@@ -1698,9 +1699,9 @@ define hidden void @zif_parse_url(ptr noundef %0, ptr nocapture noundef %1) loca
   br label %198
 
 198:                                              ; preds = %191, %195
-  %.sink362 = phi i32 [ 262, %195 ], [ 6, %191 ]
+  %.sink367 = phi i32 [ 262, %195 ], [ 6, %191 ]
   %199 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.sink362, ptr %199, align 8
+  store i32 %.sink367, ptr %199, align 8
   %200 = load ptr, ptr %1, align 8
   %201 = load ptr, ptr @zend_known_strings, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 256
@@ -1729,9 +1730,9 @@ define hidden void @zif_parse_url(ptr noundef %0, ptr nocapture noundef %1) loca
   br label %215
 
 215:                                              ; preds = %208, %212
-  %.sink363 = phi i32 [ 262, %212 ], [ 6, %208 ]
+  %.sink368 = phi i32 [ 262, %212 ], [ 6, %208 ]
   %216 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.sink363, ptr %216, align 8
+  store i32 %.sink368, ptr %216, align 8
   %217 = load ptr, ptr %1, align 8
   %218 = load ptr, ptr @zend_known_strings, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 264
@@ -1760,9 +1761,9 @@ define hidden void @zif_parse_url(ptr noundef %0, ptr nocapture noundef %1) loca
   br label %232
 
 232:                                              ; preds = %225, %229
-  %.sink364 = phi i32 [ 262, %229 ], [ 6, %225 ]
+  %.sink369 = phi i32 [ 262, %229 ], [ 6, %225 ]
   %233 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.sink364, ptr %233, align 8
+  store i32 %.sink369, ptr %233, align 8
   %234 = load ptr, ptr %1, align 8
   %235 = load ptr, ptr @zend_known_strings, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 272
@@ -1791,9 +1792,9 @@ define hidden void @zif_parse_url(ptr noundef %0, ptr nocapture noundef %1) loca
   br label %249
 
 249:                                              ; preds = %242, %246
-  %.sink365 = phi i32 [ 262, %246 ], [ 6, %242 ]
+  %.sink370 = phi i32 [ 262, %246 ], [ 6, %242 ]
   %250 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.sink365, ptr %250, align 8
+  store i32 %.sink370, ptr %250, align 8
   %251 = load ptr, ptr %1, align 8
   %252 = load ptr, ptr @zend_known_strings, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 280
@@ -1822,9 +1823,9 @@ define hidden void @zif_parse_url(ptr noundef %0, ptr nocapture noundef %1) loca
   br label %266
 
 266:                                              ; preds = %259, %263
-  %.sink366 = phi i32 [ 262, %263 ], [ 6, %259 ]
+  %.sink371 = phi i32 [ 262, %263 ], [ 6, %259 ]
   %267 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.sink366, ptr %267, align 8
+  store i32 %.sink371, ptr %267, align 8
   %268 = load ptr, ptr %1, align 8
   %269 = load ptr, ptr @zend_known_strings, align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 288
@@ -1836,7 +1837,7 @@ define hidden void @zif_parse_url(ptr noundef %0, ptr nocapture noundef %1) loca
   call void @php_url_free(ptr noundef nonnull %33)
   br label %274
 
-274:                                              ; preds = %273, %35, %.thread349
+274:                                              ; preds = %273, %35, %.thread353
   ret void
 }
 
@@ -2165,69 +2166,69 @@ define hidden void @zif_urldecode(ptr noundef %0, ptr nocapture noundef writeonl
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
-  br i1 %cond, label %6, label %.thread133
-
-.thread133:                                       ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #16
-  br label %14
+  br i1 %cond, label %7, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
-  %9 = load i8, ptr %8, align 8
-  %10 = icmp eq i8 %9, 6
-  br i1 %10, label %.thread143, label %12
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #16
+  br label %.thread144
 
-.thread143:                                       ; preds = %6
-  %11 = load ptr, ptr %7, align 8
-  store ptr %11, ptr %3, align 8
-  br label %15
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = load i8, ptr %9, align 8
+  %11 = icmp eq i8 %10, 6
+  br i1 %11, label %.thread133, label %13
 
-12:                                               ; preds = %6
-  %13 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef 1) #16
-  %cond.fr122 = freeze i1 %13
-  br i1 %cond.fr122, label %._crit_edge, label %14
+.thread133:                                       ; preds = %7
+  %12 = load ptr, ptr %8, align 8
+  store ptr %12, ptr %3, align 8
+  br label %.thread137
 
-._crit_edge:                                      ; preds = %12
+13:                                               ; preds = %7
+  %14 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1) #16
+  %.fr = freeze i1 %14
+  br i1 %.fr, label %..thread137_crit_edge, label %.thread144
+
+..thread137_crit_edge:                            ; preds = %13
   %.pre = load ptr, ptr %3, align 8
-  br label %15
+  br label %.thread137
 
-14:                                               ; preds = %12, %.thread133
-  %.0112142 = phi i32 [ 0, %.thread133 ], [ 1, %12 ]
-  %.0113141 = phi i32 [ 1, %.thread133 ], [ 9, %12 ]
-  %.0114140 = phi ptr [ null, %.thread133 ], [ %7, %12 ]
-  %.0115139 = phi i32 [ 0, %.thread133 ], [ 4, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0113141, i32 noundef %.0112142, ptr noundef null, i32 noundef %.0115139, ptr noundef %.0114140) #16
-  br label %31
+.thread144:                                       ; preds = %13, %6
+  %.0112153 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  %.0113152 = phi i32 [ 1, %6 ], [ 9, %13 ]
+  %.0114151 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.0115150 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0113152, i32 noundef %.0112153, ptr noundef null, i32 noundef %.0115150, ptr noundef %.0114151) #16
+  br label %30
 
-15:                                               ; preds = %._crit_edge, %.thread143
-  %16 = phi ptr [ %.pre, %._crit_edge ], [ %11, %.thread143 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
-  %19 = load i64, ptr %18, align 8
-  %20 = and i64 %19, -8
-  %21 = add i64 %20, 32
-  %22 = call noalias ptr @_emalloc(i64 noundef %21) #20
-  store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
-  store i32 22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
-  store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
-  store i64 %19, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %17, i64 %19, i1 false)
-  %27 = getelementptr inbounds [1 x i8], ptr %26, i64 0, i64 %19
-  store i8 0, ptr %27, align 1
-  %28 = load i64, ptr %25, align 8
-  %29 = call i64 @php_url_decode(ptr noundef nonnull %26, i64 noundef %28)
-  store i64 %29, ptr %25, align 8
-  store ptr %22, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %30, align 8
-  br label %31
+.thread137:                                       ; preds = %..thread137_crit_edge, %.thread133
+  %15 = phi ptr [ %.pre, %..thread137_crit_edge ], [ %12, %.thread133 ]
+  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %17 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, -8
+  %20 = add i64 %19, 32
+  %21 = call noalias ptr @_emalloc(i64 noundef %20) #20
+  store i32 1, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  store i32 22, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  store i64 0, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  store i64 %18, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %21, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 1 %16, i64 %18, i1 false)
+  %26 = getelementptr inbounds [1 x i8], ptr %25, i64 0, i64 %18
+  store i8 0, ptr %26, align 1
+  %27 = load i64, ptr %24, align 8
+  %28 = call i64 @php_url_decode(ptr noundef nonnull %25, i64 noundef %27)
+  store i64 %28, ptr %24, align 8
+  store ptr %21, ptr %1, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %29, align 8
+  br label %30
 
-31:                                               ; preds = %15, %14
+30:                                               ; preds = %.thread137, %.thread144
   ret void
 }
 
@@ -2636,69 +2637,69 @@ define hidden void @zif_rawurldecode(ptr noundef %0, ptr nocapture noundef write
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %cond = icmp eq i32 %5, 1
-  br i1 %cond, label %6, label %.thread133
-
-.thread133:                                       ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #16
-  br label %14
+  br i1 %cond, label %7, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
-  %9 = load i8, ptr %8, align 8
-  %10 = icmp eq i8 %9, 6
-  br i1 %10, label %.thread143, label %12
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #16
+  br label %.thread144
 
-.thread143:                                       ; preds = %6
-  %11 = load ptr, ptr %7, align 8
-  store ptr %11, ptr %3, align 8
-  br label %15
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = load i8, ptr %9, align 8
+  %11 = icmp eq i8 %10, 6
+  br i1 %11, label %.thread133, label %13
 
-12:                                               ; preds = %6
-  %13 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef 1) #16
-  %cond.fr122 = freeze i1 %13
-  br i1 %cond.fr122, label %._crit_edge, label %14
+.thread133:                                       ; preds = %7
+  %12 = load ptr, ptr %8, align 8
+  store ptr %12, ptr %3, align 8
+  br label %.thread137
 
-._crit_edge:                                      ; preds = %12
+13:                                               ; preds = %7
+  %14 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1) #16
+  %.fr = freeze i1 %14
+  br i1 %.fr, label %..thread137_crit_edge, label %.thread144
+
+..thread137_crit_edge:                            ; preds = %13
   %.pre = load ptr, ptr %3, align 8
-  br label %15
+  br label %.thread137
 
-14:                                               ; preds = %12, %.thread133
-  %.0112142 = phi i32 [ 0, %.thread133 ], [ 1, %12 ]
-  %.0113141 = phi i32 [ 1, %.thread133 ], [ 9, %12 ]
-  %.0114140 = phi ptr [ null, %.thread133 ], [ %7, %12 ]
-  %.0115139 = phi i32 [ 0, %.thread133 ], [ 4, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0113141, i32 noundef %.0112142, ptr noundef null, i32 noundef %.0115139, ptr noundef %.0114140) #16
-  br label %31
+.thread144:                                       ; preds = %13, %6
+  %.0112153 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  %.0113152 = phi i32 [ 1, %6 ], [ 9, %13 ]
+  %.0114151 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.0115150 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0113152, i32 noundef %.0112153, ptr noundef null, i32 noundef %.0115150, ptr noundef %.0114151) #16
+  br label %30
 
-15:                                               ; preds = %._crit_edge, %.thread143
-  %16 = phi ptr [ %.pre, %._crit_edge ], [ %11, %.thread143 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
-  %19 = load i64, ptr %18, align 8
-  %20 = and i64 %19, -8
-  %21 = add i64 %20, 32
-  %22 = call noalias ptr @_emalloc(i64 noundef %21) #20
-  store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
-  store i32 22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
-  store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
-  store i64 %19, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %17, i64 %19, i1 false)
-  %27 = getelementptr inbounds [1 x i8], ptr %26, i64 0, i64 %19
-  store i8 0, ptr %27, align 1
-  %28 = load i64, ptr %25, align 8
-  %29 = call i64 @php_raw_url_decode(ptr noundef nonnull %26, i64 noundef %28)
-  store i64 %29, ptr %25, align 8
-  store ptr %22, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %30, align 8
-  br label %31
+.thread137:                                       ; preds = %..thread137_crit_edge, %.thread133
+  %15 = phi ptr [ %.pre, %..thread137_crit_edge ], [ %12, %.thread133 ]
+  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %17 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, -8
+  %20 = add i64 %19, 32
+  %21 = call noalias ptr @_emalloc(i64 noundef %20) #20
+  store i32 1, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  store i32 22, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  store i64 0, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  store i64 %18, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %21, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 1 %16, i64 %18, i1 false)
+  %26 = getelementptr inbounds [1 x i8], ptr %25, i64 0, i64 %18
+  store i8 0, ptr %26, align 1
+  %27 = load i64, ptr %24, align 8
+  %28 = call i64 @php_raw_url_decode(ptr noundef nonnull %25, i64 noundef %27)
+  store i64 %28, ptr %24, align 8
+  store ptr %21, ptr %1, align 8
+  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %29, align 8
+  br label %30
 
-31:                                               ; preds = %15, %14
+30:                                               ; preds = %.thread137, %.thread144
   ret void
 }
 

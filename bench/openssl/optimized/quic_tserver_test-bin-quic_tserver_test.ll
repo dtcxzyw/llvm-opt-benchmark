@@ -428,11 +428,11 @@ lor.rhs.i:                                        ; preds = %if.then160.i
   %call.i94.i = call i32 @SSL_get_error(ptr noundef %call100.i, i32 noundef %call161.i) #8
   %8 = and i32 %call.i94.i, -2
   %9 = icmp eq i32 %8, 2
+  %lor.ext.i.i = zext i1 %9 to i32
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.then160.i
-  %10 = phi i1 [ true, %if.then160.i ], [ %9, %lor.rhs.i ]
-  %lor.ext.i = zext i1 %10 to i32
+  %lor.ext.i = phi i32 [ 1, %if.then160.i ], [ %lor.ext.i.i, %lor.rhs.i ]
   %call168.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 211, ptr noundef nonnull @.str.40, i32 noundef %lor.ext.i) #8
   %tobool169.not.i = icmp eq i32 %call168.i, 0
   br i1 %tobool169.not.i, label %err.i, label %if.end171.i
@@ -491,8 +491,8 @@ if.end208.i:                                      ; preds = %if.then201.i
   br i1 %tobool210.not.i, label %err.i, label %if.end219.i
 
 if.else213.i:                                     ; preds = %if.then198.i
-  %11 = load i64, ptr %l.i, align 8
-  %add.i = add i64 %11, %s_total_read.0143.i
+  %10 = load i64, ptr %l.i, align 8
+  %add.i = add i64 %10, %s_total_read.0143.i
   %call214.i = call i32 @test_size_t_le(ptr noundef nonnull @.str.14, i32 noundef 243, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i64 noundef %add.i, i64 noundef 46) #8
   %tobool215.not.i = icmp eq i32 %call214.i, 0
   br i1 %tobool215.not.i, label %err.i, label %if.end219.i
@@ -517,8 +517,8 @@ if.then224.i:                                     ; preds = %if.end219.i
   br i1 %tobool231.not.i, label %err.i, label %if.end233.i
 
 if.end233.i:                                      ; preds = %if.then224.i
-  %12 = load i64, ptr %l.i, align 8
-  %add234.i = add i64 %12, %s_total_written.0144.i
+  %11 = load i64, ptr %l.i, align 8
+  %add234.i = add i64 %11, %s_total_written.0144.i
   %cmp235.i = icmp eq i64 %add234.i, 46
   br i1 %cmp235.i, label %if.then237.i, label %if.end240.i
 
@@ -543,20 +543,20 @@ if.then245.i:                                     ; preds = %if.end240.i
 
 lor.rhs251.i:                                     ; preds = %if.then245.i
   %call.i95.i = call i32 @SSL_get_error(ptr noundef %call100.i, i32 noundef %call248.i) #8
-  %13 = and i32 %call.i95.i, -2
-  %14 = icmp eq i32 %13, 2
+  %12 = and i32 %call.i95.i, -2
+  %13 = icmp eq i32 %12, 2
+  %lor.ext.i96.i = zext i1 %13 to i32
   br label %lor.end254.i
 
 lor.end254.i:                                     ; preds = %lor.rhs251.i, %if.then245.i
-  %15 = phi i1 [ true, %if.then245.i ], [ %14, %lor.rhs251.i ]
-  %lor.ext255.i = zext i1 %15 to i32
+  %lor.ext255.i = phi i32 [ 1, %if.then245.i ], [ %lor.ext.i96.i, %lor.rhs251.i ]
   %call258.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 265, ptr noundef nonnull @.str.40, i32 noundef %lor.ext255.i) #8
   %tobool259.not.i = icmp eq i32 %call258.i, 0
   br i1 %tobool259.not.i, label %err.i, label %if.end261.i
 
 if.end261.i:                                      ; preds = %lor.end254.i
-  %16 = load i64, ptr %l.i, align 8
-  %add262.i = add i64 %16, %c_total_read.0145.i
+  %14 = load i64, ptr %l.i, align 8
+  %add262.i = add i64 %14, %c_total_read.0145.i
   %cmp263.i = icmp eq i64 %add262.i, 46
   br i1 %cmp263.i, label %if.then265.i, label %if.end271.i
 
@@ -615,8 +615,8 @@ if.then310.i:                                     ; preds = %if.end306.i, %if.th
   br i1 %cmp311.i, label %if.then313.i, label %if.then355.i
 
 if.then313.i:                                     ; preds = %if.then310.i
-  %17 = load ptr, ptr @fake_time_lock, align 8
-  %call314.i = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %17) #8
+  %15 = load ptr, ptr @fake_time_lock, align 8
+  %call314.i = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %15) #8
   %cmp315.i = icmp ne i32 %call314.i, 0
   %conv316.i = zext i1 %cmp315.i to i32
   %call317.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 314, ptr noundef nonnull @.str.55, i32 noundef %conv316.i) #8
@@ -624,11 +624,11 @@ if.then313.i:                                     ; preds = %if.then310.i
   br i1 %tobool318.not.i, label %err.i, label %if.end320.i
 
 if.end320.i:                                      ; preds = %if.then313.i
-  %18 = load i64, ptr @fake_time.0, align 8
-  %retval.sroa.0.0.i97.i = call i64 @llvm.uadd.sat.i64(i64 %18, i64 100000000)
+  %16 = load i64, ptr @fake_time.0, align 8
+  %retval.sroa.0.0.i97.i = call i64 @llvm.uadd.sat.i64(i64 %16, i64 100000000)
   store i64 %retval.sroa.0.0.i97.i, ptr @fake_time.0, align 8
-  %19 = load ptr, ptr @fake_time_lock, align 8
-  %call328.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %19) #8
+  %17 = load ptr, ptr @fake_time_lock, align 8
+  %call328.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %17) #8
   %inc.i = add nuw nsw i64 %idle_units_done.0146.i, 1
   call void @ossl_quic_conn_force_assist_thread_wake(ptr noundef %call100.i) #8
   %call329.i = call i32 @SSL_get_event_timeout(ptr noundef %call100.i, ptr noundef nonnull %tv.i, ptr noundef nonnull %isinf.i) #8
@@ -639,23 +639,23 @@ if.end320.i:                                      ; preds = %if.then313.i
   br i1 %tobool333.not.i, label %err.i, label %if.end335.i
 
 if.end335.i:                                      ; preds = %if.end320.i
-  %20 = load i32, ptr %isinf.i, align 4
-  %tobool336.not.i = icmp eq i32 %20, 0
+  %18 = load i32, ptr %isinf.i, align 4
+  %tobool336.not.i = icmp eq i32 %18, 0
   br i1 %tobool336.not.i, label %land.lhs.true337.i, label %if.end368.i
 
 land.lhs.true337.i:                               ; preds = %if.end335.i
-  %21 = load i64, ptr %tv.i, align 8
-  %cmp.i.i = icmp slt i64 %21, 0
-  br i1 %cmp.i.i, label %if.then349.i, label %ossl_time_from_timeval.exit.i
+  %19 = load i64, ptr %tv.i, align 8
+  %cmp.i.i = icmp slt i64 %19, 0
+  br i1 %cmp.i.i, label %if.then349.i, label %if.end.i.i
 
-ossl_time_from_timeval.exit.i:                    ; preds = %land.lhs.true337.i
-  %22 = load i64, ptr %6, align 8
-  %mul.i.neg.i = mul i64 %21, -1000000000
-  %mul2.i.i = mul i64 %22, 1000
-  %cmp347.i = icmp eq i64 %mul2.i.i, %mul.i.neg.i
-  br i1 %cmp347.i, label %if.then349.i, label %if.end368.i
+if.end.i.i:                                       ; preds = %land.lhs.true337.i
+  %20 = load i64, ptr %6, align 8
+  %mul.i.neg.i = mul i64 %19, -1000000000
+  %mul2.i.i = mul i64 %20, 1000
+  %21 = icmp eq i64 %mul2.i.i, %mul.i.neg.i
+  br i1 %21, label %if.then349.i, label %if.end368.i
 
-if.then349.i:                                     ; preds = %ossl_time_from_timeval.exit.i, %land.lhs.true337.i
+if.then349.i:                                     ; preds = %if.end.i.i, %land.lhs.true337.i
   call void @OSSL_sleep(i64 noundef 100) #8
   br label %if.end368.i
 
@@ -671,11 +671,11 @@ if.then366.i:                                     ; preds = %if.end306.i
   %call367.i = call i32 @SSL_handle_events(ptr noundef %call100.i) #8
   br label %if.end368.i
 
-if.end368.i:                                      ; preds = %if.then366.i, %if.then349.i, %ossl_time_from_timeval.exit.i, %if.end335.i
-  %idle_units_done.1.ph131.i = phi i64 [ %idle_units_done.0146.i, %if.then366.i ], [ %inc.i, %ossl_time_from_timeval.exit.i ], [ %inc.i, %if.then349.i ], [ %inc.i, %if.end335.i ]
-  %c_done_eos.1105.ph130.i = phi i32 [ %c_done_eos.1.i, %if.then366.i ], [ %c_done_eos.1104.i, %ossl_time_from_timeval.exit.i ], [ %c_done_eos.1104.i, %if.then349.i ], [ %c_done_eos.1104.i, %if.end335.i ]
-  %c_start_idle_test.1107.ph129.i = phi i32 [ 0, %if.then366.i ], [ %c_start_idle_test.1106.i, %ossl_time_from_timeval.exit.i ], [ %c_start_idle_test.1106.i, %if.then349.i ], [ %c_start_idle_test.1106.i, %if.end335.i ]
-  %limit_ms.1109.ph128.i = phi i64 [ %limit_ms.0148.i, %if.then366.i ], [ %limit_ms.1108.i, %ossl_time_from_timeval.exit.i ], [ %limit_ms.1108.i, %if.then349.i ], [ %limit_ms.1108.i, %if.end335.i ]
+if.end368.i:                                      ; preds = %if.then366.i, %if.then349.i, %if.end.i.i, %if.end335.i
+  %idle_units_done.1.ph131.i = phi i64 [ %idle_units_done.0146.i, %if.then366.i ], [ %inc.i, %if.end.i.i ], [ %inc.i, %if.then349.i ], [ %inc.i, %if.end335.i ]
+  %c_done_eos.1105.ph130.i = phi i32 [ %c_done_eos.1.i, %if.then366.i ], [ %c_done_eos.1104.i, %if.end.i.i ], [ %c_done_eos.1104.i, %if.then349.i ], [ %c_done_eos.1104.i, %if.end335.i ]
+  %c_start_idle_test.1107.ph129.i = phi i32 [ 0, %if.then366.i ], [ %c_start_idle_test.1106.i, %if.end.i.i ], [ %c_start_idle_test.1106.i, %if.then349.i ], [ %c_start_idle_test.1106.i, %if.end335.i ]
+  %limit_ms.1109.ph128.i = phi i64 [ %limit_ms.0148.i, %if.then366.i ], [ %limit_ms.1108.i, %if.end.i.i ], [ %limit_ms.1108.i, %if.then349.i ], [ %limit_ms.1108.i, %if.end335.i ]
   %call369.i = call i32 @ossl_quic_tserver_tick(ptr noundef %call54.i) #8
   br i1 %tobool60.not.i, label %if.end393.i, label %if.then371.i
 
@@ -689,17 +689,17 @@ for.cond372.i:                                    ; preds = %if.end383.i, %if.th
   store i64 2048, ptr %data_len.i, align 8
   %call373.i = call i32 @BIO_recvmmsg(ptr noundef %call82.i, ptr noundef nonnull %rmsg.i, i64 noundef 40, i64 noundef 1, i64 noundef 0, ptr noundef nonnull %msgs_processed.i) #8
   %tobool374.i = icmp eq i32 %call373.i, 0
-  %23 = load i64, ptr %msgs_processed.i, align 8
-  %cmp376.i = icmp eq i64 %23, 0
+  %22 = load i64, ptr %msgs_processed.i, align 8
+  %cmp376.i = icmp eq i64 %22, 0
   %or.cond9.i = select i1 %tobool374.i, i1 true, i1 %cmp376.i
-  %24 = load i64, ptr %data_len.i, align 8
-  %cmp380.i = icmp eq i64 %24, 0
+  %23 = load i64, ptr %data_len.i, align 8
+  %cmp380.i = icmp eq i64 %23, 0
   %or.cond10.i = select i1 %or.cond9.i, i1 true, i1 %cmp380.i
   br i1 %or.cond10.i, label %if.end393.i, label %if.end383.i
 
 if.end383.i:                                      ; preds = %for.cond372.i
-  %25 = load ptr, ptr %rmsg.i, align 8
-  %call386.i = call i32 @SSL_inject_net_dgram(ptr noundef %call100.i, ptr noundef %25, i64 noundef %24, ptr noundef null, ptr noundef null) #8
+  %24 = load ptr, ptr %rmsg.i, align 8
+  %call386.i = call i32 @SSL_inject_net_dgram(ptr noundef %call100.i, ptr noundef %24, i64 noundef %23, ptr noundef null, ptr noundef null) #8
   %cmp387.i = icmp ne i32 %call386.i, 0
   %conv388.i = zext i1 %cmp387.i to i32
   %call389.i = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 377, ptr noundef nonnull @.str.57, i32 noundef %conv388.i) #8
@@ -731,10 +731,10 @@ err.i:                                            ; preds = %if.end320.i, %if.th
   call void @BIO_ADDR_free(ptr noundef %s_addr_.0.i) #8
   %call395.i = call i32 @BIO_free(ptr noundef %s_net_bio_own.0.i) #8
   %call396.i = call i32 @BIO_free(ptr noundef %c_net_bio_own.0.i) #8
-  %26 = load ptr, ptr %c_pair_own.i, align 8
-  %call397.i = call i32 @BIO_free(ptr noundef %26) #8
-  %27 = load ptr, ptr %s_pair_own.i, align 8
-  %call398.i = call i32 @BIO_free(ptr noundef %27) #8
+  %25 = load ptr, ptr %c_pair_own.i, align 8
+  %call397.i = call i32 @BIO_free(ptr noundef %25) #8
+  %26 = load ptr, ptr %s_pair_own.i, align 8
+  %call398.i = call i32 @BIO_free(ptr noundef %26) #8
   %cmp399.i = icmp sgt i32 %call1.i, -1
   br i1 %cmp399.i, label %if.then401.i, label %if.end403.i
 

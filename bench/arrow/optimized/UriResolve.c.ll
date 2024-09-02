@@ -10,21 +10,21 @@ target triple = "x86_64-unknown-linux-gnu"
 @uriSafeToPointToW = external local_unnamed_addr constant ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriAddBaseUriA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriAddBaseUriA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef 0, ptr noundef null)
+  %call.i = tail call range(i32 0, 11) i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef 0, ptr noundef null)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriAddBaseUriExA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriAddBaseUriExA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef %memory) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %memory, null
   br i1 %cmp, label %do.end, label %if.else
@@ -226,21 +226,21 @@ declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #1
 declare i32 @uriFreeUriMembersMmA(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriAddBaseUriW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriAddBaseUriW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef 0, ptr noundef null)
+  %call.i = tail call range(i32 0, 11) i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef 0, ptr noundef null)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriAddBaseUriExW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriAddBaseUriExW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef %memory) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %memory, null
   br i1 %cmp, label %do.end, label %if.else

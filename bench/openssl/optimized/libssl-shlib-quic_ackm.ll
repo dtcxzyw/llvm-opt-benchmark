@@ -1912,7 +1912,7 @@ entry:
   %retval.sroa.0.0.i22 = call i64 @llvm.uadd.sat.i64(i64 %5, i64 %a.coerce.b.coerce.i)
   %pto_count = getelementptr inbounds i8, ptr %ackm, i64 280
   %6 = load i32, ptr %pto_count, align 8
-  %cond.i = call noundef i32 @llvm.umin.i32(i32 %6, i32 16)
+  %cond.i = call noundef range(i32 0, 17) i32 @llvm.umin.i32(i32 %6, i32 16)
   %sh_prom = zext nneg i32 %cond.i to i64
   %shl = shl nuw nsw i64 1, %sh_prom
   %7 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.sroa.0.0.i22, i64 %shl)
@@ -2755,7 +2755,7 @@ return:                                           ; preds = %entry, %ackm_on_pkt
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_ackm_get_pto_duration(ptr nocapture noundef readonly %ackm) local_unnamed_addr #0 {
+define range(i64 1000000, 0) i64 @ossl_ackm_get_pto_duration(ptr nocapture noundef readonly %ackm) local_unnamed_addr #0 {
 entry:
   %rtt = alloca %struct.ossl_rtt_info_st, align 8
   %statm = getelementptr inbounds i8, ptr %ackm, i64 256

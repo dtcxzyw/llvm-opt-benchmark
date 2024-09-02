@@ -177,7 +177,7 @@ $_ZTV24MethodHandlesAdapterBlob = comdat any
 @_ZN10UpcallStubC1EPKcP10CodeBufferiP8_jobject8ByteSize = hidden unnamed_addr alias void (ptr, ptr, ptr, i32, ptr, i32), ptr @_ZN10UpcallStubC2EPKcP10CodeBufferiP8_jobject8ByteSize
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN8CodeBlob17align_code_offsetEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -2147483648, 2147483640) i32 @_ZN8CodeBlob17align_code_offsetEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @CodeEntryAlignment, align 8
   %3 = trunc i64 %2 to i32
   %4 = add nsw i32 %0, 7

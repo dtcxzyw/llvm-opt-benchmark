@@ -305,7 +305,7 @@ define void @Mfs_ManPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %25 = load i32, ptr %24, align 4
   %26 = sitofp i32 %23 to double
   %27 = fmul double %26, 1.000000e+02
-  %28 = tail call noundef i32 @llvm.smax.i32(i32 %25, i32 1)
+  %28 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %25, i32 1)
   %29 = uitofp nneg i32 %28 to double
   %30 = fdiv double %27, %29
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %23, i32 noundef %25, double noundef %30)
@@ -315,7 +315,7 @@ define void @Mfs_ManPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %35 = load i32, ptr %34, align 8
   %36 = sitofp i32 %33 to double
   %37 = fmul double %36, 1.000000e+02
-  %38 = tail call noundef i32 @llvm.smax.i32(i32 %35, i32 1)
+  %38 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %35, i32 1)
   %39 = uitofp nneg i32 %38 to double
   %40 = fdiv double %37, %39
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %33, i32 noundef %35, double noundef %40)
@@ -327,7 +327,7 @@ define void @Mfs_ManPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %46 = sub nsw i32 %43, %45
   %47 = sitofp i32 %46 to double
   %48 = fmul double %47, 1.000000e+02
-  %49 = tail call noundef i32 @llvm.smax.i32(i32 %43, i32 1)
+  %49 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %43, i32 1)
   %50 = uitofp nneg i32 %49 to double
   %51 = fdiv double %48, %50
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %46, i32 noundef %43, double noundef %51)
@@ -338,7 +338,7 @@ define void @Mfs_ManPrint(ptr nocapture noundef readonly %0) local_unnamed_addr 
   %57 = sub nsw i32 %54, %56
   %58 = sitofp i32 %57 to double
   %59 = fmul double %58, 1.000000e+02
-  %60 = tail call noundef i32 @llvm.smax.i32(i32 %54, i32 1)
+  %60 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %54, i32 1)
   %61 = uitofp nneg i32 %60 to double
   %62 = fdiv double %59, %61
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %57, i32 noundef %54, double noundef %62)

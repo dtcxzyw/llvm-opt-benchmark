@@ -1027,12 +1027,12 @@ define dso_local noundef range(i32 -114, 1) i32 @nf_ct_expect_related_report(ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 176
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread31, label %15
+  br i1 %14, label %.thread29, label %15
 
 15:                                               ; preds = %4
   %16 = load i8, ptr %13, align 1
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %.thread31, label %18
+  br i1 %17, label %.thread29, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %13, i64 8
@@ -1056,7 +1056,7 @@ define dso_local noundef range(i32 -114, 1) i32 @nf_ct_expect_related_report(ptr
   %30 = getelementptr inbounds i8, ptr %28, i64 136
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %29, null
-  br i1 %32, label %.thread31, label %33
+  br i1 %32, label %.thread29, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1140,7 +1140,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %10, align 8
   %85 = icmp eq ptr %83, %84
-  br i1 %85, label %86, label %.thread22
+  br i1 %85, label %86, label %.critedge
 
 86:                                               ; preds = %81, %77
   %87 = getelementptr inbounds i8, ptr %78, i64 32
@@ -1152,21 +1152,21 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %93 = icmp ne i64 %88, %89
   %94 = icmp ne i64 %91, %92
   %95 = or i1 %93, %94
-  br i1 %95, label %.thread22, label %96
+  br i1 %95, label %.critedge, label %96
 
 96:                                               ; preds = %86
   %97 = getelementptr inbounds i8, ptr %78, i64 48
   %98 = load i16, ptr %97, align 4
   %99 = load i16, ptr %70, align 4
   %100 = icmp eq i16 %98, %99
-  br i1 %100, label %101, label %.thread22
+  br i1 %100, label %101, label %.critedge
 
 101:                                              ; preds = %96
   %102 = getelementptr inbounds i8, ptr %78, i64 50
   %103 = load i16, ptr %102, align 2
   %104 = load i16, ptr %46, align 2
   %105 = icmp eq i16 %103, %104
-  br i1 %105, label %106, label %.thread22
+  br i1 %105, label %106, label %.critedge
 
 106:                                              ; preds = %101
   %107 = getelementptr inbounds i8, ptr %78, i64 52
@@ -1178,21 +1178,21 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %113 = icmp ne i64 %108, %109
   %114 = icmp ne i64 %111, %112
   %115 = or i1 %113, %114
-  br i1 %115, label %.thread22, label %116
+  br i1 %115, label %.critedge, label %116
 
 116:                                              ; preds = %106
   %117 = getelementptr inbounds i8, ptr %78, i64 68
   %118 = load i16, ptr %117, align 4
   %119 = load i16, ptr %43, align 4
   %120 = icmp eq i16 %118, %119
-  br i1 %120, label %121, label %.thread22
+  br i1 %120, label %121, label %.critedge
 
 121:                                              ; preds = %116
   %122 = getelementptr inbounds i8, ptr %78, i64 70
   %123 = load i8, ptr %122, align 2
   %124 = load i8, ptr %50, align 2
   %125 = icmp eq i8 %123, %124
-  br i1 %125, label %126, label %.thread22
+  br i1 %125, label %126, label %.critedge
 
 126:                                              ; preds = %121
   %127 = getelementptr inbounds i8, ptr %78, i64 72
@@ -1204,14 +1204,14 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %133 = icmp ne i64 %128, %129
   %134 = icmp ne i64 %131, %132
   %135 = or i1 %133, %134
-  br i1 %135, label %.thread22, label %136
+  br i1 %135, label %.critedge, label %136
 
 136:                                              ; preds = %126
   %137 = getelementptr inbounds i8, ptr %78, i64 88
   %138 = load i16, ptr %137, align 4
   %139 = load i16, ptr %74, align 4
   %140 = icmp eq i16 %138, %139
-  br i1 %140, label %141, label %.thread22
+  br i1 %140, label %141, label %.critedge
 
 141:                                              ; preds = %136
   %142 = getelementptr inbounds i8, ptr %78, i64 120
@@ -1222,7 +1222,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %147 = getelementptr inbounds i8, ptr %146, i64 136
   %148 = load ptr, ptr %147, align 8
   %.not = icmp eq ptr %145, %148
-  br i1 %.not, label %149, label %.thread22
+  br i1 %.not, label %149, label %.critedge
 
 149:                                              ; preds = %141
   %150 = getelementptr inbounds i8, ptr %78, i64 100
@@ -1230,8 +1230,8 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %152 = load i32, ptr %75, align 4
   %153 = icmp eq i32 %151, %152
   %154 = icmp eq ptr %143, %146
-  %or.cond = and i1 %153, %154
-  br i1 %or.cond, label %155, label %.thread31
+  %or.cond = and i1 %154, %153
+  br i1 %or.cond, label %155, label %.thread29
 
 155:                                              ; preds = %149
   %156 = getelementptr inbounds i8, ptr %78, i64 128
@@ -1260,7 +1260,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   tail call void @call_rcu(ptr noundef %167, ptr noundef nonnull @nf_ct_expect_free_rcu) #9
   br label %.thread24
 
-.thread22:                                        ; preds = %126, %101, %116, %106, %86, %96, %121, %136, %141, %81
+.critedge:                                        ; preds = %136, %121, %96, %86, %106, %116, %101, %126, %141, %81
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, i8 0, i64 20, i1 false), !annotation !16
   %168 = getelementptr inbounds i8, ptr %78, i64 72
@@ -1271,8 +1271,8 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   store i16 %172, ptr %76, align 4
   br label %173
 
-173:                                              ; preds = %173, %.thread22
-  %174 = phi i64 [ 0, %.thread22 ], [ %181, %173 ]
+173:                                              ; preds = %173, %.critedge
+  %174 = phi i64 [ 0, %.critedge ], [ %181, %173 ]
   %175 = getelementptr [4 x i32], ptr %168, i64 0, i64 %174
   %176 = load i32, ptr %175, align 4
   %177 = getelementptr [4 x i32], ptr %72, i64 0, i64 %174
@@ -1304,7 +1304,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %196 = load i32, ptr %195, align 4
   %197 = and i32 %194, %196
   %198 = icmp eq i32 %197, 0
-  br i1 %198, label %185, label %.thread26
+  br i1 %198, label %185, label %.critedge21
 
 199:                                              ; preds = %185
   %200 = getelementptr inbounds i8, ptr %78, i64 48
@@ -1314,21 +1314,21 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %204 = load i16, ptr %76, align 4
   %205 = and i16 %203, %204
   %206 = icmp eq i16 %205, 0
-  br i1 %206, label %207, label %.thread26
+  br i1 %206, label %207, label %.critedge21
 
 207:                                              ; preds = %199
   %208 = getelementptr inbounds i8, ptr %78, i64 50
   %209 = load i16, ptr %208, align 2
   %210 = load i16, ptr %46, align 2
   %211 = icmp eq i16 %209, %210
-  br i1 %211, label %212, label %.thread26
+  br i1 %211, label %212, label %.critedge21
 
 212:                                              ; preds = %207
   %213 = getelementptr inbounds i8, ptr %78, i64 70
   %214 = load i8, ptr %213, align 2
   %215 = load i8, ptr %50, align 2
   %216 = icmp eq i8 %214, %215
-  br i1 %216, label %217, label %.thread26
+  br i1 %216, label %217, label %.critedge21
 
 217:                                              ; preds = %212
   %218 = getelementptr inbounds i8, ptr %78, i64 52
@@ -1340,18 +1340,14 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %224 = icmp ne i64 %219, %220
   %225 = icmp ne i64 %222, %223
   %226 = or i1 %224, %225
-  br i1 %226, label %.thread26, label %227
+  br i1 %226, label %.critedge21, label %227
 
 227:                                              ; preds = %217
   %228 = getelementptr inbounds i8, ptr %78, i64 68
   %229 = load i16, ptr %228, align 4
   %230 = load i16, ptr %43, align 4
   %231 = icmp eq i16 %229, %230
-  br i1 %231, label %232, label %.thread26
-
-.thread26:                                        ; preds = %188, %227, %199, %207, %217, %212
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
-  br label %240
+  br i1 %231, label %232, label %.critedge21
 
 232:                                              ; preds = %227
   %233 = getelementptr inbounds i8, ptr %78, i64 120
@@ -1361,11 +1357,15 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %237 = load ptr, ptr %10, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 136
   %239 = load ptr, ptr %238, align 8
-  %.not32 = icmp eq ptr %236, %239
+  %.not30 = icmp eq ptr %236, %239
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
-  br i1 %.not32, label %.thread31, label %240
+  br i1 %.not30, label %.thread29, label %240
 
-240:                                              ; preds = %.thread26, %232, %155
+.critedge21:                                      ; preds = %188, %212, %217, %207, %199, %227
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #9
+  br label %240
+
+240:                                              ; preds = %.critedge21, %232, %155
   %241 = icmp eq ptr %80, null
   %242 = getelementptr i8, ptr %80, i64 -16
   %243 = icmp eq ptr %242, null
@@ -1426,7 +1426,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %279 = getelementptr inbounds i8, ptr %278, i64 8
   %280 = load ptr, ptr %279, align 8
   %281 = icmp eq ptr %280, null
-  br i1 %281, label %.thread27, label %282
+  br i1 %281, label %.thread25, label %282
 
 282:                                              ; preds = %277
   %283 = load i32, ptr %250, align 4
@@ -1445,13 +1445,13 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
 
 293:                                              ; preds = %284
   %294 = icmp eq ptr %290, null
-  br i1 %294, label %.thread27, label %295
+  br i1 %294, label %.thread25, label %295
 
 295:                                              ; preds = %293
   %296 = getelementptr inbounds i8, ptr %290, i64 128
   %297 = tail call i32 @timer_delete(ptr noundef %296) #9
   %298 = icmp eq i32 %297, 0
-  br i1 %298, label %.thread27, label %299
+  br i1 %298, label %.thread25, label %299
 
 299:                                              ; preds = %295
   tail call void @nf_ct_unlink_expect_report(ptr noundef nonnull %290, i32 poison, i32 poison)
@@ -1462,19 +1462,19 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
 
 303:                                              ; preds = %299
   %304 = icmp sgt i32 %301, 0
-  br i1 %304, label %.thread27, label %305, !prof !5
+  br i1 %304, label %.thread25, label %305, !prof !5
 
 305:                                              ; preds = %303
   tail call void @refcount_warn_saturate(ptr noundef %300, i32 noundef 3) #9
-  br label %.thread27
+  br label %.thread25
 
 306:                                              ; preds = %299
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   %307 = getelementptr inbounds i8, ptr %290, i64 192
   tail call void @call_rcu(ptr noundef %307, ptr noundef nonnull @nf_ct_expect_free_rcu) #9
-  br label %.thread27
+  br label %.thread25
 
-.thread27:                                        ; preds = %303, %305, %277, %306, %295, %293
+.thread25:                                        ; preds = %303, %305, %277, %306, %295, %293
   %308 = load i32, ptr %250, align 4
   %309 = zext i32 %308 to i64
   %310 = getelementptr [4 x i8], ptr %257, i64 0, i64 %309
@@ -1482,9 +1482,9 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   %312 = zext i8 %311 to i32
   %313 = load i32, ptr %253, align 4
   %314 = icmp ugt i32 %313, %312
-  br i1 %314, label %315, label %.thread31
+  br i1 %314, label %315, label %.thread29
 
-315:                                              ; preds = %.thread27, %256, %247, %.thread24
+315:                                              ; preds = %.thread25, %256, %247, %.thread24
   %316 = load i32, ptr @nf_conntrack_net_id, align 4
   tail call void @__rcu_read_lock() #9
   %317 = getelementptr inbounds i8, ptr %31, i64 2536
@@ -1502,11 +1502,11 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
 326:                                              ; preds = %315
   %327 = tail call i32 @net_ratelimit() #9
   %328 = icmp eq i32 %327, 0
-  br i1 %328, label %.thread31, label %329
+  br i1 %328, label %.thread29, label %329
 
 329:                                              ; preds = %326
   %330 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3) #10
-  br label %.thread31
+  br label %.thread29
 
 331:                                              ; preds = %315
   %332 = load ptr, ptr %10, align 8
@@ -1528,7 +1528,7 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
 
 343:                                              ; preds = %339
   %344 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %334, i8 noundef zeroext 0) #9
-  %.pre39 = load ptr, ptr %10, align 8
+  %.pre37 = load ptr, ptr %10, align 8
   br label %348
 
 345:                                              ; preds = %339
@@ -1537,14 +1537,14 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
   br label %348
 
 348:                                              ; preds = %345, %343, %336, %331
-  %349 = phi ptr [ %.pre39, %343 ], [ %332, %345 ], [ %332, %336 ], [ %332, %331 ]
+  %349 = phi ptr [ %.pre37, %343 ], [ %332, %345 ], [ %332, %336 ], [ %332, %331 ]
   %350 = phi ptr [ %344, %343 ], [ %347, %345 ], [ null, %336 ], [ null, %331 ]
   %351 = getelementptr inbounds i8, ptr %349, i64 136
   %352 = load ptr, ptr %351, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !16
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @nf_ct_expect_dst_hash.___once_key, i1 false) #9
-          to label %nf_ct_expect_dst_hash.exit20 [label %353], !srcloc !17
+          to label %nf_ct_expect_dst_hash.exit22 [label %353], !srcloc !17
 
 353:                                              ; preds = %348
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
@@ -1559,9 +1559,9 @@ nf_ct_expect_dst_hash.exit:                       ; preds = %33, %38
 
 356:                                              ; preds = %355, %353
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  br label %nf_ct_expect_dst_hash.exit20
+  br label %nf_ct_expect_dst_hash.exit22
 
-nf_ct_expect_dst_hash.exit20:                     ; preds = %348, %356
+nf_ct_expect_dst_hash.exit22:                     ; preds = %348, %356
   %357 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef readonly align 4 dereferenceable(16) %39, i64 16, i1 false)
   %358 = getelementptr inbounds i8, ptr %352, i64 336
@@ -1589,14 +1589,14 @@ nf_ct_expect_dst_hash.exit20:                     ; preds = %348, %356
   %375 = icmp eq i32 %374, 0
   br i1 %375, label %380, label %376, !prof !18
 
-376:                                              ; preds = %nf_ct_expect_dst_hash.exit20
+376:                                              ; preds = %nf_ct_expect_dst_hash.exit22
   %377 = add i32 %374, 2
   %378 = or i32 %377, %374
   %379 = icmp sgt i32 %378, -1
   br i1 %379, label %382, label %380, !prof !5
 
-380:                                              ; preds = %376, %nf_ct_expect_dst_hash.exit20
-  %381 = phi i32 [ 2, %nf_ct_expect_dst_hash.exit20 ], [ 1, %376 ]
+380:                                              ; preds = %376, %nf_ct_expect_dst_hash.exit22
+  %381 = phi i32 [ 2, %nf_ct_expect_dst_hash.exit22 ], [ 1, %376 ]
   tail call void @refcount_warn_saturate(ptr noundef %373, i32 noundef %381) #9
   br label %382
 
@@ -1683,10 +1683,10 @@ nf_ct_expect_dst_hash.exit20:                     ; preds = %348, %356
   %433 = load ptr, ptr %432, align 8
   %434 = getelementptr inbounds i8, ptr %433, i64 36
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %434, ptr elementtype(i32) %434) #9, !srcloc !32
-  br label %.thread31
+  br label %.thread29
 
-.thread31:                                        ; preds = %149, %232, %4, %15, %326, %329, %.thread27, %27, %422
-  %435 = phi i32 [ 0, %422 ], [ -24, %326 ], [ -24, %329 ], [ -24, %.thread27 ], [ -108, %27 ], [ -108, %15 ], [ -108, %4 ], [ -16, %232 ], [ -114, %149 ]
+.thread29:                                        ; preds = %149, %232, %4, %15, %326, %329, %.thread25, %27, %422
+  %435 = phi i32 [ 0, %422 ], [ -24, %326 ], [ -24, %329 ], [ -24, %.thread25 ], [ -108, %27 ], [ -108, %15 ], [ -108, %4 ], [ -16, %232 ], [ -114, %149 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #9
   ret i32 %435
 }

@@ -2813,7 +2813,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 46:                                               ; preds = %41
   %47 = sub i64 %40, %39
-  %48 = icmp ugt i64 %38, %47
+  %48 = icmp ule i64 %38, %47
   br label %_ZN12clap_builder6output13help_template12HelpTemplate25subcommand_next_line_help17hfe15c5e01be907bfE.exit.i.i.i
 
 49:                                               ; preds = %.noexc.i.i.i, %32
@@ -2823,7 +2823,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
           to label %57 unwind label %55
 
 _ZN12clap_builder6output13help_template12HelpTemplate25subcommand_next_line_help17hfe15c5e01be907bfE.exit.i.i.i: ; preds = %46, %41, %.noexc5.i.i.i, %26
-  %.0.i.i.i.i = phi i1 [ %48, %46 ], [ true, %26 ], [ false, %41 ], [ false, %.noexc5.i.i.i ]
+  %.0.i.i.i.i = phi i1 [ %48, %46 ], [ false, %26 ], [ true, %41 ], [ true, %.noexc5.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !867
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc6fdfb9ba9128c2eE.llvm.13290713768692451428"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
   %51 = load i64, ptr %14, align 8, !range !118, !noalias !867, !noundef !7
@@ -2848,7 +2848,7 @@ _ZN12clap_builder6output13help_template12HelpTemplate25subcommand_next_line_help
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h60539e1f3a216515E.exit.i": ; preds = %52, %_ZN12clap_builder6output13help_template12HelpTemplate25subcommand_next_line_help17hfe15c5e01be907bfE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !867
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !857
-  br i1 %.0.i.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h72c6af33d9d86889E.llvm.4786290445112235611.exit", label %.critedge.backedge
+  br i1 %.0.i.i.i.i, label %.critedge.backedge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h72c6af33d9d86889E.llvm.4786290445112235611.exit"
 
 .critedge.backedge:                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h60539e1f3a216515E.exit.i", %16
   %.not13 = icmp eq ptr %18, %6
@@ -6113,9 +6113,9 @@ define void @"_ZN91_$LT$clap_builder..builder..value_hint..ValueHint$u20$as$u20$
   %17 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 1
   %18 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1796, !noundef !7
   %19 = add i8 %18, -65
-  %.0.i.i = icmp ult i8 %19, 26
-  %20 = select i1 %.0.i.i, i8 32, i8 0
-  %21 = or i8 %20, %18
+  %20 = icmp ult i8 %19, 26
+  %.0.i.i = select i1 %20, i8 32, i8 0
+  %21 = or i8 %.0.i.i, %18
   store i8 %21, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1796
   %22 = icmp eq ptr %17, %14
   br i1 %22, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit", label %.lr.ph.i.i

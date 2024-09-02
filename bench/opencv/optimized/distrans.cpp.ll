@@ -938,17 +938,17 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %41
   %208 = add nsw i32 %204, -1
   %209 = srem i32 %208, 8
   %210 = add nsw i32 %209, 1
+  %211 = sext i32 %210 to i64
   br label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %207
-  %211 = phi i32 [ %210, %207 ], [ 0, %.lr.ph ]
-  %212 = fmul float %.pre, %.pre
-  %213 = call float @llvm.fmuladd.f32(float %212, float 0x3F3A36E2E0000000, float 1.000000e+00)
-  %214 = fdiv float 1.000000e+00, %213
-  %215 = sext i32 %211 to i64
-  %216 = getelementptr inbounds [9 x %"class.cv::Scalar_"], ptr @_ZZL10onTrackbariPvE6colors, i64 0, i64 %215
+  %212 = phi i64 [ %211, %207 ], [ 0, %.lr.ph ]
+  %213 = fmul float %.pre, %.pre
+  %214 = call float @llvm.fmuladd.f32(float %213, float 0x3F3A36E2E0000000, float 1.000000e+00)
+  %215 = fdiv float 1.000000e+00, %214
+  %216 = getelementptr inbounds [9 x %"class.cv::Scalar_"], ptr @_ZZL10onTrackbariPvE6colors, i64 0, i64 %212
   %217 = load double, ptr %216, align 16
-  %218 = fpext float %214 to double
+  %218 = fpext float %215 to double
   %219 = fmul double %217, %218
   %220 = insertelement <2 x double> poison, double %219, i64 0
   %221 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %220)

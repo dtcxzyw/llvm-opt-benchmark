@@ -1417,24 +1417,24 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %3 = phi i16 [ %0, %for.body.lr.ph ], [ %7, %for.body ]
+  %3 = phi i16 [ %0, %for.body.lr.ph ], [ %8, %for.body ]
   %4 = and i16 %3, 2
   %tobool.not.i.i.i = icmp eq i16 %4, 0
   %5 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %5, ptr %fBuffer.i.i.i
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %indvars.iv
   %6 = load i16, ptr %arrayidx.i.i, align 2
-  %conv = zext i16 %6 to i32
-  tail call void @_ZN6icu_7511ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %conv, i8 noundef signext %isLiteral, i8 noundef signext %escapeUnprintable, ptr noundef nonnull align 8 dereferenceable(64) %quoteBuf)
+  %7 = zext i16 %6 to i32
+  tail call void @_ZN6icu_7511ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %7, i8 noundef signext %isLiteral, i8 noundef signext %escapeUnprintable, ptr noundef nonnull align 8 dereferenceable(64) %quoteBuf)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i = icmp slt i16 %7, 0
-  %8 = ashr i16 %7, 5
-  %shr.i.i = sext i16 %8 to i32
-  %9 = load i32, ptr %fLength.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %9, i32 %shr.i.i
-  %10 = sext i32 %cond.i to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %10
+  %8 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i = icmp slt i16 %8, 0
+  %9 = ashr i16 %8, 5
+  %shr.i.i = sext i16 %9 to i32
+  %10 = load i32, ptr %fLength.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %10, i32 %shr.i.i
+  %11 = sext i32 %cond.i to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %11
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %entry
@@ -1477,27 +1477,27 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont
 
 for.body.i:                                       ; preds = %.noexc, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %.noexc ]
-  %4 = phi i16 [ %1, %for.body.lr.ph.i ], [ %8, %.noexc ]
+  %4 = phi i16 [ %1, %for.body.lr.ph.i ], [ %9, %.noexc ]
   %5 = and i16 %4, 2
   %tobool.not.i.i.i.i = icmp eq i16 %5, 0
   %6 = load ptr, ptr %fArray.i.i.i.i, align 8
   %cond.i2.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %6, ptr %fBuffer.i.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i.i, i64 %indvars.iv.i
   %7 = load i16, ptr %arrayidx.i.i.i, align 2
-  %conv.i = zext i16 %7 to i32
-  invoke void @_ZN6icu_7511ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %conv.i, i8 noundef signext 1, i8 noundef signext %escapeUnprintable, ptr noundef nonnull align 8 dereferenceable(64) %quoteBuf)
+  %8 = zext i16 %7 to i32
+  invoke void @_ZN6icu_7511ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %8, i8 noundef signext 1, i8 noundef signext %escapeUnprintable, ptr noundef nonnull align 8 dereferenceable(64) %quoteBuf)
           to label %.noexc unwind label %lpad.loopexit
 
 .noexc:                                           ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %8 = load i16, ptr %fUnion.i.i.i, align 8
-  %cmp.i.i.i = icmp slt i16 %8, 0
-  %9 = ashr i16 %8, 5
-  %shr.i.i.i = sext i16 %9 to i32
-  %10 = load i32, ptr %fLength.i.i, align 4
-  %cond.i.i = select i1 %cmp.i.i.i, i32 %10, i32 %shr.i.i.i
-  %11 = sext i32 %cond.i.i to i64
-  %cmp.i = icmp slt i64 %indvars.iv.next.i, %11
+  %9 = load i16, ptr %fUnion.i.i.i, align 8
+  %cmp.i.i.i = icmp slt i16 %9, 0
+  %10 = ashr i16 %9, 5
+  %shr.i.i.i = sext i16 %10 to i32
+  %11 = load i32, ptr %fLength.i.i, align 4
+  %cond.i.i = select i1 %cmp.i.i.i, i32 %11, i32 %shr.i.i.i
+  %12 = sext i32 %cond.i.i to i64
+  %cmp.i = icmp slt i64 %indvars.iv.next.i, %12
   br i1 %cmp.i, label %for.body.i, label %invoke.cont1, !llvm.loop !13
 
 invoke.cont1:                                     ; preds = %.noexc, %invoke.cont

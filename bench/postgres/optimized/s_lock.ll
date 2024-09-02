@@ -17,84 +17,84 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i32 @s_lock(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   br label %perform_spin_delay.exit.outer
 
-perform_spin_delay.exit.outer:                    ; preds = %14, %4
-  %.sroa.8.0.ph = phi i32 [ %spec.select.i, %14 ], [ 0, %4 ]
-  %.sroa.4.0.ph = phi i32 [ %11, %14 ], [ 0, %4 ]
+perform_spin_delay.exit.outer:                    ; preds = %15, %4
+  %.sroa.8.0.ph = phi i32 [ %spec.select.i, %15 ], [ 0, %4 ]
+  %.sroa.4.0.ph = phi i32 [ %12, %15 ], [ 0, %4 ]
   br label %perform_spin_delay.exit
 
-perform_spin_delay.exit:                          ; preds = %perform_spin_delay.exit.outer, %.thread
-  %.sroa.0.0 = phi i32 [ %8, %.thread ], [ 0, %perform_spin_delay.exit.outer ]
+perform_spin_delay.exit:                          ; preds = %perform_spin_delay.exit.outer, %.critedge
+  %.sroa.0.0 = phi i32 [ %9, %.critedge ], [ 0, %perform_spin_delay.exit.outer ]
   %5 = load volatile i8, ptr %0, align 1
   %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %6, label %.thread
+  br i1 %.not, label %6, label %.critedge
 
 6:                                                ; preds = %perform_spin_delay.exit
   %7 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %0, i8 1, ptr nonnull elementtype(i8) %0) #10, !srcloc !5
-  %.not4 = icmp eq i8 %7, 0
-  br i1 %.not4, label %25, label %.thread
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %26, label %.critedge
 
-.thread:                                          ; preds = %perform_spin_delay.exit, %6
+.critedge:                                        ; preds = %perform_spin_delay.exit, %6
   tail call void asm sideeffect " rep; nop\09\09\09\0A", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
-  %8 = add i32 %.sroa.0.0, 1
-  %9 = load i32, ptr @spins_per_delay, align 4
-  %.not.i = icmp slt i32 %8, %9
-  br i1 %.not.i, label %perform_spin_delay.exit, label %10, !llvm.loop !7
+  %9 = add i32 %.sroa.0.0, 1
+  %10 = load i32, ptr @spins_per_delay, align 4
+  %.not.i = icmp slt i32 %9, %10
+  br i1 %.not.i, label %perform_spin_delay.exit, label %11, !llvm.loop !7
 
-10:                                               ; preds = %.thread
-  %11 = add i32 %.sroa.4.0.ph, 1
-  %12 = icmp sgt i32 %11, 1000
-  br i1 %12, label %13, label %14
+11:                                               ; preds = %.critedge
+  %12 = add i32 %.sroa.4.0.ph, 1
+  %13 = icmp sgt i32 %12, 1000
+  br i1 %13, label %14, label %15
 
-13:                                               ; preds = %10
+14:                                               ; preds = %11
   tail call fastcc void @s_lock_stuck(ptr noundef %1, i32 noundef %2, ptr noundef %3)
   unreachable
 
-14:                                               ; preds = %10
-  %15 = icmp eq i32 %.sroa.8.0.ph, 0
-  %spec.select = select i1 %15, i32 1000, i32 %.sroa.8.0.ph
-  %16 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 150994950, ptr %16, align 4
-  %17 = sext i32 %spec.select to i64
-  tail call void @pg_usleep(i64 noundef %17) #10
-  %18 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %18, align 4
-  %19 = sitofp i32 %spec.select to double
-  %20 = tail call double @pg_prng_double(ptr noundef nonnull @pg_global_prng_state) #10
-  %21 = tail call double @llvm.fmuladd.f64(double %19, double %20, double 5.000000e-01)
-  %22 = fptosi double %21 to i32
-  %23 = add i32 %spec.select, %22
-  %24 = icmp sgt i32 %23, 1000000
-  %spec.select.i = select i1 %24, i32 1000, i32 %23
+15:                                               ; preds = %11
+  %16 = icmp eq i32 %.sroa.8.0.ph, 0
+  %spec.select = select i1 %16, i32 1000, i32 %.sroa.8.0.ph
+  %17 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 150994950, ptr %17, align 4
+  %18 = sext i32 %spec.select to i64
+  tail call void @pg_usleep(i64 noundef %18) #10
+  %19 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %19, align 4
+  %20 = sitofp i32 %spec.select to double
+  %21 = tail call double @pg_prng_double(ptr noundef nonnull @pg_global_prng_state) #10
+  %22 = tail call double @llvm.fmuladd.f64(double %20, double %21, double 5.000000e-01)
+  %23 = fptosi double %22 to i32
+  %24 = add i32 %spec.select, %23
+  %25 = icmp sgt i32 %24, 1000000
+  %spec.select.i = select i1 %25, i32 1000, i32 %24
   br label %perform_spin_delay.exit.outer, !llvm.loop !7
 
-25:                                               ; preds = %6
-  %26 = icmp eq i32 %.sroa.8.0.ph, 0
-  %27 = load i32, ptr @spins_per_delay, align 4
-  br i1 %26, label %28, label %33
+26:                                               ; preds = %6
+  %27 = icmp eq i32 %.sroa.8.0.ph, 0
+  %28 = load i32, ptr @spins_per_delay, align 4
+  br i1 %27, label %29, label %34
 
-28:                                               ; preds = %25
-  %29 = icmp slt i32 %27, 1000
-  br i1 %29, label %30, label %finish_spin_delay.exit
+29:                                               ; preds = %26
+  %30 = icmp slt i32 %28, 1000
+  br i1 %30, label %31, label %finish_spin_delay.exit
 
-30:                                               ; preds = %28
-  %31 = tail call i32 @llvm.smin.i32(i32 %27, i32 900)
-  %32 = add nsw i32 %31, 100
+31:                                               ; preds = %29
+  %32 = tail call i32 @llvm.smin.i32(i32 %28, i32 900)
+  %33 = add nsw i32 %32, 100
   br label %.sink.split.i
 
-33:                                               ; preds = %25
-  %34 = icmp sgt i32 %27, 10
-  br i1 %34, label %35, label %finish_spin_delay.exit
+34:                                               ; preds = %26
+  %35 = icmp sgt i32 %28, 10
+  br i1 %35, label %36, label %finish_spin_delay.exit
 
-35:                                               ; preds = %33
-  %36 = add nsw i32 %27, -1
+36:                                               ; preds = %34
+  %37 = add nsw i32 %28, -1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %35, %30
-  %.sink.i = phi i32 [ %36, %35 ], [ %32, %30 ]
+.sink.split.i:                                    ; preds = %36, %31
+  %.sink.i = phi i32 [ %37, %36 ], [ %33, %31 ]
   store i32 %.sink.i, ptr @spins_per_delay, align 4
   br label %finish_spin_delay.exit
 
-finish_spin_delay.exit:                           ; preds = %28, %33, %.sink.split.i
+finish_spin_delay.exit:                           ; preds = %29, %34, %.sink.split.i
   ret i32 %.sroa.4.0.ph
 }
 

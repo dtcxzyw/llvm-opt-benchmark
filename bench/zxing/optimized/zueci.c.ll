@@ -5712,7 +5712,7 @@ switch.early.test:                                ; preds = %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i32 @zueci_gb18030_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #3 {
+define internal range(i32 0, 5) i32 @zueci_gb18030_u(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #3 {
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i32
   %7 = icmp sgt i8 %5, -1

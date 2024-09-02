@@ -1572,7 +1572,7 @@ define internal void @nfulnl_log_packet(ptr noundef %0, i8 noundef zeroext %1, i
   %192 = getelementptr inbounds i8, ptr %189, i64 116
   %193 = load i32, ptr %192, align 4
   %194 = icmp eq i32 %193, 0
-  br i1 %194, label %195, label %201
+  br i1 %194, label %195, label %202
 
 195:                                              ; preds = %191
   %196 = getelementptr inbounds i8, ptr %189, i64 188
@@ -1580,15 +1580,15 @@ define internal void @nfulnl_log_packet(ptr noundef %0, i8 noundef zeroext %1, i
   %198 = getelementptr inbounds i8, ptr %189, i64 184
   %199 = load i32, ptr %198, align 8
   %200 = sub i32 %197, %199
-  br label %201
+  %201 = sext i32 %200 to i64
+  br label %202
 
-201:                                              ; preds = %195, %191
-  %202 = phi i32 [ %200, %195 ], [ 0, %191 ]
-  %203 = sext i32 %202 to i64
+202:                                              ; preds = %195, %191
+  %203 = phi i64 [ %201, %195 ], [ 0, %191 ]
   %204 = icmp ugt i64 %187, %203
   br i1 %204, label %205, label %.thread
 
-205:                                              ; preds = %201
+205:                                              ; preds = %202
   %206 = getelementptr inbounds i8, ptr %43, i64 40
   %207 = tail call i32 @timer_delete(ptr noundef %206) #12
   %208 = icmp eq i32 %207, 0
@@ -1651,8 +1651,8 @@ define internal void @nfulnl_log_packet(ptr noundef %0, i8 noundef zeroext %1, i
   %231 = icmp eq ptr %230, null
   br i1 %231, label %534, label %.thread
 
-.thread:                                          ; preds = %201, %.thread43, %229, %219
-  %232 = phi ptr [ %225, %.thread43 ], [ %230, %229 ], [ %.pr.pre, %219 ], [ %189, %201 ]
+.thread:                                          ; preds = %202, %.thread43, %229, %219
+  %232 = phi ptr [ %225, %.thread43 ], [ %230, %229 ], [ %.pr.pre, %219 ], [ %189, %202 ]
   %233 = getelementptr inbounds i8, ptr %43, i64 24
   %234 = load i32, ptr %233, align 8
   %235 = add i32 %234, 1

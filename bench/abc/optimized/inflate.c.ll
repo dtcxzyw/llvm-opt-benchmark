@@ -3928,7 +3928,7 @@ define range(i32 -3, -1) i32 @inflateUndermine(ptr noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @inflateMark(ptr noundef readonly %0) local_unnamed_addr #6 {
+define range(i64 -140737488355328, 140741783257088) i64 @inflateMark(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %26, label %3
 

@@ -692,7 +692,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNK2EA4StdC21RandomMersenneTwister7GetSeedEPjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2508) %this, ptr nocapture noundef writeonly %seedArray, i32 noundef %nSeedArraySize) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 626) i32 @_ZNK2EA4StdC21RandomMersenneTwister7GetSeedEPjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2508) %this, ptr nocapture noundef writeonly %seedArray, i32 noundef %nSeedArraySize) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.not = icmp eq i32 %nSeedArraySize, 0
   br i1 %cmp.not, label %return, label %if.then

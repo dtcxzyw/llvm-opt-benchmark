@@ -1233,48 +1233,48 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
   call void @drm_connector_list_iter_begin(ptr noundef %4, ptr noundef nonnull %3) #8
   %27 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #8
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit11, label %.preheader10
+  br i1 %28, label %.loopexit10, label %.preheader9
 
-.preheader10:                                     ; preds = %26
-  br i1 %.not, label %.preheader10.split.us, label %.preheader10.split
+.preheader9:                                      ; preds = %26
+  br i1 %.not, label %.preheader9.split.us, label %.preheader9.split
 
-.preheader10.split.us:                            ; preds = %.preheader10, %.thread.us
-  %29 = phi ptr [ %41, %.thread.us ], [ %27, %.preheader10 ]
+.preheader9.split.us:                             ; preds = %.preheader9, %.critedge.us
+  %29 = phi ptr [ %41, %.critedge.us ], [ %27, %.preheader9 ]
   %30 = getelementptr inbounds i8, ptr %29, i64 1976
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.thread.us, label %33
+  br i1 %32, label %.critedge.us, label %33
 
-33:                                               ; preds = %.preheader10.split.us
+33:                                               ; preds = %.preheader9.split.us
   %34 = getelementptr inbounds i8, ptr %31, i64 368
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.thread.us, label %37, !llvm.loop !33
+  br i1 %36, label %.critedge.us, label %37, !llvm.loop !33
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %29, i64 2412
   %39 = load i8, ptr %38, align 4
   %40 = getelementptr inbounds i8, ptr %29, i64 1536
   store i8 %39, ptr %40, align 8
-  br label %.thread.us
+  br label %.critedge.us
 
-.thread.us:                                       ; preds = %37, %33, %.preheader10.split.us
+.critedge.us:                                     ; preds = %37, %33, %.preheader9.split.us
   %41 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %.loopexit11, label %.preheader10.split.us
+  br i1 %42, label %.loopexit10, label %.preheader9.split.us
 
-.preheader10.split:                               ; preds = %.preheader10, %.thread
-  %43 = phi ptr [ %56, %.thread ], [ %27, %.preheader10 ]
+.preheader9.split:                                ; preds = %.preheader9, %.critedge
+  %43 = phi ptr [ %56, %.critedge ], [ %27, %.preheader9 ]
   %44 = getelementptr inbounds i8, ptr %43, i64 1976
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread, label %47
+  br i1 %46, label %.critedge, label %47
 
-47:                                               ; preds = %.preheader10.split
+47:                                               ; preds = %.preheader9.split
   %48 = getelementptr inbounds i8, ptr %45, i64 368
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.thread, label %51, !llvm.loop !33
+  br i1 %50, label %.critedge, label %51, !llvm.loop !33
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds i8, ptr %43, i64 2412
@@ -1283,23 +1283,23 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
   %55 = icmp eq i8 %53, 1
   %spec.select = select i1 %55, i8 6, i8 %53
   store i8 %spec.select, ptr %54, align 8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.preheader10.split, %51, %47
+.critedge:                                        ; preds = %.preheader9.split, %51, %47
   %56 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #8
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.loopexit11, label %.preheader10.split
+  br i1 %57, label %.loopexit10, label %.preheader9.split
 
-.loopexit11:                                      ; preds = %.thread, %.thread.us, %26
+.loopexit10:                                      ; preds = %.critedge, %.critedge.us, %26
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #8
   br i1 %.not, label %59, label %58
 
-58:                                               ; preds = %.loopexit11
+58:                                               ; preds = %.loopexit10
   call void @drm_kms_helper_poll_reschedule(ptr noundef %4) #8
   call void @mutex_unlock(ptr noundef %5) #8
   br label %97
 
-59:                                               ; preds = %.loopexit11
+59:                                               ; preds = %.loopexit10
   call void @mutex_unlock(ptr noundef %5) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !22
@@ -1307,9 +1307,9 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
   %60 = getelementptr i8, ptr %0, i64 -5712
   %61 = load i8, ptr %60, align 8, !range !24, !noundef !25
   %62 = icmp eq i8 %61, 0
-  br i1 %62, label %.thread7, label %63
+  br i1 %62, label %.thread, label %63
 
-.thread7:                                         ; preds = %59
+.thread:                                          ; preds = %59
   call void @mutex_unlock(ptr noundef %5) #8
   br label %96
 
@@ -1317,9 +1317,9 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
   call void @drm_connector_list_iter_begin(ptr noundef %4, ptr noundef nonnull %2) #8
   %64 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %2) #8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.thread8, label %.preheader
+  br i1 %65, label %.thread7, label %.preheader
 
-.thread8:                                         ; preds = %63
+.thread7:                                         ; preds = %63
   call void @drm_connector_list_iter_end(ptr noundef nonnull %2) #8
   call void @mutex_unlock(ptr noundef %5) #8
   br label %96
@@ -1387,7 +1387,7 @@ define internal void @i915_hpd_poll_init_work(ptr noundef %0) #1 align 16 {
   call void @drm_mode_object_put(ptr noundef %95) #8
   br label %96
 
-96:                                               ; preds = %.thread8, %.thread7, %94, %.loopexit
+96:                                               ; preds = %.thread7, %.thread, %94, %.loopexit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
   call void @intel_display_power_put_unchecked(ptr noundef %4, i32 noundef 0) #8
   br label %97

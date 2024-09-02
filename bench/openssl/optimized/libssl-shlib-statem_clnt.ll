@@ -1435,27 +1435,27 @@ if.end12:                                         ; preds = %if.then6, %land.lhs
   %6 = load i32, ptr %enc_flags, align 8
   %and = and i32 %6, 8
   %tobool14.not = icmp eq i32 %and, 0
-  br i1 %tobool14.not, label %if.end22, label %for.body
+  br i1 %tobool14.not, label %if.else, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %inc = add nuw nsw i64 %idx.083, 1
+  %inc = add nuw nsw i64 %idx.078, 1
   %exitcond.not = icmp eq i64 %inc, 32
   br i1 %exitcond.not, label %land.lhs.true24, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %if.end12, %for.cond
-  %idx.083 = phi i64 [ %inc, %for.cond ], [ 0, %if.end12 ]
-  %arrayidx = getelementptr inbounds i8, ptr %client_random, i64 %idx.083
+  %idx.078 = phi i64 [ %inc, %for.cond ], [ 0, %if.end12 ]
+  %arrayidx = getelementptr inbounds i8, ptr %client_random, i64 %idx.078
   %7 = load i8, ptr %arrayidx, align 1
   %tobool17.not = icmp eq i8 %7, 0
   br i1 %tobool17.not, label %for.cond, label %if.end29
 
-if.end22:                                         ; preds = %if.end12
+if.else:                                          ; preds = %if.end12
   %hello_retry_request20 = getelementptr inbounds i8, ptr %s, i64 2128
   %8 = load i32, ptr %hello_retry_request20, align 8
   %cmp21.not = icmp eq i32 %8, 0
   br i1 %cmp21.not, label %land.lhs.true24, label %if.end29
 
-land.lhs.true24:                                  ; preds = %for.cond, %if.end22
+land.lhs.true24:                                  ; preds = %for.cond, %if.else
   %call25 = tail call i32 @ssl_fill_hello_random(ptr noundef nonnull %s, i32 noundef 0, ptr noundef nonnull %client_random, i64 noundef 32, i32 noundef 0) #8
   %cmp26 = icmp slt i32 %call25, 1
   br i1 %cmp26, label %if.then28, label %if.end29
@@ -1466,7 +1466,7 @@ if.then28:                                        ; preds = %land.lhs.true24
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #8
   br label %return
 
-if.end29:                                         ; preds = %for.body, %land.lhs.true24, %if.end22
+if.end29:                                         ; preds = %for.body, %land.lhs.true24, %if.else
   %client_version = getelementptr inbounds i8, ptr %s, i64 2388
   %9 = load i32, ptr %client_version, align 4
   %conv30 = sext i32 %9 to i64
@@ -1671,18 +1671,18 @@ lor.lhs.false147:                                 ; preds = %land.lhs.true140
 
 if.then151:                                       ; preds = %lor.lhs.false147, %land.lhs.true140
   %call154 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %24) #8
-  %cmp15684 = icmp sgt i32 %call154, 0
-  br i1 %cmp15684, label %for.body158, label %if.end170
+  %cmp15679 = icmp sgt i32 %call154, 0
+  br i1 %cmp15679, label %for.body158, label %if.end170
 
 for.cond155:                                      ; preds = %for.body158
-  %inc168 = add nuw nsw i32 %i.185, 1
-  %exitcond86.not = icmp eq i32 %inc168, %call154
-  br i1 %exitcond86.not, label %if.end170, label %for.body158, !llvm.loop !6
+  %inc168 = add nuw nsw i32 %i.180, 1
+  %exitcond81.not = icmp eq i32 %inc168, %call154
+  br i1 %exitcond81.not, label %if.end170, label %for.body158, !llvm.loop !6
 
 for.body158:                                      ; preds = %if.then151, %for.cond155
-  %i.185 = phi i32 [ %inc168, %for.cond155 ], [ 0, %if.then151 ]
+  %i.180 = phi i32 [ %inc168, %for.cond155 ], [ 0, %if.then151 ]
   %29 = load ptr, ptr %comp_methods, align 8
-  %call161 = tail call ptr @OPENSSL_sk_value(ptr noundef %29, i32 noundef %i.185) #8
+  %call161 = tail call ptr @OPENSSL_sk_value(ptr noundef %29, i32 noundef %i.180) #8
   %30 = load i32, ptr %call161, align 8
   %conv162 = sext i32 %30 to i64
   %call163 = tail call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef %conv162, i64 noundef 1) #8
@@ -3166,31 +3166,32 @@ if.end103:                                        ; preds = %if.then99
   br label %return
 
 if.end105:                                        ; preds = %lor.lhs.false83, %if.end97
-  br i1 %tobool72.not, label %land.end, label %land.end.thread
+  br i1 %tobool72.not, label %land.lhs.true112, label %land.end
 
-land.end:                                         ; preds = %if.end105
+land.lhs.true112:                                 ; preds = %if.end105
   %19 = load i32, ptr %14, align 8
   %cmp116 = icmp sgt i32 %19, 771
-  %cmp120 = icmp ne i32 %19, 65536
-  %spec.select = and i1 %cmp116, %cmp120
-  %cond.fr = freeze i1 %spec.select
-  %spec.select221 = select i1 %cond.fr, i32 512, i32 256
-  br label %land.end.thread
+  br i1 %cmp116, label %land.rhs, label %land.end
 
-land.end.thread:                                  ; preds = %land.end, %if.end105
-  %20 = phi i32 [ 256, %if.end105 ], [ %spec.select221, %land.end ]
+land.rhs:                                         ; preds = %land.lhs.true112
+  %cmp120.not = icmp eq i32 %19, 65536
+  %20 = select i1 %cmp120.not, i32 256, i32 512
+  br label %land.end
+
+land.end:                                         ; preds = %land.rhs, %land.lhs.true112, %if.end105
+  %cond = phi i32 [ 256, %land.lhs.true112 ], [ 256, %if.end105 ], [ %20, %land.rhs ]
   %21 = load ptr, ptr %extensions, align 8
-  %call121 = call i32 @tls_validate_all_contexts(ptr noundef nonnull %s, i32 noundef %20, ptr noundef %21) #8
+  %call121 = call i32 @tls_validate_all_contexts(ptr noundef nonnull %s, i32 noundef %cond, ptr noundef %21) #8
   %tobool122.not = icmp eq i32 %call121, 0
   br i1 %tobool122.not, label %if.then123, label %if.end124
 
-if.then123:                                       ; preds = %land.end.thread
+if.then123:                                       ; preds = %land.end
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1583, ptr noundef nonnull @__func__.tls_process_server_hello) #8
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 47, i32 noundef 110, ptr noundef null) #8
   br label %err
 
-if.end124:                                        ; preds = %land.end.thread
+if.end124:                                        ; preds = %land.end
   %hit = getelementptr inbounds i8, ptr %s, i64 1160
   store i32 0, ptr %hit, align 8
   %22 = load ptr, ptr %method, align 8
@@ -3352,11 +3353,11 @@ if.then218:                                       ; preds = %if.else213
   br i1 %tobool221.not, label %err, label %if.then218.if.end224_crit_edge
 
 if.then218.if.end224_crit_edge:                   ; preds = %if.then218
-  %.pre223 = load ptr, ptr %session214, align 8
+  %.pre221 = load ptr, ptr %session214, align 8
   br label %if.end224
 
 if.end224:                                        ; preds = %if.then218.if.end224_crit_edge, %if.else213
-  %45 = phi ptr [ %.pre223, %if.then218.if.end224_crit_edge ], [ %38, %if.else213 ]
+  %45 = phi ptr [ %.pre221, %if.then218.if.end224_crit_edge ], [ %38, %if.else213 ]
   %46 = load i32, ptr %version, align 8
   store i32 %46, ptr %45, align 8
   %47 = load ptr, ptr %method, align 8
@@ -3460,11 +3461,11 @@ if.then299:                                       ; preds = %if.end293
   br label %err
 
 if.else300:                                       ; preds = %if.end281, %if.end293
-  %comp.0220 = phi ptr [ %call291, %if.end293 ], [ null, %if.end281 ]
+  %comp.0219 = phi ptr [ %call291, %if.end293 ], [ null, %if.end281 ]
   %new_compression = getelementptr inbounds i8, ptr %s, i64 792
-  store ptr %comp.0220, ptr %new_compression, align 8
+  store ptr %comp.0219, ptr %new_compression, align 8
   %61 = load ptr, ptr %extensions, align 8
-  %call304 = call i32 @tls_parse_all_extensions(ptr noundef nonnull %s, i32 noundef %20, ptr noundef %61, ptr noundef null, i64 noundef 0, i32 noundef 1) #8
+  %call304 = call i32 @tls_parse_all_extensions(ptr noundef nonnull %s, i32 noundef %cond, ptr noundef %61, ptr noundef null, i64 noundef 0, i32 noundef 1) #8
   %tobool305.not = icmp eq i32 %call304, 0
   br i1 %tobool305.not, label %err, label %if.end307
 
@@ -5668,7 +5669,7 @@ return:                                           ; preds = %if.then8, %if.else,
 declare i32 @tls_process_key_update(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_statem_client_post_process_message(ptr noundef %s, i32 noundef %wst) local_unnamed_addr #0 {
+define range(i32 0, 5) i32 @ossl_statem_client_post_process_message(ptr noundef %s, i32 noundef %wst) local_unnamed_addr #0 {
 entry:
   %hand_state = getelementptr inbounds i8, ptr %s, i64 164
   %0 = load i32, ptr %hand_state, align 4

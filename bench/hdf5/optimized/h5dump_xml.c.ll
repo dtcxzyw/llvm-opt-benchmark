@@ -2990,511 +2990,505 @@ sub_0:                                            ; preds = %38, %41
   %45 = getelementptr inbounds i8, ptr %9, i64 420
   store i32 %44, ptr %45, align 4
   %46 = load i8, ptr %1, align 1
-  %47 = zext i8 %46 to i32
-  %48 = add nsw i32 %47, -47
-  %.not184 = icmp eq i32 %48, 0
-  br i1 %.not184, label %sub_1, label %.tail
+  %.not184 = icmp eq i8 %46, 47
+  br i1 %.not184, label %.tail, label %.tail.thread
 
-sub_1:                                            ; preds = %sub_0
-  %49 = getelementptr inbounds i8, ptr %1, i64 1
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i32
-  br label %.tail
+.tail:                                            ; preds = %sub_0
+  %47 = getelementptr inbounds i8, ptr %1, i64 1
+  %48 = load i8, ptr %47, align 1
+  %49 = icmp eq i8 %48, 0
+  br i1 %49, label %50, label %.tail.thread
 
-.tail:                                            ; preds = %sub_0, %sub_1
-  %52 = phi i32 [ %48, %sub_0 ], [ %51, %sub_1 ]
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %56
+50:                                               ; preds = %.tail
+  %51 = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.34) #14
+  br label %72
 
-54:                                               ; preds = %.tail
-  %55 = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.34) #14
-  br label %77
+.tail.thread:                                     ; preds = %sub_0, %.tail
+  %52 = load ptr, ptr @prefix, align 8
+  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #16
+  %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
+  %55 = add i64 %53, 2
+  %56 = add i64 %55, %54
+  %57 = call noalias ptr @malloc(i64 noundef %56) #15
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %60
 
-56:                                               ; preds = %.tail
-  %57 = load ptr, ptr @prefix, align 8
-  %58 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #16
-  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
-  %60 = add i64 %58, 2
-  %61 = add i64 %60, %59
-  %62 = call noalias ptr @malloc(i64 noundef %61) #15
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %65
-
-64:                                               ; preds = %56
+59:                                               ; preds = %.tail.thread
   call void @indentation(i32 noundef %30) #14
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 2628) #14
   call void @h5tools_setstatus(i32 noundef 1) #14
-  br label %341
+  br label %337
 
-65:                                               ; preds = %56
-  %66 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %57) #14
-  %67 = call noalias ptr @strdup(ptr noundef nonnull %62) #14
-  %68 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %67, i32 noundef 47) #16
-  %.not170 = icmp eq ptr %68, null
-  br i1 %.not170, label %77, label %69
+60:                                               ; preds = %.tail.thread
+  %61 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %52) #14
+  %62 = call noalias ptr @strdup(ptr noundef nonnull %57) #14
+  %63 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %62, i32 noundef 47) #16
+  %.not170 = icmp eq ptr %63, null
+  br i1 %.not170, label %72, label %64
 
-69:                                               ; preds = %65
-  %70 = icmp eq ptr %68, %67
-  br i1 %70, label %71, label %76
+64:                                               ; preds = %60
+  %65 = icmp eq ptr %63, %62
+  br i1 %65, label %66, label %71
 
-71:                                               ; preds = %69
-  %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #16
-  %73 = icmp ugt i64 %72, 1
-  br i1 %73, label %74, label %76
+66:                                               ; preds = %64
+  %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #16
+  %68 = icmp ugt i64 %67, 1
+  br i1 %68, label %69, label %71
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %68, i64 1
-  store i8 0, ptr %75, align 1
-  br label %77
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds i8, ptr %63, i64 1
+  store i8 0, ptr %70, align 1
+  br label %72
 
-76:                                               ; preds = %71, %69
-  store i8 0, ptr %68, align 1
-  br label %77
+71:                                               ; preds = %66, %64
+  store i8 0, ptr %63, align 1
+  br label %72
 
-77:                                               ; preds = %65, %76, %74, %54
-  %.0157 = phi ptr [ null, %54 ], [ %67, %74 ], [ %67, %76 ], [ %67, %65 ]
-  %.0156 = phi ptr [ %55, %54 ], [ %62, %74 ], [ %62, %76 ], [ %62, %65 ]
-  %78 = call i32 @H5Oget_info3(i64 noundef %0, ptr noundef nonnull %3, i32 noundef 1) #14
-  %79 = getelementptr inbounds i8, ptr %3, i64 28
-  %80 = load i32, ptr %79, align 4
-  %81 = icmp ugt i32 %80, 1
-  br i1 %81, label %82, label %235
+72:                                               ; preds = %60, %71, %69, %50
+  %73 = phi i1 [ true, %50 ], [ false, %69 ], [ false, %71 ], [ false, %60 ]
+  %.0157 = phi ptr [ null, %50 ], [ %62, %69 ], [ %62, %71 ], [ %62, %60 ]
+  %.0156 = phi ptr [ %51, %50 ], [ %57, %69 ], [ %57, %71 ], [ %57, %60 ]
+  %74 = call i32 @H5Oget_info3(i64 noundef %0, ptr noundef nonnull %3, i32 noundef 1) #14
+  %75 = getelementptr inbounds i8, ptr %3, i64 28
+  %76 = load i32, ptr %75, align 4
+  %77 = icmp ugt i32 %76, 1
+  br i1 %77, label %78, label %231
 
-82:                                               ; preds = %77
-  %83 = load ptr, ptr @group_table, align 8
-  %84 = getelementptr inbounds i8, ptr %3, i64 8
-  %85 = call ptr @search_obj(ptr noundef %83, ptr noundef nonnull %84) #14
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %89
+78:                                               ; preds = %72
+  %79 = load ptr, ptr @group_table, align 8
+  %80 = getelementptr inbounds i8, ptr %3, i64 8
+  %81 = call ptr @search_obj(ptr noundef %79, ptr noundef nonnull %80) #14
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %85
 
-87:                                               ; preds = %82
-  %88 = load i32, ptr @dump_indent, align 4
-  call void @indentation(i32 noundef %88) #14
+83:                                               ; preds = %78
+  %84 = load i32, ptr @dump_indent, align 4
+  call void @indentation(i32 noundef %84) #14
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 2654) #14
   call void @h5tools_setstatus(i32 noundef 1) #14
-  br label %329
+  br label %325
 
-89:                                               ; preds = %82
-  %90 = call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %1)
-  %91 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
-  %92 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
-  %93 = getelementptr inbounds i8, ptr %85, i64 24
-  %94 = load i8, ptr %93, align 8
-  %95 = trunc i8 %94 to i1
-  br i1 %95, label %96, label %137
+85:                                               ; preds = %78
+  %86 = call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %1)
+  %87 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
+  %88 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
+  %89 = getelementptr inbounds i8, ptr %81, i64 24
+  %90 = load i8, ptr %89, align 8
+  %91 = trunc i8 %90 to i1
+  br i1 %91, label %92, label %133
 
-96:                                               ; preds = %89
-  %97 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
-  br i1 %53, label %98, label %107
+92:                                               ; preds = %85
+  %93 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
+  br i1 %73, label %94, label %103
 
-98:                                               ; preds = %96
-  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %91, i32 noundef 1)
-  %99 = getelementptr inbounds i8, ptr %8, i64 16
-  store i32 1, ptr %99, align 8
-  %100 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
-  %101 = load ptr, ptr @xmlnsprefix, align 8
-  %102 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.43, ptr noundef %101, ptr noundef %91, ptr noundef nonnull @.str.34) #14
-  %103 = load ptr, ptr @rawoutstream, align 8
-  %104 = load i32, ptr %43, align 8
-  %105 = zext i32 %104 to i64
-  %106 = call zeroext i1 @h5tools_render_element(ptr noundef %103, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %105, i64 noundef 0, i64 noundef 0) #14
-  br label %136
+94:                                               ; preds = %92
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %87, i32 noundef 1)
+  %95 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 1, ptr %95, align 8
+  %96 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
+  %97 = load ptr, ptr @xmlnsprefix, align 8
+  %98 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.43, ptr noundef %97, ptr noundef %87, ptr noundef nonnull @.str.34) #14
+  %99 = load ptr, ptr @rawoutstream, align 8
+  %100 = load i32, ptr %43, align 8
+  %101 = zext i32 %100 to i64
+  %102 = call zeroext i1 @h5tools_render_element(ptr noundef %99, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %101, i64 noundef 0, i64 noundef 0) #14
+  br label %132
 
-107:                                              ; preds = %96
-  %108 = getelementptr inbounds i8, ptr %85, i64 16
-  %109 = load ptr, ptr %108, align 8
-  %110 = call fastcc ptr @xml_escape_the_name(ptr noundef %109)
-  %111 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
-  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0156, ptr noundef %91, i32 noundef 1)
-  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %92, i32 noundef 1)
-  %112 = getelementptr inbounds i8, ptr %8, i64 16
-  store i32 1, ptr %112, align 8
-  %113 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
-  %114 = load ptr, ptr @xmlnsprefix, align 8
-  %115 = call i32 @get_next_xid() #14
-  %116 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.44, ptr noundef %114, ptr noundef %90, ptr noundef %91, i32 noundef %115, ptr noundef %110, ptr noundef %92, ptr noundef %111) #14
-  %117 = load ptr, ptr @rawoutstream, align 8
-  %118 = load i32, ptr %43, align 8
-  %119 = zext i32 %118 to i64
-  %120 = call zeroext i1 @h5tools_render_element(ptr noundef %117, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %119, i64 noundef 0, i64 noundef 0) #14
-  call void @free(ptr noundef %110) #14
-  call void @free(ptr noundef %111) #14
-  %121 = load i32, ptr %32, align 8
-  %122 = add i32 %121, 1
-  store i32 %122, ptr %32, align 8
-  %123 = load ptr, ptr %108, align 8
-  %124 = call fastcc ptr @xml_escape_the_name(ptr noundef %123)
-  %125 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
-  %126 = load ptr, ptr %108, align 8
-  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %126, ptr noundef %97, i32 noundef 1)
-  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %92, i32 noundef 1)
-  store i32 1, ptr %112, align 8
-  %127 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
-  %128 = load ptr, ptr @xmlnsprefix, align 8
-  %129 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.45, ptr noundef %128, ptr noundef %97, ptr noundef %124, ptr noundef %92, ptr noundef %125) #14
-  %130 = load ptr, ptr @rawoutstream, align 8
-  %131 = load i32, ptr %43, align 8
-  %132 = zext i32 %131 to i64
-  %133 = call zeroext i1 @h5tools_render_element(ptr noundef %130, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %132, i64 noundef 0, i64 noundef 0) #14
-  %134 = load i32, ptr %32, align 8
-  %135 = add i32 %134, -1
-  store i32 %135, ptr %32, align 8
-  call void @free(ptr noundef %124) #14
-  call void @free(ptr noundef %125) #14
-  br label %136
+103:                                              ; preds = %92
+  %104 = getelementptr inbounds i8, ptr %81, i64 16
+  %105 = load ptr, ptr %104, align 8
+  %106 = call fastcc ptr @xml_escape_the_name(ptr noundef %105)
+  %107 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0156, ptr noundef %87, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %88, i32 noundef 1)
+  %108 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 1, ptr %108, align 8
+  %109 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
+  %110 = load ptr, ptr @xmlnsprefix, align 8
+  %111 = call i32 @get_next_xid() #14
+  %112 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.44, ptr noundef %110, ptr noundef %86, ptr noundef %87, i32 noundef %111, ptr noundef %106, ptr noundef %88, ptr noundef %107) #14
+  %113 = load ptr, ptr @rawoutstream, align 8
+  %114 = load i32, ptr %43, align 8
+  %115 = zext i32 %114 to i64
+  %116 = call zeroext i1 @h5tools_render_element(ptr noundef %113, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %115, i64 noundef 0, i64 noundef 0) #14
+  call void @free(ptr noundef %106) #14
+  call void @free(ptr noundef %107) #14
+  %117 = load i32, ptr %32, align 8
+  %118 = add i32 %117, 1
+  store i32 %118, ptr %32, align 8
+  %119 = load ptr, ptr %104, align 8
+  %120 = call fastcc ptr @xml_escape_the_name(ptr noundef %119)
+  %121 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
+  %122 = load ptr, ptr %104, align 8
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %122, ptr noundef %93, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %88, i32 noundef 1)
+  store i32 1, ptr %108, align 8
+  %123 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
+  %124 = load ptr, ptr @xmlnsprefix, align 8
+  %125 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.45, ptr noundef %124, ptr noundef %93, ptr noundef %120, ptr noundef %88, ptr noundef %121) #14
+  %126 = load ptr, ptr @rawoutstream, align 8
+  %127 = load i32, ptr %43, align 8
+  %128 = zext i32 %127 to i64
+  %129 = call zeroext i1 @h5tools_render_element(ptr noundef %126, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %128, i64 noundef 0, i64 noundef 0) #14
+  %130 = load i32, ptr %32, align 8
+  %131 = add i32 %130, -1
+  store i32 %131, ptr %32, align 8
+  call void @free(ptr noundef %120) #14
+  call void @free(ptr noundef %121) #14
+  br label %132
 
-136:                                              ; preds = %107, %98
-  call void @free(ptr noundef %97) #14
-  br label %234
+132:                                              ; preds = %103, %94
+  call void @free(ptr noundef %93) #14
+  br label %230
 
-137:                                              ; preds = %89
-  br i1 %53, label %138, label %147
+133:                                              ; preds = %85
+  br i1 %73, label %134, label %143
 
-138:                                              ; preds = %137
-  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %91, i32 noundef 1)
-  %139 = getelementptr inbounds i8, ptr %8, i64 16
-  store i32 1, ptr %139, align 8
-  %140 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
-  %141 = load ptr, ptr @xmlnsprefix, align 8
-  %142 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.43, ptr noundef %141, ptr noundef %91, ptr noundef nonnull @.str.34) #14
-  %143 = load ptr, ptr @rawoutstream, align 8
-  %144 = load i32, ptr %43, align 8
-  %145 = zext i32 %144 to i64
-  %146 = call zeroext i1 @h5tools_render_element(ptr noundef %143, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %145, i64 noundef 0, i64 noundef 0) #14
-  br label %158
+134:                                              ; preds = %133
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %87, i32 noundef 1)
+  %135 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 1, ptr %135, align 8
+  %136 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
+  %137 = load ptr, ptr @xmlnsprefix, align 8
+  %138 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.43, ptr noundef %137, ptr noundef %87, ptr noundef nonnull @.str.34) #14
+  %139 = load ptr, ptr @rawoutstream, align 8
+  %140 = load i32, ptr %43, align 8
+  %141 = zext i32 %140 to i64
+  %142 = call zeroext i1 @h5tools_render_element(ptr noundef %139, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %141, i64 noundef 0, i64 noundef 0) #14
+  br label %154
 
-147:                                              ; preds = %137
-  %148 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0156)
-  %149 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
-  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0156, ptr noundef %91, i32 noundef 1)
-  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %92, i32 noundef 1)
-  %150 = getelementptr inbounds i8, ptr %8, i64 16
-  store i32 1, ptr %150, align 8
-  %151 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
-  %152 = load ptr, ptr @xmlnsprefix, align 8
-  %153 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.46, ptr noundef %152, ptr noundef %90, ptr noundef %91, ptr noundef %148, ptr noundef %92, ptr noundef %149) #14
-  %154 = load ptr, ptr @rawoutstream, align 8
-  %155 = load i32, ptr %43, align 8
-  %156 = zext i32 %155 to i64
-  %157 = call zeroext i1 @h5tools_render_element(ptr noundef %154, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %156, i64 noundef 0, i64 noundef 0) #14
-  call void @free(ptr noundef %148) #14
-  call void @free(ptr noundef %149) #14
-  br label %158
+143:                                              ; preds = %133
+  %144 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0156)
+  %145 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0156, ptr noundef %87, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %88, i32 noundef 1)
+  %146 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 1, ptr %146, align 8
+  %147 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
+  %148 = load ptr, ptr @xmlnsprefix, align 8
+  %149 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.46, ptr noundef %148, ptr noundef %86, ptr noundef %87, ptr noundef %144, ptr noundef %88, ptr noundef %145) #14
+  %150 = load ptr, ptr @rawoutstream, align 8
+  %151 = load i32, ptr %43, align 8
+  %152 = zext i32 %151 to i64
+  %153 = call zeroext i1 @h5tools_render_element(ptr noundef %150, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %152, i64 noundef 0, i64 noundef 0) #14
+  call void @free(ptr noundef %144) #14
+  call void @free(ptr noundef %145) #14
+  br label %154
 
-158:                                              ; preds = %147, %138
-  store i8 1, ptr %93, align 8
-  %159 = load i32, ptr %32, align 8
-  %160 = add i32 %159, 1
-  store i32 %160, ptr %32, align 8
-  %161 = load i32, ptr @dump_indent, align 4
-  %162 = add i32 %161, 3
-  store i32 %162, ptr @dump_indent, align 4
-  %163 = load i32, ptr @sort_by, align 4
-  %164 = icmp eq i32 %163, 1
-  br i1 %164, label %165, label %175
+154:                                              ; preds = %143, %134
+  store i8 1, ptr %89, align 8
+  %155 = load i32, ptr %32, align 8
+  %156 = add i32 %155, 1
+  store i32 %156, ptr %32, align 8
+  %157 = load i32, ptr @dump_indent, align 4
+  %158 = add i32 %157, 3
+  store i32 %158, ptr @dump_indent, align 4
+  %159 = load i32, ptr @sort_by, align 4
+  %160 = icmp eq i32 %159, 1
+  br i1 %160, label %161, label %171
 
-165:                                              ; preds = %158
-  %166 = load i32, ptr %5, align 4
-  %167 = and i32 %166, 1
-  %.not173 = icmp eq i32 %167, 0
-  br i1 %.not173, label %175, label %168
+161:                                              ; preds = %154
+  %162 = load i32, ptr %5, align 4
+  %163 = and i32 %162, 1
+  %.not173 = icmp eq i32 %163, 0
+  br i1 %.not173, label %171, label %164
 
-168:                                              ; preds = %165
-  %169 = load i32, ptr @sort_order, align 4
-  %170 = load ptr, ptr @dump_function_table, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 40
-  %172 = load ptr, ptr %171, align 8
-  %173 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 1, i32 noundef %169, ptr noundef null, ptr noundef %172, ptr noundef null) #14
-  %174 = icmp slt i32 %173, 0
-  br i1 %174, label %.sink.split, label %182
+164:                                              ; preds = %161
+  %165 = load i32, ptr @sort_order, align 4
+  %166 = load ptr, ptr @dump_function_table, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 40
+  %168 = load ptr, ptr %167, align 8
+  %169 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 1, i32 noundef %165, ptr noundef null, ptr noundef %168, ptr noundef null) #14
+  %170 = icmp slt i32 %169, 0
+  br i1 %170, label %.sink.split, label %178
 
-175:                                              ; preds = %165, %158
-  %176 = load i32, ptr @sort_order, align 4
-  %177 = load ptr, ptr @dump_function_table, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 40
-  %179 = load ptr, ptr %178, align 8
-  %180 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 0, i32 noundef %176, ptr noundef null, ptr noundef %179, ptr noundef null) #14
-  %181 = icmp slt i32 %180, 0
-  br i1 %181, label %.sink.split, label %182
+171:                                              ; preds = %161, %154
+  %172 = load i32, ptr @sort_order, align 4
+  %173 = load ptr, ptr @dump_function_table, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 40
+  %175 = load ptr, ptr %174, align 8
+  %176 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 0, i32 noundef %172, ptr noundef null, ptr noundef %175, ptr noundef null) #14
+  %177 = icmp slt i32 %176, 0
+  br i1 %177, label %.sink.split, label %178
 
-.sink.split:                                      ; preds = %175, %168
+.sink.split:                                      ; preds = %171, %164
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.47) #14
   call void @h5tools_setstatus(i32 noundef 1) #14
-  br label %182
+  br label %178
 
-182:                                              ; preds = %.sink.split, %175, %168
-  %183 = load i32, ptr @unamedtype, align 4
-  %184 = icmp ne i32 %183, 0
-  %or.cond = select i1 %53, i1 %184, i1 false
+178:                                              ; preds = %.sink.split, %171, %164
+  %179 = load i32, ptr @unamedtype, align 4
+  %180 = icmp ne i32 %179, 0
+  %or.cond = select i1 %73, i1 %180, i1 false
   br i1 %or.cond, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %182
-  %185 = load ptr, ptr @type_table, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 16
-  %187 = load i64, ptr %186, align 8
-  %.not186 = icmp eq i64 %187, 0
+.preheader:                                       ; preds = %178
+  %181 = load ptr, ptr @type_table, align 8
+  %182 = getelementptr inbounds i8, ptr %181, i64 16
+  %183 = load i64, ptr %182, align 8
+  %.not186 = icmp eq i64 %183, 0
   br i1 %.not186, label %.loopexit, label %.lr.ph183
 
-.lr.ph183:                                        ; preds = %.preheader, %214
-  %188 = phi ptr [ %215, %214 ], [ %185, %.preheader ]
-  %189 = phi i64 [ %217, %214 ], [ 0, %.preheader ]
-  %.0155182 = phi i32 [ %216, %214 ], [ 0, %.preheader ]
-  %190 = getelementptr inbounds i8, ptr %188, i64 24
-  %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds %struct.obj_t, ptr %191, i64 %189, i32 3
-  %193 = load i8, ptr %192, align 1
-  %194 = trunc i8 %193 to i1
-  br i1 %194, label %214, label %195
+.lr.ph183:                                        ; preds = %.preheader, %210
+  %184 = phi ptr [ %211, %210 ], [ %181, %.preheader ]
+  %185 = phi i64 [ %213, %210 ], [ 0, %.preheader ]
+  %.0155182 = phi i32 [ %212, %210 ], [ 0, %.preheader ]
+  %186 = getelementptr inbounds i8, ptr %184, i64 24
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds %struct.obj_t, ptr %187, i64 %185, i32 3
+  %189 = load i8, ptr %188, align 1
+  %190 = trunc i8 %189 to i1
+  br i1 %190, label %210, label %191
 
-195:                                              ; preds = %.lr.ph183
+191:                                              ; preds = %.lr.ph183
   store ptr null, ptr %11, align 8
-  %196 = getelementptr inbounds %struct.obj_t, ptr %191, i64 %189, i32 1
-  %197 = load ptr, ptr %196, align 8
-  %198 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef %197, i64 noundef 0) #14
-  %199 = call i64 @H5Dget_type(i64 noundef %198) #14
-  %200 = load ptr, ptr @type_table, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 24
-  %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds %struct.obj_t, ptr %202, i64 %189
-  %204 = call i32 @H5Otoken_to_str(i64 noundef %198, ptr noundef %203, ptr noundef nonnull %11) #14
-  %205 = load ptr, ptr %11, align 8
-  %206 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.48, ptr noundef %205) #14
-  %207 = load ptr, ptr %11, align 8
-  %208 = call i32 @H5free_memory(ptr noundef %207) #14
-  %209 = load ptr, ptr @dump_function_table, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 8
-  %211 = load ptr, ptr %210, align 8
-  call void %211(i64 noundef %199, ptr noundef nonnull %6) #14
-  %212 = call i32 @H5Tclose(i64 noundef %199) #14
-  %213 = call i32 @H5Dclose(i64 noundef %198) #14
+  %192 = getelementptr inbounds %struct.obj_t, ptr %187, i64 %185, i32 1
+  %193 = load ptr, ptr %192, align 8
+  %194 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef %193, i64 noundef 0) #14
+  %195 = call i64 @H5Dget_type(i64 noundef %194) #14
+  %196 = load ptr, ptr @type_table, align 8
+  %197 = getelementptr inbounds i8, ptr %196, i64 24
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds %struct.obj_t, ptr %198, i64 %185
+  %200 = call i32 @H5Otoken_to_str(i64 noundef %194, ptr noundef %199, ptr noundef nonnull %11) #14
+  %201 = load ptr, ptr %11, align 8
+  %202 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.48, ptr noundef %201) #14
+  %203 = load ptr, ptr %11, align 8
+  %204 = call i32 @H5free_memory(ptr noundef %203) #14
+  %205 = load ptr, ptr @dump_function_table, align 8
+  %206 = getelementptr inbounds i8, ptr %205, i64 8
+  %207 = load ptr, ptr %206, align 8
+  call void %207(i64 noundef %195, ptr noundef nonnull %6) #14
+  %208 = call i32 @H5Tclose(i64 noundef %195) #14
+  %209 = call i32 @H5Dclose(i64 noundef %194) #14
   %.pre187 = load ptr, ptr @type_table, align 8
-  br label %214
+  br label %210
 
-214:                                              ; preds = %.lr.ph183, %195
-  %215 = phi ptr [ %188, %.lr.ph183 ], [ %.pre187, %195 ]
-  %216 = add i32 %.0155182, 1
-  %217 = zext i32 %216 to i64
-  %218 = getelementptr inbounds i8, ptr %215, i64 16
-  %219 = load i64, ptr %218, align 8
-  %220 = icmp ugt i64 %219, %217
-  br i1 %220, label %.lr.ph183, label %.loopexit
+210:                                              ; preds = %.lr.ph183, %191
+  %211 = phi ptr [ %184, %.lr.ph183 ], [ %.pre187, %191 ]
+  %212 = add i32 %.0155182, 1
+  %213 = zext i32 %212 to i64
+  %214 = getelementptr inbounds i8, ptr %211, i64 16
+  %215 = load i64, ptr %214, align 8
+  %216 = icmp ugt i64 %215, %213
+  br i1 %216, label %.lr.ph183, label %.loopexit
 
-.loopexit:                                        ; preds = %214, %.preheader, %182
-  %221 = load i32, ptr @sort_by, align 4
-  %222 = icmp eq i32 %221, 1
-  br i1 %222, label %223, label %226
+.loopexit:                                        ; preds = %210, %.preheader, %178
+  %217 = load i32, ptr @sort_by, align 4
+  %218 = icmp eq i32 %217, 1
+  br i1 %218, label %219, label %222
 
-223:                                              ; preds = %.loopexit
-  %224 = load i32, ptr %4, align 4
-  %225 = and i32 %224, 1
-  %.not174 = icmp eq i32 %225, 0
-  br i1 %.not174, label %226, label %227
+219:                                              ; preds = %.loopexit
+  %220 = load i32, ptr %4, align 4
+  %221 = and i32 %220, 1
+  %.not174 = icmp eq i32 %221, 0
+  br i1 %.not174, label %222, label %223
 
-226:                                              ; preds = %223, %.loopexit
-  br label %227
+222:                                              ; preds = %219, %.loopexit
+  br label %223
 
-227:                                              ; preds = %223, %226
-  %.sink188 = phi i32 [ 0, %226 ], [ 1, %223 ]
-  %228 = load i32, ptr @sort_order, align 4
-  %229 = call i32 @H5Literate2(i64 noundef %0, i32 noundef %.sink188, i32 noundef %228, ptr noundef null, ptr noundef nonnull @xml_dump_all_cb, ptr noundef null) #14
-  %230 = load i32, ptr @dump_indent, align 4
-  %231 = add i32 %230, -3
-  store i32 %231, ptr @dump_indent, align 4
-  %232 = load i32, ptr %32, align 8
-  %233 = add i32 %232, -1
-  store i32 %233, ptr %32, align 8
-  br label %234
+223:                                              ; preds = %219, %222
+  %.sink188 = phi i32 [ 0, %222 ], [ 1, %219 ]
+  %224 = load i32, ptr @sort_order, align 4
+  %225 = call i32 @H5Literate2(i64 noundef %0, i32 noundef %.sink188, i32 noundef %224, ptr noundef null, ptr noundef nonnull @xml_dump_all_cb, ptr noundef null) #14
+  %226 = load i32, ptr @dump_indent, align 4
+  %227 = add i32 %226, -3
+  store i32 %227, ptr @dump_indent, align 4
+  %228 = load i32, ptr %32, align 8
+  %229 = add i32 %228, -1
+  store i32 %229, ptr %32, align 8
+  br label %230
 
-234:                                              ; preds = %227, %136
-  call void @free(ptr noundef %90) #14
-  call void @free(ptr noundef %91) #14
-  call void @free(ptr noundef %92) #14
-  br label %329
+230:                                              ; preds = %223, %132
+  call void @free(ptr noundef %86) #14
+  call void @free(ptr noundef %87) #14
+  call void @free(ptr noundef %88) #14
+  br label %325
 
-235:                                              ; preds = %77
-  %236 = call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %1)
-  %237 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
-  %238 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
-  %239 = getelementptr inbounds i8, ptr %8, i64 16
-  store i32 1, ptr %239, align 8
-  %240 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
-  br i1 %53, label %241, label %244
+231:                                              ; preds = %72
+  %232 = call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %1)
+  %233 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
+  %234 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
+  %235 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 1, ptr %235, align 8
+  %236 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
+  br i1 %73, label %237, label %240
 
-241:                                              ; preds = %235
-  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %237, i32 noundef 1)
-  %242 = load ptr, ptr @xmlnsprefix, align 8
-  %243 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.43, ptr noundef %242, ptr noundef %237, ptr noundef nonnull @.str.34) #14
-  br label %249
+237:                                              ; preds = %231
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %233, i32 noundef 1)
+  %238 = load ptr, ptr @xmlnsprefix, align 8
+  %239 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.43, ptr noundef %238, ptr noundef %233, ptr noundef nonnull @.str.34) #14
+  br label %245
 
-244:                                              ; preds = %235
-  %245 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0156)
-  %246 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
-  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0156, ptr noundef %237, i32 noundef 1)
-  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %238, i32 noundef 1)
-  %247 = load ptr, ptr @xmlnsprefix, align 8
-  %248 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.46, ptr noundef %247, ptr noundef %236, ptr noundef %237, ptr noundef %245, ptr noundef %238, ptr noundef %246) #14
-  call void @free(ptr noundef %245) #14
-  call void @free(ptr noundef %246) #14
-  br label %249
+240:                                              ; preds = %231
+  %241 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0156)
+  %242 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0156, ptr noundef %233, i32 noundef 1)
+  call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %234, i32 noundef 1)
+  %243 = load ptr, ptr @xmlnsprefix, align 8
+  %244 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.46, ptr noundef %243, ptr noundef %232, ptr noundef %233, ptr noundef %241, ptr noundef %234, ptr noundef %242) #14
+  call void @free(ptr noundef %241) #14
+  call void @free(ptr noundef %242) #14
+  br label %245
 
-249:                                              ; preds = %244, %241
-  %250 = load ptr, ptr @rawoutstream, align 8
-  %251 = load i32, ptr %43, align 8
-  %252 = zext i32 %251 to i64
-  %253 = call zeroext i1 @h5tools_render_element(ptr noundef %250, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %252, i64 noundef 0, i64 noundef 0) #14
-  call void @free(ptr noundef %236) #14
-  call void @free(ptr noundef %237) #14
-  call void @free(ptr noundef %238) #14
-  %254 = load i32, ptr %32, align 8
-  %255 = add i32 %254, 1
-  store i32 %255, ptr %32, align 8
-  %256 = load i32, ptr @dump_indent, align 4
-  %257 = add i32 %256, 3
-  store i32 %257, ptr @dump_indent, align 4
-  %258 = load i32, ptr @sort_by, align 4
-  %259 = icmp eq i32 %258, 1
-  br i1 %259, label %260, label %270
+245:                                              ; preds = %240, %237
+  %246 = load ptr, ptr @rawoutstream, align 8
+  %247 = load i32, ptr %43, align 8
+  %248 = zext i32 %247 to i64
+  %249 = call zeroext i1 @h5tools_render_element(ptr noundef %246, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %248, i64 noundef 0, i64 noundef 0) #14
+  call void @free(ptr noundef %232) #14
+  call void @free(ptr noundef %233) #14
+  call void @free(ptr noundef %234) #14
+  %250 = load i32, ptr %32, align 8
+  %251 = add i32 %250, 1
+  store i32 %251, ptr %32, align 8
+  %252 = load i32, ptr @dump_indent, align 4
+  %253 = add i32 %252, 3
+  store i32 %253, ptr @dump_indent, align 4
+  %254 = load i32, ptr @sort_by, align 4
+  %255 = icmp eq i32 %254, 1
+  br i1 %255, label %256, label %266
 
-260:                                              ; preds = %249
-  %261 = load i32, ptr %5, align 4
-  %262 = and i32 %261, 1
-  %.not171 = icmp eq i32 %262, 0
-  br i1 %.not171, label %270, label %263
+256:                                              ; preds = %245
+  %257 = load i32, ptr %5, align 4
+  %258 = and i32 %257, 1
+  %.not171 = icmp eq i32 %258, 0
+  br i1 %.not171, label %266, label %259
 
-263:                                              ; preds = %260
-  %264 = load i32, ptr @sort_order, align 4
-  %265 = load ptr, ptr @dump_function_table, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 40
-  %267 = load ptr, ptr %266, align 8
-  %268 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 1, i32 noundef %264, ptr noundef null, ptr noundef %267, ptr noundef null) #14
-  %269 = icmp slt i32 %268, 0
-  br i1 %269, label %.sink.split190, label %277
+259:                                              ; preds = %256
+  %260 = load i32, ptr @sort_order, align 4
+  %261 = load ptr, ptr @dump_function_table, align 8
+  %262 = getelementptr inbounds i8, ptr %261, i64 40
+  %263 = load ptr, ptr %262, align 8
+  %264 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 1, i32 noundef %260, ptr noundef null, ptr noundef %263, ptr noundef null) #14
+  %265 = icmp slt i32 %264, 0
+  br i1 %265, label %.sink.split190, label %273
 
-270:                                              ; preds = %260, %249
-  %271 = load i32, ptr @sort_order, align 4
-  %272 = load ptr, ptr @dump_function_table, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 40
-  %274 = load ptr, ptr %273, align 8
-  %275 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 0, i32 noundef %271, ptr noundef null, ptr noundef %274, ptr noundef null) #14
-  %276 = icmp slt i32 %275, 0
-  br i1 %276, label %.sink.split190, label %277
+266:                                              ; preds = %256, %245
+  %267 = load i32, ptr @sort_order, align 4
+  %268 = load ptr, ptr @dump_function_table, align 8
+  %269 = getelementptr inbounds i8, ptr %268, i64 40
+  %270 = load ptr, ptr %269, align 8
+  %271 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 0, i32 noundef %267, ptr noundef null, ptr noundef %270, ptr noundef null) #14
+  %272 = icmp slt i32 %271, 0
+  br i1 %272, label %.sink.split190, label %273
 
-.sink.split190:                                   ; preds = %270, %263
+.sink.split190:                                   ; preds = %266, %259
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.47) #14
   call void @h5tools_setstatus(i32 noundef 1) #14
-  br label %277
+  br label %273
 
-277:                                              ; preds = %.sink.split190, %270, %263
-  %278 = load i32, ptr @unamedtype, align 4
-  %279 = icmp ne i32 %278, 0
-  %or.cond3 = select i1 %53, i1 %279, i1 false
+273:                                              ; preds = %.sink.split190, %266, %259
+  %274 = load i32, ptr @unamedtype, align 4
+  %275 = icmp ne i32 %274, 0
+  %or.cond3 = select i1 %73, i1 %275, i1 false
   br i1 %or.cond3, label %.preheader179, label %.loopexit180
 
-.preheader179:                                    ; preds = %277
-  %280 = load ptr, ptr @type_table, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 16
-  %282 = load i64, ptr %281, align 8
-  %.not185 = icmp eq i64 %282, 0
+.preheader179:                                    ; preds = %273
+  %276 = load ptr, ptr @type_table, align 8
+  %277 = getelementptr inbounds i8, ptr %276, i64 16
+  %278 = load i64, ptr %277, align 8
+  %.not185 = icmp eq i64 %278, 0
   br i1 %.not185, label %.loopexit180, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader179, %309
-  %283 = phi ptr [ %310, %309 ], [ %280, %.preheader179 ]
-  %284 = phi i64 [ %312, %309 ], [ 0, %.preheader179 ]
-  %.0181 = phi i32 [ %311, %309 ], [ 0, %.preheader179 ]
-  %285 = getelementptr inbounds i8, ptr %283, i64 24
-  %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds %struct.obj_t, ptr %286, i64 %284, i32 3
-  %288 = load i8, ptr %287, align 1
-  %289 = trunc i8 %288 to i1
-  br i1 %289, label %309, label %290
+.lr.ph:                                           ; preds = %.preheader179, %305
+  %279 = phi ptr [ %306, %305 ], [ %276, %.preheader179 ]
+  %280 = phi i64 [ %308, %305 ], [ 0, %.preheader179 ]
+  %.0181 = phi i32 [ %307, %305 ], [ 0, %.preheader179 ]
+  %281 = getelementptr inbounds i8, ptr %279, i64 24
+  %282 = load ptr, ptr %281, align 8
+  %283 = getelementptr inbounds %struct.obj_t, ptr %282, i64 %280, i32 3
+  %284 = load i8, ptr %283, align 1
+  %285 = trunc i8 %284 to i1
+  br i1 %285, label %305, label %286
 
-290:                                              ; preds = %.lr.ph
+286:                                              ; preds = %.lr.ph
   store ptr null, ptr %12, align 8
-  %291 = getelementptr inbounds %struct.obj_t, ptr %286, i64 %284, i32 1
-  %292 = load ptr, ptr %291, align 8
-  %293 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef %292, i64 noundef 0) #14
-  %294 = call i64 @H5Dget_type(i64 noundef %293) #14
-  %295 = load ptr, ptr @type_table, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 24
-  %297 = load ptr, ptr %296, align 8
-  %298 = getelementptr inbounds %struct.obj_t, ptr %297, i64 %284
-  %299 = call i32 @H5Otoken_to_str(i64 noundef %293, ptr noundef %298, ptr noundef nonnull %12) #14
-  %300 = load ptr, ptr %12, align 8
-  %301 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.48, ptr noundef %300) #14
-  %302 = load ptr, ptr %12, align 8
-  %303 = call i32 @H5free_memory(ptr noundef %302) #14
-  %304 = load ptr, ptr @dump_function_table, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 8
-  %306 = load ptr, ptr %305, align 8
-  call void %306(i64 noundef %294, ptr noundef nonnull %6) #14
-  %307 = call i32 @H5Tclose(i64 noundef %294) #14
-  %308 = call i32 @H5Dclose(i64 noundef %293) #14
+  %287 = getelementptr inbounds %struct.obj_t, ptr %282, i64 %280, i32 1
+  %288 = load ptr, ptr %287, align 8
+  %289 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef %288, i64 noundef 0) #14
+  %290 = call i64 @H5Dget_type(i64 noundef %289) #14
+  %291 = load ptr, ptr @type_table, align 8
+  %292 = getelementptr inbounds i8, ptr %291, i64 24
+  %293 = load ptr, ptr %292, align 8
+  %294 = getelementptr inbounds %struct.obj_t, ptr %293, i64 %280
+  %295 = call i32 @H5Otoken_to_str(i64 noundef %289, ptr noundef %294, ptr noundef nonnull %12) #14
+  %296 = load ptr, ptr %12, align 8
+  %297 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.48, ptr noundef %296) #14
+  %298 = load ptr, ptr %12, align 8
+  %299 = call i32 @H5free_memory(ptr noundef %298) #14
+  %300 = load ptr, ptr @dump_function_table, align 8
+  %301 = getelementptr inbounds i8, ptr %300, i64 8
+  %302 = load ptr, ptr %301, align 8
+  call void %302(i64 noundef %290, ptr noundef nonnull %6) #14
+  %303 = call i32 @H5Tclose(i64 noundef %290) #14
+  %304 = call i32 @H5Dclose(i64 noundef %289) #14
   %.pre = load ptr, ptr @type_table, align 8
-  br label %309
+  br label %305
 
-309:                                              ; preds = %.lr.ph, %290
-  %310 = phi ptr [ %283, %.lr.ph ], [ %.pre, %290 ]
-  %311 = add i32 %.0181, 1
-  %312 = zext i32 %311 to i64
-  %313 = getelementptr inbounds i8, ptr %310, i64 16
-  %314 = load i64, ptr %313, align 8
-  %315 = icmp ugt i64 %314, %312
-  br i1 %315, label %.lr.ph, label %.loopexit180
+305:                                              ; preds = %.lr.ph, %286
+  %306 = phi ptr [ %279, %.lr.ph ], [ %.pre, %286 ]
+  %307 = add i32 %.0181, 1
+  %308 = zext i32 %307 to i64
+  %309 = getelementptr inbounds i8, ptr %306, i64 16
+  %310 = load i64, ptr %309, align 8
+  %311 = icmp ugt i64 %310, %308
+  br i1 %311, label %.lr.ph, label %.loopexit180
 
-.loopexit180:                                     ; preds = %309, %.preheader179, %277
-  %316 = load i32, ptr @sort_by, align 4
-  %317 = icmp eq i32 %316, 1
-  br i1 %317, label %318, label %321
+.loopexit180:                                     ; preds = %305, %.preheader179, %273
+  %312 = load i32, ptr @sort_by, align 4
+  %313 = icmp eq i32 %312, 1
+  br i1 %313, label %314, label %317
 
-318:                                              ; preds = %.loopexit180
-  %319 = load i32, ptr %4, align 4
-  %320 = and i32 %319, 1
-  %.not172 = icmp eq i32 %320, 0
-  br i1 %.not172, label %321, label %322
+314:                                              ; preds = %.loopexit180
+  %315 = load i32, ptr %4, align 4
+  %316 = and i32 %315, 1
+  %.not172 = icmp eq i32 %316, 0
+  br i1 %.not172, label %317, label %318
 
-321:                                              ; preds = %318, %.loopexit180
-  br label %322
+317:                                              ; preds = %314, %.loopexit180
+  br label %318
 
-322:                                              ; preds = %318, %321
-  %.sink191 = phi i32 [ 0, %321 ], [ 1, %318 ]
-  %323 = load i32, ptr @sort_order, align 4
-  %324 = call i32 @H5Literate2(i64 noundef %0, i32 noundef %.sink191, i32 noundef %323, ptr noundef null, ptr noundef nonnull @xml_dump_all_cb, ptr noundef null) #14
-  %325 = load i32, ptr @dump_indent, align 4
-  %326 = add i32 %325, -3
-  store i32 %326, ptr @dump_indent, align 4
-  %327 = load i32, ptr %32, align 8
-  %328 = add i32 %327, -1
-  store i32 %328, ptr %32, align 8
-  br label %329
+318:                                              ; preds = %314, %317
+  %.sink191 = phi i32 [ 0, %317 ], [ 1, %314 ]
+  %319 = load i32, ptr @sort_order, align 4
+  %320 = call i32 @H5Literate2(i64 noundef %0, i32 noundef %.sink191, i32 noundef %319, ptr noundef null, ptr noundef nonnull @xml_dump_all_cb, ptr noundef null) #14
+  %321 = load i32, ptr @dump_indent, align 4
+  %322 = add i32 %321, -3
+  store i32 %322, ptr @dump_indent, align 4
+  %323 = load i32, ptr %32, align 8
+  %324 = add i32 %323, -1
+  store i32 %324, ptr %32, align 8
+  br label %325
 
-329:                                              ; preds = %87, %234, %322
-  %330 = getelementptr inbounds i8, ptr %8, i64 16
-  store i32 1, ptr %330, align 8
-  %331 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
-  %332 = load ptr, ptr @xmlnsprefix, align 8
-  %.str.49..str.50 = select i1 %53, ptr @.str.49, ptr @.str.50
-  %333 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull %.str.49..str.50, ptr noundef %332) #14
-  %334 = load ptr, ptr @rawoutstream, align 8
-  %335 = load i32, ptr %43, align 8
-  %336 = zext i32 %335 to i64
-  %337 = call zeroext i1 @h5tools_render_element(ptr noundef %334, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %336, i64 noundef 0, i64 noundef 0) #14
+325:                                              ; preds = %83, %230, %318
+  %326 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 1, ptr %326, align 8
+  %327 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
+  %328 = load ptr, ptr @xmlnsprefix, align 8
+  %.str.49..str.50 = select i1 %73, ptr @.str.49, ptr @.str.50
+  %329 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull %.str.49..str.50, ptr noundef %328) #14
+  %330 = load ptr, ptr @rawoutstream, align 8
+  %331 = load i32, ptr %43, align 8
+  %332 = zext i32 %331 to i64
+  %333 = call zeroext i1 @h5tools_render_element(ptr noundef %330, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10, i64 noundef %332, i64 noundef 0, i64 noundef 0) #14
   call void @h5tools_str_close(ptr noundef nonnull %7) #14
   %.not177 = icmp eq ptr %.0157, null
-  br i1 %.not177, label %339, label %338
+  br i1 %.not177, label %335, label %334
 
-338:                                              ; preds = %329
+334:                                              ; preds = %325
   call void @free(ptr noundef nonnull %.0157) #14
-  br label %339
+  br label %335
 
-339:                                              ; preds = %338, %329
+335:                                              ; preds = %334, %325
   %.not178 = icmp eq ptr %.0156, null
-  br i1 %.not178, label %341, label %340
+  br i1 %.not178, label %337, label %336
 
-340:                                              ; preds = %339
+336:                                              ; preds = %335
   call void @free(ptr noundef nonnull %.0156) #14
-  br label %341
+  br label %337
 
-341:                                              ; preds = %340, %339, %64
+337:                                              ; preds = %336, %335, %59
   ret void
 }
 

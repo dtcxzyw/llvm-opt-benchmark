@@ -41202,14 +41202,17 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %or2.i.i.i = add nsw i64 %reass.sub, 4602678819172646912
   %8 = bitcast i64 %or2.i.i.i to double
   %cmp.i.i = fcmp uge double %8, 1.000000e+00
-  br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit, !llvm.loop !195
+  br i1 %cmp.i.i, label %while.body.i.i, label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit.split.loop.exit39, !llvm.loop !195
 
-_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %retval.0.i.i.i38 = phi double [ %8, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
-  %9 = fadd double %retval.0.i.i.i38, 0.000000e+00
+_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit.split.loop.exit39: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
+  %9 = fadd double %8, 0.000000e+00
+  br label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit
+
+_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i, %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit.split.loop.exit39
+  %retval.0.i.i.i38 = phi double [ %9, %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit.split.loop.exit39 ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
   %10 = load double, ptr %hxm_, align 8
   %11 = load double, ptr %hx0_minus_hxm_, align 8
-  %12 = tail call double @llvm.fmuladd.f64(double %9, double %11, double %10)
+  %12 = tail call double @llvm.fmuladd.f64(double %retval.0.i.i.i38, double %11, double %10)
   %13 = load double, ptr %v_.i, align 8
   %14 = load double, ptr %one_minus_q_.i, align 8
   %cmp.i = fcmp oeq double %14, -1.000000e+00

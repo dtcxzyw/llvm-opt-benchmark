@@ -267,11 +267,11 @@ define void @dlagge_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %.pre51 = load i32, ptr %1, align 4, !tbaa !3
   %.pre52 = load i32, ptr %3, align 4, !tbaa !3
   %160 = xor i32 %.pre50, -1
-  %161 = add i32 %.pre, %160
-  %162 = xor i32 %.pre52, -1
-  %163 = add i32 %.pre51, %162
+  %161 = xor i32 %.pre52, -1
+  %162 = add i32 %.pre, %160
+  %163 = add i32 %.pre51, %161
   store i32 %163, ptr %13, align 4, !tbaa !3
-  %164 = call i32 @llvm.smax.i32(i32 %161, i32 %163)
+  %164 = call i32 @llvm.smax.i32(i32 %162, i32 %163)
   store i32 %164, ptr %11, align 4, !tbaa !3
   %165 = icmp slt i32 %164, 1
   br i1 %165, label %.loopexit31, label %166

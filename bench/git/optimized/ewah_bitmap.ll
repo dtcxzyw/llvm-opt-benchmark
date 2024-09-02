@@ -467,7 +467,7 @@ while.end:                                        ; preds = %if.end
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ewah_add(ptr nocapture noundef %self, i64 noundef %word) local_unnamed_addr #0 {
+define dso_local range(i64 0, 3) i64 @ewah_add(ptr nocapture noundef %self, i64 noundef %word) local_unnamed_addr #0 {
 entry:
   %bit_size = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %bit_size, align 8

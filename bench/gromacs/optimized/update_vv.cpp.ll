@@ -356,94 +356,94 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178: ; preds = %_Z14wa
 
 250:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178
   %251 = icmp eq i32 %248, 11
+  %252 = select i1 %251, i32 128, i32 0
   %or.cond = and i1 %25, %251
-  br i1 %or.cond, label %252, label %.thread220
+  br i1 %or.cond, label %253, label %.thread220
 
-252:                                              ; preds = %250
+253:                                              ; preds = %250
   store i8 1, ptr %30, align 1
   br label %.thread220
 
-.thread220:                                       ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178, %252, %250
-  %253 = phi i1 [ true, %252 ], [ %251, %250 ], [ true, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178 ]
-  br i1 %26, label %259, label %254
+.thread220:                                       ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178, %253, %250
+  %254 = phi i32 [ %252, %253 ], [ %252, %250 ], [ 128, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit178 ]
+  br i1 %26, label %260, label %255
 
-254:                                              ; preds = %.thread220
+255:                                              ; preds = %.thread220
   %.not.i179 = icmp eq i32 %4, 0
   br i1 %.not.i179, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191, label %_Z11do_per_stepll.exit
 
-_Z11do_per_stepll.exit:                           ; preds = %254
-  %255 = sext i32 %4 to i64
-  %256 = add nsw i64 %0, -1
-  %257 = srem i64 %256, %255
-  %258 = icmp eq i64 %257, 0
-  br i1 %258, label %259, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191
+_Z11do_per_stepll.exit:                           ; preds = %255
+  %256 = sext i32 %4 to i64
+  %257 = add nsw i64 %0, -1
+  %258 = srem i64 %257, %256
+  %259 = icmp eq i64 %258, 0
+  br i1 %259, label %260, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191
 
-259:                                              ; preds = %_Z11do_per_stepll.exit, %.thread220
-  %260 = phi i32 [ 0, %_Z11do_per_stepll.exit ], [ 16, %.thread220 ]
-  br i1 %59, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184, label %261
+260:                                              ; preds = %_Z11do_per_stepll.exit, %.thread220
+  %261 = phi i32 [ 0, %_Z11do_per_stepll.exit ], [ 16, %.thread220 ]
+  br i1 %59, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184, label %262
 
-261:                                              ; preds = %259
+262:                                              ; preds = %260
   call void @_Z16wallcycleBarrierP13gmx_wallcycle(ptr noundef nonnull %39)
-  %262 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
-  %263 = extractvalue { i32, i32 } %262, 0
-  %264 = extractvalue { i32, i32 } %262, 1
-  %265 = zext i32 %263 to i64
+  %263 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
+  %264 = extractvalue { i32, i32 } %263, 0
+  %265 = extractvalue { i32, i32 } %263, 1
   %266 = zext i32 %264 to i64
-  %267 = shl nuw i64 %266, 32
-  %268 = or disjoint i64 %267, %265
-  %269 = getelementptr inbounds i8, ptr %39, i64 1032
-  %270 = getelementptr inbounds i8, ptr %39, i64 1048
-  %271 = load i64, ptr %270, align 8
-  %.not.i181 = icmp ult i64 %268, %271
-  br i1 %.not.i181, label %274, label %272
+  %267 = zext i32 %265 to i64
+  %268 = shl nuw i64 %267, 32
+  %269 = or disjoint i64 %268, %266
+  %270 = getelementptr inbounds i8, ptr %39, i64 1032
+  %271 = getelementptr inbounds i8, ptr %39, i64 1048
+  %272 = load i64, ptr %271, align 8
+  %.not.i181 = icmp ult i64 %269, %272
+  br i1 %.not.i181, label %275, label %273
 
-272:                                              ; preds = %261
-  %273 = sub nuw i64 %268, %271
-  br label %276
+273:                                              ; preds = %262
+  %274 = sub nuw i64 %269, %272
+  br label %277
 
-274:                                              ; preds = %261
-  %275 = getelementptr inbounds i8, ptr %39, i64 2288
-  store i8 1, ptr %275, align 8
-  br label %276
+275:                                              ; preds = %262
+  %276 = getelementptr inbounds i8, ptr %39, i64 2288
+  store i8 1, ptr %276, align 8
+  br label %277
 
-276:                                              ; preds = %274, %272
-  %.0.i182 = phi i64 [ %273, %272 ], [ 0, %274 ]
-  %277 = getelementptr inbounds i8, ptr %39, i64 1040
-  %278 = load i64, ptr %277, align 8
-  %279 = add i64 %278, %.0.i182
-  store i64 %279, ptr %277, align 8
-  %280 = load i32, ptr %269, align 8
-  %281 = add nsw i32 %280, 1
-  store i32 %281, ptr %269, align 8
-  %282 = getelementptr inbounds i8, ptr %39, i64 2248
-  %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds i8, ptr %39, i64 2256
-  %285 = load ptr, ptr %284, align 8
-  %286 = icmp eq ptr %283, %285
-  br i1 %286, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184, label %287
+277:                                              ; preds = %275, %273
+  %.0.i182 = phi i64 [ %274, %273 ], [ 0, %275 ]
+  %278 = getelementptr inbounds i8, ptr %39, i64 1040
+  %279 = load i64, ptr %278, align 8
+  %280 = add i64 %279, %.0.i182
+  store i64 %280, ptr %278, align 8
+  %281 = load i32, ptr %270, align 8
+  %282 = add nsw i32 %281, 1
+  store i32 %282, ptr %270, align 8
+  %283 = getelementptr inbounds i8, ptr %39, i64 2248
+  %284 = load ptr, ptr %283, align 8
+  %285 = getelementptr inbounds i8, ptr %39, i64 2256
+  %286 = load ptr, ptr %285, align 8
+  %287 = icmp eq ptr %284, %286
+  br i1 %287, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184, label %288
 
-287:                                              ; preds = %276
-  %288 = getelementptr inbounds i8, ptr %39, i64 2272
-  %289 = load i32, ptr %288, align 8
-  %290 = add nsw i32 %289, -1
-  store i32 %290, ptr %288, align 8
-  %291 = icmp eq i32 %290, 2
-  br i1 %291, label %292, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184
+288:                                              ; preds = %277
+  %289 = getelementptr inbounds i8, ptr %39, i64 2272
+  %290 = load i32, ptr %289, align 8
+  %291 = add nsw i32 %290, -1
+  store i32 %291, ptr %289, align 8
+  %292 = icmp eq i32 %291, 2
+  br i1 %292, label %293, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184
 
-292:                                              ; preds = %287
-  %293 = getelementptr inbounds i8, ptr %39, i64 2276
-  store i32 43, ptr %293, align 4
-  %294 = getelementptr inbounds i8, ptr %39, i64 2280
-  store i64 %268, ptr %294, align 8
+293:                                              ; preds = %288
+  %294 = getelementptr inbounds i8, ptr %39, i64 2276
+  store i32 43, ptr %294, align 4
+  %295 = getelementptr inbounds i8, ptr %39, i64 2280
+  store i64 %269, ptr %295, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184
 
-_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184: ; preds = %276, %287, %292, %259
-  %295 = select i1 %253, i32 128, i32 0
+_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184: ; preds = %277, %288, %293, %260
   %296 = select i1 %27, i32 8, i32 0
   %297 = select i1 %25, i32 2880, i32 2816
   %298 = or disjoint i32 %297, %296
-  %299 = or disjoint i32 %298, %295
-  %300 = or disjoint i32 %299, %260
+  %299 = or disjoint i32 %298, %254
+  %300 = or disjoint i32 %299, %261
   %301 = getelementptr inbounds i8, ptr %8, i64 416
   %302 = load ptr, ptr %301, align 8
   %303 = getelementptr inbounds i8, ptr %8, i64 440
@@ -544,7 +544,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit184: ; preds = %276, %2
   store i64 %374, ptr %372, align 8
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191
 
-_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191: ; preds = %254, %359, %354, %340, %339, %_Z11do_per_stepll.exit
+_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191: ; preds = %255, %359, %354, %340, %339, %_Z11do_per_stepll.exit
   br i1 %2, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit200, label %375
 
 375:                                              ; preds = %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit191

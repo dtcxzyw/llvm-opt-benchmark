@@ -1111,9 +1111,9 @@ define dso_local range(i32 -2147483648, 1) i32 @vfs_dedupe_file_range(ptr nounde
   %59 = icmp eq i64 %58, %52
   br i1 %59, label %.preheader, label %53, !llvm.loop !32
 
-.preheader:                                       ; preds = %53, %106
-  %60 = phi ptr [ %110, %106 ], [ %51, %53 ]
-  %61 = phi i32 [ %109, %106 ], [ 0, %53 ]
+.preheader:                                       ; preds = %53, %105
+  %60 = phi ptr [ %108, %105 ], [ %51, %53 ]
+  %61 = phi i32 [ %107, %105 ], [ 0, %53 ]
   %62 = load i64, ptr %60, align 8
   %63 = trunc i64 %62 to i32
   %64 = tail call i64 @__fdget(i32 noundef %63) #10
@@ -1180,28 +1180,26 @@ define dso_local range(i32 -2147483648, 1) i32 @vfs_dedupe_file_range(ptr nounde
   %97 = load volatile i64, ptr %96, align 8
   %98 = and i64 %97, 4
   %99 = icmp eq i64 %98, 0
-  br i1 %99, label %106, label %100
+  br i1 %99, label %105, label %100
 
 100:                                              ; preds = %94
   %101 = getelementptr inbounds i8, ptr %96, i64 1936
   %102 = load i64, ptr %101, align 8
-  %103 = trunc i64 %102 to i32
-  %104 = lshr i32 %103, 8
-  %105 = and i32 %104, 1
-  br label %106
+  %103 = and i64 %102, 256
+  %104 = icmp eq i64 %103, 0
+  br label %105
 
-106:                                              ; preds = %100, %94
-  %107 = phi i32 [ 0, %94 ], [ %105, %100 ]
-  %108 = icmp eq i32 %107, 0
-  %109 = add nuw nsw i32 %61, 1
-  %110 = getelementptr i8, ptr %60, i64 32
-  %111 = icmp ult i32 %109, %48
-  %112 = select i1 %108, i1 %111, i1 false
-  br i1 %112, label %.preheader, label %.thread, !llvm.loop !35
+105:                                              ; preds = %100, %94
+  %106 = phi i1 [ true, %94 ], [ %104, %100 ]
+  %107 = add nuw nsw i32 %61, 1
+  %108 = getelementptr i8, ptr %60, i64 32
+  %109 = icmp ult i32 %107, %48
+  %110 = select i1 %106, i1 %109, i1 false
+  br i1 %110, label %.preheader, label %.thread, !llvm.loop !35
 
-.thread:                                          ; preds = %106, %35, %32, %46, %41, %38, %26, %25, %19, %15, %11, %2
-  %113 = phi i32 [ -22, %25 ], [ -22, %2 ], [ -22, %15 ], [ -22, %11 ], [ -21, %19 ], [ -95, %26 ], [ %39, %38 ], [ -22, %41 ], [ 0, %46 ], [ -22, %32 ], [ -22, %35 ], [ 0, %106 ]
-  ret i32 %113
+.thread:                                          ; preds = %105, %35, %32, %46, %41, %38, %26, %25, %19, %15, %11, %2
+  %111 = phi i32 [ -22, %25 ], [ -22, %2 ], [ -22, %15 ], [ -22, %11 ], [ -21, %19 ], [ -95, %26 ], [ %39, %38 ], [ -22, %41 ], [ 0, %46 ], [ -22, %32 ], [ -22, %35 ], [ 0, %105 ]
+  ret i32 %111
 }
 
 ; Function Attrs: null_pointer_is_valid

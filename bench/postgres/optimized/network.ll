@@ -2274,7 +2274,7 @@ define dso_local i64 @cidr_abbrev(ptr nocapture noundef readonly %0) local_unnam
 declare ptr @pg_inet_cidr_ntop(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @network_masklen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 256) i64 @network_masklen(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2291,7 +2291,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @network_masklen(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @network_family(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 7) i64 @network_family(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2338,53 +2338,66 @@ define dso_local noundef i64 @network_broadcast(ptr nocapture noundef readonly %
   %wide.trip.count = select i1 %13, i64 4, i64 16
   br label %24
 
-24:                                               ; preds = %1, %24
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %24 ]
-  %.04149 = phi i32 [ %16, %1 ], [ %.1, %24 ]
-  %25 = icmp sgt i32 %.04149, 7
-  %26 = add nsw i32 %.04149, -8
-  %27 = lshr i32 255, %.04149
-  %28 = trunc nuw i32 %27 to i8
-  %.1 = select i1 %25, i32 %26, i32 0
-  %29 = getelementptr i8, ptr %17, i64 %indvars.iv
-  %30 = load i8, ptr %29, align 1
-  %31 = select i1 %25, i8 0, i8 %28
-  %32 = or i8 %30, %31
-  %33 = getelementptr i8, ptr %23, i64 %indvars.iv
-  store i8 %32, ptr %33, align 1
+24:                                               ; preds = %1, %33
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %33 ]
+  %.04149 = phi i32 [ %16, %1 ], [ %.1, %33 ]
+  %25 = icmp ugt i32 %.04149, 7
+  br i1 %25, label %26, label %28
+
+26:                                               ; preds = %24
+  %27 = add nsw i32 %.04149, -8
+  br label %33
+
+28:                                               ; preds = %24
+  %29 = icmp eq i32 %.04149, 0
+  br i1 %29, label %33, label %30
+
+30:                                               ; preds = %28
+  %31 = lshr i32 255, %.04149
+  %32 = trunc nuw i32 %31 to i8
+  br label %33
+
+33:                                               ; preds = %28, %30, %26
+  %.042 = phi i8 [ 0, %26 ], [ %32, %30 ], [ -1, %28 ]
+  %.1 = phi i32 [ %27, %26 ], [ 0, %30 ], [ 0, %28 ]
+  %34 = getelementptr i8, ptr %17, i64 %indvars.iv
+  %35 = load i8, ptr %34, align 1
+  %36 = or i8 %35, %.042
+  %37 = getelementptr i8, ptr %23, i64 %indvars.iv
+  store i8 %36, ptr %37, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %34, label %24, !llvm.loop !25
+  br i1 %exitcond.not, label %38, label %24, !llvm.loop !25
 
-34:                                               ; preds = %24
-  %35 = load i8, ptr %5, align 1
-  %36 = and i8 %35, 1
-  %.not44 = icmp eq i8 %36, 0
-  %37 = select i1 %.not44, ptr %10, ptr %9
-  %38 = load i8, ptr %37, align 1
-  %39 = load i8, ptr %6, align 1
+38:                                               ; preds = %33
+  %39 = load i8, ptr %5, align 1
   %40 = and i8 %39, 1
-  %.not45 = icmp eq i8 %40, 0
-  %41 = select i1 %.not45, ptr %21, ptr %20
-  store i8 %38, ptr %41, align 1
-  %42 = load i8, ptr %5, align 1
-  %43 = and i8 %42, 1
-  %.not46 = icmp eq i8 %43, 0
-  %44 = select i1 %.not46, ptr %10, ptr %9
-  %45 = getelementptr inbounds i8, ptr %44, i64 1
-  %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %41, i64 1
-  store i8 %46, ptr %47, align 1
-  %48 = load i8, ptr %6, align 1
-  %49 = and i8 %48, 1
-  %.not48 = icmp eq i8 %49, 0
-  %50 = select i1 %.not48, ptr %21, ptr %20
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, 2
-  %53 = select i1 %52, i32 40, i32 88
-  store i32 %53, ptr %6, align 4
-  %54 = ptrtoint ptr %6 to i64
-  ret i64 %54
+  %.not44 = icmp eq i8 %40, 0
+  %41 = select i1 %.not44, ptr %10, ptr %9
+  %42 = load i8, ptr %41, align 1
+  %43 = load i8, ptr %6, align 1
+  %44 = and i8 %43, 1
+  %.not45 = icmp eq i8 %44, 0
+  %45 = select i1 %.not45, ptr %21, ptr %20
+  store i8 %42, ptr %45, align 1
+  %46 = load i8, ptr %5, align 1
+  %47 = and i8 %46, 1
+  %.not46 = icmp eq i8 %47, 0
+  %48 = select i1 %.not46, ptr %10, ptr %9
+  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  %50 = load i8, ptr %49, align 1
+  %51 = getelementptr inbounds i8, ptr %45, i64 1
+  store i8 %50, ptr %51, align 1
+  %52 = load i8, ptr %6, align 1
+  %53 = and i8 %52, 1
+  %.not48 = icmp eq i8 %53, 0
+  %54 = select i1 %.not48, ptr %21, ptr %20
+  %55 = load i8, ptr %54, align 1
+  %56 = icmp eq i8 %55, 2
+  %57 = select i1 %56, i32 40, i32 88
+  store i32 %57, ptr %6, align 4
+  %58 = ptrtoint ptr %6 to i64
+  ret i64 %58
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2418,21 +2431,21 @@ select.unfold.preheader:                          ; preds = %1
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.preheader, %select.unfold
-  %.047 = phi i32 [ %33, %select.unfold ], [ 0, %select.unfold.preheader ]
+  %.047 = phi i32 [ %32, %select.unfold ], [ 0, %select.unfold.preheader ]
   %.03646 = phi i32 [ %spec.select, %select.unfold ], [ %21, %select.unfold.preheader ]
   %22 = icmp sgt i32 %.03646, 7
   %23 = add nsw i32 %.03646, -8
   %24 = sub nuw nsw i32 8, %.03646
   %25 = shl nuw nsw i32 255, %24
   %26 = trunc i32 %25 to i8
+  %.037 = select i1 %22, i8 -1, i8 %26
   %27 = sext i32 %.047 to i64
   %28 = getelementptr i8, ptr %14, i64 %27
   %29 = load i8, ptr %28, align 1
-  %30 = select i1 %22, i8 -1, i8 %26
-  %31 = and i8 %29, %30
-  %32 = getelementptr i8, ptr %20, i64 %27
-  store i8 %31, ptr %32, align 1
-  %33 = add i32 %.047, 1
+  %30 = and i8 %29, %.037
+  %31 = getelementptr i8, ptr %20, i64 %27
+  store i8 %30, ptr %31, align 1
+  %32 = add i32 %.047, 1
   %spec.select = select i1 %22, i32 %23, i32 0
   %.not39 = icmp eq i32 %spec.select, 0
   br i1 %.not39, label %select.unfold._crit_edge.loopexit, label %select.unfold
@@ -2448,29 +2461,29 @@ select.unfold._crit_edge:                         ; preds = %select.unfold._crit
   %.pre-phi51 = phi i8 [ %.pre50, %select.unfold._crit_edge.loopexit ], [ %16, %1 ]
   %.pre-phi = phi i8 [ %.pre49, %select.unfold._crit_edge.loopexit ], [ %8, %1 ]
   %.not40 = icmp eq i8 %.pre-phi, 0
-  %34 = select i1 %.not40, ptr %10, ptr %9
-  %35 = load i8, ptr %34, align 1
+  %33 = select i1 %.not40, ptr %10, ptr %9
+  %34 = load i8, ptr %33, align 1
   %.not41 = icmp eq i8 %.pre-phi51, 0
-  %36 = select i1 %.not41, ptr %18, ptr %17
-  store i8 %35, ptr %36, align 1
-  %37 = load i8, ptr %5, align 1
-  %38 = and i8 %37, 1
-  %.not42 = icmp eq i8 %38, 0
-  %39 = select i1 %.not42, ptr %10, ptr %9
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
-  %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %36, i64 1
-  store i8 %41, ptr %42, align 1
-  %43 = load i8, ptr %6, align 1
-  %44 = and i8 %43, 1
-  %.not44 = icmp eq i8 %44, 0
-  %45 = select i1 %.not44, ptr %18, ptr %17
-  %46 = load i8, ptr %45, align 1
-  %47 = icmp eq i8 %46, 2
-  %48 = select i1 %47, i32 40, i32 88
-  store i32 %48, ptr %6, align 4
-  %49 = ptrtoint ptr %6 to i64
-  ret i64 %49
+  %35 = select i1 %.not41, ptr %18, ptr %17
+  store i8 %34, ptr %35, align 1
+  %36 = load i8, ptr %5, align 1
+  %37 = and i8 %36, 1
+  %.not42 = icmp eq i8 %37, 0
+  %38 = select i1 %.not42, ptr %10, ptr %9
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  %40 = load i8, ptr %39, align 1
+  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  store i8 %40, ptr %41, align 1
+  %42 = load i8, ptr %6, align 1
+  %43 = and i8 %42, 1
+  %.not44 = icmp eq i8 %43, 0
+  %44 = select i1 %.not44, ptr %18, ptr %17
+  %45 = load i8, ptr %44, align 1
+  %46 = icmp eq i8 %45, 2
+  %47 = select i1 %46, i32 40, i32 88
+  store i32 %47, ptr %6, align 4
+  %48 = ptrtoint ptr %6 to i64
+  ret i64 %48
 }
 
 ; Function Attrs: nounwind uwtable

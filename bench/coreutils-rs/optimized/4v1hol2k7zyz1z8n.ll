@@ -18,7 +18,7 @@ define hidden noundef i32 @"_ZN59_$LT$std..fs..File$u20$as$u20$std..os..fd..raw.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i32 @_ZN6uucore8features5pipes12splice_exact17haeb8a571ac16637aE(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 {
+define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_exact17haeb8a571ac16637aE(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = alloca i64, align 8

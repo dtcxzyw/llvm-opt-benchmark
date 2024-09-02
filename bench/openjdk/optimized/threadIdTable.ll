@@ -487,7 +487,7 @@ define hidden noundef double @_ZN13ThreadIdTable15get_load_factorEv() local_unna
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN13ThreadIdTable10table_sizeEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 1, -9223372036854775807) i64 @_ZN13ThreadIdTable10table_sizeEv() local_unnamed_addr #0 align 2 {
   %1 = load volatile ptr, ptr @_ZL12_local_table, align 8
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8

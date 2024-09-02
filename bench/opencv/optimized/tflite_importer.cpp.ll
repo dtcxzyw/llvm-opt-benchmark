@@ -3624,10 +3624,12 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i: ; preds = %_ZNK11fla
   %391 = zext i16 %389 to i64
   %392 = getelementptr inbounds i8, ptr %349, i64 %391
   %393 = load i32, ptr %392, align 4
+  %394 = shl i32 %393, 2
+  %395 = zext i32 %394 to i64
   br label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i182
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i182: ; preds = %390, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i
-  %394 = phi i32 [ %393, %390 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i ]
+  %396 = phi i64 [ %395, %390 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i ]
   store i32 0, ptr %324, align 8
   store ptr null, ptr %325, align 8
   store ptr %324, ptr %326, align 8
@@ -3635,56 +3637,54 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i182: ; preds = %390,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %328, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %329) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %330) #24
-  %395 = load ptr, ptr %127, align 8
-  %396 = getelementptr inbounds i8, ptr %387, i64 4
-  %397 = load i32, ptr %396, align 4
-  %398 = getelementptr inbounds i8, ptr %395, i64 4
-  %399 = shl i32 %397, 2
-  %400 = zext i32 %399 to i64
-  %401 = getelementptr inbounds i8, ptr %398, i64 %400
-  %402 = load i32, ptr %401, align 4
-  %403 = zext i32 %402 to i64
-  %404 = getelementptr inbounds i8, ptr %401, i64 %403
-  %405 = load i32, ptr %404, align 4
-  %406 = sext i32 %405 to i64
-  %407 = sub nsw i64 0, %406
-  %408 = getelementptr inbounds i8, ptr %404, i64 %407
-  %409 = load i16, ptr %408, align 2
-  %410 = icmp ugt i16 %409, 10
-  call void @llvm.assume(i1 %410)
-  %411 = getelementptr inbounds i8, ptr %408, i64 10
-  %412 = load i16, ptr %411, align 2
-  %.not.i.i.i183 = icmp ne i16 %412, 0
+  %397 = load ptr, ptr %127, align 8
+  %398 = getelementptr inbounds i8, ptr %387, i64 4
+  %399 = load i32, ptr %398, align 4
+  %400 = getelementptr inbounds i8, ptr %397, i64 4
+  %401 = shl i32 %399, 2
+  %402 = zext i32 %401 to i64
+  %403 = getelementptr inbounds i8, ptr %400, i64 %402
+  %404 = load i32, ptr %403, align 4
+  %405 = zext i32 %404 to i64
+  %406 = getelementptr inbounds i8, ptr %403, i64 %405
+  %407 = load i32, ptr %406, align 4
+  %408 = sext i32 %407 to i64
+  %409 = sub nsw i64 0, %408
+  %410 = getelementptr inbounds i8, ptr %406, i64 %409
+  %411 = load i16, ptr %410, align 2
+  %412 = icmp ugt i16 %411, 10
+  call void @llvm.assume(i1 %412)
+  %413 = getelementptr inbounds i8, ptr %410, i64 10
+  %414 = load i16, ptr %413, align 2
+  %.not.i.i.i183 = icmp ne i16 %414, 0
   call void @llvm.assume(i1 %.not.i.i.i183)
-  %413 = zext i16 %412 to i64
-  %414 = getelementptr inbounds i8, ptr %404, i64 %413
-  %415 = load i32, ptr %414, align 4
-  %416 = zext i32 %415 to i64
-  %417 = getelementptr inbounds i8, ptr %414, i64 %416
+  %415 = zext i16 %414 to i64
+  %416 = getelementptr inbounds i8, ptr %406, i64 %415
+  %417 = load i32, ptr %416, align 4
+  %418 = zext i32 %417 to i64
+  %419 = getelementptr inbounds i8, ptr %416, i64 %418
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %418 = getelementptr inbounds i8, ptr %417, i64 4
-  %419 = load i32, ptr %417, align 4, !noalias !23
-  %420 = zext i32 %419 to i64
+  %420 = getelementptr inbounds i8, ptr %419, i64 4
+  %421 = load i32, ptr %419, align 4, !noalias !23
+  %422 = zext i32 %421 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #24, !noalias !23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %418, i64 noundef %420, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %424 unwind label %.body185
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %420, i64 noundef %422, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %426 unwind label %.body185
 
 .body185:                                         ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i182
-  %421 = landingpad { ptr, i32 }
+  %423 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #24
-  %422 = extractvalue { ptr, i32 } %421, 0
-  %423 = extractvalue { ptr, i32 } %421, 1
+  %424 = extractvalue { ptr, i32 } %423, 0
+  %425 = extractvalue { ptr, i32 } %423, 1
   br label %673
 
-424:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i182
+426:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i182
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %425 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %329, ptr noundef nonnull align 8 dereferenceable(32) %32) #24
+  %427 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %329, ptr noundef nonnull align 8 dereferenceable(32) %32) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #24
-  %426 = shl i32 %394, 2
-  %427 = zext i32 %426 to i64
-  %428 = getelementptr inbounds i8, ptr %331, i64 %427
+  %428 = getelementptr inbounds i8, ptr %331, i64 %396
   %429 = load i32, ptr %428, align 4
   %430 = zext i32 %429 to i64
   %431 = getelementptr inbounds i8, ptr %428, i64 %430
@@ -3696,7 +3696,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i182: ; preds = %390,
   %437 = icmp ugt i16 %436, 4
   br i1 %437, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i188, label %_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit.thread
 
-_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i188: ; preds = %424
+_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i188: ; preds = %426
   %438 = getelementptr inbounds i8, ptr %435, i64 4
   %439 = load i16, ptr %438, align 2
   %.not.i.i189 = icmp eq i16 %439, 0
@@ -3710,8 +3710,8 @@ _ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit: ; preds = %_Z
   %444 = icmp slt i8 %442, 0
   br i1 %444, label %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit, label %_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit.thread
 
-_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit.thread: ; preds = %424, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i188, %_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit
-  %445 = phi i64 [ %443, %_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i188 ], [ 0, %424 ]
+_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit.thread: ; preds = %426, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i188, %_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit
+  %445 = phi i64 [ %443, %_ZNK13opencv_tflite12OperatorCode23deprecated_builtin_codeEv.exit ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i188 ], [ 0, %426 ]
   %446 = getelementptr inbounds ptr, ptr @_ZZN13opencv_tflite24EnumNamesBuiltinOperatorEvE5names, i64 %445
   %447 = load ptr, ptr %446, align 8
   br label %_ZN13opencv_tflite23EnumNameBuiltinOperatorENS_15BuiltinOperatorE.exit
@@ -3960,7 +3960,7 @@ _ZNSt3mapIiN2cv3MatESt4lessIiESaISt4pairIKiS1_EEE11lower_boundERS5_.exit.i: ; pr
           to label %547 unwind label %569
 
 547:                                              ; preds = %546
-  %548 = load i32, ptr %396, align 4
+  %548 = load i32, ptr %398, align 4
   store i32 %548, ptr %43, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
@@ -4337,8 +4337,8 @@ _ZN2cv3dnn14dnn4_v2024052111LayerParamsD2Ev.exit: ; preds = %_ZNSt6vectorIN2cv3M
   br label %673
 
 673:                                              ; preds = %.loopexit, %474, %.body185
-  %.1382 = phi i32 [ %.1483, %.loopexit ], [ %477, %474 ], [ %423, %.body185 ]
-  %.13 = phi ptr [ %.14, %.loopexit ], [ %476, %474 ], [ %422, %.body185 ]
+  %.1382 = phi i32 [ %.1483, %.loopexit ], [ %477, %474 ], [ %425, %.body185 ]
+  %.13 = phi ptr [ %.14, %.loopexit ], [ %476, %474 ], [ %424, %.body185 ]
   call void @_ZN2cv3dnn14dnn4_v2024052111LayerParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %31) #24
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
@@ -10909,11 +10909,11 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i: ; preds = %59
   %70 = getelementptr inbounds i8, ptr %55, i64 %69
   %71 = load i8, ptr %70, align 1
   %72 = icmp ne i8 %71, 0
+  %73 = zext i1 %72 to i8
   br label %_ZNK13opencv_tflite21ResizeBilinearOptions13align_cornersEv.exit
 
 _ZNK13opencv_tflite21ResizeBilinearOptions13align_cornersEv.exit: ; preds = %68, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, %59
-  %73 = phi i1 [ %72, %68 ], [ false, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i ], [ false, %59 ]
-  %74 = zext i1 %73 to i8
+  %74 = phi i8 [ %73, %68 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i ], [ 0, %59 ]
   store i8 %74, ptr %11, align 1
   %75 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN2cv3dnn14dnn4_v202405214Dict3setIbEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %76 unwind label %101
@@ -11082,11 +11082,11 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i58: ; preds = %138
   %149 = getelementptr inbounds i8, ptr %134, i64 %148
   %150 = load i8, ptr %149, align 1
   %151 = icmp ne i8 %150, 0
+  %152 = zext i1 %151 to i8
   br label %_ZNK13opencv_tflite28ResizeNearestNeighborOptions13align_cornersEv.exit
 
 _ZNK13opencv_tflite28ResizeNearestNeighborOptions13align_cornersEv.exit: ; preds = %147, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i58, %138
-  %152 = phi i1 [ %151, %147 ], [ false, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i58 ], [ false, %138 ]
-  %153 = zext i1 %152 to i8
+  %153 = phi i8 [ %152, %147 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i58 ], [ 0, %138 ]
   store i8 %153, ptr %19, align 1
   %154 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN2cv3dnn14dnn4_v202405214Dict3setIbEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 1 dereferenceable(1) %19)
           to label %155 unwind label %180

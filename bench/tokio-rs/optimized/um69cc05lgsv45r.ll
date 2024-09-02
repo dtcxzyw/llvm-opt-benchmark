@@ -435,7 +435,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false)
   %31 = tail call i64 @llvm.uadd.sat.i64(i64 %13, i64 1)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %31, i64 4)
+  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %31, i64 4)
   %32 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4dc4894301f6cfdfE"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %33 unwind label %28
 
@@ -5814,7 +5814,7 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17hdf00783c8dd2a7bbE.llvm.9340333246167
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i8 4, 3) i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17h8a694bc5b570a678E() unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef range(i8 0, 3) i8 @_ZN5tokio7runtime7context10runtime_mt21current_enter_context17h8a694bc5b570a678E() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca {}, align 1
   %2 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h5f8ec821a32f13ccE, align 1, !noundef !47
   switch i8 %2, label %4 [
@@ -9058,7 +9058,7 @@ define hidden void @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$3new17h00f0
 
 "_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17hb5e5b4461a10bd78E.llvm.9340333246167201960.exit": ; preds = %2, %5
   %.0.i = phi i64 [ %10, %5 ], [ 4, %2 ]
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.0.i, i64 65536)
+  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 65537) i64 @llvm.umin.i64(i64 %.0.i, i64 65536)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @"_ZN5tokio4util12sharded_list24ShardedList$LT$L$C$T$GT$3new17h96768b3880282718E"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { i64 }, i64 }) align 8 dereferenceable(32) %3, i64 noundef %.0.sroa.speculated.i.i)
   br label %11
@@ -9094,7 +9094,7 @@ define hidden void @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$3new17h22ec
 
 "_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17h114ea8f473f0b062E.llvm.9340333246167201960.exit": ; preds = %2, %5
   %.0.i = phi i64 [ %10, %5 ], [ 4, %2 ]
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.0.i, i64 65536)
+  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 65537) i64 @llvm.umin.i64(i64 %.0.i, i64 65536)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @"_ZN5tokio4util12sharded_list24ShardedList$LT$L$C$T$GT$3new17h9690d4574e36472aE"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { i64 }, i64 }) align 8 dereferenceable(32) %3, i64 noundef %.0.sroa.speculated.i.i)
   br label %11
@@ -9385,7 +9385,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$6rem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17h114ea8f473f0b062E.llvm.9340333246167201960"(i64 noundef %0) unnamed_addr #11 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 65537) i64 @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17h114ea8f473f0b062E.llvm.9340333246167201960"(i64 noundef %0) unnamed_addr #11 personality ptr @rust_eh_personality {
   %2 = icmp ult i64 %0, 2
   br i1 %2, label %9, label %3
 
@@ -9404,7 +9404,7 @@ define hidden noundef i64 @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17hb5e5b4461a10bd78E.llvm.9340333246167201960"(i64 noundef %0) unnamed_addr #11 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 65537) i64 @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$20gen_shared_list_size17hb5e5b4461a10bd78E.llvm.9340333246167201960"(i64 noundef %0) unnamed_addr #11 personality ptr @rust_eh_personality {
   %2 = icmp ult i64 %0, 2
   br i1 %2, label %9, label %3
 

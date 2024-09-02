@@ -5982,8 +5982,7 @@ invoke.cont86.i:                                  ; preds = %if.end85.i
           to label %invoke.cont89.i unwind label %lpad66.i
 
 invoke.cont89.i:                                  ; preds = %invoke.cont86.i
-  %31 = and i16 %call90.i, 256
-  %tobool.i.i156.not.i = icmp eq i16 %31, 0
+  %tobool.i.i156.not.i = icmp ult i16 %call90.i, 256
   br i1 %tobool.i.i156.not.i, label %if.end105.i, label %if.then95.i
 
 if.then95.i:                                      ; preds = %invoke.cont89.i
@@ -6005,7 +6004,7 @@ invoke.cont101.i:                                 ; preds = %invoke.cont99.i
   br label %cleanup210.i
 
 lpad100.i:                                        ; preds = %invoke.cont99.i
-  %32 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp97.i) #25
   br label %ehcleanup211.i
@@ -6019,8 +6018,8 @@ invoke.cont106.i:                                 ; preds = %if.end105.i
           to label %invoke.cont109.i unwind label %lpad66.i
 
 invoke.cont109.i:                                 ; preds = %invoke.cont106.i
-  %33 = getelementptr inbounds i8, ptr %requested_server_name.i, i64 56
-  %requested_server_name.val.i = load i8, ptr %33, align 8
+  %32 = getelementptr inbounds i8, ptr %requested_server_name.i, i64 56
+  %requested_server_name.val.i = load i8, ptr %32, align 8
   %tobool.i.i161.i = trunc i8 %requested_server_name.val.i to i1
   br i1 %tobool.i.i161.i, label %if.then111.i, label %if.end125.i
 
@@ -6044,18 +6043,18 @@ invoke.cont120.i:                                 ; preds = %invoke.cont118.i
   br label %cleanup208.i
 
 lpad117.i:                                        ; preds = %if.then111.i
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup124.i
 
 lpad119.i:                                        ; preds = %invoke.cont118.i
-  %35 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp113.i) #25
   br label %ehcleanup124.i
 
 ehcleanup124.i:                                   ; preds = %lpad119.i, %lpad117.i
-  %.pn40.i = phi { ptr, i32 } [ %35, %lpad119.i ], [ %34, %lpad117.i ]
+  %.pn40.i = phi { ptr, i32 } [ %34, %lpad119.i ], [ %33, %lpad117.i ]
   call void @_ZN9grpc_core13StringMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %agg.tmp114.i) #25
   br label %ehcleanup209.i
 
@@ -6068,22 +6067,22 @@ invoke.cont127.i:                                 ; preds = %if.end125.i
           to label %invoke.cont130.i unwind label %lpad126.i
 
 invoke.cont130.i:                                 ; preds = %invoke.cont127.i
-  %36 = getelementptr inbounds i8, ptr %rules.i, i64 24
-  %rules.val.i = load i8, ptr %36, align 8
+  %35 = getelementptr inbounds i8, ptr %rules.i, i64 24
+  %rules.val.i = load i8, ptr %35, align 8
   %tobool.i.i166.i = trunc i8 %rules.val.i to i1
   br i1 %tobool.i.i166.i, label %if.then132.i, label %if.end150.i
 
 if.then132.i:                                     ; preds = %invoke.cont130.i
-  %37 = load ptr, ptr %rules.i, align 8
-  store ptr %37, ptr %agg.tmp136.i, align 8
+  %36 = load ptr, ptr %rules.i, align 8
+  store ptr %36, ptr %agg.tmp136.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp136.i, i64 8
   %_M_finish3.i.i.i.i.i = getelementptr inbounds i8, ptr %rules.i, i64 8
-  %38 = load ptr, ptr %_M_finish3.i.i.i.i.i, align 8
-  store ptr %38, ptr %_M_finish.i.i.i.i.i, align 8
+  %37 = load ptr, ptr %_M_finish3.i.i.i.i.i, align 8
+  store ptr %37, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp136.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %rules.i, i64 16
-  %39 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
-  store ptr %39, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %38 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
+  store ptr %38, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rules.i, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission22MakeRbacPermissionListESt6vectorIS5_SaIS5_EE(ptr noalias nonnull align 8 %agg.tmp135.i, ptr noundef nonnull %agg.tmp136.i)
           to label %invoke.cont140.i unwind label %lpad139.i
@@ -6108,33 +6107,33 @@ invoke.cont144.i:                                 ; preds = %invoke.cont142.i
   br label %cleanup206.i
 
 lpad126.i:                                        ; preds = %invoke.cont127.i, %if.end125.i
-  %40 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup209.i
 
 lpad139.i:                                        ; preds = %if.then132.i
-  %41 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup149.i
 
 lpad141.i:                                        ; preds = %invoke.cont140.i
-  %42 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup148.i
 
 lpad143.i:                                        ; preds = %invoke.cont142.i
-  %43 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp134.i) #25
   br label %ehcleanup148.i
 
 ehcleanup148.i:                                   ; preds = %lpad143.i, %lpad141.i
-  %.pn36.i = phi { ptr, i32 } [ %43, %lpad143.i ], [ %42, %lpad141.i ]
+  %.pn36.i = phi { ptr, i32 } [ %42, %lpad143.i ], [ %41, %lpad141.i ]
   call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp135.i) #25
   br label %ehcleanup149.i
 
 ehcleanup149.i:                                   ; preds = %ehcleanup148.i, %lpad139.i
-  %.pn36.pn.i = phi { ptr, i32 } [ %.pn36.i, %ehcleanup148.i ], [ %41, %lpad139.i ]
+  %.pn36.pn.i = phi { ptr, i32 } [ %.pn36.i, %ehcleanup148.i ], [ %40, %lpad139.i ]
   call fastcc void @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp136.i) #25
   br label %ehcleanup207.i
 
@@ -6149,21 +6148,21 @@ invoke.cont153.i:                                 ; preds = %if.end150.i
 invoke.cont156.i:                                 ; preds = %invoke.cont153.i
   %call157.i = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8optionalIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEEaSEOS8_(ptr noundef nonnull align 8 dereferenceable(32) %rules.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151.i) #25
   call fastcc void @_ZNSt8optionalIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151.i) #25
-  %rules.val54.i = load i8, ptr %36, align 8
+  %rules.val54.i = load i8, ptr %35, align 8
   %tobool.i.i171.i = trunc i8 %rules.val54.i to i1
   br i1 %tobool.i.i171.i, label %if.then159.i, label %if.end177.i
 
 if.then159.i:                                     ; preds = %invoke.cont156.i
-  %44 = load ptr, ptr %rules.i, align 8
-  store ptr %44, ptr %agg.tmp163.i, align 8
+  %43 = load ptr, ptr %rules.i, align 8
+  store ptr %43, ptr %agg.tmp163.i, align 8
   %_M_finish.i.i.i.i172.i = getelementptr inbounds i8, ptr %agg.tmp163.i, i64 8
   %_M_finish3.i.i.i.i173.i = getelementptr inbounds i8, ptr %rules.i, i64 8
-  %45 = load ptr, ptr %_M_finish3.i.i.i.i173.i, align 8
-  store ptr %45, ptr %_M_finish.i.i.i.i172.i, align 8
+  %44 = load ptr, ptr %_M_finish3.i.i.i.i173.i, align 8
+  store ptr %44, ptr %_M_finish.i.i.i.i172.i, align 8
   %_M_end_of_storage.i.i.i.i174.i = getelementptr inbounds i8, ptr %agg.tmp163.i, i64 16
   %_M_end_of_storage4.i.i.i.i175.i = getelementptr inbounds i8, ptr %rules.i, i64 16
-  %46 = load ptr, ptr %_M_end_of_storage4.i.i.i.i175.i, align 8
-  store ptr %46, ptr %_M_end_of_storage.i.i.i.i174.i, align 8
+  %45 = load ptr, ptr %_M_end_of_storage4.i.i.i.i175.i, align 8
+  store ptr %45, ptr %_M_end_of_storage.i.i.i.i174.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rules.i, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission22MakeRbacPermissionListESt6vectorIS5_SaIS5_EE(ptr noalias nonnull align 8 %agg.tmp162.i, ptr noundef nonnull %agg.tmp163.i)
           to label %invoke.cont167.i unwind label %lpad166.i
@@ -6188,33 +6187,33 @@ invoke.cont171.i:                                 ; preds = %invoke.cont169.i
   br label %cleanup206.i
 
 lpad152.i:                                        ; preds = %invoke.cont178.i, %invoke.cont153.i, %if.end177.i, %if.end150.i
-  %47 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup207.i
 
 lpad166.i:                                        ; preds = %if.then159.i
-  %48 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup176.i
 
 lpad168.i:                                        ; preds = %invoke.cont167.i
-  %49 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup175.i
 
 lpad170.i:                                        ; preds = %invoke.cont169.i
-  %50 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp161.i) #25
   br label %ehcleanup175.i
 
 ehcleanup175.i:                                   ; preds = %lpad170.i, %lpad168.i
-  %.pn33.i = phi { ptr, i32 } [ %50, %lpad170.i ], [ %49, %lpad168.i ]
+  %.pn33.i = phi { ptr, i32 } [ %49, %lpad170.i ], [ %48, %lpad168.i ]
   call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp162.i) #25
   br label %ehcleanup176.i
 
 ehcleanup176.i:                                   ; preds = %ehcleanup175.i, %lpad166.i
-  %.pn33.pn.i = phi { ptr, i32 } [ %.pn33.i, %ehcleanup175.i ], [ %48, %lpad166.i ]
+  %.pn33.pn.i = phi { ptr, i32 } [ %.pn33.i, %ehcleanup175.i ], [ %47, %lpad166.i ]
   call fastcc void @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp163.i) #25
   br label %ehcleanup207.i
 
@@ -6227,14 +6226,14 @@ invoke.cont178.i:                                 ; preds = %if.end177.i
           to label %invoke.cont181.i unwind label %lpad152.i
 
 invoke.cont181.i:                                 ; preds = %invoke.cont178.i
-  %51 = getelementptr inbounds i8, ptr %not_rule.i, i64 8
-  %not_rule.val.i = load i8, ptr %51, align 8
+  %50 = getelementptr inbounds i8, ptr %not_rule.i, i64 8
+  %not_rule.val.i = load i8, ptr %50, align 8
   %tobool.i.i180.i = trunc i8 %not_rule.val.i to i1
   br i1 %tobool.i.i180.i, label %if.then183.i, label %if.end198.i
 
 if.then183.i:                                     ; preds = %invoke.cont181.i
-  %52 = load ptr, ptr %not_rule.i, align 8
-  call void @_ZN9grpc_core4Rbac10PermissionC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp186.i, ptr noundef nonnull align 8 dereferenceable(257) %52) #25
+  %51 = load ptr, ptr %not_rule.i, align 8
+  call void @_ZN9grpc_core4Rbac10PermissionC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp186.i, ptr noundef nonnull align 8 dereferenceable(257) %51) #25
   invoke void @_ZN9grpc_core4Rbac10Permission17MakeNotPermissionES1_(ptr nonnull sret(%"struct.grpc_core::Rbac::Permission") align 8 %ref.tmp185.i, ptr noundef nonnull %agg.tmp186.i)
           to label %invoke.cont191.i unwind label %lpad190.i
 
@@ -6253,24 +6252,24 @@ invoke.cont193.i:                                 ; preds = %invoke.cont191.i
   br label %cleanup.i
 
 lpad190.i:                                        ; preds = %if.then183.i
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup197.i
 
 lpad192.i:                                        ; preds = %invoke.cont191.i
-  %54 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp185.i) #25
   br label %ehcleanup197.i
 
 ehcleanup197.i:                                   ; preds = %lpad192.i, %lpad190.i
-  %.pn.i = phi { ptr, i32 } [ %54, %lpad192.i ], [ %53, %lpad190.i ]
+  %.pn.i = phi { ptr, i32 } [ %53, %lpad192.i ], [ %52, %lpad190.i ]
   call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp186.i) #25
   br label %ehcleanup205.i
 
 if.end198.i:                                      ; preds = %invoke.cont181.i
-  %55 = load i64, ptr %_M_node_count.i.i.i.i, align 8
-  %cmp.i = icmp eq i64 %55, %0
+  %54 = load i64, ptr %_M_node_count.i.i.i.i, align 8
+  %cmp.i = icmp eq i64 %54, %0
   br i1 %cmp.i, label %if.then200.i, label %cleanup.i
 
 if.then200.i:                                     ; preds = %if.end198.i
@@ -6278,7 +6277,7 @@ if.then200.i:                                     ; preds = %if.end198.i
           to label %cleanup.i unwind label %lpad202.i
 
 lpad202.i:                                        ; preds = %if.then200.i
-  %56 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup205.i
 
@@ -6295,8 +6294,8 @@ cleanup208.i:                                     ; preds = %cleanup206.i, %invo
   br label %cleanup210.i
 
 cleanup210.i:                                     ; preds = %cleanup208.i, %invoke.cont101.i, %_ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit142.i, %_ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit119.i
-  %57 = load i8, ptr %20, align 8
-  %tobool.i.i.i.i.i = trunc i8 %57 to i1
+  %56 = load i8, ptr %20, align 8
+  %tobool.i.i.i.i.i = trunc i8 %56 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i186.i, label %cleanup212.i
 
 if.then.i.i.i.i186.i:                             ; preds = %cleanup210.i
@@ -6309,20 +6308,20 @@ cleanup212.sink.split.i:                          ; preds = %if.then.i.i.i.i186.
   br label %cleanup212.i
 
 cleanup212.i:                                     ; preds = %cleanup212.sink.split.i, %cleanup210.i
-  %58 = load i8, ptr %12, align 8
-  %tobool.i.i.i.i188.i = trunc i8 %58 to i1
+  %57 = load i8, ptr %12, align 8
+  %tobool.i.i.i.i188.i = trunc i8 %57 to i1
   br i1 %tobool.i.i.i.i188.i, label %if.then.i.i.i.i189.i, label %cleanup214.i
 
 if.then.i.i.i.i189.i:                             ; preds = %cleanup212.i
   store i8 0, ptr %12, align 8
   %regex_matcher_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %url_path.i, i64 40
-  %59 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %59, null
+  %58 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %58, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEE10_M_destroyEv.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i189.i
-  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %59) #25
-  call void @_ZdlPv(ptr noundef nonnull %59) #27
+  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %58) #25
+  call void @_ZdlPv(ptr noundef nonnull %58) #27
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEE10_M_destroyEv.exit.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEE10_M_destroyEv.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i189.i
@@ -6336,20 +6335,20 @@ cleanup214.sink.split.i:                          ; preds = %_ZNSt22_Optional_pa
   br label %cleanup214.i
 
 cleanup214.i:                                     ; preds = %cleanup214.sink.split.i, %cleanup212.i
-  %60 = load i8, ptr %6, align 8
-  %tobool.i.i.i.i191.i = trunc i8 %60 to i1
+  %59 = load i8, ptr %6, align 8
+  %tobool.i.i.i.i191.i = trunc i8 %59 to i1
   br i1 %tobool.i.i.i.i191.i, label %if.then.i.i.i.i192.i, label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit
 
 if.then.i.i.i.i192.i:                             ; preds = %cleanup214.i
   store i8 0, ptr %6, align 8
   %regex_matcher_.i.i.i.i.i.i.i.i193.i = getelementptr inbounds i8, ptr %header.i, i64 80
-  %61 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i.i193.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i194.i = icmp eq ptr %61, null
+  %60 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i.i193.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i194.i = icmp eq ptr %60, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i194.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEE10_M_destroyEv.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i195.i
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i195.i: ; preds = %if.then.i.i.i.i192.i
-  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %61) #25
-  call void @_ZdlPv(ptr noundef nonnull %61) #27
+  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %60) #25
+  call void @_ZdlPv(ptr noundef nonnull %60) #27
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEE10_M_destroyEv.exit.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEE10_M_destroyEv.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i195.i, %if.then.i.i.i.i192.i
@@ -6360,24 +6359,24 @@ _ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5
   br label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit
 
 ehcleanup205.i:                                   ; preds = %lpad202.i, %ehcleanup197.i
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup197.i ], [ %56, %lpad202.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup197.i ], [ %55, %lpad202.i ]
   call fastcc void @_ZNSt8optionalIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10PermissionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %not_rule.i) #25
   br label %ehcleanup207.i
 
 ehcleanup207.i:                                   ; preds = %ehcleanup205.i, %ehcleanup176.i, %lpad152.i, %ehcleanup149.i
-  %.pn36.pn.pn.i = phi { ptr, i32 } [ %.pn36.pn.i, %ehcleanup149.i ], [ %.pn33.pn.i, %ehcleanup176.i ], [ %.pn.pn.i, %ehcleanup205.i ], [ %47, %lpad152.i ]
+  %.pn36.pn.pn.i = phi { ptr, i32 } [ %.pn36.pn.i, %ehcleanup149.i ], [ %.pn33.pn.i, %ehcleanup176.i ], [ %.pn.pn.i, %ehcleanup205.i ], [ %46, %lpad152.i ]
   call fastcc void @_ZNSt8optionalIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy10Permission14PermissionListEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rules.i) #25
   br label %ehcleanup209.i
 
 ehcleanup209.i:                                   ; preds = %ehcleanup207.i, %lpad126.i, %ehcleanup124.i
-  %.pn40.pn.i = phi { ptr, i32 } [ %.pn40.i, %ehcleanup124.i ], [ %.pn36.pn.pn.i, %ehcleanup207.i ], [ %40, %lpad126.i ]
+  %.pn40.pn.i = phi { ptr, i32 } [ %.pn40.i, %ehcleanup124.i ], [ %.pn36.pn.pn.i, %ehcleanup207.i ], [ %39, %lpad126.i ]
   call fastcc void @_ZNSt8optionalIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %requested_server_name.i) #25
   br label %ehcleanup211.i
 
 ehcleanup211.i:                                   ; preds = %ehcleanup209.i, %lpad100.i, %lpad80.i, %lpad66.i, %ehcleanup64.i
-  %.pn43.pn.i = phi { ptr, i32 } [ %.pn43.i, %ehcleanup64.i ], [ %28, %lpad80.i ], [ %27, %lpad66.i ], [ %32, %lpad100.i ], [ %.pn40.pn.i, %ehcleanup209.i ]
-  %62 = load i8, ptr %20, align 8
-  %tobool.i.i.i.i198.i = trunc i8 %62 to i1
+  %.pn43.pn.i = phi { ptr, i32 } [ %.pn43.i, %ehcleanup64.i ], [ %28, %lpad80.i ], [ %27, %lpad66.i ], [ %31, %lpad100.i ], [ %.pn40.pn.i, %ehcleanup209.i ]
+  %61 = load i8, ptr %20, align 8
+  %tobool.i.i.i.i198.i = trunc i8 %61 to i1
   br i1 %tobool.i.i.i.i198.i, label %if.then.i.i.i.i199.i, label %ehcleanup213.i
 
 if.then.i.i.i.i199.i:                             ; preds = %ehcleanup211.i
@@ -6927,7 +6926,7 @@ eh.resume:                                        ; preds = %lpad5, %lpad
 declare void @_ZN9grpc_core4Rbac10Permission22MakeDestPortPermissionEi(ptr sret(%"struct.grpc_core::Rbac::Permission") align 8, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i16 @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy8MetadataEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i16 0, 512) i16 @_ZN9grpc_core19LoadJsonObjectFieldINS_12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy8MetadataEEESt8optionalIT_ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessISG_ESaISt4pairIKSG_SI_EEERKNS_8JsonArgsESt17basic_string_viewIcSE_EPNS_16ValidationErrorsEb(ptr noundef nonnull align 8 dereferenceable(48) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 %field.coerce0, ptr %field.coerce1, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %error_field = alloca %"class.grpc_core::ValidationErrors::ScopedField", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10056,8 +10055,7 @@ invoke.cont146.i:                                 ; preds = %if.end144.i
           to label %invoke.cont149.i unwind label %lpad145.i
 
 invoke.cont149.i:                                 ; preds = %invoke.cont146.i
-  %59 = and i16 %call150.i, 256
-  %tobool.i.i211.not.i = icmp eq i16 %59, 0
+  %tobool.i.i211.not.i = icmp ult i16 %call150.i, 256
   br i1 %tobool.i.i211.not.i, label %if.end165.i, label %if.then155.i
 
 if.then155.i:                                     ; preds = %invoke.cont149.i
@@ -10079,12 +10077,12 @@ invoke.cont161.i:                                 ; preds = %invoke.cont159.i
   br label %cleanup247.i
 
 lpad145.i:                                        ; preds = %invoke.cont166.i, %invoke.cont146.i, %if.end165.i, %if.then155.i, %if.end144.i
-  %60 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup248.i
 
 lpad160.i:                                        ; preds = %invoke.cont159.i
-  %61 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp157.i) #25
   br label %ehcleanup248.i
@@ -10098,22 +10096,22 @@ invoke.cont166.i:                                 ; preds = %if.end165.i
           to label %invoke.cont169.i unwind label %lpad145.i
 
 invoke.cont169.i:                                 ; preds = %invoke.cont166.i
-  %62 = getelementptr inbounds i8, ptr %ids.i, i64 24
-  %ids.val.i = load i8, ptr %62, align 8
+  %61 = getelementptr inbounds i8, ptr %ids.i, i64 24
+  %ids.val.i = load i8, ptr %61, align 8
   %tobool.i.i217.i = trunc i8 %ids.val.i to i1
   br i1 %tobool.i.i217.i, label %if.then171.i, label %if.end189.i
 
 if.then171.i:                                     ; preds = %invoke.cont169.i
-  %63 = load ptr, ptr %ids.i, align 8
-  store ptr %63, ptr %agg.tmp175.i, align 8
+  %62 = load ptr, ptr %ids.i, align 8
+  store ptr %62, ptr %agg.tmp175.i, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp175.i, i64 8
   %_M_finish3.i.i.i.i.i = getelementptr inbounds i8, ptr %ids.i, i64 8
-  %64 = load ptr, ptr %_M_finish3.i.i.i.i.i, align 8
-  store ptr %64, ptr %_M_finish.i.i.i.i.i, align 8
+  %63 = load ptr, ptr %_M_finish3.i.i.i.i.i, align 8
+  store ptr %63, ptr %_M_finish.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp175.i, i64 16
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %ids.i, i64 16
-  %65 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
-  store ptr %65, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %64 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
+  store ptr %64, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ids.i, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal21MakeRbacPrincipalListESt6vectorIS5_SaIS5_EE(ptr noalias nonnull align 8 %agg.tmp174.i, ptr noundef nonnull %agg.tmp175.i)
           to label %invoke.cont179.i unwind label %lpad178.i
@@ -10138,28 +10136,28 @@ invoke.cont183.i:                                 ; preds = %invoke.cont181.i
   br label %cleanup245.i
 
 lpad178.i:                                        ; preds = %if.then171.i
-  %66 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup188.i
 
 lpad180.i:                                        ; preds = %invoke.cont179.i
-  %67 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup187.i
 
 lpad182.i:                                        ; preds = %invoke.cont181.i
-  %68 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp173.i) #25
   br label %ehcleanup187.i
 
 ehcleanup187.i:                                   ; preds = %lpad182.i, %lpad180.i
-  %.pn39.i = phi { ptr, i32 } [ %68, %lpad182.i ], [ %67, %lpad180.i ]
+  %.pn39.i = phi { ptr, i32 } [ %67, %lpad182.i ], [ %66, %lpad180.i ]
   call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp174.i) #25
   br label %ehcleanup188.i
 
 ehcleanup188.i:                                   ; preds = %ehcleanup187.i, %lpad178.i
-  %.pn39.pn.i = phi { ptr, i32 } [ %.pn39.i, %ehcleanup187.i ], [ %66, %lpad178.i ]
+  %.pn39.pn.i = phi { ptr, i32 } [ %.pn39.i, %ehcleanup187.i ], [ %65, %lpad178.i ]
   call fastcc void @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp175.i) #25
   br label %ehcleanup246.i
 
@@ -10174,21 +10172,21 @@ invoke.cont192.i:                                 ; preds = %if.end189.i
 invoke.cont195.i:                                 ; preds = %invoke.cont192.i
   %call196.i = call fastcc noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8optionalIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEEaSEOS8_(ptr noundef nonnull align 8 dereferenceable(32) %ids.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp190.i) #25
   call fastcc void @_ZNSt8optionalIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp190.i) #25
-  %ids.val63.i = load i8, ptr %62, align 8
+  %ids.val63.i = load i8, ptr %61, align 8
   %tobool.i.i223.i = trunc i8 %ids.val63.i to i1
   br i1 %tobool.i.i223.i, label %if.then198.i, label %if.end216.i
 
 if.then198.i:                                     ; preds = %invoke.cont195.i
-  %69 = load ptr, ptr %ids.i, align 8
-  store ptr %69, ptr %agg.tmp202.i, align 8
+  %68 = load ptr, ptr %ids.i, align 8
+  store ptr %68, ptr %agg.tmp202.i, align 8
   %_M_finish.i.i.i.i224.i = getelementptr inbounds i8, ptr %agg.tmp202.i, i64 8
   %_M_finish3.i.i.i.i225.i = getelementptr inbounds i8, ptr %ids.i, i64 8
-  %70 = load ptr, ptr %_M_finish3.i.i.i.i225.i, align 8
-  store ptr %70, ptr %_M_finish.i.i.i.i224.i, align 8
+  %69 = load ptr, ptr %_M_finish3.i.i.i.i225.i, align 8
+  store ptr %69, ptr %_M_finish.i.i.i.i224.i, align 8
   %_M_end_of_storage.i.i.i.i226.i = getelementptr inbounds i8, ptr %agg.tmp202.i, i64 16
   %_M_end_of_storage4.i.i.i.i227.i = getelementptr inbounds i8, ptr %ids.i, i64 16
-  %71 = load ptr, ptr %_M_end_of_storage4.i.i.i.i227.i, align 8
-  store ptr %71, ptr %_M_end_of_storage.i.i.i.i226.i, align 8
+  %70 = load ptr, ptr %_M_end_of_storage4.i.i.i.i227.i, align 8
+  store ptr %70, ptr %_M_end_of_storage.i.i.i.i226.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ids.i, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal21MakeRbacPrincipalListESt6vectorIS5_SaIS5_EE(ptr noalias nonnull align 8 %agg.tmp201.i, ptr noundef nonnull %agg.tmp202.i)
           to label %invoke.cont206.i unwind label %lpad205.i
@@ -10213,33 +10211,33 @@ invoke.cont210.i:                                 ; preds = %invoke.cont208.i
   br label %cleanup245.i
 
 lpad191.i:                                        ; preds = %invoke.cont217.i, %invoke.cont192.i, %if.end216.i, %if.end189.i
-  %72 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup246.i
 
 lpad205.i:                                        ; preds = %if.then198.i
-  %73 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup215.i
 
 lpad207.i:                                        ; preds = %invoke.cont206.i
-  %74 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup214.i
 
 lpad209.i:                                        ; preds = %invoke.cont208.i
-  %75 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp200.i) #25
   br label %ehcleanup214.i
 
 ehcleanup214.i:                                   ; preds = %lpad209.i, %lpad207.i
-  %.pn36.i = phi { ptr, i32 } [ %75, %lpad209.i ], [ %74, %lpad207.i ]
+  %.pn36.i = phi { ptr, i32 } [ %74, %lpad209.i ], [ %73, %lpad207.i ]
   call void @_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp201.i) #25
   br label %ehcleanup215.i
 
 ehcleanup215.i:                                   ; preds = %ehcleanup214.i, %lpad205.i
-  %.pn36.pn.i = phi { ptr, i32 } [ %.pn36.i, %ehcleanup214.i ], [ %73, %lpad205.i ]
+  %.pn36.pn.i = phi { ptr, i32 } [ %.pn36.i, %ehcleanup214.i ], [ %72, %lpad205.i ]
   call fastcc void @_ZNSt6vectorIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp202.i) #25
   br label %ehcleanup246.i
 
@@ -10252,14 +10250,14 @@ invoke.cont217.i:                                 ; preds = %if.end216.i
           to label %invoke.cont220.i unwind label %lpad191.i
 
 invoke.cont220.i:                                 ; preds = %invoke.cont217.i
-  %76 = getelementptr inbounds i8, ptr %not_rule.i, i64 8
-  %not_rule.val.i = load i8, ptr %76, align 8
+  %75 = getelementptr inbounds i8, ptr %not_rule.i, i64 8
+  %not_rule.val.i = load i8, ptr %75, align 8
   %tobool.i.i233.i = trunc i8 %not_rule.val.i to i1
   br i1 %tobool.i.i233.i, label %if.then222.i, label %if.end237.i
 
 if.then222.i:                                     ; preds = %invoke.cont220.i
-  %77 = load ptr, ptr %not_rule.i, align 8
-  call void @_ZN9grpc_core4Rbac9PrincipalC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp225.i, ptr noundef nonnull align 8 dereferenceable(257) %77) #25
+  %76 = load ptr, ptr %not_rule.i, align 8
+  call void @_ZN9grpc_core4Rbac9PrincipalC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp225.i, ptr noundef nonnull align 8 dereferenceable(257) %76) #25
   invoke void @_ZN9grpc_core4Rbac9Principal16MakeNotPrincipalES1_(ptr nonnull sret(%"struct.grpc_core::Rbac::Principal") align 8 %ref.tmp224.i, ptr noundef nonnull %agg.tmp225.i)
           to label %invoke.cont230.i unwind label %lpad229.i
 
@@ -10278,24 +10276,24 @@ invoke.cont232.i:                                 ; preds = %invoke.cont230.i
   br label %cleanup.i
 
 lpad229.i:                                        ; preds = %if.then222.i
-  %78 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup236.i
 
 lpad231.i:                                        ; preds = %invoke.cont230.i
-  %79 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %ref.tmp224.i) #25
   br label %ehcleanup236.i
 
 ehcleanup236.i:                                   ; preds = %lpad231.i, %lpad229.i
-  %.pn.i = phi { ptr, i32 } [ %79, %lpad231.i ], [ %78, %lpad229.i ]
+  %.pn.i = phi { ptr, i32 } [ %78, %lpad231.i ], [ %77, %lpad229.i ]
   call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp225.i) #25
   br label %ehcleanup244.i
 
 if.end237.i:                                      ; preds = %invoke.cont220.i
-  %80 = load i64, ptr %_M_node_count.i.i.i.i, align 8
-  %cmp.i = icmp eq i64 %80, %0
+  %79 = load i64, ptr %_M_node_count.i.i.i.i, align 8
+  %cmp.i = icmp eq i64 %79, %0
   br i1 %cmp.i, label %if.then239.i, label %cleanup.i
 
 if.then239.i:                                     ; preds = %if.end237.i
@@ -10303,7 +10301,7 @@ if.then239.i:                                     ; preds = %if.end237.i
           to label %cleanup.i unwind label %lpad241.i
 
 lpad241.i:                                        ; preds = %if.then239.i
-  %81 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup244.i
 
@@ -10320,20 +10318,20 @@ cleanup247.i:                                     ; preds = %cleanup245.i, %invo
   br label %cleanup249.i
 
 cleanup249.i:                                     ; preds = %cleanup247.i, %invoke.cont118.i
-  %82 = load i8, ptr %52, align 8
-  %tobool.i.i.i.i241.i = trunc i8 %82 to i1
+  %81 = load i8, ptr %52, align 8
+  %tobool.i.i.i.i241.i = trunc i8 %81 to i1
   br i1 %tobool.i.i.i.i241.i, label %if.then.i.i.i.i242.i, label %cleanup251.i
 
 if.then.i.i.i.i242.i:                             ; preds = %cleanup249.i
   store i8 0, ptr %52, align 8
   %regex_matcher_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %header.i, i64 80
-  %83 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %83, null
+  %82 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %82, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEE10_M_destroyEv.exit.i.i.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i242.i
-  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %83) #25
-  call void @_ZdlPv(ptr noundef nonnull %83) #27
+  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %82) #25
+  call void @_ZdlPv(ptr noundef nonnull %82) #27
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEE10_M_destroyEv.exit.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11HeaderMatchEE10_M_destroyEv.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i242.i
@@ -10348,8 +10346,8 @@ cleanup251.sink.split.i:                          ; preds = %_ZNSt22_Optional_pa
   br label %cleanup251.i
 
 cleanup251.i:                                     ; preds = %cleanup251.sink.split.i, %cleanup249.i
-  %84 = load i8, ptr %31, align 8
-  %tobool.i.i.i.i244.i = trunc i8 %84 to i1
+  %83 = load i8, ptr %31, align 8
+  %tobool.i.i.i.i244.i = trunc i8 %83 to i1
   br i1 %tobool.i.i.i.i244.i, label %if.then.i.i.i.i245.i, label %cleanup253.i
 
 if.then.i.i.i.i245.i:                             ; preds = %cleanup251.i
@@ -10358,27 +10356,27 @@ if.then.i.i.i.i245.i:                             ; preds = %cleanup251.i
   br label %cleanup253.i
 
 cleanup253.i:                                     ; preds = %if.then.i.i.i.i245.i, %cleanup251.i, %_ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit97.i, %_ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i.i, %_ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit87.i
-  %85 = load i8, ptr %20, align 8
-  %tobool.i.i.i.i248.i = trunc i8 %85 to i1
+  %84 = load i8, ptr %20, align 8
+  %tobool.i.i.i.i248.i = trunc i8 %84 to i1
   br i1 %tobool.i.i.i.i248.i, label %if.then.i.i.i.i249.i, label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit
 
 if.then.i.i.i.i249.i:                             ; preds = %cleanup253.i
   store i8 0, ptr %20, align 8
   %_M_engaged.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %authenticated.i, i64 56
-  %86 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %tobool.i.i.i.i.i.i.i.i.i.i.i = trunc i8 %86 to i1
+  %85 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %tobool.i.i.i.i.i.i.i.i.i.i.i = trunc i8 %85 to i1
   br i1 %tobool.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i249.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i, align 8
   %regex_matcher_.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %authenticated.i, i64 40
-  %87 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %87, null
+  %86 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %86, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
-  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %87) #25
-  call void @_ZdlPv(ptr noundef nonnull %87) #27
+  call void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212) %86) #25
+  call void @_ZdlPv(ptr noundef nonnull %86) #27
   br label %_ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy11StringMatchEE10_M_destroyEv.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -10388,17 +10386,17 @@ _ZNSt22_Optional_payload_baseIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5
   br label %_ZN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit
 
 ehcleanup244.i:                                   ; preds = %lpad241.i, %ehcleanup236.i
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup236.i ], [ %81, %lpad241.i ]
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup236.i ], [ %80, %lpad241.i ]
   call fastcc void @_ZNSt8optionalIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PrincipalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %not_rule.i) #25
   br label %ehcleanup246.i
 
 ehcleanup246.i:                                   ; preds = %ehcleanup244.i, %ehcleanup215.i, %lpad191.i, %ehcleanup188.i
-  %.pn39.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.i, %ehcleanup188.i ], [ %.pn36.pn.i, %ehcleanup215.i ], [ %.pn.pn.i, %ehcleanup244.i ], [ %72, %lpad191.i ]
+  %.pn39.pn.pn.i = phi { ptr, i32 } [ %.pn39.pn.i, %ehcleanup188.i ], [ %.pn36.pn.i, %ehcleanup215.i ], [ %.pn.pn.i, %ehcleanup244.i ], [ %71, %lpad191.i ]
   call fastcc void @_ZNSt8optionalIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9Principal13PrincipalListEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ids.i) #25
   br label %ehcleanup248.i
 
 ehcleanup248.i:                                   ; preds = %ehcleanup246.i, %lpad160.i, %lpad145.i, %ehcleanup143.i
-  %.pn43.pn.i = phi { ptr, i32 } [ %.pn43.i, %ehcleanup143.i ], [ %61, %lpad160.i ], [ %60, %lpad145.i ], [ %.pn39.pn.pn.i, %ehcleanup246.i ]
+  %.pn43.pn.i = phi { ptr, i32 } [ %.pn43.i, %ehcleanup143.i ], [ %60, %lpad160.i ], [ %59, %lpad145.i ], [ %.pn39.pn.pn.i, %ehcleanup246.i ]
   call fastcc void @_ZNSt8optionalIN9grpc_core12_GLOBAL__N_110RbacConfig10RbacPolicy5Rules6Policy9PathMatchEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %url_path.i) #25
   br label %ehcleanup250.i
 
@@ -10409,8 +10407,8 @@ ehcleanup250.i:                                   ; preds = %ehcleanup248.i, %lp
 
 ehcleanup252.i:                                   ; preds = %ehcleanup250.i, %ehcleanup102.i, %ehcleanup80.i, %lpad60.i, %ehcleanup57.i
   %.pn53.pn.i = phi { ptr, i32 } [ %.pn53.i, %ehcleanup57.i ], [ %.pn51.i, %ehcleanup80.i ], [ %.pn49.i, %ehcleanup102.i ], [ %.pn46.pn.i, %ehcleanup250.i ], [ %40, %lpad60.i ]
-  %88 = load i8, ptr %31, align 8
-  %tobool.i.i.i.i251.i = trunc i8 %88 to i1
+  %87 = load i8, ptr %31, align 8
+  %tobool.i.i.i.i251.i = trunc i8 %87 to i1
   br i1 %tobool.i.i.i.i251.i, label %if.then.i.i.i.i252.i, label %ehcleanup254.i
 
 if.then.i.i.i.i252.i:                             ; preds = %ehcleanup252.i

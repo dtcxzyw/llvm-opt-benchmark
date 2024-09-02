@@ -874,30 +874,30 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %._crit_edge
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i
   %.pre = load i32, ptr %118, align 4
+  %126 = sitofp i32 %.pre to double
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i
-  %126 = phi i32 [ %.pre, %.loopexit.loopexit ], [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i ]
-  %127 = load i32, ptr %1, align 4
-  %128 = sitofp i32 %127 to double
-  %129 = fmul double %128, 5.000000e-01
-  %130 = tail call double @llvm.ceil.f64(double %129)
-  %131 = load i32, ptr %4, align 4
-  %132 = sitofp i32 %131 to double
-  %133 = fmul double %132, 5.000000e-01
-  %134 = tail call double @llvm.ceil.f64(double %133)
-  %135 = fmul double %130, %134
-  %136 = insertelement <2 x double> poison, double %135, i64 0
-  %137 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %136)
-  %138 = sitofp i32 %126 to double
-  %139 = sitofp i32 %137 to double
+  %127 = phi double [ %126, %.loopexit.loopexit ], [ 0.000000e+00, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i ]
+  %128 = load i32, ptr %1, align 4
+  %129 = sitofp i32 %128 to double
+  %130 = fmul double %129, 5.000000e-01
+  %131 = tail call double @llvm.ceil.f64(double %130)
+  %132 = load i32, ptr %4, align 4
+  %133 = sitofp i32 %132 to double
+  %134 = fmul double %133, 5.000000e-01
+  %135 = tail call double @llvm.ceil.f64(double %134)
+  %136 = fmul double %131, %135
+  %137 = insertelement <2 x double> poison, double %136, i64 0
+  %138 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %137)
+  %139 = sitofp i32 %138 to double
   %140 = fmul double %139, 7.500000e-01
-  %141 = fcmp ogt double %140, %138
+  %141 = fcmp ogt double %140, %127
   br i1 %141, label %_ZNSt6vectorIiSaIiEED2Ev.exit36.thread, label %142
 
 142:                                              ; preds = %.loopexit
-  %143 = tail call double @llvm.floor.f64(double %129)
-  %144 = tail call double @llvm.floor.f64(double %133)
+  %143 = tail call double @llvm.floor.f64(double %130)
+  %144 = tail call double @llvm.floor.f64(double %134)
   %145 = fmul double %143, %144
   %146 = insertelement <2 x double> poison, double %145, i64 0
   %147 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %146)

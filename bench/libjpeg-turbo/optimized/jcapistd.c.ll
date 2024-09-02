@@ -172,7 +172,7 @@ define i32 @jpeg_write_scanlines(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @jpeg_write_raw_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483641) i32 @jpeg_write_raw_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 8

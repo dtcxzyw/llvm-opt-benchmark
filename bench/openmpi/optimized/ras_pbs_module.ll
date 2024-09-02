@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [45 x i8] c"%s ras:pbs:finalize: success (nothing to do)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @allocate(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal range(i32 -21, 1) i32 @allocate(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca i32, align 4
   %5 = tail call ptr @getenv(ptr noundef nonnull @.str) #12

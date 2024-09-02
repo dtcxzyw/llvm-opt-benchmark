@@ -4253,7 +4253,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 1) i32 @describe_atom_parser(ptr nocapture readnone %format, ptr nocapture noundef writeonly %atom, ptr noundef %arg, ptr noundef %err) #0 {
+define internal range(i32 -1, 1) i32 @describe_atom_parser(ptr nocapture readnone %format, ptr nocapture noundef writeonly %atom, ptr noundef %arg, ptr noundef %err) #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   %args = alloca %struct.strvec, align 8
@@ -6519,7 +6519,7 @@ declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unna
 declare i32 @versioncmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @memcasecmp(ptr noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i64 noundef %n) unnamed_addr #16 {
+define internal range(i32 -255, 256) i32 @memcasecmp(ptr noundef readonly %vs1, ptr nocapture noundef readonly %vs2, i64 noundef %n) unnamed_addr #16 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %vs1, i64 %n
   %cmp11 = icmp sgt i64 %n, 0

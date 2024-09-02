@@ -1001,7 +1001,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -153722867280912930, 153722867280912931) i64 @_ZN6google8protobuf4util8TimeUtil15DurationToHoursERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
+define noundef range(i64 -2562047788015215, 2562047788015217) i64 @_ZN6google8protobuf4util8TimeUtil15DurationToHoursERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8

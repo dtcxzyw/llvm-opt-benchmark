@@ -877,7 +877,7 @@ define void @_ZN7mitsuba6Thread17set_core_affinityEi(ptr nocapture noundef nonnu
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %124
+  br i1 %16, label %17, label %125
 
 17:                                               ; preds = %2
   %18 = tail call i64 @sysconf(i32 noundef 83) #3
@@ -886,9 +886,9 @@ define void @_ZN7mitsuba6Thread17set_core_affinityEi(ptr nocapture noundef nonnu
   br label %20
 
 20:                                               ; preds = %17, %51
-  %.0119 = phi i32 [ %19, %17 ], [ %52, %51 ]
-  %.096118 = phi i32 [ 0, %17 ], [ %53, %51 ]
-  %21 = sext i32 %.0119 to i64
+  %.0117 = phi i32 [ %19, %17 ], [ %52, %51 ]
+  %.096116 = phi i32 [ 0, %17 ], [ %53, %51 ]
+  %21 = sext i32 %.0117 to i64
   %22 = add nsw i64 %21, 63
   %23 = lshr i64 %22, 3
   %24 = and i64 %23, 2305843009213693944
@@ -914,13 +914,13 @@ _ZN7mitsuba6Thread6threadEv.exit:                 ; preds = %26, %28
   %33 = getelementptr inbounds i8, ptr %32, i64 56
   %34 = load ptr, ptr %33, align 8
   %.not104 = icmp eq ptr %34, null
-  br i1 %.not104, label %124, label %35
+  br i1 %.not104, label %125, label %35
 
 35:                                               ; preds = %_ZN7mitsuba6Thread6threadEv.exit
   %36 = getelementptr inbounds i8, ptr %34, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %37, 301
-  br i1 %38, label %39, label %124
+  br i1 %38, label %39, label %125
 
 39:                                               ; preds = %35
   call void @_ZN10tinyformat6formatIJEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %5, ptr noundef nonnull @.str.6)
@@ -929,11 +929,11 @@ _ZN7mitsuba6Thread6threadEv.exit:                 ; preds = %26, %28
 
 40:                                               ; preds = %39
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  br label %124
+  br label %125
 
-common.resume:                                    ; preds = %120, %85, %41
-  %.sink = phi ptr [ %3, %120 ], [ %4, %85 ], [ %5, %41 ]
-  %common.resume.op = phi { ptr, i32 } [ %121, %120 ], [ %86, %85 ], [ %42, %41 ]
+common.resume:                                    ; preds = %121, %86, %41
+  %.sink = phi ptr [ %3, %121 ], [ %4, %86 ], [ %5, %41 ]
+  %common.resume.op = phi { ptr, i32 } [ %122, %121 ], [ %87, %86 ], [ %42, %41 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #3
   resume { ptr, i32 } %common.resume.op
 
@@ -957,13 +957,13 @@ common.resume:                                    ; preds = %120, %85, %41
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %49
-  %52 = shl nsw i32 %.0119, 1
-  %53 = add nuw nsw i32 %.096118, 1
+  %52 = shl nsw i32 %.0117, 1
+  %53 = add nuw nsw i32 %.096116, 1
   %exitcond.not = icmp eq i32 %53, 10
   br i1 %exitcond.not, label %54, label %20, !llvm.loop !5
 
 54:                                               ; preds = %51, %43, %49
-  %.0.lcssa = phi i32 [ %52, %51 ], [ %.0119, %43 ], [ %.0119, %49 ]
+  %.0.lcssa = phi i32 [ %52, %51 ], [ %.0117, %43 ], [ %.0117, %49 ]
   %55 = icmp sgt i32 %.0.lcssa, 0
   br i1 %55, label %.lr.ph, label %._crit_edge
 
@@ -971,12 +971,12 @@ common.resume:                                    ; preds = %120, %85, %41
   %wide.trip.count = zext nneg i32 %.0.lcssa to i64
   br label %56
 
-56:                                               ; preds = %.lr.ph, %.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %57 = phi i32 [ 0, %.lr.ph ], [ %70, %.thread ]
+56:                                               ; preds = %.lr.ph, %.critedge
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
+  %57 = phi i32 [ 0, %.lr.ph ], [ %71, %.critedge ]
   %58 = lshr i64 %indvars.iv, 3
   %59 = icmp ult i64 %58, %24
-  br i1 %59, label %60, label %.thread
+  br i1 %59, label %60, label %.critedge
 
 60:                                               ; preds = %56
   %61 = lshr i64 %indvars.iv, 6
@@ -985,142 +985,142 @@ common.resume:                                    ; preds = %120, %85, %41
   %64 = and i64 %indvars.iv, 63
   %65 = shl nuw i64 1, %64
   %66 = and i64 %63, %65
-  %.not105 = icmp eq i64 %66, 0
-  br i1 %.not105, label %.thread, label %67
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %.critedge, label %68
 
-67:                                               ; preds = %60
-  %68 = add nsw i32 %57, 1
-  %69 = icmp eq i32 %57, %1
-  br i1 %69, label %88, label %.thread
+68:                                               ; preds = %60
+  %69 = add nsw i32 %57, 1
+  %70 = icmp eq i32 %57, %1
+  br i1 %70, label %89, label %.critedge
 
-.thread:                                          ; preds = %56, %67, %60
-  %70 = phi i32 [ %57, %56 ], [ %68, %67 ], [ %57, %60 ]
+.critedge:                                        ; preds = %56, %68, %60
+  %71 = phi i32 [ %57, %56 ], [ %69, %68 ], [ %57, %60 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond130.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond130.not, label %._crit_edge, label %56, !llvm.loop !7
+  %exitcond128.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond128.not, label %._crit_edge, label %56, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.thread, %54
-  %.lcssa = phi i32 [ 0, %54 ], [ %70, %.thread ]
+._crit_edge:                                      ; preds = %.critedge, %54
+  %.lcssa = phi i32 [ 0, %54 ], [ %71, %.critedge ]
   store i32 %.lcssa, ptr %8, align 4
-  %71 = load ptr, ptr @_ZN7mitsuba6Thread7m_classE, align 8
+  %72 = load ptr, ptr @_ZN7mitsuba6Thread7m_classE, align 8
   %.b.i.i.i109 = load i1, ptr @__tls_guard, align 1
-  br i1 %.b.i.i.i109, label %_ZN7mitsuba6Thread6threadEv.exit110, label %72, !prof !4
+  br i1 %.b.i.i.i109, label %_ZN7mitsuba6Thread6threadEv.exit110, label %73, !prof !4
 
-72:                                               ; preds = %._crit_edge
+73:                                               ; preds = %._crit_edge
   store i1 true, ptr @__tls_guard, align 1
   tail call fastcc void @__cxx_global_var_init.1()
   br label %_ZN7mitsuba6Thread6threadEv.exit110
 
-_ZN7mitsuba6Thread6threadEv.exit110:              ; preds = %._crit_edge, %72
-  %73 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7mitsubaL4selfE)
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 56
-  %78 = load ptr, ptr %77, align 8
-  %.not108 = icmp eq ptr %78, null
-  br i1 %.not108, label %87, label %79
+_ZN7mitsuba6Thread6threadEv.exit110:              ; preds = %._crit_edge, %73
+  %74 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7mitsubaL4selfE)
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 56
+  %79 = load ptr, ptr %78, align 8
+  %.not108 = icmp eq ptr %79, null
+  br i1 %.not108, label %88, label %80
 
-79:                                               ; preds = %_ZN7mitsuba6Thread6threadEv.exit110
-  %80 = getelementptr inbounds i8, ptr %78, i64 12
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp slt i32 %81, 301
-  br i1 %82, label %83, label %87
+80:                                               ; preds = %_ZN7mitsuba6Thread6threadEv.exit110
+  %81 = getelementptr inbounds i8, ptr %79, i64 12
+  %82 = load i32, ptr %81, align 4
+  %83 = icmp slt i32 %82, 301
+  br i1 %83, label %84, label %88
 
-83:                                               ; preds = %79
+84:                                               ; preds = %80
   call void @_ZN10tinyformat6formatIJiiiEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %4, ptr noundef nonnull @.str.8, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %78, i32 noundef 300, ptr noundef %71, ptr noundef nonnull @.str, i32 noundef 334, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %84 unwind label %85
+  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %79, i32 noundef 300, ptr noundef %72, ptr noundef nonnull @.str, i32 noundef 334, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %85 unwind label %86
 
-84:                                               ; preds = %83
+85:                                               ; preds = %84
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
-  br label %87
+  br label %88
 
-85:                                               ; preds = %83
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %84
+  %87 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-87:                                               ; preds = %_ZN7mitsuba6Thread6threadEv.exit110, %79, %84
+88:                                               ; preds = %_ZN7mitsuba6Thread6threadEv.exit110, %80, %85
   call void @__sched_cpufree(ptr noundef nonnull %25) #3
-  br label %124
+  br label %125
 
-88:                                               ; preds = %67
+89:                                               ; preds = %68
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %25, i8 0, i64 %24, i1 false)
-  %89 = and i64 %indvars.iv, 4294967295
-  %90 = lshr i64 %89, 3
-  %91 = icmp ult i64 %90, %24
-  br i1 %91, label %92, label %99
+  %90 = and i64 %indvars.iv, 4294967295
+  %91 = lshr i64 %90, 3
+  %92 = icmp ult i64 %91, %24
+  br i1 %92, label %93, label %100
 
-92:                                               ; preds = %88
-  %93 = and i64 %indvars.iv, 63
-  %94 = shl nuw i64 1, %93
-  %95 = lshr i64 %89, 6
-  %96 = getelementptr inbounds i64, ptr %25, i64 %95
-  %97 = load i64, ptr %96, align 8
-  %98 = or i64 %97, %94
-  store i64 %98, ptr %96, align 8
-  br label %99
+93:                                               ; preds = %89
+  %94 = and i64 %indvars.iv, 63
+  %95 = shl nuw i64 1, %94
+  %96 = lshr i64 %90, 6
+  %97 = getelementptr inbounds i64, ptr %25, i64 %96
+  %98 = load i64, ptr %97, align 8
+  %99 = or i64 %98, %95
+  store i64 %99, ptr %97, align 8
+  br label %100
 
-99:                                               ; preds = %88, %92
-  %100 = load ptr, ptr %10, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
-  %102 = load i64, ptr %101, align 8
-  %103 = tail call i32 @pthread_setaffinity_np(i64 noundef %102, i64 noundef %24, ptr noundef nonnull %25) #3
-  %.not106 = icmp eq i32 %103, 0
-  br i1 %.not106, label %123, label %104
+100:                                              ; preds = %89, %93
+  %101 = load ptr, ptr %10, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = load i64, ptr %102, align 8
+  %104 = tail call i32 @pthread_setaffinity_np(i64 noundef %103, i64 noundef %24, ptr noundef nonnull %25) #3
+  %.not106 = icmp eq i32 %104, 0
+  br i1 %.not106, label %124, label %105
 
-104:                                              ; preds = %99
-  %105 = load ptr, ptr @_ZN7mitsuba6Thread7m_classE, align 8
-  %106 = tail call ptr @strerror(i32 noundef %103) #3
-  store ptr %106, ptr %9, align 8
+105:                                              ; preds = %100
+  %106 = load ptr, ptr @_ZN7mitsuba6Thread7m_classE, align 8
+  %107 = tail call ptr @strerror(i32 noundef %104) #3
+  store ptr %107, ptr %9, align 8
   %.b.i.i.i111 = load i1, ptr @__tls_guard, align 1
-  br i1 %.b.i.i.i111, label %_ZN7mitsuba6Thread6threadEv.exit112, label %107, !prof !4
+  br i1 %.b.i.i.i111, label %_ZN7mitsuba6Thread6threadEv.exit112, label %108, !prof !4
 
-107:                                              ; preds = %104
+108:                                              ; preds = %105
   store i1 true, ptr @__tls_guard, align 1
   tail call fastcc void @__cxx_global_var_init.1()
   br label %_ZN7mitsuba6Thread6threadEv.exit112
 
-_ZN7mitsuba6Thread6threadEv.exit112:              ; preds = %104, %107
-  %108 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7mitsubaL4selfE)
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 16
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 56
-  %113 = load ptr, ptr %112, align 8
-  %.not107 = icmp eq ptr %113, null
-  br i1 %.not107, label %122, label %114
+_ZN7mitsuba6Thread6threadEv.exit112:              ; preds = %105, %108
+  %109 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7mitsubaL4selfE)
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 56
+  %114 = load ptr, ptr %113, align 8
+  %.not107 = icmp eq ptr %114, null
+  br i1 %.not107, label %123, label %115
 
-114:                                              ; preds = %_ZN7mitsuba6Thread6threadEv.exit112
-  %115 = getelementptr inbounds i8, ptr %113, i64 12
-  %116 = load i32, ptr %115, align 4
-  %117 = icmp slt i32 %116, 301
-  br i1 %117, label %118, label %122
+115:                                              ; preds = %_ZN7mitsuba6Thread6threadEv.exit112
+  %116 = getelementptr inbounds i8, ptr %114, i64 12
+  %117 = load i32, ptr %116, align 4
+  %118 = icmp slt i32 %117, 301
+  br i1 %118, label %119, label %123
 
-118:                                              ; preds = %114
+119:                                              ; preds = %115
   call void @_ZN10tinyformat6formatIJPcEEENSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %3, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %113, i32 noundef 300, ptr noundef %105, ptr noundef nonnull @.str, i32 noundef 346, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %119 unwind label %120
+  invoke void @_ZN7mitsuba6Logger3logENS_8LogLevelEPKNS_5ClassEPKciRKNSt3__112basic_stringIcNS7_11char_traitsIcEENS7_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %114, i32 noundef 300, ptr noundef %106, ptr noundef nonnull @.str, i32 noundef 346, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %120 unwind label %121
 
-119:                                              ; preds = %118
+120:                                              ; preds = %119
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
-  br label %122
+  br label %123
 
-120:                                              ; preds = %118
-  %121 = landingpad { ptr, i32 }
+121:                                              ; preds = %119
+  %122 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-122:                                              ; preds = %_ZN7mitsuba6Thread6threadEv.exit112, %114, %119
+123:                                              ; preds = %_ZN7mitsuba6Thread6threadEv.exit112, %115, %120
   call void @__sched_cpufree(ptr noundef nonnull %25) #3
-  br label %124
+  br label %125
 
-123:                                              ; preds = %99
+124:                                              ; preds = %100
   tail call void @__sched_cpufree(ptr noundef nonnull %25) #3
-  br label %124
+  br label %125
 
-124:                                              ; preds = %40, %35, %_ZN7mitsuba6Thread6threadEv.exit, %2, %123, %122, %87
+125:                                              ; preds = %40, %35, %_ZN7mitsuba6Thread6threadEv.exit, %2, %124, %123, %88
   ret void
 }
 

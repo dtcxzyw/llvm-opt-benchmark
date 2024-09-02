@@ -872,20 +872,20 @@ define internal range(i32 -128, 128) i32 @php_tcp_sockop_set_option(ptr nocaptur
 
 .split:                                           ; preds = %4
   %14 = tail call i32 @php_sockop_set_option(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
-  br label %296
+  br label %297
 
 15:                                               ; preds = %4
   %16 = load i32, ptr %3, align 8
   switch i32 %16, label %.split20 [
     i32 1, label %18
     i32 4, label %18
-    i32 0, label %152
-    i32 3, label %250
+    i32 0, label %153
+    i32 3, label %251
   ]
 
 .split20:                                         ; preds = %15
   %17 = tail call i32 @php_sockop_set_option(ptr noundef nonnull %0, i32 noundef 7, i32 noundef %2, ptr noundef nonnull %3)
-  br label %296
+  br label %297
 
 18:                                               ; preds = %15, %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -959,7 +959,7 @@ parse_unix_address.exit.i:                        ; preds = %38, %33
   %56 = load i32, ptr %10, align 4
   %57 = getelementptr inbounds i8, ptr %3, i64 116
   store i32 %56, ptr %57, align 4
-  br label %143
+  br label %144
 
 58:                                               ; preds = %18
   %59 = getelementptr inbounds i8, ptr %3, i64 8
@@ -980,445 +980,445 @@ parse_unix_address.exit.i:                        ; preds = %38, %33
   %72 = getelementptr inbounds i8, ptr %0, i64 144
   %73 = load ptr, ptr %72, align 8
   %.not.i = icmp eq ptr %73, null
-  br i1 %.not.i, label %.thread.i, label %74
+  br i1 %.not.i, label %.critedge.i, label %74
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds i8, ptr %73, i64 24
   %76 = load ptr, ptr %75, align 8
-  %.not80.i = icmp eq ptr %76, null
-  br i1 %.not80.i, label %.thread.i, label %77
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %.critedge.i, label %78
 
-77:                                               ; preds = %74
-  %78 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %76, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #14
-  %.not82.i = icmp eq ptr %78, null
-  br i1 %.not82.i, label %.thread.i, label %79
+78:                                               ; preds = %74
+  %79 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %76, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #14
+  %.not82.i = icmp eq ptr %79, null
+  br i1 %.not82.i, label %.critedge.i, label %80
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %78, i64 8
-  %81 = load i8, ptr %80, align 8
-  %.not83.i = icmp eq i8 %81, 6
-  br i1 %.not83.i, label %88, label %82
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds i8, ptr %79, i64 8
+  %82 = load i8, ptr %81, align 8
+  %.not83.i = icmp eq i8 %82, 6
+  br i1 %.not83.i, label %89, label %83
 
-82:                                               ; preds = %79
-  %83 = load i8, ptr %63, align 4
-  %84 = and i8 %83, 4
-  %.not99.i = icmp eq i8 %84, 0
-  br i1 %.not99.i, label %87, label %85
+83:                                               ; preds = %80
+  %84 = load i8, ptr %63, align 4
+  %85 = and i8 %84, 4
+  %.not99.i = icmp eq i8 %85, 0
+  br i1 %.not99.i, label %88, label %86
 
-85:                                               ; preds = %82
-  %86 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.18) #14
-  store ptr %86, ptr %68, align 8
-  br label %87
+86:                                               ; preds = %83
+  %87 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.18) #14
+  store ptr %87, ptr %68, align 8
+  br label %88
 
-87:                                               ; preds = %85, %82
+88:                                               ; preds = %86, %83
   tail call void @_efree(ptr noundef nonnull %69) #14
   br label %php_tcp_sockop_connect.exit
 
-88:                                               ; preds = %79
-  %89 = load ptr, ptr %78, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 24
-  %91 = getelementptr inbounds i8, ptr %89, i64 16
-  %92 = load i64, ptr %91, align 8
-  %93 = load i8, ptr %63, align 4
-  %94 = lshr i8 %93, 2
-  %95 = and i8 %94, 1
-  %96 = zext nneg i8 %95 to i32
-  %97 = call fastcc ptr @parse_ip_address_ex(ptr noundef nonnull %90, i64 noundef %92, ptr noundef nonnull %9, i32 noundef %96, ptr noundef nonnull %68)
-  br label %.thread.i
-
-.thread.i:                                        ; preds = %88, %77, %74, %71
-  %.066.i = phi ptr [ %97, %88 ], [ null, %77 ], [ null, %74 ], [ null, %71 ]
-  %98 = load ptr, ptr %0, align 8
-  %99 = icmp eq ptr %98, @php_stream_udp_socket_ops
-  br i1 %99, label %100, label %.critedge.i
-
-100:                                              ; preds = %.thread.i
-  %101 = load ptr, ptr %72, align 8
-  %.not84.i = icmp eq ptr %101, null
-  br i1 %.not84.i, label %.critedge.i, label %102
-
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %101, i64 24
-  %104 = load ptr, ptr %103, align 8
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %.critedge.i, label %106
-
-106:                                              ; preds = %102
-  %107 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %104, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19) #14
-  %.not87.i = icmp eq ptr %107, null
-  br i1 %.not87.i, label %.critedge.i, label %108
-
-108:                                              ; preds = %106
-  %109 = tail call i32 @zend_is_true(ptr noundef nonnull %107) #14
-  %.not88.i = icmp eq i32 %109, 0
-  %spec.select.i = select i1 %.not88.i, i64 1, i64 5
+89:                                               ; preds = %80
+  %90 = load ptr, ptr %79, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 24
+  %92 = getelementptr inbounds i8, ptr %90, i64 16
+  %93 = load i64, ptr %92, align 8
+  %94 = load i8, ptr %63, align 4
+  %95 = lshr i8 %94, 2
+  %96 = and i8 %95, 1
+  %97 = zext nneg i8 %96 to i32
+  %98 = call fastcc ptr @parse_ip_address_ex(ptr noundef nonnull %91, i64 noundef %93, ptr noundef nonnull %9, i32 noundef %97, ptr noundef nonnull %68)
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %108, %106, %102, %100, %.thread.i
-  %.0.i = phi i64 [ 1, %106 ], [ 1, %102 ], [ 1, %.thread.i ], [ %spec.select.i, %108 ], [ 1, %100 ]
-  %110 = load ptr, ptr %0, align 8
-  %.not89.i = icmp eq ptr %110, @php_stream_udp_socket_ops
-  %.not90.i = icmp eq ptr %110, @php_stream_unix_socket_ops
-  %or.cond103.i = or i1 %.not89.i, %.not90.i
-  %.not91.i = icmp eq ptr %110, @php_stream_unixdg_socket_ops
-  %or.cond104.i = or i1 %.not91.i, %or.cond103.i
-  br i1 %or.cond104.i, label %.critedge106.i, label %111
+.critedge.i:                                      ; preds = %89, %78, %74, %71
+  %.066.i = phi ptr [ %98, %89 ], [ null, %78 ], [ null, %74 ], [ null, %71 ]
+  %99 = load ptr, ptr %0, align 8
+  %100 = icmp eq ptr %99, @php_stream_udp_socket_ops
+  br i1 %100, label %101, label %.critedge104.i
 
-111:                                              ; preds = %.critedge.i
-  %112 = load ptr, ptr %72, align 8
-  %.not92.i = icmp eq ptr %112, null
-  br i1 %.not92.i, label %.critedge106.i, label %113
+101:                                              ; preds = %.critedge.i
+  %102 = load ptr, ptr %72, align 8
+  %.not84.i = icmp eq ptr %102, null
+  br i1 %.not84.i, label %.critedge104.i, label %103
 
-113:                                              ; preds = %111
-  %114 = getelementptr inbounds i8, ptr %112, i64 24
-  %115 = load ptr, ptr %114, align 8
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %.critedge106.i, label %117
+103:                                              ; preds = %101
+  %104 = getelementptr inbounds i8, ptr %102, i64 24
+  %105 = load ptr, ptr %104, align 8
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %.critedge104.i, label %107
 
-117:                                              ; preds = %113
-  %118 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %115, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.20) #14
-  %.not95.i = icmp eq ptr %118, null
-  br i1 %.not95.i, label %.critedge106.i, label %119
+107:                                              ; preds = %103
+  %108 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %105, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19) #14
+  %.not87.i = icmp eq ptr %108, null
+  br i1 %.not87.i, label %.critedge104.i, label %109
 
-119:                                              ; preds = %117
-  %120 = tail call i32 @zend_is_true(ptr noundef nonnull %118) #14
-  %.not96.i = icmp eq i32 %120, 0
-  %121 = or disjoint i64 %.0.i, 32
-  %spec.select107.i = select i1 %.not96.i, i64 %.0.i, i64 %121
-  br label %.critedge106.i
+109:                                              ; preds = %107
+  %110 = tail call i32 @zend_is_true(ptr noundef nonnull %108) #14
+  %.not88.i = icmp eq i32 %110, 0
+  %spec.select.i = select i1 %.not88.i, i64 1, i64 5
+  br label %.critedge104.i
 
-.critedge106.i:                                   ; preds = %119, %117, %113, %111, %.critedge.i
-  %.1.i = phi i64 [ %.0.i, %117 ], [ %.0.i, %113 ], [ %.0.i, %.critedge.i ], [ %spec.select107.i, %119 ], [ %.0.i, %111 ]
-  %122 = load i32, ptr %8, align 4
-  %123 = trunc i32 %122 to i16
-  %124 = load ptr, ptr %0, align 8
-  %125 = icmp eq ptr %124, @php_stream_udp_socket_ops
-  %126 = select i1 %125, i32 2, i32 1
-  %127 = load i32, ptr %3, align 8
-  %128 = icmp eq i32 %127, 4
-  %129 = zext i1 %128 to i32
-  %130 = getelementptr inbounds i8, ptr %3, i64 24
-  %131 = load ptr, ptr %130, align 8
-  %132 = load i8, ptr %63, align 4
-  %133 = and i8 %132, 4
-  %.not97.i = icmp eq i8 %133, 0
-  %134 = select i1 %.not97.i, ptr null, ptr %68
-  %135 = load i32, ptr %9, align 4
-  %136 = trunc i32 %135 to i16
-  %137 = call i32 @php_network_connect_socket_to_host(ptr noundef nonnull %69, i16 noundef zeroext %123, i32 noundef %126, i32 noundef %129, ptr noundef %131, ptr noundef %134, ptr noundef nonnull %10, ptr noundef %.066.i, i16 noundef zeroext %136, i64 noundef %.1.i) #14
-  store i32 %137, ptr %13, align 8
-  %138 = icmp eq i32 %137, -1
-  %139 = sext i1 %138 to i32
-  %140 = load i32, ptr %10, align 4
-  %141 = getelementptr inbounds i8, ptr %3, i64 116
-  store i32 %140, ptr %141, align 4
+.critedge104.i:                                   ; preds = %109, %107, %103, %101, %.critedge.i
+  %.0.i = phi i64 [ 1, %107 ], [ 1, %103 ], [ 1, %.critedge.i ], [ %spec.select.i, %109 ], [ 1, %101 ]
+  %111 = load ptr, ptr %0, align 8
+  %.not89.i = icmp eq ptr %111, @php_stream_udp_socket_ops
+  %.not90.i = icmp eq ptr %111, @php_stream_unix_socket_ops
+  %or.cond105.i = or i1 %.not89.i, %.not90.i
+  %.not91.i = icmp eq ptr %111, @php_stream_unixdg_socket_ops
+  %or.cond106.i = or i1 %.not91.i, %or.cond105.i
+  br i1 %or.cond106.i, label %.critedge108.i, label %112
+
+112:                                              ; preds = %.critedge104.i
+  %113 = load ptr, ptr %72, align 8
+  %.not92.i = icmp eq ptr %113, null
+  br i1 %.not92.i, label %.critedge108.i, label %114
+
+114:                                              ; preds = %112
+  %115 = getelementptr inbounds i8, ptr %113, i64 24
+  %116 = load ptr, ptr %115, align 8
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %.critedge108.i, label %118
+
+118:                                              ; preds = %114
+  %119 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %116, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.20) #14
+  %.not95.i = icmp eq ptr %119, null
+  br i1 %.not95.i, label %.critedge108.i, label %120
+
+120:                                              ; preds = %118
+  %121 = tail call i32 @zend_is_true(ptr noundef nonnull %119) #14
+  %.not96.i = icmp eq i32 %121, 0
+  %122 = or disjoint i64 %.0.i, 32
+  %spec.select109.i = select i1 %.not96.i, i64 %.0.i, i64 %122
+  br label %.critedge108.i
+
+.critedge108.i:                                   ; preds = %120, %118, %114, %112, %.critedge104.i
+  %.1.i = phi i64 [ %.0.i, %118 ], [ %.0.i, %114 ], [ %.0.i, %.critedge104.i ], [ %spec.select109.i, %120 ], [ %.0.i, %112 ]
+  %123 = load i32, ptr %8, align 4
+  %124 = trunc i32 %123 to i16
+  %125 = load ptr, ptr %0, align 8
+  %126 = icmp eq ptr %125, @php_stream_udp_socket_ops
+  %127 = select i1 %126, i32 2, i32 1
+  %128 = load i32, ptr %3, align 8
+  %129 = icmp eq i32 %128, 4
+  %130 = zext i1 %129 to i32
+  %131 = getelementptr inbounds i8, ptr %3, i64 24
+  %132 = load ptr, ptr %131, align 8
+  %133 = load i8, ptr %63, align 4
+  %134 = and i8 %133, 4
+  %.not97.i = icmp eq i8 %134, 0
+  %135 = select i1 %.not97.i, ptr null, ptr %68
+  %136 = load i32, ptr %9, align 4
+  %137 = trunc i32 %136 to i16
+  %138 = call i32 @php_network_connect_socket_to_host(ptr noundef nonnull %69, i16 noundef zeroext %124, i32 noundef %127, i32 noundef %130, ptr noundef %132, ptr noundef %135, ptr noundef nonnull %10, ptr noundef %.066.i, i16 noundef zeroext %137, i64 noundef %.1.i) #14
+  store i32 %138, ptr %13, align 8
+  %139 = icmp eq i32 %138, -1
+  %140 = sext i1 %139 to i32
+  %141 = load i32, ptr %10, align 4
+  %142 = getelementptr inbounds i8, ptr %3, i64 116
+  store i32 %141, ptr %142, align 4
   call void @_efree(ptr noundef nonnull %69) #14
   %.not98.i = icmp eq ptr %.066.i, null
-  br i1 %.not98.i, label %143, label %142
+  br i1 %.not98.i, label %144, label %143
 
-142:                                              ; preds = %.critedge106.i
+143:                                              ; preds = %.critedge108.i
   call void @_efree(ptr noundef nonnull %.066.i) #14
-  br label %143
+  br label %144
 
-143:                                              ; preds = %142, %.critedge106.i, %parse_unix_address.exit.i
-  %.065.i = phi i32 [ %55, %parse_unix_address.exit.i ], [ %139, %142 ], [ %139, %.critedge106.i ]
-  %144 = icmp sgt i32 %.065.i, -1
-  br i1 %144, label %145, label %150
+144:                                              ; preds = %143, %.critedge108.i, %parse_unix_address.exit.i
+  %.065.i = phi i32 [ %55, %parse_unix_address.exit.i ], [ %140, %143 ], [ %140, %.critedge108.i ]
+  %145 = icmp sgt i32 %.065.i, -1
+  br i1 %145, label %146, label %151
 
-145:                                              ; preds = %143
-  %146 = load i32, ptr %3, align 8
-  %147 = icmp eq i32 %146, 4
-  %148 = load i32, ptr %10, align 4
-  %149 = icmp eq i32 %148, 115
-  %or.cond.i = select i1 %147, i1 %149, i1 false
-  br i1 %or.cond.i, label %php_tcp_sockop_connect.exit, label %150
+146:                                              ; preds = %144
+  %147 = load i32, ptr %3, align 8
+  %148 = icmp eq i32 %147, 4
+  %149 = load i32, ptr %10, align 4
+  %150 = icmp eq i32 %149, 115
+  %or.cond.i = select i1 %148, i1 %150, i1 false
+  br i1 %or.cond.i, label %php_tcp_sockop_connect.exit, label %151
 
-150:                                              ; preds = %145, %143
+151:                                              ; preds = %146, %144
   br label %php_tcp_sockop_connect.exit
 
-php_tcp_sockop_connect.exit:                      ; preds = %26, %30, %58, %87, %145, %150
-  %.067.i = phi i32 [ %.065.i, %150 ], [ -1, %87 ], [ -1, %30 ], [ -1, %26 ], [ -1, %58 ], [ 1, %145 ]
+php_tcp_sockop_connect.exit:                      ; preds = %26, %30, %58, %88, %146, %151
+  %.067.i = phi i32 [ %.065.i, %151 ], [ -1, %88 ], [ -1, %30 ], [ -1, %26 ], [ -1, %58 ], [ 1, %146 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %11)
-  %151 = getelementptr inbounds i8, ptr %3, i64 112
-  store i32 %.067.i, ptr %151, align 8
-  br label %296
+  %152 = getelementptr inbounds i8, ptr %3, i64 112
+  store i32 %.067.i, ptr %152, align 8
+  br label %297
 
-152:                                              ; preds = %15
+153:                                              ; preds = %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %7)
-  %153 = load ptr, ptr %0, align 8
-  %154 = icmp eq ptr %153, @php_stream_unix_socket_ops
-  %155 = icmp eq ptr %153, @php_stream_unixdg_socket_ops
-  %or.cond.i22 = or i1 %154, %155
-  br i1 %or.cond.i22, label %156, label %186
+  %154 = load ptr, ptr %0, align 8
+  %155 = icmp eq ptr %154, @php_stream_unix_socket_ops
+  %156 = icmp eq ptr %154, @php_stream_unixdg_socket_ops
+  %or.cond.i22 = or i1 %155, %156
+  br i1 %or.cond.i22, label %157, label %187
 
-156:                                              ; preds = %152
-  %157 = select i1 %154, i32 1, i32 2
-  %158 = tail call i32 @socket(i32 noundef 1, i32 noundef %157, i32 noundef 0) #14
-  store i32 %158, ptr %13, align 8
-  %159 = icmp eq i32 %158, -1
-  br i1 %159, label %160, label %173
+157:                                              ; preds = %153
+  %158 = select i1 %155, i32 1, i32 2
+  %159 = tail call i32 @socket(i32 noundef 1, i32 noundef %158, i32 noundef 0) #14
+  store i32 %159, ptr %13, align 8
+  %160 = icmp eq i32 %159, -1
+  br i1 %160, label %161, label %174
 
-160:                                              ; preds = %156
-  %161 = getelementptr inbounds i8, ptr %3, i64 4
-  %162 = load i8, ptr %161, align 4
-  %163 = and i8 %162, 4
-  %.not71.i = icmp eq i8 %163, 0
-  br i1 %.not71.i, label %php_tcp_sockop_bind.exit, label %164
+161:                                              ; preds = %157
+  %162 = getelementptr inbounds i8, ptr %3, i64 4
+  %163 = load i8, ptr %162, align 4
+  %164 = and i8 %163, 4
+  %.not71.i = icmp eq i8 %164, 0
+  br i1 %.not71.i, label %php_tcp_sockop_bind.exit, label %165
 
-164:                                              ; preds = %160
-  %165 = load ptr, ptr %0, align 8
-  %166 = icmp eq ptr %165, @php_stream_unix_socket_ops
-  %167 = select i1 %166, ptr @.str.25, ptr @.str.26
-  %168 = tail call ptr @__errno_location() #15
-  %169 = load i32, ptr %168, align 4
-  %170 = tail call ptr @strerror(i32 noundef %169) #14
-  %171 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %167, ptr noundef %170) #14
-  %172 = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr %171, ptr %172, align 8
+165:                                              ; preds = %161
+  %166 = load ptr, ptr %0, align 8
+  %167 = icmp eq ptr %166, @php_stream_unix_socket_ops
+  %168 = select i1 %167, ptr @.str.25, ptr @.str.26
+  %169 = tail call ptr @__errno_location() #15
+  %170 = load i32, ptr %169, align 4
+  %171 = tail call ptr @strerror(i32 noundef %170) #14
+  %172 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %168, ptr noundef %171) #14
+  %173 = getelementptr inbounds i8, ptr %3, i64 104
+  store ptr %172, ptr %173, align 8
   br label %php_tcp_sockop_bind.exit
 
-173:                                              ; preds = %156
-  %174 = getelementptr inbounds i8, ptr %7, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %174, i8 0, i64 108, i1 false)
+174:                                              ; preds = %157
+  %175 = getelementptr inbounds i8, ptr %7, i64 2
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %175, i8 0, i64 108, i1 false)
   store i16 1, ptr %7, align 2
-  %175 = getelementptr inbounds i8, ptr %3, i64 16
-  %176 = load i64, ptr %175, align 8
-  %177 = icmp ugt i64 %176, 107
-  br i1 %177, label %178, label %parse_unix_address.exit.i28
+  %176 = getelementptr inbounds i8, ptr %3, i64 16
+  %177 = load i64, ptr %176, align 8
+  %178 = icmp ugt i64 %177, 107
+  br i1 %178, label %179, label %parse_unix_address.exit.i28
 
-178:                                              ; preds = %173
-  store i64 107, ptr %175, align 8
+179:                                              ; preds = %174
+  store i64 107, ptr %176, align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.21, i64 noundef 108) #14
-  %.pre.i.i29 = load i64, ptr %175, align 8
+  %.pre.i.i29 = load i64, ptr %176, align 8
   %.pre.i30 = load i32, ptr %13, align 8
   br label %parse_unix_address.exit.i28
 
-parse_unix_address.exit.i28:                      ; preds = %178, %173
-  %179 = phi i32 [ %.pre.i30, %178 ], [ %158, %173 ]
-  %180 = phi i64 [ %.pre.i.i29, %178 ], [ %176, %173 ]
-  %181 = getelementptr inbounds i8, ptr %3, i64 8
-  %182 = load ptr, ptr %181, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %174, ptr align 1 %182, i64 %180, i1 false)
-  %183 = trunc i64 %180 to i32
-  %184 = add i32 %183, 2
-  %185 = call i32 @bind(i32 noundef %179, ptr nonnull %7, i32 noundef %184) #14
+parse_unix_address.exit.i28:                      ; preds = %179, %174
+  %180 = phi i32 [ %.pre.i30, %179 ], [ %159, %174 ]
+  %181 = phi i64 [ %.pre.i.i29, %179 ], [ %177, %174 ]
+  %182 = getelementptr inbounds i8, ptr %3, i64 8
+  %183 = load ptr, ptr %182, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %175, ptr align 1 %183, i64 %181, i1 false)
+  %184 = trunc i64 %181 to i32
+  %185 = add i32 %184, 2
+  %186 = call i32 @bind(i32 noundef %180, ptr nonnull %7, i32 noundef %185) #14
   br label %php_tcp_sockop_bind.exit
 
-186:                                              ; preds = %152
-  %187 = getelementptr inbounds i8, ptr %3, i64 8
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %3, i64 16
-  %190 = load i64, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %3, i64 4
-  %192 = load i8, ptr %191, align 4
-  %193 = lshr i8 %192, 2
-  %194 = and i8 %193, 1
-  %195 = zext nneg i8 %194 to i32
-  %196 = getelementptr inbounds i8, ptr %3, i64 104
-  %197 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %188, i64 noundef %190, ptr noundef nonnull %5, i32 noundef %195, ptr noundef nonnull %196)
-  %198 = icmp eq ptr %197, null
-  br i1 %198, label %php_tcp_sockop_bind.exit, label %199
+187:                                              ; preds = %153
+  %188 = getelementptr inbounds i8, ptr %3, i64 8
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds i8, ptr %3, i64 16
+  %191 = load i64, ptr %190, align 8
+  %192 = getelementptr inbounds i8, ptr %3, i64 4
+  %193 = load i8, ptr %192, align 4
+  %194 = lshr i8 %193, 2
+  %195 = and i8 %194, 1
+  %196 = zext nneg i8 %195 to i32
+  %197 = getelementptr inbounds i8, ptr %3, i64 104
+  %198 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %189, i64 noundef %191, ptr noundef nonnull %5, i32 noundef %196, ptr noundef nonnull %197)
+  %199 = icmp eq ptr %198, null
+  br i1 %199, label %php_tcp_sockop_bind.exit, label %200
 
-199:                                              ; preds = %186
-  %200 = getelementptr inbounds i8, ptr %0, i64 144
-  %201 = load ptr, ptr %200, align 8
-  %.not.i23 = icmp eq ptr %201, null
-  br i1 %.not.i23, label %.critedge73.i, label %202
+200:                                              ; preds = %187
+  %201 = getelementptr inbounds i8, ptr %0, i64 144
+  %202 = load ptr, ptr %201, align 8
+  %.not.i23 = icmp eq ptr %202, null
+  br i1 %.not.i23, label %.critedge73.i, label %203
 
-202:                                              ; preds = %199
-  %203 = getelementptr inbounds i8, ptr %201, i64 24
-  %204 = load ptr, ptr %203, align 8
-  %205 = icmp eq ptr %204, null
-  br i1 %205, label %.critedge.i24, label %206
+203:                                              ; preds = %200
+  %204 = getelementptr inbounds i8, ptr %202, i64 24
+  %205 = load ptr, ptr %204, align 8
+  %206 = icmp eq ptr %205, null
+  br i1 %206, label %.critedge.i24, label %207
 
-206:                                              ; preds = %202
-  %207 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %204, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.27) #14
-  %.not58.i = icmp eq ptr %207, null
-  br i1 %.not58.i, label %.critedge.i24, label %208
+207:                                              ; preds = %203
+  %208 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %205, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.27) #14
+  %.not58.i = icmp eq ptr %208, null
+  br i1 %.not58.i, label %.critedge.i24, label %209
 
-208:                                              ; preds = %206
-  %209 = getelementptr inbounds i8, ptr %207, i64 8
-  %210 = load i8, ptr %209, align 8
-  %.not59.i = icmp eq i8 %210, 1
-  br i1 %.not59.i, label %.critedge.i24, label %211
+209:                                              ; preds = %207
+  %210 = getelementptr inbounds i8, ptr %208, i64 8
+  %211 = load i8, ptr %210, align 8
+  %.not59.i = icmp eq i8 %211, 1
+  br i1 %.not59.i, label %.critedge.i24, label %212
 
-211:                                              ; preds = %208
-  %212 = tail call i32 @zend_is_true(ptr noundef nonnull %207) #14
-  %213 = shl nsw i32 %212, 4
-  %214 = or disjoint i32 %213, 9
-  %215 = sext i32 %214 to i64
+212:                                              ; preds = %209
+  %213 = tail call i32 @zend_is_true(ptr noundef nonnull %208) #14
+  %214 = shl nsw i32 %213, 4
+  %215 = or disjoint i32 %214, 9
+  %216 = sext i32 %215 to i64
   br label %.critedge.i24
 
-.critedge.i24:                                    ; preds = %211, %208, %206, %202
-  %.044.ph.i = phi i64 [ 1, %202 ], [ 1, %206 ], [ 1, %208 ], [ %215, %211 ]
-  %.pr.i = load ptr, ptr %200, align 8
+.critedge.i24:                                    ; preds = %212, %209, %207, %203
+  %.044.ph.i = phi i64 [ 1, %203 ], [ 1, %207 ], [ 1, %209 ], [ %216, %212 ]
+  %.pr.i = load ptr, ptr %201, align 8
   %.not60.i = icmp eq ptr %.pr.i, null
-  br i1 %.not60.i, label %.critedge73.i, label %216
+  br i1 %.not60.i, label %.critedge73.i, label %217
 
-216:                                              ; preds = %.critedge.i24
-  %217 = getelementptr inbounds i8, ptr %.pr.i, i64 24
-  %218 = load ptr, ptr %217, align 8
-  %219 = icmp eq ptr %218, null
-  br i1 %219, label %.critedge73.i, label %220
+217:                                              ; preds = %.critedge.i24
+  %218 = getelementptr inbounds i8, ptr %.pr.i, i64 24
+  %219 = load ptr, ptr %218, align 8
+  %220 = icmp eq ptr %219, null
+  br i1 %220, label %.critedge73.i, label %221
 
-220:                                              ; preds = %216
-  %221 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %218, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.28) #14
-  %.not63.i = icmp eq ptr %221, null
-  br i1 %.not63.i, label %.critedge73.i, label %222
+221:                                              ; preds = %217
+  %222 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %219, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.28) #14
+  %.not63.i = icmp eq ptr %222, null
+  br i1 %.not63.i, label %.critedge73.i, label %223
 
-222:                                              ; preds = %220
-  %223 = tail call i32 @zend_is_true(ptr noundef nonnull %221) #14
-  %.not64.i = icmp eq i32 %223, 0
-  %224 = or i64 %.044.ph.i, 2
-  %spec.select.i25 = select i1 %.not64.i, i64 %.044.ph.i, i64 %224
+223:                                              ; preds = %221
+  %224 = tail call i32 @zend_is_true(ptr noundef nonnull %222) #14
+  %.not64.i = icmp eq i32 %224, 0
+  %225 = or i64 %.044.ph.i, 2
+  %spec.select.i25 = select i1 %.not64.i, i64 %.044.ph.i, i64 %225
   br label %.critedge73.i
 
-.critedge73.i:                                    ; preds = %222, %220, %216, %.critedge.i24, %199
-  %.1.i26 = phi i64 [ %.044.ph.i, %220 ], [ %.044.ph.i, %216 ], [ %spec.select.i25, %222 ], [ %.044.ph.i, %.critedge.i24 ], [ 1, %199 ]
-  %225 = load ptr, ptr %0, align 8
-  %226 = icmp eq ptr %225, @php_stream_udp_socket_ops
-  br i1 %226, label %227, label %.critedge75.i
+.critedge73.i:                                    ; preds = %223, %221, %217, %.critedge.i24, %200
+  %.1.i26 = phi i64 [ %.044.ph.i, %221 ], [ %.044.ph.i, %217 ], [ %spec.select.i25, %223 ], [ %.044.ph.i, %.critedge.i24 ], [ 1, %200 ]
+  %226 = load ptr, ptr %0, align 8
+  %227 = icmp eq ptr %226, @php_stream_udp_socket_ops
+  br i1 %227, label %228, label %.critedge75.i
 
-227:                                              ; preds = %.critedge73.i
-  %228 = load ptr, ptr %200, align 8
-  %.not65.i = icmp eq ptr %228, null
-  br i1 %.not65.i, label %.critedge75.i, label %229
+228:                                              ; preds = %.critedge73.i
+  %229 = load ptr, ptr %201, align 8
+  %.not65.i = icmp eq ptr %229, null
+  br i1 %.not65.i, label %.critedge75.i, label %230
 
-229:                                              ; preds = %227
-  %230 = getelementptr inbounds i8, ptr %228, i64 24
-  %231 = load ptr, ptr %230, align 8
-  %232 = icmp eq ptr %231, null
-  br i1 %232, label %.critedge75.i, label %233
+230:                                              ; preds = %228
+  %231 = getelementptr inbounds i8, ptr %229, i64 24
+  %232 = load ptr, ptr %231, align 8
+  %233 = icmp eq ptr %232, null
+  br i1 %233, label %.critedge75.i, label %234
 
-233:                                              ; preds = %229
-  %234 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %231, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19) #14
-  %.not68.i = icmp eq ptr %234, null
-  br i1 %.not68.i, label %.critedge75.i, label %235
+234:                                              ; preds = %230
+  %235 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %232, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19) #14
+  %.not68.i = icmp eq ptr %235, null
+  br i1 %.not68.i, label %.critedge75.i, label %236
 
-235:                                              ; preds = %233
-  %236 = tail call i32 @zend_is_true(ptr noundef nonnull %234) #14
-  %.not69.i = icmp eq i32 %236, 0
-  %237 = or i64 %.1.i26, 4
-  %spec.select76.i = select i1 %.not69.i, i64 %.1.i26, i64 %237
+236:                                              ; preds = %234
+  %237 = tail call i32 @zend_is_true(ptr noundef nonnull %235) #14
+  %.not69.i = icmp eq i32 %237, 0
+  %238 = or i64 %.1.i26, 4
+  %spec.select76.i = select i1 %.not69.i, i64 %.1.i26, i64 %238
   br label %.critedge75.i
 
-.critedge75.i:                                    ; preds = %235, %233, %229, %227, %.critedge73.i
-  %.2.i = phi i64 [ %.1.i26, %233 ], [ %.1.i26, %229 ], [ %.1.i26, %.critedge73.i ], [ %spec.select76.i, %235 ], [ %.1.i26, %227 ]
-  %238 = load i32, ptr %5, align 4
-  %239 = load ptr, ptr %0, align 8
-  %240 = icmp eq ptr %239, @php_stream_udp_socket_ops
-  %241 = select i1 %240, i32 2, i32 1
-  %242 = load i8, ptr %191, align 4
-  %243 = and i8 %242, 4
-  %.not70.i = icmp eq i8 %243, 0
-  %244 = select i1 %.not70.i, ptr null, ptr %196
-  %245 = call i32 @php_network_bind_socket_to_local_addr(ptr noundef nonnull %197, i32 noundef %238, i32 noundef %241, i64 noundef %.2.i, ptr noundef %244, ptr noundef nonnull %6) #14
-  store i32 %245, ptr %13, align 8
-  call void @_efree(ptr noundef nonnull %197) #14
-  %246 = load i32, ptr %13, align 8
-  %247 = icmp eq i32 %246, -1
-  %248 = sext i1 %247 to i32
+.critedge75.i:                                    ; preds = %236, %234, %230, %228, %.critedge73.i
+  %.2.i = phi i64 [ %.1.i26, %234 ], [ %.1.i26, %230 ], [ %.1.i26, %.critedge73.i ], [ %spec.select76.i, %236 ], [ %.1.i26, %228 ]
+  %239 = load i32, ptr %5, align 4
+  %240 = load ptr, ptr %0, align 8
+  %241 = icmp eq ptr %240, @php_stream_udp_socket_ops
+  %242 = select i1 %241, i32 2, i32 1
+  %243 = load i8, ptr %192, align 4
+  %244 = and i8 %243, 4
+  %.not70.i = icmp eq i8 %244, 0
+  %245 = select i1 %.not70.i, ptr null, ptr %197
+  %246 = call i32 @php_network_bind_socket_to_local_addr(ptr noundef nonnull %198, i32 noundef %239, i32 noundef %242, i64 noundef %.2.i, ptr noundef %245, ptr noundef nonnull %6) #14
+  store i32 %246, ptr %13, align 8
+  call void @_efree(ptr noundef nonnull %198) #14
+  %247 = load i32, ptr %13, align 8
+  %248 = icmp eq i32 %247, -1
+  %249 = sext i1 %248 to i32
   br label %php_tcp_sockop_bind.exit
 
-php_tcp_sockop_bind.exit:                         ; preds = %160, %164, %parse_unix_address.exit.i28, %186, %.critedge75.i
-  %.0.i27 = phi i32 [ %185, %parse_unix_address.exit.i28 ], [ %248, %.critedge75.i ], [ -1, %164 ], [ -1, %160 ], [ -1, %186 ]
+php_tcp_sockop_bind.exit:                         ; preds = %161, %165, %parse_unix_address.exit.i28, %187, %.critedge75.i
+  %.0.i27 = phi i32 [ %186, %parse_unix_address.exit.i28 ], [ %249, %.critedge75.i ], [ -1, %165 ], [ -1, %161 ], [ -1, %187 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %7)
-  %249 = getelementptr inbounds i8, ptr %3, i64 112
-  store i32 %.0.i27, ptr %249, align 8
-  br label %296
+  %250 = getelementptr inbounds i8, ptr %3, i64 112
+  store i32 %.0.i27, ptr %250, align 8
+  br label %297
 
-250:                                              ; preds = %15
-  %251 = getelementptr inbounds i8, ptr %3, i64 72
-  store ptr null, ptr %251, align 8
-  %252 = getelementptr inbounds i8, ptr %0, i64 144
-  %253 = load ptr, ptr %252, align 8
-  %.not.i31 = icmp eq ptr %253, null
-  br i1 %.not.i31, label %.critedge.i33, label %254
+251:                                              ; preds = %15
+  %252 = getelementptr inbounds i8, ptr %3, i64 72
+  store ptr null, ptr %252, align 8
+  %253 = getelementptr inbounds i8, ptr %0, i64 144
+  %254 = load ptr, ptr %253, align 8
+  %.not.i31 = icmp eq ptr %254, null
+  br i1 %.not.i31, label %.critedge.i33, label %255
 
-254:                                              ; preds = %250
-  %255 = getelementptr inbounds i8, ptr %253, i64 24
-  %256 = load ptr, ptr %255, align 8
-  %257 = icmp eq ptr %256, null
-  br i1 %257, label %.critedge.i33, label %258
+255:                                              ; preds = %251
+  %256 = getelementptr inbounds i8, ptr %254, i64 24
+  %257 = load ptr, ptr %256, align 8
+  %258 = icmp eq ptr %257, null
+  br i1 %258, label %.critedge.i33, label %259
 
-258:                                              ; preds = %254
-  %259 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %256, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.20) #14
-  %.not41.i = icmp eq ptr %259, null
-  br i1 %.not41.i, label %.critedge.i33, label %260
+259:                                              ; preds = %255
+  %260 = tail call ptr @php_stream_context_get_option(ptr noundef nonnull %257, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.20) #14
+  %.not41.i = icmp eq ptr %260, null
+  br i1 %.not41.i, label %.critedge.i33, label %261
 
-260:                                              ; preds = %258
-  %261 = tail call i32 @zend_is_true(ptr noundef nonnull %259) #14
-  %.not42.i = icmp ne i32 %261, 0
+261:                                              ; preds = %259
+  %262 = tail call i32 @zend_is_true(ptr noundef nonnull %260) #14
+  %.not42.i = icmp ne i32 %262, 0
   %spec.select.i32 = zext i1 %.not42.i to i32
   br label %.critedge.i33
 
-.critedge.i33:                                    ; preds = %260, %258, %254, %250
-  %.0.i34 = phi i32 [ 0, %258 ], [ 0, %254 ], [ %spec.select.i32, %260 ], [ 0, %250 ]
-  %262 = load i32, ptr %13, align 8
-  %263 = getelementptr inbounds i8, ptr %3, i64 4
-  %264 = load i8, ptr %263, align 4
-  %265 = and i8 %264, 2
-  %.not43.i = icmp eq i8 %265, 0
-  %266 = getelementptr inbounds i8, ptr %3, i64 96
-  %267 = select i1 %.not43.i, ptr null, ptr %266
-  %268 = and i8 %264, 1
-  %.not44.i = icmp eq i8 %268, 0
-  %269 = getelementptr inbounds i8, ptr %3, i64 80
-  %270 = select i1 %.not44.i, ptr null, ptr %269
-  %271 = getelementptr inbounds i8, ptr %3, i64 88
-  %272 = select i1 %.not44.i, ptr null, ptr %271
-  %273 = getelementptr inbounds i8, ptr %3, i64 24
-  %274 = load ptr, ptr %273, align 8
-  %275 = and i8 %264, 4
-  %.not45.i = icmp eq i8 %275, 0
-  %276 = getelementptr inbounds i8, ptr %3, i64 104
-  %277 = select i1 %.not45.i, ptr null, ptr %276
-  %278 = getelementptr inbounds i8, ptr %3, i64 116
-  %279 = tail call i32 @php_network_accept_incoming(i32 noundef %262, ptr noundef %267, ptr noundef %270, ptr noundef %272, ptr noundef %274, ptr noundef %277, ptr noundef nonnull %278, i32 noundef %.0.i34) #14
-  %280 = icmp sgt i32 %279, -1
-  br i1 %280, label %281, label %php_tcp_sockop_accept.exit
+.critedge.i33:                                    ; preds = %261, %259, %255, %251
+  %.0.i34 = phi i32 [ 0, %259 ], [ 0, %255 ], [ %spec.select.i32, %261 ], [ 0, %251 ]
+  %263 = load i32, ptr %13, align 8
+  %264 = getelementptr inbounds i8, ptr %3, i64 4
+  %265 = load i8, ptr %264, align 4
+  %266 = and i8 %265, 2
+  %.not43.i = icmp eq i8 %266, 0
+  %267 = getelementptr inbounds i8, ptr %3, i64 96
+  %268 = select i1 %.not43.i, ptr null, ptr %267
+  %269 = and i8 %265, 1
+  %.not44.i = icmp eq i8 %269, 0
+  %270 = getelementptr inbounds i8, ptr %3, i64 80
+  %271 = select i1 %.not44.i, ptr null, ptr %270
+  %272 = getelementptr inbounds i8, ptr %3, i64 88
+  %273 = select i1 %.not44.i, ptr null, ptr %272
+  %274 = getelementptr inbounds i8, ptr %3, i64 24
+  %275 = load ptr, ptr %274, align 8
+  %276 = and i8 %265, 4
+  %.not45.i = icmp eq i8 %276, 0
+  %277 = getelementptr inbounds i8, ptr %3, i64 104
+  %278 = select i1 %.not45.i, ptr null, ptr %277
+  %279 = getelementptr inbounds i8, ptr %3, i64 116
+  %280 = tail call i32 @php_network_accept_incoming(i32 noundef %263, ptr noundef %268, ptr noundef %271, ptr noundef %273, ptr noundef %275, ptr noundef %278, ptr noundef nonnull %279, i32 noundef %.0.i34) #14
+  %281 = icmp sgt i32 %280, -1
+  br i1 %281, label %282, label %php_tcp_sockop_accept.exit
 
-281:                                              ; preds = %.critedge.i33
-  %282 = tail call noalias ptr @_emalloc_40() #14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %282, ptr noundef nonnull readonly align 8 dereferenceable(40) %13, i64 40, i1 false)
-  store i32 %279, ptr %282, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 4
-  store i8 1, ptr %283, align 4
-  %284 = load ptr, ptr %0, align 8
-  %285 = tail call ptr @_php_stream_alloc(ptr noundef %284, ptr noundef nonnull %282, ptr noundef null, ptr noundef nonnull @.str.9) #14
-  store ptr %285, ptr %251, align 8
-  %.not46.i = icmp eq ptr %285, null
-  br i1 %.not46.i, label %php_tcp_sockop_accept.exit, label %286
+282:                                              ; preds = %.critedge.i33
+  %283 = tail call noalias ptr @_emalloc_40() #14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %283, ptr noundef nonnull readonly align 8 dereferenceable(40) %13, i64 40, i1 false)
+  store i32 %280, ptr %283, align 8
+  %284 = getelementptr inbounds i8, ptr %283, i64 4
+  store i8 1, ptr %284, align 4
+  %285 = load ptr, ptr %0, align 8
+  %286 = tail call ptr @_php_stream_alloc(ptr noundef %285, ptr noundef nonnull %283, ptr noundef null, ptr noundef nonnull @.str.9) #14
+  store ptr %286, ptr %252, align 8
+  %.not46.i = icmp eq ptr %286, null
+  br i1 %.not46.i, label %php_tcp_sockop_accept.exit, label %287
 
-286:                                              ; preds = %281
-  %287 = load ptr, ptr %252, align 8
-  %288 = getelementptr inbounds i8, ptr %285, i64 144
-  store ptr %287, ptr %288, align 8
-  %.not47.i = icmp eq ptr %287, null
-  br i1 %.not47.i, label %php_tcp_sockop_accept.exit, label %289
+287:                                              ; preds = %282
+  %288 = load ptr, ptr %253, align 8
+  %289 = getelementptr inbounds i8, ptr %286, i64 144
+  store ptr %288, ptr %289, align 8
+  %.not47.i = icmp eq ptr %288, null
+  br i1 %.not47.i, label %php_tcp_sockop_accept.exit, label %290
 
-289:                                              ; preds = %286
-  %290 = load i32, ptr %287, align 4
-  %291 = add i32 %290, 1
-  store i32 %291, ptr %287, align 4
+290:                                              ; preds = %287
+  %291 = load i32, ptr %288, align 4
+  %292 = add i32 %291, 1
+  store i32 %292, ptr %288, align 4
   br label %php_tcp_sockop_accept.exit
 
-php_tcp_sockop_accept.exit:                       ; preds = %.critedge.i33, %281, %286, %289
-  %292 = load ptr, ptr %251, align 8
-  %293 = icmp eq ptr %292, null
-  %294 = sext i1 %293 to i32
-  %295 = getelementptr inbounds i8, ptr %3, i64 112
-  store i32 %294, ptr %295, align 8
-  br label %296
+php_tcp_sockop_accept.exit:                       ; preds = %.critedge.i33, %282, %287, %290
+  %293 = load ptr, ptr %252, align 8
+  %294 = icmp eq ptr %293, null
+  %295 = sext i1 %294 to i32
+  %296 = getelementptr inbounds i8, ptr %3, i64 112
+  store i32 %295, ptr %296, align 8
+  br label %297
 
-296:                                              ; preds = %.split, %.split20, %php_tcp_sockop_accept.exit, %php_tcp_sockop_bind.exit, %php_tcp_sockop_connect.exit
+297:                                              ; preds = %.split, %.split20, %php_tcp_sockop_accept.exit, %php_tcp_sockop_bind.exit, %php_tcp_sockop_connect.exit
   %.0 = phi i32 [ 0, %php_tcp_sockop_accept.exit ], [ 0, %php_tcp_sockop_bind.exit ], [ 0, %php_tcp_sockop_connect.exit ], [ %14, %.split ], [ %17, %.split20 ]
   ret i32 %.0
 }

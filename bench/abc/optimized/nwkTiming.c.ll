@@ -497,23 +497,23 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %14 = getelementptr inbounds i8, ptr %0, i64 64
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph149, label %.critedge
+  br i1 %16, label %.lr.ph150, label %.critedge
 
-.lr.ph149:                                        ; preds = %.preheader
+.lr.ph150:                                        ; preds = %.preheader
   %17 = getelementptr inbounds i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 60
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
-  %wide.trip.count170 = zext nneg i32 %15 to i64
-  %invariant.gep180 = getelementptr ptr, ptr %18, i64 %21
+  %wide.trip.count172 = zext nneg i32 %15 to i64
+  %invariant.gep183 = getelementptr ptr, ptr %18, i64 %21
   br label %22
 
-22:                                               ; preds = %.lr.ph149, %24
-  %indvars.iv167 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next168, %24 ]
-  %.077147 = phi float [ 1.000000e+09, %.lr.ph149 ], [ %.178, %24 ]
-  %gep181 = getelementptr ptr, ptr %invariant.gep180, i64 %indvars.iv167
-  %23 = load ptr, ptr %gep181, align 8
+22:                                               ; preds = %.lr.ph150, %24
+  %indvars.iv169 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next170, %24 ]
+  %.077148 = phi float [ 1.000000e+09, %.lr.ph150 ], [ %.178, %24 ]
+  %gep184 = getelementptr ptr, ptr %invariant.gep183, i64 %indvars.iv169
+  %23 = load ptr, ptr %gep184, align 8
   %.not95 = icmp eq ptr %23, null
   br i1 %.not95, label %.critedge, label %24
 
@@ -526,11 +526,11 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %28 = getelementptr i8, ptr %23, i64 52
   %.val105 = load float, ptr %28, align 4
   %29 = fsub float %.val105, %27
-  %30 = fcmp ogt float %.077147, %29
-  %.178 = select i1 %30, float %29, float %.077147
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %.critedge, label %22, !llvm.loop !14
+  %30 = fcmp ogt float %.077148, %29
+  %.178 = select i1 %30, float %29, float %.077148
+  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
+  %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
+  br i1 %exitcond173.not, label %.critedge, label %22, !llvm.loop !14
 
 31:                                               ; preds = %12
   %32 = getelementptr inbounds i8, ptr %7, i64 12
@@ -542,24 +542,24 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %34 = getelementptr inbounds i8, ptr %0, i64 64
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph143, label %.critedge
+  br i1 %36, label %.lr.ph144, label %.critedge
 
-.lr.ph143:                                        ; preds = %.preheader125
+.lr.ph144:                                        ; preds = %.preheader125
   %37 = getelementptr inbounds i8, ptr %0, i64 72
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 60
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds i8, ptr %7, i64 148
   %42 = sext i32 %40 to i64
-  %wide.trip.count165 = zext nneg i32 %35 to i64
-  %invariant.gep178 = getelementptr ptr, ptr %38, i64 %42
+  %wide.trip.count167 = zext nneg i32 %35 to i64
+  %invariant.gep181 = getelementptr ptr, ptr %38, i64 %42
   br label %43
 
-43:                                               ; preds = %.lr.ph143, %53
-  %indvars.iv162 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next163, %53 ]
-  %.380141 = phi float [ 1.000000e+09, %.lr.ph143 ], [ %.4, %53 ]
-  %gep179 = getelementptr ptr, ptr %invariant.gep178, i64 %indvars.iv162
-  %44 = load ptr, ptr %gep179, align 8
+43:                                               ; preds = %.lr.ph144, %53
+  %indvars.iv164 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next165, %53 ]
+  %.380142 = phi float [ 1.000000e+09, %.lr.ph144 ], [ %.4, %53 ]
+  %gep182 = getelementptr ptr, ptr %invariant.gep181, i64 %indvars.iv164
+  %44 = load ptr, ptr %gep182, align 8
   %.not88 = icmp eq ptr %44, null
   br i1 %.not88, label %.critedge, label %45
 
@@ -583,11 +583,11 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %55 = getelementptr i8, ptr %44, i64 52
   %.val107 = load float, ptr %55, align 4
   %56 = fsub float %.val107, %54
-  %57 = fcmp ogt float %.380141, %56
-  %.4 = select i1 %57, float %56, float %.380141
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %.critedge, label %43, !llvm.loop !15
+  %57 = fcmp ogt float %.380142, %56
+  %.4 = select i1 %57, float %56, float %.380142
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
+  br i1 %exitcond168.not, label %.critedge, label %43, !llvm.loop !15
 
 58:                                               ; preds = %31
   %.not90 = icmp eq i32 %1, 0
@@ -615,16 +615,16 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %69 = getelementptr inbounds i8, ptr %0, i64 64
   %70 = load i32, ptr %69, align 8
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %.lr.ph137, label %.critedge
+  br i1 %71, label %.lr.ph138, label %.critedge
 
-.lr.ph137:                                        ; preds = %.preheader127
+.lr.ph138:                                        ; preds = %.preheader127
   %72 = getelementptr inbounds i8, ptr %0, i64 60
   %73 = getelementptr inbounds i8, ptr %7, i64 148
   br label %135
 
 74:                                               ; preds = %.lr.ph, %130
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
-  %.5131 = phi float [ 1.000000e+09, %.lr.ph ], [ %.6, %130 ]
+  %.5132 = phi float [ 1.000000e+09, %.lr.ph ], [ %.6, %130 ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %75 = load ptr, ptr %gep, align 8
   %.not93 = icmp eq ptr %75, null
@@ -718,8 +718,8 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
 
 114:                                              ; preds = %108, %._crit_edge.i
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
-  %exitcond159.not = icmp eq i64 %indvars.iv.next64.i, %smax
-  br i1 %exitcond159.not, label %.lr.ph.i115.preheader, label %.lr.ph54.i, !llvm.loop !8
+  %exitcond161.not = icmp eq i64 %indvars.iv.next64.i, %smax
+  br i1 %exitcond161.not, label %.lr.ph.i115.preheader, label %.lr.ph54.i, !llvm.loop !8
 
 .lr.ph.i115.preheader:                            ; preds = %114, %.critedge.i
   br label %.lr.ph.i115
@@ -732,47 +732,50 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %118 = getelementptr inbounds ptr, ptr %80, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, %0
-  br i1 %120, label %Nwk_ManWhereIsPin.exit, label %121
+  br i1 %120, label %._crit_edge.loopexit.split.loop.exit14.i, label %121
 
 121:                                              ; preds = %.lr.ph.i115
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i117, 1
   %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i118, %81
   br i1 %exitcond.not.i119, label %Nwk_ManWhereIsPin.exit, label %.lr.ph.i115, !llvm.loop !9
 
-Nwk_ManWhereIsPin.exit:                           ; preds = %.lr.ph.i115, %121, %76
-  %.08.i = phi i64 [ -1, %76 ], [ %indvars.iv.i117, %.lr.ph.i115 ], [ -1, %121 ]
-  %122 = getelementptr i8, ptr %75, i64 32
-  %.val100 = load i32, ptr %122, align 8
-  %123 = and i32 %.val100, 7
-  %.not121 = icmp eq i32 %123, 2
-  br i1 %.not121, label %130, label %124
+._crit_edge.loopexit.split.loop.exit14.i:         ; preds = %.lr.ph.i115
+  %sext = shl i64 %indvars.iv.i117, 32
+  %122 = ashr exact i64 %sext, 32
+  br label %Nwk_ManWhereIsPin.exit
 
-124:                                              ; preds = %Nwk_ManWhereIsPin.exit
-  %125 = sext i32 %.val97 to i64
-  %126 = getelementptr inbounds [33 x [33 x float]], ptr %66, i64 0, i64 %125
-  %sext = shl i64 %.08.i, 32
-  %127 = ashr exact i64 %sext, 30
-  %128 = getelementptr inbounds i8, ptr %126, i64 %127
+Nwk_ManWhereIsPin.exit:                           ; preds = %121, %76, %._crit_edge.loopexit.split.loop.exit14.i
+  %.08.i = phi i64 [ %122, %._crit_edge.loopexit.split.loop.exit14.i ], [ -1, %76 ], [ -1, %121 ]
+  %123 = getelementptr i8, ptr %75, i64 32
+  %.val100 = load i32, ptr %123, align 8
+  %124 = and i32 %.val100, 7
+  %.not121 = icmp eq i32 %124, 2
+  br i1 %.not121, label %130, label %125
+
+125:                                              ; preds = %Nwk_ManWhereIsPin.exit
+  %126 = sext i32 %.val97 to i64
+  %127 = getelementptr inbounds [33 x [33 x float]], ptr %66, i64 0, i64 %126
+  %128 = getelementptr inbounds float, ptr %127, i64 %.08.i
   %129 = load float, ptr %128, align 4
   br label %130
 
-130:                                              ; preds = %Nwk_ManWhereIsPin.exit, %124
-  %131 = phi float [ %129, %124 ], [ 0.000000e+00, %Nwk_ManWhereIsPin.exit ]
+130:                                              ; preds = %Nwk_ManWhereIsPin.exit, %125
+  %131 = phi float [ %129, %125 ], [ 0.000000e+00, %Nwk_ManWhereIsPin.exit ]
   %132 = getelementptr i8, ptr %75, i64 52
   %.val109 = load float, ptr %132, align 4
   %133 = fsub float %.val109, %131
-  %134 = fcmp ogt float %.5131, %133
-  %.6 = select i1 %134, float %133, float %.5131
+  %134 = fcmp ogt float %.5132, %133
+  %.6 = select i1 %134, float %133, float %.5132
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond161.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond161.not, label %.critedge, label %74, !llvm.loop !16
+  %exitcond163.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond163.not, label %.critedge, label %74, !llvm.loop !16
 
-135:                                              ; preds = %.lr.ph137, %153
-  %.3136 = phi i32 [ 0, %.lr.ph137 ], [ %158, %153 ]
-  %.7135 = phi float [ 1.000000e+09, %.lr.ph137 ], [ %.8, %153 ]
+135:                                              ; preds = %.lr.ph138, %153
+  %.3137 = phi i32 [ 0, %.lr.ph138 ], [ %158, %153 ]
+  %.7136 = phi float [ 1.000000e+09, %.lr.ph138 ], [ %.8, %153 ]
   %136 = load ptr, ptr %68, align 8
   %137 = load i32, ptr %72, align 4
-  %138 = add nsw i32 %137, %.3136
+  %138 = add nsw i32 %137, %.3137
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds ptr, ptr %136, i64 %139
   %141 = load ptr, ptr %140, align 8
@@ -802,15 +805,15 @@ Nwk_ManWhereIsPin.exit:                           ; preds = %.lr.ph.i115, %121, 
   %155 = getelementptr i8, ptr %141, i64 52
   %.val111 = load float, ptr %155, align 4
   %156 = fsub float %.val111, %154
-  %157 = fcmp ogt float %.7135, %156
-  %.8 = select i1 %157, float %156, float %.7135
-  %158 = add nuw nsw i32 %.3136, 1
+  %157 = fcmp ogt float %.7136, %156
+  %.8 = select i1 %157, float %156, float %.7136
+  %158 = add nuw nsw i32 %.3137, 1
   %159 = load i32, ptr %69, align 8
   %160 = icmp slt i32 %158, %159
   br i1 %160, label %135, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %74, %130, %135, %153, %53, %43, %22, %24, %.preheader129, %.preheader127, %.preheader125, %.preheader, %10
-  %.081 = phi float [ %.val104, %10 ], [ 1.000000e+09, %.preheader ], [ 1.000000e+09, %.preheader125 ], [ 1.000000e+09, %.preheader127 ], [ 1.000000e+09, %.preheader129 ], [ %.077147, %22 ], [ %.178, %24 ], [ %.4, %53 ], [ %.380141, %43 ], [ %.7135, %135 ], [ %.8, %153 ], [ %.5131, %74 ], [ %.6, %130 ]
+  %.081 = phi float [ %.val104, %10 ], [ 1.000000e+09, %.preheader ], [ 1.000000e+09, %.preheader125 ], [ 1.000000e+09, %.preheader127 ], [ 1.000000e+09, %.preheader129 ], [ %.077148, %22 ], [ %.178, %24 ], [ %.4, %53 ], [ %.380142, %43 ], [ %.7136, %135 ], [ %.8, %153 ], [ %.5132, %74 ], [ %.6, %130 ]
   ret float %.081
 }
 
@@ -2311,7 +2314,7 @@ declare i32 @Tim_ManBoxInputFirst(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @Tim_ManBoxInputNum(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Nwk_ObjLevelNew(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, -2147483648) i32 @Nwk_ObjLevelNew(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8

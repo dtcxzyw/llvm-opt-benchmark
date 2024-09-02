@@ -1272,7 +1272,7 @@ define hidden void @_ZN8rawspeed10MosDecoder9getXMPTagB5cxx11ESt17basic_string_v
 124:                                              ; preds = %.loopexit43
   %125 = icmp ult i64 %91, 16
   call void @llvm.assume(i1 %125)
-  br label %129
+  br label %130
 
 126:                                              ; preds = %.loopexit43
   call void @_ZdlPv(ptr noundef %90) #27
@@ -1282,11 +1282,11 @@ define hidden void @_ZN8rawspeed10MosDecoder9getXMPTagB5cxx11ESt17basic_string_v
 
 ._crit_edge:                                      ; preds = %126
   %.pre = load i64, ptr %58, align 8, !tbaa !6
-  br label %129
+  %129 = icmp ult i64 %.pre, 16
+  br label %130
 
-129:                                              ; preds = %._crit_edge, %124
-  %130 = phi i64 [ %.pre, %._crit_edge ], [ 0, %124 ]
-  %131 = icmp ult i64 %130, 16
+130:                                              ; preds = %._crit_edge, %124
+  %131 = phi i1 [ %129, %._crit_edge ], [ true, %124 ]
   call void @llvm.assume(i1 %131)
   br label %133
 
@@ -1294,7 +1294,7 @@ define hidden void @_ZN8rawspeed10MosDecoder9getXMPTagB5cxx11ESt17basic_string_v
   call void @_ZdlPv(ptr noundef %127) #27
   br label %133
 
-133:                                              ; preds = %132, %129
+133:                                              ; preds = %132, %130
   %134 = load ptr, ptr %8, align 8, !tbaa !13
   %135 = icmp eq ptr %134, %12
   br i1 %135, label %136, label %139

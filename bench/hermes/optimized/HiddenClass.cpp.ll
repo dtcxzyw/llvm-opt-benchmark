@@ -77,7 +77,7 @@ $_ZN4llvh12DenseMapBaseINS_13SmallDenseMapIN6hermes2vm6detail10TransitionENS3_7W
 @.str.5 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK6hermes2vm6detail13TransitionMap13getMemorySizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 68719476865) i64 @_ZNK6hermes2vm6detail13TransitionMap13getMemorySizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp.i.i = icmp eq i32 %0, 536870910
@@ -266,7 +266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN6hermes2vm11HiddenClass15_mallocSizeImplEPNS0_6GCCellE(ptr nocapture noundef readonly %cell) #0 align 2 {
+define hidden noundef range(i64 0, 68719476865) i64 @_ZN6hermes2vm11HiddenClass15_mallocSizeImplEPNS0_6GCCellE(ptr nocapture noundef readonly %cell) #0 align 2 {
 entry:
   %transitionMap_ = getelementptr inbounds i8, ptr %cell, i64 24
   %0 = load i32, ptr %transitionMap_, align 4
@@ -1139,7 +1139,7 @@ _ZNSt6vectorISt4pairIN6hermes2vm8SymbolIDENS2_23NamedPropertyDescriptorEESaIS5_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN6hermes2vm11HiddenClass12findPropertyENS0_12PseudoHandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsERNS0_23NamedPropertyDescriptorE(ptr %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i16 %expectedFlags.coerce, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %desc) local_unnamed_addr #1 align 2 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes2vm11HiddenClass12findPropertyENS0_12PseudoHandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsERNS0_23NamedPropertyDescriptorE(ptr %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i16 %expectedFlags.coerce, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %desc) local_unnamed_addr #1 align 2 {
 entry:
   %propertyMap_ = getelementptr inbounds i8, ptr %self.coerce, i64 16
   %0 = load i32, ptr %propertyMap_, align 4

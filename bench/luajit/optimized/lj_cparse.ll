@@ -4403,16 +4403,15 @@ cp_check.exit153:                                 ; preds = %cp_check.exit159
   %12 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %call.i.i83, i1 true)
   %xor.i85 = shl nuw nsw i32 %12, 16
   %13 = and i32 %xor.i85, 983040
-  %14 = xor i32 %13, 983040
-  %15 = select i1 %tobool.not.i84, i32 0, i32 %14
+  %14 = xor i32 %13, 983041
+  %15 = select i1 %tobool.not.i84, i32 1, i32 %14
   br label %cp_decl_align.exit
 
 cp_decl_align.exit:                               ; preds = %sw.bb.i, %cp_check.exit153
-  %al.0.i = phi i32 [ %15, %cp_check.exit153 ], [ 262144, %sw.bb.i ]
+  %al.0.i = phi i32 [ %15, %cp_check.exit153 ], [ 262145, %sw.bb.i ]
   %16 = load i32, ptr %attr11, align 4
   %and.i80 = and i32 %16, -983042
-  %or.i81 = or i32 %al.0.i, %and.i80
-  %or4.i = or i32 %or.i81, 1
+  %or4.i = or i32 %al.0.i, %and.i80
   store i32 %or4.i, ptr %attr11, align 4
   br label %if.end31.ithread-pre-split
 
@@ -4874,16 +4873,15 @@ cp_check.exit165:                                 ; preds = %cp_expr_ksize.exit
   %76 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %74, i1 true)
   %xor.i135 = shl nuw nsw i32 %76, 16
   %77 = and i32 %xor.i135, 983040
-  %78 = xor i32 %77, 983040
-  %79 = select i1 %tobool.not.i134, i32 0, i32 %78
+  %78 = xor i32 %77, 983041
+  %79 = select i1 %tobool.not.i134, i32 1, i32 %78
   br label %cp_decl_align.exit136
 
 cp_decl_align.exit136:                            ; preds = %if.then.i26, %cp_check.exit165
-  %al.0.i126 = phi i32 [ %79, %cp_check.exit165 ], [ 262144, %if.then.i26 ]
+  %al.0.i126 = phi i32 [ %79, %cp_check.exit165 ], [ 262145, %if.then.i26 ]
   %80 = load i32, ptr %attr11, align 4
   %and.i128 = and i32 %80, -983042
-  %or.i129 = or i32 %al.0.i126, %and.i128
-  %or4.i130 = or i32 %or.i129, 1
+  %or4.i130 = or i32 %al.0.i126, %and.i128
   store i32 %or4.i130, ptr %attr11, align 4
   br label %while.cond.i17.backedge
 

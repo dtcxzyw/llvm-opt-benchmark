@@ -2008,7 +2008,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_broadcast(p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_udp_set_ttl(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_ttl(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = add i32 %1, -256
   %or.cond = icmp ult i32 %4, -255

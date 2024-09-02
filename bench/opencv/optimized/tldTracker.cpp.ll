@@ -2298,9 +2298,9 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit114: ; preds = %_ZNSt6vectorIN2
   %254 = icmp sgt i32 %253, 0
   br i1 %254, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit114, %275
-  %indvars.iv = phi i64 [ %indvars.iv.next, %275 ], [ 0, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit114 ]
-  %255 = phi ptr [ %282, %275 ], [ %248, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit114 ]
+.lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit114, %276
+  %indvars.iv = phi i64 [ %indvars.iv.next, %276 ], [ 0, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit114 ]
+  %255 = phi ptr [ %282, %276 ], [ %248, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit114 ]
   %256 = getelementptr inbounds %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %255, i64 %indvars.iv
   %257 = getelementptr inbounds i8, ptr %256, i64 32
   %258 = load i8, ptr %257, align 8
@@ -2343,18 +2343,18 @@ _ZN2cv8tracking4impl3tld14TrackerTLDImpl7NexpertclENS_5Rect_IdEE.exit: ; preds =
   %267 = getelementptr inbounds i8, ptr %266, i64 33
   %268 = load i8, ptr %267, align 1
   %269 = trunc i8 %268 to i1
-  br i1 %269, label %275, label %270
+  br i1 %269, label %276, label %270
 
 270:                                              ; preds = %264
   %271 = getelementptr inbounds i8, ptr %266, i64 32
   %272 = load i8, ptr %271, align 8
   %273 = trunc i8 %272 to i1
   %274 = xor i1 %.0.in, %273
-  br label %275
+  %275 = zext i1 %274 to i8
+  br label %276
 
-275:                                              ; preds = %270, %264
-  %276 = phi i1 [ true, %264 ], [ %274, %270 ]
-  %277 = zext i1 %276 to i8
+276:                                              ; preds = %270, %264
+  %277 = phi i8 [ 1, %264 ], [ %275, %270 ]
   store i8 %277, ptr %267, align 1
   %278 = load ptr, ptr %16, align 8
   %279 = getelementptr inbounds %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %278, i64 %indvars.iv, i32 1
@@ -2372,7 +2372,7 @@ _ZN2cv8tracking4impl3tld14TrackerTLDImpl7NexpertclENS_5Rect_IdEE.exit: ; preds =
   %288 = icmp slt i64 %indvars.iv.next, %287
   br i1 %288, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %275, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit114
+._crit_edge:                                      ; preds = %276, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit114
   invoke void @_ZN2cv8tracking4impl3tld15TrackerTLDModel18integrateRelabeledERNS_3MatES5_RKSt6vectorINS2_11TLDDetector12LabeledPatchESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(512) %77, ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %289 unwind label %.loopexit.split-lp
 

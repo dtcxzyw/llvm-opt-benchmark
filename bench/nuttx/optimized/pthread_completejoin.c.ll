@@ -65,10 +65,10 @@ pthread_notifywaiters.exit.thread:                ; preds = %16
 
 37:                                               ; preds = %34
   %38 = call i32 @nxsem_get_value(ptr noundef nonnull %21, ptr noundef nonnull %3) #6
-  %39 = load i32, ptr %3, align 4
-  %40 = icmp slt i32 %39, 0
-  %41 = icmp eq i32 %38, 0
-  %42 = select i1 %40, i1 %41, i1 false
+  %39 = icmp eq i32 %38, 0
+  %40 = load i32, ptr %3, align 4
+  %41 = icmp slt i32 %40, 0
+  %42 = select i1 %41, i1 %39, i1 false
   br i1 %42, label %34, label %pthread_notifywaiters.exit, !llvm.loop !6
 
 pthread_notifywaiters.exit:                       ; preds = %34, %37

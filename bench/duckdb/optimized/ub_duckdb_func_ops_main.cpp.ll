@@ -22074,6 +22074,7 @@ invoke.cont117:                                   ; preds = %if.else
 
 invoke.cont117.if.end120_crit_edge:               ; preds = %invoke.cont117
   %.pre = load i8, ptr %scale115, align 1, !tbaa !13
+  %48 = zext i8 %.pre to i32
   br label %if.end120
 
 if.then119:                                       ; preds = %invoke.cont117
@@ -22081,14 +22082,13 @@ if.then119:                                       ; preds = %invoke.cont117
   br label %if.end120
 
 lpad116:                                          ; preds = %if.else
-  %48 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup133
 
 if.end120:                                        ; preds = %if.then119, %invoke.cont117.if.end120_crit_edge
-  %49 = phi i8 [ %.pre, %invoke.cont117.if.end120_crit_edge ], [ 0, %if.then119 ]
+  %conv123 = phi i32 [ %48, %invoke.cont117.if.end120_crit_edge ], [ 0, %if.then119 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp121) #25
-  %conv123 = zext i8 %49 to i32
   invoke void @_ZN6duckdb11LogicalType7DECIMALEii(ptr dead_on_unwind nonnull writable sret(%"struct.duckdb::LogicalType") align 8 %ref.tmp121, i32 noundef %conv87, i32 noundef %conv123)
           to label %invoke.cont125 unwind label %lpad124
 
@@ -22133,7 +22133,7 @@ ehcleanup132:                                     ; preds = %lpad127, %lpad124
   br label %ehcleanup133
 
 ehcleanup133:                                     ; preds = %ehcleanup132, %lpad116
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup132 ], [ %48, %lpad116 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup132 ], [ %49, %lpad116 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %scale115) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %width114) #25
   br label %ehcleanup173

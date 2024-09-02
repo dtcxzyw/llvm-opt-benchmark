@@ -877,35 +877,38 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 429:                                              ; preds = %428, %423
   %430 = add nuw i64 %397, 2
   %431 = icmp eq i64 %430, %395
-  br i1 %431, label %.loopexit, label %396
+  br i1 %431, label %.loopexit.loopexit, label %396
 
-.loopexit:                                        ; preds = %429, %391
-  %432 = phi i64 [ 0, %391 ], [ %395, %429 ]
-  %433 = icmp eq i64 %392, 0
-  br i1 %433, label %450, label %434
+.loopexit.loopexit:                               ; preds = %429
+  %432 = shl nsw i64 %395, 2
+  br label %.loopexit
 
-434:                                              ; preds = %.loopexit
-  %435 = shl nsw i64 %432, 2
-  %436 = getelementptr inbounds float, ptr %386, i64 %435
+.loopexit:                                        ; preds = %.loopexit.loopexit, %391
+  %433 = phi i64 [ 0, %391 ], [ %432, %.loopexit.loopexit ]
+  %434 = icmp eq i64 %392, 0
+  br i1 %434, label %450, label %435
+
+435:                                              ; preds = %.loopexit
+  %436 = getelementptr inbounds float, ptr %386, i64 %433
   %437 = load float, ptr %436, align 4, !tbaa !38, !alias.scope !58, !noalias !65
   %438 = fcmp reassoc nsz arcp contract afn olt float %437, 0.000000e+00
   br i1 %438, label %449, label %439
 
-439:                                              ; preds = %434
-  %440 = or disjoint i64 %435, 1
+439:                                              ; preds = %435
+  %440 = or disjoint i64 %433, 1
   %441 = getelementptr inbounds float, ptr %386, i64 %440
   %442 = load float, ptr %441, align 4, !tbaa !38, !alias.scope !58, !noalias !65
   %443 = fcmp reassoc nsz arcp contract afn olt float %442, 0.000000e+00
   br i1 %443, label %449, label %444
 
 444:                                              ; preds = %439
-  %445 = or disjoint i64 %435, 2
+  %445 = or disjoint i64 %433, 2
   %446 = getelementptr inbounds float, ptr %386, i64 %445
   %447 = load float, ptr %446, align 4, !tbaa !38, !alias.scope !58, !noalias !65
   %448 = fcmp reassoc nsz arcp contract afn olt float %447, 0.000000e+00
   br i1 %448, label %449, label %450
 
-449:                                              ; preds = %444, %439, %434
+449:                                              ; preds = %444, %439, %435
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %436, align 16, !tbaa !53, !alias.scope !66, !noalias !65, !nontemporal !57
   br label %450
 

@@ -403,32 +403,32 @@ define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0,
 105:                                              ; preds = %95
   br i1 %102, label %.loopexit98, label %.preheader97
 
-.preheader97:                                     ; preds = %105, %117
-  %106 = phi i32 [ %121, %117 ], [ 0, %105 ]
+.preheader97:                                     ; preds = %105, %118
+  %106 = phi i32 [ %121, %118 ], [ 0, %105 ]
   %107 = sext i32 %106 to i64
   %108 = getelementptr ptr, ptr %38, i64 %107
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 352
   %111 = load i8, ptr %110, align 8, !range !15, !noundef !16
   %112 = icmp eq i8 %111, 0
-  br i1 %112, label %113, label %117
+  br i1 %112, label %113, label %118
 
 113:                                              ; preds = %.preheader97
   %114 = getelementptr inbounds i8, ptr %109, i64 176
   %115 = load i32, ptr %114, align 8
   %116 = icmp ne i32 %115, 2
-  br label %117
+  %117 = zext i1 %116 to i8
+  br label %118
 
-117:                                              ; preds = %113, %.preheader97
-  %118 = phi i1 [ false, %.preheader97 ], [ %116, %113 ]
-  %119 = getelementptr i8, ptr %50, i64 %107
-  %120 = zext i1 %118 to i8
-  store i8 %120, ptr %119, align 1
+118:                                              ; preds = %113, %.preheader97
+  %119 = phi i8 [ 0, %.preheader97 ], [ %117, %113 ]
+  %120 = getelementptr i8, ptr %50, i64 %107
+  store i8 %119, ptr %120, align 1
   %121 = add nuw i32 %106, 1
   %122 = icmp eq i32 %121, %39
   br i1 %122, label %.loopexit98, label %.preheader97, !llvm.loop !18
 
-.loopexit98:                                      ; preds = %117, %105
+.loopexit98:                                      ; preds = %118, %105
   %123 = call i32 @llvm.umin.i32(i32 %39, i32 64)
   %124 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11
@@ -595,7 +595,7 @@ define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0,
 229:                                              ; preds = %228, %218
   %230 = phi i32 [ %.pre, %228 ], [ %213, %218 ]
   %231 = icmp ugt i32 %230, 1
-  br i1 %231, label %.critedge, label %232
+  br i1 %231, label %.critedge74, label %232
 
 232:                                              ; preds = %229
   %233 = getelementptr inbounds i8, ptr %189, i64 96
@@ -623,7 +623,7 @@ define dso_local range(i32 -22, 1) i32 @drm_client_modeset_probe(ptr noundef %0,
 
 246:                                              ; preds = %241
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16) #11
-  br label %.critedge
+  br label %.critedge74
 
 247:                                              ; preds = %238
   %248 = getelementptr inbounds i8, ptr %189, i64 96
@@ -823,14 +823,14 @@ thread-pre-split.thread:                          ; preds = %282, %thread-pre-sp
 .thread67:                                        ; preds = %365
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.25) #11
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.26, i32 noundef %.ph62, i32 noundef %.ph63) #11
-  br label %.critedge
+  br label %.critedge74
 
 369:                                              ; preds = %365, %363
   %370 = and i8 %.ph, 1
   %371 = icmp eq i8 %370, 0
-  br i1 %371, label %372, label %.critedge
+  br i1 %371, label %372, label %.critedge74
 
-.critedge:                                        ; preds = %229, %.thread67, %246, %369
+.critedge74:                                      ; preds = %229, %.thread67, %246, %369
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.27) #11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 8 %144, i64 %143, i1 false)
   call void @drm_modeset_drop_locks(ptr noundef nonnull %4) #11
@@ -845,7 +845,7 @@ thread-pre-split.thread:                          ; preds = %282, %thread-pre-sp
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
   br label %724
 
-373:                                              ; preds = %134, %138, %142, %.critedge
+373:                                              ; preds = %134, %138, %142, %.critedge74
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %48, i8 0, i64 %46, i1 false)
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %47, i8 0, i64 %46, i1 false)
@@ -1257,7 +1257,7 @@ thread-pre-split.thread:                          ; preds = %282, %thread-pre-sp
   %626 = zext i8 %625 to i32
   %627 = mul nuw nsw i32 %626, %623
   %628 = icmp slt i32 %481, %627
-  br i1 %628, label %.thread73, label %629
+  br i1 %628, label %.critedge, label %629
 
 629:                                              ; preds = %620
   %630 = getelementptr inbounds i8, ptr %494, i64 1939
@@ -1275,7 +1275,7 @@ thread-pre-split.thread:                          ; preds = %282, %thread-pre-sp
   %638 = getelementptr inbounds i8, ptr %494, i64 160
   %639 = load ptr, ptr %638, align 8
   %640 = icmp eq ptr %639, %638
-  br i1 %640, label %.thread73, label %641
+  br i1 %640, label %.critedge, label %641
 
 641:                                              ; preds = %637
   %642 = getelementptr inbounds i8, ptr %494, i64 1942
@@ -1300,14 +1300,14 @@ thread-pre-split.thread:                          ; preds = %282, %thread-pre-sp
 655:                                              ; preds = %650, %645
   %656 = load ptr, ptr %646, align 8
   %657 = icmp eq ptr %656, %638
-  br i1 %657, label %.thread73, label %645, !llvm.loop !36
+  br i1 %657, label %.critedge, label %645, !llvm.loop !36
 
 658:                                              ; preds = %650
   %659 = getelementptr i8, ptr %646, i64 -64
   %660 = icmp eq ptr %659, null
-  br i1 %660, label %.thread73, label %683
+  br i1 %660, label %.critedge, label %683
 
-.thread73:                                        ; preds = %655, %637, %658, %620
+.critedge:                                        ; preds = %655, %637, %658, %620
   %661 = load i32, ptr %572, align 8
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.21, i32 noundef %661) #11
   %662 = getelementptr inbounds i8, ptr %494, i64 160
@@ -1315,8 +1315,8 @@ thread-pre-split.thread:                          ; preds = %282, %thread-pre-sp
   %664 = getelementptr inbounds i8, ptr %494, i64 1944
   br label %665
 
-665:                                              ; preds = %674, %.thread73
-  %666 = phi ptr [ %662, %.thread73 ], [ %667, %674 ]
+665:                                              ; preds = %674, %.critedge
+  %666 = phi ptr [ %662, %.critedge ], [ %667, %674 ]
   %667 = load ptr, ptr %666, align 8
   %668 = icmp eq ptr %667, %662
   br i1 %668, label %.loopexit83, label %669
@@ -1516,16 +1516,16 @@ thread-pre-split.thread:                          ; preds = %282, %thread-pre-sp
   %790 = getelementptr inbounds i8, ptr %781, i64 40
   %791 = load i64, ptr %790, align 8
   %792 = icmp eq i64 %791, 8
-  br i1 %792, label %.thread74, label %793
+  br i1 %792, label %.thread72, label %793
 
 793:                                              ; preds = %.loopexit77
   %794 = load i32, ptr %756, align 8
   %795 = icmp sgt i32 %794, 1
   %796 = icmp eq i64 %791, 1
   %797 = and i1 %796, %795
-  br i1 %797, label %.thread74, label %798, !prof !21
+  br i1 %797, label %.thread72, label %798, !prof !21
 
-.thread74:                                        ; preds = %.loopexit77, %793
+.thread72:                                        ; preds = %.loopexit77, %793
   call void asm sideeffect "373: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 373b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 373) #11, !srcloc !39
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 865, i32 2307, i64 12) #11, !srcloc !40
   call void asm sideeffect "374: nop\0A\09.pushsection .discard.instr_end\0A\09.long 374b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 374) #11, !srcloc !41
@@ -1559,8 +1559,8 @@ thread-pre-split.thread:                          ; preds = %282, %thread-pre-sp
   %814 = icmp eq i32 %813, %39
   br i1 %814, label %.loopexit79, label %757, !llvm.loop !42
 
-.loopexit79:                                      ; preds = %812, %.thread74
-  %815 = phi i32 [ -22, %.thread74 ], [ 0, %812 ]
+.loopexit79:                                      ; preds = %812, %.thread72
+  %815 = phi i32 [ -22, %.thread72 ], [ 0, %812 ]
   call void @mutex_unlock(ptr noundef %60) #11
   br label %816
 

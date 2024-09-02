@@ -529,12 +529,12 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %144 = load i32, ptr @hf_linx_udata_srcaddr16, align 4
   %145 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %144, ptr noundef %0, i32 noundef %141, i32 noundef 4, i32 noundef 0) #2
   %146 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %141) #2
-  %147 = add i32 %.1297311, 12
-  %148 = icmp eq i32 %146, 0
-  br i1 %148, label %149, label %212
+  %147 = icmp eq i32 %146, 0
+  %148 = add i32 %.1297311, 12
+  br i1 %147, label %149, label %212
 
 149:                                              ; preds = %.thread, %138
-  %150 = phi i32 [ %136, %.thread ], [ %147, %138 ]
+  %150 = phi i32 [ %136, %.thread ], [ %148, %138 ]
   %.3305 = phi i32 [ %129, %.thread ], [ %141, %138 ]
   %151 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %150) #2
   %152 = load ptr, ptr %5, align 8
@@ -635,7 +635,7 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %245
 
 212:                                              ; preds = %.thread306, %138
-  %213 = phi i32 [ %137, %.thread306 ], [ %147, %138 ]
+  %213 = phi i32 [ %137, %.thread306 ], [ %148, %138 ]
   %.not302 = icmp eq i32 %32, %213
   br i1 %.not302, label %245, label %214
 

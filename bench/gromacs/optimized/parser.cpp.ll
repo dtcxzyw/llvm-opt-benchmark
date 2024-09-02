@@ -6464,7 +6464,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 2515:                                             ; preds = %522, %557, %.thread1405, %.thread1402, %.thread1399, %.thread1396, %.thread1393, %.thread1390, %.thread1387, %.thread1384, %.thread1381, %.thread1378, %.thread, %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1304, %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1301, %_ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit, %464, %585, %616, %647, %678, %709, %732, %767, %812, %815, %819, %822, %826, %830, %833, %836, %863, %920, %980, %1007, %1060, %1085, %1105, %1106, %1109, %1110, %1111, %1327, %1377, %1520, %1556, %1592, %1628, %1660, %1693, %1719, %1749, %1814, %1834, %1915, %1944, %1973, %1996, %1999, %2009, %2038, %2066, %2085, %2088, %2098, %2127, %2160, %2181, %2184, %2194, %2226, %2259, %2284, %2307, %2330, %2353, %2372, %2381, %2403, %2423, %2439, %2450, %2475, %2499, %435, %741, %783, %1846, %399
   %2516 = load i32, ptr @_gmx_sel_yydebug, align 4
   %.not1196 = icmp eq i32 %2516, 0
-  br i1 %.not1196, label %2530, label %2517
+  br i1 %.not1196, label %2531, label %2517
 
 2517:                                             ; preds = %2515
   %2518 = load ptr, ptr @stderr, align 8
@@ -6483,10 +6483,11 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %2529 = load ptr, ptr @stderr, align 8
   %fputc1197 = call i32 @fputc(i32 10, ptr %2529)
   %.pre1454 = load i32, ptr @_gmx_sel_yydebug, align 4
-  br label %2530
+  %2530 = icmp eq i32 %.pre1454, 0
+  br label %2531
 
-2530:                                             ; preds = %2515, %2517
-  %2531 = phi i32 [ 0, %2515 ], [ %.pre1454, %2517 ]
+2531:                                             ; preds = %2515, %2517
+  %.not1198 = phi i1 [ true, %2515 ], [ %2530, %2517 ]
   %2532 = load ptr, ptr %374, align 8
   %2533 = zext i8 %372 to i64
   %2534 = sub nsw i64 0, %2533
@@ -6500,18 +6501,17 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %2540 = load ptr, ptr %2539, align 8
   %2541 = getelementptr inbounds %"struct.gmx::SelectionLocation", ptr %2540, i64 %2534
   store ptr %2541, ptr %2539, align 8
-  %.not1198 = icmp eq i32 %2531, 0
   br i1 %.not1198, label %2545, label %2542
 
-2542:                                             ; preds = %2530
+2542:                                             ; preds = %2531
   %2543 = getelementptr inbounds i8, ptr %0, i64 416
   %2544 = load ptr, ptr %2543, align 8
   call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %2544, ptr noundef %2538)
   %.pre1455 = load ptr, ptr %374, align 8
   br label %2545
 
-2545:                                             ; preds = %2530, %2542
-  %2546 = phi ptr [ %2535, %2530 ], [ %.pre1455, %2542 ]
+2545:                                             ; preds = %2531, %2542
+  %2546 = phi ptr [ %2535, %2531 ], [ %.pre1455, %2542 ]
   %2547 = getelementptr inbounds i8, ptr %2546, i64 8
   store ptr %2547, ptr %374, align 8
   %2548 = load i64, ptr %8, align 8

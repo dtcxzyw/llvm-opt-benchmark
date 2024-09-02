@@ -3780,13 +3780,13 @@ define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr
   br label %23
 
 23:                                               ; preds = %.lr.ph146, %21
-  %.0108 = phi i8 [ %narrow, %21 ], [ 16, %.lr.ph146 ]
+  %.0108 = phi i32 [ %22, %21 ], [ 16, %.lr.ph146 ]
   %24 = add i32 %.0109145, 1
   switch i8 %16, label %default.unreachable164 [
     i8 3, label %25
     i8 0, label %28
-    i8 1, label %41
-    i8 2, label %60
+    i8 1, label %40
+    i8 2, label %58
   ]
 
 25:                                               ; preds = %23
@@ -3798,99 +3798,96 @@ define internal noundef zeroext i16 @de_emm_trac_area_id_lst(ptr noundef %0, ptr
 
 28:                                               ; preds = %23
   %29 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %24, i32 noundef 6, i32 noundef 1) #10
-  %30 = zext nneg i8 %.0108 to i32
-  %31 = shl nuw nsw i32 %30, 1
-  %32 = add nuw nsw i32 %31, 4
-  %33 = icmp ult i32 %4, %32
-  br i1 %33, label %34, label %.preheader
+  %30 = shl nuw nsw i32 %.0108, 1
+  %31 = add nuw nsw i32 %30, 4
+  %32 = icmp ult i32 %4, %31
+  br i1 %32, label %33, label %.preheader
 
-34:                                               ; preds = %28
+33:                                               ; preds = %28
   %.neg117 = add i32 %4, %3
-  %35 = sub i32 %.neg117, %29
-  %36 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_nas_eps_wrong_nb_of_elems, ptr noundef %0, i32 noundef %29, i32 noundef %35) #10
+  %34 = sub i32 %.neg117, %29
+  %35 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_nas_eps_wrong_nb_of_elems, ptr noundef %0, i32 noundef %29, i32 noundef %34) #10
   br label %.loopexit124
 
 .preheader:                                       ; preds = %28, %.preheader
-  %.0107141 = phi i32 [ %39, %.preheader ], [ 0, %28 ]
-  %.1110140 = phi i32 [ %40, %.preheader ], [ %29, %28 ]
-  %37 = load i32, ptr @hf_nas_eps_emm_tai_tac, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %37, ptr noundef %0, i32 noundef %.1110140, i32 noundef 2, i32 noundef 0) #10
-  %39 = add nuw nsw i32 %.0107141, 1
-  %40 = add i32 %.1110140, 2
-  %exitcond163.not = icmp eq i32 %39, %30
+  %.0107141 = phi i32 [ %38, %.preheader ], [ 0, %28 ]
+  %.1110140 = phi i32 [ %39, %.preheader ], [ %29, %28 ]
+  %36 = load i32, ptr @hf_nas_eps_emm_tai_tac, align 4
+  %37 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %36, ptr noundef %0, i32 noundef %.1110140, i32 noundef 2, i32 noundef 0) #10
+  %38 = add nuw nsw i32 %.0107141, 1
+  %39 = add i32 %.1110140, 2
+  %exitcond163.not = icmp eq i32 %38, %.0108
   br i1 %exitcond163.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
-41:                                               ; preds = %23
-  %42 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %24, i32 noundef 6, i32 noundef 1) #10
-  %43 = load i32, ptr @hf_nas_eps_emm_tai_tac, align 4
-  %44 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #10
-  %45 = add i32 %42, 2
-  %46 = zext nneg i8 %.0108 to i32
-  %47 = icmp ugt i8 %.0108, 1
-  br i1 %47, label %.lr.ph, label %.loopexit
+40:                                               ; preds = %23
+  %41 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %24, i32 noundef 6, i32 noundef 1) #10
+  %42 = load i32, ptr @hf_nas_eps_emm_tai_tac, align 4
+  %43 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #10
+  %44 = add i32 %41, 2
+  %45 = icmp ugt i32 %.0108, 1
+  br i1 %45, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %41, %proto_item_set_generated.exit
-  %.1139 = phi i32 [ %59, %proto_item_set_generated.exit ], [ 1, %41 ]
-  %48 = load i32, ptr @hf_nas_eps_emm_tai_tac, align 4
-  %49 = load i32, ptr %8, align 4
-  %50 = add i32 %49, %.1139
-  %51 = call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %48, ptr noundef %0, i32 noundef %45, i32 noundef 0, i32 noundef %50) #10
-  %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %52
+.lr.ph:                                           ; preds = %40, %proto_item_set_generated.exit
+  %.1139 = phi i32 [ %57, %proto_item_set_generated.exit ], [ 1, %40 ]
+  %46 = load i32, ptr @hf_nas_eps_emm_tai_tac, align 4
+  %47 = load i32, ptr %8, align 4
+  %48 = add i32 %47, %.1139
+  %49 = call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %46, ptr noundef %0, i32 noundef %44, i32 noundef 0, i32 noundef %48) #10
+  %.not.i = icmp eq ptr %49, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %50
 
-52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds i8, ptr %51, i64 32
-  %54 = load ptr, ptr %53, align 8
-  %.not5.i = icmp eq ptr %54, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %55
+50:                                               ; preds = %.lr.ph
+  %51 = getelementptr inbounds i8, ptr %49, i64 32
+  %52 = load ptr, ptr %51, align 8
+  %.not5.i = icmp eq ptr %52, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %53
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %54, i64 28
-  %57 = load i32, ptr %56, align 4
-  %58 = or i32 %57, 2
-  store i32 %58, ptr %56, align 4
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds i8, ptr %52, i64 28
+  %55 = load i32, ptr %54, align 4
+  %56 = or i32 %55, 2
+  store i32 %56, ptr %54, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %.lr.ph, %52, %55
-  %59 = add nuw nsw i32 %.1139, 1
-  %exitcond162.not = icmp eq i32 %59, %46
+proto_item_set_generated.exit:                    ; preds = %.lr.ph, %50, %53
+  %57 = add nuw nsw i32 %.1139, 1
+  %exitcond162.not = icmp eq i32 %57, %.0108
   br i1 %exitcond162.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
-60:                                               ; preds = %23
-  %61 = zext nneg i8 %.0108 to i32
-  %62 = mul nuw nsw i32 %61, 5
-  %.not = icmp ugt i32 %4, %62
-  br i1 %.not, label %.preheader122, label %63
+58:                                               ; preds = %23
+  %59 = mul nuw nsw i32 %.0108, 5
+  %.not = icmp ugt i32 %4, %59
+  br i1 %.not, label %.preheader122, label %60
 
-63:                                               ; preds = %60
+60:                                               ; preds = %58
   %.neg119.le = xor i32 %.0109145, -1
   %.neg = add i32 %4, %3
-  %64 = add i32 %.neg, %.neg119.le
-  %65 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_nas_eps_wrong_nb_of_elems, ptr noundef %0, i32 noundef %24, i32 noundef %64) #10
+  %61 = add i32 %.neg, %.neg119.le
+  %62 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_nas_eps_wrong_nb_of_elems, ptr noundef %0, i32 noundef %24, i32 noundef %61) #10
   br label %.loopexit124
 
-.preheader122:                                    ; preds = %60, %.preheader122
-  %.2138 = phi i32 [ %70, %.preheader122 ], [ 0, %60 ]
-  %.3137 = phi i32 [ %69, %.preheader122 ], [ %24, %60 ]
-  %66 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %.3137, i32 noundef 6, i32 noundef 1) #10
-  %67 = load i32, ptr @hf_nas_eps_emm_tai_tac, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 2, i32 noundef 0) #10
-  %69 = add i32 %66, 2
-  %70 = add nuw nsw i32 %.2138, 1
-  %exitcond.not = icmp eq i32 %70, %61
+.preheader122:                                    ; preds = %58, %.preheader122
+  %.2138 = phi i32 [ %67, %.preheader122 ], [ 0, %58 ]
+  %.3137 = phi i32 [ %66, %.preheader122 ], [ %24, %58 ]
+  %63 = call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef %.3137, i32 noundef 6, i32 noundef 1) #10
+  %64 = load i32, ptr @hf_nas_eps_emm_tai_tac, align 4
+  %65 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %64, ptr noundef %0, i32 noundef %63, i32 noundef 2, i32 noundef 0) #10
+  %66 = add i32 %63, 2
+  %67 = add nuw nsw i32 %.2138, 1
+  %exitcond.not = icmp eq i32 %67, %.0108
   br i1 %exitcond.not, label %.loopexit, label %.preheader122, !llvm.loop !8
 
 default.unreachable164:                           ; preds = %23
   unreachable
 
-.loopexit:                                        ; preds = %.preheader122, %proto_item_set_generated.exit, %.preheader, %41
-  %.2111 = phi i32 [ %45, %41 ], [ %40, %.preheader ], [ %45, %proto_item_set_generated.exit ], [ %69, %.preheader122 ]
-  %71 = sub i32 %.2111, %3
-  %72 = icmp ult i32 %71, %4
-  br i1 %72, label %.lr.ph146, label %.loopexit124, !llvm.loop !9
+.loopexit:                                        ; preds = %.preheader122, %proto_item_set_generated.exit, %.preheader, %40
+  %.2111 = phi i32 [ %44, %40 ], [ %39, %.preheader ], [ %44, %proto_item_set_generated.exit ], [ %66, %.preheader122 ]
+  %68 = sub i32 %.2111, %3
+  %69 = icmp ult i32 %68, %4
+  br i1 %69, label %.lr.ph146, label %.loopexit124, !llvm.loop !9
 
-.loopexit124:                                     ; preds = %.loopexit, %7, %63, %34, %25
-  %.0.in = phi i32 [ %4, %25 ], [ %4, %63 ], [ %4, %34 ], [ 0, %7 ], [ %71, %.loopexit ]
+.loopexit124:                                     ; preds = %.loopexit, %7, %60, %33, %25
+  %.0.in = phi i32 [ %4, %25 ], [ %4, %60 ], [ %4, %33 ], [ 0, %7 ], [ %68, %.loopexit ]
   %.0 = trunc i32 %.0.in to i16
   ret i16 %.0
 }

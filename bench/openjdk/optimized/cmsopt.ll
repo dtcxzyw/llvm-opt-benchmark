@@ -2258,25 +2258,25 @@ define internal range(i32 0, 2) i32 @OptimizeByComputingLinearization(ptr nocapt
   %10 = load i32, ptr %2, align 4
   %11 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %10) #10
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %307
+  br i1 %.not, label %12, label %309
 
 12:                                               ; preds = %5
   %13 = load i32, ptr %3, align 4
   %14 = tail call i32 @_cmsFormatterIsFloat(i32 noundef %13) #10
   %.not150 = icmp eq i32 %14, 0
-  br i1 %.not150, label %15, label %307
+  br i1 %.not150, label %15, label %309
 
 15:                                               ; preds = %12
   %16 = load i32, ptr %2, align 4
   %17 = and i32 %16, 2035712
   %or.cond177 = icmp eq i32 %17, 262144
-  br i1 %or.cond177, label %18, label %307
+  br i1 %or.cond177, label %18, label %309
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %3, align 4
   %20 = and i32 %19, 2035712
   %or.cond178 = icmp eq i32 %20, 262144
-  br i1 %or.cond178, label %21, label %307
+  br i1 %or.cond178, label %21, label %309
 
 21:                                               ; preds = %18
   %22 = tail call i32 @_cmsFormatterIs8bit(i32 noundef %16) #10
@@ -2287,7 +2287,7 @@ define internal range(i32 0, 2) i32 @OptimizeByComputingLinearization(ptr nocapt
   %24 = load i32, ptr %4, align 4
   %25 = and i32 %24, 16
   %.not156 = icmp eq i32 %25, 0
-  br i1 %.not156, label %307, label %26
+  br i1 %.not156, label %309, label %26
 
 26:                                               ; preds = %23, %21
   %27 = load ptr, ptr %0, align 8
@@ -2302,7 +2302,7 @@ define internal range(i32 0, 2) i32 @OptimizeByComputingLinearization(ptr nocapt
   %36 = icmp eq i32 %31, 0
   %37 = icmp eq i32 %35, 0
   %or.cond = select i1 %36, i1 true, i1 %37
-  br i1 %or.cond, label %307, label %38
+  br i1 %or.cond, label %309, label %38
 
 38:                                               ; preds = %26
   %39 = load i32, ptr %4, align 4
@@ -2501,8 +2501,8 @@ _cmsQuickSaturateWord.exit:                       ; preds = %97, %104, %106
 
 .preheader218:                                    ; preds = %._crit_edge233.thread, %SlopeLimiting.exit, %.preheader220
   %117 = load i32, ptr %70, align 8
-  %.not313 = icmp eq i32 %117, 0
-  br i1 %.not313, label %.critedge.preheader, label %.lr.ph312
+  %.not312 = icmp eq i32 %117, 0
+  br i1 %.not312, label %.critedge._crit_edge, label %.lr.ph311
 
 .lr.ph236:                                        ; preds = %.preheader220, %SlopeLimiting.exit
   %indvars.iv272 = phi i64 [ %indvars.iv.next273, %SlopeLimiting.exit ], [ 0, %.preheader220 ]
@@ -2626,282 +2626,281 @@ SlopeLimiting.exit:                               ; preds = %_cmsQuickSaturateWo
   %188 = icmp ult i64 %indvars.iv.next273, %187
   br i1 %188, label %.lr.ph236, label %.preheader218, !llvm.loop !45
 
-.backedge:                                        ; preds = %.lr.ph312, %213
-  %189 = phi i32 [ %214, %213 ], [ 0, %.lr.ph312 ]
-  %.017.lcssa3235.i201 = phi i32 [ %.1.i195, %213 ], [ 0, %.lr.ph312 ]
+.backedge:                                        ; preds = %.lr.ph311, %215
+  %189 = phi i32 [ %216, %215 ], [ 0, %.lr.ph311 ]
+  %.017.lcssa3235.i201 = phi i32 [ %.1.i195, %215 ], [ 0, %.lr.ph311 ]
   %190 = icmp ugt i32 %.017.lcssa3235.i201, %189
-  %spec.select = select i1 %190, i1 true, i1 %.not168
-  br i1 %spec.select, label %.critedge176, label %.backedge296
+  %191 = select i1 %190, i1 true, i1 %.not168
+  br i1 %191, label %.critedge176, label %.backedge295
 
-.backedge296:                                     ; preds = %.backedge, %IsDegenerated.exit204.thread
-  %indvars.iv275.be = add nuw nsw i64 %indvars.iv275311, 1
-  %191 = load i32, ptr %70, align 8
-  %192 = zext i32 %191 to i64
-  %193 = icmp ult i64 %indvars.iv275.be, %192
-  br i1 %193, label %.lr.ph312, label %.critedge.preheader, !llvm.loop !46
+.backedge295:                                     ; preds = %.backedge, %IsDegenerated.exit204.thread
+  %indvars.iv275.be = add nuw nsw i64 %indvars.iv275310, 1
+  %192 = load i32, ptr %70, align 8
+  %193 = zext i32 %192 to i64
+  %194 = icmp ult i64 %indvars.iv275.be, %193
+  br i1 %194, label %.lr.ph311, label %..critedge.preheader_crit_edge, !llvm.loop !46
 
-.critedge.preheader:                              ; preds = %.backedge296, %.preheader218
-  %.lcssa = phi i32 [ %117, %.preheader218 ], [ %191, %.backedge296 ]
-  %.not252 = icmp eq i32 %.lcssa, 0
-  br i1 %.not252, label %.critedge._crit_edge, label %.lr.ph240
+..critedge.preheader_crit_edge:                   ; preds = %.backedge295
+  %195 = icmp eq i32 %192, 0
+  br i1 %195, label %.critedge._crit_edge, label %.lr.ph240
 
-.lr.ph312:                                        ; preds = %.preheader218, %.backedge296
-  %indvars.iv275311 = phi i64 [ %indvars.iv275.be, %.backedge296 ], [ 0, %.preheader218 ]
-  %194 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv275311
-  %195 = load ptr, ptr %194, align 8
-  %196 = call i32 @cmsIsToneCurveLinear(ptr noundef %195) #10
-  %197 = load ptr, ptr %194, align 8
-  %198 = call i32 @cmsIsToneCurveMonotonic(ptr noundef %197) #10
-  %.not168 = icmp eq i32 %198, 0
-  %199 = load ptr, ptr %194, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 40
-  %201 = load i32, ptr %200, align 8
-  %.not.i188 = icmp eq i32 %201, 0
+.lr.ph311:                                        ; preds = %.preheader218, %.backedge295
+  %indvars.iv275310 = phi i64 [ %indvars.iv275.be, %.backedge295 ], [ 0, %.preheader218 ]
+  %196 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv275310
+  %197 = load ptr, ptr %196, align 8
+  %198 = call i32 @cmsIsToneCurveLinear(ptr noundef %197) #10
+  %199 = load ptr, ptr %196, align 8
+  %200 = call i32 @cmsIsToneCurveMonotonic(ptr noundef %199) #10
+  %.not168 = icmp eq i32 %200, 0
+  %201 = load ptr, ptr %196, align 8
+  %202 = getelementptr inbounds i8, ptr %201, i64 40
+  %203 = load i32, ptr %202, align 8
+  %.not.i188 = icmp eq i32 %203, 0
   br i1 %.not.i188, label %.backedge, label %.lr.ph.i189
 
-.lr.ph.i189:                                      ; preds = %.lr.ph312
-  %202 = getelementptr inbounds i8, ptr %199, i64 48
-  %203 = load ptr, ptr %202, align 8
-  %wide.trip.count.i190 = zext i32 %201 to i64
-  br label %204
+.lr.ph.i189:                                      ; preds = %.lr.ph311
+  %204 = getelementptr inbounds i8, ptr %201, i64 48
+  %205 = load ptr, ptr %204, align 8
+  %wide.trip.count.i190 = zext i32 %203 to i64
+  br label %206
 
-204:                                              ; preds = %204, %.lr.ph.i189
-  %indvars.iv.i191 = phi i64 [ 0, %.lr.ph.i189 ], [ %indvars.iv.next.i196, %204 ]
-  %.01725.i192 = phi i32 [ 0, %.lr.ph.i189 ], [ %.1.i195, %204 ]
-  %.01824.i193 = phi i32 [ 0, %.lr.ph.i189 ], [ %spec.select.i194, %204 ]
-  %205 = getelementptr inbounds i16, ptr %203, i64 %indvars.iv.i191
-  %206 = load i16, ptr %205, align 2
-  %207 = icmp eq i16 %206, 0
-  %208 = zext i1 %207 to i32
-  %spec.select.i194 = add i32 %.01824.i193, %208
-  %209 = icmp eq i16 %206, -1
+206:                                              ; preds = %206, %.lr.ph.i189
+  %indvars.iv.i191 = phi i64 [ 0, %.lr.ph.i189 ], [ %indvars.iv.next.i196, %206 ]
+  %.01725.i192 = phi i32 [ 0, %.lr.ph.i189 ], [ %.1.i195, %206 ]
+  %.01824.i193 = phi i32 [ 0, %.lr.ph.i189 ], [ %spec.select.i194, %206 ]
+  %207 = getelementptr inbounds i16, ptr %205, i64 %indvars.iv.i191
+  %208 = load i16, ptr %207, align 2
+  %209 = icmp eq i16 %208, 0
   %210 = zext i1 %209 to i32
-  %.1.i195 = add i32 %.01725.i192, %210
+  %spec.select.i194 = add i32 %.01824.i193, %210
+  %211 = icmp eq i16 %208, -1
+  %212 = zext i1 %211 to i32
+  %.1.i195 = add i32 %.01725.i192, %212
   %indvars.iv.next.i196 = add nuw nsw i64 %indvars.iv.i191, 1
   %exitcond.not.i197 = icmp eq i64 %indvars.iv.next.i196, %wide.trip.count.i190
-  br i1 %exitcond.not.i197, label %._crit_edge.i198, label %204, !llvm.loop !37
+  br i1 %exitcond.not.i197, label %._crit_edge.i198, label %206, !llvm.loop !37
 
-._crit_edge.i198:                                 ; preds = %204
-  %211 = icmp eq i32 %spec.select.i194, 1
-  %212 = icmp eq i32 %.1.i195, 1
-  %or.cond.i199 = select i1 %211, i1 %212, i1 false
-  br i1 %or.cond.i199, label %IsDegenerated.exit204.thread, label %213
+._crit_edge.i198:                                 ; preds = %206
+  %213 = icmp eq i32 %spec.select.i194, 1
+  %214 = icmp eq i32 %.1.i195, 1
+  %or.cond.i199 = select i1 %213, i1 %214, i1 false
+  br i1 %or.cond.i199, label %IsDegenerated.exit204.thread, label %215
 
 IsDegenerated.exit204.thread:                     ; preds = %._crit_edge.i198
-  br i1 %.not168, label %.critedge176, label %.backedge296
+  br i1 %.not168, label %.critedge176, label %.backedge295
 
-213:                                              ; preds = %._crit_edge.i198
-  %214 = udiv i32 %201, 20
-  %215 = icmp ugt i32 %spec.select.i194, %214
-  br i1 %215, label %.critedge176, label %.backedge
+215:                                              ; preds = %._crit_edge.i198
+  %216 = udiv i32 %203, 20
+  %217 = icmp ugt i32 %spec.select.i194, %216
+  br i1 %217, label %.critedge176, label %.backedge
 
 .critedge:                                        ; preds = %.lr.ph240
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
-  %216 = load i32, ptr %70, align 8
-  %217 = zext i32 %216 to i64
-  %218 = icmp ult i64 %indvars.iv.next279, %217
-  br i1 %218, label %.lr.ph240, label %.critedge._crit_edge, !llvm.loop !47
+  %218 = load i32, ptr %70, align 8
+  %219 = zext i32 %218 to i64
+  %220 = icmp ult i64 %indvars.iv.next279, %219
+  br i1 %220, label %.lr.ph240, label %.critedge._crit_edge, !llvm.loop !47
 
-.lr.ph240:                                        ; preds = %.critedge.preheader, %.critedge
-  %indvars.iv278 = phi i64 [ %indvars.iv.next279, %.critedge ], [ 0, %.critedge.preheader ]
-  %219 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv278
-  %220 = load ptr, ptr %219, align 8
-  %221 = call ptr @cmsReverseToneCurveEx(i32 noundef 4096, ptr noundef %220) #10
-  %222 = getelementptr inbounds [16 x ptr], ptr %7, i64 0, i64 %indvars.iv278
-  store ptr %221, ptr %222, align 8
-  %223 = icmp eq ptr %221, null
-  br i1 %223, label %.critedge176, label %.critedge
+.lr.ph240:                                        ; preds = %..critedge.preheader_crit_edge, %.critedge
+  %indvars.iv278 = phi i64 [ %indvars.iv.next279, %.critedge ], [ 0, %..critedge.preheader_crit_edge ]
+  %221 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv278
+  %222 = load ptr, ptr %221, align 8
+  %223 = call ptr @cmsReverseToneCurveEx(i32 noundef 4096, ptr noundef %222) #10
+  %224 = getelementptr inbounds [16 x ptr], ptr %7, i64 0, i64 %indvars.iv278
+  store ptr %223, ptr %224, align 8
+  %225 = icmp eq ptr %223, null
+  br i1 %225, label %.critedge176, label %.critedge
 
-.critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
-  %224 = call ptr @cmsPipelineDup(ptr noundef nonnull %27) #10
-  %225 = icmp eq ptr %224, null
-  br i1 %225, label %.critedge176, label %226
+.critedge._crit_edge:                             ; preds = %.critedge, %.preheader218, %..critedge.preheader_crit_edge
+  %226 = call ptr @cmsPipelineDup(ptr noundef nonnull %27) #10
+  %227 = icmp eq ptr %226, null
+  br i1 %227, label %.critedge176, label %228
 
-226:                                              ; preds = %.critedge._crit_edge
-  %227 = getelementptr inbounds i8, ptr %27, i64 56
-  %228 = load ptr, ptr %227, align 8
-  %229 = load i32, ptr %70, align 8
-  %230 = call ptr @cmsStageAllocToneCurves(ptr noundef %228, i32 noundef %229, ptr noundef nonnull %7) #10
-  %231 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %224, i32 noundef 0, ptr noundef %230) #10
-  %.not158 = icmp eq i32 %231, 0
-  br i1 %.not158, label %.critedge176, label %232
+228:                                              ; preds = %.critedge._crit_edge
+  %229 = getelementptr inbounds i8, ptr %27, i64 56
+  %230 = load ptr, ptr %229, align 8
+  %231 = load i32, ptr %70, align 8
+  %232 = call ptr @cmsStageAllocToneCurves(ptr noundef %230, i32 noundef %231, ptr noundef nonnull %7) #10
+  %233 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %226, i32 noundef 0, ptr noundef %232) #10
+  %.not158 = icmp eq i32 %233, 0
+  br i1 %.not158, label %.critedge176, label %234
 
-232:                                              ; preds = %226
-  %233 = load ptr, ptr %227, align 8
-  %234 = load i32, ptr %70, align 8
-  %235 = getelementptr inbounds i8, ptr %27, i64 12
-  %236 = load i32, ptr %235, align 4
-  %237 = call ptr @cmsPipelineAlloc(ptr noundef %233, i32 noundef %234, i32 noundef %236) #10
-  %238 = icmp eq ptr %237, null
-  br i1 %238, label %.critedge176, label %239
+234:                                              ; preds = %228
+  %235 = load ptr, ptr %229, align 8
+  %236 = load i32, ptr %70, align 8
+  %237 = getelementptr inbounds i8, ptr %27, i64 12
+  %238 = load i32, ptr %237, align 4
+  %239 = call ptr @cmsPipelineAlloc(ptr noundef %235, i32 noundef %236, i32 noundef %238) #10
+  %240 = icmp eq ptr %239, null
+  br i1 %240, label %.critedge176, label %241
 
-239:                                              ; preds = %232
-  %240 = load ptr, ptr %227, align 8
-  %241 = load i32, ptr %70, align 8
-  %242 = call ptr @cmsStageAllocToneCurves(ptr noundef %240, i32 noundef %241, ptr noundef nonnull %6) #10
-  %243 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %237, i32 noundef 0, ptr noundef %242) #10
-  %.not159 = icmp eq i32 %243, 0
-  br i1 %.not159, label %.critedge176, label %244
+241:                                              ; preds = %234
+  %242 = load ptr, ptr %229, align 8
+  %243 = load i32, ptr %70, align 8
+  %244 = call ptr @cmsStageAllocToneCurves(ptr noundef %242, i32 noundef %243, ptr noundef nonnull %6) #10
+  %245 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %239, i32 noundef 0, ptr noundef %244) #10
+  %.not159 = icmp eq i32 %245, 0
+  br i1 %.not159, label %.critedge176, label %246
 
-244:                                              ; preds = %239
-  %245 = load ptr, ptr %227, align 8
-  %246 = load i32, ptr %70, align 8
-  %247 = load i32, ptr %235, align 4
-  %248 = call ptr @cmsStageAllocCLut16bit(ptr noundef %245, i32 noundef %40, i32 noundef %246, i32 noundef %247, ptr noundef null) #10
-  %249 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %237, i32 noundef 1, ptr noundef %248) #10
-  %.not160 = icmp eq i32 %249, 0
-  br i1 %.not160, label %.critedge176, label %250
+246:                                              ; preds = %241
+  %247 = load ptr, ptr %229, align 8
+  %248 = load i32, ptr %70, align 8
+  %249 = load i32, ptr %237, align 4
+  %250 = call ptr @cmsStageAllocCLut16bit(ptr noundef %247, i32 noundef %40, i32 noundef %248, i32 noundef %249, ptr noundef null) #10
+  %251 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %239, i32 noundef 1, ptr noundef %250) #10
+  %.not160 = icmp eq i32 %251, 0
+  br i1 %.not160, label %.critedge176, label %252
 
-250:                                              ; preds = %244
-  %251 = call i32 @cmsStageSampleCLut16bit(ptr noundef %248, ptr noundef nonnull @XFormSampler16, ptr noundef nonnull %224, i32 noundef 0) #10
-  %.not161 = icmp eq i32 %251, 0
+252:                                              ; preds = %246
+  %253 = call i32 @cmsStageSampleCLut16bit(ptr noundef %250, ptr noundef nonnull @XFormSampler16, ptr noundef nonnull %226, i32 noundef 0) #10
+  %.not161 = icmp eq i32 %253, 0
   br i1 %.not161, label %.critedge176, label %.preheader
 
-.preheader:                                       ; preds = %250
-  %252 = load i32, ptr %70, align 8
-  %.not253 = icmp eq i32 %252, 0
+.preheader:                                       ; preds = %252
+  %254 = load i32, ptr %70, align 8
+  %.not253 = icmp eq i32 %254, 0
   br i1 %.not253, label %._crit_edge243, label %.lr.ph242
 
-.lr.ph242:                                        ; preds = %.preheader, %260
-  %indvars.iv281 = phi i64 [ %indvars.iv.next282, %260 ], [ 0, %.preheader ]
-  %253 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv281
-  %254 = load ptr, ptr %253, align 8
-  %.not165 = icmp eq ptr %254, null
-  br i1 %.not165, label %256, label %255
+.lr.ph242:                                        ; preds = %.preheader, %262
+  %indvars.iv281 = phi i64 [ %indvars.iv.next282, %262 ], [ 0, %.preheader ]
+  %255 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv281
+  %256 = load ptr, ptr %255, align 8
+  %.not165 = icmp eq ptr %256, null
+  br i1 %.not165, label %258, label %257
 
-255:                                              ; preds = %.lr.ph242
-  call void @cmsFreeToneCurve(ptr noundef nonnull %254) #10
-  br label %256
+257:                                              ; preds = %.lr.ph242
+  call void @cmsFreeToneCurve(ptr noundef nonnull %256) #10
+  br label %258
 
-256:                                              ; preds = %255, %.lr.ph242
-  %257 = getelementptr inbounds [16 x ptr], ptr %7, i64 0, i64 %indvars.iv281
-  %258 = load ptr, ptr %257, align 8
-  %.not166 = icmp eq ptr %258, null
-  br i1 %.not166, label %260, label %259
+258:                                              ; preds = %257, %.lr.ph242
+  %259 = getelementptr inbounds [16 x ptr], ptr %7, i64 0, i64 %indvars.iv281
+  %260 = load ptr, ptr %259, align 8
+  %.not166 = icmp eq ptr %260, null
+  br i1 %.not166, label %262, label %261
 
-259:                                              ; preds = %256
-  call void @cmsFreeToneCurve(ptr noundef nonnull %258) #10
-  br label %260
+261:                                              ; preds = %258
+  call void @cmsFreeToneCurve(ptr noundef nonnull %260) #10
+  br label %262
 
-260:                                              ; preds = %256, %259
+262:                                              ; preds = %258, %261
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
-  %261 = load i32, ptr %70, align 8
-  %262 = zext i32 %261 to i64
-  %263 = icmp ult i64 %indvars.iv.next282, %262
-  br i1 %263, label %.lr.ph242, label %._crit_edge243, !llvm.loop !48
+  %263 = load i32, ptr %70, align 8
+  %264 = zext i32 %263 to i64
+  %265 = icmp ult i64 %indvars.iv.next282, %264
+  br i1 %265, label %.lr.ph242, label %._crit_edge243, !llvm.loop !48
 
-._crit_edge243:                                   ; preds = %260, %.preheader
-  call void @cmsPipelineFree(ptr noundef nonnull %224) #10
-  %264 = call ptr @_cmsStageGetPtrToCurveSet(ptr noundef %242) #10
-  %265 = getelementptr inbounds i8, ptr %248, i64 48
-  %266 = load ptr, ptr %265, align 8
-  %267 = load i32, ptr %2, align 4
-  %268 = call i32 @_cmsFormatterIs8bit(i32 noundef %267) #10
-  %.not162 = icmp eq i32 %268, 0
-  %269 = getelementptr inbounds i8, ptr %237, i64 56
-  %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr inbounds i8, ptr %266, i64 8
+._crit_edge243:                                   ; preds = %262, %.preheader
+  call void @cmsPipelineFree(ptr noundef nonnull %226) #10
+  %266 = call ptr @_cmsStageGetPtrToCurveSet(ptr noundef %244) #10
+  %267 = getelementptr inbounds i8, ptr %250, i64 48
+  %268 = load ptr, ptr %267, align 8
+  %269 = load i32, ptr %2, align 4
+  %270 = call i32 @_cmsFormatterIs8bit(i32 noundef %269) #10
+  %.not162 = icmp eq i32 %270, 0
+  %271 = getelementptr inbounds i8, ptr %239, i64 56
   %272 = load ptr, ptr %271, align 8
-  br i1 %.not162, label %277, label %273
+  %273 = getelementptr inbounds i8, ptr %268, i64 8
+  %274 = load ptr, ptr %273, align 8
+  br i1 %.not162, label %279, label %275
 
-273:                                              ; preds = %._crit_edge243
-  %274 = call fastcc ptr @PrelinOpt8alloc(ptr noundef %270, ptr noundef %272, ptr noundef %264)
-  %275 = icmp eq ptr %274, null
-  br i1 %275, label %307, label %276
+275:                                              ; preds = %._crit_edge243
+  %276 = call fastcc ptr @PrelinOpt8alloc(ptr noundef %272, ptr noundef %274, ptr noundef %266)
+  %277 = icmp eq ptr %276, null
+  br i1 %277, label %309, label %278
 
-276:                                              ; preds = %273
-  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %237, ptr noundef nonnull @PrelinEval8, ptr noundef nonnull %274, ptr noundef nonnull @Prelin8free, ptr noundef nonnull @Prelin8dup) #10
-  br label %281
+278:                                              ; preds = %275
+  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %239, ptr noundef nonnull @PrelinEval8, ptr noundef nonnull %276, ptr noundef nonnull @Prelin8free, ptr noundef nonnull @Prelin8dup) #10
+  br label %283
 
-277:                                              ; preds = %._crit_edge243
-  %278 = call fastcc ptr @PrelinOpt16alloc(ptr noundef %270, ptr noundef %272, i32 noundef 3, ptr noundef %264, i32 noundef 3, ptr noundef null)
-  %279 = icmp eq ptr %278, null
-  br i1 %279, label %307, label %280
+279:                                              ; preds = %._crit_edge243
+  %280 = call fastcc ptr @PrelinOpt16alloc(ptr noundef %272, ptr noundef %274, i32 noundef 3, ptr noundef %266, i32 noundef 3, ptr noundef null)
+  %281 = icmp eq ptr %280, null
+  br i1 %281, label %309, label %282
 
-280:                                              ; preds = %277
-  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %237, ptr noundef nonnull @PrelinEval16, ptr noundef nonnull %278, ptr noundef nonnull @PrelinOpt16free, ptr noundef nonnull @Prelin16dup) #10
-  br label %281
+282:                                              ; preds = %279
+  call void @_cmsPipelineSetOptimizationParameters(ptr noundef nonnull %239, ptr noundef nonnull @PrelinEval16, ptr noundef nonnull %280, ptr noundef nonnull @PrelinOpt16free, ptr noundef nonnull @Prelin16dup) #10
+  br label %283
 
-281:                                              ; preds = %280, %276
-  %282 = icmp eq i32 %1, 3
+283:                                              ; preds = %282, %278
+  %284 = icmp eq i32 %1, 3
   %.pre287 = load i32, ptr %4, align 4
-  br i1 %282, label %283, label %285
+  br i1 %284, label %285, label %287
 
-283:                                              ; preds = %281
-  %284 = or i32 %.pre287, 4
-  store i32 %284, ptr %4, align 4
-  br label %285
+285:                                              ; preds = %283
+  %286 = or i32 %.pre287, 4
+  store i32 %286, ptr %4, align 4
+  br label %287
 
-285:                                              ; preds = %283, %281
-  %286 = phi i32 [ %284, %283 ], [ %.pre287, %281 ]
-  %287 = and i32 %286, 4
-  %.not163 = icmp eq i32 %287, 0
-  br i1 %.not163, label %288, label %290
+287:                                              ; preds = %285, %283
+  %288 = phi i32 [ %286, %285 ], [ %.pre287, %283 ]
+  %289 = and i32 %288, 4
+  %.not163 = icmp eq i32 %289, 0
+  br i1 %.not163, label %290, label %292
 
-288:                                              ; preds = %285
-  %289 = call fastcc i32 @FixWhiteMisalignment(ptr noundef nonnull %237, i32 noundef %31, i32 noundef %35)
-  %.not164 = icmp eq i32 %289, 0
-  br i1 %.not164, label %307, label %290
+290:                                              ; preds = %287
+  %291 = call fastcc i32 @FixWhiteMisalignment(ptr noundef nonnull %239, i32 noundef %31, i32 noundef %35)
+  %.not164 = icmp eq i32 %291, 0
+  br i1 %.not164, label %309, label %292
 
-290:                                              ; preds = %288, %285
+292:                                              ; preds = %290, %287
   call void @cmsPipelineFree(ptr noundef nonnull %27) #10
-  store ptr %237, ptr %0, align 8
-  br label %307
+  store ptr %239, ptr %0, align 8
+  br label %309
 
-.critedge176:                                     ; preds = %67, %77, %.backedge, %IsDegenerated.exit204.thread, %213, %.lr.ph240, %250, %244, %239, %232, %226, %.critedge._crit_edge, %38
-  %.0136 = phi ptr [ null, %38 ], [ null, %.critedge._crit_edge ], [ %224, %232 ], [ %224, %250 ], [ %224, %244 ], [ %224, %239 ], [ %224, %226 ], [ null, %.lr.ph240 ], [ null, %213 ], [ null, %IsDegenerated.exit204.thread ], [ null, %.backedge ], [ null, %77 ], [ null, %67 ]
-  %.0135 = phi ptr [ null, %38 ], [ null, %.critedge._crit_edge ], [ null, %232 ], [ %237, %250 ], [ %237, %244 ], [ %237, %239 ], [ null, %226 ], [ null, %.lr.ph240 ], [ null, %213 ], [ null, %IsDegenerated.exit204.thread ], [ null, %.backedge ], [ null, %77 ], [ null, %67 ]
-  %291 = getelementptr inbounds i8, ptr %27, i64 8
-  %292 = load i32, ptr %291, align 8
-  %.not254 = icmp eq i32 %292, 0
+.critedge176:                                     ; preds = %67, %77, %.backedge, %IsDegenerated.exit204.thread, %215, %.lr.ph240, %252, %246, %241, %234, %228, %.critedge._crit_edge, %38
+  %.0136 = phi ptr [ null, %38 ], [ null, %.critedge._crit_edge ], [ %226, %234 ], [ %226, %252 ], [ %226, %246 ], [ %226, %241 ], [ %226, %228 ], [ null, %.lr.ph240 ], [ null, %215 ], [ null, %IsDegenerated.exit204.thread ], [ null, %.backedge ], [ null, %77 ], [ null, %67 ]
+  %.0135 = phi ptr [ null, %38 ], [ null, %.critedge._crit_edge ], [ null, %234 ], [ %239, %252 ], [ %239, %246 ], [ %239, %241 ], [ null, %228 ], [ null, %.lr.ph240 ], [ null, %215 ], [ null, %IsDegenerated.exit204.thread ], [ null, %.backedge ], [ null, %77 ], [ null, %67 ]
+  %293 = getelementptr inbounds i8, ptr %27, i64 8
+  %294 = load i32, ptr %293, align 8
+  %.not254 = icmp eq i32 %294, 0
   br i1 %.not254, label %._crit_edge246, label %.lr.ph245
 
-.lr.ph245:                                        ; preds = %.critedge176, %300
-  %indvars.iv284 = phi i64 [ %indvars.iv.next285, %300 ], [ 0, %.critedge176 ]
-  %293 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv284
-  %294 = load ptr, ptr %293, align 8
-  %.not174 = icmp eq ptr %294, null
-  br i1 %.not174, label %296, label %295
+.lr.ph245:                                        ; preds = %.critedge176, %302
+  %indvars.iv284 = phi i64 [ %indvars.iv.next285, %302 ], [ 0, %.critedge176 ]
+  %295 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv284
+  %296 = load ptr, ptr %295, align 8
+  %.not174 = icmp eq ptr %296, null
+  br i1 %.not174, label %298, label %297
 
-295:                                              ; preds = %.lr.ph245
-  call void @cmsFreeToneCurve(ptr noundef nonnull %294) #10
-  br label %296
+297:                                              ; preds = %.lr.ph245
+  call void @cmsFreeToneCurve(ptr noundef nonnull %296) #10
+  br label %298
 
-296:                                              ; preds = %295, %.lr.ph245
-  %297 = getelementptr inbounds [16 x ptr], ptr %7, i64 0, i64 %indvars.iv284
-  %298 = load ptr, ptr %297, align 8
-  %.not175 = icmp eq ptr %298, null
-  br i1 %.not175, label %300, label %299
+298:                                              ; preds = %297, %.lr.ph245
+  %299 = getelementptr inbounds [16 x ptr], ptr %7, i64 0, i64 %indvars.iv284
+  %300 = load ptr, ptr %299, align 8
+  %.not175 = icmp eq ptr %300, null
+  br i1 %.not175, label %302, label %301
 
-299:                                              ; preds = %296
-  call void @cmsFreeToneCurve(ptr noundef nonnull %298) #10
-  br label %300
+301:                                              ; preds = %298
+  call void @cmsFreeToneCurve(ptr noundef nonnull %300) #10
+  br label %302
 
-300:                                              ; preds = %296, %299
+302:                                              ; preds = %298, %301
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
-  %301 = load i32, ptr %291, align 8
-  %302 = zext i32 %301 to i64
-  %303 = icmp ult i64 %indvars.iv.next285, %302
-  br i1 %303, label %.lr.ph245, label %._crit_edge246, !llvm.loop !49
+  %303 = load i32, ptr %293, align 8
+  %304 = zext i32 %303 to i64
+  %305 = icmp ult i64 %indvars.iv.next285, %304
+  br i1 %305, label %.lr.ph245, label %._crit_edge246, !llvm.loop !49
 
-._crit_edge246:                                   ; preds = %300, %.critedge176
+._crit_edge246:                                   ; preds = %302, %.critedge176
   %.not172 = icmp eq ptr %.0136, null
-  br i1 %.not172, label %305, label %304
+  br i1 %.not172, label %307, label %306
 
-304:                                              ; preds = %._crit_edge246
+306:                                              ; preds = %._crit_edge246
   call void @cmsPipelineFree(ptr noundef nonnull %.0136) #10
-  br label %305
-
-305:                                              ; preds = %304, %._crit_edge246
-  %.not173 = icmp eq ptr %.0135, null
-  br i1 %.not173, label %307, label %306
-
-306:                                              ; preds = %305
-  call void @cmsPipelineFree(ptr noundef nonnull %.0135) #10
   br label %307
 
-307:                                              ; preds = %305, %306, %288, %277, %273, %26, %23, %18, %15, %5, %12, %290
-  %.0 = phi i32 [ 1, %290 ], [ 0, %12 ], [ 0, %5 ], [ 0, %15 ], [ 0, %18 ], [ 0, %23 ], [ 0, %26 ], [ 0, %273 ], [ 0, %277 ], [ 0, %288 ], [ 0, %306 ], [ 0, %305 ]
+307:                                              ; preds = %306, %._crit_edge246
+  %.not173 = icmp eq ptr %.0135, null
+  br i1 %.not173, label %309, label %308
+
+308:                                              ; preds = %307
+  call void @cmsPipelineFree(ptr noundef nonnull %.0135) #10
+  br label %309
+
+309:                                              ; preds = %307, %308, %290, %279, %275, %26, %23, %18, %15, %5, %12, %292
+  %.0 = phi i32 [ 1, %292 ], [ 0, %12 ], [ 0, %5 ], [ 0, %15 ], [ 0, %18 ], [ 0, %23 ], [ 0, %26 ], [ 0, %275 ], [ 0, %279 ], [ 0, %290 ], [ 0, %308 ], [ 0, %307 ]
   ret i32 %.0
 }
 
@@ -3471,18 +3470,18 @@ _cmsQuickSaturateWord.exit19.us:                  ; preds = %17, %15, %.split.us
   %39 = tail call double @llvm.floor.f64(double %38)
   %40 = fptosi double %39 to i32
   %41 = add i32 %40, 32767
-  br label %_cmsQuickSaturateWord.exit
-
-_cmsQuickSaturateWord.exit:                       ; preds = %.split, %35, %37
-  %.0.i = phi i32 [ %41, %37 ], [ 0, %.split ], [ 65535, %35 ]
-  %42 = and i32 %.0.i, 65535
+  %42 = and i32 %41, 65535
   %43 = mul nuw i32 %42, 65281
   %44 = add nuw i32 %43, 8388608
   %45 = lshr i32 %44, 24
   %46 = trunc nuw nsw i32 %45 to i16
   %47 = mul nuw i16 %46, 257
+  br label %_cmsQuickSaturateWord.exit
+
+_cmsQuickSaturateWord.exit:                       ; preds = %.split, %35, %37
+  %.0.i = phi i16 [ %47, %37 ], [ 0, %.split ], [ -1, %35 ]
   %48 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
-  store i16 %47, ptr %48, align 2
+  store i16 %.0.i, ptr %48, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16385
   br i1 %exitcond.not, label %.split22.us, label %.split, !llvm.loop !62

@@ -5790,9 +5790,9 @@ _ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.ex
   br label %23
 
 23:                                               ; preds = %.preheader, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4
-  %24 = phi i8 [ %15, %.preheader ], [ %102, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4 ]
-  %25 = phi i64 [ %13, %.preheader ], [ %100, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4 ]
-  %26 = phi ptr [ %10, %.preheader ], [ %98, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4 ]
+  %24 = phi i8 [ %15, %.preheader ], [ %101, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4 ]
+  %25 = phi i64 [ %13, %.preheader ], [ %99, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4 ]
+  %26 = phi ptr [ %10, %.preheader ], [ %97, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -5835,12 +5835,12 @@ _ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112
 39:                                               ; preds = %32
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %93
 
 41:                                               ; preds = %28
   %42 = getelementptr inbounds i8, ptr %26, i64 %29
   %43 = load i8, ptr %42, align 1
-  switch i8 %43, label %85 [
+  switch i8 %43, label %84 [
     i8 47, label %44
     i8 42, label %51
   ]
@@ -5852,14 +5852,14 @@ _ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112
   br i1 %46, label %.lr.ph.i, label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser15consume_commentEv.exit
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = add i64 %storemerge17.i, 1
+  %48 = add i64 %storemerge18.i, 1
   store i64 %48, ptr %11, align 8
   %exitcond.not.i = icmp eq i64 %48, %30
   br i1 %exitcond.not.i, label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser15consume_commentEv.exit, label %.lr.ph.i, !llvm.loop !62
 
 .lr.ph.i:                                         ; preds = %44, %47
-  %storemerge17.i = phi i64 [ %48, %47 ], [ %45, %44 ]
-  %49 = getelementptr inbounds i8, ptr %26, i64 %storemerge17.i
+  %storemerge18.i = phi i64 [ %48, %47 ], [ %45, %44 ]
+  %49 = getelementptr inbounds i8, ptr %26, i64 %storemerge18.i
   %50 = load i8, ptr %49, align 1
   %.not.i = icmp eq i8 %50, 10
   br i1 %.not.i, label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser15consume_commentEv.exit, label %47
@@ -5895,10 +5895,10 @@ _ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112
 62:                                               ; preds = %55
   %63 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %93
 
 .preheader.i:                                     ; preds = %51, %.critedge12.i
-  %64 = phi i64 [ %72, %.critedge12.i ], [ %52, %51 ]
+  %64 = phi i64 [ %71, %.critedge12.i ], [ %52, %51 ]
   %65 = getelementptr inbounds i8, ptr %26, i64 %64
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 42
@@ -5907,80 +5907,80 @@ _ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112
 68:                                               ; preds = %.preheader.i
   %69 = getelementptr i8, ptr %65, i64 1
   %70 = load i8, ptr %69, align 1
-  %71 = icmp eq i8 %70, 47
-  br i1 %71, label %83, label %.critedge12.i
+  %.not16.i = icmp eq i8 %70, 47
+  br i1 %.not16.i, label %82, label %.critedge12.i
 
 .critedge12.i:                                    ; preds = %68, %.preheader.i
-  %72 = add i64 %64, 1
-  store i64 %72, ptr %11, align 8
-  %73 = icmp ugt i64 %72, %53
-  br i1 %73, label %74, label %.preheader.i, !llvm.loop !63
+  %71 = add i64 %64, 1
+  store i64 %71, ptr %11, align 8
+  %72 = icmp ugt i64 %71, %53
+  br i1 %72, label %73, label %.preheader.i, !llvm.loop !63
 
-74:                                               ; preds = %.critedge12.i
+73:                                               ; preds = %.critedge12.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.41, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %75 unwind label %81
+          to label %74 unwind label %80
 
-75:                                               ; preds = %74
-  %76 = load i8, ptr %21, align 8
-  %77 = trunc i8 %76 to i1
-  br i1 %77, label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit14.i, label %78
+74:                                               ; preds = %73
+  %75 = load i8, ptr %21, align 8
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit14.i, label %77
 
-78:                                               ; preds = %75
-  %79 = load ptr, ptr %22, align 8
-  %80 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %6) #24
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %22, align 8
+  %79 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   br label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit14.i
 
-_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit14.i: ; preds = %78, %75
+_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit14.i: ; preds = %77, %74
   store i8 1, ptr %21, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #24
   br label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser15consume_commentEv.exit
 
-81:                                               ; preds = %74
-  %82 = landingpad { ptr, i32 }
+80:                                               ; preds = %73
+  %81 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %93
 
-83:                                               ; preds = %68
-  %84 = add i64 %64, 2
-  store i64 %84, ptr %11, align 8
+82:                                               ; preds = %68
+  %83 = add i64 %64, 2
+  store i64 %83, ptr %11, align 8
   br label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser15consume_commentEv.exit
 
-85:                                               ; preds = %41
+84:                                               ; preds = %41
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.42, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %86 unwind label %92
+          to label %85 unwind label %91
 
-86:                                               ; preds = %85
-  %87 = load i8, ptr %21, align 8
-  %88 = trunc i8 %87 to i1
-  br i1 %88, label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit15.i, label %89
+85:                                               ; preds = %84
+  %86 = load i8, ptr %21, align 8
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit15.i, label %88
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %22, align 8
-  %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %8) #24
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %22, align 8
+  %90 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   br label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit15.i
 
-_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit15.i: ; preds = %89, %86
+_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit15.i: ; preds = %88, %85
   store i8 1, ptr %21, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #24
   br label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser15consume_commentEv.exit
 
-92:                                               ; preds = %85
-  %93 = landingpad { ptr, i32 }
+91:                                               ; preds = %84
+  %92 = landingpad { ptr, i32 }
           cleanup
-  br label %94
+  br label %93
 
-94:                                               ; preds = %92, %81, %62, %39
-  %.sink.i = phi ptr [ %9, %92 ], [ %7, %81 ], [ %5, %62 ], [ %3, %39 ]
-  %.pn.i = phi { ptr, i32 } [ %93, %92 ], [ %82, %81 ], [ %63, %62 ], [ %40, %39 ]
+93:                                               ; preds = %91, %80, %62, %39
+  %.sink.i = phi ptr [ %9, %91 ], [ %7, %80 ], [ %5, %62 ], [ %3, %39 ]
+  %.pn.i = phi { ptr, i32 } [ %92, %91 ], [ %81, %80 ], [ %63, %62 ], [ %40, %39 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #24
   resume { ptr, i32 } %.pn.i
 
-_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser15consume_commentEv.exit: ; preds = %47, %.lr.ph.i, %23, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit.i, %44, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit13.i, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit14.i, %83, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit15.i
-  %.06.i = phi i1 [ false, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit.i ], [ false, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit13.i ], [ false, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit14.i ], [ false, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit15.i ], [ true, %83 ], [ false, %23 ], [ true, %44 ], [ true, %.lr.ph.i ], [ true, %47 ]
+_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser15consume_commentEv.exit: ; preds = %47, %.lr.ph.i, %23, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit.i, %44, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit13.i, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit14.i, %82, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit15.i
+  %.06.i = phi i1 [ false, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit.i ], [ false, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit13.i ], [ false, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit14.i ], [ false, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit15.i ], [ true, %82 ], [ false, %23 ], [ true, %44 ], [ true, %.lr.ph.i ], [ true, %47 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -5989,32 +5989,32 @@ _ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser15consume_commentEv.exit:
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  %95 = load i8, ptr %21, align 8
-  %96 = trunc i8 %95 to i1
-  br i1 %96, label %.loopexit, label %97
+  %94 = load i8, ptr %21, align 8
+  %95 = trunc i8 %94 to i1
+  br i1 %95, label %.loopexit, label %96
 
-97:                                               ; preds = %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser15consume_commentEv.exit
-  %98 = load ptr, ptr %0, align 8
+96:                                               ; preds = %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser15consume_commentEv.exit
+  %97 = load ptr, ptr %0, align 8
   %.promoted.i2 = load i64, ptr %11, align 8
-  br label %99
+  br label %98
 
-99:                                               ; preds = %.critedge.i3, %97
-  %100 = phi i64 [ %103, %.critedge.i3 ], [ %.promoted.i2, %97 ]
-  %101 = getelementptr inbounds i8, ptr %98, i64 %100
-  %102 = load i8, ptr %101, align 1
-  switch i8 %102, label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4 [
+98:                                               ; preds = %.critedge.i3, %96
+  %99 = phi i64 [ %102, %.critedge.i3 ], [ %.promoted.i2, %96 ]
+  %100 = getelementptr inbounds i8, ptr %97, i64 %99
+  %101 = load i8, ptr %100, align 1
+  switch i8 %101, label %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4 [
     i8 32, label %.critedge.i3
     i8 13, label %.critedge.i3
     i8 10, label %.critedge.i3
     i8 9, label %.critedge.i3
   ]
 
-.critedge.i3:                                     ; preds = %99, %99, %99, %99
-  %103 = add i64 %100, 1
-  store i64 %103, ptr %11, align 8
-  br label %99, !llvm.loop !61
+.critedge.i3:                                     ; preds = %98, %98, %98, %98
+  %102 = add i64 %99, 1
+  store i64 %102, ptr %11, align 8
+  br label %98, !llvm.loop !61
 
-_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4: ; preds = %99
+_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4: ; preds = %98
   br i1 %.06.i, label %23, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser15consume_commentEv.exit, %_ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit

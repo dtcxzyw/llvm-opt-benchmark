@@ -2606,9 +2606,9 @@ for.end36.loopexit:                               ; preds = %for.body23
   %10 = zext i32 %max_codeword_len.addr.0.lcssa to i64
   br label %for.end36
 
-for.end36:                                        ; preds = %for.end36.loopexit, %if.end
-  %len.1.lcssa = phi i64 [ 1, %if.end ], [ %10, %for.end36.loopexit ]
-  %codespace_used.0.lcssa = phi i32 [ 0, %if.end ], [ %9, %for.end36.loopexit ]
+for.end36:                                        ; preds = %if.end, %for.end36.loopexit
+  %len.1.lcssa = phi i64 [ %10, %for.end36.loopexit ], [ 1, %if.end ]
+  %codespace_used.0.lcssa = phi i32 [ %9, %for.end36.loopexit ], [ 0, %if.end ]
   %arrayidx39 = getelementptr inbounds [16 x i32], ptr %len_counts, i64 0, i64 %len.1.lcssa
   %11 = load i32, ptr %arrayidx39, align 4
   %add40 = add i32 %11, %codespace_used.0.lcssa

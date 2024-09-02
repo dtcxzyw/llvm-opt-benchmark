@@ -1898,7 +1898,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %332, %322
 
 383:                                              ; preds = %381
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.15) #27
-          to label %.noexc115 unwind label %393
+          to label %.noexc115 unwind label %394
 
 .noexc115:                                        ; preds = %383
   unreachable
@@ -1909,66 +1909,66 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %384 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %354) #26
-          to label %.lr.ph191.preheader unwind label %393
+          to label %.lr.ph191.preheader unwind label %394
 
 .lr.ph191.preheader:                              ; preds = %.lr.ph.preheader.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %384, i8 0, i64 %354, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %384, i64 %354
+  %385 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
   %umax = call i64 @llvm.umax.i64(i64 %344, i64 1)
   br label %.lr.ph191
 
 .lr.ph191:                                        ; preds = %.lr.ph191.preheader, %.lr.ph191
-  %.041190 = phi i64 [ %392, %.lr.ph191 ], [ 0, %.lr.ph191.preheader ]
-  %385 = getelementptr inbounds %"class.cv::Point_", ptr %367, i64 %.041190
-  %386 = getelementptr inbounds %"class.cv::Point_", ptr %351, i64 %.041190
-  %.val = load float, ptr %385, align 4
-  %387 = getelementptr i8, ptr %385, i64 4
-  %.val102 = load float, ptr %387, align 4
-  %.val103 = load float, ptr %386, align 4
+  %.041190 = phi i64 [ %393, %.lr.ph191 ], [ 0, %.lr.ph191.preheader ]
+  %386 = getelementptr inbounds %"class.cv::Point_", ptr %367, i64 %.041190
+  %387 = getelementptr inbounds %"class.cv::Point_", ptr %351, i64 %.041190
+  %.val = load float, ptr %386, align 4
   %388 = getelementptr i8, ptr %386, i64 4
-  %.val104 = load float, ptr %388, align 4
-  %389 = fsub float %.val, %.val103
-  %390 = fsub float %.val102, %.val104
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %389, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %390, i64 1
-  %391 = getelementptr inbounds %"class.cv::Point_", ptr %384, i64 %.041190
-  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %391, align 4
-  %392 = add nuw i64 %.041190, 1
-  %exitcond.not = icmp eq i64 %392, %umax
+  %.val102 = load float, ptr %388, align 4
+  %.val103 = load float, ptr %387, align 4
+  %389 = getelementptr i8, ptr %387, i64 4
+  %.val104 = load float, ptr %389, align 4
+  %390 = fsub float %.val, %.val103
+  %391 = fsub float %.val102, %.val104
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %390, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %391, i64 1
+  %392 = getelementptr inbounds %"class.cv::Point_", ptr %384, i64 %.041190
+  store <2 x float> %.sroa.0.4.vec.insert.i, ptr %392, align 4
+  %393 = add nuw i64 %.041190, 1
+  %exitcond.not = icmp eq i64 %393, %umax
   br i1 %exitcond.not, label %._crit_edge192, label %.lr.ph191, !llvm.loop !16
 
-393:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i, %383
-  %394 = landingpad { ptr, i32 }
+394:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i, %383
+  %395 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127
 
-395:                                              ; preds = %._crit_edge192
-  %396 = landingpad { ptr, i32 }
+396:                                              ; preds = %._crit_edge192
+  %397 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 ._crit_edge192:                                   ; preds = %.lr.ph191, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %.0.lcssa.i.i.i.i.i217 = phi ptr [ null, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %scevgep.i.i.i.i.i, %.lr.ph191 ]
+  %.0.lcssa.i.i.i.i.i217 = phi i64 [ 0, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %385, %.lr.ph191 ]
   %.sroa.0.0213 = phi ptr [ null, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %384, %.lr.ph191 ]
   store float 0.000000e+00, ptr %42, align 4
-  %397 = getelementptr inbounds i8, ptr %42, i64 4
-  store float 0.000000e+00, ptr %397, align 4
+  %398 = getelementptr inbounds i8, ptr %42, i64 4
+  store float 0.000000e+00, ptr %398, align 4
   invoke void @_ZN2cv8tracking4impl21TrackerMedianFlowImpl4voteERKSt6vectorINS_6Point_IfEESaIS5_EES9_RKNS_5Rect_IdEERS5_(ptr dead_on_unwind nonnull writable sret(%"class.cv::Rect_") align 8 %43, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(8) %42)
-          to label %398 unwind label %395
+          to label %399 unwind label %396
 
-398:                                              ; preds = %._crit_edge192
+399:                                              ; preds = %._crit_edge192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
-  %.not198 = icmp eq ptr %.0.lcssa.i.i.i.i.i217, %.sroa.0.0213
+  %400 = ptrtoint ptr %.sroa.0.0213 to i64
+  %.not198 = icmp eq i64 %.0.lcssa.i.i.i.i.i217, %400
   br i1 %.not198, label %._crit_edge196, label %.lr.ph195
 
-.lr.ph195:                                        ; preds = %398
-  %399 = ptrtoint ptr %.0.lcssa.i.i.i.i.i217 to i64
-  %400 = ptrtoint ptr %.sroa.0.0213 to i64
-  %401 = sub i64 %399, %400
+.lr.ph195:                                        ; preds = %399
+  %401 = sub i64 %.0.lcssa.i.i.i.i.i217, %400
   %402 = ashr exact i64 %401, 3
   %403 = load float, ptr %42, align 4
-  %404 = load float, ptr %397, align 4
+  %404 = load float, ptr %398, align 4
   %405 = getelementptr inbounds i8, ptr %44, i64 8
   %406 = getelementptr inbounds i8, ptr %44, i64 16
   %umax201 = call i64 @llvm.umax.i64(i64 %402, i64 1)
@@ -2087,7 +2087,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfE
   call void @_ZdlPv(ptr noundef nonnull %450) #24
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-._crit_edge196:                                   ; preds = %_ZNSt6vectorIfSaIfEE9push_backEOf.exit, %398
+._crit_edge196:                                   ; preds = %_ZNSt6vectorIfSaIfEE9push_backEOf.exit, %399
   %452 = invoke noundef float @_ZN2cv17tracking_internal23getMedianAndDoPartitionIfEET_RSt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %44)
           to label %453 unwind label %.loopexit.split-lp
 
@@ -2112,8 +2112,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit124:                 ; preds = %453, %459
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0213) #24
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %451, %449, %395
-  %.pn94 = phi { ptr, i32 } [ %396, %395 ], [ %lpad.phi, %449 ], [ %lpad.phi, %451 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %451, %449, %396
+  %.pn94 = phi { ptr, i32 } [ %397, %396 ], [ %lpad.phi, %449 ], [ %lpad.phi, %451 ]
   %.not.i.i.i126 = icmp eq ptr %.sroa.0.0213, null
   br i1 %.not.i.i.i126, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127, label %461
 
@@ -2143,8 +2143,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %460, %_ZNSt6vectorI
   store ptr null, ptr %326, align 8
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
-_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127: ; preds = %461, %_ZNSt6vectorIfSaIfEED2Ev.exit, %393, %380, %364, %347
-  %.pn94.pn = phi { ptr, i32 } [ %394, %393 ], [ %.pn92, %380 ], [ %.pn90, %364 ], [ %348, %347 ], [ %.pn94, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %.pn94, %461 ]
+_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127: ; preds = %461, %_ZNSt6vectorIfSaIfEED2Ev.exit, %394, %380, %364, %347
+  %.pn94.pn = phi { ptr, i32 } [ %395, %394 ], [ %.pn92, %380 ], [ %.pn90, %364 ], [ %348, %347 ], [ %.pn94, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %.pn94, %461 ]
   %471 = load ptr, ptr %37, align 8
   %.not.i.i.i129 = icmp eq ptr %471, null
   br i1 %.not.i.i.i129, label %.body, label %472

@@ -68,7 +68,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.47 = private unnamed_addr constant [11 x i8] c"refs/tags/\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_show_ref(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @cmd_show_ref(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %show_ref_data.i = alloca %struct.show_ref_data, align 8
   %unused_referent.i = alloca %struct.strbuf, align 8

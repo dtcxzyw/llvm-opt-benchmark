@@ -2543,7 +2543,7 @@ data_get_bool.exit26:                             ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @data_get_bool_converted(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 9203) i32 @data_get_bool_converted(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

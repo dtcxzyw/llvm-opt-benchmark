@@ -61,7 +61,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hash_algos = external local_unnamed_addr constant [3 x %struct.git_hash_algo], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cmd_merge_file(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 128) i32 @cmd_merge_file(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %names = alloca [3 x ptr], align 16
   %mmfs = alloca [3 x %struct.s_mmfile], align 16

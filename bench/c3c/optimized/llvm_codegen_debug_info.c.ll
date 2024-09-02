@@ -1565,9 +1565,9 @@ expand_.exit117._crit_edge:                       ; preds = %expand_.exit117
   %wide.trip.count150 = zext i32 %151 to i64
   br label %153
 
-153:                                              ; preds = %.lr.ph142, %184
-  %154 = phi ptr [ %147, %.lr.ph142 ], [ %180, %184 ]
-  %indvars.iv147 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next148, %184 ]
+153:                                              ; preds = %.lr.ph142, %186
+  %154 = phi ptr [ %147, %.lr.ph142 ], [ %180, %186 ]
+  %indvars.iv147 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next148, %186 ]
   %155 = getelementptr inbounds i8, ptr %154, i64 -8
   %.phi.trans.insert.i126 = getelementptr inbounds i8, ptr %154, i64 -4
   %.pre.i127 = load i32, ptr %.phi.trans.insert.i126, align 4
@@ -1609,25 +1609,25 @@ expand_.exit131:                                  ; preds = %153, %158
   %179 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef nonnull %0, ptr noundef %177, ptr noundef %178)
   %180 = load ptr, ptr @llvm_debug_func_type.buffer, align 8
   %.not109 = icmp eq ptr %180, null
-  br i1 %.not109, label %184, label %181
+  br i1 %.not109, label %186, label %181
 
 181:                                              ; preds = %expand_.exit131
   %182 = getelementptr inbounds i8, ptr %180, i64 -8
   %183 = load i32, ptr %182, align 4
-  br label %184
+  %184 = add i32 %183, -1
+  %185 = zext i32 %184 to i64
+  br label %186
 
-184:                                              ; preds = %expand_.exit131, %181
-  %.085 = phi i32 [ %183, %181 ], [ 0, %expand_.exit131 ]
-  %185 = add i32 %.085, -1
-  %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds ptr, ptr %180, i64 %186
+186:                                              ; preds = %expand_.exit131, %181
+  %.085 = phi i64 [ %185, %181 ], [ 4294967295, %expand_.exit131 ]
+  %187 = getelementptr inbounds ptr, ptr %180, i64 %.085
   store ptr %179, ptr %187, align 8
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
   br i1 %exitcond151.not, label %._crit_edge143, label %153, !llvm.loop !11
 
-._crit_edge143:                                   ; preds = %184, %146, %149
-  %188 = phi ptr [ %147, %149 ], [ %147, %146 ], [ %180, %184 ]
+._crit_edge143:                                   ; preds = %186, %146, %149
+  %188 = phi ptr [ %147, %149 ], [ %147, %146 ], [ %180, %186 ]
   %189 = load i16, ptr %3, align 8
   %190 = and i16 %189, 16
   %.not106 = icmp eq i16 %190, 0

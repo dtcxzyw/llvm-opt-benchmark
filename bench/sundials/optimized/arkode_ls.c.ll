@@ -655,7 +655,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %30, %32, %15, %9, %
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arkLsLinSys(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, double noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
+define internal range(i32 -11, 2) i32 @arkLsLinSys(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, double noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
   %13 = icmp eq ptr %8, null
   br i1 %13, label %14, label %15
 
@@ -2525,7 +2525,7 @@ arkLs_AccessMassMem.exit.thread:                  ; preds = %11, %5, %37, %41, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkLsMassSolve(ptr noundef %0, ptr noundef %1, double noundef %2) #0 {
+define range(i32 -12, 2) i32 @arkLsMassSolve(ptr noundef %0, ptr noundef %1, double noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 

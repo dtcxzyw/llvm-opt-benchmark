@@ -15677,7 +15677,7 @@ define linkonce_odr void @_ZNK10SubCircuit12SolverWorker22printEnumerationMatrix
   br label %._crit_edge45
 
 .lr.ph40:                                         ; preds = %5, %._crit_edge
-  %.138 = phi i32 [ %15, %._crit_edge ], [ %2, %5 ]
+  %.138 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %2, %5 ]
   %.sroa.023.037 = phi ptr [ %16, %._crit_edge ], [ %6, %5 ]
   %9 = getelementptr inbounds i8, ptr %.sroa.023.037, i64 24
   %10 = load ptr, ptr %9, align 8
@@ -15686,24 +15686,24 @@ define linkonce_odr void @_ZNK10SubCircuit12SolverWorker22printEnumerationMatrix
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph40, %.lr.ph
-  %.235 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ %.138, %.lr.ph40 ]
-  %.sroa.019.034 = phi ptr [ %14, %.lr.ph ], [ %10, %.lr.ph40 ]
+  %.235 = phi i32 [ %14, %.lr.ph ], [ %.138, %.lr.ph40 ]
+  %.sroa.019.034 = phi ptr [ %15, %.lr.ph ], [ %10, %.lr.ph40 ]
   %12 = getelementptr inbounds i8, ptr %.sroa.019.034, i64 32
   %13 = load i32, ptr %12, align 4
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.235, i32 %13)
-  %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.019.034) #33
-  %.not = icmp eq ptr %14, %11
+  %14 = freeze i32 %.sroa.speculated
+  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.019.034) #33
+  %.not = icmp eq ptr %15, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph40
-  %.2.lcssa = phi i32 [ %.138, %.lr.ph40 ], [ %.sroa.speculated, %.lr.ph ]
-  %15 = freeze i32 %.2.lcssa
+  %.2.lcssa = phi i32 [ %.138, %.lr.ph40 ], [ %14, %.lr.ph ]
   %16 = getelementptr inbounds i8, ptr %.sroa.023.037, i64 48
   %.not31 = icmp eq ptr %16, %8
   br i1 %.not31, label %.loopexit, label %.lr.ph40
 
 .loopexit:                                        ; preds = %._crit_edge, %3
-  %.030 = phi i32 [ %2, %3 ], [ %15, %._crit_edge ]
+  %.030 = phi i32 [ %2, %3 ], [ %.2.lcssa, %._crit_edge ]
   tail call void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.31)
   %17 = icmp sgt i32 %.030, 0
   br i1 %17, label %.lr.ph44, label %._crit_edge45
@@ -26045,10 +26045,10 @@ _ZNKSt8_Rb_treeIN10SubCircuit12SolverWorker5DiBitES2_St9_IdentityIS2_ESt4lessIS2
 
 .thread123:                                       ; preds = %177, %_ZNKSt8_Rb_treeIN10SubCircuit12SolverWorker5DiBitES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i, %172
   %.sroa.0.0.i.i112 = phi ptr [ %21, %_ZNKSt8_Rb_treeIN10SubCircuit12SolverWorker5DiBitES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i ], [ %21, %172 ], [ %spec.select.i.i111, %177 ]
-  %.not = icmp eq ptr %.sroa.0.0.i.i112, %21
+  %.not.not = icmp eq ptr %.sroa.0.0.i.i112, %21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #31
-  br i1 %.not, label %._crit_edge, label %180
+  br i1 %.not.not, label %._crit_edge, label %180
 
 .critedge:                                        ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i72, %.thread119, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %169, %149, %130, %114
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #31

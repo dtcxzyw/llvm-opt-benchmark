@@ -135,7 +135,7 @@ define hidden void @_ZN22PathToGcRootsOperation4doitEv(ptr nocapture noundef non
   store i64 -1, ptr %13, align 8
   %14 = load i64, ptr @MaxHeapSize, align 8
   %15 = udiv i64 %14, 20
-  %16 = tail call noundef i64 @llvm.umax.i64(i64 %15, i64 33554432)
+  %16 = tail call noundef range(i64 33554432, 922337203685477581) i64 @llvm.umax.i64(i64 %15, i64 33554432)
   %17 = udiv i64 %16, 10
   call void @_ZN9EdgeQueueC1Emm(ptr noundef nonnull align 8 dereferenceable(40) %3, i64 noundef %16, i64 noundef %17) #8
   %18 = call noundef zeroext i1 @_ZN9EdgeQueue10initializeEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #8

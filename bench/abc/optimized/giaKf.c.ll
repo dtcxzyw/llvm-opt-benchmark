@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @enable_dbg_outs = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @Kf_ManComputeDelay(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Kf_ManComputeDelay(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %.pre51 = load ptr, ptr %0, align 8
   br i1 %.not, label %.critedge, label %.preheader
@@ -413,7 +413,7 @@ Kf_CutRef.exit:                                   ; preds = %.lr.ph.i, %.Kf_CutR
 
 ._crit_edge:                                      ; preds = %111, %1, %.critedge
   %124 = tail call i32 @Kf_ManComputeDelay(ptr noundef nonnull %0, i32 noundef 1)
-  %125 = sext i32 %124 to i64
+  %125 = zext nneg i32 %124 to i64
   %126 = load ptr, ptr %10, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 160
   store i64 %125, ptr %127, align 8

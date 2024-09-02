@@ -48,7 +48,7 @@ define hidden i32 @_ZNK7LIR_Opr17as_xmm_double_regEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @_ZN11LIR_OprFact10double_fpuEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden range(i64 -2147483648, 2147483648) i64 @_ZN11LIR_OprFact10double_fpuEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = shl i32 %0, 14
   %4 = shl i32 %0, 23
   %5 = or i32 %4, %3

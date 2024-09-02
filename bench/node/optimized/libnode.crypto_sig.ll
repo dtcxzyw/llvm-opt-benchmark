@@ -1232,8 +1232,8 @@ if.end5.i:                                        ; preds = %if.end.i385
   %34 = inttoptr i64 %sub.i.i438 to ptr
   %35 = load i64, ptr %34, align 8
   %shr.i451.mask = and i64 %35, -4294967296
-  %cmp7.i = icmp eq i64 %shr.i451.mask, 21474836480
-  br i1 %cmp7.i, label %if.end52, label %do.body23
+  %cmp7.i.not = icmp eq i64 %shr.i451.mask, 21474836480
+  br i1 %cmp7.i.not, label %if.end52, label %do.body23
 
 do.body23:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit313, %if.end.i385, %if.end5.i
   br i1 %or.cond, label %if.end.i284, label %if.then.i289
@@ -1344,8 +1344,8 @@ if.end5.i414:                                     ; preds = %if.end.i405
   %60 = inttoptr i64 %sub.i.i446 to ptr
   %61 = load i64, ptr %60, align 8
   %shr.i.mask = and i64 %61, -4294967296
-  %cmp7.i416 = icmp eq i64 %shr.i.mask, 21474836480
-  br i1 %cmp7.i416, label %do.body99, label %do.body63
+  %cmp7.i416.not = icmp eq i64 %shr.i.mask, 21474836480
+  br i1 %cmp7.i416.not, label %do.body99, label %do.body63
 
 do.body63:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit253, %if.end.i405, %if.end5.i414
   br i1 %or.cond51, label %if.end.i224, label %if.then.i229
@@ -3090,8 +3090,8 @@ if.end5.i:                                        ; preds = %if.end.i391
   %43 = inttoptr i64 %sub.i.i444 to ptr
   %44 = load i64, ptr %43, align 8
   %shr.i457.mask = and i64 %44, -4294967296
-  %cmp7.i = icmp eq i64 %shr.i457.mask, 21474836480
-  br i1 %cmp7.i, label %if.end69, label %do.body37
+  %cmp7.i.not = icmp eq i64 %shr.i457.mask, 21474836480
+  br i1 %cmp7.i.not, label %if.end69, label %do.body37
 
 do.body37:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit311, %if.end.i391, %if.end5.i
   br i1 %or.cond49, label %if.end.i282, label %if.then.i287
@@ -3203,8 +3203,8 @@ if.end5.i419:                                     ; preds = %if.end.i410
   %69 = inttoptr i64 %sub.i.i452 to ptr
   %70 = load i64, ptr %69, align 8
   %shr.i.mask = and i64 %70, -4294967296
-  %cmp7.i421 = icmp eq i64 %shr.i.mask, 21474836480
-  br i1 %cmp7.i421, label %do.body117, label %do.body81
+  %cmp7.i421.not = icmp eq i64 %shr.i.mask, 21474836480
+  br i1 %cmp7.i421.not, label %do.body117, label %do.body81
 
 do.body81:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit251, %if.end.i410, %if.end5.i419
   br i1 %or.cond52, label %if.end.i222, label %if.then.i227
@@ -4818,7 +4818,7 @@ if.end:                                           ; preds = %_ZN4node13MemoryTra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node6crypto10SignTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_17SignConfigurationE(i32 noundef %mode, ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef %offset, ptr noundef %params) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6crypto10SignTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_17SignConfigurationE(i32 noundef %mode, ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef %offset, ptr noundef %params) local_unnamed_addr #3 align 2 {
 entry:
   %key = alloca %"class.node::crypto::ManagedEVPPKey", align 8
   %keyParamOffset = alloca i32, align 4
@@ -6390,7 +6390,7 @@ return:                                           ; preds = %cleanup, %if.then
 declare i32 @EVP_DigestVerify(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6crypto10SignTraits12EncodeOutputEPNS_11EnvironmentERKNS0_17SignConfigurationEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr noundef %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %params, ptr noundef %out, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 1, 258) i16 @_ZN4node6crypto10SignTraits12EncodeOutputEPNS_11EnvironmentERKNS0_17SignConfigurationEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr noundef %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %params, ptr noundef %out, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
   %mode = getelementptr inbounds i8, ptr %params, i64 12
   %0 = load i32, ptr %mode, align 4

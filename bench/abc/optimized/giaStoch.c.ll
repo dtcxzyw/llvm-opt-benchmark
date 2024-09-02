@@ -4164,8 +4164,8 @@ Vec_IntPush.exit173:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %209, label %170, label %.critedge16, !llvm.loop !48
 
 .critedge16:                                      ; preds = %170, %207
-  %.val210 = phi i32 [ %.val126, %207 ], [ %.val126265, %170 ]
-  %210 = icmp sgt i32 %.val210, 0
+  %.val210268 = phi i32 [ %.val126, %207 ], [ %.val126265, %170 ]
+  %210 = icmp sgt i32 %.val210268, 0
   br i1 %210, label %.lr.ph212, label %.critedge18
 
 .lr.ph212:                                        ; preds = %.critedge16
@@ -4749,7 +4749,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

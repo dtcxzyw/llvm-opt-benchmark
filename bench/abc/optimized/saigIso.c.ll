@@ -2038,31 +2038,34 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %13, align 4
   %117 = icmp slt i32 %116, %17
-  br i1 %117, label %34, label %._crit_edge, !llvm.loop !22
+  br i1 %117, label %34, label %._crit_edge.loopexit, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %Vec_PtrAlloc.exit
-  %.060.lcssa = phi i64 [ 0, %Vec_PtrAlloc.exit ], [ %55, %Vec_PtrPush.exit ]
-  %.059.lcssa = phi i64 [ 0, %Vec_PtrAlloc.exit ], [ %87, %Vec_PtrPush.exit ]
-  %.0.lcssa = phi i64 [ 0, %Vec_PtrAlloc.exit ], [ %71, %Vec_PtrPush.exit ]
+._crit_edge.loopexit:                             ; preds = %Vec_PtrPush.exit
+  %118 = sitofp i64 %55 to double
+  %119 = sitofp i64 %71 to double
+  %120 = sitofp i64 %87 to double
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Vec_PtrAlloc.exit
+  %.060.lcssa = phi double [ 0.000000e+00, %Vec_PtrAlloc.exit ], [ %118, %._crit_edge.loopexit ]
+  %.059.lcssa = phi double [ 0.000000e+00, %Vec_PtrAlloc.exit ], [ %120, %._crit_edge.loopexit ]
+  %.0.lcssa = phi double [ 0.000000e+00, %Vec_PtrAlloc.exit ], [ %119, %._crit_edge.loopexit ]
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %Abc_Clock.exit98, label %118
+  br i1 %.not, label %Abc_Clock.exit98, label %121
 
-118:                                              ; preds = %._crit_edge
+121:                                              ; preds = %._crit_edge
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.8)
-  %119 = sitofp i64 %.060.lcssa to double
-  %120 = fdiv double %119, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, double noundef %120)
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.9)
-  %121 = sitofp i64 %.0.lcssa to double
-  %122 = fdiv double %121, 1.000000e+06
+  %122 = fdiv double %.060.lcssa, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, double noundef %122)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.9)
+  %123 = fdiv double %.0.lcssa, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, double noundef %123)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.10)
-  %123 = sitofp i64 %.059.lcssa to double
-  %124 = fdiv double %123, 1.000000e+06
+  %124 = fdiv double %.059.lcssa, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, double noundef %124)
   br label %Abc_Clock.exit98
 
-Abc_Clock.exit98:                                 ; preds = %118, %._crit_edge
+Abc_Clock.exit98:                                 ; preds = %121, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %125 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)

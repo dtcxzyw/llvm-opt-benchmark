@@ -2675,10 +2675,10 @@ Vec_PtrPushUnique.exit:                           ; preds = %218, %Vec_PtrPush.e
   br i1 %or.cond353, label %.critedge11.thread, label %254
 
 254:                                              ; preds = %.critedge11
-  %255 = add nsw i32 %.2409, 1
+  %255 = icmp sgt i32 %.val255, 0
+  %256 = add nsw i32 %.2409, 1
   store i32 0, ptr %126, align 4
-  %256 = icmp sgt i32 %.val255, 0
-  br i1 %256, label %.lr.ph402, label %.critedge15
+  br i1 %255, label %.lr.ph402, label %.critedge15
 
 .lr.ph402:                                        ; preds = %254
   %257 = getelementptr i8, ptr %137, i64 32
@@ -3013,7 +3013,7 @@ Vec_PtrPushUnique.exit349:                        ; preds = %284, %Vec_PtrPush.e
 
 .critedge11.thread:                               ; preds = %173, %.thread, %139, %133, %351, %.critedge11, %.critedge8, %142
   %.5 = phi i32 [ %.4408, %133 ], [ %.4408, %142 ], [ %.4408, %.critedge8 ], [ %174, %.critedge11 ], [ %174, %351 ], [ %174, %.thread ], [ %.4408, %139 ], [ %174, %173 ]
-  %.3 = phi i32 [ %.2409, %133 ], [ %.2409, %142 ], [ %.2409, %.critedge8 ], [ %.2409, %.critedge11 ], [ %255, %351 ], [ %255, %.thread ], [ %.2409, %139 ], [ %.2409, %173 ]
+  %.3 = phi i32 [ %.2409, %133 ], [ %.2409, %142 ], [ %.2409, %.critedge8 ], [ %.2409, %.critedge11 ], [ %256, %351 ], [ %256, %.thread ], [ %.2409, %139 ], [ %.2409, %173 ]
   %indvars.iv.next447 = add nuw nsw i64 %indvars.iv446, 1
   %412 = load ptr, ptr %22, align 8
   %413 = getelementptr i8, ptr %412, i64 4
@@ -4056,10 +4056,10 @@ Vec_PtrPushUnique.exit:                           ; preds = %151, %Vec_PtrPush.e
   br i1 %or.cond293, label %.critedge7.thread, label %187
 
 187:                                              ; preds = %.critedge7
-  %188 = add nsw i32 %.0182330, 1
+  %188 = icmp sgt i32 %.val217, 0
+  %189 = add nsw i32 %.0182330, 1
   store i32 0, ptr %65, align 4
-  %189 = icmp sgt i32 %.val217, 0
-  br i1 %189, label %.lr.ph323, label %.critedge11
+  br i1 %188, label %.lr.ph323, label %.critedge11
 
 .lr.ph323:                                        ; preds = %187
   %190 = getelementptr i8, ptr %76, i64 32
@@ -4359,7 +4359,7 @@ Vec_PtrPushUnique.exit288:                        ; preds = %217, %Vec_PtrPush.e
 
 .critedge7.thread:                                ; preds = %105, %.thread, %78, %72, %282, %.critedge7, %.critedge4
   %.1185 = phi i32 [ %.0184329, %72 ], [ %.0184329, %.critedge4 ], [ %106, %.critedge7 ], [ %106, %282 ], [ %106, %.thread ], [ %.0184329, %78 ], [ %106, %105 ]
-  %.1183 = phi i32 [ %.0182330, %72 ], [ %.0182330, %.critedge4 ], [ %.0182330, %.critedge7 ], [ %188, %282 ], [ %188, %.thread ], [ %.0182330, %78 ], [ %.0182330, %105 ]
+  %.1183 = phi i32 [ %.0182330, %72 ], [ %.0182330, %.critedge4 ], [ %.0182330, %.critedge7 ], [ %189, %282 ], [ %189, %.thread ], [ %.0182330, %78 ], [ %.0182330, %105 ]
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %331 = load ptr, ptr %16, align 8
   %332 = getelementptr i8, ptr %331, i64 4

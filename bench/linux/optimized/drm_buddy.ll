@@ -535,7 +535,7 @@ define dso_local void @drm_buddy_free_list(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_buddy_block_trim(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 -28, 1) i32 @drm_buddy_block_trim(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   store ptr %4, ptr %4, align 8
@@ -700,7 +700,7 @@ define dso_local noundef i32 @drm_buddy_block_trim(ptr nocapture noundef %0, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__alloc_range(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -28, 1) i32 @__alloc_range(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
   store ptr %7, ptr %7, align 8
@@ -951,7 +951,7 @@ define internal fastcc noundef i32 @__alloc_range(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_buddy_alloc_blocks(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #0 align 16 {
+define dso_local range(i32 -28, 1) i32 @drm_buddy_alloc_blocks(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #0 align 16 {
   %8 = alloca %struct.list_head, align 8
   %9 = alloca %struct.list_head, align 8
   %10 = alloca %struct.list_head, align 8
@@ -1032,7 +1032,7 @@ define dso_local noundef i32 @drm_buddy_alloc_blocks(ptr nocapture noundef %0, i
   br i1 %59, label %48, label %__drm_buddy_alloc_range.exit, !llvm.loop !41
 
 __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
-  %60 = call fastcc noundef i32 @__alloc_range(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %1, i64 noundef %3, ptr noundef %5, ptr noundef null)
+  %60 = call fastcc range(i32 -28, 1) i32 @__alloc_range(ptr noundef %0, ptr noundef nonnull %8, i64 noundef %1, i64 noundef %3, ptr noundef %5, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
   br label %425
 
@@ -1674,7 +1674,7 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @__alloc_contig_try_harder(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -28, 1) i32 @__alloc_contig_try_harder(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.list_head, align 8
   %6 = alloca %struct.list_head, align 8
   %7 = alloca i64, align 8

@@ -54959,12 +54959,12 @@ select.unfold:                                    ; preds = %"_ZN73_$LT$$u5b$A$u
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.pn56
   %rhsc43 = load i8, ptr %gep, align 1
   %56 = icmp eq i8 %rhsc43, 10
+  %57 = zext i1 %56 to i8
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h245b0fff45acc95eE.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h245b0fff45acc95eE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h2ab3091f63a659baE.exit", %55
-  %.0.i = phi i1 [ %56, %55 ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h2ab3091f63a659baE.exit" ]
-  %57 = zext i1 %.0.i to i8
-  store i8 %57, ptr %5, align 8
+  %.0.i = phi i8 [ %57, %55 ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h2ab3091f63a659baE.exit" ]
+  store i8 %.0.i, ptr %5, align 8
   %58 = trunc nuw i8 %38 to i1
   br i1 %58, label %._crit_edge, label %13
 

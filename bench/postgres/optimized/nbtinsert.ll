@@ -1186,7 +1186,7 @@ BufferGetPage.exit.i:                             ; preds = %96, %90
   store i32 %136, ptr %137, align 4
   %.not270.i = icmp ne i16 %89, 0
   %138 = add i16 %.0133, -1
-  %spec.select.i = select i1 %.not270.i, i16 %138, i16 0
+  %narrow305.i = select i1 %.not270.i, i16 %138, i16 0
   %139 = load i8, ptr %15, align 1
   %140 = trunc i8 %139 to i1
   %.not276.i = xor i1 %140, true
@@ -1205,18 +1205,18 @@ BufferGetPage.exit.i:                             ; preds = %96, %90
   %150 = and i32 %147, 32767
   %151 = zext nneg i32 %150 to i64
   %152 = getelementptr i8, ptr %.0.i.i.i, i64 %151
-  %153 = icmp eq i16 %119, %spec.select.i
-  %spec.select278.i = select i1 %153, ptr %.0140, ptr %152
+  %153 = icmp eq i16 %narrow305.i, %119
+  %spec.select.i = select i1 %153, ptr %.0140, ptr %152
   br label %154
 
 154:                                              ; preds = %142, %BufferGetPage.exit.i
-  %.0254.i = phi ptr [ %.0, %BufferGetPage.exit.i ], [ %spec.select278.i, %142 ]
+  %.0254.i = phi ptr [ %.0, %BufferGetPage.exit.i ], [ %spec.select.i, %142 ]
   %.0252.i = phi i64 [ %7, %BufferGetPage.exit.i ], [ %149, %142 ]
   br i1 %.not.i, label %172, label %155
 
 155:                                              ; preds = %154
-  %or.cond279.i = select i1 %140, i1 %141, i1 false
-  br i1 %or.cond279.i, label %166, label %156
+  %or.cond278.i = select i1 %140, i1 %141, i1 false
+  br i1 %or.cond278.i, label %166, label %156
 
 156:                                              ; preds = %155
   %157 = add i16 %119, -1
@@ -1228,12 +1228,12 @@ BufferGetPage.exit.i:                             ; preds = %96, %90
   %162 = and i32 %.val286.i, 32767
   %163 = zext nneg i32 %162 to i64
   %164 = getelementptr i8, ptr %.0.i.i.i, i64 %163
-  %165 = icmp eq i16 %157, %spec.select.i
-  %spec.select280.i = select i1 %165, ptr %.0140, ptr %164
+  %165 = icmp eq i16 %narrow305.i, %157
+  %spec.select279.i = select i1 %165, ptr %.0140, ptr %164
   br label %166
 
 166:                                              ; preds = %156, %155
-  %.0255.i = phi ptr [ %.0, %155 ], [ %spec.select280.i, %156 ]
+  %.0255.i = phi ptr [ %.0, %155 ], [ %spec.select279.i, %156 ]
   %167 = call ptr @_bt_truncate(ptr noundef %0, ptr noundef %.0255.i, ptr noundef %.0254.i, ptr noundef %2) #9
   %168 = getelementptr inbounds i8, ptr %167, i64 6
   %169 = load i16, ptr %168, align 2
@@ -1332,12 +1332,12 @@ BufferGetPage.exit290.i:                          ; preds = %190, %184
 
 229:                                              ; preds = %213, %BufferGetPage.exit290.i
   %.0262.i = phi i16 [ 1, %BufferGetPage.exit290.i ], [ 2, %213 ]
-  %spec.select281.i = select i1 %.not.i, i16 %.0262.i, i16 0
+  %narrow306.i = select i1 %.not.i, i16 %.0262.i, i16 0
   %230 = load i32, ptr %109, align 4
   %231 = icmp eq i32 %230, 0
   %232 = select i1 %231, i16 1, i16 2
-  %.not271318.i = icmp ugt i16 %232, %.0.i.i153
-  br i1 %.not271318.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not271320.i = icmp ugt i16 %232, %.0.i.i153
+  br i1 %.not271320.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %229
   %233 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
@@ -1348,10 +1348,10 @@ BufferGetPage.exit290.i:                          ; preds = %190, %184
   br label %238
 
 238:                                              ; preds = %302, %.lr.ph.i
-  %.0258321.i = phi i16 [ 2, %.lr.ph.i ], [ %.2260.i, %302 ]
-  %.0261320.i = phi i16 [ %232, %.lr.ph.i ], [ %303, %302 ]
-  %.1263319.i = phi i16 [ %.0262.i, %.lr.ph.i ], [ %.3.i, %302 ]
-  %239 = zext i16 %.0261320.i to i64
+  %.0258323.i = phi i16 [ 2, %.lr.ph.i ], [ %.2260.i, %302 ]
+  %.0261322.i = phi i16 [ %232, %.lr.ph.i ], [ %303, %302 ]
+  %.1263321.i = phi i16 [ %.0262.i, %.lr.ph.i ], [ %.3.i, %302 ]
+  %239 = zext i16 %.0261322.i to i64
   %240 = add nsw i64 %239, -1
   %241 = getelementptr [0 x %struct.ItemIdData], ptr %233, i64 0, i64 %240
   %242 = load i32, ptr %241, align 4
@@ -1360,11 +1360,11 @@ BufferGetPage.exit290.i:                          ; preds = %190, %184
   %245 = and i32 %242, 32767
   %246 = zext nneg i32 %245 to i64
   %247 = getelementptr i8, ptr %.0.i.i.i, i64 %246
-  %248 = icmp eq i16 %.0261320.i, %spec.select.i
+  %248 = icmp eq i16 %narrow305.i, %.0261322.i
   br i1 %248, label %277, label %249
 
 249:                                              ; preds = %238
-  %250 = icmp eq i16 %.0261320.i, %.0133
+  %250 = icmp eq i16 %.0261322.i, %.0133
   br i1 %250, label %251, label %277
 
 251:                                              ; preds = %249
@@ -1373,9 +1373,9 @@ BufferGetPage.exit290.i:                          ; preds = %190, %184
   br i1 %253, label %254, label %264
 
 254:                                              ; preds = %251
-  %255 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %120, ptr noundef %.0, i64 noundef %7, i16 noundef zeroext %.0258321.i, i32 noundef 0) #9
-  %.not306.i = icmp eq i16 %255, 0
-  br i1 %.not306.i, label %256, label %262
+  %255 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %120, ptr noundef %.0, i64 noundef %7, i16 noundef zeroext %.0258323.i, i32 noundef 0) #9
+  %.not308.i = icmp eq i16 %255, 0
+  br i1 %.not308.i, label %256, label %262
 
 256:                                              ; preds = %254
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i289.i, i8 0, i64 8192, i1 false)
@@ -1389,11 +1389,11 @@ BufferGetPage.exit290.i:                          ; preds = %190, %184
   unreachable
 
 262:                                              ; preds = %254
-  %263 = add i16 %.0258321.i, 1
+  %263 = add i16 %.0258323.i, 1
   br label %277
 
 264:                                              ; preds = %251
-  %265 = icmp eq i16 %.1263319.i, %spec.select281.i
+  %265 = icmp eq i16 %narrow306.i, %.1263321.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   br i1 %265, label %266, label %_bt_pgaddtup.exit.i
 
@@ -1407,10 +1407,10 @@ BufferGetPage.exit290.i:                          ; preds = %190, %184
 _bt_pgaddtup.exit.i:                              ; preds = %266, %264
   %.07.i.i = phi ptr [ %14, %266 ], [ %.0, %264 ]
   %.06.i.i = phi i64 [ 8, %266 ], [ %7, %264 ]
-  %268 = call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i289.i, ptr noundef %.07.i.i, i64 noundef %.06.i.i, i16 noundef zeroext %.1263319.i, i32 noundef 0) #9
-  %.not305.i = icmp eq i16 %268, 0
+  %268 = call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i289.i, ptr noundef %.07.i.i, i64 noundef %.06.i.i, i16 noundef zeroext %.1263321.i, i32 noundef 0) #9
+  %.not307.i = icmp eq i16 %268, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  br i1 %.not305.i, label %269, label %275
+  br i1 %.not307.i, label %269, label %275
 
 269:                                              ; preds = %_bt_pgaddtup.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i289.i, i8 0, i64 8192, i1 false)
@@ -1424,20 +1424,20 @@ _bt_pgaddtup.exit.i:                              ; preds = %266, %264
   unreachable
 
 275:                                              ; preds = %_bt_pgaddtup.exit.i
-  %276 = add i16 %.1263319.i, 1
+  %276 = add i16 %.1263321.i, 1
   br label %277
 
 277:                                              ; preds = %275, %262, %249, %238
-  %.2264.i = phi i16 [ %.1263319.i, %262 ], [ %276, %275 ], [ %.1263319.i, %249 ], [ %.1263319.i, %238 ]
-  %.1259.i = phi i16 [ %263, %262 ], [ %.0258321.i, %275 ], [ %.0258321.i, %249 ], [ %.0258321.i, %238 ]
+  %.2264.i = phi i16 [ %.1263321.i, %262 ], [ %276, %275 ], [ %.1263321.i, %249 ], [ %.1263321.i, %238 ]
+  %.1259.i = phi i16 [ %263, %262 ], [ %.0258323.i, %275 ], [ %.0258323.i, %249 ], [ %.0258323.i, %238 ]
   %.0253.i = phi ptr [ %247, %262 ], [ %247, %275 ], [ %247, %249 ], [ %.0140, %238 ]
-  %278 = icmp ult i16 %.0261320.i, %119
+  %278 = icmp ult i16 %.0261322.i, %119
   br i1 %278, label %279, label %289
 
 279:                                              ; preds = %277
   %280 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %120, ptr noundef %.0253.i, i64 noundef %244, i16 noundef zeroext %.1259.i, i32 noundef 0) #9
-  %.not308.i = icmp eq i16 %280, 0
-  br i1 %.not308.i, label %281, label %287
+  %.not310.i = icmp eq i16 %280, 0
+  br i1 %.not310.i, label %281, label %287
 
 281:                                              ; preds = %279
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i289.i, i8 0, i64 8192, i1 false)
@@ -1455,7 +1455,7 @@ _bt_pgaddtup.exit.i:                              ; preds = %266, %264
   br label %302
 
 289:                                              ; preds = %277
-  %290 = icmp eq i16 %.2264.i, %spec.select281.i
+  %290 = icmp eq i16 %narrow306.i, %.2264.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   br i1 %290, label %291, label %_bt_pgaddtup.exit295.i
 
@@ -1470,9 +1470,9 @@ _bt_pgaddtup.exit295.i:                           ; preds = %291, %289
   %.07.i293.i = phi ptr [ %13, %291 ], [ %.0253.i, %289 ]
   %.06.i294.i = phi i64 [ 8, %291 ], [ %244, %289 ]
   %293 = call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i289.i, ptr noundef %.07.i293.i, i64 noundef %.06.i294.i, i16 noundef zeroext %.2264.i, i32 noundef 0) #9
-  %.not307.i = icmp eq i16 %293, 0
+  %.not309.i = icmp eq i16 %293, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br i1 %.not307.i, label %294, label %300
+  br i1 %.not309.i, label %294, label %300
 
 294:                                              ; preds = %_bt_pgaddtup.exit295.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i289.i, i8 0, i64 8192, i1 false)
@@ -1492,7 +1492,7 @@ _bt_pgaddtup.exit295.i:                           ; preds = %291, %289
 302:                                              ; preds = %300, %287
   %.3.i = phi i16 [ %.2264.i, %287 ], [ %301, %300 ]
   %.2260.i = phi i16 [ %288, %287 ], [ %.1259.i, %300 ]
-  %303 = add i16 %.0261320.i, 1
+  %303 = add i16 %.0261322.i, 1
   %.not271.i = icmp ugt i16 %303, %.0.i.i153
   br i1 %.not271.i, label %._crit_edge.i, label %238, !llvm.loop !7
 
@@ -1503,7 +1503,7 @@ _bt_pgaddtup.exit295.i:                           ; preds = %291, %289
   br i1 %.not272.i, label %317, label %304
 
 304:                                              ; preds = %._crit_edge.i
-  %305 = icmp eq i16 %.1263.lcssa.i, %spec.select281.i
+  %305 = icmp eq i16 %narrow306.i, %.1263.lcssa.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   br i1 %305, label %306, label %_bt_pgaddtup.exit298.i
 
@@ -1520,9 +1520,9 @@ _bt_pgaddtup.exit298.i:                           ; preds = %306, %304
   %.07.i296.i = phi ptr [ %12, %306 ], [ %.0, %304 ]
   %.06.i297.i = phi i64 [ 8, %306 ], [ %7, %304 ]
   %310 = call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i289.i, ptr noundef %.07.i296.i, i64 noundef %.06.i297.i, i16 noundef zeroext %.1263.lcssa.i, i32 noundef 0) #9
-  %.not309.i = icmp eq i16 %310, 0
+  %.not311.i = icmp eq i16 %310, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br i1 %.not309.i, label %311, label %317
+  br i1 %.not311.i, label %311, label %317
 
 311:                                              ; preds = %_bt_pgaddtup.exit298.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i289.i, i8 0, i64 8192, i1 false)
@@ -1683,7 +1683,7 @@ BufferGetPage.exit302.i:                          ; preds = %368, %362
   %401 = getelementptr inbounds i8, ptr %16, i64 6
   store i16 %.0133, ptr %401, align 2
   %402 = getelementptr inbounds i8, ptr %16, i64 8
-  %403 = icmp ult i16 %spec.select.i, %119
+  %403 = icmp ult i16 %narrow305.i, %119
   %or.cond282.i = select i1 %.not270.i, i1 %403, i1 false
   %spec.store.select.i = select i1 %or.cond282.i, i16 %89, i16 0
   store i16 %spec.store.select.i, ptr %402, align 4
@@ -1709,8 +1709,8 @@ BufferGetPage.exit302.i:                          ; preds = %368, %362
   %409 = trunc i8 %408 to i1
   %410 = load i16, ptr %402, align 4
   %411 = icmp eq i16 %410, 0
-  %.not324.i = xor i1 %411, true
-  %brmerge.i = select i1 %409, i1 true, i1 %.not324.i
+  %.not326.i = xor i1 %411, true
+  %brmerge.i = select i1 %409, i1 true, i1 %.not326.i
   br i1 %brmerge.i, label %.sink.split.i, label %413
 
 .sink.split.i:                                    ; preds = %407

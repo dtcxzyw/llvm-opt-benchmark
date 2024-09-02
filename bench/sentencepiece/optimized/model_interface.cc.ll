@@ -887,29 +887,32 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt13unordered_ma
   %.150 = phi i32 [ %58, %.critedge ], [ %.049154, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %53, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %61, %43
-  %.051.lcssa = phi i32 [ 0, %43 ], [ %.152, %61 ]
-  %.049.lcssa = phi i32 [ 0, %43 ], [ %.150, %61 ]
-  %62 = sext i32 %.049.lcssa to i64
-  %63 = getelementptr inbounds i8, ptr %0, i64 56
-  %64 = uitofp i64 %62 to double
-  %65 = load float, ptr %63, align 8
-  %66 = fpext float %65 to double
-  %67 = fdiv double %64, %66
-  %68 = call double @llvm.ceil.f64(double %67)
-  %69 = fptoui double %68 to i64
-  invoke void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %19, i64 noundef %69)
+._crit_edge.loopexit:                             ; preds = %61
+  %62 = sext i32 %.150 to i64
+  %63 = uitofp i64 %62 to double
+  %64 = sext i32 %.152 to i64
+  %65 = uitofp i64 %64 to double
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %43
+  %.051.lcssa = phi double [ 0.000000e+00, %43 ], [ %65, %._crit_edge.loopexit ]
+  %.049.lcssa = phi double [ 0.000000e+00, %43 ], [ %63, %._crit_edge.loopexit ]
+  %66 = getelementptr inbounds i8, ptr %0, i64 56
+  %67 = load float, ptr %66, align 8
+  %68 = fpext float %67 to double
+  %69 = fdiv double %.049.lcssa, %68
+  %70 = call double @llvm.ceil.f64(double %69)
+  %71 = fptoui double %70 to i64
+  invoke void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %19, i64 noundef %71)
           to label %_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE7reserveEm.exit unwind label %.loopexit.split-lp
 
 _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEiSt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_iEEE7reserveEm.exit: ; preds = %._crit_edge
-  %70 = sext i32 %.051.lcssa to i64
-  %71 = getelementptr inbounds i8, ptr %0, i64 112
-  %72 = uitofp i64 %70 to double
-  %73 = load float, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 112
+  %73 = load float, ptr %72, align 8
   %74 = fpext float %73 to double
-  %75 = fdiv double %72, %74
+  %75 = fdiv double %.051.lcssa, %74
   %76 = call double @llvm.ceil.f64(double %75)
   %77 = fptoui double %76 to i64
   invoke void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %27, i64 noundef %77)

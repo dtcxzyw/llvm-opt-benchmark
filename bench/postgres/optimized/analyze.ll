@@ -550,20 +550,21 @@ define dso_local ptr @transformStmt(ptr noundef %0, ptr noundef %1) local_unname
   %35 = getelementptr inbounds i8, ptr %1, i64 32
   %36 = load ptr, ptr %35, align 8
   %.not234.i = icmp eq ptr %36, null
-  br i1 %.not234.i, label %41, label %37
+  br i1 %.not234.i, label %42, label %37
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 2
-  br label %41
+  %41 = select i1 %40, i64 5, i64 1
+  br label %42
 
-41:                                               ; preds = %37, %31
-  %42 = phi i1 [ false, %31 ], [ %40, %37 ]
+42:                                               ; preds = %37, %31
+  %spec.select.i = phi i64 [ 1, %31 ], [ %41, %37 ]
   %.not235.i = icmp eq ptr %14, null
   br i1 %.not235.i, label %.thread84, label %43
 
-43:                                               ; preds = %41
+43:                                               ; preds = %42
   %44 = getelementptr inbounds i8, ptr %14, i64 80
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
@@ -611,12 +612,11 @@ define dso_local ptr @transformStmt(ptr noundef %0, ptr noundef %1) local_unname
   store ptr null, ptr %66, align 8
   br label %.thread84
 
-.thread84:                                        ; preds = %41, %.thread, %59
-  %68 = phi i1 [ true, %.thread ], [ false, %59 ], [ false, %41 ]
-  %.0205.i = phi ptr [ %67, %.thread ], [ null, %59 ], [ null, %41 ]
-  %.0204.i = phi ptr [ %65, %.thread ], [ null, %59 ], [ null, %41 ]
-  %.0203.i = phi ptr [ %63, %.thread ], [ null, %59 ], [ null, %41 ]
-  %spec.select.i = select i1 %42, i64 5, i64 1
+.thread84:                                        ; preds = %42, %.thread, %59
+  %68 = phi i1 [ true, %.thread ], [ false, %59 ], [ false, %42 ]
+  %.0205.i = phi ptr [ %67, %.thread ], [ null, %59 ], [ null, %42 ]
+  %.0204.i = phi ptr [ %65, %.thread ], [ null, %59 ], [ null, %42 ]
+  %.0203.i = phi ptr [ %63, %.thread ], [ null, %59 ], [ null, %42 ]
   %69 = getelementptr inbounds i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @setTargetTable(ptr noundef nonnull %0, ptr noundef %70, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %spec.select.i) #10

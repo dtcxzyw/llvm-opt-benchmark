@@ -2231,7 +2231,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare ptr @uhash_iput_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZN6icu_7513MessageFormat14argNameMatchesEiRKNS_13UnicodeStringEi(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %partIndex, ptr noundef nonnull align 8 dereferenceable(64) %argName, i32 noundef %argNumber) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7513MessageFormat14argNameMatchesEiRKNS_13UnicodeStringEi(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %partIndex, ptr noundef nonnull align 8 dereferenceable(64) %argName, i32 noundef %argNumber) local_unnamed_addr #1 align 2 {
 entry:
   %parts.i = getelementptr inbounds i8, ptr %this, i64 640
   %0 = load ptr, ptr %parts.i, align 8
@@ -6233,7 +6233,6 @@ lpad124.body:                                     ; preds = %lpad.i138, %lpad124
   br label %ehcleanup139
 
 cleanup.thread:                                   ; preds = %invoke.cont131, %if.then135
-  %haveArgResult.2 = phi i8 [ 0, %invoke.cont131 ], [ 1, %if.then135 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %compValue) #20
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %strValue) #20
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %stringAfterArgument) #20
@@ -6291,12 +6290,11 @@ if.else163:                                       ; preds = %if.else156
   br label %cleanup178.thread
 
 if.end166:                                        ; preds = %cleanup.thread, %invoke.cont83, %invoke.cont153
-  %haveArgResult.0 = phi i8 [ 1, %invoke.cont153 ], [ 1, %invoke.cont83 ], [ %haveArgResult.2, %cleanup.thread ]
+  %haveArgResult.0 = phi i1 [ false, %invoke.cont153 ], [ false, %invoke.cont83 ], [ %cmp134.not, %cleanup.thread ]
   %sourceOffset.3 = phi i32 [ %80, %invoke.cont153 ], [ %42, %invoke.cont83 ], [ %next.0, %cleanup.thread ]
-  %tobool167.not = icmp eq i8 %haveArgResult.0, 0
   %82 = load i32, ptr %count, align 4
   %cmp169.not = icmp sgt i32 %82, %conv.i102
-  %or.cond78 = select i1 %tobool167.not, i1 true, i1 %cmp169.not
+  %or.cond78 = select i1 %haveArgResult.0, i1 true, i1 %cmp169.not
   br i1 %or.cond78, label %cleanup178, label %if.then170
 
 if.then170:                                       ; preds = %if.end166

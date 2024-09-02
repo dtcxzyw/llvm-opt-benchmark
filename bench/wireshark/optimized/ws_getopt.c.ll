@@ -349,7 +349,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
   %40 = icmp ne i32 %5, 0
   %41 = getelementptr i8, ptr %36, i64 1
   %42 = load i8, ptr %41, align 1
-  br i1 %40, label %43, label %._crit_edge180.i
+  br i1 %40, label %43, label %._crit_edge179.i
 
 43:                                               ; preds = %39
   switch i8 %42, label %48 [
@@ -357,11 +357,11 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
     i8 0, label %167
   ]
 
-._crit_edge180.i:                                 ; preds = %39
+._crit_edge179.i:                                 ; preds = %39
   %44 = icmp eq i8 %42, 45
   br i1 %44, label %45, label %167
 
-45:                                               ; preds = %43, %._crit_edge180.i
+45:                                               ; preds = %43, %._crit_edge179.i
   %46 = getelementptr i8, ptr %36, i64 2
   %47 = load i8, ptr %46, align 1
   %.not129.i = icmp eq i8 %47, 0
@@ -372,31 +372,31 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
   %50 = load i8, ptr %2, align 1
   %51 = icmp eq i8 %50, 43
   %52 = icmp eq i8 %50, 45
-  %spec.select.i = or i1 %51, %52
-  %53 = zext i1 %spec.select.i to i64
+  %narrow.i = or i1 %51, %52
+  %53 = zext i1 %narrow.i to i64
   %54 = getelementptr i8, ptr %2, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %55, 58
   %57 = load ptr, ptr %3, align 8
-  %.not130156.i = icmp eq ptr %57, null
-  br i1 %.not130156.i, label %.thread147.i, label %.lr.ph.i
+  %.not130155.i = icmp eq ptr %57, null
+  br i1 %.not130155.i, label %.thread146.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48
   %58 = icmp eq i8 %49, 45
   %59 = getelementptr i8, ptr %36, i64 2
-  %spec.select145.i = select i1 %58, ptr %59, ptr %41
+  %spec.select.i = select i1 %58, ptr %59, ptr %41
   br label %60
 
 60:                                               ; preds = %73, %.lr.ph.i
   %61 = phi ptr [ %57, %.lr.ph.i ], [ %77, %73 ]
-  %.0107160.i = phi i32 [ 0, %.lr.ph.i ], [ %74, %73 ]
-  %.0110159.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %73 ]
-  %.0112158.i = phi i32 [ -1, %.lr.ph.i ], [ %.2114.i, %73 ]
-  %.0115157.i = phi i32 [ 0, %.lr.ph.i ], [ %.2117.i, %73 ]
+  %.0107159.i = phi i32 [ 0, %.lr.ph.i ], [ %74, %73 ]
+  %.0110158.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %73 ]
+  %.0112157.i = phi i32 [ -1, %.lr.ph.i ], [ %.2114.i, %73 ]
+  %.0115156.i = phi i32 [ 0, %.lr.ph.i ], [ %.2117.i, %73 ]
   br label %62
 
 62:                                               ; preds = %67, %60
-  %.1109.i = phi ptr [ %spec.select145.i, %60 ], [ %69, %67 ]
+  %.1109.i = phi ptr [ %spec.select.i, %60 ], [ %69, %67 ]
   %.0106.i = phi ptr [ %61, %60 ], [ %68, %67 ]
   %63 = load i8, ptr %.1109.i, align 1
   switch i8 %63, label %64 [
@@ -419,23 +419,23 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
   br i1 %cond.i, label %.loopexit.i, label %73
 
 .loopexit.loopexit.i:                             ; preds = %62, %62
-  %.pre181.i = load i8, ptr %.0106.i, align 1
+  %.pre180.i = load i8, ptr %.0106.i, align 1
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.critedge.i
-  %70 = phi i8 [ %.pre181.i, %.loopexit.loopexit.i ], [ %65, %.critedge.i ]
+  %70 = phi i8 [ %.pre180.i, %.loopexit.loopexit.i ], [ %65, %.critedge.i ]
   %.not135.i = icmp eq i8 %70, 0
   br i1 %.not135.i, label %._crit_edge.i, label %71
 
 71:                                               ; preds = %.loopexit.i
-  %72 = add i32 %.0115157.i, 1
+  %72 = add i32 %.0115156.i, 1
   br label %73
 
 73:                                               ; preds = %71, %.critedge.i
-  %.2117.i = phi i32 [ %72, %71 ], [ %.0115157.i, %.critedge.i ]
-  %.2114.i = phi i32 [ %.0107160.i, %71 ], [ %.0112158.i, %.critedge.i ]
-  %.2.i = phi ptr [ %.1109.i, %71 ], [ %.0110159.i, %.critedge.i ]
-  %74 = add i32 %.0107160.i, 1
+  %.2117.i = phi i32 [ %72, %71 ], [ %.0115156.i, %.critedge.i ]
+  %.2114.i = phi i32 [ %.0107159.i, %71 ], [ %.0112157.i, %.critedge.i ]
+  %.2.i = phi ptr [ %.1109.i, %71 ], [ %.0110158.i, %.critedge.i ]
+  %74 = add i32 %.0107159.i, 1
   %75 = sext i32 %74 to i64
   %76 = getelementptr %struct.ws_option, ptr %3, i64 %75
   %77 = load ptr, ptr %76, align 8
@@ -444,7 +444,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
 
 ._crit_edge.i:                                    ; preds = %73, %.loopexit.i
   %.1116.i = phi i32 [ %.2117.i, %73 ], [ 1, %.loopexit.i ]
-  %.1113.i = phi i32 [ %.2114.i, %73 ], [ %.0107160.i, %.loopexit.i ]
+  %.1113.i = phi i32 [ %.2114.i, %73 ], [ %.0107159.i, %.loopexit.i ]
   %.1111.i = phi ptr [ %.2.i, %73 ], [ %.1109.i, %.loopexit.i ]
   %78 = icmp eq i32 %.1116.i, 1
   %or.cond.i = and i1 %40, %78
@@ -457,43 +457,43 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
   %83 = tail call i32 @mblen(ptr noundef nonnull %41, i64 noundef 16) #6
   %84 = sext i32 %83 to i64
   %85 = icmp eq i64 %82, %84
-  br i1 %85, label %.preheader150.i, label %.thread.i
+  br i1 %85, label %.preheader149.i, label %.thread.i
 
-.preheader150.i:                                  ; preds = %79
+.preheader149.i:                                  ; preds = %79
   %86 = load i8, ptr %2, align 1
-  %.not136172.i = icmp eq i8 %86, 0
-  br i1 %.not136172.i, label %.thread.i, label %.preheader.lr.ph.i
+  %.not136171.i = icmp eq i8 %86, 0
+  br i1 %.not136171.i, label %.thread.i, label %.preheader.lr.ph.i
 
-.preheader.lr.ph.i:                               ; preds = %.preheader150.i
+.preheader.lr.ph.i:                               ; preds = %.preheader149.i
   %87 = icmp sgt i64 %82, 0
   br i1 %87, label %.preheader.us.i, label %.preheader.lr.ph.split.i
 
 .preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %97
   %88 = phi i64 [ %99, %97 ], [ 0, %.preheader.lr.ph.i ]
-  %.1173.us.i = phi i32 [ %98, %97 ], [ 0, %.preheader.lr.ph.i ]
+  %.1172.us.i = phi i32 [ %98, %97 ], [ 0, %.preheader.lr.ph.i ]
   %invariant.gep.us.i = getelementptr i8, ptr %2, i64 %88
   br label %89
 
 89:                                               ; preds = %95, %.preheader.us.i
-  %.0167.us.i = phi i64 [ 0, %.preheader.us.i ], [ %96, %95 ]
-  %90 = getelementptr i8, ptr %41, i64 %.0167.us.i
+  %.0166.us.i = phi i64 [ 0, %.preheader.us.i ], [ %96, %95 ]
+  %90 = getelementptr i8, ptr %41, i64 %.0166.us.i
   %91 = load i8, ptr %90, align 1
-  %gep.us.i = getelementptr i8, ptr %invariant.gep.us.i, i64 %.0167.us.i
+  %gep.us.i = getelementptr i8, ptr %invariant.gep.us.i, i64 %.0166.us.i
   %92 = load i8, ptr %gep.us.i, align 1
   %93 = icmp eq i8 %91, %92
   br i1 %93, label %95, label %.critedge3.us.i
 
 .critedge3.us.i:                                  ; preds = %89
-  %94 = icmp eq i64 %.0167.us.i, %82
-  br i1 %94, label %.thread147.i, label %97
+  %94 = icmp eq i64 %.0166.us.i, %82
+  br i1 %94, label %.thread146.i, label %97
 
 95:                                               ; preds = %89
-  %96 = add nuw nsw i64 %.0167.us.i, 1
+  %96 = add nuw nsw i64 %.0166.us.i, 1
   %exitcond.not.i = icmp eq i64 %96, %82
-  br i1 %exitcond.not.i, label %.thread147.i, label %89, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.thread146.i, label %89, !llvm.loop !8
 
 97:                                               ; preds = %.critedge3.us.i
-  %98 = add i32 %.1173.us.i, 1
+  %98 = add i32 %.1172.us.i, 1
   %99 = sext i32 %98 to i64
   %100 = getelementptr i8, ptr %2, i64 %99
   %101 = load i8, ptr %100, align 1
@@ -502,12 +502,12 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
 
 .preheader.lr.ph.split.i:                         ; preds = %.preheader.lr.ph.i
   %102 = icmp eq ptr %.1111.i, %41
-  br i1 %102, label %.thread147.i, label %.thread.i
+  br i1 %102, label %.thread146.i, label %.thread.i
 
 103:                                              ; preds = %._crit_edge.i
-  br i1 %78, label %.thread.i, label %.thread147.i
+  br i1 %78, label %.thread.i, label %.thread146.i
 
-.thread.i:                                        ; preds = %97, %103, %.preheader.lr.ph.split.i, %.preheader150.i, %79
+.thread.i:                                        ; preds = %97, %103, %.preheader.lr.ph.split.i, %.preheader149.i, %79
   %104 = load i32, ptr @ws_optind, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr @ws_optind, align 4
@@ -599,8 +599,8 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
   store i32 %147, ptr %145, align 4
   br label %__getopt_long_core.exit
 
-.thread147.i:                                     ; preds = %.critedge3.us.i, %95, %103, %.preheader.lr.ph.split.i, %48
-  %.3149.i = phi i32 [ %.1116.i, %103 ], [ 2, %.preheader.lr.ph.split.i ], [ 0, %48 ], [ 2, %95 ], [ 2, %.critedge3.us.i ]
+.thread146.i:                                     ; preds = %.critedge3.us.i, %95, %103, %.preheader.lr.ph.split.i, %48
+  %.3148.i = phi i32 [ %.1116.i, %103 ], [ 2, %.preheader.lr.ph.split.i ], [ 0, %48 ], [ 2, %95 ], [ 2, %.critedge3.us.i ]
   %149 = load i32, ptr @ws_optind, align 4
   %150 = sext i32 %149 to i64
   %151 = getelementptr ptr, ptr %1, i64 %150
@@ -610,7 +610,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
   %155 = icmp eq i8 %154, 45
   br i1 %155, label %156, label %167
 
-156:                                              ; preds = %.thread147.i
+156:                                              ; preds = %.thread146.i
   store i32 0, ptr @ws_optopt, align 4
   %157 = load i32, ptr @ws_opterr, align 4
   %158 = icmp eq i32 %157, 0
@@ -619,21 +619,21 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr nocapture noundef 
 
 159:                                              ; preds = %156
   %160 = load ptr, ptr %1, align 8
-  %.not138.i = icmp eq i32 %.3149.i, 0
+  %.not138.i = icmp eq i32 %.3148.i, 0
   %161 = select i1 %.not138.i, ptr @.str, ptr @.str.3
   %162 = getelementptr i8, ptr %152, i64 2
   %163 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %162) #8
   tail call fastcc void @__getopt_msg(ptr noundef %160, ptr noundef nonnull %161, ptr noundef %162, i64 noundef %163)
-  %.pre182.i = load i32, ptr @ws_optind, align 4
+  %.pre181.i = load i32, ptr @ws_optind, align 4
   br label %164
 
 164:                                              ; preds = %159, %156
-  %165 = phi i32 [ %.pre182.i, %159 ], [ %149, %156 ]
+  %165 = phi i32 [ %.pre181.i, %159 ], [ %149, %156 ]
   %166 = add i32 %165, 1
   store i32 %166, ptr @ws_optind, align 4
   br label %__getopt_long_core.exit
 
-167:                                              ; preds = %43, %.thread147.i, %45, %._crit_edge180.i, %33, %31
+167:                                              ; preds = %43, %.thread146.i, %45, %._crit_edge179.i, %33, %31
   %168 = tail call i32 @ws_getopt(i32 noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %2)
   br label %__getopt_long_core.exit
 

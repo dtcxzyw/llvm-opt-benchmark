@@ -188,34 +188,34 @@ do.body:                                          ; preds = %if.end4
 if.end.i:                                         ; preds = %do.body
   %call1.i = tail call ptr @PyLong_FromLong(i64 noundef 19) #2
   %tobool2.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool2.not.i, label %_add_errcode.exit.thread505, label %if.end4.i
-
-_add_errcode.exit.thread505:                      ; preds = %if.end.i
-  tail call void @_Py_DecRef(ptr noundef nonnull %call.i) #2
-  br label %if.then11
+  br i1 %tobool2.not.i, label %if.then11.sink.split, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call, ptr noundef nonnull %call.i, ptr noundef nonnull %call1.i) #2
   %cmp.i = icmp slt i32 %call5.i, 0
-  br i1 %cmp.i, label %_add_errcode.exit, label %if.end8.i
+  br i1 %cmp.i, label %if.then11.critedge, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end4.i
   %call9.i = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call1, ptr noundef nonnull %call1.i, ptr noundef nonnull %call.i) #2
-  %call9.lobit.i = ashr i32 %call9.i, 31
-  br label %_add_errcode.exit
-
-_add_errcode.exit:                                ; preds = %if.end4.i, %if.end8.i
-  %ret.0.i = phi i32 [ -1, %if.end4.i ], [ %call9.lobit.i, %if.end8.i ]
+  %0 = icmp slt i32 %call9.i, 0
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i) #2
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i) #2
-  %cmp10 = icmp slt i32 %ret.0.i, 0
-  br i1 %cmp10, label %if.then11, label %do.body13
+  br i1 %0, label %if.then11, label %do.body13
 
-if.then11:                                        ; preds = %do.body, %_add_errcode.exit.thread505, %_add_errcode.exit
+if.then11.critedge:                               ; preds = %if.end4.i
+  tail call void @_Py_DecRef(ptr noundef nonnull %call.i) #2
+  br label %if.then11.sink.split
+
+if.then11.sink.split:                             ; preds = %if.end.i, %if.then11.critedge
+  %call1.i.sink = phi ptr [ %call1.i, %if.then11.critedge ], [ %call.i, %if.end.i ]
+  tail call void @_Py_DecRef(ptr noundef nonnull %call1.i.sink) #2
+  br label %if.then11
+
+if.then11:                                        ; preds = %if.then11.sink.split, %do.body, %if.end8.i
   tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
   br label %return
 
-do.body13:                                        ; preds = %_add_errcode.exit
+do.body13:                                        ; preds = %if.end8.i
   %call.i413 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.3) #2
   %tobool.not.i414 = icmp eq ptr %call.i413, null
   br i1 %tobool.not.i414, label %if.then16, label %if.end.i415
@@ -223,34 +223,34 @@ do.body13:                                        ; preds = %_add_errcode.exit
 if.end.i415:                                      ; preds = %do.body13
   %call1.i416 = tail call ptr @PyLong_FromLong(i64 noundef 50) #2
   %tobool2.not.i417 = icmp eq ptr %call1.i416, null
-  br i1 %tobool2.not.i417, label %_add_errcode.exit430.thread511, label %if.end4.i418
-
-_add_errcode.exit430.thread511:                   ; preds = %if.end.i415
-  tail call void @_Py_DecRef(ptr noundef nonnull %call.i413) #2
-  br label %if.then16
+  br i1 %tobool2.not.i417, label %if.then16.sink.split, label %if.end4.i418
 
 if.end4.i418:                                     ; preds = %if.end.i415
   %call5.i419 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call, ptr noundef nonnull %call.i413, ptr noundef nonnull %call1.i416) #2
   %cmp.i420 = icmp slt i32 %call5.i419, 0
-  br i1 %cmp.i420, label %_add_errcode.exit430, label %if.end8.i421
+  br i1 %cmp.i420, label %if.then16.critedge, label %if.end8.i421
 
 if.end8.i421:                                     ; preds = %if.end4.i418
   %call9.i422 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call1, ptr noundef nonnull %call1.i416, ptr noundef nonnull %call.i413) #2
-  %call9.lobit.i423 = ashr i32 %call9.i422, 31
-  br label %_add_errcode.exit430
-
-_add_errcode.exit430:                             ; preds = %if.end4.i418, %if.end8.i421
-  %ret.0.i425 = phi i32 [ -1, %if.end4.i418 ], [ %call9.lobit.i423, %if.end8.i421 ]
+  %1 = icmp slt i32 %call9.i422, 0
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i413) #2
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i416) #2
-  %cmp15 = icmp slt i32 %ret.0.i425, 0
-  br i1 %cmp15, label %if.then16, label %do.body19
+  br i1 %1, label %if.then16, label %do.body19
 
-if.then16:                                        ; preds = %do.body13, %_add_errcode.exit430.thread511, %_add_errcode.exit430
+if.then16.critedge:                               ; preds = %if.end4.i418
+  tail call void @_Py_DecRef(ptr noundef nonnull %call.i413) #2
+  br label %if.then16.sink.split
+
+if.then16.sink.split:                             ; preds = %if.end.i415, %if.then16.critedge
+  %call1.i416.sink = phi ptr [ %call1.i416, %if.then16.critedge ], [ %call.i413, %if.end.i415 ]
+  tail call void @_Py_DecRef(ptr noundef nonnull %call1.i416.sink) #2
+  br label %if.then16
+
+if.then16:                                        ; preds = %if.then16.sink.split, %do.body13, %if.end8.i421
   tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
   br label %return
 
-do.body19:                                        ; preds = %_add_errcode.exit430
+do.body19:                                        ; preds = %if.end8.i421
   %call.i431 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.4) #2
   %tobool.not.i432 = icmp eq ptr %call.i431, null
   br i1 %tobool.not.i432, label %if.then22, label %if.end.i433
@@ -258,34 +258,34 @@ do.body19:                                        ; preds = %_add_errcode.exit43
 if.end.i433:                                      ; preds = %do.body19
   %call1.i434 = tail call ptr @PyLong_FromLong(i64 noundef 113) #2
   %tobool2.not.i435 = icmp eq ptr %call1.i434, null
-  br i1 %tobool2.not.i435, label %_add_errcode.exit448.thread517, label %if.end4.i436
-
-_add_errcode.exit448.thread517:                   ; preds = %if.end.i433
-  tail call void @_Py_DecRef(ptr noundef nonnull %call.i431) #2
-  br label %if.then22
+  br i1 %tobool2.not.i435, label %if.then22.sink.split, label %if.end4.i436
 
 if.end4.i436:                                     ; preds = %if.end.i433
   %call5.i437 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call, ptr noundef nonnull %call.i431, ptr noundef nonnull %call1.i434) #2
   %cmp.i438 = icmp slt i32 %call5.i437, 0
-  br i1 %cmp.i438, label %_add_errcode.exit448, label %if.end8.i439
+  br i1 %cmp.i438, label %if.then22.critedge, label %if.end8.i439
 
 if.end8.i439:                                     ; preds = %if.end4.i436
   %call9.i440 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call1, ptr noundef nonnull %call1.i434, ptr noundef nonnull %call.i431) #2
-  %call9.lobit.i441 = ashr i32 %call9.i440, 31
-  br label %_add_errcode.exit448
-
-_add_errcode.exit448:                             ; preds = %if.end4.i436, %if.end8.i439
-  %ret.0.i443 = phi i32 [ -1, %if.end4.i436 ], [ %call9.lobit.i441, %if.end8.i439 ]
+  %2 = icmp slt i32 %call9.i440, 0
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i431) #2
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i434) #2
-  %cmp21 = icmp slt i32 %ret.0.i443, 0
-  br i1 %cmp21, label %if.then22, label %do.body25
+  br i1 %2, label %if.then22, label %do.body25
 
-if.then22:                                        ; preds = %do.body19, %_add_errcode.exit448.thread517, %_add_errcode.exit448
+if.then22.critedge:                               ; preds = %if.end4.i436
+  tail call void @_Py_DecRef(ptr noundef nonnull %call.i431) #2
+  br label %if.then22.sink.split
+
+if.then22.sink.split:                             ; preds = %if.end.i433, %if.then22.critedge
+  %call1.i434.sink = phi ptr [ %call1.i434, %if.then22.critedge ], [ %call.i431, %if.end.i433 ]
+  tail call void @_Py_DecRef(ptr noundef nonnull %call1.i434.sink) #2
+  br label %if.then22
+
+if.then22:                                        ; preds = %if.then22.sink.split, %do.body19, %if.end8.i439
   tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
   br label %return
 
-do.body25:                                        ; preds = %_add_errcode.exit448
+do.body25:                                        ; preds = %if.end8.i439
   %call.i449 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.5) #2
   %tobool.not.i450 = icmp eq ptr %call.i449, null
   br i1 %tobool.not.i450, label %if.then28, label %if.end.i451
@@ -293,34 +293,34 @@ do.body25:                                        ; preds = %_add_errcode.exit44
 if.end.i451:                                      ; preds = %do.body25
   %call1.i452 = tail call ptr @PyLong_FromLong(i64 noundef 42) #2
   %tobool2.not.i453 = icmp eq ptr %call1.i452, null
-  br i1 %tobool2.not.i453, label %_add_errcode.exit466.thread523, label %if.end4.i454
-
-_add_errcode.exit466.thread523:                   ; preds = %if.end.i451
-  tail call void @_Py_DecRef(ptr noundef nonnull %call.i449) #2
-  br label %if.then28
+  br i1 %tobool2.not.i453, label %if.then28.sink.split, label %if.end4.i454
 
 if.end4.i454:                                     ; preds = %if.end.i451
   %call5.i455 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call, ptr noundef nonnull %call.i449, ptr noundef nonnull %call1.i452) #2
   %cmp.i456 = icmp slt i32 %call5.i455, 0
-  br i1 %cmp.i456, label %_add_errcode.exit466, label %if.end8.i457
+  br i1 %cmp.i456, label %if.then28.critedge, label %if.end8.i457
 
 if.end8.i457:                                     ; preds = %if.end4.i454
   %call9.i458 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call1, ptr noundef nonnull %call1.i452, ptr noundef nonnull %call.i449) #2
-  %call9.lobit.i459 = ashr i32 %call9.i458, 31
-  br label %_add_errcode.exit466
-
-_add_errcode.exit466:                             ; preds = %if.end4.i454, %if.end8.i457
-  %ret.0.i461 = phi i32 [ -1, %if.end4.i454 ], [ %call9.lobit.i459, %if.end8.i457 ]
+  %3 = icmp slt i32 %call9.i458, 0
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i449) #2
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i452) #2
-  %cmp27 = icmp slt i32 %ret.0.i461, 0
-  br i1 %cmp27, label %if.then28, label %do.body31
+  br i1 %3, label %if.then28, label %do.body31
 
-if.then28:                                        ; preds = %do.body25, %_add_errcode.exit466.thread523, %_add_errcode.exit466
+if.then28.critedge:                               ; preds = %if.end4.i454
+  tail call void @_Py_DecRef(ptr noundef nonnull %call.i449) #2
+  br label %if.then28.sink.split
+
+if.then28.sink.split:                             ; preds = %if.end.i451, %if.then28.critedge
+  %call1.i452.sink = phi ptr [ %call1.i452, %if.then28.critedge ], [ %call.i449, %if.end.i451 ]
+  tail call void @_Py_DecRef(ptr noundef nonnull %call1.i452.sink) #2
+  br label %if.then28
+
+if.then28:                                        ; preds = %if.then28.sink.split, %do.body25, %if.end8.i457
   tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
   br label %return
 
-do.body31:                                        ; preds = %_add_errcode.exit466
+do.body31:                                        ; preds = %if.end8.i457
   %call.i467 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.6) #2
   %tobool.not.i468 = icmp eq ptr %call.i467, null
   br i1 %tobool.not.i468, label %if.then34, label %if.end.i469
@@ -328,34 +328,34 @@ do.body31:                                        ; preds = %_add_errcode.exit46
 if.end.i469:                                      ; preds = %do.body31
   %call1.i470 = tail call ptr @PyLong_FromLong(i64 noundef 117) #2
   %tobool2.not.i471 = icmp eq ptr %call1.i470, null
-  br i1 %tobool2.not.i471, label %_add_errcode.exit484.thread529, label %if.end4.i472
-
-_add_errcode.exit484.thread529:                   ; preds = %if.end.i469
-  tail call void @_Py_DecRef(ptr noundef nonnull %call.i467) #2
-  br label %if.then34
+  br i1 %tobool2.not.i471, label %if.then34.sink.split, label %if.end4.i472
 
 if.end4.i472:                                     ; preds = %if.end.i469
   %call5.i473 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call, ptr noundef nonnull %call.i467, ptr noundef nonnull %call1.i470) #2
   %cmp.i474 = icmp slt i32 %call5.i473, 0
-  br i1 %cmp.i474, label %_add_errcode.exit484, label %if.end8.i475
+  br i1 %cmp.i474, label %if.then34.critedge, label %if.end8.i475
 
 if.end8.i475:                                     ; preds = %if.end4.i472
   %call9.i476 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call1, ptr noundef nonnull %call1.i470, ptr noundef nonnull %call.i467) #2
-  %call9.lobit.i477 = ashr i32 %call9.i476, 31
-  br label %_add_errcode.exit484
-
-_add_errcode.exit484:                             ; preds = %if.end4.i472, %if.end8.i475
-  %ret.0.i479 = phi i32 [ -1, %if.end4.i472 ], [ %call9.lobit.i477, %if.end8.i475 ]
+  %4 = icmp slt i32 %call9.i476, 0
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i467) #2
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i470) #2
-  %cmp33 = icmp slt i32 %ret.0.i479, 0
-  br i1 %cmp33, label %if.then34, label %do.body37
+  br i1 %4, label %if.then34, label %do.body37
 
-if.then34:                                        ; preds = %do.body31, %_add_errcode.exit484.thread529, %_add_errcode.exit484
+if.then34.critedge:                               ; preds = %if.end4.i472
+  tail call void @_Py_DecRef(ptr noundef nonnull %call.i467) #2
+  br label %if.then34.sink.split
+
+if.then34.sink.split:                             ; preds = %if.end.i469, %if.then34.critedge
+  %call1.i470.sink = phi ptr [ %call1.i470, %if.then34.critedge ], [ %call.i467, %if.end.i469 ]
+  tail call void @_Py_DecRef(ptr noundef nonnull %call1.i470.sink) #2
+  br label %if.then34
+
+if.then34:                                        ; preds = %if.then34.sink.split, %do.body31, %if.end8.i475
   tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
   br label %return
 
-do.body37:                                        ; preds = %_add_errcode.exit484
+do.body37:                                        ; preds = %if.end8.i475
   %call.i485 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.7) #2
   %tobool.not.i486 = icmp eq ptr %call.i485, null
   br i1 %tobool.not.i486, label %if.then40, label %if.end.i487
@@ -363,34 +363,34 @@ do.body37:                                        ; preds = %_add_errcode.exit48
 if.end.i487:                                      ; preds = %do.body37
   %call1.i488 = tail call ptr @PyLong_FromLong(i64 noundef 45) #2
   %tobool2.not.i489 = icmp eq ptr %call1.i488, null
-  br i1 %tobool2.not.i489, label %_add_errcode.exit502.thread535, label %if.end4.i490
-
-_add_errcode.exit502.thread535:                   ; preds = %if.end.i487
-  tail call void @_Py_DecRef(ptr noundef nonnull %call.i485) #2
-  br label %if.then40
+  br i1 %tobool2.not.i489, label %if.then40.sink.split, label %if.end4.i490
 
 if.end4.i490:                                     ; preds = %if.end.i487
   %call5.i491 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call, ptr noundef nonnull %call.i485, ptr noundef nonnull %call1.i488) #2
   %cmp.i492 = icmp slt i32 %call5.i491, 0
-  br i1 %cmp.i492, label %_add_errcode.exit502, label %if.end8.i493
+  br i1 %cmp.i492, label %if.then40.critedge, label %if.end8.i493
 
 if.end8.i493:                                     ; preds = %if.end4.i490
   %call9.i494 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call1, ptr noundef nonnull %call1.i488, ptr noundef nonnull %call.i485) #2
-  %call9.lobit.i495 = ashr i32 %call9.i494, 31
-  br label %_add_errcode.exit502
-
-_add_errcode.exit502:                             ; preds = %if.end4.i490, %if.end8.i493
-  %ret.0.i497 = phi i32 [ -1, %if.end4.i490 ], [ %call9.lobit.i495, %if.end8.i493 ]
+  %5 = icmp slt i32 %call9.i494, 0
   tail call void @_Py_DecRef(ptr noundef nonnull %call.i485) #2
   tail call void @_Py_DecRef(ptr noundef nonnull %call1.i488) #2
-  %cmp39 = icmp slt i32 %ret.0.i497, 0
-  br i1 %cmp39, label %if.then40, label %do.body43
+  br i1 %5, label %if.then40, label %do.body43
 
-if.then40:                                        ; preds = %do.body37, %_add_errcode.exit502.thread535, %_add_errcode.exit502
+if.then40.critedge:                               ; preds = %if.end4.i490
+  tail call void @_Py_DecRef(ptr noundef nonnull %call.i485) #2
+  br label %if.then40.sink.split
+
+if.then40.sink.split:                             ; preds = %if.end.i487, %if.then40.critedge
+  %call1.i488.sink = phi ptr [ %call1.i488, %if.then40.critedge ], [ %call.i485, %if.end.i487 ]
+  tail call void @_Py_DecRef(ptr noundef nonnull %call1.i488.sink) #2
+  br label %if.then40
+
+if.then40:                                        ; preds = %if.then40.sink.split, %do.body37, %if.end8.i493
   tail call void @_Py_DecRef(ptr noundef nonnull %call1) #2
   br label %return
 
-do.body43:                                        ; preds = %_add_errcode.exit502
+do.body43:                                        ; preds = %if.end8.i493
   %call44 = tail call fastcc i32 @_add_errcode(ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull @.str.8, i32 noundef 51)
   %cmp45 = icmp slt i32 %call44, 0
   br i1 %cmp45, label %if.then46, label %do.body49

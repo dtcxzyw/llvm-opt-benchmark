@@ -215,7 +215,7 @@ while.end23:                                      ; preds = %while.end23.loopexi
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %value) local_unnamed_addr #1 align 2 {
+define noundef range(i64 -1152921504606846977, 1152921504606846976) i64 @_ZNK7rocksdb21HistogramBucketMapper13IndexForValueEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %value) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8

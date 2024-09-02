@@ -1698,7 +1698,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 51:                                               ; preds = %45
   %52 = load atomic i64, ptr %4 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.042, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.042, i32 6)
   br label %54
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit: ; preds = %54
@@ -1885,7 +1885,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 51:                                               ; preds = %45
   %52 = load atomic i64, ptr %4 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.042, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.042, i32 6)
   br label %54
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit: ; preds = %54
@@ -2074,7 +2074,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 51:                                               ; preds = %45
   %52 = load atomic i64, ptr %4 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.042, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.042, i32 6)
   br label %54
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit: ; preds = %54
@@ -3280,7 +3280,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send1
 
 67:                                               ; preds = %54
   %68 = load atomic i64, ptr %8 acquire, align 8, !noalias !227
-  %.0.sroa.speculated.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.0110.i.lcssa, i32 6)
+  %.0.sroa.speculated.i.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0110.i.lcssa, i32 6)
   br label %73
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = %73
@@ -3579,7 +3579,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send1
 
 67:                                               ; preds = %54
   %68 = load atomic i64, ptr %8 acquire, align 8, !noalias !242
-  %.0.sroa.speculated.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.0110.i.lcssa, i32 6)
+  %.0.sroa.speculated.i.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0110.i.lcssa, i32 6)
   br label %73
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = %73

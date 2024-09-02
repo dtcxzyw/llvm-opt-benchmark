@@ -231,8 +231,8 @@ do.body.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i, label %for.cond.preheader.i, label %uv_thread_getaffinity.exit
 
 for.cond.preheader.i:                             ; preds = %do.body.i
-  %cmp812.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp812.not.i, label %uv_thread_getaffinity.exit.thread19, label %for.body.i
+  %cmp813.not.i = icmp eq i32 %call.i, 0
+  br i1 %cmp813.not.i, label %uv_thread_getaffinity.exit.thread19, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %cond.end.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %cond.end.i ], [ 0, %for.cond.preheader.i ]
@@ -246,11 +246,11 @@ cond.true.i:                                      ; preds = %for.body.i
   %rem.i = and i64 %indvars.iv.i, 63
   %2 = lshr i64 %1, %rem.i
   %3 = trunc i64 %2 to i8
-  %conv15.i = and i8 %3, 1
+  %4 = and i8 %3, 1
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
-  %cond.i = phi i8 [ %conv15.i, %cond.true.i ], [ 0, %for.body.i ]
+  %cond.i = phi i8 [ %4, %cond.true.i ], [ 0, %for.body.i ]
   %arrayidx19.i = getelementptr inbounds i8, ptr %oldmask, i64 %indvars.iv.i
   store i8 %cond.i, ptr %arrayidx19.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -285,8 +285,8 @@ for.body.preheader:                               ; preds = %do.body
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds i8, ptr %cpumask, i64 %indvars.iv
-  %4 = load i8, ptr %arrayidx, align 1
-  %tobool.not = icmp ne i8 %4, 0
+  %5 = load i8, ptr %arrayidx, align 1
+  %tobool.not = icmp ne i8 %5, 0
   %cmp18 = icmp ult i64 %indvars.iv, 1024
   %or.cond = and i1 %cmp18, %tobool.not
   br i1 %or.cond, label %cond.true, label %for.inc
@@ -296,8 +296,8 @@ cond.true:                                        ; preds = %for.body
   %shl = shl nuw i64 1, %rem
   %div2015 = lshr i64 %indvars.iv, 6
   %arrayidx21 = getelementptr inbounds i64, ptr %cpuset, i64 %div2015
-  %5 = load i64, ptr %arrayidx21, align 8
-  %or = or i64 %5, %shl
+  %6 = load i64, ptr %arrayidx21, align 8
+  %or = or i64 %6, %shl
   store i64 %or, ptr %arrayidx21, align 8
   br label %for.inc
 
@@ -307,8 +307,8 @@ for.inc:                                          ; preds = %cond.true, %for.bod
   br i1 %exitcond.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %do.body
-  %6 = load i64, ptr %tid, align 8
-  %call23 = call i32 @pthread_setaffinity_np(i64 noundef %6, i64 noundef 128, ptr noundef nonnull %cpuset) #11
+  %7 = load i64, ptr %tid, align 8
+  %call23 = call i32 @pthread_setaffinity_np(i64 noundef %7, i64 noundef 128, ptr noundef nonnull %cpuset) #11
   %sub = sub nsw i32 0, %call23
   br label %return
 
@@ -340,8 +340,8 @@ do.body:                                          ; preds = %if.end
   br i1 %tobool.not, label %for.cond.preheader, label %if.then6
 
 for.cond.preheader:                               ; preds = %do.body
-  %cmp812.not = icmp eq i32 %call, 0
-  br i1 %cmp812.not, label %return, label %for.body
+  %cmp813.not = icmp eq i32 %call, 0
+  br i1 %cmp813.not, label %return, label %for.body
 
 if.then6:                                         ; preds = %do.body
   %sub = sub nsw i32 0, %call5
@@ -359,11 +359,11 @@ cond.true:                                        ; preds = %for.body
   %rem = and i64 %indvars.iv, 63
   %2 = lshr i64 %1, %rem
   %3 = trunc i64 %2 to i8
-  %conv15 = and i8 %3, 1
+  %4 = and i8 %3, 1
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i8 [ %conv15, %cond.true ], [ 0, %for.body ]
+  %cond = phi i8 [ %4, %cond.true ], [ 0, %for.body ]
   %arrayidx19 = getelementptr inbounds i8, ptr %cpumask, i64 %indvars.iv
   store i8 %cond, ptr %arrayidx19, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

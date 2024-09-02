@@ -1570,8 +1570,8 @@ define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr nocapture noundef rea
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
-  %.032 = phi i64 [ 0, %.lr.ph ], [ %26, %13 ]
-  %.03031 = phi i1 [ false, %.lr.ph ], [ %25, %13 ]
+  %.032 = phi i64 [ 0, %.lr.ph ], [ %25, %13 ]
+  %.03031 = phi i1 [ false, %.lr.ph ], [ %narrow, %13 ]
   %14 = getelementptr inbounds i64, ptr %8, i64 %.032
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds double, ptr %9, i64 %.032
@@ -1587,17 +1587,17 @@ define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr nocapture noundef rea
   %.sink = select i1 %or.cond, i64 -1, i64 %.
   store i64 %.sink, ptr %14, align 8
   %24 = icmp ne i64 %.sink, %15
-  %25 = select i1 %.03031, i1 true, i1 %24
-  %26 = add nuw nsw i64 %.032, 1
-  %exitcond.not = icmp eq i64 %26, %7
+  %narrow = select i1 %.03031, i1 true, i1 %24
+  %25 = add nuw nsw i64 %.032, 1
+  %exitcond.not = icmp eq i64 %25, %7
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %13, !llvm.loop !45
 
 ._crit_edge.loopexit:                             ; preds = %13
-  %27 = zext i1 %25 to i64
+  %26 = zext i1 %narrow to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
-  %.030.lcssa = phi i64 [ 0, %5 ], [ %27, %._crit_edge.loopexit ]
+  %.030.lcssa = phi i64 [ 0, %5 ], [ %26, %._crit_edge.loopexit ]
   ret i64 %.030.lcssa
 }
 

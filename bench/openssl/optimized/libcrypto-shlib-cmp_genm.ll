@@ -455,7 +455,7 @@ declare i32 @OSSL_CMP_ITAV_get0_rootCaKeyUpdate(ptr noundef, ptr noundef, ptr no
 declare ptr @X509_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @verify_ss_cert_trans(ptr noundef %ctx, ptr noundef %trusted, ptr noundef %trans, ptr noundef %target, ptr noundef %desc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @verify_ss_cert_trans(ptr noundef %ctx, ptr noundef %trusted, ptr noundef %trans, ptr noundef %target, ptr noundef %desc) unnamed_addr #0 {
 entry:
   %untrusted = alloca ptr, align 8
   %call = tail call ptr @OSSL_CMP_CTX_get0_trustedStore(ptr noundef %ctx) #4

@@ -1469,22 +1469,22 @@ _ZL20proto_item_is_hiddenP11_proto_node.exit.thread: ; preds = %_ZL23proto_item_
   %256 = and i32 %255, 7
   %257 = or disjoint i32 %256, %254
   %258 = and i32 %247, 16128
-  %.not146 = icmp eq i32 %258, 0
-  br i1 %.not146, label %262, label %259
+  %259 = icmp eq i32 %258, 0
+  br i1 %259, label %.critedge, label %260
 
-259:                                              ; preds = %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
-  %260 = lshr i32 %247, 8
-  %261 = and i32 %260, 63
+260:                                              ; preds = %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
+  %261 = lshr i32 %247, 8
+  %262 = and i32 %261, 63
   br label %266
 
-262:                                              ; preds = %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
+.critedge:                                        ; preds = %_ZL20proto_item_is_hiddenP11_proto_node.exit.thread
   %263 = getelementptr inbounds i8, ptr %.0127.val, i64 12
   %264 = load i32, ptr %263, align 4
   %265 = shl i32 %264, 3
   br label %266
 
-266:                                              ; preds = %262, %259
-  %267 = phi i32 [ %261, %259 ], [ %265, %262 ]
+266:                                              ; preds = %260, %.critedge
+  %267 = phi i32 [ %265, %.critedge ], [ %262, %260 ]
   %268 = icmp sle i32 %257, %.0121272
   %269 = icmp slt i32 %267, 1
   %or.cond = select i1 %268, i1 true, i1 %269

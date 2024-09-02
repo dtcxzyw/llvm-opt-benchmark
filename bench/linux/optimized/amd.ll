@@ -1843,22 +1843,22 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   %310 = getelementptr inbounds i8, ptr %0, i64 296
   %311 = load i16, ptr %310, align 8
   %312 = icmp eq i16 %311, 0
-  br i1 %312, label %318, label %313
+  br i1 %312, label %319, label %313
 
 313:                                              ; preds = %309
   %314 = zext i16 %311 to i32
   %315 = add nsw i32 %314, -1
   %316 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %315, i32 -1) #13, !srcloc !43
-  %317 = add i32 %316, 1
-  br label %318
+  %317 = trunc i32 %316 to i8
+  %318 = add i8 %317, 1
+  br label %319
 
-318:                                              ; preds = %313, %309
-  %319 = phi i32 [ -1, %309 ], [ %317, %313 ]
-  %320 = trunc i32 %319 to i8
+319:                                              ; preds = %313, %309
+  %320 = phi i8 [ -1, %309 ], [ %318, %313 ]
   store i8 %320, ptr %269, align 2
   br label %321
 
-321:                                              ; preds = %318, %306
+321:                                              ; preds = %319, %306
   call void @cacheinfo_amd_init_llc_id(ptr noundef %0) #12
   br label %337
 

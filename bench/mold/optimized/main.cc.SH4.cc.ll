@@ -14637,12 +14637,12 @@ if.then.i.i91:                                    ; preds = %_ZStplIcSt11char_tr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i92, %if.then.i.i91
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp45) #17
-  %tobool47.not = icmp ne ptr %call46, null
-  %retval.3.call46 = select i1 %tobool47.not, ptr %call46, ptr %retval.3113
+  %tobool47.not = icmp eq ptr %call46, null
+  %retval.3.call46 = select i1 %tobool47.not, ptr %retval.3113, ptr %call46
   br label %cleanup50
 
 cleanup50:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66
-  %cleanup.dest.slot.1 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66 ], [ %tobool47.not, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ]
+  %cleanup.dest.slot.1 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66 ], [ %tobool47.not, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ]
   %retval.4 = phi ptr [ %call39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66 ], [ %retval.3.call46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ]
   %52 = load ptr, ptr %stem, align 8
   %cmp.i.i.i96 = icmp eq ptr %52, %31
@@ -14660,7 +14660,7 @@ if.then.i.i97:                                    ; preds = %cleanup50
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i98, %if.then.i.i97
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %stem) #17
-  br i1 %cleanup.dest.slot.1, label %return, label %for.cond25
+  br i1 %cleanup.dest.slot.1, label %for.cond25, label %return
 
 for.end55:                                        ; preds = %for.cond25, %if.end16
   call void @_ZN4mold5FatalINS_3elf7ContextINS1_3SH4EEEEC2ERS4_(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(4568) %ctx)

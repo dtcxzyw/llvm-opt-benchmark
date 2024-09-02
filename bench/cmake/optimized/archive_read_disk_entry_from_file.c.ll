@@ -103,7 +103,7 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define dso_local range(i32 -30, 1) i32 @archive_read_disk_entry_from_file(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca %struct.stat, align 8
@@ -111,7 +111,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
   store i32 %2, ptr %6, align 4
   %9 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 195932357, i32 noundef 32767, ptr noundef nonnull @.str.1) #12
   %10 = icmp eq i32 %9, -30
-  br i1 %10, label %279, label %11
+  br i1 %10, label %280, label %11
 
 11:                                               ; preds = %4
   tail call void @archive_clear_error(ptr noundef %0) #12
@@ -147,7 +147,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
   %27 = tail call ptr @__errno_location() #13
   %28 = load i32, ptr %27, align 4
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %28, ptr noundef nonnull @.str.2) #12
-  br label %279
+  br label %280
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds i8, ptr %0, i64 153
@@ -164,7 +164,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
   %35 = tail call ptr @__errno_location() #13
   %36 = load i32, ptr %35, align 4
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %36, ptr noundef nonnull @.str.3, ptr noundef %.087) #12
-  br label %279
+  br label %280
 
 37:                                               ; preds = %29
   %38 = call i32 @stat(ptr noundef %.087, ptr noundef nonnull %7) #12
@@ -175,7 +175,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
   %40 = tail call ptr @__errno_location() #13
   %41 = load i32, ptr %40, align 4
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %41, ptr noundef nonnull @.str.4, ptr noundef %.087) #12
-  br label %279
+  br label %280
 
 42:                                               ; preds = %24, %37, %32, %20
   %.1 = phi ptr [ %3, %20 ], [ %7, %32 ], [ %7, %37 ], [ %7, %24 ]
@@ -279,7 +279,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
 
 91:                                               ; preds = %85
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.5) #12
-  br label %279
+  br label %280
 
 92:                                               ; preds = %85
   %93 = load ptr, ptr %17, align 8
@@ -308,7 +308,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
   %105 = load i32, ptr %104, align 4
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %105, ptr noundef nonnull @.str.5) #12
   call void @free(ptr noundef nonnull %89) #12
-  br label %279
+  br label %280
 
 106:                                              ; preds = %101
   %107 = and i64 %.0.in, 2147483647
@@ -386,7 +386,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_disk_entry_from_fil
   %141 = load i32, ptr %6, align 4
   %142 = call i64 @lseek(i32 noundef %141, i64 noundef 0, i32 noundef 4) #12
   %143 = icmp slt i64 %142, 0
-  br i1 %143, label %144, label %229
+  br i1 %143, label %144, label %230
 
 144:                                              ; preds = %140
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
@@ -489,7 +489,7 @@ archive_read_disk_entry_setup_path.exit.i.i:      ; preds = %163
   br label %188
 
 188:                                              ; preds = %._crit_edge.thread.i.i, %.lr.ph90.i.i
-  %.06488.i.i = phi i32 [ 0, %.lr.ph90.i.i ], [ %225, %._crit_edge.thread.i.i ]
+  %.06488.i.i = phi i32 [ 0, %.lr.ph90.i.i ], [ %226, %._crit_edge.thread.i.i ]
   %189 = load i32, ptr %186, align 4
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %191, label %194
@@ -551,139 +551,139 @@ archive_read_disk_entry_setup_path.exit.i.i:      ; preds = %163
   br i1 %217, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !5
 
 ._crit_edge.i.i:                                  ; preds = %211
-  %.not73.i.i = icmp eq i32 %spec.select.i.i, 0
-  br i1 %.not73.i.i, label %setup_sparse_fiemap.exit.i, label %._crit_edge.thread.i.i
+  %218 = icmp eq i32 %spec.select.i.i, 0
+  br i1 %218, label %setup_sparse_fiemap.exit.i, label %._crit_edge.thread.i.i
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %194
-  %.lcssa100.i.i = phi i32 [ %212, %._crit_edge.i.i ], [ %189, %194 ]
-  %218 = zext i32 %.lcssa100.i.i to i64
-  %219 = getelementptr inbounds %struct.fiemap_extent, ptr %187, i64 %218
-  %220 = getelementptr inbounds i8, ptr %219, i64 -56
-  %221 = load i64, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %219, i64 -40
-  %223 = load i64, ptr %222, align 8
-  %224 = add i64 %223, %221
-  store i64 %224, ptr %5, align 16
-  %225 = add nuw nsw i32 %.06488.i.i, 1
-  %226 = load i32, ptr %6, align 4
-  %227 = call i32 (i32, i64, ...) @ioctl(i32 noundef %226, i64 noundef 3223348747, ptr noundef nonnull %5) #12
-  %228 = icmp slt i32 %227, 0
-  br i1 %228, label %setup_sparse_fiemap.exit.i, label %188
+  %.lcssa99.i.i = phi i32 [ %212, %._crit_edge.i.i ], [ %189, %194 ]
+  %219 = zext i32 %.lcssa99.i.i to i64
+  %220 = getelementptr inbounds %struct.fiemap_extent, ptr %187, i64 %219
+  %221 = getelementptr inbounds i8, ptr %220, i64 -56
+  %222 = load i64, ptr %221, align 8
+  %223 = getelementptr inbounds i8, ptr %220, i64 -40
+  %224 = load i64, ptr %223, align 8
+  %225 = add i64 %224, %222
+  store i64 %225, ptr %5, align 16
+  %226 = add nuw nsw i32 %.06488.i.i, 1
+  %227 = load i32, ptr %6, align 4
+  %228 = call i32 (i32, i64, ...) @ioctl(i32 noundef %227, i64 noundef 3223348747, ptr noundef nonnull %5) #12
+  %229 = icmp slt i32 %228, 0
+  br i1 %229, label %setup_sparse_fiemap.exit.i, label %188
 
 setup_sparse_fiemap.exit.i:                       ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i, %200, %193, %191, %178, %174, %archive_read_disk_entry_setup_path.exit.i.i, %149, %146, %144
   %.060.i.i = phi i32 [ -25, %174 ], [ 0, %149 ], [ 0, %146 ], [ 0, %144 ], [ -25, %archive_read_disk_entry_setup_path.exit.i.i ], [ 0, %193 ], [ 0, %191 ], [ 0, %178 ], [ 0, %200 ], [ 0, %._crit_edge.i.i ], [ 0, %._crit_edge.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5)
   br label %setup_sparse.exit.thread
 
-229:                                              ; preds = %140
+230:                                              ; preds = %140
   %.not70.i = icmp eq i64 %142, 0
-  br i1 %.not70.i, label %233, label %230
+  br i1 %.not70.i, label %234, label %231
 
-230:                                              ; preds = %229
-  %231 = load i32, ptr %6, align 4
-  %232 = call i64 @lseek(i32 noundef %231, i64 noundef 0, i32 noundef 0) #12
-  br label %233
+231:                                              ; preds = %230
+  %232 = load i32, ptr %6, align 4
+  %233 = call i64 @lseek(i32 noundef %232, i64 noundef 0, i32 noundef 0) #12
+  br label %234
 
-233:                                              ; preds = %230, %229
-  %234 = call i64 @archive_entry_size(ptr noundef %1) #12
-  %235 = icmp sgt i64 %234, 0
-  br i1 %235, label %.lr.ph.i, label %.critedge.i
+234:                                              ; preds = %231, %230
+  %235 = call i64 @archive_entry_size(ptr noundef %1) #12
+  %236 = icmp sgt i64 %235, 0
+  br i1 %236, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %233, %262
-  %.05778.i = phi i64 [ %248, %262 ], [ 0, %233 ]
-  %236 = load i32, ptr %6, align 4
-  %237 = call i64 @lseek(i32 noundef %236, i64 noundef %.05778.i, i32 noundef 3) #12
-  %238 = icmp eq i64 %237, -1
-  br i1 %238, label %239, label %246
+.lr.ph.i:                                         ; preds = %234, %263
+  %.05778.i = phi i64 [ %249, %263 ], [ 0, %234 ]
+  %237 = load i32, ptr %6, align 4
+  %238 = call i64 @lseek(i32 noundef %237, i64 noundef %.05778.i, i32 noundef 3) #12
+  %239 = icmp eq i64 %238, -1
+  br i1 %239, label %240, label %247
 
-239:                                              ; preds = %.lr.ph.i
-  %240 = tail call ptr @__errno_location() #13
-  %241 = load i32, ptr %240, align 4
-  %242 = icmp eq i32 %241, 6
-  br i1 %242, label %243, label %245
+240:                                              ; preds = %.lr.ph.i
+  %241 = tail call ptr @__errno_location() #13
+  %242 = load i32, ptr %241, align 4
+  %243 = icmp eq i32 %242, 6
+  br i1 %243, label %244, label %246
 
-243:                                              ; preds = %239
-  %244 = call i32 @archive_entry_sparse_count(ptr noundef %1) #12
-  %.not74.i = icmp eq i32 %244, 0
-  br i1 %.not74.i, label %265, label %.critedge.i
+244:                                              ; preds = %240
+  %245 = call i32 @archive_entry_sparse_count(ptr noundef %1) #12
+  %.not74.i = icmp eq i32 %245, 0
+  br i1 %.not74.i, label %266, label %.critedge.i
 
-245:                                              ; preds = %239
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %241, ptr noundef nonnull @.str.7) #12
+246:                                              ; preds = %240
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %242, ptr noundef nonnull @.str.7) #12
   br label %.critedge.i
 
-246:                                              ; preds = %.lr.ph.i
-  %247 = load i32, ptr %6, align 4
-  %248 = call i64 @lseek(i32 noundef %247, i64 noundef %237, i32 noundef 4) #12
-  %249 = icmp eq i64 %248, -1
-  br i1 %249, label %250, label %259
+247:                                              ; preds = %.lr.ph.i
+  %248 = load i32, ptr %6, align 4
+  %249 = call i64 @lseek(i32 noundef %248, i64 noundef %238, i32 noundef 4) #12
+  %250 = icmp eq i64 %249, -1
+  br i1 %250, label %251, label %260
 
-250:                                              ; preds = %246
-  %251 = tail call ptr @__errno_location() #13
-  %252 = load i32, ptr %251, align 4
-  %253 = icmp eq i32 %252, 6
-  br i1 %253, label %254, label %257
+251:                                              ; preds = %247
+  %252 = tail call ptr @__errno_location() #13
+  %253 = load i32, ptr %252, align 4
+  %254 = icmp eq i32 %253, 6
+  br i1 %254, label %255, label %258
 
-254:                                              ; preds = %250
-  %255 = load i32, ptr %6, align 4
-  %256 = call i64 @lseek(i32 noundef %255, i64 noundef 0, i32 noundef 2) #12
-  %.not71.i = icmp eq i64 %256, -1
+255:                                              ; preds = %251
+  %256 = load i32, ptr %6, align 4
+  %257 = call i64 @lseek(i32 noundef %256, i64 noundef 0, i32 noundef 2) #12
+  %.not71.i = icmp eq i64 %257, -1
   br i1 %.not71.i, label %._crit_edge.i, label %.critedge.i
 
-._crit_edge.i:                                    ; preds = %254
-  %.pre.i = load i32, ptr %251, align 4
-  br label %257
+._crit_edge.i:                                    ; preds = %255
+  %.pre.i = load i32, ptr %252, align 4
+  br label %258
 
-257:                                              ; preds = %._crit_edge.i, %250
-  %258 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %252, %250 ]
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %258, ptr noundef nonnull @.str.8) #12
+258:                                              ; preds = %._crit_edge.i, %251
+  %259 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %253, %251 ]
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %259, ptr noundef nonnull @.str.8) #12
   br label %.critedge.i
 
-259:                                              ; preds = %246
-  %260 = icmp eq i64 %237, 0
-  %261 = icmp eq i64 %248, %234
-  %or.cond.i = and i1 %260, %261
-  br i1 %or.cond.i, label %.critedge.i, label %262
+260:                                              ; preds = %247
+  %261 = icmp eq i64 %238, 0
+  %262 = icmp eq i64 %249, %235
+  %or.cond.i = and i1 %261, %262
+  br i1 %or.cond.i, label %.critedge.i, label %263
 
-262:                                              ; preds = %259
-  %263 = sub nsw i64 %248, %237
-  call void @archive_entry_sparse_add_entry(ptr noundef %1, i64 noundef %237, i64 noundef %263) #12
-  %264 = icmp slt i64 %248, %234
-  br i1 %264, label %.lr.ph.i, label %.critedge.i, !llvm.loop !7
+263:                                              ; preds = %260
+  %264 = sub nsw i64 %249, %238
+  call void @archive_entry_sparse_add_entry(ptr noundef %1, i64 noundef %238, i64 noundef %264) #12
+  %265 = icmp slt i64 %249, %235
+  br i1 %265, label %.lr.ph.i, label %.critedge.i, !llvm.loop !7
 
-265:                                              ; preds = %243
-  %266 = load i32, ptr %6, align 4
-  %267 = call i64 @lseek(i32 noundef %266, i64 noundef 0, i32 noundef 4) #12
-  %268 = icmp eq i64 %267, 0
-  br i1 %268, label %269, label %.critedge.i
+266:                                              ; preds = %244
+  %267 = load i32, ptr %6, align 4
+  %268 = call i64 @lseek(i32 noundef %267, i64 noundef 0, i32 noundef 4) #12
+  %269 = icmp eq i64 %268, 0
+  br i1 %269, label %270, label %.critedge.i
 
-269:                                              ; preds = %265
-  %270 = load i32, ptr %6, align 4
-  %271 = call i64 @lseek(i32 noundef %270, i64 noundef 0, i32 noundef 2) #12
-  %272 = icmp eq i64 %271, %234
-  br i1 %272, label %273, label %.critedge.i
+270:                                              ; preds = %266
+  %271 = load i32, ptr %6, align 4
+  %272 = call i64 @lseek(i32 noundef %271, i64 noundef 0, i32 noundef 2) #12
+  %273 = icmp eq i64 %272, %235
+  br i1 %273, label %274, label %.critedge.i
 
-273:                                              ; preds = %269
+274:                                              ; preds = %270
   call void @archive_entry_sparse_add_entry(ptr noundef %1, i64 noundef 0, i64 noundef 0) #12
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %262, %259, %273, %269, %265, %257, %254, %245, %243, %233
-  %.056.i = phi i32 [ 0, %273 ], [ 0, %269 ], [ 0, %265 ], [ 0, %243 ], [ -25, %245 ], [ -25, %257 ], [ 0, %254 ], [ 0, %233 ], [ 0, %259 ], [ 0, %262 ]
-  %274 = load i32, ptr %6, align 4
-  %275 = call i64 @lseek(i32 noundef %274, i64 noundef %.058.i, i32 noundef 0) #12
+.critedge.i:                                      ; preds = %263, %260, %274, %270, %266, %258, %255, %246, %244, %234
+  %.056.i = phi i32 [ 0, %274 ], [ 0, %270 ], [ 0, %266 ], [ 0, %244 ], [ -25, %246 ], [ -25, %258 ], [ 0, %255 ], [ 0, %234 ], [ 0, %260 ], [ 0, %263 ]
+  %275 = load i32, ptr %6, align 4
+  %276 = call i64 @lseek(i32 noundef %275, i64 noundef %.058.i, i32 noundef 0) #12
   br label %setup_sparse.exit.thread
 
 setup_sparse.exit.thread:                         ; preds = %.critedge.i, %setup_sparse_fiemap.exit.i, %131, %136, %113, %115, %118, %109
   %.3 = phi i32 [ 0, %109 ], [ 0, %118 ], [ 0, %115 ], [ 0, %113 ], [ -25, %136 ], [ -25, %131 ], [ %.060.i.i, %setup_sparse_fiemap.exit.i ], [ %.056.i, %.critedge.i ]
-  %276 = load i32, ptr %6, align 4
-  %.not114 = icmp eq i32 %2, %276
-  br i1 %.not114, label %279, label %277
+  %277 = load i32, ptr %6, align 4
+  %.not114 = icmp eq i32 %2, %277
+  br i1 %.not114, label %280, label %278
 
-277:                                              ; preds = %setup_sparse.exit.thread
-  %278 = call i32 @close(i32 noundef %276) #12
-  br label %279
+278:                                              ; preds = %setup_sparse.exit.thread
+  %279 = call i32 @close(i32 noundef %277) #12
+  br label %280
 
-279:                                              ; preds = %setup_sparse.exit.thread, %277, %4, %103, %91, %39, %34, %26
-  %.085 = phi i32 [ -25, %26 ], [ -25, %91 ], [ -25, %103 ], [ -25, %39 ], [ -25, %34 ], [ -30, %4 ], [ %.3, %277 ], [ %.3, %setup_sparse.exit.thread ]
+280:                                              ; preds = %setup_sparse.exit.thread, %278, %4, %103, %91, %39, %34, %26
+  %.085 = phi i32 [ -25, %26 ], [ -25, %91 ], [ -25, %103 ], [ -25, %39 ], [ -25, %34 ], [ -30, %4 ], [ %.3, %278 ], [ %.3, %setup_sparse.exit.thread ]
   ret i32 %.085
 }
 

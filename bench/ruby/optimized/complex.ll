@@ -8374,7 +8374,7 @@ define internal i64 @numeric_abs2(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @numeric_arg(i64 noundef %0) #0 {
+define internal range(i64 1, 20565104997263555) i64 @numeric_arg(i64 noundef %0) #0 {
   %2 = tail call fastcc i32 @f_negative_p(i64 noundef %0)
   %.not = icmp eq i32 %2, 0
   %spec.select = select i1 %.not, i64 1, i64 20565104997263554

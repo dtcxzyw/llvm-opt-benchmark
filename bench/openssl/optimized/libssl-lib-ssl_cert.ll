@@ -2075,7 +2075,7 @@ declare ptr @__errno_location() local_unnamed_addr #9
 declare i32 @OPENSSL_DIR_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @SSL_add_store_cert_subjects_to_stack(ptr noundef %stack, ptr noundef %store) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_add_store_cert_subjects_to_stack(ptr noundef %stack, ptr noundef %store) local_unnamed_addr #0 {
 entry:
   %call2 = tail call ptr @OPENSSL_sk_set_cmp_func(ptr noundef %stack, ptr noundef nonnull @xname_sk_cmp) #13
   %call3 = tail call fastcc i32 @add_uris_recursive(ptr noundef %stack, ptr noundef %store, i32 noundef 1)
@@ -2084,7 +2084,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_uris_recursive(ptr noundef %stack, ptr noundef %uri, i32 noundef %depth) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_uris_recursive(ptr noundef %stack, ptr noundef %uri, i32 noundef %depth) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_STORE_open(ptr noundef %uri, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %cmp = icmp eq ptr %call, null

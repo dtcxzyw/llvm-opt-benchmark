@@ -1213,7 +1213,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %29, %31, %14, %9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cvLsLinSys(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, double noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #0 {
+define internal range(i32 -8, 2) i32 @cvLsLinSys(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, double noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #0 {
   %12 = icmp eq ptr %7, null
   br i1 %12, label %13, label %14
 

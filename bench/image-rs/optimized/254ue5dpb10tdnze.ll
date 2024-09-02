@@ -41532,7 +41532,7 @@ define hidden void @"_ZN5image5image17SubImage$LT$I$GT$8to_image17he3486fd562765
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i64 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h1dc183daadf68dceE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #6 {
+define hidden range(i64 -281474976710656, 0) i64 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h1dc183daadf68dceE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6c38cac8a68372b6E.exit":
   %.sroa.0.0.copyload = load i48, ptr %0, align 2, !alias.scope !4812, !noalias !4816
   %.sroa.0.0.insert.ext = zext i48 %.sroa.0.0.copyload to i64
@@ -41541,7 +41541,7 @@ define hidden i64 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h9f93821536a99cefE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #6 {
+define hidden range(i32 -16777216, 0) i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h9f93821536a99cefE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit":
   %.sroa.0.0.copyload = load i24, ptr %0, align 1, !alias.scope !4818, !noalias !4822
   %.sroa.0.0.insert.ext = zext i24 %.sroa.0.0.copyload to i32
@@ -41753,7 +41753,7 @@ define hidden i24 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i64 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h0e09d42895046a76E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #6 {
+define hidden range(i64 -281474976710656, 0) i64 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h0e09d42895046a76E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(6) %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 2, !alias.scope !4835, !noalias !4838
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -41766,7 +41766,7 @@ define hidden i64 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trait
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h3a30bb2f6d862d70E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #6 {
+define hidden range(i32 -16777216, 0) i32 @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h3a30bb2f6d862d70E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(3) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 1, !alias.scope !4840, !noalias !4843
   %3 = zext i16 %2 to i32
   %4 = getelementptr inbounds i8, ptr %0, i64 2
@@ -42490,7 +42490,7 @@ define hidden void @"_ZN67_$LT$image..color..Rgb$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i64 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h0b788688efc83c72E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
+define hidden range(i64 -65536, 0) i64 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h0b788688efc83c72E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6c38cac8a68372b6E.exit":
   %1 = load i16, ptr %0, align 2, !alias.scope !4959, !noalias !4963
   %.sroa.0.0.insert.ext = zext i16 %1 to i64
@@ -42499,7 +42499,7 @@ define hidden i64 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h4be3d3ae8e020727E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #6 {
+define hidden range(i32 -256, 0) i32 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h4be3d3ae8e020727E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit":
   %1 = load i8, ptr %0, align 1, !alias.scope !4965, !noalias !4969
   %.sroa.0.0.insert.ext = zext i8 %1 to i32
@@ -42651,7 +42651,7 @@ define hidden i24 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i64 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h2a2cf09b369c83c5E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
+define hidden range(i64 -281474976710656, 0) i64 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h2a2cf09b369c83c5E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
   %2 = load i16, ptr %0, align 2, !alias.scope !4976, !noalias !4979, !noundef !4
   %.sroa.0.0.insert.ext = zext i16 %2 to i64
   %.sroa.0.4.insert.insert = mul nuw nsw i64 %.sroa.0.0.insert.ext, 4295032833
@@ -42660,7 +42660,7 @@ define hidden i64 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h83b28acd58c03c53E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #6 {
+define hidden range(i32 -16777216, 0) i32 @"_ZN68_$LT$image..color..Luma$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$7to_rgba17h83b28acd58c03c53E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !alias.scope !4981, !noalias !4984, !noundef !4
   %.sroa.0.0.insert.ext = zext i8 %2 to i32
   %.sroa.0.2.insert.insert = mul nuw nsw i32 %.sroa.0.0.insert.ext, 65793
@@ -43890,7 +43890,7 @@ define hidden void @"_ZN68_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i64 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h00e0fae0b18ffcc5E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #6 {
+define hidden range(i64 -4294967296, 0) i64 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h00e0fae0b18ffcc5E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6c38cac8a68372b6E.exit":
   %1 = load i32, ptr %0, align 2, !alias.scope !5185, !noalias !5189
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -43899,7 +43899,7 @@ define hidden i64 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h60008d23443def2aE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #6 {
+define hidden range(i32 -65536, 0) i32 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$9channels417h60008d23443def2aE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #6 {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit":
   %1 = load i16, ptr %0, align 1, !alias.scope !5191, !noalias !5195
   %.sroa.0.0.insert.ext = zext i16 %1 to i32

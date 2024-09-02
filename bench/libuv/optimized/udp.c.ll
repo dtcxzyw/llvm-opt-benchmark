@@ -1846,7 +1846,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_udp_set_ttl(ptr nocapture noundef readonly %handle, i32 noundef %ttl) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_udp_set_ttl(ptr nocapture noundef readonly %handle, i32 noundef %ttl) local_unnamed_addr #0 {
 entry:
   %arg.i = alloca i32, align 4
   %0 = add i32 %ttl, -256

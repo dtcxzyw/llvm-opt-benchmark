@@ -7169,7 +7169,7 @@ _ZN5Ipopt8SmartPtrINS_16AlgorithmBuilderEED2Ev.exit4: ; preds = %19, %22, %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt16IpoptApplication11OptimizeNLPERKNS_8SmartPtrINS_3NLPEEERNS1_INS_16AlgorithmBuilderEEE(ptr noundef nonnull align 8 dereferenceable(90) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -199, 7) i32 @_ZN5Ipopt16IpoptApplication11OptimizeNLPERKNS_8SmartPtrINS_3NLPEEERNS1_INS_16AlgorithmBuilderEEE(ptr noundef nonnull align 8 dereferenceable(90) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.51", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.Ipopt::SmartPtr.7", align 8
@@ -7830,7 +7830,7 @@ declare void @_ZN5Ipopt16AlgorithmBuilderC1ENS_8SmartPtrINS_15AugSystemSolverEEE
 declare void @_ZN5Ipopt16NLPBoundsRemoverC1ERNS_3NLPEb(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef nonnull align 8 dereferenceable(12), i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt16IpoptApplication13call_optimizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(90) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -199, 7) i32 @_ZN5Ipopt16IpoptApplication13call_optimizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(90) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.8", align 1
@@ -12395,11 +12395,11 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit792: ; preds = %_ZN5Ipopt8Smar
   %1735 = load ptr, ptr %1734, align 8
   call void %1735(ptr noundef nonnull align 8 dereferenceable(205) %1696) #19
   %.pre1382 = load i32, ptr %1728, align 8
+  %1736 = add nsw i32 %.pre1382, -1
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit802
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit802:     ; preds = %1732, %1727
-  %1736 = phi i32 [ %.pre1382, %1732 ], [ %1730, %1727 ]
-  %1737 = add nsw i32 %1736, -1
+  %1737 = phi i32 [ %1736, %1732 ], [ %1729, %1727 ]
   store i32 %1737, ptr %1728, align 8
   %1738 = icmp eq i32 %1737, 0
   br i1 %1738, label %1739, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit660
@@ -12975,7 +12975,7 @@ _ZN5Ipopt8SmartPtrINS_7JournalEED2Ev.exit877:     ; preds = %2004, %1999, %_ZN5I
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt16IpoptApplication13ReOptimizeNLPERKNS_8SmartPtrINS_3NLPEEE(ptr nocapture noundef nonnull align 8 dereferenceable(90) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -199, 7) i32 @_ZN5Ipopt16IpoptApplication13ReOptimizeNLPERKNS_8SmartPtrINS_3NLPEEE(ptr nocapture noundef nonnull align 8 dereferenceable(90) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.8", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

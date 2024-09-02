@@ -2589,7 +2589,7 @@ _ZNK4Luau6Module14getModuleScopeEv.exit:          ; preds = %3, %32, %35
   %39 = load ptr, ptr %38, align 8
   %40 = load i8, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %41 = trunc i8 %40 to i1
-  br i1 %41, label %44, label %42
+  br i1 %41, label %45, label %42
 
 42:                                               ; preds = %_ZNK4Luau6Module14getModuleScopeEv.exit
   %43 = getelementptr inbounds i8, ptr %37, i64 104
@@ -2598,38 +2598,38 @@ _ZNK4Luau6Module14getModuleScopeEv.exit:          ; preds = %3, %32, %35
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx, i64 7, i1 false)
-  br label %44
+  %44 = trunc i8 %.sroa.4.0.copyload to i1
+  br label %45
 
-44:                                               ; preds = %42, %_ZNK4Luau6Module14getModuleScopeEv.exit
+45:                                               ; preds = %42, %_ZNK4Luau6Module14getModuleScopeEv.exit
   %.sroa.034.0 = phi ptr [ %.sroa.034.0.copyload, %42 ], [ undef, %_ZNK4Luau6Module14getModuleScopeEv.exit ]
-  %.sroa.4.0 = phi i8 [ %.sroa.4.0.copyload, %42 ], [ 0, %_ZNK4Luau6Module14getModuleScopeEv.exit ]
-  %45 = getelementptr inbounds i8, ptr %6, i64 40
-  %46 = getelementptr inbounds i8, ptr %6, i64 80
-  %47 = getelementptr inbounds i8, ptr %6, i64 88
+  %.sroa.4.0 = phi i1 [ %44, %42 ], [ false, %_ZNK4Luau6Module14getModuleScopeEv.exit ]
+  %46 = getelementptr inbounds i8, ptr %6, i64 40
+  %47 = getelementptr inbounds i8, ptr %6, i64 80
+  %48 = getelementptr inbounds i8, ptr %6, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 32, i1 false)
-  %48 = getelementptr inbounds i8, ptr %6, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %46, i8 0, i64 34, i1 false)
-  store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
-  invoke void @_ZN4Luau12SubstitutionC2EPKNS_6TxnLogEPNS_9TypeArenaE(ptr noundef nonnull align 8 dereferenceable(472) %7, ptr noundef nonnull %6, ptr noundef nonnull %49)
-          to label %50 unwind label %60
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
+  %49 = getelementptr inbounds i8, ptr %6, i64 120
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %47, i8 0, i64 34, i1 false)
+  store ptr %48, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  invoke void @_ZN4Luau12SubstitutionC2EPKNS_6TxnLogEPNS_9TypeArenaE(ptr noundef nonnull align 8 dereferenceable(472) %7, ptr noundef nonnull %6, ptr noundef nonnull %50)
+          to label %51 unwind label %60
 
-50:                                               ; preds = %44
+51:                                               ; preds = %45
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4Luau20ClonePublicInterfaceE, i64 16), ptr %7, align 8
-  %51 = getelementptr inbounds i8, ptr %7, i64 472
-  store ptr %1, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %7, i64 480
-  store ptr %0, ptr %52, align 8
-  %53 = invoke noundef ptr @_ZN4Luau20ClonePublicInterface13cloneTypePackEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(488) %7, ptr noundef %39)
-          to label %54 unwind label %.loopexit.split-lp.loopexit.split-lp
+  %52 = getelementptr inbounds i8, ptr %7, i64 472
+  store ptr %1, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %7, i64 480
+  store ptr %0, ptr %53, align 8
+  %54 = invoke noundef ptr @_ZN4Luau20ClonePublicInterface13cloneTypePackEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(488) %7, ptr noundef %39)
+          to label %55 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-54:                                               ; preds = %50
-  store ptr %53, ptr %38, align 8
-  %55 = trunc i8 %.sroa.4.0 to i1
-  br i1 %55, label %56, label %62
+55:                                               ; preds = %51
+  store ptr %54, ptr %38, align 8
+  br i1 %.sroa.4.0, label %56, label %62
 
-56:                                               ; preds = %54
+56:                                               ; preds = %55
   %57 = invoke noundef ptr @_ZN4Luau20ClonePublicInterface13cloneTypePackEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(488) %7, ptr noundef %.sroa.034.0)
           to label %58 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -2642,7 +2642,7 @@ _ZNK4Luau6Module14getModuleScopeEv.exit:          ; preds = %3, %32, %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx38, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7, i64 7, i1 false)
   br label %62
 
-60:                                               ; preds = %44
+60:                                               ; preds = %45
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %178
@@ -2657,7 +2657,7 @@ _ZNK4Luau6Module14getModuleScopeEv.exit:          ; preds = %3, %32, %35
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %122, %56, %50
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %122, %56, %51
   %lpad.loopexit.split-lp41 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -2667,7 +2667,7 @@ _ZNK4Luau6Module14getModuleScopeEv.exit:          ; preds = %3, %32, %35
   call void @_ZN4Luau12SubstitutionD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %7) #17
   br label %178
 
-62:                                               ; preds = %58, %54
+62:                                               ; preds = %58, %55
   %63 = getelementptr inbounds i8, ptr %37, i64 160
   %.sroa.030.043 = load ptr, ptr %63, align 8
   %.not44 = icmp eq ptr %.sroa.030.043, null

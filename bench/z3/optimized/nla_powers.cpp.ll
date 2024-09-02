@@ -123,7 +123,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3nla6powers5checkEjjjR6vectorINS_5lemmaELb1EjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %r, i32 noundef %x, i32 noundef %y, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lemmas) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN3nla6powers5checkEjjjR6vectorINS_5lemmaELb1EjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %r, i32 noundef %x, i32 noundef %y, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lemmas) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %xval = alloca %class.rational, align 8
   %yval = alloca %class.rational, align 8

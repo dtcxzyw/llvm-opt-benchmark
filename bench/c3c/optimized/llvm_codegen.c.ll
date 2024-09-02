@@ -3957,40 +3957,40 @@ gencontext_init.exit:                             ; preds = %203, %206, %209, %2
   tail call void @LLVMSetGlobalConstant(ptr noundef %316, i32 noundef 1) #10
   tail call void @LLVMSetInitializer(ptr noundef %310, ptr noundef %304) #10
   tail call void @LLVMSetInitializer(ptr noundef %316, ptr noundef %307) #10
-  br label %324
+  %319 = zext i32 %300 to i64
+  br label %325
 
 .thread:                                          ; preds = %297, %298
-  %319 = getelementptr inbounds i8, ptr %193, i64 216
-  %320 = load ptr, ptr %319, align 8
-  %321 = tail call ptr @LLVMConstNull(ptr noundef %320) #10
-  %322 = load ptr, ptr %319, align 8
-  %323 = tail call ptr @LLVMConstNull(ptr noundef %322) #10
-  br label %324
+  %320 = getelementptr inbounds i8, ptr %193, i64 216
+  %321 = load ptr, ptr %320, align 8
+  %322 = tail call ptr @LLVMConstNull(ptr noundef %321) #10
+  %323 = load ptr, ptr %320, align 8
+  %324 = tail call ptr @LLVMConstNull(ptr noundef %323) #10
+  br label %325
 
-324:                                              ; preds = %.thread, %301
-  %.08181033 = phi i32 [ %300, %301 ], [ 0, %.thread ]
-  %.0828 = phi ptr [ %316, %301 ], [ %323, %.thread ]
-  %.0827 = phi ptr [ %310, %301 ], [ %321, %.thread ]
-  %325 = load ptr, ptr @type_usz, align 8
-  %326 = zext i32 %.08181033 to i64
-  %327 = tail call fastcc ptr @type_lowering(ptr noundef %325)
+325:                                              ; preds = %.thread, %301
+  %.08181033 = phi i64 [ %319, %301 ], [ 0, %.thread ]
+  %.0828 = phi ptr [ %316, %301 ], [ %324, %.thread ]
+  %.0827 = phi ptr [ %310, %301 ], [ %322, %.thread ]
+  %326 = load ptr, ptr @type_usz, align 8
+  %327 = tail call fastcc ptr @type_lowering(ptr noundef %326)
   %328 = tail call ptr @llvm_get_type(ptr noundef nonnull %193, ptr noundef %327) #10
   %329 = load i32, ptr %327, align 8
   %330 = icmp eq i32 %329, 31
   br i1 %330, label %331, label %335
 
-331:                                              ; preds = %324
+331:                                              ; preds = %325
   %332 = getelementptr inbounds i8, ptr %327, i64 8
   %333 = load ptr, ptr %332, align 8
   %334 = load i32, ptr %333, align 8
   br label %335
 
-335:                                              ; preds = %331, %324
-  %.0778 = phi i32 [ %334, %331 ], [ %329, %324 ]
+335:                                              ; preds = %331, %325
+  %.0778 = phi i32 [ %334, %331 ], [ %329, %325 ]
   %336 = add i32 %.0778, -3
   %337 = icmp ult i32 %336, 5
   %338 = zext i1 %337 to i32
-  %339 = tail call ptr @LLVMConstInt(ptr noundef %328, i64 noundef %326, i32 noundef %338) #10
+  %339 = tail call ptr @LLVMConstInt(ptr noundef %328, i64 noundef %.08181033, i32 noundef %338) #10
   %340 = load ptr, ptr @type_chars, align 8
   %341 = tail call ptr @type_get_subarray(ptr noundef %340) #10
   %342 = load ptr, ptr @benchmark_names_var_name, align 8
@@ -4928,40 +4928,40 @@ gencontext_init.exit994:                          ; preds = %721, %724, %727, %7
   tail call void @LLVMSetGlobalConstant(ptr noundef %834, i32 noundef 1) #10
   tail call void @LLVMSetInitializer(ptr noundef %828, ptr noundef %822) #10
   tail call void @LLVMSetInitializer(ptr noundef %834, ptr noundef %825) #10
-  br label %842
+  %837 = zext i32 %818 to i64
+  br label %843
 
 .thread1040:                                      ; preds = %815, %816
-  %837 = getelementptr inbounds i8, ptr %715, i64 216
-  %838 = load ptr, ptr %837, align 8
-  %839 = tail call ptr @LLVMConstNull(ptr noundef %838) #10
-  %840 = load ptr, ptr %837, align 8
-  %841 = tail call ptr @LLVMConstNull(ptr noundef %840) #10
-  br label %842
+  %838 = getelementptr inbounds i8, ptr %715, i64 216
+  %839 = load ptr, ptr %838, align 8
+  %840 = tail call ptr @LLVMConstNull(ptr noundef %839) #10
+  %841 = load ptr, ptr %838, align 8
+  %842 = tail call ptr @LLVMConstNull(ptr noundef %841) #10
+  br label %843
 
-842:                                              ; preds = %.thread1040, %819
-  %.08331043 = phi i32 [ %818, %819 ], [ 0, %.thread1040 ]
-  %.0820 = phi ptr [ %828, %819 ], [ %839, %.thread1040 ]
-  %.0819 = phi ptr [ %834, %819 ], [ %841, %.thread1040 ]
-  %843 = load ptr, ptr @type_usz, align 8
-  %844 = zext i32 %.08331043 to i64
-  %845 = tail call fastcc ptr @type_lowering(ptr noundef %843)
+843:                                              ; preds = %.thread1040, %819
+  %.08331043 = phi i64 [ %837, %819 ], [ 0, %.thread1040 ]
+  %.0820 = phi ptr [ %828, %819 ], [ %840, %.thread1040 ]
+  %.0819 = phi ptr [ %834, %819 ], [ %842, %.thread1040 ]
+  %844 = load ptr, ptr @type_usz, align 8
+  %845 = tail call fastcc ptr @type_lowering(ptr noundef %844)
   %846 = tail call ptr @llvm_get_type(ptr noundef nonnull %715, ptr noundef %845) #10
   %847 = load i32, ptr %845, align 8
   %848 = icmp eq i32 %847, 31
   br i1 %848, label %849, label %853
 
-849:                                              ; preds = %842
+849:                                              ; preds = %843
   %850 = getelementptr inbounds i8, ptr %845, i64 8
   %851 = load ptr, ptr %850, align 8
   %852 = load i32, ptr %851, align 8
   br label %853
 
-853:                                              ; preds = %849, %842
-  %.0777 = phi i32 [ %852, %849 ], [ %847, %842 ]
+853:                                              ; preds = %849, %843
+  %.0777 = phi i32 [ %852, %849 ], [ %847, %843 ]
   %854 = add i32 %.0777, -3
   %855 = icmp ult i32 %854, 5
   %856 = zext i1 %855 to i32
-  %857 = tail call ptr @LLVMConstInt(ptr noundef %846, i64 noundef %844, i32 noundef %856) #10
+  %857 = tail call ptr @LLVMConstInt(ptr noundef %846, i64 noundef %.08331043, i32 noundef %856) #10
   %858 = load ptr, ptr @type_chars, align 8
   %859 = tail call ptr @type_get_subarray(ptr noundef %858) #10
   %860 = load ptr, ptr @benchmark_names_var_name, align 8

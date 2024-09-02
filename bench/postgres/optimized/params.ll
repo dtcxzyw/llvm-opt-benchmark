@@ -160,9 +160,9 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   br label %11
 
-11:                                               ; preds = %.lr.ph, %26
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.02229 = phi i64 [ 4, %.lr.ph ], [ %36, %26 ]
+11:                                               ; preds = %.lr.ph, %28
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
+  %.02229 = phi i64 [ 4, %.lr.ph ], [ %36, %28 ]
   %12 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
@@ -184,29 +184,29 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   %22 = call i64 @add_size(i64 noundef %.02229, i64 noundef 4) #6
   %23 = call i64 @add_size(i64 noundef %22, i64 noundef 2) #6
   %.not27 = icmp eq i32 %21, 0
-  br i1 %.not27, label %25, label %24
+  br i1 %.not27, label %27, label %24
 
 24:                                               ; preds = %19
   call void @get_typlenbyval(i32 noundef %21, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %.pre = load i8, ptr %4, align 1
   %.pre31 = load i16, ptr %3, align 2
-  br label %26
+  %25 = trunc i8 %.pre to i1
+  %26 = sext i16 %.pre31 to i32
+  br label %28
 
-25:                                               ; preds = %19
+27:                                               ; preds = %19
   store i16 8, ptr %3, align 2
   store i8 1, ptr %4, align 1
-  br label %26
+  br label %28
 
-26:                                               ; preds = %25, %24
-  %27 = phi i16 [ 8, %25 ], [ %.pre31, %24 ]
-  %28 = phi i8 [ 1, %25 ], [ %.pre, %24 ]
-  %29 = load i64, ptr %.021, align 8
-  %30 = getelementptr inbounds i8, ptr %.021, i64 8
-  %31 = load i8, ptr %30, align 8
-  %32 = trunc i8 %31 to i1
-  %33 = trunc i8 %28 to i1
-  %34 = sext i16 %27 to i32
-  %35 = call i64 @datumEstimateSpace(i64 noundef %29, i1 noundef zeroext %32, i1 noundef zeroext %33, i32 noundef %34) #6
+28:                                               ; preds = %27, %24
+  %29 = phi i32 [ 8, %27 ], [ %26, %24 ]
+  %30 = phi i1 [ true, %27 ], [ %25, %24 ]
+  %31 = load i64, ptr %.021, align 8
+  %32 = getelementptr inbounds i8, ptr %.021, i64 8
+  %33 = load i8, ptr %32, align 8
+  %34 = trunc i8 %33 to i1
+  %35 = call i64 @datumEstimateSpace(i64 noundef %31, i1 noundef zeroext %34, i1 noundef zeroext %30, i32 noundef %29) #6
   %36 = call i64 @add_size(i64 noundef %23, i64 noundef %35) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %7, align 8
@@ -214,8 +214,8 @@ define dso_local i64 @EstimateParamListSpace(ptr noundef %0) local_unnamed_addr 
   %39 = icmp slt i64 %indvars.iv.next, %38
   br i1 %39, label %11, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %26, %1, %6
-  %.0 = phi i64 [ 4, %6 ], [ 4, %1 ], [ %36, %26 ]
+.loopexit:                                        ; preds = %28, %1, %6
+  %.0 = phi i64 [ 4, %6 ], [ 4, %1 ], [ %36, %28 ]
   ret i64 %.0
 }
 
@@ -256,8 +256,8 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %17
 
-17:                                               ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
+17:                                               ; preds = %.lr.ph, %39
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %18 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %23, label %19
@@ -288,34 +288,34 @@ define dso_local void @SerializeParamList(ptr noundef %0, ptr noundef %1) local_
   %34 = getelementptr i8, ptr %33, i64 2
   store ptr %34, ptr %1, align 8
   %.not31 = icmp eq i32 %27, 0
-  br i1 %.not31, label %36, label %35
+  br i1 %.not31, label %38, label %35
 
 35:                                               ; preds = %25
   call void @get_typlenbyval(i32 noundef %27, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.pre = load i8, ptr %5, align 1
   %.pre35 = load i16, ptr %4, align 2
-  br label %37
+  %36 = trunc i8 %.pre to i1
+  %37 = sext i16 %.pre35 to i32
+  br label %39
 
-36:                                               ; preds = %25
+38:                                               ; preds = %25
   store i16 8, ptr %4, align 2
   store i8 1, ptr %5, align 1
-  br label %37
+  br label %39
 
-37:                                               ; preds = %36, %35
-  %38 = phi i16 [ 8, %36 ], [ %.pre35, %35 ]
-  %39 = phi i8 [ 1, %36 ], [ %.pre, %35 ]
-  %40 = load i64, ptr %.025, align 8
-  %41 = getelementptr inbounds i8, ptr %.025, i64 8
-  %42 = load i8, ptr %41, align 8
-  %43 = trunc i8 %42 to i1
-  %44 = trunc i8 %39 to i1
-  %45 = sext i16 %38 to i32
-  call void @datumSerialize(i64 noundef %40, i1 noundef zeroext %43, i1 noundef zeroext %44, i32 noundef %45, ptr noundef nonnull %1) #6
+39:                                               ; preds = %38, %35
+  %40 = phi i32 [ 8, %38 ], [ %37, %35 ]
+  %41 = phi i1 [ true, %38 ], [ %36, %35 ]
+  %42 = load i64, ptr %.025, align 8
+  %43 = getelementptr inbounds i8, ptr %.025, i64 8
+  %44 = load i8, ptr %43, align 8
+  %45 = trunc i8 %44 to i1
+  call void @datumSerialize(i64 noundef %42, i1 noundef zeroext %45, i1 noundef zeroext %41, i32 noundef %40, ptr noundef nonnull %1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %37, %.thread, %10
+._crit_edge:                                      ; preds = %39, %.thread, %10
   ret void
 }
 

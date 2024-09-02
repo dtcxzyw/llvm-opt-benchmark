@@ -496,7 +496,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   %57 = and i16 %56, 8
   %.not276 = icmp eq i16 %57, 0
   %.pre316 = load i32, ptr @gssapi_reassembly, align 4
-  br i1 %.not276, label %58, label %90
+  br i1 %.not276, label %58, label %91
 
 58:                                               ; preds = %52
   %.0..0..0..0.159 = load volatile ptr, ptr %9, align 8
@@ -558,17 +558,17 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   %.pre314 = load i16, ptr %.phi.trans.insert, align 2
   %.pre315 = load i32, ptr @gssapi_reassembly, align 4
   %.pre317 = and i16 %.pre314, 8
-  br label %90
+  %90 = icmp ne i16 %.pre317, 0
+  br label %91
 
-90:                                               ; preds = %83, %52
-  %.pre-phi = phi i16 [ %.pre317, %83 ], [ %57, %52 ]
-  %91 = phi i32 [ %.pre315, %83 ], [ %.pre316, %52 ]
-  %92 = icmp ne i16 %.pre-phi, 0
-  %93 = icmp ne i32 %91, 0
-  %or.cond3 = select i1 %92, i1 %93, i1 false
+91:                                               ; preds = %83, %52
+  %.pre-phi = phi i1 [ %90, %83 ], [ true, %52 ]
+  %92 = phi i32 [ %.pre315, %83 ], [ %.pre316, %52 ]
+  %93 = icmp ne i32 %92, 0
+  %or.cond3 = select i1 %.pre-phi, i1 %93, i1 false
   br i1 %or.cond3, label %94, label %.thread318
 
-94:                                               ; preds = %90
+94:                                               ; preds = %91
   %.0..0..0..0.166 = load volatile ptr, ptr %9, align 8
   %95 = getelementptr inbounds i8, ptr %.0..0..0..0.166, i64 8
   %96 = load ptr, ptr %95, align 8
@@ -627,7 +627,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   store i32 %126, ptr %124, align 4
   br label %proto_item_set_generated.exit
 
-.thread318:                                       ; preds = %58, %94, %112, %103, %100, %90
+.thread318:                                       ; preds = %58, %94, %112, %103, %100, %91
   %.0..0..0..0.31 = load volatile ptr, ptr %17, align 8
   %.0..0..0..0.92 = load volatile i32, ptr %10, align 4
   %127 = call i32 @get_ber_identifier(ptr noundef %.0..0..0..0.31, i32 noundef %.0..0..0..0.92, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %14) #11

@@ -1188,7 +1188,7 @@ return:                                           ; preds = %if.else, %if.then, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @can_sja_receive(ptr noundef %client, ptr nocapture noundef readonly %frames, i64 noundef %frames_cnt) #0 {
+define dso_local range(i64 -1, 261) i64 @can_sja_receive(ptr noundef %client, ptr nocapture noundef readonly %frames, i64 noundef %frames_cnt) #0 {
 entry:
   %filter.i = alloca %struct.qemu_can_filter, align 4
   %add.ptr = getelementptr i8, ptr %client, i64 -152

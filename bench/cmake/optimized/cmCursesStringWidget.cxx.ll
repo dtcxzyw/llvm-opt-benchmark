@@ -189,195 +189,195 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget11HandleInputERiP1
   call void @_ZN16cmCursesMainForm9PrintKeysEi(ptr noundef nonnull align 8 dereferenceable(297) %2, i32 noundef 0)
   %19 = load ptr, ptr @stdscr, align 8
   %.not89 = icmp eq ptr %19, null
-  br i1 %.not89, label %.thread100, label %20
+  br i1 %.not89, label %.critedge, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %19, i64 4
   %22 = load i16, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %19, i64 6
-  %24 = load i16, ptr %23, align 2
-  %25 = icmp slt i16 %24, 64
-  %26 = icmp slt i16 %22, 5
-  %or.cond = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond, label %.thread100, label %32
+  %23 = icmp slt i16 %22, 5
+  %24 = getelementptr inbounds i8, ptr %19, i64 6
+  %25 = load i16, ptr %24, align 2
+  %26 = icmp slt i16 %25, 64
+  %27 = select i1 %26, i1 true, i1 %23
+  br i1 %27, label %.critedge, label %33
 
-.thread100:                                       ; preds = %16, %20
-  %27 = load i32, ptr %1, align 4
-  %28 = icmp eq i32 %27, 113
-  br i1 %28, label %.loopexit, label %.backedge.sink.split
+.critedge:                                        ; preds = %16, %20
+  %28 = load i32, ptr %1, align 4
+  %29 = icmp eq i32 %28, 113
+  br i1 %29, label %.loopexit, label %.backedge.sink.split
 
-.backedge.sink.split:                             ; preds = %.thread100, %93
-  %.sink106 = phi ptr [ %97, %93 ], [ %19, %.thread100 ]
-  %29 = call i32 @wgetch(ptr noundef %.sink106)
-  store i32 %29, ptr %1, align 4
+.backedge.sink.split:                             ; preds = %.critedge, %94
+  %.sink103 = phi ptr [ %98, %94 ], [ %19, %.critedge ]
+  %30 = call i32 @wgetch(ptr noundef %.sink103)
+  store i32 %30, ptr %1, align 4
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %85
-  %30 = load i8, ptr %14, align 8
-  %31 = trunc i8 %30 to i1
-  br i1 %31, label %.loopexit, label %16, !llvm.loop !5
+.backedge:                                        ; preds = %.backedge.sink.split, %86
+  %31 = load i8, ptr %14, align 8
+  %32 = trunc i8 %31 to i1
+  br i1 %32, label %.loopexit, label %16, !llvm.loop !5
 
-32:                                               ; preds = %20
-  %33 = load i8, ptr %8, align 4
-  %34 = trunc i8 %33 to i1
+33:                                               ; preds = %20
+  %34 = load i8, ptr %8, align 4
+  %35 = trunc i8 %34 to i1
   %.pr = load i32, ptr %1, align 4
-  br i1 %34, label %thread-pre-split, label %35
+  br i1 %35, label %thread-pre-split, label %36
 
-35:                                               ; preds = %32
+36:                                               ; preds = %33
   switch i32 %.pr, label %.loopexit [
-    i32 10, label %38
-    i32 343, label %38
-    i32 105, label %36
+    i32 10, label %39
+    i32 343, label %39
+    i32 105, label %37
   ]
 
-thread-pre-split:                                 ; preds = %32
-  switch i32 %.pr, label %36 [
-    i32 10, label %38
-    i32 343, label %38
+thread-pre-split:                                 ; preds = %33
+  switch i32 %.pr, label %37 [
+    i32 10, label %39
+    i32 343, label %39
   ]
 
-36:                                               ; preds = %35, %thread-pre-split
-  %37 = icmp ne i32 %.pr, 105
-  %or.cond97.not = or i1 %37, %34
-  br i1 %or.cond97.not, label %42, label %38
+37:                                               ; preds = %36, %thread-pre-split
+  %38 = icmp ne i32 %.pr, 105
+  %or.cond.not = or i1 %38, %35
+  br i1 %or.cond.not, label %43, label %39
 
-38:                                               ; preds = %35, %35, %36, %thread-pre-split, %thread-pre-split
-  %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 64
-  %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %2, ptr noundef %3)
-  br label %85
+39:                                               ; preds = %36, %36, %37, %thread-pre-split, %thread-pre-split
+  %40 = load ptr, ptr %0, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 64
+  %42 = load ptr, ptr %41, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %2, ptr noundef %3)
+  br label %86
 
-42:                                               ; preds = %36
-  switch i32 %.pr, label %81 [
-    i32 258, label %43
-    i32 14, label %43
-    i32 259, label %43
-    i32 16, label %43
-    i32 338, label %43
-    i32 4, label %43
-    i32 339, label %43
-    i32 21, label %43
-    i32 27, label %46
-    i32 9, label %59
-    i32 260, label %63
-    i32 2, label %63
-    i32 261, label %65
-    i32 6, label %65
-    i32 11, label %67
-    i32 1, label %69
-    i32 262, label %69
-    i32 5, label %71
-    i32 360, label %71
-    i32 127, label %73
-    i32 263, label %73
-    i32 330, label %79
+43:                                               ; preds = %37
+  switch i32 %.pr, label %82 [
+    i32 258, label %44
+    i32 14, label %44
+    i32 259, label %44
+    i32 16, label %44
+    i32 338, label %44
+    i32 4, label %44
+    i32 339, label %44
+    i32 21, label %44
+    i32 27, label %47
+    i32 9, label %60
+    i32 260, label %64
+    i32 2, label %64
+    i32 261, label %66
+    i32 6, label %66
+    i32 11, label %68
+    i32 1, label %70
+    i32 262, label %70
+    i32 5, label %72
+    i32 360, label %72
+    i32 127, label %74
+    i32 263, label %74
+    i32 330, label %80
   ]
 
-43:                                               ; preds = %42, %42, %42, %42, %42, %42, %42, %42
+44:                                               ; preds = %43, %43, %43, %43, %43, %43, %43, %43
   store i8 0, ptr %8, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
-  %44 = call i32 @form_driver(ptr noundef %7, i32 noundef 516)
-  %45 = call i32 @form_driver(ptr noundef %7, i32 noundef 517)
+  %45 = call i32 @form_driver(ptr noundef %7, i32 noundef 516)
+  %46 = call i32 @form_driver(ptr noundef %7, i32 noundef 517)
   br label %.loopexit
 
-46:                                               ; preds = %42
-  br i1 %34, label %47, label %85
+47:                                               ; preds = %43
+  br i1 %35, label %48, label %86
 
-47:                                               ; preds = %46
+48:                                               ; preds = %47
   store i8 0, ptr %8, align 4
   call void @_ZN16cmCursesMainForm9PrintKeysEi(ptr noundef nonnull align 8 dereferenceable(297) %2, i32 noundef 0)
-  %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 32
-  %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %51 = load ptr, ptr %50, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
-  br i1 %.not96, label %55, label %51
+  br i1 %.not96, label %56, label %52
 
-51:                                               ; preds = %47
-  %52 = load i16, ptr %15, align 4
-  %53 = sext i16 %52 to i32
-  %54 = add nsw i32 %53, 1
-  br label %55
+52:                                               ; preds = %48
+  %53 = load i16, ptr %15, align 4
+  %54 = sext i16 %53 to i32
+  %55 = add nsw i32 %54, 1
+  br label %56
 
-55:                                               ; preds = %47, %51
-  %56 = phi i32 [ %54, %51 ], [ -1, %47 ]
-  %57 = call i32 @wtouchln(ptr noundef %3, i32 noundef 0, i32 noundef %56, i32 noundef 1)
-  %58 = call i32 @wrefresh(ptr noundef %3)
+56:                                               ; preds = %48, %52
+  %57 = phi i32 [ %55, %52 ], [ -1, %48 ]
+  %58 = call i32 @wtouchln(ptr noundef %3, i32 noundef 0, i32 noundef %57, i32 noundef 1)
+  %59 = call i32 @wrefresh(ptr noundef %3)
   br label %.loopexit
 
-59:                                               ; preds = %42
-  %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 56
-  %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %2, ptr noundef %3)
-  br label %85
+60:                                               ; preds = %43
+  %61 = load ptr, ptr %0, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 56
+  %63 = load ptr, ptr %62, align 8
+  call void %63(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %2, ptr noundef %3)
+  br label %86
 
-63:                                               ; preds = %42, %42
-  %64 = call i32 @form_driver(ptr noundef %7, i32 noundef 529)
-  br label %85
+64:                                               ; preds = %43, %43
+  %65 = call i32 @form_driver(ptr noundef %7, i32 noundef 529)
+  br label %86
 
-65:                                               ; preds = %42, %42
-  %66 = call i32 @form_driver(ptr noundef %7, i32 noundef 528)
-  br label %85
+66:                                               ; preds = %43, %43
+  %67 = call i32 @form_driver(ptr noundef %7, i32 noundef 528)
+  br label %86
 
-67:                                               ; preds = %42
-  %68 = call i32 @form_driver(ptr noundef %7, i32 noundef 549)
-  br label %85
+68:                                               ; preds = %43
+  %69 = call i32 @form_driver(ptr noundef %7, i32 noundef 549)
+  br label %86
 
-69:                                               ; preds = %42, %42
-  %70 = call i32 @form_driver(ptr noundef %7, i32 noundef 534)
-  br label %85
+70:                                               ; preds = %43, %43
+  %71 = call i32 @form_driver(ptr noundef %7, i32 noundef 534)
+  br label %86
 
-71:                                               ; preds = %42, %42
-  %72 = call i32 @form_driver(ptr noundef %7, i32 noundef 535)
-  br label %85
+72:                                               ; preds = %43, %43
+  %73 = call i32 @form_driver(ptr noundef %7, i32 noundef 535)
+  br label %86
 
-73:                                               ; preds = %42, %42
-  %74 = call ptr @current_field(ptr noundef %7)
-  %75 = call i32 @form_driver(ptr noundef %7, i32 noundef 546)
-  %76 = call ptr @current_field(ptr noundef %7)
-  %.not94 = icmp eq ptr %76, %74
-  br i1 %.not94, label %85, label %77
+74:                                               ; preds = %43, %43
+  %75 = call ptr @current_field(ptr noundef %7)
+  %76 = call i32 @form_driver(ptr noundef %7, i32 noundef 546)
+  %77 = call ptr @current_field(ptr noundef %7)
+  %.not94 = icmp eq ptr %77, %75
+  br i1 %.not94, label %86, label %78
 
-77:                                               ; preds = %73
-  %78 = call i32 @set_current_field(ptr noundef %7, ptr noundef %74)
-  br label %85
+78:                                               ; preds = %74
+  %79 = call i32 @set_current_field(ptr noundef %7, ptr noundef %75)
+  br label %86
 
-79:                                               ; preds = %42
-  %80 = call i32 @form_driver(ptr noundef %7, i32 noundef 545)
-  br label %85
+80:                                               ; preds = %43
+  %81 = call i32 @form_driver(ptr noundef %7, i32 noundef 545)
+  br label %86
 
-81:                                               ; preds = %42
-  %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 72
-  %84 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %2, ptr noundef %3)
-  br label %85
+82:                                               ; preds = %43
+  %83 = load ptr, ptr %0, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 72
+  %85 = load ptr, ptr %84, align 8
+  call void %85(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %2, ptr noundef %3)
+  br label %86
 
-85:                                               ; preds = %59, %65, %69, %77, %73, %81, %79, %71, %67, %63, %46, %38
-  %86 = load i8, ptr %14, align 8
-  %87 = trunc i8 %86 to i1
-  br i1 %87, label %.backedge, label %88
+86:                                               ; preds = %60, %66, %70, %78, %74, %82, %80, %72, %68, %64, %47, %39
+  %87 = load i8, ptr %14, align 8
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %.backedge, label %89
 
-88:                                               ; preds = %85
-  br i1 %.not96, label %93, label %89
+89:                                               ; preds = %86
+  br i1 %.not96, label %94, label %90
 
-89:                                               ; preds = %88
-  %90 = load i16, ptr %15, align 4
-  %91 = sext i16 %90 to i32
-  %92 = add nsw i32 %91, 1
-  br label %93
+90:                                               ; preds = %89
+  %91 = load i16, ptr %15, align 4
+  %92 = sext i16 %91 to i32
+  %93 = add nsw i32 %92, 1
+  br label %94
 
-93:                                               ; preds = %88, %89
-  %94 = phi i32 [ %92, %89 ], [ -1, %88 ]
-  %95 = call i32 @wtouchln(ptr noundef %3, i32 noundef 0, i32 noundef %94, i32 noundef 1)
-  %96 = call i32 @wrefresh(ptr noundef %3)
-  %97 = load ptr, ptr @stdscr, align 8
+94:                                               ; preds = %89, %90
+  %95 = phi i32 [ %93, %90 ], [ -1, %89 ]
+  %96 = call i32 @wtouchln(ptr noundef %3, i32 noundef 0, i32 noundef %95, i32 noundef 1)
+  %97 = call i32 @wrefresh(ptr noundef %3)
+  %98 = load ptr, ptr @stdscr, align 8
   br label %.backedge.sink.split
 
-.loopexit:                                        ; preds = %.thread100, %.backedge, %35, %11, %55, %43
-  %.0 = phi i1 [ false, %43 ], [ true, %55 ], [ false, %11 ], [ false, %.thread100 ], [ false, %35 ], [ true, %.backedge ]
+.loopexit:                                        ; preds = %.critedge, %.backedge, %36, %11, %56, %44
+  %.0 = phi i1 [ false, %44 ], [ true, %56 ], [ false, %11 ], [ false, %.critedge ], [ false, %36 ], [ true, %.backedge ]
   ret i1 %.0
 }
 

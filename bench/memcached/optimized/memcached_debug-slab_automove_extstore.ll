@@ -249,21 +249,21 @@ for.body.i71:                                     ; preds = %for.body.i71, %for.
   br i1 %exitcond.not.i76, label %window_sum.exit.loopexit, label %for.body.i71, !llvm.loop !7
 
 window_sum.exit.loopexit:                         ; preds = %for.body.i71
-  %31 = udiv i64 %add.i74, %wide.trip.count.i
+  %31 = icmp eq i64 %add3.i, 0
+  %32 = udiv i64 %add.i74, %wide.trip.count.i
   br label %window_sum.exit
 
-window_sum.exit:                                  ; preds = %window_sum.exit.loopexit, %if.end49
-  %w_sum.sroa.4.1 = phi i64 [ 0, %if.end49 ], [ %add3.i, %window_sum.exit.loopexit ]
-  %w_sum.sroa.9.1 = phi i32 [ 0, %if.end49 ], [ %add7.i, %window_sum.exit.loopexit ]
-  %div = phi i64 [ poison, %if.end49 ], [ %31, %window_sum.exit.loopexit ]
-  %32 = load i64, ptr %free_chunks, align 8
-  %conv66 = sitofp i64 %32 to double
-  %33 = load i32, ptr %arrayidx6, align 8
-  %conv71 = uitofp i32 %33 to double
+window_sum.exit:                                  ; preds = %if.end49, %window_sum.exit.loopexit
+  %w_sum.sroa.4.1 = phi i1 [ %31, %window_sum.exit.loopexit ], [ true, %if.end49 ]
+  %w_sum.sroa.9.1 = phi i32 [ %add7.i, %window_sum.exit.loopexit ], [ 0, %if.end49 ]
+  %div = phi i64 [ %32, %window_sum.exit.loopexit ], [ poison, %if.end49 ]
+  %33 = load i64, ptr %free_chunks, align 8
+  %conv66 = sitofp i64 %33 to double
+  %34 = load i32, ptr %arrayidx6, align 8
+  %conv71 = uitofp i32 %34 to double
   %mul72 = fmul double %conv71, 2.500000e+00
   %cmp73 = fcmp olt double %mul72, %conv66
-  %cmp76 = icmp eq i64 %w_sum.sroa.4.1, 0
-  %or.cond = select i1 %cmp73, i1 %cmp76, i1 false
+  %or.cond = select i1 %cmp73, i1 %w_sum.sroa.4.1, i1 false
   br i1 %or.cond, label %if.then78, label %if.end90
 
 if.then78:                                        ; preds = %window_sum.exit
@@ -290,8 +290,8 @@ if.end90:                                         ; preds = %if.then87, %land.lh
   br i1 %or.cond67, label %land.lhs.true95, label %for.inc
 
 land.lhs.true95:                                  ; preds = %if.end90
-  %34 = load i64, ptr %total_pages, align 8
-  %cmp100 = icmp sgt i64 %34, 2
+  %35 = load i64, ptr %total_pages, align 8
+  %cmp100 = icmp sgt i64 %35, 2
   %spec.select = select i1 %cmp100, i64 %div, i64 %oldest_age.086
   %spec.select68 = select i1 %cmp100, i32 %11, i32 %oldest.087
   br label %for.inc
@@ -307,9 +307,9 @@ for.inc:                                          ; preds = %if.end90.thread, %l
 for.end:                                          ; preds = %for.inc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %iam_before, ptr noundef nonnull align 8 dereferenceable(1536) %iam_after, i64 1536, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %sam_before, ptr noundef nonnull align 8 dereferenceable(1536) %sam_after, i64 1536, i1 false)
-  %35 = load i32, ptr %window_cur, align 4
-  %36 = load i32, ptr %window_size.i, align 8
-  %cmp116 = icmp ult i32 %35, %36
+  %36 = load i32, ptr %window_cur, align 4
+  %37 = load i32, ptr %window_size.i, align 8
+  %cmp116 = icmp ult i32 %36, %37
   br i1 %cmp116, label %return, label %if.end119
 
 if.end119:                                        ; preds = %for.end

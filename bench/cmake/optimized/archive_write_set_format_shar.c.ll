@@ -121,454 +121,438 @@ define internal range(i32 -20, 1) i32 @archive_write_shar_header(ptr noundef %0,
   %16 = tail call i32 @archive_entry_filetype(ptr noundef %1) #8
   %17 = add i32 %16, -4096
   %18 = tail call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 20)
-  switch i32 %18, label %35 [
-    i32 7, label %42
+  switch i32 %18, label %29 [
+    i32 7, label %.tail149.thread
     i32 3, label %sub_0
-    i32 0, label %34
-    i32 1, label %34
-    i32 5, label %34
+    i32 0, label %28
+    i32 1, label %28
+    i32 5, label %28
   ]
 
 sub_0:                                            ; preds = %11
   tail call void @archive_entry_set_size(ptr noundef %1, i64 noundef 0) #8
   %19 = load i8, ptr %15, align 1
-  %20 = zext i8 %19 to i32
-  %21 = add nsw i32 %20, -46
-  %.not157 = icmp eq i32 %21, 0
-  br i1 %.not157, label %.tail, label %.tail149
+  %.not157 = icmp eq i8 %19, 46
+  br i1 %.not157, label %.tail, label %.tail149.thread
 
 .tail:                                            ; preds = %sub_0
-  %22 = getelementptr inbounds i8, ptr %15, i64 1
-  %23 = load i8, ptr %22, align 1
-  %24 = icmp eq i8 %23, 0
-  br i1 %24, label %216, label %sub_1151
+  %20 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %204, label %sub_1151
 
 sub_1151:                                         ; preds = %.tail
-  %25 = getelementptr inbounds i8, ptr %15, i64 1
+  %23 = getelementptr inbounds i8, ptr %15, i64 1
+  %24 = load i8, ptr %23, align 1
+  %.not159 = icmp eq i8 %24, 47
+  br i1 %.not159, label %.tail149, label %.tail149.thread
+
+.tail149:                                         ; preds = %sub_1151
+  %25 = getelementptr inbounds i8, ptr %15, i64 2
   %26 = load i8, ptr %25, align 1
-  %27 = zext i8 %26 to i32
-  %28 = add nsw i32 %27, -47
-  %.not159 = icmp eq i32 %28, 0
-  br i1 %.not159, label %sub_2, label %.tail149
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %204, label %.tail149.thread
 
-sub_2:                                            ; preds = %sub_1151
-  %29 = getelementptr inbounds i8, ptr %15, i64 2
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  br label %.tail149
-
-.tail149:                                         ; preds = %sub_0, %sub_1151, %sub_2
-  %32 = phi i32 [ %28, %sub_1151 ], [ %31, %sub_2 ], [ %21, %sub_0 ]
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %216, label %42
-
-34:                                               ; preds = %11, %11, %11
+28:                                               ; preds = %11, %11, %11
   tail call void @archive_entry_set_size(ptr noundef %1, i64 noundef 0) #8
-  br label %42
+  br label %.tail149.thread
 
-35:                                               ; preds = %11
+29:                                               ; preds = %11
   tail call void @archive_entry_set_size(ptr noundef %1, i64 noundef 0) #8
-  %36 = tail call ptr @archive_entry_hardlink(ptr noundef %1) #8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %42
+  %30 = tail call ptr @archive_entry_hardlink(ptr noundef %1) #8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %32, label %.tail149.thread
 
-38:                                               ; preds = %35
-  %39 = tail call ptr @archive_entry_symlink(ptr noundef %1) #8
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %42
+32:                                               ; preds = %29
+  %33 = tail call ptr @archive_entry_symlink(ptr noundef %1) #8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %.tail149.thread
 
-41:                                               ; preds = %38
+35:                                               ; preds = %32
   tail call void @__archive_write_entry_filetype_unsupported(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2) #8
-  br label %216
+  br label %204
 
-42:                                               ; preds = %35, %38, %.tail149, %11, %34
-  %43 = getelementptr inbounds i8, ptr %4, i64 120
-  %44 = getelementptr inbounds i8, ptr %4, i64 128
-  store i64 0, ptr %44, align 8
-  %45 = load i8, ptr %15, align 1
-  %.not19.i = icmp eq i8 %45, 0
+.tail149.thread:                                  ; preds = %sub_0, %sub_1151, %29, %32, %.tail149, %11, %28
+  %36 = getelementptr inbounds i8, ptr %4, i64 120
+  %37 = getelementptr inbounds i8, ptr %4, i64 128
+  store i64 0, ptr %37, align 8
+  %38 = load i8, ptr %15, align 1
+  %.not19.i = icmp eq i8 %38, 0
   br i1 %.not19.i, label %shar_quote.exit, label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %42, %58
-  %46 = phi i8 [ %60, %58 ], [ %45, %42 ]
-  %.020.i = phi ptr [ %59, %58 ], [ %15, %42 ]
-  %47 = tail call i64 @strcspn(ptr noundef nonnull %.020.i, ptr noundef nonnull @shar_quote.meta) #10
-  %.not17.i = icmp eq i64 %47, 0
-  br i1 %.not17.i, label %50, label %48
+.lr.ph.split.i:                                   ; preds = %.tail149.thread, %51
+  %39 = phi i8 [ %53, %51 ], [ %38, %.tail149.thread ]
+  %.020.i = phi ptr [ %52, %51 ], [ %15, %.tail149.thread ]
+  %40 = tail call i64 @strcspn(ptr noundef nonnull %.020.i, ptr noundef nonnull @shar_quote.meta) #10
+  %.not17.i = icmp eq i64 %40, 0
+  br i1 %.not17.i, label %43, label %41
 
-48:                                               ; preds = %.lr.ph.split.i
-  %49 = tail call ptr @archive_strncat(ptr noundef nonnull %43, ptr noundef nonnull %.020.i, i64 noundef %47) #8
-  br label %58
+41:                                               ; preds = %.lr.ph.split.i
+  %42 = tail call ptr @archive_strncat(ptr noundef nonnull %36, ptr noundef nonnull %.020.i, i64 noundef %40) #8
+  br label %51
 
-50:                                               ; preds = %.lr.ph.split.i
-  %51 = icmp eq i8 %46, 10
-  br i1 %51, label %52, label %54
+43:                                               ; preds = %.lr.ph.split.i
+  %44 = icmp eq i8 %39, 10
+  br i1 %44, label %45, label %47
 
-52:                                               ; preds = %50
-  %53 = tail call ptr @archive_strcat(ptr noundef nonnull %43, ptr noundef nonnull @.str.23) #8
-  br label %58
+45:                                               ; preds = %43
+  %46 = tail call ptr @archive_strcat(ptr noundef nonnull %36, ptr noundef nonnull @.str.23) #8
+  br label %51
 
-54:                                               ; preds = %50
-  %55 = tail call ptr @archive_strappend_char(ptr noundef nonnull %43, i8 noundef signext 92) #8
-  %56 = load i8, ptr %.020.i, align 1
-  %57 = tail call ptr @archive_strappend_char(ptr noundef nonnull %43, i8 noundef signext %56) #8
-  br label %58
+47:                                               ; preds = %43
+  %48 = tail call ptr @archive_strappend_char(ptr noundef nonnull %36, i8 noundef signext 92) #8
+  %49 = load i8, ptr %.020.i, align 1
+  %50 = tail call ptr @archive_strappend_char(ptr noundef nonnull %36, i8 noundef signext %49) #8
+  br label %51
 
-58:                                               ; preds = %54, %52, %48
-  %.sink23.i = phi i64 [ 1, %52 ], [ 1, %54 ], [ %47, %48 ]
-  %59 = getelementptr inbounds i8, ptr %.020.i, i64 %.sink23.i
-  %60 = load i8, ptr %59, align 1
-  %.not.i = icmp eq i8 %60, 0
+51:                                               ; preds = %47, %45, %41
+  %.sink23.i = phi i64 [ 1, %45 ], [ 1, %47 ], [ %40, %41 ]
+  %52 = getelementptr inbounds i8, ptr %.020.i, i64 %.sink23.i
+  %53 = load i8, ptr %52, align 1
+  %.not.i = icmp eq i8 %53, 0
   br i1 %.not.i, label %shar_quote.exit, label %.lr.ph.split.i, !llvm.loop !5
 
-shar_quote.exit:                                  ; preds = %58, %42
-  %61 = getelementptr inbounds i8, ptr %4, i64 96
-  %62 = load ptr, ptr %43, align 8
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %61, ptr noundef nonnull @.str.8, ptr noundef %62) #8
-  %63 = tail call i32 @archive_entry_filetype(ptr noundef %1) #8
-  %.not111 = icmp eq i32 %63, 16384
-  br i1 %.not111, label %131, label %64
+shar_quote.exit:                                  ; preds = %51, %.tail149.thread
+  %54 = getelementptr inbounds i8, ptr %4, i64 96
+  %55 = load ptr, ptr %36, align 8
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %54, ptr noundef nonnull @.str.8, ptr noundef %55) #8
+  %56 = tail call i32 @archive_entry_filetype(ptr noundef %1) #8
+  %.not111 = icmp eq i32 %56, 16384
+  br i1 %.not111, label %119, label %57
 
-64:                                               ; preds = %shar_quote.exit
-  %65 = tail call noalias ptr @strdup(ptr noundef nonnull %15) #8
-  %66 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %65, i32 noundef 47) #10
-  %.not112 = icmp eq ptr %66, null
-  br i1 %.not112, label %130, label %sub_0154
+57:                                               ; preds = %shar_quote.exit
+  %58 = tail call noalias ptr @strdup(ptr noundef nonnull %15) #8
+  %59 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %58, i32 noundef 47) #10
+  %.not112 = icmp eq ptr %59, null
+  br i1 %.not112, label %118, label %sub_0154
 
-sub_0154:                                         ; preds = %64
-  store i8 0, ptr %66, align 1
-  %67 = load i8, ptr %65, align 1
-  %68 = zext i8 %67 to i32
-  %69 = add nsw i32 %68, -46
-  %.not160 = icmp eq i32 %69, 0
-  br i1 %.not160, label %sub_1155, label %.tail153
+sub_0154:                                         ; preds = %57
+  store i8 0, ptr %59, align 1
+  %60 = load i8, ptr %58, align 1
+  %.not160 = icmp eq i8 %60, 46
+  br i1 %.not160, label %.tail153, label %.tail153.thread
 
-sub_1155:                                         ; preds = %sub_0154
-  %70 = getelementptr inbounds i8, ptr %65, i64 1
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  br label %.tail153
+.tail153:                                         ; preds = %sub_0154
+  %61 = getelementptr inbounds i8, ptr %58, i64 1
+  %62 = load i8, ptr %61, align 1
+  %63 = icmp eq i8 %62, 0
+  br i1 %63, label %64, label %.tail153.thread
 
-.tail153:                                         ; preds = %sub_0154, %sub_1155
-  %73 = phi i32 [ %69, %sub_0154 ], [ %72, %sub_1155 ]
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %76
+64:                                               ; preds = %.tail153
+  tail call void @free(ptr noundef nonnull %58) #8
+  br label %119
 
-75:                                               ; preds = %.tail153
-  tail call void @free(ptr noundef nonnull %65) #8
-  br label %131
+.tail153.thread:                                  ; preds = %sub_0154, %.tail153
+  %65 = getelementptr inbounds i8, ptr %4, i64 24
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %68, label %87
 
-76:                                               ; preds = %.tail153
-  %77 = getelementptr inbounds i8, ptr %4, i64 24
-  %78 = load ptr, ptr %77, align 8
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %80, label %99
-
-80:                                               ; preds = %76
-  %81 = tail call ptr @archive_strcat(ptr noundef nonnull %61, ptr noundef nonnull @.str.9) #8
-  %82 = load i8, ptr %65, align 1
-  %.not19.i117 = icmp eq i8 %82, 0
+68:                                               ; preds = %.tail153.thread
+  %69 = tail call ptr @archive_strcat(ptr noundef nonnull %54, ptr noundef nonnull @.str.9) #8
+  %70 = load i8, ptr %58, align 1
+  %.not19.i117 = icmp eq i8 %70, 0
   br i1 %.not19.i117, label %shar_quote.exit124, label %.lr.ph.split.i119
 
-.lr.ph.split.i119:                                ; preds = %80, %95
-  %83 = phi i8 [ %97, %95 ], [ %82, %80 ]
-  %.020.i120 = phi ptr [ %96, %95 ], [ %65, %80 ]
-  %84 = tail call i64 @strcspn(ptr noundef nonnull %.020.i120, ptr noundef nonnull @shar_quote.meta) #10
-  %.not17.i121 = icmp eq i64 %84, 0
-  br i1 %.not17.i121, label %87, label %85
+.lr.ph.split.i119:                                ; preds = %68, %83
+  %71 = phi i8 [ %85, %83 ], [ %70, %68 ]
+  %.020.i120 = phi ptr [ %84, %83 ], [ %58, %68 ]
+  %72 = tail call i64 @strcspn(ptr noundef nonnull %.020.i120, ptr noundef nonnull @shar_quote.meta) #10
+  %.not17.i121 = icmp eq i64 %72, 0
+  br i1 %.not17.i121, label %75, label %73
 
-85:                                               ; preds = %.lr.ph.split.i119
-  %86 = tail call ptr @archive_strncat(ptr noundef nonnull %61, ptr noundef nonnull %.020.i120, i64 noundef %84) #8
-  br label %95
+73:                                               ; preds = %.lr.ph.split.i119
+  %74 = tail call ptr @archive_strncat(ptr noundef nonnull %54, ptr noundef nonnull %.020.i120, i64 noundef %72) #8
+  br label %83
 
-87:                                               ; preds = %.lr.ph.split.i119
-  %88 = icmp eq i8 %83, 10
-  br i1 %88, label %89, label %91
+75:                                               ; preds = %.lr.ph.split.i119
+  %76 = icmp eq i8 %71, 10
+  br i1 %76, label %77, label %79
 
-89:                                               ; preds = %87
-  %90 = tail call ptr @archive_strcat(ptr noundef nonnull %61, ptr noundef nonnull @.str.23) #8
-  br label %95
+77:                                               ; preds = %75
+  %78 = tail call ptr @archive_strcat(ptr noundef nonnull %54, ptr noundef nonnull @.str.23) #8
+  br label %83
 
-91:                                               ; preds = %87
-  %92 = tail call ptr @archive_strappend_char(ptr noundef nonnull %61, i8 noundef signext 92) #8
-  %93 = load i8, ptr %.020.i120, align 1
-  %94 = tail call ptr @archive_strappend_char(ptr noundef nonnull %61, i8 noundef signext %93) #8
-  br label %95
+79:                                               ; preds = %75
+  %80 = tail call ptr @archive_strappend_char(ptr noundef nonnull %54, i8 noundef signext 92) #8
+  %81 = load i8, ptr %.020.i120, align 1
+  %82 = tail call ptr @archive_strappend_char(ptr noundef nonnull %54, i8 noundef signext %81) #8
+  br label %83
 
-95:                                               ; preds = %91, %89, %85
-  %.sink23.i122 = phi i64 [ 1, %89 ], [ 1, %91 ], [ %84, %85 ]
-  %96 = getelementptr inbounds i8, ptr %.020.i120, i64 %.sink23.i122
-  %97 = load i8, ptr %96, align 1
-  %.not.i123 = icmp eq i8 %97, 0
+83:                                               ; preds = %79, %77, %73
+  %.sink23.i122 = phi i64 [ 1, %77 ], [ 1, %79 ], [ %72, %73 ]
+  %84 = getelementptr inbounds i8, ptr %.020.i120, i64 %.sink23.i122
+  %85 = load i8, ptr %84, align 1
+  %.not.i123 = icmp eq i8 %85, 0
   br i1 %.not.i123, label %shar_quote.exit124, label %.lr.ph.split.i119, !llvm.loop !5
 
-shar_quote.exit124:                               ; preds = %95, %80
-  %98 = tail call ptr @archive_strcat(ptr noundef nonnull %61, ptr noundef nonnull @.str.10) #8
-  store ptr %65, ptr %77, align 8
-  br label %131
+shar_quote.exit124:                               ; preds = %83, %68
+  %86 = tail call ptr @archive_strcat(ptr noundef nonnull %54, ptr noundef nonnull @.str.10) #8
+  store ptr %58, ptr %65, align 8
+  br label %119
 
-99:                                               ; preds = %76
-  %100 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %78) #10
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %103
+87:                                               ; preds = %.tail153.thread
+  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %66) #10
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %90, label %91
 
-102:                                              ; preds = %99
-  tail call void @free(ptr noundef nonnull %65) #8
-  br label %131
+90:                                               ; preds = %87
+  tail call void @free(ptr noundef nonnull %58) #8
+  br label %119
 
-103:                                              ; preds = %99
-  %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #10
-  %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #10
-  %106 = icmp ult i64 %104, %105
-  br i1 %106, label %107, label %111
+91:                                               ; preds = %87
+  %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #10
+  %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #10
+  %94 = icmp ult i64 %92, %93
+  br i1 %94, label %95, label %99
 
-107:                                              ; preds = %103
-  %108 = tail call i32 @strncmp(ptr noundef nonnull %65, ptr noundef nonnull %78, i64 noundef %104) #10
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %111
+95:                                               ; preds = %91
+  %96 = tail call i32 @strncmp(ptr noundef nonnull %58, ptr noundef nonnull %66, i64 noundef %92) #10
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %99
 
-110:                                              ; preds = %107
-  tail call void @free(ptr noundef nonnull %65) #8
-  br label %131
+98:                                               ; preds = %95
+  tail call void @free(ptr noundef nonnull %58) #8
+  br label %119
 
-111:                                              ; preds = %107, %103
-  %112 = tail call ptr @archive_strcat(ptr noundef nonnull %61, ptr noundef nonnull @.str.9) #8
-  %113 = load i8, ptr %65, align 1
-  %.not19.i125 = icmp eq i8 %113, 0
+99:                                               ; preds = %95, %91
+  %100 = tail call ptr @archive_strcat(ptr noundef nonnull %54, ptr noundef nonnull @.str.9) #8
+  %101 = load i8, ptr %58, align 1
+  %.not19.i125 = icmp eq i8 %101, 0
   br i1 %.not19.i125, label %shar_quote.exit132, label %.lr.ph.split.i127
 
-.lr.ph.split.i127:                                ; preds = %111, %126
-  %114 = phi i8 [ %128, %126 ], [ %113, %111 ]
-  %.020.i128 = phi ptr [ %127, %126 ], [ %65, %111 ]
-  %115 = tail call i64 @strcspn(ptr noundef nonnull %.020.i128, ptr noundef nonnull @shar_quote.meta) #10
-  %.not17.i129 = icmp eq i64 %115, 0
-  br i1 %.not17.i129, label %118, label %116
+.lr.ph.split.i127:                                ; preds = %99, %114
+  %102 = phi i8 [ %116, %114 ], [ %101, %99 ]
+  %.020.i128 = phi ptr [ %115, %114 ], [ %58, %99 ]
+  %103 = tail call i64 @strcspn(ptr noundef nonnull %.020.i128, ptr noundef nonnull @shar_quote.meta) #10
+  %.not17.i129 = icmp eq i64 %103, 0
+  br i1 %.not17.i129, label %106, label %104
 
-116:                                              ; preds = %.lr.ph.split.i127
-  %117 = tail call ptr @archive_strncat(ptr noundef nonnull %61, ptr noundef nonnull %.020.i128, i64 noundef %115) #8
-  br label %126
+104:                                              ; preds = %.lr.ph.split.i127
+  %105 = tail call ptr @archive_strncat(ptr noundef nonnull %54, ptr noundef nonnull %.020.i128, i64 noundef %103) #8
+  br label %114
 
-118:                                              ; preds = %.lr.ph.split.i127
-  %119 = icmp eq i8 %114, 10
-  br i1 %119, label %120, label %122
+106:                                              ; preds = %.lr.ph.split.i127
+  %107 = icmp eq i8 %102, 10
+  br i1 %107, label %108, label %110
 
-120:                                              ; preds = %118
-  %121 = tail call ptr @archive_strcat(ptr noundef nonnull %61, ptr noundef nonnull @.str.23) #8
-  br label %126
+108:                                              ; preds = %106
+  %109 = tail call ptr @archive_strcat(ptr noundef nonnull %54, ptr noundef nonnull @.str.23) #8
+  br label %114
 
-122:                                              ; preds = %118
-  %123 = tail call ptr @archive_strappend_char(ptr noundef nonnull %61, i8 noundef signext 92) #8
-  %124 = load i8, ptr %.020.i128, align 1
-  %125 = tail call ptr @archive_strappend_char(ptr noundef nonnull %61, i8 noundef signext %124) #8
-  br label %126
+110:                                              ; preds = %106
+  %111 = tail call ptr @archive_strappend_char(ptr noundef nonnull %54, i8 noundef signext 92) #8
+  %112 = load i8, ptr %.020.i128, align 1
+  %113 = tail call ptr @archive_strappend_char(ptr noundef nonnull %54, i8 noundef signext %112) #8
+  br label %114
 
-126:                                              ; preds = %122, %120, %116
-  %.sink23.i130 = phi i64 [ 1, %120 ], [ 1, %122 ], [ %115, %116 ]
-  %127 = getelementptr inbounds i8, ptr %.020.i128, i64 %.sink23.i130
-  %128 = load i8, ptr %127, align 1
-  %.not.i131 = icmp eq i8 %128, 0
+114:                                              ; preds = %110, %108, %104
+  %.sink23.i130 = phi i64 [ 1, %108 ], [ 1, %110 ], [ %103, %104 ]
+  %115 = getelementptr inbounds i8, ptr %.020.i128, i64 %.sink23.i130
+  %116 = load i8, ptr %115, align 1
+  %.not.i131 = icmp eq i8 %116, 0
   br i1 %.not.i131, label %shar_quote.exit132, label %.lr.ph.split.i127, !llvm.loop !5
 
-shar_quote.exit132:                               ; preds = %126, %111
-  %129 = tail call ptr @archive_strcat(ptr noundef nonnull %61, ptr noundef nonnull @.str.10) #8
-  store ptr %65, ptr %77, align 8
-  br label %131
+shar_quote.exit132:                               ; preds = %114, %99
+  %117 = tail call ptr @archive_strcat(ptr noundef nonnull %54, ptr noundef nonnull @.str.10) #8
+  store ptr %58, ptr %65, align 8
+  br label %119
 
-130:                                              ; preds = %64
-  tail call void @free(ptr noundef %65) #8
-  br label %131
+118:                                              ; preds = %57
+  tail call void @free(ptr noundef %58) #8
+  br label %119
 
-131:                                              ; preds = %130, %shar_quote.exit124, %110, %shar_quote.exit132, %102, %75, %shar_quote.exit
-  %132 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 0, ptr %132, align 8
-  %133 = tail call ptr @archive_entry_hardlink(ptr noundef %1) #8
-  %.not113 = icmp eq ptr %133, null
-  br i1 %.not113, label %153, label %134
+119:                                              ; preds = %118, %shar_quote.exit124, %98, %shar_quote.exit132, %90, %64, %shar_quote.exit
+  %120 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 0, ptr %120, align 8
+  %121 = tail call ptr @archive_entry_hardlink(ptr noundef %1) #8
+  %.not113 = icmp eq ptr %121, null
+  br i1 %.not113, label %141, label %122
 
-134:                                              ; preds = %131
-  %135 = tail call ptr @archive_strcat(ptr noundef nonnull %61, ptr noundef nonnull @.str.11) #8
-  %136 = load i8, ptr %133, align 1
-  %.not19.i133 = icmp eq i8 %136, 0
+122:                                              ; preds = %119
+  %123 = tail call ptr @archive_strcat(ptr noundef nonnull %54, ptr noundef nonnull @.str.11) #8
+  %124 = load i8, ptr %121, align 1
+  %.not19.i133 = icmp eq i8 %124, 0
   br i1 %.not19.i133, label %shar_quote.exit140, label %.lr.ph.split.i135
 
-.lr.ph.split.i135:                                ; preds = %134, %149
-  %137 = phi i8 [ %151, %149 ], [ %136, %134 ]
-  %.020.i136 = phi ptr [ %150, %149 ], [ %133, %134 ]
-  %138 = tail call i64 @strcspn(ptr noundef nonnull %.020.i136, ptr noundef nonnull @shar_quote.meta) #10
-  %.not17.i137 = icmp eq i64 %138, 0
-  br i1 %.not17.i137, label %141, label %139
+.lr.ph.split.i135:                                ; preds = %122, %137
+  %125 = phi i8 [ %139, %137 ], [ %124, %122 ]
+  %.020.i136 = phi ptr [ %138, %137 ], [ %121, %122 ]
+  %126 = tail call i64 @strcspn(ptr noundef nonnull %.020.i136, ptr noundef nonnull @shar_quote.meta) #10
+  %.not17.i137 = icmp eq i64 %126, 0
+  br i1 %.not17.i137, label %129, label %127
 
-139:                                              ; preds = %.lr.ph.split.i135
-  %140 = tail call ptr @archive_strncat(ptr noundef nonnull %61, ptr noundef nonnull %.020.i136, i64 noundef %138) #8
-  br label %149
+127:                                              ; preds = %.lr.ph.split.i135
+  %128 = tail call ptr @archive_strncat(ptr noundef nonnull %54, ptr noundef nonnull %.020.i136, i64 noundef %126) #8
+  br label %137
 
-141:                                              ; preds = %.lr.ph.split.i135
-  %142 = icmp eq i8 %137, 10
-  br i1 %142, label %143, label %145
+129:                                              ; preds = %.lr.ph.split.i135
+  %130 = icmp eq i8 %125, 10
+  br i1 %130, label %131, label %133
 
-143:                                              ; preds = %141
-  %144 = tail call ptr @archive_strcat(ptr noundef nonnull %61, ptr noundef nonnull @.str.23) #8
-  br label %149
+131:                                              ; preds = %129
+  %132 = tail call ptr @archive_strcat(ptr noundef nonnull %54, ptr noundef nonnull @.str.23) #8
+  br label %137
 
-145:                                              ; preds = %141
-  %146 = tail call ptr @archive_strappend_char(ptr noundef nonnull %61, i8 noundef signext 92) #8
-  %147 = load i8, ptr %.020.i136, align 1
-  %148 = tail call ptr @archive_strappend_char(ptr noundef nonnull %61, i8 noundef signext %147) #8
-  br label %149
+133:                                              ; preds = %129
+  %134 = tail call ptr @archive_strappend_char(ptr noundef nonnull %54, i8 noundef signext 92) #8
+  %135 = load i8, ptr %.020.i136, align 1
+  %136 = tail call ptr @archive_strappend_char(ptr noundef nonnull %54, i8 noundef signext %135) #8
+  br label %137
 
-149:                                              ; preds = %145, %143, %139
-  %.sink23.i138 = phi i64 [ 1, %143 ], [ 1, %145 ], [ %138, %139 ]
-  %150 = getelementptr inbounds i8, ptr %.020.i136, i64 %.sink23.i138
-  %151 = load i8, ptr %150, align 1
-  %.not.i139 = icmp eq i8 %151, 0
+137:                                              ; preds = %133, %131, %127
+  %.sink23.i138 = phi i64 [ 1, %131 ], [ 1, %133 ], [ %126, %127 ]
+  %138 = getelementptr inbounds i8, ptr %.020.i136, i64 %.sink23.i138
+  %139 = load i8, ptr %138, align 1
+  %.not.i139 = icmp eq i8 %139, 0
   br i1 %.not.i139, label %shar_quote.exit140, label %.lr.ph.split.i135, !llvm.loop !5
 
-shar_quote.exit140:                               ; preds = %149, %134
-  %152 = load ptr, ptr %43, align 8
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %61, ptr noundef nonnull @.str.12, ptr noundef %152) #8
-  br label %216
+shar_quote.exit140:                               ; preds = %137, %122
+  %140 = load ptr, ptr %36, align 8
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %54, ptr noundef nonnull @.str.12, ptr noundef %140) #8
+  br label %204
 
-153:                                              ; preds = %131
-  %154 = tail call ptr @archive_entry_symlink(ptr noundef %1) #8
-  %.not114 = icmp eq ptr %154, null
-  br i1 %.not114, label %174, label %155
+141:                                              ; preds = %119
+  %142 = tail call ptr @archive_entry_symlink(ptr noundef %1) #8
+  %.not114 = icmp eq ptr %142, null
+  br i1 %.not114, label %162, label %143
 
-155:                                              ; preds = %153
-  %156 = tail call ptr @archive_strcat(ptr noundef nonnull %61, ptr noundef nonnull @.str.13) #8
-  %157 = load i8, ptr %154, align 1
-  %.not19.i141 = icmp eq i8 %157, 0
+143:                                              ; preds = %141
+  %144 = tail call ptr @archive_strcat(ptr noundef nonnull %54, ptr noundef nonnull @.str.13) #8
+  %145 = load i8, ptr %142, align 1
+  %.not19.i141 = icmp eq i8 %145, 0
   br i1 %.not19.i141, label %shar_quote.exit148, label %.lr.ph.split.i143
 
-.lr.ph.split.i143:                                ; preds = %155, %170
-  %158 = phi i8 [ %172, %170 ], [ %157, %155 ]
-  %.020.i144 = phi ptr [ %171, %170 ], [ %154, %155 ]
-  %159 = tail call i64 @strcspn(ptr noundef nonnull %.020.i144, ptr noundef nonnull @shar_quote.meta) #10
-  %.not17.i145 = icmp eq i64 %159, 0
-  br i1 %.not17.i145, label %162, label %160
+.lr.ph.split.i143:                                ; preds = %143, %158
+  %146 = phi i8 [ %160, %158 ], [ %145, %143 ]
+  %.020.i144 = phi ptr [ %159, %158 ], [ %142, %143 ]
+  %147 = tail call i64 @strcspn(ptr noundef nonnull %.020.i144, ptr noundef nonnull @shar_quote.meta) #10
+  %.not17.i145 = icmp eq i64 %147, 0
+  br i1 %.not17.i145, label %150, label %148
 
-160:                                              ; preds = %.lr.ph.split.i143
-  %161 = tail call ptr @archive_strncat(ptr noundef nonnull %61, ptr noundef nonnull %.020.i144, i64 noundef %159) #8
-  br label %170
+148:                                              ; preds = %.lr.ph.split.i143
+  %149 = tail call ptr @archive_strncat(ptr noundef nonnull %54, ptr noundef nonnull %.020.i144, i64 noundef %147) #8
+  br label %158
 
-162:                                              ; preds = %.lr.ph.split.i143
-  %163 = icmp eq i8 %158, 10
-  br i1 %163, label %164, label %166
+150:                                              ; preds = %.lr.ph.split.i143
+  %151 = icmp eq i8 %146, 10
+  br i1 %151, label %152, label %154
 
-164:                                              ; preds = %162
-  %165 = tail call ptr @archive_strcat(ptr noundef nonnull %61, ptr noundef nonnull @.str.23) #8
-  br label %170
+152:                                              ; preds = %150
+  %153 = tail call ptr @archive_strcat(ptr noundef nonnull %54, ptr noundef nonnull @.str.23) #8
+  br label %158
 
-166:                                              ; preds = %162
-  %167 = tail call ptr @archive_strappend_char(ptr noundef nonnull %61, i8 noundef signext 92) #8
-  %168 = load i8, ptr %.020.i144, align 1
-  %169 = tail call ptr @archive_strappend_char(ptr noundef nonnull %61, i8 noundef signext %168) #8
-  br label %170
+154:                                              ; preds = %150
+  %155 = tail call ptr @archive_strappend_char(ptr noundef nonnull %54, i8 noundef signext 92) #8
+  %156 = load i8, ptr %.020.i144, align 1
+  %157 = tail call ptr @archive_strappend_char(ptr noundef nonnull %54, i8 noundef signext %156) #8
+  br label %158
 
-170:                                              ; preds = %166, %164, %160
-  %.sink23.i146 = phi i64 [ 1, %164 ], [ 1, %166 ], [ %159, %160 ]
-  %171 = getelementptr inbounds i8, ptr %.020.i144, i64 %.sink23.i146
-  %172 = load i8, ptr %171, align 1
-  %.not.i147 = icmp eq i8 %172, 0
+158:                                              ; preds = %154, %152, %148
+  %.sink23.i146 = phi i64 [ 1, %152 ], [ 1, %154 ], [ %147, %148 ]
+  %159 = getelementptr inbounds i8, ptr %.020.i144, i64 %.sink23.i146
+  %160 = load i8, ptr %159, align 1
+  %.not.i147 = icmp eq i8 %160, 0
   br i1 %.not.i147, label %shar_quote.exit148, label %.lr.ph.split.i143, !llvm.loop !5
 
-shar_quote.exit148:                               ; preds = %170, %155
-  %173 = load ptr, ptr %43, align 8
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %61, ptr noundef nonnull @.str.12, ptr noundef %173) #8
-  br label %216
+shar_quote.exit148:                               ; preds = %158, %143
+  %161 = load ptr, ptr %36, align 8
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %54, ptr noundef nonnull @.str.12, ptr noundef %161) #8
+  br label %204
 
-174:                                              ; preds = %153
-  %175 = tail call i32 @archive_entry_filetype(ptr noundef %1) #8
-  %176 = add i32 %175, -4096
-  %177 = tail call i32 @llvm.fshl.i32(i32 %176, i32 %176, i32 20)
-  switch i32 %177, label %216 [
-    i32 7, label %178
-    i32 3, label %195
-    i32 0, label %206
-    i32 1, label %208
-    i32 5, label %212
+162:                                              ; preds = %141
+  %163 = tail call i32 @archive_entry_filetype(ptr noundef %1) #8
+  %164 = add i32 %163, -4096
+  %165 = tail call i32 @llvm.fshl.i32(i32 %164, i32 %164, i32 20)
+  switch i32 %165, label %204 [
+    i32 7, label %166
+    i32 3, label %183
+    i32 0, label %194
+    i32 1, label %196
+    i32 5, label %200
   ]
 
-178:                                              ; preds = %174
-  %179 = tail call i64 @archive_entry_size(ptr noundef %1) #8
-  %180 = icmp eq i64 %179, 0
-  br i1 %180, label %181, label %183
+166:                                              ; preds = %162
+  %167 = tail call i64 @archive_entry_size(ptr noundef %1) #8
+  %168 = icmp eq i64 %167, 0
+  br i1 %168, label %169, label %171
 
-181:                                              ; preds = %178
-  %182 = load ptr, ptr %43, align 8
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %61, ptr noundef nonnull @.str.14, ptr noundef %182, ptr noundef %182) #8
-  br label %216
+169:                                              ; preds = %166
+  %170 = load ptr, ptr %36, align 8
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %54, ptr noundef nonnull @.str.14, ptr noundef %170, ptr noundef %170) #8
+  br label %204
 
-183:                                              ; preds = %178
-  %184 = load i32, ptr %4, align 8
-  %.not116 = icmp eq i32 %184, 0
-  br i1 %.not116, label %190, label %185
+171:                                              ; preds = %166
+  %172 = load i32, ptr %4, align 8
+  %.not116 = icmp eq i32 %172, 0
+  br i1 %.not116, label %178, label %173
 
-185:                                              ; preds = %183
-  %186 = tail call i32 @archive_entry_mode(ptr noundef %1) #8
-  %187 = and i32 %186, 511
-  %188 = load ptr, ptr %43, align 8
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %61, ptr noundef nonnull @.str.15, ptr noundef %188) #8
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %61, ptr noundef nonnull @.str.16, i32 noundef %187) #8
-  tail call fastcc void @shar_quote(ptr noundef nonnull %61, ptr noundef nonnull %15, i32 noundef 0)
-  %189 = tail call ptr @archive_strcat(ptr noundef nonnull %61, ptr noundef nonnull @.str.17) #8
-  br label %192
+173:                                              ; preds = %171
+  %174 = tail call i32 @archive_entry_mode(ptr noundef %1) #8
+  %175 = and i32 %174, 511
+  %176 = load ptr, ptr %36, align 8
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %54, ptr noundef nonnull @.str.15, ptr noundef %176) #8
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %54, ptr noundef nonnull @.str.16, i32 noundef %175) #8
+  tail call fastcc void @shar_quote(ptr noundef nonnull %54, ptr noundef nonnull %15, i32 noundef 0)
+  %177 = tail call ptr @archive_strcat(ptr noundef nonnull %54, ptr noundef nonnull @.str.17) #8
+  br label %180
 
-190:                                              ; preds = %183
-  %191 = load ptr, ptr %43, align 8
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %61, ptr noundef nonnull @.str.18, ptr noundef %191) #8
-  br label %192
+178:                                              ; preds = %171
+  %179 = load ptr, ptr %36, align 8
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %54, ptr noundef nonnull @.str.18, ptr noundef %179) #8
+  br label %180
 
-192:                                              ; preds = %190, %185
-  store i32 1, ptr %132, align 8
-  %193 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 1, ptr %193, align 4
-  %194 = getelementptr inbounds i8, ptr %4, i64 80
-  store i64 0, ptr %194, align 8
-  br label %216
+180:                                              ; preds = %178, %173
+  store i32 1, ptr %120, align 8
+  %181 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 1, ptr %181, align 4
+  %182 = getelementptr inbounds i8, ptr %4, i64 80
+  store i64 0, ptr %182, align 8
+  br label %204
 
-195:                                              ; preds = %174
-  %196 = load ptr, ptr %43, align 8
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %61, ptr noundef nonnull @.str.19, ptr noundef %196) #8
-  %197 = getelementptr inbounds i8, ptr %4, i64 24
-  %198 = load ptr, ptr %197, align 8
-  tail call void @free(ptr noundef %198) #8
-  %199 = tail call noalias ptr @strdup(ptr noundef nonnull %15) #8
-  store ptr %199, ptr %197, align 8
-  %200 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %199, i32 noundef 47) #10
-  %.not115 = icmp eq ptr %200, null
-  br i1 %.not115, label %216, label %201
+183:                                              ; preds = %162
+  %184 = load ptr, ptr %36, align 8
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %54, ptr noundef nonnull @.str.19, ptr noundef %184) #8
+  %185 = getelementptr inbounds i8, ptr %4, i64 24
+  %186 = load ptr, ptr %185, align 8
+  tail call void @free(ptr noundef %186) #8
+  %187 = tail call noalias ptr @strdup(ptr noundef nonnull %15) #8
+  store ptr %187, ptr %185, align 8
+  %188 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %187, i32 noundef 47) #10
+  %.not115 = icmp eq ptr %188, null
+  br i1 %.not115, label %204, label %189
 
-201:                                              ; preds = %195
-  %202 = getelementptr inbounds i8, ptr %200, i64 1
-  %203 = load i8, ptr %202, align 1
-  %204 = icmp eq i8 %203, 0
-  br i1 %204, label %205, label %216
+189:                                              ; preds = %183
+  %190 = getelementptr inbounds i8, ptr %188, i64 1
+  %191 = load i8, ptr %190, align 1
+  %192 = icmp eq i8 %191, 0
+  br i1 %192, label %193, label %204
 
-205:                                              ; preds = %201
-  store i8 0, ptr %200, align 1
-  br label %216
+193:                                              ; preds = %189
+  store i8 0, ptr %188, align 1
+  br label %204
 
-206:                                              ; preds = %174
-  %207 = load ptr, ptr %43, align 8
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %61, ptr noundef nonnull @.str.20, ptr noundef %207) #8
-  br label %216
+194:                                              ; preds = %162
+  %195 = load ptr, ptr %36, align 8
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %54, ptr noundef nonnull @.str.20, ptr noundef %195) #8
+  br label %204
 
-208:                                              ; preds = %174
-  %209 = load ptr, ptr %43, align 8
-  %210 = tail call i64 @archive_entry_rdevmajor(ptr noundef %1) #8
-  %211 = tail call i64 @archive_entry_rdevminor(ptr noundef %1) #8
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %61, ptr noundef nonnull @.str.21, ptr noundef %209, i64 noundef %210, i64 noundef %211) #8
-  br label %216
+196:                                              ; preds = %162
+  %197 = load ptr, ptr %36, align 8
+  %198 = tail call i64 @archive_entry_rdevmajor(ptr noundef %1) #8
+  %199 = tail call i64 @archive_entry_rdevminor(ptr noundef %1) #8
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %54, ptr noundef nonnull @.str.21, ptr noundef %197, i64 noundef %198, i64 noundef %199) #8
+  br label %204
 
-212:                                              ; preds = %174
-  %213 = load ptr, ptr %43, align 8
-  %214 = tail call i64 @archive_entry_rdevmajor(ptr noundef %1) #8
-  %215 = tail call i64 @archive_entry_rdevminor(ptr noundef %1) #8
-  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %61, ptr noundef nonnull @.str.22, ptr noundef %213, i64 noundef %214, i64 noundef %215) #8
-  br label %216
+200:                                              ; preds = %162
+  %201 = load ptr, ptr %36, align 8
+  %202 = tail call i64 @archive_entry_rdevmajor(ptr noundef %1) #8
+  %203 = tail call i64 @archive_entry_rdevminor(ptr noundef %1) #8
+  tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %54, ptr noundef nonnull @.str.22, ptr noundef %201, i64 noundef %202, i64 noundef %203) #8
+  br label %204
 
-216:                                              ; preds = %shar_quote.exit140, %206, %208, %212, %192, %181, %205, %201, %195, %shar_quote.exit148, %174, %.tail, %.tail149, %41
-  %.0 = phi i32 [ -20, %41 ], [ 0, %.tail149 ], [ 0, %.tail ], [ -20, %174 ], [ 0, %shar_quote.exit148 ], [ 0, %195 ], [ 0, %201 ], [ 0, %205 ], [ 0, %181 ], [ 0, %192 ], [ 0, %212 ], [ 0, %208 ], [ 0, %206 ], [ 0, %shar_quote.exit140 ]
+204:                                              ; preds = %shar_quote.exit140, %194, %196, %200, %180, %169, %193, %189, %183, %shar_quote.exit148, %162, %.tail, %.tail149, %35
+  %.0 = phi i32 [ -20, %35 ], [ 0, %.tail149 ], [ 0, %.tail ], [ -20, %162 ], [ 0, %shar_quote.exit148 ], [ 0, %183 ], [ 0, %189 ], [ 0, %193 ], [ 0, %169 ], [ 0, %180 ], [ 0, %200 ], [ 0, %196 ], [ 0, %194 ], [ 0, %shar_quote.exit140 ]
   ret i32 %.0
 }
 

@@ -326,7 +326,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i64 -128, 4294967462) i64 @_ZN3net23GetStartOfEncryptedDataENS_11QuicVersionERKNS_16QuicPacketHeaderE(i32 noundef %version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %header) local_unnamed_addr #0 {
+define dso_local noundef range(i64 -127, 4294967461) i64 @_ZN3net23GetStartOfEncryptedDataENS_11QuicVersionERKNS_16QuicPacketHeaderE(i32 noundef %version, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %header) local_unnamed_addr #0 {
 entry:
   %connection_id_length.i = getelementptr inbounds i8, ptr %header, i64 8
   %0 = load i32, ptr %connection_id_length.i, align 8
@@ -1686,7 +1686,7 @@ nrvo.skipdtor:                                    ; preds = %cond.true.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN3net20QuicVersionToQuicTagENS_11QuicVersionE(i32 noundef %version) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 909324370) i32 @_ZN3net20QuicVersionToQuicTagENS_11QuicVersionE(i32 noundef %version) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp14 = alloca %"class.logging::LogMessage", align 8
   %switch.tableidx = add i32 %version, -30

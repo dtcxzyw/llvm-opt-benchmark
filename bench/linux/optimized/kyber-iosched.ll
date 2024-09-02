@@ -1480,41 +1480,41 @@ define internal zeroext i1 @kyber_has_work(ptr nocapture noundef readonly %0) #1
   %6 = load volatile ptr, ptr %4, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   %7 = icmp eq ptr %6, %4
-  br i1 %7, label %.lr.ph.preheader, label %.thread
+  br i1 %7, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %1
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = load volatile ptr, ptr %8, align 8
   %.not9 = icmp eq ptr %4, %9
-  br i1 %.not9, label %.lr.ph10, label %.thread
+  br i1 %.not9, label %.lr.ph10, label %.critedge
 
 10:                                               ; preds = %.lr.ph10
   %11 = add nuw nsw i64 %20, 1
   %12 = icmp ult i64 %20, 3
   %13 = icmp eq i64 %11, 4
-  br i1 %13, label %.thread, label %14, !llvm.loop !39
+  br i1 %13, label %.critedge, label %14, !llvm.loop !39
 
 14:                                               ; preds = %10
   %15 = getelementptr [4 x %struct.list_head], ptr %4, i64 0, i64 %11
   %16 = load volatile ptr, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   %17 = icmp eq ptr %16, %15
-  br i1 %17, label %.lr.ph, label %.thread, !llvm.loop !39
+  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %14
   %18 = getelementptr inbounds i8, ptr %15, i64 8
   %19 = load volatile ptr, ptr %18, align 8
   %.not = icmp eq ptr %15, %19
-  br i1 %.not, label %.lr.ph10, label %.thread, !llvm.loop !39
+  br i1 %.not, label %.lr.ph10, label %.critedge, !llvm.loop !39
 
 .lr.ph10:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %20 = phi i64 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %21 = phi i1 [ %12, %.lr.ph ], [ true, %.lr.ph.preheader ]
   %22 = getelementptr [4 x %struct.sbitmap], ptr %5, i64 0, i64 %20
   %23 = tail call zeroext i1 @sbitmap_any_bit_set(ptr noundef %22) #18
-  br i1 %23, label %.thread, label %10
+  br i1 %23, label %.critedge, label %10
 
-.thread:                                          ; preds = %14, %.lr.ph10, %.lr.ph, %10, %.lr.ph.preheader, %1
+.critedge:                                        ; preds = %14, %.lr.ph10, %.lr.ph, %10, %.lr.ph.preheader, %1
   %24 = phi i1 [ true, %1 ], [ true, %.lr.ph.preheader ], [ %12, %10 ], [ %12, %.lr.ph ], [ %21, %.lr.ph10 ], [ %12, %14 ]
   ret i1 %24
 }

@@ -2131,24 +2131,24 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
 
 ._crit_edge2149.loopexit.i:                       ; preds = %.loopexit1973.i
   %1490 = trunc nuw i64 %indvars.iv.next2401.i to i32
+  %1491 = sdiv i32 %1171, 8
   br label %._crit_edge2149.i
 
 ._crit_edge2149.i:                                ; preds = %._crit_edge2149.loopexit.i, %.loopexit1978.i
   %.11485.lcssa.i = phi i32 [ 0, %.loopexit1978.i ], [ %1490, %._crit_edge2149.loopexit.i ]
-  %.01476.lcssa.i = phi i32 [ 0, %.loopexit1978.i ], [ %1171, %._crit_edge2149.loopexit.i ]
-  %1491 = load i32, ptr %413, align 8
-  %1492 = icmp sgt i32 %1491, 2
-  br i1 %1492, label %1493, label %.preheader1134
+  %.01476.lcssa.i = phi i32 [ 0, %.loopexit1978.i ], [ %1491, %._crit_edge2149.loopexit.i ]
+  %1492 = load i32, ptr %413, align 8
+  %1493 = icmp sgt i32 %1492, 2
+  br i1 %1493, label %1494, label %.preheader1134
 
-1493:                                             ; preds = %._crit_edge2149.i
-  %1494 = load ptr, ptr @stderr, align 8
-  %1495 = add nuw nsw i32 %.014812154.i, 1
-  %1496 = sdiv i32 %.01476.lcssa.i, 8
-  %1497 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1494, ptr noundef nonnull @.str.4, i32 noundef %1495, i32 noundef %1496) #9
+1494:                                             ; preds = %._crit_edge2149.i
+  %1495 = load ptr, ptr @stderr, align 8
+  %1496 = add nuw nsw i32 %.014812154.i, 1
+  %1497 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1495, ptr noundef nonnull @.str.4, i32 noundef %1496, i32 noundef %.01476.lcssa.i) #9
   br label %1498
 
-1498:                                             ; preds = %1498, %1493
-  %indvars.iv2403.i = phi i64 [ 0, %1493 ], [ %indvars.iv.next2404.i, %1498 ]
+1498:                                             ; preds = %1498, %1494
+  %indvars.iv2403.i = phi i64 [ 0, %1494 ], [ %indvars.iv.next2404.i, %1498 ]
   %1499 = load ptr, ptr @stderr, align 8
   %1500 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %indvars.iv2403.i
   %1501 = load i32, ptr %1500, align 4

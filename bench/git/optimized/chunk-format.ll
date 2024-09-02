@@ -578,7 +578,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @pair_chunk(ptr nocapture noundef readonly %cf, i32 noundef %chunk_id, ptr nocapture noundef writeonly %p, ptr nocapture noundef writeonly %size) local_unnamed_addr #6 {
+define dso_local range(i32 -2, 1) i32 @pair_chunk(ptr nocapture noundef readonly %cf, i32 noundef %chunk_id, ptr nocapture noundef writeonly %p, ptr nocapture noundef writeonly %size) local_unnamed_addr #6 {
 entry:
   %chunks_nr.i = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load i64, ptr %chunks_nr.i, align 8

@@ -1175,7 +1175,7 @@ return:                                           ; preds = %if.end, %err, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EC_KEY_set_public_key_affine_coordinates(ptr noundef %key, ptr noundef %x, ptr noundef %y) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EC_KEY_set_public_key_affine_coordinates(ptr noundef %key, ptr noundef %x, ptr noundef %y) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %if.then, label %lor.lhs.false

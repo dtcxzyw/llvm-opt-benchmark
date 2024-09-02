@@ -778,13 +778,16 @@ proto_item_set_generated.exit405:                 ; preds = %308, %320, %323
   %.2378 = add i32 %spec.select392, %340
   %341 = add nuw i8 %.0379420, 1
   %exitcond.not = icmp eq i8 %341, %333
-  br i1 %exitcond.not, label %._crit_edge, label %335, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %335, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %335, %331
-  %.0376.lcssa = phi i32 [ 0, %331 ], [ %.2378, %335 ]
-  %342 = add i32 %.0376.lcssa, 2
+._crit_edge.loopexit:                             ; preds = %335
+  %342 = add i32 %.2378, 2
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %331
+  %.0376.lcssa = phi i32 [ 2, %331 ], [ %342, %._crit_edge.loopexit ]
   %343 = load i32, ptr @hf_alp_lmt_plp, align 4
-  %344 = call ptr @proto_tree_add_item(ptr noundef %313, i32 noundef %343, ptr noundef %0, i32 noundef %.4429, i32 noundef %342, i32 noundef 0) #5
+  %344 = call ptr @proto_tree_add_item(ptr noundef %313, i32 noundef %343, ptr noundef %0, i32 noundef %.4429, i32 noundef %.0376.lcssa, i32 noundef 0) #5
   %345 = load i32, ptr @ett_alp_lmt_plp, align 4
   %346 = call ptr @proto_item_add_subtree(ptr noundef %344, i32 noundef %345) #5
   %347 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4429) #5

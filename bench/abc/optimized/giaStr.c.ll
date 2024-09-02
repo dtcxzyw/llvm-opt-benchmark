@@ -3443,7 +3443,7 @@ Gia_ObjFanin2Copy.exit:                           ; preds = %Gia_ObjFanin2.exit,
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val178, i64 %156
   %.not162 = icmp eq ptr %.val178, null
-  br i1 %.not162, label %.critedge6, label %158, !llvm.loop !27
+  br i1 %.not162, label %.critedge6.loopexit, label %158, !llvm.loop !27
 
 158:                                              ; preds = %.lr.ph281, %.lr.ph223
   %159 = phi ptr [ %152, %.lr.ph281 ], [ %157, %.lr.ph223 ]
@@ -3511,13 +3511,16 @@ Gia_ObjFanin2Copy.exit209:                        ; preds = %158, %180
   %.val169 = load i32, ptr %198, align 4
   %199 = sext i32 %.val169 to i64
   %200 = icmp slt i64 %indvars.iv.next246, %199
-  br i1 %200, label %.lr.ph223, label %.critedge6, !llvm.loop !27
+  br i1 %200, label %.lr.ph223, label %.critedge6.loopexit, !llvm.loop !27
 
-.critedge6:                                       ; preds = %194, %.lr.ph223, %.lr.ph223.preheader
-  %.val168225 = phi i32 [ %.val169221, %.lr.ph223.preheader ], [ %.val169, %.lr.ph223 ], [ %.val169, %194 ]
-  %201 = phi ptr [ %146, %.lr.ph223.preheader ], [ %197, %.lr.ph223 ], [ %197, %194 ]
-  %202 = icmp sgt i32 %.val168225, 0
-  br i1 %202, label %.lr.ph227, label %.critedge8
+.critedge6.loopexit:                              ; preds = %.lr.ph223, %194
+  %201 = icmp sgt i32 %.val169, 0
+  br label %.critedge6
+
+.critedge6:                                       ; preds = %.critedge6.loopexit, %.lr.ph223.preheader
+  %.val168225.pre = phi i1 [ true, %.lr.ph223.preheader ], [ %201, %.critedge6.loopexit ]
+  %202 = phi ptr [ %146, %.lr.ph223.preheader ], [ %197, %.critedge6.loopexit ]
+  br i1 %.val168225.pre, label %.lr.ph227, label %.critedge8
 
 .lr.ph227:                                        ; preds = %.critedge6
   %203 = getelementptr inbounds i8, ptr %139, i64 8
@@ -3525,7 +3528,7 @@ Gia_ObjFanin2Copy.exit209:                        ; preds = %158, %180
 
 204:                                              ; preds = %.lr.ph227, %206
   %indvars.iv248 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next249, %206 ]
-  %205 = phi ptr [ %201, %.lr.ph227 ], [ %218, %206 ]
+  %205 = phi ptr [ %202, %.lr.ph227 ], [ %218, %206 ]
   %.val177 = load ptr, ptr %10, align 8
   %.not163 = icmp eq ptr %.val177, null
   br i1 %.not163, label %.critedge8, label %206
@@ -3814,7 +3817,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %.critedge12, %Gia_O
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Str_ObjCreate(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @Str_ObjCreate(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %0, align 8
@@ -8521,7 +8524,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

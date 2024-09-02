@@ -98,25 +98,25 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
   %51 = load i64, ptr @__cpu_online_mask, align 8
   %52 = and i64 %51, %50
   %53 = icmp eq i64 %52, 0
-  br i1 %53, label %56, label %54
+  br i1 %53, label %57, label %54
 
 54:                                               ; preds = %49
   %55 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %52) #5, !srcloc !7
-  br label %56
+  %56 = trunc i64 %55 to i32
+  br label %57
 
-56:                                               ; preds = %54, %49
-  %57 = phi i64 [ %55, %54 ], [ 64, %49 ]
-  %58 = trunc i64 %57 to i32
+57:                                               ; preds = %54, %49
+  %58 = phi i32 [ %56, %54 ], [ 64, %49 ]
   %59 = icmp ugt i32 %47, %58
   br i1 %59, label %64, label %60
 
-60:                                               ; preds = %56
+60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %5, i64 44
   %62 = load i32, ptr %61, align 4
   %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %47, ptr noundef %29, i32 noundef %62, i32 noundef %25) #6
   br label %71
 
-64:                                               ; preds = %56, %.thread
+64:                                               ; preds = %57, %.thread
   %65 = zext i32 %25 to i64
   %66 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %29, i64 %65) #4, !srcloc !11
   %67 = icmp ult i8 %66, 2
@@ -161,20 +161,20 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
   %87 = load i64, ptr @__cpu_online_mask, align 8
   %88 = and i64 %87, %86
   %89 = icmp eq i64 %88, 0
-  br i1 %89, label %92, label %90
+  br i1 %89, label %93, label %90
 
 90:                                               ; preds = %85
   %91 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %88) #5, !srcloc !7
-  br label %92
+  %92 = trunc i64 %91 to i32
+  br label %93
 
-92:                                               ; preds = %90, %85
-  %93 = phi i64 [ %91, %90 ], [ 64, %85 ]
-  %94 = trunc i64 %93 to i32
+93:                                               ; preds = %90, %85
+  %94 = phi i32 [ %92, %90 ], [ 64, %85 ]
   %95 = load i32, ptr @nr_cpu_ids, align 4
   %96 = icmp ugt i32 %95, %94
   br i1 %96, label %104, label %97
 
-97:                                               ; preds = %92
+97:                                               ; preds = %93
   %98 = load ptr, ptr %10, align 8
   %99 = load i32, ptr %98, align 8
   %100 = and i32 %99, 2097152
@@ -187,8 +187,8 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
   tail call void @irq_shutdown_and_deactivate(ptr noundef %5) #4
   br label %121
 
-104:                                              ; preds = %97, %92
-  %105 = phi ptr [ %79, %92 ], [ @__cpu_online_mask, %97 ]
+104:                                              ; preds = %97, %93
+  %105 = phi ptr [ %79, %93 ], [ @__cpu_online_mask, %97 ]
   %106 = tail call i32 @irq_do_set_affinity(ptr noundef %7, ptr noundef %105, i1 noundef zeroext false) #4
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %115, label %108

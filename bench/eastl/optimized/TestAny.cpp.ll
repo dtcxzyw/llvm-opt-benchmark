@@ -3743,18 +3743,18 @@ if.then.i1463:                                    ; preds = %invoke.cont531
 
 if.then.i1463._ZN5eastl3any5resetEv.exit_crit_edge: ; preds = %if.then.i1463
   %.pre3836 = load ptr, ptr %m_handler.i1452, align 8
+  %490 = icmp eq ptr %.pre3836, null
   br label %_ZN5eastl3any5resetEv.exit
 
 terminate.lpad.i:                                 ; preds = %if.then.i1463
-  %490 = landingpad { ptr, i32 }
+  %491 = landingpad { ptr, i32 }
           catch ptr null
-  %491 = extractvalue { ptr, i32 } %490, 0
-  call void @__clang_call_terminate(ptr %491) #12
+  %492 = extractvalue { ptr, i32 } %491, 0
+  call void @__clang_call_terminate(ptr %492) #12
   unreachable
 
 _ZN5eastl3any5resetEv.exit:                       ; preds = %if.then.i1463._ZN5eastl3any5resetEv.exit_crit_edge, %invoke.cont531
-  %492 = phi ptr [ %.pre3836, %if.then.i1463._ZN5eastl3any5resetEv.exit_crit_edge ], [ null, %invoke.cont531 ]
-  %cmp.i1465.not = icmp eq ptr %492, null
+  %cmp.i1465.not = phi i1 [ %490, %if.then.i1463._ZN5eastl3any5resetEv.exit_crit_edge ], [ true, %invoke.cont531 ]
   %call535 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1465.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @.str.31)
           to label %invoke.cont534 unwind label %lpad530
 
@@ -5216,18 +5216,18 @@ if.then.i2285:                                    ; preds = %invoke.cont806
 
 if.then.i2285._ZN5eastl3any5resetEv.exit2288_crit_edge: ; preds = %if.then.i2285
   %.pre3839 = load ptr, ptr %m_handler.i.i2225, align 8
+  %700 = icmp eq ptr %.pre3839, null
   br label %_ZN5eastl3any5resetEv.exit2288
 
 terminate.lpad.i2287:                             ; preds = %if.then.i2285
-  %700 = landingpad { ptr, i32 }
+  %701 = landingpad { ptr, i32 }
           catch ptr null
-  %701 = extractvalue { ptr, i32 } %700, 0
-  call void @__clang_call_terminate(ptr %701) #12
+  %702 = extractvalue { ptr, i32 } %701, 0
+  call void @__clang_call_terminate(ptr %702) #12
   unreachable
 
 _ZN5eastl3any5resetEv.exit2288:                   ; preds = %if.then.i2285._ZN5eastl3any5resetEv.exit2288_crit_edge, %invoke.cont806
-  %702 = phi ptr [ %.pre3839, %if.then.i2285._ZN5eastl3any5resetEv.exit2288_crit_edge ], [ null, %invoke.cont806 ]
-  %cmp.i2290.not = icmp eq ptr %702, null
+  %cmp.i2290.not = phi i1 [ %700, %if.then.i2285._ZN5eastl3any5resetEv.exit2288_crit_edge ], [ true, %invoke.cont806 ]
   %call811 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i2290.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 290, ptr noundef nonnull @.str.31)
           to label %invoke.cont810 unwind label %lpad787
 

@@ -3339,16 +3339,16 @@ dissect_darwin_buffer_packet_header.exit:         ; preds = %400, %420, %423
   store i32 %430, ptr %200, align 8
   %431 = load i32, ptr %.0252, align 4
   %.not273 = icmp eq i32 %431, 0
-  br i1 %.not273, label %435, label %432
+  br i1 %.not273, label %436, label %432
 
 432:                                              ; preds = %426
   %433 = load i8, ptr %427, align 4
   %434 = icmp eq i8 %433, 2
-  br label %435
+  %435 = zext i1 %434 to i32
+  br label %436
 
-435:                                              ; preds = %432, %426
-  %436 = phi i1 [ false, %426 ], [ %434, %432 ]
-  %437 = zext i1 %436 to i32
+436:                                              ; preds = %432, %426
+  %437 = phi i32 [ 0, %426 ], [ %435, %432 ]
   %438 = getelementptr inbounds i8, ptr %199, i64 24
   store i32 %437, ptr %438, align 8
   %439 = load i32, ptr %.0252, align 4
@@ -3362,11 +3362,11 @@ dissect_darwin_buffer_packet_header.exit:         ; preds = %400, %420, %423
 default.unreachable:                              ; preds = %clear_usb_conv_tmp_data.exit
   unreachable
 
-442:                                              ; preds = %435, %dissect_darwin_buffer_packet_header.exit, %351, %325, %dissect_usbpcap_buffer_packet_header.exit, %dissect_linux_usb_pseudo_header.exit
-  %.0343 = phi i32 [ 0, %435 ], [ 0, %dissect_darwin_buffer_packet_header.exit ], [ 0, %351 ], [ 0, %325 ], [ %320, %dissect_usbpcap_buffer_packet_header.exit ], [ 0, %dissect_linux_usb_pseudo_header.exit ]
-  %.0262 = phi i32 [ 0, %435 ], [ 0, %dissect_darwin_buffer_packet_header.exit ], [ %352, %351 ], [ 0, %325 ], [ 0, %dissect_usbpcap_buffer_packet_header.exit ], [ 0, %dissect_linux_usb_pseudo_header.exit ]
-  %.0261 = phi i32 [ 0, %435 ], [ 0, %dissect_darwin_buffer_packet_header.exit ], [ %327, %351 ], [ 0, %325 ], [ 0, %dissect_usbpcap_buffer_packet_header.exit ], [ 0, %dissect_linux_usb_pseudo_header.exit ]
-  %.0250 = phi i32 [ 0, %435 ], [ %425, %dissect_darwin_buffer_packet_header.exit ], [ %343, %351 ], [ 20, %325 ], [ 27, %dissect_usbpcap_buffer_packet_header.exit ], [ 40, %dissect_linux_usb_pseudo_header.exit ]
+442:                                              ; preds = %436, %dissect_darwin_buffer_packet_header.exit, %351, %325, %dissect_usbpcap_buffer_packet_header.exit, %dissect_linux_usb_pseudo_header.exit
+  %.0343 = phi i32 [ 0, %436 ], [ 0, %dissect_darwin_buffer_packet_header.exit ], [ 0, %351 ], [ 0, %325 ], [ %320, %dissect_usbpcap_buffer_packet_header.exit ], [ 0, %dissect_linux_usb_pseudo_header.exit ]
+  %.0262 = phi i32 [ 0, %436 ], [ 0, %dissect_darwin_buffer_packet_header.exit ], [ %352, %351 ], [ 0, %325 ], [ 0, %dissect_usbpcap_buffer_packet_header.exit ], [ 0, %dissect_linux_usb_pseudo_header.exit ]
+  %.0261 = phi i32 [ 0, %436 ], [ 0, %dissect_darwin_buffer_packet_header.exit ], [ %327, %351 ], [ 0, %325 ], [ 0, %dissect_usbpcap_buffer_packet_header.exit ], [ 0, %dissect_linux_usb_pseudo_header.exit ]
+  %.0250 = phi i32 [ 0, %436 ], [ %425, %dissect_darwin_buffer_packet_header.exit ], [ %343, %351 ], [ 20, %325 ], [ 27, %dissect_usbpcap_buffer_packet_header.exit ], [ 40, %dissect_linux_usb_pseudo_header.exit ]
   %443 = load i64, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)

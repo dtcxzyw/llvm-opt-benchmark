@@ -9040,11 +9040,11 @@ _ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__d
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit.loopexit.i:        ; preds = %.lr.ph.i.i.i.i
   %.pre.i = load i32, ptr %30, align 8, !noalias !87
+  %41 = sext i32 %.pre.i to i64
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit.i:                 ; preds = %_ZSt4fillIPiiEvT_S1_RKT0_.exit.loopexit.i, %36
-  %41 = phi i32 [ %.pre.i, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.loopexit.i ], [ 0, %36 ]
-  %42 = sext i32 %41 to i64
+  %42 = phi i64 [ %41, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.loopexit.i ], [ 0, %36 ]
   %43 = getelementptr inbounds i32, ptr %.03625.i, i64 %42
   br label %.loopexit.i
 
@@ -9597,11 +9597,11 @@ _ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__d
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit.loopexit.i:        ; preds = %.lr.ph.i.i.i.i
   %.pre.i = load i32, ptr %30, align 8, !noalias !102
+  %42 = sext i32 %.pre.i to i64
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit.i:                 ; preds = %_ZSt4fillIPiiEvT_S1_RKT0_.exit.loopexit.i, %37
-  %42 = phi i32 [ %.pre.i, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.loopexit.i ], [ 0, %37 ]
-  %43 = sext i32 %42 to i64
+  %43 = phi i64 [ %42, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.loopexit.i ], [ 0, %37 ]
   %44 = getelementptr inbounds i32, ptr %.04032.i, i64 %43
   br label %.loopexit.i
 

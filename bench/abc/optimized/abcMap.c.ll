@@ -2117,18 +2117,21 @@ define noalias noundef ptr @Abc_NtkWriteMiniMapping(ptr noundef %0) local_unname
   %.val79 = load i32, ptr %6, align 4
   %22 = sext i32 %.val79 to i64
   %23 = icmp slt i64 %indvars.iv.next209, %22
-  br i1 %23, label %.critedge, label %.critedge2, !llvm.loop !31
+  br i1 %23, label %.critedge, label %.critedge2.loopexit, !llvm.loop !31
 
-.critedge2:                                       ; preds = %.critedge, %.critedge.preheader
-  %.0.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %21, %.critedge ]
-  %24 = getelementptr i8, ptr %0, i64 124
-  %.val95 = load i32, ptr %24, align 4
-  %25 = getelementptr i8, ptr %0, i64 64
-  %.val85 = load ptr, ptr %25, align 8
-  %26 = getelementptr i8, ptr %.val85, i64 4
-  %.val85.val = load i32, ptr %26, align 4
-  %27 = add i32 %.0.lcssa, 4
-  %28 = add i32 %27, %.val95
+.critedge2.loopexit:                              ; preds = %.critedge
+  %24 = add i32 %21, 4
+  br label %.critedge2
+
+.critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge.preheader
+  %.0.lcssa = phi i32 [ 4, %.critedge.preheader ], [ %24, %.critedge2.loopexit ]
+  %25 = getelementptr i8, ptr %0, i64 124
+  %.val95 = load i32, ptr %25, align 4
+  %26 = getelementptr i8, ptr %0, i64 64
+  %.val85 = load ptr, ptr %26, align 8
+  %27 = getelementptr i8, ptr %.val85, i64 4
+  %.val85.val = load i32, ptr %27, align 4
+  %28 = add i32 %.0.lcssa, %.val95
   %29 = add nsw i32 %28, %.val85.val
   %30 = add nsw i32 %29, 10000
   %31 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
@@ -2173,7 +2176,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntAlloc.exit, 
   %46 = sext i32 %42 to i64
   %47 = getelementptr inbounds i32, ptr %44, i64 %46
   store i32 %.val81.val166, ptr %47, align 4
-  %.val84 = load ptr, ptr %25, align 8
+  %.val84 = load ptr, ptr %26, align 8
   %48 = getelementptr i8, ptr %.val84, i64 4
   %.val84.val = load i32, ptr %48, align 4
   %49 = load i32, ptr %33, align 4
@@ -2238,7 +2241,7 @@ Vec_IntPush.exit108:                              ; preds = %.Vec_IntGrow.exit10
   %75 = sext i32 %73 to i64
   %76 = getelementptr inbounds i32, ptr %72, i64 %75
   store i32 %.val84.val, ptr %76, align 4
-  %.val96 = load i32, ptr %24, align 4
+  %.val96 = load i32, ptr %25, align 4
   %77 = load i32, ptr %33, align 4
   %78 = load i32, ptr %31, align 8
   %79 = icmp eq i32 %77, %78
@@ -2381,7 +2384,7 @@ Vec_IntPush.exit122:                              ; preds = %.Vec_IntGrow.exit10
   br label %142
 
 .critedge4.preheader:                             ; preds = %Vec_StrPush.exit, %Vec_IntPush.exit122
-  %.val83193 = load ptr, ptr %25, align 8
+  %.val83193 = load ptr, ptr %26, align 8
   %140 = getelementptr i8, ptr %.val83193, i64 4
   %.val83.val194 = load i32, ptr %140, align 4
   %141 = icmp sgt i32 %.val83.val194, 0
@@ -2778,7 +2781,7 @@ Vec_IntPush.exit147:                              ; preds = %.Vec_IntGrow.exit10
   %317 = getelementptr inbounds i32, ptr %313, i64 %316
   store i32 %289, ptr %317, align 4
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %.val83 = load ptr, ptr %25, align 8
+  %.val83 = load ptr, ptr %26, align 8
   %318 = getelementptr i8, ptr %.val83, i64 4
   %.val83.val = load i32, ptr %318, align 4
   %319 = sext i32 %.val83.val to i64

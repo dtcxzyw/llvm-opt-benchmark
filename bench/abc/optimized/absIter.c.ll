@@ -409,78 +409,78 @@ Vec_IntDup.exit104:                               ; preds = %Vec_IntFreeP.exit, 
   br i1 %194, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %191
-  %.not63 = icmp eq i32 %.1, 0
-  br i1 %.not63, label %.split121.us, label %.split, !llvm.loop !6
+  %195 = icmp eq i32 %.1, 0
+  br i1 %195, label %.split121.us, label %.split, !llvm.loop !6
 
 .split121.us:                                     ; preds = %.split, %.critedge, %39
   %.us-phi = phi i32 [ 0, %39 ], [ %.058, %.split ], [ %.260, %.critedge ]
   %.us-phi122 = phi i32 [ 0, %39 ], [ %.055, %.split ], [ %.257, %.critedge ]
   call void @Gia_ManCleanMark0(ptr noundef nonnull %0) #10
   %.not.i105 = icmp eq ptr %28, null
-  br i1 %.not.i105, label %Vec_IntFree.exit, label %195
+  br i1 %.not.i105, label %Vec_IntFree.exit, label %196
 
-195:                                              ; preds = %.split121.us
+196:                                              ; preds = %.split121.us
   call void @free(ptr noundef nonnull %28) #10
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.split121.us, %195
-  %196 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.us-phi122)
-  %197 = sitofp i32 %.us-phi to double
-  %198 = fmul double %197, 1.000000e+02
-  %199 = load ptr, ptr %20, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 4
-  %201 = load i32, ptr %200, align 4
-  %202 = icmp sgt i32 %201, 0
-  br i1 %202, label %.lr.ph.i, label %Vec_IntCountPositive.exit
+Vec_IntFree.exit:                                 ; preds = %.split121.us, %196
+  %197 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.us-phi122)
+  %198 = sitofp i32 %.us-phi to double
+  %199 = fmul double %198, 1.000000e+02
+  %200 = load ptr, ptr %20, align 8
+  %201 = getelementptr inbounds i8, ptr %200, i64 4
+  %202 = load i32, ptr %201, align 4
+  %203 = icmp sgt i32 %202, 0
+  br i1 %203, label %.lr.ph.i, label %Vec_IntCountPositive.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntFree.exit
-  %203 = getelementptr inbounds i8, ptr %199, i64 8
-  %204 = load ptr, ptr %203, align 8
-  %wide.trip.count.i = zext nneg i32 %201 to i64
-  br label %205
+  %204 = getelementptr inbounds i8, ptr %200, i64 8
+  %205 = load ptr, ptr %204, align 8
+  %wide.trip.count.i = zext nneg i32 %202 to i64
+  br label %206
 
-205:                                              ; preds = %205, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %205 ]
-  %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %210, %205 ]
-  %206 = getelementptr inbounds i32, ptr %204, i64 %indvars.iv.i
-  %207 = load i32, ptr %206, align 4
-  %208 = icmp sgt i32 %207, 0
-  %209 = zext i1 %208 to i32
-  %210 = add nuw nsw i32 %.08.i, %209
+206:                                              ; preds = %206, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %206 ]
+  %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %211, %206 ]
+  %207 = getelementptr inbounds i32, ptr %205, i64 %indvars.iv.i
+  %208 = load i32, ptr %207, align 4
+  %209 = icmp sgt i32 %208, 0
+  %210 = zext i1 %209 to i32
+  %211 = add nuw nsw i32 %.08.i, %210
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntCountPositive.exit.loopexit, label %205, !llvm.loop !8
+  br i1 %exitcond.not.i, label %Vec_IntCountPositive.exit.loopexit, label %206, !llvm.loop !8
 
-Vec_IntCountPositive.exit.loopexit:               ; preds = %205
-  %211 = uitofp nneg i32 %210 to double
+Vec_IntCountPositive.exit.loopexit:               ; preds = %206
+  %212 = uitofp nneg i32 %211 to double
   br label %Vec_IntCountPositive.exit
 
 Vec_IntCountPositive.exit:                        ; preds = %Vec_IntCountPositive.exit.loopexit, %Vec_IntFree.exit
-  %.0.lcssa.i = phi double [ 0.000000e+00, %Vec_IntFree.exit ], [ %211, %Vec_IntCountPositive.exit.loopexit ]
-  %212 = fdiv double %198, %.0.lcssa.i
-  %213 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.us-phi, double noundef %212)
+  %.0.lcssa.i = phi double [ 0.000000e+00, %Vec_IntFree.exit ], [ %212, %Vec_IntCountPositive.exit.loopexit ]
+  %213 = fdiv double %199, %.0.lcssa.i
+  %214 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.us-phi, double noundef %213)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %214 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #10
-  %215 = icmp slt i32 %214, 0
-  br i1 %215, label %Abc_Clock.exit107, label %216
+  %215 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #10
+  %216 = icmp slt i32 %215, 0
+  br i1 %216, label %Abc_Clock.exit107, label %217
 
-216:                                              ; preds = %Vec_IntCountPositive.exit
-  %217 = load i64, ptr %8, align 8
-  %218 = mul nsw i64 %217, 1000000
-  %219 = getelementptr inbounds i8, ptr %8, i64 8
-  %220 = load i64, ptr %219, align 8
-  %221 = sdiv i64 %220, 1000
-  %222 = add nsw i64 %221, %218
+217:                                              ; preds = %Vec_IntCountPositive.exit
+  %218 = load i64, ptr %8, align 8
+  %219 = mul nsw i64 %218, 1000000
+  %220 = getelementptr inbounds i8, ptr %8, i64 8
+  %221 = load i64, ptr %220, align 8
+  %222 = sdiv i64 %221, 1000
+  %223 = add nsw i64 %222, %219
   br label %Abc_Clock.exit107
 
-Abc_Clock.exit107:                                ; preds = %Vec_IntCountPositive.exit, %216
-  %.0.i106 = phi i64 [ %222, %216 ], [ -1, %Vec_IntCountPositive.exit ]
+Abc_Clock.exit107:                                ; preds = %Vec_IntCountPositive.exit, %217
+  %.0.i106 = phi i64 [ %223, %217 ], [ -1, %Vec_IntCountPositive.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %223 = add i64 %.0.i106, %.0.i.neg
+  %224 = add i64 %.0.i106, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.5)
-  %224 = sitofp i64 %223 to double
-  %225 = fdiv double %224, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %225)
+  %225 = sitofp i64 %224 to double
+  %226 = fdiv double %225, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %226)
   ret ptr null
 }
 

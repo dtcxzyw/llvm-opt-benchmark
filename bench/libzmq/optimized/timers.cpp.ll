@@ -93,7 +93,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq8timers_t3addEmPFviPvES1_(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %interval_, ptr noundef %handler_, ptr noundef %arg_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZN3zmq8timers_t3addEmPFviPvES1_(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %interval_, ptr noundef %handler_, ptr noundef %arg_) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %handler_, null
   br i1 %cmp, label %if.then, label %if.end
@@ -479,7 +479,7 @@ return:                                           ; preds = %if.end, %_ZNSt8mult
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN3zmq8timers_t7timeoutEv(ptr noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -1, -9223372036854775808) i64 @_ZN3zmq8timers_t7timeoutEv(ptr noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_clock = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16) %_clock)

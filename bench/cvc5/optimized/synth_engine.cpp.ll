@@ -561,8 +561,8 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont25, %if.then.i.i, %if.then13.i.i
   %11 = load i8, ptr %value, align 1
   %12 = trunc i8 %11 to i1
-  %tobool61 = select i1 %call26, i1 %12, i1 false
-  br i1 %tobool61, label %land.lhs.true, label %for.inc
+  %active.0 = select i1 %call26, i1 %12, i1 false
+  br i1 %active.0, label %land.lhs.true, label %for.inc
 
 lpad.loopexit445:                                 ; preds = %land.lhs.true, %if.then13.i.i.i, %cond.true.i.i.i
   %lpad.loopexit446 = landingpad { ptr, i32 }

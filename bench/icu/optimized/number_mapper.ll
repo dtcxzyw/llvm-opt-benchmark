@@ -681,7 +681,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp.i.not, label %if.end.thread, label %if.then
 
 if.end.thread:                                    ; preds = %invoke.cont3
-  %affixProvider209 = getelementptr inbounds i8, ptr %warehouse, i64 8
+  %affixProvider210 = getelementptr inbounds i8, ptr %warehouse, i64 8
   br label %if.then.i
 
 if.then:                                          ; preds = %invoke.cont3
@@ -702,12 +702,12 @@ if.end:                                           ; preds = %if.then
   %rules = getelementptr inbounds i8, ptr %agg.result, i64 232
   store ptr %call10, ptr %rules, align 8
   %.pr = load ptr, ptr %currencyPluralInfo, align 8
+  %3 = icmp eq ptr %.pr, null
   %affixProvider = getelementptr inbounds i8, ptr %warehouse, i64 8
-  %cmp.i.not.i = icmp eq ptr %.pr, null
-  br i1 %cmp.i.not.i, label %if.then.i, label %if.else.i
+  br i1 %3, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end.thread, %if.end
-  %affixProvider211 = phi ptr [ %affixProvider209, %if.end.thread ], [ %affixProvider, %if.end ]
+  %affixProvider211 = phi ptr [ %affixProvider210, %if.end.thread ], [ %affixProvider, %if.end ]
   invoke void @_ZN6icu_756number4impl30PropertiesAffixPatternProvider5setToERKNS1_23DecimalFormatPropertiesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(267) %affixProvider211, ptr noundef nonnull align 8 dereferenceable(757) %properties, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %.noexc unwind label %lpad2
 
@@ -720,57 +720,57 @@ if.else.i:                                        ; preds = %if.end
   %fBogus.i5.i = getelementptr inbounds i8, ptr %warehouse, i64 274
   store i8 1, ptr %fBogus.i5.i, align 2
   %currencyPluralInfoAPP3.i = getelementptr inbounds i8, ptr %warehouse, i64 280
-  %3 = load ptr, ptr %currencyPluralInfo, align 8
-  invoke void @_ZN6icu_756number4impl31CurrencyPluralInfoAffixProvider5setToERKNS_18CurrencyPluralInfoERKNS1_23DecimalFormatPropertiesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2185) %currencyPluralInfoAPP3.i, ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(757) %properties, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %4 = load ptr, ptr %currencyPluralInfo, align 8
+  invoke void @_ZN6icu_756number4impl31CurrencyPluralInfoAffixProvider5setToERKNS_18CurrencyPluralInfoERKNS1_23DecimalFormatPropertiesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2185) %currencyPluralInfoAPP3.i, ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(757) %properties, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.else.i.invoke.cont13_crit_edge unwind label %lpad2
 
 if.else.i.invoke.cont13_crit_edge:                ; preds = %if.else.i
   %fBogus.i.i125.phi.trans.insert = getelementptr inbounds i8, ptr %warehouse, i64 2464
   %.pre = load i8, ptr %fBogus.i.i125.phi.trans.insert, align 8
+  %5 = trunc i8 %.pre to i1
+  %6 = select i1 %5, i64 0, i64 272
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %if.else.i.invoke.cont13_crit_edge, %.noexc
   %affixProvider212 = phi ptr [ %affixProvider, %if.else.i.invoke.cont13_crit_edge ], [ %affixProvider211, %.noexc ]
-  %4 = phi i8 [ %.pre, %if.else.i.invoke.cont13_crit_edge ], [ 1, %.noexc ]
-  %tobool.i.i = trunc i8 %4 to i1
-  %this.currencyPluralInfoAPP.idx.i = select i1 %tobool.i.i, i64 0, i64 272
-  %this.currencyPluralInfoAPP.i = getelementptr inbounds i8, ptr %affixProvider212, i64 %this.currencyPluralInfoAPP.idx.i
+  %tobool.i.i = phi i64 [ %6, %if.else.i.invoke.cont13_crit_edge ], [ 0, %.noexc ]
+  %this.currencyPluralInfoAPP.i = getelementptr inbounds i8, ptr %affixProvider212, i64 %tobool.i.i
   %affixProvider15 = getelementptr inbounds i8, ptr %agg.result, i64 224
   store ptr %this.currencyPluralInfoAPP.i, ptr %affixProvider15, align 8
   %currency = getelementptr inbounds i8, ptr %properties, i64 8
-  %5 = load i8, ptr %currency, align 8
-  %tobool.i = trunc i8 %5 to i1
-  %6 = load ptr, ptr %currencyPluralInfo, align 8
-  %cmp.i126.not = icmp eq ptr %6, null
+  %7 = load i8, ptr %currency, align 8
+  %tobool.i = trunc i8 %7 to i1
+  %8 = load ptr, ptr %currencyPluralInfo, align 8
+  %cmp.i126.not = icmp eq ptr %8, null
   %or.cond206 = select i1 %tobool.i, i1 %cmp.i126.not, i1 false
   br i1 %or.cond206, label %lor.lhs.false23, label %lor.end
 
 lor.lhs.false23:                                  ; preds = %invoke.cont13
   %currencyUsage = getelementptr inbounds i8, ptr %properties, i64 56
-  %7 = load i8, ptr %currencyUsage, align 8
-  %tobool.i128 = trunc i8 %7 to i1
+  %9 = load i8, ptr %currencyUsage, align 8
+  %tobool.i128 = trunc i8 %9 to i1
   br i1 %tobool.i128, label %invoke.cont27, label %lor.end
 
 invoke.cont27:                                    ; preds = %lor.lhs.false23
   %vtable = load ptr, ptr %this.currencyPluralInfoAPP.i, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %8 = load ptr, ptr %vfn, align 8
-  %call30 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.i)
+  %10 = load ptr, ptr %vfn, align 8
+  %call30 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.i)
           to label %lor.end unwind label %lpad2
 
 lor.end:                                          ; preds = %invoke.cont27, %lor.lhs.false23, %invoke.cont13
-  %9 = phi i1 [ true, %lor.lhs.false23 ], [ true, %invoke.cont13 ], [ %call30, %invoke.cont27 ]
+  %11 = phi i1 [ true, %lor.lhs.false23 ], [ true, %invoke.cont13 ], [ %call30, %invoke.cont27 ]
   invoke void @_ZN6icu_756number4impl15resolveCurrencyERKNS1_23DecimalFormatPropertiesERKNS_6LocaleER10UErrorCode(ptr nonnull sret(%"class.icu_75::CurrencyUnit") align 8 %currency31, ptr noundef nonnull align 8 dereferenceable(757) %properties, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont32 unwind label %lpad2
 
 invoke.cont32:                                    ; preds = %lor.end
   %currencyUsage34 = getelementptr inbounds i8, ptr %properties, i64 56
-  %10 = load i8, ptr %currencyUsage34, align 8
-  %tobool.i133 = trunc i8 %10 to i1
+  %12 = load i8, ptr %currencyUsage34, align 8
+  %tobool.i133 = trunc i8 %12 to i1
   %fValue.i = getelementptr inbounds i8, ptr %properties, i64 60
-  %11 = load i32, ptr %fValue.i, align 4
-  %cond.i = select i1 %tobool.i133, i32 0, i32 %11
-  br i1 %9, label %if.then39, label %if.end42
+  %13 = load i32, ptr %fValue.i, align 4
+  %cond.i = select i1 %tobool.i133, i32 0, i32 %13
+  br i1 %11, label %if.then39, label %if.end42
 
 if.then39:                                        ; preds = %invoke.cont32
   %unit = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -778,42 +778,42 @@ if.then39:                                        ; preds = %invoke.cont32
           to label %if.end42 unwind label %lpad35
 
 lpad35:                                           ; preds = %if.then346, %if.else9.i, %if.then7.i, %if.then4.i, %if.then.i146, %if.then387, %if.then363, %if.else334, %if.then328, %if.else305, %if.then301, %if.then293, %if.end269, %invoke.cont261, %if.then258, %invoke.cont247, %if.then244, %if.then231, %invoke.cont226, %if.end222, %if.then209, %if.then204, %cond.end198, %invoke.cont169, %if.else166, %if.then163, %if.then160, %invoke.cont156, %if.then154, %if.then60, %if.then39
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end42:                                         ; preds = %if.then39, %invoke.cont32
   %maximumIntegerDigits = getelementptr inbounds i8, ptr %properties, i64 92
-  %13 = load i32, ptr %maximumIntegerDigits, align 4
+  %15 = load i32, ptr %maximumIntegerDigits, align 4
   %minimumIntegerDigits = getelementptr inbounds i8, ptr %properties, i64 112
-  %14 = load i32, ptr %minimumIntegerDigits, align 8
+  %16 = load i32, ptr %minimumIntegerDigits, align 8
   %maximumFractionDigits = getelementptr inbounds i8, ptr %properties, i64 88
-  %15 = load i32, ptr %maximumFractionDigits, align 8
+  %17 = load i32, ptr %maximumFractionDigits, align 8
   %minimumFractionDigits = getelementptr inbounds i8, ptr %properties, i64 104
-  %16 = load i32, ptr %minimumFractionDigits, align 8
+  %18 = load i32, ptr %minimumFractionDigits, align 8
   %minimumSignificantDigits = getelementptr inbounds i8, ptr %properties, i64 116
-  %17 = load i32, ptr %minimumSignificantDigits, align 4
+  %19 = load i32, ptr %minimumSignificantDigits, align 4
   %maximumSignificantDigits = getelementptr inbounds i8, ptr %properties, i64 96
-  %18 = load i32, ptr %maximumSignificantDigits, align 8
+  %20 = load i32, ptr %maximumSignificantDigits, align 8
   %roundingIncrement43 = getelementptr inbounds i8, ptr %properties, i64 736
-  %19 = load double, ptr %roundingIncrement43, align 8
+  %21 = load double, ptr %roundingIncrement43, align 8
   %roundingMode44 = getelementptr inbounds i8, ptr %properties, i64 744
-  %20 = load i8, ptr %roundingMode44, align 8
-  %tobool.i134 = trunc i8 %20 to i1
+  %22 = load i8, ptr %roundingMode44, align 8
+  %tobool.i134 = trunc i8 %22 to i1
   %fValue.i135 = getelementptr inbounds i8, ptr %properties, i64 748
-  %21 = load i32, ptr %fValue.i135, align 4
-  %cond.i136 = select i1 %tobool.i134, i32 4, i32 %21
-  %cmp = icmp ne i32 %16, -1
-  %cmp48 = icmp ne i32 %15, -1
-  %22 = select i1 %cmp, i1 true, i1 %cmp48
-  %cmp51 = icmp ne i32 %17, -1
-  %cmp53 = icmp ne i32 %18, -1
-  %23 = select i1 %cmp51, i1 true, i1 %cmp53
-  br i1 %9, label %land.lhs.true, label %if.end78
+  %23 = load i32, ptr %fValue.i135, align 4
+  %cond.i136 = select i1 %tobool.i134, i32 4, i32 %23
+  %cmp = icmp ne i32 %18, -1
+  %cmp48 = icmp ne i32 %17, -1
+  %24 = select i1 %cmp, i1 true, i1 %cmp48
+  %cmp51 = icmp ne i32 %19, -1
+  %cmp53 = icmp ne i32 %20, -1
+  %25 = select i1 %cmp51, i1 true, i1 %cmp53
+  br i1 %11, label %land.lhs.true, label %if.end78
 
 land.lhs.true:                                    ; preds = %if.end42
-  %cmp57 = icmp eq i32 %16, -1
-  %cmp59 = icmp eq i32 %15, -1
+  %cmp57 = icmp eq i32 %18, -1
+  %cmp59 = icmp eq i32 %17, -1
   %or.cond = select i1 %cmp57, i1 true, i1 %cmp59
   br i1 %or.cond, label %if.then60, label %if.end78
 
@@ -830,17 +830,17 @@ if.else:                                          ; preds = %invoke.cont63
   br i1 %cmp57, label %if.then70, label %if.else73
 
 if.then70:                                        ; preds = %if.else
-  %.sroa.speculated177 = call i32 @llvm.smin.i32(i32 %call64, i32 %15)
+  %.sroa.speculated177 = call i32 @llvm.smin.i32(i32 %call64, i32 %17)
   br label %if.end78
 
 if.else73:                                        ; preds = %if.else
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %16, i32 %call64)
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %18, i32 %call64)
   br label %if.end78
 
 if.end78:                                         ; preds = %invoke.cont63, %if.else73, %if.then70, %land.lhs.true, %if.end42
-  %minFrac.0 = phi i32 [ %.sroa.speculated177, %if.then70 ], [ %16, %if.else73 ], [ %16, %land.lhs.true ], [ %16, %if.end42 ], [ %call64, %invoke.cont63 ]
-  %maxFrac.0 = phi i32 [ %15, %if.then70 ], [ %.sroa.speculated, %if.else73 ], [ %15, %land.lhs.true ], [ %15, %if.end42 ], [ %call64, %invoke.cont63 ]
-  %cmp79 = icmp eq i32 %14, 0
+  %minFrac.0 = phi i32 [ %.sroa.speculated177, %if.then70 ], [ %18, %if.else73 ], [ %18, %land.lhs.true ], [ %18, %if.end42 ], [ %call64, %invoke.cont63 ]
+  %maxFrac.0 = phi i32 [ %17, %if.then70 ], [ %.sroa.speculated, %if.else73 ], [ %17, %land.lhs.true ], [ %17, %if.end42 ], [ %call64, %invoke.cont63 ]
+  %cmp79 = icmp eq i32 %16, 0
   %cmp81 = icmp ne i32 %maxFrac.0, 0
   %or.cond2 = select i1 %cmp79, i1 %cmp81, i1 false
   br i1 %or.cond2, label %if.then82, label %if.else108
@@ -848,16 +848,16 @@ if.end78:                                         ; preds = %invoke.cont63, %if.
 if.then82:                                        ; preds = %if.end78
   %cmp83 = icmp slt i32 %minFrac.0, 0
   %cmp85 = icmp eq i32 %minFrac.0, 0
-  %cmp87 = icmp eq i32 %13, 0
+  %cmp87 = icmp eq i32 %15, 0
   %or.cond3 = select i1 %cmp85, i1 %cmp87, i1 false
-  %24 = select i1 %cmp83, i1 true, i1 %or.cond3
-  %cond = select i1 %24, i32 1, i32 %minFrac.0
+  %26 = select i1 %cmp83, i1 true, i1 %or.cond3
+  %cond = select i1 %26, i32 1, i32 %minFrac.0
   %cond95 = call i32 @llvm.smax.i32(i32 %maxFrac.0, i32 %cond)
   %cmp88.inv = icmp sgt i32 %maxFrac.0, -1
   %cond97 = select i1 %cmp88.inv, i32 %cond95, i32 -1
-  %cmp101 = icmp sgt i32 %13, 999
-  %cond105 = select i1 %cmp101, i32 -1, i32 %13
-  %cmp98.inv = icmp sgt i32 %13, -1
+  %cmp101 = icmp sgt i32 %15, 999
+  %cond105 = select i1 %cmp101, i32 -1, i32 %15
+  %cmp98.inv = icmp sgt i32 %15, -1
   %cond107 = select i1 %cmp98.inv, i32 %cond105, i32 -1
   br label %if.end149
 
@@ -866,19 +866,19 @@ if.else108:                                       ; preds = %if.end78
   %cond121 = call i32 @llvm.smax.i32(i32 %maxFrac.0, i32 %cond113)
   %cmp114.inv = icmp sgt i32 %maxFrac.0, -1
   %cond123 = select i1 %cmp114.inv, i32 %cond121, i32 -1
-  %25 = add i32 %14, -1000
-  %26 = icmp ult i32 %25, -999
-  %cond133 = select i1 %26, i32 1, i32 %14
-  %cmp134 = icmp slt i32 %13, 0
+  %27 = add i32 %16, -1000
+  %28 = icmp ult i32 %27, -999
+  %cond133 = select i1 %28, i32 1, i32 %16
+  %cmp134 = icmp slt i32 %15, 0
   br i1 %cmp134, label %if.end149, label %cond.false136
 
 cond.false136:                                    ; preds = %if.else108
-  %cmp137 = icmp slt i32 %13, %cond133
+  %cmp137 = icmp slt i32 %15, %cond133
   br i1 %cmp137, label %if.end149, label %cond.false139
 
 cond.false139:                                    ; preds = %cond.false136
-  %cmp140 = icmp ugt i32 %13, 999
-  %cond144 = select i1 %cmp140, i32 -1, i32 %13
+  %cmp140 = icmp ugt i32 %15, 999
+  %cond144 = select i1 %cmp140, i32 -1, i32 %15
   br label %if.end149
 
 if.end149:                                        ; preds = %if.else108, %cond.false139, %cond.false136, %if.then82
@@ -889,8 +889,8 @@ if.end149:                                        ; preds = %if.else108, %cond.f
   store i32 0, ptr %precision, align 8
   %fTrailingZeroDisplay.i = getelementptr inbounds i8, ptr %precision, i64 24
   store i32 0, ptr %fTrailingZeroDisplay.i, align 8
-  %27 = load i8, ptr %currencyUsage34, align 8
-  %tobool.i140 = trunc i8 %27 to i1
+  %29 = load i8, ptr %currencyUsage34, align 8
+  %tobool.i140 = trunc i8 %29 to i1
   br i1 %tobool.i140, label %if.else158, label %if.then154
 
 if.then154:                                       ; preds = %if.end149
@@ -902,11 +902,11 @@ invoke.cont156:                                   ; preds = %if.then154
           to label %if.end216.sink.split unwind label %lpad35
 
 if.else158:                                       ; preds = %if.end149
-  %cmp159 = fcmp une double %19, 0.000000e+00
+  %cmp159 = fcmp une double %21, 0.000000e+00
   br i1 %cmp159, label %if.then160, label %if.else172
 
 if.then160:                                       ; preds = %if.else158
-  %call162 = invoke noundef zeroext i1 @_ZN6icu_756number4impl18PatternStringUtils23ignoreRoundingIncrementEdi(double noundef %19, i32 noundef %maxFrac.1)
+  %call162 = invoke noundef zeroext i1 @_ZN6icu_756number4impl18PatternStringUtils23ignoreRoundingIncrementEdi(double noundef %21, i32 noundef %maxFrac.1)
           to label %invoke.cont161 unwind label %lpad35
 
 invoke.cont161:                                   ; preds = %if.then160
@@ -917,7 +917,7 @@ if.then163:                                       ; preds = %invoke.cont161
           to label %if.end216.sink.split unwind label %lpad35
 
 if.else166:                                       ; preds = %invoke.cont161
-  invoke void @_ZN6icu_756number9Precision9incrementEd(ptr nonnull sret(%"class.icu_75::number::IncrementPrecision") align 8 %ref.tmp168, double noundef %19)
+  invoke void @_ZN6icu_756number9Precision9incrementEd(ptr nonnull sret(%"class.icu_75::number::IncrementPrecision") align 8 %ref.tmp168, double noundef %21)
           to label %invoke.cont169 unwind label %lpad35
 
 invoke.cont169:                                   ; preds = %if.else166
@@ -925,36 +925,36 @@ invoke.cont169:                                   ; preds = %if.else166
           to label %if.end216.sink.split unwind label %lpad35
 
 if.else172:                                       ; preds = %if.else158
-  br i1 %23, label %if.then174, label %if.else202
+  br i1 %25, label %if.then174, label %if.else202
 
 if.then174:                                       ; preds = %if.else172
-  %cond182 = call i32 @llvm.smin.i32(i32 %17, i32 999)
+  %cond182 = call i32 @llvm.smin.i32(i32 %19, i32 999)
   %cond184 = call i32 @llvm.smax.i32(i32 %cond182, i32 1)
-  %cmp185 = icmp slt i32 %18, 0
+  %cmp185 = icmp slt i32 %20, 0
   br i1 %cmp185, label %cond.end198, label %cond.false187
 
 cond.false187:                                    ; preds = %if.then174
-  %cmp188 = icmp ult i32 %18, %cond184
+  %cmp188 = icmp ult i32 %20, %cond184
   br i1 %cmp188, label %cond.end198, label %cond.false190
 
 cond.false190:                                    ; preds = %cond.false187
-  %28 = call i32 @llvm.umin.i32(i32 %18, i32 999)
+  %30 = call i32 @llvm.umin.i32(i32 %20, i32 999)
   br label %cond.end198
 
 cond.end198:                                      ; preds = %cond.false187, %cond.false190, %if.then174
-  %cond199 = phi i32 [ 999, %if.then174 ], [ %28, %cond.false190 ], [ %cond184, %cond.false187 ]
+  %cond199 = phi i32 [ 999, %if.then174 ], [ %30, %cond.false190 ], [ %cond184, %cond.false187 ]
   invoke void @_ZN6icu_756number9Precision20constructSignificantEii(ptr nonnull sret(%"class.icu_75::number::Precision") align 8 %ref.tmp200, i32 noundef %cond184, i32 noundef %cond199)
           to label %if.end216.sink.split unwind label %lpad35
 
 if.else202:                                       ; preds = %if.else172
-  br i1 %22, label %if.then204, label %if.else207
+  br i1 %24, label %if.then204, label %if.else207
 
 if.then204:                                       ; preds = %if.else202
   invoke void @_ZN6icu_756number9Precision17constructFractionEii(ptr nonnull sret(%"class.icu_75::number::FractionPrecision") align 8 %ref.tmp205, i32 noundef %minFrac.1, i32 noundef %maxFrac.1)
           to label %if.end216.sink.split unwind label %lpad35
 
 if.else207:                                       ; preds = %if.else202
-  br i1 %9, label %if.then209, label %if.end216
+  br i1 %11, label %if.then209, label %if.end216
 
 if.then209:                                       ; preds = %if.else207
   invoke void @_ZN6icu_756number9Precision17constructCurrencyE14UCurrencyUsage(ptr nonnull sret(%"class.icu_75::number::CurrencyPrecision") align 8 %ref.tmp210, i32 noundef %cond.i)
@@ -962,16 +962,16 @@ if.then209:                                       ; preds = %if.else207
 
 if.end216.sink.split:                             ; preds = %if.then209, %if.then204, %cond.end198, %invoke.cont169, %if.then163, %invoke.cont156
   %ref.tmp167.sink = phi ptr [ %ref.tmp, %invoke.cont156 ], [ %ref.tmp164, %if.then163 ], [ %ref.tmp167, %invoke.cont169 ], [ %ref.tmp200, %cond.end198 ], [ %ref.tmp205, %if.then204 ], [ %ref.tmp210, %if.then209 ]
-  %maxSig.0.ph = phi i32 [ %18, %invoke.cont156 ], [ %18, %if.then163 ], [ %18, %invoke.cont169 ], [ %cond199, %cond.end198 ], [ -1, %if.then204 ], [ -1, %if.then209 ]
-  %minSig.0.ph = phi i32 [ %17, %invoke.cont156 ], [ %17, %if.then163 ], [ %17, %invoke.cont169 ], [ %cond184, %cond.end198 ], [ -1, %if.then204 ], [ -1, %if.then209 ]
+  %maxSig.0.ph = phi i32 [ %20, %invoke.cont156 ], [ %20, %if.then163 ], [ %20, %invoke.cont169 ], [ %cond199, %cond.end198 ], [ -1, %if.then204 ], [ -1, %if.then209 ]
+  %minSig.0.ph = phi i32 [ %19, %invoke.cont156 ], [ %19, %if.then163 ], [ %19, %invoke.cont169 ], [ %cond184, %cond.end198 ], [ -1, %if.then204 ], [ -1, %if.then209 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %precision, ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp167.sink, i64 28, i1 false)
   br label %if.end216
 
 if.end216:                                        ; preds = %if.end216.sink.split, %if.else207
   %maxSig.0 = phi i32 [ -1, %if.else207 ], [ %maxSig.0.ph, %if.end216.sink.split ]
   %minSig.0 = phi i32 [ -1, %if.else207 ], [ %minSig.0.ph, %if.end216.sink.split ]
-  %29 = load i32, ptr %precision, align 8
-  %cmp.i141 = icmp eq i32 %29, 0
+  %31 = load i32, ptr %precision, align 8
+  %cmp.i141 = icmp eq i32 %31, 0
   br i1 %cmp.i141, label %if.end222, label %if.then219
 
 if.then219:                                       ; preds = %if.end216
@@ -985,8 +985,8 @@ if.end222:                                        ; preds = %if.then219, %if.end
   %conv = trunc i32 %minInt.0 to i16
   %conv224 = trunc i32 %maxInt.0 to i16
   %formatFailIfMoreThanMaxDigits = getelementptr inbounds i8, ptr %properties, i64 68
-  %30 = load i8, ptr %formatFailIfMoreThanMaxDigits, align 4
-  %tobool225 = trunc i8 %30 to i1
+  %32 = load i8, ptr %formatFailIfMoreThanMaxDigits, align 4
+  %tobool225 = trunc i8 %32 to i1
   invoke void @_ZN6icu_756number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %ref.tmp223, i16 noundef signext %conv, i16 noundef signext %conv224, i1 noundef zeroext %tobool225)
           to label %invoke.cont226 unwind label %lpad35
 
@@ -1004,8 +1004,8 @@ invoke.cont228:                                   ; preds = %invoke.cont226
   %ref.tmp227.sroa.2.0.grouper.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 108
   store i32 %call229.fca.1.extract, ptr %ref.tmp227.sroa.2.0.grouper.sroa_idx, align 4
   %formatWidth = getelementptr inbounds i8, ptr %properties, i64 72
-  %31 = load i32, ptr %formatWidth, align 8
-  %cmp230 = icmp sgt i32 %31, 0
+  %33 = load i32, ptr %formatWidth, align 8
+  %cmp230 = icmp sgt i32 %33, 0
   br i1 %cmp230, label %if.then231, label %if.end236
 
 if.then231:                                       ; preds = %invoke.cont228
@@ -1023,20 +1023,20 @@ invoke.cont233:                                   ; preds = %if.then231
 
 if.end236:                                        ; preds = %invoke.cont233, %invoke.cont228
   %decimalSeparatorAlwaysShown = getelementptr inbounds i8, ptr %properties, i64 65
-  %32 = load i8, ptr %decimalSeparatorAlwaysShown, align 1
-  %33 = and i8 %32, 1
-  %cond238 = zext nneg i8 %33 to i32
+  %34 = load i8, ptr %decimalSeparatorAlwaysShown, align 1
+  %35 = and i8 %34, 1
+  %cond238 = zext nneg i8 %35 to i32
   %decimal = getelementptr inbounds i8, ptr %agg.result, i64 164
   store i32 %cond238, ptr %decimal, align 4
   %signAlwaysShown = getelementptr inbounds i8, ptr %properties, i64 756
-  %34 = load i8, ptr %signAlwaysShown, align 4
-  %35 = and i8 %34, 1
-  %cond240 = zext nneg i8 %35 to i32
+  %36 = load i8, ptr %signAlwaysShown, align 4
+  %37 = and i8 %36, 1
+  %cond240 = zext nneg i8 %37 to i32
   %sign = getelementptr inbounds i8, ptr %agg.result, i64 156
   store i32 %cond240, ptr %sign, align 4
   %minimumExponentDigits = getelementptr inbounds i8, ptr %properties, i64 100
-  %36 = load i32, ptr %minimumExponentDigits, align 4
-  %cmp241.not = icmp eq i32 %36, -1
+  %38 = load i32, ptr %minimumExponentDigits, align 4
+  %cmp241.not = icmp eq i32 %38, -1
   br i1 %cmp241.not, label %if.end320, label %if.then242
 
 if.then242:                                       ; preds = %if.end236
@@ -1092,12 +1092,12 @@ if.end269:                                        ; preds = %if.end269.sink.spli
   %cond274 = call i32 @llvm.smax.i32(i32 %maxInt.2, i32 -1)
   %conv276 = trunc i32 %cond274 to i8
   %cmp277 = icmp eq i32 %cond274, %minInt.2
-  %37 = load i32, ptr %minimumExponentDigits, align 4
-  %conv279 = trunc i32 %37 to i16
+  %39 = load i32, ptr %minimumExponentDigits, align 4
+  %conv279 = trunc i32 %39 to i16
   %exponentSignAlwaysShown = getelementptr inbounds i8, ptr %properties, i64 66
-  %38 = load i8, ptr %exponentSignAlwaysShown, align 2
-  %39 = and i8 %38, 1
-  %cond281 = zext nneg i8 %39 to i32
+  %40 = load i8, ptr %exponentSignAlwaysShown, align 2
+  %41 = and i8 %40, 1
+  %cond281 = zext nneg i8 %41 to i32
   invoke void @_ZN6icu_756number18ScientificNotationC1Eabs18UNumberSignDisplay(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp275, i8 noundef signext %conv276, i1 noundef zeroext %cmp277, i16 noundef signext %conv279, i32 noundef %cond281)
           to label %invoke.cont282 unwind label %lpad35
 
@@ -1105,17 +1105,17 @@ invoke.cont282:                                   ; preds = %if.end269
   %notation = getelementptr inbounds i8, ptr %agg.result, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %notation, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp275, i64 12, i1 false)
   %precision283 = getelementptr inbounds i8, ptr %agg.result, i64 64
-  %40 = load i32, ptr %precision283, align 8
-  %cmp284 = icmp eq i32 %40, 2
+  %42 = load i32, ptr %precision283, align 8
+  %cmp284 = icmp eq i32 %42, 2
   br i1 %cmp284, label %if.then285, label %if.end320
 
 if.then285:                                       ; preds = %invoke.cont282
-  %41 = load i32, ptr %maximumIntegerDigits, align 4
-  %42 = load i32, ptr %minimumIntegerDigits, align 8
-  %43 = load i32, ptr %minimumFractionDigits, align 8
-  %44 = load i32, ptr %maximumFractionDigits, align 8
-  %cmp290 = icmp eq i32 %42, 0
-  %cmp292 = icmp eq i32 %44, 0
+  %43 = load i32, ptr %maximumIntegerDigits, align 4
+  %44 = load i32, ptr %minimumIntegerDigits, align 8
+  %45 = load i32, ptr %minimumFractionDigits, align 8
+  %46 = load i32, ptr %maximumFractionDigits, align 8
+  %cmp290 = icmp eq i32 %44, 0
+  %cmp292 = icmp eq i32 %46, 0
   %or.cond5 = select i1 %cmp290, i1 %cmp292, i1 false
   br i1 %or.cond5, label %if.then293, label %if.else297
 
@@ -1124,21 +1124,21 @@ if.then293:                                       ; preds = %if.then285
           to label %if.end317 unwind label %lpad35
 
 if.else297:                                       ; preds = %if.then285
-  %cmp300 = icmp eq i32 %43, 0
+  %cmp300 = icmp eq i32 %45, 0
   %or.cond6 = select i1 %cmp290, i1 %cmp300, i1 false
   br i1 %or.cond6, label %if.then301, label %if.else305
 
 if.then301:                                       ; preds = %if.else297
-  %add = add nsw i32 %44, 1
+  %add = add nsw i32 %46, 1
   invoke void @_ZN6icu_756number9Precision20constructSignificantEii(ptr nonnull sret(%"class.icu_75::number::Precision") align 8 %ref.tmp302, i32 noundef 1, i32 noundef %add)
           to label %if.end317 unwind label %lpad35
 
 if.else305:                                       ; preds = %if.else297
-  %add306 = add nsw i32 %44, %42
-  %cmp307 = icmp sgt i32 %41, %42
-  %45 = call i32 @llvm.smin.i32(i32 %42, i32 1)
-  %spec.store.select = select i1 %cmp307, i32 %45, i32 %42
-  %add312 = add nsw i32 %spec.store.select, %43
+  %add306 = add nsw i32 %46, %44
+  %cmp307 = icmp sgt i32 %43, %44
+  %47 = call i32 @llvm.smin.i32(i32 %44, i32 1)
+  %spec.store.select = select i1 %cmp307, i32 %47, i32 %44
+  %add312 = add nsw i32 %spec.store.select, %45
   invoke void @_ZN6icu_756number9Precision20constructSignificantEii(ptr nonnull sret(%"class.icu_75::number::Precision") align 8 %ref.tmp313, i32 noundef %add312, i32 noundef %add306)
           to label %if.end317 unwind label %lpad35
 
@@ -1152,14 +1152,14 @@ if.end317:                                        ; preds = %if.else305, %if.the
 if.end320:                                        ; preds = %invoke.cont282, %if.end317, %if.end236
   %minInt.1 = phi i32 [ %minInt.2, %if.end317 ], [ %minInt.2, %invoke.cont282 ], [ %minInt.0, %if.end236 ]
   %maxInt.1 = phi i32 [ %maxInt.2, %if.end317 ], [ %maxInt.2, %invoke.cont282 ], [ %maxInt.0, %if.end236 ]
-  %46 = load i8, ptr %properties, align 8
-  %tobool.i142 = trunc i8 %46 to i1
+  %48 = load i8, ptr %properties, align 8
+  %tobool.i142 = trunc i8 %48 to i1
   br i1 %tobool.i142, label %if.end341, label %if.then323
 
 if.then323:                                       ; preds = %if.end320
   %fValue.i143 = getelementptr inbounds i8, ptr %properties, i64 4
-  %47 = load i32, ptr %fValue.i143, align 4
-  %cmp327 = icmp eq i32 %47, 1
+  %49 = load i32, ptr %fValue.i143, align 4
+  %cmp327 = icmp eq i32 %49, 1
   br i1 %cmp327, label %if.then328, label %if.else334
 
 if.then328:                                       ; preds = %if.then323
@@ -1182,19 +1182,19 @@ if.end341.sink.split:                             ; preds = %if.else334, %if.the
 
 if.end341:                                        ; preds = %if.end341.sink.split, %if.end320
   %magnitudeMultiplier1.i = getelementptr inbounds i8, ptr %properties, i64 84
-  %48 = load i32, ptr %magnitudeMultiplier1.i, align 4, !noalias !4
+  %50 = load i32, ptr %magnitudeMultiplier1.i, align 4, !noalias !4
   %multiplierScale.i = getelementptr inbounds i8, ptr %properties, i64 124
-  %49 = load i32, ptr %multiplierScale.i, align 4, !noalias !4
-  %add.i = add nsw i32 %49, %48
+  %51 = load i32, ptr %multiplierScale.i, align 4, !noalias !4
+  %add.i = add nsw i32 %51, %50
   %multiplier.i = getelementptr inbounds i8, ptr %properties, i64 120
-  %50 = load i32, ptr %multiplier.i, align 8, !noalias !4
+  %52 = load i32, ptr %multiplier.i, align 8, !noalias !4
   %cmp.i144 = icmp ne i32 %add.i, 0
-  %cmp2.i = icmp ne i32 %50, 1
+  %cmp2.i = icmp ne i32 %52, 1
   %or.cond.i = select i1 %cmp.i144, i1 %cmp2.i, i1 false
   br i1 %or.cond.i, label %if.then.i146, label %if.else.i145
 
 if.then.i146:                                     ; preds = %if.end341
-  %conv.i147 = sitofp i32 %50 to double
+  %conv.i147 = sitofp i32 %52 to double
   invoke void @_ZN6icu_756number5Scale21byDoubleAndPowerOfTenEdi(ptr nonnull sret(%"class.icu_75::number::Scale") align 8 %ref.tmp342, double noundef %conv.i147, i32 noundef %add.i)
           to label %invoke.cont343 unwind label %lpad35
 
@@ -1209,7 +1209,7 @@ if.else5.i:                                       ; preds = %if.else.i145
   br i1 %cmp2.i, label %if.then7.i, label %if.else9.i
 
 if.then7.i:                                       ; preds = %if.else5.i
-  %conv8.i = sitofp i32 %50 to double
+  %conv8.i = sitofp i32 %52 to double
   invoke void @_ZN6icu_756number5Scale8byDoubleEd(ptr nonnull sret(%"class.icu_75::number::Scale") align 8 %ref.tmp342, double noundef %conv8.i)
           to label %invoke.cont343 unwind label %lpad35
 
@@ -1242,7 +1242,7 @@ invoke.cont348:                                   ; preds = %if.then346
   %cond358 = select i1 %cmp354, i32 2147483647, i32 %maxInt.1
   %maximumIntegerDigits359 = getelementptr inbounds i8, ptr %exportedProperties, i64 92
   store i32 %cond358, ptr %maximumIntegerDigits359, align 4
-  %cmp362 = icmp eq i32 %29, 8
+  %cmp362 = icmp eq i32 %31, 8
   br i1 %cmp362, label %if.then363, label %if.end367
 
 if.then363:                                       ; preds = %invoke.cont348
@@ -1257,7 +1257,7 @@ if.end367:                                        ; preds = %invoke.cont348, %in
   %precision.sink216.sroa.phi = phi ptr [ %precision.sink216.sroa.gep, %invoke.cont365 ], [ %precision.sink216.sroa.gep217, %invoke.cont348 ]
   %precision.sink216.sroa.phi218 = phi ptr [ %precision.sink216.sroa.gep219, %invoke.cont365 ], [ %precision.sink216.sroa.gep220, %invoke.cont348 ]
   %precision.sink216.sroa.phi221 = phi ptr [ %precision.sink216.sroa.gep222, %invoke.cont365 ], [ %precision.sink216.sroa.gep223, %invoke.cont348 ]
-  %rounding_.sroa.0.0 = phi i32 [ %rounding_.sroa.0.0.copyload, %invoke.cont365 ], [ %29, %invoke.cont348 ]
+  %rounding_.sroa.0.0 = phi i32 [ %rounding_.sroa.0.0.copyload, %invoke.cont365 ], [ %31, %invoke.cont348 ]
   %rounding_.sroa.4158.0.copyload159 = load i64, ptr %precision.sink216.sroa.phi, align 8
   %rounding_.sroa.9.0.copyload161 = load i16, ptr %precision.sink216.sroa.phi218, align 8
   %rounding_.sroa.10.0.copyload162 = load i16, ptr %precision.sink216.sroa.phi221, align 2
@@ -1272,8 +1272,8 @@ if.then374:                                       ; preds = %if.end367
   br label %if.end415
 
 if.else378:                                       ; preds = %if.end367
-  %51 = add i32 %rounding_.sroa.0.0, -5
-  %or.cond9 = icmp ult i32 %51, 3
+  %53 = add i32 %rounding_.sroa.0.0, -5
+  %or.cond9 = icmp ult i32 %53, 3
   br i1 %or.cond9, label %if.then387, label %if.else405
 
 if.then387:                                       ; preds = %if.else378
@@ -1299,7 +1299,7 @@ invoke.cont403:                                   ; preds = %invoke.cont401
   br label %if.end415
 
 lpad396:                                          ; preds = %invoke.cont401, %invoke.cont397, %invoke.cont394
-  %52 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %dq) #13
   br label %ehcleanup
@@ -1341,7 +1341,7 @@ if.end421:                                        ; preds = %if.end415, %invoke.
   ret void
 
 ehcleanup:                                        ; preds = %lpad396, %lpad35
-  %.pn = phi { ptr, i32 } [ %52, %lpad396 ], [ %12, %lpad35 ]
+  %.pn = phi { ptr, i32 } [ %54, %lpad396 ], [ %14, %lpad35 ]
   call void @_ZN6icu_7512CurrencyUnitD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %currency31) #13
   br label %ehcleanup422
 

@@ -183,8 +183,8 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %.281, i64 8
   %24 = load i64, ptr %23, align 8
-  %25 = icmp eq i64 %13, %24
-  br i1 %25, label %.critedge2.thread, label %.critedge74
+  %.not = icmp eq i64 %13, %24
+  br i1 %.not, label %.critedge2.thread, label %.critedge74
 
 .critedge74:                                      ; preds = %18, %22
   %.2 = load ptr, ptr %.281, align 8
@@ -192,133 +192,133 @@ define internal fastcc ptr @internal_load_library(ptr noundef %0) unnamed_addr #
   br i1 %.not68, label %.critedge2, label %18, !llvm.loop !7
 
 .critedge2:                                       ; preds = %.critedge74, %.preheader
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
-  %27 = add i64 %26, 33
-  %28 = tail call noalias ptr @malloc(i64 noundef %27) #20
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %34
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+  %26 = add i64 %25, 33
+  %27 = tail call noalias ptr @malloc(i64 noundef %26) #20
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %33
 
-30:                                               ; preds = %.critedge2
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 @errcode(i32 noundef 8389) #17
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #17
+29:                                               ; preds = %.critedge2
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  tail call void @llvm.assume(i1 %30)
+  %31 = tail call i32 @errcode(i32 noundef 8389) #17
+  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #17
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @__func__.internal_load_library) #17
   unreachable
 
-34:                                               ; preds = %.critedge2
-  %35 = ptrtoint ptr %28 to i64
-  %36 = and i64 %35, 7
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %47
+33:                                               ; preds = %.critedge2
+  %34 = ptrtoint ptr %27 to i64
+  %35 = and i64 %34, 7
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %46
 
-38:                                               ; preds = %34
-  %39 = getelementptr i8, ptr %28, i64 32
-  %40 = icmp ult ptr %28, %39
-  br i1 %40, label %.lr.ph83.preheader, label %.loopexit
+37:                                               ; preds = %33
+  %38 = getelementptr i8, ptr %27, i64 32
+  %39 = icmp ult ptr %27, %38
+  br i1 %39, label %.lr.ph83.preheader, label %.loopexit
 
-.lr.ph83.preheader:                               ; preds = %38
-  %41 = add i64 %35, 32
-  %42 = add i64 %35, 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %41, i64 %42)
-  %43 = xor i64 %35, -1
-  %44 = add i64 %umax, %43
-  %45 = and i64 %44, -8
-  %46 = add i64 %45, 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %46, i1 false)
+.lr.ph83.preheader:                               ; preds = %37
+  %40 = add i64 %34, 32
+  %41 = add i64 %34, 8
+  %umax = tail call i64 @llvm.umax.i64(i64 %40, i64 %41)
+  %42 = xor i64 %34, -1
+  %43 = add i64 %umax, %42
+  %44 = and i64 %43, -8
+  %45 = add i64 %44, 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %27, i8 0, i64 %45, i1 false)
   br label %.loopexit
 
-47:                                               ; preds = %34
-  %48 = getelementptr inbounds i8, ptr %28, i64 24
-  store i64 0, ptr %48, align 1
+46:                                               ; preds = %33
+  %47 = getelementptr inbounds i8, ptr %27, i64 24
+  store i64 0, ptr %47, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph83.preheader, %38, %47
-  %49 = getelementptr inbounds i8, ptr %28, i64 32
-  %50 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %0) #17
-  %51 = load i64, ptr %2, align 8
-  %52 = getelementptr inbounds i8, ptr %28, i64 8
-  store i64 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 8
-  %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %28, i64 16
-  store i64 %54, ptr %55, align 8
-  store ptr null, ptr %28, align 8
-  %56 = tail call ptr @dlopen(ptr noundef nonnull %49, i32 noundef 258) #17
-  %57 = getelementptr inbounds i8, ptr %28, i64 24
-  store ptr %56, ptr %57, align 8
-  %58 = icmp eq ptr %56, null
-  br i1 %58, label %59, label %64
+.loopexit:                                        ; preds = %.lr.ph83.preheader, %37, %46
+  %48 = getelementptr inbounds i8, ptr %27, i64 32
+  %49 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %0) #17
+  %50 = load i64, ptr %2, align 8
+  %51 = getelementptr inbounds i8, ptr %27, i64 8
+  store i64 %50, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %27, i64 16
+  store i64 %53, ptr %54, align 8
+  store ptr null, ptr %27, align 8
+  %55 = tail call ptr @dlopen(ptr noundef nonnull %48, i32 noundef 258) #17
+  %56 = getelementptr inbounds i8, ptr %27, i64 24
+  store ptr %55, ptr %56, align 8
+  %57 = icmp eq ptr %55, null
+  br i1 %57, label %58, label %63
 
-59:                                               ; preds = %.loopexit
-  %60 = tail call ptr @dlerror() #17
-  tail call void @free(ptr noundef nonnull %28) #17
-  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %61)
-  %62 = tail call i32 @errcode_for_file_access() #17
-  %63 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %60) #17
+58:                                               ; preds = %.loopexit
+  %59 = tail call ptr @dlerror() #17
+  tail call void @free(ptr noundef nonnull %27) #17
+  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  tail call void @llvm.assume(i1 %60)
+  %61 = tail call i32 @errcode_for_file_access() #17
+  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef %59) #17
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.internal_load_library) #17
   unreachable
 
-64:                                               ; preds = %.loopexit
-  %65 = tail call ptr @dlsym(ptr noundef nonnull %56, ptr noundef nonnull @.str.6) #17
-  %.not69 = icmp eq ptr %65, null
-  br i1 %.not69, label %73, label %66
+63:                                               ; preds = %.loopexit
+  %64 = tail call ptr @dlsym(ptr noundef nonnull %55, ptr noundef nonnull @.str.6) #17
+  %.not69 = icmp eq ptr %64, null
+  br i1 %.not69, label %72, label %65
 
-66:                                               ; preds = %64
-  %67 = tail call ptr %65() #17
-  %68 = load i32, ptr %67, align 4
-  %.not70 = icmp eq i32 %68, 56
-  br i1 %.not70, label %69, label %70
+65:                                               ; preds = %63
+  %66 = tail call ptr %64() #17
+  %67 = load i32, ptr %66, align 4
+  %.not70 = icmp eq i32 %67, 56
+  br i1 %.not70, label %68, label %69
 
-69:                                               ; preds = %66
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(56) %67, ptr noundef nonnull dereferenceable(56) @magic_data, i64 56)
+68:                                               ; preds = %65
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(56) %66, ptr noundef nonnull dereferenceable(56) @magic_data, i64 56)
   %.not71 = icmp eq i32 %bcmp, 0
-  br i1 %.not71, label %79, label %70
+  br i1 %.not71, label %78, label %69
 
-70:                                               ; preds = %69, %66
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %3, ptr noundef nonnull align 4 dereferenceable(56) %67, i64 56, i1 false)
-  %71 = load ptr, ptr %57, align 8
-  %72 = tail call i32 @dlclose(ptr noundef %71) #17
-  tail call void @free(ptr noundef nonnull %28) #17
+69:                                               ; preds = %68, %65
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %3, ptr noundef nonnull align 4 dereferenceable(56) %66, i64 56, i1 false)
+  %70 = load ptr, ptr %56, align 8
+  %71 = tail call i32 @dlclose(ptr noundef %70) #17
+  tail call void @free(ptr noundef nonnull %27) #17
   call fastcc void @incompatible_module_error(ptr noundef %0, ptr noundef nonnull %3) #21
   unreachable
 
-73:                                               ; preds = %64
-  %74 = load ptr, ptr %57, align 8
-  %75 = tail call i32 @dlclose(ptr noundef %74) #17
-  tail call void @free(ptr noundef nonnull %28) #17
-  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %76)
-  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %0) #17
-  %78 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8) #17
+72:                                               ; preds = %63
+  %73 = load ptr, ptr %56, align 8
+  %74 = tail call i32 @dlclose(ptr noundef %73) #17
+  tail call void @free(ptr noundef nonnull %27) #17
+  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  tail call void @llvm.assume(i1 %75)
+  %76 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %0) #17
+  %77 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8) #17
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 281, ptr noundef nonnull @__func__.internal_load_library) #17
   unreachable
 
-79:                                               ; preds = %69
-  %80 = load ptr, ptr %57, align 8
-  %81 = tail call ptr @dlsym(ptr noundef %80, ptr noundef nonnull @.str.9) #17
-  %.not72 = icmp eq ptr %81, null
-  br i1 %.not72, label %83, label %82
+78:                                               ; preds = %68
+  %79 = load ptr, ptr %56, align 8
+  %80 = tail call ptr @dlsym(ptr noundef %79, ptr noundef nonnull @.str.9) #17
+  %.not72 = icmp eq ptr %80, null
+  br i1 %.not72, label %82, label %81
 
-82:                                               ; preds = %79
-  tail call void %81() #17
-  br label %83
+81:                                               ; preds = %78
+  tail call void %80() #17
+  br label %82
 
-83:                                               ; preds = %82, %79
-  %84 = load ptr, ptr @file_list, align 8
-  %85 = icmp eq ptr %84, null
-  %86 = load ptr, ptr @file_tail, align 8
-  %.sink = select i1 %85, ptr @file_list, ptr %86
-  store ptr %28, ptr %.sink, align 8
-  store ptr %28, ptr @file_tail, align 8
+82:                                               ; preds = %81, %78
+  %83 = load ptr, ptr @file_list, align 8
+  %84 = icmp eq ptr %83, null
+  %85 = load ptr, ptr @file_tail, align 8
+  %.sink = select i1 %84, ptr @file_list, ptr %85
+  store ptr %27, ptr %.sink, align 8
+  store ptr %27, ptr @file_tail, align 8
   br label %.critedge2.thread
 
-.critedge2.thread:                                ; preds = %5, %22, %83
-  %.3 = phi ptr [ %28, %83 ], [ %.281, %22 ], [ %.0, %5 ]
-  %87 = getelementptr inbounds i8, ptr %.3, i64 24
-  %88 = load ptr, ptr %87, align 8
-  ret ptr %88
+.critedge2.thread:                                ; preds = %5, %22, %82
+  %.3 = phi ptr [ %27, %82 ], [ %.281, %22 ], [ %.0, %5 ]
+  %86 = getelementptr inbounds i8, ptr %.3, i64 24
+  %87 = load ptr, ptr %86, align 8
+  ret ptr %87
 }
 
 ; Function Attrs: nounwind

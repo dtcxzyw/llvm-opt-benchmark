@@ -1036,9 +1036,9 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %.preheader355, label %.lr.ph385, !llvm.loop !21
 
-.preheader:                                       ; preds = %.loopexit459, %.preheader355
-  %.0325.lcssa = phi i32 [ 0, %.preheader355 ], [ %261, %.loopexit459 ]
-  %.1321.lcssa = phi i32 [ %.0320.lcssa, %.preheader355 ], [ %.3323, %.loopexit459 ]
+.preheader:                                       ; preds = %.loopexit454, %.preheader355
+  %.0325.lcssa = phi i32 [ 0, %.preheader355 ], [ %261, %.loopexit454 ]
+  %.1321.lcssa = phi i32 [ %.0320.lcssa, %.preheader355 ], [ %.3323, %.loopexit454 ]
   br i1 %33, label %.lr.ph425, label %._crit_edge426
 
 .lr.ph425:                                        ; preds = %.preheader
@@ -1046,10 +1046,10 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %wide.trip.count443 = zext nneg i32 %29 to i64
   br label %265
 
-.lr.ph403:                                        ; preds = %.preheader355, %.loopexit459
-  %.3316402 = phi ptr [ %110, %.loopexit459 ], [ %.0299.lcssa, %.preheader355 ]
-  %.1321401 = phi i32 [ %.3323, %.loopexit459 ], [ %.0320.lcssa, %.preheader355 ]
-  %.0325400 = phi i32 [ %261, %.loopexit459 ], [ 0, %.preheader355 ]
+.lr.ph403:                                        ; preds = %.preheader355, %.loopexit454
+  %.3316402 = phi ptr [ %110, %.loopexit454 ], [ %.0299.lcssa, %.preheader355 ]
+  %.1321401 = phi i32 [ %.3323, %.loopexit454 ], [ %.0320.lcssa, %.preheader355 ]
+  %.0325400 = phi i32 [ %261, %.loopexit454 ], [ 0, %.preheader355 ]
   %109 = getelementptr inbounds i8, ptr %.3316402, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %.3316402, i64 16
@@ -1090,7 +1090,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %.0310 = load ptr, ptr %.0310.in, align 8
   %131 = load ptr, ptr @empty, align 8
   %132 = icmp eq ptr %.0310, %131
-  br i1 %132, label %.loopexit460, label %133
+  br i1 %132, label %.loopexit455, label %133
 
 133:                                              ; preds = %130
   %134 = ptrtoint ptr %.0310 to i64
@@ -1137,7 +1137,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
 165:                                              ; preds = %161
   %166 = load i32, ptr %.1306389, align 8
   %167 = icmp eq i32 %166, %23
-  br i1 %167, label %.loopexit460, label %168
+  br i1 %167, label %.loopexit455, label %168
 
 168:                                              ; preds = %165, %161, %.lr.ph391
   %169 = getelementptr inbounds i8, ptr %.1306389, i64 8
@@ -1167,9 +1167,9 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %180 = load i32, ptr %179, align 4
   %181 = add i32 %180, 1
   store i32 %181, ptr %179, align 4
-  br label %.loopexit460
+  br label %.loopexit455
 
-.loopexit460:                                     ; preds = %165, %130, %172
+.loopexit455:                                     ; preds = %165, %130, %172
   %.1306389.lcssa.sink = phi ptr [ %.0311, %172 ], [ %.0311, %130 ], [ %.1306389, %165 ]
   %.2322 = phi i32 [ %176, %172 ], [ %.1321401, %130 ], [ %.1321401, %165 ]
   %.0305 = phi ptr [ %170, %172 ], [ %.0311, %130 ], [ %.1306389, %165 ]
@@ -1180,9 +1180,9 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   store ptr %.0305, ptr %111, align 8
   %185 = load ptr, ptr @empty, align 8
   %186 = icmp eq ptr %.0312, %185
-  br i1 %186, label %.loopexit459, label %187
+  br i1 %186, label %.loopexit454, label %187
 
-187:                                              ; preds = %.loopexit460
+187:                                              ; preds = %.loopexit455
   %188 = ptrtoint ptr %.0312 to i64
   %189 = and i64 %188, -2
   %190 = inttoptr i64 %189 to ptr
@@ -1227,7 +1227,7 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
 219:                                              ; preds = %215
   %220 = load i32, ptr %.1304395, align 8
   %221 = icmp eq i32 %220, %23
-  br i1 %221, label %.loopexit459, label %222
+  br i1 %221, label %.loopexit454, label %222
 
 222:                                              ; preds = %219, %215, %.lr.ph397
   %223 = getelementptr inbounds i8, ptr %.1304395, i64 8
@@ -1257,12 +1257,12 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %234 = load i32, ptr %233, align 4
   %235 = add i32 %234, 1
   store i32 %235, ptr %233, align 4
-  br label %.loopexit459
+  br label %.loopexit454
 
-.loopexit459:                                     ; preds = %219, %.loopexit460, %226
-  %.1304395.lcssa.sink = phi ptr [ %.0309, %226 ], [ %.0309, %.loopexit460 ], [ %.1304395, %219 ]
-  %.3323 = phi i32 [ %230, %226 ], [ %.2322, %.loopexit460 ], [ %.2322, %219 ]
-  %.0303 = phi ptr [ %224, %226 ], [ %.0309, %.loopexit460 ], [ %.1304395, %219 ]
+.loopexit454:                                     ; preds = %219, %.loopexit455, %226
+  %.1304395.lcssa.sink = phi ptr [ %.0309, %226 ], [ %.0309, %.loopexit455 ], [ %.1304395, %219 ]
+  %.3323 = phi i32 [ %230, %226 ], [ %.2322, %.loopexit455 ], [ %.2322, %219 ]
+  %.0303 = phi ptr [ %224, %226 ], [ %.0309, %.loopexit455 ], [ %.1304395, %219 ]
   %236 = getelementptr inbounds i8, ptr %.1304395.lcssa.sink, i64 4
   %237 = load i32, ptr %236, align 4
   %238 = add i32 %237, 1
@@ -1308,11 +1308,11 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %.not339412 = icmp eq ptr %267, null
   br i1 %.not339412, label %._crit_edge419, label %.lr.ph418
 
-.lr.ph418:                                        ; preds = %265, %385
-  %.0295416 = phi ptr [ %.1296, %385 ], [ null, %265 ]
-  %.4415 = phi ptr [ %269, %385 ], [ %267, %265 ]
-  %.5414 = phi i32 [ %.6, %385 ], [ %.4324423, %265 ]
-  %.2327413 = phi i32 [ %.3328, %385 ], [ %.1326422, %265 ]
+.lr.ph418:                                        ; preds = %265, %389
+  %.0295416 = phi ptr [ %.1296, %389 ], [ null, %265 ]
+  %.4415 = phi ptr [ %269, %389 ], [ %267, %265 ]
+  %.5414 = phi i32 [ %.6, %389 ], [ %.4324423, %265 ]
+  %.2327413 = phi i32 [ %.3328, %389 ], [ %.1326422, %265 ]
   %268 = getelementptr inbounds i8, ptr %.4415, i64 8
   %269 = load ptr, ptr %268, align 8
   %270 = getelementptr inbounds i8, ptr %.4415, i64 4
@@ -1342,17 +1342,17 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
 
 287:                                              ; preds = %273
   store ptr %269, ptr %266, align 8
-  br label %385
+  br label %389
 
 288:                                              ; preds = %273
   %289 = getelementptr inbounds i8, ptr %.0295416, i64 8
   store ptr %269, ptr %289, align 8
-  br label %385
+  br label %389
 
 290:                                              ; preds = %.lr.ph418
   %291 = load i32, ptr %.4415, align 8
   %292 = icmp eq i32 %291, %10
-  br i1 %292, label %293, label %385
+  br i1 %292, label %293, label %389
 
 293:                                              ; preds = %290
   %294 = icmp eq ptr %.0295416, null
@@ -1394,112 +1394,117 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
   %cond352407 = icmp eq ptr %.2307406, null
   br i1 %cond352407, label %._crit_edge411, label %.lr.ph410
 
-.lr.ph410:                                        ; preds = %293, %336
-  %.2307408 = phi ptr [ %.2307, %336 ], [ %.2307406, %293 ]
+.lr.ph410:                                        ; preds = %293, %341
+  %.2307408 = phi ptr [ %.2307, %341 ], [ %.2307406, %293 ]
   %326 = getelementptr inbounds i8, ptr %.2307408, i64 16
   %327 = load ptr, ptr %326, align 8
   %328 = icmp eq ptr %327, %297
-  br i1 %328, label %329, label %336
+  br i1 %328, label %329, label %341
 
 329:                                              ; preds = %.lr.ph410
   %330 = getelementptr inbounds i8, ptr %.2307408, i64 24
   %331 = load ptr, ptr %330, align 8
   %332 = icmp eq ptr %331, %311
-  br i1 %332, label %333, label %336
+  br i1 %332, label %333, label %341
 
 333:                                              ; preds = %329
   %334 = load i32, ptr %.2307408, align 8
   %335 = icmp eq i32 %334, %23
-  br i1 %335, label %.loopexit458, label %336
+  br i1 %335, label %336, label %341
 
-336:                                              ; preds = %333, %329, %.lr.ph410
-  %337 = getelementptr inbounds i8, ptr %.2307408, i64 8
-  %.2307 = load ptr, ptr %337, align 8
+336:                                              ; preds = %333
+  %337 = getelementptr inbounds i8, ptr %.2307408, i64 4
+  %338 = load i32, ptr %337, align 4
+  %339 = add i32 %338, 1
+  store i32 %339, ptr %337, align 4
+  %340 = add nsw i32 %.5414, -1
+  br label %360
+
+341:                                              ; preds = %333, %329, %.lr.ph410
+  %342 = getelementptr inbounds i8, ptr %.2307408, i64 8
+  %.2307 = load ptr, ptr %342, align 8
   %cond352 = icmp eq ptr %.2307, null
   br i1 %cond352, label %._crit_edge411, label %.lr.ph410, !llvm.loop !25
 
-._crit_edge411:                                   ; preds = %336, %293
-  %338 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #9
-  %339 = icmp eq ptr %338, null
-  br i1 %339, label %.loopexit, label %340
+._crit_edge411:                                   ; preds = %341, %293
+  %343 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #9
+  %344 = icmp eq ptr %343, null
+  br i1 %344, label %.loopexit, label %345
 
-340:                                              ; preds = %._crit_edge411
-  store i32 %23, ptr %338, align 8
-  %341 = getelementptr inbounds i8, ptr %338, i64 4
-  store i32 1, ptr %341, align 4
-  %342 = getelementptr inbounds i8, ptr %338, i64 16
-  store ptr %297, ptr %342, align 8
-  %343 = load ptr, ptr @empty, align 8
-  %344 = getelementptr inbounds i8, ptr %338, i64 24
-  store ptr %343, ptr %344, align 8
-  %345 = add nsw i32 %.5414, 1
-  %346 = load ptr, ptr %325, align 8
-  %347 = getelementptr inbounds i8, ptr %338, i64 8
-  store ptr %346, ptr %347, align 8
-  store ptr %338, ptr %325, align 8
-  %348 = zext i32 %323 to i64
-  %349 = icmp eq i64 %indvars.iv440, %348
-  %or.cond = and i1 %294, %349
-  %spec.select = select i1 %or.cond, ptr %338, ptr %.0295416
-  %350 = load i32, ptr %298, align 4
-  %351 = add i32 %350, 1
-  store i32 %351, ptr %298, align 4
-  %352 = load ptr, ptr @empty, align 8
-  br label %.loopexit458
-
-.loopexit458:                                     ; preds = %333, %340
-  %.2307408.lcssa.sink = phi ptr [ %352, %340 ], [ %.2307408, %333 ]
-  %.7 = phi i32 [ %345, %340 ], [ %.5414, %333 ]
-  %.3308 = phi ptr [ %338, %340 ], [ %.2307408, %333 ]
-  %.2297 = phi ptr [ %spec.select, %340 ], [ %.0295416, %333 ]
-  %353 = getelementptr inbounds i8, ptr %.2307408.lcssa.sink, i64 4
-  %354 = load i32, ptr %353, align 4
+345:                                              ; preds = %._crit_edge411
+  store i32 %23, ptr %343, align 8
+  %346 = getelementptr inbounds i8, ptr %343, i64 4
+  store i32 1, ptr %346, align 4
+  %347 = getelementptr inbounds i8, ptr %343, i64 16
+  store ptr %297, ptr %347, align 8
+  %348 = load ptr, ptr @empty, align 8
+  %349 = getelementptr inbounds i8, ptr %343, i64 24
+  store ptr %348, ptr %349, align 8
+  %350 = load ptr, ptr %325, align 8
+  %351 = getelementptr inbounds i8, ptr %343, i64 8
+  store ptr %350, ptr %351, align 8
+  store ptr %343, ptr %325, align 8
+  %352 = zext i32 %323 to i64
+  %353 = icmp eq i64 %indvars.iv440, %352
+  %or.cond = and i1 %294, %353
+  %spec.select = select i1 %or.cond, ptr %343, ptr %.0295416
+  %354 = load i32, ptr %298, align 4
   %355 = add i32 %354, 1
-  store i32 %355, ptr %353, align 4
-  store ptr %.3308, ptr %296, align 8
-  %356 = getelementptr inbounds i8, ptr %.4415, i64 24
-  %357 = load ptr, ptr %356, align 8
-  %358 = ptrtoint ptr %.3308 to i64
-  %359 = and i64 %358, -2
-  %360 = inttoptr i64 %359 to ptr
-  %361 = getelementptr inbounds i8, ptr %360, i64 32
-  %362 = load i64, ptr %361, align 8
-  %363 = shl i64 %362, 1
-  %364 = and i64 %358, 1
-  %365 = or disjoint i64 %363, %364
-  %366 = trunc i64 %365 to i32
-  %367 = mul i32 %366, 12582917
-  %368 = ptrtoint ptr %357 to i64
-  %369 = and i64 %368, -2
-  %370 = inttoptr i64 %369 to ptr
-  %371 = getelementptr inbounds i8, ptr %370, i64 32
-  %372 = load i64, ptr %371, align 8
-  %373 = shl i64 %372, 1
-  %374 = and i64 %368, 1
-  %375 = or disjoint i64 %373, %374
-  %376 = trunc i64 %375 to i32
-  %377 = add i32 %367, %376
-  %378 = mul i32 %377, 4256249
-  %379 = lshr i32 %378, %20
-  %380 = add nsw i32 %.2327413, 1
-  %381 = add nsw i32 %.7, -1
-  %382 = sext i32 %379 to i64
-  %383 = getelementptr inbounds ptr, ptr %14, i64 %382
-  %384 = load ptr, ptr %383, align 8
-  store ptr %384, ptr %268, align 8
-  store ptr %.4415, ptr %383, align 8
-  br label %385
+  store i32 %355, ptr %298, align 4
+  %356 = load ptr, ptr @empty, align 8
+  %357 = getelementptr inbounds i8, ptr %356, i64 4
+  %358 = load i32, ptr %357, align 4
+  %359 = add i32 %358, 1
+  store i32 %359, ptr %357, align 4
+  br label %360
 
-385:                                              ; preds = %290, %.loopexit458, %287, %288
-  %.3328 = phi i32 [ %.2327413, %287 ], [ %.2327413, %288 ], [ %380, %.loopexit458 ], [ %.2327413, %290 ]
-  %.6 = phi i32 [ %285, %287 ], [ %285, %288 ], [ %381, %.loopexit458 ], [ %.5414, %290 ]
-  %.1296 = phi ptr [ null, %287 ], [ %.0295416, %288 ], [ %.2297, %.loopexit458 ], [ %.4415, %290 ]
+360:                                              ; preds = %336, %345
+  %.7 = phi i32 [ %.5414, %345 ], [ %340, %336 ]
+  %.3308 = phi ptr [ %343, %345 ], [ %.2307408, %336 ]
+  %.2297 = phi ptr [ %spec.select, %345 ], [ %.0295416, %336 ]
+  store ptr %.3308, ptr %296, align 8
+  %361 = getelementptr inbounds i8, ptr %.4415, i64 24
+  %362 = load ptr, ptr %361, align 8
+  %363 = ptrtoint ptr %.3308 to i64
+  %364 = and i64 %363, -2
+  %365 = inttoptr i64 %364 to ptr
+  %366 = getelementptr inbounds i8, ptr %365, i64 32
+  %367 = load i64, ptr %366, align 8
+  %368 = shl i64 %367, 1
+  %369 = and i64 %363, 1
+  %370 = or disjoint i64 %368, %369
+  %371 = trunc i64 %370 to i32
+  %372 = mul i32 %371, 12582917
+  %373 = ptrtoint ptr %362 to i64
+  %374 = and i64 %373, -2
+  %375 = inttoptr i64 %374 to ptr
+  %376 = getelementptr inbounds i8, ptr %375, i64 32
+  %377 = load i64, ptr %376, align 8
+  %378 = shl i64 %377, 1
+  %379 = and i64 %373, 1
+  %380 = or disjoint i64 %378, %379
+  %381 = trunc i64 %380 to i32
+  %382 = add i32 %372, %381
+  %383 = mul i32 %382, 4256249
+  %384 = lshr i32 %383, %20
+  %385 = add nsw i32 %.2327413, 1
+  %386 = sext i32 %384 to i64
+  %387 = getelementptr inbounds ptr, ptr %14, i64 %386
+  %388 = load ptr, ptr %387, align 8
+  store ptr %388, ptr %268, align 8
+  store ptr %.4415, ptr %387, align 8
+  br label %389
+
+389:                                              ; preds = %290, %360, %287, %288
+  %.3328 = phi i32 [ %.2327413, %287 ], [ %.2327413, %288 ], [ %385, %360 ], [ %.2327413, %290 ]
+  %.6 = phi i32 [ %285, %287 ], [ %285, %288 ], [ %.7, %360 ], [ %.5414, %290 ]
+  %.1296 = phi ptr [ null, %287 ], [ %.0295416, %288 ], [ %.2297, %360 ], [ %.4415, %290 ]
   %.not339 = icmp eq ptr %269, null
   br i1 %.not339, label %._crit_edge419, label %.lr.ph418, !llvm.loop !26
 
-._crit_edge419:                                   ; preds = %385, %265
-  %.2327.lcssa = phi i32 [ %.1326422, %265 ], [ %.3328, %385 ]
-  %.5.lcssa = phi i32 [ %.4324423, %265 ], [ %.6, %385 ]
+._crit_edge419:                                   ; preds = %389, %265
+  %.2327.lcssa = phi i32 [ %.1326422, %265 ], [ %.3328, %389 ]
+  %.5.lcssa = phi i32 [ %.4324423, %265 ], [ %.6, %389 ]
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
   %exitcond444.not = icmp eq i64 %indvars.iv.next441, %wide.trip.count443
   br i1 %exitcond444.not, label %._crit_edge426, label %265, !llvm.loop !27
@@ -1507,38 +1512,38 @@ define internal fastcc i32 @cuddZddLinearInPlace(ptr noundef %0, i32 noundef %1,
 ._crit_edge426:                                   ; preds = %._crit_edge419, %.preheader
   %.1326.lcssa = phi i32 [ %.0325.lcssa, %.preheader ], [ %.2327.lcssa, %._crit_edge419 ]
   %.4324.lcssa = phi i32 [ %.1321.lcssa, %.preheader ], [ %.5.lcssa, %._crit_edge419 ]
-  %386 = load ptr, ptr %11, align 8
-  %387 = getelementptr inbounds %struct.DdSubtable, ptr %386, i64 %8, i32 3
-  store i32 %.1326.lcssa, ptr %387, align 8
-  %388 = load ptr, ptr %11, align 8
-  %389 = getelementptr inbounds %struct.DdSubtable, ptr %388, i64 %21, i32 3
-  store i32 %.4324.lcssa, ptr %389, align 8
-  %390 = add i32 %27, %16
-  %391 = getelementptr inbounds i8, ptr %0, i64 232
-  %392 = load i32, ptr %391, align 8
-  %393 = sub i32 %.1326.lcssa, %390
-  %394 = add i32 %393, %.4324.lcssa
-  %395 = add i32 %394, %392
-  store i32 %395, ptr %391, align 8
-  %396 = getelementptr inbounds i8, ptr %0, i64 360
-  %397 = load ptr, ptr %396, align 8
-  %398 = getelementptr inbounds ptr, ptr %397, i64 %8
-  %399 = load ptr, ptr %398, align 8
-  %400 = getelementptr inbounds i8, ptr %399, i64 16
+  %390 = load ptr, ptr %11, align 8
+  %391 = getelementptr inbounds %struct.DdSubtable, ptr %390, i64 %8, i32 3
+  store i32 %.1326.lcssa, ptr %391, align 8
+  %392 = load ptr, ptr %11, align 8
+  %393 = getelementptr inbounds %struct.DdSubtable, ptr %392, i64 %21, i32 3
+  store i32 %.4324.lcssa, ptr %393, align 8
+  %394 = add i32 %27, %16
+  %395 = getelementptr inbounds i8, ptr %0, i64 232
+  %396 = load i32, ptr %395, align 8
+  %397 = sub i32 %.1326.lcssa, %394
+  %398 = add i32 %397, %.4324.lcssa
+  %399 = add i32 %398, %396
+  store i32 %399, ptr %395, align 8
+  %400 = getelementptr inbounds i8, ptr %0, i64 360
   %401 = load ptr, ptr %400, align 8
-  %402 = getelementptr inbounds ptr, ptr %397, i64 %21
-  store ptr %401, ptr %402, align 8
-  %403 = load i32, ptr %391, align 8
-  br label %407
+  %402 = getelementptr inbounds ptr, ptr %401, i64 %8
+  %403 = load ptr, ptr %402, align 8
+  %404 = getelementptr inbounds i8, ptr %403, i64 16
+  %405 = load ptr, ptr %404, align 8
+  %406 = getelementptr inbounds ptr, ptr %401, i64 %21
+  store ptr %405, ptr %406, align 8
+  %407 = load i32, ptr %395, align 8
+  br label %411
 
 .loopexit:                                        ; preds = %._crit_edge398, %._crit_edge392, %._crit_edge411
-  %404 = getelementptr inbounds i8, ptr %0, i64 616
-  %405 = load ptr, ptr %404, align 8
-  %406 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 40, i64 1, ptr %405)
-  br label %407
+  %408 = getelementptr inbounds i8, ptr %0, i64 616
+  %409 = load ptr, ptr %408, align 8
+  %410 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 40, i64 1, ptr %409)
+  br label %411
 
-407:                                              ; preds = %.loopexit, %._crit_edge426
-  %.0329 = phi i32 [ 0, %.loopexit ], [ %403, %._crit_edge426 ]
+411:                                              ; preds = %.loopexit, %._crit_edge426
+  %.0329 = phi i32 [ 0, %.loopexit ], [ %407, %._crit_edge426 ]
   ret i32 %.0329
 }
 

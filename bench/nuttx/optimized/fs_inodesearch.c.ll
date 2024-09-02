@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @inode_search(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @inode_search(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 47

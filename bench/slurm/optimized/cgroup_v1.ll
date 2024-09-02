@@ -271,7 +271,7 @@ declare void @common_cgroup_ns_destroy(ptr noundef) local_unnamed_addr #1
 declare void @common_cgroup_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @cgroup_p_initialize(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cgroup_p_initialize(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds [5 x %struct.xcgroup_ns_t], ptr @g_cg_ns, i64 0, i64 %2, i32 1
   %4 = load ptr, ptr %3, align 8

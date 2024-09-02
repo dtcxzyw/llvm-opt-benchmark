@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @MERCATOR_MIN = dso_local local_unnamed_addr constant double 0xC1731C05E5EB851F, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local zeroext i8 @geohashEstimateStepsByRadius(double noundef %range_meters, double noundef %lat) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 1, 27) i8 @geohashEstimateStepsByRadius(double noundef %range_meters, double noundef %lat) local_unnamed_addr #0 {
 entry:
   %cmp = fcmp oeq double %range_meters, 0.000000e+00
   br i1 %cmp, label %return, label %while.cond.preheader

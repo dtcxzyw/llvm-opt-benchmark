@@ -5507,11 +5507,11 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %24, %33, %37
   %48 = getelementptr inbounds i8, ptr %1, i64 192
   %49 = load ptr, ptr %48, align 8
   %.not = icmp eq ptr %49, null
-  br i1 %.not, label %235, label %50
+  br i1 %.not, label %236, label %50
 
 50:                                               ; preds = %.thread
   call void @ExecWithCheckOptions(i32 noundef 2, ptr noundef nonnull %1, ptr noundef nonnull %.045, ptr noundef %15) #8
-  br label %235
+  br label %236
 
 .critedge:                                        ; preds = %46
   store ptr null, ptr %13, align 8
@@ -5678,19 +5678,19 @@ ExecCrossPartitionUpdate.exit:                    ; preds = %87
   store i8 1, ptr %6, align 4
   %135 = load ptr, ptr %13, align 8
   %.not50 = icmp eq ptr %135, null
-  br i1 %.not50, label %256, label %136
+  br i1 %.not50, label %257, label %136
 
 136:                                              ; preds = %.loopexit
   %137 = getelementptr inbounds i8, ptr %1, i64 88
   %138 = load ptr, ptr %137, align 8
   %.not51 = icmp eq ptr %138, null
-  br i1 %.not51, label %256, label %139
+  br i1 %.not51, label %257, label %139
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds i8, ptr %138, i64 18
   %141 = load i8, ptr %140, align 2
   %142 = trunc i8 %141 to i1
-  br i1 %142, label %143, label %256
+  br i1 %142, label %143, label %257
 
 143:                                              ; preds = %139
   %144 = load ptr, ptr %12, align 8
@@ -5799,7 +5799,7 @@ ExecCrossPartitionUpdate.exit:                    ; preds = %87
 ExecCrossPartitionUpdateForeignKey.exit:          ; preds = %.critedge.i, %143, %.lr.ph5.i
   %204 = load ptr, ptr %14, align 8
   call void @ExecARUpdateTriggers(ptr noundef %204, ptr noundef %146, ptr noundef %1, ptr noundef nonnull %135, ptr noundef %2, ptr noundef null, ptr noundef %144, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #8
-  br label %256
+  br label %257
 
 205:                                              ; preds = %table_tuple_fetch_row_version.exit
   %206 = load ptr, ptr %10, align 8
@@ -5842,44 +5842,44 @@ ExecCrossPartitionUpdateForeignKey.exit:          ; preds = %.critedge.i, %143, 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %.pre = load ptr, ptr %20, align 8
-  %.not49 = icmp eq ptr %.pre, null
-  br i1 %.not49, label %24, label %.thread110
+  %234 = icmp eq ptr %.pre, null
+  br i1 %234, label %24, label %.thread110
 
 .thread110:                                       ; preds = %205, %ExecCrossPartitionUpdate.exit
-  %234 = load i32, ptr %11, align 4
-  br label %256
+  %235 = load i32, ptr %11, align 4
+  br label %257
 
-235:                                              ; preds = %.thread, %50
-  %236 = getelementptr inbounds i8, ptr %17, i64 64
-  %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 16
-  %239 = load ptr, ptr %238, align 8
-  %.not48 = icmp eq ptr %239, null
-  br i1 %.not48, label %241, label %240
+236:                                              ; preds = %.thread, %50
+  %237 = getelementptr inbounds i8, ptr %17, i64 64
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds i8, ptr %238, i64 16
+  %240 = load ptr, ptr %239, align 8
+  %.not48 = icmp eq ptr %240, null
+  br i1 %.not48, label %242, label %241
 
-240:                                              ; preds = %235
+241:                                              ; preds = %236
   call void @ExecConstraints(ptr noundef nonnull %1, ptr noundef nonnull %.045, ptr noundef %15) #8
-  br label %241
+  br label %242
 
-241:                                              ; preds = %240, %235
-  %242 = getelementptr inbounds i8, ptr %15, i64 88
-  %243 = load i32, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %15, i64 8
-  %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %15, i64 16
-  %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds i8, ptr %0, i64 40
-  %249 = getelementptr inbounds i8, ptr %6, i64 8
-  %250 = getelementptr inbounds i8, ptr %6, i64 4
-  %251 = getelementptr inbounds i8, ptr %17, i64 312
-  %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 200
-  %254 = load ptr, ptr %253, align 8
-  %255 = call i32 %254(ptr noundef nonnull %17, ptr noundef %2, ptr noundef nonnull %.045, i32 noundef %243, ptr noundef %245, ptr noundef %247, i1 noundef zeroext true, ptr noundef nonnull %248, ptr noundef nonnull %249, ptr noundef nonnull %250) #8
-  br label %256
+242:                                              ; preds = %241, %236
+  %243 = getelementptr inbounds i8, ptr %15, i64 88
+  %244 = load i32, ptr %243, align 8
+  %245 = getelementptr inbounds i8, ptr %15, i64 8
+  %246 = load ptr, ptr %245, align 8
+  %247 = getelementptr inbounds i8, ptr %15, i64 16
+  %248 = load ptr, ptr %247, align 8
+  %249 = getelementptr inbounds i8, ptr %0, i64 40
+  %250 = getelementptr inbounds i8, ptr %6, i64 8
+  %251 = getelementptr inbounds i8, ptr %6, i64 4
+  %252 = getelementptr inbounds i8, ptr %17, i64 312
+  %253 = load ptr, ptr %252, align 8
+  %254 = getelementptr inbounds i8, ptr %253, i64 200
+  %255 = load ptr, ptr %254, align 8
+  %256 = call i32 %255(ptr noundef nonnull %17, ptr noundef %2, ptr noundef nonnull %.045, i32 noundef %244, ptr noundef %246, ptr noundef %248, i1 noundef zeroext true, ptr noundef nonnull %249, ptr noundef nonnull %250, ptr noundef nonnull %251) #8
+  br label %257
 
-256:                                              ; preds = %.loopexit, %136, %139, %ExecCrossPartitionUpdateForeignKey.exit, %241, %.thread110
-  %.0 = phi i32 [ %234, %.thread110 ], [ %255, %241 ], [ 0, %ExecCrossPartitionUpdateForeignKey.exit ], [ 0, %139 ], [ 0, %136 ], [ 0, %.loopexit ]
+257:                                              ; preds = %.loopexit, %136, %139, %ExecCrossPartitionUpdateForeignKey.exit, %242, %.thread110
+  %.0 = phi i32 [ %235, %.thread110 ], [ %256, %242 ], [ 0, %ExecCrossPartitionUpdateForeignKey.exit ], [ 0, %139 ], [ 0, %136 ], [ 0, %.loopexit ]
   ret i32 %.0
 }
 

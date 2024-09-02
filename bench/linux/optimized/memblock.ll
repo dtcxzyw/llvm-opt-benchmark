@@ -833,13 +833,13 @@ define dso_local noundef range(i32 -12, 1) i32 @memblock_reserve(i64 noundef %0,
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @memblock_mark_hotplug(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 section ".meminit.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @memblock_mark_hotplug(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 section ".meminit.text" align 16 {
   %3 = tail call fastcc i32 @memblock_setclr_flag(ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 16), i64 noundef %0, i64 noundef %1, i32 noundef 1, i32 noundef 1) #22
   ret i32 %3
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @memblock_setclr_flag(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 section ".meminit.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @memblock_setclr_flag(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 section ".meminit.text" align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #20
@@ -896,13 +896,13 @@ define internal fastcc noundef i32 @memblock_setclr_flag(ptr noundef %0, i64 nou
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @memblock_clear_hotplug(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 section ".meminit.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @memblock_clear_hotplug(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 section ".meminit.text" align 16 {
   %3 = tail call fastcc i32 @memblock_setclr_flag(ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 16), i64 noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 1) #22
   ret i32 %3
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @memblock_mark_mirror(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 section ".meminit.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @memblock_mark_mirror(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 section ".meminit.text" align 16 {
   %3 = load i8, ptr @mirrored_kernelcore, align 1, !range !29, !noundef !30
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %7, label %5
@@ -918,19 +918,19 @@ define dso_local noundef i32 @memblock_mark_mirror(i64 noundef %0, i64 noundef %
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @memblock_mark_nomap(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 section ".meminit.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @memblock_mark_nomap(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 section ".meminit.text" align 16 {
   %3 = tail call fastcc i32 @memblock_setclr_flag(ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 16), i64 noundef %0, i64 noundef %1, i32 noundef 1, i32 noundef 4) #22
   ret i32 %3
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @memblock_clear_nomap(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 section ".meminit.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @memblock_clear_nomap(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 section ".meminit.text" align 16 {
   %3 = tail call fastcc i32 @memblock_setclr_flag(ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 16), i64 noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 4) #22
   ret i32 %3
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @memblock_reserved_mark_noinit(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 section ".meminit.text" align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @memblock_reserved_mark_noinit(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 section ".meminit.text" align 16 {
   %3 = tail call fastcc i32 @memblock_setclr_flag(ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 56), i64 noundef %0, i64 noundef %1, i32 noundef 1, i32 noundef 16) #22
   ret i32 %3
 }
@@ -1946,7 +1946,7 @@ define internal fastcc void @memblock_merge_regions(ptr nocapture noundef %0, i6
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i64 @memblock_alloc_range_nid(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local range(i64 4096, 1) i64 @memblock_alloc_range_nid(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #4 section ".init.text" align 16 {
   %7 = alloca i64, align 8
   store i64 %0, ptr %7, align 8
   %8 = load i1, ptr @system_has_some_mirror, align 1
@@ -2062,7 +2062,7 @@ define internal fastcc range(i64 4096, 1) i64 @memblock_find_in_range_node(i64 n
 declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i64 @memblock_phys_alloc_range(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local range(i64 4096, 1) i64 @memblock_phys_alloc_range(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 section ".init.text" align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store i64 %2, ptr %5, align 8
@@ -2085,7 +2085,7 @@ define dso_local i64 @memblock_phys_alloc_range(i64 noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local i64 @memblock_phys_alloc_try_nid(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local range(i64 4096, 1) i64 @memblock_phys_alloc_try_nid(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #4 section ".init.text" align 16 {
   %4 = tail call i64 @memblock_alloc_range_nid(i64 noundef %0, i64 noundef %1, i64 noundef 0, i64 noundef 0, i32 noundef %2, i1 noundef zeroext false) #22
   ret i64 %4
 }

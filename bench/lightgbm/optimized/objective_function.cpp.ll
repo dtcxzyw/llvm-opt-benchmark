@@ -22803,31 +22803,34 @@ define internal void @_ZNK8LightGBM14LambdarankNDCG25UpdatePositionBiasFactorsEP
   %45 = add nsw i32 %44, %.03339
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !164
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %34, !llvm.loop !164
 
-._crit_edge:                                      ; preds = %34, %.preheader
-  %.035.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %39, %34 ]
-  %.034.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %42, %34 ]
-  %.033.lcssa = phi i32 [ 0, %.preheader ], [ %45, %34 ]
-  %46 = load ptr, ptr %19, align 8, !llvm.access.group !163
-  %47 = getelementptr inbounds float, ptr %46, i64 %indvars.iv52
-  %48 = load float, ptr %47, align 4, !llvm.access.group !163
-  %49 = fpext float %48 to double
-  %50 = load double, ptr %20, align 8, !llvm.access.group !163
-  %51 = sitofp i32 %.033.lcssa to double
-  %52 = fneg double %49
-  %53 = fmul double %50, %52
-  %54 = call double @llvm.fmuladd.f64(double %53, double %51, double %.035.lcssa)
-  %55 = fneg double %50
-  %56 = call double @llvm.fmuladd.f64(double %55, double %51, double %.034.lcssa)
+._crit_edge.loopexit:                             ; preds = %34
+  %46 = sitofp i32 %45 to double
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.035.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %39, %._crit_edge.loopexit ]
+  %.034.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %42, %._crit_edge.loopexit ]
+  %.033.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %46, %._crit_edge.loopexit ]
+  %47 = load ptr, ptr %19, align 8, !llvm.access.group !163
+  %48 = getelementptr inbounds float, ptr %47, i64 %indvars.iv52
+  %49 = load float, ptr %48, align 4, !llvm.access.group !163
+  %50 = fpext float %49 to double
+  %51 = load double, ptr %20, align 8, !llvm.access.group !163
+  %52 = fneg double %50
+  %53 = fmul double %51, %52
+  %54 = call double @llvm.fmuladd.f64(double %53, double %.033.lcssa, double %.035.lcssa)
+  %55 = fneg double %51
+  %56 = call double @llvm.fmuladd.f64(double %55, double %.033.lcssa, double %.034.lcssa)
   %57 = load double, ptr %21, align 8, !llvm.access.group !163
   %58 = fmul double %57, %54
   %59 = call noundef double @llvm.fabs.f64(double %56)
   %60 = fadd double %59, 1.000000e-03
   %61 = fdiv double %58, %60
-  %62 = fadd double %61, %49
+  %62 = fadd double %61, %50
   %63 = fptrunc double %62 to float
-  store float %63, ptr %47, align 4, !llvm.access.group !163
+  store float %63, ptr %48, align 4, !llvm.access.group !163
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
   %64 = load i32, ptr %9, align 4, !llvm.access.group !163
   %65 = sext i32 %64 to i64

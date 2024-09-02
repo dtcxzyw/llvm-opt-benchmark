@@ -146,12 +146,12 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr nocapture noundef
   %8 = alloca [1 x %struct.roon_map], align 16
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
   %10 = icmp ult i32 %9, 98
-  br i1 %10, label %84, label %11
+  br i1 %10, label %81, label %11
 
 11:                                               ; preds = %4
   %12 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   %13 = icmp ult i32 %12, 6
-  br i1 %13, label %84, label %14
+  br i1 %13, label %81, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %1, i64 408
@@ -159,11 +159,11 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr nocapture noundef
   %17 = tail call ptr @tvb_get_string_enc(ptr noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #7
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.48, ptr noundef nonnull dereferenceable(1) %17) #8
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %84
+  br i1 %.not, label %19, label %81
 
 19:                                               ; preds = %14
   %20 = tail call signext i16 @tvb_get_gint16(ptr noundef %0, i32 noundef 4, i32 noundef 0) #7
-  switch i16 %20, label %84 [
+  switch i16 %20, label %81 [
     i16 594, label %21
     i16 593, label %22
   ]
@@ -201,8 +201,8 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr nocapture noundef
   %40 = getelementptr inbounds i8, ptr %5, i64 8
   br label %roon_map_length.exit.i
 
-roon_map_length.exit.i:                           ; preds = %.lr.ph, %79
-  %.06382 = phi i32 [ 6, %.lr.ph ], [ %80, %79 ]
+roon_map_length.exit.i:                           ; preds = %.lr.ph, %76
+  %.06382 = phi i32 [ 6, %.lr.ph ], [ %77, %76 ]
   %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06382) #7
   %42 = add nuw i32 %.06382, 1
   %43 = load ptr, ptr %15, align 8
@@ -247,7 +247,7 @@ roon_map_length.exit.i68:                         ; preds = %roon_map_name.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %60 = load i32, ptr %59, align 4
   %61 = call ptr @proto_tree_add_string(ptr noundef %29, i32 noundef %60, ptr noundef %0, i32 noundef %.06382, i32 noundef %53, ptr noundef %51) #7
-  br label %79
+  br label %76
 
 roon_map_length.exit.i72:                         ; preds = %roon_map_name.exit.thread, %roon_map_name.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -259,14 +259,14 @@ roon_map_length.exit.i72:                         ; preds = %roon_map_name.exit.
 
 roon_map_name.exit74.thread:                      ; preds = %roon_map_length.exit.i72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %79
+  br label %76
 
 roon_map_name.exit74:                             ; preds = %roon_map_length.exit.i72
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %.not65 = icmp eq ptr %64, null
-  br i1 %.not65, label %79, label %roon_map_length.exit.i77
+  br i1 %.not65, label %76, label %roon_map_length.exit.i77
 
 roon_map_length.exit.i77:                         ; preds = %roon_map_name.exit74
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -279,37 +279,34 @@ roon_map_length.exit.i77:                         ; preds = %roon_map_name.exit7
   %67 = load ptr, ptr %66, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %68 = load i8, ptr %51, align 1
-  %69 = zext i8 %68 to i32
-  %70 = add nsw i32 %69, -48
-  %.not84 = icmp eq i32 %70, 0
+  %.not84 = icmp eq i8 %68, 48
   br i1 %.not84, label %sub_1, label %roon_map_length.exit.i77.tail
 
 sub_1:                                            ; preds = %roon_map_length.exit.i77
-  %71 = getelementptr inbounds i8, ptr %51, i64 1
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
+  %69 = getelementptr inbounds i8, ptr %51, i64 1
+  %70 = load i8, ptr %69, align 1
+  %71 = icmp ne i8 %70, 0
+  %72 = zext i1 %71 to i64
   br label %roon_map_length.exit.i77.tail
 
 roon_map_length.exit.i77.tail:                    ; preds = %roon_map_length.exit.i77, %sub_1
-  %74 = phi i32 [ %70, %roon_map_length.exit.i77 ], [ %73, %sub_1 ]
-  %75 = icmp ne i32 %74, 0
-  %76 = load i32, ptr %67, align 4
-  %77 = zext i1 %75 to i64
-  %78 = call ptr @proto_tree_add_boolean(ptr noundef %29, i32 noundef %76, ptr noundef %0, i32 noundef %.06382, i32 noundef %53, i64 noundef %77) #7
-  br label %79
+  %73 = phi i64 [ 1, %roon_map_length.exit.i77 ], [ %72, %sub_1 ]
+  %74 = load i32, ptr %67, align 4
+  %75 = call ptr @proto_tree_add_boolean(ptr noundef %29, i32 noundef %74, ptr noundef %0, i32 noundef %.06382, i32 noundef %53, i64 noundef %73) #7
+  br label %76
 
-79:                                               ; preds = %roon_map_name.exit74.thread, %roon_map_name.exit74, %roon_map_length.exit.i77.tail, %roon_map_length.exit.i68
-  %80 = add i32 %53, %.06382
-  %81 = call i32 @tvb_reported_length(ptr noundef %0) #7
-  %82 = icmp ult i32 %80, %81
-  br i1 %82, label %roon_map_length.exit.i, label %._crit_edge, !llvm.loop !4
+76:                                               ; preds = %roon_map_name.exit74.thread, %roon_map_name.exit74, %roon_map_length.exit.i77.tail, %roon_map_length.exit.i68
+  %77 = add i32 %53, %.06382
+  %78 = call i32 @tvb_reported_length(ptr noundef %0) #7
+  %79 = icmp ult i32 %77, %78
+  br i1 %79, label %roon_map_length.exit.i, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %79, %22
-  %83 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  br label %84
+._crit_edge:                                      ; preds = %76, %22
+  %80 = call i32 @tvb_captured_length(ptr noundef %0) #7
+  br label %81
 
-84:                                               ; preds = %19, %14, %4, %11, %._crit_edge
-  %.0 = phi i32 [ %83, %._crit_edge ], [ 0, %11 ], [ 0, %4 ], [ 0, %14 ], [ 0, %19 ]
+81:                                               ; preds = %19, %14, %4, %11, %._crit_edge
+  %.0 = phi i32 [ %80, %._crit_edge ], [ 0, %11 ], [ 0, %4 ], [ 0, %14 ], [ 0, %19 ]
   ret i32 %.0
 }
 

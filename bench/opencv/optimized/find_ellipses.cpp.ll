@@ -15308,7 +15308,7 @@ _ZN2cv4Mat_IfEC2EiiRKf.exit:                      ; preds = %.noexc
 ._crit_edge.us:                                   ; preds = %67
   %indvars.iv.next571 = add nuw nsw i64 %indvars.iv570, 1
   %exitcond574.not = icmp eq i64 %indvars.iv.next571, %.sroa.2.0.insert.ext.i
-  br i1 %exitcond574.not, label %._crit_edge502, label %.lr.ph.us, !llvm.loop !91
+  br i1 %exitcond574.not, label %._crit_edge502.loopexit, label %.lr.ph.us, !llvm.loop !91
 
 91:                                               ; preds = %_ZN2cv4Mat_IhE6createENS_5Size_IiEE.exit, %45
   %92 = landingpad { ptr, i32 }
@@ -15330,11 +15330,14 @@ _ZN2cv4Mat_IfEC2EiiRKf.exit:                      ; preds = %.noexc
           cleanup
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit405
 
-._crit_edge502:                                   ; preds = %._crit_edge.us, %.lr.ph501, %_ZN2cv4Mat_IfEC2EiiRKf.exit
-  %.0323.lcssa = phi float [ 0.000000e+00, %_ZN2cv4Mat_IfEC2EiiRKf.exit ], [ 0.000000e+00, %.lr.ph501 ], [ %90, %._crit_edge.us ]
-  %99 = fmul float %.0323.lcssa, 1.562500e-02
+._crit_edge502.loopexit:                          ; preds = %._crit_edge.us
+  %99 = fmul float %90, 1.562500e-02
   %100 = fadd float %99, 5.000000e-01
-  %101 = call float @llvm.floor.f32(float %100)
+  br label %._crit_edge502
+
+._crit_edge502:                                   ; preds = %.lr.ph501, %._crit_edge502.loopexit, %_ZN2cv4Mat_IfEC2EiiRKf.exit
+  %.0323.lcssa = phi float [ 5.000000e-01, %_ZN2cv4Mat_IfEC2EiiRKf.exit ], [ %100, %._crit_edge502.loopexit ], [ 5.000000e-01, %.lr.ph501 ]
+  %101 = call float @llvm.floor.f32(float %.0323.lcssa)
   %102 = fptosi float %101 to i32
   %103 = call i32 @llvm.smax.i32(i32 %102, i32 0)
   %.sroa.speculated461 = add nuw nsw i32 %103, 1

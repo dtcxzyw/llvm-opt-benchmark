@@ -655,7 +655,7 @@ define dso_local void @packlongdouble(x86_fp80 noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @unpacklongdouble(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #0 {
+define dso_local range(i32 -1, 1) i32 @unpacklongdouble(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #0 {
   %3 = alloca x86_fp80, align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8

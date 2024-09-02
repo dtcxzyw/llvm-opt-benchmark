@@ -153,7 +153,7 @@ define hidden i32 @jWrtScanlines(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @jWrtRawData(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2147483641) i32 @jWrtRawData(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 102

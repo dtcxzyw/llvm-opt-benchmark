@@ -1741,7 +1741,7 @@ define range(i32 0, 2) i32 @cli_event_diff(ptr noundef %0, ptr noundef %1, i32 n
   %6 = icmp ne ptr %4, null
   %7 = icmp ne ptr %5, null
   %or.cond = select i1 %6, i1 %7, i1 false
-  br i1 %or.cond, label %8, label %86
+  br i1 %or.cond, label %8, label %87
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %4, i64 20
@@ -1767,7 +1767,7 @@ define range(i32 0, 2) i32 @cli_event_diff(ptr noundef %0, ptr noundef %1, i32 n
 
 21:                                               ; preds = %18, %15, %8
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.14) #12
-  br label %86
+  br label %87
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1779,13 +1779,13 @@ define range(i32 0, 2) i32 @cli_event_diff(ptr noundef %0, ptr noundef %1, i32 n
 
 27:                                               ; preds = %22
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, ptr noundef %19, i32 noundef %24, i32 noundef %26) #12
-  br label %86
+  br label %87
 
 28:                                               ; preds = %22
   %29 = icmp ne i16 %16, 1
   %.not70 = icmp eq i16 %11, 2
   %or.cond75 = or i1 %29, %.not70
-  br i1 %or.cond75, label %72, label %.preheader
+  br i1 %or.cond75, label %73, label %.preheader
 
 .preheader:                                       ; preds = %28
   %.not88 = icmp eq i32 %24, 0
@@ -1797,9 +1797,9 @@ define range(i32 0, 2) i32 @cli_event_diff(ptr noundef %0, ptr noundef %1, i32 n
   br label %32
 
 32:                                               ; preds = %.lr.ph, %ev_diff.exit.thread
-  %33 = phi i32 [ %24, %.lr.ph ], [ %68, %ev_diff.exit.thread ]
+  %33 = phi i32 [ %24, %.lr.ph ], [ %69, %ev_diff.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ev_diff.exit.thread ]
-  %.056.fr87 = phi i32 [ 0, %.lr.ph ], [ %69, %ev_diff.exit.thread ]
+  %.056.fr87 = phi i32 [ 0, %.lr.ph ], [ %70, %ev_diff.exit.thread ]
   %34 = load i16, ptr %9, align 4
   %35 = load ptr, ptr %30, align 8
   %36 = getelementptr inbounds %union.ev_val, ptr %35, i64 %indvars.iv
@@ -1835,77 +1835,77 @@ define range(i32 0, 2) i32 @cli_event_diff(ptr noundef %0, ptr noundef %1, i32 n
 
 ev_diff.exit:                                     ; preds = %39, %44, %48
   %.0.i = phi i32 [ %52, %48 ], [ %47, %44 ], [ %43, %39 ]
-  %.not73 = icmp eq i32 %.0.i, 0
-  br i1 %.not73, label %ev_diff.exit.thread, label %53
+  %53 = freeze i32 %.0.i
+  %.not73 = icmp eq i32 %53, 0
+  br i1 %.not73, label %ev_diff.exit.thread, label %54
 
-53:                                               ; preds = %ev_diff.exit
+54:                                               ; preds = %ev_diff.exit
   %.not74 = icmp eq i32 %.056.fr87, 0
-  br i1 %.not74, label %54, label %56
+  br i1 %.not74, label %55, label %57
 
-54:                                               ; preds = %53
-  %55 = load ptr, ptr %4, align 8
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %55) #12
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %4, align 8
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %56) #12
   %.pre = load i16, ptr %9, align 4
   %.pre90 = load ptr, ptr %30, align 8
-  br label %56
+  br label %57
 
-56:                                               ; preds = %54, %53
-  %57 = phi ptr [ %.pre90, %54 ], [ %35, %53 ]
-  %58 = phi i16 [ %.pre, %54 ], [ %34, %53 ]
-  %59 = and i16 %58, 255
-  %60 = zext nneg i16 %59 to i32
-  %61 = getelementptr inbounds %union.ev_val, ptr %57, i64 %indvars.iv
-  %62 = trunc nuw i64 %indvars.iv to i32
-  tail call fastcc void @ev_debug(i32 noundef %60, ptr noundef %61, i32 noundef %62)
-  %63 = load i16, ptr %12, align 4
-  %64 = and i16 %63, 255
-  %65 = zext nneg i16 %64 to i32
-  %66 = load ptr, ptr %31, align 8
-  %67 = getelementptr inbounds %union.ev_val, ptr %66, i64 %indvars.iv
-  tail call fastcc void @ev_debug(i32 noundef %65, ptr noundef %67, i32 noundef %62)
+57:                                               ; preds = %55, %54
+  %58 = phi ptr [ %.pre90, %55 ], [ %35, %54 ]
+  %59 = phi i16 [ %.pre, %55 ], [ %34, %54 ]
+  %60 = and i16 %59, 255
+  %61 = zext nneg i16 %60 to i32
+  %62 = getelementptr inbounds %union.ev_val, ptr %58, i64 %indvars.iv
+  %63 = trunc nuw i64 %indvars.iv to i32
+  tail call fastcc void @ev_debug(i32 noundef %61, ptr noundef %62, i32 noundef %63)
+  %64 = load i16, ptr %12, align 4
+  %65 = and i16 %64, 255
+  %66 = zext nneg i16 %65 to i32
+  %67 = load ptr, ptr %31, align 8
+  %68 = getelementptr inbounds %union.ev_val, ptr %67, i64 %indvars.iv
+  tail call fastcc void @ev_debug(i32 noundef %66, ptr noundef %68, i32 noundef %63)
   %.pre91 = load i32, ptr %23, align 8
   br label %ev_diff.exit.thread
 
-ev_diff.exit.thread:                              ; preds = %32, %56, %ev_diff.exit
-  %68 = phi i32 [ %.pre91, %56 ], [ %33, %ev_diff.exit ], [ %33, %32 ]
-  %.0.i78 = phi i32 [ %.0.i, %56 ], [ 0, %ev_diff.exit ], [ 0, %32 ]
-  %.0.i78.fr = freeze i32 %.0.i78
-  %69 = add i32 %.0.i78.fr, %.056.fr87
+ev_diff.exit.thread:                              ; preds = %32, %57, %ev_diff.exit
+  %69 = phi i32 [ %.pre91, %57 ], [ %33, %ev_diff.exit ], [ %33, %32 ]
+  %.0.i78 = phi i32 [ %53, %57 ], [ 0, %ev_diff.exit ], [ 0, %32 ]
+  %70 = add i32 %.0.i78, %.056.fr87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = zext i32 %68 to i64
-  %71 = icmp ult i64 %indvars.iv.next, %70
-  br i1 %71, label %32, label %._crit_edge
+  %71 = zext i32 %69 to i64
+  %72 = icmp ult i64 %indvars.iv.next, %71
+  br i1 %72, label %32, label %._crit_edge
 
-72:                                               ; preds = %28
-  %73 = zext nneg i16 %11 to i32
-  %74 = getelementptr inbounds i8, ptr %4, i64 8
-  %75 = getelementptr inbounds i8, ptr %5, i64 8
-  %76 = tail call fastcc i32 @ev_diff(i32 noundef %73, ptr noundef nonnull %74, ptr noundef nonnull %75, i32 noundef %24)
-  %.not71 = icmp eq i32 %76, 0
+73:                                               ; preds = %28
+  %74 = zext nneg i16 %11 to i32
+  %75 = getelementptr inbounds i8, ptr %4, i64 8
+  %76 = getelementptr inbounds i8, ptr %5, i64 8
+  %77 = tail call fastcc i32 @ev_diff(i32 noundef %74, ptr noundef nonnull %75, ptr noundef nonnull %76, i32 noundef %24)
+  %.not71 = icmp eq i32 %77, 0
   br i1 %.not71, label %.thread, label %.thread82
 
-.thread82:                                        ; preds = %72
+.thread82:                                        ; preds = %73
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, ptr noundef %19) #12
-  %77 = load i16, ptr %9, align 4
-  %78 = and i16 %77, 255
-  %79 = zext nneg i16 %78 to i32
-  %80 = load i32, ptr %23, align 8
-  tail call fastcc void @ev_debug(i32 noundef %79, ptr noundef nonnull %74, i32 noundef %80)
-  %81 = load i16, ptr %12, align 4
-  %82 = and i16 %81, 255
-  %83 = zext nneg i16 %82 to i32
-  %84 = load i32, ptr %25, align 8
-  tail call fastcc void @ev_debug(i32 noundef %83, ptr noundef nonnull %75, i32 noundef %84)
-  br label %86
+  %78 = load i16, ptr %9, align 4
+  %79 = and i16 %78, 255
+  %80 = zext nneg i16 %79 to i32
+  %81 = load i32, ptr %23, align 8
+  tail call fastcc void @ev_debug(i32 noundef %80, ptr noundef nonnull %75, i32 noundef %81)
+  %82 = load i16, ptr %12, align 4
+  %83 = and i16 %82, 255
+  %84 = zext nneg i16 %83 to i32
+  %85 = load i32, ptr %25, align 8
+  tail call fastcc void @ev_debug(i32 noundef %84, ptr noundef nonnull %76, i32 noundef %85)
+  br label %87
 
 ._crit_edge:                                      ; preds = %ev_diff.exit.thread
-  %85 = icmp eq i32 %69, 0
-  br i1 %85, label %.thread, label %86
+  %86 = icmp eq i32 %70, 0
+  br i1 %86, label %.thread, label %87
 
-.thread:                                          ; preds = %.preheader, %72, %._crit_edge
-  br label %86
+.thread:                                          ; preds = %.preheader, %73, %._crit_edge
+  br label %87
 
-86:                                               ; preds = %.thread, %._crit_edge, %.thread82, %3, %27, %21
+87:                                               ; preds = %.thread, %._crit_edge, %.thread82, %3, %27, %21
   %.0 = phi i32 [ 1, %21 ], [ 1, %27 ], [ 1, %3 ], [ 0, %.thread ], [ 1, %._crit_edge ], [ 1, %.thread82 ]
   ret i32 %.0
 }

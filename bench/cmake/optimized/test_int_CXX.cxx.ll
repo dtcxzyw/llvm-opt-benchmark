@@ -188,19 +188,19 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.1.str.i)
   %34 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull %2) #5
   %.not108.i = icmp eq i32 %34, 1
-  br i1 %.not108.i, label %._crit_edge.i, label %35
+  br i1 %.not108.i, label %._crit_edge.i, label %36
 
 ._crit_edge.i:                                    ; preds = %0
   %.pre.i = load i8, ptr %2, align 1
-  br label %36
+  %35 = sext i8 %.pre.i to i32
+  br label %37
 
-35:                                               ; preds = %0
+36:                                               ; preds = %0
   store i8 0, ptr %2, align 1
-  br label %36
+  br label %37
 
-36:                                               ; preds = %35, %._crit_edge.i
-  %37 = phi i8 [ %.pre.i, %._crit_edge.i ], [ 0, %35 ]
-  %38 = sext i8 %37 to i32
+37:                                               ; preds = %36, %._crit_edge.i
+  %38 = phi i32 [ %35, %._crit_edge.i ], [ 0, %36 ]
   %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef -85, i32 noundef %38)
   %40 = load i8, ptr %2, align 1
   %41 = icmp eq i8 %40, -85
@@ -214,19 +214,19 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %puts114.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.4.sink.i)
   %44 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #5
   %.not116.i = icmp eq i32 %44, 1
-  br i1 %.not116.i, label %._crit_edge298.i, label %45
+  br i1 %.not116.i, label %._crit_edge298.i, label %46
 
-._crit_edge298.i:                                 ; preds = %36
+._crit_edge298.i:                                 ; preds = %37
   %.pre299.i = load i8, ptr %3, align 1
-  br label %46
+  %45 = sext i8 %.pre299.i to i32
+  br label %47
 
-45:                                               ; preds = %36
+46:                                               ; preds = %37
   store i8 0, ptr %3, align 1
-  br label %46
+  br label %47
 
-46:                                               ; preds = %45, %._crit_edge298.i
-  %47 = phi i8 [ %.pre299.i, %._crit_edge298.i ], [ 0, %45 ]
-  %48 = sext i8 %47 to i32
+47:                                               ; preds = %46, %._crit_edge298.i
+  %48 = phi i32 [ %45, %._crit_edge298.i ], [ 0, %46 ]
   %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef -85, i32 noundef %48)
   %50 = load i8, ptr %3, align 1
   %51 = icmp eq i8 %50, -85
@@ -240,19 +240,19 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %puts122.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.8.sink.i)
   %54 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.14, ptr noundef nonnull %4) #5
   %.not124.i = icmp eq i32 %54, 1
-  br i1 %.not124.i, label %._crit_edge300.i, label %55
+  br i1 %.not124.i, label %._crit_edge300.i, label %56
 
-._crit_edge300.i:                                 ; preds = %46
+._crit_edge300.i:                                 ; preds = %47
   %.pre301.i = load i8, ptr %4, align 1
-  br label %56
+  %55 = zext i8 %.pre301.i to i32
+  br label %57
 
-55:                                               ; preds = %46
+56:                                               ; preds = %47
   store i8 0, ptr %4, align 1
-  br label %56
+  br label %57
 
-56:                                               ; preds = %55, %._crit_edge300.i
-  %57 = phi i8 [ %.pre301.i, %._crit_edge300.i ], [ 0, %55 ]
-  %58 = zext i8 %57 to i32
+57:                                               ; preds = %56, %._crit_edge300.i
+  %58 = phi i32 [ %55, %._crit_edge300.i ], [ 0, %56 ]
   %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef 171, i32 noundef %58)
   %60 = load i8, ptr %4, align 1
   %61 = icmp eq i8 %60, -85
@@ -266,19 +266,19 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %puts130.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.12.sink.i)
   %64 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.19, ptr noundef nonnull %5) #5
   %.not132.i = icmp eq i32 %64, 1
-  br i1 %.not132.i, label %._crit_edge302.i, label %65
+  br i1 %.not132.i, label %._crit_edge302.i, label %66
 
-._crit_edge302.i:                                 ; preds = %56
+._crit_edge302.i:                                 ; preds = %57
   %.pre303.i = load i8, ptr %5, align 1
-  br label %66
+  %65 = zext i8 %.pre303.i to i32
+  br label %67
 
-65:                                               ; preds = %56
+66:                                               ; preds = %57
   store i8 0, ptr %5, align 1
-  br label %66
+  br label %67
 
-66:                                               ; preds = %65, %._crit_edge302.i
-  %67 = phi i8 [ %.pre303.i, %._crit_edge302.i ], [ 0, %65 ]
-  %68 = zext i8 %67 to i32
+67:                                               ; preds = %66, %._crit_edge302.i
+  %68 = phi i32 [ %65, %._crit_edge302.i ], [ 0, %66 ]
   %69 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef 171, i32 noundef %68)
   %70 = load i8, ptr %5, align 1
   %71 = icmp eq i8 %70, -85
@@ -298,19 +298,19 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %puts138.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.18.sink.i)
   %78 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.27, ptr noundef nonnull %6) #5
   %.not140.i = icmp eq i32 %78, 1
-  br i1 %.not140.i, label %._crit_edge304.i, label %79
+  br i1 %.not140.i, label %._crit_edge304.i, label %80
 
-._crit_edge304.i:                                 ; preds = %66
+._crit_edge304.i:                                 ; preds = %67
   %.pre305.i = load i8, ptr %6, align 1
-  br label %80
+  %79 = zext i8 %.pre305.i to i32
+  br label %81
 
-79:                                               ; preds = %66
+80:                                               ; preds = %67
   store i8 0, ptr %6, align 1
-  br label %80
+  br label %81
 
-80:                                               ; preds = %79, %._crit_edge304.i
-  %81 = phi i8 [ %.pre305.i, %._crit_edge304.i ], [ 0, %79 ]
-  %82 = zext i8 %81 to i32
+81:                                               ; preds = %80, %._crit_edge304.i
+  %82 = phi i32 [ %79, %._crit_edge304.i ], [ 0, %80 ]
   %83 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef 171, i32 noundef %82)
   %84 = load i8, ptr %6, align 1
   %85 = icmp eq i8 %84, -85
@@ -318,19 +318,19 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %puts141.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.21.str.20.i)
   %86 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.27, ptr noundef nonnull %7) #5
   %.not143.i = icmp eq i32 %86, 1
-  br i1 %.not143.i, label %._crit_edge306.i, label %87
+  br i1 %.not143.i, label %._crit_edge306.i, label %88
 
-._crit_edge306.i:                                 ; preds = %80
+._crit_edge306.i:                                 ; preds = %81
   %.pre307.i = load i8, ptr %7, align 1
-  br label %88
+  %87 = zext i8 %.pre307.i to i32
+  br label %89
 
-87:                                               ; preds = %80
+88:                                               ; preds = %81
   store i8 0, ptr %7, align 1
-  br label %88
+  br label %89
 
-88:                                               ; preds = %87, %._crit_edge306.i
-  %89 = phi i8 [ %.pre307.i, %._crit_edge306.i ], [ 0, %87 ]
-  %90 = zext i8 %89 to i32
+89:                                               ; preds = %88, %._crit_edge306.i
+  %90 = phi i32 [ %87, %._crit_edge306.i ], [ 0, %88 ]
   %91 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef 171, i32 noundef %90)
   %92 = load i8, ptr %7, align 1
   %93 = icmp eq i8 %92, -85
@@ -344,19 +344,19 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %puts147.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.24.sink.i)
   %97 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.32, ptr noundef nonnull %8) #5
   %.not149.i = icmp eq i32 %97, 1
-  br i1 %.not149.i, label %._crit_edge308.i, label %98
+  br i1 %.not149.i, label %._crit_edge308.i, label %99
 
-._crit_edge308.i:                                 ; preds = %88
+._crit_edge308.i:                                 ; preds = %89
   %.pre309.i = load i16, ptr %8, align 2
-  br label %99
+  %98 = sext i16 %.pre309.i to i32
+  br label %100
 
-98:                                               ; preds = %88
+99:                                               ; preds = %89
   store i16 0, ptr %8, align 2
-  br label %99
+  br label %100
 
-99:                                               ; preds = %98, %._crit_edge308.i
-  %100 = phi i16 [ %.pre309.i, %._crit_edge308.i ], [ 0, %98 ]
-  %101 = sext i16 %100 to i32
+100:                                              ; preds = %99, %._crit_edge308.i
+  %101 = phi i32 [ %98, %._crit_edge308.i ], [ 0, %99 ]
   %102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i32 noundef -21760, i32 noundef %101)
   %103 = load i16, ptr %8, align 2
   %104 = icmp eq i16 %103, -21760
@@ -370,19 +370,19 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %puts153.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.28.sink.i)
   %108 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.35, ptr noundef nonnull %9) #5
   %.not155.i = icmp eq i32 %108, 1
-  br i1 %.not155.i, label %._crit_edge310.i, label %109
+  br i1 %.not155.i, label %._crit_edge310.i, label %110
 
-._crit_edge310.i:                                 ; preds = %99
+._crit_edge310.i:                                 ; preds = %100
   %.pre311.i = load i16, ptr %9, align 2
-  br label %110
+  %109 = sext i16 %.pre311.i to i32
+  br label %111
 
-109:                                              ; preds = %99
+110:                                              ; preds = %100
   store i16 0, ptr %9, align 2
-  br label %110
+  br label %111
 
-110:                                              ; preds = %109, %._crit_edge310.i
-  %111 = phi i16 [ %.pre311.i, %._crit_edge310.i ], [ 0, %109 ]
-  %112 = sext i16 %111 to i32
+111:                                              ; preds = %110, %._crit_edge310.i
+  %112 = phi i32 [ %109, %._crit_edge310.i ], [ 0, %110 ]
   %113 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i32 noundef -21760, i32 noundef %112)
   %114 = load i16, ptr %9, align 2
   %115 = icmp eq i16 %114, -21760
@@ -396,19 +396,19 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %puts159.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.32.sink.i)
   %119 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.39, ptr noundef nonnull %10) #5
   %.not161.i = icmp eq i32 %119, 1
-  br i1 %.not161.i, label %._crit_edge312.i, label %120
+  br i1 %.not161.i, label %._crit_edge312.i, label %121
 
-._crit_edge312.i:                                 ; preds = %110
+._crit_edge312.i:                                 ; preds = %111
   %.pre313.i = load i16, ptr %10, align 2
-  br label %121
+  %120 = zext i16 %.pre313.i to i32
+  br label %122
 
-120:                                              ; preds = %110
+121:                                              ; preds = %111
   store i16 0, ptr %10, align 2
-  br label %121
+  br label %122
 
-121:                                              ; preds = %120, %._crit_edge312.i
-  %122 = phi i16 [ %.pre313.i, %._crit_edge312.i ], [ 0, %120 ]
-  %123 = zext i16 %122 to i32
+122:                                              ; preds = %121, %._crit_edge312.i
+  %123 = phi i32 [ %120, %._crit_edge312.i ], [ 0, %121 ]
   %124 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef 43776, i32 noundef %123)
   %125 = load i16, ptr %10, align 2
   %126 = icmp eq i16 %125, -21760
@@ -422,19 +422,19 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %puts165.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.36.sink.i)
   %130 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.43, ptr noundef nonnull %11) #5
   %.not167.i = icmp eq i32 %130, 1
-  br i1 %.not167.i, label %._crit_edge314.i, label %131
+  br i1 %.not167.i, label %._crit_edge314.i, label %132
 
-._crit_edge314.i:                                 ; preds = %121
+._crit_edge314.i:                                 ; preds = %122
   %.pre315.i = load i16, ptr %11, align 2
-  br label %132
+  %131 = zext i16 %.pre315.i to i32
+  br label %133
 
-131:                                              ; preds = %121
+132:                                              ; preds = %122
   store i16 0, ptr %11, align 2
-  br label %132
+  br label %133
 
-132:                                              ; preds = %131, %._crit_edge314.i
-  %133 = phi i16 [ %.pre315.i, %._crit_edge314.i ], [ 0, %131 ]
-  %134 = zext i16 %133 to i32
+133:                                              ; preds = %132, %._crit_edge314.i
+  %134 = phi i32 [ %131, %._crit_edge314.i ], [ 0, %132 ]
   %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef 43776, i32 noundef %134)
   %136 = load i16, ptr %11, align 2
   %137 = icmp eq i16 %136, -21760
@@ -448,19 +448,19 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %puts171.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.40.sink.i)
   %141 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.47, ptr noundef nonnull %12) #5
   %.not173.i = icmp eq i32 %141, 1
-  br i1 %.not173.i, label %._crit_edge316.i, label %142
+  br i1 %.not173.i, label %._crit_edge316.i, label %143
 
-._crit_edge316.i:                                 ; preds = %132
+._crit_edge316.i:                                 ; preds = %133
   %.pre317.i = load i16, ptr %12, align 2
-  br label %143
+  %142 = zext i16 %.pre317.i to i32
+  br label %144
 
-142:                                              ; preds = %132
+143:                                              ; preds = %133
   store i16 0, ptr %12, align 2
-  br label %143
+  br label %144
 
-143:                                              ; preds = %142, %._crit_edge316.i
-  %144 = phi i16 [ %.pre317.i, %._crit_edge316.i ], [ 0, %142 ]
-  %145 = zext i16 %144 to i32
+144:                                              ; preds = %143, %._crit_edge316.i
+  %145 = phi i32 [ %142, %._crit_edge316.i ], [ 0, %143 ]
   %146 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, i32 noundef 43776, i32 noundef %145)
   %147 = load i16, ptr %12, align 2
   %148 = icmp eq i16 %147, -21760
@@ -474,19 +474,19 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %puts177.i = call i32 @puts(ptr nonnull dereferenceable(1) %str.44.sink.i)
   %152 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.47, ptr noundef nonnull %13) #5
   %.not179.i = icmp eq i32 %152, 1
-  br i1 %.not179.i, label %._crit_edge318.i, label %153
+  br i1 %.not179.i, label %._crit_edge318.i, label %154
 
-._crit_edge318.i:                                 ; preds = %143
+._crit_edge318.i:                                 ; preds = %144
   %.pre319.i = load i16, ptr %13, align 2
-  br label %154
+  %153 = zext i16 %.pre319.i to i32
+  br label %155
 
-153:                                              ; preds = %143
+154:                                              ; preds = %144
   store i16 0, ptr %13, align 2
-  br label %154
+  br label %155
 
-154:                                              ; preds = %153, %._crit_edge318.i
-  %155 = phi i16 [ %.pre319.i, %._crit_edge318.i ], [ 0, %153 ]
-  %156 = zext i16 %155 to i32
+155:                                              ; preds = %154, %._crit_edge318.i
+  %156 = phi i32 [ %153, %._crit_edge318.i ], [ 0, %154 ]
   %157 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, i32 noundef 43776, i32 noundef %156)
   %158 = load i16, ptr %13, align 2
   %159 = icmp eq i16 %158, -21760
@@ -502,11 +502,11 @@ define dso_local range(i32 0, 2) i32 @test_int_CXX() local_unnamed_addr #0 {
   %.not185.i = icmp eq i32 %163, 1
   br i1 %.not185.i, label %._crit_edge320.i, label %164
 
-._crit_edge320.i:                                 ; preds = %154
+._crit_edge320.i:                                 ; preds = %155
   %.pre321.i = load i32, ptr %14, align 4
   br label %165
 
-164:                                              ; preds = %154
+164:                                              ; preds = %155
   store i32 0, ptr %14, align 4
   br label %165
 

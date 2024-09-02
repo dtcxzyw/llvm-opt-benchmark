@@ -1118,7 +1118,7 @@ pmix_obj_run_destructors.exit114:                 ; preds = %.lr.ph.i111, %._cri
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_register_client_attrs() local_unnamed_addr #0 {
+define range(i32 -171, 1) i32 @pmix_register_client_attrs() local_unnamed_addr #0 {
   %.b11 = load i1, ptr @client_attrs_regd, align 1
   br i1 %.b11, label %.loopexit, label %1
 
@@ -1152,7 +1152,7 @@ define i32 @pmix_register_client_attrs() local_unnamed_addr #0 {
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_register_server_attrs() local_unnamed_addr #0 {
+define range(i32 -171, 1) i32 @pmix_register_server_attrs() local_unnamed_addr #0 {
   %.b11 = load i1, ptr @server_attrs_regd, align 1
   br i1 %.b11, label %.loopexit, label %1
 
@@ -1183,7 +1183,7 @@ define i32 @pmix_register_server_attrs() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_register_tool_attrs() local_unnamed_addr #0 {
+define range(i32 -171, 1) i32 @pmix_register_tool_attrs() local_unnamed_addr #0 {
   %.b11 = load i1, ptr @tool_attrs_regd, align 1
   br i1 %.b11, label %.loopexit, label %1
 

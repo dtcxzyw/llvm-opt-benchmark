@@ -1180,8 +1180,8 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %66
   %81 = getelementptr inbounds i64, ptr %.sroa.0209.0, i64 %.sink288
   store i64 %.sink, ptr %81, align 8
   %82 = add nsw i64 %32, 4294967295
-  %83 = sext i32 %.sroa.speculated to i64
-  %84 = and i64 %82, 4294967295
+  %83 = and i64 %82, 4294967295
+  %84 = sext i32 %.sroa.speculated to i64
   br label %.lr.ph.preheader
 
 85:                                               ; preds = %77
@@ -1194,8 +1194,8 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit:            ; preds = %.noexc, %66
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %85
-  %.sink291 = phi i64 [ %84, %.thread ], [ %90, %85 ]
-  %.sink289 = phi i64 [ %83, %.thread ], [ %89, %85 ]
+  %.sink291 = phi i64 [ %83, %.thread ], [ %90, %85 ]
+  %.sink289 = phi i64 [ %84, %.thread ], [ %89, %85 ]
   %.062252 = phi i1 [ false, %.thread ], [ true, %85 ]
   %91 = getelementptr inbounds i64, ptr %.sroa.0209.0, i64 %.sink291
   store i64 %.sink289, ptr %91, align 8
@@ -3687,6 +3687,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %80
 .noexc121:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %83, ptr align 4 %.val55, i64 %.idx, i1 false)
   %84 = getelementptr inbounds i8, ptr %83, i64 %.idx
+  %85 = ptrtoint ptr %84 to i64
   br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.loopexit:       ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
@@ -3700,17 +3701,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.loopexit.split-lp: ; preds = %82
   br label %.body
 
 _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %76, %.noexc121
-  %.sroa.9192.1 = phi ptr [ %84, %.noexc121 ], [ null, %76 ]
+  %.sroa.9192.1 = phi i64 [ %85, %.noexc121 ], [ 0, %76 ]
   %.sroa.0185.1 = phi ptr [ %83, %.noexc121 ], [ null, %76 ]
-  %85 = load ptr, ptr %61, align 8
-  %86 = getelementptr inbounds %"class.std::vector.3", ptr %85, i64 %indvars.iv468
-  %87 = ptrtoint ptr %.sroa.9192.1 to i64
+  %86 = load ptr, ptr %61, align 8
+  %87 = getelementptr inbounds %"class.std::vector.3", ptr %86, i64 %indvars.iv468
   %88 = ptrtoint ptr %.sroa.0185.1 to i64
-  %89 = sub i64 %87, %88
+  %89 = sub i64 %.sroa.9192.1, %88
   %90 = ashr exact i64 %89, 2
-  %91 = getelementptr inbounds i8, ptr %86, i64 8
+  %91 = getelementptr inbounds i8, ptr %87, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = load ptr, ptr %86, align 8
+  %93 = load ptr, ptr %87, align 8
   %94 = ptrtoint ptr %92 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
@@ -3786,7 +3786,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i60.thread: ; preds = %_ZNSt
   %.sroa.0176.1203 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i60.thread ], [ %112, %.lr.ph.i.i.i.i.i.i.i.i.i62 ]
   %.0.i.i.i.i.i.i.i65 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i60.thread ], [ %115, %.lr.ph.i.i.i.i.i.i.i.i.i62 ]
   store ptr %.0.i.i.i.i.i.i.i65, ptr %63, align 8
-  %117 = load ptr, ptr %86, align 8
+  %117 = load ptr, ptr %87, align 8
   %118 = load ptr, ptr %91, align 8
   %.not220354 = icmp eq ptr %117, %118
   br i1 %.not220354, label %._crit_edge, label %.lr.ph
@@ -7069,16 +7069,19 @@ define hidden void @_ZN2cv3dnn15LayerEinsumImpl22pairwiseOperandProcessERKNS_3Ma
   %51 = mul nsw i32 %50, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i, !llvm.loop !75
+  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit, label %.lr.ph.i, !llvm.loop !75
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.i, %8, %.preheader.i
-  %.024.i = phi i32 [ 0, %8 ], [ 1, %.preheader.i ], [ %51, %.lr.ph.i ]
-  %52 = sext i32 %.024.i to i64
-  %53 = icmp eq i64 %38, %52
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit: ; preds = %.lr.ph.i
+  %52 = sext i32 %51 to i64
+  br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit
+
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit, %8, %.preheader.i
+  %.024.i = phi i64 [ 0, %8 ], [ 1, %.preheader.i ], [ %52, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.loopexit ]
+  %53 = icmp eq i64 %38, %.024.i
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit
-  tail call void @_ZN2cv6detail17check_failed_autoEmmRKNS0_12CheckContextE(i64 noundef %38, i64 noundef %52, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn15LayerEinsumImpl22pairwiseOperandProcessERKNS_3MatERKSt6vectorIiSaIiEES4_S9_S9_bE16__cv_check__1059) #23
+  tail call void @_ZN2cv6detail17check_failed_autoEmmRKNS0_12CheckContextE(i64 noundef %38, i64 noundef %.024.i, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn15LayerEinsumImpl22pairwiseOperandProcessERKNS_3MatERKSt6vectorIiSaIiEES4_S9_S9_bE16__cv_check__1059) #23
   unreachable
 
 55:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit
@@ -7118,16 +7121,19 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.
   %69 = mul nsw i32 %68, %.0231.i283
   %indvars.iv.next.i284 = add nuw nsw i64 %indvars.iv.i282, 1
   %exitcond.not.i285 = icmp eq i64 %indvars.iv.next.i284, %wide.trip.count.i280
-  br i1 %exitcond.not.i285, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit287, label %.lr.ph.i281, !llvm.loop !75
+  br i1 %exitcond.not.i285, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit287.loopexit, label %.lr.ph.i281, !llvm.loop !75
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit287: ; preds = %.lr.ph.i281, %55, %.preheader.i277
-  %.024.i286 = phi i32 [ 0, %55 ], [ 1, %.preheader.i277 ], [ %69, %.lr.ph.i281 ]
-  %70 = sext i32 %.024.i286 to i64
-  %71 = icmp eq i64 %56, %70
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit287.loopexit: ; preds = %.lr.ph.i281
+  %70 = sext i32 %69 to i64
+  br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit287
+
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit287: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit287.loopexit, %55, %.preheader.i277
+  %.024.i286 = phi i64 [ 0, %55 ], [ 1, %.preheader.i277 ], [ %70, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit287.loopexit ]
+  %71 = icmp eq i64 %56, %.024.i286
   br i1 %71, label %73, label %72
 
 72:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit287
-  tail call void @_ZN2cv6detail17check_failed_autoEmmRKNS0_12CheckContextE(i64 noundef %56, i64 noundef %70, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn15LayerEinsumImpl22pairwiseOperandProcessERKNS_3MatERKSt6vectorIiSaIiEES4_S9_S9_bE16__cv_check__1064) #23
+  tail call void @_ZN2cv6detail17check_failed_autoEmmRKNS0_12CheckContextE(i64 noundef %56, i64 noundef %.024.i286, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn15LayerEinsumImpl22pairwiseOperandProcessERKNS_3MatERKSt6vectorIiSaIiEES4_S9_S9_bE16__cv_check__1064) #23
   unreachable
 
 73:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit287

@@ -237,6 +237,7 @@ for.end:                                          ; preds = %if.end79, %if.end34
   %l.0.lcssa.ph = phi i64 [ %l.1, %if.end79 ], [ %l.0136, %if.end34 ], [ %l.0136, %if.end34 ]
   %bl.2.lcssa.ph = phi ptr [ %bl.381, %if.end79 ], [ %bl.2137, %if.end34 ], [ %bl.2137, %if.end34 ]
   %num.addr.3.ph = phi i32 [ 0, %if.end79 ], [ %dec35, %if.end34 ], [ %dec35, %if.end34 ]
+  %5 = icmp eq i32 %use_bn.0.lcssa.ph, 0
   %cmp80 = icmp eq i32 %len.0167, 0
   br i1 %cmp80, label %if.then82, label %if.end103
 
@@ -246,8 +247,7 @@ if.then82:                                        ; preds = %for.end
   br i1 %or.cond4, label %err.sink.split, label %if.end89
 
 if.end89:                                         ; preds = %if.then82
-  %tobool90.not = icmp eq i32 %use_bn.0.lcssa.ph, 0
-  br i1 %tobool90.not, label %if.end103.thread, label %if.then91
+  br i1 %5, label %if.end103.thread, label %if.then91
 
 if.then91:                                        ; preds = %if.end89
   %call94 = call i32 @BN_add_word(ptr noundef %bl.2.lcssa.ph, i64 noundef %conv93) #5
@@ -259,8 +259,7 @@ if.end103.thread:                                 ; preds = %if.end89
   br label %for.cond133.preheader
 
 if.end103:                                        ; preds = %for.end
-  %tobool104.not = icmp eq i32 %use_bn.0.lcssa.ph, 0
-  br i1 %tobool104.not, label %for.cond133.preheader, label %if.then105
+  br i1 %5, label %for.cond133.preheader, label %if.then105
 
 for.cond133.preheader:                            ; preds = %if.end103.thread, %if.end103
   %l.3.ph = phi i64 [ %l.0.lcssa.ph, %if.end103 ], [ %add101, %if.end103.thread ]
@@ -324,15 +323,15 @@ for.cond133:                                      ; preds = %for.cond133.prehead
   br i1 %cmp140, label %if.end145.loopexit, label %for.cond133
 
 if.end145.loopexit:                               ; preds = %for.cond133
-  %5 = trunc nuw nsw i64 %indvars.iv.next209 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.next209 to i32
   br label %if.end145
 
 if.end145.loopexit176:                            ; preds = %if.end130
-  %6 = trunc nuw i64 %indvars.iv.next to i32
+  %7 = trunc nuw i64 %indvars.iv.next to i32
   br label %if.end145
 
 if.end145:                                        ; preds = %if.end145.loopexit176, %if.end145.loopexit, %if.end123
-  %i.1 = phi i32 [ 0, %if.end123 ], [ %5, %if.end145.loopexit ], [ %6, %if.end145.loopexit176 ]
+  %i.1 = phi i32 [ 0, %if.end123 ], [ %6, %if.end145.loopexit ], [ %7, %if.end145.loopexit176 ]
   %tmp.3 = phi ptr [ %tmp.2, %if.end123 ], [ %tmp.1169, %if.end145.loopexit ], [ %tmp.2, %if.end145.loopexit176 ]
   %tmpsize.2 = phi i32 [ %tmpsize.1, %if.end123 ], [ %tmpsize.0170, %if.end145.loopexit ], [ %tmpsize.1, %if.end145.loopexit176 ]
   %add172 = add nsw i32 %i.1, %len.0167
@@ -347,17 +346,17 @@ while.cond154.preheader:                          ; preds = %if.then148
   br i1 %cmp156161, label %while.body158.preheader, label %while.end166
 
 while.body158.preheader:                          ; preds = %while.cond154.preheader
-  %7 = sext i32 %len.0167 to i64
-  %8 = zext nneg i32 %i.1 to i64
+  %8 = sext i32 %len.0167 to i64
+  %9 = zext nneg i32 %i.1 to i64
   br label %while.body158
 
 while.body158:                                    ; preds = %while.body158.preheader, %while.body158
-  %indvars.iv213 = phi i64 [ %8, %while.body158.preheader ], [ %indvars.iv.next214, %while.body158 ]
-  %indvars.iv211 = phi i64 [ %7, %while.body158.preheader ], [ %indvars.iv.next212, %while.body158 ]
+  %indvars.iv213 = phi i64 [ %9, %while.body158.preheader ], [ %indvars.iv.next214, %while.body158 ]
+  %indvars.iv211 = phi i64 [ %8, %while.body158.preheader ], [ %indvars.iv.next212, %while.body158 ]
   %indvars.iv.next214 = add nsw i64 %indvars.iv213, -1
   %arrayidx160 = getelementptr inbounds i8, ptr %tmp.3, i64 %indvars.iv.next214
-  %9 = load i8, ptr %arrayidx160, align 1
-  %or = or i8 %9, -128
+  %10 = load i8, ptr %arrayidx160, align 1
+  %or = or i8 %10, -128
   %indvars.iv.next212 = add nsw i64 %indvars.iv211, 1
   %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 %indvars.iv211
   store i8 %or, ptr %arrayidx165, align 1
@@ -365,16 +364,16 @@ while.body158:                                    ; preds = %while.body158.prehe
   br i1 %cmp156, label %while.body158, label %while.end166.loopexit, !llvm.loop !6
 
 while.end166.loopexit:                            ; preds = %while.body158
-  %10 = trunc nsw i64 %indvars.iv.next212 to i32
+  %11 = trunc nsw i64 %indvars.iv.next212 to i32
   br label %while.end166
 
 while.end166:                                     ; preds = %while.end166.loopexit, %while.cond154.preheader
-  %len.1.lcssa = phi i32 [ %len.0167, %while.cond154.preheader ], [ %10, %while.end166.loopexit ]
-  %11 = load i8, ptr %tmp.3, align 1
+  %len.1.lcssa = phi i32 [ %len.0167, %while.cond154.preheader ], [ %11, %while.end166.loopexit ]
+  %12 = load i8, ptr %tmp.3, align 1
   %inc168 = add nsw i32 %len.1.lcssa, 1
   %idxprom169 = sext i32 %len.1.lcssa to i64
   %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 %idxprom169
-  store i8 %11, ptr %arrayidx170, align 1
+  store i8 %12, ptr %arrayidx170, align 1
   br label %if.end173
 
 if.end173:                                        ; preds = %if.end145, %while.end166
@@ -391,12 +390,12 @@ if.then178:                                       ; preds = %for.end174
   br label %return.sink.split
 
 err.sink.split:                                   ; preds = %if.then148, %if.then82, %if.end22, %if.end43
-  %.sink257 = phi i32 [ 98, %if.end43 ], [ 85, %if.end22 ], [ 117, %if.then82 ], [ 157, %if.then148 ]
+  %.sink256 = phi i32 [ 98, %if.end43 ], [ 85, %if.end22 ], [ 117, %if.then82 ], [ 157, %if.then148 ]
   %.sink = phi i32 [ 130, %if.end43 ], [ 131, %if.end22 ], [ 147, %if.then82 ], [ 107, %if.then148 ]
   %tmp.0.ph = phi ptr [ %tmp.1169, %if.end43 ], [ %tmp.1169, %if.end22 ], [ %tmp.1169, %if.then82 ], [ %tmp.3, %if.then148 ]
   %bl.0.ph = phi ptr [ %bl.2137, %if.end43 ], [ %bl.1172, %if.end22 ], [ %bl.2.lcssa.ph, %if.then82 ], [ %bl.2.lcssa.ph, %if.then148 ]
   call void @ERR_new() #5
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink257, ptr noundef nonnull @__func__.a2d_ASN1_OBJECT) #5
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink256, ptr noundef nonnull @__func__.a2d_ASN1_OBJECT) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #5
   br label %err
 

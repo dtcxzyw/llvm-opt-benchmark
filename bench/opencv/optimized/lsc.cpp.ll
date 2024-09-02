@@ -866,7 +866,7 @@ _ZN2cvL15parallel_reduceINS_8ximgproc18FeatureSpaceSigmasEEEvRKNS_12BlockedRange
   %64 = load i32, ptr %10, align 8
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %53, label %._crit_edge, !llvm.loop !14
+  br i1 %66, label %53, label %._crit_edge.loopexit, !llvm.loop !14
 
 67:                                               ; preds = %.noexc30
   %68 = landingpad { ptr, i32 }
@@ -883,24 +883,27 @@ _ZN2cvL15parallel_reduceINS_8ximgproc18FeatureSpaceSigmasEEEvRKNS_12BlockedRange
           cleanup
   br label %153
 
-._crit_edge:                                      ; preds = %53, %_ZN2cvL15parallel_reduceINS_8ximgproc18FeatureSpaceSigmasEEEvRKNS_12BlockedRangeERT_.exit
-  %73 = phi i32 [ %49, %_ZN2cvL15parallel_reduceINS_8ximgproc18FeatureSpaceSigmasEEEvRKNS_12BlockedRangeERT_.exit ], [ %64, %53 ]
-  %74 = load i32, ptr %37, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 12
-  %76 = load i32, ptr %75, align 4
-  %77 = mul nsw i32 %76, %74
-  %78 = sitofp i32 %77 to double
-  %79 = fdiv double %46, %78
-  %80 = fdiv double %48, %78
-  %81 = fdiv double %42, %78
-  %82 = fdiv double %44, %78
-  %83 = icmp sgt i32 %73, 0
-  br i1 %83, label %.lr.ph66, label %._crit_edge67
+._crit_edge.loopexit:                             ; preds = %53
+  %73 = icmp sgt i32 %64, 0
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN2cvL15parallel_reduceINS_8ximgproc18FeatureSpaceSigmasEEEvRKNS_12BlockedRangeERT_.exit
+  %74 = phi i1 [ %73, %._crit_edge.loopexit ], [ false, %_ZN2cvL15parallel_reduceINS_8ximgproc18FeatureSpaceSigmasEEEvRKNS_12BlockedRangeERT_.exit ]
+  %75 = load i32, ptr %37, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 12
+  %77 = load i32, ptr %76, align 4
+  %78 = mul nsw i32 %77, %75
+  %79 = sitofp i32 %78 to double
+  %80 = fdiv double %46, %79
+  %81 = fdiv double %48, %79
+  %82 = fdiv double %42, %79
+  %83 = fdiv double %44, %79
+  br i1 %74, label %.lr.ph66, label %._crit_edge67
 
 .lr.ph66:                                         ; preds = %._crit_edge, %.lr.ph66
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.lr.ph66 ], [ 0, %._crit_edge ]
   %84 = load i32, ptr %37, align 8
-  %85 = load i32, ptr %75, align 4
+  %85 = load i32, ptr %76, align 4
   %86 = mul nsw i32 %85, %84
   %87 = sitofp i32 %86 to double
   %88 = load ptr, ptr %2, align 8
@@ -909,7 +912,7 @@ _ZN2cvL15parallel_reduceINS_8ximgproc18FeatureSpaceSigmasEEEvRKNS_12BlockedRange
   %91 = fdiv double %90, %87
   store double %91, ptr %89, align 8
   %92 = load i32, ptr %37, align 8
-  %93 = load i32, ptr %75, align 4
+  %93 = load i32, ptr %76, align 4
   %94 = mul nsw i32 %93, %92
   %95 = sitofp i32 %94 to double
   %96 = load ptr, ptr %3, align 8
@@ -924,13 +927,13 @@ _ZN2cvL15parallel_reduceINS_8ximgproc18FeatureSpaceSigmasEEEvRKNS_12BlockedRange
   br i1 %102, label %.lr.ph66, label %._crit_edge67.loopexit, !llvm.loop !15
 
 ._crit_edge67.loopexit:                           ; preds = %.lr.ph66
-  %.pre = load i32, ptr %75, align 4
+  %.pre = load i32, ptr %76, align 4
   %.pre72 = load i32, ptr %37, align 8
   br label %._crit_edge67
 
 ._crit_edge67:                                    ; preds = %._crit_edge67.loopexit, %._crit_edge
-  %103 = phi i32 [ %.pre72, %._crit_edge67.loopexit ], [ %74, %._crit_edge ]
-  %104 = phi i32 [ %.pre, %._crit_edge67.loopexit ], [ %76, %._crit_edge ]
+  %103 = phi i32 [ %.pre72, %._crit_edge67.loopexit ], [ %75, %._crit_edge ]
+  %104 = phi i32 [ %.pre, %._crit_edge67.loopexit ], [ %77, %._crit_edge ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   invoke void @_ZN2cv3MatC1EiiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %6, i32 noundef %104, i32 noundef %103, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %105 unwind label %71
@@ -952,7 +955,7 @@ _ZN2cvL15parallel_reduceINS_8ximgproc18FeatureSpaceSigmasEEEvRKNS_12BlockedRange
   %114 = load float, ptr %30, align 8
   %115 = load i32, ptr %32, align 8
   %116 = load i32, ptr %34, align 4
-  invoke void @_ZN2cv8ximgproc19FeatureSpaceWeightsC2ERKSt6vectorINS_3MatESaIS3_EEPS3_ddddRS2_IdSaIdEESB_ifffii(ptr noundef nonnull align 8 dereferenceable(152) %9, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull %106, double noundef %81, double noundef %82, double noundef %79, double noundef %80, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %111, float noundef %112, float noundef %113, float noundef %114, i32 noundef %115, i32 noundef %116)
+  invoke void @_ZN2cv8ximgproc19FeatureSpaceWeightsC2ERKSt6vectorINS_3MatESaIS3_EEPS3_ddddRS2_IdSaIdEESB_ifffii(ptr noundef nonnull align 8 dereferenceable(152) %9, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull %106, double noundef %82, double noundef %83, double noundef %80, double noundef %81, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %111, float noundef %112, float noundef %113, float noundef %114, i32 noundef %115, i32 noundef %116)
           to label %117 unwind label %71
 
 117:                                              ; preds = %108
@@ -14424,9 +14427,9 @@ default.unreachable:                              ; preds = %.lr.ph339
   resume { ptr, i32 } %.pn
 
 328:                                              ; preds = %309, %299, %288, %277, %266, %255, %244
-  %.sink746 = phi float [ %319, %309 ], [ %308, %299 ], [ %298, %288 ], [ %287, %277 ], [ %276, %266 ], [ %265, %255 ], [ %254, %244 ]
+  %.sink745 = phi float [ %319, %309 ], [ %308, %299 ], [ %298, %288 ], [ %287, %277 ], [ %276, %266 ], [ %265, %255 ], [ %254, %244 ]
   %329 = load float, ptr %27, align 8
-  %330 = fdiv float %.sink746, %329
+  %330 = fdiv float %.sink745, %329
   %331 = load float, ptr %22, align 8
   %332 = fmul float %330, %331
   %333 = load float, ptr %28, align 8
@@ -14515,11 +14518,14 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE2atEm.exit151:     ; preds = %_ZNSt6vectorIS_IfSa
 ._crit_edge346:                                   ; preds = %._crit_edge340
   %indvars.iv.next555 = add nuw nsw i64 %indvars.iv554, 1
   %.not128.not = icmp ult i64 %indvars.iv554, %127
-  br i1 %.not128.not, label %.lr.ph345, label %._crit_edge352, !llvm.loop !110
+  br i1 %.not128.not, label %.lr.ph345, label %._crit_edge352.loopexit361, !llvm.loop !110
 
-._crit_edge352:                                   ; preds = %._crit_edge346, %.lr.ph351.split.us, %._crit_edge
-  %.0117.lcssa = phi i32 [ 0, %._crit_edge ], [ 0, %.lr.ph351.split.us ], [ %150, %._crit_edge346 ]
-  %392 = sitofp i32 %.0117.lcssa to float
+._crit_edge352.loopexit361:                       ; preds = %._crit_edge346
+  %392 = sitofp i32 %150 to float
+  br label %._crit_edge352
+
+._crit_edge352:                                   ; preds = %.lr.ph351.split.us, %._crit_edge352.loopexit361, %._crit_edge
+  %.0117.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %392, %._crit_edge352.loopexit361 ], [ 0.000000e+00, %.lr.ph351.split.us ]
   %393 = load ptr, ptr %9, align 8
   %394 = getelementptr inbounds i8, ptr %393, i64 8
   %395 = load ptr, ptr %394, align 8
@@ -14538,7 +14544,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE2atEm.exit151:     ; preds = %_ZNSt6vectorIS_IfSa
 _ZNSt6vectorIfSaIfEE2atEm.exit153:                ; preds = %._crit_edge352
   %402 = getelementptr inbounds float, ptr %396, i64 %indvars.iv560
   %403 = load float, ptr %402, align 4
-  %404 = fdiv float %403, %392
+  %404 = fdiv float %403, %.0117.lcssa
   store float %404, ptr %402, align 4
   %405 = load ptr, ptr %10, align 8
   %406 = getelementptr inbounds i8, ptr %405, i64 8
@@ -14558,7 +14564,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit153:                ; preds = %._crit_edge352
 _ZNSt6vectorIfSaIfEE2atEm.exit155:                ; preds = %_ZNSt6vectorIfSaIfEE2atEm.exit153
   %414 = getelementptr inbounds float, ptr %408, i64 %indvars.iv560
   %415 = load float, ptr %414, align 4
-  %416 = fdiv float %415, %392
+  %416 = fdiv float %415, %.0117.lcssa
   store float %416, ptr %414, align 4
   %417 = load ptr, ptr %11, align 8
   %418 = getelementptr inbounds i8, ptr %417, i64 8
@@ -14578,7 +14584,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit155:                ; preds = %_ZNSt6vectorIfSaIfE
 _ZNSt6vectorIfSaIfEE2atEm.exit157:                ; preds = %_ZNSt6vectorIfSaIfEE2atEm.exit155
   %426 = getelementptr inbounds float, ptr %420, i64 %indvars.iv560
   %427 = load float, ptr %426, align 4
-  %428 = fdiv float %427, %392
+  %428 = fdiv float %427, %.0117.lcssa
   store float %428, ptr %426, align 4
   %429 = load ptr, ptr %12, align 8
   %430 = getelementptr inbounds i8, ptr %429, i64 8
@@ -14598,7 +14604,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit157:                ; preds = %_ZNSt6vectorIfSaIfE
 _ZNSt6vectorIfSaIfEE2atEm.exit159:                ; preds = %_ZNSt6vectorIfSaIfEE2atEm.exit157
   %438 = getelementptr inbounds float, ptr %432, i64 %indvars.iv560
   %439 = load float, ptr %438, align 4
-  %440 = fdiv float %439, %392
+  %440 = fdiv float %439, %.0117.lcssa
   store float %440, ptr %438, align 4
   %441 = load i32, ptr %13, align 4
   %442 = icmp sgt i32 %441, 0
@@ -14626,7 +14632,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE2atEm.exit161:     ; preds = %.lr.ph355
   %453 = load ptr, ptr %452, align 8
   %454 = getelementptr inbounds float, ptr %453, i64 %indvars.iv560
   %455 = load float, ptr %454, align 4
-  %456 = fdiv float %455, %392
+  %456 = fdiv float %455, %.0117.lcssa
   store float %456, ptr %454, align 4
   %457 = load ptr, ptr %15, align 8
   %458 = getelementptr inbounds i8, ptr %457, i64 8
@@ -14648,7 +14654,7 @@ _ZNSt6vectorIS_IfSaIfEESaIS1_EE2atEm.exit163:     ; preds = %_ZNSt6vectorIS_IfSa
   %467 = load ptr, ptr %466, align 8
   %468 = getelementptr inbounds float, ptr %467, i64 %indvars.iv560
   %469 = load float, ptr %468, align 4
-  %470 = fdiv float %469, %392
+  %470 = fdiv float %469, %.0117.lcssa
   store float %470, ptr %468, align 4
   %indvars.iv.next558 = add nuw nsw i64 %indvars.iv557, 1
   %471 = load i32, ptr %13, align 4

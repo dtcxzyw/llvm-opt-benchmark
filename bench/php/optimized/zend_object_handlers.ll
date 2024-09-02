@@ -5151,8 +5151,8 @@ define ptr @zend_std_get_method(ptr nocapture noundef readonly %0, ptr noundef %
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, -8
   %11 = add i64 %10, 32
-  %12 = icmp ugt i64 %11, 32768
-  br i1 %12, label %13, label %15
+  %12 = icmp ult i64 %11, 32769
+  br i1 %12, label %15, label %13
 
 13:                                               ; preds = %7
   %14 = tail call noalias ptr @_emalloc(i64 noundef %11) #17
@@ -5179,7 +5179,7 @@ define ptr @zend_std_get_method(ptr nocapture noundef readonly %0, ptr noundef %
 
 26:                                               ; preds = %17, %5
   %.093 = phi ptr [ %6, %5 ], [ %18, %17 ]
-  %.091 = phi i1 [ false, %5 ], [ %12, %17 ]
+  %.091 = phi i1 [ true, %5 ], [ %12, %17 ]
   %27 = getelementptr inbounds i8, ptr %4, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 64
@@ -5188,8 +5188,7 @@ define ptr @zend_std_get_method(ptr nocapture noundef readonly %0, ptr noundef %
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %26
-  %.091.not = xor i1 %.091, true
-  %brmerge = or i1 %.not, %.091.not
+  %brmerge = or i1 %.not, %.091
   br i1 %brmerge, label %34, label %33
 
 33:                                               ; preds = %32
@@ -5382,8 +5381,7 @@ zend_get_parent_private_method.exit.thread120:    ; preds = %66, %40, %45, %.loo
 
 118:                                              ; preds = %zend_get_parent_private_method.exit.thread124, %112, %zend_get_parent_private_method.exit.thread120, %zend_get_parent_private_method.exit
   %.1 = phi ptr [ null, %112 ], [ %.092123, %zend_get_parent_private_method.exit.thread120 ], [ null, %zend_get_parent_private_method.exit ], [ null, %zend_get_parent_private_method.exit.thread124 ]
-  %.091.not112 = xor i1 %.091, true
-  %brmerge113 = or i1 %.not, %.091.not112
+  %brmerge113 = or i1 %.not, %.091
   br i1 %brmerge113, label %120, label %119
 
 119:                                              ; preds = %118

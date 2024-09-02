@@ -2281,7 +2281,7 @@ declare i64 @read_in_full(i32 noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @init_worktree_config(ptr nocapture noundef %r) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @init_worktree_config(ptr nocapture noundef %r) local_unnamed_addr #0 {
 entry:
   %bare = alloca i32, align 4
   %cs = alloca %struct.config_set, align 8

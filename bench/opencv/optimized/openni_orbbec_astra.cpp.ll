@@ -719,19 +719,17 @@ _ZN5FrameC2ERKS_.exit64:                          ; preds = %_ZN5FrameC2ERKS_.ex
   br label %248
 
 242:                                              ; preds = %223, %225
-  %.130 = phi i32 [ 7, %225 ], [ 0, %223 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #13
   br label %243
 
 243:                                              ; preds = %242, %194, %184
-  %.029 = phi i32 [ 6, %184 ], [ 6, %194 ], [ %.130, %242 ]
+  %.029 = phi i1 [ false, %184 ], [ false, %194 ], [ %224, %242 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %129) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %128) #13
-  %switch = icmp eq i32 %.029, 7
   %244 = load ptr, ptr %5, align 8
   %245 = icmp eq ptr %244, %5
-  %or.cond93 = select i1 %switch, i1 true, i1 %245
+  %or.cond93 = select i1 %.029, i1 true, i1 %245
   %246 = load ptr, ptr %6, align 8
   %247 = icmp eq ptr %246, %6
   %or.cond155 = select i1 %or.cond93, i1 true, i1 %247

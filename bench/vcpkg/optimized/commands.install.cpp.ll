@@ -7650,16 +7650,16 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insert
 
 ._crit_edge:                                      ; preds = %297
   %299 = trunc nuw i8 %.1130 to i1
-  br i1 %299, label %302, label %._crit_edge.thread
+  br i1 %299, label %303, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %113, %._crit_edge
   %300 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #23
   %301 = xor i1 %300, true
-  br label %302
+  %302 = zext i1 %301 to i8
+  br label %303
 
-302:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %303 = phi i1 [ false, %._crit_edge ], [ %301, %._crit_edge.thread ]
-  %304 = zext i1 %303 to i8
+303:                                              ; preds = %._crit_edge.thread, %._crit_edge
+  %304 = phi i8 [ 0, %._crit_edge ], [ %302, %._crit_edge.thread ]
   store i8 %304, ptr %74, align 1
   %.val158 = load ptr, ptr %36, align 8
   %305 = getelementptr inbounds i8, ptr %36, i64 8
@@ -7667,7 +7667,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insert
   %.not353417 = icmp eq ptr %.val158, %.val154
   br i1 %.not353417, label %.critedge, label %.lr.ph421
 
-.lr.ph421:                                        ; preds = %302
+.lr.ph421:                                        ; preds = %303
   %306 = getelementptr inbounds i8, ptr %29, i64 8
   %307 = getelementptr inbounds i8, ptr %28, i64 8
   %308 = getelementptr inbounds i8, ptr %27, i64 8
@@ -8431,8 +8431,8 @@ _ZN5vcpkg7Strings4joinIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_strin
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #23
   br label %.body210
 
-.critedge:                                        ; preds = %.lr.ph421, %._crit_edge422..critedge_crit_edge, %302
-  %579 = phi i8 [ %.pre, %._crit_edge422..critedge_crit_edge ], [ %304, %302 ], [ %304, %.lr.ph421 ]
+.critedge:                                        ; preds = %.lr.ph421, %._crit_edge422..critedge_crit_edge, %303
+  %579 = phi i8 [ %.pre, %._crit_edge422..critedge_crit_edge ], [ %304, %303 ], [ %304, %.lr.ph421 ]
   %580 = trunc i8 %579 to i1
   br i1 %580, label %581, label %619
 

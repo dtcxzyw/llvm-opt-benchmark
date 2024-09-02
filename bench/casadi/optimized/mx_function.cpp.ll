@@ -23212,19 +23212,19 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backEOS1_.exit181: ; preds = %.noexc179, 
 ._crit_edge455.loopexit:                          ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backEOS1_.exit181
   %.pre479 = load ptr, ptr %417, align 8
   %.pre480 = load ptr, ptr %19, align 8
+  %442 = ptrtoint ptr %.pre479 to i64
   br label %._crit_edge455
 
 ._crit_edge455:                                   ; preds = %._crit_edge455.loopexit, %414
-  %442 = phi ptr [ %.pre480, %._crit_edge455.loopexit ], [ null, %414 ]
-  %443 = phi ptr [ %.pre479, %._crit_edge455.loopexit ], [ null, %414 ]
-  %444 = getelementptr inbounds i8, ptr %19, i64 8
-  %445 = load ptr, ptr %10, align 8
-  %446 = load ptr, ptr %140, align 8
-  %447 = ptrtoint ptr %443 to i64
-  %448 = ptrtoint ptr %442 to i64
-  %449 = sub i64 %447, %448
-  %450 = getelementptr inbounds i8, ptr %442, i64 %449
-  invoke void @_ZNSt6vectorIN6casadi2MXESaIS1_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEEEvS8_T_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %450, ptr %445, ptr %446)
+  %443 = phi ptr [ %.pre480, %._crit_edge455.loopexit ], [ null, %414 ]
+  %444 = phi i64 [ %442, %._crit_edge455.loopexit ], [ 0, %414 ]
+  %445 = getelementptr inbounds i8, ptr %19, i64 8
+  %446 = load ptr, ptr %10, align 8
+  %447 = load ptr, ptr %140, align 8
+  %448 = ptrtoint ptr %443 to i64
+  %449 = sub i64 %444, %448
+  %450 = getelementptr inbounds i8, ptr %443, i64 %449
+  invoke void @_ZNSt6vectorIN6casadi2MXESaIS1_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPS1_S3_EEEEvS8_T_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %450, ptr %446, ptr %447)
           to label %451 unwind label %.loopexit.split-lp
 
 451:                                              ; preds = %._crit_edge455
@@ -23339,7 +23339,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericT
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #25
   %484 = load ptr, ptr %19, align 8
-  %485 = load ptr, ptr %444, align 8
+  %485 = load ptr, ptr %445, align 8
   %.not4.i.i.i.i195 = icmp eq ptr %484, %485
   br i1 %.not4.i.i.i.i195, label %_ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i201, label %.lr.ph.i.i.i.i196
 
@@ -73955,27 +73955,27 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit225:       ; preds = %233, %_ZN6casadi7Fa
 
 ._crit_edge587.loopexit:                          ; preds = %.loopexit
   %.pre718 = load ptr, ptr %44, align 8
+  %269 = ptrtoint ptr %267 to i64
   br label %._crit_edge587
 
 ._crit_edge587:                                   ; preds = %._crit_edge.thread, %._crit_edge587.loopexit, %._crit_edge
-  %269 = phi ptr [ %267, %._crit_edge587.loopexit ], [ null, %._crit_edge ], [ null, %._crit_edge.thread ]
-  %270 = phi ptr [ %.pre718, %._crit_edge587.loopexit ], [ %172, %._crit_edge ], [ null, %._crit_edge.thread ]
-  %271 = load ptr, ptr %4, align 8
-  %272 = ptrtoint ptr %270 to i64
+  %270 = phi i64 [ %269, %._crit_edge587.loopexit ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ]
+  %271 = phi ptr [ %.pre718, %._crit_edge587.loopexit ], [ %172, %._crit_edge ], [ null, %._crit_edge.thread ]
+  %272 = load ptr, ptr %4, align 8
   %273 = ptrtoint ptr %271 to i64
-  %274 = sub i64 %272, %273
-  %275 = icmp eq i64 %274, 8
-  br i1 %275, label %276, label %323
+  %274 = ptrtoint ptr %272 to i64
+  %275 = sub i64 %273, %274
+  %276 = icmp eq i64 %275, 8
+  br i1 %276, label %277, label %323
 
-276:                                              ; preds = %._crit_edge587
-  %277 = load ptr, ptr %5, align 8
-  %278 = ptrtoint ptr %269 to i64
-  %279 = ptrtoint ptr %277 to i64
-  %280 = sub i64 %278, %279
+277:                                              ; preds = %._crit_edge587
+  %278 = load ptr, ptr %5, align 8
+  %279 = ptrtoint ptr %278 to i64
+  %280 = sub i64 %270, %279
   %281 = icmp eq i64 %280, 8
   br i1 %281, label %282, label %323
 
-282:                                              ; preds = %276
+282:                                              ; preds = %277
   %283 = getelementptr inbounds i8, ptr %.sroa.0451.0630, i64 8
   %284 = load i64, ptr %283, align 8
   %285 = getelementptr inbounds i8, ptr %.sroa.0451.0630, i64 16
@@ -74105,8 +74105,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericT
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #25
   br label %789
 
-323:                                              ; preds = %276, %._crit_edge587
-  invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %271, ptr %270)
+323:                                              ; preds = %277, %._crit_edge587
+  invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %272, ptr %271)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit unwind label %.loopexit492
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEEvT_S7_.exit: ; preds = %323

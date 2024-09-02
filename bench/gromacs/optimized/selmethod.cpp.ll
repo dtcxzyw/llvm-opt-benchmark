@@ -368,7 +368,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 13:                                               ; preds = %5
   tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.6)
-  br label %192
+  br label %193
 
 14:                                               ; preds = %5
   %15 = icmp eq i32 %2, 0
@@ -387,9 +387,9 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   %wide.trip.count276 = zext nneg i32 %2 to i64
   br label %.lr.ph264
 
-.lr.ph264:                                        ; preds = %.lr.ph264.preheader, %163
-  %indvars.iv274 = phi i64 [ 0, %.lr.ph264.preheader ], [ %indvars.iv.next275, %163 ]
-  %.0193263 = phi i1 [ true, %.lr.ph264.preheader ], [ %.1, %163 ]
+.lr.ph264:                                        ; preds = %.lr.ph264.preheader, %164
+  %indvars.iv274 = phi i64 [ 0, %.lr.ph264.preheader ], [ %indvars.iv.next275, %164 ]
+  %.0193263 = phi i1 [ true, %.lr.ph264.preheader ], [ %.1, %164 ]
   %18 = getelementptr inbounds %struct.gmx_ana_selparam_t, ptr %3, i64 %indvars.iv274
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
@@ -403,7 +403,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 22:                                               ; preds = %.lr.ph264
   call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.8)
-  br label %163
+  br label %164
 
 .lr.ph:                                           ; preds = %.preheader250, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.preheader250 ]
@@ -666,7 +666,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 135:                                              ; preds = %133, %130, %127
   %136 = load ptr, ptr %18, align 8
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %163, label %138
+  br i1 %137, label %164, label %138
 
 138:                                              ; preds = %135
   %139 = load i8, ptr %136, align 1
@@ -677,7 +677,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 142:                                              ; preds = %138
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %136, ptr noundef nonnull @.str.25)
-  br label %163
+  br label %164
 
 .preheader:                                       ; preds = %138, %148
   %indvars.iv271 = phi i64 [ %indvars.iv.next272, %148 ], [ 1, %138 ]
@@ -703,159 +703,159 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   %.pre281 = load ptr, ptr %18, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre281, i64 %indvars.iv271
   %.pre282 = load i8, ptr %.phi.trans.insert, align 1
-  %.not240 = icmp eq i8 %.pre282, 0
-  br i1 %.not240, label %.loopexit.thread, label %163
+  %149 = icmp eq i8 %.pre282, 0
+  br i1 %149, label %.loopexit.thread, label %164
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit
   %.13285 = phi i1 [ false, %.loopexit ], [ %.12, %.preheader ]
-  %149 = phi ptr [ %.pre281, %.loopexit ], [ %136, %.preheader ]
+  %150 = phi ptr [ %.pre281, %.loopexit ], [ %136, %.preheader ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
-  %150 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %.noexc unwind label %159
+  %151 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %.noexc unwind label %160
 
 .noexc:                                           ; preds = %.loopexit.thread
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %150, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %.noexc246 unwind label %159
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %151, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %.noexc246 unwind label %160
 
-151:                                              ; preds = %.noexc246
-  %152 = landingpad { ptr, i32 }
+152:                                              ; preds = %.noexc246
+  %153 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
   br label %.body
 
 .noexc246:                                        ; preds = %.noexc
-  %153 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %149) #13
-  %154 = getelementptr inbounds i8, ptr %149, i64 %153
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %149, ptr noundef nonnull %154)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %151
+  %154 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %150) #13
+  %155 = getelementptr inbounds i8, ptr %150, i64 %154
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %150, ptr noundef nonnull %155)
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %152
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc246
-  %155 = invoke noundef ptr @_ZNK3gmx26SelectionParserSymbolTable10findSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %156 unwind label %161
+  %156 = invoke noundef ptr @_ZNK3gmx26SelectionParserSymbolTable10findSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %157 unwind label %162
 
-156:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %.not244 = icmp eq ptr %155, null
+157:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+  %.not244 = icmp eq ptr %156, null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
-  br i1 %.not244, label %163, label %157
+  br i1 %.not244, label %164, label %158
 
-157:                                              ; preds = %156
-  %158 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef %158, ptr noundef nonnull @.str.27)
-  br label %163
+158:                                              ; preds = %157
+  %159 = load ptr, ptr %18, align 8
+  call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef %159, ptr noundef nonnull @.str.27)
+  br label %164
 
-159:                                              ; preds = %.noexc, %.loopexit.thread
-  %160 = landingpad { ptr, i32 }
+160:                                              ; preds = %.noexc, %.loopexit.thread
+  %161 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-161:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %162 = landingpad { ptr, i32 }
+162:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+  %163 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   br label %.body
 
-.body:                                            ; preds = %159, %151, %161
-  %.pn241 = phi { ptr, i32 } [ %162, %161 ], [ %160, %159 ], [ %152, %151 ]
+.body:                                            ; preds = %160, %152, %162
+  %.pn241 = phi { ptr, i32 } [ %163, %162 ], [ %161, %160 ], [ %153, %152 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
-  br label %193
+  br label %194
 
-163:                                              ; preds = %156, %157, %.loopexit, %135, %142, %22
-  %.1 = phi i1 [ false, %22 ], [ %.12, %135 ], [ false, %.loopexit ], [ false, %157 ], [ %.13285, %156 ], [ false, %142 ]
+164:                                              ; preds = %157, %158, %.loopexit, %135, %142, %22
+  %.1 = phi i1 [ false, %22 ], [ %.12, %135 ], [ false, %.loopexit ], [ false, %158 ], [ %.13285, %157 ], [ false, %142 ]
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count276
   br i1 %exitcond277.not, label %._crit_edge, label %.lr.ph264, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %163, %.thread, %16
-  %.0193.lcssa = phi i1 [ true, %16 ], [ true, %.thread ], [ %.1, %163 ]
+._crit_edge:                                      ; preds = %164, %.thread, %16
+  %.0193.lcssa = phi i1 [ true, %16 ], [ true, %.thread ], [ %.1, %164 ]
   call void @_ZNK3gmx26SelectionParserSymbolTable13beginIteratorENS_21SelectionParserSymbol10SymbolTypeE(ptr dead_on_unwind nonnull writable sret(%"class.gmx::SelectionParserSymbolIterator") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 2)
-  br label %164
+  br label %165
 
-164:                                              ; preds = %188, %._crit_edge
-  %.14 = phi i1 [ %.0193.lcssa, %._crit_edge ], [ %.15, %188 ]
+165:                                              ; preds = %189, %._crit_edge
+  %.14 = phi i1 [ %.0193.lcssa, %._crit_edge ], [ %.15, %189 ]
   invoke void @_ZN3gmx29SelectionParserSymbolIteratorC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %165 unwind label %181
-
-165:                                              ; preds = %164
-  invoke void @_ZNK3gmx26SelectionParserSymbolTable11endIteratorEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::SelectionParserSymbolIterator") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %166 unwind label %183
+          to label %166 unwind label %182
 
 166:                                              ; preds = %165
-  %167 = invoke noundef zeroext i1 @_ZNK3gmx29SelectionParserSymbolIteratoreqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %168 unwind label %185
+  invoke void @_ZNK3gmx26SelectionParserSymbolTable11endIteratorEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::SelectionParserSymbolIterator") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %167 unwind label %184
 
-168:                                              ; preds = %166
+167:                                              ; preds = %166
+  %168 = invoke noundef zeroext i1 @_ZNK3gmx29SelectionParserSymbolIteratoreqERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %169 unwind label %186
+
+169:                                              ; preds = %167
   call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #13
   call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  br i1 %167, label %190, label %169
+  br i1 %168, label %191, label %170
 
-169:                                              ; preds = %168
-  %170 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx29SelectionParserSymbolIteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv.exit unwind label %181
+170:                                              ; preds = %169
+  %171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx29SelectionParserSymbolIteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv.exit unwind label %182
 
-_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv.exit: ; preds = %169
-  %171 = invoke noundef ptr @_ZNK3gmx21SelectionParserSymbol11methodValueEv(ptr noundef nonnull align 8 dereferenceable(8) %170)
-          to label %172 unwind label %181
+_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv.exit: ; preds = %170
+  %172 = invoke noundef ptr @_ZNK3gmx21SelectionParserSymbol11methodValueEv(ptr noundef nonnull align 8 dereferenceable(8) %171)
+          to label %173 unwind label %182
 
-172:                                              ; preds = %_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv.exit
-  %173 = getelementptr inbounds i8, ptr %171, i64 16
-  %174 = load i32, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %171, i64 24
-  %176 = load ptr, ptr %175, align 8
-  %177 = invoke noundef ptr @_Z21gmx_ana_selparam_findPKciP18gmx_ana_selparam_t(ptr noundef %1, i32 noundef %174, ptr noundef %176)
-          to label %_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit unwind label %181
+173:                                              ; preds = %_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv.exit
+  %174 = getelementptr inbounds i8, ptr %172, i64 16
+  %175 = load i32, ptr %174, align 8
+  %176 = getelementptr inbounds i8, ptr %172, i64 24
+  %177 = load ptr, ptr %176, align 8
+  %178 = invoke noundef ptr @_Z21gmx_ana_selparam_findPKciP18gmx_ana_selparam_t(ptr noundef %1, i32 noundef %175, ptr noundef %177)
+          to label %_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit unwind label %182
 
-_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit: ; preds = %172
-  %.not = icmp eq ptr %177, null
-  br i1 %.not, label %188, label %178
+_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit: ; preds = %173
+  %.not = icmp eq ptr %178, null
+  br i1 %.not, label %189, label %179
 
-178:                                              ; preds = %_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit
-  %179 = load ptr, ptr %171, align 8
-  %180 = load ptr, ptr %177, align 8
-  call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %179, ptr noundef %180, ptr noundef nonnull @.str.27)
-  br label %188
+179:                                              ; preds = %_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit
+  %180 = load ptr, ptr %172, align 8
+  %181 = load ptr, ptr %178, align 8
+  call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %180, ptr noundef %181, ptr noundef nonnull @.str.27)
+  br label %189
 
-181:                                              ; preds = %172, %169, %188, %_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv.exit, %164
-  %182 = landingpad { ptr, i32 }
+182:                                              ; preds = %173, %170, %189, %_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv.exit, %165
+  %183 = landingpad { ptr, i32 }
           cleanup
-  br label %191
-
-183:                                              ; preds = %165
-  %184 = landingpad { ptr, i32 }
-          cleanup
-  br label %187
-
-185:                                              ; preds = %166
-  %186 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #13
-  br label %187
-
-187:                                              ; preds = %185, %183
-  %.pn = phi { ptr, i32 } [ %186, %185 ], [ %184, %183 ]
-  call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  br label %191
-
-188:                                              ; preds = %178, %_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit
-  %.15 = phi i1 [ false, %178 ], [ %.14, %_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit ]
-  %189 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx29SelectionParserSymbolIteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %164 unwind label %181, !llvm.loop !9
-
-190:                                              ; preds = %168
-  call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   br label %192
 
-191:                                              ; preds = %187, %181
-  %.pn211 = phi { ptr, i32 } [ %182, %181 ], [ %.pn, %187 ]
+184:                                              ; preds = %166
+  %185 = landingpad { ptr, i32 }
+          cleanup
+  br label %188
+
+186:                                              ; preds = %167
+  %187 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #13
+  br label %188
+
+188:                                              ; preds = %186, %184
+  %.pn = phi { ptr, i32 } [ %187, %186 ], [ %185, %184 ]
+  call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
+  br label %192
+
+189:                                              ; preds = %179, %_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit
+  %.15 = phi i1 [ false, %179 ], [ %.14, %_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit ]
+  %190 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx29SelectionParserSymbolIteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %165 unwind label %182, !llvm.loop !9
+
+191:                                              ; preds = %169
   call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
   br label %193
 
-192:                                              ; preds = %190, %13
-  %.0 = phi i1 [ %.14, %190 ], [ false, %13 ]
+192:                                              ; preds = %188, %182
+  %.pn211 = phi { ptr, i32 } [ %183, %182 ], [ %.pn, %188 ]
+  call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #13
+  br label %194
+
+193:                                              ; preds = %191, %13
+  %.0 = phi i1 [ %.14, %191 ], [ false, %13 ]
   ret i1 %.0
 
-193:                                              ; preds = %191, %.body
-  %.pn241.pn = phi { ptr, i32 } [ %.pn241, %.body ], [ %.pn211, %191 ]
+194:                                              ; preds = %192, %.body
+  %.pn241.pn = phi { ptr, i32 } [ %.pn241, %.body ], [ %.pn211, %192 ]
   resume { ptr, i32 } %.pn241.pn
 }
 

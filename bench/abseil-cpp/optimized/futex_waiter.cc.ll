@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [38 x i8] c"Futex operation failed with error %d\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4absl24synchronization_internal11FutexWaiter9WaitUntilEPSt6atomicIiEiNS0_13KernelTimeoutE(ptr noundef %v, i32 noundef %val, i64 %t.coerce) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN4absl24synchronization_internal11FutexWaiter9WaitUntilEPSt6atomicIiEiNS0_13KernelTimeoutE(ptr noundef %v, i32 noundef %val, i64 %t.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i7 = alloca %"struct.absl::synchronization_internal::FutexTimespec", align 8
   %ts.i = alloca %"struct.absl::synchronization_internal::FutexTimespec", align 8

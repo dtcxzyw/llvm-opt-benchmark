@@ -1745,15 +1745,15 @@ lor.lhs.false72:                                  ; preds = %if.end69
   %max_early_data = getelementptr inbounds i8, ptr %13, i64 860
   %14 = load i32, ptr %max_early_data, align 4
   %cmp73 = icmp eq i32 %14, 0
-  %.pre76 = load ptr, ptr %psksess, align 8
+  %.pre79 = load ptr, ptr %psksess, align 8
   br i1 %cmp73, label %land.lhs.true75, label %if.end85
 
 land.lhs.true75:                                  ; preds = %lor.lhs.false72
-  %cmp76 = icmp eq ptr %.pre76, null
+  %cmp76 = icmp eq ptr %.pre79, null
   br i1 %cmp76, label %if.then83, label %lor.lhs.false78
 
 lor.lhs.false78:                                  ; preds = %land.lhs.true75
-  %max_early_data80 = getelementptr inbounds i8, ptr %.pre76, i64 860
+  %max_early_data80 = getelementptr inbounds i8, ptr %.pre79, i64 860
   %15 = load i32, ptr %max_early_data80, align 4
   %cmp81 = icmp eq i32 %15, 0
   br i1 %cmp81, label %if.then83, label %if.end85
@@ -1764,7 +1764,7 @@ if.then83:                                        ; preds = %lor.lhs.false78, %l
   br label %return
 
 if.end85:                                         ; preds = %lor.lhs.false78, %lor.lhs.false72
-  %cond = phi ptr [ %.pre76, %lor.lhs.false78 ], [ %13, %lor.lhs.false72 ]
+  %cond = phi ptr [ %.pre79, %lor.lhs.false78 ], [ %13, %lor.lhs.false72 ]
   %ext92 = getelementptr inbounds i8, ptr %cond, i64 824
   %max_early_data93 = getelementptr inbounds i8, ptr %cond, i64 860
   %16 = load i32, ptr %max_early_data93, align 4
@@ -1820,8 +1820,12 @@ if.then132:                                       ; preds = %if.end127
   br i1 %cmp.i, label %if.then138, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.then132
+  %tobool.not.i.i.i76 = icmp eq i64 %21, 0
+  br i1 %tobool.not.i.i.i76, label %if.then150, label %lor.lhs.false.i.lr.ph
+
+lor.lhs.false.i.lr.ph:                            ; preds = %while.cond.preheader
   %alpn_selected_len = getelementptr inbounds i8, ptr %cond, i64 872
-  br label %while.cond
+  br label %lor.lhs.false.i
 
 if.then138:                                       ; preds = %if.then132
   call void @ERR_new() #10
@@ -1829,46 +1833,40 @@ if.then138:                                       ; preds = %if.then132
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %s, i32 noundef 80, i32 noundef 786691, ptr noundef null) #10
   br label %return
 
-while.cond:                                       ; preds = %while.cond.preheader, %PACKET_equal.exit
-  %prots.sroa.3.0 = phi i64 [ %sub.i.i6.i, %PACKET_equal.exit ], [ %21, %while.cond.preheader ]
-  %prots.sroa.0.0 = phi ptr [ %add.ptr.i.i5.i, %PACKET_equal.exit ], [ %19, %while.cond.preheader ]
-  %tobool.not.i.i.i = icmp eq i64 %prots.sroa.3.0, 0
-  br i1 %tobool.not.i.i.i, label %if.then150, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %while.cond
-  %22 = load i8, ptr %prots.sroa.0.0, align 1
-  %sub.i.i.i = add i64 %prots.sroa.3.0, -1
+lor.lhs.false.i:                                  ; preds = %lor.lhs.false.i.lr.ph, %while.cond.backedge
+  %prots.sroa.0.078 = phi ptr [ %19, %lor.lhs.false.i.lr.ph ], [ %add.ptr.i.i5.i, %while.cond.backedge ]
+  %prots.sroa.3.077 = phi i64 [ %21, %lor.lhs.false.i.lr.ph ], [ %sub.i.i6.i, %while.cond.backedge ]
+  %22 = load i8, ptr %prots.sroa.0.078, align 1
+  %sub.i.i.i = add i64 %prots.sroa.3.077, -1
   %conv.i = zext i8 %22 to i64
   %cmp.i.i.i = icmp ult i64 %sub.i.i.i, %conv.i
   br i1 %cmp.i.i.i, label %if.then150, label %while.body
 
 while.body:                                       ; preds = %lor.lhs.false.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %prots.sroa.0.0, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %prots.sroa.0.078, i64 1
   %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
   %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   %23 = load i64, ptr %alpn_selected_len, align 8
   %cmp.not.i = icmp eq i64 %23, %conv.i
-  br i1 %cmp.not.i, label %if.end.i63, label %PACKET_equal.exit
+  br i1 %cmp.not.i, label %if.end.i63, label %while.cond.backedge
 
 if.end.i63:                                       ; preds = %while.body
   %24 = load ptr, ptr %alpn_selected129, align 8
   %call1.i = call i32 @CRYPTO_memcmp(ptr noundef nonnull %add.ptr.i.i.i, ptr noundef %24, i64 noundef %conv.i) #10
-  %cmp2.i = icmp eq i32 %call1.i, 0
-  %conv.i64 = zext i1 %cmp2.i to i32
-  br label %PACKET_equal.exit
+  %cmp2.i.not = icmp eq i32 %call1.i, 0
+  br i1 %cmp2.i.not, label %if.end152, label %while.cond.backedge
 
-PACKET_equal.exit:                                ; preds = %while.body, %if.end.i63
-  %retval.0.i62 = phi i32 [ %conv.i64, %if.end.i63 ], [ 0, %while.body ]
-  %tobool146.not = icmp eq i32 %retval.0.i62, 0
-  br i1 %tobool146.not, label %while.cond, label %if.end152, !llvm.loop !12
+while.cond.backedge:                              ; preds = %if.end.i63, %while.body
+  %tobool.not.i.i.i = icmp eq i64 %sub.i.i6.i, 0
+  br i1 %tobool.not.i.i.i, label %if.then150, label %lor.lhs.false.i, !llvm.loop !12
 
-if.then150:                                       ; preds = %while.cond, %lor.lhs.false.i
+if.then150:                                       ; preds = %lor.lhs.false.i, %while.cond.backedge, %while.cond.preheader
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 880, ptr noundef nonnull @__func__.tls_construct_ctos_early_data) #10
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %s, i32 noundef 80, i32 noundef 222, ptr noundef null) #10
   br label %return
 
-if.end152:                                        ; preds = %PACKET_equal.exit, %land.lhs.true122, %if.end127
+if.end152:                                        ; preds = %if.end.i63, %land.lhs.true122, %if.end127
   %call153 = call i32 @WPACKET_put_bytes__(ptr noundef %pkt, i64 noundef 42, i64 noundef 2) #10
   %tobool154.not = icmp eq i32 %call153, 0
   br i1 %tobool154.not, label %if.then161, label %lor.lhs.false155

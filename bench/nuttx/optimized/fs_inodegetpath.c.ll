@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [2 x i8] c"/\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -2147483648, 1) i32 @inode_getpath(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @inode_getpath(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %24, label %5
 

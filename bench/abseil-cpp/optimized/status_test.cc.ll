@@ -2185,19 +2185,18 @@ if.then.i.i90:                                    ; preds = %invoke.cont93
 
 if.then.i.i90._ZN4absl6StatusD2Ev.exit_crit_edge: ; preds = %if.then.i.i90
   %.pre = load i8, ptr %gtest_ar_85, align 8
-  br label %_ZN4absl6StatusD2Ev.exit
+  %51 = trunc i8 %.pre to i1
+  br i1 %51, label %if.end121, label %if.else100
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i90
-  %51 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #24
+  %53 = extractvalue { ptr, i32 } %52, 0
+  call void @__clang_call_terminate(ptr %53) #24
   unreachable
 
-_ZN4absl6StatusD2Ev.exit:                         ; preds = %if.then.i.i90._ZN4absl6StatusD2Ev.exit_crit_edge, %invoke.cont93
-  %53 = phi i8 [ %.pre, %if.then.i.i90._ZN4absl6StatusD2Ev.exit_crit_edge ], [ %frombool95, %invoke.cont93 ]
-  %tobool.i91 = trunc i8 %53 to i1
-  br i1 %tobool.i91, label %if.end121, label %if.else100
+_ZN4absl6StatusD2Ev.exit:                         ; preds = %invoke.cont93
+  br i1 %call94, label %if.else100, label %if.end121
 
 ehcleanup77:                                      ; preds = %_ZN7testing7MessageD2Ev.exit80, %lpad62
   %.pn18.pn.pn = phi { ptr, i32 } [ %.pn18.pn, %_ZN7testing7MessageD2Ev.exit80 ], [ %42, %lpad62 ]
@@ -2210,7 +2209,7 @@ lpad92:                                           ; preds = %invoke.cont91
   call void @_ZN4absl6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp88) #21
   br label %ehcleanup124
 
-if.else100:                                       ; preds = %_ZN4absl6StatusD2Ev.exit
+if.else100:                                       ; preds = %if.then.i.i90._ZN4absl6StatusD2Ev.exit_crit_edge, %_ZN4absl6StatusD2Ev.exit
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp101)
           to label %invoke.cont103 unwind label %lpad102
 
@@ -2300,7 +2299,7 @@ _ZN7testing7MessageD2Ev.exit104:                  ; preds = %ehcleanup120, %_ZNK
   store ptr null, ptr %ref.tmp101, align 8
   br label %ehcleanup122
 
-if.end121:                                        ; preds = %_ZN4absl6StatusD2Ev.exit, %_ZN7testing7MessageD2Ev.exit99
+if.end121:                                        ; preds = %if.then.i.i90._ZN4absl6StatusD2Ev.exit_crit_edge, %_ZN4absl6StatusD2Ev.exit, %_ZN7testing7MessageD2Ev.exit99
   %65 = load ptr, ptr %message_.i87, align 8
   %cmp.not.i.i106 = icmp eq ptr %65, null
   br i1 %cmp.not.i.i106, label %_ZN7testing15AssertionResultD2Ev.exit108, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i107

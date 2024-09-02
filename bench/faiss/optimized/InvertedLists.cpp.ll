@@ -520,7 +520,7 @@ define void @_ZN5faiss18ArrayInvertedListsD0Ev(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK5faiss18ArrayInvertedLists9list_sizeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #5 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK5faiss18ArrayInvertedLists9list_sizeEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds %"class.std::vector", ptr %4, i64 %1
@@ -553,7 +553,7 @@ define noundef ptr @_ZNK5faiss18ArrayInvertedLists7get_idsEm(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5faiss18ArrayInvertedLists11add_entriesEmmPKlPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZN5faiss18ArrayInvertedLists11add_entriesEmmPKlPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %44, label %7
 

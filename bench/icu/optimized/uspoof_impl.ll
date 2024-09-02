@@ -1703,7 +1703,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_759SpoofData16confusableLookupEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %inChar, ptr noundef nonnull align 8 dereferenceable(64) %dest) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1, 257) i32 @_ZNK6icu_759SpoofData16confusableLookupEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %inChar, ptr noundef nonnull align 8 dereferenceable(64) %dest) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i.i = alloca i16, align 2
   %0 = load ptr, ptr %this, align 8
@@ -2549,7 +2549,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_759SpoofData11codePointAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %index) local_unnamed_addr #20 align 2 {
+define noundef range(i32 0, 16777216) i32 @_ZNK6icu_759SpoofData11codePointAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %index) local_unnamed_addr #20 align 2 {
 entry:
   %fCFUKeys = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %fCFUKeys, align 8
@@ -2563,7 +2563,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_759SpoofData13appendValueToEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(64) %dest) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1, 257) i32 @_ZNK6icu_759SpoofData13appendValueToEiRNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(64) %dest) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
   %fCFUKeys = getelementptr inbounds i8, ptr %this, i64 32

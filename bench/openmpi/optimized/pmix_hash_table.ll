@@ -295,7 +295,7 @@ define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint32(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_hash_table_set_value_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_hash_table_set_value_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -622,7 +622,7 @@ define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint64(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_hash_table_set_value_uint64(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_hash_table_set_value_uint64(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -862,7 +862,7 @@ pmix_hash_hash_key_ptr.exit:                      ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_hash_table_set_value_ptr(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 -29, 1) i32 @pmix_hash_table_set_value_ptr(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
@@ -976,7 +976,7 @@ pmix_tma_malloc.exit:                             ; preds = %21, %23
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_hash_table_remove_value_ptr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_ptr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 176

@@ -739,7 +739,7 @@ entry:
   %lemma = alloca %"class.nla::new_lemma", align 8
   %0 = load ptr, ptr %ab, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i.i, label %invoke.cont.thread, label %_ZNK3nla13factorization3endEv.exit
+  br i1 %cmp.i.i.i, label %invoke.cont, label %_ZNK3nla13factorization3endEv.exit
 
 _ZNK3nla13factorization3endEv.exit:               ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
@@ -747,27 +747,26 @@ _ZNK3nla13factorization3endEv.exit:               ; preds = %entry
   %2 = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds %"class.nla::factor", ptr %0, i64 %2
   %cmp.not72 = icmp eq i32 %1, 0
-  br i1 %cmp.not72, label %invoke.cont.thread, label %for.body
+  br i1 %cmp.not72, label %invoke.cont, label %for.body
 
 for.body:                                         ; preds = %_ZNK3nla13factorization3endEv.exit, %for.body
   %sign.074 = phi i1 [ %tobool6, %for.body ], [ false, %_ZNK3nla13factorization3endEv.exit ]
   %__begin1.073 = phi ptr [ %incdec.ptr, %for.body ], [ %0, %_ZNK3nla13factorization3endEv.exit ]
   %f.sroa.1.0.__begin1.0.sroa_idx = getelementptr inbounds i8, ptr %__begin1.073, i64 8
   %f.sroa.1.0.copyload = load i8, ptr %f.sroa.1.0.__begin1.0.sroa_idx, align 4
-  %f.sroa.1.0.copyload.fr = freeze i8 %f.sroa.1.0.copyload
-  %3 = trunc i8 %f.sroa.1.0.copyload.fr to i1
+  %3 = trunc i8 %f.sroa.1.0.copyload to i1
   %tobool6 = xor i1 %sign.074, %3
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.073, i64 12
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
-  br i1 %cmp.not, label %invoke.cont, label %for.body
+  br i1 %cmp.not, label %invoke.cont.loopexit, label %for.body
 
-invoke.cont:                                      ; preds = %for.body
+invoke.cont.loopexit:                             ; preds = %for.body
+  %4 = select i1 %tobool6, i32 -1, i32 1
+  br label %invoke.cont
+
+invoke.cont:                                      ; preds = %entry, %invoke.cont.loopexit, %_ZNK3nla13factorization3endEv.exit
+  %sign.0.lcssa = phi i32 [ 1, %_ZNK3nla13factorization3endEv.exit ], [ %4, %invoke.cont.loopexit ], [ 1, %entry ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %spec.select = select i1 %tobool6, i32 -1, i32 1
-  br label %invoke.cont.thread
-
-invoke.cont.thread:                               ; preds = %entry, %_ZNK3nla13factorization3endEv.exit, %invoke.cont
-  %4 = phi i32 [ %spec.select, %invoke.cont ], [ 1, %_ZNK3nla13factorization3endEv.exit ], [ 1, %entry ]
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %rsign, i64 4
   %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %rsign, i64 8
   store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !10
@@ -778,7 +777,7 @@ invoke.cont.thread:                               ; preds = %entry, %_ZNK3nla13f
   %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %rsign, i64 24
   store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !10
   %5 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !10
-  store i32 %4, ptr %rsign, align 8, !alias.scope !10
+  store i32 %sign.0.lcssa, ptr %rsign, align 8, !alias.scope !10
   store i8 0, ptr %m_kind.i.i.i.i, align 4, !alias.scope !10
   call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i)
   store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !10
@@ -786,7 +785,7 @@ invoke.cont.thread:                               ; preds = %entry, %_ZNK3nla13f
   %call10 = invoke noundef i32 @_ZNK3nla6common3varINS_6factorEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 4 dereferenceable(9) %6)
           to label %invoke.cont9 unwind label %lpad
 
-invoke.cont9:                                     ; preds = %invoke.cont.thread
+invoke.cont9:                                     ; preds = %invoke.cont
   invoke void @_ZNK3nla6common3valEj(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(184) %this, i32 noundef %call10)
           to label %invoke.cont14 unwind label %lpad
 
@@ -1081,7 +1080,7 @@ invoke.cont56:                                    ; preds = %invoke.cont54
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   br i1 %cmp38, label %for.body39, label %for.body65.preheader, !llvm.loop !13
 
-lpad:                                             ; preds = %invoke.cont9, %invoke.cont.thread
+lpad:                                             ; preds = %invoke.cont9, %invoke.cont
   %38 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup74

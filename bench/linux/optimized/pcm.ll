@@ -1944,15 +1944,15 @@ define internal noundef i32 @snd_pcm_dev_disconnect(ptr nocapture noundef readon
   %12 = getelementptr inbounds i8, ptr %3, i64 184
   br label %13
 
-13:                                               ; preds = %.loopexit10, %1
-  %14 = phi i1 [ true, %1 ], [ false, %.loopexit10 ]
-  %15 = phi i64 [ 0, %1 ], [ 1, %.loopexit10 ]
+13:                                               ; preds = %.loopexit11, %1
+  %14 = phi i1 [ true, %1 ], [ false, %.loopexit11 ]
+  %15 = phi i64 [ 0, %1 ], [ 1, %.loopexit11 ]
   %16 = getelementptr [2 x %struct.snd_pcm_str], ptr %12, i64 0, i64 %15, i32 4
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.loopexit10, label %.preheader9
+  br i1 %18, label %.loopexit11, label %.preheader10
 
-.preheader9:                                      ; preds = %13, %38
+.preheader10:                                     ; preds = %13, %38
   %19 = phi ptr [ %40, %38 ], [ %17, %13 ]
   tail call void @snd_pcm_stream_lock_irq(ptr noundef nonnull %19) #13
   %20 = getelementptr inbounds i8, ptr %19, i64 192
@@ -1960,10 +1960,10 @@ define internal noundef i32 @snd_pcm_dev_disconnect(ptr nocapture noundef readon
   %22 = icmp eq ptr %21, null
   br i1 %22, label %38, label %23
 
-23:                                               ; preds = %.preheader9
+23:                                               ; preds = %.preheader10
   %24 = load i32, ptr %21, align 8
-  switch i32 %24, label %.thread [
-    i32 3, label %.thread6
+  switch i32 %24, label %.critedge7 [
+    i32 3, label %.critedge
     i32 5, label %25
   ]
 
@@ -1971,15 +1971,15 @@ define internal noundef i32 @snd_pcm_dev_disconnect(ptr nocapture noundef readon
   %26 = getelementptr inbounds i8, ptr %19, i64 60
   %27 = load i32, ptr %26, align 4
   %.not = icmp eq i32 %27, 0
-  br i1 %.not, label %.thread6, label %.thread
+  br i1 %.not, label %.critedge, label %.critedge7
 
-.thread6:                                         ; preds = %23, %25
+.critedge:                                        ; preds = %23, %25
   %28 = tail call i32 @snd_pcm_stop(ptr noundef nonnull %19, i32 noundef 8) #13
   %.pre = load ptr, ptr %20, align 8
-  br label %.thread
+  br label %.critedge7
 
-.thread:                                          ; preds = %23, %.thread6, %25
-  %29 = phi ptr [ %21, %23 ], [ %.pre, %.thread6 ], [ %21, %25 ]
+.critedge7:                                       ; preds = %23, %.critedge, %25
+  %29 = phi ptr [ %21, %23 ], [ %.pre, %.critedge ], [ %21, %25 ]
   store i32 8, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 264
   %31 = load ptr, ptr %30, align 8
@@ -1992,34 +1992,34 @@ define internal noundef i32 @snd_pcm_dev_disconnect(ptr nocapture noundef readon
   %37 = tail call i32 @__wake_up(ptr noundef %36, i32 noundef 3, i32 noundef 1, ptr noundef null) #13
   br label %38
 
-38:                                               ; preds = %.thread, %.preheader9
+38:                                               ; preds = %.critedge7, %.preheader10
   tail call void @snd_pcm_stream_unlock_irq(ptr noundef nonnull %19) #13
   %39 = getelementptr inbounds i8, ptr %19, i64 224
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.loopexit10, label %.preheader9, !llvm.loop !34
+  br i1 %41, label %.loopexit11, label %.preheader10, !llvm.loop !34
 
-.loopexit10:                                      ; preds = %38, %13
-  br i1 %14, label %13, label %.preheader8, !llvm.loop !35
+.loopexit11:                                      ; preds = %38, %13
+  br i1 %14, label %13, label %.preheader9, !llvm.loop !35
 
-.preheader8:                                      ; preds = %.loopexit10, %.loopexit
-  %42 = phi i1 [ false, %.loopexit ], [ true, %.loopexit10 ]
-  %43 = phi i64 [ 1, %.loopexit ], [ 0, %.loopexit10 ]
+.preheader9:                                      ; preds = %.loopexit11, %.loopexit
+  %42 = phi i1 [ false, %.loopexit ], [ true, %.loopexit11 ]
+  %43 = phi i64 [ 1, %.loopexit ], [ 0, %.loopexit11 ]
   %44 = getelementptr [2 x %struct.snd_pcm_str], ptr %12, i64 0, i64 %43, i32 4
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.loopexit, label %.preheader7
+  br i1 %46, label %.loopexit, label %.preheader8
 
-.preheader7:                                      ; preds = %.preheader8, %.preheader7
-  %47 = phi ptr [ %49, %.preheader7 ], [ %45, %.preheader8 ]
+.preheader8:                                      ; preds = %.preheader9, %.preheader8
+  %47 = phi ptr [ %49, %.preheader8 ], [ %45, %.preheader9 ]
   tail call void @snd_pcm_sync_stop(ptr noundef nonnull %47, i1 noundef zeroext false) #13
   %48 = getelementptr inbounds i8, ptr %47, i64 224
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.loopexit, label %.preheader7, !llvm.loop !36
+  br i1 %50, label %.loopexit, label %.preheader8, !llvm.loop !36
 
-.loopexit:                                        ; preds = %.preheader7, %.preheader8
-  br i1 %42, label %.preheader8, label %.preheader, !llvm.loop !37
+.loopexit:                                        ; preds = %.preheader8, %.preheader9
+  br i1 %42, label %.preheader9, label %.preheader, !llvm.loop !37
 
 .preheader:                                       ; preds = %.loopexit, %68
   %51 = phi i1 [ false, %68 ], [ true, %.loopexit ]

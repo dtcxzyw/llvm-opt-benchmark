@@ -1339,7 +1339,7 @@ Vec_IntAlloc.exit186:                             ; preds = %.critedge, %73
   %220 = getelementptr inbounds i8, ptr %205, i64 %219
   %221 = load i32, ptr %220, align 4
   %.not245 = icmp eq i32 %221, %210
-  br i1 %.not245, label %222, label %298
+  br i1 %.not245, label %222, label %299
 
 222:                                              ; preds = %213
   br i1 %.not134, label %257, label %223
@@ -1500,19 +1500,19 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %290, ptr %297, align 4
   %.val173.pre = load i64, ptr %203, align 4
   %.pre289 = and i64 %.val173.pre, 536870911
-  br label %298
+  %298 = icmp eq i64 %.pre289, 536870911
+  br label %299
 
-298:                                              ; preds = %Vec_PtrPush.exit, %213
-  %.pre-phi = phi i64 [ %.pre289, %Vec_PtrPush.exit ], [ %212, %213 ]
-  %299 = phi i32 [ %290, %Vec_PtrPush.exit ], [ %209, %213 ]
+299:                                              ; preds = %Vec_PtrPush.exit, %213
+  %.pre-phi = phi i1 [ %298, %Vec_PtrPush.exit ], [ false, %213 ]
+  %300 = phi i32 [ %290, %Vec_PtrPush.exit ], [ %209, %213 ]
   %.val173 = phi i64 [ %.val173.pre, %Vec_PtrPush.exit ], [ %.val153, %213 ]
-  %300 = and i64 %.val173, 2147483648
-  %.not.i218 = icmp ne i64 %300, 0
-  %301 = icmp eq i64 %.pre-phi, 536870911
-  %narrow.i219.not = or i1 %.not.i218, %301
+  %301 = and i64 %.val173, 2147483648
+  %.not.i218 = icmp ne i64 %301, 0
+  %narrow.i219.not = or i1 %.not.i218, %.pre-phi
   br i1 %narrow.i219.not, label %.thread, label %302
 
-302:                                              ; preds = %298
+302:                                              ; preds = %299
   %303 = lshr i64 %.val173, 32
   %304 = and i64 %303, 536870911
   %305 = sub nsw i64 0, %304
@@ -1527,7 +1527,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %312 = ashr exact i64 %sext.i221, 30
   %313 = getelementptr inbounds i8, ptr %307, i64 %312
   %314 = load i32, ptr %313, align 4
-  %315 = add nsw i32 %299, -1
+  %315 = add nsw i32 %300, -1
   %.not247 = icmp eq i32 %314, %315
   br i1 %.not247, label %316, label %.thread
 
@@ -1692,7 +1692,7 @@ Vec_PtrPush.exit235:                              ; preds = %.Vec_PtrGrow.exit11
   store i32 %385, ptr %392, align 4
   br label %.thread
 
-.thread:                                          ; preds = %211, %298, %302, %Vec_PtrPush.exit235, %204
+.thread:                                          ; preds = %211, %299, %302, %Vec_PtrPush.exit235, %204
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %393 = load i32, ptr %109, align 8
   %394 = sext i32 %393 to i64
@@ -1908,7 +1908,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

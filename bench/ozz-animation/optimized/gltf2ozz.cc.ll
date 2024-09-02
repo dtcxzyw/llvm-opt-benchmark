@@ -49792,7 +49792,7 @@ define internal fastcc void @_ZN8tinygltfL21SerializeParameterMapERSt3mapINSt7__
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.247, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %40 unwind label %60
+          to label %40 unwind label %61
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %34, align 8
@@ -49848,27 +49848,27 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaIS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #32
   %.not.i = icmp eq ptr %.sroa.0.0.i.i.i, %33
-  br i1 %.not.i, label %62, label %56
+  br i1 %.not.i, label %63, label %56
 
 56:                                               ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEE4findERS9_.exit.i
   %57 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 64
   %58 = load double, ptr %57, align 8
   %59 = fptosi double %58 to i32
-  br label %62
+  %60 = sext i32 %59 to i64
+  br label %63
 
-60:                                               ; preds = %39
-  %61 = landingpad { ptr, i32 }
+61:                                               ; preds = %39
+  %62 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #32
   br label %.body
 
-62:                                               ; preds = %56, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEE4findERS9_.exit.i
-  %.04.i = phi i32 [ %59, %56 ], [ -1, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEE4findERS9_.exit.i ]
+63:                                               ; preds = %56, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEE4findERS9_.exit.i
+  %.04.i = phi i64 [ %60, %56 ], [ -1, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEE4findERS9_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %63 = sext i32 %.04.i to i64
   store i8 5, ptr %6, align 8
-  store i64 %63, ptr %16, align 8
+  store i64 %.04.i, ptr %16, align 8
   %64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEixERKS8_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %36)
           to label %77 unwind label %67
 
@@ -49877,7 +49877,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaIS
           cleanup
   br label %.body
 
-67:                                               ; preds = %62
+67:                                               ; preds = %63
   %68 = landingpad { ptr, i32 }
           cleanup
   %69 = load i8, ptr %6, align 8
@@ -49899,10 +49899,10 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaIS
   call void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE10json_value7destroyENS_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %15, i8 noundef zeroext %76) #32
   br label %.body
 
-77:                                               ; preds = %70, %62
-  %.sink74 = phi ptr [ %64, %62 ], [ %73, %70 ]
-  %.sink73 = phi ptr [ %6, %62 ], [ %7, %70 ]
-  %.sink66 = phi ptr [ %16, %62 ], [ %15, %70 ]
+77:                                               ; preds = %70, %63
+  %.sink74 = phi ptr [ %64, %63 ], [ %73, %70 ]
+  %.sink73 = phi ptr [ %6, %63 ], [ %7, %70 ]
+  %.sink66 = phi ptr [ %16, %63 ], [ %15, %70 ]
   %78 = load i8, ptr %.sink74, align 8
   %79 = load i8, ptr %.sink73, align 8
   store i8 %79, ptr %.sink74, align 8
@@ -50024,10 +50024,10 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaIS
 ._crit_edge61:                                    ; preds = %125, %2
   ret void
 
-.body:                                            ; preds = %67, %74, %91, %60, %65, %123, %111
-  %.sink77 = phi ptr [ %10, %123 ], [ %9, %111 ], [ %5, %65 ], [ %5, %60 ], [ %5, %91 ], [ %5, %74 ], [ %5, %67 ]
-  %.sink75 = phi ptr [ %18, %123 ], [ %19, %111 ], [ %14, %65 ], [ %14, %60 ], [ %14, %91 ], [ %14, %74 ], [ %14, %67 ]
-  %.pn.pn = phi { ptr, i32 } [ %124, %123 ], [ %112, %111 ], [ %66, %65 ], [ %61, %60 ], [ %92, %91 ], [ %75, %74 ], [ %68, %67 ]
+.body:                                            ; preds = %67, %74, %91, %61, %65, %123, %111
+  %.sink77 = phi ptr [ %10, %123 ], [ %9, %111 ], [ %5, %65 ], [ %5, %61 ], [ %5, %91 ], [ %5, %74 ], [ %5, %67 ]
+  %.sink75 = phi ptr [ %18, %123 ], [ %19, %111 ], [ %14, %65 ], [ %14, %61 ], [ %14, %91 ], [ %14, %74 ], [ %14, %67 ]
+  %.pn.pn = phi { ptr, i32 } [ %124, %123 ], [ %112, %111 ], [ %66, %65 ], [ %62, %61 ], [ %92, %91 ], [ %75, %74 ], [ %68, %67 ]
   %127 = load i8, ptr %.sink77, align 8
   call void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE10json_value7destroyENS_6detail7value_tE(ptr noundef nonnull align 8 dereferenceable(8) %.sink75, i8 noundef zeroext %127) #32
   resume { ptr, i32 } %.pn.pn
@@ -53003,20 +53003,20 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiN3ozz12StdAllocatorIiEEE
   %118 = phi ptr [ %.pre, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiN3ozz12StdAllocatorIiEEEEEET_S9_S9_.exit ], [ %100, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiN3ozz12StdAllocatorIiEEEEEEvT_S9_.exit ], [ %101, %.preheader.i.i.i ]
   %.pre6876 = phi ptr [ %.pre68.pre, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiN3ozz12StdAllocatorIiEEEEEET_S9_S9_.exit ], [ %100, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiN3ozz12StdAllocatorIiEEEEEEvT_S9_.exit ], [ %100, %.preheader.i.i.i ]
   %.pre72 = ptrtoint ptr %.pre6876 to i64
+  %119 = ptrtoint ptr %118 to i64
   br label %_ZNSt6vectorIiN3ozz12StdAllocatorIiEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS3_EES8_.exit
 
 ._crit_edge.i.i39:                                ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiN3ozz12StdAllocatorIiEEEEEET_S9_S9_.exit
-  %119 = ptrtoint ptr %117 to i64
-  %120 = ptrtoint ptr %.pre68.pre to i64
-  %121 = sub i64 %119, %120
-  %122 = getelementptr inbounds i8, ptr %.pre68.pre, i64 %121
-  store ptr %122, ptr %98, align 8
+  %120 = ptrtoint ptr %117 to i64
+  %121 = ptrtoint ptr %.pre68.pre to i64
+  %122 = sub i64 %120, %121
+  %123 = getelementptr inbounds i8, ptr %.pre68.pre, i64 %122
+  store ptr %123, ptr %98, align 8
   br label %_ZNSt6vectorIiN3ozz12StdAllocatorIiEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS3_EES8_.exit
 
 _ZNSt6vectorIiN3ozz12StdAllocatorIiEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS3_EES8_.exit: ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiN3ozz12StdAllocatorIiEEEEEET_S9_S9_.exit._ZNSt6vectorIiN3ozz12StdAllocatorIiEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS3_EES8_.exit_crit_edge, %._crit_edge.i.i39
-  %.pre-phi = phi i64 [ %.pre72, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiN3ozz12StdAllocatorIiEEEEEET_S9_S9_.exit._ZNSt6vectorIiN3ozz12StdAllocatorIiEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS3_EES8_.exit_crit_edge ], [ %120, %._crit_edge.i.i39 ]
-  %123 = phi ptr [ %118, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiN3ozz12StdAllocatorIiEEEEEET_S9_S9_.exit._ZNSt6vectorIiN3ozz12StdAllocatorIiEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS3_EES8_.exit_crit_edge ], [ %122, %._crit_edge.i.i39 ]
-  %124 = ptrtoint ptr %123 to i64
+  %.pre-phi = phi i64 [ %.pre72, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiN3ozz12StdAllocatorIiEEEEEET_S9_S9_.exit._ZNSt6vectorIiN3ozz12StdAllocatorIiEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS3_EES8_.exit_crit_edge ], [ %121, %._crit_edge.i.i39 ]
+  %124 = phi i64 [ %119, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiN3ozz12StdAllocatorIiEEEEEET_S9_S9_.exit._ZNSt6vectorIiN3ozz12StdAllocatorIiEEE5eraseEN9__gnu_cxx17__normal_iteratorIPKiS3_EES8_.exit_crit_edge ], [ %120, %._crit_edge.i.i39 ]
   %125 = sub i64 %124, %.pre-phi
   %126 = ashr exact i64 %125, 2
   %127 = getelementptr inbounds i8, ptr %1, i64 8

@@ -7431,7 +7431,7 @@ if.then41:                                        ; preds = %if.then39
   br label %start.backedge
 
 start.backedge:                                   ; preds = %if.then41, %if.then48, %if.then74, %if.then80, %if.then86, %if.then112, %if.then118, %if.then138, %if.then144, %if.then185, %if.then192
-  %19 = phi ptr [ %7, %if.then41 ], [ %7, %if.then48 ], [ %28, %if.then74 ], [ %7, %if.then80 ], [ %25, %if.then86 ], [ %7, %if.then112 ], [ %7, %if.then118 ], [ %39, %if.then138 ], [ %40, %if.then144 ], [ %52, %if.then185 ], [ %53, %if.then192 ]
+  %19 = phi ptr [ %7, %if.then41 ], [ %7, %if.then48 ], [ %28, %if.then74 ], [ %7, %if.then80 ], [ %25, %if.then86 ], [ %7, %if.then112 ], [ %7, %if.then118 ], [ %39, %if.then138 ], [ %40, %if.then144 ], [ %53, %if.then185 ], [ %54, %if.then192 ]
   %20 = phi ptr [ %18, %if.then41 ], [ %24, %if.then48 ], [ %6, %if.then74 ], [ %12, %if.then80 ], [ %6, %if.then86 ], [ %35, %if.then112 ], [ %36, %if.then118 ], [ %6, %if.then138 ], [ %6, %if.then144 ], [ %6, %if.then185 ], [ %6, %if.then192 ]
   %21 = ptrtoint ptr %20 to i64
   %and.i = and i64 %21, 1
@@ -7777,34 +7777,34 @@ if.end164:                                        ; preds = %if.end25
   %m_children.i238.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 8
   %.pre = load ptr, ptr %m_children.i238.phi.trans.insert, align 8
   %45 = ptrtoint ptr %.pre to i64
-  %cmp.i.i239 = icmp eq ptr %.pre, null
-  br i1 %cmp.i.i239, label %if.end196, label %if.then166
+  %46 = icmp eq ptr %.pre, null
+  br i1 %46, label %if.end196, label %if.then166
 
 if.then166:                                       ; preds = %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit235, %if.end147, %if.end156, %if.end164
-  %46 = phi i64 [ %45, %if.end164 ], [ %26, %if.end156 ], [ %26, %if.end147 ], [ %26, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit235 ]
-  %47 = inttoptr i64 %46 to ptr
+  %47 = phi i64 [ %45, %if.end164 ], [ %26, %if.end156 ], [ %26, %if.end147 ], [ %26, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit235 ]
+  %48 = inttoptr i64 %47 to ptr
   %arrayidx172 = getelementptr inbounds i8, ptr %9, i64 16
-  %48 = load i64, ptr %arrayidx172, align 8
-  %49 = inttoptr i64 %48 to ptr
-  %and.i3.i241 = and i64 %46, -2
-  %50 = inttoptr i64 %and.i3.i241 to ptr
-  %cmp.i242 = icmp eq ptr %4, %50
+  %49 = load i64, ptr %arrayidx172, align 8
+  %50 = inttoptr i64 %49 to ptr
+  %and.i3.i241 = and i64 %47, -2
+  %51 = inttoptr i64 %and.i3.i241 to ptr
+  %cmp.i242 = icmp eq ptr %4, %51
   br i1 %cmp.i242, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit249, label %lor.lhs.false174
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit249: ; preds = %if.then166
-  %and.i5.i246 = and i64 %46, 1
+  %and.i5.i246 = and i64 %47, 1
   %cmp.i6.i247 = icmp ne i64 %and.i5.i246, 0
   %cmp6.i248 = xor i1 %cmp.i433, %cmp.i6.i247
   br i1 %cmp6.i248, label %if.then176, label %lor.lhs.false174
 
 lor.lhs.false174:                                 ; preds = %if.then166, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit249
-  %and.i3.i251 = and i64 %48, -2
-  %51 = inttoptr i64 %and.i3.i251 to ptr
-  %cmp.i252 = icmp eq ptr %4, %51
+  %and.i3.i251 = and i64 %49, -2
+  %52 = inttoptr i64 %and.i3.i251 to ptr
+  %cmp.i252 = icmp eq ptr %4, %52
   br i1 %cmp.i252, label %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit259, label %if.end181
 
 _ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit259: ; preds = %lor.lhs.false174
-  %and.i5.i256 = and i64 %48, 1
+  %and.i5.i256 = and i64 %49, 1
   %cmp.i6.i257 = icmp ne i64 %and.i5.i256, 0
   %cmp6.i258 = xor i1 %cmp.i433, %cmp.i6.i257
   br i1 %cmp6.i258, label %if.then176, label %if.end181
@@ -7818,29 +7818,29 @@ if.else179:                                       ; preds = %if.then176
   br label %return
 
 if.end181:                                        ; preds = %lor.lhs.false174, %_ZNK11aig_manager3imp9is_not_eqERK7aig_litS3_.exit259
-  %cmp.i260 = icmp eq ptr %6, %47
+  %cmp.i260 = icmp eq ptr %6, %48
   br i1 %cmp.i260, label %if.then183, label %if.end188
 
 if.then183:                                       ; preds = %if.end181
   br i1 %cmp.i55436, label %if.then185, label %return
 
 if.then185:                                       ; preds = %if.then183
-  %xor.i261 = xor i64 %48, 1
-  %52 = inttoptr i64 %xor.i261 to ptr
-  store ptr %52, ptr %r, align 8
+  %xor.i261 = xor i64 %49, 1
+  %53 = inttoptr i64 %xor.i261 to ptr
+  store ptr %53, ptr %r, align 8
   br label %start.backedge
 
 if.end188:                                        ; preds = %if.end181
-  %cmp.i262 = icmp eq ptr %6, %49
+  %cmp.i262 = icmp eq ptr %6, %50
   br i1 %cmp.i262, label %if.then190, label %if.end196
 
 if.then190:                                       ; preds = %if.end188
   br i1 %cmp.i55436, label %if.then192, label %return
 
 if.then192:                                       ; preds = %if.then190
-  %xor.i263 = xor i64 %46, 1
-  %53 = inttoptr i64 %xor.i263 to ptr
-  store ptr %53, ptr %r, align 8
+  %xor.i263 = xor i64 %47, 1
+  %54 = inttoptr i64 %xor.i263 to ptr
+  store ptr %54, ptr %r, align 8
   br label %start.backedge
 
 if.end196:                                        ; preds = %if.end51, %if.end188, %if.end164

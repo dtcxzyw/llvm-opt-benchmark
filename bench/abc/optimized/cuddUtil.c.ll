@@ -6134,7 +6134,7 @@ define internal fastcc range(i32 0, 2) i32 @dp2(ptr noundef %0, ptr noundef %1, 
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @cuddCollectNodes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddCollectNodes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @st__lookup(ptr noundef %1, ptr noundef %0, ptr noundef null) #23
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %._crit_edge, label %.lr.ph
@@ -6158,8 +6158,8 @@ define i32 @cuddCollectNodes(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %13 = getelementptr inbounds i8, ptr %.tr18, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @cuddCollectNodes(ptr noundef %14, ptr noundef %1)
-  %.not = icmp eq i32 %15, 1
-  br i1 %.not, label %tailrecurse, label %._crit_edge
+  %.not.not = icmp eq i32 %15, 0
+  br i1 %.not.not, label %._crit_edge, label %tailrecurse
 
 tailrecurse:                                      ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.tr18, i64 24
@@ -6172,7 +6172,7 @@ tailrecurse:                                      ; preds = %12
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph, %6, %9, %12, %2
-  %.0 = phi i32 [ 1, %2 ], [ %15, %12 ], [ 1, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 1, %tailrecurse ]
+  %.0 = phi i32 [ 1, %2 ], [ 0, %12 ], [ 1, %9 ], [ 0, %6 ], [ 0, %.lr.ph ], [ 1, %tailrecurse ]
   ret i32 %.0
 }
 

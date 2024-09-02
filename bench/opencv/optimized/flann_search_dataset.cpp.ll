@@ -11974,46 +11974,46 @@ _ZN7cvflann11KMeansIndexINS_7HammingIhEEE12free_indicesEv.exit: ; preds = %21, %
 ._crit_edge:                                      ; preds = %.lr.ph, %34
   %51 = load i32, ptr %29, align 8
   %52 = icmp slt i32 %51, 48
-  br i1 %52, label %53, label %._crit_edge.i.i
+  br i1 %52, label %54, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  br label %63
+  %53 = add nsw i32 %51, -48
+  br label %64
 
-53:                                               ; preds = %._crit_edge
-  %54 = load i32, ptr %30, align 8
-  %55 = add nsw i32 %54, %51
-  store i32 %55, ptr %30, align 8
-  %56 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #35
-  %.not.i.i = icmp eq ptr %56, null
-  br i1 %.not.i.i, label %57, label %60
+54:                                               ; preds = %._crit_edge
+  %55 = load i32, ptr %30, align 8
+  %56 = add nsw i32 %55, %51
+  store i32 %56, ptr %30, align 8
+  %57 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #35
+  %.not.i.i = icmp eq ptr %57, null
+  br i1 %.not.i.i, label %58, label %61
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr @stderr, align 8
-  %59 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 27, i64 1, ptr %58) #34
+58:                                               ; preds = %54
+  %59 = load ptr, ptr @stderr, align 8
+  %60 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 27, i64 1, ptr %59) #34
   br label %_ZN7cvflann15PooledAllocator8allocateINS_11KMeansIndexINS_7HammingIhEEE10KMeansNodeEEEPT_m.exit
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %31, align 8
-  store ptr %61, ptr %56, align 8
-  store ptr %56, ptr %31, align 8
-  %62 = getelementptr inbounds i8, ptr %56, i64 8
-  br label %63
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %31, align 8
+  store ptr %62, ptr %57, align 8
+  store ptr %57, ptr %31, align 8
+  %63 = getelementptr inbounds i8, ptr %57, i64 8
+  br label %64
 
-63:                                               ; preds = %60, %._crit_edge.i.i
-  %64 = phi i32 [ %51, %._crit_edge.i.i ], [ 8184, %60 ]
-  %65 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %62, %60 ]
-  %66 = getelementptr inbounds i8, ptr %65, i64 48
-  store ptr %66, ptr %.phi.trans.insert.i.i, align 8
-  %67 = add nsw i32 %64, -48
-  store i32 %67, ptr %29, align 8
+64:                                               ; preds = %61, %._crit_edge.i.i
+  %65 = phi i32 [ %53, %._crit_edge.i.i ], [ 8136, %61 ]
+  %66 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %63, %61 ]
+  %67 = getelementptr inbounds i8, ptr %66, i64 48
+  store ptr %67, ptr %.phi.trans.insert.i.i, align 8
+  store i32 %65, ptr %29, align 8
   %68 = load i32, ptr %32, align 4
   %69 = add nsw i32 %68, 48
   store i32 %69, ptr %32, align 4
   br label %_ZN7cvflann15PooledAllocator8allocateINS_11KMeansIndexINS_7HammingIhEEE10KMeansNodeEEEPT_m.exit
 
-_ZN7cvflann15PooledAllocator8allocateINS_11KMeansIndexINS_7HammingIhEEE10KMeansNodeEEEPT_m.exit: ; preds = %57, %63
-  %.0.i.i = phi ptr [ %65, %63 ], [ null, %57 ]
+_ZN7cvflann15PooledAllocator8allocateINS_11KMeansIndexINS_7HammingIhEEE10KMeansNodeEEEPT_m.exit: ; preds = %58, %64
+  %.0.i.i = phi ptr [ %66, %64 ], [ null, %58 ]
   %70 = load ptr, ptr %33, align 8
   %71 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv
   store ptr %.0.i.i, ptr %71, align 8
@@ -13469,12 +13469,15 @@ _ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit115: ; preds = %._crit_edge.i107, 
   %.181 = phi i32 [ %.1.i114, %155 ], [ %.080136, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit115 ]
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
-  br i1 %exitcond152.not, label %._crit_edge139, label %.lr.ph138, !llvm.loop !92
+  br i1 %exitcond152.not, label %._crit_edge139.loopexit, label %.lr.ph138, !llvm.loop !92
 
-._crit_edge139:                                   ; preds = %164, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit
-  %166 = phi i32 [ 0, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit ], [ %165, %164 ]
-  %.080.lcssa = phi i32 [ %.1.i, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit ], [ %.181, %164 ]
-  %167 = sext i32 %166 to i64
+._crit_edge139.loopexit:                          ; preds = %164
+  %166 = sext i32 %165 to i64
+  br label %._crit_edge139
+
+._crit_edge139:                                   ; preds = %._crit_edge139.loopexit, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit
+  %167 = phi i64 [ 0, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit ], [ %166, %._crit_edge139.loopexit ]
+  %.080.lcssa = phi i32 [ %.1.i, %_ZNK7cvflann7HammingIhEclIPhS3_EEiT_T0_mi.exit ], [ %.181, %._crit_edge139.loopexit ]
   %168 = load ptr, ptr %13, align 8
   %169 = getelementptr inbounds i32, ptr %168, i64 %167
   %170 = load i32, ptr %169, align 4
@@ -15385,20 +15388,23 @@ _ZNK7cvflann7HammingIhEclIPhEEiT_NS_12ZeroIteratorIhEEmi.exit: ; preds = %._crit
   %.1 = phi i32 [ %87, %_ZNK7cvflann7HammingIhEclIPhEEiT_NS_12ZeroIteratorIhEEmi.exit ], [ %.06492, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !121
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !121
 
-._crit_edge:                                      ; preds = %95, %56
-  %.168.lcssa = phi i32 [ %.097, %56 ], [ %.2, %95 ]
-  %.065.lcssa = phi i64 [ 0, %56 ], [ %.166, %95 ]
-  %.064.lcssa = phi i32 [ 0, %56 ], [ %.1, %95 ]
-  %96 = sitofp i32 %.064.lcssa to float
-  %97 = sitofp i32 %58 to float
-  %98 = fdiv float %96, %97
-  %99 = fadd float %98, 5.000000e-01
-  %100 = fptosi float %99 to i32
-  %101 = uitofp i64 %.065.lcssa to double
+._crit_edge.loopexit:                             ; preds = %95
+  %96 = sitofp i32 %.1 to float
+  %97 = uitofp i64 %.166 to double
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %56
+  %.168.lcssa = phi i32 [ %.097, %56 ], [ %.2, %._crit_edge.loopexit ]
+  %.065.lcssa = phi double [ 0.000000e+00, %56 ], [ %97, %._crit_edge.loopexit ]
+  %.064.lcssa = phi float [ 0.000000e+00, %56 ], [ %96, %._crit_edge.loopexit ]
+  %98 = sitofp i32 %58 to float
+  %99 = fdiv float %.064.lcssa, %98
+  %100 = fadd float %99, 5.000000e-01
+  %101 = fptosi float %100 to i32
   %102 = sitofp i32 %58 to double
-  %103 = fdiv double %101, %102
+  %103 = fdiv double %.065.lcssa, %102
   %104 = fadd double %103, 5.000000e-01
   %105 = fptoui double %104 to i64
   %106 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv102
@@ -15443,46 +15449,46 @@ _ZNK7cvflann7HammingIhEclIPhEEiT_NS_12ZeroIteratorIhEEmi.exit82: ; preds = %._cr
   %121 = mul nsw i32 %.1.i81, %.1.i81
   %122 = load i32, ptr %13, align 8
   %123 = icmp slt i32 %122, 48
-  br i1 %123, label %124, label %._crit_edge.i.i83
+  br i1 %123, label %125, label %._crit_edge.i.i83
 
 ._crit_edge.i.i83:                                ; preds = %_ZNK7cvflann7HammingIhEclIPhEEiT_NS_12ZeroIteratorIhEEmi.exit82
   %.pre.i.i85 = load ptr, ptr %.phi.trans.insert.i.i84, align 8
-  br label %134
+  %124 = add nsw i32 %122, -48
+  br label %135
 
-124:                                              ; preds = %_ZNK7cvflann7HammingIhEclIPhEEiT_NS_12ZeroIteratorIhEEmi.exit82
-  %125 = load i32, ptr %52, align 8
-  %126 = add nsw i32 %125, %122
-  store i32 %126, ptr %52, align 8
-  %127 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #35
-  %.not.i.i88 = icmp eq ptr %127, null
-  br i1 %.not.i.i88, label %128, label %131
+125:                                              ; preds = %_ZNK7cvflann7HammingIhEclIPhEEiT_NS_12ZeroIteratorIhEEmi.exit82
+  %126 = load i32, ptr %52, align 8
+  %127 = add nsw i32 %126, %122
+  store i32 %127, ptr %52, align 8
+  %128 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #35
+  %.not.i.i88 = icmp eq ptr %128, null
+  br i1 %.not.i.i88, label %129, label %132
 
-128:                                              ; preds = %124
-  %129 = load ptr, ptr @stderr, align 8
-  %130 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 27, i64 1, ptr %129) #34
+129:                                              ; preds = %125
+  %130 = load ptr, ptr @stderr, align 8
+  %131 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 27, i64 1, ptr %130) #34
   br label %_ZN7cvflann15PooledAllocator8allocateINS_11KMeansIndexINS_7HammingIhEEE10KMeansNodeEEEPT_m.exit
 
-131:                                              ; preds = %124
-  %132 = load ptr, ptr %53, align 8
-  store ptr %132, ptr %127, align 8
-  store ptr %127, ptr %53, align 8
-  %133 = getelementptr inbounds i8, ptr %127, i64 8
-  br label %134
+132:                                              ; preds = %125
+  %133 = load ptr, ptr %53, align 8
+  store ptr %133, ptr %128, align 8
+  store ptr %128, ptr %53, align 8
+  %134 = getelementptr inbounds i8, ptr %128, i64 8
+  br label %135
 
-134:                                              ; preds = %131, %._crit_edge.i.i83
-  %135 = phi i32 [ %122, %._crit_edge.i.i83 ], [ 8184, %131 ]
-  %136 = phi ptr [ %.pre.i.i85, %._crit_edge.i.i83 ], [ %133, %131 ]
-  %137 = getelementptr inbounds i8, ptr %136, i64 48
-  store ptr %137, ptr %.phi.trans.insert.i.i84, align 8
-  %138 = add nsw i32 %135, -48
-  store i32 %138, ptr %13, align 8
+135:                                              ; preds = %132, %._crit_edge.i.i83
+  %136 = phi i32 [ %124, %._crit_edge.i.i83 ], [ 8136, %132 ]
+  %137 = phi ptr [ %.pre.i.i85, %._crit_edge.i.i83 ], [ %134, %132 ]
+  %138 = getelementptr inbounds i8, ptr %137, i64 48
+  store ptr %138, ptr %.phi.trans.insert.i.i84, align 8
+  store i32 %136, ptr %13, align 8
   %139 = load i32, ptr %54, align 4
   %140 = add nsw i32 %139, 48
   store i32 %140, ptr %54, align 4
   br label %_ZN7cvflann15PooledAllocator8allocateINS_11KMeansIndexINS_7HammingIhEEE10KMeansNodeEEEPT_m.exit
 
-_ZN7cvflann15PooledAllocator8allocateINS_11KMeansIndexINS_7HammingIhEEE10KMeansNodeEEEPT_m.exit: ; preds = %128, %134
-  %.0.i.i87 = phi ptr [ %136, %134 ], [ null, %128 ]
+_ZN7cvflann15PooledAllocator8allocateINS_11KMeansIndexINS_7HammingIhEEE10KMeansNodeEEEPT_m.exit: ; preds = %129, %135
+  %.0.i.i87 = phi ptr [ %137, %135 ], [ null, %129 ]
   %141 = load ptr, ptr %46, align 8
   %142 = getelementptr inbounds ptr, ptr %141, i64 %indvars.iv102
   store ptr %.0.i.i87, ptr %142, align 8
@@ -15514,7 +15520,7 @@ _ZN7cvflann15PooledAllocator8allocateINS_11KMeansIndexINS_7HammingIhEEE10KMeansN
   %164 = getelementptr inbounds ptr, ptr %163, i64 %indvars.iv102
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 12
-  store i32 %100, ptr %166, align 4
+  store i32 %101, ptr %166, align 4
   %167 = load ptr, ptr %46, align 8
   %168 = getelementptr inbounds ptr, ptr %167, i64 %indvars.iv102
   %169 = load ptr, ptr %168, align 8
@@ -20082,46 +20088,46 @@ _ZN7cvflann27HierarchicalClusteringIndexINS_7HammingIhEEE12free_indicesEv.exit: 
 ._crit_edge:                                      ; preds = %.lr.ph, %34
   %51 = load i32, ptr %29, align 8
   %52 = icmp slt i32 %51, 32
-  br i1 %52, label %53, label %._crit_edge.i.i
+  br i1 %52, label %54, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  br label %63
+  %53 = add nsw i32 %51, -32
+  br label %64
 
-53:                                               ; preds = %._crit_edge
-  %54 = load i32, ptr %30, align 8
-  %55 = add nsw i32 %54, %51
-  store i32 %55, ptr %30, align 8
-  %56 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #35
-  %.not.i.i = icmp eq ptr %56, null
-  br i1 %.not.i.i, label %57, label %60
+54:                                               ; preds = %._crit_edge
+  %55 = load i32, ptr %30, align 8
+  %56 = add nsw i32 %55, %51
+  store i32 %56, ptr %30, align 8
+  %57 = tail call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #35
+  %.not.i.i = icmp eq ptr %57, null
+  br i1 %.not.i.i, label %58, label %61
 
-57:                                               ; preds = %53
-  %58 = load ptr, ptr @stderr, align 8
-  %59 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 27, i64 1, ptr %58) #34
+58:                                               ; preds = %54
+  %59 = load ptr, ptr @stderr, align 8
+  %60 = tail call i64 @fwrite(ptr nonnull @.str.60, i64 27, i64 1, ptr %59) #34
   br label %_ZN7cvflann15PooledAllocator8allocateINS_27HierarchicalClusteringIndexINS_7HammingIhEEE4NodeEEEPT_m.exit
 
-60:                                               ; preds = %53
-  %61 = load ptr, ptr %31, align 8
-  store ptr %61, ptr %56, align 8
-  store ptr %56, ptr %31, align 8
-  %62 = getelementptr inbounds i8, ptr %56, i64 8
-  br label %63
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %31, align 8
+  store ptr %62, ptr %57, align 8
+  store ptr %57, ptr %31, align 8
+  %63 = getelementptr inbounds i8, ptr %57, i64 8
+  br label %64
 
-63:                                               ; preds = %60, %._crit_edge.i.i
-  %64 = phi i32 [ %51, %._crit_edge.i.i ], [ 8184, %60 ]
-  %65 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %62, %60 ]
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
-  store ptr %66, ptr %.phi.trans.insert.i.i, align 8
-  %67 = add nsw i32 %64, -32
-  store i32 %67, ptr %29, align 8
+64:                                               ; preds = %61, %._crit_edge.i.i
+  %65 = phi i32 [ %53, %._crit_edge.i.i ], [ 8152, %61 ]
+  %66 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %63, %61 ]
+  %67 = getelementptr inbounds i8, ptr %66, i64 32
+  store ptr %67, ptr %.phi.trans.insert.i.i, align 8
+  store i32 %65, ptr %29, align 8
   %68 = load i32, ptr %32, align 4
   %69 = add nsw i32 %68, 32
   store i32 %69, ptr %32, align 4
   br label %_ZN7cvflann15PooledAllocator8allocateINS_27HierarchicalClusteringIndexINS_7HammingIhEEE4NodeEEEPT_m.exit
 
-_ZN7cvflann15PooledAllocator8allocateINS_27HierarchicalClusteringIndexINS_7HammingIhEEE4NodeEEEPT_m.exit: ; preds = %57, %63
-  %.0.i.i = phi ptr [ %65, %63 ], [ null, %57 ]
+_ZN7cvflann15PooledAllocator8allocateINS_27HierarchicalClusteringIndexINS_7HammingIhEEE4NodeEEEPT_m.exit: ; preds = %58, %64
+  %.0.i.i = phi ptr [ %66, %64 ], [ null, %58 ]
   %70 = load ptr, ptr %33, align 8
   %71 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv
   store ptr %.0.i.i, ptr %71, align 8
@@ -21342,46 +21348,46 @@ _ZN7cvflann15PooledAllocator8allocateIPNS_27HierarchicalClusteringIndexINS_7Hamm
   %.1.lcssa = phi i32 [ %.062117, %.preheader ], [ %.2, %112 ]
   %113 = load i32, ptr %60, align 8
   %114 = icmp slt i32 %113, 32
-  br i1 %114, label %115, label %._crit_edge.i.i85
+  br i1 %114, label %116, label %._crit_edge.i.i85
 
 ._crit_edge.i.i85:                                ; preds = %._crit_edge
   %.pre.i.i87 = load ptr, ptr %.phi.trans.insert.i.i86, align 8
-  br label %125
+  %115 = add nsw i32 %113, -32
+  br label %126
 
-115:                                              ; preds = %._crit_edge
-  %116 = load i32, ptr %94, align 8
-  %117 = add nsw i32 %116, %113
-  store i32 %117, ptr %94, align 8
-  %118 = call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #35
-  %.not.i.i90 = icmp eq ptr %118, null
-  br i1 %.not.i.i90, label %119, label %122
+116:                                              ; preds = %._crit_edge
+  %117 = load i32, ptr %94, align 8
+  %118 = add nsw i32 %117, %113
+  store i32 %118, ptr %94, align 8
+  %119 = call noalias dereferenceable_or_null(8192) ptr @malloc(i64 noundef 8192) #35
+  %.not.i.i90 = icmp eq ptr %119, null
+  br i1 %.not.i.i90, label %120, label %123
 
-119:                                              ; preds = %115
-  %120 = load ptr, ptr @stderr, align 8
-  %121 = call i64 @fwrite(ptr nonnull @.str.60, i64 27, i64 1, ptr %120) #34
+120:                                              ; preds = %116
+  %121 = load ptr, ptr @stderr, align 8
+  %122 = call i64 @fwrite(ptr nonnull @.str.60, i64 27, i64 1, ptr %121) #34
   br label %_ZN7cvflann15PooledAllocator8allocateINS_27HierarchicalClusteringIndexINS_7HammingIhEEE4NodeEEEPT_m.exit
 
-122:                                              ; preds = %115
-  %123 = load ptr, ptr %95, align 8
-  store ptr %123, ptr %118, align 8
-  store ptr %118, ptr %95, align 8
-  %124 = getelementptr inbounds i8, ptr %118, i64 8
-  br label %125
+123:                                              ; preds = %116
+  %124 = load ptr, ptr %95, align 8
+  store ptr %124, ptr %119, align 8
+  store ptr %119, ptr %95, align 8
+  %125 = getelementptr inbounds i8, ptr %119, i64 8
+  br label %126
 
-125:                                              ; preds = %122, %._crit_edge.i.i85
-  %126 = phi i32 [ %113, %._crit_edge.i.i85 ], [ 8184, %122 ]
-  %127 = phi ptr [ %.pre.i.i87, %._crit_edge.i.i85 ], [ %124, %122 ]
-  %128 = getelementptr inbounds i8, ptr %127, i64 32
-  store ptr %128, ptr %.phi.trans.insert.i.i86, align 8
-  %129 = add nsw i32 %126, -32
-  store i32 %129, ptr %60, align 8
+126:                                              ; preds = %123, %._crit_edge.i.i85
+  %127 = phi i32 [ %115, %._crit_edge.i.i85 ], [ 8152, %123 ]
+  %128 = phi ptr [ %.pre.i.i87, %._crit_edge.i.i85 ], [ %125, %123 ]
+  %129 = getelementptr inbounds i8, ptr %128, i64 32
+  store ptr %129, ptr %.phi.trans.insert.i.i86, align 8
+  store i32 %127, ptr %60, align 8
   %130 = load i32, ptr %96, align 4
   %131 = add nsw i32 %130, 32
   store i32 %131, ptr %96, align 4
   br label %_ZN7cvflann15PooledAllocator8allocateINS_27HierarchicalClusteringIndexINS_7HammingIhEEE4NodeEEEPT_m.exit
 
-_ZN7cvflann15PooledAllocator8allocateINS_27HierarchicalClusteringIndexINS_7HammingIhEEE4NodeEEEPT_m.exit: ; preds = %119, %125
-  %.0.i.i89 = phi ptr [ %127, %125 ], [ null, %119 ]
+_ZN7cvflann15PooledAllocator8allocateINS_27HierarchicalClusteringIndexINS_7HammingIhEEE4NodeEEEPT_m.exit: ; preds = %120, %126
+  %.0.i.i89 = phi ptr [ %128, %126 ], [ null, %120 ]
   %132 = load ptr, ptr %93, align 8
   %133 = getelementptr inbounds ptr, ptr %132, i64 %indvars.iv122
   store ptr %.0.i.i89, ptr %133, align 8

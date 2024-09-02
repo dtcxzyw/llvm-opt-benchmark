@@ -2898,7 +2898,7 @@ Vec_IntFree.exit27:                               ; preds = %Vec_IntFree.exit25,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Acb_ObjComputeLevelD(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 0, -2147483648) i32 @Acb_ObjComputeLevelD(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 136
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 152
@@ -2947,7 +2947,7 @@ define i32 @Acb_ObjComputeLevelD(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Acb_NtkComputeLevelD(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Acb_NtkComputeLevelD(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 356
   %.val26 = load i32, ptr %3, align 4
   %4 = icmp slt i32 %.val26, 1
@@ -3104,7 +3104,7 @@ Acb_ObjComputeLevelD.exit:                        ; preds = %48, %38
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Acb_ObjComputeLevelR(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 0, -2147483648) i32 @Acb_ObjComputeLevelR(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 440
   %.val20 = load ptr, ptr %3, align 8
   %4 = sext i32 %1 to i64
@@ -3169,7 +3169,7 @@ define i32 @Acb_ObjComputeLevelR(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Acb_NtkComputeLevelR(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Acb_NtkComputeLevelR(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 372
   %.val26 = load i32, ptr %3, align 4
   %4 = icmp slt i32 %.val26, 1
@@ -12227,7 +12227,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

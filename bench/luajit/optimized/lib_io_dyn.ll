@@ -328,11 +328,11 @@ land.rhs.i:                                       ; preds = %if.end.i
   %8 = load i32, ptr %len.i, align 4
   %conv6.i = zext i32 %8 to i64
   %cmp7.i = icmp eq i64 %call5.i, %conv6.i
+  %9 = zext i1 %cmp7.i to i32
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %if.end.i
-  %9 = phi i1 [ false, %if.end.i ], [ %cmp7.i, %land.rhs.i ]
-  %land.ext.i = zext i1 %9 to i32
+  %land.ext.i = phi i32 [ 0, %if.end.i ], [ %9, %land.rhs.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %tv.05.i, i64 8
   %10 = load ptr, ptr %top.i.i, align 8
   %cmp.i2 = icmp ult ptr %incdec.ptr.i, %10
@@ -1455,11 +1455,11 @@ land.rhs.i:                                       ; preds = %if.end.i
   %9 = load i32, ptr %len.i, align 4
   %conv6.i = zext i32 %9 to i64
   %cmp7.i = icmp eq i64 %call5.i, %conv6.i
+  %10 = zext i1 %cmp7.i to i32
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %if.end.i
-  %10 = phi i1 [ false, %if.end.i ], [ %cmp7.i, %land.rhs.i ]
-  %land.ext.i = zext i1 %10 to i32
+  %land.ext.i = phi i32 [ 0, %if.end.i ], [ %10, %land.rhs.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %tv.05.i, i64 8
   %11 = load ptr, ptr %top.i, align 8
   %cmp.i3 = icmp ult ptr %incdec.ptr.i, %11

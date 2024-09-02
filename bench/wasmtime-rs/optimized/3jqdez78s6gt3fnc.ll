@@ -1738,7 +1738,7 @@ define hidden noundef i8 @_ZN16wasmtime_environ9vmoffsets7PtrSize34vmruntime_lim
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i8 @_ZN16wasmtime_environ9vmoffsets7PtrSize34vmruntime_limits_last_wasm_exit_pc17hb80328ed525e3c95E(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #7 {
+define hidden noundef range(i8 16, 15) i8 @_ZN16wasmtime_environ9vmoffsets7PtrSize34vmruntime_limits_last_wasm_exit_pc17hb80328ed525e3c95E(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #7 {
   %2 = load i8, ptr %0, align 1, !noundef !4
   %reass.add = shl i8 %2, 1
   %3 = add i8 %reass.add, 16
@@ -2223,7 +2223,7 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h4e00a8e6617dd036E.llvm.78
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator12try_for_each17h4e00a8e6617dd036E.llvm.7808069312437652055(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits8iterator8Iterator12try_for_each17h4e00a8e6617dd036E.llvm.7808069312437652055(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !269, !noalias !267
@@ -2417,7 +2417,7 @@ _ZN4core4iter6traits8iterator12iter_compare17hb3e3dac9d30ee57fE.llvm.78080693124
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h34e552c573b3760bE.llvm.7808069312437652055(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 1, 4) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h34e552c573b3760bE.llvm.7808069312437652055(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !321
   %.promoted15 = load ptr, ptr %1, align 8, !alias.scope !324
   %3 = getelementptr inbounds i8, ptr %0, i64 8

@@ -1886,7 +1886,7 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit.i: ; preds = %_ZNK5Ipopt14Compou
   store i32 %433, ptr %431, align 8, !noalias !65
   %434 = tail call ptr @__dynamic_cast(ptr nonnull %.0.i4.i380, ptr nonnull @_ZTIN5Ipopt6MatrixE, ptr nonnull @_ZTIN5Ipopt12SumSymMatrixE, i64 0) #18
   %.not.i.i392 = icmp eq ptr %434, null
-  br i1 %.not.i.i392, label %439, label %435
+  br i1 %.not.i.i392, label %440, label %435
 
 435:                                              ; preds = %430
   %436 = getelementptr inbounds i8, ptr %434, i64 8
@@ -1894,23 +1894,23 @@ _ZNK5Ipopt17CompoundSymMatrix9ConstCompEii.exit.i: ; preds = %_ZNK5Ipopt14Compou
   %438 = add nsw i32 %437, 1
   store i32 %438, ptr %436, align 8
   %.pre1362 = load i32, ptr %431, align 8
-  br label %439
+  %439 = add nsw i32 %.pre1362, -1
+  br label %440
 
-439:                                              ; preds = %430, %435
-  %440 = phi i32 [ %433, %430 ], [ %.pre1362, %435 ]
-  %441 = add nsw i32 %440, -1
+440:                                              ; preds = %430, %435
+  %441 = phi i32 [ %432, %430 ], [ %439, %435 ]
   store i32 %441, ptr %431, align 8
   %442 = icmp eq i32 %441, 0
   br i1 %442, label %443, label %447
 
-443:                                              ; preds = %439
+443:                                              ; preds = %440
   %444 = load ptr, ptr %.0.i4.i380, align 8
   %445 = getelementptr inbounds i8, ptr %444, i64 8
   %446 = load ptr, ptr %445, align 8
   tail call void %446(ptr noundef nonnull align 8 dereferenceable(69) %.0.i4.i380) #18
   br label %447
 
-447:                                              ; preds = %443, %439
+447:                                              ; preds = %443, %440
   br i1 %.not.i.i392, label %.thread1314, label %448
 
 448:                                              ; preds = %447

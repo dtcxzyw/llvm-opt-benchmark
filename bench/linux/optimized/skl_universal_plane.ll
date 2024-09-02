@@ -1125,7 +1125,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
 
 ._crit_edge:                                      ; preds = %17
   %.pre117 = zext nneg i32 %19 to i64
-  br label %46
+  br label %47
 
 28:                                               ; preds = %17
   %29 = getelementptr inbounds i8, ptr %2, i64 296
@@ -1153,73 +1153,73 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
 43:                                               ; preds = %41, %39, %28
   %44 = phi i32 [ %40, %39 ], [ %42, %41 ], [ 64, %28 ]
   %45 = udiv i32 %32, %44
+  %46 = and i32 %45, 4095
   %.pre = load ptr, ptr %20, align 8
-  br label %46
+  br label %47
 
-46:                                               ; preds = %._crit_edge, %43
+47:                                               ; preds = %._crit_edge, %43
   %.pre-phi = phi i64 [ %.pre117, %._crit_edge ], [ %30, %43 ]
-  %47 = phi ptr [ %21, %._crit_edge ], [ %.pre, %43 ]
-  %48 = phi i32 [ 0, %._crit_edge ], [ %45, %43 ]
-  %49 = getelementptr inbounds i8, ptr %2, i64 124
-  %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %2, i64 128
-  %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %2, i64 296
-  %54 = getelementptr [4 x %struct.i915_color_plane_view], ptr %53, i64 0, i64 %.pre-phi
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
-  %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %54, i64 8
-  %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %2, i64 108
-  %60 = getelementptr inbounds i8, ptr %2, i64 116
-  %61 = load i32, ptr %60, align 4
-  %62 = load i32, ptr %59, align 4
-  %63 = sub i32 %61, %62
-  %64 = lshr i32 %63, 16
-  %65 = getelementptr inbounds i8, ptr %2, i64 120
-  %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %2, i64 112
-  %68 = load i32, ptr %67, align 4
-  %69 = sub i32 %66, %68
-  %70 = and i32 %69, -65536
-  %71 = getelementptr inbounds i8, ptr %2, i64 384
-  %72 = load i32, ptr %71, align 8
-  %73 = load ptr, ptr %1, align 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 2632
-  %76 = load i16, ptr %75, align 8
-  %77 = icmp ugt i16 %76, 10
-  br i1 %77, label %88, label %78
+  %48 = phi ptr [ %21, %._crit_edge ], [ %.pre, %43 ]
+  %49 = phi i32 [ 0, %._crit_edge ], [ %46, %43 ]
+  %50 = getelementptr inbounds i8, ptr %2, i64 124
+  %51 = load i32, ptr %50, align 4
+  %52 = getelementptr inbounds i8, ptr %2, i64 128
+  %53 = load i32, ptr %52, align 4
+  %54 = getelementptr inbounds i8, ptr %2, i64 296
+  %55 = getelementptr [4 x %struct.i915_color_plane_view], ptr %54, i64 0, i64 %.pre-phi
+  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %57 = load i32, ptr %56, align 4
+  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds i8, ptr %2, i64 108
+  %61 = getelementptr inbounds i8, ptr %2, i64 116
+  %62 = load i32, ptr %61, align 4
+  %63 = load i32, ptr %60, align 4
+  %64 = sub i32 %62, %63
+  %65 = lshr i32 %64, 16
+  %66 = getelementptr inbounds i8, ptr %2, i64 120
+  %67 = load i32, ptr %66, align 4
+  %68 = getelementptr inbounds i8, ptr %2, i64 112
+  %69 = load i32, ptr %68, align 4
+  %70 = sub i32 %67, %69
+  %71 = and i32 %70, -65536
+  %72 = getelementptr inbounds i8, ptr %2, i64 384
+  %73 = load i32, ptr %72, align 8
+  %74 = load ptr, ptr %1, align 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 2632
+  %77 = load i16, ptr %76, align 8
+  %78 = icmp ugt i16 %77, 10
+  br i1 %78, label %89, label %79
 
-78:                                               ; preds = %46
-  %79 = getelementptr inbounds i8, ptr %1, i64 4752
-  %80 = load i8, ptr %79, align 8, !range !42, !noundef !43
-  %81 = icmp eq i8 %80, 0
-  %82 = select i1 %81, i32 0, i32 1073741824
-  %83 = getelementptr inbounds i8, ptr %1, i64 4753
-  %84 = load i8, ptr %83, align 1, !range !42, !noundef !43
-  %85 = icmp eq i8 %84, 0
-  %86 = or disjoint i32 %82, 8388608
-  %87 = select i1 %85, i32 %82, i32 %86
-  br label %88
+79:                                               ; preds = %47
+  %80 = getelementptr inbounds i8, ptr %1, i64 4752
+  %81 = load i8, ptr %80, align 8, !range !42, !noundef !43
+  %82 = icmp eq i8 %81, 0
+  %83 = select i1 %82, i32 0, i32 1073741824
+  %84 = getelementptr inbounds i8, ptr %1, i64 4753
+  %85 = load i8, ptr %84, align 1, !range !42, !noundef !43
+  %86 = icmp eq i8 %85, 0
+  %87 = or disjoint i32 %83, 8388608
+  %88 = select i1 %86, i32 %83, i32 %87
+  br label %89
 
-88:                                               ; preds = %78, %46
-  %89 = phi i32 [ %87, %78 ], [ 0, %46 ]
-  %90 = or i32 %89, %72
-  %91 = getelementptr inbounds i8, ptr %2, i64 392
-  %92 = load i32, ptr %91, align 8
-  %93 = shl i32 %52, 16
-  %94 = and i32 %50, 65535
-  %95 = shl i32 %8, 12
-  %96 = shl i32 %6, 8
-  %97 = add i32 %95, %96
-  %98 = add i32 %97, 459144
-  %99 = and i32 %48, 4095
-  %100 = zext nneg i32 %99 to i64
+89:                                               ; preds = %79, %47
+  %90 = phi i32 [ %88, %79 ], [ 0, %47 ]
+  %91 = or i32 %90, %73
+  %92 = getelementptr inbounds i8, ptr %2, i64 392
+  %93 = load i32, ptr %92, align 8
+  %94 = shl i32 %53, 16
+  %95 = and i32 %51, 65535
+  %96 = shl i32 %8, 12
+  %97 = shl i32 %6, 8
+  %98 = add i32 %96, %97
+  %99 = add i32 %98, 459144
+  %100 = zext nneg i32 %49 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #11
           to label %121 [label %101], !srcloc !44
 
-101:                                              ; preds = %88
+101:                                              ; preds = %89
   %102 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #11, !srcloc !45
   %103 = zext i32 %102 to i64
   %104 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %103) #11, !srcloc !46
@@ -1238,7 +1238,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
 110:                                              ; preds = %107
   %111 = getelementptr inbounds i8, ptr %108, i64 8
   %112 = load ptr, ptr %111, align 8
-  %113 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %112, i1 noundef zeroext true, i32 %98, i64 noundef %100, i32 noundef 4, i1 noundef zeroext true) #11
+  %113 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %112, i1 noundef zeroext true, i32 %99, i64 noundef %100, i32 noundef 4, i1 noundef zeroext true) #11
   br label %114
 
 114:                                              ; preds = %110, %107
@@ -1255,26 +1255,26 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   tail call void @llvm.write_register.i64(metadata !0, i64 %120)
   br label %121
 
-121:                                              ; preds = %118, %114, %101, %88
-  %122 = icmp ult i32 %98, 262144
+121:                                              ; preds = %118, %114, %101, %89
+  %122 = icmp ult i32 %99, 262144
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %121
   %124 = getelementptr inbounds i8, ptr %4, i64 7404
   %125 = load i32, ptr %124, align 4
-  %126 = add i32 %125, %98
+  %126 = add i32 %125, %99
   br label %127
 
 127:                                              ; preds = %123, %121
-  %128 = phi i32 [ %126, %123 ], [ %98, %121 ]
+  %128 = phi i32 [ %126, %123 ], [ %99, %121 ]
   %129 = getelementptr inbounds i8, ptr %4, i64 7368
   %130 = load ptr, ptr %129, align 8
   %131 = zext i32 %128 to i64
   %132 = getelementptr i8, ptr %130, i64 %131
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %99, ptr elementtype(i32) %132) #11, !srcloc !53
-  %133 = add i32 %97, 459148
-  %134 = or disjoint i32 %93, %94
-  %135 = icmp slt i32 %92, 0
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %49, ptr elementtype(i32) %132) #11, !srcloc !53
+  %133 = add i32 %98, 459148
+  %134 = or disjoint i32 %94, %95
+  %135 = icmp slt i32 %93, 0
   %136 = select i1 %135, i32 %134, i32 0
   %137 = zext i32 %136 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #11
@@ -1332,9 +1332,9 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %167 = zext i32 %165 to i64
   %168 = getelementptr i8, ptr %166, i64 %167
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %136, ptr elementtype(i32) %168) #11, !srcloc !53
-  %169 = add i32 %97, 459152
-  %170 = add i32 %70, -65536
-  %171 = add nuw nsw i32 %64, 65535
+  %169 = add i32 %98, 459152
+  %170 = add i32 %71, -65536
+  %171 = add nuw nsw i32 %65, 65535
   %172 = and i32 %171, 65535
   %173 = or disjoint i32 %170, %172
   %174 = zext i32 %173 to i64
@@ -1393,7 +1393,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %204 = zext i32 %202 to i64
   %205 = getelementptr i8, ptr %203, i64 %204
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %173, ptr elementtype(i32) %205) #11, !srcloc !53
-  %206 = add i32 %97, 459156
+  %206 = add i32 %98, 459156
   %207 = getelementptr inbounds i8, ptr %2, i64 416
   %208 = load i32, ptr %207, align 4
   %209 = zext i32 %208 to i64
@@ -1452,7 +1452,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %239 = zext i32 %237 to i64
   %240 = getelementptr i8, ptr %238, i64 %239
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %208, ptr elementtype(i32) %240) #11, !srcloc !53
-  %241 = add i32 %97, 459160
+  %241 = add i32 %98, 459160
   %242 = getelementptr inbounds i8, ptr %2, i64 192
   %243 = load i16, ptr %242, align 8
   %244 = getelementptr inbounds i8, ptr %2, i64 420
@@ -1517,7 +1517,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %280 = zext i32 %278 to i64
   %281 = getelementptr i8, ptr %279, i64 %280
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %249, ptr elementtype(i32) %281) #11, !srcloc !53
-  %282 = add i32 %97, 459168
+  %282 = add i32 %98, 459168
   %283 = load i16, ptr %242, align 8
   %284 = lshr i16 %283, 8
   %285 = zext nneg i16 %284 to i32
@@ -1582,9 +1582,9 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %321 = zext i32 %319 to i64
   %322 = getelementptr i8, ptr %320, i64 %321
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %290, ptr elementtype(i32) %322) #11, !srcloc !53
-  %323 = add i32 %97, 459172
-  %324 = shl i32 %58, 16
-  %325 = and i32 %56, 65535
+  %323 = add i32 %98, 459172
+  %324 = shl i32 %59, 16
+  %325 = and i32 %57, 65535
   %326 = or disjoint i32 %324, %325
   %327 = zext i32 %326 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #11
@@ -1642,13 +1642,13 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %357 = zext i32 %355 to i64
   %358 = getelementptr i8, ptr %356, i64 %357
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %326, ptr elementtype(i32) %358) #11, !srcloc !53
-  %359 = getelementptr inbounds i8, ptr %47, i64 120
+  %359 = getelementptr inbounds i8, ptr %48, i64 120
   %360 = load i64, ptr %359, align 8
   %361 = tail call zeroext i1 @intel_fb_is_rc_ccs_cc_modifier(i64 noundef %360) #11
   br i1 %361, label %362, label %434
 
 362:                                              ; preds = %354
-  %363 = add i32 %97, 459188
+  %363 = add i32 %98, 459188
   %364 = getelementptr inbounds i8, ptr %2, i64 448
   %365 = load i64, ptr %364, align 8
   %366 = trunc i64 %365 to i32
@@ -1708,7 +1708,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %397 = zext i32 %395 to i64
   %398 = getelementptr i8, ptr %396, i64 %397
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %366, ptr elementtype(i32) %398) #11, !srcloc !53
-  %399 = add i32 %97, 459192
+  %399 = add i32 %98, 459192
   %400 = load i64, ptr %364, align 8
   %401 = lshr i64 %400, 32
   %402 = trunc nuw i64 %401 to i32
@@ -1785,7 +1785,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   br i1 %444, label %445, label %480
 
 445:                                              ; preds = %441
-  %446 = add i32 %97, 459200
+  %446 = add i32 %98, 459200
   %447 = tail call fastcc i32 @skl_plane_aux_dist(ptr noundef %2, i32 noundef %19)
   %448 = zext i32 %447 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #11
@@ -1854,7 +1854,7 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   br i1 %485, label %486, label %523
 
 486:                                              ; preds = %480
-  %487 = or disjoint i32 %95, %96
+  %487 = or disjoint i32 %96, %97
   %488 = add i32 %487, 459208
   %489 = getelementptr inbounds i8, ptr %2, i64 388
   %490 = load i32, ptr %489, align 4
@@ -1917,8 +1917,8 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   br label %523
 
 523:                                              ; preds = %518, %480
-  %524 = add i32 %97, 459212
-  %525 = zext i32 %90 to i64
+  %524 = add i32 %98, 459212
+  %525 = zext i32 %91 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #11
           to label %546 [label %526], !srcloc !44
 
@@ -1973,8 +1973,8 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %554 = load ptr, ptr %129, align 8
   %555 = zext i32 %553 to i64
   %556 = getelementptr i8, ptr %554, i64 %555
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %90, ptr elementtype(i32) %556) #11, !srcloc !53
-  %557 = getelementptr inbounds i8, ptr %47, i64 72
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %91, ptr elementtype(i32) %556) #11, !srcloc !53
+  %557 = getelementptr inbounds i8, ptr %48, i64 72
   %558 = load ptr, ptr %557, align 8
   %559 = getelementptr inbounds i8, ptr %558, i64 21
   %560 = load i8, ptr %559, align 1, !range !42, !noundef !43
@@ -3414,10 +3414,10 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %1405 = load i32, ptr %7, align 8
   %1406 = getelementptr inbounds i8, ptr %2, i64 436
   %1407 = load i32, ptr %1406, align 4
-  %1408 = load i32, ptr %51, align 4
+  %1408 = load i32, ptr %52, align 4
   %1409 = add i32 %1408, %1407
   %1410 = shl i32 %1409, 16
-  %1411 = load i32, ptr %49, align 4
+  %1411 = load i32, ptr %50, align 4
   %1412 = or i32 %1410, %1411
   %1413 = shl i32 %1405, 12
   %1414 = load i32, ptr %5, align 4
@@ -3483,8 +3483,8 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %1451 = zext i32 %1448 to i64
   %1452 = getelementptr i8, ptr %1450, i64 %1451
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %1412, ptr elementtype(i32) %1452) #11, !srcloc !53
-  %1453 = load i32, ptr %55, align 4
-  %1454 = load i32, ptr %57, align 4
+  %1453 = load i32, ptr %56, align 4
+  %1454 = load i32, ptr %58, align 4
   %1455 = load i32, ptr %1406, align 4
   %1456 = sdiv i32 %1455, 2
   %1457 = select i1 %18, i32 %1455, i32 %1456
@@ -3559,8 +3559,8 @@ define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr
   %1502 = sub i32 %1500, %1501
   %1503 = shl i32 %1502, 16
   %1504 = add i32 %1503, -65536
-  %1505 = load i32, ptr %60, align 4
-  %1506 = load i32, ptr %59, align 4
+  %1505 = load i32, ptr %61, align 4
+  %1506 = load i32, ptr %60, align 4
   %1507 = sub i32 %1505, %1506
   %1508 = ashr i32 %1507, 16
   %1509 = add nsw i32 %1508, -1

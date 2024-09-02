@@ -12793,21 +12793,21 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i
 .loopexit168.loopexit.i:                          ; preds = %_ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i.i36
   %.pre223.i = load ptr, ptr %36, align 8, !noalias !154
   %.pre225.i = load ptr, ptr %1336, align 8, !noalias !154
+  %1355 = ptrtoint ptr %.pre225.i to i64
   br label %.loopexit168.i
 
 .loopexit168.i:                                   ; preds = %1332, %.loopexit168.loopexit.i
-  %1355 = phi ptr [ %.pre225.i, %.loopexit168.loopexit.i ], [ null, %1332 ]
-  %1356 = phi ptr [ %.pre223.i, %.loopexit168.loopexit.i ], [ null, %1332 ]
+  %1356 = phi i64 [ %1355, %.loopexit168.loopexit.i ], [ 0, %1332 ]
+  %1357 = phi ptr [ %.pre223.i, %.loopexit168.loopexit.i ], [ null, %1332 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20), !noalias !154
-  %1357 = ptrtoint ptr %1355 to i64
-  %1358 = ptrtoint ptr %1356 to i64
-  %1359 = sub i64 %1357, %1358
+  %1358 = ptrtoint ptr %1357 to i64
+  %1359 = sub i64 %1356, %1358
   %1360 = sdiv exact i64 %1359, 40
   %.sroa.041.0.copyload.i = load ptr, ptr %100, align 8, !noalias !154
   %1361 = load ptr, ptr %1323, align 8, !noalias !154
   %1362 = getelementptr inbounds i8, ptr %1361, i64 48
   %1363 = load ptr, ptr %1362, align 8, !noalias !154
-  invoke void %1363(ptr noundef nonnull align 8 dereferenceable(8) %1323, ptr %1356, i64 %1360, ptr %.sroa.041.0.copyload.i)
+  invoke void %1363(ptr noundef nonnull align 8 dereferenceable(8) %1323, ptr %1357, i64 %1360, ptr %.sroa.041.0.copyload.i)
           to label %1364 unwind label %1398, !noalias !154
 
 1364:                                             ; preds = %.loopexit168.i

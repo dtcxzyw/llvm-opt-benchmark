@@ -1025,7 +1025,7 @@ IsFlatSource16.exit.i:                            ; preds = %76, %74, %72, %70, 
   %90 = call i32 %89(ptr noundef nonnull %65, ptr noundef %84) #11
   %91 = sext i32 %90 to i64
   store i64 %91, ptr %.06469.i, align 8, !noalias !16
-  br i1 %.not44.i, label %98, label %92
+  br i1 %.not44.i, label %99, label %92
 
 92:                                               ; preds = %83
   %93 = load ptr, ptr @VP8TDisto16x16, align 8, !noalias !21
@@ -1033,11 +1033,11 @@ IsFlatSource16.exit.i:                            ; preds = %76, %74, %72, %70, 
   %95 = mul nsw i32 %94, %63
   %96 = add nsw i32 %95, 128
   %97 = ashr i32 %96, 8
-  br label %98
+  %98 = sext i32 %97 to i64
+  br label %99
 
-98:                                               ; preds = %92, %83
-  %99 = phi i32 [ %97, %92 ], [ 0, %83 ]
-  %100 = sext i32 %99 to i64
+99:                                               ; preds = %92, %83
+  %100 = phi i64 [ %98, %92 ], [ 0, %83 ]
   %101 = getelementptr inbounds i8, ptr %.06469.i, i64 8
   store i64 %100, ptr %101, align 8, !noalias !16
   %102 = getelementptr inbounds [4 x i16], ptr @VP8FixedCostsI16, i64 0, i64 %indvars.iv.i
@@ -1052,7 +1052,7 @@ IsFlatSource16.exit.i:                            ; preds = %76, %74, %72, %70, 
   %.not45.i = icmp eq i32 %.03871.i, 0
   br i1 %.not45.i, label %IsFlat_C.exit.thread.i, label %109
 
-109:                                              ; preds = %98
+109:                                              ; preds = %99
   %110 = getelementptr inbounds i8, ptr %.06469.i, i64 72
   br label %.preheader.i.i
 
@@ -1093,8 +1093,8 @@ IsFlat_C.exit.i:                                  ; preds = %120
   store i64 %126, ptr %101, align 8, !noalias !16
   br label %IsFlat_C.exit.thread.i
 
-IsFlat_C.exit.thread.i:                           ; preds = %113, %IsFlat_C.exit.i, %98
-  %.1.i = phi i32 [ 1, %IsFlat_C.exit.i ], [ 0, %98 ], [ 0, %113 ]
+IsFlat_C.exit.thread.i:                           ; preds = %113, %IsFlat_C.exit.i, %99
+  %.1.i = phi i32 [ 1, %IsFlat_C.exit.i ], [ 0, %99 ], [ 0, %113 ]
   %127 = load i64, ptr %105, align 8, !noalias !16
   %128 = add nsw i64 %127, %107
   %129 = mul nsw i64 %128, %81
@@ -1365,7 +1365,7 @@ ReconstructIntra4.exit.i:                         ; preds = %285, %271
   %291 = load ptr, ptr @VP8SSE4x4, align 8, !noalias !32
   %292 = call i32 %291(ptr noundef %229, ptr noundef %.0107122.i) #11, !noalias !30
   %293 = sext i32 %292 to i64
-  br i1 %.not71.i, label %300, label %294
+  br i1 %.not71.i, label %301, label %294
 
 294:                                              ; preds = %ReconstructIntra4.exit.i
   %295 = load ptr, ptr @VP8TDisto4x4, align 8, !noalias !32
@@ -1373,11 +1373,11 @@ ReconstructIntra4.exit.i:                         ; preds = %285, %271
   %297 = mul nsw i32 %296, %199
   %298 = add nsw i32 %297, 128
   %299 = ashr i32 %298, 8
-  br label %300
+  %300 = sext i32 %299 to i64
+  br label %301
 
-300:                                              ; preds = %294, %ReconstructIntra4.exit.i
-  %301 = phi i32 [ %299, %294 ], [ 0, %ReconstructIntra4.exit.i ]
-  %302 = sext i32 %301 to i64
+301:                                              ; preds = %294, %ReconstructIntra4.exit.i
+  %302 = phi i64 [ %300, %294 ], [ 0, %ReconstructIntra4.exit.i ]
   %303 = getelementptr inbounds i16, ptr %250, i64 %indvars.iv.i29
   %304 = load i16, ptr %303, align 2, !noalias !32
   %305 = zext i16 %304 to i64
@@ -1389,9 +1389,9 @@ ReconstructIntra4.exit.i:                         ; preds = %285, %271
   %exitcond.not.i.i34 = icmp eq i64 %indvars.iv.next.i.i33, 16
   br i1 %exitcond.not.i.i34, label %IsFlat_C.exit.i35, label %.preheader.i.preheader.i, !llvm.loop !23
 
-.preheader.i.preheader.i:                         ; preds = %300, %306
-  %indvars.iv.i.i31 = phi i64 [ %indvars.iv.next.i.i33, %306 ], [ 1, %300 ]
-  %.116.i.i32 = phi i32 [ %311, %306 ], [ 0, %300 ]
+.preheader.i.preheader.i:                         ; preds = %301, %306
+  %indvars.iv.i.i31 = phi i64 [ %indvars.iv.next.i.i33, %306 ], [ 1, %301 ]
+  %.116.i.i32 = phi i32 [ %311, %306 ], [ 0, %301 ]
   %307 = getelementptr inbounds i16, ptr %10, i64 %indvars.iv.i.i31
   %308 = load i16, ptr %307, align 2, !noalias !32
   %309 = icmp ne i16 %308, 0
@@ -1400,8 +1400,8 @@ ReconstructIntra4.exit.i:                         ; preds = %285, %271
   %312 = icmp ugt i32 %311, 3
   br i1 %312, label %IsFlat_C.exit.i35, label %306
 
-IsFlat_C.exit.i35:                                ; preds = %.preheader.i.preheader.i, %306, %300
-  %.sroa.12.0.i = phi i64 [ 0, %300 ], [ 140, %306 ], [ 0, %.preheader.i.preheader.i ]
+IsFlat_C.exit.i35:                                ; preds = %.preheader.i.preheader.i, %306, %301
+  %.sroa.12.0.i = phi i64 [ 0, %301 ], [ 140, %306 ], [ 0, %.preheader.i.preheader.i ]
   %313 = add nuw nsw i64 %.sroa.12.0.i, %305
   %314 = mul nsw i64 %313, %221
   %315 = add nsw i64 %302, %293

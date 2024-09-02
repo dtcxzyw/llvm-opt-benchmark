@@ -1715,7 +1715,7 @@ for.end24:                                        ; preds = %for.inc22, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_serial_load_device(ptr noundef %vdev, ptr noundef %f, i32 %version_id) #0 {
+define internal range(i32 -22, 1) i32 @virtio_serial_load_device(ptr noundef %vdev, ptr noundef %f, i32 %version_id) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
   %call.i12 = tail call i32 @qemu_get_be16(ptr noundef %f) #12

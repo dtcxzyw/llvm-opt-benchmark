@@ -8362,17 +8362,20 @@ define internal void @_ZN3vcg13EmbreeAdaptorI6CMeshOE23computeAmbientOcclusionER
   %119 = sub i64 %117, %118
   %120 = sdiv exact i64 %119, 12
   %121 = icmp ugt i64 %120, %indvars.iv.next
-  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !86
+  br i1 %121, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !86
 
-._crit_edge:                                      ; preds = %114, %41
-  %.sroa.066.1.lcssa = phi float [ %.sroa.066.087, %41 ], [ %.sroa.066.2, %114 ]
-  %.sroa.3.1.lcssa = phi float [ %.sroa.3.088, %41 ], [ %.sroa.3.2, %114 ]
-  %.sroa.669.1.lcssa = phi float [ %.sroa.669.089, %41 ], [ %.sroa.669.2, %114 ]
-  %.054.lcssa = phi i32 [ 0, %41 ], [ %.1, %114 ]
-  %122 = sitofp i32 %.054.lcssa to float
-  %123 = fdiv float %.sroa.066.1.lcssa, %122
-  %124 = fdiv float %.sroa.3.1.lcssa, %122
-  %125 = fdiv float %.sroa.669.1.lcssa, %122
+._crit_edge.loopexit:                             ; preds = %114
+  %122 = sitofp i32 %.1 to float
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %41
+  %.sroa.066.1.lcssa = phi float [ %.sroa.066.087, %41 ], [ %.sroa.066.2, %._crit_edge.loopexit ]
+  %.sroa.3.1.lcssa = phi float [ %.sroa.3.088, %41 ], [ %.sroa.3.2, %._crit_edge.loopexit ]
+  %.sroa.669.1.lcssa = phi float [ %.sroa.669.089, %41 ], [ %.sroa.669.2, %._crit_edge.loopexit ]
+  %.054.lcssa = phi float [ 0.000000e+00, %41 ], [ %122, %._crit_edge.loopexit ]
+  %123 = fdiv float %.sroa.066.1.lcssa, %.054.lcssa
+  %124 = fdiv float %.sroa.3.1.lcssa, %.054.lcssa
+  %125 = fdiv float %.sroa.669.1.lcssa, %.054.lcssa
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %123, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %124, i64 1
   %126 = load ptr, ptr %5, align 8
@@ -10396,23 +10399,26 @@ define internal void @_ZN3vcg13EmbreeAdaptorI6CMeshOE14paritySamplingERS1_St6vec
   %98 = add nuw nsw i32 %.02731.i, 1
   %99 = load float, ptr %.sroa.828.0..sroa_idx.i, align 16
   %100 = fcmp une float %99, 0x7FF0000000000000
-  br i1 %100, label %.lr.ph.i, label %.loopexit107, !llvm.loop !93
+  br i1 %100, label %.lr.ph.i, label %.loopexit107.loopexit, !llvm.loop !93
 
-.loopexit107:                                     ; preds = %.noexc80, %.noexc79
-  %.027.lcssa.i = phi i32 [ 0, %.noexc79 ], [ %98, %.noexc80 ]
+.loopexit107.loopexit:                            ; preds = %.noexc80
+  %101 = and i32 %98, 1
+  br label %.loopexit107
+
+.loopexit107:                                     ; preds = %.loopexit107.loopexit, %.noexc79
+  %.027.lcssa.i = phi i32 [ 0, %.noexc79 ], [ %101, %.loopexit107.loopexit ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  %101 = fcmp ogt float %85, 0.000000e+00
-  %102 = srem i32 %.027.lcssa.i, 2
-  br i1 %101, label %103, label %105
+  %102 = fcmp ogt float %85, 0.000000e+00
+  br i1 %102, label %103, label %105
 
 103:                                              ; preds = %.loopexit107
-  %104 = add nsw i32 %102, %.070114
+  %104 = add nsw i32 %.027.lcssa.i, %.070114
   br label %107
 
 105:                                              ; preds = %.loopexit107
-  %106 = add nsw i32 %102, %.071113
+  %106 = add nsw i32 %.027.lcssa.i, %.071113
   br label %107
 
 107:                                              ; preds = %87, %105, %103

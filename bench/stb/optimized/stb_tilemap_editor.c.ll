@@ -3755,7 +3755,7 @@ stbte__button_core.exit:                          ; preds = %if.end, %sw.bb.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @stbte__microbutton_dragger(i32 noundef %x, i32 noundef %y, i32 noundef %size, i32 noundef %id, ptr nocapture noundef %pos) local_unnamed_addr #14 {
+define range(i32 -1, 1) i32 @stbte__microbutton_dragger(i32 noundef %x, i32 noundef %y, i32 noundef %size, i32 noundef %id, ptr nocapture noundef %pos) local_unnamed_addr #14 {
 entry:
   %add = add nsw i32 %size, %x
   %add1 = add nsw i32 %size, %y
@@ -9946,11 +9946,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %locked23 = getelementptr inbounds i8, ptr %arrayidx19, i64 8
   %15 = load i32, ptr %locked23, align 8
   %16 = load i32, ptr %solo_layer, align 8
-  %cmp24 = icmp sgt i32 %16, -1
   %17 = zext i32 %16 to i64
   %cmp26 = icmp ne i64 %indvars.iv, %17
-  %spec.select = and i1 %cmp24, %cmp26
-  %land.ext = zext i1 %spec.select to i32
+  %cmp24.inv = icmp sgt i32 %16, -1
+  %narrow = and i1 %cmp24.inv, %cmp26
+  %land.ext = zext i1 %narrow to i32
   %18 = load i32, ptr %layer_scroll, align 8
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %sub27 = sub nsw i32 %19, %18
@@ -10788,10 +10788,11 @@ if.then6:                                         ; preds = %stbte__prepare_tile
   %add13 = add nsw i32 %mul12, %sub7
   tail call void @STBTE_DRAW_RECT(i32 noundef %sub, i32 noundef %sub7, i32 noundef %add, i32 noundef %add13, i32 noundef 0) #25
   %.pre = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 20), align 4
+  %35 = icmp eq i32 %.pre, 0
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then6, %stbte__prepare_tileinfo.exit
-  %35 = phi i32 [ %.pre, %if.then6 ], [ %22, %stbte__prepare_tileinfo.exit ]
+  %cmp52 = phi i1 [ %35, %if.then6 ], [ false, %stbte__prepare_tileinfo.exit ]
   %scroll_x15 = getelementptr inbounds i8, ptr %tm, i64 800028
   %36 = load i32, ptr %scroll_x15, align 4
   %spacing_x16 = getelementptr inbounds i8, ptr %tm, i64 800012
@@ -10826,7 +10827,6 @@ if.end14:                                         ; preds = %if.then6, %stbte__p
   %45 = load i32, ptr %max_y47, align 4
   %cmp48.not = icmp slt i32 %div34, %45
   %j1.0 = select i1 %cmp48.not, i32 %add35, i32 %45
-  %cmp52 = icmp eq i32 %35, 0
   br i1 %cmp52, label %for.cond.preheader, label %if.end157
 
 for.cond.preheader:                               ; preds = %if.end14
@@ -10946,11 +10946,11 @@ for.inc112:                                       ; preds = %for.body104, %for.c
 
 if.end115.loopexit:                               ; preds = %for.inc112
   %.pre306 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 20), align 4
+  %75 = icmp eq i32 %.pre306, 0
   br label %if.end115
 
 if.end115:                                        ; preds = %if.end115.loopexit, %for.cond.preheader
-  %75 = phi i32 [ %.pre306, %if.end115.loopexit ], [ 0, %for.cond.preheader ]
-  %cmp116 = icmp eq i32 %75, 0
+  %cmp116 = phi i1 [ %75, %if.end115.loopexit ], [ true, %for.cond.preheader ]
   %76 = load i32, ptr getelementptr inbounds (i8, ptr @stbte__ui, i64 5188), align 4
   %cmp118 = icmp eq i32 %76, 2
   %or.cond218 = select i1 %cmp116, i1 %cmp118, i1 false

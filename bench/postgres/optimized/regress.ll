@@ -351,7 +351,7 @@ define noundef i64 @widget_in(ptr nocapture noundef readonly %0) local_unnamed_a
 
 switch.early.test:                                ; preds = %1, %15
   %.026 = phi ptr [ %5, %1 ], [ %16, %15 ]
-  %.01925 = phi i32 [ 0, %1 ], [ %.1.fr, %15 ]
+  %.01925 = phi i32 [ 0, %1 ], [ %.1, %15 ]
   %6 = load i8, ptr %.026, align 1
   switch i8 %6, label %7 [
     i8 41, label %.critedge
@@ -367,7 +367,7 @@ switch.early.test:                                ; preds = %1, %15
 
 10:                                               ; preds = %switch.early.test, %7
   %11 = getelementptr i8, ptr %.026, i64 1
-  %12 = add nsw i32 %.01925, 1
+  %12 = add i32 %.01925, 1
   %13 = sext i32 %.01925 to i64
   %14 = getelementptr [3 x ptr], ptr %2, i64 0, i64 %13
   store ptr %11, ptr %14, align 8
@@ -375,9 +375,8 @@ switch.early.test:                                ; preds = %1, %15
 
 15:                                               ; preds = %7, %10
   %.1 = phi i32 [ %12, %10 ], [ %.01925, %7 ]
-  %.1.fr = freeze i32 %.1
   %16 = getelementptr i8, ptr %.026, i64 1
-  %17 = icmp sgt i32 %.1.fr, 2
+  %17 = icmp sgt i32 %.1, 2
   br i1 %17, label %21, label %switch.early.test, !llvm.loop !7
 
 .critedge:                                        ; preds = %switch.early.test, %switch.early.test
@@ -1009,7 +1008,7 @@ define noundef nonnull ptr @pg_finfo_set_ttdummy() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define range(i64 -2147483648, 2147483648) i64 @set_ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i64 0, 2) i64 @set_ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %.b3 = load i1, ptr @ttoff, align 1

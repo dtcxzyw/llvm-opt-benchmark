@@ -327,11 +327,11 @@ Saig_ObjDualFanin.exit191:                        ; preds = %Aig_ObjFaninId1.exi
   %175 = getelementptr inbounds i8, ptr %0, i64 24
   %.not138 = icmp eq i32 %6, 0
   %.not139 = icmp eq i32 %7, 0
-  br label %221
+  br label %223
 
-176:                                              ; preds = %.lr.ph279, %217
-  %.2278 = phi i32 [ 0, %.lr.ph279 ], [ %219, %217 ]
-  %.0130277 = phi ptr [ %168, %.lr.ph279 ], [ %218, %217 ]
+176:                                              ; preds = %.lr.ph279, %219
+  %.2278 = phi i32 [ 0, %.lr.ph279 ], [ %221, %219 ]
+  %.0130277 = phi ptr [ %168, %.lr.ph279 ], [ %220, %219 ]
   %177 = load ptr, ptr %171, align 8
   %.val179 = load i32, ptr %172, align 8
   %178 = add nsw i32 %.val179, %.2278
@@ -365,255 +365,255 @@ Aig_ObjFaninId0.exit38.i195:                      ; preds = %176
   %193 = getelementptr inbounds ptr, ptr %.val29.i194, i64 %192
   %194 = or disjoint i32 %191, 1
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds ptr, ptr %.val29.i194, i64 %195
+  %196 = and i64 %186, 1
+  %197 = icmp eq i64 %196, 0
+  %198 = getelementptr inbounds ptr, ptr %.val29.i194, i64 %195
   %.026.i199 = load ptr, ptr %193, align 8
-  %.027.i200 = load ptr, ptr %196, align 8
-  %.047.i201 = and i64 %186, 1
-  %.not.i202 = icmp eq i64 %.047.i201, 0
-  br i1 %.not.i202, label %Saig_ObjDualFanin.exit206, label %197
+  %.027.i200 = load ptr, ptr %198, align 8
+  br i1 %197, label %Saig_ObjDualFanin.exit206, label %199
 
-197:                                              ; preds = %Aig_ObjFaninId0.exit38.i195
-  %198 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.026.i199, ptr noundef %.027.i200) #8
-  %199 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.027.i200, ptr noundef %198) #8
-  %200 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.026.i199, ptr noundef %198) #8
+199:                                              ; preds = %Aig_ObjFaninId0.exit38.i195
+  %200 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.026.i199, ptr noundef %.027.i200) #8
+  %201 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.027.i200, ptr noundef %200) #8
+  %202 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.026.i199, ptr noundef %200) #8
   br label %Saig_ObjDualFanin.exit206
 
-Saig_ObjDualFanin.exit206:                        ; preds = %Aig_ObjFaninId0.exit38.i195.thread, %Aig_ObjFaninId0.exit38.i195, %197
-  %.2264 = phi ptr [ %199, %197 ], [ %.026.i199, %Aig_ObjFaninId0.exit38.i195 ], [ %.026.i199309, %Aig_ObjFaninId0.exit38.i195.thread ]
-  %storemerge.i203 = phi ptr [ %200, %197 ], [ %.027.i200, %Aig_ObjFaninId0.exit38.i195 ], [ %.027.i200310, %Aig_ObjFaninId0.exit38.i195.thread ]
-  br i1 %.not143, label %206, label %201
+Saig_ObjDualFanin.exit206:                        ; preds = %Aig_ObjFaninId0.exit38.i195.thread, %Aig_ObjFaninId0.exit38.i195, %199
+  %.2264 = phi ptr [ %201, %199 ], [ %.026.i199, %Aig_ObjFaninId0.exit38.i195 ], [ %.026.i199309, %Aig_ObjFaninId0.exit38.i195.thread ]
+  %storemerge.i203 = phi ptr [ %202, %199 ], [ %.027.i200, %Aig_ObjFaninId0.exit38.i195 ], [ %.027.i200310, %Aig_ObjFaninId0.exit38.i195.thread ]
+  br i1 %.not143, label %208, label %203
 
-201:                                              ; preds = %Saig_ObjDualFanin.exit206
-  %202 = ptrtoint ptr %storemerge.i203 to i64
-  %203 = xor i64 %202, 1
-  %204 = inttoptr i64 %203 to ptr
-  %205 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.2264, ptr noundef %204) #8
-  br label %217
+203:                                              ; preds = %Saig_ObjDualFanin.exit206
+  %204 = ptrtoint ptr %storemerge.i203 to i64
+  %205 = xor i64 %204, 1
+  %206 = inttoptr i64 %205 to ptr
+  %207 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.2264, ptr noundef %206) #8
+  br label %219
 
-206:                                              ; preds = %Saig_ObjDualFanin.exit206
-  %207 = ptrtoint ptr %.2264 to i64
-  %208 = xor i64 %207, 1
-  %209 = inttoptr i64 %208 to ptr
-  br i1 %.not144, label %212, label %210
+208:                                              ; preds = %Saig_ObjDualFanin.exit206
+  %209 = ptrtoint ptr %.2264 to i64
+  %210 = xor i64 %209, 1
+  %211 = inttoptr i64 %210 to ptr
+  br i1 %.not144, label %214, label %212
 
-210:                                              ; preds = %206
-  %211 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %209, ptr noundef %storemerge.i203) #8
-  br label %217
+212:                                              ; preds = %208
+  %213 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %211, ptr noundef %storemerge.i203) #8
+  br label %219
 
-212:                                              ; preds = %206
-  %213 = ptrtoint ptr %storemerge.i203 to i64
-  %214 = xor i64 %213, 1
-  %215 = inttoptr i64 %214 to ptr
-  %216 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %209, ptr noundef %215) #8
-  br label %217
+214:                                              ; preds = %208
+  %215 = ptrtoint ptr %storemerge.i203 to i64
+  %216 = xor i64 %215, 1
+  %217 = inttoptr i64 %216 to ptr
+  %218 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %211, ptr noundef %217) #8
+  br label %219
 
-217:                                              ; preds = %201, %212, %210
-  %.sink = phi ptr [ %205, %201 ], [ %216, %212 ], [ %211, %210 ]
-  %218 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.0130277, ptr noundef %.sink) #8
-  %219 = add nuw nsw i32 %.2278, 1
+219:                                              ; preds = %203, %214, %212
+  %.sink = phi ptr [ %207, %203 ], [ %218, %214 ], [ %213, %212 ]
+  %220 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.0130277, ptr noundef %.sink) #8
+  %221 = add nuw nsw i32 %.2278, 1
   %.val177 = load i32, ptr %169, align 8
-  %220 = icmp slt i32 %219, %.val177
-  br i1 %220, label %176, label %.critedge4, !llvm.loop !7
+  %222 = icmp slt i32 %221, %.val177
+  br i1 %222, label %176, label %.critedge4, !llvm.loop !7
 
-221:                                              ; preds = %.lr.ph283, %260
-  %indvars.iv295 = phi i64 [ 0, %.lr.ph283 ], [ %indvars.iv.next296, %260 ]
-  %.3133281 = phi ptr [ %168, %.lr.ph283 ], [ %261, %260 ]
-  %222 = load ptr, ptr %175, align 8
-  %223 = getelementptr i8, ptr %222, i64 8
-  %.val166 = load ptr, ptr %223, align 8
-  %224 = getelementptr inbounds ptr, ptr %.val166, i64 %indvars.iv295
-  %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr i8, ptr %225, i64 8
-  %.val.i207 = load ptr, ptr %226, align 8
+223:                                              ; preds = %.lr.ph283, %264
+  %indvars.iv295 = phi i64 [ 0, %.lr.ph283 ], [ %indvars.iv.next296, %264 ]
+  %.3133281 = phi ptr [ %168, %.lr.ph283 ], [ %265, %264 ]
+  %224 = load ptr, ptr %175, align 8
+  %225 = getelementptr i8, ptr %224, i64 8
+  %.val166 = load ptr, ptr %225, align 8
+  %226 = getelementptr inbounds ptr, ptr %.val166, i64 %indvars.iv295
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr i8, ptr %227, i64 8
+  %.val.i207 = load ptr, ptr %228, align 8
   %.not.i.i208 = icmp eq ptr %.val.i207, null
   br i1 %.not.i.i208, label %Aig_ObjFaninId0.exit38.i210.thread, label %Aig_ObjFaninId0.exit38.i210
 
-Aig_ObjFaninId0.exit38.i210.thread:               ; preds = %221
+Aig_ObjFaninId0.exit38.i210.thread:               ; preds = %223
   %.val2942.i220 = load ptr, ptr %21, align 8
-  %227 = getelementptr inbounds i8, ptr %.val2942.i220, i64 -16
-  %228 = getelementptr inbounds i8, ptr %.val2942.i220, i64 -8
-  %.026.i214316 = load ptr, ptr %227, align 8
-  %.027.i215317 = load ptr, ptr %228, align 8
+  %229 = getelementptr inbounds i8, ptr %.val2942.i220, i64 -16
+  %230 = getelementptr inbounds i8, ptr %.val2942.i220, i64 -8
+  %.026.i214314 = load ptr, ptr %229, align 8
+  %.027.i215315 = load ptr, ptr %230, align 8
   br label %Saig_ObjDualFanin.exit221
 
-Aig_ObjFaninId0.exit38.i210:                      ; preds = %221
-  %229 = ptrtoint ptr %.val.i207 to i64
-  %230 = and i64 %229, -2
-  %231 = inttoptr i64 %230 to ptr
-  %232 = getelementptr inbounds i8, ptr %231, i64 36
-  %233 = load i32, ptr %232, align 4
+Aig_ObjFaninId0.exit38.i210:                      ; preds = %223
+  %231 = ptrtoint ptr %.val.i207 to i64
+  %232 = and i64 %231, -2
+  %233 = inttoptr i64 %232 to ptr
+  %234 = getelementptr inbounds i8, ptr %233, i64 36
+  %235 = load i32, ptr %234, align 4
   %.val29.i209 = load ptr, ptr %21, align 8
-  %234 = shl nsw i32 %233, 1
-  %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds ptr, ptr %.val29.i209, i64 %235
-  %237 = or disjoint i32 %234, 1
-  %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds ptr, ptr %.val29.i209, i64 %238
-  %.026.i214 = load ptr, ptr %236, align 8
-  %.027.i215 = load ptr, ptr %239, align 8
-  %.047.i216 = and i64 %229, 1
-  %.not.i217 = icmp eq i64 %.047.i216, 0
-  br i1 %.not.i217, label %Saig_ObjDualFanin.exit221, label %240
+  %236 = shl nsw i32 %235, 1
+  %237 = sext i32 %236 to i64
+  %238 = getelementptr inbounds ptr, ptr %.val29.i209, i64 %237
+  %239 = or disjoint i32 %236, 1
+  %240 = sext i32 %239 to i64
+  %241 = and i64 %231, 1
+  %242 = icmp eq i64 %241, 0
+  %243 = getelementptr inbounds ptr, ptr %.val29.i209, i64 %240
+  %.026.i214 = load ptr, ptr %238, align 8
+  %.027.i215 = load ptr, ptr %243, align 8
+  br i1 %242, label %Saig_ObjDualFanin.exit221, label %244
 
-240:                                              ; preds = %Aig_ObjFaninId0.exit38.i210
-  %241 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.026.i214, ptr noundef %.027.i215) #8
-  %242 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.027.i215, ptr noundef %241) #8
-  %243 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.026.i214, ptr noundef %241) #8
+244:                                              ; preds = %Aig_ObjFaninId0.exit38.i210
+  %245 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.026.i214, ptr noundef %.027.i215) #8
+  %246 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.027.i215, ptr noundef %245) #8
+  %247 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.026.i214, ptr noundef %245) #8
   br label %Saig_ObjDualFanin.exit221
 
-Saig_ObjDualFanin.exit221:                        ; preds = %Aig_ObjFaninId0.exit38.i210.thread, %Aig_ObjFaninId0.exit38.i210, %240
-  %.3265 = phi ptr [ %242, %240 ], [ %.026.i214, %Aig_ObjFaninId0.exit38.i210 ], [ %.026.i214316, %Aig_ObjFaninId0.exit38.i210.thread ]
-  %storemerge.i218 = phi ptr [ %243, %240 ], [ %.027.i215, %Aig_ObjFaninId0.exit38.i210 ], [ %.027.i215317, %Aig_ObjFaninId0.exit38.i210.thread ]
-  br i1 %.not138, label %249, label %244
+Saig_ObjDualFanin.exit221:                        ; preds = %Aig_ObjFaninId0.exit38.i210.thread, %Aig_ObjFaninId0.exit38.i210, %244
+  %.3265 = phi ptr [ %246, %244 ], [ %.026.i214, %Aig_ObjFaninId0.exit38.i210 ], [ %.026.i214314, %Aig_ObjFaninId0.exit38.i210.thread ]
+  %storemerge.i218 = phi ptr [ %247, %244 ], [ %.027.i215, %Aig_ObjFaninId0.exit38.i210 ], [ %.027.i215315, %Aig_ObjFaninId0.exit38.i210.thread ]
+  br i1 %.not138, label %253, label %248
 
-244:                                              ; preds = %Saig_ObjDualFanin.exit221
-  %245 = ptrtoint ptr %storemerge.i218 to i64
-  %246 = xor i64 %245, 1
-  %247 = inttoptr i64 %246 to ptr
-  %248 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.3265, ptr noundef %247) #8
-  br label %260
+248:                                              ; preds = %Saig_ObjDualFanin.exit221
+  %249 = ptrtoint ptr %storemerge.i218 to i64
+  %250 = xor i64 %249, 1
+  %251 = inttoptr i64 %250 to ptr
+  %252 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.3265, ptr noundef %251) #8
+  br label %264
 
-249:                                              ; preds = %Saig_ObjDualFanin.exit221
-  %250 = ptrtoint ptr %.3265 to i64
-  %251 = xor i64 %250, 1
-  %252 = inttoptr i64 %251 to ptr
-  br i1 %.not139, label %255, label %253
+253:                                              ; preds = %Saig_ObjDualFanin.exit221
+  %254 = ptrtoint ptr %.3265 to i64
+  %255 = xor i64 %254, 1
+  %256 = inttoptr i64 %255 to ptr
+  br i1 %.not139, label %259, label %257
 
-253:                                              ; preds = %249
-  %254 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %252, ptr noundef %storemerge.i218) #8
-  br label %260
+257:                                              ; preds = %253
+  %258 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %256, ptr noundef %storemerge.i218) #8
+  br label %264
 
-255:                                              ; preds = %249
-  %256 = ptrtoint ptr %storemerge.i218 to i64
-  %257 = xor i64 %256, 1
-  %258 = inttoptr i64 %257 to ptr
-  %259 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %252, ptr noundef %258) #8
-  br label %260
+259:                                              ; preds = %253
+  %260 = ptrtoint ptr %storemerge.i218 to i64
+  %261 = xor i64 %260, 1
+  %262 = inttoptr i64 %261 to ptr
+  %263 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %256, ptr noundef %262) #8
+  br label %264
 
-260:                                              ; preds = %244, %255, %253
-  %.sink329 = phi ptr [ %248, %244 ], [ %259, %255 ], [ %254, %253 ]
-  %261 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.3133281, ptr noundef %.sink329) #8
+264:                                              ; preds = %248, %259, %257
+  %.sink323 = phi ptr [ %252, %248 ], [ %263, %259 ], [ %258, %257 ]
+  %265 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.3133281, ptr noundef %.sink323) #8
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %.val180 = load i32, ptr %173, align 8
-  %262 = sext i32 %.val180 to i64
-  %263 = icmp slt i64 %indvars.iv.next296, %262
-  br i1 %263, label %221, label %.critedge4, !llvm.loop !8
+  %266 = sext i32 %.val180 to i64
+  %267 = icmp slt i64 %indvars.iv.next296, %266
+  br i1 %267, label %223, label %.critedge4, !llvm.loop !8
 
-.critedge4:                                       ; preds = %217, %260, %.preheader269, %.preheader
-  %.2132 = phi ptr [ %168, %.preheader ], [ %168, %.preheader269 ], [ %261, %260 ], [ %218, %217 ]
-  %264 = ptrtoint ptr %.2132 to i64
-  %265 = sext i32 %5 to i64
-  %266 = xor i64 %264, %265
-  %267 = inttoptr i64 %266 to ptr
-  %268 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %27, ptr noundef %267) #8
-  %269 = getelementptr i8, ptr %0, i64 104
-  %.val178285 = load i32, ptr %269, align 8
-  %270 = icmp sgt i32 %.val178285, 0
-  br i1 %270, label %.lr.ph287, label %.critedge8
+.critedge4:                                       ; preds = %219, %264, %.preheader269, %.preheader
+  %.2132 = phi ptr [ %168, %.preheader ], [ %168, %.preheader269 ], [ %265, %264 ], [ %220, %219 ]
+  %268 = ptrtoint ptr %.2132 to i64
+  %269 = sext i32 %5 to i64
+  %270 = xor i64 %268, %269
+  %271 = inttoptr i64 %270 to ptr
+  %272 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %27, ptr noundef %271) #8
+  %273 = getelementptr i8, ptr %0, i64 104
+  %.val178285 = load i32, ptr %273, align 8
+  %274 = icmp sgt i32 %.val178285, 0
+  br i1 %274, label %.lr.ph287, label %.critedge8
 
 .lr.ph287:                                        ; preds = %.critedge4
-  %271 = getelementptr inbounds i8, ptr %0, i64 24
-  %272 = getelementptr i8, ptr %0, i64 112
+  %275 = getelementptr inbounds i8, ptr %0, i64 24
+  %276 = getelementptr i8, ptr %0, i64 112
   %.not140 = icmp eq ptr %1, null
-  %273 = getelementptr i8, ptr %1, i64 8
+  %277 = getelementptr i8, ptr %1, i64 8
   %.not141 = icmp eq i32 %3, 0
-  %274 = zext i1 %.not141 to i64
-  br label %275
+  %278 = zext i1 %.not141 to i64
+  br label %279
 
-275:                                              ; preds = %.lr.ph287, %310
-  %indvars.iv298 = phi i64 [ 0, %.lr.ph287 ], [ %indvars.iv.next299, %310 ]
-  %276 = load ptr, ptr %271, align 8
-  %.val181 = load i32, ptr %272, align 8
-  %277 = trunc nuw nsw i64 %indvars.iv298 to i32
-  %278 = add nsw i32 %.val181, %277
-  %279 = getelementptr i8, ptr %276, i64 8
-  %.val167 = load ptr, ptr %279, align 8
-  %280 = sext i32 %278 to i64
-  %281 = getelementptr inbounds ptr, ptr %.val167, i64 %280
-  %282 = load ptr, ptr %281, align 8
-  %283 = getelementptr i8, ptr %282, i64 8
-  %.val.i222 = load ptr, ptr %283, align 8
+279:                                              ; preds = %.lr.ph287, %316
+  %indvars.iv298 = phi i64 [ 0, %.lr.ph287 ], [ %indvars.iv.next299, %316 ]
+  %280 = load ptr, ptr %275, align 8
+  %.val181 = load i32, ptr %276, align 8
+  %281 = trunc nuw nsw i64 %indvars.iv298 to i32
+  %282 = add nsw i32 %.val181, %281
+  %283 = getelementptr i8, ptr %280, i64 8
+  %.val167 = load ptr, ptr %283, align 8
+  %284 = sext i32 %282 to i64
+  %285 = getelementptr inbounds ptr, ptr %.val167, i64 %284
+  %286 = load ptr, ptr %285, align 8
+  %287 = getelementptr i8, ptr %286, i64 8
+  %.val.i222 = load ptr, ptr %287, align 8
   %.not.i.i223 = icmp eq ptr %.val.i222, null
   br i1 %.not.i.i223, label %Aig_ObjFaninId0.exit38.i225.thread, label %Aig_ObjFaninId0.exit38.i225
 
-Aig_ObjFaninId0.exit38.i225.thread:               ; preds = %275
+Aig_ObjFaninId0.exit38.i225.thread:               ; preds = %279
   %.val2942.i235 = load ptr, ptr %21, align 8
-  %284 = getelementptr inbounds i8, ptr %.val2942.i235, i64 -16
-  %285 = getelementptr inbounds i8, ptr %.val2942.i235, i64 -8
-  %.026.i229323 = load ptr, ptr %284, align 8
-  %.027.i230324 = load ptr, ptr %285, align 8
+  %288 = getelementptr inbounds i8, ptr %.val2942.i235, i64 -16
+  %289 = getelementptr inbounds i8, ptr %.val2942.i235, i64 -8
+  %.026.i229319 = load ptr, ptr %288, align 8
+  %.027.i230320 = load ptr, ptr %289, align 8
   br label %Saig_ObjDualFanin.exit236
 
-Aig_ObjFaninId0.exit38.i225:                      ; preds = %275
-  %286 = ptrtoint ptr %.val.i222 to i64
-  %287 = and i64 %286, -2
-  %288 = inttoptr i64 %287 to ptr
-  %289 = getelementptr inbounds i8, ptr %288, i64 36
-  %290 = load i32, ptr %289, align 4
+Aig_ObjFaninId0.exit38.i225:                      ; preds = %279
+  %290 = ptrtoint ptr %.val.i222 to i64
+  %291 = and i64 %290, -2
+  %292 = inttoptr i64 %291 to ptr
+  %293 = getelementptr inbounds i8, ptr %292, i64 36
+  %294 = load i32, ptr %293, align 4
   %.val29.i224 = load ptr, ptr %21, align 8
-  %291 = shl nsw i32 %290, 1
-  %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds ptr, ptr %.val29.i224, i64 %292
-  %294 = or disjoint i32 %291, 1
-  %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds ptr, ptr %.val29.i224, i64 %295
-  %.026.i229 = load ptr, ptr %293, align 8
-  %.027.i230 = load ptr, ptr %296, align 8
-  %.047.i231 = and i64 %286, 1
-  %.not.i232 = icmp eq i64 %.047.i231, 0
-  br i1 %.not.i232, label %Saig_ObjDualFanin.exit236, label %297
+  %295 = shl nsw i32 %294, 1
+  %296 = sext i32 %295 to i64
+  %297 = getelementptr inbounds ptr, ptr %.val29.i224, i64 %296
+  %298 = or disjoint i32 %295, 1
+  %299 = sext i32 %298 to i64
+  %300 = and i64 %290, 1
+  %301 = icmp eq i64 %300, 0
+  %302 = getelementptr inbounds ptr, ptr %.val29.i224, i64 %299
+  %.026.i229 = load ptr, ptr %297, align 8
+  %.027.i230 = load ptr, ptr %302, align 8
+  br i1 %301, label %Saig_ObjDualFanin.exit236, label %303
 
-297:                                              ; preds = %Aig_ObjFaninId0.exit38.i225
-  %298 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.026.i229, ptr noundef %.027.i230) #8
-  %299 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.027.i230, ptr noundef %298) #8
-  %300 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.026.i229, ptr noundef %298) #8
+303:                                              ; preds = %Aig_ObjFaninId0.exit38.i225
+  %304 = tail call ptr @Aig_Or(ptr noundef nonnull %27, ptr noundef %.026.i229, ptr noundef %.027.i230) #8
+  %305 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.027.i230, ptr noundef %304) #8
+  %306 = tail call ptr @Aig_And(ptr noundef nonnull %27, ptr noundef %.026.i229, ptr noundef %304) #8
   br label %Saig_ObjDualFanin.exit236
 
-Saig_ObjDualFanin.exit236:                        ; preds = %Aig_ObjFaninId0.exit38.i225.thread, %Aig_ObjFaninId0.exit38.i225, %297
-  %.4266 = phi ptr [ %299, %297 ], [ %.026.i229, %Aig_ObjFaninId0.exit38.i225 ], [ %.026.i229323, %Aig_ObjFaninId0.exit38.i225.thread ]
-  %storemerge.i233 = phi ptr [ %300, %297 ], [ %.027.i230, %Aig_ObjFaninId0.exit38.i225 ], [ %.027.i230324, %Aig_ObjFaninId0.exit38.i225.thread ]
-  br i1 %.not140, label %307, label %301
-
-301:                                              ; preds = %Saig_ObjDualFanin.exit236
-  %.val171 = load ptr, ptr %273, align 8
-  %302 = getelementptr inbounds i32, ptr %.val171, i64 %indvars.iv298
-  %303 = load i32, ptr %302, align 4
-  %.not142 = icmp eq i32 %303, 0
-  %304 = ptrtoint ptr %.4266 to i64
-  %305 = zext i1 %.not142 to i64
-  %306 = xor i64 %305, %304
-  br label %310
+Saig_ObjDualFanin.exit236:                        ; preds = %Aig_ObjFaninId0.exit38.i225.thread, %Aig_ObjFaninId0.exit38.i225, %303
+  %.4266 = phi ptr [ %305, %303 ], [ %.026.i229, %Aig_ObjFaninId0.exit38.i225 ], [ %.026.i229319, %Aig_ObjFaninId0.exit38.i225.thread ]
+  %storemerge.i233 = phi ptr [ %306, %303 ], [ %.027.i230, %Aig_ObjFaninId0.exit38.i225 ], [ %.027.i230320, %Aig_ObjFaninId0.exit38.i225.thread ]
+  br i1 %.not140, label %313, label %307
 
 307:                                              ; preds = %Saig_ObjDualFanin.exit236
-  %308 = ptrtoint ptr %.4266 to i64
-  %309 = xor i64 %308, %274
-  br label %310
+  %.val171 = load ptr, ptr %277, align 8
+  %308 = getelementptr inbounds i32, ptr %.val171, i64 %indvars.iv298
+  %309 = load i32, ptr %308, align 4
+  %.not142 = icmp eq i32 %309, 0
+  %310 = ptrtoint ptr %.4266 to i64
+  %311 = zext i1 %.not142 to i64
+  %312 = xor i64 %311, %310
+  br label %316
 
-310:                                              ; preds = %307, %301
-  %storemerge.in = phi i64 [ %309, %307 ], [ %306, %301 ]
+313:                                              ; preds = %Saig_ObjDualFanin.exit236
+  %314 = ptrtoint ptr %.4266 to i64
+  %315 = xor i64 %314, %278
+  br label %316
+
+316:                                              ; preds = %313, %307
+  %storemerge.in = phi i64 [ %315, %313 ], [ %312, %307 ]
   %storemerge = inttoptr i64 %storemerge.in to ptr
-  %311 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %27, ptr noundef %storemerge) #8
-  %312 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %27, ptr noundef %storemerge.i233) #8
+  %317 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %27, ptr noundef %storemerge) #8
+  %318 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %27, ptr noundef %storemerge.i233) #8
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
-  %.val178 = load i32, ptr %269, align 8
-  %313 = sext i32 %.val178 to i64
-  %314 = icmp slt i64 %indvars.iv.next299, %313
-  br i1 %314, label %275, label %.critedge8, !llvm.loop !9
+  %.val178 = load i32, ptr %273, align 8
+  %319 = sext i32 %.val178 to i64
+  %320 = icmp slt i64 %indvars.iv.next299, %319
+  br i1 %320, label %279, label %.critedge8, !llvm.loop !9
 
-.critedge8:                                       ; preds = %310, %.critedge4
-  %.val178.lcssa = phi i32 [ %.val178285, %.critedge4 ], [ %.val178, %310 ]
-  %315 = shl nsw i32 %.val178.lcssa, 1
-  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %27, i32 noundef %315) #8
-  %316 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %27) #8
-  %317 = load ptr, ptr %21, align 8
-  %.not.i237 = icmp eq ptr %317, null
-  br i1 %.not.i237, label %Vec_PtrFree.exit, label %318
+.critedge8:                                       ; preds = %316, %.critedge4
+  %.val178.lcssa = phi i32 [ %.val178285, %.critedge4 ], [ %.val178, %316 ]
+  %321 = shl nsw i32 %.val178.lcssa, 1
+  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %27, i32 noundef %321) #8
+  %322 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %27) #8
+  %323 = load ptr, ptr %21, align 8
+  %.not.i237 = icmp eq ptr %323, null
+  br i1 %.not.i237, label %Vec_PtrFree.exit, label %324
 
-318:                                              ; preds = %.critedge8
-  tail call void @free(ptr noundef nonnull %317) #8
+324:                                              ; preds = %.critedge8
+  tail call void @free(ptr noundef nonnull %323) #8
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge8, %318
+Vec_PtrFree.exit:                                 ; preds = %.critedge8, %324
   tail call void @free(ptr noundef nonnull %14) #8
   ret ptr %27
 }

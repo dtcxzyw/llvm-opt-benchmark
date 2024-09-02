@@ -44,7 +44,7 @@ define internal range(i32 0, 2) i32 @CorrelCompare(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @CorrelHash(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
+define internal range(i32 0, -2147483648) i32 @CorrelHash(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = trunc i64 %4 to i32

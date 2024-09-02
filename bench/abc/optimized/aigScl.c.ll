@@ -2443,9 +2443,9 @@ define ptr @Aig_ManReduceLaches(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %.val50.i.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %5
 
-5:                                                ; preds = %68, %4
-  %.val50.i = phi i32 [ %.val50.i.pre, %4 ], [ %70, %68 ]
-  %.0 = phi ptr [ %0, %4 ], [ %62, %68 ]
+5:                                                ; preds = %69, %4
+  %.val50.i = phi i32 [ %.val50.i.pre, %4 ], [ %71, %69 ]
+  %.0 = phi ptr [ %0, %4 ], [ %63, %69 ]
   %6 = getelementptr i8, ptr %.0, i64 140
   %.val55.i = load i32, ptr %6, align 4
   %7 = getelementptr i8, ptr %.0, i64 104
@@ -2522,78 +2522,78 @@ define ptr @Aig_ManReduceLaches(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %.val54.pre.i = load i32, ptr %6, align 4
   %.val49.pre.i = load i32, ptr %7, align 8
   %.pre.i = sub nsw i32 %.val54.pre.i, %.val49.pre.i
+  %42 = icmp eq i32 %.1.i, 0
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %.critedge2.loopexit.i, %5
   %.pre-phi.i = phi i32 [ %.pre.i, %.critedge2.loopexit.i ], [ %8, %5 ]
   %.val59.i = phi i32 [ %.val44.i, %.critedge2.loopexit.i ], [ %.val4456.i, %5 ]
-  %42 = phi ptr [ %38, %.critedge2.loopexit.i ], [ %10, %5 ]
-  %.038.lcssa.i = phi i32 [ %.1.i, %.critedge2.loopexit.i ], [ 0, %5 ]
-  %43 = icmp slt i32 %.pre-phi.i, %.val59.i
-  br i1 %43, label %.lr.ph61.preheader.i, label %Aig_ManReduceLachesCount.exit
+  %43 = phi ptr [ %38, %.critedge2.loopexit.i ], [ %10, %5 ]
+  %.038.lcssa.i = phi i1 [ %42, %.critedge2.loopexit.i ], [ true, %5 ]
+  %44 = icmp slt i32 %.pre-phi.i, %.val59.i
+  br i1 %44, label %.lr.ph61.preheader.i, label %Aig_ManReduceLachesCount.exit
 
 .lr.ph61.preheader.i:                             ; preds = %.critedge2.i
-  %44 = sext i32 %.pre-phi.i to i64
+  %45 = sext i32 %.pre-phi.i to i64
   br label %.lr.ph61.i
 
 .lr.ph61.i:                                       ; preds = %.lr.ph61.i, %.lr.ph61.preheader.i
-  %indvars.iv63.i = phi i64 [ %44, %.lr.ph61.preheader.i ], [ %indvars.iv.next64.i, %.lr.ph61.i ]
-  %45 = phi ptr [ %42, %.lr.ph61.preheader.i ], [ %56, %.lr.ph61.i ]
-  %46 = getelementptr i8, ptr %45, i64 8
-  %.val46.i = load ptr, ptr %46, align 8
-  %47 = getelementptr inbounds ptr, ptr %.val46.i, i64 %indvars.iv63.i
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr i8, ptr %48, i64 8
-  %.val51.i = load ptr, ptr %49, align 8
-  %50 = ptrtoint ptr %.val51.i to i64
-  %51 = and i64 %50, -2
-  %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
-  %54 = load i64, ptr %53, align 8
-  %55 = and i64 %54, -49
-  store i64 %55, ptr %53, align 8
+  %indvars.iv63.i = phi i64 [ %45, %.lr.ph61.preheader.i ], [ %indvars.iv.next64.i, %.lr.ph61.i ]
+  %46 = phi ptr [ %43, %.lr.ph61.preheader.i ], [ %57, %.lr.ph61.i ]
+  %47 = getelementptr i8, ptr %46, i64 8
+  %.val46.i = load ptr, ptr %47, align 8
+  %48 = getelementptr inbounds ptr, ptr %.val46.i, i64 %indvars.iv63.i
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr i8, ptr %49, i64 8
+  %.val51.i = load ptr, ptr %50, align 8
+  %51 = ptrtoint ptr %.val51.i to i64
+  %52 = and i64 %51, -2
+  %53 = inttoptr i64 %52 to ptr
+  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %55, -49
+  store i64 %56, ptr %54, align 8
   %indvars.iv.next64.i = add nsw i64 %indvars.iv63.i, 1
-  %56 = load ptr, ptr %9, align 8
-  %57 = getelementptr i8, ptr %56, i64 4
-  %.val.i = load i32, ptr %57, align 4
-  %58 = sext i32 %.val.i to i64
-  %59 = icmp slt i64 %indvars.iv.next64.i, %58
-  br i1 %59, label %.lr.ph61.i, label %Aig_ManReduceLachesCount.exit, !llvm.loop !27
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr i8, ptr %57, i64 4
+  %.val.i = load i32, ptr %58, align 4
+  %59 = sext i32 %.val.i to i64
+  %60 = icmp slt i64 %indvars.iv.next64.i, %59
+  br i1 %60, label %.lr.ph61.i, label %Aig_ManReduceLachesCount.exit, !llvm.loop !27
 
 Aig_ManReduceLachesCount.exit:                    ; preds = %.lr.ph61.i, %.critedge2.i
-  %.not16 = icmp eq i32 %.038.lcssa.i, 0
-  br i1 %.not16, label %72, label %60
+  br i1 %.038.lcssa.i, label %73, label %61
 
-60:                                               ; preds = %Aig_ManReduceLachesCount.exit
-  %61 = tail call ptr @Aig_ManReduceLachesOnce(ptr noundef nonnull %.0)
-  %62 = tail call ptr @Aig_ManRemap(ptr noundef nonnull %.0, ptr noundef %61)
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %.not.i = icmp eq ptr %64, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %65
+61:                                               ; preds = %Aig_ManReduceLachesCount.exit
+  %62 = tail call ptr @Aig_ManReduceLachesOnce(ptr noundef nonnull %.0)
+  %63 = tail call ptr @Aig_ManRemap(ptr noundef nonnull %.0, ptr noundef %62)
+  %64 = getelementptr inbounds i8, ptr %62, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %.not.i = icmp eq ptr %65, null
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %66
 
-65:                                               ; preds = %60
-  tail call void @free(ptr noundef nonnull %64) #14
+66:                                               ; preds = %61
+  tail call void @free(ptr noundef nonnull %65) #14
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %60, %65
-  tail call void @free(ptr noundef nonnull %61) #14
-  %66 = tail call i32 @Aig_ManSeqCleanup(ptr noundef %62)
-  br i1 %.not, label %68, label %67
+Vec_PtrFree.exit:                                 ; preds = %61, %66
+  tail call void @free(ptr noundef nonnull %62) #14
+  %67 = tail call i32 @Aig_ManSeqCleanup(ptr noundef %63)
+  br i1 %.not, label %69, label %68
 
-67:                                               ; preds = %Vec_PtrFree.exit
-  tail call void @Aig_ManReportImprovement(ptr noundef nonnull %.0, ptr noundef %62) #14
-  br label %68
+68:                                               ; preds = %Vec_PtrFree.exit
+  tail call void @Aig_ManReportImprovement(ptr noundef nonnull %.0, ptr noundef %63) #14
+  br label %69
 
-68:                                               ; preds = %67, %Vec_PtrFree.exit
+69:                                               ; preds = %68, %Vec_PtrFree.exit
   tail call void @Aig_ManStop(ptr noundef nonnull %.0) #14
-  %69 = getelementptr inbounds i8, ptr %62, i64 104
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %5, !llvm.loop !31
+  %70 = getelementptr inbounds i8, ptr %63, i64 104
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %5, !llvm.loop !31
 
-72:                                               ; preds = %68, %Aig_ManReduceLachesCount.exit
-  %.1 = phi ptr [ %62, %68 ], [ %.0, %Aig_ManReduceLachesCount.exit ]
+73:                                               ; preds = %69, %Aig_ManReduceLachesCount.exit
+  %.1 = phi ptr [ %63, %69 ], [ %.0, %Aig_ManReduceLachesCount.exit ]
   ret ptr %.1
 }
 

@@ -1833,177 +1833,177 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %28
-  %29 = icmp slt i32 %.1, 0
-  br i1 %29, label %30, label %32
+  %29 = icmp eq i32 %.155, 0
+  %30 = icmp slt i32 %.1, 0
+  br i1 %30, label %31, label %33
 
-30:                                               ; preds = %._crit_edge
+31:                                               ; preds = %._crit_edge
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.123) #9
-  %31 = tail call i32 @cli_magic_scan_desc(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, i32 noundef 0) #9
-  br label %109
+  %32 = tail call i32 @cli_magic_scan_desc(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, i32 noundef 0) #9
+  br label %110
 
-32:                                               ; preds = %._crit_edge
-  %33 = icmp eq i32 %.1, 1
-  br i1 %33, label %34, label %72
+33:                                               ; preds = %._crit_edge
+  %34 = icmp eq i32 %.1, 1
+  br i1 %34, label %35, label %73
 
-34:                                               ; preds = %32
-  %35 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %9) #9
-  %36 = icmp eq i32 %35, -1
-  br i1 %36, label %37, label %38
+35:                                               ; preds = %33
+  %36 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %9) #9
+  %37 = icmp eq i32 %36, -1
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %34
+38:                                               ; preds = %35
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.124) #9
-  br label %109
+  br label %110
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %9, i64 48
-  %40 = load i64, ptr %39, align 8
-  %41 = tail call ptr @fmap(i32 noundef %0, i64 noundef 0, i64 noundef %40, ptr noundef null) #9
-  %.not = icmp eq ptr %41, null
-  br i1 %.not, label %42, label %43
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds i8, ptr %9, i64 48
+  %41 = load i64, ptr %40, align 8
+  %42 = tail call ptr @fmap(i32 noundef %0, i64 noundef 0, i64 noundef %41, ptr noundef null) #9
+  %.not = icmp eq ptr %42, null
+  br i1 %.not, label %43, label %44
 
-42:                                               ; preds = %38
+43:                                               ; preds = %39
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.125) #9
-  br label %109
+  br label %110
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %41, i64 88
-  %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %41, i64 104
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call ptr %47(ptr noundef nonnull %41, i64 noundef 0, i64 noundef %45, i32 noundef 0) #9
-  %.not62 = icmp eq ptr %48, null
-  br i1 %.not62, label %49, label %52
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds i8, ptr %42, i64 88
+  %46 = load i64, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %42, i64 104
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call ptr %48(ptr noundef nonnull %42, i64 noundef 0, i64 noundef %46, i32 noundef 0) #9
+  %.not62 = icmp eq ptr %49, null
+  br i1 %.not62, label %50, label %53
 
-49:                                               ; preds = %43
+50:                                               ; preds = %44
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.126) #9
-  %50 = getelementptr inbounds i8, ptr %41, i64 96
-  %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef nonnull %41) #9
-  br label %109
+  %51 = getelementptr inbounds i8, ptr %42, i64 96
+  %52 = load ptr, ptr %51, align 8
+  tail call void %52(ptr noundef nonnull %42) #9
+  br label %110
 
-52:                                               ; preds = %43
-  %53 = load i64, ptr %44, align 8
-  %54 = call ptr @cl_base64_decode(ptr noundef nonnull %48, i64 noundef %53, ptr noundef null, ptr noundef nonnull %10, i32 noundef 0) #9
-  %55 = getelementptr inbounds i8, ptr %41, i64 96
-  %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull %41) #9
-  %.not63 = icmp eq ptr %54, null
-  br i1 %.not63, label %57, label %59
+53:                                               ; preds = %44
+  %54 = load i64, ptr %45, align 8
+  %55 = call ptr @cl_base64_decode(ptr noundef nonnull %49, i64 noundef %54, ptr noundef null, ptr noundef nonnull %10, i32 noundef 0) #9
+  %56 = getelementptr inbounds i8, ptr %42, i64 96
+  %57 = load ptr, ptr %56, align 8
+  call void %57(ptr noundef nonnull %42) #9
+  %.not63 = icmp eq ptr %55, null
+  br i1 %.not63, label %58, label %60
 
-57:                                               ; preds = %52
+58:                                               ; preds = %53
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.127) #9
-  %58 = call i32 @cli_magic_scan_desc(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, i32 noundef 0) #9
-  br label %109
+  %59 = call i32 @cli_magic_scan_desc(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, i32 noundef 0) #9
+  br label %110
 
-59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %2, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = call i32 @cli_gentempfd(ptr noundef %61, ptr noundef nonnull %8, ptr noundef nonnull %7) #9
-  %.not64 = icmp eq i32 %62, 0
-  br i1 %.not64, label %64, label %63
+60:                                               ; preds = %53
+  %61 = getelementptr inbounds i8, ptr %2, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = call i32 @cli_gentempfd(ptr noundef %62, ptr noundef nonnull %8, ptr noundef nonnull %7) #9
+  %.not64 = icmp eq i32 %63, 0
+  br i1 %.not64, label %65, label %64
 
-63:                                               ; preds = %59
+64:                                               ; preds = %60
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.128) #9
-  br label %109
+  br label %110
 
-64:                                               ; preds = %59
-  %65 = load i32, ptr %7, align 4
-  %66 = load i64, ptr %10, align 8
-  %67 = call i64 @cli_writen(i32 noundef %65, ptr noundef nonnull %54, i64 noundef %66) #9
-  %68 = load i64, ptr %10, align 8
-  %.not65 = icmp eq i64 %67, %68
-  call void @free(ptr noundef nonnull %54) #9
-  br i1 %.not65, label %69, label %hwpml_scan_cb.exit
+65:                                               ; preds = %60
+  %66 = load i32, ptr %7, align 4
+  %67 = load i64, ptr %10, align 8
+  %68 = call i64 @cli_writen(i32 noundef %66, ptr noundef nonnull %55, i64 noundef %67) #9
+  %69 = load i64, ptr %10, align 8
+  %.not65 = icmp eq i64 %68, %69
+  call void @free(ptr noundef nonnull %55) #9
+  br i1 %.not65, label %70, label %hwpml_scan_cb.exit
 
-69:                                               ; preds = %64
-  %70 = load i32, ptr %7, align 4
-  %71 = load ptr, ptr %8, align 8
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.129, ptr noundef %71) #9
-  br label %72
+70:                                               ; preds = %65
+  %71 = load i32, ptr %7, align 4
+  %72 = load ptr, ptr %8, align 8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.129, ptr noundef %72) #9
+  br i1 %29, label %.thread91, label %74
 
-72:                                               ; preds = %32, %69
-  %.050 = phi i32 [ %70, %69 ], [ %0, %32 ]
-  %.not66 = icmp eq i32 %.155, 0
-  br i1 %.not66, label %.thread91, label %73
+73:                                               ; preds = %33
+  br i1 %29, label %.thread91, label %74
 
-73:                                               ; preds = %72
-  %74 = call i32 @fstat(i32 noundef %.050, ptr noundef nonnull %11) #9
-  %75 = icmp eq i32 %74, -1
-  br i1 %75, label %76, label %77
+74:                                               ; preds = %70, %73
+  %.05095 = phi i32 [ %71, %70 ], [ %0, %73 ]
+  %75 = call i32 @fstat(i32 noundef %.05095, ptr noundef nonnull %11) #9
+  %76 = icmp eq i32 %75, -1
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %73
+77:                                               ; preds = %74
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.124) #9
   br label %hwpml_scan_cb.exit
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %11, i64 48
-  %79 = load i64, ptr %78, align 8
-  %80 = call ptr @fmap(i32 noundef %.050, i64 noundef 0, i64 noundef %79, ptr noundef null) #9
-  %.not67 = icmp eq ptr %80, null
-  br i1 %.not67, label %81, label %82
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds i8, ptr %11, i64 48
+  %80 = load i64, ptr %79, align 8
+  %81 = call ptr @fmap(i32 noundef %.05095, i64 noundef 0, i64 noundef %80, ptr noundef null) #9
+  %.not67 = icmp eq ptr %81, null
+  br i1 %.not67, label %82, label %83
 
-81:                                               ; preds = %77
+82:                                               ; preds = %78
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.125) #9
   br label %hwpml_scan_cb.exit
 
-82:                                               ; preds = %77
-  %83 = call fastcc i32 @decompress_and_callback(ptr noundef %2, ptr noundef nonnull %80, i64 noundef 0, ptr noundef nonnull @.str.130, ptr noundef nonnull @hwpml_scan_cb)
-  %84 = getelementptr inbounds i8, ptr %80, i64 96
-  %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef nonnull %80) #9
+83:                                               ; preds = %78
+  %84 = call fastcc i32 @decompress_and_callback(ptr noundef %2, ptr noundef nonnull %81, i64 noundef 0, ptr noundef nonnull @.str.130, ptr noundef nonnull @hwpml_scan_cb)
+  %85 = getelementptr inbounds i8, ptr %81, i64 96
+  %86 = load ptr, ptr %85, align 8
+  call void %86(ptr noundef nonnull %81) #9
   br label %hwpml_scan_cb.exit
 
-.thread91:                                        ; preds = %6, %72
-  %.05095 = phi i32 [ %.050, %72 ], [ %0, %6 ]
-  %86 = load i32, ptr %7, align 4
-  %87 = icmp eq i32 %.05095, %86
-  %88 = icmp sgt i32 %.05095, -1
-  %89 = icmp ne ptr %2, null
-  %or.cond.i = and i1 %89, %88
-  br i1 %87, label %90, label %94
+.thread91:                                        ; preds = %6, %70, %73
+  %.05094 = phi i32 [ %0, %73 ], [ %71, %70 ], [ %0, %6 ]
+  %87 = load i32, ptr %7, align 4
+  %88 = icmp eq i32 %.05094, %87
+  %89 = icmp sgt i32 %.05094, -1
+  %90 = icmp ne ptr %2, null
+  %or.cond.i = and i1 %90, %89
+  br i1 %88, label %91, label %95
 
-90:                                               ; preds = %.thread91
-  br i1 %or.cond.i, label %91, label %hwpml_scan_cb.exit
+91:                                               ; preds = %.thread91
+  br i1 %or.cond.i, label %92, label %hwpml_scan_cb.exit
 
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %8, align 8
-  %93 = call i32 @cli_magic_scan_desc(i32 noundef %.05095, ptr noundef %92, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #9
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %8, align 8
+  %94 = call i32 @cli_magic_scan_desc(i32 noundef %.05094, ptr noundef %93, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #9
   br label %hwpml_scan_cb.exit
 
-94:                                               ; preds = %.thread91
-  br i1 %or.cond.i, label %95, label %hwpml_scan_cb.exit
+95:                                               ; preds = %.thread91
+  br i1 %or.cond.i, label %96, label %hwpml_scan_cb.exit
 
-95:                                               ; preds = %94
-  %96 = call i32 @cli_magic_scan_desc(i32 noundef %.05095, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #9
+96:                                               ; preds = %95
+  %97 = call i32 @cli_magic_scan_desc(i32 noundef %.05094, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #9
   br label %hwpml_scan_cb.exit
 
-hwpml_scan_cb.exit:                               ; preds = %64, %95, %94, %91, %90, %82, %81, %76
-  %.051 = phi i32 [ 11, %76 ], [ %83, %82 ], [ 19, %81 ], [ %93, %91 ], [ 2, %90 ], [ %96, %95 ], [ 2, %94 ], [ 14, %64 ]
-  %97 = load i32, ptr %7, align 4
-  %.not68 = icmp eq i32 %97, 0
-  br i1 %.not68, label %109, label %98
+hwpml_scan_cb.exit:                               ; preds = %65, %96, %95, %92, %91, %83, %82, %77
+  %.051 = phi i32 [ 11, %77 ], [ %84, %83 ], [ 19, %82 ], [ %94, %92 ], [ 2, %91 ], [ %97, %96 ], [ 2, %95 ], [ 14, %65 ]
+  %98 = load i32, ptr %7, align 4
+  %.not68 = icmp eq i32 %98, 0
+  br i1 %.not68, label %110, label %99
 
-98:                                               ; preds = %hwpml_scan_cb.exit
-  %99 = call i32 @close(i32 noundef %97) #9
-  %100 = getelementptr inbounds i8, ptr %2, i64 48
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 40
-  %103 = load i32, ptr %102, align 8
-  %.not69 = icmp eq i32 %103, 0
-  br i1 %.not69, label %104, label %107
+99:                                               ; preds = %hwpml_scan_cb.exit
+  %100 = call i32 @close(i32 noundef %98) #9
+  %101 = getelementptr inbounds i8, ptr %2, i64 48
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 40
+  %104 = load i32, ptr %103, align 8
+  %.not69 = icmp eq i32 %104, 0
+  br i1 %.not69, label %105, label %108
 
-104:                                              ; preds = %98
-  %105 = load ptr, ptr %8, align 8
-  %106 = call i32 @cli_unlink(ptr noundef %105) #9
-  br label %107
+105:                                              ; preds = %99
+  %106 = load ptr, ptr %8, align 8
+  %107 = call i32 @cli_unlink(ptr noundef %106) #9
+  br label %108
 
-107:                                              ; preds = %104, %98
-  %108 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %108) #9
-  br label %109
+108:                                              ; preds = %105, %99
+  %109 = load ptr, ptr %8, align 8
+  call void @free(ptr noundef %109) #9
+  br label %110
 
-109:                                              ; preds = %hwpml_scan_cb.exit, %107, %63, %57, %49, %42, %37, %30
-  %.0 = phi i32 [ %31, %30 ], [ 11, %37 ], [ %62, %63 ], [ %58, %57 ], [ 19, %49 ], [ 19, %42 ], [ %.051, %107 ], [ %.051, %hwpml_scan_cb.exit ]
+110:                                              ; preds = %hwpml_scan_cb.exit, %108, %64, %58, %50, %43, %38, %31
+  %.0 = phi i32 [ %32, %31 ], [ 11, %38 ], [ %63, %64 ], [ %59, %58 ], [ 19, %50 ], [ 19, %43 ], [ %.051, %108 ], [ %.051, %hwpml_scan_cb.exit ]
   ret i32 %.0
 }
 

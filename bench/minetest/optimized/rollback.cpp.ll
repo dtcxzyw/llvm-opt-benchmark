@@ -11000,6 +11000,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
 invoke.cont31:                                    ; preds = %invoke.cont27
   store i32 %call32, ptr %nodeMeta, align 8, !tbaa !137
   %.pre = load i32, ptr %type, align 8, !tbaa !109
+  %37 = icmp ne i32 %call32, 0
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %while.cond
@@ -11013,7 +11014,7 @@ lpad.loopexit.split-lp:                           ; preds = %while.end
   br label %ehcleanup154
 
 lpad4:                                            ; preds = %if.end127, %_ZN15RollbackManager12getActorNameEi.exit, %if.then.i.i417, %if.then.i.i325, %if.then85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit300, %invoke.cont70, %invoke.cont68, %invoke.cont66, %invoke.cont64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249, %invoke.cont54, %invoke.cont52, %invoke.cont50, %invoke.cont48, %if.then47, %invoke.cont40, %invoke.cont38, %if.then37, %invoke.cont27, %invoke.cont25, %invoke.cont23, %invoke.cont21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %invoke.cont13, %if.then, %invoke.cont7, %invoke.cont5, %invoke.cont3
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup129
 
@@ -11033,10 +11034,9 @@ lpad18:                                           ; preds = %lpad18.loopexit.spl
   br label %ehcleanup129
 
 if.end:                                           ; preds = %invoke.cont31, %invoke.cont9
-  %38 = phi i32 [ %call32, %invoke.cont31 ], [ 0, %invoke.cont9 ]
+  %tobool = phi i1 [ %37, %invoke.cont31 ], [ false, %invoke.cont9 ]
   %39 = phi i32 [ %.pre, %invoke.cont31 ], [ %call10, %invoke.cont9 ]
   %cmp35 = icmp eq i32 %39, 1
-  %tobool = icmp ne i32 %38, 0
   %or.cond = select i1 %cmp35, i1 true, i1 %tobool
   br i1 %or.cond, label %if.then37, label %if.else
 
@@ -12181,7 +12181,7 @@ _ZN9ActionRowD2Ev.exit:                           ; preds = %if.then.i.i15.i, %_
   br label %while.cond, !llvm.loop !164
 
 ehcleanup129:                                     ; preds = %_ZNSt15__allocated_ptrISaISt10_List_nodeI9ActionRowEEED2Ev.exit14.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit520, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit514, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit508, %lpad77, %lpad61, %lpad18, %lpad4
-  %.pn189 = phi { ptr, i32 } [ %lpad.phi595, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit520 ], [ %lpad.phi592, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit514 ], [ %lpad.phi589, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit508 ], [ %lpad.phi586, %lpad77 ], [ %lpad.phi583, %lpad61 ], [ %lpad.phi580, %lpad18 ], [ %37, %lpad4 ], [ %146, %_ZNSt15__allocated_ptrISaISt10_List_nodeI9ActionRowEEED2Ev.exit14.i.i.i ]
+  %.pn189 = phi { ptr, i32 } [ %lpad.phi595, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit520 ], [ %lpad.phi592, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit514 ], [ %lpad.phi589, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit508 ], [ %lpad.phi586, %lpad77 ], [ %lpad.phi583, %lpad61 ], [ %lpad.phi580, %lpad18 ], [ %38, %lpad4 ], [ %146, %_ZNSt15__allocated_ptrISaISt10_List_nodeI9ActionRowEEED2Ev.exit14.i.i.i ]
   call void @_ZN9ActionRowD2Ev(ptr noundef nonnull align 8 dereferenceable(532) %row) #30
   br label %ehcleanup130
 

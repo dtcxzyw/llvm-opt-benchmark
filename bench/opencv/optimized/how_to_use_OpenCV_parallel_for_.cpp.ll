@@ -379,18 +379,18 @@ _ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i: ; preds = %120
   %144 = fmul float %sqrt.i.i, 2.550000e+02
   %145 = insertelement <4 x float> poison, float %144, i64 0
   %146 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %145)
+  %147 = trunc i32 %146 to i8
   br label %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i
 
 _ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i: ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i, %141, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i
-  %.0.i.i = phi i32 [ %146, %141 ], [ 0, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i ], [ 0, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i ]
-  %147 = trunc i32 %.0.i.i to i8
+  %.0.i.i = phi i8 [ %147, %141 ], [ 0, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i ], [ 0, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i ]
   %148 = load ptr, ptr %104, align 8
   %149 = load ptr, ptr %105, align 8
   %150 = load i64, ptr %149, align 8
   %151 = mul i64 %150, %indvars.iv28.i
   %152 = getelementptr inbounds i8, ptr %148, i64 %151
   %153 = getelementptr inbounds i8, ptr %152, i64 %indvars.iv.i
-  store i8 %147, ptr %153, align 1
+  store i8 %.0.i.i, ptr %153, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %154 = load i32, ptr %103, align 4
   %155 = sext i32 %154 to i64
@@ -833,11 +833,11 @@ _ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i: ; preds = %31
   %55 = fmul float %sqrt.i.i.i.i, 2.550000e+02
   %56 = insertelement <4 x float> poison, float %55, i64 0
   %57 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %56)
+  %58 = trunc i32 %57 to i8
   br label %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i
 
 _ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i: ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, %52, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i
-  %.0.i.i.i.i = phi i32 [ %57, %52 ], [ 0, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i ], [ 0, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
-  %58 = trunc i32 %.0.i.i.i.i to i8
+  %.0.i.i.i.i = phi i8 [ %58, %52 ], [ 0, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i ], [ 0, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
   %59 = load ptr, ptr %.val, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
@@ -849,7 +849,7 @@ _ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i: ; preds = %_ZS
   %67 = getelementptr inbounds i8, ptr %61, i64 %66
   %68 = sext i32 %16 to i64
   %69 = getelementptr inbounds i8, ptr %67, i64 %68
-  store i8 %58, ptr %69, align 1
+  store i8 %.0.i.i.i.i, ptr %69, align 1
   %70 = add nsw i32 %.017.i.i.i, 1
   %71 = load i32, ptr %4, align 4
   %72 = icmp slt i32 %70, %71

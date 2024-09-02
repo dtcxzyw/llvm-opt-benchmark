@@ -1085,8 +1085,8 @@ _ZN3gmx11ListOfListsIiE5clearEv.exit.i:           ; preds = %120, %_ZNSt6vectorI
 .lr.ph.i9.preheader:                              ; preds = %_ZN3gmx11ListOfListsIiE5clearEv.exit.i
   %121 = add nuw i32 %0, 1
   %wide.trip.count.i10 = zext i32 %121 to i64
-  %narrow41 = add nuw i32 %0, 1
-  %122 = zext i32 %narrow41 to i64
+  %narrow40 = add nuw i32 %0, 1
+  %122 = zext i32 %narrow40 to i64
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9.preheader, %._crit_edge104.i
@@ -1250,9 +1250,9 @@ _ZN3gmx11ListOfListsIiE5clearEv.exit.i:           ; preds = %120, %_ZNSt6vectorI
   br i1 %exitcond124.not.i, label %._crit_edge98.i, label %.lr.ph97.i, !llvm.loop !28
 
 ._crit_edge98.i:                                  ; preds = %182, %166
-  %.pre-phi = phi i64 [ 1, %166 ], [ %wide.trip.count123.i, %182 ]
+  %.065.lcssa.i = phi i64 [ 1, %166 ], [ %wide.trip.count123.i, %182 ]
   %.163.lcssa.i = phi i32 [ 0, %166 ], [ %.264.i, %182 ]
-  %183 = getelementptr %struct.sortable, ptr %130, i64 %.pre-phi
+  %183 = getelementptr %struct.sortable, ptr %130, i64 %.065.lcssa.i
   %184 = getelementptr i8, ptr %183, i64 -8
   %185 = add nsw i32 %.163.lcssa.i, 1
   %186 = sext i32 %.163.lcssa.i to i64

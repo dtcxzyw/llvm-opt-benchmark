@@ -1179,13 +1179,13 @@ define noalias ptr @hostlist_nth(ptr noundef %0, i32 noundef %1) #0 {
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %21, 1
   %25 = sub i64 %24, %23
+  %26 = trunc i64 %25 to i32
   br label %hostrange_count.exit
 
 hostrange_count.exit:                             ; preds = %13, %19
-  %.0.i = phi i64 [ %25, %19 ], [ 1, %13 ]
-  %26 = trunc i64 %.0.i to i32
+  %.0.i = phi i32 [ %26, %19 ], [ 1, %13 ]
   %27 = add i32 %.02433, -1
-  %28 = add i32 %27, %26
+  %28 = add i32 %27, %.0.i
   %.not30 = icmp sgt i32 %1, %28
   br i1 %.not30, label %32, label %29
 
@@ -1195,7 +1195,7 @@ hostrange_count.exit:                             ; preds = %13, %19
   br label %.loopexit
 
 32:                                               ; preds = %hostrange_count.exit
-  %33 = add nsw i32 %.02433, %26
+  %33 = add nsw i32 %.0.i, %.02433
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !18
@@ -2845,12 +2845,12 @@ _zero_padded.exit42.i.i.i.i:                      ; preds = %_zero_padded.exit42
   %189 = call ptr @slurm_xrecalloc(ptr noundef nonnull %17, i64 noundef %188, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1169, ptr noundef nonnull @__func__.hostlist_resize) #22
   %.pre147.i = load i8, ptr %171, align 4
   %.pre148.i = load ptr, ptr %166, align 8
-  %190 = load ptr, ptr %17, align 8
-  %191 = sext i32 %.050132.i to i64
-  %192 = getelementptr inbounds ptr, ptr %190, i64 %191
-  %193 = load ptr, ptr %192, align 8
-  %194 = trunc i8 %.pre147.i to i1
-  br i1 %194, label %195, label %._crit_edge44
+  %190 = trunc i8 %.pre147.i to i1
+  %191 = load ptr, ptr %17, align 8
+  %192 = sext i32 %.050132.i to i64
+  %193 = getelementptr inbounds ptr, ptr %191, i64 %192
+  %194 = load ptr, ptr %193, align 8
+  br i1 %190, label %195, label %._crit_edge44
 
 ._crit_edge44:                                    ; preds = %186
   %.pre = load i64, ptr %168, align 8
@@ -2872,8 +2872,8 @@ _zero_padded.exit42.i.i.i.i:                      ; preds = %_zero_padded.exit42
   %201 = phi i32 [ %165, %.thread.i ], [ %.pre46, %._crit_edge44 ]
   %202 = phi i64 [ %163, %.thread.i ], [ %.pre45, %._crit_edge44 ]
   %203 = phi i64 [ %163, %.thread.i ], [ %.pre, %._crit_edge44 ]
-  %204 = phi ptr [ %185, %.thread.i ], [ %193, %._crit_edge44 ]
-  %205 = phi i64 [ %183, %.thread.i ], [ %191, %._crit_edge44 ]
+  %204 = phi ptr [ %185, %.thread.i ], [ %194, %._crit_edge44 ]
+  %205 = phi i64 [ %183, %.thread.i ], [ %192, %._crit_edge44 ]
   %206 = phi ptr [ %167, %.thread.i ], [ %.pre148.i, %._crit_edge44 ]
   %207 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 566, ptr noundef nonnull @__func__.hostrange_new) #22
   %208 = call ptr @xstrdup(ptr noundef %206) #22
@@ -2889,8 +2889,8 @@ _zero_padded.exit42.i.i.i.i:                      ; preds = %_zero_padded.exit42
   br label %hostrange_copy.exit.i62.i
 
 hostrange_copy.exit.i62.i:                        ; preds = %200, %195
-  %213 = phi ptr [ %193, %195 ], [ %204, %200 ]
-  %214 = phi i64 [ %191, %195 ], [ %205, %200 ]
+  %213 = phi ptr [ %194, %195 ], [ %204, %200 ]
+  %214 = phi i64 [ %192, %195 ], [ %205, %200 ]
   %.0.i.i.i = phi ptr [ %196, %195 ], [ %207, %200 ]
   %215 = load ptr, ptr %17, align 8
   %216 = getelementptr inbounds ptr, ptr %215, i64 %214
@@ -5361,12 +5361,12 @@ hostname_suffix_is_valid.exit:                    ; preds = %26
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %50, 1
   %54 = sub i64 %53, %52
+  %55 = trunc i64 %54 to i32
   br label %hostrange_count.exit
 
 hostrange_count.exit:                             ; preds = %41, %48
-  %.0.i43 = phi i64 [ %54, %48 ], [ 1, %41 ]
-  %55 = trunc i64 %.0.i43 to i32
-  %56 = add i32 %.03350, %55
+  %.0.i43 = phi i32 [ %55, %48 ], [ 1, %41 ]
+  %56 = add i32 %.0.i43, %.03350
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = load i32, ptr %15, align 4
   %58 = sext i32 %57 to i64
@@ -6424,7 +6424,7 @@ declare void @llvm.stackrestore.p0(ptr) #14
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @hostset_intersects(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @hostset_intersects(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i16 @slurmdb_setup_cluster_dims() #22
   %4 = zext i16 %3 to i32
   %5 = tail call noundef ptr @hostlist_create_dims(ptr noundef %1, i32 noundef %4)
@@ -7131,7 +7131,7 @@ hostlist_push_hr.exit83.us:                       ; preds = %.lr.ph120, %hostlis
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_parse_box_range(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_parse_box_range(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = zext i32 %4 to i64
   %7 = alloca i32, i64 %6, align 16
   %8 = alloca i32, i64 %6, align 16
@@ -7345,7 +7345,7 @@ define internal fastcc range(i32 0, 2) i32 @_parse_single_range(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_add_box_ranges(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_add_box_ranges(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = sext i32 %0 to i64
   %11 = getelementptr inbounds i32, ptr %2, i64 %10
   %12 = load i32, ptr %11, align 4

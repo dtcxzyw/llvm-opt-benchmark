@@ -2440,13 +2440,13 @@ Vec_IntPush.exit136:                              ; preds = %.Vec_IntGrow.exit10
 
 ._crit_edge.loopexit:                             ; preds = %Vec_IntPush.exit136
   %.val111.pre = load i32, ptr %10, align 4
+  %159 = sext i32 %.val111.pre to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph151
-  %.val111 = phi i32 [ %.val111.pre, %._crit_edge.loopexit ], [ 0, %.lr.ph151 ]
+  %.val111 = phi i64 [ %159, %._crit_edge.loopexit ], [ 0, %.lr.ph151 ]
   %.val122 = load ptr, ptr %12, align 8
-  %159 = sext i32 %.val111 to i64
-  %160 = getelementptr inbounds i32, ptr %.val122, i64 %159
+  %160 = getelementptr inbounds i32, ptr %.val122, i64 %.val111
   %161 = tail call i32 @sat_solver_addclause(ptr noundef %13, ptr noundef %.val122, ptr noundef %160) #17
   br i1 %.not, label %165, label %162
 
@@ -3921,7 +3921,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

@@ -427,31 +427,31 @@ define dso_local noundef range(i32 -715827882, 715827883) i32 @_ZNK9Stockfish18T
   %6 = getelementptr inbounds %"struct.Stockfish::TranspositionTable::Cluster", ptr %3, i64 %indvars.iv17
   br label %7
 
-7:                                                ; preds = %.preheader, %16
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
-  %.112 = phi i32 [ %.01114, %.preheader ], [ %19, %16 ]
+7:                                                ; preds = %.preheader, %17
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %17 ]
+  %.112 = phi i32 [ %.01114, %.preheader ], [ %19, %17 ]
   %8 = getelementptr inbounds [3 x %"struct.Stockfish::TTEntry"], ptr %6, i64 0, i64 %indvars.iv
   %9 = getelementptr inbounds i8, ptr %8, i64 2
   %10 = load i8, ptr %9, align 2
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %16, label %11
+  br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %8, i64 3
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, -8
   %15 = icmp eq i8 %14, %5
-  br label %16
+  %16 = zext i1 %15 to i32
+  br label %17
 
-16:                                               ; preds = %11, %7
-  %17 = phi i1 [ false, %7 ], [ %15, %11 ]
-  %18 = zext i1 %17 to i32
-  %19 = add nsw i32 %.112, %18
+17:                                               ; preds = %11, %7
+  %18 = phi i32 [ 0, %7 ], [ %16, %11 ]
+  %19 = add nsw i32 %18, %.112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %20, label %7, !llvm.loop !16
 
-20:                                               ; preds = %16
+20:                                               ; preds = %17
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next18, 1000
   br i1 %exitcond20.not, label %21, label %.preheader, !llvm.loop !17

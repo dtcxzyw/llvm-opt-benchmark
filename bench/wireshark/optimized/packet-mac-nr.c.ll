@@ -2413,7 +2413,7 @@ proto_item_set_generated.exit129:                 ; preds = %proto_item_set_gene
   %62 = getelementptr inbounds i8, ptr %22, i64 2
   %63 = load i8, ptr %62, align 2
   %.not = icmp eq i8 %63, 0
-  br i1 %.not, label %79, label %64
+  br i1 %.not, label %80, label %64
 
 64:                                               ; preds = %proto_item_set_generated.exit129
   %65 = load i32, ptr @hf_mac_nr_context_rnti, align 4
@@ -2442,17 +2442,17 @@ proto_item_set_generated.exit132:                 ; preds = %64, %70, %73
   %78 = zext i16 %77 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.1160, i32 noundef %78) #12
   %.pre = load i8, ptr %62, align 2
-  br label %79
+  %79 = zext i8 %.pre to i32
+  br label %80
 
-79:                                               ; preds = %proto_item_set_generated.exit132, %proto_item_set_generated.exit129
-  %80 = phi i8 [ %.pre, %proto_item_set_generated.exit132 ], [ 0, %proto_item_set_generated.exit129 ]
-  %81 = load i32, ptr @hf_mac_nr_context_rnti_type, align 4
-  %82 = zext i8 %80 to i32
-  %83 = tail call ptr @proto_tree_add_uint(ptr noundef %31, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %82) #12
+80:                                               ; preds = %proto_item_set_generated.exit132, %proto_item_set_generated.exit129
+  %81 = phi i32 [ %79, %proto_item_set_generated.exit132 ], [ 0, %proto_item_set_generated.exit129 ]
+  %82 = load i32, ptr @hf_mac_nr_context_rnti_type, align 4
+  %83 = tail call ptr @proto_tree_add_uint(ptr noundef %31, i32 noundef %82, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %81) #12
   %.not.i133 = icmp eq ptr %83, null
   br i1 %.not.i133, label %proto_item_set_generated.exit135, label %84
 
-84:                                               ; preds = %79
+84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %83, i64 32
   %86 = load ptr, ptr %85, align 8
   %.not5.i134 = icmp eq ptr %86, null
@@ -2465,7 +2465,7 @@ proto_item_set_generated.exit132:                 ; preds = %64, %70, %73
   store i32 %90, ptr %88, align 4
   br label %proto_item_set_generated.exit135
 
-proto_item_set_generated.exit135:                 ; preds = %79, %84, %87
+proto_item_set_generated.exit135:                 ; preds = %80, %84, %87
   %91 = getelementptr inbounds i8, ptr %22, i64 6
   %92 = load i16, ptr %91, align 2
   %.not122 = icmp eq i16 %92, 0

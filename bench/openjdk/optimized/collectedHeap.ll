@@ -1266,7 +1266,7 @@ define hidden void @_ZN13CollectedHeap12set_gc_causeEN7GCCause5CauseE(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK13CollectedHeap13max_tlab_sizeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
+define hidden noundef range(i64 0, 1073741824) i64 @_ZNK13CollectedHeap13max_tlab_sizeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #8 align 2 {
   %2 = load i8, ptr @UseCompressedClassPointers, align 1
   %3 = trunc i8 %2 to i1
   %4 = select i1 %3, i64 1073741822, i64 1073741823

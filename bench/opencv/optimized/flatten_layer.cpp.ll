@@ -606,6 +606,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %30
 .noexc34:                                         ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %33, ptr align 4 %.val20, i64 %.idx, i1 false)
   %34 = getelementptr inbounds i8, ptr %33, i64 %.idx
+  %35 = ptrtoint ptr %34 to i64
   br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.loopexit:       ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
@@ -620,25 +621,24 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i.loopexit.split-lp: ; preds = %32
 
 _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %23, %.noexc34
   %.sroa.0.1 = phi ptr [ %33, %.noexc34 ], [ null, %23 ]
-  %.sroa.15.1 = phi ptr [ %34, %.noexc34 ], [ null, %23 ]
-  %35 = getelementptr inbounds %"class.cv::Mat", ptr %24, i64 %.051
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %"class.cv::Mat", ptr %25, i64 %.051, i32 4
-  %39 = load ptr, ptr %38, align 8
-  %.not = icmp eq ptr %37, %39
-  br i1 %.not, label %56, label %40
+  %.sroa.15.1 = phi i64 [ %35, %.noexc34 ], [ 0, %23 ]
+  %36 = getelementptr inbounds %"class.cv::Mat", ptr %24, i64 %.051
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds %"class.cv::Mat", ptr %25, i64 %.051, i32 4
+  %40 = load ptr, ptr %39, align 8
+  %.not = icmp eq ptr %38, %40
+  br i1 %.not, label %56, label %41
 
-40:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
-  %41 = ptrtoint ptr %.sroa.15.1 to i64
+41:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
   %42 = ptrtoint ptr %.sroa.0.1 to i64
-  %43 = sub i64 %41, %42
+  %43 = sub i64 %.sroa.15.1, %42
   %44 = lshr exact i64 %43, 2
   %45 = trunc i64 %44 to i32
-  invoke void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %8, ptr noundef nonnull align 8 dereferenceable(96) %35, i32 noundef 1, i32 noundef %45, ptr noundef nonnull %.sroa.0.1)
+  invoke void @_ZNK2cv3Mat7reshapeEiiPKi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %8, ptr noundef nonnull align 8 dereferenceable(96) %36, i32 noundef 1, i32 noundef %45, ptr noundef nonnull %.sroa.0.1)
           to label %46 unwind label %52
 
-46:                                               ; preds = %40
+46:                                               ; preds = %41
   %47 = load ptr, ptr %7, align 8
   %48 = getelementptr inbounds %"class.cv::Mat", ptr %47, i64 %.051
   store i64 0, ptr %22, align 8
@@ -656,7 +656,7 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %23, %.noexc34
           cleanup
   br label %.body
 
-52:                                               ; preds = %40
+52:                                               ; preds = %41
   %53 = landingpad { ptr, i32 }
           cleanup
   br label %66

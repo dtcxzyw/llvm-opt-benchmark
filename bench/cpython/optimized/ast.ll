@@ -260,7 +260,7 @@ if.end.i:                                         ; preds = %if.then
 
 if.end.i.if.then12.i_crit_edge:                   ; preds = %if.end.i
   %end_col_offset14.i.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 76
-  %.pre617 = load i32, ptr %end_col_offset14.i.phi.trans.insert, align 4
+  %.pre605 = load i32, ptr %end_col_offset14.i.phi.trans.insert, align 4
   br label %if.then12.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
@@ -274,7 +274,7 @@ land.lhs.true9.i:                                 ; preds = %lor.lhs.false.i
   br i1 %cmp11.not.i, label %if.end18.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %land.lhs.true9.i, %if.end.i.if.then12.i_crit_edge
-  %7 = phi i32 [ %.pre617, %if.end.i.if.then12.i_crit_edge ], [ %6, %land.lhs.true9.i ]
+  %7 = phi i32 [ %.pre605, %if.end.i.if.then12.i_crit_edge ], [ %6, %land.lhs.true9.i ]
   %8 = load ptr, ptr @PyExc_ValueError, align 8
   %call17.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.4, i32 noundef %5, i32 noundef %7, i32 noundef %2, i32 noundef %3) #5
   br label %return
@@ -308,7 +308,7 @@ if.then33.i:                                      ; preds = %if.end31.i
 
 if.end34.i:                                       ; preds = %if.end31.i
   %14 = load i32, ptr %1, align 8
-  switch i32 %14, label %validate_stmt.exit.thread207 [
+  switch i32 %14, label %validate_stmt.exit.thread195 [
     i32 1, label %sw.bb.i
     i32 3, label %sw.bb54.i
     i32 4, label %sw.bb79.i
@@ -353,33 +353,33 @@ cond.false.i.i140:                                ; preds = %sw.bb.i
 validate_body.exit149.thread:                     ; preds = %cond.false.i.i140, %sw.bb.i
   %18 = load ptr, ptr @PyExc_ValueError, align 8
   %call.i.i148 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.7) #5
-  br label %validate_stmt.exit.thread212
+  br label %validate_stmt.exit.thread200
 
 validate_body.exit149:                            ; preds = %cond.false.i.i140
   %call1.i145 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %15)
   %tobool.not.i = icmp eq i32 %call1.i145, 0
-  br i1 %tobool.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true36.i
+  br i1 %tobool.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true36.i
 
 land.lhs.true36.i:                                ; preds = %validate_body.exit149
   %type_params.i = getelementptr inbounds i8, ptr %1, i64 56
   %19 = load ptr, ptr %type_params.i, align 8
   %call38.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %19)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
-  br i1 %tobool39.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true40.i
+  br i1 %tobool39.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true40.i
 
 land.lhs.true40.i:                                ; preds = %land.lhs.true36.i
   %args.i = getelementptr inbounds i8, ptr %1, i64 16
   %20 = load ptr, ptr %args.i, align 8
   %call42.i = tail call fastcc i32 @validate_arguments(ptr noundef nonnull %state, ptr noundef %20)
   %tobool43.not.i = icmp eq i32 %call42.i, 0
-  br i1 %tobool43.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true44.i
+  br i1 %tobool43.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true44.i
 
 land.lhs.true44.i:                                ; preds = %land.lhs.true40.i
   %decorator_list.i = getelementptr inbounds i8, ptr %1, i64 32
   %21 = load ptr, ptr %decorator_list.i, align 8
-  %cmp.i834 = icmp eq ptr %21, null
-  %typed_elements.i835 = getelementptr inbounds i8, ptr %21, i64 16
-  br i1 %cmp.i834, label %land.rhs.i, label %entry.split.i
+  %cmp.i822 = icmp eq ptr %21, null
+  %typed_elements.i823 = getelementptr inbounds i8, ptr %21, i64 16
+  br i1 %cmp.i822, label %land.rhs.i, label %entry.split.i
 
 entry.split.i:                                    ; preds = %land.lhs.true44.i
   %22 = load i64, ptr %21, align 8
@@ -388,7 +388,7 @@ entry.split.i:                                    ; preds = %land.lhs.true44.i
 
 for.body.us9.i:                                   ; preds = %entry.split.i, %for.inc.us16.i
   %i.07.us.i = phi i64 [ %inc.us17.i, %for.inc.us16.i ], [ 0, %entry.split.i ]
-  %arrayidx.us10.i = getelementptr [1 x ptr], ptr %typed_elements.i835, i64 0, i64 %i.07.us.i
+  %arrayidx.us10.i = getelementptr [1 x ptr], ptr %typed_elements.i823, i64 0, i64 %i.07.us.i
   %23 = load ptr, ptr %arrayidx.us10.i, align 8
   %tobool.not.us11.i = icmp eq ptr %23, null
   br i1 %tobool.not.us11.i, label %if.then5.i, label %if.then.us12.i
@@ -396,7 +396,7 @@ for.body.us9.i:                                   ; preds = %entry.split.i, %for
 if.then.us12.i:                                   ; preds = %for.body.us9.i
   %call.us13.i = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %23, i32 noundef 1) #4
   %tobool2.not.us14.i = icmp eq i32 %call.us13.i, 0
-  br i1 %tobool2.not.us14.i, label %validate_stmt.exit.thread212, label %for.inc.us16.i
+  br i1 %tobool2.not.us14.i, label %validate_stmt.exit.thread200, label %for.inc.us16.i
 
 for.inc.us16.i:                                   ; preds = %if.then.us12.i
   %inc.us17.i = add nuw nsw i64 %i.07.us.i, 1
@@ -407,7 +407,7 @@ for.inc.us16.i:                                   ; preds = %if.then.us12.i
 if.then5.i:                                       ; preds = %for.body.us9.i
   %25 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %25, ptr noundef nonnull @.str.73) #5
-  br label %validate_stmt.exit.thread212
+  br label %validate_stmt.exit.thread200
 
 land.rhs.i:                                       ; preds = %for.inc.us16.i, %land.lhs.true44.i, %entry.split.i
   %returns.i = getelementptr inbounds i8, ptr %1, i64 40
@@ -433,112 +433,112 @@ cond.false.i.i129:                                ; preds = %sw.bb54.i
 validate_body.exit138.thread:                     ; preds = %cond.false.i.i129, %sw.bb54.i
   %30 = load ptr, ptr @PyExc_ValueError, align 8
   %call.i.i137 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %30, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.8) #5
-  br label %validate_stmt.exit.thread212
+  br label %validate_stmt.exit.thread200
 
 validate_body.exit138:                            ; preds = %cond.false.i.i129
   %call1.i134 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %27)
   %tobool58.not.i = icmp eq i32 %call1.i134, 0
-  br i1 %tobool58.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true59.i
+  br i1 %tobool58.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true59.i
 
 land.lhs.true59.i:                                ; preds = %validate_body.exit138
   %type_params61.i = getelementptr inbounds i8, ptr %1, i64 48
   %31 = load ptr, ptr %type_params61.i, align 8
   %call62.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %31)
   %tobool63.not.i = icmp eq i32 %call62.i, 0
-  br i1 %tobool63.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true64.i
+  br i1 %tobool63.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true64.i
 
 land.lhs.true64.i:                                ; preds = %land.lhs.true59.i
   %bases.i = getelementptr inbounds i8, ptr %1, i64 16
   %32 = load ptr, ptr %bases.i, align 8
-  %cmp.i836 = icmp eq ptr %32, null
-  %typed_elements.i837 = getelementptr inbounds i8, ptr %32, i64 16
-  br i1 %cmp.i836, label %land.lhs.true68.i, label %entry.split.i838
+  %cmp.i824 = icmp eq ptr %32, null
+  %typed_elements.i825 = getelementptr inbounds i8, ptr %32, i64 16
+  br i1 %cmp.i824, label %land.lhs.true68.i, label %entry.split.i826
 
-entry.split.i838:                                 ; preds = %land.lhs.true64.i
+entry.split.i826:                                 ; preds = %land.lhs.true64.i
   %33 = load i64, ptr %32, align 8
-  %cmp16.i839 = icmp sgt i64 %33, 0
-  br i1 %cmp16.i839, label %for.body.us9.i842, label %land.lhs.true68.i
+  %cmp16.i827 = icmp sgt i64 %33, 0
+  br i1 %cmp16.i827, label %for.body.us9.i830, label %land.lhs.true68.i
 
-for.body.us9.i842:                                ; preds = %entry.split.i838, %for.inc.us16.i849
-  %i.07.us.i843 = phi i64 [ %inc.us17.i850, %for.inc.us16.i849 ], [ 0, %entry.split.i838 ]
-  %arrayidx.us10.i844 = getelementptr [1 x ptr], ptr %typed_elements.i837, i64 0, i64 %i.07.us.i843
-  %34 = load ptr, ptr %arrayidx.us10.i844, align 8
-  %tobool.not.us11.i845 = icmp eq ptr %34, null
-  br i1 %tobool.not.us11.i845, label %if.then5.i852, label %if.then.us12.i846
+for.body.us9.i830:                                ; preds = %entry.split.i826, %for.inc.us16.i837
+  %i.07.us.i831 = phi i64 [ %inc.us17.i838, %for.inc.us16.i837 ], [ 0, %entry.split.i826 ]
+  %arrayidx.us10.i832 = getelementptr [1 x ptr], ptr %typed_elements.i825, i64 0, i64 %i.07.us.i831
+  %34 = load ptr, ptr %arrayidx.us10.i832, align 8
+  %tobool.not.us11.i833 = icmp eq ptr %34, null
+  br i1 %tobool.not.us11.i833, label %if.then5.i840, label %if.then.us12.i834
 
-if.then.us12.i846:                                ; preds = %for.body.us9.i842
-  %call.us13.i847 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %34, i32 noundef 1) #4
-  %tobool2.not.us14.i848 = icmp eq i32 %call.us13.i847, 0
-  br i1 %tobool2.not.us14.i848, label %validate_stmt.exit.thread212, label %for.inc.us16.i849
+if.then.us12.i834:                                ; preds = %for.body.us9.i830
+  %call.us13.i835 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %34, i32 noundef 1) #4
+  %tobool2.not.us14.i836 = icmp eq i32 %call.us13.i835, 0
+  br i1 %tobool2.not.us14.i836, label %validate_stmt.exit.thread200, label %for.inc.us16.i837
 
-for.inc.us16.i849:                                ; preds = %if.then.us12.i846
-  %inc.us17.i850 = add nuw nsw i64 %i.07.us.i843, 1
+for.inc.us16.i837:                                ; preds = %if.then.us12.i834
+  %inc.us17.i838 = add nuw nsw i64 %i.07.us.i831, 1
   %35 = load i64, ptr %32, align 8
-  %cmp1.us18.i851 = icmp slt i64 %inc.us17.i850, %35
-  br i1 %cmp1.us18.i851, label %for.body.us9.i842, label %land.lhs.true68.i, !llvm.loop !5
+  %cmp1.us18.i839 = icmp slt i64 %inc.us17.i838, %35
+  br i1 %cmp1.us18.i839, label %for.body.us9.i830, label %land.lhs.true68.i, !llvm.loop !5
 
-if.then5.i852:                                    ; preds = %for.body.us9.i842
+if.then5.i840:                                    ; preds = %for.body.us9.i830
   %36 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %36, ptr noundef nonnull @.str.73) #5
-  br label %validate_stmt.exit.thread212
+  br label %validate_stmt.exit.thread200
 
-land.lhs.true68.i:                                ; preds = %for.inc.us16.i849, %land.lhs.true64.i, %entry.split.i838
+land.lhs.true68.i:                                ; preds = %for.inc.us16.i837, %land.lhs.true64.i, %entry.split.i826
   %keywords.i = getelementptr inbounds i8, ptr %1, i64 24
   %37 = load ptr, ptr %keywords.i, align 8
-  %typed_elements.i854 = getelementptr inbounds i8, ptr %37, i64 16
-  %cmp.i855 = icmp eq ptr %37, null
-  br i1 %cmp.i855, label %land.rhs72.i, label %for.cond.i856
+  %typed_elements.i842 = getelementptr inbounds i8, ptr %37, i64 16
+  %cmp.i843 = icmp eq ptr %37, null
+  br i1 %cmp.i843, label %land.rhs72.i, label %for.cond.i844
 
-for.cond.i856:                                    ; preds = %land.lhs.true68.i, %for.body.i858
-  %i.0.i857 = phi i64 [ %inc.i862, %for.body.i858 ], [ 0, %land.lhs.true68.i ]
+for.cond.i844:                                    ; preds = %land.lhs.true68.i, %for.body.i846
+  %i.0.i845 = phi i64 [ %inc.i850, %for.body.i846 ], [ 0, %land.lhs.true68.i ]
   %38 = load i64, ptr %37, align 8
-  %cmp1.i = icmp slt i64 %i.0.i857, %38
-  br i1 %cmp1.i, label %for.body.i858, label %land.rhs72.i
+  %cmp1.i = icmp slt i64 %i.0.i845, %38
+  br i1 %cmp1.i, label %for.body.i846, label %land.rhs72.i
 
-for.body.i858:                                    ; preds = %for.cond.i856
-  %arrayidx.i859 = getelementptr [1 x ptr], ptr %typed_elements.i854, i64 0, i64 %i.0.i857
-  %39 = load ptr, ptr %arrayidx.i859, align 8
+for.body.i846:                                    ; preds = %for.cond.i844
+  %arrayidx.i847 = getelementptr [1 x ptr], ptr %typed_elements.i842, i64 0, i64 %i.0.i845
+  %39 = load ptr, ptr %arrayidx.i847, align 8
   %value.i = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load ptr, ptr %value.i, align 8
-  %call.i860 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %40, i32 noundef 1) #4
-  %tobool.not.i861 = icmp eq i32 %call.i860, 0
-  %inc.i862 = add nuw nsw i64 %i.0.i857, 1
-  br i1 %tobool.not.i861, label %validate_stmt.exit.thread212, label %for.cond.i856, !llvm.loop !7
+  %call.i848 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef %40, i32 noundef 1) #4
+  %tobool.not.i849 = icmp eq i32 %call.i848, 0
+  %inc.i850 = add nuw nsw i64 %i.0.i845, 1
+  br i1 %tobool.not.i849, label %validate_stmt.exit.thread200, label %for.cond.i844, !llvm.loop !7
 
-land.rhs72.i:                                     ; preds = %for.cond.i856, %land.lhs.true68.i
+land.rhs72.i:                                     ; preds = %for.cond.i844, %land.lhs.true68.i
   %decorator_list74.i = getelementptr inbounds i8, ptr %1, i64 40
   %41 = load ptr, ptr %decorator_list74.i, align 8
-  %cmp.i863 = icmp eq ptr %41, null
-  %typed_elements.i864 = getelementptr inbounds i8, ptr %41, i64 16
-  br i1 %cmp.i863, label %for.inc.sink.split, label %entry.split.i865
+  %cmp.i851 = icmp eq ptr %41, null
+  %typed_elements.i852 = getelementptr inbounds i8, ptr %41, i64 16
+  br i1 %cmp.i851, label %for.inc.sink.split, label %entry.split.i853
 
-entry.split.i865:                                 ; preds = %land.rhs72.i
+entry.split.i853:                                 ; preds = %land.rhs72.i
   %42 = load i64, ptr %41, align 8
-  %cmp16.i866 = icmp sgt i64 %42, 0
-  br i1 %cmp16.i866, label %for.body.us9.i869, label %for.inc.sink.split
+  %cmp16.i854 = icmp sgt i64 %42, 0
+  br i1 %cmp16.i854, label %for.body.us9.i857, label %for.inc.sink.split
 
-for.body.us9.i869:                                ; preds = %entry.split.i865, %for.inc.us16.i876
-  %i.07.us.i870 = phi i64 [ %inc.us17.i877, %for.inc.us16.i876 ], [ 0, %entry.split.i865 ]
-  %arrayidx.us10.i871 = getelementptr [1 x ptr], ptr %typed_elements.i864, i64 0, i64 %i.07.us.i870
-  %43 = load ptr, ptr %arrayidx.us10.i871, align 8
-  %tobool.not.us11.i872 = icmp eq ptr %43, null
-  br i1 %tobool.not.us11.i872, label %if.then5.i879, label %if.then.us12.i873
+for.body.us9.i857:                                ; preds = %entry.split.i853, %for.inc.us16.i864
+  %i.07.us.i858 = phi i64 [ %inc.us17.i865, %for.inc.us16.i864 ], [ 0, %entry.split.i853 ]
+  %arrayidx.us10.i859 = getelementptr [1 x ptr], ptr %typed_elements.i852, i64 0, i64 %i.07.us.i858
+  %43 = load ptr, ptr %arrayidx.us10.i859, align 8
+  %tobool.not.us11.i860 = icmp eq ptr %43, null
+  br i1 %tobool.not.us11.i860, label %if.then5.i867, label %if.then.us12.i861
 
-if.then.us12.i873:                                ; preds = %for.body.us9.i869
-  %call.us13.i874 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %43, i32 noundef 1) #4
-  %tobool2.not.us14.i875 = icmp eq i32 %call.us13.i874, 0
-  br i1 %tobool2.not.us14.i875, label %validate_stmt.exit.thread912, label %for.inc.us16.i876
+if.then.us12.i861:                                ; preds = %for.body.us9.i857
+  %call.us13.i862 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %43, i32 noundef 1) #4
+  %tobool2.not.us14.i863 = icmp eq i32 %call.us13.i862, 0
+  br i1 %tobool2.not.us14.i863, label %validate_stmt.exit.thread900, label %for.inc.us16.i864
 
-for.inc.us16.i876:                                ; preds = %if.then.us12.i873
-  %inc.us17.i877 = add nuw nsw i64 %i.07.us.i870, 1
+for.inc.us16.i864:                                ; preds = %if.then.us12.i861
+  %inc.us17.i865 = add nuw nsw i64 %i.07.us.i858, 1
   %44 = load i64, ptr %41, align 8
-  %cmp1.us18.i878 = icmp slt i64 %inc.us17.i877, %44
-  br i1 %cmp1.us18.i878, label %for.body.us9.i869, label %for.inc.sink.split, !llvm.loop !5
+  %cmp1.us18.i866 = icmp slt i64 %inc.us17.i865, %44
+  br i1 %cmp1.us18.i866, label %for.body.us9.i857, label %for.inc.sink.split, !llvm.loop !5
 
-if.then5.i879:                                    ; preds = %for.body.us9.i869
+if.then5.i867:                                    ; preds = %for.body.us9.i857
   %45 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %45, ptr noundef nonnull @.str.73) #5
-  br label %validate_stmt.exit.thread912
+  br label %validate_stmt.exit.thread900
 
 sw.bb79.i:                                        ; preds = %if.end34.i
   %v80.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -564,7 +564,7 @@ cond.false.i.i109:                                ; preds = %sw.bb88.i
 _validate_nonempty_seq.exit.thread.i125:          ; preds = %cond.false.i.i109, %sw.bb88.i
   %50 = load ptr, ptr @PyExc_ValueError, align 8
   %call.i.i126 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %50, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #5
-  br label %validate_stmt.exit.thread212
+  br label %validate_stmt.exit.thread200
 
 entry.split.i.i110:                               ; preds = %cond.false.i.i109
   %typed_elements.i.i111 = getelementptr inbounds i8, ptr %47, i64 16
@@ -581,7 +581,7 @@ for.body.us9.i.i114:                              ; preds = %entry.split.i.i110,
 if.then.us12.i.i118:                              ; preds = %for.body.us9.i.i114
   %call.us13.i.i119 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %51, i32 noundef 3) #4
   %tobool2.not.us14.i.i120 = icmp eq i32 %call.us13.i.i119, 0
-  br i1 %tobool2.not.us14.i.i120, label %validate_stmt.exit.thread212, label %for.inc.us16.i.i121
+  br i1 %tobool2.not.us14.i.i120, label %validate_stmt.exit.thread200, label %for.inc.us16.i.i121
 
 for.inc.us16.i.i121:                              ; preds = %if.then.us12.i.i118
   %inc.us17.i.i122 = add nuw nsw i64 %i.07.us.i.i115, 1
@@ -592,7 +592,7 @@ for.inc.us16.i.i121:                              ; preds = %if.then.us12.i.i118
 if.then5.i.i124:                                  ; preds = %for.body.us9.i.i114
   %53 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %53, ptr noundef nonnull @.str.73) #5
-  br label %validate_stmt.exit.thread212
+  br label %validate_stmt.exit.thread200
 
 sw.bb91.i:                                        ; preds = %if.end34.i
   %v92.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -608,7 +608,7 @@ cond.false.i.i105:                                ; preds = %sw.bb91.i
 _validate_nonempty_seq.exit.thread.i:             ; preds = %cond.false.i.i105, %sw.bb91.i
   %57 = load ptr, ptr @PyExc_ValueError, align 8
   %call.i.i107 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %57, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.46) #5
-  br label %validate_stmt.exit.thread212
+  br label %validate_stmt.exit.thread200
 
 entry.split.i.i:                                  ; preds = %cond.false.i.i105
   %typed_elements.i.i = getelementptr inbounds i8, ptr %54, i64 16
@@ -625,7 +625,7 @@ for.body.us9.i.i:                                 ; preds = %entry.split.i.i, %f
 if.then.us12.i.i:                                 ; preds = %for.body.us9.i.i
   %call.us13.i.i = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %58, i32 noundef 2) #4
   %tobool2.not.us14.i.i = icmp eq i32 %call.us13.i.i, 0
-  br i1 %tobool2.not.us14.i.i, label %validate_stmt.exit.thread212, label %for.inc.us16.i.i
+  br i1 %tobool2.not.us14.i.i, label %validate_stmt.exit.thread200, label %for.inc.us16.i.i
 
 for.inc.us16.i.i:                                 ; preds = %if.then.us12.i.i
   %inc.us17.i.i = add nuw nsw i64 %i.07.us.i.i, 1
@@ -636,7 +636,7 @@ for.inc.us16.i.i:                                 ; preds = %if.then.us12.i.i
 if.then5.i.i:                                     ; preds = %for.body.us9.i.i
   %60 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %60, ptr noundef nonnull @.str.73) #5
-  br label %validate_stmt.exit.thread212
+  br label %validate_stmt.exit.thread200
 
 land.rhs96.i:                                     ; preds = %for.inc.us16.i.i, %entry.split.i.i
   %value98.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -649,7 +649,7 @@ sw.bb103.i:                                       ; preds = %if.end34.i
   %62 = load ptr, ptr %v104.i, align 8
   %call105.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %62, i32 noundef 2)
   %tobool106.not.i = icmp eq i32 %call105.i, 0
-  br i1 %tobool106.not.i, label %validate_stmt.exit.thread212, label %land.rhs107.i
+  br i1 %tobool106.not.i, label %validate_stmt.exit.thread200, label %land.rhs107.i
 
 land.rhs107.i:                                    ; preds = %sw.bb103.i
   %value109.i = getelementptr inbounds i8, ptr %1, i64 24
@@ -678,7 +678,7 @@ if.then122.i:                                     ; preds = %land.lhs.true119.i
 if.end123.i:                                      ; preds = %land.lhs.true119.i, %sw.bb114.i
   %call126.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %64, i32 noundef 2)
   %tobool127.not.i = icmp eq i32 %call126.i, 0
-  br i1 %tobool127.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true128.i
+  br i1 %tobool127.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true128.i
 
 land.lhs.true128.i:                               ; preds = %if.end123.i
   %value130.i = getelementptr inbounds i8, ptr %1, i64 24
@@ -689,7 +689,7 @@ land.lhs.true128.i:                               ; preds = %if.end123.i
 lor.lhs.false132.i:                               ; preds = %land.lhs.true128.i
   %call135.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %68, i32 noundef 1)
   %tobool136.not.i = icmp eq i32 %call135.i, 0
-  br i1 %tobool136.not.i, label %validate_stmt.exit.thread212, label %land.rhs137.i
+  br i1 %tobool136.not.i, label %validate_stmt.exit.thread200, label %land.rhs137.i
 
 land.rhs137.i:                                    ; preds = %lor.lhs.false132.i, %land.lhs.true128.i
   %annotation.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -712,14 +712,14 @@ if.then147.i:                                     ; preds = %sw.bb143.i
 if.end148.i:                                      ; preds = %sw.bb143.i
   %call151.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %70, i32 noundef 2)
   %tobool152.not.i = icmp eq i32 %call151.i, 0
-  br i1 %tobool152.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true153.i
+  br i1 %tobool152.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true153.i
 
 land.lhs.true153.i:                               ; preds = %if.end148.i
   %type_params155.i = getelementptr inbounds i8, ptr %1, i64 16
   %73 = load ptr, ptr %type_params155.i, align 8
   %call156.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %73)
   %tobool157.not.i = icmp eq i32 %call156.i, 0
-  br i1 %tobool157.not.i, label %validate_stmt.exit.thread212, label %land.rhs158.i
+  br i1 %tobool157.not.i, label %validate_stmt.exit.thread200, label %land.rhs158.i
 
 land.rhs158.i:                                    ; preds = %land.lhs.true153.i
   %value160.i = getelementptr inbounds i8, ptr %1, i64 24
@@ -732,21 +732,21 @@ sw.bb165.i:                                       ; preds = %if.end34.i
   %75 = load ptr, ptr %v166.i, align 8
   %call168.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %75, i32 noundef 2)
   %tobool169.not.i = icmp eq i32 %call168.i, 0
-  br i1 %tobool169.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true170.i
+  br i1 %tobool169.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true170.i
 
 land.lhs.true170.i:                               ; preds = %sw.bb165.i
   %iter.i = getelementptr inbounds i8, ptr %1, i64 16
   %76 = load ptr, ptr %iter.i, align 8
   %call172.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %76, i32 noundef 1)
   %tobool173.not.i = icmp eq i32 %call172.i, 0
-  br i1 %tobool173.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true174.i
+  br i1 %tobool173.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true174.i
 
 land.lhs.true174.i:                               ; preds = %land.lhs.true170.i
   %body176.i = getelementptr inbounds i8, ptr %1, i64 24
   %77 = load ptr, ptr %body176.i, align 8
   %call177.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %77, ptr noundef nonnull @.str.11)
   %tobool178.not.i = icmp eq i32 %call177.i, 0
-  br i1 %tobool178.not.i, label %validate_stmt.exit.thread212, label %land.rhs179.i
+  br i1 %tobool178.not.i, label %validate_stmt.exit.thread200, label %land.rhs179.i
 
 land.rhs179.i:                                    ; preds = %land.lhs.true174.i
   %orelse.i = getelementptr inbounds i8, ptr %1, i64 32
@@ -759,21 +759,21 @@ sw.bb185.i:                                       ; preds = %if.end34.i
   %79 = load ptr, ptr %v186.i, align 8
   %call188.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %79, i32 noundef 2)
   %tobool189.not.i = icmp eq i32 %call188.i, 0
-  br i1 %tobool189.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true190.i
+  br i1 %tobool189.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true190.i
 
 land.lhs.true190.i:                               ; preds = %sw.bb185.i
   %iter192.i = getelementptr inbounds i8, ptr %1, i64 16
   %80 = load ptr, ptr %iter192.i, align 8
   %call193.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %80, i32 noundef 1)
   %tobool194.not.i = icmp eq i32 %call193.i, 0
-  br i1 %tobool194.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true195.i
+  br i1 %tobool194.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true195.i
 
 land.lhs.true195.i:                               ; preds = %land.lhs.true190.i
   %body197.i = getelementptr inbounds i8, ptr %1, i64 24
   %81 = load ptr, ptr %body197.i, align 8
   %call198.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %81, ptr noundef nonnull @.str.12)
   %tobool199.not.i = icmp eq i32 %call198.i, 0
-  br i1 %tobool199.not.i, label %validate_stmt.exit.thread212, label %land.rhs200.i
+  br i1 %tobool199.not.i, label %validate_stmt.exit.thread200, label %land.rhs200.i
 
 land.rhs200.i:                                    ; preds = %land.lhs.true195.i
   %orelse202.i = getelementptr inbounds i8, ptr %1, i64 32
@@ -786,14 +786,14 @@ sw.bb207.i:                                       ; preds = %if.end34.i
   %83 = load ptr, ptr %v208.i, align 8
   %call209.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %83, i32 noundef 1)
   %tobool210.not.i = icmp eq i32 %call209.i, 0
-  br i1 %tobool210.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true211.i
+  br i1 %tobool210.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true211.i
 
 land.lhs.true211.i:                               ; preds = %sw.bb207.i
   %body213.i = getelementptr inbounds i8, ptr %1, i64 16
   %84 = load ptr, ptr %body213.i, align 8
   %call214.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %84, ptr noundef nonnull @.str.13)
   %tobool215.not.i = icmp eq i32 %call214.i, 0
-  br i1 %tobool215.not.i, label %validate_stmt.exit.thread212, label %land.rhs216.i
+  br i1 %tobool215.not.i, label %validate_stmt.exit.thread200, label %land.rhs216.i
 
 land.rhs216.i:                                    ; preds = %land.lhs.true211.i
   %orelse218.i = getelementptr inbounds i8, ptr %1, i64 24
@@ -806,14 +806,14 @@ sw.bb223.i:                                       ; preds = %if.end34.i
   %86 = load ptr, ptr %v224.i, align 8
   %call226.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %86, i32 noundef 1)
   %tobool227.not.i = icmp eq i32 %call226.i, 0
-  br i1 %tobool227.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true228.i
+  br i1 %tobool227.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true228.i
 
 land.lhs.true228.i:                               ; preds = %sw.bb223.i
   %body230.i = getelementptr inbounds i8, ptr %1, i64 16
   %87 = load ptr, ptr %body230.i, align 8
   %call231.i = tail call fastcc i32 @validate_body(ptr noundef nonnull %state, ptr noundef %87, ptr noundef nonnull @.str.14)
   %tobool232.not.i = icmp eq i32 %call231.i, 0
-  br i1 %tobool232.not.i, label %validate_stmt.exit.thread212, label %land.rhs233.i
+  br i1 %tobool232.not.i, label %validate_stmt.exit.thread200, label %land.rhs233.i
 
 land.rhs233.i:                                    ; preds = %land.lhs.true228.i
   %orelse235.i = getelementptr inbounds i8, ptr %1, i64 24
@@ -838,7 +838,7 @@ _validate_nonempty_seq.exit103.thread:            ; preds = %sw.bb240.i, %cond.f
   br label %return
 
 for.cond.i:                                       ; preds = %cond.false.i99, %for.inc.i
-  %93 = phi ptr [ %.pre621, %for.inc.i ], [ %89, %cond.false.i99 ]
+  %93 = phi ptr [ %.pre609, %for.inc.i ], [ %89, %cond.false.i99 ]
   %i.0.i = phi i64 [ %inc264.i, %for.inc.i ], [ 0, %cond.false.i99 ]
   %cmp248.i = icmp eq ptr %93, null
   br i1 %cmp248.i, label %cond.end.i, label %cond.false.i
@@ -874,7 +874,7 @@ land.lhs.true258.i:                               ; preds = %lor.lhs.false256.i
 
 for.inc.i:                                        ; preds = %land.lhs.true258.i, %lor.lhs.false256.i
   %inc264.i = add nuw nsw i64 %i.0.i, 1
-  %.pre621 = load ptr, ptr %v241.i, align 8
+  %.pre609 = load ptr, ptr %v241.i, align 8
   br label %for.cond.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %cond.end.i
@@ -900,7 +900,7 @@ _validate_nonempty_seq.exit97.thread:             ; preds = %sw.bb268.i, %cond.f
   br label %return
 
 for.cond276.i:                                    ; preds = %cond.false.i93, %for.inc306.i
-  %103 = phi ptr [ %.pre620, %for.inc306.i ], [ %99, %cond.false.i93 ]
+  %103 = phi ptr [ %.pre608, %for.inc306.i ], [ %99, %cond.false.i93 ]
   %i275.0.i = phi i64 [ %inc307.i, %for.inc306.i ], [ 0, %cond.false.i93 ]
   %cmp279.i = icmp eq ptr %103, null
   br i1 %cmp279.i, label %cond.end285.i, label %cond.false281.i
@@ -936,7 +936,7 @@ land.lhs.true300.i:                               ; preds = %lor.lhs.false297.i
 
 for.inc306.i:                                     ; preds = %land.lhs.true300.i, %lor.lhs.false297.i
   %inc307.i = add nuw nsw i64 %i275.0.i, 1
-  %.pre620 = load ptr, ptr %v269.i, align 8
+  %.pre608 = load ptr, ptr %v269.i, align 8
   br label %for.cond276.i, !llvm.loop !9
 
 for.end308.i:                                     ; preds = %cond.end285.i
@@ -970,11 +970,11 @@ _validate_nonempty_seq.exit91.thread:             ; preds = %lor.lhs.false316.i,
 
 for.cond323.ithread-pre-split:                    ; preds = %validate_body.exit85
   %inc355.i = add nuw nsw i64 %i322.0.i, 1
-  %.pr905 = load ptr, ptr %cases.i, align 8
+  %.pr893 = load ptr, ptr %cases.i, align 8
   br label %for.cond323.i
 
 for.cond323.i:                                    ; preds = %cond.false.i87, %for.cond323.ithread-pre-split
-  %114 = phi ptr [ %.pr905, %for.cond323.ithread-pre-split ], [ %110, %cond.false.i87 ]
+  %114 = phi ptr [ %.pr893, %for.cond323.ithread-pre-split ], [ %110, %cond.false.i87 ]
   %i322.0.i = phi i64 [ %inc355.i, %for.cond323.ithread-pre-split ], [ 0, %cond.false.i87 ]
   %cmp326.i = icmp eq ptr %114, null
   br i1 %cmp326.i, label %cond.end332.i, label %cond.false328.i
@@ -1038,7 +1038,7 @@ sw.bb357.i:                                       ; preds = %if.end34.i
 if.then360.i:                                     ; preds = %sw.bb357.i
   %call363.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %123, i32 noundef 1)
   %tobool364.not.i = icmp eq i32 %call363.i, 0
-  br i1 %tobool364.not.i, label %validate_stmt.exit.thread212, label %land.rhs365.i
+  br i1 %tobool364.not.i, label %validate_stmt.exit.thread200, label %land.rhs365.i
 
 land.rhs365.i:                                    ; preds = %if.then360.i
   %cause.i = getelementptr inbounds i8, ptr %1, i64 16
@@ -1086,574 +1086,574 @@ if.end389.i:                                      ; preds = %validate_body.exit7
   %handlers.i = getelementptr inbounds i8, ptr %1, i64 16
   %131 = load ptr, ptr %handlers.i, align 8
   %cmp391.i = icmp eq ptr %131, null
-  br i1 %cmp391.i, label %land.lhs.true400.i, label %cond.end397.i
+  br i1 %cmp391.i, label %land.lhs.true400.i, label %cond.false393.i
 
-cond.end397.i:                                    ; preds = %if.end389.i
+cond.false393.i:                                  ; preds = %if.end389.i
   %132 = load i64, ptr %131, align 8
-  %tobool399.not.i = icmp eq i64 %132, 0
-  br i1 %tobool399.not.i, label %land.lhs.true400.i, label %for.cond439.i.preheader
+  %133 = icmp eq i64 %132, 0
+  br i1 %133, label %land.lhs.true400.i, label %for.cond439.i.preheader
 
-land.lhs.true400.i:                               ; preds = %if.end389.i, %cond.end397.i
+land.lhs.true400.i:                               ; preds = %cond.false393.i, %if.end389.i
   %finalbody.i = getelementptr inbounds i8, ptr %1, i64 32
-  %133 = load ptr, ptr %finalbody.i, align 8
-  %cmp402.i = icmp eq ptr %133, null
-  br i1 %cmp402.i, label %if.then411.i, label %cond.end408.i
+  %134 = load ptr, ptr %finalbody.i, align 8
+  %cmp402.i = icmp eq ptr %134, null
+  br i1 %cmp402.i, label %if.then411.i, label %cond.false404.i
 
-cond.end408.i:                                    ; preds = %land.lhs.true400.i
-  %134 = load i64, ptr %133, align 8
-  %tobool410.not.i = icmp eq i64 %134, 0
-  br i1 %tobool410.not.i, label %if.then411.i, label %if.end412.i
+cond.false404.i:                                  ; preds = %land.lhs.true400.i
+  %135 = load i64, ptr %134, align 8
+  %136 = icmp eq i64 %135, 0
+  br i1 %136, label %if.then411.i, label %if.end412.i
 
-if.then411.i:                                     ; preds = %land.lhs.true400.i, %cond.end408.i
-  %135 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %135, ptr noundef nonnull @.str.23) #5
+if.then411.i:                                     ; preds = %cond.false404.i, %land.lhs.true400.i
+  %137 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %137, ptr noundef nonnull @.str.23) #5
   br label %return
 
-if.end412.i:                                      ; preds = %cond.end408.i
-  br i1 %cmp391.i, label %land.lhs.true424.i, label %cond.end421.i
+if.end412.i:                                      ; preds = %cond.false404.i
+  br i1 %cmp391.i, label %land.lhs.true424.i, label %cond.false417.i
 
-cond.end421.i:                                    ; preds = %if.end412.i
+cond.false417.i:                                  ; preds = %if.end412.i
   %.pr = load i64, ptr %131, align 8
-  %tobool423.not.i = icmp eq i64 %.pr, 0
-  br i1 %tobool423.not.i, label %land.lhs.true424.i, label %for.cond439.i.preheader
+  %138 = icmp eq i64 %.pr, 0
+  br i1 %138, label %land.lhs.true424.i, label %for.cond439.i.preheader
 
-for.cond439.i.preheader:                          ; preds = %land.lhs.true424.i, %cond.end397.i, %cond.end433.i, %cond.end421.i
+for.cond439.i.preheader:                          ; preds = %cond.false393.i, %cond.false429.i, %land.lhs.true424.i, %cond.false417.i
   br label %for.cond439.i
 
-land.lhs.true424.i:                               ; preds = %if.end412.i, %cond.end421.i
+land.lhs.true424.i:                               ; preds = %cond.false417.i, %if.end412.i
   %orelse426.i = getelementptr inbounds i8, ptr %1, i64 24
-  %136 = load ptr, ptr %orelse426.i, align 8
-  %cmp427.i = icmp eq ptr %136, null
-  br i1 %cmp427.i, label %for.cond439.i.preheader, label %cond.end433.i
+  %139 = load ptr, ptr %orelse426.i, align 8
+  %cmp427.i = icmp eq ptr %139, null
+  br i1 %cmp427.i, label %for.cond439.i.preheader, label %cond.false429.i
 
-cond.end433.i:                                    ; preds = %land.lhs.true424.i
-  %137 = load i64, ptr %136, align 8
-  %tobool435.not.i = icmp eq i64 %137, 0
-  br i1 %tobool435.not.i, label %for.cond439.i.preheader, label %if.then436.i
+cond.false429.i:                                  ; preds = %land.lhs.true424.i
+  %140 = load i64, ptr %139, align 8
+  %141 = icmp eq i64 %140, 0
+  br i1 %141, label %for.cond439.i.preheader, label %if.then436.i
 
-if.then436.i:                                     ; preds = %cond.end433.i
-  %138 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %138, ptr noundef nonnull @.str.24) #5
+if.then436.i:                                     ; preds = %cond.false429.i
+  %142 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %142, ptr noundef nonnull @.str.24) #5
   br label %return
 
 for.cond439.i:                                    ; preds = %for.cond439.i.preheader, %validate_body.exit63
   %i438.0.i = phi i64 [ %inc512.i, %validate_body.exit63 ], [ 0, %for.cond439.i.preheader ]
-  %139 = load ptr, ptr %handlers.i, align 8
-  %cmp442.i = icmp eq ptr %139, null
+  %143 = load ptr, ptr %handlers.i, align 8
+  %cmp442.i = icmp eq ptr %143, null
   br i1 %cmp442.i, label %cond.end448.i, label %cond.false444.i
 
 cond.false444.i:                                  ; preds = %for.cond439.i
-  %140 = load i64, ptr %139, align 8
+  %144 = load i64, ptr %143, align 8
   br label %cond.end448.i
 
 cond.end448.i:                                    ; preds = %cond.false444.i, %for.cond439.i
-  %cond449.i = phi i64 [ %140, %cond.false444.i ], [ 0, %for.cond439.i ]
+  %cond449.i = phi i64 [ %144, %cond.false444.i ], [ 0, %for.cond439.i ]
   %cmp450.i = icmp slt i64 %i438.0.i, %cond449.i
   br i1 %cmp450.i, label %for.body451.i, label %for.end513.i
 
 for.body451.i:                                    ; preds = %cond.end448.i
-  %typed_elements454.i = getelementptr inbounds i8, ptr %139, i64 16
+  %typed_elements454.i = getelementptr inbounds i8, ptr %143, i64 16
   %arrayidx455.i = getelementptr [1 x ptr], ptr %typed_elements454.i, i64 0, i64 %i438.0.i
-  %141 = load ptr, ptr %arrayidx455.i, align 8
-  %lineno456.i = getelementptr inbounds i8, ptr %141, i64 32
-  %142 = load i32, ptr %lineno456.i, align 8
-  %end_lineno457.i = getelementptr inbounds i8, ptr %141, i64 40
-  %143 = load i32, ptr %end_lineno457.i, align 8
-  %cmp458.i = icmp sgt i32 %142, %143
+  %145 = load ptr, ptr %arrayidx455.i, align 8
+  %lineno456.i = getelementptr inbounds i8, ptr %145, i64 32
+  %146 = load i32, ptr %lineno456.i, align 8
+  %end_lineno457.i = getelementptr inbounds i8, ptr %145, i64 40
+  %147 = load i32, ptr %end_lineno457.i, align 8
+  %cmp458.i = icmp sgt i32 %146, %147
   br i1 %cmp458.i, label %if.then459.i, label %if.end463.i
 
 if.then459.i:                                     ; preds = %for.body451.i
-  %144 = load ptr, ptr @PyExc_ValueError, align 8
-  %call462.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %144, ptr noundef nonnull @.str.3, i32 noundef %142, i32 noundef %143) #5
+  %148 = load ptr, ptr @PyExc_ValueError, align 8
+  %call462.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %148, ptr noundef nonnull @.str.3, i32 noundef %146, i32 noundef %147) #5
   br label %return
 
 if.end463.i:                                      ; preds = %for.body451.i
-  %cmp465.i = icmp sgt i32 %142, -1
-  %cmp469.not.i = icmp eq i32 %143, %142
+  %cmp465.i = icmp sgt i32 %146, -1
+  %cmp469.not.i = icmp eq i32 %147, %146
   %or.cond289.i = or i1 %cmp465.i, %cmp469.not.i
-  %col_offset471.i = getelementptr inbounds i8, ptr %141, i64 36
-  %145 = load i32, ptr %col_offset471.i, align 4
+  %col_offset471.i = getelementptr inbounds i8, ptr %145, i64 36
+  %149 = load i32, ptr %col_offset471.i, align 4
   br i1 %or.cond289.i, label %lor.lhs.false470.i, label %if.end463.i.if.then477.i_crit_edge
 
 if.end463.i.if.then477.i_crit_edge:               ; preds = %if.end463.i
-  %end_col_offset479.i.phi.trans.insert = getelementptr inbounds i8, ptr %141, i64 44
-  %.pre619 = load i32, ptr %end_col_offset479.i.phi.trans.insert, align 4
+  %end_col_offset479.i.phi.trans.insert = getelementptr inbounds i8, ptr %145, i64 44
+  %.pre607 = load i32, ptr %end_col_offset479.i.phi.trans.insert, align 4
   br label %if.then477.i
 
 lor.lhs.false470.i:                               ; preds = %if.end463.i
-  %cmp472.i = icmp slt i32 %145, 0
+  %cmp472.i = icmp slt i32 %149, 0
   br i1 %cmp472.i, label %land.lhs.true473.i, label %if.end483.i
 
 land.lhs.true473.i:                               ; preds = %lor.lhs.false470.i
-  %end_col_offset475.i = getelementptr inbounds i8, ptr %141, i64 44
-  %146 = load i32, ptr %end_col_offset475.i, align 4
-  %cmp476.not.i = icmp eq i32 %145, %146
+  %end_col_offset475.i = getelementptr inbounds i8, ptr %145, i64 44
+  %150 = load i32, ptr %end_col_offset475.i, align 4
+  %cmp476.not.i = icmp eq i32 %149, %150
   br i1 %cmp476.not.i, label %if.end483.i, label %if.then477.i
 
 if.then477.i:                                     ; preds = %land.lhs.true473.i, %if.end463.i.if.then477.i_crit_edge
-  %147 = phi i32 [ %.pre619, %if.end463.i.if.then477.i_crit_edge ], [ %146, %land.lhs.true473.i ]
-  %148 = load ptr, ptr @PyExc_ValueError, align 8
-  %call482.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %148, ptr noundef nonnull @.str.4, i32 noundef %145, i32 noundef %147, i32 noundef %142, i32 noundef %143) #5
+  %151 = phi i32 [ %.pre607, %if.end463.i.if.then477.i_crit_edge ], [ %150, %land.lhs.true473.i ]
+  %152 = load ptr, ptr @PyExc_ValueError, align 8
+  %call482.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %152, ptr noundef nonnull @.str.4, i32 noundef %149, i32 noundef %151, i32 noundef %146, i32 noundef %147) #5
   br label %return
 
 if.end483.i:                                      ; preds = %land.lhs.true473.i, %lor.lhs.false470.i
   br i1 %cmp469.not.i, label %land.lhs.true487.i, label %if.end496.i
 
 land.lhs.true487.i:                               ; preds = %if.end483.i
-  %end_col_offset489.i = getelementptr inbounds i8, ptr %141, i64 44
-  %149 = load i32, ptr %end_col_offset489.i, align 4
-  %cmp490.i = icmp sgt i32 %145, %149
+  %end_col_offset489.i = getelementptr inbounds i8, ptr %145, i64 44
+  %153 = load i32, ptr %end_col_offset489.i, align 4
+  %cmp490.i = icmp sgt i32 %149, %153
   br i1 %cmp490.i, label %if.then491.i, label %if.end496.i
 
 if.then491.i:                                     ; preds = %land.lhs.true487.i
-  %150 = load ptr, ptr @PyExc_ValueError, align 8
-  %call495.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %150, ptr noundef nonnull @.str.5, i32 noundef %142, i32 noundef %145, i32 noundef %149) #5
+  %154 = load ptr, ptr @PyExc_ValueError, align 8
+  %call495.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %154, ptr noundef nonnull @.str.5, i32 noundef %146, i32 noundef %149, i32 noundef %153) #5
   br label %return
 
 if.end496.i:                                      ; preds = %land.lhs.true487.i, %if.end483.i
-  %v497.i = getelementptr inbounds i8, ptr %141, i64 8
-  %151 = load ptr, ptr %v497.i, align 8
-  %tobool498.not.i = icmp eq ptr %151, null
+  %v497.i = getelementptr inbounds i8, ptr %145, i64 8
+  %155 = load ptr, ptr %v497.i, align 8
+  %tobool498.not.i = icmp eq ptr %155, null
   br i1 %tobool498.not.i, label %lor.lhs.false504.i, label %land.lhs.true499.i
 
 land.lhs.true499.i:                               ; preds = %if.end496.i
-  %call502.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %151, i32 noundef 1)
+  %call502.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %155, i32 noundef 1)
   %tobool503.not.i = icmp eq i32 %call502.i, 0
   br i1 %tobool503.not.i, label %return, label %lor.lhs.false504.i
 
 lor.lhs.false504.i:                               ; preds = %land.lhs.true499.i, %if.end496.i
-  %body506.i = getelementptr inbounds i8, ptr %141, i64 24
-  %152 = load ptr, ptr %body506.i, align 8
-  %cmp.i.i53 = icmp eq ptr %152, null
+  %body506.i = getelementptr inbounds i8, ptr %145, i64 24
+  %156 = load ptr, ptr %body506.i, align 8
+  %cmp.i.i53 = icmp eq ptr %156, null
   br i1 %cmp.i.i53, label %validate_body.exit63.thread, label %cond.false.i.i54
 
 cond.false.i.i54:                                 ; preds = %lor.lhs.false504.i
-  %153 = load i64, ptr %152, align 8
-  %154 = icmp eq i64 %153, 0
-  br i1 %154, label %validate_body.exit63.thread, label %validate_body.exit63
+  %157 = load i64, ptr %156, align 8
+  %158 = icmp eq i64 %157, 0
+  br i1 %158, label %validate_body.exit63.thread, label %validate_body.exit63
 
 validate_body.exit63.thread:                      ; preds = %cond.false.i.i54, %lor.lhs.false504.i
-  %155 = load ptr, ptr @PyExc_ValueError, align 8
-  %call.i.i62 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %155, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.25) #5
+  %159 = load ptr, ptr @PyExc_ValueError, align 8
+  %call.i.i62 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %159, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.25) #5
   br label %return
 
 validate_body.exit63:                             ; preds = %cond.false.i.i54
-  %call1.i59 = tail call fastcc i32 @validate_stmts(ptr noundef %state, ptr noundef nonnull %152)
+  %call1.i59 = tail call fastcc i32 @validate_stmts(ptr noundef %state, ptr noundef nonnull %156)
   %tobool508.not.i = icmp eq i32 %call1.i59, 0
   %inc512.i = add nuw nsw i64 %i438.0.i, 1
   br i1 %tobool508.not.i, label %return, label %for.cond439.i, !llvm.loop !11
 
 for.end513.i:                                     ; preds = %cond.end448.i
   %finalbody515.i = getelementptr inbounds i8, ptr %1, i64 32
-  %156 = load ptr, ptr %finalbody515.i, align 8
-  %cmp516.i = icmp eq ptr %156, null
+  %160 = load ptr, ptr %finalbody515.i, align 8
+  %cmp516.i = icmp eq ptr %160, null
   br i1 %cmp516.i, label %land.rhs530.i, label %cond.false518.i
 
 cond.false518.i:                                  ; preds = %for.end513.i
-  %157 = load i64, ptr %156, align 8
-  %158 = icmp eq i64 %157, 0
-  br i1 %158, label %land.rhs530.i, label %lor.lhs.false525.i
+  %161 = load i64, ptr %160, align 8
+  %162 = icmp eq i64 %161, 0
+  br i1 %162, label %land.rhs530.i, label %lor.lhs.false525.i
 
 lor.lhs.false525.i:                               ; preds = %cond.false518.i
-  %call528.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %156)
+  %call528.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %160)
   %tobool529.not.i = icmp eq i32 %call528.i, 0
-  br i1 %tobool529.not.i, label %validate_stmt.exit.thread212, label %land.rhs530.i
+  br i1 %tobool529.not.i, label %validate_stmt.exit.thread200, label %land.rhs530.i
 
 land.rhs530.i:                                    ; preds = %lor.lhs.false525.i, %cond.false518.i, %for.end513.i
   %orelse532.i = getelementptr inbounds i8, ptr %1, i64 24
-  %159 = load ptr, ptr %orelse532.i, align 8
-  %cmp533.i = icmp eq ptr %159, null
+  %163 = load ptr, ptr %orelse532.i, align 8
+  %cmp533.i = icmp eq ptr %163, null
   br i1 %cmp533.i, label %for.inc.sink.split, label %cond.false535.i
 
 cond.false535.i:                                  ; preds = %land.rhs530.i
-  %160 = load i64, ptr %159, align 8
-  %161 = icmp eq i64 %160, 0
-  br i1 %161, label %for.inc.sink.split, label %lor.rhs542.i
+  %164 = load i64, ptr %163, align 8
+  %165 = icmp eq i64 %164, 0
+  br i1 %165, label %for.inc.sink.split, label %lor.rhs542.i
 
 lor.rhs542.i:                                     ; preds = %cond.false535.i
-  %call545.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %159)
+  %call545.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %163)
   br label %validate_stmt.exit
 
 sw.bb551.i:                                       ; preds = %if.end34.i
   %v552.i = getelementptr inbounds i8, ptr %1, i64 8
-  %162 = load ptr, ptr %v552.i, align 8
-  %cmp.i.i42 = icmp eq ptr %162, null
+  %166 = load ptr, ptr %v552.i, align 8
+  %cmp.i.i42 = icmp eq ptr %166, null
   br i1 %cmp.i.i42, label %validate_body.exit52.thread, label %cond.false.i.i43
 
 cond.false.i.i43:                                 ; preds = %sw.bb551.i
-  %163 = load i64, ptr %162, align 8
-  %164 = icmp eq i64 %163, 0
-  br i1 %164, label %validate_body.exit52.thread, label %validate_body.exit52
+  %167 = load i64, ptr %166, align 8
+  %168 = icmp eq i64 %167, 0
+  br i1 %168, label %validate_body.exit52.thread, label %validate_body.exit52
 
 validate_body.exit52.thread:                      ; preds = %cond.false.i.i43, %sw.bb551.i
-  %165 = load ptr, ptr @PyExc_ValueError, align 8
-  %call.i.i51 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %165, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.26) #5
+  %169 = load ptr, ptr @PyExc_ValueError, align 8
+  %call.i.i51 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %169, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.26) #5
   br label %return
 
 validate_body.exit52:                             ; preds = %cond.false.i.i43
-  %call1.i48 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %162)
+  %call1.i48 = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %166)
   %tobool555.not.i = icmp eq i32 %call1.i48, 0
   br i1 %tobool555.not.i, label %return, label %if.end557.i
 
 if.end557.i:                                      ; preds = %validate_body.exit52
   %handlers559.i = getelementptr inbounds i8, ptr %1, i64 16
-  %166 = load ptr, ptr %handlers559.i, align 8
-  %cmp560.i = icmp eq ptr %166, null
-  br i1 %cmp560.i, label %land.lhs.true569.i, label %cond.end566.i
+  %170 = load ptr, ptr %handlers559.i, align 8
+  %cmp560.i = icmp eq ptr %170, null
+  br i1 %cmp560.i, label %land.lhs.true569.i, label %cond.false562.i
 
-cond.end566.i:                                    ; preds = %if.end557.i
-  %167 = load i64, ptr %166, align 8
-  %tobool568.not.i = icmp eq i64 %167, 0
-  br i1 %tobool568.not.i, label %land.lhs.true569.i, label %for.cond609.i.preheader
+cond.false562.i:                                  ; preds = %if.end557.i
+  %171 = load i64, ptr %170, align 8
+  %172 = icmp eq i64 %171, 0
+  br i1 %172, label %land.lhs.true569.i, label %for.cond609.i.preheader
 
-land.lhs.true569.i:                               ; preds = %if.end557.i, %cond.end566.i
+land.lhs.true569.i:                               ; preds = %cond.false562.i, %if.end557.i
   %finalbody571.i = getelementptr inbounds i8, ptr %1, i64 32
-  %168 = load ptr, ptr %finalbody571.i, align 8
-  %cmp572.i = icmp eq ptr %168, null
+  %173 = load ptr, ptr %finalbody571.i, align 8
+  %cmp572.i = icmp eq ptr %173, null
   br i1 %cmp572.i, label %if.then581.i, label %cond.false574.i
 
 cond.false574.i:                                  ; preds = %land.lhs.true569.i
-  %169 = load i64, ptr %168, align 8
-  %170 = icmp eq i64 %169, 0
-  br i1 %170, label %if.then581.i, label %if.end582.i
+  %174 = load i64, ptr %173, align 8
+  %175 = icmp eq i64 %174, 0
+  br i1 %175, label %if.then581.i, label %if.end582.i
 
 if.then581.i:                                     ; preds = %cond.false574.i, %land.lhs.true569.i
-  %171 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %171, ptr noundef nonnull @.str.27) #5
+  %176 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %176, ptr noundef nonnull @.str.27) #5
   br label %return
 
 if.end582.i:                                      ; preds = %cond.false574.i
   br i1 %cmp560.i, label %land.lhs.true594.i, label %cond.false587.i
 
 cond.false587.i:                                  ; preds = %if.end582.i
-  %.pr194 = load i64, ptr %166, align 8
-  %172 = icmp eq i64 %.pr194, 0
-  br i1 %172, label %land.lhs.true594.i, label %for.cond609.i.preheader
+  %.pr182 = load i64, ptr %170, align 8
+  %177 = icmp eq i64 %.pr182, 0
+  br i1 %177, label %land.lhs.true594.i, label %for.cond609.i.preheader
 
-for.cond609.i.preheader:                          ; preds = %cond.end566.i, %cond.false599.i, %land.lhs.true594.i, %cond.false587.i
+for.cond609.i.preheader:                          ; preds = %cond.false562.i, %cond.false599.i, %land.lhs.true594.i, %cond.false587.i
   br label %for.cond609.i
 
 land.lhs.true594.i:                               ; preds = %cond.false587.i, %if.end582.i
   %orelse596.i = getelementptr inbounds i8, ptr %1, i64 24
-  %173 = load ptr, ptr %orelse596.i, align 8
-  %cmp597.i = icmp eq ptr %173, null
+  %178 = load ptr, ptr %orelse596.i, align 8
+  %cmp597.i = icmp eq ptr %178, null
   br i1 %cmp597.i, label %for.cond609.i.preheader, label %cond.false599.i
 
 cond.false599.i:                                  ; preds = %land.lhs.true594.i
-  %174 = load i64, ptr %173, align 8
-  %175 = icmp eq i64 %174, 0
-  br i1 %175, label %for.cond609.i.preheader, label %if.then606.i
+  %179 = load i64, ptr %178, align 8
+  %180 = icmp eq i64 %179, 0
+  br i1 %180, label %for.cond609.i.preheader, label %if.then606.i
 
 if.then606.i:                                     ; preds = %cond.false599.i
-  %176 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %176, ptr noundef nonnull @.str.28) #5
+  %181 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %181, ptr noundef nonnull @.str.28) #5
   br label %return
 
 for.cond609.i:                                    ; preds = %for.cond609.i.preheader, %validate_body.exit41
   %i608.0.i = phi i64 [ %inc643.i, %validate_body.exit41 ], [ 0, %for.cond609.i.preheader ]
-  %177 = load ptr, ptr %handlers559.i, align 8
-  %cmp612.i = icmp eq ptr %177, null
+  %182 = load ptr, ptr %handlers559.i, align 8
+  %cmp612.i = icmp eq ptr %182, null
   br i1 %cmp612.i, label %cond.end618.i, label %cond.false614.i
 
 cond.false614.i:                                  ; preds = %for.cond609.i
-  %178 = load i64, ptr %177, align 8
+  %183 = load i64, ptr %182, align 8
   br label %cond.end618.i
 
 cond.end618.i:                                    ; preds = %cond.false614.i, %for.cond609.i
-  %cond619.i = phi i64 [ %178, %cond.false614.i ], [ 0, %for.cond609.i ]
+  %cond619.i = phi i64 [ %183, %cond.false614.i ], [ 0, %for.cond609.i ]
   %cmp620.i = icmp slt i64 %i608.0.i, %cond619.i
   br i1 %cmp620.i, label %for.body621.i, label %for.end644.i
 
 for.body621.i:                                    ; preds = %cond.end618.i
-  %typed_elements625.i = getelementptr inbounds i8, ptr %177, i64 16
+  %typed_elements625.i = getelementptr inbounds i8, ptr %182, i64 16
   %arrayidx626.i = getelementptr [1 x ptr], ptr %typed_elements625.i, i64 0, i64 %i608.0.i
-  %179 = load ptr, ptr %arrayidx626.i, align 8
-  %v627.i = getelementptr inbounds i8, ptr %179, i64 8
-  %180 = load ptr, ptr %v627.i, align 8
-  %tobool629.not.i = icmp eq ptr %180, null
+  %184 = load ptr, ptr %arrayidx626.i, align 8
+  %v627.i = getelementptr inbounds i8, ptr %184, i64 8
+  %185 = load ptr, ptr %v627.i, align 8
+  %tobool629.not.i = icmp eq ptr %185, null
   br i1 %tobool629.not.i, label %lor.lhs.false635.i, label %land.lhs.true630.i
 
 land.lhs.true630.i:                               ; preds = %for.body621.i
-  %call633.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %180, i32 noundef 1)
+  %call633.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %185, i32 noundef 1)
   %tobool634.not.i = icmp eq i32 %call633.i, 0
   br i1 %tobool634.not.i, label %return, label %lor.lhs.false635.i
 
 lor.lhs.false635.i:                               ; preds = %land.lhs.true630.i, %for.body621.i
-  %body637.i = getelementptr inbounds i8, ptr %179, i64 24
-  %181 = load ptr, ptr %body637.i, align 8
-  %cmp.i.i31 = icmp eq ptr %181, null
+  %body637.i = getelementptr inbounds i8, ptr %184, i64 24
+  %186 = load ptr, ptr %body637.i, align 8
+  %cmp.i.i31 = icmp eq ptr %186, null
   br i1 %cmp.i.i31, label %validate_body.exit41.thread, label %cond.false.i.i32
 
 cond.false.i.i32:                                 ; preds = %lor.lhs.false635.i
-  %182 = load i64, ptr %181, align 8
-  %183 = icmp eq i64 %182, 0
-  br i1 %183, label %validate_body.exit41.thread, label %validate_body.exit41
+  %187 = load i64, ptr %186, align 8
+  %188 = icmp eq i64 %187, 0
+  br i1 %188, label %validate_body.exit41.thread, label %validate_body.exit41
 
 validate_body.exit41.thread:                      ; preds = %cond.false.i.i32, %lor.lhs.false635.i
-  %184 = load ptr, ptr @PyExc_ValueError, align 8
-  %call.i.i40 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %184, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.25) #5
+  %189 = load ptr, ptr @PyExc_ValueError, align 8
+  %call.i.i40 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %189, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.25) #5
   br label %return
 
 validate_body.exit41:                             ; preds = %cond.false.i.i32
-  %call1.i37 = tail call fastcc i32 @validate_stmts(ptr noundef %state, ptr noundef nonnull %181)
+  %call1.i37 = tail call fastcc i32 @validate_stmts(ptr noundef %state, ptr noundef nonnull %186)
   %tobool639.not.i = icmp eq i32 %call1.i37, 0
   %inc643.i = add nuw nsw i64 %i608.0.i, 1
   br i1 %tobool639.not.i, label %return, label %for.cond609.i, !llvm.loop !12
 
 for.end644.i:                                     ; preds = %cond.end618.i
   %finalbody646.i = getelementptr inbounds i8, ptr %1, i64 32
-  %185 = load ptr, ptr %finalbody646.i, align 8
-  %cmp647.i = icmp eq ptr %185, null
+  %190 = load ptr, ptr %finalbody646.i, align 8
+  %cmp647.i = icmp eq ptr %190, null
   br i1 %cmp647.i, label %land.rhs661.i, label %cond.false649.i
 
 cond.false649.i:                                  ; preds = %for.end644.i
-  %186 = load i64, ptr %185, align 8
-  %187 = icmp eq i64 %186, 0
-  br i1 %187, label %land.rhs661.i, label %lor.lhs.false656.i
+  %191 = load i64, ptr %190, align 8
+  %192 = icmp eq i64 %191, 0
+  br i1 %192, label %land.rhs661.i, label %lor.lhs.false656.i
 
 lor.lhs.false656.i:                               ; preds = %cond.false649.i
-  %call659.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %185)
+  %call659.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %190)
   %tobool660.not.i = icmp eq i32 %call659.i, 0
-  br i1 %tobool660.not.i, label %validate_stmt.exit.thread212, label %land.rhs661.i
+  br i1 %tobool660.not.i, label %validate_stmt.exit.thread200, label %land.rhs661.i
 
 land.rhs661.i:                                    ; preds = %lor.lhs.false656.i, %cond.false649.i, %for.end644.i
   %orelse663.i = getelementptr inbounds i8, ptr %1, i64 24
-  %188 = load ptr, ptr %orelse663.i, align 8
-  %cmp664.i = icmp eq ptr %188, null
+  %193 = load ptr, ptr %orelse663.i, align 8
+  %cmp664.i = icmp eq ptr %193, null
   br i1 %cmp664.i, label %for.inc.sink.split, label %cond.false666.i
 
 cond.false666.i:                                  ; preds = %land.rhs661.i
-  %189 = load i64, ptr %188, align 8
-  %190 = icmp eq i64 %189, 0
-  br i1 %190, label %for.inc.sink.split, label %lor.rhs673.i
+  %194 = load i64, ptr %193, align 8
+  %195 = icmp eq i64 %194, 0
+  br i1 %195, label %for.inc.sink.split, label %lor.rhs673.i
 
 lor.rhs673.i:                                     ; preds = %cond.false666.i
-  %call676.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %188)
+  %call676.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %193)
   br label %validate_stmt.exit
 
 sw.bb682.i:                                       ; preds = %if.end34.i
   %v683.i = getelementptr inbounds i8, ptr %1, i64 8
-  %191 = load ptr, ptr %v683.i, align 8
-  %call685.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %191, i32 noundef 1)
+  %196 = load ptr, ptr %v683.i, align 8
+  %call685.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %196, i32 noundef 1)
   %tobool686.not.i = icmp eq i32 %call685.i, 0
-  br i1 %tobool686.not.i, label %validate_stmt.exit.thread212, label %land.rhs687.i
+  br i1 %tobool686.not.i, label %validate_stmt.exit.thread200, label %land.rhs687.i
 
 land.rhs687.i:                                    ; preds = %sw.bb682.i
   %msg.i = getelementptr inbounds i8, ptr %1, i64 16
-  %192 = load ptr, ptr %msg.i, align 8
-  %tobool689.not.i = icmp eq ptr %192, null
+  %197 = load ptr, ptr %msg.i, align 8
+  %tobool689.not.i = icmp eq ptr %197, null
   br i1 %tobool689.not.i, label %for.inc.sink.split, label %lor.rhs690.i
 
 lor.rhs690.i:                                     ; preds = %land.rhs687.i
-  %call693.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %192, i32 noundef 1)
+  %call693.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %197, i32 noundef 1)
   br label %validate_stmt.exit
 
 sw.bb699.i:                                       ; preds = %if.end34.i
   %v700.i = getelementptr inbounds i8, ptr %1, i64 8
-  %193 = load ptr, ptr %v700.i, align 8
-  %cmp.i25 = icmp eq ptr %193, null
+  %198 = load ptr, ptr %v700.i, align 8
+  %cmp.i25 = icmp eq ptr %198, null
   br i1 %cmp.i25, label %if.end.i28, label %cond.false.i26
 
 cond.false.i26:                                   ; preds = %sw.bb699.i
-  %194 = load i64, ptr %193, align 8
-  %195 = icmp eq i64 %194, 0
-  br i1 %195, label %if.end.i28, label %for.inc.sink.split
+  %199 = load i64, ptr %198, align 8
+  %200 = icmp eq i64 %199, 0
+  br i1 %200, label %if.end.i28, label %for.inc.sink.split
 
 if.end.i28:                                       ; preds = %cond.false.i26, %sw.bb699.i
-  %196 = load ptr, ptr @PyExc_ValueError, align 8
-  %call.i29 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %196, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30) #5
-  br label %validate_stmt.exit.thread212
+  %201 = load ptr, ptr @PyExc_ValueError, align 8
+  %call.i29 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %201, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30) #5
+  br label %validate_stmt.exit.thread200
 
 sw.bb702.i:                                       ; preds = %if.end34.i
   %level.i = getelementptr inbounds i8, ptr %1, i64 24
-  %197 = load i32, ptr %level.i, align 8
-  %cmp704.i = icmp slt i32 %197, 0
+  %202 = load i32, ptr %level.i, align 8
+  %cmp704.i = icmp slt i32 %202, 0
   br i1 %cmp704.i, label %if.then705.i, label %if.end706.i
 
 if.then705.i:                                     ; preds = %sw.bb702.i
-  %198 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %198, ptr noundef nonnull @.str.31) #5
+  %203 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %203, ptr noundef nonnull @.str.31) #5
   br label %return
 
 if.end706.i:                                      ; preds = %sw.bb702.i
   %names708.i = getelementptr inbounds i8, ptr %1, i64 16
-  %199 = load ptr, ptr %names708.i, align 8
-  %cmp.i19 = icmp eq ptr %199, null
+  %204 = load ptr, ptr %names708.i, align 8
+  %cmp.i19 = icmp eq ptr %204, null
   br i1 %cmp.i19, label %if.end.i22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %if.end706.i
-  %200 = load i64, ptr %199, align 8
-  %201 = icmp eq i64 %200, 0
-  br i1 %201, label %if.end.i22, label %for.inc.sink.split
+  %205 = load i64, ptr %204, align 8
+  %206 = icmp eq i64 %205, 0
+  br i1 %206, label %if.end.i22, label %for.inc.sink.split
 
 if.end.i22:                                       ; preds = %cond.false.i20, %if.end706.i
-  %202 = load ptr, ptr @PyExc_ValueError, align 8
-  %call.i23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %202, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.32) #5
-  br label %validate_stmt.exit.thread212
+  %207 = load ptr, ptr @PyExc_ValueError, align 8
+  %call.i23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %207, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.32) #5
+  br label %validate_stmt.exit.thread200
 
 sw.bb710.i:                                       ; preds = %if.end34.i
   %v711.i = getelementptr inbounds i8, ptr %1, i64 8
-  %203 = load ptr, ptr %v711.i, align 8
-  %cmp.i13 = icmp eq ptr %203, null
+  %208 = load ptr, ptr %v711.i, align 8
+  %cmp.i13 = icmp eq ptr %208, null
   br i1 %cmp.i13, label %if.end.i16, label %cond.false.i14
 
 cond.false.i14:                                   ; preds = %sw.bb710.i
-  %204 = load i64, ptr %203, align 8
-  %205 = icmp eq i64 %204, 0
-  br i1 %205, label %if.end.i16, label %for.inc.sink.split
+  %209 = load i64, ptr %208, align 8
+  %210 = icmp eq i64 %209, 0
+  br i1 %210, label %if.end.i16, label %for.inc.sink.split
 
 if.end.i16:                                       ; preds = %cond.false.i14, %sw.bb710.i
-  %206 = load ptr, ptr @PyExc_ValueError, align 8
-  %call.i17 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %206, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.33) #5
-  br label %validate_stmt.exit.thread212
+  %211 = load ptr, ptr @PyExc_ValueError, align 8
+  %call.i17 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %211, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.33) #5
+  br label %validate_stmt.exit.thread200
 
 sw.bb714.i:                                       ; preds = %if.end34.i
   %v715.i = getelementptr inbounds i8, ptr %1, i64 8
-  %207 = load ptr, ptr %v715.i, align 8
-  %cmp.i8 = icmp eq ptr %207, null
+  %212 = load ptr, ptr %v715.i, align 8
+  %cmp.i8 = icmp eq ptr %212, null
   br i1 %cmp.i8, label %if.end.i11, label %cond.false.i9
 
 cond.false.i9:                                    ; preds = %sw.bb714.i
-  %208 = load i64, ptr %207, align 8
-  %209 = icmp eq i64 %208, 0
-  br i1 %209, label %if.end.i11, label %for.inc.sink.split
+  %213 = load i64, ptr %212, align 8
+  %214 = icmp eq i64 %213, 0
+  br i1 %214, label %if.end.i11, label %for.inc.sink.split
 
 if.end.i11:                                       ; preds = %cond.false.i9, %sw.bb714.i
-  %210 = load ptr, ptr @PyExc_ValueError, align 8
-  %call.i12 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %210, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.34) #5
-  br label %validate_stmt.exit.thread212
+  %215 = load ptr, ptr @PyExc_ValueError, align 8
+  %call.i12 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %215, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.34) #5
+  br label %validate_stmt.exit.thread200
 
 sw.bb718.i:                                       ; preds = %if.end34.i
   %v719.i = getelementptr inbounds i8, ptr %1, i64 8
-  %211 = load ptr, ptr %v719.i, align 8
-  %call721.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %211, i32 noundef 1)
+  %216 = load ptr, ptr %v719.i, align 8
+  %call721.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef %216, i32 noundef 1)
   br label %validate_stmt.exit
 
 sw.bb722.i:                                       ; preds = %if.end34.i
   %body724.i = getelementptr inbounds i8, ptr %1, i64 24
-  %212 = load ptr, ptr %body724.i, align 8
-  %cmp.i.i = icmp eq ptr %212, null
+  %217 = load ptr, ptr %body724.i, align 8
+  %cmp.i.i = icmp eq ptr %217, null
   br i1 %cmp.i.i, label %validate_body.exit.thread, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %sw.bb722.i
-  %213 = load i64, ptr %212, align 8
-  %214 = icmp eq i64 %213, 0
-  br i1 %214, label %validate_body.exit.thread, label %validate_body.exit
+  %218 = load i64, ptr %217, align 8
+  %219 = icmp eq i64 %218, 0
+  br i1 %219, label %validate_body.exit.thread, label %validate_body.exit
 
 validate_body.exit.thread:                        ; preds = %cond.false.i.i, %sw.bb722.i
-  %215 = load ptr, ptr @PyExc_ValueError, align 8
-  %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %215, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.35) #5
-  br label %validate_stmt.exit.thread212
+  %220 = load ptr, ptr @PyExc_ValueError, align 8
+  %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %220, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.35) #5
+  br label %validate_stmt.exit.thread200
 
 validate_body.exit:                               ; preds = %cond.false.i.i
-  %call1.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %212)
+  %call1.i = tail call fastcc i32 @validate_stmts(ptr noundef nonnull %state, ptr noundef nonnull %217)
   %tobool726.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool726.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true727.i
+  br i1 %tobool726.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true727.i
 
 land.lhs.true727.i:                               ; preds = %validate_body.exit
   %type_params729.i = getelementptr inbounds i8, ptr %1, i64 56
-  %216 = load ptr, ptr %type_params729.i, align 8
-  %call730.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %216)
+  %221 = load ptr, ptr %type_params729.i, align 8
+  %call730.i = tail call fastcc i32 @validate_type_params(ptr noundef nonnull %state, ptr noundef %221)
   %tobool731.not.i = icmp eq i32 %call730.i, 0
-  br i1 %tobool731.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true732.i
+  br i1 %tobool731.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true732.i
 
 land.lhs.true732.i:                               ; preds = %land.lhs.true727.i
   %args734.i = getelementptr inbounds i8, ptr %1, i64 16
-  %217 = load ptr, ptr %args734.i, align 8
-  %call735.i = tail call fastcc i32 @validate_arguments(ptr noundef nonnull %state, ptr noundef %217)
+  %222 = load ptr, ptr %args734.i, align 8
+  %call735.i = tail call fastcc i32 @validate_arguments(ptr noundef nonnull %state, ptr noundef %222)
   %tobool736.not.i = icmp eq i32 %call735.i, 0
-  br i1 %tobool736.not.i, label %validate_stmt.exit.thread212, label %land.lhs.true737.i
+  br i1 %tobool736.not.i, label %validate_stmt.exit.thread200, label %land.lhs.true737.i
 
 land.lhs.true737.i:                               ; preds = %land.lhs.true732.i
   %decorator_list739.i = getelementptr inbounds i8, ptr %1, i64 32
-  %218 = load ptr, ptr %decorator_list739.i, align 8
-  %cmp.i881 = icmp eq ptr %218, null
-  %typed_elements.i882 = getelementptr inbounds i8, ptr %218, i64 16
-  br i1 %cmp.i881, label %land.rhs742.i, label %entry.split.i883
+  %223 = load ptr, ptr %decorator_list739.i, align 8
+  %cmp.i869 = icmp eq ptr %223, null
+  %typed_elements.i870 = getelementptr inbounds i8, ptr %223, i64 16
+  br i1 %cmp.i869, label %land.rhs742.i, label %entry.split.i871
 
-entry.split.i883:                                 ; preds = %land.lhs.true737.i
-  %219 = load i64, ptr %218, align 8
-  %cmp16.i884 = icmp sgt i64 %219, 0
-  br i1 %cmp16.i884, label %for.body.us9.i887, label %land.rhs742.i
+entry.split.i871:                                 ; preds = %land.lhs.true737.i
+  %224 = load i64, ptr %223, align 8
+  %cmp16.i872 = icmp sgt i64 %224, 0
+  br i1 %cmp16.i872, label %for.body.us9.i875, label %land.rhs742.i
 
-for.body.us9.i887:                                ; preds = %entry.split.i883, %for.inc.us16.i894
-  %i.07.us.i888 = phi i64 [ %inc.us17.i895, %for.inc.us16.i894 ], [ 0, %entry.split.i883 ]
-  %arrayidx.us10.i889 = getelementptr [1 x ptr], ptr %typed_elements.i882, i64 0, i64 %i.07.us.i888
-  %220 = load ptr, ptr %arrayidx.us10.i889, align 8
-  %tobool.not.us11.i890 = icmp eq ptr %220, null
-  br i1 %tobool.not.us11.i890, label %if.then5.i897, label %if.then.us12.i891
+for.body.us9.i875:                                ; preds = %entry.split.i871, %for.inc.us16.i882
+  %i.07.us.i876 = phi i64 [ %inc.us17.i883, %for.inc.us16.i882 ], [ 0, %entry.split.i871 ]
+  %arrayidx.us10.i877 = getelementptr [1 x ptr], ptr %typed_elements.i870, i64 0, i64 %i.07.us.i876
+  %225 = load ptr, ptr %arrayidx.us10.i877, align 8
+  %tobool.not.us11.i878 = icmp eq ptr %225, null
+  br i1 %tobool.not.us11.i878, label %if.then5.i885, label %if.then.us12.i879
 
-if.then.us12.i891:                                ; preds = %for.body.us9.i887
-  %call.us13.i892 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %220, i32 noundef 1) #4
-  %tobool2.not.us14.i893 = icmp eq i32 %call.us13.i892, 0
-  br i1 %tobool2.not.us14.i893, label %validate_stmt.exit.thread212, label %for.inc.us16.i894
+if.then.us12.i879:                                ; preds = %for.body.us9.i875
+  %call.us13.i880 = tail call fastcc i32 @validate_expr(ptr noundef %state, ptr noundef nonnull %225, i32 noundef 1) #4
+  %tobool2.not.us14.i881 = icmp eq i32 %call.us13.i880, 0
+  br i1 %tobool2.not.us14.i881, label %validate_stmt.exit.thread200, label %for.inc.us16.i882
 
-for.inc.us16.i894:                                ; preds = %if.then.us12.i891
-  %inc.us17.i895 = add nuw nsw i64 %i.07.us.i888, 1
-  %221 = load i64, ptr %218, align 8
-  %cmp1.us18.i896 = icmp slt i64 %inc.us17.i895, %221
-  br i1 %cmp1.us18.i896, label %for.body.us9.i887, label %land.rhs742.i, !llvm.loop !5
+for.inc.us16.i882:                                ; preds = %if.then.us12.i879
+  %inc.us17.i883 = add nuw nsw i64 %i.07.us.i876, 1
+  %226 = load i64, ptr %223, align 8
+  %cmp1.us18.i884 = icmp slt i64 %inc.us17.i883, %226
+  br i1 %cmp1.us18.i884, label %for.body.us9.i875, label %land.rhs742.i, !llvm.loop !5
 
-if.then5.i897:                                    ; preds = %for.body.us9.i887
-  %222 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %222, ptr noundef nonnull @.str.73) #5
-  br label %validate_stmt.exit.thread212
+if.then5.i885:                                    ; preds = %for.body.us9.i875
+  %227 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %227, ptr noundef nonnull @.str.73) #5
+  br label %validate_stmt.exit.thread200
 
-land.rhs742.i:                                    ; preds = %for.inc.us16.i894, %land.lhs.true737.i, %entry.split.i883
+land.rhs742.i:                                    ; preds = %for.inc.us16.i882, %land.lhs.true737.i, %entry.split.i871
   %returns744.i = getelementptr inbounds i8, ptr %1, i64 40
-  %223 = load ptr, ptr %returns744.i, align 8
-  %tobool745.not.i = icmp eq ptr %223, null
+  %228 = load ptr, ptr %returns744.i, align 8
+  %tobool745.not.i = icmp eq ptr %228, null
   br i1 %tobool745.not.i, label %for.inc.sink.split, label %lor.rhs746.i
 
 lor.rhs746.i:                                     ; preds = %land.rhs742.i
-  %call749.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %223, i32 noundef 1)
+  %call749.i = tail call fastcc i32 @validate_expr(ptr noundef nonnull %state, ptr noundef nonnull %228, i32 noundef 1)
   br label %validate_stmt.exit
 
-validate_stmt.exit.thread207:                     ; preds = %if.end34.i
-  %224 = load ptr, ptr @PyExc_SystemError, align 8
-  tail call void @PyErr_SetString(ptr noundef %224, ptr noundef nonnull @.str.36) #5
-  %225 = load i32, ptr %state, align 4
-  %dec.i209 = add i32 %225, -1
-  store i32 %dec.i209, ptr %state, align 4
+validate_stmt.exit.thread195:                     ; preds = %if.end34.i
+  %229 = load ptr, ptr @PyExc_SystemError, align 8
+  tail call void @PyErr_SetString(ptr noundef %229, ptr noundef nonnull @.str.36) #5
+  %230 = load i32, ptr %state, align 4
+  %dec.i197 = add i32 %230, -1
+  store i32 %dec.i197, ptr %state, align 4
   br label %return
 
-validate_stmt.exit.thread212:                     ; preds = %validate_body.exit, %land.lhs.true727.i, %land.lhs.true732.i, %sw.bb682.i, %lor.lhs.false656.i, %lor.lhs.false525.i, %if.then360.i, %sw.bb223.i, %land.lhs.true228.i, %sw.bb207.i, %land.lhs.true211.i, %sw.bb185.i, %land.lhs.true190.i, %land.lhs.true195.i, %sw.bb165.i, %land.lhs.true170.i, %land.lhs.true174.i, %if.end148.i, %land.lhs.true153.i, %if.end123.i, %lor.lhs.false132.i, %sw.bb103.i, %validate_body.exit138, %land.lhs.true59.i, %validate_body.exit149, %land.lhs.true36.i, %land.lhs.true40.i, %if.then.us12.i891, %if.then.us12.i.i, %if.then.us12.i.i118, %if.then.us12.i846, %for.body.i858, %if.then.us12.i, %if.then5.i897, %if.then5.i852, %if.then5.i, %validate_body.exit.thread, %if.end.i11, %if.end.i16, %if.end.i22, %if.end.i28, %if.then5.i.i124, %_validate_nonempty_seq.exit.thread.i125, %validate_body.exit138.thread, %validate_body.exit149.thread, %_validate_nonempty_seq.exit.thread.i, %if.then5.i.i
-  %226 = load i32, ptr %state, align 4
-  %dec.i214 = add i32 %226, -1
-  store i32 %dec.i214, ptr %state, align 4
+validate_stmt.exit.thread200:                     ; preds = %validate_body.exit, %land.lhs.true727.i, %land.lhs.true732.i, %sw.bb682.i, %lor.lhs.false656.i, %lor.lhs.false525.i, %if.then360.i, %sw.bb223.i, %land.lhs.true228.i, %sw.bb207.i, %land.lhs.true211.i, %sw.bb185.i, %land.lhs.true190.i, %land.lhs.true195.i, %sw.bb165.i, %land.lhs.true170.i, %land.lhs.true174.i, %if.end148.i, %land.lhs.true153.i, %if.end123.i, %lor.lhs.false132.i, %sw.bb103.i, %validate_body.exit138, %land.lhs.true59.i, %validate_body.exit149, %land.lhs.true36.i, %land.lhs.true40.i, %if.then.us12.i879, %if.then.us12.i.i, %if.then.us12.i.i118, %if.then.us12.i834, %for.body.i846, %if.then.us12.i, %if.then5.i885, %if.then5.i840, %if.then5.i, %validate_body.exit.thread, %if.end.i11, %if.end.i16, %if.end.i22, %if.end.i28, %if.then5.i.i124, %_validate_nonempty_seq.exit.thread.i125, %validate_body.exit138.thread, %validate_body.exit149.thread, %_validate_nonempty_seq.exit.thread.i, %if.then5.i.i
+  %231 = load i32, ptr %state, align 4
+  %dec.i202 = add i32 %231, -1
+  store i32 %dec.i202, ptr %state, align 4
   br label %return
 
-validate_stmt.exit.thread912:                     ; preds = %if.then.us12.i873, %if.then5.i879
-  %227 = load i32, ptr %state, align 4
-  %dec.i914 = add i32 %227, -1
-  store i32 %dec.i914, ptr %state, align 4
+validate_stmt.exit.thread900:                     ; preds = %if.then.us12.i861, %if.then5.i867
+  %232 = load i32, ptr %state, align 4
+  %dec.i902 = add i32 %232, -1
+  store i32 %dec.i902, ptr %state, align 4
   br label %return
 
 validate_stmt.exit:                               ; preds = %sw.bb718.i, %for.end308.i, %for.end.i, %lor.rhs.i, %lor.rhs82.i, %land.rhs96.i, %land.rhs107.i, %land.rhs137.i, %land.rhs158.i, %land.rhs179.i, %land.rhs200.i, %land.rhs216.i, %land.rhs233.i, %lor.rhs368.i, %lor.rhs542.i, %lor.rhs673.i, %lor.rhs690.i, %lor.rhs746.i
   %ret.0.i.ph = phi i32 [ %call749.i, %lor.rhs746.i ], [ %call693.i, %lor.rhs690.i ], [ %call676.i, %lor.rhs673.i ], [ %call545.i, %lor.rhs542.i ], [ %call371.i, %lor.rhs368.i ], [ %call236.i, %land.rhs233.i ], [ %call219.i, %land.rhs216.i ], [ %call203.i, %land.rhs200.i ], [ %call181.i, %land.rhs179.i ], [ %call161.i, %land.rhs158.i ], [ %call139.i, %land.rhs137.i ], [ %call110.i, %land.rhs107.i ], [ %call99.i, %land.rhs96.i ], [ %call85.i, %lor.rhs82.i ], [ %call52.i, %lor.rhs.i ], [ %call267.i, %for.end.i ], [ %call311.i, %for.end308.i ], [ %call721.i, %sw.bb718.i ]
-  %228 = load i32, ptr %state, align 4
-  %dec.i = add i32 %228, -1
+  %233 = load i32, ptr %state, align 4
+  %dec.i = add i32 %233, -1
   store i32 %dec.i, ptr %state, align 4
   %tobool2.not = icmp eq i32 %ret.0.i.ph, 0
   br i1 %tobool2.not, label %return, label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %229 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %229, ptr noundef nonnull @.str.2) #5
+  %234 = load ptr, ptr @PyExc_ValueError, align 8
+  tail call void @PyErr_SetString(ptr noundef %234, ptr noundef nonnull @.str.2) #5
   br label %return
 
-for.inc.sink.split:                               ; preds = %cond.end332.i, %for.inc.us16.i.i121, %for.inc.us16.i876, %entry.split.i865, %land.rhs72.i, %if.end34.i, %if.end34.i, %if.end34.i, %land.rhs.i, %sw.bb79.i, %land.rhs365.i, %if.end377.i, %cond.false535.i, %land.rhs530.i, %cond.false666.i, %land.rhs661.i, %land.rhs687.i, %land.rhs742.i, %entry.split.i.i110, %cond.false.i26, %cond.false.i20, %cond.false.i14, %cond.false.i9
-  %230 = load i32, ptr %state, align 4
-  %dec.i909 = add i32 %230, -1
-  store i32 %dec.i909, ptr %state, align 4
+for.inc.sink.split:                               ; preds = %cond.end332.i, %for.inc.us16.i.i121, %for.inc.us16.i864, %entry.split.i853, %land.rhs72.i, %if.end34.i, %if.end34.i, %if.end34.i, %land.rhs.i, %sw.bb79.i, %land.rhs365.i, %if.end377.i, %cond.false535.i, %land.rhs530.i, %cond.false666.i, %land.rhs661.i, %land.rhs687.i, %land.rhs742.i, %entry.split.i.i110, %cond.false.i26, %cond.false.i20, %cond.false.i14, %cond.false.i9
+  %235 = load i32, ptr %state, align 4
+  %dec.i897 = add i32 %235, -1
+  store i32 %dec.i897, ptr %state, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %validate_stmt.exit
   %inc = add nuw i64 %i.0, 1
   br label %for.cond, !llvm.loop !13
 
-return:                                           ; preds = %validate_body.exit52, %validate_body.exit74, %sw.bb312.i, %cond.end, %validate_stmt.exit, %land.lhs.true630.i, %validate_body.exit41, %land.lhs.true499.i, %validate_body.exit63, %for.body335.i, %land.lhs.true344.i, %validate_body.exit85, %for.body288.i, %land.lhs.true300.i, %for.body.i, %land.lhs.true258.i, %validate_stmt.exit.thread912, %validate_body.exit41.thread, %validate_body.exit52.thread, %validate_body.exit63.thread, %validate_body.exit74.thread, %validate_body.exit85.thread, %_validate_nonempty_seq.exit91.thread, %_validate_nonempty_seq.exit97.thread, %_validate_nonempty_seq.exit103.thread, %if.then122.i, %if.then147.i, %if.then381.i, %if.then411.i, %if.then436.i, %if.then491.i, %if.then477.i, %if.then459.i, %if.then581.i, %if.then606.i, %if.then705.i, %if.then33.i, %if.then26.i, %if.then12.i, %if.then.i, %validate_stmt.exit.thread212, %validate_stmt.exit.thread207, %if.else
-  %retval.0 = phi i32 [ 0, %if.else ], [ 0, %validate_stmt.exit.thread207 ], [ 0, %validate_stmt.exit.thread212 ], [ 0, %if.then.i ], [ 0, %if.then12.i ], [ 0, %if.then26.i ], [ 0, %if.then33.i ], [ 0, %if.then705.i ], [ 0, %if.then606.i ], [ 0, %if.then581.i ], [ 0, %if.then459.i ], [ 0, %if.then477.i ], [ 0, %if.then491.i ], [ 0, %if.then436.i ], [ 0, %if.then411.i ], [ 0, %if.then381.i ], [ 0, %if.then147.i ], [ 0, %if.then122.i ], [ 0, %_validate_nonempty_seq.exit103.thread ], [ 0, %_validate_nonempty_seq.exit97.thread ], [ 0, %_validate_nonempty_seq.exit91.thread ], [ 0, %validate_body.exit85.thread ], [ 0, %validate_body.exit74.thread ], [ 0, %validate_body.exit63.thread ], [ 0, %validate_body.exit52.thread ], [ 0, %validate_body.exit41.thread ], [ 0, %validate_stmt.exit.thread912 ], [ 0, %land.lhs.true258.i ], [ 0, %for.body.i ], [ 0, %land.lhs.true300.i ], [ 0, %for.body288.i ], [ 0, %validate_body.exit85 ], [ 0, %land.lhs.true344.i ], [ 0, %for.body335.i ], [ 0, %validate_body.exit63 ], [ 0, %land.lhs.true499.i ], [ 0, %validate_body.exit41 ], [ 0, %land.lhs.true630.i ], [ 0, %validate_stmt.exit ], [ 1, %cond.end ], [ 0, %sw.bb312.i ], [ 0, %validate_body.exit74 ], [ 0, %validate_body.exit52 ]
+return:                                           ; preds = %validate_body.exit52, %validate_body.exit74, %sw.bb312.i, %cond.end, %validate_stmt.exit, %land.lhs.true630.i, %validate_body.exit41, %land.lhs.true499.i, %validate_body.exit63, %for.body335.i, %land.lhs.true344.i, %validate_body.exit85, %for.body288.i, %land.lhs.true300.i, %for.body.i, %land.lhs.true258.i, %validate_stmt.exit.thread900, %validate_body.exit41.thread, %validate_body.exit52.thread, %validate_body.exit63.thread, %validate_body.exit74.thread, %validate_body.exit85.thread, %_validate_nonempty_seq.exit91.thread, %_validate_nonempty_seq.exit97.thread, %_validate_nonempty_seq.exit103.thread, %if.then122.i, %if.then147.i, %if.then381.i, %if.then411.i, %if.then436.i, %if.then491.i, %if.then477.i, %if.then459.i, %if.then581.i, %if.then606.i, %if.then705.i, %if.then33.i, %if.then26.i, %if.then12.i, %if.then.i, %validate_stmt.exit.thread200, %validate_stmt.exit.thread195, %if.else
+  %retval.0 = phi i32 [ 0, %if.else ], [ 0, %validate_stmt.exit.thread195 ], [ 0, %validate_stmt.exit.thread200 ], [ 0, %if.then.i ], [ 0, %if.then12.i ], [ 0, %if.then26.i ], [ 0, %if.then33.i ], [ 0, %if.then705.i ], [ 0, %if.then606.i ], [ 0, %if.then581.i ], [ 0, %if.then459.i ], [ 0, %if.then477.i ], [ 0, %if.then491.i ], [ 0, %if.then436.i ], [ 0, %if.then411.i ], [ 0, %if.then381.i ], [ 0, %if.then147.i ], [ 0, %if.then122.i ], [ 0, %_validate_nonempty_seq.exit103.thread ], [ 0, %_validate_nonempty_seq.exit97.thread ], [ 0, %_validate_nonempty_seq.exit91.thread ], [ 0, %validate_body.exit85.thread ], [ 0, %validate_body.exit74.thread ], [ 0, %validate_body.exit63.thread ], [ 0, %validate_body.exit52.thread ], [ 0, %validate_body.exit41.thread ], [ 0, %validate_stmt.exit.thread900 ], [ 0, %land.lhs.true258.i ], [ 0, %for.body.i ], [ 0, %land.lhs.true300.i ], [ 0, %for.body288.i ], [ 0, %validate_body.exit85 ], [ 0, %land.lhs.true344.i ], [ 0, %for.body335.i ], [ 0, %validate_body.exit63 ], [ 0, %land.lhs.true499.i ], [ 0, %validate_body.exit41 ], [ 0, %land.lhs.true630.i ], [ 0, %validate_stmt.exit ], [ 1, %cond.end ], [ 0, %sw.bb312.i ], [ 0, %validate_body.exit74 ], [ 0, %validate_body.exit52 ]
   ret i32 %retval.0
 }
 

@@ -44,12 +44,12 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
 .loopexit30:                                      ; preds = %13
   %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 30
   %.pre = load i16, ptr %.phi.trans.insert, align 2
-  %23 = load i32, ptr %4, align 4
-  %24 = icmp eq i16 %.pre, 0
-  br i1 %24, label %.preheader28.preheader, label %.loopexit29
+  %23 = icmp eq i16 %.pre, 0
+  %24 = load i32, ptr %4, align 4
+  br i1 %23, label %.preheader28.preheader, label %.loopexit29
 
 .preheader28.preheader:                           ; preds = %.loopexit30.thread, %.loopexit30
-  %25 = phi i32 [ %10, %.loopexit30.thread ], [ %23, %.loopexit30 ]
+  %25 = phi i32 [ %10, %.loopexit30.thread ], [ %24, %.loopexit30 ]
   br label %.preheader28
 
 26:                                               ; preds = %.preheader28
@@ -69,7 +69,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   br label %.loopexit29
 
 .loopexit29:                                      ; preds = %.loopexit29.loopexit, %.loopexit30
-  %32 = phi i32 [ %23, %.loopexit30 ], [ %25, %.loopexit29.loopexit ]
+  %32 = phi i32 [ %24, %.loopexit30 ], [ %25, %.loopexit29.loopexit ]
   %33 = phi i32 [ 15, %.loopexit30 ], [ %31, %.loopexit29.loopexit ]
   %34 = tail call i32 @llvm.umin.i32(i32 %32, i32 %33)
   br label %44

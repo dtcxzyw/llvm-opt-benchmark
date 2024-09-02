@@ -5770,35 +5770,38 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
   %174 = icmp sgt i32 %170, 0
   br i1 %173, label %.preheader433.us, label %.preheader434.us
 
-._crit_edge.us:                                   ; preds = %.lr.ph461.us, %.preheader434.us
-  %.0399.lcssa.us = phi i64 [ 0, %.preheader434.us ], [ %387, %.lr.ph461.us ]
-  %.0395.lcssa.us = phi i64 [ 0, %.preheader434.us ], [ %spec.select425.us, %.lr.ph461.us ]
-  %175 = call { i64, ptr } @jv_object() #14
-  %176 = extractvalue { i64, ptr } %175, 0
-  %177 = extractvalue { i64, ptr } %175, 1
-  %178 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.201) #14
-  %179 = extractvalue { i64, ptr } %178, 0
-  %180 = extractvalue { i64, ptr } %178, 1
-  %181 = uitofp i64 %.0395.lcssa.us to double
-  %182 = call { i64, ptr } @jv_number(double noundef %181) #14
-  %183 = extractvalue { i64, ptr } %182, 0
-  %184 = extractvalue { i64, ptr } %182, 1
-  %185 = call { i64, ptr } @jv_object_set(i64 %176, ptr %177, i64 %179, ptr %180, i64 %183, ptr %184) #14
-  %186 = extractvalue { i64, ptr } %185, 0
-  %187 = extractvalue { i64, ptr } %185, 1
-  %188 = load ptr, ptr %159, align 8
-  %189 = load i32, ptr %188, align 4
-  %190 = load ptr, ptr %160, align 8
-  %191 = load i32, ptr %190, align 4
-  %192 = sub nsw i32 %189, %191
-  %193 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.109) #14
-  %194 = extractvalue { i64, ptr } %193, 0
-  %195 = extractvalue { i64, ptr } %193, 1
-  %196 = uitofp i64 %.0399.lcssa.us to double
-  %197 = call { i64, ptr } @jv_number(double noundef %196) #14
+._crit_edge.us.loopexit:                          ; preds = %.lr.ph461.us
+  %175 = uitofp i64 %spec.select425.us to double
+  %176 = uitofp i64 %387 to double
+  br label %._crit_edge.us
+
+._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit, %.preheader434.us
+  %.0399.lcssa.us = phi double [ 0.000000e+00, %.preheader434.us ], [ %176, %._crit_edge.us.loopexit ]
+  %.0395.lcssa.us = phi double [ 0.000000e+00, %.preheader434.us ], [ %175, %._crit_edge.us.loopexit ]
+  %177 = call { i64, ptr } @jv_object() #14
+  %178 = extractvalue { i64, ptr } %177, 0
+  %179 = extractvalue { i64, ptr } %177, 1
+  %180 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.201) #14
+  %181 = extractvalue { i64, ptr } %180, 0
+  %182 = extractvalue { i64, ptr } %180, 1
+  %183 = call { i64, ptr } @jv_number(double noundef %.0395.lcssa.us) #14
+  %184 = extractvalue { i64, ptr } %183, 0
+  %185 = extractvalue { i64, ptr } %183, 1
+  %186 = call { i64, ptr } @jv_object_set(i64 %178, ptr %179, i64 %181, ptr %182, i64 %184, ptr %185) #14
+  %187 = extractvalue { i64, ptr } %186, 0
+  %188 = extractvalue { i64, ptr } %186, 1
+  %189 = load ptr, ptr %159, align 8
+  %190 = load i32, ptr %189, align 4
+  %191 = load ptr, ptr %160, align 8
+  %192 = load i32, ptr %191, align 4
+  %193 = sub nsw i32 %190, %192
+  %194 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.109) #14
+  %195 = extractvalue { i64, ptr } %194, 0
+  %196 = extractvalue { i64, ptr } %194, 1
+  %197 = call { i64, ptr } @jv_number(double noundef %.0399.lcssa.us) #14
   %198 = extractvalue { i64, ptr } %197, 0
   %199 = extractvalue { i64, ptr } %197, 1
-  %200 = call { i64, ptr } @jv_object_set(i64 %186, ptr %187, i64 %194, ptr %195, i64 %198, ptr %199) #14
+  %200 = call { i64, ptr } @jv_object_set(i64 %187, ptr %188, i64 %195, ptr %196, i64 %198, ptr %199) #14
   %201 = extractvalue { i64, ptr } %200, 0
   %202 = extractvalue { i64, ptr } %200, 1
   %203 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.202) #14
@@ -5808,7 +5811,7 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
   %207 = load i32, ptr %206, align 4
   %208 = sext i32 %207 to i64
   %209 = getelementptr inbounds i8, ptr %150, i64 %208
-  %210 = call { i64, ptr } @jv_string_sized(ptr noundef %209, i32 noundef %192) #14
+  %210 = call { i64, ptr } @jv_string_sized(ptr noundef %209, i32 noundef %193) #14
   %211 = extractvalue { i64, ptr } %210, 0
   %212 = extractvalue { i64, ptr } %210, 1
   %213 = call { i64, ptr } @jv_object_set(i64 %201, ptr %202, i64 %204, ptr %205, i64 %211, ptr %212) #14
@@ -5857,35 +5860,35 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
   %.pre506 = load ptr, ptr %160, align 8
   %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre506, i64 %indvars.iv
   %.pre507 = load i32, ptr %.phi.trans.insert, align 4
+  %243 = uitofp i64 %spec.select427.us to double
+  %244 = uitofp i64 %291 to double
   br label %._crit_edge468.us
 
 ._crit_edge468.us:                                ; preds = %._crit_edge468.us.loopexit, %.preheader432.us
-  %243 = phi i32 [ %238, %.preheader432.us ], [ %.pre507, %._crit_edge468.us.loopexit ]
-  %.2401.lcssa.us = phi i64 [ 0, %.preheader432.us ], [ %291, %._crit_edge468.us.loopexit ]
-  %.3398.lcssa.us = phi i64 [ 0, %.preheader432.us ], [ %spec.select427.us, %._crit_edge468.us.loopexit ]
+  %245 = phi i32 [ %238, %.preheader432.us ], [ %.pre507, %._crit_edge468.us.loopexit ]
+  %.2401.lcssa.us = phi double [ 0.000000e+00, %.preheader432.us ], [ %244, %._crit_edge468.us.loopexit ]
+  %.3398.lcssa.us = phi double [ 0.000000e+00, %.preheader432.us ], [ %243, %._crit_edge468.us.loopexit ]
   %.lcssa.us = phi i32 [ %241, %.preheader432.us ], [ %294, %._crit_edge468.us.loopexit ]
-  %244 = sub nsw i32 %.lcssa.us, %243
-  %245 = call { i64, ptr } @jv_object() #14
-  %246 = extractvalue { i64, ptr } %245, 0
-  %247 = extractvalue { i64, ptr } %245, 1
-  %248 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.201) #14
-  %249 = extractvalue { i64, ptr } %248, 0
-  %250 = extractvalue { i64, ptr } %248, 1
-  %251 = uitofp i64 %.3398.lcssa.us to double
-  %252 = call { i64, ptr } @jv_number(double noundef %251) #14
-  %253 = extractvalue { i64, ptr } %252, 0
-  %254 = extractvalue { i64, ptr } %252, 1
-  %255 = call { i64, ptr } @jv_object_set(i64 %246, ptr %247, i64 %249, ptr %250, i64 %253, ptr %254) #14
-  %256 = extractvalue { i64, ptr } %255, 0
-  %257 = extractvalue { i64, ptr } %255, 1
-  %258 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.109) #14
-  %259 = extractvalue { i64, ptr } %258, 0
-  %260 = extractvalue { i64, ptr } %258, 1
-  %261 = uitofp i64 %.2401.lcssa.us to double
-  %262 = call { i64, ptr } @jv_number(double noundef %261) #14
+  %246 = sub nsw i32 %.lcssa.us, %245
+  %247 = call { i64, ptr } @jv_object() #14
+  %248 = extractvalue { i64, ptr } %247, 0
+  %249 = extractvalue { i64, ptr } %247, 1
+  %250 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.201) #14
+  %251 = extractvalue { i64, ptr } %250, 0
+  %252 = extractvalue { i64, ptr } %250, 1
+  %253 = call { i64, ptr } @jv_number(double noundef %.3398.lcssa.us) #14
+  %254 = extractvalue { i64, ptr } %253, 0
+  %255 = extractvalue { i64, ptr } %253, 1
+  %256 = call { i64, ptr } @jv_object_set(i64 %248, ptr %249, i64 %251, ptr %252, i64 %254, ptr %255) #14
+  %257 = extractvalue { i64, ptr } %256, 0
+  %258 = extractvalue { i64, ptr } %256, 1
+  %259 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.109) #14
+  %260 = extractvalue { i64, ptr } %259, 0
+  %261 = extractvalue { i64, ptr } %259, 1
+  %262 = call { i64, ptr } @jv_number(double noundef %.2401.lcssa.us) #14
   %263 = extractvalue { i64, ptr } %262, 0
   %264 = extractvalue { i64, ptr } %262, 1
-  %265 = call { i64, ptr } @jv_object_set(i64 %256, ptr %257, i64 %259, ptr %260, i64 %263, ptr %264) #14
+  %265 = call { i64, ptr } @jv_object_set(i64 %257, ptr %258, i64 %260, ptr %261, i64 %263, ptr %264) #14
   %266 = extractvalue { i64, ptr } %265, 0
   %267 = extractvalue { i64, ptr } %265, 1
   %268 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.202) #14
@@ -5896,7 +5899,7 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
   %273 = load i32, ptr %272, align 4
   %274 = sext i32 %273 to i64
   %275 = getelementptr inbounds i8, ptr %150, i64 %274
-  %276 = call { i64, ptr } @jv_string_sized(ptr noundef %275, i32 noundef %244) #14
+  %276 = call { i64, ptr } @jv_string_sized(ptr noundef %275, i32 noundef %246) #14
   %277 = extractvalue { i64, ptr } %276, 0
   %278 = extractvalue { i64, ptr } %276, 1
   %279 = call { i64, ptr } @jv_object_set(i64 %266, ptr %267, i64 %269, ptr %270, i64 %277, ptr %278) #14
@@ -5931,19 +5934,22 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
   %299 = icmp eq i32 %238, -1
   br i1 %299, label %331, label %.preheader.us
 
-._crit_edge475.us:                                ; preds = %.lr.ph474.us, %.preheader.us
-  %.2397.lcssa.us = phi i64 [ 0, %.preheader.us ], [ %324, %.lr.ph474.us ]
-  %300 = call { i64, ptr } @jv_object() #14
-  %301 = extractvalue { i64, ptr } %300, 0
-  %302 = extractvalue { i64, ptr } %300, 1
-  %303 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.201) #14
-  %304 = extractvalue { i64, ptr } %303, 0
-  %305 = extractvalue { i64, ptr } %303, 1
-  %306 = uitofp i64 %.2397.lcssa.us to double
-  %307 = call { i64, ptr } @jv_number(double noundef %306) #14
+._crit_edge475.us.loopexit:                       ; preds = %.lr.ph474.us
+  %300 = uitofp i64 %324 to double
+  br label %._crit_edge475.us
+
+._crit_edge475.us:                                ; preds = %._crit_edge475.us.loopexit, %.preheader.us
+  %.2397.lcssa.us = phi double [ 0.000000e+00, %.preheader.us ], [ %300, %._crit_edge475.us.loopexit ]
+  %301 = call { i64, ptr } @jv_object() #14
+  %302 = extractvalue { i64, ptr } %301, 0
+  %303 = extractvalue { i64, ptr } %301, 1
+  %304 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.201) #14
+  %305 = extractvalue { i64, ptr } %304, 0
+  %306 = extractvalue { i64, ptr } %304, 1
+  %307 = call { i64, ptr } @jv_number(double noundef %.2397.lcssa.us) #14
   %308 = extractvalue { i64, ptr } %307, 0
   %309 = extractvalue { i64, ptr } %307, 1
-  %310 = call { i64, ptr } @jv_object_set(i64 %301, ptr %302, i64 %304, ptr %305, i64 %308, ptr %309) #14
+  %310 = call { i64, ptr } @jv_object_set(i64 %302, ptr %303, i64 %305, ptr %306, i64 %308, ptr %309) #14
   %311 = extractvalue { i64, ptr } %310, 0
   %312 = extractvalue { i64, ptr } %310, 1
   %313 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.202) #14
@@ -5969,7 +5975,7 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
   %328 = sext i32 %327 to i64
   %329 = getelementptr inbounds i8, ptr %150, i64 %328
   %330 = icmp ult ptr %323, %329
-  br i1 %330, label %.lr.ph474.us, label %._crit_edge475.us, !llvm.loop !21
+  br i1 %330, label %.lr.ph474.us, label %._crit_edge475.us.loopexit, !llvm.loop !21
 
 331:                                              ; preds = %298
   %332 = call { i64, ptr } @jv_object() #14
@@ -6053,21 +6059,24 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
   %390 = sext i32 %389 to i64
   %391 = getelementptr inbounds i8, ptr %150, i64 %390
   %392 = icmp ult ptr %386, %391
-  br i1 %392, label %.lr.ph461.us, label %._crit_edge.us, !llvm.loop !23
+  br i1 %392, label %.lr.ph461.us, label %._crit_edge.us.loopexit, !llvm.loop !23
 
-._crit_edge484.us:                                ; preds = %.lr.ph483.us, %.preheader433.us
-  %.0392.lcssa.us = phi i64 [ 0, %.preheader433.us ], [ %497, %.lr.ph483.us ]
-  %393 = call { i64, ptr } @jv_object() #14
-  %394 = extractvalue { i64, ptr } %393, 0
-  %395 = extractvalue { i64, ptr } %393, 1
-  %396 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.201) #14
-  %397 = extractvalue { i64, ptr } %396, 0
-  %398 = extractvalue { i64, ptr } %396, 1
-  %399 = uitofp i64 %.0392.lcssa.us to double
-  %400 = call { i64, ptr } @jv_number(double noundef %399) #14
+._crit_edge484.us.loopexit:                       ; preds = %.lr.ph483.us
+  %393 = uitofp i64 %497 to double
+  br label %._crit_edge484.us
+
+._crit_edge484.us:                                ; preds = %._crit_edge484.us.loopexit, %.preheader433.us
+  %.0392.lcssa.us = phi double [ 0.000000e+00, %.preheader433.us ], [ %393, %._crit_edge484.us.loopexit ]
+  %394 = call { i64, ptr } @jv_object() #14
+  %395 = extractvalue { i64, ptr } %394, 0
+  %396 = extractvalue { i64, ptr } %394, 1
+  %397 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.201) #14
+  %398 = extractvalue { i64, ptr } %397, 0
+  %399 = extractvalue { i64, ptr } %397, 1
+  %400 = call { i64, ptr } @jv_number(double noundef %.0392.lcssa.us) #14
   %401 = extractvalue { i64, ptr } %400, 0
   %402 = extractvalue { i64, ptr } %400, 1
-  %403 = call { i64, ptr } @jv_object_set(i64 %394, ptr %395, i64 %397, ptr %398, i64 %401, ptr %402) #14
+  %403 = call { i64, ptr } @jv_object_set(i64 %395, ptr %396, i64 %398, ptr %399, i64 %401, ptr %402) #14
   %404 = extractvalue { i64, ptr } %403, 0
   %405 = extractvalue { i64, ptr } %403, 1
   %406 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.109) #14
@@ -6132,7 +6141,7 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
   %449 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.201) #14
   %450 = extractvalue { i64, ptr } %449, 0
   %451 = extractvalue { i64, ptr } %449, 1
-  %452 = call { i64, ptr } @jv_number(double noundef %399) #14
+  %452 = call { i64, ptr } @jv_number(double noundef %.0392.lcssa.us) #14
   %453 = extractvalue { i64, ptr } %452, 0
   %454 = extractvalue { i64, ptr } %452, 1
   %455 = call { i64, ptr } @jv_object_set(i64 %447, ptr %448, i64 %450, ptr %451, i64 %453, ptr %454) #14
@@ -6190,7 +6199,7 @@ define internal { i64, ptr } @f_match(ptr nocapture readnone %0, i64 %1, ptr %2,
   %500 = sext i32 %499 to i64
   %501 = getelementptr inbounds i8, ptr %150, i64 %500
   %502 = icmp ult ptr %496, %501
-  br i1 %502, label %.lr.ph483.us, label %._crit_edge484.us, !llvm.loop !26
+  br i1 %502, label %.lr.ph483.us, label %._crit_edge484.us.loopexit, !llvm.loop !26
 
 .preheader.us:                                    ; preds = %298
   %503 = icmp sgt i32 %238, 0

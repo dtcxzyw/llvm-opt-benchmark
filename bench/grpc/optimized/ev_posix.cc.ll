@@ -902,13 +902,13 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %if
   %add21.i.i = add i64 %add.i.i, %.sroa.speculated.i.i.i
   store i64 %add21.i.i, ptr %__begin2.i, align 8
   %.pre19.i = load i32, ptr %state_.i.i.i, align 8
+  %30 = icmp ne i32 %.pre19.i, 2
   br label %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i, !llvm.loop !15
 
 _ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i, %if.then.i16.i
-  %30 = phi i64 [ %.pre20.i, %if.then.i16.i ], [ %add21.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %31 = phi i32 [ 2, %if.then.i16.i ], [ %.pre19.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %cmp.i.i12.i = icmp ne i32 %31, 2
-  %cmp3.i.i.i = icmp ne i64 %30, %retval.sroa.0.0.copyload.i.i.i10.i
+  %31 = phi i64 [ %.pre20.i, %if.then.i16.i ], [ %add21.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+  %cmp.i.i12.i = phi i1 [ false, %if.then.i16.i ], [ %30, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+  %cmp3.i.i.i = icmp ne i64 %31, %retval.sroa.0.0.copyload.i.i.i10.i
   %.not.i.i = select i1 %cmp.i.i12.i, i1 true, i1 %cmp3.i.i.i
   br i1 %.not.i.i, label %for.body.i, label %for.end.i
 

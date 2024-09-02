@@ -29,7 +29,7 @@ if.then1:                                         ; preds = %if.then
 if.else:                                          ; preds = %if.then
   %2 = ptrtoint ptr %inst to i64
   %or.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 60)
-  %spec.store.select.i = tail call noundef i64 @llvm.umin.i64(i64 %or.i.i, i64 -2)
+  %spec.store.select.i = tail call noundef range(i64 0, -1) i64 @llvm.umin.i64(i64 %or.i.i, i64 -2)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -103,7 +103,7 @@ return:                                           ; preds = %cond.end, %if.else,
 declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @Py_HashPointer(ptr noundef %ptr) local_unnamed_addr #2 {
+define dso_local noundef range(i64 0, -1) i64 @Py_HashPointer(ptr noundef %ptr) local_unnamed_addr #2 {
 entry:
   %0 = ptrtoint ptr %ptr to i64
   %or.i = tail call noundef i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 60)

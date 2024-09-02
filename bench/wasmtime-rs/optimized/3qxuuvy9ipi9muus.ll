@@ -26668,7 +26668,7 @@ define noundef range(i8 0, 6) i8 @"_ZN13wasmtime_wasi4host10filesystem4sync197_$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN13wasmtime_wasi4host10filesystem4sync203_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..PathFlags$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..PathFlags$GT$4from17h2f1b60dae467474eE"(i8 noundef %0) unnamed_addr #4 {
+define noundef range(i8 0, 2) i8 @"_ZN13wasmtime_wasi4host10filesystem4sync203_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..PathFlags$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..PathFlags$GT$4from17h2f1b60dae467474eE"(i8 noundef %0) unnamed_addr #4 {
   %2 = and i8 %0, 1
   ret i8 %2
 }
@@ -26696,13 +26696,13 @@ define void @"_ZN13wasmtime_wasi4host10filesystem4sync209_$LT$impl$u20$core..con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN13wasmtime_wasi4host10filesystem4sync203_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..OpenFlags$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..OpenFlags$GT$4from17h38d50badf28b2ea0E"(i8 noundef %0) unnamed_addr #4 {
+define noundef range(i8 0, 16) i8 @"_ZN13wasmtime_wasi4host10filesystem4sync203_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..OpenFlags$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..OpenFlags$GT$4from17h38d50badf28b2ea0E"(i8 noundef %0) unnamed_addr #4 {
   %.3 = and i8 %0, 15
   ret i8 %.3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN13wasmtime_wasi4host10filesystem4sync215_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..DescriptorFlags$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DescriptorFlags$GT$4from17h397353f9ee39a806E"(i8 noundef %0) unnamed_addr #4 {
+define noundef range(i8 0, 64) i8 @"_ZN13wasmtime_wasi4host10filesystem4sync215_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..DescriptorFlags$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DescriptorFlags$GT$4from17h397353f9ee39a806E"(i8 noundef %0) unnamed_addr #4 {
   %.5 = and i8 %0, 63
   ret i8 %.5
 }
@@ -27187,7 +27187,7 @@ define noundef range(i8 0, 2) i8 @"_ZN13wasmtime_wasi8preview1170_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN13wasmtime_wasi8preview1165_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Oflags$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..OpenFlags$GT$4from17h31b6662256f2e29aE"(i16 noundef %0) unnamed_addr #4 {
+define noundef range(i8 0, 16) i8 @"_ZN13wasmtime_wasi8preview1165_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..preview1..types..Oflags$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..OpenFlags$GT$4from17h31b6662256f2e29aE"(i16 noundef %0) unnamed_addr #4 {
   %2 = trunc i16 %0 to i8
   %.3 = and i8 %2, 15
   ret i8 %.3

@@ -5982,8 +5982,8 @@ for.body9.i58:                                    ; preds = %for.body9.i58, %.no
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit64:  ; preds = %for.body9.i58, %if.end
   store i32 %add, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 4), align 4
-  %cmp4.not100 = icmp slt i32 %numBodies, -31
-  br i1 %cmp4.not100, label %for.end, label %for.body.preheader
+  %cmp4.not101 = icmp slt i32 %numBodies, -31
+  br i1 %cmp4.not101, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit64
   %wide.trip.count = zext i32 %add to i64
@@ -6003,47 +6003,47 @@ for.end:                                          ; preds = %for.body, %_ZN20b3A
           to label %while.cond.preheader unwind label %lpad
 
 while.cond.preheader:                             ; preds = %for.end
-  %cmp8115 = icmp sgt i32 %numConstraints, 0
-  br i1 %cmp8115, label %for.cond10.preheader.lr.ph, label %while.end
+  %cmp8122 = icmp sgt i32 %numConstraints, 0
+  br i1 %cmp8122, label %for.cond10.preheader.lr.ph, label %while.end
 
 for.cond10.preheader.lr.ph:                       ; preds = %while.cond.preheader
   %m_gpuData = getelementptr inbounds i8, ptr %this, i64 16
-  %wide.trip.count137 = zext nneg i32 %numConstraints to i64
+  %wide.trip.count144 = zext nneg i32 %numConstraints to i64
   br label %for.cond10.preheader
 
 for.cond10.preheader:                             ; preds = %for.cond10.preheader.lr.ph, %invoke.cont111
-  %numSwaps.0119 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %numSwaps.1.lcssa, %invoke.cont111 ]
-  %curBodyUsed.0118 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %curBodyUsed.1.lcssa, %invoke.cont111 ]
-  %numValidConstraints.0117 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %numValidConstraints.1.lcssa, %invoke.cont111 ]
-  %batchIdx.0116 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %inc112, %invoke.cont111 ]
-  %cmp11102 = icmp sgt i32 %curBodyUsed.0118, 0
-  br i1 %cmp11102, label %for.body12.preheader, label %for.cond23.preheader
+  %numSwaps.0126 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %numSwaps.1.lcssa, %invoke.cont111 ]
+  %curBodyUsed.0125 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %curBodyUsed.1.lcssa, %invoke.cont111 ]
+  %numValidConstraints.0124 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %numValidConstraints.1.lcssa, %invoke.cont111 ]
+  %batchIdx.0123 = phi i32 [ 0, %for.cond10.preheader.lr.ph ], [ %inc112, %invoke.cont111 ]
+  %cmp11103 = icmp sgt i32 %curBodyUsed.0125, 0
+  br i1 %cmp11103, label %for.body12.preheader, label %for.cond23.preheader
 
 for.body12.preheader:                             ; preds = %for.cond10.preheader
-  %wide.trip.count127 = zext nneg i32 %curBodyUsed.0118 to i64
+  %wide.trip.count134 = zext nneg i32 %curBodyUsed.0125 to i64
   br label %for.body12
 
 for.cond23.preheader:                             ; preds = %for.body12, %for.cond10.preheader
-  %cmp24106 = icmp slt i32 %numValidConstraints.0117, %numConstraints
-  br i1 %cmp24106, label %for.body25.preheader, label %for.end110
+  %cmp24107 = icmp slt i32 %numValidConstraints.0124, %numConstraints
+  br i1 %cmp24107, label %for.body25.preheader, label %for.end110
 
 for.body25.preheader:                             ; preds = %for.cond23.preheader
-  %9 = sext i32 %numValidConstraints.0117 to i64
+  %9 = sext i32 %numValidConstraints.0124 to i64
   br label %for.body25
 
 for.body12:                                       ; preds = %for.body12.preheader, %for.body12
-  %indvars.iv124 = phi i64 [ 0, %for.body12.preheader ], [ %indvars.iv.next125, %for.body12 ]
+  %indvars.iv131 = phi i64 [ 0, %for.body12.preheader ], [ %indvars.iv.next132, %for.body12 ]
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
-  %arrayidx.i67 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv124
+  %arrayidx.i67 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv131
   %11 = load i32, ptr %arrayidx.i67, align 4
   %div16 = sdiv i32 %11, 32
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %idxprom.i68 = sext i32 %div16 to i64
   %arrayidx.i69 = getelementptr inbounds i32, ptr %12, i64 %idxprom.i68
   store i32 0, ptr %arrayidx.i69, align 4
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
-  %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
-  br i1 %exitcond128.not, label %for.cond23.preheader, label %for.body12, !llvm.loop !24
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
+  br i1 %exitcond135.not, label %for.cond23.preheader, label %for.body12, !llvm.loop !24
 
 lpad13:                                           ; preds = %if.then.i
   %13 = landingpad { ptr, i32 }
@@ -6059,12 +6059,12 @@ terminate.lpad.i:                                 ; preds = %lpad13
   unreachable
 
 for.body25:                                       ; preds = %for.body25.preheader, %for.inc108
-  %indvars.iv134 = phi i64 [ %9, %for.body25.preheader ], [ %indvars.iv.next135, %for.inc108 ]
-  %numSwaps.1111 = phi i32 [ %numSwaps.0119, %for.body25.preheader ], [ %numSwaps.3, %for.inc108 ]
-  %curBodyUsed.1110 = phi i32 [ 0, %for.body25.preheader ], [ %curBodyUsed.4, %for.inc108 ]
-  %numValidConstraints.1109 = phi i32 [ %numValidConstraints.0117, %for.body25.preheader ], [ %numValidConstraints.2, %for.inc108 ]
-  %nCurrentBatch.0107 = phi i32 [ 0, %for.body25.preheader ], [ %nCurrentBatch.1, %for.inc108 ]
-  %arrayidx = getelementptr inbounds %struct.b3BatchConstraint, ptr %cs, i64 %indvars.iv134
+  %indvars.iv141 = phi i64 [ %9, %for.body25.preheader ], [ %indvars.iv.next142, %for.inc108 ]
+  %numSwaps.1116 = phi i32 [ %numSwaps.0126, %for.body25.preheader ], [ %numSwaps.3, %for.inc108 ]
+  %curBodyUsed.1115 = phi i32 [ 0, %for.body25.preheader ], [ %curBodyUsed.4, %for.inc108 ]
+  %numValidConstraints.1112 = phi i32 [ %numValidConstraints.0124, %for.body25.preheader ], [ %numValidConstraints.2, %for.inc108 ]
+  %nCurrentBatch.0108 = phi i32 [ 0, %for.body25.preheader ], [ %nCurrentBatch.1, %for.inc108 ]
+  %arrayidx = getelementptr inbounds %struct.b3BatchConstraint, ptr %cs, i64 %indvars.iv141
   %16 = load i32, ptr %arrayidx, align 4
   %m_bodyBPtrAndSignBit = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %17 = load i32, ptr %m_bodyBPtrAndSignBit, align 4
@@ -6073,160 +6073,166 @@ for.body25:                                       ; preds = %for.body25.preheade
   %cmp28 = icmp slt i32 %16, 0
   %cmp29 = icmp eq i32 %16, %staticIdx
   %20 = or i1 %cmp28, %cmp29
-  %cmp30 = icmp sgt i32 %17, -1
-  %cmp32 = icmp ne i32 %17, %staticIdx
-  %.not97 = and i1 %cmp30, %cmp32
-  br i1 %20, label %if.end40, label %if.then35
+  %cmp30 = icmp slt i32 %17, 0
+  %cmp32 = icmp eq i32 %17, %staticIdx
+  %21 = or i1 %cmp30, %cmp32
+  br i1 %20, label %if.then42.critedge, label %if.then35
 
 if.then35:                                        ; preds = %for.body25
   %div3650 = lshr i32 %18, 5
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %idxprom.i70 = zext nneg i32 %div3650 to i64
-  %arrayidx.i71 = getelementptr inbounds i32, ptr %21, i64 %idxprom.i70
-  %22 = load i32, ptr %arrayidx.i71, align 4
+  %arrayidx.i71 = getelementptr inbounds i32, ptr %22, i64 %idxprom.i70
+  %23 = load i32, ptr %arrayidx.i71, align 4
   %and = and i32 %18, 31
   %shl = shl nuw i32 1, %and
-  %and39 = and i32 %22, %shl
-  br label %if.end40
+  %and39 = and i32 %23, %shl
+  %24 = icmp ne i32 %and39, 0
+  %brmerge = select i1 %24, i1 true, i1 %21
+  br i1 %brmerge, label %if.end52, label %if.then44.thread
 
-if.end40:                                         ; preds = %if.then35, %for.body25
-  %aUnavailable.0 = phi i32 [ 0, %for.body25 ], [ %and39, %if.then35 ]
-  %tobool41.not = icmp eq i32 %aUnavailable.0, 0
-  %brmerge.not = select i1 %tobool41.not, i1 %.not97, i1 false
-  br i1 %brmerge.not, label %if.then44, label %if.end52
+if.then42.critedge:                               ; preds = %for.body25
+  br i1 %21, label %if.end78, label %if.then44
 
-if.then44:                                        ; preds = %if.end40
+if.then44:                                        ; preds = %if.then42.critedge
+  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %div4551 = lshr i32 %19, 5
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %idxprom.i72 = zext nneg i32 %div4551 to i64
-  %arrayidx.i73 = getelementptr inbounds i32, ptr %23, i64 %idxprom.i72
-  %24 = load i32, ptr %arrayidx.i73, align 4
+  %arrayidx.i73 = getelementptr inbounds i32, ptr %.pre, i64 %idxprom.i72
+  %25 = load i32, ptr %arrayidx.i73, align 4
   %and48 = and i32 %19, 31
   %shl49 = shl nuw i32 1, %and48
-  %and50 = and i32 %24, %shl49
-  br label %if.end52
+  %and50 = and i32 %25, %shl49
+  %26 = icmp eq i32 %and50, 0
+  br i1 %26, label %if.then68, label %for.inc108
 
-if.end52:                                         ; preds = %if.end40, %if.then44
-  %bUnavailable.0 = phi i32 [ 0, %if.end40 ], [ %and50, %if.then44 ]
-  %cmp54 = icmp eq i32 %bUnavailable.0, 0
-  %or.cond = select i1 %tobool41.not, i1 %cmp54, i1 false
-  br i1 %or.cond, label %if.then55, label %for.inc108
+if.then44.thread:                                 ; preds = %if.then35
+  %div4551150 = lshr i32 %19, 5
+  %idxprom.i72151 = zext nneg i32 %div4551150 to i64
+  %arrayidx.i73152 = getelementptr inbounds i32, ptr %22, i64 %idxprom.i72151
+  %27 = load i32, ptr %arrayidx.i73152, align 4
+  %and48153 = and i32 %19, 31
+  %shl49154 = shl nuw i32 1, %and48153
+  %and50155 = and i32 %27, %shl49154
+  %28 = icmp eq i32 %and50155, 0
+  br i1 %28, label %if.then55.if.then57_crit_edge, label %for.inc108
 
-if.then55:                                        ; preds = %if.end52
-  br i1 %20, label %if.end66, label %if.then57
+if.end52:                                         ; preds = %if.then35
+  br i1 %24, label %for.inc108, label %if.end66
 
-if.then57:                                        ; preds = %if.then55
-  %and58 = and i32 %18, 31
-  %shl59 = shl nuw i32 1, %and58
-  %div6052 = lshr i32 %18, 5
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
-  %idxprom.i74 = zext nneg i32 %div6052 to i64
-  %arrayidx.i75 = getelementptr inbounds i32, ptr %25, i64 %idxprom.i74
-  %26 = load i32, ptr %arrayidx.i75, align 4
-  %or = or i32 %26, %shl59
-  store i32 %or, ptr %arrayidx.i75, align 4
-  %inc63 = add nsw i32 %curBodyUsed.1110, 1
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
-  %idxprom.i76 = sext i32 %curBodyUsed.1110 to i64
-  %arrayidx.i77 = getelementptr inbounds i32, ptr %27, i64 %idxprom.i76
-  store i32 %18, ptr %arrayidx.i77, align 4
+if.then55.if.then57_crit_edge:                    ; preds = %if.then44.thread
+  %.pre146 = and i32 %18, 31
+  %.pre147 = shl nuw i32 1, %.pre146
+  %.pre148 = lshr i32 %18, 5
+  %.pre149 = zext nneg i32 %.pre148 to i64
   br label %if.end66
 
-if.end66:                                         ; preds = %if.then57, %if.then55
-  %curBodyUsed.2 = phi i32 [ %curBodyUsed.1110, %if.then55 ], [ %inc63, %if.then57 ]
-  br i1 %.not97, label %if.then68, label %if.end78
+if.end66:                                         ; preds = %if.end52, %if.then55.if.then57_crit_edge
+  %idxprom.i74.pre-phi = phi i64 [ %.pre149, %if.then55.if.then57_crit_edge ], [ %idxprom.i70, %if.end52 ]
+  %shl59.pre-phi = phi i32 [ %.pre147, %if.then55.if.then57_crit_edge ], [ %shl, %if.end52 ]
+  %arrayidx.i75 = getelementptr inbounds i32, ptr %22, i64 %idxprom.i74.pre-phi
+  %29 = load i32, ptr %arrayidx.i75, align 4
+  %or = or i32 %29, %shl59.pre-phi
+  store i32 %or, ptr %arrayidx.i75, align 4
+  %inc63 = add nsw i32 %curBodyUsed.1115, 1
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
+  %idxprom.i76 = sext i32 %curBodyUsed.1115 to i64
+  %arrayidx.i77 = getelementptr inbounds i32, ptr %30, i64 %idxprom.i76
+  store i32 %18, ptr %arrayidx.i77, align 4
+  br i1 %21, label %if.end78, label %if.then68
 
-if.then68:                                        ; preds = %if.end66
+if.then68:                                        ; preds = %if.then44, %if.end66
+  %curBodyUsed.2157 = phi i32 [ %inc63, %if.end66 ], [ %curBodyUsed.1115, %if.then44 ]
   %and69 = and i32 %19, 31
   %shl70 = shl nuw i32 1, %and69
   %div7153 = lshr i32 %19, 5
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %idxprom.i78 = zext nneg i32 %div7153 to i64
-  %arrayidx.i79 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i78
-  %29 = load i32, ptr %arrayidx.i79, align 4
-  %or74 = or i32 %29, %shl70
+  %arrayidx.i79 = getelementptr inbounds i32, ptr %31, i64 %idxprom.i78
+  %32 = load i32, ptr %arrayidx.i79, align 4
+  %or74 = or i32 %32, %shl70
   store i32 %or74, ptr %arrayidx.i79, align 4
-  %inc75 = add nsw i32 %curBodyUsed.2, 1
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
-  %idxprom.i80 = sext i32 %curBodyUsed.2 to i64
-  %arrayidx.i81 = getelementptr inbounds i32, ptr %30, i64 %idxprom.i80
+  %inc75 = add nsw i32 %curBodyUsed.2157, 1
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
+  %idxprom.i80 = sext i32 %curBodyUsed.2157 to i64
+  %arrayidx.i81 = getelementptr inbounds i32, ptr %33, i64 %idxprom.i80
   store i32 %19, ptr %arrayidx.i81, align 4
   br label %if.end78
 
-if.end78:                                         ; preds = %if.then68, %if.end66
-  %curBodyUsed.3 = phi i32 [ %curBodyUsed.2, %if.end66 ], [ %inc75, %if.then68 ]
+if.end78:                                         ; preds = %if.then42.critedge, %if.then68, %if.end66
+  %curBodyUsed.3 = phi i32 [ %inc63, %if.end66 ], [ %inc75, %if.then68 ], [ %curBodyUsed.1115, %if.then42.critedge ]
   %m_batchId = getelementptr inbounds i8, ptr %arrayidx, i64 12
-  store i32 %batchIdx.0116, ptr %m_batchId, align 4
-  %31 = trunc nsw i64 %indvars.iv134 to i32
-  %cmp81.not = icmp eq i32 %numValidConstraints.1109, %31
+  store i32 %batchIdx.0123, ptr %m_batchId, align 4
+  %34 = trunc nsw i64 %indvars.iv141 to i32
+  %cmp81.not = icmp eq i32 %numValidConstraints.1112, %34
   br i1 %cmp81.not, label %if.end89, label %if.then82
 
 if.then82:                                        ; preds = %if.end78
-  %idxprom85 = sext i32 %numValidConstraints.1109 to i64
+  %idxprom85 = sext i32 %numValidConstraints.1112 to i64
   %arrayidx86 = getelementptr inbounds %struct.b3BatchConstraint, ptr %cs, i64 %idxprom85
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %tmp.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx86, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx86, ptr noundef nonnull align 4 dereferenceable(16) %tmp.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i)
-  %inc88 = add nsw i32 %numSwaps.1111, 1
+  %inc88 = add nsw i32 %numSwaps.1116, 1
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then82, %if.end78
-  %numSwaps.2 = phi i32 [ %inc88, %if.then82 ], [ %numSwaps.1111, %if.end78 ]
-  %inc90 = add nsw i32 %numValidConstraints.1109, 1
-  %inc91 = add nsw i32 %nCurrentBatch.0107, 1
+  %numSwaps.2 = phi i32 [ %inc88, %if.then82 ], [ %numSwaps.1116, %if.end78 ]
+  %inc90 = add nsw i32 %numValidConstraints.1112, 1
+  %inc91 = add nsw i32 %nCurrentBatch.0108, 1
   %cmp92 = icmp eq i32 %inc91, %simdWidth
   br i1 %cmp92, label %for.cond95.preheader, label %for.inc108
 
 for.cond95.preheader:                             ; preds = %if.end89
-  %cmp96104 = icmp sgt i32 %curBodyUsed.3, 0
-  br i1 %cmp96104, label %for.body97.preheader, label %for.inc108
+  %cmp96105 = icmp sgt i32 %curBodyUsed.3, 0
+  br i1 %cmp96105, label %for.body97.preheader, label %for.inc108
 
 for.body97.preheader:                             ; preds = %for.cond95.preheader
-  %wide.trip.count132 = zext nneg i32 %curBodyUsed.3 to i64
+  %wide.trip.count139 = zext nneg i32 %curBodyUsed.3 to i64
   br label %for.body97
 
 for.body97:                                       ; preds = %for.body97.preheader, %for.body97
-  %indvars.iv129 = phi i64 [ 0, %for.body97.preheader ], [ %indvars.iv.next130, %for.body97 ]
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
-  %arrayidx.i83 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv129
-  %33 = load i32, ptr %arrayidx.i83, align 4
-  %div100 = sdiv i32 %33, 32
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
+  %indvars.iv136 = phi i64 [ 0, %for.body97.preheader ], [ %indvars.iv.next137, %for.body97 ]
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7curUsed, i64 16), align 8
+  %arrayidx.i83 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv136
+  %36 = load i32, ptr %arrayidx.i83, align 4
+  %div100 = sdiv i32 %36, 32
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8bodyUsed, i64 16), align 8
   %idxprom.i84 = sext i32 %div100 to i64
-  %arrayidx.i85 = getelementptr inbounds i32, ptr %34, i64 %idxprom.i84
+  %arrayidx.i85 = getelementptr inbounds i32, ptr %37, i64 %idxprom.i84
   store i32 0, ptr %arrayidx.i85, align 4
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
-  br i1 %exitcond133.not, label %for.inc108, label %for.body97, !llvm.loop !25
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
+  %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
+  br i1 %exitcond140.not, label %for.inc108, label %for.body97, !llvm.loop !25
 
-for.inc108:                                       ; preds = %for.body97, %for.cond95.preheader, %if.end52, %if.end89
-  %nCurrentBatch.1 = phi i32 [ %inc91, %if.end89 ], [ %nCurrentBatch.0107, %if.end52 ], [ 0, %for.cond95.preheader ], [ 0, %for.body97 ]
-  %numValidConstraints.2 = phi i32 [ %inc90, %if.end89 ], [ %numValidConstraints.1109, %if.end52 ], [ %inc90, %for.cond95.preheader ], [ %inc90, %for.body97 ]
-  %curBodyUsed.4 = phi i32 [ %curBodyUsed.3, %if.end89 ], [ %curBodyUsed.1110, %if.end52 ], [ 0, %for.cond95.preheader ], [ 0, %for.body97 ]
-  %numSwaps.3 = phi i32 [ %numSwaps.2, %if.end89 ], [ %numSwaps.1111, %if.end52 ], [ %numSwaps.2, %for.cond95.preheader ], [ %numSwaps.2, %for.body97 ]
-  %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
-  %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count137
-  br i1 %exitcond138.not, label %for.end110, label %for.body25, !llvm.loop !26
+for.inc108:                                       ; preds = %for.body97, %if.then44.thread, %for.cond95.preheader, %if.then44, %if.end52, %if.end89
+  %nCurrentBatch.1 = phi i32 [ %inc91, %if.end89 ], [ %nCurrentBatch.0108, %if.end52 ], [ %nCurrentBatch.0108, %if.then44 ], [ 0, %for.cond95.preheader ], [ %nCurrentBatch.0108, %if.then44.thread ], [ 0, %for.body97 ]
+  %numValidConstraints.2 = phi i32 [ %inc90, %if.end89 ], [ %numValidConstraints.1112, %if.end52 ], [ %numValidConstraints.1112, %if.then44 ], [ %inc90, %for.cond95.preheader ], [ %numValidConstraints.1112, %if.then44.thread ], [ %inc90, %for.body97 ]
+  %curBodyUsed.4 = phi i32 [ %curBodyUsed.3, %if.end89 ], [ %curBodyUsed.1115, %if.end52 ], [ %curBodyUsed.1115, %if.then44 ], [ 0, %for.cond95.preheader ], [ %curBodyUsed.1115, %if.then44.thread ], [ 0, %for.body97 ]
+  %numSwaps.3 = phi i32 [ %numSwaps.2, %if.end89 ], [ %numSwaps.1116, %if.end52 ], [ %numSwaps.1116, %if.then44 ], [ %numSwaps.2, %for.cond95.preheader ], [ %numSwaps.1116, %if.then44.thread ], [ %numSwaps.2, %for.body97 ]
+  %indvars.iv.next142 = add nsw i64 %indvars.iv141, 1
+  %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
+  br i1 %exitcond145.not, label %for.end110, label %for.body25, !llvm.loop !26
 
 for.end110:                                       ; preds = %for.inc108, %for.cond23.preheader
   %nCurrentBatch.0.lcssa = phi i32 [ 0, %for.cond23.preheader ], [ %nCurrentBatch.1, %for.inc108 ]
-  %numValidConstraints.1.lcssa = phi i32 [ %numValidConstraints.0117, %for.cond23.preheader ], [ %numValidConstraints.2, %for.inc108 ]
+  %numValidConstraints.1.lcssa = phi i32 [ %numValidConstraints.0124, %for.cond23.preheader ], [ %numValidConstraints.2, %for.inc108 ]
   %curBodyUsed.1.lcssa = phi i32 [ 0, %for.cond23.preheader ], [ %curBodyUsed.4, %for.inc108 ]
-  %numSwaps.1.lcssa = phi i32 [ %numSwaps.0119, %for.cond23.preheader ], [ %numSwaps.3, %for.inc108 ]
-  %35 = load ptr, ptr %m_gpuData, align 8
-  %m_size.i.i = getelementptr inbounds i8, ptr %35, i64 356
-  %36 = load i32, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %35, i64 360
-  %37 = load i32, ptr %m_capacity.i.i, align 8
-  %cmp.i = icmp eq i32 %36, %37
+  %numSwaps.1.lcssa = phi i32 [ %numSwaps.0126, %for.cond23.preheader ], [ %numSwaps.3, %for.inc108 ]
+  %38 = load ptr, ptr %m_gpuData, align 8
+  %m_size.i.i = getelementptr inbounds i8, ptr %38, i64 356
+  %39 = load i32, ptr %m_size.i.i, align 4
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %38, i64 360
+  %40 = load i32, ptr %m_capacity.i.i, align 8
+  %cmp.i = icmp eq i32 %39, %40
   br i1 %cmp.i, label %if.then.i, label %invoke.cont111
 
 if.then.i:                                        ; preds = %for.end110
-  %m_batchSizes = getelementptr inbounds i8, ptr %35, i64 352
-  %tobool.not.i.i = icmp eq i32 %36, 0
-  %mul.i.i = shl nsw i32 %36, 1
+  %m_batchSizes = getelementptr inbounds i8, ptr %38, i64 352
+  %tobool.not.i.i = icmp eq i32 %39, 0
+  %mul.i.i = shl nsw i32 %39, 1
   %cond.i.i = select i1 %tobool.not.i.i, i32 1, i32 %mul.i.i
   invoke void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_batchSizes, i32 noundef %cond.i.i)
           to label %.noexc89 unwind label %lpad13
@@ -6236,16 +6242,16 @@ if.then.i:                                        ; preds = %for.end110
   br label %invoke.cont111
 
 invoke.cont111:                                   ; preds = %.noexc89, %for.end110
-  %38 = phi i32 [ %.pre.i88, %.noexc89 ], [ %36, %for.end110 ]
-  %m_data.i = getelementptr inbounds i8, ptr %35, i64 368
-  %39 = load ptr, ptr %m_data.i, align 8
-  %idxprom.i86 = sext i32 %38 to i64
-  %arrayidx.i87 = getelementptr inbounds i32, ptr %39, i64 %idxprom.i86
+  %41 = phi i32 [ %.pre.i88, %.noexc89 ], [ %39, %for.end110 ]
+  %m_data.i = getelementptr inbounds i8, ptr %38, i64 368
+  %42 = load ptr, ptr %m_data.i, align 8
+  %idxprom.i86 = sext i32 %41 to i64
+  %arrayidx.i87 = getelementptr inbounds i32, ptr %42, i64 %idxprom.i86
   store i32 %nCurrentBatch.0.lcssa, ptr %arrayidx.i87, align 4
-  %40 = load i32, ptr %m_size.i.i, align 4
-  %inc.i = add nsw i32 %40, 1
+  %43 = load i32, ptr %m_size.i.i, align 4
+  %inc.i = add nsw i32 %43, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
-  %inc112 = add nuw nsw i32 %batchIdx.0116, 1
+  %inc112 = add nuw nsw i32 %batchIdx.0123, 1
   %cmp8 = icmp slt i32 %numValidConstraints.1.lcssa, %numConstraints
   br i1 %cmp8, label %for.cond10.preheader, label %while.end, !llvm.loop !27
 
@@ -6256,15 +6262,15 @@ while.end:                                        ; preds = %invoke.cont111, %wh
           to label %_ZN13b3ProfileZoneD2Ev.exit91 unwind label %terminate.lpad.i90
 
 terminate.lpad.i90:                               ; preds = %while.end
-  %41 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #23
+  %45 = extractvalue { ptr, i32 } %44, 0
+  tail call void @__clang_call_terminate(ptr %45) #23
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit91:                    ; preds = %while.end
-  %43 = load i32, ptr @_ZZN24b3GpuPgsConstraintSolver22sortConstraintByBatch3EP17b3BatchConstraintiiiiE8maxSwaps, align 4
-  %cmp113 = icmp slt i32 %43, %numSwaps.0.lcssa
+  %46 = load i32, ptr @_ZZN24b3GpuPgsConstraintSolver22sortConstraintByBatch3EP17b3BatchConstraintiiiiE8maxSwaps, align 4
+  %cmp113 = icmp slt i32 %46, %numSwaps.0.lcssa
   br i1 %cmp113, label %if.then114, label %if.end115
 
 if.then114:                                       ; preds = %_ZN13b3ProfileZoneD2Ev.exit91
@@ -6276,10 +6282,10 @@ if.end115:                                        ; preds = %if.then114, %_ZN13b
           to label %_ZN13b3ProfileZoneD2Ev.exit93 unwind label %terminate.lpad.i92
 
 terminate.lpad.i92:                               ; preds = %if.end115
-  %44 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #23
+  %48 = extractvalue { ptr, i32 } %47, 0
+  tail call void @__clang_call_terminate(ptr %48) #23
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit93:                    ; preds = %if.end115
@@ -6291,10 +6297,10 @@ ehcleanup:                                        ; preds = %lpad13, %lpad
           to label %_ZN13b3ProfileZoneD2Ev.exit95 unwind label %terminate.lpad.i94
 
 terminate.lpad.i94:                               ; preds = %ehcleanup
-  %46 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #23
+  %50 = extractvalue { ptr, i32 } %49, 0
+  tail call void @__clang_call_terminate(ptr %50) #23
   unreachable
 
 _ZN13b3ProfileZoneD2Ev.exit95:                    ; preds = %ehcleanup

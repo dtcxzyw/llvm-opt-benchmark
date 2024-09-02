@@ -4784,12 +4784,12 @@ _ZN7rocksdb6StatusD2Ev.exit.us:                   ; preds = %_ZNKSt14default_del
   store ptr null, ptr %state_.i9, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #19
   %.pre30 = load i8, ptr %agg.result, align 8
+  %8 = icmp eq i8 %.pre30, 0
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %_ZN7rocksdb6StatusD2Ev.exit.us, %for.body.us
-  %8 = phi i8 [ %.pre30, %_ZN7rocksdb6StatusD2Ev.exit.us ], [ 0, %for.body.us ]
+  %cmp.i.us = phi i1 [ %8, %_ZN7rocksdb6StatusD2Ev.exit.us ], [ true, %for.body.us ]
   %call.i.us = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.024.us) #24
-  %cmp.i.us = icmp eq i8 %8, 0
   %cmp.i4.us = icmp ne ptr %call.i.us, %add.ptr.i.i
   %or.cond.us = and i1 %cmp.i.us, %cmp.i4.us
   br i1 %or.cond.us, label %for.body.us, label %for.end, !llvm.loop !38
@@ -4884,15 +4884,16 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %invoke.cont19, %_ZN
   store ptr null, ptr %state_.i9, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #19
   %.pre28 = load i8, ptr %agg.result, align 8
+  %24 = icmp eq i8 %.pre28, 0
   br label %for.inc
 
 ehcleanup22.thread:                               ; preds = %entry
-  %24 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7rocksdb6StatusD2Ev.exit17
 
 lpad2.split:                                      ; preds = %if.then
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -4912,9 +4913,8 @@ lpad18:                                           ; preds = %lpad18.loopexit.spl
   br label %ehcleanup
 
 for.inc:                                          ; preds = %for.body, %_ZN7rocksdb6StatusD2Ev.exit
-  %26 = phi i8 [ 0, %for.body ], [ %.pre28, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %cmp.i = phi i1 [ true, %for.body ], [ %24, %_ZN7rocksdb6StatusD2Ev.exit ]
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.024) #24
-  %cmp.i = icmp eq i8 %26, 0
   %cmp.i4 = icmp ne ptr %call.i, %add.ptr.i.i
   %or.cond = and i1 %cmp.i, %cmp.i4
   br i1 %or.cond, label %for.body, label %for.end, !llvm.loop !38
@@ -4934,7 +4934,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %for.end
   ret void
 
 ehcleanup:                                        ; preds = %lpad2.split, %lpad2.split.us, %lpad18
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad18 ], [ %25, %lpad2.split ], [ %9, %lpad2.split.us ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad18 ], [ %26, %lpad2.split ], [ %9, %lpad2.split.us ]
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %mutex_)
           to label %ehcleanup22 unwind label %terminate.lpad.i12
 
@@ -4955,7 +4955,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusD2Ev.exit17
 
 _ZN7rocksdb6StatusD2Ev.exit17:                    ; preds = %ehcleanup22.thread, %ehcleanup22, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i16
-  %.pn.pn34 = phi { ptr, i32 } [ %24, %ehcleanup22.thread ], [ %.pn, %ehcleanup22 ], [ %.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i16 ]
+  %.pn.pn34 = phi { ptr, i32 } [ %25, %ehcleanup22.thread ], [ %.pn, %ehcleanup22 ], [ %.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i16 ]
   store ptr null, ptr %state_.i, align 8
   resume { ptr, i32 } %.pn.pn34
 }

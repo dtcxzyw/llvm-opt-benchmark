@@ -407,12 +407,15 @@ dist_n.exit.i:                                    ; preds = %.lr.ph.i.i
   %203 = fadd double %.014.i38.i, %202
   %indvars.iv.next.i39.i = add nuw nsw i64 %indvars.iv.i37.i, 1
   %exitcond.not.i40.i = icmp eq i64 %indvars.iv.next.i39.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i40.i, label %dist_n.exit41.i, label %.lr.ph.i36.i
+  br i1 %exitcond.not.i40.i, label %dist_n.exit41.loopexit.i, label %.lr.ph.i36.i
 
-dist_n.exit41.i:                                  ; preds = %.lr.ph.i36.i, %dist_n.exit.i
-  %.0.lcssa.i.i = phi double [ 0.000000e+00, %dist_n.exit.i ], [ %203, %.lr.ph.i36.i ]
-  %204 = fadd double %.0.lcssa.i.i, -1.000000e-03
-  %205 = fcmp olt double %191, %204
+dist_n.exit41.loopexit.i:                         ; preds = %.lr.ph.i36.i
+  %204 = fadd double %203, -1.000000e-03
+  br label %dist_n.exit41.i
+
+dist_n.exit41.i:                                  ; preds = %dist_n.exit41.loopexit.i, %dist_n.exit.i
+  %.0.lcssa.i.i = phi double [ -1.000000e-03, %dist_n.exit.i ], [ %204, %dist_n.exit41.loopexit.i ]
+  %205 = fcmp olt double %191, %.0.lcssa.i.i
   br i1 %205, label %.loopexit, label %206
 
 206:                                              ; preds = %dist_n.exit41.i, %167

@@ -383,32 +383,32 @@ define void @Ptngc_comp_from_lz77(ptr nocapture noundef readonly %0, i32 noundef
   %16 = getelementptr inbounds i32, ptr %2, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %11, 1
-  br i1 %18, label %19, label %24
+  br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
   %20 = add nsw i32 %.02539, 1
   %21 = sext i32 %.02539 to i64
   %22 = getelementptr inbounds i32, ptr %4, i64 %21
   %23 = load i32, ptr %22, align 4
-  br label %24
+  %24 = sext i32 %23 to i64
+  br label %25
 
-24:                                               ; preds = %19, %13
+25:                                               ; preds = %19, %13
   %.126 = phi i32 [ %20, %19 ], [ %.02539, %13 ]
-  %.024 = phi i32 [ %23, %19 ], [ 1, %13 ]
-  %25 = icmp sgt i32 %17, 0
-  br i1 %25, label %.lr.ph.preheader, label %.loopexit
+  %.024 = phi i64 [ %24, %19 ], [ 1, %13 ]
+  %26 = icmp sgt i32 %17, 0
+  br i1 %26, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %24
-  %26 = sext i32 %.040 to i64
-  %27 = sext i32 %.024 to i64
+.lr.ph.preheader:                                 ; preds = %25
+  %27 = sext i32 %.040 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %.040, i32 %7)
   %28 = sub i32 %smax, %.040
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
+  %indvars.iv = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
   %.02335 = phi i32 [ 0, %.lr.ph.preheader ], [ %37, %36 ]
-  %29 = sub nsw i64 %indvars.iv, %27
+  %29 = sub nsw i64 %indvars.iv, %.024
   %30 = getelementptr inbounds i32, ptr %6, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
@@ -440,10 +440,10 @@ define void @Ptngc_comp_from_lz77(ptr nocapture noundef readonly %0, i32 noundef
   %43 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %24, %38
-  %.129 = phi i32 [ %.02838, %38 ], [ %14, %24 ], [ %14, %.loopexit.loopexit ]
-  %.227 = phi i32 [ %.02539, %38 ], [ %.126, %24 ], [ %.126, %.loopexit.loopexit ]
-  %.2 = phi i32 [ %40, %38 ], [ %.040, %24 ], [ %43, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %25, %38
+  %.129 = phi i32 [ %.02838, %38 ], [ %14, %25 ], [ %14, %.loopexit.loopexit ]
+  %.227 = phi i32 [ %.02539, %38 ], [ %.126, %25 ], [ %.126, %.loopexit.loopexit ]
+  %.2 = phi i32 [ %40, %38 ], [ %.040, %25 ], [ %43, %.loopexit.loopexit ]
   %44 = icmp slt i32 %.2, %7
   br i1 %44, label %.lr.ph41, label %._crit_edge, !llvm.loop !12
 

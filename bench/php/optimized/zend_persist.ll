@@ -1598,19 +1598,19 @@ zend_persist_class_constant.exit:                 ; preds = %547, %458, %452, %.
 zend_persist_property_info.exit:                  ; preds = %752, %755
   %757 = getelementptr inbounds i8, ptr %623, i64 40
   tail call fastcc void @zend_persist_type(ptr noundef nonnull %757)
-  br label %.sink.split1393
+  br label %.sink.split1392
 
 758:                                              ; preds = %618
   %759 = tail call ptr @zend_shared_alloc_get_xlat_entry(ptr noundef nonnull %566) #6
   %.not1226 = icmp eq ptr %759, null
-  br i1 %.not1226, label %760, label %.sink.split1393
+  br i1 %.not1226, label %760, label %.sink.split1392
 
-.sink.split1393:                                  ; preds = %758, %zend_persist_property_info.exit
-  %.sink1394 = phi ptr [ %623, %zend_persist_property_info.exit ], [ %759, %758 ]
-  store ptr %.sink1394, ptr %.010381272, align 8
+.sink.split1392:                                  ; preds = %758, %zend_persist_property_info.exit
+  %.sink1393 = phi ptr [ %623, %zend_persist_property_info.exit ], [ %759, %758 ]
+  store ptr %.sink1393, ptr %.010381272, align 8
   br label %760
 
-760:                                              ; preds = %.sink.split1393, %758, %.lr.ph1274
+760:                                              ; preds = %.sink.split1392, %758, %.lr.ph1274
   %761 = getelementptr inbounds i8, ptr %.010381272, i64 32
   %.not1127 = icmp eq ptr %761, %558
   br i1 %.not1127, label %._crit_edge1275.loopexit, label %.lr.ph1274
@@ -3279,16 +3279,19 @@ zend_persist_property_info.exit:                  ; preds = %752, %755
   %1719 = load i32, ptr %1718, align 8
   %1720 = zext i32 %1719 to i64
   %1721 = icmp ult i64 %indvars.iv.next1330, %1720
-  br i1 %1721, label %.lr.ph1294, label %._crit_edge1295
+  br i1 %1721, label %.lr.ph1294, label %._crit_edge1295.loopexit
 
-._crit_edge1295:                                  ; preds = %1714, %1624
-  %.lcssa1251 = phi ptr [ %1627, %1624 ], [ %1717, %1714 ]
-  %.lcssa = phi i32 [ 0, %1624 ], [ %1719, %1714 ]
-  %1722 = add i32 %.lcssa, -1
+._crit_edge1295.loopexit:                         ; preds = %1714
+  %1722 = add i32 %1719, -1
   %1723 = zext i32 %1722 to i64
   %1724 = shl nuw nsw i64 %1723, 3
   %1725 = add nuw nsw i64 %1724, 32
-  %1726 = tail call ptr @zend_shared_memdup_free(ptr noundef nonnull %.lcssa1251, i64 noundef %1725) #6
+  br label %._crit_edge1295
+
+._crit_edge1295:                                  ; preds = %._crit_edge1295.loopexit, %1624
+  %.lcssa1251 = phi ptr [ %1627, %1624 ], [ %1717, %._crit_edge1295.loopexit ]
+  %.lcssa = phi i64 [ 34359738392, %1624 ], [ %1725, %._crit_edge1295.loopexit ]
+  %1726 = tail call ptr @zend_shared_memdup_free(ptr noundef nonnull %.lcssa1251, i64 noundef %.lcssa) #6
   %1727 = load ptr, ptr %1470, align 8
   %1728 = getelementptr inbounds ptr, ptr %1727, i64 %1474
   store ptr %1726, ptr %1728, align 8

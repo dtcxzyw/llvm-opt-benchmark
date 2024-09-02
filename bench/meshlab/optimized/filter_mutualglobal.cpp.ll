@@ -9288,25 +9288,28 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit98:        ; preds = %.lr.ph288, %_ZNSt6v
   %122 = sub i64 %120, %121
   %123 = sdiv exact i64 %122, 28
   %124 = icmp ugt i64 %123, %117
-  br i1 %124, label %.lr.ph295, label %._crit_edge, !llvm.loop !94
+  br i1 %124, label %.lr.ph295, label %._crit_edge.loopexit, !llvm.loop !94
 
-._crit_edge:                                      ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit98, %.preheader234
-  %125 = phi ptr [ %26, %.preheader234 ], [ %119, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit98 ]
-  %126 = phi ptr [ %25, %.preheader234 ], [ %118, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit98 ]
-  %.sroa.12.0.lcssa = phi ptr [ null, %.preheader234 ], [ %.sroa.12.2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit98 ]
-  %.sroa.0190.0.lcssa = phi ptr [ null, %.preheader234 ], [ %.sroa.0190.4, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit98 ]
-  %127 = ptrtoint ptr %.sroa.12.0.lcssa to i64
+._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit98
+  %125 = ptrtoint ptr %.sroa.12.2 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader234
+  %126 = phi ptr [ %26, %.preheader234 ], [ %119, %._crit_edge.loopexit ]
+  %127 = phi ptr [ %25, %.preheader234 ], [ %118, %._crit_edge.loopexit ]
+  %.sroa.12.0.lcssa = phi i64 [ 0, %.preheader234 ], [ %125, %._crit_edge.loopexit ]
+  %.sroa.0190.0.lcssa = phi ptr [ null, %.preheader234 ], [ %.sroa.0190.4, %._crit_edge.loopexit ]
   %128 = ptrtoint ptr %.sroa.0190.0.lcssa to i64
-  %129 = sub i64 %127, %128
+  %129 = sub i64 %.sroa.12.0.lcssa, %128
   %130 = lshr exact i64 %129, 2
   %131 = trunc i64 %130 to i32
   br label %.preheader233
 
 .preheader233:                                    ; preds = %._crit_edge, %._crit_edge305
-  %132 = phi ptr [ %125, %._crit_edge ], [ %208, %._crit_edge305 ]
-  %133 = phi ptr [ %126, %._crit_edge ], [ %209, %._crit_edge305 ]
-  %134 = phi ptr [ %125, %._crit_edge ], [ %210, %._crit_edge305 ]
-  %135 = phi ptr [ %126, %._crit_edge ], [ %211, %._crit_edge305 ]
+  %132 = phi ptr [ %126, %._crit_edge ], [ %208, %._crit_edge305 ]
+  %133 = phi ptr [ %127, %._crit_edge ], [ %209, %._crit_edge305 ]
+  %134 = phi ptr [ %126, %._crit_edge ], [ %210, %._crit_edge305 ]
+  %135 = phi ptr [ %127, %._crit_edge ], [ %211, %._crit_edge305 ]
   %indvars.iv341 = phi i32 [ 2, %._crit_edge ], [ %indvars.iv.next342, %._crit_edge305 ]
   %.054309 = phi i32 [ 0, %._crit_edge ], [ %.155.lcssa, %._crit_edge305 ]
   %.0307 = phi i32 [ 1, %._crit_edge ], [ %spec.select, %._crit_edge305 ]

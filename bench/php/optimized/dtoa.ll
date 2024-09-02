@@ -90,12 +90,15 @@ lexbor_diyfp_normalize_boundaries.exit.i:         ; preds = %.lr.ph.i.i.i, %20
   %46 = add i64 %.010.i.i.i, 1
   %47 = shl nuw i64 %.069.i.i.i, 1
   %48 = icmp sgt i64 %47, -1
-  br i1 %48, label %.lr.ph.i.i38.i, label %lexbor_diyfp_normalize.exit.i
+  br i1 %48, label %.lr.ph.i.i38.i, label %lexbor_diyfp_normalize.exit.loopexit.i
 
-lexbor_diyfp_normalize.exit.i:                    ; preds = %.lr.ph.i.i38.i, %lexbor_diyfp_normalize_boundaries.exit.i
-  %.07.i.i.i = phi i64 [ 64, %lexbor_diyfp_normalize_boundaries.exit.i ], [ %46, %.lr.ph.i.i38.i ]
-  %49 = and i64 %.07.i.i.i, 4294967295
-  %50 = shl i64 %.sroa.05.0.i.i, %49
+lexbor_diyfp_normalize.exit.loopexit.i:           ; preds = %.lr.ph.i.i38.i
+  %49 = and i64 %46, 4294967295
+  br label %lexbor_diyfp_normalize.exit.i
+
+lexbor_diyfp_normalize.exit.i:                    ; preds = %lexbor_diyfp_normalize.exit.loopexit.i, %lexbor_diyfp_normalize_boundaries.exit.i
+  %.07.i.i.i = phi i64 [ 64, %lexbor_diyfp_normalize_boundaries.exit.i ], [ %49, %lexbor_diyfp_normalize.exit.loopexit.i ]
+  %50 = shl i64 %.sroa.05.0.i.i, %.07.i.i.i
   %51 = lshr i64 %50, 32
   %52 = and i64 %50, 4294967295
   %53 = lshr i64 %43, 32

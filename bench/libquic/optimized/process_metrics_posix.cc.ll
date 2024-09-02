@@ -43,7 +43,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4base9GetMaxFdsEv() local_unnamed_addr #2 {
+define dso_local noundef range(i64 0, 2147483648) i64 @_ZN4base9GetMaxFdsEv() local_unnamed_addr #2 {
 entry:
   %nofile = alloca %struct.rlimit, align 8
   %call = call i32 @getrlimit(i32 noundef 7, ptr noundef nonnull %nofile) #8

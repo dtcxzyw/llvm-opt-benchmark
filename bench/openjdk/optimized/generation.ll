@@ -79,7 +79,7 @@ declare noundef zeroext i1 @_ZN12VirtualSpace10initializeE13ReservedSpacem(ptr n
 declare void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK10Generation12max_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0) unnamed_addr #2 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZNK10Generation12max_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0) unnamed_addr #2 align 2 {
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %2 = shl i64 %.sroa.2.0.copyload.i, 3

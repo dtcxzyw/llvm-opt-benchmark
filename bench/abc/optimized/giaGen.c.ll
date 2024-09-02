@@ -2184,68 +2184,69 @@ declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #2
 define range(i32 0, 2) i32 @Gia_ManSimParamRead(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.33)
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %.outer
+  br i1 %5, label %6, label %.critedge.outer
 
 6:                                                ; preds = %3
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef %0)
   br label %31
 
-8:                                                ; preds = %.outer, %.thread
-  %.not39 = phi i1 [ false, %.thread ], [ true, %.outer ]
-  %.028 = phi i32 [ 1, %.thread ], [ 0, %.outer ]
-  %9 = tail call i32 @fgetc(ptr noundef nonnull %4)
-  switch i32 %9, label %.thread.fold.split [
+.critedge:                                        ; preds = %.critedge.backedge, %.critedge.outer
+  %.not39 = phi i1 [ true, %.critedge.outer ], [ false, %.critedge.backedge ]
+  %8 = tail call i32 @fgetc(ptr noundef nonnull %4)
+  switch i32 %8, label %.thread.fold.split [
     i32 -1, label %21
-    i32 46, label %.thread
-    i32 10, label %10
+    i32 46, label %.critedge.backedge
+    i32 10, label %9
   ]
 
-10:                                               ; preds = %8
-  br i1 %.not39, label %11, label %.thread43
+9:                                                ; preds = %.critedge
+  br i1 %.not39, label %10, label %.thread43
 
-11:                                               ; preds = %10
-  %12 = icmp eq i32 %.035.ph, -1
-  br i1 %12, label %17, label %13
+10:                                               ; preds = %9
+  %11 = icmp eq i32 %.035.ph, -1
+  br i1 %11, label %16, label %12
 
-13:                                               ; preds = %11
+12:                                               ; preds = %10
   %.not40 = icmp eq i32 %.035.ph, %.029.ph
-  br i1 %.not40, label %17, label %14
+  br i1 %.not40, label %16, label %13
 
-14:                                               ; preds = %13
-  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %.029.ph, i32 noundef %.035.ph)
-  %16 = tail call i32 @fclose(ptr noundef nonnull %4)
+13:                                               ; preds = %12
+  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i32 noundef %.029.ph, i32 noundef %.035.ph)
+  %15 = tail call i32 @fclose(ptr noundef nonnull %4)
   br label %31
 
-17:                                               ; preds = %11, %13
-  %.3 = phi i32 [ %.035.ph, %13 ], [ %.029.ph, %11 ]
-  %18 = add nsw i32 %.032.ph, 1
+16:                                               ; preds = %10, %12
+  %.3 = phi i32 [ %.035.ph, %12 ], [ %.029.ph, %10 ]
+  %17 = add nsw i32 %.032.ph, 1
   br label %.thread43
 
-.thread.fold.split:                               ; preds = %8
-  br label %.thread
+.thread.fold.split:                               ; preds = %.critedge
+  br i1 %.not39, label %.thread43.loopexit, label %.critedge.backedge
 
-.thread:                                          ; preds = %8, %.thread.fold.split
-  %.2 = phi i32 [ 1, %8 ], [ %.028, %.thread.fold.split ]
-  %.not41 = icmp eq i32 %.2, 0
-  br i1 %.not41, label %.thread43, label %8, !llvm.loop !34
+.critedge.backedge:                               ; preds = %.thread.fold.split, %.critedge
+  br label %.critedge, !llvm.loop !34
 
-.thread43:                                        ; preds = %.thread, %10, %17
-  %.13051 = phi i32 [ 0, %17 ], [ %.029.ph, %10 ], [ %.029.ph, %.thread ]
-  %.13350 = phi i32 [ %18, %17 ], [ %.032.ph, %10 ], [ %.032.ph, %.thread ]
-  %.13649 = phi i32 [ %.3, %17 ], [ %.035.ph, %10 ], [ %.035.ph, %.thread ]
-  %19 = and i32 %9, -2
-  %or.cond = icmp eq i32 %19, 48
-  %20 = zext i1 %or.cond to i32
-  %spec.select = add nsw i32 %.13051, %20
-  br label %.outer, !llvm.loop !34
+.thread43.loopexit:                               ; preds = %.thread.fold.split
+  %18 = and i32 %8, -2
+  %19 = icmp eq i32 %18, 48
+  %20 = zext i1 %19 to i32
+  br label %.thread43
 
-.outer:                                           ; preds = %3, %.thread43
+.thread43:                                        ; preds = %.thread43.loopexit, %9, %16
+  %or.cond = phi i32 [ 0, %16 ], [ 0, %9 ], [ %20, %.thread43.loopexit ]
+  %.13051 = phi i32 [ 0, %16 ], [ %.029.ph, %9 ], [ %.029.ph, %.thread43.loopexit ]
+  %.13350 = phi i32 [ %17, %16 ], [ %.032.ph, %9 ], [ %.032.ph, %.thread43.loopexit ]
+  %.13649 = phi i32 [ %.3, %16 ], [ %.035.ph, %9 ], [ %.035.ph, %.thread43.loopexit ]
+  %spec.select = add nsw i32 %.13051, %or.cond
+  br label %.critedge.outer, !llvm.loop !34
+
+.critedge.outer:                                  ; preds = %3, %.thread43
   %.035.ph = phi i32 [ %.13649, %.thread43 ], [ -1, %3 ]
   %.032.ph = phi i32 [ %.13350, %.thread43 ], [ 0, %3 ]
   %.029.ph = phi i32 [ %spec.select, %.thread43 ], [ 0, %3 ]
-  br label %8
+  br label %.critedge
 
-21:                                               ; preds = %8
+21:                                               ; preds = %.critedge
   %22 = and i32 %.032.ph, -2147483585
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %27
@@ -2263,8 +2264,8 @@ define range(i32 0, 2) i32 @Gia_ManSimParamRead(ptr noundef %0, ptr nocapture no
   %30 = tail call i32 @fclose(ptr noundef nonnull %4)
   br label %31
 
-31:                                               ; preds = %27, %24, %14, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %14 ], [ 0, %24 ], [ 1, %27 ]
+31:                                               ; preds = %27, %24, %13, %6
+  %.0 = phi i32 [ 0, %6 ], [ 0, %13 ], [ 0, %24 ], [ 1, %27 ]
   ret i32 %.0
 }
 
@@ -3219,7 +3220,7 @@ define void @Gia_ManCompareValues2(i32 %0, ptr noundef %1, ptr nocapture noundef
   %56 = fmul float %55, 3.906250e-03
   %57 = tail call float @llvm.fmuladd.f32(float %56, float %56, float %.079.us)
   %58 = icmp sgt i8 %38, 0
-  %59 = tail call i32 @llvm.abs.i32(i32 %53, i1 true)
+  %59 = tail call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %53, i1 true)
   %60 = uitofp nneg i32 %59 to float
   %61 = select i1 %58, float %60, float 0.000000e+00
   %62 = tail call float @llvm.fmuladd.f32(float %61, float %61, float %.05278.us)
@@ -3962,7 +3963,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

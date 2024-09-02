@@ -4733,8 +4733,8 @@ do.end288:                                        ; preds = %if.then197, %CheckR
   %cond = icmp eq i32 %ret.7, -425
   br i1 %cond, label %if.end297, label %if.then294
 
-if.then294:                                       ; preds = %do.end75, %if.end67, %do.end288, %do.end96, %do.end132, %if.end109, %if.end104, %if.end41, %if.end28, %sw.bb12
-  %ret.785 = phi i32 [ %ret.7, %do.end288 ], [ -125, %do.end132 ], [ -125, %if.end109 ], [ -229, %if.end104 ], [ -328, %if.end41 ], [ -328, %if.end28 ], [ -328, %sw.bb12 ], [ -229, %do.end96 ], [ -229, %if.end67 ], [ -229, %do.end75 ]
+if.then294:                                       ; preds = %if.end67, %do.end288, %do.end75, %do.end96, %do.end132, %if.end109, %if.end104, %if.end41, %if.end28, %sw.bb12
+  %ret.785 = phi i32 [ %ret.7, %do.end288 ], [ -125, %do.end132 ], [ -125, %if.end109 ], [ -229, %if.end104 ], [ -328, %if.end41 ], [ -328, %if.end28 ], [ -328, %sw.bb12 ], [ -229, %do.end96 ], [ -229, %do.end75 ], [ -229, %if.end67 ]
   %call295 = call i32 @SendAlert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef 51) #11
   br label %if.end297
 
@@ -6708,7 +6708,7 @@ return:                                           ; preds = %if.end39, %if.end29
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @wolfSSL_update_keys(ptr noundef %ssl) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @wolfSSL_update_keys(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %ssl, null
   br i1 %cmp.i, label %Tls13UpdateKeys.exit.thread, label %lor.lhs.false.i

@@ -2988,7 +2988,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11c
 61:                                               ; preds = %54
   %62 = landingpad { ptr, i32 }
           cleanup
-  br label %138
+  br label %137
 
 63:                                               ; preds = %48
   %64 = load ptr, ptr %0, align 8
@@ -3021,7 +3021,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11c
   %80 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %78, i64 noundef %79) #21
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 42
-  br i1 %82, label %83, label %129
+  br i1 %82, label %83, label %128
 
 83:                                               ; preds = %77
   %84 = load i64, ptr %10, align 8
@@ -3031,7 +3031,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11c
   %87 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %86) #21
   %88 = add i64 %87, -2
   %89 = icmp ugt i64 %85, %88
-  br i1 %89, label %90, label %.preheader13.i
+  br i1 %89, label %90, label %.preheader14.i
 
 90:                                               ; preds = %83
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21
@@ -3057,9 +3057,9 @@ _ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11c
 97:                                               ; preds = %90
   %98 = landingpad { ptr, i32 }
           cleanup
-  br label %138
+  br label %137
 
-.preheader13.i:                                   ; preds = %83, %.critedge9.i
+.preheader14.i:                                   ; preds = %83, %.critedge9.i
   %99 = load ptr, ptr %0, align 8
   %100 = load i64, ptr %10, align 8
   %101 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %99, i64 noundef %100) #21
@@ -3067,91 +3067,91 @@ _ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11c
   %103 = icmp eq i8 %102, 42
   br i1 %103, label %104, label %.critedge9.i
 
-104:                                              ; preds = %.preheader13.i
+104:                                              ; preds = %.preheader14.i
   %105 = load ptr, ptr %0, align 8
   %106 = load i64, ptr %10, align 8
   %107 = add i64 %106, 1
   %108 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %105, i64 noundef %107) #21
   %109 = load i8, ptr %108, align 1
-  %110 = icmp eq i8 %109, 47
-  br i1 %110, label %126, label %.critedge9.i
+  %.not13.i = icmp eq i8 %109, 47
+  br i1 %.not13.i, label %125, label %.critedge9.i
 
-.critedge9.i:                                     ; preds = %104, %.preheader13.i
-  %111 = load i64, ptr %10, align 8
-  %112 = add i64 %111, 1
-  store i64 %112, ptr %10, align 8
-  %113 = load ptr, ptr %0, align 8
-  %114 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %113) #21
-  %115 = add i64 %114, -2
-  %116 = icmp ugt i64 %112, %115
-  br i1 %116, label %117, label %.preheader13.i, !llvm.loop !47
+.critedge9.i:                                     ; preds = %104, %.preheader14.i
+  %110 = load i64, ptr %10, align 8
+  %111 = add i64 %110, 1
+  store i64 %111, ptr %10, align 8
+  %112 = load ptr, ptr %0, align 8
+  %113 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %112) #21
+  %114 = add i64 %113, -2
+  %115 = icmp ugt i64 %111, %114
+  br i1 %115, label %116, label %.preheader14.i, !llvm.loop !47
 
-117:                                              ; preds = %.critedge9.i
+116:                                              ; preds = %.critedge9.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.28, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %118 unwind label %124
+          to label %117 unwind label %123
 
-118:                                              ; preds = %117
-  %119 = load i8, ptr %40, align 8
-  %120 = trunc i8 %119 to i1
-  br i1 %120, label %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit11.i, label %121
+117:                                              ; preds = %116
+  %118 = load i8, ptr %40, align 8
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit11.i, label %120
 
-121:                                              ; preds = %118
-  %122 = load ptr, ptr %41, align 8
-  %123 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
+120:                                              ; preds = %117
+  %121 = load ptr, ptr %41, align 8
+  %122 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %121, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   br label %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit11.i
 
-_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit11.i: ; preds = %121, %118
+_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit11.i: ; preds = %120, %117
   store i8 1, ptr %40, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #21
   br label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit
 
-124:                                              ; preds = %117
-  %125 = landingpad { ptr, i32 }
+123:                                              ; preds = %116
+  %124 = landingpad { ptr, i32 }
           cleanup
-  br label %138
+  br label %137
 
-126:                                              ; preds = %104
-  %127 = load i64, ptr %10, align 8
-  %128 = add i64 %127, 2
-  store i64 %128, ptr %10, align 8
+125:                                              ; preds = %104
+  %126 = load i64, ptr %10, align 8
+  %127 = add i64 %126, 2
+  store i64 %127, ptr %10, align 8
   br label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit
 
-129:                                              ; preds = %77
+128:                                              ; preds = %77
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.29, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %130 unwind label %136
+          to label %129 unwind label %135
 
-130:                                              ; preds = %129
-  %131 = load i8, ptr %40, align 8
-  %132 = trunc i8 %131 to i1
-  br i1 %132, label %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit12.i, label %133
+129:                                              ; preds = %128
+  %130 = load i8, ptr %40, align 8
+  %131 = trunc i8 %130 to i1
+  br i1 %131, label %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit12.i, label %132
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %41, align 8
-  %135 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
+132:                                              ; preds = %129
+  %133 = load ptr, ptr %41, align 8
+  %134 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   br label %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit12.i
 
-_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit12.i: ; preds = %133, %130
+_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit12.i: ; preds = %132, %129
   store i8 1, ptr %40, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #21
   br label %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit
 
-136:                                              ; preds = %129
-  %137 = landingpad { ptr, i32 }
+135:                                              ; preds = %128
+  %136 = landingpad { ptr, i32 }
           cleanup
-  br label %138
+  br label %137
 
-138:                                              ; preds = %136, %124, %97, %61
-  %.sink.i = phi ptr [ %9, %136 ], [ %7, %124 ], [ %5, %97 ], [ %3, %61 ]
-  %.pn.i = phi { ptr, i32 } [ %137, %136 ], [ %125, %124 ], [ %98, %97 ], [ %62, %61 ]
+137:                                              ; preds = %135, %123, %97, %61
+  %.sink.i = phi ptr [ %9, %135 ], [ %7, %123 ], [ %5, %97 ], [ %3, %61 ]
+  %.pn.i = phi { ptr, i32 } [ %136, %135 ], [ %124, %123 ], [ %98, %97 ], [ %62, %61 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink.i) #21
   resume { ptr, i32 } %.pn.i
 
-_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit: ; preds = %.preheader.i, %72, %42, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit.i, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit10.i, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit11.i, %126, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit12.i
-  %.06.i = phi i1 [ false, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit.i ], [ false, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit10.i ], [ false, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit11.i ], [ false, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit12.i ], [ true, %126 ], [ false, %42 ], [ true, %72 ], [ true, %.preheader.i ]
+_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit: ; preds = %.preheader.i, %72, %42, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit.i, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit10.i, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit11.i, %125, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit12.i
+  %.06.i = phi i1 [ false, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit.i ], [ false, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit10.i ], [ false, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit11.i ], [ false, %_ZN6json1112_GLOBAL__N_110JsonParser4failIbEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_.exit12.i ], [ true, %125 ], [ false, %42 ], [ true, %72 ], [ true, %.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -3160,53 +3160,53 @@ _ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit: ; preds = %.prehea
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  %139 = load i8, ptr %40, align 8
-  %140 = trunc i8 %139 to i1
-  br i1 %140, label %.loopexit, label %141
+  %138 = load i8, ptr %40, align 8
+  %139 = trunc i8 %138 to i1
+  br i1 %139, label %.loopexit, label %140
 
-141:                                              ; preds = %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit
+140:                                              ; preds = %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit
   %.pre.i2 = load i64, ptr %10, align 8
-  br label %142
+  br label %141
 
-142:                                              ; preds = %.critedge.i3, %141
-  %143 = phi i64 [ %167, %.critedge.i3 ], [ %.pre.i2, %141 ]
-  %144 = load ptr, ptr %0, align 8
-  %145 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %144, i64 noundef %143) #21
-  %146 = load i8, ptr %145, align 1
-  %147 = icmp eq i8 %146, 32
-  br i1 %147, label %.critedge.i3, label %148
+141:                                              ; preds = %.critedge.i3, %140
+  %142 = phi i64 [ %166, %.critedge.i3 ], [ %.pre.i2, %140 ]
+  %143 = load ptr, ptr %0, align 8
+  %144 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %143, i64 noundef %142) #21
+  %145 = load i8, ptr %144, align 1
+  %146 = icmp eq i8 %145, 32
+  br i1 %146, label %.critedge.i3, label %147
 
-148:                                              ; preds = %142
-  %149 = load ptr, ptr %0, align 8
-  %150 = load i64, ptr %10, align 8
-  %151 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %149, i64 noundef %150) #21
-  %152 = load i8, ptr %151, align 1
-  %153 = icmp eq i8 %152, 13
-  br i1 %153, label %.critedge.i3, label %154
+147:                                              ; preds = %141
+  %148 = load ptr, ptr %0, align 8
+  %149 = load i64, ptr %10, align 8
+  %150 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %148, i64 noundef %149) #21
+  %151 = load i8, ptr %150, align 1
+  %152 = icmp eq i8 %151, 13
+  br i1 %152, label %.critedge.i3, label %153
 
-154:                                              ; preds = %148
-  %155 = load ptr, ptr %0, align 8
-  %156 = load i64, ptr %10, align 8
-  %157 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %155, i64 noundef %156) #21
-  %158 = load i8, ptr %157, align 1
-  %159 = icmp eq i8 %158, 10
-  br i1 %159, label %.critedge.i3, label %160
+153:                                              ; preds = %147
+  %154 = load ptr, ptr %0, align 8
+  %155 = load i64, ptr %10, align 8
+  %156 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %154, i64 noundef %155) #21
+  %157 = load i8, ptr %156, align 1
+  %158 = icmp eq i8 %157, 10
+  br i1 %158, label %.critedge.i3, label %159
 
-160:                                              ; preds = %154
-  %161 = load ptr, ptr %0, align 8
-  %162 = load i64, ptr %10, align 8
-  %163 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %161, i64 noundef %162) #21
-  %164 = load i8, ptr %163, align 1
-  %165 = icmp eq i8 %164, 9
-  br i1 %165, label %.critedge.i3, label %_ZN6json1112_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4
+159:                                              ; preds = %153
+  %160 = load ptr, ptr %0, align 8
+  %161 = load i64, ptr %10, align 8
+  %162 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %160, i64 noundef %161) #21
+  %163 = load i8, ptr %162, align 1
+  %164 = icmp eq i8 %163, 9
+  br i1 %164, label %.critedge.i3, label %_ZN6json1112_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4
 
-.critedge.i3:                                     ; preds = %160, %154, %148, %142
-  %166 = load i64, ptr %10, align 8
-  %167 = add i64 %166, 1
-  store i64 %167, ptr %10, align 8
-  br label %142, !llvm.loop !45
+.critedge.i3:                                     ; preds = %159, %153, %147, %141
+  %165 = load i64, ptr %10, align 8
+  %166 = add i64 %165, 1
+  store i64 %166, ptr %10, align 8
+  br label %141, !llvm.loop !45
 
-_ZN6json1112_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4: ; preds = %160
+_ZN6json1112_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4: ; preds = %159
   br i1 %.06.i, label %42, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %_ZN6json1112_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4, %_ZN6json1112_GLOBAL__N_110JsonParser15consume_commentEv.exit, %_ZN6json1112_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit

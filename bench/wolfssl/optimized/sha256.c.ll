@@ -280,7 +280,7 @@ return:                                           ; preds = %entry, %ByteReverse
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @wc_Sha256Final(ptr noundef %sha256, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha256Final(ptr noundef %sha256, ptr noundef writeonly %hash) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %sha256, null
   %cmp1 = icmp eq ptr %hash, null
@@ -522,7 +522,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @wc_Sha224Final(ptr noundef %sha224, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -192, 1) i32 @wc_Sha224Final(ptr noundef %sha224, ptr noundef writeonly %hash) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %sha224, null
   %cmp1 = icmp eq ptr %hash, null
@@ -773,7 +773,7 @@ return:                                           ; preds = %while.body12.i, %wh
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define i32 @wc_Sha224GetHash(ptr noundef readonly %sha224, ptr noundef writeonly %hash) local_unnamed_addr #3 {
+define range(i32 -192, 1) i32 @wc_Sha224GetHash(ptr noundef readonly %sha224, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %tmpSha224 = alloca [1 x %struct.wc_Sha256], align 16
   %cmp = icmp eq ptr %sha224, null
@@ -837,7 +837,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define i32 @wc_Sha256GetHash(ptr noundef readonly %sha256, ptr noundef writeonly %hash) local_unnamed_addr #3 {
+define range(i32 -192, 1) i32 @wc_Sha256GetHash(ptr noundef readonly %sha256, ptr noundef writeonly %hash) local_unnamed_addr #3 {
 entry:
   %tmpSha256 = alloca [1 x %struct.wc_Sha256], align 16
   %cmp = icmp eq ptr %sha256, null

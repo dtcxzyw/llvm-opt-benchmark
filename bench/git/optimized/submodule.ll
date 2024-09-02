@@ -4733,8 +4733,8 @@ entry:
   %1 = load ptr, ptr %commit_oid2, align 8
   %nr = getelementptr inbounds i8, ptr %q, i64 12
   %2 = load i32, ptr %nr, align 4
-  %cmp34 = icmp sgt i32 %2, 0
-  br i1 %cmp34, label %for.body, label %for.end
+  %cmp32 = icmp sgt i32 %2, 0
+  br i1 %cmp32, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
@@ -4767,19 +4767,19 @@ if.else:                                          ; preds = %if.end
   %tobool.not.i.not.i = icmp eq ptr %call1.i.i, null
   call void @free(ptr noundef %call.i.i) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %error_code.i)
-  %tobool11.not33 = icmp eq ptr %11, null
-  %tobool11.not = or i1 %tobool11.not33, %tobool.not.i.not.i
-  br i1 %tobool11.not, label %for.inc, label %if.end15
+  %tobool11.not31 = icmp eq ptr %11, null
+  %tobool11.not = or i1 %tobool11.not31, %tobool.not.i.not.i
+  br i1 %tobool11.not, label %for.inc, label %if.then12
 
-if.end15:                                         ; preds = %if.else
+if.then12:                                        ; preds = %if.else
   %12 = load ptr, ptr %data, align 8
   %call14 = call ptr @submodule_from_name(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %11) #14
-  %tobool16.not = icmp eq ptr %call14, null
-  br i1 %tobool16.not, label %if.end26, label %if.then17
+  %13 = icmp eq ptr %call14, null
+  br i1 %13, label %if.end26, label %if.then17
 
-if.then17:                                        ; preds = %if.end15
-  %13 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i = icmp eq i32 %13, 0
+if.then17:                                        ; preds = %if.then12
+  %14 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i = icmp eq i32 %14, 0
   br i1 %tobool1.not.i, label %_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then17
@@ -4789,50 +4789,50 @@ if.end3.i:                                        ; preds = %if.then17
 _.exit:                                           ; preds = %if.then17, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.118, %if.then17 ]
   %call19 = call ptr @oid_to_hex(ptr noundef %1) #14
-  %14 = load ptr, ptr %two, align 8
-  %path21 = getelementptr inbounds i8, ptr %14, i64 40
-  %15 = load ptr, ptr %path21, align 8
-  call void (ptr, ...) @warning(ptr noundef %retval.0.i, ptr noundef %call19, ptr noundef %15) #14
+  %15 = load ptr, ptr %two, align 8
+  %path21 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = load ptr, ptr %path21, align 8
+  call void (ptr, ...) @warning(ptr noundef %retval.0.i, ptr noundef %call19, ptr noundef %16) #14
   br label %for.inc
 
 if.end23:                                         ; preds = %if.end
   %name7 = getelementptr inbounds i8, ptr %call, i64 8
-  %16 = load ptr, ptr %name7, align 8
-  %tobool24.not = icmp eq ptr %16, null
+  %17 = load ptr, ptr %name7, align 8
+  %tobool24.not = icmp eq ptr %17, null
   br i1 %tobool24.not, label %for.inc, label %if.end26
 
-if.end26:                                         ; preds = %if.end15, %if.end23
-  %name.032 = phi ptr [ %16, %if.end23 ], [ %11, %if.end15 ]
-  %call27 = call ptr @string_list_insert(ptr noundef %0, ptr noundef nonnull %name.032) #14
+if.end26:                                         ; preds = %if.then12, %if.end23
+  %name.030 = phi ptr [ %17, %if.end23 ], [ %11, %if.then12 ]
+  %call27 = call ptr @string_list_insert(ptr noundef %0, ptr noundef nonnull %name.030) #14
   %util = getelementptr inbounds i8, ptr %call27, i64 8
-  %17 = load ptr, ptr %util, align 8
-  %tobool28.not = icmp eq ptr %17, null
+  %18 = load ptr, ptr %util, align 8
+  %tobool28.not = icmp eq ptr %18, null
   br i1 %tobool28.not, label %if.else31, label %if.end39
 
 if.else31:                                        ; preds = %if.end26
   %call32 = call ptr @xcalloc(i64 noundef 1, i64 noundef 48) #14
   store ptr %call32, ptr %util, align 8
   store ptr %1, ptr %call32, align 8
-  %18 = load ptr, ptr %two, align 8
-  %path36 = getelementptr inbounds i8, ptr %18, i64 40
-  %19 = load ptr, ptr %path36, align 8
-  %call37 = call ptr @xstrdup(ptr noundef %19) #14
+  %19 = load ptr, ptr %two, align 8
+  %path36 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = load ptr, ptr %path36, align 8
+  %call37 = call ptr @xstrdup(ptr noundef %20) #14
   %path38 = getelementptr inbounds i8, ptr %call32, i64 8
   store ptr %call37, ptr %path38, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end26, %if.else31
-  %cs_data.0 = phi ptr [ %call32, %if.else31 ], [ %17, %if.end26 ]
+  %cs_data.0 = phi ptr [ %call32, %if.else31 ], [ %18, %if.end26 ]
   %new_commits = getelementptr inbounds i8, ptr %cs_data.0, i64 16
-  %20 = load ptr, ptr %two, align 8
-  call void @oid_array_append(ptr noundef nonnull %new_commits, ptr noundef %20) #14
+  %21 = load ptr, ptr %two, align 8
+  call void @oid_array_append(ptr noundef nonnull %new_commits, ptr noundef %21) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else, %_.exit, %if.end23, %for.body, %if.end39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = load i32, ptr %nr, align 4
-  %22 = sext i32 %21 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %22
+  %22 = load i32, ptr %nr, align 4
+  %23 = sext i32 %22 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %23
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.inc, %entry

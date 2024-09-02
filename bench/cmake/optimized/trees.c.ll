@@ -1536,7 +1536,7 @@ pqdownheap.exit:                                  ; preds = %101, %111, %115, %6
   %163 = getelementptr inbounds %struct.ct_data_s, ptr %4, i64 %162
   %164 = load i16, ptr %163, align 2
   %165 = icmp ult i16 %159, %164
-  br i1 %165, label %pqdownheap.exit108, label %166
+  br i1 %165, label %pqdownheap.exit108.loopexit, label %166
 
 166:                                              ; preds = %158
   %167 = icmp eq i16 %159, %164
@@ -1547,7 +1547,7 @@ pqdownheap.exit:                                  ; preds = %101, %111, %115, %6
   %170 = getelementptr inbounds [573 x i8], ptr %64, i64 0, i64 %162
   %171 = load i8, ptr %170, align 1
   %.not56.i106 = icmp ugt i8 %169, %171
-  br i1 %.not56.i106, label %172, label %pqdownheap.exit108
+  br i1 %.not56.i106, label %172, label %pqdownheap.exit108.loopexit
 
 172:                                              ; preds = %168, %166
   %173 = sext i32 %.04959.i98 to i64
@@ -1556,12 +1556,16 @@ pqdownheap.exit:                                  ; preds = %101, %111, %115, %6
   %.0.i103 = shl i32 %.1.i102, 1
   %175 = load i32, ptr %10, align 4
   %.not.i104 = icmp sgt i32 %.0.i103, %175
-  br i1 %.not.i104, label %pqdownheap.exit108, label %132, !llvm.loop !16
+  br i1 %.not.i104, label %pqdownheap.exit108.loopexit, label %132, !llvm.loop !16
 
-pqdownheap.exit108:                               ; preds = %158, %168, %172, %122
-  %.049.lcssa.i105 = phi i32 [ 1, %122 ], [ %.1.i102, %172 ], [ %.04959.i98, %168 ], [ %.04959.i98, %158 ]
-  %176 = sext i32 %.049.lcssa.i105 to i64
-  %177 = getelementptr inbounds [573 x i32], ptr %62, i64 0, i64 %176
+pqdownheap.exit108.loopexit:                      ; preds = %172, %168, %158
+  %.049.lcssa.i105.ph = phi i32 [ %.04959.i98, %158 ], [ %.04959.i98, %168 ], [ %.1.i102, %172 ]
+  %176 = sext i32 %.049.lcssa.i105.ph to i64
+  br label %pqdownheap.exit108
+
+pqdownheap.exit108:                               ; preds = %pqdownheap.exit108.loopexit, %122
+  %.049.lcssa.i105 = phi i64 [ 1, %122 ], [ %176, %pqdownheap.exit108.loopexit ]
+  %177 = getelementptr inbounds [573 x i32], ptr %62, i64 0, i64 %.049.lcssa.i105
   store i32 %128, ptr %177, align 4
   %178 = load i32, ptr %63, align 4
   %179 = load i32, ptr %11, align 8
@@ -1658,7 +1662,7 @@ pqdownheap.exit108:                               ; preds = %158, %168, %172, %1
   %236 = getelementptr inbounds %struct.ct_data_s, ptr %4, i64 %235
   %237 = load i16, ptr %236, align 2
   %238 = icmp ult i16 %232, %237
-  br i1 %238, label %pqdownheap.exit122, label %239
+  br i1 %238, label %pqdownheap.exit122.loopexit, label %239
 
 239:                                              ; preds = %231
   %240 = icmp eq i16 %232, %237
@@ -1669,7 +1673,7 @@ pqdownheap.exit108:                               ; preds = %158, %168, %172, %1
   %243 = getelementptr inbounds [573 x i8], ptr %64, i64 0, i64 %235
   %244 = load i8, ptr %243, align 1
   %.not56.i120 = icmp ugt i8 %242, %244
-  br i1 %.not56.i120, label %245, label %pqdownheap.exit122
+  br i1 %.not56.i120, label %245, label %pqdownheap.exit122.loopexit
 
 245:                                              ; preds = %241, %239
   %246 = sext i32 %.04959.i112 to i64
@@ -1678,12 +1682,16 @@ pqdownheap.exit108:                               ; preds = %158, %168, %172, %1
   %.0.i117 = shl i32 %.1.i116, 1
   %248 = load i32, ptr %10, align 4
   %.not.i118 = icmp sgt i32 %.0.i117, %248
-  br i1 %.not.i118, label %pqdownheap.exit122, label %.lr.ph.i110, !llvm.loop !16
+  br i1 %.not.i118, label %pqdownheap.exit122.loopexit, label %.lr.ph.i110, !llvm.loop !16
 
-pqdownheap.exit122:                               ; preds = %231, %241, %245, %pqdownheap.exit108
-  %.049.lcssa.i119 = phi i32 [ 1, %pqdownheap.exit108 ], [ %.1.i116, %245 ], [ %.04959.i112, %241 ], [ %.04959.i112, %231 ]
-  %249 = sext i32 %.049.lcssa.i119 to i64
-  %250 = getelementptr inbounds [573 x i32], ptr %62, i64 0, i64 %249
+pqdownheap.exit122.loopexit:                      ; preds = %245, %241, %231
+  %.049.lcssa.i119.ph = phi i32 [ %.04959.i112, %231 ], [ %.04959.i112, %241 ], [ %.1.i116, %245 ]
+  %249 = sext i32 %.049.lcssa.i119.ph to i64
+  br label %pqdownheap.exit122
+
+pqdownheap.exit122:                               ; preds = %pqdownheap.exit122.loopexit, %pqdownheap.exit108
+  %.049.lcssa.i119 = phi i64 [ 1, %pqdownheap.exit108 ], [ %249, %pqdownheap.exit122.loopexit ]
+  %250 = getelementptr inbounds [573 x i32], ptr %62, i64 0, i64 %.049.lcssa.i119
   store i32 %201, ptr %250, align 4
   %251 = load i32, ptr %10, align 4
   %252 = icmp sgt i32 %251, 1

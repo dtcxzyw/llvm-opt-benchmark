@@ -4918,31 +4918,31 @@ define ptr @env_array_user_default(ptr noundef %0, i32 noundef %1, i32 noundef %
   %59 = call fastcc range(i32 0, 2) i32 @_env_array_update(ptr noundef nonnull %58, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168, i1 noundef zeroext true)
   %60 = call i32 @getrlimit(i32 noundef 7, ptr noundef nonnull %21) #18
   %61 = icmp slt i32 %60, 0
-  br i1 %61, label %62, label %._crit_edge113
+  br i1 %61, label %63, label %._crit_edge113
 
 ._crit_edge113:                                   ; preds = %53
   %.pre = load i64, ptr %21, align 8
-  br label %64
+  %62 = trunc i64 %.pre to i32
+  br label %65
 
-62:                                               ; preds = %53
-  %63 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.199) #18
+63:                                               ; preds = %53
+  %64 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.199) #18
   store i64 4096, ptr %21, align 8
-  br label %64
+  br label %65
 
-64:                                               ; preds = %._crit_edge113, %62
-  %65 = phi i64 [ %.pre, %._crit_edge113 ], [ 4096, %62 ]
-  %66 = trunc i64 %65 to i32
+65:                                               ; preds = %._crit_edge113, %63
+  %66 = phi i32 [ %62, %._crit_edge113 ], [ 4096, %63 ]
   %67 = getelementptr inbounds i8, ptr %16, i64 20
   store i32 %66, ptr %67, align 4
   %68 = call ptr @mmap(ptr noundef null, i64 noundef 1048576, i32 noundef 3, i32 noundef 131106, i32 noundef -1, i64 noundef 0) #18
   %69 = icmp eq ptr %68, inttoptr (i64 -1 to ptr)
   br i1 %69, label %_clone_env_child.exit.thread, label %_clone_env_child.exit
 
-_clone_env_child.exit.thread:                     ; preds = %64
+_clone_env_child.exit.thread:                     ; preds = %65
   %70 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.237) #18
   br label %74
 
-_clone_env_child.exit:                            ; preds = %64
+_clone_env_child.exit:                            ; preds = %65
   %71 = getelementptr inbounds i8, ptr %68, i64 1048576
   %72 = call i32 (ptr, ptr, i32, ptr, ...) @clone(ptr noundef nonnull @_child_fn, ptr noundef nonnull %71, i32 noundef 536870929, ptr noundef nonnull %16) #18
   %73 = icmp eq i32 %72, -1

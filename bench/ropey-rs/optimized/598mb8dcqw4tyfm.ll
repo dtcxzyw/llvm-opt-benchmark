@@ -521,7 +521,7 @@ _ZN5ropey4rope4Rope6chunks17h50482b26ccf72131E.exit: ; preds = %.lr.ph.i.i.i, %1
 
 62:                                               ; preds = %48
   %.sroa.6.0 = extractvalue { ptr, i64 } %.pn, 1
-  %.sroa.0.0.sroa.speculated.i = call noundef i64 @llvm.umax.i64(i64 %.sroa.6.0, i64 984)
+  %.sroa.0.0.sroa.speculated.i = call noundef range(i64 984, 0) i64 @llvm.umax.i64(i64 %.sroa.6.0, i64 984)
   %63 = add i64 %.sroa.0.0.sroa.speculated.i, %.sroa.0.0
   br label %39
 

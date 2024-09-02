@@ -1325,52 +1325,52 @@ cond.false.i:                                     ; preds = %lor.lhs.false.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %lor.lhs.false.i, %invoke.cont134
-  %cond.i = phi i1 [ true, %cond.false.i ], [ false, %lor.lhs.false.i ], [ false, %invoke.cont134 ]
-  %174 = load float, ptr %arrayidx.i.i235, align 4
-  %175 = load float, ptr %arrayidx.i12.i, align 4
-  %cmp7.i = fcmp ogt float %174, %175
+  %174 = phi i1 [ false, %cond.false.i ], [ true, %lor.lhs.false.i ], [ true, %invoke.cont134 ]
+  %175 = load float, ptr %arrayidx.i.i235, align 4
+  %176 = load float, ptr %arrayidx.i12.i, align 4
+  %cmp7.i = fcmp ogt float %175, %176
   br i1 %cmp7.i, label %cond.end15.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %cond.end.i
-  %176 = load float, ptr %arrayidx.i13.i, align 4
-  %177 = load float, ptr %arrayidx.i14.i, align 4
-  %cmp11.i236 = fcmp olt float %176, %177
+  %177 = load float, ptr %arrayidx.i13.i, align 4
+  %178 = load float, ptr %arrayidx.i14.i, align 4
+  %cmp11.i236 = fcmp olt float %177, %178
   br i1 %cmp11.i236, label %cond.end15.i, label %cond.false13.i
 
 cond.false13.i:                                   ; preds = %lor.lhs.false8.i
   br label %cond.end15.i
 
 cond.end15.i:                                     ; preds = %cond.false13.i, %lor.lhs.false8.i, %cond.end.i
-  %cond16.i = phi i1 [ %cond.i, %cond.false13.i ], [ false, %lor.lhs.false8.i ], [ false, %cond.end.i ]
-  %178 = load float, ptr %arrayidx.i15.i, align 4
-  %179 = load float, ptr %arrayidx.i16.i, align 4
-  %cmp20.i = fcmp ogt float %178, %179
+  %cond16.i = phi i1 [ %174, %cond.false13.i ], [ true, %lor.lhs.false8.i ], [ true, %cond.end.i ]
+  %179 = load float, ptr %arrayidx.i15.i, align 4
+  %180 = load float, ptr %arrayidx.i16.i, align 4
+  %cmp20.i = fcmp ogt float %179, %180
   br i1 %cmp20.i, label %if.then148, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %cond.end15.i
-  %180 = load float, ptr %arrayidx.i17.i, align 4
-  %181 = load float, ptr %arrayidx.i18.i, align 4
-  %cmp24.i = fcmp uge float %180, %181
-  %brmerge.not = and i1 %cond16.i, %cmp24.i
-  br i1 %brmerge.not, label %for.inc166, label %if.then148
+  %181 = load float, ptr %arrayidx.i17.i, align 4
+  %182 = load float, ptr %arrayidx.i18.i, align 4
+  %cmp24.i = fcmp olt float %181, %182
+  %brmerge = or i1 %cond16.i, %cmp24.i
+  br i1 %brmerge, label %if.then148, label %for.inc166
 
 if.then148:                                       ; preds = %lor.lhs.false21.i, %cond.end15.i
-  %182 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i239 = getelementptr inbounds ptr, ptr %182, i64 %indvars.iv274
-  %183 = load ptr, ptr %arrayidx.i239, align 8
-  %vtable152 = load ptr, ptr %183, align 8
-  %184 = load ptr, ptr %vtable152, align 8
-  call void %184(ptr noundef nonnull align 8 dereferenceable(16) %183) #11
-  %185 = load ptr, ptr %m_dispatcher, align 8
-  %186 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i242 = getelementptr inbounds ptr, ptr %186, i64 %indvars.iv274
-  %187 = load ptr, ptr %arrayidx.i242, align 8
-  %vtable158 = load ptr, ptr %185, align 8
+  %183 = load ptr, ptr %m_data.i, align 8
+  %arrayidx.i239 = getelementptr inbounds ptr, ptr %183, i64 %indvars.iv274
+  %184 = load ptr, ptr %arrayidx.i239, align 8
+  %vtable152 = load ptr, ptr %184, align 8
+  %185 = load ptr, ptr %vtable152, align 8
+  call void %185(ptr noundef nonnull align 8 dereferenceable(16) %184) #11
+  %186 = load ptr, ptr %m_dispatcher, align 8
+  %187 = load ptr, ptr %m_data.i, align 8
+  %arrayidx.i242 = getelementptr inbounds ptr, ptr %187, i64 %indvars.iv274
+  %188 = load ptr, ptr %arrayidx.i242, align 8
+  %vtable158 = load ptr, ptr %186, align 8
   %vfn159 = getelementptr inbounds i8, ptr %vtable158, i64 120
-  %188 = load ptr, ptr %vfn159, align 8
-  call void %188(ptr noundef nonnull align 8 dereferenceable(8) %185, ptr noundef %187)
-  %189 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i245 = getelementptr inbounds ptr, ptr %189, i64 %indvars.iv274
+  %189 = load ptr, ptr %vfn159, align 8
+  call void %189(ptr noundef nonnull align 8 dereferenceable(8) %186, ptr noundef %188)
+  %190 = load ptr, ptr %m_data.i, align 8
+  %arrayidx.i245 = getelementptr inbounds ptr, ptr %190, i64 %indvars.iv274
   store ptr null, ptr %arrayidx.i245, align 8
   br label %for.inc166
 

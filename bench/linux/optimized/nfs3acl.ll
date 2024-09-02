@@ -805,7 +805,7 @@ declare dso_local ptr @get_inode_acl(ptr noundef, i32 noundef) local_unnamed_add
 declare dso_local ptr @posix_acl_from_mode(i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @nfs3_listxattr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -34, 50) i64 @nfs3_listxattr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @get_inode_acl(ptr noundef %5, i32 noundef 32768) #8

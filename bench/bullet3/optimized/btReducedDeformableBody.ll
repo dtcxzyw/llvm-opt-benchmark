@@ -1300,10 +1300,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load float, ptr %m_rhoScale, align 4
   %mul9 = fmul float %6, %7
   %8 = fdiv float 1.000000e+00, %mul9
-  %conv10 = select i1 %cmp6, float %8, float 0.000000e+00
+  %cond = select i1 %cmp6, float %8, float 0.000000e+00
   %9 = load ptr, ptr %m_data.i22, align 8
   %m_im = getelementptr inbounds %"struct.btSoftBody::Node", ptr %9, i64 %indvars.iv, i32 7
-  store float %conv10, ptr %m_im, align 8
+  store float %cond, ptr %m_im, align 8
   %10 = load float, ptr %m_rhoScale, align 4
   %11 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i27 = getelementptr inbounds float, ptr %11, i64 %indvars.iv

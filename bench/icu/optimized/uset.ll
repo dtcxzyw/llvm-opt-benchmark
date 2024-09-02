@@ -93,7 +93,7 @@ entry:
 declare noundef ptr @_ZNK6icu_7510UnicodeSet5cloneEv(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @uset_isFrozen_75(ptr nocapture noundef readonly %set) local_unnamed_addr #4 {
+define signext range(i8 0, 2) i8 @uset_isFrozen_75(ptr nocapture noundef readonly %set) local_unnamed_addr #4 {
 entry:
   %bmpSet.i = getelementptr inbounds i8, ptr %set, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
@@ -711,7 +711,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_7510UnicodeSet12containsNoneERKS0_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @uset_containsSome_75(ptr noundef nonnull %set1, ptr noundef nonnull %set2) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uset_containsSome_75(ptr noundef nonnull %set1, ptr noundef nonnull %set2) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet12containsNoneERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %set1, ptr noundef nonnull align 8 dereferenceable(200) %set2)
   %tobool.not.i = icmp eq i8 %call.i, 0

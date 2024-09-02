@@ -808,7 +808,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSo
 declare void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6crypto18SecretKeyGenTraits9EncodeKeyEPNS_11EnvironmentEPNS0_18SecretKeyGenConfigEPN2v85LocalINS6_5ValueEEE(ptr noundef %env, ptr noundef %params, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 1, 258) i16 @_ZN4node6crypto18SecretKeyGenTraits9EncodeKeyEPNS_11EnvironmentEPNS0_18SecretKeyGenConfigEPN2v85LocalINS6_5ValueEEE(ptr noundef %env, ptr noundef %params, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
   %data = alloca %"class.std::shared_ptr.20", align 8
   %agg.tmp = alloca %"class.node::crypto::ByteSource", align 8
@@ -5853,7 +5853,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i, label %_ZNKR2v85MaybeIbE8FromJustEv.exit, label %return
 
 _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %if.then
-  %tobool.i102 = trunc i16 %retval.sroa.5.0.extract.shift to i1
+  %tobool.i102 = trunc nuw i16 %retval.sroa.5.0.extract.shift to i1
   br i1 %tobool.i102, label %if.then7, label %return
 
 if.then7:                                         ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit
@@ -5899,7 +5899,7 @@ do.end26:                                         ; preds = %do.body
 return:                                           ; preds = %if.then, %_ZNKR2v85MaybeIbE8FromJustEv.exit, %if.then7, %do.end26
   %retval.sroa.0.0.in = phi i16 [ %call4, %if.then7 ], [ %call4, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ %call4, %if.then ], [ %retval.sroa.0.0.insert.insert.i, %do.end26 ]
   %retval.sroa.5.0.in = phi i16 [ %retval.sroa.5.0.extract.shift, %if.then7 ], [ %retval.sroa.5.0.extract.shift, %_ZNKR2v85MaybeIbE8FromJustEv.exit ], [ %retval.sroa.5.0.extract.shift, %if.then ], [ %retval.sroa.2.0.insert.ext.i, %do.end26 ]
-  %retval.sroa.5.0.insert.shift = shl nuw i16 %retval.sroa.5.0.in, 8
+  %retval.sroa.5.0.insert.shift = shl nuw nsw i16 %retval.sroa.5.0.in, 8
   %retval.sroa.0.0.insert.ext = and i16 %retval.sroa.0.0.in, 255
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.5.0.insert.shift, %retval.sroa.0.0.insert.ext
   ret i16 %retval.sroa.0.0.insert.insert

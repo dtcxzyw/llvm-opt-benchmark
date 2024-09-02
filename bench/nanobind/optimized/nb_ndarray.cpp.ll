@@ -1041,11 +1041,11 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit:          ; preds = %298, %292, %287, %2
   %307 = getelementptr inbounds i8, ptr %280, i64 8
   %308 = load i32, ptr %307, align 8
   %309 = zext i8 %305 to i32
-  %310 = icmp eq i32 %308, %309
+  %310 = icmp ne i32 %308, %309
   br label %311
 
 311:                                              ; preds = %306, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit
-  %.0246 = phi i1 [ %310, %306 ], [ true, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ]
+  %.0246 = phi i1 [ %310, %306 ], [ false, %_ZNK8nanobind6dlpack5dtypeeqERKS1_.exit ]
   %312 = getelementptr inbounds i8, ptr %1, i64 16
   %313 = load i8, ptr %312, align 8
   %314 = trunc i8 %313 to i1
@@ -1104,113 +1104,116 @@ _ZNK8nanobind6dlpack5dtypeeqERKS1_.exit:          ; preds = %298, %292, %287, %2
   %335 = mul nsw i64 %334, %.0256470
   %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
   %exitcond495.not = icmp eq i64 %indvars.iv.next492, %wide.trip.count494
-  br i1 %exitcond495.not, label %._crit_edge, label %332, !llvm.loop !16
+  br i1 %exitcond495.not, label %._crit_edge.loopexit, label %332, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %332, %.preheader465, %.loopexit466
-  %.0247.shrunk.not501 = phi i1 [ %.0247.shrunk.not, %.loopexit466 ], [ false, %.preheader465 ], [ %.0247.shrunk.not, %332 ]
-  %.0256.lcssa = phi i64 [ 1, %.loopexit466 ], [ 1, %.preheader465 ], [ %335, %332 ]
-  %336 = getelementptr inbounds i8, ptr %280, i64 16
-  %337 = load i32, ptr %336, align 8
-  %338 = sext i32 %337 to i64
-  %339 = shl nsw i64 %338, 3
-  %340 = invoke ptr @PyMem_Malloc(i64 noundef %339)
+._crit_edge.loopexit:                             ; preds = %332
+  %336 = icmp ne i64 %335, 0
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.preheader465, %._crit_edge.loopexit, %.loopexit466
+  %.0247.shrunk.not501 = phi i1 [ %.0247.shrunk.not, %.loopexit466 ], [ %.0247.shrunk.not, %._crit_edge.loopexit ], [ false, %.preheader465 ]
+  %.0256.lcssa = phi i1 [ true, %.loopexit466 ], [ %336, %._crit_edge.loopexit ], [ true, %.preheader465 ]
+  %337 = getelementptr inbounds i8, ptr %280, i64 16
+  %338 = load i32, ptr %337, align 8
+  %339 = sext i32 %338 to i64
+  %340 = shl nsw i64 %339, 3
+  %341 = invoke ptr @PyMem_Malloc(i64 noundef %340)
           to label %.noexc374 unwind label %597
 
 .noexc374:                                        ; preds = %._crit_edge
-  %.not.i373 = icmp eq ptr %340, null
-  br i1 %.not.i373, label %341, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
+  %.not.i373 = icmp eq ptr %341, null
+  br i1 %.not.i373, label %342, label %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
 
-341:                                              ; preds = %.noexc374
-  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.35, i64 noundef %338) #18
+342:                                              ; preds = %.noexc374
+  call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.35, i64 noundef %339) #18
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc374
-  %342 = getelementptr inbounds i8, ptr %1, i64 19
-  %343 = load i8, ptr %342, align 1
-  %.not293 = icmp eq i8 %343, 0
-  br i1 %.not293, label %344, label %347
+  %343 = getelementptr inbounds i8, ptr %1, i64 19
+  %344 = load i8, ptr %343, align 1
+  %.not293 = icmp eq i8 %344, 0
+  br i1 %.not293, label %345, label %348
 
-344:                                              ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
-  %345 = getelementptr inbounds i8, ptr %280, i64 32
-  %346 = load ptr, ptr %345, align 8
-  %.not294 = icmp eq ptr %346, null
+345:                                              ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
+  %346 = getelementptr inbounds i8, ptr %280, i64 32
+  %347 = load ptr, ptr %346, align 8
+  %.not294 = icmp eq ptr %347, null
   br i1 %.not294, label %.thread446, label %.loopexit
 
-347:                                              ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
-  %348 = load i32, ptr %336, align 8
-  %349 = icmp sgt i32 %348, 0
-  br i1 %349, label %352, label %.loopexit
+348:                                              ; preds = %_ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit
+  %349 = load i32, ptr %337, align 8
+  %350 = icmp sgt i32 %349, 0
+  br i1 %350, label %353, label %.loopexit
 
-.thread446:                                       ; preds = %344
-  %350 = load i32, ptr %336, align 8
-  %351 = icmp sgt i32 %350, 0
-  br i1 %351, label %.split, label %.loopexit
+.thread446:                                       ; preds = %345
+  %351 = load i32, ptr %337, align 8
+  %352 = icmp sgt i32 %351, 0
+  br i1 %352, label %.split, label %.loopexit
 
-352:                                              ; preds = %347
-  %353 = icmp eq i8 %343, 67
-  br i1 %353, label %.split, label %354
+353:                                              ; preds = %348
+  %354 = icmp eq i8 %344, 67
+  br i1 %354, label %.split, label %355
 
-354:                                              ; preds = %352
-  %355 = getelementptr inbounds i8, ptr %280, i64 32
-  %356 = load ptr, ptr %355, align 8
-  %.not295 = icmp eq ptr %356, null
-  br i1 %.not295, label %.split, label %368
+355:                                              ; preds = %353
+  %356 = getelementptr inbounds i8, ptr %280, i64 32
+  %357 = load ptr, ptr %356, align 8
+  %.not295 = icmp eq ptr %357, null
+  br i1 %.not295, label %.split, label %369
 
-.split:                                           ; preds = %.thread446, %352, %354
-  %357 = phi i32 [ %348, %352 ], [ %348, %354 ], [ %350, %.thread446 ]
-  %358 = add nsw i32 %357, -1
-  %359 = zext nneg i32 %358 to i64
-  %phi.call477 = getelementptr inbounds i64, ptr %340, i64 %359
+.split:                                           ; preds = %.thread446, %353, %355
+  %358 = phi i32 [ %349, %353 ], [ %349, %355 ], [ %351, %.thread446 ]
+  %359 = add nsw i32 %358, -1
+  %360 = zext nneg i32 %359 to i64
+  %phi.call477 = getelementptr inbounds i64, ptr %341, i64 %360
   store i64 1, ptr %phi.call477, align 8
-  %360 = icmp eq i32 %358, 0
-  br i1 %360, label %.thread450, label %.split275.lr.ph
+  %361 = icmp eq i32 %359, 0
+  br i1 %361, label %.thread450, label %.split275.lr.ph
 
 .split275.lr.ph:                                  ; preds = %.split
-  %361 = getelementptr inbounds i8, ptr %280, i64 24
+  %362 = getelementptr inbounds i8, ptr %280, i64 24
   br label %.split275
 
 .split275:                                        ; preds = %.split275.lr.ph, %.split275
-  %.0252479 = phi i64 [ %359, %.split275.lr.ph ], [ %366, %.split275 ]
-  %.0253478 = phi i64 [ 1, %.split275.lr.ph ], [ %365, %.split275 ]
-  %362 = load ptr, ptr %361, align 8
-  %363 = getelementptr inbounds i64, ptr %362, i64 %.0252479
-  %364 = load i64, ptr %363, align 8
-  %365 = mul nsw i64 %364, %.0253478
-  %366 = add nsw i64 %.0252479, -1
-  %phi.call = getelementptr inbounds i64, ptr %340, i64 %366
-  store i64 %365, ptr %phi.call, align 8
-  %367 = icmp eq i64 %366, 0
-  br i1 %367, label %.thread450, label %.split275, !llvm.loop !17
+  %.0252479 = phi i64 [ %360, %.split275.lr.ph ], [ %367, %.split275 ]
+  %.0253478 = phi i64 [ 1, %.split275.lr.ph ], [ %366, %.split275 ]
+  %363 = load ptr, ptr %362, align 8
+  %364 = getelementptr inbounds i64, ptr %363, i64 %.0252479
+  %365 = load i64, ptr %364, align 8
+  %366 = mul nsw i64 %365, %.0253478
+  %367 = add nsw i64 %.0252479, -1
+  %phi.call = getelementptr inbounds i64, ptr %341, i64 %367
+  store i64 %366, ptr %phi.call, align 8
+  %368 = icmp eq i64 %367, 0
+  br i1 %368, label %.thread450, label %.split275, !llvm.loop !17
 
-368:                                              ; preds = %354
-  %369 = icmp eq i8 %343, 70
-  br i1 %369, label %.lr.ph476, label %.thread450
+369:                                              ; preds = %355
+  %370 = icmp eq i8 %344, 70
+  br i1 %370, label %.lr.ph476, label %.thread450
 
-.lr.ph476:                                        ; preds = %368
-  %370 = getelementptr inbounds i8, ptr %280, i64 24
-  br label %371
+.lr.ph476:                                        ; preds = %369
+  %371 = getelementptr inbounds i8, ptr %280, i64 24
+  br label %372
 
-371:                                              ; preds = %.lr.ph476, %371
-  %.0251475 = phi i64 [ 0, %.lr.ph476 ], [ %377, %371 ]
-  %.1254474 = phi i64 [ 1, %.lr.ph476 ], [ %376, %371 ]
-  %372 = getelementptr inbounds i64, ptr %340, i64 %.0251475
-  store i64 %.1254474, ptr %372, align 8
-  %373 = load ptr, ptr %370, align 8
-  %374 = getelementptr inbounds i64, ptr %373, i64 %.0251475
-  %375 = load i64, ptr %374, align 8
-  %376 = mul nsw i64 %375, %.1254474
-  %377 = add nuw i64 %.0251475, 1
-  %378 = load i32, ptr %336, align 8
-  %379 = sext i32 %378 to i64
-  %380 = icmp ult i64 %377, %379
-  br i1 %380, label %371, label %.thread450, !llvm.loop !18
+372:                                              ; preds = %.lr.ph476, %372
+  %.0251475 = phi i64 [ 0, %.lr.ph476 ], [ %378, %372 ]
+  %.1254474 = phi i64 [ 1, %.lr.ph476 ], [ %377, %372 ]
+  %373 = getelementptr inbounds i64, ptr %341, i64 %.0251475
+  store i64 %.1254474, ptr %373, align 8
+  %374 = load ptr, ptr %371, align 8
+  %375 = getelementptr inbounds i64, ptr %374, i64 %.0251475
+  %376 = load i64, ptr %375, align 8
+  %377 = mul nsw i64 %376, %.1254474
+  %378 = add nuw i64 %.0251475, 1
+  %379 = load i32, ptr %337, align 8
+  %380 = sext i32 %379 to i64
+  %381 = icmp ult i64 %378, %380
+  br i1 %381, label %372, label %.thread450, !llvm.loop !18
 
-.thread450:                                       ; preds = %371, %.split275, %.split, %368
-  %.1249 = phi i8 [ 0, %368 ], [ 1, %.split ], [ 1, %.split275 ], [ 1, %371 ]
-  %381 = load i8, ptr %342, align 1
-  %382 = icmp ne i8 %381, 0
-  %383 = icmp ne i64 %.0256.lcssa, 0
-  %or.cond = select i1 %382, i1 %383, i1 false
+.thread450:                                       ; preds = %372, %.split275, %.split, %369
+  %.1249 = phi i8 [ 0, %369 ], [ 1, %.split ], [ 1, %.split275 ], [ 1, %372 ]
+  %382 = load i8, ptr %343, align 1
+  %383 = icmp ne i8 %382, 0
+  %or.cond = select i1 %383, i1 %.0256.lcssa, i1 false
   br i1 %or.cond, label %384, label %.loopexit
 
 384:                                              ; preds = %.thread450
@@ -1220,7 +1223,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc374
   br i1 %.not296, label %391, label %.preheader
 
 .preheader:                                       ; preds = %384
-  %387 = load i32, ptr %336, align 8
+  %387 = load i32, ptr %337, align 8
   %388 = sext i32 %387 to i64
   %.not488 = icmp eq i32 %387, 0
   br i1 %.not488, label %.loopexit, label %.lr.ph481
@@ -1231,7 +1234,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc374
   br label %394
 
 391:                                              ; preds = %384
-  %392 = icmp eq i8 %381, 67
+  %392 = icmp eq i8 %382, 67
   %393 = zext i1 %392 to i8
   br label %.loopexit
 
@@ -1243,7 +1246,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc374
   br i1 %.not297, label %402, label %397
 
 397:                                              ; preds = %394
-  %398 = getelementptr inbounds i64, ptr %340, i64 %.0250480
+  %398 = getelementptr inbounds i64, ptr %341, i64 %.0250480
   %399 = load i64, ptr %398, align 8
   %400 = getelementptr inbounds i64, ptr %386, i64 %.0250480
   %401 = load i64, ptr %400, align 8
@@ -1255,8 +1258,8 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc374
   %exitcond496.not = icmp eq i64 %403, %388
   br i1 %exitcond496.not, label %.loopexit, label %394, !llvm.loop !19
 
-.loopexit:                                        ; preds = %402, %397, %.preheader, %.thread446, %.thread450, %391, %347, %344
-  %.0248 = phi i8 [ %393, %391 ], [ %.1249, %.thread450 ], [ 1, %347 ], [ 1, %344 ], [ 1, %.thread446 ], [ %.1249, %.preheader ], [ %.1249, %402 ], [ 0, %397 ]
+.loopexit:                                        ; preds = %402, %397, %.preheader, %.thread446, %.thread450, %391, %348, %345
+  %.0248 = phi i8 [ %393, %391 ], [ %.1249, %.thread450 ], [ 1, %348 ], [ 1, %345 ], [ 1, %.thread446 ], [ %.1249, %.preheader ], [ %.1249, %402 ], [ 0, %397 ]
   %404 = getelementptr inbounds i8, ptr %280, i64 20
   %405 = load i8, ptr %404, align 4
   %406 = icmp eq i8 %405, 5
@@ -1269,8 +1272,7 @@ _ZN8nanobind6detail15scoped_pymallocIlEC2Em.exit: ; preds = %.noexc374
 
 410:                                              ; preds = %407, %.loopexit
   %411 = phi i1 [ false, %.loopexit ], [ %409, %407 ]
-  %.0246.not = xor i1 %.0246, true
-  %brmerge = or i1 %.0247.shrunk.not501, %.0246.not
+  %brmerge = or i1 %.0246, %.0247.shrunk.not501
   br i1 %brmerge, label %548, label %412
 
 412:                                              ; preds = %410
@@ -1337,7 +1339,7 @@ _ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit381: ; preds = %422, %_ZN8n
           to label %_ZNK8nanobind3str5c_strEv.exit383 unwind label %597
 
 _ZNK8nanobind3str5c_strEv.exit383:                ; preds = %_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev.exit381
-  %434 = load i8, ptr %342, align 1
+  %434 = load i8, ptr %343, align 1
   %.not300 = icmp eq i8 %434, 0
   %spec.store.select = select i1 %.not300, i8 75, i8 %434
   store i8 %spec.store.select, ptr %13, align 1
@@ -1459,7 +1461,7 @@ _ZNK8nanobind3str5c_strEv.exit383:                ; preds = %_ZN8nanobind6detail
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #17
   call void @_ZN8nanobind7module_D2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #17
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  %473 = load i8, ptr %342, align 1
+  %473 = load i8, ptr %343, align 1
   %474 = icmp eq i8 %473, 67
   br i1 %474, label %475, label %514
 
@@ -1665,7 +1667,7 @@ _ZN8nanobind6objectD2Ev.exit392:                  ; preds = %514, %537, %534, %5
 
 548:                                              ; preds = %416, %413, %410
   %.0245.not = xor i1 %.0245, true
-  %brmerge315 = or i1 %.0245.not, %.0246.not
+  %brmerge315 = select i1 %.0245.not, i1 true, i1 %.0246
   %brmerge317 = or i1 %brmerge315, %.0247.shrunk.not501
   br i1 %brmerge317, label %_ZN8nanobind3strD2Ev.exit396, label %549
 
@@ -1727,11 +1729,11 @@ _ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em.exit: ; preds = 
 
 572:                                              ; preds = %567
   store i8 1, ptr %570, align 1
-  store ptr %340, ptr %568, align 8
+  store ptr %341, ptr %568, align 8
   br label %573
 
 573:                                              ; preds = %572, %571
-  %.sroa.0419.1 = phi ptr [ null, %572 ], [ %340, %571 ]
+  %.sroa.0419.1 = phi ptr [ null, %572 ], [ %341, %571 ]
   %574 = load ptr, ptr %7, align 8
   %575 = invoke i32 @PyCapsule_SetName(ptr noundef %574, ptr noundef nonnull @.str.26)
           to label %576 unwind label %597
@@ -1765,7 +1767,7 @@ _ZN8nanobind6detail15scoped_pymallocINS0_14ndarray_handleEEC2Em.exit: ; preds = 
   unreachable
 
 _ZN8nanobind3strD2Ev.exit396:                     ; preds = %415, %582, %544, %541, %_ZN8nanobind6objectD2Ev.exit392, %549, %548
-  %.sroa.0419.0 = phi ptr [ %340, %548 ], [ %340, %549 ], [ %340, %_ZN8nanobind6objectD2Ev.exit392 ], [ %340, %541 ], [ %340, %544 ], [ %.sroa.0419.1, %582 ], [ %340, %415 ]
+  %.sroa.0419.0 = phi ptr [ %341, %548 ], [ %341, %549 ], [ %341, %_ZN8nanobind6objectD2Ev.exit392 ], [ %341, %541 ], [ %341, %544 ], [ %.sroa.0419.1, %582 ], [ %341, %415 ]
   %.3 = phi ptr [ null, %548 ], [ null, %549 ], [ %.1, %_ZN8nanobind6objectD2Ev.exit392 ], [ %.1, %541 ], [ %.1, %544 ], [ %552, %582 ], [ null, %415 ]
   invoke void @PyMem_Free(ptr noundef %.sroa.0419.0)
           to label %_ZN8nanobind6detail15scoped_pymallocIlED2Ev.exit unwind label %586
@@ -2652,11 +2654,11 @@ _ZN8nanobind6objectD2Ev.exit:                     ; preds = %4
   br label %_ZN8nanobind6objectD2Ev.exit163
 
 18:                                               ; preds = %4
-  switch i32 %2, label %.thread275 [
+  switch i32 %2, label %.thread [
     i32 6, label %19
     i32 0, label %31
-    i32 3, label %.thread
-    i32 4, label %.thread
+    i32 3, label %.thread274
+    i32 4, label %.thread274
   ]
 
 19:                                               ; preds = %18
@@ -2691,32 +2693,32 @@ _ZN8nanobind6objectD2Ev.exit:                     ; preds = %4
   %32 = getelementptr inbounds i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %.thread275
+  br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread, label %.thread275
+  br i1 %38, label %.thread274, label %.thread
 
-.thread275:                                       ; preds = %18, %31, %35
+.thread:                                          ; preds = %18, %31, %35
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   %.not129 = icmp eq ptr %40, null
   br i1 %.not129, label %45, label %41
 
-41:                                               ; preds = %.thread275
+41:                                               ; preds = %.thread
   %42 = load i64, ptr %40, align 8
   %43 = add nsw i64 %42, 1
   store i64 %43, ptr %40, align 8
   %44 = load ptr, ptr %39, align 8
   br label %_ZN8nanobind6objectD2Ev.exit163
 
-45:                                               ; preds = %.thread275
+45:                                               ; preds = %.thread
   %46 = icmp eq i32 %2, 7
-  br i1 %46, label %_ZN8nanobind6objectD2Ev.exit163, label %.thread
+  br i1 %46, label %_ZN8nanobind6objectD2Ev.exit163, label %.thread274
 
-.thread:                                          ; preds = %18, %18, %45, %35
+.thread274:                                       ; preds = %18, %18, %45, %35
   %47 = phi i1 [ false, %45 ], [ true, %35 ], [ true, %18 ], [ true, %18 ]
   switch i32 %1, label %142 [
     i32 1, label %48
@@ -2726,7 +2728,7 @@ _ZN8nanobind6objectD2Ev.exit:                     ; preds = %4
     i32 4, label %139
   ]
 
-48:                                               ; preds = %.thread
+48:                                               ; preds = %.thread274
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %49 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
@@ -2931,7 +2933,7 @@ _ZN8nanobind7module_D2Ev.exit:                    ; preds = %96, %93, %_ZN8nanob
   %120 = call noundef ptr %119(ptr noundef nonnull align 8 dereferenceable(8) %115) #17
   br label %.invoke306
 
-121:                                              ; preds = %.thread
+121:                                              ; preds = %.thread274
   br label %.invoke
 
 122:                                              ; preds = %.invoke
@@ -2964,19 +2966,19 @@ _ZN8nanobind7module_D2Ev.exit:                    ; preds = %96, %93, %_ZN8nanob
   invoke void @__cxa_end_catch()
           to label %_ZN8nanobind6objectD2Ev.exit163 unwind label %231
 
-139:                                              ; preds = %.thread
+139:                                              ; preds = %.thread274
   br label %.invoke
 
-.invoke:                                          ; preds = %.thread, %121, %139
-  %140 = phi ptr [ @.str.10, %139 ], [ @.str.8, %121 ], [ @.str.6, %.thread ]
+.invoke:                                          ; preds = %.thread274, %121, %139
+  %140 = phi ptr [ @.str.10, %139 ], [ @.str.8, %121 ], [ @.str.6, %.thread274 ]
   %141 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef nonnull %140)
           to label %_ZN8nanobind7module_D2Ev.exit169.thread unwind label %122
 
-142:                                              ; preds = %.thread
+142:                                              ; preds = %.thread274
   tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #18
   unreachable
 
-_ZN8nanobind7module_D2Ev.exit169:                 ; preds = %.thread
+_ZN8nanobind7module_D2Ev.exit169:                 ; preds = %.thread274
   br i1 %47, label %143, label %_ZN8nanobind7module_D2Ev.exit169.thread
 
 143:                                              ; preds = %_ZN8nanobind7module_D2Ev.exit169

@@ -1929,17 +1929,14 @@ if.end:                                           ; preds = %entry
   store i32 %inc.i.i, ptr %refcnt.i.i, align 8
   %jobs.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %jobs.i, align 8
-  br label %for.cond.i
+  %tobool.not.i23 = icmp eq ptr %2, null
+  br i1 %tobool.not.i23, label %if.else4, label %land.rhs.i
 
-for.cond.i:                                       ; preds = %job_prepare_locked.exit, %if.end
-  %other_job.0.i = phi ptr [ %2, %if.end ], [ %3, %job_prepare_locked.exit ]
-  %tobool.not.i = icmp eq ptr %other_job.0.i, null
-  br i1 %tobool.not.i, label %if.else4, label %land.rhs.i
-
-land.rhs.i:                                       ; preds = %for.cond.i
-  %txn_list.i = getelementptr inbounds i8, ptr %other_job.0.i, i64 264
+land.rhs.i:                                       ; preds = %if.end, %for.cond.i.backedge
+  %other_job.0.i24 = phi ptr [ %3, %for.cond.i.backedge ], [ %2, %if.end ]
+  %txn_list.i = getelementptr inbounds i8, ptr %other_job.0.i24, i64 264
   %3 = load ptr, ptr %txn_list.i, align 8
-  %aio_context.i = getelementptr inbounds i8, ptr %other_job.0.i, i64 112
+  %aio_context.i = getelementptr inbounds i8, ptr %other_job.0.i24, i64 112
   %4 = load ptr, ptr %aio_context.i, align 8
   %call.i18 = tail call zeroext i1 @qemu_in_main_thread() #16
   br i1 %call.i18, label %do.end.i, label %if.else.i
@@ -1949,18 +1946,18 @@ if.else.i:                                        ; preds = %land.rhs.i
   unreachable
 
 do.end.i:                                         ; preds = %land.rhs.i
-  %ret1.i = getelementptr inbounds i8, ptr %other_job.0.i, i64 188
+  %ret1.i = getelementptr inbounds i8, ptr %other_job.0.i24, i64 188
   %5 = load i32, ptr %ret1.i, align 4
   %cmp.i = icmp eq i32 %5, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.then3
 
 land.lhs.true.i:                                  ; preds = %do.end.i
-  %driver.i = getelementptr inbounds i8, ptr %other_job.0.i, i64 8
+  %driver.i = getelementptr inbounds i8, ptr %other_job.0.i24, i64 8
   %6 = load ptr, ptr %driver.i, align 8
   %prepare.i = getelementptr inbounds i8, ptr %6, i64 56
   %7 = load ptr, ptr %prepare.i, align 8
   %tobool.not.i19 = icmp eq ptr %7, null
-  br i1 %tobool.not.i19, label %job_prepare_locked.exit, label %if.then2.i
+  br i1 %tobool.not.i19, label %for.cond.i.backedge, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str, i32 noundef 106) #16
@@ -1968,7 +1965,7 @@ if.then2.i:                                       ; preds = %land.lhs.true.i
   %8 = load ptr, ptr %driver.i, align 8
   %prepare4.i = getelementptr inbounds i8, ptr %8, i64 56
   %9 = load ptr, ptr %prepare4.i, align 8
-  %call5.i = tail call i32 %9(ptr noundef nonnull %other_job.0.i) #16
+  %call5.i = tail call i32 %9(ptr noundef nonnull %other_job.0.i24) #16
   tail call void @aio_context_release(ptr noundef %4) #16
   %10 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %11 = inttoptr i64 %10 to ptr
@@ -1978,10 +1975,10 @@ if.then2.i:                                       ; preds = %land.lhs.true.i
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.then4.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then2.i
-  %cancelled.i.i.i = getelementptr inbounds i8, ptr %other_job.0.i, i64 183
+  %cancelled.i.i.i = getelementptr inbounds i8, ptr %other_job.0.i24, i64 183
   %12 = load i8, ptr %cancelled.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %12 to i1
-  %force_cancel2.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %other_job.0.i, i64 184
+  %force_cancel2.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %other_job.0.i24, i64 184
   %.pre.i.i.i = load i8, ptr %force_cancel2.phi.trans.insert.i.i.i, align 8
   %.pre3.i.i.i = trunc i8 %.pre.i.i.i to i1
   %.pre3.not.i.i.i = xor i1 %.pre3.i.i.i, true
@@ -1994,7 +1991,7 @@ if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i
 
 job_is_cancelled_locked.exit.i.i:                 ; preds = %land.lhs.true.i.i
   %.pre3.mux.i.i.i = select i1 %tobool.i.i.i, i1 %.pre3.i.i.i, i1 false
-  br i1 %.pre3.mux.i.i.i, label %if.then.i.i, label %job_prepare_locked.exit
+  br i1 %.pre3.mux.i.i.i, label %if.then.i.i, label %for.cond.i.backedge
 
 if.then.i.i:                                      ; preds = %job_is_cancelled_locked.exit.i.i
   store i32 -125, ptr %ret1.i, align 4
@@ -2002,7 +1999,7 @@ if.then.i.i:                                      ; preds = %job_is_cancelled_lo
 
 if.then4.i.i:                                     ; preds = %if.then.i.i, %if.then2.i
   %13 = phi i32 [ %call5.i, %if.then2.i ], [ -125, %if.then.i.i ]
-  %err.i.i = getelementptr inbounds i8, ptr %other_job.0.i, i64 192
+  %err.i.i = getelementptr inbounds i8, ptr %other_job.0.i24, i64 192
   %14 = load ptr, ptr %err.i.i, align 8
   %tobool5.not.i.i = icmp eq ptr %14, null
   br i1 %tobool5.not.i.i, label %if.then6.i.i, label %if.end10.i.i
@@ -2014,21 +2011,21 @@ if.then6.i.i:                                     ; preds = %if.then4.i.i
   br label %if.end10.i.i
 
 if.end10.i.i:                                     ; preds = %if.then6.i.i, %if.then4.i.i
-  tail call fastcc void @job_state_transition_locked(ptr noundef nonnull %other_job.0.i, i32 noundef 8)
+  tail call fastcc void @job_state_transition_locked(ptr noundef nonnull %other_job.0.i24, i32 noundef 8)
   %.pre.i = load i32, ptr %ret1.i, align 4
-  br label %job_prepare_locked.exit
+  %15 = icmp eq i32 %.pre.i, 0
+  br i1 %15, label %for.cond.i.backedge, label %if.then3
 
-job_prepare_locked.exit:                          ; preds = %land.lhs.true.i, %job_is_cancelled_locked.exit.i.i, %if.end10.i.i
-  %15 = phi i32 [ %.pre.i, %if.end10.i.i ], [ 0, %job_is_cancelled_locked.exit.i.i ], [ 0, %land.lhs.true.i ]
-  %tobool2.not.i = icmp eq i32 %15, 0
-  br i1 %tobool2.not.i, label %for.cond.i, label %if.then3, !llvm.loop !8
+for.cond.i.backedge:                              ; preds = %job_is_cancelled_locked.exit.i.i, %land.lhs.true.i, %if.end10.i.i
+  %tobool.not.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i, label %if.else4, label %land.rhs.i, !llvm.loop !8
 
-if.then3:                                         ; preds = %do.end.i, %job_prepare_locked.exit
+if.then3:                                         ; preds = %do.end.i, %if.end10.i.i
   tail call void @job_unref_locked(ptr noundef %job)
   tail call fastcc void @job_completed_txn_abort_locked(ptr noundef %job)
   br label %if.end6
 
-if.else4:                                         ; preds = %for.cond.i
+if.else4:                                         ; preds = %for.cond.i.backedge, %if.end
   tail call void @job_unref_locked(ptr noundef %job)
   %16 = load ptr, ptr %txn, align 8
   %17 = load i32, ptr %refcnt.i.i, align 8

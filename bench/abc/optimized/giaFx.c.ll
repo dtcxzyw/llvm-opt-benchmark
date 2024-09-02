@@ -2344,8 +2344,8 @@ Vec_IntFillExtra.exit:                            ; preds = %.critedge, %._crit_
   %209 = sext i32 %.val227.val to i64
   br label %210
 
-210:                                              ; preds = %.lr.ph353, %473
-  %indvars.iv386 = phi i64 [ %209, %.lr.ph353 ], [ %indvars.iv.next387, %473 ]
+210:                                              ; preds = %.lr.ph353, %474
+  %indvars.iv386 = phi i64 [ %209, %.lr.ph353 ], [ %indvars.iv.next387, %474 ]
   %.val199 = load ptr, ptr %205, align 8
   %211 = getelementptr inbounds i32, ptr %.val199, i64 %indvars.iv386
   %212 = load i32, ptr %211, align 4
@@ -2977,19 +2977,19 @@ Vec_StrPush.exit295:                              ; preds = %.Vec_StrGrow.exit10
   %.0172 = phi i32 [ %431, %.critedge8 ], [ %466, %.critedge12 ]
   %.val235 = load i32, ptr %9, align 4
   %468 = icmp slt i32 %212, %.val235
-  br i1 %468, label %469, label %473
+  br i1 %468, label %469, label %474
 
 469:                                              ; preds = %467
   %.val237 = load ptr, ptr %208, align 8
   %470 = getelementptr inbounds i8, ptr %.val237, i64 %215
   %471 = load i8, ptr %470, align 1
   %472 = icmp sgt i8 %471, 0
-  br label %473
+  %473 = zext i1 %472 to i32
+  br label %474
 
-473:                                              ; preds = %469, %467
-  %474 = phi i1 [ false, %467 ], [ %472, %469 ]
-  %475 = zext i1 %474 to i32
-  %476 = xor i32 %.0172, %475
+474:                                              ; preds = %469, %467
+  %475 = phi i32 [ 0, %467 ], [ %473, %469 ]
+  %476 = xor i32 %475, %.0172
   %.val202 = load ptr, ptr %69, align 8
   %477 = getelementptr inbounds i32, ptr %.val202, i64 %215
   store i32 %476, ptr %477, align 4
@@ -2999,7 +2999,7 @@ Vec_StrPush.exit295:                              ; preds = %.Vec_StrGrow.exit10
   %479 = icmp slt i64 %indvars.iv.next387, %478
   br i1 %479, label %210, label %.critedge2, !llvm.loop !39
 
-.critedge2:                                       ; preds = %473, %Vec_IntFillExtra.exit
+.critedge2:                                       ; preds = %474, %Vec_IntFillExtra.exit
   call void @Gia_ManHashStop(ptr noundef nonnull %16) #17
   %480 = getelementptr inbounds i8, ptr %0, i64 72
   %481 = load ptr, ptr %480, align 8
@@ -3426,7 +3426,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

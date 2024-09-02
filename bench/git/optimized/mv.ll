@@ -1151,18 +1151,19 @@ if.then539:                                       ; preds = %land.lhs.true536
   %arrayidx541 = getelementptr inbounds ptr, ptr %93, i64 %idxprom540
   %94 = load ptr, ptr %arrayidx541, align 8
   %call542 = call i32 @ie_modified(ptr noundef nonnull @the_index, ptr noundef %94, ptr noundef nonnull %st, i32 noundef 0) #11
+  %95 = icmp eq i32 %call542, 0
   br label %if.end543
 
 if.end543:                                        ; preds = %if.then539, %land.lhs.true536, %if.end530
-  %sparse_and_dirty.0 = phi i32 [ 0, %if.end530 ], [ 0, %land.lhs.true536 ], [ %call542, %if.then539 ]
+  %sparse_and_dirty.0 = phi i1 [ true, %if.end530 ], [ true, %land.lhs.true536 ], [ %95, %if.then539 ]
   call void @rename_index_entry_at(ptr noundef nonnull @the_index, i32 noundef %call533, ptr noundef %84) #11
-  %95 = load i32, ptr %ignore_sparse, align 4
-  %tobool544 = icmp ne i32 %95, 0
-  %96 = load i32, ptr @core_apply_sparse_checkout, align 4
-  %tobool546 = icmp ne i32 %96, 0
+  %96 = load i32, ptr %ignore_sparse, align 4
+  %tobool544 = icmp ne i32 %96, 0
+  %97 = load i32, ptr @core_apply_sparse_checkout, align 4
+  %tobool546 = icmp ne i32 %97, 0
   %or.cond1 = select i1 %tobool544, i1 %tobool546, i1 false
-  %97 = load i32, ptr @core_sparse_checkout_cone, align 4
-  %tobool548 = icmp ne i32 %97, 0
+  %98 = load i32, ptr @core_sparse_checkout_cone, align 4
+  %tobool548 = icmp ne i32 %98, 0
   %or.cond2 = select i1 %or.cond1, i1 %tobool548, i1 false
   br i1 %or.cond2, label %if.then549, label %for.inc603
 
@@ -1178,21 +1179,21 @@ if.then555:                                       ; preds = %land.lhs.true552
   %call556 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #13
   %conv557 = trunc i64 %call556 to i32
   %call558 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %84, i32 noundef %conv557) #11
-  %98 = load ptr, ptr @the_index, align 8
+  %99 = load ptr, ptr @the_index, align 8
   %idxprom559 = sext i32 %call558 to i64
-  %arrayidx560 = getelementptr inbounds ptr, ptr %98, i64 %idxprom559
-  %99 = load ptr, ptr %arrayidx560, align 8
-  %ce_flags561 = getelementptr inbounds i8, ptr %99, i64 56
-  %100 = load i32, ptr %ce_flags561, align 8
-  %and562 = and i32 %100, -1073741825
+  %arrayidx560 = getelementptr inbounds ptr, ptr %99, i64 %idxprom559
+  %100 = load ptr, ptr %arrayidx560, align 8
+  %ce_flags561 = getelementptr inbounds i8, ptr %100, i64 56
+  %101 = load i32, ptr %ce_flags561, align 8
+  %and562 = and i32 %101, -1073741825
   store i32 %and562, ptr %ce_flags561, align 8
-  %call.i398 = call i32 @checkout_entry_ca(ptr noundef %99, ptr noundef null, ptr noundef nonnull %state, ptr noundef null, ptr noundef null) #11
+  %call.i398 = call i32 @checkout_entry_ca(ptr noundef %100, ptr noundef null, ptr noundef nonnull %state, ptr noundef null, ptr noundef null) #11
   %tobool564.not = icmp eq i32 %call.i398, 0
   br i1 %tobool564.not, label %for.inc603, label %if.then565
 
 if.then565:                                       ; preds = %if.then555
   %call566 = call fastcc ptr @_(ptr noundef nonnull @.str.28)
-  %name567 = getelementptr inbounds i8, ptr %99, i64 108
+  %name567 = getelementptr inbounds i8, ptr %100, i64 108
   call void (ptr, ...) @die(ptr noundef %call566, ptr noundef nonnull %name567) #12
   unreachable
 
@@ -1208,17 +1209,16 @@ if.then579:                                       ; preds = %land.lhs.true576
   %call581 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #13
   %conv582 = trunc i64 %call581 to i32
   %call583 = call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef %84, i32 noundef %conv582) #11
-  %tobool587.not = icmp eq i32 %sparse_and_dirty.0, 0
-  br i1 %tobool587.not, label %if.then588, label %if.else592
+  br i1 %sparse_and_dirty.0, label %if.then588, label %if.else592
 
 if.then588:                                       ; preds = %if.then579
-  %101 = load ptr, ptr @the_index, align 8
+  %102 = load ptr, ptr @the_index, align 8
   %idxprom585 = sext i32 %call583 to i64
-  %arrayidx586 = getelementptr inbounds ptr, ptr %101, i64 %idxprom585
-  %102 = load ptr, ptr %arrayidx586, align 8
-  %ce_flags589 = getelementptr inbounds i8, ptr %102, i64 56
-  %103 = load i32, ptr %ce_flags589, align 8
-  %or590 = or i32 %103, 1073741824
+  %arrayidx586 = getelementptr inbounds ptr, ptr %102, i64 %idxprom585
+  %103 = load ptr, ptr %arrayidx586, align 8
+  %ce_flags589 = getelementptr inbounds i8, ptr %103, i64 56
+  %104 = load i32, ptr %ce_flags589, align 8
+  %or590 = or i32 %104, 1073741824
   store i32 %or590, ptr %ce_flags589, align 8
   %call591 = call i32 @unlink_or_warn(ptr noundef %83) #11
   br label %for.inc603
@@ -1240,13 +1240,13 @@ for.inc603:                                       ; preds = %land.lhs.true552, %
 for.body609:                                      ; preds = %for.body609.lr.ph, %strbuf_setlen.exit
   %indvars.iv579 = phi i64 [ 0, %for.body609.lr.ph ], [ %indvars.iv.next580, %strbuf_setlen.exit ]
   %arrayidx611 = getelementptr inbounds ptr, ptr %src_dir.4, i64 %indvars.iv579
-  %104 = load ptr, ptr %arrayidx611, align 8
-  %call.i399 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #13
-  call void @strbuf_add(ptr noundef nonnull %a_src_dir, ptr noundef %104, i64 noundef %call.i399) #11
-  %105 = load ptr, ptr %buf, align 8
-  %106 = load i64, ptr %len, align 8
-  %conv612 = trunc i64 %106 to i32
-  %call613 = call fastcc i32 @index_range_of_same_dir(ptr noundef %105, i32 noundef %conv612, ptr noundef nonnull %dummy, ptr noundef nonnull %dummy)
+  %105 = load ptr, ptr %arrayidx611, align 8
+  %call.i399 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #13
+  call void @strbuf_add(ptr noundef nonnull %a_src_dir, ptr noundef %105, i64 noundef %call.i399) #11
+  %106 = load ptr, ptr %buf, align 8
+  %107 = load i64, ptr %len, align 8
+  %conv612 = trunc i64 %107 to i32
+  %call613 = call fastcc i32 @index_range_of_same_dir(ptr noundef %106, i32 noundef %conv612, ptr noundef nonnull %dummy, ptr noundef nonnull %dummy)
   %cmp614 = icmp slt i32 %call613, 1
   br i1 %cmp614, label %if.then616, label %if.end618
 
@@ -1256,12 +1256,12 @@ if.then616:                                       ; preds = %for.body609
 
 if.end618:                                        ; preds = %if.then616, %for.body609
   store i64 0, ptr %len, align 8
-  %107 = load ptr, ptr %buf, align 8
-  %cmp3.not.i = icmp eq ptr %107, @strbuf_slopbuf
+  %108 = load ptr, ptr %buf, align 8
+  %cmp3.not.i = icmp eq ptr %108, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end618
-  store i8 0, ptr %107, align 1
+  store i8 0, ptr %108, align 1
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %if.end618, %if.then4.i
@@ -1273,8 +1273,8 @@ for.end621:                                       ; preds = %strbuf_setlen.exit,
   call void @strbuf_release(ptr noundef nonnull %a_src_dir) #11
   call void @free(ptr noundef %src_dir.4) #11
   %nr622 = getelementptr inbounds i8, ptr %dirty_paths, i64 8
-  %108 = load i64, ptr %nr622, align 8
-  %tobool623.not = icmp eq i64 %108, 0
+  %109 = load i64, ptr %nr622, align 8
+  %tobool623.not = icmp eq i64 %109, 0
   br i1 %tobool623.not, label %if.end625, label %if.then624
 
 if.then624:                                       ; preds = %for.end621

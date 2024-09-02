@@ -1088,146 +1088,148 @@ define dso_local void @usb_kill_anchored_urbs(ptr noundef %0) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 44
-  br label %6
+  br label %.backedge
 
-6:                                                ; preds = %69, %1
-  tail call void @_raw_spin_lock_irq(ptr noundef %3) #10
-  %7 = load volatile ptr, ptr %0, align 8
-  %8 = icmp eq ptr %7, %0
-  br i1 %8, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %6, %.thread
-  %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr i8, ptr %9, i64 -40
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %59, label %12
-
-12:                                               ; preds = %.preheader
-  %13 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 1, ptr nonnull elementtype(i32) %10) #10, !srcloc !8
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %19, label %15, !prof !9
-
-15:                                               ; preds = %12
-  %16 = add i32 %13, 1
-  %17 = or i32 %16, %13
-  %18 = icmp sgt i32 %17, -1
-  br i1 %18, label %21, label %19, !prof !6
-
-19:                                               ; preds = %15, %12
-  %20 = phi i32 [ 2, %12 ], [ 1, %15 ]
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %10, i32 noundef %20) #10
-  br label %21
-
-21:                                               ; preds = %15, %19
+.critedge:                                        ; preds = %.loopexit
   tail call void @_raw_spin_unlock_irq(ptr noundef %3) #10
-  %22 = tail call i32 @__SCT__might_resched() #10
-  %23 = getelementptr i8, ptr %9, i64 24
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %usb_kill_urb.exit, label %26
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !38
+  br label %.backedge.backedge
 
-26:                                               ; preds = %21
-  %27 = getelementptr i8, ptr %9, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %usb_kill_urb.exit, label %30
+.backedge:                                        ; preds = %.backedge.backedge, %1
+  tail call void @_raw_spin_lock_irq(ptr noundef %3) #10
+  %6 = load volatile ptr, ptr %0, align 8
+  %7 = icmp eq ptr %6, %0
+  br i1 %7, label %.loopexit, label %.preheader
 
-30:                                               ; preds = %26
-  %31 = getelementptr i8, ptr %9, i64 -20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31, ptr elementtype(i32) %31) #10, !srcloc !10
-  %32 = tail call i32 @usb_hcd_unlink_urb(ptr noundef nonnull %10, i32 noundef -2) #10
-  %33 = tail call i32 @__SCT__might_resched() #10
-  %34 = getelementptr i8, ptr %9, i64 -24
-  %35 = load volatile i32, ptr %34, align 4
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %44, label %37
+.preheader:                                       ; preds = %.backedge, %.thread
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr i8, ptr %8, i64 -40
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %58, label %11
 
-37:                                               ; preds = %30
+11:                                               ; preds = %.preheader
+  %12 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 1, ptr nonnull elementtype(i32) %9) #10, !srcloc !8
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %18, label %14, !prof !9
+
+14:                                               ; preds = %11
+  %15 = add i32 %12, 1
+  %16 = or i32 %15, %12
+  %17 = icmp sgt i32 %16, -1
+  br i1 %17, label %20, label %18, !prof !6
+
+18:                                               ; preds = %14, %11
+  %19 = phi i32 [ 2, %11 ], [ 1, %14 ]
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %9, i32 noundef %19) #10
+  br label %20
+
+20:                                               ; preds = %14, %18
+  tail call void @_raw_spin_unlock_irq(ptr noundef %3) #10
+  %21 = tail call i32 @__SCT__might_resched() #10
+  %22 = getelementptr i8, ptr %8, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %usb_kill_urb.exit, label %25
+
+25:                                               ; preds = %20
+  %26 = getelementptr i8, ptr %8, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %usb_kill_urb.exit, label %29
+
+29:                                               ; preds = %25
+  %30 = getelementptr i8, ptr %8, i64 -20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30, ptr elementtype(i32) %30) #10, !srcloc !10
+  %31 = tail call i32 @usb_hcd_unlink_urb(ptr noundef nonnull %9, i32 noundef -2) #10
+  %32 = tail call i32 @__SCT__might_resched() #10
+  %33 = getelementptr i8, ptr %8, i64 -24
+  %34 = load volatile i32, ptr %33, align 4
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %43, label %36
+
+36:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false), !annotation !36
   call void @init_wait_entry(ptr noundef nonnull %2, i32 noundef 0) #10
-  %38 = call i64 @prepare_to_wait_event(ptr noundef nonnull @usb_kill_urb_queue, ptr noundef nonnull %2, i32 noundef 2) #10
-  %39 = load volatile i32, ptr %34, align 4
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.loopexit.i, label %.preheader.i
+  %37 = call i64 @prepare_to_wait_event(ptr noundef nonnull @usb_kill_urb_queue, ptr noundef nonnull %2, i32 noundef 2) #10
+  %38 = load volatile i32, ptr %33, align 4
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %.loopexit.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %37, %.preheader.i
+.preheader.i:                                     ; preds = %36, %.preheader.i
   call void @schedule() #10
-  %41 = call i64 @prepare_to_wait_event(ptr noundef nonnull @usb_kill_urb_queue, ptr noundef nonnull %2, i32 noundef 2) #10
-  %42 = load volatile i32, ptr %34, align 4
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.loopexit.i, label %.preheader.i
+  %40 = call i64 @prepare_to_wait_event(ptr noundef nonnull @usb_kill_urb_queue, ptr noundef nonnull %2, i32 noundef 2) #10
+  %41 = load volatile i32, ptr %33, align 4
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %.loopexit.i, label %.preheader.i
 
-.loopexit.i:                                      ; preds = %.preheader.i, %37
+.loopexit.i:                                      ; preds = %.preheader.i, %36
   call void @finish_wait(ptr noundef nonnull @usb_kill_urb_queue, ptr noundef nonnull %2) #10
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #10
-  br label %44
+  br label %43
 
-44:                                               ; preds = %.loopexit.i, %30
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31, ptr elementtype(i32) %31) #10, !srcloc !37
+43:                                               ; preds = %.loopexit.i, %29
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %30, ptr elementtype(i32) %30) #10, !srcloc !37
   br label %usb_kill_urb.exit
 
-usb_kill_urb.exit:                                ; preds = %21, %26, %44
-  %45 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 -1, ptr nonnull elementtype(i32) %10) #10, !srcloc !5
-  %46 = icmp eq i32 %45, 1
-  br i1 %46, label %50, label %47
+usb_kill_urb.exit:                                ; preds = %20, %25, %43
+  %44 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 -1, ptr nonnull elementtype(i32) %9) #10, !srcloc !5
+  %45 = icmp eq i32 %44, 1
+  br i1 %45, label %49, label %46
 
-47:                                               ; preds = %usb_kill_urb.exit
-  %48 = icmp sgt i32 %45, 0
-  br i1 %48, label %.thread, label %49, !prof !6
+46:                                               ; preds = %usb_kill_urb.exit
+  %47 = icmp sgt i32 %44, 0
+  br i1 %47, label %.thread, label %48, !prof !6
 
-49:                                               ; preds = %47
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %10, i32 noundef 3) #10
+48:                                               ; preds = %46
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %9, i32 noundef 3) #10
   br label %.thread
 
-50:                                               ; preds = %usb_kill_urb.exit
+49:                                               ; preds = %usb_kill_urb.exit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
-  %51 = getelementptr i8, ptr %9, i64 52
-  %52 = load i32, ptr %51, align 4
-  %53 = and i32 %52, 256
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %58, label %55
+  %50 = getelementptr i8, ptr %8, i64 52
+  %51 = load i32, ptr %50, align 4
+  %52 = and i32 %51, 256
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %57, label %54
 
-55:                                               ; preds = %50
-  %56 = getelementptr i8, ptr %9, i64 56
-  %57 = load ptr, ptr %56, align 8
-  tail call void @kfree(ptr noundef %57) #10
-  br label %58
+54:                                               ; preds = %49
+  %55 = getelementptr i8, ptr %8, i64 56
+  %56 = load ptr, ptr %55, align 8
+  tail call void @kfree(ptr noundef %56) #10
+  br label %57
 
-58:                                               ; preds = %55, %50
-  tail call void @kfree(ptr noundef nonnull %10) #10
+57:                                               ; preds = %54, %49
+  tail call void @kfree(ptr noundef nonnull %9) #10
   br label %.thread
 
-59:                                               ; preds = %.preheader
+58:                                               ; preds = %.preheader
   tail call void @_raw_spin_unlock_irq(ptr noundef %3) #10
-  %60 = tail call i32 @__SCT__might_resched() #10
+  %59 = tail call i32 @__SCT__might_resched() #10
   br label %.thread
 
-.thread:                                          ; preds = %47, %49, %59, %58
+.thread:                                          ; preds = %46, %48, %58, %57
   tail call void @_raw_spin_lock_irq(ptr noundef %3) #10
-  %61 = load volatile ptr, ptr %0, align 8
-  %62 = icmp eq ptr %61, %0
-  br i1 %62, label %.loopexit, label %.preheader, !llvm.loop !38
+  %60 = load volatile ptr, ptr %0, align 8
+  %61 = icmp eq ptr %60, %0
+  br i1 %61, label %.loopexit, label %.preheader, !llvm.loop !39
 
-.loopexit:                                        ; preds = %.thread, %6
-  %63 = load volatile i32, ptr %5, align 4
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %69
+.loopexit:                                        ; preds = %.thread, %.backedge
+  %62 = load volatile i32, ptr %5, align 4
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %.critedge
 
-65:                                               ; preds = %.loopexit
-  %66 = load volatile ptr, ptr %0, align 8
-  %67 = icmp eq ptr %66, %0
-  %68 = zext i1 %67 to i32
-  br label %69
-
-69:                                               ; preds = %65, %.loopexit
-  %70 = phi i32 [ 0, %.loopexit ], [ %68, %65 ]
+64:                                               ; preds = %.loopexit
+  %65 = load volatile ptr, ptr %0, align 8
+  %.not = icmp eq ptr %65, %0
   tail call void @_raw_spin_unlock_irq(ptr noundef %3) #10
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !39
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %6, label %72, !llvm.loop !40
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !38
+  br i1 %.not, label %66, label %.backedge.backedge
 
-72:                                               ; preds = %69
+.backedge.backedge:                               ; preds = %64, %.critedge
+  br label %.backedge, !llvm.loop !40
+
+66:                                               ; preds = %64
   ret void
 }
 
@@ -1238,145 +1240,147 @@ define dso_local void @usb_poison_anchored_urbs(ptr noundef %0) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 44
-  br label %7
+  br label %.backedge
 
-7:                                                ; preds = %71, %1
-  tail call void @_raw_spin_lock_irq(ptr noundef %3) #10
-  %8 = load i8, ptr %4, align 8
-  %9 = or i8 %8, 1
-  store i8 %9, ptr %4, align 8
-  %10 = load volatile ptr, ptr %0, align 8
-  %11 = icmp eq ptr %10, %0
-  br i1 %11, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %7, %.thread
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr i8, ptr %12, i64 -40
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %61, label %15
-
-15:                                               ; preds = %.preheader
-  %16 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 1, ptr nonnull elementtype(i32) %13) #10, !srcloc !8
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %22, label %18, !prof !9
-
-18:                                               ; preds = %15
-  %19 = add i32 %16, 1
-  %20 = or i32 %19, %16
-  %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %24, label %22, !prof !6
-
-22:                                               ; preds = %18, %15
-  %23 = phi i32 [ 2, %15 ], [ 1, %18 ]
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %13, i32 noundef %23) #10
-  br label %24
-
-24:                                               ; preds = %18, %22
+.critedge:                                        ; preds = %.loopexit
   tail call void @_raw_spin_unlock_irq(ptr noundef %3) #10
-  %25 = tail call i32 @__SCT__might_resched() #10
-  %26 = getelementptr i8, ptr %12, i64 -20
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %26, ptr elementtype(i32) %26) #10, !srcloc !10
-  %27 = getelementptr i8, ptr %12, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %usb_poison_urb.exit, label %30
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !38
+  br label %.backedge.backedge
 
-30:                                               ; preds = %24
-  %31 = getelementptr i8, ptr %12, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %usb_poison_urb.exit, label %34
+.backedge:                                        ; preds = %.backedge.backedge, %1
+  tail call void @_raw_spin_lock_irq(ptr noundef %3) #10
+  %7 = load i8, ptr %4, align 8
+  %8 = or i8 %7, 1
+  store i8 %8, ptr %4, align 8
+  %9 = load volatile ptr, ptr %0, align 8
+  %10 = icmp eq ptr %9, %0
+  br i1 %10, label %.loopexit, label %.preheader
 
-34:                                               ; preds = %30
-  %35 = tail call i32 @usb_hcd_unlink_urb(ptr noundef nonnull %13, i32 noundef -2) #10
-  %36 = tail call i32 @__SCT__might_resched() #10
-  %37 = getelementptr i8, ptr %12, i64 -24
-  %38 = load volatile i32, ptr %37, align 4
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %usb_poison_urb.exit, label %40
+.preheader:                                       ; preds = %.backedge, %.thread
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr i8, ptr %11, i64 -40
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %60, label %14
 
-40:                                               ; preds = %34
+14:                                               ; preds = %.preheader
+  %15 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 1, ptr nonnull elementtype(i32) %12) #10, !srcloc !8
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %21, label %17, !prof !9
+
+17:                                               ; preds = %14
+  %18 = add i32 %15, 1
+  %19 = or i32 %18, %15
+  %20 = icmp sgt i32 %19, -1
+  br i1 %20, label %23, label %21, !prof !6
+
+21:                                               ; preds = %17, %14
+  %22 = phi i32 [ 2, %14 ], [ 1, %17 ]
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %12, i32 noundef %22) #10
+  br label %23
+
+23:                                               ; preds = %17, %21
+  tail call void @_raw_spin_unlock_irq(ptr noundef %3) #10
+  %24 = tail call i32 @__SCT__might_resched() #10
+  %25 = getelementptr i8, ptr %11, i64 -20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25, ptr elementtype(i32) %25) #10, !srcloc !10
+  %26 = getelementptr i8, ptr %11, i64 24
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %usb_poison_urb.exit, label %29
+
+29:                                               ; preds = %23
+  %30 = getelementptr i8, ptr %11, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %usb_poison_urb.exit, label %33
+
+33:                                               ; preds = %29
+  %34 = tail call i32 @usb_hcd_unlink_urb(ptr noundef nonnull %12, i32 noundef -2) #10
+  %35 = tail call i32 @__SCT__might_resched() #10
+  %36 = getelementptr i8, ptr %11, i64 -24
+  %37 = load volatile i32, ptr %36, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %usb_poison_urb.exit, label %39
+
+39:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false), !annotation !36
   call void @init_wait_entry(ptr noundef nonnull %2, i32 noundef 0) #10
-  %41 = call i64 @prepare_to_wait_event(ptr noundef nonnull @usb_kill_urb_queue, ptr noundef nonnull %2, i32 noundef 2) #10
-  %42 = load volatile i32, ptr %37, align 4
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.loopexit.i, label %.preheader.i
+  %40 = call i64 @prepare_to_wait_event(ptr noundef nonnull @usb_kill_urb_queue, ptr noundef nonnull %2, i32 noundef 2) #10
+  %41 = load volatile i32, ptr %36, align 4
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %.loopexit.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %40, %.preheader.i
+.preheader.i:                                     ; preds = %39, %.preheader.i
   call void @schedule() #10
-  %44 = call i64 @prepare_to_wait_event(ptr noundef nonnull @usb_kill_urb_queue, ptr noundef nonnull %2, i32 noundef 2) #10
-  %45 = load volatile i32, ptr %37, align 4
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.loopexit.i, label %.preheader.i
+  %43 = call i64 @prepare_to_wait_event(ptr noundef nonnull @usb_kill_urb_queue, ptr noundef nonnull %2, i32 noundef 2) #10
+  %44 = load volatile i32, ptr %36, align 4
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %.loopexit.i, label %.preheader.i
 
-.loopexit.i:                                      ; preds = %.preheader.i, %40
+.loopexit.i:                                      ; preds = %.preheader.i, %39
   call void @finish_wait(ptr noundef nonnull @usb_kill_urb_queue, ptr noundef nonnull %2) #10
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #10
   br label %usb_poison_urb.exit
 
-usb_poison_urb.exit:                              ; preds = %24, %30, %34, %.loopexit.i
-  %47 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 -1, ptr nonnull elementtype(i32) %13) #10, !srcloc !5
-  %48 = icmp eq i32 %47, 1
-  br i1 %48, label %52, label %49
+usb_poison_urb.exit:                              ; preds = %23, %29, %33, %.loopexit.i
+  %46 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 -1, ptr nonnull elementtype(i32) %12) #10, !srcloc !5
+  %47 = icmp eq i32 %46, 1
+  br i1 %47, label %51, label %48
 
-49:                                               ; preds = %usb_poison_urb.exit
-  %50 = icmp sgt i32 %47, 0
-  br i1 %50, label %.thread, label %51, !prof !6
+48:                                               ; preds = %usb_poison_urb.exit
+  %49 = icmp sgt i32 %46, 0
+  br i1 %49, label %.thread, label %50, !prof !6
 
-51:                                               ; preds = %49
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %13, i32 noundef 3) #10
+50:                                               ; preds = %48
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %12, i32 noundef 3) #10
   br label %.thread
 
-52:                                               ; preds = %usb_poison_urb.exit
+51:                                               ; preds = %usb_poison_urb.exit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
-  %53 = getelementptr i8, ptr %12, i64 52
-  %54 = load i32, ptr %53, align 4
-  %55 = and i32 %54, 256
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %60, label %57
+  %52 = getelementptr i8, ptr %11, i64 52
+  %53 = load i32, ptr %52, align 4
+  %54 = and i32 %53, 256
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %59, label %56
 
-57:                                               ; preds = %52
-  %58 = getelementptr i8, ptr %12, i64 56
-  %59 = load ptr, ptr %58, align 8
-  tail call void @kfree(ptr noundef %59) #10
-  br label %60
+56:                                               ; preds = %51
+  %57 = getelementptr i8, ptr %11, i64 56
+  %58 = load ptr, ptr %57, align 8
+  tail call void @kfree(ptr noundef %58) #10
+  br label %59
 
-60:                                               ; preds = %57, %52
-  tail call void @kfree(ptr noundef nonnull %13) #10
+59:                                               ; preds = %56, %51
+  tail call void @kfree(ptr noundef nonnull %12) #10
   br label %.thread
 
-61:                                               ; preds = %.preheader
+60:                                               ; preds = %.preheader
   tail call void @_raw_spin_unlock_irq(ptr noundef %3) #10
-  %62 = tail call i32 @__SCT__might_resched() #10
+  %61 = tail call i32 @__SCT__might_resched() #10
   br label %.thread
 
-.thread:                                          ; preds = %49, %51, %61, %60
+.thread:                                          ; preds = %48, %50, %60, %59
   tail call void @_raw_spin_lock_irq(ptr noundef %3) #10
-  %63 = load volatile ptr, ptr %0, align 8
-  %64 = icmp eq ptr %63, %0
-  br i1 %64, label %.loopexit, label %.preheader, !llvm.loop !41
+  %62 = load volatile ptr, ptr %0, align 8
+  %63 = icmp eq ptr %62, %0
+  br i1 %63, label %.loopexit, label %.preheader, !llvm.loop !41
 
-.loopexit:                                        ; preds = %.thread, %7
-  %65 = load volatile i32, ptr %6, align 4
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %71
+.loopexit:                                        ; preds = %.thread, %.backedge
+  %64 = load volatile i32, ptr %6, align 4
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %.critedge
 
-67:                                               ; preds = %.loopexit
-  %68 = load volatile ptr, ptr %0, align 8
-  %69 = icmp eq ptr %68, %0
-  %70 = zext i1 %69 to i32
-  br label %71
-
-71:                                               ; preds = %67, %.loopexit
-  %72 = phi i32 [ 0, %.loopexit ], [ %70, %67 ]
+66:                                               ; preds = %.loopexit
+  %67 = load volatile ptr, ptr %0, align 8
+  %.not = icmp eq ptr %67, %0
   tail call void @_raw_spin_unlock_irq(ptr noundef %3) #10
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !39
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %7, label %74, !llvm.loop !42
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !38
+  br i1 %.not, label %68, label %.backedge.backedge
 
-74:                                               ; preds = %71
+.backedge.backedge:                               ; preds = %66, %.critedge
+  br label %.backedge, !llvm.loop !42
+
+68:                                               ; preds = %66
   ret void
 }
 
@@ -1697,99 +1701,101 @@ define dso_local void @usb_scuttle_anchored_urbs(ptr noundef %0) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %6
+  br label %.backedge
 
-6:                                                ; preds = %48, %1
-  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
-  %8 = load volatile ptr, ptr %0, align 8
-  %9 = icmp eq ptr %8, %0
-  br i1 %9, label %.loopexit, label %.preheader
+.critedge:                                        ; preds = %.loopexit
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %6) #10
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !38
+  br label %.backedge.backedge
 
-.preheader:                                       ; preds = %6, %__usb_unanchor_urb.exit
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr i8, ptr %10, i64 -40
-  %12 = getelementptr i8, ptr %10, i64 16
-  store ptr null, ptr %12, align 8
-  %13 = getelementptr i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %14, ptr %16, align 8
-  store volatile ptr %15, ptr %14, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %10, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %13, align 8
-  %17 = icmp eq ptr %11, null
-  br i1 %17, label %.thread.i, label %18
+.backedge:                                        ; preds = %.backedge.backedge, %1
+  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #10
+  %7 = load volatile ptr, ptr %0, align 8
+  %8 = icmp eq ptr %7, %0
+  br i1 %8, label %.loopexit, label %.preheader
 
-18:                                               ; preds = %.preheader
-  %19 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 -1, ptr nonnull elementtype(i32) %11) #10, !srcloc !5
-  %20 = icmp eq i32 %19, 1
-  br i1 %20, label %24, label %21
+.preheader:                                       ; preds = %.backedge, %__usb_unanchor_urb.exit
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr i8, ptr %9, i64 -40
+  %11 = getelementptr i8, ptr %9, i64 16
+  store ptr null, ptr %11, align 8
+  %12 = getelementptr i8, ptr %9, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = load ptr, ptr %9, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr %13, ptr %15, align 8
+  store volatile ptr %14, ptr %13, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %9, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %12, align 8
+  %16 = icmp eq ptr %10, null
+  br i1 %16, label %.thread.i, label %17
 
-21:                                               ; preds = %18
-  %22 = icmp sgt i32 %19, 0
-  br i1 %22, label %.thread.i, label %23, !prof !6
+17:                                               ; preds = %.preheader
+  %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 -1, ptr nonnull elementtype(i32) %10) #10, !srcloc !5
+  %19 = icmp eq i32 %18, 1
+  br i1 %19, label %23, label %20
 
-23:                                               ; preds = %21
-  tail call void @refcount_warn_saturate(ptr noundef nonnull %11, i32 noundef 3) #10
+20:                                               ; preds = %17
+  %21 = icmp sgt i32 %18, 0
+  br i1 %21, label %.thread.i, label %22, !prof !6
+
+22:                                               ; preds = %20
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %10, i32 noundef 3) #10
   br label %.thread.i
 
-24:                                               ; preds = %18
+23:                                               ; preds = %17
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
-  %25 = getelementptr i8, ptr %10, i64 52
-  %26 = load i32, ptr %25, align 4
-  %27 = and i32 %26, 256
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %32, label %29
+  %24 = getelementptr i8, ptr %9, i64 52
+  %25 = load i32, ptr %24, align 4
+  %26 = and i32 %25, 256
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %31, label %28
 
-29:                                               ; preds = %24
-  %30 = getelementptr i8, ptr %10, i64 56
-  %31 = load ptr, ptr %30, align 8
-  tail call void @kfree(ptr noundef %31) #10
-  br label %32
+28:                                               ; preds = %23
+  %29 = getelementptr i8, ptr %9, i64 56
+  %30 = load ptr, ptr %29, align 8
+  tail call void @kfree(ptr noundef %30) #10
+  br label %31
 
-32:                                               ; preds = %29, %24
-  tail call void @kfree(ptr noundef nonnull %11) #10
+31:                                               ; preds = %28, %23
+  tail call void @kfree(ptr noundef nonnull %10) #10
   br label %.thread.i
 
-.thread.i:                                        ; preds = %32, %23, %21, %.preheader
-  %33 = load volatile i32, ptr %4, align 4
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %__usb_unanchor_urb.exit
+.thread.i:                                        ; preds = %31, %22, %20, %.preheader
+  %32 = load volatile i32, ptr %4, align 4
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %__usb_unanchor_urb.exit
 
-35:                                               ; preds = %.thread.i
-  %36 = load volatile ptr, ptr %0, align 8
-  %37 = icmp eq ptr %36, %0
-  br i1 %37, label %38, label %__usb_unanchor_urb.exit
+34:                                               ; preds = %.thread.i
+  %35 = load volatile ptr, ptr %0, align 8
+  %36 = icmp eq ptr %35, %0
+  br i1 %36, label %37, label %__usb_unanchor_urb.exit
 
-38:                                               ; preds = %35
-  %39 = tail call i32 @__wake_up(ptr noundef %5, i32 noundef 3, i32 noundef 1, ptr noundef null) #10
+37:                                               ; preds = %34
+  %38 = tail call i32 @__wake_up(ptr noundef %5, i32 noundef 3, i32 noundef 1, ptr noundef null) #10
   br label %__usb_unanchor_urb.exit
 
-__usb_unanchor_urb.exit:                          ; preds = %.thread.i, %35, %38
-  %40 = load volatile ptr, ptr %0, align 8
-  %41 = icmp eq ptr %40, %0
-  br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !45
+__usb_unanchor_urb.exit:                          ; preds = %.thread.i, %34, %37
+  %39 = load volatile ptr, ptr %0, align 8
+  %40 = icmp eq ptr %39, %0
+  br i1 %40, label %.loopexit, label %.preheader, !llvm.loop !45
 
-.loopexit:                                        ; preds = %__usb_unanchor_urb.exit, %6
-  %42 = load volatile i32, ptr %4, align 4
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %48
+.loopexit:                                        ; preds = %__usb_unanchor_urb.exit, %.backedge
+  %41 = load volatile i32, ptr %4, align 4
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %.critedge
 
-44:                                               ; preds = %.loopexit
-  %45 = load volatile ptr, ptr %0, align 8
-  %46 = icmp eq ptr %45, %0
-  %47 = zext i1 %46 to i32
-  br label %48
+43:                                               ; preds = %.loopexit
+  %44 = load volatile ptr, ptr %0, align 8
+  %.not = icmp eq ptr %44, %0
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %6) #10
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !38
+  br i1 %.not, label %45, label %.backedge.backedge
 
-48:                                               ; preds = %44, %.loopexit
-  %49 = phi i32 [ 0, %.loopexit ], [ %47, %44 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %2, i64 noundef %7) #10
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !39
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %6, label %51, !llvm.loop !46
+.backedge.backedge:                               ; preds = %43, %.critedge
+  br label %.backedge, !llvm.loop !46
 
-51:                                               ; preds = %48
+45:                                               ; preds = %43
   ret void
 }
 
@@ -1884,8 +1890,8 @@ attributes #11 = { nounwind memory(read) }
 !35 = !{i64 1001694}
 !36 = !{!"auto-init"}
 !37 = !{i64 2148841639, i64 2148841678, i64 2148841699, i64 2148841736, i64 2148841759, i64 2148841629}
-!38 = distinct !{!38, !22, !23}
-!39 = !{i64 1980392}
+!38 = !{i64 1980392}
+!39 = distinct !{!39, !22, !23}
 !40 = distinct !{!40, !22, !23}
 !41 = distinct !{!41, !22, !23}
 !42 = distinct !{!42, !22, !23}

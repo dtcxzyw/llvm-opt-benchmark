@@ -18588,7 +18588,7 @@ define hidden range(i64 4503599627370496, -9223372036854775807) i64 @_ZN17cranel
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden i64 @_ZN17cranelift_codegen2ir10immediates6Ieee6430fcvt_to_sint_negative_overflow17h0e05db15286cfb5aE(i8 noundef %0) unnamed_addr #9 {
+define hidden range(i64 -9223372036854775808, 0) i64 @_ZN17cranelift_codegen2ir10immediates6Ieee6430fcvt_to_sint_negative_overflow17h0e05db15286cfb5aE(i8 noundef %0) unnamed_addr #9 {
 _ZN17cranelift_codegen2ir10immediates6Ieee644pow217hf49db12ecb63da31E.llvm.5781664634918412060.exit:
   %1 = zext i8 %0 to i64
   %2 = shl nuw nsw i64 %1, 52
@@ -20531,7 +20531,7 @@ define hidden noundef range(i16 0, 256) i16 @_ZN17cranelift_codegen2ir5types4Typ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i16 0, 256) i16 @_ZN17cranelift_codegen2ir5types4Type18as_truthy_pedantic17h1d317a0c9b7d655eE(i16 noundef %0) unnamed_addr #4 {
+define noundef range(i16 6, 256) i16 @_ZN17cranelift_codegen2ir5types4Type18as_truthy_pedantic17h1d317a0c9b7d655eE(i16 noundef %0) unnamed_addr #4 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = icmp ult i16 %0, 128
   %4 = and i16 %0, 15
@@ -20582,7 +20582,7 @@ define noundef range(i16 0, 256) i16 @_ZN17cranelift_codegen2ir5types4Type18as_t
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i16 0, 256) i16 @_ZN17cranelift_codegen2ir5types4Type9as_truthy17h75d8340c6c40f430E(i16 noundef %0) unnamed_addr #4 {
+define noundef range(i16 6, 256) i16 @_ZN17cranelift_codegen2ir5types4Type9as_truthy17h75d8340c6c40f430E(i16 noundef %0) unnamed_addr #4 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = and i16 %0, -128
   %.0.i = icmp eq i16 %3, 128
@@ -20640,7 +20640,7 @@ _ZN17cranelift_codegen2ir5types4Type18as_truthy_pedantic17h1d317a0c9b7d655eE.exi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i16 0, 256) i16 @_ZN17cranelift_codegen2ir5types4Type6as_int17hc5779713b144069cE(i16 noundef %0) unnamed_addr #4 {
+define noundef range(i16 6, 256) i16 @_ZN17cranelift_codegen2ir5types4Type6as_int17hc5779713b144069cE(i16 noundef %0) unnamed_addr #4 {
   %2 = icmp ult i16 %0, 128
   %3 = and i16 %0, 15
   %4 = or disjoint i16 %3, 112
@@ -20821,7 +20821,7 @@ _ZN17cranelift_codegen2ir5types4Type15log2_lane_count17h8254fe19b9e0a240E.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i32 0, -2147483647) i32 @_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE(i16 noundef %0) unnamed_addr #9 {
+define noundef range(i32 0, 1073741825) i32 @_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE(i16 noundef %0) unnamed_addr #9 {
   %2 = icmp ugt i16 %0, 255
   br i1 %2, label %7, label %_ZN17cranelift_codegen2ir5types4Type15log2_lane_count17h8254fe19b9e0a240E.exit
 
@@ -20838,7 +20838,7 @@ _ZN17cranelift_codegen2ir5types4Type15log2_lane_count17h8254fe19b9e0a240E.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i32 @_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE(i16 noundef %0) unnamed_addr #9 {
+define noundef range(i32 0, 2130706433) i32 @_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE(i16 noundef %0) unnamed_addr #9 {
   %2 = icmp ugt i16 %0, 255
   br i1 %2, label %13, label %3
 
@@ -20946,7 +20946,7 @@ _ZN17cranelift_codegen2ir5types4Type14min_lane_count17hfd6299c7ecf4e190E.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i32 0, 536870912) i32 @_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E(i16 noundef %0) unnamed_addr #9 {
+define noundef range(i32 0, 266338305) i32 @_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E(i16 noundef %0) unnamed_addr #9 {
   %2 = icmp ugt i16 %0, 255
   br i1 %2, label %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit, label %3
 

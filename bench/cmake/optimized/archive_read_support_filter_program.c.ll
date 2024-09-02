@@ -202,7 +202,7 @@ declare ptr @archive_strcat(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @__archive_create_child(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @program_bidder_bid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 2147483647, 2147483641) i32 @program_bidder_bid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8

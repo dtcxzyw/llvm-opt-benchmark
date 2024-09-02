@@ -8669,15 +8669,15 @@ Scl_LibPinArrival.exit:                           ; preds = %Scl_LibLookup.exit2
   %955 = fptrunc double %954 to float
   %956 = fdiv float %944, %955
   %957 = fdiv float %943, %956
+  %958 = fpext float %957 to double
+  %959 = fmul double %958, 1.000000e-02
   br label %Abc_SclComputeParametersPin.exit
 
 Abc_SclComputeParametersPin.exit:                 ; preds = %89, %Scl_LibPinArrival.exit, %73, %Scl_CellPinTime.exit.i
-  %.1983 = phi float [ 0.000000e+00, %73 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %89 ], [ %957, %Scl_LibPinArrival.exit ]
+  %.1983 = phi double [ 0.000000e+00, %73 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %89 ], [ %959, %Scl_LibPinArrival.exit ]
   %.0981 = phi float [ 0.000000e+00, %73 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ %93, %89 ], [ %932, %Scl_LibPinArrival.exit ]
-  %958 = fpext float %.1983 to double
-  %959 = fmul double %958, 1.000000e-02
   %960 = fpext float %.0981 to double
-  %961 = tail call double @llvm.fmuladd.f64(double %959, double %29, double %960)
+  %961 = tail call double @llvm.fmuladd.f64(double %.1983, double %29, double %960)
   %962 = fptrunc double %961 to float
   %963 = fadd float %.01620.i, %962
   %964 = add nsw i32 %.022.i, 1
@@ -10826,15 +10826,15 @@ Scl_LibPinArrival.exit:                           ; preds = %Scl_LibLookup.exit2
   %966 = fptrunc double %965 to float
   %967 = fdiv float %955, %966
   %968 = fdiv float %954, %967
+  %969 = fpext float %968 to double
+  %970 = fmul double %969, 1.000000e-02
   br label %Abc_SclComputeParametersPin.exit
 
 Abc_SclComputeParametersPin.exit:                 ; preds = %100, %Scl_LibPinArrival.exit, %84, %Scl_CellPinTime.exit.i
-  %.1989 = phi float [ 0.000000e+00, %84 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %100 ], [ %968, %Scl_LibPinArrival.exit ]
+  %.1989 = phi double [ 0.000000e+00, %84 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ 0.000000e+00, %100 ], [ %970, %Scl_LibPinArrival.exit ]
   %.0987 = phi float [ 0.000000e+00, %84 ], [ 0.000000e+00, %Scl_CellPinTime.exit.i ], [ %104, %100 ], [ %943, %Scl_LibPinArrival.exit ]
-  %969 = fpext float %.1989 to double
-  %970 = fmul double %969, 1.000000e-02
   %971 = fpext float %.0987 to double
-  %972 = tail call double @llvm.fmuladd.f64(double %970, double %31, double %971)
+  %972 = tail call double @llvm.fmuladd.f64(double %.1989, double %31, double %971)
   %973 = fptrunc double %972 to float
   %974 = fadd float %.01620.i, %973
   %975 = add nsw i32 %.022.i, 1

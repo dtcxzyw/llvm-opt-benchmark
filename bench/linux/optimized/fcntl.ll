@@ -184,7 +184,7 @@ define internal fastcc void @f_modown(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @f_setown(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @f_setown(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %5, label %8
 

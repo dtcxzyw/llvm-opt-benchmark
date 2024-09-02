@@ -169,7 +169,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 113:                                              ; preds = %103, %101
   %114 = phi double [ %112, %103 ], [ 1.000000e+00, %101 ]
   %115 = phi i32 [ %104, %103 ], [ 1, %101 ]
-  %116 = phi i32 [ %111, %103 ], [ undef, %101 ]
+  %116 = phi double [ %112, %103 ], [ 0.000000e+00, %101 ]
   store double %114, ptr %15, align 8, !tbaa !7
   %117 = load i32, ptr %16, align 4, !tbaa !3
   %118 = icmp sge i32 %117, %115
@@ -191,16 +191,16 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %122 = sub nsw i32 0, %121
   store i32 %122, ptr %21, align 4, !tbaa !3
   %123 = call i32 @xerbla_(ptr noundef nonnull @.str.8, ptr noundef nonnull %21, i32 noundef 6) #7
-  br label %339
+  br label %338
 
 124:                                              ; preds = %.thread17
-  br i1 %53, label %339, label %125
+  br i1 %53, label %338, label %125
 
 125:                                              ; preds = %124
   store i32 0, ptr %11, align 4, !tbaa !3
   %126 = load i32, ptr %3, align 4, !tbaa !3
   switch i32 %126, label %143 [
-    i32 0, label %339
+    i32 0, label %338
     i32 1, label %127
   ]
 
@@ -234,11 +234,11 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %141
 
 141:                                              ; preds = %139, %135, %131
-  br i1 %54, label %142, label %339
+  br i1 %54, label %142, label %338
 
 142:                                              ; preds = %141
   store double 1.000000e+00, ptr %13, align 8, !tbaa !7
-  br label %339
+  br label %338
 
 143:                                              ; preds = %125
   %144 = tail call double @dlamch_(ptr noundef nonnull @.str.9) #7
@@ -582,11 +582,10 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %337, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.thread29, %286, %285
-  %338 = sitofp i32 %116 to double
-  store double %338, ptr %15, align 8, !tbaa !7
-  br label %339
+  store double %116, ptr %15, align 8, !tbaa !7
+  br label %338
 
-339:                                              ; preds = %.loopexit, %142, %141, %125, %124, %.thread23
+338:                                              ; preds = %.loopexit, %142, %141, %125, %124, %.thread23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #7

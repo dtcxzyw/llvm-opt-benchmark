@@ -719,7 +719,7 @@ define dso_local ptr @__register_sysctl_table(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @insert_header(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -30, 1) i32 @insert_header(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 8
@@ -3296,9 +3296,9 @@ define internal i32 @proc_sys_readdir(ptr nocapture noundef readonly %0, ptr nou
   %47 = getelementptr inbounds i8, ptr %8, i64 80
   %48 = tail call ptr @rb_first(ptr noundef %47) #19
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.loopexit.sink.split, label %.preheader25
+  br i1 %49, label %.loopexit.sink.split, label %.preheader24
 
-.preheader25:                                     ; preds = %46, %56
+.preheader24:                                     ; preds = %46, %56
   %50 = phi ptr [ %57, %56 ], [ %48, %46 ]
   %51 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
@@ -3307,12 +3307,12 @@ define internal i32 @proc_sys_readdir(ptr nocapture noundef readonly %0, ptr nou
   %55 = icmp eq ptr %54, null
   br i1 %55, label %59, label %56, !prof !17
 
-56:                                               ; preds = %.preheader25
+56:                                               ; preds = %.preheader24
   %57 = tail call ptr @rb_next(ptr noundef nonnull %50) #19
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.loopexit.sink.split, label %.preheader25, !llvm.loop !32
+  br i1 %58, label %.loopexit.sink.split, label %.preheader24, !llvm.loop !32
 
-59:                                               ; preds = %.preheader25
+59:                                               ; preds = %.preheader24
   %60 = getelementptr inbounds i8, ptr %50, i64 24
   %61 = getelementptr inbounds i8, ptr %52, i64 12
   %62 = load i32, ptr %61, align 4
@@ -3321,9 +3321,9 @@ define internal i32 @proc_sys_readdir(ptr nocapture noundef readonly %0, ptr nou
   tail call void @_raw_spin_unlock(ptr noundef nonnull @sysctl_lock) #19
   %64 = load ptr, ptr %60, align 8
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.loopexit, label %.preheader23
+  br i1 %65, label %.loopexit, label %.preheader22
 
-.preheader23:                                     ; preds = %59
+.preheader22:                                     ; preds = %59
   %66 = load ptr, ptr %64, align 8
   %67 = ptrtoint ptr %50 to i64
   %68 = getelementptr inbounds i8, ptr %64, i64 64
@@ -3335,16 +3335,16 @@ define internal i32 @proc_sys_readdir(ptr nocapture noundef readonly %0, ptr nou
   %74 = getelementptr i8, ptr %0, i64 160
   br label %75
 
-75:                                               ; preds = %.preheader23, %132
-  %76 = phi ptr [ %138, %132 ], [ %66, %.preheader23 ]
-  %77 = phi ptr [ %140, %132 ], [ %69, %.preheader23 ]
-  %78 = phi i64 [ %81, %132 ], [ 2, %.preheader23 ]
-  %79 = phi ptr [ %145, %132 ], [ %73, %.preheader23 ]
-  %80 = phi ptr [ %137, %132 ], [ %64, %.preheader23 ]
+75:                                               ; preds = %.preheader22, %132
+  %76 = phi ptr [ %138, %132 ], [ %66, %.preheader22 ]
+  %77 = phi ptr [ %140, %132 ], [ %69, %.preheader22 ]
+  %78 = phi i64 [ %81, %132 ], [ 2, %.preheader22 ]
+  %79 = phi ptr [ %145, %132 ], [ %73, %.preheader22 ]
+  %80 = phi ptr [ %137, %132 ], [ %64, %.preheader22 ]
   %81 = add i64 %78, 1
   %82 = load i64, ptr %22, align 8
   %83 = icmp ult i64 %78, %82
-  br i1 %83, label %.thread17, label %84
+  br i1 %83, label %.critedge, label %84
 
 84:                                               ; preds = %75
   %85 = getelementptr inbounds i8, ptr %79, i64 20
@@ -3366,8 +3366,8 @@ define internal i32 @proc_sys_readdir(ptr nocapture noundef readonly %0, ptr nou
   store i64 %81, ptr %22, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %80, i64 64
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre49 = load ptr, ptr %80, align 8
-  br label %.thread17
+  %.pre48 = load ptr, ptr %80, align 8
+  br label %.critedge
 
 94:                                               ; preds = %89, %91
   tail call void @_raw_spin_lock(ptr noundef nonnull @sysctl_lock) #19
@@ -3388,9 +3388,9 @@ define internal i32 @proc_sys_readdir(ptr nocapture noundef readonly %0, ptr nou
   tail call void @complete(ptr noundef nonnull %101) #19
   br label %.loopexit.sink.split
 
-.thread17:                                        ; preds = %75, %93
-  %104 = phi ptr [ %76, %75 ], [ %.pre49, %93 ]
-  %105 = phi ptr [ %77, %75 ], [ %.pre, %93 ]
+.critedge:                                        ; preds = %93, %75
+  %104 = phi ptr [ %.pre48, %93 ], [ %76, %75 ]
+  %105 = phi ptr [ %.pre, %93 ], [ %77, %75 ]
   %106 = ptrtoint ptr %79 to i64
   %107 = ptrtoint ptr %104 to i64
   %108 = sub i64 %106, %107
@@ -3404,7 +3404,7 @@ define internal i32 @proc_sys_readdir(ptr nocapture noundef readonly %0, ptr nou
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %120
 
-115:                                              ; preds = %.thread17
+115:                                              ; preds = %.critedge
   %116 = getelementptr inbounds i8, ptr %80, i64 24
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
@@ -3414,7 +3414,7 @@ define internal i32 @proc_sys_readdir(ptr nocapture noundef readonly %0, ptr nou
   tail call void @complete(ptr noundef nonnull %117) #19
   br label %120
 
-120:                                              ; preds = %119, %115, %.thread17
+120:                                              ; preds = %119, %115, %.critedge
   %121 = tail call ptr @rb_next(ptr noundef %110) #19
   %122 = icmp eq ptr %121, null
   br i1 %122, label %.loopexit.sink.split, label %.preheader

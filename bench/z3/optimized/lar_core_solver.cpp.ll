@@ -1599,12 +1599,12 @@ for.cond14:                                       ; preds = %for.cond14.preheade
 if.end.i.i.i:                                     ; preds = %for.cond14
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %35, i64 -4
   %36 = load i32, ptr %arrayidx.i.i.i, align 4
+  %37 = zext i32 %36 to i64
   br label %_ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit
 
 _ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit: ; preds = %for.cond14, %if.end.i.i.i
-  %retval.0.i.i.i = phi i32 [ %36, %if.end.i.i.i ], [ 0, %for.cond14 ]
-  %37 = zext i32 %retval.0.i.i.i to i64
-  %cmp17 = icmp ult i64 %indvars.iv, %37
+  %retval.0.i.i.i = phi i64 [ %37, %if.end.i.i.i ], [ 0, %for.cond14 ]
+  %cmp17 = icmp ult i64 %indvars.iv, %retval.0.i.i.i
   br i1 %cmp17, label %for.body18, label %for.end38
 
 for.body18:                                       ; preds = %_ZNK2lp19lp_core_solver_baseI8rationalNS_12numeric_pairIS1_EEE3m_nEv.exit

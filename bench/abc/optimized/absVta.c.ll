@@ -605,7 +605,7 @@ Vec_IntPush.exit63:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Vec_IntDoubleWidth(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, -1) i32 @Vec_IntDoubleWidth(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val28 = load i32, ptr %3, align 4
   %4 = shl nsw i32 %.val28, 1

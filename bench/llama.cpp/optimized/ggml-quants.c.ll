@@ -1315,20 +1315,20 @@ for.end:                                          ; preds = %for.body6
 
 for.body.i:                                       ; preds = %for.body.i, %for.end
   %indvars.iv.i = phi i64 [ 1, %for.end ], [ %indvars.iv.next.i, %for.body.i ]
-  %min.0140.i = phi float [ %5, %for.end ], [ %min.1.i, %for.body.i ]
-  %max.0139.i = phi float [ %5, %for.end ], [ %max.1.i, %for.body.i ]
-  %sum_w.0138.i = phi float [ %6, %for.end ], [ %add.i, %for.body.i ]
-  %sum_x.0137.i = phi float [ %mul.i, %for.end ], [ %9, %for.body.i ]
+  %min.0141.i = phi float [ %5, %for.end ], [ %min.1.i, %for.body.i ]
+  %max.0140.i = phi float [ %5, %for.end ], [ %max.1.i, %for.body.i ]
+  %sum_w.0139.i = phi float [ %6, %for.end ], [ %add.i, %for.body.i ]
+  %sum_x.0138.i = phi float [ %mul.i, %for.end ], [ %9, %for.body.i ]
   %arrayidx4.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv.i
   %7 = load float, ptr %arrayidx4.i, align 4, !alias.scope !51, !noalias !62
-  %cmp5.i = fcmp olt float %7, %min.0140.i
-  %min.1.i = select i1 %cmp5.i, float %7, float %min.0140.i
-  %cmp10.i = fcmp ogt float %7, %max.0139.i
-  %max.1.i = select i1 %cmp10.i, float %7, float %max.0139.i
+  %cmp5.i = fcmp olt float %7, %min.0141.i
+  %min.1.i = select i1 %cmp5.i, float %7, float %min.0141.i
+  %cmp10.i = fcmp ogt float %7, %max.0140.i
+  %max.1.i = select i1 %cmp10.i, float %7, float %max.0140.i
   %arrayidx16.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv.i
   %8 = load float, ptr %arrayidx16.i, align 4, !alias.scope !54, !noalias !63
-  %add.i = fadd float %sum_w.0138.i, %8
-  %9 = tail call float @llvm.fmuladd.f32(float %8, float %7, float %sum_x.0137.i)
+  %add.i = fadd float %sum_w.0139.i, %8
+  %9 = tail call float @llvm.fmuladd.f32(float %8, float %7, float %sum_x.0138.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !64
@@ -1352,9 +1352,9 @@ if.end34.i:                                       ; preds = %for.end.i
   br label %for.body40.i
 
 for.body40.i:                                     ; preds = %for.body40.i, %if.end34.i
-  %indvars.iv179.i = phi i64 [ 0, %if.end34.i ], [ %indvars.iv.next180.i, %for.body40.i ]
-  %best_mad.0145.i = phi float [ 0.000000e+00, %if.end34.i ], [ %17, %for.body40.i ]
-  %arrayidx42.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv179.i
+  %indvars.iv180.i = phi i64 [ 0, %if.end34.i ], [ %indvars.iv.next181.i, %for.body40.i ]
+  %best_mad.0146.i = phi float [ 0.000000e+00, %if.end34.i ], [ %17, %for.body40.i ]
+  %arrayidx42.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv180.i
   %10 = load float, ptr %arrayidx42.i, align 4, !alias.scope !51, !noalias !62
   %sub43.i = fsub float %10, %min.2.i
   %mul44.i = fmul float %div.i, %sub43.i
@@ -1363,41 +1363,40 @@ for.body40.i:                                     ; preds = %for.body40.i, %if.e
   %and.i.i = and i32 %11, 8388607
   %12 = tail call i32 @llvm.umin.i32(i32 %and.i.i, i32 4194307)
   %13 = tail call i32 @llvm.umax.i32(i32 %12, i32 4194304)
-  %spec.select.i = add nsw i32 %13, -4194304
-  %conv59.i = trunc i32 %13 to i8
-  %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr13, i64 %indvars.iv179.i
-  store i8 %conv59.i, ptr %arrayidx61.i, align 1, !alias.scope !56, !noalias !65
-  %conv65.i = uitofp nneg i32 %spec.select.i to float
+  %spec.select.i = trunc i32 %13 to i8
+  %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr13, i64 %indvars.iv180.i
+  store i8 %spec.select.i, ptr %arrayidx61.i, align 1, !alias.scope !56, !noalias !65
+  %conv65.i = uitofp nneg i8 %spec.select.i to float
   %14 = tail call float @llvm.fmuladd.f32(float %div35.i, float %conv65.i, float %min.2.i)
   %sub69.i = fsub float %14, %10
   %15 = tail call float @llvm.fabs.f32(float %sub69.i)
-  %arrayidx78.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv179.i
+  %arrayidx78.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv180.i
   %16 = load float, ptr %arrayidx78.i, align 4, !alias.scope !54, !noalias !63
-  %17 = tail call float @llvm.fmuladd.f32(float %16, float %15, float %best_mad.0145.i)
-  %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
-  %exitcond183.not.i = icmp eq i64 %indvars.iv.next180.i, 16
-  br i1 %exitcond183.not.i, label %for.body91.i, label %for.body40.i, !llvm.loop !66
+  %17 = tail call float @llvm.fmuladd.f32(float %16, float %15, float %best_mad.0146.i)
+  %indvars.iv.next181.i = add nuw nsw i64 %indvars.iv180.i, 1
+  %exitcond184.not.i = icmp eq i64 %indvars.iv.next181.i, 16
+  br i1 %exitcond184.not.i, label %for.body91.i, label %for.body40.i, !llvm.loop !66
 
 for.body91.i:                                     ; preds = %for.body40.i, %for.inc210.i
-  %min.3166.i = phi float [ %min.4.i, %for.inc210.i ], [ %min.2.i, %for.body40.i ]
-  %is.0165.i = phi i32 [ %inc211.i, %for.inc210.i ], [ 0, %for.body40.i ]
-  %best_mad.1164.i = phi float [ %best_mad.2.i, %for.inc210.i ], [ %17, %for.body40.i ]
-  %scale.0163.i = phi float [ %scale.1.i, %for.inc210.i ], [ %div35.i, %for.body40.i ]
-  %conv92.i = uitofp nneg i32 %is.0165.i to float
+  %min.3167.i = phi float [ %min.4.i, %for.inc210.i ], [ %min.2.i, %for.body40.i ]
+  %is.0166.i = phi i32 [ %inc211.i, %for.inc210.i ], [ 0, %for.body40.i ]
+  %best_mad.1165.i = phi float [ %best_mad.2.i, %for.inc210.i ], [ %17, %for.body40.i ]
+  %scale.0164.i = phi float [ %scale.1.i, %for.inc210.i ], [ %div35.i, %for.body40.i ]
+  %conv92.i = uitofp nneg i32 %is.0166.i to float
   %18 = tail call float @llvm.fmuladd.f32(float %conv92.i, float 0x3FB99999A0000000, float -5.000000e-01)
   %add95.i = fadd float %18, 3.000000e+00
-  %sub96.i = fsub float %max.1.i, %min.3166.i
+  %sub96.i = fsub float %max.1.i, %min.3167.i
   %div97.i = fdiv float %add95.i, %sub96.i
   br label %for.body102.i
 
 for.body102.i:                                    ; preds = %for.body102.i, %for.body91.i
-  %indvars.iv184.i = phi i64 [ %indvars.iv.next185.i, %for.body102.i ], [ 0, %for.body91.i ]
-  %sum_xl.0151.i = phi float [ %26, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
-  %sum_l2.0150.i = phi float [ %25, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
-  %sum_l.0149.i = phi float [ %24, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
-  %arrayidx105.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv184.i
+  %indvars.iv185.i = phi i64 [ %indvars.iv.next186.i, %for.body102.i ], [ 0, %for.body91.i ]
+  %sum_xl.0152.i = phi float [ %26, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
+  %sum_l2.0151.i = phi float [ %25, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
+  %sum_l.0150.i = phi float [ %24, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
+  %arrayidx105.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv185.i
   %19 = load float, ptr %arrayidx105.i, align 4, !alias.scope !51, !noalias !62
-  %sub106.i = fsub float %19, %min.3166.i
+  %sub106.i = fsub float %19, %min.3167.i
   %mul107.i = fmul float %div97.i, %sub106.i
   %add.i132.i = fadd float %mul107.i, 0x4168000000000000
   %20 = bitcast float %add.i132.i to i32
@@ -1406,18 +1405,18 @@ for.body102.i:                                    ; preds = %for.body102.i, %for
   %22 = tail call i32 @llvm.umax.i32(i32 %21, i32 4194304)
   %spec.select131.i = add nsw i32 %22, -4194304
   %conv127.i = trunc i32 %22 to i8
-  %arrayidx129.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv184.i
+  %arrayidx129.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv185.i
   store i8 %conv127.i, ptr %arrayidx129.i, align 1, !alias.scope !60, !noalias !67
-  %arrayidx132.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv184.i
+  %arrayidx132.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv185.i
   %23 = load float, ptr %arrayidx132.i, align 4, !alias.scope !54, !noalias !63
   %conv133.i = uitofp nneg i32 %spec.select131.i to float
-  %24 = tail call float @llvm.fmuladd.f32(float %23, float %conv133.i, float %sum_l.0149.i)
+  %24 = tail call float @llvm.fmuladd.f32(float %23, float %conv133.i, float %sum_l.0150.i)
   %mul136.i = fmul float %23, %conv133.i
-  %25 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %conv133.i, float %sum_l2.0150.i)
-  %26 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %19, float %sum_xl.0151.i)
-  %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
-  %exitcond188.not.i = icmp eq i64 %indvars.iv.next185.i, 16
-  br i1 %exitcond188.not.i, label %for.end146.i, label %for.body102.i, !llvm.loop !68
+  %25 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %conv133.i, float %sum_l2.0151.i)
+  %26 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %19, float %sum_xl.0152.i)
+  %indvars.iv.next186.i = add nuw nsw i64 %indvars.iv185.i, 1
+  %exitcond189.not.i = icmp eq i64 %indvars.iv.next186.i, 16
+  br i1 %exitcond189.not.i, label %for.end146.i, label %for.body102.i, !llvm.loop !68
 
 for.end146.i:                                     ; preds = %for.body102.i
   %27 = fneg float %24
@@ -1441,25 +1440,25 @@ if.then151.i:                                     ; preds = %for.end146.i
   br label %for.body169.us.i
 
 for.body169.us.i:                                 ; preds = %for.body169.us.i, %if.then151.i
-  %indvars.iv194.i = phi i64 [ %indvars.iv.next195.i, %for.body169.us.i ], [ 0, %if.then151.i ]
-  %mad.0157.us.i = phi float [ %37, %for.body169.us.i ], [ 0.000000e+00, %if.then151.i ]
-  %arrayidx172.us.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv194.i
+  %indvars.iv195.i = phi i64 [ %indvars.iv.next196.i, %for.body169.us.i ], [ 0, %if.then151.i ]
+  %mad.0158.us.i = phi float [ %37, %for.body169.us.i ], [ 0.000000e+00, %if.then151.i ]
+  %arrayidx172.us.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv195.i
   %32 = load i8, ptr %arrayidx172.us.i, align 1, !alias.scope !60, !noalias !67
   %conv174.us.i = uitofp i8 %32 to float
   %33 = tail call float @llvm.fmuladd.f32(float %this_scale.0.i, float %conv174.us.i, float %this_min.0.i)
-  %arrayidx177.us.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv194.i
+  %arrayidx177.us.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv195.i
   %34 = load float, ptr %arrayidx177.us.i, align 4, !alias.scope !51, !noalias !62
   %sub178.us.i = fsub float %33, %34
   %35 = tail call float @llvm.fabs.f32(float %sub178.us.i)
-  %arrayidx188.us.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv194.i
+  %arrayidx188.us.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv195.i
   %36 = load float, ptr %arrayidx188.us.i, align 4, !alias.scope !54, !noalias !63
-  %37 = tail call float @llvm.fmuladd.f32(float %36, float %35, float %mad.0157.us.i)
-  %indvars.iv.next195.i = add nuw nsw i64 %indvars.iv194.i, 1
-  %exitcond198.not.i = icmp eq i64 %indvars.iv.next195.i, 16
-  br i1 %exitcond198.not.i, label %for.end192.i, label %for.body169.us.i, !llvm.loop !69
+  %37 = tail call float @llvm.fmuladd.f32(float %36, float %35, float %mad.0158.us.i)
+  %indvars.iv.next196.i = add nuw nsw i64 %indvars.iv195.i, 1
+  %exitcond199.not.i = icmp eq i64 %indvars.iv.next196.i, 16
+  br i1 %exitcond199.not.i, label %for.end192.i, label %for.body169.us.i, !llvm.loop !69
 
 for.end192.i:                                     ; preds = %for.body169.us.i
-  %cmp193.i = fcmp uge float %37, %best_mad.1164.i
+  %cmp193.i = fcmp uge float %37, %best_mad.1165.i
   br i1 %cmp193.i, label %for.inc210.i, label %for.body200.preheader.i
 
 for.body200.preheader.i:                          ; preds = %for.end192.i
@@ -1467,12 +1466,12 @@ for.body200.preheader.i:                          ; preds = %for.end192.i
   br label %for.inc210.i
 
 for.inc210.i:                                     ; preds = %for.body200.preheader.i, %for.end192.i, %for.end146.i
-  %scale.1.i = phi float [ %scale.0163.i, %for.end192.i ], [ %scale.0163.i, %for.end146.i ], [ %this_scale.0.i, %for.body200.preheader.i ]
-  %best_mad.2.i = phi float [ %best_mad.1164.i, %for.end192.i ], [ %best_mad.1164.i, %for.end146.i ], [ %37, %for.body200.preheader.i ]
-  %min.4.i = phi float [ %min.3166.i, %for.end192.i ], [ %min.3166.i, %for.end146.i ], [ %this_min.0.i, %for.body200.preheader.i ]
-  %inc211.i = add nuw nsw i32 %is.0165.i, 1
-  %exitcond202.not.i = icmp eq i32 %is.0165.i, 15
-  br i1 %exitcond202.not.i, label %make_qkx2_quants.exit, label %for.body91.i, !llvm.loop !72
+  %scale.1.i = phi float [ %scale.0164.i, %for.end192.i ], [ %scale.0164.i, %for.end146.i ], [ %this_scale.0.i, %for.body200.preheader.i ]
+  %best_mad.2.i = phi float [ %best_mad.1165.i, %for.end192.i ], [ %best_mad.1165.i, %for.end146.i ], [ %37, %for.body200.preheader.i ]
+  %min.4.i = phi float [ %min.3167.i, %for.end192.i ], [ %min.3167.i, %for.end146.i ], [ %this_min.0.i, %for.body200.preheader.i ]
+  %inc211.i = add nuw nsw i32 %is.0166.i, 1
+  %exitcond203.not.i = icmp eq i32 %is.0166.i, 15
+  br i1 %exitcond203.not.i, label %make_qkx2_quants.exit, label %for.body91.i, !llvm.loop !72
 
 make_qkx2_quants.exit:                            ; preds = %for.inc210.i, %for.cond26.preheader.i
   %min.3.lcssa.sink.i = phi float [ %min.2.i, %for.cond26.preheader.i ], [ %min.4.i, %for.inc210.i ]
@@ -2505,20 +2504,20 @@ for.end26:                                        ; preds = %for.body16
 
 for.body.i:                                       ; preds = %for.body.i, %for.end26
   %indvars.iv.i = phi i64 [ 1, %for.end26 ], [ %indvars.iv.next.i, %for.body.i ]
-  %min.0140.i = phi float [ %7, %for.end26 ], [ %min.1.i, %for.body.i ]
-  %max.0139.i = phi float [ %7, %for.end26 ], [ %max.1.i, %for.body.i ]
-  %sum_w.0138.i = phi float [ %8, %for.end26 ], [ %add.i, %for.body.i ]
-  %sum_x.0137.i = phi float [ %mul.i, %for.end26 ], [ %11, %for.body.i ]
+  %min.0141.i = phi float [ %7, %for.end26 ], [ %min.1.i, %for.body.i ]
+  %max.0140.i = phi float [ %7, %for.end26 ], [ %max.1.i, %for.body.i ]
+  %sum_w.0139.i = phi float [ %8, %for.end26 ], [ %add.i, %for.body.i ]
+  %sum_x.0138.i = phi float [ %mul.i, %for.end26 ], [ %11, %for.body.i ]
   %arrayidx4.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv.i
   %9 = load float, ptr %arrayidx4.i, align 4, !alias.scope !114, !noalias !125
-  %cmp5.i = fcmp olt float %9, %min.0140.i
-  %min.1.i = select i1 %cmp5.i, float %9, float %min.0140.i
-  %cmp10.i = fcmp ogt float %9, %max.0139.i
-  %max.1.i = select i1 %cmp10.i, float %9, float %max.0139.i
+  %cmp5.i = fcmp olt float %9, %min.0141.i
+  %min.1.i = select i1 %cmp5.i, float %9, float %min.0141.i
+  %cmp10.i = fcmp ogt float %9, %max.0140.i
+  %max.1.i = select i1 %cmp10.i, float %9, float %max.0140.i
   %arrayidx16.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv.i
   %10 = load float, ptr %arrayidx16.i, align 4, !alias.scope !117, !noalias !126
-  %add.i = fadd float %sum_w.0138.i, %10
-  %11 = tail call float @llvm.fmuladd.f32(float %10, float %9, float %sum_x.0137.i)
+  %add.i = fadd float %sum_w.0139.i, %10
+  %11 = tail call float @llvm.fmuladd.f32(float %10, float %9, float %sum_x.0138.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !64
@@ -2542,9 +2541,9 @@ if.end34.i:                                       ; preds = %for.end.i
   br label %for.body40.i
 
 for.body40.i:                                     ; preds = %for.body40.i, %if.end34.i
-  %indvars.iv179.i = phi i64 [ 0, %if.end34.i ], [ %indvars.iv.next180.i, %for.body40.i ]
-  %best_mad.0145.i = phi float [ 0.000000e+00, %if.end34.i ], [ %18, %for.body40.i ]
-  %arrayidx42.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv179.i
+  %indvars.iv180.i = phi i64 [ 0, %if.end34.i ], [ %indvars.iv.next181.i, %for.body40.i ]
+  %best_mad.0146.i = phi float [ 0.000000e+00, %if.end34.i ], [ %18, %for.body40.i ]
+  %arrayidx42.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv180.i
   %12 = load float, ptr %arrayidx42.i, align 4, !alias.scope !114, !noalias !125
   %sub43.i = fsub float %12, %min.2.i
   %mul44.i = fmul float %div.i, %sub43.i
@@ -2553,41 +2552,40 @@ for.body40.i:                                     ; preds = %for.body40.i, %if.e
   %and.i.i = and i32 %13, 8388607
   %14 = tail call i32 @llvm.umin.i32(i32 %and.i.i, i32 4194319)
   %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 4194304)
-  %spec.select.i = add nsw i32 %15, -4194304
-  %conv59.i = trunc i32 %15 to i8
-  %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr31, i64 %indvars.iv179.i
-  store i8 %conv59.i, ptr %arrayidx61.i, align 1, !alias.scope !119, !noalias !127
-  %conv65.i = uitofp nneg i32 %spec.select.i to float
+  %spec.select.i = trunc i32 %15 to i8
+  %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr31, i64 %indvars.iv180.i
+  store i8 %spec.select.i, ptr %arrayidx61.i, align 1, !alias.scope !119, !noalias !127
+  %conv65.i = uitofp nneg i8 %spec.select.i to float
   %16 = tail call float @llvm.fmuladd.f32(float %div35.i, float %conv65.i, float %min.2.i)
   %sub69.i = fsub float %16, %12
   %mul73.i = fmul float %sub69.i, %sub69.i
-  %arrayidx78.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv179.i
+  %arrayidx78.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv180.i
   %17 = load float, ptr %arrayidx78.i, align 4, !alias.scope !117, !noalias !126
-  %18 = tail call float @llvm.fmuladd.f32(float %17, float %mul73.i, float %best_mad.0145.i)
-  %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
-  %exitcond183.not.i = icmp eq i64 %indvars.iv.next180.i, 32
-  br i1 %exitcond183.not.i, label %for.body91.i, label %for.body40.i, !llvm.loop !66
+  %18 = tail call float @llvm.fmuladd.f32(float %17, float %mul73.i, float %best_mad.0146.i)
+  %indvars.iv.next181.i = add nuw nsw i64 %indvars.iv180.i, 1
+  %exitcond184.not.i = icmp eq i64 %indvars.iv.next181.i, 32
+  br i1 %exitcond184.not.i, label %for.body91.i, label %for.body40.i, !llvm.loop !66
 
 for.body91.i:                                     ; preds = %for.body40.i, %for.inc210.i
-  %min.3166.i = phi float [ %min.4.i, %for.inc210.i ], [ %min.2.i, %for.body40.i ]
-  %is.0165.i = phi i32 [ %inc211.i, %for.inc210.i ], [ 0, %for.body40.i ]
-  %best_mad.1164.i = phi float [ %best_mad.2.i, %for.inc210.i ], [ %18, %for.body40.i ]
-  %scale.0163.i = phi float [ %scale.1.i, %for.inc210.i ], [ %div35.i, %for.body40.i ]
-  %conv92.i = uitofp nneg i32 %is.0165.i to float
+  %min.3167.i = phi float [ %min.4.i, %for.inc210.i ], [ %min.2.i, %for.body40.i ]
+  %is.0166.i = phi i32 [ %inc211.i, %for.inc210.i ], [ 0, %for.body40.i ]
+  %best_mad.1165.i = phi float [ %best_mad.2.i, %for.inc210.i ], [ %18, %for.body40.i ]
+  %scale.0164.i = phi float [ %scale.1.i, %for.inc210.i ], [ %div35.i, %for.body40.i ]
+  %conv92.i = uitofp nneg i32 %is.0166.i to float
   %19 = tail call float @llvm.fmuladd.f32(float %conv92.i, float 0x3FB99999A0000000, float -1.000000e+00)
   %add95.i = fadd float %19, 1.500000e+01
-  %sub96.i = fsub float %max.1.i, %min.3166.i
+  %sub96.i = fsub float %max.1.i, %min.3167.i
   %div97.i = fdiv float %add95.i, %sub96.i
   br label %for.body102.i
 
 for.body102.i:                                    ; preds = %for.body102.i, %for.body91.i
-  %indvars.iv184.i = phi i64 [ %indvars.iv.next185.i, %for.body102.i ], [ 0, %for.body91.i ]
-  %sum_xl.0151.i = phi float [ %27, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
-  %sum_l2.0150.i = phi float [ %26, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
-  %sum_l.0149.i = phi float [ %25, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
-  %arrayidx105.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv184.i
+  %indvars.iv185.i = phi i64 [ %indvars.iv.next186.i, %for.body102.i ], [ 0, %for.body91.i ]
+  %sum_xl.0152.i = phi float [ %27, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
+  %sum_l2.0151.i = phi float [ %26, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
+  %sum_l.0150.i = phi float [ %25, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
+  %arrayidx105.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv185.i
   %20 = load float, ptr %arrayidx105.i, align 4, !alias.scope !114, !noalias !125
-  %sub106.i = fsub float %20, %min.3166.i
+  %sub106.i = fsub float %20, %min.3167.i
   %mul107.i = fmul float %div97.i, %sub106.i
   %add.i132.i = fadd float %mul107.i, 0x4168000000000000
   %21 = bitcast float %add.i132.i to i32
@@ -2596,18 +2594,18 @@ for.body102.i:                                    ; preds = %for.body102.i, %for
   %23 = tail call i32 @llvm.umax.i32(i32 %22, i32 4194304)
   %spec.select131.i = add nsw i32 %23, -4194304
   %conv127.i = trunc i32 %23 to i8
-  %arrayidx129.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv184.i
+  %arrayidx129.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv185.i
   store i8 %conv127.i, ptr %arrayidx129.i, align 1, !alias.scope !123, !noalias !128
-  %arrayidx132.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv184.i
+  %arrayidx132.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv185.i
   %24 = load float, ptr %arrayidx132.i, align 4, !alias.scope !117, !noalias !126
   %conv133.i = uitofp nneg i32 %spec.select131.i to float
-  %25 = tail call float @llvm.fmuladd.f32(float %24, float %conv133.i, float %sum_l.0149.i)
+  %25 = tail call float @llvm.fmuladd.f32(float %24, float %conv133.i, float %sum_l.0150.i)
   %mul136.i = fmul float %24, %conv133.i
-  %26 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %conv133.i, float %sum_l2.0150.i)
-  %27 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %20, float %sum_xl.0151.i)
-  %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
-  %exitcond188.not.i = icmp eq i64 %indvars.iv.next185.i, 32
-  br i1 %exitcond188.not.i, label %for.end146.i, label %for.body102.i, !llvm.loop !68
+  %26 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %conv133.i, float %sum_l2.0151.i)
+  %27 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %20, float %sum_xl.0152.i)
+  %indvars.iv.next186.i = add nuw nsw i64 %indvars.iv185.i, 1
+  %exitcond189.not.i = icmp eq i64 %indvars.iv.next186.i, 32
+  br i1 %exitcond189.not.i, label %for.end146.i, label %for.body102.i, !llvm.loop !68
 
 for.end146.i:                                     ; preds = %for.body102.i
   %28 = fneg float %25
@@ -2631,25 +2629,25 @@ if.then151.i:                                     ; preds = %for.end146.i
   br label %for.body169.i
 
 for.body169.i:                                    ; preds = %for.body169.i, %if.then151.i
-  %indvars.iv189.i = phi i64 [ %indvars.iv.next190.i, %for.body169.i ], [ 0, %if.then151.i ]
-  %mad.0157.i = phi float [ %37, %for.body169.i ], [ 0.000000e+00, %if.then151.i ]
-  %arrayidx172.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv189.i
+  %indvars.iv190.i = phi i64 [ %indvars.iv.next191.i, %for.body169.i ], [ 0, %if.then151.i ]
+  %mad.0158.i = phi float [ %37, %for.body169.i ], [ 0.000000e+00, %if.then151.i ]
+  %arrayidx172.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv190.i
   %33 = load i8, ptr %arrayidx172.i, align 1, !alias.scope !123, !noalias !128
   %conv174.i = uitofp i8 %33 to float
   %34 = tail call float @llvm.fmuladd.f32(float %this_scale.0.i, float %conv174.i, float %this_min.0.i)
-  %arrayidx177.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv189.i
+  %arrayidx177.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv190.i
   %35 = load float, ptr %arrayidx177.i, align 4, !alias.scope !114, !noalias !125
   %sub178.i = fsub float %34, %35
   %mul183.i = fmul float %sub178.i, %sub178.i
-  %arrayidx188.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv189.i
+  %arrayidx188.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv190.i
   %36 = load float, ptr %arrayidx188.i, align 4, !alias.scope !117, !noalias !126
-  %37 = tail call float @llvm.fmuladd.f32(float %36, float %mul183.i, float %mad.0157.i)
-  %indvars.iv.next190.i = add nuw nsw i64 %indvars.iv189.i, 1
-  %exitcond193.not.i = icmp eq i64 %indvars.iv.next190.i, 32
-  br i1 %exitcond193.not.i, label %for.end192.i, label %for.body169.i, !llvm.loop !69
+  %37 = tail call float @llvm.fmuladd.f32(float %36, float %mul183.i, float %mad.0158.i)
+  %indvars.iv.next191.i = add nuw nsw i64 %indvars.iv190.i, 1
+  %exitcond194.not.i = icmp eq i64 %indvars.iv.next191.i, 32
+  br i1 %exitcond194.not.i, label %for.end192.i, label %for.body169.i, !llvm.loop !69
 
 for.end192.i:                                     ; preds = %for.body169.i
-  %cmp193.i = fcmp uge float %37, %best_mad.1164.i
+  %cmp193.i = fcmp uge float %37, %best_mad.1165.i
   br i1 %cmp193.i, label %for.inc210.i, label %for.body200.preheader.i
 
 for.body200.preheader.i:                          ; preds = %for.end192.i
@@ -2657,12 +2655,12 @@ for.body200.preheader.i:                          ; preds = %for.end192.i
   br label %for.inc210.i
 
 for.inc210.i:                                     ; preds = %for.body200.preheader.i, %for.end192.i, %for.end146.i
-  %scale.1.i = phi float [ %scale.0163.i, %for.end192.i ], [ %scale.0163.i, %for.end146.i ], [ %this_scale.0.i, %for.body200.preheader.i ]
-  %best_mad.2.i = phi float [ %best_mad.1164.i, %for.end192.i ], [ %best_mad.1164.i, %for.end146.i ], [ %37, %for.body200.preheader.i ]
-  %min.4.i = phi float [ %min.3166.i, %for.end192.i ], [ %min.3166.i, %for.end146.i ], [ %this_min.0.i, %for.body200.preheader.i ]
-  %inc211.i = add nuw nsw i32 %is.0165.i, 1
-  %exitcond202.not.i = icmp eq i32 %is.0165.i, 20
-  br i1 %exitcond202.not.i, label %make_qkx2_quants.exit, label %for.body91.i, !llvm.loop !72
+  %scale.1.i = phi float [ %scale.0164.i, %for.end192.i ], [ %scale.0164.i, %for.end146.i ], [ %this_scale.0.i, %for.body200.preheader.i ]
+  %best_mad.2.i = phi float [ %best_mad.1165.i, %for.end192.i ], [ %best_mad.1165.i, %for.end146.i ], [ %37, %for.body200.preheader.i ]
+  %min.4.i = phi float [ %min.3167.i, %for.end192.i ], [ %min.3167.i, %for.end146.i ], [ %this_min.0.i, %for.body200.preheader.i ]
+  %inc211.i = add nuw nsw i32 %is.0166.i, 1
+  %exitcond203.not.i = icmp eq i32 %is.0166.i, 20
+  br i1 %exitcond203.not.i, label %make_qkx2_quants.exit, label %for.body91.i, !llvm.loop !72
 
 make_qkx2_quants.exit:                            ; preds = %for.inc210.i, %for.cond26.preheader.i
   %min.3.lcssa.sink.i = phi float [ %min.2.i, %for.cond26.preheader.i ], [ %min.4.i, %for.inc210.i ]
@@ -3136,20 +3134,20 @@ for.end26:                                        ; preds = %for.body16
 
 for.body.i:                                       ; preds = %for.body.i, %for.end26
   %indvars.iv.i = phi i64 [ 1, %for.end26 ], [ %indvars.iv.next.i, %for.body.i ]
-  %min.0140.i = phi float [ %7, %for.end26 ], [ %min.1.i, %for.body.i ]
-  %max.0139.i = phi float [ %7, %for.end26 ], [ %max.1.i, %for.body.i ]
-  %sum_w.0138.i = phi float [ %8, %for.end26 ], [ %add.i, %for.body.i ]
-  %sum_x.0137.i = phi float [ %mul.i, %for.end26 ], [ %11, %for.body.i ]
+  %min.0141.i = phi float [ %7, %for.end26 ], [ %min.1.i, %for.body.i ]
+  %max.0140.i = phi float [ %7, %for.end26 ], [ %max.1.i, %for.body.i ]
+  %sum_w.0139.i = phi float [ %8, %for.end26 ], [ %add.i, %for.body.i ]
+  %sum_x.0138.i = phi float [ %mul.i, %for.end26 ], [ %11, %for.body.i ]
   %arrayidx4.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv.i
   %9 = load float, ptr %arrayidx4.i, align 4, !alias.scope !164, !noalias !175
-  %cmp5.i = fcmp olt float %9, %min.0140.i
-  %min.1.i = select i1 %cmp5.i, float %9, float %min.0140.i
-  %cmp10.i = fcmp ogt float %9, %max.0139.i
-  %max.1.i = select i1 %cmp10.i, float %9, float %max.0139.i
+  %cmp5.i = fcmp olt float %9, %min.0141.i
+  %min.1.i = select i1 %cmp5.i, float %9, float %min.0141.i
+  %cmp10.i = fcmp ogt float %9, %max.0140.i
+  %max.1.i = select i1 %cmp10.i, float %9, float %max.0140.i
   %arrayidx16.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv.i
   %10 = load float, ptr %arrayidx16.i, align 4, !alias.scope !167, !noalias !176
-  %add.i = fadd float %sum_w.0138.i, %10
-  %11 = tail call float @llvm.fmuladd.f32(float %10, float %9, float %sum_x.0137.i)
+  %add.i = fadd float %sum_w.0139.i, %10
+  %11 = tail call float @llvm.fmuladd.f32(float %10, float %9, float %sum_x.0138.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !64
@@ -3173,9 +3171,9 @@ if.end34.i:                                       ; preds = %for.end.i
   br label %for.body40.i
 
 for.body40.i:                                     ; preds = %for.body40.i, %if.end34.i
-  %indvars.iv179.i = phi i64 [ 0, %if.end34.i ], [ %indvars.iv.next180.i, %for.body40.i ]
-  %best_mad.0145.i = phi float [ 0.000000e+00, %if.end34.i ], [ %18, %for.body40.i ]
-  %arrayidx42.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv179.i
+  %indvars.iv180.i = phi i64 [ 0, %if.end34.i ], [ %indvars.iv.next181.i, %for.body40.i ]
+  %best_mad.0146.i = phi float [ 0.000000e+00, %if.end34.i ], [ %18, %for.body40.i ]
+  %arrayidx42.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv180.i
   %12 = load float, ptr %arrayidx42.i, align 4, !alias.scope !164, !noalias !175
   %sub43.i = fsub float %12, %min.2.i
   %mul44.i = fmul float %div.i, %sub43.i
@@ -3184,41 +3182,40 @@ for.body40.i:                                     ; preds = %for.body40.i, %if.e
   %and.i.i = and i32 %13, 8388607
   %14 = tail call i32 @llvm.umin.i32(i32 %and.i.i, i32 4194335)
   %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 4194304)
-  %spec.select.i = add nsw i32 %15, -4194304
-  %conv59.i = trunc i32 %15 to i8
-  %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr31, i64 %indvars.iv179.i
-  store i8 %conv59.i, ptr %arrayidx61.i, align 1, !alias.scope !169, !noalias !177
-  %conv65.i = uitofp nneg i32 %spec.select.i to float
+  %spec.select.i = trunc i32 %15 to i8
+  %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr31, i64 %indvars.iv180.i
+  store i8 %spec.select.i, ptr %arrayidx61.i, align 1, !alias.scope !169, !noalias !177
+  %conv65.i = uitofp nneg i8 %spec.select.i to float
   %16 = tail call float @llvm.fmuladd.f32(float %div35.i, float %conv65.i, float %min.2.i)
   %sub69.i = fsub float %16, %12
   %mul73.i = fmul float %sub69.i, %sub69.i
-  %arrayidx78.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv179.i
+  %arrayidx78.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv180.i
   %17 = load float, ptr %arrayidx78.i, align 4, !alias.scope !167, !noalias !176
-  %18 = tail call float @llvm.fmuladd.f32(float %17, float %mul73.i, float %best_mad.0145.i)
-  %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
-  %exitcond183.not.i = icmp eq i64 %indvars.iv.next180.i, 32
-  br i1 %exitcond183.not.i, label %for.body91.i, label %for.body40.i, !llvm.loop !66
+  %18 = tail call float @llvm.fmuladd.f32(float %17, float %mul73.i, float %best_mad.0146.i)
+  %indvars.iv.next181.i = add nuw nsw i64 %indvars.iv180.i, 1
+  %exitcond184.not.i = icmp eq i64 %indvars.iv.next181.i, 32
+  br i1 %exitcond184.not.i, label %for.body91.i, label %for.body40.i, !llvm.loop !66
 
 for.body91.i:                                     ; preds = %for.body40.i, %for.inc210.i
-  %min.3166.i = phi float [ %min.4.i, %for.inc210.i ], [ %min.2.i, %for.body40.i ]
-  %is.0165.i = phi i32 [ %inc211.i, %for.inc210.i ], [ 0, %for.body40.i ]
-  %best_mad.1164.i = phi float [ %best_mad.2.i, %for.inc210.i ], [ %18, %for.body40.i ]
-  %scale.0163.i = phi float [ %scale.1.i, %for.inc210.i ], [ %div35.i, %for.body40.i ]
-  %conv92.i = uitofp nneg i32 %is.0165.i to float
+  %min.3167.i = phi float [ %min.4.i, %for.inc210.i ], [ %min.2.i, %for.body40.i ]
+  %is.0166.i = phi i32 [ %inc211.i, %for.inc210.i ], [ 0, %for.body40.i ]
+  %best_mad.1165.i = phi float [ %best_mad.2.i, %for.inc210.i ], [ %18, %for.body40.i ]
+  %scale.0164.i = phi float [ %scale.1.i, %for.inc210.i ], [ %div35.i, %for.body40.i ]
+  %conv92.i = uitofp nneg i32 %is.0166.i to float
   %19 = tail call float @llvm.fmuladd.f32(float %conv92.i, float 0x3FB99999A0000000, float -5.000000e-01)
   %add95.i = fadd float %19, 3.100000e+01
-  %sub96.i = fsub float %max.1.i, %min.3166.i
+  %sub96.i = fsub float %max.1.i, %min.3167.i
   %div97.i = fdiv float %add95.i, %sub96.i
   br label %for.body102.i
 
 for.body102.i:                                    ; preds = %for.body102.i, %for.body91.i
-  %indvars.iv184.i = phi i64 [ %indvars.iv.next185.i, %for.body102.i ], [ 0, %for.body91.i ]
-  %sum_xl.0151.i = phi float [ %27, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
-  %sum_l2.0150.i = phi float [ %26, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
-  %sum_l.0149.i = phi float [ %25, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
-  %arrayidx105.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv184.i
+  %indvars.iv185.i = phi i64 [ %indvars.iv.next186.i, %for.body102.i ], [ 0, %for.body91.i ]
+  %sum_xl.0152.i = phi float [ %27, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
+  %sum_l2.0151.i = phi float [ %26, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
+  %sum_l.0150.i = phi float [ %25, %for.body102.i ], [ 0.000000e+00, %for.body91.i ]
+  %arrayidx105.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv185.i
   %20 = load float, ptr %arrayidx105.i, align 4, !alias.scope !164, !noalias !175
-  %sub106.i = fsub float %20, %min.3166.i
+  %sub106.i = fsub float %20, %min.3167.i
   %mul107.i = fmul float %div97.i, %sub106.i
   %add.i132.i = fadd float %mul107.i, 0x4168000000000000
   %21 = bitcast float %add.i132.i to i32
@@ -3227,18 +3224,18 @@ for.body102.i:                                    ; preds = %for.body102.i, %for
   %23 = tail call i32 @llvm.umax.i32(i32 %22, i32 4194304)
   %spec.select131.i = add nsw i32 %23, -4194304
   %conv127.i = trunc i32 %23 to i8
-  %arrayidx129.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv184.i
+  %arrayidx129.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv185.i
   store i8 %conv127.i, ptr %arrayidx129.i, align 1, !alias.scope !173, !noalias !178
-  %arrayidx132.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv184.i
+  %arrayidx132.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv185.i
   %24 = load float, ptr %arrayidx132.i, align 4, !alias.scope !167, !noalias !176
   %conv133.i = uitofp nneg i32 %spec.select131.i to float
-  %25 = tail call float @llvm.fmuladd.f32(float %24, float %conv133.i, float %sum_l.0149.i)
+  %25 = tail call float @llvm.fmuladd.f32(float %24, float %conv133.i, float %sum_l.0150.i)
   %mul136.i = fmul float %24, %conv133.i
-  %26 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %conv133.i, float %sum_l2.0150.i)
-  %27 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %20, float %sum_xl.0151.i)
-  %indvars.iv.next185.i = add nuw nsw i64 %indvars.iv184.i, 1
-  %exitcond188.not.i = icmp eq i64 %indvars.iv.next185.i, 32
-  br i1 %exitcond188.not.i, label %for.end146.i, label %for.body102.i, !llvm.loop !68
+  %26 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %conv133.i, float %sum_l2.0151.i)
+  %27 = tail call float @llvm.fmuladd.f32(float %mul136.i, float %20, float %sum_xl.0152.i)
+  %indvars.iv.next186.i = add nuw nsw i64 %indvars.iv185.i, 1
+  %exitcond189.not.i = icmp eq i64 %indvars.iv.next186.i, 32
+  br i1 %exitcond189.not.i, label %for.end146.i, label %for.body102.i, !llvm.loop !68
 
 for.end146.i:                                     ; preds = %for.body102.i
   %28 = fneg float %25
@@ -3262,25 +3259,25 @@ if.then151.i:                                     ; preds = %for.end146.i
   br label %for.body169.i
 
 for.body169.i:                                    ; preds = %for.body169.i, %if.then151.i
-  %indvars.iv189.i = phi i64 [ %indvars.iv.next190.i, %for.body169.i ], [ 0, %if.then151.i ]
-  %mad.0157.i = phi float [ %37, %for.body169.i ], [ 0.000000e+00, %if.then151.i ]
-  %arrayidx172.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv189.i
+  %indvars.iv190.i = phi i64 [ %indvars.iv.next191.i, %for.body169.i ], [ 0, %if.then151.i ]
+  %mad.0158.i = phi float [ %37, %for.body169.i ], [ 0.000000e+00, %if.then151.i ]
+  %arrayidx172.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv190.i
   %33 = load i8, ptr %arrayidx172.i, align 1, !alias.scope !173, !noalias !178
   %conv174.i = uitofp i8 %33 to float
   %34 = tail call float @llvm.fmuladd.f32(float %this_scale.0.i, float %conv174.i, float %this_min.0.i)
-  %arrayidx177.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv189.i
+  %arrayidx177.i = getelementptr inbounds float, ptr %add.ptr, i64 %indvars.iv190.i
   %35 = load float, ptr %arrayidx177.i, align 4, !alias.scope !164, !noalias !175
   %sub178.i = fsub float %34, %35
   %mul183.i = fmul float %sub178.i, %sub178.i
-  %arrayidx188.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv189.i
+  %arrayidx188.i = getelementptr inbounds float, ptr %weights, i64 %indvars.iv190.i
   %36 = load float, ptr %arrayidx188.i, align 4, !alias.scope !167, !noalias !176
-  %37 = tail call float @llvm.fmuladd.f32(float %36, float %mul183.i, float %mad.0157.i)
-  %indvars.iv.next190.i = add nuw nsw i64 %indvars.iv189.i, 1
-  %exitcond193.not.i = icmp eq i64 %indvars.iv.next190.i, 32
-  br i1 %exitcond193.not.i, label %for.end192.i, label %for.body169.i, !llvm.loop !69
+  %37 = tail call float @llvm.fmuladd.f32(float %36, float %mul183.i, float %mad.0158.i)
+  %indvars.iv.next191.i = add nuw nsw i64 %indvars.iv190.i, 1
+  %exitcond194.not.i = icmp eq i64 %indvars.iv.next191.i, 32
+  br i1 %exitcond194.not.i, label %for.end192.i, label %for.body169.i, !llvm.loop !69
 
 for.end192.i:                                     ; preds = %for.body169.i
-  %cmp193.i = fcmp uge float %37, %best_mad.1164.i
+  %cmp193.i = fcmp uge float %37, %best_mad.1165.i
   br i1 %cmp193.i, label %for.inc210.i, label %for.body200.preheader.i
 
 for.body200.preheader.i:                          ; preds = %for.end192.i
@@ -3288,12 +3285,12 @@ for.body200.preheader.i:                          ; preds = %for.end192.i
   br label %for.inc210.i
 
 for.inc210.i:                                     ; preds = %for.body200.preheader.i, %for.end192.i, %for.end146.i
-  %scale.1.i = phi float [ %scale.0163.i, %for.end192.i ], [ %scale.0163.i, %for.end146.i ], [ %this_scale.0.i, %for.body200.preheader.i ]
-  %best_mad.2.i = phi float [ %best_mad.1164.i, %for.end192.i ], [ %best_mad.1164.i, %for.end146.i ], [ %37, %for.body200.preheader.i ]
-  %min.4.i = phi float [ %min.3166.i, %for.end192.i ], [ %min.3166.i, %for.end146.i ], [ %this_min.0.i, %for.body200.preheader.i ]
-  %inc211.i = add nuw nsw i32 %is.0165.i, 1
-  %exitcond202.not.i = icmp eq i32 %is.0165.i, 15
-  br i1 %exitcond202.not.i, label %make_qkx2_quants.exit, label %for.body91.i, !llvm.loop !72
+  %scale.1.i = phi float [ %scale.0164.i, %for.end192.i ], [ %scale.0164.i, %for.end146.i ], [ %this_scale.0.i, %for.body200.preheader.i ]
+  %best_mad.2.i = phi float [ %best_mad.1165.i, %for.end192.i ], [ %best_mad.1165.i, %for.end146.i ], [ %37, %for.body200.preheader.i ]
+  %min.4.i = phi float [ %min.3167.i, %for.end192.i ], [ %min.3167.i, %for.end146.i ], [ %this_min.0.i, %for.body200.preheader.i ]
+  %inc211.i = add nuw nsw i32 %is.0166.i, 1
+  %exitcond203.not.i = icmp eq i32 %is.0166.i, 15
+  br i1 %exitcond203.not.i, label %make_qkx2_quants.exit, label %for.body91.i, !llvm.loop !72
 
 make_qkx2_quants.exit:                            ; preds = %for.inc210.i, %for.cond26.preheader.i
   %min.3.lcssa.sink.i = phi float [ %min.2.i, %for.cond26.preheader.i ], [ %min.4.i, %for.inc210.i ]
@@ -3855,15 +3852,16 @@ for.body150.i:                                    ; preds = %for.body150.i, %if.
   %add.i123.i = fadd float %mul154.i, 0x4168000000000000
   %13 = bitcast float %add.i123.i to i32
   %and.i124.i = and i32 %13, 8388607
+  %cmp165.i = icmp ult i32 %and.i124.i, 4194272
   %14 = tail call i32 @llvm.umin.i32(i32 %and.i124.i, i32 4194335)
-  %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 4194272)
-  %cond179.i = add nsw i32 %15, -4194304
+  %cond164.i = add nsw i32 %14, -4194304
+  %15 = sitofp i32 %cond164.i to float
+  %cond179.i = select i1 %cmp165.i, float -3.200000e+01, float %15
   %mul188.i = fmul float %12, %12
   %mul194.i = fmul float %12, %mul188.i
-  %conv195.i = sitofp i32 %cond179.i to float
-  %16 = tail call float @llvm.fmuladd.f32(float %mul194.i, float %conv195.i, float %sumlx.1136.i)
-  %mul198.i = fmul float %mul188.i, %conv195.i
-  %17 = tail call float @llvm.fmuladd.f32(float %mul198.i, float %conv195.i, float %suml2.1137.i)
+  %16 = tail call float @llvm.fmuladd.f32(float %mul194.i, float %cond179.i, float %sumlx.1136.i)
+  %mul198.i = fmul float %mul188.i, %cond179.i
+  %17 = tail call float @llvm.fmuladd.f32(float %mul198.i, float %cond179.i, float %suml2.1137.i)
   %indvars.iv.next154.i = add nuw nsw i64 %indvars.iv153.i, 1
   %exitcond156.not.i = icmp eq i64 %indvars.iv.next154.i, 16
   br i1 %exitcond156.not.i, label %for.end203.i, label %for.body150.i, !llvm.loop !219
@@ -3886,12 +3884,13 @@ for.body215.i:                                    ; preds = %land.lhs.true.i, %f
   %add.i126.i = fadd float %mul219.i, 0x4168000000000000
   %19 = bitcast float %add.i126.i to i32
   %and.i127.i = and i32 %19, 8388607
+  %cmp230.i = icmp ult i32 %and.i127.i, 4194272
   %20 = tail call i32 @llvm.umin.i32(i32 %and.i127.i, i32 4194335)
-  %21 = tail call i32 @llvm.umax.i32(i32 %20, i32 4194272)
-  %22 = trunc i32 %21 to i8
-  %conv246.i = add nsw i8 %22, 32
+  %21 = trunc i32 %20 to i8
+  %22 = add i8 %21, 32
+  %cond244.i = select i1 %cmp230.i, i8 0, i8 %22
   %arrayidx248.i = getelementptr inbounds i8, ptr %add.ptr6, i64 %indvars.iv157.i
-  store i8 %conv246.i, ptr %arrayidx248.i, align 1, !alias.scope !215, !noalias !212
+  store i8 %cond244.i, ptr %arrayidx248.i, align 1, !alias.scope !215, !noalias !212
   %indvars.iv.next158.i = add nuw nsw i64 %indvars.iv157.i, 1
   %exitcond160.not.i = icmp eq i64 %indvars.iv.next158.i, 16
   br i1 %exitcond160.not.i, label %for.end251.i, label %for.body215.i, !llvm.loop !220
@@ -3959,11 +3958,12 @@ for.body29:                                       ; preds = %if.end14, %for.body
   %mul32 = fmul float %div15, %28
   %add.i = fadd float %mul32, 0x4168000000000000
   %29 = bitcast float %add.i to i32
-  %and.i = and i32 %29, 8388607
-  %30 = tail call i32 @llvm.umin.i32(i32 %and.i, i32 4194431)
-  %conv = trunc i32 %30 to i8
+  %and.i = and i32 %29, 8388480
+  %cmp34 = icmp ugt i32 %and.i, 4194431
+  %30 = trunc i32 %29 to i8
+  %spec.select = select i1 %cmp34, i8 127, i8 %30
   %arrayidx43 = getelementptr inbounds [16 x i8], ptr %scales41, i64 0, i64 %indvars.iv100
-  store i8 %conv, ptr %arrayidx43, align 1
+  store i8 %spec.select, ptr %arrayidx43, align 1
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next101, 16
   br i1 %exitcond103.not, label %for.cond47.preheader, label %for.body29, !llvm.loop !223

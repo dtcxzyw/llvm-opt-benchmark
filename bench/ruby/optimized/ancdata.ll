@@ -3199,7 +3199,7 @@ define internal i64 @ancillary_ipv6_pktinfo_addr(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @ancillary_ipv6_pktinfo_ifindex(i64 noundef %0) #0 {
+define internal range(i64 1, 8589934592) i64 @ancillary_ipv6_pktinfo_ifindex(i64 noundef %0) #0 {
   %2 = alloca %struct.in6_pktinfo, align 4
   %3 = alloca %struct.sockaddr_in6, align 4
   call fastcc void @extract_ipv6_pktinfo(i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)

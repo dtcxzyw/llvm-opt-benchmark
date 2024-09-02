@@ -1677,8 +1677,8 @@ for.cond20.preheader.lr.ph:                       ; preds = %entry
   br i1 %17, label %for.cond20.preheader, label %for.end119
 
 for.cond20.preheader:                             ; preds = %for.cond20.preheader.lr.ph, %for.inc117
-  %18 = phi i32 [ %86, %for.inc117 ], [ %15, %for.cond20.preheader.lr.ph ]
-  %19 = phi i32 [ %87, %for.inc117 ], [ %16, %for.cond20.preheader.lr.ph ]
+  %18 = phi i32 [ %84, %for.inc117 ], [ %15, %for.cond20.preheader.lr.ph ]
+  %19 = phi i32 [ %85, %for.inc117 ], [ %16, %for.cond20.preheader.lr.ph ]
   %y.0744 = phi i32 [ %inc118.pre-phi, %for.inc117 ], [ 0, %for.cond20.preheader.lr.ph ]
   %cmp21741 = icmp sgt i32 %19, 0
   br i1 %cmp21741, label %for.body22.lr.ph, label %for.cond20.preheader.for.inc117_crit_edge
@@ -1694,7 +1694,7 @@ for.body22.lr.ph:                                 ; preds = %for.cond20.preheade
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %lor.end
-  %20 = phi i32 [ %19, %for.body22.lr.ph ], [ %85, %lor.end ]
+  %20 = phi i32 [ %19, %for.body22.lr.ph ], [ %83, %lor.end ]
   %x.0742 = phi i32 [ 0, %for.body22.lr.ph ], [ %inc, %lor.end ]
   %21 = load ptr, ptr %sdf, align 8
   %mul.i = mul nsw i32 %20, %y.0744
@@ -2589,10 +2589,11 @@ land.rhs:                                         ; preds = %land.lhs.true99
   %idx.ext.i252 = sext i32 %mul2.i251 to i64
   %add.ptr.i253 = getelementptr inbounds float, ptr %78, i64 %idx.ext.i252
   %call108 = call fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp103, float noundef %cond.i8.i, ptr noundef nonnull %add.ptr.i, ptr noundef %r.0, ptr noundef %t.0, ptr noundef %add.ptr.i253)
+  %79 = zext i1 %call108 to i8
   br label %lor.end
 
 lor.end:                                          ; preds = %if.then.i.i694, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711, %lor.lhs.false.i212, %if.then.i.i619, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636, %lor.lhs.false.i176, %if.then.i.i469, %if.then.i.i544, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486, %if.then.i.i319, %if.then.i.i394, %if.then.i.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336, %lor.rhs, %land.lhs.true99, %land.rhs, %land.lhs.true89, %land.lhs.true76, %land.lhs.true63, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit
-  %79 = phi i1 [ true, %land.lhs.true89 ], [ true, %land.lhs.true76 ], [ true, %land.lhs.true63 ], [ true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221 ], [ true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185 ], [ true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149 ], [ true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit ], [ false, %land.lhs.true99 ], [ false, %lor.rhs ], [ %call108, %land.rhs ], [ true, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336 ], [ true, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411 ], [ true, %if.then.i.i ], [ true, %if.then.i.i394 ], [ true, %if.then.i.i319 ], [ true, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486 ], [ true, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561 ], [ true, %if.then.i.i544 ], [ true, %if.then.i.i469 ], [ true, %lor.lhs.false.i176 ], [ true, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636 ], [ true, %if.then.i.i619 ], [ true, %lor.lhs.false.i212 ], [ true, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711 ], [ true, %if.then.i.i694 ]
+  %conv111 = phi i8 [ 1, %land.lhs.true89 ], [ 1, %land.lhs.true76 ], [ 1, %land.lhs.true63 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit ], [ 0, %land.lhs.true99 ], [ 0, %lor.rhs ], [ %79, %land.rhs ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411 ], [ 1, %if.then.i.i ], [ 1, %if.then.i.i394 ], [ 1, %if.then.i.i319 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561 ], [ 1, %if.then.i.i544 ], [ 1, %if.then.i.i469 ], [ 1, %lor.lhs.false.i176 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636 ], [ 1, %if.then.i.i619 ], [ 1, %lor.lhs.false.i212 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711 ], [ 1, %if.then.i.i694 ]
   %80 = load ptr, ptr %this, align 8
   %81 = load i32, ptr %width.i103, align 8
   %mul.i255 = mul nsw i32 %81, %y.0744
@@ -2600,12 +2601,11 @@ lor.end:                                          ; preds = %if.then.i.i694, %_Z
   %idx.ext.i257 = sext i32 %add.i256 to i64
   %add.ptr.i258 = getelementptr inbounds i8, ptr %80, i64 %idx.ext.i257
   %82 = load i8, ptr %add.ptr.i258, align 1
-  %83 = zext i1 %79 to i8
-  %84 = or i8 %82, %83
-  store i8 %84, ptr %add.ptr.i258, align 1
+  %or = or i8 %82, %conv111
+  store i8 %or, ptr %add.ptr.i258, align 1
   %inc = add nuw nsw i32 %x.0742, 1
-  %85 = load i32, ptr %width, align 8
-  %cmp21 = icmp slt i32 %inc, %85
+  %83 = load i32, ptr %width, align 8
+  %cmp21 = icmp slt i32 %inc, %83
   br i1 %cmp21, label %for.body22, label %for.inc117.loopexit, !llvm.loop !19
 
 for.inc117.loopexit:                              ; preds = %lor.end
@@ -2614,9 +2614,9 @@ for.inc117.loopexit:                              ; preds = %lor.end
 
 for.inc117:                                       ; preds = %for.cond20.preheader.for.inc117_crit_edge, %for.inc117.loopexit
   %inc118.pre-phi = phi i32 [ %.pre748, %for.cond20.preheader.for.inc117_crit_edge ], [ %add54, %for.inc117.loopexit ]
-  %86 = phi i32 [ %18, %for.cond20.preheader.for.inc117_crit_edge ], [ %.pre746, %for.inc117.loopexit ]
-  %87 = phi i32 [ %19, %for.cond20.preheader.for.inc117_crit_edge ], [ %85, %for.inc117.loopexit ]
-  %cmp = icmp slt i32 %inc118.pre-phi, %86
+  %84 = phi i32 [ %18, %for.cond20.preheader.for.inc117_crit_edge ], [ %.pre746, %for.inc117.loopexit ]
+  %85 = phi i32 [ %19, %for.cond20.preheader.for.inc117_crit_edge ], [ %83, %for.inc117.loopexit ]
+  %cmp = icmp slt i32 %inc118.pre-phi, %84
   br i1 %cmp, label %for.cond20.preheader, label %for.end119, !llvm.loop !20
 
 for.end119:                                       ; preds = %for.inc117, %for.cond20.preheader.lr.ph, %entry
@@ -2814,8 +2814,8 @@ for.cond20.preheader.lr.ph:                       ; preds = %entry
   br i1 %17, label %for.cond20.preheader, label %for.end119
 
 for.cond20.preheader:                             ; preds = %for.cond20.preheader.lr.ph, %for.inc117
-  %18 = phi i32 [ %86, %for.inc117 ], [ %15, %for.cond20.preheader.lr.ph ]
-  %19 = phi i32 [ %87, %for.inc117 ], [ %16, %for.cond20.preheader.lr.ph ]
+  %18 = phi i32 [ %84, %for.inc117 ], [ %15, %for.cond20.preheader.lr.ph ]
+  %19 = phi i32 [ %85, %for.inc117 ], [ %16, %for.cond20.preheader.lr.ph ]
   %y.0744 = phi i32 [ %inc118.pre-phi, %for.inc117 ], [ 0, %for.cond20.preheader.lr.ph ]
   %cmp21741 = icmp sgt i32 %19, 0
   br i1 %cmp21741, label %for.body22.lr.ph, label %for.cond20.preheader.for.inc117_crit_edge
@@ -2831,7 +2831,7 @@ for.body22.lr.ph:                                 ; preds = %for.cond20.preheade
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %lor.end
-  %20 = phi i32 [ %19, %for.body22.lr.ph ], [ %85, %lor.end ]
+  %20 = phi i32 [ %19, %for.body22.lr.ph ], [ %83, %lor.end ]
   %x.0742 = phi i32 [ 0, %for.body22.lr.ph ], [ %inc, %lor.end ]
   %21 = load ptr, ptr %sdf, align 8
   %mul.i = mul nsw i32 %20, %y.0744
@@ -3726,10 +3726,11 @@ land.rhs:                                         ; preds = %land.lhs.true99
   %idx.ext.i252 = sext i32 %mul2.i251 to i64
   %add.ptr.i253 = getelementptr inbounds float, ptr %78, i64 %idx.ext.i252
   %call108 = call fastcc noundef zeroext i1 @_ZN7msdfgenL19hasDiagonalArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp103, float noundef %cond.i8.i, ptr noundef nonnull %add.ptr.i, ptr noundef %r.0, ptr noundef %t.0, ptr noundef %add.ptr.i253)
+  %79 = zext i1 %call108 to i8
   br label %lor.end
 
 lor.end:                                          ; preds = %if.then.i.i694, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711, %lor.lhs.false.i212, %if.then.i.i619, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636, %lor.lhs.false.i176, %if.then.i.i469, %if.then.i.i544, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486, %if.then.i.i319, %if.then.i.i394, %if.then.i.i, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336, %lor.rhs, %land.lhs.true99, %land.rhs, %land.lhs.true89, %land.lhs.true76, %land.lhs.true63, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit
-  %79 = phi i1 [ true, %land.lhs.true89 ], [ true, %land.lhs.true76 ], [ true, %land.lhs.true63 ], [ true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221 ], [ true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185 ], [ true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149 ], [ true, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit ], [ false, %land.lhs.true99 ], [ false, %lor.rhs ], [ %call108, %land.rhs ], [ true, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336 ], [ true, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411 ], [ true, %if.then.i.i ], [ true, %if.then.i.i394 ], [ true, %if.then.i.i319 ], [ true, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486 ], [ true, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561 ], [ true, %if.then.i.i544 ], [ true, %if.then.i.i469 ], [ true, %lor.lhs.false.i176 ], [ true, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636 ], [ true, %if.then.i.i619 ], [ true, %lor.lhs.false.i212 ], [ true, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711 ], [ true, %if.then.i.i694 ]
+  %conv111 = phi i8 [ 1, %land.lhs.true89 ], [ 1, %land.lhs.true76 ], [ 1, %land.lhs.true63 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit221 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit185 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit149 ], [ 1, %_ZN7msdfgenL17hasLinearArtifactINS_22BaseArtifactClassifierEEEbRKT_fPKfS6_.exit ], [ 0, %land.lhs.true99 ], [ 0, %lor.rhs ], [ %79, %land.rhs ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit336 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit411 ], [ 1, %if.then.i.i ], [ 1, %if.then.i.i394 ], [ 1, %if.then.i.i319 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit486 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit561 ], [ 1, %if.then.i.i544 ], [ 1, %if.then.i.i469 ], [ 1, %lor.lhs.false.i176 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit636 ], [ 1, %if.then.i.i619 ], [ 1, %lor.lhs.false.i212 ], [ 1, %_ZN7msdfgenL22hasLinearArtifactInnerINS_22BaseArtifactClassifierEEEbRKT_ffPKfS6_ff.exit711 ], [ 1, %if.then.i.i694 ]
   %80 = load ptr, ptr %this, align 8
   %81 = load i32, ptr %width.i103, align 8
   %mul.i255 = mul nsw i32 %81, %y.0744
@@ -3737,12 +3738,11 @@ lor.end:                                          ; preds = %if.then.i.i694, %_Z
   %idx.ext.i257 = sext i32 %add.i256 to i64
   %add.ptr.i258 = getelementptr inbounds i8, ptr %80, i64 %idx.ext.i257
   %82 = load i8, ptr %add.ptr.i258, align 1
-  %83 = zext i1 %79 to i8
-  %84 = or i8 %82, %83
-  store i8 %84, ptr %add.ptr.i258, align 1
+  %or = or i8 %82, %conv111
+  store i8 %or, ptr %add.ptr.i258, align 1
   %inc = add nuw nsw i32 %x.0742, 1
-  %85 = load i32, ptr %width, align 8
-  %cmp21 = icmp slt i32 %inc, %85
+  %83 = load i32, ptr %width, align 8
+  %cmp21 = icmp slt i32 %inc, %83
   br i1 %cmp21, label %for.body22, label %for.inc117.loopexit, !llvm.loop !21
 
 for.inc117.loopexit:                              ; preds = %lor.end
@@ -3751,9 +3751,9 @@ for.inc117.loopexit:                              ; preds = %lor.end
 
 for.inc117:                                       ; preds = %for.cond20.preheader.for.inc117_crit_edge, %for.inc117.loopexit
   %inc118.pre-phi = phi i32 [ %.pre748, %for.cond20.preheader.for.inc117_crit_edge ], [ %add54, %for.inc117.loopexit ]
-  %86 = phi i32 [ %18, %for.cond20.preheader.for.inc117_crit_edge ], [ %.pre746, %for.inc117.loopexit ]
-  %87 = phi i32 [ %19, %for.cond20.preheader.for.inc117_crit_edge ], [ %85, %for.inc117.loopexit ]
-  %cmp = icmp slt i32 %inc118.pre-phi, %86
+  %84 = phi i32 [ %18, %for.cond20.preheader.for.inc117_crit_edge ], [ %.pre746, %for.inc117.loopexit ]
+  %85 = phi i32 [ %19, %for.cond20.preheader.for.inc117_crit_edge ], [ %83, %for.inc117.loopexit ]
+  %cmp = icmp slt i32 %inc118.pre-phi, %84
   br i1 %cmp, label %for.cond20.preheader, label %for.end119, !llvm.loop !22
 
 for.end119:                                       ; preds = %for.inc117, %for.cond20.preheader.lr.ph, %entry

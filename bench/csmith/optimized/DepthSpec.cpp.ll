@@ -157,14 +157,14 @@ define dso_local noundef range(i32 3, 5) i32 @_ZN9DepthSpec21dtBlock_minimal_dep
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 2, 5) i32 @_ZN9DepthSpec25dtStatement_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 2, 4) i32 @_ZN9DepthSpec25dtStatement_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = icmp eq i32 %0, 10
   %spec.select = select i1 %2, i32 3, i32 2
   ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 4, 9) i32 @_ZN9DepthSpec31dtStatementAssign_minimal_depthEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 5, 7) i32 @_ZN9DepthSpec31dtStatementAssign_minimal_depthEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN9CGOptions19compound_assignmentEv()
   %3 = select i1 %2, i32 6, i32 5
   ret i32 %3

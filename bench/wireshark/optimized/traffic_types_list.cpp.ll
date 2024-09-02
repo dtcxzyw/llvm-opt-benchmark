@@ -377,12 +377,12 @@ _ZN5QListIiE6appendEi.exit:                       ; preds = %_ZNK23QListSpecialM
 
 ._crit_edge:                                      ; preds = %85
   %.pre186 = load i64, ptr %61, align 8
-  %87 = getelementptr inbounds i8, ptr %11, i64 16
-  %88 = icmp eq i64 %.pre186, 0
-  br i1 %88, label %._crit_edge.thread, label %_ZN5QListI7QStringED2Ev.exit98
+  %87 = icmp eq i64 %.pre186, 0
+  %88 = getelementptr inbounds i8, ptr %11, i64 16
+  br i1 %87, label %._crit_edge.thread, label %_ZN5QListI7QStringED2Ev.exit98
 
 ._crit_edge.thread:                               ; preds = %"_ZSt4sortIN5QListI19TrafficTypesRowDataE8iteratorEZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EvT_SB_T0_.exit", %._crit_edge
-  %89 = phi ptr [ %87, %._crit_edge ], [ %61, %"_ZSt4sortIN5QListI19TrafficTypesRowDataE8iteratorEZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EvT_SB_T0_.exit" ]
+  %89 = phi ptr [ %88, %._crit_edge ], [ %61, %"_ZSt4sortIN5QListI19TrafficTypesRowDataE8iteratorEZN17TrafficTypesModelC1EPP6_GListP7QObjectE3$_0EvT_SB_T0_.exit" ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %9, i64 3, ptr nonnull @.str)
@@ -953,7 +953,7 @@ _ZN7QStringD2Ev.exit128:                          ; preds = %272, %_ZN17QArrayDa
   br label %334
 
 _ZN5QListI7QStringED2Ev.exit98:                   ; preds = %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i97, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i86, %_ZN9QtPrivate17QForeachContainerI5QListI7QStringEED2Ev.exit, %._crit_edge
-  %277 = phi ptr [ %89, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i97 ], [ %89, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i86 ], [ %89, %_ZN9QtPrivate17QForeachContainerI5QListI7QStringEED2Ev.exit ], [ %87, %._crit_edge ]
+  %277 = phi ptr [ %89, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i97 ], [ %89, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i86 ], [ %89, %_ZN9QtPrivate17QForeachContainerI5QListI7QStringEED2Ev.exit ], [ %88, %._crit_edge ]
   %278 = load i64, ptr %44, align 8
   %279 = icmp sgt i64 %278, 0
   br i1 %279, label %.lr.ph181, label %._crit_edge182

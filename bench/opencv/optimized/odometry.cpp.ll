@@ -13784,35 +13784,35 @@ define internal fastcc void @_ZN2cv4rgbdL18randomSubsetOfMaskERNS_3MatEf(ptr nou
   %34 = add nuw i64 %32, %33
   %35 = trunc i64 %34 to i32
   %36 = urem i32 %35, %28
+  %37 = sext i32 %36 to i64
   br label %_ZN2cv3RNGclEj.exit
 
 _ZN2cv3RNGclEj.exit:                              ; preds = %30, %27
   %.sroa.0.1 = phi i64 [ %.sroa.0.030, %27 ], [ %34, %30 ]
-  %37 = phi i32 [ 0, %27 ], [ %36, %30 ]
-  %38 = load i32, ptr %22, align 4
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %_ZN2cv3RNGclEj.exit25, label %40
+  %38 = phi i64 [ 0, %27 ], [ %37, %30 ]
+  %39 = load i32, ptr %22, align 4
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %_ZN2cv3RNGclEj.exit25, label %41
 
-40:                                               ; preds = %_ZN2cv3RNGclEj.exit
-  %41 = and i64 %.sroa.0.1, 4294967295
-  %42 = mul nuw i64 %41, 4164903690
-  %43 = lshr i64 %.sroa.0.1, 32
-  %44 = add nuw i64 %42, %43
-  %45 = trunc i64 %44 to i32
-  %46 = urem i32 %45, %38
+41:                                               ; preds = %_ZN2cv3RNGclEj.exit
+  %42 = and i64 %.sroa.0.1, 4294967295
+  %43 = mul nuw i64 %42, 4164903690
+  %44 = lshr i64 %.sroa.0.1, 32
+  %45 = add nuw i64 %43, %44
+  %46 = trunc i64 %45 to i32
+  %47 = urem i32 %46, %39
+  %48 = sext i32 %47 to i64
   br label %_ZN2cv3RNGclEj.exit25
 
-_ZN2cv3RNGclEj.exit25:                            ; preds = %40, %_ZN2cv3RNGclEj.exit
-  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %_ZN2cv3RNGclEj.exit ], [ %44, %40 ]
-  %47 = phi i32 [ 0, %_ZN2cv3RNGclEj.exit ], [ %46, %40 ]
-  %48 = load ptr, ptr %23, align 8
-  %49 = load ptr, ptr %24, align 8
-  %50 = load i64, ptr %49, align 8
-  %51 = sext i32 %37 to i64
-  %52 = mul i64 %50, %51
-  %53 = getelementptr inbounds i8, ptr %48, i64 %52
-  %54 = sext i32 %47 to i64
-  %55 = getelementptr inbounds i8, ptr %53, i64 %54
+_ZN2cv3RNGclEj.exit25:                            ; preds = %41, %_ZN2cv3RNGclEj.exit
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %_ZN2cv3RNGclEj.exit ], [ %45, %41 ]
+  %49 = phi i64 [ 0, %_ZN2cv3RNGclEj.exit ], [ %48, %41 ]
+  %50 = load ptr, ptr %23, align 8
+  %51 = load ptr, ptr %24, align 8
+  %52 = load i64, ptr %51, align 8
+  %53 = mul i64 %52, %38
+  %54 = getelementptr inbounds i8, ptr %50, i64 %53
+  %55 = getelementptr inbounds i8, ptr %54, i64 %49
   %56 = load i8, ptr %55, align 1
   %.not = icmp eq i8 %56, 0
   br i1 %.not, label %73, label %57
@@ -13821,16 +13821,16 @@ _ZN2cv3RNGclEj.exit25:                            ; preds = %40, %_ZN2cv3RNGclEj
   %58 = load ptr, ptr %25, align 8
   %59 = load ptr, ptr %26, align 8
   %60 = load i64, ptr %59, align 8
-  %61 = mul i64 %60, %51
+  %61 = mul i64 %60, %38
   %62 = getelementptr inbounds i8, ptr %58, i64 %61
-  %63 = getelementptr inbounds i8, ptr %62, i64 %54
+  %63 = getelementptr inbounds i8, ptr %62, i64 %49
   store i8 -1, ptr %63, align 1
   %64 = load ptr, ptr %23, align 8
   %65 = load ptr, ptr %24, align 8
   %66 = load i64, ptr %65, align 8
-  %67 = mul i64 %66, %51
+  %67 = mul i64 %66, %38
   %68 = getelementptr inbounds i8, ptr %64, i64 %67
-  %69 = getelementptr inbounds i8, ptr %68, i64 %54
+  %69 = getelementptr inbounds i8, ptr %68, i64 %49
   store i8 0, ptr %69, align 1
   %70 = add nsw i32 %.02231, 1
   br label %73

@@ -3531,7 +3531,7 @@ JsonValueListAppend.exit:                         ; preds = %33, %32, %26, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeBoolItem(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.JsonValueList, align 8
   %6 = alloca %struct.JsonPathItem, align 8
   %7 = alloca %struct.JsonPathItem, align 8

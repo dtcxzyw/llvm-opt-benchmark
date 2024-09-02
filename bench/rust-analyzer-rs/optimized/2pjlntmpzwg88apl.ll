@@ -7664,7 +7664,7 @@ _ZN15ra_ap_rustc_abi16TargetDataLayout12vector_align17h06a423de10802197E.llvm.10
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN15ra_ap_rustc_abi4Size10from_bytes17heb11e23b166dd232E.llvm.10169251571672223956(i32 noundef %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN15ra_ap_rustc_abi4Size10from_bytes17heb11e23b166dd232E.llvm.10169251571672223956(i32 noundef %0) unnamed_addr #0 {
   %switch.not.not = icmp sgt i32 %0, -1
   br i1 %switch.not.not, label %3, label %2
 
@@ -7678,7 +7678,7 @@ define hidden noundef i64 @_ZN15ra_ap_rustc_abi4Size10from_bytes17heb11e23b166dd
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956(i64 noundef %0) unnamed_addr #0 {
+define hidden noundef range(i64 0, -7) i64 @_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.llvm.10169251571672223956(i64 noundef %0) unnamed_addr #0 {
   %2 = icmp ugt i64 %0, 2305843009213693951
   br i1 %2, label %3, label %4
 
@@ -7692,7 +7692,7 @@ define hidden noundef i64 @_ZN15ra_ap_rustc_abi4Size4bits17hd304254189ad847eE.ll
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 0, 2305843009213693953) i64 @_ZN15ra_ap_rustc_abi4Size9from_bits17h1671bd257cfff523E.llvm.10169251571672223956(i32 noundef %0) unnamed_addr #2 {
+define hidden noundef range(i64 0, 536870913) i64 @_ZN15ra_ap_rustc_abi4Size9from_bits17h1671bd257cfff523E.llvm.10169251571672223956(i32 noundef %0) unnamed_addr #2 {
   %switch.not.not = icmp sgt i32 %0, -1
   br i1 %switch.not.not, label %3, label %2
 
@@ -8142,7 +8142,7 @@ _ZN15ra_ap_rustc_abi9Primitive5align17h9686af1e84af415cE.exit: ; preds = %switch
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.10169251571672223956(i8 noundef %0) unnamed_addr #5 {
+define hidden noundef range(i64 1, 17) i64 @_ZN15ra_ap_rustc_abi7Integer4size17h77ec4c8a7cbc1d5dE.llvm.10169251571672223956(i8 noundef %0) unnamed_addr #5 {
 switch.lookup:
   %1 = sext i8 %0 to i64
   %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4core4iter6traits8iterator8Iterator8try_fold17hfa26ad7298db56f9E.llvm.10169251571672223956, i64 0, i64 %1
@@ -8169,7 +8169,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define hidden noundef i8 @_ZN15ra_ap_rustc_abi7Integer9for_align17h119208dd51d1105dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, i8 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 6) i8 @_ZN15ra_ap_rustc_abi7Integer9for_align17h119208dd51d1105dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, i8 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
 .lr.ph.i:
   %2 = alloca { { i64, i64 }, [5 x i8], [3 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
@@ -19740,7 +19740,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator7collect17hfc90e01e000
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hfa26ad7298db56f9E.llvm.10169251571672223956(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 6) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17hfa26ad7298db56f9E.llvm.10169251571672223956(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2) unnamed_addr #13 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !7748, !noundef !10
   %.promoted = load i64, ptr %0, align 8, !alias.scope !7748

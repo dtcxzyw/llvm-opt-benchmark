@@ -740,15 +740,15 @@ define dso_local noundef zeroext i1 @intset_iterate_next(ptr noundef %0, ptr noc
   %55 = lshr i64 %.02124.i, %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.backedge.thread.loopexit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %simple8b_decode.exit.loopexit, label %.lr.ph.i, !llvm.loop !12
 
-.backedge.thread.loopexit:                        ; preds = %.lr.ph.i
+simple8b_decode.exit.loopexit:                    ; preds = %.lr.ph.i
   %56 = zext i8 %46 to i32
   %57 = add nuw nsw i32 %56, 1
   br label %.backedge.thread
 
-.backedge.thread:                                 ; preds = %.backedge.thread.loopexit, %35
-  %.0.shrunk.i = phi i32 [ 1, %35 ], [ %57, %.backedge.thread.loopexit ]
+.backedge.thread:                                 ; preds = %35, %simple8b_decode.exit.loopexit
+  %.0.shrunk.i = phi i32 [ 1, %35 ], [ %57, %simple8b_decode.exit.loopexit ]
   store i32 %.0.shrunk.i, ptr %4, align 8
   br label %._crit_edge
 

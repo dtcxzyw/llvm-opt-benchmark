@@ -1837,7 +1837,7 @@ entry:
   %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   store i64 %bytes, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #15
-  %call.i.i = call i32 @bdrv_co_pwritev_part(ptr noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov.i, i64 noundef 0, i32 noundef %flags)
+  %call.i.i = call range(i32 -2147483648, 1) i32 @bdrv_co_pwritev_part(ptr noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov.i, i64 noundef 0, i32 noundef %flags)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
   %cmp = icmp slt i32 %call.i.i, 0
   br i1 %cmp, label %return, label %if.end
@@ -1856,7 +1856,7 @@ return:                                           ; preds = %if.end, %entry
 declare void @assert_bdrv_graph_readable() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_co_pwrite(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
+define internal range(i32 -2147483648, 1) i32 @bdrv_co_pwrite(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
   %0 = getelementptr inbounds i8, ptr %qiov, i64 16
@@ -1869,7 +1869,7 @@ entry:
   %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #15
-  %call.i = call i32 @bdrv_co_pwritev_part(ptr noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i64 noundef 0, i32 noundef %flags)
+  %call.i = call range(i32 -2147483648, 1) i32 @bdrv_co_pwritev_part(ptr noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i64 noundef 0, i32 noundef %flags)
   ret i32 %call.i
 }
 
@@ -2086,14 +2086,14 @@ early_exit:                                       ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_co_preadv(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @bdrv_co_preadv(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %call = tail call i32 @bdrv_co_preadv_part(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef 0, i32 noundef %flags)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_co_preadv_part(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @bdrv_co_preadv_part(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset.addr = alloca i64, align 8
@@ -2326,7 +2326,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare zeroext i1 @bdrv_co_is_inserted(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @bdrv_pad_request(ptr noundef %bs, ptr nocapture noundef %qiov, ptr nocapture noundef %qiov_offset, ptr nocapture noundef %offset, ptr nocapture noundef %bytes, i1 noundef zeroext %write, ptr noundef %pad, ptr noundef writeonly %padded, ptr nocapture noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @bdrv_pad_request(ptr noundef %bs, ptr nocapture noundef %qiov, ptr nocapture noundef %qiov_offset, ptr nocapture noundef %offset, ptr nocapture noundef %bytes, i1 noundef zeroext %write, ptr noundef %pad, ptr noundef writeonly %padded, ptr nocapture noundef %flags) unnamed_addr #0 {
 entry:
   %sliced_niov = alloca i32, align 4
   %sliced_head = alloca i64, align 8
@@ -2611,7 +2611,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @bdrv_aligned_preadv(ptr nocapture noundef readonly %child, ptr noundef %req, i64 noundef %offset, i64 noundef %bytes, i64 noundef %align, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
+define internal range(i32 -2147483648, 1) i32 @bdrv_aligned_preadv(ptr nocapture noundef readonly %child, ptr noundef %req, i64 noundef %offset, i64 noundef %bytes, i64 noundef %align, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %bdi.i = alloca %struct.BlockDriverInfo, align 8
   %pnum = alloca i64, align 8
@@ -2914,14 +2914,14 @@ if.end10:                                         ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_co_pwritev(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @bdrv_co_pwritev(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %call = tail call i32 @bdrv_co_pwritev_part(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef 0, i32 noundef %flags)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_co_pwritev_part(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @bdrv_co_pwritev_part(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %offset.addr = alloca i64, align 8
@@ -3238,7 +3238,7 @@ return:                                           ; preds = %if.then29, %land.lh
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @bdrv_co_do_zero_pwritev(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags, ptr noundef %req) #0 {
+define internal range(i32 -2147483648, 1) i32 @bdrv_co_do_zero_pwritev(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags, ptr noundef %req) #0 {
 entry:
   %local_qiov = alloca %struct.QEMUIOVector, align 8
   %pad = alloca %struct.BdrvRequestPadding, align 8
@@ -3343,7 +3343,6 @@ if.end22:                                         ; preds = %if.then9
   br label %if.end29
 
 if.end29:                                         ; preds = %lor.lhs.false, %if.end22, %entry
-  %ret.0 = phi i32 [ %call15, %if.end22 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
   %bytes.addr.0 = phi i64 [ %sub27, %if.end22 ], [ %bytes, %lor.lhs.false ], [ %bytes, %entry ]
   %offset.addr.0 = phi i64 [ %add, %if.end22 ], [ %offset, %lor.lhs.false ], [ %offset, %entry ]
   %tobool30.not = icmp eq i64 %bytes.addr.0, 0
@@ -3376,7 +3375,6 @@ if.end49:                                         ; preds = %if.then41
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end49, %if.end38
-  %ret.2 = phi i32 [ %call45, %if.end49 ], [ %ret.0, %if.end38 ]
   %bytes.addr.1 = phi i64 [ %sub50, %if.end49 ], [ %bytes.addr.0, %if.end38 ]
   %offset.addr.1 = phi i64 [ %add51, %if.end49 ], [ %offset.addr.0, %if.end38 ]
   %tobool53.not = icmp eq i64 %bytes.addr.1, 0
@@ -3420,7 +3418,7 @@ if.end69:                                         ; preds = %if.then63
   br label %out
 
 out:                                              ; preds = %if.then9, %if.end52, %if.end69, %if.then41
-  %ret.1 = phi i32 [ %call15, %if.then9 ], [ %call45, %if.then41 ], [ %call71, %if.end69 ], [ %ret.2, %if.end52 ]
+  %ret.1 = phi i32 [ %call15, %if.then9 ], [ %call45, %if.then41 ], [ %call71, %if.end69 ], [ 0, %if.end52 ]
   %collapse_bounce_buf.i = getelementptr inbounds i8, ptr %pad, i64 88
   %21 = load ptr, ptr %collapse_bounce_buf.i, align 8
   %tobool.not.i = icmp eq ptr %21, null
@@ -3627,7 +3625,7 @@ return:                                           ; preds = %zero_mem, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @bdrv_aligned_pwritev(ptr nocapture noundef readonly %child, ptr noundef %req, i64 noundef %offset, i64 noundef %bytes, i64 noundef %align, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
+define internal range(i32 -2147483648, 1) i32 @bdrv_aligned_pwritev(ptr nocapture noundef readonly %child, ptr noundef %req, i64 noundef %offset, i64 noundef %bytes, i64 noundef %align, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %0 = load ptr, ptr %child, align 8
   %drv2 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3825,7 +3823,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @bdrv_co_pwrite_zeroes(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @bdrv_co_pwrite_zeroes(ptr nocapture noundef readonly %child, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %child, align 8
@@ -3871,7 +3869,7 @@ trace_bdrv_co_pwrite_zeroes.exit:                 ; preds = %entry, %land.lhs.tr
   %and2 = and i32 %flags, -7
   %spec.select = select i1 %tobool.not, i32 %and2, i32 %flags
   %or = or i32 %spec.select, 2
-  %call.i = tail call i32 @bdrv_co_pwritev_part(ptr noundef nonnull readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, i32 noundef %or)
+  %call.i = tail call range(i32 -2147483648, 1) i32 @bdrv_co_pwritev_part(ptr noundef nonnull readonly %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, i32 noundef %or)
   ret i32 %call.i
 }
 
@@ -7647,7 +7645,8 @@ entry:
   %bl = getelementptr inbounds i8, ptr %bs, i64 16464
   %max_pwrite_zeroes = getelementptr inbounds i8, ptr %bs, i64 16488
   %1 = load i64, ptr %max_pwrite_zeroes, align 8
-  switch i64 %1, label %cond.true4 [
+  %2 = freeze i64 %1
+  switch i64 %2, label %cond.true4 [
     i64 0, label %cond.end6
     i64 9223372036854775807, label %cond.end6
   ]
@@ -7656,16 +7655,17 @@ cond.true4:                                       ; preds = %entry
   br label %cond.end6
 
 cond.end6:                                        ; preds = %entry, %entry, %cond.true4
-  %cond7 = phi i64 [ %1, %cond.true4 ], [ 9223372036854775807, %entry ], [ 9223372036854775807, %entry ]
+  %cond7 = phi i64 [ %2, %cond.true4 ], [ 9223372036854775807, %entry ], [ 9223372036854775807, %entry ]
   %pwrite_zeroes_alignment = getelementptr inbounds i8, ptr %bs, i64 16496
-  %2 = load i32, ptr %pwrite_zeroes_alignment, align 8
-  %3 = load i32, ptr %bl, align 8
-  %cond15 = tail call i32 @llvm.umax.i32(i32 %2, i32 %3)
+  %3 = load i32, ptr %pwrite_zeroes_alignment, align 8
+  %4 = load i32, ptr %bl, align 8
+  %cond15 = tail call i32 @llvm.umax.i32(i32 %3, i32 %4)
   %max_transfer17 = getelementptr inbounds i8, ptr %bs, i64 16504
-  %4 = load i32, ptr %max_transfer17, align 8
-  %cmp19 = icmp eq i32 %4, 0
-  %. = tail call i32 @llvm.umin.i32(i32 %4, i32 16777216)
-  %cond30 = select i1 %cmp19, i32 16777216, i32 %.
+  %5 = load i32, ptr %max_transfer17, align 8
+  %6 = add i32 %5, -1
+  %or.cond97 = icmp ult i32 %6, 16777215
+  %narrow = select i1 %or.cond97, i32 %5, i32 16777216
+  %cond30 = zext i32 %narrow to i64
   tail call void @assert_bdrv_graph_readable() #15
   %call.i = tail call range(i32 -5, 1) i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort)
   %tobool.not = icmp eq ptr %0, null
@@ -7673,8 +7673,8 @@ cond.end6:                                        ; preds = %entry, %entry, %con
 
 if.end:                                           ; preds = %cond.end6
   %supported_zero_flags = getelementptr inbounds i8, ptr %bs, i64 16592
-  %5 = load i32, ptr %supported_zero_flags, align 8
-  %not = xor i32 %5, -1
+  %7 = load i32, ptr %supported_zero_flags, align 8
+  %not = xor i32 %7, -1
   %and = and i32 %flags, 256
   %and31 = and i32 %and, %not
   %tobool32.not = icmp eq i32 %and31, 0
@@ -7687,8 +7687,8 @@ if.end34:                                         ; preds = %if.end
 
 if.end38:                                         ; preds = %if.end34
   tail call void @bdrv_bsc_invalidate_range(ptr noundef nonnull %bs, i64 noundef %offset, i64 noundef %bytes) #15
-  %6 = load i32, ptr %bl, align 8
-  %rem = urem i32 %cond15, %6
+  %8 = load i32, ptr %bl, align 8
+  %rem = urem i32 %cond15, %8
   %cmp41 = icmp eq i32 %rem, 0
   br i1 %cmp41, label %if.end43, label %if.else
 
@@ -7702,18 +7702,17 @@ if.end43:                                         ; preds = %if.end38
   %conv45 = trunc nsw i64 %rem44 to i32
   %add = add i64 %bytes, %offset
   %rem47 = srem i64 %add, %conv
-  %7 = srem i64 %cond7, %conv
-  %mul = sub nsw i64 %cond7, %7
-  %conv53 = zext i32 %6 to i64
+  %9 = srem i64 %cond7, %conv
+  %mul = sub nsw i64 %cond7, %9
+  %conv53 = zext i32 %8 to i64
   %cmp54.not = icmp slt i64 %mul, %conv53
   br i1 %cmp54.not, label %if.else57, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end43
-  %cmp59118 = icmp sgt i64 %bytes, 0
-  br i1 %cmp59118, label %while.body.lr.ph, label %if.end176
+  %cmp59119 = icmp sgt i64 %bytes, 0
+  br i1 %cmp59119, label %while.body.lr.ph, label %if.end176
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %conv64 = zext nneg i32 %cond30 to i64
   %bdrv_co_pwrite_zeroes = getelementptr inbounds i8, ptr %0, i64 560
   %and113 = and i32 %flags, 16
   %tobool114.not = icmp eq i32 %and113, 0
@@ -7721,7 +7720,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %and134 = and i32 %flags, -267
   %supported_write_flags = getelementptr inbounds i8, ptr %bs, i64 16588
   %and141 = and i32 %flags, -283
-  %8 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %10 = getelementptr inbounds i8, ptr %qiov, i64 16
   %local_iov.i = getelementptr inbounds i8, ptr %qiov, i64 24
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %qiov, i64 8
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %qiov, i64 32
@@ -7732,21 +7731,21 @@ if.else57:                                        ; preds = %if.end43
   unreachable
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end166
-  %offset.addr.0123 = phi i64 [ %offset, %while.body.lr.ph ], [ %add167, %if.end166 ]
-  %bytes.addr.0122 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub168, %if.end166 ]
-  %buf.0121 = phi ptr [ null, %while.body.lr.ph ], [ %buf.1, %if.end166 ]
-  %need_flush.0120 = phi i1 [ false, %while.body.lr.ph ], [ %need_flush.2, %if.end166 ]
-  %head.0119 = phi i32 [ %conv45, %while.body.lr.ph ], [ %head.1, %if.end166 ]
-  %tobool62.not = icmp eq i32 %head.0119, 0
+  %offset.addr.0124 = phi i64 [ %offset, %while.body.lr.ph ], [ %add167, %if.end166 ]
+  %bytes.addr.0123 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub168, %if.end166 ]
+  %buf.0122 = phi ptr [ null, %while.body.lr.ph ], [ %buf.1, %if.end166 ]
+  %need_flush.0121 = phi i1 [ false, %while.body.lr.ph ], [ %need_flush.2, %if.end166 ]
+  %head.0120 = phi i32 [ %conv45, %while.body.lr.ph ], [ %head.1, %if.end166 ]
+  %tobool62.not = icmp eq i32 %head.0120, 0
   br i1 %tobool62.not, label %if.else90, label %if.then63
 
 if.then63:                                        ; preds = %while.body
-  %9 = call i64 @llvm.umin.i64(i64 %bytes.addr.0122, i64 %conv64)
-  %sub = sub i32 %cond15, %head.0119
+  %cond71 = call i64 @llvm.smin.i64(i64 %bytes.addr.0123, i64 %cond30)
+  %sub = sub i32 %cond15, %head.0120
   %conv72 = sext i32 %sub to i64
-  %cond79 = call i64 @llvm.smin.i64(i64 %9, i64 %conv72)
-  %conv80 = sext i32 %head.0119 to i64
-  %add81 = add nsw i64 %cond79, %conv80
+  %cond79 = call i64 @llvm.smin.i64(i64 %cond71, i64 %conv72)
+  %conv80 = sext i32 %head.0120 to i64
+  %add81 = add i64 %cond79, %conv80
   %rem83 = srem i64 %add81, %conv
   %conv84 = trunc nsw i64 %rem83 to i32
   %cmp85 = icmp slt i64 %cond79, %mul
@@ -7757,26 +7756,26 @@ if.else88:                                        ; preds = %if.then63
   unreachable
 
 if.else90:                                        ; preds = %while.body
-  %cmp93 = icmp sgt i64 %bytes.addr.0122, %conv
+  %cmp93 = icmp sgt i64 %bytes.addr.0123, %conv
   %sub97 = select i1 %cmp93, i64 %rem47, i64 0
-  %spec.select126 = sub i64 %bytes.addr.0122, %sub97
+  %spec.select127 = sub i64 %bytes.addr.0123, %sub97
   br label %if.end99
 
 if.end99:                                         ; preds = %if.else90, %if.then63
-  %num.0 = phi i64 [ %cond79, %if.then63 ], [ %spec.select126, %if.else90 ]
+  %num.0 = phi i64 [ %cond79, %if.then63 ], [ %spec.select127, %if.else90 ]
   %head.1 = phi i32 [ %conv84, %if.then63 ], [ 0, %if.else90 ]
   %spec.select = call i64 @llvm.smin.i64(i64 %num.0, i64 %mul)
-  %10 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
-  %11 = load ptr, ptr %10, align 8
-  %tobool104.not = icmp eq ptr %11, null
+  %11 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
+  %12 = load ptr, ptr %11, align 8
+  %tobool104.not = icmp eq ptr %12, null
   br i1 %tobool104.not, label %if.else121, label %if.then105
 
 if.then105:                                       ; preds = %if.end99
-  %12 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %supported_zero_flags, align 8
-  %and108 = and i32 %14, %flags
-  %call109 = call i32 %13(ptr noundef %bs, i64 noundef %offset.addr.0123, i64 noundef %spec.select, i32 noundef %and108) #15
+  %13 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr %supported_zero_flags, align 8
+  %and108 = and i32 %15, %flags
+  %call109 = call i32 %14(ptr noundef %bs, i64 noundef %offset.addr.0124, i64 noundef %spec.select, i32 noundef %and108) #15
   %cmp110.not = icmp eq i32 %call109, -95
   br i1 %cmp110.not, label %land.lhs.true130, label %land.lhs.true112
 
@@ -7784,15 +7783,15 @@ land.lhs.true112:                                 ; preds = %if.then105
   br i1 %tobool114.not, label %if.end166, label %land.lhs.true115
 
 land.lhs.true115:                                 ; preds = %land.lhs.true112
-  %15 = load i32, ptr %supported_zero_flags, align 8
-  %and117 = and i32 %15, 16
+  %16 = load i32, ptr %supported_zero_flags, align 8
+  %and117 = and i32 %16, 16
   %tobool118.not = icmp eq i32 %and117, 0
-  %spec.select94 = select i1 %tobool118.not, i1 true, i1 %need_flush.0120
+  %spec.select94 = select i1 %tobool118.not, i1 true, i1 %need_flush.0121
   br label %if.end166
 
 if.else121:                                       ; preds = %if.end99
-  %16 = load i32, ptr %supported_zero_flags, align 8
-  %tobool123.not = icmp eq i32 %16, 0
+  %17 = load i32, ptr %supported_zero_flags, align 8
+  %tobool123.not = icmp eq i32 %17, 0
   br i1 %tobool123.not, label %land.lhs.true130, label %if.else125
 
 if.else125:                                       ; preds = %if.else121
@@ -7806,19 +7805,19 @@ if.then133:                                       ; preds = %land.lhs.true130
   br i1 %tobool114.not, label %if.end142, label %land.lhs.true137
 
 land.lhs.true137:                                 ; preds = %if.then133
-  %17 = load i32, ptr %supported_write_flags, align 4
-  %and138 = and i32 %17, 16
+  %18 = load i32, ptr %supported_write_flags, align 4
+  %and138 = and i32 %18, 16
   %tobool139.not = icmp eq i32 %and138, 0
-  %spec.select95 = select i1 %tobool139.not, i1 true, i1 %need_flush.0120
+  %spec.select95 = select i1 %tobool139.not, i1 true, i1 %need_flush.0121
   %spec.select96 = select i1 %tobool139.not, i32 %and141, i32 %and134
   br label %if.end142
 
 if.end142:                                        ; preds = %land.lhs.true137, %if.then133
-  %need_flush.3 = phi i1 [ %need_flush.0120, %if.then133 ], [ %spec.select95, %land.lhs.true137 ]
+  %need_flush.3 = phi i1 [ %need_flush.0121, %if.then133 ], [ %spec.select95, %land.lhs.true137 ]
   %write_flags.0 = phi i32 [ %and134, %if.then133 ], [ %spec.select96, %land.lhs.true137 ]
-  %cmp145 = icmp slt i64 %spec.select, %conv64
-  %cond150 = call i64 @llvm.smin.i64(i64 %spec.select, i64 %conv64)
-  %cmp151 = icmp eq ptr %buf.0121, null
+  %cmp145 = icmp slt i64 %spec.select, %cond30
+  %cond150 = call i64 @llvm.smin.i64(i64 %spec.select, i64 %cond30)
+  %cmp151 = icmp eq ptr %buf.0122, null
   br i1 %cmp151, label %if.then153, label %if.end159
 
 if.then153:                                       ; preds = %if.end142
@@ -7842,13 +7841,13 @@ qemu_try_blockalign0.exit:                        ; preds = %qemu_try_blockalign
   br label %if.end159
 
 if.end159:                                        ; preds = %qemu_try_blockalign0.exit, %if.end142
-  %buf.2 = phi ptr [ %call4.i.i, %qemu_try_blockalign0.exit ], [ %buf.0121, %if.end142 ]
+  %buf.2 = phi ptr [ %call4.i.i, %qemu_try_blockalign0.exit ], [ %buf.0122, %if.end142 ]
   store ptr %local_iov.i, ptr %qiov, align 8
   store i32 1, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
-  store i32 -1, ptr %8, align 8
+  store i32 -1, ptr %10, align 8
   store ptr %buf.2, ptr %local_iov.i, align 8
   store i64 %cond150, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  %call160 = call i32 @bdrv_driver_pwritev(ptr noundef nonnull %bs, i64 noundef %offset.addr.0123, i64 noundef %cond150, ptr noundef nonnull %qiov, i64 noundef 0, i32 noundef %write_flags.0)
+  %call160 = call i32 @bdrv_driver_pwritev(ptr noundef nonnull %bs, i64 noundef %offset.addr.0124, i64 noundef %cond150, ptr noundef nonnull %qiov, i64 noundef 0, i32 noundef %write_flags.0)
   br i1 %cmp145, label %if.then164, label %if.end166
 
 if.then164:                                       ; preds = %if.end159
@@ -7857,15 +7856,15 @@ if.then164:                                       ; preds = %if.end159
 
 if.end166:                                        ; preds = %land.lhs.true112, %land.lhs.true115, %if.end159, %if.then164
   %num.2 = phi i64 [ %cond150, %if.then164 ], [ %cond150, %if.end159 ], [ %spec.select, %land.lhs.true115 ], [ %spec.select, %land.lhs.true112 ]
-  %need_flush.2 = phi i1 [ %need_flush.3, %if.then164 ], [ %need_flush.3, %if.end159 ], [ %spec.select94, %land.lhs.true115 ], [ %need_flush.0120, %land.lhs.true112 ]
+  %need_flush.2 = phi i1 [ %need_flush.3, %if.then164 ], [ %need_flush.3, %if.end159 ], [ %spec.select94, %land.lhs.true115 ], [ %need_flush.0121, %land.lhs.true112 ]
   %ret.2 = phi i32 [ %call160, %if.then164 ], [ %call160, %if.end159 ], [ %call109, %land.lhs.true115 ], [ %call109, %land.lhs.true112 ]
-  %buf.1 = phi ptr [ null, %if.then164 ], [ %buf.2, %if.end159 ], [ %buf.0121, %land.lhs.true115 ], [ %buf.0121, %land.lhs.true112 ]
-  %add167 = add i64 %num.2, %offset.addr.0123
-  %sub168 = sub i64 %bytes.addr.0122, %num.2
+  %buf.1 = phi ptr [ null, %if.then164 ], [ %buf.2, %if.end159 ], [ %buf.0122, %land.lhs.true115 ], [ %buf.0122, %land.lhs.true112 ]
+  %add167 = add i64 %num.2, %offset.addr.0124
+  %sub168 = sub i64 %bytes.addr.0123, %num.2
   %cmp59 = icmp sgt i64 %sub168, 0
   %tobool61.not = icmp eq i32 %ret.2, 0
-  %18 = select i1 %cmp59, i1 %tobool61.not, i1 false
-  br i1 %18, label %while.body, label %fail, !llvm.loop !36
+  %19 = select i1 %cmp59, i1 %tobool61.not, i1 false
+  br i1 %19, label %while.body, label %fail, !llvm.loop !36
 
 fail:                                             ; preds = %if.end166
   %cmp169 = icmp eq i32 %ret.2, 0
@@ -7877,9 +7876,9 @@ if.then174:                                       ; preds = %fail
   br label %if.end176
 
 if.end176:                                        ; preds = %land.lhs.true130, %qemu_try_blockalign.exit.i, %while.cond.preheader, %fail, %if.then174
-  %buf.3105 = phi ptr [ %buf.1, %if.then174 ], [ %buf.1, %fail ], [ null, %while.cond.preheader ], [ %buf.0121, %land.lhs.true130 ], [ null, %qemu_try_blockalign.exit.i ]
+  %buf.3106 = phi ptr [ %buf.1, %if.then174 ], [ %buf.1, %fail ], [ null, %while.cond.preheader ], [ %buf.0122, %land.lhs.true130 ], [ null, %qemu_try_blockalign.exit.i ]
   %ret.4 = phi i32 [ %call175, %if.then174 ], [ %ret.2, %fail ], [ 0, %while.cond.preheader ], [ -95, %land.lhs.true130 ], [ -12, %qemu_try_blockalign.exit.i ]
-  call void @qemu_vfree(ptr noundef %buf.3105) #15
+  call void @qemu_vfree(ptr noundef %buf.3106) #15
   br label %return
 
 return:                                           ; preds = %if.end34, %if.end, %cond.end6, %if.end176

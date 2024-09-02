@@ -400,7 +400,7 @@ dhm_check_range.exit:                             ; preds = %27, %32, %35
 declare i32 @mbedtls_mpi_write_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147471104) i32 @mbedtls_dhm_set_group(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 -2147483648, 2147469952) i32 @mbedtls_dhm_set_group(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call i32 @mbedtls_mpi_copy(ptr noundef %0, ptr noundef %1) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %8
@@ -422,7 +422,7 @@ define hidden range(i32 -2147483648, 2147471104) i32 @mbedtls_dhm_set_group(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147471104) i32 @mbedtls_dhm_read_public(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 -2147483648, 2147470848) i32 @mbedtls_dhm_read_public(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %12, label %5
 

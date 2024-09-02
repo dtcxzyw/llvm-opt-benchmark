@@ -2737,7 +2737,7 @@ _ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20s
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #1 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s, i64 noundef %pos) local_unnamed_addr #1 {
 entry:
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8
@@ -2896,7 +2896,7 @@ _ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i16 noundef zeroext %c, i64 noundef %pos) local_unnamed_addr #6 {
+define dso_local noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4base8internal4findERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %self, i16 noundef zeroext %c, i64 noundef %pos) local_unnamed_addr #6 {
 entry:
   %length_.i.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %length_.i.i, align 8

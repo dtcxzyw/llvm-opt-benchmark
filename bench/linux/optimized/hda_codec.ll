@@ -2257,7 +2257,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @read_pin_defaults(ptr noun
   %4 = getelementptr inbounds i8, ptr %0, i64 830
   %5 = load i16, ptr %4, align 2
   %6 = icmp ult i16 %3, %5
-  br i1 %6, label %7, label %.loopexit
+  br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 824
@@ -2266,19 +2266,19 @@ define internal fastcc noundef range(i32 -12, 1) i32 @read_pin_defaults(ptr noun
   %11 = zext i16 %3 to i32
   br label %12
 
-12:                                               ; preds = %.thread, %7
-  %13 = phi i16 [ %5, %7 ], [ %40, %.thread ]
-  %14 = phi i32 [ %11, %7 ], [ %41, %.thread ]
+12:                                               ; preds = %40, %7
+  %13 = phi i16 [ %5, %7 ], [ %41, %40 ]
+  %14 = phi i32 [ %11, %7 ], [ %42, %40 ]
   %15 = load i16, ptr %2, align 4
   %16 = zext i16 %15 to i32
   %17 = icmp ult i32 %14, %16
-  br i1 %17, label %.thread, label %18
+  br i1 %17, label %40, label %18
 
 18:                                               ; preds = %12
   %19 = load i32, ptr %8, align 8
   %20 = add i32 %19, %16
   %21 = icmp ugt i32 %20, %14
-  br i1 %21, label %22, label %.thread
+  br i1 %21, label %22, label %40
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %9, align 8
@@ -2288,12 +2288,12 @@ define internal fastcc noundef range(i32 -12, 1) i32 @read_pin_defaults(ptr noun
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 15728640
   %29 = icmp eq i32 %28, 4194304
-  br i1 %29, label %30, label %.thread
+  br i1 %29, label %30, label %40
 
 30:                                               ; preds = %22
   %31 = tail call ptr @snd_array_new(ptr noundef %10) #24
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.loopexit, label %33
+  br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %30
   %34 = trunc nuw i32 %14 to i16
@@ -2306,18 +2306,18 @@ define internal fastcc noundef range(i32 -12, 1) i32 @read_pin_defaults(ptr noun
   %39 = getelementptr inbounds i8, ptr %31, i64 2
   store i8 %38, ptr %39, align 2
   %.pre = load i16, ptr %4, align 2
-  br label %.thread
+  br label %40
 
-.thread:                                          ; preds = %12, %18, %33, %22
-  %40 = phi i16 [ %13, %12 ], [ %13, %18 ], [ %.pre, %33 ], [ %13, %22 ]
-  %41 = add nuw nsw i32 %14, 1
-  %42 = zext i16 %40 to i32
-  %43 = icmp ult i32 %41, %42
-  br i1 %43, label %12, label %.loopexit, !llvm.loop !30
+40:                                               ; preds = %33, %22, %12, %18
+  %41 = phi i16 [ %.pre, %33 ], [ %13, %22 ], [ %13, %12 ], [ %13, %18 ]
+  %42 = add nuw nsw i32 %14, 1
+  %43 = zext i16 %41 to i32
+  %44 = icmp ult i32 %42, %43
+  br i1 %44, label %12, label %.critedge, !llvm.loop !30
 
-.loopexit:                                        ; preds = %30, %.thread, %1
-  %44 = phi i32 [ 0, %1 ], [ -12, %30 ], [ 0, %.thread ]
-  ret i32 %44
+.critedge:                                        ; preds = %30, %40, %1
+  %45 = phi i32 [ 0, %1 ], [ -12, %30 ], [ 0, %40 ]
+  ret i32 %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2411,18 +2411,18 @@ define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef %1) 
   %52 = zext i16 %49 to i32
   br label %53
 
-53:                                               ; preds = %.split.us13, %.thread.us11
-  %54 = phi i32 [ %52, %.split.us13 ], [ %76, %.thread.us11 ]
+53:                                               ; preds = %.split.us13, %.critedge.us11
+  %54 = phi i32 [ %52, %.split.us13 ], [ %76, %.critedge.us11 ]
   %55 = load i16, ptr %33, align 4
   %56 = zext i16 %55 to i32
   %57 = icmp ult i32 %54, %56
-  br i1 %57, label %.thread.us11, label %58
+  br i1 %57, label %.critedge.us11, label %58
 
 58:                                               ; preds = %53
   %59 = load i32, ptr %35, align 8
   %60 = add i32 %59, %56
   %61 = icmp ugt i32 %60, %54
-  br i1 %61, label %62, label %.thread.us11
+  br i1 %61, label %62, label %.critedge.us11
 
 62:                                               ; preds = %58
   %63 = load ptr, ptr %36, align 8
@@ -2432,7 +2432,7 @@ define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef %1) 
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 1024
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %.thread.us11, label %70
+  br i1 %69, label %.critedge.us11, label %70
 
 70:                                               ; preds = %62
   %71 = load ptr, ptr %32, align 8
@@ -2443,20 +2443,20 @@ define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef %1) 
 73:                                               ; preds = %70
   %74 = tail call i32 %71(ptr noundef %0, i16 noundef zeroext %.pre20, i32 noundef 3) #24
   %.not = icmp eq i32 %74, 3
-  br i1 %.not, label %._crit_edge19, label %.thread.us11
+  br i1 %.not, label %._crit_edge19, label %.critedge.us11
 
 ._crit_edge19:                                    ; preds = %70, %73
   %75 = tail call i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %.pre20, i32 noundef 0, i32 noundef 1797, i32 noundef 3) #24
-  br label %.thread.us11
+  br label %.critedge.us11
 
-.thread.us11:                                     ; preds = %._crit_edge19, %73, %62, %58, %53
+.critedge.us11:                                   ; preds = %._crit_edge19, %73, %62, %58, %53
   %76 = add nuw nsw i32 %54, 1
   %77 = load i16, ptr %34, align 2
   %78 = zext i16 %77 to i32
   %79 = icmp ult i32 %76, %78
   br i1 %79, label %53, label %.loopexit.split.us12, !llvm.loop !31
 
-.loopexit.split.us12:                             ; preds = %.thread.us11, %48, %40
+.loopexit.split.us12:                             ; preds = %.critedge.us11, %48, %40
   %80 = tail call i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zeroext %10, i32 noundef 3) #24
   %81 = and i32 %80, 256
   %82 = icmp eq i32 %81, 0
@@ -2496,19 +2496,19 @@ define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef %1) 
   %101 = zext i16 %98 to i32
   br label %102
 
-102:                                              ; preds = %.thread.us, %.split.us
-  %103 = phi i16 [ %99, %.split.us ], [ %127, %.thread.us ]
-  %104 = phi i32 [ %101, %.split.us ], [ %128, %.thread.us ]
+102:                                              ; preds = %.critedge.us, %.split.us
+  %103 = phi i16 [ %99, %.split.us ], [ %127, %.critedge.us ]
+  %104 = phi i32 [ %101, %.split.us ], [ %128, %.critedge.us ]
   %105 = load i16, ptr %27, align 4
   %106 = zext i16 %105 to i32
   %107 = icmp ult i32 %104, %106
-  br i1 %107, label %.thread.us, label %108
+  br i1 %107, label %.critedge.us, label %108
 
 108:                                              ; preds = %102
   %109 = load i32, ptr %29, align 8
   %110 = add i32 %109, %106
   %111 = icmp ugt i32 %110, %104
-  br i1 %111, label %112, label %.thread.us
+  br i1 %111, label %112, label %.critedge.us
 
 112:                                              ; preds = %108
   %113 = load ptr, ptr %30, align 8
@@ -2518,7 +2518,7 @@ define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef %1) 
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, 1024
   %119 = icmp eq i32 %118, 0
-  br i1 %119, label %.thread.us, label %120
+  br i1 %119, label %.critedge.us, label %120
 
 120:                                              ; preds = %112
   %121 = load ptr, ptr %26, align 8
@@ -2534,16 +2534,16 @@ define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef %1) 
   %125 = phi i32 [ %124, %123 ], [ %1, %120 ]
   %126 = tail call i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %.pre21, i32 noundef 0, i32 noundef 1797, i32 noundef %125) #24
   %.pre = load i16, ptr %28, align 2
-  br label %.thread.us
+  br label %.critedge.us
 
-.thread.us:                                       ; preds = %._crit_edge18, %112, %108, %102
+.critedge.us:                                     ; preds = %._crit_edge18, %112, %108, %102
   %127 = phi i16 [ %.pre, %._crit_edge18 ], [ %103, %112 ], [ %103, %108 ], [ %103, %102 ]
   %128 = add nuw nsw i32 %104, 1
   %129 = zext i16 %127 to i32
   %130 = icmp ult i32 %128, %129
   br i1 %130, label %102, label %.loopexit.split.us, !llvm.loop !31
 
-.loopexit.split.us:                               ; preds = %.thread.us, %95, %89
+.loopexit.split.us:                               ; preds = %.critedge.us, %95, %89
   %131 = tail call i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zeroext %10, i32 noundef %1) #24
   %132 = and i32 %131, 256
   %133 = icmp eq i32 %132, 0
@@ -4140,7 +4140,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_add_nid(ptr noundef %0, 
 declare dso_local i32 @snd_ctl_remove(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_hda_lock_devices(ptr noundef readonly %0) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @snd_hda_lock_devices(ptr noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1320
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 624
@@ -5917,19 +5917,19 @@ define dso_local void @snd_hda_codec_set_power_to_all(ptr noundef %0, i16 zeroex
   %14 = zext i16 %5 to i32
   br i1 %13, label %.split, label %.split.us
 
-.split.us:                                        ; preds = %9, %.thread.us
-  %15 = phi i16 [ %39, %.thread.us ], [ %7, %9 ]
-  %16 = phi i32 [ %40, %.thread.us ], [ %14, %9 ]
+.split.us:                                        ; preds = %9, %.critedge.us
+  %15 = phi i16 [ %39, %.critedge.us ], [ %7, %9 ]
+  %16 = phi i32 [ %40, %.critedge.us ], [ %14, %9 ]
   %17 = load i16, ptr %4, align 4
   %18 = zext i16 %17 to i32
   %19 = icmp ult i32 %16, %18
-  br i1 %19, label %.thread.us, label %20
+  br i1 %19, label %.critedge.us, label %20
 
 20:                                               ; preds = %.split.us
   %21 = load i32, ptr %10, align 8
   %22 = add i32 %21, %18
   %23 = icmp ugt i32 %22, %16
-  br i1 %23, label %24, label %.thread.us
+  br i1 %23, label %24, label %.critedge.us
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %11, align 8
@@ -5939,7 +5939,7 @@ define dso_local void @snd_hda_codec_set_power_to_all(ptr noundef %0, i16 zeroex
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 1024
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.thread.us, label %32
+  br i1 %31, label %.critedge.us, label %32
 
 32:                                               ; preds = %24
   %33 = load ptr, ptr %12, align 8
@@ -5955,27 +5955,27 @@ define dso_local void @snd_hda_codec_set_power_to_all(ptr noundef %0, i16 zeroex
   %37 = phi i32 [ %36, %35 ], [ %2, %32 ]
   %38 = tail call i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %.pre8, i32 noundef 0, i32 noundef 1797, i32 noundef %37) #24
   %.pre = load i16, ptr %6, align 2
-  br label %.thread.us
+  br label %.critedge.us
 
-.thread.us:                                       ; preds = %._crit_edge, %24, %20, %.split.us
+.critedge.us:                                     ; preds = %._crit_edge, %24, %20, %.split.us
   %39 = phi i16 [ %.pre, %._crit_edge ], [ %15, %24 ], [ %15, %20 ], [ %15, %.split.us ]
   %40 = add nuw nsw i32 %16, 1
   %41 = zext i16 %39 to i32
   %42 = icmp ult i32 %40, %41
   br i1 %42, label %.split.us, label %.loopexit, !llvm.loop !31
 
-.split:                                           ; preds = %9, %.thread
-  %43 = phi i32 [ %65, %.thread ], [ %14, %9 ]
+.split:                                           ; preds = %9, %.critedge
+  %43 = phi i32 [ %65, %.critedge ], [ %14, %9 ]
   %44 = load i16, ptr %4, align 4
   %45 = zext i16 %44 to i32
   %46 = icmp ult i32 %43, %45
-  br i1 %46, label %.thread, label %47
+  br i1 %46, label %.critedge, label %47
 
 47:                                               ; preds = %.split
   %48 = load i32, ptr %10, align 8
   %49 = add i32 %48, %45
   %50 = icmp ugt i32 %49, %43
-  br i1 %50, label %51, label %.thread
+  br i1 %50, label %51, label %.critedge
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %11, align 8
@@ -5985,7 +5985,7 @@ define dso_local void @snd_hda_codec_set_power_to_all(ptr noundef %0, i16 zeroex
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 1024
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.thread, label %59
+  br i1 %58, label %.critedge, label %59
 
 59:                                               ; preds = %51
   %60 = load ptr, ptr %12, align 8
@@ -5996,20 +5996,20 @@ define dso_local void @snd_hda_codec_set_power_to_all(ptr noundef %0, i16 zeroex
 62:                                               ; preds = %59
   %63 = tail call i32 %60(ptr noundef %0, i16 noundef zeroext %.pre7, i32 noundef 3) #24
   %.not = icmp eq i32 %63, 3
-  br i1 %.not, label %._crit_edge6, label %.thread
+  br i1 %.not, label %._crit_edge6, label %.critedge
 
 ._crit_edge6:                                     ; preds = %59, %62
   %64 = tail call i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %.pre7, i32 noundef 0, i32 noundef 1797, i32 noundef 3) #24
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.split, %47, %._crit_edge6, %62, %51
+.critedge:                                        ; preds = %47, %.split, %._crit_edge6, %62, %51
   %65 = add nuw nsw i32 %43, 1
   %66 = load i16, ptr %6, align 2
   %67 = zext i16 %66 to i32
   %68 = icmp ult i32 %65, %67
   br i1 %68, label %.split, label %.loopexit, !llvm.loop !31
 
-.loopexit:                                        ; preds = %.thread.us, %.thread, %3
+.loopexit:                                        ; preds = %.critedge.us, %.critedge, %3
   ret void
 }
 
@@ -6412,12 +6412,12 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_build_controls(ptr
   %17 = getelementptr inbounds i8, ptr %0, i64 1072
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %17
-  br i1 %19, label %.loopexit20, label %.preheader
+  br i1 %19, label %.loopexit18, label %.preheader
 
 20:                                               ; preds = %52
   %21 = load ptr, ptr %23, align 8
   %22 = icmp eq ptr %21, %17
-  br i1 %22, label %.loopexit20, label %.preheader, !llvm.loop !54
+  br i1 %22, label %.loopexit18, label %.preheader, !llvm.loop !54
 
 .preheader:                                       ; preds = %.thread14, %20
   %23 = phi ptr [ %21, %20 ], [ %18, %.thread14 ]
@@ -6472,13 +6472,13 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_build_controls(ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
   br label %.loopexit
 
-.loopexit20:                                      ; preds = %20, %.thread14
+.loopexit18:                                      ; preds = %20, %.thread14
   %54 = getelementptr i8, ptr %0, i64 1504
   %55 = load i64, ptr %54, align 8
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %70, label %57
 
-57:                                               ; preds = %.loopexit20
+57:                                               ; preds = %.loopexit18
   %58 = getelementptr inbounds i8, ptr %0, i64 1512
   %59 = call i32 @snd_hdac_power_up_pm(ptr noundef %0) #24
   %60 = load i64, ptr %54, align 8
@@ -6501,7 +6501,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_build_controls(ptr
   %69 = call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %68, ptr noundef %58, i64 noundef %65) #24
   br label %hda_jackpoll_work.exit
 
-70:                                               ; preds = %.loopexit20
+70:                                               ; preds = %.loopexit18
   call void @snd_hda_jack_report_sync(ptr noundef %0) #24
   br label %hda_jackpoll_work.exit
 
@@ -6525,18 +6525,18 @@ hda_jackpoll_work.exit:                           ; preds = %67, %63, %70
   %83 = zext i16 %76 to i32
   br label %84
 
-84:                                               ; preds = %.thread19, %80
-  %85 = phi i32 [ %83, %80 ], [ %110, %.thread19 ]
+84:                                               ; preds = %.critedge, %80
+  %85 = phi i32 [ %83, %80 ], [ %110, %.critedge ]
   %86 = load i16, ptr %75, align 4
   %87 = zext i16 %86 to i32
   %88 = icmp ult i32 %85, %87
-  br i1 %88, label %.thread19, label %89
+  br i1 %88, label %.critedge, label %89
 
 89:                                               ; preds = %84
   %90 = load i32, ptr %81, align 8
   %91 = add i32 %90, %87
   %92 = icmp ugt i32 %91, %85
-  br i1 %92, label %93, label %.thread19
+  br i1 %92, label %93, label %.critedge
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr %82, align 8
@@ -6546,32 +6546,32 @@ hda_jackpoll_work.exit:                           ; preds = %67, %63, %70
   %98 = load i32, ptr %97, align 4
   %99 = and i32 %98, 1024
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %.thread19, label %101
+  br i1 %100, label %.critedge, label %101
 
 101:                                              ; preds = %93
   %102 = load ptr, ptr %71, align 8
   %103 = trunc nuw i32 %85 to i16
   %104 = call i32 %102(ptr noundef %0, i16 noundef zeroext %103, i32 noundef 0) #24
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %.thread19, label %106
+  br i1 %105, label %.critedge, label %106
 
 106:                                              ; preds = %101
   %107 = call zeroext i1 @snd_hdac_check_power_state(ptr noundef %0, i16 noundef zeroext %103, i32 noundef %104) #24
-  br i1 %107, label %.thread19, label %108
+  br i1 %107, label %.critedge, label %108
 
 108:                                              ; preds = %106
   %109 = call i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %103, i32 noundef 0, i32 noundef 1797, i32 noundef %104) #24
-  br label %.thread19
+  br label %.critedge
 
-.thread19:                                        ; preds = %84, %89, %108, %106, %101, %93
+.critedge:                                        ; preds = %89, %84, %108, %106, %101, %93
   %110 = add nuw nsw i32 %85, 1
   %111 = load i16, ptr %77, align 2
   %112 = zext i16 %111 to i32
   %113 = icmp ult i32 %110, %112
   br i1 %113, label %84, label %.loopexit, !llvm.loop !58
 
-.loopexit:                                        ; preds = %.thread19, %53, %74, %hda_jackpoll_work.exit, %14
-  %114 = phi i32 [ %15, %14 ], [ %47, %53 ], [ 0, %hda_jackpoll_work.exit ], [ 0, %74 ], [ 0, %.thread19 ]
+.loopexit:                                        ; preds = %.critedge, %53, %74, %hda_jackpoll_work.exit, %14
+  %114 = phi i32 [ %15, %14 ], [ %47, %53 ], [ 0, %hda_jackpoll_work.exit ], [ 0, %74 ], [ 0, %.critedge ]
   ret i32 %114
 }
 
@@ -6748,24 +6748,24 @@ define dso_local i32 @snd_hda_codec_parse_pcms(ptr noundef %0) #0 align 16 {
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %16, i32 noundef %10) #26
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %81
-  %17 = phi ptr [ %82, %81 ], [ %12, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %80
+  %17 = phi ptr [ %81, %80 ], [ %12, %.preheader ]
   %18 = getelementptr i8, ptr %17, i64 -208
   br label %19
 
-19:                                               ; preds = %80, %.lr.ph
-  %20 = phi i1 [ true, %.lr.ph ], [ false, %80 ]
-  %21 = phi i64 [ 0, %.lr.ph ], [ 1, %80 ]
+19:                                               ; preds = %79, %.lr.ph
+  %20 = phi i1 [ true, %.lr.ph ], [ false, %79 ]
+  %21 = phi i64 [ 0, %.lr.ph ], [ 1, %79 ]
   %22 = getelementptr [2 x %struct.hda_pcm_stream], ptr %18, i64 0, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %80, label %25
+  br i1 %24, label %79, label %25
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %22, i64 12
   %27 = load i16, ptr %26, align 4
   %28 = icmp eq i16 %27, 0
-  br i1 %28, label %52, label %29
+  br i1 %28, label %51, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %22, i64 16
@@ -6774,105 +6774,104 @@ define dso_local i32 @snd_hda_codec_parse_pcms(ptr noundef %0) #0 align 16 {
   %.phi.trans.insert = getelementptr inbounds i8, ptr %22, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %.pre.fr = freeze i64 %.pre
-  br i1 %32, label %36, label %33
+  %33 = icmp eq i64 %.pre.fr, 0
+  br i1 %32, label %36, label %34
 
-33:                                               ; preds = %29
-  %34 = icmp eq i64 %.pre.fr, 0
-  br i1 %34, label %.thread, label %52
+34:                                               ; preds = %29
+  br i1 %33, label %.thread, label %51
 
-.thread:                                          ; preds = %33
+.thread:                                          ; preds = %34
   %35 = getelementptr inbounds i8, ptr %22, i64 24
-  br label %39
+  br label %38
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds i8, ptr %22, i64 24
-  %38 = icmp eq i64 %.pre.fr, 0
-  %spec.select = select i1 %38, ptr %37, ptr null
-  br label %39
+  %spec.select = select i1 %33, ptr %37, ptr null
+  br label %38
 
-39:                                               ; preds = %36, %.thread
-  %40 = phi ptr [ null, %.thread ], [ %30, %36 ]
-  %41 = phi ptr [ %35, %.thread ], [ %spec.select, %36 ]
-  %42 = getelementptr inbounds i8, ptr %22, i64 32
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp eq i32 %43, 0
-  %45 = select i1 %44, ptr %42, ptr null
-  %46 = getelementptr inbounds i8, ptr %22, i64 36
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp eq i32 %47, 0
-  %49 = select i1 %48, ptr %46, ptr null
-  %50 = tail call i32 @snd_hdac_query_supported_pcm(ptr noundef %0, i16 noundef zeroext %27, ptr noundef %40, ptr noundef %41, ptr noundef %45, ptr noundef %49) #24
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %.thread10, label %52
+38:                                               ; preds = %36, %.thread
+  %39 = phi ptr [ null, %.thread ], [ %30, %36 ]
+  %40 = phi ptr [ %35, %.thread ], [ %spec.select, %36 ]
+  %41 = getelementptr inbounds i8, ptr %22, i64 32
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp eq i32 %42, 0
+  %44 = select i1 %43, ptr %41, ptr null
+  %45 = getelementptr inbounds i8, ptr %22, i64 36
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp eq i32 %46, 0
+  %48 = select i1 %47, ptr %45, ptr null
+  %49 = tail call i32 @snd_hdac_query_supported_pcm(ptr noundef %0, i16 noundef zeroext %27, ptr noundef %39, ptr noundef %40, ptr noundef %44, ptr noundef %48) #24
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %.thread10, label %51
 
-52:                                               ; preds = %39, %33, %25
-  %53 = getelementptr inbounds i8, ptr %22, i64 48
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %57
+51:                                               ; preds = %38, %34, %25
+  %52 = getelementptr inbounds i8, ptr %22, i64 48
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %56
 
-56:                                               ; preds = %52
-  store ptr @hda_pcm_default_open_close, ptr %53, align 8
-  br label %57
+55:                                               ; preds = %51
+  store ptr @hda_pcm_default_open_close, ptr %52, align 8
+  br label %56
 
-57:                                               ; preds = %56, %52
-  %58 = getelementptr inbounds i8, ptr %22, i64 56
-  %59 = load ptr, ptr %58, align 8
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %62
+56:                                               ; preds = %55, %51
+  %57 = getelementptr inbounds i8, ptr %22, i64 56
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %61
 
-61:                                               ; preds = %57
-  store ptr @hda_pcm_default_open_close, ptr %58, align 8
-  br label %62
+60:                                               ; preds = %56
+  store ptr @hda_pcm_default_open_close, ptr %57, align 8
+  br label %61
 
-62:                                               ; preds = %61, %57
-  %63 = getelementptr inbounds i8, ptr %22, i64 64
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %70
+61:                                               ; preds = %60, %56
+  %62 = getelementptr inbounds i8, ptr %22, i64 64
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %69
 
-66:                                               ; preds = %62
-  %67 = load i16, ptr %26, align 4
-  %68 = icmp eq i16 %67, 0
-  br i1 %68, label %.thread10, label %69
+65:                                               ; preds = %61
+  %66 = load i16, ptr %26, align 4
+  %67 = icmp eq i16 %66, 0
+  br i1 %67, label %.thread10, label %68
 
-69:                                               ; preds = %66
-  store ptr @hda_pcm_default_prepare, ptr %63, align 8
-  br label %70
+68:                                               ; preds = %65
+  store ptr @hda_pcm_default_prepare, ptr %62, align 8
+  br label %69
 
-70:                                               ; preds = %69, %62
-  %71 = getelementptr inbounds i8, ptr %22, i64 72
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %80
+69:                                               ; preds = %68, %61
+  %70 = getelementptr inbounds i8, ptr %22, i64 72
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %79
 
-74:                                               ; preds = %70
-  %75 = load i16, ptr %26, align 4
-  %76 = icmp eq i16 %75, 0
-  br i1 %76, label %.thread10, label %77
+73:                                               ; preds = %69
+  %74 = load i16, ptr %26, align 4
+  %75 = icmp eq i16 %74, 0
+  br i1 %75, label %.thread10, label %76
 
-77:                                               ; preds = %74
-  store ptr @hda_pcm_default_cleanup, ptr %71, align 8
-  br label %80
+76:                                               ; preds = %73
+  store ptr @hda_pcm_default_cleanup, ptr %70, align 8
+  br label %79
 
-.thread10:                                        ; preds = %39, %66, %74
-  %.ph = phi i32 [ -22, %74 ], [ -22, %66 ], [ %50, %39 ]
-  %78 = getelementptr i8, ptr %17, i64 -216
-  %79 = load ptr, ptr %78, align 8
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %79) #26
+.thread10:                                        ; preds = %38, %65, %73
+  %.ph = phi i32 [ -22, %73 ], [ -22, %65 ], [ %49, %38 ]
+  %77 = getelementptr i8, ptr %17, i64 -216
+  %78 = load ptr, ptr %77, align 8
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef %78) #26
   br label %.loopexit
 
-80:                                               ; preds = %19, %77, %70
-  br i1 %20, label %19, label %81, !llvm.loop !61
+79:                                               ; preds = %19, %76, %69
+  br i1 %20, label %19, label %80, !llvm.loop !61
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr %17, align 8
-  %83 = icmp eq ptr %82, %2
-  br i1 %83, label %.loopexit, label %.lr.ph, !llvm.loop !62
+80:                                               ; preds = %79
+  %81 = load ptr, ptr %17, align 8
+  %82 = icmp eq ptr %81, %2
+  br i1 %82, label %.loopexit, label %.lr.ph, !llvm.loop !62
 
-.loopexit:                                        ; preds = %81, %.preheader, %.thread10, %14, %5, %1
-  %84 = phi i32 [ %10, %14 ], [ 0, %1 ], [ 0, %5 ], [ %.ph, %.thread10 ], [ 0, %.preheader ], [ 0, %81 ]
-  ret i32 %84
+.loopexit:                                        ; preds = %80, %.preheader, %.thread10, %14, %5, %1
+  %83 = phi i32 [ %10, %14 ], [ 0, %1 ], [ 0, %5 ], [ %.ph, %.thread10 ], [ 0, %.preheader ], [ 0, %80 ]
+  ret i32 %83
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -7009,7 +7008,7 @@ define dso_local i32 @snd_hda_add_new_ctls(ptr noundef %0, ptr noundef %1) #0 al
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %.thread15, label %7
+  br i1 %6, label %.thread14, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 1432
@@ -7032,7 +7031,7 @@ define dso_local i32 @snd_hda_add_new_ctls(ptr noundef %0, ptr noundef %1) #0 al
   %21 = getelementptr inbounds i8, ptr %17, i64 24
   %22 = call ptr @snd_ctl_new1(ptr noundef %17, ptr noundef %0) #24
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread15, label %.preheader
+  br i1 %23, label %.thread14, label %.preheader
 
 .preheader:                                       ; preds = %20, %102
   %24 = phi ptr [ %105, %102 ], [ %22, %20 ]
@@ -7135,12 +7134,12 @@ define dso_local i32 @snd_hda_add_new_ctls(ptr noundef %0, ptr noundef %1) #0 al
 
 82:                                               ; preds = %72, %70
   %83 = icmp eq i32 %25, 0
-  br i1 %83, label %84, label %.thread15
+  br i1 %83, label %84, label %.thread14
 
 84:                                               ; preds = %82
   %85 = load i32, ptr %21, align 8
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %.thread15
+  br i1 %86, label %87, label %.thread14
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %16, align 8
@@ -7154,44 +7153,44 @@ define dso_local i32 @snd_hda_add_new_ctls(ptr noundef %0, ptr noundef %1) #0 al
   store i32 %90, ptr %13, align 4
   %91 = call i64 @strlen(ptr noundef %88) #24
   %92 = icmp ugt i64 %91, 43
-  br i1 %92, label %.thread11, label %93
-
-.thread11:                                        ; preds = %89
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #24
-  br label %.loopexit
+  br i1 %92, label %.critedge, label %93
 
 93:                                               ; preds = %89
   %94 = call ptr @strcpy(ptr noundef %14, ptr noundef %88) #24
   %95 = load ptr, ptr %9, align 8
   %96 = call ptr @snd_ctl_find_id(ptr noundef %95, ptr noundef nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #24
   %97 = icmp eq ptr %96, null
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #24
   br i1 %97, label %.loopexit, label %98
 
 98:                                               ; preds = %93
   %99 = add nuw nsw i32 %90, 1
   %100 = icmp eq i32 %99, 16
-  br i1 %100, label %.thread15, label %89, !llvm.loop !42
+  br i1 %100, label %.thread14, label %89, !llvm.loop !42
 
-.loopexit:                                        ; preds = %93, %.thread11
+.critedge:                                        ; preds = %89
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #24
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %93, %.critedge
   %101 = icmp eq i32 %90, 0
-  br i1 %101, label %.thread15, label %102
+  br i1 %101, label %.thread14, label %102
 
 102:                                              ; preds = %.loopexit, %79, %75
   %103 = phi i32 [ %26, %.loopexit ], [ %73, %75 ], [ %73, %79 ]
   %104 = phi i32 [ %90, %.loopexit ], [ %25, %75 ], [ %81, %79 ]
   %105 = call ptr @snd_ctl_new1(ptr noundef %17, ptr noundef %0) #24
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %.thread15, label %.preheader, !llvm.loop !66
+  br i1 %106, label %.thread14, label %.preheader, !llvm.loop !66
 
 107:                                              ; preds = %15, %67
   %108 = getelementptr i8, ptr %17, i64 80
   %109 = getelementptr i8, ptr %17, i64 96
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
-  br i1 %111, label %.thread15, label %15, !llvm.loop !67
+  br i1 %111, label %.thread14, label %15, !llvm.loop !67
 
-.thread15:                                        ; preds = %20, %107, %102, %.loopexit, %84, %82, %98, %2
+.thread14:                                        ; preds = %20, %107, %102, %.loopexit, %84, %82, %98, %2
   %112 = phi i32 [ 0, %2 ], [ %.ph, %98 ], [ %.ph, %82 ], [ %.ph, %84 ], [ %.ph, %.loopexit ], [ -12, %102 ], [ -12, %20 ], [ 0, %107 ]
   ret i32 %112
 }

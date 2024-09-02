@@ -244,23 +244,24 @@ if.then128:                                       ; preds = %if.end124
 if.end136:                                        ; preds = %if.then128, %sw.epilog
   %j.1 = phi i32 [ %call125, %if.then128 ], [ %j.2.lcssa, %sw.epilog ]
   %count.1 = phi i32 [ %call129, %if.then128 ], [ %count.099, %sw.epilog ]
-  %ii.1 = phi i32 [ 0, %if.then128 ], [ %inc, %sw.epilog ]
+  %ii.1 = phi i32 [ 0, %if.then128 ], [ %ii.0101, %sw.epilog ]
   %call134 = call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %call113, i32 noundef %ii.1) #3
   %1 = load i32, ptr %call134, align 8
   %value = getelementptr inbounds i8, ptr %call134, i64 8
   %2 = load ptr, ptr %value, align 8
+  %3 = add nsw i32 %ii.1, 1
   %sub = sub i32 25, %j.1
   %cmp13878 = icmp slt i32 %j.1, 25
   br i1 %cmp13878, label %for.body140.preheader, label %for.end
 
 for.body140.preheader:                            ; preds = %if.end136.thread, %if.end136
   %sub103 = phi i32 [ %sub93, %if.end136.thread ], [ %sub, %if.end136 ]
-  %ii.0102 = phi i32 [ 0, %if.end136.thread ], [ %ii.1, %if.end136 ]
+  %ii.0102 = phi i32 [ 1, %if.end136.thread ], [ %3, %if.end136 ]
   %count.0100 = phi i32 [ 1, %if.end136.thread ], [ %count.1, %if.end136 ]
   %type.098 = phi i32 [ 0, %if.end136.thread ], [ %1, %if.end136 ]
   %bs.096 = phi ptr [ null, %if.end136.thread ], [ %2, %if.end136 ]
   %smin = call i32 @llvm.smin.i32(i32 %sub103, i32 1)
-  %3 = add i32 %smin, -1
+  %4 = add i32 %smin, -1
   br label %for.body140
 
 for.body140:                                      ; preds = %for.body140.preheader, %for.inc
@@ -275,11 +276,11 @@ for.inc:                                          ; preds = %for.body140
   br i1 %cmp138, label %for.body140, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.end136
-  %ii.0101 = phi i32 [ %ii.1, %if.end136 ], [ %ii.0102, %for.inc ]
+  %ii.0101 = phi i32 [ %3, %if.end136 ], [ %ii.0102, %for.inc ]
   %count.099 = phi i32 [ %count.1, %if.end136 ], [ %count.0100, %for.inc ]
   %type.097 = phi i32 [ %1, %if.end136 ], [ %type.098, %for.inc ]
   %bs.095 = phi ptr [ %2, %if.end136 ], [ %bs.096, %for.inc ]
-  %j.2.lcssa = phi i32 [ %sub, %if.end136 ], [ %3, %for.inc ]
+  %j.2.lcssa = phi i32 [ %sub, %if.end136 ], [ %4, %for.inc ]
   %call146 = call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.15) #3
   %cmp147 = icmp slt i32 %call146, 1
   br i1 %cmp147, label %return.sink.split, label %if.end150
@@ -295,11 +296,11 @@ if.end150:                                        ; preds = %for.end
 
 sw.bb:                                            ; preds = %if.end150, %if.end150, %if.end150, %if.end150, %if.end150
   %data = getelementptr inbounds i8, ptr %bs.095, i64 8
-  %4 = load ptr, ptr %data, align 8
-  %5 = load i32, ptr %bs.095, align 8
-  %call151 = call i32 @BIO_write(ptr noundef %bp, ptr noundef %4, i32 noundef %5) #3
+  %5 = load ptr, ptr %data, align 8
   %6 = load i32, ptr %bs.095, align 8
-  %cmp153.not = icmp eq i32 %call151, %6
+  %call151 = call i32 @BIO_write(ptr noundef %bp, ptr noundef %5, i32 noundef %6) #3
+  %7 = load i32, ptr %bs.095, align 8
+  %cmp153.not = icmp eq i32 %call151, %7
   br i1 %cmp153.not, label %if.end156, label %return.sink.split
 
 if.end156:                                        ; preds = %sw.bb
@@ -313,8 +314,7 @@ sw.default:                                       ; preds = %if.end150
   br i1 %cmp163, label %return.sink.split, label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %if.end156
-  %inc = add nsw i32 %ii.0101, 1
-  %cmp167 = icmp slt i32 %inc, %count.099
+  %cmp167 = icmp slt i32 %ii.0101, %count.099
   br i1 %cmp167, label %if.end136, label %for.inc171
 
 for.inc171:                                       ; preds = %sw.epilog, %for.body
@@ -402,9 +402,9 @@ if.end237:                                        ; preds = %if.then178, %for.en
 
 if.then240:                                       ; preds = %if.end237
   call void @X509_REQ_get0_signature(ptr noundef %x, ptr noundef nonnull %sig, ptr noundef nonnull %sig_alg) #3
-  %7 = load ptr, ptr %sig_alg, align 8
-  %8 = load ptr, ptr %sig, align 8
-  %call241 = call i32 @X509_signature_print(ptr noundef %bp, ptr noundef %7, ptr noundef %8) #3
+  %8 = load ptr, ptr %sig_alg, align 8
+  %9 = load ptr, ptr %sig, align 8
+  %call241 = call i32 @X509_signature_print(ptr noundef %bp, ptr noundef %8, ptr noundef %9) #3
   %tobool242.not = icmp eq i32 %call241, 0
   br i1 %tobool242.not, label %return.sink.split, label %return
 

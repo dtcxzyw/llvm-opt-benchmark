@@ -2020,7 +2020,7 @@ define dso_local noundef zeroext i1 @pg_strxfrm_enabled(ptr noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_strxfrm(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strxfrm(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.split, label %5
 
@@ -2140,7 +2140,7 @@ uchar_convert.exit:                               ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_strnxfrm(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.split, label %6
 

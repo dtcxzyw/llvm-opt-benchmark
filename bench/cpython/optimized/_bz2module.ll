@@ -1604,10 +1604,10 @@ OutputBuffer_InitAndGrow.exit.i.i.i:              ; preds = %if.end4.i.i.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.backedge, %OutputBuffer_InitAndGrow.exit.i.i.i
   %26 = load i64, ptr %bzs_avail_in_real.i.i.i, align 8
-  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %26, i64 4294967295)
-  %conv.i.i.i = trunc nuw i64 %spec.select.i.i.i to i32
-  store i32 %conv.i.i.i, ptr %avail_in.i.i.i, align 8
-  %sub.i.i.i = sub i64 %26, %spec.select.i.i.i
+  %spec.select28.i.i.i = call i64 @llvm.umin.i64(i64 %26, i64 4294967295)
+  %spec.select.i.i.i = trunc nuw i64 %spec.select28.i.i.i to i32
+  store i32 %spec.select.i.i.i, ptr %avail_in.i.i.i, align 8
+  %sub.i.i.i = sub i64 %26, %spec.select28.i.i.i
   store i64 %sub.i.i.i, ptr %bzs_avail_in_real.i.i.i, align 8
   %call7.i.i.i = call ptr @PyEval_SaveThread() #6
   %call8.i.i.i = call i32 @BZ2_bzDecompress(ptr noundef nonnull %bzs1.i.i) #6

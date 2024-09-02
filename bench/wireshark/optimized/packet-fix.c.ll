@@ -7114,13 +7114,16 @@ tag_search.exit:                                  ; preds = %102, %106
   %153 = add nuw nsw i32 %.0172205, 1
   %154 = getelementptr i8, ptr %.0173204, i64 1
   %exitcond.not = icmp eq i32 %153, %.0177206
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %.lr.ph, %148
-  %.0174.lcssa = phi i8 [ 0, %148 ], [ %152, %.lr.ph ]
-  %155 = load i32, ptr %6, align 4
-  %156 = zext i8 %.0174.lcssa to i32
-  %157 = icmp eq i32 %155, %156
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %155 = zext i8 %152 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %148
+  %.0174.lcssa = phi i32 [ 0, %148 ], [ %155, %._crit_edge.loopexit ]
+  %156 = load i32, ptr %6, align 4
+  %157 = icmp eq i32 %156, %.0174.lcssa
   %158 = getelementptr inbounds i8, ptr %114, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = load i32, ptr @fix_param.ret.0, align 4
@@ -7131,7 +7134,7 @@ tag_search.exit:                                  ; preds = %102, %106
   br label %165
 
 163:                                              ; preds = %._crit_edge
-  %164 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %25, i32 noundef %159, ptr noundef %0, i32 noundef %.0177206, i32 noundef %160, ptr noundef %110, ptr noundef nonnull @.str.51, ptr noundef %110, i32 noundef %156) #5
+  %164 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %25, i32 noundef %159, ptr noundef %0, i32 noundef %.0177206, i32 noundef %160, ptr noundef %110, ptr noundef nonnull @.str.51, ptr noundef %110, i32 noundef %.0174.lcssa) #5
   br label %165
 
 165:                                              ; preds = %163, %161

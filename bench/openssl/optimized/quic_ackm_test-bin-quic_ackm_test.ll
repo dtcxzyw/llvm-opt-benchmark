@@ -884,11 +884,11 @@ land.rhs.i:                                       ; preds = %if.end87.i
   %23 = load ptr, ptr %h.i, align 8
   %call97.i = call i64 @ossl_ackm_get_ack_deadline(ptr noundef %23, i32 noundef %conv3) #9
   %cmp.i82.i = icmp ne i64 %call97.i, 0
+  %24 = zext i1 %cmp.i82.i to i32
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %if.end87.i
-  %24 = phi i1 [ false, %if.end87.i ], [ %cmp.i82.i, %land.rhs.i ]
-  %land.ext.i = zext i1 %24 to i32
+  %land.ext.i = phi i32 [ 0, %if.end87.i ], [ %24, %land.rhs.i ]
   %expect_deadline.i = getelementptr inbounds i8, ptr %s.1122.i, i64 33
   %25 = load i8, ptr %expect_deadline.i, align 1
   %conv102.i = sext i8 %25 to i32

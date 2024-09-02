@@ -65,7 +65,7 @@ define dso_local void @pnp_init_resources(ptr noundef %0) local_unnamed_addr #0 
 declare dso_local void @pnp_free_resources(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pnp_auto_config_dev(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @pnp_auto_config_dev(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 848
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0

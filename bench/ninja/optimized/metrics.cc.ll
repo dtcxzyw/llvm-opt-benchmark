@@ -227,7 +227,7 @@ define dso_local noundef i64 @_ZNK9Stopwatch6NowRawEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i64 -9223372036854775, 9223372036854776) i64 @_Z13GetTimeMillisv() local_unnamed_addr #0 {
+define dso_local noundef range(i64 -9223372036854, 9223372036855) i64 @_Z13GetTimeMillisv() local_unnamed_addr #0 {
   %1 = tail call noundef i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #10
   %2 = sdiv i64 %1, 1000000
   ret i64 %2

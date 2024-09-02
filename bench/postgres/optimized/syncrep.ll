@@ -369,89 +369,82 @@ define dso_local void @SyncRepInitConfig() local_unnamed_addr #0 {
   %13 = getelementptr inbounds i8, ptr %8, i64 16
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
-  %.0918.i = phi i32 [ %29, %25 ], [ 1, %.lr.ph.preheader.i ]
-  %.01017.i = phi ptr [ %28, %25 ], [ %13, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.tail.thread.i, %.lr.ph.preheader.i
+  %.0918.i = phi i32 [ %24, %.tail.thread.i ], [ 1, %.lr.ph.preheader.i ]
+  %.01017.i = phi ptr [ %23, %.tail.thread.i ], [ %13, %.lr.ph.preheader.i ]
   %14 = load ptr, ptr @application_name, align 8
   %15 = tail call i32 @pg_strcasecmp(ptr noundef %.01017.i, ptr noundef %14) #10
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %33, label %sub_0.i
+  br i1 %16, label %28, label %sub_0.i
 
 sub_0.i:                                          ; preds = %.lr.ph.i
   %17 = load i8, ptr %.01017.i, align 1
-  %18 = zext i8 %17 to i32
-  %19 = add nsw i32 %18, -42
-  %.not19.i = icmp eq i32 %19, 0
-  br i1 %.not19.i, label %sub_1.i, label %.tail.i
+  %.not19.i = icmp eq i8 %17, 42
+  br i1 %.not19.i, label %.tail.i, label %.tail.thread.i
 
-sub_1.i:                                          ; preds = %sub_0.i
-  %20 = getelementptr inbounds i8, ptr %.01017.i, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  br label %.tail.i
+.tail.i:                                          ; preds = %sub_0.i
+  %18 = getelementptr inbounds i8, ptr %.01017.i, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %28, label %.tail.thread.i
 
-.tail.i:                                          ; preds = %sub_1.i, %sub_0.i
-  %23 = phi i32 [ %19, %sub_0.i ], [ %22, %sub_1.i ]
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %33, label %25
-
-25:                                               ; preds = %.tail.i
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01017.i) #11
-  %27 = add i64 %26, 1
-  %28 = getelementptr i8, ptr %.01017.i, i64 %27
-  %29 = add i32 %.0918.i, 1
-  %30 = load ptr, ptr @SyncRepConfig, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 12
-  %32 = load i32, ptr %31, align 4
-  %.not14.not.i = icmp sgt i32 %29, %32
+.tail.thread.i:                                   ; preds = %.tail.i, %sub_0.i
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01017.i) #11
+  %22 = add i64 %21, 1
+  %23 = getelementptr i8, ptr %.01017.i, i64 %22
+  %24 = add i32 %.0918.i, 1
+  %25 = load ptr, ptr @SyncRepConfig, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 12
+  %27 = load i32, ptr %26, align 4
+  %.not14.not.i = icmp sgt i32 %24, %27
   br i1 %.not14.not.i, label %SyncRepGetStandbyPriority.exit, label %.lr.ph.i, !llvm.loop !8
 
-33:                                               ; preds = %.tail.i, %.lr.ph.i
-  %34 = load ptr, ptr @SyncRepConfig, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = load i8, ptr %35, align 4
-  %37 = icmp eq i8 %36, 0
-  %38 = select i1 %37, i32 %.0918.i, i32 1
+28:                                               ; preds = %.tail.i, %.lr.ph.i
+  %29 = load ptr, ptr @SyncRepConfig, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = load i8, ptr %30, align 4
+  %32 = icmp eq i8 %31, 0
+  %33 = select i1 %32, i32 %.0918.i, i32 1
   br label %SyncRepGetStandbyPriority.exit
 
-SyncRepGetStandbyPriority.exit:                   ; preds = %25, %0, %3, %5, %10, %33
-  %.011.i = phi i32 [ %38, %33 ], [ 0, %0 ], [ 0, %5 ], [ 0, %3 ], [ 0, %10 ], [ 0, %25 ]
-  %39 = load ptr, ptr @MyWalSnd, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 72
-  %41 = load i32, ptr %40, align 8
-  %.not = icmp eq i32 %41, %.011.i
-  br i1 %.not, label %58, label %42
+SyncRepGetStandbyPriority.exit:                   ; preds = %.tail.thread.i, %0, %3, %5, %10, %28
+  %.011.i = phi i32 [ %33, %28 ], [ 0, %0 ], [ 0, %5 ], [ 0, %3 ], [ 0, %10 ], [ 0, %.tail.thread.i ]
+  %34 = load ptr, ptr @MyWalSnd, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 72
+  %36 = load i32, ptr %35, align 8
+  %.not = icmp eq i32 %36, %.011.i
+  br i1 %.not, label %53, label %37
 
-42:                                               ; preds = %SyncRepGetStandbyPriority.exit
-  %43 = getelementptr inbounds i8, ptr %39, i64 76
-  %44 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %43, i8 1, ptr nonnull elementtype(i8) %43) #10, !srcloc !9
-  %.not3 = icmp eq i8 %44, 0
-  br i1 %.not3, label %49, label %45
+37:                                               ; preds = %SyncRepGetStandbyPriority.exit
+  %38 = getelementptr inbounds i8, ptr %34, i64 76
+  %39 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %38, i8 1, ptr nonnull elementtype(i8) %38) #10, !srcloc !9
+  %.not3 = icmp eq i8 %39, 0
+  br i1 %.not3, label %44, label %40
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr @MyWalSnd, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 76
-  %48 = tail call i32 @s_lock(ptr noundef nonnull %47, ptr noundef nonnull @.str.3, i32 noundef 415, ptr noundef nonnull @__func__.SyncRepInitConfig) #10
-  br label %49
+40:                                               ; preds = %37
+  %41 = load ptr, ptr @MyWalSnd, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 76
+  %43 = tail call i32 @s_lock(ptr noundef nonnull %42, ptr noundef nonnull @.str.3, i32 noundef 415, ptr noundef nonnull @__func__.SyncRepInitConfig) #10
+  br label %44
 
-49:                                               ; preds = %42, %45
-  %50 = load ptr, ptr @MyWalSnd, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 72
-  store i32 %.011.i, ptr %51, align 8
+44:                                               ; preds = %37, %40
+  %45 = load ptr, ptr @MyWalSnd, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 72
+  store i32 %.011.i, ptr %46, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
-  %52 = load ptr, ptr @MyWalSnd, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 76
-  store i8 0, ptr %53, align 4
-  %54 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
-  br i1 %54, label %55, label %58
+  %47 = load ptr, ptr @MyWalSnd, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 76
+  store i8 0, ptr %48, align 4
+  %49 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
+  br i1 %49, label %50, label %53
 
-55:                                               ; preds = %49
-  %56 = load ptr, ptr @application_name, align 8
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %56, i32 noundef %.011.i) #10
+50:                                               ; preds = %44
+  %51 = load ptr, ptr @application_name, align 8
+  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %51, i32 noundef %.011.i) #10
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 421, ptr noundef nonnull @__func__.SyncRepInitConfig) #10
-  br label %58
+  br label %53
 
-58:                                               ; preds = %55, %49, %SyncRepGetStandbyPriority.exit
+53:                                               ; preds = %50, %44, %SyncRepGetStandbyPriority.exit
   ret void
 }
 

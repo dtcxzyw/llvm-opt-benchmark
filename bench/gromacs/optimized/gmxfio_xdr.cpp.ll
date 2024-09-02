@@ -2198,74 +2198,82 @@ define noundef zeroext i1 @_Z21gmx_fio_ndoe_gmx_boolP8t_fileioPbiPKcS3_i(ptr nou
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %12
 
-12:                                               ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %.02028 = phi i1 [ true, %.lr.ph ], [ %.1.in, %37 ]
+12:                                               ; preds = %.lr.ph, %41
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
+  %.02028 = phi i8 [ 1, %.lr.ph ], [ %.1, %41 ]
   %13 = load i8, ptr %10, align 8
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %27
+  br i1 %14, label %15, label %29
 
 15:                                               ; preds = %12
-  br i1 %.02028, label %16, label %22
+  %16 = trunc nuw i8 %.02028 to i1
+  br i1 %16, label %17, label %26
 
-16:                                               ; preds = %15
+17:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %17 = load ptr, ptr %11, align 8
-  %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %18, label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit
+  %18 = load ptr, ptr %11, align 8
+  %.not.i = icmp eq ptr %18, null
+  br i1 %.not.i, label %19, label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit
 
-18:                                               ; preds = %16
+19:                                               ; preds = %17
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_iENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 167) #14
   unreachable
 
-_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %16
-  %19 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef nonnull %17, ptr noundef nonnull %8)
-  %20 = load i32, ptr %8, align 4
-  %21 = icmp ne i32 %19, 0
+_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit: ; preds = %17
+  %20 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef nonnull %18, ptr noundef nonnull %8)
+  %21 = load i32, ptr %8, align 4
+  %22 = icmp ne i32 %20, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br label %22
+  %23 = zext i1 %22 to i8
+  %24 = icmp ne i32 %21, 0
+  %25 = zext i1 %24 to i8
+  br label %26
 
-22:                                               ; preds = %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit, %15
-  %.025 = phi i32 [ %20, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ], [ 0, %15 ]
-  %23 = phi i1 [ %21, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ], [ false, %15 ]
-  %24 = icmp ne i32 %.025, 0
-  %25 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
-  %26 = zext i1 %24 to i8
-  store i8 %26, ptr %25, align 1
-  br label %37
-
-27:                                               ; preds = %12
+26:                                               ; preds = %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit, %15
+  %.025 = phi i8 [ %25, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ], [ 0, %15 ]
+  %27 = phi i8 [ %23, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit ], [ 0, %15 ]
   %28 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
-  %29 = load i8, ptr %28, align 1
-  %30 = and i8 %29, 1
-  %31 = zext nneg i8 %30 to i32
-  br i1 %.02028, label %32, label %37
+  store i8 %.025, ptr %28, align 1
+  br label %41
 
-32:                                               ; preds = %27
+29:                                               ; preds = %12
+  %30 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %31 = load i8, ptr %30, align 1
+  %32 = and i8 %31, 1
+  %33 = zext nneg i8 %32 to i32
+  %34 = trunc nuw i8 %.02028 to i1
+  br i1 %34, label %35, label %41
+
+35:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %33 = load ptr, ptr %11, align 8
-  %.not.i21 = icmp eq ptr %33, null
-  br i1 %.not.i21, label %34, label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit22
+  %36 = load ptr, ptr %11, align 8
+  %.not.i21 = icmp eq ptr %36, null
+  br i1 %.not.i21, label %37, label %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit22
 
-34:                                               ; preds = %32
+37:                                               ; preds = %35
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_iENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 167) #14
   unreachable
 
-_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit22: ; preds = %32
-  store i32 %31, ptr %7, align 4
-  %35 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef nonnull %33, ptr noundef nonnull %7)
-  %36 = icmp ne i32 %35, 0
+_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit22: ; preds = %35
+  store i32 %33, ptr %7, align 4
+  %38 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef nonnull %36, ptr noundef nonnull %7)
+  %39 = icmp ne i32 %38, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %37
+  %40 = zext i1 %39 to i8
+  br label %41
 
-37:                                               ; preds = %27, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit22, %22
-  %.1.in = phi i1 [ %23, %22 ], [ false, %27 ], [ %36, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit22 ]
+41:                                               ; preds = %29, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit22, %26
+  %.1 = phi i8 [ %27, %26 ], [ 0, %29 ], [ %40, %_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i.exit22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %12, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %37, %6
-  %.020.lcssa = phi i1 [ true, %6 ], [ %.1.in, %37 ]
+._crit_edge.loopexit:                             ; preds = %41
+  %42 = trunc nuw i8 %.1 to i1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
+  %.020.lcssa = phi i1 [ true, %6 ], [ %42, %._crit_edge.loopexit ]
   call void @_Z14gmx_fio_unlockP8t_fileio(ptr noundef %0)
   ret i1 %.020.lcssa
 }

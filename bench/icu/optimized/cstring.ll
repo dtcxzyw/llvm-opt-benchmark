@@ -207,7 +207,7 @@ entry:
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uprv_stricmp_75(ptr noundef readonly %str1, ptr noundef readonly %str2) local_unnamed_addr #6 {
+define range(i32 -255, 256) i32 @uprv_stricmp_75(ptr noundef readonly %str1, ptr noundef readonly %str2) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %str1, null
   br i1 %cmp, label %if.then, label %if.else3
@@ -270,7 +270,7 @@ return:                                           ; preds = %if.else17, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uprv_strnicmp_75(ptr noundef readonly %str1, ptr noundef readonly %str2, i32 noundef %n) local_unnamed_addr #6 {
+define range(i32 -255, 256) i32 @uprv_strnicmp_75(ptr noundef readonly %str1, ptr noundef readonly %str2, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %str1, null
   br i1 %cmp, label %if.then, label %if.else3

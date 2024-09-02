@@ -473,7 +473,7 @@ declare i32 @ossl_lib_ctx_is_default(ptr noundef) local_unnamed_addr #1
 declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_provider_up_ref(ptr noundef %prov) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @ossl_provider_up_ref(ptr noundef %prov) local_unnamed_addr #0 {
 entry:
   %refcnt = getelementptr inbounds i8, ptr %prov, i64 16
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
@@ -3316,7 +3316,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @core_provider_up_ref_intern(ptr noundef %prov, i32 noundef %activate) #0 {
+define internal range(i32 -2147483647, -2147483648) i32 @core_provider_up_ref_intern(ptr noundef %prov, i32 noundef %activate) #0 {
 entry:
   %tobool.not.i = icmp eq i32 %activate, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i

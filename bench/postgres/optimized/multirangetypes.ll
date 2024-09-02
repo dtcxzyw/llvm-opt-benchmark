@@ -1166,63 +1166,66 @@ define dso_local noundef ptr @multirange_get_range(ptr nocapture noundef readonl
   %15 = add nsw i32 %.089.i, -1
   %16 = icmp ugt i32 %.089.i, 1
   %or.cond.i = and i1 %16, %.not.i
-  br i1 %or.cond.i, label %.lr.ph.i, label %multirange_get_bounds_offset.exit, !llvm.loop !22
+  br i1 %or.cond.i, label %.lr.ph.i, label %multirange_get_bounds_offset.exit.loopexit, !llvm.loop !22
 
-multirange_get_bounds_offset.exit:                ; preds = %.lr.ph.i, %3
-  %.1.i = phi i32 [ 0, %3 ], [ %14, %.lr.ph.i ]
-  %17 = getelementptr i8, ptr %1, i64 12
-  %18 = load i32, ptr %invariant.gep.i, align 4
-  %19 = add i32 %18, -1
-  %20 = zext i32 %19 to i64
-  %21 = shl nuw nsw i64 %20, 2
-  %22 = getelementptr i8, ptr %17, i64 %21
-  %23 = sext i32 %2 to i64
-  %24 = getelementptr i8, ptr %22, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = icmp eq i8 %9, 105
-  %27 = zext i32 %18 to i64
-  br i1 %26, label %28, label %32
+multirange_get_bounds_offset.exit.loopexit:       ; preds = %.lr.ph.i
+  %17 = zext i32 %14 to i64
+  br label %multirange_get_bounds_offset.exit
 
-28:                                               ; preds = %multirange_get_bounds_offset.exit
-  %29 = add nuw nsw i64 %27, 15
-  %30 = add nuw nsw i64 %29, %21
-  %31 = and i64 %30, 34359738364
-  br label %44
+multirange_get_bounds_offset.exit:                ; preds = %multirange_get_bounds_offset.exit.loopexit, %3
+  %.1.i = phi i64 [ 0, %3 ], [ %17, %multirange_get_bounds_offset.exit.loopexit ]
+  %18 = getelementptr i8, ptr %1, i64 12
+  %19 = load i32, ptr %invariant.gep.i, align 4
+  %20 = add i32 %19, -1
+  %21 = zext i32 %20 to i64
+  %22 = shl nuw nsw i64 %21, 2
+  %23 = getelementptr i8, ptr %18, i64 %22
+  %24 = sext i32 %2 to i64
+  %25 = getelementptr i8, ptr %23, i64 %24
+  %26 = load i8, ptr %25, align 1
+  %27 = icmp eq i8 %9, 105
+  %28 = zext i32 %19 to i64
+  br i1 %27, label %29, label %33
 
-32:                                               ; preds = %multirange_get_bounds_offset.exit
-  switch i8 %9, label %40 [
-    i8 99, label %33
-    i8 100, label %36
+29:                                               ; preds = %multirange_get_bounds_offset.exit
+  %30 = add nuw nsw i64 %28, 15
+  %31 = add nuw nsw i64 %30, %22
+  %32 = and i64 %31, 34359738364
+  br label %45
+
+33:                                               ; preds = %multirange_get_bounds_offset.exit
+  switch i8 %9, label %41 [
+    i8 99, label %34
+    i8 100, label %37
   ]
 
-33:                                               ; preds = %32
-  %34 = add nuw nsw i64 %27, 12
-  %35 = add nuw nsw i64 %34, %21
-  br label %44
+34:                                               ; preds = %33
+  %35 = add nuw nsw i64 %28, 12
+  %36 = add nuw nsw i64 %35, %22
+  br label %45
 
-36:                                               ; preds = %32
-  %37 = add nuw nsw i64 %27, 19
-  %38 = add nuw nsw i64 %37, %21
-  %39 = and i64 %38, 34359738360
-  br label %44
+37:                                               ; preds = %33
+  %38 = add nuw nsw i64 %28, 19
+  %39 = add nuw nsw i64 %38, %22
+  %40 = and i64 %39, 34359738360
+  br label %45
 
-40:                                               ; preds = %32
-  %41 = add nuw nsw i64 %27, 13
-  %42 = add nuw nsw i64 %41, %21
-  %43 = and i64 %42, 34359738366
-  br label %44
+41:                                               ; preds = %33
+  %42 = add nuw nsw i64 %28, 13
+  %43 = add nuw nsw i64 %42, %22
+  %44 = and i64 %43, 34359738366
+  br label %45
 
-44:                                               ; preds = %33, %40, %36, %28
-  %45 = phi i64 [ %31, %28 ], [ %35, %33 ], [ %39, %36 ], [ %43, %40 ]
-  %46 = getelementptr i8, ptr %1, i64 %45
-  %47 = zext i32 %.1.i to i64
-  %48 = getelementptr i8, ptr %46, i64 %47
-  %49 = zext i8 %25 to i32
+45:                                               ; preds = %34, %41, %37, %29
+  %46 = phi i64 [ %32, %29 ], [ %36, %34 ], [ %40, %37 ], [ %44, %41 ]
+  %47 = getelementptr i8, ptr %1, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 %.1.i
+  %49 = zext i8 %26 to i32
   %50 = and i32 %49, 41
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %51, label %85
 
-51:                                               ; preds = %44
+51:                                               ; preds = %45
   %52 = icmp sgt i16 %7, 0
   br i1 %52, label %53, label %56
 
@@ -1278,8 +1281,8 @@ multirange_get_bounds_offset.exit:                ; preds = %.lr.ph.i, %3
   %84 = getelementptr i8, ptr %83, i64 1
   br label %85
 
-85:                                               ; preds = %53, %81, %44
-  %.0 = phi ptr [ %48, %44 ], [ %55, %53 ], [ %84, %81 ]
+85:                                               ; preds = %53, %81, %45
+  %.0 = phi ptr [ %48, %45 ], [ %55, %53 ], [ %84, %81 ]
   %86 = and i32 %49, 81
   %.not84 = icmp eq i32 %86, 0
   br i1 %.not84, label %90, label %145
@@ -1307,7 +1310,7 @@ multirange_get_bounds_offset.exit:                ; preds = %.lr.ph.i, %3
   %96 = phi i64 [ -1, %.thread93 ], [ %91, %90 ]
   %.09296 = phi ptr [ %.09295, %.thread93 ], [ %.0, %90 ]
   %97 = ptrtoint ptr %.09296 to i64
-  br i1 %26, label %98, label %101
+  br i1 %27, label %98, label %101
 
 98:                                               ; preds = %94
   %99 = add i64 %97, 3
@@ -1413,7 +1416,7 @@ thread-pre-split:                                 ; preds = %114
   %156 = getelementptr i8, ptr %152, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %156, ptr align 1 %48, i64 %148, i1 false)
   %157 = getelementptr i8, ptr %156, i64 %148
-  store i8 %25, ptr %157, align 1
+  store i8 %26, ptr %157, align 1
   ret ptr %152
 }
 
@@ -1450,62 +1453,65 @@ define dso_local void @multirange_get_bounds(ptr nocapture noundef readonly %0, 
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %20 = icmp ugt i64 %indvars.iv, 1
   %or.cond.i = and i1 %20, %.not.i
-  br i1 %or.cond.i, label %.lr.ph.i, label %multirange_get_bounds_offset.exit, !llvm.loop !22
+  br i1 %or.cond.i, label %.lr.ph.i, label %multirange_get_bounds_offset.exit.loopexit, !llvm.loop !22
 
-multirange_get_bounds_offset.exit:                ; preds = %.lr.ph.i, %5
-  %.1.i = phi i32 [ 0, %5 ], [ %19, %.lr.ph.i ]
-  %21 = getelementptr i8, ptr %1, i64 12
-  %22 = load i32, ptr %invariant.gep.i, align 4
-  %23 = add i32 %22, -1
-  %24 = zext i32 %23 to i64
-  %25 = shl nuw nsw i64 %24, 2
-  %26 = getelementptr i8, ptr %21, i64 %25
-  %27 = getelementptr i8, ptr %26, i64 %16
-  %28 = load i8, ptr %27, align 1
-  %29 = icmp eq i8 %11, 105
-  %30 = zext i32 %22 to i64
-  br i1 %29, label %31, label %35
+multirange_get_bounds_offset.exit.loopexit:       ; preds = %.lr.ph.i
+  %21 = zext i32 %19 to i64
+  br label %multirange_get_bounds_offset.exit
 
-31:                                               ; preds = %multirange_get_bounds_offset.exit
-  %32 = add nuw nsw i64 %30, 15
-  %33 = add nuw nsw i64 %32, %25
-  %34 = and i64 %33, 34359738364
-  br label %47
+multirange_get_bounds_offset.exit:                ; preds = %5, %multirange_get_bounds_offset.exit.loopexit
+  %.1.i = phi i64 [ %21, %multirange_get_bounds_offset.exit.loopexit ], [ 0, %5 ]
+  %22 = getelementptr i8, ptr %1, i64 12
+  %23 = load i32, ptr %invariant.gep.i, align 4
+  %24 = add i32 %23, -1
+  %25 = zext i32 %24 to i64
+  %26 = shl nuw nsw i64 %25, 2
+  %27 = getelementptr i8, ptr %22, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 %16
+  %29 = load i8, ptr %28, align 1
+  %30 = icmp eq i8 %11, 105
+  %31 = zext i32 %23 to i64
+  br i1 %30, label %32, label %36
 
-35:                                               ; preds = %multirange_get_bounds_offset.exit
-  switch i8 %11, label %43 [
-    i8 99, label %36
-    i8 100, label %39
+32:                                               ; preds = %multirange_get_bounds_offset.exit
+  %33 = add nuw nsw i64 %31, 15
+  %34 = add nuw nsw i64 %33, %26
+  %35 = and i64 %34, 34359738364
+  br label %48
+
+36:                                               ; preds = %multirange_get_bounds_offset.exit
+  switch i8 %11, label %44 [
+    i8 99, label %37
+    i8 100, label %40
   ]
 
-36:                                               ; preds = %35
-  %37 = add nuw nsw i64 %30, 12
-  %38 = add nuw nsw i64 %37, %25
-  br label %47
+37:                                               ; preds = %36
+  %38 = add nuw nsw i64 %31, 12
+  %39 = add nuw nsw i64 %38, %26
+  br label %48
 
-39:                                               ; preds = %35
-  %40 = add nuw nsw i64 %30, 19
-  %41 = add nuw nsw i64 %40, %25
-  %42 = and i64 %41, 34359738360
-  br label %47
+40:                                               ; preds = %36
+  %41 = add nuw nsw i64 %31, 19
+  %42 = add nuw nsw i64 %41, %26
+  %43 = and i64 %42, 34359738360
+  br label %48
 
-43:                                               ; preds = %35
-  %44 = add nuw nsw i64 %30, 13
-  %45 = add nuw nsw i64 %44, %25
-  %46 = and i64 %45, 34359738366
-  br label %47
+44:                                               ; preds = %36
+  %45 = add nuw nsw i64 %31, 13
+  %46 = add nuw nsw i64 %45, %26
+  %47 = and i64 %46, 34359738366
+  br label %48
 
-47:                                               ; preds = %36, %43, %39, %31
-  %48 = phi i64 [ %34, %31 ], [ %38, %36 ], [ %42, %39 ], [ %46, %43 ]
-  %49 = getelementptr i8, ptr %1, i64 %48
-  %50 = zext i32 %.1.i to i64
-  %51 = getelementptr i8, ptr %49, i64 %50
-  %52 = zext i8 %28 to i32
+48:                                               ; preds = %37, %44, %40, %32
+  %49 = phi i64 [ %35, %32 ], [ %39, %37 ], [ %43, %40 ], [ %47, %44 ]
+  %50 = getelementptr i8, ptr %1, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 %.1.i
+  %52 = zext i8 %29 to i32
   %53 = and i32 %52, 41
   %.not = icmp eq i32 %53, 0
   br i1 %.not, label %54, label %104
 
-54:                                               ; preds = %47
+54:                                               ; preds = %48
   %55 = sext i16 %9 to i32
   br i1 %14, label %56, label %fetch_att.exit
 
@@ -1601,9 +1607,9 @@ fetch_att.exit.thread:                            ; preds = %66, %63, %60, %57, 
   %103 = getelementptr i8, ptr %102, i64 1
   br label %104
 
-104:                                              ; preds = %47, %fetch_att.exit.thread, %100
-  %.067 = phi ptr [ %74, %fetch_att.exit.thread ], [ %103, %100 ], [ %51, %47 ]
-  %.066 = phi i64 [ %.0.i97, %fetch_att.exit.thread ], [ %71, %100 ], [ 0, %47 ]
+104:                                              ; preds = %48, %fetch_att.exit.thread, %100
+  %.067 = phi ptr [ %74, %fetch_att.exit.thread ], [ %103, %100 ], [ %51, %48 ]
+  %.066 = phi i64 [ %.0.i97, %fetch_att.exit.thread ], [ %71, %100 ], [ 0, %48 ]
   %105 = and i32 %52, 81
   %.not73 = icmp eq i32 %105, 0
   br i1 %.not73, label %109, label %fetch_att.exit80
@@ -1639,7 +1645,7 @@ fetch_att.exit.thread:                            ; preds = %66, %63, %60, %57, 
   %.0678494 = phi ptr [ %.0678493, %112 ], [ %.067, %109 ]
   %.0668691 = phi i64 [ %.0668692, %112 ], [ %.066, %109 ]
   %118 = ptrtoint ptr %.0678494 to i64
-  br i1 %29, label %119, label %122
+  br i1 %30, label %119, label %122
 
 119:                                              ; preds = %116
   %120 = add i64 %118, 3
@@ -1708,22 +1714,22 @@ fetch_att.exit80:                                 ; preds = %143, %140, %137, %1
   %.0 = phi i64 [ 0, %104 ], [ 0, %.thread ], [ %131, %129 ], [ %136, %134 ], [ %139, %137 ], [ %142, %140 ], [ %144, %143 ]
   store i64 %.06685, ptr %3, align 8
   %148 = getelementptr inbounds i8, ptr %3, i64 8
-  %149 = lshr i8 %28, 3
+  %149 = lshr i8 %29, 3
   %.lobit = and i8 %149, 1
   store i8 %.lobit, ptr %148, align 8
   %150 = getelementptr inbounds i8, ptr %3, i64 9
-  %151 = lshr i8 %28, 1
+  %151 = lshr i8 %29, 1
   %.lobit75 = and i8 %151, 1
   store i8 %.lobit75, ptr %150, align 1
   %152 = getelementptr inbounds i8, ptr %3, i64 10
   store i8 1, ptr %152, align 2
   store i64 %.0, ptr %4, align 8
   %153 = getelementptr inbounds i8, ptr %4, i64 8
-  %154 = lshr i8 %28, 4
+  %154 = lshr i8 %29, 4
   %.lobit76 = and i8 %154, 1
   store i8 %.lobit76, ptr %153, align 8
   %155 = getelementptr inbounds i8, ptr %4, i64 9
-  %156 = lshr i8 %28, 2
+  %156 = lshr i8 %29, 2
   %.lobit77 = and i8 %156, 1
   store i8 %.lobit77, ptr %155, align 1
   %157 = getelementptr inbounds i8, ptr %4, i64 10

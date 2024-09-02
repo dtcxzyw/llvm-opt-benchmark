@@ -1091,7 +1091,7 @@ declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_get_signature_nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @X509_CRL_check_suiteb(ptr nocapture noundef readonly %crl, ptr noundef readonly %pk, i64 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr nocapture noundef readonly %crl, ptr noundef readonly %pk, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i64 %flags, 196608
   %tobool.not = icmp eq i64 %and, 0

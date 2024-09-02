@@ -4090,17 +4090,18 @@ png_image_format.exit:                            ; preds = %16, %18
 
 32:                                               ; preds = %29
   %33 = and i32 %spec.select14.i, 1
+  %.not190 = icmp eq i32 %33, 0
   tail call void @png_set_rgb_to_gray_fixed(ptr noundef nonnull %6, i32 noundef 1, i32 noundef -1, i32 noundef -1) #11
   br label %34
 
 34:                                               ; preds = %32, %31
-  %.1157 = phi i32 [ 0, %31 ], [ %33, %32 ]
+  %.1157 = phi i1 [ true, %31 ], [ %.not190, %32 ]
   %35 = and i32 %27, -3
   br label %36
 
 36:                                               ; preds = %34, %png_image_format.exit
   %.0162 = phi i32 [ %35, %34 ], [ %27, %png_image_format.exit ]
-  %.0156 = phi i32 [ %.1157, %34 ], [ 0, %png_image_format.exit ]
+  %.0156 = phi i1 [ %.1157, %34 ], [ true, %png_image_format.exit ]
   %37 = and i32 %spec.select14.i, 4
   %.not191 = icmp eq i32 %37, 0
   br i1 %.not191, label %43, label %38
@@ -4126,8 +4127,7 @@ png_image_format.exit:                            ; preds = %16, %18
   %.not193 = icmp eq i32 %46, 0
   %47 = and i32 %.0162, -65
   %.2180 = select i1 %.not193, i32 %.1179, i32 2
-  %.not194 = icmp eq i32 %.0156, 0
-  br i1 %.not194, label %58, label %48
+  br i1 %.0156, label %58, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %6, i64 1184
@@ -4144,14 +4144,14 @@ png_image_format.exit:                            ; preds = %16, %18
 
 56:                                               ; preds = %52, %48
   %57 = icmp eq i32 %.2180, 1
-  %spec.select220 = select i1 %57, i32 0, i32 %.2180
-  %spec.select221 = select i1 %57, i32 2, i32 1
+  %spec.select = select i1 %57, i32 0, i32 %.2180
+  %spec.select220 = select i1 %57, i32 2, i32 1
   br label %58
 
 58:                                               ; preds = %56, %52, %44
-  %.3181 = phi i32 [ %.2180, %44 ], [ %.2180, %52 ], [ %spec.select220, %56 ]
+  %.3181 = phi i32 [ %.2180, %44 ], [ %.2180, %52 ], [ %spec.select, %56 ]
   %.not200 = phi i1 [ true, %44 ], [ true, %52 ], [ false, %56 ]
-  %.3159 = phi i32 [ 0, %44 ], [ 0, %52 ], [ %spec.select221, %56 ]
+  %.3159 = phi i32 [ 0, %44 ], [ 0, %52 ], [ %spec.select220, %56 ]
   %59 = and i32 %.0162, 4
   %.not196 = icmp eq i32 %59, 0
   br i1 %.not196, label %65, label %60
@@ -4175,7 +4175,7 @@ png_image_format.exit:                            ; preds = %16, %18
   %.2164 = phi i32 [ %64, %63 ], [ %47, %58 ]
   %66 = and i32 %.2164, 1
   %.not197 = icmp eq i32 %66, 0
-  br i1 %.not197, label %94, label %67
+  br i1 %.not197, label %95, label %67
 
 67:                                               ; preds = %65
   br i1 %.not192.not, label %89, label %68
@@ -4220,112 +4220,111 @@ png_image_format.exit:                            ; preds = %16, %18
   br label %92
 
 89:                                               ; preds = %67
-  %.222 = select i1 %.not.not, i32 255, i32 65535
+  %.221 = select i1 %.not.not, i32 255, i32 65535
   %90 = and i32 %10, 32
   %.not199 = icmp eq i32 %90, 0
   %91 = and i32 %.2164, -97
   %.lobit = lshr exact i32 %90, 5
   %.0184 = xor i32 %.lobit, 1
   %.5167 = select i1 %.not199, i32 %.2164, i32 %91
-  call void @png_set_add_alpha(ptr noundef nonnull %6, i32 noundef %.222, i32 noundef %.0184) #11
+  call void @png_set_add_alpha(ptr noundef nonnull %6, i32 noundef %.221, i32 noundef %.0184) #11
   br label %92
 
 92:                                               ; preds = %71, %68, %74, %70, %89
   %.5183 = phi i32 [ %.3181, %70 ], [ %.3181, %74 ], [ %.3181, %89 ], [ %.3181, %68 ], [ 2, %71 ]
   %.4166 = phi i32 [ %.2164, %70 ], [ %.2164, %74 ], [ %.5167, %89 ], [ %.2164, %68 ], [ %.2164, %71 ]
   %.5 = phi i32 [ 0, %70 ], [ 0, %74 ], [ %.3159, %89 ], [ 2, %68 ], [ 0, %71 ]
-  %.1155 = phi i32 [ 0, %70 ], [ 0, %74 ], [ 0, %89 ], [ 0, %68 ], [ 1, %71 ]
-  %93 = and i32 %.4166, -2
-  br label %94
+  %93 = phi i1 [ true, %70 ], [ true, %74 ], [ true, %89 ], [ true, %68 ], [ false, %71 ]
+  %94 = and i32 %.4166, -2
+  br label %95
 
-94:                                               ; preds = %92, %65
+95:                                               ; preds = %92, %65
   %.4182 = phi i32 [ %.5183, %92 ], [ %.3181, %65 ]
-  %.3165 = phi i32 [ %93, %92 ], [ %.2164, %65 ]
+  %.3165 = phi i32 [ %94, %92 ], [ %.2164, %65 ]
   %.4 = phi i32 [ %.5, %92 ], [ %.3159, %65 ]
-  %.0154 = phi i32 [ %.1155, %92 ], [ 0, %65 ]
+  %.0154 = phi i1 [ %93, %92 ], [ true, %65 ]
   call void @png_set_alpha_mode_fixed(ptr noundef nonnull %6, i32 noundef %.4182, i32 noundef %.0177) #11
-  %95 = and i32 %.3165, 16
-  %.not202 = icmp eq i32 %95, 0
-  br i1 %.not202, label %103, label %96
+  %96 = and i32 %.3165, 16
+  %.not202 = icmp eq i32 %96, 0
+  br i1 %.not202, label %104, label %97
 
-96:                                               ; preds = %94
-  %97 = and i32 %10, 2
-  %.not203 = icmp eq i32 %97, 0
-  br i1 %.not203, label %99, label %98
+97:                                               ; preds = %95
+  %98 = and i32 %10, 2
+  %.not203 = icmp eq i32 %98, 0
+  br i1 %.not203, label %100, label %99
 
-98:                                               ; preds = %96
+99:                                               ; preds = %97
   call void @png_set_bgr(ptr noundef nonnull %6) #11
-  br label %101
+  br label %102
 
-99:                                               ; preds = %96
-  %100 = and i32 %10, -19
-  br label %101
+100:                                              ; preds = %97
+  %101 = and i32 %10, -19
+  br label %102
 
-101:                                              ; preds = %99, %98
-  %.1 = phi i32 [ %10, %98 ], [ %100, %99 ]
-  %102 = and i32 %.3165, -17
-  br label %103
+102:                                              ; preds = %100, %99
+  %.1 = phi i32 [ %10, %99 ], [ %101, %100 ]
+  %103 = and i32 %.3165, -17
+  br label %104
 
-103:                                              ; preds = %101, %94
-  %.6 = phi i32 [ %102, %101 ], [ %.3165, %94 ]
-  %.0153 = phi i32 [ %.1, %101 ], [ %10, %94 ]
-  %104 = and i32 %.6, 32
-  %.not204 = icmp eq i32 %104, 0
-  br i1 %.not204, label %113, label %105
+104:                                              ; preds = %102, %95
+  %.6 = phi i32 [ %103, %102 ], [ %.3165, %95 ]
+  %.0153 = phi i32 [ %.1, %102 ], [ %10, %95 ]
+  %105 = and i32 %.6, 32
+  %.not204 = icmp eq i32 %105, 0
+  br i1 %.not204, label %114, label %106
 
-105:                                              ; preds = %103
-  %106 = and i32 %.0153, 1
-  %.not205 = icmp eq i32 %106, 0
-  br i1 %.not205, label %109, label %107
+106:                                              ; preds = %104
+  %107 = and i32 %.0153, 1
+  %.not205 = icmp eq i32 %107, 0
+  br i1 %.not205, label %110, label %108
 
-107:                                              ; preds = %105
+108:                                              ; preds = %106
   %.not206 = icmp eq i32 %.4, 2
-  br i1 %.not206, label %111, label %108
+  br i1 %.not206, label %112, label %109
 
-108:                                              ; preds = %107
+109:                                              ; preds = %108
   call void @png_set_swap_alpha(ptr noundef nonnull %6) #11
-  br label %111
+  br label %112
 
-109:                                              ; preds = %105
-  %110 = and i32 %.0153, -34
-  br label %111
+110:                                              ; preds = %106
+  %111 = and i32 %.0153, -34
+  br label %112
 
-111:                                              ; preds = %107, %108, %109
-  %.3 = phi i32 [ %.0153, %108 ], [ %.0153, %107 ], [ %110, %109 ]
-  %112 = and i32 %.6, -33
-  br label %113
+112:                                              ; preds = %108, %109, %110
+  %.3 = phi i32 [ %.0153, %109 ], [ %.0153, %108 ], [ %111, %110 ]
+  %113 = and i32 %.6, -33
+  br label %114
 
-113:                                              ; preds = %111, %103
-  %.7 = phi i32 [ %112, %111 ], [ %.6, %103 ]
-  %.2 = phi i32 [ %.3, %111 ], [ %.0153, %103 ]
-  br i1 %.not.not, label %115, label %114
+114:                                              ; preds = %112, %104
+  %.7 = phi i32 [ %113, %112 ], [ %.6, %104 ]
+  %.2 = phi i32 [ %.3, %112 ], [ %.0153, %104 ]
+  br i1 %.not.not, label %116, label %115
 
-114:                                              ; preds = %113
+115:                                              ; preds = %114
   call void @png_set_swap(ptr noundef nonnull %6) #11
-  br label %115
+  br label %116
 
-115:                                              ; preds = %114, %113
+116:                                              ; preds = %115, %114
   %.not207 = icmp eq i32 %.7, 0
-  br i1 %.not207, label %117, label %116
+  br i1 %.not207, label %118, label %117
 
-116:                                              ; preds = %115
+117:                                              ; preds = %116
   call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.53) #12
   unreachable
 
-117:                                              ; preds = %115
+118:                                              ; preds = %116
   call void @png_set_keep_unknown_chunks(ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, i32 noundef -1) #11
   call void @png_set_keep_unknown_chunks(ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull @png_image_skip_unused_chunks.chunks_to_process, i32 noundef 6) #11
-  %118 = icmp eq i32 %.0154, 0
   %119 = icmp ne i32 %.4, 2
-  %or.cond = and i1 %119, %118
+  %or.cond = and i1 %.0154, %119
   br i1 %or.cond, label %120, label %122
 
-120:                                              ; preds = %117
+120:                                              ; preds = %118
   %121 = call i32 @png_set_interlace_handling(ptr noundef nonnull %6) #11
   br label %122
 
-122:                                              ; preds = %117, %120
-  %.0160 = phi i32 [ %121, %120 ], [ 0, %117 ]
+122:                                              ; preds = %118, %120
+  %.0160 = phi i32 [ %121, %120 ], [ 0, %118 ]
   %123 = getelementptr inbounds i8, ptr %6, i64 304
   %124 = load i32, ptr %123, align 8, !alias.scope !59, !noalias !62
   %125 = and i32 %124, 64
@@ -4345,38 +4344,38 @@ png_read_update_info.exit:                        ; preds = %127, %128
   %129 = getelementptr inbounds i8, ptr %8, i64 37
   %130 = load i8, ptr %129, align 1
   %131 = and i8 %130, 2
-  %spec.select223 = zext nneg i8 %131 to i32
+  %spec.select222 = zext nneg i8 %131 to i32
   %132 = and i8 %130, 4
   %.not209 = icmp eq i8 %132, 0
   br i1 %.not209, label %137, label %133
 
 133:                                              ; preds = %png_read_update_info.exit
-  br i1 %118, label %134, label %139
+  br i1 %.0154, label %134, label %139
 
 134:                                              ; preds = %133
   %135 = and i32 %.2, 1
   %.not211 = icmp ne i32 %135, 0
-  %or.cond225.not = select i1 %119, i1 true, i1 %.not211
-  %136 = zext i1 %or.cond225.not to i32
-  %spec.select230 = or disjoint i32 %spec.select223, %136
+  %or.cond224.not = select i1 %119, i1 true, i1 %.not211
+  %136 = zext i1 %or.cond224.not to i32
+  %spec.select229 = or disjoint i32 %spec.select222, %136
   br label %139
 
 137:                                              ; preds = %png_read_update_info.exit
-  br i1 %118, label %139, label %138
+  br i1 %.0154, label %139, label %138
 
 138:                                              ; preds = %137
   call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.54) #12
   unreachable
 
 139:                                              ; preds = %134, %137, %133
-  %.1171 = phi i32 [ %spec.select223, %133 ], [ %spec.select223, %137 ], [ %spec.select230, %134 ]
+  %.1171 = phi i32 [ %spec.select222, %133 ], [ %spec.select222, %137 ], [ %spec.select229, %134 ]
   %140 = and i32 %.2, 64
-  %spec.select226 = or i32 %.1171, %140
+  %spec.select225 = or i32 %.1171, %140
   %141 = getelementptr inbounds i8, ptr %8, i64 36
   %142 = load i8, ptr %141, align 4
   %143 = icmp eq i8 %142, 16
-  %144 = or i32 %spec.select226, 4
-  %.3173 = select i1 %143, i32 %144, i32 %spec.select226
+  %144 = or i32 %spec.select225, 4
+  %.3173 = select i1 %143, i32 %144, i32 %spec.select225
   %145 = getelementptr inbounds i8, ptr %6, i64 308
   %146 = load i32, ptr %145, align 4
   %147 = shl i32 %146, 4
@@ -4384,9 +4383,9 @@ png_read_update_info.exit:                        ; preds = %127, %128
   %.4174 = or i32 %148, %.3173
   %149 = and i32 %.2, 32
   %.not214 = icmp eq i32 %149, 0
-  %or.cond228 = select i1 %119, i1 true, i1 %.not214
+  %or.cond227 = select i1 %119, i1 true, i1 %.not214
   %150 = or i32 %.4174, 32
-  %.5175 = select i1 %or.cond228, i32 %.4174, i32 %150
+  %.5175 = select i1 %or.cond227, i32 %.4174, i32 %150
   %151 = and i32 %146, 131072
   %.not215 = icmp eq i32 %151, 0
   br i1 %.not215, label %152, label %158
@@ -4426,9 +4425,9 @@ png_read_update_info.exit:                        ; preds = %127, %128
   %165 = getelementptr inbounds i8, ptr %0, i64 16
   %166 = load i32, ptr %165, align 8
   %167 = sext i32 %166 to i64
-  %.lobit233 = lshr exact i32 %11, 2
-  %168 = zext nneg i32 %.lobit233 to i64
-  %spec.select229 = shl nsw i64 %167, %168
+  %.lobit232 = lshr exact i32 %11, 2
+  %168 = zext nneg i32 %.lobit232 to i64
+  %spec.select228 = shl nsw i64 %167, %168
   %169 = icmp slt i32 %166, 0
   br i1 %169, label %170, label %178
 
@@ -4437,7 +4436,7 @@ png_read_update_info.exit:                        ; preds = %127, %128
   %172 = load i32, ptr %171, align 8
   %173 = add i32 %172, -1
   %174 = zext i32 %173 to i64
-  %175 = mul i64 %spec.select229, %174
+  %175 = mul i64 %spec.select228, %174
   %176 = sub i64 0, %175
   %177 = getelementptr inbounds i8, ptr %164, i64 %176
   br label %178
@@ -4447,50 +4446,50 @@ png_read_update_info.exit:                        ; preds = %127, %128
   %179 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.0169, ptr %179, align 8
   %180 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %spec.select229, ptr %180, align 8
-  %brmerge245.not = and i1 %118, %119
-  br i1 %brmerge245.not, label %.preheader, label %.loopexit234.sink.split
+  store i64 %spec.select228, ptr %180, align 8
+  %brmerge243.not = and i1 %.0154, %119
+  br i1 %brmerge243.not, label %.preheader, label %.loopexit233.sink.split
 
 .preheader:                                       ; preds = %178
   %181 = icmp sgt i32 %.0160, 0
-  br i1 %181, label %.lr.ph238, label %.loopexit234
+  br i1 %181, label %.lr.ph237, label %.loopexit233
 
-.lr.ph238:                                        ; preds = %.preheader
+.lr.ph237:                                        ; preds = %.preheader
   %182 = getelementptr inbounds i8, ptr %4, i64 16
   %183 = load i32, ptr %182, align 8
   %184 = icmp eq i32 %183, 0
-  br i1 %184, label %.loopexit234, label %.lr.ph238.split
+  br i1 %184, label %.loopexit233, label %.lr.ph237.split
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph238.split
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph237.split
   %185 = icmp sgt i32 %.in, 1
-  br i1 %185, label %.lr.ph238.splitthread-pre-split, label %.loopexit234, !llvm.loop !64
+  br i1 %185, label %.lr.ph237.splitthread-pre-split, label %.loopexit233, !llvm.loop !64
 
-.lr.ph238.splitthread-pre-split:                  ; preds = %.loopexit
+.lr.ph237.splitthread-pre-split:                  ; preds = %.loopexit
   %.pr = load i32, ptr %182, align 8
-  br label %.lr.ph238.split
+  br label %.lr.ph237.split
 
-.lr.ph238.split:                                  ; preds = %.lr.ph238, %.lr.ph238.splitthread-pre-split
-  %186 = phi i32 [ %.pr, %.lr.ph238.splitthread-pre-split ], [ %183, %.lr.ph238 ]
-  %.in = phi i32 [ %187, %.lr.ph238.splitthread-pre-split ], [ %.0160, %.lr.ph238 ]
+.lr.ph237.split:                                  ; preds = %.lr.ph237, %.lr.ph237.splitthread-pre-split
+  %186 = phi i32 [ %.pr, %.lr.ph237.splitthread-pre-split ], [ %183, %.lr.ph237 ]
+  %.in = phi i32 [ %187, %.lr.ph237.splitthread-pre-split ], [ %.0160, %.lr.ph237 ]
   %187 = add nsw i32 %.in, -1
-  %.not219235 = icmp eq i32 %186, 0
-  br i1 %.not219235, label %.loopexit, label %.lr.ph.preheader
+  %.not219234 = icmp eq i32 %186, 0
+  br i1 %.not219234, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph238.split
+.lr.ph.preheader:                                 ; preds = %.lr.ph237.split
   %188 = load ptr, ptr %179, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0237 = phi ptr [ %189, %.lr.ph ], [ %188, %.lr.ph.preheader ]
-  %.0151236 = phi i32 [ %190, %.lr.ph ], [ %186, %.lr.ph.preheader ]
-  call void @png_read_row(ptr noundef %6, ptr noundef %.0237, ptr noundef null)
-  %189 = getelementptr inbounds i8, ptr %.0237, i64 %spec.select229
-  %190 = add i32 %.0151236, -1
+  %.0236 = phi ptr [ %189, %.lr.ph ], [ %188, %.lr.ph.preheader ]
+  %.0151235 = phi i32 [ %190, %.lr.ph ], [ %186, %.lr.ph.preheader ]
+  call void @png_read_row(ptr noundef %6, ptr noundef %.0236, ptr noundef null)
+  %189 = getelementptr inbounds i8, ptr %.0236, i64 %spec.select228
+  %190 = add i32 %.0151235, -1
   %.not219 = icmp eq i32 %190, 0
   br i1 %.not219, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
-.loopexit234.sink.split:                          ; preds = %178
-  %png_image_read_composite.mux = select i1 %118, ptr @png_image_read_background, ptr @png_image_read_composite
+.loopexit233.sink.split:                          ; preds = %178
+  %png_image_read_composite.mux = select i1 %.0154, ptr @png_image_read_background, ptr @png_image_read_composite
   %191 = call i64 @png_get_rowbytes(ptr noundef nonnull %6, ptr noundef nonnull %8) #11
   %192 = call noalias ptr @png_malloc(ptr noundef nonnull %6, i64 noundef %191) #11
   %193 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4498,10 +4497,10 @@ png_read_update_info.exit:                        ; preds = %127, %128
   %194 = call i32 @png_safe_execute(ptr noundef nonnull %4, ptr noundef nonnull %png_image_read_composite.mux, ptr noundef nonnull %0) #11
   store ptr null, ptr %193, align 8
   call void @png_free(ptr noundef nonnull %6, ptr noundef %192) #11
-  br label %.loopexit234
+  br label %.loopexit233
 
-.loopexit234:                                     ; preds = %.loopexit, %.loopexit234.sink.split, %.lr.ph238, %.preheader
-  %.0152 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph238 ], [ %194, %.loopexit234.sink.split ], [ 1, %.loopexit ]
+.loopexit233:                                     ; preds = %.loopexit, %.loopexit233.sink.split, %.lr.ph237, %.preheader
+  %.0152 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph237 ], [ %194, %.loopexit233.sink.split ], [ 1, %.loopexit ]
   ret i32 %.0152
 }
 
@@ -5135,7 +5134,7 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   %.0104154 = phi i32 [ 0, %9 ], [ %195, %.loopexit134 ]
   %23 = load i8, ptr %5, align 4
   %24 = icmp eq i8 %23, 1
-  br i1 %24, label %25, label %53
+  br i1 %24, label %25, label %55
 
 25:                                               ; preds = %22
   %26 = icmp ugt i32 %.0104154, 1
@@ -5168,19 +5167,19 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   %50 = ashr i32 %49, 1
   %51 = lshr i32 8, %50
   %52 = select i1 %48, i32 %51, i32 8
-  br label %53
+  %53 = zext nneg i32 %36 to i64
+  %54 = zext nneg i32 %42 to i64
+  br label %55
 
-53:                                               ; preds = %22, %41
+55:                                               ; preds = %22, %41
   %.0109 = phi i32 [ %47, %41 ], [ 0, %22 ]
   %.0108 = phi i32 [ %52, %41 ], [ 1, %22 ]
-  %.0107 = phi i32 [ %42, %41 ], [ 1, %22 ]
-  %.0105 = phi i32 [ %36, %41 ], [ 0, %22 ]
-  %54 = icmp ult i32 %.0109, %11
-  br i1 %54, label %.lr.ph147, label %.loopexit134
+  %.0107 = phi i64 [ %54, %41 ], [ 1, %22 ]
+  %.0105 = phi i64 [ %53, %41 ], [ 0, %22 ]
+  %56 = icmp ult i32 %.0109, %11
+  br i1 %56, label %.lr.ph147, label %.loopexit134
 
-.lr.ph147:                                        ; preds = %53
-  %55 = zext nneg i32 %.0105 to i64
-  %56 = zext nneg i32 %.0107 to i64
+.lr.ph147:                                        ; preds = %55
   switch i32 %.fr, label %.lr.ph147.split [
     i32 1, label %.preheader.us.preheader
     i32 2, label %.preheader128.us.preheader
@@ -5189,19 +5188,19 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   ]
 
 .preheader132.us.preheader:                       ; preds = %.lr.ph147
-  %57 = icmp ult i32 %.0105, %13
+  %57 = icmp ult i64 %.0105, %21
   br label %.preheader132.us
 
 .preheader130.us.preheader:                       ; preds = %.lr.ph147
-  %58 = icmp ult i32 %.0105, %13
+  %58 = icmp ult i64 %.0105, %21
   br label %.preheader130.us
 
 .preheader128.us.preheader:                       ; preds = %.lr.ph147
-  %59 = icmp ult i32 %.0105, %13
+  %59 = icmp ult i64 %.0105, %21
   br label %.preheader128.us
 
 .preheader.us.preheader:                          ; preds = %.lr.ph147
-  %60 = icmp ult i32 %.0105, %13
+  %60 = icmp ult i64 %.0105, %21
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.loopexit.us
@@ -5215,7 +5214,7 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   br i1 %60, label %.lr.ph145.us.preheader, label %.loopexit.us
 
 .lr.ph145.us.preheader:                           ; preds = %.preheader.us
-  %66 = getelementptr inbounds i8, ptr %64, i64 %55
+  %66 = getelementptr inbounds i8, ptr %64, i64 %.0105
   br label %.lr.ph145.us
 
 .lr.ph145.us:                                     ; preds = %.lr.ph145.us.preheader, %90
@@ -5256,7 +5255,7 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   %.0106.us = phi i32 [ %89, %86 ], [ %85, %76 ], [ 231, %74 ]
   %91 = trunc nuw i32 %.0106.us to i8
   store i8 %91, ptr %.0111144.us, align 1
-  %92 = getelementptr inbounds i8, ptr %.0111144.us, i64 %56
+  %92 = getelementptr inbounds i8, ptr %.0111144.us, i64 %.0107
   %93 = icmp ult ptr %92, %65
   br i1 %93, label %.lr.ph145.us, label %.loopexit.us, !llvm.loop !66
 
@@ -5276,7 +5275,7 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   br i1 %59, label %.lr.ph142.us.preheader, label %.loopexit129.us
 
 .lr.ph142.us.preheader:                           ; preds = %.preheader128.us
-  %101 = getelementptr inbounds i8, ptr %99, i64 %55
+  %101 = getelementptr inbounds i8, ptr %99, i64 %.0105
   br label %.lr.ph142.us
 
 .lr.ph142.us:                                     ; preds = %.lr.ph142.us.preheader, %.lr.ph142.us
@@ -5291,7 +5290,7 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   %. = select i1 %.not126.us, i8 -1, i8 %103
   %.sink = select i1 %106, i8 -2, i8 %.
   store i8 %.sink, ptr %.1112141.us, align 1
-  %107 = getelementptr inbounds i8, ptr %.1112141.us, i64 %56
+  %107 = getelementptr inbounds i8, ptr %.1112141.us, i64 %.0107
   %108 = icmp ult ptr %107, %100
   br i1 %108, label %.lr.ph142.us, label %.loopexit129.us, !llvm.loop !68
 
@@ -5311,7 +5310,7 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   br i1 %58, label %.lr.ph139.us.preheader, label %.loopexit131.us
 
 .lr.ph139.us.preheader:                           ; preds = %.preheader130.us
-  %116 = getelementptr inbounds i8, ptr %114, i64 %55
+  %116 = getelementptr inbounds i8, ptr %114, i64 %.0105
   br label %.lr.ph139.us
 
 .lr.ph139.us:                                     ; preds = %.lr.ph139.us.preheader, %.lr.ph139.us
@@ -5341,7 +5340,7 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   %138 = trunc nuw i16 %137 to i8
   store i8 %138, ptr %.2113138.us, align 1
   %139 = getelementptr inbounds i8, ptr %.2117137.us, i64 3
-  %140 = getelementptr inbounds i8, ptr %.2113138.us, i64 %56
+  %140 = getelementptr inbounds i8, ptr %.2113138.us, i64 %.0107
   %141 = icmp ult ptr %140, %115
   br i1 %141, label %.lr.ph139.us, label %.loopexit131.us, !llvm.loop !69
 
@@ -5361,7 +5360,7 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   br i1 %57, label %.lr.ph.us.preheader, label %.loopexit133.us
 
 .lr.ph.us.preheader:                              ; preds = %.preheader132.us
-  %149 = getelementptr inbounds i8, ptr %147, i64 %55
+  %149 = getelementptr inbounds i8, ptr %147, i64 %.0105
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %186
@@ -5423,7 +5422,7 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   %.sink164 = phi i8 [ %185, %163 ], [ %162, %155 ], [ -40, %153 ]
   store i8 %.sink164, ptr %.3114136.us, align 1
   %187 = getelementptr inbounds i8, ptr %.3118135.us, i64 4
-  %188 = getelementptr inbounds i8, ptr %.3114136.us, i64 %56
+  %188 = getelementptr inbounds i8, ptr %.3114136.us, i64 %.0107
   %189 = icmp ult ptr %188, %148
   br i1 %189, label %.lr.ph.us, label %.loopexit133.us, !llvm.loop !70
 
@@ -5440,7 +5439,7 @@ define internal noundef i32 @png_image_read_and_map(ptr nocapture noundef readon
   %194 = icmp ult i32 %193, %11
   br i1 %194, label %.lr.ph147.split, label %.loopexit134, !llvm.loop !67
 
-.loopexit134:                                     ; preds = %.loopexit133.us, %.loopexit131.us, %.loopexit129.us, %.loopexit.us, %.lr.ph147.split, %53, %25
+.loopexit134:                                     ; preds = %.loopexit133.us, %.loopexit131.us, %.loopexit129.us, %.loopexit.us, %.lr.ph147.split, %55, %25
   %195 = add nuw nsw i32 %.0104154, 1
   %exitcond.not = icmp eq i32 %195, %.0103
   br i1 %exitcond.not, label %196, label %22, !llvm.loop !71
@@ -5502,7 +5501,7 @@ define internal noundef i32 @png_image_read_composite(ptr nocapture noundef read
   %.07392 = phi i32 [ 0, %9 ], [ %111, %.loopexit83 ]
   %29 = load i8, ptr %5, align 4
   %30 = icmp eq i8 %29, 1
-  br i1 %30, label %31, label %60
+  br i1 %30, label %31, label %61
 
 31:                                               ; preds = %28
   %32 = icmp ugt i32 %.07392, 1
@@ -5536,20 +5535,20 @@ define internal noundef i32 @png_image_read_composite(ptr nocapture noundef read
   %57 = ashr i32 %56, 1
   %58 = lshr i32 8, %57
   %59 = select i1 %55, i32 %58, i32 8
-  br label %60
+  %60 = zext nneg i32 %48 to i64
+  br label %61
 
-60:                                               ; preds = %28, %47
-  %.079 = phi i32 [ %48, %47 ], [ 0, %28 ]
+61:                                               ; preds = %28, %47
+  %.079 = phi i64 [ %60, %47 ], [ 0, %28 ]
   %.078 = phi i32 [ %49, %47 ], [ %19, %28 ]
   %.077 = phi i32 [ %59, %47 ], [ 1, %28 ]
   %.076 = phi i32 [ %54, %47 ], [ 0, %28 ]
-  %61 = icmp ult i32 %.076, %11
-  br i1 %61, label %.lr.ph91, label %.loopexit83
+  %62 = icmp ult i32 %.076, %11
+  br i1 %62, label %.lr.ph91, label %.loopexit83
 
-.lr.ph91:                                         ; preds = %60
-  %62 = zext nneg i32 %.079 to i64
+.lr.ph91:                                         ; preds = %61
   %63 = zext nneg i32 %.078 to i64
-  %64 = icmp ult i32 %.079, %22
+  %64 = icmp ult i64 %.079, %23
   br label %65
 
 65:                                               ; preds = %.lr.ph91, %._crit_edge
@@ -5564,7 +5563,7 @@ define internal noundef i32 @png_image_read_composite(ptr nocapture noundef read
   br i1 %64, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %65
-  %72 = getelementptr i8, ptr %70, i64 %62
+  %72 = getelementptr i8, ptr %70, i64 %.079
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
@@ -5635,7 +5634,7 @@ define internal noundef i32 @png_image_read_composite(ptr nocapture noundef read
   %110 = icmp ult i32 %109, %11
   br i1 %110, label %65, label %.loopexit83, !llvm.loop !74
 
-.loopexit83:                                      ; preds = %._crit_edge, %60, %31
+.loopexit83:                                      ; preds = %._crit_edge, %61, %31
   %111 = add nuw nsw i32 %.07392, 1
   %exitcond101.not = icmp eq i32 %111, %.072
   br i1 %exitcond101.not, label %112, label %28, !llvm.loop !75
@@ -5716,9 +5715,9 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
   %.0173 = phi i32 [ 7, %31 ], [ 1, %28 ]
   %34 = getelementptr inbounds i8, ptr %6, i64 36
   %35 = load i8, ptr %34, align 4
-  switch i8 %35, label %326 [
+  switch i8 %35, label %320 [
     i8 8, label %36
-    i8 16, label %185
+    i8 16, label %179
   ]
 
 36:                                               ; preds = %33
@@ -5732,10 +5731,10 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
   br label %44
 
 44:                                               ; preds = %36, %.loopexit
-  %.0234 = phi i32 [ 0, %36 ], [ %184, %.loopexit ]
+  %.0234 = phi i32 [ 0, %36 ], [ %178, %.loopexit ]
   %45 = load i8, ptr %29, align 4
   %46 = icmp eq i8 %45, 1
-  br i1 %46, label %47, label %75
+  br i1 %46, label %47, label %77
 
 47:                                               ; preds = %44
   %48 = icmp ugt i32 %.0234, 1
@@ -5768,436 +5767,428 @@ define internal noundef i32 @png_image_read_background(ptr nocapture noundef rea
   %72 = ashr i32 %71, 1
   %73 = lshr i32 8, %72
   %74 = select i1 %70, i32 %73, i32 8
-  br label %75
+  %75 = zext nneg i32 %58 to i64
+  %76 = zext nneg i32 %64 to i64
+  br label %77
 
-75:                                               ; preds = %44, %63
+77:                                               ; preds = %44, %63
   %.0185 = phi i32 [ %69, %63 ], [ 0, %44 ]
   %.0184 = phi i32 [ %74, %63 ], [ 1, %44 ]
-  %.0183 = phi i32 [ %64, %63 ], [ 1, %44 ]
-  %.0182 = phi i32 [ %58, %63 ], [ 0, %44 ]
-  %76 = load ptr, ptr %41, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %.preheader, label %130
+  %.0183 = phi i64 [ %76, %63 ], [ 1, %44 ]
+  %.0182 = phi i64 [ %75, %63 ], [ 0, %44 ]
+  %78 = load ptr, ptr %41, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %.preheader, label %128
 
-.preheader:                                       ; preds = %75
-  %78 = icmp ult i32 %.0185, %8
-  br i1 %78, label %.lr.ph233, label %.loopexit
+.preheader:                                       ; preds = %77
+  %80 = icmp ult i32 %.0185, %8
+  br i1 %80, label %.lr.ph233.preheader, label %.loopexit
 
-.lr.ph233:                                        ; preds = %.preheader
-  %79 = zext nneg i32 %.0182 to i64
-  %80 = zext nneg i32 %.0183 to i64
-  %81 = icmp ult i32 %.0182, %10
-  br label %82
+.lr.ph233.preheader:                              ; preds = %.preheader
+  %81 = icmp ult i64 %.0182, %43
+  br label %.lr.ph233
 
-82:                                               ; preds = %.lr.ph233, %._crit_edge231
-  %.1186232 = phi i32 [ %.0185, %.lr.ph233 ], [ %128, %._crit_edge231 ]
-  %83 = load ptr, ptr %42, align 8
-  %84 = zext i32 %.1186232 to i64
-  %85 = mul nsw i64 %40, %84
-  %86 = getelementptr inbounds i8, ptr %38, i64 %85
-  %87 = getelementptr inbounds i8, ptr %86, i64 %43
-  tail call void @png_read_row(ptr noundef %4, ptr noundef %83, ptr noundef null)
+.lr.ph233:                                        ; preds = %.lr.ph233.preheader, %._crit_edge231
+  %.1186232 = phi i32 [ %126, %._crit_edge231 ], [ %.0185, %.lr.ph233.preheader ]
+  %82 = load ptr, ptr %42, align 8
+  %83 = zext i32 %.1186232 to i64
+  %84 = mul nsw i64 %40, %83
+  %85 = getelementptr inbounds i8, ptr %38, i64 %84
+  %86 = getelementptr inbounds i8, ptr %85, i64 %43
+  tail call void @png_read_row(ptr noundef %4, ptr noundef %82, ptr noundef null)
   br i1 %81, label %.lr.ph230.preheader, label %._crit_edge231
 
-.lr.ph230.preheader:                              ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %86, i64 %79
+.lr.ph230.preheader:                              ; preds = %.lr.ph233
+  %87 = getelementptr inbounds i8, ptr %85, i64 %.0182
   br label %.lr.ph230
 
-.lr.ph230:                                        ; preds = %.lr.ph230.preheader, %124
-  %.0188228 = phi ptr [ %125, %124 ], [ %83, %.lr.ph230.preheader ]
-  %.0189227 = phi ptr [ %126, %124 ], [ %88, %.lr.ph230.preheader ]
-  %89 = getelementptr inbounds i8, ptr %.0188228, i64 1
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
-  %.not206 = icmp eq i8 %90, 0
-  br i1 %.not206, label %124, label %92
+.lr.ph230:                                        ; preds = %.lr.ph230.preheader, %122
+  %.0188228 = phi ptr [ %123, %122 ], [ %82, %.lr.ph230.preheader ]
+  %.0189227 = phi ptr [ %124, %122 ], [ %87, %.lr.ph230.preheader ]
+  %88 = getelementptr inbounds i8, ptr %.0188228, i64 1
+  %89 = load i8, ptr %88, align 1
+  %90 = zext i8 %89 to i32
+  %.not206 = icmp eq i8 %89, 0
+  br i1 %.not206, label %122, label %91
 
-92:                                               ; preds = %.lr.ph230
-  %93 = load i8, ptr %.0188228, align 1
-  %94 = zext i8 %93 to i32
-  %.not207 = icmp eq i8 %90, -1
-  br i1 %.not207, label %122, label %95
+91:                                               ; preds = %.lr.ph230
+  %92 = load i8, ptr %.0188228, align 1
+  %.not207 = icmp eq i8 %89, -1
+  br i1 %.not207, label %121, label %93
 
-95:                                               ; preds = %92
-  %96 = zext i8 %93 to i64
-  %97 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %96
-  %98 = load i16, ptr %97, align 2
-  %99 = zext i16 %98 to i32
-  %100 = mul nuw nsw i32 %99, %91
-  %101 = load i8, ptr %.0189227, align 1
-  %102 = zext i8 %101 to i64
-  %103 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %102
-  %104 = load i16, ptr %103, align 2
-  %105 = zext i16 %104 to i32
-  %106 = xor i32 %91, 255
-  %107 = mul nuw nsw i32 %106, %105
-  %108 = add nuw nsw i32 %107, %100
-  %109 = lshr i32 %108, 15
-  %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds [512 x i16], ptr @png_sRGB_base, i64 0, i64 %110
-  %112 = load i16, ptr %111, align 2
-  %113 = zext i16 %112 to i32
-  %114 = and i32 %108, 32767
-  %115 = getelementptr inbounds [512 x i8], ptr @png_sRGB_delta, i64 0, i64 %110
-  %116 = load i8, ptr %115, align 1
-  %117 = zext i8 %116 to i32
-  %118 = mul nuw nsw i32 %114, %117
-  %119 = lshr i32 %118, 12
-  %120 = add nuw nsw i32 %119, %113
-  %121 = lshr i32 %120, 8
+93:                                               ; preds = %91
+  %94 = zext i8 %92 to i64
+  %95 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %94
+  %96 = load i16, ptr %95, align 2
+  %97 = zext i16 %96 to i32
+  %98 = mul nuw nsw i32 %97, %90
+  %99 = load i8, ptr %.0189227, align 1
+  %100 = zext i8 %99 to i64
+  %101 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %100
+  %102 = load i16, ptr %101, align 2
+  %103 = zext i16 %102 to i32
+  %104 = xor i32 %90, 255
+  %105 = mul nuw nsw i32 %104, %103
+  %106 = add nuw nsw i32 %105, %98
+  %107 = lshr i32 %106, 15
+  %108 = zext nneg i32 %107 to i64
+  %109 = getelementptr inbounds [512 x i16], ptr @png_sRGB_base, i64 0, i64 %108
+  %110 = load i16, ptr %109, align 2
+  %111 = zext i16 %110 to i32
+  %112 = and i32 %106, 32767
+  %113 = getelementptr inbounds [512 x i8], ptr @png_sRGB_delta, i64 0, i64 %108
+  %114 = load i8, ptr %113, align 1
+  %115 = zext i8 %114 to i32
+  %116 = mul nuw nsw i32 %112, %115
+  %117 = lshr i32 %116, 12
+  %118 = add nuw nsw i32 %117, %111
+  %119 = lshr i32 %118, 8
+  %120 = trunc i32 %119 to i8
+  br label %121
+
+121:                                              ; preds = %93, %91
+  %.0192 = phi i8 [ %120, %93 ], [ %92, %91 ]
+  store i8 %.0192, ptr %.0189227, align 1
   br label %122
 
-122:                                              ; preds = %95, %92
-  %.0192 = phi i32 [ %121, %95 ], [ %94, %92 ]
-  %123 = trunc i32 %.0192 to i8
-  store i8 %123, ptr %.0189227, align 1
-  br label %124
+122:                                              ; preds = %121, %.lr.ph230
+  %123 = getelementptr inbounds i8, ptr %.0188228, i64 2
+  %124 = getelementptr inbounds i8, ptr %.0189227, i64 %.0183
+  %125 = icmp ult ptr %124, %86
+  br i1 %125, label %.lr.ph230, label %._crit_edge231, !llvm.loop !76
 
-124:                                              ; preds = %122, %.lr.ph230
-  %125 = getelementptr inbounds i8, ptr %.0188228, i64 2
-  %126 = getelementptr inbounds i8, ptr %.0189227, i64 %80
-  %127 = icmp ult ptr %126, %87
-  br i1 %127, label %.lr.ph230, label %._crit_edge231, !llvm.loop !76
+._crit_edge231:                                   ; preds = %122, %.lr.ph233
+  %126 = add i32 %.1186232, %.0184
+  %127 = icmp ult i32 %126, %8
+  br i1 %127, label %.lr.ph233, label %.loopexit, !llvm.loop !77
 
-._crit_edge231:                                   ; preds = %124, %82
-  %128 = add i32 %.1186232, %.0184
-  %129 = icmp ult i32 %128, %8
-  br i1 %129, label %82, label %.loopexit, !llvm.loop !77
+128:                                              ; preds = %77
+  %129 = getelementptr inbounds i8, ptr %78, i64 1
+  %130 = load i8, ptr %129, align 1
+  %131 = icmp ult i32 %.0185, %8
+  br i1 %131, label %.lr.ph226, label %.loopexit
 
-130:                                              ; preds = %75
-  %131 = getelementptr inbounds i8, ptr %76, i64 1
-  %132 = load i8, ptr %131, align 1
-  %133 = icmp ult i32 %.0185, %8
-  br i1 %133, label %.lr.ph226, label %.loopexit
+.lr.ph226:                                        ; preds = %128
+  %132 = zext i8 %130 to i64
+  %133 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %132
+  %134 = load i16, ptr %133, align 2
+  %135 = zext i16 %134 to i32
+  %136 = icmp ult i64 %.0182, %43
+  br label %137
 
-.lr.ph226:                                        ; preds = %130
-  %134 = zext i8 %132 to i64
-  %135 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %134
-  %136 = load i16, ptr %135, align 2
-  %137 = zext nneg i32 %.0182 to i64
-  %138 = zext i16 %136 to i32
-  %139 = zext nneg i32 %.0183 to i64
-  %140 = icmp ult i32 %.0182, %10
-  br label %141
+137:                                              ; preds = %.lr.ph226, %._crit_edge
+  %.2224 = phi i32 [ %.0185, %.lr.ph226 ], [ %176, %._crit_edge ]
+  %138 = load ptr, ptr %42, align 8
+  %139 = zext i32 %.2224 to i64
+  %140 = mul nsw i64 %40, %139
+  %141 = getelementptr inbounds i8, ptr %38, i64 %140
+  %142 = getelementptr inbounds i8, ptr %141, i64 %43
+  tail call void @png_read_row(ptr noundef %4, ptr noundef %138, ptr noundef null)
+  br i1 %136, label %.lr.ph223.preheader, label %._crit_edge
 
-141:                                              ; preds = %.lr.ph226, %._crit_edge
-  %.2224 = phi i32 [ %.0185, %.lr.ph226 ], [ %182, %._crit_edge ]
-  %142 = load ptr, ptr %42, align 8
-  %143 = zext i32 %.2224 to i64
-  %144 = mul nsw i64 %40, %143
-  %145 = getelementptr inbounds i8, ptr %38, i64 %144
-  %146 = getelementptr inbounds i8, ptr %145, i64 %43
-  tail call void @png_read_row(ptr noundef %4, ptr noundef %142, ptr noundef null)
-  br i1 %140, label %.lr.ph223.preheader, label %._crit_edge
-
-.lr.ph223.preheader:                              ; preds = %141
-  %147 = getelementptr inbounds i8, ptr %145, i64 %137
+.lr.ph223.preheader:                              ; preds = %137
+  %143 = getelementptr inbounds i8, ptr %141, i64 %.0182
   br label %.lr.ph223
 
-.lr.ph223:                                        ; preds = %.lr.ph223.preheader, %178
-  %.0190222 = phi ptr [ %180, %178 ], [ %147, %.lr.ph223.preheader ]
-  %.0191221 = phi ptr [ %179, %178 ], [ %142, %.lr.ph223.preheader ]
-  %148 = getelementptr inbounds i8, ptr %.0191221, i64 1
-  %149 = load i8, ptr %148, align 1
-  %150 = zext i8 %149 to i32
-  %.not204 = icmp eq i8 %149, 0
-  br i1 %.not204, label %178, label %151
+.lr.ph223:                                        ; preds = %.lr.ph223.preheader, %172
+  %.0190222 = phi ptr [ %174, %172 ], [ %143, %.lr.ph223.preheader ]
+  %.0191221 = phi ptr [ %173, %172 ], [ %138, %.lr.ph223.preheader ]
+  %144 = getelementptr inbounds i8, ptr %.0191221, i64 1
+  %145 = load i8, ptr %144, align 1
+  %146 = zext i8 %145 to i32
+  %.not204 = icmp eq i8 %145, 0
+  br i1 %.not204, label %172, label %147
 
-151:                                              ; preds = %.lr.ph223
-  %152 = load i8, ptr %.0191221, align 1
-  %153 = zext i8 %152 to i32
-  %.not205 = icmp eq i8 %149, -1
-  br i1 %.not205, label %176, label %154
+147:                                              ; preds = %.lr.ph223
+  %148 = load i8, ptr %.0191221, align 1
+  %.not205 = icmp eq i8 %145, -1
+  br i1 %.not205, label %172, label %149
 
-154:                                              ; preds = %151
-  %155 = zext i8 %152 to i64
-  %156 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %155
-  %157 = load i16, ptr %156, align 2
-  %158 = zext i16 %157 to i32
-  %159 = mul nuw nsw i32 %158, %150
-  %160 = xor i32 %150, 255
-  %161 = mul nuw nsw i32 %160, %138
-  %162 = add nuw nsw i32 %159, %161
-  %163 = lshr i32 %162, 15
-  %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds [512 x i16], ptr @png_sRGB_base, i64 0, i64 %164
-  %166 = load i16, ptr %165, align 2
-  %167 = zext i16 %166 to i32
-  %168 = and i32 %162, 32767
-  %169 = getelementptr inbounds [512 x i8], ptr @png_sRGB_delta, i64 0, i64 %164
-  %170 = load i8, ptr %169, align 1
-  %171 = zext i8 %170 to i32
-  %172 = mul nuw nsw i32 %168, %171
-  %173 = lshr i32 %172, 12
-  %174 = add nuw nsw i32 %173, %167
-  %175 = lshr i32 %174, 8
-  br label %176
+149:                                              ; preds = %147
+  %150 = zext i8 %148 to i64
+  %151 = getelementptr inbounds [256 x i16], ptr @png_sRGB_table, i64 0, i64 %150
+  %152 = load i16, ptr %151, align 2
+  %153 = zext i16 %152 to i32
+  %154 = mul nuw nsw i32 %153, %146
+  %155 = xor i32 %146, 255
+  %156 = mul nuw nsw i32 %155, %135
+  %157 = add nuw nsw i32 %154, %156
+  %158 = lshr i32 %157, 15
+  %159 = zext nneg i32 %158 to i64
+  %160 = getelementptr inbounds [512 x i16], ptr @png_sRGB_base, i64 0, i64 %159
+  %161 = load i16, ptr %160, align 2
+  %162 = zext i16 %161 to i32
+  %163 = and i32 %157, 32767
+  %164 = getelementptr inbounds [512 x i8], ptr @png_sRGB_delta, i64 0, i64 %159
+  %165 = load i8, ptr %164, align 1
+  %166 = zext i8 %165 to i32
+  %167 = mul nuw nsw i32 %163, %166
+  %168 = lshr i32 %167, 12
+  %169 = add nuw nsw i32 %168, %162
+  %170 = lshr i32 %169, 8
+  %171 = trunc i32 %170 to i8
+  br label %172
 
-176:                                              ; preds = %154, %151
-  %.0187 = phi i32 [ %175, %154 ], [ %153, %151 ]
-  %177 = trunc i32 %.0187 to i8
-  br label %178
-
-178:                                              ; preds = %.lr.ph223, %176
-  %storemerge = phi i8 [ %177, %176 ], [ %132, %.lr.ph223 ]
+172:                                              ; preds = %.lr.ph223, %147, %149
+  %storemerge = phi i8 [ %171, %149 ], [ %148, %147 ], [ %130, %.lr.ph223 ]
   store i8 %storemerge, ptr %.0190222, align 1
-  %179 = getelementptr inbounds i8, ptr %.0191221, i64 2
-  %180 = getelementptr inbounds i8, ptr %.0190222, i64 %139
-  %181 = icmp ult ptr %180, %146
-  br i1 %181, label %.lr.ph223, label %._crit_edge, !llvm.loop !78
+  %173 = getelementptr inbounds i8, ptr %.0191221, i64 2
+  %174 = getelementptr inbounds i8, ptr %.0190222, i64 %.0183
+  %175 = icmp ult ptr %174, %142
+  br i1 %175, label %.lr.ph223, label %._crit_edge, !llvm.loop !78
 
-._crit_edge:                                      ; preds = %178, %141
-  %182 = add i32 %.2224, %.0184
-  %183 = icmp ult i32 %182, %8
-  br i1 %183, label %141, label %.loopexit, !llvm.loop !79
+._crit_edge:                                      ; preds = %172, %137
+  %176 = add i32 %.2224, %.0184
+  %177 = icmp ult i32 %176, %8
+  br i1 %177, label %137, label %.loopexit, !llvm.loop !79
 
-.loopexit:                                        ; preds = %._crit_edge, %._crit_edge231, %130, %.preheader, %47
-  %184 = add nuw nsw i32 %.0234, 1
-  %exitcond241.not = icmp eq i32 %184, %.0173
+.loopexit:                                        ; preds = %._crit_edge, %._crit_edge231, %128, %.preheader, %47
+  %178 = add nuw nsw i32 %.0234, 1
+  %exitcond241.not = icmp eq i32 %178, %.0173
   br i1 %exitcond241.not, label %.loopexit211, label %44, !llvm.loop !80
 
-185:                                              ; preds = %33
-  %186 = getelementptr inbounds i8, ptr %0, i64 48
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %0, i64 56
-  %189 = load i64, ptr %188, align 8
-  %190 = sdiv i64 %189, 2
-  %191 = add nuw nsw i32 %25, 1
-  %192 = and i32 %.fr236, 33
-  %or.cond208.not = icmp eq i32 %192, 33
-  %193 = mul i32 %191, %10
-  %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds i8, ptr %0, i64 40
-  %196 = zext i1 %or.cond208.not to i64
-  %197 = xor i1 %or.cond208.not, true
-  %198 = zext i1 %197 to i64
+179:                                              ; preds = %33
+  %180 = getelementptr inbounds i8, ptr %0, i64 48
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds i8, ptr %0, i64 56
+  %183 = load i64, ptr %182, align 8
+  %184 = sdiv i64 %183, 2
+  %185 = add nuw nsw i32 %25, 1
+  %186 = and i32 %.fr236, 33
+  %or.cond208.not = icmp eq i32 %186, 33
+  %187 = mul i32 %185, %10
+  %188 = zext i32 %187 to i64
+  %189 = getelementptr inbounds i8, ptr %0, i64 40
+  %190 = zext i1 %or.cond208.not to i64
+  %191 = xor i1 %or.cond208.not, true
+  %192 = zext i1 %191 to i64
   br i1 %.not198, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %185, %.loopexit212.us
-  %.1219.us = phi i32 [ %232, %.loopexit212.us ], [ 0, %185 ]
-  %199 = load i8, ptr %29, align 4
-  %200 = icmp eq i8 %199, 1
-  br i1 %200, label %201, label %230
+.split.us:                                        ; preds = %179, %.loopexit212.us
+  %.1219.us = phi i32 [ %227, %.loopexit212.us ], [ 0, %179 ]
+  %193 = load i8, ptr %29, align 4
+  %194 = icmp eq i8 %193, 1
+  br i1 %194, label %195, label %225
 
-201:                                              ; preds = %.split.us
-  %202 = icmp ugt i32 %.1219.us, 1
-  %203 = sub nuw nsw i32 7, %.1219.us
-  %204 = lshr i32 %203, 1
-  %205 = select i1 %202, i32 %204, i32 3
-  %notmask.us = shl nsw i32 -1, %205
-  %206 = xor i32 %notmask.us, -1
-  %207 = and i32 %.1219.us, 1
-  %208 = add nuw nsw i32 %.1219.us, 1
-  %209 = lshr i32 %208, 1
-  %210 = sub nsw i32 3, %209
-  %211 = shl nuw nsw i32 %207, %210
-  %212 = and i32 %211, 7
-  %213 = add i32 %10, %206
-  %214 = sub i32 %213, %212
-  %215 = lshr i32 %214, %205
-  %216 = icmp eq i32 %215, 0
-  br i1 %216, label %.loopexit212.us, label %217
+195:                                              ; preds = %.split.us
+  %196 = icmp ugt i32 %.1219.us, 1
+  %197 = sub nuw nsw i32 7, %.1219.us
+  %198 = lshr i32 %197, 1
+  %199 = select i1 %196, i32 %198, i32 3
+  %notmask.us = shl nsw i32 -1, %199
+  %200 = xor i32 %notmask.us, -1
+  %201 = and i32 %.1219.us, 1
+  %202 = add nuw nsw i32 %.1219.us, 1
+  %203 = lshr i32 %202, 1
+  %204 = sub nsw i32 3, %203
+  %205 = shl nuw nsw i32 %201, %204
+  %206 = and i32 %205, 7
+  %207 = add i32 %10, %200
+  %208 = sub i32 %207, %206
+  %209 = lshr i32 %208, %199
+  %210 = icmp eq i32 %209, 0
+  br i1 %210, label %.loopexit212.us, label %211
 
-217:                                              ; preds = %201
-  %218 = mul nuw nsw i32 %212, %191
-  %219 = shl nuw nsw i32 %191, %204
-  %220 = xor i32 %207, 1
-  %221 = lshr i32 %.1219.us, 1
-  %222 = sub nsw i32 3, %221
-  %223 = shl nuw nsw i32 %220, %222
-  %224 = and i32 %223, 7
-  %225 = icmp ugt i32 %.1219.us, 2
-  %226 = add nsw i32 %.1219.us, -1
-  %227 = ashr i32 %226, 1
-  %228 = lshr i32 8, %227
-  %229 = select i1 %225, i32 %228, i32 8
-  br label %230
+211:                                              ; preds = %195
+  %212 = mul nuw nsw i32 %206, %185
+  %213 = shl nuw nsw i32 %185, %198
+  %214 = xor i32 %201, 1
+  %215 = lshr i32 %.1219.us, 1
+  %216 = sub nsw i32 3, %215
+  %217 = shl nuw nsw i32 %214, %216
+  %218 = and i32 %217, 7
+  %219 = icmp ugt i32 %.1219.us, 2
+  %220 = add nsw i32 %.1219.us, -1
+  %221 = ashr i32 %220, 1
+  %222 = lshr i32 8, %221
+  %223 = select i1 %219, i32 %222, i32 8
+  %224 = zext nneg i32 %212 to i64
+  br label %225
 
-230:                                              ; preds = %217, %.split.us
-  %.0180.us = phi i32 [ %218, %217 ], [ 0, %.split.us ]
-  %.0179.us = phi i32 [ %219, %217 ], [ %191, %.split.us ]
-  %.0178.us = phi i32 [ %229, %217 ], [ 1, %.split.us ]
-  %.0176.us = phi i32 [ %224, %217 ], [ 0, %.split.us ]
-  %231 = icmp ult i32 %.0176.us, %8
-  br i1 %231, label %.lr.ph218.us, label %.loopexit212.us
+225:                                              ; preds = %211, %.split.us
+  %.0180.us = phi i64 [ %224, %211 ], [ 0, %.split.us ]
+  %.0179.us = phi i32 [ %213, %211 ], [ %185, %.split.us ]
+  %.0178.us = phi i32 [ %223, %211 ], [ 1, %.split.us ]
+  %.0176.us = phi i32 [ %218, %211 ], [ 0, %.split.us ]
+  %226 = icmp ult i32 %.0176.us, %8
+  br i1 %226, label %.lr.ph218.us, label %.loopexit212.us
 
-.loopexit212.us:                                  ; preds = %._crit_edge.split.us.us.us, %230, %201
-  %232 = add nuw nsw i32 %.1219.us, 1
-  %exitcond240.not = icmp eq i32 %232, %.0173
+.loopexit212.us:                                  ; preds = %._crit_edge.split.us.us.us, %225, %195
+  %227 = add nuw nsw i32 %.1219.us, 1
+  %exitcond240.not = icmp eq i32 %227, %.0173
   br i1 %exitcond240.not, label %.loopexit211, label %.split.us, !llvm.loop !81
 
-.lr.ph218.us:                                     ; preds = %230
-  %233 = zext nneg i32 %.0180.us to i64
-  %234 = zext nneg i32 %.0179.us to i64
-  %235 = icmp ult i32 %.0180.us, %193
-  br label %236
+.lr.ph218.us:                                     ; preds = %225
+  %228 = zext nneg i32 %.0179.us to i64
+  %229 = icmp ult i64 %.0180.us, %188
+  br label %230
 
-236:                                              ; preds = %._crit_edge.split.us.us.us, %.lr.ph218.us
-  %.1177216.us.us = phi i32 [ %.0176.us, %.lr.ph218.us ], [ %244, %._crit_edge.split.us.us.us ]
-  %237 = zext i32 %.1177216.us.us to i64
-  %238 = mul nsw i64 %190, %237
-  %239 = getelementptr inbounds i16, ptr %187, i64 %238
-  %240 = getelementptr inbounds i16, ptr %239, i64 %194
-  %241 = load ptr, ptr %195, align 8
-  tail call void @png_read_row(ptr noundef %4, ptr noundef %241, ptr noundef null)
-  br i1 %235, label %.lr.ph.us.us.preheader, label %._crit_edge.split.us.us.us
+230:                                              ; preds = %._crit_edge.split.us.us.us, %.lr.ph218.us
+  %.1177216.us.us = phi i32 [ %.0176.us, %.lr.ph218.us ], [ %238, %._crit_edge.split.us.us.us ]
+  %231 = zext i32 %.1177216.us.us to i64
+  %232 = mul nsw i64 %184, %231
+  %233 = getelementptr inbounds i16, ptr %181, i64 %232
+  %234 = getelementptr inbounds i16, ptr %233, i64 %188
+  %235 = load ptr, ptr %189, align 8
+  tail call void @png_read_row(ptr noundef %4, ptr noundef %235, ptr noundef null)
+  br i1 %229, label %.lr.ph.us.us.preheader, label %._crit_edge.split.us.us.us
 
-.lr.ph.us.us.preheader:                           ; preds = %236
-  %242 = getelementptr inbounds i16, ptr %239, i64 %233
-  %243 = load ptr, ptr %195, align 8
+.lr.ph.us.us.preheader:                           ; preds = %230
+  %236 = getelementptr inbounds i16, ptr %233, i64 %.0180.us
+  %237 = load ptr, ptr %189, align 8
   br label %.lr.ph.us.us
 
-._crit_edge.split.us.us.us:                       ; preds = %256, %236
-  %244 = add i32 %.1177216.us.us, %.0178.us
-  %245 = icmp ult i32 %244, %8
-  br i1 %245, label %236, label %.loopexit212.us, !llvm.loop !82
+._crit_edge.split.us.us.us:                       ; preds = %251, %230
+  %238 = add i32 %.1177216.us.us, %.0178.us
+  %239 = icmp ult i32 %238, %8
+  br i1 %239, label %230, label %.loopexit212.us, !llvm.loop !82
 
-.lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %256
-  %.0174215.us.us.us = phi ptr [ %260, %256 ], [ %242, %.lr.ph.us.us.preheader ]
-  %.0175214.us.us.us = phi ptr [ %259, %256 ], [ %243, %.lr.ph.us.us.preheader ]
-  %246 = load i16, ptr %.0175214.us.us.us, align 2
-  %247 = zext i16 %246 to i32
-  %248 = getelementptr inbounds i8, ptr %.0175214.us.us.us, i64 2
-  %249 = load i16, ptr %248, align 2
-  switch i16 %249, label %251 [
-    i16 0, label %250
-    i16 -1, label %256
+.lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %251
+  %.0174215.us.us.us = phi ptr [ %254, %251 ], [ %236, %.lr.ph.us.us.preheader ]
+  %.0175214.us.us.us = phi ptr [ %253, %251 ], [ %237, %.lr.ph.us.us.preheader ]
+  %240 = load i16, ptr %.0175214.us.us.us, align 2
+  %241 = getelementptr inbounds i8, ptr %.0175214.us.us.us, i64 2
+  %242 = load i16, ptr %241, align 2
+  switch i16 %242, label %244 [
+    i16 0, label %243
+    i16 -1, label %251
   ]
 
-250:                                              ; preds = %.lr.ph.us.us
-  br label %256
+243:                                              ; preds = %.lr.ph.us.us
+  br label %251
 
-251:                                              ; preds = %.lr.ph.us.us
-  %252 = zext i16 %249 to i32
-  %253 = mul nuw i32 %252, %247
-  %254 = add nuw i32 %253, 32767
-  %255 = udiv i32 %254, 65535
-  br label %256
+244:                                              ; preds = %.lr.ph.us.us
+  %245 = zext i16 %242 to i32
+  %246 = zext i16 %240 to i32
+  %247 = mul nuw i32 %245, %246
+  %248 = add nuw i32 %247, 32767
+  %249 = udiv i32 %248, 65535
+  %250 = trunc nuw i32 %249 to i16
+  br label %251
 
-256:                                              ; preds = %251, %250, %.lr.ph.us.us
-  %.0172.us.us.us = phi i32 [ %255, %251 ], [ 0, %250 ], [ %247, %.lr.ph.us.us ]
-  %257 = trunc nuw i32 %.0172.us.us.us to i16
-  %258 = getelementptr inbounds i16, ptr %.0174215.us.us.us, i64 %196
-  store i16 %257, ptr %258, align 2
-  %259 = getelementptr inbounds i8, ptr %.0175214.us.us.us, i64 4
-  %260 = getelementptr inbounds i16, ptr %.0174215.us.us.us, i64 %234
-  %261 = icmp ult ptr %260, %240
-  br i1 %261, label %.lr.ph.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !83
+251:                                              ; preds = %244, %243, %.lr.ph.us.us
+  %.0172.us.us.us = phi i16 [ %250, %244 ], [ 0, %243 ], [ %240, %.lr.ph.us.us ]
+  %252 = getelementptr inbounds i16, ptr %.0174215.us.us.us, i64 %190
+  store i16 %.0172.us.us.us, ptr %252, align 2
+  %253 = getelementptr inbounds i8, ptr %.0175214.us.us.us, i64 4
+  %254 = getelementptr inbounds i16, ptr %.0174215.us.us.us, i64 %228
+  %255 = icmp ult ptr %254, %234
+  br i1 %255, label %.lr.ph.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !83
 
-.split:                                           ; preds = %185, %.loopexit212
-  %.1219 = phi i32 [ %325, %.loopexit212 ], [ 0, %185 ]
-  %262 = load i8, ptr %29, align 4
-  %263 = icmp eq i8 %262, 1
-  br i1 %263, label %264, label %293
+.split:                                           ; preds = %179, %.loopexit212
+  %.1219 = phi i32 [ %319, %.loopexit212 ], [ 0, %179 ]
+  %256 = load i8, ptr %29, align 4
+  %257 = icmp eq i8 %256, 1
+  br i1 %257, label %258, label %288
 
-264:                                              ; preds = %.split
-  %265 = icmp ugt i32 %.1219, 1
-  %266 = sub nuw nsw i32 7, %.1219
-  %267 = lshr i32 %266, 1
-  %268 = select i1 %265, i32 %267, i32 3
-  %notmask = shl nsw i32 -1, %268
-  %269 = xor i32 %notmask, -1
-  %270 = and i32 %.1219, 1
-  %271 = add nuw nsw i32 %.1219, 1
-  %272 = lshr i32 %271, 1
-  %273 = sub nsw i32 3, %272
-  %274 = shl nuw nsw i32 %270, %273
-  %275 = and i32 %274, 7
-  %276 = add i32 %10, %269
-  %277 = sub i32 %276, %275
-  %278 = lshr i32 %277, %268
-  %279 = icmp eq i32 %278, 0
-  br i1 %279, label %.loopexit212, label %280
+258:                                              ; preds = %.split
+  %259 = icmp ugt i32 %.1219, 1
+  %260 = sub nuw nsw i32 7, %.1219
+  %261 = lshr i32 %260, 1
+  %262 = select i1 %259, i32 %261, i32 3
+  %notmask = shl nsw i32 -1, %262
+  %263 = xor i32 %notmask, -1
+  %264 = and i32 %.1219, 1
+  %265 = add nuw nsw i32 %.1219, 1
+  %266 = lshr i32 %265, 1
+  %267 = sub nsw i32 3, %266
+  %268 = shl nuw nsw i32 %264, %267
+  %269 = and i32 %268, 7
+  %270 = add i32 %10, %263
+  %271 = sub i32 %270, %269
+  %272 = lshr i32 %271, %262
+  %273 = icmp eq i32 %272, 0
+  br i1 %273, label %.loopexit212, label %274
 
-280:                                              ; preds = %264
-  %281 = mul nuw nsw i32 %275, %191
-  %282 = shl nuw nsw i32 %191, %267
-  %283 = xor i32 %270, 1
-  %284 = lshr i32 %.1219, 1
-  %285 = sub nsw i32 3, %284
-  %286 = shl nuw nsw i32 %283, %285
-  %287 = and i32 %286, 7
-  %288 = icmp ugt i32 %.1219, 2
-  %289 = add nsw i32 %.1219, -1
-  %290 = ashr i32 %289, 1
-  %291 = lshr i32 8, %290
-  %292 = select i1 %288, i32 %291, i32 8
-  br label %293
+274:                                              ; preds = %258
+  %275 = mul nuw nsw i32 %269, %185
+  %276 = shl nuw nsw i32 %185, %261
+  %277 = xor i32 %264, 1
+  %278 = lshr i32 %.1219, 1
+  %279 = sub nsw i32 3, %278
+  %280 = shl nuw nsw i32 %277, %279
+  %281 = and i32 %280, 7
+  %282 = icmp ugt i32 %.1219, 2
+  %283 = add nsw i32 %.1219, -1
+  %284 = ashr i32 %283, 1
+  %285 = lshr i32 8, %284
+  %286 = select i1 %282, i32 %285, i32 8
+  %287 = zext nneg i32 %275 to i64
+  br label %288
 
-293:                                              ; preds = %.split, %280
-  %.0180 = phi i32 [ %281, %280 ], [ 0, %.split ]
-  %.0179 = phi i32 [ %282, %280 ], [ %191, %.split ]
-  %.0178 = phi i32 [ %292, %280 ], [ 1, %.split ]
-  %.0176 = phi i32 [ %287, %280 ], [ 0, %.split ]
-  %294 = icmp ult i32 %.0176, %8
-  br i1 %294, label %.lr.ph218, label %.loopexit212
+288:                                              ; preds = %.split, %274
+  %.0180 = phi i64 [ %287, %274 ], [ 0, %.split ]
+  %.0179 = phi i32 [ %276, %274 ], [ %185, %.split ]
+  %.0178 = phi i32 [ %286, %274 ], [ 1, %.split ]
+  %.0176 = phi i32 [ %281, %274 ], [ 0, %.split ]
+  %289 = icmp ult i32 %.0176, %8
+  br i1 %289, label %.lr.ph218, label %.loopexit212
 
-.lr.ph218:                                        ; preds = %293
-  %295 = zext nneg i32 %.0180 to i64
-  %296 = zext nneg i32 %.0179 to i64
-  %297 = icmp ult i32 %.0180, %193
-  br label %298
+.lr.ph218:                                        ; preds = %288
+  %290 = zext nneg i32 %.0179 to i64
+  %291 = icmp ult i64 %.0180, %188
+  br label %292
 
-298:                                              ; preds = %.lr.ph218, %._crit_edge.split
-  %.1177216 = phi i32 [ %.0176, %.lr.ph218 ], [ %323, %._crit_edge.split ]
-  %299 = zext i32 %.1177216 to i64
-  %300 = mul nsw i64 %190, %299
-  %301 = getelementptr inbounds i16, ptr %187, i64 %300
-  %302 = getelementptr inbounds i16, ptr %301, i64 %194
-  %303 = load ptr, ptr %195, align 8
-  tail call void @png_read_row(ptr noundef %4, ptr noundef %303, ptr noundef null)
-  br i1 %297, label %.lr.ph.preheader, label %._crit_edge.split
+292:                                              ; preds = %.lr.ph218, %._crit_edge.split
+  %.1177216 = phi i32 [ %.0176, %.lr.ph218 ], [ %317, %._crit_edge.split ]
+  %293 = zext i32 %.1177216 to i64
+  %294 = mul nsw i64 %184, %293
+  %295 = getelementptr inbounds i16, ptr %181, i64 %294
+  %296 = getelementptr inbounds i16, ptr %295, i64 %188
+  %297 = load ptr, ptr %189, align 8
+  tail call void @png_read_row(ptr noundef %4, ptr noundef %297, ptr noundef null)
+  br i1 %291, label %.lr.ph.preheader, label %._crit_edge.split
 
-.lr.ph.preheader:                                 ; preds = %298
-  %304 = getelementptr inbounds i16, ptr %301, i64 %295
-  %305 = load ptr, ptr %195, align 8
+.lr.ph.preheader:                                 ; preds = %292
+  %298 = getelementptr inbounds i16, ptr %295, i64 %.0180
+  %299 = load ptr, ptr %189, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %316
-  %.0174215 = phi ptr [ %321, %316 ], [ %304, %.lr.ph.preheader ]
-  %.0175214 = phi ptr [ %320, %316 ], [ %305, %.lr.ph.preheader ]
-  %306 = load i16, ptr %.0175214, align 2
-  %307 = zext i16 %306 to i32
-  %308 = getelementptr inbounds i8, ptr %.0175214, i64 2
-  %309 = load i16, ptr %308, align 2
-  switch i16 %309, label %310 [
-    i16 0, label %315
-    i16 -1, label %316
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %311
+  %.0174215 = phi ptr [ %315, %311 ], [ %298, %.lr.ph.preheader ]
+  %.0175214 = phi ptr [ %314, %311 ], [ %299, %.lr.ph.preheader ]
+  %300 = load i16, ptr %.0175214, align 2
+  %301 = getelementptr inbounds i8, ptr %.0175214, i64 2
+  %302 = load i16, ptr %301, align 2
+  switch i16 %302, label %303 [
+    i16 0, label %310
+    i16 -1, label %311
   ]
 
+303:                                              ; preds = %.lr.ph
+  %304 = zext i16 %302 to i32
+  %305 = zext i16 %300 to i32
+  %306 = mul nuw i32 %304, %305
+  %307 = add nuw i32 %306, 32767
+  %308 = udiv i32 %307, 65535
+  %309 = trunc nuw i32 %308 to i16
+  br label %311
+
 310:                                              ; preds = %.lr.ph
-  %311 = zext i16 %309 to i32
-  %312 = mul nuw i32 %311, %307
-  %313 = add nuw i32 %312, 32767
-  %314 = udiv i32 %313, 65535
-  br label %316
+  br label %311
 
-315:                                              ; preds = %.lr.ph
-  br label %316
+311:                                              ; preds = %.lr.ph, %303, %310
+  %.0172 = phi i16 [ %309, %303 ], [ 0, %310 ], [ %300, %.lr.ph ]
+  %312 = getelementptr inbounds i16, ptr %.0174215, i64 %190
+  store i16 %.0172, ptr %312, align 2
+  %313 = getelementptr inbounds i16, ptr %.0174215, i64 %192
+  store i16 %302, ptr %313, align 2
+  %314 = getelementptr inbounds i8, ptr %.0175214, i64 4
+  %315 = getelementptr inbounds i16, ptr %.0174215, i64 %290
+  %316 = icmp ult ptr %315, %296
+  br i1 %316, label %.lr.ph, label %._crit_edge.split, !llvm.loop !83
 
-316:                                              ; preds = %.lr.ph, %310, %315
-  %.0172 = phi i32 [ %314, %310 ], [ 0, %315 ], [ %307, %.lr.ph ]
-  %317 = trunc nuw i32 %.0172 to i16
-  %318 = getelementptr inbounds i16, ptr %.0174215, i64 %196
-  store i16 %317, ptr %318, align 2
-  %319 = getelementptr inbounds i16, ptr %.0174215, i64 %198
-  store i16 %309, ptr %319, align 2
-  %320 = getelementptr inbounds i8, ptr %.0175214, i64 4
-  %321 = getelementptr inbounds i16, ptr %.0174215, i64 %296
-  %322 = icmp ult ptr %321, %302
-  br i1 %322, label %.lr.ph, label %._crit_edge.split, !llvm.loop !83
+._crit_edge.split:                                ; preds = %311, %292
+  %317 = add i32 %.1177216, %.0178
+  %318 = icmp ult i32 %317, %8
+  br i1 %318, label %292, label %.loopexit212, !llvm.loop !82
 
-._crit_edge.split:                                ; preds = %316, %298
-  %323 = add i32 %.1177216, %.0178
-  %324 = icmp ult i32 %323, %8
-  br i1 %324, label %298, label %.loopexit212, !llvm.loop !82
-
-.loopexit212:                                     ; preds = %._crit_edge.split, %293, %264
-  %325 = add nuw nsw i32 %.1219, 1
-  %exitcond.not = icmp eq i32 %325, %.0173
+.loopexit212:                                     ; preds = %._crit_edge.split, %288, %258
+  %319 = add nuw nsw i32 %.1219, 1
+  %exitcond.not = icmp eq i32 %319, %.0173
   br i1 %exitcond.not, label %.loopexit211, label %.split, !llvm.loop !81
 
-326:                                              ; preds = %33
+320:                                              ; preds = %33
   tail call void @png_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.61) #12
   unreachable
 

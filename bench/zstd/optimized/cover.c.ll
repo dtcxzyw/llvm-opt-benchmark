@@ -1034,7 +1034,7 @@ COVER_map_at.exit73.thread.i:                     ; preds = %for.inc.i.i58.i, %i
   %arrayidx10.i67.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %20, i64 %idxprom.pre-phi.ph.i66.i
   %value11.i68.i = getelementptr inbounds i8, ptr %arrayidx10.i67.i, i64 4
   store i32 %19, ptr %arrayidx10.i67.i, align 4
-  %add2736.i = add i32 %activeSegment.sroa.0.09.i, 1
+  %add2737.i = add i32 %activeSegment.sroa.0.09.i, 1
   store i32 -1, ptr %value11.i68.i, align 4
   br label %if.end36.i
 
@@ -1042,53 +1042,53 @@ COVER_map_at.exit73.i:                            ; preds = %if.end.i.i54.i
   %idxprom.phi.trans.insert.phi.trans.insert.i71.i = zext i32 %i.012.i.i56.i to i64
   %value.i72.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %20, i64 %idxprom.phi.trans.insert.phi.trans.insert.i71.i, i32 1
   %.pre.i = load i32, ptr %value.i72.i, align 4
+  %25 = add i32 %.pre.i, -1
   %add27.i = add i32 %activeSegment.sroa.0.09.i, 1
-  %sub28.i = add i32 %.pre.i, -1
-  store i32 %sub28.i, ptr %value.i72.i, align 4
-  %cmp29.i = icmp eq i32 %sub28.i, 0
+  store i32 %25, ptr %value.i72.i, align 4
+  %cmp29.i = icmp eq i32 %25, 0
   br i1 %cmp29.i, label %if.then30.i, label %if.end36.i
 
 if.then30.i:                                      ; preds = %COVER_map_at.exit73.i
   %map.val.i.i74.i = load i32, ptr %5, align 8
   %sub.i.i.i76.i = sub i32 32, %map.val.i.i74.i
   %shr.i.i.i77.i = lshr i32 %mul.i.i.i45.i, %sub.i.i.i76.i
-  %25 = load ptr, ptr %activeDmers, align 8
+  %26 = load ptr, ptr %activeDmers, align 8
   %idxprom8.i.i78.i = zext i32 %shr.i.i.i77.i to i64
-  %arrayidx9.i.i79.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %25, i64 %idxprom8.i.i78.i
+  %arrayidx9.i.i79.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %26, i64 %idxprom8.i.i78.i
   %value10.i.i80.i = getelementptr inbounds i8, ptr %arrayidx9.i.i79.i, i64 4
-  %26 = load i32, ptr %value10.i.i80.i, align 4
-  %cmp11.i.i81.i = icmp eq i32 %26, -1
+  %27 = load i32, ptr %value10.i.i80.i, align 4
+  %cmp11.i.i81.i = icmp eq i32 %27, -1
   br i1 %cmp11.i.i81.i, label %COVER_map_remove.exit.i, label %if.end.i.i84.i
 
 if.end.i.i84.i:                                   ; preds = %if.then30.i, %for.inc.i.i88.i
   %arrayidx13.i.i85.i = phi ptr [ %arrayidx.i.i92.i, %for.inc.i.i88.i ], [ %arrayidx9.i.i79.i, %if.then30.i ]
   %i.012.i.i86.i = phi i32 [ %and.i.i90.i, %for.inc.i.i88.i ], [ %shr.i.i.i77.i, %if.then30.i ]
-  %27 = load i32, ptr %arrayidx13.i.i85.i, align 4
-  %cmp2.i.not.i87.i = icmp eq i32 %27, %19
+  %28 = load i32, ptr %arrayidx13.i.i85.i, align 4
+  %cmp2.i.not.i87.i = icmp eq i32 %28, %19
   br i1 %cmp2.i.not.i87.i, label %if.end.i.i, label %for.inc.i.i88.i
 
 for.inc.i.i88.i:                                  ; preds = %if.end.i.i84.i
   %add.i.i89.i = add i32 %i.012.i.i86.i, 1
-  %28 = load i32, ptr %sizeMask.i.i.i, align 8
-  %and.i.i90.i = and i32 %28, %add.i.i89.i
+  %29 = load i32, ptr %sizeMask.i.i.i, align 8
+  %and.i.i90.i = and i32 %29, %add.i.i89.i
   %idxprom.i.i91.i = zext i32 %and.i.i90.i to i64
-  %arrayidx.i.i92.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %25, i64 %idxprom.i.i91.i
+  %arrayidx.i.i92.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %26, i64 %idxprom.i.i91.i
   %value.i.i93.i = getelementptr inbounds i8, ptr %arrayidx.i.i92.i, i64 4
-  %29 = load i32, ptr %value.i.i93.i, align 4
-  %cmp.i.i94.i = icmp eq i32 %29, -1
+  %30 = load i32, ptr %value.i.i93.i, align 4
+  %cmp.i.i94.i = icmp eq i32 %30, -1
   br i1 %cmp.i.i94.i, label %COVER_map_remove.exit.i, label %if.end.i.i84.i
 
 if.end.i.i:                                       ; preds = %if.end.i.i84.i
   %idxprom.phi.trans.insert.phi.trans.insert.i95.i = zext i32 %i.012.i.i86.i to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %25, i64 %idxprom.phi.trans.insert.phi.trans.insert.i95.i
+  %arrayidx.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %26, i64 %idxprom.phi.trans.insert.phi.trans.insert.i95.i
   %add.i.i = add i32 %i.012.i.i86.i, 1
-  %30 = load i32, ptr %sizeMask.i.i.i, align 8
-  %and.i.i = and i32 %30, %add.i.i
+  %31 = load i32, ptr %sizeMask.i.i.i, align 8
+  %and.i.i = and i32 %31, %add.i.i
   %idxprom219.i.i = zext i32 %and.i.i to i64
-  %arrayidx320.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %25, i64 %idxprom219.i.i
+  %arrayidx320.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %26, i64 %idxprom219.i.i
   %value421.i.i = getelementptr inbounds i8, ptr %arrayidx320.i.i, i64 4
-  %31 = load i32, ptr %value421.i.i, align 4
-  %cmp522.i.i = icmp eq i32 %31, -1
+  %32 = load i32, ptr %value421.i.i, align 4
+  %cmp522.i.i = icmp eq i32 %32, -1
   br i1 %cmp522.i.i, label %if.then6.i.i, label %if.end8.i.i
 
 if.then6.i.i:                                     ; preds = %for.inc.i.i, %if.end.i.i
@@ -1098,28 +1098,28 @@ if.then6.i.i:                                     ; preds = %for.inc.i.i, %if.en
   br label %COVER_map_remove.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i, %for.inc.i.i
-  %32 = phi ptr [ %36, %for.inc.i.i ], [ %25, %if.end.i.i ]
-  %33 = phi i32 [ %37, %for.inc.i.i ], [ %30, %if.end.i.i ]
+  %33 = phi ptr [ %37, %for.inc.i.i ], [ %26, %if.end.i.i ]
+  %34 = phi i32 [ %38, %for.inc.i.i ], [ %31, %if.end.i.i ]
   %value427.i.i = phi ptr [ %value4.i.i, %for.inc.i.i ], [ %value421.i.i, %if.end.i.i ]
   %arrayidx326.i.i = phi ptr [ %arrayidx3.i.i, %for.inc.i.i ], [ %arrayidx320.i.i, %if.end.i.i ]
   %i.025.i.i = phi i32 [ %and22.i.i, %for.inc.i.i ], [ %and.i.i, %if.end.i.i ]
   %shift.024.i.i = phi i32 [ %shift.1.i.i, %for.inc.i.i ], [ 1, %if.end.i.i ]
   %del.023.i.i = phi ptr [ %del.1.i.i, %for.inc.i.i ], [ %arrayidx.i.i, %if.end.i.i ]
-  %34 = load i32, ptr %arrayidx326.i.i, align 4
+  %35 = load i32, ptr %arrayidx326.i.i, align 4
   %map.val.i.i = load i32, ptr %5, align 8
-  %mul.i.i.i = mul i32 %34, -1640531535
+  %mul.i.i.i = mul i32 %35, -1640531535
   %sub.i.i.i = sub i32 32, %map.val.i.i
   %shr.i.i.i = lshr i32 %mul.i.i.i, %sub.i.i.i
   %sub.i.i = sub i32 %i.025.i.i, %shr.i.i.i
-  %and12.i.i = and i32 %sub.i.i, %33
+  %and12.i.i = and i32 %sub.i.i, %34
   %cmp13.not.i.i = icmp ult i32 %and12.i.i, %shift.024.i.i
   br i1 %cmp13.not.i.i, label %if.else.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %if.end8.i.i
-  store i32 %34, ptr %del.023.i.i, align 4
-  %35 = load i32, ptr %value427.i.i, align 4
+  store i32 %35, ptr %del.023.i.i, align 4
+  %36 = load i32, ptr %value427.i.i, align 4
   %value18.i.i = getelementptr inbounds i8, ptr %del.023.i.i, i64 4
-  store i32 %35, ptr %value18.i.i, align 4
+  store i32 %36, ptr %value18.i.i, align 4
   %.pre28.i.i = load i32, ptr %sizeMask.i.i.i, align 8
   %.pre29.i.i = load ptr, ptr %activeDmers, align 8
   br label %for.inc.i.i
@@ -1129,28 +1129,28 @@ if.else.i.i:                                      ; preds = %if.end8.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then14.i.i
-  %36 = phi ptr [ %.pre29.i.i, %if.then14.i.i ], [ %32, %if.else.i.i ]
-  %37 = phi i32 [ %.pre28.i.i, %if.then14.i.i ], [ %33, %if.else.i.i ]
+  %37 = phi ptr [ %.pre29.i.i, %if.then14.i.i ], [ %33, %if.else.i.i ]
+  %38 = phi i32 [ %.pre28.i.i, %if.then14.i.i ], [ %34, %if.else.i.i ]
   %del.1.i.i = phi ptr [ %arrayidx326.i.i, %if.then14.i.i ], [ %del.023.i.i, %if.else.i.i ]
   %shift.1.i.i = phi i32 [ 1, %if.then14.i.i ], [ %inc.i.i, %if.else.i.i ]
   %add20.i.i = add i32 %i.025.i.i, 1
-  %and22.i.i = and i32 %37, %add20.i.i
+  %and22.i.i = and i32 %38, %add20.i.i
   %idxprom2.i.i = zext i32 %and22.i.i to i64
-  %arrayidx3.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %36, i64 %idxprom2.i.i
+  %arrayidx3.i.i = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %37, i64 %idxprom2.i.i
   %value4.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i, i64 4
-  %38 = load i32, ptr %value4.i.i, align 4
-  %cmp5.i.i = icmp eq i32 %38, -1
+  %39 = load i32, ptr %value4.i.i, align 4
+  %cmp5.i.i = icmp eq i32 %39, -1
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end8.i.i
 
 COVER_map_remove.exit.i:                          ; preds = %for.inc.i.i88.i, %if.then6.i.i, %if.then30.i
   %idxprom31.i = zext i32 %19 to i64
   %arrayidx32.i = getelementptr inbounds i32, ptr %freqs, i64 %idxprom31.i
-  %39 = load i32, ptr %arrayidx32.i, align 4
-  %sub34.i = sub i32 %activeSegment.sroa.12.1.i, %39
+  %40 = load i32, ptr %arrayidx32.i, align 4
+  %sub34.i = sub i32 %activeSegment.sroa.12.1.i, %40
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %COVER_map_remove.exit.i, %COVER_map_at.exit73.i, %COVER_map_at.exit73.thread.i, %if.end.i27
-  %activeSegment.sroa.0.1.i = phi i32 [ %add27.i, %COVER_map_remove.exit.i ], [ %add27.i, %COVER_map_at.exit73.i ], [ %activeSegment.sroa.0.09.i, %if.end.i27 ], [ %add2736.i, %COVER_map_at.exit73.thread.i ]
+  %activeSegment.sroa.0.1.i = phi i32 [ %add27.i, %COVER_map_remove.exit.i ], [ %add27.i, %COVER_map_at.exit73.i ], [ %activeSegment.sroa.0.09.i, %if.end.i27 ], [ %add2737.i, %COVER_map_at.exit73.thread.i ]
   %activeSegment.sroa.12.2.i = phi i32 [ %sub34.i, %COVER_map_remove.exit.i ], [ %activeSegment.sroa.12.1.i, %COVER_map_at.exit73.i ], [ %activeSegment.sroa.12.1.i, %if.end.i27 ], [ %activeSegment.sroa.12.1.i, %COVER_map_at.exit73.thread.i ]
   %cmp39.i = icmp ugt i32 %activeSegment.sroa.12.2.i, %retval.sroa.12.013.i
   %retval.sroa.12.1.i = tail call i32 @llvm.umax.i32(i32 %activeSegment.sroa.12.2.i, i32 %retval.sroa.12.013.i)
@@ -1169,11 +1169,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %newBegin.019.i = phi i32 [ %retval.sroa.0.sroa.7.1.i, %for.body.lr.ph.i ], [ %newBegin.1.i, %for.body.i ]
   %idxprom48.i = zext i32 %pos.021.i to i64
   %arrayidx49.i = getelementptr inbounds i32, ptr %8, i64 %idxprom48.i
-  %40 = load i32, ptr %arrayidx49.i, align 4
-  %idxprom50.i = zext i32 %40 to i64
+  %41 = load i32, ptr %arrayidx49.i, align 4
+  %idxprom50.i = zext i32 %41 to i64
   %arrayidx51.i = getelementptr inbounds i32, ptr %freqs, i64 %idxprom50.i
-  %41 = load i32, ptr %arrayidx51.i, align 4
-  %cmp52.not.i = icmp eq i32 %41, 0
+  %42 = load i32, ptr %arrayidx51.i, align 4
+  %cmp52.not.i = icmp eq i32 %42, 0
   %cond.i28 = tail call i32 @llvm.umin.i32(i32 %newBegin.019.i, i32 %pos.021.i)
   %add55.i = add i32 %pos.021.i, 1
   %newBegin.1.i = select i1 %cmp52.not.i, i32 %newBegin.019.i, i32 %cond.i28
@@ -1183,11 +1183,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 for.body64.i:                                     ; preds = %for.cond61.preheader.i, %for.body64.i
   %pos59.025.i = phi i32 [ %inc71.i, %for.body64.i ], [ %newBegin.1.i, %for.cond61.preheader.i ]
-  %42 = load ptr, ptr %dmerAt.i, align 8
+  %43 = load ptr, ptr %dmerAt.i, align 8
   %idxprom66.i = zext i32 %pos59.025.i to i64
-  %arrayidx67.i = getelementptr inbounds i32, ptr %42, i64 %idxprom66.i
-  %43 = load i32, ptr %arrayidx67.i, align 4
-  %idxprom68.i = zext i32 %43 to i64
+  %arrayidx67.i = getelementptr inbounds i32, ptr %43, i64 %idxprom66.i
+  %44 = load i32, ptr %arrayidx67.i, align 4
+  %idxprom68.i = zext i32 %44 to i64
   %arrayidx69.i = getelementptr inbounds i32, ptr %freqs, i64 %idxprom68.i
   store i32 0, ptr %arrayidx69.i, align 4
   %inc71.i = add i32 %pos59.025.i, 1
@@ -1217,34 +1217,34 @@ if.end41:                                         ; preds = %COVER_selectSegment
 if.end63:                                         ; preds = %if.end41
   %sub64 = sub i64 %tail.018, %conv44.tail.0
   %add.ptr = getelementptr inbounds i8, ptr %dictBuffer, i64 %sub64
-  %44 = load ptr, ptr %ctx, align 8
-  %add.ptr66 = getelementptr inbounds i8, ptr %44, i64 %retval.sroa.0.sroa.0.0.insert.ext.i
+  %45 = load ptr, ptr %ctx, align 8
+  %add.ptr66 = getelementptr inbounds i8, ptr %45, i64 %retval.sroa.0.sroa.0.0.insert.ext.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr66, i64 %conv44.tail.0, i1 false)
-  %45 = load i32, ptr @g_displayLevel, align 4
-  %cmp67 = icmp sgt i32 %45, 1
+  %46 = load i32, ptr @g_displayLevel, align 4
+  %cmp67 = icmp sgt i32 %46, 1
   br i1 %cmp67, label %if.then69, label %for.inc
 
 if.then69:                                        ; preds = %if.end63
   %call70 = tail call i64 @clock() #23
-  %46 = load i64, ptr @g_time, align 8
-  %sub71 = sub nsw i64 %call70, %46
+  %47 = load i64, ptr @g_time, align 8
+  %sub71 = sub nsw i64 %call70, %47
   %cmp72 = icmp sgt i64 %sub71, 150000
-  %47 = load i32, ptr @g_displayLevel, align 4
-  %cmp74 = icmp sgt i32 %47, 3
+  %48 = load i32, ptr @g_displayLevel, align 4
+  %cmp74 = icmp sgt i32 %48, 3
   %or.cond = select i1 %cmp72, i1 true, i1 %cmp74
   br i1 %or.cond, label %if.then76, label %for.inc
 
 if.then76:                                        ; preds = %if.then69
   %call77 = tail call i64 @clock() #23
   store i64 %call77, ptr @g_time, align 8
-  %48 = load ptr, ptr @stderr, align 8
+  %49 = load ptr, ptr @stderr, align 8
   %sub78 = sub i64 %dictBufferCapacity, %sub64
   %mul79 = mul i64 %sub78, 100
   %div = udiv i64 %mul79, %dictBufferCapacity
   %conv80 = trunc i64 %div to i32
-  %call81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.13, i32 noundef %conv80) #21
-  %49 = load ptr, ptr @stderr, align 8
-  %call82 = tail call i32 @fflush(ptr noundef %49)
+  %call81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.13, i32 noundef %conv80) #21
+  %50 = load ptr, ptr @stderr, align 8
+  %call82 = tail call i32 @fflush(ptr noundef %50)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end63, %if.then69, %if.then76, %if.then36
@@ -1257,15 +1257,15 @@ for.inc:                                          ; preds = %if.end63, %if.then6
 
 for.end:                                          ; preds = %for.inc, %if.then36, %if.end41, %if.end
   %tail.0.lcssa = phi i64 [ 0, %if.end ], [ %tail.018, %if.end41 ], [ %tail.018, %if.then36 ], [ 0, %for.inc ]
-  %50 = load i32, ptr @g_displayLevel, align 4
-  %cmp88 = icmp sgt i32 %50, 1
+  %51 = load i32, ptr @g_displayLevel, align 4
+  %cmp88 = icmp sgt i32 %51, 1
   br i1 %cmp88, label %if.then90, label %if.end93
 
 if.then90:                                        ; preds = %for.end
-  %51 = load ptr, ptr @stderr, align 8
-  %call91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #21
   %52 = load ptr, ptr @stderr, align 8
-  %call92 = tail call i32 @fflush(ptr noundef %52)
+  %call91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #21
+  %53 = load ptr, ptr @stderr, align 8
+  %call92 = tail call i32 @fflush(ptr noundef %53)
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then90, %for.end

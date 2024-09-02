@@ -522,7 +522,7 @@ define hidden void @_ZN16DirectivesParserD2Ev(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN16DirectivesParser4maskENS_7keytypeE(i32 noundef %0) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 1, -2147483647) i32 @_ZN16DirectivesParser4maskENS_7keytypeE(i32 noundef %0) local_unnamed_addr #7 align 2 {
   %2 = add nsw i32 %0, 1
   %3 = shl nuw i32 1, %2
   ret i32 %3

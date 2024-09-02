@@ -365,7 +365,7 @@ _ZNK9grpc_core10RefCountedINS_23XdsChannelStackModifierENS_19PolymorphicRefCount
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZN9grpc_core12_GLOBAL__N_129XdsChannelStackModifierArgCmpEPvS1_(ptr noundef readnone %p, ptr noundef readnone %q) #5 {
+define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_129XdsChannelStackModifierArgCmpEPvS1_(ptr noundef readnone %p, ptr noundef readnone %q) #5 {
 entry:
   %cmp.i = icmp ult ptr %p, %q
   %cmp1.i = icmp ult ptr %q, %p

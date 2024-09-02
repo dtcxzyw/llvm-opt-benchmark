@@ -1379,7 +1379,7 @@ define internal fastcc void @clean_path(ptr noundef %0, i16 noundef zeroext %1) 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @maybe_link() unnamed_addr #1 section ".init.text" align 16 {
+define internal fastcc range(i32 -1, 2) i32 @maybe_link() unnamed_addr #1 section ".init.text" align 16 {
   %1 = load i64, ptr @nlink, align 8
   %2 = icmp ugt i64 %1, 1
   br i1 %2, label %3, label %.thread

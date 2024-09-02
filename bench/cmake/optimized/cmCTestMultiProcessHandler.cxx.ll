@@ -12001,12 +12001,15 @@ _ZN26cmCTestMultiProcessHandler12FindMaxIndexEv.exit: ; preds = %.lr.ph.i, %30
   %154 = udiv i64 %.045.i, 10
   %155 = add nuw nsw i32 %.06.i, 1
   %156 = icmp ugt i64 %.045.i, 99
-  br i1 %156, label %.lr.ph.i54, label %_Z11getNumWidthm.exit, !llvm.loop !76
+  br i1 %156, label %.lr.ph.i54, label %_Z11getNumWidthm.exit.loopexit, !llvm.loop !76
 
-_Z11getNumWidthm.exit:                            ; preds = %.lr.ph.i54, %148
-  %.0.lcssa.i53 = phi i32 [ 1, %148 ], [ %155, %.lr.ph.i54 ]
-  %157 = add nsw i32 %.0.lcssa.i53, 3
-  %158 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 %157)
+_Z11getNumWidthm.exit.loopexit:                   ; preds = %.lr.ph.i54
+  %157 = add nuw nsw i32 %.06.i, 4
+  br label %_Z11getNumWidthm.exit
+
+_Z11getNumWidthm.exit:                            ; preds = %_Z11getNumWidthm.exit.loopexit, %148
+  %.0.lcssa.i53 = phi i32 [ 4, %148 ], [ %157, %_Z11getNumWidthm.exit.loopexit ]
+  %158 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 %.0.lcssa.i53)
           to label %159 unwind label %196
 
 159:                                              ; preds = %_Z11getNumWidthm.exit

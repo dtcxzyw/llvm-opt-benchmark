@@ -172,9 +172,9 @@ define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %0, ptr noca
   ]
 
 24:                                               ; preds = %.preheader
-  %25 = add i8 %23, -10
-  %spec.select = icmp ult i8 %25, 4
-  br i1 %spec.select, label %.critedge187, label %26
+  %25 = add i8 %23, -14
+  %spec.select = icmp ult i8 %25, -4
+  br i1 %spec.select, label %26, label %.critedge187
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %.0105, i64 1

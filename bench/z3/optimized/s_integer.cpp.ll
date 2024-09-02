@@ -64,7 +64,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_Z3gcdRK9s_integerS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r2) local_unnamed_addr #5 {
+define hidden range(i32 0, -2147483648) i32 @_Z3gcdRK9s_integerS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r2) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %r1, align 4
   %1 = load i32, ptr %r2, align 4

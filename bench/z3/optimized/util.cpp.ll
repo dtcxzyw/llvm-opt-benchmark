@@ -82,7 +82,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_Z4log2j(i32 noundef %v) local_unnamed_addr #7 {
+define hidden noundef range(i32 0, 32) i32 @_Z4log2j(i32 noundef %v) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp ult i32 %v, 65536
   %shr = lshr i32 %v, 16
@@ -110,7 +110,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_Z11uint64_log2m(i64 noundef %v) local_unnamed_addr #7 {
+define hidden noundef range(i32 0, 64) i32 @_Z11uint64_log2m(i64 noundef %v) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp ult i64 %v, 4294967296
   %shr = lshr i64 %v, 32

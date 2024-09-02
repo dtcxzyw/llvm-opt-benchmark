@@ -435,7 +435,7 @@ define range(i64 -2147483648, 2147483648) i64 @utf8_to_gb18030(ptr nocapture nou
 declare i32 @UtfToLocal(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 3145728, 1) i32 @conv_utf8_to_18030(i32 noundef %0) #0 {
+define internal range(i32 -2130706432, 1) i32 @conv_utf8_to_18030(i32 noundef %0) #0 {
   %2 = icmp ult i32 %0, 128
   br i1 %2, label %utf8word_to_unicode.exit, label %3
 

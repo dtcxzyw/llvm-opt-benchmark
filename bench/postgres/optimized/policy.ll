@@ -76,8 +76,8 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   %18 = getelementptr inbounds i8, ptr %10, i64 8
   br label %19
 
-19:                                               ; preds = %.lr.ph, %79
-  %20 = phi ptr [ %16, %.lr.ph ], [ %85, %79 ]
+19:                                               ; preds = %.lr.ph, %80
+  %20 = phi ptr [ %16, %.lr.ph ], [ %85, %80 ]
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 22
@@ -166,19 +166,19 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   %72 = getelementptr inbounds i8, ptr %27, i64 32
   %73 = load ptr, ptr %72, align 8
   %74 = call zeroext i1 @checkExprHasSubLink(ptr noundef %73) #6
-  br i1 %74, label %79, label %75
+  br i1 %74, label %80, label %75
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds i8, ptr %27, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = call zeroext i1 @checkExprHasSubLink(ptr noundef %77) #6
-  br label %79
+  %79 = zext i1 %78 to i8
+  br label %80
 
-79:                                               ; preds = %75, %71
-  %80 = phi i1 [ true, %71 ], [ %78, %75 ]
-  %81 = getelementptr inbounds i8, ptr %27, i64 48
-  %82 = zext i1 %80 to i8
-  store i8 %82, ptr %81, align 8
+80:                                               ; preds = %75, %71
+  %81 = phi i8 [ 1, %71 ], [ %79, %75 ]
+  %82 = getelementptr inbounds i8, ptr %27, i64 48
+  store i8 %81, ptr %82, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %83 = load ptr, ptr %18, align 8
   %84 = call ptr @lcons(ptr noundef nonnull %27, ptr noundef %83) #6
@@ -188,7 +188,7 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   %.not = icmp eq ptr %85, null
   br i1 %.not, label %._crit_edge, label %19, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %79, %1
+._crit_edge:                                      ; preds = %80, %1
   call void @systable_endscan(ptr noundef %15) #6
   call void @table_close(ptr noundef %11, i32 noundef 1) #6
   %86 = load ptr, ptr @CacheMemoryContext, align 8

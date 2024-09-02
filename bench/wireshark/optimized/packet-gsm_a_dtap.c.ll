@@ -2445,9 +2445,9 @@ define hidden zeroext i16 @de_sup_codec_list(ptr noundef %0, ptr noundef %1, ptr
   %.not45 = icmp eq i32 %4, 0
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %28
-  %.044 = phi i8 [ %8, %28 ], [ 0, %7 ]
-  %.03843 = phi i32 [ %30, %28 ], [ %3, %7 ]
+.lr.ph:                                           ; preds = %7, %29
+  %.044 = phi i8 [ %8, %29 ], [ 0, %7 ]
+  %.03843 = phi i32 [ %30, %29 ], [ %3, %7 ]
   %8 = add i8 %.044, 1
   %9 = load i32, ptr @hf_gsm_a_dtap_sysid, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %.03843, i32 noundef 1, i32 noundef 0) #6
@@ -2457,7 +2457,7 @@ define hidden zeroext i16 @de_sup_codec_list(ptr noundef %0, ptr noundef %1, ptr
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #6
   %15 = add i32 %.03843, 2
   %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %28, label %16
+  br i1 %.not, label %29, label %16
 
 16:                                               ; preds = %.lr.ph
   %17 = zext i8 %14 to i32
@@ -2467,7 +2467,7 @@ define hidden zeroext i16 @de_sup_codec_list(ptr noundef %0, ptr noundef %1, ptr
   tail call void @proto_tree_add_bitmask_list(ptr noundef %20, ptr noundef %0, i32 noundef %15, i32 noundef 1, ptr noundef nonnull @de_sup_codec_list.oct1_flags, i32 noundef 0) #6
   %21 = add i32 %.03843, 3
   %.not42 = icmp eq i8 %14, 1
-  br i1 %.not42, label %28, label %22
+  br i1 %.not42, label %29, label %22
 
 22:                                               ; preds = %16
   %23 = load i32, ptr @hf_gsm_a_spare_bits, align 4
@@ -2476,18 +2476,18 @@ define hidden zeroext i16 @de_sup_codec_list(ptr noundef %0, ptr noundef %1, ptr
   tail call void @proto_tree_add_bitmask_list(ptr noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef 1, ptr noundef nonnull @de_sup_codec_list.oct2_flags, i32 noundef 0) #6
   %26 = add i32 %.03843, 4
   %27 = add i8 %14, -2
-  br label %28
+  %28 = zext i8 %27 to i32
+  br label %29
 
-28:                                               ; preds = %16, %22, %.lr.ph
-  %.039 = phi i8 [ %27, %22 ], [ 0, %16 ], [ 0, %.lr.ph ]
+29:                                               ; preds = %16, %22, %.lr.ph
+  %.039 = phi i32 [ %28, %22 ], [ 0, %16 ], [ 0, %.lr.ph ]
   %.1 = phi i32 [ %26, %22 ], [ %21, %16 ], [ %15, %.lr.ph ]
-  %29 = zext i8 %.039 to i32
-  %30 = add i32 %.1, %29
+  %30 = add i32 %.1, %.039
   %31 = sub i32 %30, %3
   %32 = icmp ugt i32 %4, %31
   br i1 %32, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
-._crit_edge.loopexit:                             ; preds = %28
+._crit_edge.loopexit:                             ; preds = %29
   %33 = trunc i32 %31 to i16
   br label %._crit_edge
 

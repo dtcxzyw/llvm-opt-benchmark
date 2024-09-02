@@ -1900,11 +1900,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %66, %63, %48, %45
   %.1114 = phi i32 [ %88, %84 ], [ %.0113214, %80 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %80, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %80, !llvm.loop !27
 
-._crit_edge:                                      ; preds = %89, %.preheader
-  %.0113.lcssa = phi i32 [ 1, %.preheader ], [ %.1114, %89 ]
-  %90 = add nsw i32 %.0113.lcssa, 1
+._crit_edge.loopexit:                             ; preds = %89
+  %90 = add nsw i32 %.1114, 1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.0113.lcssa = phi i32 [ 2, %.preheader ], [ %90, %._crit_edge.loopexit ]
   br i1 %74, label %.lr.ph228, label %._crit_edge229
 
 .lr.ph228:                                        ; preds = %._crit_edge
@@ -1913,7 +1916,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %66, %63, %48, %45
 
 92:                                               ; preds = %.lr.ph228, %131
   %indvars.iv255 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next256, %131 ]
-  %.2115226 = phi i32 [ %90, %.lr.ph228 ], [ %.3116, %131 ]
+  %.2115226 = phi i32 [ %.0113.lcssa, %.lr.ph228 ], [ %.3116, %131 ]
   %93 = load ptr, ptr %91, align 8
   %94 = load i32, ptr %93, align 4
   %95 = icmp ne i32 %94, -1
@@ -1994,7 +1997,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %66, %63, %48, %45
 
 ._crit_edge229:                                   ; preds = %131, %._crit_edge
   %.1118.lcssa = phi i1 [ %.0117246, %._crit_edge ], [ %.2119211, %131 ]
-  %.2115.lcssa = phi i32 [ %90, %._crit_edge ], [ %.3116, %131 ]
+  %.2115.lcssa = phi i32 [ %.0113.lcssa, %._crit_edge ], [ %.3116, %131 ]
   br i1 %.1118.lcssa, label %132, label %193
 
 132:                                              ; preds = %._crit_edge229

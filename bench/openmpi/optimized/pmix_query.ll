@@ -1107,7 +1107,7 @@ define internal fastcc i32 @request_help(ptr noundef %0) unnamed_addr #1 {
   %27 = getelementptr inbounds i8, ptr %0, i64 488
   %28 = load i64, ptr %27, align 8
   %29 = tail call i32 %24(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), ptr noundef %26, i64 noundef %28, ptr noundef nonnull @finalstep, ptr noundef nonnull %0) #12
-  br label %126
+  br label %127
 
 30:                                               ; preds = %._crit_edge
   %31 = load i8, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 1632), align 8
@@ -1116,7 +1116,7 @@ define internal fastcc i32 @request_help(ptr noundef %0) unnamed_addr #1 {
   fence release
   %33 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 168)) #12
   %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_global_lock, i64 128)) #12
-  br i1 %32, label %35, label %126
+  br i1 %32, label %35, label %127
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds i8, ptr %0, i64 480
@@ -1175,7 +1175,7 @@ pmix_query_get_num_local_resolve.exit.thread:     ; preds = %35, %pmix_query_get
   %56 = getelementptr inbounds i8, ptr %0, i64 896
   %57 = load ptr, ptr %56, align 8
   %58 = tail call fastcc i32 @send_for_help(ptr noundef %37, i64 noundef %39, ptr noundef %55, ptr noundef %57)
-  br label %126
+  br label %127
 
 59:                                               ; preds = %pmix_query_get_num_local_resolve.exit
   %60 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_local_query_caddy_t_class, i64 56), align 8
@@ -1239,7 +1239,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %65, %6
   %89 = getelementptr inbounds i8, ptr %61, i64 488
   store i64 %88, ptr %89, align 8
   %.not28 = icmp eq i64 %85, %.1.lcssa.i
-  br i1 %.not28, label %115, label %90
+  br i1 %.not28, label %116, label %90
 
 90:                                               ; preds = %pmix_obj_new_tma.exit
   %91 = tail call ptr @PMIx_Query_create(i64 noundef %88) #12
@@ -1248,7 +1248,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %65, %6
 
 .preheader.i31:                                   ; preds = %90, %._crit_edge.i36
   %.02343.i = phi i64 [ %spec.select.i37, %._crit_edge.i36 ], [ 0, %90 ]
-  %.02642.i = phi i64 [ %112, %._crit_edge.i36 ], [ 0, %90 ]
+  %.02642.i = phi i64 [ %113, %._crit_edge.i36 ], [ 0, %90 ]
   %92 = getelementptr inbounds %struct.pmix_query, ptr %83, i64 %.02642.i
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %93, align 8
@@ -1276,7 +1276,7 @@ pmix_query_check_is_local_resolve.exit.i33:       ; preds = %96
 103:                                              ; preds = %pmix_query_check_is_local_resolve.exit.i33
   %104 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef %95, ptr noundef nonnull %98) #12
   %.not33.i = icmp eq i32 %104, 0
-  br i1 %.not33.i, label %105, label %113
+  br i1 %.not33.i, label %105, label %114
 
 105:                                              ; preds = %103
   %106 = add i64 %.02240.i, 1
@@ -1290,53 +1290,56 @@ pmix_query_check_is_local_resolve.exit.thread.i34: ; preds = %105, %pmix_query_c
   %109 = getelementptr inbounds ptr, ptr %107, i64 %108
   %110 = load ptr, ptr %109, align 8
   %.not.i35 = icmp eq ptr %110, null
-  br i1 %.not.i35, label %._crit_edge.i36, label %96, !llvm.loop !16
+  br i1 %.not.i35, label %._crit_edge.loopexit.i, label %96, !llvm.loop !16
 
-._crit_edge.i36:                                  ; preds = %pmix_query_check_is_local_resolve.exit.thread.i34, %.preheader.i31
-  %.022.lcssa.i = phi i64 [ 0, %.preheader.i31 ], [ %.1.i, %pmix_query_check_is_local_resolve.exit.thread.i34 ]
-  %.not32.i = icmp ne i64 %.022.lcssa.i, 0
-  %111 = zext i1 %.not32.i to i64
-  %spec.select.i37 = add i64 %.02343.i, %111
-  %112 = add nuw i64 %.02642.i, 1
-  %exitcond.not.i38 = icmp eq i64 %112, %85
+._crit_edge.loopexit.i:                           ; preds = %pmix_query_check_is_local_resolve.exit.thread.i34
+  %111 = icmp ne i64 %.1.i, 0
+  %112 = zext i1 %111 to i64
+  br label %._crit_edge.i36
+
+._crit_edge.i36:                                  ; preds = %._crit_edge.loopexit.i, %.preheader.i31
+  %.022.lcssa.i = phi i64 [ 0, %.preheader.i31 ], [ %112, %._crit_edge.loopexit.i ]
+  %spec.select.i37 = add i64 %.022.lcssa.i, %.02343.i
+  %113 = add nuw i64 %.02642.i, 1
+  %exitcond.not.i38 = icmp eq i64 %113, %85
   br i1 %exitcond.not.i38, label %pmix_query_strip_local_keys.exit, label %.preheader.i31, !llvm.loop !17
 
-113:                                              ; preds = %103
+114:                                              ; preds = %103
   tail call void @PMIx_Query_release(ptr noundef %91) #12
   br label %pmix_query_strip_local_keys.exit
 
-pmix_query_strip_local_keys.exit:                 ; preds = %._crit_edge.i36, %90, %113
-  %.0.i = phi ptr [ null, %113 ], [ %91, %90 ], [ %91, %._crit_edge.i36 ]
-  %114 = getelementptr inbounds i8, ptr %61, i64 480
-  store ptr %.0.i, ptr %114, align 8
+pmix_query_strip_local_keys.exit:                 ; preds = %._crit_edge.i36, %90, %114
+  %.0.i = phi ptr [ null, %114 ], [ %91, %90 ], [ %91, %._crit_edge.i36 ]
+  %115 = getelementptr inbounds i8, ptr %61, i64 480
+  store ptr %.0.i, ptr %115, align 8
   %.pre = load i64, ptr %89, align 8
-  br label %117
+  br label %118
 
-115:                                              ; preds = %pmix_obj_new_tma.exit
-  %116 = getelementptr inbounds i8, ptr %61, i64 480
-  store ptr null, ptr %116, align 8
-  br label %117
+116:                                              ; preds = %pmix_obj_new_tma.exit
+  %117 = getelementptr inbounds i8, ptr %61, i64 480
+  store ptr null, ptr %117, align 8
+  br label %118
 
-117:                                              ; preds = %115, %pmix_query_strip_local_keys.exit
-  %118 = phi ptr [ null, %115 ], [ %.0.i, %pmix_query_strip_local_keys.exit ]
-  %119 = phi i64 [ %88, %115 ], [ %.pre, %pmix_query_strip_local_keys.exit ]
-  %120 = getelementptr inbounds i8, ptr %61, i64 848
-  store ptr @pmix_query_local_resolve_cbfunc, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %61, i64 896
-  store ptr %2, ptr %121, align 8
-  %122 = icmp eq i64 %119, 0
-  br i1 %122, label %123, label %124
+118:                                              ; preds = %116, %pmix_query_strip_local_keys.exit
+  %119 = phi ptr [ null, %116 ], [ %.0.i, %pmix_query_strip_local_keys.exit ]
+  %120 = phi i64 [ %88, %116 ], [ %.pre, %pmix_query_strip_local_keys.exit ]
+  %121 = getelementptr inbounds i8, ptr %61, i64 848
+  store ptr @pmix_query_local_resolve_cbfunc, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %61, i64 896
+  store ptr %2, ptr %122, align 8
+  %123 = icmp eq i64 %120, 0
+  br i1 %123, label %124, label %125
 
-123:                                              ; preds = %117
+124:                                              ; preds = %118
   call void @pmix_query_local_resolve_cbfunc(i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %61, ptr noundef null, ptr noundef null)
-  br label %126
+  br label %127
 
-124:                                              ; preds = %117
-  %125 = call fastcc i32 @send_for_help(ptr noundef %118, i64 noundef %119, ptr noundef nonnull @pmix_query_local_resolve_cbfunc, ptr noundef nonnull %61)
-  br label %126
+125:                                              ; preds = %118
+  %126 = call fastcc i32 @send_for_help(ptr noundef %119, i64 noundef %120, ptr noundef nonnull @pmix_query_local_resolve_cbfunc, ptr noundef nonnull %61)
+  br label %127
 
-126:                                              ; preds = %30, %pmix_query_get_num_local_resolve.exit.thread, %124, %123, %23
-  %.0 = phi i32 [ %29, %23 ], [ %58, %pmix_query_get_num_local_resolve.exit.thread ], [ 0, %123 ], [ %125, %124 ], [ -25, %30 ]
+127:                                              ; preds = %30, %pmix_query_get_num_local_resolve.exit.thread, %125, %124, %23
+  %.0 = phi i32 [ %29, %23 ], [ %58, %pmix_query_get_num_local_resolve.exit.thread ], [ 0, %124 ], [ %126, %125 ], [ -25, %30 ]
   ret i32 %.0
 }
 
@@ -2029,10 +2032,10 @@ define void @pmix_query_local_resolve_cbfunc(i32 noundef %0, ptr noundef %1, i64
   br i1 %exitcond.not, label %.preheader59, label %.lr.ph, !llvm.loop !28
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %33 = phi i64 [ %26, %.preheader.lr.ph ], [ %55, %._crit_edge ]
-  %34 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %56, %._crit_edge ]
+  %33 = phi i64 [ %26, %.preheader.lr.ph ], [ %57, %._crit_edge ]
+  %34 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %58, %._crit_edge ]
   %.15167 = phi i64 [ %2, %.preheader.lr.ph ], [ %spec.select, %._crit_edge ]
-  %.05366 = phi i64 [ 0, %.preheader.lr.ph ], [ %58, %._crit_edge ]
+  %.05366 = phi i64 [ 0, %.preheader.lr.ph ], [ %59, %._crit_edge ]
   %35 = getelementptr inbounds %struct.pmix_query, ptr %34, i64 %.05366
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
@@ -2072,35 +2075,35 @@ define void @pmix_query_local_resolve_cbfunc(i32 noundef %0, ptr noundef %1, i64
 
 ._crit_edge.loopexit:                             ; preds = %48
   %.pre71 = load i64, ptr %25, align 8
+  %55 = icmp ne i64 %.1, 0
+  %56 = zext i1 %55 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %55 = phi i64 [ %33, %.preheader ], [ %.pre71, %._crit_edge.loopexit ]
-  %56 = phi ptr [ %34, %.preheader ], [ %50, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %._crit_edge.loopexit ]
-  %.not58 = icmp ne i64 %.0.lcssa, 0
-  %57 = zext i1 %.not58 to i64
-  %spec.select = add i64 %.15167, %57
-  %58 = add nuw i64 %.05366, 1
-  %59 = icmp ult i64 %58, %55
-  br i1 %59, label %.preheader, label %._crit_edge68, !llvm.loop !30
+  %57 = phi i64 [ %33, %.preheader ], [ %.pre71, %._crit_edge.loopexit ]
+  %58 = phi ptr [ %34, %.preheader ], [ %50, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %56, %._crit_edge.loopexit ]
+  %spec.select = add i64 %.15167, %.0.lcssa
+  %59 = add nuw i64 %.05366, 1
+  %60 = icmp ult i64 %59, %57
+  br i1 %60, label %.preheader, label %._crit_edge68, !llvm.loop !30
 
 ._crit_edge68:                                    ; preds = %._crit_edge, %.preheader59
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %61, label %60
+  br i1 %.not, label %62, label %61
 
-60:                                               ; preds = %._crit_edge68
+61:                                               ; preds = %._crit_edge68
   tail call void %4(ptr noundef %5) #12
-  br label %61
+  br label %62
 
-61:                                               ; preds = %60, %._crit_edge68
-  %62 = getelementptr inbounds i8, ptr %3, i64 928
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %24, align 8
-  %65 = load i64, ptr %22, align 8
-  %66 = getelementptr inbounds i8, ptr %3, i64 936
-  %67 = load ptr, ptr %66, align 8
-  tail call void %63(i32 noundef %0, ptr noundef %64, i64 noundef %65, ptr noundef %67, ptr noundef nonnull @local_resolve_release_cbfunc, ptr noundef nonnull %3) #12
+62:                                               ; preds = %61, %._crit_edge68
+  %63 = getelementptr inbounds i8, ptr %3, i64 928
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %24, align 8
+  %66 = load i64, ptr %22, align 8
+  %67 = getelementptr inbounds i8, ptr %3, i64 936
+  %68 = load ptr, ptr %67, align 8
+  tail call void %64(i32 noundef %0, ptr noundef %65, i64 noundef %66, ptr noundef %68, ptr noundef nonnull @local_resolve_release_cbfunc, ptr noundef nonnull %3) #12
   ret void
 }
 

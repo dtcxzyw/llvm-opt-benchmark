@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @jent_apt_cutoff_permanent_lookup = internal unnamed_addr constant [15 x i32] [i32 355, i32 447, i32 479, i32 494, i32 502, i32 507, i32 510, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -3, 1) i32 @jent_read_entropy(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -1, 1) i32 @jent_read_entropy(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 

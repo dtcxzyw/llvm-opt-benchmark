@@ -593,7 +593,7 @@ define internal void @_ZN2cv12cpu_baselineL7cvt8s8uEPKhmS2_mPhmNS_5Size_IiEEPv(p
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %12 ]
   %13 = getelementptr inbounds i8, ptr %.01517.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
-  %15 = call noundef i8 @llvm.smax.i8(i8 %14, i8 0)
+  %15 = call noundef range(i8 0, -128) i8 @llvm.smax.i8(i8 %14, i8 0)
   %16 = getelementptr inbounds i8, ptr %.01418.us.i, i64 %indvars.iv.i
   store i8 %15, ptr %16, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1070,7 +1070,7 @@ define internal void @_ZN2cv12cpu_baselineL7cvt8u8sEPKhmS2_mPhmNS_5Size_IiEEPv(p
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %12 ]
   %13 = getelementptr inbounds i8, ptr %.01517.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
-  %15 = call noundef i8 @llvm.umin.i8(i8 %14, i8 127)
+  %15 = call noundef range(i8 0, -128) i8 @llvm.umin.i8(i8 %14, i8 127)
   %16 = getelementptr inbounds i8, ptr %.01418.us.i, i64 %indvars.iv.i
   store i8 %15, ptr %16, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1717,7 +1717,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16s16uEPKhmS2_mPhmNS_5Size_IiEEPv
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds i16, ptr %.01517.us.i, i64 %indvars.iv.i
   %16 = load i16, ptr %15, align 2
-  %17 = call noundef i16 @llvm.smax.i16(i16 %16, i16 0)
+  %17 = call noundef range(i16 0, -32768) i16 @llvm.smax.i16(i16 %16, i16 0)
   %18 = getelementptr inbounds i16, ptr %.01418.us.i, i64 %indvars.iv.i
   store i16 %17, ptr %18, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2197,7 +2197,7 @@ define internal void @_ZN2cv12cpu_baselineL9cvt16u16sEPKhmS2_mPhmNS_5Size_IiEEPv
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds i16, ptr %.01517.us.i, i64 %indvars.iv.i
   %16 = load i16, ptr %15, align 2
-  %17 = call noundef i16 @llvm.umin.i16(i16 %16, i16 32767)
+  %17 = call noundef range(i16 0, -32768) i16 @llvm.umin.i16(i16 %16, i16 32767)
   %18 = getelementptr inbounds i16, ptr %.01418.us.i, i64 %indvars.iv.i
   store i16 %17, ptr %18, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

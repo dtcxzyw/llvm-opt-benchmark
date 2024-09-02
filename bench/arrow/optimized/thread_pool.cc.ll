@@ -1940,8 +1940,8 @@ land.rhs10:                                       ; preds = %land.rhs
   %call12.val = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %5, i64 48
   %call12.val5 = load ptr, ptr %8, align 8
-  %cmp.i.i = icmp eq ptr %call12.val5, %call12.val
-  br i1 %cmp.i.i, label %while.end54, label %while.cond15.preheader
+  %cmp.i.i.not = icmp eq ptr %call12.val5, %call12.val
+  br i1 %cmp.i.i.not, label %while.end54, label %while.cond15.preheader
 
 while.cond15.preheader:                           ; preds = %land.rhs10, %land.rhs
   %tobool1962 = trunc i8 %4 to i1
@@ -5240,7 +5240,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %capacity.0 = phi i32 [ %call1, %if.then ], [ %call, %entry ]
   %call2 = tail call fastcc noundef i32 @_ZN5arrow8internalL14ParseOMPEnvVarEPKc(ptr noundef nonnull @.str.5)
-  %cmp3 = icmp slt i32 %call2, 1
+  %cmp3 = icmp eq i32 %call2, 0
   %cmp.i = icmp slt i32 %capacity.0, %call2
   %or.cond = or i1 %cmp3, %cmp.i
   br i1 %or.cond, label %if.end6, label %if.end10
@@ -5287,7 +5287,7 @@ if.end10:                                         ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN5arrow8internalL14ParseOMPEnvVarEPKc(ptr noundef %name) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZN5arrow8internalL14ParseOMPEnvVarEPKc(ptr noundef %name) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__endptr.i.i = alloca ptr, align 8
   %result = alloca %"class.arrow::Result.57", align 8

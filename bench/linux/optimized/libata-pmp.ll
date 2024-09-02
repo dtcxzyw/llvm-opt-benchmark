@@ -279,6 +279,8 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
 
 .preheader41.preheader:                           ; preds = %.loopexit44
   %.pre = load i32, ptr %25, align 8
+  %123 = and i32 %.pre, 6
+  %124 = icmp eq i32 %123, 0
   br label %.preheader41
 
 .thread36:                                        ; preds = %.loopexit44
@@ -286,14 +288,12 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   br label %341
 
 .preheader41:                                     ; preds = %.preheader41.preheader, %323
-  %123 = phi i32 [ %325, %323 ], [ %.pre, %.preheader41.preheader ]
-  %124 = phi i1 [ false, %323 ], [ true, %.preheader41.preheader ]
-  %125 = phi i32 [ %317, %323 ], [ 0, %.preheader41.preheader ]
-  %126 = phi i32 [ %318, %323 ], [ 5, %.preheader41.preheader ]
+  %125 = phi i1 [ false, %323 ], [ %124, %.preheader41.preheader ]
+  %126 = phi i1 [ false, %323 ], [ true, %.preheader41.preheader ]
+  %127 = phi i32 [ %317, %323 ], [ 0, %.preheader41.preheader ]
+  %128 = phi i32 [ %318, %323 ], [ 5, %.preheader41.preheader ]
   store i32 0, ptr %24, align 8
-  %127 = and i32 %123, 6
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %.thread28, label %129
+  br i1 %125, label %.thread28, label %129
 
 129:                                              ; preds = %.preheader41
   %130 = call i32 @ata_eh_reset(ptr noundef %12, i32 noundef 0, ptr noundef %116, ptr noundef %117, ptr noundef %118, ptr noundef %119) #9
@@ -559,7 +559,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   br label %.thread34
 
 .thread34:                                        ; preds = %288, %274
-  %298 = add i32 %126, -1
+  %298 = add i32 %128, -1
   br label %316
 
 299:                                              ; preds = %171, %171, %171, %171, %165, %217, %231, %243, %253, %sata_pmp_read_gscr.exit
@@ -573,7 +573,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   %307 = load i32, ptr %29, align 8
   %308 = add i32 %307, %306
   %309 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, i32 noundef %304, i32 noundef %308, i32 noundef %300) #10
-  %310 = add i32 %126, -1
+  %310 = add i32 %128, -1
   %311 = icmp eq i32 %300, -19
   br i1 %311, label %312, label %316
 
@@ -585,13 +585,13 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   br label %316
 
 316:                                              ; preds = %.thread34, %312, %299
-  %317 = phi i32 [ 1, %312 ], [ %125, %299 ], [ %125, %.thread34 ]
+  %317 = phi i32 [ 1, %312 ], [ %127, %299 ], [ %127, %.thread34 ]
   %318 = phi i32 [ %315, %312 ], [ %310, %299 ], [ %298, %.thread34 ]
   %319 = icmp eq i32 %318, 0
   br i1 %319, label %326, label %320
 
 320:                                              ; preds = %316
-  br i1 %124, label %323, label %321
+  br i1 %126, label %323, label %321
 
 321:                                              ; preds = %320
   %322 = call i32 @sata_down_spd_limit(ptr noundef %12, i32 noundef 0) #9
@@ -623,7 +623,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   br i1 %338, label %380, label %343
 
 .thread:                                          ; preds = %141, %146, %326
-  %339 = phi i32 [ %317, %326 ], [ %125, %146 ], [ %125, %141 ]
+  %339 = phi i32 [ %317, %326 ], [ %127, %146 ], [ %127, %141 ]
   call fastcc void @sata_pmp_detach(ptr noundef %13)
   %340 = icmp eq i32 %339, 0
   br i1 %340, label %342, label %341

@@ -2749,12 +2749,12 @@ define hidden noundef zeroext i1 @_ZN2cv10PAMEncoder5writeERKNS_3MatERKSt6vector
   %19 = getelementptr i64, ptr %17, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -8
   %21 = load i64, ptr %20, align 8
+  %22 = trunc i64 %21 to i32
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %15
-  %22 = phi i64 [ %21, %15 ], [ 0, %3 ]
-  %23 = trunc i64 %22 to i32
-  %24 = mul nsw i32 %9, %23
+  %23 = phi i32 [ %22, %15 ], [ 0, %3 ]
+  %24 = mul nsw i32 %23, %9
   %25 = getelementptr inbounds i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 72
@@ -2891,12 +2891,12 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %91 = getelementptr i64, ptr %89, i64 %90
   %92 = getelementptr i8, ptr %91, i64 -8
   %93 = load i64, ptr %92, align 8
+  %94 = trunc i64 %93 to i32
   br label %_ZNK2cv3Mat8elemSizeEv.exit116
 
 _ZNK2cv3Mat8elemSizeEv.exit116:                   ; preds = %_ZNSt6vectorIhSaIhEE7reserveEm.exit, %88
-  %94 = phi i64 [ %93, %88 ], [ 0, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
-  %95 = trunc i64 %94 to i32
-  %96 = mul nsw i32 %9, %95
+  %95 = phi i32 [ %94, %88 ], [ 0, %_ZNSt6vectorIhSaIhEE7reserveEm.exit ]
+  %96 = mul nsw i32 %95, %9
   %spec.select = call i32 @llvm.smax.i32(i32 %96, i32 256)
   %97 = zext nneg i32 %spec.select to i64
   %98 = getelementptr inbounds i8, ptr %5, i64 16

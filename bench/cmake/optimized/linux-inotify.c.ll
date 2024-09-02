@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, ptr, ptr, i32 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__inotify_fork(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__inotify_fork(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.watcher_list, align 8
   %5 = alloca [2 x ptr], align 16
@@ -884,7 +884,7 @@ watcher_root_RB_REMOVE.exit:                      ; preds = %.loopexit.i, %.crit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_fs_event_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %3) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_fs_event_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 4
@@ -1026,9 +1026,9 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br label %65
 
 65:                                               ; preds = %62, %59
-  %.02636.lcssa46.sink.i = phi ptr [ %52, %62 ], [ %spec.select.i, %59 ]
+  %.02636.sink.i = phi ptr [ %52, %62 ], [ %spec.select.i, %59 ]
   %66 = phi ptr [ %63, %62 ], [ %60, %59 ]
-  store ptr %41, ptr %.02636.lcssa46.sink.i, align 8
+  store ptr %41, ptr %.02636.sink.i, align 8
   %67 = load ptr, ptr %66, align 8
   %.not131.i.i = icmp eq ptr %67, null
   br i1 %.not131.i.i, label %watcher_root_RB_INSERT_COLOR.exit.i, label %.lr.ph.i.i55

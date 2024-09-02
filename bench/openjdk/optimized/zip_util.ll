@@ -1364,19 +1364,22 @@ tailrecurse.i._crit_edge:                         ; preds = %tailrecurse.i, %isM
   %.pre.i = phi i32 [ %491, %tailrecurse.i ], [ %.pre.i.pre, %.lr.ph266.preheader ]
   %465 = phi ptr [ %490, %tailrecurse.i ], [ %461, %.lr.ph266.preheader ]
   %466 = icmp slt i32 %.pre.i, %.pre35.i
-  br i1 %466, label %.loopexit.i190, label %478
+  br i1 %466, label %.loopexit.i190.loopexit, label %478
 
-.loopexit.i190:                                   ; preds = %.lr.ph266, %.thread.i
-  %467 = phi i32 [ 0, %.thread.i ], [ %.pre.i, %.lr.ph266 ]
-  %468 = phi ptr [ %463, %.thread.i ], [ %465, %.lr.ph266 ]
-  %469 = add nuw nsw i32 %423, 1
-  %470 = zext nneg i32 %469 to i64
-  %471 = tail call noalias ptr @malloc(i64 noundef %470) #25
-  %472 = sext i32 %467 to i64
-  %473 = getelementptr inbounds ptr, ptr %468, i64 %472
-  store ptr %471, ptr %473, align 8
+.loopexit.i190.loopexit:                          ; preds = %.lr.ph266
+  %467 = sext i32 %.pre.i to i64
+  br label %.loopexit.i190
+
+.loopexit.i190:                                   ; preds = %.loopexit.i190.loopexit, %.thread.i
+  %468 = phi i64 [ 0, %.thread.i ], [ %467, %.loopexit.i190.loopexit ]
+  %469 = phi ptr [ %463, %.thread.i ], [ %465, %.loopexit.i190.loopexit ]
+  %470 = add nuw nsw i32 %423, 1
+  %471 = zext nneg i32 %470 to i64
+  %472 = tail call noalias ptr @malloc(i64 noundef %471) #25
+  %473 = getelementptr inbounds ptr, ptr %469, i64 %468
+  store ptr %472, ptr %473, align 8
   %474 = load ptr, ptr %188, align 8
-  %475 = getelementptr inbounds ptr, ptr %474, i64 %472
+  %475 = getelementptr inbounds ptr, ptr %474, i64 %468
   %476 = load ptr, ptr %475, align 8
   %477 = icmp eq ptr %476, null
   br i1 %477, label %readFullyAt.exit.thread, label %addMetaName.exit
@@ -1424,7 +1427,7 @@ tailrecurse.i:                                    ; preds = %._crit_edge.loopexi
 addMetaName.exit:                                 ; preds = %.loopexit.i190
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %476, ptr nonnull readonly align 1 %448, i64 %449, i1 false)
   %493 = load ptr, ptr %188, align 8
-  %494 = getelementptr inbounds ptr, ptr %493, i64 %472
+  %494 = getelementptr inbounds ptr, ptr %493, i64 %468
   %495 = load ptr, ptr %494, align 8
   %496 = getelementptr inbounds i8, ptr %495, i64 %449
   store i8 0, ptr %496, align 1

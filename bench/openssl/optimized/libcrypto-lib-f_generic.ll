@@ -514,7 +514,7 @@ gf_strong_reduce.exit:                            ; preds = %for.body15.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @gf_deserialize(ptr nocapture noundef %x, ptr nocapture noundef readonly %serial, i32 noundef %with_hibit, i8 noundef zeroext %hi_nmask) local_unnamed_addr #0 {
+define range(i64 -1, 1) i64 @gf_deserialize(ptr nocapture noundef %x, ptr nocapture noundef readonly %serial, i32 noundef %with_hibit, i8 noundef zeroext %hi_nmask) local_unnamed_addr #0 {
 entry:
   %not = xor i8 %hi_nmask, -1
   br label %while.cond.preheader

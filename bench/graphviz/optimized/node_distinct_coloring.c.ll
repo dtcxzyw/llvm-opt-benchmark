@@ -323,16 +323,16 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef %0, pt
   %19 = tail call double @log(double noundef %5) #15
   %20 = fdiv double %19, 0xBFE62E42FEFA39EF
   %21 = fcmp olt double %20, 1.000000e+00
-  br i1 %21, label %25, label %22
+  br i1 %21, label %26, label %22
 
 22:                                               ; preds = %10
   %23 = tail call double @log(double noundef %5) #15
   %24 = fdiv double %23, 0xBFE62E42FEFA39EF
-  br label %25
+  %25 = fptosi double %24 to i32
+  br label %26
 
-25:                                               ; preds = %10, %22
-  %26 = phi double [ %24, %22 ], [ 1.000000e+00, %10 ]
-  %27 = fptosi double %26 to i32
+26:                                               ; preds = %10, %22
+  %27 = phi i32 [ %25, %22 ], [ 1, %10 ]
   %28 = tail call i32 @llvm.smin.i32(i32 %27, i32 30)
   %29 = tail call i24 @RGB2LAB(ptr noundef nonnull byval(%struct.rgb_struct) align 8 @__const.node_distinct_coloring_internal2.rgb) #15
   %.sroa.017.0.extract.trunc = trunc i24 %29 to i8
@@ -354,7 +354,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef %0, pt
     i32 2, label %43
   ]
 
-36:                                               ; preds = %25
+36:                                               ; preds = %26
   %37 = icmp eq i32 %0, 2
   br i1 %37, label %41, label %.preheader197
 
@@ -382,7 +382,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef %0, pt
   store double %sqrt194, ptr %9, align 8
   br label %209
 
-43:                                               ; preds = %25
+43:                                               ; preds = %26
   %44 = icmp eq i32 %0, 2
   br i1 %44, label %47, label %.preheader199
 
@@ -421,7 +421,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef %0, pt
   store double %sqrt196, ptr %9, align 8
   br label %209
 
-55:                                               ; preds = %25
+55:                                               ; preds = %26
   %56 = getelementptr inbounds i8, ptr %3, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %3, i64 32

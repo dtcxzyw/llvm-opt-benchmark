@@ -4722,18 +4722,18 @@ define void @_ZN2cv9videostab17TwoPassStabilizer21runPrePassIfNecessaryEv(ptr no
   %22 = getelementptr inbounds i8, ptr %0, i64 712
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %27, label %25
+  br i1 %24, label %29, label %25
 
 25:                                               ; preds = %21
   %26 = tail call ptr @__dynamic_cast(ptr nonnull %23, ptr nonnull @_ZTIN2cv9videostab20WobbleSuppressorBaseE, ptr nonnull @_ZTIN2cv9videostab20NullWobbleSuppressorE, i64 0) #21
-  br label %27
+  %27 = icmp eq ptr %26, null
+  %28 = zext i1 %27 to i8
+  br label %29
 
-27:                                               ; preds = %21, %25
-  %28 = phi ptr [ %26, %25 ], [ null, %21 ]
-  %29 = icmp eq ptr %28, null
-  %30 = getelementptr inbounds i8, ptr %0, i64 737
-  %31 = zext i1 %29 to i8
-  store i8 %31, ptr %30, align 1
+29:                                               ; preds = %21, %25
+  %30 = phi i8 [ %28, %25 ], [ 1, %21 ]
+  %31 = getelementptr inbounds i8, ptr %0, i64 737
+  store i8 %30, ptr %31, align 1
   %32 = tail call i64 @clock() #21
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -4766,7 +4766,7 @@ define void @_ZN2cv9videostab17TwoPassStabilizer21runPrePassIfNecessaryEv(ptr no
   %56 = getelementptr inbounds i8, ptr %0, i64 744
   br label %57
 
-57:                                               ; preds = %196, %27
+57:                                               ; preds = %196, %29
   %58 = load ptr, ptr %38, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 24
@@ -4878,7 +4878,7 @@ define void @_ZN2cv9videostab17TwoPassStabilizer21runPrePassIfNecessaryEv(ptr no
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %94, %97
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #21
-  %98 = load i8, ptr %30, align 1
+  %98 = load i8, ptr %31, align 1
   %99 = trunc i8 %98 to i1
   br i1 %99, label %100, label %.invoke
 

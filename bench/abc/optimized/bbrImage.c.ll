@@ -1139,7 +1139,7 @@ define internal fastcc void @Bbr_bddPrint(ptr noundef %0, ptr noundef %1) unname
   %4 = alloca double, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
-  %.fr25 = freeze i32 %6
+  %.fr24 = freeze i32 %6
   %7 = icmp eq ptr %1, null
   br i1 %7, label %.loopexit.sink.split, label %8
 
@@ -1158,90 +1158,90 @@ define internal fastcc void @Bbr_bddPrint(ptr noundef %0, ptr noundef %1) unname
 
 17:                                               ; preds = %15
   %18 = call ptr @Cudd_FirstCube(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
-  %19 = icmp sgt i32 %.fr25, 0
+  %19 = icmp sgt i32 %.fr24, 0
   br i1 %19, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %17
-  %wide.trip.count = zext nneg i32 %.fr25 to i64
+  %wide.trip.count = zext nneg i32 %.fr24 to i64
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %._crit_edge.us
   %.not22.us = phi i1 [ true, %._crit_edge.us ], [ false, %.split.us.preheader ]
   %20 = call i32 @Cudd_IsGenEmpty(ptr noundef %18) #10
   %.not.us = icmp eq i32 %20, 0
-  br i1 %.not.us, label %.thread.us, label %21
+  br i1 %.not.us, label %.critedge.us, label %21
 
 21:                                               ; preds = %.split.us
   %22 = call i32 @Cudd_GenFree(ptr noundef %18) #10
-  %.not21.us = icmp eq i32 %22, 0
-  br i1 %.not21.us, label %.loopexit, label %.thread.us
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %.loopexit, label %.critedge.us
 
-.thread.us:                                       ; preds = %21, %.split.us
-  br i1 %.not22.us, label %23, label %.lr.ph.us.preheader
+.critedge.us:                                     ; preds = %21, %.split.us
+  br i1 %.not22.us, label %24, label %.lr.ph.us.preheader
 
-23:                                               ; preds = %.thread.us
-  %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
+24:                                               ; preds = %.critedge.us
+  %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
   br label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %23, %.thread.us
+.lr.ph.us.preheader:                              ; preds = %24, %.critedge.us
   br label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %31
-  %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph.us.preheader ]
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv
-  %27 = load i32, ptr %26, align 4
-  switch i32 %27, label %31 [
-    i32 0, label %28
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %32
+  %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph.us.preheader ]
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
+  %28 = load i32, ptr %27, align 4
+  switch i32 %28, label %32 [
+    i32 0, label %29
     i32 1, label %.sink.split
   ]
 
-28:                                               ; preds = %.lr.ph.us
+29:                                               ; preds = %.lr.ph.us
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph.us, %28
-  %.str.11.sink = phi ptr [ @.str.11, %28 ], [ @.str.12, %.lr.ph.us ]
-  %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.11.sink, i32 noundef %29)
-  br label %31
+.sink.split:                                      ; preds = %.lr.ph.us, %29
+  %.str.11.sink = phi ptr [ @.str.11, %29 ], [ @.str.12, %.lr.ph.us ]
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
+  %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.11.sink, i32 noundef %30)
+  br label %32
 
-31:                                               ; preds = %.sink.split, %.lr.ph.us
+32:                                               ; preds = %.sink.split, %.lr.ph.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !25
 
-._crit_edge.us:                                   ; preds = %31
-  %32 = call i32 @Cudd_NextCube(ptr noundef %18, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+._crit_edge.us:                                   ; preds = %32
+  %33 = call i32 @Cudd_NextCube(ptr noundef %18, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   br label %.split.us, !llvm.loop !26
 
-.split:                                           ; preds = %17, %38
-  %.not22 = phi i1 [ true, %38 ], [ false, %17 ]
-  %33 = call i32 @Cudd_IsGenEmpty(ptr noundef %18) #10
-  %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %.thread, label %34
+.split:                                           ; preds = %17, %40
+  %.not22 = phi i1 [ true, %40 ], [ false, %17 ]
+  %34 = call i32 @Cudd_IsGenEmpty(ptr noundef %18) #10
+  %.not = icmp eq i32 %34, 0
+  br i1 %.not, label %.critedge, label %35
 
-34:                                               ; preds = %.split
-  %35 = call i32 @Cudd_GenFree(ptr noundef %18) #10
-  %.not21 = icmp eq i32 %35, 0
-  br i1 %.not21, label %.loopexit, label %.thread
+35:                                               ; preds = %.split
+  %36 = call i32 @Cudd_GenFree(ptr noundef %18) #10
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %.loopexit, label %.critedge
 
-.thread:                                          ; preds = %.split, %34
-  br i1 %.not22, label %36, label %38
+.critedge:                                        ; preds = %.split, %35
+  br i1 %.not22, label %38, label %40
 
-36:                                               ; preds = %.thread
-  %37 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
-  br label %38
+38:                                               ; preds = %.critedge
+  %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
+  br label %40
 
-38:                                               ; preds = %.thread, %36
-  %39 = call i32 @Cudd_NextCube(ptr noundef %18, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+40:                                               ; preds = %.critedge, %38
+  %41 = call i32 @Cudd_NextCube(ptr noundef %18, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   br label %.split, !llvm.loop !26
 
 .loopexit.sink.split:                             ; preds = %15, %8, %2
   %.str.9.sink = phi ptr [ @.str.7, %2 ], [ @.str.8, %8 ], [ @.str.9, %15 ]
-  %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.9.sink)
+  %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.9.sink)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %34, %21, %.loopexit.sink.split
+.loopexit:                                        ; preds = %35, %21, %.loopexit.sink.split
   ret void
 }
 

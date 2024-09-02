@@ -526,12 +526,12 @@ for.cond81:                                       ; preds = %for.inc, %invoke.co
 if.end.i57:                                       ; preds = %for.cond81
   %arrayidx.i58 = getelementptr inbounds i8, ptr %53, i64 -4
   %54 = load i32, ptr %arrayidx.i58, align 4
+  %55 = zext i32 %54 to i64
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit60
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit60:   ; preds = %for.cond81, %if.end.i57
-  %retval.0.i59 = phi i32 [ %54, %if.end.i57 ], [ 0, %for.cond81 ]
-  %55 = zext i32 %retval.0.i59 to i64
-  %cmp84 = icmp ult i64 %indvars.iv, %55
+  %retval.0.i59 = phi i64 [ %55, %if.end.i57 ], [ 0, %for.cond81 ]
+  %cmp84 = icmp ult i64 %indvars.iv, %retval.0.i59
   br i1 %cmp84, label %for.body85, label %for.inc119
 
 for.body85:                                       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit60

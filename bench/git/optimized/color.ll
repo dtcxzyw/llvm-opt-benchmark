@@ -268,7 +268,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true6.i
   br i1 %tobool.not.i56.i, label %if.then14.i, label %if.end17.i
 
 if.then14.i:                                      ; preds = %land.lhs.true10.i
-  %conv.i59.i = trunc nuw i32 %or.i55.i to i8
+  %conv.i59.i = zext nneg i32 %or.i55.i to i64
   br label %if.then45
 
 if.end17.i:                                       ; preds = %land.lhs.true10.i, %land.lhs.true6.i, %if.then3.i, %land.lhs.true.i, %if.end.i
@@ -362,7 +362,7 @@ if.then52.i:                                      ; preds = %if.else49.i
   br label %if.then45
 
 if.then45:                                        ; preds = %match_word.exit.i, %match_word.exit.i.i, %if.else.i, %if.then38.i, %if.then44.i, %if.then52.i, %if.then14.i, %if.then10.i.i
-  %c.sroa.17.0.ph = phi i8 [ 0, %if.then10.i.i ], [ 0, %if.then52.i ], [ 0, %if.then44.i ], [ 0, %if.then38.i ], [ %conv.i59.i, %if.then14.i ], [ 0, %if.else.i ], [ 0, %match_word.exit.i.i ], [ 0, %match_word.exit.i ]
+  %c.sroa.17.0.ph = phi i64 [ 0, %if.then10.i.i ], [ 0, %if.then52.i ], [ 0, %if.then44.i ], [ 0, %if.then38.i ], [ %conv.i59.i, %if.then14.i ], [ 0, %if.else.i ], [ 0, %match_word.exit.i.i ], [ 0, %match_word.exit.i ]
   %c.sroa.16.1.ph = phi i8 [ %c.sroa.16.0, %if.then10.i.i ], [ %c.sroa.16.0, %if.then52.i ], [ %c.sroa.16.0, %if.then44.i ], [ %c.sroa.16.0, %if.then38.i ], [ %conv.i46.i, %if.then14.i ], [ 0, %match_word.exit.i ], [ %c.sroa.16.0, %match_word.exit.i.i ], [ %c.sroa.16.0, %if.else.i ]
   %c.sroa.15.1.ph = phi i8 [ %c.sroa.15.0, %if.then10.i.i ], [ %c.sroa.15.0, %if.then52.i ], [ %c.sroa.15.0, %if.then44.i ], [ %c.sroa.15.0, %if.then38.i ], [ %conv.i34.i, %if.then14.i ], [ 0, %match_word.exit.i ], [ %c.sroa.15.0, %match_word.exit.i.i ], [ %c.sroa.15.0, %if.else.i ]
   %c.sroa.11.0.ph = phi i8 [ %add12.i.i, %if.then10.i.i ], [ %conv54.i, %if.then52.i ], [ %conv47.i, %if.then44.i ], [ %conv40.i, %if.then38.i ], [ 0, %if.then14.i ], [ 0, %match_word.exit.i ], [ 39, %match_word.exit.i.i ], [ 0, %if.else.i ]
@@ -371,6 +371,7 @@ if.then45:                                        ; preds = %match_word.exit.i, 
   br i1 %cmp46, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %if.then45
+  %fg.sroa.10.0.extract.trunc = trunc i64 %c.sroa.17.0.ph to i8
   %cmp5316344373 = icmp sgt i32 %len.3.lcssa, 0
   br i1 %cmp5316344373, label %while.cond8.preheader.lr.ph.lr.ph.lr.ph, label %while.end62, !llvm.loop !9
 
@@ -383,7 +384,7 @@ while.cond8.preheader.lr.ph.lr.ph.lr.ph:          ; preds = %land.rhs, %if.then4
   %fg.sroa.6.0.ph416 = phi i8 [ %c.sroa.11.0.ph, %if.then48 ], [ 0, %land.rhs ]
   %fg.sroa.8.0.ph415 = phi i8 [ %c.sroa.15.1.ph, %if.then48 ], [ 0, %land.rhs ]
   %fg.sroa.9.0.ph414 = phi i8 [ %c.sroa.16.1.ph, %if.then48 ], [ 0, %land.rhs ]
-  %fg.sroa.10.0.ph413 = phi i8 [ %c.sroa.17.0.ph, %if.then48 ], [ 0, %land.rhs ]
+  %fg.sroa.10.0.ph413 = phi i8 [ %fg.sroa.10.0.extract.trunc, %if.then48 ], [ 0, %land.rhs ]
   %cmp46 = icmp eq i32 %fg.sroa.0.0.ph417, 0
   br label %while.cond8.preheader.lr.ph.lr.ph
 
@@ -392,6 +393,7 @@ if.end49:                                         ; preds = %if.then45
   br i1 %cmp51, label %while.cond4.outer180, label %bad
 
 while.cond4.outer180:                             ; preds = %if.end49
+  %bg.sroa.10.0.extract.trunc = trunc nuw i64 %c.sroa.17.0.ph to i8
   %cmp5316344 = icmp sgt i32 %len.3.lcssa, 0
   br i1 %cmp5316344, label %while.cond8.preheader.lr.ph.lr.ph, label %while.end62, !llvm.loop !9
 
@@ -404,7 +406,7 @@ while.cond8.preheader.lr.ph.lr.ph:                ; preds = %while.cond8.prehead
   %bg.sroa.6.0.ph184380 = phi i8 [ 0, %while.cond8.preheader.lr.ph.lr.ph.lr.ph ], [ %c.sroa.11.0.ph, %while.cond4.outer180 ]
   %bg.sroa.8.0.ph183378 = phi i8 [ 0, %while.cond8.preheader.lr.ph.lr.ph.lr.ph ], [ %c.sroa.15.1.ph, %while.cond4.outer180 ]
   %bg.sroa.9.0.ph182376 = phi i8 [ 0, %while.cond8.preheader.lr.ph.lr.ph.lr.ph ], [ %c.sroa.16.1.ph, %while.cond4.outer180 ]
-  %bg.sroa.10.0.ph181374 = phi i8 [ 0, %while.cond8.preheader.lr.ph.lr.ph.lr.ph ], [ %c.sroa.17.0.ph, %while.cond4.outer180 ]
+  %bg.sroa.10.0.ph181374 = phi i8 [ 0, %while.cond8.preheader.lr.ph.lr.ph.lr.ph ], [ %bg.sroa.10.0.extract.trunc, %while.cond4.outer180 ]
   br label %while.cond8.preheader.lr.ph
 
 if.end55:                                         ; preds = %if.else49.i, %if.end22.i
@@ -471,12 +473,12 @@ if.then60:                                        ; preds = %parse_attr.exit
   br i1 %cmp5, label %while.cond8.preheader, label %while.end62, !llvm.loop !9
 
 while.end62:                                      ; preds = %if.then48, %while.cond4.outer180, %while.cond4.outer190.loopexit, %if.then60, %while.end
-  %fg.sroa.10.0.ph.lcssa300 = phi i8 [ 0, %while.end ], [ %fg.sroa.10.0.ph413, %if.then60 ], [ %fg.sroa.10.0.ph413, %while.cond4.outer190.loopexit ], [ %fg.sroa.10.0.ph413, %while.cond4.outer180 ], [ %c.sroa.17.0.ph, %if.then48 ]
+  %fg.sroa.10.0.ph.lcssa300 = phi i8 [ 0, %while.end ], [ %fg.sroa.10.0.ph413, %if.then60 ], [ %fg.sroa.10.0.ph413, %while.cond4.outer190.loopexit ], [ %fg.sroa.10.0.ph413, %while.cond4.outer180 ], [ %fg.sroa.10.0.extract.trunc, %if.then48 ]
   %fg.sroa.9.0.ph.lcssa297 = phi i8 [ 0, %while.end ], [ %fg.sroa.9.0.ph414, %if.then60 ], [ %fg.sroa.9.0.ph414, %while.cond4.outer190.loopexit ], [ %fg.sroa.9.0.ph414, %while.cond4.outer180 ], [ %c.sroa.16.1.ph, %if.then48 ]
   %fg.sroa.8.0.ph.lcssa294 = phi i8 [ 0, %while.end ], [ %fg.sroa.8.0.ph415, %if.then60 ], [ %fg.sroa.8.0.ph415, %while.cond4.outer190.loopexit ], [ %fg.sroa.8.0.ph415, %while.cond4.outer180 ], [ %c.sroa.15.1.ph, %if.then48 ]
   %fg.sroa.6.0.ph.lcssa291 = phi i8 [ 0, %while.end ], [ %fg.sroa.6.0.ph416, %if.then60 ], [ %fg.sroa.6.0.ph416, %while.cond4.outer190.loopexit ], [ %fg.sroa.6.0.ph416, %while.cond4.outer180 ], [ %c.sroa.11.0.ph, %if.then48 ]
   %fg.sroa.0.0.ph.lcssa288 = phi i32 [ 0, %while.end ], [ %fg.sroa.0.0.ph417, %if.then60 ], [ %fg.sroa.0.0.ph417, %while.cond4.outer190.loopexit ], [ %fg.sroa.0.0.ph417, %while.cond4.outer180 ], [ %c.sroa.0.1.ph, %if.then48 ]
-  %bg.sroa.10.0.ph181.lcssa285 = phi i8 [ 0, %while.end ], [ %bg.sroa.10.0.ph181374, %if.then60 ], [ %bg.sroa.10.0.ph181374, %while.cond4.outer190.loopexit ], [ %c.sroa.17.0.ph, %while.cond4.outer180 ], [ 0, %if.then48 ]
+  %bg.sroa.10.0.ph181.lcssa285 = phi i8 [ 0, %while.end ], [ %bg.sroa.10.0.ph181374, %if.then60 ], [ %bg.sroa.10.0.ph181374, %while.cond4.outer190.loopexit ], [ %bg.sroa.10.0.extract.trunc, %while.cond4.outer180 ], [ 0, %if.then48 ]
   %bg.sroa.9.0.ph182.lcssa281 = phi i8 [ 0, %while.end ], [ %bg.sroa.9.0.ph182376, %if.then60 ], [ %bg.sroa.9.0.ph182376, %while.cond4.outer190.loopexit ], [ %c.sroa.16.1.ph, %while.cond4.outer180 ], [ 0, %if.then48 ]
   %bg.sroa.8.0.ph183.lcssa277 = phi i8 [ 0, %while.end ], [ %bg.sroa.8.0.ph183378, %if.then60 ], [ %bg.sroa.8.0.ph183378, %while.cond4.outer190.loopexit ], [ %c.sroa.15.1.ph, %while.cond4.outer180 ], [ 0, %if.then48 ]
   %bg.sroa.6.0.ph184.lcssa273 = phi i8 [ 0, %while.end ], [ %bg.sroa.6.0.ph184380, %if.then60 ], [ %bg.sroa.6.0.ph184380, %while.cond4.outer190.loopexit ], [ %c.sroa.11.0.ph, %while.cond4.outer180 ], [ 0, %if.then48 ]

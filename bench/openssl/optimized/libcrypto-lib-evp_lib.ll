@@ -42,14 +42,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.26 = private unnamed_addr constant [9 x i8] c"use-bits\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CIPHER_param_to_asn1(ptr noundef %c, ptr noundef %type) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @EVP_CIPHER_param_to_asn1(ptr noundef %c, ptr noundef %type) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @evp_cipher_param_to_asn1_ex(ptr noundef %c, ptr noundef %type, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_cipher_param_to_asn1_ex(ptr noundef %c, ptr noundef %type, ptr noundef %asn1_params) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @evp_cipher_param_to_asn1_ex(ptr noundef %c, ptr noundef %type, ptr noundef %asn1_params) local_unnamed_addr #0 {
 entry:
   %type.addr = alloca ptr, align 8
   %params = alloca [3 x %struct.ossl_param_st], align 16
@@ -230,14 +230,14 @@ if.end62:                                         ; preds = %if.then8, %EVP_CIPH
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CIPHER_asn1_to_param(ptr noundef %c, ptr noundef %type) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @EVP_CIPHER_asn1_to_param(ptr noundef %c, ptr noundef %type) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @evp_cipher_asn1_to_param_ex(ptr noundef %c, ptr noundef %type, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evp_cipher_asn1_to_param_ex(ptr noundef %c, ptr noundef %type, ptr noundef writeonly %asn1_params) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @evp_cipher_asn1_to_param_ex(ptr noundef %c, ptr noundef %type, ptr noundef writeonly %asn1_params) local_unnamed_addr #0 {
 entry:
   %iv.i17 = alloca [16 x i8], align 16
   %tl.i = alloca i64, align 8

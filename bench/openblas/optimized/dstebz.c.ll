@@ -260,16 +260,16 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 .loopexit57.loopexit:                             ; preds = %159
   %.pre = load i32, ptr %2, align 4, !tbaa !3
   %.pre94 = load i32, ptr %11, align 4, !tbaa !3
+  %164 = sext i32 %.pre94 to i64
   br label %.loopexit57
 
 .loopexit57:                                      ; preds = %.loopexit57.loopexit, %123
-  %164 = phi double [ %160, %.loopexit57.loopexit ], [ 1.000000e+00, %123 ]
-  %165 = phi i32 [ %.pre94, %.loopexit57.loopexit ], [ 1, %123 ]
-  %166 = phi i32 [ %.pre, %.loopexit57.loopexit ], [ %124, %123 ]
-  %167 = sext i32 %165 to i64
-  %168 = getelementptr inbounds i32, ptr %32, i64 %167
-  store i32 %166, ptr %168, align 4, !tbaa !3
-  %169 = fmul double %104, %164
+  %165 = phi double [ %160, %.loopexit57.loopexit ], [ 1.000000e+00, %123 ]
+  %166 = phi i64 [ %164, %.loopexit57.loopexit ], [ 1, %123 ]
+  %167 = phi i32 [ %.pre, %.loopexit57.loopexit ], [ %124, %123 ]
+  %168 = getelementptr inbounds i32, ptr %32, i64 %166
+  store i32 %167, ptr %168, align 4, !tbaa !3
+  %169 = fmul double %104, %165
   store double %169, ptr %29, align 8, !tbaa !7
   %170 = icmp eq i32 %103, 3
   %171 = load double, ptr %8, align 8, !tbaa !7
@@ -847,7 +847,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   br i1 %596, label %.preheader120, label %.loopexit49
 
 .preheader120:                                    ; preds = %599, %.loopexit48
-  %600 = phi double [ %628, %.loopexit48 ], [ %299, %599 ]
+  %600 = phi double [ %629, %.loopexit48 ], [ %299, %599 ]
   %601 = phi i32 [ %632, %.loopexit48 ], [ 1, %599 ]
   %602 = load i32, ptr %10, align 4, !tbaa !3
   %603 = icmp slt i32 %602, 1
@@ -883,12 +883,15 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %625 = phi i32 [ %609, %607 ], [ %622, %614 ]
   %626 = add nuw nsw i64 %608, 1
   %627 = icmp eq i64 %626, %606
-  br i1 %627, label %.loopexit48, label %607, !llvm.loop !18
+  br i1 %627, label %.loopexit48.loopexit, label %607, !llvm.loop !18
 
-.loopexit48:                                      ; preds = %623, %.preheader120
-  %628 = phi double [ %600, %.preheader120 ], [ %624, %623 ]
-  %629 = phi i32 [ 0, %.preheader120 ], [ %625, %623 ]
-  %630 = sext i32 %629 to i64
+.loopexit48.loopexit:                             ; preds = %623
+  %628 = sext i32 %625 to i64
+  br label %.loopexit48
+
+.loopexit48:                                      ; preds = %.loopexit48.loopexit, %.preheader120
+  %629 = phi double [ %600, %.preheader120 ], [ %624, %.loopexit48.loopexit ]
+  %630 = phi i64 [ 0, %.preheader120 ], [ %628, %.loopexit48.loopexit ]
   %631 = getelementptr inbounds i32, ptr %33, i64 %630
   store i32 0, ptr %631, align 4, !tbaa !3
   %632 = add nuw i32 %601, 1
@@ -899,7 +902,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   br i1 %597, label %.preheader119, label %.loopexit47
 
 .preheader119:                                    ; preds = %.loopexit49, %.loopexit46
-  %634 = phi double [ %662, %.loopexit46 ], [ %298, %.loopexit49 ]
+  %634 = phi double [ %663, %.loopexit46 ], [ %298, %.loopexit49 ]
   %635 = phi i32 [ %666, %.loopexit46 ], [ 1, %.loopexit49 ]
   %636 = load i32, ptr %10, align 4, !tbaa !3
   %637 = icmp slt i32 %636, 1
@@ -935,12 +938,15 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %659 = phi i32 [ %643, %641 ], [ %656, %648 ]
   %660 = add nuw nsw i64 %642, 1
   %661 = icmp eq i64 %660, %640
-  br i1 %661, label %.loopexit46, label %641, !llvm.loop !20
+  br i1 %661, label %.loopexit46.loopexit, label %641, !llvm.loop !20
 
-.loopexit46:                                      ; preds = %657, %.preheader119
-  %662 = phi double [ %634, %.preheader119 ], [ %658, %657 ]
-  %663 = phi i32 [ 0, %.preheader119 ], [ %659, %657 ]
-  %664 = sext i32 %663 to i64
+.loopexit46.loopexit:                             ; preds = %657
+  %662 = sext i32 %659 to i64
+  br label %.loopexit46
+
+.loopexit46:                                      ; preds = %.loopexit46.loopexit, %.preheader119
+  %663 = phi double [ %634, %.preheader119 ], [ %658, %.loopexit46.loopexit ]
+  %664 = phi i64 [ 0, %.preheader119 ], [ %662, %.loopexit46.loopexit ]
   %665 = getelementptr inbounds i32, ptr %33, i64 %664
   store i32 0, ptr %665, align 4, !tbaa !3
   %666 = add nuw i32 %635, 1

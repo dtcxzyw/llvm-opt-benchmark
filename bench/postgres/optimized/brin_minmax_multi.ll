@@ -2903,16 +2903,14 @@ define internal fastcc i32 @reduce_expanded_ranges(ptr nocapture noundef %0, i32
   %53 = load i64, ptr %43, align 8
   %54 = load i64, ptr %39, align 8
   %55 = call i64 @FunctionCall2Coll(ptr noundef %51, i32 noundef %52, i64 noundef %53, i64 noundef %54) #12
-  %.not13.i = icmp ne i64 %55, 0
-  %..i = zext i1 %.not13.i to i32
+  %.not13.i.not = icmp eq i64 %55, 0
+  %56 = zext i1 %.not13.i.not to i8
   br label %compare_values.exit
 
 compare_values.exit:                              ; preds = %.lr.ph57, %50
-  %.0.i = phi i32 [ -1, %.lr.ph57 ], [ %..i, %50 ]
-  %56 = icmp eq i32 %.0.i, 0
+  %.0.i = phi i8 [ 0, %.lr.ph57 ], [ %56, %50 ]
   %57 = getelementptr inbounds i8, ptr %41, i64 16
-  %58 = zext i1 %56 to i8
-  store i8 %58, ptr %57, align 8
+  store i8 %.0.i, ptr %57, align 8
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
   br i1 %exitcond68.not, label %.loopexit, label %.lr.ph57, !llvm.loop !25
@@ -3136,9 +3134,9 @@ store_att_byval.exit.us:                          ; preds = %85, %83, %81, %80
   %wide.trip.count148 = zext nneg i32 %8 to i64
   br label %.lr.ph118.split.split.split.us
 
-.lr.ph118.split.split.split.us:                   ; preds = %.lr.ph118.split.split.split.us.preheader, %115
-  %indvars.iv145 = phi i64 [ 0, %.lr.ph118.split.split.split.us.preheader ], [ %indvars.iv.next146, %115 ]
-  %.095117.us122 = phi ptr [ %71, %.lr.ph118.split.split.split.us.preheader ], [ %118, %115 ]
+.lr.ph118.split.split.split.us:                   ; preds = %.lr.ph118.split.split.split.us.preheader, %112
+  %indvars.iv145 = phi i64 [ 0, %.lr.ph118.split.split.split.us.preheader ], [ %indvars.iv.next146, %112 ]
+  %.095117.us122 = phi ptr [ %71, %.lr.ph118.split.split.split.us.preheader ], [ %115, %112 ]
   %93 = getelementptr [0 x i64], ptr %74, i64 0, i64 %indvars.iv145
   %94 = load i64, ptr %93, align 8
   %95 = inttoptr i64 %94 to ptr
@@ -3154,30 +3152,30 @@ store_att_byval.exit.us:                          ; preds = %85, %83, %81, %80
 100:                                              ; preds = %98
   %101 = lshr i8 %96, 1
   %102 = zext nneg i8 %101 to i32
-  br label %115
+  br label %112
 
 103:                                              ; preds = %98
   %104 = load i32, ptr %95, align 4
   %105 = lshr i32 %104, 2
-  br label %115
+  br label %112
 
 106:                                              ; preds = %.lr.ph118.split.split.split.us
   %107 = getelementptr inbounds i8, ptr %95, i64 1
   %108 = load i8, ptr %107, align 1
-  %109 = icmp eq i8 %108, 1
-  %110 = and i8 %108, -2
-  %111 = icmp eq i8 %110, 2
-  %or.cond107.us = or i1 %109, %111
-  %112 = icmp eq i8 %108, 18
-  %113 = select i1 %112, i32 18, i32 2
-  %114 = select i1 %or.cond107.us, i32 10, i32 %113
-  br label %115
+  %.off.us = add i8 %108, -1
+  %switch.us = icmp ult i8 %.off.us, 3
+  br i1 %switch.us, label %112, label %109
 
-115:                                              ; preds = %106, %103, %100
-  %116 = phi i32 [ %114, %106 ], [ %102, %100 ], [ %105, %103 ]
-  %117 = zext nneg i32 %116 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.095117.us122, ptr nonnull align 1 %95, i64 %117, i1 false)
-  %118 = getelementptr i8, ptr %.095117.us122, i64 %117
+109:                                              ; preds = %106
+  %110 = icmp eq i8 %108, 18
+  %111 = select i1 %110, i32 18, i32 2
+  br label %112
+
+112:                                              ; preds = %109, %106, %103, %100
+  %113 = phi i32 [ %111, %109 ], [ %102, %100 ], [ %105, %103 ], [ 10, %106 ]
+  %114 = zext nneg i32 %113 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.095117.us122, ptr nonnull align 1 %95, i64 %114, i1 false)
+  %115 = getelementptr i8, ptr %.095117.us122, i64 %114
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
   br i1 %exitcond149.not, label %._crit_edge, label %.lr.ph118.split.split.split.us, !llvm.loop !28
@@ -3191,28 +3189,28 @@ store_att_byval.exit.us:                          ; preds = %85, %83, %81, %80
 
 .lr.ph118.split.split.split.split.us:             ; preds = %.lr.ph118.split.split.split.split.us.preheader, %.lr.ph118.split.split.split.split.us
   %indvars.iv140 = phi i64 [ 0, %.lr.ph118.split.split.split.split.us.preheader ], [ %indvars.iv.next141, %.lr.ph118.split.split.split.split.us ]
-  %.095117.us125 = phi ptr [ %71, %.lr.ph118.split.split.split.split.us.preheader ], [ %125, %.lr.ph118.split.split.split.split.us ]
-  %119 = getelementptr [0 x i64], ptr %74, i64 0, i64 %indvars.iv140
-  %120 = load i64, ptr %119, align 8
-  %121 = inttoptr i64 %120 to ptr
-  %122 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %121) #14
-  %123 = shl i64 %122, 32
-  %sext.us = add i64 %123, 4294967296
-  %124 = ashr exact i64 %sext.us, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.095117.us125, ptr align 1 %121, i64 %124, i1 false)
-  %125 = getelementptr i8, ptr %.095117.us125, i64 %124
+  %.095117.us125 = phi ptr [ %71, %.lr.ph118.split.split.split.split.us.preheader ], [ %122, %.lr.ph118.split.split.split.split.us ]
+  %116 = getelementptr [0 x i64], ptr %74, i64 0, i64 %indvars.iv140
+  %117 = load i64, ptr %116, align 8
+  %118 = inttoptr i64 %117 to ptr
+  %119 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #14
+  %120 = shl i64 %119, 32
+  %sext.us = add i64 %120, 4294967296
+  %121 = ashr exact i64 %sext.us, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.095117.us125, ptr align 1 %118, i64 %121, i1 false)
+  %122 = getelementptr i8, ptr %.095117.us125, i64 %121
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
   br i1 %exitcond144.not, label %._crit_edge, label %.lr.ph118.split.split.split.split.us, !llvm.loop !28
 
 .split.us:                                        ; preds = %.lr.ph118.split.us
-  %126 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %126)
-  %127 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %12) #12
+  %123 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %123)
+  %124 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %12) #12
   tail call void @errfinish(ptr noundef nonnull @.str.12, i32 noundef 202, ptr noundef nonnull @__func__.store_att_byval) #12
   unreachable
 
-._crit_edge:                                      ; preds = %.lr.ph118.split.split.split.split.us, %115, %.lr.ph118.split.split.us, %store_att_byval.exit.us, %.lr.ph118.split.split.split, %.loopexit
+._crit_edge:                                      ; preds = %.lr.ph118.split.split.split.split.us, %112, %.lr.ph118.split.split.us, %store_att_byval.exit.us, %.lr.ph118.split.split.split, %.loopexit
   ret ptr %60
 }
 

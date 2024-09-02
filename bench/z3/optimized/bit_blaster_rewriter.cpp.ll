@@ -1001,12 +1001,12 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %entr
 if.end.i.i.i.i:                                   ; preds = %for.cond.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %5 = zext i32 %4 to i64
   br label %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
 
 _ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i: ; preds = %if.end.i.i.i.i, %for.cond.i.i
-  %retval.0.i.i.i.i = phi i32 [ %4, %if.end.i.i.i.i ], [ 0, %for.cond.i.i ]
-  %5 = zext i32 %retval.0.i.i.i.i to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.i.i, %5
+  %retval.0.i.i.i.i = phi i64 [ %5, %if.end.i.i.i.i ], [ 0, %for.cond.i.i ]
+  %cmp.i.i = icmp ult i64 %indvars.iv.i.i, %retval.0.i.i.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
@@ -1097,12 +1097,12 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %entr
 if.end.i.i.i.i:                                   ; preds = %for.cond.i.i
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %3 = zext i32 %2 to i64
   br label %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
 
 _ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i: ; preds = %if.end.i.i.i.i, %for.cond.i.i
-  %retval.0.i.i.i.i = phi i32 [ %2, %if.end.i.i.i.i ], [ 0, %for.cond.i.i ]
-  %3 = zext i32 %retval.0.i.i.i.i to i64
-  %cmp.i.i = icmp ult i64 %indvars.iv.i.i, %3
+  %retval.0.i.i.i.i = phi i64 [ %3, %if.end.i.i.i.i ], [ 0, %for.cond.i.i ]
+  %cmp.i.i = icmp ult i64 %indvars.iv.i.i, %retval.0.i.i.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
@@ -18480,21 +18480,20 @@ _ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit: ; preds = %land
   br i1 %cmp.i4.i, label %while.body, label %while.end.loopexit.split.loop.exit222
 
 while.body:                                       ; preds = %land.rhs, %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %sz, %lftr.wideiv
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !67
 
 while.end.loopexit.split.loop.exit222:            ; preds = %_ZNK15bit_blaster_tplI11blaster_cfgE13is_bool_constEP4expr.exit
-  %7 = trunc nuw i64 %indvars.iv to i32
+  %7 = trunc i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit222, %entry
   %i.addr.0.lcssa = phi i32 [ %i, %entry ], [ %7, %while.end.loopexit.split.loop.exit222 ], [ %sz, %while.body ]
-  %i.addr.0.lcssa.fr = freeze i32 %i.addr.0.lcssa
-  %cmp5 = icmp eq i32 %i.addr.0.lcssa.fr, %sz
+  %cmp5 = icmp eq i32 %i.addr.0.lcssa, %sz
   %or.cond59 = and i1 %is_a, %cmp5
-  %i.addr.1 = select i1 %or.cond59, i32 0, i32 %i.addr.0.lcssa.fr
+  %i.addr.1 = select i1 %or.cond59, i32 0, i32 %i.addr.0.lcssa
   %is_a.addr.0.shrunk = xor i1 %is_a, %or.cond59
   %cmp9192 = icmp uge i32 %i.addr.1, %sz
   %or.cond60.not193 = or i1 %is_a.addr.0.shrunk, %cmp9192

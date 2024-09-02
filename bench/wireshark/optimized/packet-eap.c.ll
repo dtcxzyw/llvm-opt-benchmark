@@ -1221,9 +1221,9 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 224:                                              ; preds = %222
   store i32 -1, ptr %.0462, align 4
   %.pre = load i32, ptr %9, align 4
-  %225 = icmp eq i8 %146, 43
-  %226 = icmp ne i32 %.pre, 0
-  %or.cond19 = select i1 %225, i1 %226, i1 false
+  %225 = icmp ne i32 %.pre, 0
+  %226 = icmp eq i8 %146, 43
+  %or.cond19 = select i1 %226, i1 %225, i1 false
   br i1 %or.cond19, label %227, label %.thread
 
 227:                                              ; preds = %224

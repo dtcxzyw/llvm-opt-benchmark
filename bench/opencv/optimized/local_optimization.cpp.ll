@@ -2574,8 +2574,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac12GraphCutImpl11refine
   br i1 %85, label %.lr.ph46, label %._crit_edge47, !llvm.loop !33
 
 ._crit_edge47:                                    ; preds = %82, %48
-  %.1.lcssa = phi i8 [ %.4, %82 ], [ %.143, %48 ]
-  %86 = trunc nuw i8 %.1.lcssa to i1
+  %.1.lcssa.ph = phi i8 [ %.4, %82 ], [ %.143, %48 ]
+  %86 = trunc nuw i8 %.1.lcssa.ph to i1
   br i1 %86, label %30, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %30, %._crit_edge47, %5

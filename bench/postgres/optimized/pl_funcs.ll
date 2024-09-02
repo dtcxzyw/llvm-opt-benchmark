@@ -1196,11 +1196,11 @@ dump_ind.exit30:                                  ; preds = %.lr.ph.i28, %.lr.ph
 
 dump_stmts.exit35.loopexit:                       ; preds = %.lr.ph62
   %.pre74 = load i32, ptr @dump_indent, align 4
+  %71 = add i32 %.pre74, -2
   br label %dump_stmts.exit35
 
 dump_stmts.exit35:                                ; preds = %dump_stmts.exit35.loopexit, %.lr.ph59, %._crit_edge
-  %71 = phi i32 [ %.pre74, %dump_stmts.exit35.loopexit ], [ %60, %.lr.ph59 ], [ %60, %._crit_edge ]
-  %72 = add i32 %71, -2
+  %72 = phi i32 [ %71, %dump_stmts.exit35.loopexit ], [ %59, %.lr.ph59 ], [ %59, %._crit_edge ]
   store i32 %72, ptr @dump_indent, align 4
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv7177, 1
   %73 = load i32, ptr %33, align 4
@@ -2607,11 +2607,11 @@ dump_ind.exit171:                                 ; preds = %.lr.ph.i169, %.lr.p
 
 dump_stmts.exit167.loopexit:                      ; preds = %.lr.ph437
   %.pre499 = load i32, ptr @dump_indent, align 4
+  %83 = add i32 %.pre499, -2
   br label %dump_stmts.exit167
 
 dump_stmts.exit167:                               ; preds = %dump_stmts.exit167.loopexit, %.lr.ph434, %dump_ind.exit171
-  %83 = phi i32 [ %.pre499, %dump_stmts.exit167.loopexit ], [ %72, %.lr.ph434 ], [ %72, %dump_ind.exit171 ]
-  %84 = add i32 %83, -2
+  %84 = phi i32 [ %83, %dump_stmts.exit167.loopexit ], [ %71, %.lr.ph434 ], [ %71, %dump_ind.exit171 ]
   store i32 %84, ptr @dump_indent, align 4
   %indvars.iv.next482 = add nuw nsw i64 %indvars.iv481508, 1
   %85 = load i32, ptr %51, align 4
@@ -2804,11 +2804,11 @@ dump_ind.exit197:                                 ; preds = %.lr.ph.i195, %dump_
 
 dump_stmts.exit193.loopexit:                      ; preds = %.lr.ph422
   %.pre497 = load i32, ptr @dump_indent, align 4
+  %178 = add i32 %.pre497, -4
   br label %dump_stmts.exit193
 
 dump_stmts.exit193:                               ; preds = %dump_stmts.exit193.loopexit, %.lr.ph419, %dump_ind.exit197
-  %178 = phi i32 [ %.pre497, %dump_stmts.exit193.loopexit ], [ %167, %.lr.ph419 ], [ %167, %dump_ind.exit197 ]
-  %179 = add i32 %178, -4
+  %179 = phi i32 [ %178, %dump_stmts.exit193.loopexit ], [ %164, %.lr.ph419 ], [ %164, %dump_ind.exit197 ]
   store i32 %179, ptr @dump_indent, align 4
   %indvars.iv.next473 = add nuw nsw i64 %indvars.iv472506, 1
   %180 = load i32, ptr %139, align 4

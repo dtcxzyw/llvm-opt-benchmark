@@ -104,7 +104,7 @@ define internal void @nbc_schedule_destructor(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #2 {
   %8 = alloca %struct.NBC_Args_send, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   store i32 0, ptr %8, align 8
@@ -135,7 +135,7 @@ NBC_Sched_send_internal.exit:                     ; preds = %7, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @NBC_Sched_local_send(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @NBC_Sched_local_send(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #2 {
   %8 = alloca %struct.NBC_Args_send, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   store i32 0, ptr %8, align 8
@@ -166,7 +166,7 @@ NBC_Sched_send_internal.exit:                     ; preds = %7, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @NBC_Sched_recv(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @NBC_Sched_recv(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #2 {
   %8 = alloca %struct.NBC_Args_recv, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   store i32 1, ptr %8, align 8
@@ -197,7 +197,7 @@ NBC_Sched_recv_internal.exit:                     ; preds = %7, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @NBC_Sched_local_recv(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @NBC_Sched_local_recv(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #2 {
   %8 = alloca %struct.NBC_Args_recv, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   store i32 1, ptr %8, align 8
@@ -228,7 +228,7 @@ NBC_Sched_recv_internal.exit:                     ; preds = %7, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @NBC_Sched_op(ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i8 noundef signext %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @NBC_Sched_op(ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i8 noundef signext %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) local_unnamed_addr #2 {
   %10 = alloca %struct.NBC_Args_op, align 8
   store i32 2, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
@@ -259,7 +259,7 @@ define noundef i32 @NBC_Sched_op(ptr noundef %0, i8 noundef signext %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @nbc_schedule_round_append(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc range(i32 -2, 1) i32 @nbc_schedule_round_append(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load volatile i32, ptr %5, align 8
   br i1 %3, label %7, label %18
@@ -351,7 +351,7 @@ nbc_schedule_grow.exit:                           ; preds = %16, %26, %41, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @NBC_Sched_copy(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef signext %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @NBC_Sched_copy(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef signext %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #2 {
   %11 = alloca %struct.NBC_Args_copy, align 8
   store i32 3, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 16
@@ -384,7 +384,7 @@ define noundef i32 @NBC_Sched_copy(ptr noundef %0, i8 noundef signext %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @NBC_Sched_unpack(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef signext %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @NBC_Sched_unpack(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef signext %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #2 {
   %9 = alloca %struct.NBC_Args_unpack, align 8
   store i32 4, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
@@ -413,7 +413,7 @@ define noundef i32 @NBC_Sched_unpack(ptr noundef %0, i8 noundef signext %1, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @NBC_Sched_barrier(ptr noundef %0) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @NBC_Sched_barrier(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load volatile i32, ptr %2, align 8
   %4 = load volatile i32, ptr %2, align 8
@@ -487,25 +487,25 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %NBC_Free.exit, label %6
+  br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 280
   %8 = load volatile i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %10, label %.critedge
+  br i1 %9, label %10, label %.critedge53
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 288
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.critedge, label %13
+  br i1 %.not, label %.critedge53, label %13
 
 13:                                               ; preds = %10
   %14 = load volatile i32, ptr %7, align 8
   %15 = load volatile i32, ptr %7, align 8
   %.not4757 = icmp eq i32 %15, 0
-  br i1 %.not4757, label %.critedge, label %.lr.ph
+  br i1 %.not4757, label %.critedge53, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 72
@@ -527,11 +527,11 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
 27:                                               ; preds = %17
   %28 = load i8, ptr @ompi_ftmpi_enabled, align 1
   %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %NBC_Free.exit
+  br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %27
   %31 = call zeroext i1 @ompi_request_is_failed_fn(ptr noundef nonnull %23) #17
-  br i1 %31, label %._crit_edge, label %NBC_Free.exit
+  br i1 %31, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %30
   %.pre = load ptr, ptr %2, align 8
@@ -571,20 +571,20 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
   %46 = call i32 %45(ptr noundef nonnull %2) #17
   %47 = load volatile i32, ptr %7, align 8
   %.not47 = icmp eq i32 %47, 0
-  br i1 %.not47, label %.critedge, label %17, !llvm.loop !4
+  br i1 %.not47, label %.critedge53, label %17, !llvm.loop !4
 
-.critedge:                                        ; preds = %40, %13, %6, %10
+.critedge53:                                      ; preds = %40, %13, %6, %10
   %48 = getelementptr inbounds i8, ptr %0, i64 288
   %49 = load ptr, ptr %48, align 8
   %.not49 = icmp eq ptr %49, null
   br i1 %.not49, label %51, label %50
 
-50:                                               ; preds = %.critedge
+50:                                               ; preds = %.critedge53
   call void @free(ptr noundef nonnull %49) #17
   store ptr null, ptr %48, align 8
   br label %51
 
-51:                                               ; preds = %50, %.critedge
+51:                                               ; preds = %50, %.critedge53
   store volatile i32 0, ptr %7, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 72
   %53 = load i32, ptr %52, align 8
@@ -601,11 +601,11 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
   %59 = getelementptr inbounds i8, ptr %0, i64 100
   %60 = load i8, ptr %59, align 4
   %61 = trunc i8 %60 to i1
-  br i1 %61, label %NBC_Free.exit, label %62
+  br i1 %61, label %.critedge, label %62
 
 62:                                               ; preds = %55
   call fastcc void @NBC_Free(ptr noundef nonnull %0)
-  br label %NBC_Free.exit
+  br label %.critedge
 
 63:                                               ; preds = %51
   %64 = getelementptr inbounds i8, ptr %0, i64 264
@@ -656,7 +656,7 @@ nbc_get_round_size.exit:                          ; preds = %63, %._crit_edge.lo
   %83 = getelementptr inbounds i8, ptr %0, i64 100
   %84 = load i8, ptr %83, align 4
   %85 = trunc i8 %84 to i1
-  br i1 %85, label %NBC_Free.exit, label %86
+  br i1 %85, label %.critedge, label %86
 
 86:                                               ; preds = %82
   %87 = load ptr, ptr %54, align 8
@@ -721,12 +721,12 @@ opal_obj_run_destructors.exit.i:                  ; preds = %opal_obj_run_destru
   %112 = getelementptr inbounds i8, ptr %0, i64 312
   %113 = load ptr, ptr %112, align 8
   %.not11.i = icmp eq ptr %113, null
-  br i1 %.not11.i, label %NBC_Free.exit, label %114
+  br i1 %.not11.i, label %.critedge, label %114
 
 114:                                              ; preds = %111
   call void @free(ptr noundef nonnull %113) #17
   store ptr null, ptr %112, align 8
-  br label %NBC_Free.exit
+  br label %.critedge
 
 115:                                              ; preds = %nbc_get_round_size.exit
   %116 = getelementptr inbounds i8, ptr %79, i64 1
@@ -739,14 +739,14 @@ opal_obj_run_destructors.exit.i:                  ; preds = %opal_obj_run_destru
   store i64 %122, ptr %64, align 8
   %123 = call fastcc i32 @NBC_Start_round(ptr noundef %0)
   %.not51 = icmp eq i32 %123, 0
-  br i1 %.not51, label %NBC_Free.exit, label %124
+  br i1 %.not51, label %.critedge, label %124
 
 124:                                              ; preds = %115
   call void (ptr, ...) @NBC_Error(ptr noundef nonnull @.str.14, i32 noundef %123)
-  br label %NBC_Free.exit
+  br label %.critedge
 
-NBC_Free.exit:                                    ; preds = %27, %30, %114, %111, %115, %82, %55, %62, %1, %124
-  %.042 = phi i32 [ %123, %124 ], [ 0, %1 ], [ %53, %62 ], [ %53, %55 ], [ 0, %82 ], [ 3, %115 ], [ 0, %111 ], [ 0, %114 ], [ 3, %30 ], [ 3, %27 ]
+.critedge:                                        ; preds = %30, %27, %114, %111, %115, %82, %55, %62, %1, %124
+  %.042 = phi i32 [ %123, %124 ], [ 0, %1 ], [ %53, %62 ], [ %53, %55 ], [ 0, %82 ], [ 3, %115 ], [ 0, %111 ], [ 0, %114 ], [ 3, %27 ], [ 3, %30 ]
   ret i32 %.042
 }
 
@@ -2228,7 +2228,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %10 = trunc i64 %3 to i32
   store i32 %10, ptr %9, align 4
   %11 = icmp ugt i64 %3, 2147483647
-  br i1 %11, label %12, label %30
+  br i1 %11, label %12, label %28
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %4, i64 48
@@ -2239,93 +2239,93 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   br label %18
 
 18:                                               ; preds = %12, %18
-  %.045 = phi i64 [ 0, %12 ], [ %28, %18 ]
+  %.045 = phi i64 [ 0, %12 ], [ %26, %18 ]
   %19 = add i64 %.045, 2147483647
   %20 = icmp ugt i64 %19, %3
   %21 = sub nuw i64 %3, %.045
-  %22 = shl i64 %21, 32
+  %sext = shl i64 %21, 32
+  %22 = ashr exact i64 %sext, 32
+  %.039 = select i1 %20, i64 %22, i64 2147483647
   %23 = mul i64 %.045, %17
   %24 = getelementptr inbounds i8, ptr %1, i64 %23
   %25 = getelementptr inbounds i8, ptr %2, i64 %23
-  %26 = ashr exact i64 %22, 32
-  %27 = select i1 %20, i64 %26, i64 2147483647
-  tail call fastcc void @ompi_op_reduce(ptr noundef %0, ptr noundef %24, ptr noundef %25, i64 noundef %27, ptr noundef %4)
-  %28 = add i64 %27, %.045
-  %29 = icmp ult i64 %28, %3
-  br i1 %29, label %18, label %.loopexit, !llvm.loop !15
+  tail call fastcc void @ompi_op_reduce(ptr noundef %0, ptr noundef %24, ptr noundef %25, i64 noundef %.039, ptr noundef %4)
+  %26 = add i64 %.039, %.045
+  %27 = icmp ult i64 %26, %3
+  br i1 %27, label %18, label %.loopexit, !llvm.loop !15
 
-30:                                               ; preds = %5
-  %31 = getelementptr inbounds i8, ptr %0, i64 84
-  %32 = load i32, ptr %31, align 4
-  %33 = and i32 %32, 1
-  %.not = icmp eq i32 %33, 0
-  br i1 %.not, label %47, label %34
+28:                                               ; preds = %5
+  %29 = getelementptr inbounds i8, ptr %0, i64 84
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, 1
+  %.not = icmp eq i32 %31, 0
+  br i1 %.not, label %45, label %32
 
-34:                                               ; preds = %30
-  %35 = getelementptr i8, ptr %4, i64 16
-  %.val = load i16, ptr %35, align 8
-  %36 = and i16 %.val, 512
-  %.not43 = icmp eq i16 %36, 0
-  br i1 %.not43, label %37, label %39
+32:                                               ; preds = %28
+  %33 = getelementptr i8, ptr %4, i64 16
+  %.val = load i16, ptr %33, align 8
+  %34 = and i16 %.val, 512
+  %.not43 = icmp eq i16 %34, 0
+  br i1 %.not43, label %35, label %37
 
-37:                                               ; preds = %34
-  %38 = tail call ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef nonnull %4) #17
-  br label %39
+35:                                               ; preds = %32
+  %36 = tail call ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef nonnull %4) #17
+  br label %37
 
-39:                                               ; preds = %34, %37
-  %.pn44 = phi ptr [ %38, %37 ], [ %4, %34 ]
+37:                                               ; preds = %32, %35
+  %.pn44 = phi ptr [ %36, %35 ], [ %4, %32 ]
   %.pn.in.in = getelementptr inbounds i8, ptr %.pn44, i64 200
   %.pn.in = load i32, ptr %.pn.in.in, align 8
   %.pn = sext i32 %.pn.in to i64
   %.038.in = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %.pn
   %.038 = load i32, ptr %.038.in, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 96
-  %41 = sext i32 %.038 to i64
-  %42 = getelementptr inbounds [43 x ptr], ptr %40, i64 0, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 440
-  %45 = getelementptr inbounds [43 x ptr], ptr %44, i64 0, i64 %41
-  %46 = load ptr, ptr %45, align 8
-  call void %43(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %46) #17
+  %38 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = sext i32 %.038 to i64
+  %40 = getelementptr inbounds [43 x ptr], ptr %38, i64 0, i64 %39
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 440
+  %43 = getelementptr inbounds [43 x ptr], ptr %42, i64 0, i64 %39
+  %44 = load ptr, ptr %43, align 8
+  call void %41(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %44) #17
   br label %.loopexit
 
-47:                                               ; preds = %30
-  %48 = and i32 %32, 2
-  %.not41 = icmp eq i32 %48, 0
-  br i1 %.not41, label %54, label %49
+45:                                               ; preds = %28
+  %46 = and i32 %30, 2
+  %.not41 = icmp eq i32 %46, 0
+  br i1 %.not41, label %52, label %47
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %4, i64 204
-  %51 = load i32, ptr %50, align 4
-  store i32 %51, ptr %7, align 4
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %4, i64 204
+  %49 = load i32, ptr %48, align 4
+  store i32 %49, ptr %7, align 4
   store i32 %10, ptr %8, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 96
-  %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #17
+  %50 = getelementptr inbounds i8, ptr %0, i64 96
+  %51 = load ptr, ptr %50, align 8
+  call void %51(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #17
   br label %.loopexit
 
-54:                                               ; preds = %47
-  %55 = and i32 %32, 8
-  %.not42 = icmp eq i32 %55, 0
-  %56 = getelementptr inbounds i8, ptr %0, i64 96
-  %57 = load ptr, ptr %56, align 8
-  br i1 %.not42, label %65, label %58
+52:                                               ; preds = %45
+  %53 = and i32 %30, 8
+  %.not42 = icmp eq i32 %53, 0
+  %54 = getelementptr inbounds i8, ptr %0, i64 96
+  %55 = load ptr, ptr %54, align 8
+  br i1 %.not42, label %63, label %56
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %0, i64 120
-  %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 104
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %0, i64 120
+  %58 = load i32, ptr %57, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 104
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %0, i64 112
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 112
-  %64 = load ptr, ptr %63, align 8
-  call void %57(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef %60, ptr noundef %62, ptr noundef %64) #17
+  call void %55(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef %58, ptr noundef %60, ptr noundef %62) #17
   br label %.loopexit
 
-65:                                               ; preds = %54
-  call void %57(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6) #17
+63:                                               ; preds = %52
+  call void %55(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6) #17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %18, %65, %58, %49, %39
+.loopexit:                                        ; preds = %18, %63, %56, %47, %37
   ret void
 }
 

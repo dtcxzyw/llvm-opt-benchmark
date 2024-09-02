@@ -4132,455 +4132,455 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN11MutexL
 _ZNK5ciEnv19jvmti_state_changedEv.exit:           ; preds = %116, %109, %102, %95, %88, %81, %73
   tail call void @_ZN17CHeapStringHolder3setEPKc(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull @.str.11) #19
   %.pr.pre = load ptr, ptr %71, align 8
-  %.not115 = icmp eq ptr %.pr.pre, null
-  br i1 %.not115, label %_ZNK5ciEnv19jvmti_state_changedEv.exit.thread, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
+  %119 = icmp eq ptr %.pr.pre, null
+  br i1 %119, label %_ZNK5ciEnv19jvmti_state_changedEv.exit.thread, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
 
 _ZNK5ciEnv19jvmti_state_changedEv.exit.thread:    ; preds = %112, %116, %_ZNK5ciEnv19jvmti_state_changedEv.exit
-  %119 = getelementptr inbounds i8, ptr %0, i64 166
-  %120 = load i8, ptr %119, align 2
-  %121 = trunc i8 %120 to i1
-  br i1 %121, label %125, label %122
+  %120 = getelementptr inbounds i8, ptr %0, i64 166
+  %121 = load i8, ptr %120, align 2
+  %122 = trunc i8 %121 to i1
+  br i1 %122, label %126, label %123
 
-122:                                              ; preds = %_ZNK5ciEnv19jvmti_state_changedEv.exit.thread
-  %123 = load i8, ptr @DTraceMethodProbes, align 1
-  %124 = trunc i8 %123 to i1
-  br i1 %124, label %132, label %125
+123:                                              ; preds = %_ZNK5ciEnv19jvmti_state_changedEv.exit.thread
+  %124 = load i8, ptr @DTraceMethodProbes, align 1
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %133, label %126
 
-125:                                              ; preds = %122, %_ZNK5ciEnv19jvmti_state_changedEv.exit.thread
-  %126 = getelementptr inbounds i8, ptr %0, i64 167
-  %127 = load i8, ptr %126, align 1
-  %128 = trunc i8 %127 to i1
-  br i1 %128, label %.thread, label %129
+126:                                              ; preds = %123, %_ZNK5ciEnv19jvmti_state_changedEv.exit.thread
+  %127 = getelementptr inbounds i8, ptr %0, i64 167
+  %128 = load i8, ptr %127, align 1
+  %129 = trunc i8 %128 to i1
+  br i1 %129, label %.thread, label %130
 
-129:                                              ; preds = %125
-  %130 = load i8, ptr @DTraceAllocProbes, align 1
-  %131 = trunc i8 %130 to i1
-  br i1 %131, label %132, label %.thread
+130:                                              ; preds = %126
+  %131 = load i8, ptr @DTraceAllocProbes, align 1
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %.thread
 
-132:                                              ; preds = %122, %129
+133:                                              ; preds = %123, %130
   tail call void @_ZN17CHeapStringHolder3setEPKc(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull @.str.12) #19
   %.pr99.pre = load ptr, ptr %71, align 8
-  %.not116 = icmp eq ptr %.pr99.pre, null
-  br i1 %.not116, label %.thread, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
+  %134 = icmp eq ptr %.pr99.pre, null
+  br i1 %134, label %.thread, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
 
-.thread:                                          ; preds = %125, %129, %132
-  %133 = tail call noundef zeroext i1 @_ZNK8ciMethod20needs_clinit_barrierEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
-  br i1 %133, label %134, label %_ZN5ciEnv14record_failureEPKc.exit60
+.thread:                                          ; preds = %126, %130, %133
+  %135 = tail call noundef zeroext i1 @_ZNK8ciMethod20needs_clinit_barrierEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
+  br i1 %135, label %136, label %_ZN5ciEnv14record_failureEPKc.exit60
 
-134:                                              ; preds = %.thread
-  %135 = getelementptr inbounds i8, ptr %1, i64 40
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 65
-  %138 = load i8, ptr %137, align 1
-  %139 = trunc i8 %138 to i1
-  %140 = getelementptr inbounds i8, ptr %136, i64 64
-  %141 = load i8, ptr %140, align 8
-  %.not.i.i58 = icmp ne i8 %141, 5
-  %or.cond.not.i.i = select i1 %139, i1 %.not.i.i58, i1 false
-  br i1 %or.cond.not.i.i, label %142, label %_ZN15ciInstanceKlass17is_in_error_stateEv.exit
+136:                                              ; preds = %.thread
+  %137 = getelementptr inbounds i8, ptr %1, i64 40
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds i8, ptr %138, i64 65
+  %140 = load i8, ptr %139, align 1
+  %141 = trunc i8 %140 to i1
+  %142 = getelementptr inbounds i8, ptr %138, i64 64
+  %143 = load i8, ptr %142, align 8
+  %.not.i.i58 = icmp ne i8 %143, 5
+  %or.cond.not.i.i = select i1 %141, i1 %.not.i.i58, i1 false
+  br i1 %or.cond.not.i.i, label %144, label %_ZN15ciInstanceKlass17is_in_error_stateEv.exit
 
-142:                                              ; preds = %134
-  %143 = getelementptr inbounds i8, ptr %136, i64 16
-  %144 = load ptr, ptr %143, align 8
-  %.not.i.i.i59 = icmp eq ptr %144, null
+144:                                              ; preds = %136
+  %145 = getelementptr inbounds i8, ptr %138, i64 16
+  %146 = load ptr, ptr %145, align 8
+  %.not.i.i.i59 = icmp eq ptr %146, null
   br i1 %.not.i.i.i59, label %_ZNK10ciMetadata9is_loadedEv.exit.i.i, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i
 
-_ZNK10ciMetadata9is_loadedEv.exit.i.i:            ; preds = %142
-  %145 = load ptr, ptr %136, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 32
-  %147 = load ptr, ptr %146, align 8
-  %148 = tail call noundef zeroext i1 %147(ptr noundef nonnull align 8 dereferenceable(24) %136) #19
-  br i1 %148, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, label %_ZN15ciInstanceKlass17is_in_error_stateEv.exitthread-pre-split
+_ZNK10ciMetadata9is_loadedEv.exit.i.i:            ; preds = %144
+  %147 = load ptr, ptr %138, align 8
+  %148 = getelementptr inbounds i8, ptr %147, i64 32
+  %149 = load ptr, ptr %148, align 8
+  %150 = tail call noundef zeroext i1 %149(ptr noundef nonnull align 8 dereferenceable(24) %138) #19
+  br i1 %150, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, label %_ZN15ciInstanceKlass17is_in_error_stateEv.exitthread-pre-split
 
-_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i, %142
-  tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %136) #19
+_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i.i, %144
+  tail call void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr noundef nonnull align 8 dereferenceable(144) %138) #19
   br label %_ZN15ciInstanceKlass17is_in_error_stateEv.exitthread-pre-split
 
 _ZN15ciInstanceKlass17is_in_error_stateEv.exitthread-pre-split: ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i.i, %_ZNK10ciMetadata9is_loadedEv.exit.i.i
-  %.pr100 = load i8, ptr %140, align 8
+  %.pr100 = load i8, ptr %142, align 8
   br label %_ZN15ciInstanceKlass17is_in_error_stateEv.exit
 
-_ZN15ciInstanceKlass17is_in_error_stateEv.exit:   ; preds = %_ZN15ciInstanceKlass17is_in_error_stateEv.exitthread-pre-split, %134
-  %149 = phi i8 [ %.pr100, %_ZN15ciInstanceKlass17is_in_error_stateEv.exitthread-pre-split ], [ %141, %134 ]
-  %150 = icmp eq i8 %149, 5
-  br i1 %150, label %151, label %_ZN5ciEnv14record_failureEPKc.exit60
+_ZN15ciInstanceKlass17is_in_error_stateEv.exit:   ; preds = %_ZN15ciInstanceKlass17is_in_error_stateEv.exitthread-pre-split, %136
+  %151 = phi i8 [ %.pr100, %_ZN15ciInstanceKlass17is_in_error_stateEv.exitthread-pre-split ], [ %143, %136 ]
+  %152 = icmp eq i8 %151, 5
+  br i1 %152, label %153, label %_ZN5ciEnv14record_failureEPKc.exit60
 
-151:                                              ; preds = %_ZN15ciInstanceKlass17is_in_error_stateEv.exit
-  %152 = load ptr, ptr %71, align 8
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %154, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
+153:                                              ; preds = %_ZN15ciInstanceKlass17is_in_error_stateEv.exit
+  %154 = load ptr, ptr %71, align 8
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %156, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
 
-154:                                              ; preds = %151
+156:                                              ; preds = %153
   tail call void @_ZN17CHeapStringHolder3setEPKc(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull @.str.13) #19
   br label %_ZN5ciEnv14record_failureEPKc.exit60
 
-_ZN5ciEnv14record_failureEPKc.exit60:             ; preds = %154, %_ZN15ciInstanceKlass17is_in_error_stateEv.exit, %.thread
+_ZN5ciEnv14record_failureEPKc.exit60:             ; preds = %156, %_ZN15ciInstanceKlass17is_in_error_stateEv.exit, %.thread
   %.pr101.pr = load ptr, ptr %71, align 8
   %.not117 = icmp eq ptr %.pr101.pr, null
-  br i1 %.not117, label %155, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
+  br i1 %.not117, label %157, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
 
-155:                                              ; preds = %_ZN5ciEnv14record_failureEPKc.exit60
-  %156 = getelementptr inbounds i8, ptr %0, i64 120
-  %157 = load ptr, ptr %156, align 8
-  %.not = icmp eq ptr %157, null
-  br i1 %.not, label %161, label %158
+157:                                              ; preds = %_ZN5ciEnv14record_failureEPKc.exit60
+  %158 = getelementptr inbounds i8, ptr %0, i64 120
+  %159 = load ptr, ptr %158, align 8
+  %.not = icmp eq ptr %159, null
+  br i1 %.not, label %163, label %160
 
-158:                                              ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %0, i64 80
-  %160 = load ptr, ptr %159, align 8
-  tail call void @_ZN12Dependencies20log_all_dependenciesEv(ptr noundef nonnull align 8 dereferenceable(192) %160) #19
-  br label %161
+160:                                              ; preds = %157
+  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %162 = load ptr, ptr %161, align 8
+  tail call void @_ZN12Dependencies20log_all_dependenciesEv(ptr noundef nonnull align 8 dereferenceable(192) %162) #19
+  br label %163
 
-161:                                              ; preds = %158, %155
-  %162 = getelementptr inbounds i8, ptr %0, i64 80
-  %163 = load ptr, ptr %162, align 8
-  tail call void @_ZN12Dependencies20encode_content_bytesEv(ptr noundef nonnull align 8 dereferenceable(192) %163) #19
-  %164 = load ptr, ptr %71, align 8
-  %.not.i61 = icmp eq ptr %164, null
-  br i1 %.not.i61, label %165, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
+163:                                              ; preds = %160, %157
+  %164 = getelementptr inbounds i8, ptr %0, i64 80
+  %165 = load ptr, ptr %164, align 8
+  tail call void @_ZN12Dependencies20encode_content_bytesEv(ptr noundef nonnull align 8 dereferenceable(192) %165) #19
+  %166 = load ptr, ptr %71, align 8
+  %.not.i61 = icmp eq ptr %166, null
+  br i1 %.not.i61, label %167, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
 
-165:                                              ; preds = %161
-  %166 = load ptr, ptr %162, align 8
-  %167 = getelementptr inbounds i8, ptr %0, i64 112
-  %168 = load ptr, ptr %167, align 8
-  %169 = tail call noundef i32 @_ZN12Dependencies21validate_dependenciesEP11CompileTaskPPc(ptr noundef nonnull align 8 dereferenceable(192) %166, ptr noundef %168, ptr noundef null) #19
-  switch i32 %169, label %174 [
+167:                                              ; preds = %163
+  %168 = load ptr, ptr %164, align 8
+  %169 = getelementptr inbounds i8, ptr %0, i64 112
+  %170 = load ptr, ptr %169, align 8
+  %171 = tail call noundef i32 @_ZN12Dependencies21validate_dependenciesEP11CompileTaskPPc(ptr noundef nonnull align 8 dereferenceable(192) %168, ptr noundef %170, ptr noundef null) #19
+  switch i32 %171, label %176 [
     i32 0, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit
-    i32 8, label %170
+    i32 8, label %172
   ]
 
-170:                                              ; preds = %165
-  %171 = getelementptr inbounds i8, ptr %0, i64 96
-  store i8 0, ptr %171, align 8
-  %172 = load ptr, ptr %71, align 8
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %_ZN5ciEnv14record_failureEPKc.exit.sink.split.i, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
+172:                                              ; preds = %167
+  %173 = getelementptr inbounds i8, ptr %0, i64 96
+  store i8 0, ptr %173, align 8
+  %174 = load ptr, ptr %71, align 8
+  %175 = icmp eq ptr %174, null
+  br i1 %175, label %_ZN5ciEnv14record_failureEPKc.exit.sink.split.i, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
 
-174:                                              ; preds = %165
-  %or.cond.i.i.i = icmp ult i32 %169, 9
-  %175 = shl nuw nsw i32 1, %169
-  %176 = and i32 %175, 254
-  %177 = icmp ne i32 %176, 0
-  %178 = select i1 %or.cond.i.i.i, i1 %177, i1 false
-  %179 = load ptr, ptr %71, align 8
-  %180 = icmp eq ptr %179, null
-  %.str.8..str.9.i = select i1 %178, ptr @.str.8, ptr @.str.9
-  br i1 %180, label %_ZN5ciEnv14record_failureEPKc.exit.sink.split.i, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
+176:                                              ; preds = %167
+  %or.cond.i.i.i = icmp ult i32 %171, 9
+  %177 = shl nuw nsw i32 1, %171
+  %178 = and i32 %177, 254
+  %179 = icmp ne i32 %178, 0
+  %180 = select i1 %or.cond.i.i.i, i1 %179, i1 false
+  %181 = load ptr, ptr %71, align 8
+  %182 = icmp eq ptr %181, null
+  %.str.8..str.9.i = select i1 %180, ptr @.str.8, ptr @.str.9
+  br i1 %182, label %_ZN5ciEnv14record_failureEPKc.exit.sink.split.i, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
 
-_ZN5ciEnv14record_failureEPKc.exit.sink.split.i:  ; preds = %174, %170
-  %.str.9.sink.i = phi ptr [ @.str.7, %170 ], [ %.str.8..str.9.i, %174 ]
+_ZN5ciEnv14record_failureEPKc.exit.sink.split.i:  ; preds = %176, %172
+  %.str.9.sink.i = phi ptr [ @.str.7, %172 ], [ %.str.8..str.9.i, %176 ]
   tail call void @_ZN17CHeapStringHolder3setEPKc(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull %.str.9.sink.i) #19
   br label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit
 
-_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit: ; preds = %_ZN5ciEnv14record_failureEPKc.exit.sink.split.i, %165
+_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit: ; preds = %_ZN5ciEnv14record_failureEPKc.exit.sink.split.i, %167
   %.pr102.pr = load ptr, ptr %71, align 8
   %.not118 = icmp eq ptr %.pr102.pr, null
-  br i1 %.not118, label %197, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
+  br i1 %.not118, label %199, label %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
 
-_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread: ; preds = %151, %132, %_ZNK5ciEnv19jvmti_state_changedEv.exit, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %_ZN5ciEnv14record_failureEPKc.exit60, %161, %170, %174, %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit
-  %181 = getelementptr inbounds i8, ptr %56, i64 16
-  %182 = load ptr, ptr %181, align 8
-  %.not52 = icmp eq ptr %182, null
-  br i1 %.not52, label %_ZN10MethodData19inc_decompile_countEv.exit, label %183
+_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread: ; preds = %153, %133, %_ZNK5ciEnv19jvmti_state_changedEv.exit, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %_ZN5ciEnv14record_failureEPKc.exit60, %163, %172, %176, %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit
+  %183 = getelementptr inbounds i8, ptr %56, i64 16
+  %184 = load ptr, ptr %183, align 8
+  %.not52 = icmp eq ptr %184, null
+  br i1 %.not52, label %_ZN10MethodData19inc_decompile_countEv.exit, label %185
 
-183:                                              ; preds = %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
-  %184 = getelementptr inbounds i8, ptr %0, i64 96
-  %185 = load i8, ptr %184, align 8
-  %186 = trunc i8 %185 to i1
-  br i1 %186, label %187, label %_ZN10MethodData19inc_decompile_countEv.exit
+185:                                              ; preds = %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
+  %186 = getelementptr inbounds i8, ptr %0, i64 96
+  %187 = load i8, ptr %186, align 8
+  %188 = trunc i8 %187 to i1
+  br i1 %188, label %189, label %_ZN10MethodData19inc_decompile_countEv.exit
 
-187:                                              ; preds = %183
-  %188 = getelementptr inbounds i8, ptr %182, i64 128
-  %189 = load i32, ptr %188, align 8
-  %190 = add i32 %189, 1
-  store i32 %190, ptr %188, align 8
-  %191 = load i64, ptr @PerMethodRecompilationCutoff, align 8
-  %192 = trunc i64 %191 to i32
-  %193 = icmp ugt i32 %190, %192
-  br i1 %193, label %194, label %_ZN10MethodData19inc_decompile_countEv.exit
+189:                                              ; preds = %185
+  %190 = getelementptr inbounds i8, ptr %184, i64 128
+  %191 = load i32, ptr %190, align 8
+  %192 = add i32 %191, 1
+  store i32 %192, ptr %190, align 8
+  %193 = load i64, ptr @PerMethodRecompilationCutoff, align 8
+  %194 = trunc i64 %193 to i32
+  %195 = icmp ugt i32 %192, %194
+  br i1 %195, label %196, label %_ZN10MethodData19inc_decompile_countEv.exit
 
-194:                                              ; preds = %187
-  %195 = getelementptr inbounds i8, ptr %182, i64 8
-  %196 = load ptr, ptr %195, align 8
-  tail call void @_ZN6Method18set_not_compilableEPKcib(ptr noundef nonnull align 8 dereferenceable(88) %196, ptr noundef nonnull @.str.64, i32 noundef 4, i1 noundef zeroext true) #19
+196:                                              ; preds = %189
+  %197 = getelementptr inbounds i8, ptr %184, i64 8
+  %198 = load ptr, ptr %197, align 8
+  tail call void @_ZN6Method18set_not_compilableEPKcib(ptr noundef nonnull align 8 dereferenceable(88) %198, ptr noundef nonnull @.str.64, i32 noundef 4, i1 noundef zeroext true) #19
   br label %_ZN10MethodData19inc_decompile_countEv.exit
 
-_ZN10MethodData19inc_decompile_countEv.exit:      ; preds = %194, %187, %183, %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
+_ZN10MethodData19inc_decompile_countEv.exit:      ; preds = %196, %189, %185, %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit.thread
   tail call void @_ZN10CodeBuffer9free_blobEv(ptr noundef nonnull align 8 dereferenceable(448) %5) #19
   br label %_ZN11MutexLockerD2Ev.exit
 
-197:                                              ; preds = %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit
-  %198 = load ptr, ptr %167, align 8
-  %199 = icmp eq ptr %198, null
-  br i1 %199, label %_ZN5ciEnv10compile_idEv.exit, label %200
+199:                                              ; preds = %_ZN5ciEnv34validate_compile_task_dependenciesEP8ciMethod.exit
+  %200 = load ptr, ptr %169, align 8
+  %201 = icmp eq ptr %200, null
+  br i1 %201, label %_ZN5ciEnv10compile_idEv.exit, label %202
 
-200:                                              ; preds = %197
-  %201 = getelementptr inbounds i8, ptr %198, i64 8
-  %202 = load i32, ptr %201, align 8
+202:                                              ; preds = %199
+  %203 = getelementptr inbounds i8, ptr %200, i64 8
+  %204 = load i32, ptr %203, align 8
   br label %_ZN5ciEnv10compile_idEv.exit
 
-_ZN5ciEnv10compile_idEv.exit:                     ; preds = %197, %200
-  %.0.i62 = phi i32 [ %202, %200 ], [ 0, %197 ]
-  %203 = getelementptr inbounds i8, ptr %0, i64 72
-  %204 = load ptr, ptr %203, align 8
-  %205 = load ptr, ptr %162, align 8
-  %206 = getelementptr inbounds i8, ptr %198, i64 80
-  %207 = load i32, ptr %206, align 8
-  %208 = trunc i32 %207 to i8
-  %209 = call noundef ptr @_ZN7nmethod11new_nmethodERK12methodHandleiiP11CodeOffsetsiP24DebugInformationRecorderP12DependenciesP10CodeBufferiP9OopMapSetP21ExceptionHandlerTableP22ImplicitExceptionTableP16AbstractCompiler9CompLevelPciP16JVMCINMethodData(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef %.0.i62, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %204, ptr noundef %205, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i8 noundef signext %208, ptr noundef null, i32 noundef 0, ptr noundef null) #19
+_ZN5ciEnv10compile_idEv.exit:                     ; preds = %199, %202
+  %.0.i62 = phi i32 [ %204, %202 ], [ 0, %199 ]
+  %205 = getelementptr inbounds i8, ptr %0, i64 72
+  %206 = load ptr, ptr %205, align 8
+  %207 = load ptr, ptr %164, align 8
+  %208 = getelementptr inbounds i8, ptr %200, i64 80
+  %209 = load i32, ptr %208, align 8
+  %210 = trunc i32 %209 to i8
+  %211 = call noundef ptr @_ZN7nmethod11new_nmethodERK12methodHandleiiP11CodeOffsetsiP24DebugInformationRecorderP12DependenciesP10CodeBufferiP9OopMapSetP21ExceptionHandlerTableP22ImplicitExceptionTableP16AbstractCompiler9CompLevelPciP16JVMCINMethodData(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef %.0.i62, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %206, ptr noundef %207, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, i8 noundef signext %210, ptr noundef null, i32 noundef 0, ptr noundef null) #19
   call void @_ZN10CodeBuffer9free_blobEv(ptr noundef nonnull align 8 dereferenceable(448) %5) #19
-  %.not50 = icmp eq ptr %209, null
-  br i1 %.not50, label %_ZN11MutexLockerD2Ev.exit, label %210
+  %.not50 = icmp eq ptr %211, null
+  br i1 %.not50, label %_ZN11MutexLockerD2Ev.exit, label %212
 
-210:                                              ; preds = %_ZN5ciEnv10compile_idEv.exit
-  %211 = zext i1 %11 to i8
-  %212 = getelementptr inbounds i8, ptr %209, i64 212
-  %213 = load i8, ptr %212, align 4
-  %214 = and i8 %213, -14
-  %215 = select i1 %12, i8 4, i8 0
-  %216 = select i1 %13, i8 8, i8 0
-  %217 = or disjoint i8 %215, %211
-  %218 = or disjoint i8 %217, %216
-  %219 = or disjoint i8 %218, %214
-  store i8 %219, ptr %212, align 4
-  %220 = icmp eq i32 %2, -1
-  br i1 %220, label %221, label %260
+212:                                              ; preds = %_ZN5ciEnv10compile_idEv.exit
+  %213 = zext i1 %11 to i8
+  %214 = getelementptr inbounds i8, ptr %211, i64 212
+  %215 = load i8, ptr %214, align 4
+  %216 = and i8 %215, -14
+  %217 = select i1 %12, i8 4, i8 0
+  %218 = select i1 %13, i8 8, i8 0
+  %219 = or disjoint i8 %217, %213
+  %220 = or disjoint i8 %219, %218
+  %221 = or disjoint i8 %220, %216
+  store i8 %221, ptr %214, align 4
+  %222 = icmp eq i32 %2, -1
+  br i1 %222, label %223, label %262
 
-221:                                              ; preds = %210
-  %222 = load i8, ptr @TieredCompilation, align 1
-  %223 = trunc i8 %222 to i1
-  br i1 %223, label %224, label %230
+223:                                              ; preds = %212
+  %224 = load i8, ptr @TieredCompilation, align 1
+  %225 = trunc i8 %224 to i1
+  br i1 %225, label %226, label %232
 
-224:                                              ; preds = %221
-  %225 = load ptr, ptr %16, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 72
-  %227 = load volatile ptr, ptr %226, align 8
+226:                                              ; preds = %223
+  %227 = load ptr, ptr %16, align 8
+  %228 = getelementptr inbounds i8, ptr %227, i64 72
+  %229 = load volatile ptr, ptr %228, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !7
-  %.not51 = icmp eq ptr %227, null
-  br i1 %.not51, label %230, label %228
+  %.not51 = icmp eq ptr %229, null
+  br i1 %.not51, label %232, label %230
 
-228:                                              ; preds = %224
-  %229 = call noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef nonnull align 8 dereferenceable(214) %227) #19
-  br label %230
+230:                                              ; preds = %226
+  %231 = call noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef nonnull align 8 dereferenceable(214) %229) #19
+  br label %232
 
-230:                                              ; preds = %224, %228, %221
-  %231 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE94ELS1_61ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not120 = icmp eq ptr %231, null
-  br i1 %.not120, label %_ZN12ResourceMarkD2Ev.exit, label %232
+232:                                              ; preds = %226, %230, %223
+  %233 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE94ELS1_61ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not120 = icmp eq ptr %233, null
+  br i1 %.not120, label %_ZN12ResourceMarkD2Ev.exit, label %234
 
-232:                                              ; preds = %230
-  %233 = load ptr, ptr %17, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 800
-  %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 24
+234:                                              ; preds = %232
+  %235 = load ptr, ptr %17, align 8
+  %236 = getelementptr inbounds i8, ptr %235, i64 800
   %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %235, i64 32
+  %238 = getelementptr inbounds i8, ptr %237, i64 24
   %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds i8, ptr %235, i64 40
+  %240 = getelementptr inbounds i8, ptr %237, i64 32
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %235, i64 8
-  %243 = load i64, ptr %242, align 8
-  %244 = load ptr, ptr %16, align 8
-  %245 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %244) #19
-  %246 = load ptr, ptr %167, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 80
-  %248 = load i32, ptr %247, align 8
-  call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE3ELN6LogTag4typeE94ELS3_61ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.14, i32 noundef %248, ptr noundef %245)
-  %249 = load ptr, ptr %237, align 8
-  %.not.i.i.i.i63 = icmp eq ptr %249, null
-  br i1 %.not.i.i.i.i63, label %251, label %250
+  %242 = getelementptr inbounds i8, ptr %237, i64 40
+  %243 = load ptr, ptr %242, align 8
+  %244 = getelementptr inbounds i8, ptr %237, i64 8
+  %245 = load i64, ptr %244, align 8
+  %246 = load ptr, ptr %16, align 8
+  %247 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %246) #19
+  %248 = load ptr, ptr %169, align 8
+  %249 = getelementptr inbounds i8, ptr %248, i64 80
+  %250 = load i32, ptr %249, align 8
+  call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE3ELN6LogTag4typeE94ELS3_61ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.14, i32 noundef %250, ptr noundef %247)
+  %251 = load ptr, ptr %239, align 8
+  %.not.i.i.i.i63 = icmp eq ptr %251, null
+  br i1 %.not.i.i.i.i63, label %253, label %252
 
-250:                                              ; preds = %232
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %235, i64 noundef %243) #19
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %237) #19
-  br label %251
+252:                                              ; preds = %234
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %237, i64 noundef %245) #19
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %239) #19
+  br label %253
 
-251:                                              ; preds = %250, %232
-  %252 = load ptr, ptr %238, align 8
-  %.not8.i.i.i.i = icmp eq ptr %252, %239
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %253
+253:                                              ; preds = %252, %234
+  %254 = load ptr, ptr %240, align 8
+  %.not8.i.i.i.i = icmp eq ptr %254, %241
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %255
 
-253:                                              ; preds = %251
-  store ptr %237, ptr %236, align 8
+255:                                              ; preds = %253
   store ptr %239, ptr %238, align 8
   store ptr %241, ptr %240, align 8
+  store ptr %243, ptr %242, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %253, %251, %230
-  %254 = load ptr, ptr @NMethodState_lock, align 8
-  %.not.i.i64 = icmp eq ptr %254, null
-  br i1 %.not.i.i64, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit65, label %255
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %255, %253, %232
+  %256 = load ptr, ptr @NMethodState_lock, align 8
+  %.not.i.i64 = icmp eq ptr %256, null
+  br i1 %.not.i.i64, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit65, label %257
 
-255:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %254) #19
+257:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %256) #19
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit65
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit65: ; preds = %_ZN12ResourceMarkD2Ev.exit, %255
-  %256 = call noundef zeroext i1 @_ZN7nmethod14try_transitionEa(ptr noundef nonnull align 8 dereferenceable(214) %209, i8 noundef signext 0) #19
-  br i1 %256, label %257, label %258
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit65: ; preds = %_ZN12ResourceMarkD2Ev.exit, %257
+  %258 = call noundef zeroext i1 @_ZN7nmethod14try_transitionEa(ptr noundef nonnull align 8 dereferenceable(214) %211, i8 noundef signext 0) #19
+  br i1 %258, label %259, label %260
 
-257:                                              ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit65
-  call void @_ZN6Method8set_codeERK12methodHandleP7nmethod(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %209) #19
-  br label %258
+259:                                              ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit65
+  call void @_ZN6Method8set_codeERK12methodHandleP7nmethod(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull %211) #19
+  br label %260
 
-258:                                              ; preds = %257, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit65
-  br i1 %.not.i.i64, label %_ZN11MutexLockerD2Ev.exit, label %259
+260:                                              ; preds = %259, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit65
+  br i1 %.not.i.i64, label %_ZN11MutexLockerD2Ev.exit, label %261
 
-259:                                              ; preds = %258
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %254) #19
+261:                                              ; preds = %260
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %256) #19
   br label %_ZN11MutexLockerD2Ev.exit
 
-260:                                              ; preds = %210
-  %261 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE94ELS1_61ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not119 = icmp eq ptr %261, null
-  br i1 %.not119, label %_ZN12ResourceMarkD2Ev.exit69, label %262
+262:                                              ; preds = %212
+  %263 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE94ELS1_61ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not119 = icmp eq ptr %263, null
+  br i1 %.not119, label %_ZN12ResourceMarkD2Ev.exit69, label %264
 
-262:                                              ; preds = %260
-  %263 = load ptr, ptr %17, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 800
-  %265 = load ptr, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 24
+264:                                              ; preds = %262
+  %265 = load ptr, ptr %17, align 8
+  %266 = getelementptr inbounds i8, ptr %265, i64 800
   %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %265, i64 32
+  %268 = getelementptr inbounds i8, ptr %267, i64 24
   %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds i8, ptr %265, i64 40
+  %270 = getelementptr inbounds i8, ptr %267, i64 32
   %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %265, i64 8
-  %273 = load i64, ptr %272, align 8
-  %274 = load ptr, ptr %16, align 8
-  %275 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %274) #19
-  %276 = load ptr, ptr %167, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 80
-  %278 = load i32, ptr %277, align 8
-  call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE3ELN6LogTag4typeE94ELS3_61ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.15, i32 noundef %278, ptr noundef %275, i32 noundef %2)
-  %279 = load ptr, ptr %267, align 8
-  %.not.i.i.i.i67 = icmp eq ptr %279, null
-  br i1 %.not.i.i.i.i67, label %281, label %280
+  %272 = getelementptr inbounds i8, ptr %267, i64 40
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds i8, ptr %267, i64 8
+  %275 = load i64, ptr %274, align 8
+  %276 = load ptr, ptr %16, align 8
+  %277 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %276) #19
+  %278 = load ptr, ptr %169, align 8
+  %279 = getelementptr inbounds i8, ptr %278, i64 80
+  %280 = load i32, ptr %279, align 8
+  call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE3ELN6LogTag4typeE94ELS3_61ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.15, i32 noundef %280, ptr noundef %277, i32 noundef %2)
+  %281 = load ptr, ptr %269, align 8
+  %.not.i.i.i.i67 = icmp eq ptr %281, null
+  br i1 %.not.i.i.i.i67, label %283, label %282
 
-280:                                              ; preds = %262
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %265, i64 noundef %273) #19
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %267) #19
-  br label %281
+282:                                              ; preds = %264
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %267, i64 noundef %275) #19
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %269) #19
+  br label %283
 
-281:                                              ; preds = %280, %262
-  %282 = load ptr, ptr %268, align 8
-  %.not8.i.i.i.i68 = icmp eq ptr %282, %269
-  br i1 %.not8.i.i.i.i68, label %_ZN12ResourceMarkD2Ev.exit69, label %283
+283:                                              ; preds = %282, %264
+  %284 = load ptr, ptr %270, align 8
+  %.not8.i.i.i.i68 = icmp eq ptr %284, %271
+  br i1 %.not8.i.i.i.i68, label %_ZN12ResourceMarkD2Ev.exit69, label %285
 
-283:                                              ; preds = %281
-  store ptr %267, ptr %266, align 8
+285:                                              ; preds = %283
   store ptr %269, ptr %268, align 8
   store ptr %271, ptr %270, align 8
+  store ptr %273, ptr %272, align 8
   br label %_ZN12ResourceMarkD2Ev.exit69
 
-_ZN12ResourceMarkD2Ev.exit69:                     ; preds = %283, %281, %260
-  %284 = load ptr, ptr @NMethodState_lock, align 8
-  %.not.i.i70 = icmp eq ptr %284, null
-  br i1 %.not.i.i70, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit71, label %285
+_ZN12ResourceMarkD2Ev.exit69:                     ; preds = %285, %283, %262
+  %286 = load ptr, ptr @NMethodState_lock, align 8
+  %.not.i.i70 = icmp eq ptr %286, null
+  br i1 %.not.i.i70, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit71, label %287
 
-285:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit69
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %284) #19
+287:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit69
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %286) #19
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit71
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit71: ; preds = %_ZN12ResourceMarkD2Ev.exit69, %285
-  %286 = call noundef zeroext i1 @_ZN7nmethod14try_transitionEa(ptr noundef nonnull align 8 dereferenceable(214) %209, i8 noundef signext 0) #19
-  br i1 %286, label %287, label %295
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit71: ; preds = %_ZN12ResourceMarkD2Ev.exit69, %287
+  %288 = call noundef zeroext i1 @_ZN7nmethod14try_transitionEa(ptr noundef nonnull align 8 dereferenceable(214) %211, i8 noundef signext 0) #19
+  br i1 %288, label %289, label %297
 
-287:                                              ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit71
-  %288 = load ptr, ptr %16, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 8
-  %290 = load ptr, ptr %289, align 8
+289:                                              ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit71
+  %290 = load ptr, ptr %16, align 8
   %291 = getelementptr inbounds i8, ptr %290, i64 8
   %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds i8, ptr %292, i64 24
+  %293 = getelementptr inbounds i8, ptr %292, i64 8
   %294 = load ptr, ptr %293, align 8
-  call void @_ZN13InstanceKlass15add_osr_nmethodEP7nmethod(ptr noundef nonnull align 8 dereferenceable(464) %294, ptr noundef nonnull %209) #19
-  br label %295
+  %295 = getelementptr inbounds i8, ptr %294, i64 24
+  %296 = load ptr, ptr %295, align 8
+  call void @_ZN13InstanceKlass15add_osr_nmethodEP7nmethod(ptr noundef nonnull align 8 dereferenceable(464) %296, ptr noundef nonnull %211) #19
+  br label %297
 
-295:                                              ; preds = %287, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit71
-  br i1 %.not.i.i70, label %_ZN11MutexLockerD2Ev.exit, label %296
+297:                                              ; preds = %289, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit71
+  br i1 %.not.i.i70, label %_ZN11MutexLockerD2Ev.exit, label %298
 
-296:                                              ; preds = %295
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %284) #19
+298:                                              ; preds = %297
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %286) #19
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %296, %295, %259, %258, %_ZN5ciEnv10compile_idEv.exit, %_ZN10MethodData19inc_decompile_countEv.exit
-  %297 = phi i1 [ false, %_ZN10MethodData19inc_decompile_countEv.exit ], [ true, %_ZN5ciEnv10compile_idEv.exit ], [ true, %258 ], [ true, %259 ], [ true, %295 ], [ true, %296 ]
-  %.1 = phi ptr [ null, %_ZN10MethodData19inc_decompile_countEv.exit ], [ null, %_ZN5ciEnv10compile_idEv.exit ], [ %209, %258 ], [ %209, %259 ], [ %209, %295 ], [ %209, %296 ]
-  br i1 %.not.i.i54, label %_ZN11MutexLockerD2Ev.exit75, label %298
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %298, %297, %261, %260, %_ZN5ciEnv10compile_idEv.exit, %_ZN10MethodData19inc_decompile_countEv.exit
+  %299 = phi i1 [ false, %_ZN10MethodData19inc_decompile_countEv.exit ], [ true, %_ZN5ciEnv10compile_idEv.exit ], [ true, %260 ], [ true, %261 ], [ true, %297 ], [ true, %298 ]
+  %.1 = phi ptr [ null, %_ZN10MethodData19inc_decompile_countEv.exit ], [ null, %_ZN5ciEnv10compile_idEv.exit ], [ %211, %260 ], [ %211, %261 ], [ %211, %297 ], [ %211, %298 ]
+  br i1 %.not.i.i54, label %_ZN11MutexLockerD2Ev.exit75, label %300
 
-298:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
+300:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %69) #19
   br label %_ZN11MutexLockerD2Ev.exit75
 
-_ZN11MutexLockerD2Ev.exit75:                      ; preds = %_ZN11MutexLockerD2Ev.exit, %298
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit77, label %299
+_ZN11MutexLockerD2Ev.exit75:                      ; preds = %_ZN11MutexLockerD2Ev.exit, %300
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit77, label %301
 
-299:                                              ; preds = %_ZN11MutexLockerD2Ev.exit75
+301:                                              ; preds = %_ZN11MutexLockerD2Ev.exit75
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %67) #19
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #19
-  br i1 %297, label %300, label %_ZN5ciEnv14record_failureEPKc.exit78
+  br i1 %299, label %302, label %_ZN5ciEnv14record_failureEPKc.exit78
 
 _ZN11MutexLockerD2Ev.exit77:                      ; preds = %_ZN11MutexLockerD2Ev.exit75
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #19
-  br i1 %297, label %300, label %_ZN5ciEnv14record_failureEPKc.exit78
+  br i1 %299, label %302, label %_ZN5ciEnv14record_failureEPKc.exit78
 
-300:                                              ; preds = %299, %_ZN11MutexLockerD2Ev.exit77
+302:                                              ; preds = %301, %_ZN11MutexLockerD2Ev.exit77
   %.not53 = icmp eq ptr %.1, null
-  br i1 %.not53, label %308, label %301
+  br i1 %.not53, label %310, label %303
 
-301:                                              ; preds = %300
-  %302 = getelementptr inbounds i8, ptr %0, i64 112
-  %303 = load ptr, ptr %302, align 8
-  call void @_ZN7nmethod20post_compiled_methodEP11CompileTask(ptr noundef nonnull align 8 dereferenceable(214) %.1, ptr noundef %303) #19
-  %304 = load ptr, ptr %302, align 8
-  %305 = getelementptr inbounds i8, ptr %0, i64 108
-  %306 = load i32, ptr %305, align 4
-  %307 = getelementptr inbounds i8, ptr %304, i64 84
-  store i32 %306, ptr %307, align 4
+303:                                              ; preds = %302
+  %304 = getelementptr inbounds i8, ptr %0, i64 112
+  %305 = load ptr, ptr %304, align 8
+  call void @_ZN7nmethod20post_compiled_methodEP11CompileTask(ptr noundef nonnull align 8 dereferenceable(214) %.1, ptr noundef %305) #19
+  %306 = load ptr, ptr %304, align 8
+  %307 = getelementptr inbounds i8, ptr %0, i64 108
+  %308 = load i32, ptr %307, align 4
+  %309 = getelementptr inbounds i8, ptr %306, i64 84
+  store i32 %308, ptr %309, align 4
   br label %_ZN5ciEnv14record_failureEPKc.exit78
 
-308:                                              ; preds = %300
-  %309 = load ptr, ptr %71, align 8
-  %310 = icmp eq ptr %309, null
-  br i1 %310, label %311, label %_ZN5ciEnv14record_failureEPKc.exit78
+310:                                              ; preds = %302
+  %311 = load ptr, ptr %71, align 8
+  %312 = icmp eq ptr %311, null
+  br i1 %312, label %313, label %_ZN5ciEnv14record_failureEPKc.exit78
 
-311:                                              ; preds = %308
+313:                                              ; preds = %310
   call void @_ZN17CHeapStringHolder3setEPKc(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull @.str.16) #19
   br label %_ZN5ciEnv14record_failureEPKc.exit78
 
-_ZN5ciEnv14record_failureEPKc.exit78:             ; preds = %301, %308, %311, %299, %_ZN11MutexLockerD2Ev.exit77.thread, %_ZN11MutexLockerD2Ev.exit77
-  %312 = getelementptr inbounds i8, ptr %18, i64 408
-  %313 = load ptr, ptr %312, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 16
+_ZN5ciEnv14record_failureEPKc.exit78:             ; preds = %303, %310, %313, %301, %_ZN11MutexLockerD2Ev.exit77.thread, %_ZN11MutexLockerD2Ev.exit77
+  %314 = getelementptr inbounds i8, ptr %18, i64 408
   %315 = load ptr, ptr %314, align 8
-  %316 = load ptr, ptr %315, align 8
-  %.not.i.i79 = icmp eq ptr %316, null
-  br i1 %.not.i.i79, label %_ZN17HandleMarkCleanerD2Ev.exit, label %317
+  %316 = getelementptr inbounds i8, ptr %315, i64 16
+  %317 = load ptr, ptr %316, align 8
+  %318 = load ptr, ptr %317, align 8
+  %.not.i.i79 = icmp eq ptr %318, null
+  br i1 %.not.i.i79, label %_ZN17HandleMarkCleanerD2Ev.exit, label %319
 
-317:                                              ; preds = %_ZN5ciEnv14record_failureEPKc.exit78
-  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %313) #19
-  %.pre.i.i = load ptr, ptr %314, align 8
+319:                                              ; preds = %_ZN5ciEnv14record_failureEPKc.exit78
+  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %315) #19
+  %.pre.i.i = load ptr, ptr %316, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN5ciEnv14record_failureEPKc.exit78, %317
-  %318 = phi ptr [ %315, %_ZN5ciEnv14record_failureEPKc.exit78 ], [ %.pre.i.i, %317 ]
-  %319 = getelementptr inbounds i8, ptr %313, i64 8
-  %320 = load ptr, ptr %319, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 24
-  store ptr %318, ptr %321, align 8
-  %322 = getelementptr inbounds i8, ptr %313, i64 24
-  %323 = load ptr, ptr %322, align 8
-  %324 = load ptr, ptr %319, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 32
-  store ptr %323, ptr %325, align 8
-  %326 = getelementptr inbounds i8, ptr %313, i64 32
-  %327 = load ptr, ptr %326, align 8
-  %328 = load ptr, ptr %319, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 40
-  store ptr %327, ptr %329, align 8
-  %330 = getelementptr inbounds i8, ptr %18, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %330) #19
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN5ciEnv14record_failureEPKc.exit78, %319
+  %320 = phi ptr [ %317, %_ZN5ciEnv14record_failureEPKc.exit78 ], [ %.pre.i.i, %319 ]
+  %321 = getelementptr inbounds i8, ptr %315, i64 8
+  %322 = load ptr, ptr %321, align 8
+  %323 = getelementptr inbounds i8, ptr %322, i64 24
+  store ptr %320, ptr %323, align 8
+  %324 = getelementptr inbounds i8, ptr %315, i64 24
+  %325 = load ptr, ptr %324, align 8
+  %326 = load ptr, ptr %321, align 8
+  %327 = getelementptr inbounds i8, ptr %326, i64 32
+  store ptr %325, ptr %327, align 8
+  %328 = getelementptr inbounds i8, ptr %315, i64 32
+  %329 = load ptr, ptr %328, align 8
+  %330 = load ptr, ptr %321, align 8
+  %331 = getelementptr inbounds i8, ptr %330, i64 40
+  store ptr %329, ptr %331, align 8
+  %332 = getelementptr inbounds i8, ptr %18, i64 928
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %332) #19
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !7
   store volatile i32 4, ptr %21, align 4
   ret void

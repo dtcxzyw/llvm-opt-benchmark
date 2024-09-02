@@ -1430,7 +1430,7 @@ define hidden noundef zeroext i1 @_ZN9Signature24is_valid_array_signatureEPK6Sym
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext range(i8 0, 100) i8 @_ZN9Signature10basic_typeEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext range(i8 4, 100) i8 @_ZN9Signature10basic_typeEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %switch.tableidx = add i32 %0, -66
   %2 = icmp ult i32 %switch.tableidx, 26
   br i1 %2, label %switch.lookup, label %_ZL21decode_signature_chari.exit

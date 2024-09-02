@@ -1803,7 +1803,7 @@ define hidden noundef i32 @_ZN24DebugInformationRecorder9data_sizeEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN24DebugInformationRecorder8pcs_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -15) i32 @_ZN24DebugInformationRecorder8pcs_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.PcDesc, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4

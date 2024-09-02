@@ -1149,7 +1149,7 @@ PreLoopInitialize.exit:                           ; preds = %63
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i32 @WebPEncodingSetError(ptr noundef %67, i32 noundef 1) #7
   %.not = icmp eq i32 %68, 0
-  br i1 %.not, label %251, label %PreLoopInitialize.exit.thread
+  br i1 %.not, label %252, label %PreLoopInitialize.exit.thread
 
 PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitialize.exit
   %69 = ashr i32 %52, 3
@@ -1223,10 +1223,10 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
   call void @VP8TBufferClear(ptr noundef nonnull %73) #7
   br label %106
 
-106:                                              ; preds = %170, %105
-  %.078 = phi i64 [ 0, %105 ], [ %165, %170 ]
-  %.076 = phi i64 [ 0, %105 ], [ %167, %170 ]
-  %.075 = phi i32 [ %spec.store.select, %105 ], [ %.1, %170 ]
+106:                                              ; preds = %171, %105
+  %.078 = phi i64 [ 0, %105 ], [ %165, %171 ]
+  %.076 = phi i64 [ 0, %105 ], [ %167, %171 ]
+  %.075 = phi i32 [ %spec.store.select, %105 ], [ %.1, %171 ]
   call void @VP8IteratorImport(ptr noundef nonnull %3, ptr noundef null) #7
   %107 = add nsw i32 %.075, -1
   %108 = icmp slt i32 %.075, 1
@@ -1276,20 +1276,20 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
   br label %127
 
 127:                                              ; preds = %127, %.preheader60.i
-  %indvars.iv.i101 = phi i64 [ 0, %.preheader60.i ], [ %indvars.iv.next.i102, %127 ]
-  %128 = getelementptr inbounds [9 x i32], ptr %79, i64 0, i64 %indvars.iv.i101
+  %indvars.iv.i103 = phi i64 [ 0, %.preheader60.i ], [ %indvars.iv.next.i104, %127 ]
+  %128 = getelementptr inbounds [9 x i32], ptr %79, i64 0, i64 %indvars.iv.i103
   %129 = load i32, ptr %128, align 4
   %130 = load i32, ptr %125, align 4
   %131 = add nsw i32 %130, %129
   %132 = load ptr, ptr @VP8SetResidualCoeffs, align 8
-  %133 = add nuw nsw i64 %indvars.iv.i101, %126
+  %133 = add nuw nsw i64 %indvars.iv.i103, %126
   %134 = getelementptr inbounds [16 x [16 x i16]], ptr %81, i64 0, i64 %133
   call void %132(ptr noundef nonnull %134, ptr noundef nonnull %2) #7
   %135 = call i32 @VP8RecordCoeffTokens(i32 noundef %131, ptr noundef nonnull %2, ptr noundef nonnull %73) #7
   store i32 %135, ptr %125, align 4
   store i32 %135, ptr %128, align 4
-  %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i101, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i102, 4
+  %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i103, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i104, 4
   br i1 %exitcond.not.i, label %136, label %127, !llvm.loop !22
 
 136:                                              ; preds = %127
@@ -1343,193 +1343,193 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
 RecordTokens.exit:                                ; preds = %157
   call void @VP8IteratorBytesToNz(ptr noundef nonnull %3) #7
   %158 = load i32, ptr %83, align 8
-  %.not.i103.not = icmp eq i32 %158, 0
+  %.not.i105.not = icmp eq i32 %158, 0
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  br i1 %.not.i103.not, label %163, label %159
+  br i1 %.not.i105.not, label %163, label %159
 
 159:                                              ; preds = %RecordTokens.exit
   %160 = getelementptr inbounds i8, ptr %0, i64 8
   %161 = load ptr, ptr %160, align 8
   %162 = call i32 @WebPEncodingSetError(ptr noundef %161, i32 noundef 1) #7
-  br label %.critedge100
+  br label %.critedge102
 
 163:                                              ; preds = %RecordTokens.exit
   %164 = load i64, ptr %84, align 8
   %165 = add i64 %164, %.078
   %166 = load i64, ptr %4, align 8
   %167 = add i64 %166, %.076
-  br i1 %101, label %168, label %.thread
-
-.thread:                                          ; preds = %163
-  call void @VP8IteratorSaveBoundary(ptr noundef nonnull %3) #7
-  br label %170
+  br i1 %101, label %168, label %.critedge100
 
 168:                                              ; preds = %163
   call fastcc void @StoreSideInfo(ptr noundef nonnull %3)
   call void @VP8StoreFilterStats(ptr noundef nonnull %3) #7
   call void @VP8IteratorExport(ptr noundef nonnull %3) #7
   %169 = call i32 @VP8IteratorProgress(ptr noundef nonnull %3, i32 noundef %102) #7
+  %170 = icmp eq i32 %169, 0
   call void @VP8IteratorSaveBoundary(ptr noundef nonnull %3) #7
-  %.not91 = icmp eq i32 %169, 0
-  br i1 %.not91, label %.critedge100, label %170
+  br i1 %170, label %.critedge102, label %171
 
-170:                                              ; preds = %.thread, %168
-  %171 = call i32 @VP8IteratorNext(ptr noundef nonnull %3) #7
-  %.not92 = icmp eq i32 %171, 0
+.critedge100:                                     ; preds = %163
+  call void @VP8IteratorSaveBoundary(ptr noundef nonnull %3) #7
+  br label %171
+
+171:                                              ; preds = %.critedge100, %168
+  %172 = call i32 @VP8IteratorNext(ptr noundef nonnull %3) #7
+  %.not92 = icmp eq i32 %172, 0
   br i1 %.not92, label %.critedge3, label %106, !llvm.loop !27
 
-.critedge3:                                       ; preds = %170
-  %172 = load i32, ptr %85, align 8
-  %173 = sext i32 %172 to i64
-  %174 = add i64 %165, %173
-  br i1 %.not122, label %185, label %175
+.critedge3:                                       ; preds = %171
+  %173 = load i32, ptr %85, align 8
+  %174 = sext i32 %173 to i64
+  %175 = add i64 %165, %174
+  br i1 %.not122, label %186, label %176
 
-175:                                              ; preds = %.critedge3
-  %176 = call fastcc i32 @FinalizeTokenProbas(ptr noundef nonnull %14)
-  %177 = sext i32 %176 to i64
-  %178 = call i64 @VP8EstimateTokenSize(ptr noundef nonnull %73, ptr noundef nonnull %86) #7
-  %179 = add i64 %174, 1024
-  %180 = add i64 %179, %177
+176:                                              ; preds = %.critedge3
+  %177 = call fastcc i32 @FinalizeTokenProbas(ptr noundef nonnull %14)
+  %178 = sext i32 %177 to i64
+  %179 = call i64 @VP8EstimateTokenSize(ptr noundef nonnull %73, ptr noundef nonnull %86) #7
+  %180 = add i64 %175, 1024
   %181 = add i64 %180, %178
-  %182 = lshr i64 %181, 11
-  %183 = add nuw nsw i64 %182, 30
-  %184 = uitofp nneg i64 %183 to double
+  %182 = add i64 %181, %179
+  %183 = lshr i64 %182, 11
+  %184 = add nuw nsw i64 %183, 30
+  %185 = uitofp nneg i64 %184 to double
   br label %GetPSNR.exit
 
-185:                                              ; preds = %.critedge3
-  %186 = icmp ne i64 %167, 0
-  %or.cond.i = and i1 %87, %186
-  br i1 %or.cond.i, label %187, label %GetPSNR.exit
+186:                                              ; preds = %.critedge3
+  %187 = icmp ne i64 %167, 0
+  %or.cond.i = and i1 %87, %187
+  br i1 %or.cond.i, label %188, label %GetPSNR.exit
 
-187:                                              ; preds = %185
-  %188 = uitofp i64 %167 to double
-  %189 = fdiv double %89, %188
-  %190 = call double @log10(double noundef %189) #7
-  %191 = fmul double %190, 1.000000e+01
+188:                                              ; preds = %186
+  %189 = uitofp i64 %167 to double
+  %190 = fdiv double %89, %189
+  %191 = call double @log10(double noundef %190) #7
+  %192 = fmul double %191, 1.000000e+01
   br label %GetPSNR.exit
 
-GetPSNR.exit:                                     ; preds = %187, %185, %175
-  %.sroa.19.0 = phi double [ %184, %175 ], [ %191, %187 ], [ 9.900000e+01, %185 ]
-  %192 = load i32, ptr %71, align 8
-  %193 = icmp sgt i32 %192, 0
-  %194 = icmp ugt i64 %174, 1069547520
-  %or.cond5 = select i1 %193, i1 %194, i1 false
-  br i1 %or.cond5, label %195, label %206
+GetPSNR.exit:                                     ; preds = %188, %186, %176
+  %.sroa.19.0 = phi double [ %185, %176 ], [ %192, %188 ], [ 9.900000e+01, %186 ]
+  %193 = load i32, ptr %71, align 8
+  %194 = icmp sgt i32 %193, 0
+  %195 = icmp ugt i64 %175, 1069547520
+  %or.cond5 = select i1 %194, i1 %195, i1 false
+  br i1 %or.cond5, label %196, label %207
 
-195:                                              ; preds = %GetPSNR.exit
-  %196 = lshr i32 %192, 1
-  store i32 %196, ptr %71, align 8
-  br i1 %101, label %197, label %.backedge
+196:                                              ; preds = %GetPSNR.exit
+  %197 = lshr i32 %193, 1
+  store i32 %197, ptr %71, align 8
+  br i1 %101, label %198, label %.backedge
 
-197:                                              ; preds = %195
+198:                                              ; preds = %196
   %.val = load ptr, ptr %74, align 8
-  %198 = getelementptr inbounds i8, ptr %.val, i64 8
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 128
-  %201 = load ptr, ptr %200, align 8
-  %.not.i104 = icmp eq ptr %201, null
-  br i1 %.not.i104, label %ResetSideInfo.exit, label %202
+  %199 = getelementptr inbounds i8, ptr %.val, i64 8
+  %200 = load ptr, ptr %199, align 8
+  %201 = getelementptr inbounds i8, ptr %200, i64 128
+  %202 = load ptr, ptr %201, align 8
+  %.not.i106 = icmp eq ptr %202, null
+  br i1 %.not.i106, label %ResetSideInfo.exit, label %203
 
-202:                                              ; preds = %197
-  %203 = getelementptr inbounds i8, ptr %.val, i64 23604
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %203, i8 0, i64 12, i1 false)
+203:                                              ; preds = %198
+  %204 = getelementptr inbounds i8, ptr %.val, i64 23604
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %204, i8 0, i64 12, i1 false)
   br label %ResetSideInfo.exit
 
-ResetSideInfo.exit:                               ; preds = %197, %202
-  %204 = getelementptr inbounds i8, ptr %.val, i64 23512
-  %205 = getelementptr inbounds i8, ptr %.val, i64 23544
-  store i64 0, ptr %205, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %204, i8 0, i64 24, i1 false)
+ResetSideInfo.exit:                               ; preds = %198, %203
+  %205 = getelementptr inbounds i8, ptr %.val, i64 23512
+  %206 = getelementptr inbounds i8, ptr %.val, i64 23544
+  store i64 0, ptr %206, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %205, i8 0, i64 24, i1 false)
   br label %.backedge
 
-.backedge:                                        ; preds = %ResetSideInfo.exit, %195
+.backedge:                                        ; preds = %ResetSideInfo.exit, %196
   br label %96
 
-206:                                              ; preds = %GetPSNR.exit
-  br i1 %101, label %.loopexit, label %207
-
-207:                                              ; preds = %206
-  br i1 %.not95, label %.outer, label %208
+207:                                              ; preds = %GetPSNR.exit
+  br i1 %101, label %.loopexit, label %208
 
 208:                                              ; preds = %207
-  %.not.i105 = icmp eq i32 %.sroa.0.0.ph148, 0
-  br i1 %.not.i105, label %213, label %209
+  br i1 %.not95, label %.outer, label %209
 
 209:                                              ; preds = %208
-  %210 = fcmp ogt double %.sroa.19.0, %44
-  %211 = fneg float %.sroa.3.0.ph147
-  %212 = select i1 %210, float %211, float %.sroa.3.0.ph147
+  %.not.i107 = icmp eq i32 %.sroa.0.0.ph148, 0
+  br i1 %.not.i107, label %214, label %210
+
+210:                                              ; preds = %209
+  %211 = fcmp ogt double %.sroa.19.0, %44
+  %212 = fneg float %.sroa.3.0.ph147
+  %213 = select i1 %211, float %212, float %.sroa.3.0.ph147
   br label %ComputeNextQ.exit
 
-213:                                              ; preds = %208
-  %214 = fcmp une double %.sroa.19.0, %.sroa.23.0.ph144
-  br i1 %214, label %215, label %ComputeNextQ.exit
+214:                                              ; preds = %209
+  %215 = fcmp une double %.sroa.19.0, %.sroa.23.0.ph144
+  br i1 %215, label %216, label %ComputeNextQ.exit
 
-215:                                              ; preds = %213
-  %216 = fsub double %44, %.sroa.19.0
-  %217 = fsub double %.sroa.23.0.ph144, %.sroa.19.0
-  %218 = fdiv double %216, %217
-  %219 = fsub float %.sroa.12.0.ph145, %.sroa.7.0.ph146
-  %220 = fpext float %219 to double
-  %221 = fmul double %218, %220
-  %222 = fptrunc double %221 to float
+216:                                              ; preds = %214
+  %217 = fsub double %44, %.sroa.19.0
+  %218 = fsub double %.sroa.23.0.ph144, %.sroa.19.0
+  %219 = fdiv double %217, %218
+  %220 = fsub float %.sroa.12.0.ph145, %.sroa.7.0.ph146
+  %221 = fpext float %220 to double
+  %222 = fmul double %219, %221
+  %223 = fptrunc double %222 to float
   br label %ComputeNextQ.exit
 
-ComputeNextQ.exit:                                ; preds = %209, %213, %215
-  %.0.i106 = phi float [ %212, %209 ], [ %222, %215 ], [ 0.000000e+00, %213 ]
-  %223 = fcmp olt float %.0.i106, -3.000000e+01
-  %224 = fcmp ogt float %.0.i106, 3.000000e+01
-  %225 = select i1 %224, float 3.000000e+01, float %.0.i106
-  %226 = select i1 %223, float -3.000000e+01, float %225
-  %227 = fadd float %.sroa.7.0.ph146, %226
-  %228 = fcmp olt float %227, %25
-  %229 = fcmp ogt float %227, %28
-  %230 = select i1 %229, float %28, float %227
-  %231 = select i1 %228, float %25, float %230
+ComputeNextQ.exit:                                ; preds = %210, %214, %216
+  %.0.i108 = phi float [ %213, %210 ], [ %223, %216 ], [ 0.000000e+00, %214 ]
+  %224 = fcmp olt float %.0.i108, -3.000000e+01
+  %225 = fcmp ogt float %.0.i108, 3.000000e+01
+  %226 = select i1 %225, float 3.000000e+01, float %.0.i108
+  %227 = select i1 %224, float -3.000000e+01, float %226
+  %228 = fadd float %.sroa.7.0.ph146, %227
+  %229 = fcmp olt float %228, %25
+  %230 = fcmp ogt float %228, %28
+  %231 = select i1 %230, float %28, float %228
+  %232 = select i1 %229, float %25, float %231
   br label %.outer
 
-.outer:                                           ; preds = %ComputeNextQ.exit, %207
-  %.sroa.23.1 = phi double [ %.sroa.23.0.ph144, %207 ], [ %.sroa.19.0, %ComputeNextQ.exit ]
-  %.sroa.12.1 = phi float [ %.sroa.12.0.ph145, %207 ], [ %.sroa.7.0.ph146, %ComputeNextQ.exit ]
-  %.sroa.7.1 = phi float [ %.sroa.7.0.ph146, %207 ], [ %231, %ComputeNextQ.exit ]
-  %.sroa.3.1 = phi float [ %.sroa.3.0.ph147, %207 ], [ %226, %ComputeNextQ.exit ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph148, %207 ], [ 0, %ComputeNextQ.exit ]
-  %232 = icmp sgt i32 %.080.ph150, 1
-  br i1 %232, label %.lr.ph, label %.loopexit, !llvm.loop !28
+.outer:                                           ; preds = %ComputeNextQ.exit, %208
+  %.sroa.23.1 = phi double [ %.sroa.23.0.ph144, %208 ], [ %.sroa.19.0, %ComputeNextQ.exit ]
+  %.sroa.12.1 = phi float [ %.sroa.12.0.ph145, %208 ], [ %.sroa.7.0.ph146, %ComputeNextQ.exit ]
+  %.sroa.7.1 = phi float [ %.sroa.7.0.ph146, %208 ], [ %232, %ComputeNextQ.exit ]
+  %.sroa.3.1 = phi float [ %.sroa.3.0.ph147, %208 ], [ %227, %ComputeNextQ.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0.ph148, %208 ], [ 0, %ComputeNextQ.exit ]
+  %233 = icmp sgt i32 %.080.ph150, 1
+  br i1 %233, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
-.loopexit:                                        ; preds = %206, %.outer, %PreLoopInitialize.exit.thread
-  %.184.ph = phi i32 [ 40, %PreLoopInitialize.exit.thread ], [ %103, %.outer ], [ %103, %206 ]
-  br i1 %.not122, label %233, label %235
+.loopexit:                                        ; preds = %207, %.outer, %PreLoopInitialize.exit.thread
+  %.184.ph = phi i32 [ 40, %PreLoopInitialize.exit.thread ], [ %103, %.outer ], [ %103, %207 ]
+  br i1 %.not122, label %234, label %236
 
-233:                                              ; preds = %.loopexit
-  %234 = call fastcc i32 @FinalizeTokenProbas(ptr noundef nonnull %14)
-  br label %235
+234:                                              ; preds = %.loopexit
+  %235 = call fastcc i32 @FinalizeTokenProbas(ptr noundef nonnull %14)
+  br label %236
 
-235:                                              ; preds = %233, %.loopexit
-  %236 = getelementptr inbounds i8, ptr %0, i64 496
-  %237 = getelementptr inbounds i8, ptr %0, i64 3620
-  %238 = call i32 @VP8EmitTokens(ptr noundef nonnull %236, ptr noundef nonnull %57, ptr noundef nonnull %237, i32 noundef 1) #7
-  %239 = icmp eq i32 %238, 0
-  br i1 %239, label %.critedge100, label %240
+236:                                              ; preds = %234, %.loopexit
+  %237 = getelementptr inbounds i8, ptr %0, i64 496
+  %238 = getelementptr inbounds i8, ptr %0, i64 3620
+  %239 = call i32 @VP8EmitTokens(ptr noundef nonnull %237, ptr noundef nonnull %57, ptr noundef nonnull %238, i32 noundef 1) #7
+  %240 = icmp eq i32 %239, 0
+  br i1 %240, label %.critedge102, label %241
 
-240:                                              ; preds = %235
-  %241 = getelementptr inbounds i8, ptr %0, i64 8
-  %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %0, i64 536
-  %244 = load i32, ptr %243, align 8
-  %245 = add nsw i32 %244, %.184.ph
-  %246 = call i32 @WebPReportProgress(ptr noundef %242, i32 noundef %245, ptr noundef nonnull %243) #7
-  %247 = icmp ne i32 %246, 0
-  %248 = zext i1 %247 to i32
-  br label %.critedge100
+241:                                              ; preds = %236
+  %242 = getelementptr inbounds i8, ptr %0, i64 8
+  %243 = load ptr, ptr %242, align 8
+  %244 = getelementptr inbounds i8, ptr %0, i64 536
+  %245 = load i32, ptr %244, align 8
+  %246 = add nsw i32 %245, %.184.ph
+  %247 = call i32 @WebPReportProgress(ptr noundef %243, i32 noundef %246, ptr noundef nonnull %244) #7
+  %248 = icmp ne i32 %247, 0
+  %249 = zext i1 %248 to i32
+  br label %.critedge102
 
-.critedge100:                                     ; preds = %168, %159, %240, %235
-  %249 = phi i32 [ 0, %235 ], [ %248, %240 ], [ 0, %159 ], [ 0, %168 ]
-  %250 = call fastcc i32 @PostLoopFinalize(ptr noundef nonnull %3, i32 noundef %249)
-  br label %251
+.critedge102:                                     ; preds = %168, %159, %241, %236
+  %250 = phi i32 [ 0, %236 ], [ %249, %241 ], [ 0, %159 ], [ 0, %168 ]
+  %251 = call fastcc i32 @PostLoopFinalize(ptr noundef nonnull %3, i32 noundef %250)
+  br label %252
 
-251:                                              ; preds = %PreLoopInitialize.exit, %.critedge100
-  %.0 = phi i32 [ %250, %.critedge100 ], [ 0, %PreLoopInitialize.exit ]
+252:                                              ; preds = %PreLoopInitialize.exit, %.critedge102
+  %.0 = phi i32 [ %251, %.critedge102 ], [ 0, %PreLoopInitialize.exit ]
   ret i32 %.0
 }
 

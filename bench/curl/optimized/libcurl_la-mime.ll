@@ -2405,7 +2405,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_mime_prepare_headers(ptr noundef %data, ptr nocapture noundef %part, ptr noundef %contenttype, ptr noundef %disposition, i32 noundef %strategy) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_mime_prepare_headers(ptr noundef %data, ptr nocapture noundef %part, ptr noundef %contenttype, ptr noundef %disposition, i32 noundef %strategy) local_unnamed_addr #0 {
 entry:
   %curlheaders = getelementptr inbounds i8, ptr %part, i64 72
   %0 = load ptr, ptr %curlheaders, align 8

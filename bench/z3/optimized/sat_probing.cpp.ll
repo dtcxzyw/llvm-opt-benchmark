@@ -2318,20 +2318,20 @@ invoke.cont76:                                    ; preds = %if.then73
   %m_justification.i50 = getelementptr inbounds i8, ptr %48, i64 3448
   %49 = load ptr, ptr %m_justification.i50, align 8
   %cmp.i.i51 = icmp eq ptr %49, null
-  br i1 %cmp.i.i51, label %invoke.cont80, label %if.end.i.i52
+  br i1 %cmp.i.i51, label %for.cond83.preheader, label %if.end.i.i52
 
 if.end.i.i52:                                     ; preds = %invoke.cont76
   %arrayidx.i.i53 = getelementptr inbounds i8, ptr %49, i64 -4
   %50 = load i32, ptr %arrayidx.i.i53, align 4
   %51 = shl i32 %50, 1
-  br label %invoke.cont80
+  br label %for.cond83.preheader
 
-invoke.cont80:                                    ; preds = %if.end.i.i52, %invoke.cont76
-  %retval.0.i.i54 = phi i32 [ %51, %if.end.i.i52 ], [ 0, %invoke.cont76 ]
+for.cond83.preheader:                             ; preds = %if.end.i.i52, %invoke.cont76
+  %i77.0.ph = phi i32 [ 0, %invoke.cont76 ], [ %51, %if.end.i.i52 ]
   br label %for.cond83
 
-for.cond83:                                       ; preds = %for.body85, %invoke.cont80
-  %i77.0 = phi i32 [ %retval.0.i.i54, %invoke.cont80 ], [ %dec, %for.body85 ]
+for.cond83:                                       ; preds = %for.cond83.preheader, %for.body85
+  %i77.0 = phi i32 [ %dec, %for.body85 ], [ %i77.0.ph, %for.cond83.preheader ]
   %cmp84.not = icmp eq i32 %i77.0, 0
   br i1 %cmp84.not, label %for.end88, label %for.body85
 

@@ -826,12 +826,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_122read_ports_from_commitERKN5vcpkg
   store i8 0, ptr %50, align 8, !alias.scope !9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   %.pre = load i8, ptr %50, align 8
+  %51 = trunc i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   store i32 36, ptr %15, align 8
-  %51 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr @.str.2, ptr %51, align 8
-  %52 = trunc i8 %.pre to i1
-  br i1 %52, label %53, label %_ZNO5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE13value_or_exitERKNS_8LineInfoE.exit
+  %52 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr @.str.2, ptr %52, align 8
+  br i1 %51, label %53, label %_ZNO5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE13value_or_exitERKNS_8LineInfoE.exit
 
 53:                                               ; preds = %.thread, %49
   %54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKR5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEE5errorEv(ptr noundef nonnull align 8 dereferenceable(33) %11) #20

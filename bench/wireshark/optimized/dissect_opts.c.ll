@@ -28,25 +28,25 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @dissect_opts_handle_opt(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  switch i32 %0, label %90 [
+  switch i32 %0, label %92 [
     i32 100, label %4
     i32 75, label %6
     i32 110, label %7
     i32 78, label %8
     i32 116, label %12
     i32 117, label %sub_084
-    i32 2001, label %72
-    i32 2002, label %75
-    i32 2003, label %78
-    i32 2004, label %81
-    i32 2005, label %84
-    i32 2006, label %89
+    i32 2001, label %74
+    i32 2002, label %77
+    i32 2003, label %80
+    i32 2004, label %83
+    i32 2005, label %86
+    i32 2006, label %91
   ]
 
 4:                                                ; preds = %2
   %5 = tail call i32 @decode_as_command_option(ptr noundef %1) #5
   %.not52 = icmp eq i32 %5, 0
-  br i1 %.not52, label %91, label %.loopexit
+  br i1 %.not52, label %93, label %.loopexit
 
 6:                                                ; preds = %2
   tail call void @read_keytab_file(ptr noundef %1) #5
@@ -65,7 +65,7 @@ define hidden range(i32 0, 2) i32 @dissect_opts_handle_opt(i32 noundef %0, ptr n
   %11 = sext i8 %9 to i32
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str, i32 noundef %11) #5
   tail call void (ptr, ...) @cmdarg_err_cont(ptr noundef nonnull @.str.1) #5
-  br label %91
+  br label %93
 
 12:                                               ; preds = %2
   %13 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 46) #6
@@ -87,7 +87,7 @@ define hidden range(i32 0, 2) i32 @dissect_opts_handle_opt(i32 noundef %0, ptr n
 
 21:                                               ; preds = %17
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.3, ptr noundef nonnull %15, i32 noundef 9) #5
-  br label %91
+  br label %93
 
 22:                                               ; preds = %17, %14
   %.1 = phi i32 [ -1, %14 ], [ %19, %17 ]
@@ -97,22 +97,18 @@ define hidden range(i32 0, 2) i32 @dissect_opts_handle_opt(i32 noundef %0, ptr n
 sub_0:                                            ; preds = %12, %22
   %.041 = phi i32 [ %.1, %22 ], [ -2, %12 ]
   %23 = load i8, ptr %1, align 1
-  switch i8 %23, label %.critedge [
-    i8 114, label %sub_1
+  switch i8 %23, label %.tail57.thread [
+    i8 114, label %.tail
     i8 97, label %.tail53
   ]
 
-sub_1:                                            ; preds = %sub_0
+.tail:                                            ; preds = %sub_0
   %24 = getelementptr inbounds i8, ptr %1, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %.sink.split, label %sub_054
+  br i1 %26, label %.sink.split, label %.tail57.thread
 
-sub_054:                                          ; preds = %sub_1
-  %.not91 = icmp eq i8 %23, 97
-  br i1 %.not91, label %.tail53, label %.critedge
-
-.tail53:                                          ; preds = %sub_0, %sub_054
+.tail53:                                          ; preds = %sub_0
   %27 = getelementptr inbounds i8, ptr %1, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 0
@@ -122,20 +118,25 @@ sub_159:                                          ; preds = %.tail53
   %30 = getelementptr inbounds i8, ptr %1, i64 1
   %31 = load i8, ptr %30, align 1
   %.not93 = icmp eq i8 %31, 100
-  br i1 %.not93, label %sub_2, label %.critedge
+  br i1 %.not93, label %.tail57, label %.tail57.thread
 
-sub_2:                                            ; preds = %sub_159
+.tail57:                                          ; preds = %sub_159
   %32 = getelementptr inbounds i8, ptr %1, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %.sink.split, label %.critedge
+  br i1 %34, label %.sink.split, label %.thread
 
-.critedge:                                        ; preds = %sub_159, %sub_054, %sub_0, %sub_2
+.tail57.thread:                                   ; preds = %sub_0, %.tail, %sub_159
   %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.7) #6
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %.sink.split, label %sub_062
 
-sub_062:                                          ; preds = %.critedge
+.thread:                                          ; preds = %.tail57
+  %37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.7) #6
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %.sink.split, label %.tail78.thread
+
+sub_062:                                          ; preds = %.tail57.thread
   switch i8 %23, label %.tail78.thread [
     i8 100, label %.tail61
     i8 101, label %.tail70
@@ -143,159 +144,159 @@ sub_062:                                          ; preds = %.critedge
   ]
 
 .tail61:                                          ; preds = %sub_062
-  %37 = getelementptr inbounds i8, ptr %1, i64 1
-  %38 = load i8, ptr %37, align 1
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %.sink.split, label %sub_167
+  %39 = getelementptr inbounds i8, ptr %1, i64 1
+  %40 = load i8, ptr %39, align 1
+  %41 = icmp eq i8 %40, 0
+  br i1 %41, label %.sink.split, label %sub_167
 
 sub_167:                                          ; preds = %.tail61
-  %40 = getelementptr inbounds i8, ptr %1, i64 1
-  %41 = load i8, ptr %40, align 1
-  %.not96 = icmp eq i8 %41, 100
+  %42 = getelementptr inbounds i8, ptr %1, i64 1
+  %43 = load i8, ptr %42, align 1
+  %.not96 = icmp eq i8 %43, 100
   br i1 %.not96, label %.tail65, label %.tail78.thread
 
 .tail65:                                          ; preds = %sub_167
-  %42 = getelementptr inbounds i8, ptr %1, i64 2
-  %43 = load i8, ptr %42, align 1
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %.sink.split, label %.tail78.thread
+  %44 = getelementptr inbounds i8, ptr %1, i64 2
+  %45 = load i8, ptr %44, align 1
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %.sink.split, label %.tail78.thread
 
 .tail70:                                          ; preds = %sub_062
-  %45 = getelementptr inbounds i8, ptr %1, i64 1
-  %46 = load i8, ptr %45, align 1
-  %47 = icmp eq i8 %46, 0
-  br i1 %47, label %.sink.split, label %.tail78.thread
+  %47 = getelementptr inbounds i8, ptr %1, i64 1
+  %48 = load i8, ptr %47, align 1
+  %49 = icmp eq i8 %48, 0
+  br i1 %49, label %.sink.split, label %.tail78.thread
 
 .tail74:                                          ; preds = %sub_062
-  %48 = getelementptr inbounds i8, ptr %1, i64 1
-  %49 = load i8, ptr %48, align 1
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %.sink.split, label %sub_180
+  %50 = getelementptr inbounds i8, ptr %1, i64 1
+  %51 = load i8, ptr %50, align 1
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %.sink.split, label %sub_180
 
 sub_180:                                          ; preds = %.tail74
-  %51 = getelementptr inbounds i8, ptr %1, i64 1
-  %52 = load i8, ptr %51, align 1
-  %.not100 = icmp eq i8 %52, 100
+  %53 = getelementptr inbounds i8, ptr %1, i64 1
+  %54 = load i8, ptr %53, align 1
+  %.not100 = icmp eq i8 %54, 100
   br i1 %.not100, label %.tail78, label %.tail78.thread
 
 .tail78:                                          ; preds = %sub_180
-  %53 = getelementptr inbounds i8, ptr %1, i64 2
-  %54 = load i8, ptr %53, align 1
-  %55 = icmp eq i8 %54, 0
-  br i1 %55, label %.sink.split, label %.tail78.thread
+  %55 = getelementptr inbounds i8, ptr %1, i64 2
+  %56 = load i8, ptr %55, align 1
+  %57 = icmp eq i8 %56, 0
+  br i1 %57, label %.sink.split, label %.tail78.thread
 
-.tail78.thread:                                   ; preds = %sub_062, %.tail65, %sub_167, %.tail70, %sub_180, %.tail78
-  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.13) #6
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %.sink.split, label %58
+.tail78.thread:                                   ; preds = %sub_062, %.thread, %sub_167, %.tail65, %.tail70, %sub_180, %.tail78
+  %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.13) #6
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %.sink.split, label %60
 
-58:                                               ; preds = %.tail78.thread
+60:                                               ; preds = %.tail78.thread
   %.not = icmp eq ptr %1, %13
-  br i1 %.not, label %61, label %59
+  br i1 %.not, label %63, label %61
 
-59:                                               ; preds = %58
+61:                                               ; preds = %60
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.14, ptr noundef nonnull %1) #5
   call void (ptr, ...) @cmdarg_err_cont(ptr noundef nonnull @.str.15) #5
-  br i1 %.not49, label %91, label %60
-
-60:                                               ; preds = %59
-  store i8 46, ptr %13, align 1
-  br label %91
-
-.sink.split:                                      ; preds = %.tail78.thread, %.tail78, %.tail74, %.tail70, %.tail65, %.tail61, %.critedge, %sub_2, %.tail53, %sub_1
-  %.sink = phi i32 [ 0, %sub_1 ], [ 1, %.tail53 ], [ 2, %sub_2 ], [ 3, %.critedge ], [ 4, %.tail61 ], [ 5, %.tail65 ], [ 6, %.tail70 ], [ 7, %.tail74 ], [ 8, %.tail78 ], [ 9, %.tail78.thread ]
-  store i32 %.sink, ptr @global_dissect_options, align 8
-  br label %61
-
-61:                                               ; preds = %.sink.split, %58
-  br i1 %.not49, label %.loopexit, label %62
+  br i1 %.not49, label %93, label %62
 
 62:                                               ; preds = %61
+  store i8 46, ptr %13, align 1
+  br label %93
+
+.sink.split:                                      ; preds = %.tail78.thread, %.tail78, %.tail74, %.tail70, %.tail65, %.tail61, %.tail57.thread, %.thread, %.tail57, %.tail53, %.tail
+  %.sink = phi i32 [ 0, %.tail ], [ 1, %.tail53 ], [ 2, %.tail57 ], [ 3, %.thread ], [ 3, %.tail57.thread ], [ 4, %.tail61 ], [ 5, %.tail65 ], [ 6, %.tail70 ], [ 7, %.tail74 ], [ 8, %.tail78 ], [ 9, %.tail78.thread ]
+  store i32 %.sink, ptr @global_dissect_options, align 8
+  br label %63
+
+63:                                               ; preds = %.sink.split, %60
+  br i1 %.not49, label %.loopexit, label %64
+
+64:                                               ; preds = %63
   store i8 46, ptr %13, align 1
   store i32 %.041, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 4), align 4
   br label %.loopexit
 
 sub_084:                                          ; preds = %2
-  %63 = load i8, ptr %1, align 1
-  %.not89 = icmp eq i8 %63, 115
+  %65 = load i8, ptr %1, align 1
+  %.not89 = icmp eq i8 %65, 115
   br i1 %.not89, label %.tail83, label %.tail83.thread
 
 .tail83:                                          ; preds = %sub_084
-  %64 = getelementptr inbounds i8, ptr %1, i64 1
-  %65 = load i8, ptr %64, align 1
-  %66 = icmp eq i8 %65, 0
-  br i1 %66, label %67, label %.tail83.thread
+  %66 = getelementptr inbounds i8, ptr %1, i64 1
+  %67 = load i8, ptr %66, align 1
+  %68 = icmp eq i8 %67, 0
+  br i1 %68, label %69, label %.tail83.thread
 
-67:                                               ; preds = %.tail83
+69:                                               ; preds = %.tail83
   tail call void @timestamp_set_seconds_type(i32 noundef 0) #5
   br label %.loopexit
 
 .tail83.thread:                                   ; preds = %sub_084, %.tail83
-  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.17) #6
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %71
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.17) #6
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %73
 
-70:                                               ; preds = %.tail83.thread
+72:                                               ; preds = %.tail83.thread
   tail call void @timestamp_set_seconds_type(i32 noundef 1) #5
   br label %.loopexit
 
-71:                                               ; preds = %.tail83.thread
+73:                                               ; preds = %.tail83.thread
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #5
   tail call void (ptr, ...) @cmdarg_err_cont(ptr noundef nonnull @.str.19) #5
-  br label %91
+  br label %93
 
-72:                                               ; preds = %2
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 16), align 8
-  %74 = tail call ptr @g_slist_append(ptr noundef %73, ptr noundef %1) #5
-  store ptr %74, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 16), align 8
+74:                                               ; preds = %2
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 16), align 8
+  %76 = tail call ptr @g_slist_append(ptr noundef %75, ptr noundef %1) #5
+  store ptr %76, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 16), align 8
   br label %.loopexit
 
-75:                                               ; preds = %2
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 24), align 8
-  %77 = tail call ptr @g_slist_append(ptr noundef %76, ptr noundef %1) #5
-  store ptr %77, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 24), align 8
+77:                                               ; preds = %2
+  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 24), align 8
+  %79 = tail call ptr @g_slist_append(ptr noundef %78, ptr noundef %1) #5
+  store ptr %79, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 24), align 8
   br label %.loopexit
 
-78:                                               ; preds = %2
-  %79 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 32), align 8
-  %80 = tail call ptr @g_slist_append(ptr noundef %79, ptr noundef %1) #5
-  store ptr %80, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 32), align 8
+80:                                               ; preds = %2
+  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 32), align 8
+  %82 = tail call ptr @g_slist_append(ptr noundef %81, ptr noundef %1) #5
+  store ptr %82, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 32), align 8
   br label %.loopexit
 
-81:                                               ; preds = %2
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
-  %83 = tail call ptr @g_slist_append(ptr noundef %82, ptr noundef %1) #5
-  store ptr %83, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
+83:                                               ; preds = %2
+  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
+  %85 = tail call ptr @g_slist_append(ptr noundef %84, ptr noundef %1) #5
+  store ptr %85, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
   br label %.loopexit
 
-84:                                               ; preds = %2
+86:                                               ; preds = %2
   tail call void @proto_disable_all() #5
-  %85 = tail call ptr @strtok(ptr noundef %1, ptr noundef nonnull @.str.20) #5
-  %.not4887 = icmp eq ptr %85, null
+  %87 = tail call ptr @strtok(ptr noundef %1, ptr noundef nonnull @.str.20) #5
+  %.not4887 = icmp eq ptr %87, null
   br i1 %.not4887, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %84, %.lr.ph
-  %.088 = phi ptr [ %88, %.lr.ph ], [ %85, %84 ]
-  %86 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
-  %87 = tail call ptr @g_slist_append(ptr noundef %86, ptr noundef nonnull %.088) #5
-  store ptr %87, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
-  %88 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.20) #5
-  %.not48 = icmp eq ptr %88, null
+.lr.ph:                                           ; preds = %86, %.lr.ph
+  %.088 = phi ptr [ %90, %.lr.ph ], [ %87, %86 ]
+  %88 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
+  %89 = tail call ptr @g_slist_append(ptr noundef %88, ptr noundef nonnull %.088) #5
+  store ptr %89, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
+  %90 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.20) #5
+  %.not48 = icmp eq ptr %90, null
   br i1 %.not48, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
-89:                                               ; preds = %2
+91:                                               ; preds = %2
   tail call void @proto_disable_all() #5
   br label %.loopexit
 
-90:                                               ; preds = %2
+92:                                               ; preds = %2
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.2, i32 noundef 7, ptr noundef nonnull @.str.21, i64 noundef 184, ptr noundef nonnull @__func__.dissect_opts_handle_opt, ptr noundef nonnull @.str.22) #7
   unreachable
 
-.loopexit:                                        ; preds = %.lr.ph, %84, %67, %70, %61, %62, %8, %4, %89, %81, %78, %75, %72, %7, %6
-  br label %91
+.loopexit:                                        ; preds = %.lr.ph, %86, %69, %72, %63, %64, %8, %4, %91, %83, %80, %77, %74, %7, %6
+  br label %93
 
-91:                                               ; preds = %59, %60, %4, %.loopexit, %71, %21, %10
-  %.042 = phi i32 [ 1, %.loopexit ], [ 0, %71 ], [ 0, %21 ], [ 0, %10 ], [ 0, %4 ], [ 0, %60 ], [ 0, %59 ]
+93:                                               ; preds = %61, %62, %4, %.loopexit, %73, %21, %10
+  %.042 = phi i32 [ 1, %.loopexit ], [ 0, %73 ], [ 0, %21 ], [ 0, %10 ], [ 0, %4 ], [ 0, %62 ], [ 0, %61 ]
   ret i32 %.042
 }
 

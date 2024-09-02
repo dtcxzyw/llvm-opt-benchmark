@@ -1291,7 +1291,7 @@ declare zeroext i1 @get_restriction_variable(ptr noundef, ptr noundef, i32 nound
 declare i32 @get_base_element_type(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @arraycontjoinsel(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local range(i64 4572414629676717179, 4576918229304087676) i64 @arraycontjoinsel(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295

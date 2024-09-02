@@ -5340,13 +5340,12 @@ if.end56:                                         ; preds = %invoke.cont53
           to label %invoke.cont57 unwind label %lpad49
 
 invoke.cont57:                                    ; preds = %if.end56
-  %cmp59.inv = icmp slt i32 %call58, 0
-  %spec.select = select i1 %cmp59.inv, i32 0, i32 2
+  %cmp59.inv = icmp sgt i32 %call58, -1
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont57, %invoke.cont50, %invoke.cont53
   %refColorSpacePrimsIndex.3 = phi i32 [ %refColorSpacePrimsIndex.0186, %invoke.cont53 ], [ %refColorSpacePrimsIndex.0186, %invoke.cont50 ], [ %call58, %invoke.cont57 ]
-  %cleanup.dest.slot.0 = phi i32 [ 4, %invoke.cont53 ], [ 0, %invoke.cont50 ], [ %spec.select, %invoke.cont57 ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %invoke.cont53 ], [ false, %invoke.cont50 ], [ %cmp59.inv, %invoke.cont57 ]
   %40 = load ptr, ptr %_M_refcount.i.i58, align 8
   %cmp.not.i.i.i59 = icmp eq ptr %40, null
   br i1 %cmp.not.i.i.i59, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit89, label %if.then.i.i.i60
@@ -5420,10 +5419,9 @@ if.end8.sink.split.i.i.i.i80:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit89
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit89: ; preds = %cleanup, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i77, %if.end8.sink.split.i.i.i.i80
-  %switch = icmp eq i32 %cleanup.dest.slot.0, 2
   %inc = add nuw nsw i32 %i.0187, 1
   %exitcond.not = icmp eq i32 %inc, %call42
-  %or.cond = select i1 %switch, i1 true, i1 %exitcond.not
+  %or.cond = select i1 %cleanup.dest.slot.0, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %for.end, label %for.body, !llvm.loop !46
 
 for.end:                                          ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit89
@@ -5484,13 +5482,12 @@ if.then89:                                        ; preds = %invoke.cont87
           to label %invoke.cont90 unwind label %lpad79
 
 invoke.cont90:                                    ; preds = %if.then89
-  %cmp92.inv = icmp slt i32 %call91, 0
-  %spec.select44 = select i1 %cmp92.inv, i32 0, i32 5
+  %cmp92.inv = icmp sgt i32 %call91, -1
   br label %cleanup96
 
 cleanup96:                                        ; preds = %invoke.cont90, %invoke.cont87, %invoke.cont80
   %refColorSpacePrimsIndex.6 = phi i32 [ %refColorSpacePrimsIndex.5190, %invoke.cont80 ], [ %refColorSpacePrimsIndex.5190, %invoke.cont87 ], [ %call91, %invoke.cont90 ]
-  %cleanup.dest.slot.1 = phi i32 [ 7, %invoke.cont80 ], [ 0, %invoke.cont87 ], [ %spec.select44, %invoke.cont90 ]
+  %cleanup.dest.slot.1 = phi i1 [ false, %invoke.cont80 ], [ false, %invoke.cont87 ], [ %cmp92.inv, %invoke.cont90 ]
   %57 = load ptr, ptr %_M_refcount.i.i90, align 8
   %cmp.not.i.i.i91 = icmp eq ptr %57, null
   br i1 %cmp.not.i.i.i91, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit121, label %if.then.i.i.i92
@@ -5564,10 +5561,9 @@ if.end8.sink.split.i.i.i.i112:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit121
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit121: ; preds = %cleanup96, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i99, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i109, %if.end8.sink.split.i.i.i.i112
-  %switch43 = icmp eq i32 %cleanup.dest.slot.1, 5
   %inc101 = add nuw nsw i32 %i69.0191, 1
   %exitcond194.not = icmp eq i32 %inc101, %call68
-  %or.cond201 = select i1 %switch43, i1 true, i1 %exitcond194.not
+  %or.cond201 = select i1 %cleanup.dest.slot.1, i1 true, i1 %exitcond194.not
   br i1 %or.cond201, label %if.end103, label %for.body72, !llvm.loop !47
 
 if.end103:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit121
@@ -6157,7 +6153,11 @@ invoke.cont53:                                    ; preds = %if.then49
 
 for.cond.preheader:                               ; preds = %invoke.cont53
   %cmp171 = icmp sgt i32 %call58, 0
-  br i1 %cmp171, label %for.body.lr.ph, label %if.then.i.i.i76
+  br i1 %cmp171, label %for.body.lr.ph, label %if.then.i.i.i76.thread
+
+if.then.i.i.i76.thread:                           ; preds = %for.cond.preheader
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i) #22
+  br label %if.end86
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %proc, i64 8
@@ -6392,21 +6392,16 @@ ehcleanup81:                                      ; preds = %lpad72, %lpad64
 cleanup82:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit, %for.inc
   %cleanup.dest.slot.2.ph = phi i32 [ %cleanup.dest.slot.0, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit ], [ 0, %for.inc ]
   %.pre178 = load ptr, ptr %vals, align 8
+  %60 = icmp eq i32 %cleanup.dest.slot.2.ph, 0
   %tobool.not.i.i.i75 = icmp eq ptr %.pre178, null
   br i1 %tobool.not.i.i.i75, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %if.then.i.i.i76
 
-if.then.i.i.i76:                                  ; preds = %for.cond.preheader, %cleanup82
-  %retval.4184 = phi ptr [ %retval.2, %cleanup82 ], [ undef, %for.cond.preheader ]
-  %cleanup.dest.slot.2182 = phi i32 [ %cleanup.dest.slot.2.ph, %cleanup82 ], [ 0, %for.cond.preheader ]
-  %60 = phi ptr [ %.pre178, %cleanup82 ], [ %call5.i.i.i.i2.i, %for.cond.preheader ]
-  call void @_ZdlPv(ptr noundef nonnull %60) #22
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit
+if.then.i.i.i76:                                  ; preds = %cleanup82
+  call void @_ZdlPv(ptr noundef nonnull %.pre178) #22
+  br i1 %60, label %if.end86, label %cleanup111
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %cleanup82, %if.then.i.i.i76
-  %retval.4185 = phi ptr [ %retval.2, %cleanup82 ], [ %retval.4184, %if.then.i.i.i76 ]
-  %cleanup.dest.slot.2183 = phi i32 [ %cleanup.dest.slot.2.ph, %cleanup82 ], [ %cleanup.dest.slot.2182, %if.then.i.i.i76 ]
-  %cond = icmp eq i32 %cleanup.dest.slot.2183, 0
-  br i1 %cond, label %if.end86, label %cleanup111
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %cleanup82
+  br i1 %60, label %if.end86, label %cleanup111
 
 ehcleanup85:                                      ; preds = %lpad56.loopexit, %lpad56.loopexit.split-lp, %ehcleanup81
   %.pn20.pn = phi { ptr, i32 } [ %.pn20, %ehcleanup81 ], [ %lpad.loopexit, %lpad56.loopexit ], [ %lpad.loopexit.split-lp, %lpad56.loopexit.split-lp ]
@@ -6418,7 +6413,7 @@ if.then.i.i.i79:                                  ; preds = %ehcleanup85
   call void @_ZdlPv(ptr noundef nonnull %61) #22
   br label %ehcleanup112
 
-if.end86:                                         ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZN19OpenColorIO_v2_4dev11ConfigUtils17SuspendCacheGuardC2ERKSt10shared_ptrIKNS_6ConfigEE.exit42
+if.end86:                                         ; preds = %if.then.i.i.i76.thread, %if.then.i.i.i76, %_ZNSt6vectorIfSaIfEED2Ev.exit, %_ZN19OpenColorIO_v2_4dev11ConfigUtils17SuspendCacheGuardC2ERKSt10shared_ptrIKNS_6ConfigEE.exit42
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os87)
           to label %invoke.cont89 unwind label %lpad88
 
@@ -6485,7 +6480,7 @@ ehcleanup110:                                     ; preds = %ehcleanup106, %clea
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os87) #19
   br label %ehcleanup112
 
-cleanup111:                                       ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
+cleanup111:                                       ; preds = %if.then.i.i.i76, %_ZNSt6vectorIfSaIfEED2Ev.exit
   %67 = load ptr, ptr %builtinGuard, align 8
   %68 = load i32, ptr %m_origCacheFlags.i39, align 8
   call void @_ZNK19OpenColorIO_v2_4dev6Config22setProcessorCacheFlagsENS_19ProcessorCacheFlagsE(ptr noundef nonnull align 8 dereferenceable(8) %67, i32 noundef %68) #19
@@ -6644,7 +6639,7 @@ ehcleanup112:                                     ; preds = %lpad.i, %if.then.i.
   br label %ehcleanup116
 
 cleanup115:                                       ; preds = %if.end8.sink.split.i.i.i.i.i114, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i111, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i101, %_ZN19OpenColorIO_v2_4dev11ConfigUtils17SuspendCacheGuardD2Ev.exit, %invoke.cont18
-  %retval.0 = phi ptr [ %call19, %invoke.cont18 ], [ %retval.4185, %_ZN19OpenColorIO_v2_4dev11ConfigUtils17SuspendCacheGuardD2Ev.exit ], [ %retval.4185, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i101 ], [ %retval.4185, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i111 ], [ %retval.4185, %if.end8.sink.split.i.i.i.i.i114 ]
+  %retval.0 = phi ptr [ %call19, %invoke.cont18 ], [ %retval.2, %_ZN19OpenColorIO_v2_4dev11ConfigUtils17SuspendCacheGuardD2Ev.exit ], [ %retval.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i101 ], [ %retval.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i111 ], [ %retval.2, %if.end8.sink.split.i.i.i.i.i114 ]
   %_M_refcount.i.i124 = getelementptr inbounds i8, ptr %builtinColorSpace, i64 8
   %93 = load ptr, ptr %_M_refcount.i.i124, align 8
   %cmp.not.i.i.i125 = icmp eq ptr %93, null

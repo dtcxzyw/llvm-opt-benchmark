@@ -1494,31 +1494,31 @@ _ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds 
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %494, i64 %490
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %495, i8 0, i64 %490, i1 false)
   %scevgep.i.i.i.i.i170 = getelementptr i8, ptr %495, i64 %490
+  %496 = ptrtoint ptr %scevgep.i.i.i.i.i to i64
+  %497 = ptrtoint ptr %scevgep.i.i.i.i.i170 to i64
   br label %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EEC2EmRKS3_.exit176
 
 _ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EEC2EmRKS3_.exit176: ; preds = %.noexc175, %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %.0.lcssa.i.i.i.i.i250 = phi ptr [ %scevgep.i.i.i.i.i, %.noexc175 ], [ null, %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
+  %.0.lcssa.i.i.i.i.i250 = phi i64 [ %496, %.noexc175 ], [ 0, %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
   %.sroa.0211.1246 = phi ptr [ %494, %.noexc175 ], [ null, %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
   %.sroa.0.1 = phi ptr [ %495, %.noexc175 ], [ null, %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
-  %.0.lcssa.i.i.i.i.i172 = phi ptr [ %scevgep.i.i.i.i.i170, %.noexc175 ], [ null, %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
-  br i1 %112, label %496, label %.loopexit259
+  %.0.lcssa.i.i.i.i.i172 = phi i64 [ %497, %.noexc175 ], [ 0, %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
+  br i1 %112, label %498, label %.loopexit259
 
-496:                                              ; preds = %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EEC2EmRKS3_.exit176
-  %497 = load ptr, ptr %75, align 8
-  %498 = load ptr, ptr %422, align 8
-  %499 = icmp ne ptr %497, %498
-  %500 = icmp ne ptr %486, %487
-  %or.cond301 = and i1 %499, %500
+498:                                              ; preds = %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EEC2EmRKS3_.exit176
+  %499 = load ptr, ptr %75, align 8
+  %500 = load ptr, ptr %422, align 8
+  %501 = icmp ne ptr %499, %500
+  %502 = icmp ne ptr %486, %487
+  %or.cond301 = and i1 %501, %502
   br i1 %or.cond301, label %.lr.ph, label %.loopexit259
 
-.lr.ph:                                           ; preds = %496
-  %501 = ptrtoint ptr %.0.lcssa.i.i.i.i.i250 to i64
-  %502 = ptrtoint ptr %.sroa.0211.1246 to i64
-  %503 = sub i64 %501, %502
-  %504 = sdiv exact i64 %503, 24
-  %505 = ptrtoint ptr %.0.lcssa.i.i.i.i.i172 to i64
+.lr.ph:                                           ; preds = %498
+  %503 = ptrtoint ptr %.sroa.0211.1246 to i64
+  %504 = sub i64 %.0.lcssa.i.i.i.i.i250, %503
+  %505 = sdiv exact i64 %504, 24
   %506 = ptrtoint ptr %.sroa.0.1 to i64
-  %507 = sub i64 %505, %506
+  %507 = sub i64 %.0.lcssa.i.i.i.i.i172, %506
   %508 = sdiv exact i64 %507, 24
   %umax = call i64 @llvm.umax.i64(i64 %491, i64 1)
   br label %509
@@ -1559,11 +1559,11 @@ _ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EEC2EmRKS3_.exit176: ; preds = %.noexc175, %_
   store i32 0, ptr %433, align 4
   store i32 16842752, ptr %85, align 8
   store ptr %67, ptr %434, align 8
-  %exitcond.not = icmp eq i64 %.048298, %504
+  %exitcond.not = icmp eq i64 %.048298, %505
   br i1 %exitcond.not, label %519, label %520
 
 519:                                              ; preds = %517
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.30, i64 noundef %504, i64 noundef %504) #16
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.30, i64 noundef %505, i64 noundef %505) #16
           to label %.noexc179 unwind label %541
 
 .noexc179:                                        ; preds = %519
@@ -1657,7 +1657,7 @@ _ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EED2Ev.exit200.thread: ; preds = %.lr.ph.preh
           cleanup
   br label %642
 
-.loopexit259:                                     ; preds = %526, %496, %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EEC2EmRKS3_.exit176
+.loopexit259:                                     ; preds = %526, %498, %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EEC2EmRKS3_.exit176
   %547 = invoke noundef i64 @_ZN2cv12getTickCountEv()
           to label %548 unwind label %537
 

@@ -100925,12 +100925,12 @@ for.body10:                                       ; preds = %for.cond8.preheader
 land.rhs.i.i:                                     ; preds = %for.body10
   %call1.i.i = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIfEEbT_(float noundef %17)
   %lnot.i.i = xor i1 %call1.i.i, true
+  %18 = zext i1 %lnot.i.i to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit: ; preds = %land.rhs.i.i, %for.body10
-  %18 = phi i1 [ false, %for.body10 ], [ %lnot.i.i, %land.rhs.i.i ]
+  %frombool13 = phi i8 [ 0, %for.body10 ], [ %18, %land.rhs.i.i ]
   %arrayidx12 = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.1118
-  %frombool13 = zext i1 %18 to i8
   store i8 %frombool13, ptr %arrayidx12, align 1, !tbaa !1128
   %inc = add i64 %base_idx.1118, 1
   %exitcond.not = icmp eq i64 %inc, %cond.i135
@@ -100953,12 +100953,12 @@ if.then22:                                        ; preds = %for.body20
 land.rhs.i.i102:                                  ; preds = %if.then22
   %call1.i.i103 = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIfEEbT_(float noundef %19)
   %lnot.i.i104 = xor i1 %call1.i.i103, true
+  %20 = zext i1 %lnot.i.i104 to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit105
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit105: ; preds = %land.rhs.i.i102, %if.then22
-  %20 = phi i1 [ false, %if.then22 ], [ %lnot.i.i104, %land.rhs.i.i102 ]
+  %frombool26 = phi i8 [ 0, %if.then22 ], [ %20, %land.rhs.i.i102 ]
   %arrayidx25 = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.2120
-  %frombool26 = zext i1 %20 to i8
   store i8 %frombool26, ptr %arrayidx25, align 1, !tbaa !1128
   br label %for.inc28
 
@@ -100999,12 +100999,12 @@ for.body45:                                       ; preds = %if.end41, %_ZN6duck
 land.rhs.i.i109:                                  ; preds = %for.body45
   %call1.i.i110 = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIfEEbT_(float noundef %23)
   %lnot.i.i111 = xor i1 %call1.i.i110, true
+  %24 = zext i1 %lnot.i.i111 to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit112
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit112: ; preds = %land.rhs.i.i109, %for.body45
-  %24 = phi i1 [ false, %for.body45 ], [ %lnot.i.i111, %land.rhs.i.i109 ]
+  %frombool49 = phi i8 [ 0, %for.body45 ], [ %24, %land.rhs.i.i109 ]
   %arrayidx48 = getelementptr inbounds i8, ptr %result_data, i64 %i.0126
-  %frombool49 = zext i1 %24 to i8
   store i8 %frombool49, ptr %arrayidx48, align 1, !tbaa !1128
   %inc51 = add nuw i64 %i.0126, 1
   %exitcond131.not = icmp eq i64 %inc51, %count
@@ -101071,12 +101071,12 @@ if.then3.us:                                      ; preds = %_ZNK6duckdb21Templa
 land.rhs.i.i.us:                                  ; preds = %if.then3.us
   %call1.i.i.us = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIfEEbT_(float noundef %6)
   %lnot.i.i.us = xor i1 %call1.i.i.us, true
+  %7 = zext i1 %lnot.i.i.us to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit.us
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit.us: ; preds = %land.rhs.i.i.us, %if.then3.us
-  %7 = phi i1 [ false, %if.then3.us ], [ %lnot.i.i.us, %land.rhs.i.i.us ]
+  %frombool6.us = phi i8 [ 0, %if.then3.us ], [ %7, %land.rhs.i.i.us ]
   %arrayidx5.us = getelementptr inbounds i8, ptr %result_data, i64 %i.067.us
-  %frombool6.us = zext i1 %7 to i8
   store i8 %frombool6.us, ptr %arrayidx5.us, align 1, !tbaa !1128
   br label %if.end.us
 
@@ -101138,12 +101138,12 @@ if.then3:                                         ; preds = %_ZNK6duckdb21Templa
 land.rhs.i.i:                                     ; preds = %if.then3
   %call1.i.i = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIfEEbT_(float noundef %15)
   %lnot.i.i = xor i1 %call1.i.i, true
+  %16 = zext i1 %lnot.i.i to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit: ; preds = %land.rhs.i.i, %if.then3
-  %16 = phi i1 [ false, %if.then3 ], [ %lnot.i.i, %land.rhs.i.i ]
+  %frombool6 = phi i8 [ 0, %if.then3 ], [ %16, %land.rhs.i.i ]
   %arrayidx5 = getelementptr inbounds i8, ptr %result_data, i64 %i.067
-  %frombool6 = zext i1 %16 to i8
   store i8 %frombool6, ptr %arrayidx5, align 1, !tbaa !1128
   br label %if.end
 
@@ -101204,12 +101204,12 @@ for.body14.us:                                    ; preds = %for.body14.lr.ph, %
 land.rhs.i.i61.us:                                ; preds = %for.body14.us
   %call1.i.i62.us = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIfEEbT_(float noundef %23)
   %lnot.i.i63.us = xor i1 %call1.i.i62.us, true
+  %24 = zext i1 %lnot.i.i63.us to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit64.us
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit64.us: ; preds = %land.rhs.i.i61.us, %for.body14.us
-  %24 = phi i1 [ false, %for.body14.us ], [ %lnot.i.i63.us, %land.rhs.i.i61.us ]
+  %frombool20.us = phi i8 [ 0, %for.body14.us ], [ %24, %land.rhs.i.i61.us ]
   %arrayidx19.us = getelementptr inbounds i8, ptr %result_data, i64 %i10.069.us
-  %frombool20.us = zext i1 %24 to i8
   store i8 %frombool20.us, ptr %arrayidx19.us, align 1, !tbaa !1128
   %inc22.us = add nuw i64 %i10.069.us, 1
   %exitcond75.not = icmp eq i64 %inc22.us, %count
@@ -101228,12 +101228,12 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
 land.rhs.i.i61:                                   ; preds = %for.body14
   %call1.i.i62 = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIfEEbT_(float noundef %26)
   %lnot.i.i63 = xor i1 %call1.i.i62, true
+  %27 = zext i1 %lnot.i.i63 to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit64
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEfbEET1_T0_RNS_12ValidityMaskEmPv.exit64: ; preds = %land.rhs.i.i61, %for.body14
-  %27 = phi i1 [ false, %for.body14 ], [ %lnot.i.i63, %land.rhs.i.i61 ]
+  %frombool20 = phi i8 [ 0, %for.body14 ], [ %27, %land.rhs.i.i61 ]
   %arrayidx19 = getelementptr inbounds i8, ptr %result_data, i64 %i10.069
-  %frombool20 = zext i1 %27 to i8
   store i8 %frombool20, ptr %arrayidx19, align 1, !tbaa !1128
   %inc22 = add nuw i64 %i10.069, 1
   %exitcond74.not = icmp eq i64 %inc22, %count
@@ -101608,12 +101608,12 @@ for.body10:                                       ; preds = %for.cond8.preheader
 land.rhs.i.i:                                     ; preds = %for.body10
   %call1.i.i = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIdEEbT_(double noundef %17)
   %lnot.i.i = xor i1 %call1.i.i, true
+  %18 = zext i1 %lnot.i.i to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit: ; preds = %land.rhs.i.i, %for.body10
-  %18 = phi i1 [ false, %for.body10 ], [ %lnot.i.i, %land.rhs.i.i ]
+  %frombool13 = phi i8 [ 0, %for.body10 ], [ %18, %land.rhs.i.i ]
   %arrayidx12 = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.1118
-  %frombool13 = zext i1 %18 to i8
   store i8 %frombool13, ptr %arrayidx12, align 1, !tbaa !1128
   %inc = add i64 %base_idx.1118, 1
   %exitcond.not = icmp eq i64 %inc, %cond.i135
@@ -101636,12 +101636,12 @@ if.then22:                                        ; preds = %for.body20
 land.rhs.i.i102:                                  ; preds = %if.then22
   %call1.i.i103 = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIdEEbT_(double noundef %19)
   %lnot.i.i104 = xor i1 %call1.i.i103, true
+  %20 = zext i1 %lnot.i.i104 to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit105
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit105: ; preds = %land.rhs.i.i102, %if.then22
-  %20 = phi i1 [ false, %if.then22 ], [ %lnot.i.i104, %land.rhs.i.i102 ]
+  %frombool26 = phi i8 [ 0, %if.then22 ], [ %20, %land.rhs.i.i102 ]
   %arrayidx25 = getelementptr inbounds i8, ptr %result_data, i64 %base_idx.2120
-  %frombool26 = zext i1 %20 to i8
   store i8 %frombool26, ptr %arrayidx25, align 1, !tbaa !1128
   br label %for.inc28
 
@@ -101682,12 +101682,12 @@ for.body45:                                       ; preds = %if.end41, %_ZN6duck
 land.rhs.i.i109:                                  ; preds = %for.body45
   %call1.i.i110 = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIdEEbT_(double noundef %23)
   %lnot.i.i111 = xor i1 %call1.i.i110, true
+  %24 = zext i1 %lnot.i.i111 to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit112
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit112: ; preds = %land.rhs.i.i109, %for.body45
-  %24 = phi i1 [ false, %for.body45 ], [ %lnot.i.i111, %land.rhs.i.i109 ]
+  %frombool49 = phi i8 [ 0, %for.body45 ], [ %24, %land.rhs.i.i109 ]
   %arrayidx48 = getelementptr inbounds i8, ptr %result_data, i64 %i.0126
-  %frombool49 = zext i1 %24 to i8
   store i8 %frombool49, ptr %arrayidx48, align 1, !tbaa !1128
   %inc51 = add nuw i64 %i.0126, 1
   %exitcond131.not = icmp eq i64 %inc51, %count
@@ -101754,12 +101754,12 @@ if.then3.us:                                      ; preds = %_ZNK6duckdb21Templa
 land.rhs.i.i.us:                                  ; preds = %if.then3.us
   %call1.i.i.us = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIdEEbT_(double noundef %6)
   %lnot.i.i.us = xor i1 %call1.i.i.us, true
+  %7 = zext i1 %lnot.i.i.us to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit.us
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit.us: ; preds = %land.rhs.i.i.us, %if.then3.us
-  %7 = phi i1 [ false, %if.then3.us ], [ %lnot.i.i.us, %land.rhs.i.i.us ]
+  %frombool6.us = phi i8 [ 0, %if.then3.us ], [ %7, %land.rhs.i.i.us ]
   %arrayidx5.us = getelementptr inbounds i8, ptr %result_data, i64 %i.067.us
-  %frombool6.us = zext i1 %7 to i8
   store i8 %frombool6.us, ptr %arrayidx5.us, align 1, !tbaa !1128
   br label %if.end.us
 
@@ -101821,12 +101821,12 @@ if.then3:                                         ; preds = %_ZNK6duckdb21Templa
 land.rhs.i.i:                                     ; preds = %if.then3
   %call1.i.i = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIdEEbT_(double noundef %15)
   %lnot.i.i = xor i1 %call1.i.i, true
+  %16 = zext i1 %lnot.i.i to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit: ; preds = %land.rhs.i.i, %if.then3
-  %16 = phi i1 [ false, %if.then3 ], [ %lnot.i.i, %land.rhs.i.i ]
+  %frombool6 = phi i8 [ 0, %if.then3 ], [ %16, %land.rhs.i.i ]
   %arrayidx5 = getelementptr inbounds i8, ptr %result_data, i64 %i.067
-  %frombool6 = zext i1 %16 to i8
   store i8 %frombool6, ptr %arrayidx5, align 1, !tbaa !1128
   br label %if.end
 
@@ -101887,12 +101887,12 @@ for.body14.us:                                    ; preds = %for.body14.lr.ph, %
 land.rhs.i.i61.us:                                ; preds = %for.body14.us
   %call1.i.i62.us = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIdEEbT_(double noundef %23)
   %lnot.i.i63.us = xor i1 %call1.i.i62.us, true
+  %24 = zext i1 %lnot.i.i63.us to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit64.us
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit64.us: ; preds = %land.rhs.i.i61.us, %for.body14.us
-  %24 = phi i1 [ false, %for.body14.us ], [ %lnot.i.i63.us, %land.rhs.i.i61.us ]
+  %frombool20.us = phi i8 [ 0, %for.body14.us ], [ %24, %land.rhs.i.i61.us ]
   %arrayidx19.us = getelementptr inbounds i8, ptr %result_data, i64 %i10.069.us
-  %frombool20.us = zext i1 %24 to i8
   store i8 %frombool20.us, ptr %arrayidx19.us, align 1, !tbaa !1128
   %inc22.us = add nuw i64 %i10.069.us, 1
   %exitcond75.not = icmp eq i64 %inc22.us, %count
@@ -101911,12 +101911,12 @@ for.body14:                                       ; preds = %for.body14.lr.ph, %
 land.rhs.i.i61:                                   ; preds = %for.body14
   %call1.i.i62 = tail call noundef zeroext i1 @_ZN6duckdb5Value8IsFiniteIdEEbT_(double noundef %26)
   %lnot.i.i63 = xor i1 %call1.i.i62, true
+  %27 = zext i1 %lnot.i.i63 to i8
   br label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit64
 
 _ZN6duckdb20UnaryOperatorWrapper9OperationINS_18IsInfiniteOperatorEdbEET1_T0_RNS_12ValidityMaskEmPv.exit64: ; preds = %land.rhs.i.i61, %for.body14
-  %27 = phi i1 [ false, %for.body14 ], [ %lnot.i.i63, %land.rhs.i.i61 ]
+  %frombool20 = phi i8 [ 0, %for.body14 ], [ %27, %land.rhs.i.i61 ]
   %arrayidx19 = getelementptr inbounds i8, ptr %result_data, i64 %i10.069
-  %frombool20 = zext i1 %27 to i8
   store i8 %frombool20, ptr %arrayidx19, align 1, !tbaa !1128
   %inc22 = add nuw i64 %i10.069, 1
   %exitcond74.not = icmp eq i64 %inc22, %count

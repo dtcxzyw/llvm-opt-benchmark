@@ -1367,25 +1367,25 @@ define hidden range(i32 0, 2) i32 @WebPSaveImage(ptr noundef %0, i32 noundef %1,
 sub_0:                                            ; preds = %3
   %5 = load i8, ptr %2, align 1
   %.not117 = icmp eq i8 %5, 45
-  br i1 %.not117, label %sub_1, label %.critedge
+  br i1 %.not117, label %.tail, label %.tail.thread
 
-sub_1:                                            ; preds = %sub_0
+.tail:                                            ; preds = %sub_0
   %6 = getelementptr inbounds i8, ptr %2, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %9, label %.critedge
+  br i1 %8, label %9, label %.tail.thread
 
-9:                                                ; preds = %sub_1
+9:                                                ; preds = %.tail
   %10 = load ptr, ptr @stdout, align 8
   %11 = tail call ptr @ImgIoUtilSetBinaryMode(ptr noundef %10) #8
   br label %13
 
-.critedge:                                        ; preds = %sub_0, %sub_1
+.tail.thread:                                     ; preds = %sub_0, %.tail
   %12 = tail call noalias ptr @fopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.4)
   br label %13
 
-13:                                               ; preds = %.critedge, %9
-  %14 = phi ptr [ %11, %9 ], [ %12, %.critedge ]
+13:                                               ; preds = %.tail.thread, %9
+  %14 = phi ptr [ %11, %9 ], [ %12, %.tail.thread ]
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 

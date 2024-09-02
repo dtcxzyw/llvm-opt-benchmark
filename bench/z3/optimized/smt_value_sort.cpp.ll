@@ -228,12 +228,12 @@ for.cond:                                         ; preds = %if.then27, %for.inc
 if.end.i:                                         ; preds = %for.cond
   %arrayidx.i19 = getelementptr inbounds i8, ptr %17, i64 -4
   %18 = load i32, ptr %arrayidx.i19, align 4
+  %19 = zext i32 %18 to i64
   br label %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit
 
 _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %for.cond, %if.end.i
-  %retval.0.i = phi i32 [ %18, %if.end.i ], [ 0, %for.cond ]
-  %19 = zext i32 %retval.0.i to i64
-  %cmp = icmp ult i64 %indvars.iv66, %19
+  %retval.0.i = phi i64 [ %19, %if.end.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv66, %retval.0.i
   br i1 %cmp, label %for.body, label %while.cond.backedge
 
 for.body:                                         ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit

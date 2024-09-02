@@ -498,11 +498,12 @@ split:                                            ; preds = %delete_function.exi
   %70 = load i32, ptr %68, align 4
   %71 = icmp eq i32 %70, 426
   %72 = icmp eq i32 %70, 425
+  %73 = select i1 %72, i32 1, i32 2
+  %74 = select i1 %71, i32 0, i32 %73
   br label %.thread.i
 
 .thread.i:                                        ; preds = %69, %.thread63
-  %73 = phi i1 [ %71, %69 ], [ false, %.thread63 ]
-  %74 = phi i1 [ %72, %69 ], [ false, %.thread63 ]
+  %.sink372.i = phi i32 [ %74, %69 ], [ 2, %.thread63 ]
   %75 = call i64 @SysCacheGetAttrNotNull(i32 noundef 45, ptr noundef nonnull %14, i16 noundef signext 26) #10
   %76 = inttoptr i64 %75 to ptr
   %77 = call ptr @text_to_cstring(ptr noundef %76) #10
@@ -580,8 +581,6 @@ split:                                            ; preds = %delete_function.exi
   %120 = getelementptr inbounds i8, ptr %.0.i39, i64 496
   store i32 %119, ptr %120, align 8
   %121 = getelementptr inbounds i8, ptr %.0.i39, i64 24
-  %.373.i = select i1 %74, i32 1, i32 2
-  %.sink372.i = select i1 %73, i32 0, i32 %.373.i
   store i32 %.sink372.i, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %66, i64 96
   %123 = load i8, ptr %122, align 4
@@ -601,10 +600,10 @@ split:                                            ; preds = %delete_function.exi
   store ptr %128, ptr @plpgsql_Datums, align 8
   store i32 0, ptr @datums_last, align 4
   %129 = load i32, ptr %121, align 8
-  switch i32 %129, label %533 [
+  switch i32 %129, label %534 [
     i32 2, label %130
-    i32 0, label %346
-    i32 1, label %502
+    i32 0, label %347
+    i32 1, label %503
   ]
 
 130:                                              ; preds = %89
@@ -631,1025 +630,1026 @@ split:                                            ; preds = %delete_function.exi
   %wide.trip.count.i = zext nneg i32 %132 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %205, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %205 ]
-  %.0278350.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1279.i, %205 ]
-  %.0280349.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1281.i, %205 ]
+.lr.ph.i:                                         ; preds = %206, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %206 ]
+  %.0278350.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1279.i, %206 ]
+  %.0280349.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1281.i, %206 ]
   %145 = load ptr, ptr %5, align 8
   %146 = getelementptr i32, ptr %145, i64 %indvars.iv.i
   %147 = load i32, ptr %146, align 4
   %148 = load ptr, ptr %7, align 8
   %.not300.i = icmp eq ptr %148, null
-  br i1 %.not300.i, label %152, label %149
+  br i1 %.not300.i, label %153, label %149
 
 149:                                              ; preds = %.lr.ph.i
   %150 = getelementptr i8, ptr %148, i64 %indvars.iv.i
   %151 = load i8, ptr %150, align 1
-  br label %152
+  %152 = sext i8 %151 to i32
+  br label %153
 
-152:                                              ; preds = %149, %.lr.ph.i
-  %153 = phi i8 [ %151, %149 ], [ 105, %.lr.ph.i ]
+153:                                              ; preds = %149, %.lr.ph.i
+  %154 = phi i32 [ %152, %149 ], [ 105, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %154 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %155 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.21, i32 noundef %154) #10
-  %156 = load i32, ptr %107, align 4
-  %157 = zext i32 %147 to i64
-  %158 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %157) #10
-  %.not.i.i = icmp eq ptr %158, null
-  br i1 %.not.i.i, label %159, label %plpgsql_build_datatype.exit.i
+  %155 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %156 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.21, i32 noundef %155) #10
+  %157 = load i32, ptr %107, align 4
+  %158 = zext i32 %147 to i64
+  %159 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %158) #10
+  %.not.i.i = icmp eq ptr %159, null
+  br i1 %.not.i.i, label %160, label %plpgsql_build_datatype.exit.i
 
-159:                                              ; preds = %152
-  %160 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %160)
-  %161 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %147) #10
+160:                                              ; preds = %153
+  %161 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %161)
+  %162 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %147) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
-plpgsql_build_datatype.exit.i:                    ; preds = %152
-  %162 = getelementptr i8, ptr %158, i64 16
-  %.val.i.i = load ptr, ptr %162, align 8
-  %163 = call fastcc ptr @build_datatype(ptr %.val.i.i, i32 noundef -1, i32 noundef %156, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %158) #10
-  %164 = getelementptr inbounds i8, ptr %163, i64 12
-  %165 = load i32, ptr %164, align 4
-  %166 = icmp eq i32 %165, 2
-  br i1 %166, label %167, label %172
+plpgsql_build_datatype.exit.i:                    ; preds = %153
+  %163 = getelementptr i8, ptr %159, i64 16
+  %.val.i.i = load ptr, ptr %163, align 8
+  %164 = call fastcc ptr @build_datatype(ptr %.val.i.i, i32 noundef -1, i32 noundef %157, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %159) #10
+  %165 = getelementptr inbounds i8, ptr %164, i64 12
+  %166 = load i32, ptr %165, align 4
+  %167 = icmp eq i32 %166, 2
+  br i1 %167, label %168, label %173
 
-167:                                              ; preds = %plpgsql_build_datatype.exit.i
-  %168 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %168)
-  %169 = call i32 @errcode(i32 noundef 1088) #10
-  %170 = call ptr @format_type_be(i32 noundef %147) #10
-  %171 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %170) #10
+168:                                              ; preds = %plpgsql_build_datatype.exit.i
+  %169 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %169)
+  %170 = call i32 @errcode(i32 noundef 1088) #10
+  %171 = call ptr @format_type_be(i32 noundef %147) #10
+  %172 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %171) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 435, ptr noundef nonnull @__func__.do_compile) #10
   unreachable
 
-172:                                              ; preds = %plpgsql_build_datatype.exit.i
-  %173 = load ptr, ptr %6, align 8
-  %.not301.i = icmp eq ptr %173, null
-  br i1 %.not301.i, label %178, label %174
+173:                                              ; preds = %plpgsql_build_datatype.exit.i
+  %174 = load ptr, ptr %6, align 8
+  %.not301.i = icmp eq ptr %174, null
+  br i1 %.not301.i, label %179, label %175
 
-174:                                              ; preds = %172
-  %175 = getelementptr ptr, ptr %173, i64 %indvars.iv.i
-  %176 = load ptr, ptr %175, align 8
-  %177 = load i8, ptr %176, align 1
-  %.not302.i = icmp eq i8 %177, 0
-  br i1 %.not302.i, label %178, label %179
+175:                                              ; preds = %173
+  %176 = getelementptr ptr, ptr %174, i64 %indvars.iv.i
+  %177 = load ptr, ptr %176, align 8
+  %178 = load i8, ptr %177, align 1
+  %.not302.i = icmp eq i8 %178, 0
+  br i1 %.not302.i, label %179, label %180
 
-178:                                              ; preds = %174, %172
-  br label %179
+179:                                              ; preds = %175, %173
+  br label %180
 
-179:                                              ; preds = %178, %174
-  %180 = phi ptr [ %8, %178 ], [ %176, %174 ]
-  %181 = call ptr @plpgsql_build_variable(ptr noundef nonnull %180, i32 noundef 0, ptr noundef nonnull %163, i1 noundef zeroext false)
-  %182 = load i32, ptr %181, align 8
-  %183 = icmp eq i32 %182, 0
-  %..i = select i1 %183, i32 1, i32 2
-  switch i8 %153, label %190 [
-    i8 118, label %184
-    i8 105, label %184
-    i8 98, label %184
+180:                                              ; preds = %179, %175
+  %181 = phi ptr [ %8, %179 ], [ %177, %175 ]
+  %182 = call ptr @plpgsql_build_variable(ptr noundef nonnull %181, i32 noundef 0, ptr noundef nonnull %164, i1 noundef zeroext false)
+  %183 = load i32, ptr %182, align 8
+  %184 = icmp eq i32 %183, 0
+  %..i = select i1 %184, i32 1, i32 2
+  switch i32 %154, label %191 [
+    i32 118, label %185
+    i32 105, label %185
+    i32 98, label %185
   ]
 
-184:                                              ; preds = %179, %179, %179
-  %185 = getelementptr inbounds i8, ptr %181, i64 4
-  %186 = load i32, ptr %185, align 4
-  %187 = add i32 %.0278350.i, 1
-  %188 = sext i32 %.0278350.i to i64
-  %189 = getelementptr i32, ptr %141, i64 %188
-  store i32 %186, ptr %189, align 4
-  br label %190
+185:                                              ; preds = %180, %180, %180
+  %186 = getelementptr inbounds i8, ptr %182, i64 4
+  %187 = load i32, ptr %186, align 4
+  %188 = add i32 %.0278350.i, 1
+  %189 = sext i32 %.0278350.i to i64
+  %190 = getelementptr i32, ptr %141, i64 %189
+  store i32 %187, ptr %190, align 4
+  br label %191
 
-190:                                              ; preds = %184, %179
-  %.1279.i = phi i32 [ %187, %184 ], [ %.0278350.i, %179 ]
-  switch i8 %153, label %195 [
-    i8 116, label %191
-    i8 111, label %191
-    i8 98, label %191
+191:                                              ; preds = %185, %180
+  %.1279.i = phi i32 [ %188, %185 ], [ %.0278350.i, %180 ]
+  switch i32 %154, label %196 [
+    i32 116, label %192
+    i32 111, label %192
+    i32 98, label %192
   ]
 
-191:                                              ; preds = %190, %190, %190
-  %192 = add i32 %.0280349.i, 1
-  %193 = sext i32 %.0280349.i to i64
-  %194 = getelementptr ptr, ptr %143, i64 %193
-  store ptr %181, ptr %194, align 8
-  br label %195
+192:                                              ; preds = %191, %191, %191
+  %193 = add i32 %.0280349.i, 1
+  %194 = sext i32 %.0280349.i to i64
+  %195 = getelementptr ptr, ptr %143, i64 %194
+  store ptr %182, ptr %195, align 8
+  br label %196
 
-195:                                              ; preds = %191, %190
-  %.1281.i = phi i32 [ %192, %191 ], [ %.0280349.i, %190 ]
-  %196 = getelementptr inbounds i8, ptr %181, i64 4
-  %197 = load i32, ptr %196, align 4
-  call fastcc void @add_parameter_name(i32 noundef %..i, i32 noundef %197, ptr noundef nonnull %8)
-  %198 = load ptr, ptr %6, align 8
-  %.not303.i = icmp eq ptr %198, null
-  br i1 %.not303.i, label %205, label %199
+196:                                              ; preds = %192, %191
+  %.1281.i = phi i32 [ %193, %192 ], [ %.0280349.i, %191 ]
+  %197 = getelementptr inbounds i8, ptr %182, i64 4
+  %198 = load i32, ptr %197, align 4
+  call fastcc void @add_parameter_name(i32 noundef %..i, i32 noundef %198, ptr noundef nonnull %8)
+  %199 = load ptr, ptr %6, align 8
+  %.not303.i = icmp eq ptr %199, null
+  br i1 %.not303.i, label %206, label %200
 
-199:                                              ; preds = %195
-  %200 = getelementptr ptr, ptr %198, i64 %indvars.iv.i
-  %201 = load ptr, ptr %200, align 8
-  %202 = load i8, ptr %201, align 1
-  %.not304.i = icmp eq i8 %202, 0
-  br i1 %.not304.i, label %205, label %203
+200:                                              ; preds = %196
+  %201 = getelementptr ptr, ptr %199, i64 %indvars.iv.i
+  %202 = load ptr, ptr %201, align 8
+  %203 = load i8, ptr %202, align 1
+  %.not304.i = icmp eq i8 %203, 0
+  br i1 %.not304.i, label %206, label %204
 
-203:                                              ; preds = %199
-  %204 = load i32, ptr %196, align 4
-  call fastcc void @add_parameter_name(i32 noundef %..i, i32 noundef %204, ptr noundef nonnull %201)
-  br label %205
+204:                                              ; preds = %200
+  %205 = load i32, ptr %197, align 4
+  call fastcc void @add_parameter_name(i32 noundef %..i, i32 noundef %205, ptr noundef nonnull %202)
+  br label %206
 
-205:                                              ; preds = %203, %199, %195
+206:                                              ; preds = %204, %200, %196
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
-._crit_edge.i:                                    ; preds = %205
-  %206 = icmp sgt i32 %.1281.i, 1
-  br i1 %206, label %.split.i, label %207
+._crit_edge.i:                                    ; preds = %206
+  %207 = icmp sgt i32 %.1281.i, 1
+  br i1 %207, label %.split.i, label %208
 
-207:                                              ; preds = %._crit_edge.i
-  %208 = icmp eq i32 %.1281.i, 1
-  br i1 %208, label %209, label %.critedge.i
+208:                                              ; preds = %._crit_edge.i
+  %209 = icmp eq i32 %.1281.i, 1
+  br i1 %209, label %210, label %.critedge.i
 
-209:                                              ; preds = %207
-  %210 = load i8, ptr %124, align 1
-  %211 = icmp eq i8 %210, 112
-  br i1 %211, label %.split.i, label %270
+210:                                              ; preds = %208
+  %211 = load i8, ptr %124, align 1
+  %212 = icmp eq i8 %211, 112
+  br i1 %212, label %.split.i, label %271
 
-.split.i:                                         ; preds = %209, %._crit_edge.i
-  %212 = call ptr @palloc0(i64 noundef 64) #10
-  store i32 1, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 8
-  store ptr @.str.47, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %212, i64 16
-  store i32 -1, ptr %214, align 8
-  %215 = call ptr @CreateTemplateTupleDesc(i32 noundef %.1281.i) #10
-  %216 = getelementptr inbounds i8, ptr %212, i64 32
-  store ptr %215, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %212, i64 40
-  store i32 %.1281.i, ptr %217, align 8
-  %218 = zext nneg i32 %.1281.i to i64
-  %219 = shl nuw nsw i64 %218, 3
-  %220 = call ptr @palloc(i64 noundef %219) #10
-  %221 = getelementptr inbounds i8, ptr %212, i64 48
-  store ptr %220, ptr %221, align 8
-  %222 = shl nuw nsw i64 %218, 2
-  %223 = call ptr @palloc(i64 noundef %222) #10
-  %224 = getelementptr inbounds i8, ptr %212, i64 56
-  store ptr %223, ptr %224, align 8
+.split.i:                                         ; preds = %210, %._crit_edge.i
+  %213 = call ptr @palloc0(i64 noundef 64) #10
+  store i32 1, ptr %213, align 8
+  %214 = getelementptr inbounds i8, ptr %213, i64 8
+  store ptr @.str.47, ptr %214, align 8
+  %215 = getelementptr inbounds i8, ptr %213, i64 16
+  store i32 -1, ptr %215, align 8
+  %216 = call ptr @CreateTemplateTupleDesc(i32 noundef %.1281.i) #10
+  %217 = getelementptr inbounds i8, ptr %213, i64 32
+  store ptr %216, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %213, i64 40
+  store i32 %.1281.i, ptr %218, align 8
+  %219 = zext nneg i32 %.1281.i to i64
+  %220 = shl nuw nsw i64 %219, 3
+  %221 = call ptr @palloc(i64 noundef %220) #10
+  %222 = getelementptr inbounds i8, ptr %213, i64 48
+  store ptr %221, ptr %222, align 8
+  %223 = shl nuw nsw i64 %219, 2
+  %224 = call ptr @palloc(i64 noundef %223) #10
+  %225 = getelementptr inbounds i8, ptr %213, i64 56
+  store ptr %224, ptr %225, align 8
   br label %.lr.ph.i41
 
-.lr.ph.i41:                                       ; preds = %.split.i, %242
-  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i44, %242 ], [ 0, %.split.i ]
-  %225 = getelementptr ptr, ptr %143, i64 %indvars.iv.i42
-  %226 = load ptr, ptr %225, align 8
-  %227 = load i32, ptr %226, align 8
-  switch i32 %227, label %238 [
-    i32 0, label %228
-    i32 4, label %228
-    i32 2, label %236
+.lr.ph.i41:                                       ; preds = %.split.i, %243
+  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i44, %243 ], [ 0, %.split.i ]
+  %226 = getelementptr ptr, ptr %143, i64 %indvars.iv.i42
+  %227 = load ptr, ptr %226, align 8
+  %228 = load i32, ptr %227, align 8
+  switch i32 %228, label %239 [
+    i32 0, label %229
+    i32 4, label %229
+    i32 2, label %237
   ]
 
-228:                                              ; preds = %.lr.ph.i41, %.lr.ph.i41
-  %229 = getelementptr inbounds i8, ptr %226, i64 32
-  %230 = load ptr, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 8
-  %232 = getelementptr inbounds i8, ptr %230, i64 28
-  %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %230, i64 20
-  %235 = load i32, ptr %234, align 4
-  br label %242
+229:                                              ; preds = %.lr.ph.i41, %.lr.ph.i41
+  %230 = getelementptr inbounds i8, ptr %227, i64 32
+  %231 = load ptr, ptr %230, align 8
+  %232 = getelementptr inbounds i8, ptr %231, i64 8
+  %233 = getelementptr inbounds i8, ptr %231, i64 28
+  %234 = load i32, ptr %233, align 4
+  %235 = getelementptr inbounds i8, ptr %231, i64 20
+  %236 = load i32, ptr %235, align 4
+  br label %243
 
-236:                                              ; preds = %.lr.ph.i41
-  %237 = getelementptr inbounds i8, ptr %226, i64 40
-  br label %242
+237:                                              ; preds = %.lr.ph.i41
+  %238 = getelementptr inbounds i8, ptr %227, i64 40
+  br label %243
 
-238:                                              ; preds = %.lr.ph.i41
-  %239 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %239)
-  %240 = load i32, ptr %226, align 8
-  %241 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.48, i32 noundef %240) #10
+239:                                              ; preds = %.lr.ph.i41
+  %240 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %240)
+  %241 = load i32, ptr %227, align 8
+  %242 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.48, i32 noundef %241) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1971, ptr noundef nonnull @__func__.build_row_from_vars) #10
   unreachable
 
-242:                                              ; preds = %236, %228
-  %.037.in.i = phi ptr [ %237, %236 ], [ %231, %228 ]
-  %.036.i = phi i32 [ -1, %236 ], [ %233, %228 ]
-  %.0.i43 = phi i32 [ 0, %236 ], [ %235, %228 ]
+243:                                              ; preds = %237, %229
+  %.037.in.i = phi ptr [ %238, %237 ], [ %232, %229 ]
+  %.036.i = phi i32 [ -1, %237 ], [ %234, %229 ]
+  %.0.i43 = phi i32 [ 0, %237 ], [ %236, %229 ]
   %.037.i = load i32, ptr %.037.in.i, align 8
-  %243 = getelementptr inbounds i8, ptr %226, i64 8
-  %244 = load ptr, ptr %243, align 8
-  %245 = load ptr, ptr %221, align 8
-  %246 = getelementptr ptr, ptr %245, i64 %indvars.iv.i42
-  store ptr %244, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %226, i64 4
-  %248 = load i32, ptr %247, align 4
-  %249 = load ptr, ptr %224, align 8
-  %250 = getelementptr i32, ptr %249, i64 %indvars.iv.i42
-  store i32 %248, ptr %250, align 4
-  %251 = load ptr, ptr %216, align 8
+  %244 = getelementptr inbounds i8, ptr %227, i64 8
+  %245 = load ptr, ptr %244, align 8
+  %246 = load ptr, ptr %222, align 8
+  %247 = getelementptr ptr, ptr %246, i64 %indvars.iv.i42
+  store ptr %245, ptr %247, align 8
+  %248 = getelementptr inbounds i8, ptr %227, i64 4
+  %249 = load i32, ptr %248, align 4
+  %250 = load ptr, ptr %225, align 8
+  %251 = getelementptr i32, ptr %250, i64 %indvars.iv.i42
+  store i32 %249, ptr %251, align 4
+  %252 = load ptr, ptr %217, align 8
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i42, 1
-  %252 = trunc i64 %indvars.iv.next.i44 to i16
-  %253 = load ptr, ptr %243, align 8
-  call void @TupleDescInitEntry(ptr noundef %251, i16 noundef signext %252, ptr noundef %253, i32 noundef %.037.i, i32 noundef %.036.i, i32 noundef 0) #10
-  %254 = load ptr, ptr %216, align 8
-  call void @TupleDescInitEntryCollation(ptr noundef %254, i16 noundef signext %252, i32 noundef %.0.i43) #10
-  %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, %218
+  %253 = trunc i64 %indvars.iv.next.i44 to i16
+  %254 = load ptr, ptr %244, align 8
+  call void @TupleDescInitEntry(ptr noundef %252, i16 noundef signext %253, ptr noundef %254, i32 noundef %.037.i, i32 noundef %.036.i, i32 noundef 0) #10
+  %255 = load ptr, ptr %217, align 8
+  call void @TupleDescInitEntryCollation(ptr noundef %255, i16 noundef signext %253, i32 noundef %.0.i43) #10
+  %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, %219
   br i1 %exitcond.not.i45, label %build_row_from_vars.exit, label %.lr.ph.i41, !llvm.loop !6
 
-build_row_from_vars.exit:                         ; preds = %242
-  %255 = load i32, ptr @plpgsql_nDatums, align 4
-  %256 = load i32, ptr @datums_alloc, align 4
-  %257 = icmp eq i32 %255, %256
-  br i1 %257, label %258, label %plpgsql_adddatum.exit.i
+build_row_from_vars.exit:                         ; preds = %243
+  %256 = load i32, ptr @plpgsql_nDatums, align 4
+  %257 = load i32, ptr @datums_alloc, align 4
+  %258 = icmp eq i32 %256, %257
+  br i1 %258, label %259, label %plpgsql_adddatum.exit.i
 
-258:                                              ; preds = %build_row_from_vars.exit
-  %259 = shl i32 %255, 1
-  store i32 %259, ptr @datums_alloc, align 4
-  %260 = load ptr, ptr @plpgsql_Datums, align 8
-  %261 = sext i32 %259 to i64
-  %262 = shl nsw i64 %261, 3
-  %263 = call ptr @repalloc(ptr noundef %260, i64 noundef %262) #10
-  store ptr %263, ptr @plpgsql_Datums, align 8
+259:                                              ; preds = %build_row_from_vars.exit
+  %260 = shl i32 %256, 1
+  store i32 %260, ptr @datums_alloc, align 4
+  %261 = load ptr, ptr @plpgsql_Datums, align 8
+  %262 = sext i32 %260 to i64
+  %263 = shl nsw i64 %262, 3
+  %264 = call ptr @repalloc(ptr noundef %261, i64 noundef %263) #10
+  store ptr %264, ptr @plpgsql_Datums, align 8
   %.pre.i.i = load i32, ptr @plpgsql_nDatums, align 4
   br label %plpgsql_adddatum.exit.i
 
-plpgsql_adddatum.exit.i:                          ; preds = %258, %build_row_from_vars.exit
-  %264 = phi i32 [ %.pre.i.i, %258 ], [ %255, %build_row_from_vars.exit ]
-  %265 = getelementptr inbounds i8, ptr %212, i64 4
-  store i32 %264, ptr %265, align 4
-  %266 = load ptr, ptr @plpgsql_Datums, align 8
-  %267 = add i32 %264, 1
-  store i32 %267, ptr @plpgsql_nDatums, align 4
-  %268 = sext i32 %264 to i64
-  %269 = getelementptr ptr, ptr %266, i64 %268
-  store ptr %212, ptr %269, align 8
+plpgsql_adddatum.exit.i:                          ; preds = %259, %build_row_from_vars.exit
+  %265 = phi i32 [ %.pre.i.i, %259 ], [ %256, %build_row_from_vars.exit ]
+  %266 = getelementptr inbounds i8, ptr %213, i64 4
+  store i32 %265, ptr %266, align 4
+  %267 = load ptr, ptr @plpgsql_Datums, align 8
+  %268 = add i32 %265, 1
+  store i32 %268, ptr @plpgsql_nDatums, align 4
+  %269 = sext i32 %265 to i64
+  %270 = getelementptr ptr, ptr %267, i64 %269
+  store ptr %213, ptr %270, align 8
   br label %.critedge.sink.split.i
 
-270:                                              ; preds = %209
-  %271 = load ptr, ptr %143, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 4
+271:                                              ; preds = %210
+  %272 = load ptr, ptr %143, align 8
+  %273 = getelementptr inbounds i8, ptr %272, i64 4
   br label %.critedge.sink.split.i
 
-.critedge.sink.split.i:                           ; preds = %270, %plpgsql_adddatum.exit.i
-  %.sink371.i = phi ptr [ %272, %270 ], [ %265, %plpgsql_adddatum.exit.i ]
-  %273 = load i32, ptr %.sink371.i, align 4
-  store i32 %273, ptr %109, align 4
+.critedge.sink.split.i:                           ; preds = %271, %plpgsql_adddatum.exit.i
+  %.sink371.i = phi ptr [ %273, %271 ], [ %266, %plpgsql_adddatum.exit.i ]
+  %274 = load i32, ptr %.sink371.i, align 4
+  store i32 %274, ptr %109, align 4
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge.sink.split.i, %207, %130
-  %.0280.lcssa363.i = phi i32 [ %.1281.i, %207 ], [ 0, %130 ], [ %.1281.i, %.critedge.sink.split.i ]
-  %274 = getelementptr inbounds i8, ptr %66, i64 108
-  %275 = load i32, ptr %274, align 4
-  switch i32 %275, label %288 [
-    i32 5080, label %276
-    i32 5079, label %276
-    i32 5078, label %276
-    i32 5077, label %276
-    i32 4538, label %276
-    i32 4537, label %276
-    i32 3831, label %276
-    i32 3500, label %276
-    i32 2776, label %276
-    i32 2283, label %276
-    i32 2277, label %276
+.critedge.i:                                      ; preds = %.critedge.sink.split.i, %208, %130
+  %.0280.lcssa363.i = phi i32 [ %.1281.i, %208 ], [ 0, %130 ], [ %.1281.i, %.critedge.sink.split.i ]
+  %275 = getelementptr inbounds i8, ptr %66, i64 108
+  %276 = load i32, ptr %275, align 4
+  switch i32 %276, label %289 [
+    i32 5080, label %277
+    i32 5079, label %277
+    i32 5078, label %277
+    i32 5077, label %277
+    i32 4538, label %277
+    i32 4537, label %277
+    i32 3831, label %277
+    i32 3500, label %277
+    i32 2776, label %277
+    i32 2283, label %277
+    i32 2277, label %277
   ]
 
-276:                                              ; preds = %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i
-  br i1 %1, label %277, label %280
-
-277:                                              ; preds = %276
-  switch i32 %275, label %279 [
-    i32 5078, label %288
-    i32 2277, label %288
-    i32 5080, label %.fold.split.i
-    i32 3831, label %.fold.split.i
-    i32 4537, label %278
-  ]
+277:                                              ; preds = %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i
+  br i1 %1, label %278, label %281
 
 278:                                              ; preds = %277
-  br label %288
+  switch i32 %276, label %280 [
+    i32 5078, label %289
+    i32 2277, label %289
+    i32 5080, label %.fold.split.i
+    i32 3831, label %.fold.split.i
+    i32 4537, label %279
+  ]
 
-279:                                              ; preds = %277
-  br label %288
+279:                                              ; preds = %278
+  br label %289
 
-280:                                              ; preds = %276
-  %281 = load ptr, ptr %0, align 8
-  %282 = call i32 @get_fn_expr_rettype(ptr noundef %281) #10
-  %.not297.i = icmp eq i32 %282, 0
-  br i1 %.not297.i, label %283, label %288
+280:                                              ; preds = %278
+  br label %289
 
-283:                                              ; preds = %280
-  %284 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %284)
-  %285 = call i32 @errcode(i32 noundef 1088) #10
-  %286 = load ptr, ptr @plpgsql_error_funcname, align 8
-  %287 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %286) #10
+281:                                              ; preds = %277
+  %282 = load ptr, ptr %0, align 8
+  %283 = call i32 @get_fn_expr_rettype(ptr noundef %282) #10
+  %.not297.i = icmp eq i32 %283, 0
+  br i1 %.not297.i, label %284, label %289
+
+284:                                              ; preds = %281
+  %285 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %285)
+  %286 = call i32 @errcode(i32 noundef 1088) #10
+  %287 = load ptr, ptr @plpgsql_error_funcname, align 8
+  %288 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %287) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 528, ptr noundef nonnull @__func__.do_compile) #10
   unreachable
 
-.fold.split.i:                                    ; preds = %277, %277
-  br label %288
+.fold.split.i:                                    ; preds = %278, %278
+  br label %289
 
-288:                                              ; preds = %.fold.split.i, %280, %279, %278, %277, %277, %.critedge.i
-  %.0277.i = phi i32 [ 4451, %278 ], [ 23, %279 ], [ %282, %280 ], [ %275, %.critedge.i ], [ 1007, %277 ], [ 1007, %277 ], [ 3904, %.fold.split.i ]
-  %289 = getelementptr inbounds i8, ptr %.0.i39, i64 48
-  store i32 %.0277.i, ptr %289, align 8
-  %290 = getelementptr inbounds i8, ptr %66, i64 100
-  %291 = load i8, ptr %290, align 4
-  %292 = getelementptr inbounds i8, ptr %.0.i39, i64 59
-  %293 = and i8 %291, 1
-  store i8 %293, ptr %292, align 1
-  %294 = zext i32 %.0277.i to i64
-  %295 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %294) #10
-  %.not298.i = icmp eq ptr %295, null
-  br i1 %.not298.i, label %296, label %299
+289:                                              ; preds = %.fold.split.i, %281, %280, %279, %278, %278, %.critedge.i
+  %.0277.i = phi i32 [ 4451, %279 ], [ 23, %280 ], [ %283, %281 ], [ %276, %.critedge.i ], [ 1007, %278 ], [ 1007, %278 ], [ 3904, %.fold.split.i ]
+  %290 = getelementptr inbounds i8, ptr %.0.i39, i64 48
+  store i32 %.0277.i, ptr %290, align 8
+  %291 = getelementptr inbounds i8, ptr %66, i64 100
+  %292 = load i8, ptr %291, align 4
+  %293 = getelementptr inbounds i8, ptr %.0.i39, i64 59
+  %294 = and i8 %292, 1
+  store i8 %294, ptr %293, align 1
+  %295 = zext i32 %.0277.i to i64
+  %296 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %295) #10
+  %.not298.i = icmp eq ptr %296, null
+  br i1 %.not298.i, label %297, label %300
 
-296:                                              ; preds = %288
-  %297 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %297)
-  %298 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %.0277.i) #10
+297:                                              ; preds = %289
+  %298 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %298)
+  %299 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %.0277.i) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 543, ptr noundef nonnull @__func__.do_compile) #10
   unreachable
 
-299:                                              ; preds = %288
-  %300 = getelementptr inbounds i8, ptr %295, i64 16
-  %301 = load ptr, ptr %300, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 22
-  %303 = load i8, ptr %302, align 2
-  %304 = zext i8 %303 to i64
-  %305 = getelementptr i8, ptr %301, i64 %304
-  %306 = getelementptr inbounds i8, ptr %305, i64 79
-  %307 = load i8, ptr %306, align 1
-  %308 = icmp eq i8 %307, 112
-  br i1 %308, label %309, label %319
+300:                                              ; preds = %289
+  %301 = getelementptr inbounds i8, ptr %296, i64 16
+  %302 = load ptr, ptr %301, align 8
+  %303 = getelementptr inbounds i8, ptr %302, i64 22
+  %304 = load i8, ptr %303, align 2
+  %305 = zext i8 %304 to i64
+  %306 = getelementptr i8, ptr %302, i64 %305
+  %307 = getelementptr inbounds i8, ptr %306, i64 79
+  %308 = load i8, ptr %307, align 1
+  %309 = icmp eq i8 %308, 112
+  br i1 %309, label %310, label %320
 
-309:                                              ; preds = %299
-  switch i32 %.0277.i, label %314 [
-    i32 2278, label %319
-    i32 2249, label %319
-    i32 3838, label %310
-    i32 2279, label %310
+310:                                              ; preds = %300
+  switch i32 %.0277.i, label %315 [
+    i32 2278, label %320
+    i32 2249, label %320
+    i32 3838, label %311
+    i32 2279, label %311
   ]
 
-310:                                              ; preds = %309, %309
-  %311 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %311)
-  %312 = call i32 @errcode(i32 noundef 1088) #10
-  %313 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24) #10
+311:                                              ; preds = %310, %310
+  %312 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %312)
+  %313 = call i32 @errcode(i32 noundef 1088) #10
+  %314 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 556, ptr noundef nonnull @__func__.do_compile) #10
   unreachable
 
-314:                                              ; preds = %309
-  %315 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %315)
-  %316 = call i32 @errcode(i32 noundef 1088) #10
-  %317 = call ptr @format_type_be(i32 noundef %.0277.i) #10
-  %318 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %317) #10
+315:                                              ; preds = %310
+  %316 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %316)
+  %317 = call i32 @errcode(i32 noundef 1088) #10
+  %318 = call ptr @format_type_be(i32 noundef %.0277.i) #10
+  %319 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %318) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 561, ptr noundef nonnull @__func__.do_compile) #10
   unreachable
 
-319:                                              ; preds = %309, %309, %299
-  %320 = call zeroext i1 @type_is_rowtype(i32 noundef %.0277.i) #10
-  %321 = getelementptr inbounds i8, ptr %.0.i39, i64 57
-  %322 = zext i1 %320 to i8
-  store i8 %322, ptr %321, align 1
-  %323 = load i8, ptr %306, align 1
-  %324 = icmp eq i8 %323, 100
-  %325 = getelementptr inbounds i8, ptr %.0.i39, i64 58
-  %326 = zext i1 %324 to i8
-  store i8 %326, ptr %325, align 2
-  %327 = getelementptr inbounds i8, ptr %305, i64 78
-  %328 = load i8, ptr %327, align 2
-  %329 = getelementptr inbounds i8, ptr %.0.i39, i64 56
-  %330 = and i8 %328, 1
-  store i8 %330, ptr %329, align 8
-  %331 = getelementptr inbounds i8, ptr %305, i64 76
-  %332 = load i16, ptr %331, align 4
-  %333 = sext i16 %332 to i32
-  %334 = getelementptr inbounds i8, ptr %.0.i39, i64 52
-  store i32 %333, ptr %334, align 4
-  %335 = load i32, ptr %274, align 4
-  switch i32 %335, label %336 [
-    i32 2283, label %339
-    i32 2277, label %339
-    i32 2776, label %339
-    i32 3500, label %339
-    i32 3831, label %339
-    i32 4537, label %339
-    i32 5077, label %339
-    i32 5078, label %339
-    i32 5079, label %339
-    i32 5080, label %339
+320:                                              ; preds = %310, %310, %300
+  %321 = call zeroext i1 @type_is_rowtype(i32 noundef %.0277.i) #10
+  %322 = getelementptr inbounds i8, ptr %.0.i39, i64 57
+  %323 = zext i1 %321 to i8
+  store i8 %323, ptr %322, align 1
+  %324 = load i8, ptr %307, align 1
+  %325 = icmp eq i8 %324, 100
+  %326 = getelementptr inbounds i8, ptr %.0.i39, i64 58
+  %327 = zext i1 %325 to i8
+  store i8 %327, ptr %326, align 2
+  %328 = getelementptr inbounds i8, ptr %306, i64 78
+  %329 = load i8, ptr %328, align 2
+  %330 = getelementptr inbounds i8, ptr %.0.i39, i64 56
+  %331 = and i8 %329, 1
+  store i8 %331, ptr %330, align 8
+  %332 = getelementptr inbounds i8, ptr %306, i64 76
+  %333 = load i16, ptr %332, align 4
+  %334 = sext i16 %333 to i32
+  %335 = getelementptr inbounds i8, ptr %.0.i39, i64 52
+  store i32 %334, ptr %335, align 4
+  %336 = load i32, ptr %275, align 4
+  switch i32 %336, label %337 [
+    i32 2283, label %340
+    i32 2277, label %340
+    i32 2776, label %340
+    i32 3500, label %340
+    i32 3831, label %340
+    i32 4537, label %340
+    i32 5077, label %340
+    i32 5078, label %340
+    i32 5079, label %340
+    i32 5080, label %340
   ]
 
-336:                                              ; preds = %319
-  %337 = icmp eq i32 %335, 4538
-  %338 = icmp eq i32 %.0280.lcssa363.i, 0
-  %or.cond41.i = and i1 %338, %337
-  br i1 %or.cond41.i, label %340, label %344
+337:                                              ; preds = %320
+  %338 = icmp eq i32 %336, 4538
+  %339 = icmp eq i32 %.0280.lcssa363.i, 0
+  %or.cond41.i = and i1 %339, %338
+  br i1 %or.cond41.i, label %341, label %345
 
-339:                                              ; preds = %319, %319, %319, %319, %319, %319, %319, %319, %319, %319
+340:                                              ; preds = %320, %320, %320, %320, %320, %320, %320, %320, %320, %320
   %.old40.i = icmp eq i32 %.0280.lcssa363.i, 0
-  br i1 %.old40.i, label %340, label %344
+  br i1 %.old40.i, label %341, label %345
 
-340:                                              ; preds = %339, %336
-  %341 = load i32, ptr %107, align 4
-  %.val.i = load ptr, ptr %300, align 8
-  %342 = call fastcc ptr @build_datatype(ptr %.val.i, i32 noundef -1, i32 noundef %341, ptr noundef null)
-  %343 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.26, i32 noundef 0, ptr noundef %342, i1 noundef zeroext true)
-  br label %344
+341:                                              ; preds = %340, %337
+  %342 = load i32, ptr %107, align 4
+  %.val.i = load ptr, ptr %301, align 8
+  %343 = call fastcc ptr @build_datatype(ptr %.val.i, i32 noundef -1, i32 noundef %342, ptr noundef null)
+  %344 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.26, i32 noundef 0, ptr noundef %343, i1 noundef zeroext true)
+  br label %345
 
-344:                                              ; preds = %340, %339, %336
-  call void @ReleaseSysCache(ptr noundef nonnull %295) #10
-  %345 = icmp sgt i32 %.0280.lcssa363.i, 0
-  br label %537
+345:                                              ; preds = %341, %340, %337
+  call void @ReleaseSysCache(ptr noundef nonnull %296) #10
+  %346 = icmp sgt i32 %.0280.lcssa363.i, 0
+  br label %538
 
-346:                                              ; preds = %89
-  %347 = getelementptr inbounds i8, ptr %.0.i39, i64 48
-  store i32 0, ptr %347, align 8
-  %348 = getelementptr inbounds i8, ptr %.0.i39, i64 56
-  store i8 0, ptr %348, align 8
-  %349 = getelementptr inbounds i8, ptr %.0.i39, i64 57
-  store i8 1, ptr %349, align 1
-  %350 = getelementptr inbounds i8, ptr %.0.i39, i64 58
-  store i8 0, ptr %350, align 2
-  %351 = getelementptr inbounds i8, ptr %.0.i39, i64 59
-  store i8 0, ptr %351, align 1
-  %352 = getelementptr inbounds i8, ptr %66, i64 104
-  %353 = load i16, ptr %352, align 4
-  %.not296.i = icmp eq i16 %353, 0
-  br i1 %.not296.i, label %359, label %354
+347:                                              ; preds = %89
+  %348 = getelementptr inbounds i8, ptr %.0.i39, i64 48
+  store i32 0, ptr %348, align 8
+  %349 = getelementptr inbounds i8, ptr %.0.i39, i64 56
+  store i8 0, ptr %349, align 8
+  %350 = getelementptr inbounds i8, ptr %.0.i39, i64 57
+  store i8 1, ptr %350, align 1
+  %351 = getelementptr inbounds i8, ptr %.0.i39, i64 58
+  store i8 0, ptr %351, align 2
+  %352 = getelementptr inbounds i8, ptr %.0.i39, i64 59
+  store i8 0, ptr %352, align 1
+  %353 = getelementptr inbounds i8, ptr %66, i64 104
+  %354 = load i16, ptr %353, align 4
+  %.not296.i = icmp eq i16 %354, 0
+  br i1 %.not296.i, label %360, label %355
 
-354:                                              ; preds = %346
-  %355 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %355)
-  %356 = call i32 @errcode(i32 noundef 50724996) #10
-  %357 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #10
-  %358 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.28) #10
+355:                                              ; preds = %347
+  %356 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %356)
+  %357 = call i32 @errcode(i32 noundef 50724996) #10
+  %358 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #10
+  %359 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.28) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 601, ptr noundef nonnull @__func__.do_compile) #10
   unreachable
 
-359:                                              ; preds = %346
-  %360 = call ptr @palloc0(i64 noundef 56) #10
-  store i32 2, ptr %360, align 8
-  %361 = call ptr @pstrdup(ptr noundef nonnull @.str.29) #10
-  %362 = getelementptr inbounds i8, ptr %360, i64 8
-  store ptr %361, ptr %362, align 8
-  %363 = getelementptr inbounds i8, ptr %360, i64 16
-  store i32 0, ptr %363, align 8
-  %364 = getelementptr inbounds i8, ptr %360, i64 32
-  store ptr null, ptr %364, align 8
-  %365 = getelementptr inbounds i8, ptr %360, i64 40
-  store i32 2249, ptr %365, align 8
-  %366 = getelementptr inbounds i8, ptr %360, i64 44
-  store i32 -1, ptr %366, align 4
-  %367 = getelementptr inbounds i8, ptr %360, i64 48
-  store ptr null, ptr %367, align 8
-  %368 = load i32, ptr @plpgsql_nDatums, align 4
-  %369 = load i32, ptr @datums_alloc, align 4
-  %370 = icmp eq i32 %368, %369
-  br i1 %370, label %371, label %plpgsql_build_record.exit.i
+360:                                              ; preds = %347
+  %361 = call ptr @palloc0(i64 noundef 56) #10
+  store i32 2, ptr %361, align 8
+  %362 = call ptr @pstrdup(ptr noundef nonnull @.str.29) #10
+  %363 = getelementptr inbounds i8, ptr %361, i64 8
+  store ptr %362, ptr %363, align 8
+  %364 = getelementptr inbounds i8, ptr %361, i64 16
+  store i32 0, ptr %364, align 8
+  %365 = getelementptr inbounds i8, ptr %361, i64 32
+  store ptr null, ptr %365, align 8
+  %366 = getelementptr inbounds i8, ptr %361, i64 40
+  store i32 2249, ptr %366, align 8
+  %367 = getelementptr inbounds i8, ptr %361, i64 44
+  store i32 -1, ptr %367, align 4
+  %368 = getelementptr inbounds i8, ptr %361, i64 48
+  store ptr null, ptr %368, align 8
+  %369 = load i32, ptr @plpgsql_nDatums, align 4
+  %370 = load i32, ptr @datums_alloc, align 4
+  %371 = icmp eq i32 %369, %370
+  br i1 %371, label %372, label %plpgsql_build_record.exit.i
 
-371:                                              ; preds = %359
-  %372 = shl i32 %368, 1
-  store i32 %372, ptr @datums_alloc, align 4
-  %373 = load ptr, ptr @plpgsql_Datums, align 8
-  %374 = sext i32 %372 to i64
-  %375 = shl nsw i64 %374, 3
-  %376 = call ptr @repalloc(ptr noundef %373, i64 noundef %375) #10
-  store ptr %376, ptr @plpgsql_Datums, align 8
+372:                                              ; preds = %360
+  %373 = shl i32 %369, 1
+  store i32 %373, ptr @datums_alloc, align 4
+  %374 = load ptr, ptr @plpgsql_Datums, align 8
+  %375 = sext i32 %373 to i64
+  %376 = shl nsw i64 %375, 3
+  %377 = call ptr @repalloc(ptr noundef %374, i64 noundef %376) #10
+  store ptr %377, ptr @plpgsql_Datums, align 8
   %.pre.i.i.i = load i32, ptr @plpgsql_nDatums, align 4
   br label %plpgsql_build_record.exit.i
 
-plpgsql_build_record.exit.i:                      ; preds = %371, %359
-  %377 = phi i32 [ %.pre.i.i.i, %371 ], [ %368, %359 ]
-  %378 = getelementptr inbounds i8, ptr %360, i64 4
-  store i32 %377, ptr %378, align 4
-  %379 = load ptr, ptr @plpgsql_Datums, align 8
-  %380 = add i32 %377, 1
-  store i32 %380, ptr @plpgsql_nDatums, align 4
-  %381 = sext i32 %377 to i64
-  %382 = getelementptr ptr, ptr %379, i64 %381
-  store ptr %360, ptr %382, align 8
-  %383 = load i32, ptr %378, align 4
-  %384 = load ptr, ptr %362, align 8
-  call void @plpgsql_ns_additem(i32 noundef 2, i32 noundef %383, ptr noundef %384) #10
-  %385 = load i32, ptr %378, align 4
-  %386 = getelementptr inbounds i8, ptr %.0.i39, i64 476
-  store i32 %385, ptr %386, align 4
-  %387 = call ptr @palloc0(i64 noundef 56) #10
-  store i32 2, ptr %387, align 8
-  %388 = call ptr @pstrdup(ptr noundef nonnull @.str.30) #10
-  %389 = getelementptr inbounds i8, ptr %387, i64 8
-  store ptr %388, ptr %389, align 8
-  %390 = getelementptr inbounds i8, ptr %387, i64 16
-  store i32 0, ptr %390, align 8
-  %391 = getelementptr inbounds i8, ptr %387, i64 32
-  store ptr null, ptr %391, align 8
-  %392 = getelementptr inbounds i8, ptr %387, i64 40
-  store i32 2249, ptr %392, align 8
-  %393 = getelementptr inbounds i8, ptr %387, i64 44
-  store i32 -1, ptr %393, align 4
-  %394 = getelementptr inbounds i8, ptr %387, i64 48
-  store ptr null, ptr %394, align 8
-  %395 = load i32, ptr @plpgsql_nDatums, align 4
-  %396 = load i32, ptr @datums_alloc, align 4
-  %397 = icmp eq i32 %395, %396
-  br i1 %397, label %398, label %plpgsql_build_record.exit306.i
+plpgsql_build_record.exit.i:                      ; preds = %372, %360
+  %378 = phi i32 [ %.pre.i.i.i, %372 ], [ %369, %360 ]
+  %379 = getelementptr inbounds i8, ptr %361, i64 4
+  store i32 %378, ptr %379, align 4
+  %380 = load ptr, ptr @plpgsql_Datums, align 8
+  %381 = add i32 %378, 1
+  store i32 %381, ptr @plpgsql_nDatums, align 4
+  %382 = sext i32 %378 to i64
+  %383 = getelementptr ptr, ptr %380, i64 %382
+  store ptr %361, ptr %383, align 8
+  %384 = load i32, ptr %379, align 4
+  %385 = load ptr, ptr %363, align 8
+  call void @plpgsql_ns_additem(i32 noundef 2, i32 noundef %384, ptr noundef %385) #10
+  %386 = load i32, ptr %379, align 4
+  %387 = getelementptr inbounds i8, ptr %.0.i39, i64 476
+  store i32 %386, ptr %387, align 4
+  %388 = call ptr @palloc0(i64 noundef 56) #10
+  store i32 2, ptr %388, align 8
+  %389 = call ptr @pstrdup(ptr noundef nonnull @.str.30) #10
+  %390 = getelementptr inbounds i8, ptr %388, i64 8
+  store ptr %389, ptr %390, align 8
+  %391 = getelementptr inbounds i8, ptr %388, i64 16
+  store i32 0, ptr %391, align 8
+  %392 = getelementptr inbounds i8, ptr %388, i64 32
+  store ptr null, ptr %392, align 8
+  %393 = getelementptr inbounds i8, ptr %388, i64 40
+  store i32 2249, ptr %393, align 8
+  %394 = getelementptr inbounds i8, ptr %388, i64 44
+  store i32 -1, ptr %394, align 4
+  %395 = getelementptr inbounds i8, ptr %388, i64 48
+  store ptr null, ptr %395, align 8
+  %396 = load i32, ptr @plpgsql_nDatums, align 4
+  %397 = load i32, ptr @datums_alloc, align 4
+  %398 = icmp eq i32 %396, %397
+  br i1 %398, label %399, label %plpgsql_build_record.exit306.i
 
-398:                                              ; preds = %plpgsql_build_record.exit.i
-  %399 = shl i32 %395, 1
-  store i32 %399, ptr @datums_alloc, align 4
-  %400 = load ptr, ptr @plpgsql_Datums, align 8
-  %401 = sext i32 %399 to i64
-  %402 = shl nsw i64 %401, 3
-  %403 = call ptr @repalloc(ptr noundef %400, i64 noundef %402) #10
-  store ptr %403, ptr @plpgsql_Datums, align 8
+399:                                              ; preds = %plpgsql_build_record.exit.i
+  %400 = shl i32 %396, 1
+  store i32 %400, ptr @datums_alloc, align 4
+  %401 = load ptr, ptr @plpgsql_Datums, align 8
+  %402 = sext i32 %400 to i64
+  %403 = shl nsw i64 %402, 3
+  %404 = call ptr @repalloc(ptr noundef %401, i64 noundef %403) #10
+  store ptr %404, ptr @plpgsql_Datums, align 8
   %.pre.i.i305.i = load i32, ptr @plpgsql_nDatums, align 4
   br label %plpgsql_build_record.exit306.i
 
-plpgsql_build_record.exit306.i:                   ; preds = %398, %plpgsql_build_record.exit.i
-  %404 = phi i32 [ %.pre.i.i305.i, %398 ], [ %395, %plpgsql_build_record.exit.i ]
-  %405 = getelementptr inbounds i8, ptr %387, i64 4
-  store i32 %404, ptr %405, align 4
-  %406 = load ptr, ptr @plpgsql_Datums, align 8
-  %407 = add i32 %404, 1
-  store i32 %407, ptr @plpgsql_nDatums, align 4
-  %408 = sext i32 %404 to i64
-  %409 = getelementptr ptr, ptr %406, i64 %408
-  store ptr %387, ptr %409, align 8
-  %410 = load i32, ptr %405, align 4
-  %411 = load ptr, ptr %389, align 8
-  call void @plpgsql_ns_additem(i32 noundef 2, i32 noundef %410, ptr noundef %411) #10
-  %412 = load i32, ptr %405, align 4
-  %413 = getelementptr inbounds i8, ptr %.0.i39, i64 480
-  store i32 %412, ptr %413, align 8
-  %414 = load i32, ptr %107, align 4
-  %415 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 19) #10
-  %.not.i307.i = icmp eq ptr %415, null
-  br i1 %.not.i307.i, label %416, label %plpgsql_build_datatype.exit309.i
+plpgsql_build_record.exit306.i:                   ; preds = %399, %plpgsql_build_record.exit.i
+  %405 = phi i32 [ %.pre.i.i305.i, %399 ], [ %396, %plpgsql_build_record.exit.i ]
+  %406 = getelementptr inbounds i8, ptr %388, i64 4
+  store i32 %405, ptr %406, align 4
+  %407 = load ptr, ptr @plpgsql_Datums, align 8
+  %408 = add i32 %405, 1
+  store i32 %408, ptr @plpgsql_nDatums, align 4
+  %409 = sext i32 %405 to i64
+  %410 = getelementptr ptr, ptr %407, i64 %409
+  store ptr %388, ptr %410, align 8
+  %411 = load i32, ptr %406, align 4
+  %412 = load ptr, ptr %390, align 8
+  call void @plpgsql_ns_additem(i32 noundef 2, i32 noundef %411, ptr noundef %412) #10
+  %413 = load i32, ptr %406, align 4
+  %414 = getelementptr inbounds i8, ptr %.0.i39, i64 480
+  store i32 %413, ptr %414, align 8
+  %415 = load i32, ptr %107, align 4
+  %416 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 19) #10
+  %.not.i307.i = icmp eq ptr %416, null
+  br i1 %.not.i307.i, label %417, label %plpgsql_build_datatype.exit309.i
 
-416:                                              ; preds = %plpgsql_build_record.exit306.i
-  %417 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %417)
-  %418 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 19) #10
+417:                                              ; preds = %plpgsql_build_record.exit306.i
+  %418 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %418)
+  %419 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 19) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
 plpgsql_build_datatype.exit309.i:                 ; preds = %plpgsql_build_record.exit306.i
-  %419 = getelementptr i8, ptr %415, i64 16
-  %.val.i308.i = load ptr, ptr %419, align 8
-  %420 = call fastcc ptr @build_datatype(ptr %.val.i308.i, i32 noundef -1, i32 noundef %414, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %415) #10
-  %421 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.31, i32 noundef 0, ptr noundef %420, i1 noundef zeroext true)
-  store i32 4, ptr %421, align 8
-  %422 = getelementptr inbounds i8, ptr %421, i64 68
-  store i32 1, ptr %422, align 4
-  %423 = load i32, ptr %107, align 4
-  %424 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 25) #10
-  %.not.i310.i = icmp eq ptr %424, null
-  br i1 %.not.i310.i, label %425, label %plpgsql_build_datatype.exit312.i
+  %420 = getelementptr i8, ptr %416, i64 16
+  %.val.i308.i = load ptr, ptr %420, align 8
+  %421 = call fastcc ptr @build_datatype(ptr %.val.i308.i, i32 noundef -1, i32 noundef %415, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %416) #10
+  %422 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.31, i32 noundef 0, ptr noundef %421, i1 noundef zeroext true)
+  store i32 4, ptr %422, align 8
+  %423 = getelementptr inbounds i8, ptr %422, i64 68
+  store i32 1, ptr %423, align 4
+  %424 = load i32, ptr %107, align 4
+  %425 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 25) #10
+  %.not.i310.i = icmp eq ptr %425, null
+  br i1 %.not.i310.i, label %426, label %plpgsql_build_datatype.exit312.i
 
-425:                                              ; preds = %plpgsql_build_datatype.exit309.i
-  %426 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %426)
-  %427 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 25) #10
+426:                                              ; preds = %plpgsql_build_datatype.exit309.i
+  %427 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %427)
+  %428 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 25) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
 plpgsql_build_datatype.exit312.i:                 ; preds = %plpgsql_build_datatype.exit309.i
-  %428 = getelementptr i8, ptr %424, i64 16
-  %.val.i311.i = load ptr, ptr %428, align 8
-  %429 = call fastcc ptr @build_datatype(ptr %.val.i311.i, i32 noundef -1, i32 noundef %423, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %424) #10
-  %430 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.32, i32 noundef 0, ptr noundef %429, i1 noundef zeroext true)
-  store i32 4, ptr %430, align 8
-  %431 = getelementptr inbounds i8, ptr %430, i64 68
-  store i32 2, ptr %431, align 4
-  %432 = load i32, ptr %107, align 4
-  %433 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 25) #10
-  %.not.i313.i = icmp eq ptr %433, null
-  br i1 %.not.i313.i, label %434, label %plpgsql_build_datatype.exit315.i
+  %429 = getelementptr i8, ptr %425, i64 16
+  %.val.i311.i = load ptr, ptr %429, align 8
+  %430 = call fastcc ptr @build_datatype(ptr %.val.i311.i, i32 noundef -1, i32 noundef %424, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %425) #10
+  %431 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.32, i32 noundef 0, ptr noundef %430, i1 noundef zeroext true)
+  store i32 4, ptr %431, align 8
+  %432 = getelementptr inbounds i8, ptr %431, i64 68
+  store i32 2, ptr %432, align 4
+  %433 = load i32, ptr %107, align 4
+  %434 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 25) #10
+  %.not.i313.i = icmp eq ptr %434, null
+  br i1 %.not.i313.i, label %435, label %plpgsql_build_datatype.exit315.i
 
-434:                                              ; preds = %plpgsql_build_datatype.exit312.i
-  %435 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %435)
-  %436 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 25) #10
+435:                                              ; preds = %plpgsql_build_datatype.exit312.i
+  %436 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %436)
+  %437 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 25) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
 plpgsql_build_datatype.exit315.i:                 ; preds = %plpgsql_build_datatype.exit312.i
-  %437 = getelementptr i8, ptr %433, i64 16
-  %.val.i314.i = load ptr, ptr %437, align 8
-  %438 = call fastcc ptr @build_datatype(ptr %.val.i314.i, i32 noundef -1, i32 noundef %432, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %433) #10
-  %439 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.33, i32 noundef 0, ptr noundef %438, i1 noundef zeroext true)
-  store i32 4, ptr %439, align 8
-  %440 = getelementptr inbounds i8, ptr %439, i64 68
-  store i32 3, ptr %440, align 4
-  %441 = load i32, ptr %107, align 4
-  %442 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 25) #10
-  %.not.i316.i = icmp eq ptr %442, null
-  br i1 %.not.i316.i, label %443, label %plpgsql_build_datatype.exit318.i
+  %438 = getelementptr i8, ptr %434, i64 16
+  %.val.i314.i = load ptr, ptr %438, align 8
+  %439 = call fastcc ptr @build_datatype(ptr %.val.i314.i, i32 noundef -1, i32 noundef %433, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %434) #10
+  %440 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.33, i32 noundef 0, ptr noundef %439, i1 noundef zeroext true)
+  store i32 4, ptr %440, align 8
+  %441 = getelementptr inbounds i8, ptr %440, i64 68
+  store i32 3, ptr %441, align 4
+  %442 = load i32, ptr %107, align 4
+  %443 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 25) #10
+  %.not.i316.i = icmp eq ptr %443, null
+  br i1 %.not.i316.i, label %444, label %plpgsql_build_datatype.exit318.i
 
-443:                                              ; preds = %plpgsql_build_datatype.exit315.i
-  %444 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %444)
-  %445 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 25) #10
+444:                                              ; preds = %plpgsql_build_datatype.exit315.i
+  %445 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %445)
+  %446 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 25) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
 plpgsql_build_datatype.exit318.i:                 ; preds = %plpgsql_build_datatype.exit315.i
-  %446 = getelementptr i8, ptr %442, i64 16
-  %.val.i317.i = load ptr, ptr %446, align 8
-  %447 = call fastcc ptr @build_datatype(ptr %.val.i317.i, i32 noundef -1, i32 noundef %441, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %442) #10
-  %448 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.34, i32 noundef 0, ptr noundef %447, i1 noundef zeroext true)
-  store i32 4, ptr %448, align 8
-  %449 = getelementptr inbounds i8, ptr %448, i64 68
-  store i32 4, ptr %449, align 4
-  %450 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 26) #10
-  %.not.i319.i = icmp eq ptr %450, null
-  br i1 %.not.i319.i, label %451, label %plpgsql_build_datatype.exit321.i
+  %447 = getelementptr i8, ptr %443, i64 16
+  %.val.i317.i = load ptr, ptr %447, align 8
+  %448 = call fastcc ptr @build_datatype(ptr %.val.i317.i, i32 noundef -1, i32 noundef %442, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %443) #10
+  %449 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.34, i32 noundef 0, ptr noundef %448, i1 noundef zeroext true)
+  store i32 4, ptr %449, align 8
+  %450 = getelementptr inbounds i8, ptr %449, i64 68
+  store i32 4, ptr %450, align 4
+  %451 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 26) #10
+  %.not.i319.i = icmp eq ptr %451, null
+  br i1 %.not.i319.i, label %452, label %plpgsql_build_datatype.exit321.i
 
-451:                                              ; preds = %plpgsql_build_datatype.exit318.i
-  %452 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %452)
-  %453 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 26) #10
+452:                                              ; preds = %plpgsql_build_datatype.exit318.i
+  %453 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %453)
+  %454 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 26) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
 plpgsql_build_datatype.exit321.i:                 ; preds = %plpgsql_build_datatype.exit318.i
-  %454 = getelementptr i8, ptr %450, i64 16
-  %.val.i320.i = load ptr, ptr %454, align 8
-  %455 = call fastcc ptr @build_datatype(ptr %.val.i320.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %450) #10
-  %456 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.35, i32 noundef 0, ptr noundef %455, i1 noundef zeroext true)
-  store i32 4, ptr %456, align 8
-  %457 = getelementptr inbounds i8, ptr %456, i64 68
-  store i32 5, ptr %457, align 4
-  %458 = load i32, ptr %107, align 4
-  %459 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 19) #10
-  %.not.i322.i = icmp eq ptr %459, null
-  br i1 %.not.i322.i, label %460, label %plpgsql_build_datatype.exit324.i
+  %455 = getelementptr i8, ptr %451, i64 16
+  %.val.i320.i = load ptr, ptr %455, align 8
+  %456 = call fastcc ptr @build_datatype(ptr %.val.i320.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %451) #10
+  %457 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.35, i32 noundef 0, ptr noundef %456, i1 noundef zeroext true)
+  store i32 4, ptr %457, align 8
+  %458 = getelementptr inbounds i8, ptr %457, i64 68
+  store i32 5, ptr %458, align 4
+  %459 = load i32, ptr %107, align 4
+  %460 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 19) #10
+  %.not.i322.i = icmp eq ptr %460, null
+  br i1 %.not.i322.i, label %461, label %plpgsql_build_datatype.exit324.i
 
-460:                                              ; preds = %plpgsql_build_datatype.exit321.i
-  %461 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %461)
-  %462 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 19) #10
+461:                                              ; preds = %plpgsql_build_datatype.exit321.i
+  %462 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %462)
+  %463 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 19) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
 plpgsql_build_datatype.exit324.i:                 ; preds = %plpgsql_build_datatype.exit321.i
-  %463 = getelementptr i8, ptr %459, i64 16
-  %.val.i323.i = load ptr, ptr %463, align 8
-  %464 = call fastcc ptr @build_datatype(ptr %.val.i323.i, i32 noundef -1, i32 noundef %458, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %459) #10
-  %465 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.36, i32 noundef 0, ptr noundef %464, i1 noundef zeroext true)
-  store i32 4, ptr %465, align 8
-  %466 = getelementptr inbounds i8, ptr %465, i64 68
-  store i32 6, ptr %466, align 4
-  %467 = load i32, ptr %107, align 4
-  %468 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 19) #10
-  %.not.i325.i = icmp eq ptr %468, null
-  br i1 %.not.i325.i, label %469, label %plpgsql_build_datatype.exit327.i
+  %464 = getelementptr i8, ptr %460, i64 16
+  %.val.i323.i = load ptr, ptr %464, align 8
+  %465 = call fastcc ptr @build_datatype(ptr %.val.i323.i, i32 noundef -1, i32 noundef %459, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %460) #10
+  %466 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.36, i32 noundef 0, ptr noundef %465, i1 noundef zeroext true)
+  store i32 4, ptr %466, align 8
+  %467 = getelementptr inbounds i8, ptr %466, i64 68
+  store i32 6, ptr %467, align 4
+  %468 = load i32, ptr %107, align 4
+  %469 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 19) #10
+  %.not.i325.i = icmp eq ptr %469, null
+  br i1 %.not.i325.i, label %470, label %plpgsql_build_datatype.exit327.i
 
-469:                                              ; preds = %plpgsql_build_datatype.exit324.i
-  %470 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %470)
-  %471 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 19) #10
+470:                                              ; preds = %plpgsql_build_datatype.exit324.i
+  %471 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %471)
+  %472 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 19) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
 plpgsql_build_datatype.exit327.i:                 ; preds = %plpgsql_build_datatype.exit324.i
-  %472 = getelementptr i8, ptr %468, i64 16
-  %.val.i326.i = load ptr, ptr %472, align 8
-  %473 = call fastcc ptr @build_datatype(ptr %.val.i326.i, i32 noundef -1, i32 noundef %467, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %468) #10
-  %474 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.37, i32 noundef 0, ptr noundef %473, i1 noundef zeroext true)
-  store i32 4, ptr %474, align 8
-  %475 = getelementptr inbounds i8, ptr %474, i64 68
-  store i32 6, ptr %475, align 4
-  %476 = load i32, ptr %107, align 4
-  %477 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 19) #10
-  %.not.i328.i = icmp eq ptr %477, null
-  br i1 %.not.i328.i, label %478, label %plpgsql_build_datatype.exit330.i
+  %473 = getelementptr i8, ptr %469, i64 16
+  %.val.i326.i = load ptr, ptr %473, align 8
+  %474 = call fastcc ptr @build_datatype(ptr %.val.i326.i, i32 noundef -1, i32 noundef %468, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %469) #10
+  %475 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.37, i32 noundef 0, ptr noundef %474, i1 noundef zeroext true)
+  store i32 4, ptr %475, align 8
+  %476 = getelementptr inbounds i8, ptr %475, i64 68
+  store i32 6, ptr %476, align 4
+  %477 = load i32, ptr %107, align 4
+  %478 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 19) #10
+  %.not.i328.i = icmp eq ptr %478, null
+  br i1 %.not.i328.i, label %479, label %plpgsql_build_datatype.exit330.i
 
-478:                                              ; preds = %plpgsql_build_datatype.exit327.i
-  %479 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %479)
-  %480 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 19) #10
+479:                                              ; preds = %plpgsql_build_datatype.exit327.i
+  %480 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %480)
+  %481 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 19) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
 plpgsql_build_datatype.exit330.i:                 ; preds = %plpgsql_build_datatype.exit327.i
-  %481 = getelementptr i8, ptr %477, i64 16
-  %.val.i329.i = load ptr, ptr %481, align 8
-  %482 = call fastcc ptr @build_datatype(ptr %.val.i329.i, i32 noundef -1, i32 noundef %476, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %477) #10
-  %483 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.38, i32 noundef 0, ptr noundef %482, i1 noundef zeroext true)
-  store i32 4, ptr %483, align 8
-  %484 = getelementptr inbounds i8, ptr %483, i64 68
-  store i32 7, ptr %484, align 4
-  %485 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 23) #10
-  %.not.i331.i = icmp eq ptr %485, null
-  br i1 %.not.i331.i, label %486, label %plpgsql_build_datatype.exit333.i
+  %482 = getelementptr i8, ptr %478, i64 16
+  %.val.i329.i = load ptr, ptr %482, align 8
+  %483 = call fastcc ptr @build_datatype(ptr %.val.i329.i, i32 noundef -1, i32 noundef %477, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %478) #10
+  %484 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.38, i32 noundef 0, ptr noundef %483, i1 noundef zeroext true)
+  store i32 4, ptr %484, align 8
+  %485 = getelementptr inbounds i8, ptr %484, i64 68
+  store i32 7, ptr %485, align 4
+  %486 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 23) #10
+  %.not.i331.i = icmp eq ptr %486, null
+  br i1 %.not.i331.i, label %487, label %plpgsql_build_datatype.exit333.i
 
-486:                                              ; preds = %plpgsql_build_datatype.exit330.i
-  %487 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %487)
-  %488 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 23) #10
+487:                                              ; preds = %plpgsql_build_datatype.exit330.i
+  %488 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %488)
+  %489 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 23) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
 plpgsql_build_datatype.exit333.i:                 ; preds = %plpgsql_build_datatype.exit330.i
-  %489 = getelementptr i8, ptr %485, i64 16
-  %.val.i332.i = load ptr, ptr %489, align 8
-  %490 = call fastcc ptr @build_datatype(ptr %.val.i332.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %485) #10
-  %491 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.39, i32 noundef 0, ptr noundef %490, i1 noundef zeroext true)
-  store i32 4, ptr %491, align 8
-  %492 = getelementptr inbounds i8, ptr %491, i64 68
-  store i32 8, ptr %492, align 4
-  %493 = load i32, ptr %107, align 4
-  %494 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 1009) #10
-  %.not.i334.i = icmp eq ptr %494, null
-  br i1 %.not.i334.i, label %495, label %plpgsql_build_datatype.exit336.i
+  %490 = getelementptr i8, ptr %486, i64 16
+  %.val.i332.i = load ptr, ptr %490, align 8
+  %491 = call fastcc ptr @build_datatype(ptr %.val.i332.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %486) #10
+  %492 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.39, i32 noundef 0, ptr noundef %491, i1 noundef zeroext true)
+  store i32 4, ptr %492, align 8
+  %493 = getelementptr inbounds i8, ptr %492, i64 68
+  store i32 8, ptr %493, align 4
+  %494 = load i32, ptr %107, align 4
+  %495 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 1009) #10
+  %.not.i334.i = icmp eq ptr %495, null
+  br i1 %.not.i334.i, label %496, label %plpgsql_build_datatype.exit336.i
 
-495:                                              ; preds = %plpgsql_build_datatype.exit333.i
-  %496 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %496)
-  %497 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 1009) #10
+496:                                              ; preds = %plpgsql_build_datatype.exit333.i
+  %497 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %497)
+  %498 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 1009) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
 plpgsql_build_datatype.exit336.i:                 ; preds = %plpgsql_build_datatype.exit333.i
-  %498 = getelementptr i8, ptr %494, i64 16
-  %.val.i335.i = load ptr, ptr %498, align 8
-  %499 = call fastcc ptr @build_datatype(ptr %.val.i335.i, i32 noundef -1, i32 noundef %493, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %494) #10
-  %500 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.40, i32 noundef 0, ptr noundef %499, i1 noundef zeroext true)
-  store i32 4, ptr %500, align 8
-  %501 = getelementptr inbounds i8, ptr %500, i64 68
-  store i32 9, ptr %501, align 4
-  br label %537
+  %499 = getelementptr i8, ptr %495, i64 16
+  %.val.i335.i = load ptr, ptr %499, align 8
+  %500 = call fastcc ptr @build_datatype(ptr %.val.i335.i, i32 noundef -1, i32 noundef %494, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %495) #10
+  %501 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.40, i32 noundef 0, ptr noundef %500, i1 noundef zeroext true)
+  store i32 4, ptr %501, align 8
+  %502 = getelementptr inbounds i8, ptr %501, i64 68
+  store i32 9, ptr %502, align 4
+  br label %538
 
-502:                                              ; preds = %89
-  %503 = getelementptr inbounds i8, ptr %.0.i39, i64 48
-  store i32 2278, ptr %503, align 8
-  %504 = getelementptr inbounds i8, ptr %.0.i39, i64 56
-  store i8 0, ptr %504, align 8
-  %505 = getelementptr inbounds i8, ptr %.0.i39, i64 57
-  store i8 1, ptr %505, align 1
-  %506 = getelementptr inbounds i8, ptr %.0.i39, i64 58
-  store i8 0, ptr %506, align 2
-  %507 = getelementptr inbounds i8, ptr %.0.i39, i64 59
-  store i8 0, ptr %507, align 1
-  %508 = getelementptr inbounds i8, ptr %66, i64 104
-  %509 = load i16, ptr %508, align 4
-  %.not295.i = icmp eq i16 %509, 0
-  br i1 %.not295.i, label %514, label %510
+503:                                              ; preds = %89
+  %504 = getelementptr inbounds i8, ptr %.0.i39, i64 48
+  store i32 2278, ptr %504, align 8
+  %505 = getelementptr inbounds i8, ptr %.0.i39, i64 56
+  store i8 0, ptr %505, align 8
+  %506 = getelementptr inbounds i8, ptr %.0.i39, i64 57
+  store i8 1, ptr %506, align 1
+  %507 = getelementptr inbounds i8, ptr %.0.i39, i64 58
+  store i8 0, ptr %507, align 2
+  %508 = getelementptr inbounds i8, ptr %.0.i39, i64 59
+  store i8 0, ptr %508, align 1
+  %509 = getelementptr inbounds i8, ptr %66, i64 104
+  %510 = load i16, ptr %509, align 4
+  %.not295.i = icmp eq i16 %510, 0
+  br i1 %.not295.i, label %515, label %511
 
-510:                                              ; preds = %502
-  %511 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %511)
-  %512 = call i32 @errcode(i32 noundef 50724996) #10
-  %513 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41) #10
+511:                                              ; preds = %503
+  %512 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %512)
+  %513 = call i32 @errcode(i32 noundef 50724996) #10
+  %514 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 734, ptr noundef nonnull @__func__.do_compile) #10
   unreachable
 
-514:                                              ; preds = %502
-  %515 = load i32, ptr %107, align 4
-  %516 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 25) #10
-  %.not.i337.i = icmp eq ptr %516, null
-  br i1 %.not.i337.i, label %517, label %plpgsql_build_datatype.exit339.i
+515:                                              ; preds = %503
+  %516 = load i32, ptr %107, align 4
+  %517 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 25) #10
+  %.not.i337.i = icmp eq ptr %517, null
+  br i1 %.not.i337.i, label %518, label %plpgsql_build_datatype.exit339.i
 
-517:                                              ; preds = %514
-  %518 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %518)
-  %519 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 25) #10
+518:                                              ; preds = %515
+  %519 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %519)
+  %520 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 25) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
-plpgsql_build_datatype.exit339.i:                 ; preds = %514
-  %520 = getelementptr i8, ptr %516, i64 16
-  %.val.i338.i = load ptr, ptr %520, align 8
-  %521 = call fastcc ptr @build_datatype(ptr %.val.i338.i, i32 noundef -1, i32 noundef %515, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %516) #10
-  %522 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.42, i32 noundef 0, ptr noundef %521, i1 noundef zeroext true)
-  store i32 4, ptr %522, align 8
-  %523 = getelementptr inbounds i8, ptr %522, i64 68
-  store i32 10, ptr %523, align 4
-  %524 = load i32, ptr %107, align 4
-  %525 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 25) #10
-  %.not.i340.i = icmp eq ptr %525, null
-  br i1 %.not.i340.i, label %526, label %plpgsql_build_datatype.exit342.i
+plpgsql_build_datatype.exit339.i:                 ; preds = %515
+  %521 = getelementptr i8, ptr %517, i64 16
+  %.val.i338.i = load ptr, ptr %521, align 8
+  %522 = call fastcc ptr @build_datatype(ptr %.val.i338.i, i32 noundef -1, i32 noundef %516, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %517) #10
+  %523 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.42, i32 noundef 0, ptr noundef %522, i1 noundef zeroext true)
+  store i32 4, ptr %523, align 8
+  %524 = getelementptr inbounds i8, ptr %523, i64 68
+  store i32 10, ptr %524, align 4
+  %525 = load i32, ptr %107, align 4
+  %526 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 25) #10
+  %.not.i340.i = icmp eq ptr %526, null
+  br i1 %.not.i340.i, label %527, label %plpgsql_build_datatype.exit342.i
 
-526:                                              ; preds = %plpgsql_build_datatype.exit339.i
-  %527 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %527)
-  %528 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 25) #10
+527:                                              ; preds = %plpgsql_build_datatype.exit339.i
+  %528 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %528)
+  %529 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 25) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
 plpgsql_build_datatype.exit342.i:                 ; preds = %plpgsql_build_datatype.exit339.i
-  %529 = getelementptr i8, ptr %525, i64 16
-  %.val.i341.i = load ptr, ptr %529, align 8
-  %530 = call fastcc ptr @build_datatype(ptr %.val.i341.i, i32 noundef -1, i32 noundef %524, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %525) #10
-  %531 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.43, i32 noundef 0, ptr noundef %530, i1 noundef zeroext true)
-  store i32 4, ptr %531, align 8
-  %532 = getelementptr inbounds i8, ptr %531, i64 68
-  store i32 11, ptr %532, align 4
-  br label %537
+  %530 = getelementptr i8, ptr %526, i64 16
+  %.val.i341.i = load ptr, ptr %530, align 8
+  %531 = call fastcc ptr @build_datatype(ptr %.val.i341.i, i32 noundef -1, i32 noundef %525, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %526) #10
+  %532 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.43, i32 noundef 0, ptr noundef %531, i1 noundef zeroext true)
+  store i32 4, ptr %532, align 8
+  %533 = getelementptr inbounds i8, ptr %532, i64 68
+  store i32 11, ptr %533, align 4
+  br label %538
 
-533:                                              ; preds = %89
-  %534 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %534)
-  %535 = load i32, ptr %121, align 8
-  %536 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44, i32 noundef %535) #10
+534:                                              ; preds = %89
+  %535 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %535)
+  %536 = load i32, ptr %121, align 8
+  %537 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44, i32 noundef %536) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 762, ptr noundef nonnull @__func__.do_compile) #10
   unreachable
 
-537:                                              ; preds = %plpgsql_build_datatype.exit342.i, %plpgsql_build_datatype.exit336.i, %344
-  %.0282.i = phi ptr [ null, %plpgsql_build_datatype.exit342.i ], [ null, %plpgsql_build_datatype.exit336.i ], [ %141, %344 ]
-  %.2.i = phi i1 [ false, %plpgsql_build_datatype.exit342.i ], [ false, %plpgsql_build_datatype.exit336.i ], [ %345, %344 ]
-  %538 = getelementptr inbounds i8, ptr %66, i64 101
-  %539 = load i8, ptr %538, align 1
-  %540 = icmp ne i8 %539, 118
-  %541 = getelementptr inbounds i8, ptr %.0.i39, i64 60
-  %542 = zext i1 %540 to i8
-  store i8 %542, ptr %541, align 4
-  %543 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 16) #10
-  %.not.i343.i = icmp eq ptr %543, null
-  br i1 %.not.i343.i, label %544, label %plpgsql_build_datatype.exit345.i
+538:                                              ; preds = %plpgsql_build_datatype.exit342.i, %plpgsql_build_datatype.exit336.i, %345
+  %.0282.i = phi ptr [ null, %plpgsql_build_datatype.exit342.i ], [ null, %plpgsql_build_datatype.exit336.i ], [ %141, %345 ]
+  %.2.i = phi i1 [ false, %plpgsql_build_datatype.exit342.i ], [ false, %plpgsql_build_datatype.exit336.i ], [ %346, %345 ]
+  %539 = getelementptr inbounds i8, ptr %66, i64 101
+  %540 = load i8, ptr %539, align 1
+  %541 = icmp ne i8 %540, 118
+  %542 = getelementptr inbounds i8, ptr %.0.i39, i64 60
+  %543 = zext i1 %541 to i8
+  store i8 %543, ptr %542, align 4
+  %544 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef 16) #10
+  %.not.i343.i = icmp eq ptr %544, null
+  br i1 %.not.i343.i, label %545, label %plpgsql_build_datatype.exit345.i
 
-544:                                              ; preds = %537
-  %545 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %545)
-  %546 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 16) #10
+545:                                              ; preds = %538
+  %546 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %546)
+  %547 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef 16) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2052, ptr noundef nonnull @__func__.plpgsql_build_datatype) #10
   unreachable
 
-plpgsql_build_datatype.exit345.i:                 ; preds = %537
-  %547 = getelementptr i8, ptr %543, i64 16
-  %.val.i344.i = load ptr, ptr %547, align 8
-  %548 = call fastcc ptr @build_datatype(ptr %.val.i344.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
-  call void @ReleaseSysCache(ptr noundef nonnull %543) #10
-  %549 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.5, i32 noundef 0, ptr noundef %548, i1 noundef zeroext true)
-  %550 = getelementptr inbounds i8, ptr %549, i64 4
-  %551 = load i32, ptr %550, align 4
-  %552 = getelementptr inbounds i8, ptr %.0.i39, i64 472
-  store i32 %551, ptr %552, align 8
-  %553 = call i32 @plpgsql_yyparse() #10
-  %.not299.i = icmp eq i32 %553, 0
-  br i1 %.not299.i, label %557, label %554
+plpgsql_build_datatype.exit345.i:                 ; preds = %538
+  %548 = getelementptr i8, ptr %544, i64 16
+  %.val.i344.i = load ptr, ptr %548, align 8
+  %549 = call fastcc ptr @build_datatype(ptr %.val.i344.i, i32 noundef -1, i32 noundef 0, ptr noundef null)
+  call void @ReleaseSysCache(ptr noundef nonnull %544) #10
+  %550 = call ptr @plpgsql_build_variable(ptr noundef nonnull @.str.5, i32 noundef 0, ptr noundef %549, i1 noundef zeroext true)
+  %551 = getelementptr inbounds i8, ptr %550, i64 4
+  %552 = load i32, ptr %551, align 4
+  %553 = getelementptr inbounds i8, ptr %.0.i39, i64 472
+  store i32 %552, ptr %553, align 8
+  %554 = call i32 @plpgsql_yyparse() #10
+  %.not299.i = icmp eq i32 %554, 0
+  br i1 %.not299.i, label %558, label %555
 
-554:                                              ; preds = %plpgsql_build_datatype.exit345.i
-  %555 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %555)
-  %556 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %553) #10
+555:                                              ; preds = %plpgsql_build_datatype.exit345.i
+  %556 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %556)
+  %557 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %554) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 785, ptr noundef nonnull @__func__.do_compile) #10
   unreachable
 
-557:                                              ; preds = %plpgsql_build_datatype.exit345.i
-  %558 = load ptr, ptr @plpgsql_parse_result, align 8
-  %559 = getelementptr inbounds i8, ptr %.0.i39, i64 520
-  store ptr %558, ptr %559, align 8
+558:                                              ; preds = %plpgsql_build_datatype.exit345.i
+  %559 = load ptr, ptr @plpgsql_parse_result, align 8
+  %560 = getelementptr inbounds i8, ptr %.0.i39, i64 520
+  store ptr %559, ptr %560, align 8
   call void @plpgsql_scanner_finish() #10
   call void @pfree(ptr noundef %77) #10
-  br i1 %.2.i, label %568, label %560
+  br i1 %.2.i, label %569, label %561
 
-560:                                              ; preds = %557
-  %561 = getelementptr inbounds i8, ptr %.0.i39, i64 48
-  %562 = load i32, ptr %561, align 8
-  %563 = icmp eq i32 %562, 2278
-  br i1 %563, label %568, label %564
+561:                                              ; preds = %558
+  %562 = getelementptr inbounds i8, ptr %.0.i39, i64 48
+  %563 = load i32, ptr %562, align 8
+  %564 = icmp eq i32 %563, 2278
+  br i1 %564, label %569, label %565
 
-564:                                              ; preds = %560
-  %565 = getelementptr inbounds i8, ptr %.0.i39, i64 59
-  %566 = load i8, ptr %565, align 1
-  %567 = trunc i8 %566 to i1
-  br i1 %567, label %568, label %569
+565:                                              ; preds = %561
+  %566 = getelementptr inbounds i8, ptr %.0.i39, i64 59
+  %567 = load i8, ptr %566, align 1
+  %568 = trunc i8 %567 to i1
+  br i1 %568, label %569, label %570
 
-568:                                              ; preds = %564, %560, %557
+569:                                              ; preds = %565, %561, %558
   call fastcc void @add_dummy_return(ptr noundef nonnull %.0.i39)
-  br label %569
+  br label %570
 
-569:                                              ; preds = %568, %564
-  %570 = getelementptr inbounds i8, ptr %66, i64 104
-  %571 = load i16, ptr %570, align 4
-  %572 = sext i16 %571 to i32
-  %573 = getelementptr inbounds i8, ptr %.0.i39, i64 64
-  store i32 %572, ptr %573, align 8
-  %574 = icmp sgt i16 %571, 0
-  br i1 %574, label %.lr.ph354.i, label %._crit_edge355.i
+570:                                              ; preds = %569, %565
+  %571 = getelementptr inbounds i8, ptr %66, i64 104
+  %572 = load i16, ptr %571, align 4
+  %573 = sext i16 %572 to i32
+  %574 = getelementptr inbounds i8, ptr %.0.i39, i64 64
+  store i32 %573, ptr %574, align 8
+  %575 = icmp sgt i16 %572, 0
+  br i1 %575, label %.lr.ph354.i, label %._crit_edge355.i
 
-.lr.ph354.i:                                      ; preds = %569
-  %575 = getelementptr inbounds i8, ptr %.0.i39, i64 68
-  br label %576
+.lr.ph354.i:                                      ; preds = %570
+  %576 = getelementptr inbounds i8, ptr %.0.i39, i64 68
+  br label %577
 
-576:                                              ; preds = %576, %.lr.ph354.i
-  %indvars.iv359.i = phi i64 [ 0, %.lr.ph354.i ], [ %indvars.iv.next360.i, %576 ]
-  %577 = getelementptr i32, ptr %.0282.i, i64 %indvars.iv359.i
-  %578 = load i32, ptr %577, align 4
-  %579 = getelementptr [100 x i32], ptr %575, i64 0, i64 %indvars.iv359.i
-  store i32 %578, ptr %579, align 4
+577:                                              ; preds = %577, %.lr.ph354.i
+  %indvars.iv359.i = phi i64 [ 0, %.lr.ph354.i ], [ %indvars.iv.next360.i, %577 ]
+  %578 = getelementptr i32, ptr %.0282.i, i64 %indvars.iv359.i
+  %579 = load i32, ptr %578, align 4
+  %580 = getelementptr [100 x i32], ptr %576, i64 0, i64 %indvars.iv359.i
+  store i32 %579, ptr %580, align 4
   %indvars.iv.next360.i = add nuw nsw i64 %indvars.iv359.i, 1
-  %580 = load i32, ptr %573, align 8
-  %581 = sext i32 %580 to i64
-  %582 = icmp slt i64 %indvars.iv.next360.i, %581
-  br i1 %582, label %576, label %._crit_edge355.i, !llvm.loop !7
+  %581 = load i32, ptr %574, align 8
+  %582 = sext i32 %581 to i64
+  %583 = icmp slt i64 %indvars.iv.next360.i, %582
+  br i1 %583, label %577, label %._crit_edge355.i, !llvm.loop !7
 
-._crit_edge355.i:                                 ; preds = %576, %569
-  %583 = load i32, ptr @plpgsql_nDatums, align 4
-  %584 = getelementptr inbounds i8, ptr %.0.i39, i64 500
-  store i32 %583, ptr %584, align 4
-  %585 = sext i32 %583 to i64
-  %586 = shl nsw i64 %585, 3
-  %587 = call ptr @palloc(i64 noundef %586) #10
-  %588 = getelementptr inbounds i8, ptr %.0.i39, i64 504
-  store ptr %587, ptr %588, align 8
-  %589 = load i32, ptr @plpgsql_nDatums, align 4
-  %590 = icmp sgt i32 %589, 0
-  br i1 %590, label %.lr.ph.preheader.i.i, label %plpgsql_finish_datums.exit.i
+._crit_edge355.i:                                 ; preds = %577, %570
+  %584 = load i32, ptr @plpgsql_nDatums, align 4
+  %585 = getelementptr inbounds i8, ptr %.0.i39, i64 500
+  store i32 %584, ptr %585, align 4
+  %586 = sext i32 %584 to i64
+  %587 = shl nsw i64 %586, 3
+  %588 = call ptr @palloc(i64 noundef %587) #10
+  %589 = getelementptr inbounds i8, ptr %.0.i39, i64 504
+  store ptr %588, ptr %589, align 8
+  %590 = load i32, ptr @plpgsql_nDatums, align 4
+  %591 = icmp sgt i32 %590, 0
+  br i1 %591, label %.lr.ph.preheader.i.i, label %plpgsql_finish_datums.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge355.i
-  %wide.trip.count.i.i = zext nneg i32 %589 to i64
+  %wide.trip.count.i.i = zext nneg i32 %590 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %604, %.lr.ph.preheader.i.i
-  %591 = phi ptr [ %587, %.lr.ph.preheader.i.i ], [ %596, %604 ]
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %604 ]
-  %.01213.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %.1.i.i, %604 ]
-  %592 = load ptr, ptr @plpgsql_Datums, align 8
-  %593 = getelementptr ptr, ptr %592, i64 %indvars.iv.i.i
-  %594 = load ptr, ptr %593, align 8
-  %595 = getelementptr ptr, ptr %591, i64 %indvars.iv.i.i
-  store ptr %594, ptr %595, align 8
-  %596 = load ptr, ptr %588, align 8
-  %597 = getelementptr ptr, ptr %596, i64 %indvars.iv.i.i
-  %598 = load ptr, ptr %597, align 8
-  %599 = load i32, ptr %598, align 4
-  switch i32 %599, label %604 [
-    i32 0, label %600
-    i32 4, label %600
-    i32 2, label %602
+.lr.ph.i.i:                                       ; preds = %605, %.lr.ph.preheader.i.i
+  %592 = phi ptr [ %588, %.lr.ph.preheader.i.i ], [ %597, %605 ]
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %605 ]
+  %.01213.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %.1.i.i, %605 ]
+  %593 = load ptr, ptr @plpgsql_Datums, align 8
+  %594 = getelementptr ptr, ptr %593, i64 %indvars.iv.i.i
+  %595 = load ptr, ptr %594, align 8
+  %596 = getelementptr ptr, ptr %592, i64 %indvars.iv.i.i
+  store ptr %595, ptr %596, align 8
+  %597 = load ptr, ptr %589, align 8
+  %598 = getelementptr ptr, ptr %597, i64 %indvars.iv.i.i
+  %599 = load ptr, ptr %598, align 8
+  %600 = load i32, ptr %599, align 4
+  switch i32 %600, label %605 [
+    i32 0, label %601
+    i32 4, label %601
+    i32 2, label %603
   ]
 
-600:                                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i
-  %601 = add i64 %.01213.i.i, 72
-  br label %604
+601:                                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i
+  %602 = add i64 %.01213.i.i, 72
+  br label %605
 
-602:                                              ; preds = %.lr.ph.i.i
-  %603 = add i64 %.01213.i.i, 56
-  br label %604
+603:                                              ; preds = %.lr.ph.i.i
+  %604 = add i64 %.01213.i.i, 56
+  br label %605
 
-604:                                              ; preds = %602, %600, %.lr.ph.i.i
-  %.1.i.i = phi i64 [ %.01213.i.i, %.lr.ph.i.i ], [ %603, %602 ], [ %601, %600 ]
+605:                                              ; preds = %603, %601, %.lr.ph.i.i
+  %.1.i.i = phi i64 [ %.01213.i.i, %.lr.ph.i.i ], [ %604, %603 ], [ %602, %601 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %plpgsql_finish_datums.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
-plpgsql_finish_datums.exit.i:                     ; preds = %604, %._crit_edge355.i
-  %.012.lcssa.i.i = phi i64 [ 0, %._crit_edge355.i ], [ %.1.i.i, %604 ]
-  %605 = getelementptr inbounds i8, ptr %.0.i39, i64 512
-  store i64 %.012.lcssa.i.i, ptr %605, align 8
-  %606 = load i8, ptr @plpgsql_DumpExecTree, align 1
-  %607 = trunc i8 %606 to i1
-  br i1 %607, label %608, label %609
+plpgsql_finish_datums.exit.i:                     ; preds = %605, %._crit_edge355.i
+  %.012.lcssa.i.i = phi i64 [ 0, %._crit_edge355.i ], [ %.1.i.i, %605 ]
+  %606 = getelementptr inbounds i8, ptr %.0.i39, i64 512
+  store i64 %.012.lcssa.i.i, ptr %606, align 8
+  %607 = load i8, ptr @plpgsql_DumpExecTree, align 1
+  %608 = trunc i8 %607 to i1
+  br i1 %608, label %609, label %610
 
-608:                                              ; preds = %plpgsql_finish_datums.exit.i
+609:                                              ; preds = %plpgsql_finish_datums.exit.i
   call void @plpgsql_dumptree(ptr noundef nonnull %.0.i39) #10
-  br label %609
+  br label %610
 
-609:                                              ; preds = %608, %plpgsql_finish_datums.exit.i
+610:                                              ; preds = %609, %plpgsql_finish_datums.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %610 = load ptr, ptr @plpgsql_HashTable, align 8
-  %611 = call ptr @hash_search(ptr noundef %610, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %3) #10
-  %612 = load i8, ptr %3, align 1
-  %613 = trunc i8 %612 to i1
-  br i1 %613, label %614, label %do_compile.exit
+  %611 = load ptr, ptr @plpgsql_HashTable, align 8
+  %612 = call ptr @hash_search(ptr noundef %611, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %3) #10
+  %613 = load i8, ptr %3, align 1
+  %614 = trunc i8 %613 to i1
+  br i1 %614, label %615, label %do_compile.exit
 
-614:                                              ; preds = %609
-  %615 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef nonnull @.str) #10
-  br i1 %615, label %616, label %do_compile.exit
+615:                                              ; preds = %610
+  %616 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef nonnull @.str) #10
+  br i1 %616, label %617, label %do_compile.exit
 
-616:                                              ; preds = %614
-  %617 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49) #10
+617:                                              ; preds = %615
+  %618 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2637, ptr noundef nonnull @__func__.plpgsql_HashTableInsert) #10
   br label %do_compile.exit
 
-do_compile.exit:                                  ; preds = %609, %614, %616
-  %618 = getelementptr inbounds i8, ptr %611, i64 416
-  store ptr %.0.i39, ptr %618, align 8
-  %619 = getelementptr inbounds i8, ptr %.0.i39, i64 32
-  store ptr %611, ptr %619, align 8
+do_compile.exit:                                  ; preds = %610, %615, %617
+  %619 = getelementptr inbounds i8, ptr %612, i64 416
+  store ptr %.0.i39, ptr %619, align 8
+  %620 = getelementptr inbounds i8, ptr %.0.i39, i64 32
+  store ptr %612, ptr %620, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %620 = load ptr, ptr %4, align 8
-  store ptr %620, ptr @error_context_stack, align 8
+  %621 = load ptr, ptr %4, align 8
+  store ptr %621, ptr @error_context_stack, align 8
   store ptr null, ptr @plpgsql_error_funcname, align 8
   store i8 0, ptr @plpgsql_check_syntax, align 1
-  %621 = load ptr, ptr @plpgsql_compile_tmp_cxt, align 8
-  store ptr %621, ptr @CurrentMemoryContext, align 8
+  %622 = load ptr, ptr @plpgsql_compile_tmp_cxt, align 8
+  store ptr %622, ptr @CurrentMemoryContext, align 8
   store ptr null, ptr @plpgsql_compile_tmp_cxt, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -1661,9 +1661,9 @@ do_compile.exit:                                  ; preds = %609, %614, %616
 .loopexit:                                        ; preds = %40, %do_compile.exit
   %.3 = phi ptr [ %.0.i39, %do_compile.exit ], [ %.13354, %40 ]
   call void @ReleaseSysCache(ptr noundef nonnull %14) #10
-  %622 = load ptr, ptr %0, align 8
-  %623 = getelementptr inbounds i8, ptr %622, i64 24
-  store ptr %.3, ptr %623, align 8
+  %623 = load ptr, ptr %0, align 8
+  %624 = getelementptr inbounds i8, ptr %623, i64 24
+  store ptr %.3, ptr %624, align 8
   ret ptr %.3
 }
 

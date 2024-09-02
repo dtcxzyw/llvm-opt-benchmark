@@ -742,7 +742,7 @@ _ZN5zxing13GenericGFPoly15getCoefficientsEv.exit: ; preds = %44, %_ZN5zxing8Arra
   %74 = add i32 %73, -1
   store i32 %74, ptr %67, align 8
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %80
+  br i1 %75, label %76, label %81
 
 76:                                               ; preds = %66
   store i32 -559026175, ptr %67, align 8
@@ -751,11 +751,11 @@ _ZN5zxing13GenericGFPoly15getCoefficientsEv.exit: ; preds = %44, %_ZN5zxing8Arra
   %79 = load ptr, ptr %78, align 8
   tail call void %79(ptr noundef nonnull align 8 dereferenceable(12) %23) #12
   %.pre131 = load i32, ptr %67, align 8
-  br label %80
+  %80 = add i32 %.pre131, 1
+  br label %81
 
-80:                                               ; preds = %66, %76
-  %81 = phi i32 [ %74, %66 ], [ %.pre131, %76 ]
-  %82 = add i32 %81, 1
+81:                                               ; preds = %66, %76
+  %82 = phi i32 [ %73, %66 ], [ %80, %76 ]
   store i32 %82, ptr %67, align 8
   %83 = load i32, ptr %70, align 8
   %84 = add i32 %83, -1
@@ -763,7 +763,7 @@ _ZN5zxing13GenericGFPoly15getCoefficientsEv.exit: ; preds = %44, %_ZN5zxing8Arra
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %_ZN5zxing8ArrayRefIiEaSERKS1_.exit47
 
-86:                                               ; preds = %80
+86:                                               ; preds = %81
   store i32 -559026175, ptr %70, align 8
   %87 = load ptr, ptr %.pre129, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 8
@@ -771,7 +771,7 @@ _ZN5zxing13GenericGFPoly15getCoefficientsEv.exit: ; preds = %44, %_ZN5zxing8Arra
   tail call void %89(ptr noundef nonnull align 8 dereferenceable(12) %.pre129) #12
   br label %_ZN5zxing8ArrayRefIiEaSERKS1_.exit47
 
-_ZN5zxing8ArrayRefIiEaSERKS1_.exit47:             ; preds = %80, %86
+_ZN5zxing8ArrayRefIiEaSERKS1_.exit47:             ; preds = %81, %86
   %90 = load i32, ptr %67, align 8
   %91 = add i32 %90, -1
   store i32 %91, ptr %67, align 8
@@ -2157,7 +2157,7 @@ define hidden void @_ZN5zxing13GenericGFPoly6divideENS_3RefIS0_EERNS_12ErrorHand
   %24 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit76
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit86
 
 25:                                               ; preds = %20
   %26 = landingpad { ptr, i32 }
@@ -2165,7 +2165,7 @@ define hidden void @_ZN5zxing13GenericGFPoly6divideENS_3RefIS0_EERNS_12ErrorHand
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %5, align 8
   %27 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit80
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit90
 
 28:                                               ; preds = %4
   %29 = getelementptr inbounds i8, ptr %16, i64 40
@@ -2189,7 +2189,7 @@ define hidden void @_ZN5zxing13GenericGFPoly6divideENS_3RefIS0_EERNS_12ErrorHand
   %39 = getelementptr inbounds i8, ptr %6, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit76
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit86
 
 40:                                               ; preds = %35
   %41 = landingpad { ptr, i32 }
@@ -2197,7 +2197,7 @@ define hidden void @_ZN5zxing13GenericGFPoly6divideENS_3RefIS0_EERNS_12ErrorHand
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit80
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit90
 
 43:                                               ; preds = %28
   call void @_ZN5zxing9GenericGF7getZeroEv(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %7, ptr noundef nonnull align 8 dereferenceable(92) %15)
@@ -2213,36 +2213,21 @@ define hidden void @_ZN5zxing13GenericGFPoly6divideENS_3RefIS0_EERNS_12ErrorHand
   %52 = load i32, ptr %51, align 4
   %53 = load ptr, ptr %14, align 8
   %54 = invoke noundef i32 @_ZN5zxing9GenericGF7inverseEiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(92) %53, i32 noundef %52, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %55 unwind label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66.thread
+          to label %55 unwind label %.loopexit.split-lp
 
 55:                                               ; preds = %43
   %56 = load ptr, ptr %3, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = invoke noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %60 unwind label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66.thread
+          to label %60 unwind label %.loopexit.split-lp
 
 60:                                               ; preds = %55
   %.not = icmp eq i32 %59, 0
-  br i1 %.not, label %.preheader, label %.thread
+  br i1 %.not, label %.preheader, label %84
 
-.thread:                                          ; preds = %60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %300
-
-.loopexit:                                        ; preds = %87, %91
-  %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66
-
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66.thread: ; preds = %55, %43
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br label %319
-
-.preheader:                                       ; preds = %60, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62
-  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62 ], [ %1, %60 ]
-  %61 = getelementptr inbounds i8, ptr %.sroa.0.3, i64 40
+.preheader:                                       ; preds = %60
+  %61 = getelementptr inbounds i8, ptr %1, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = getelementptr inbounds i8, ptr %62, i64 24
@@ -2265,580 +2250,658 @@ _ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66.thread: ; preds = %55, %43
   %81 = sub i64 %79, %80
   %82 = lshr exact i64 %81, 2
   %83 = trunc i64 %82 to i32
-  %.not28 = icmp slt i32 %71, %83
-  br i1 %.not28, label %.critedge, label %84
+  %.not28125 = icmp slt i32 %71, %83
+  br i1 %.not28125, label %.critedge, label %.lr.ph
 
-84:                                               ; preds = %.preheader
-  %85 = load i32, ptr %66, align 4
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.critedge, label %87
-
-87:                                               ; preds = %84
-  %88 = sub i32 %71, %83
-  %89 = load ptr, ptr %14, align 8
-  %90 = invoke noundef i32 @_ZN5zxing9GenericGF8multiplyEii(ptr noundef nonnull align 8 dereferenceable(92) %89, i32 noundef %85, i32 noundef %54)
-          to label %91 unwind label %.loopexit
-
-91:                                               ; preds = %87
-  %92 = load ptr, ptr %2, align 8
-  invoke void @_ZN5zxing13GenericGFPoly18multiplyByMonomialEiiRNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %92, i32 noundef %88, i32 noundef %90, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %93 unwind label %.loopexit
-
-93:                                               ; preds = %91
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 16
-  %96 = load ptr, ptr %95, align 8
-  %97 = invoke noundef i32 %96(ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %98 unwind label %100
-
-98:                                               ; preds = %93
-  %.not29 = icmp eq i32 %97, 0
-  br i1 %.not29, label %102, label %99
-
-99:                                               ; preds = %98
+84:                                               ; preds = %60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit.thread
 
-100:                                              ; preds = %102, %93
-  %101 = landingpad { ptr, i32 }
+.loopexit:                                        ; preds = %90, %94
+  %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit64
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72.thread
 
-102:                                              ; preds = %98
-  %103 = load ptr, ptr %14, align 8
-  invoke void @_ZN5zxing9GenericGF13buildMonomialEiiRNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %9, ptr noundef nonnull align 8 dereferenceable(92) %103, i32 noundef %88, i32 noundef %90, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %104 unwind label %100
-
-104:                                              ; preds = %102
-  %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 16
-  %107 = load ptr, ptr %106, align 8
-  %108 = invoke noundef i32 %107(ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %109 unwind label %110
-
-109:                                              ; preds = %104
-  %.not30 = icmp eq i32 %108, 0
-  br i1 %.not30, label %112, label %.sink.split
-
-110:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit54, %104
-  %.sroa.0.6 = phi ptr [ %160, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit54 ], [ %.sroa.0.3, %104 ]
-  %111 = landingpad { ptr, i32 }
+.loopexit.split-lp:                               ; preds = %43, %55
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit56
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72.thread
 
-112:                                              ; preds = %109
-  %113 = load ptr, ptr %7, align 8
-  %114 = load ptr, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %114, null
-  br i1 %.not.i.i, label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit, label %115
+.lr.ph:                                           ; preds = %.preheader, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit68
+  %85 = phi i32 [ %274, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit68 ], [ %83, %.preheader ]
+  %86 = phi i32 [ %262, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit68 ], [ %71, %.preheader ]
+  %87 = phi ptr [ %257, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit68 ], [ %66, %.preheader ]
+  %.sroa.0.3126 = phi ptr [ %172, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit68 ], [ %1, %.preheader ]
+  %88 = load i32, ptr %87, align 4
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %.critedge, label %90
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %114, i64 8
-  %117 = load i32, ptr %116, align 8
-  %118 = add i32 %117, 1
-  store i32 %118, ptr %116, align 8
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit
+90:                                               ; preds = %.lr.ph
+  %91 = sub i32 %86, %85
+  %92 = load ptr, ptr %14, align 8
+  %93 = invoke noundef i32 @_ZN5zxing9GenericGF8multiplyEii(ptr noundef nonnull align 8 dereferenceable(92) %92, i32 noundef %88, i32 noundef %54)
+          to label %94 unwind label %.loopexit
 
-_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit:  ; preds = %115, %112
-  store ptr %114, ptr %11, align 8
-  invoke void @_ZN5zxing13GenericGFPoly13addOrSubtractENS_3RefIS0_EERNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %113, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %119 unwind label %199
+94:                                               ; preds = %90
+  %95 = load ptr, ptr %2, align 8
+  invoke void @_ZN5zxing13GenericGFPoly18multiplyByMonomialEiiRNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %95, i32 noundef %91, i32 noundef %93, ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %96 unwind label %.loopexit
 
-119:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit
-  %120 = load ptr, ptr %10, align 8
-  %.not.i.i40 = icmp eq ptr %120, null
-  br i1 %.not.i.i40, label %125, label %121
+96:                                               ; preds = %94
+  %97 = load ptr, ptr %3, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %99 = load ptr, ptr %98, align 8
+  %100 = invoke noundef i32 %99(ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %101 unwind label %112
 
-121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %120, i64 8
-  %123 = load i32, ptr %122, align 8
-  %124 = add i32 %123, 1
-  store i32 %124, ptr %122, align 8
-  br label %125
+101:                                              ; preds = %96
+  %.not29 = icmp eq i32 %100, 0
+  br i1 %.not29, label %114, label %.critedge39
 
-125:                                              ; preds = %121, %119
-  %126 = load ptr, ptr %7, align 8
-  %.not5.i.i41 = icmp eq ptr %126, null
-  br i1 %.not5.i.i41, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit, label %127
-
-127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %126, i64 8
-  %129 = load i32, ptr %128, align 8
-  %130 = add i32 %129, -1
-  store i32 %130, ptr %128, align 8
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit
-
-132:                                              ; preds = %127
-  store i32 -559026175, ptr %128, align 8
-  %133 = load ptr, ptr %126, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 8
-  %135 = load ptr, ptr %134, align 8
-  call void %135(ptr noundef nonnull align 8 dereferenceable(12) %126) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit
-
-_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit:  ; preds = %125, %127, %132
-  store ptr %120, ptr %7, align 8
-  br i1 %.not.i.i40, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit, label %136
-
-136:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit
-  %137 = getelementptr inbounds i8, ptr %120, i64 8
-  %138 = load i32, ptr %137, align 8
-  %139 = add i32 %138, -1
-  store i32 %139, ptr %137, align 8
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %141, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit
-
-141:                                              ; preds = %136
-  store i32 -559026175, ptr %137, align 8
-  %142 = load ptr, ptr %120, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 8
-  %144 = load ptr, ptr %143, align 8
-  call void %144(ptr noundef nonnull align 8 dereferenceable(12) %120) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit
-
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit:      ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit, %136, %141
-  br i1 %.not.i.i, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit43, label %145
-
-145:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit
-  %146 = getelementptr inbounds i8, ptr %114, i64 8
-  %147 = load i32, ptr %146, align 8
-  %148 = add i32 %147, -1
-  store i32 %148, ptr %146, align 8
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit43
-
-150:                                              ; preds = %145
-  store i32 -559026175, ptr %146, align 8
-  %151 = load ptr, ptr %114, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
-  %153 = load ptr, ptr %152, align 8
-  call void %153(ptr noundef nonnull align 8 dereferenceable(12) %114) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit43
-
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit43:    ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit, %145, %150
-  %154 = load ptr, ptr %8, align 8
-  %.not.i.i44 = icmp eq ptr %154, null
-  br i1 %.not.i.i44, label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit47, label %155
-
-155:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit43
-  %156 = getelementptr inbounds i8, ptr %154, i64 8
-  %157 = load i32, ptr %156, align 8
-  %158 = add i32 %157, 1
-  store i32 %158, ptr %156, align 8
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit47
-
-_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit47: ; preds = %155, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit43
-  store ptr %154, ptr %13, align 8
-  invoke void @_ZN5zxing13GenericGFPoly13addOrSubtractENS_3RefIS0_EERNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.3, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %159 unwind label %210
-
-159:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit47
-  %160 = load ptr, ptr %12, align 8
-  %.not.i.i48 = icmp eq ptr %160, null
-  br i1 %.not.i.i48, label %165, label %161
-
-161:                                              ; preds = %159
-  %162 = getelementptr inbounds i8, ptr %160, i64 8
-  %163 = load i32, ptr %162, align 8
-  %164 = add i32 %163, 1
-  store i32 %164, ptr %162, align 8
-  br label %165
-
-165:                                              ; preds = %159, %161
-  %166 = getelementptr inbounds i8, ptr %.sroa.0.3, i64 8
-  %167 = load i32, ptr %166, align 8
-  %168 = add i32 %167, -1
-  store i32 %168, ptr %166, align 8
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %170, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit50
-
-170:                                              ; preds = %165
-  store i32 -559026175, ptr %166, align 8
-  %171 = load ptr, ptr %.sroa.0.3, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 8
-  %173 = load ptr, ptr %172, align 8
-  call void %173(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.3) #12
-  %.pre = load ptr, ptr %12, align 8
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit50
-
-_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit50: ; preds = %165, %170
-  %174 = phi ptr [ %160, %165 ], [ %.pre, %170 ]
-  %.not.i51 = icmp eq ptr %174, null
-  br i1 %.not.i51, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit52, label %175
-
-175:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit50
-  %176 = getelementptr inbounds i8, ptr %174, i64 8
-  %177 = load i32, ptr %176, align 8
-  %178 = add i32 %177, -1
-  store i32 %178, ptr %176, align 8
-  %179 = icmp eq i32 %178, 0
-  br i1 %179, label %180, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit52
-
-180:                                              ; preds = %175
-  store i32 -559026175, ptr %176, align 8
-  %181 = load ptr, ptr %174, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 8
-  %183 = load ptr, ptr %182, align 8
-  call void %183(ptr noundef nonnull align 8 dereferenceable(12) %174) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit52
-
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit52:    ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit50, %175, %180
-  %184 = load ptr, ptr %13, align 8
-  %.not.i53 = icmp eq ptr %184, null
-  br i1 %.not.i53, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit54, label %185
-
-185:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit52
-  %186 = getelementptr inbounds i8, ptr %184, i64 8
-  %187 = load i32, ptr %186, align 8
-  %188 = add i32 %187, -1
-  store i32 %188, ptr %186, align 8
-  %189 = icmp eq i32 %188, 0
-  br i1 %189, label %190, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit54
-
-190:                                              ; preds = %185
-  store i32 -559026175, ptr %186, align 8
-  %191 = load ptr, ptr %184, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 8
-  %193 = load ptr, ptr %192, align 8
-  call void %193(ptr noundef nonnull align 8 dereferenceable(12) %184) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit54
-
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit54:    ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit52, %185, %190
-  %194 = load ptr, ptr %3, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 16
-  %196 = load ptr, ptr %195, align 8
-  %197 = invoke noundef i32 %196(ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %198 unwind label %110
-
-198:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit54
-  %.not35 = icmp eq i32 %197, 0
-  br i1 %.not35, label %222, label %.sink.split
-
-199:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit
-  %200 = landingpad { ptr, i32 }
-          cleanup
-  br i1 %.not.i.i, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit56, label %201
-
-201:                                              ; preds = %199
-  %202 = getelementptr inbounds i8, ptr %114, i64 8
-  %203 = load i32, ptr %202, align 8
-  %204 = add i32 %203, -1
-  store i32 %204, ptr %202, align 8
-  %205 = icmp eq i32 %204, 0
-  br i1 %205, label %206, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit56
-
-206:                                              ; preds = %201
-  store i32 -559026175, ptr %202, align 8
-  %207 = load ptr, ptr %114, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 8
-  %209 = load ptr, ptr %208, align 8
-  call void %209(ptr noundef nonnull align 8 dereferenceable(12) %114) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit56
-
-210:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit47
-  %211 = landingpad { ptr, i32 }
-          cleanup
-  %212 = load ptr, ptr %13, align 8
-  %.not.i57 = icmp eq ptr %212, null
-  br i1 %.not.i57, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit56, label %213
-
-213:                                              ; preds = %210
-  %214 = getelementptr inbounds i8, ptr %212, i64 8
-  %215 = load i32, ptr %214, align 8
-  %216 = add i32 %215, -1
-  store i32 %216, ptr %214, align 8
-  %217 = icmp eq i32 %216, 0
-  br i1 %217, label %218, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit56
-
-218:                                              ; preds = %213
-  store i32 -559026175, ptr %214, align 8
-  %219 = load ptr, ptr %212, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 8
-  %221 = load ptr, ptr %220, align 8
-  call void %221(ptr noundef nonnull align 8 dereferenceable(12) %212) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit56
-
-.sink.split:                                      ; preds = %198, %109
-  %.sroa.0.7.ph = phi ptr [ %.sroa.0.3, %109 ], [ %160, %198 ]
+.critedge39:                                      ; preds = %101
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %222
+  %102 = load ptr, ptr %8, align 8
+  %.not.i = icmp eq ptr %102, null
+  br i1 %.not.i, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit.thread, label %103
 
-222:                                              ; preds = %.sink.split, %198
-  %.sroa.0.7 = phi ptr [ %160, %198 ], [ %.sroa.0.7.ph, %.sink.split ]
-  %.127 = phi i32 [ 0, %198 ], [ 1, %.sink.split ]
-  %223 = load ptr, ptr %9, align 8
-  %.not.i59 = icmp eq ptr %223, null
-  br i1 %.not.i59, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60, label %224
+103:                                              ; preds = %.critedge39
+  %104 = getelementptr inbounds i8, ptr %102, i64 8
+  %105 = load i32, ptr %104, align 8
+  %106 = add i32 %105, -1
+  store i32 %106, ptr %104, align 8
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %108, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit.thread
 
-224:                                              ; preds = %222
-  %225 = getelementptr inbounds i8, ptr %223, i64 8
-  %226 = load i32, ptr %225, align 8
-  %227 = add i32 %226, -1
-  store i32 %227, ptr %225, align 8
-  %228 = icmp eq i32 %227, 0
-  br i1 %228, label %229, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60
+108:                                              ; preds = %103
+  store i32 -559026175, ptr %104, align 8
+  %109 = load ptr, ptr %102, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %111 = load ptr, ptr %110, align 8
+  call void %111(ptr noundef nonnull align 8 dereferenceable(12) %102) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit.thread
 
-229:                                              ; preds = %224
-  store i32 -559026175, ptr %225, align 8
-  %230 = load ptr, ptr %223, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 8
-  %232 = load ptr, ptr %231, align 8
-  call void %232(ptr noundef nonnull align 8 dereferenceable(12) %223) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60
+112:                                              ; preds = %114, %96
+  %113 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit70
 
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60:    ; preds = %229, %224, %222, %99
-  %.sroa.0.4 = phi ptr [ %.sroa.0.3, %99 ], [ %.sroa.0.7, %222 ], [ %.sroa.0.7, %224 ], [ %.sroa.0.7, %229 ]
-  %.026 = phi i32 [ 1, %99 ], [ %.127, %222 ], [ %.127, %224 ], [ %.127, %229 ]
-  %233 = load ptr, ptr %8, align 8
-  %.not.i61 = icmp eq ptr %233, null
-  br i1 %.not.i61, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62, label %234
+114:                                              ; preds = %101
+  %115 = load ptr, ptr %14, align 8
+  invoke void @_ZN5zxing9GenericGF13buildMonomialEiiRNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %9, ptr noundef nonnull align 8 dereferenceable(92) %115, i32 noundef %91, i32 noundef %93, ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %116 unwind label %112
 
-234:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60
-  %235 = getelementptr inbounds i8, ptr %233, i64 8
-  %236 = load i32, ptr %235, align 8
-  %237 = add i32 %236, -1
-  store i32 %237, ptr %235, align 8
-  %238 = icmp eq i32 %237, 0
-  br i1 %238, label %239, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62
+116:                                              ; preds = %114
+  %117 = load ptr, ptr %3, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  %119 = load ptr, ptr %118, align 8
+  %120 = invoke noundef i32 %119(ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %121 unwind label %122
 
-239:                                              ; preds = %234
-  store i32 -559026175, ptr %235, align 8
-  %240 = load ptr, ptr %233, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 8
-  %242 = load ptr, ptr %241, align 8
-  call void %242(ptr noundef nonnull align 8 dereferenceable(12) %233) #12
+121:                                              ; preds = %116
+  %.not30 = icmp eq i32 %120, 0
+  br i1 %.not30, label %124, label %.critedge41
+
+122:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60, %116
+  %.sroa.0.5 = phi ptr [ %172, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60 ], [ %.sroa.0.3126, %116 ]
+  %123 = landingpad { ptr, i32 }
+          cleanup
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62
 
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62:    ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60, %234, %239
-  %cond = icmp eq i32 %.026, 0
-  br i1 %cond, label %.preheader, label %.loopexit93, !llvm.loop !24
+124:                                              ; preds = %121
+  %125 = load ptr, ptr %7, align 8
+  %126 = load ptr, ptr %9, align 8
+  %.not.i.i = icmp eq ptr %126, null
+  br i1 %.not.i.i, label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit, label %127
 
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit56:    ; preds = %218, %213, %210, %206, %201, %199, %110
-  %.sroa.0.8 = phi ptr [ %.sroa.0.6, %110 ], [ %.sroa.0.3, %199 ], [ %.sroa.0.3, %201 ], [ %.sroa.0.3, %206 ], [ %.sroa.0.3, %210 ], [ %.sroa.0.3, %213 ], [ %.sroa.0.3, %218 ]
-  %.pn = phi { ptr, i32 } [ %111, %110 ], [ %200, %199 ], [ %200, %201 ], [ %200, %206 ], [ %211, %210 ], [ %211, %213 ], [ %211, %218 ]
-  %243 = load ptr, ptr %9, align 8
-  %.not.i63 = icmp eq ptr %243, null
-  br i1 %.not.i63, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit64, label %244
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds i8, ptr %126, i64 8
+  %129 = load i32, ptr %128, align 8
+  %130 = add i32 %129, 1
+  store i32 %130, ptr %128, align 8
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit
 
-244:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit56
-  %245 = getelementptr inbounds i8, ptr %243, i64 8
-  %246 = load i32, ptr %245, align 8
-  %247 = add i32 %246, -1
-  store i32 %247, ptr %245, align 8
-  %248 = icmp eq i32 %247, 0
-  br i1 %248, label %249, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit64
+_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit:  ; preds = %127, %124
+  store ptr %126, ptr %11, align 8
+  invoke void @_ZN5zxing13GenericGFPoly13addOrSubtractENS_3RefIS0_EERNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %125, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %131 unwind label %209
 
-249:                                              ; preds = %244
-  store i32 -559026175, ptr %245, align 8
-  %250 = load ptr, ptr %243, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 8
-  %252 = load ptr, ptr %251, align 8
-  call void %252(ptr noundef nonnull align 8 dereferenceable(12) %243) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit64
+131:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit
+  %132 = load ptr, ptr %10, align 8
+  %.not.i.i44 = icmp eq ptr %132, null
+  br i1 %.not.i.i44, label %137, label %133
 
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit64:    ; preds = %249, %244, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit56, %100
-  %.sroa.0.5 = phi ptr [ %.sroa.0.3, %100 ], [ %.sroa.0.8, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit56 ], [ %.sroa.0.8, %244 ], [ %.sroa.0.8, %249 ]
-  %.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit56 ], [ %.pn, %244 ], [ %.pn, %249 ]
-  %253 = load ptr, ptr %8, align 8
-  %.not.i65 = icmp eq ptr %253, null
-  br i1 %.not.i65, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66, label %254
+133:                                              ; preds = %131
+  %134 = getelementptr inbounds i8, ptr %132, i64 8
+  %135 = load i32, ptr %134, align 8
+  %136 = add i32 %135, 1
+  store i32 %136, ptr %134, align 8
+  br label %137
 
-254:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit64
-  %255 = getelementptr inbounds i8, ptr %253, i64 8
-  %256 = load i32, ptr %255, align 8
-  %257 = add i32 %256, -1
-  store i32 %257, ptr %255, align 8
-  %258 = icmp eq i32 %257, 0
-  br i1 %258, label %259, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66
+137:                                              ; preds = %133, %131
+  %138 = load ptr, ptr %7, align 8
+  %.not5.i.i45 = icmp eq ptr %138, null
+  br i1 %.not5.i.i45, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit, label %139
 
-259:                                              ; preds = %254
-  store i32 -559026175, ptr %255, align 8
-  %260 = load ptr, ptr %253, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 8
-  %262 = load ptr, ptr %261, align 8
-  call void %262(ptr noundef nonnull align 8 dereferenceable(12) %253) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66
+139:                                              ; preds = %137
+  %140 = getelementptr inbounds i8, ptr %138, i64 8
+  %141 = load i32, ptr %140, align 8
+  %142 = add i32 %141, -1
+  store i32 %142, ptr %140, align 8
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit
 
-.critedge:                                        ; preds = %.preheader, %84
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %263 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-          to label %264 unwind label %298
+144:                                              ; preds = %139
+  store i32 -559026175, ptr %140, align 8
+  %145 = load ptr, ptr %138, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 8
+  %147 = load ptr, ptr %146, align 8
+  call void %147(ptr noundef nonnull align 8 dereferenceable(12) %138) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit
 
-264:                                              ; preds = %.critedge
-  store ptr %263, ptr %0, align 8
-  %265 = getelementptr inbounds i8, ptr %263, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %263, i8 0, i64 16, i1 false)
-  %266 = getelementptr inbounds i8, ptr %0, i64 8
-  %267 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %265, ptr %267, align 8
-  store ptr %265, ptr %266, align 8
-  %268 = load ptr, ptr %7, align 8
-  %.not.i.i67 = icmp eq ptr %268, null
-  br i1 %.not.i.i67, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit69, label %269
+_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit:  ; preds = %137, %139, %144
+  store ptr %132, ptr %7, align 8
+  br i1 %.not.i.i44, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit47, label %148
 
-269:                                              ; preds = %264
-  %270 = getelementptr inbounds i8, ptr %268, i64 8
-  %271 = load i32, ptr %270, align 8
-  %272 = add i32 %271, 1
-  store i32 %272, ptr %270, align 8
-  %.pre110 = load ptr, ptr %263, align 8
-  %.not5.i.i68 = icmp eq ptr %.pre110, null
-  br i1 %.not5.i.i68, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit69, label %273
+148:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit
+  %149 = getelementptr inbounds i8, ptr %132, i64 8
+  %150 = load i32, ptr %149, align 8
+  %151 = add i32 %150, -1
+  store i32 %151, ptr %149, align 8
+  %152 = icmp eq i32 %151, 0
+  br i1 %152, label %153, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit47
 
-273:                                              ; preds = %269
-  %274 = getelementptr inbounds i8, ptr %.pre110, i64 8
-  %275 = load i32, ptr %274, align 8
-  %276 = add i32 %275, -1
-  store i32 %276, ptr %274, align 8
-  %277 = icmp eq i32 %276, 0
-  br i1 %277, label %278, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit69
+153:                                              ; preds = %148
+  store i32 -559026175, ptr %149, align 8
+  %154 = load ptr, ptr %132, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %156 = load ptr, ptr %155, align 8
+  call void %156(ptr noundef nonnull align 8 dereferenceable(12) %132) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit47
 
-278:                                              ; preds = %273
-  store i32 -559026175, ptr %274, align 8
-  %279 = load ptr, ptr %.pre110, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 8
-  %281 = load ptr, ptr %280, align 8
-  call void %281(ptr noundef nonnull align 8 dereferenceable(12) %.pre110) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit69
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit47:    ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit, %148, %153
+  br i1 %.not.i.i, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit49, label %157
 
-_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit69: ; preds = %264, %269, %273, %278
-  store ptr %268, ptr %263, align 8
-  %282 = getelementptr inbounds i8, ptr %263, i64 8
-  %.not.i.i70 = icmp eq ptr %.sroa.0.3, null
-  br i1 %.not.i.i70, label %287, label %283
+157:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit47
+  %158 = getelementptr inbounds i8, ptr %126, i64 8
+  %159 = load i32, ptr %158, align 8
+  %160 = add i32 %159, -1
+  store i32 %160, ptr %158, align 8
+  %161 = icmp eq i32 %160, 0
+  br i1 %161, label %162, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit49
 
-283:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit69
-  %284 = getelementptr inbounds i8, ptr %.sroa.0.3, i64 8
-  %285 = load i32, ptr %284, align 8
-  %286 = add i32 %285, 1
-  store i32 %286, ptr %284, align 8
-  br label %287
+162:                                              ; preds = %157
+  store i32 -559026175, ptr %158, align 8
+  %163 = load ptr, ptr %126, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 8
+  %165 = load ptr, ptr %164, align 8
+  call void %165(ptr noundef nonnull align 8 dereferenceable(12) %126) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit49
 
-287:                                              ; preds = %283, %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit69
-  %288 = load ptr, ptr %282, align 8
-  %.not5.i.i71 = icmp eq ptr %288, null
-  br i1 %.not5.i.i71, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit72, label %289
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit49:    ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit47, %157, %162
+  %166 = load ptr, ptr %8, align 8
+  %.not.i.i50 = icmp eq ptr %166, null
+  br i1 %.not.i.i50, label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit53, label %167
 
-289:                                              ; preds = %287
-  %290 = getelementptr inbounds i8, ptr %288, i64 8
-  %291 = load i32, ptr %290, align 8
-  %292 = add i32 %291, -1
-  store i32 %292, ptr %290, align 8
-  %293 = icmp eq i32 %292, 0
-  br i1 %293, label %294, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit72
+167:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit49
+  %168 = getelementptr inbounds i8, ptr %166, i64 8
+  %169 = load i32, ptr %168, align 8
+  %170 = add i32 %169, 1
+  store i32 %170, ptr %168, align 8
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit53
 
-294:                                              ; preds = %289
-  store i32 -559026175, ptr %290, align 8
-  %295 = load ptr, ptr %288, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 8
-  %297 = load ptr, ptr %296, align 8
-  call void %297(ptr noundef nonnull align 8 dereferenceable(12) %288) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit72
+_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit53: ; preds = %167, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit49
+  store ptr %166, ptr %13, align 8
+  invoke void @_ZN5zxing13GenericGFPoly13addOrSubtractENS_3RefIS0_EERNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref") align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.3126, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %171 unwind label %220
 
-_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit72: ; preds = %287, %289, %294
-  store ptr %.sroa.0.3, ptr %282, align 8
-  br label %.loopexit93
+171:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit53
+  %172 = load ptr, ptr %12, align 8
+  %.not.i.i54 = icmp eq ptr %172, null
+  br i1 %.not.i.i54, label %177, label %173
 
-298:                                              ; preds = %.critedge
-  %299 = landingpad { ptr, i32 }
+173:                                              ; preds = %171
+  %174 = getelementptr inbounds i8, ptr %172, i64 8
+  %175 = load i32, ptr %174, align 8
+  %176 = add i32 %175, 1
+  store i32 %176, ptr %174, align 8
+  br label %177
+
+177:                                              ; preds = %171, %173
+  %178 = getelementptr inbounds i8, ptr %.sroa.0.3126, i64 8
+  %179 = load i32, ptr %178, align 8
+  %180 = add i32 %179, -1
+  store i32 %180, ptr %178, align 8
+  %181 = icmp eq i32 %180, 0
+  br i1 %181, label %182, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit56
+
+182:                                              ; preds = %177
+  store i32 -559026175, ptr %178, align 8
+  %183 = load ptr, ptr %.sroa.0.3126, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 8
+  %185 = load ptr, ptr %184, align 8
+  call void %185(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.3126) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit56
+
+_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit56: ; preds = %177, %182
+  br i1 %.not.i.i54, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit58, label %186
+
+186:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit56
+  %187 = getelementptr inbounds i8, ptr %172, i64 8
+  %188 = load i32, ptr %187, align 8
+  %189 = add i32 %188, -1
+  store i32 %189, ptr %187, align 8
+  %190 = icmp eq i32 %189, 0
+  br i1 %190, label %191, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit58
+
+191:                                              ; preds = %186
+  store i32 -559026175, ptr %187, align 8
+  %192 = load ptr, ptr %172, align 8
+  %193 = getelementptr inbounds i8, ptr %192, i64 8
+  %194 = load ptr, ptr %193, align 8
+  call void %194(ptr noundef nonnull align 8 dereferenceable(12) %172) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit58
+
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit58:    ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit56, %186, %191
+  br i1 %.not.i.i50, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60, label %195
+
+195:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit58
+  %196 = getelementptr inbounds i8, ptr %166, i64 8
+  %197 = load i32, ptr %196, align 8
+  %198 = add i32 %197, -1
+  store i32 %198, ptr %196, align 8
+  %199 = icmp eq i32 %198, 0
+  br i1 %199, label %200, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60
+
+200:                                              ; preds = %195
+  store i32 -559026175, ptr %196, align 8
+  %201 = load ptr, ptr %166, align 8
+  %202 = getelementptr inbounds i8, ptr %201, i64 8
+  %203 = load ptr, ptr %202, align 8
+  call void %203(ptr noundef nonnull align 8 dereferenceable(12) %166) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60
+
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60:    ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit58, %195, %200
+  %204 = load ptr, ptr %3, align 8
+  %205 = getelementptr inbounds i8, ptr %204, i64 16
+  %206 = load ptr, ptr %205, align 8
+  %207 = invoke noundef i32 %206(ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %208 unwind label %122
+
+208:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit60
+  %.not35 = icmp eq i32 %207, 0
+  br i1 %.not35, label %231, label %.critedge41
+
+209:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit
+  %210 = landingpad { ptr, i32 }
           cleanup
+  br i1 %.not.i.i, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62, label %211
+
+211:                                              ; preds = %209
+  %212 = getelementptr inbounds i8, ptr %126, i64 8
+  %213 = load i32, ptr %212, align 8
+  %214 = add i32 %213, -1
+  store i32 %214, ptr %212, align 8
+  %215 = icmp eq i32 %214, 0
+  br i1 %215, label %216, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62
+
+216:                                              ; preds = %211
+  store i32 -559026175, ptr %212, align 8
+  %217 = load ptr, ptr %126, align 8
+  %218 = getelementptr inbounds i8, ptr %217, i64 8
+  %219 = load ptr, ptr %218, align 8
+  call void %219(ptr noundef nonnull align 8 dereferenceable(12) %126) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62
+
+220:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit53
+  %221 = landingpad { ptr, i32 }
+          cleanup
+  br i1 %.not.i.i50, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62, label %222
+
+222:                                              ; preds = %220
+  %223 = getelementptr inbounds i8, ptr %166, i64 8
+  %224 = load i32, ptr %223, align 8
+  %225 = add i32 %224, -1
+  store i32 %225, ptr %223, align 8
+  %226 = icmp eq i32 %225, 0
+  br i1 %226, label %227, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62
+
+227:                                              ; preds = %222
+  store i32 -559026175, ptr %223, align 8
+  %228 = load ptr, ptr %166, align 8
+  %229 = getelementptr inbounds i8, ptr %228, i64 8
+  %230 = load ptr, ptr %229, align 8
+  call void %230(ptr noundef nonnull align 8 dereferenceable(12) %166) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62
+
+231:                                              ; preds = %208
+  %232 = load ptr, ptr %9, align 8
+  %.not.i65 = icmp eq ptr %232, null
+  br i1 %.not.i65, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66, label %233
+
+233:                                              ; preds = %231
+  %234 = getelementptr inbounds i8, ptr %232, i64 8
+  %235 = load i32, ptr %234, align 8
+  %236 = add i32 %235, -1
+  store i32 %236, ptr %234, align 8
+  %237 = icmp eq i32 %236, 0
+  br i1 %237, label %238, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66
+
+238:                                              ; preds = %233
+  store i32 -559026175, ptr %234, align 8
+  %239 = load ptr, ptr %232, align 8
+  %240 = getelementptr inbounds i8, ptr %239, i64 8
+  %241 = load ptr, ptr %240, align 8
+  call void %241(ptr noundef nonnull align 8 dereferenceable(12) %232) #12
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66
 
-.loopexit93:                                      ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62, %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit72
-  %.sroa.0.1 = phi ptr [ %.sroa.0.3, %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit72 ], [ %.sroa.0.4, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62 ]
-  %.not.i73 = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not.i73, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit74, label %300
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66:    ; preds = %231, %233, %238
+  %242 = load ptr, ptr %8, align 8
+  %.not.i67 = icmp eq ptr %242, null
+  br i1 %.not.i67, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit68, label %243
 
-300:                                              ; preds = %.thread, %.loopexit93
-  %.sroa.0.192 = phi ptr [ %1, %.thread ], [ %.sroa.0.1, %.loopexit93 ]
-  %301 = getelementptr inbounds i8, ptr %.sroa.0.192, i64 8
-  %302 = load i32, ptr %301, align 8
-  %303 = add i32 %302, -1
-  store i32 %303, ptr %301, align 8
-  %304 = icmp eq i32 %303, 0
-  br i1 %304, label %305, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit74
+243:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66
+  %244 = getelementptr inbounds i8, ptr %242, i64 8
+  %245 = load i32, ptr %244, align 8
+  %246 = add i32 %245, -1
+  store i32 %246, ptr %244, align 8
+  %247 = icmp eq i32 %246, 0
+  br i1 %247, label %248, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit68
 
-305:                                              ; preds = %300
-  store i32 -559026175, ptr %301, align 8
-  %306 = load ptr, ptr %.sroa.0.192, align 8
-  %307 = getelementptr inbounds i8, ptr %306, i64 8
-  %308 = load ptr, ptr %307, align 8
-  call void %308(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.192) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit74
+248:                                              ; preds = %243
+  store i32 -559026175, ptr %244, align 8
+  %249 = load ptr, ptr %242, align 8
+  %250 = getelementptr inbounds i8, ptr %249, i64 8
+  %251 = load ptr, ptr %250, align 8
+  call void %251(ptr noundef nonnull align 8 dereferenceable(12) %242) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit68
 
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit74:    ; preds = %.loopexit93, %300, %305
-  %309 = load ptr, ptr %7, align 8
-  %.not.i75 = icmp eq ptr %309, null
-  br i1 %.not.i75, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit76, label %310
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit68:    ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66, %243, %248
+  %252 = getelementptr inbounds i8, ptr %172, i64 40
+  %253 = load ptr, ptr %252, align 8
+  %254 = getelementptr inbounds i8, ptr %253, i64 16
+  %255 = getelementptr inbounds i8, ptr %253, i64 24
+  %256 = load ptr, ptr %255, align 8
+  %257 = load ptr, ptr %254, align 8
+  %258 = ptrtoint ptr %256 to i64
+  %259 = ptrtoint ptr %257 to i64
+  %260 = sub i64 %258, %259
+  %261 = lshr exact i64 %260, 2
+  %262 = trunc i64 %261 to i32
+  %263 = load ptr, ptr %2, align 8
+  %264 = getelementptr inbounds i8, ptr %263, i64 40
+  %265 = load ptr, ptr %264, align 8
+  %266 = getelementptr inbounds i8, ptr %265, i64 16
+  %267 = getelementptr inbounds i8, ptr %265, i64 24
+  %268 = load ptr, ptr %267, align 8
+  %269 = load ptr, ptr %266, align 8
+  %270 = ptrtoint ptr %268 to i64
+  %271 = ptrtoint ptr %269 to i64
+  %272 = sub i64 %270, %271
+  %273 = lshr exact i64 %272, 2
+  %274 = trunc i64 %273 to i32
+  %.not28 = icmp slt i32 %262, %274
+  br i1 %.not28, label %.critedge, label %.lr.ph, !llvm.loop !24
 
-310:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit74
-  %311 = getelementptr inbounds i8, ptr %309, i64 8
-  %312 = load i32, ptr %311, align 8
-  %313 = add i32 %312, -1
-  store i32 %313, ptr %311, align 8
-  %314 = icmp eq i32 %313, 0
-  br i1 %314, label %315, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit76
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62:    ; preds = %227, %222, %220, %216, %211, %209, %122
+  %.sroa.0.6 = phi ptr [ %.sroa.0.5, %122 ], [ %.sroa.0.3126, %209 ], [ %.sroa.0.3126, %211 ], [ %.sroa.0.3126, %216 ], [ %.sroa.0.3126, %220 ], [ %.sroa.0.3126, %222 ], [ %.sroa.0.3126, %227 ]
+  %.pn = phi { ptr, i32 } [ %123, %122 ], [ %210, %209 ], [ %210, %211 ], [ %210, %216 ], [ %221, %220 ], [ %221, %222 ], [ %221, %227 ]
+  %275 = load ptr, ptr %9, align 8
+  %.not.i69 = icmp eq ptr %275, null
+  br i1 %.not.i69, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit70, label %276
 
-315:                                              ; preds = %310
-  store i32 -559026175, ptr %311, align 8
-  %316 = load ptr, ptr %309, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 8
-  %318 = load ptr, ptr %317, align 8
-  call void %318(ptr noundef nonnull align 8 dereferenceable(12) %309) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit76
+276:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62
+  %277 = getelementptr inbounds i8, ptr %275, i64 8
+  %278 = load i32, ptr %277, align 8
+  %279 = add i32 %278, -1
+  store i32 %279, ptr %277, align 8
+  %280 = icmp eq i32 %279, 0
+  br i1 %280, label %281, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit70
 
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66:    ; preds = %.loopexit, %259, %254, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit64, %298
-  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %298 ], [ %.sroa.0.5, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit64 ], [ %.sroa.0.5, %254 ], [ %.sroa.0.5, %259 ], [ %.sroa.0.3, %.loopexit ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %299, %298 ], [ %.pn.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit64 ], [ %.pn.pn, %254 ], [ %.pn.pn, %259 ], [ %lpad.loopexit, %.loopexit ]
-  %.not.i77 = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not.i77, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit78, label %319
+281:                                              ; preds = %276
+  store i32 -559026175, ptr %277, align 8
+  %282 = load ptr, ptr %275, align 8
+  %283 = getelementptr inbounds i8, ptr %282, i64 8
+  %284 = load ptr, ptr %283, align 8
+  call void %284(ptr noundef nonnull align 8 dereferenceable(12) %275) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit70
 
-319:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66.thread, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66
-  %.pn.pn.pn117 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66.thread ], [ %.pn.pn.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66 ]
-  %.sroa.0.2116 = phi ptr [ %1, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66.thread ], [ %.sroa.0.2, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66 ]
-  %320 = getelementptr inbounds i8, ptr %.sroa.0.2116, i64 8
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit70:    ; preds = %281, %276, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62, %112
+  %.sroa.0.4 = phi ptr [ %.sroa.0.3126, %112 ], [ %.sroa.0.6, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62 ], [ %.sroa.0.6, %276 ], [ %.sroa.0.6, %281 ]
+  %.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit62 ], [ %.pn, %276 ], [ %.pn, %281 ]
+  %285 = load ptr, ptr %8, align 8
+  %.not.i71 = icmp eq ptr %285, null
+  br i1 %.not.i71, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72, label %286
+
+286:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit70
+  %287 = getelementptr inbounds i8, ptr %285, i64 8
+  %288 = load i32, ptr %287, align 8
+  %289 = add i32 %288, -1
+  store i32 %289, ptr %287, align 8
+  %290 = icmp eq i32 %289, 0
+  br i1 %290, label %291, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72
+
+291:                                              ; preds = %286
+  store i32 -559026175, ptr %287, align 8
+  %292 = load ptr, ptr %285, align 8
+  %293 = getelementptr inbounds i8, ptr %292, i64 8
+  %294 = load ptr, ptr %293, align 8
+  call void %294(ptr noundef nonnull align 8 dereferenceable(12) %285) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72
+
+.critedge:                                        ; preds = %.lr.ph, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit68, %.preheader
+  %.sroa.0.3.lcssa = phi ptr [ %1, %.preheader ], [ %172, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit68 ], [ %.sroa.0.3126, %.lr.ph ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %295 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
+          to label %296 unwind label %328
+
+296:                                              ; preds = %.critedge
+  store ptr %295, ptr %0, align 8
+  %297 = getelementptr inbounds i8, ptr %295, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %295, i8 0, i64 16, i1 false)
+  %298 = getelementptr inbounds i8, ptr %0, i64 8
+  %299 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %297, ptr %299, align 8
+  store ptr %297, ptr %298, align 8
+  %300 = load ptr, ptr %7, align 8
+  %.not.i.i73 = icmp eq ptr %300, null
+  br i1 %.not.i.i73, label %.thread, label %301
+
+301:                                              ; preds = %296
+  %302 = getelementptr inbounds i8, ptr %300, i64 8
+  %303 = load i32, ptr %302, align 8
+  %304 = add i32 %303, 1
+  store i32 %304, ptr %302, align 8
+  %.pre = load ptr, ptr %295, align 8
+  %.not5.i.i74 = icmp eq ptr %.pre, null
+  br i1 %.not5.i.i74, label %.thread, label %305
+
+305:                                              ; preds = %301
+  %306 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %307 = load i32, ptr %306, align 8
+  %308 = add i32 %307, -1
+  store i32 %308, ptr %306, align 8
+  %309 = icmp eq i32 %308, 0
+  br i1 %309, label %310, label %.thread
+
+310:                                              ; preds = %305
+  store i32 -559026175, ptr %306, align 8
+  %311 = load ptr, ptr %.pre, align 8
+  %312 = getelementptr inbounds i8, ptr %311, i64 8
+  %313 = load ptr, ptr %312, align 8
+  call void %313(ptr noundef nonnull align 8 dereferenceable(12) %.pre) #12
+  br label %.thread
+
+.thread:                                          ; preds = %296, %301, %305, %310
+  store ptr %300, ptr %295, align 8
+  %314 = getelementptr inbounds i8, ptr %295, i64 8
+  %315 = getelementptr inbounds i8, ptr %.sroa.0.3.lcssa, i64 8
+  %316 = load i32, ptr %315, align 8
+  %317 = add i32 %316, 1
+  store i32 %317, ptr %315, align 8
+  %318 = load ptr, ptr %314, align 8
+  %.not5.i.i77 = icmp eq ptr %318, null
+  br i1 %.not5.i.i77, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit78, label %319
+
+319:                                              ; preds = %.thread
+  %320 = getelementptr inbounds i8, ptr %318, i64 8
   %321 = load i32, ptr %320, align 8
   %322 = add i32 %321, -1
   store i32 %322, ptr %320, align 8
   %323 = icmp eq i32 %322, 0
-  br i1 %323, label %324, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit78
+  br i1 %323, label %324, label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit78
 
 324:                                              ; preds = %319
   store i32 -559026175, ptr %320, align 8
-  %325 = load ptr, ptr %.sroa.0.2116, align 8
+  %325 = load ptr, ptr %318, align 8
   %326 = getelementptr inbounds i8, ptr %325, i64 8
   %327 = load ptr, ptr %326, align 8
-  call void %327(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.2116) #12
-  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit78
+  call void %327(ptr noundef nonnull align 8 dereferenceable(12) %318) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit78
 
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit78:    ; preds = %324, %319, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66
-  %.pn.pn.pn118 = phi { ptr, i32 } [ %.pn.pn.pn117, %324 ], [ %.pn.pn.pn117, %319 ], [ %.pn.pn.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit66 ]
-  %328 = load ptr, ptr %7, align 8
-  %.not.i79 = icmp eq ptr %328, null
-  br i1 %.not.i79, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit80, label %329
+_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit78: ; preds = %.thread, %319, %324
+  store ptr %.sroa.0.3.lcssa, ptr %314, align 8
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit.thread
 
-329:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit78
-  %330 = getelementptr inbounds i8, ptr %328, i64 8
-  %331 = load i32, ptr %330, align 8
-  %332 = add i32 %331, -1
-  store i32 %332, ptr %330, align 8
-  %333 = icmp eq i32 %332, 0
-  br i1 %333, label %334, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit80
+328:                                              ; preds = %.critedge
+  %329 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72.thread
 
-334:                                              ; preds = %329
-  store i32 -559026175, ptr %330, align 8
-  %335 = load ptr, ptr %328, align 8
-  %336 = getelementptr inbounds i8, ptr %335, i64 8
-  %337 = load ptr, ptr %336, align 8
-  call void %337(ptr noundef nonnull align 8 dereferenceable(12) %328) #12
+.critedge41:                                      ; preds = %208, %121
+  %.sroa.0.7 = phi ptr [ %.sroa.0.3126, %121 ], [ %172, %208 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %330 = load ptr, ptr %9, align 8
+  %.not.i79 = icmp eq ptr %330, null
+  br i1 %.not.i79, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit80, label %331
+
+331:                                              ; preds = %.critedge41
+  %332 = getelementptr inbounds i8, ptr %330, i64 8
+  %333 = load i32, ptr %332, align 8
+  %334 = add i32 %333, -1
+  store i32 %334, ptr %332, align 8
+  %335 = icmp eq i32 %334, 0
+  br i1 %335, label %336, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit80
+
+336:                                              ; preds = %331
+  store i32 -559026175, ptr %332, align 8
+  %337 = load ptr, ptr %330, align 8
+  %338 = getelementptr inbounds i8, ptr %337, i64 8
+  %339 = load ptr, ptr %338, align 8
+  call void %339(ptr noundef nonnull align 8 dereferenceable(12) %330) #12
   br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit80
 
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit76:    ; preds = %315, %310, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit74, %38, %23
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit80:    ; preds = %.critedge41, %331, %336
+  %340 = load ptr, ptr %8, align 8
+  %.not.i81 = icmp eq ptr %340, null
+  br i1 %.not.i81, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit, label %341
+
+341:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit80
+  %342 = getelementptr inbounds i8, ptr %340, i64 8
+  %343 = load i32, ptr %342, align 8
+  %344 = add i32 %343, -1
+  store i32 %344, ptr %342, align 8
+  %345 = icmp eq i32 %344, 0
+  br i1 %345, label %346, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit
+
+346:                                              ; preds = %341
+  store i32 -559026175, ptr %342, align 8
+  %347 = load ptr, ptr %340, align 8
+  %348 = getelementptr inbounds i8, ptr %347, i64 8
+  %349 = load ptr, ptr %348, align 8
+  call void %349(ptr noundef nonnull align 8 dereferenceable(12) %340) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit
+
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit:      ; preds = %346, %341, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit80
+  %.not.i83 = icmp eq ptr %.sroa.0.7, null
+  br i1 %.not.i83, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit84, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit.thread
+
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit.thread: ; preds = %108, %103, %.critedge39, %84, %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit78, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit
+  %.sroa.0.1102 = phi ptr [ %.sroa.0.7, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit ], [ %.sroa.0.3126, %108 ], [ %.sroa.0.3126, %103 ], [ %.sroa.0.3126, %.critedge39 ], [ %1, %84 ], [ %.sroa.0.3.lcssa, %_ZN5zxing3RefINS_13GenericGFPolyEEaSERKS2_.exit78 ]
+  %350 = getelementptr inbounds i8, ptr %.sroa.0.1102, i64 8
+  %351 = load i32, ptr %350, align 8
+  %352 = add i32 %351, -1
+  store i32 %352, ptr %350, align 8
+  %353 = icmp eq i32 %352, 0
+  br i1 %353, label %354, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit84
+
+354:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit.thread
+  store i32 -559026175, ptr %350, align 8
+  %355 = load ptr, ptr %.sroa.0.1102, align 8
+  %356 = getelementptr inbounds i8, ptr %355, i64 8
+  %357 = load ptr, ptr %356, align 8
+  call void %357(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.1102) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit84
+
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit84:    ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit.thread, %354
+  %358 = load ptr, ptr %7, align 8
+  %.not.i85 = icmp eq ptr %358, null
+  br i1 %.not.i85, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit86, label %359
+
+359:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit84
+  %360 = getelementptr inbounds i8, ptr %358, i64 8
+  %361 = load i32, ptr %360, align 8
+  %362 = add i32 %361, -1
+  store i32 %362, ptr %360, align 8
+  %363 = icmp eq i32 %362, 0
+  br i1 %363, label %364, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit86
+
+364:                                              ; preds = %359
+  store i32 -559026175, ptr %360, align 8
+  %365 = load ptr, ptr %358, align 8
+  %366 = getelementptr inbounds i8, ptr %365, i64 8
+  %367 = load ptr, ptr %366, align 8
+  call void %367(ptr noundef nonnull align 8 dereferenceable(12) %358) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit86
+
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72:    ; preds = %291, %286, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit70
+  %.not.i87 = icmp eq ptr %.sroa.0.4, null
+  br i1 %.not.i87, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit88, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72.thread
+
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72.thread: ; preds = %.loopexit, %.loopexit.split-lp, %328, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72
+  %.pn.pn.pn107 = phi { ptr, i32 } [ %.pn.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72 ], [ %329, %328 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.0.2106 = phi ptr [ %.sroa.0.4, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72 ], [ %.sroa.0.3.lcssa, %328 ], [ %.sroa.0.3126, %.loopexit ], [ %1, %.loopexit.split-lp ]
+  %368 = getelementptr inbounds i8, ptr %.sroa.0.2106, i64 8
+  %369 = load i32, ptr %368, align 8
+  %370 = add i32 %369, -1
+  store i32 %370, ptr %368, align 8
+  %371 = icmp eq i32 %370, 0
+  br i1 %371, label %372, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit88
+
+372:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72.thread
+  store i32 -559026175, ptr %368, align 8
+  %373 = load ptr, ptr %.sroa.0.2106, align 8
+  %374 = getelementptr inbounds i8, ptr %373, i64 8
+  %375 = load ptr, ptr %374, align 8
+  call void %375(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.2106) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit88
+
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit88:    ; preds = %372, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72.thread, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72 ], [ %.pn.pn.pn107, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit72.thread ], [ %.pn.pn.pn107, %372 ]
+  %376 = load ptr, ptr %7, align 8
+  %.not.i89 = icmp eq ptr %376, null
+  br i1 %.not.i89, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit90, label %377
+
+377:                                              ; preds = %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit88
+  %378 = getelementptr inbounds i8, ptr %376, i64 8
+  %379 = load i32, ptr %378, align 8
+  %380 = add i32 %379, -1
+  store i32 %380, ptr %378, align 8
+  %381 = icmp eq i32 %380, 0
+  br i1 %381, label %382, label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit90
+
+382:                                              ; preds = %377
+  store i32 -559026175, ptr %378, align 8
+  %383 = load ptr, ptr %376, align 8
+  %384 = getelementptr inbounds i8, ptr %383, i64 8
+  %385 = load ptr, ptr %384, align 8
+  call void %385(ptr noundef nonnull align 8 dereferenceable(12) %376) #12
+  br label %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit90
+
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit86:    ; preds = %364, %359, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit84, %38, %23
   ret void
 
-_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit80:    ; preds = %334, %329, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit78, %40, %25
-  %.pn36 = phi { ptr, i32 } [ %41, %40 ], [ %26, %25 ], [ %.pn.pn.pn118, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit78 ], [ %.pn.pn.pn118, %329 ], [ %.pn.pn.pn118, %334 ]
+_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit90:    ; preds = %382, %377, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit88, %40, %25
+  %.pn36 = phi { ptr, i32 } [ %41, %40 ], [ %26, %25 ], [ %.pn.pn.pn.pn, %_ZN5zxing3RefINS_13GenericGFPolyEED2Ev.exit88 ], [ %.pn.pn.pn.pn, %377 ], [ %.pn.pn.pn.pn, %382 ]
   resume { ptr, i32 } %.pn36
 }
 

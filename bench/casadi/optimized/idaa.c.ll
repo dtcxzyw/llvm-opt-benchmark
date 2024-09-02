@@ -516,7 +516,7 @@ define internal void @IDAAhermiteFree(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) #0 {
+define internal range(i32 -107, 1) i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 1816
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 96
@@ -1348,16 +1348,16 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   %11 = getelementptr inbounds i8, ptr %8, i64 164
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %16, label %13
+  br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %0, i64 140
   %15 = load i32, ptr %14, align 4
-  br label %16
+  %16 = freeze i32 %15
+  br label %17
 
-16:                                               ; preds = %6, %13
-  %17 = phi i32 [ %15, %13 ], [ 0, %6 ]
-  %.fr298 = freeze i32 %17
+17:                                               ; preds = %6, %13
+  %.fr298 = phi i32 [ %16, %13 ], [ 0, %6 ]
   %18 = getelementptr inbounds i8, ptr %8, i64 8
   %19 = load double, ptr %18, align 8
   %20 = load double, ptr %8, align 8
@@ -1367,14 +1367,14 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %28, label %24
 
-24:                                               ; preds = %16
+24:                                               ; preds = %17
   %25 = getelementptr inbounds i8, ptr %8, i64 104
   %26 = load i64, ptr %25, align 8
   %27 = add nsw i64 %26, -1
   store i32 0, ptr %22, align 4
   br label %31
 
-28:                                               ; preds = %16
+28:                                               ; preds = %17
   %29 = getelementptr inbounds i8, ptr %8, i64 352
   %30 = load i64, ptr %29, align 8
   br label %31

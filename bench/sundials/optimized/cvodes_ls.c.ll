@@ -1276,7 +1276,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %29, %31, %14, %9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cvLsLinSys(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, double noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #0 {
+define internal range(i32 -8, 2) i32 @cvLsLinSys(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, double noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #0 {
   %12 = icmp eq ptr %7, null
   br i1 %12, label %13, label %14
 
@@ -3249,7 +3249,7 @@ define noundef i32 @cvLsFreeB(ptr noundef readonly %0) #9 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CVodeSetJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @CVodeSetJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3484,7 +3484,7 @@ cvLs_AccessLMemBCur.exit.thread:                  ; preds = %27, %22, %15, %10, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CVodeSetJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @CVodeSetJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4585,7 +4585,7 @@ CVodeSetJacTimesRhsFn.exit:                       ; preds = %26, %24, %22, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CVodeSetLinSysFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @CVodeSetLinSysFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4743,7 +4743,7 @@ cvLs_AccessLMemBCur.exit.thread:                  ; preds = %30, %25, %18, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @CVodeSetLinSysFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @CVodeSetLinSysFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

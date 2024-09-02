@@ -1542,21 +1542,21 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   %63 = load ptr, ptr %62, align 8
   %64 = call i32 @acpi_evaluate_object(ptr noundef %63, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef nonnull %6) #12
   %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %.thread18
+  br i1 %65, label %66, label %.thread17
 
 66:                                               ; preds = %.thread15
   %67 = load ptr, ptr %61, align 8
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %.thread18, label %69
+  br i1 %68, label %.thread17, label %69
 
 69:                                               ; preds = %66
   %70 = load i32, ptr %67, align 8
   %71 = icmp eq i32 %70, 3
-  br i1 %71, label %72, label %.thread20
+  br i1 %71, label %72, label %.thread19
 
-.thread20:                                        ; preds = %69
+.thread19:                                        ; preds = %69
   call void @kfree(ptr noundef nonnull %67) #12
-  br label %.thread18
+  br label %.thread17
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds i8, ptr %67, i64 8
@@ -1564,9 +1564,9 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   %75 = getelementptr inbounds i8, ptr %67, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = icmp ult i32 %76, 20
-  br i1 %77, label %.thread19, label %78
+  br i1 %77, label %.thread18, label %78
 
-.thread19:                                        ; preds = %72
+.thread18:                                        ; preds = %72
   call void @kfree(ptr noundef nonnull %67) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
   br label %214
@@ -1587,20 +1587,20 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   %89 = getelementptr inbounds i8, ptr %88, i64 18
   %90 = load i8, ptr %89, align 1
   %91 = icmp eq i8 %90, 0
-  br i1 %91, label %92, label %.preheader22
+  br i1 %91, label %92, label %.preheader21
 
 92:                                               ; preds = %86
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %23, ptr noundef nonnull @.str.27, ptr noundef %88) #13
   br label %209
 
-.preheader22:                                     ; preds = %86, %108
+.preheader21:                                     ; preds = %86, %108
   %93 = phi ptr [ %94, %108 ], [ @wmi_block_list, %86 ]
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, @wmi_block_list
   br i1 %95, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.preheader22, %105
-  %96 = phi i64 [ %106, %105 ], [ 0, %.preheader22 ]
+.preheader:                                       ; preds = %.preheader21, %105
+  %96 = phi i64 [ %106, %105 ], [ 0, %.preheader21 ]
   %97 = getelementptr [6 x ptr], ptr @allow_duplicates, i64 0, i64 %96
   %98 = load ptr, ptr %97, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
@@ -1628,7 +1628,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   %109 = getelementptr i8, ptr %94, i64 16
   %110 = call i32 @bcmp(ptr noundef dereferenceable(16) %109, ptr noundef dereferenceable(16) %88, i64 16)
   %111 = icmp eq i32 %110, 0
-  br i1 %111, label %112, label %.preheader22, !llvm.loop !11
+  br i1 %111, label %112, label %.preheader21, !llvm.loop !11
 
 112:                                              ; preds = %108
   %113 = getelementptr i8, ptr %94, i64 40
@@ -1648,7 +1648,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef %80, ptr noundef nonnull @.str.30, ptr noundef %88, ptr noundef %122) #13
   br label %209
 
-.loopexit:                                        ; preds = %.preheader22, %101
+.loopexit:                                        ; preds = %.preheader21, %101
   %123 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %124 = call noalias noundef align 8 dereferenceable_or_null(856) ptr @kmalloc_trace(ptr noundef %123, i32 noundef 3520, i64 noundef 856) #14
   %125 = icmp eq ptr %124, null
@@ -1774,11 +1774,11 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   store ptr %23, ptr %180, align 8
   %181 = load ptr, ptr @wmi_block_list, align 8
   %182 = icmp eq ptr %181, @wmi_block_list
-  br i1 %182, label %.thread16, label %.preheader21
+  br i1 %182, label %.thread16, label %.preheader20
 
-.preheader21:                                     ; preds = %176, %.preheader21
-  %183 = phi ptr [ %190, %.preheader21 ], [ %181, %176 ]
-  %184 = phi i32 [ %189, %.preheader21 ], [ 0, %176 ]
+.preheader20:                                     ; preds = %176, %.preheader20
+  %183 = phi ptr [ %190, %.preheader20 ], [ %181, %176 ]
+  %184 = phi i32 [ %189, %.preheader20 ], [ 0, %176 ]
   %185 = getelementptr i8, ptr %183, i64 16
   %186 = call i32 @bcmp(ptr noundef dereferenceable(16) %185, ptr noundef dereferenceable(16) %129, i64 16)
   %187 = icmp eq i32 %186, 0
@@ -1786,9 +1786,9 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   %189 = add i32 %184, %188
   %190 = load ptr, ptr %183, align 8
   %191 = icmp eq ptr %190, @wmi_block_list
-  br i1 %191, label %192, label %.preheader21, !llvm.loop !13
+  br i1 %191, label %192, label %.preheader20, !llvm.loop !13
 
-192:                                              ; preds = %.preheader21
+192:                                              ; preds = %.preheader20
   %193 = icmp eq i32 %189, 0
   br i1 %193, label %.thread16, label %194
 
@@ -1813,14 +1813,14 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   store volatile ptr %198, ptr %199, align 8
   %201 = call ptr @device_link_add(ptr noundef nonnull %124, ptr noundef %7, i32 noundef 16) #12
   %202 = icmp eq ptr %201, null
-  br i1 %202, label %.thread17, label %203
+  br i1 %202, label %.critedge, label %203
 
 203:                                              ; preds = %197
   %204 = call i32 @device_add(ptr noundef nonnull %124) #12
   %205 = icmp eq i32 %204, 0
-  br i1 %205, label %209, label %.thread17
+  br i1 %205, label %209, label %.critedge
 
-.thread17:                                        ; preds = %197, %203
+.critedge:                                        ; preds = %197, %203
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %23, ptr noundef nonnull @.str.29, ptr noundef %129) #13
   %206 = load ptr, ptr %200, align 8
   %207 = load ptr, ptr %198, align 8
@@ -1832,7 +1832,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   call void @put_device(ptr noundef nonnull %124) #12
   br label %209
 
-209:                                              ; preds = %.thread17, %203, %155, %126, %121, %92
+209:                                              ; preds = %.critedge, %203, %155, %126, %121, %92
   %210 = add nuw nsw i64 %87, 1
   %211 = icmp eq i64 %210, %85
   br i1 %211, label %212, label %86, !llvm.loop !14
@@ -1842,13 +1842,13 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
   br label %214
 
-.thread18:                                        ; preds = %66, %.thread15, %.thread20
+.thread17:                                        ; preds = %66, %.thread15, %.thread19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
   %213 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24) #13
   br label %214
 
-214:                                              ; preds = %212, %.thread19, %.thread18, %53, %49, %42, %38, %31, %25, %14
-  %215 = phi i32 [ %27, %25 ], [ -19, %38 ], [ -19, %49 ], [ -6, %.thread18 ], [ -19, %14 ], [ %29, %31 ], [ %40, %42 ], [ %51, %53 ], [ 0, %212 ], [ 0, %.thread19 ]
+214:                                              ; preds = %212, %.thread18, %.thread17, %53, %49, %42, %38, %31, %25, %14
+  %215 = phi i32 [ %27, %25 ], [ -19, %38 ], [ -19, %49 ], [ -6, %.thread17 ], [ -19, %14 ], [ %29, %31 ], [ %40, %42 ], [ %51, %53 ], [ 0, %212 ], [ 0, %.thread18 ]
   ret i32 %215
 }
 

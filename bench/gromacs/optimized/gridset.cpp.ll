@@ -109,9 +109,9 @@ define void @_ZN5Nbnxm7GridSet11DomainSetupC2E7PbcTypebPA3_KiPK18gmx_domdec_zone
   %22 = getelementptr inbounds [3 x i32], ptr %3, i64 0, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 1
-  %25 = getelementptr inbounds [3 x i8], ptr %19, i64 0, i64 %indvars.iv
-  %26 = zext i1 %24 to i8
-  store i8 %26, ptr %25, align 1
+  %25 = zext i1 %24 to i8
+  %26 = getelementptr inbounds [3 x i8], ptr %19, i64 0, i64 %indvars.iv
+  store i8 %25, ptr %26, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split16.us, label %.split, !llvm.loop !5

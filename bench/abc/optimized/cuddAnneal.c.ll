@@ -76,31 +76,31 @@ copyOrder.exit:                                   ; preds = %.copyOrder.exit_cri
   %36 = icmp sgt i32 %.098.ph, 0
   br label %37
 
-37:                                               ; preds = %.outer, %._crit_edge
-  %.0111 = phi i32 [ %.0110, %._crit_edge ], [ %.0111.ph, %.outer ]
-  %.0110 = phi i32 [ %.0109, %._crit_edge ], [ %.0110.ph, %.outer ]
-  %.0109 = phi i32 [ %.0108, %._crit_edge ], [ %.0109.ph, %.outer ]
-  %.0108 = phi i32 [ %.1102.lcssa, %._crit_edge ], [ %.0108.ph, %.outer ]
-  %.0105 = phi i32 [ %.1106.lcssa, %._crit_edge ], [ %.0105.ph, %.outer ]
-  %.0103 = phi double [ %189, %._crit_edge ], [ %.0103.ph, %.outer ]
-  %.0101 = phi i32 [ %.1102.lcssa, %._crit_edge ], [ %.0101.ph, %.outer ]
+37:                                               ; preds = %.outer, %.critedge._crit_edge
+  %.0111 = phi i32 [ %.0110, %.critedge._crit_edge ], [ %.0111.ph, %.outer ]
+  %.0110 = phi i32 [ %.0109, %.critedge._crit_edge ], [ %.0110.ph, %.outer ]
+  %.0109 = phi i32 [ %.0108, %.critedge._crit_edge ], [ %.0109.ph, %.outer ]
+  %.0108 = phi i32 [ %.1102.lcssa, %.critedge._crit_edge ], [ %.0108.ph, %.outer ]
+  %.0105 = phi i32 [ %.1106.lcssa, %.critedge._crit_edge ], [ %.0105.ph, %.outer ]
+  %.0103 = phi double [ %189, %.critedge._crit_edge ], [ %.0103.ph, %.outer ]
+  %.0101 = phi i32 [ %.1102.lcssa, %.critedge._crit_edge ], [ %.0101.ph, %.outer ]
   %38 = fcmp ogt double %.0103, 1.000000e+00
-  br i1 %38, label %.preheader, label %stopping_criterion.exit
+  br i1 %38, label %.critedge.preheader, label %stopping_criterion.exit
 
 stopping_criterion.exit:                          ; preds = %37
   %39 = icmp ne i32 %.0111, %.0110
   %40 = icmp ne i32 %.0111, %.0109
-  %or.cond.i.not197 = or i1 %39, %40
+  %or.cond.i.not149 = or i1 %39, %40
   %41 = icmp ne i32 %.0111, %.0108
-  %or.cond8.i.not = or i1 %or.cond.i.not197, %41
-  br i1 %or.cond8.i.not, label %.preheader, label %198
+  %or.cond8.i.not = or i1 %or.cond.i.not149, %41
+  br i1 %or.cond8.i.not, label %.critedge.preheader, label %198
 
-.preheader:                                       ; preds = %37, %stopping_criterion.exit
-  br i1 %36, label %.lr.ph, label %._crit_edge
+.critedge.preheader:                              ; preds = %stopping_criterion.exit, %37
+  br i1 %36, label %.lr.ph, label %.critedge._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %copyOrder.exit137
-  %.0100163 = phi i32 [ %188, %copyOrder.exit137 ], [ 0, %.preheader ]
-  %.1106162 = phi i32 [ %.2107, %copyOrder.exit137 ], [ %.0105, %.preheader ]
+.lr.ph:                                           ; preds = %.critedge.preheader, %copyOrder.exit137
+  %.0100166 = phi i32 [ %188, %copyOrder.exit137 ], [ 0, %.critedge.preheader ]
+  %.1106165 = phi i32 [ %.2107, %copyOrder.exit137 ], [ %.0105, %.critedge.preheader ]
   %42 = tail call i64 @Cudd_Random() #8
   %43 = trunc i64 %42 to i32
   %44 = srem i32 %43, %5
@@ -365,7 +365,7 @@ siftBackwardProb.exit.i:                          ; preds = %siftBackwardProb.ex
   store ptr %174, ptr %175, align 8
   store ptr %.4194.i, ptr %31, align 8
   %.not186.i = icmp eq ptr %172, null
-  br i1 %.not186.i, label %ddExchange.exit.thread184, label %siftBackwardProb.exit.i, !llvm.loop !8
+  br i1 %.not186.i, label %ddExchange.exit.thread185, label %siftBackwardProb.exit.i, !llvm.loop !8
 
 siftBackwardProb.exit.thread.i:                   ; preds = %103, %100, %96, %93, %69, %66
   %.not187195.i = icmp eq ptr %.0167.i, null
@@ -393,41 +393,41 @@ ddExchange.exit:                                  ; preds = %50
   %spec.select.spec.select126 = select i1 %181, i32 %spec.select, i32 %spec.select126
   %182 = tail call fastcc i32 @ddJumpingAux(ptr noundef %0, i32 noundef %spec.select.spec.select126, i32 noundef %spec.select126, i32 noundef %spec.select, double noundef %.0103)
   %.not125 = icmp eq i32 %182, 0
-  br i1 %.not125, label %ddExchange.exit.thread, label %ddExchange.exit.thread184
+  br i1 %.not125, label %ddExchange.exit.thread, label %ddExchange.exit.thread185
 
 ddExchange.exit.thread:                           ; preds = %ddExchange.exit, %.lr.ph.i130, %siftBackwardProb.exit.thread.i
   tail call void @free(ptr noundef %15) #8
   br label %216
 
-ddExchange.exit.thread184:                        ; preds = %siftBackwardProb.exit.i, %ddExchange.exit
+ddExchange.exit.thread185:                        ; preds = %siftBackwardProb.exit.i, %ddExchange.exit
   %183 = load i32, ptr %9, align 4
   %184 = load i32, ptr %11, align 8
   %185 = sub i32 %183, %184
-  %186 = icmp sge i32 %185, %.1106162
+  %186 = icmp sge i32 %185, %.1106165
   %brmerge = or i1 %.not9.i, %186
-  %.1106.mux = tail call i32 @llvm.smin.i32(i32 %185, i32 %.1106162)
+  %.1106.mux = tail call i32 @llvm.smin.i32(i32 %185, i32 %.1106165)
   br i1 %brmerge, label %copyOrder.exit137, label %.lr.ph.i132
 
-.lr.ph.i132:                                      ; preds = %ddExchange.exit.thread184
+.lr.ph.i132:                                      ; preds = %ddExchange.exit.thread185
   %187 = load ptr, ptr %32, align 8
-  %invariant.gep160 = getelementptr i32, ptr %187, i64 %.pre-phi
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr align 4 %invariant.gep160, i64 %35, i1 false)
+  %invariant.gep163 = getelementptr i32, ptr %187, i64 %.pre-phi
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr align 4 %invariant.gep163, i64 %35, i1 false)
   br label %copyOrder.exit137
 
-copyOrder.exit137:                                ; preds = %.lr.ph.i132, %ddExchange.exit.thread184
-  %.2107 = phi i32 [ %.1106.mux, %ddExchange.exit.thread184 ], [ %185, %.lr.ph.i132 ]
-  %188 = add nuw nsw i32 %.0100163, 1
+copyOrder.exit137:                                ; preds = %.lr.ph.i132, %ddExchange.exit.thread185
+  %.2107 = phi i32 [ %.1106.mux, %ddExchange.exit.thread185 ], [ %185, %.lr.ph.i132 ]
+  %188 = add nuw nsw i32 %.0100166, 1
   %exitcond.not = icmp eq i32 %188, %.098.ph
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.critedge._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %copyOrder.exit137, %.preheader
-  %.1106.lcssa = phi i32 [ %.0105, %.preheader ], [ %.2107, %copyOrder.exit137 ]
-  %.1102.lcssa = phi i32 [ %.0101, %.preheader ], [ %185, %copyOrder.exit137 ]
+.critedge._crit_edge:                             ; preds = %copyOrder.exit137, %.critedge.preheader
+  %.1106.lcssa = phi i32 [ %.0105, %.critedge.preheader ], [ %.2107, %copyOrder.exit137 ]
+  %.1102.lcssa = phi i32 [ %.0101, %.critedge.preheader ], [ %185, %copyOrder.exit137 ]
   %189 = fmul double %.0103, 9.000000e-01
   %190 = fcmp ult double %189, 1.000000e+00
   br i1 %190, label %37, label %191, !llvm.loop !11
 
-191:                                              ; preds = %._crit_edge
+191:                                              ; preds = %.critedge._crit_edge
   %192 = tail call double @log(double noundef %189) #8
   %193 = tail call double @log(double noundef %.0103) #8
   %194 = fdiv double %192, %193

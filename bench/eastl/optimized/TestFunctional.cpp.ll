@@ -4906,20 +4906,20 @@ if.then.i.i.i1443:                                ; preds = %invoke.cont1047
 
 if.then.i.i.i1443.invoke.cont1050_crit_edge:      ; preds = %if.then.i.i.i1443
   %.pre2367 = load ptr, ptr %mMgrFuncPtr.i.i1419, align 8
+  %378 = icmp ne ptr %.pre2367, null
   br label %invoke.cont1050
 
 terminate.lpad.i.i.i1445:                         ; preds = %if.then.i.i.i1443
-  %378 = landingpad { ptr, i32 }
+  %379 = landingpad { ptr, i32 }
           catch ptr null
-  %379 = extractvalue { ptr, i32 } %378, 0
-  call void @__clang_call_terminate(ptr %379) #18
+  %380 = extractvalue { ptr, i32 } %379, 0
+  call void @__clang_call_terminate(ptr %380) #18
   unreachable
 
 invoke.cont1050:                                  ; preds = %if.then.i.i.i1443.invoke.cont1050_crit_edge, %invoke.cont1047
-  %380 = phi ptr [ %.pre2367, %if.then.i.i.i1443.invoke.cont1050_crit_edge ], [ @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ14TestFunctionalvE7Functor_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE, %invoke.cont1047 ]
+  %cmp.i.i.i1449 = phi i1 [ %378, %if.then.i.i.i1443.invoke.cont1050_crit_edge ], [ true, %invoke.cont1047 ]
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ14TestFunctionalvE7Functor_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE, ptr %mMgrFuncPtr.i.i1421, align 8
   store ptr @_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ14TestFunctionalvE7Functor_2vJEE7InvokerERKNS0_15functor_storageILi16EEE, ptr %mInvokeFuncPtr.i.i1422, align 8
-  %cmp.i.i.i1449 = icmp ne ptr %380, null
   %call1056 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i.i.i1449, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 1013, ptr noundef nonnull @.str.116)
           to label %invoke.cont1055 unwind label %lpad1027
 

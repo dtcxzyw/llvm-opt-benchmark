@@ -2827,17 +2827,20 @@ if.end52:                                         ; preds = %if.then4.i.i56, %if
   %inc57 = add nuw nsw i64 %I.0258, 1
   %add58 = add i32 %CharsPrinted.1, 2
   %exitcond.not = icmp eq i64 %inc57, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !11
 
-for.end:                                          ; preds = %if.end52, %if.end40
-  %CharsPrinted.0.lcssa = phi i32 [ 0, %if.end40 ], [ %add58, %if.end52 ]
-  %25 = load i8, ptr %ASCII, align 2
-  %tobool59 = trunc i8 %25 to i1
+for.end.loopexit:                                 ; preds = %if.end52
+  %25 = sub i32 -3, %CharsPrinted.1
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %if.end40
+  %CharsPrinted.0.lcssa = phi i32 [ -1, %if.end40 ], [ %25, %for.end.loopexit ]
+  %26 = load i8, ptr %ASCII, align 2
+  %tobool59 = trunc i8 %26 to i1
   br i1 %tobool59, label %if.then60, label %if.end80
 
 if.then60:                                        ; preds = %for.end
-  %26 = xor i32 %CharsPrinted.0.lcssa, -1
-  %conv64 = add i32 %12, %26
+  %conv64 = add i32 %12, %CharsPrinted.0.lcssa
   %cmp.i.i62 = icmp ult i32 %conv64, 80
   br i1 %cmp.i.i62, label %if.then.i.i70, label %while.body.i.i63
 
@@ -2897,8 +2900,8 @@ if.then.lr.ph.i.i:                                ; preds = %if.then73
 
 if.then2.i.i.preheader:                           ; preds = %if.then.lr.ph.i.i
   %.pre278 = load i32, ptr %BufferMode.i.i99, align 8
-  %cmp3.i.i303 = icmp eq i32 %.pre278, 0
-  br i1 %cmp3.i.i303, label %if.then4.i.i92, label %if.end.i.i89
+  %36 = icmp eq i32 %.pre278, 0
+  br i1 %36, label %if.then4.i.i92, label %if.end.i.i89
 
 if.then.i.i90:                                    ; preds = %_ZN4llvh11raw_ostream5flushEv.exit.i11.i, %if.then.i2.i.i, %delete.notnull.i.i15.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %OutBufStart.i.i98, i8 0, i64 28, i1 false)
@@ -2908,76 +2911,76 @@ if.then4.i.i92:                                   ; preds = %if.then.i.i90, %if.
   store i8 %30, ptr %C.addr.i.i, align 1
   %vtable.i.i = load ptr, ptr %this, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 56
-  %36 = load ptr, ptr %vfn.i.i, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %C.addr.i.i, i64 noundef 1) #26
+  %37 = load ptr, ptr %vfn.i.i, align 8
+  call void %37(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %C.addr.i.i, i64 noundef 1) #26
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i
 
 if.end.i.i89:                                     ; preds = %if.then2.i.i.preheader
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
-  %37 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(36) %this) #26
+  %38 = load ptr, ptr %vfn.i, align 8
+  %call.i = call noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(36) %this) #26
   %tobool.not.i = icmp eq i64 %call.i, 0
-  %38 = load ptr, ptr %OutBufCur.i6.i, align 8
-  %39 = load ptr, ptr %OutBufStart.i.i98, align 8
-  %cmp.not.i.i4.i = icmp eq ptr %38, %39
+  %39 = load ptr, ptr %OutBufCur.i6.i, align 8
+  %40 = load ptr, ptr %OutBufStart.i.i98, align 8
+  %cmp.not.i.i4.i = icmp eq ptr %39, %40
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end.i.i89
   br i1 %cmp.not.i.i4.i, label %_ZN4llvh11raw_ostream5flushEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %38 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %39 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %39 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  store ptr %39, ptr %OutBufCur.i6.i, align 8
+  store ptr %40, ptr %OutBufCur.i6.i, align 8
   %vtable.i.i.i.i = load ptr, ptr %this, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 56
-  %40 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %39, i64 noundef %sub.ptr.sub.i.i.i.i) #26
+  %41 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %40, i64 noundef %sub.ptr.sub.i.i.i.i) #26
   br label %_ZN4llvh11raw_ostream5flushEv.exit.i.i
 
 _ZN4llvh11raw_ostream5flushEv.exit.i.i:           ; preds = %if.then.i.i.i, %if.then.i
   %call.i.i194 = call noalias noundef nonnull ptr @_Znam(i64 noundef %call.i) #27
-  %41 = load i32, ptr %BufferMode.i.i99, align 8
-  %cmp.i.i.i = icmp eq i32 %41, 1
+  %42 = load i32, ptr %BufferMode.i.i99, align 8
+  %cmp.i.i.i = icmp eq i32 %42, 1
   br i1 %cmp.i.i.i, label %if.then.i3.i.i, label %_ZN4llvh11raw_ostream11SetBufferedEv.exit
 
 if.then.i3.i.i:                                   ; preds = %_ZN4llvh11raw_ostream5flushEv.exit.i.i
-  %42 = load ptr, ptr %OutBufStart.i.i98, align 8
-  %isnull.i.i.i = icmp eq ptr %42, null
+  %43 = load ptr, ptr %OutBufStart.i.i98, align 8
+  %isnull.i.i.i = icmp eq ptr %43, null
   br i1 %isnull.i.i.i, label %_ZN4llvh11raw_ostream11SetBufferedEv.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i3.i.i
-  call void @_ZdaPv(ptr noundef nonnull %42) #24
+  call void @_ZdaPv(ptr noundef nonnull %43) #24
   br label %_ZN4llvh11raw_ostream11SetBufferedEv.exit
 
 if.else.i:                                        ; preds = %if.end.i.i89
   br i1 %cmp.not.i.i4.i, label %_ZN4llvh11raw_ostream5flushEv.exit.i11.i, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %if.else.i
-  %sub.ptr.lhs.cast.i.i.i6.i = ptrtoint ptr %38 to i64
-  %sub.ptr.rhs.cast.i.i.i7.i = ptrtoint ptr %39 to i64
+  %sub.ptr.lhs.cast.i.i.i6.i = ptrtoint ptr %39 to i64
+  %sub.ptr.rhs.cast.i.i.i7.i = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i.i.i8.i = sub i64 %sub.ptr.lhs.cast.i.i.i6.i, %sub.ptr.rhs.cast.i.i.i7.i
-  store ptr %39, ptr %OutBufCur.i6.i, align 8
+  store ptr %40, ptr %OutBufCur.i6.i, align 8
   %vtable.i.i.i9.i = load ptr, ptr %this, align 8
   %vfn.i.i.i10.i = getelementptr inbounds i8, ptr %vtable.i.i.i9.i, i64 56
-  %43 = load ptr, ptr %vfn.i.i.i10.i, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %39, i64 noundef %sub.ptr.sub.i.i.i8.i) #26
+  %44 = load ptr, ptr %vfn.i.i.i10.i, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %40, i64 noundef %sub.ptr.sub.i.i.i8.i) #26
   br label %_ZN4llvh11raw_ostream5flushEv.exit.i11.i
 
 _ZN4llvh11raw_ostream5flushEv.exit.i11.i:         ; preds = %if.then.i.i5.i, %if.else.i
-  %44 = load i32, ptr %BufferMode.i.i99, align 8
-  %cmp.i.i13.i = icmp eq i32 %44, 1
+  %45 = load i32, ptr %BufferMode.i.i99, align 8
+  %cmp.i.i13.i = icmp eq i32 %45, 1
   br i1 %cmp.i.i13.i, label %if.then.i2.i.i, label %if.then.i.i90
 
 if.then.i2.i.i:                                   ; preds = %_ZN4llvh11raw_ostream5flushEv.exit.i11.i
-  %45 = load ptr, ptr %OutBufStart.i.i98, align 8
-  %isnull.i.i14.i = icmp eq ptr %45, null
+  %46 = load ptr, ptr %OutBufStart.i.i98, align 8
+  %isnull.i.i14.i = icmp eq ptr %46, null
   br i1 %isnull.i.i14.i, label %if.then.i.i90, label %delete.notnull.i.i15.i
 
 delete.notnull.i.i15.i:                           ; preds = %if.then.i2.i.i
-  call void @_ZdaPv(ptr noundef nonnull %45) #24
+  call void @_ZdaPv(ptr noundef nonnull %46) #24
   br label %if.then.i.i90
 
 _ZN4llvh11raw_ostream11SetBufferedEv.exit:        ; preds = %_ZN4llvh11raw_ostream5flushEv.exit.i.i, %if.then.i3.i.i, %delete.notnull.i.i.i
@@ -2997,16 +3000,16 @@ if.end5.i.i:                                      ; preds = %_ZN4llvh11raw_ostre
   store ptr %.lcssa.i, ptr %OutBufCur.i6.i, align 8
   %vtable.i.i.i = load ptr, ptr %this, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 56
-  %46 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %.lcssa.i, i64 noundef %sub.ptr.sub.i.i.i) #26
+  %47 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %47(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %.lcssa.i, i64 noundef %sub.ptr.sub.i.i.i) #26
   %.pre.i.i = load ptr, ptr %OutBufCur.i6.i, align 8
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %_ZN4llvh11raw_ostream11SetBufferedEv.exit, %if.end5.i.i
-  %47 = phi ptr [ %.pre.i.i, %if.end5.i.i ], [ %call.i.i194, %_ZN4llvh11raw_ostream11SetBufferedEv.exit ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %47, i64 1
+  %48 = phi ptr [ %.pre.i.i, %if.end5.i.i ], [ %call.i.i194, %_ZN4llvh11raw_ostream11SetBufferedEv.exit ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %48, i64 1
   store ptr %incdec.ptr.i.i, ptr %OutBufCur.i6.i, align 8
-  store i8 %30, ptr %47, align 1
+  store i8 %30, ptr %48, align 1
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i
 
 _ZN4llvh11raw_ostream5writeEh.exit.i:             ; preds = %if.end6.i.i, %if.then4.i.i92
@@ -3024,14 +3027,14 @@ if.else:                                          ; preds = %for.body71
 
 if.then.lr.ph.i.i97:                              ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i93)
-  %48 = load ptr, ptr %OutBufStart.i.i98, align 8
-  %tobool.not.i8.i100 = icmp eq ptr %48, null
+  %49 = load ptr, ptr %OutBufStart.i.i98, align 8
+  %tobool.not.i8.i100 = icmp eq ptr %49, null
   br i1 %tobool.not.i8.i100, label %if.then2.i.i113.preheader, label %if.end5.i.i101
 
 if.then2.i.i113.preheader:                        ; preds = %if.then.lr.ph.i.i97
   %.pre277 = load i32, ptr %BufferMode.i.i99, align 8
-  %cmp3.i.i114302 = icmp eq i32 %.pre277, 0
-  br i1 %cmp3.i.i114302, label %if.then4.i.i119, label %if.end.i.i115
+  %50 = icmp eq i32 %.pre277, 0
+  br i1 %50, label %if.then4.i.i119, label %if.end.i.i115
 
 if.then.i.i117:                                   ; preds = %_ZN4llvh11raw_ostream5flushEv.exit.i11.i228, %if.then.i2.i.i232, %delete.notnull.i.i15.i234
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %OutBufStart.i.i98, i8 0, i64 28, i1 false)
@@ -3041,76 +3044,76 @@ if.then4.i.i119:                                  ; preds = %if.then.i.i117, %if
   store i8 46, ptr %C.addr.i.i93, align 1
   %vtable.i.i120 = load ptr, ptr %this, align 8
   %vfn.i.i121 = getelementptr inbounds i8, ptr %vtable.i.i120, i64 56
-  %49 = load ptr, ptr %vfn.i.i121, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %C.addr.i.i93, i64 noundef 1) #26
+  %51 = load ptr, ptr %vfn.i.i121, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %C.addr.i.i93, i64 noundef 1) #26
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i112
 
 if.end.i.i115:                                    ; preds = %if.then2.i.i113.preheader
   %vtable.i196 = load ptr, ptr %this, align 8
   %vfn.i197 = getelementptr inbounds i8, ptr %vtable.i196, i64 72
-  %50 = load ptr, ptr %vfn.i197, align 8
-  %call.i198 = call noundef i64 %50(ptr noundef nonnull align 8 dereferenceable(36) %this) #26
+  %52 = load ptr, ptr %vfn.i197, align 8
+  %call.i198 = call noundef i64 %52(ptr noundef nonnull align 8 dereferenceable(36) %this) #26
   %tobool.not.i199 = icmp eq i64 %call.i198, 0
-  %51 = load ptr, ptr %OutBufCur.i6.i, align 8
-  %52 = load ptr, ptr %OutBufStart.i.i98, align 8
-  %cmp.not.i.i4.i202 = icmp eq ptr %51, %52
+  %53 = load ptr, ptr %OutBufCur.i6.i, align 8
+  %54 = load ptr, ptr %OutBufStart.i.i98, align 8
+  %cmp.not.i.i4.i202 = icmp eq ptr %53, %54
   br i1 %tobool.not.i199, label %if.else.i221, label %if.then.i203
 
 if.then.i203:                                     ; preds = %if.end.i.i115
   br i1 %cmp.not.i.i4.i202, label %_ZN4llvh11raw_ostream5flushEv.exit.i.i210, label %if.then.i.i.i204
 
 if.then.i.i.i204:                                 ; preds = %if.then.i203
-  %sub.ptr.lhs.cast.i.i.i.i205 = ptrtoint ptr %51 to i64
-  %sub.ptr.rhs.cast.i.i.i.i206 = ptrtoint ptr %52 to i64
+  %sub.ptr.lhs.cast.i.i.i.i205 = ptrtoint ptr %53 to i64
+  %sub.ptr.rhs.cast.i.i.i.i206 = ptrtoint ptr %54 to i64
   %sub.ptr.sub.i.i.i.i207 = sub i64 %sub.ptr.lhs.cast.i.i.i.i205, %sub.ptr.rhs.cast.i.i.i.i206
-  store ptr %52, ptr %OutBufCur.i6.i, align 8
+  store ptr %54, ptr %OutBufCur.i6.i, align 8
   %vtable.i.i.i.i208 = load ptr, ptr %this, align 8
   %vfn.i.i.i.i209 = getelementptr inbounds i8, ptr %vtable.i.i.i.i208, i64 56
-  %53 = load ptr, ptr %vfn.i.i.i.i209, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %52, i64 noundef %sub.ptr.sub.i.i.i.i207) #26
+  %55 = load ptr, ptr %vfn.i.i.i.i209, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %54, i64 noundef %sub.ptr.sub.i.i.i.i207) #26
   br label %_ZN4llvh11raw_ostream5flushEv.exit.i.i210
 
 _ZN4llvh11raw_ostream5flushEv.exit.i.i210:        ; preds = %if.then.i.i.i204, %if.then.i203
   %call.i.i211 = call noalias noundef nonnull ptr @_Znam(i64 noundef %call.i198) #27
-  %54 = load i32, ptr %BufferMode.i.i99, align 8
-  %cmp.i.i.i213 = icmp eq i32 %54, 1
+  %56 = load i32, ptr %BufferMode.i.i99, align 8
+  %cmp.i.i.i213 = icmp eq i32 %56, 1
   br i1 %cmp.i.i.i213, label %if.then.i3.i.i218, label %_ZN4llvh11raw_ostream11SetBufferedEv.exit235
 
 if.then.i3.i.i218:                                ; preds = %_ZN4llvh11raw_ostream5flushEv.exit.i.i210
-  %55 = load ptr, ptr %OutBufStart.i.i98, align 8
-  %isnull.i.i.i219 = icmp eq ptr %55, null
+  %57 = load ptr, ptr %OutBufStart.i.i98, align 8
+  %isnull.i.i.i219 = icmp eq ptr %57, null
   br i1 %isnull.i.i.i219, label %_ZN4llvh11raw_ostream11SetBufferedEv.exit235, label %delete.notnull.i.i.i220
 
 delete.notnull.i.i.i220:                          ; preds = %if.then.i3.i.i218
-  call void @_ZdaPv(ptr noundef nonnull %55) #24
+  call void @_ZdaPv(ptr noundef nonnull %57) #24
   br label %_ZN4llvh11raw_ostream11SetBufferedEv.exit235
 
 if.else.i221:                                     ; preds = %if.end.i.i115
   br i1 %cmp.not.i.i4.i202, label %_ZN4llvh11raw_ostream5flushEv.exit.i11.i228, label %if.then.i.i5.i222
 
 if.then.i.i5.i222:                                ; preds = %if.else.i221
-  %sub.ptr.lhs.cast.i.i.i6.i223 = ptrtoint ptr %51 to i64
-  %sub.ptr.rhs.cast.i.i.i7.i224 = ptrtoint ptr %52 to i64
+  %sub.ptr.lhs.cast.i.i.i6.i223 = ptrtoint ptr %53 to i64
+  %sub.ptr.rhs.cast.i.i.i7.i224 = ptrtoint ptr %54 to i64
   %sub.ptr.sub.i.i.i8.i225 = sub i64 %sub.ptr.lhs.cast.i.i.i6.i223, %sub.ptr.rhs.cast.i.i.i7.i224
-  store ptr %52, ptr %OutBufCur.i6.i, align 8
+  store ptr %54, ptr %OutBufCur.i6.i, align 8
   %vtable.i.i.i9.i226 = load ptr, ptr %this, align 8
   %vfn.i.i.i10.i227 = getelementptr inbounds i8, ptr %vtable.i.i.i9.i226, i64 56
-  %56 = load ptr, ptr %vfn.i.i.i10.i227, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %52, i64 noundef %sub.ptr.sub.i.i.i8.i225) #26
+  %58 = load ptr, ptr %vfn.i.i.i10.i227, align 8
+  call void %58(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %54, i64 noundef %sub.ptr.sub.i.i.i8.i225) #26
   br label %_ZN4llvh11raw_ostream5flushEv.exit.i11.i228
 
 _ZN4llvh11raw_ostream5flushEv.exit.i11.i228:      ; preds = %if.then.i.i5.i222, %if.else.i221
-  %57 = load i32, ptr %BufferMode.i.i99, align 8
-  %cmp.i.i13.i230 = icmp eq i32 %57, 1
+  %59 = load i32, ptr %BufferMode.i.i99, align 8
+  %cmp.i.i13.i230 = icmp eq i32 %59, 1
   br i1 %cmp.i.i13.i230, label %if.then.i2.i.i232, label %if.then.i.i117
 
 if.then.i2.i.i232:                                ; preds = %_ZN4llvh11raw_ostream5flushEv.exit.i11.i228
-  %58 = load ptr, ptr %OutBufStart.i.i98, align 8
-  %isnull.i.i14.i233 = icmp eq ptr %58, null
+  %60 = load ptr, ptr %OutBufStart.i.i98, align 8
+  %isnull.i.i14.i233 = icmp eq ptr %60, null
   br i1 %isnull.i.i14.i233, label %if.then.i.i117, label %delete.notnull.i.i15.i234
 
 delete.notnull.i.i15.i234:                        ; preds = %if.then.i2.i.i232
-  call void @_ZdaPv(ptr noundef nonnull %58) #24
+  call void @_ZdaPv(ptr noundef nonnull %60) #24
   br label %if.then.i.i117
 
 _ZN4llvh11raw_ostream11SetBufferedEv.exit235:     ; preds = %_ZN4llvh11raw_ostream5flushEv.exit.i.i210, %if.then.i3.i.i218, %delete.notnull.i.i.i220
@@ -3123,23 +3126,23 @@ _ZN4llvh11raw_ostream11SetBufferedEv.exit235:     ; preds = %_ZN4llvh11raw_ostre
 
 if.end5.i.i101:                                   ; preds = %_ZN4llvh11raw_ostream11SetBufferedEv.exit235, %if.then.lr.ph.i.i97
   %.lcssa4.i102 = phi ptr [ %33, %if.then.lr.ph.i.i97 ], [ %call.i.i211, %_ZN4llvh11raw_ostream11SetBufferedEv.exit235 ]
-  %.lcssa.i103 = phi ptr [ %48, %if.then.lr.ph.i.i97 ], [ %call.i.i211, %_ZN4llvh11raw_ostream11SetBufferedEv.exit235 ]
+  %.lcssa.i103 = phi ptr [ %49, %if.then.lr.ph.i.i97 ], [ %call.i.i211, %_ZN4llvh11raw_ostream11SetBufferedEv.exit235 ]
   %sub.ptr.lhs.cast.i.i.i104 = ptrtoint ptr %.lcssa4.i102 to i64
   %sub.ptr.rhs.cast.i.i.i105 = ptrtoint ptr %.lcssa.i103 to i64
   %sub.ptr.sub.i.i.i106 = sub i64 %sub.ptr.lhs.cast.i.i.i104, %sub.ptr.rhs.cast.i.i.i105
   store ptr %.lcssa.i103, ptr %OutBufCur.i6.i, align 8
   %vtable.i.i.i107 = load ptr, ptr %this, align 8
   %vfn.i.i.i108 = getelementptr inbounds i8, ptr %vtable.i.i.i107, i64 56
-  %59 = load ptr, ptr %vfn.i.i.i108, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %.lcssa.i103, i64 noundef %sub.ptr.sub.i.i.i106) #26
+  %61 = load ptr, ptr %vfn.i.i.i108, align 8
+  call void %61(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %.lcssa.i103, i64 noundef %sub.ptr.sub.i.i.i106) #26
   %.pre.i.i109 = load ptr, ptr %OutBufCur.i6.i, align 8
   br label %if.end6.i.i110
 
 if.end6.i.i110:                                   ; preds = %_ZN4llvh11raw_ostream11SetBufferedEv.exit235, %if.end5.i.i101
-  %60 = phi ptr [ %.pre.i.i109, %if.end5.i.i101 ], [ %call.i.i211, %_ZN4llvh11raw_ostream11SetBufferedEv.exit235 ]
-  %incdec.ptr.i.i111 = getelementptr inbounds i8, ptr %60, i64 1
+  %62 = phi ptr [ %.pre.i.i109, %if.end5.i.i101 ], [ %call.i.i211, %_ZN4llvh11raw_ostream11SetBufferedEv.exit235 ]
+  %incdec.ptr.i.i111 = getelementptr inbounds i8, ptr %62, i64 1
   store ptr %incdec.ptr.i.i111, ptr %OutBufCur.i6.i, align 8
-  store i8 46, ptr %60, align 1
+  store i8 46, ptr %62, align 1
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i112
 
 _ZN4llvh11raw_ostream5writeEh.exit.i112:          ; preds = %if.end6.i.i110, %if.then4.i.i119
@@ -3158,61 +3161,61 @@ for.inc77:                                        ; preds = %if.end.i122, %_ZN4l
   br i1 %cmp70.not, label %for.end78, label %for.body71
 
 for.end78:                                        ; preds = %for.inc77, %_ZN4llvh11raw_ostreamlsEPKc.exit87
-  %61 = load ptr, ptr %OutBufCur.i6.i, align 8
-  %62 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %cmp.not.i128 = icmp ult ptr %61, %62
+  %63 = load ptr, ptr %OutBufCur.i6.i, align 8
+  %64 = load ptr, ptr %OutBufEnd.i5.i, align 8
+  %cmp.not.i128 = icmp ult ptr %63, %64
   br i1 %cmp.not.i128, label %if.end.i154, label %if.then.lr.ph.i.i129
 
 if.then.lr.ph.i.i129:                             ; preds = %for.end78
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i125)
-  %63 = load ptr, ptr %OutBufStart.i.i98, align 8
-  %tobool.not.i8.i132 = icmp eq ptr %63, null
+  %65 = load ptr, ptr %OutBufStart.i.i98, align 8
+  %tobool.not.i8.i132 = icmp eq ptr %65, null
   br i1 %tobool.not.i8.i132, label %if.then2.i.i145, label %if.end5.i.i133
 
 if.then.i.i149:                                   ; preds = %if.end.i.i147
-  %64 = load ptr, ptr %OutBufStart.i.i98, align 8
-  %tobool.not.i.i150 = icmp eq ptr %64, null
+  %66 = load ptr, ptr %OutBufStart.i.i98, align 8
+  %tobool.not.i.i150 = icmp eq ptr %66, null
   br i1 %tobool.not.i.i150, label %if.then2.i.i145, label %if.end5.i.i133
 
 if.then2.i.i145:                                  ; preds = %if.then.lr.ph.i.i129, %if.then.i.i149
-  %65 = load i32, ptr %BufferMode.i.i99, align 8
-  %cmp3.i.i146 = icmp eq i32 %65, 0
+  %67 = load i32, ptr %BufferMode.i.i99, align 8
+  %cmp3.i.i146 = icmp eq i32 %67, 0
   br i1 %cmp3.i.i146, label %if.then4.i.i151, label %if.end.i.i147
 
 if.then4.i.i151:                                  ; preds = %if.then2.i.i145
   store i8 124, ptr %C.addr.i.i125, align 1
   %vtable.i.i152 = load ptr, ptr %this, align 8
   %vfn.i.i153 = getelementptr inbounds i8, ptr %vtable.i.i152, i64 56
-  %66 = load ptr, ptr %vfn.i.i153, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %C.addr.i.i125, i64 noundef 1) #26
+  %68 = load ptr, ptr %vfn.i.i153, align 8
+  call void %68(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %C.addr.i.i125, i64 noundef 1) #26
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i144
 
 if.end.i.i147:                                    ; preds = %if.then2.i.i145
   call void @_ZN4llvh11raw_ostream11SetBufferedEv(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  %67 = load ptr, ptr %OutBufCur.i6.i, align 8
-  %68 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %cmp.not.i.i148 = icmp ult ptr %67, %68
+  %69 = load ptr, ptr %OutBufCur.i6.i, align 8
+  %70 = load ptr, ptr %OutBufEnd.i5.i, align 8
+  %cmp.not.i.i148 = icmp ult ptr %69, %70
   br i1 %cmp.not.i.i148, label %if.end6.i.i142, label %if.then.i.i149
 
 if.end5.i.i133:                                   ; preds = %if.then.i.i149, %if.then.lr.ph.i.i129
-  %.lcssa4.i134 = phi ptr [ %61, %if.then.lr.ph.i.i129 ], [ %67, %if.then.i.i149 ]
-  %.lcssa.i135 = phi ptr [ %63, %if.then.lr.ph.i.i129 ], [ %64, %if.then.i.i149 ]
+  %.lcssa4.i134 = phi ptr [ %63, %if.then.lr.ph.i.i129 ], [ %69, %if.then.i.i149 ]
+  %.lcssa.i135 = phi ptr [ %65, %if.then.lr.ph.i.i129 ], [ %66, %if.then.i.i149 ]
   %sub.ptr.lhs.cast.i.i.i136 = ptrtoint ptr %.lcssa4.i134 to i64
   %sub.ptr.rhs.cast.i.i.i137 = ptrtoint ptr %.lcssa.i135 to i64
   %sub.ptr.sub.i.i.i138 = sub i64 %sub.ptr.lhs.cast.i.i.i136, %sub.ptr.rhs.cast.i.i.i137
   store ptr %.lcssa.i135, ptr %OutBufCur.i6.i, align 8
   %vtable.i.i.i139 = load ptr, ptr %this, align 8
   %vfn.i.i.i140 = getelementptr inbounds i8, ptr %vtable.i.i.i139, i64 56
-  %69 = load ptr, ptr %vfn.i.i.i140, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %.lcssa.i135, i64 noundef %sub.ptr.sub.i.i.i138) #26
+  %71 = load ptr, ptr %vfn.i.i.i140, align 8
+  call void %71(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %.lcssa.i135, i64 noundef %sub.ptr.sub.i.i.i138) #26
   %.pre.i.i141 = load ptr, ptr %OutBufCur.i6.i, align 8
   br label %if.end6.i.i142
 
 if.end6.i.i142:                                   ; preds = %if.end.i.i147, %if.end5.i.i133
-  %70 = phi ptr [ %.pre.i.i141, %if.end5.i.i133 ], [ %67, %if.end.i.i147 ]
-  %incdec.ptr.i.i143 = getelementptr inbounds i8, ptr %70, i64 1
+  %72 = phi ptr [ %.pre.i.i141, %if.end5.i.i133 ], [ %69, %if.end.i.i147 ]
+  %incdec.ptr.i.i143 = getelementptr inbounds i8, ptr %72, i64 1
   store ptr %incdec.ptr.i.i143, ptr %OutBufCur.i6.i, align 8
-  store i8 124, ptr %70, align 1
+  store i8 124, ptr %72, align 1
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i144
 
 _ZN4llvh11raw_ostream5writeEh.exit.i144:          ; preds = %if.end6.i.i142, %if.then4.i.i151
@@ -3220,9 +3223,9 @@ _ZN4llvh11raw_ostream5writeEh.exit.i144:          ; preds = %if.end6.i.i142, %if
   br label %if.end80
 
 if.end.i154:                                      ; preds = %for.end78
-  %incdec.ptr.i155 = getelementptr inbounds i8, ptr %61, i64 1
+  %incdec.ptr.i155 = getelementptr inbounds i8, ptr %63, i64 1
   store ptr %incdec.ptr.i155, ptr %OutBufCur.i6.i, align 8
-  store i8 124, ptr %61, align 1
+  store i8 124, ptr %63, align 1
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end.i154, %_ZN4llvh11raw_ostream5writeEh.exit.i144, %for.end
@@ -3233,61 +3236,61 @@ if.end80:                                         ; preds = %if.end.i154, %_ZN4l
   br i1 %cmp86, label %if.then87, label %if.end89
 
 if.then87:                                        ; preds = %if.end80
-  %71 = load ptr, ptr %OutBufCur.i6.i, align 8
-  %72 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %cmp.not.i165 = icmp ult ptr %71, %72
+  %73 = load ptr, ptr %OutBufCur.i6.i, align 8
+  %74 = load ptr, ptr %OutBufEnd.i5.i, align 8
+  %cmp.not.i165 = icmp ult ptr %73, %74
   br i1 %cmp.not.i165, label %if.end.i191, label %if.then.lr.ph.i.i166
 
 if.then.lr.ph.i.i166:                             ; preds = %if.then87
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %C.addr.i.i162)
-  %73 = load ptr, ptr %OutBufStart.i.i98, align 8
-  %tobool.not.i8.i169 = icmp eq ptr %73, null
+  %75 = load ptr, ptr %OutBufStart.i.i98, align 8
+  %tobool.not.i8.i169 = icmp eq ptr %75, null
   br i1 %tobool.not.i8.i169, label %if.then2.i.i182, label %if.end5.i.i170
 
 if.then.i.i186:                                   ; preds = %if.end.i.i184
-  %74 = load ptr, ptr %OutBufStart.i.i98, align 8
-  %tobool.not.i.i187 = icmp eq ptr %74, null
+  %76 = load ptr, ptr %OutBufStart.i.i98, align 8
+  %tobool.not.i.i187 = icmp eq ptr %76, null
   br i1 %tobool.not.i.i187, label %if.then2.i.i182, label %if.end5.i.i170
 
 if.then2.i.i182:                                  ; preds = %if.then.lr.ph.i.i166, %if.then.i.i186
-  %75 = load i32, ptr %BufferMode.i.i99, align 8
-  %cmp3.i.i183 = icmp eq i32 %75, 0
+  %77 = load i32, ptr %BufferMode.i.i99, align 8
+  %cmp3.i.i183 = icmp eq i32 %77, 0
   br i1 %cmp3.i.i183, label %if.then4.i.i188, label %if.end.i.i184
 
 if.then4.i.i188:                                  ; preds = %if.then2.i.i182
   store i8 10, ptr %C.addr.i.i162, align 1
   %vtable.i.i189 = load ptr, ptr %this, align 8
   %vfn.i.i190 = getelementptr inbounds i8, ptr %vtable.i.i189, i64 56
-  %76 = load ptr, ptr %vfn.i.i190, align 8
-  call void %76(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %C.addr.i.i162, i64 noundef 1) #26
+  %78 = load ptr, ptr %vfn.i.i190, align 8
+  call void %78(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %C.addr.i.i162, i64 noundef 1) #26
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i181
 
 if.end.i.i184:                                    ; preds = %if.then2.i.i182
   call void @_ZN4llvh11raw_ostream11SetBufferedEv(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  %77 = load ptr, ptr %OutBufCur.i6.i, align 8
-  %78 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %cmp.not.i.i185 = icmp ult ptr %77, %78
+  %79 = load ptr, ptr %OutBufCur.i6.i, align 8
+  %80 = load ptr, ptr %OutBufEnd.i5.i, align 8
+  %cmp.not.i.i185 = icmp ult ptr %79, %80
   br i1 %cmp.not.i.i185, label %if.end6.i.i179, label %if.then.i.i186
 
 if.end5.i.i170:                                   ; preds = %if.then.i.i186, %if.then.lr.ph.i.i166
-  %.lcssa4.i171 = phi ptr [ %71, %if.then.lr.ph.i.i166 ], [ %77, %if.then.i.i186 ]
-  %.lcssa.i172 = phi ptr [ %73, %if.then.lr.ph.i.i166 ], [ %74, %if.then.i.i186 ]
+  %.lcssa4.i171 = phi ptr [ %73, %if.then.lr.ph.i.i166 ], [ %79, %if.then.i.i186 ]
+  %.lcssa.i172 = phi ptr [ %75, %if.then.lr.ph.i.i166 ], [ %76, %if.then.i.i186 ]
   %sub.ptr.lhs.cast.i.i.i173 = ptrtoint ptr %.lcssa4.i171 to i64
   %sub.ptr.rhs.cast.i.i.i174 = ptrtoint ptr %.lcssa.i172 to i64
   %sub.ptr.sub.i.i.i175 = sub i64 %sub.ptr.lhs.cast.i.i.i173, %sub.ptr.rhs.cast.i.i.i174
   store ptr %.lcssa.i172, ptr %OutBufCur.i6.i, align 8
   %vtable.i.i.i176 = load ptr, ptr %this, align 8
   %vfn.i.i.i177 = getelementptr inbounds i8, ptr %vtable.i.i.i176, i64 56
-  %79 = load ptr, ptr %vfn.i.i.i177, align 8
-  call void %79(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %.lcssa.i172, i64 noundef %sub.ptr.sub.i.i.i175) #26
+  %81 = load ptr, ptr %vfn.i.i.i177, align 8
+  call void %81(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %.lcssa.i172, i64 noundef %sub.ptr.sub.i.i.i175) #26
   %.pre.i.i178 = load ptr, ptr %OutBufCur.i6.i, align 8
   br label %if.end6.i.i179
 
 if.end6.i.i179:                                   ; preds = %if.end.i.i184, %if.end5.i.i170
-  %80 = phi ptr [ %.pre.i.i178, %if.end5.i.i170 ], [ %77, %if.end.i.i184 ]
-  %incdec.ptr.i.i180 = getelementptr inbounds i8, ptr %80, i64 1
+  %82 = phi ptr [ %.pre.i.i178, %if.end5.i.i170 ], [ %79, %if.end.i.i184 ]
+  %incdec.ptr.i.i180 = getelementptr inbounds i8, ptr %82, i64 1
   store ptr %incdec.ptr.i.i180, ptr %OutBufCur.i6.i, align 8
-  store i8 10, ptr %80, align 1
+  store i8 10, ptr %82, align 1
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i181
 
 _ZN4llvh11raw_ostream5writeEh.exit.i181:          ; preds = %if.end6.i.i179, %if.then4.i.i188
@@ -3295,9 +3298,9 @@ _ZN4llvh11raw_ostream5writeEh.exit.i181:          ; preds = %if.end6.i.i179, %if
   br label %if.end89
 
 if.end.i191:                                      ; preds = %if.then87
-  %incdec.ptr.i192 = getelementptr inbounds i8, ptr %71, i64 1
+  %incdec.ptr.i192 = getelementptr inbounds i8, ptr %73, i64 1
   store ptr %incdec.ptr.i192, ptr %OutBufCur.i6.i, align 8
-  store i8 10, ptr %71, align 1
+  store i8 10, ptr %73, align 1
   br label %if.end89
 
 if.end89:                                         ; preds = %if.end.i191, %_ZN4llvh11raw_ostream5writeEh.exit.i181, %if.end80
@@ -4341,7 +4344,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK4llvh19raw_svector_ostream11current_posEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #16 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZNK4llvh19raw_svector_ostream11current_posEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #16 align 2 {
 entry:
   %OS = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %OS, align 8
@@ -4730,8 +4733,8 @@ if.then.lr.ph.i.i:                                ; preds = %for.body
 
 if.then2.i.i.preheader:                           ; preds = %if.then.lr.ph.i.i
   %.pre = load i32, ptr %BufferMode.i.i, align 8
-  %cmp3.i.i13 = icmp eq i32 %.pre, 0
-  br i1 %cmp3.i.i13, label %if.then4.i.i, label %if.end.i.i
+  %4 = icmp eq i32 %.pre, 0
+  br i1 %4, label %if.then4.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4llvh11raw_ostream5flushEv.exit.i11.i, %if.then.i2.i.i, %delete.notnull.i.i15.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %OutBufStart.i.i, i8 0, i64 28, i1 false)
@@ -4741,76 +4744,76 @@ if.then4.i.i:                                     ; preds = %if.then.i.i, %if.th
   store i8 %0, ptr %C.addr.i.i, align 1
   %vtable.i.i = load ptr, ptr %S, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 56
-  %4 = load ptr, ptr %vfn.i.i, align 8
-  call void %4(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef nonnull %C.addr.i.i, i64 noundef 1) #26
+  %5 = load ptr, ptr %vfn.i.i, align 8
+  call void %5(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef nonnull %C.addr.i.i, i64 noundef 1) #26
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i
 
 if.end.i.i:                                       ; preds = %if.then2.i.i.preheader
   %vtable.i = load ptr, ptr %S, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
-  %5 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(36) %S) #26
+  %6 = load ptr, ptr %vfn.i, align 8
+  %call.i = call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(36) %S) #26
   %tobool.not.i = icmp eq i64 %call.i, 0
-  %6 = load ptr, ptr %OutBufCur.i, align 8
-  %7 = load ptr, ptr %OutBufStart.i.i, align 8
-  %cmp.not.i.i4.i = icmp eq ptr %6, %7
+  %7 = load ptr, ptr %OutBufCur.i, align 8
+  %8 = load ptr, ptr %OutBufStart.i.i, align 8
+  %cmp.not.i.i4.i = icmp eq ptr %7, %8
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end.i.i
   br i1 %cmp.not.i.i4.i, label %_ZN4llvh11raw_ostream5flushEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  store ptr %7, ptr %OutBufCur.i, align 8
+  store ptr %8, ptr %OutBufCur.i, align 8
   %vtable.i.i.i.i = load ptr, ptr %S, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 56
-  %8 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef %7, i64 noundef %sub.ptr.sub.i.i.i.i) #26
+  %9 = load ptr, ptr %vfn.i.i.i.i, align 8
+  call void %9(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef %8, i64 noundef %sub.ptr.sub.i.i.i.i) #26
   br label %_ZN4llvh11raw_ostream5flushEv.exit.i.i
 
 _ZN4llvh11raw_ostream5flushEv.exit.i.i:           ; preds = %if.then.i.i.i, %if.then.i
   %call.i.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %call.i) #27
-  %9 = load i32, ptr %BufferMode.i.i, align 8
-  %cmp.i.i.i = icmp eq i32 %9, 1
+  %10 = load i32, ptr %BufferMode.i.i, align 8
+  %cmp.i.i.i = icmp eq i32 %10, 1
   br i1 %cmp.i.i.i, label %if.then.i3.i.i, label %_ZN4llvh11raw_ostream11SetBufferedEv.exit
 
 if.then.i3.i.i:                                   ; preds = %_ZN4llvh11raw_ostream5flushEv.exit.i.i
-  %10 = load ptr, ptr %OutBufStart.i.i, align 8
-  %isnull.i.i.i = icmp eq ptr %10, null
+  %11 = load ptr, ptr %OutBufStart.i.i, align 8
+  %isnull.i.i.i = icmp eq ptr %11, null
   br i1 %isnull.i.i.i, label %_ZN4llvh11raw_ostream11SetBufferedEv.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i3.i.i
-  call void @_ZdaPv(ptr noundef nonnull %10) #24
+  call void @_ZdaPv(ptr noundef nonnull %11) #24
   br label %_ZN4llvh11raw_ostream11SetBufferedEv.exit
 
 if.else.i:                                        ; preds = %if.end.i.i
   br i1 %cmp.not.i.i4.i, label %_ZN4llvh11raw_ostream5flushEv.exit.i11.i, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %if.else.i
-  %sub.ptr.lhs.cast.i.i.i6.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i.i7.i = ptrtoint ptr %7 to i64
+  %sub.ptr.lhs.cast.i.i.i6.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i.i.i7.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i8.i = sub i64 %sub.ptr.lhs.cast.i.i.i6.i, %sub.ptr.rhs.cast.i.i.i7.i
-  store ptr %7, ptr %OutBufCur.i, align 8
+  store ptr %8, ptr %OutBufCur.i, align 8
   %vtable.i.i.i9.i = load ptr, ptr %S, align 8
   %vfn.i.i.i10.i = getelementptr inbounds i8, ptr %vtable.i.i.i9.i, i64 56
-  %11 = load ptr, ptr %vfn.i.i.i10.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef %7, i64 noundef %sub.ptr.sub.i.i.i8.i) #26
+  %12 = load ptr, ptr %vfn.i.i.i10.i, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef %8, i64 noundef %sub.ptr.sub.i.i.i8.i) #26
   br label %_ZN4llvh11raw_ostream5flushEv.exit.i11.i
 
 _ZN4llvh11raw_ostream5flushEv.exit.i11.i:         ; preds = %if.then.i.i5.i, %if.else.i
-  %12 = load i32, ptr %BufferMode.i.i, align 8
-  %cmp.i.i13.i = icmp eq i32 %12, 1
+  %13 = load i32, ptr %BufferMode.i.i, align 8
+  %cmp.i.i13.i = icmp eq i32 %13, 1
   br i1 %cmp.i.i13.i, label %if.then.i2.i.i, label %if.then.i.i
 
 if.then.i2.i.i:                                   ; preds = %_ZN4llvh11raw_ostream5flushEv.exit.i11.i
-  %13 = load ptr, ptr %OutBufStart.i.i, align 8
-  %isnull.i.i14.i = icmp eq ptr %13, null
+  %14 = load ptr, ptr %OutBufStart.i.i, align 8
+  %isnull.i.i14.i = icmp eq ptr %14, null
   br i1 %isnull.i.i14.i, label %if.then.i.i, label %delete.notnull.i.i15.i
 
 delete.notnull.i.i15.i:                           ; preds = %if.then.i2.i.i
-  call void @_ZdaPv(ptr noundef nonnull %13) #24
+  call void @_ZdaPv(ptr noundef nonnull %14) #24
   br label %if.then.i.i
 
 _ZN4llvh11raw_ostream11SetBufferedEv.exit:        ; preds = %_ZN4llvh11raw_ostream5flushEv.exit.i.i, %if.then.i3.i.i, %delete.notnull.i.i.i
@@ -4830,16 +4833,16 @@ if.end5.i.i:                                      ; preds = %_ZN4llvh11raw_ostre
   store ptr %.lcssa.i, ptr %OutBufCur.i, align 8
   %vtable.i.i.i = load ptr, ptr %S, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 56
-  %14 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef nonnull %.lcssa.i, i64 noundef %sub.ptr.sub.i.i.i) #26
+  %15 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %15(ptr noundef nonnull align 8 dereferenceable(36) %S, ptr noundef nonnull %.lcssa.i, i64 noundef %sub.ptr.sub.i.i.i) #26
   %.pre.i.i = load ptr, ptr %OutBufCur.i, align 8
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %_ZN4llvh11raw_ostream11SetBufferedEv.exit, %if.end5.i.i
-  %15 = phi ptr [ %.pre.i.i, %if.end5.i.i ], [ %call.i.i, %_ZN4llvh11raw_ostream11SetBufferedEv.exit ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = phi ptr [ %.pre.i.i, %if.end5.i.i ], [ %call.i.i, %_ZN4llvh11raw_ostream11SetBufferedEv.exit ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 1
   store ptr %incdec.ptr.i.i, ptr %OutBufCur.i, align 8
-  store i8 %0, ptr %15, align 1
+  store i8 %0, ptr %16, align 1
   br label %_ZN4llvh11raw_ostream5writeEh.exit.i
 
 _ZN4llvh11raw_ostream5writeEh.exit.i:             ; preds = %if.end6.i.i, %if.then4.i.i

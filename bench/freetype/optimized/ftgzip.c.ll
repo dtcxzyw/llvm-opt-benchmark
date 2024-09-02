@@ -575,7 +575,7 @@ declare hidden i32 @FT_Stream_ReadULongLE(ptr noundef, ptr noundef) local_unname
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_gzip_file_fill_output(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 86) i32 @ft_gzip_file_fill_output(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 4240
   %4 = getelementptr inbounds i8, ptr %0, i64 8344

@@ -1133,7 +1133,7 @@ define hidden noundef i64 @_ZN2os15physical_memoryEv() local_unnamed_addr #0 ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN2os3rssEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -1023) i64 @_ZN2os3rssEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %"struct.os::Linux::meminfo_t", align 8
   %2 = call noundef zeroext i1 @_ZN2os5Linux25query_process_memory_infoEPNS0_9meminfo_tE(ptr noundef nonnull %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 16

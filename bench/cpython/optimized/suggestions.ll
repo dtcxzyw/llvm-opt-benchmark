@@ -1405,7 +1405,7 @@ for.cond54.us:                                    ; preds = %for.cond60.for.end8
 for.body63.us:                                    ; preds = %for.body57.us, %substitution_cost.exit.us
   %index.085.us = phi i64 [ 0, %for.body57.us ], [ %inc83.us, %substitution_cost.exit.us ]
   %minimum.084.us = phi i64 [ -1, %for.body57.us ], [ %spec.select.us, %substitution_cost.exit.us ]
-  %distance.083.us = phi i64 [ %mul59.us, %for.body57.us ], [ %11, %substitution_cost.exit.us ]
+  %distance.083.us = phi i64 [ %mul59.us, %for.body57.us ], [ %12, %substitution_cost.exit.us ]
   %result.182.us = phi i64 [ %mul59.us, %for.body57.us ], [ %cond76.us, %substitution_cost.exit.us ]
   %arrayidx64.us = getelementptr i8, ptr %a.addr.1, i64 %index.085.us
   %6 = load i8, ptr %arrayidx64.us, align 1
@@ -1424,15 +1424,15 @@ if.end9.i.us:                                     ; preds = %if.end.i.us
   %10 = or disjoint i8 %6, 32
   %b.addr.0.i.us = select i1 %or.cond1.i.us, i8 %10, i8 %6
   %cmp34.i.us = icmp eq i8 %spec.select.i.us, %b.addr.0.i.us
-  %spec.select12.i.us = select i1 %cmp34.i.us, i64 1, i64 2
+  %11 = select i1 %cmp34.i.us, i64 1, i64 2
   br label %substitution_cost.exit.us
 
 substitution_cost.exit.us:                        ; preds = %if.end9.i.us, %if.end.i.us, %for.body63.us
-  %retval.0.i.us = phi i64 [ 2, %for.body63.us ], [ 0, %if.end.i.us ], [ %spec.select12.i.us, %if.end9.i.us ]
+  %retval.0.i.us = phi i64 [ 2, %for.body63.us ], [ 0, %if.end.i.us ], [ %11, %if.end9.i.us ]
   %add66.us = add i64 %retval.0.i.us, %distance.083.us
   %arrayidx67.us = getelementptr i64, ptr %buffer, i64 %index.085.us
-  %11 = load i64, ptr %arrayidx67.us, align 8
-  %cond.us = tail call i64 @llvm.umin.i64(i64 %result.182.us, i64 %11)
+  %12 = load i64, ptr %arrayidx67.us, align 8
+  %cond.us = tail call i64 @llvm.umin.i64(i64 %result.182.us, i64 %12)
   %add70.us = add i64 %cond.us, 2
   %cond76.us = tail call i64 @llvm.umin.i64(i64 %add70.us, i64 %add66.us)
   store i64 %cond76.us, ptr %arrayidx67.us, align 8

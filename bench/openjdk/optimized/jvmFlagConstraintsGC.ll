@@ -357,7 +357,7 @@ _ZL23MaxSizeForHeapAlignmentPKcmb.exit:           ; preds = %9, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_Z25MaxHeapSizeConstraintFuncmb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 7) i32 @_Z25MaxHeapSizeConstraintFuncmb(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @UseG1GC, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7

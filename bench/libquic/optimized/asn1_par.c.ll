@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.54 = private unnamed_addr constant [10 x i8] c"<ASN1 %d>\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_parse(ptr noundef %bp, ptr noundef %pp, i64 noundef %len, i32 noundef %indent) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 3) i32 @ASN1_parse(ptr noundef %bp, ptr noundef %pp, i64 noundef %len, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %pp.addr = alloca ptr, align 8
   store ptr %pp, ptr %pp.addr, align 8
@@ -71,7 +71,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @asn1_parse2(ptr noundef %bp, ptr nocapture noundef %pp, i64 noundef %length, i32 noundef %offset, i32 noundef %depth, i32 noundef %indent, i32 noundef %dump) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 3) i32 @asn1_parse2(ptr noundef %bp, ptr nocapture noundef %pp, i64 noundef %length, i32 noundef %offset, i32 noundef %depth, i32 noundef %indent, i32 noundef %dump) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %opp = alloca ptr, align 8
@@ -667,7 +667,7 @@ return:                                           ; preds = %if.end502, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ASN1_parse_dump(ptr noundef %bp, ptr noundef %pp, i64 noundef %len, i32 noundef %indent, i32 noundef %dump) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 3) i32 @ASN1_parse_dump(ptr noundef %bp, ptr noundef %pp, i64 noundef %len, i32 noundef %indent, i32 noundef %dump) local_unnamed_addr #0 {
 entry:
   %pp.addr = alloca ptr, align 8
   store ptr %pp, ptr %pp.addr, align 8

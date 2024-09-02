@@ -943,17 +943,17 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 145:                                              ; preds = %144, %137, %134, %130, %126, %122, %118
   %146 = load double, ptr %113, align 8
   %147 = fcmp une double %146, 0.000000e+00
-  br i1 %147, label %148, label %152
+  br i1 %147, label %148, label %153
 
 148:                                              ; preds = %145
   %149 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.14)
   %150 = and i64 %149, 4294967295
   %151 = icmp ne i64 %150, 0
-  br label %152
+  %152 = zext i1 %151 to i32
+  br label %153
 
-152:                                              ; preds = %148, %145
-  %153 = phi i1 [ false, %145 ], [ %151, %148 ]
-  %154 = zext i1 %153 to i32
+153:                                              ; preds = %148, %145
+  %154 = phi i32 [ 0, %145 ], [ %152, %148 ]
   %155 = getelementptr inbounds i8, ptr %75, i64 348
   store i32 %154, ptr %155, align 4
   %156 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.15)
@@ -972,11 +972,11 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %.not375 = icmp eq i32 %.sroa.045.0.extract.trunc, 0
   br i1 %.not375, label %165, label %163
 
-163:                                              ; preds = %152
+163:                                              ; preds = %153
   %164 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.17)
   br label %165
 
-165:                                              ; preds = %163, %152
+165:                                              ; preds = %163, %153
   %166 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef %38, ptr noundef nonnull @.str.18)
   %.sroa.042.0.extract.trunc = trunc i64 %166 to i32
   store i32 %.sroa.042.0.extract.trunc, ptr %83, align 8

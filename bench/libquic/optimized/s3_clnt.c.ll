@@ -42,7 +42,6 @@ if.end7:                                          ; preds = %if.else, %entry
   %bbio = getelementptr inbounds i8, ptr %ssl, i64 32
   %cmp10.not = icmp eq ptr %cb.0, null
   %init_buf = getelementptr inbounds i8, ptr %ssl, i64 56
-  %cmp322 = icmp ne ptr %cb.0, null
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end7
@@ -197,12 +196,11 @@ if.end67:                                         ; preds = %if.then63
   %bf.load70 = load i8, ptr %certificate_status_expected, align 8
   %bf.clear71 = and i8 %bf.load70, 1
   %tobool73.not = icmp eq i8 %bf.clear71, 0
-  %.201 = select i1 %tobool73.not, i32 4354, i32 4592
+  %.200 = select i1 %tobool73.not, i32 4354, i32 4592
   br label %if.end81
 
 if.end81:                                         ; preds = %sw.bb60, %if.end67
-  %.sink = phi i32 [ %.201, %if.end67 ], [ 4416, %sw.bb60 ]
-  %skip.2 = phi i32 [ 0, %if.end67 ], [ 1, %sw.bb60 ]
+  %.sink = phi i32 [ %.200, %if.end67 ], [ 4416, %sw.bb60 ]
   store i32 %.sink, ptr %state8, align 4
   store i32 0, ptr %init_num275, align 8
   br label %sw.epilog
@@ -257,16 +255,16 @@ sw.bb104:                                         ; preds = %for.cond, %for.cond
   %15 = load ptr, ptr %method, align 8
   %ssl_get_message.i = getelementptr inbounds i8, ptr %15, i64 40
   %16 = load ptr, ptr %ssl_get_message.i, align 8
-  %call.i175 = call i64 %16(ptr noundef nonnull %ssl, i32 noundef 4448, i32 noundef 4449, i32 noundef 14, i64 noundef 30, i32 noundef 1, ptr noundef nonnull %ok.i) #11
+  %call.i174 = call i64 %16(ptr noundef nonnull %ssl, i32 noundef 4448, i32 noundef 4449, i32 noundef 14, i64 noundef 30, i32 noundef 1, ptr noundef nonnull %ok.i) #11
   %17 = load i32, ptr %ok.i, align 4
   %tobool.not.i = icmp eq i32 %17, 0
   br i1 %tobool.not.i, label %ssl3_get_server_done.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb104
-  %cmp.i176 = icmp sgt i64 %call.i175, 0
-  br i1 %cmp.i176, label %ssl3_get_server_done.exit.thread, label %ssl3_get_server_done.exit.thread182
+  %cmp.i175 = icmp sgt i64 %call.i174, 0
+  br i1 %cmp.i175, label %ssl3_get_server_done.exit.thread, label %ssl3_get_server_done.exit.thread181
 
-ssl3_get_server_done.exit.thread182:              ; preds = %if.end.i
+ssl3_get_server_done.exit.thread181:              ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ok.i)
   br label %if.end108
 
@@ -277,12 +275,12 @@ ssl3_get_server_done.exit.thread:                 ; preds = %if.end.i
   br label %end
 
 ssl3_get_server_done.exit:                        ; preds = %sw.bb104
-  %conv.i = trunc i64 %call.i175 to i32
+  %conv.i = trunc i64 %call.i174 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ok.i)
   %cmp106 = icmp slt i32 %conv.i, 1
   br i1 %cmp106, label %end, label %if.end108
 
-if.end108:                                        ; preds = %ssl3_get_server_done.exit.thread182, %ssl3_get_server_done.exit
+if.end108:                                        ; preds = %ssl3_get_server_done.exit.thread181, %ssl3_get_server_done.exit
   %18 = load ptr, ptr %s3283, align 8
   %cert_req = getelementptr inbounds i8, ptr %18, i64 464
   %19 = load i32, ptr %cert_req, align 8
@@ -312,8 +310,8 @@ if.end129:                                        ; preds = %sw.bb125
   %cert_req132 = getelementptr inbounds i8, ptr %20, i64 464
   %21 = load i32, ptr %cert_req132, align 8
   %cmp133 = icmp eq i32 %21, 1
-  %.170 = select i1 %cmp133, i32 4496, i32 4512
-  store i32 %.170, ptr %state8, align 4
+  %.169 = select i1 %cmp133, i32 4496, i32 4512
+  store i32 %.169, ptr %state8, align 4
   store i32 0, ptr %init_num275, align 8
   br label %sw.epilog
 
@@ -338,13 +336,13 @@ if.end151:                                        ; preds = %sw.bb147
   %tlsext_channel_id_valid = getelementptr inbounds i8, ptr %22, i64 768
   %23 = load i8, ptr %tlsext_channel_id_valid, align 8
   %tobool154.not = icmp eq i8 %23, 0
-  %spec.store.select171 = select i1 %tobool154.not, i32 4528, i32 4640
-  store i32 %spec.store.select171, ptr %state8, align 4
+  %spec.store.select170 = select i1 %tobool154.not, i32 4528, i32 4640
+  store i32 %spec.store.select170, ptr %state8, align 4
   %next_proto_neg_seen = getelementptr inbounds i8, ptr %22, i64 728
   %24 = load i32, ptr %next_proto_neg_seen, align 8
   %tobool159.not = icmp eq i32 %24, 0
-  %spec.store.select174 = select i1 %tobool159.not, i32 %spec.store.select171, i32 4608
-  store i32 %spec.store.select174, ptr %state8, align 4
+  %spec.store.select173 = select i1 %tobool159.not, i32 %spec.store.select170, i32 4608
+  store i32 %spec.store.select173, ptr %state8, align 4
   store i32 0, ptr %init_num275, align 8
   %call164 = call i32 @tls1_change_cipher_state(ptr noundef %ssl, i32 noundef 18) #11
   %tobool165.not = icmp eq i32 %call164, 0
@@ -490,8 +488,8 @@ if.end264:                                        ; preds = %sw.bb259
   %bf.load266 = load i8, ptr %hit265, align 1
   %bf.clear267 = and i8 %bf.load266, 1
   %tobool269.not = icmp eq i8 %bf.clear267, 0
-  %.172 = select i1 %tobool269.not, i32 3, i32 4512
-  store i32 %.172, ptr %state8, align 4
+  %.171 = select i1 %tobool269.not, i32 3, i32 4512
+  store i32 %.171, ptr %state8, align 4
   store i32 0, ptr %init_num275, align 8
   br label %sw.epilog
 
@@ -516,8 +514,8 @@ if.end282:                                        ; preds = %sw.bb276
 sw.bb287:                                         ; preds = %for.cond
   %38 = load i32, ptr %tlsext_ticket_expected218, align 8
   %tobool289.not = icmp eq i32 %38, 0
-  %.173 = select i1 %tobool289.not, i32 4544, i32 4576
-  store i32 %.173, ptr %state8, align 4
+  %.172 = select i1 %tobool289.not, i32 4544, i32 4576
+  store i32 %.172, ptr %state8, align 4
   %39 = load ptr, ptr %s3283, align 8
   %in_false_start = getelementptr inbounds i8, ptr %39, i64 553
   store i8 1, ptr %in_false_start, align 1
@@ -547,13 +545,13 @@ if.then310:                                       ; preds = %sw.bb297
   br label %if.end311
 
 if.end311:                                        ; preds = %if.then310, %sw.bb297
-  br i1 %cmp10.not, label %end.thread, label %end.thread189
+  br i1 %cmp10.not, label %end.thread, label %end.thread188
 
 end.thread:                                       ; preds = %if.end311
   call void @BUF_MEM_free(ptr noundef null) #11
   br label %if.end337
 
-end.thread189:                                    ; preds = %if.end311
+end.thread188:                                    ; preds = %if.end311
   call void %cb.0(ptr noundef nonnull %ssl, i32 noundef 32, i32 noundef 1) #11
   call void @BUF_MEM_free(ptr noundef null) #11
   br label %if.then336
@@ -563,18 +561,18 @@ sw.default:                                       ; preds = %for.cond
   br label %end
 
 sw.epilog:                                        ; preds = %if.then176, %if.else178, %if.end151, %if.end34, %if.then38, %if.end282, %if.end264, %if.end257, %if.end245, %if.end237, %if.end230, %if.end185, %if.end144, %if.end129, %if.end122, %if.end108, %if.end101, %if.end94, %if.end87, %if.end81, %if.end58, %if.end28
-  %skip.1 = phi i32 [ 0, %if.end282 ], [ 0, %if.end264 ], [ 0, %if.end257 ], [ 0, %if.end245 ], [ 0, %if.end237 ], [ 0, %if.end230 ], [ 0, %if.end185 ], [ 0, %if.then176 ], [ 0, %if.else178 ], [ 0, %if.end151 ], [ 0, %if.end144 ], [ 0, %if.end129 ], [ 0, %if.end122 ], [ 0, %if.end108 ], [ 0, %if.end101 ], [ 0, %if.end94 ], [ 0, %if.end87 ], [ %skip.2, %if.end81 ], [ 0, %if.end58 ], [ 0, %if.then38 ], [ 0, %if.end34 ], [ 0, %if.end28 ]
+  %skip.1 = phi i1 [ false, %if.end282 ], [ false, %if.end264 ], [ false, %if.end257 ], [ false, %if.end245 ], [ false, %if.end237 ], [ false, %if.end230 ], [ false, %if.end185 ], [ false, %if.then176 ], [ false, %if.else178 ], [ false, %if.end151 ], [ false, %if.end144 ], [ false, %if.end129 ], [ false, %if.end122 ], [ false, %if.end108 ], [ false, %if.end101 ], [ false, %if.end94 ], [ false, %if.end87 ], [ %tobool62.not, %if.end81 ], [ false, %if.end58 ], [ false, %if.then38 ], [ false, %if.end34 ], [ false, %if.end28 ]
   %44 = load ptr, ptr %s3283, align 8
   %reuse_message = getelementptr inbounds i8, ptr %44, i64 452
   %45 = load i32, ptr %reuse_message, align 4
-  %46 = or i32 %45, %skip.1
-  %or.cond.not169 = icmp eq i32 %46, 0
-  %or.cond1 = and i1 %cmp322, %or.cond.not169
-  br i1 %or.cond1, label %land.lhs.true324, label %for.cond.backedge
+  %tobool318 = icmp ne i32 %45, 0
+  %or.cond = or i1 %skip.1, %tobool318
+  %or.cond1.not = or i1 %cmp10.not, %or.cond
+  br i1 %or.cond1.not, label %for.cond.backedge, label %land.lhs.true324
 
 land.lhs.true324:                                 ; preds = %sw.epilog
-  %47 = load i32, ptr %state8, align 4
-  %cmp326.not = icmp eq i32 %47, %3
+  %46 = load i32, ptr %state8, align 4
+  %cmp326.not = icmp eq i32 %46, %3
   br i1 %cmp326.not, label %for.cond.backedge, label %if.then328
 
 for.cond.backedge:                                ; preds = %land.lhs.true324, %if.then328, %sw.epilog
@@ -583,7 +581,7 @@ for.cond.backedge:                                ; preds = %land.lhs.true324, %
 if.then328:                                       ; preds = %land.lhs.true324
   store i32 %3, ptr %state8, align 4
   call void %cb.0(ptr noundef nonnull %ssl, i32 noundef 4097, i32 noundef 1) #11
-  store i32 %47, ptr %state8, align 4
+  store i32 %46, ptr %state8, align 4
   br label %for.cond.backedge
 
 end:                                              ; preds = %if.end253, %if.end151, %if.end20, %if.then14, %lor.lhs.false, %sw.bb259, %sw.bb248, %sw.bb240, %sw.bb232, %if.else201, %sw.bb187, %sw.bb181, %sw.bb168, %sw.bb147, %sw.bb140, %sw.bb125, %sw.bb118, %ssl3_get_server_done.exit, %sw.bb97, %sw.bb90, %if.then63, %sw.bb44, %sw.bb30, %ssl3_get_server_done.exit.thread, %ssl3_verify_server_cert.exit.thread, %sw.default, %sw.bb287, %if.then281, %if.then27
@@ -592,14 +590,14 @@ end:                                              ; preds = %if.end253, %if.end1
   call void @BUF_MEM_free(ptr noundef %buf.2) #11
   br i1 %cmp10.not, label %if.end337, label %if.then336
 
-if.then336:                                       ; preds = %end.thread189, %end
-  %ret.0193 = phi i32 [ 1, %end.thread189 ], [ %ret.0, %end ]
-  call void %cb.0(ptr noundef %ssl, i32 noundef 4098, i32 noundef %ret.0193) #11
+if.then336:                                       ; preds = %end.thread188, %end
+  %ret.0192 = phi i32 [ 1, %end.thread188 ], [ %ret.0, %end ]
+  call void %cb.0(ptr noundef %ssl, i32 noundef 4098, i32 noundef %ret.0192) #11
   br label %if.end337
 
 if.end337:                                        ; preds = %end.thread, %if.then336, %end
-  %ret.0188 = phi i32 [ 1, %end.thread ], [ %ret.0193, %if.then336 ], [ %ret.0, %end ]
-  ret i32 %ret.0188
+  %ret.0187 = phi i32 [ 1, %end.thread ], [ %ret.0192, %if.then336 ], [ %ret.0, %end ]
+  ret i32 %ret.0187
 }
 
 declare void @ERR_clear_system_error() local_unnamed_addr #1

@@ -3400,22 +3400,22 @@ define internal fastcc i64 @mem_rw(ptr %.200.val, ptr noundef %0, i64 noundef %1
   %26 = zext i1 %25 to i32
   %27 = or disjoint i32 %26, 8
   %28 = icmp eq i64 %1, 0
-  br i1 %28, label %.thread5, label %.lr.ph11
+  br i1 %28, label %.thread4, label %.lr.ph10
 
-.lr.ph11:                                         ; preds = %24
-  br i1 %25, label %.lr.ph11.split.us, label %.thread2
+.lr.ph10:                                         ; preds = %24
+  br i1 %25, label %.lr.ph10.split.us, label %.thread2
 
-.lr.ph11.split.us:                                ; preds = %.lr.ph11, %40
-  %29 = phi ptr [ %42, %40 ], [ %0, %.lr.ph11 ]
-  %30 = phi i64 [ %45, %40 ], [ %1, %.lr.ph11 ]
-  %31 = phi i64 [ %44, %40 ], [ 0, %.lr.ph11 ]
-  %32 = phi i64 [ %43, %40 ], [ %5, %.lr.ph11 ]
+.lr.ph10.split.us:                                ; preds = %.lr.ph10, %40
+  %29 = phi ptr [ %42, %40 ], [ %0, %.lr.ph10 ]
+  %30 = phi i64 [ %45, %40 ], [ %1, %.lr.ph10 ]
+  %31 = phi i64 [ %44, %40 ], [ 0, %.lr.ph10 ]
+  %32 = phi i64 [ %43, %40 ], [ %5, %.lr.ph10 ]
   %33 = tail call i64 @llvm.umin.i64(i64 %30, i64 4096)
   %34 = tail call i64 @_copy_from_user(ptr noundef nonnull %9, ptr noundef %29, i64 noundef %33) #18
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %.thread5
+  br i1 %35, label %36, label %.thread4
 
-36:                                               ; preds = %.lr.ph11.split.us
+36:                                               ; preds = %.lr.ph10.split.us
   %37 = trunc nuw nsw i64 %33 to i32
   %38 = tail call i32 @access_remote_vm(ptr noundef nonnull %.200.val, i64 noundef %32, ptr noundef nonnull %9, i32 noundef %37, i32 noundef %27) #18
   %39 = icmp eq i32 %38, 0
@@ -3428,13 +3428,13 @@ define internal fastcc i64 @mem_rw(ptr %.200.val, ptr noundef %0, i64 noundef %1
   %44 = add i64 %31, %41
   %45 = sub i64 %30, %41
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %.thread5, label %.lr.ph11.split.us
+  br i1 %46, label %.thread4, label %.lr.ph10.split.us
 
-.thread2:                                         ; preds = %.lr.ph11, %63
-  %47 = phi ptr [ %64, %63 ], [ %0, %.lr.ph11 ]
-  %48 = phi i64 [ %67, %63 ], [ %1, %.lr.ph11 ]
-  %49 = phi i64 [ %66, %63 ], [ 0, %.lr.ph11 ]
-  %50 = phi i64 [ %65, %63 ], [ %5, %.lr.ph11 ]
+.thread2:                                         ; preds = %.lr.ph10, %63
+  %47 = phi ptr [ %64, %63 ], [ %0, %.lr.ph10 ]
+  %48 = phi i64 [ %67, %63 ], [ %1, %.lr.ph10 ]
+  %49 = phi i64 [ %66, %63 ], [ 0, %.lr.ph10 ]
+  %50 = phi i64 [ %65, %63 ], [ %5, %.lr.ph10 ]
   %51 = tail call i64 @llvm.umin.i64(i64 %48, i64 4096)
   %52 = trunc nuw nsw i64 %51 to i32
   %53 = tail call i32 @access_remote_vm(ptr noundef nonnull %.200.val, i64 noundef %50, ptr noundef nonnull %9, i32 noundef %52, i32 noundef %27) #18
@@ -3444,25 +3444,25 @@ define internal fastcc i64 @mem_rw(ptr %.200.val, ptr noundef %0, i64 noundef %1
 
 .split.us:                                        ; preds = %.thread2, %36
   %.us-phi = phi i64 [ %32, %36 ], [ %50, %.thread2 ]
-  %.us-phi19 = phi i64 [ %31, %36 ], [ %49, %.thread2 ]
-  %56 = icmp eq i64 %.us-phi19, 0
-  %57 = select i1 %56, i64 -5, i64 %.us-phi19
-  br label %.thread5
+  %.us-phi18 = phi i64 [ %31, %36 ], [ %49, %.thread2 ]
+  %56 = icmp eq i64 %.us-phi18, 0
+  %57 = select i1 %56, i64 -5, i64 %.us-phi18
+  br label %.thread4
 
 58:                                               ; preds = %.thread2
   %59 = icmp slt i32 %53, 0
-  br i1 %59, label %.thread4, label %60, !prof !11
+  br i1 %59, label %.critedge, label %60, !prof !11
 
-.thread4:                                         ; preds = %58
+.critedge:                                        ; preds = %58
   tail call void asm sideeffect "12: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 12b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 12) #18, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 249, i32 2307, i64 12) #18, !srcloc !13
   tail call void asm sideeffect "13: nop\0A\09.pushsection .discard.instr_end\0A\09.long 13b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 13) #18, !srcloc !14
-  br label %.thread5
+  br label %.thread4
 
 60:                                               ; preds = %58
   %61 = tail call i64 @_copy_to_user(ptr noundef %47, ptr noundef nonnull %9, i64 noundef %54) #18
   %62 = icmp eq i64 %61, 0
-  br i1 %62, label %63, label %.thread5
+  br i1 %62, label %63, label %.thread4
 
 63:                                               ; preds = %60
   %64 = getelementptr i8, ptr %47, i64 %54
@@ -3470,17 +3470,17 @@ define internal fastcc i64 @mem_rw(ptr %.200.val, ptr noundef %0, i64 noundef %1
   %66 = add i64 %49, %54
   %67 = sub i64 %48, %54
   %68 = icmp eq i64 %67, 0
-  br i1 %68, label %.thread5, label %.thread2
+  br i1 %68, label %.thread4, label %.thread2
 
-.thread5:                                         ; preds = %63, %60, %40, %.lr.ph11.split.us, %24, %.thread4, %.split.us
-  %69 = phi i64 [ %50, %.thread4 ], [ %.us-phi, %.split.us ], [ %5, %24 ], [ %43, %40 ], [ %32, %.lr.ph11.split.us ], [ %65, %63 ], [ %50, %60 ]
-  %70 = phi i64 [ -14, %.thread4 ], [ %57, %.split.us ], [ 0, %24 ], [ %44, %40 ], [ -14, %.lr.ph11.split.us ], [ %66, %63 ], [ -14, %60 ]
+.thread4:                                         ; preds = %63, %60, %40, %.lr.ph10.split.us, %24, %.critedge, %.split.us
+  %69 = phi i64 [ %50, %.critedge ], [ %.us-phi, %.split.us ], [ %5, %24 ], [ %43, %40 ], [ %32, %.lr.ph10.split.us ], [ %65, %63 ], [ %50, %60 ]
+  %70 = phi i64 [ -14, %.critedge ], [ %57, %.split.us ], [ 0, %24 ], [ %44, %40 ], [ -14, %.lr.ph10.split.us ], [ %66, %63 ], [ -14, %60 ]
   store i64 %69, ptr %2, align 8
   tail call void @mmput(ptr noundef nonnull %.200.val) #18
   br label %.thread1
 
-.thread1:                                         ; preds = %21, %11, %.thread5
-  %71 = phi i64 [ %70, %.thread5 ], [ 0, %11 ], [ 0, %21 ]
+.thread1:                                         ; preds = %21, %11, %.thread4
+  %71 = phi i64 [ %70, %.thread4 ], [ 0, %11 ], [ 0, %21 ]
   tail call void @free_pages(i64 noundef %8, i32 noundef 0) #18
   br label %72
 
@@ -4481,7 +4481,7 @@ define internal i32 @proc_tgid_io_accounting(ptr noundef %0, ptr nocapture readn
 
 10:                                               ; preds = %4
   %11 = tail call zeroext i1 @ptrace_may_access(ptr noundef %3, i32 noundef 9) #18
-  br i1 %11, label %12, label %94
+  br i1 %11, label %12, label %93
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %5, align 8
@@ -4585,33 +4585,33 @@ define internal i32 @proc_tgid_io_accounting(ptr noundef %0, ptr nocapture readn
   %88 = phi i64 [ %48, %39 ], [ %79, %.preheader.i ]
   %89 = and i32 %40, 1
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %93
+  br i1 %90, label %91, label %.critedge2.i
 
 91:                                               ; preds = %.loopexit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !47
   %92 = load volatile i32, ptr %14, align 4
   %.not.i = icmp eq i32 %92, %40
-  br i1 %.not.i, label %.thread2.i, label %24, !llvm.loop !48
+  br i1 %.not.i, label %.critedge.i, label %24, !llvm.loop !48
 
-93:                                               ; preds = %.loopexit.i
+.critedge2.i:                                     ; preds = %.loopexit.i
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %15, i64 noundef %41) #18
-  br label %.thread2.i
+  br label %.critedge.i
 
-.thread2.i:                                       ; preds = %91, %93
+.critedge.i:                                      ; preds = %91, %.critedge2.i
   tail call void @__rcu_read_unlock() #18
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.96, i64 noundef %82, i64 noundef %83, i64 noundef %84, i64 noundef %85, i64 noundef %86, i64 noundef %87, i64 noundef %88) #18
-  br label %94
+  br label %93
 
-94:                                               ; preds = %.thread2.i, %10
-  %95 = phi i32 [ 0, %.thread2.i ], [ -13, %10 ]
-  %96 = load ptr, ptr %5, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 1056
-  tail call void @up_read(ptr noundef %97) #18
+93:                                               ; preds = %.critedge.i, %10
+  %94 = phi i32 [ 0, %.critedge.i ], [ -13, %10 ]
+  %95 = load ptr, ptr %5, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 1056
+  tail call void @up_read(ptr noundef %96) #18
   br label %do_io_accounting.exit
 
-do_io_accounting.exit:                            ; preds = %4, %94
-  %98 = phi i32 [ %95, %94 ], [ %8, %4 ]
-  ret i32 %98
+do_io_accounting.exit:                            ; preds = %4, %93
+  %97 = phi i32 [ %94, %93 ], [ %8, %4 ]
+  ret i32 %97
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

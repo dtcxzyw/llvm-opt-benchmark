@@ -41,73 +41,73 @@ define dso_local void @mei_dmam_ring_free(ptr nocapture noundef %0) local_unname
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @mei_dmam_ring_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3248
-  br label %6
+  br label %5
 
-3:                                                ; preds = %6, %16, %19
-  %4 = add nuw nsw i64 %7, 1
-  %5 = icmp eq i64 %4, 3
-  br i1 %5, label %.loopexit, label %6, !llvm.loop !8
+.critedge:                                        ; preds = %5, %14, %17
+  %3 = add nuw nsw i64 %6, 1
+  %4 = icmp eq i64 %3, 3
+  br i1 %4, label %.loopexit, label %5, !llvm.loop !8
 
-6:                                                ; preds = %3, %1
-  %7 = phi i64 [ 0, %1 ], [ %4, %3 ]
-  %8 = getelementptr [3 x %struct.mei_dma_dscr], ptr %2, i64 0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
-  %10 = load i64, ptr %9, align 8
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %3, label %12
+5:                                                ; preds = %.critedge, %1
+  %6 = phi i64 [ 0, %1 ], [ %3, %.critedge ]
+  %7 = getelementptr [3 x %struct.mei_dma_dscr], ptr %2, i64 0, i64 %6
+  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %.critedge, label %11
 
-12:                                               ; preds = %6
-  %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10), !range !9
-  %14 = icmp ult i64 %13, 2
-  br i1 %14, label %16, label %15, !prof !10
+11:                                               ; preds = %5
+  %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %9), !range !9
+  %13 = icmp ult i64 %12, 2
+  br i1 %13, label %14, label %.critedge5, !prof !10
 
-15:                                               ; preds = %12
+.critedge5:                                       ; preds = %11
   tail call void asm sideeffect "350: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 350b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 350) #7, !srcloc !11
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 27, i32 2305, i64 12) #7, !srcloc !12
   tail call void asm sideeffect "351: nop\0A\09.pushsection .discard.instr_end\0A\09.long 351b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 351) #7, !srcloc !13
-  br label %select.unfold.preheader
+  br label %.preheader.preheader
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %8, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %3
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %7, align 8
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %.critedge
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
-  %22 = tail call ptr @dmam_alloc_attrs(ptr noundef %20, i64 noundef %10, ptr noundef %21, i32 noundef 3264, i64 noundef 0) #7
-  store ptr %22, ptr %8, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %select.unfold.preheader, label %3
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %0, align 8
+  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = tail call ptr @dmam_alloc_attrs(ptr noundef %18, i64 noundef %9, ptr noundef %19, i32 noundef 3264, i64 noundef 0) #7
+  store ptr %20, ptr %7, align 8
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %.preheader.preheader, label %.critedge
 
-select.unfold.preheader:                          ; preds = %19, %15
-  br label %select.unfold
+.preheader.preheader:                             ; preds = %17, %.critedge5
+  br label %.preheader
 
-select.unfold:                                    ; preds = %select.unfold.preheader, %34
-  %24 = phi i64 [ %35, %34 ], [ 0, %select.unfold.preheader ]
-  %25 = getelementptr [3 x %struct.mei_dma_dscr], ptr %2, i64 0, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %34, label %28
+.preheader:                                       ; preds = %.preheader.preheader, %31
+  %21 = phi i64 [ %32, %31 ], [ 0, %.preheader.preheader ]
+  %22 = getelementptr [3 x %struct.mei_dma_dscr], ptr %2, i64 0, i64 %21
+  %23 = load ptr, ptr %22, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %31, label %25
 
-28:                                               ; preds = %select.unfold
-  %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
-  %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %25, i64 8
-  %33 = load i64, ptr %32, align 8
-  tail call void @dmam_free_coherent(ptr noundef %29, i64 noundef %31, ptr noundef nonnull %26, i64 noundef %33) #7
-  store ptr null, ptr %25, align 8
-  br label %34
+25:                                               ; preds = %.preheader
+  %26 = load ptr, ptr %0, align 8
+  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %28 = load i64, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %30 = load i64, ptr %29, align 8
+  tail call void @dmam_free_coherent(ptr noundef %26, i64 noundef %28, ptr noundef nonnull %23, i64 noundef %30) #7
+  store ptr null, ptr %22, align 8
+  br label %31
 
-34:                                               ; preds = %28, %select.unfold
-  %35 = add nuw nsw i64 %24, 1
-  %36 = icmp eq i64 %35, 3
-  br i1 %36, label %.loopexit, label %select.unfold, !llvm.loop !5
+31:                                               ; preds = %25, %.preheader
+  %32 = add nuw nsw i64 %21, 1
+  %33 = icmp eq i64 %32, 3
+  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !5
 
-.loopexit:                                        ; preds = %3, %34
-  %37 = phi i32 [ -12, %34 ], [ 0, %3 ]
-  ret i32 %37
+.loopexit:                                        ; preds = %.critedge, %31
+  %34 = phi i32 [ -12, %31 ], [ 0, %.critedge ]
+  ret i32 %34
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)

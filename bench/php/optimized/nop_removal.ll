@@ -82,19 +82,19 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
 
 40:                                               ; preds = %.lr.ph
   %.pre = zext i32 %.0113120 to i64
-  %41 = add i32 %.0113120, 1
-  %42 = getelementptr inbounds i32, ptr %13, i64 %.pre
-  store i32 %.0111121, ptr %42, align 4
-  %43 = icmp eq i8 %20, 0
-  br i1 %43, label %44, label %47
+  %41 = icmp eq i8 %20, 0
+  %42 = add i32 %.0113120, 1
+  %43 = getelementptr inbounds i32, ptr %13, i64 %.pre
+  store i32 %.0111121, ptr %43, align 4
+  br i1 %41, label %44, label %47
 
 44:                                               ; preds = %.thread134, %40
-  %45 = phi i32 [ %36, %.thread134 ], [ %41, %40 ]
+  %45 = phi i32 [ %36, %.thread134 ], [ %42, %40 ]
   %46 = add i32 %.0111121, 1
   br label %55
 
 47:                                               ; preds = %.thread, %40
-  %48 = phi i32 [ %38, %.thread ], [ %41, %40 ]
+  %48 = phi i32 [ %38, %.thread ], [ %42, %40 ]
   %.not118 = icmp eq i32 %.0111121, 0
   br i1 %.not118, label %53, label %49
 

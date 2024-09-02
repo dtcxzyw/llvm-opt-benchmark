@@ -3167,7 +3167,7 @@ define dso_local void @rpc_clnt_probe_trunked_xprts(ptr noundef %0, ptr nocaptur
   %8 = tail call ptr @xprt_switch_get(ptr noundef %7) #20
   tail call void @__rcu_read_unlock() #20
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %97, label %10
+  br i1 %9, label %94, label %10
 
 10:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !6
@@ -3189,8 +3189,8 @@ define dso_local void @rpc_clnt_probe_trunked_xprts(ptr noundef %0, ptr nocaptur
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   br label %23
 
-23:                                               ; preds = %94, %13
-  %24 = phi ptr [ %11, %13 ], [ %95, %94 ]
+23:                                               ; preds = %91, %13
+  %24 = phi ptr [ %11, %13 ], [ %92, %91 ]
   %25 = call ptr @xprt_get(ptr noundef nonnull %24) #20
   call void @__rcu_read_lock() #20
   %26 = load volatile ptr, ptr %14, align 8
@@ -3269,7 +3269,7 @@ define dso_local void @rpc_clnt_probe_trunked_xprts(ptr noundef %0, ptr nocaptur
   %72 = icmp eq i16 %64, %71
   call void @__rcu_read_unlock() #20
   call void @xprt_put(ptr noundef %27) #20
-  br i1 %72, label %91, label %73
+  br i1 %72, label %.critedge7, label %73
 
 .critedge:                                        ; preds = %33, %23, %34, %50
   call void @__rcu_read_unlock() #20
@@ -3281,7 +3281,7 @@ define dso_local void @rpc_clnt_probe_trunked_xprts(ptr noundef %0, ptr nocaptur
   %75 = load volatile i64, ptr %74, align 8
   %76 = and i64 %75, 128
   %77 = icmp eq i64 %76, 0
-  br i1 %77, label %91, label %78
+  br i1 %77, label %.critedge7, label %78
 
 78:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
@@ -3303,40 +3303,46 @@ define dso_local void @rpc_clnt_probe_trunked_xprts(ptr noundef %0, ptr nocaptur
 
 81:                                               ; preds = %78
   %82 = ptrtoint ptr %79 to i64
-  %83 = trunc i64 %82 to i32
-  br label %91
+  %83 = and i64 %82, 2147483648
+  %.not = icmp eq i64 %83, 0
+  call void @xprt_put(ptr noundef nonnull %24) #20
+  call void @xprt_put(ptr noundef nonnull %24) #20
+  br i1 %.not, label %91, label %.loopexit
 
 84:                                               ; preds = %78
   %85 = getelementptr inbounds i8, ptr %79, i64 4
   %86 = load i32, ptr %85, align 4
   call void @rpc_put_task(ptr noundef %79) #20
   %87 = icmp slt i32 %86, 0
-  br i1 %87, label %91, label %88
+  br i1 %87, label %.critedge9, label %88
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %1, align 8
   %90 = load ptr, ptr %22, align 8
   call void %89(ptr noundef %0, ptr noundef nonnull %24, ptr noundef %90) #20
+  br label %.critedge7
+
+.critedge7:                                       ; preds = %88, %73, %70
+  call void @xprt_put(ptr noundef nonnull %24) #20
+  call void @xprt_put(ptr noundef nonnull %24) #20
   br label %91
 
-91:                                               ; preds = %88, %84, %81, %73, %70
-  %92 = phi i32 [ 1, %70 ], [ 0, %73 ], [ %83, %81 ], [ 0, %88 ], [ %86, %84 ]
-  call void @xprt_put(ptr noundef nonnull %24) #20
-  call void @xprt_put(ptr noundef nonnull %24) #20
-  %93 = icmp slt i32 %92, 0
-  br i1 %93, label %.loopexit, label %94
-
-94:                                               ; preds = %91
+91:                                               ; preds = %.critedge7, %81
   call void @xprt_iter_rewind(ptr noundef nonnull %5) #20
-  %95 = call ptr @xprt_iter_get_next(ptr noundef nonnull %5) #20
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %.loopexit, label %23
+  %92 = call ptr @xprt_iter_get_next(ptr noundef nonnull %5) #20
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %.loopexit, label %23
 
-.loopexit:                                        ; preds = %94, %91, %10
+.critedge9:                                       ; preds = %84
+  call void @xprt_put(ptr noundef nonnull %24) #20
+  call void @xprt_put(ptr noundef nonnull %24) #20
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %91, %81, %.critedge9, %10
   call void @xprt_iter_destroy(ptr noundef nonnull %5) #20
-  br label %97
+  br label %94
 
-97:                                               ; preds = %.loopexit, %2
+94:                                               ; preds = %.loopexit, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
   ret void
 }
@@ -5126,20 +5132,20 @@ define internal void @call_encode(ptr noundef %0) #0 align 16 {
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 8
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %7, label %.thread
+  br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 216
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 18432
   %11 = icmp eq i16 %10, 18432
-  br i1 %11, label %12, label %.thread8
+  br i1 %11, label %12, label %.critedge7
 
 12:                                               ; preds = %7
   %13 = tail call zeroext i1 @xprt_request_need_retransmit(ptr noundef %0) #20
-  br i1 %13, label %.thread8, label %.thread
+  br i1 %13, label %.critedge7, label %.critedge
 
-.thread8:                                         ; preds = %7, %12
+.critedge7:                                       ; preds = %7, %12
   tail call void @xprt_request_dequeue_xprt(ptr noundef %0) #20
   %14 = getelementptr inbounds i8, ptr %0, i64 184
   %15 = load ptr, ptr %14, align 8
@@ -5197,7 +5203,7 @@ define internal void @call_encode(ptr noundef %0) #0 align 16 {
   %47 = icmp eq ptr %46, null
   br i1 %47, label %68, label %48
 
-48:                                               ; preds = %.thread8
+48:                                               ; preds = %.critedge7
   %49 = getelementptr inbounds i8, ptr %45, i64 168
   %50 = load i32, ptr %49, align 8
   %51 = getelementptr i8, ptr %46, i64 4
@@ -5225,8 +5231,8 @@ define internal void @call_encode(ptr noundef %0) #0 align 16 {
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %68, label %112
 
-68:                                               ; preds = %48, %.thread8
-  %69 = phi i32 [ %66, %48 ], [ -90, %.thread8 ]
+68:                                               ; preds = %48, %.critedge7
+  %69 = phi i32 [ %66, %48 ], [ -90, %.critedge7 ]
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rpc_bad_callhdr, i64 8), i32 2) #20
           to label %90 [label %70], !srcloc !17
 
@@ -5369,7 +5375,7 @@ thread-pre-split:                                 ; preds = %119, %123
 
 137:                                              ; preds = %132
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rpc_call_rpcerror, i64 8), i32 2) #20
-          to label %__rpc_call_rpcerror.exit6 [label %138], !srcloc !17
+          to label %__rpc_call_rpcerror.exit8 [label %138], !srcloc !17
 
 138:                                              ; preds = %137
   %139 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !71
@@ -5378,7 +5384,7 @@ thread-pre-split:                                 ; preds = %119, %123
   %142 = icmp ult i8 %141, 2
   call void @llvm.assume(i1 %142)
   %143 = icmp eq i8 %141, 0
-  br i1 %143, label %__rpc_call_rpcerror.exit6, label %144
+  br i1 %143, label %__rpc_call_rpcerror.exit8, label %144
 
 144:                                              ; preds = %138
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !20
@@ -5399,15 +5405,15 @@ thread-pre-split:                                 ; preds = %119, %123
   %153 = icmp ult i8 %152, 2
   call void @llvm.assume(i1 %153)
   %154 = icmp eq i8 %152, 0
-  br i1 %154, label %__rpc_call_rpcerror.exit6, label %155, !prof !24
+  br i1 %154, label %__rpc_call_rpcerror.exit8, label %155, !prof !24
 
 155:                                              ; preds = %151
   %156 = call i64 @llvm.read_register.i64(metadata !0)
   %157 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %156) #20, !srcloc !74
   call void @llvm.write_register.i64(metadata !0, i64 %157)
-  br label %__rpc_call_rpcerror.exit6
+  br label %__rpc_call_rpcerror.exit8
 
-__rpc_call_rpcerror.exit6:                        ; preds = %137, %138, %151, %155
+__rpc_call_rpcerror.exit8:                        ; preds = %137, %138, %151, %155
   %158 = call zeroext i1 @rpc_task_set_rpc_status(ptr noundef %0, i32 noundef -127) #20
   call void @rpc_exit(ptr noundef %0, i32 noundef -127) #20
   br label %221
@@ -5461,7 +5467,7 @@ __rpc_call_rpcerror.exit6:                        ; preds = %137, %138, %151, %1
 
 185:                                              ; preds = %129
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rpc_call_rpcerror, i64 8), i32 2) #20
-          to label %__rpc_call_rpcerror.exit7 [label %186], !srcloc !17
+          to label %__rpc_call_rpcerror.exit9 [label %186], !srcloc !17
 
 186:                                              ; preds = %185
   %187 = call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !71
@@ -5470,7 +5476,7 @@ __rpc_call_rpcerror.exit6:                        ; preds = %137, %138, %151, %1
   %190 = icmp ult i8 %189, 2
   call void @llvm.assume(i1 %190)
   %191 = icmp eq i8 %189, 0
-  br i1 %191, label %__rpc_call_rpcerror.exit7, label %192
+  br i1 %191, label %__rpc_call_rpcerror.exit9, label %192
 
 192:                                              ; preds = %186
   call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !20
@@ -5491,24 +5497,24 @@ __rpc_call_rpcerror.exit6:                        ; preds = %137, %138, %151, %1
   %201 = icmp ult i8 %200, 2
   call void @llvm.assume(i1 %201)
   %202 = icmp eq i8 %200, 0
-  br i1 %202, label %__rpc_call_rpcerror.exit7, label %203, !prof !24
+  br i1 %202, label %__rpc_call_rpcerror.exit9, label %203, !prof !24
 
 203:                                              ; preds = %199
   %204 = call i64 @llvm.read_register.i64(metadata !0)
   %205 = call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %204) #20, !srcloc !74
   call void @llvm.write_register.i64(metadata !0, i64 %205)
-  br label %__rpc_call_rpcerror.exit7
+  br label %__rpc_call_rpcerror.exit9
 
-__rpc_call_rpcerror.exit7:                        ; preds = %185, %186, %199, %203
+__rpc_call_rpcerror.exit9:                        ; preds = %185, %186, %199, %203
   %206 = call zeroext i1 @rpc_task_set_rpc_status(ptr noundef %0, i32 noundef %130) #20
   call void @rpc_exit(ptr noundef %0, i32 noundef %130) #20
   br label %221
 
 207:                                              ; preds = %129
   call void @xprt_request_enqueue_transmit(ptr noundef %0) #20
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %1, %207, %12
+.critedge:                                        ; preds = %1, %207, %12
   %208 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @call_transmit, ptr %208, align 8
   %209 = getelementptr inbounds i8, ptr %0, i64 168
@@ -5519,11 +5525,11 @@ __rpc_call_rpcerror.exit7:                        ; preds = %185, %186, %199, %2
   %214 = icmp eq i64 %213, 0
   br i1 %214, label %215, label %216
 
-215:                                              ; preds = %.thread
+215:                                              ; preds = %.critedge
   store ptr @call_bind, ptr %208, align 8
   br label %221
 
-216:                                              ; preds = %.thread
+216:                                              ; preds = %.critedge
   %217 = load volatile i64, ptr %211, align 8
   %218 = and i64 %217, 2
   %219 = icmp eq i64 %218, 0
@@ -5533,7 +5539,7 @@ __rpc_call_rpcerror.exit7:                        ; preds = %185, %186, %199, %2
   store ptr @call_connect, ptr %208, align 8
   br label %221
 
-221:                                              ; preds = %220, %216, %215, %__rpc_call_rpcerror.exit7, %182, %178, %165, %159, %__rpc_call_rpcerror.exit6, %131
+221:                                              ; preds = %220, %216, %215, %__rpc_call_rpcerror.exit9, %182, %178, %165, %159, %__rpc_call_rpcerror.exit8, %131
   ret void
 }
 

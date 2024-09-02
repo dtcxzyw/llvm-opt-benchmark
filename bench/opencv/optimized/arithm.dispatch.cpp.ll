@@ -2971,7 +2971,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline10absdiff32sEPKimS3_mPimii(ptr nocap
   %17 = getelementptr inbounds i32, ptr %.02124.us.i, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4
   %19 = sub nsw i32 %16, %18
-  %20 = call noundef i32 @llvm.abs.i32(i32 %19, i1 true)
+  %20 = call noundef range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %19, i1 true)
   %21 = getelementptr inbounds i32, ptr %.02025.us.i, i64 %indvars.iv.i
   store i32 %20, ptr %21, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -13303,7 +13303,7 @@ define void @_ZN2cv3hal10absdiff32sEPKimS2_mPimiiPv(ptr nocapture noundef readon
   %19 = getelementptr inbounds i32, ptr %.02124.us.i.i, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 4
   %21 = sub nsw i32 %18, %20
-  %22 = call noundef i32 @llvm.abs.i32(i32 %21, i1 true)
+  %22 = call noundef range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %21, i1 true)
   %23 = getelementptr inbounds i32, ptr %.02025.us.i.i, i64 %indvars.iv.i.i
   store i32 %22, ptr %23, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

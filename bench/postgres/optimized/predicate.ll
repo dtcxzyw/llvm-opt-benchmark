@@ -794,21 +794,21 @@ define dso_local ptr @GetSerializableTransactionSnapshot(ptr noundef %0) local_u
 9:                                                ; preds = %1
   %10 = load i8, ptr @XactReadOnly, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %64
+  br i1 %11, label %12, label %65
 
 12:                                               ; preds = %9
   %13 = load i8, ptr @XactDeferrable, align 1
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %64
+  br i1 %14, label %15, label %65
 
 15:                                               ; preds = %12
   %16 = tail call fastcc ptr @GetSerializableTransactionSnapshotInt(ptr noundef %0, ptr noundef null, i32 noundef -1)
   %17 = load ptr, ptr @MySerializableXact, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %GetSafeSnapshot.exit, label %.lr.ph10.i
+  br i1 %18, label %GetSafeSnapshot.exit, label %.lr.ph9.i
 
-.lr.ph10.i:                                       ; preds = %15, %60
-  %19 = phi ptr [ %61, %60 ], [ %16, %15 ]
+.lr.ph9.i:                                        ; preds = %15, %61
+  %19 = phi ptr [ %62, %61 ], [ %16, %15 ]
   %20 = load ptr, ptr @MainLWLockArray, align 8
   %21 = getelementptr i8, ptr %20, i64 3584
   %22 = tail call zeroext i1 @LWLockAcquire(ptr noundef %21, i32 noundef 0) #12
@@ -822,79 +822,79 @@ define dso_local ptr @GetSerializableTransactionSnapshot(ptr noundef %0) local_u
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   %31 = icmp eq ptr %29, %27
-  %spec.select.i7.i = or i1 %30, %31
-  br i1 %spec.select.i7.i, label %.critedge.i, label %.lr.ph.i
+  %spec.select.i6.i = or i1 %30, %31
+  br i1 %spec.select.i6.i, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph10.i, %36
-  %32 = phi ptr [ %42, %36 ], [ %23, %.lr.ph10.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph9.i, %37
+  %32 = phi ptr [ %43, %37 ], [ %23, %.lr.ph9.i ]
   %33 = getelementptr inbounds i8, ptr %32, i64 156
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 256
-  %.not4.i = icmp eq i32 %35, 0
-  br i1 %.not4.i, label %36, label %.critedge.i
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %.critedge.i
 
-36:                                               ; preds = %.lr.ph.i
-  %37 = load ptr, ptr @MainLWLockArray, align 8
-  %38 = getelementptr i8, ptr %37, i64 3584
-  tail call void @LWLockRelease(ptr noundef %38) #12
+37:                                               ; preds = %.lr.ph.i
+  %38 = load ptr, ptr @MainLWLockArray, align 8
+  %39 = getelementptr i8, ptr %38, i64 3584
+  tail call void @LWLockRelease(ptr noundef %39) #12
   tail call void @ProcWaitForSignal(i32 noundef 134217778) #12
-  %39 = load ptr, ptr @MainLWLockArray, align 8
-  %40 = getelementptr i8, ptr %39, i64 3584
-  %41 = tail call zeroext i1 @LWLockAcquire(ptr noundef %40, i32 noundef 0) #12
-  %42 = load ptr, ptr @MySerializableXact, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 128
-  %44 = getelementptr inbounds i8, ptr %42, i64 136
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  %47 = icmp eq ptr %45, %43
-  %spec.select.i.i = or i1 %46, %47
+  %40 = load ptr, ptr @MainLWLockArray, align 8
+  %41 = getelementptr i8, ptr %40, i64 3584
+  %42 = tail call zeroext i1 @LWLockAcquire(ptr noundef %41, i32 noundef 0) #12
+  %43 = load ptr, ptr @MySerializableXact, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 128
+  %45 = getelementptr inbounds i8, ptr %43, i64 136
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp eq ptr %46, null
+  %48 = icmp eq ptr %46, %44
+  %spec.select.i.i = or i1 %47, %48
   br i1 %spec.select.i.i, label %..critedge.loopexit_crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
-..critedge.loopexit_crit_edge.i:                  ; preds = %36
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %42, i64 156
+..critedge.loopexit_crit_edge.i:                  ; preds = %37
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %43, i64 156
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %..critedge.loopexit_crit_edge.i, %.lr.ph10.i
-  %48 = phi i32 [ %26, %.lr.ph10.i ], [ %.pre.pre.i, %..critedge.loopexit_crit_edge.i ], [ %34, %.lr.ph.i ]
-  %.lcssa.i = phi ptr [ %23, %.lr.ph10.i ], [ %42, %..critedge.loopexit_crit_edge.i ], [ %32, %.lr.ph.i ]
-  %49 = getelementptr inbounds i8, ptr %.lcssa.i, i64 156
-  %50 = and i32 %48, -65
-  store i32 %50, ptr %49, align 4
-  %51 = and i32 %48, 256
-  %.not.i = icmp eq i32 %51, 0
-  %52 = load ptr, ptr @MainLWLockArray, align 8
-  %53 = getelementptr i8, ptr %52, i64 3584
-  tail call void @LWLockRelease(ptr noundef %53) #12
-  br i1 %.not.i, label %54, label %55
+.critedge.i:                                      ; preds = %.lr.ph.i, %..critedge.loopexit_crit_edge.i, %.lr.ph9.i
+  %49 = phi i32 [ %26, %.lr.ph9.i ], [ %.pre.pre.i, %..critedge.loopexit_crit_edge.i ], [ %34, %.lr.ph.i ]
+  %.lcssa.i = phi ptr [ %23, %.lr.ph9.i ], [ %43, %..critedge.loopexit_crit_edge.i ], [ %32, %.lr.ph.i ]
+  %50 = getelementptr inbounds i8, ptr %.lcssa.i, i64 156
+  %51 = and i32 %49, -65
+  store i32 %51, ptr %50, align 4
+  %52 = and i32 %49, 256
+  %.not.i = icmp eq i32 %52, 0
+  %53 = load ptr, ptr @MainLWLockArray, align 8
+  %54 = getelementptr i8, ptr %53, i64 3584
+  tail call void @LWLockRelease(ptr noundef %54) #12
+  br i1 %.not.i, label %55, label %56
 
-54:                                               ; preds = %.critedge.i
+55:                                               ; preds = %.critedge.i
   tail call void @ReleasePredicateLocks(i1 noundef zeroext false, i1 noundef zeroext true)
   br label %GetSafeSnapshot.exit
 
-55:                                               ; preds = %.critedge.i
-  %56 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
-  br i1 %56, label %57, label %60
+56:                                               ; preds = %.critedge.i
+  %57 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
+  br i1 %57, label %58, label %61
 
-57:                                               ; preds = %55
-  %58 = tail call i32 @errcode(i32 noundef 16777220) #12
-  %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25) #12
+58:                                               ; preds = %56
+  %59 = tail call i32 @errcode(i32 noundef 16777220) #12
+  %60 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25) #12
   tail call void @errfinish(ptr noundef nonnull @.str.10, i32 noundef 1587, ptr noundef nonnull @__func__.GetSafeSnapshot) #12
-  br label %60
+  br label %61
 
-60:                                               ; preds = %57, %55
+61:                                               ; preds = %58, %56
   tail call void @ReleasePredicateLocks(i1 noundef zeroext false, i1 noundef zeroext false)
-  %61 = tail call fastcc ptr @GetSerializableTransactionSnapshotInt(ptr noundef %0, ptr noundef null, i32 noundef -1)
-  %62 = load ptr, ptr @MySerializableXact, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %GetSafeSnapshot.exit, label %.lr.ph10.i
+  %62 = tail call fastcc ptr @GetSerializableTransactionSnapshotInt(ptr noundef %0, ptr noundef null, i32 noundef -1)
+  %63 = load ptr, ptr @MySerializableXact, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %GetSafeSnapshot.exit, label %.lr.ph9.i
 
-64:                                               ; preds = %12, %9
-  %65 = tail call fastcc ptr @GetSerializableTransactionSnapshotInt(ptr noundef %0, ptr noundef null, i32 noundef -1)
+65:                                               ; preds = %12, %9
+  %66 = tail call fastcc ptr @GetSerializableTransactionSnapshotInt(ptr noundef %0, ptr noundef null, i32 noundef -1)
   br label %GetSafeSnapshot.exit
 
-GetSafeSnapshot.exit:                             ; preds = %60, %54, %15, %64
-  %.0 = phi ptr [ %65, %64 ], [ %19, %54 ], [ %16, %15 ], [ %61, %60 ]
+GetSafeSnapshot.exit:                             ; preds = %61, %55, %15, %65
+  %.0 = phi ptr [ %66, %65 ], [ %19, %55 ], [ %16, %15 ], [ %62, %61 ]
   ret ptr %.0
 }
 
@@ -2274,13 +2274,13 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   %56 = getelementptr inbounds i8, ptr %50, i64 12
   %57 = load i32, ptr %56, align 4
   %.not68.us.i = icmp eq i32 %57, 0
-  br i1 %.not68.us.i, label %58, label %.thread.i
+  br i1 %.not68.us.i, label %58, label %.critedge.i
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %50, i64 8
   %60 = load i32, ptr %59, align 8
   %.not69.not.us.i = icmp eq i32 %60, -1
-  br i1 %.not69.not.us.i, label %.backedge.us.i, label %.thread.i
+  br i1 %.not69.not.us.i, label %.backedge.us.i, label %.critedge.i
 
 .backedge.us.i:                                   ; preds = %58, %53, %.lr.ph.split.us.i
   %61 = call ptr @hash_seq_search(ptr noundef nonnull %4) #12
@@ -2302,14 +2302,14 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
 66:                                               ; preds = %.lr.ph.split.i
   %67 = load i32, ptr %62, align 8
   %.not66.i = icmp eq i32 %67, %21
-  br i1 %.not66.i, label %.thread.i, label %.backedge.i
+  br i1 %.not66.i, label %.critedge.i, label %.backedge.i
 
-.thread.i:                                        ; preds = %66, %58, %55
+.critedge.i:                                      ; preds = %66, %58, %55
   %.us-phi.i = phi ptr [ %50, %55 ], [ %50, %58 ], [ %62, %66 ]
   %68 = icmp eq ptr %.0.ph88.i, null
   br i1 %68, label %69, label %79
 
-69:                                               ; preds = %.thread.i
+69:                                               ; preds = %.critedge.i
   store i32 %21, ptr %6, align 4
   store i32 %.053.i, ptr %45, align 4
   store i32 -1, ptr %46, align 4
@@ -2329,9 +2329,9 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   store ptr %77, ptr %78, align 8
   br label %79
 
-79:                                               ; preds = %76, %69, %.thread.i
-  %.158.i = phi i32 [ %71, %69 ], [ %71, %76 ], [ %.057.ph87.i, %.thread.i ]
-  %.1.i = phi ptr [ %73, %69 ], [ %73, %76 ], [ %.0.ph88.i, %.thread.i ]
+79:                                               ; preds = %76, %69, %.critedge.i
+  %.158.i = phi i32 [ %71, %69 ], [ %71, %76 ], [ %.057.ph87.i, %.critedge.i ]
+  %.1.i = phi ptr [ %73, %69 ], [ %73, %76 ], [ %.0.ph88.i, %.critedge.i ]
   %80 = getelementptr inbounds i8, ptr %.us-phi.i, i64 16
   %81 = getelementptr inbounds i8, ptr %.us-phi.i, i64 24
   %82 = load ptr, ptr %81, align 8

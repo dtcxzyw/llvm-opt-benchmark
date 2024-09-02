@@ -4213,39 +4213,28 @@ for.body.i.i:                                     ; preds = %for.cond.outer.i.i,
   %add.i.i = add nsw i64 %pos.033.i.i, %conv16.i.i
   %d_name.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 19
   %3 = load i8, ptr %d_name.i.i, align 1
-  %4 = zext i8 %3 to i32
-  %5 = add nsw i32 %4, -46
-  %.not.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i, label %for.body.tail.i.i, label %lor.lhs.false.tail.i.i
+  %.not.i.i = icmp eq i8 %3, 46
+  br i1 %.not.i.i, label %for.body.tail.i.i, label %if.end27.i.i
 
 for.body.tail.i.i:                                ; preds = %for.body.i.i
-  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 20
+  %4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 20
+  %5 = load i8, ptr %4, align 1
+  switch i8 %5, label %if.end27.i.i [
+    i8 0, label %for.cond.backedge.i.i
+    i8 46, label %lor.lhs.false.tail.i.i
+  ]
+
+lor.lhs.false.tail.i.i:                           ; preds = %for.body.tail.i.i
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 21
   %7 = load i8, ptr %6, align 1
-  %cmp19.i.i = icmp eq i8 %7, 0
-  br i1 %cmp19.i.i, label %for.cond.backedge.i.i, label %sub_128.i.i
-
-sub_128.i.i:                                      ; preds = %for.body.tail.i.i
-  %8 = zext i8 %7 to i32
-  %9 = add nsw i32 %8, -46
-  %.not38.i.i = icmp eq i32 %9, 0
-  br i1 %.not38.i.i, label %sub_2.i.i, label %lor.lhs.false.tail.i.i
-
-sub_2.i.i:                                        ; preds = %sub_128.i.i
-  %10 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 21
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i32
-  br label %lor.lhs.false.tail.i.i
-
-lor.lhs.false.tail.i.i:                           ; preds = %sub_2.i.i, %sub_128.i.i, %for.body.i.i
-  %13 = phi i32 [ %9, %sub_128.i.i ], [ %12, %sub_2.i.i ], [ %5, %for.body.i.i ]
-  %cmp24.i.i = icmp eq i32 %13, 0
-  br i1 %cmp24.i.i, label %for.cond.backedge.i.i, label %if.end27.i.i
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %for.cond.backedge.i.i, label %if.end27.i.i
 
 for.cond.backedge.i.i:                            ; preds = %is_thread_ready_to_signal.exit.i.i, %lor.lhs.false.tail.i.i, %for.body.tail.i.i
   %cmp12.i.i = icmp slt i64 %add.i.i, %call6.i.i
   br i1 %cmp12.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !27
 
-if.end27.i.i:                                     ; preds = %lor.lhs.false.tail.i.i
+if.end27.i.i:                                     ; preds = %lor.lhs.false.tail.i.i, %for.body.tail.i.i, %for.body.i.i
   %call32.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name.i.i) #24
   %call33.i.i = call i32 @string2l(ptr noundef nonnull %d_name.i.i, i64 noundef %call32.i.i, ptr noundef nonnull %tid.i.i) #22
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %path_buff.i.i.i)
@@ -4287,8 +4276,8 @@ if.then17.i.i.i:                                  ; preds = %if.then13.i.i.i
   br label %while.end.thread.i.i.i
 
 if.end18.i.i.i:                                   ; preds = %if.then13.i.i.i
-  %14 = load i64, ptr %sig_mask.i.i.i, align 8
-  %and.i.i.i = and i64 %14, 2048
+  %9 = load i64, ptr %sig_mask.i.i.i, align 8
+  %and.i.i.i = and i64 %9, 2048
   %tobool19.not.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %tobool19.not.i.i.i, label %if.end21.i.i.i, label %while.end.thread.i.i.i
 
@@ -4301,17 +4290,17 @@ if.end22.i.i.i:                                   ; preds = %if.end21.i.i.i, %wh
   %call5.i.i.i = call ptr @fgets_async_signal_safe(ptr noundef nonnull %buff.i.i.i, i32 noundef 4096, i32 noundef %call2.i.i.i) #22
   %tobool.i.i.i = icmp ne ptr %call5.i.i.i, null
   %tobool6.i.i.i = icmp ne i64 %fields_count.1.i.i.i, 0
-  %15 = select i1 %tobool.i.i.i, i1 %tobool6.i.i.i, i1 false
-  br i1 %15, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !28
+  %10 = select i1 %tobool.i.i.i, i1 %tobool6.i.i.i, i1 false
+  br i1 %10, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !28
 
 while.end.thread.i.i.i:                           ; preds = %if.end18.i.i.i, %if.then17.i.i.i
   %call2317.i.i.i = call i32 @close(i32 noundef %call2.i.i.i) #22
   br label %is_thread_ready_to_signal.exit.i.i
 
 while.end.i.i.i:                                  ; preds = %if.end22.i.i.i
-  %16 = icmp eq ptr %call5.i.i.i, null
+  %11 = icmp eq ptr %call5.i.i.i, null
   %call23.i.i.i = call i32 @close(i32 noundef %call2.i.i.i) #22
-  br i1 %16, label %if.then25.i.i.i, label %if.end40.i.i
+  br i1 %11, label %if.then25.i.i.i, label %if.end40.i.i
 
 if.then25.i.i.i:                                  ; preds = %while.end.i.i.i, %while.end.thread25.i.i.i
   call void (i32, ptr, ...) @serverLogFromHandler(i32 noundef 3, ptr noundef nonnull @.str.308, ptr noundef nonnull %d_name.i.i, ptr noundef nonnull %path_buff.i.i, ptr noundef nonnull %d_name.i.i) #22
@@ -4327,11 +4316,11 @@ if.end40.i.i:                                     ; preds = %while.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %path_buff.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buff.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig_mask.i.i.i)
-  %17 = load i64, ptr %tid.i.i, align 8
-  %cmp42.i.i = icmp eq i64 %17, %conv41.i.i
+  %12 = load i64, ptr %tid.i.i, align 8
+  %cmp42.i.i = icmp eq i64 %12, %conv41.i.i
   %conv45.i.i = trunc i64 %tids_count.2.ph.i.i to i32
   %spec.select.i.i = select i1 %cmp42.i.i, i32 %conv45.i.i, i32 %current_thread_index.2.ph.i.i
-  %conv47.i.i = trunc i64 %17 to i32
+  %conv47.i.i = trunc i64 %12 to i32
   %inc.i.i = add i64 %tids_count.2.ph.i.i, 1
   %arrayidx.i.i = getelementptr inbounds i32, ptr %tids.i, i64 %tids_count.2.ph.i.i
   store i32 %conv47.i.i, ptr %arrayidx.i.i, align 4
@@ -4360,13 +4349,13 @@ while.end.i.i:                                    ; preds = %for.end.i.i, %while
   br i1 %cmp56.not.i.i, label %get_ready_to_signal_threads_tids.exit.i, label %if.then58.i.i
 
 if.then58.i.i:                                    ; preds = %while.end.i.i
-  %18 = getelementptr i32, ptr %tids.i, i64 %tids_count.1.i.i
-  %arrayidx59.i.i = getelementptr i8, ptr %18, i64 -4
-  %19 = load i32, ptr %arrayidx59.i.i, align 4
+  %13 = getelementptr i32, ptr %tids.i, i64 %tids_count.1.i.i
+  %arrayidx59.i.i = getelementptr i8, ptr %13, i64 -4
+  %14 = load i32, ptr %arrayidx59.i.i, align 4
   store i32 %conv.i.i, ptr %arrayidx59.i.i, align 4
   %idxprom.i.i = sext i32 %current_thread_index.1.i.i to i64
   %arrayidx62.i.i = getelementptr inbounds i32, ptr %tids.i, i64 %idxprom.i.i
-  store i32 %19, ptr %arrayidx62.i.i, align 4
+  store i32 %14, ptr %arrayidx62.i.i, align 4
   br label %get_ready_to_signal_threads_tids.exit.i
 
 get_ready_to_signal_threads_tids.exit.thread.i:   ; preds = %if.then9.i.i, %if.end12
@@ -4392,8 +4381,8 @@ if.end.i:                                         ; preds = %if.then.i, %get_rea
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.end.i
-  %20 = load i32, ptr @stacktrace_pipe, align 4
-  %call1.i = call i64 @read(i32 noundef %20, ptr noundef nonnull %buff.i, i64 noundef 4096) #22
+  %15 = load i32, ptr @stacktrace_pipe, align 4
+  %call1.i = call i64 @read(i32 noundef %15, ptr noundef nonnull %buff.i, i64 noundef 4096) #22
   %cmp.i14 = icmp sgt i64 %call1.i, 0
   br i1 %cmp.i14, label %while.cond.i, label %while.end.i, !llvm.loop !30
 
@@ -4406,8 +4395,8 @@ if.end6.i:                                        ; preds = %while.end.i
   %call7.i = call i64 (i64, ...) @syscall(i64 noundef 186) #22
   %conv.i = trunc i64 %call7.i to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %curr_stacktrace_data.i, i8 0, i64 824, i1 false)
-  %21 = load i32, ptr @stacktrace_pipe, align 4
-  %call922.i = call i64 @read(i32 noundef %21, ptr noundef nonnull %curr_stacktrace_data.i, i64 noundef 824) #22
+  %16 = load i32, ptr @stacktrace_pipe, align 4
+  %call922.i = call i64 @read(i32 noundef %16, ptr noundef nonnull %curr_stacktrace_data.i, i64 noundef 824) #22
   %cmp1023.i = icmp sgt i64 %call922.i, 0
   br i1 %cmp1023.i, label %while.body12.lr.ph.i, label %while.end41.i
 
@@ -4420,12 +4409,12 @@ while.body12.lr.ph.i:                             ; preds = %if.end6.i
 
 while.body12.i:                                   ; preds = %if.end39.i, %while.body12.lr.ph.i
   %collected.024.i = phi i64 [ 0, %while.body12.lr.ph.i ], [ %inc.i, %if.end39.i ]
-  %22 = load i32, ptr %tid.i, align 4
-  %call15.i = call i32 (ptr, i64, ptr, ...) @snprintf_async_signal_safe(ptr noundef nonnull %buff.i, i64 noundef 4096, ptr noundef nonnull @.str.296, i32 noundef %22, ptr noundef nonnull %curr_stacktrace_data.i) #22
+  %17 = load i32, ptr %tid.i, align 4
+  %call15.i = call i32 (ptr, i64, ptr, ...) @snprintf_async_signal_safe(ptr noundef nonnull %buff.i, i64 noundef 4096, ptr noundef nonnull @.str.296, i32 noundef %17, ptr noundef nonnull %curr_stacktrace_data.i) #22
   %call18.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff.i) #24
   %call19.i = call i64 @write(i32 noundef %cond.i21, ptr noundef nonnull %buff.i, i64 noundef %call18.i) #22
-  %23 = load i32, ptr %tid.i, align 4
-  %cmp25.i = icmp eq i32 %23, %conv.i
+  %18 = load i32, ptr %tid.i, align 4
+  %cmp25.i = icmp eq i32 %18, %conv.i
   br i1 %cmp25.i, label %if.then27.i, label %if.else.i
 
 if.then27.i:                                      ; preds = %while.body12.i
@@ -4440,12 +4429,12 @@ if.end39.i:                                       ; preds = %if.else.i, %if.then
   %curr_uplevel.0.i = phi i32 [ %add28.i, %if.then27.i ], [ 3, %if.else.i ]
   %idx.ext.i = sext i32 %curr_uplevel.0.i to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %trace.i, i64 %idx.ext.i
-  %24 = load i32, ptr %trace_size.i, align 8
-  %sub.i = sub nsw i32 %24, %curr_uplevel.0.i
+  %19 = load i32, ptr %trace_size.i, align 8
+  %sub.i = sub nsw i32 %19, %curr_uplevel.0.i
   call void @backtrace_symbols_fd(ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i, i32 noundef %cond.i21) #22
   %inc.i = add i64 %collected.024.i, 1
-  %25 = load i32, ptr @stacktrace_pipe, align 4
-  %call9.i = call i64 @read(i32 noundef %25, ptr noundef nonnull %curr_stacktrace_data.i, i64 noundef 824) #22
+  %20 = load i32, ptr @stacktrace_pipe, align 4
+  %call9.i = call i64 @read(i32 noundef %20, ptr noundef nonnull %curr_stacktrace_data.i, i64 noundef 824) #22
   %cmp10.i = icmp sgt i64 %call9.i, 0
   br i1 %cmp10.i, label %while.body12.i, label %while.end41.i, !llvm.loop !31
 
@@ -4461,9 +4450,9 @@ writeStacktraces.exit:                            ; preds = %while.end.i, %while
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buff.i)
   call void @llvm.lifetime.end.p0(i64 824, ptr nonnull %curr_stacktrace_data.i)
   %call15 = call i64 @write(i32 noundef %cond.i21, ptr noundef nonnull @.str.254, i64 noundef 32) #22
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4304), align 8
-  %27 = load i8, ptr %26, align 1
-  %cmp.i15 = icmp eq i8 %27, 0
+  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4304), align 8
+  %22 = load i8, ptr %21, align 1
+  %cmp.i15 = icmp eq i8 %22, 0
   br i1 %cmp.i15, label %return, label %if.then.i16
 
 if.then.i16:                                      ; preds = %writeStacktraces.exit

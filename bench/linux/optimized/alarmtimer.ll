@@ -1815,27 +1815,27 @@ alarm_try_to_cancel.exit:                         ; preds = %35, %39, %52, %56
 .loopexit:                                        ; preds = %alarm_try_to_cancel.exit, %17
   %60 = load ptr, ptr %7, align 8
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.thread, label %62
+  br i1 %61, label %.critedge, label %62
 
 62:                                               ; preds = %.loopexit
   %63 = load volatile i64, ptr %6, align 8
   %64 = and i64 %63, 131072
   %65 = icmp eq i64 %64, 0
-  br i1 %65, label %66, label %.thread, !prof !12
+  br i1 %65, label %66, label %.critedge, !prof !12
 
 66:                                               ; preds = %62
   %67 = load volatile i64, ptr %6, align 8
   %68 = and i64 %67, 4
   %69 = icmp eq i64 %68, 0
-  br i1 %69, label %12, label %.thread, !llvm.loop !39
+  br i1 %69, label %12, label %.critedge, !llvm.loop !39
 
-.thread:                                          ; preds = %62, %66, %.loopexit
+.critedge:                                        ; preds = %62, %66, %.loopexit
   store volatile i32 0, ptr %8, align 8
   %70 = load ptr, ptr %7, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %114, label %72
 
-72:                                               ; preds = %.thread
+72:                                               ; preds = %.critedge
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @freezer_active, i32 2) #12
           to label %94 [label %73], !srcloc !17
 
@@ -1922,8 +1922,8 @@ alarm_try_to_cancel.exit:                         ; preds = %35, %39, %52, %56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
   br label %114
 
-114:                                              ; preds = %112, %94, %.thread
-  %115 = phi i32 [ %113, %112 ], [ 0, %.thread ], [ -516, %94 ]
+114:                                              ; preds = %112, %94, %.critedge
+  %115 = phi i32 [ %113, %112 ], [ 0, %.critedge ], [ -516, %94 ]
   ret i32 %115
 }
 

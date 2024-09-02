@@ -345,15 +345,18 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %126 = load i32, ptr %10, align 4
   %127 = sext i32 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next, %127
-  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %128, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %125, %54
-  %.0244.lcssa = phi i8 [ 0, %54 ], [ %.1245, %125 ]
-  %.2231.lcssa = phi i64 [ %.0229270, %54 ], [ %.3232, %125 ]
-  %.2227.lcssa = phi i32 [ %.0225273, %54 ], [ %.3, %125 ]
-  %129 = and i8 %.0244.lcssa, 1
+._crit_edge.loopexit:                             ; preds = %125
+  %129 = and i8 %.1245, 1
   %130 = zext nneg i8 %129 to i32
-  %spec.select = add i32 %.0218275, %130
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %54
+  %.0244.lcssa = phi i32 [ 0, %54 ], [ %130, %._crit_edge.loopexit ]
+  %.2231.lcssa = phi i64 [ %.0229270, %54 ], [ %.3232, %._crit_edge.loopexit ]
+  %.2227.lcssa = phi i32 [ %.0225273, %54 ], [ %.3, %._crit_edge.loopexit ]
+  %spec.select = add i32 %.0218275, %.0244.lcssa
   %131 = sub i64 %.2231.lcssa, %.0229270
   %132 = trunc i64 %131 to i32
   store i32 %132, ptr %13, align 4

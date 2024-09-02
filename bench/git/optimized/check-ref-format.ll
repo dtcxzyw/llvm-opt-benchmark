@@ -204,27 +204,27 @@ if.then57:                                        ; preds = %if.end53
 
 while.cond.outer.i:                               ; preds = %if.end.i, %if.then57
   %refname.addr.0.ph.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %16, %if.then57 ]
-  %prev.0.ph.i = phi i8 [ %17, %if.end.i ], [ 47, %if.then57 ]
+  %prev.0.ph.i = phi i8 [ %18, %if.end.i ], [ 47, %if.then57 ]
   %cp.0.ph.i = phi ptr [ %incdec.ptr10.i, %if.end.i ], [ %call1.i30, %if.then57 ]
+  %17 = icmp eq i8 %prev.0.ph.i, 47
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %while.cond.outer.i
   %refname.addr.0.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %refname.addr.0.ph.i, %while.cond.outer.i ]
-  %prev.0.i = phi i8 [ 47, %while.body.i ], [ %prev.0.ph.i, %while.cond.outer.i ]
-  %17 = load i8, ptr %refname.addr.0.i, align 1
-  %cmp.not.i = icmp eq i8 %17, 0
+  %prev.0.i = phi i1 [ true, %while.body.i ], [ %17, %while.cond.outer.i ]
+  %18 = load i8, ptr %refname.addr.0.i, align 1
+  %cmp.not.i = icmp eq i8 %18, 0
   br i1 %cmp.not.i, label %collapse_slashes.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %refname.addr.0.i, i64 1
-  %cmp4.i = icmp eq i8 %prev.0.i, 47
-  %cmp8.i = icmp eq i8 %17, 47
-  %or.cond.i = and i1 %cmp4.i, %cmp8.i
+  %cmp8.i = icmp eq i8 %18, 47
+  %or.cond.i = and i1 %prev.0.i, %cmp8.i
   br i1 %or.cond.i, label %while.cond.i, label %if.end.i, !llvm.loop !8
 
 if.end.i:                                         ; preds = %while.body.i
   %incdec.ptr10.i = getelementptr inbounds i8, ptr %cp.0.ph.i, i64 1
-  store i8 %17, ptr %cp.0.ph.i, align 1
+  store i8 %18, ptr %cp.0.ph.i, align 1
   br label %while.cond.outer.i, !llvm.loop !8
 
 collapse_slashes.exit:                            ; preds = %while.cond.i

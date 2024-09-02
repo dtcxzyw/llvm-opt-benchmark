@@ -26,39 +26,39 @@ define dso_local range(i32 -8, 1) i32 @lzo1x_decompress_safe(ptr noundef %0, i64
 11:                                               ; preds = %9
   %12 = load i8, ptr %0, align 1
   %13 = icmp eq i8 %12, 17
-  br i1 %13, label %14, label %18, !prof !6
+  br i1 %13, label %14, label %19, !prof !6
 
 14:                                               ; preds = %11
   %15 = getelementptr i8, ptr %0, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = getelementptr i8, ptr %0, i64 2
+  %18 = icmp eq i8 %16, 0
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %9, %14
-  %.ph = phi i8 [ 0, %9 ], [ %16, %14 ]
+  %.ph = phi i1 [ true, %9 ], [ %18, %14 ]
   %.ph32 = phi ptr [ %0, %9 ], [ %17, %14 ]
   %.pr = load i8, ptr %.ph32, align 1
-  br label %18
+  br label %19
 
-18:                                               ; preds = %thread-pre-split, %11
-  %19 = phi i8 [ %.pr, %thread-pre-split ], [ %12, %11 ]
-  %20 = phi i8 [ %.ph, %thread-pre-split ], [ 0, %11 ]
-  %21 = phi ptr [ %.ph32, %thread-pre-split ], [ %0, %11 ]
-  %22 = icmp ugt i8 %19, 17
-  br i1 %22, label %30, label %23
+19:                                               ; preds = %thread-pre-split, %11
+  %20 = phi i8 [ %.pr, %thread-pre-split ], [ %12, %11 ]
+  %21 = phi i1 [ %.ph, %thread-pre-split ], [ true, %11 ]
+  %22 = phi ptr [ %.ph32, %thread-pre-split ], [ %0, %11 ]
+  %23 = icmp ugt i8 %20, 17
+  br i1 %23, label %30, label %24
 
-23:                                               ; preds = %.loopexit58, %.loopexit, %18
-  %24 = phi i64 [ 0, %18 ], [ 4, %.loopexit ], [ %319, %.loopexit58 ]
-  %25 = phi ptr [ %21, %18 ], [ %106, %.loopexit ], [ %350, %.loopexit58 ]
-  %26 = phi ptr [ %2, %18 ], [ %107, %.loopexit ], [ %351, %.loopexit58 ]
-  %27 = ptrtoint ptr %5 to i64
-  %28 = icmp eq i8 %20, 0
+24:                                               ; preds = %.loopexit58, %.loopexit, %19
+  %25 = phi i64 [ 0, %19 ], [ 4, %.loopexit ], [ %319, %.loopexit58 ]
+  %26 = phi ptr [ %22, %19 ], [ %106, %.loopexit ], [ %350, %.loopexit58 ]
+  %27 = phi ptr [ %2, %19 ], [ %107, %.loopexit ], [ %351, %.loopexit58 ]
+  %28 = ptrtoint ptr %5 to i64
   %29 = ptrtoint ptr %7 to i64
   br label %36
 
-30:                                               ; preds = %18
-  %31 = zext i8 %19 to i64
-  %32 = getelementptr i8, ptr %21, i64 1
+30:                                               ; preds = %19
+  %31 = zext i8 %20 to i64
+  %32 = getelementptr i8, ptr %22, i64 1
   %33 = add nuw nsw i64 %31, 4294967279
   %34 = and i64 %33, 4294967295
   %35 = icmp ult i64 %34, 4
@@ -69,10 +69,10 @@ thread-pre-split:                                 ; preds = %9, %14
   %.pre282 = ptrtoint ptr %7 to i64
   br label %67
 
-36:                                               ; preds = %.loopexit48, %23
-  %37 = phi i64 [ %267, %.loopexit48 ], [ %24, %23 ]
-  %38 = phi ptr [ %302, %.loopexit48 ], [ %25, %23 ]
-  %39 = phi ptr [ %301, %.loopexit48 ], [ %26, %23 ]
+36:                                               ; preds = %.loopexit48, %24
+  %37 = phi i64 [ %267, %.loopexit48 ], [ %25, %24 ]
+  %38 = phi ptr [ %302, %.loopexit48 ], [ %26, %24 ]
+  %39 = phi ptr [ %301, %.loopexit48 ], [ %27, %24 ]
   %40 = getelementptr i8, ptr %38, i64 1
   %41 = load i8, ptr %38, align 1
   %42 = zext i8 %41 to i64
@@ -123,7 +123,7 @@ thread-pre-split:                                 ; preds = %9, %14
 
 67:                                               ; preds = %._crit_edge, %63
   %.pre-phi283 = phi i64 [ %.pre282, %._crit_edge ], [ %29, %63 ]
-  %.pre-phi281 = phi i64 [ %.pre, %._crit_edge ], [ %27, %63 ]
+  %.pre-phi281 = phi i64 [ %.pre, %._crit_edge ], [ %28, %63 ]
   %68 = phi i64 [ %34, %._crit_edge ], [ %66, %63 ]
   %69 = phi ptr [ %32, %._crit_edge ], [ %65, %63 ]
   %70 = phi ptr [ %2, %._crit_edge ], [ %39, %63 ]
@@ -183,7 +183,7 @@ thread-pre-split:                                 ; preds = %9, %14
 .loopexit:                                        ; preds = %.preheader, %104
   %106 = phi ptr [ %80, %104 ], [ %99, %.preheader ]
   %107 = phi ptr [ %105, %104 ], [ %101, %.preheader ]
-  br label %23, !llvm.loop !13
+  br label %24, !llvm.loop !13
 
 108:                                              ; preds = %44
   %109 = and i64 %42, 3
@@ -281,7 +281,7 @@ thread-pre-split:                                 ; preds = %9, %14
   %176 = add nuw nsw i64 %175, 33
   %177 = add nuw i64 %176, %173
   %178 = ptrtoint ptr %174 to i64
-  %179 = sub i64 %27, %178
+  %179 = sub i64 %28, %178
   %180 = icmp ugt i64 %179, 1
   br i1 %180, label %181, label %.thread36
 
@@ -299,7 +299,7 @@ thread-pre-split:                                 ; preds = %9, %14
 
 191:                                              ; preds = %155
   %192 = ptrtoint ptr %40 to i64
-  %193 = sub i64 %27, %192
+  %193 = sub i64 %28, %192
   %194 = icmp ugt i64 %193, 1
   br i1 %194, label %195, label %.thread36
 
@@ -311,7 +311,7 @@ thread-pre-split:                                 ; preds = %9, %14
   %200 = and i64 %42, 24
   %201 = icmp ne i64 %200, 24
   %202 = or i1 %201, %199
-  %203 = select i1 %202, i1 true, i1 %28
+  %203 = select i1 %202, i1 true, i1 %21
   br i1 %203, label %221, label %204, !prof !15
 
 204:                                              ; preds = %195
@@ -368,7 +368,7 @@ thread-pre-split:                                 ; preds = %9, %14
 239:                                              ; preds = %235
   %240 = getelementptr i8, ptr %229, i64 1
   %241 = ptrtoint ptr %240 to i64
-  %242 = sub i64 %27, %241
+  %242 = sub i64 %28, %241
   %243 = icmp ugt i64 %242, 1
   br i1 %243, label %244, label %.thread36
 
@@ -435,7 +435,7 @@ thread-pre-split:                                 ; preds = %9, %14
 
 288:                                              ; preds = %.preheader49
   %289 = ptrtoint ptr %266 to i64
-  %290 = sub i64 %27, %289
+  %290 = sub i64 %28, %289
   %291 = icmp ugt i64 %290, 5
   br i1 %291, label %.loopexit48, label %.loopexit46
 
@@ -535,7 +535,7 @@ thread-pre-split:                                 ; preds = %9, %14
 .loopexit58:                                      ; preds = %.preheader57, %340, %331
   %350 = phi ptr [ %334, %331 ], [ %320, %340 ], [ %345, %.preheader57 ]
   %351 = phi ptr [ %333, %331 ], [ %321, %340 ], [ %347, %.preheader57 ]
-  br label %23, !llvm.loop !13
+  br label %24, !llvm.loop !13
 
 352:                                              ; preds = %251
   %353 = ptrtoint ptr %39 to i64

@@ -4320,64 +4320,64 @@ declare void @_ZN6QImage4fillEj(ptr noundef nonnull align 8 dereferenceable(32),
 define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.preheader247, label %._crit_edge252
+  br i1 %5, label %.preheader241, label %._crit_edge246
 
-.preheader247:                                    ; preds = %3, %._crit_edge
-  %.0251 = phi i32 [ %.pre-phi, %._crit_edge ], [ 0, %3 ]
+.preheader241:                                    ; preds = %3, %._crit_edge
+  %.0245 = phi i32 [ %.pre-phi, %._crit_edge ], [ 0, %3 ]
   %6 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph, label %.preheader247.._crit_edge_crit_edge
+  br i1 %7, label %.lr.ph, label %.preheader241.._crit_edge_crit_edge
 
-.preheader247.._crit_edge_crit_edge:              ; preds = %.preheader247
-  %.pre = add nuw nsw i32 %.0251, 1
+.preheader241.._crit_edge_crit_edge:              ; preds = %.preheader241
+  %.pre = add nuw nsw i32 %.0245, 1
   br label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader247
-  %8 = shl nuw nsw i32 %.0251, 1
-  %.not243 = icmp eq i32 %.0251, 0
-  %9 = add nsw i32 %.0251, -1
-  %10 = icmp ne i32 %.0251, 0
+.lr.ph:                                           ; preds = %.preheader241
+  %8 = shl nuw nsw i32 %.0245, 1
+  %.not237 = icmp eq i32 %.0245, 0
+  %9 = add nsw i32 %.0245, -1
+  %10 = icmp ne i32 %.0245, 0
   %11 = or disjoint i32 %8, 1
-  %12 = add nuw nsw i32 %.0251, 1
+  %12 = add nuw nsw i32 %.0245, 1
   br label %13
 
-13:                                               ; preds = %.lr.ph, %429
-  %.0182248 = phi i32 [ 0, %.lr.ph ], [ %430, %429 ]
-  %14 = shl nuw nsw i32 %.0182248, 1
+13:                                               ; preds = %.lr.ph, %433
+  %.0182242 = phi i32 [ 0, %.lr.ph ], [ %434, %433 ]
+  %14 = shl nuw nsw i32 %.0182242, 1
   %15 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %14, i32 noundef %8)
   %16 = icmp eq i32 %15, %2
   br i1 %16, label %17, label %103
 
 17:                                               ; preds = %13
-  %18 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182248, i32 noundef %.0251)
-  %.not244 = icmp eq i32 %.0182248, 0
-  br i1 %.not244, label %19, label %.thread265
+  %18 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182242, i32 noundef %.0245)
+  %.not238 = icmp eq i32 %.0182242, 0
+  br i1 %.not238, label %19, label %.thread259
 
 19:                                               ; preds = %17
-  br i1 %.not243, label %.thread, label %22
+  br i1 %.not237, label %.thread, label %22
 
-.thread265:                                       ; preds = %17
-  %20 = add nsw i32 %.0182248, -1
-  %21 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %.0251)
-  br i1 %.not243, label %.thread, label %24
+.thread259:                                       ; preds = %17
+  %20 = add nsw i32 %.0182242, -1
+  %21 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %.0245)
+  br i1 %.not237, label %.thread, label %24
 
 22:                                               ; preds = %19
-  %23 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182248, i32 noundef %9)
+  %23 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182242, i32 noundef %9)
   br label %.thread
 
-24:                                               ; preds = %.thread265
-  %25 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182248, i32 noundef %9)
-  %26 = add nsw i32 %.0182248, -1
+24:                                               ; preds = %.thread259
+  %25 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182242, i32 noundef %9)
+  %26 = add nsw i32 %.0182242, -1
   %27 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %26, i32 noundef %9)
   br label %.thread
 
-.thread:                                          ; preds = %22, %.thread265, %19, %24
-  %28 = phi i32 [ %21, %24 ], [ %2, %22 ], [ %2, %19 ], [ %21, %.thread265 ]
-  %29 = phi i32 [ 48, %24 ], [ 0, %22 ], [ 0, %19 ], [ 48, %.thread265 ]
-  %30 = phi i32 [ %25, %24 ], [ %23, %22 ], [ %2, %19 ], [ %2, %.thread265 ]
-  %31 = phi i32 [ 48, %24 ], [ 48, %22 ], [ 0, %19 ], [ 0, %.thread265 ]
-  %32 = phi i32 [ 16, %24 ], [ 0, %22 ], [ 0, %19 ], [ 0, %.thread265 ]
-  %33 = phi i32 [ %27, %24 ], [ %2, %22 ], [ %2, %19 ], [ %2, %.thread265 ]
+.thread:                                          ; preds = %22, %.thread259, %19, %24
+  %28 = phi i32 [ %21, %24 ], [ %2, %22 ], [ %2, %19 ], [ %21, %.thread259 ]
+  %29 = phi i32 [ 48, %24 ], [ 0, %22 ], [ 0, %19 ], [ 48, %.thread259 ]
+  %30 = phi i32 [ %25, %24 ], [ %23, %22 ], [ %2, %19 ], [ %2, %.thread259 ]
+  %31 = phi i32 [ 48, %24 ], [ 48, %22 ], [ 0, %19 ], [ 0, %.thread259 ]
+  %32 = phi i32 [ 16, %24 ], [ 0, %22 ], [ 0, %19 ], [ 0, %.thread259 ]
+  %33 = phi i32 [ %27, %24 ], [ %2, %22 ], [ %2, %19 ], [ %2, %.thread259 ]
   %34 = lshr i32 %18, 16
   %35 = and i32 %34, 255
   %36 = lshr i32 %28, 16
@@ -4415,9 +4415,9 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
   %65 = add nuw nsw i32 %63, %64
   %66 = mul nuw nsw i32 %60, %32
   %67 = add nuw nsw i32 %65, %66
-  %.lhs.trunc197 = trunc nuw i32 %67 to i16
-  %68 = udiv i16 %.lhs.trunc197, %.rhs.trunc
-  %.zext199 = zext nneg i16 %68 to i32
+  %.lhs.trunc192 = trunc nuw i32 %67 to i16
+  %68 = udiv i16 %.lhs.trunc192, %.rhs.trunc
+  %.zext194 = zext nneg i16 %68 to i32
   %69 = and i32 %18, 255
   %70 = and i32 %28, 255
   %71 = and i32 %30, 255
@@ -4429,8 +4429,8 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
   %77 = add nuw nsw i32 %75, %76
   %78 = mul nuw nsw i32 %72, %32
   %79 = add nuw nsw i32 %77, %78
-  %.lhs.trunc200 = trunc nuw i32 %79 to i16
-  %80 = udiv i16 %.lhs.trunc200, %.rhs.trunc
+  %.lhs.trunc195 = trunc nuw i32 %79 to i16
+  %80 = udiv i16 %.lhs.trunc195, %.rhs.trunc
   %81 = lshr i32 %18, 24
   %82 = lshr i32 %28, 24
   %83 = lshr i32 %30, 24
@@ -4442,14 +4442,14 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
   %89 = add nuw nsw i32 %87, %88
   %90 = mul nuw nsw i32 %84, %32
   %91 = add nuw nsw i32 %89, %90
-  %.lhs.trunc203 = trunc nuw i32 %91 to i16
-  %92 = udiv i16 %.lhs.trunc203, %.rhs.trunc
-  %.zext205 = zext nneg i16 %92 to i32
-  %93 = shl i32 %.zext205, 24
+  %.lhs.trunc198 = trunc nuw i32 %91 to i16
+  %92 = udiv i16 %.lhs.trunc198, %.rhs.trunc
+  %.zext200 = zext nneg i16 %92 to i32
+  %93 = shl i32 %.zext200, 24
   %94 = shl nuw nsw i32 %.zext, 16
   %95 = and i32 %94, 16711680
   %96 = or disjoint i32 %93, %95
-  %97 = shl nuw nsw i32 %.zext199, 8
+  %97 = shl nuw nsw i32 %.zext194, 8
   %98 = and i32 %97, 65280
   %99 = or disjoint i32 %96, %98
   %100 = and i16 %80, 255
@@ -4465,26 +4465,26 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
   br i1 %106, label %107, label %208
 
 107:                                              ; preds = %103
-  %108 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182248, i32 noundef %.0251)
+  %108 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182242, i32 noundef %.0245)
   %109 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %110 = add nsw i32 %109, -1
-  %111 = icmp slt i32 %.0182248, %110
+  %111 = icmp slt i32 %.0182242, %110
   br i1 %111, label %112, label %115
 
 112:                                              ; preds = %107
-  %113 = add nuw nsw i32 %.0182248, 1
-  %114 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %113, i32 noundef %.0251)
+  %113 = add nuw nsw i32 %.0182242, 1
+  %114 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %113, i32 noundef %.0245)
   br label %115
 
 115:                                              ; preds = %107, %112
   %116 = phi i32 [ %114, %112 ], [ %2, %107 ]
   %117 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %118 = add nsw i32 %117, -1
-  %119 = icmp slt i32 %.0182248, %118
+  %119 = icmp slt i32 %.0182242, %118
   br i1 %10, label %120, label %122
 
 120:                                              ; preds = %115
-  %121 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182248, i32 noundef %9)
+  %121 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182242, i32 noundef %9)
   br label %122
 
 122:                                              ; preds = %115, %120
@@ -4492,12 +4492,12 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
   %124 = phi i32 [ %121, %120 ], [ %2, %115 ]
   %125 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %126 = add nsw i32 %125, -1
-  %127 = icmp slt i32 %.0182248, %126
+  %127 = icmp slt i32 %.0182242, %126
   %or.cond3 = and i1 %10, %127
   br i1 %or.cond3, label %128, label %131
 
 128:                                              ; preds = %122
-  %129 = add nuw nsw i32 %.0182248, 1
+  %129 = add nuw nsw i32 %.0182242, 1
   %130 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %129, i32 noundef %9)
   br label %131
 
@@ -4505,7 +4505,7 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
   %132 = phi i32 [ %130, %128 ], [ %2, %122 ]
   %133 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %134 = add nsw i32 %133, -1
-  %135 = icmp slt i32 %.0182248, %134
+  %135 = icmp slt i32 %.0182242, %134
   %136 = and i1 %10, %135
   %137 = lshr i32 %108, 16
   %138 = and i32 %137, 255
@@ -4527,10 +4527,10 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
   %154 = add nuw nsw i32 %146, 144
   %155 = add nuw nsw i32 %154, %123
   %156 = add nuw nsw i32 %155, %151
-  %.lhs.trunc206 = trunc nuw i32 %153 to i16
-  %.rhs.trunc207 = trunc nuw nsw i32 %156 to i16
-  %157 = udiv i16 %.lhs.trunc206, %.rhs.trunc207
-  %.zext208 = zext nneg i16 %157 to i32
+  %.lhs.trunc201 = trunc nuw i32 %153 to i16
+  %.rhs.trunc202 = trunc nuw nsw i32 %156 to i16
+  %157 = udiv i16 %.lhs.trunc201, %.rhs.trunc202
+  %.zext203 = zext nneg i16 %157 to i32
   %158 = lshr i32 %108, 8
   %159 = and i32 %158, 255
   %160 = lshr i32 %116, 8
@@ -4546,9 +4546,9 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
   %170 = add nuw nsw i32 %168, %169
   %171 = mul nuw nsw i32 %151, %165
   %172 = add nuw nsw i32 %170, %171
-  %.lhs.trunc209 = trunc nuw i32 %172 to i16
-  %173 = udiv i16 %.lhs.trunc209, %.rhs.trunc207
-  %.zext211 = zext nneg i16 %173 to i32
+  %.lhs.trunc204 = trunc nuw i32 %172 to i16
+  %173 = udiv i16 %.lhs.trunc204, %.rhs.trunc202
+  %.zext206 = zext nneg i16 %173 to i32
   %174 = and i32 %108, 255
   %175 = and i32 %116, 255
   %176 = and i32 %124, 255
@@ -4560,8 +4560,8 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
   %182 = add nuw nsw i32 %180, %181
   %183 = mul nuw nsw i32 %151, %177
   %184 = add nuw nsw i32 %182, %183
-  %.lhs.trunc212 = trunc nuw i32 %184 to i16
-  %185 = udiv i16 %.lhs.trunc212, %.rhs.trunc207
+  %.lhs.trunc207 = trunc nuw i32 %184 to i16
+  %185 = udiv i16 %.lhs.trunc207, %.rhs.trunc202
   %186 = lshr i32 %108, 24
   %187 = lshr i32 %116, 24
   %188 = lshr i32 %124, 24
@@ -4573,14 +4573,14 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
   %194 = add nuw nsw i32 %192, %193
   %195 = mul nuw nsw i32 %151, %189
   %196 = add nuw nsw i32 %194, %195
-  %.lhs.trunc215 = trunc nuw i32 %196 to i16
-  %197 = udiv i16 %.lhs.trunc215, %.rhs.trunc207
-  %.zext217 = zext nneg i16 %197 to i32
-  %198 = shl i32 %.zext217, 24
-  %199 = shl nuw nsw i32 %.zext208, 16
+  %.lhs.trunc210 = trunc nuw i32 %196 to i16
+  %197 = udiv i16 %.lhs.trunc210, %.rhs.trunc202
+  %.zext212 = zext nneg i16 %197 to i32
+  %198 = shl i32 %.zext212, 24
+  %199 = shl nuw nsw i32 %.zext203, 16
   %200 = and i32 %199, 16711680
   %201 = or disjoint i32 %198, %200
-  %202 = shl nuw nsw i32 %.zext211, 8
+  %202 = shl nuw nsw i32 %.zext206, 8
   %203 = and i32 %202, 65280
   %204 = or disjoint i32 %201, %203
   %205 = and i16 %185, 255
@@ -4592,16 +4592,16 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
 208:                                              ; preds = %131, %103
   %209 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %14, i32 noundef %11)
   %210 = icmp eq i32 %209, %2
-  br i1 %210, label %211, label %312
+  br i1 %210, label %211, label %314
 
 211:                                              ; preds = %208
-  %212 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182248, i32 noundef %.0251)
-  %.not189 = icmp eq i32 %.0182248, 0
+  %212 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182242, i32 noundef %.0245)
+  %.not189 = icmp eq i32 %.0182242, 0
   br i1 %.not189, label %216, label %213
 
 213:                                              ; preds = %211
-  %214 = add nsw i32 %.0182248, -1
-  %215 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %214, i32 noundef %.0251)
+  %214 = add nsw i32 %.0182242, -1
+  %215 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %214, i32 noundef %.0245)
   br label %216
 
 216:                                              ; preds = %211, %213
@@ -4609,389 +4609,387 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
   %218 = phi i32 [ %215, %213 ], [ %2, %211 ]
   %219 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %220 = add nsw i32 %219, -1
-  %221 = icmp slt i32 %.0251, %220
+  %221 = icmp slt i32 %.0245, %220
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %216
-  %223 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182248, i32 noundef %12)
+  %223 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182242, i32 noundef %12)
   br label %224
 
 224:                                              ; preds = %216, %222
   %225 = phi i32 [ %223, %222 ], [ %2, %216 ]
   %226 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %227 = add nsw i32 %226, -1
-  %228 = icmp slt i32 %.0251, %227
-  br i1 %.not189, label %.thread192, label %229
+  %228 = icmp slt i32 %.0245, %227
+  br i1 %.not189, label %241, label %229
 
 229:                                              ; preds = %224
   %230 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %231 = add nsw i32 %230, -1
-  %232 = icmp slt i32 %.0251, %231
+  %232 = icmp slt i32 %.0245, %231
   br i1 %232, label %233, label %236
 
 233:                                              ; preds = %229
-  %234 = add nsw i32 %.0182248, -1
+  %234 = add nsw i32 %.0182242, -1
   %235 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %234, i32 noundef %12)
   br label %236
 
-236:                                              ; preds = %233, %229
+236:                                              ; preds = %229, %233
   %.ph = phi i32 [ %2, %229 ], [ %235, %233 ]
   %237 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %238 = add nsw i32 %237, -1
-  %239 = icmp slt i32 %.0251, %238
-  %cond.fr = freeze i1 %239
-  %spec.select = select i1 %cond.fr, i32 16, i32 0
-  br label %.thread192
+  %239 = icmp slt i32 %.0245, %238
+  %240 = select i1 %239, i32 16, i32 0
+  br label %241
 
-.thread192:                                       ; preds = %236, %224
-  %240 = phi i32 [ %2, %224 ], [ %.ph, %236 ]
-  %241 = phi i32 [ 0, %224 ], [ %spec.select, %236 ]
-  %242 = lshr i32 %212, 16
-  %243 = and i32 %242, 255
-  %244 = lshr i32 %218, 16
+241:                                              ; preds = %224, %236
+  %242 = phi i32 [ %.ph, %236 ], [ %2, %224 ]
+  %243 = phi i32 [ %240, %236 ], [ 0, %224 ]
+  %244 = lshr i32 %212, 16
   %245 = and i32 %244, 255
-  %246 = lshr i32 %225, 16
+  %246 = lshr i32 %218, 16
   %247 = and i32 %246, 255
-  %248 = lshr i32 %240, 16
+  %248 = lshr i32 %225, 16
   %249 = and i32 %248, 255
-  %250 = mul nuw nsw i32 %243, 144
-  %251 = mul nuw nsw i32 %245, %217
-  %252 = add nuw nsw i32 %251, %250
-  %253 = select i1 %228, i32 48, i32 0
-  %254 = mul nuw nsw i32 %253, %247
-  %255 = add nuw nsw i32 %252, %254
-  %256 = mul nuw nsw i32 %249, %241
-  %257 = add nuw nsw i32 %255, %256
-  %258 = add nuw nsw i32 %217, 144
-  %259 = add nuw nsw i32 %258, %253
-  %260 = add nuw nsw i32 %259, %241
-  %.lhs.trunc218 = trunc nuw i32 %257 to i16
-  %.rhs.trunc219 = trunc nuw nsw i32 %260 to i16
-  %261 = udiv i16 %.lhs.trunc218, %.rhs.trunc219
-  %.zext220 = zext nneg i16 %261 to i32
-  %262 = lshr i32 %212, 8
-  %263 = and i32 %262, 255
-  %264 = lshr i32 %218, 8
+  %250 = lshr i32 %242, 16
+  %251 = and i32 %250, 255
+  %252 = mul nuw nsw i32 %245, 144
+  %253 = mul nuw nsw i32 %247, %217
+  %254 = add nuw nsw i32 %253, %252
+  %255 = select i1 %228, i32 48, i32 0
+  %256 = mul nuw nsw i32 %255, %249
+  %257 = add nuw nsw i32 %254, %256
+  %258 = mul nuw nsw i32 %251, %243
+  %259 = add nuw nsw i32 %257, %258
+  %260 = add nuw nsw i32 %217, 144
+  %261 = add nuw nsw i32 %260, %255
+  %262 = add nuw nsw i32 %261, %243
+  %.lhs.trunc213 = trunc nuw i32 %259 to i16
+  %.rhs.trunc214 = trunc nuw nsw i32 %262 to i16
+  %263 = udiv i16 %.lhs.trunc213, %.rhs.trunc214
+  %.zext215 = zext nneg i16 %263 to i32
+  %264 = lshr i32 %212, 8
   %265 = and i32 %264, 255
-  %266 = lshr i32 %225, 8
+  %266 = lshr i32 %218, 8
   %267 = and i32 %266, 255
-  %268 = lshr i32 %240, 8
+  %268 = lshr i32 %225, 8
   %269 = and i32 %268, 255
-  %270 = mul nuw nsw i32 %263, 144
-  %271 = mul nuw nsw i32 %265, %217
-  %272 = add nuw nsw i32 %271, %270
-  %273 = mul nuw nsw i32 %253, %267
-  %274 = add nuw nsw i32 %272, %273
-  %275 = mul nuw nsw i32 %269, %241
+  %270 = lshr i32 %242, 8
+  %271 = and i32 %270, 255
+  %272 = mul nuw nsw i32 %265, 144
+  %273 = mul nuw nsw i32 %267, %217
+  %274 = add nuw nsw i32 %273, %272
+  %275 = mul nuw nsw i32 %255, %269
   %276 = add nuw nsw i32 %274, %275
-  %.lhs.trunc221 = trunc nuw i32 %276 to i16
-  %277 = udiv i16 %.lhs.trunc221, %.rhs.trunc219
-  %.zext223 = zext nneg i16 %277 to i32
-  %278 = and i32 %212, 255
-  %279 = and i32 %218, 255
-  %280 = and i32 %225, 255
-  %281 = and i32 %240, 255
-  %282 = mul nuw nsw i32 %278, 144
-  %283 = mul nuw nsw i32 %279, %217
-  %284 = add nuw nsw i32 %283, %282
-  %285 = mul nuw nsw i32 %253, %280
-  %286 = add nuw nsw i32 %284, %285
-  %287 = mul nuw nsw i32 %281, %241
+  %277 = mul nuw nsw i32 %271, %243
+  %278 = add nuw nsw i32 %276, %277
+  %.lhs.trunc216 = trunc nuw i32 %278 to i16
+  %279 = udiv i16 %.lhs.trunc216, %.rhs.trunc214
+  %.zext218 = zext nneg i16 %279 to i32
+  %280 = and i32 %212, 255
+  %281 = and i32 %218, 255
+  %282 = and i32 %225, 255
+  %283 = and i32 %242, 255
+  %284 = mul nuw nsw i32 %280, 144
+  %285 = mul nuw nsw i32 %281, %217
+  %286 = add nuw nsw i32 %285, %284
+  %287 = mul nuw nsw i32 %255, %282
   %288 = add nuw nsw i32 %286, %287
-  %.lhs.trunc224 = trunc nuw i32 %288 to i16
-  %289 = udiv i16 %.lhs.trunc224, %.rhs.trunc219
-  %290 = lshr i32 %212, 24
-  %291 = lshr i32 %218, 24
-  %292 = lshr i32 %225, 24
-  %293 = lshr i32 %240, 24
-  %294 = mul nuw nsw i32 %290, 144
-  %295 = mul nuw nsw i32 %291, %217
-  %296 = add nuw nsw i32 %295, %294
-  %297 = mul nuw nsw i32 %253, %292
-  %298 = add nuw nsw i32 %296, %297
-  %299 = mul nuw nsw i32 %293, %241
+  %289 = mul nuw nsw i32 %283, %243
+  %290 = add nuw nsw i32 %288, %289
+  %.lhs.trunc219 = trunc nuw i32 %290 to i16
+  %291 = udiv i16 %.lhs.trunc219, %.rhs.trunc214
+  %292 = lshr i32 %212, 24
+  %293 = lshr i32 %218, 24
+  %294 = lshr i32 %225, 24
+  %295 = lshr i32 %242, 24
+  %296 = mul nuw nsw i32 %292, 144
+  %297 = mul nuw nsw i32 %293, %217
+  %298 = add nuw nsw i32 %297, %296
+  %299 = mul nuw nsw i32 %255, %294
   %300 = add nuw nsw i32 %298, %299
-  %.lhs.trunc227 = trunc nuw i32 %300 to i16
-  %301 = udiv i16 %.lhs.trunc227, %.rhs.trunc219
-  %.zext229 = zext nneg i16 %301 to i32
-  %302 = shl i32 %.zext229, 24
-  %303 = shl nuw nsw i32 %.zext220, 16
-  %304 = and i32 %303, 16711680
-  %305 = or disjoint i32 %302, %304
-  %306 = shl nuw nsw i32 %.zext223, 8
-  %307 = and i32 %306, 65280
-  %308 = or disjoint i32 %305, %307
-  %309 = and i16 %289, 255
-  %310 = zext nneg i16 %309 to i32
-  %311 = or disjoint i32 %308, %310
-  tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %14, i32 noundef %11, i32 noundef %311)
-  br label %312
+  %301 = mul nuw nsw i32 %295, %243
+  %302 = add nuw nsw i32 %300, %301
+  %.lhs.trunc222 = trunc nuw i32 %302 to i16
+  %303 = udiv i16 %.lhs.trunc222, %.rhs.trunc214
+  %.zext224 = zext nneg i16 %303 to i32
+  %304 = shl i32 %.zext224, 24
+  %305 = shl nuw nsw i32 %.zext215, 16
+  %306 = and i32 %305, 16711680
+  %307 = or disjoint i32 %304, %306
+  %308 = shl nuw nsw i32 %.zext218, 8
+  %309 = and i32 %308, 65280
+  %310 = or disjoint i32 %307, %309
+  %311 = and i16 %291, 255
+  %312 = zext nneg i16 %311 to i32
+  %313 = or disjoint i32 %310, %312
+  tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %14, i32 noundef %11, i32 noundef %313)
+  br label %314
 
-312:                                              ; preds = %.thread192, %208
-  %313 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %104, i32 noundef %11)
-  %314 = icmp eq i32 %313, %2
-  br i1 %314, label %315, label %429
+314:                                              ; preds = %241, %208
+  %315 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %104, i32 noundef %11)
+  %316 = icmp eq i32 %315, %2
+  br i1 %316, label %317, label %433
 
-315:                                              ; preds = %312
-  %316 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182248, i32 noundef %.0251)
-  %317 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %318 = add nsw i32 %317, -1
-  %319 = icmp slt i32 %.0182248, %318
-  br i1 %319, label %320, label %323
+317:                                              ; preds = %314
+  %318 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182242, i32 noundef %.0245)
+  %319 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %320 = add nsw i32 %319, -1
+  %321 = icmp slt i32 %.0182242, %320
+  br i1 %321, label %322, label %325
 
-320:                                              ; preds = %315
-  %321 = add nuw nsw i32 %.0182248, 1
-  %322 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %321, i32 noundef %.0251)
-  br label %323
+322:                                              ; preds = %317
+  %323 = add nuw nsw i32 %.0182242, 1
+  %324 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %323, i32 noundef %.0245)
+  br label %325
 
-323:                                              ; preds = %315, %320
-  %324 = phi i32 [ %322, %320 ], [ %2, %315 ]
-  %325 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %326 = add nsw i32 %325, -1
-  %327 = icmp slt i32 %.0182248, %326
-  %328 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %329 = add nsw i32 %328, -1
-  %330 = icmp slt i32 %.0251, %329
-  br i1 %330, label %331, label %333
+325:                                              ; preds = %317, %322
+  %326 = phi i32 [ %324, %322 ], [ %2, %317 ]
+  %327 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %328 = add nsw i32 %327, -1
+  %329 = icmp slt i32 %.0182242, %328
+  %330 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %331 = add nsw i32 %330, -1
+  %332 = icmp slt i32 %.0245, %331
+  br i1 %332, label %333, label %335
 
-331:                                              ; preds = %323
-  %332 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182248, i32 noundef %12)
-  br label %333
+333:                                              ; preds = %325
+  %334 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182242, i32 noundef %12)
+  br label %335
 
-333:                                              ; preds = %323, %331
-  %334 = phi i32 [ %332, %331 ], [ %2, %323 ]
-  %335 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %336 = add nsw i32 %335, -1
-  %337 = icmp slt i32 %.0251, %336
-  %338 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %339 = add nsw i32 %338, -1
-  %340 = icmp slt i32 %.0182248, %339
-  br i1 %340, label %341, label %348
+335:                                              ; preds = %325, %333
+  %336 = phi i32 [ %334, %333 ], [ %2, %325 ]
+  %337 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %338 = add nsw i32 %337, -1
+  %339 = icmp slt i32 %.0245, %338
+  %340 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %341 = add nsw i32 %340, -1
+  %342 = icmp slt i32 %.0182242, %341
+  br i1 %342, label %343, label %350
 
-341:                                              ; preds = %333
-  %342 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %343 = add nsw i32 %342, -1
-  %344 = icmp slt i32 %.0251, %343
-  br i1 %344, label %345, label %348
+343:                                              ; preds = %335
+  %344 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %345 = add nsw i32 %344, -1
+  %346 = icmp slt i32 %.0245, %345
+  br i1 %346, label %347, label %350
 
-345:                                              ; preds = %341
-  %346 = add nuw nsw i32 %.0182248, 1
-  %347 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %346, i32 noundef %12)
-  br label %348
+347:                                              ; preds = %343
+  %348 = add nuw nsw i32 %.0182242, 1
+  %349 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %348, i32 noundef %12)
+  br label %350
 
-348:                                              ; preds = %333, %341, %345
-  %349 = phi i32 [ %347, %345 ], [ %2, %341 ], [ %2, %333 ]
-  %350 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %351 = add nsw i32 %350, -1
-  %352 = icmp slt i32 %.0182248, %351
-  br i1 %352, label %353, label %.thread195
+350:                                              ; preds = %335, %343, %347
+  %351 = phi i32 [ %349, %347 ], [ %2, %343 ], [ %2, %335 ]
+  %352 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %353 = add nsw i32 %352, -1
+  %354 = icmp slt i32 %.0182242, %353
+  br i1 %354, label %355, label %360
 
-353:                                              ; preds = %348
-  %354 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %355 = add nsw i32 %354, -1
-  %356 = icmp slt i32 %.0251, %355
-  %cond.fr194 = freeze i1 %356
-  %spec.select242 = select i1 %cond.fr194, i32 16, i32 0
-  br label %.thread195
+355:                                              ; preds = %350
+  %356 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %357 = add nsw i32 %356, -1
+  %358 = icmp slt i32 %.0245, %357
+  %359 = select i1 %358, i32 16, i32 0
+  br label %360
 
-.thread195:                                       ; preds = %353, %348
-  %357 = phi i32 [ 0, %348 ], [ %spec.select242, %353 ]
-  %358 = lshr i32 %316, 16
-  %359 = and i32 %358, 255
-  %360 = lshr i32 %324, 16
-  %361 = and i32 %360, 255
-  %362 = lshr i32 %334, 16
+360:                                              ; preds = %355, %350
+  %361 = phi i32 [ 0, %350 ], [ %359, %355 ]
+  %362 = lshr i32 %318, 16
   %363 = and i32 %362, 255
-  %364 = lshr i32 %349, 16
+  %364 = lshr i32 %326, 16
   %365 = and i32 %364, 255
-  %366 = mul nuw nsw i32 %359, 144
-  %367 = select i1 %327, i32 48, i32 0
-  %368 = mul nuw nsw i32 %367, %361
-  %369 = add nuw nsw i32 %368, %366
-  %370 = select i1 %337, i32 48, i32 0
-  %371 = mul nuw nsw i32 %370, %363
-  %372 = add nuw nsw i32 %369, %371
-  %373 = mul nuw nsw i32 %357, %365
-  %374 = add nuw nsw i32 %372, %373
-  %375 = add nuw nsw i32 %367, 144
-  %376 = add nuw nsw i32 %375, %370
-  %377 = add nuw nsw i32 %376, %357
-  %.lhs.trunc230 = trunc nuw i32 %374 to i16
-  %.rhs.trunc231 = trunc nuw nsw i32 %377 to i16
-  %378 = udiv i16 %.lhs.trunc230, %.rhs.trunc231
-  %.zext232 = zext nneg i16 %378 to i32
-  %379 = lshr i32 %316, 8
-  %380 = and i32 %379, 255
-  %381 = lshr i32 %324, 8
-  %382 = and i32 %381, 255
-  %383 = lshr i32 %334, 8
+  %366 = lshr i32 %336, 16
+  %367 = and i32 %366, 255
+  %368 = lshr i32 %351, 16
+  %369 = and i32 %368, 255
+  %370 = mul nuw nsw i32 %363, 144
+  %371 = select i1 %329, i32 48, i32 0
+  %372 = mul nuw nsw i32 %371, %365
+  %373 = add nuw nsw i32 %372, %370
+  %374 = select i1 %339, i32 48, i32 0
+  %375 = mul nuw nsw i32 %374, %367
+  %376 = add nuw nsw i32 %373, %375
+  %377 = mul nuw nsw i32 %361, %369
+  %378 = add nuw nsw i32 %376, %377
+  %379 = add nuw nsw i32 %371, 144
+  %380 = add nuw nsw i32 %379, %374
+  %381 = add nuw nsw i32 %380, %361
+  %.lhs.trunc225 = trunc nuw i32 %378 to i16
+  %.rhs.trunc226 = trunc nuw nsw i32 %381 to i16
+  %382 = udiv i16 %.lhs.trunc225, %.rhs.trunc226
+  %.zext227 = zext nneg i16 %382 to i32
+  %383 = lshr i32 %318, 8
   %384 = and i32 %383, 255
-  %385 = lshr i32 %349, 8
+  %385 = lshr i32 %326, 8
   %386 = and i32 %385, 255
-  %387 = mul nuw nsw i32 %380, 144
-  %388 = mul nuw nsw i32 %367, %382
-  %389 = add nuw nsw i32 %388, %387
-  %390 = mul nuw nsw i32 %370, %384
-  %391 = add nuw nsw i32 %389, %390
-  %392 = mul nuw nsw i32 %357, %386
-  %393 = add nuw nsw i32 %391, %392
-  %.lhs.trunc233 = trunc nuw i32 %393 to i16
-  %394 = udiv i16 %.lhs.trunc233, %.rhs.trunc231
-  %.zext235 = zext nneg i16 %394 to i32
-  %395 = and i32 %316, 255
-  %396 = and i32 %324, 255
-  %397 = and i32 %334, 255
-  %398 = and i32 %349, 255
-  %399 = mul nuw nsw i32 %395, 144
-  %400 = mul nuw nsw i32 %367, %396
-  %401 = add nuw nsw i32 %400, %399
-  %402 = mul nuw nsw i32 %370, %397
-  %403 = add nuw nsw i32 %401, %402
-  %404 = mul nuw nsw i32 %357, %398
-  %405 = add nuw nsw i32 %403, %404
-  %.lhs.trunc236 = trunc nuw i32 %405 to i16
-  %406 = udiv i16 %.lhs.trunc236, %.rhs.trunc231
-  %407 = lshr i32 %316, 24
-  %408 = lshr i32 %324, 24
-  %409 = lshr i32 %334, 24
-  %410 = lshr i32 %349, 24
-  %411 = mul nuw nsw i32 %407, 144
-  %412 = mul nuw nsw i32 %367, %408
-  %413 = add nuw nsw i32 %412, %411
-  %414 = mul nuw nsw i32 %370, %409
-  %415 = add nuw nsw i32 %413, %414
-  %416 = mul nuw nsw i32 %357, %410
-  %417 = add nuw nsw i32 %415, %416
-  %.lhs.trunc239 = trunc nuw i32 %417 to i16
-  %418 = udiv i16 %.lhs.trunc239, %.rhs.trunc231
-  %.zext241 = zext nneg i16 %418 to i32
-  %419 = shl i32 %.zext241, 24
-  %420 = shl nuw nsw i32 %.zext232, 16
-  %421 = and i32 %420, 16711680
-  %422 = or disjoint i32 %419, %421
-  %423 = shl nuw nsw i32 %.zext235, 8
-  %424 = and i32 %423, 65280
-  %425 = or disjoint i32 %422, %424
-  %426 = and i16 %406, 255
-  %427 = zext nneg i16 %426 to i32
-  %428 = or disjoint i32 %425, %427
-  tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %104, i32 noundef %11, i32 noundef %428)
-  br label %429
+  %387 = lshr i32 %336, 8
+  %388 = and i32 %387, 255
+  %389 = lshr i32 %351, 8
+  %390 = and i32 %389, 255
+  %391 = mul nuw nsw i32 %384, 144
+  %392 = mul nuw nsw i32 %371, %386
+  %393 = add nuw nsw i32 %392, %391
+  %394 = mul nuw nsw i32 %374, %388
+  %395 = add nuw nsw i32 %393, %394
+  %396 = mul nuw nsw i32 %361, %390
+  %397 = add nuw nsw i32 %395, %396
+  %.lhs.trunc228 = trunc nuw i32 %397 to i16
+  %398 = udiv i16 %.lhs.trunc228, %.rhs.trunc226
+  %.zext230 = zext nneg i16 %398 to i32
+  %399 = and i32 %318, 255
+  %400 = and i32 %326, 255
+  %401 = and i32 %336, 255
+  %402 = and i32 %351, 255
+  %403 = mul nuw nsw i32 %399, 144
+  %404 = mul nuw nsw i32 %371, %400
+  %405 = add nuw nsw i32 %404, %403
+  %406 = mul nuw nsw i32 %374, %401
+  %407 = add nuw nsw i32 %405, %406
+  %408 = mul nuw nsw i32 %361, %402
+  %409 = add nuw nsw i32 %407, %408
+  %.lhs.trunc231 = trunc nuw i32 %409 to i16
+  %410 = udiv i16 %.lhs.trunc231, %.rhs.trunc226
+  %411 = lshr i32 %318, 24
+  %412 = lshr i32 %326, 24
+  %413 = lshr i32 %336, 24
+  %414 = lshr i32 %351, 24
+  %415 = mul nuw nsw i32 %411, 144
+  %416 = mul nuw nsw i32 %371, %412
+  %417 = add nuw nsw i32 %416, %415
+  %418 = mul nuw nsw i32 %374, %413
+  %419 = add nuw nsw i32 %417, %418
+  %420 = mul nuw nsw i32 %361, %414
+  %421 = add nuw nsw i32 %419, %420
+  %.lhs.trunc234 = trunc nuw i32 %421 to i16
+  %422 = udiv i16 %.lhs.trunc234, %.rhs.trunc226
+  %.zext236 = zext nneg i16 %422 to i32
+  %423 = shl i32 %.zext236, 24
+  %424 = shl nuw nsw i32 %.zext227, 16
+  %425 = and i32 %424, 16711680
+  %426 = or disjoint i32 %423, %425
+  %427 = shl nuw nsw i32 %.zext230, 8
+  %428 = and i32 %427, 65280
+  %429 = or disjoint i32 %426, %428
+  %430 = and i16 %410, 255
+  %431 = zext nneg i16 %430 to i32
+  %432 = or disjoint i32 %429, %431
+  tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %104, i32 noundef %11, i32 noundef %432)
+  br label %433
 
-429:                                              ; preds = %312, %.thread195
-  %430 = add nuw nsw i32 %.0182248, 1
-  %431 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %432 = icmp slt i32 %430, %431
-  br i1 %432, label %13, label %._crit_edge, !llvm.loop !52
+433:                                              ; preds = %314, %360
+  %434 = add nuw nsw i32 %.0182242, 1
+  %435 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %436 = icmp slt i32 %434, %435
+  br i1 %436, label %13, label %._crit_edge, !llvm.loop !52
 
-._crit_edge:                                      ; preds = %429, %.preheader247.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre, %.preheader247.._crit_edge_crit_edge ], [ %12, %429 ]
-  %433 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %434 = icmp slt i32 %.pre-phi, %433
-  br i1 %434, label %.preheader247, label %._crit_edge252, !llvm.loop !53
+._crit_edge:                                      ; preds = %433, %.preheader241.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre, %.preheader241.._crit_edge_crit_edge ], [ %12, %433 ]
+  %437 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %438 = icmp slt i32 %.pre-phi, %437
+  br i1 %438, label %.preheader241, label %._crit_edge246, !llvm.loop !53
 
-._crit_edge252:                                   ; preds = %._crit_edge, %3
-  %435 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %436 = and i32 %435, 1
-  %.not = icmp eq i32 %436, 0
-  br i1 %.not, label %.loopexit246, label %.preheader245
+._crit_edge246:                                   ; preds = %._crit_edge, %3
+  %439 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %440 = and i32 %439, 1
+  %.not = icmp eq i32 %440, 0
+  br i1 %.not, label %.loopexit240, label %.preheader239
 
-.preheader245:                                    ; preds = %._crit_edge252
-  %437 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %438 = icmp sgt i32 %437, 0
-  br i1 %438, label %.lr.ph258, label %.loopexit246
+.preheader239:                                    ; preds = %._crit_edge246
+  %441 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %442 = icmp sgt i32 %441, 0
+  br i1 %442, label %.lr.ph252, label %.loopexit240
 
-.lr.ph258:                                        ; preds = %.preheader245, %._crit_edge256
-  %.1257 = phi i32 [ %454, %._crit_edge256 ], [ 0, %.preheader245 ]
-  %439 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %440 = shl nsw i32 %439, 1
-  %441 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %442 = icmp slt i32 %440, %441
-  br i1 %442, label %.lr.ph255, label %._crit_edge256
+.lr.ph252:                                        ; preds = %.preheader239, %._crit_edge250
+  %.1251 = phi i32 [ %458, %._crit_edge250 ], [ 0, %.preheader239 ]
+  %443 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %444 = shl nsw i32 %443, 1
+  %445 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %446 = icmp slt i32 %444, %445
+  br i1 %446, label %.lr.ph249, label %._crit_edge250
 
-.lr.ph255:                                        ; preds = %.lr.ph258, %450
-  %.1183253 = phi i32 [ %451, %450 ], [ %440, %.lr.ph258 ]
-  %443 = icmp sgt i32 %.1183253, 0
-  br i1 %443, label %444, label %450
+.lr.ph249:                                        ; preds = %.lr.ph252, %454
+  %.1183247 = phi i32 [ %455, %454 ], [ %444, %.lr.ph252 ]
+  %447 = icmp sgt i32 %.1183247, 0
+  br i1 %447, label %448, label %454
 
-444:                                              ; preds = %.lr.ph255
-  %445 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.1183253, i32 noundef %.1257)
-  %446 = icmp eq i32 %445, %2
-  br i1 %446, label %447, label %450
+448:                                              ; preds = %.lr.ph249
+  %449 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.1183247, i32 noundef %.1251)
+  %450 = icmp eq i32 %449, %2
+  br i1 %450, label %451, label %454
 
-447:                                              ; preds = %444
-  %448 = add nsw i32 %.1183253, -1
-  %449 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %448, i32 noundef %.1257)
-  tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.1183253, i32 noundef %.1257, i32 noundef %449)
-  br label %450
+451:                                              ; preds = %448
+  %452 = add nsw i32 %.1183247, -1
+  %453 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %452, i32 noundef %.1251)
+  tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.1183247, i32 noundef %.1251, i32 noundef %453)
+  br label %454
 
-450:                                              ; preds = %.lr.ph255, %444, %447
-  %451 = add nsw i32 %.1183253, 1
-  %452 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %453 = icmp slt i32 %451, %452
-  br i1 %453, label %.lr.ph255, label %._crit_edge256, !llvm.loop !54
+454:                                              ; preds = %.lr.ph249, %448, %451
+  %455 = add nsw i32 %.1183247, 1
+  %456 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %457 = icmp slt i32 %455, %456
+  br i1 %457, label %.lr.ph249, label %._crit_edge250, !llvm.loop !54
 
-._crit_edge256:                                   ; preds = %450, %.lr.ph258
-  %454 = add nuw nsw i32 %.1257, 1
-  %455 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %456 = icmp slt i32 %454, %455
-  br i1 %456, label %.lr.ph258, label %.loopexit246, !llvm.loop !55
+._crit_edge250:                                   ; preds = %454, %.lr.ph252
+  %458 = add nuw nsw i32 %.1251, 1
+  %459 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %460 = icmp slt i32 %458, %459
+  br i1 %460, label %.lr.ph252, label %.loopexit240, !llvm.loop !55
 
-.loopexit246:                                     ; preds = %._crit_edge256, %.preheader245, %._crit_edge252
-  %457 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %458 = and i32 %457, 1
-  %.not188 = icmp eq i32 %458, 0
-  br i1 %.not188, label %.loopexit, label %459
+.loopexit240:                                     ; preds = %._crit_edge250, %.preheader239, %._crit_edge246
+  %461 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %462 = and i32 %461, 1
+  %.not188 = icmp eq i32 %462, 0
+  br i1 %.not188, label %.loopexit, label %463
 
-459:                                              ; preds = %.loopexit246
-  %460 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %461 = shl nsw i32 %460, 1
-  %462 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %463 = icmp slt i32 %461, %462
-  br i1 %463, label %.preheader, label %.loopexit
+463:                                              ; preds = %.loopexit240
+  %464 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %465 = shl nsw i32 %464, 1
+  %466 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %467 = icmp slt i32 %465, %466
+  br i1 %467, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %459, %._crit_edge261
-  %.2262 = phi i32 [ %479, %._crit_edge261 ], [ %461, %459 ]
-  %464 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %465 = icmp sgt i32 %464, 0
-  br i1 %465, label %.lr.ph260, label %._crit_edge261
+.preheader:                                       ; preds = %463, %._crit_edge255
+  %.2256 = phi i32 [ %483, %._crit_edge255 ], [ %465, %463 ]
+  %468 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %469 = icmp sgt i32 %468, 0
+  br i1 %469, label %.lr.ph254, label %._crit_edge255
 
-.lr.ph260:                                        ; preds = %.preheader
-  %466 = icmp sgt i32 %.2262, 0
-  %467 = add nsw i32 %.2262, -1
-  br i1 %466, label %.lr.ph260.split.us, label %.lr.ph260.split
+.lr.ph254:                                        ; preds = %.preheader
+  %470 = icmp sgt i32 %.2256, 0
+  %471 = add nsw i32 %.2256, -1
+  br i1 %470, label %.lr.ph254.split.us, label %.lr.ph254.split
 
-.lr.ph260.split.us:                               ; preds = %.lr.ph260, %472
-  %.2184259.us = phi i32 [ %473, %472 ], [ 0, %.lr.ph260 ]
-  %468 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.2184259.us, i32 noundef %.2262)
-  %469 = icmp eq i32 %468, %2
-  br i1 %469, label %470, label %472
+.lr.ph254.split.us:                               ; preds = %.lr.ph254, %476
+  %.2184253.us = phi i32 [ %477, %476 ], [ 0, %.lr.ph254 ]
+  %472 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.2184253.us, i32 noundef %.2256)
+  %473 = icmp eq i32 %472, %2
+  br i1 %473, label %474, label %476
 
-470:                                              ; preds = %.lr.ph260.split.us
-  %471 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.2184259.us, i32 noundef %467)
-  tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.2184259.us, i32 noundef %.2262, i32 noundef %471)
-  br label %472
+474:                                              ; preds = %.lr.ph254.split.us
+  %475 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.2184253.us, i32 noundef %471)
+  tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.2184253.us, i32 noundef %.2256, i32 noundef %475)
+  br label %476
 
-472:                                              ; preds = %470, %.lr.ph260.split.us
-  %473 = add nuw nsw i32 %.2184259.us, 1
-  %474 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %475 = icmp slt i32 %473, %474
-  br i1 %475, label %.lr.ph260.split.us, label %._crit_edge261, !llvm.loop !56
+476:                                              ; preds = %474, %.lr.ph254.split.us
+  %477 = add nuw nsw i32 %.2184253.us, 1
+  %478 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %479 = icmp slt i32 %477, %478
+  br i1 %479, label %.lr.ph254.split.us, label %._crit_edge255, !llvm.loop !56
 
-.lr.ph260.split:                                  ; preds = %.lr.ph260, %.lr.ph260.split
-  %.2184259 = phi i32 [ %476, %.lr.ph260.split ], [ 0, %.lr.ph260 ]
-  %476 = add nuw nsw i32 %.2184259, 1
-  %477 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %478 = icmp slt i32 %476, %477
-  br i1 %478, label %.lr.ph260.split, label %._crit_edge261, !llvm.loop !56
+.lr.ph254.split:                                  ; preds = %.lr.ph254, %.lr.ph254.split
+  %.2184253 = phi i32 [ %480, %.lr.ph254.split ], [ 0, %.lr.ph254 ]
+  %480 = add nuw nsw i32 %.2184253, 1
+  %481 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %482 = icmp slt i32 %480, %481
+  br i1 %482, label %.lr.ph254.split, label %._crit_edge255, !llvm.loop !56
 
-._crit_edge261:                                   ; preds = %.lr.ph260.split, %472, %.preheader
-  %479 = add nsw i32 %.2262, 1
-  %480 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %481 = icmp slt i32 %479, %480
-  br i1 %481, label %.preheader, label %.loopexit, !llvm.loop !57
+._crit_edge255:                                   ; preds = %.lr.ph254.split, %476, %.preheader
+  %483 = add nsw i32 %.2256, 1
+  %484 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  %485 = icmp slt i32 %483, %484
+  br i1 %485, label %.preheader, label %.loopexit, !llvm.loop !57
 
-.loopexit:                                        ; preds = %._crit_edge261, %459, %.loopexit246
+.loopexit:                                        ; preds = %._crit_edge255, %463, %.loopexit240
   ret void
 }
 

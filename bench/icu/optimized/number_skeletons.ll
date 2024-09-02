@@ -3299,8 +3299,8 @@ if.end36:                                         ; preds = %if.end32
   %call.i86 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %sb, ptr noundef nonnull %srcChar.addr.i85, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i85)
   %.pre = load i32, ptr %status, align 4
-  %cmp.i87 = icmp slt i32 %.pre, 1
-  br i1 %cmp.i87, label %if.end40, label %if.end113
+  %6 = icmp slt i32 %.pre, 1
+  br i1 %6, label %if.end40, label %if.end113
 
 if.end40:                                         ; preds = %if.end32, %if.end36
   %call41 = call noundef zeroext i1 @_ZN6icu_756number4impl16GeneratorHelpers8groupingERKNS1_10MacroPropsERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(472) %macros, ptr noundef nonnull align 8 dereferenceable(64) %sb, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -3314,8 +3314,8 @@ if.then42:                                        ; preds = %if.end40
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then42, %if.end40
-  %6 = load i32, ptr %status, align 4
-  %cmp.i91 = icmp slt i32 %6, 1
+  %7 = load i32, ptr %status, align 4
+  %cmp.i91 = icmp slt i32 %7, 1
   br i1 %cmp.i91, label %if.end48, label %if.end113
 
 if.end48:                                         ; preds = %if.end44
@@ -3330,8 +3330,8 @@ if.then50:                                        ; preds = %if.end48
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then50, %if.end48
-  %7 = load i32, ptr %status, align 4
-  %cmp.i95 = icmp slt i32 %7, 1
+  %8 = load i32, ptr %status, align 4
+  %cmp.i95 = icmp slt i32 %8, 1
   br i1 %cmp.i95, label %if.end56, label %if.end113
 
 if.end56:                                         ; preds = %if.end52
@@ -3346,45 +3346,45 @@ if.then58:                                        ; preds = %if.end56
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then58, %if.end56
-  %8 = load i32, ptr %status, align 4
-  %cmp.i99 = icmp slt i32 %8, 1
+  %9 = load i32, ptr %status, align 4
+  %cmp.i99 = icmp slt i32 %9, 1
   br i1 %cmp.i99, label %if.end64, label %if.end113
 
 if.end64:                                         ; preds = %if.end60
   %unitWidth.i = getelementptr inbounds i8, ptr %macros, i64 152
-  %9 = load i32, ptr %unitWidth.i, align 8
-  switch i32 %9, label %if.end68 [
+  %10 = load i32, ptr %unitWidth.i, align 8
+  switch i32 %10, label %if.end68 [
     i32 1, label %if.end72
     i32 7, label %if.end72
   ]
 
 if.end68:                                         ; preds = %if.end64
-  call void @_ZN6icu_756number4impl19enum_to_stem_string9unitWidthE16UNumberUnitWidthRNS_13UnicodeStringE(i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(64) %sb)
+  call void @_ZN6icu_756number4impl19enum_to_stem_string9unitWidthE16UNumberUnitWidthRNS_13UnicodeStringE(i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(64) %sb)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i102)
   store i16 32, ptr %srcChar.addr.i102, align 2
   %call.i103 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %sb, ptr noundef nonnull %srcChar.addr.i102, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i102)
   %.pre130 = load i32, ptr %status, align 4
-  %10 = icmp slt i32 %.pre130, 1
-  br i1 %10, label %if.end72, label %if.end113
+  %11 = icmp slt i32 %.pre130, 1
+  br i1 %11, label %if.end72, label %if.end113
 
 if.end72:                                         ; preds = %if.end64, %if.end64, %if.end68
   %sign.i = getelementptr inbounds i8, ptr %macros, i64 156
-  %11 = load i32, ptr %sign.i, align 4
-  switch i32 %11, label %if.end76 [
+  %12 = load i32, ptr %sign.i, align 4
+  switch i32 %12, label %if.end76 [
     i32 0, label %if.end80
     i32 9, label %if.end80
   ]
 
 if.end76:                                         ; preds = %if.end72
-  call void @_ZN6icu_756number4impl19enum_to_stem_string11signDisplayE18UNumberSignDisplayRNS_13UnicodeStringE(i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(64) %sb)
+  call void @_ZN6icu_756number4impl19enum_to_stem_string11signDisplayE18UNumberSignDisplayRNS_13UnicodeStringE(i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(64) %sb)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i108)
   store i16 32, ptr %srcChar.addr.i108, align 2
   %call.i109 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %sb, ptr noundef nonnull %srcChar.addr.i108, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i108)
   %.pre131 = load i32, ptr %status, align 4
-  %12 = icmp slt i32 %.pre131, 1
-  br i1 %12, label %if.end80, label %if.end113
+  %13 = icmp slt i32 %.pre131, 1
+  br i1 %13, label %if.end80, label %if.end113
 
 if.end80:                                         ; preds = %if.end72, %if.end72, %if.end76
   %call81 = call noundef zeroext i1 @_ZN6icu_756number4impl16GeneratorHelpers7decimalERKNS1_10MacroPropsERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(472) %macros, ptr noundef nonnull align 8 dereferenceable(64) %sb, ptr nonnull align 4 poison)
@@ -3398,8 +3398,8 @@ if.then82:                                        ; preds = %if.end80
   br label %if.end84
 
 if.end84:                                         ; preds = %if.then82, %if.end80
-  %13 = load i32, ptr %status, align 4
-  %cmp.i114 = icmp slt i32 %13, 1
+  %14 = load i32, ptr %status, align 4
+  %cmp.i114 = icmp slt i32 %14, 1
   br i1 %cmp.i114, label %if.end88, label %if.end113
 
 if.end88:                                         ; preds = %if.end84
@@ -3414,14 +3414,14 @@ if.then90:                                        ; preds = %if.end88
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then90, %if.end88
-  %14 = load i32, ptr %status, align 4
-  %cmp.i118 = icmp slt i32 %14, 1
+  %15 = load i32, ptr %status, align 4
+  %cmp.i118 = icmp slt i32 %15, 1
   br i1 %cmp.i118, label %if.end96, label %if.end113
 
 if.end96:                                         ; preds = %if.end92
   %padder = getelementptr inbounds i8, ptr %macros, i64 112
-  %15 = load i32, ptr %padder, align 8
-  %cmp.i120 = icmp eq i32 %15, -2
+  %16 = load i32, ptr %padder, align 8
+  %cmp.i120 = icmp eq i32 %16, -2
   br i1 %cmp.i120, label %if.end99, label %if.then98
 
 if.then98:                                        ; preds = %if.end96
@@ -3430,8 +3430,8 @@ if.then98:                                        ; preds = %if.end96
 
 if.end99:                                         ; preds = %if.end96
   %fLength.i = getelementptr inbounds i8, ptr %macros, i64 216
-  %16 = load i16, ptr %fLength.i, align 8
-  %cmp.i121 = icmp sgt i16 %16, 0
+  %17 = load i16, ptr %fLength.i, align 8
+  %cmp.i121 = icmp sgt i16 %17, 0
   br i1 %cmp.i121, label %if.then101, label %if.end102
 
 if.then101:                                       ; preds = %if.end99
@@ -3440,8 +3440,8 @@ if.then101:                                       ; preds = %if.end99
 
 if.end102:                                        ; preds = %if.end99
   %affixProvider = getelementptr inbounds i8, ptr %macros, i64 224
-  %17 = load ptr, ptr %affixProvider, align 8
-  %cmp.not = icmp eq ptr %17, null
+  %18 = load ptr, ptr %affixProvider, align 8
+  %cmp.not = icmp eq ptr %18, null
   br i1 %cmp.not, label %if.end104, label %if.then103
 
 if.then103:                                       ; preds = %if.end102
@@ -3450,8 +3450,8 @@ if.then103:                                       ; preds = %if.end102
 
 if.end104:                                        ; preds = %if.end102
   %rules = getelementptr inbounds i8, ptr %macros, i64 232
-  %18 = load ptr, ptr %rules, align 8
-  %cmp105.not = icmp eq ptr %18, null
+  %19 = load ptr, ptr %rules, align 8
+  %cmp105.not = icmp eq ptr %19, null
   br i1 %cmp105.not, label %if.end107, label %if.then106
 
 if.then106:                                       ; preds = %if.end104
@@ -3460,13 +3460,13 @@ if.then106:                                       ; preds = %if.end104
 
 if.end107:                                        ; preds = %if.end104
   %fUnion.i.i = getelementptr inbounds i8, ptr %sb, i64 8
-  %19 = load i16, ptr %fUnion.i.i, align 8
-  %cmp.i.i = icmp slt i16 %19, 0
-  %20 = ashr i16 %19, 5
-  %shr.i.i = sext i16 %20 to i32
+  %20 = load i16, ptr %fUnion.i.i, align 8
+  %cmp.i.i = icmp slt i16 %20, 0
+  %21 = ashr i16 %20, 5
+  %shr.i.i = sext i16 %21 to i32
   %fLength.i122 = getelementptr inbounds i8, ptr %sb, i64 12
-  %21 = load i32, ptr %fLength.i122, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %21, i32 %shr.i.i
+  %22 = load i32, ptr %fLength.i122, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %22, i32 %shr.i.i
   %cmp109 = icmp sgt i32 %cond.i, 0
   br i1 %cmp109, label %if.then110, label %if.end113
 

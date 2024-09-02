@@ -3097,11 +3097,11 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit149: ; preds = %1076, 
 
 1211:                                             ; preds = %1210, %1206, %1198
   %1212 = uitofp i64 %.0.i151 to double
+  %1213 = fptrunc double %1212 to float
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
 _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1211, %1184
-  %.026.i = phi double [ %1212, %1211 ], [ 0.000000e+00, %1184 ]
-  %1213 = fptrunc double %.026.i to float
+  %.026.i = phi float [ %1213, %1211 ], [ 0.000000e+00, %1184 ]
   %1214 = load i8, ptr %216, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12)
@@ -3254,7 +3254,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %1211, %118
 
 .noexc160:                                        ; preds = %.loopexit.i154
   store i32 %1295, ptr %273, align 4
-  store float %1213, ptr %235, align 4
+  store float %.026.i, ptr %235, align 4
   %1296 = load ptr, ptr @debug, align 8
   %.not.i156 = icmp eq ptr %1296, null
   br i1 %.not.i156, label %1302, label %1297

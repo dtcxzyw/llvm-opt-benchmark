@@ -2595,54 +2595,57 @@ define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr noc
   %42 = trunc i64 %41 to i32
   %43 = sub i32 %26, %42
   %44 = icmp eq i32 %42, 0
-  br i1 %44, label %.loopexit36, label %.preheader35
+  br i1 %44, label %.loopexit36, label %.preheader35.preheader
 
-.preheader35:                                     ; preds = %35, %56
-  %45 = phi i64 [ 0, %56 ], [ %38, %35 ]
-  %46 = phi ptr [ %69, %56 ], [ %25, %35 ]
-  %47 = phi i32 [ %71, %56 ], [ %42, %35 ]
-  %48 = phi i64 [ %70, %56 ], [ %28, %35 ]
-  %49 = load ptr, ptr %7, align 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr i8, ptr %49, i64 8
-  store ptr %51, ptr %7, align 8
-  store ptr null, ptr %49, align 8
-  %52 = ptrtoint ptr %50 to i64
-  %53 = and i64 %52, 3
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %56, label %55, !prof !6
+.preheader35.preheader:                           ; preds = %35
+  %45 = sub i64 4096, %38
+  br label %.preheader35
 
-55:                                               ; preds = %.preheader35
+.preheader35:                                     ; preds = %.preheader35.preheader, %57
+  %46 = phi i64 [ 4096, %57 ], [ %45, %.preheader35.preheader ]
+  %47 = phi ptr [ %69, %57 ], [ %25, %.preheader35.preheader ]
+  %48 = phi i32 [ %71, %57 ], [ %42, %.preheader35.preheader ]
+  %49 = phi i64 [ %70, %57 ], [ %28, %.preheader35.preheader ]
+  %50 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr i8, ptr %50, i64 8
+  store ptr %52, ptr %7, align 8
+  store ptr null, ptr %50, align 8
+  %53 = ptrtoint ptr %51 to i64
+  %54 = and i64 %53, 3
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %57, label %56, !prof !6
+
+56:                                               ; preds = %.preheader35
   call void asm sideeffect "323: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 323b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 323) #16, !srcloc !15
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 115, i32 0, i64 12) #16, !srcloc !16
   unreachable
 
-56:                                               ; preds = %.preheader35
-  %57 = load i64, ptr %8, align 8
-  %58 = trunc i64 %57 to i32
-  %59 = sub i64 4096, %45
-  %60 = call i64 @llvm.umin.i64(i64 %59, i64 %48)
+57:                                               ; preds = %.preheader35
+  %58 = load i64, ptr %8, align 8
+  %59 = trunc i64 %58 to i32
+  %60 = call i64 @llvm.umin.i64(i64 %46, i64 %49)
   %61 = trunc i64 %60 to i32
-  %62 = load i64, ptr %46, align 8
+  %62 = load i64, ptr %47, align 8
   %63 = and i64 %62, 3
-  %64 = or disjoint i64 %63, %52
-  store i64 %64, ptr %46, align 8
-  %65 = getelementptr inbounds i8, ptr %46, i64 8
-  store i32 %58, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %46, i64 12
+  %64 = or disjoint i64 %63, %53
+  store i64 %64, ptr %47, align 8
+  %65 = getelementptr inbounds i8, ptr %47, i64 8
+  store i32 %59, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %47, i64 12
   store i32 %61, ptr %66, align 4
   %67 = load i32, ptr %14, align 8
   %68 = add i32 %67, 1
   store i32 %68, ptr %14, align 8
-  %69 = getelementptr i8, ptr %46, i64 32
-  %70 = sub i64 %48, %60
+  %69 = getelementptr i8, ptr %47, i64 32
+  %70 = sub i64 %49, %60
   store i64 0, ptr %8, align 8
-  %71 = add i32 %47, -1
+  %71 = add i32 %48, -1
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.loopexit36, label %.preheader35, !llvm.loop !61
 
-.loopexit36:                                      ; preds = %56, %35
-  %73 = phi ptr [ %25, %35 ], [ %69, %56 ]
+.loopexit36:                                      ; preds = %57, %35
+  %73 = phi ptr [ %25, %35 ], [ %69, %57 ]
   %74 = icmp sgt i64 %36, 0
   %75 = icmp ne i32 %43, 0
   %76 = and i1 %74, %75

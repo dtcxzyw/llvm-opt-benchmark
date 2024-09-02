@@ -162,42 +162,42 @@ define dso_local range(i32 -22, 1) i32 @__scm_send(ptr noundef %0, ptr nocapture
 
 51:                                               ; preds = %49
   %52 = icmp eq ptr %44, null
-  br i1 %52, label %53, label %._crit_edge
+  br i1 %52, label %54, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %51
   %.pre = load i16, ptr %44, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %44, i64 2
   %.pre36 = load i16, ptr %.phi.trans.insert, align 2
-  br label %60
+  %53 = sext i16 %.pre36 to i32
+  br label %61
 
-53:                                               ; preds = %51
-  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
-  %55 = tail call noalias align 8 dereferenceable_or_null(2040) ptr @kmalloc_trace(ptr noundef %54, i32 noundef 4197568, i64 noundef 2040) #11
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %.thread22, label %57
+54:                                               ; preds = %51
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
+  %56 = tail call noalias align 8 dereferenceable_or_null(2040) ptr @kmalloc_trace(ptr noundef %55, i32 noundef 4197568, i64 noundef 2040) #11
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %.thread22, label %58
 
-57:                                               ; preds = %53
-  store ptr %55, ptr %18, align 8
-  store i16 0, ptr %55, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 2
-  store i16 253, ptr %58, align 2
-  %59 = getelementptr inbounds i8, ptr %55, i64 8
-  store ptr null, ptr %59, align 8
-  br label %60
+58:                                               ; preds = %54
+  store ptr %56, ptr %18, align 8
+  store i16 0, ptr %56, align 8
+  %59 = getelementptr inbounds i8, ptr %56, i64 2
+  store i16 253, ptr %59, align 2
+  %60 = getelementptr inbounds i8, ptr %56, i64 8
+  store ptr null, ptr %60, align 8
+  br label %61
 
-60:                                               ; preds = %._crit_edge, %57
-  %61 = phi i16 [ %.pre36, %._crit_edge ], [ 253, %57 ]
-  %62 = phi i16 [ %.pre, %._crit_edge ], [ 0, %57 ]
-  %63 = phi ptr [ %44, %._crit_edge ], [ %55, %57 ]
-  %64 = sext i16 %62 to i32
-  %65 = add nsw i32 %64, %47
-  %66 = sext i16 %61 to i32
-  %67 = icmp sgt i32 %65, %66
+61:                                               ; preds = %._crit_edge, %58
+  %62 = phi i32 [ %53, %._crit_edge ], [ 253, %58 ]
+  %63 = phi i16 [ %.pre, %._crit_edge ], [ 0, %58 ]
+  %64 = phi ptr [ %44, %._crit_edge ], [ %56, %58 ]
+  %65 = sext i16 %63 to i32
+  %66 = add nsw i32 %65, %47
+  %67 = icmp sgt i32 %66, %62
   br i1 %67, label %.thread22, label %68
 
-68:                                               ; preds = %60
-  %69 = getelementptr inbounds i8, ptr %63, i64 16
-  %70 = sext i16 %62 to i64
+68:                                               ; preds = %61
+  %69 = getelementptr inbounds i8, ptr %64, i64 16
+  %70 = sext i16 %63 to i64
   %71 = getelementptr [253 x ptr], ptr %69, i64 0, i64 %70
   %72 = and i64 %46, 255
   br label %79
@@ -205,9 +205,9 @@ define dso_local range(i32 -22, 1) i32 @__scm_send(ptr noundef %0, ptr nocapture
 73:                                               ; preds = %88
   %74 = getelementptr i8, ptr %81, i64 8
   store ptr %86, ptr %81, align 8
-  %75 = load i16, ptr %63, align 8
+  %75 = load i16, ptr %64, align 8
   %76 = add i16 %75, 1
-  store i16 %76, ptr %63, align 8
+  store i16 %76, ptr %64, align 8
   %77 = add nuw nsw i64 %80, 1
   %78 = icmp eq i64 %77, %72
   br i1 %78, label %91, label %79, !llvm.loop !9
@@ -234,7 +234,7 @@ define dso_local range(i32 -22, 1) i32 @__scm_send(ptr noundef %0, ptr nocapture
   br label %.thread22
 
 91:                                               ; preds = %73
-  %92 = getelementptr inbounds i8, ptr %63, i64 8
+  %92 = getelementptr inbounds i8, ptr %64, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %95, label %.thread23
@@ -403,8 +403,8 @@ define dso_local range(i32 -22, 1) i32 @__scm_send(ptr noundef %0, ptr nocapture
   store ptr null, ptr %191, align 8
   br label %216
 
-.thread22:                                        ; preds = %172, %131, %148, %163, %113, %111, %60, %53, %49, %39, %38, %35, %25, %19, %79, %85, %90
-  %198 = phi i32 [ -22, %90 ], [ -9, %85 ], [ -9, %79 ], [ -22, %35 ], [ -22, %39 ], [ -22, %38 ], [ -22, %25 ], [ -22, %19 ], [ -22, %60 ], [ -12, %53 ], [ -22, %49 ], [ -22, %113 ], [ -22, %111 ], [ -1, %163 ], [ -1, %148 ], [ -1, %131 ], [ -3, %172 ]
+.thread22:                                        ; preds = %172, %131, %148, %163, %113, %111, %61, %54, %49, %39, %38, %35, %25, %19, %79, %85, %90
+  %198 = phi i32 [ -22, %90 ], [ -9, %85 ], [ -9, %79 ], [ -22, %35 ], [ -22, %39 ], [ -22, %38 ], [ -22, %25 ], [ -22, %19 ], [ -22, %61 ], [ -12, %54 ], [ -22, %49 ], [ -22, %113 ], [ -22, %111 ], [ -1, %163 ], [ -1, %148 ], [ -1, %131 ], [ -3, %172 ]
   %199 = load ptr, ptr %2, align 8
   tail call void @put_pid(ptr noundef %199) #10
   store ptr null, ptr %2, align 8
@@ -738,7 +738,7 @@ define dso_local void @scm_detach_fds(ptr noundef %0, ptr noundef %1) #0 align 1
 
 29:                                               ; preds = %27
   %30 = icmp sgt i32 %20, 0
-  br i1 %30, label %31, label %.thread6
+  br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %29
   %32 = zext nneg i32 %20 to i64
@@ -752,7 +752,7 @@ define dso_local void @scm_detach_fds(ptr noundef %0, ptr noundef %1) #0 align 1
   %35 = phi i64 [ 0, %31 ], [ %46, %45 ]
   %36 = getelementptr i32, ptr %21, i64 %35
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.thread, label %38
+  br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %16, align 8
@@ -761,23 +761,23 @@ define dso_local void @scm_detach_fds(ptr noundef %0, ptr noundef %1) #0 align 1
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @receive_fd(ptr noundef %42, ptr noundef nonnull %36, i32 noundef %8) #10
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %.thread, label %45
+  br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %38
   %46 = add nuw nsw i64 %35, 1
   %47 = icmp eq i64 %46, %32
-  br i1 %47, label %.loopexit7, label %34, !llvm.loop !32
+  br i1 %47, label %.loopexit6, label %34, !llvm.loop !32
 
-.thread:                                          ; preds = %34, %38
+.critedge:                                        ; preds = %34, %38
   %48 = trunc i64 %35 to i32
-  br label %.loopexit7
+  br label %.loopexit6
 
-.loopexit7:                                       ; preds = %45, %.thread
-  %49 = phi i32 [ %48, %.thread ], [ %20, %45 ]
+.loopexit6:                                       ; preds = %45, %.critedge
+  %49 = phi i32 [ %48, %.critedge ], [ %20, %45 ]
   %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %51, label %.thread6
+  br i1 %50, label %51, label %.thread
 
-51:                                               ; preds = %.loopexit7
+51:                                               ; preds = %.loopexit6
   %52 = zext nneg i32 %49 to i64
   %53 = shl i32 %49, 2
   %54 = getelementptr inbounds i8, ptr %4, i64 8
@@ -789,7 +789,7 @@ define dso_local void @scm_detach_fds(ptr noundef %0, ptr noundef %1) #0 align 1
   tail call void @llvm.write_register.i64(metadata !0, i64 %58)
   %60 = and i64 %59, 4294967295
   %61 = icmp eq i64 %60, 0
-  br i1 %61, label %62, label %.thread6
+  br i1 %61, label %62, label %.thread
 
 62:                                               ; preds = %51
   %63 = getelementptr inbounds i8, ptr %4, i64 12
@@ -801,7 +801,7 @@ define dso_local void @scm_detach_fds(ptr noundef %0, ptr noundef %1) #0 align 1
   tail call void @llvm.write_register.i64(metadata !0, i64 %67)
   %69 = and i64 %68, 4294967295
   %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %.thread6
+  br i1 %70, label %71, label %.thread
 
 71:                                               ; preds = %62
   %72 = shl i64 %52, 34
@@ -815,7 +815,7 @@ define dso_local void @scm_detach_fds(ptr noundef %0, ptr noundef %1) #0 align 1
   tail call void @llvm.write_register.i64(metadata !0, i64 %78)
   %80 = and i64 %79, 4294967295
   %81 = icmp eq i64 %80, 0
-  br i1 %81, label %82, label %.thread6
+  br i1 %81, label %82, label %.thread
 
 82:                                               ; preds = %71
   %83 = add i32 %53, 7
@@ -832,23 +832,23 @@ define dso_local void @scm_detach_fds(ptr noundef %0, ptr noundef %1) #0 align 1
   store ptr %93, ptr %3, align 8
   %94 = sub i64 %86, %92
   store i64 %94, ptr %9, align 8
-  br label %.thread6
+  br label %.thread
 
-.thread6:                                         ; preds = %29, %82, %71, %62, %51, %.loopexit7
-  %95 = phi i32 [ %49, %82 ], [ %49, %71 ], [ %49, %62 ], [ %49, %51 ], [ %49, %.loopexit7 ], [ 0, %29 ]
+.thread:                                          ; preds = %29, %82, %71, %62, %51, %.loopexit6
+  %95 = phi i32 [ %49, %82 ], [ %49, %71 ], [ %49, %62 ], [ %49, %51 ], [ %49, %.loopexit6 ], [ 0, %29 ]
   %96 = load ptr, ptr %16, align 8
   %97 = load i16, ptr %96, align 8
   %98 = sext i16 %97 to i32
   %99 = icmp slt i32 %95, %98
   br i1 %99, label %104, label %100
 
-100:                                              ; preds = %.thread6
+100:                                              ; preds = %.thread
   %101 = icmp ne i16 %97, 0
   %102 = icmp slt i32 %20, 1
   %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %104, label %107
 
-104:                                              ; preds = %100, %.thread6
+104:                                              ; preds = %100, %.thread
   %105 = load i32, ptr %5, align 4
   %106 = or i32 %105, 8
   store i32 %106, ptr %5, align 4

@@ -285,7 +285,7 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK11EpsilonHeap21unsafe_max_tlab_allocEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, ptr nocapture readnone %1) unnamed_addr #2 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZNK11EpsilonHeap21unsafe_max_tlab_allocEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, ptr nocapture readnone %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 432
   %4 = load i64, ptr %3, align 8
   %5 = shl i64 %4, 3

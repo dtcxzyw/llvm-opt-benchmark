@@ -340,7 +340,7 @@ return:                                           ; preds = %if.end15, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @HMAC_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
+define range(i64 0, 2147483648) i64 @HMAC_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call i32 @EVP_MD_get_size(ptr noundef %0) #6

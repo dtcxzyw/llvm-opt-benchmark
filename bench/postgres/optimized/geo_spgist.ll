@@ -1049,8 +1049,8 @@ define dso_local range(i64 0, 2) i64 @spg_box_quad_leaf_consistent(ptr nocapture
   %18 = icmp slt i32 %17, 1
   br i1 %18, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %15, %69
-  %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %15 ]
+.lr.ph:                                           ; preds = %15, %68
+  %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %15 ]
   %19 = load ptr, ptr %4, align 8
   %20 = getelementptr %struct.ScanKeyData, ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds i8, ptr %20, i64 6
@@ -1059,16 +1059,15 @@ define dso_local range(i64 0, 2) i64 @spg_box_quad_leaf_consistent(ptr nocapture
   %24 = load i32, ptr %23, align 8
   switch i32 %24, label %35 [
     i32 603, label %25
-    i32 604, label %29
+    i32 604, label %28
   ]
 
 25:                                               ; preds = %.lr.ph
   %26 = getelementptr inbounds i8, ptr %20, i64 64
   %27 = load i64, ptr %26, align 8
-  %28 = inttoptr i64 %27 to ptr
   br label %spg_box_quad_get_scankey_bbox.exit
 
-29:                                               ; preds = %.lr.ph
+28:                                               ; preds = %.lr.ph
   switch i16 %22, label %is_bounding_box_test_exact.exit.i [
     i16 1, label %is_bounding_box_test_exact.exit.thread.i
     i16 2, label %is_bounding_box_test_exact.exit.thread.i
@@ -1080,16 +1079,17 @@ define dso_local range(i64 0, 2) i64 @spg_box_quad_leaf_consistent(ptr nocapture
     i16 12, label %is_bounding_box_test_exact.exit.thread.i
   ]
 
-is_bounding_box_test_exact.exit.i:                ; preds = %29
+is_bounding_box_test_exact.exit.i:                ; preds = %28
   store i8 1, ptr %10, align 1
   br label %is_bounding_box_test_exact.exit.thread.i
 
-is_bounding_box_test_exact.exit.thread.i:         ; preds = %is_bounding_box_test_exact.exit.i, %29, %29, %29, %29, %29, %29, %29, %29
-  %30 = getelementptr inbounds i8, ptr %20, i64 64
-  %31 = load i64, ptr %30, align 8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = tail call ptr @pg_detoast_datum(ptr noundef %32) #8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+is_bounding_box_test_exact.exit.thread.i:         ; preds = %is_bounding_box_test_exact.exit.i, %28, %28, %28, %28, %28, %28, %28, %28
+  %29 = getelementptr inbounds i8, ptr %20, i64 64
+  %30 = load i64, ptr %29, align 8
+  %31 = inttoptr i64 %30 to ptr
+  %32 = tail call ptr @pg_detoast_datum(ptr noundef %31) #8
+  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = ptrtoint ptr %33 to i64
   br label %spg_box_quad_get_scankey_bbox.exit
 
 35:                                               ; preds = %.lr.ph
@@ -1102,121 +1102,120 @@ is_bounding_box_test_exact.exit.thread.i:         ; preds = %is_bounding_box_tes
   unreachable
 
 spg_box_quad_get_scankey_bbox.exit:               ; preds = %25, %is_bounding_box_test_exact.exit.thread.i
-  %.0.i = phi ptr [ %34, %is_bounding_box_test_exact.exit.thread.i ], [ %28, %25 ]
-  %40 = ptrtoint ptr %.0.i to i64
-  switch i16 %22, label %63 [
-    i16 3, label %67
-    i16 7, label %41
-    i16 8, label %43
-    i16 6, label %45
-    i16 1, label %47
-    i16 2, label %49
-    i16 5, label %51
-    i16 4, label %53
-    i16 11, label %55
-    i16 12, label %57
-    i16 10, label %59
-    i16 9, label %61
+  %.0.i = phi i64 [ %34, %is_bounding_box_test_exact.exit.thread.i ], [ %27, %25 ]
+  switch i16 %22, label %62 [
+    i16 3, label %66
+    i16 7, label %40
+    i16 8, label %42
+    i16 6, label %44
+    i16 1, label %46
+    i16 2, label %48
+    i16 5, label %50
+    i16 4, label %52
+    i16 11, label %54
+    i16 12, label %56
+    i16 10, label %58
+    i16 9, label %60
   ]
 
-41:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %42 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain, i32 noundef 0, i64 noundef %9, i64 noundef %40) #8
-  %.not66 = icmp eq i64 %42, 0
-  br i1 %.not66, label %.thread, label %69
+40:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %41 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %.not66 = icmp eq i64 %41, 0
+  br i1 %.not66, label %.thread, label %68
 
-43:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %44 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contained, i32 noundef 0, i64 noundef %9, i64 noundef %40) #8
-  %.not65 = icmp eq i64 %44, 0
-  br i1 %.not65, label %.thread, label %69
+42:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %43 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contained, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %.not65 = icmp eq i64 %43, 0
+  br i1 %.not65, label %.thread, label %68
 
-45:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %46 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_same, i32 noundef 0, i64 noundef %9, i64 noundef %40) #8
-  %.not64 = icmp eq i64 %46, 0
-  br i1 %.not64, label %.thread, label %69
+44:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %45 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_same, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %.not64 = icmp eq i64 %45, 0
+  br i1 %.not64, label %.thread, label %68
 
-47:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %48 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_left, i32 noundef 0, i64 noundef %9, i64 noundef %40) #8
-  %.not63 = icmp eq i64 %48, 0
-  br i1 %.not63, label %.thread, label %69
+46:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %47 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_left, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %.not63 = icmp eq i64 %47, 0
+  br i1 %.not63, label %.thread, label %68
 
-49:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %50 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overleft, i32 noundef 0, i64 noundef %9, i64 noundef %40) #8
-  %.not62 = icmp eq i64 %50, 0
-  br i1 %.not62, label %.thread, label %69
+48:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %49 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overleft, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %.not62 = icmp eq i64 %49, 0
+  br i1 %.not62, label %.thread, label %68
 
-51:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %52 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_right, i32 noundef 0, i64 noundef %9, i64 noundef %40) #8
-  %.not61 = icmp eq i64 %52, 0
-  br i1 %.not61, label %.thread, label %69
+50:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %51 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_right, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %.not61 = icmp eq i64 %51, 0
+  br i1 %.not61, label %.thread, label %68
 
-53:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %54 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overright, i32 noundef 0, i64 noundef %9, i64 noundef %40) #8
-  %.not60 = icmp eq i64 %54, 0
-  br i1 %.not60, label %.thread, label %69
+52:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %53 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overright, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %.not60 = icmp eq i64 %53, 0
+  br i1 %.not60, label %.thread, label %68
 
-55:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %56 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_above, i32 noundef 0, i64 noundef %9, i64 noundef %40) #8
-  %.not59 = icmp eq i64 %56, 0
-  br i1 %.not59, label %.thread, label %69
+54:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %55 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_above, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %.not59 = icmp eq i64 %55, 0
+  br i1 %.not59, label %.thread, label %68
 
-57:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %58 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overabove, i32 noundef 0, i64 noundef %9, i64 noundef %40) #8
-  %.not58 = icmp eq i64 %58, 0
-  br i1 %.not58, label %.thread, label %69
+56:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %57 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overabove, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %.not58 = icmp eq i64 %57, 0
+  br i1 %.not58, label %.thread, label %68
 
-59:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %60 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_below, i32 noundef 0, i64 noundef %9, i64 noundef %40) #8
-  %.not57 = icmp eq i64 %60, 0
-  br i1 %.not57, label %.thread, label %69
+58:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %59 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_below, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %.not57 = icmp eq i64 %59, 0
+  br i1 %.not57, label %.thread, label %68
 
-61:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %62 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overbelow, i32 noundef 0, i64 noundef %9, i64 noundef %40) #8
-  %.not = icmp eq i64 %62, 0
-  br i1 %.not, label %.thread, label %69
+60:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %61 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overbelow, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %.not = icmp eq i64 %61, 0
+  br i1 %.not, label %.thread, label %68
 
-63:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %64 = zext i16 %22 to i32
-  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %65)
-  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %64) #8
+62:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %63 = zext i16 %22 to i32
+  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %64)
+  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %63) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 831, ptr noundef nonnull @__func__.spg_box_quad_leaf_consistent) #8
   unreachable
 
-67:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %68 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overlap, i32 noundef 0, i64 noundef %9, i64 noundef %40) #8
-  %.not67 = icmp eq i64 %68, 0
-  br i1 %.not67, label %.thread, label %69
+66:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
+  %67 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overlap, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %.not67 = icmp eq i64 %67, 0
+  br i1 %.not67, label %.thread, label %68
 
-69:                                               ; preds = %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %67
+68:                                               ; preds = %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = load i32, ptr %16, align 8
-  %71 = sext i32 %70 to i64
-  %.not79 = icmp slt i64 %indvars.iv.next, %71
+  %69 = load i32, ptr %16, align 8
+  %70 = sext i32 %69 to i64
+  %.not79 = icmp slt i64 %indvars.iv.next, %70
   br i1 %.not79, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %69, %15
-  %72 = getelementptr inbounds i8, ptr %4, i64 20
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %75, label %.thread
+._crit_edge:                                      ; preds = %68, %15
+  %71 = getelementptr inbounds i8, ptr %4, i64 20
+  %72 = load i32, ptr %71, align 4
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %74, label %.thread
 
-75:                                               ; preds = %._crit_edge
-  %76 = getelementptr inbounds i8, ptr %4, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 24
-  %79 = load i32, ptr %78, align 8
-  %80 = tail call ptr @spg_key_orderbys_distances(i64 noundef %9, i1 noundef zeroext false, ptr noundef %77, i32 noundef %73) #8
-  %81 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %80, ptr %81, align 8
-  %82 = icmp eq i32 %79, 3292
-  %83 = getelementptr inbounds i8, ptr %7, i64 9
-  %84 = zext i1 %82 to i8
-  store i8 %84, ptr %83, align 1
+74:                                               ; preds = %._crit_edge
+  %75 = getelementptr inbounds i8, ptr %4, i64 8
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 24
+  %78 = load i32, ptr %77, align 8
+  %79 = tail call ptr @spg_key_orderbys_distances(i64 noundef %9, i1 noundef zeroext false, ptr noundef %76, i32 noundef %72) #8
+  %80 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %79, ptr %80, align 8
+  %81 = icmp eq i32 %78, 3292
+  %82 = getelementptr inbounds i8, ptr %7, i64 9
+  %83 = zext i1 %81 to i8
+  store i8 %83, ptr %82, align 1
   br label %.thread
 
-.thread:                                          ; preds = %41, %43, %45, %47, %49, %51, %53, %55, %57, %59, %61, %67, %75, %._crit_edge
-  %85 = phi i64 [ 1, %75 ], [ 1, %._crit_edge ], [ 0, %67 ], [ 0, %61 ], [ 0, %59 ], [ 0, %57 ], [ 0, %55 ], [ 0, %53 ], [ 0, %51 ], [ 0, %49 ], [ 0, %47 ], [ 0, %45 ], [ 0, %43 ], [ 0, %41 ]
-  ret i64 %85
+.thread:                                          ; preds = %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %66, %74, %._crit_edge
+  %84 = phi i64 [ 1, %74 ], [ 1, %._crit_edge ], [ 0, %66 ], [ 0, %60 ], [ 0, %58 ], [ 0, %56 ], [ 0, %54 ], [ 0, %52 ], [ 0, %50 ], [ 0, %48 ], [ 0, %46 ], [ 0, %44 ], [ 0, %42 ], [ 0, %40 ]
+  ret i64 %84
 }
 
 declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3

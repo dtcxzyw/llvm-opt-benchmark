@@ -1387,7 +1387,7 @@ define noundef zeroext i1 @_ZNK3gmx19SelectionCollection4Impl18areForcesRequeste
 }
 
 ; Function Attrs: mustprogress uwtable
-define i16 @_ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define range(i16 0, 512) i16 @_ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   br i1 %3, label %9, label %4
 
@@ -1852,7 +1852,7 @@ define void @_ZN3gmx19SelectionCollection11setTopologyEPK10gmx_mtop_ti(ptr nocap
   %12 = tail call i16 @_ZNK3gmx19SelectionCollection26requiredTopologyPropertiesEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.sroa.035.0.extract.trunc = trunc i16 %12 to i8
   %.sroa.236.0.extract.shift = lshr i16 %12, 8
-  %.sroa.236.0.extract.trunc = trunc nuw i16 %.sroa.236.0.extract.shift to i8
+  %.sroa.236.0.extract.trunc = trunc nuw nsw i16 %.sroa.236.0.extract.shift to i8
   tail call fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10gmx_mtop_tRKNS_27SelectionTopologyPropertiesE(ptr noundef %1, i8 %.sroa.035.0.extract.trunc, i8 %.sroa.236.0.extract.trunc)
   %13 = icmp slt i32 %2, 1
   br i1 %13, label %14, label %17
@@ -2623,7 +2623,7 @@ define void @_ZN3gmx19SelectionCollection7compileEv(ptr noundef nonnull align 8 
   %17 = tail call i16 @_ZNK3gmx19SelectionCollection26requiredTopologyPropertiesEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.sroa.063.0.extract.trunc = trunc i16 %17 to i8
   %.sroa.264.0.extract.shift = lshr i16 %17, 8
-  %.sroa.264.0.extract.trunc = trunc nuw i16 %.sroa.264.0.extract.shift to i8
+  %.sroa.264.0.extract.trunc = trunc nuw nsw i16 %.sroa.264.0.extract.shift to i8
   tail call fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10gmx_mtop_tRKNS_27SelectionTopologyPropertiesE(ptr noundef %16, i8 %.sroa.063.0.extract.trunc, i8 %.sroa.264.0.extract.trunc)
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 212
@@ -4012,7 +4012,7 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10
 }
 
 ; Function Attrs: mustprogress uwtable
-define i16 @_ZNK3gmx19SelectionCollection26requiredTopologyPropertiesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i16 0, 512) i16 @_ZNK3gmx19SelectionCollection26requiredTopologyPropertiesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::shared_ptr", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 120
@@ -7606,7 +7606,7 @@ define void @_ZN3gmx19SelectionCollection8evaluateEP10t_trxframeP5t_pbc(ptr noun
   %17 = tail call i16 @_ZNK3gmx19SelectionCollection26requiredTopologyPropertiesEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.sroa.040.0.extract.trunc = trunc i16 %17 to i8
   %.sroa.241.0.extract.shift = lshr i16 %17, 8
-  %.sroa.241.0.extract.trunc = trunc nuw i16 %.sroa.241.0.extract.shift to i8
+  %.sroa.241.0.extract.trunc = trunc nuw nsw i16 %.sroa.241.0.extract.shift to i8
   tail call fastcc void @_ZN3gmx12_GLOBAL__N_123checkTopologyPropertiesEPK10gmx_mtop_tRKNS_27SelectionTopologyPropertiesE(ptr noundef %16, i8 %.sroa.040.0.extract.trunc, i8 %.sroa.241.0.extract.trunc)
   %18 = getelementptr inbounds i8, ptr %1, i64 160
   %19 = load i8, ptr %18, align 8

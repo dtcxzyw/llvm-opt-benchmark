@@ -966,9 +966,9 @@ while.cond31:                                     ; preds = %while.cond14, %whil
   ]
 
 lor.rhs44:                                        ; preds = %while.cond31
-  %5 = add i8 %4, -10
-  %spec.select = icmp ult i8 %5, 4
-  br i1 %spec.select, label %while.end57, label %while.body55
+  %5 = add i8 %4, -14
+  %spec.select = icmp ult i8 %5, -4
+  br i1 %spec.select, label %while.body55, label %while.end57
 
 while.body55:                                     ; preds = %lor.rhs44
   %incdec.ptr56 = getelementptr inbounds i8, ptr %end.0, i64 1
@@ -1226,11 +1226,12 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
 
 land.rhs:                                         ; preds = %land.lhs.true3
   %3 = load i64, ptr %bytecount, align 8
-  %cmp8 = icmp slt i64 %3, %2
+  %cmp8 = icmp sge i64 %3, %2
+  %4 = freeze i1 %cmp8
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true3, %land.lhs.true, %while.body
-  %4 = phi i1 [ false, %land.lhs.true3 ], [ false, %land.lhs.true ], [ false, %while.body ], [ %cmp8, %land.rhs ]
+  %.not = phi i1 [ true, %land.lhs.true3 ], [ true, %land.lhs.true ], [ true, %while.body ], [ %4, %land.rhs ]
   %5 = load i32, ptr %state, align 8
   switch i32 %5, label %return [
     i32 0, label %while.cond9.preheader
@@ -1240,8 +1241,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
   ]
 
 while.cond9.preheader:                            ; preds = %land.end
-  %.fr = freeze i1 %4
-  br i1 %.fr, label %land.rhs11.us, label %land.rhs11
+  br i1 %.not, label %land.rhs11, label %land.rhs11.us
 
 land.rhs11.us:                                    ; preds = %while.cond9.preheader, %while.body15.us
   %buf.addr.1172.us = phi ptr [ %incdec.ptr.us, %while.body15.us ], [ %buf.addr.0180, %while.cond9.preheader ]
@@ -1259,7 +1259,7 @@ while.body15.us:                                  ; preds = %land.rhs11.us
   %dec.us = add i64 %blen.addr.1171.us, -1
   %inc.us = add i64 %skip_len.1170.us, 1
   %tobool10.not.us = icmp eq i64 %dec.us, 0
-  br i1 %tobool10.not.us, label %out.loopexit, label %land.rhs11.us, !llvm.loop !10
+  br i1 %tobool10.not.us, label %out.loopexit204, label %land.rhs11.us, !llvm.loop !10
 
 land.rhs11:                                       ; preds = %while.cond9.preheader, %if.end39
   %buf.addr.1172 = phi ptr [ %incdec.ptr, %if.end39 ], [ %buf.addr.0180, %while.cond9.preheader ]
@@ -1297,12 +1297,12 @@ if.end39:                                         ; preds = %land.rhs11, %if.the
   %dec = add i64 %blen.addr.1171, -1
   %inc = add i64 %skip_len.1170, 1
   %tobool10.not = icmp eq i64 %dec, 0
-  br i1 %tobool10.not, label %out.loopexit204, label %land.rhs11, !llvm.loop !10
+  br i1 %tobool10.not, label %out.loopexit, label %land.rhs11, !llvm.loop !10
 
-if.then46:                                        ; preds = %land.rhs11, %land.rhs11.us
-  %.us-phi = phi i64 [ %skip_len.1170.us, %land.rhs11.us ], [ %skip_len.1170, %land.rhs11 ]
-  %.us-phi173 = phi i64 [ %blen.addr.1171.us, %land.rhs11.us ], [ %blen.addr.1171, %land.rhs11 ]
-  %.us-phi174 = phi ptr [ %buf.addr.1172.us, %land.rhs11.us ], [ %buf.addr.1172, %land.rhs11 ]
+if.then46:                                        ; preds = %land.rhs11.us, %land.rhs11
+  %.us-phi = phi i64 [ %skip_len.1170, %land.rhs11 ], [ %skip_len.1170.us, %land.rhs11.us ]
+  %.us-phi173 = phi i64 [ %blen.addr.1171, %land.rhs11 ], [ %blen.addr.1171.us, %land.rhs11.us ]
+  %.us-phi174 = phi ptr [ %buf.addr.1172, %land.rhs11 ], [ %buf.addr.1172.us, %land.rhs11.us ]
   %tobool47.not = icmp eq i64 %.us-phi, 0
   br i1 %tobool47.not, label %if.end53, label %if.then48
 
@@ -1531,12 +1531,12 @@ sw.epilog:                                        ; preds = %rtp_client_write.ex
   %tobool.not = icmp eq i64 %blen.addr.2, 0
   br i1 %tobool.not, label %out, label %while.body, !llvm.loop !11
 
-out.loopexit:                                     ; preds = %while.body15.us
+out.loopexit:                                     ; preds = %if.end39
   %scevgep193.le = getelementptr i8, ptr %buf.addr.0180, i64 %blen.addr.0179
   %33 = add i64 %blen.addr.0179, %skip_len.0178
   br label %out
 
-out.loopexit204:                                  ; preds = %if.end39
+out.loopexit204:                                  ; preds = %while.body15.us
   %scevgep.le = getelementptr i8, ptr %buf.addr.0180, i64 %blen.addr.0179
   %34 = add i64 %blen.addr.0179, %skip_len.0178
   br label %out

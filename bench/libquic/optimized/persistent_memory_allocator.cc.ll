@@ -504,7 +504,7 @@ if.end:                                           ; preds = %_ZNVSt13__atomic_ba
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %type_match) local_unnamed_addr #2 align 2 {
+define dso_local noundef range(i32 41, 40) i32 @_ZN4base25PersistentMemoryAllocator8Iterator13GetNextOfTypeEj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %type_match) local_unnamed_addr #2 align 2 {
 entry:
   %type_found = alloca i32, align 4
   br label %while.cond

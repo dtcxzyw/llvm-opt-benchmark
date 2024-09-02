@@ -3171,48 +3171,48 @@ define dso_local void @jsonpath_yyset_debug(i32 noundef %0) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @jsonpath_yylex_destroy() local_unnamed_addr #0 {
   %.pr = load ptr, ptr @yy_buffer_stack, align 8
-  %.not11 = icmp eq ptr %.pr, null
-  br i1 %.not11, label %jsonpath_yyfree.exit, label %.lr.ph.preheader
+  %.not9 = icmp eq ptr %.pr, null
+  br i1 %.not9, label %jsonpath_yyfree.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
   %.pre = load i64, ptr @yy_buffer_stack_top, align 8
   %.phi.trans.insert = getelementptr ptr, ptr %.pr, i64 %.pre
-  %.pre13 = load ptr, ptr %.phi.trans.insert, align 8
-  %.not216 = icmp eq ptr %.pre13, null
-  br i1 %.not216, label %9, label %.thread.i
+  %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
+  %1 = icmp eq ptr %.pre11, null
+  br i1 %1, label %.critedge, label %.thread.i
 
 .thread.i:                                        ; preds = %.lr.ph.preheader
-  %1 = getelementptr ptr, ptr %.pr, i64 %.pre
-  store ptr null, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %.pre13, i64 32
-  %3 = load i32, ptr %2, align 8
-  %.not7.i = icmp eq i32 %3, 0
-  br i1 %.not7.i, label %jsonpath_yypop_buffer_state.exit, label %4
+  %2 = getelementptr ptr, ptr %.pr, i64 %.pre
+  store ptr null, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %.pre11, i64 32
+  %4 = load i32, ptr %3, align 8
+  %.not7.i = icmp eq i32 %4, 0
+  br i1 %.not7.i, label %jsonpath_yypop_buffer_state.exit, label %5
 
-4:                                                ; preds = %.thread.i
-  %5 = getelementptr inbounds i8, ptr %.pre13, i64 8
-  %6 = load ptr, ptr %5, align 8
-  %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %jsonpath_yypop_buffer_state.exit, label %7
+5:                                                ; preds = %.thread.i
+  %6 = getelementptr inbounds i8, ptr %.pre11, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %.not.i.i = icmp eq ptr %7, null
+  br i1 %.not.i.i, label %jsonpath_yypop_buffer_state.exit, label %8
 
-7:                                                ; preds = %4
-  tail call void @pfree(ptr noundef nonnull %6) #15
+8:                                                ; preds = %5
+  tail call void @pfree(ptr noundef nonnull %7) #15
   br label %jsonpath_yypop_buffer_state.exit
 
-jsonpath_yypop_buffer_state.exit:                 ; preds = %.thread.i, %4, %7
-  tail call void @pfree(ptr noundef nonnull %.pre13) #15
-  %.pre15 = load i64, ptr @yy_buffer_stack_top, align 8
-  %.pre14 = load ptr, ptr @yy_buffer_stack, align 8
-  %8 = getelementptr ptr, ptr %.pre14, i64 %.pre15
-  store ptr null, ptr %8, align 8
-  br label %9
+jsonpath_yypop_buffer_state.exit:                 ; preds = %.thread.i, %5, %8
+  tail call void @pfree(ptr noundef nonnull %.pre11) #15
+  %9 = load ptr, ptr @yy_buffer_stack, align 8
+  %10 = load i64, ptr @yy_buffer_stack_top, align 8
+  %11 = getelementptr ptr, ptr %9, i64 %10
+  store ptr null, ptr %11, align 8
+  br label %.critedge
 
-9:                                                ; preds = %jsonpath_yypop_buffer_state.exit, %.lr.ph.preheader
-  %.lcssa = phi ptr [ %.pre14, %jsonpath_yypop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
+.critedge:                                        ; preds = %jsonpath_yypop_buffer_state.exit, %.lr.ph.preheader
+  %.lcssa = phi ptr [ %9, %jsonpath_yypop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
   tail call void @pfree(ptr noundef nonnull %.lcssa) #15
   br label %jsonpath_yyfree.exit
 
-jsonpath_yyfree.exit:                             ; preds = %0, %9
+jsonpath_yyfree.exit:                             ; preds = %0, %.critedge
   store ptr null, ptr @yy_buffer_stack, align 8
   store i64 0, ptr @yy_buffer_stack_top, align 8
   store i64 0, ptr @yy_buffer_stack_max, align 8

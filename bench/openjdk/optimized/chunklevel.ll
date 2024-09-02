@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef signext i8 @_ZN9metaspace10chunklevel23level_fitting_word_sizeEm(i64 noundef %0) local_unnamed_addr #0 {
+define hidden noundef signext range(i8 -42, 22) i8 @_ZN9metaspace10chunklevel23level_fitting_word_sizeEm(i64 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i64 %0, 129
   br i1 %2, label %11, label %3
 

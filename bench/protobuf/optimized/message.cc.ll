@@ -1789,12 +1789,12 @@ land.lhs.true:                                    ; preds = %_ZN4absl12lts_20230
   %13 = extractvalue { ptr, ptr } %call25.pn.i.i.i, 1
   %second.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %second.i, align 8
-  %cmp.not = icmp ne ptr %14, null
+  %cmp.not = icmp eq ptr %14, null
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_7MessageEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit.i, %land.lhs.true
   %retval.sroa.0.0.i177 = phi ptr [ %14, %land.lhs.true ], [ undef, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_7MessageEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit.i ]
-  %cleanup.dest.slot.0 = phi i1 [ %cmp.not, %land.lhs.true ], [ false, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_7MessageEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit.i ]
+  %cleanup.dest.slot.0 = phi i1 [ %cmp.not, %land.lhs.true ], [ true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_7MessageEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit.i ]
   invoke void @_ZN4absl12lts_202308025Mutex12ReaderUnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
           to label %_ZN4absl12lts_2023080215ReaderMutexLockD2Ev.exit8 unwind label %terminate.lpad.i7
 
@@ -1806,7 +1806,7 @@ terminate.lpad.i7:                                ; preds = %cleanup
   unreachable
 
 _ZN4absl12lts_2023080215ReaderMutexLockD2Ev.exit8: ; preds = %cleanup
-  br i1 %cleanup.dest.slot.0, label %return, label %cleanup.cont
+  br i1 %cleanup.dest.slot.0, label %cleanup.cont, label %return
 
 cleanup.cont:                                     ; preds = %_ZN4absl12lts_2023080215ReaderMutexLockD2Ev.exit8
   %file_.i = getelementptr inbounds i8, ptr %type, i64 16

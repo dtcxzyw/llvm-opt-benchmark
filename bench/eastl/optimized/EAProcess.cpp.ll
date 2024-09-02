@@ -12,7 +12,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i64 @_ZN2EA4StdC21GetCurrentProcessPathEPcii(ptr nocapture noundef %pPath, i32 noundef %pathCapacity, i32 noundef %0) local_unnamed_addr #1 {
+define dso_local noundef range(i64 -9223372036854775808, 2147483647) i64 @_ZN2EA4StdC21GetCurrentProcessPathEPcii(ptr nocapture noundef %pPath, i32 noundef %pathCapacity, i32 noundef %0) local_unnamed_addr #1 {
 entry:
   %conv = sext i32 %pathCapacity to i64
   %call = tail call i64 @readlink(ptr noundef nonnull @.str, ptr noundef %pPath, i64 noundef %conv) #14

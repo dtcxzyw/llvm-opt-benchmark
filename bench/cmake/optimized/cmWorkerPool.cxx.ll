@@ -3409,7 +3409,7 @@ define dso_local void @_ZN20cmWorkerPoolInternal4WorkEj(ptr noundef nonnull alig
   %36 = trunc i8 %35 to i1
   br i1 %36, label %.loopexit33, label %25, !llvm.loop !84
 
-.loopexit:                                        ; preds = %74
+.loopexit:                                        ; preds = %75
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -3508,54 +3508,54 @@ _ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE
   %67 = getelementptr inbounds i8, ptr %47, i64 20
   %68 = load i8, ptr %67, align 4
   %69 = trunc i8 %68 to i1
-  br i1 %69, label %70, label %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit._crit_edge
+  br i1 %69, label %71, label %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit._crit_edge
 
 _ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit._crit_edge: ; preds = %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit
   %.pre56 = load i32, ptr %20, align 4
-  br label %75
+  %70 = add i32 %.pre56, 1
+  br label %76
 
-70:                                               ; preds = %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit
+71:                                               ; preds = %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit
   store i8 1, ptr %16, align 2
-  br label %71
+  br label %72
 
-71:                                               ; preds = %74, %70
-  %72 = load i32, ptr %20, align 4
-  %.not = icmp eq i32 %72, 0
+72:                                               ; preds = %75, %71
+  %73 = load i32, ptr %20, align 4
+  %.not = icmp eq i32 %73, 0
   %.pre = load i8, ptr %11, align 1
   %.pre58 = trunc i8 %.pre to i1
-  br i1 %.not, label %.critedge, label %73
+  br i1 %.not, label %.critedge, label %74
 
-73:                                               ; preds = %71
-  br i1 %.pre58, label %.critedge.thread, label %74
-
-74:                                               ; preds = %73
-  invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(9) %3)
-          to label %71 unwind label %.loopexit, !llvm.loop !85
-
-.critedge:                                        ; preds = %71
+74:                                               ; preds = %72
   br i1 %.pre58, label %.critedge.thread, label %75
 
-.critedge.thread:                                 ; preds = %.critedge, %73
+75:                                               ; preds = %74
+  invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(9) %3)
+          to label %72 unwind label %.loopexit, !llvm.loop !85
+
+.critedge:                                        ; preds = %72
+  br i1 %.pre58, label %.critedge.thread, label %76
+
+.critedge.thread:                                 ; preds = %.critedge, %74
   store i8 0, ptr %16, align 2
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #21
   br label %.loopexit33
 
-75:                                               ; preds = %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit._crit_edge, %.critedge
-  %76 = phi i32 [ %.pre56, %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit._crit_edge ], [ 0, %.critedge ]
-  %77 = add i32 %76, 1
+76:                                               ; preds = %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit._crit_edge, %.critedge
+  %77 = phi i32 [ %70, %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit._crit_edge ], [ 1, %.critedge ]
   store i32 %77, ptr %20, align 4
   %78 = load i8, ptr %5, align 8
   %79 = trunc i8 %78 to i1
   br i1 %79, label %81, label %80
 
-80:                                               ; preds = %75
+80:                                               ; preds = %76
   invoke void @_ZSt20__throw_system_errori(i32 noundef 1) #22
           to label %.noexc10 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc10:                                         ; preds = %80
   unreachable
 
-81:                                               ; preds = %75
+81:                                               ; preds = %76
   %82 = load ptr, ptr %3, align 8
   %.not.i9 = icmp eq ptr %82, null
   br i1 %.not.i9, label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit, label %83

@@ -219,7 +219,7 @@ switch.lookup:                                    ; preds = %1
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 -2147483635, -2147483648) i32 @_ZN19AbstractInterpreter31size_top_interpreter_activationEP6Method(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 25, 131096) i32 @_ZN19AbstractInterpreter31size_top_interpreter_activationEP6Method(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 44

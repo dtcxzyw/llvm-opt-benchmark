@@ -1104,7 +1104,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %49, %51
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t9sys_fcntlEmmmmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4, i64 %5, i64 %6, i64 %7) #3 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t9sys_fcntlEmmmmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4, i64 %5, i64 %6, i64 %7) #3 align 2 {
   %9 = and i64 %1, 4294967295
   %10 = icmp eq i64 %9, 4294967196
   br i1 %10, label %_ZN5fds_t6lookupEm.exit, label %11
@@ -1146,7 +1146,7 @@ _ZL12sysret_errnol.exit:                          ; preds = %_ZN5fds_t6lookupEm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t11sys_mkdiratEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t11sys_mkdiratEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::allocator.20", align 1
   %10 = alloca %"class.std::vector.40", align 8
   %11 = alloca %"class.std::allocator.20", align 1
@@ -1301,7 +1301,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %65, %67
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t12sys_unlinkatEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t12sys_unlinkatEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::allocator.20", align 1
   %10 = alloca %"class.std::vector.40", align 8
   %11 = alloca %"class.std::allocator.20", align 1
@@ -1456,7 +1456,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %65, %67
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t10sys_linkatEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t10sys_linkatEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::allocator.20", align 1
   %10 = alloca %"class.std::allocator.20", align 1
   %11 = alloca %"class.std::vector.40", align 8
@@ -1749,7 +1749,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit36:                  ; preds = %_ZNSt6vectorIcSaIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t12sys_renameatEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t12sys_renameatEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::allocator.20", align 1
   %10 = alloca %"class.std::allocator.20", align 1
   %11 = alloca %"class.std::vector.40", align 8
@@ -2041,7 +2041,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit35:                  ; preds = %_ZNSt6vectorIcSaIcE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN9syscall_t13sys_ftruncateEmmmmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7) #4 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t13sys_ftruncateEmmmmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7) #4 align 2 {
   %9 = and i64 %1, 4294967295
   %10 = icmp eq i64 %9, 4294967196
   br i1 %10, label %_ZN5fds_t6lookupEm.exit, label %11
@@ -2082,7 +2082,7 @@ _ZL12sysret_errnol.exit:                          ; preds = %_ZN5fds_t6lookupEm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t13sys_faccessatEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t13sys_faccessatEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::allocator.20", align 1
   %10 = alloca %"class.std::vector.40", align 8
   %11 = alloca %"class.std::allocator.20", align 1
@@ -2237,7 +2237,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %65, %67
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t9sys_chdirEmmmmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1, i64 %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t9sys_chdirEmmmmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1, i64 %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::vector.40", align 8
   %10 = alloca %"class.std::allocator.20", align 1
   %11 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2623,7 +2623,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %123, %125
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t9sys_closeEmmmmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1, i64 %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7) #3 align 2 {
+define noundef range(i64 -2147483647, 2147483648) i64 @_ZN9syscall_t9sys_closeEmmmmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1, i64 %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7) #3 align 2 {
   %9 = getelementptr inbounds i8, ptr %0, i64 96
   %10 = and i64 %1, 4294967295
   %11 = icmp eq i64 %10, 4294967196
@@ -3076,7 +3076,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZL12sysret_errnol.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t11sys_fstatatEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t11sys_fstatatEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::allocator.20", align 1
   %10 = alloca %"class.std::vector.40", align 8
   %11 = alloca %"class.std::allocator.20", align 1
@@ -3251,7 +3251,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %80, %82
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t9sys_fstatEmmmmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7) #3 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t9sys_fstatEmmmmmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7) #3 align 2 {
   %9 = alloca %struct.stat, align 8
   %10 = alloca %struct.riscv_stat, align 8
   %11 = and i64 %1, 4294967295
@@ -3320,7 +3320,7 @@ define noundef i64 @_ZN9syscall_t8sys_exitEmmmmmmm(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t9sys_statxEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t9sys_statxEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::allocator.20", align 1
   %10 = alloca %"class.std::vector.40", align 8
   %11 = alloca %"class.std::allocator.20", align 1
@@ -3486,7 +3486,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %78, %80
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN9syscall_t9sys_lstatEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4, i64 %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZN9syscall_t9sys_lstatEmmmmmmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4, i64 %5, i64 %6, i64 %7) #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::allocator.20", align 1
   %10 = alloca %"class.std::vector.40", align 8
   %11 = alloca %"class.std::allocator.20", align 1

@@ -1017,12 +1017,12 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 if.end.i5.i:                                      ; preds = %for.cond.i
   %arrayidx.i6.i = getelementptr inbounds i8, ptr %4, i64 -4
   %5 = load i32, ptr %arrayidx.i6.i, align 4
+  %6 = zext i32 %5 to i64
   br label %_ZNK6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE4sizeEv.exit.i
 
 _ZNK6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE4sizeEv.exit.i: ; preds = %if.end.i5.i, %for.cond.i
-  %retval.0.i7.i = phi i32 [ %5, %if.end.i5.i ], [ 0, %for.cond.i ]
-  %6 = zext i32 %retval.0.i7.i to i64
-  %cmp.i = icmp ult i64 %indvars.iv.i, %6
+  %retval.0.i7.i = phi i64 [ %6, %if.end.i5.i ], [ 0, %for.cond.i ]
+  %cmp.i = icmp ult i64 %indvars.iv.i, %retval.0.i7.i
   br i1 %cmp.i, label %for.body.i, label %_ZN12drup_checker9add_unitsEv.exit
 
 for.body.i:                                       ; preds = %_ZNK6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE4sizeEv.exit.i

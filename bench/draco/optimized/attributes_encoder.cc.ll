@@ -315,11 +315,11 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit16:  ; preds = %_ZN5draco13EncoderB
   %65 = getelementptr inbounds i8, ptr %61, i64 %64
   call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %65, ptr noundef nonnull %4, ptr noundef nonnull %27)
   %.pre = load i64, ptr %24, align 8
-  %66 = getelementptr inbounds i8, ptr %39, i64 24
-  %67 = load i8, ptr %66, align 8
-  store i8 %67, ptr %5, align 1
-  %68 = icmp slt i64 %.pre, 1
-  br i1 %68, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit17, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit17.thread
+  %66 = icmp slt i64 %.pre, 1
+  %67 = getelementptr inbounds i8, ptr %39, i64 24
+  %68 = load i8, ptr %67, align 8
+  store i8 %68, ptr %5, align 1
+  br i1 %66, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit17, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit17.thread
 
 _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit17.thread: ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit16.thread, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit16
   %69 = getelementptr inbounds i8, ptr %39, i64 32

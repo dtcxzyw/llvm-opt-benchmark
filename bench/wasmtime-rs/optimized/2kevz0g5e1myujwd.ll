@@ -5965,7 +5965,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h90f443bebbf95e01E.ll
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef range(i64 0, 256) i64 @"_ZN5gimli4read3str66_$LT$impl$u20$gimli..common..DebugStrOffsetsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17h40e4bd63cd7660f7E"(i32 %0, i1 noundef zeroext %1) unnamed_addr #15 {
+define hidden noundef range(i64 0, 17) i64 @"_ZN5gimli4read3str66_$LT$impl$u20$gimli..common..DebugStrOffsetsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17h40e4bd63cd7660f7E"(i32 %0, i1 noundef zeroext %1) unnamed_addr #15 {
   %3 = icmp ugt i32 %0, 327679
   %brmerge.not = and i1 %3, %1
   %4 = and i32 %0, 65280
@@ -5976,7 +5976,7 @@ define hidden noundef range(i64 0, 256) i64 @"_ZN5gimli4read3str66_$LT$impl$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef range(i64 0, 256) i64 @"_ZN5gimli4read8loclists64_$LT$impl$u20$gimli..common..DebugLocListsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17hb53b26c55c67d8afE"(i32 %0, i1 noundef zeroext %1) unnamed_addr #15 {
+define hidden noundef range(i64 0, 21) i64 @"_ZN5gimli4read8loclists64_$LT$impl$u20$gimli..common..DebugLocListsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17hb53b26c55c67d8afE"(i32 %0, i1 noundef zeroext %1) unnamed_addr #15 {
   %3 = icmp ugt i32 %0, 327679
   %brmerge.not = and i1 %3, %1
   %4 = and i32 %0, 65280
@@ -5987,7 +5987,7 @@ define hidden noundef range(i64 0, 256) i64 @"_ZN5gimli4read8loclists64_$LT$impl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef range(i64 0, 256) i64 @"_ZN5gimli4read8rnglists64_$LT$impl$u20$gimli..common..DebugRngListsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17h43cd3032f83a37deE"(i32 %0, i1 noundef zeroext %1) unnamed_addr #15 {
+define hidden noundef range(i64 0, 21) i64 @"_ZN5gimli4read8rnglists64_$LT$impl$u20$gimli..common..DebugRngListsBase$LT$Offset$GT$$GT$29default_for_encoding_and_file17h43cd3032f83a37deE"(i32 %0, i1 noundef zeroext %1) unnamed_addr #15 {
   %3 = icmp ugt i32 %0, 327679
   %brmerge.not = and i1 %3, %1
   %4 = and i32 %0, 65280

@@ -283,16 +283,16 @@ define internal i32 @agp_amd64_probe(ptr noundef %0, ptr nocapture readnone %1) 
   %52 = tail call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %50, ptr noundef %51) #6
   %53 = tail call zeroext i16 @amd_nb_num() #6
   %54 = icmp eq i16 %53, 0
-  br i1 %54, label %.loopexit24, label %55
+  br i1 %54, label %.loopexit22, label %55
 
 55:                                               ; preds = %45
   %56 = tail call zeroext i1 @amd_nb_has_feature(i32 noundef 1) #6
-  br i1 %56, label %57, label %.loopexit24
+  br i1 %56, label %57, label %.loopexit22
 
 57:                                               ; preds = %55
   %58 = tail call zeroext i16 @amd_nb_num() #6
   %59 = icmp eq i16 %58, 0
-  br i1 %59, label %.loopexit24, label %60
+  br i1 %59, label %.loopexit22, label %60
 
 60:                                               ; preds = %57
   %61 = add nuw nsw i32 %48, 20
@@ -301,12 +301,18 @@ define internal i32 @agp_amd64_probe(ptr noundef %0, ptr nocapture readnone %1) 
   %64 = getelementptr inbounds i8, ptr %0, i64 184
   br label %70
 
-65:                                               ; preds = %.thread, %128
+.critedge:                                        ; preds = %115, %126
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  br label %65
+
+65:                                               ; preds = %.critedge, %86
   %66 = add nuw nsw i32 %71, 1
   %67 = call zeroext i16 @amd_nb_num() #6
   %68 = zext i16 %67 to i32
   %69 = icmp ult i32 %66, %68
-  br i1 %69, label %70, label %.loopexit24, !llvm.loop !7
+  br i1 %69, label %70, label %.loopexit22, !llvm.loop !7
 
 70:                                               ; preds = %65, %60
   %71 = phi i32 [ 0, %60 ], [ %66, %65 ]
@@ -331,108 +337,102 @@ define internal i32 @agp_amd64_probe(ptr noundef %0, ptr nocapture readnone %1) 
   %83 = call i32 @pci_read_config_word(ptr noundef %0, i32 noundef %61, ptr noundef nonnull %9) #6
   %84 = load i16, ptr %9, align 2
   %85 = icmp eq i16 %84, -1
-  br i1 %85, label %128, label %86
+  br i1 %85, label %86, label %90
 
 86:                                               ; preds = %70
-  %87 = and i16 %84, 4095
-  %88 = and i16 %84, 255
-  %89 = icmp eq i16 %88, 0
-  %90 = or i16 %87, 3840
-  %91 = select i1 %89, i16 %87, i16 %90
-  store i16 %91, ptr %9, align 2
-  %92 = zext nneg i16 %91 to i32
-  %93 = call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %92) #9, !srcloc !11
-  %94 = sub i32 7, %93
+  %87 = load i32, ptr %7, align 4
+  %88 = shl i32 33554432, %87
+  %89 = call fastcc i32 @agp_aperture_valid(i64 noundef %82, i32 noundef %88), !range !11
+  %.not = icmp eq i32 %89, 0
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  br i1 %.not, label %.loopexit21, label %65
+
+90:                                               ; preds = %70
+  %91 = and i16 %84, 4095
+  %92 = and i16 %84, 255
+  %93 = icmp eq i16 %92, 0
+  %94 = or i16 %91, 3840
+  %95 = select i1 %93, i16 %91, i16 %94
+  store i16 %95, ptr %9, align 2
+  %96 = zext nneg i16 %95 to i32
+  %97 = call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %96) #9, !srcloc !12
+  %98 = sub i32 7, %97
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !10
-  %95 = load ptr, ptr %62, align 8
-  call void @pcibios_resource_to_bus(ptr noundef %95, ptr noundef nonnull %6, ptr noundef %63) #6
-  %96 = load i64, ptr %6, align 8
+  %99 = load ptr, ptr %62, align 8
+  call void @pcibios_resource_to_bus(ptr noundef %99, ptr noundef nonnull %6, ptr noundef %63) #6
+  %100 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  %97 = icmp sgt i32 %94, -1
-  br i1 %97, label %98, label %107
+  %101 = icmp sgt i32 %98, -1
+  br i1 %101, label %102, label %111
 
-98:                                               ; preds = %86
-  %99 = sub i32 27, %93
-  %100 = zext nneg i32 %99 to i64
-  %101 = shl i64 32, %100
-  %102 = add i64 %96, %101
-  %103 = icmp ugt i64 %102, 4294967296
-  br i1 %103, label %104, label %107
+102:                                              ; preds = %90
+  %103 = sub i32 27, %97
+  %104 = zext nneg i32 %103 to i64
+  %105 = shl i64 32, %104
+  %106 = add i64 %100, %105
+  %107 = icmp ugt i64 %106, 4294967296
+  br i1 %107, label %108, label %111
 
-104:                                              ; preds = %98
-  %105 = shl i32 32, %94
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %64, ptr noundef nonnull @.str.17, i32 noundef %105) #7
-  %106 = load i32, ptr %7, align 4
-  br label %107
+108:                                              ; preds = %102
+  %109 = shl i32 32, %98
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %64, ptr noundef nonnull @.str.17, i32 noundef %109) #7
+  %110 = load i32, ptr %7, align 4
+  br label %111
 
-107:                                              ; preds = %104, %98, %86
-  %108 = phi i32 [ %106, %104 ], [ %94, %98 ], [ %94, %86 ]
-  %109 = load i32, ptr %7, align 4
-  %110 = icmp ult i32 %109, %108
-  br i1 %110, label %115, label %111
+111:                                              ; preds = %108, %102, %90
+  %112 = phi i32 [ %110, %108 ], [ %98, %102 ], [ %98, %90 ]
+  %113 = load i32, ptr %7, align 4
+  %114 = icmp ult i32 %113, %112
+  br i1 %114, label %119, label %115
 
-111:                                              ; preds = %107
-  %112 = shl i32 33554432, %109
-  %113 = call fastcc i32 @agp_aperture_valid(i64 noundef %82, i32 noundef %112), !range !12
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %.thread
+115:                                              ; preds = %111
+  %116 = shl i32 33554432, %113
+  %117 = call fastcc i32 @agp_aperture_valid(i64 noundef %82, i32 noundef %116), !range !11
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %119, label %.critedge
 
-115:                                              ; preds = %111, %107
-  %116 = shl i32 32, %108
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %64, ptr noundef nonnull @.str.18, i64 noundef %96, i32 noundef %116) #7
-  %117 = icmp slt i32 %108, 0
-  br i1 %117, label %.thread17, label %118
+119:                                              ; preds = %115, %111
+  %120 = shl i32 32, %112
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %64, ptr noundef nonnull @.str.18, i64 noundef %100, i32 noundef %120) #7
+  %121 = icmp slt i32 %112, 0
+  br i1 %121, label %.critedge17, label %122
 
-118:                                              ; preds = %115
-  %119 = shl i32 33554432, %108
-  %120 = call fastcc i32 @agp_aperture_valid(i64 noundef %96, i32 noundef %119), !range !12
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %.thread17, label %122
+122:                                              ; preds = %119
+  %123 = shl i32 33554432, %112
+  %124 = call fastcc i32 @agp_aperture_valid(i64 noundef %100, i32 noundef %123), !range !11
+  %125 = icmp eq i32 %124, 0
+  br i1 %125, label %.critedge17, label %126
 
-122:                                              ; preds = %118
-  %123 = shl nuw i32 %108, 1
-  %124 = call i32 @pci_write_config_dword(ptr noundef %74, i32 noundef 144, i32 noundef %123) #6
-  %125 = lshr i64 %96, 25
-  %126 = trunc i64 %125 to i32
-  %127 = call i32 @pci_write_config_dword(ptr noundef %74, i32 noundef 148, i32 noundef %126) #6
-  br label %.thread
+126:                                              ; preds = %122
+  %127 = shl nuw i32 %112, 1
+  %128 = call i32 @pci_write_config_dword(ptr noundef %74, i32 noundef 144, i32 noundef %127) #6
+  %129 = lshr i64 %100, 25
+  %130 = trunc i64 %129 to i32
+  %131 = call i32 @pci_write_config_dword(ptr noundef %74, i32 noundef 148, i32 noundef %130) #6
+  br label %.critedge
 
-.thread:                                          ; preds = %122, %111
+.critedge17:                                      ; preds = %119, %122
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  br label %65
+  br label %.loopexit21
 
-.thread17:                                        ; preds = %118, %115
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  br label %.loopexit23
-
-128:                                              ; preds = %70
-  %129 = load i32, ptr %7, align 4
-  %130 = shl i32 33554432, %129
-  %131 = call fastcc i32 @agp_aperture_valid(i64 noundef %82, i32 noundef %130), !range !12
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  %.not = icmp eq i32 %131, 0
-  br i1 %.not, label %.loopexit23, label %65
-
-.loopexit23:                                      ; preds = %128, %.thread17
+.loopexit21:                                      ; preds = %86, %.critedge17
   %132 = getelementptr inbounds i8, ptr %74, i64 184
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %132, ptr noundef nonnull @.str.15) #7
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %132, ptr noundef nonnull @.str.16) #7
   call void @agp_put_bridge(ptr noundef nonnull %16) #6
   br label %219
 
-.loopexit24:                                      ; preds = %65, %57, %55, %45
+.loopexit22:                                      ; preds = %65, %57, %55, %45
   %133 = load i16, ptr %19, align 4
   %134 = icmp eq i16 %133, 4318
   br i1 %134, label %135, label %139
 
-135:                                              ; preds = %.loopexit24
+135:                                              ; preds = %.loopexit22
   %136 = call fastcc i32 @nforce3_agp_init(ptr noundef %0), !range !13
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %thread-pre-split, label %138
@@ -445,8 +445,8 @@ thread-pre-split:                                 ; preds = %135
   %.pr = load i16, ptr %19, align 4
   br label %139
 
-139:                                              ; preds = %thread-pre-split, %.loopexit24
-  %140 = phi i16 [ %.pr, %thread-pre-split ], [ %133, %.loopexit24 ]
+139:                                              ; preds = %thread-pre-split, %.loopexit22
+  %140 = phi i16 [ %.pr, %thread-pre-split ], [ %133, %.loopexit22 ]
   %141 = icmp eq i16 %140, 4281
   br i1 %141, label %142, label %212
 
@@ -461,7 +461,7 @@ thread-pre-split:                                 ; preds = %135
   %144 = getelementptr inbounds i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, null
-  br i1 %146, label %.loopexit22, label %147
+  br i1 %146, label %.loopexit20, label %147
 
 147:                                              ; preds = %142
   %148 = call i32 @pci_read_config_dword(ptr noundef nonnull %145, i32 noundef 144, ptr noundef nonnull %3) #6
@@ -473,7 +473,7 @@ thread-pre-split:                                 ; preds = %135
   %154 = getelementptr inbounds i8, ptr %153, i64 16
   %155 = load i32, ptr %154, align 8
   %156 = icmp sgt i32 %155, 0
-  br i1 %156, label %157, label %.loopexit22
+  br i1 %156, label %157, label %.loopexit20
 
 157:                                              ; preds = %147
   %158 = zext nneg i32 %155 to i64
@@ -496,14 +496,14 @@ thread-pre-split:                                 ; preds = %135
   %169 = getelementptr inbounds i8, ptr %151, i64 140
   store i32 %166, ptr %169, align 4
   %170 = load i32, ptr %161, align 4
-  br label %.loopexit22
+  br label %.loopexit20
 
 171:                                              ; preds = %159
   %172 = add nuw nsw i64 %160, 1
   %173 = icmp eq i64 %172, %158
-  br i1 %173, label %.loopexit22, label %159, !llvm.loop !14
+  br i1 %173, label %.loopexit20, label %159, !llvm.loop !14
 
-.loopexit22:                                      ; preds = %171, %165, %147, %142
+.loopexit20:                                      ; preds = %171, %165, %147, %142
   %174 = phi i32 [ %170, %165 ], [ 0, %142 ], [ 0, %147 ], [ 0, %171 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
   %175 = getelementptr inbounds i8, ptr %0, i64 184
@@ -512,14 +512,14 @@ thread-pre-split:                                 ; preds = %135
   %177 = load ptr, ptr %176, align 8
   %178 = call ptr @pci_get_slot(ptr noundef %177, i32 noundef 0) #6
   %179 = icmp eq ptr %178, null
-  br i1 %179, label %.thread18, label %.preheader
+  br i1 %179, label %.thread, label %.preheader
 
-.thread18:                                        ; preds = %.loopexit22
+.thread:                                          ; preds = %.loopexit20
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %175, ptr noundef nonnull @.str.29) #7
   br label %211
 
-.preheader:                                       ; preds = %.loopexit22, %184
-  %180 = phi i64 [ %185, %184 ], [ 0, %.loopexit22 ]
+.preheader:                                       ; preds = %.loopexit20, %184
+  %180 = phi i64 [ %185, %184 ], [ 0, %.loopexit20 ]
   %181 = getelementptr [7 x %struct.aper_size_info_32], ptr @uli_sizes, i64 0, i64 %180
   %182 = load i32, ptr %181, align 16
   %183 = icmp eq i32 %182, %174
@@ -537,7 +537,7 @@ thread-pre-split:                                 ; preds = %135
 
 .loopexit:                                        ; preds = %184, %187
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %175, ptr noundef nonnull @.str.30, i32 noundef %174) #7
-  br label %.thread20
+  br label %.thread18
 
 190:                                              ; preds = %187
   %191 = call ptr @node_to_amd_nb(i32 noundef 0) #6
@@ -547,13 +547,13 @@ thread-pre-split:                                 ; preds = %135
   %195 = load i32, ptr %4, align 4
   %196 = and i32 %195, 32640
   %197 = icmp eq i32 %196, 0
-  br i1 %197, label %.thread21, label %.thread20
+  br i1 %197, label %.thread19, label %.thread18
 
-.thread20:                                        ; preds = %.loopexit, %190
+.thread18:                                        ; preds = %.loopexit, %190
   call void @pci_dev_put(ptr noundef nonnull %178) #6
   br label %211
 
-.thread21:                                        ; preds = %190
+.thread19:                                        ; preds = %190
   %198 = shl i32 %195, 25
   store i32 %198, ptr %4, align 4
   %199 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %5) #6
@@ -574,13 +574,13 @@ thread-pre-split:                                 ; preds = %135
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   br label %212
 
-211:                                              ; preds = %.thread18, %.thread20
+211:                                              ; preds = %.thread, %.thread18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   call void @agp_put_bridge(ptr noundef nonnull %16) #6
   br label %219
 
-212:                                              ; preds = %.thread21, %139
+212:                                              ; preds = %.thread19, %139
   %213 = getelementptr inbounds i8, ptr %0, i64 304
   store ptr %16, ptr %213, align 8
   %214 = call i32 @agp_add_bridge(ptr noundef nonnull %16) #6
@@ -593,8 +593,8 @@ thread-pre-split:                                 ; preds = %135
   store i32 %218, ptr @agp_bridges_found, align 4
   br label %219
 
-219:                                              ; preds = %211, %216, %212, %138, %.loopexit23, %15, %12, %2
-  %220 = phi i32 [ -19, %.loopexit23 ], [ 0, %216 ], [ -19, %211 ], [ %136, %138 ], [ -19, %2 ], [ -19, %12 ], [ -12, %15 ], [ %214, %212 ]
+219:                                              ; preds = %211, %216, %212, %138, %.loopexit21, %15, %12, %2
+  %220 = phi i32 [ -19, %.loopexit21 ], [ 0, %216 ], [ -19, %211 ], [ %136, %138 ], [ -19, %2 ], [ -19, %12 ], [ -12, %15 ], [ %214, %212 ]
   ret i32 %220
 }
 
@@ -1289,8 +1289,8 @@ attributes #9 = { nounwind memory(none) }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
 !10 = !{!"auto-init"}
-!11 = !{i64 2148493981, i64 2148494009, i64 2148494015, i64 2148494031, i64 2148494047, i64 2148494074, i64 2148494407, i64 2148493707, i64 2148494413, i64 2148494461, i64 2148494525, i64 2148494589, i64 2148494646, i64 2148493788, i64 2148493813, i64 2148494853, i64 2148494983, i64 2148494914, i64 2148494997, i64 2148493905}
-!12 = !{i32 0, i32 2}
+!11 = !{i32 0, i32 2}
+!12 = !{i64 2148493981, i64 2148494009, i64 2148494015, i64 2148494031, i64 2148494047, i64 2148494074, i64 2148494407, i64 2148493707, i64 2148494413, i64 2148494461, i64 2148494525, i64 2148494589, i64 2148494646, i64 2148493788, i64 2148493813, i64 2148494853, i64 2148494983, i64 2148494914, i64 2148494997, i64 2148493905}
 !13 = !{i32 -19, i32 1}
 !14 = distinct !{!14, !8, !9}
 !15 = distinct !{!15, !8, !9}

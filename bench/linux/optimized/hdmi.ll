@@ -264,7 +264,7 @@ define dso_local range(i32 -22, 1) i32 @hdmi_avi_infoframe_check(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local range(i64 -28, 260) i64 @hdmi_avi_infoframe_pack_only(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local range(i64 -28, 18) i64 @hdmi_avi_infoframe_pack_only(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 130
   br i1 %5, label %6, label %select.unfold
@@ -490,7 +490,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i64 @hdmi_avi_infoframe_pack(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local range(i64 -28, 18) i64 @hdmi_avi_infoframe_pack(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 130
   br i1 %5, label %6, label %select.unfold
@@ -573,7 +573,7 @@ define dso_local range(i32 -22, 1) i32 @hdmi_spd_infoframe_check(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local range(i64 -28, 260) i64 @hdmi_spd_infoframe_pack_only(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local range(i64 -28, 30) i64 @hdmi_spd_infoframe_pack_only(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 131
   br i1 %5, label %6, label %43
@@ -642,7 +642,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_spd_infoframe_pack_only(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local range(i64 -28, 260) i64 @hdmi_spd_infoframe_pack(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local range(i64 -28, 30) i64 @hdmi_spd_infoframe_pack(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 131
   br i1 %5, label %6, label %43
@@ -747,7 +747,7 @@ define dso_local range(i32 -22, 1) i32 @hdmi_audio_infoframe_check(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local range(i64 -28, 260) i64 @hdmi_audio_infoframe_pack_only(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local range(i64 -28, 15) i64 @hdmi_audio_infoframe_pack_only(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 132
   br i1 %5, label %6, label %74
@@ -855,7 +855,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_audio_infoframe_pack_only(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef i64 @hdmi_audio_infoframe_pack(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local range(i64 -28, 15) i64 @hdmi_audio_infoframe_pack(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 132
   br i1 %5, label %6, label %hdmi_audio_infoframe_pack_only.exit
@@ -1265,7 +1265,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_vendor_infoframe_pack_only(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i64 @hdmi_vendor_infoframe_pack(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local range(i64 -28, 260) i64 @hdmi_vendor_infoframe_pack(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 7
@@ -1508,7 +1508,7 @@ define dso_local range(i64 -28, 260) i64 @hdmi_drm_infoframe_pack_only(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i64 @hdmi_drm_infoframe_pack(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
+define dso_local range(i64 -28, 260) i64 @hdmi_drm_infoframe_pack(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #3 align 16 {
   %4 = load i32, ptr %0, align 4
   %5 = icmp eq i32 %4, 135
   br i1 %5, label %6, label %16
@@ -1647,7 +1647,7 @@ define dso_local range(i32 -22, 1) i32 @hdmi_infoframe_check(ptr nocapture nound
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @hdmi_infoframe_pack_only(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #9 align 16 {
+define dso_local range(i64 -28, 260) i64 @hdmi_infoframe_pack_only(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2) #9 align 16 {
   %4 = load i32, ptr %0, align 4
   switch i32 %4, label %124 [
     i32 130, label %5

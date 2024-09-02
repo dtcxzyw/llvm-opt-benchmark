@@ -866,9 +866,7 @@ helper_init.exit:                                 ; preds = %if.end231.i, %err.i
 
 if.end:                                           ; preds = %helper_init.exit
   %call2 = call fastcc i32 @run_script_worker(ptr noundef nonnull %h, ptr noundef %script, ptr noundef %script_name, i32 noundef -1)
-  %cmp3 = icmp ne i32 %call2, 0
-  %conv4 = zext i1 %cmp3 to i32
-  %call5 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2027, ptr noundef nonnull @.str.26, i32 noundef %conv4) #14
+  %call5 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2027, ptr noundef nonnull @.str.26, i32 noundef %call2) #14
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %out, label %if.end8
 
@@ -1003,7 +1001,7 @@ declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #2
 declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @run_script_worker(ptr noundef %h, ptr noundef %script, ptr noundef %script_name, i32 noundef %thread_idx) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @run_script_worker(ptr noundef %h, ptr noundef %script, ptr noundef %script_name, i32 noundef %thread_idx) unnamed_addr #1 {
 entry:
   %key.i.i767 = alloca %struct.stream_info, align 8
   %key.i.i703 = alloca %struct.stream_info, align 8

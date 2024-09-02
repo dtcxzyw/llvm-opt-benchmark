@@ -1135,7 +1135,7 @@ define internal fastcc void @inittapes(ptr noundef %0, i1 noundef zeroext %1) un
   %6 = sdiv i64 %5, 278528
   %7 = trunc i64 %6 to i32
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 6)
-  %9 = tail call noundef i32 @llvm.umin.i32(i32 %8, i32 500)
+  %9 = tail call range(i32 6, 501) i32 @llvm.umin.i32(i32 %8, i32 500)
   br label %10
 
 10:                                               ; preds = %2, %3
@@ -3123,7 +3123,7 @@ define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @tuplesort_merge_order(i64 noundef %0) local_unnamed_addr #6 {
+define dso_local range(i32 6, 501) i32 @tuplesort_merge_order(i64 noundef %0) local_unnamed_addr #6 {
   %2 = sdiv i64 %0, 278528
   %3 = trunc i64 %2 to i32
   %4 = tail call i32 @llvm.smax.i32(i32 %3, i32 6)

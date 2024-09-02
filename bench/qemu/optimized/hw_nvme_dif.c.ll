@@ -376,7 +376,7 @@ for.body.lr.ph.i21:                               ; preds = %trace_pci_nvme_dif_
   br i1 %tobool9.not.i, label %for.body.i22.us, label %for.body.i22
 
 for.body.i22.us:                                  ; preds = %for.body.lr.ph.i21, %for.inc.i33.us
-  %58 = phi i64 [ %71, %for.inc.i33.us ], [ %.pre.i, %for.body.lr.ph.i21 ]
+  %58 = phi i64 [ %72, %for.inc.i33.us ], [ %.pre.i, %for.body.lr.ph.i21 ]
   %buf.addr.051.i.us = phi ptr [ %add.ptr46.i.us, %for.inc.i33.us ], [ %buf, %for.body.lr.ph.i21 ]
   %mbuf.addr.050.i.us = phi ptr [ %add.ptr51.i.us, %for.inc.i33.us ], [ %mbuf, %for.body.lr.ph.i21 ]
   %add.ptr7.i.us = getelementptr i8, ptr %mbuf.addr.050.i.us, i64 %conv4.i16
@@ -397,70 +397,73 @@ for.body.i.i24.us:                                ; preds = %for.body.i22.us, %f
   %xor2.i.i.us = xor i64 %60, %shr.i.i.us
   %inc.i.i29.us = add nuw i64 %i.07.i.i25.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %inc.i.i29.us, %58
-  br i1 %exitcond.not.i.i.us, label %crc64_nvme.exit.i.us, label %for.body.i.i24.us, !llvm.loop !8
+  br i1 %exitcond.not.i.i.us, label %crc64_nvme.exit.i.us.loopexit, label %for.body.i.i24.us, !llvm.loop !8
 
-crc64_nvme.exit.i.us:                             ; preds = %for.body.i.i24.us, %for.body.i22.us
-  %crc.addr.0.lcssa.i.i30.us = phi i64 [ -1, %for.body.i22.us ], [ %xor2.i.i.us, %for.body.i.i24.us ]
-  %crc.0.i.us = xor i64 %crc.addr.0.lcssa.i.i30.us, -1
-  %61 = tail call noundef i64 @llvm.bswap.i64(i64 %crc.0.i.us)
-  store i64 %61, ptr %add.ptr7.i.us, align 8
+crc64_nvme.exit.i.us.loopexit:                    ; preds = %for.body.i.i24.us
+  %61 = xor i64 %xor2.i.i.us, -1
+  br label %crc64_nvme.exit.i.us
+
+crc64_nvme.exit.i.us:                             ; preds = %crc64_nvme.exit.i.us.loopexit, %for.body.i22.us
+  %crc.addr.0.lcssa.i.i30.us = phi i64 [ 0, %for.body.i22.us ], [ %61, %crc64_nvme.exit.i.us.loopexit ]
+  %62 = tail call noundef i64 @llvm.bswap.i64(i64 %crc.addr.0.lcssa.i.i30.us)
+  store i64 %62, ptr %add.ptr7.i.us, align 8
   %apptag16.i.us = getelementptr inbounds i8, ptr %add.ptr7.i.us, i64 8
   store i16 %57, ptr %apptag16.i.us, align 8
-  %62 = load i64, ptr %reftag, align 8
-  %shr.i.us = lshr i64 %62, 40
+  %63 = load i64, ptr %reftag, align 8
+  %shr.i.us = lshr i64 %63, 40
   %conv17.i.us = trunc i64 %shr.i.us to i8
   %sr.i.us = getelementptr inbounds i8, ptr %add.ptr7.i.us, i64 10
   store i8 %conv17.i.us, ptr %sr.i.us, align 2
-  %63 = load i64, ptr %reftag, align 8
-  %shr18.i.us = lshr i64 %63, 32
+  %64 = load i64, ptr %reftag, align 8
+  %shr18.i.us = lshr i64 %64, 32
   %conv19.i31.us = trunc i64 %shr18.i.us to i8
   %arrayidx21.i.us = getelementptr i8, ptr %add.ptr7.i.us, i64 11
   store i8 %conv19.i31.us, ptr %arrayidx21.i.us, align 1
-  %64 = load i64, ptr %reftag, align 8
-  %shr22.i.us = lshr i64 %64, 24
+  %65 = load i64, ptr %reftag, align 8
+  %shr22.i.us = lshr i64 %65, 24
   %conv23.i.us = trunc i64 %shr22.i.us to i8
   %arrayidx25.i.us = getelementptr i8, ptr %add.ptr7.i.us, i64 12
   store i8 %conv23.i.us, ptr %arrayidx25.i.us, align 2
-  %65 = load i64, ptr %reftag, align 8
-  %shr26.i.us = lshr i64 %65, 16
+  %66 = load i64, ptr %reftag, align 8
+  %shr26.i.us = lshr i64 %66, 16
   %conv27.i.us = trunc i64 %shr26.i.us to i8
   %arrayidx29.i.us = getelementptr i8, ptr %add.ptr7.i.us, i64 13
   store i8 %conv27.i.us, ptr %arrayidx29.i.us, align 1
-  %66 = load i64, ptr %reftag, align 8
-  %shr30.i.us = lshr i64 %66, 8
+  %67 = load i64, ptr %reftag, align 8
+  %shr30.i.us = lshr i64 %67, 8
   %conv31.i.us = trunc i64 %shr30.i.us to i8
   %arrayidx33.i.us = getelementptr i8, ptr %add.ptr7.i.us, i64 14
   store i8 %conv31.i.us, ptr %arrayidx33.i.us, align 2
-  %67 = load i64, ptr %reftag, align 8
-  %conv34.i.us = trunc i64 %67 to i8
+  %68 = load i64, ptr %reftag, align 8
+  %conv34.i.us = trunc i64 %68 to i8
   %arrayidx36.i.us = getelementptr i8, ptr %add.ptr7.i.us, i64 15
   store i8 %conv34.i.us, ptr %arrayidx36.i.us, align 1
-  %68 = load i8, ptr %dps.i11, align 1
-  %69 = and i8 %68, 7
-  %cmp41.not.i.us = icmp eq i8 %69, 3
+  %69 = load i8, ptr %dps.i11, align 1
+  %70 = and i8 %69, 7
+  %cmp41.not.i.us = icmp eq i8 %70, 3
   br i1 %cmp41.not.i.us, label %for.inc.i33.us, label %if.then43.i.us
 
 if.then43.i.us:                                   ; preds = %crc64_nvme.exit.i.us
-  %70 = load i64, ptr %reftag, align 8
-  %inc.i32.us = add i64 %70, 1
+  %71 = load i64, ptr %reftag, align 8
+  %inc.i32.us = add i64 %71, 1
   store i64 %inc.i32.us, ptr %reftag, align 8
   br label %for.inc.i33.us
 
 for.inc.i33.us:                                   ; preds = %if.then43.i.us, %crc64_nvme.exit.i.us
-  %71 = load i64, ptr %lbasz.i15, align 8
-  %add.ptr46.i.us = getelementptr i8, ptr %buf.addr.051.i.us, i64 %71
-  %72 = load i16, ptr %lbaf47.i, align 8
-  %idx.ext50.i.us = zext i16 %72 to i64
+  %72 = load i64, ptr %lbasz.i15, align 8
+  %add.ptr46.i.us = getelementptr i8, ptr %buf.addr.051.i.us, i64 %72
+  %73 = load i16, ptr %lbaf47.i, align 8
+  %idx.ext50.i.us = zext i16 %73 to i64
   %add.ptr51.i.us = getelementptr i8, ptr %mbuf.addr.050.i.us, i64 %idx.ext50.i.us
   %cmp.i34.us = icmp ult ptr %add.ptr46.i.us, %add.ptr.i10
   br i1 %cmp.i34.us, label %for.body.i22.us, label %return, !llvm.loop !9
 
 for.body.i22:                                     ; preds = %for.body.lr.ph.i21, %for.inc.i33
-  %73 = phi i64 [ %88, %for.inc.i33 ], [ %.pre.i, %for.body.lr.ph.i21 ]
+  %74 = phi i64 [ %89, %for.inc.i33 ], [ %.pre.i, %for.body.lr.ph.i21 ]
   %buf.addr.051.i = phi ptr [ %add.ptr46.i, %for.inc.i33 ], [ %buf, %for.body.lr.ph.i21 ]
   %mbuf.addr.050.i = phi ptr [ %add.ptr51.i, %for.inc.i33 ], [ %mbuf, %for.body.lr.ph.i21 ]
   %add.ptr7.i = getelementptr i8, ptr %mbuf.addr.050.i, i64 %conv4.i16
-  %cmp5.not.i.i23 = icmp eq i64 %73, 0
+  %cmp5.not.i.i23 = icmp eq i64 %74, 0
   br i1 %cmp5.not.i.i23, label %for.body.i34.i.preheader, label %for.body.i.i24
 
 for.body.i.i24:                                   ; preds = %for.body.i22, %for.body.i.i24
@@ -469,14 +472,14 @@ for.body.i.i24:                                   ; preds = %for.body.i22, %for.
   %shr.i.i = lshr i64 %crc.addr.06.i.i26, 8
   %and.i.i = and i64 %crc.addr.06.i.i26, 255
   %arrayidx.i.i27 = getelementptr i8, ptr %buf.addr.051.i, i64 %i.07.i.i25
-  %74 = load i8, ptr %arrayidx.i.i27, align 1
-  %conv.i.i28 = zext i8 %74 to i64
+  %75 = load i8, ptr %arrayidx.i.i27, align 1
+  %conv.i.i28 = zext i8 %75 to i64
   %xor.i.i = xor i64 %and.i.i, %conv.i.i28
   %arrayidx1.i.i = getelementptr [256 x i64], ptr @crc64_nvme_table, i64 0, i64 %xor.i.i
-  %75 = load i64, ptr %arrayidx1.i.i, align 8
-  %xor2.i.i = xor i64 %75, %shr.i.i
+  %76 = load i64, ptr %arrayidx1.i.i, align 8
+  %xor2.i.i = xor i64 %76, %shr.i.i
   %inc.i.i29 = add nuw i64 %i.07.i.i25, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i29, %73
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i29, %74
   br i1 %exitcond.not.i.i, label %for.body.i34.i.preheader, label %for.body.i.i24, !llvm.loop !8
 
 for.body.i34.i.preheader:                         ; preds = %for.body.i.i24, %for.body.i22
@@ -489,67 +492,67 @@ for.body.i34.i:                                   ; preds = %for.body.i34.i.preh
   %shr.i37.i = lshr i64 %crc.addr.06.i36.i, 8
   %and.i38.i = and i64 %crc.addr.06.i36.i, 255
   %arrayidx.i39.i = getelementptr i8, ptr %mbuf.addr.050.i, i64 %i.07.i35.i
-  %76 = load i8, ptr %arrayidx.i39.i, align 1
-  %conv.i40.i = zext i8 %76 to i64
+  %77 = load i8, ptr %arrayidx.i39.i, align 1
+  %conv.i40.i = zext i8 %77 to i64
   %xor.i41.i = xor i64 %and.i38.i, %conv.i40.i
   %arrayidx1.i42.i = getelementptr [256 x i64], ptr @crc64_nvme_table, i64 0, i64 %xor.i41.i
-  %77 = load i64, ptr %arrayidx1.i42.i, align 8
-  %xor2.i43.i = xor i64 %77, %shr.i37.i
+  %78 = load i64, ptr %arrayidx1.i42.i, align 8
+  %xor2.i43.i = xor i64 %78, %shr.i37.i
   %inc.i44.i = add nuw i64 %i.07.i35.i, 1
   %exitcond.not.i45.i = icmp eq i64 %inc.i44.i, %conv4.i16
   br i1 %exitcond.not.i45.i, label %if.end13.i.loopexit, label %for.body.i34.i, !llvm.loop !8
 
 if.end13.i.loopexit:                              ; preds = %for.body.i34.i
   %crc.0.i = xor i64 %xor2.i43.i, -1
-  %78 = tail call noundef i64 @llvm.bswap.i64(i64 %crc.0.i)
-  store i64 %78, ptr %add.ptr7.i, align 8
+  %79 = tail call noundef i64 @llvm.bswap.i64(i64 %crc.0.i)
+  store i64 %79, ptr %add.ptr7.i, align 8
   %apptag16.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 8
   store i16 %57, ptr %apptag16.i, align 8
-  %79 = load i64, ptr %reftag, align 8
-  %shr.i = lshr i64 %79, 40
+  %80 = load i64, ptr %reftag, align 8
+  %shr.i = lshr i64 %80, 40
   %conv17.i = trunc i64 %shr.i to i8
   %sr.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 10
   store i8 %conv17.i, ptr %sr.i, align 2
-  %80 = load i64, ptr %reftag, align 8
-  %shr18.i = lshr i64 %80, 32
+  %81 = load i64, ptr %reftag, align 8
+  %shr18.i = lshr i64 %81, 32
   %conv19.i31 = trunc i64 %shr18.i to i8
   %arrayidx21.i = getelementptr i8, ptr %add.ptr7.i, i64 11
   store i8 %conv19.i31, ptr %arrayidx21.i, align 1
-  %81 = load i64, ptr %reftag, align 8
-  %shr22.i = lshr i64 %81, 24
+  %82 = load i64, ptr %reftag, align 8
+  %shr22.i = lshr i64 %82, 24
   %conv23.i = trunc i64 %shr22.i to i8
   %arrayidx25.i = getelementptr i8, ptr %add.ptr7.i, i64 12
   store i8 %conv23.i, ptr %arrayidx25.i, align 2
-  %82 = load i64, ptr %reftag, align 8
-  %shr26.i = lshr i64 %82, 16
+  %83 = load i64, ptr %reftag, align 8
+  %shr26.i = lshr i64 %83, 16
   %conv27.i = trunc i64 %shr26.i to i8
   %arrayidx29.i = getelementptr i8, ptr %add.ptr7.i, i64 13
   store i8 %conv27.i, ptr %arrayidx29.i, align 1
-  %83 = load i64, ptr %reftag, align 8
-  %shr30.i = lshr i64 %83, 8
+  %84 = load i64, ptr %reftag, align 8
+  %shr30.i = lshr i64 %84, 8
   %conv31.i = trunc i64 %shr30.i to i8
   %arrayidx33.i = getelementptr i8, ptr %add.ptr7.i, i64 14
   store i8 %conv31.i, ptr %arrayidx33.i, align 2
-  %84 = load i64, ptr %reftag, align 8
-  %conv34.i = trunc i64 %84 to i8
+  %85 = load i64, ptr %reftag, align 8
+  %conv34.i = trunc i64 %85 to i8
   %arrayidx36.i = getelementptr i8, ptr %add.ptr7.i, i64 15
   store i8 %conv34.i, ptr %arrayidx36.i, align 1
-  %85 = load i8, ptr %dps.i11, align 1
-  %86 = and i8 %85, 7
-  %cmp41.not.i = icmp eq i8 %86, 3
+  %86 = load i8, ptr %dps.i11, align 1
+  %87 = and i8 %86, 7
+  %cmp41.not.i = icmp eq i8 %87, 3
   br i1 %cmp41.not.i, label %for.inc.i33, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end13.i.loopexit
-  %87 = load i64, ptr %reftag, align 8
-  %inc.i32 = add i64 %87, 1
+  %88 = load i64, ptr %reftag, align 8
+  %inc.i32 = add i64 %88, 1
   store i64 %inc.i32, ptr %reftag, align 8
   br label %for.inc.i33
 
 for.inc.i33:                                      ; preds = %if.then43.i, %if.end13.i.loopexit
-  %88 = load i64, ptr %lbasz.i15, align 8
-  %add.ptr46.i = getelementptr i8, ptr %buf.addr.051.i, i64 %88
-  %89 = load i16, ptr %lbaf47.i, align 8
-  %idx.ext50.i = zext i16 %89 to i64
+  %89 = load i64, ptr %lbasz.i15, align 8
+  %add.ptr46.i = getelementptr i8, ptr %buf.addr.051.i, i64 %89
+  %90 = load i16, ptr %lbaf47.i, align 8
+  %idx.ext50.i = zext i16 %90 to i64
   %add.ptr51.i = getelementptr i8, ptr %mbuf.addr.050.i, i64 %idx.ext50.i
   %cmp.i34 = icmp ult ptr %add.ptr46.i, %add.ptr.i10
   br i1 %cmp.i34, label %for.body.i22, label %return, !llvm.loop !9
@@ -566,7 +569,7 @@ return:                                           ; preds = %for.inc.i33, %for.i
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i16 @nvme_dif_check(ptr nocapture noundef readonly %ns, ptr noundef readonly %buf, i64 noundef %len, ptr nocapture noundef %mbuf, i64 %mlen, i8 noundef zeroext %prinfo, i64 noundef %slba, i16 noundef zeroext %apptag, i16 noundef zeroext %appmask, ptr nocapture noundef %reftag) local_unnamed_addr #1 {
+define dso_local zeroext range(i16 0, 16770) i16 @nvme_dif_check(ptr nocapture noundef readonly %ns, ptr noundef readonly %buf, i64 noundef %len, ptr nocapture noundef %mbuf, i64 %mlen, i8 noundef zeroext %prinfo, i64 noundef %slba, i16 noundef zeroext %apptag, i16 noundef zeroext %appmask, ptr nocapture noundef %reftag) local_unnamed_addr #1 {
 entry:
   %_now.i.i79.i.i = alloca %struct.timeval, align 8
   %_now.i.i63.i.i = alloca %struct.timeval, align 8

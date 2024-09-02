@@ -24989,14 +24989,14 @@ invoke.cont15:                                    ; preds = %invoke.cont11
 for.body.preheader:                               ; preds = %invoke.cont15
   %20 = load ptr, ptr %mpCurrentArrayPtr1.i.i40, align 8, !noalias !897
   %21 = load ptr, ptr %mpEnd.i.i48, align 8, !noalias !897
+  %22 = add nsw i64 %.pre609, 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit
-  %22 = phi i64 [ %dec.i, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit ], [ %.pre609, %for.body.preheader ]
+  %inc.i = phi i64 [ %26, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit ], [ %22, %for.body.preheader ]
   %__begin0.sroa.11.0584 = phi ptr [ %__begin0.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit ], [ %20, %for.body.preheader ]
   %__begin0.sroa.8.0583 = phi ptr [ %__begin0.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit ], [ %21, %for.body.preheader ]
   %__begin0.sroa.0.0582 = phi ptr [ %__begin0.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit ], [ %18, %for.body.preheader ]
-  %inc.i = add nsw i64 %22, 1
   store i64 %inc.i, ptr @_ZN10TestObject8sTOCountE, align 8
   %23 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i = add nsw i64 %23, 1
@@ -25140,14 +25140,14 @@ for.body43.preheader:                             ; preds = %invoke.cont36
   %50 = load ptr, ptr %mpCurrentArrayPtr1.i.i97, align 8, !noalias !903
   %51 = load ptr, ptr %mpEnd.i.i105, align 8, !noalias !903
   %.pre = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %52 = add nsw i64 %.pre, 1
   br label %for.body43
 
 for.body43:                                       ; preds = %for.body43.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit151
-  %52 = phi i64 [ %dec.i140, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit151 ], [ %.pre, %for.body43.preheader ]
+  %inc.i131 = phi i64 [ %56, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit151 ], [ %52, %for.body43.preheader ]
   %__begin039.sroa.11.0588 = phi ptr [ %__begin039.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit151 ], [ %50, %for.body43.preheader ]
   %__begin039.sroa.8.0587 = phi ptr [ %__begin039.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit151 ], [ %51, %for.body43.preheader ]
   %__begin039.sroa.0.0586 = phi ptr [ %__begin039.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit151 ], [ %48, %for.body43.preheader ]
-  %inc.i131 = add nsw i64 %52, 1
   store i64 %inc.i131, ptr @_ZN10TestObject8sTOCountE, align 8
   %53 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i132 = add nsw i64 %53, 1
@@ -25270,14 +25270,14 @@ for.body67.preheader:                             ; preds = %invoke.cont60
   %76 = load ptr, ptr %mpCurrentArrayPtr1.i.i169, align 8, !noalias !909
   %77 = load ptr, ptr %mpEnd.i.i177, align 8, !noalias !909
   %.pre610 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %78 = add nsw i64 %.pre610, 1
   br label %for.body67
 
 for.body67:                                       ; preds = %for.body67.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit223
-  %78 = phi i64 [ %dec.i212, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit223 ], [ %.pre610, %for.body67.preheader ]
+  %inc.i203 = phi i64 [ %82, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit223 ], [ %78, %for.body67.preheader ]
   %__begin063.sroa.11.0592 = phi ptr [ %__begin063.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit223 ], [ %76, %for.body67.preheader ]
   %__begin063.sroa.8.0591 = phi ptr [ %__begin063.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit223 ], [ %77, %for.body67.preheader ]
   %__begin063.sroa.0.0590 = phi ptr [ %__begin063.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit223 ], [ %74, %for.body67.preheader ]
-  %inc.i203 = add nsw i64 %78, 1
   store i64 %inc.i203, ptr @_ZN10TestObject8sTOCountE, align 8
   %79 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i204 = add nsw i64 %79, 1
@@ -25408,14 +25408,14 @@ for.body92.preheader:                             ; preds = %invoke.cont85
   %106 = load ptr, ptr %mpCurrentArrayPtr1.i.i251, align 8, !noalias !921
   %107 = load ptr, ptr %mpEnd.i.i259, align 8, !noalias !921
   %.pre611 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %108 = add nsw i64 %.pre611, 1
   br label %for.body92
 
 for.body92:                                       ; preds = %for.body92.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit305
-  %108 = phi i64 [ %dec.i294, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit305 ], [ %.pre611, %for.body92.preheader ]
+  %inc.i285 = phi i64 [ %112, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit305 ], [ %108, %for.body92.preheader ]
   %__begin088.sroa.11.0596 = phi ptr [ %__begin088.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit305 ], [ %106, %for.body92.preheader ]
   %__begin088.sroa.8.0595 = phi ptr [ %__begin088.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit305 ], [ %107, %for.body92.preheader ]
   %__begin088.sroa.0.0594 = phi ptr [ %__begin088.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit305 ], [ %104, %for.body92.preheader ]
-  %inc.i285 = add nsw i64 %108, 1
   store i64 %inc.i285, ptr @_ZN10TestObject8sTOCountE, align 8
   %109 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i286 = add nsw i64 %109, 1
@@ -26051,14 +26051,14 @@ invoke.cont15:                                    ; preds = %invoke.cont11
 for.body.preheader:                               ; preds = %invoke.cont15
   %14 = load ptr, ptr %mpCurrentArrayPtr1.i.i41, align 8, !noalias !945
   %15 = load ptr, ptr %mpEnd.i.i53, align 8, !noalias !945
+  %16 = add nsw i64 %.pre896, 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit
-  %16 = phi i64 [ %dec.i, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %.pre896, %for.body.preheader ]
+  %inc.i = phi i64 [ %20, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %16, %for.body.preheader ]
   %__begin0.sroa.11.0871 = phi ptr [ %__begin0.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %14, %for.body.preheader ]
   %__begin0.sroa.8.0870 = phi ptr [ %__begin0.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %15, %for.body.preheader ]
   %__begin0.sroa.0.0869 = phi ptr [ %__begin0.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %12, %for.body.preheader ]
-  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr @_ZN10TestObject8sTOCountE, align 8
   %17 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i = add nsw i64 %17, 1
@@ -26203,14 +26203,14 @@ for.body46.preheader:                             ; preds = %invoke.cont38
   %44 = load ptr, ptr %mpCurrentArrayPtr1.i.i99, align 8, !noalias !951
   %45 = load ptr, ptr %mpEnd.i.i111, align 8, !noalias !951
   %.pre = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %46 = add nsw i64 %.pre, 1
   br label %for.body46
 
 for.body46:                                       ; preds = %for.body46.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit154
-  %46 = phi i64 [ %dec.i143, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit154 ], [ %.pre, %for.body46.preheader ]
+  %inc.i134 = phi i64 [ %50, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit154 ], [ %46, %for.body46.preheader ]
   %__begin041.sroa.11.0875 = phi ptr [ %__begin041.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit154 ], [ %44, %for.body46.preheader ]
   %__begin041.sroa.8.0874 = phi ptr [ %__begin041.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit154 ], [ %45, %for.body46.preheader ]
   %__begin041.sroa.0.0873 = phi ptr [ %__begin041.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit154 ], [ %42, %for.body46.preheader ]
-  %inc.i134 = add nsw i64 %46, 1
   store i64 %inc.i134, ptr @_ZN10TestObject8sTOCountE, align 8
   %47 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i135 = add nsw i64 %47, 1
@@ -26334,14 +26334,14 @@ for.body72.preheader:                             ; preds = %invoke.cont64
   %70 = load ptr, ptr %mpCurrentArrayPtr1.i.i172, align 8, !noalias !957
   %71 = load ptr, ptr %mpEnd.i.i184, align 8, !noalias !957
   %.pre897 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %72 = add nsw i64 %.pre897, 1
   br label %for.body72
 
 for.body72:                                       ; preds = %for.body72.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit227
-  %72 = phi i64 [ %dec.i216, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit227 ], [ %.pre897, %for.body72.preheader ]
+  %inc.i207 = phi i64 [ %76, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit227 ], [ %72, %for.body72.preheader ]
   %__begin067.sroa.11.0879 = phi ptr [ %__begin067.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit227 ], [ %70, %for.body72.preheader ]
   %__begin067.sroa.8.0878 = phi ptr [ %__begin067.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit227 ], [ %71, %for.body72.preheader ]
   %__begin067.sroa.0.0877 = phi ptr [ %__begin067.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit227 ], [ %68, %for.body72.preheader ]
-  %inc.i207 = add nsw i64 %72, 1
   store i64 %inc.i207, ptr @_ZN10TestObject8sTOCountE, align 8
   %73 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i208 = add nsw i64 %73, 1
@@ -26473,14 +26473,14 @@ for.body99.preheader:                             ; preds = %invoke.cont91
   %100 = load ptr, ptr %mpCurrentArrayPtr1.i.i255, align 8, !noalias !969
   %101 = load ptr, ptr %mpEnd.i.i267, align 8, !noalias !969
   %.pre898 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %102 = add nsw i64 %.pre898, 1
   br label %for.body99
 
 for.body99:                                       ; preds = %for.body99.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit310
-  %102 = phi i64 [ %dec.i299, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit310 ], [ %.pre898, %for.body99.preheader ]
+  %inc.i290 = phi i64 [ %106, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit310 ], [ %102, %for.body99.preheader ]
   %__begin094.sroa.11.0883 = phi ptr [ %__begin094.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit310 ], [ %100, %for.body99.preheader ]
   %__begin094.sroa.8.0882 = phi ptr [ %__begin094.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit310 ], [ %101, %for.body99.preheader ]
   %__begin094.sroa.0.0881 = phi ptr [ %__begin094.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit310 ], [ %98, %for.body99.preheader ]
-  %inc.i290 = add nsw i64 %102, 1
   store i64 %inc.i290, ptr @_ZN10TestObject8sTOCountE, align 8
   %103 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i291 = add nsw i64 %103, 1
@@ -26601,14 +26601,14 @@ invoke.cont117:                                   ; preds = %invoke.cont113
 
 for.body125.preheader:                            ; preds = %invoke.cont117
   %.pre899 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %131 = add nsw i64 %.pre899, 1
   br label %for.body125
 
 for.body125:                                      ; preds = %for.body125.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit382
-  %131 = phi i64 [ %dec.i371, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit382 ], [ %.pre899, %for.body125.preheader ]
+  %inc.i362 = phi i64 [ %135, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit382 ], [ %131, %for.body125.preheader ]
   %__begin0120.sroa.11.0887 = phi ptr [ %__begin0120.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit382 ], [ %129, %for.body125.preheader ]
   %__begin0120.sroa.0.0886 = phi ptr [ %__begin0120.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit382 ], [ %127, %for.body125.preheader ]
   %__begin0120.sroa.8.0885 = phi ptr [ %__begin0120.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit382 ], [ %128, %for.body125.preheader ]
-  %inc.i362 = add nsw i64 %131, 1
   store i64 %inc.i362, ptr @_ZN10TestObject8sTOCountE, align 8
   %132 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i363 = add nsw i64 %132, 1
@@ -26727,14 +26727,14 @@ for.body150.preheader:                            ; preds = %invoke.cont142
   %161 = load ptr, ptr %mpCurrentArrayPtr1.i.i172, align 8, !noalias !981
   %162 = load ptr, ptr %mpEnd.i.i184, align 8, !noalias !981
   %.pre904 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %163 = add nsw i64 %.pre904, 1
   br label %for.body150
 
 for.body150:                                      ; preds = %for.body150.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit451
-  %163 = phi i64 [ %dec.i440, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit451 ], [ %.pre904, %for.body150.preheader ]
+  %inc.i431 = phi i64 [ %167, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit451 ], [ %163, %for.body150.preheader ]
   %__begin0145.sroa.0.0891 = phi ptr [ %__begin0145.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit451 ], [ %159, %for.body150.preheader ]
   %__begin0145.sroa.8.0890 = phi ptr [ %__begin0145.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit451 ], [ %162, %for.body150.preheader ]
   %__begin0145.sroa.11.0889 = phi ptr [ %__begin0145.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit451 ], [ %161, %for.body150.preheader ]
-  %inc.i431 = add nsw i64 %163, 1
   store i64 %inc.i431, ptr @_ZN10TestObject8sTOCountE, align 8
   %164 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i432 = add nsw i64 %164, 1
@@ -26818,14 +26818,14 @@ for.body174.preheader:                            ; preds = %invoke.cont166
   %181 = load ptr, ptr %mpCurrentArrayPtr1.i.i41, align 8, !noalias !987
   %182 = load ptr, ptr %mpEnd.i.i53, align 8, !noalias !987
   %.pre905 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %183 = add nsw i64 %.pre905, 1
   br label %for.body174
 
 for.body174:                                      ; preds = %for.body174.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit517
-  %183 = phi i64 [ %dec.i506, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit517 ], [ %.pre905, %for.body174.preheader ]
+  %inc.i497 = phi i64 [ %187, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit517 ], [ %183, %for.body174.preheader ]
   %__begin0169.sroa.0.0895 = phi ptr [ %__begin0169.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit517 ], [ %179, %for.body174.preheader ]
   %__begin0169.sroa.8.0894 = phi ptr [ %__begin0169.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit517 ], [ %182, %for.body174.preheader ]
   %__begin0169.sroa.11.0893 = phi ptr [ %__begin0169.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit517 ], [ %181, %for.body174.preheader ]
-  %inc.i497 = add nsw i64 %183, 1
   store i64 %inc.i497, ptr @_ZN10TestObject8sTOCountE, align 8
   %184 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i498 = add nsw i64 %184, 1
@@ -27709,14 +27709,14 @@ invoke.cont15:                                    ; preds = %invoke.cont11
 for.body.preheader:                               ; preds = %invoke.cont15
   %14 = load ptr, ptr %mpCurrentArrayPtr1.i.i41, align 8, !noalias !995
   %15 = load ptr, ptr %mpEnd.i.i53, align 8, !noalias !995
+  %16 = add nsw i64 %.pre896, 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit
-  %16 = phi i64 [ %dec.i, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %.pre896, %for.body.preheader ]
+  %inc.i = phi i64 [ %20, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %16, %for.body.preheader ]
   %__begin0.sroa.11.0871 = phi ptr [ %__begin0.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %14, %for.body.preheader ]
   %__begin0.sroa.8.0870 = phi ptr [ %__begin0.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %15, %for.body.preheader ]
   %__begin0.sroa.0.0869 = phi ptr [ %__begin0.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %12, %for.body.preheader ]
-  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr @_ZN10TestObject8sTOCountE, align 8
   %17 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i = add nsw i64 %17, 1
@@ -27861,14 +27861,14 @@ for.body46.preheader:                             ; preds = %invoke.cont38
   %44 = load ptr, ptr %mpCurrentArrayPtr1.i.i99, align 8, !noalias !1001
   %45 = load ptr, ptr %mpEnd.i.i111, align 8, !noalias !1001
   %.pre = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %46 = add nsw i64 %.pre, 1
   br label %for.body46
 
 for.body46:                                       ; preds = %for.body46.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit154
-  %46 = phi i64 [ %dec.i143, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit154 ], [ %.pre, %for.body46.preheader ]
+  %inc.i134 = phi i64 [ %50, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit154 ], [ %46, %for.body46.preheader ]
   %__begin041.sroa.11.0875 = phi ptr [ %__begin041.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit154 ], [ %44, %for.body46.preheader ]
   %__begin041.sroa.8.0874 = phi ptr [ %__begin041.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit154 ], [ %45, %for.body46.preheader ]
   %__begin041.sroa.0.0873 = phi ptr [ %__begin041.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit154 ], [ %42, %for.body46.preheader ]
-  %inc.i134 = add nsw i64 %46, 1
   store i64 %inc.i134, ptr @_ZN10TestObject8sTOCountE, align 8
   %47 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i135 = add nsw i64 %47, 1
@@ -27992,14 +27992,14 @@ for.body72.preheader:                             ; preds = %invoke.cont64
   %70 = load ptr, ptr %mpCurrentArrayPtr1.i.i172, align 8, !noalias !1007
   %71 = load ptr, ptr %mpEnd.i.i184, align 8, !noalias !1007
   %.pre897 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %72 = add nsw i64 %.pre897, 1
   br label %for.body72
 
 for.body72:                                       ; preds = %for.body72.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit227
-  %72 = phi i64 [ %dec.i216, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit227 ], [ %.pre897, %for.body72.preheader ]
+  %inc.i207 = phi i64 [ %76, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit227 ], [ %72, %for.body72.preheader ]
   %__begin067.sroa.11.0879 = phi ptr [ %__begin067.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit227 ], [ %70, %for.body72.preheader ]
   %__begin067.sroa.8.0878 = phi ptr [ %__begin067.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit227 ], [ %71, %for.body72.preheader ]
   %__begin067.sroa.0.0877 = phi ptr [ %__begin067.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit227 ], [ %68, %for.body72.preheader ]
-  %inc.i207 = add nsw i64 %72, 1
   store i64 %inc.i207, ptr @_ZN10TestObject8sTOCountE, align 8
   %73 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i208 = add nsw i64 %73, 1
@@ -28131,14 +28131,14 @@ for.body99.preheader:                             ; preds = %invoke.cont91
   %100 = load ptr, ptr %mpCurrentArrayPtr1.i.i255, align 8, !noalias !1019
   %101 = load ptr, ptr %mpEnd.i.i267, align 8, !noalias !1019
   %.pre898 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %102 = add nsw i64 %.pre898, 1
   br label %for.body99
 
 for.body99:                                       ; preds = %for.body99.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit310
-  %102 = phi i64 [ %dec.i299, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit310 ], [ %.pre898, %for.body99.preheader ]
+  %inc.i290 = phi i64 [ %106, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit310 ], [ %102, %for.body99.preheader ]
   %__begin094.sroa.11.0883 = phi ptr [ %__begin094.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit310 ], [ %100, %for.body99.preheader ]
   %__begin094.sroa.8.0882 = phi ptr [ %__begin094.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit310 ], [ %101, %for.body99.preheader ]
   %__begin094.sroa.0.0881 = phi ptr [ %__begin094.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit310 ], [ %98, %for.body99.preheader ]
-  %inc.i290 = add nsw i64 %102, 1
   store i64 %inc.i290, ptr @_ZN10TestObject8sTOCountE, align 8
   %103 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i291 = add nsw i64 %103, 1
@@ -28259,14 +28259,14 @@ invoke.cont117:                                   ; preds = %invoke.cont113
 
 for.body125.preheader:                            ; preds = %invoke.cont117
   %.pre899 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %131 = add nsw i64 %.pre899, 1
   br label %for.body125
 
 for.body125:                                      ; preds = %for.body125.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit382
-  %131 = phi i64 [ %dec.i371, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit382 ], [ %.pre899, %for.body125.preheader ]
+  %inc.i362 = phi i64 [ %135, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit382 ], [ %131, %for.body125.preheader ]
   %__begin0120.sroa.11.0887 = phi ptr [ %__begin0120.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit382 ], [ %129, %for.body125.preheader ]
   %__begin0120.sroa.0.0886 = phi ptr [ %__begin0120.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit382 ], [ %127, %for.body125.preheader ]
   %__begin0120.sroa.8.0885 = phi ptr [ %__begin0120.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit382 ], [ %128, %for.body125.preheader ]
-  %inc.i362 = add nsw i64 %131, 1
   store i64 %inc.i362, ptr @_ZN10TestObject8sTOCountE, align 8
   %132 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i363 = add nsw i64 %132, 1
@@ -28385,14 +28385,14 @@ for.body150.preheader:                            ; preds = %invoke.cont142
   %161 = load ptr, ptr %mpCurrentArrayPtr1.i.i172, align 8, !noalias !1031
   %162 = load ptr, ptr %mpEnd.i.i184, align 8, !noalias !1031
   %.pre904 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %163 = add nsw i64 %.pre904, 1
   br label %for.body150
 
 for.body150:                                      ; preds = %for.body150.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit451
-  %163 = phi i64 [ %dec.i440, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit451 ], [ %.pre904, %for.body150.preheader ]
+  %inc.i431 = phi i64 [ %167, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit451 ], [ %163, %for.body150.preheader ]
   %__begin0145.sroa.0.0891 = phi ptr [ %__begin0145.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit451 ], [ %159, %for.body150.preheader ]
   %__begin0145.sroa.8.0890 = phi ptr [ %__begin0145.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit451 ], [ %162, %for.body150.preheader ]
   %__begin0145.sroa.11.0889 = phi ptr [ %__begin0145.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit451 ], [ %161, %for.body150.preheader ]
-  %inc.i431 = add nsw i64 %163, 1
   store i64 %inc.i431, ptr @_ZN10TestObject8sTOCountE, align 8
   %164 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i432 = add nsw i64 %164, 1
@@ -28476,14 +28476,14 @@ for.body174.preheader:                            ; preds = %invoke.cont166
   %181 = load ptr, ptr %mpCurrentArrayPtr1.i.i41, align 8, !noalias !1037
   %182 = load ptr, ptr %mpEnd.i.i53, align 8, !noalias !1037
   %.pre905 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %183 = add nsw i64 %.pre905, 1
   br label %for.body174
 
 for.body174:                                      ; preds = %for.body174.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit517
-  %183 = phi i64 [ %dec.i506, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit517 ], [ %.pre905, %for.body174.preheader ]
+  %inc.i497 = phi i64 [ %187, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit517 ], [ %183, %for.body174.preheader ]
   %__begin0169.sroa.0.0895 = phi ptr [ %__begin0169.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit517 ], [ %179, %for.body174.preheader ]
   %__begin0169.sroa.8.0894 = phi ptr [ %__begin0169.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit517 ], [ %182, %for.body174.preheader ]
   %__begin0169.sroa.11.0893 = phi ptr [ %__begin0169.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit517 ], [ %181, %for.body174.preheader ]
-  %inc.i497 = add nsw i64 %183, 1
   store i64 %inc.i497, ptr @_ZN10TestObject8sTOCountE, align 8
   %184 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i498 = add nsw i64 %184, 1
@@ -34350,16 +34350,16 @@ for.end43:                                        ; preds = %for.cond19
   %mpBegin3.i.i153 = getelementptr inbounds i8, ptr %d44, i64 56
   %mpCurrentArrayPtr5.i.i157 = getelementptr inbounds i8, ptr %d44, i64 72
   %.pre1090 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %52 = add nsw i64 %.pre1090, 1
   br label %for.body48
 
 for.body48:                                       ; preds = %for.end43, %_ZN10TestObjectD2Ev.exit191
-  %52 = phi i64 [ %.pre1090, %for.end43 ], [ %dec.i189, %_ZN10TestObjectD2Ev.exit191 ]
+  %inc.i.i = phi i64 [ %52, %for.end43 ], [ %79, %_ZN10TestObjectD2Ev.exit191 ]
   %i45.01049 = phi i32 [ 0, %for.end43 ], [ %inc67, %_ZN10TestObjectD2Ev.exit191 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store i32 0, ptr %ref.tmp.i, align 8
   store i8 0, ptr %mbThrowOnCopy.i.i, align 4
   store i32 32623592, ptr %mMagicValue.i.i, align 8
-  %inc.i.i = add nsw i64 %52, 1
   store i64 %inc.i.i, ptr @_ZN10TestObject8sTOCountE, align 8
   %53 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i.i = add nsw i64 %53, 1
@@ -34688,15 +34688,15 @@ for.end103:                                       ; preds = %_ZN10TestObjectD2Ev
   %mId.i324 = getelementptr inbounds i8, ptr %ref.tmp110, i64 8
   %mItBegin.i332 = getelementptr inbounds i8, ptr %d105, i64 16
   %.pre1091 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %126 = add nsw i64 %.pre1091, 1
   br label %for.body109
 
 for.body109:                                      ; preds = %for.end103, %_ZN10TestObjectD2Ev.exit346
-  %126 = phi i64 [ %.pre1091, %for.end103 ], [ %dec.i344, %_ZN10TestObjectD2Ev.exit346 ]
+  %inc.i321 = phi i64 [ %126, %for.end103 ], [ %137, %_ZN10TestObjectD2Ev.exit346 ]
   %i106.01052 = phi i32 [ 0, %for.end103 ], [ %inc126, %_ZN10TestObjectD2Ev.exit346 ]
   store i32 %i106.01052, ptr %ref.tmp110, align 8
   store i8 0, ptr %mbThrowOnCopy.i319, align 4
   store i32 32623592, ptr %mMagicValue.i320, align 8
-  %inc.i321 = add nsw i64 %126, 1
   store i64 %inc.i321, ptr @_ZN10TestObject8sTOCountE, align 8
   %127 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i322 = add nsw i64 %127, 1
@@ -34821,10 +34821,11 @@ for.end127:                                       ; preds = %_ZN10TestObjectD2Ev
 for.cond133.preheader:                            ; preds = %for.end127
   %mpBegin3.i.i382 = getelementptr inbounds i8, ptr %d105, i64 24
   %.pre1092 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %154 = add nsw i64 %.pre1092, 1
   br label %invoke.cont137
 
 invoke.cont137:                                   ; preds = %for.cond133.preheader, %_ZN10TestObjectD2Ev.exit444
-  %154 = phi i64 [ %.pre1092, %for.cond133.preheader ], [ %dec.i442, %_ZN10TestObjectD2Ev.exit444 ]
+  %inc.i398 = phi i64 [ %154, %for.cond133.preheader ], [ %174, %_ZN10TestObjectD2Ev.exit444 ]
   %indvars.iv = phi i64 [ 0, %for.cond133.preheader ], [ %indvars.iv.next, %_ZN10TestObjectD2Ev.exit444 ]
   %155 = sub nuw nsw i64 999, %indvars.iv
   %156 = load ptr, ptr %mItBegin.i332, align 8
@@ -34843,7 +34844,6 @@ invoke.cont137:                                   ; preds = %for.cond133.prehead
   %mul.i393 = shl nsw i64 %sub.i391, 3
   %sub3.i394 = sub nsw i64 %add.i388, %mul.i393
   %add.ptr4.i395 = getelementptr inbounds %struct.TestObject, ptr %159, i64 %sub3.i394
-  %inc.i398 = add nsw i64 %154, 1
   store i64 %inc.i398, ptr @_ZN10TestObject8sTOCountE, align 8
   %160 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i399 = add nsw i64 %160, 1
@@ -34946,16 +34946,16 @@ for.end159:                                       ; preds = %_ZN10TestObjectD2Ev
   %mId.i.i465 = getelementptr inbounds i8, ptr %ref.tmp.i459, i64 8
   %mItBegin.i480 = getelementptr inbounds i8, ptr %d161, i64 16
   %.pre1093 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %182 = add nsw i64 %.pre1093, 1
   br label %for.body165
 
 for.body165:                                      ; preds = %for.end159, %_ZN10TestObjectD2Ev.exit497
-  %182 = phi i64 [ %.pre1093, %for.end159 ], [ %dec.i495, %_ZN10TestObjectD2Ev.exit497 ]
+  %inc.i.i462 = phi i64 [ %182, %for.end159 ], [ %199, %_ZN10TestObjectD2Ev.exit497 ]
   %i162.01054 = phi i32 [ 0, %for.end159 ], [ %inc185, %_ZN10TestObjectD2Ev.exit497 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i459)
   store i32 0, ptr %ref.tmp.i459, align 8
   store i8 0, ptr %mbThrowOnCopy.i.i460, align 4
   store i32 32623592, ptr %mMagicValue.i.i461, align 8
-  %inc.i.i462 = add nsw i64 %182, 1
   store i64 %inc.i.i462, ptr @_ZN10TestObject8sTOCountE, align 8
   %183 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i.i463 = add nsw i64 %183, 1
@@ -36367,16 +36367,16 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit: ; preds = %for.end.i, 
   %mMagicValue.i.i174 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %mId.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %.pre1356 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %66 = add nsw i64 %.pre1356, 1
   br label %for.body48
 
 for.body48:                                       ; preds = %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit, %_ZN10TestObjectD2Ev.exit221
-  %66 = phi i64 [ %.pre1356, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit ], [ %dec.i219, %_ZN10TestObjectD2Ev.exit221 ]
+  %inc.i.i175 = phi i64 [ %66, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit ], [ %93, %_ZN10TestObjectD2Ev.exit221 ]
   %i45.01302 = phi i32 [ 0, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit ], [ %inc67, %_ZN10TestObjectD2Ev.exit221 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store i32 0, ptr %ref.tmp.i, align 8
   store i8 0, ptr %mbThrowOnCopy.i.i, align 4
   store i32 32623592, ptr %mMagicValue.i.i174, align 8
-  %inc.i.i175 = add nsw i64 %66, 1
   store i64 %inc.i.i175, ptr @_ZN10TestObject8sTOCountE, align 8
   %67 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i.i176 = add nsw i64 %67, 1
@@ -36820,15 +36820,15 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit389: ; preds = %for.end.
   %mMagicValue.i407 = getelementptr inbounds i8, ptr %ref.tmp110, i64 16
   %mId.i411 = getelementptr inbounds i8, ptr %ref.tmp110, i64 8
   %.pre1361 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %157 = add nsw i64 %.pre1361, 1
   br label %for.body109
 
 for.body109:                                      ; preds = %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit389, %_ZN10TestObjectD2Ev.exit433
-  %157 = phi i64 [ %.pre1361, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit389 ], [ %dec.i431, %_ZN10TestObjectD2Ev.exit433 ]
+  %inc.i408 = phi i64 [ %157, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit389 ], [ %168, %_ZN10TestObjectD2Ev.exit433 ]
   %i106.01305 = phi i32 [ 0, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit389 ], [ %inc126, %_ZN10TestObjectD2Ev.exit433 ]
   store i32 %i106.01305, ptr %ref.tmp110, align 8
   store i8 0, ptr %mbThrowOnCopy.i406, align 4
   store i32 32623592, ptr %mMagicValue.i407, align 8
-  %inc.i408 = add nsw i64 %157, 1
   store i64 %inc.i408, ptr @_ZN10TestObject8sTOCountE, align 8
   %158 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i409 = add nsw i64 %158, 1
@@ -36948,10 +36948,11 @@ for.end127:                                       ; preds = %_ZN10TestObjectD2Ev
 
 invoke.cont137.preheader:                         ; preds = %for.end127
   %.pre1362 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %185 = add nsw i64 %.pre1362, 1
   br label %invoke.cont137
 
 invoke.cont137:                                   ; preds = %invoke.cont137.preheader, %_ZN10TestObjectD2Ev.exit518
-  %185 = phi i64 [ %.pre1362, %invoke.cont137.preheader ], [ %dec.i516, %_ZN10TestObjectD2Ev.exit518 ]
+  %inc.i478 = phi i64 [ %185, %invoke.cont137.preheader ], [ %207, %_ZN10TestObjectD2Ev.exit518 ]
   %indvars.iv = phi i64 [ 0, %invoke.cont137.preheader ], [ %indvars.iv.next, %_ZN10TestObjectD2Ev.exit518 ]
   %186 = sub nuw nsw i64 999, %indvars.iv
   %187 = load ptr, ptr %mItBegin.i.i391, align 8
@@ -36964,7 +36965,6 @@ invoke.cont137:                                   ; preds = %invoke.cont137.preh
   %191 = getelementptr i8, ptr %189, i64 %190
   %add.ptr.i475 = getelementptr ptr, ptr %191, i64 %186
   %192 = load ptr, ptr %add.ptr.i475, align 8
-  %inc.i478 = add nsw i64 %185, 1
   store i64 %inc.i478, ptr @_ZN10TestObject8sTOCountE, align 8
   %193 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i479 = add nsw i64 %193, 1
@@ -37188,16 +37188,16 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit586: ; preds = %for.end.
   %mMagicValue.i.i605 = getelementptr inbounds i8, ptr %ref.tmp.i603, i64 16
   %mId.i.i609 = getelementptr inbounds i8, ptr %ref.tmp.i603, i64 8
   %.pre1363 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %230 = add nsw i64 %.pre1363, 1
   br label %for.body165
 
 for.body165:                                      ; preds = %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit586, %_ZN10TestObjectD2Ev.exit641
-  %230 = phi i64 [ %.pre1363, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit586 ], [ %dec.i639, %_ZN10TestObjectD2Ev.exit641 ]
+  %inc.i.i606 = phi i64 [ %230, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit586 ], [ %247, %_ZN10TestObjectD2Ev.exit641 ]
   %i162.01307 = phi i32 [ 0, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit586 ], [ %inc185, %_ZN10TestObjectD2Ev.exit641 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i603)
   store i32 0, ptr %ref.tmp.i603, align 8
   store i8 0, ptr %mbThrowOnCopy.i.i604, align 4
   store i32 32623592, ptr %mMagicValue.i.i605, align 8
-  %inc.i.i606 = add nsw i64 %230, 1
   store i64 %inc.i.i606, ptr @_ZN10TestObject8sTOCountE, align 8
   %231 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i.i607 = add nsw i64 %231, 1
@@ -37569,14 +37569,14 @@ for.body237.preheader:                            ; preds = %invoke.cont233
   %312 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i595, align 8, !noalias !1178
   %313 = load ptr, ptr %mpEnd.i.i.i.i598, align 8, !noalias !1178
   %.pre1364 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %314 = add nsw i64 %.pre1364, 1
   br label %for.body237
 
 for.body237:                                      ; preds = %for.body237.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit
-  %314 = phi i64 [ %dec.i820, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %.pre1364, %for.body237.preheader ]
+  %inc.i811 = phi i64 [ %318, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %314, %for.body237.preheader ]
   %__begin0.sroa.11.01314 = phi ptr [ %__begin0.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %312, %for.body237.preheader ]
   %__begin0.sroa.0.01313 = phi ptr [ %__begin0.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %310, %for.body237.preheader ]
   %__begin0.sroa.8.01312 = phi ptr [ %__begin0.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %313, %for.body237.preheader ]
-  %inc.i811 = add nsw i64 %314, 1
   store i64 %inc.i811, ptr @_ZN10TestObject8sTOCountE, align 8
   %315 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i812 = add nsw i64 %315, 1
@@ -38829,16 +38829,16 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit: ; preds = %for.end
   %mMagicValue.i.i175 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %mId.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %.pre1424 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %64 = add nsw i64 %.pre1424, 1
   br label %for.body48
 
 for.body48:                                       ; preds = %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit, %_ZN10TestObjectD2Ev.exit222
-  %64 = phi i64 [ %.pre1424, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit ], [ %dec.i220, %_ZN10TestObjectD2Ev.exit222 ]
+  %inc.i.i176 = phi i64 [ %64, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit ], [ %91, %_ZN10TestObjectD2Ev.exit222 ]
   %i45.01370 = phi i32 [ 0, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit ], [ %inc67, %_ZN10TestObjectD2Ev.exit222 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store i32 0, ptr %ref.tmp.i, align 8
   store i8 0, ptr %mbThrowOnCopy.i.i, align 4
   store i32 32623592, ptr %mMagicValue.i.i175, align 8
-  %inc.i.i176 = add nsw i64 %64, 1
   store i64 %inc.i.i176, ptr @_ZN10TestObject8sTOCountE, align 8
   %65 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i.i177 = add nsw i64 %65, 1
@@ -39295,15 +39295,15 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit404: ; preds = %for.
   %mMagicValue.i422 = getelementptr inbounds i8, ptr %ref.tmp110, i64 16
   %mId.i426 = getelementptr inbounds i8, ptr %ref.tmp110, i64 8
   %.pre1429 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %153 = add nsw i64 %.pre1429, 1
   br label %for.body109
 
 for.body109:                                      ; preds = %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit404, %_ZN10TestObjectD2Ev.exit448
-  %153 = phi i64 [ %.pre1429, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit404 ], [ %dec.i446, %_ZN10TestObjectD2Ev.exit448 ]
+  %inc.i423 = phi i64 [ %153, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit404 ], [ %164, %_ZN10TestObjectD2Ev.exit448 ]
   %i106.01373 = phi i32 [ 0, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit404 ], [ %inc126, %_ZN10TestObjectD2Ev.exit448 ]
   store i32 %i106.01373, ptr %ref.tmp110, align 8
   store i8 0, ptr %mbThrowOnCopy.i421, align 4
   store i32 32623592, ptr %mMagicValue.i422, align 8
-  %inc.i423 = add nsw i64 %153, 1
   store i64 %inc.i423, ptr @_ZN10TestObject8sTOCountE, align 8
   %154 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i424 = add nsw i64 %154, 1
@@ -39423,10 +39423,11 @@ for.end127:                                       ; preds = %_ZN10TestObjectD2Ev
 
 invoke.cont137.preheader:                         ; preds = %for.end127
   %.pre1430 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %181 = add nsw i64 %.pre1430, 1
   br label %invoke.cont137
 
 invoke.cont137:                                   ; preds = %invoke.cont137.preheader, %_ZN10TestObjectD2Ev.exit547
-  %181 = phi i64 [ %.pre1430, %invoke.cont137.preheader ], [ %dec.i545, %_ZN10TestObjectD2Ev.exit547 ]
+  %inc.i501 = phi i64 [ %181, %invoke.cont137.preheader ], [ %201, %_ZN10TestObjectD2Ev.exit547 ]
   %indvars.iv = phi i64 [ 0, %invoke.cont137.preheader ], [ %indvars.iv.next, %_ZN10TestObjectD2Ev.exit547 ]
   %182 = sub nuw nsw i64 999, %indvars.iv
   %183 = load ptr, ptr %mItBegin.i.i406, align 8
@@ -39445,7 +39446,6 @@ invoke.cont137:                                   ; preds = %invoke.cont137.preh
   %mul.i496 = shl nsw i64 %sub.i494, 15
   %sub3.i497 = sub nsw i64 %add.i491, %mul.i496
   %add.ptr4.i498 = getelementptr inbounds %struct.TestObject, ptr %186, i64 %sub3.i497
-  %inc.i501 = add nsw i64 %181, 1
   store i64 %inc.i501, ptr @_ZN10TestObject8sTOCountE, align 8
   %187 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i502 = add nsw i64 %187, 1
@@ -39675,16 +39675,16 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit615: ; preds = %for.
   %mMagicValue.i.i634 = getelementptr inbounds i8, ptr %ref.tmp.i632, i64 16
   %mId.i.i638 = getelementptr inbounds i8, ptr %ref.tmp.i632, i64 8
   %.pre1431 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %224 = add nsw i64 %.pre1431, 1
   br label %for.body165
 
 for.body165:                                      ; preds = %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit615, %_ZN10TestObjectD2Ev.exit670
-  %224 = phi i64 [ %.pre1431, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit615 ], [ %dec.i668, %_ZN10TestObjectD2Ev.exit670 ]
+  %inc.i.i635 = phi i64 [ %224, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit615 ], [ %241, %_ZN10TestObjectD2Ev.exit670 ]
   %i162.01375 = phi i32 [ 0, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit615 ], [ %inc185, %_ZN10TestObjectD2Ev.exit670 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i632)
   store i32 0, ptr %ref.tmp.i632, align 8
   store i8 0, ptr %mbThrowOnCopy.i.i633, align 4
   store i32 32623592, ptr %mMagicValue.i.i634, align 8
-  %inc.i.i635 = add nsw i64 %224, 1
   store i64 %inc.i.i635, ptr @_ZN10TestObject8sTOCountE, align 8
   %225 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i.i636 = add nsw i64 %225, 1
@@ -40069,14 +40069,14 @@ for.body237.preheader:                            ; preds = %invoke.cont233
   %304 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i624, align 8, !noalias !1209
   %305 = load ptr, ptr %mpEnd.i.i.i.i627, align 8, !noalias !1209
   %.pre1432 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %306 = add nsw i64 %.pre1432, 1
   br label %for.body237
 
 for.body237:                                      ; preds = %for.body237.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit
-  %306 = phi i64 [ %dec.i863, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %.pre1432, %for.body237.preheader ]
+  %inc.i854 = phi i64 [ %310, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %306, %for.body237.preheader ]
   %__begin0.sroa.11.01382 = phi ptr [ %__begin0.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %304, %for.body237.preheader ]
   %__begin0.sroa.0.01381 = phi ptr [ %__begin0.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %302, %for.body237.preheader ]
   %__begin0.sroa.8.01380 = phi ptr [ %__begin0.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %305, %for.body237.preheader ]
-  %inc.i854 = add nsw i64 %306, 1
   store i64 %inc.i854, ptr @_ZN10TestObject8sTOCountE, align 8
   %307 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i855 = add nsw i64 %307, 1
@@ -49441,14 +49441,14 @@ invoke.cont1:                                     ; preds = %invoke.cont
 for.body.preheader:                               ; preds = %invoke.cont1
   %20 = load ptr, ptr %mpCurrentArrayPtr1.i.i, align 8, !noalias !1878
   %21 = load ptr, ptr %mpEnd.i.i, align 8, !noalias !1878
+  %22 = add nsw i64 %.pre3150, 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit
-  %22 = phi i64 [ %dec.i, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit ], [ %.pre3150, %for.body.preheader ]
+  %inc.i = phi i64 [ %26, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit ], [ %22, %for.body.preheader ]
   %__begin0.sroa.11.03037 = phi ptr [ %__begin0.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit ], [ %20, %for.body.preheader ]
   %__begin0.sroa.8.03036 = phi ptr [ %__begin0.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit ], [ %21, %for.body.preheader ]
   %__begin0.sroa.0.03035 = phi ptr [ %__begin0.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit ], [ %18, %for.body.preheader ]
-  %inc.i = add nsw i64 %22, 1
   store i64 %inc.i, ptr @_ZN10TestObject8sTOCountE, align 8
   %23 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i = add nsw i64 %23, 1
@@ -49597,14 +49597,14 @@ invoke.cont14:                                    ; preds = %invoke.cont11
 for.body21.preheader:                             ; preds = %invoke.cont14
   %53 = load ptr, ptr %mpCurrentArrayPtr1.i.i, align 8, !noalias !1884
   %54 = load ptr, ptr %mpEnd.i.i, align 8, !noalias !1884
+  %55 = add nsw i64 %.pre3151, 1
   br label %for.body21
 
 for.body21:                                       ; preds = %for.body21.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit145
-  %55 = phi i64 [ %dec.i134, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit145 ], [ %.pre3151, %for.body21.preheader ]
+  %inc.i125 = phi i64 [ %59, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit145 ], [ %55, %for.body21.preheader ]
   %__begin017.sroa.11.03041 = phi ptr [ %__begin017.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit145 ], [ %53, %for.body21.preheader ]
   %__begin017.sroa.8.03040 = phi ptr [ %__begin017.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit145 ], [ %54, %for.body21.preheader ]
   %__begin017.sroa.0.03039 = phi ptr [ %__begin017.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit145 ], [ %51, %for.body21.preheader ]
-  %inc.i125 = add nsw i64 %55, 1
   store i64 %inc.i125, ptr @_ZN10TestObject8sTOCountE, align 8
   %56 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i126 = add nsw i64 %56, 1
@@ -49748,14 +49748,14 @@ invoke.cont36:                                    ; preds = %invoke.cont33
 for.body43.preheader:                             ; preds = %invoke.cont36
   %85 = load ptr, ptr %mpCurrentArrayPtr1.i.i, align 8, !noalias !1890
   %86 = load ptr, ptr %mpEnd.i.i, align 8, !noalias !1890
+  %87 = add nsw i64 %.pre3152.pre, 1
   br label %for.body43
 
 for.body43:                                       ; preds = %for.body43.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit233
-  %87 = phi i64 [ %dec.i222, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit233 ], [ %.pre3152.pre, %for.body43.preheader ]
+  %inc.i213 = phi i64 [ %91, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit233 ], [ %87, %for.body43.preheader ]
   %__begin039.sroa.11.03045 = phi ptr [ %__begin039.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit233 ], [ %85, %for.body43.preheader ]
   %__begin039.sroa.8.03044 = phi ptr [ %__begin039.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit233 ], [ %86, %for.body43.preheader ]
   %__begin039.sroa.0.03043 = phi ptr [ %__begin039.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit233 ], [ %83, %for.body43.preheader ]
-  %inc.i213 = add nsw i64 %87, 1
   store i64 %inc.i213, ptr @_ZN10TestObject8sTOCountE, align 8
   %88 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i214 = add nsw i64 %88, 1
@@ -49810,12 +49810,12 @@ for.end54:                                        ; preds = %_ZN5eastl13DequeIte
   store ptr %valueList, ptr %valueList, align 8
   %mpPrev.i.i.i = getelementptr inbounds i8, ptr %valueList, i64 8
   store ptr %valueList, ptr %mpPrev.i.i.i, align 8
+  %98 = add nsw i64 %.pre3152, 1
   br label %for.body58
 
 for.body58:                                       ; preds = %for.end54, %_ZN10TestObjectD2Ev.exit255
-  %98 = phi i64 [ %.pre3152, %for.end54 ], [ %dec.i253, %_ZN10TestObjectD2Ev.exit255 ]
+  %inc.i243 = phi i64 [ %98, %for.end54 ], [ %106, %_ZN10TestObjectD2Ev.exit255 ]
   %i.03046 = phi i32 [ 0, %for.end54 ], [ %inc, %_ZN10TestObjectD2Ev.exit255 ]
-  %inc.i243 = add nsw i64 %98, 1
   store i64 %inc.i243, ptr @_ZN10TestObject8sTOCountE, align 8
   %99 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i244 = add nsw i64 %99, 1
@@ -49917,10 +49917,11 @@ invoke.cont67:                                    ; preds = %for.end65
 
 invoke.cont76.preheader:                          ; preds = %invoke.cont67
   %.pre3153 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %119 = add nsw i64 %.pre3153, 1
   br label %invoke.cont76
 
 invoke.cont76:                                    ; preds = %invoke.cont76.preheader, %_ZN10TestObjectD2Ev.exit300
-  %119 = phi i64 [ %.pre3153, %invoke.cont76.preheader ], [ %dec.i298, %_ZN10TestObjectD2Ev.exit300 ]
+  %inc.i289 = phi i64 [ %119, %invoke.cont76.preheader ], [ %128, %_ZN10TestObjectD2Ev.exit300 ]
   %indvars.iv = phi i64 [ 0, %invoke.cont76.preheader ], [ %indvars.iv.next, %_ZN10TestObjectD2Ev.exit300 ]
   %120 = load ptr, ptr %mItBegin.i, align 8
   %121 = load ptr, ptr %mpBegin3.i.i, align 8
@@ -49938,7 +49939,6 @@ invoke.cont76:                                    ; preds = %invoke.cont76.prehe
   %mul.i = shl nsw i64 %sub.i, 3
   %sub3.i = sub nsw i64 %add.i, %mul.i
   %add.ptr4.i = getelementptr inbounds %struct.TestObject, ptr %123, i64 %sub3.i
-  %inc.i289 = add nsw i64 %119, 1
   store i64 %inc.i289, ptr @_ZN10TestObject8sTOCountE, align 8
   %124 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i290 = add nsw i64 %124, 1
@@ -51472,13 +51472,13 @@ invoke.cont365:                                   ; preds = %invoke.cont359
   %mpBegin.i1541 = getelementptr inbounds i8, ptr %itFirstInserted, i64 8
   %.pre3154 = load ptr, ptr %itFirstInserted, align 8
   %.pre3155 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %378 = add nsw i64 %.pre3155, 1
   br label %for.body369
 
 for.body369:                                      ; preds = %invoke.cont365, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1543
-  %378 = phi i64 [ %.pre3155, %invoke.cont365 ], [ %dec.i1532, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1543 ]
+  %inc.i1523 = phi i64 [ %378, %invoke.cont365 ], [ %383, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1543 ]
   %379 = phi ptr [ %.pre3154, %invoke.cont365 ], [ %389, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1543 ]
   %i366.03073 = phi i32 [ 0, %invoke.cont365 ], [ %inc378, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1543 ]
-  %inc.i1523 = add nsw i64 %378, 1
   store i64 %inc.i1523, ptr @_ZN10TestObject8sTOCountE, align 8
   %380 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i1524 = add nsw i64 %380, 1
@@ -52515,15 +52515,15 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl9alloca
   %mMagicValue.i2110 = getelementptr inbounds i8, ptr %val, i64 16
   %mId.i2114 = getelementptr inbounds i8, ptr %val, i64 8
   %.pre3163 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %519 = add nsw i64 %.pre3163, 1
   br label %for.body555
 
 for.body555:                                      ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit, %_ZN10TestObjectD2Ev.exit2121
-  %519 = phi i64 [ %.pre3163, %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit ], [ %dec.i2119, %_ZN10TestObjectD2Ev.exit2121 ]
+  %inc.i2111 = phi i64 [ %519, %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit ], [ %524, %_ZN10TestObjectD2Ev.exit2121 ]
   %i552.03118 = phi i32 [ 0, %_ZN5eastl4listI10TestObjectNS_9allocatorEED2Ev.exit ], [ %inc562, %_ZN10TestObjectD2Ev.exit2121 ]
   store i32 %i552.03118, ptr %val, align 8
   store i8 0, ptr %mbThrowOnCopy.i2109, align 4
   store i32 32623592, ptr %mMagicValue.i2110, align 8
-  %inc.i2111 = add nsw i64 %519, 1
   store i64 %inc.i2111, ptr @_ZN10TestObject8sTOCountE, align 8
   %520 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i2112 = add nsw i64 %520, 1
@@ -53764,14 +53764,14 @@ invoke.cont1:                                     ; preds = %invoke.cont
 for.body.preheader:                               ; preds = %invoke.cont1
   %22 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i, align 8, !noalias !2076
   %23 = load ptr, ptr %mpEnd.i.i.i.i, align 8, !noalias !2076
+  %24 = add nsw i64 %.pre3019, 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit
-  %24 = phi i64 [ %dec.i, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %.pre3019, %for.body.preheader ]
+  %inc.i = phi i64 [ %28, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %24, %for.body.preheader ]
   %__begin0.sroa.11.02918 = phi ptr [ %__begin0.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %22, %for.body.preheader ]
   %__begin0.sroa.8.02917 = phi ptr [ %__begin0.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %23, %for.body.preheader ]
   %__begin0.sroa.0.02916 = phi ptr [ %__begin0.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit ], [ %20, %for.body.preheader ]
-  %inc.i = add nsw i64 %24, 1
   store i64 %inc.i, ptr @_ZN10TestObject8sTOCountE, align 8
   %25 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i = add nsw i64 %25, 1
@@ -53921,14 +53921,14 @@ invoke.cont14:                                    ; preds = %invoke.cont11
 for.body21.preheader:                             ; preds = %invoke.cont14
   %55 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i, align 8, !noalias !2082
   %56 = load ptr, ptr %mpEnd.i.i.i.i, align 8, !noalias !2082
+  %57 = add nsw i64 %.pre3020, 1
   br label %for.body21
 
 for.body21:                                       ; preds = %for.body21.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit146
-  %57 = phi i64 [ %dec.i135, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit146 ], [ %.pre3020, %for.body21.preheader ]
+  %inc.i126 = phi i64 [ %61, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit146 ], [ %57, %for.body21.preheader ]
   %__begin017.sroa.11.02922 = phi ptr [ %__begin017.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit146 ], [ %55, %for.body21.preheader ]
   %__begin017.sroa.8.02921 = phi ptr [ %__begin017.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit146 ], [ %56, %for.body21.preheader ]
   %__begin017.sroa.0.02920 = phi ptr [ %__begin017.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit146 ], [ %53, %for.body21.preheader ]
-  %inc.i126 = add nsw i64 %57, 1
   store i64 %inc.i126, ptr @_ZN10TestObject8sTOCountE, align 8
   %58 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i127 = add nsw i64 %58, 1
@@ -54073,14 +54073,14 @@ invoke.cont36:                                    ; preds = %invoke.cont33
 for.body43.preheader:                             ; preds = %invoke.cont36
   %87 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i, align 8, !noalias !2088
   %88 = load ptr, ptr %mpEnd.i.i.i.i, align 8, !noalias !2088
+  %89 = add nsw i64 %.pre3021.pre, 1
   br label %for.body43
 
 for.body43:                                       ; preds = %for.body43.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit235
-  %89 = phi i64 [ %dec.i224, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit235 ], [ %.pre3021.pre, %for.body43.preheader ]
+  %inc.i215 = phi i64 [ %93, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit235 ], [ %89, %for.body43.preheader ]
   %__begin039.sroa.11.02926 = phi ptr [ %__begin039.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit235 ], [ %87, %for.body43.preheader ]
   %__begin039.sroa.8.02925 = phi ptr [ %__begin039.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit235 ], [ %88, %for.body43.preheader ]
   %__begin039.sroa.0.02924 = phi ptr [ %__begin039.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit235 ], [ %85, %for.body43.preheader ]
-  %inc.i215 = add nsw i64 %89, 1
   store i64 %inc.i215, ptr @_ZN10TestObject8sTOCountE, align 8
   %90 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i216 = add nsw i64 %90, 1
@@ -54135,12 +54135,12 @@ for.end54:                                        ; preds = %_ZN5eastl13DequeIte
   store ptr %valueList, ptr %valueList, align 8
   %mpPrev.i.i.i = getelementptr inbounds i8, ptr %valueList, i64 8
   store ptr %valueList, ptr %mpPrev.i.i.i, align 8
+  %100 = add nsw i64 %.pre3021, 1
   br label %for.body58
 
 for.body58:                                       ; preds = %for.end54, %_ZN10TestObjectD2Ev.exit257
-  %100 = phi i64 [ %.pre3021, %for.end54 ], [ %dec.i255, %_ZN10TestObjectD2Ev.exit257 ]
+  %inc.i245 = phi i64 [ %100, %for.end54 ], [ %108, %_ZN10TestObjectD2Ev.exit257 ]
   %i.02927 = phi i32 [ 0, %for.end54 ], [ %inc, %_ZN10TestObjectD2Ev.exit257 ]
-  %inc.i245 = add nsw i64 %100, 1
   store i64 %inc.i245, ptr @_ZN10TestObject8sTOCountE, align 8
   %101 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i246 = add nsw i64 %101, 1
@@ -54243,10 +54243,11 @@ invoke.cont67:                                    ; preds = %for.end65
 
 invoke.cont76.preheader:                          ; preds = %invoke.cont67
   %.pre3022 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %121 = add nsw i64 %.pre3022, 1
   br label %invoke.cont76
 
 invoke.cont76:                                    ; preds = %invoke.cont76.preheader, %_ZN10TestObjectD2Ev.exit303
-  %121 = phi i64 [ %.pre3022, %invoke.cont76.preheader ], [ %dec.i301, %_ZN10TestObjectD2Ev.exit303 ]
+  %inc.i292 = phi i64 [ %121, %invoke.cont76.preheader ], [ %132, %_ZN10TestObjectD2Ev.exit303 ]
   %indvars.iv = phi i64 [ 0, %invoke.cont76.preheader ], [ %indvars.iv.next, %_ZN10TestObjectD2Ev.exit303 ]
   %122 = load ptr, ptr %mItBegin.i.i, align 8
   %123 = load ptr, ptr %mpBegin.i.i.i.i, align 8
@@ -54258,7 +54259,6 @@ invoke.cont76:                                    ; preds = %invoke.cont76.prehe
   %126 = getelementptr i8, ptr %124, i64 %125
   %add.ptr.i289 = getelementptr ptr, ptr %126, i64 %indvars.iv
   %127 = load ptr, ptr %add.ptr.i289, align 8
-  %inc.i292 = add nsw i64 %121, 1
   store i64 %inc.i292, ptr @_ZN10TestObject8sTOCountE, align 8
   %128 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i293 = add nsw i64 %128, 1
@@ -55665,13 +55665,13 @@ invoke.cont365:                                   ; preds = %invoke.cont359
   %mpBegin.i1408 = getelementptr inbounds i8, ptr %itFirstInserted, i64 8
   %.pre3023 = load ptr, ptr %itFirstInserted, align 8
   %.pre3024 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %421 = add nsw i64 %.pre3024, 1
   br label %for.body369
 
 for.body369:                                      ; preds = %invoke.cont365, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1410
-  %421 = phi i64 [ %.pre3024, %invoke.cont365 ], [ %dec.i1399, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1410 ]
+  %inc.i1390 = phi i64 [ %421, %invoke.cont365 ], [ %426, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1410 ]
   %422 = phi ptr [ %.pre3023, %invoke.cont365 ], [ %432, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1410 ]
   %i366.02954 = phi i32 [ 0, %invoke.cont365 ], [ %inc378, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1410 ]
-  %inc.i1390 = add nsw i64 %421, 1
   store i64 %inc.i1390, ptr @_ZN10TestObject8sTOCountE, align 8
   %423 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i1391 = add nsw i64 %423, 1
@@ -56840,15 +56840,15 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit: ; preds = %for.end.i, 
   %mMagicValue.i2006 = getelementptr inbounds i8, ptr %val, i64 16
   %mId.i2010 = getelementptr inbounds i8, ptr %val, i64 8
   %.pre3033 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %576 = add nsw i64 %.pre3033, 1
   br label %for.body555
 
 for.body555:                                      ; preds = %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit, %_ZN10TestObjectD2Ev.exit2017
-  %576 = phi i64 [ %.pre3033, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit ], [ %dec.i2015, %_ZN10TestObjectD2Ev.exit2017 ]
+  %inc.i2007 = phi i64 [ %576, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit ], [ %581, %_ZN10TestObjectD2Ev.exit2017 ]
   %i552.02999 = phi i32 [ 0, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EED2Ev.exit ], [ %inc562, %_ZN10TestObjectD2Ev.exit2017 ]
   store i32 %i552.02999, ptr %val, align 8
   store i8 0, ptr %mbThrowOnCopy.i2005, align 4
   store i32 32623592, ptr %mMagicValue.i2006, align 8
-  %inc.i2007 = add nsw i64 %576, 1
   store i64 %inc.i2007, ptr @_ZN10TestObject8sTOCountE, align 8
   %577 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i2008 = add nsw i64 %577, 1
@@ -58099,14 +58099,14 @@ invoke.cont1:                                     ; preds = %invoke.cont
 for.body.preheader:                               ; preds = %invoke.cont1
   %22 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i, align 8, !noalias !2268
   %23 = load ptr, ptr %mpEnd.i.i.i.i, align 8, !noalias !2268
+  %24 = add nsw i64 %.pre3262, 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit
-  %24 = phi i64 [ %dec.i, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %.pre3262, %for.body.preheader ]
+  %inc.i = phi i64 [ %28, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %24, %for.body.preheader ]
   %__begin0.sroa.11.03153 = phi ptr [ %__begin0.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %22, %for.body.preheader ]
   %__begin0.sroa.8.03152 = phi ptr [ %__begin0.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %23, %for.body.preheader ]
   %__begin0.sroa.0.03151 = phi ptr [ %__begin0.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit ], [ %20, %for.body.preheader ]
-  %inc.i = add nsw i64 %24, 1
   store i64 %inc.i, ptr @_ZN10TestObject8sTOCountE, align 8
   %25 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i = add nsw i64 %25, 1
@@ -58256,14 +58256,14 @@ invoke.cont14:                                    ; preds = %invoke.cont11
 for.body21.preheader:                             ; preds = %invoke.cont14
   %55 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i, align 8, !noalias !2274
   %56 = load ptr, ptr %mpEnd.i.i.i.i, align 8, !noalias !2274
+  %57 = add nsw i64 %.pre3263, 1
   br label %for.body21
 
 for.body21:                                       ; preds = %for.body21.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit146
-  %57 = phi i64 [ %dec.i135, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit146 ], [ %.pre3263, %for.body21.preheader ]
+  %inc.i126 = phi i64 [ %61, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit146 ], [ %57, %for.body21.preheader ]
   %__begin017.sroa.11.03157 = phi ptr [ %__begin017.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit146 ], [ %55, %for.body21.preheader ]
   %__begin017.sroa.8.03156 = phi ptr [ %__begin017.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit146 ], [ %56, %for.body21.preheader ]
   %__begin017.sroa.0.03155 = phi ptr [ %__begin017.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit146 ], [ %53, %for.body21.preheader ]
-  %inc.i126 = add nsw i64 %57, 1
   store i64 %inc.i126, ptr @_ZN10TestObject8sTOCountE, align 8
   %58 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i127 = add nsw i64 %58, 1
@@ -58408,14 +58408,14 @@ invoke.cont36:                                    ; preds = %invoke.cont33
 for.body43.preheader:                             ; preds = %invoke.cont36
   %87 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i, align 8, !noalias !2280
   %88 = load ptr, ptr %mpEnd.i.i.i.i, align 8, !noalias !2280
+  %89 = add nsw i64 %.pre3264.pre, 1
   br label %for.body43
 
 for.body43:                                       ; preds = %for.body43.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit235
-  %89 = phi i64 [ %dec.i224, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit235 ], [ %.pre3264.pre, %for.body43.preheader ]
+  %inc.i215 = phi i64 [ %93, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit235 ], [ %89, %for.body43.preheader ]
   %__begin039.sroa.11.03161 = phi ptr [ %__begin039.sroa.11.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit235 ], [ %87, %for.body43.preheader ]
   %__begin039.sroa.8.03160 = phi ptr [ %__begin039.sroa.8.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit235 ], [ %88, %for.body43.preheader ]
   %__begin039.sroa.0.03159 = phi ptr [ %__begin039.sroa.0.1, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit235 ], [ %85, %for.body43.preheader ]
-  %inc.i215 = add nsw i64 %89, 1
   store i64 %inc.i215, ptr @_ZN10TestObject8sTOCountE, align 8
   %90 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i216 = add nsw i64 %90, 1
@@ -58470,12 +58470,12 @@ for.end54:                                        ; preds = %_ZN5eastl13DequeIte
   store ptr %valueList, ptr %valueList, align 8
   %mpPrev.i.i.i = getelementptr inbounds i8, ptr %valueList, i64 8
   store ptr %valueList, ptr %mpPrev.i.i.i, align 8
+  %100 = add nsw i64 %.pre3264, 1
   br label %for.body58
 
 for.body58:                                       ; preds = %for.end54, %_ZN10TestObjectD2Ev.exit257
-  %100 = phi i64 [ %.pre3264, %for.end54 ], [ %dec.i255, %_ZN10TestObjectD2Ev.exit257 ]
+  %inc.i245 = phi i64 [ %100, %for.end54 ], [ %108, %_ZN10TestObjectD2Ev.exit257 ]
   %i.03162 = phi i32 [ 0, %for.end54 ], [ %inc, %_ZN10TestObjectD2Ev.exit257 ]
-  %inc.i245 = add nsw i64 %100, 1
   store i64 %inc.i245, ptr @_ZN10TestObject8sTOCountE, align 8
   %101 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i246 = add nsw i64 %101, 1
@@ -58578,10 +58578,11 @@ invoke.cont67:                                    ; preds = %for.end65
 
 invoke.cont76.preheader:                          ; preds = %invoke.cont67
   %.pre3265 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %121 = add nsw i64 %.pre3265, 1
   br label %invoke.cont76
 
 invoke.cont76:                                    ; preds = %invoke.cont76.preheader, %_ZN10TestObjectD2Ev.exit303
-  %121 = phi i64 [ %.pre3265, %invoke.cont76.preheader ], [ %dec.i301, %_ZN10TestObjectD2Ev.exit303 ]
+  %inc.i292 = phi i64 [ %121, %invoke.cont76.preheader ], [ %130, %_ZN10TestObjectD2Ev.exit303 ]
   %indvars.iv = phi i64 [ 0, %invoke.cont76.preheader ], [ %indvars.iv.next, %_ZN10TestObjectD2Ev.exit303 ]
   %122 = load ptr, ptr %mItBegin.i.i, align 8
   %123 = load ptr, ptr %mpBegin.i.i.i.i, align 8
@@ -58599,7 +58600,6 @@ invoke.cont76:                                    ; preds = %invoke.cont76.prehe
   %mul.i = shl nsw i64 %sub.i, 15
   %sub3.i = sub nsw i64 %add.i, %mul.i
   %add.ptr4.i = getelementptr inbounds %struct.TestObject, ptr %125, i64 %sub3.i
-  %inc.i292 = add nsw i64 %121, 1
   store i64 %inc.i292, ptr @_ZN10TestObject8sTOCountE, align 8
   %126 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i293 = add nsw i64 %126, 1
@@ -60140,13 +60140,13 @@ invoke.cont365:                                   ; preds = %invoke.cont359
   %mpBegin.i1560 = getelementptr inbounds i8, ptr %itFirstInserted, i64 8
   %.pre3266 = load ptr, ptr %itFirstInserted, align 8
   %.pre3267 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %380 = add nsw i64 %.pre3267, 1
   br label %for.body369
 
 for.body369:                                      ; preds = %invoke.cont365, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1562
-  %380 = phi i64 [ %.pre3267, %invoke.cont365 ], [ %dec.i1551, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1562 ]
+  %inc.i1542 = phi i64 [ %380, %invoke.cont365 ], [ %385, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1562 ]
   %381 = phi ptr [ %.pre3266, %invoke.cont365 ], [ %391, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1562 ]
   %i366.03189 = phi i32 [ 0, %invoke.cont365 ], [ %inc378, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1562 ]
-  %inc.i1542 = add nsw i64 %380, 1
   store i64 %inc.i1542, ptr @_ZN10TestObject8sTOCountE, align 8
   %382 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i1543 = add nsw i64 %382, 1
@@ -61321,15 +61321,15 @@ _ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit: ; preds = %for.end
   %mMagicValue.i2164 = getelementptr inbounds i8, ptr %val, i64 16
   %mId.i2168 = getelementptr inbounds i8, ptr %val, i64 8
   %.pre3276 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %535 = add nsw i64 %.pre3276, 1
   br label %for.body555
 
 for.body555:                                      ; preds = %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit, %_ZN10TestObjectD2Ev.exit2175
-  %535 = phi i64 [ %.pre3276, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit ], [ %dec.i2173, %_ZN10TestObjectD2Ev.exit2175 ]
+  %inc.i2165 = phi i64 [ %535, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit ], [ %540, %_ZN10TestObjectD2Ev.exit2175 ]
   %i552.03234 = phi i32 [ 0, %_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EED2Ev.exit ], [ %inc562, %_ZN10TestObjectD2Ev.exit2175 ]
   store i32 %i552.03234, ptr %val, align 8
   store i8 0, ptr %mbThrowOnCopy.i2163, align 4
   store i32 32623592, ptr %mMagicValue.i2164, align 8
-  %inc.i2165 = add nsw i64 %535, 1
   store i64 %inc.i2165, ptr @_ZN10TestObject8sTOCountE, align 8
   %536 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i2166 = add nsw i64 %536, 1

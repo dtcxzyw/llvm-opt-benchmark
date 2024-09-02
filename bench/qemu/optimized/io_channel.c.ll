@@ -428,7 +428,7 @@ cleanup:                                          ; preds = %if.end43, %next_ite
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 2, 1) i32 @qio_channel_readv_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %errp) #2 {
+define dso_local range(i32 -1, 1) i32 @qio_channel_readv_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %errp) #2 {
 entry:
   %call.i = tail call i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef null, ptr noundef null, ptr noundef %errp)
   switch i32 %call.i, label %if.end3.i [
@@ -449,7 +449,7 @@ qio_channel_readv_full_all.exit:                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 2, 1) i32 @qio_channel_readv_full_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, ptr noundef %nfds, ptr noundef %errp) #2 {
+define dso_local range(i32 -1, 1) i32 @qio_channel_readv_full_all(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, ptr noundef %nfds, ptr noundef %errp) #2 {
 entry:
   %call = tail call i32 @qio_channel_readv_full_all_eof(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr noundef %fds, ptr noundef %nfds, ptr noundef %errp)
   switch i32 %call, label %if.end3 [
@@ -782,7 +782,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 2, 1) i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef %buf, i64 noundef %buflen, ptr noundef %errp) #2 {
+define dso_local range(i32 -1, 1) i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef %buf, i64 noundef %buflen, ptr noundef %errp) #2 {
 entry:
   %iov = alloca %struct.iovec, align 8
   store ptr %buf, ptr %iov, align 8

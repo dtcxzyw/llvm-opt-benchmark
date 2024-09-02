@@ -295,26 +295,26 @@ define internal range(i32 0, 13) i32 @dissect_udpcp(ptr noundef %0, ptr noundef 
   %54 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %47, i32 noundef %53, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #6
   %55 = load i32, ptr %8, align 4
   %.not231 = icmp eq i32 %55, 0
-  br i1 %.not231, label %57, label %56
+  br i1 %.not231, label %58, label %56
 
 56:                                               ; preds = %52
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull @.str.12) #6
   %.pre = load i32, ptr %8, align 4
-  br label %57
+  %57 = icmp eq i32 %.pre, 0
+  br label %58
 
-57:                                               ; preds = %56, %52
-  %58 = phi i32 [ %.pre, %56 ], [ 0, %52 ]
-  %59 = icmp eq i32 %58, 0
+58:                                               ; preds = %56, %52
+  %59 = phi i1 [ %57, %56 ], [ true, %52 ]
   %60 = load i32, ptr %6, align 4
   %61 = icmp ne i32 %60, 0
   %or.cond3 = select i1 %59, i1 %61, i1 false
   br i1 %or.cond3, label %62, label %64
 
-62:                                               ; preds = %57
+62:                                               ; preds = %58
   %63 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %32, ptr noundef nonnull @ei_udpcp_checksum_should_be_zero) #6
   br label %64
 
-64:                                               ; preds = %62, %57
+64:                                               ; preds = %62, %58
   %65 = load i32, ptr @hf_udpcp_s, align 4
   %66 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %47, i32 noundef %65, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #6
   %67 = load i32, ptr %9, align 4
@@ -335,10 +335,10 @@ define internal range(i32 0, 13) i32 @dissect_udpcp(ptr noundef %0, ptr noundef 
 73:                                               ; preds = %69
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull @.str.18) #6
   %.pre256 = load i32, ptr %10, align 4
-  %74 = load i32, ptr %5, align 4
-  %75 = icmp eq i32 %74, 1
-  %76 = icmp ne i32 %.pre256, 0
-  %or.cond5 = select i1 %75, i1 %76, i1 false
+  %74 = icmp ne i32 %.pre256, 0
+  %75 = load i32, ptr %5, align 4
+  %76 = icmp eq i32 %75, 1
+  %or.cond5 = select i1 %76, i1 %74, i1 false
   br i1 %or.cond5, label %77, label %.thread265
 
 77:                                               ; preds = %73

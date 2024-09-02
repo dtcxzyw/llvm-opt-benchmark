@@ -778,7 +778,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h1a92242504564747E(i64 noundef %0, i64 %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 43691) i64 @_ZN5serde2de9size_hint8cautious17h1a92242504564747E(i64 noundef %0, i64 %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
   %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 43690)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
@@ -786,7 +786,7 @@ define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h1a92242504564747E(i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h4dcbd1032012ca21E(i64 noundef %0, i64 %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 262145) i64 @_ZN5serde2de9size_hint8cautious17h4dcbd1032012ca21E(i64 noundef %0, i64 %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
   %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 262144)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
@@ -794,7 +794,7 @@ define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h4dcbd1032012ca21E(i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h5c70964882f1eb2eE(i64 noundef %0, i64 %1) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 32769) i64 @_ZN5serde2de9size_hint8cautious17h5c70964882f1eb2eE(i64 noundef %0, i64 %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
   %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 32768)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3

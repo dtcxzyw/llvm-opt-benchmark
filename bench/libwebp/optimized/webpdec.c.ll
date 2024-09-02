@@ -163,7 +163,7 @@ declare i32 @WebPIUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare void @WebPIDelete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.WebPData, align 8
   %7 = alloca %struct.WebPChunkIterator, align 8
   %8 = alloca %struct.WebPDecoderConfig, align 8

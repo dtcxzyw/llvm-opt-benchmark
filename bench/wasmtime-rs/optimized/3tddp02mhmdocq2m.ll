@@ -1627,15 +1627,6 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   %.not43.not = icmp eq i64 %.sroa.0.0, -9223372036854775807
   br i1 %.not43.not, label %.backedge93.backedge, label %344
 
-.backedge93.backedge:                             ; preds = %.noexc57, %344, %153
-  %.sroa.16.2 = phi i8 [ %.sroa.16.1, %.noexc57 ], [ %.sroa.16.1, %344 ], [ %.sroa.16.0, %153 ]
-  %.sroa.15154.2 = phi i8 [ %.sroa.15154.1, %.noexc57 ], [ %.sroa.15154.1, %344 ], [ %.sroa.15154.0, %153 ]
-  %.sroa.14.2 = phi i64 [ %.sroa.14.1, %.noexc57 ], [ %.sroa.14.1, %344 ], [ %.sroa.14.0, %153 ]
-  %.sroa.12.2 = phi i64 [ %.sroa.12.1, %.noexc57 ], [ %.sroa.12.1, %344 ], [ %.sroa.12.0, %153 ]
-  %.sroa.11.2 = phi i64 [ %.sroa.11.1, %.noexc57 ], [ %.sroa.11.1, %344 ], [ %.sroa.11.0, %153 ]
-  %.sroa.10.2 = phi i64 [ %.sroa.10.1, %.noexc57 ], [ %.sroa.10.1, %344 ], [ %.sroa.10.0, %153 ]
-  br label %.backedge93
-
 344:                                              ; preds = %.noexc57
   store i64 %.sroa.0.0, ptr %51, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9, i64 16, i1 false)
@@ -1648,6 +1639,15 @@ _ZN14cranelift_isle4sema7TypeEnv10intern_mut17h4978b87b1128d19eE.exit.i: ; preds
   store i8 %.sroa.16.1, ptr %.sroa.16.0..sroa_idx, align 1
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8ee9c068f8f4f3aeE"(ptr nonnull align 8 %95, ptr nonnull align 8 %51)
           to label %.backedge93.backedge unwind label %.loopexit.split-lp.loopexit
+
+.backedge93.backedge:                             ; preds = %344, %.noexc57, %153
+  %.sroa.16.2 = phi i8 [ %.sroa.16.1, %.noexc57 ], [ %.sroa.16.1, %344 ], [ %.sroa.16.0, %153 ]
+  %.sroa.15154.2 = phi i8 [ %.sroa.15154.1, %.noexc57 ], [ %.sroa.15154.1, %344 ], [ %.sroa.15154.0, %153 ]
+  %.sroa.14.2 = phi i64 [ %.sroa.14.1, %.noexc57 ], [ %.sroa.14.1, %344 ], [ %.sroa.14.0, %153 ]
+  %.sroa.12.2 = phi i64 [ %.sroa.12.1, %.noexc57 ], [ %.sroa.12.1, %344 ], [ %.sroa.12.0, %153 ]
+  %.sroa.11.2 = phi i64 [ %.sroa.11.1, %.noexc57 ], [ %.sroa.11.1, %344 ], [ %.sroa.11.0, %153 ]
+  %.sroa.10.2 = phi i64 [ %.sroa.10.1, %.noexc57 ], [ %.sroa.10.1, %344 ], [ %.sroa.10.0, %153 ]
+  br label %.backedge93
 
 345:                                              ; preds = %115
   %346 = load i64, ptr %104, align 8, !noundef !4

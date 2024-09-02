@@ -201,9 +201,9 @@ define internal fastcc range(i64 -2147483648, 1) i64 @__se_sys_mincore(i64 nound
 
 94:                                               ; preds = %91
   %95 = icmp ugt i64 %88, 2147483647
-  br i1 %95, label %.thread, label %96, !prof !10
+  br i1 %95, label %.critedge, label %96, !prof !10
 
-.thread:                                          ; preds = %94
+.critedge:                                        ; preds = %94
   tail call void asm sideeffect "15: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 15b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 15) #7, !srcloc !11
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 249, i32 2307, i64 12) #7, !srcloc !12
   tail call void asm sideeffect "16: nop\0A\09.pushsection .discard.instr_end\0A\09.long 16b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 16) #7, !srcloc !13
@@ -222,8 +222,8 @@ define internal fastcc range(i64 -2147483648, 1) i64 @__se_sys_mincore(i64 nound
   %104 = icmp eq i64 %100, 0
   br i1 %104, label %.loopexit, label %32, !llvm.loop !14
 
-.loopexit:                                        ; preds = %99, %96, %91, %.thread, %26
-  %105 = phi i64 [ 0, %26 ], [ -14, %.thread ], [ -14, %96 ], [ %88, %91 ], [ 0, %99 ]
+.loopexit:                                        ; preds = %99, %96, %91, %.critedge, %26
+  %105 = phi i64 [ 0, %26 ], [ -14, %.critedge ], [ -14, %96 ], [ %88, %91 ], [ 0, %99 ]
   tail call void @free_pages(i64 noundef %23, i32 noundef 0) #7
   br label %106
 
@@ -324,21 +324,21 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %27 = and i64 %26, -97
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %22
   %30 = and i64 %26, 257
   %31 = icmp ne i64 %30, 0
   %32 = icmp ult i64 %26, -576460752303423488
   %.not5 = or i1 %32, %31
-  br i1 %.not5, label %57, label %.thread
+  br i1 %.not5, label %57, label %.critedge
 
-.thread:                                          ; preds = %22, %29
+.critedge:                                        ; preds = %22, %29
   %33 = load ptr, ptr %18, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %__mincore_unmapped_range.exit, label %35
 
-35:                                               ; preds = %.thread
+35:                                               ; preds = %.critedge
   %36 = load i64, ptr %8, align 8
   %37 = sub i64 %25, %36
   %38 = lshr i64 %37, 12
@@ -415,8 +415,8 @@ __mincore_unmapped_range.exit.sink.split:         ; preds = %76, %50
   call void @__folio_put(ptr noundef %.sink8) #7
   br label %__mincore_unmapped_range.exit
 
-__mincore_unmapped_range.exit:                    ; preds = %__mincore_unmapped_range.exit.sink.split, %60, %76, %57, %35, %50, %.thread
-  %.sink = phi i8 [ 0, %.thread ], [ 0, %35 ], [ %52, %50 ], [ 1, %57 ], [ 0, %60 ], [ %78, %76 ], [ %.sink.ph, %__mincore_unmapped_range.exit.sink.split ]
+__mincore_unmapped_range.exit:                    ; preds = %__mincore_unmapped_range.exit.sink.split, %60, %76, %57, %35, %50, %.critedge
+  %.sink = phi i8 [ 0, %.critedge ], [ 0, %35 ], [ %52, %50 ], [ 1, %57 ], [ 0, %60 ], [ %78, %76 ], [ %.sink.ph, %__mincore_unmapped_range.exit.sink.split ]
   store i8 %.sink, ptr %23, align 1
   %83 = getelementptr i8, ptr %23, i64 1
   %84 = getelementptr i8, ptr %24, i64 8

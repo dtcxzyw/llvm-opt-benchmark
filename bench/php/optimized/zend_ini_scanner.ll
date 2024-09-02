@@ -948,9 +948,9 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %310 = and i64 %.lcssa3857.ph, 4294967295
   br label %.critedge4
 
-.critedge4:                                       ; preds = %302, %.critedge4.loopexit, %295
-  %311 = phi ptr [ %.promoted42056035, %295 ], [ %300, %.critedge4.loopexit ], [ %303, %302 ]
-  %.lcssa3857 = phi i64 [ 0, %295 ], [ %310, %.critedge4.loopexit ], [ 0, %302 ]
+.critedge4:                                       ; preds = %302, %295, %.critedge4.loopexit
+  %311 = phi ptr [ %300, %.critedge4.loopexit ], [ %.promoted42056035, %295 ], [ %303, %302 ]
+  %.lcssa3857 = phi i64 [ %310, %.critedge4.loopexit ], [ 0, %295 ], [ 0, %302 ]
   store i32 1, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 64), align 8
   %312 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %313 = trunc i8 %312 to i1
@@ -7163,14 +7163,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   %.not3520 = icmp eq i32 %indvars4435, 0
   br i1 %.not3520, label %.critedge8.loopexit, label %3023
 
-.critedge8.loopexit:                              ; preds = %.critedge10, %3023
-  %.lcssa3928.ph = phi i64 [ %indvars.iv4433, %3023 ], [ 0, %.critedge10 ]
+.critedge8.loopexit:                              ; preds = %3023, %.critedge10
+  %.lcssa3928.ph = phi i64 [ 0, %.critedge10 ], [ %indvars.iv4433, %3023 ]
   %3027 = and i64 %.lcssa3928.ph, 4294967295
   br label %.critedge8
 
-.critedge8:                                       ; preds = %3019, %.critedge8.loopexit, %.loopexit3830
-  %3028 = phi ptr [ %.promoted4205, %.loopexit3830 ], [ %3017, %.critedge8.loopexit ], [ %3020, %3019 ]
-  %.lcssa3928 = phi i64 [ 0, %.loopexit3830 ], [ %3027, %.critedge8.loopexit ], [ 0, %3019 ]
+.critedge8:                                       ; preds = %3019, %.loopexit3830, %.critedge8.loopexit
+  %3028 = phi ptr [ %3017, %.critedge8.loopexit ], [ %.promoted4205, %.loopexit3830 ], [ %3020, %3019 ]
+  %.lcssa3928 = phi i64 [ %3027, %.critedge8.loopexit ], [ 0, %.loopexit3830 ], [ 0, %3019 ]
   %3029 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %3030 = trunc i8 %3029 to i1
   %3031 = add nuw nsw i64 %.lcssa3928, 32

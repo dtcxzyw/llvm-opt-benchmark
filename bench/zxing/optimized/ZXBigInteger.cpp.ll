@@ -2187,23 +2187,23 @@ _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   %64 = load ptr, ptr %6, align 8
   %65 = load ptr, ptr %61, align 8
   %66 = icmp eq ptr %64, %65
-  br i1 %66, label %69, label %67
+  br i1 %66, label %70, label %67
 
 67:                                               ; preds = %63
   %68 = load i64, ptr %64, align 8
-  br label %69
+  %69 = trunc i64 %68 to i8
+  br label %70
 
-69:                                               ; preds = %63, %67
-  %70 = phi i64 [ %68, %67 ], [ 0, %63 ]
-  %71 = trunc i64 %70 to i8
+70:                                               ; preds = %63, %67
+  %71 = phi i8 [ %69, %67 ], [ 0, %63 ]
   %.not.i.i = icmp eq ptr %.sroa.9.075, %.sroa.17.074
   br i1 %.not.i.i, label %73, label %72
 
-72:                                               ; preds = %69
+72:                                               ; preds = %70
   store i8 %71, ptr %.sroa.9.075, align 1
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit
 
-73:                                               ; preds = %69
+73:                                               ; preds = %70
   %74 = ptrtoint ptr %.sroa.9.075 to i64
   %75 = ptrtoint ptr %.sroa.055.276 to i64
   %76 = sub i64 %74, %75

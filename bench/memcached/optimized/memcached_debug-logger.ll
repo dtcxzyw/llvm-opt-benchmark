@@ -689,17 +689,20 @@ logger_thread_read.exit:                          ; preds = %for.body, %if.end32
   %next = getelementptr inbounds i8, ptr %l.027, i64 8
   %l.0 = load ptr, ptr %next, align 8
   %cmp6.not = icmp eq ptr %l.0, null
-  br i1 %cmp6.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %cmp6.not, label %for.end.loopexit, label %for.body, !llvm.loop !12
 
-for.end:                                          ; preds = %logger_thread_read.exit, %if.end5
-  %ls.sroa.0.1.lcssa = phi i64 [ 0, %if.end5 ], [ %ls.sroa.0.2, %logger_thread_read.exit ]
-  %ls.sroa.4.1.lcssa = phi i64 [ 0, %if.end5 ], [ %ls.sroa.4.2, %logger_thread_read.exit ]
-  %found_logs.0.lcssa = phi i32 [ 0, %if.end5 ], [ %add, %logger_thread_read.exit ]
+for.end.loopexit:                                 ; preds = %logger_thread_read.exit
+  %39 = icmp eq i32 %add, 0
+  br label %for.end
+
+for.end:                                          ; preds = %for.end.loopexit, %if.end5
+  %ls.sroa.0.1.lcssa = phi i64 [ 0, %if.end5 ], [ %ls.sroa.0.2, %for.end.loopexit ]
+  %ls.sroa.4.1.lcssa = phi i64 [ 0, %if.end5 ], [ %ls.sroa.4.2, %for.end.loopexit ]
+  %found_logs.0.lcssa = phi i1 [ true, %if.end5 ], [ %39, %for.end.loopexit ]
   %call8 = call fastcc i32 @logger_thread_poll_watchers(i32 noundef 1, i32 noundef -1)
-  %39 = load i32, ptr @watcher_count, align 4
+  %40 = load i32, ptr @watcher_count, align 4
   %call9 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @logger_stack_lock) #18
-  %tobool10.not = icmp eq i32 %found_logs.0.lcssa, 0
-  br i1 %tobool10.not, label %if.then11, label %if.else
+  br i1 %found_logs.0.lcssa, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %for.end
   %cmp12 = icmp ult i32 %to_sleep.031, 1000000
@@ -717,24 +720,24 @@ if.else:                                          ; preds = %for.end
 if.end26:                                         ; preds = %if.else, %if.then11
   %to_sleep.2 = phi i32 [ %spec.store.select1, %if.else ], [ %spec.store.select, %if.then11 ]
   call void @STATS_LOCK() #18
-  %40 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 120), align 8
-  %add.i14 = add i64 %40, %ls.sroa.0.1.lcssa
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 120), align 8
+  %add.i14 = add i64 %41, %ls.sroa.0.1.lcssa
   store i64 %add.i14, ptr getelementptr inbounds (i8, ptr @stats, i64 120), align 8
-  %41 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 128), align 8
-  %add1.i = add i64 %41, %ls.sroa.4.1.lcssa
+  %42 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 128), align 8
+  %add1.i = add i64 %42, %ls.sroa.4.1.lcssa
   store i64 %add1.i, ptr getelementptr inbounds (i8, ptr @stats, i64 128), align 8
   %ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.16. = load i64, ptr %ls.sroa.7, align 8
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 136), align 8
-  %add2.i = add i64 %42, %ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.16.
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 136), align 8
+  %add2.i = add i64 %43, %ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.0.ls.sroa.7.16.
   store i64 %add2.i, ptr getelementptr inbounds (i8, ptr @stats, i64 136), align 8
   %ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.24. = load i64, ptr %ls.sroa.10, align 8
-  %43 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 144), align 8
-  %add3.i = add i64 %43, %ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.24.
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 144), align 8
+  %add3.i = add i64 %44, %ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.0.ls.sroa.10.24.
   store i64 %add3.i, ptr getelementptr inbounds (i8, ptr @stats, i64 144), align 8
-  store i32 %39, ptr getelementptr inbounds (i8, ptr @stats_state, i64 44), align 4
+  store i32 %40, ptr getelementptr inbounds (i8, ptr @stats_state, i64 44), align 4
   call void @STATS_UNLOCK() #18
-  %44 = load volatile i32, ptr @do_run_logger_thread, align 4
-  %tobool.not = icmp eq i32 %44, 0
+  %45 = load volatile i32, ptr @do_run_logger_thread, align 4
+  %tobool.not = icmp eq i32 %45, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end26, %entry

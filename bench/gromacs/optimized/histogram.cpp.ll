@@ -3306,13 +3306,13 @@ define void @_ZN3gmx24AbstractAverageHistogram20normalizeProbabilityEv(ptr nound
   br i1 %21, label %22, label %_ZN3gmx24AbstractAverageHistogram11scaleSingleEif.exit
 
 22:                                               ; preds = %._crit_edge
-  %23 = load float, ptr %6, align 8
-  %24 = fpext float %23 to double
-  %25 = fmul double %17, %24
-  %26 = fdiv double 1.000000e+00, %25
-  %27 = fptrunc double %26 to float
-  %28 = icmp sgt i32 %19, 0
-  br i1 %28, label %.lr.ph.i, label %_ZN3gmx24AbstractAverageHistogram11scaleSingleEif.exit
+  %23 = icmp sgt i32 %19, 0
+  %24 = load float, ptr %6, align 8
+  %25 = fpext float %24 to double
+  %26 = fmul double %17, %25
+  %27 = fdiv double 1.000000e+00, %26
+  %28 = fptrunc double %27 to float
+  br i1 %23, label %.lr.ph.i, label %_ZN3gmx24AbstractAverageHistogram11scaleSingleEif.exit
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %.08.i = phi i32 [ %45, %.lr.ph.i ], [ 0, %22 ]
@@ -3323,7 +3323,7 @@ define void @_ZN3gmx24AbstractAverageHistogram20normalizeProbabilityEv(ptr nound
   %33 = load ptr, ptr %5, align 8
   %34 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %33, i64 %32
   %35 = load float, ptr %34, align 4
-  %36 = fmul float %35, %27
+  %36 = fmul float %35, %28
   store float %36, ptr %34, align 4
   %37 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %38 = mul nsw i32 %37, %.08.i
@@ -3332,7 +3332,7 @@ define void @_ZN3gmx24AbstractAverageHistogram20normalizeProbabilityEv(ptr nound
   %41 = load ptr, ptr %5, align 8
   %42 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %41, i64 %40, i32 1
   %43 = load float, ptr %42, align 4
-  %44 = fmul float %43, %27
+  %44 = fmul float %43, %28
   store float %44, ptr %42, align 4
   %45 = add nuw nsw i32 %.08.i, 1
   %46 = load i32, ptr %4, align 8

@@ -661,8 +661,8 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
 
 .lr.ph20.i:                                       ; preds = %._crit_edge.thread.i, %.lr.ph20.preheader.i
   %.118.i = phi ptr [ %.6.i, %._crit_edge.thread.i ], [ %.0.i, %.lr.ph20.preheader.i ]
-  %.09417.i = phi i64 [ %129, %._crit_edge.thread.i ], [ 0, %.lr.ph20.preheader.i ]
-  %.09516.i = phi ptr [ %130, %._crit_edge.thread.i ], [ %31, %.lr.ph20.preheader.i ]
+  %.09417.i = phi i64 [ %130, %._crit_edge.thread.i ], [ 0, %.lr.ph20.preheader.i ]
+  %.09516.i = phi ptr [ %131, %._crit_edge.thread.i ], [ %31, %.lr.ph20.preheader.i ]
   %32 = load i32, ptr %.09516.i, align 8
   %33 = trunc i32 %32 to i8
   store i8 %33, ptr %.118.i, align 1
@@ -817,25 +817,25 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   br i1 %123, label %97, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %97
-  %124 = load i32, ptr %16, align 8
-  %125 = icmp ne i32 %124, 1
-  %126 = and i64 %122, 1
-  %.not103.i = icmp eq i64 %126, 0
-  %or.cond.i = or i1 %.not103.i, %125
-  br i1 %or.cond.i, label %._crit_edge.thread.i, label %127
+  %124 = and i64 %122, 1
+  %125 = icmp eq i64 %124, 0
+  %126 = load i32, ptr %16, align 8
+  %127 = icmp ne i32 %126, 1
+  %or.cond.i = or i1 %125, %127
+  br i1 %or.cond.i, label %._crit_edge.thread.i, label %128
 
-127:                                              ; preds = %._crit_edge.i
-  %128 = getelementptr inbounds i8, ptr %.512.i, i64 8
+128:                                              ; preds = %._crit_edge.i
+  %129 = getelementptr inbounds i8, ptr %.512.i, i64 8
   store i32 0, ptr %120, align 1
   br label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %127, %._crit_edge.i, %.loopexit.i
-  %.6.i = phi ptr [ %128, %127 ], [ %120, %._crit_edge.i ], [ %.3.i, %.loopexit.i ]
-  %129 = add nuw i64 %.09417.i, 1
-  %130 = getelementptr inbounds i8, ptr %.09516.i, i64 64
-  %131 = load i64, ptr %20, align 8
-  %132 = icmp ult i64 %129, %131
-  br i1 %132, label %.lr.ph20.i, label %H5O__pline_encode.exit
+._crit_edge.thread.i:                             ; preds = %128, %._crit_edge.i, %.loopexit.i
+  %.6.i = phi ptr [ %129, %128 ], [ %120, %._crit_edge.i ], [ %.3.i, %.loopexit.i ]
+  %130 = add nuw i64 %.09417.i, 1
+  %131 = getelementptr inbounds i8, ptr %.09516.i, i64 64
+  %132 = load i64, ptr %20, align 8
+  %133 = icmp ult i64 %130, %132
+  br i1 %133, label %.lr.ph20.i, label %H5O__pline_encode.exit
 
 H5O__pline_encode.exit:                           ; preds = %._crit_edge.thread.i, %28, %8, %11
   %.0 = phi i32 [ -1, %11 ], [ 0, %8 ], [ 0, %28 ], [ 0, %._crit_edge.thread.i ]
@@ -1096,30 +1096,30 @@ define internal i64 @H5O__pline_shared_size(ptr noundef %0, i1 noundef zeroext %
   %17 = select i1 %16, i64 8, i64 2
   %18 = getelementptr inbounds i8, ptr %2, i64 56
   %19 = load i64, ptr %18, align 8
-  %.not11.i = icmp eq i64 %19, 0
-  br i1 %.not11.i, label %H5O__pline_size.exit.thread, label %.lr.ph.i
+  %.not9.i = icmp eq i64 %19, 0
+  br i1 %.not9.i, label %H5O__pline_size.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13
   %20 = getelementptr inbounds i8, ptr %2, i64 64
   %.pre.pre.i = load ptr, ptr %20, align 8
   br label %21
 
-21:                                               ; preds = %47, %.lr.ph.i
-  %.pre.i = phi ptr [ %.pre.pre.i, %.lr.ph.i ], [ %.pre12.pre.i, %47 ]
-  %22 = phi i32 [ %15, %.lr.ph.i ], [ %41, %47 ]
-  %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %61, %47 ]
-  %.0319.i = phi i64 [ %17, %.lr.ph.i ], [ %.1.i, %47 ]
+21:                                               ; preds = %48, %.lr.ph.i
+  %.pre.i = phi ptr [ %.pre.pre.i, %.lr.ph.i ], [ %.pre10.i, %48 ]
+  %22 = phi i32 [ %15, %.lr.ph.i ], [ %41, %48 ]
+  %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %62, %48 ]
+  %.0317.i = phi i64 [ %17, %.lr.ph.i ], [ %.1.i, %48 ]
   %23 = icmp ugt i32 %22, 1
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %.pre.i, i64 %.010.i
+  %25 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %.pre.i, i64 %.08.i
   %26 = load i32, ptr %25, align 8
   %27 = icmp slt i32 %26, 256
   br i1 %27, label %.thread.i, label %28
 
 28:                                               ; preds = %24, %21
-  %29 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %.pre.i, i64 %.010.i
+  %29 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %.pre.i, i64 %.08.i
   %30 = getelementptr inbounds i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -1147,53 +1147,50 @@ define internal i64 @H5O__pline_shared_size(ptr noundef %0, i1 noundef zeroext %
   %.030.i = phi i64 [ 0, %24 ], [ %40, %.thread3.i ], [ 0, %36 ], [ 0, %33 ]
   %41 = load i32, ptr %14, align 8
   %42 = icmp eq i32 %41, 1
-  %.pre12.pre.i = load ptr, ptr %20, align 8
-  br i1 %42, label %.thread7.i, label %43
+  %.pre10.i = load ptr, ptr %20, align 8
+  br i1 %42, label %48, label %43
 
 43:                                               ; preds = %.thread.i
-  %44 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %.pre12.pre.i, i64 %.010.i
+  %44 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %.pre10.i, i64 %.08.i
   %45 = load i32, ptr %44, align 8
-  %.fr.i = freeze i32 %45
-  %46 = icmp sgt i32 %.fr.i, 255
-  br i1 %46, label %.thread7.i, label %47
+  %46 = icmp sgt i32 %45, 255
+  %47 = select i1 %46, i64 8, i64 6
+  br label %48
 
-.thread7.i:                                       ; preds = %43, %.thread.i
-  br label %47
+48:                                               ; preds = %43, %.thread.i
+  %49 = phi i64 [ 8, %.thread.i ], [ %47, %43 ]
+  %50 = add i64 %.030.i, 7
+  %51 = and i64 %50, -8
+  %52 = select i1 %42, i64 %51, i64 %.030.i
+  %53 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %.pre10.i, i64 %.08.i, i32 4
+  %54 = load i64, ptr %53, align 8
+  %55 = shl i64 %54, 2
+  %56 = add i64 %52, %.0317.i
+  %57 = add i64 %56, %49
+  %58 = add i64 %57, %55
+  %59 = icmp ne i32 %41, 1
+  %60 = and i64 %54, 1
+  %.not36.i = icmp eq i64 %60, 0
+  %or.cond.i = select i1 %59, i1 true, i1 %.not36.i
+  %61 = add i64 %58, 4
+  %.1.i = select i1 %or.cond.i, i64 %58, i64 %61
+  %62 = add nuw i64 %.08.i, 1
+  %63 = load i64, ptr %18, align 8
+  %64 = icmp ult i64 %62, %63
+  br i1 %64, label %21, label %H5O__pline_size.exit
 
-47:                                               ; preds = %.thread7.i, %43
-  %48 = phi i64 [ 8, %.thread7.i ], [ 6, %43 ]
-  %49 = add i64 %.030.i, 7
-  %50 = and i64 %49, -8
-  %51 = select i1 %42, i64 %50, i64 %.030.i
-  %52 = getelementptr inbounds %struct.H5Z_filter_info_t, ptr %.pre12.pre.i, i64 %.010.i, i32 4
-  %53 = load i64, ptr %52, align 8
-  %54 = shl i64 %53, 2
-  %55 = add i64 %51, %.0319.i
-  %56 = add i64 %55, %48
-  %57 = add i64 %56, %54
-  %58 = icmp ne i32 %41, 1
-  %59 = and i64 %53, 1
-  %.not36.i = icmp eq i64 %59, 0
-  %or.cond.i = select i1 %58, i1 true, i1 %.not36.i
-  %60 = add i64 %57, 4
-  %.1.i = select i1 %or.cond.i, i64 %57, i64 %60
-  %61 = add nuw i64 %.010.i, 1
-  %62 = load i64, ptr %18, align 8
-  %63 = icmp ult i64 %61, %62
-  br i1 %63, label %21, label %H5O__pline_size.exit
+H5O__pline_size.exit:                             ; preds = %48
+  %65 = icmp eq i64 %.1.i, 0
+  br i1 %65, label %66, label %H5O__pline_size.exit.thread
 
-H5O__pline_size.exit:                             ; preds = %47
-  %64 = icmp eq i64 %.1.i, 0
-  br i1 %64, label %65, label %H5O__pline_size.exit.thread
-
-65:                                               ; preds = %H5O__pline_size.exit
-  %66 = load i64, ptr @H5E_OHDR_g, align 8
-  %67 = load i64, ptr @H5E_CANTGET_g, align 8
-  %68 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__pline_shared_size, i32 noundef 172, i64 noundef %66, i64 noundef %67, ptr noundef nonnull @.str.18) #11
+66:                                               ; preds = %H5O__pline_size.exit
+  %67 = load i64, ptr @H5E_OHDR_g, align 8
+  %68 = load i64, ptr @H5E_CANTGET_g, align 8
+  %69 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5O__pline_shared_size, i32 noundef 172, i64 noundef %67, i64 noundef %68, ptr noundef nonnull @.str.18) #11
   br label %H5O__pline_size.exit.thread
 
-H5O__pline_size.exit.thread:                      ; preds = %13, %6, %H5O__pline_size.exit, %65, %9
-  %.0 = phi i64 [ 0, %65 ], [ %.1.i, %H5O__pline_size.exit ], [ 0, %9 ], [ %7, %6 ], [ %17, %13 ]
+H5O__pline_size.exit.thread:                      ; preds = %13, %6, %H5O__pline_size.exit, %66, %9
+  %.0 = phi i64 [ 0, %66 ], [ %.1.i, %H5O__pline_size.exit ], [ 0, %9 ], [ %7, %6 ], [ %17, %13 ]
   ret i64 %.0
 }
 

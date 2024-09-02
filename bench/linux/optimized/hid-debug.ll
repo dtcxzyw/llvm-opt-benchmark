@@ -1961,7 +1961,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hid_debug_events_read(pt
   %25 = load i32, ptr %8, align 8
   %26 = load i32, ptr %16, align 4
   %27 = icmp eq i32 %25, %26
-  br i1 %27, label %28, label %.loopexit
+  br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %19
   %29 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1971,13 +1971,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @hid_debug_events_read(pt
   %31 = load volatile i64, ptr %11, align 8
   %32 = and i64 %31, 131072
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %.thread3, !prof !25
+  br i1 %33, label %34, label %.critedge.thread, !prof !25
 
 34:                                               ; preds = %30
   %35 = load volatile i64, ptr %11, align 8
   %36 = and i64 %35, 4
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %.thread3
+  br i1 %37, label %38, label %.critedge.thread
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %20, align 8
@@ -1998,7 +1998,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hid_debug_events_read(pt
   %48 = load i32, ptr %29, align 8
   %49 = and i32 %48, 2048
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %.thread3
+  br i1 %50, label %51, label %.critedge.thread
 
 51:                                               ; preds = %47
   call void @mutex_unlock(ptr noundef %14) #9
@@ -2008,24 +2008,24 @@ define internal range(i64 -2147483648, 2147483648) i64 @hid_debug_events_read(pt
   %53 = load i32, ptr %8, align 8
   %54 = load i32, ptr %16, align 4
   %55 = icmp eq i32 %53, %54
-  br i1 %55, label %30, label %.loopexit, !llvm.loop !28
+  br i1 %55, label %30, label %.critedge, !llvm.loop !28
 
-.thread3:                                         ; preds = %34, %47, %30
-  %.ph = phi i32 [ -11, %47 ], [ -512, %34 ], [ -512, %30 ]
+.critedge.thread:                                 ; preds = %34, %47, %30
+  %.ph = phi i32 [ -512, %30 ], [ -11, %47 ], [ -512, %34 ]
   store volatile i32 0, ptr %23, align 8
   %56 = load ptr, ptr %20, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 7560
   call void @remove_wait_queue(ptr noundef %57, ptr noundef nonnull %6) #9
   br label %66
 
-.loopexit:                                        ; preds = %51, %19
+.critedge:                                        ; preds = %51, %19
   store volatile i32 0, ptr %23, align 8
   %58 = load ptr, ptr %20, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 7560
   call void @remove_wait_queue(ptr noundef %59, ptr noundef nonnull %6) #9
   br label %60
 
-60:                                               ; preds = %.loopexit, %4
+60:                                               ; preds = %.critedge, %4
   %61 = and i64 %2, 4294967295
   %62 = call i32 @__kfifo_to_user(ptr noundef %8, ptr noundef %1, i64 noundef %61, ptr noundef nonnull %5) #9
   %63 = icmp eq i32 %62, 0
@@ -2033,8 +2033,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @hid_debug_events_read(pt
   %65 = select i1 %63, i32 %64, i32 %62
   br label %66
 
-66:                                               ; preds = %.thread3, %60, %45
-  %67 = phi i32 [ -5, %45 ], [ %65, %60 ], [ %.ph, %.thread3 ]
+66:                                               ; preds = %.critedge.thread, %60, %45
+  %67 = phi i32 [ -5, %45 ], [ %65, %60 ], [ %.ph, %.critedge.thread ]
   call void @mutex_unlock(ptr noundef %14) #9
   %68 = sext i32 %67 to i64
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9

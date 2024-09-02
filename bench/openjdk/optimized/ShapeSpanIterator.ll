@@ -2384,13 +2384,13 @@ GetSpanData.exit:                                 ; preds = %17
   %100 = zext nneg i32 %4 to i64
   br label %101
 
-101:                                              ; preds = %.lr.ph, %191
-  %102 = phi float [ %61, %.lr.ph ], [ %192, %191 ]
-  %103 = phi float [ %61, %.lr.ph ], [ %193, %191 ]
-  %104 = phi float [ %61, %.lr.ph ], [ %194, %191 ]
-  %105 = phi float [ %64, %.lr.ph ], [ %195, %191 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %191 ]
-  %.2218 = phi i32 [ %.1167, %.lr.ph ], [ %.5, %191 ]
+101:                                              ; preds = %.lr.ph, %192
+  %102 = phi float [ %61, %.lr.ph ], [ %193, %192 ]
+  %103 = phi float [ %61, %.lr.ph ], [ %194, %192 ]
+  %104 = phi float [ %61, %.lr.ph ], [ %195, %192 ]
+  %105 = phi float [ %64, %.lr.ph ], [ %196, %192 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %192 ]
+  %.2218 = phi i32 [ %.1167, %.lr.ph ], [ %.5, %192 ]
   %106 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4
   %108 = sitofp i32 %107 to float
@@ -2404,7 +2404,7 @@ GetSpanData.exit:                                 ; preds = %17
 
 115:                                              ; preds = %101
   %116 = fcmp une float %109, %104
-  br i1 %116, label %117, label %191
+  br i1 %116, label %117, label %192
 
 117:                                              ; preds = %115
   %118 = load i32, ptr %65, align 8
@@ -2453,11 +2453,11 @@ GetSpanData.exit:                                 ; preds = %17
 140:                                              ; preds = %139, %137
   %141 = phi float [ %109, %139 ], [ %103, %137 ]
   %142 = fcmp olt float %102, %109
-  br i1 %142, label %143, label %191
+  br i1 %142, label %143, label %192
 
 143:                                              ; preds = %140
   store float %109, ptr %93, align 4
-  br label %191
+  br label %192
 
 144:                                              ; preds = %101
   %145 = load i32, ptr %65, align 8
@@ -2553,23 +2553,22 @@ GetSpanData.exit:                                 ; preds = %17
 190:                                              ; preds = %189, %185
   store float %109, ptr %89, align 4
   store float %113, ptr %91, align 8
-  br label %191
+  %191 = icmp eq i8 %.5175, 0
+  br label %192
 
-191:                                              ; preds = %115, %143, %140, %190
-  %192 = phi float [ %109, %143 ], [ %102, %140 ], [ %102, %115 ], [ %186, %190 ]
-  %193 = phi float [ %141, %143 ], [ %141, %140 ], [ %103, %115 ], [ %177, %190 ]
-  %194 = phi float [ %109, %143 ], [ %109, %140 ], [ %104, %115 ], [ %109, %190 ]
-  %195 = phi float [ %105, %143 ], [ %105, %140 ], [ %105, %115 ], [ %113, %190 ]
-  %.4174 = phi i8 [ 0, %143 ], [ 0, %140 ], [ 0, %115 ], [ %.5175, %190 ]
+192:                                              ; preds = %115, %143, %140, %190
+  %193 = phi float [ %109, %143 ], [ %102, %140 ], [ %102, %115 ], [ %186, %190 ]
+  %194 = phi float [ %141, %143 ], [ %141, %140 ], [ %103, %115 ], [ %177, %190 ]
+  %195 = phi float [ %109, %143 ], [ %109, %140 ], [ %104, %115 ], [ %109, %190 ]
+  %196 = phi float [ %105, %143 ], [ %105, %140 ], [ %105, %115 ], [ %113, %190 ]
+  %.4174 = phi i1 [ true, %143 ], [ true, %140 ], [ true, %115 ], [ %191, %190 ]
   %.5 = phi i32 [ %.4, %143 ], [ %.4, %140 ], [ %.2218, %115 ], [ %.1, %190 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not195 = icmp eq i8 %.4174, 0
-  %196 = icmp ult i64 %indvars.iv.next, %100
-  %197 = select i1 %.not195, i1 %196, i1 false
-  br i1 %197, label %101, label %._crit_edge.loopexit, !llvm.loop !14
+  %197 = icmp ult i64 %indvars.iv.next, %100
+  %198 = select i1 %.4174, i1 %197, i1 false
+  br i1 %198, label %101, label %.loopexit, !llvm.loop !14
 
-._crit_edge.loopexit:                             ; preds = %191
-  %198 = icmp eq i8 %.4174, 0
+.loopexit:                                        ; preds = %192
   %199 = load ptr, ptr %0, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 1784
   %201 = load ptr, ptr %200, align 8
@@ -2578,7 +2577,7 @@ GetSpanData.exit:                                 ; preds = %17
   %203 = getelementptr inbounds i8, ptr %202, i64 1784
   %204 = load ptr, ptr %203, align 8
   tail call void %204(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %49, i32 noundef 2) #14
-  br i1 %198, label %.thread212, label %.critedge
+  br i1 %.4174, label %.thread212, label %.critedge
 
 .thread212.critedge:                              ; preds = %88
   %205 = load ptr, ptr %0, align 8
@@ -2591,7 +2590,7 @@ GetSpanData.exit:                                 ; preds = %17
   tail call void %210(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %49, i32 noundef 2) #14
   br label %.thread212
 
-.thread212:                                       ; preds = %.thread212.critedge, %43, %._crit_edge.loopexit
+.thread212:                                       ; preds = %.thread212.critedge, %43, %.loopexit
   %211 = getelementptr inbounds i8, ptr %18, i64 68
   %212 = load float, ptr %211, align 4
   %213 = getelementptr inbounds i8, ptr %18, i64 76
@@ -2602,8 +2601,8 @@ GetSpanData.exit:                                 ; preds = %17
   %.phi.trans.insert221 = getelementptr inbounds i8, ptr %18, i64 80
   %.pre222 = load float, ptr %.phi.trans.insert221, align 8
   %216 = fcmp une float %.pre, %.pre222
-  %or.cond225 = select i1 %215, i1 true, i1 %216
-  br i1 %or.cond225, label %.thread212._crit_edge, label %.critedge204
+  %or.cond224 = select i1 %215, i1 true, i1 %216
+  br i1 %or.cond224, label %.thread212._crit_edge, label %.critedge204
 
 .thread212._crit_edge:                            ; preds = %.thread212
   %217 = tail call fastcc zeroext i8 @subdivideLine(ptr noundef nonnull %18, float noundef %212, float noundef %.pre, float noundef %214, float noundef %.pre222)
@@ -2623,7 +2622,7 @@ GetSpanData.exit:                                 ; preds = %17
   store i8 3, ptr %19, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge.loopexit, %223
+.critedge:                                        ; preds = %.loopexit, %223
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #14
   br label %GetSpanData.exit.thread
 

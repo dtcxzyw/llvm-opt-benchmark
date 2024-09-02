@@ -1474,50 +1474,50 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit285:       ; preds = %549, %552
   %638 = load ptr, ptr @stderr, align 8
   %639 = call i32 @fflush(ptr noundef %638)
   %.pre592 = load i8, ptr @_ZZ8gmx_rmsfiPPcE4bRes, align 1
-  br label %645
+  br label %646
 
 640:                                              ; preds = %._crit_edge.i
   %641 = load ptr, ptr %563, align 8
   %642 = zext nneg i32 %.0.lcssa.i to i64
   %643 = getelementptr inbounds %struct.t_pdbinfo, ptr %641, i64 %642, i32 5
   %644 = load float, ptr %643, align 4
-  br label %645
+  %645 = fpext float %644 to double
+  br label %646
 
-645:                                              ; preds = %640, %._crit_edge.thread.i
-  %646 = phi i8 [ %.pre592, %._crit_edge.thread.i ], [ %566, %640 ]
-  %.024.i = phi float [ 0.000000e+00, %._crit_edge.thread.i ], [ %644, %640 ]
+646:                                              ; preds = %640, %._crit_edge.thread.i
+  %647 = phi i8 [ %.pre592, %._crit_edge.thread.i ], [ %566, %640 ]
+  %.024.i = phi double [ 0.000000e+00, %._crit_edge.thread.i ], [ %645, %640 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %647 = trunc i8 %646 to i1
-  br i1 %647, label %648, label %660
+  %648 = trunc i8 %647 to i1
+  br i1 %648, label %649, label %661
 
-648:                                              ; preds = %645
-  %649 = load ptr, ptr %557, align 8
-  %650 = load ptr, ptr %274, align 8
-  %651 = load ptr, ptr %26, align 8
-  %652 = getelementptr inbounds i32, ptr %651, i64 %indvars.iv546
-  %653 = load i32, ptr %652, align 4
-  %654 = sext i32 %653 to i64
-  %655 = getelementptr inbounds %struct.t_atom, ptr %650, i64 %654, i32 7
-  %656 = load i32, ptr %655, align 4
-  %657 = sext i32 %656 to i64
-  %658 = getelementptr inbounds %struct.t_resinfo, ptr %649, i64 %657, i32 1
-  %659 = load i32, ptr %658, align 8
-  br label %665
+649:                                              ; preds = %646
+  %650 = load ptr, ptr %557, align 8
+  %651 = load ptr, ptr %274, align 8
+  %652 = load ptr, ptr %26, align 8
+  %653 = getelementptr inbounds i32, ptr %652, i64 %indvars.iv546
+  %654 = load i32, ptr %653, align 4
+  %655 = sext i32 %654 to i64
+  %656 = getelementptr inbounds %struct.t_atom, ptr %651, i64 %655, i32 7
+  %657 = load i32, ptr %656, align 4
+  %658 = sext i32 %657 to i64
+  %659 = getelementptr inbounds %struct.t_resinfo, ptr %650, i64 %658, i32 1
+  %660 = load i32, ptr %659, align 8
+  br label %666
 
-660:                                              ; preds = %645
-  %661 = load ptr, ptr %26, align 8
-  %662 = getelementptr inbounds i32, ptr %661, i64 %indvars.iv546
-  %663 = load i32, ptr %662, align 4
-  %664 = add nsw i32 %663, 1
-  br label %665
+661:                                              ; preds = %646
+  %662 = load ptr, ptr %26, align 8
+  %663 = getelementptr inbounds i32, ptr %662, i64 %indvars.iv546
+  %664 = load i32, ptr %663, align 4
+  %665 = add nsw i32 %664, 1
+  br label %666
 
-665:                                              ; preds = %660, %648
-  %666 = phi i32 [ %659, %648 ], [ %664, %660 ]
-  %667 = getelementptr inbounds double, ptr %180, i64 %indvars.iv546
-  %668 = load double, ptr %667, align 8
-  %669 = fmul double %668, 0x40A48FCA00000000
-  %670 = fpext float %.024.i to double
-  %671 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %548, ptr noundef nonnull @.str.62, i32 noundef %666, double noundef %669, double noundef %670) #17
+666:                                              ; preds = %661, %649
+  %667 = phi i32 [ %660, %649 ], [ %665, %661 ]
+  %668 = getelementptr inbounds double, ptr %180, i64 %indvars.iv546
+  %669 = load double, ptr %668, align 8
+  %670 = fmul double %669, 0x40A48FCA00000000
+  %671 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %548, ptr noundef nonnull @.str.62, i32 noundef %667, double noundef %670, double noundef %.024.i) #17
   %.pre583 = load i8, ptr @_ZZ8gmx_rmsfiPPcE4bRes, align 1
   %.pre593 = load i32, ptr %27, align 4
   %.pre606 = add nuw nsw i64 %indvars.iv546, 1
@@ -1551,10 +1551,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit285:       ; preds = %549, %552
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %44) #17
   br label %.body323
 
-678:                                              ; preds = %572, %665
-  %indvars.iv.next547.pre-phi = phi i64 [ %569, %572 ], [ %.pre606, %665 ]
-  %679 = phi i32 [ %565, %572 ], [ %.pre593, %665 ]
-  %680 = phi i8 [ %566, %572 ], [ %.pre583, %665 ]
+678:                                              ; preds = %572, %666
+  %indvars.iv.next547.pre-phi = phi i64 [ %569, %572 ], [ %.pre606, %666 ]
+  %679 = phi i32 [ %565, %572 ], [ %.pre593, %666 ]
+  %680 = phi i8 [ %566, %572 ], [ %.pre583, %666 ]
   %681 = sext i32 %679 to i64
   %682 = icmp slt i64 %indvars.iv.next547.pre-phi, %681
   br i1 %682, label %564, label %._crit_edge460.invoke, !llvm.loop !26

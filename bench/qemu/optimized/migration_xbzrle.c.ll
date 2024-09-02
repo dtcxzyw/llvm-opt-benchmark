@@ -31,6 +31,7 @@ entry:
   %sh_prom = zext nneg i32 %and to i64
   %notmask = shl nsw i64 -1, %sh_prom
   %sub = xor i64 %notmask, -1
+  %0 = bitcast i64 %sub to <64 x i1>
   %tobool9.not131 = icmp eq i32 %and, 0
   br label %while.cond.outer
 
@@ -59,7 +60,7 @@ if.end:                                           ; preds = %while.cond
 
 while.body10.lr.ph:                               ; preds = %if.end, %if.end.thread
   %dec167 = phi i32 [ %dec163, %if.end.thread ], [ 0, %if.end ]
-  %mask.0166 = phi i64 [ -1, %if.end.thread ], [ %sub, %if.end ]
+  %mask.0166 = phi <64 x i1> [ <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, %if.end.thread ], [ %0, %if.end ]
   %bytes_to_check.0165 = phi i32 [ 64, %if.end.thread ], [ %and, %if.end ]
   %tobool35 = icmp ne i32 %dec167, 0
   %add11196 = add i32 %d.0.ph208, 2
@@ -69,10 +70,9 @@ while.body10.lr.ph:                               ; preds = %if.end, %if.end.thr
 if.end14.lr.ph:                                   ; preds = %while.body10.lr.ph
   %idx.ext = sext i32 %i.0.ph207 to i64
   %add.ptr = getelementptr i8, ptr %old_buf, i64 %idx.ext
-  %0 = bitcast i64 %mask.0166 to <64 x i1>
-  %1 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %add.ptr, i32 1, <64 x i1> %0, <64 x i8> zeroinitializer)
+  %1 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %add.ptr, i32 1, <64 x i1> %mask.0166, <64 x i8> zeroinitializer)
   %add.ptr3 = getelementptr i8, ptr %new_buf, i64 %idx.ext
-  %2 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %add.ptr3, i32 1, <64 x i1> %0, <64 x i8> zeroinitializer)
+  %2 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %add.ptr3, i32 1, <64 x i1> %mask.0166, <64 x i8> zeroinitializer)
   %3 = icmp eq <64 x i8> %1, %2
   %4 = bitcast <64 x i1> %3 to i64
   %5 = trunc i64 %4 to i1

@@ -3813,7 +3813,7 @@ define dso_local void @BZ2_bzReadGetUnused(ptr noundef writeonly %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 {
+define dso_local range(i32 -8, 1) i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 {
   %8 = alloca %struct.bz_stream, align 8
   %9 = icmp eq ptr %0, null
   %10 = icmp eq ptr %1, null

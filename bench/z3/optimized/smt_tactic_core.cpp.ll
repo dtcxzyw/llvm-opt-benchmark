@@ -3216,12 +3216,12 @@ for.cond:                                         ; preds = %for.inc, %if.end50
 if.end.i.i:                                       ; preds = %for.cond
   %arrayidx.i.i = getelementptr inbounds i8, ptr %15, i64 -4
   %16 = load i32, ptr %arrayidx.i.i, align 4
+  %17 = zext i32 %16 to i64
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %16, %if.end.i.i ], [ 0, %for.cond ]
-  %17 = zext i32 %retval.0.i.i to i64
-  %cmp53 = icmp ult i64 %indvars.iv, %17
+  %retval.0.i.i = phi i64 [ %17, %if.end.i.i ], [ 0, %for.cond ]
+  %cmp53 = icmp ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp53, label %invoke.cont55, label %if.end107
 
 invoke.cont55:                                    ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit

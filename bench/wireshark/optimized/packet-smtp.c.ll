@@ -350,21 +350,21 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.0251326.us = phi i32 [ %.1252313.us, %321 ], [ 0, %.lr.ph329.split.us.preheader ]
   %66 = load i32, ptr @smtp_desegment, align 4
   %.not272.us = icmp eq i32 %66, 0
-  br i1 %.not272.us, label %70, label %67
+  br i1 %.not272.us, label %71, label %67
 
 67:                                               ; preds = %.lr.ph329.split.us
   %68 = load i16, ptr %47, align 8
   %69 = icmp ne i16 %68, 0
-  br label %70
+  %70 = zext i1 %69 to i32
+  br label %71
 
-70:                                               ; preds = %67, %.lr.ph329.split.us
-  %71 = phi i1 [ false, %.lr.ph329.split.us ], [ %69, %67 ]
-  %72 = zext i1 %71 to i32
+71:                                               ; preds = %67, %.lr.ph329.split.us
+  %72 = phi i32 [ 0, %.lr.ph329.split.us ], [ %70, %67 ]
   %73 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.0250327.us, i32 noundef -1, ptr noundef nonnull %11, i32 noundef %72) #7
   %74 = icmp eq i32 %73, -1
   br i1 %74, label %75, label %80
 
-75:                                               ; preds = %70
+75:                                               ; preds = %71
   %76 = icmp eq i32 %.0250327.us, 0
   br i1 %76, label %.split.us, label %77
 
@@ -374,8 +374,8 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %79, ptr %11, align 4
   br label %80
 
-80:                                               ; preds = %77, %70
-  %.0254.us = phi i32 [ %78, %77 ], [ %73, %70 ]
+80:                                               ; preds = %77, %71
+  %.0254.us = phi i32 [ %78, %77 ], [ %73, %71 ]
   %81 = load i32, ptr %48, align 8
   %.not273.us = icmp eq i32 %81, 0
   br i1 %.not273.us, label %85, label %82
@@ -574,16 +574,16 @@ line_is_smtp_command.exit.us:                     ; preds = %171
 179:                                              ; preds = %line_is_smtp_command.exit.us
   %180 = load i32, ptr %58, align 4
   %.not281.us = icmp eq i32 %180, 0
-  br i1 %.not281.us, label %181, label %184
+  br i1 %.not281.us, label %181, label %185
 
 181:                                              ; preds = %179
   %182 = load i32, ptr %.0259, align 8
   %183 = icmp eq i32 %182, 0
-  br label %184
+  %184 = zext i1 %183 to i16
+  br label %185
 
-184:                                              ; preds = %181, %179
-  %185 = phi i1 [ true, %179 ], [ %183, %181 ]
-  %186 = zext i1 %185 to i16
+185:                                              ; preds = %181, %179
+  %186 = phi i16 [ 1, %179 ], [ %184, %181 ]
   store i16 %186, ptr %.1328.us, align 8
   br label %321
 
@@ -885,9 +885,9 @@ append_pdu.exit292.us:                            ; preds = %309
   store i32 1, ptr %.0259, align 8
   br label %321
 
-321:                                              ; preds = %append_pdu.exit292.us, %296, %286, %append_pdu.exit290.us, %line_is_smtp_command.exit.thread317.us, %258, %257, %append_pdu.exit295.us, %230, %228, %226, %224, %222, %220, %219, %218, %184, %177, %175, %173
-  %.1252313.us = phi i32 [ %.2253.us, %append_pdu.exit290.us ], [ 0, %append_pdu.exit292.us ], [ 0, %296 ], [ 0, %286 ], [ %.2253.us, %258 ], [ %.2253.us, %257 ], [ %.2253.us, %append_pdu.exit295.us ], [ %.2253.us, %230 ], [ %.2253.us, %228 ], [ %.2253.us, %226 ], [ %.2253.us, %224 ], [ %.2253.us, %222 ], [ %.2253.us, %220 ], [ %.2253.us, %219 ], [ %.2253.us, %218 ], [ %.2253.us, %177 ], [ %.2253.us, %line_is_smtp_command.exit.thread317.us ], [ %.2253.us, %175 ], [ %.2253.us, %173 ], [ %.2253.us, %184 ]
-  %.2.us = phi ptr [ %280, %append_pdu.exit290.us ], [ %314, %append_pdu.exit292.us ], [ %.1328.us, %296 ], [ %.1328.us, %286 ], [ %.1328.us, %258 ], [ %.1328.us, %257 ], [ %249, %append_pdu.exit295.us ], [ %.1328.us, %230 ], [ %.1328.us, %228 ], [ %.1328.us, %226 ], [ %.1328.us, %224 ], [ %.1328.us, %222 ], [ %.1328.us, %220 ], [ %.1328.us, %219 ], [ %.1328.us, %218 ], [ %.1328.us, %177 ], [ %.1328.us, %line_is_smtp_command.exit.thread317.us ], [ %.1328.us, %175 ], [ %.1328.us, %173 ], [ %.1328.us, %184 ]
+321:                                              ; preds = %append_pdu.exit292.us, %296, %286, %append_pdu.exit290.us, %line_is_smtp_command.exit.thread317.us, %258, %257, %append_pdu.exit295.us, %230, %228, %226, %224, %222, %220, %219, %218, %185, %177, %175, %173
+  %.1252313.us = phi i32 [ %.2253.us, %append_pdu.exit290.us ], [ 0, %append_pdu.exit292.us ], [ 0, %296 ], [ 0, %286 ], [ %.2253.us, %258 ], [ %.2253.us, %257 ], [ %.2253.us, %append_pdu.exit295.us ], [ %.2253.us, %230 ], [ %.2253.us, %228 ], [ %.2253.us, %226 ], [ %.2253.us, %224 ], [ %.2253.us, %222 ], [ %.2253.us, %220 ], [ %.2253.us, %219 ], [ %.2253.us, %218 ], [ %.2253.us, %177 ], [ %.2253.us, %line_is_smtp_command.exit.thread317.us ], [ %.2253.us, %175 ], [ %.2253.us, %173 ], [ %.2253.us, %185 ]
+  %.2.us = phi ptr [ %280, %append_pdu.exit290.us ], [ %314, %append_pdu.exit292.us ], [ %.1328.us, %296 ], [ %.1328.us, %286 ], [ %.1328.us, %258 ], [ %.1328.us, %257 ], [ %249, %append_pdu.exit295.us ], [ %.1328.us, %230 ], [ %.1328.us, %228 ], [ %.1328.us, %226 ], [ %.1328.us, %224 ], [ %.1328.us, %222 ], [ %.1328.us, %220 ], [ %.1328.us, %219 ], [ %.1328.us, %218 ], [ %.1328.us, %177 ], [ %.1328.us, %line_is_smtp_command.exit.thread317.us ], [ %.1328.us, %175 ], [ %.1328.us, %173 ], [ %.1328.us, %185 ]
   %322 = load i32, ptr %11, align 4
   %323 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %322) #7
   %.not271.us = icmp eq i32 %323, 0
@@ -897,25 +897,25 @@ append_pdu.exit292.us:                            ; preds = %309
   %.0250327 = phi i32 [ %341, %340 ], [ 0, %.lr.ph329.split.preheader ]
   %324 = load i32, ptr @smtp_desegment, align 4
   %.not272 = icmp eq i32 %324, 0
-  br i1 %.not272, label %328, label %325
+  br i1 %.not272, label %329, label %325
 
 325:                                              ; preds = %.lr.ph329.split
   %326 = load i16, ptr %46, align 8
   %327 = icmp ne i16 %326, 0
-  br label %328
+  %328 = zext i1 %327 to i32
+  br label %329
 
-328:                                              ; preds = %325, %.lr.ph329.split
-  %329 = phi i1 [ false, %.lr.ph329.split ], [ %327, %325 ]
-  %330 = zext i1 %329 to i32
+329:                                              ; preds = %325, %.lr.ph329.split
+  %330 = phi i32 [ 0, %.lr.ph329.split ], [ %328, %325 ]
   %331 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.0250327, i32 noundef -1, ptr noundef nonnull %11, i32 noundef %330) #7
   %332 = icmp eq i32 %331, -1
   br i1 %332, label %333, label %._crit_edge
 
-._crit_edge:                                      ; preds = %328
+._crit_edge:                                      ; preds = %329
   %.pre = load i32, ptr %11, align 4
   br label %340
 
-333:                                              ; preds = %328
+333:                                              ; preds = %329
   %334 = icmp eq i32 %.0250327, 0
   br i1 %334, label %.split.us, label %337
 

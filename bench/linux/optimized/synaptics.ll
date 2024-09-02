@@ -1223,21 +1223,21 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 128
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.thread, label %18
+  br i1 %17, label %.critedge, label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %0, i64 232
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, -4
   %22 = icmp eq i8 %21, -124
-  br i1 %22, label %23, label %.thread
+  br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %18
   %24 = getelementptr i8, ptr %0, i64 235
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, -52
-  %.not10 = icmp eq i8 %26, -60
-  br i1 %.not10, label %27, label %.thread
+  %.not9 = icmp eq i8 %26, -60
+  br i1 %.not9, label %27, label %.critedge
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %3, i64 72
@@ -1283,7 +1283,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   %58 = tail call i32 @serio_interrupt(ptr noundef nonnull %29, i8 noundef zeroext %57, i32 noundef 0) #12
   br label %480
 
-.thread:                                          ; preds = %18, %23, %13
+.critedge:                                        ; preds = %18, %23, %13
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %0, align 8
@@ -1295,7 +1295,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %260, label %66
 
-66:                                               ; preds = %.thread
+66:                                               ; preds = %.critedge
   %67 = load i8, ptr %62, align 1
   %68 = zext i8 %67 to i32
   %69 = lshr i32 %68, 2
@@ -1565,7 +1565,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   store i8 %259, ptr %253, align 1
   br label %298
 
-260:                                              ; preds = %.thread
+260:                                              ; preds = %.critedge
   %261 = getelementptr i8, ptr %0, i64 233
   %262 = load i8, ptr %261, align 1
   %263 = and i8 %262, 31
@@ -1700,7 +1700,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   %345 = add i32 %344, %342
   store i32 %345, ptr %343, align 8
   %346 = icmp sgt i32 %345, 3
-  br i1 %346, label %347, label %.loopexit12
+  br i1 %346, label %347, label %.loopexit11
 
 347:                                              ; preds = %341
   %348 = and i8 %299, 16
@@ -1710,12 +1710,12 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   %352 = zext nneg i8 %351 to i32
   br label %362
 
-.loopexit12:                                      ; preds = %362, %341
+.loopexit11:                                      ; preds = %362, %341
   %353 = phi i32 [ %345, %341 ], [ %364, %362 ]
   %354 = icmp slt i32 %353, -3
   br i1 %354, label %355, label %.loopexit
 
-355:                                              ; preds = %.loopexit12
+355:                                              ; preds = %.loopexit11
   %356 = and i8 %299, 8
   %357 = icmp eq i8 %356, 0
   %358 = zext i1 %357 to i32
@@ -1733,7 +1733,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   %364 = add i32 %363, -4
   store i32 %364, ptr %343, align 8
   %365 = icmp sgt i32 %364, 3
-  br i1 %365, label %362, label %.loopexit12, !llvm.loop !16
+  br i1 %365, label %362, label %.loopexit11, !llvm.loop !16
 
 366:                                              ; preds = %366, %355
   tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 277, i32 noundef %358) #12
@@ -1818,20 +1818,20 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
 403:                                              ; preds = %401, %398
   %404 = phi i32 [ %.pre, %401 ], [ %302, %398 ]
   %405 = icmp sgt i32 %404, 30
-  br i1 %405, label %.sink.split13, label %406
+  br i1 %405, label %.sink.split12, label %406
 
 406:                                              ; preds = %403
   %407 = icmp slt i32 %404, 25
-  br i1 %407, label %.sink.split13, label %408
+  br i1 %407, label %.sink.split12, label %408
 
-.sink.split13:                                    ; preds = %406, %403
-  %.sink14 = phi i32 [ 1, %403 ], [ 0, %406 ]
-  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 330, i32 noundef %.sink14) #12
+.sink.split12:                                    ; preds = %406, %403
+  %.sink13 = phi i32 [ 1, %403 ], [ 0, %406 ]
+  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 330, i32 noundef %.sink13) #12
   br label %408
 
-408:                                              ; preds = %.sink.split13, %406
-  %.not11 = icmp eq i32 %393, 0
-  br i1 %.not11, label %413, label %409
+408:                                              ; preds = %.sink.split12, %406
+  %.not10 = icmp eq i32 %393, 0
+  br i1 %.not10, label %413, label %409
 
 409:                                              ; preds = %408
   %410 = load i32, ptr %2, align 4
@@ -1882,7 +1882,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   tail call void @input_event(ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %366, %434, %397, %.loopexit12, %337, %123, %92, %87
+.loopexit:                                        ; preds = %366, %434, %397, %.loopexit11, %337, %123, %92, %87
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #12
   br label %480
 

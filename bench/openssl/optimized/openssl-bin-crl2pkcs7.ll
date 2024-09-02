@@ -247,7 +247,7 @@ if.end.i:                                         ; preds = %for.body
 while.cond.preheader.i:                           ; preds = %if.end.i
   %call814.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call2.i) #2
   %tobool.not15.i = icmp eq i32 %call814.i, 0
-  br i1 %tobool.not15.i, label %add_certs_from_file.exit, label %while.body.i
+  br i1 %tobool.not15.i, label %for.inc.critedge, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end18.i
   %count.016.i = phi i32 [ %count.1.i, %if.end18.i ], [ 0, %while.cond.preheader.i ]
@@ -267,30 +267,35 @@ if.end18.i:                                       ; preds = %if.then12.i, %while
   call void @X509_INFO_free(ptr noundef nonnull %call10.i) #2
   %call8.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call2.i) #2
   %tobool.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool.not.i, label %add_certs_from_file.exit, label %while.body.i, !llvm.loop !7
+  br i1 %tobool.not.i, label %add_certs_from_file.exit.loopexit, label %while.body.i, !llvm.loop !7
 
 end.sink.split.i:                                 ; preds = %if.end.i, %for.body
   %.str.30.sink.i = phi ptr [ @.str.29, %for.body ], [ @.str.30, %if.end.i ]
   %8 = load ptr, ptr @bio_err, align 8
   %call5.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull %.str.30.sink.i, ptr noundef %call96) #2
-  br label %add_certs_from_file.exit
+  %call19.i.c75 = call i32 @BIO_free(ptr noundef %call.i) #2
+  call void @OPENSSL_sk_free(ptr noundef null) #2
+  br label %if.then99
 
-add_certs_from_file.exit:                         ; preds = %if.end18.i, %while.cond.preheader.i, %end.sink.split.i
-  %ret.0.i = phi i32 [ 0, %while.cond.preheader.i ], [ -1, %end.sink.split.i ], [ %count.1.i, %if.end18.i ]
-  %sk.0.i = phi ptr [ %call2.i, %while.cond.preheader.i ], [ null, %end.sink.split.i ], [ %call2.i, %if.end18.i ]
-  %call19.i = call i32 @BIO_free(ptr noundef %call.i) #2
-  call void @OPENSSL_sk_free(ptr noundef %sk.0.i) #2
-  %cmp98 = icmp slt i32 %ret.0.i, 0
-  br i1 %cmp98, label %if.then99, label %for.inc
+add_certs_from_file.exit.loopexit:                ; preds = %if.end18.i
+  %9 = icmp slt i32 %count.1.i, 0
+  %call19.i = call i32 @BIO_free(ptr noundef nonnull %call.i) #2
+  call void @OPENSSL_sk_free(ptr noundef nonnull %call2.i) #2
+  br i1 %9, label %if.then99, label %for.inc
 
-if.then99:                                        ; preds = %add_certs_from_file.exit
-  %9 = load ptr, ptr @bio_err, align 8
-  %call100 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.26) #2
+if.then99:                                        ; preds = %add_certs_from_file.exit.loopexit, %end.sink.split.i
   %10 = load ptr, ptr @bio_err, align 8
-  call void @ERR_print_errors(ptr noundef %10) #2
+  %call100 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull @.str.26) #2
+  %11 = load ptr, ptr @bio_err, align 8
+  call void @ERR_print_errors(ptr noundef %11) #2
   br label %end
 
-for.inc:                                          ; preds = %add_certs_from_file.exit
+for.inc.critedge:                                 ; preds = %while.cond.preheader.i
+  %call19.i.c = call i32 @BIO_free(ptr noundef nonnull %call.i) #2
+  call void @OPENSSL_sk_free(ptr noundef nonnull %call2.i) #2
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.inc.critedge, %add_certs_from_file.exit.loopexit
   %inc = add nuw nsw i32 %i.148, 1
   %call93 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certflst.0) #2
   %cmp94 = icmp slt i32 %inc, %call93
@@ -298,14 +303,14 @@ for.inc:                                          ; preds = %add_certs_from_file
 
 if.end102:                                        ; preds = %for.inc, %if.end91, %if.end85
   %i.0 = phi i32 [ 0, %if.end85 ], [ 0, %if.end91 ], [ %inc, %for.inc ]
-  %11 = load i32, ptr %outformat, align 4
-  %call103 = call ptr @bio_open_default(ptr noundef %outfile.0, i8 noundef signext 119, i32 noundef %11) #2
+  %12 = load i32, ptr %outformat, align 4
+  %call103 = call ptr @bio_open_default(ptr noundef %outfile.0, i8 noundef signext 119, i32 noundef %12) #2
   %cmp104 = icmp eq ptr %call103, null
   br i1 %cmp104, label %end, label %if.end106
 
 if.end106:                                        ; preds = %if.end102
-  %12 = load i32, ptr %outformat, align 4
-  switch i32 %12, label %if.end115 [
+  %13 = load i32, ptr %outformat, align 4
+  switch i32 %13, label %if.end115 [
     i32 4, label %if.then108
     i32 32773, label %if.then112
   ]
@@ -324,10 +329,10 @@ if.end115:                                        ; preds = %if.end106, %if.then
   br i1 %tobool116.not, label %if.then117, label %end
 
 if.then117:                                       ; preds = %if.end115
-  %13 = load ptr, ptr @bio_err, align 8
-  %call118 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %13, ptr noundef nonnull @.str.27) #2
   %14 = load ptr, ptr @bio_err, align 8
-  call void @ERR_print_errors(ptr noundef %14) #2
+  %call118 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef nonnull @.str.27) #2
+  %15 = load ptr, ptr @bio_err, align 8
+  call void @ERR_print_errors(ptr noundef %15) #2
   br label %end
 
 end:                                              ; preds = %sw.bb32, %if.end23, %land.lhs.true, %if.end115, %if.end102, %if.then87, %if.then76, %if.end67, %if.end63, %if.end59, %if.then42, %if.then117, %if.then99, %if.then56, %sw.bb3, %opthelp

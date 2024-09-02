@@ -29,7 +29,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   br label %13
 
-13:                                               ; preds = %48, %2
+13:                                               ; preds = %49, %2
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   %14 = load ptr, ptr %10, align 8, !noundef !3
   %15 = icmp eq ptr %14, null
@@ -44,7 +44,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit.thread: ; preds = %13
   store i64 5, ptr %12, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  br label %25
+  br label %26
 
 18:                                               ; preds = %16
   invoke void @"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$$GT$17hed6ff6d3be4dd6c2E"(ptr nonnull align 8 %10)
@@ -67,93 +67,93 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit.threa
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
-common.resume:                                    ; preds = %40, %19, %46
-  %common.resume.op = phi { ptr, i32 } [ %47, %46 ], [ %20, %19 ], [ %41, %40 ]
+common.resume:                                    ; preds = %41, %19, %47
+  %common.resume.op = phi { ptr, i32 } [ %48, %47 ], [ %20, %19 ], [ %42, %41 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit: ; preds = %16, %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   %.pre = load i64, ptr %12, align 8, !range !4
+  %24 = icmp eq i64 %.pre, 5
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  %.not = icmp eq i64 %.pre, 5
-  br i1 %.not, label %25, label %24
+  br i1 %24, label %26, label %25
 
-24:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit
+25:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false)
-  br label %28
+  br label %29
 
-25:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit.thread, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit
+26:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit.thread, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit
   call void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$17h233252a677647adfE"(ptr nonnull align 8 %9)
   call void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hc471dfece3bb6fdeE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %8, ptr nonnull align 8 %1)
-  %26 = load i64, ptr %8, align 8, !range !5, !noundef !3
-  %27 = icmp eq i64 %26, -9223372036854775808
-  br i1 %27, label %29, label %45
+  %27 = load i64, ptr %8, align 8, !range !5, !noundef !3
+  %28 = icmp eq i64 %27, -9223372036854775808
+  br i1 %28, label %30, label %46
 
-28:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit2, %24
+29:                                               ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit2, %25
   ret void
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %1, i64 64
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  %31 = load ptr, ptr %30, align 8, !noundef !3
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %36, label %33
+  %32 = load ptr, ptr %31, align 8, !noundef !3
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %37, label %34
 
-33:                                               ; preds = %29
-  call void @_ZN4core3ops8function6FnOnce9call_once17h5d77b0eeb1ff6689E(ptr nonnull sret({ [2 x i64], i64, [6 x i64] }) align 8 %3, ptr nonnull align 8 %30)
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
-  %35 = load i64, ptr %34, align 8, !range !4, !noundef !3
-  %.not9.i1 = icmp eq i64 %35, 5
-  br i1 %.not9.i1, label %38, label %39
+34:                                               ; preds = %30
+  call void @_ZN4core3ops8function6FnOnce9call_once17h5d77b0eeb1ff6689E(ptr nonnull sret({ [2 x i64], i64, [6 x i64] }) align 8 %3, ptr nonnull align 8 %31)
+  %35 = getelementptr inbounds i8, ptr %3, i64 16
+  %36 = load i64, ptr %35, align 8, !range !4, !noundef !3
+  %.not9.i1 = icmp eq i64 %36, 5
+  br i1 %.not9.i1, label %39, label %40
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 5, ptr %37, align 8
+37:                                               ; preds = %30
+  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 5, ptr %38, align 8
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit2
 
-38:                                               ; preds = %33
-  invoke void @"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$$GT$17hed6ff6d3be4dd6c2E"(ptr nonnull align 8 %30)
-          to label %42 unwind label %40
+39:                                               ; preds = %34
+  invoke void @"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$$GT$17hed6ff6d3be4dd6c2E"(ptr nonnull align 8 %31)
+          to label %43 unwind label %41
 
-39:                                               ; preds = %42, %33
+40:                                               ; preds = %43, %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   br label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit2
 
-40:                                               ; preds = %38
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %39
+  %42 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %30, align 8
+  store ptr null, ptr %31, align 8
   invoke void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$17h233252a677647adfE"(ptr nonnull align 8 %3) #7
-          to label %common.resume unwind label %43
+          to label %common.resume unwind label %44
 
-42:                                               ; preds = %38
-  store ptr null, ptr %30, align 8
-  br label %39
+43:                                               ; preds = %39
+  store ptr null, ptr %31, align 8
+  br label %40
 
-43:                                               ; preds = %40
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %41
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
-_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit2: ; preds = %36, %39
+_ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit2: ; preds = %37, %40
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  br label %28
+  br label %29
 
-45:                                               ; preds = %25
+46:                                               ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h48b8f79d674c2ddbE"(ptr nonnull sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %5, ptr nonnull align 8 %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   invoke void @"_ZN4core3ptr163drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$$GT$$GT$17hed6ff6d3be4dd6c2E"(ptr nonnull align 8 %10)
-          to label %48 unwind label %46
+          to label %49 unwind label %47
 
-46:                                               ; preds = %45
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %46
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   br label %common.resume
 
-48:                                               ; preds = %45
+49:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   br label %13
 }

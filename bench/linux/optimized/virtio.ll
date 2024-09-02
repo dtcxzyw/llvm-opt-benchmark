@@ -720,7 +720,7 @@ define internal noundef range(i32 0, 2) i32 @virtio_dev_match(ptr nocapture noun
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.thread3, label %7
+  br i1 %6, label %.critedge4, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr i8, ptr %0, i64 728
@@ -728,36 +728,36 @@ define internal noundef range(i32 0, 2) i32 @virtio_dev_match(ptr nocapture noun
   %10 = getelementptr i8, ptr %0, i64 732
   br label %16
 
-.thread:                                          ; preds = %16, %27
+.critedge:                                        ; preds = %16, %27
   %11 = add i32 %19, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct.virtio_device_id, ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.thread3, label %16, !llvm.loop !21
+  br i1 %15, label %.critedge4, label %16, !llvm.loop !21
 
-16:                                               ; preds = %.thread, %7
-  %17 = phi i32 [ %5, %7 ], [ %14, %.thread ]
-  %18 = phi ptr [ %4, %7 ], [ %13, %.thread ]
-  %19 = phi i32 [ 0, %7 ], [ %11, %.thread ]
+16:                                               ; preds = %.critedge, %7
+  %17 = phi i32 [ %5, %7 ], [ %14, %.critedge ]
+  %18 = phi ptr [ %4, %7 ], [ %13, %.critedge ]
+  %19 = phi i32 [ 0, %7 ], [ %11, %.critedge ]
   %20 = icmp eq i32 %17, %9
   %21 = icmp eq i32 %17, -1
   %22 = or i1 %21, %20
-  br i1 %22, label %23, label %.thread
+  br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %16
   %24 = getelementptr inbounds i8, ptr %18, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, -1
-  br i1 %26, label %.thread3, label %27
+  br i1 %26, label %.critedge4, label %27
 
 27:                                               ; preds = %23
   %28 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %25, %28
-  br i1 %.not, label %.thread3, label %.thread
+  br i1 %.not, label %.critedge4, label %.critedge
 
-.thread3:                                         ; preds = %23, %27, %.thread, %2
-  %29 = phi i32 [ 0, %2 ], [ 1, %23 ], [ 0, %.thread ], [ 1, %27 ]
+.critedge4:                                       ; preds = %23, %27, %.critedge, %2
+  %29 = phi i32 [ 0, %2 ], [ 1, %23 ], [ 0, %.critedge ], [ 1, %27 ]
   ret i32 %29
 }
 

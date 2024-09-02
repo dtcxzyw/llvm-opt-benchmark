@@ -100,31 +100,31 @@ define hidden ptr @phpdbg_btree_find_closest(ptr nocapture noundef readonly %0, 
   %19 = add i32 %7, -2
   br label %20
 
-20:                                               ; preds = %28, %17
-  %.134 = phi ptr [ %4, %17 ], [ %32, %28 ]
-  %.131 = phi i32 [ %18, %17 ], [ %33, %28 ]
+20:                                               ; preds = %29, %17
+  %.134 = phi ptr [ %4, %17 ], [ %32, %29 ]
+  %.131 = phi i32 [ %18, %17 ], [ %33, %29 ]
   %21 = zext nneg i32 %.131 to i64
   %22 = shl nuw i64 1, %21
   %23 = and i64 %22, %1
   %.not45 = icmp eq i64 %23, 0
-  br i1 %.not45, label %28, label %24
+  br i1 %.not45, label %29, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %.134, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp ne ptr %26, null
-  br label %28
+  %28 = zext i1 %27 to i64
+  br label %29
 
-28:                                               ; preds = %24, %20
-  %29 = phi i1 [ false, %20 ], [ %27, %24 ]
-  %30 = zext i1 %29 to i64
+29:                                               ; preds = %24, %20
+  %30 = phi i64 [ 0, %20 ], [ %28, %24 ]
   %31 = getelementptr inbounds [2 x ptr], ptr %.134, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = add nsw i32 %.131, -1
   %34 = icmp sgt i32 %33, %.0
   br i1 %34, label %20, label %.preheader
 
-.preheader:                                       ; preds = %28
+.preheader:                                       ; preds = %29
   %smin = tail call i32 @llvm.smin.i32(i32 %.0, i32 %19)
   %.23563 = load ptr, ptr %32, align 8
   %.not4664 = icmp eq i32 %smin, 0
@@ -230,31 +230,31 @@ define hidden noundef ptr @phpdbg_btree_next(ptr nocapture noundef %0) local_unn
   %20 = add i32 %9, -1
   br label %21
 
-21:                                               ; preds = %29, %19
-  %.134.i = phi ptr [ %6, %19 ], [ %33, %29 ]
-  %.131.i = phi i32 [ %20, %19 ], [ %34, %29 ]
+21:                                               ; preds = %30, %19
+  %.134.i = phi ptr [ %6, %19 ], [ %33, %30 ]
+  %.131.i = phi i32 [ %20, %19 ], [ %34, %30 ]
   %22 = zext nneg i32 %.131.i to i64
   %23 = shl nuw i64 1, %22
   %24 = and i64 %23, %4
   %.not45.i = icmp eq i64 %24, 0
-  br i1 %.not45.i, label %29, label %25
+  br i1 %.not45.i, label %30, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds i8, ptr %.134.i, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp ne ptr %27, null
-  br label %29
+  %29 = zext i1 %28 to i64
+  br label %30
 
-29:                                               ; preds = %25, %21
-  %30 = phi i1 [ false, %21 ], [ %28, %25 ]
-  %31 = zext i1 %30 to i64
+30:                                               ; preds = %25, %21
+  %31 = phi i64 [ 0, %21 ], [ %29, %25 ]
   %32 = getelementptr inbounds [2 x ptr], ptr %.134.i, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = add nsw i32 %.131.i, -1
   %35 = icmp sgt i32 %34, %.0.i
   br i1 %35, label %21, label %.preheader.i
 
-.preheader.i:                                     ; preds = %29
+.preheader.i:                                     ; preds = %30
   %36 = add i32 %9, -2
   %smin.i = tail call i32 @llvm.smin.i32(i32 %.0.i, i32 %36)
   %.23563.i = load ptr, ptr %33, align 8

@@ -1259,7 +1259,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evutil_inet_pton_scope(i32 noundef %af, ptr noundef %src, ptr nocapture noundef writeonly %dst, ptr nocapture noundef writeonly %indexp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @evutil_inet_pton_scope(i32 noundef %af, ptr noundef %src, ptr nocapture noundef writeonly %dst, ptr nocapture noundef writeonly %indexp) local_unnamed_addr #0 {
 entry:
   %check = alloca ptr, align 8
   store i32 0, ptr %indexp, align 4
@@ -2549,7 +2549,7 @@ while.end149:                                     ; preds = %if.end148
   br label %for.body158
 
 for.body158:                                      ; preds = %while.end149, %for.inc199
-  %i.485 = phi i32 [ 0, %while.end149 ], [ %inc200, %for.inc199 ]
+  %i.485 = phi i32 [ 0, %while.end149 ], [ %i.6, %for.inc199 ]
   %cp.084 = phi ptr [ %buf, %while.end149 ], [ %cp.2, %for.inc199 ]
   %idxprom159 = sext i32 %i.485 to i64
   %arrayidx160 = getelementptr inbounds [8 x i16], ptr %words, i64 0, i64 %idxprom159
@@ -2570,10 +2570,10 @@ if.end171.thread:                                 ; preds = %if.then167
   br label %land.rhs176.preheader
 
 if.end171:                                        ; preds = %if.then167
-  br i1 %cmp17480, label %land.rhs176.preheader, label %while.end185
+  br i1 %cmp17480, label %land.rhs176.preheader, label %for.end201
 
 land.rhs176.preheader:                            ; preds = %if.end171.thread, %if.end171
-  %incdec.ptr172101 = phi ptr [ %incdec.ptr17298, %if.end171.thread ], [ %incdec.ptr, %if.end171 ]
+  %incdec.ptr172100 = phi ptr [ %incdec.ptr17298, %if.end171.thread ], [ %incdec.ptr, %if.end171 ]
   br label %land.rhs176
 
 land.rhs176:                                      ; preds = %land.rhs176.preheader, %while.body183
@@ -2581,22 +2581,13 @@ land.rhs176:                                      ; preds = %land.rhs176.prehead
   %arrayidx178 = getelementptr inbounds [8 x i16], ptr %words, i64 0, i64 %indvars.iv93
   %24 = load i16, ptr %arrayidx178, align 2
   %cmp180 = icmp eq i16 %24, 0
-  br i1 %cmp180, label %while.body183, label %while.end185.loopexit.split.loop.exit110
+  br i1 %cmp180, label %while.body183, label %for.inc199.loopexit
 
 while.body183:                                    ; preds = %land.rhs176
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next94, 8
-  br i1 %exitcond96.not, label %while.end185, label %land.rhs176, !llvm.loop !18
-
-while.end185.loopexit.split.loop.exit110:         ; preds = %land.rhs176
-  %25 = trunc nsw i64 %indvars.iv93 to i32
-  br label %while.end185
-
-while.end185:                                     ; preds = %while.body183, %while.end185.loopexit.split.loop.exit110, %if.end171
-  %incdec.ptr172100 = phi ptr [ %incdec.ptr, %if.end171 ], [ %incdec.ptr172101, %while.end185.loopexit.split.loop.exit110 ], [ %incdec.ptr172101, %while.body183 ]
-  %i.5.lcssa = phi i32 [ %longestGapPos.1, %if.end171 ], [ %25, %while.end185.loopexit.split.loop.exit110 ], [ 8, %while.body183 ]
-  %dec = add nsw i32 %i.5.lcssa, -1
-  br label %for.inc199
+  %25 = and i64 %indvars.iv.next94, 4294967295
+  %exitcond96.not = icmp eq i64 %25, 8
+  br i1 %exitcond96.not, label %for.end201, label %land.rhs176, !llvm.loop !18
 
 if.else186:                                       ; preds = %for.body158
   %sub.ptr.lhs.cast = ptrtoint ptr %cp.084 to i64
@@ -2611,18 +2602,22 @@ if.else186:                                       ; preds = %for.body158
 if.then195:                                       ; preds = %if.else186
   %incdec.ptr196 = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 58, ptr %add.ptr, align 1
+  %26 = add nsw i32 %i.485, 1
   br label %for.inc199
 
-for.inc199:                                       ; preds = %while.end185, %if.then195
-  %cp.2 = phi ptr [ %incdec.ptr172100, %while.end185 ], [ %incdec.ptr196, %if.then195 ]
-  %i.6 = phi i32 [ %dec, %while.end185 ], [ %i.485, %if.then195 ]
-  %inc200 = add nsw i32 %i.6, 1
-  %cmp156 = icmp slt i32 %i.6, 7
+for.inc199.loopexit:                              ; preds = %land.rhs176
+  %27 = trunc nsw i64 %indvars.iv93 to i32
+  br label %for.inc199
+
+for.inc199:                                       ; preds = %for.inc199.loopexit, %if.then195
+  %cp.2 = phi ptr [ %incdec.ptr196, %if.then195 ], [ %incdec.ptr172100, %for.inc199.loopexit ]
+  %i.6 = phi i32 [ %26, %if.then195 ], [ %27, %for.inc199.loopexit ]
+  %cmp156 = icmp slt i32 %i.6, 8
   br i1 %cmp156, label %for.body158, label %for.end201, !llvm.loop !19
 
-for.end201:                                       ; preds = %if.else186, %for.inc199
-  %cp.2106 = phi ptr [ %cp.2, %for.inc199 ], [ %add.ptr, %if.else186 ]
-  store i8 0, ptr %cp.2106, align 1
+for.end201:                                       ; preds = %if.end171, %if.else186, %for.inc199, %while.body183
+  %cp.2104 = phi ptr [ %incdec.ptr172100, %while.body183 ], [ %add.ptr, %if.else186 ], [ %incdec.ptr, %if.end171 ], [ %cp.2, %for.inc199 ]
+  store i8 0, ptr %cp.2104, align 1
   %call203 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #32
   %cmp204 = icmp ugt i64 %call203, %len
   br i1 %cmp204, label %return, label %if.end207

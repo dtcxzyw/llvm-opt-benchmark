@@ -350,7 +350,7 @@ define internal range(i32 -1, 1) i32 @_match_inode(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @find_pid_by_inode(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @find_pid_by_inode(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [4096 x i8], align 16
   %5 = alloca %struct.stat, align 8
@@ -360,8 +360,8 @@ define noundef i32 @find_pid_by_inode(ptr nocapture noundef writeonly %0, i64 no
 
 .preheader:                                       ; preds = %2
   %8 = tail call ptr @readdir(ptr noundef nonnull %6) #10
-  %.not17 = icmp eq ptr %8, null
-  br i1 %.not17, label %.loopexit, label %.lr.ph
+  %.not19 = icmp eq ptr %8, null
+  br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %9 = tail call ptr @__ctype_b_loc() #11
@@ -370,7 +370,7 @@ define noundef i32 @find_pid_by_inode(ptr nocapture noundef writeonly %0, i64 no
 
 11:                                               ; preds = %2
   %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2) #10
-  br label %50
+  br label %49
 
 13:                                               ; preds = %.lr.ph, %.backedge
   %14 = phi ptr [ %8, %.lr.ph ], [ %22, %.backedge ]
@@ -384,7 +384,7 @@ define noundef i32 @find_pid_by_inode(ptr nocapture noundef writeonly %0, i64 no
   %.not16 = icmp eq i16 %21, 0
   br i1 %.not16, label %.backedge, label %23
 
-.backedge.sink.split:                             ; preds = %27, %23, %_find_inode_in_fddir.exit
+.backedge.sink.split:                             ; preds = %23, %27, %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
@@ -412,7 +412,7 @@ define noundef i32 @find_pid_by_inode(ptr nocapture noundef writeonly %0, i64 no
 .preheader.i:                                     ; preds = %27
   %30 = call ptr @readdir(ptr noundef nonnull %28) #10
   %.not15.i = icmp eq ptr %30, null
-  br i1 %.not15.i, label %_find_inode_in_fddir.exit, label %.lr.ph.i
+  br i1 %.not15.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.backedge.i
   %31 = phi ptr [ %34, %.backedge.i ], [ %30, %.preheader.i ]
@@ -424,7 +424,7 @@ define noundef i32 @find_pid_by_inode(ptr nocapture noundef writeonly %0, i64 no
 .backedge.i:                                      ; preds = %38, %35, %.lr.ph.i
   %34 = call ptr @readdir(ptr noundef nonnull %28) #10
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %_find_inode_in_fddir.exit, label %.lr.ph.i
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 35:                                               ; preds = %.lr.ph.i
   %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.7, ptr noundef nonnull %3, ptr noundef nonnull %32) #10
@@ -442,30 +442,30 @@ define noundef i32 @find_pid_by_inode(ptr nocapture noundef writeonly %0, i64 no
 42:                                               ; preds = %38
   %43 = call i32 @get_log_level() #10
   %44 = icmp sgt i32 %43, 6
-  br i1 %44, label %45, label %47
+  br i1 %44, label %45, label %.critedge17
 
 45:                                               ; preds = %42
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.17, i64 noundef %1, ptr noundef nonnull %4) #10
-  br label %47
+  br label %.critedge17
 
-_find_inode_in_fddir.exit:                        ; preds = %.backedge.i, %.preheader.i
+.loopexit.i:                                      ; preds = %.backedge.i, %.preheader.i
   %46 = call i32 @closedir(ptr noundef nonnull %28)
   br label %.backedge.sink.split
 
-47:                                               ; preds = %45, %42
-  %48 = call i32 @closedir(ptr noundef nonnull %28)
+.critedge17:                                      ; preds = %42, %45
+  %47 = call i32 @closedir(ptr noundef nonnull %28)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   store i32 %24, ptr %0, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.backedge, %.preheader, %47
-  %.1 = phi i32 [ 0, %47 ], [ -1, %.preheader ], [ -1, %.backedge ]
-  %49 = call i32 @closedir(ptr noundef nonnull %6)
-  br label %50
+.loopexit:                                        ; preds = %.backedge, %.preheader, %.critedge17
+  %.1 = phi i32 [ 0, %.critedge17 ], [ -1, %.preheader ], [ -1, %.backedge ]
+  %48 = call i32 @closedir(ptr noundef nonnull %6)
+  br label %49
 
-50:                                               ; preds = %.loopexit, %11
+49:                                               ; preds = %.loopexit, %11
   %.0 = phi i32 [ -1, %11 ], [ %.1, %.loopexit ]
   ret i32 %.0
 }

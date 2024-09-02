@@ -1568,19 +1568,19 @@ define internal fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, 
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 8
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %ext4_free_data.exit
+  br i1 %12, label %13, label %.critedge10
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %0, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %ext4_free_data.exit, label %16
+  br i1 %15, label %.critedge10, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %14, align 8
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 2
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %21, label %ext4_free_data.exit
+  br i1 %20, label %21, label %.critedge10
 
 21:                                               ; preds = %16, %6
   %22 = add i32 %5, -1
@@ -1591,7 +1591,7 @@ define internal fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, 
   %25 = getelementptr inbounds i8, ptr %1, i64 40
   %26 = getelementptr i8, ptr %4, i64 -4
   %27 = icmp ult ptr %26, %3
-  br i1 %27, label %ext4_free_data.exit, label %28
+  br i1 %27, label %.critedge10, label %28
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %25, align 8
@@ -1617,7 +1617,7 @@ define internal fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, 
 
 44:                                               ; preds = %41
   tail call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %1, ptr noundef nonnull @__func__.ext4_free_branches, i32 noundef 1030, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.9, i64 noundef %39, i32 noundef %22) #12
-  br label %ext4_free_data.exit
+  br label %.critedge10
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %25, align 8
@@ -1635,7 +1635,7 @@ define internal fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, 
 53:                                               ; preds = %87, %83, %82, %49, %36
   %54 = getelementptr i8, ptr %37, i64 -4
   %55 = icmp ult ptr %54, %3
-  br i1 %55, label %ext4_free_data.exit, label %36, !llvm.loop !47
+  br i1 %55, label %.critedge10, label %36, !llvm.loop !47
 
 56:                                               ; preds = %45
   %57 = getelementptr inbounds i8, ptr %47, i64 40
@@ -1650,27 +1650,27 @@ define internal fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, 
   br label %62
 
 62:                                               ; preds = %61, %56
-  br i1 %7, label %.thread9, label %63
+  br i1 %7, label %.critedge, label %63
 
 63:                                               ; preds = %62
   %64 = load i32, ptr %34, align 4
   %65 = and i32 %64, 8
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %ext4_free_data.exit
+  br i1 %66, label %67, label %.critedge10
 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %0, align 8
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %ext4_free_data.exit, label %70
+  br i1 %69, label %.critedge10, label %70
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %68, align 8
   %72 = load i64, ptr %71, align 8
   %73 = and i64 %72, 2
   %74 = icmp eq i64 %73, 0
-  br i1 %74, label %.thread9, label %ext4_free_data.exit
+  br i1 %74, label %.critedge, label %.critedge10
 
-.thread9:                                         ; preds = %62, %70
+.critedge:                                        ; preds = %62, %70
   %75 = load ptr, ptr %25, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 872
   %77 = load ptr, ptr %76, align 8
@@ -1678,9 +1678,9 @@ define internal fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, 
   %79 = load i32, ptr %78, align 16
   %80 = tail call fastcc i32 @ext4_ind_truncate_ensure_credits(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef %79)
   %81 = icmp slt i32 %80, 0
-  br i1 %81, label %ext4_free_data.exit, label %82
+  br i1 %81, label %.critedge10, label %82
 
-82:                                               ; preds = %.thread9
+82:                                               ; preds = %.critedge
   tail call void @ext4_free_blocks(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef %39, i64 noundef 1, i32 noundef 3) #12
   br i1 %35, label %53, label %83
 
@@ -1704,7 +1704,7 @@ define internal fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, 
   %93 = load ptr, ptr %92, align 8
   %94 = tail call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_free_data, i32 noundef 938, ptr noundef %0, ptr noundef %93, ptr noundef nonnull %2, i32 noundef 1) #12
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %ext4_free_data.exit
+  br i1 %95, label %96, label %.critedge10
 
 96:                                               ; preds = %91, %89
   %97 = icmp ult ptr %3, %4
@@ -1765,7 +1765,7 @@ define internal fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, 
   %132 = phi i32 [ %131, %130 ], [ %126, %121 ], [ 0, %96 ]
   %133 = icmp slt i32 %132, 0
   %134 = or i1 %90, %133
-  br i1 %134, label %ext4_free_data.exit, label %135
+  br i1 %134, label %.critedge10, label %135
 
 135:                                              ; preds = %.thread.i
   %136 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1785,15 +1785,15 @@ define internal fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, 
 
 147:                                              ; preds = %143, %135
   %148 = tail call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_free_data, i32 noundef 985, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) #12
-  br label %ext4_free_data.exit
+  br label %.critedge10
 
 149:                                              ; preds = %143
   %150 = getelementptr inbounds i8, ptr %2, i64 24
   %151 = load i64, ptr %150, align 8
   tail call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %1, ptr noundef nonnull @__func__.ext4_free_data, i32 noundef 990, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7, i64 noundef %151) #12
-  br label %ext4_free_data.exit
+  br label %.critedge10
 
-ext4_free_data.exit:                              ; preds = %63, %67, %.thread9, %70, %53, %149, %147, %.thread.i, %91, %44, %24, %16, %13, %8
+.critedge10:                                      ; preds = %67, %63, %.critedge, %70, %53, %149, %147, %.thread.i, %91, %44, %24, %16, %13, %8
   ret void
 }
 
@@ -1848,68 +1848,69 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %37 = shl nuw i32 1, %36
   %38 = zext nneg i32 %37 to i64
   %39 = icmp ult i32 %2, 12
-  br i1 %39, label %40, label %41
+  br i1 %39, label %40, label %42
 
 40:                                               ; preds = %29
   store i32 %2, ptr %5, align 16
-  br label %75
+  %41 = zext nneg i32 %2 to i64
+  br label %76
 
-41:                                               ; preds = %29
-  %42 = add i32 %2, -12
-  %43 = zext i32 %42 to i64
-  %44 = icmp sgt i64 %35, %43
-  br i1 %44, label %45, label %47
+42:                                               ; preds = %29
+  %43 = add i32 %2, -12
+  %44 = zext i32 %43 to i64
+  %45 = icmp sgt i64 %35, %44
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %41
+46:                                               ; preds = %42
   store i32 12, ptr %5, align 16
-  %46 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %42, ptr %46, align 4
-  br label %75
+  %47 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %43, ptr %47, align 4
+  br label %76
 
-47:                                               ; preds = %41
-  %48 = sub i32 %42, %31
-  %49 = icmp ult i32 %48, %37
-  br i1 %49, label %50, label %56
+48:                                               ; preds = %42
+  %49 = sub i32 %43, %31
+  %50 = icmp ult i32 %49, %37
+  br i1 %50, label %51, label %57
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   store i32 13, ptr %5, align 16
-  %51 = lshr i32 %48, %33
-  %52 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %51, ptr %52, align 4
-  %53 = add i32 %31, -1
-  %54 = and i32 %48, %53
-  %55 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %54, ptr %55, align 8
-  br label %75
+  %52 = lshr i32 %49, %33
+  %53 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %52, ptr %53, align 4
+  %54 = add i32 %31, -1
+  %55 = and i32 %49, %54
+  %56 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %55, ptr %56, align 8
+  br label %76
 
-56:                                               ; preds = %47
-  %57 = sub nuw i32 %48, %37
-  %58 = lshr i32 %57, %36
-  %59 = icmp ult i32 %58, %31
-  br i1 %59, label %60, label %68
+57:                                               ; preds = %48
+  %58 = sub nuw i32 %49, %37
+  %59 = lshr i32 %58, %36
+  %60 = icmp ult i32 %59, %31
+  br i1 %60, label %61, label %69
 
-60:                                               ; preds = %56
+61:                                               ; preds = %57
   store i32 14, ptr %5, align 16
-  %61 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %58, ptr %61, align 4
-  %62 = lshr i32 %57, %33
-  %63 = add i32 %31, -1
-  %64 = and i32 %62, %63
-  %65 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %64, ptr %65, align 8
-  %66 = and i32 %57, %63
-  %67 = getelementptr inbounds i8, ptr %5, i64 12
-  store i32 %66, ptr %67, align 4
-  br label %75
+  %62 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %59, ptr %62, align 4
+  %63 = lshr i32 %58, %33
+  %64 = add i32 %31, -1
+  %65 = and i32 %63, %64
+  %66 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %65, ptr %66, align 8
+  %67 = and i32 %58, %64
+  %68 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %67, ptr %68, align 4
+  br label %76
 
-68:                                               ; preds = %56
-  %69 = zext i32 %57 to i64
-  %70 = add nsw i64 %35, 12
-  %71 = add nsw i64 %70, %38
-  %72 = add nsw i64 %71, %69
-  %73 = getelementptr inbounds i8, ptr %1, i64 64
-  %74 = load i64, ptr %73, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %13, ptr noundef nonnull @__func__.ext4_block_to_path, i32 noundef 107, ptr noundef nonnull @.str.6, i64 noundef %72, i64 noundef %74) #12
+69:                                               ; preds = %57
+  %70 = zext i32 %58 to i64
+  %71 = add nsw i64 %35, 12
+  %72 = add nsw i64 %71, %38
+  %73 = add nsw i64 %72, %70
+  %74 = getelementptr inbounds i8, ptr %1, i64 64
+  %75 = load i64, ptr %74, align 8
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %13, ptr noundef nonnull @__func__.ext4_block_to_path, i32 noundef 107, ptr noundef nonnull @.str.6, i64 noundef %73, i64 noundef %75) #12
   %.pre = load ptr, ptr %12, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre103 = load i64, ptr %.phi.trans.insert, align 8
@@ -1924,104 +1925,103 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %.pre115 = shl i32 %.pre107, 1
   %.pre117 = shl nuw i32 1, %.pre115
   %.pre119 = zext nneg i32 %.pre117 to i64
-  br label %75
+  br label %76
 
-75:                                               ; preds = %68, %60, %50, %45, %40
-  %.pre-phi120 = phi i64 [ %.pre119, %68 ], [ %38, %60 ], [ %38, %50 ], [ %38, %45 ], [ %38, %40 ]
-  %.pre-phi118 = phi i32 [ %.pre117, %68 ], [ %37, %60 ], [ %37, %50 ], [ %37, %45 ], [ %37, %40 ]
-  %.pre-phi116 = phi i32 [ %.pre115, %68 ], [ %36, %60 ], [ %36, %50 ], [ %36, %45 ], [ %36, %40 ]
-  %.pre-phi114 = phi i64 [ %.pre113, %68 ], [ %35, %60 ], [ %35, %50 ], [ %35, %45 ], [ %35, %40 ]
-  %.pre-phi110 = phi i32 [ %.pre109, %68 ], [ %31, %60 ], [ %31, %50 ], [ %31, %45 ], [ %31, %40 ]
-  %76 = phi i32 [ 0, %68 ], [ 14, %60 ], [ 13, %50 ], [ 12, %45 ], [ %2, %40 ]
-  %77 = phi i32 [ %.pre107, %68 ], [ %33, %60 ], [ %33, %50 ], [ %33, %45 ], [ %33, %40 ]
-  %78 = phi ptr [ %.pre, %68 ], [ %13, %60 ], [ %13, %50 ], [ %13, %45 ], [ %13, %40 ]
-  %79 = phi i1 [ false, %68 ], [ true, %60 ], [ true, %50 ], [ true, %45 ], [ false, %40 ]
-  %80 = phi i32 [ 0, %68 ], [ 4, %60 ], [ 3, %50 ], [ 2, %45 ], [ 1, %40 ]
-  %81 = icmp ult i32 %28, 12
-  br i1 %81, label %.thread121, label %82
+76:                                               ; preds = %69, %61, %51, %46, %40
+  %.pre-phi120 = phi i64 [ %.pre119, %69 ], [ %38, %61 ], [ %38, %51 ], [ %38, %46 ], [ %38, %40 ]
+  %.pre-phi118 = phi i32 [ %.pre117, %69 ], [ %37, %61 ], [ %37, %51 ], [ %37, %46 ], [ %37, %40 ]
+  %.pre-phi116 = phi i32 [ %.pre115, %69 ], [ %36, %61 ], [ %36, %51 ], [ %36, %46 ], [ %36, %40 ]
+  %.pre-phi114 = phi i64 [ %.pre113, %69 ], [ %35, %61 ], [ %35, %51 ], [ %35, %46 ], [ %35, %40 ]
+  %.pre-phi110 = phi i32 [ %.pre109, %69 ], [ %31, %61 ], [ %31, %51 ], [ %31, %46 ], [ %31, %40 ]
+  %77 = phi i64 [ 0, %69 ], [ 14, %61 ], [ 13, %51 ], [ 12, %46 ], [ %41, %40 ]
+  %78 = phi i32 [ %.pre107, %69 ], [ %33, %61 ], [ %33, %51 ], [ %33, %46 ], [ %33, %40 ]
+  %79 = phi ptr [ %.pre, %69 ], [ %13, %61 ], [ %13, %51 ], [ %13, %46 ], [ %13, %40 ]
+  %80 = phi i1 [ false, %69 ], [ true, %61 ], [ true, %51 ], [ true, %46 ], [ false, %40 ]
+  %81 = phi i32 [ 0, %69 ], [ 4, %61 ], [ 3, %51 ], [ 2, %46 ], [ 1, %40 ]
+  %82 = icmp ult i32 %28, 12
+  br i1 %82, label %.thread121, label %83
 
-82:                                               ; preds = %75
+83:                                               ; preds = %76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !6
-  %83 = add i32 %28, -12
-  %84 = zext i32 %83 to i64
-  %85 = icmp sgt i64 %.pre-phi114, %84
-  br i1 %85, label %86, label %88
+  %84 = add i32 %28, -12
+  %85 = zext i32 %84 to i64
+  %86 = icmp sgt i64 %.pre-phi114, %85
+  br i1 %86, label %87, label %89
 
-86:                                               ; preds = %82
+87:                                               ; preds = %83
   store i32 12, ptr %6, align 16
-  %87 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %83, ptr %87, align 4
-  br label %116
+  %88 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %84, ptr %88, align 4
+  br label %117
 
-88:                                               ; preds = %82
-  %89 = sub i32 %83, %.pre-phi110
-  %90 = icmp ult i32 %89, %.pre-phi118
-  br i1 %90, label %91, label %97
+89:                                               ; preds = %83
+  %90 = sub i32 %84, %.pre-phi110
+  %91 = icmp ult i32 %90, %.pre-phi118
+  br i1 %91, label %92, label %98
 
-91:                                               ; preds = %88
+92:                                               ; preds = %89
   store i32 13, ptr %6, align 16
-  %92 = lshr i32 %89, %77
-  %93 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %92, ptr %93, align 4
-  %94 = add i32 %.pre-phi110, -1
-  %95 = and i32 %89, %94
-  %96 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %95, ptr %96, align 8
-  br label %116
+  %93 = lshr i32 %90, %78
+  %94 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %93, ptr %94, align 4
+  %95 = add i32 %.pre-phi110, -1
+  %96 = and i32 %90, %95
+  %97 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %96, ptr %97, align 8
+  br label %117
 
-97:                                               ; preds = %88
-  %98 = sub nuw i32 %89, %.pre-phi118
-  %99 = lshr i32 %98, %.pre-phi116
-  %100 = icmp ult i32 %99, %.pre-phi110
-  br i1 %100, label %101, label %109
+98:                                               ; preds = %89
+  %99 = sub nuw i32 %90, %.pre-phi118
+  %100 = lshr i32 %99, %.pre-phi116
+  %101 = icmp ult i32 %100, %.pre-phi110
+  br i1 %101, label %102, label %110
 
-101:                                              ; preds = %97
+102:                                              ; preds = %98
   store i32 14, ptr %6, align 16
-  %102 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %99, ptr %102, align 4
-  %103 = lshr i32 %98, %77
-  %104 = add i32 %.pre-phi110, -1
-  %105 = and i32 %103, %104
-  %106 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %105, ptr %106, align 8
-  %107 = and i32 %98, %104
-  %108 = getelementptr inbounds i8, ptr %6, i64 12
-  store i32 %107, ptr %108, align 4
-  br label %116
+  %103 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %100, ptr %103, align 4
+  %104 = lshr i32 %99, %78
+  %105 = add i32 %.pre-phi110, -1
+  %106 = and i32 %104, %105
+  %107 = getelementptr inbounds i8, ptr %6, i64 8
+  store i32 %106, ptr %107, align 8
+  %108 = and i32 %99, %105
+  %109 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 %108, ptr %109, align 4
+  br label %117
 
-109:                                              ; preds = %97
-  %110 = zext i32 %98 to i64
-  %111 = add nsw i64 %.pre-phi114, 12
-  %112 = add nsw i64 %111, %.pre-phi120
-  %113 = add nsw i64 %112, %110
-  %114 = getelementptr inbounds i8, ptr %1, i64 64
-  %115 = load i64, ptr %114, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %78, ptr noundef nonnull @__func__.ext4_block_to_path, i32 noundef 107, ptr noundef nonnull @.str.6, i64 noundef %113, i64 noundef %115) #12
-  br label %116
+110:                                              ; preds = %98
+  %111 = zext i32 %99 to i64
+  %112 = add nsw i64 %.pre-phi114, 12
+  %113 = add nsw i64 %112, %.pre-phi120
+  %114 = add nsw i64 %113, %111
+  %115 = getelementptr inbounds i8, ptr %1, i64 64
+  %116 = load i64, ptr %115, align 8
+  tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %79, ptr noundef nonnull @__func__.ext4_block_to_path, i32 noundef 107, ptr noundef nonnull @.str.6, i64 noundef %114, i64 noundef %116) #12
+  br label %117
 
-116:                                              ; preds = %109, %101, %91, %86
-  %117 = phi i32 [ 2, %86 ], [ 3, %91 ], [ 4, %101 ], [ 0, %109 ]
-  %118 = icmp ugt i32 %80, %117
-  br i1 %118, label %119, label %151, !prof !18
+117:                                              ; preds = %110, %102, %92, %87
+  %118 = phi i32 [ 2, %87 ], [ 3, %92 ], [ 4, %102 ], [ 0, %110 ]
+  %119 = icmp ugt i32 %81, %118
+  br i1 %119, label %120, label %151, !prof !18
 
-.thread121:                                       ; preds = %75
-  br i1 %79, label %119, label %.thread122, !prof !18
+.thread121:                                       ; preds = %76
+  br i1 %80, label %120, label %.thread122, !prof !18
 
-119:                                              ; preds = %.thread121, %116
+120:                                              ; preds = %.thread121, %117
   tail call void asm sideeffect "2053: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2053b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2053) #12, !srcloc !48
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1259, i32 0, i64 12) #12, !srcloc !49
   unreachable
 
 .thread122:                                       ; preds = %.thread121
-  %120 = zext nneg i32 %76 to i64
-  %121 = getelementptr i32, ptr %11, i64 %120
-  %122 = zext nneg i32 %28 to i64
-  %123 = getelementptr i32, ptr %11, i64 %122
-  %124 = icmp ult ptr %121, %123
+  %121 = zext nneg i32 %28 to i64
+  %122 = getelementptr i32, ptr %11, i64 %77
+  %123 = getelementptr i32, ptr %11, i64 %121
+  %124 = icmp ult ptr %122, %123
   br i1 %124, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %.thread122, %142
-  %125 = phi ptr [ %146, %142 ], [ %121, %.thread122 ]
+  %125 = phi ptr [ %146, %142 ], [ %122, %.thread122 ]
   %126 = phi ptr [ %145, %142 ], [ null, %.thread122 ]
   %127 = phi i64 [ %144, %142 ], [ 0, %.thread122 ]
   %128 = phi i64 [ %143, %142 ], [ 0, %.thread122 ]
@@ -2064,456 +2064,455 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %150 = tail call fastcc i32 @ext4_clear_blocks(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef %143, i64 noundef %144, ptr noundef %145, ptr noundef %146), !range !40
   br label %.thread
 
-151:                                              ; preds = %116
-  %152 = icmp ugt i32 %117, %80
-  br i1 %152, label %153, label %266
+151:                                              ; preds = %117
+  %152 = icmp ugt i32 %118, %81
+  br i1 %152, label %153, label %265
 
 153:                                              ; preds = %151
-  br i1 %39, label %154, label %185
+  br i1 %39, label %154, label %184
 
 154:                                              ; preds = %153
-  %155 = zext nneg i32 %76 to i64
-  %156 = getelementptr i32, ptr %11, i64 %155
-  %157 = getelementptr i8, ptr %1, i64 -248
-  %158 = icmp ult ptr %156, %157
-  br i1 %158, label %.preheader68, label %.thread61
+  %155 = getelementptr i32, ptr %11, i64 %77
+  %156 = getelementptr i8, ptr %1, i64 -248
+  %157 = icmp ult ptr %155, %156
+  br i1 %157, label %.preheader68, label %.thread61
 
-.preheader68:                                     ; preds = %154, %176
-  %159 = phi ptr [ %180, %176 ], [ %156, %154 ]
-  %160 = phi ptr [ %179, %176 ], [ null, %154 ]
-  %161 = phi i64 [ %178, %176 ], [ 0, %154 ]
-  %162 = phi i64 [ %177, %176 ], [ 0, %154 ]
-  %163 = load i32, ptr %159, align 4
-  %164 = zext i32 %163 to i64
-  %165 = icmp eq i32 %163, 0
-  br i1 %165, label %176, label %166
+.preheader68:                                     ; preds = %154, %175
+  %158 = phi ptr [ %179, %175 ], [ %155, %154 ]
+  %159 = phi ptr [ %178, %175 ], [ null, %154 ]
+  %160 = phi i64 [ %177, %175 ], [ 0, %154 ]
+  %161 = phi i64 [ %176, %175 ], [ 0, %154 ]
+  %162 = load i32, ptr %158, align 4
+  %163 = zext i32 %162 to i64
+  %164 = icmp eq i32 %162, 0
+  br i1 %164, label %175, label %165
 
-166:                                              ; preds = %.preheader68
-  %167 = icmp eq i64 %161, 0
-  br i1 %167, label %176, label %168
+165:                                              ; preds = %.preheader68
+  %166 = icmp eq i64 %160, 0
+  br i1 %166, label %175, label %167
 
-168:                                              ; preds = %166
-  %169 = add i64 %162, %161
-  %170 = icmp eq i64 %169, %164
-  br i1 %170, label %171, label %173
+167:                                              ; preds = %165
+  %168 = add i64 %161, %160
+  %169 = icmp eq i64 %168, %163
+  br i1 %169, label %170, label %172
 
-171:                                              ; preds = %168
-  %172 = add i64 %161, 1
-  br label %176
+170:                                              ; preds = %167
+  %171 = add i64 %160, 1
+  br label %175
 
-173:                                              ; preds = %168
-  %174 = tail call fastcc i32 @ext4_clear_blocks(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef %162, i64 noundef %161, ptr noundef %160, ptr noundef %159), !range !40
-  %175 = icmp eq i32 %174, 0
-  br i1 %175, label %176, label %.thread61
+172:                                              ; preds = %167
+  %173 = tail call fastcc i32 @ext4_clear_blocks(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef %161, i64 noundef %160, ptr noundef %159, ptr noundef %158), !range !40
+  %174 = icmp eq i32 %173, 0
+  br i1 %174, label %175, label %.thread61
 
-176:                                              ; preds = %173, %171, %166, %.preheader68
-  %177 = phi i64 [ %162, %171 ], [ %162, %.preheader68 ], [ %164, %166 ], [ %164, %173 ]
-  %178 = phi i64 [ %172, %171 ], [ %161, %.preheader68 ], [ 1, %166 ], [ 1, %173 ]
-  %179 = phi ptr [ %160, %171 ], [ %160, %.preheader68 ], [ %159, %166 ], [ %159, %173 ]
-  %180 = getelementptr i8, ptr %159, i64 4
-  %181 = icmp ult ptr %180, %157
-  br i1 %181, label %.preheader68, label %182, !llvm.loop !41
+175:                                              ; preds = %172, %170, %165, %.preheader68
+  %176 = phi i64 [ %161, %170 ], [ %161, %.preheader68 ], [ %163, %165 ], [ %163, %172 ]
+  %177 = phi i64 [ %171, %170 ], [ %160, %.preheader68 ], [ 1, %165 ], [ 1, %172 ]
+  %178 = phi ptr [ %159, %170 ], [ %159, %.preheader68 ], [ %158, %165 ], [ %158, %172 ]
+  %179 = getelementptr i8, ptr %158, i64 4
+  %180 = icmp ult ptr %179, %156
+  br i1 %180, label %.preheader68, label %181, !llvm.loop !41
 
-182:                                              ; preds = %176
-  %.not = icmp eq i64 %178, 0
-  br i1 %.not, label %.thread61, label %183
+181:                                              ; preds = %175
+  %.not = icmp eq i64 %177, 0
+  br i1 %.not, label %.thread61, label %182
 
-183:                                              ; preds = %182
-  %184 = tail call fastcc i32 @ext4_clear_blocks(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef %177, i64 noundef %178, ptr noundef %179, ptr noundef %180), !range !40
+182:                                              ; preds = %181
+  %183 = tail call fastcc i32 @ext4_clear_blocks(ptr noundef %0, ptr noundef %1, ptr noundef null, i64 noundef %176, i64 noundef %177, ptr noundef %178, ptr noundef %179), !range !40
   br label %.thread61
 
-185:                                              ; preds = %153
-  %186 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
-  %187 = load i32, ptr %9, align 4
-  %188 = icmp eq i32 %187, 0
-  br i1 %188, label %215, label %189
+184:                                              ; preds = %153
+  %185 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %81, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  %186 = load i32, ptr %9, align 4
+  %187 = icmp eq i32 %186, 0
+  br i1 %187, label %214, label %188
 
-189:                                              ; preds = %185
-  %190 = icmp eq ptr %186, %7
-  br i1 %190, label %191, label %202
+188:                                              ; preds = %184
+  %189 = icmp eq ptr %185, %7
+  br i1 %189, label %190, label %201
 
-191:                                              ; preds = %189
-  %192 = getelementptr inbounds i8, ptr %9, i64 4
-  %193 = zext nneg i32 %80 to i64
-  %194 = getelementptr %struct.Indirect, ptr %7, i64 %193
-  %195 = getelementptr i8, ptr %194, i64 -24
-  %196 = ptrtoint ptr %195 to i64
-  %197 = ptrtoint ptr %7 to i64
-  %198 = sub i64 %196, %197
-  %199 = sdiv exact i64 %198, 24
-  %200 = trunc i64 %199 to i32
-  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %192, i32 noundef %200)
-  %201 = load ptr, ptr %186, align 8
-  store i32 0, ptr %201, align 4
-  br label %215
+190:                                              ; preds = %188
+  %191 = getelementptr inbounds i8, ptr %9, i64 4
+  %192 = zext nneg i32 %81 to i64
+  %193 = getelementptr %struct.Indirect, ptr %7, i64 %192
+  %194 = getelementptr i8, ptr %193, i64 -24
+  %195 = ptrtoint ptr %194 to i64
+  %196 = ptrtoint ptr %7 to i64
+  %197 = sub i64 %195, %196
+  %198 = sdiv exact i64 %197, 24
+  %199 = trunc i64 %198 to i32
+  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %191, i32 noundef %199)
+  %200 = load ptr, ptr %185, align 8
+  store i32 0, ptr %200, align 4
+  br label %214
 
-202:                                              ; preds = %189
-  %203 = getelementptr inbounds i8, ptr %186, i64 16
-  %204 = load ptr, ptr %203, align 8
-  %205 = load ptr, ptr %186, align 8
-  %206 = getelementptr i8, ptr %205, i64 4
-  %207 = zext nneg i32 %80 to i64
-  %208 = getelementptr %struct.Indirect, ptr %7, i64 %207
-  %209 = getelementptr i8, ptr %208, i64 -24
-  %210 = ptrtoint ptr %209 to i64
-  %211 = ptrtoint ptr %186 to i64
-  %212 = sub i64 %210, %211
-  %213 = sdiv exact i64 %212, 24
-  %214 = trunc i64 %213 to i32
-  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %204, ptr noundef %205, ptr noundef %206, i32 noundef %214)
-  br label %215
+201:                                              ; preds = %188
+  %202 = getelementptr inbounds i8, ptr %185, i64 16
+  %203 = load ptr, ptr %202, align 8
+  %204 = load ptr, ptr %185, align 8
+  %205 = getelementptr i8, ptr %204, i64 4
+  %206 = zext nneg i32 %81 to i64
+  %207 = getelementptr %struct.Indirect, ptr %7, i64 %206
+  %208 = getelementptr i8, ptr %207, i64 -24
+  %209 = ptrtoint ptr %208 to i64
+  %210 = ptrtoint ptr %185 to i64
+  %211 = sub i64 %209, %210
+  %212 = sdiv exact i64 %211, 24
+  %213 = trunc i64 %212 to i32
+  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %203, ptr noundef %204, ptr noundef %205, i32 noundef %213)
+  br label %214
 
-215:                                              ; preds = %202, %191, %185
-  %216 = icmp ugt ptr %186, %7
-  br i1 %216, label %217, label %.thread61
+214:                                              ; preds = %201, %190, %184
+  %215 = icmp ugt ptr %185, %7
+  br i1 %215, label %216, label %.thread61
 
-217:                                              ; preds = %215
-  %218 = getelementptr i8, ptr %7, i64 -24
-  %219 = zext nneg i32 %80 to i64
-  %220 = getelementptr %struct.Indirect, ptr %218, i64 %219
-  %221 = ptrtoint ptr %220 to i64
-  %222 = ashr exact i64 %34, 30
-  br label %223
+216:                                              ; preds = %214
+  %217 = getelementptr i8, ptr %7, i64 -24
+  %218 = zext nneg i32 %81 to i64
+  %219 = getelementptr %struct.Indirect, ptr %217, i64 %218
+  %220 = ptrtoint ptr %219 to i64
+  %221 = ashr exact i64 %34, 30
+  br label %222
 
-223:                                              ; preds = %223, %217
-  %224 = phi ptr [ %186, %217 ], [ %236, %223 ]
-  %225 = getelementptr inbounds i8, ptr %224, i64 16
-  %226 = load ptr, ptr %225, align 8
-  %227 = load ptr, ptr %224, align 8
-  %228 = getelementptr i8, ptr %227, i64 4
-  %229 = getelementptr inbounds i8, ptr %226, i64 40
-  %230 = load ptr, ptr %229, align 8
-  %231 = getelementptr i8, ptr %230, i64 %222
-  %232 = ptrtoint ptr %224 to i64
-  %233 = sub i64 %221, %232
-  %234 = sdiv exact i64 %233, 24
-  %235 = trunc i64 %234 to i32
-  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %226, ptr noundef %228, ptr noundef %231, i32 noundef %235)
-  %236 = getelementptr i8, ptr %224, i64 -24
-  %237 = icmp ugt ptr %236, %7
-  br i1 %237, label %223, label %.thread61, !llvm.loop !50
+222:                                              ; preds = %222, %216
+  %223 = phi ptr [ %185, %216 ], [ %235, %222 ]
+  %224 = getelementptr inbounds i8, ptr %223, i64 16
+  %225 = load ptr, ptr %224, align 8
+  %226 = load ptr, ptr %223, align 8
+  %227 = getelementptr i8, ptr %226, i64 4
+  %228 = getelementptr inbounds i8, ptr %225, i64 40
+  %229 = load ptr, ptr %228, align 8
+  %230 = getelementptr i8, ptr %229, i64 %221
+  %231 = ptrtoint ptr %223 to i64
+  %232 = sub i64 %220, %231
+  %233 = sdiv exact i64 %232, 24
+  %234 = trunc i64 %233 to i32
+  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %225, ptr noundef %227, ptr noundef %230, i32 noundef %234)
+  %235 = getelementptr i8, ptr %223, i64 -24
+  %236 = icmp ugt ptr %235, %7
+  br i1 %236, label %222, label %.thread61, !llvm.loop !50
 
-.thread61:                                        ; preds = %223, %173, %154, %215, %183, %182
-  %238 = phi ptr [ null, %182 ], [ null, %183 ], [ %186, %215 ], [ null, %154 ], [ null, %173 ], [ %186, %223 ]
-  %239 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %117, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %10)
-  %240 = load i32, ptr %10, align 4
-  %241 = icmp eq i32 %240, 0
-  br i1 %241, label %244, label %242
+.thread61:                                        ; preds = %222, %172, %154, %214, %182, %181
+  %237 = phi ptr [ null, %181 ], [ null, %182 ], [ %185, %214 ], [ null, %154 ], [ null, %172 ], [ %185, %222 ]
+  %238 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %118, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %10)
+  %239 = load i32, ptr %10, align 4
+  %240 = icmp eq i32 %239, 0
+  br i1 %240, label %243, label %241
 
-242:                                              ; preds = %.thread61
-  %243 = icmp ugt ptr %239, %8
-  br i1 %243, label %248, label %.loopexit67
+241:                                              ; preds = %.thread61
+  %242 = icmp ugt ptr %238, %8
+  br i1 %242, label %247, label %.loopexit67
 
-244:                                              ; preds = %.thread61
-  %245 = load ptr, ptr %239, align 8
-  %246 = getelementptr i8, ptr %245, i64 4
-  store ptr %246, ptr %239, align 8
-  %247 = icmp ugt ptr %239, %8
-  br i1 %247, label %248, label %.loopexit67
+243:                                              ; preds = %.thread61
+  %244 = load ptr, ptr %238, align 8
+  %245 = getelementptr i8, ptr %244, i64 4
+  store ptr %245, ptr %238, align 8
+  %246 = icmp ugt ptr %238, %8
+  br i1 %246, label %247, label %.loopexit67
 
-248:                                              ; preds = %244, %242
-  %249 = getelementptr i8, ptr %8, i64 -24
-  %250 = zext nneg i32 %117 to i64
-  %251 = getelementptr %struct.Indirect, ptr %249, i64 %250
-  %252 = ptrtoint ptr %251 to i64
-  br label %253
+247:                                              ; preds = %243, %241
+  %248 = getelementptr i8, ptr %8, i64 -24
+  %249 = zext nneg i32 %118 to i64
+  %250 = getelementptr %struct.Indirect, ptr %248, i64 %249
+  %251 = ptrtoint ptr %250 to i64
+  br label %252
 
-253:                                              ; preds = %253, %248
-  %254 = phi ptr [ %239, %248 ], [ %264, %253 ]
-  %255 = getelementptr inbounds i8, ptr %254, i64 16
-  %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 40
-  %258 = load ptr, ptr %257, align 8
-  %259 = load ptr, ptr %254, align 8
-  %260 = ptrtoint ptr %254 to i64
-  %261 = sub i64 %252, %260
-  %262 = sdiv exact i64 %261, 24
-  %263 = trunc i64 %262 to i32
-  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %256, ptr noundef %258, ptr noundef %259, i32 noundef %263)
-  %264 = getelementptr i8, ptr %254, i64 -24
-  %265 = icmp ugt ptr %264, %8
-  br i1 %265, label %253, label %.loopexit67, !llvm.loop !51
+252:                                              ; preds = %252, %247
+  %253 = phi ptr [ %238, %247 ], [ %263, %252 ]
+  %254 = getelementptr inbounds i8, ptr %253, i64 16
+  %255 = load ptr, ptr %254, align 8
+  %256 = getelementptr inbounds i8, ptr %255, i64 40
+  %257 = load ptr, ptr %256, align 8
+  %258 = load ptr, ptr %253, align 8
+  %259 = ptrtoint ptr %253 to i64
+  %260 = sub i64 %251, %259
+  %261 = sdiv exact i64 %260, 24
+  %262 = trunc i64 %261 to i32
+  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %255, ptr noundef %257, ptr noundef %258, i32 noundef %262)
+  %263 = getelementptr i8, ptr %253, i64 -24
+  %264 = icmp ugt ptr %263, %8
+  br i1 %264, label %252, label %.loopexit67, !llvm.loop !51
 
-266:                                              ; preds = %151
-  %267 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %80, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
-  %268 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %117, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %10)
-  %269 = load i32, ptr %9, align 4
-  %270 = icmp eq i32 %269, 0
-  br i1 %270, label %.loopexit72, label %271
+265:                                              ; preds = %151
+  %266 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %81, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  %267 = call fastcc ptr @ext4_find_shared(ptr noundef %1, i32 noundef %118, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %10)
+  %268 = load i32, ptr %9, align 4
+  %269 = icmp eq i32 %268, 0
+  br i1 %269, label %.loopexit72, label %270
 
-271:                                              ; preds = %266
-  %272 = ptrtoint ptr %267 to i64
-  %273 = ptrtoint ptr %7 to i64
-  %274 = sub i64 %272, %273
-  %275 = sdiv exact i64 %274, 24
-  %276 = ptrtoint ptr %268 to i64
-  %277 = ptrtoint ptr %8 to i64
-  %278 = sub i64 %276, %277
-  %279 = sdiv exact i64 %278, 24
-  %280 = call i64 @llvm.smin.i64(i64 %275, i64 %279)
-  %281 = trunc i64 %280 to i32
-  %282 = icmp slt i32 %281, 0
-  br i1 %282, label %.loopexit72, label %.preheader71
+270:                                              ; preds = %265
+  %271 = ptrtoint ptr %266 to i64
+  %272 = ptrtoint ptr %7 to i64
+  %273 = sub i64 %271, %272
+  %274 = sdiv exact i64 %273, 24
+  %275 = ptrtoint ptr %267 to i64
+  %276 = ptrtoint ptr %8 to i64
+  %277 = sub i64 %275, %276
+  %278 = sdiv exact i64 %277, 24
+  %279 = call i64 @llvm.smin.i64(i64 %274, i64 %278)
+  %280 = trunc i64 %279 to i32
+  %281 = icmp slt i32 %280, 0
+  br i1 %281, label %.loopexit72, label %.preheader71
 
-283:                                              ; preds = %.preheader71
-  %284 = add i32 %286, 1
-  %285 = icmp sgt i32 %284, %281
-  br i1 %285, label %.loopexit72, label %.preheader71, !llvm.loop !52
+282:                                              ; preds = %.preheader71
+  %283 = add i32 %285, 1
+  %284 = icmp sgt i32 %283, %280
+  br i1 %284, label %.loopexit72, label %.preheader71, !llvm.loop !52
 
-.preheader71:                                     ; preds = %271, %283
-  %286 = phi i32 [ %284, %283 ], [ 0, %271 ]
-  %287 = sext i32 %286 to i64
-  %288 = getelementptr [4 x i32], ptr %5, i64 0, i64 %287
-  %289 = load i32, ptr %288, align 4
-  %290 = getelementptr [4 x i32], ptr %6, i64 0, i64 %287
-  %291 = load i32, ptr %290, align 4
-  %292 = icmp eq i32 %289, %291
-  br i1 %292, label %283, label %293
+.preheader71:                                     ; preds = %270, %282
+  %285 = phi i32 [ %283, %282 ], [ 0, %270 ]
+  %286 = sext i32 %285 to i64
+  %287 = getelementptr [4 x i32], ptr %5, i64 0, i64 %286
+  %288 = load i32, ptr %287, align 4
+  %289 = getelementptr [4 x i32], ptr %6, i64 0, i64 %286
+  %290 = load i32, ptr %289, align 4
+  %291 = icmp eq i32 %288, %290
+  br i1 %291, label %282, label %292
 
-293:                                              ; preds = %.preheader71
-  %294 = icmp eq ptr %267, %7
-  br i1 %294, label %295, label %305
+292:                                              ; preds = %.preheader71
+  %293 = icmp eq ptr %266, %7
+  br i1 %293, label %294, label %304
 
-295:                                              ; preds = %293
-  %296 = getelementptr inbounds i8, ptr %9, i64 4
-  %297 = zext nneg i32 %80 to i64
-  %298 = getelementptr %struct.Indirect, ptr %7, i64 %297
-  %299 = getelementptr i8, ptr %298, i64 -24
-  %300 = ptrtoint ptr %299 to i64
-  %301 = sub i64 %300, %272
-  %302 = sdiv exact i64 %301, 24
-  %303 = trunc i64 %302 to i32
-  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %296, i32 noundef %303)
-  %304 = load ptr, ptr %267, align 8
-  store i32 0, ptr %304, align 4
+294:                                              ; preds = %292
+  %295 = getelementptr inbounds i8, ptr %9, i64 4
+  %296 = zext nneg i32 %81 to i64
+  %297 = getelementptr %struct.Indirect, ptr %7, i64 %296
+  %298 = getelementptr i8, ptr %297, i64 -24
+  %299 = ptrtoint ptr %298 to i64
+  %300 = sub i64 %299, %271
+  %301 = sdiv exact i64 %300, 24
+  %302 = trunc i64 %301 to i32
+  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %295, i32 noundef %302)
+  %303 = load ptr, ptr %266, align 8
+  store i32 0, ptr %303, align 4
   br label %.loopexit72
 
-305:                                              ; preds = %293
-  %306 = getelementptr inbounds i8, ptr %267, i64 16
-  %307 = load ptr, ptr %306, align 8
-  %308 = load ptr, ptr %267, align 8
-  %309 = getelementptr i8, ptr %308, i64 4
-  %310 = zext nneg i32 %80 to i64
-  %311 = getelementptr %struct.Indirect, ptr %7, i64 %310
-  %312 = getelementptr i8, ptr %311, i64 -24
-  %313 = ptrtoint ptr %312 to i64
-  %314 = sub i64 %313, %272
-  %315 = sdiv exact i64 %314, 24
-  %316 = trunc i64 %315 to i32
-  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %307, ptr noundef %308, ptr noundef %309, i32 noundef %316)
+304:                                              ; preds = %292
+  %305 = getelementptr inbounds i8, ptr %266, i64 16
+  %306 = load ptr, ptr %305, align 8
+  %307 = load ptr, ptr %266, align 8
+  %308 = getelementptr i8, ptr %307, i64 4
+  %309 = zext nneg i32 %81 to i64
+  %310 = getelementptr %struct.Indirect, ptr %7, i64 %309
+  %311 = getelementptr i8, ptr %310, i64 -24
+  %312 = ptrtoint ptr %311 to i64
+  %313 = sub i64 %312, %271
+  %314 = sdiv exact i64 %313, 24
+  %315 = trunc i64 %314 to i32
+  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %306, ptr noundef %307, ptr noundef %308, i32 noundef %315)
   br label %.loopexit72
 
-.loopexit72:                                      ; preds = %283, %305, %295, %271, %266
-  %317 = load i32, ptr %10, align 4
-  %318 = icmp eq i32 %317, 0
-  br i1 %318, label %319, label %322
+.loopexit72:                                      ; preds = %282, %304, %294, %270, %265
+  %316 = load i32, ptr %10, align 4
+  %317 = icmp eq i32 %316, 0
+  br i1 %317, label %318, label %321
 
-319:                                              ; preds = %.loopexit72
-  %320 = load ptr, ptr %268, align 8
-  %321 = getelementptr i8, ptr %320, i64 4
-  store ptr %321, ptr %268, align 8
-  br label %322
+318:                                              ; preds = %.loopexit72
+  %319 = load ptr, ptr %267, align 8
+  %320 = getelementptr i8, ptr %319, i64 4
+  store ptr %320, ptr %267, align 8
+  br label %321
 
-322:                                              ; preds = %319, %.loopexit72
-  %323 = getelementptr i8, ptr %7, i64 -24
-  %324 = getelementptr i8, ptr %8, i64 -24
-  %325 = zext nneg i32 %80 to i64
-  %326 = getelementptr %struct.Indirect, ptr %323, i64 %325
-  %327 = ptrtoint ptr %326 to i64
-  %328 = zext nneg i32 %117 to i64
-  %329 = getelementptr %struct.Indirect, ptr %324, i64 %328
-  %330 = ptrtoint ptr %329 to i64
-  %331 = icmp ugt ptr %267, %7
-  %332 = icmp ugt ptr %268, %8
-  %333 = select i1 %331, i1 true, i1 %332
-  br i1 %333, label %.lr.ph, label %.loopexit70
+321:                                              ; preds = %318, %.loopexit72
+  %322 = getelementptr i8, ptr %7, i64 -24
+  %323 = getelementptr i8, ptr %8, i64 -24
+  %324 = zext nneg i32 %81 to i64
+  %325 = getelementptr %struct.Indirect, ptr %322, i64 %324
+  %326 = ptrtoint ptr %325 to i64
+  %327 = zext nneg i32 %118 to i64
+  %328 = getelementptr %struct.Indirect, ptr %323, i64 %327
+  %329 = ptrtoint ptr %328 to i64
+  %330 = icmp ugt ptr %266, %7
+  %331 = icmp ugt ptr %267, %8
+  %332 = select i1 %330, i1 true, i1 %331
+  br i1 %332, label %.lr.ph, label %.loopexit70
 
-.lr.ph:                                           ; preds = %322
-  %334 = ashr exact i64 %34, 30
-  br label %335
+.lr.ph:                                           ; preds = %321
+  %333 = ashr exact i64 %34, 30
+  br label %334
 
-335:                                              ; preds = %.lr.ph, %385
-  %336 = phi i1 [ %332, %.lr.ph ], [ %388, %385 ]
-  %337 = phi i1 [ %331, %.lr.ph ], [ %387, %385 ]
-  %338 = phi ptr [ %268, %.lr.ph ], [ %386, %385 ]
-  %339 = phi ptr [ %267, %.lr.ph ], [ %375, %385 ]
-  %340 = ptrtoint ptr %339 to i64
-  %341 = sub i64 %327, %340
-  %342 = sdiv exact i64 %341, 24
-  %343 = trunc i64 %342 to i32
-  %344 = ptrtoint ptr %338 to i64
-  %345 = sub i64 %330, %344
-  %346 = sdiv exact i64 %345, 24
-  %347 = trunc i64 %346 to i32
-  %348 = select i1 %337, i1 %336, i1 false
-  br i1 %348, label %349, label %362
+334:                                              ; preds = %.lr.ph, %384
+  %335 = phi i1 [ %331, %.lr.ph ], [ %387, %384 ]
+  %336 = phi i1 [ %330, %.lr.ph ], [ %386, %384 ]
+  %337 = phi ptr [ %267, %.lr.ph ], [ %385, %384 ]
+  %338 = phi ptr [ %266, %.lr.ph ], [ %374, %384 ]
+  %339 = ptrtoint ptr %338 to i64
+  %340 = sub i64 %326, %339
+  %341 = sdiv exact i64 %340, 24
+  %342 = trunc i64 %341 to i32
+  %343 = ptrtoint ptr %337 to i64
+  %344 = sub i64 %329, %343
+  %345 = sdiv exact i64 %344, 24
+  %346 = trunc i64 %345 to i32
+  %347 = select i1 %336, i1 %335, i1 false
+  br i1 %347, label %348, label %361
 
-349:                                              ; preds = %335
-  %350 = getelementptr inbounds i8, ptr %339, i64 16
-  %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 24
-  %353 = load i64, ptr %352, align 8
-  %354 = getelementptr inbounds i8, ptr %338, i64 16
-  %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 24
-  %357 = load i64, ptr %356, align 8
-  %358 = icmp eq i64 %353, %357
-  br i1 %358, label %.thread62, label %362
+348:                                              ; preds = %334
+  %349 = getelementptr inbounds i8, ptr %338, i64 16
+  %350 = load ptr, ptr %349, align 8
+  %351 = getelementptr inbounds i8, ptr %350, i64 24
+  %352 = load i64, ptr %351, align 8
+  %353 = getelementptr inbounds i8, ptr %337, i64 16
+  %354 = load ptr, ptr %353, align 8
+  %355 = getelementptr inbounds i8, ptr %354, i64 24
+  %356 = load i64, ptr %355, align 8
+  %357 = icmp eq i64 %352, %356
+  br i1 %357, label %.thread62, label %361
 
-.thread62:                                        ; preds = %349
-  %359 = load ptr, ptr %339, align 8
-  %360 = getelementptr i8, ptr %359, i64 4
-  %361 = load ptr, ptr %338, align 8
-  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %351, ptr noundef %360, ptr noundef %361, i32 noundef %343)
+.thread62:                                        ; preds = %348
+  %358 = load ptr, ptr %338, align 8
+  %359 = getelementptr i8, ptr %358, i64 4
+  %360 = load ptr, ptr %337, align 8
+  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %350, ptr noundef %359, ptr noundef %360, i32 noundef %342)
   br label %.loopexit70
 
-362:                                              ; preds = %349, %335
-  %363 = icmp sle i32 %343, %347
-  %364 = select i1 %337, i1 %363, i1 false
-  br i1 %364, label %365, label %374
+361:                                              ; preds = %348, %334
+  %362 = icmp sle i32 %342, %346
+  %363 = select i1 %336, i1 %362, i1 false
+  br i1 %363, label %364, label %373
 
-365:                                              ; preds = %362
-  %366 = getelementptr inbounds i8, ptr %339, i64 16
-  %367 = load ptr, ptr %366, align 8
-  %368 = load ptr, ptr %339, align 8
-  %369 = getelementptr i8, ptr %368, i64 4
-  %370 = getelementptr inbounds i8, ptr %367, i64 40
-  %371 = load ptr, ptr %370, align 8
-  %372 = getelementptr i8, ptr %371, i64 %334
-  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %367, ptr noundef %369, ptr noundef %372, i32 noundef %343)
-  %373 = getelementptr i8, ptr %339, i64 -24
-  br label %374
+364:                                              ; preds = %361
+  %365 = getelementptr inbounds i8, ptr %338, i64 16
+  %366 = load ptr, ptr %365, align 8
+  %367 = load ptr, ptr %338, align 8
+  %368 = getelementptr i8, ptr %367, i64 4
+  %369 = getelementptr inbounds i8, ptr %366, i64 40
+  %370 = load ptr, ptr %369, align 8
+  %371 = getelementptr i8, ptr %370, i64 %333
+  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %366, ptr noundef %368, ptr noundef %371, i32 noundef %342)
+  %372 = getelementptr i8, ptr %338, i64 -24
+  br label %373
 
-374:                                              ; preds = %365, %362
-  %375 = phi ptr [ %373, %365 ], [ %339, %362 ]
-  %376 = icmp sle i32 %347, %343
-  %377 = select i1 %336, i1 %376, i1 false
-  br i1 %377, label %378, label %385
+373:                                              ; preds = %364, %361
+  %374 = phi ptr [ %372, %364 ], [ %338, %361 ]
+  %375 = icmp sle i32 %346, %342
+  %376 = select i1 %335, i1 %375, i1 false
+  br i1 %376, label %377, label %384
 
-378:                                              ; preds = %374
-  %379 = getelementptr inbounds i8, ptr %338, i64 16
-  %380 = load ptr, ptr %379, align 8
-  %381 = getelementptr inbounds i8, ptr %380, i64 40
-  %382 = load ptr, ptr %381, align 8
-  %383 = load ptr, ptr %338, align 8
-  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %380, ptr noundef %382, ptr noundef %383, i32 noundef %347)
-  %384 = getelementptr i8, ptr %338, i64 -24
-  br label %385
+377:                                              ; preds = %373
+  %378 = getelementptr inbounds i8, ptr %337, i64 16
+  %379 = load ptr, ptr %378, align 8
+  %380 = getelementptr inbounds i8, ptr %379, i64 40
+  %381 = load ptr, ptr %380, align 8
+  %382 = load ptr, ptr %337, align 8
+  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef %379, ptr noundef %381, ptr noundef %382, i32 noundef %346)
+  %383 = getelementptr i8, ptr %337, i64 -24
+  br label %384
 
-385:                                              ; preds = %378, %374
-  %386 = phi ptr [ %384, %378 ], [ %338, %374 ]
-  %387 = icmp ugt ptr %375, %7
-  %388 = icmp ugt ptr %386, %8
-  %389 = select i1 %387, i1 true, i1 %388
-  br i1 %389, label %335, label %.loopexit70
+384:                                              ; preds = %377, %373
+  %385 = phi ptr [ %383, %377 ], [ %337, %373 ]
+  %386 = icmp ugt ptr %374, %7
+  %387 = icmp ugt ptr %385, %8
+  %388 = select i1 %386, i1 true, i1 %387
+  br i1 %388, label %334, label %.loopexit70
 
-.loopexit70:                                      ; preds = %385, %322, %.thread62, %438, %434, %430, %420, %411, %.loopexit67
-  %390 = phi ptr [ %238, %411 ], [ %238, %420 ], [ %238, %430 ], [ %238, %438 ], [ %238, %434 ], [ %238, %.loopexit67 ], [ %267, %.thread62 ], [ %267, %322 ], [ %267, %385 ]
-  %391 = phi ptr [ %239, %411 ], [ %239, %420 ], [ %239, %430 ], [ %239, %438 ], [ %239, %434 ], [ %239, %.loopexit67 ], [ %268, %.thread62 ], [ %268, %322 ], [ %268, %385 ]
-  %392 = icmp ugt ptr %390, %7
-  br i1 %392, label %.preheader66, label %.loopexit
+.loopexit70:                                      ; preds = %384, %321, %.thread62, %437, %433, %429, %419, %410, %.loopexit67
+  %389 = phi ptr [ %237, %410 ], [ %237, %419 ], [ %237, %429 ], [ %237, %437 ], [ %237, %433 ], [ %237, %.loopexit67 ], [ %266, %.thread62 ], [ %266, %321 ], [ %266, %384 ]
+  %390 = phi ptr [ %238, %410 ], [ %238, %419 ], [ %238, %429 ], [ %238, %437 ], [ %238, %433 ], [ %238, %.loopexit67 ], [ %267, %.thread62 ], [ %267, %321 ], [ %267, %384 ]
+  %391 = icmp ugt ptr %389, %7
+  br i1 %391, label %.preheader66, label %.loopexit
 
-.loopexit:                                        ; preds = %399, %.loopexit70
-  %393 = icmp ugt ptr %391, %8
-  br i1 %393, label %.preheader64, label %.thread
+.loopexit:                                        ; preds = %398, %.loopexit70
+  %392 = icmp ugt ptr %390, %8
+  br i1 %392, label %.preheader64, label %.thread
 
-.preheader66:                                     ; preds = %.loopexit70, %399
-  %394 = phi ptr [ %400, %399 ], [ %390, %.loopexit70 ]
-  %395 = getelementptr inbounds i8, ptr %394, i64 16
-  %396 = load ptr, ptr %395, align 8
-  %397 = icmp eq ptr %396, null
-  br i1 %397, label %399, label %398
+.preheader66:                                     ; preds = %.loopexit70, %398
+  %393 = phi ptr [ %399, %398 ], [ %389, %.loopexit70 ]
+  %394 = getelementptr inbounds i8, ptr %393, i64 16
+  %395 = load ptr, ptr %394, align 8
+  %396 = icmp eq ptr %395, null
+  br i1 %396, label %398, label %397
 
-398:                                              ; preds = %.preheader66
-  call void @__brelse(ptr noundef nonnull %396) #12
-  br label %399
+397:                                              ; preds = %.preheader66
+  call void @__brelse(ptr noundef nonnull %395) #12
+  br label %398
 
-399:                                              ; preds = %398, %.preheader66
-  %400 = getelementptr i8, ptr %394, i64 -24
-  %401 = icmp ugt ptr %400, %7
-  br i1 %401, label %.preheader66, label %.loopexit, !llvm.loop !53
+398:                                              ; preds = %397, %.preheader66
+  %399 = getelementptr i8, ptr %393, i64 -24
+  %400 = icmp ugt ptr %399, %7
+  br i1 %400, label %.preheader66, label %.loopexit, !llvm.loop !53
 
-.preheader64:                                     ; preds = %.loopexit, %407
-  %402 = phi ptr [ %408, %407 ], [ %391, %.loopexit ]
-  %403 = getelementptr inbounds i8, ptr %402, i64 16
-  %404 = load ptr, ptr %403, align 8
-  %405 = icmp eq ptr %404, null
-  br i1 %405, label %407, label %406
+.preheader64:                                     ; preds = %.loopexit, %406
+  %401 = phi ptr [ %407, %406 ], [ %390, %.loopexit ]
+  %402 = getelementptr inbounds i8, ptr %401, i64 16
+  %403 = load ptr, ptr %402, align 8
+  %404 = icmp eq ptr %403, null
+  br i1 %404, label %406, label %405
 
-406:                                              ; preds = %.preheader64
-  call void @__brelse(ptr noundef nonnull %404) #12
-  br label %407
+405:                                              ; preds = %.preheader64
+  call void @__brelse(ptr noundef nonnull %403) #12
+  br label %406
 
-407:                                              ; preds = %406, %.preheader64
-  %408 = getelementptr i8, ptr %402, i64 -24
-  %409 = icmp ugt ptr %408, %8
-  br i1 %409, label %.preheader64, label %.thread, !llvm.loop !54
+406:                                              ; preds = %405, %.preheader64
+  %407 = getelementptr i8, ptr %401, i64 -24
+  %408 = icmp ugt ptr %407, %8
+  br i1 %408, label %.preheader64, label %.thread, !llvm.loop !54
 
-.loopexit67:                                      ; preds = %253, %244, %242
-  %410 = load i32, ptr %5, align 16
-  switch i32 %410, label %411 [
-    i32 12, label %420
-    i32 13, label %430
+.loopexit67:                                      ; preds = %252, %243, %241
+  %409 = load i32, ptr %5, align 16
+  switch i32 %409, label %410 [
+    i32 12, label %419
+    i32 13, label %429
     i32 14, label %.loopexit70
   ]
 
-411:                                              ; preds = %.loopexit67
-  %412 = add nuw nsw i32 %80, 1
-  %413 = icmp ult i32 %412, %117
-  br i1 %413, label %414, label %.loopexit70
+410:                                              ; preds = %.loopexit67
+  %411 = add nuw nsw i32 %81, 1
+  %412 = icmp ult i32 %411, %118
+  br i1 %412, label %413, label %.loopexit70
 
-414:                                              ; preds = %411
-  %415 = getelementptr i8, ptr %1, i64 -248
-  %416 = load i32, ptr %415, align 4
-  store i32 %416, ptr %9, align 4
-  %417 = icmp eq i32 %416, 0
-  br i1 %417, label %420, label %418
+413:                                              ; preds = %410
+  %414 = getelementptr i8, ptr %1, i64 -248
+  %415 = load i32, ptr %414, align 4
+  store i32 %415, ptr %9, align 4
+  %416 = icmp eq i32 %415, 0
+  br i1 %416, label %419, label %417
 
-418:                                              ; preds = %414
-  %419 = getelementptr inbounds i8, ptr %9, i64 4
-  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %419, i32 noundef 1)
-  store i32 0, ptr %415, align 4
-  br label %420
+417:                                              ; preds = %413
+  %418 = getelementptr inbounds i8, ptr %9, i64 4
+  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %418, i32 noundef 1)
+  store i32 0, ptr %414, align 4
+  br label %419
 
-420:                                              ; preds = %418, %414, %.loopexit67
-  %421 = phi i32 [ %412, %418 ], [ %412, %414 ], [ %80, %.loopexit67 ]
-  %422 = add nuw nsw i32 %421, 1
-  %423 = icmp slt i32 %422, %117
-  br i1 %423, label %424, label %.loopexit70
+419:                                              ; preds = %417, %413, %.loopexit67
+  %420 = phi i32 [ %411, %417 ], [ %411, %413 ], [ %81, %.loopexit67 ]
+  %421 = add nuw nsw i32 %420, 1
+  %422 = icmp slt i32 %421, %118
+  br i1 %422, label %423, label %.loopexit70
 
-424:                                              ; preds = %420
-  %425 = getelementptr i8, ptr %1, i64 -244
-  %426 = load i32, ptr %425, align 4
-  store i32 %426, ptr %9, align 4
-  %427 = icmp eq i32 %426, 0
-  br i1 %427, label %430, label %428
+423:                                              ; preds = %419
+  %424 = getelementptr i8, ptr %1, i64 -244
+  %425 = load i32, ptr %424, align 4
+  store i32 %425, ptr %9, align 4
+  %426 = icmp eq i32 %425, 0
+  br i1 %426, label %429, label %427
 
-428:                                              ; preds = %424
-  %429 = getelementptr inbounds i8, ptr %9, i64 4
-  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %429, i32 noundef 2)
-  store i32 0, ptr %425, align 4
-  br label %430
+427:                                              ; preds = %423
+  %428 = getelementptr inbounds i8, ptr %9, i64 4
+  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %428, i32 noundef 2)
+  store i32 0, ptr %424, align 4
+  br label %429
 
-430:                                              ; preds = %428, %424, %.loopexit67
-  %431 = phi i32 [ %422, %428 ], [ %422, %424 ], [ %80, %.loopexit67 ]
-  %432 = add nuw nsw i32 %431, 1
-  %433 = icmp slt i32 %432, %117
-  br i1 %433, label %434, label %.loopexit70
+429:                                              ; preds = %427, %423, %.loopexit67
+  %430 = phi i32 [ %421, %427 ], [ %421, %423 ], [ %81, %.loopexit67 ]
+  %431 = add nuw nsw i32 %430, 1
+  %432 = icmp slt i32 %431, %118
+  br i1 %432, label %433, label %.loopexit70
 
-434:                                              ; preds = %430
-  %435 = getelementptr i8, ptr %1, i64 -240
-  %436 = load i32, ptr %435, align 4
-  store i32 %436, ptr %9, align 4
-  %437 = icmp eq i32 %436, 0
-  br i1 %437, label %.loopexit70, label %438
+433:                                              ; preds = %429
+  %434 = getelementptr i8, ptr %1, i64 -240
+  %435 = load i32, ptr %434, align 4
+  store i32 %435, ptr %9, align 4
+  %436 = icmp eq i32 %435, 0
+  br i1 %436, label %.loopexit70, label %437
 
-438:                                              ; preds = %434
-  %439 = getelementptr inbounds i8, ptr %9, i64 4
-  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %439, i32 noundef 3)
-  store i32 0, ptr %435, align 4
+437:                                              ; preds = %433
+  %438 = getelementptr inbounds i8, ptr %9, i64 4
+  call fastcc void @ext4_free_branches(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %9, ptr noundef %438, i32 noundef 3)
+  store i32 0, ptr %434, align 4
   br label %.loopexit70
 
-.thread:                                          ; preds = %407, %139, %.thread122, %.loopexit, %149, %148, %4
+.thread:                                          ; preds = %406, %139, %.thread122, %.loopexit, %149, %148, %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #12

@@ -19161,24 +19161,24 @@ if.then.i.i356:                                   ; preds = %invoke.cont8, %invo
   %19 = load i64, ptr %.pre.i, align 8, !tbaa !187
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %18, i64 %19
   store ptr %add.ptr.i.i.i, ptr %crtEnd_.i.i, align 8, !tbaa !372
+  %20 = ptrtoint ptr %add.ptr.i.i.i to i64
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %if.then.i.i356, %invoke.cont8
-  %20 = phi ptr [ null, %invoke.cont8 ], [ %add.ptr.i.i.i, %if.then.i.i356 ]
-  %21 = phi ptr [ null, %invoke.cont8 ], [ %18, %if.then.i.i356 ]
+  %21 = phi i64 [ 0, %invoke.cont8 ], [ %20, %if.then.i.i356 ]
+  %22 = phi ptr [ null, %invoke.cont8 ], [ %18, %if.then.i.i356 ]
   %remainingLen_.i.i917 = phi ptr [ %remainingLen_.i.i, %invoke.cont8 ], [ %remainingLen_.i.i916, %if.then.i.i356 ]
   %buffer_.i.i914 = phi ptr [ %buffer_.i.i, %invoke.cont8 ], [ %buffer_.i.i913, %if.then.i.i356 ]
   %crtPos_.i = getelementptr inbounds i8, ptr %cursor, i64 32
-  %22 = ptrtoint ptr %21 to i64
-  %add.i = add i64 %22, 1
+  %23 = ptrtoint ptr %22 to i64
+  %add.i = add i64 %23, 1
   %crtEnd_.i = getelementptr inbounds i8, ptr %cursor, i64 24
-  %23 = ptrtoint ptr %20 to i64
-  %cmp.not.i357 = icmp ugt i64 %add.i, %23
+  %cmp.not.i357 = icmp ugt i64 %add.i, %21
   br i1 %cmp.not.i357, label %if.else.i, label %if.then.i, !prof !208
 
 if.then.i:                                        ; preds = %invoke.cont10
-  %24 = load i8, ptr %21, align 1, !tbaa !540
-  %add.ptr.i = getelementptr inbounds i8, ptr %21, i64 1
+  %24 = load i8, ptr %22, align 1, !tbaa !540
+  %add.ptr.i = getelementptr inbounds i8, ptr %22, i64 1
   store ptr %add.ptr.i, ptr %crtPos_.i, align 8, !tbaa !371
   br label %invoke.cont11
 

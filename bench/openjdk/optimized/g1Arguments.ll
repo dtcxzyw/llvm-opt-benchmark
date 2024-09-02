@@ -760,7 +760,7 @@ define hidden void @_ZN11G1Arguments10initializeEv(ptr noundef nonnull align 8 d
   %31 = load i32, ptr @ParallelGCThreads, align 4
   %32 = add i32 %31, 2
   %33 = lshr i32 %32, 2
-  %34 = call noundef i32 @llvm.umax.i32(i32 %33, i32 1)
+  %34 = call noundef range(i32 1, 1073741824) i32 @llvm.umax.i32(i32 %33, i32 1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %34, ptr %3, align 4
   %35 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1096, i32 noundef 2, ptr noundef nonnull %3, i32 noundef 5) #13

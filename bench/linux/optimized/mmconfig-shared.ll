@@ -1493,7 +1493,7 @@ define internal range(i32 0, 16388) i32 @find_mboard_resource(ptr noundef %0, i3
 declare dso_local i32 @acpi_walk_resources(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @check_mcfg_resource(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
+define internal range(i32 0, 16388) i32 @check_mcfg_resource(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = alloca %struct.acpi_resource_address64, align 1
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %3) #11
   %4 = load i32, ptr %0, align 1

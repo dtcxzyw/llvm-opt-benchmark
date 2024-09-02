@@ -302,13 +302,16 @@ define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef 
   %.3 = phi i32 [ %91, %82 ], [ %.2, %77 ]
   %96 = add nuw nsw i32 %.090102, 1
   %exitcond.not = icmp eq i32 %96, %52
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %95, %44
-  %.1.lcssa = phi i32 [ 0, %44 ], [ %.3, %95 ]
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
-  %98 = sext i32 %.1.lcssa to i64
-  %99 = tail call i32 %97(i64 noundef %98, ptr noundef %29, ptr noundef null) #7
+._crit_edge.loopexit:                             ; preds = %95
+  %97 = sext i32 %.3 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %44
+  %.1.lcssa = phi i64 [ 0, %44 ], [ %97, %._crit_edge.loopexit ]
+  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %99 = tail call i32 %98(i64 noundef %.1.lcssa, ptr noundef %29, ptr noundef null) #7
   %100 = lshr i32 %.086105, 1
   %101 = shl i32 %.088104, 1
   %102 = sub nsw i32 %101, %51

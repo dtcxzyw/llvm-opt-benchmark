@@ -2981,76 +2981,76 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
 
 .lr.ph:                                           ; preds = %135
   %139 = add i32 %136, -1
-  %140 = add i32 %.1151239, %.0163234
-  br label %141
+  %140 = trunc nuw i8 %.0142242 to i1
+  %141 = add i32 %.1151239, %.0163234
+  br label %142
 
-141:                                              ; preds = %.lr.ph, %189
-  %.2227 = phi i8 [ %.0142242, %.lr.ph ], [ 0, %189 ]
+142:                                              ; preds = %.lr.ph, %189
+  %.2227 = phi i1 [ %140, %.lr.ph ], [ false, %189 ]
   %.2145226 = phi ptr [ %.0143241, %.lr.ph ], [ null, %189 ]
   %.2148225 = phi i64 [ %.0146240, %.lr.ph ], [ %200, %189 ]
   %.2158224 = phi i32 [ %.0156237, %.lr.ph ], [ %201, %189 ]
   %.2165223 = phi i32 [ %.0163234, %.lr.ph ], [ %202, %189 ]
   store i8 0, ptr %10, align 1
-  %142 = load i32, ptr %77, align 4
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %162
+  %143 = load i32, ptr %77, align 4
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %145, label %163
 
-144:                                              ; preds = %141
-  %145 = load ptr, ptr %13, align 8
-  %146 = call i32 @H5HF__man_iblock_entry_addr(ptr noundef %145, i32 noundef %.2158224, ptr noundef nonnull %11) #14
-  %147 = icmp slt i32 %146, 0
-  br i1 %147, label %148, label %152
+145:                                              ; preds = %142
+  %146 = load ptr, ptr %13, align 8
+  %147 = call i32 @H5HF__man_iblock_entry_addr(ptr noundef %146, i32 noundef %.2158224, ptr noundef nonnull %11) #14
+  %148 = icmp slt i32 %147, 0
+  br i1 %148, label %149, label %153
 
-148:                                              ; preds = %144
-  %149 = load i64, ptr @H5E_HEAP_g, align 8
-  %150 = load i64, ptr @H5E_CANTGET_g, align 8
-  %151 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_init_rows, i32 noundef 2351, i64 noundef %149, i64 noundef %150, ptr noundef nonnull @.str.59) #14
+149:                                              ; preds = %145
+  %150 = load i64, ptr @H5E_HEAP_g, align 8
+  %151 = load i64, ptr @H5E_CANTGET_g, align 8
+  %152 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_init_rows, i32 noundef 2351, i64 noundef %150, i64 noundef %151, ptr noundef nonnull @.str.59) #14
   br label %210
 
-152:                                              ; preds = %144
-  %153 = load i64, ptr %11, align 8
-  %.not181 = icmp eq i64 %153, -1
-  br i1 %.not181, label %162, label %154
+153:                                              ; preds = %145
+  %154 = load i64, ptr %11, align 8
+  %.not181 = icmp eq i64 %154, -1
+  br i1 %.not181, label %163, label %155
 
-154:                                              ; preds = %152
-  %155 = load ptr, ptr %13, align 8
-  %156 = call ptr @H5HF__man_iblock_protect(ptr noundef nonnull %0, i64 noundef %153, i32 noundef %136, ptr noundef %155, i32 noundef %.2158224, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %10) #14
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %158, label %162
+155:                                              ; preds = %153
+  %156 = load ptr, ptr %13, align 8
+  %157 = call ptr @H5HF__man_iblock_protect(ptr noundef nonnull %0, i64 noundef %154, i32 noundef %136, ptr noundef %156, i32 noundef %.2158224, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %10) #14
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %159, label %163
 
-158:                                              ; preds = %154
-  %159 = load i64, ptr @H5E_HEAP_g, align 8
-  %160 = load i64, ptr @H5E_CANTPROTECT_g, align 8
-  %161 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_init_rows, i32 noundef 2359, i64 noundef %159, i64 noundef %160, ptr noundef nonnull @.str.60) #14
+159:                                              ; preds = %155
+  %160 = load i64, ptr @H5E_HEAP_g, align 8
+  %161 = load i64, ptr @H5E_CANTPROTECT_g, align 8
+  %162 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_init_rows, i32 noundef 2359, i64 noundef %160, i64 noundef %161, ptr noundef nonnull @.str.60) #14
   br label %210
 
-162:                                              ; preds = %141, %152, %154
-  %.0149 = phi ptr [ %156, %154 ], [ null, %152 ], [ null, %141 ]
-  %163 = call fastcc ptr @H5HF__sect_indirect_new(ptr noundef nonnull %0, i64 noundef %.2148225, i64 noundef 0, ptr noundef %.0149, i64 noundef %.2148225, i32 noundef 0, i32 noundef 0, i32 noundef %138)
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %165, label %169
+163:                                              ; preds = %142, %153, %155
+  %.0149 = phi ptr [ %157, %155 ], [ null, %153 ], [ null, %142 ]
+  %164 = call fastcc ptr @H5HF__sect_indirect_new(ptr noundef nonnull %0, i64 noundef %.2148225, i64 noundef 0, ptr noundef %.0149, i64 noundef %.2148225, i32 noundef 0, i32 noundef 0, i32 noundef %138)
+  %165 = icmp eq ptr %164, null
+  br i1 %165, label %166, label %170
 
-165:                                              ; preds = %162
-  %166 = load i64, ptr @H5E_HEAP_g, align 8
-  %167 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %168 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_init_rows, i32 noundef 2370, i64 noundef %166, i64 noundef %167, ptr noundef nonnull @.str.12) #14
+166:                                              ; preds = %163
+  %167 = load i64, ptr @H5E_HEAP_g, align 8
+  %168 = load i64, ptr @H5E_CANTINIT_g, align 8
+  %169 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_init_rows, i32 noundef 2370, i64 noundef %167, i64 noundef %168, ptr noundef nonnull @.str.12) #14
   br label %210
 
-169:                                              ; preds = %162
-  %170 = trunc nuw i8 %.2227 to i1
+170:                                              ; preds = %163
   %171 = load i32, ptr %17, align 8
   %172 = add i32 %171, -1
-  %173 = call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef nonnull %163, i1 noundef zeroext %170, ptr noundef %.2145226, i32 noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %139, i32 noundef %172)
+  %173 = call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef nonnull %164, i1 noundef zeroext %.2227, ptr noundef %.2145226, i32 noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef %139, i32 noundef %172)
   %174 = icmp slt i32 %173, 0
   br i1 %174, label %175, label %179
 
-175:                                              ; preds = %169
+175:                                              ; preds = %170
   %176 = load i64, ptr @H5E_HEAP_g, align 8
   %177 = load i64, ptr @H5E_CANTINIT_g, align 8
   %178 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__sect_indirect_init_rows, i32 noundef 2376, i64 noundef %176, i64 noundef %177, ptr noundef nonnull @.str.13) #14
   br label %210
 
-179:                                              ; preds = %169
+179:                                              ; preds = %170
   %.not182 = icmp eq ptr %.0149, null
   br i1 %.not182, label %189, label %180
 
@@ -3068,14 +3068,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
   br label %210
 
 189:                                              ; preds = %180, %179
-  %190 = getelementptr inbounds i8, ptr %163, i64 48
+  %190 = getelementptr inbounds i8, ptr %164, i64 48
   store ptr %1, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %163, i64 56
+  %191 = getelementptr inbounds i8, ptr %164, i64 56
   store i32 %.2158224, ptr %191, align 8
   %192 = load ptr, ptr %16, align 8
   %193 = zext i32 %.2165223 to i64
   %194 = getelementptr inbounds ptr, ptr %192, i64 %193
-  store ptr %163, ptr %194, align 8
+  store ptr %164, ptr %194, align 8
   %195 = load i32, ptr %14, align 4
   %196 = add i32 %195, 1
   store i32 %196, ptr %14, align 4
@@ -3085,11 +3085,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
   %200 = add i64 %199, %.2148225
   %201 = add i32 %.2158224, 1
   %202 = add i32 %.2165223, 1
-  %exitcond.not = icmp eq i32 %202, %140
-  br i1 %exitcond.not, label %.loopexit, label %141
+  %exitcond.not = icmp eq i32 %202, %141
+  br i1 %exitcond.not, label %.loopexit, label %142
 
 .loopexit:                                        ; preds = %189, %135, %125
-  %.1164 = phi i32 [ %.0163234, %125 ], [ %.0163234, %135 ], [ %140, %189 ]
+  %.1164 = phi i32 [ %.0163234, %125 ], [ %.0163234, %135 ], [ %141, %189 ]
   %.1157 = phi i32 [ %134, %125 ], [ %.0156237, %135 ], [ %201, %189 ]
   %.1147 = phi i64 [ %133, %125 ], [ %.0146240, %135 ], [ %200, %189 ]
   %.1144 = phi ptr [ null, %125 ], [ %.0143241, %135 ], [ null, %189 ]
@@ -3113,7 +3113,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr n
   store i32 %.0161, ptr %209, align 8
   br label %218
 
-210:                                              ; preds = %30, %49, %92, %121, %148, %158, %165, %175, %185
+210:                                              ; preds = %30, %49, %92, %121, %149, %159, %166, %175, %185
   %211 = load ptr, ptr %16, align 8
   %.not184 = icmp eq ptr %211, null
   br i1 %.not184, label %214, label %212

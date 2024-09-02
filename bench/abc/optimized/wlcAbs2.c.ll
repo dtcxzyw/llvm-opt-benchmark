@@ -107,15 +107,16 @@ Vec_BitStart.exit:                                ; preds = %Abc_Clock.exit, %20
   %.0124 = phi i32 [ 1, %.lr.ph ], [ %383, %Vec_IntFree.exit91 ]
   %48 = load i32, ptr %36, align 8
   %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %51, label %49
+  br i1 %.not, label %52, label %49
 
 49:                                               ; preds = %47
   %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0124)
   %.pr = load i32, ptr %36, align 8
-  br label %51
+  %51 = icmp eq i32 %.pr, 0
+  br label %52
 
-51:                                               ; preds = %49, %47
-  %52 = phi i32 [ %.pr, %49 ], [ 0, %47 ]
+52:                                               ; preds = %49, %47
+  %.not.i.i72 = phi i1 [ %51, %49 ], [ true, %47 ]
   %53 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %54 = getelementptr inbounds i8, ptr %53, i64 4
   store i32 0, ptr %54, align 4
@@ -149,15 +150,15 @@ Vec_BitStart.exit:                                ; preds = %Abc_Clock.exit, %20
   %.not.i.i.i.i = icmp eq i32 %69, 0
   br i1 %.not.i.i.i.i, label %Vec_BitStart.exit.i.i, label %72
 
-72:                                               ; preds = %51
+72:                                               ; preds = %52
   %73 = sext i32 %69 to i64
   %74 = shl nsw i64 %73, 2
   %75 = call noalias ptr @malloc(i64 noundef %74) #17
   br label %Vec_BitStart.exit.i.i
 
-Vec_BitStart.exit.i.i:                            ; preds = %72, %51
-  %.pre-phi8.i.i.i = phi i64 [ %74, %72 ], [ 0, %51 ]
-  %76 = phi ptr [ %75, %72 ], [ null, %51 ]
+Vec_BitStart.exit.i.i:                            ; preds = %72, %52
+  %.pre-phi8.i.i.i = phi i64 [ %74, %72 ], [ 0, %52 ]
+  %76 = phi ptr [ %75, %72 ], [ null, %52 ]
   %77 = getelementptr inbounds i8, ptr %70, i64 4
   %78 = getelementptr inbounds i8, ptr %70, i64 8
   store ptr %76, ptr %78, align 8
@@ -305,7 +306,6 @@ Vec_BitStart.exit.i.i:                            ; preds = %72, %51
   %.sroa.4.0.lcssa.i.i = phi i32 [ 0, %Vec_BitStart.exit.i.i ], [ %.sroa.4.1.i.i, %144 ]
   %.sroa.7.0.lcssa.i.i = phi i32 [ 0, %Vec_BitStart.exit.i.i ], [ %.sroa.7.1.i.i, %144 ]
   %.sroa.10.0.lcssa.i.i = phi i32 [ 0, %Vec_BitStart.exit.i.i ], [ %.sroa.10.1.i.i, %144 ]
-  %.not.i.i72 = icmp eq i32 %52, 0
   br i1 %.not.i.i72, label %Wlc_NtkAbsMarkOpers.exit.i, label %145
 
 145:                                              ; preds = %.critedge.i.i

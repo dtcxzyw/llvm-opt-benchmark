@@ -7515,7 +7515,7 @@ _ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
   br i1 %.not.i49, label %.lr.ph.preheader, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.split43
-  %spec.select.i.i = tail call noundef i32 @llvm.umin.i32(i32 %2, i32 %39)
+  %spec.select.i.i = tail call noundef range(i32 0, 65536) i32 @llvm.umin.i32(i32 %2, i32 %39)
   %40 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i46, i64 8
   %wide.trip.count.i = zext nneg i32 %spec.select.i.i to i64
   br label %.lr.ph.i

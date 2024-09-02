@@ -1092,47 +1092,54 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define void @_ZN5draco9PlyReader11ParseHeaderEPNS_13DecoderBufferE(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.draco::StatusOr", align 8
   %5 = alloca %"class.draco::StatusOr", align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 40
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  br label %11
-
-11:                                               ; preds = %_ZN5draco6StatusC2ERKS0_.exit, %3
   call void @_ZN5draco9PlyReader14ParseEndHeaderEPNS_13DecoderBufferE(ptr dead_on_unwind nonnull writable sret(%"class.draco::StatusOr") align 8 %4, ptr nonnull align 8 poison, ptr noundef %2)
-  %12 = load i32, ptr %4, align 8
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %15, label %14
+  %6 = load i32, ptr %4, align 8
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
-14:                                               ; preds = %11
-  store i32 %12, ptr %0, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %10)
+.lr.ph:                                           ; preds = %3
+  %8 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  br label %15
+
+.critedge:                                        ; preds = %20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #22
+  br label %.backedge
+
+._crit_edge:                                      ; preds = %.backedge, %3
+  %.lcssa = phi i32 [ %6, %3 ], [ %31, %.backedge ]
+  store i32 %.lcssa, ptr %0, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %_ZN5draco6StatusC2ERKS0_.exit.thread unwind label %.loopexit.split-lp
 
-_ZN5draco6StatusC2ERKS0_.exit.thread:             ; preds = %14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
+_ZN5draco6StatusC2ERKS0_.exit.thread:             ; preds = %._crit_edge
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
   br label %.loopexit18
 
 .loopexit:                                        ; preds = %18, %21
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %32
+  br label %33
 
-.loopexit.split-lp:                               ; preds = %14
+.loopexit.split-lp:                               ; preds = %._crit_edge
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %32
+  br label %33
 
-15:                                               ; preds = %11
-  %16 = load i8, ptr %6, align 8
+15:                                               ; preds = %.lr.ph, %.backedge
+  %16 = load i8, ptr %8, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %_ZN5draco6StatusC2ERKS0_.exit.thread16, label %18
 
 _ZN5draco6StatusC2ERKS0_.exit.thread16:           ; preds = %15
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #22
   store i32 0, ptr %0, align 8, !alias.scope !11
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   br label %.loopexit18
 
 18:                                               ; preds = %15
@@ -1140,7 +1147,7 @@ _ZN5draco6StatusC2ERKS0_.exit.thread16:           ; preds = %15
           to label %20 unwind label %.loopexit
 
 20:                                               ; preds = %18
-  br i1 %19, label %_ZN5draco6StatusC2ERKS0_.exit, label %21, !llvm.loop !14
+  br i1 %19, label %.critedge, label %21, !llvm.loop !14
 
 21:                                               ; preds = %20
   invoke void @_ZN5draco9PlyReader13ParsePropertyEPNS_13DecoderBufferE(ptr dead_on_unwind nonnull writable sret(%"class.draco::StatusOr") align 8 %5, ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef %2)
@@ -1148,46 +1155,47 @@ _ZN5draco6StatusC2ERKS0_.exit.thread16:           ; preds = %15
 
 22:                                               ; preds = %21
   %23 = load i32, ptr %5, align 8
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %28, label %25
+  %.not = icmp eq i32 %23, 0
+  br i1 %.not, label %27, label %24
 
-25:                                               ; preds = %22
+24:                                               ; preds = %22
   store i32 %23, ptr %0, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
-          to label %_ZN5draco6StatusC2ERKS0_.exit14 unwind label %26
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %_ZN5draco6StatusC2ERKS0_.exit14 unwind label %25
 
-26:                                               ; preds = %25, %31
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %24, %30
+  %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
-  br label %32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
+  br label %33
 
-28:                                               ; preds = %22
-  %29 = load i8, ptr %9, align 8
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %_ZN5draco6StatusC2ERKS0_.exit14, label %31, !llvm.loop !14
+27:                                               ; preds = %22
+  %28 = load i8, ptr %9, align 8
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %_ZN5draco6StatusC2ERKS0_.exit14, label %30, !llvm.loop !14
 
-31:                                               ; preds = %28
+30:                                               ; preds = %27
   invoke void @_ZN5draco6parser8SkipLineEPNS_13DecoderBufferE(ptr noundef %2)
-          to label %_ZN5draco6StatusC2ERKS0_.exit14 unwind label %26
+          to label %_ZN5draco6StatusC2ERKS0_.exit14 unwind label %25
 
-_ZN5draco6StatusC2ERKS0_.exit14:                  ; preds = %25, %31, %28
-  %.1 = phi i32 [ 2, %28 ], [ 0, %31 ], [ 1, %25 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
-  br label %_ZN5draco6StatusC2ERKS0_.exit
+_ZN5draco6StatusC2ERKS0_.exit14:                  ; preds = %24, %30, %27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #22
+  br i1 %.not, label %.backedge, label %.loopexit18
 
-_ZN5draco6StatusC2ERKS0_.exit:                    ; preds = %20, %_ZN5draco6StatusC2ERKS0_.exit14
-  %.012 = phi i32 [ %.1, %_ZN5draco6StatusC2ERKS0_.exit14 ], [ 2, %20 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
-  %switch = icmp eq i32 %.012, 1
-  br i1 %switch, label %.loopexit18, label %11
+.backedge:                                        ; preds = %_ZN5draco6StatusC2ERKS0_.exit14, %.critedge
+  call void @_ZN5draco9PlyReader14ParseEndHeaderEPNS_13DecoderBufferE(ptr dead_on_unwind nonnull writable sret(%"class.draco::StatusOr") align 8 %4, ptr nonnull align 8 poison, ptr noundef %2)
+  %31 = load i32, ptr %4, align 8
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %15, label %._crit_edge
 
-32:                                               ; preds = %.loopexit, %.loopexit.split-lp, %26
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
+33:                                               ; preds = %.loopexit, %.loopexit.split-lp, %25
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #22
   resume { ptr, i32 } %.pn
 
-.loopexit18:                                      ; preds = %_ZN5draco6StatusC2ERKS0_.exit, %_ZN5draco6StatusC2ERKS0_.exit.thread, %_ZN5draco6StatusC2ERKS0_.exit.thread16
+.loopexit18:                                      ; preds = %_ZN5draco6StatusC2ERKS0_.exit14, %_ZN5draco6StatusC2ERKS0_.exit.thread, %_ZN5draco6StatusC2ERKS0_.exit.thread16
   ret void
 }
 

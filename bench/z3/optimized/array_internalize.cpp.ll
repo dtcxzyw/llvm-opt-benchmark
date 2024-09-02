@@ -1141,25 +1141,25 @@ if.end5.i.i.i22:                                  ; preds = %do.body.i.i.i16.pre
   br i1 %tobool.not.i.i.i24, label %if.then.i, label %do.body.i.ithread-pre-split.i, !llvm.loop !4
 
 _ZNK3euf5enode10get_th_varEi.exit.i:              ; preds = %do.body.i.ithread-pre-split.i
-  %cmp.i = icmp ugt i32 %bf.load.i.i.i.pr.i, -257
-  br i1 %cmp.i, label %if.then.i, label %_ZN5array6solver10ensure_varEPN3euf5enodeE.exit
+  %8 = icmp ugt i32 %bf.load.i.i.i.pr.i, -257
+  br i1 %8, label %if.then.i, label %_ZN5array6solver10ensure_varEPN3euf5enodeE.exit
 
 if.then.i:                                        ; preds = %if.end5.i.i.i22, %_ZNK3euf5enode10get_th_varEi.exit.i, %for.body
   %vtable.i = load ptr, ptr %this, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 512
-  %8 = load ptr, ptr %vfn.i, align 8
-  %call3.i = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %5)
-  %9 = load ptr, ptr %5, align 8
-  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 4
+  %9 = load ptr, ptr %vfn.i, align 8
+  %call3.i = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %5)
+  %10 = load ptr, ptr %5, align 8
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 4
   %bf.load.i.i.i4.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i4.i, 65535
   %cmp.i.i5.i = icmp eq i32 %bf.clear.i.i.i.i, 2
   br i1 %cmp.i.i5.i, label %_Z9is_lambdaPK3ast.exit.i, label %_ZN5array6solver10ensure_varEPN3euf5enodeE.exit
 
 _Z9is_lambdaPK3ast.exit.i:                        ; preds = %if.then.i
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
-  %10 = load i32, ptr %m_kind.i.i.i, align 8
-  %cmp.i.i = icmp eq i32 %10, 2
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = load i32, ptr %m_kind.i.i.i, align 8
+  %cmp.i.i = icmp eq i32 %11, 2
   br i1 %cmp.i.i, label %if.then6.i, label %_ZN5array6solver10ensure_varEPN3euf5enodeE.exit
 
 if.then6.i:                                       ; preds = %_Z9is_lambdaPK3ast.exit.i
@@ -1174,23 +1174,23 @@ _ZN5array6solver10ensure_varEPN3euf5enodeE.exit:  ; preds = %do.body.i.i.i16.pre
 for.end:                                          ; preds = %_ZN5array6solver10ensure_varEPN3euf5enodeE.exit, %if.end9
   tail call void @_ZN5array6solver14internalize_ehEPN3euf5enodeE(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %n.0)
   %ctx = getelementptr inbounds i8, ptr %this, i64 80
-  %11 = load ptr, ptr %ctx, align 8
-  %m_enabled.i.i = getelementptr inbounds i8, ptr %11, i64 160
-  %12 = load i8, ptr %m_enabled.i.i, align 8
-  %tobool.i.i = trunc i8 %12 to i1
+  %12 = load ptr, ptr %ctx, align 8
+  %m_enabled.i.i = getelementptr inbounds i8, ptr %12, i64 160
+  %13 = load i8, ptr %m_enabled.i.i, align 8
+  %tobool.i.i = trunc i8 %13 to i1
   br i1 %tobool.i.i, label %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit, label %if.then13
 
 _ZNK3euf6solver11is_relevantEPNS_5enodeE.exit:    ; preds = %for.end
   %m_is_relevant.i.i.i = getelementptr inbounds i8, ptr %n.0, i64 16
-  %13 = load i8, ptr %m_is_relevant.i.i.i, align 8
-  %tobool.i.i.i = trunc i8 %13 to i1
+  %14 = load i8, ptr %m_is_relevant.i.i.i, align 8
+  %tobool.i.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i.i, label %if.then13, label %if.end16
 
 if.then13:                                        ; preds = %for.end, %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit
   %vtable14 = load ptr, ptr %this, align 8
   %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 440
-  %14 = load ptr, ptr %vfn15, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %n.0)
+  %15 = load ptr, ptr %vfn15, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull %n.0)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then13, %_ZNK3euf6solver11is_relevantEPNS_5enodeE.exit

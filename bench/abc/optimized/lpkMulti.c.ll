@@ -558,13 +558,13 @@ Kit_DsdNtkObj.exit:                               ; preds = %13
   %69 = zext nneg i32 %24 to i64
   %70 = getelementptr inbounds i32, ptr %.ph, i64 %69
   %71 = load i32, ptr %70, align 4
+  %72 = xor i32 %.096.ph, -1
   br label %Kit_DsdLitSupport.exit116
 
 Kit_DsdLitSupport.exit116:                        ; preds = %31, %52, %68
-  %.096158 = phi i32 [ %.096.ph, %68 ], [ 0, %31 ], [ 0, %52 ]
-  %72 = phi i32 [ %71, %68 ], [ 0, %31 ], [ 0, %52 ]
-  %73 = xor i32 %.096158, -1
-  %74 = and i32 %72, %73
+  %.096158 = phi i32 [ %72, %68 ], [ -1, %31 ], [ -1, %52 ]
+  %73 = phi i32 [ %71, %68 ], [ 0, %31 ], [ 0, %52 ]
+  %74 = and i32 %73, %.096158
   br label %75
 
 75:                                               ; preds = %.lr.ph, %Kit_DsdLitSupport.exit, %Kit_DsdLitSupport.exit116

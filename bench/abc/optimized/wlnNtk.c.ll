@@ -1629,12 +1629,12 @@ Wln_NtkIncrementTravId.exit156:                   ; preds = %Wln_NtkIncrementTra
   %85 = getelementptr inbounds i32, ptr %.val134, i64 %indvars.iv203
   %86 = load i32, ptr %85, align 4
   %87 = icmp ne i32 %86, 3
+  %88 = zext i1 %87 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %84, %81
-  %88 = phi i1 [ false, %81 ], [ %87, %84 ]
-  %89 = zext i1 %88 to i32
-  %90 = add nuw nsw i32 %.086175, %89
+  %89 = phi i32 [ 0, %81 ], [ %88, %84 ]
+  %90 = add nuw nsw i32 %89, %.086175
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2._crit_edge, label %81, !llvm.loop !17

@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @trace_stat_seq_ops = internal constant %struct.seq_operations { ptr @stat_seq_start, ptr @stat_seq_stop, ptr @stat_seq_next, ptr @stat_seq_show }, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @register_stat_tracer(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @register_stat_tracer(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %68, label %3
 

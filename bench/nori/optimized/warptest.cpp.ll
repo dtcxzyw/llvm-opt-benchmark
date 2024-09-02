@@ -969,7 +969,7 @@ _ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
   %48 = load float, ptr %47, align 4
   store float 0.000000e+00, ptr %47, align 4
   %49 = getelementptr inbounds i8, ptr %12, i64 32
-  %50 = load float, ptr %49, align 8
+  %50 = load i32, ptr %49, align 8
   %.sroa_idx49 = getelementptr inbounds i8, ptr %12, i64 36
   %51 = load i32, ptr %.sroa_idx49, align 4
   br label %52
@@ -981,7 +981,7 @@ _ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds 
   %.sroa.7.0 = phi float [ %42, %_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EE5resetEPS1_.exit ], [ 0.000000e+00, %29 ]
   %.sroa.4.0 = phi float [ %40, %_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EE5resetEPS1_.exit ], [ 0.000000e+00, %29 ]
   %.sroa.051.0 = phi float [ %38, %_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EE5resetEPS1_.exit ], [ 0.000000e+00, %29 ]
-  %.sroa.20.0 = phi float [ %50, %_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EE5resetEPS1_.exit ], [ 1.000000e+00, %29 ]
+  %.sroa.20.0 = phi i32 [ %50, %_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EE5resetEPS1_.exit ], [ 1065353216, %29 ]
   %.sroa.23.0 = phi i32 [ %51, %_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EE5resetEPS1_.exit ], [ 0, %29 ]
   %.sroa.042.0 = phi ptr [ %36, %_ZNSt10unique_ptrIN4nori4BSDFESt14default_deleteIS1_EE5resetEPS1_.exit ], [ null, %29 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #31
@@ -1135,7 +1135,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.sroa.2.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 36
   store float %.sroa.17.0, ptr %.sroa.2.sroa.3.0..sroa_idx, align 4
   %98 = getelementptr inbounds i8, ptr %17, i64 40
-  store float %.sroa.20.0, ptr %98, align 8
+  store i32 %.sroa.20.0, ptr %98, align 8
   %.sroa_idx48 = getelementptr inbounds i8, ptr %17, i64 44
   store i32 %.sroa.23.0, ptr %.sroa_idx48, align 4
   %99 = getelementptr inbounds i8, ptr %17, i64 48
@@ -15868,15 +15868,15 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
   %41 = fdiv double %39, %40
   br label %42
 
-42:                                               ; preds = %67, %35
-  %.084 = phi i32 [ 0, %35 ], [ %43, %67 ]
-  %.083 = phi double [ %36, %35 ], [ %44, %67 ]
-  %.082 = phi double [ %38, %35 ], [ %45, %67 ]
-  %.080 = phi double [ 1.000000e+00, %35 ], [ %.181, %67 ]
-  %.078 = phi double [ %1, %35 ], [ %.179, %67 ]
-  %.076 = phi double [ %39, %35 ], [ %.177, %67 ]
-  %.074 = phi double [ %40, %35 ], [ %.175, %67 ]
-  %.073 = phi double [ %41, %35 ], [ %.1, %67 ]
+42:                                               ; preds = %68, %35
+  %.084 = phi i32 [ 0, %35 ], [ %43, %68 ]
+  %.083 = phi double [ %36, %35 ], [ %44, %68 ]
+  %.082 = phi double [ %38, %35 ], [ %45, %68 ]
+  %.080 = phi double [ 1.000000e+00, %35 ], [ %.181, %68 ]
+  %.078 = phi double [ %1, %35 ], [ %.179, %68 ]
+  %.076 = phi double [ %39, %35 ], [ %.177, %68 ]
+  %.074 = phi double [ %40, %35 ], [ %.175, %68 ]
+  %.073 = phi double [ %41, %35 ], [ %.1, %68 ]
   %43 = add nuw nsw i32 %.084, 1
   %44 = fadd double %.083, 1.000000e+00
   %45 = fadd double %.082, 2.000000e+00
@@ -15888,38 +15888,38 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
   %51 = fmul double %48, %.078
   %52 = tail call double @llvm.fmuladd.f64(double %.074, double %45, double %51)
   %53 = fcmp une double %52, 0.000000e+00
-  br i1 %53, label %54, label %59
+  br i1 %53, label %54, label %60
 
 54:                                               ; preds = %42
   %55 = fdiv double %50, %52
   %56 = fsub double %.073, %55
   %57 = fdiv double %56, %55
   %58 = tail call noundef double @llvm.fabs.f64(double %57)
-  br label %59
+  %59 = fcmp ogt double %58, 1.000000e-15
+  br label %60
 
-59:                                               ; preds = %42, %54
+60:                                               ; preds = %42, %54
   %.1 = phi double [ %55, %54 ], [ %.073, %42 ]
-  %.072 = phi double [ %58, %54 ], [ 1.000000e+00, %42 ]
-  %60 = tail call noundef double @llvm.fabs.f64(double %50)
-  %61 = fcmp ogt double %60, 0x4330000000000000
-  br i1 %61, label %62, label %67
+  %.072 = phi i1 [ %59, %54 ], [ true, %42 ]
+  %61 = tail call noundef double @llvm.fabs.f64(double %50)
+  %62 = fcmp ogt double %61, 0x4330000000000000
+  br i1 %62, label %63, label %68
 
-62:                                               ; preds = %59
-  %63 = fmul double %.076, 0x3CB0000000000000
-  %64 = fmul double %50, 0x3CB0000000000000
-  %65 = fmul double %.074, 0x3CB0000000000000
-  %66 = fmul double %52, 0x3CB0000000000000
-  br label %67
+63:                                               ; preds = %60
+  %64 = fmul double %.076, 0x3CB0000000000000
+  %65 = fmul double %50, 0x3CB0000000000000
+  %66 = fmul double %.074, 0x3CB0000000000000
+  %67 = fmul double %52, 0x3CB0000000000000
+  br label %68
 
-67:                                               ; preds = %59, %62
-  %.181 = phi double [ %63, %62 ], [ %.076, %59 ]
-  %.179 = phi double [ %65, %62 ], [ %.074, %59 ]
-  %.177 = phi double [ %64, %62 ], [ %50, %59 ]
-  %.175 = phi double [ %66, %62 ], [ %52, %59 ]
-  %68 = fcmp ogt double %.072, 1.000000e-15
-  br i1 %68, label %42, label %69, !llvm.loop !272
+68:                                               ; preds = %60, %63
+  %.181 = phi double [ %64, %63 ], [ %.076, %60 ]
+  %.179 = phi double [ %66, %63 ], [ %.074, %60 ]
+  %.177 = phi double [ %65, %63 ], [ %50, %60 ]
+  %.175 = phi double [ %67, %63 ], [ %52, %60 ]
+  br i1 %.072, label %42, label %69, !llvm.loop !272
 
-69:                                               ; preds = %67
+69:                                               ; preds = %68
   %70 = tail call double @exp(double noundef %17) #31
   %71 = fneg double %70
   %72 = tail call double @llvm.fmuladd.f64(double %71, double %.1, double 1.000000e+00)

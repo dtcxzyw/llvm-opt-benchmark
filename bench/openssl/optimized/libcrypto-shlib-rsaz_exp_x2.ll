@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [27 x i8] c"assertion failed: rem != 0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_rsaz_mod_exp_avx512_x2(ptr noundef %res1, ptr nocapture noundef readonly %base1, ptr nocapture noundef readonly %exp1, ptr noundef %m1, ptr nocapture noundef readonly %rr1, i64 noundef %k0_1, ptr noundef %res2, ptr nocapture noundef readonly %base2, ptr nocapture noundef readonly %exp2, ptr noundef %m2, ptr nocapture noundef readonly %rr2, i64 noundef %k0_2, i32 noundef %factor_size) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_rsaz_mod_exp_avx512_x2(ptr noundef %res1, ptr nocapture noundef readonly %base1, ptr nocapture noundef readonly %exp1, ptr noundef %m1, ptr nocapture noundef readonly %rr1, i64 noundef %k0_1, ptr noundef %res2, ptr nocapture noundef readonly %base2, ptr nocapture noundef readonly %exp2, ptr noundef %m2, ptr nocapture noundef readonly %rr2, i64 noundef %k0_2, i32 noundef %factor_size) local_unnamed_addr #0 {
 entry:
   %k0 = alloca [2 x i64], align 16
   %sub.i = add nsw i32 %factor_size, 53

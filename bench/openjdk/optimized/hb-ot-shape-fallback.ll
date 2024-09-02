@@ -108,14 +108,14 @@ define hidden void @_Z54_hb_ot_shape_fallback_mark_position_recategorize_marksPK
   %wide.trip.count = zext i32 %5 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %42
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %8 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %7, i64 %indvars.iv
   %9 = getelementptr i8, ptr %8, i64 16
   %.val = load i16, ptr %9, align 4
   %10 = and i16 %.val, 31
   %11 = icmp eq i16 %10, 12
-  br i1 %11, label %12, label %42
+  br i1 %11, label %12, label %43
 
 12:                                               ; preds = %.lr.ph
   %13 = lshr i16 %.val, 8
@@ -236,23 +236,23 @@ define hidden void @_Z54_hb_ot_shape_fallback_mark_position_recategorize_marksPK
   br label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
 
 38:                                               ; preds = %28
+  %39 = trunc nuw nsw i32 %.0.i to i16
   br label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
 
 _ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit: ; preds = %12, %22, %23, %24, %25, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38
-  %.09.i = phi i32 [ 230, %37 ], [ 230, %36 ], [ 232, %35 ], [ 222, %34 ], [ 230, %33 ], [ 230, %32 ], [ 228, %31 ], [ 232, %30 ], [ 214, %29 ], [ %14, %12 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ %.0.i, %38 ], [ 232, %23 ], [ 230, %24 ], [ 220, %25 ], [ 0, %22 ]
-  %39 = and i16 %.val, 236
-  %.tr.i = trunc nuw nsw i32 %.09.i to i16
-  %40 = shl nuw i16 %.tr.i, 8
-  %41 = or disjoint i16 %40, %39
-  store i16 %41, ptr %9, align 4
-  br label %42
+  %.09.i = phi i16 [ 230, %37 ], [ 230, %36 ], [ 232, %35 ], [ 222, %34 ], [ 230, %33 ], [ 230, %32 ], [ 228, %31 ], [ 232, %30 ], [ 214, %29 ], [ %13, %12 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ %39, %38 ], [ 232, %23 ], [ 230, %24 ], [ 220, %25 ], [ 0, %22 ]
+  %40 = and i16 %.val, 236
+  %41 = shl nuw i16 %.09.i, 8
+  %42 = or disjoint i16 %41, %40
+  store i16 %42, ptr %9, align 4
+  br label %43
 
-42:                                               ; preds = %.lr.ph, %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
+43:                                               ; preds = %.lr.ph, %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %42, %3
+._crit_edge:                                      ; preds = %43, %3
   ret void
 }
 

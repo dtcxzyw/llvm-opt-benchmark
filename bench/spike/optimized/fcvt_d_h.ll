@@ -1098,9 +1098,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fcvt_d_hP1
   %.sink.i.i = load i64, ptr %16, align 8
   %17 = and i64 %.sink.i.i, 8
   %18 = and i64 %.sink.i, 4611686018427387904
-  %19 = or disjoint i64 %17, %18
-  %or.cond.not = icmp eq i64 %19, 0
-  br i1 %or.cond.not, label %20, label %.critedge60
+  %19 = or disjoint i64 %18, %17
+  %or.cond = icmp eq i64 %19, 0
+  br i1 %or.cond, label %20, label %.critedge60
 
 20:                                               ; preds = %.critedge
   %21 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -1465,9 +1465,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_fcvt_d_h
   %.sink.i.i = load i64, ptr %16, align 8
   %17 = and i64 %.sink.i.i, 8
   %18 = and i64 %.sink.i, 4611686018427387904
-  %19 = or disjoint i64 %17, %18
-  %or.cond.not = icmp eq i64 %19, 0
-  br i1 %or.cond.not, label %20, label %.critedge68
+  %19 = or disjoint i64 %18, %17
+  %or.cond = icmp eq i64 %19, 0
+  br i1 %or.cond, label %20, label %.critedge68
 
 20:                                               ; preds = %.critedge
   %21 = tail call ptr @__cxa_allocate_exception(i64 32) #15

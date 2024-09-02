@@ -443,7 +443,7 @@ _ZN6BitMap8IteratorC2ERKS_mm.exit:                ; preds = %12, %33, %.loopexit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN32ZRememberedSetContainingIterator8to_indexE15zaddress_unsafe(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN32ZRememberedSetContainingIterator8to_indexE15zaddress_unsafe(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr @ZAddressOffsetMask, align 8
   %5 = and i64 %4, %1

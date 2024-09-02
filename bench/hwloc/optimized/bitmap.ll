@@ -2500,7 +2500,7 @@ define noundef i32 @hwloc_bitmap_to_ulongs(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_nr_ulongs(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define range(i32 -1, 67108864) i32 @hwloc_bitmap_nr_ulongs(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -4950,7 +4950,7 @@ define i32 @hwloc_bitmap_weight(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @hwloc_bitmap_compare_inclusion(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 5) i32 @hwloc_bitmap_compare_inclusion(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %. = tail call i32 @llvm.umax.i32(i32 %3, i32 %4)

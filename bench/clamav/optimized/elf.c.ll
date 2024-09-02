@@ -111,7 +111,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.97 = private unnamed_addr constant [23 x i8] c"ELF: Section size: %u\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cli_scanelf(ptr noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_scanelf(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %union.elf_file_hdr, align 8
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -1789,7 +1789,7 @@ fmap_readn.exit.thread:                           ; preds = %58, %54, %fmap_read
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_elfheader(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_elfheader(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %union.elf_file_hdr, align 8
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1

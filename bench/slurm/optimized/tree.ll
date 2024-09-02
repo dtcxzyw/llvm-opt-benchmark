@@ -1562,7 +1562,7 @@ define internal i32 @_handle_name_unpublish(i32 noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_handle_name_lookup(i32 noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -1, -2147483648) i32 @_handle_name_lookup(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

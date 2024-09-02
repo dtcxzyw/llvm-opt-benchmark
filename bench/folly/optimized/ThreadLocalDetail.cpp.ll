@@ -765,8 +765,6 @@ invoke.cont75:                                    ; preds = %if.end7.i.i.i206, %
   store i32 %57, ptr %token_.i198, align 8, !tbaa.struct !51
   store i32 %56, ptr %token_.i202, align 8, !tbaa.struct !51
   %tobool.not.i.i216 = icmp eq ptr %54, null
-  %58 = lshr i32 %57, 16
-  %59 = zext nneg i32 %58 to i64
   br i1 %tobool.not.i.i216, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit221, label %if.then.i.i217
 
 if.then.i.i217:                                   ; preds = %invoke.cont75
@@ -774,25 +772,28 @@ if.then.i.i217:                                   ; preds = %invoke.cont75
           to label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit221 unwind label %terminate.lpad.i219
 
 terminate.lpad.i219:                              ; preds = %if.then.i.i217
-  %60 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #34
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #34
   unreachable
 
 _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit221: ; preds = %if.then.i.i217, %invoke.cont75
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp72) #32
+  %60 = lshr i32 %57, 14
+  %61 = and i32 %60, 262140
+  %62 = zext nneg i32 %61 to i64
   br label %if.end78
 
 lpad74:                                           ; preds = %if.end7.i.i.i206
-  %62 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp72) #32
   %.pre = load ptr, ptr %rlock68, align 8, !tbaa !42
   br label %ehcleanup110
 
 if.end78:                                         ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit221, %while.body63
-  %63 = phi i64 [ %59, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit221 ], [ 0, %while.body63 ]
+  %conv.i = phi i64 [ %62, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit221 ], [ 0, %while.body63 ]
   %64 = phi ptr [ %55, %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit221 ], [ null, %while.body63 ]
   %elementsCapacity.i228 = getelementptr inbounds i8, ptr %tmp.0323, i64 8
   br label %for.body82
@@ -852,9 +853,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
 
 lor.lhs.false.i:                                  ; preds = %if.then.i.i223
   %72 = ptrtoint ptr %64 to i64
-  %conv.i = shl nuw nsw i64 %63, 2
-  %mul.i.i.i = and i64 %conv.i, 262140
-  %arrayidx.i.i.i = getelementptr inbounds [2048 x %"struct.std::atomic.0"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %mul.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [2048 x %"struct.std::atomic.0"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %conv.i
   %73 = cmpxchg ptr %arrayidx.i.i.i, i64 %72, i64 0 seq_cst seq_cst, align 8
   %74 = extractvalue { i64, i1 } %73, 1
   br i1 %74, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit227, label %if.then4.i
@@ -1004,7 +1003,7 @@ for.inc101:                                       ; preds = %_ZN5folly18threadlo
 
 ehcleanup110:                                     ; preds = %lpad87.loopexit.split-lp, %lpad87.loopexit, %lpad74
   %94 = phi ptr [ %.pre, %lpad74 ], [ %64, %lpad87.loopexit ], [ %64, %lpad87.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %62, %lpad74 ], [ %lpad.loopexit, %lpad87.loopexit ], [ %lpad.loopexit.split-lp, %lpad87.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %63, %lpad74 ], [ %lpad.loopexit, %lpad87.loopexit ], [ %lpad.loopexit.split-lp, %lpad87.loopexit.split-lp ]
   %tobool.not.i.i259 = icmp eq ptr %94, null
   br i1 %tobool.not.i.i259, label %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderD2Ev.exit264, label %if.then.i.i260
 

@@ -4115,8 +4115,8 @@ cond.true228:                                     ; preds = %invoke.cont7.i
 cond.true251:                                     ; preds = %cond.true228
   %107 = load ptr, ptr %compr, align 8
   %108 = load ptr, ptr %d_true, align 8
-  %cmp.i1129 = icmp eq ptr %107, %108
-  br i1 %cmp.i1129, label %if.then268, label %cond.true435
+  %cmp.i1129 = icmp ne ptr %107, %108
+  br i1 %cmp.i1129, label %cond.true435, label %if.then268
 
 if.then268:                                       ; preds = %cond.true251
   store ptr %.pre, ptr %agg.tmp270, align 8
@@ -4516,7 +4516,6 @@ lpad454:                                          ; preds = %invoke.cont453
   br label %ehcleanup471
 
 cleanup:                                          ; preds = %invoke.cont455, %if.then.i.i1839, %if.then13.i.i1845, %cleanup.done322
-  %spec.select = phi i32 [ 2, %cleanup.done322 ], [ 0, %if.then13.i.i1845 ], [ 0, %if.then.i.i1839 ], [ 0, %invoke.cont455 ]
   %is_secant.3 = phi i8 [ %storemerge, %cleanup.done322 ], [ %is_secant.02120, %if.then13.i.i1845 ], [ %is_secant.02120, %if.then.i.i1839 ], [ %is_secant.02120, %invoke.cont455 ]
   %is_tangent.4 = phi i1 [ %is_tangent.3, %cleanup.done322 ], [ %is_tangent.02121, %if.then13.i.i1845 ], [ %is_tangent.02121, %if.then.i.i1839 ], [ %is_tangent.02121, %invoke.cont455 ]
   %151 = load ptr, ptr %compr, align 8
@@ -4585,7 +4584,7 @@ ehcleanup473:                                     ; preds = %ehcleanup471, %lpad
 cleanup475:                                       ; preds = %if.then13.i.i1880, %if.then.i.i1874, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1871, %invoke.cont190
   %is_secant.4 = phi i8 [ %is_secant.02120, %invoke.cont190 ], [ %is_secant.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1871 ], [ %is_secant.3, %if.then.i.i1874 ], [ %is_secant.3, %if.then13.i.i1880 ]
   %is_tangent.5 = phi i1 [ %is_tangent.02121, %invoke.cont190 ], [ %is_tangent.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1871 ], [ %is_tangent.4, %if.then.i.i1874 ], [ %is_tangent.4, %if.then13.i.i1880 ]
-  %cleanup.dest.slot.1 = phi i32 [ 0, %invoke.cont190 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1871 ], [ %spec.select, %if.then.i.i1874 ], [ %spec.select, %if.then13.i.i1880 ]
+  %cleanup.dest.slot.1 = phi i1 [ true, %invoke.cont190 ], [ %cmp.i1129, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1871 ], [ %cmp.i1129, %if.then.i.i1874 ], [ %cmp.i1129, %if.then13.i.i1880 ]
   %bf.load.i.i1883 = load i64, ptr %.pre, align 8
   %159 = and i64 %bf.load.i.i1883, 1152920405095219200
   %cmp.not.i.i1884 = icmp eq i64 %159, 1152920405095219200
@@ -4639,9 +4638,8 @@ terminate.lpad.i1903:                             ; preds = %if.then13.i.i1902
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1904: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1893, %if.then.i.i1896, %if.then13.i.i1902
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
-  %brmerge.not = and i1 %switch, %cmp182
-  br i1 %brmerge.not, label %for.body, label %for.end
+  %brmerge.demorgan = and i1 %cleanup.dest.slot.1, %cmp182
+  br i1 %brmerge.demorgan, label %for.body, label %for.end
 
 ehcleanup476:                                     ; preds = %lpad220, %ehcleanup10.i, %lpad.i.i818, %ehcleanup473
   %.pn21.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %ehcleanup473 ], [ %100, %lpad.i.i818 ], [ %131, %lpad220 ], [ %.pn2.i, %ehcleanup10.i ]

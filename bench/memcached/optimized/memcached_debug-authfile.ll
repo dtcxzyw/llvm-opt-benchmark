@@ -96,6 +96,7 @@ for.end.thread40:                                 ; preds = %if.else36, %if.else
   %sub = add i64 %indvars.iv, %add56.neg
   %plen = getelementptr inbounds i8, ptr %entry_cur.057, i64 24
   store i64 %sub, ptr %plen, align 8
+  %4 = and i64 %indvars.iv, 4294967295
   br label %if.end62
 
 for.inc:                                          ; preds = %if.else36, %if.then29
@@ -119,26 +120,25 @@ if.then60:                                        ; preds = %for.inc.thread, %if
   br label %return
 
 if.end62:                                         ; preds = %for.inc, %for.end.thread40
-  %x.047 = phi i64 [ %indvars.iv, %for.end.thread40 ], [ 256, %for.inc ]
+  %x.047 = phi i64 [ %4, %for.end.thread40 ], [ 256, %for.inc ]
   %inc63 = add nuw nsw i32 %used.058, 1
   %cmp64 = icmp eq i32 %inc63, 8
   br i1 %cmp64, label %while.end, label %if.end67
 
 if.end67:                                         ; preds = %if.end62
-  %idxprom68 = and i64 %x.047, 4294967295
-  %arrayidx69 = getelementptr inbounds i8, ptr %auth_cur.056, i64 %idxprom68
-  %4 = load i8, ptr %arrayidx69, align 1
-  %cmp71 = icmp eq i8 %4, 0
+  %arrayidx69 = getelementptr inbounds i8, ptr %auth_cur.056, i64 %x.047
+  %5 = load i8, ptr %arrayidx69, align 1
+  %cmp71 = icmp eq i8 %5, 0
   br i1 %cmp71, label %while.end, label %while.cond
 
 while.end:                                        ; preds = %while.cond, %if.end62, %if.end67, %if.end5
   %used.1 = phi i32 [ 0, %if.end5 ], [ %inc63, %if.end67 ], [ 8, %if.end62 ], [ %inc63, %while.cond ]
-  %5 = load ptr, ptr @main_auth_data, align 8
-  %cmp76.not = icmp eq ptr %5, null
+  %6 = load ptr, ptr @main_auth_data, align 8
+  %cmp76.not = icmp eq ptr %6, null
   br i1 %cmp76.not, label %if.end79, label %if.then78
 
 if.then78:                                        ; preds = %while.end
-  tail call void @free(ptr noundef nonnull %5) #8
+  tail call void @free(ptr noundef nonnull %6) #8
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then78, %while.end

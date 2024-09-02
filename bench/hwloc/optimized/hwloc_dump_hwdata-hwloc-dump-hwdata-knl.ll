@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.5 = private unnamed_addr constant [32 x i8] c"  Getting general Xeon Phi info\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 1) i32 @hwloc_dump_hwdata_knl_smbios(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @hwloc_dump_hwdata_knl_smbios(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca [4096 x i8], align 16
   %5 = alloca [512 x i8], align 16

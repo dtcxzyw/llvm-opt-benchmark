@@ -499,83 +499,83 @@ while.body8.i:                                    ; preds = %if.end96.i, %while.
 
 if.then12.i:                                      ; preds = %while.body8.i
   %cmp13.i = icmp slt i32 %oldMappingLength.158.i, 4
-  br i1 %cmp13.i, label %if.end17.i, label %if.end25.i
+  br i1 %cmp13.i, label %if.then15.i, label %if.end25.i
 
-if.end17.i:                                       ; preds = %if.then12.i
+if.then15.i:                                      ; preds = %if.then12.i
   %.pre.i = load i16, ptr @currentIndex, align 2
   %conv16.i = sext i16 %.pre.i to i32
   store i32 %conv16.i, ptr %arrayidx.i, align 4
-  %spec.select.i = select i1 %cmp20.i, i32 %conv16.i, i32 %limitIndex.159.i
+  %8 = select i1 %cmp20.i, i32 %conv16.i, i32 %limitIndex.159.i
   br label %if.end25.i
 
-if.end25.i:                                       ; preds = %if.end17.i, %if.then12.i, %while.body8.i
-  %oldMappingLength.2.i = phi i32 [ %oldMappingLength.158.i, %while.body8.i ], [ %4, %if.then12.i ], [ %4, %if.end17.i ]
-  %limitIndex.2.i = phi i32 [ %limitIndex.159.i, %while.body8.i ], [ %limitIndex.159.i, %if.then12.i ], [ %spec.select.i, %if.end17.i ]
+if.end25.i:                                       ; preds = %if.then15.i, %if.then12.i, %while.body8.i
+  %oldMappingLength.2.i = phi i32 [ %oldMappingLength.158.i, %while.body8.i ], [ %4, %if.then12.i ], [ %4, %if.then15.i ]
+  %limitIndex.2.i = phi i32 [ %limitIndex.159.i, %while.body8.i ], [ %limitIndex.159.i, %if.then12.i ], [ %8, %if.then15.i ]
   %length.i = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load i16, ptr %length.i, align 8
-  %conv26.i = sext i16 %8 to i64
-  %9 = and i64 %conv26.i, 4294967295
-  %cmp27.i = icmp eq i64 %indvars.iv.i, %9
+  %9 = load i16, ptr %length.i, align 8
+  %conv26.i = sext i16 %9 to i64
+  %10 = and i64 %conv26.i, 4294967295
+  %cmp27.i = icmp eq i64 %indvars.iv.i, %10
   br i1 %cmp27.i, label %if.then29.i, label %if.end96.i
 
 if.then29.i:                                      ; preds = %if.end25.i
-  %10 = load i16, ptr @currentIndex, align 2
-  %shl.i = shl i16 %10, 2
-  %11 = or disjoint i16 %shl.i, 2
-  %cmp36.i = icmp ugt i16 %11, -16
+  %11 = load i16, ptr @currentIndex, align 2
+  %shl.i = shl i16 %11, 2
+  %12 = or disjoint i16 %shl.i, 2
+  %cmp36.i = icmp ugt i16 %12, -16
   br i1 %cmp36.i, label %if.then38.i, label %if.end40.i
 
 if.then38.i:                                      ; preds = %if.then29.i
-  %12 = load ptr, ptr @stderr, align 8
-  %call39.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.21, i32 noundef 65520) #15
+  %13 = load ptr, ptr @stderr, align 8
+  %call39.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.21, i32 noundef 65520) #15
   call void @exit(i32 noundef 12) #16
   unreachable
 
 if.end40.i:                                       ; preds = %if.then29.i
-  %13 = load ptr, ptr @sprepTrie, align 8
-  %call41.i = call i32 @utrie_get32_75(ptr noundef %13, i32 noundef %5, ptr noundef null) #13
+  %14 = load ptr, ptr @sprepTrie, align 8
+  %call41.i = call i32 @utrie_get32_75(ptr noundef %14, i32 noundef %5, ptr noundef null) #13
   switch i32 %call41.i, label %if.else.i [
     i32 0, label %if.end53.i
     i32 65522, label %if.then47.i
   ]
 
 if.then47.i:                                      ; preds = %if.end40.i
-  %14 = or disjoint i16 %shl.i, 3
+  %15 = or disjoint i16 %shl.i, 3
   br label %if.end53.i
 
 if.else.i:                                        ; preds = %if.end40.i
-  %15 = load ptr, ptr @stderr, align 8
-  %call51.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.1, i32 noundef %5) #15
+  %16 = load ptr, ptr @stderr, align 8
+  %call51.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, i32 noundef %5) #15
   call void @exit(i32 noundef 1) #16
   unreachable
 
 if.end53.i:                                       ; preds = %if.then47.i, %if.end40.i
-  %trieWord.0.i = phi i16 [ %14, %if.then47.i ], [ %11, %if.end40.i ]
-  %16 = load ptr, ptr @sprepTrie, align 8
+  %trieWord.0.i = phi i16 [ %15, %if.then47.i ], [ %12, %if.end40.i ]
+  %17 = load ptr, ptr @sprepTrie, align 8
   %conv54.i = zext i16 %trieWord.0.i to i32
-  %call55.i = call signext i8 @utrie_set32_75(ptr noundef %16, i32 noundef %5, i32 noundef %conv54.i) #13
+  %call55.i = call signext i8 @utrie_set32_75(ptr noundef %17, i32 noundef %5, i32 noundef %conv54.i) #13
   %tobool.not.i = icmp eq i8 %call55.i, 0
   br i1 %tobool.not.i, label %if.then56.i, label %if.end58.i
 
 if.then56.i:                                      ; preds = %if.end53.i
-  %17 = load ptr, ptr @stderr, align 8
-  %18 = call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %17) #15
+  %18 = load ptr, ptr @stderr, align 8
+  %19 = call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %18) #15
   call void @exit(i32 noundef 1) #16
   unreachable
 
 if.end58.i:                                       ; preds = %if.end53.i
   %inc.i = add nsw i32 %writtenElementCount.157.i, 1
-  %19 = load i16, ptr @currentIndex, align 2
-  %conv59.i = sext i16 %19 to i32
-  %20 = load i16, ptr %length.i, align 8
-  %conv61.i = sext i16 %20 to i32
+  %20 = load i16, ptr @currentIndex, align 2
+  %conv59.i = sext i16 %20 to i32
+  %21 = load i16, ptr %length.i, align 8
+  %conv61.i = sext i16 %21 to i32
   %add62.i = add nsw i32 %conv61.i, %conv59.i
   %cmp64.i = icmp sgt i32 %add62.i, 16318
   br i1 %cmp64.i, label %if.then66.i, label %if.end72.i
 
 if.then66.i:                                      ; preds = %if.end58.i
-  %21 = load ptr, ptr @stderr, align 8
-  %call71.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.22, i32 noundef %add62.i, i32 noundef 16319) #15
+  %22 = load ptr, ptr @stderr, align 8
+  %call71.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.22, i32 noundef %add62.i, i32 noundef 16319) #15
   call void @exit(i32 noundef 8) #16
   unreachable
 
@@ -584,9 +584,9 @@ if.end72.i:                                       ; preds = %if.end58.i
   br i1 %cmp73.i, label %if.then75.i, label %if.end80.i
 
 if.then75.i:                                      ; preds = %if.end72.i
-  %inc77.i = add i16 %19, 1
+  %inc77.i = add i16 %20, 1
   store i16 %inc77.i, ptr @currentIndex, align 2
-  %idxprom78.i = sext i16 %19 to i64
+  %idxprom78.i = sext i16 %20 to i64
   %arrayidx79.i = getelementptr inbounds i16, ptr %.pre88.i, i64 %idxprom78.i
   store i16 %conv76.i, ptr %arrayidx79.i, align 2
   %.pre89.i = load i16, ptr %length.i, align 8
@@ -595,30 +595,30 @@ if.then75.i:                                      ; preds = %if.end72.i
 
 if.end80.i:                                       ; preds = %if.then75.i, %if.end72.i
   %conv83.pre-phi.i = phi i32 [ %.pre90.i, %if.then75.i ], [ %conv61.i, %if.end72.i ]
-  %22 = phi i16 [ %inc77.i, %if.then75.i ], [ %19, %if.end72.i ]
-  %idx.ext.i = sext i16 %22 to i64
+  %23 = phi i16 [ %inc77.i, %if.then75.i ], [ %20, %if.end72.i ]
+  %idx.ext.i = sext i16 %23 to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %.pre88.i, i64 %idx.ext.i
-  %23 = load ptr, ptr %6, align 8
-  %call84.i = call ptr @u_memmove_75(ptr noundef %add.ptr.i, ptr noundef %23, i32 noundef %conv83.pre-phi.i) #13
-  %24 = load i16, ptr %length.i, align 8
-  %25 = load i16, ptr @currentIndex, align 2
-  %add88.i = add i16 %25, %24
+  %24 = load ptr, ptr %6, align 8
+  %call84.i = call ptr @u_memmove_75(ptr noundef %add.ptr.i, ptr noundef %24, i32 noundef %conv83.pre-phi.i) #13
+  %25 = load i16, ptr %length.i, align 8
+  %26 = load i16, ptr @currentIndex, align 2
+  %add88.i = add i16 %26, %25
   store i16 %add88.i, ptr @currentIndex, align 2
   %conv90.i = sext i16 %add88.i to i32
-  %26 = load i32, ptr @mappingDataCapacity, align 4
-  %cmp91.i = icmp slt i32 %26, %conv90.i
+  %27 = load i32, ptr @mappingDataCapacity, align 4
+  %cmp91.i = icmp slt i32 %27, %conv90.i
   br i1 %cmp91.i, label %if.then93.i, label %if.end96.i
 
 if.then93.i:                                      ; preds = %if.end80.i
-  %27 = load ptr, ptr @stderr, align 8
-  %call94.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 337) #15
+  %28 = load ptr, ptr @stderr, align 8
+  %call94.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 337) #15
   call void @exit(i32 noundef 5) #16
   unreachable
 
 if.end96.i:                                       ; preds = %if.end80.i, %if.end25.i
   %writtenElementCount.2.i = phi i32 [ %inc.i, %if.end80.i ], [ %writtenElementCount.157.i, %if.end25.i ]
-  %28 = load ptr, ptr @hashTable, align 8
-  %call5.i = call ptr @uhash_nextElement_75(ptr noundef %28, ptr noundef nonnull %pos.i) #13
+  %29 = load ptr, ptr @hashTable, align 8
+  %call5.i = call ptr @uhash_nextElement_75(ptr noundef %29, ptr noundef nonnull %pos.i) #13
   %cmp6.not.i = icmp eq ptr %call5.i, null
   br i1 %cmp6.not.i, label %while.end.i, label %while.body8.i, !llvm.loop !8
 
@@ -626,21 +626,21 @@ while.end.i:                                      ; preds = %if.end96.i, %while.
   %writtenElementCount.1.lcssa.i = phi i32 [ %writtenElementCount.064.i, %while.cond4.preheader.i ], [ %writtenElementCount.2.i, %if.end96.i ]
   %oldMappingLength.1.lcssa.i = phi i32 [ %oldMappingLength.066.i, %while.cond4.preheader.i ], [ %oldMappingLength.2.i, %if.end96.i ]
   %limitIndex.1.lcssa.i = phi i32 [ %limitIndex.067.i, %while.cond4.preheader.i ], [ %limitIndex.2.i, %if.end96.i ]
-  %indvars.iv.next.i = add i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   store i32 -1, ptr %pos.i, align 4
   %cmp2.i = icmp slt i32 %writtenElementCount.1.lcssa.i, %call.i
   br i1 %cmp2.i, label %while.cond4.preheader.i, label %while.end98.i, !llvm.loop !9
 
 while.end98.i:                                    ; preds = %while.end.i
-  %cmp99.i = icmp ult i64 %indvars.iv.next.i, 4
+  %cmp99.i = icmp ult i64 %indvars.iv.i, 3
   br i1 %cmp99.i, label %if.then101.i, label %if.else107.i
 
 if.then101.i:                                     ; preds = %while.end98.i, %if.end.i
-  %mappingLength.0.lcssa98.i = phi i64 [ %indvars.iv.next.i, %while.end98.i ], [ 1, %if.end.i ]
-  %29 = load i16, ptr @currentIndex, align 2
-  %conv102.i = sext i16 %29 to i32
+  %mappingLength.0.lcssa95.i = phi i64 [ %indvars.iv.next.i, %while.end98.i ], [ 1, %if.end.i ]
+  %30 = load i16, ptr @currentIndex, align 2
+  %conv102.i = sext i16 %30 to i32
   %add103.i = add nsw i32 %conv102.i, 1
-  %add104.i = add nuw nsw i64 %mappingLength.0.lcssa98.i, 2
+  %add104.i = add nuw nsw i64 %mappingLength.0.lcssa95.i, 2
   %arrayidx106.i = getelementptr inbounds [16 x i32], ptr @indexes, i64 0, i64 %add104.i
   store i32 %add103.i, ptr %arrayidx106.i, align 4
   br label %storeMappingData.exit
@@ -651,81 +651,81 @@ if.else107.i:                                     ; preds = %while.end98.i
 
 storeMappingData.exit:                            ; preds = %entry, %if.then101.i, %if.else107.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pos.i)
-  %30 = load ptr, ptr @sprepTrie, align 8
-  %call2 = call i32 @utrie_serialize_75(ptr noundef %30, ptr noundef nonnull @generateData.sprepTrieBlock, i32 noundef 100000, ptr noundef nonnull @getFoldedValue, i8 noundef signext 1, ptr noundef nonnull %errorCode) #13
-  %31 = load i32, ptr %errorCode, align 4
-  %cmp = icmp sgt i32 %31, 0
+  %31 = load ptr, ptr @sprepTrie, align 8
+  %call2 = call i32 @utrie_serialize_75(ptr noundef %31, ptr noundef nonnull @generateData.sprepTrieBlock, i32 noundef 100000, ptr noundef nonnull @getFoldedValue, i8 noundef signext 1, ptr noundef nonnull %errorCode) #13
+  %32 = load i32, ptr %errorCode, align 4
+  %cmp = icmp sgt i32 %32, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %storeMappingData.exit
-  %32 = load ptr, ptr @stderr, align 8
-  %call3 = call ptr @u_errorName_75(i32 noundef %31) #13
-  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.10, ptr noundef %call3) #15
-  %33 = load i32, ptr %errorCode, align 4
-  call void @exit(i32 noundef %33) #18
+  %33 = load ptr, ptr @stderr, align 8
+  %call3 = call ptr @u_errorName_75(i32 noundef %32) #13
+  %call4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.10, ptr noundef %call3) #15
+  %34 = load i32, ptr %errorCode, align 4
+  call void @exit(i32 noundef %34) #18
   unreachable
 
 if.end:                                           ; preds = %storeMappingData.exit
-  %34 = load i32, ptr @mappingDataCapacity, align 4
-  %mul = shl nsw i32 %34, 1
+  %35 = load i32, ptr @mappingDataCapacity, align 4
+  %mul = shl nsw i32 %35, 1
   %add5 = add i32 %call2, 64
   %add6 = add i32 %add5, %mul
-  %35 = load i8, ptr @beVerbose, align 1
-  %tobool.not = icmp eq i8 %35, 0
+  %36 = load i8, ptr @beVerbose, align 1
+  %tobool.not = icmp eq i8 %36, 0
   br i1 %tobool.not, label %if.end17, label %if.then8
 
 if.then8:                                         ; preds = %if.end
   %call9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %call2)
   %conv10 = sext i32 %add6 to i64
   %call11 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %bundleName, i64 noundef %conv10)
-  %36 = load i32, ptr @mappingDataCapacity, align 4
-  %mul12 = shl nsw i32 %36, 1
+  %37 = load i32, ptr @mappingDataCapacity, align 4
+  %mul12 = shl nsw i32 %37, 1
   %call13 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %mul12)
-  %37 = load i16, ptr @currentIndex, align 2
-  %conv14 = sext i16 %37 to i32
+  %38 = load i16, ptr @currentIndex, align 2
+  %conv14 = sext i16 %38 to i32
   %call15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %conv14)
-  %38 = load i32, ptr @maxLength, align 4
-  %call16 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %38)
+  %39 = load i32, ptr @maxLength, align 4
+  %call16 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %39)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then8, %if.end
   store i8 0, ptr %call1, align 1
   %call18 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call1, ptr noundef nonnull dereferenceable(1) %bundleName) #13
-  %39 = load i8, ptr @haveCopyright, align 1
-  %tobool20.not = icmp eq i8 %39, 0
+  %40 = load i8, ptr @haveCopyright, align 1
+  %tobool20.not = icmp eq i8 %40, 0
   %cond = select i1 %tobool20.not, ptr null, ptr @.str.17
   %call21 = call ptr @udata_create(ptr noundef %dataDir, ptr noundef nonnull @.str.16, ptr noundef nonnull %call1, ptr noundef nonnull @dataInfo, ptr noundef %cond, ptr noundef nonnull %errorCode) #13
-  %40 = load i32, ptr %errorCode, align 4
-  %cmp22 = icmp sgt i32 %40, 0
+  %41 = load i32, ptr %errorCode, align 4
+  %cmp22 = icmp sgt i32 %41, 0
   br i1 %cmp22, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %if.end17
-  %41 = load ptr, ptr @stderr, align 8
-  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.18, i32 noundef %40) #15
-  %42 = load i32, ptr %errorCode, align 4
-  call void @exit(i32 noundef %42) #18
+  %42 = load ptr, ptr @stderr, align 8
+  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.18, i32 noundef %41) #15
+  %43 = load i32, ptr %errorCode, align 4
+  call void @exit(i32 noundef %43) #18
   unreachable
 
 if.end26:                                         ; preds = %if.end17
   store i32 %call2, ptr @indexes, align 16
-  %43 = load i32, ptr @mappingDataCapacity, align 4
-  %mul27 = shl nsw i32 %43, 1
+  %44 = load i32, ptr @mappingDataCapacity, align 4
+  %mul27 = shl nsw i32 %44, 1
   store i32 %mul27, ptr getelementptr inbounds (i8, ptr @indexes, i64 4), align 4
   call void @udata_writeBlock(ptr noundef %call21, ptr noundef nonnull @indexes, i32 noundef 64) #13
   call void @udata_writeBlock(ptr noundef %call21, ptr noundef nonnull @generateData.sprepTrieBlock, i32 noundef %call2) #13
-  %44 = load ptr, ptr @mappingData, align 8
-  %45 = load i32, ptr getelementptr inbounds (i8, ptr @indexes, i64 4), align 4
-  call void @udata_writeBlock(ptr noundef %call21, ptr noundef %44, i32 noundef %45) #13
+  %45 = load ptr, ptr @mappingData, align 8
+  %46 = load i32, ptr getelementptr inbounds (i8, ptr @indexes, i64 4), align 4
+  call void @udata_writeBlock(ptr noundef %call21, ptr noundef %45, i32 noundef %46) #13
   %call28 = call i32 @udata_finish(ptr noundef %call21, ptr noundef nonnull %errorCode) #13
-  %46 = load i32, ptr %errorCode, align 4
-  %cmp29 = icmp sgt i32 %46, 0
+  %47 = load i32, ptr %errorCode, align 4
+  %cmp29 = icmp sgt i32 %47, 0
   br i1 %cmp29, label %if.then31, label %if.end33
 
 if.then31:                                        ; preds = %if.end26
-  %47 = load ptr, ptr @stderr, align 8
-  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.19, i32 noundef %46) #15
-  %48 = load i32, ptr %errorCode, align 4
-  call void @exit(i32 noundef %48) #18
+  %48 = load ptr, ptr @stderr, align 8
+  %call32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.19, i32 noundef %47) #15
+  %49 = load i32, ptr %errorCode, align 4
+  call void @exit(i32 noundef %49) #18
   unreachable
 
 if.end33:                                         ; preds = %if.end26
@@ -733,20 +733,20 @@ if.end33:                                         ; preds = %if.end26
   br i1 %cmp34.not, label %if.end40, label %if.then36
 
 if.then36:                                        ; preds = %if.end33
-  %49 = load ptr, ptr @stderr, align 8
+  %50 = load ptr, ptr @stderr, align 8
   %conv37 = sext i32 %call28 to i64
   %conv38 = sext i32 %add6 to i64
-  %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.20, i64 noundef %conv37, i64 noundef %conv38) #15
+  %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.20, i64 noundef %conv37, i64 noundef %conv38) #15
   call void @exit(i32 noundef 5) #16
   unreachable
 
 if.end40:                                         ; preds = %if.end33
-  %50 = load ptr, ptr @hashTable, align 8
-  %cmp41.not = icmp eq ptr %50, null
+  %51 = load ptr, ptr @hashTable, align 8
+  %cmp41.not = icmp eq ptr %51, null
   br i1 %cmp41.not, label %if.end44, label %if.then43
 
 if.then43:                                        ; preds = %if.end40
-  call void @uhash_close_75(ptr noundef nonnull %50) #13
+  call void @uhash_close_75(ptr noundef nonnull %51) #13
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then43, %if.end40

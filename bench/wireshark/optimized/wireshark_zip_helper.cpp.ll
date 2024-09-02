@@ -2101,12 +2101,12 @@ _ZNK9QFileInfo12lastModifiedEv.exit:              ; preds = %3
   %24 = add i32 %22, -33
   %25 = icmp ult i32 %24, -31
   %or.cond5.i = or i1 %or.cond.i, %25
-  br i1 %or.cond5.i, label %48, label %28
+  br i1 %or.cond5.i, label %49, label %28
 
 26:                                               ; preds = %.noexc
   %27 = landingpad { ptr, i32 }
           cleanup
-  br label %47
+  br label %48
 
 28:                                               ; preds = %.noexc25
   invoke void @_ZNK9QDateTime10toTimeSpecEN2Qt8TimeSpecE(ptr dead_on_unwind nonnull writable sret(%class.QDateTime) align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 0)
@@ -2114,7 +2114,7 @@ _ZNK9QFileInfo12lastModifiedEv.exit:              ; preds = %3
 
 .noexc26:                                         ; preds = %28
   %29 = invoke i32 @_ZNK9QDateTime4timeEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %30 unwind label %45
+          to label %30 unwind label %46
 
 30:                                               ; preds = %.noexc26
   store i32 %29, ptr %6, align 4
@@ -2142,33 +2142,33 @@ _ZNK9QFileInfo12lastModifiedEv.exit:              ; preds = %3
   %42 = add i32 %40, %39
   %43 = add i32 %42, %41
   %44 = or i32 %38, %43
+  %45 = zext i32 %44 to i64
+  br label %49
+
+46:                                               ; preds = %.noexc26
+  %47 = landingpad { ptr, i32 }
+          cleanup
   br label %48
 
-45:                                               ; preds = %.noexc26
-  %46 = landingpad { ptr, i32 }
-          cleanup
-  br label %47
-
-47:                                               ; preds = %45, %26
-  %.sink26.i = phi ptr [ %7, %45 ], [ %5, %26 ]
-  %.pn.i = phi { ptr, i32 } [ %46, %45 ], [ %27, %26 ]
+48:                                               ; preds = %46, %26
+  %.sink26.i = phi ptr [ %7, %46 ], [ %5, %26 ]
+  %.pn.i = phi { ptr, i32 } [ %47, %46 ], [ %27, %26 ]
   call void @_ZN9QDateTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink26.i) #19
   br label %.body
 
-48:                                               ; preds = %.noexc29, %.noexc25
-  %.0.i = phi i32 [ %44, %.noexc29 ], [ 0, %.noexc25 ]
+49:                                               ; preds = %.noexc29, %.noexc25
+  %.0.i = phi i64 [ %45, %.noexc29 ], [ 0, %.noexc25 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %49 = zext i32 %.0.i to i64
   %50 = getelementptr inbounds i8, ptr %9, i64 24
-  store i64 %49, ptr %50, align 8
+  store i64 %.0.i, ptr %50, align 8
   call void @_ZN9QDateTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
   invoke void @_ZN5QFileC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %51 unwind label %69
 
-51:                                               ; preds = %48
+51:                                               ; preds = %49
   %52 = invoke noundef i64 @_ZNK5QFile4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %53 unwind label %71
 
@@ -2215,12 +2215,12 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %60, %_ZN17QArrayDat
           cleanup
   br label %.body
 
-.body:                                            ; preds = %47, %67
-  %eh.lpad-body = phi { ptr, i32 } [ %68, %67 ], [ %.pn.i, %47 ]
+.body:                                            ; preds = %48, %67
+  %eh.lpad-body = phi { ptr, i32 } [ %68, %67 ], [ %.pn.i, %48 ]
   call void @_ZN9QDateTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
   br label %118
 
-69:                                               ; preds = %48
+69:                                               ; preds = %49
   %70 = landingpad { ptr, i32 }
           cleanup
   br label %118

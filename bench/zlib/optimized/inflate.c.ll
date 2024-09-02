@@ -4589,7 +4589,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @inflateMark(ptr noundef readonly %strm) local_unnamed_addr #5 {
+define range(i64 -140737488355328, 140741783257088) i64 @inflateMark(ptr noundef readonly %strm) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %strm, null
   br i1 %cmp.i, label %return, label %lor.lhs.false.i

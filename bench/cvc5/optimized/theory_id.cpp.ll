@@ -942,7 +942,7 @@ eh.resume:                                        ; preds = %lpad54, %lpad.i109,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef range(i32 0, -1) i32 @_ZN4cvc58internal6theory15TheoryIdSetUtil6setPopERj(ptr nocapture noundef nonnull align 4 dereferenceable(4) %set) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 32) i32 @_ZN4cvc58internal6theory15TheoryIdSetUtil6setPopERj(ptr nocapture noundef nonnull align 4 dereferenceable(4) %set) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %set, align 4
   %.not = icmp eq i32 %0, 0
@@ -962,7 +962,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory15TheoryIdSetUtil9setRemoveENS1_8TheoryIdEj(i32 noundef %theory, i32 noundef %set) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 0, -1) i32 @_ZN4cvc58internal6theory15TheoryIdSetUtil9setRemoveENS1_8TheoryIdEj(i32 noundef %theory, i32 noundef %set) local_unnamed_addr #4 align 2 {
 entry:
   %shl.i = shl nuw i32 1, %theory
   %not.i = xor i32 %shl.i, -1
@@ -1026,7 +1026,7 @@ while.end:                                        ; preds = %_ZN4cvc58internal6t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory15TheoryIdSetUtil9setInsertENS1_8TheoryIdEj(i32 noundef %theory, i32 noundef %set) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 1, 0) i32 @_ZN4cvc58internal6theory15TheoryIdSetUtil9setInsertENS1_8TheoryIdEj(i32 noundef %theory, i32 noundef %set) local_unnamed_addr #4 align 2 {
 entry:
   %shl = shl nuw i32 1, %theory
   %or = or i32 %set, %shl

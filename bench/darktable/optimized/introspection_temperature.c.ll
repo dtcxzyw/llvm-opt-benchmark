@@ -2730,21 +2730,21 @@ define void @reload_defaults(ptr noundef %0) local_unnamed_addr #4 {
   %32 = and i32 %31, 32768
   %33 = tail call i32 @dt_is_scene_referred() #23
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %40
+  br i1 %34, label %35, label %41
 
 35:                                               ; preds = %26
   %36 = load ptr, ptr %19, align 8, !tbaa !58
   %37 = getelementptr inbounds i8, ptr %36, i64 1544
   %38 = load i32, ptr %37, align 8, !tbaa !147
   %39 = tail call i32 @dt_history_check_module_exists(i32 noundef %38, ptr noundef nonnull @.str.9, i32 noundef 1) #23
-  br label %40
+  %40 = icmp ne i32 %39, 0
+  br label %41
 
-40:                                               ; preds = %35, %26
-  %41 = phi i32 [ 0, %26 ], [ %39, %35 ]
-  %42 = tail call i32 @dt_is_scene_referred() #23
-  %43 = icmp ne i32 %42, 0
-  %44 = icmp ne i32 %41, 0
-  %45 = select i1 %43, i1 true, i1 %44
+41:                                               ; preds = %35, %26
+  %42 = phi i1 [ false, %26 ], [ %40, %35 ]
+  %43 = tail call i32 @dt_is_scene_referred() #23
+  %44 = icmp ne i32 %43, 0
+  %45 = select i1 %44, i1 true, i1 %42
   %46 = getelementptr inbounds i8, ptr %0, i64 676
   store i32 0, ptr %46, align 4, !tbaa !89
   %47 = getelementptr inbounds i8, ptr %0, i64 492
@@ -2759,7 +2759,7 @@ define void @reload_defaults(ptr noundef %0) local_unnamed_addr #4 {
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %.loopexit11, label %54
 
-54:                                               ; preds = %40
+54:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23
   %55 = load ptr, ptr %19, align 8, !tbaa !58
   %56 = getelementptr inbounds i8, ptr %55, i64 1872
@@ -2838,8 +2838,8 @@ define void @reload_defaults(ptr noundef %0) local_unnamed_addr #4 {
   %108 = icmp slt i32 %106, %107
   br i1 %108, label %.preheader10, label %.loopexit11
 
-.loopexit11:                                      ; preds = %105, %102, %74, %60, %40
-  %109 = phi <4 x double> [ %104, %102 ], [ %49, %74 ], [ %73, %60 ], [ <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>, %40 ], [ %49, %105 ]
+.loopexit11:                                      ; preds = %105, %102, %74, %60, %41
+  %109 = phi <4 x double> [ %104, %102 ], [ %49, %74 ], [ %73, %60 ], [ <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>, %41 ], [ %49, %105 ]
   %110 = icmp eq i32 %28, 0
   br i1 %110, label %121, label %111
 
@@ -2882,7 +2882,7 @@ define void @reload_defaults(ptr noundef %0) local_unnamed_addr #4 {
   %135 = icmp eq i32 %134, 0
   %136 = select i1 %135, ptr @.str.14, ptr @.str.13
   %137 = select i1 %45, ptr @.str.13, ptr @.str.14
-  %138 = select i1 %44, ptr @.str.13, ptr @.str.14
+  %138 = select i1 %42, ptr @.str.13, ptr @.str.14
   %139 = extractelement <2 x double> %123, i64 0
   %140 = extractelement <4 x double> %109, i64 0
   %141 = extractelement <4 x double> %109, i64 1

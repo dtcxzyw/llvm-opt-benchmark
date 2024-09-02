@@ -323,11 +323,11 @@ _ZN20StackValueCollectionC2Ei.exit:               ; preds = %_ZN12ResourceMarkD2
 
 108:                                              ; preds = %103
   %109 = load ptr, ptr %.sroa.0.0.copyload.i, align 8
+  %110 = ptrtoint ptr %109 to i64
   br label %_ZNK6HandleclEv.exit
 
 _ZNK6HandleclEv.exit:                             ; preds = %103, %108
-  %110 = phi ptr [ %109, %108 ], [ null, %103 ]
-  %111 = ptrtoint ptr %110 to i64
+  %111 = phi i64 [ %110, %108 ], [ 0, %103 ]
   %112 = getelementptr inbounds i8, ptr %105, i64 16
   store ptr null, ptr %112, align 8
   store i8 12, ptr %105, align 8
@@ -472,11 +472,11 @@ _ZN20StackValueCollectionC2Ei.exit54:             ; preds = %._crit_edge, %.lr.p
 
 189:                                              ; preds = %184
   %190 = load ptr, ptr %.sroa.0.0.copyload.i55, align 8
+  %191 = ptrtoint ptr %190 to i64
   br label %_ZNK6HandleclEv.exit56
 
 _ZNK6HandleclEv.exit56:                           ; preds = %184, %189
-  %191 = phi ptr [ %190, %189 ], [ null, %184 ]
-  %192 = ptrtoint ptr %191 to i64
+  %192 = phi i64 [ %191, %189 ], [ 0, %184 ]
   %193 = getelementptr inbounds i8, ptr %186, i64 16
   store ptr null, ptr %193, align 8
   store i8 12, ptr %186, align 8
@@ -1531,19 +1531,19 @@ _ZNK15Bytecode_invoke16is_invokedynamicEv.exit.thread: ; preds = %_ZN15Bytecode_
   %159 = call noundef i32 @_ZN13MethodHandles29signature_polymorphic_name_idEP6Symbol(ptr noundef %150) #13
   %160 = add i32 %159, -398
   %161 = icmp ult i32 %160, 5
+  %162 = zext i1 %161 to i32
   br label %_ZN13MethodHandles14has_member_argEP6SymbolS1_.exit
 
 _ZN13MethodHandles14has_member_argEP6SymbolS1_.exit: ; preds = %158, %156, %153, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit
-  %162 = phi i1 [ false, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit ], [ %161, %158 ], [ false, %156 ], [ false, %153 ]
-  %163 = load ptr, ptr %10, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 8
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 46
-  %167 = load i16, ptr %166, align 2
-  %168 = zext i16 %167 to i32
-  %169 = zext i1 %162 to i32
-  %170 = add nuw nsw i32 %168, %169
-  %171 = getelementptr inbounds i8, ptr %165, i64 44
+  %163 = phi i32 [ 0, %_ZNK15Bytecode_invoke16is_invokedynamicEv.exit ], [ %162, %158 ], [ 0, %156 ], [ 0, %153 ]
+  %164 = load ptr, ptr %10, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 46
+  %168 = load i16, ptr %167, align 2
+  %169 = zext i16 %168 to i32
+  %170 = add nuw nsw i32 %163, %169
+  %171 = getelementptr inbounds i8, ptr %166, i64 44
   %172 = load i16, ptr %171, align 4
   %173 = zext i16 %172 to i32
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #13

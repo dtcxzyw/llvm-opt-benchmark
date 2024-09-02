@@ -295,8 +295,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc
   %91 = icmp eq i32 %90, 100
   switch i32 %89, label %default.unreachable [
     i32 0, label %92
-    i32 1, label %126
-    i32 2, label %177
+    i32 1, label %127
+    i32 2, label %176
   ]
 
 92:                                               ; preds = %83
@@ -311,14 +311,15 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc
   %99 = add nsw i32 %90, -100
   %100 = urem i32 %98, %99
   %101 = add i32 %100, 50
+  %102 = zext i32 %101 to i64
   br label %_ZN2cv3RNG7uniformEii.exit.i
 
 _ZN2cv3RNG7uniformEii.exit.i:                     ; preds = %93, %92
   %.sroa.0114.2.i = phi i64 [ %87, %92 ], [ %97, %93 ]
-  %102 = phi i32 [ 50, %92 ], [ %101, %93 ]
+  %.sroa.096.0.insert.ext.i = phi i64 [ 50, %92 ], [ %102, %93 ]
   %103 = load i32, ptr %65, align 8, !alias.scope !5
   %104 = icmp eq i32 %103, 100
-  br i1 %104, label %114, label %105
+  br i1 %104, label %116, label %105
 
 105:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit.i
   %106 = and i64 %.sroa.0114.2.i, 4294967295
@@ -329,53 +330,52 @@ _ZN2cv3RNG7uniformEii.exit.i:                     ; preds = %93, %92
   %111 = add nsw i32 %103, -100
   %112 = urem i32 %110, %111
   %113 = add i32 %112, 75
-  br label %114
+  %114 = zext i32 %113 to i64
+  %115 = shl nuw i64 %114, 32
+  br label %116
 
-114:                                              ; preds = %105, %_ZN2cv3RNG7uniformEii.exit.i
+116:                                              ; preds = %105, %_ZN2cv3RNG7uniformEii.exit.i
   %.sroa.0114.3.i = phi i64 [ %.sroa.0114.2.i, %_ZN2cv3RNG7uniformEii.exit.i ], [ %109, %105 ]
-  %115 = phi i32 [ 75, %_ZN2cv3RNG7uniformEii.exit.i ], [ %113, %105 ]
-  %116 = and i64 %.sroa.0114.3.i, 4294967295
-  %117 = mul nuw i64 %116, 4164903690
-  %118 = lshr i64 %.sroa.0114.3.i, 32
-  %119 = add nuw i64 %117, %118
-  %120 = trunc i64 %119 to i32
-  %121 = urem i32 %120, 24
-  %122 = add nuw nsw i32 %121, 1
+  %.sroa.297.0.insert.ext.i = phi i64 [ 322122547200, %_ZN2cv3RNG7uniformEii.exit.i ], [ %115, %105 ]
+  %117 = and i64 %.sroa.0114.3.i, 4294967295
+  %118 = mul nuw i64 %117, 4164903690
+  %119 = lshr i64 %.sroa.0114.3.i, 32
+  %120 = add nuw i64 %118, %119
+  %121 = trunc i64 %120 to i32
+  %122 = urem i32 %121, 24
+  %123 = add nuw nsw i32 %122, 1
   store i64 0, ptr %73, align 8, !noalias !5
   store i32 50397184, ptr %6, align 8, !noalias !5
   store ptr %18, ptr %72, align 8, !noalias !5
-  %.sroa.8.0.insert.ext106.i = zext i32 %115 to i64
-  %.sroa.8.0.insert.shift107.i = shl nuw i64 %.sroa.8.0.insert.ext106.i, 32
-  %.sroa.0100.0.insert.ext101.i = zext i32 %102 to i64
-  %.sroa.0100.0.insert.insert103.i = or disjoint i64 %.sroa.8.0.insert.shift107.i, %.sroa.0100.0.insert.ext101.i
-  %123 = uitofp nneg i32 %.035188.i to double
-  store double %123, ptr %7, align 8, !noalias !5
+  %.sroa.0100.0.insert.insert103.i = or disjoint i64 %.sroa.297.0.insert.ext.i, %.sroa.096.0.insert.ext.i
+  %124 = uitofp nneg i32 %.035188.i to double
+  store double %124, ptr %7, align 8, !noalias !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false), !noalias !5
-  invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %.sroa.0100.0.insert.insert103.i, i32 noundef %122, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef -1, i32 noundef 8, i32 noundef 0)
-          to label %223 unwind label %124
+  invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 %.sroa.0100.0.insert.insert103.i, i32 noundef %123, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef -1, i32 noundef 8, i32 noundef 0)
+          to label %223 unwind label %125
 
-124:                                              ; preds = %114
-  %125 = landingpad { ptr, i32 }
+125:                                              ; preds = %116
+  %126 = landingpad { ptr, i32 }
           cleanup
   br label %225
 
-126:                                              ; preds = %83
-  br i1 %91, label %_ZN2cv3RNG7uniformEii.exit49.i, label %127
+127:                                              ; preds = %83
+  br i1 %91, label %_ZN2cv3RNG7uniformEii.exit49.i, label %128
 
-127:                                              ; preds = %126
-  %128 = and i64 %87, 4294967295
-  %129 = mul nuw i64 %128, 4164903690
-  %130 = lshr i64 %87, 32
-  %131 = add nuw i64 %129, %130
-  %132 = trunc i64 %131 to i32
-  %133 = add nsw i32 %90, -100
-  %134 = urem i32 %132, %133
-  %135 = add i32 %134, 50
+128:                                              ; preds = %127
+  %129 = and i64 %87, 4294967295
+  %130 = mul nuw i64 %129, 4164903690
+  %131 = lshr i64 %87, 32
+  %132 = add nuw i64 %130, %131
+  %133 = trunc i64 %132 to i32
+  %134 = add nsw i32 %90, -100
+  %135 = urem i32 %133, %134
+  %136 = add i32 %135, 50
   br label %_ZN2cv3RNG7uniformEii.exit49.i
 
-_ZN2cv3RNG7uniformEii.exit49.i:                   ; preds = %127, %126
-  %.sroa.0114.5.i = phi i64 [ %87, %126 ], [ %131, %127 ]
-  %136 = phi i32 [ 50, %126 ], [ %135, %127 ]
+_ZN2cv3RNG7uniformEii.exit49.i:                   ; preds = %128, %127
+  %.sroa.0114.5.i = phi i64 [ %87, %127 ], [ %132, %128 ]
+  %.sroa.094.0.insert.ext.i = phi i32 [ 50, %127 ], [ %136, %128 ]
   %137 = load i32, ptr %65, align 8, !alias.scope !5
   %138 = icmp eq i32 %137, 100
   br i1 %138, label %148, label %139
@@ -393,90 +393,93 @@ _ZN2cv3RNG7uniformEii.exit49.i:                   ; preds = %127, %126
 
 148:                                              ; preds = %139, %_ZN2cv3RNG7uniformEii.exit49.i
   %.sroa.0114.6.i = phi i64 [ %.sroa.0114.5.i, %_ZN2cv3RNG7uniformEii.exit49.i ], [ %143, %139 ]
-  %149 = phi i32 [ 75, %_ZN2cv3RNG7uniformEii.exit49.i ], [ %147, %139 ]
-  %150 = and i64 %.sroa.0114.6.i, 4294967295
-  %151 = mul nuw i64 %150, 4164903690
-  %152 = lshr i64 %.sroa.0114.6.i, 32
-  %153 = add nuw i64 %151, %152
-  %154 = trunc i64 %153 to i32
-  %155 = urem i32 %154, 24
-  %156 = add nuw nsw i32 %155, 1
-  %157 = and i64 %153, 4294967295
-  %158 = mul nuw i64 %157, 4164903690
-  %159 = lshr i64 %153, 32
-  %160 = add nuw i64 %158, %159
-  %161 = trunc i64 %160 to i32
-  %162 = urem i32 %161, 24
-  %163 = lshr i32 %156, 1
-  %.lhs.trunc.i = add nuw nsw i32 %162, 1
+  %.sroa.295.0.insert.ext.i = phi i32 [ 75, %_ZN2cv3RNG7uniformEii.exit49.i ], [ %147, %139 ]
+  %149 = and i64 %.sroa.0114.6.i, 4294967295
+  %150 = mul nuw i64 %149, 4164903690
+  %151 = lshr i64 %.sroa.0114.6.i, 32
+  %152 = add nuw i64 %150, %151
+  %153 = trunc i64 %152 to i32
+  %154 = urem i32 %153, 24
+  %155 = add nuw nsw i32 %154, 1
+  %156 = and i64 %152, 4294967295
+  %157 = mul nuw i64 %156, 4164903690
+  %158 = lshr i64 %152, 32
+  %159 = add nuw i64 %157, %158
+  %160 = trunc i64 %159 to i32
+  %161 = urem i32 %160, 24
+  %162 = lshr i32 %155, 1
+  %.lhs.trunc.i = add nuw nsw i32 %161, 1
   %.zext.i = lshr i32 %.lhs.trunc.i, 1
-  %164 = sub nsw i32 %136, %163
-  %165 = sub nsw i32 %149, %.zext.i
-  %166 = add nsw i32 %163, %136
-  %167 = add nsw i32 %.zext.i, %149
+  %163 = sub nsw i32 %.sroa.094.0.insert.ext.i, %162
+  %164 = sub nsw i32 %.sroa.295.0.insert.ext.i, %.zext.i
+  %165 = add nsw i32 %162, %.sroa.094.0.insert.ext.i
+  %166 = add nsw i32 %.zext.i, %.sroa.295.0.insert.ext.i
+  %167 = call i32 @llvm.smin.i32(i32 %165, i32 %163)
   %168 = call i32 @llvm.smin.i32(i32 %166, i32 %164)
-  %169 = call i32 @llvm.smin.i32(i32 %167, i32 %165)
-  %170 = call i32 @llvm.smax.i32(i32 %164, i32 %166)
-  %171 = sub nsw i32 %170, %168
-  %172 = call i32 @llvm.smax.i32(i32 %165, i32 %167)
-  %173 = sub nsw i32 %172, %169
-  %.sroa.499.8.insert.ext.i = zext i32 %171 to i64
-  %.sroa.499.12.insert.ext.i = zext i32 %173 to i64
+  %169 = call i32 @llvm.smax.i32(i32 %163, i32 %165)
+  %170 = sub nsw i32 %169, %167
+  %171 = call i32 @llvm.smax.i32(i32 %164, i32 %166)
+  %172 = sub nsw i32 %171, %168
+  %.sroa.499.8.insert.ext.i = zext i32 %170 to i64
+  %.sroa.499.12.insert.ext.i = zext i32 %172 to i64
   %.sroa.499.12.insert.shift.i = shl nuw i64 %.sroa.499.12.insert.ext.i, 32
   %.sroa.499.12.insert.insert.i = or disjoint i64 %.sroa.499.12.insert.shift.i, %.sroa.499.8.insert.ext.i
   store i64 0, ptr %70, align 8, !noalias !5
   store i32 50397184, ptr %8, align 8, !noalias !5
   store ptr %18, ptr %69, align 8, !noalias !5
-  %.sroa.098.sroa.3.0.insert.ext.i = zext i32 %169 to i64
+  %.sroa.098.sroa.3.0.insert.ext.i = zext i32 %168 to i64
   %.sroa.098.sroa.3.0.insert.shift.i = shl nuw i64 %.sroa.098.sroa.3.0.insert.ext.i, 32
-  %.sroa.098.sroa.0.0.insert.ext.i = zext i32 %168 to i64
+  %.sroa.098.sroa.0.0.insert.ext.i = zext i32 %167 to i64
   %.sroa.098.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.098.sroa.3.0.insert.shift.i, %.sroa.098.sroa.0.0.insert.ext.i
-  %174 = uitofp nneg i32 %.035188.i to double
-  store double %174, ptr %9, align 8, !noalias !5
+  %173 = uitofp nneg i32 %.035188.i to double
+  store double %173, ptr %9, align 8, !noalias !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false), !noalias !5
   invoke void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_5Rect_IiEERKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 %.sroa.098.sroa.0.0.insert.insert.i, i64 %.sroa.499.12.insert.insert.i, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef -1, i32 noundef 8, i32 noundef 0)
-          to label %223 unwind label %175
+          to label %223 unwind label %174
 
-175:                                              ; preds = %148
-  %176 = landingpad { ptr, i32 }
+174:                                              ; preds = %148
+  %175 = landingpad { ptr, i32 }
           cleanup
   br label %225
 
-177:                                              ; preds = %83
-  br i1 %91, label %_ZN2cv3RNG7uniformEii.exit68.i, label %178
+176:                                              ; preds = %83
+  br i1 %91, label %_ZN2cv3RNG7uniformEii.exit68.i, label %177
 
-178:                                              ; preds = %177
-  %179 = and i64 %87, 4294967295
-  %180 = mul nuw i64 %179, 4164903690
-  %181 = lshr i64 %87, 32
-  %182 = add nuw i64 %180, %181
-  %183 = trunc i64 %182 to i32
-  %184 = add nsw i32 %90, -100
-  %185 = urem i32 %183, %184
-  %186 = add i32 %185, 50
+177:                                              ; preds = %176
+  %178 = and i64 %87, 4294967295
+  %179 = mul nuw i64 %178, 4164903690
+  %180 = lshr i64 %87, 32
+  %181 = add nuw i64 %179, %180
+  %182 = trunc i64 %181 to i32
+  %183 = add nsw i32 %90, -100
+  %184 = urem i32 %182, %183
+  %185 = add i32 %184, 50
+  %186 = zext i32 %185 to i64
   br label %_ZN2cv3RNG7uniformEii.exit68.i
 
-_ZN2cv3RNG7uniformEii.exit68.i:                   ; preds = %178, %177
-  %.sroa.0114.9.i = phi i64 [ %87, %177 ], [ %182, %178 ]
-  %187 = phi i32 [ 50, %177 ], [ %186, %178 ]
-  %188 = load i32, ptr %65, align 8, !alias.scope !5
-  %189 = icmp eq i32 %188, 100
-  br i1 %189, label %199, label %190
+_ZN2cv3RNG7uniformEii.exit68.i:                   ; preds = %177, %176
+  %.sroa.0114.9.i = phi i64 [ %87, %176 ], [ %181, %177 ]
+  %.sroa.074.0.insert.ext.i = phi i64 [ 50, %176 ], [ %186, %177 ]
+  %187 = load i32, ptr %65, align 8, !alias.scope !5
+  %188 = icmp eq i32 %187, 100
+  br i1 %188, label %200, label %189
 
-190:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit68.i
-  %191 = and i64 %.sroa.0114.9.i, 4294967295
-  %192 = mul nuw i64 %191, 4164903690
-  %193 = lshr i64 %.sroa.0114.9.i, 32
-  %194 = add nuw i64 %192, %193
-  %195 = trunc i64 %194 to i32
-  %196 = add nsw i32 %188, -100
-  %197 = urem i32 %195, %196
-  %198 = add i32 %197, 75
-  br label %199
+189:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit68.i
+  %190 = and i64 %.sroa.0114.9.i, 4294967295
+  %191 = mul nuw i64 %190, 4164903690
+  %192 = lshr i64 %.sroa.0114.9.i, 32
+  %193 = add nuw i64 %191, %192
+  %194 = trunc i64 %193 to i32
+  %195 = add nsw i32 %187, -100
+  %196 = urem i32 %194, %195
+  %197 = add i32 %196, 75
+  %198 = zext i32 %197 to i64
+  %199 = shl nuw i64 %198, 32
+  br label %200
 
-199:                                              ; preds = %190, %_ZN2cv3RNG7uniformEii.exit68.i
-  %.sroa.0114.10.i = phi i64 [ %.sroa.0114.9.i, %_ZN2cv3RNG7uniformEii.exit68.i ], [ %194, %190 ]
-  %200 = phi i32 [ 75, %_ZN2cv3RNG7uniformEii.exit68.i ], [ %198, %190 ]
+200:                                              ; preds = %189, %_ZN2cv3RNG7uniformEii.exit68.i
+  %.sroa.0114.10.i = phi i64 [ %.sroa.0114.9.i, %_ZN2cv3RNG7uniformEii.exit68.i ], [ %193, %189 ]
+  %.sroa.275.0.insert.ext.i = phi i64 [ 322122547200, %_ZN2cv3RNG7uniformEii.exit68.i ], [ %199, %189 ]
   %201 = and i64 %.sroa.0114.10.i, 4294967295
   %202 = mul nuw i64 %201, 4164903690
   %203 = lshr i64 %.sroa.0114.10.i, 32
@@ -498,10 +501,7 @@ _ZN2cv3RNG7uniformEii.exit68.i:                   ; preds = %178, %177
   store i64 0, ptr %67, align 8, !noalias !5
   store i32 50397184, ptr %10, align 8, !noalias !5
   store ptr %18, ptr %66, align 8, !noalias !5
-  %.sroa.8.0.insert.ext.i = zext i32 %200 to i64
-  %.sroa.8.0.insert.shift.i = shl nuw i64 %.sroa.8.0.insert.ext.i, 32
-  %.sroa.0100.0.insert.ext.i = zext i32 %187 to i64
-  %.sroa.0100.0.insert.insert.i = or disjoint i64 %.sroa.8.0.insert.shift.i, %.sroa.0100.0.insert.ext.i
+  %.sroa.0100.0.insert.insert.i = or disjoint i64 %.sroa.275.0.insert.ext.i, %.sroa.074.0.insert.ext.i
   %.lhs.trunc181.i = add nuw nsw i32 %206, 1
   %.zext182.i = lshr i32 %.lhs.trunc181.i, 1
   %.lhs.trunc183.i = add nuw nsw i32 %212, 1
@@ -517,7 +517,7 @@ _ZN2cv3RNG7uniformEii.exit68.i:                   ; preds = %178, %177
   invoke void @_ZN2cv7ellipseERKNS_17_InputOutputArrayENS_6Point_IiEENS_5Size_IiEEdddRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 %.sroa.0100.0.insert.insert.i, i64 %.sroa.0.0.insert.insert.i, double noundef %220, double noundef 0.000000e+00, double noundef 3.600000e+02, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef -1, i32 noundef 8, i32 noundef 0)
           to label %223 unwind label %221
 
-221:                                              ; preds = %199
+221:                                              ; preds = %200
   %222 = landingpad { ptr, i32 }
           cleanup
   br label %225
@@ -525,14 +525,14 @@ _ZN2cv3RNG7uniformEii.exit68.i:                   ; preds = %178, %177
 default.unreachable:                              ; preds = %83
   unreachable
 
-223:                                              ; preds = %199, %148, %114
-  %.sroa.0114.1.i = phi i64 [ %119, %114 ], [ %160, %148 ], [ %216, %199 ]
+223:                                              ; preds = %200, %148, %116
+  %.sroa.0114.1.i = phi i64 [ %120, %116 ], [ %159, %148 ], [ %216, %200 ]
   %224 = add nuw nsw i32 %.035188.i, 1
   %exitcond190.not.i = icmp eq i32 %224, 257
   br i1 %exitcond190.not.i, label %226, label %83, !llvm.loop !13
 
-225:                                              ; preds = %221, %175, %124, %81
-  %.pn.i = phi { ptr, i32 } [ %82, %81 ], [ %222, %221 ], [ %176, %175 ], [ %125, %124 ]
+225:                                              ; preds = %221, %174, %125, %81
+  %.pn.i = phi { ptr, i32 } [ %82, %81 ], [ %222, %221 ], [ %175, %174 ], [ %126, %125 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #13
   br label %.body
 

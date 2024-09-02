@@ -185,62 +185,62 @@ define range(i32 -1, 1) i32 @OnUpdateBaseDir(ptr nocapture noundef readnone %0, 
 61:                                               ; preds = %47
   %62 = load ptr, ptr %7, align 8
   %.not246 = icmp eq ptr %62, null
-  br i1 %.not246, label %.thread258, label %64
+  br i1 %.not246, label %.critedge258.thread, label %64
 
-.thread258:                                       ; preds = %61
+.critedge258.thread:                              ; preds = %61
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   br label %82
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds i8, ptr %62, i64 16
   %66 = load i64, ptr %65, align 8
-  %.not247 = icmp eq i64 %66, 0
-  br i1 %.not247, label %76, label %67
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %.critedge258, label %68
 
-67:                                               ; preds = %64
-  %68 = add i64 %66, 1
-  %69 = load i64, ptr %25, align 8
-  %.not249 = icmp ult i64 %68, %69
-  br i1 %.not249, label %.thread260, label %70
+68:                                               ; preds = %64
+  %69 = add i64 %66, 1
+  %70 = load i64, ptr %25, align 8
+  %.not249 = icmp ult i64 %69, %70
+  br i1 %.not249, label %.critedge258.thread260, label %71
 
-70:                                               ; preds = %67
-  call void @smart_str_erealloc(ptr noundef nonnull %7, i64 noundef %68) #16
+71:                                               ; preds = %68
+  call void @smart_str_erealloc(ptr noundef nonnull %7, i64 noundef %69) #16
   %.pre = load ptr, ptr %7, align 8
-  br label %.thread260
+  br label %.critedge258.thread260
 
-.thread260:                                       ; preds = %67, %70
-  %71 = phi ptr [ %62, %67 ], [ %.pre, %70 ]
-  %72 = getelementptr inbounds i8, ptr %71, i64 24
-  %73 = getelementptr inbounds [1 x i8], ptr %72, i64 0, i64 %66
-  store i8 58, ptr %73, align 1
-  %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
-  store i64 %68, ptr %75, align 8
-  br label %76
+.critedge258.thread260:                           ; preds = %68, %71
+  %72 = phi ptr [ %62, %68 ], [ %.pre, %71 ]
+  %73 = getelementptr inbounds i8, ptr %72, i64 24
+  %74 = getelementptr inbounds [1 x i8], ptr %73, i64 0, i64 %66
+  store i8 58, ptr %74, align 1
+  %75 = load ptr, ptr %7, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  store i64 %69, ptr %76, align 8
+  br label %.critedge258
 
-76:                                               ; preds = %64, %.thread260
-  %77 = phi i64 [ %68, %.thread260 ], [ 0, %64 ]
-  %78 = phi ptr [ %74, %.thread260 ], [ %62, %64 ]
+.critedge258:                                     ; preds = %64, %.critedge258.thread260
+  %77 = phi i64 [ %69, %.critedge258.thread260 ], [ 0, %64 ]
+  %78 = phi ptr [ %75, %.critedge258.thread260 ], [ %62, %64 ]
   %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   %80 = add i64 %77, %79
   %81 = load i64, ptr %25, align 8
   %.not251 = icmp ult i64 %80, %81
   br i1 %.not251, label %84, label %82
 
-82:                                               ; preds = %.thread258, %76
-  %83 = phi i64 [ %79, %76 ], [ %63, %.thread258 ]
-  %.0216 = phi i64 [ %80, %76 ], [ %63, %.thread258 ]
+82:                                               ; preds = %.critedge258.thread, %.critedge258
+  %83 = phi i64 [ %79, %.critedge258 ], [ %63, %.critedge258.thread ]
+  %.0216 = phi i64 [ %80, %.critedge258 ], [ %63, %.critedge258.thread ]
   call void @smart_str_erealloc(ptr noundef nonnull %7, i64 noundef %.0216) #16
   %.pre265 = load ptr, ptr %7, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre265, i64 16
   %.pre266 = load i64, ptr %.phi.trans.insert, align 8
   br label %84
 
-84:                                               ; preds = %82, %76
-  %85 = phi i64 [ %.pre266, %82 ], [ %77, %76 ]
-  %86 = phi ptr [ %.pre265, %82 ], [ %78, %76 ]
-  %87 = phi i64 [ %83, %82 ], [ %79, %76 ]
-  %.1 = phi i64 [ %.0216, %82 ], [ %80, %76 ]
+84:                                               ; preds = %82, %.critedge258
+  %85 = phi i64 [ %.pre266, %82 ], [ %77, %.critedge258 ]
+  %86 = phi ptr [ %.pre265, %82 ], [ %78, %.critedge258 ]
+  %87 = phi i64 [ %83, %82 ], [ %79, %.critedge258 ]
+  %.1 = phi i64 [ %.0216, %82 ], [ %80, %.critedge258 ]
   %88 = getelementptr inbounds i8, ptr %86, i64 24
   %89 = getelementptr inbounds i8, ptr %88, i64 %85
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull align 16 %8, i64 %87, i1 false)

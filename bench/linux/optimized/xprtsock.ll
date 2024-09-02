@@ -5526,14 +5526,14 @@ define internal void @xs_tcp_tls_setup_socket(ptr noundef %0) #0 align 16 {
   %93 = icmp ult i8 %92, 2
   call void @llvm.assume(i1 %93)
   %94 = icmp eq i8 %92, 0
-  br i1 %94, label %.thread, label %95
+  br i1 %94, label %.critedge, label %95
 
 95:                                               ; preds = %87
   %96 = call i32 @out_of_line_wait_on_bit_lock(ptr noundef %90, i32 noundef 0, ptr noundef nonnull @bit_wait, i32 noundef 258) #12
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %.thread, label %300
+  br i1 %97, label %.critedge, label %300
 
-.thread:                                          ; preds = %87, %95
+.critedge:                                        ; preds = %87, %95
   %98 = getelementptr i8, ptr %0, i64 -464
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #12
   %99 = getelementptr inbounds i8, ptr %2, i64 16
@@ -5568,12 +5568,12 @@ define internal void @xs_tcp_tls_setup_socket(ptr noundef %0) #0 align 16 {
     i32 2, label %119
   ]
 
-116:                                              ; preds = %.thread
+116:                                              ; preds = %.critedge
   %117 = call i32 @tls_client_hello_anon(ptr noundef nonnull %2, i32 noundef 3264) #12
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %128, label %139
 
-119:                                              ; preds = %.thread
+119:                                              ; preds = %.critedge
   %120 = getelementptr inbounds i8, ptr %2, i64 44
   %121 = getelementptr inbounds i8, ptr %2, i64 40
   %122 = getelementptr i8, ptr %0, i64 -460
@@ -5605,8 +5605,8 @@ define internal void @xs_tcp_tls_setup_socket(ptr noundef %0) #0 align 16 {
   %138 = load i32, ptr %114, align 4
   br label %141
 
-139:                                              ; preds = %134, %119, %116, %.thread
-  %140 = phi i32 [ %126, %119 ], [ %136, %134 ], [ %117, %116 ], [ -13, %.thread ]
+139:                                              ; preds = %134, %119, %116, %.critedge
+  %140 = phi i32 [ %126, %119 ], [ %136, %134 ], [ %117, %116 ], [ -13, %.critedge ]
   call void @xprt_put(ptr noundef %89) #12
   br label %141
 

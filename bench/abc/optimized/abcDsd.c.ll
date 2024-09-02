@@ -1159,7 +1159,7 @@ define noundef ptr @Abc_NtkSparsifyInternalOne(ptr noundef %0, ptr noundef %1, i
   %9 = sitofp i32 %6 to double
   %10 = fmul double %8, %9
   %11 = fptosi double %10 to i32
-  %12 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 1)
+  %12 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %11, i32 1)
   %13 = getelementptr inbounds i8, ptr %0, i64 344
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @Cudd_bddPickArbitraryMinterms(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %2, i32 noundef %12) #10

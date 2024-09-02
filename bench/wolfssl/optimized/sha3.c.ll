@@ -266,7 +266,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha3_224_GetHash(ptr noundef readonly %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_224_GetHash(ptr noundef readonly %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
 entry:
   %tmpSha3.i = alloca %struct.wc_Sha3, align 8
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %tmpSha3.i)
@@ -439,7 +439,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha3_256_GetHash(ptr noundef readonly %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_256_GetHash(ptr noundef readonly %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
 entry:
   %tmpSha3.i = alloca %struct.wc_Sha3, align 8
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %tmpSha3.i)
@@ -612,7 +612,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha3_384_GetHash(ptr noundef readonly %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_384_GetHash(ptr noundef readonly %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
 entry:
   %tmpSha3.i = alloca %struct.wc_Sha3, align 8
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %tmpSha3.i)
@@ -785,7 +785,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @wc_Sha3_512_GetHash(ptr noundef readonly %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
+define range(i32 -173, 1) i32 @wc_Sha3_512_GetHash(ptr noundef readonly %sha3, ptr noundef writeonly %hash) local_unnamed_addr #1 {
 entry:
   %tmpSha3.i = alloca %struct.wc_Sha3, align 8
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %tmpSha3.i)

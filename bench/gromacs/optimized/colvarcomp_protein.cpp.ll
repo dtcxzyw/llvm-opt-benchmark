@@ -1793,7 +1793,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.13.3 = getelementptr inbounds i8, ptr %.pn248, i64 4
   %134 = add nsw i32 %storemerge296, 1
   %.not82.not = icmp slt i32 %storemerge296, %133
-  br i1 %.not82.not, label %.lr.ph, label %.loopexit264, !llvm.loop !35
+  br i1 %.not82.not, label %.lr.ph, label %.loopexit264.loopexit, !llvm.loop !35
 
 135:                                              ; preds = %.noexc, %2
   %136 = landingpad { ptr, i32 }
@@ -1909,14 +1909,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit126: ;
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #19
   br label %169
 
-.loopexit264:                                     ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %84, %95, %106
-  %.sroa.13.0 = phi ptr [ null, %106 ], [ null, %95 ], [ null, %84 ], [ %.sroa.13.3, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.sroa.0.1 = phi ptr [ null, %106 ], [ null, %95 ], [ null, %84 ], [ %.sroa.0.6, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+.loopexit264.loopexit:                            ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  %159 = ptrtoint ptr %.sroa.13.3 to i64
+  br label %.loopexit264
+
+.loopexit264:                                     ; preds = %.loopexit264.loopexit, %84, %95, %106
+  %.sroa.13.0 = phi i64 [ 0, %106 ], [ 0, %95 ], [ 0, %84 ], [ %159, %.loopexit264.loopexit ]
+  %.sroa.0.1 = phi ptr [ null, %106 ], [ null, %95 ], [ null, %84 ], [ %.sroa.0.6, %.loopexit264.loopexit ]
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %11) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
-  %159 = ptrtoint ptr %.sroa.13.0 to i64
   %160 = ptrtoint ptr %.sroa.0.1 to i64
-  %161 = sub i64 %159, %160
+  %161 = sub i64 %.sroa.13.0, %160
   %162 = ashr exact i64 %161, 2
   %163 = icmp ult i64 %162, 5
   br i1 %163, label %164, label %174
@@ -3496,7 +3499,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.17.3 = getelementptr inbounds i8, ptr %.pn, i64 4
   %143 = add nsw i32 %storemerge425, 1
   %.not112.not = icmp slt i32 %storemerge425, %142
-  br i1 %.not112.not, label %.lr.ph, label %.loopexit370, !llvm.loop !40
+  br i1 %.not112.not, label %.lr.ph, label %.loopexit370.loopexit, !llvm.loop !40
 
 144:                                              ; preds = %.noexc154, %2
   %145 = landingpad { ptr, i32 }
@@ -3612,14 +3615,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit175: ;
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #19
   br label %179
 
-.loopexit370:                                     ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %93, %104, %115
-  %.sroa.17.0 = phi ptr [ null, %115 ], [ null, %104 ], [ null, %93 ], [ %.sroa.17.3, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.sroa.0.1 = phi ptr [ null, %115 ], [ null, %104 ], [ null, %93 ], [ %.sroa.0.6, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+.loopexit370.loopexit:                            ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
+  %168 = ptrtoint ptr %.sroa.17.3 to i64
+  br label %.loopexit370
+
+.loopexit370:                                     ; preds = %.loopexit370.loopexit, %93, %104, %115
+  %.sroa.17.0 = phi i64 [ 0, %115 ], [ 0, %104 ], [ 0, %93 ], [ %168, %.loopexit370.loopexit ]
+  %.sroa.0.1 = phi ptr [ null, %115 ], [ null, %104 ], [ null, %93 ], [ %.sroa.0.6, %.loopexit370.loopexit ]
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %11) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
-  %168 = ptrtoint ptr %.sroa.17.0 to i64
   %169 = ptrtoint ptr %.sroa.0.1 to i64
-  %170 = sub i64 %168, %169
+  %170 = sub i64 %.sroa.17.0, %169
   %171 = ashr exact i64 %170, 2
   %172 = icmp ult i64 %171, 2
   br i1 %172, label %173, label %184

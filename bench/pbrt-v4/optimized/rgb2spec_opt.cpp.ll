@@ -1424,7 +1424,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_Z14AvailableCoresv() local_unnamed_addr #14 {
+define dso_local noundef range(i32 1, -2147483648) i32 @_Z14AvailableCoresv() local_unnamed_addr #14 {
 entry:
   %call = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #33
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %call, i32 1)
@@ -2411,7 +2411,7 @@ if.then13:                                        ; preds = %if.end9
 
 if.end15:                                         ; preds = %if.end9
   %call.i40 = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #33
-  %.sroa.speculated.i = tail call noundef i32 @llvm.smax.i32(i32 %call.i40, i32 1)
+  %.sroa.speculated.i = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %call.i40, i32 1)
   %call.i41 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #36, !noalias !43
   invoke void @_ZN10ThreadPoolC2Ei(ptr noundef nonnull align 8 dereferenceable(121) %call.i41, i32 noundef %.sroa.speculated.i)
           to label %_ZSt11make_uniqueI10ThreadPoolJRiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %lpad.i, !noalias !43

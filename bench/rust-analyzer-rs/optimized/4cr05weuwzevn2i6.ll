@@ -4456,7 +4456,7 @@ _ZN4core4hash6Hasher9write_str17he7d3eaa3c5461971E.exit.i: ; preds = %325, %324
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN6hir_ty7display12HirFormatter12write_joined17h3f7c23a5e7eff709E(ptr noalias noundef align 8 dereferenceable(120) %0, ptr noundef nonnull readonly %1, ptr noundef readnone %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 5) i8 @_ZN6hir_ty7display12HirFormatter12write_joined17h3f7c23a5e7eff709E(ptr noalias noundef align 8 dereferenceable(120) %0, ptr noundef nonnull readonly %1, ptr noundef readnone %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca [1 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca [1 x { ptr, ptr }], align 8
@@ -13453,7 +13453,7 @@ define hidden void @_ZN8smol_str4Repr12new_on_stack17h8a1e9fcada6eb582E.llvm.167
   br label %42
 
 .lr.ph.preheader.i.i.i:                           ; preds = %6
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 32)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, 33) i64 @llvm.umin.i64(i64 %2, i64 32)
   %9 = getelementptr inbounds i8, ptr %1, i64 %.0.sroa.speculated.i
   br label %.lr.ph.i.i.i
 

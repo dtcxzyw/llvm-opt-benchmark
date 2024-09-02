@@ -190,7 +190,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg15LocalizedStringD2Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN5vcpkg7Unicode22utf8_decode_code_pointERPKcS2_RDi(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #6 {
+define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_code_pointERPKcS2_RDi(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #6 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %6, label %7
@@ -494,8 +494,8 @@ _ZN5vcpkg7Unicode11Utf8Decoder4nextEv.exit.thread: ; preds = %32, %26, %.lr.ph.s
 _ZN5vcpkg7Unicode11Utf8Decoder4nextEv.exit:       ; preds = %28, %32
   store i32 %29, ptr %5, align 8
   store ptr %23, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %36 = icmp eq i32 %29, -1
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br i1 %36, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN5vcpkg7Unicode11Utf8Decoder4nextEv.exit, %.lr.ph, %2, %_ZN5vcpkg7Unicode11Utf8Decoder4nextEv.exit.thread, %_ZN5vcpkg7Unicode11Utf8DecoderC2EPKcS3_RNS0_9utf8_errcE.exit.thread5, %_ZN5vcpkg7Unicode11Utf8DecoderC2EPKcS3_RNS0_9utf8_errcE.exit
@@ -504,7 +504,7 @@ _ZN5vcpkg7Unicode11Utf8Decoder4nextEv.exit:       ; preds = %28, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN5vcpkg7Unicode11Utf8Decoder4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode11Utf8Decoder4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.vcpkg::LineInfo", align 8
   %3 = alloca i32, align 4
   %4 = load i32, ptr %0, align 8

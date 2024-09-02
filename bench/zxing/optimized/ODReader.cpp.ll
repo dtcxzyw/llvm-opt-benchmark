@@ -1879,14 +1879,14 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EESt16initializ
   %334 = zext nneg i32 %333 to i64
   %335 = getelementptr inbounds i16, ptr %323, i64 %334
   store ptr %335, ptr %15, align 8
+  %336 = ptrtoint ptr %335 to i64
   br label %_ZN5ZXing11PatternView5shiftEi.exit
 
 _ZN5ZXing11PatternView5shiftEi.exit:              ; preds = %322, %324
-  %336 = phi ptr [ null, %322 ], [ %335, %324 ]
-  %337 = load ptr, ptr %59, align 8
-  %338 = ptrtoint ptr %337 to i64
-  %339 = ptrtoint ptr %336 to i64
-  %340 = sub i64 %338, %339
+  %337 = phi i64 [ 0, %322 ], [ %336, %324 ]
+  %338 = load ptr, ptr %59, align 8
+  %339 = ptrtoint ptr %338 to i64
+  %340 = sub i64 %339, %337
   %341 = lshr exact i64 %340, 1
   %342 = trunc i64 %341 to i32
   %.sroa.speculated.i173 = call i32 @llvm.smax.i32(i32 %342, i32 0)

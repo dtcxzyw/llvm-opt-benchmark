@@ -434,12 +434,12 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %79, %81
 86:                                               ; preds = %.split.us
   %87 = getelementptr inbounds i8, ptr %85, i64 32
   %88 = load i32, ptr %87, align 8
+  %89 = icmp eq i32 %88, 0
   br label %_ZN13CompileBroker10queue_sizeEi.exit.us
 
 _ZN13CompileBroker10queue_sizeEi.exit.us:         ; preds = %86, %.split.us
-  %89 = phi i32 [ %88, %86 ], [ 0, %.split.us ]
-  %90 = load volatile i8, ptr %35, align 1
-  %91 = icmp eq i32 %89, 0
+  %90 = phi i1 [ %89, %86 ], [ true, %.split.us ]
+  %91 = load volatile i8, ptr %35, align 1
   br label %.critedge
 
 .split:                                           ; preds = %83, %_ZN13CompileBroker10queue_sizeEi.exit
@@ -451,19 +451,19 @@ _ZN13CompileBroker10queue_sizeEi.exit.us:         ; preds = %86, %.split.us
 94:                                               ; preds = %.split
   %95 = getelementptr inbounds i8, ptr %93, i64 32
   %96 = load i32, ptr %95, align 8
+  %97 = icmp eq i32 %96, 0
   br label %_ZN13CompileBroker10queue_sizeEi.exit
 
 _ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %.split, %94
-  %97 = phi i32 [ %96, %94 ], [ 0, %.split ]
-  %98 = load volatile i8, ptr %35, align 1
-  %99 = trunc i8 %98 to i1
-  %.not31 = xor i1 %99, true
-  %100 = icmp eq i32 %97, 0
-  %or.cond32 = and i1 %100, %.not31
+  %98 = phi i1 [ %97, %94 ], [ true, %.split ]
+  %99 = load volatile i8, ptr %35, align 1
+  %100 = trunc i8 %99 to i1
+  %.not31 = xor i1 %100, true
+  %or.cond32 = and i1 %98, %.not31
   br i1 %or.cond32, label %.split, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %_ZN13CompileBroker10queue_sizeEi.exit, %_ZN13CompileBroker10queue_sizeEi.exit.us
-  %.us-phi = phi i1 [ %91, %_ZN13CompileBroker10queue_sizeEi.exit.us ], [ %100, %_ZN13CompileBroker10queue_sizeEi.exit ]
+  %.us-phi = phi i1 [ %90, %_ZN13CompileBroker10queue_sizeEi.exit.us ], [ %98, %_ZN13CompileBroker10queue_sizeEi.exit ]
   %101 = load i8, ptr @PrintBootstrap, align 1
   %102 = trunc i8 %101 to i1
   br i1 %102, label %.preheader, label %.loopexit

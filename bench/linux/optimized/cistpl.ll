@@ -627,7 +627,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pccard_get_first_tuple(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -28, 1) i32 @pccard_get_first_tuple(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %34, label %5
 
@@ -814,7 +814,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
   %82 = lshr i16 %80, 8
   %83 = and i16 %82, 15
   %84 = icmp eq i16 %83, 0
-  br i1 %84, label %126, label %85
+  br i1 %84, label %127, label %85
 
 85:                                               ; preds = %79
   %86 = zext nneg i16 %83 to i32
@@ -887,17 +887,17 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
   %.pre = load i16, ptr %21, align 8
   %.pre31 = lshr i16 %.pre, 8
   %.pre32 = and i16 %.pre31, 15
-  br label %126
+  %126 = zext nneg i16 %.pre32 to i32
+  br label %127
 
-126:                                              ; preds = %.loopexit11, %79
-  %.pre-phi33 = phi i16 [ %.pre32, %.loopexit11 ], [ 0, %79 ]
-  %127 = phi i32 [ %125, %.loopexit11 ], [ %81, %79 ]
-  %128 = zext nneg i16 %.pre-phi33 to i32
-  %129 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %128, i32 noundef %127, i64 noundef 5, ptr noundef nonnull %4), !range !20
+127:                                              ; preds = %.loopexit11, %79
+  %.pre-phi33 = phi i32 [ %126, %.loopexit11 ], [ 0, %79 ]
+  %128 = phi i32 [ %125, %.loopexit11 ], [ %81, %79 ]
+  %129 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef %.pre-phi33, i32 noundef %128, i64 noundef 5, ptr noundef nonnull %4), !range !20
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %.thread8
 
-131:                                              ; preds = %126
+131:                                              ; preds = %127
   %132 = load i8, ptr %4, align 1
   %133 = icmp eq i8 %132, 19
   %134 = load i8, ptr %27, align 1
@@ -924,7 +924,7 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
   %147 = phi ptr [ %165, %164 ], [ %145, %140 ]
   %148 = getelementptr inbounds i8, ptr %147, i64 16
   %149 = load i32, ptr %148, align 8
-  %150 = icmp eq i32 %149, %127
+  %150 = icmp eq i32 %149, %128
   br i1 %150, label %151, label %164
 
 151:                                              ; preds = %.preheader
@@ -960,12 +960,12 @@ define dso_local noundef range(i32 -28, 1) i32 @pccard_get_next_tuple(ptr nounde
   tail call void @mutex_unlock(ptr noundef %29) #13
   br label %.thread8
 
-.thread8:                                         ; preds = %51, %70, %85, %126, %.loopexit
+.thread8:                                         ; preds = %51, %70, %85, %127, %.loopexit
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #13
   br label %.thread9
 
 167:                                              ; preds = %137, %95
-  %168 = phi i32 [ %81, %95 ], [ %127, %137 ]
+  %168 = phi i32 [ %81, %95 ], [ %128, %137 ]
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #13
   %169 = icmp slt i32 %168, 0
   br i1 %169, label %.thread9, label %170
@@ -1125,7 +1125,7 @@ thread-pre-split:                                 ; preds = %170
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @read_cis_cache(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @read_cis_cache(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 32768
@@ -2398,8 +2398,8 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr nocapture noundef
 
 709:                                              ; preds = %.thread72, %696
   %710 = phi i64 [ 0, %696 ], [ %775, %.thread72 ]
-  %711 = phi ptr [ %694, %696 ], [ %767, %.thread72 ]
-  br i1 %697, label %718, label %712
+  %711 = phi ptr [ %694, %696 ], [ %770, %.thread72 ]
+  br i1 %697, label %719, label %712
 
 712:                                              ; preds = %709
   %713 = ptrtoint ptr %711 to i64
@@ -2409,101 +2409,101 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr nocapture noundef
 
 716:                                              ; preds = %.preheader90
   %717 = getelementptr i8, ptr %711, i64 %707
-  br label %718
+  %718 = shl i32 %733, 8
+  br label %719
 
-718:                                              ; preds = %716, %709
-  %719 = phi ptr [ %711, %709 ], [ %717, %716 ]
-  %720 = phi i32 [ 0, %709 ], [ %732, %716 ]
-  br i1 %698, label %.thread72, label %721
+719:                                              ; preds = %716, %709
+  %720 = phi ptr [ %711, %709 ], [ %717, %716 ]
+  %721 = phi i32 [ 0, %709 ], [ %718, %716 ]
+  br i1 %698, label %.thread72, label %722
 
-721:                                              ; preds = %718
-  %722 = ptrtoint ptr %719 to i64
-  %723 = sub i64 %680, %722
-  %724 = icmp ugt i64 %723, %704
-  br i1 %724, label %.preheader89, label %.thread67
+722:                                              ; preds = %719
+  %723 = ptrtoint ptr %720 to i64
+  %724 = sub i64 %680, %723
+  %725 = icmp ugt i64 %724, %704
+  br i1 %725, label %.preheader89, label %.thread67
 
 .preheader90:                                     ; preds = %712, %.preheader90
-  %725 = phi i32 [ %732, %.preheader90 ], [ 0, %712 ]
   %726 = phi i32 [ %733, %.preheader90 ], [ 0, %712 ]
-  %727 = phi ptr [ %734, %.preheader90 ], [ %711, %712 ]
-  %728 = load i8, ptr %727, align 1
-  %729 = zext i8 %728 to i32
-  %730 = shl i32 %726, 3
-  %731 = shl i32 %729, %730
-  %732 = add i32 %731, %725
-  %733 = add nuw nsw i32 %726, 1
-  %734 = getelementptr i8, ptr %727, i64 1
-  %735 = icmp eq i32 %733, %691
-  br i1 %735, label %716, label %.preheader90, !llvm.loop !36
+  %727 = phi i32 [ %734, %.preheader90 ], [ 0, %712 ]
+  %728 = phi ptr [ %735, %.preheader90 ], [ %711, %712 ]
+  %729 = load i8, ptr %728, align 1
+  %730 = zext i8 %729 to i32
+  %731 = shl i32 %727, 3
+  %732 = shl i32 %730, %731
+  %733 = add i32 %732, %726
+  %734 = add nuw nsw i32 %727, 1
+  %735 = getelementptr i8, ptr %728, i64 1
+  %736 = icmp eq i32 %734, %691
+  br i1 %736, label %716, label %.preheader90, !llvm.loop !36
 
-.preheader89:                                     ; preds = %721, %.preheader89
-  %736 = phi i32 [ %743, %.preheader89 ], [ 0, %721 ]
-  %737 = phi i32 [ %744, %.preheader89 ], [ 0, %721 ]
-  %738 = phi ptr [ %745, %.preheader89 ], [ %719, %721 ]
-  %739 = load i8, ptr %738, align 1
-  %740 = zext i8 %739 to i32
-  %741 = shl i32 %737, 3
-  %742 = shl i32 %740, %741
-  %743 = add i32 %742, %736
-  %744 = add nuw nsw i32 %737, 1
-  %745 = getelementptr i8, ptr %738, i64 1
-  %746 = icmp eq i32 %744, %693
-  br i1 %746, label %747, label %.preheader89, !llvm.loop !37
+.preheader89:                                     ; preds = %722, %.preheader89
+  %737 = phi i32 [ %744, %.preheader89 ], [ 0, %722 ]
+  %738 = phi i32 [ %745, %.preheader89 ], [ 0, %722 ]
+  %739 = phi ptr [ %746, %.preheader89 ], [ %720, %722 ]
+  %740 = load i8, ptr %739, align 1
+  %741 = zext i8 %740 to i32
+  %742 = shl i32 %738, 3
+  %743 = shl i32 %741, %742
+  %744 = add i32 %743, %737
+  %745 = add nuw nsw i32 %738, 1
+  %746 = getelementptr i8, ptr %739, i64 1
+  %747 = icmp eq i32 %745, %693
+  br i1 %747, label %748, label %.preheader89, !llvm.loop !37
 
-747:                                              ; preds = %.preheader89
-  %748 = getelementptr i8, ptr %719, i64 %708
-  br i1 %706, label %.thread72, label %749
+748:                                              ; preds = %.preheader89
+  %749 = getelementptr i8, ptr %720, i64 %708
+  %750 = shl i32 %744, 8
+  br i1 %706, label %.thread72, label %751
 
-749:                                              ; preds = %747
-  %750 = ptrtoint ptr %748 to i64
-  %751 = sub i64 %680, %750
-  %752 = icmp ugt i64 %751, %704
-  br i1 %752, label %.preheader88, label %.thread67
+751:                                              ; preds = %748
+  %752 = ptrtoint ptr %749 to i64
+  %753 = sub i64 %680, %752
+  %754 = icmp ugt i64 %753, %704
+  br i1 %754, label %.preheader88, label %.thread67
 
-.preheader88:                                     ; preds = %749, %.preheader88
-  %753 = phi i32 [ %760, %.preheader88 ], [ 0, %749 ]
-  %754 = phi i32 [ %761, %.preheader88 ], [ 0, %749 ]
-  %755 = phi ptr [ %762, %.preheader88 ], [ %748, %749 ]
-  %756 = load i8, ptr %755, align 1
-  %757 = zext i8 %756 to i32
-  %758 = shl i32 %754, 3
-  %759 = shl i32 %757, %758
-  %760 = add i32 %759, %753
-  %761 = add nuw nsw i32 %754, 1
-  %762 = getelementptr i8, ptr %755, i64 1
-  %763 = icmp eq i32 %761, %693
-  br i1 %763, label %764, label %.preheader88, !llvm.loop !38
+.preheader88:                                     ; preds = %751, %.preheader88
+  %755 = phi i32 [ %762, %.preheader88 ], [ 0, %751 ]
+  %756 = phi i32 [ %763, %.preheader88 ], [ 0, %751 ]
+  %757 = phi ptr [ %764, %.preheader88 ], [ %749, %751 ]
+  %758 = load i8, ptr %757, align 1
+  %759 = zext i8 %758 to i32
+  %760 = shl i32 %756, 3
+  %761 = shl i32 %759, %760
+  %762 = add i32 %761, %755
+  %763 = add nuw nsw i32 %756, 1
+  %764 = getelementptr i8, ptr %757, i64 1
+  %765 = icmp eq i32 %763, %693
+  br i1 %765, label %766, label %.preheader88, !llvm.loop !38
 
-764:                                              ; preds = %.preheader88
-  %765 = getelementptr i8, ptr %748, i64 %708
+766:                                              ; preds = %.preheader88
+  %767 = getelementptr i8, ptr %749, i64 %708
+  %768 = shl i32 %762, 8
   br label %.thread72
 
-.thread72:                                        ; preds = %718, %764, %747
-  %766 = phi i32 [ %743, %747 ], [ %743, %764 ], [ 0, %718 ]
-  %767 = phi ptr [ %748, %747 ], [ %765, %764 ], [ %719, %718 ]
-  %768 = phi i32 [ 0, %747 ], [ %760, %764 ], [ 0, %718 ]
-  %769 = shl i32 %720, 8
-  %770 = getelementptr [8 x %struct.anon.7], ptr %700, i64 0, i64 %710
-  store i32 %769, ptr %770, align 4
-  %771 = shl i32 %766, 8
-  %772 = getelementptr inbounds i8, ptr %770, i64 4
-  store i32 %771, ptr %772, align 4
-  %773 = shl i32 %768, 8
-  %774 = getelementptr inbounds i8, ptr %770, i64 8
-  store i32 %773, ptr %774, align 4
+.thread72:                                        ; preds = %719, %766, %748
+  %769 = phi i32 [ %750, %748 ], [ %750, %766 ], [ 0, %719 ]
+  %770 = phi ptr [ %749, %748 ], [ %767, %766 ], [ %720, %719 ]
+  %771 = phi i32 [ 0, %748 ], [ %768, %766 ], [ 0, %719 ]
+  %772 = getelementptr [8 x %struct.anon.7], ptr %700, i64 0, i64 %710
+  store i32 %721, ptr %772, align 4
+  %773 = getelementptr inbounds i8, ptr %772, i64 4
+  store i32 %769, ptr %773, align 4
+  %774 = getelementptr inbounds i8, ptr %772, i64 8
+  store i32 %771, ptr %774, align 4
   %775 = add nuw nsw i64 %710, 1
   %776 = icmp eq i64 %775, %705
   br i1 %776, label %777, label %709, !llvm.loop !39
 
 777:                                              ; preds = %.thread72
-  %778 = icmp eq ptr %767, null
+  %778 = icmp eq ptr %770, null
   br i1 %778, label %.thread67, label %779
 
 default.unreachable225:                           ; preds = %649
   unreachable
 
 779:                                              ; preds = %777, %665, %655, %653
-  %780 = phi ptr [ %767, %777 ], [ %677, %665 ], [ %663, %655 ], [ %650, %653 ]
+  %780 = phi ptr [ %770, %777 ], [ %677, %665 ], [ %663, %655 ], [ %650, %653 ]
   %781 = icmp sgt i8 %414, -1
   br i1 %781, label %.loopexit86, label %782
 
@@ -2763,13 +2763,13 @@ default.unreachable225:                           ; preds = %649
 950:                                              ; preds = %8
   br label %.thread67
 
-.thread67:                                        ; preds = %932, %926, %923, %884, %904, %.preheader95, %.preheader92, %749, %721, %712, %795, %292, %218, %176, %128, %74, %71, %68, %.loopexit, %35, %22, %17, %59, %682, %679, %637, %628, %562, %548, %511, %481, %452, %446, %.thread75, %.loopexit99, %950, %937, %935, %917, %911, %856, %854, %.loopexit86, %782, %777, %665, %655, %644, %.loopexit98, %534, %435, %426, %420, %407, %375, %356, %302, %284, %282, %275, %273, %265, %263, %261, %234, %232, %189, %.loopexit82, %139, %122, %113, %109, %107, %92, %90, %8, %8, %2
-  %951 = phi i32 [ -22, %2 ], [ -22, %950 ], [ 0, %854 ], [ 0, %261 ], [ 0, %8 ], [ 0, %8 ], [ 0, %92 ], [ -22, %90 ], [ 0, %109 ], [ -22, %107 ], [ -22, %113 ], [ 0, %122 ], [ -22, %139 ], [ 0, %.loopexit82 ], [ 0, %232 ], [ %236, %234 ], [ -22, %189 ], [ 0, %265 ], [ -22, %263 ], [ 0, %275 ], [ -22, %273 ], [ -22, %282 ], [ 0, %284 ], [ 0, %356 ], [ -22, %302 ], [ 0, %.loopexit86 ], [ -22, %375 ], [ -22, %407 ], [ -22, %420 ], [ -22, %426 ], [ -22, %435 ], [ -22, %534 ], [ -22, %.loopexit98 ], [ -22, %644 ], [ -22, %655 ], [ -22, %665 ], [ -22, %777 ], [ -22, %782 ], [ -22, %856 ], [ -22, %911 ], [ -22, %917 ], [ 0, %937 ], [ -22, %935 ], [ 0, %.thread75 ], [ -22, %.loopexit99 ], [ -22, %446 ], [ -22, %452 ], [ -22, %481 ], [ -22, %511 ], [ -22, %548 ], [ -22, %562 ], [ -22, %628 ], [ -22, %637 ], [ -22, %679 ], [ -22, %682 ], [ -22, %59 ], [ 0, %17 ], [ 0, %68 ], [ 0, %74 ], [ -22, %71 ], [ -22, %.loopexit ], [ -22, %22 ], [ -22, %35 ], [ 0, %128 ], [ -22, %176 ], [ -22, %218 ], [ 0, %292 ], [ -22, %795 ], [ -22, %712 ], [ -22, %721 ], [ -22, %749 ], [ -22, %.preheader92 ], [ -22, %.preheader95 ], [ -22, %904 ], [ -22, %884 ], [ 0, %923 ], [ 0, %926 ], [ -22, %932 ]
+.thread67:                                        ; preds = %932, %926, %923, %884, %904, %.preheader95, %.preheader92, %751, %722, %712, %795, %292, %218, %176, %128, %74, %71, %68, %.loopexit, %35, %22, %17, %59, %682, %679, %637, %628, %562, %548, %511, %481, %452, %446, %.thread75, %.loopexit99, %950, %937, %935, %917, %911, %856, %854, %.loopexit86, %782, %777, %665, %655, %644, %.loopexit98, %534, %435, %426, %420, %407, %375, %356, %302, %284, %282, %275, %273, %265, %263, %261, %234, %232, %189, %.loopexit82, %139, %122, %113, %109, %107, %92, %90, %8, %8, %2
+  %951 = phi i32 [ -22, %2 ], [ -22, %950 ], [ 0, %854 ], [ 0, %261 ], [ 0, %8 ], [ 0, %8 ], [ 0, %92 ], [ -22, %90 ], [ 0, %109 ], [ -22, %107 ], [ -22, %113 ], [ 0, %122 ], [ -22, %139 ], [ 0, %.loopexit82 ], [ 0, %232 ], [ %236, %234 ], [ -22, %189 ], [ 0, %265 ], [ -22, %263 ], [ 0, %275 ], [ -22, %273 ], [ -22, %282 ], [ 0, %284 ], [ 0, %356 ], [ -22, %302 ], [ 0, %.loopexit86 ], [ -22, %375 ], [ -22, %407 ], [ -22, %420 ], [ -22, %426 ], [ -22, %435 ], [ -22, %534 ], [ -22, %.loopexit98 ], [ -22, %644 ], [ -22, %655 ], [ -22, %665 ], [ -22, %777 ], [ -22, %782 ], [ -22, %856 ], [ -22, %911 ], [ -22, %917 ], [ 0, %937 ], [ -22, %935 ], [ 0, %.thread75 ], [ -22, %.loopexit99 ], [ -22, %446 ], [ -22, %452 ], [ -22, %481 ], [ -22, %511 ], [ -22, %548 ], [ -22, %562 ], [ -22, %628 ], [ -22, %637 ], [ -22, %679 ], [ -22, %682 ], [ -22, %59 ], [ 0, %17 ], [ 0, %68 ], [ 0, %74 ], [ -22, %71 ], [ -22, %.loopexit ], [ -22, %22 ], [ -22, %35 ], [ 0, %128 ], [ -22, %176 ], [ -22, %218 ], [ 0, %292 ], [ -22, %795 ], [ -22, %712 ], [ -22, %722 ], [ -22, %751 ], [ -22, %.preheader92 ], [ -22, %.preheader95 ], [ -22, %904 ], [ -22, %884 ], [ 0, %923 ], [ 0, %926 ], [ -22, %932 ]
   ret i32 %951
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pccard_validate_cis(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @pccard_validate_cis(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %112, label %4
 
@@ -3050,13 +3050,13 @@ define internal i64 @pccard_show_cis(ptr nocapture readnone %0, ptr noundef %1, 
   store i8 -1, ptr %37, align 4
   %38 = getelementptr inbounds i8, ptr %7, i64 22
   %39 = icmp eq ptr %15, null
-  br i1 %39, label %pccard_get_first_tuple.exit.thread, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %36
   %41 = load i32, ptr %16, align 4
   %42 = and i32 %41, 32776
   %43 = icmp eq i32 %42, 8
-  br i1 %43, label %pccard_get_first_tuple.exit, label %pccard_get_first_tuple.exit.thread
+  br i1 %43, label %pccard_get_first_tuple.exit, label %.critedge
 
 pccard_get_first_tuple.exit:                      ; preds = %40
   %44 = getelementptr inbounds i8, ptr %7, i64 8
@@ -3067,7 +3067,7 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   %47 = getelementptr inbounds i8, ptr %7, i64 16
   %48 = call i32 @pccard_get_next_tuple(ptr noundef nonnull %15, i32 noundef 255, ptr noundef nonnull %7), !range !18
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %pccard_get_first_tuple.exit.thread
+  br i1 %49, label %50, label %.critedge
 
 50:                                               ; preds = %pccard_get_first_tuple.exit
   %51 = getelementptr inbounds i8, ptr %7, i64 32
@@ -3088,12 +3088,12 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   %61 = load i8, ptr %45, align 1
   %62 = load i8, ptr %38, align 2
   %63 = icmp ult i8 %61, %62
-  br i1 %63, label %pccard_get_first_tuple.exit.thread, label %64
+  br i1 %63, label %.critedge, label %64
 
 64:                                               ; preds = %58
   store i8 %61, ptr %53, align 8
   %65 = icmp eq i8 %61, %62
-  br i1 %65, label %.thread7, label %66
+  br i1 %65, label %.critedge8, label %66
 
 66:                                               ; preds = %64
   %67 = zext i8 %62 to i32
@@ -3109,18 +3109,18 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   %77 = zext nneg i32 %76 to i64
   %78 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %15, i32 noundef %73, i32 noundef %75, i64 noundef %77, ptr noundef nonnull %30), !range !20
   %.not = icmp eq i32 %78, 0
-  br i1 %.not, label %.thread7, label %pccard_get_first_tuple.exit.thread
+  br i1 %.not, label %.critedge8, label %.critedge
 
-.thread7:                                         ; preds = %66, %64
+.critedge8:                                       ; preds = %64, %66
   %79 = add i64 %60, 2
   %80 = zext i8 %61 to i64
   %81 = add i64 %79, %80
   %82 = icmp sgt i64 %81, %4
-  %.pre8 = load i8, ptr %54, align 4
+  %.pre9 = load i8, ptr %54, align 4
   br i1 %82, label %83, label %.loopexit
 
-83:                                               ; preds = %.thread7
-  store i8 %.pre8, ptr %34, align 8
+83:                                               ; preds = %.critedge8
+  store i8 %.pre9, ptr %34, align 8
   store i8 %61, ptr %55, align 1
   %84 = icmp eq i8 %61, 0
   br i1 %84, label %86, label %85
@@ -3156,25 +3156,25 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   %103 = icmp eq i64 %89, %87
   br i1 %103, label %.loopexit, label %88, !llvm.loop !47
 
-.loopexit:                                        ; preds = %100, %.thread7
-  %104 = phi i64 [ %59, %.thread7 ], [ %101, %100 ]
+.loopexit:                                        ; preds = %100, %.critedge8
+  %104 = phi i64 [ %59, %.critedge8 ], [ %101, %100 ]
   %105 = icmp uge i64 %81, %57
-  %106 = icmp eq i8 %.pre8, -1
+  %106 = icmp eq i8 %.pre9, -1
   %107 = select i1 %105, i1 true, i1 %106
-  br i1 %107, label %pccard_get_first_tuple.exit.thread, label %108
+  br i1 %107, label %.critedge, label %108
 
 108:                                              ; preds = %.loopexit
   %109 = call i32 @pccard_get_next_tuple(ptr noundef nonnull %15, i32 noundef 255, ptr noundef nonnull %7), !range !18
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %58, label %pccard_get_first_tuple.exit.thread, !llvm.loop !48
+  br i1 %110, label %58, label %.critedge, !llvm.loop !48
 
-pccard_get_first_tuple.exit.thread:               ; preds = %58, %108, %.loopexit, %66, %40, %36, %pccard_get_first_tuple.exit
+.critedge:                                        ; preds = %58, %108, %.loopexit, %66, %40, %36, %pccard_get_first_tuple.exit
   %111 = phi i64 [ 0, %pccard_get_first_tuple.exit ], [ 0, %36 ], [ 0, %40 ], [ %59, %58 ], [ %104, %.loopexit ], [ %59, %66 ], [ %104, %108 ]
   call void @kfree(ptr noundef nonnull %34) #13
   br label %112
 
-112:                                              ; preds = %pccard_get_first_tuple.exit.thread, %32
-  %113 = phi i64 [ %111, %pccard_get_first_tuple.exit.thread ], [ -12, %32 ]
+112:                                              ; preds = %.critedge, %32
+  %113 = phi i64 [ %111, %.critedge ], [ -12, %32 ]
   call void @kfree(ptr noundef nonnull %30) #13
   br label %114
 

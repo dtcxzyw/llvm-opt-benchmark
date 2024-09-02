@@ -1447,18 +1447,18 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %97 = load i16, ptr %96, align 2
   %98 = and i16 %97, 8192
   %.not262 = icmp eq i16 %98, 0
-  br i1 %.not262, label %99, label %.critedge7
+  br i1 %.not262, label %99, label %.critedge7.loopexit
 
 99:                                               ; preds = %.lr.ph333
   switch i8 %94, label %105 [
-    i8 60, label %.critedge7
-    i8 91, label %.critedge7
-    i8 40, label %.critedge7
-    i8 47, label %.critedge7
-    i8 13, label %.critedge7
-    i8 10, label %.critedge7
-    i8 32, label %.critedge7
-    i8 9, label %.critedge7
+    i8 60, label %.critedge7.loopexit
+    i8 91, label %.critedge7.loopexit
+    i8 40, label %.critedge7.loopexit
+    i8 47, label %.critedge7.loopexit
+    i8 13, label %.critedge7.loopexit
+    i8 10, label %.critedge7.loopexit
+    i8 32, label %.critedge7.loopexit
+    i8 9, label %.critedge7.loopexit
     i8 35, label %100
   ]
 
@@ -1480,40 +1480,45 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %storemerge = getelementptr inbounds i8, ptr %storemerge332, i64 1
   store ptr %storemerge, ptr %6, align 8
   %106 = icmp ult ptr %storemerge, %.0222317.ptr
-  br i1 %106, label %.lr.ph333, label %.critedge7
+  br i1 %106, label %.lr.ph333, label %.critedge7.loopexit
 
-.critedge7:                                       ; preds = %.lr.ph333, %105, %99, %99, %99, %99, %99, %99, %99, %99, %.preheader294
-  %.0209.lcssa = phi i32 [ 0, %.preheader294 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.2.ph, %105 ], [ %.0209331, %.lr.ph333 ]
-  %storemerge.lcssa = phi ptr [ %storemerge330, %.preheader294 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge, %105 ], [ %storemerge332, %.lr.ph333 ]
-  %107 = icmp eq ptr %storemerge.lcssa, %.0222317.ptr
-  br i1 %107, label %.loopexit296, label %108
+.critedge7.loopexit:                              ; preds = %99, %99, %99, %99, %99, %99, %99, %99, %105, %.lr.ph333
+  %.0209.lcssa.ph = phi i32 [ %.0209331, %.lr.ph333 ], [ %.2.ph, %105 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.0209331, %99 ], [ %.0209331, %99 ]
+  %storemerge.lcssa.ph = phi ptr [ %storemerge332, %.lr.ph333 ], [ %storemerge, %105 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ], [ %storemerge332, %99 ]
+  %107 = icmp eq i32 %.0209.lcssa.ph, 0
+  br label %.critedge7
 
-108:                                              ; preds = %.critedge7
-  %109 = ptrtoint ptr %storemerge.lcssa to i64
-  %110 = ptrtoint ptr %.1226.lcssa to i64
-  %reass.sub = sub i64 %109, %110
-  %111 = add i64 %reass.sub, 2
-  %112 = call ptr @cli_max_calloc(i64 noundef %111, i64 noundef 1) #14
-  %.not265 = icmp eq ptr %112, null
-  br i1 %.not265, label %.loopexit296, label %113
+.critedge7:                                       ; preds = %.critedge7.loopexit, %.preheader294
+  %.0209.lcssa = phi i1 [ true, %.preheader294 ], [ %107, %.critedge7.loopexit ]
+  %storemerge.lcssa = phi ptr [ %storemerge330, %.preheader294 ], [ %storemerge.lcssa.ph, %.critedge7.loopexit ]
+  %108 = icmp eq ptr %storemerge.lcssa, %.0222317.ptr
+  br i1 %108, label %.loopexit296, label %109
 
-113:                                              ; preds = %108
-  %114 = icmp eq i32 %.0209.lcssa, 0
+109:                                              ; preds = %.critedge7
+  %110 = ptrtoint ptr %storemerge.lcssa to i64
+  %111 = ptrtoint ptr %.1226.lcssa to i64
+  %reass.sub = sub i64 %110, %111
+  %112 = add i64 %reass.sub, 2
+  %113 = call ptr @cli_max_calloc(i64 noundef %112, i64 noundef 1) #14
+  %.not265 = icmp eq ptr %113, null
+  br i1 %.not265, label %.loopexit296, label %114
+
+114:                                              ; preds = %109
   %115 = load ptr, ptr %6, align 8
-  br i1 %114, label %117, label %.preheader
+  br i1 %.0209.lcssa, label %117, label %.preheader
 
-.preheader:                                       ; preds = %113
+.preheader:                                       ; preds = %114
   %116 = icmp ult ptr %.1226.lcssa, %115
   br i1 %116, label %.lr.ph365, label %.loopexit
 
-117:                                              ; preds = %113
+117:                                              ; preds = %114
   %118 = ptrtoint ptr %115 to i64
-  %119 = sub i64 %118, %110
-  %120 = call ptr @strncpy(ptr noundef nonnull %112, ptr noundef nonnull %.1226.lcssa, i64 noundef %119) #14
+  %119 = sub i64 %118, %111
+  %120 = call ptr @strncpy(ptr noundef nonnull %113, ptr noundef nonnull %.1226.lcssa, i64 noundef %119) #14
   %121 = load ptr, ptr %6, align 8
   %122 = ptrtoint ptr %121 to i64
-  %123 = sub i64 %122, %110
-  %124 = getelementptr inbounds i8, ptr %112, i64 %123
+  %123 = sub i64 %122, %111
+  %124 = getelementptr inbounds i8, ptr %113, i64 %123
   store i8 0, ptr %124, align 1
   %.pre = load ptr, ptr %6, align 8
   br label %.loopexit
@@ -1528,14 +1533,14 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
 127:                                              ; preds = %.lr.ph365
   %128 = getelementptr inbounds i8, ptr %.0212363, i64 1
   %129 = zext i32 %.0208364 to i64
-  %130 = getelementptr inbounds i8, ptr %112, i64 %129
+  %130 = getelementptr inbounds i8, ptr %113, i64 %129
   %131 = call i32 @cli_hex2str_to(ptr noundef nonnull %128, ptr noundef nonnull %130, i64 noundef 2) #14
   %132 = getelementptr inbounds i8, ptr %.0212363, i64 2
   br label %136
 
 133:                                              ; preds = %.lr.ph365
   %134 = zext i32 %.0208364 to i64
-  %135 = getelementptr inbounds i8, ptr %112, i64 %134
+  %135 = getelementptr inbounds i8, ptr %113, i64 %134
   store i8 %125, ptr %135, align 1
   br label %136
 
@@ -1577,7 +1582,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %153, label %154, label %155
 
 154:                                              ; preds = %.critedge9
-  call void @free(ptr noundef %112) #14
+  call void @free(ptr noundef %113) #14
   br label %.loopexit296
 
 155:                                              ; preds = %.critedge9
@@ -1703,7 +1708,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %or.cond13, label %214, label %213
 
 213:                                              ; preds = %209
-  call void @free(ptr noundef %112) #14
+  call void @free(ptr noundef %113) #14
   br label %.loopexit296
 
 214:                                              ; preds = %.thread281, %209
@@ -1726,7 +1731,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not272, label %221, label %240
 
 221:                                              ; preds = %220
-  call void @free(ptr noundef %112) #14
+  call void @free(ptr noundef %113) #14
   br i1 %216, label %222, label %223
 
 222:                                              ; preds = %221
@@ -1752,7 +1757,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not273, label %228, label %234
 
 228:                                              ; preds = %227
-  call void @free(ptr noundef %112) #14
+  call void @free(ptr noundef %113) #14
   br i1 %216, label %229, label %230
 
 229:                                              ; preds = %228
@@ -1790,7 +1795,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br label %240
 
 240:                                              ; preds = %220, %239
-  store ptr %112, ptr %219, align 8
+  store ptr %113, ptr %219, align 8
   br i1 %217, label %241, label %244
 
 241:                                              ; preds = %240
@@ -1828,7 +1833,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %253 = icmp ult ptr %.3228288, %.0222317.ptr
   br i1 %253, label %.preheader295, label %.loopexit296
 
-.loopexit296:                                     ; preds = %252, %.critedge, %.critedge7, %108, %75, %232, %233, %225, %226, %213, %154
+.loopexit296:                                     ; preds = %252, %.critedge, %.critedge7, %109, %75, %232, %233, %225, %226, %213, %154
   %.not275 = icmp eq ptr %4, null
   br i1 %.not275, label %255, label %254
 

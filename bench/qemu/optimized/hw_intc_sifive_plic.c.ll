@@ -1213,11 +1213,15 @@ for.inc29.i:                                      ; preds = %for.body18.i, %if.e
   %max_irq.1.i = phi i32 [ %max_irq.034.i, %for.body.i ], [ %max_irq.034.i, %if.end15.i ], [ %max_irq.3.i, %for.body18.i ]
   %inc30.i = add nuw i32 %i.031.i, 1
   %exitcond37.not.i = icmp eq i32 %inc30.i, %4
-  br i1 %exitcond37.not.i, label %sifive_plic_claimed.exit, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond37.not.i, label %sifive_plic_claimed.exit.loopexit, label %for.body.i, !llvm.loop !13
 
-sifive_plic_claimed.exit:                         ; preds = %for.inc29.i, %for.body
-  %max_irq.0.lcssa.i = phi i32 [ 0, %for.body ], [ %max_irq.1.i, %for.inc29.i ]
-  %tobool = icmp ne i32 %max_irq.0.lcssa.i, 0
+sifive_plic_claimed.exit.loopexit:                ; preds = %for.inc29.i
+  %17 = icmp ne i32 %max_irq.1.i, 0
+  %18 = zext i1 %17 to i32
+  br label %sifive_plic_claimed.exit
+
+sifive_plic_claimed.exit:                         ; preds = %sifive_plic_claimed.exit.loopexit, %for.body
+  %max_irq.0.lcssa.i = phi i32 [ 0, %for.body ], [ %18, %sifive_plic_claimed.exit.loopexit ]
   switch i32 %3, label %for.inc [
     i32 2, label %for.inc.sink.split
     i32 1, label %sw.bb10
@@ -1229,19 +1233,18 @@ sw.bb10:                                          ; preds = %sifive_plic_claimed
 for.inc.sink.split:                               ; preds = %sifive_plic_claimed.exit, %sw.bb10
   %.sink.in = phi ptr [ %s_external_irqs, %sw.bb10 ], [ %m_external_irqs, %sifive_plic_claimed.exit ]
   %.sink = load ptr, ptr %.sink.in, align 8
-  %17 = load i32, ptr %hartid_base11, align 8
-  %sub = sub i32 %2, %17
+  %19 = load i32, ptr %hartid_base11, align 8
+  %sub = sub i32 %2, %19
   %idxprom7 = zext i32 %sub to i64
   %arrayidx8 = getelementptr ptr, ptr %.sink, i64 %idxprom7
-  %18 = load ptr, ptr %arrayidx8, align 8
-  %conv = zext i1 %tobool to i32
-  tail call void @qemu_set_irq(ptr noundef %18, i32 noundef %conv) #9
+  %20 = load ptr, ptr %arrayidx8, align 8
+  tail call void @qemu_set_irq(ptr noundef %20, i32 noundef %max_irq.0.lcssa.i) #9
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %sifive_plic_claimed.exit
   %inc = add nuw i32 %addrid.015, 1
-  %19 = load i32, ptr %num_addrs, align 16
-  %cmp = icmp ult i32 %inc, %19
+  %21 = load i32, ptr %num_addrs, align 16
+  %cmp = icmp ult i32 %inc, %21
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %entry

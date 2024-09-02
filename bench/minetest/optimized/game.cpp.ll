@@ -6084,15 +6084,14 @@ if.then58:                                        ; preds = %if.end54
 land.rhs.i:                                       ; preds = %if.then58
   %m_camera_mode.i.i = getelementptr inbounds i8, ptr %59, i64 512
   %63 = load i32, ptr %m_camera_mode.i.i, align 8, !tbaa !310
-  %cmp.i220 = icmp eq i32 %63, 0
+  %cmp.i220 = icmp ne i32 %63, 0
+  %64 = zext i1 %cmp.i220 to i8
   br label %_ZN4Game24isTouchCrosshairDisabledEv.exit
 
 _ZN4Game24isTouchCrosshairDisabledEv.exit:        ; preds = %land.rhs.i, %if.then58
-  %64 = phi i1 [ false, %if.then58 ], [ %cmp.i220, %land.rhs.i ]
-  %lnot = xor i1 %64, true
-  %frombool.i = zext i1 %lnot to i8
+  %lnot = phi i8 [ 1, %if.then58 ], [ %64, %land.rhs.i ]
   %m_draw_crosshair.i = getelementptr inbounds i8, ptr %61, i64 247
-  store i8 %frombool.i, ptr %m_draw_crosshair.i, align 1, !tbaa !332
+  store i8 %lnot, ptr %m_draw_crosshair.i, align 1, !tbaa !332
   br label %if.end60
 
 if.end60:                                         ; preds = %_ZN4Game24isTouchCrosshairDisabledEv.exit, %if.end54

@@ -1841,7 +1841,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 -15, 256) i32 @serial_can_receive1(ptr nocapture noundef readonly %opaque) #6 {
+define internal range(i32 0, 256) i32 @serial_can_receive1(ptr nocapture noundef readonly %opaque) #6 {
 entry:
   %fcr.i = getelementptr inbounds i8, ptr %opaque, i64 172
   %0 = load i8, ptr %fcr.i, align 4

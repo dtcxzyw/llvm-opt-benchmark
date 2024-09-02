@@ -1689,7 +1689,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %13 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3264, i64 noundef 24) #24
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %133, label %15
+  br i1 %14, label %132, label %15
 
 15:                                               ; preds = %11
   %16 = icmp ugt i32 %1, 524288
@@ -1725,8 +1725,8 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   %31 = icmp eq i64 %30, 3
   br i1 %31, label %19, label %.split, !llvm.loop !59
 
-32:                                               ; preds = %.thread7.thread49, %19
-  %33 = phi i64 [ 0, %19 ], [ %119, %.thread7.thread49 ]
+32:                                               ; preds = %.thread7, %19
+  %33 = phi i64 [ 0, %19 ], [ %118, %.thread7 ]
   %34 = getelementptr ptr, ptr %3, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 72
@@ -1757,7 +1757,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   %54 = getelementptr ptr, ptr %51, i64 %53
   %55 = load volatile ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %.thread7.thread49, label %57
+  br i1 %56, label %.thread7, label %57
 
 57:                                               ; preds = %.lr.ph.split.us
   %58 = add i32 %52, 1
@@ -1812,7 +1812,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   %82 = icmp slt i32 %79, %1
   %83 = load i32, ptr %41, align 64
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %.thread7, label %.lr.ph, !prof !60, !llvm.loop !61
+  br i1 %84, label %.thread7.loopexit37, label %.lr.ph, !prof !60, !llvm.loop !61
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %113
   %85 = phi i32 [ %115, %113 ], [ %48, %.lr.ph ]
@@ -1822,7 +1822,7 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   %89 = getelementptr ptr, ptr %86, i64 %88
   %90 = load volatile ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread7.thread49, label %92
+  br i1 %91, label %.thread7, label %92
 
 92:                                               ; preds = %.lr.ph.split
   %93 = add i32 %87, 1
@@ -1873,59 +1873,56 @@ define internal noundef range(i32 -12, 1) i32 @pfifo_fast_change_tx_queue_len(pt
   tail call void @kfree_skb_reason(ptr noundef nonnull %90, i32 noundef 2) #20
   %115 = load i32, ptr %41, align 64
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %.thread7.thread49, label %.lr.ph.split, !prof !44, !llvm.loop !61
+  br i1 %116, label %.thread7, label %.lr.ph.split, !prof !44, !llvm.loop !61
 
-.thread7:                                         ; preds = %.split27.us, %32
-  %.lcssa14 = phi i32 [ 0, %32 ], [ %79, %.split27.us ]
-  %.lcssa13 = phi i1 [ %22, %32 ], [ %82, %.split27.us ]
-  %cond.fr = freeze i1 %.lcssa13
-  %spec.select = select i1 %cond.fr, i32 %.lcssa14, i32 0
-  br label %.thread7.thread49
+.thread7.loopexit37:                              ; preds = %.split27.us
+  %spec.select = select i1 %82, i32 %79, i32 0
+  br label %.thread7
 
-.thread7.thread49:                                ; preds = %.lr.ph.split.us, %.lr.ph.split, %113, %.thread7
-  %117 = phi i32 [ %spec.select, %.thread7 ], [ 0, %113 ], [ 0, %.lr.ph.split ], [ %50, %.lr.ph.split.us ]
+.thread7:                                         ; preds = %.lr.ph.split.us, %.lr.ph.split, %113, %.thread7.loopexit37, %32
+  %.lcssa13 = phi i32 [ 0, %32 ], [ %spec.select, %.thread7.loopexit37 ], [ 0, %113 ], [ 0, %.lr.ph.split ], [ %50, %.lr.ph.split.us ]
   store i32 %1, ptr %41, align 64
   store i32 %21, ptr %45, align 4
-  store i32 %117, ptr %35, align 64
+  store i32 %.lcssa13, ptr %35, align 64
   store i32 0, ptr %43, align 64
   store i32 0, ptr %44, align 4
-  %118 = load ptr, ptr %42, align 8
+  %117 = load ptr, ptr %42, align 8
   store ptr %40, ptr %42, align 8
-  store ptr %118, ptr %39, align 8
+  store ptr %117, ptr %39, align 8
   tail call void @_raw_spin_unlock(ptr noundef %38) #20
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %36, i64 noundef %37) #20
-  %119 = add nuw nsw i64 %33, 1
-  %120 = icmp eq i64 %119, 3
-  br i1 %120, label %.preheader8, label %32, !llvm.loop !62
+  %118 = add nuw nsw i64 %33, 1
+  %119 = icmp eq i64 %118, 3
+  br i1 %119, label %.preheader8, label %32, !llvm.loop !62
 
-.preheader8:                                      ; preds = %.thread7.thread49, %.preheader8
-  %121 = phi i64 [ %124, %.preheader8 ], [ 0, %.thread7.thread49 ]
-  %122 = getelementptr ptr, ptr %13, i64 %121
-  %123 = load ptr, ptr %122, align 8
-  tail call void @kvfree(ptr noundef %123) #20
-  %124 = add nuw nsw i64 %121, 1
-  %125 = icmp eq i64 %124, 3
-  br i1 %125, label %.loopexit, label %.preheader8, !llvm.loop !63
+.preheader8:                                      ; preds = %.thread7, %.preheader8
+  %120 = phi i64 [ %123, %.preheader8 ], [ 0, %.thread7 ]
+  %121 = getelementptr ptr, ptr %13, i64 %120
+  %122 = load ptr, ptr %121, align 8
+  tail call void @kvfree(ptr noundef %122) #20
+  %123 = add nuw nsw i64 %120, 1
+  %124 = icmp eq i64 %123, 3
+  br i1 %124, label %.loopexit, label %.preheader8, !llvm.loop !63
 
 .preheader:                                       ; preds = %.loopexit12, %.preheader
-  %126 = phi i64 [ %127, %.preheader ], [ %23, %.loopexit12 ]
-  %127 = add nsw i64 %126, -1
-  %128 = and i64 %127, 4294967295
-  %129 = getelementptr ptr, ptr %13, i64 %128
-  %130 = load ptr, ptr %129, align 8
-  tail call void @kvfree(ptr noundef %130) #20
-  %131 = icmp sgt i64 %126, 1
-  br i1 %131, label %.preheader, label %.loopexit, !llvm.loop !64
+  %125 = phi i64 [ %126, %.preheader ], [ %23, %.loopexit12 ]
+  %126 = add nsw i64 %125, -1
+  %127 = and i64 %126, 4294967295
+  %128 = getelementptr ptr, ptr %13, i64 %127
+  %129 = load ptr, ptr %128, align 8
+  tail call void @kvfree(ptr noundef %129) #20
+  %130 = icmp sgt i64 %125, 1
+  br i1 %130, label %.preheader, label %.loopexit, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.preheader8, %.preheader, %.loopexit12.thread, %.loopexit12
-  %132 = phi i32 [ -12, %.loopexit12 ], [ -12, %.loopexit12.thread ], [ -12, %.preheader ], [ 0, %.preheader8 ]
+  %131 = phi i32 [ -12, %.loopexit12 ], [ -12, %.loopexit12.thread ], [ -12, %.preheader ], [ 0, %.preheader8 ]
   tail call void @kfree(ptr noundef nonnull %13) #20
-  br label %133
+  br label %132
 
-133:                                              ; preds = %.loopexit, %11
-  %134 = phi i32 [ -12, %11 ], [ %132, %.loopexit ]
+132:                                              ; preds = %.loopexit, %11
+  %133 = phi i32 [ -12, %11 ], [ %131, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #20
-  ret i32 %134
+  ret i32 %133
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

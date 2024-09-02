@@ -420,12 +420,12 @@ get_byte.exit88.i:                                ; preds = %128, %get_byte.exit
   %.1.i = phi i8 [ %.0.i87.i, %get_byte.exit88.i ], [ %.068.i, %get_byte.exit82.i ]
   %.not73.i = icmp eq i8 %.0.i.i, 0
   %.not74.i = icmp eq i8 %.0.i77.i, 14
-  %or.cond270.not273.not276 = select i1 %.not73.i, i1 %.not74.i, i1 false
+  %or.cond269.not272.not275 = select i1 %.not73.i, i1 %.not74.i, i1 false
   %136 = icmp ult i8 %.0.i79.i, 3
-  %or.cond271.not275 = select i1 %or.cond270.not273.not276, i1 %136, i1 false
+  %or.cond270.not274 = select i1 %or.cond269.not272.not275, i1 %136, i1 false
   %.not75.i = icmp eq i8 %.0.i81.i, 1
-  %or.cond272 = select i1 %or.cond271.not275, i1 %.not75.i, i1 false
-  br i1 %or.cond272, label %137, label %find_s101_packet_header.exit.thread
+  %or.cond271 = select i1 %or.cond270.not274, i1 %.not75.i, i1 false
+  br i1 %or.cond271, label %137, label %find_s101_packet_header.exit.thread
 
 137:                                              ; preds = %135
   br i1 %94, label %138, label %find_s101_packet_header.exit
@@ -645,11 +645,11 @@ decode_s101_escaped_buffer.exit:                  ; preds = %207, %210, %.loopex
   %.0104 = phi ptr [ %.0.i, %decode_s101_escaped_buffer.exit ], [ %253, %249 ]
   %256 = sub i32 %.4235, %.11
   call void @proto_item_set_len(ptr noundef %162, i32 noundef %256) #4
-  br i1 %94, label %257, label %340
+  br i1 %94, label %257, label %341
 
 257:                                              ; preds = %255
   %.not114 = icmp eq i8 %.1221, -64
-  br i1 %.not114, label %.thread266, label %258
+  br i1 %.not114, label %.thread265, label %258
 
 258:                                              ; preds = %257
   %259 = load i32, ptr %22, align 4
@@ -680,7 +680,7 @@ get_fragment_pdu_id.exit:                         ; preds = %258, %263
   %277 = call ptr @wmem_map_lookup(ptr noundef %276, ptr noundef nonnull %16) #4
   store i32 1, ptr %25, align 8
   %278 = icmp eq ptr %277, null
-  switch i8 %.1221, label %309 [
+  switch i8 %.1221, label %310 [
     i8 -128, label %279
     i8 64, label %295
   ]
@@ -718,7 +718,7 @@ new_fragment_info.exit:                           ; preds = %280, %284
   %293 = call ptr @fragment_add(ptr noundef nonnull @s101_data_reassembly_table, ptr noundef %.0104, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %292, ptr noundef null, i32 noundef 0, i32 noundef %.0105, i32 noundef 1) #4
   %294 = getelementptr inbounds i8, ptr %.0, i64 4
   store i32 %.0105, ptr %294, align 4
-  br label %.thread266
+  br label %.thread265
 
 295:                                              ; preds = %get_fragment_pdu_id.exit
   br i1 %278, label %.thread, label %296
@@ -729,98 +729,98 @@ new_fragment_info.exit:                           ; preds = %280, %284
   %299 = load i32, ptr %298, align 4
   %300 = call ptr @fragment_add(ptr noundef nonnull @s101_data_reassembly_table, ptr noundef %.0104, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %297, ptr noundef null, i32 noundef %299, i32 noundef %.0105, i32 noundef 0) #4
   %301 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.11, ptr noundef nonnull %1, ptr noundef nonnull @.str.72, ptr noundef %300, ptr noundef nonnull @msg_frag_items, ptr noundef null, ptr noundef %164) #4
-  %.not116 = icmp eq ptr %300, null
-  br i1 %.not116, label %.thread, label %302
+  %302 = icmp eq ptr %300, null
+  br i1 %302, label %.thread, label %303
 
-302:                                              ; preds = %296
-  %303 = load ptr, ptr %20, align 8
-  call void @col_append_str(ptr noundef %303, i32 noundef 25, ptr noundef nonnull @.str.73) #4
-  br label %326
+303:                                              ; preds = %296
+  %304 = load ptr, ptr %20, align 8
+  call void @col_append_str(ptr noundef %304, i32 noundef 25, ptr noundef nonnull @.str.73) #4
+  br label %327
 
 .thread:                                          ; preds = %295, %296
-  %.2265 = phi ptr [ %301, %296 ], [ %.0104, %295 ]
+  %.2264 = phi ptr [ %301, %296 ], [ %.0104, %295 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %304 = load i32, ptr @ett_decoding_error, align 4
-  %305 = call ptr @proto_tree_add_subtree(ptr noundef %164, ptr noundef %0, i32 noundef %.11, i32 noundef %256, i32 noundef %304, ptr noundef nonnull %6, ptr noundef nonnull @.str.30) #4
-  %306 = load i32, ptr @hf_S101_error, align 4
-  %307 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %305, i32 noundef %306, ptr noundef %0, i32 noundef %.11, i32 noundef %256, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77) #4
-  store ptr %307, ptr %6, align 8
-  %308 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %307, ptr noundef nonnull @ei_s101_failed_reassembly) #4
+  %305 = load i32, ptr @ett_decoding_error, align 4
+  %306 = call ptr @proto_tree_add_subtree(ptr noundef %164, ptr noundef %0, i32 noundef %.11, i32 noundef %256, i32 noundef %305, ptr noundef nonnull %6, ptr noundef nonnull @.str.30) #4
+  %307 = load i32, ptr @hf_S101_error, align 4
+  %308 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %306, i32 noundef %307, ptr noundef %0, i32 noundef %.11, i32 noundef %256, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77) #4
+  store ptr %308, ptr %6, align 8
+  %309 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %308, ptr noundef nonnull @ei_s101_failed_reassembly) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %326
+  br label %327
 
-309:                                              ; preds = %get_fragment_pdu_id.exit
-  br i1 %278, label %310, label %316
+310:                                              ; preds = %get_fragment_pdu_id.exit
+  br i1 %278, label %311, label %317
 
-310:                                              ; preds = %309
+311:                                              ; preds = %310
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %311 = load i32, ptr @ett_decoding_error, align 4
-  %312 = call ptr @proto_tree_add_subtree(ptr noundef %164, ptr noundef %0, i32 noundef %.11, i32 noundef %256, i32 noundef %311, ptr noundef nonnull %5, ptr noundef nonnull @.str.30) #4
-  %313 = load i32, ptr @hf_S101_error, align 4
-  %314 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %312, i32 noundef %313, ptr noundef %0, i32 noundef %.11, i32 noundef %256, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77) #4
-  store ptr %314, ptr %5, align 8
-  %315 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %314, ptr noundef nonnull @ei_s101_failed_reassembly) #4
+  %312 = load i32, ptr @ett_decoding_error, align 4
+  %313 = call ptr @proto_tree_add_subtree(ptr noundef %164, ptr noundef %0, i32 noundef %.11, i32 noundef %256, i32 noundef %312, ptr noundef nonnull %5, ptr noundef nonnull @.str.30) #4
+  %314 = load i32, ptr @hf_S101_error, align 4
+  %315 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %313, i32 noundef %314, ptr noundef %0, i32 noundef %.11, i32 noundef %256, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77) #4
+  store ptr %315, ptr %5, align 8
+  %316 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %315, ptr noundef nonnull @ei_s101_failed_reassembly) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %326
+  br label %327
 
-316:                                              ; preds = %309
-  %317 = icmp eq i8 %.1221, 0
-  br i1 %317, label %318, label %326
+317:                                              ; preds = %310
+  %318 = icmp eq i8 %.1221, 0
+  br i1 %318, label %319, label %327
 
-318:                                              ; preds = %316
-  %319 = load i32, ptr %277, align 4
-  %320 = getelementptr inbounds i8, ptr %277, i64 4
-  %321 = load i32, ptr %320, align 4
-  %322 = call ptr @fragment_add(ptr noundef nonnull @s101_data_reassembly_table, ptr noundef %.0104, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %319, ptr noundef null, i32 noundef %321, i32 noundef %.0105, i32 noundef 1) #4
-  %323 = load i32, ptr %320, align 4
-  %324 = add i32 %323, %.0105
-  store i32 %324, ptr %320, align 4
-  %325 = load ptr, ptr %20, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %325, i32 noundef 25, ptr noundef nonnull @.str.74) #4
-  br label %.thread266
+319:                                              ; preds = %317
+  %320 = load i32, ptr %277, align 4
+  %321 = getelementptr inbounds i8, ptr %277, i64 4
+  %322 = load i32, ptr %321, align 4
+  %323 = call ptr @fragment_add(ptr noundef nonnull @s101_data_reassembly_table, ptr noundef %.0104, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %320, ptr noundef null, i32 noundef %322, i32 noundef %.0105, i32 noundef 1) #4
+  %324 = load i32, ptr %321, align 4
+  %325 = add i32 %324, %.0105
+  store i32 %325, ptr %321, align 4
+  %326 = load ptr, ptr %20, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %326, i32 noundef 25, ptr noundef nonnull @.str.74) #4
+  br label %.thread265
 
-326:                                              ; preds = %310, %316, %302, %.thread
-  %.1 = phi ptr [ %301, %302 ], [ %.2265, %.thread ], [ %.0104, %310 ], [ %.0104, %316 ]
-  %327 = icmp eq i8 %.1221, 64
-  %328 = icmp eq ptr %.1, null
-  %or.cond = select i1 %327, i1 %328, i1 false
-  br i1 %or.cond, label %329, label %.thread266
+327:                                              ; preds = %311, %317, %303, %.thread
+  %.1 = phi ptr [ %301, %303 ], [ %.2264, %.thread ], [ %.0104, %311 ], [ %.0104, %317 ]
+  %328 = icmp eq i8 %.1221, 64
+  %329 = icmp eq ptr %.1, null
+  %or.cond = select i1 %328, i1 %329, i1 false
+  br i1 %or.cond, label %330, label %.thread265
 
-329:                                              ; preds = %326
-  %330 = load i32, ptr @ett_decoding_error, align 4
-  %331 = call ptr @proto_tree_add_subtree(ptr noundef %164, ptr noundef %0, i32 noundef %.11, i32 noundef %256, i32 noundef %330, ptr noundef nonnull %17, ptr noundef nonnull @.str.30) #4
-  %332 = load ptr, ptr %17, align 8
-  %333 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %332, ptr noundef nonnull @ei_s101_failed_reassembly) #4
-  br label %340
+330:                                              ; preds = %327
+  %331 = load i32, ptr @ett_decoding_error, align 4
+  %332 = call ptr @proto_tree_add_subtree(ptr noundef %164, ptr noundef %0, i32 noundef %.11, i32 noundef %256, i32 noundef %331, ptr noundef nonnull %17, ptr noundef nonnull @.str.30) #4
+  %333 = load ptr, ptr %17, align 8
+  %334 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %333, ptr noundef nonnull @ei_s101_failed_reassembly) #4
+  br label %341
 
-.thread266:                                       ; preds = %257, %318, %291, %326
-  %.1269 = phi ptr [ %.1, %326 ], [ %.0104, %291 ], [ %.0104, %318 ], [ %.0104, %257 ]
-  %334 = load ptr, ptr @glow_handle, align 8
-  %.not117 = icmp eq ptr %334, null
-  br i1 %.not117, label %340, label %335
+.thread265:                                       ; preds = %257, %319, %291, %327
+  %.1268 = phi ptr [ %.1, %327 ], [ %.0104, %291 ], [ %.0104, %319 ], [ %.0104, %257 ]
+  %335 = load ptr, ptr @glow_handle, align 8
+  %.not117 = icmp eq ptr %335, null
+  br i1 %.not117, label %341, label %336
 
-335:                                              ; preds = %.thread266
-  switch i8 %.1221, label %340 [
-    i8 -64, label %336
-    i8 64, label %336
+336:                                              ; preds = %.thread265
+  switch i8 %.1221, label %341 [
+    i8 -64, label %337
+    i8 64, label %337
   ]
 
-336:                                              ; preds = %335, %335
-  %337 = call i32 @call_dissector_only(ptr noundef nonnull %334, ptr noundef %.1269, ptr noundef %1, ptr noundef %164, ptr noundef %3) #4
-  %338 = icmp sgt i32 %337, 0
-  %339 = icmp slt i32 %.4235, %18
-  %or.cond119 = and i1 %339, %338
+337:                                              ; preds = %336, %336
+  %338 = call i32 @call_dissector_only(ptr noundef nonnull %335, ptr noundef %.1268, ptr noundef %1, ptr noundef %164, ptr noundef %3) #4
+  %339 = icmp sgt i32 %338, 0
+  %340 = icmp slt i32 %.4235, %18
+  %or.cond119 = and i1 %340, %339
   br i1 %or.cond119, label %.backedge.backedge, label %find_s101_packet_header.exit.thread
 
-340:                                              ; preds = %335, %255, %.thread266, %329
+341:                                              ; preds = %336, %255, %.thread265, %330
   %.old118 = icmp slt i32 %.4235, %18
   br i1 %.old118, label %.backedge.backedge, label %find_s101_packet_header.exit.thread
 
-.backedge.backedge:                               ; preds = %340, %336
+.backedge.backedge:                               ; preds = %341, %337
   br label %.backedge, !llvm.loop !7
 
-find_s101_packet_header.exit.thread:              ; preds = %135, %138, %140, %.backedge, %340, %336, %4
-  %.0103 = phi i32 [ 0, %4 ], [ %.0231, %135 ], [ %.0231, %138 ], [ %.0231, %140 ], [ %.0231, %.backedge ], [ %.4235, %336 ], [ %.4235, %340 ]
+find_s101_packet_header.exit.thread:              ; preds = %135, %138, %140, %.backedge, %341, %337, %4
+  %.0103 = phi i32 [ 0, %4 ], [ %.0231, %135 ], [ %.0231, %138 ], [ %.0231, %140 ], [ %.0231, %.backedge ], [ %.4235, %337 ], [ %.4235, %341 ]
   ret i32 %.0103
 }
 

@@ -211,7 +211,7 @@ declare dso_local i32 @debug_locks_off() local_unnamed_addr #3
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ldt_dup_context(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ldt_dup_context(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.mmu_gather, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %61, label %5

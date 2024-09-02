@@ -480,7 +480,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_demux_pump(ptr nocapture noundef %demux) local_unnamed_addr #0 {
+define range(i32 -3, 2) i32 @ossl_quic_demux_pump(ptr nocapture noundef %demux) local_unnamed_addr #0 {
 entry:
   %msg.i = alloca [32 x %struct.bio_msg_st], align 16
   %rd.i = alloca i64, align 8
@@ -771,7 +771,7 @@ return:                                           ; preds = %while.body.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @demux_process_pending_urxl(ptr nocapture noundef %demux) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @demux_process_pending_urxl(ptr nocapture noundef %demux) unnamed_addr #0 {
 entry:
   %key.i.i.i = alloca %struct.quic_demux_conn_st, align 8
   %dst_conn_id.i.i = alloca %struct.quic_conn_id_st, align 1

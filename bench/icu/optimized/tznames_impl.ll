@@ -4316,9 +4316,9 @@ for.body.backedge.i.i:                            ; preds = %for.inc.i.i, %if.en
   br label %for.body.i.i, !llvm.loop !22
 
 _ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit: ; preds = %if.end11.i.i, %for.inc.i.i._ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge
-  %10 = phi i32 [ %.pre.pre, %for.inc.i.i._ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge ], [ %9, %if.end11.i.i ]
-  %cmp.i11 = icmp slt i32 %10, 1
-  br i1 %cmp.i11, label %while.cond.backedge, label %while.end27
+  %.pre = phi i32 [ %.pre.pre, %for.inc.i.i._ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge ], [ %9, %if.end11.i.i ]
+  %10 = icmp slt i32 %.pre, 1
+  br i1 %10, label %while.cond.backedge, label %while.end27
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end
   store i32 -1, ptr %pos, align 4
@@ -4404,9 +4404,9 @@ for.body.backedge.i.i34:                          ; preds = %for.inc.i.i43, %if.
   br label %for.body.i.i18, !llvm.loop !22
 
 _ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit: ; preds = %if.end11.i.i25, %for.inc.i.i43._ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge
-  %20 = phi i32 [ %.pre55.pre, %for.inc.i.i43._ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge ], [ %19, %if.end11.i.i25 ]
-  %cmp.i45 = icmp slt i32 %20, 1
-  br i1 %cmp.i45, label %while.cond11.backedge, label %while.end27
+  %.pre55 = phi i32 [ %.pre55.pre, %for.inc.i.i43._ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge ], [ %19, %if.end11.i.i25 ]
+  %20 = icmp slt i32 %.pre55, 1
+  br i1 %20, label %while.cond11.backedge, label %while.end27
 
 while.end27.sink.split:                           ; preds = %if.then7.i.i, %if.then7.i.i22
   store i32 7, ptr %status, align 4
@@ -6444,7 +6444,7 @@ if.then2.i:                                       ; preds = %if.end.i7
   br label %_ZN6icu_75L11prepareFindER10UErrorCode.exit
 
 common.resume:                                    ; preds = %lpad, %common.resume.i
-  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %27, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.i, %common.resume.i ], [ %28, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 common.resume.i:                                  ; preds = %lpad10.i.i, %lpad.i.i, %lpad.i
@@ -6557,7 +6557,7 @@ if.end25.i:                                       ; preds = %_ZNK6icu_759TZDBNam
 land.end33.thread.i:                              ; preds = %if.end25.i
   %call31.i = tail call i32 @u_strcmp_75(ptr noundef nonnull %retval.0.i5367.i, ptr noundef nonnull %retval.0.i57.i)
   %cmp32.i = icmp eq i32 %call31.i, 0
-  %conv68.i = zext i1 %cmp32.i to i8
+  %15 = zext i1 %cmp32.i to i8
   %call3469.i = tail call noundef ptr @_ZN6icu_758ZoneMeta14findMetaZoneIDERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %call882.i)
   br label %if.then36.i
 
@@ -6567,7 +6567,7 @@ land.end33.i:                                     ; preds = %if.end25.i
 
 if.then36.i:                                      ; preds = %land.end33.i, %land.end33.thread.i
   %call3473.i = phi ptr [ %call3469.i, %land.end33.thread.i ], [ %call34.i, %land.end33.i ]
-  %conv71.i = phi i8 [ %conv68.i, %land.end33.thread.i ], [ 0, %land.end33.i ]
+  %conv70.i = phi i8 [ %15, %land.end33.thread.i ], [ 0, %land.end33.i ]
   %call37.i = tail call noalias dereferenceable_or_null(32) ptr @uprv_malloc_75(i64 noundef 32) #22
   %cmp38.i = icmp eq ptr %call37.i, null
   br i1 %cmp38.i, label %delete.end.i.sink.split, label %if.end40.i
@@ -6577,20 +6577,20 @@ if.end40.i:                                       ; preds = %if.then36.i
   %type.i = getelementptr inbounds i8, ptr %call37.i, i64 8
   store i32 16, ptr %type.i, align 8
   %ambiguousType42.i = getelementptr inbounds i8, ptr %call37.i, i64 12
-  store i8 %conv71.i, ptr %ambiguousType42.i, align 4
+  store i8 %conv70.i, ptr %ambiguousType42.i, align 4
   %parseRegions43.i = getelementptr inbounds i8, ptr %call37.i, i64 16
   store ptr %13, ptr %parseRegions43.i, align 8
   %nRegions.i = getelementptr inbounds i8, ptr %call37.i, i64 24
   store i32 %storemerge.i.i, ptr %nRegions.i, align 8
-  %15 = load ptr, ptr @_ZN6icu_75L14gTZDBNamesTrieE, align 8
-  tail call void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull %retval.0.i5367.i, ptr noundef nonnull %call37.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %16 = load ptr, ptr @_ZN6icu_75L14gTZDBNamesTrieE, align 8
+  tail call void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull %retval.0.i5367.i, ptr noundef nonnull %call37.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.end40.i, %land.end33.i
   %call3472.i = phi ptr [ %call3473.i, %if.end40.i ], [ %call34.i, %land.end33.i ]
-  %conv70.i = phi i8 [ %conv71.i, %if.end40.i ], [ 0, %land.end33.i ]
-  %16 = load i32, ptr %status, align 4
-  %cmp.i60.i = icmp slt i32 %16, 1
+  %conv71.i = phi i8 [ %conv70.i, %if.end40.i ], [ 0, %land.end33.i ]
+  %17 = load i32, ptr %status, align 4
+  %cmp.i60.i = icmp slt i32 %17, 1
   %or.cond2.i = and i1 %cmp29.i, %cmp.i60.i
   br i1 %or.cond2.i, label %if.then49.i, label %while.cond.backedge.i
 
@@ -6604,23 +6604,23 @@ if.end53.i:                                       ; preds = %if.then49.i
   %type55.i = getelementptr inbounds i8, ptr %call50.i, i64 8
   store i32 32, ptr %type55.i, align 8
   %ambiguousType56.i = getelementptr inbounds i8, ptr %call50.i, i64 12
-  store i8 %conv70.i, ptr %ambiguousType56.i, align 4
+  store i8 %conv71.i, ptr %ambiguousType56.i, align 4
   %parseRegions57.i = getelementptr inbounds i8, ptr %call50.i, i64 16
   store ptr %13, ptr %parseRegions57.i, align 8
   %nRegions58.i = getelementptr inbounds i8, ptr %call50.i, i64 24
   store i32 %storemerge.i.i, ptr %nRegions58.i, align 8
-  %17 = load ptr, ptr @_ZN6icu_75L14gTZDBNamesTrieE, align 8
-  tail call void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull %retval.0.i57.i, ptr noundef nonnull %call50.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %18 = load ptr, ptr @_ZN6icu_75L14gTZDBNamesTrieE, align 8
+  tail call void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull %retval.0.i57.i, ptr noundef nonnull %call50.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end53.i, %if.end44.i, %_ZNK6icu_759TZDBNames7getNameE17UTimeZoneNameType.exit58.i, %if.end16.i
   %vtable.i = load ptr, ptr %call3.i.i, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
-  %18 = load ptr, ptr %vfn.i, align 8
-  %call8.i = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(116) %call3.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %19 = load ptr, ptr %vfn.i, align 8
+  %call8.i = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(116) %call3.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %cmp9.not.i = icmp eq ptr %call8.i, null
-  %19 = load i32, ptr %status, align 4
-  %cmp.i47.i = icmp sgt i32 %19, 0
+  %20 = load i32, ptr %status, align 4
+  %cmp.i47.i = icmp sgt i32 %20, 0
   %or.cond75.i = select i1 %cmp9.not.i, i1 true, i1 %cmp.i47.i
   br i1 %or.cond75.i, label %delete.end.i, label %while.body.i, !llvm.loop !37
 
@@ -6634,8 +6634,8 @@ delete.end.i.sink.split:                          ; preds = %if.then49.i, %if.th
 delete.end.i:                                     ; preds = %while.cond.backedge.i, %while.body.i, %delete.end.i.sink.split, %if.end60.i, %while.cond.preheader.i
   %vtable61.i = load ptr, ptr %call3.i.i, align 8
   %vfn62.i = getelementptr inbounds i8, ptr %vtable61.i, i64 8
-  %20 = load ptr, ptr %vfn62.i, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(116) %call3.i.i) #21
+  %21 = load ptr, ptr %vfn62.i, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(116) %call3.i.i) #21
   %.pre.i = load i32, ptr %status, align 4
   %cmp.i62.i = icmp slt i32 %.pre.i, 1
   br i1 %cmp.i62.i, label %if.end71.i, label %if.then65.i
@@ -6646,11 +6646,11 @@ if.then65.i:                                      ; preds = %delete.end.i, %if.e
   br i1 %isnull66.i, label %delete.end70.i, label %delete.notnull67.i
 
 delete.notnull67.i:                               ; preds = %if.then65.i, %if.end3.i
-  %21 = phi ptr [ %.pr93.i, %if.then65.i ], [ %call1.i, %if.end3.i ]
-  %vtable68.i = load ptr, ptr %21, align 8
+  %22 = phi ptr [ %.pr93.i, %if.then65.i ], [ %call1.i, %if.end3.i ]
+  %vtable68.i = load ptr, ptr %22, align 8
   %vfn69.i = getelementptr inbounds i8, ptr %vtable68.i, i64 8
-  %22 = load ptr, ptr %vfn69.i, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(56) %21) #21
+  %23 = load ptr, ptr %vfn69.i, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(56) %22) #21
   br label %delete.end70.i
 
 delete.end70.i:                                   ; preds = %delete.notnull67.i, %if.then65.i
@@ -6662,18 +6662,18 @@ if.end71.i:                                       ; preds = %delete.end.i
   br label %_ZN6icu_75L11prepareFindER10UErrorCode.exit
 
 _ZN6icu_75L11prepareFindER10UErrorCode.exit:      ; preds = %if.then4.i, %if.then2.i, %delete.end70.i, %if.end71.i
-  %23 = load i32, ptr %status, align 4
-  store i32 %23, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L22gTZDBNamesTrieInitOnceE, i64 4), align 4
+  %24 = load i32, ptr %status, align 4
+  store i32 %24, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L22gTZDBNamesTrieInitOnceE, i64 4), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_75L22gTZDBNamesTrieInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %24 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L22gTZDBNamesTrieInitOnceE, i64 4), align 4
-  %cmp.i9.i = icmp slt i32 %24, 1
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN6icu_75L22gTZDBNamesTrieInitOnceE, i64 4), align 4
+  %cmp.i9.i = icmp slt i32 %25, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.else.i
-  store i32 %24, ptr %status, align 4
+  store i32 %25, ptr %status, align 4
   br label %return
 
 _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %_ZN6icu_75L11prepareFindER10UErrorCode.exit, %if.else.i
@@ -6684,31 +6684,31 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %_
 if.end:                                           ; preds = %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
   %fRegion = getelementptr inbounds i8, ptr %this, i64 232
   call void @_ZN6icu_7521TZDBNameSearchHandlerC1EjPKc(ptr noundef nonnull align 8 dereferenceable(32) %handler, i32 noundef %types, ptr noundef nonnull %fRegion)
-  %25 = load ptr, ptr @_ZN6icu_75L14gTZDBNamesTrieE, align 8
-  invoke void @_ZNK6icu_7511TextTrieMap6searchERKNS_13UnicodeStringEiPNS_30TextTrieMapSearchResultHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr noundef nonnull %handler, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %26 = load ptr, ptr @_ZN6icu_75L14gTZDBNamesTrieE, align 8
+  invoke void @_ZNK6icu_7511TextTrieMap6searchERKNS_13UnicodeStringEiPNS_30TextTrieMapSearchResultHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr noundef nonnull %handler, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %26 = load i32, ptr %status, align 4
-  %cmp.i4 = icmp slt i32 %26, 1
+  %27 = load i32, ptr %status, align 4
+  %cmp.i4 = icmp slt i32 %27, 1
   br i1 %cmp.i4, label %if.end6, label %cleanup
 
 lpad:                                             ; preds = %if.end
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7521TZDBNameSearchHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %handler) #21
   br label %common.resume
 
 if.end6:                                          ; preds = %invoke.cont
   %fResults.i = getelementptr inbounds i8, ptr %handler, i64 16
-  %28 = load ptr, ptr %fResults.i, align 8
+  %29 = load ptr, ptr %fResults.i, align 8
   %fMaxMatchLen.i = getelementptr inbounds i8, ptr %handler, i64 12
   store ptr null, ptr %fResults.i, align 8
   store i32 0, ptr %fMaxMatchLen.i, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont, %if.end6
-  %retval.1 = phi ptr [ %28, %if.end6 ], [ null, %invoke.cont ]
+  %retval.1 = phi ptr [ %29, %if.end6 ], [ null, %invoke.cont ]
   call void @_ZN6icu_7521TZDBNameSearchHandlerD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %handler) #21
   br label %return
 

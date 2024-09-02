@@ -2945,7 +2945,7 @@ define noundef i32 @idaLsFreeB(ptr noundef readonly %0) #9 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @IDASetJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDASetJacFnB(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3184,7 +3184,7 @@ idaLs_AccessLMemBCur.exit:                        ; preds = %25, %12, %17, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @IDASetJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @IDASetJacFnBS(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

@@ -4720,15 +4720,17 @@ _ZNK7oopDesc4is_aEP5Klass.exit.thread:            ; preds = %89, %90, %64
 
 105:                                              ; preds = %94
   %106 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %95, i64 noundef 8, i32 noundef 0) #13
+  %.pre = ptrtoint ptr %106 to i64
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
 _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %105, %103
-  %.0.i.i.i.i.i = phi ptr [ %99, %103 ], [ %106, %105 ]
+  %.pre-phi = phi i64 [ %.pre, %105 ], [ %101, %103 ]
+  %.0.i.i.i.i.i = phi ptr [ %106, %105 ], [ %99, %103 ]
   store ptr %92, ptr %.0.i.i.i.i.i, align 8
   br label %_ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit
 
 _ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit: ; preds = %_ZNK7oopDesc4is_aEP5Klass.exit.thread, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
-  %storemerge.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i ], [ null, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ]
+  %storemerge.i.i = phi i64 [ %.pre-phi, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i ], [ 0, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ]
   %107 = load ptr, ptr %0, align 8
   %108 = load i32, ptr %107, align 8
   %109 = getelementptr inbounds i8, ptr %107, i64 4
@@ -4758,8 +4760,7 @@ _ZN26GrowableArrayWithAllocatorI14instanceHandle13GrowableArrayIS0_EE6appendERKS
   %123 = load ptr, ptr %122, align 8
   %124 = sext i32 %120 to i64
   %125 = getelementptr inbounds %class.instanceHandle, ptr %123, i64 %124
-  %126 = ptrtoint ptr %storemerge.i.i to i64
-  store i64 %126, ptr %125, align 8
+  store i64 %storemerge.i.i, ptr %125, align 8
   br label %_ZNK7oopDesc4is_aEP5Klass.exit.backedge
 }
 

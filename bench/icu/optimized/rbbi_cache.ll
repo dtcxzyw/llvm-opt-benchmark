@@ -2441,7 +2441,7 @@ while.body87.lr.ph:                               ; preds = %if.end82
 
 while.body87:                                     ; preds = %while.body87.lr.ph, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229
   %and.i7.i228306 = phi i32 [ %fEndBufIdx.i213.promoted, %while.body87.lr.ph ], [ %and.i7.i228305, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229 ]
-  %92 = phi i32 [ %count.i.promoted311, %while.body87.lr.ph ], [ %96, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229 ]
+  %92 = phi i32 [ %count.i.promoted311, %while.body87.lr.ph ], [ %97, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229 ]
   %93 = phi i32 [ %fStartBufIdx.promoted, %while.body87.lr.ph ], [ %and.i.i212, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229 ]
   %cmp.i191 = icmp sgt i32 %92, 0
   br i1 %cmp.i191, label %_ZN6icu_759UVector324popiEv.exit199, label %_ZN6icu_759UVector324popiEv.exit209
@@ -2452,6 +2452,7 @@ _ZN6icu_759UVector324popiEv.exit199:              ; preds = %while.body87
   %idxprom.i197 = zext nneg i32 %dec.i195 to i64
   %arrayidx.i198 = getelementptr inbounds i32, ptr %90, i64 %idxprom.i197
   %94 = load i32, ptr %arrayidx.i198, align 4
+  %95 = trunc i32 %94 to i16
   %cmp.i201.not = icmp eq i32 %dec.i195, 0
   br i1 %cmp.i201.not, label %_ZN6icu_759UVector324popiEv.exit209, label %if.then.i204
 
@@ -2460,13 +2461,13 @@ if.then.i204:                                     ; preds = %_ZN6icu_759UVector3
   store i32 %dec.i205, ptr %count.i, align 8
   %idxprom.i207 = zext nneg i32 %dec.i205 to i64
   %arrayidx.i208 = getelementptr inbounds i32, ptr %90, i64 %idxprom.i207
-  %95 = load i32, ptr %arrayidx.i208, align 4
+  %96 = load i32, ptr %arrayidx.i208, align 4
   br label %_ZN6icu_759UVector324popiEv.exit209
 
 _ZN6icu_759UVector324popiEv.exit209:              ; preds = %while.body87, %_ZN6icu_759UVector324popiEv.exit199, %if.then.i204
-  %result.0.i193330 = phi i32 [ %94, %if.then.i204 ], [ %94, %_ZN6icu_759UVector324popiEv.exit199 ], [ 0, %while.body87 ]
-  %96 = phi i32 [ %dec.i205, %if.then.i204 ], [ 0, %_ZN6icu_759UVector324popiEv.exit199 ], [ %92, %while.body87 ]
-  %result.0.i203 = phi i32 [ %95, %if.then.i204 ], [ 0, %_ZN6icu_759UVector324popiEv.exit199 ], [ 0, %while.body87 ]
+  %result.0.i193330 = phi i16 [ %95, %if.then.i204 ], [ %95, %_ZN6icu_759UVector324popiEv.exit199 ], [ 0, %while.body87 ]
+  %97 = phi i32 [ %dec.i205, %if.then.i204 ], [ 0, %_ZN6icu_759UVector324popiEv.exit199 ], [ %92, %while.body87 ]
+  %result.0.i203 = phi i32 [ %96, %if.then.i204 ], [ 0, %_ZN6icu_759UVector324popiEv.exit199 ], [ 0, %while.body87 ]
   %sub.i211 = add i32 %93, 127
   %and.i.i212 = and i32 %sub.i211, 127
   %cmp.i214 = icmp eq i32 %and.i.i212, %and.i7.i228306
@@ -2487,11 +2488,10 @@ _ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePosit
   %idxprom.i216 = zext nneg i32 %and.i.i212 to i64
   %arrayidx.i217 = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom.i216
   store i32 %result.0.i203, ptr %arrayidx.i217, align 4
-  %conv.i218 = trunc i32 %result.0.i193330 to i16
   %arrayidx12.i220 = getelementptr inbounds [128 x i16], ptr %fStatuses.i219, i64 0, i64 %idxprom.i216
-  store i16 %conv.i218, ptr %arrayidx12.i220, align 2
+  store i16 %result.0.i193330, ptr %arrayidx12.i220, align 2
   store i32 %and.i.i212, ptr %fStartBufIdx, align 8
-  %cmp.i188.not = icmp eq i32 %96, 0
+  %cmp.i188.not = icmp eq i32 %97, 0
   br i1 %cmp.i188.not, label %return, label %while.body87, !llvm.loop !19
 
 return:                                           ; preds = %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit229, %if.then.i222, %do.end72, %if.end82, %if.end, %entry, %_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE.exit

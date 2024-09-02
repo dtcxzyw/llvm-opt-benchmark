@@ -2885,7 +2885,7 @@ IFN_Next_Character.exit:                          ; preds = %.sink.split.i, %131
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond.not97 = or i1 %4, %5

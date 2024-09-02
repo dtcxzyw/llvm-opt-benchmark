@@ -46,7 +46,7 @@ $_ZTWN7rocksdb15iostats_contextE = comdat any
 @_ZTHN7rocksdb15iostats_contextE = alias void (), ptr @__tls_init
 
 ; Function Attrs: uwtable
-define noundef ptr @_ZN7rocksdb19get_iostats_contextEv() local_unnamed_addr #0 {
+define noundef nonnull ptr @_ZN7rocksdb19get_iostats_contextEv() local_unnamed_addr #0 {
 entry:
   tail call void @_ZTHN7rocksdb15iostats_contextE()
   %0 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15iostats_contextE)

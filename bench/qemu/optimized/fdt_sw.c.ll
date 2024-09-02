@@ -42,7 +42,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -18, 1) i32 @fdt_create(ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @fdt_create(ptr nocapture noundef writeonly %buf, i32 noundef %bufsize) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp slt i32 %bufsize, 48
   br i1 %cmp.i, label %fdt_create_with_flags.exit, label %if.end.i
@@ -72,7 +72,7 @@ fdt_create_with_flags.exit:                       ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @fdt_resize(ptr noundef readonly %fdt, ptr noundef %buf, i32 noundef %bufsize) local_unnamed_addr #2 {
+define dso_local range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly %fdt, ptr noundef %buf, i32 noundef %bufsize) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i = zext i8 %0 to i32
@@ -242,7 +242,7 @@ return:                                           ; preds = %if.end32, %if.then3
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @fdt_add_reservemap_entry(ptr nocapture noundef %fdt, i64 noundef %addr, i64 noundef %size) local_unnamed_addr #2 {
+define dso_local range(i32 -9, 1) i32 @fdt_add_reservemap_entry(ptr nocapture noundef %fdt, i64 noundef %addr, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i.i = zext i8 %0 to i32
@@ -351,7 +351,7 @@ return:                                           ; preds = %fdt_sw_probe_memrsv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @fdt_finish_reservemap(ptr nocapture noundef %fdt) local_unnamed_addr #2 {
+define dso_local range(i32 -9, 1) i32 @fdt_finish_reservemap(ptr nocapture noundef %fdt) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i.i.i = zext i8 %0 to i32
@@ -472,7 +472,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @fdt_begin_node(ptr noundef %fdt, ptr nocapture noundef readonly %name) local_unnamed_addr #4 {
+define dso_local range(i32 -9, 1) i32 @fdt_begin_node(ptr noundef %fdt, ptr nocapture noundef readonly %name) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i.i = zext i8 %0 to i32
@@ -655,7 +655,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @fdt_end_node(ptr noundef %fdt) local_unnamed_addr #2 {
+define dso_local range(i32 -9, 1) i32 @fdt_end_node(ptr noundef %fdt) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i.i = zext i8 %0 to i32
@@ -819,7 +819,7 @@ return:                                           ; preds = %fdt_sw_probe_struct
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_property_placeholder(ptr noundef %fdt, ptr noundef %name, i32 noundef %len, ptr nocapture noundef writeonly %valp) local_unnamed_addr #6 {
+define dso_local range(i32 -9, 1) i32 @fdt_property_placeholder(ptr noundef %fdt, ptr noundef %name, i32 noundef %len, ptr nocapture noundef writeonly %valp) local_unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %fdt, align 1
   %conv.i.i.i = zext i8 %0 to i32
@@ -1200,7 +1200,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_property(ptr noundef %fdt, ptr noundef %name, ptr nocapture noundef readonly %val, i32 noundef %len) local_unnamed_addr #6 {
+define dso_local range(i32 -9, 1) i32 @fdt_property(ptr noundef %fdt, ptr noundef %name, ptr nocapture noundef readonly %val, i32 noundef %len) local_unnamed_addr #6 {
 entry:
   %ptr = alloca ptr, align 8
   %call = call i32 @fdt_property_placeholder(ptr noundef %fdt, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %ptr)

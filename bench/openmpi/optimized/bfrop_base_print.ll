@@ -1618,7 +1618,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_pinfo(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_bfrops_base_print_darray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 zeroext %3) local_unnamed_addr #0 {
+define range(i32 -47, 1) i32 @pmix_bfrops_base_print_darray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2881,7 +2881,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_locality(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_bfrops_base_print_geometry(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 zeroext %3) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @pmix_bfrops_base_print_geometry(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8

@@ -44,13 +44,13 @@ define internal noundef zeroext i8 @newInstance(ptr noundef %0, ptr noundef %1) 
   %10 = tail call ptr @inStream_readClassRef(ptr noundef %9, ptr noundef %0) #4
   %11 = tail call zeroext i16 @inStream_error(ptr noundef %0) #4
   %.not = icmp eq i16 %11, 0
-  br i1 %.not, label %12, label %123
+  br i1 %.not, label %12, label %124
 
 12:                                               ; preds = %2
   %13 = tail call i32 @inStream_readInt(ptr noundef %0) #4
   %14 = tail call zeroext i16 @inStream_error(ptr noundef %0) #4
   %.not21 = icmp eq i16 %14, 0
-  br i1 %.not21, label %15, label %123
+  br i1 %.not21, label %15, label %124
 
 15:                                               ; preds = %12
   %16 = call i32 @classSignature(ptr noundef %10, ptr noundef nonnull %8, ptr noundef null) #4
@@ -60,7 +60,7 @@ define internal noundef zeroext i8 @newInstance(ptr noundef %0, ptr noundef %1) 
 17:                                               ; preds = %15
   %18 = call zeroext i16 @map2jdwpError(i32 noundef %16) #4
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %18) #4
-  br label %123
+  br label %124
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %8, align 8
@@ -134,7 +134,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 isReferenceTag.exit:                              ; preds = %switch.lookup, %jdwpTag.exit.thread, %jdwpTag.exit, %jdwpTag.exit.thread44, %33
   %35 = phi i8 [ %23, %jdwpTag.exit.thread ], [ %.pr28, %jdwpTag.exit ], [ %28, %jdwpTag.exit.thread44 ], [ %28, %33 ], [ %switch.load, %switch.lookup ]
-  switch i8 %35, label %120 [
+  switch i8 %35, label %121 [
     i8 91, label %36
     i8 76, label %36
   ]
@@ -162,10 +162,10 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
 
 42:                                               ; preds = %38
   %43 = call zeroext i16 @map2jdwpError(i32 noundef %39) #4
-  br label %69
+  br label %70
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %60
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %60 ], [ 0, %.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %61
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %61 ], [ 0, %.preheader.i.i ]
   store ptr null, ptr %6, align 8
   %44 = load ptr, ptr %4, align 8
   %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv.i.i
@@ -195,169 +195,169 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
   %58 = load ptr, ptr %3, align 8
   %59 = call zeroext i8 @isSameObject(ptr noundef %9, ptr noundef %57, ptr noundef %58) #4
   %.fr.i.i = freeze i8 %59
-  %.not39.i.i = icmp eq i8 %.fr.i.i, 0
-  br i1 %.not39.i.i, label %.thread.i.i, label %60
+  %60 = icmp eq i8 %.fr.i.i, 0
+  br i1 %60, label %.thread.i.i, label %61
 
 .thread.i.i:                                      ; preds = %56, %50
-  br label %60
+  br label %61
 
-60:                                               ; preds = %.thread.i.i, %56
-  %61 = phi ptr [ null, %.thread.i.i ], [ %46, %56 ]
+61:                                               ; preds = %.thread.i.i, %56
+  %62 = phi ptr [ null, %.thread.i.i ], [ %46, %56 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %62 = load i32, ptr %5, align 4
-  %63 = sext i32 %62 to i64
-  %64 = icmp slt i64 %indvars.iv.next.i.i, %63
-  %65 = icmp eq ptr %61, null
-  %66 = and i1 %65, %64
-  br i1 %66, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !6
+  %63 = load i32, ptr %5, align 4
+  %64 = sext i32 %63 to i64
+  %65 = icmp slt i64 %indvars.iv.next.i.i, %64
+  %66 = icmp eq ptr %62, null
+  %67 = and i1 %66, %65
+  br i1 %67, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !6
 
-.loopexit.i.i:                                    ; preds = %60, %48, %.preheader.i.i
-  %.13047.i.i = phi ptr [ null, %48 ], [ null, %.preheader.i.i ], [ %61, %60 ]
-  %67 = phi i1 [ true, %48 ], [ true, %.preheader.i.i ], [ %65, %60 ]
-  %.1.i.i = phi i16 [ %49, %48 ], [ 0, %.preheader.i.i ], [ 0, %60 ]
-  %68 = load ptr, ptr %4, align 8
-  call void @jvmtiDeallocate(ptr noundef %68) #4
-  br label %69
+.loopexit.i.i:                                    ; preds = %61, %48, %.preheader.i.i
+  %.13046.i.i = phi ptr [ null, %48 ], [ null, %.preheader.i.i ], [ %62, %61 ]
+  %68 = phi i1 [ true, %48 ], [ true, %.preheader.i.i ], [ %66, %61 ]
+  %.1.i.i = phi i16 [ %49, %48 ], [ 0, %.preheader.i.i ], [ 0, %61 ]
+  %69 = load ptr, ptr %4, align 8
+  call void @jvmtiDeallocate(ptr noundef %69) #4
+  br label %70
 
-69:                                               ; preds = %.loopexit.i.i, %42
-  %.028.i = phi ptr [ %.13047.i.i, %.loopexit.i.i ], [ null, %42 ]
-  %.029.i.i = phi i1 [ %67, %.loopexit.i.i ], [ true, %42 ]
+70:                                               ; preds = %.loopexit.i.i, %42
+  %.028.i = phi ptr [ %.13046.i.i, %.loopexit.i.i ], [ null, %42 ]
+  %.029.i.i = phi i1 [ %68, %.loopexit.i.i ], [ true, %42 ]
   %.028.i.i = phi i16 [ %.1.i.i, %.loopexit.i.i ], [ %43, %42 ]
-  %70 = icmp eq i16 %.028.i.i, 0
-  %or.cond.i.i = and i1 %.029.i.i, %70
+  %71 = icmp eq i16 %.028.i.i, 0
+  %or.cond.i.i = and i1 %.029.i.i, %71
   br i1 %or.cond.i.i, label %getComponentClass.exit.thread.i, label %getComponentClass.exit.i
 
-getComponentClass.exit.thread.i:                  ; preds = %69
+getComponentClass.exit.thread.i:                  ; preds = %70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %72
+  br label %73
 
 getComponentClass.exit.sink.split.i:              ; preds = %54, %36
   %.sink.i = phi i32 [ %37, %36 ], [ %55, %54 ]
-  %71 = call zeroext i16 @map2jdwpError(i32 noundef %.sink.i) #4
+  %72 = call zeroext i16 @map2jdwpError(i32 noundef %.sink.i) #4
   br label %getComponentClass.exit.i
 
-getComponentClass.exit.i:                         ; preds = %getComponentClass.exit.sink.split.i, %69
-  %.1.i = phi ptr [ %.028.i, %69 ], [ null, %getComponentClass.exit.sink.split.i ]
-  %.026.i.i = phi i16 [ %.028.i.i, %69 ], [ %71, %getComponentClass.exit.sink.split.i ]
+getComponentClass.exit.i:                         ; preds = %getComponentClass.exit.sink.split.i, %70
+  %.1.i = phi ptr [ %.028.i, %70 ], [ null, %getComponentClass.exit.sink.split.i ]
+  %.026.i.i = phi i16 [ %.028.i.i, %70 ], [ %72, %getComponentClass.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not.i25 = icmp eq i16 %.026.i.i, 0
-  br i1 %.not.i25, label %73, label %72
+  br i1 %.not.i25, label %74, label %73
 
-72:                                               ; preds = %getComponentClass.exit.i, %getComponentClass.exit.thread.i
+73:                                               ; preds = %getComponentClass.exit.i, %getComponentClass.exit.thread.i
   %.026.i32.i = phi i16 [ 41, %getComponentClass.exit.thread.i ], [ %.026.i.i, %getComponentClass.exit.i ]
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %.026.i32.i) #4
-  br label %110
+  br label %111
 
-73:                                               ; preds = %getComponentClass.exit.i
-  %74 = load ptr, ptr @gdata, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 528
-  %76 = load i32, ptr %75, align 8
-  %77 = and i32 %76, 2
-  %.not23.i = icmp eq i32 %77, 0
-  br i1 %.not23.i, label %79, label %78
+74:                                               ; preds = %getComponentClass.exit.i
+  %75 = load ptr, ptr @gdata, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 528
+  %77 = load i32, ptr %76, align 8
+  %78 = and i32 %77, 2
+  %.not23.i = icmp eq i32 %78, 0
+  br i1 %.not23.i, label %80, label %79
 
-78:                                               ; preds = %73
+79:                                               ; preds = %74
   call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 126) #4
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #4
-  br label %79
+  br label %80
 
-79:                                               ; preds = %78, %73
-  %80 = load ptr, ptr %9, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 1376
-  %82 = load ptr, ptr %81, align 8
-  %83 = call ptr %82(ptr noundef nonnull %9, i32 noundef %13, ptr noundef %.1.i, ptr noundef null) #4
-  %84 = load ptr, ptr @gdata, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 528
-  %86 = load i32, ptr %85, align 8
-  %87 = and i32 %86, 2
-  %.not24.i = icmp eq i32 %87, 0
-  br i1 %.not24.i, label %89, label %88
+80:                                               ; preds = %79, %74
+  %81 = load ptr, ptr %9, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 1376
+  %83 = load ptr, ptr %82, align 8
+  %84 = call ptr %83(ptr noundef nonnull %9, i32 noundef %13, ptr noundef %.1.i, ptr noundef null) #4
+  %85 = load ptr, ptr @gdata, align 8
+  %86 = getelementptr inbounds i8, ptr %85, i64 528
+  %87 = load i32, ptr %86, align 8
+  %88 = and i32 %87, 2
+  %.not24.i = icmp eq i32 %88, 0
+  br i1 %.not24.i, label %90, label %89
 
-88:                                               ; preds = %79
+89:                                               ; preds = %80
   call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 127) #4
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8) #4
-  br label %89
+  br label %90
 
-89:                                               ; preds = %88, %79
-  %90 = load ptr, ptr %9, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 120
-  %92 = load ptr, ptr %91, align 8
-  %93 = call ptr %92(ptr noundef nonnull %9) #4
-  %.not25.i = icmp eq ptr %93, null
-  br i1 %.not25.i, label %103, label %94
+90:                                               ; preds = %89, %80
+  %91 = load ptr, ptr %9, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 120
+  %93 = load ptr, ptr %92, align 8
+  %94 = call ptr %93(ptr noundef nonnull %9) #4
+  %.not25.i = icmp eq ptr %94, null
+  br i1 %.not25.i, label %104, label %95
 
-94:                                               ; preds = %89
-  %95 = load ptr, ptr @gdata, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 528
-  %97 = load i32, ptr %96, align 8
-  %98 = and i32 %97, 2
-  %.not26.i = icmp eq i32 %98, 0
-  br i1 %.not26.i, label %.thread.i, label %99
+95:                                               ; preds = %90
+  %96 = load ptr, ptr @gdata, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 528
+  %98 = load i32, ptr %97, align 8
+  %99 = and i32 %98, 2
+  %.not26.i = icmp eq i32 %99, 0
+  br i1 %.not26.i, label %.thread.i, label %100
 
-99:                                               ; preds = %94
+100:                                              ; preds = %95
   call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 128) #4
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9) #4
   br label %.thread.i
 
-.thread.i:                                        ; preds = %99, %94
-  %100 = load ptr, ptr %9, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 136
-  %102 = load ptr, ptr %101, align 8
-  call void %102(ptr noundef nonnull %9) #4
-  br label %105
+.thread.i:                                        ; preds = %100, %95
+  %101 = load ptr, ptr %9, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 136
+  %103 = load ptr, ptr %102, align 8
+  call void %103(ptr noundef nonnull %9) #4
+  br label %106
 
-103:                                              ; preds = %89
-  %104 = icmp eq ptr %83, null
-  br i1 %104, label %105, label %106
+104:                                              ; preds = %90
+  %105 = icmp eq ptr %84, null
+  br i1 %105, label %106, label %107
 
-105:                                              ; preds = %103, %.thread.i
+106:                                              ; preds = %104, %.thread.i
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext 110) #4
-  br label %110
+  br label %111
 
-106:                                              ; preds = %103
-  %107 = call signext i8 @specificTypeKey(ptr noundef nonnull %9, ptr noundef nonnull %83) #4
-  %108 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %107) #4
-  %109 = call zeroext i16 @outStream_writeObjectRef(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull %83) #4
-  br label %110
+107:                                              ; preds = %104
+  %108 = call signext i8 @specificTypeKey(ptr noundef nonnull %9, ptr noundef nonnull %84) #4
+  %109 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %108) #4
+  %110 = call zeroext i16 @outStream_writeObjectRef(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull %84) #4
+  br label %111
 
-110:                                              ; preds = %106, %105, %72
-  %111 = load ptr, ptr @gdata, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 528
-  %113 = load i32, ptr %112, align 8
-  %114 = and i32 %113, 2
-  %.not27.i = icmp eq i32 %114, 0
-  br i1 %.not27.i, label %writeNewObjectArray.exit, label %115
+111:                                              ; preds = %107, %106, %73
+  %112 = load ptr, ptr @gdata, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 528
+  %114 = load i32, ptr %113, align 8
+  %115 = and i32 %114, 2
+  %.not27.i = icmp eq i32 %115, 0
+  br i1 %.not27.i, label %writeNewObjectArray.exit, label %116
 
-115:                                              ; preds = %110
+116:                                              ; preds = %111
   call void @log_message_begin(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 141) #4
   call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10) #4
   br label %writeNewObjectArray.exit
 
-writeNewObjectArray.exit:                         ; preds = %110, %115
-  %116 = load ptr, ptr %9, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 160
-  %118 = load ptr, ptr %117, align 8
-  %119 = call ptr %118(ptr noundef nonnull %9, ptr noundef null) #4
-  br label %121
+writeNewObjectArray.exit:                         ; preds = %111, %116
+  %117 = load ptr, ptr %9, align 8
+  %118 = getelementptr inbounds i8, ptr %117, i64 160
+  %119 = load ptr, ptr %118, align 8
+  %120 = call ptr %119(ptr noundef nonnull %9, ptr noundef null) #4
+  br label %122
 
-120:                                              ; preds = %isReferenceTag.exit
+121:                                              ; preds = %isReferenceTag.exit
   call fastcc void @writeNewPrimitiveArray(ptr noundef %9, ptr noundef %1, i32 noundef %13, ptr noundef nonnull %21)
-  br label %121
+  br label %122
 
-121:                                              ; preds = %120, %writeNewObjectArray.exit
-  %122 = load ptr, ptr %8, align 8
-  call void @jvmtiDeallocate(ptr noundef %122) #4
-  br label %123
+122:                                              ; preds = %121, %writeNewObjectArray.exit
+  %123 = load ptr, ptr %8, align 8
+  call void @jvmtiDeallocate(ptr noundef %123) #4
+  br label %124
 
-123:                                              ; preds = %12, %2, %121, %17
+124:                                              ; preds = %12, %2, %122, %17
   ret i8 1
 }
 

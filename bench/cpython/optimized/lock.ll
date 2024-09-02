@@ -76,7 +76,7 @@ for.cond.outer.split.lr.ph:                       ; preds = %if.end18.thread, %i
   br i1 %tobool75.not, label %for.cond.outer.split.us43, label %for.cond.outer.split
 
 for.cond.outer.split.us43:                        ; preds = %for.cond.outer.split.lr.ph, %if.end97.us
-  %timeout.addr.0.ph42.us = phi i64 [ %timeout.addr.1.us.fr, %if.end97.us ], [ %timeout, %for.cond.outer.split.lr.ph ]
+  %timeout.addr.0.ph42.us = phi i64 [ %timeout.addr.1.us, %if.end97.us ], [ %timeout, %for.cond.outer.split.lr.ph ]
   %v.1.ph41.us = phi i8 [ %9, %if.end97.us ], [ %v.0, %for.cond.outer.split.lr.ph ]
   br label %for.cond.us48
 
@@ -111,14 +111,14 @@ if.end88.us:                                      ; preds = %if.then65.us, %if.e
 
 if.then91.us:                                     ; preds = %if.end88.us
   %call92.us = call i64 @_PyDeadline_Get(i64 noundef %endtime.070) #5
-  %spec.store.select.us = call i64 @llvm.smax.i64(i64 %call92.us, i64 0)
+  %call92.us.fr = freeze i64 %call92.us
+  %spec.store.select.us = call i64 @llvm.smax.i64(i64 %call92.us.fr, i64 0)
   br label %if.end97.us
 
 if.end97.us:                                      ; preds = %if.then91.us, %if.end88.us
   %timeout.addr.1.us = phi i64 [ %spec.store.select.us, %if.then91.us ], [ %timeout.addr.0.ph42.us, %if.end88.us ]
-  %timeout.addr.1.us.fr = freeze i64 %timeout.addr.1.us
   %9 = load atomic i8, ptr %m monotonic, align 1
-  %cmp41.us = icmp eq i64 %timeout.addr.1.us.fr, 0
+  %cmp41.us = icmp eq i64 %timeout.addr.1.us, 0
   br i1 %cmp41.us, label %for.cond.outer.split.us, label %for.cond.outer.split.us43
 
 if.then24.us45:                                   ; preds = %for.cond.us48
@@ -158,7 +158,7 @@ _Py_atomic_compare_exchange_uint8.exit19.us:      ; preds = %if.then24.us
   br i1 %cmp22.us, label %if.then24.us, label %return
 
 for.cond.outer.split:                             ; preds = %for.cond.outer.split.lr.ph, %if.end97
-  %timeout.addr.0.ph42 = phi i64 [ %timeout.addr.1.fr, %if.end97 ], [ %timeout, %for.cond.outer.split.lr.ph ]
+  %timeout.addr.0.ph42 = phi i64 [ %timeout.addr.1, %if.end97 ], [ %timeout, %for.cond.outer.split.lr.ph ]
   %v.1.ph41 = phi i8 [ %25, %if.end97 ], [ %v.0, %for.cond.outer.split.lr.ph ]
   br label %for.cond
 
@@ -216,14 +216,14 @@ if.end88:                                         ; preds = %if.end57, %land.lhs
 
 if.then91:                                        ; preds = %if.end88
   %call92 = call i64 @_PyDeadline_Get(i64 noundef %endtime.070) #5
-  %spec.store.select = call i64 @llvm.smax.i64(i64 %call92, i64 0)
+  %call92.fr = freeze i64 %call92
+  %spec.store.select = call i64 @llvm.smax.i64(i64 %call92.fr, i64 0)
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then91, %if.end88
   %timeout.addr.1 = phi i64 [ %spec.store.select, %if.then91 ], [ %timeout.addr.0.ph42, %if.end88 ]
-  %timeout.addr.1.fr = freeze i64 %timeout.addr.1
   %25 = load atomic i8, ptr %m monotonic, align 1
-  %cmp41 = icmp eq i64 %timeout.addr.1.fr, 0
+  %cmp41 = icmp eq i64 %timeout.addr.1, 0
   br i1 %cmp41, label %for.cond.outer.split.us, label %for.cond.outer.split
 
 return:                                           ; preds = %if.then65, %land.lhs.true73, %if.end57, %if.then24, %if.end57.us, %if.then65.us, %if.then24.us45, %if.then24.us, %_Py_atomic_compare_exchange_uint8.exit19.us, %for.cond.outer.split.us, %if.then, %if.else

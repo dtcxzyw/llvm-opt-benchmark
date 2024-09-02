@@ -2069,7 +2069,7 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly %0, i32 noundef %1, pt
   %36 = load i8, ptr %35, align 1
   %37 = and i8 %36, -8
   %or.cond = icmp eq i8 %37, 48
-  br i1 %or.cond, label %38, label %45
+  br i1 %or.cond, label %38, label %46
 
 38:                                               ; preds = %32
   %narrow = add nsw i8 %36, -48
@@ -2078,22 +2078,22 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly %0, i32 noundef %1, pt
   %41 = load i8, ptr %40, align 1
   %42 = and i8 %41, -8
   %or.cond76 = icmp eq i8 %42, 48
-  br i1 %or.cond76, label %43, label %45
+  br i1 %or.cond76, label %43, label %46
 
 43:                                               ; preds = %38
   %narrow75 = add nsw i8 %41, -48
   %44 = zext nneg i8 %narrow75 to i32
-  br label %45
+  %45 = shl nuw nsw i32 %34, 6
+  br label %46
 
-45:                                               ; preds = %38, %43, %32
+46:                                               ; preds = %38, %43, %32
   %.168 = phi ptr [ %40, %43 ], [ %35, %38 ], [ %14, %32 ]
   %.066 = phi i32 [ %44, %43 ], [ %39, %38 ], [ %34, %32 ]
   %.065 = phi i32 [ %39, %43 ], [ %34, %38 ], [ 0, %32 ]
-  %.064 = phi i32 [ %34, %43 ], [ 0, %38 ], [ 0, %32 ]
-  %46 = shl nuw nsw i32 %.064, 6
+  %.064 = phi i32 [ %45, %43 ], [ 0, %38 ], [ 0, %32 ]
   %47 = shl nuw nsw i32 %.065, 3
   %48 = add nuw nsw i32 %47, %.066
-  %49 = add nuw nsw i32 %48, %46
+  %49 = add nuw nsw i32 %48, %.064
   %50 = tail call i32 @llvm.umin.i32(i32 %49, i32 255)
   %51 = trunc nuw i32 %50 to i8
   store i8 %51, ptr %.079, align 1
@@ -2144,9 +2144,9 @@ define hidden noalias ptr @uat_unesc(ptr noundef readonly %0, i32 noundef %1, pt
   %77 = add i32 %.06278, 1
   br label %78
 
-78:                                               ; preds = %76, %75, %73, %45, %30, %28, %26, %24, %22, %20, %18, %16
-  %.3 = phi ptr [ %14, %75 ], [ %.269, %73 ], [ %.168, %45 ], [ %14, %30 ], [ %14, %28 ], [ %14, %26 ], [ %14, %24 ], [ %14, %22 ], [ %14, %20 ], [ %14, %18 ], [ %14, %16 ], [ %.06777, %76 ]
-  %.163 = phi i32 [ %.06278, %75 ], [ %74, %73 ], [ %52, %45 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %77, %76 ]
+78:                                               ; preds = %76, %75, %73, %46, %30, %28, %26, %24, %22, %20, %18, %16
+  %.3 = phi ptr [ %14, %75 ], [ %.269, %73 ], [ %.168, %46 ], [ %14, %30 ], [ %14, %28 ], [ %14, %26 ], [ %14, %24 ], [ %14, %22 ], [ %14, %20 ], [ %14, %18 ], [ %14, %16 ], [ %.06777, %76 ]
+  %.163 = phi i32 [ %.06278, %75 ], [ %74, %73 ], [ %52, %46 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %77, %76 ]
   %.2 = getelementptr i8, ptr %.079, i64 1
   %79 = getelementptr i8, ptr %.3, i64 1
   %80 = icmp ult ptr %79, %8

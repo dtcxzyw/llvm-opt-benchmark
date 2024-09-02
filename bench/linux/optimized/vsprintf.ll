@@ -6262,14 +6262,14 @@ widen_string.exit11.thread.i:                     ; preds = %2336
   %2410 = and i32 %2409, 2147483647
   br label %2411
 
-2411:                                             ; preds = %2425, %widen_string.exit11.thread.i
-  %2412 = phi ptr [ %8, %widen_string.exit11.thread.i ], [ %2428, %2425 ]
-  %2413 = phi i32 [ 0, %widen_string.exit11.thread.i ], [ %2429, %2425 ]
+2411:                                             ; preds = %2426, %widen_string.exit11.thread.i
+  %2412 = phi ptr [ %8, %widen_string.exit11.thread.i ], [ %2428, %2426 ]
+  %2413 = phi i32 [ 0, %widen_string.exit11.thread.i ], [ %2429, %2426 ]
   %2414 = shl nuw nsw i32 %2413, 3
   %2415 = lshr i32 %2410, %2414
   %2416 = and i32 %2415, 255
   %2417 = icmp ult i32 %2416, 128
-  br i1 %2417, label %2418, label %2425
+  br i1 %2417, label %2418, label %2426
 
 2418:                                             ; preds = %2411
   %2419 = zext nneg i32 %2416 to i64
@@ -6277,19 +6277,19 @@ widen_string.exit11.thread.i:                     ; preds = %2336
   %2421 = load i8, ptr %2420, align 1
   %2422 = and i8 %2421, -105
   %2423 = icmp eq i8 %2422, 0
-  %2424 = select i1 %2423, i32 46, i32 %2416
-  br label %2425
+  %2424 = trunc i32 %2415 to i8
+  %2425 = select i1 %2423, i8 46, i8 %2424
+  br label %2426
 
-2425:                                             ; preds = %2418, %2411
-  %2426 = phi i32 [ 46, %2411 ], [ %2424, %2418 ]
-  %2427 = trunc nuw nsw i32 %2426 to i8
+2426:                                             ; preds = %2418, %2411
+  %2427 = phi i8 [ 46, %2411 ], [ %2425, %2418 ]
   %2428 = getelementptr i8, ptr %2412, i64 1
   store i8 %2427, ptr %2412, align 1
   %2429 = add nuw nsw i32 %2413, 1
   %2430 = icmp eq i32 %2429, 4
   br i1 %2430, label %2431, label %2411, !llvm.loop !48
 
-2431:                                             ; preds = %2425
+2431:                                             ; preds = %2426
   %2432 = zext i32 %2409 to i64
   %2433 = getelementptr i8, ptr %2412, i64 2
   store i8 32, ptr %2428, align 1

@@ -3073,10 +3073,10 @@ if.end.i170:                                      ; preds = %.noexc195, %if.then
   br i1 %tobool.not.i21.i174, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i178, label %if.then.i22.i175
 
 if.then.i22.i175:                                 ; preds = %for.body.i.i184, %if.end.i170
-  %_Count.addr.0.i172226 = phi i32 [ %_Count.addr.0.i172, %if.end.i170 ], [ %cond.i.i67, %for.body.i.i184 ]
-  %retval.0.i25.i171224 = phi ptr [ %retval.0.i25.i171, %if.end.i170 ], [ %call.i.i.i193, %for.body.i.i184 ]
+  %_Count.addr.0.i172225 = phi i32 [ %_Count.addr.0.i172, %if.end.i170 ], [ %cond.i.i67, %for.body.i.i184 ]
+  %retval.0.i25.i171223 = phi ptr [ %retval.0.i25.i171, %if.end.i170 ], [ %call.i.i.i193, %for.body.i.i184 ]
   %26 = phi ptr [ %25, %if.end.i170 ], [ %.pre206, %for.body.i.i184 ]
-  %.pre.i68208222 = phi i32 [ %.pre.i68208, %if.end.i170 ], [ %inc.i47, %for.body.i.i184 ]
+  %.pre.i68208221 = phi i32 [ %.pre.i68208, %if.end.i170 ], [ %inc.i47, %for.body.i.i184 ]
   %27 = load i8, ptr %m_ownsMemory.i.i, align 8
   %tobool2.i.i177 = trunc i8 %27 to i1
   br i1 %tobool2.i.i177, label %if.then3.i.i180, label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i178
@@ -3086,16 +3086,16 @@ if.then3.i.i180:                                  ; preds = %if.then.i22.i175
           to label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i178 unwind label %lpad.loopexit
 
 _ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i178: ; preds = %if.then3.i.i180, %if.then.i22.i175, %if.end.i170
-  %_Count.addr.0.i172227 = phi i32 [ %_Count.addr.0.i172226, %if.then3.i.i180 ], [ %_Count.addr.0.i172226, %if.then.i22.i175 ], [ %_Count.addr.0.i172, %if.end.i170 ]
-  %retval.0.i25.i171225 = phi ptr [ %retval.0.i25.i171224, %if.then3.i.i180 ], [ %retval.0.i25.i171224, %if.then.i22.i175 ], [ %retval.0.i25.i171, %if.end.i170 ]
-  %.pre.i68208223 = phi i32 [ %.pre.i68208222, %if.then3.i.i180 ], [ %.pre.i68208222, %if.then.i22.i175 ], [ %.pre.i68208, %if.end.i170 ]
+  %_Count.addr.0.i172226 = phi i32 [ %_Count.addr.0.i172225, %if.then3.i.i180 ], [ %_Count.addr.0.i172225, %if.then.i22.i175 ], [ %_Count.addr.0.i172, %if.end.i170 ]
+  %retval.0.i25.i171224 = phi ptr [ %retval.0.i25.i171223, %if.then3.i.i180 ], [ %retval.0.i25.i171223, %if.then.i22.i175 ], [ %retval.0.i25.i171, %if.end.i170 ]
+  %.pre.i68208222 = phi i32 [ %.pre.i68208221, %if.then3.i.i180 ], [ %.pre.i68208221, %if.then.i22.i175 ], [ %.pre.i68208, %if.end.i170 ]
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  store ptr %retval.0.i25.i171225, ptr %m_data.i.i, align 8
-  store i32 %_Count.addr.0.i172227, ptr %m_capacity.i.i, align 8
+  store ptr %retval.0.i25.i171224, ptr %m_data.i.i, align 8
+  store i32 %_Count.addr.0.i172226, ptr %m_capacity.i.i, align 8
   br label %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE9push_backERKS1_.exit70
 
 _ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE9push_backERKS1_.exit70: ; preds = %if.then.i64, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i178, %invoke.cont25
-  %28 = phi i32 [ %inc.i47, %invoke.cont25 ], [ %.pre.i68208223, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i178 ], [ %inc.i47, %if.then.i64 ]
+  %28 = phi i32 [ %inc.i47, %invoke.cont25 ], [ %.pre.i68208222, %_ZN20b3AlignedObjectArrayIN12b3DynamicBvh7sStkCLNEE10deallocateEv.exit.i178 ], [ %inc.i47, %if.then.i64 ]
   %29 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i61 = sext i32 %28 to i64
   %arrayidx.i62 = getelementptr inbounds %"struct.b3DynamicBvh::sStkCLN", ptr %29, i64 %idxprom.i61
@@ -3224,7 +3224,7 @@ if.else:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN12b3DynamicBvh11countLeavesEPK10b3DbvtNode(ptr nocapture noundef readonly %node) local_unnamed_addr #9 align 2 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN12b3DynamicBvh11countLeavesEPK10b3DbvtNode(ptr nocapture noundef readonly %node) local_unnamed_addr #9 align 2 {
 entry:
   %arrayidx.i.i3 = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %arrayidx.i.i3, align 8

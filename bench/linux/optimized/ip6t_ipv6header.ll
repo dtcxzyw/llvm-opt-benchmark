@@ -64,84 +64,84 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
   %23 = phi i8 [ %56, %59 ], [ %13, %2 ]
   %24 = phi i32 [ %57, %59 ], [ 40, %2 ]
   switch i8 %23, label %.loopexit [
-    i8 59, label %.thread.us
-    i8 51, label %.thread.us
-    i8 50, label %.thread.us
-    i8 44, label %.thread.us
-    i8 43, label %.thread.us
-    i8 0, label %.thread.us
-    i8 60, label %.thread.us
+    i8 59, label %.critedge.us
+    i8 51, label %.critedge.us
+    i8 50, label %.critedge.us
+    i8 44, label %.critedge.us
+    i8 43, label %.critedge.us
+    i8 0, label %.critedge.us
+    i8 60, label %.critedge.us
   ]
 
-.thread.us:                                       ; preds = %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us
+.critedge.us:                                     ; preds = %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
   %25 = icmp eq i8 %23, 59
-  br i1 %25, label %.split35.us, label %26
+  br i1 %25, label %.split33.us, label %26
 
-26:                                               ; preds = %.thread.us
+26:                                               ; preds = %.critedge.us
   %27 = icmp slt i32 %22, 2
-  br i1 %27, label %.thread12, label %28
+  br i1 %27, label %.thread10, label %28
 
 28:                                               ; preds = %26
   %29 = icmp eq i8 %23, 50
-  br i1 %29, label %.split38.us, label %30
+  br i1 %29, label %.split36.us, label %30
 
 30:                                               ; preds = %28
   %31 = load i32, ptr %17, align 4
   %32 = add i32 %24, %31
   %33 = sub i32 %15, %32
   %34 = icmp sgt i32 %33, 1
-  br i1 %34, label %35, label %.thread6, !prof !5
+  br i1 %34, label %35, label %.thread, !prof !5
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %19, align 8
   %37 = sext i32 %24 to i64
   %38 = getelementptr i8, ptr %36, i64 %37
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread6, label %.thread7.us
+  br i1 %39, label %.thread, label %.thread5.us
 
-.thread7.us:                                      ; preds = %35
+.thread5.us:                                      ; preds = %35
   switch i8 %23, label %45 [
-    i8 44, label %.thread8.us
-    i8 51, label %.thread9.us
+    i8 44, label %.thread6.us
+    i8 51, label %.thread7.us
   ]
 
-.thread9.us:                                      ; preds = %.thread7.us
+.thread7.us:                                      ; preds = %.thread5.us
   %40 = getelementptr inbounds i8, ptr %38, i64 1
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %42, 2
   %44 = add nuw nsw i32 %43, 8
-  br label %.thread8.us
+  br label %.thread6.us
 
-45:                                               ; preds = %.thread7.us
+45:                                               ; preds = %.thread5.us
   %46 = getelementptr inbounds i8, ptr %38, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = shl nuw nsw i32 %48, 3
   %50 = add nuw nsw i32 %49, 8
-  switch i8 %23, label %.thread12 [
-    i8 0, label %.thread8.us
+  switch i8 %23, label %.thread10 [
+    i8 0, label %.thread6.us
     i8 43, label %52
     i8 60, label %51
   ]
 
 51:                                               ; preds = %45
-  br label %.thread8.us
+  br label %.thread6.us
 
 52:                                               ; preds = %45
-  br label %.thread8.us
+  br label %.thread6.us
 
-.thread8.us:                                      ; preds = %52, %51, %45, %.thread9.us, %.thread7.us
-  %53 = phi i32 [ %50, %51 ], [ %50, %52 ], [ %50, %45 ], [ %44, %.thread9.us ], [ 8, %.thread7.us ]
-  %54 = phi i32 [ 64, %51 ], [ 32, %52 ], [ 128, %45 ], [ 8, %.thread9.us ], [ 16, %.thread7.us ]
+.thread6.us:                                      ; preds = %52, %51, %45, %.thread7.us, %.thread5.us
+  %53 = phi i32 [ %50, %51 ], [ %50, %52 ], [ %50, %45 ], [ %44, %.thread7.us ], [ 8, %.thread5.us ]
+  %54 = phi i32 [ 64, %51 ], [ 32, %52 ], [ 128, %45 ], [ 8, %.thread7.us ], [ 16, %.thread5.us ]
   %55 = or i32 %54, %21
   %56 = load i8, ptr %38, align 1
   %57 = add i32 %53, %24
   %58 = icmp ugt i32 %57, %15
-  br i1 %58, label %.thread17, label %59
+  br i1 %58, label %.thread15, label %59
 
-59:                                               ; preds = %.thread8.us
+59:                                               ; preds = %.thread6.us
   %60 = sub nsw i32 %22, %53
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
   br label %.split.us
@@ -153,38 +153,38 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
   %64 = phi i8 [ %103, %107 ], [ %13, %2 ]
   %65 = phi i32 [ %104, %107 ], [ 40, %2 ]
   switch i8 %64, label %.loopexit [
-    i8 59, label %.thread
-    i8 51, label %.thread
-    i8 50, label %.thread
-    i8 44, label %.thread
-    i8 43, label %.thread
-    i8 0, label %.thread
-    i8 60, label %.thread
+    i8 59, label %.critedge
+    i8 51, label %.critedge
+    i8 50, label %.critedge
+    i8 44, label %.critedge
+    i8 43, label %.critedge
+    i8 0, label %.critedge
+    i8 60, label %.critedge
   ]
 
-.thread:                                          ; preds = %.split, %.split, %.split, %.split, %.split, %.split, %.split
+.critedge:                                        ; preds = %.split, %.split, %.split, %.split, %.split, %.split, %.split
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
   store i16 0, ptr %3, align 2, !annotation !6
   %66 = icmp eq i8 %64, 59
-  br i1 %66, label %.split35.us, label %68
+  br i1 %66, label %.split33.us, label %68
 
-.split35.us:                                      ; preds = %.thread, %.thread.us
-  %.us-phi36 = phi i32 [ %21, %.thread.us ], [ %62, %.thread ]
-  %67 = or disjoint i32 %.us-phi36, 2
-  br label %.thread17
+.split33.us:                                      ; preds = %.critedge, %.critedge.us
+  %.us-phi34 = phi i32 [ %21, %.critedge.us ], [ %62, %.critedge ]
+  %67 = or disjoint i32 %.us-phi34, 2
+  br label %.thread15
 
-68:                                               ; preds = %.thread
+68:                                               ; preds = %.critedge
   %69 = icmp slt i32 %63, 2
-  br i1 %69, label %.thread12, label %70
+  br i1 %69, label %.thread10, label %70
 
 70:                                               ; preds = %68
   %71 = icmp eq i8 %64, 50
-  br i1 %71, label %.split38.us, label %73
+  br i1 %71, label %.split36.us, label %73
 
-.split38.us:                                      ; preds = %70, %28
-  %.us-phi39 = phi i32 [ %21, %28 ], [ %62, %70 ]
-  %72 = or disjoint i32 %.us-phi39, 4
-  br label %.thread17
+.split36.us:                                      ; preds = %70, %28
+  %.us-phi37 = phi i32 [ %21, %28 ], [ %62, %70 ]
+  %72 = or disjoint i32 %.us-phi37, 4
+  br label %.thread15
 
 73:                                               ; preds = %70
   %74 = load i32, ptr %17, align 4
@@ -196,80 +196,80 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
 78:                                               ; preds = %73
   %79 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %65, ptr noundef nonnull %3, i32 noundef 2) #5
   %80 = icmp slt i32 %79, 0
-  br i1 %80, label %.thread6, label %.thread7, !prof !7
+  br i1 %80, label %.thread, label %.thread5, !prof !7
 
 81:                                               ; preds = %73
   %82 = load ptr, ptr %19, align 8
   %83 = sext i32 %65 to i64
   %84 = getelementptr i8, ptr %82, i64 %83
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.thread6, label %.thread7
+  br i1 %85, label %.thread, label %.thread5
 
-.thread6:                                         ; preds = %81, %78, %30, %35
+.thread:                                          ; preds = %81, %78, %30, %35
   store i8 1, ptr %20, align 2
-  br label %.thread12
+  br label %.thread10
 
-.thread7:                                         ; preds = %78, %81
+.thread5:                                         ; preds = %78, %81
   %86 = phi ptr [ %84, %81 ], [ %3, %78 ]
   switch i8 %64, label %92 [
-    i8 44, label %.thread8
-    i8 51, label %.thread9
+    i8 44, label %.thread6
+    i8 51, label %.thread7
   ]
 
-.thread9:                                         ; preds = %.thread7
+.thread7:                                         ; preds = %.thread5
   %87 = getelementptr inbounds i8, ptr %86, i64 1
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 2
   %91 = add nuw nsw i32 %90, 8
-  br label %.thread8
+  br label %.thread6
 
-92:                                               ; preds = %.thread7
+92:                                               ; preds = %.thread5
   %93 = getelementptr inbounds i8, ptr %86, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = shl nuw nsw i32 %95, 3
   %97 = add nuw nsw i32 %96, 8
-  switch i8 %64, label %.thread12 [
-    i8 0, label %.thread8
+  switch i8 %64, label %.thread10 [
+    i8 0, label %.thread6
     i8 43, label %98
     i8 60, label %99
   ]
 
 98:                                               ; preds = %92
-  br label %.thread8
+  br label %.thread6
 
 99:                                               ; preds = %92
-  br label %.thread8
+  br label %.thread6
 
-.thread8:                                         ; preds = %.thread7, %.thread9, %99, %98, %92
-  %100 = phi i32 [ %97, %99 ], [ %97, %98 ], [ %97, %92 ], [ %91, %.thread9 ], [ 8, %.thread7 ]
-  %101 = phi i32 [ 64, %99 ], [ 32, %98 ], [ 128, %92 ], [ 8, %.thread9 ], [ 16, %.thread7 ]
+.thread6:                                         ; preds = %.thread5, %.thread7, %99, %98, %92
+  %100 = phi i32 [ %97, %99 ], [ %97, %98 ], [ %97, %92 ], [ %91, %.thread7 ], [ 8, %.thread5 ]
+  %101 = phi i32 [ 64, %99 ], [ 32, %98 ], [ 128, %92 ], [ 8, %.thread7 ], [ 16, %.thread5 ]
   %102 = or i32 %101, %62
   %103 = load i8, ptr %86, align 1
   %104 = add i32 %100, %65
   %105 = load i32, ptr %14, align 8
   %106 = icmp ugt i32 %104, %105
-  br i1 %106, label %.thread17, label %107
+  br i1 %106, label %.thread15, label %107
 
-.thread12:                                        ; preds = %92, %68, %45, %26, %.thread6
+.thread10:                                        ; preds = %92, %68, %45, %26, %.thread
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
   br label %138
 
-.thread17:                                        ; preds = %.thread8, %.thread8.us, %.split35.us, %.split38.us
-  %.ph = phi i32 [ %72, %.split38.us ], [ %67, %.split35.us ], [ %55, %.thread8.us ], [ %102, %.thread8 ]
-  %.ph15 = phi i8 [ 50, %.split38.us ], [ 59, %.split35.us ], [ %56, %.thread8.us ], [ %103, %.thread8 ]
+.thread15:                                        ; preds = %.thread6, %.thread6.us, %.split33.us, %.split36.us
+  %.ph = phi i32 [ %72, %.split36.us ], [ %67, %.split33.us ], [ %55, %.thread6.us ], [ %102, %.thread6 ]
+  %.ph13 = phi i8 [ 50, %.split36.us ], [ 59, %.split33.us ], [ %56, %.thread6.us ], [ %103, %.thread6 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
   br label %.loopexit
 
-107:                                              ; preds = %.thread8
+107:                                              ; preds = %.thread6
   %108 = sub nsw i32 %63, %100
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
   br label %.split
 
-.loopexit:                                        ; preds = %.split, %.split.us, %.thread17
-  %109 = phi i32 [ %.ph, %.thread17 ], [ %21, %.split.us ], [ %62, %.split ]
-  %110 = phi i8 [ %.ph15, %.thread17 ], [ %23, %.split.us ], [ %64, %.split ]
+.loopexit:                                        ; preds = %.split, %.split.us, %.thread15
+  %109 = phi i32 [ %.ph, %.thread15 ], [ %21, %.split.us ], [ %62, %.split ]
+  %110 = phi i8 [ %.ph13, %.thread15 ], [ %23, %.split.us ], [ %64, %.split ]
   switch i8 %110, label %111 [
     i8 59, label %113
     i8 50, label %113
@@ -314,8 +314,8 @@ define internal zeroext i1 @ipv6header_mt6(ptr noundef %0, ptr nocapture noundef
   %137 = icmp eq i32 %114, %133
   br label %138
 
-138:                                              ; preds = %.thread12, %136, %134, %118
-  %139 = phi i1 [ %127, %118 ], [ %135, %134 ], [ %137, %136 ], [ false, %.thread12 ]
+138:                                              ; preds = %.thread10, %136, %134, %118
+  %139 = phi i1 [ %127, %118 ], [ %135, %134 ], [ %137, %136 ], [ false, %.thread10 ]
   ret i1 %139
 }
 

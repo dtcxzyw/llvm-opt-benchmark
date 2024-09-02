@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_compare_proc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @ompi_group_calc_plist(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef range(i32 0, -7) i32 @ompi_group_calc_plist(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = shl i32 %0, 3
   ret i32 %3
 }

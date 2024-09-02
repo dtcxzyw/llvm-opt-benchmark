@@ -119,11 +119,11 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr nocapture noundef %0, ptr nou
 
 20:                                               ; preds = %.lr.ph
   call void @g_free(ptr noundef %5) #10
-  br label %101
+  br label %94
 
 21:                                               ; preds = %.lr.ph
   call void @g_free(ptr noundef %5) #10
-  br label %101
+  br label %94
 
 22:                                               ; preds = %.lr.ph
   %23 = load i8, ptr %4, align 16
@@ -183,7 +183,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr nocapture noundef %0, ptr nou
 
 41:                                               ; preds = %37
   call void @g_free(ptr noundef %5) #10
-  br label %101
+  br label %94
 
 42:                                               ; preds = %.preheader, %30, %37
   %.2 = phi ptr [ %34, %37 ], [ %.183, %30 ], [ %.183, %.preheader ]
@@ -242,97 +242,88 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr nocapture noundef %0, ptr nou
 sub_0.i:                                          ; preds = %62, %59
   %.3.i = phi i1 [ true, %62 ], [ %.2.i, %59 ]
   %64 = load i8, ptr %.03035.i, align 1
-  %65 = zext i8 %64 to i32
-  %66 = add nsw i32 %65, -73
-  %.not.i = icmp eq i32 %66, 0
-  br i1 %.not.i, label %sub_1.i, label %.tail.i
+  %.not.i = icmp eq i8 %64, 73
+  br i1 %.not.i, label %sub_1.i, label %.tail.thread.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %67 = getelementptr inbounds i8, ptr %.03035.i, i64 1
+  %65 = getelementptr inbounds i8, ptr %.03035.i, i64 1
+  %66 = load i8, ptr %65, align 1
+  %.not37.i = icmp eq i8 %66, 68
+  br i1 %.not37.i, label %.tail.i, label %.tail.thread.i
+
+.tail.i:                                          ; preds = %sub_1.i
+  %67 = getelementptr inbounds i8, ptr %.03035.i, i64 2
   %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = add nsw i32 %69, -68
-  %.not37.i = icmp eq i32 %70, 0
-  br i1 %.not37.i, label %sub_2.i, label %.tail.i
+  %69 = icmp eq i8 %68, 0
+  br i1 %69, label %70, label %.tail.thread.i
 
-sub_2.i:                                          ; preds = %sub_1.i
-  %71 = getelementptr inbounds i8, ptr %.03035.i, i64 2
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  br label %.tail.i
+70:                                               ; preds = %.tail.i
+  %71 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  store ptr @parseFieldID, ptr %71, align 8
+  br label %.tail.thread.i
 
-.tail.i:                                          ; preds = %sub_2.i, %sub_1.i, %sub_0.i
-  %74 = phi i32 [ %66, %sub_0.i ], [ %70, %sub_1.i ], [ %73, %sub_2.i ]
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %78
+.tail.thread.i:                                   ; preds = %70, %.tail.i, %sub_1.i, %sub_0.i
+  %.4.i = phi i1 [ true, %70 ], [ %.3.i, %.tail.i ], [ %.3.i, %sub_0.i ], [ %.3.i, %sub_1.i ]
+  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(7) @.str.43) #11
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %76
 
-76:                                               ; preds = %.tail.i
-  %77 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
-  store ptr @parseFieldID, ptr %77, align 8
-  br label %78
+74:                                               ; preds = %.tail.thread.i
+  %75 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  store ptr @parseFieldLength, ptr %75, align 8
+  br label %76
 
-78:                                               ; preds = %76, %.tail.i
-  %.4.i = phi i1 [ true, %76 ], [ %.3.i, %.tail.i ]
-  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(7) @.str.43) #11
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %81, label %83
+76:                                               ; preds = %74, %.tail.thread.i
+  %.5.i = phi i1 [ true, %74 ], [ %.4.i, %.tail.thread.i ]
+  %77 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(5) @.str.44) #11
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %.thread, label %79
 
-81:                                               ; preds = %78
-  %82 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
-  store ptr @parseFieldLength, ptr %82, align 8
-  br label %83
+79:                                               ; preds = %76
+  %80 = icmp ult i64 %indvars.iv.i, 6
+  %81 = and i1 %80, %46
+  br i1 %81, label %.backedge, label %parseColumnHeaderFields.exit
 
-83:                                               ; preds = %81, %78
-  %.5.i = phi i1 [ true, %81 ], [ %.4.i, %78 ]
-  %84 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.03035.i, ptr noundef nonnull dereferenceable(5) @.str.44) #11
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %.thread, label %86
-
-86:                                               ; preds = %83
-  %87 = icmp ult i64 %indvars.iv.i, 6
-  %88 = and i1 %87, %46
-  br i1 %88, label %.backedge, label %parseColumnHeaderFields.exit
-
-.backedge:                                        ; preds = %86, %.thread
-  %.03134.i.be = phi i1 [ %.5.i, %86 ], [ true, %.thread ]
+.backedge:                                        ; preds = %79, %.thread
+  %.03134.i.be = phi i1 [ %.5.i, %79 ], [ true, %.thread ]
   %.03035.i.be = getelementptr i8, ptr %.0.i, i64 1
   %indvars.iv.i.be = add nuw nsw i64 %indvars.iv.i, 1
   br label %._crit_edge, !llvm.loop !7
 
-.thread:                                          ; preds = %83
-  %89 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
-  store ptr @parseFieldData, ptr %89, align 8
-  %90 = icmp ult i64 %indvars.iv.i, 6
-  %91 = and i1 %90, %46
-  br i1 %91, label %.backedge, label %parseColumnHeaderFields.exit.thread
+.thread:                                          ; preds = %76
+  %82 = getelementptr [7 x ptr], ptr %14, i64 0, i64 %indvars.iv.i
+  store ptr @parseFieldData, ptr %82, align 8
+  %83 = icmp ult i64 %indvars.iv.i, 6
+  %84 = and i1 %83, %46
+  br i1 %84, label %.backedge, label %parseColumnHeaderFields.exit.thread
 
-parseColumnHeaderFields.exit:                     ; preds = %86
-  br i1 %.5.i, label %parseColumnHeaderFields.exit.thread, label %92
+parseColumnHeaderFields.exit:                     ; preds = %79
+  br i1 %.5.i, label %parseColumnHeaderFields.exit.thread, label %85
 
-92:                                               ; preds = %parseColumnHeaderFields.exit
+85:                                               ; preds = %parseColumnHeaderFields.exit
   call void @g_free(ptr noundef nonnull %5) #10
-  br label %101
+  br label %94
 
 parseColumnHeaderFields.exit.thread:              ; preds = %.thread, %parseColumnHeaderFields.exit
-  %93 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %5, ptr %93, align 8
-  %94 = load i32, ptr @cllog_file_type_subtype, align 4
-  %95 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %94, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 125, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr @cllog_read, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr @cllog_seek_read, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 148
-  store i32 3, ptr %100, align 4
-  br label %101
+  %86 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr %5, ptr %86, align 8
+  %87 = load i32, ptr @cllog_file_type_subtype, align 4
+  %88 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 %87, ptr %88, align 4
+  %89 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 125, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %90, align 8
+  %91 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @cllog_read, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @cllog_seek_read, ptr %92, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 148
+  store i32 3, ptr %93, align 4
+  br label %94
 
-101:                                              ; preds = %parseColumnHeaderFields.exit.thread, %92, %41, %21, %20
-  %.062 = phi i32 [ 0, %20 ], [ -1, %21 ], [ 1, %parseColumnHeaderFields.exit.thread ], [ 0, %92 ], [ -1, %41 ]
+94:                                               ; preds = %parseColumnHeaderFields.exit.thread, %85, %41, %21, %20
+  %.062 = phi i32 [ 0, %20 ], [ -1, %21 ], [ 1, %parseColumnHeaderFields.exit.thread ], [ 0, %85 ], [ -1, %41 ]
   ret i32 %.062
 }
 

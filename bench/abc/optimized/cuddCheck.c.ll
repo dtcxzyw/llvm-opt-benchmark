@@ -183,44 +183,44 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.3152 = phi i32 [ 1, %52 ], [ %.2151257, %50 ]
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 2147483647
-  br i1 %72, label %78, label %73
+  br i1 %72, label %79, label %73
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %9, align 8
   %75 = zext i32 %71 to i64
   %76 = getelementptr inbounds i32, ptr %74, i64 %75
   %77 = load i32, ptr %76, align 4
-  br label %78
+  %78 = zext i32 %77 to i64
+  br label %79
 
-78:                                               ; preds = %69, %73
-  %79 = phi i32 [ %77, %73 ], [ 2147483647, %69 ]
-  %80 = zext i32 %79 to i64
-  %.not217 = icmp ult i64 %indvars.iv341, %80
+79:                                               ; preds = %69, %73
+  %80 = phi i64 [ %78, %73 ], [ 2147483647, %69 ]
+  %.not217 = icmp ugt i64 %80, %indvars.iv341
   br i1 %.not217, label %81, label %96
 
-81:                                               ; preds = %78
+81:                                               ; preds = %79
   %82 = load ptr, ptr %45, align 8
   %83 = ptrtoint ptr %82 to i64
   %84 = and i64 %83, -2
   %85 = inttoptr i64 %84 to ptr
   %86 = load i32, ptr %85, align 8
   %87 = icmp eq i32 %86, 2147483647
-  br i1 %87, label %93, label %88
+  br i1 %87, label %94, label %88
 
 88:                                               ; preds = %81
   %89 = load ptr, ptr %9, align 8
   %90 = zext i32 %86 to i64
   %91 = getelementptr inbounds i32, ptr %89, i64 %90
   %92 = load i32, ptr %91, align 4
-  br label %93
+  %93 = zext i32 %92 to i64
+  br label %94
 
-93:                                               ; preds = %81, %88
-  %94 = phi i32 [ %92, %88 ], [ 2147483647, %81 ]
-  %95 = zext i32 %94 to i64
-  %.not218 = icmp ult i64 %indvars.iv341, %95
+94:                                               ; preds = %81, %88
+  %95 = phi i64 [ %93, %88 ], [ 2147483647, %81 ]
+  %.not218 = icmp ugt i64 %95, %indvars.iv341
   br i1 %.not218, label %113, label %96
 
-96:                                               ; preds = %93, %78
+96:                                               ; preds = %94, %79
   %97 = load ptr, ptr %10, align 8
   %98 = call i64 @fwrite(ptr nonnull @.str.2, i64 33, i64 1, ptr %97)
   %99 = load ptr, ptr %10, align 8
@@ -240,9 +240,9 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.pre357 = load ptr, ptr %42, align 8
   br label %113
 
-113:                                              ; preds = %96, %93
-  %114 = phi ptr [ %.pre357, %96 ], [ %70, %93 ]
-  %.4153 = phi i32 [ 1, %96 ], [ %.3152, %93 ]
+113:                                              ; preds = %96, %94
+  %114 = phi ptr [ %.pre357, %96 ], [ %70, %94 ]
+  %.4153 = phi i32 [ 1, %96 ], [ %.3152, %94 ]
   %115 = ptrtoint ptr %114 to i64
   %116 = and i64 %115, -2
   %117 = inttoptr i64 %116 to ptr
@@ -602,41 +602,41 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.15 = phi i32 [ 1, %317 ], [ %.14, %313 ]
   %336 = load i32, ptr %335, align 8
   %337 = icmp eq i32 %336, 2147483647
-  br i1 %337, label %343, label %338
+  br i1 %337, label %344, label %338
 
 338:                                              ; preds = %334
   %339 = load ptr, ptr %15, align 8
   %340 = zext i32 %336 to i64
   %341 = getelementptr inbounds i32, ptr %339, i64 %340
   %342 = load i32, ptr %341, align 4
-  br label %343
+  %343 = zext i32 %342 to i64
+  br label %344
 
-343:                                              ; preds = %334, %338
-  %344 = phi i32 [ %342, %338 ], [ 2147483647, %334 ]
-  %345 = zext i32 %344 to i64
-  %.not200 = icmp ult i64 %indvars.iv349, %345
+344:                                              ; preds = %334, %338
+  %345 = phi i64 [ %343, %338 ], [ 2147483647, %334 ]
+  %.not200 = icmp ugt i64 %345, %indvars.iv349
   br i1 %.not200, label %346, label %358
 
-346:                                              ; preds = %343
+346:                                              ; preds = %344
   %347 = load ptr, ptr %285, align 8
   %348 = load i32, ptr %347, align 8
   %349 = icmp eq i32 %348, 2147483647
-  br i1 %349, label %355, label %350
+  br i1 %349, label %356, label %350
 
 350:                                              ; preds = %346
   %351 = load ptr, ptr %15, align 8
   %352 = zext i32 %348 to i64
   %353 = getelementptr inbounds i32, ptr %351, i64 %352
   %354 = load i32, ptr %353, align 4
-  br label %355
+  %355 = zext i32 %354 to i64
+  br label %356
 
-355:                                              ; preds = %346, %350
-  %356 = phi i32 [ %354, %350 ], [ 2147483647, %346 ]
-  %357 = zext i32 %356 to i64
-  %.not201 = icmp ult i64 %indvars.iv349, %357
+356:                                              ; preds = %346, %350
+  %357 = phi i64 [ %355, %350 ], [ 2147483647, %346 ]
+  %.not201 = icmp ugt i64 %357, %indvars.iv349
   br i1 %.not201, label %405, label %358
 
-358:                                              ; preds = %355, %343
+358:                                              ; preds = %356, %344
   %359 = load ptr, ptr %16, align 8
   %360 = call i64 @fwrite(ptr nonnull @.str.12, i64 37, i64 1, ptr %359)
   %361 = load ptr, ptr %16, align 8
@@ -686,9 +686,9 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef %0) local_unnamed_addr 
   %.pre365 = load ptr, ptr %282, align 8
   br label %405
 
-405:                                              ; preds = %358, %355
-  %406 = phi ptr [ %.pre365, %358 ], [ %335, %355 ]
-  %.16 = phi i32 [ 1, %358 ], [ %.15, %355 ]
+405:                                              ; preds = %358, %356
+  %406 = phi ptr [ %.pre365, %358 ], [ %335, %356 ]
+  %.16 = phi i32 [ 1, %358 ], [ %.15, %356 ]
   %407 = load ptr, ptr %18, align 8
   %408 = icmp eq ptr %406, %407
   br i1 %408, label %409, label %426
@@ -1084,22 +1084,22 @@ define internal fastcc void @debugFindParent(ptr nocapture noundef readonly %0, 
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %._crit_edge36 ], [ 0, %2 ]
   %7 = load i32, ptr %1, align 8
   %8 = icmp eq i32 %7, 2147483647
-  br i1 %8, label %14, label %9
+  br i1 %8, label %15, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %3, align 8
   %11 = zext i32 %7 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
-  br label %14
+  %14 = sext i32 %13 to i64
+  br label %15
 
-14:                                               ; preds = %6, %9
-  %15 = phi i32 [ %13, %9 ], [ 2147483647, %6 ]
-  %16 = sext i32 %15 to i64
+15:                                               ; preds = %6, %9
+  %16 = phi i64 [ %14, %9 ], [ 2147483647, %6 ]
   %17 = icmp slt i64 %indvars.iv38, %16
   br i1 %17, label %18, label %41
 
-18:                                               ; preds = %14
+18:                                               ; preds = %15
   %19 = load ptr, ptr %4, align 8
   %20 = getelementptr inbounds %struct.DdSubtable, ptr %19, i64 %indvars.iv38
   %21 = load ptr, ptr %20, align 8
@@ -1158,7 +1158,7 @@ define internal fastcc void @debugFindParent(ptr nocapture noundef readonly %0, 
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   br label %6, !llvm.loop !16
 
-41:                                               ; preds = %14
+41:                                               ; preds = %15
   ret void
 }
 

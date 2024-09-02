@@ -5142,12 +5142,12 @@ for.cond18:                                       ; preds = %for.cond18.preheade
 if.end.i.i:                                       ; preds = %for.cond18
   %arrayidx.i.i = getelementptr inbounds i8, ptr %9, i64 -4
   %10 = load i32, ptr %arrayidx.i.i, align 4
+  %11 = zext i32 %10 to i64
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %if.end.i.i, %for.cond18
-  %retval.0.i.i = phi i32 [ %10, %if.end.i.i ], [ 0, %for.cond18 ]
-  %11 = zext i32 %retval.0.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %11
+  %retval.0.i.i = phi i64 [ %11, %if.end.i.i ], [ 0, %for.cond18 ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %invoke.cont23, label %for.cond31.preheader
 
 for.cond31.preheader:                             ; preds = %invoke.cont19
@@ -5244,12 +5244,12 @@ for.cond31:                                       ; preds = %for.cond31.preheade
 if.end.i.i23:                                     ; preds = %for.cond31
   %arrayidx.i.i24 = getelementptr inbounds i8, ptr %22, i64 -4
   %23 = load i32, ptr %arrayidx.i.i24, align 4
+  %24 = zext i32 %23 to i64
   br label %_ZNK10model_core17get_num_functionsEv.exit
 
 _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %for.cond31, %if.end.i.i23
-  %retval.0.i.i25 = phi i32 [ %23, %if.end.i.i23 ], [ 0, %for.cond31 ]
-  %24 = zext i32 %retval.0.i.i25 to i64
-  %cmp34 = icmp ult i64 %indvars.iv90, %24
+  %retval.0.i.i25 = phi i64 [ %24, %if.end.i.i23 ], [ 0, %for.cond31 ]
+  %cmp34 = icmp ult i64 %indvars.iv90, %retval.0.i.i25
   br i1 %cmp34, label %for.body35, label %for.end46
 
 for.body35:                                       ; preds = %_ZNK10model_core17get_num_functionsEv.exit

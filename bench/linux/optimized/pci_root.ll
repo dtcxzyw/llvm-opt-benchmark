@@ -996,14 +996,14 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   store i64 -1, ptr %31, align 8
   %33 = call i32 @acpi_walk_resources(ptr noundef %20, ptr noundef nonnull @.str.22, ptr noundef nonnull @get_root_bridge_busnr_callback, ptr noundef %31) #13
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %.thread
+  br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %30
   %36 = load i64, ptr %31, align 8
   %.not = icmp eq i64 %36, -1
-  br i1 %.not, label %.thread, label %45
+  br i1 %.not, label %.critedge, label %45
 
-.thread:                                          ; preds = %30, %35
+.critedge:                                        ; preds = %30, %35
   %37 = getelementptr inbounds i8, ptr %24, i64 32
   store i64 255, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %0, i64 616
@@ -1014,16 +1014,16 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
     i32 5, label %43
   ]
 
-40:                                               ; preds = %.thread
+40:                                               ; preds = %.critedge
   %41 = load i64, ptr %18, align 8
   br label %43
 
-42:                                               ; preds = %.thread
+42:                                               ; preds = %.critedge
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %38, ptr noundef nonnull @.str.14) #14
   br label %513
 
-43:                                               ; preds = %40, %.thread
-  %44 = phi i64 [ %41, %40 ], [ 0, %.thread ]
+43:                                               ; preds = %40, %.critedge
+  %44 = phi i64 [ %41, %40 ], [ 0, %.critedge ]
   store i64 %44, ptr %31, align 8
   br label %45
 
@@ -1281,18 +1281,18 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %12, i8 0, i64 20, i1 false), !annotation !17
   %208 = call ptr @acpi_fetch_acpi_dev(ptr noundef %75) #13
   %209 = icmp eq ptr %208, null
-  br i1 %209, label %.thread38, label %210
+  br i1 %209, label %.thread37, label %210
 
 210:                                              ; preds = %206
   %211 = call i32 @acpi_match_device_ids(ptr noundef nonnull %208, ptr noundef nonnull @root_device_ids) #13
   %212 = icmp eq i32 %211, 0
-  br i1 %212, label %213, label %.thread38
+  br i1 %212, label %213, label %.thread37
 
 213:                                              ; preds = %210
   %214 = getelementptr inbounds i8, ptr %208, i64 608
   %215 = load ptr, ptr %214, align 8
   %216 = icmp eq ptr %215, null
-  br i1 %216, label %.thread38, label %217
+  br i1 %216, label %.thread37, label %217
 
 217:                                              ; preds = %213
   %218 = getelementptr inbounds i8, ptr %215, i64 92
@@ -1326,9 +1326,9 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 
 241:                                              ; preds = %337, %227
   %242 = phi i32 [ %220, %227 ], [ %272, %337 ]
-  %243 = phi i32 [ %228, %227 ], [ %.ph27, %337 ]
+  %243 = phi i32 [ %228, %227 ], [ %.ph26, %337 ]
   %244 = phi i32 [ %176, %227 ], [ %272, %337 ]
-  %245 = phi i32 [ 0, %227 ], [ %.ph27, %337 ]
+  %245 = phi i32 [ 0, %227 ], [ %.ph26, %337 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %11, i8 0, i64 20, i1 false), !annotation !17
   %246 = load i32, ptr %229, align 8
@@ -1412,7 +1412,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %287 = icmp eq i32 %244, %272
   %288 = icmp eq i32 %245, %279
   %289 = select i1 %287, i1 %288, i1 false
-  br i1 %289, label %.thread33, label %290
+  br i1 %289, label %.thread32, label %290
 
 290:                                              ; preds = %286
   %291 = xor i32 %279, -1
@@ -1422,10 +1422,10 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 293:                                              ; preds = %278
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #13
   %294 = icmp eq i32 %244, %272
-  br i1 %294, label %.thread33, label %295
+  br i1 %294, label %.thread32, label %295
 
 295:                                              ; preds = %293, %290
-  %.ph27 = phi i32 [ %279, %290 ], [ %243, %293 ]
+  %.ph26 = phi i32 [ %279, %290 ], [ %243, %293 ]
   %296 = phi i32 [ %292, %290 ], [ 0, %293 ]
   %297 = xor i32 %272, -1
   %298 = and i32 %244, %297
@@ -1500,27 +1500,27 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 
 337:                                              ; preds = %333, %326
   %338 = icmp eq i32 %272, 0
-  %339 = icmp eq i32 %.ph27, 0
+  %339 = icmp eq i32 %.ph26, 0
   %340 = select i1 %338, i1 %339, i1 false
-  br i1 %340, label %.thread33, label %241, !llvm.loop !21
+  br i1 %340, label %.thread32, label %241, !llvm.loop !21
 
-.thread33:                                        ; preds = %286, %293, %337
-  %.lcssa52 = phi i32 [ %244, %286 ], [ %244, %293 ], [ 0, %337 ]
+.thread32:                                        ; preds = %286, %293, %337
+  %.lcssa51 = phi i32 [ %244, %286 ], [ %244, %293 ], [ 0, %337 ]
   %341 = phi i32 [ %245, %286 ], [ %245, %293 ], [ 0, %337 ]
   %342 = phi i32 [ %245, %286 ], [ %243, %293 ], [ 0, %337 ]
   %343 = load i32, ptr %218, align 4
-  %344 = and i32 %343, %.lcssa52
-  %345 = icmp eq i32 %344, %.lcssa52
+  %344 = and i32 %343, %.lcssa51
+  %345 = icmp eq i32 %344, %.lcssa51
   br i1 %345, label %346, label %350
 
-346:                                              ; preds = %.thread33
+346:                                              ; preds = %.thread32
   %347 = load i32, ptr %239, align 4
   %348 = and i32 %347, %341
   %349 = icmp eq i32 %348, %341
-  br i1 %349, label %.thread42, label %350
+  br i1 %349, label %.thread41, label %350
 
-350:                                              ; preds = %346, %.thread33
-  %351 = and i32 %.lcssa52, 16
+350:                                              ; preds = %346, %.thread32
+  %351 = and i32 %.lcssa51, 16
   %352 = icmp eq i32 %351, 0
   br i1 %352, label %353, label %379
 
@@ -1562,7 +1562,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %378 = getelementptr inbounds i8, ptr %377, i64 616
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %378, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.56, ptr noundef nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #13
-  br label %.thread38
+  br label %.thread37
 
 379:                                              ; preds = %350
   store i32 0, ptr %12, align 16
@@ -1570,7 +1570,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %381 = getelementptr inbounds i8, ptr %12, i64 4
   store i32 %380, ptr %381, align 4
   %382 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 %.lcssa52, ptr %382, align 8
+  store i32 %.lcssa51, ptr %382, align 8
   %383 = load i32, ptr %221, align 4
   %384 = icmp eq i32 %383, 2
   br i1 %384, label %385, label %389
@@ -1626,35 +1626,35 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #13
   store i32 %407, ptr %218, align 4
   store i32 %414, ptr %239, align 4
-  br label %.thread42
+  br label %.thread41
 
 415:                                              ; preds = %389
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #13
   br label %417
 
-.thread38:                                        ; preds = %213, %376, %210, %206
-  %.ph35 = phi i32 [ %.lcssa52, %376 ], [ %176, %213 ], [ %176, %210 ], [ %176, %206 ]
-  %.ph36 = phi i32 [ %342, %376 ], [ 0, %213 ], [ 0, %210 ], [ 0, %206 ]
-  %.ph37 = phi i32 [ 15, %376 ], [ 6, %213 ], [ 6, %210 ], [ 6, %206 ]
+.thread37:                                        ; preds = %213, %376, %210, %206
+  %.ph34 = phi i32 [ %.lcssa51, %376 ], [ %176, %213 ], [ %176, %210 ], [ %176, %206 ]
+  %.ph35 = phi i32 [ %342, %376 ], [ 0, %213 ], [ 0, %210 ], [ 0, %206 ]
+  %.ph36 = phi i32 [ 15, %376 ], [ 6, %213 ], [ 6, %210 ], [ 6, %206 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #13
   br label %466
 
-.thread42:                                        ; preds = %346, %413
-  %.ph40 = phi i32 [ %407, %413 ], [ %.lcssa52, %346 ]
-  %.ph41 = phi i32 [ %414, %413 ], [ %342, %346 ]
+.thread41:                                        ; preds = %346, %413
+  %.ph39 = phi i32 [ %407, %413 ], [ %.lcssa51, %346 ]
+  %.ph40 = phi i32 [ %414, %413 ], [ %342, %346 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #13
-  %416 = icmp eq i32 %.ph40, 0
+  %416 = icmp eq i32 %.ph39, 0
   br i1 %416, label %447, label %421
 
 417:                                              ; preds = %336, %415
-  %418 = phi i32 [ %.lcssa52, %415 ], [ %242, %336 ]
+  %418 = phi i32 [ %.lcssa51, %415 ], [ %242, %336 ]
   %419 = phi i32 [ %342, %415 ], [ %243, %336 ]
   %420 = phi i32 [ %401, %415 ], [ %267, %336 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #13
   %cond = icmp eq i32 %420, 5
   br i1 %cond, label %463, label %466
 
-421:                                              ; preds = %.thread42
+421:                                              ; preds = %.thread41
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   br label %422
@@ -1664,7 +1664,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %424 = phi i32 [ %440, %439 ], [ 0, %421 ]
   %425 = phi i32 [ %441, %439 ], [ 0, %421 ]
   %426 = load i32, ptr %423, align 8
-  %427 = and i32 %426, %.ph40
+  %427 = and i32 %426, %.ph39
   %428 = icmp eq i32 %427, 0
   br i1 %428, label %439, label %429
 
@@ -1694,14 +1694,14 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #13
   br label %447
 
-447:                                              ; preds = %444, %.thread42
-  %448 = icmp eq i32 %.ph41, 0
+447:                                              ; preds = %444, %.thread41
+  %448 = icmp eq i32 %.ph40, 0
   br i1 %448, label %457, label %449
 
 449:                                              ; preds = %447
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 80, i1 false)
-  %450 = and i32 %.ph41, 1
+  %450 = and i32 %.ph40, 1
   %451 = icmp eq i32 %450, 0
   br i1 %451, label %454, label %452
 
@@ -1732,10 +1732,10 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %465 = icmp eq i32 %464, 1
   br i1 %465, label %466, label %480
 
-466:                                              ; preds = %417, %.thread38, %463
-  %467 = phi i32 [ %.ph37, %.thread38 ], [ 5, %463 ], [ %420, %417 ]
-  %468 = phi i32 [ %.ph36, %.thread38 ], [ %419, %463 ], [ %419, %417 ]
-  %469 = phi i32 [ %.ph35, %.thread38 ], [ %418, %463 ], [ %418, %417 ]
+466:                                              ; preds = %417, %.thread37, %463
+  %467 = phi i32 [ %.ph36, %.thread37 ], [ 5, %463 ], [ %420, %417 ]
+  %468 = phi i32 [ %.ph35, %.thread37 ], [ %419, %463 ], [ %419, %417 ]
+  %469 = phi i32 [ %.ph34, %.thread37 ], [ %418, %463 ], [ %418, %417 ]
   %470 = icmp eq i32 %469, 0
   br i1 %470, label %472, label %471
 

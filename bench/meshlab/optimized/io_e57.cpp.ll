@@ -4858,15 +4858,18 @@ _ZN3vcg10QuaternionIfE10FromMatrixERKNS_8Matrix44IfEE.exit: ; preds = %176, %190
   %.1114 = select i1 %260, float %258, float %.0113238
   %261 = add nuw i64 %.0112239, 1
   %exitcond.not = icmp eq i64 %261, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !74
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader236
-  %.0115.lcssa = phi float [ 0x47EFFFFFE0000000, %.preheader236 ], [ %.1116, %.lr.ph ]
-  %.0113.lcssa = phi float [ 0x3810000000000000, %.preheader236 ], [ %.1114, %.lr.ph ]
-  %262 = fpext float %.0115.lcssa to double
-  store double %262, ptr %81, align 8
-  %263 = fpext float %.0113.lcssa to double
-  store double %263, ptr %82, align 8
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %262 = fpext float %.1116 to double
+  %263 = fpext float %.1114 to double
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader236
+  %.0115.lcssa = phi double [ 0x47EFFFFFE0000000, %.preheader236 ], [ %262, %._crit_edge.loopexit ]
+  %.0113.lcssa = phi double [ 0x3810000000000000, %.preheader236 ], [ %263, %._crit_edge.loopexit ]
+  store double %.0115.lcssa, ptr %81, align 8
+  store double %.0113.lcssa, ptr %82, align 8
   store i8 1, ptr %113, align 8
   br label %264
 

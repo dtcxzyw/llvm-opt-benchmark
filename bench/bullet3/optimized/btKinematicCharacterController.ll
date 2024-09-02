@@ -2158,74 +2158,74 @@ if.end132.sink.split:                             ; preds = %land.lhs.true119, %
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %61 = load ptr, ptr %vfn, align 8
   %call115 = call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(319) %this, ptr noundef nonnull %.sink, ptr noundef %60)
+  %62 = xor i1 %call115, true
   br label %if.end132
 
 if.end132:                                        ; preds = %if.end132.sink.split, %if.then103, %if.else116, %land.lhs.true119, %land.lhs.true109
-  %has_hit.0.in = phi i1 [ false, %land.lhs.true109 ], [ false, %land.lhs.true119 ], [ false, %if.else116 ], [ false, %if.then103 ], [ %call115, %if.end132.sink.split ]
-  %62 = load float, ptr %m_verticalVelocity, align 4
-  %cmp135 = fcmp olt float %62, 0.000000e+00
-  %63 = load float, ptr %m_stepHeight, align 4
-  %stepHeight.0 = select i1 %cmp135, float %63, float 0.000000e+00
+  %has_hit.0.in = phi i1 [ true, %land.lhs.true109 ], [ true, %land.lhs.true119 ], [ true, %if.else116 ], [ true, %if.then103 ], [ %62, %if.end132.sink.split ]
+  %63 = load float, ptr %m_verticalVelocity, align 4
+  %cmp135 = fcmp olt float %63, 0.000000e+00
+  %64 = load float, ptr %m_stepHeight, align 4
+  %stepHeight.0 = select i1 %cmp135, float %64, float 0.000000e+00
   %cmp139 = fcmp ule float %mul99, 0.000000e+00
   %cmp141 = fcmp uge float %mul99, %stepHeight.0
   %or.cond.not217 = select i1 %cmp139, i1 true, i1 %cmp141
-  %has_hit.0.in.not = xor i1 %has_hit.0.in, true
-  %brmerge = or i1 %or.cond.not217, %has_hit.0.in.not
+  %brmerge = or i1 %or.cond.not217, %has_hit.0.in
   %brmerge19 = or i1 %runonce.0, %brmerge
   br i1 %brmerge19, label %while.end, label %land.lhs.true150
 
 land.lhs.true150:                                 ; preds = %if.end132
-  %64 = load i8, ptr %m_wasOnGround151, align 4
-  %tobool152 = trunc i8 %64 to i1
+  %65 = load i8, ptr %m_wasOnGround151, align 4
+  %tobool152 = trunc i8 %65 to i1
   br i1 %tobool152, label %invoke.cont163, label %lor.lhs.false153
 
 lor.lhs.false153:                                 ; preds = %land.lhs.true150
-  %65 = load i8, ptr %m_wasJumping154, align 1
-  %tobool155 = trunc i8 %65 to i1
+  %66 = load i8, ptr %m_wasJumping154, align 1
+  %tobool155 = trunc i8 %66 to i1
   br i1 %tobool155, label %while.end, label %invoke.cont163
 
 invoke.cont163:                                   ; preds = %land.lhs.true150, %lor.lhs.false153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_targetPosition, ptr noundef nonnull align 4 dereferenceable(16) %orig_position.sroa.0, i64 16, i1 false)
-  %66 = load float, ptr %m_currentStepOffset, align 4
-  %add162 = fadd float %stepHeight.0, %66
-  %67 = load float, ptr %m_up, align 4
-  %mul.i123 = fmul float %67, %add162
-  %68 = load float, ptr %arrayidx3.i, align 8
-  %mul4.i125 = fmul float %add162, %68
-  %69 = load float, ptr %arrayidx7.i, align 4
-  %mul8.i127 = fmul float %add162, %69
+  %67 = load float, ptr %m_currentStepOffset, align 4
+  %add162 = fadd float %stepHeight.0, %67
+  %68 = load float, ptr %m_up, align 4
+  %mul.i123 = fmul float %68, %add162
+  %69 = load float, ptr %arrayidx3.i, align 8
+  %mul4.i125 = fmul float %add162, %69
+  %70 = load float, ptr %arrayidx7.i, align 4
+  %mul8.i127 = fmul float %add162, %70
   %retval.sroa.0.0.vec.insert.i128 = insertelement <2 x float> poison, float %mul.i123, i64 0
   %retval.sroa.0.4.vec.insert.i129 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i128, float %mul4.i125, i64 1
   %retval.sroa.3.12.vec.insert.i130 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i127, i64 0
-  %70 = load float, ptr %m_targetPosition, align 8
-  %sub.i133 = fsub float %70, %mul.i123
+  %71 = load float, ptr %m_targetPosition, align 8
+  %sub.i133 = fsub float %71, %mul.i123
   store float %sub.i133, ptr %m_targetPosition, align 8
-  %71 = load float, ptr %arrayidx7.i21, align 4
-  %sub8.i136 = fsub float %71, %mul4.i125
+  %72 = load float, ptr %arrayidx7.i21, align 4
+  %sub8.i136 = fsub float %72, %mul4.i125
   store float %sub8.i136, ptr %arrayidx7.i21, align 4
-  %72 = load float, ptr %arrayidx12.i, align 8
-  %sub13.i139 = fsub float %72, %mul8.i127
+  %73 = load float, ptr %arrayidx12.i, align 8
+  %sub13.i139 = fsub float %73, %mul8.i127
   store float %sub13.i139, ptr %arrayidx12.i, align 8
   br label %invoke.cont48, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end132, %lor.lhs.false153
   %runonce.0.lcssa = phi i1 [ %runonce.0, %if.end132 ], [ false, %lor.lhs.false153 ]
-  %73 = load ptr, ptr %m_ghostObject, align 8
-  %m_collisionFlags.i140 = getelementptr inbounds i8, ptr %73, i64 224
-  %74 = load i32, ptr %m_collisionFlags.i140, align 8
-  %and.i141 = and i32 %74, 4
+  %74 = load ptr, ptr %m_ghostObject, align 8
+  %m_collisionFlags.i140 = getelementptr inbounds i8, ptr %74, i64 224
+  %75 = load i32, ptr %m_collisionFlags.i140, align 8
+  %and.i141 = and i32 %75, 4
   %cmp.i142 = icmp eq i32 %and.i141, 0
-  %75 = load float, ptr %m_closestHitFraction.i.i.i, align 8
-  %cmp.i144 = fcmp olt float %75, 1.000000e+00
+  %76 = load float, ptr %m_closestHitFraction.i.i.i, align 8
+  %cmp.i144 = fcmp olt float %76, 1.000000e+00
   %or.cond216 = select i1 %cmp.i142, i1 %cmp.i144, i1 false
   br i1 %or.cond216, label %land.lhs.true176, label %lor.lhs.false183
 
 land.lhs.true176:                                 ; preds = %while.end
-  %76 = load ptr, ptr %m_hitCollisionObject.i.i, align 8
+  %77 = load ptr, ptr %m_hitCollisionObject.i.i, align 8
   %vtable179 = load ptr, ptr %this, align 8
   %vfn180 = getelementptr inbounds i8, ptr %vtable179, i64 112
-  %77 = load ptr, ptr %vfn180, align 8
-  %call182 = call noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(319) %this, ptr noundef nonnull %73, ptr noundef %76)
+  %78 = load ptr, ptr %vfn180, align 8
+  %call182 = call noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(319) %this, ptr noundef nonnull %74, ptr noundef %77)
   %brmerge20 = or i1 %runonce.0.lcssa, %call182
   br i1 %brmerge20, label %if.then187, label %if.else222
 
@@ -2234,47 +2234,47 @@ lor.lhs.false183:                                 ; preds = %while.end
 
 if.then187:                                       ; preds = %land.lhs.true176, %lor.lhs.false183
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 152
-  %78 = load float, ptr %arrayidx.i, align 8
-  %79 = load i8, ptr %bounce_fix, align 2
-  %tobool194 = trunc i8 %79 to i1
+  %79 = load float, ptr %arrayidx.i, align 8
+  %80 = load i8, ptr %bounce_fix, align 2
+  %tobool194 = trunc i8 %80 to i1
   br i1 %tobool194, label %if.then197, label %if.else212
 
 if.then197:                                       ; preds = %if.then187
   %arrayidx.i145 = getelementptr inbounds i8, ptr %callback, i64 72
-  %80 = load float, ptr %arrayidx.i145, align 8
-  %sub = fsub float %78, %80
+  %81 = load float, ptr %arrayidx.i145, align 8
+  %sub = fsub float %79, %81
   %div = fmul float %sub, 5.000000e-01
   %full_drop = getelementptr inbounds i8, ptr %this, i64 317
-  %81 = load i8, ptr %full_drop, align 1
-  %tobool198 = trunc i8 %81 to i1
+  %82 = load i8, ptr %full_drop, align 1
+  %tobool198 = trunc i8 %82 to i1
   br i1 %tobool198, label %if.then201, label %if.end218
 
 if.then201:                                       ; preds = %if.then197
-  %82 = load float, ptr %m_closestHitFraction.i.i.i, align 8
-  br label %if.end218
-
-if.else212:                                       ; preds = %if.then187
   %83 = load float, ptr %m_closestHitFraction.i.i.i, align 8
   br label %if.end218
 
+if.else212:                                       ; preds = %if.then187
+  %84 = load float, ptr %m_closestHitFraction.i.i.i, align 8
+  br label %if.end218
+
 if.end218:                                        ; preds = %if.then197, %if.then201, %if.else212
-  %.sink234 = phi float [ %82, %if.then201 ], [ %83, %if.else212 ], [ %div, %if.then197 ]
+  %.sink234 = phi float [ %83, %if.then201 ], [ %84, %if.else212 ], [ %div, %if.then197 ]
   %sub.i146 = fsub float 1.000000e+00, %.sink234
-  %84 = load float, ptr %m_currentPosition, align 4
-  %85 = load float, ptr %m_targetPosition, align 8
-  %mul4.i147 = fmul float %.sink234, %85
-  %86 = call float @llvm.fmuladd.f32(float %sub.i146, float %84, float %mul4.i147)
-  store float %86, ptr %m_currentPosition, align 4
-  %87 = load float, ptr %arrayidx7.i21, align 4
-  %mul11.i = fmul float %.sink234, %87
-  %88 = call float @llvm.fmuladd.f32(float %sub.i146, float %78, float %mul11.i)
-  store float %88, ptr %arrayidx.i, align 8
+  %85 = load float, ptr %m_currentPosition, align 4
+  %86 = load float, ptr %m_targetPosition, align 8
+  %mul4.i147 = fmul float %.sink234, %86
+  %87 = call float @llvm.fmuladd.f32(float %sub.i146, float %85, float %mul4.i147)
+  store float %87, ptr %m_currentPosition, align 4
+  %88 = load float, ptr %arrayidx7.i21, align 4
+  %mul11.i = fmul float %.sink234, %88
+  %89 = call float @llvm.fmuladd.f32(float %sub.i146, float %79, float %mul11.i)
+  store float %89, ptr %arrayidx.i, align 8
   %arrayidx15.i = getelementptr inbounds i8, ptr %this, i64 156
-  %89 = load float, ptr %arrayidx15.i, align 4
-  %90 = load float, ptr %arrayidx12.i, align 8
-  %mul18.i = fmul float %.sink234, %90
-  %91 = call float @llvm.fmuladd.f32(float %sub.i146, float %89, float %mul18.i)
-  store float %91, ptr %arrayidx15.i, align 4
+  %90 = load float, ptr %arrayidx15.i, align 4
+  %91 = load float, ptr %arrayidx12.i, align 8
+  %mul18.i = fmul float %.sink234, %91
+  %92 = call float @llvm.fmuladd.f32(float %sub.i146, float %90, float %mul18.i)
+  store float %92, ptr %arrayidx15.i, align 4
   %full_drop219 = getelementptr inbounds i8, ptr %this, i64 317
   store i8 0, ptr %full_drop219, align 1
   store float 0.000000e+00, ptr %m_verticalVelocity, align 4
@@ -2286,46 +2286,46 @@ if.end218:                                        ; preds = %if.then197, %if.the
 if.else222:                                       ; preds = %land.lhs.true176, %lor.lhs.false183
   %full_drop223 = getelementptr inbounds i8, ptr %this, i64 317
   store i8 1, ptr %full_drop223, align 1
-  %92 = load i8, ptr %bounce_fix, align 2
-  %tobool225 = trunc i8 %92 to i1
+  %93 = load i8, ptr %bounce_fix, align 2
+  %tobool225 = trunc i8 %93 to i1
   br i1 %tobool225, label %if.then228, label %if.end263
 
 if.then228:                                       ; preds = %if.else222
-  %93 = load float, ptr %m_verticalVelocity, align 4
-  %cmp230 = fcmp olt float %93, 0.000000e+00
-  %fneg233 = fneg float %93
+  %94 = load float, ptr %m_verticalVelocity, align 4
+  %cmp230 = fcmp olt float %94, 0.000000e+00
+  %fneg233 = fneg float %94
   %cond236 = select i1 %cmp230, float %fneg233, float 0.000000e+00
   %mul237 = fmul float %dt, %cond236
   %m_fallSpeed238 = getelementptr inbounds i8, ptr %this, i64 44
-  %94 = load float, ptr %m_fallSpeed238, align 4
-  %cmp239 = fcmp ogt float %mul237, %94
+  %95 = load float, ptr %m_fallSpeed238, align 4
+  %cmp239 = fcmp ogt float %mul237, %95
   br i1 %cmp239, label %land.lhs.true240, label %if.end263
 
 land.lhs.true240:                                 ; preds = %if.then228
-  %95 = load i8, ptr %m_wasOnGround151, align 4
-  %tobool242 = trunc i8 %95 to i1
+  %96 = load i8, ptr %m_wasOnGround151, align 4
+  %tobool242 = trunc i8 %96 to i1
   br i1 %tobool242, label %invoke.cont256, label %lor.lhs.false243
 
 lor.lhs.false243:                                 ; preds = %land.lhs.true240
-  %96 = load i8, ptr %m_wasJumping154, align 1
-  %tobool245 = trunc i8 %96 to i1
+  %97 = load i8, ptr %m_wasJumping154, align 1
+  %tobool245 = trunc i8 %97 to i1
   br i1 %tobool245, label %if.end263, label %invoke.cont256
 
 invoke.cont256:                                   ; preds = %land.lhs.true240, %lor.lhs.false243
-  %97 = load float, ptr %m_targetPosition, align 8
-  %add.i = fadd float %step_drop.sroa.0.0.vec.extract192, %97
-  %98 = load float, ptr %arrayidx7.i21, align 4
-  %add8.i = fadd float %step_drop.sroa.0.4.vec.extract200, %98
-  %99 = load float, ptr %arrayidx12.i, align 8
-  %add13.i = fadd float %step_drop.sroa.13.8.vec.extract208, %99
-  %100 = load float, ptr %m_currentStepOffset, align 4
-  %add255 = fadd float %94, %100
-  %101 = load float, ptr %m_up, align 4
-  %mul.i174 = fmul float %101, %add255
-  %102 = load float, ptr %arrayidx3.i, align 8
-  %mul4.i176 = fmul float %add255, %102
-  %103 = load float, ptr %arrayidx7.i, align 4
-  %mul8.i178 = fmul float %add255, %103
+  %98 = load float, ptr %m_targetPosition, align 8
+  %add.i = fadd float %step_drop.sroa.0.0.vec.extract192, %98
+  %99 = load float, ptr %arrayidx7.i21, align 4
+  %add8.i = fadd float %step_drop.sroa.0.4.vec.extract200, %99
+  %100 = load float, ptr %arrayidx12.i, align 8
+  %add13.i = fadd float %step_drop.sroa.13.8.vec.extract208, %100
+  %101 = load float, ptr %m_currentStepOffset, align 4
+  %add255 = fadd float %95, %101
+  %102 = load float, ptr %m_up, align 4
+  %mul.i174 = fmul float %102, %add255
+  %103 = load float, ptr %arrayidx3.i, align 8
+  %mul4.i176 = fmul float %add255, %103
+  %104 = load float, ptr %arrayidx7.i, align 4
+  %mul8.i178 = fmul float %add255, %104
   %sub.i184 = fsub float %add.i, %mul.i174
   store float %sub.i184, ptr %m_targetPosition, align 8
   %sub8.i187 = fsub float %add8.i, %mul4.i176

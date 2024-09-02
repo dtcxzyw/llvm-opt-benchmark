@@ -15590,10 +15590,10 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hd0
   br label %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$$GT$17h941f4dc743aabd58E.exit"
 
 "_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$C$chalk_ir..NoSolution$GT$$GT$$GT$17h941f4dc743aabd58E.exit": ; preds = %13, %26, %3
-  %.sroa.3.0.i5 = phi ptr [ undef, %3 ], [ null, %26 ], [ %24, %13 ]
+  %.sroa.3.0.i4 = phi ptr [ undef, %3 ], [ null, %26 ], [ %24, %13 ]
   %.sroa.0.0 = phi i64 [ 0, %3 ], [ 1, %26 ], [ 1, %13 ]
   %27 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %28 = insertvalue { i64, ptr } %27, ptr %.sroa.3.0.i5, 1
+  %28 = insertvalue { i64, ptr } %27, ptr %.sroa.3.0.i4, 1
   ret { i64, ptr } %28
 }
 
@@ -16983,7 +16983,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17hff0287c7f2826adeE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h4f4711116e4b8040E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
+define hidden noundef range(i64 0, 1152921504606846976) i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h4f4711116e4b8040E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !5306, !noalias !5309, !nonnull !7, !noundef !7
   %4 = load ptr, ptr %0, align 8, !alias.scope !5306, !noalias !5309, !nonnull !7, !noundef !7
@@ -16995,7 +16995,7 @@ define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h50240213b44d1fb1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
+define hidden noundef range(i64 0, 288230376151711744) i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h50240213b44d1fb1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !5311, !noalias !5314, !nonnull !7, !noundef !7
   %4 = load ptr, ptr %0, align 8, !alias.scope !5311, !noalias !5314, !nonnull !7, !noundef !7
@@ -17007,7 +17007,7 @@ define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h70a210b6f18621cdE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
+define hidden noundef range(i64 0, 1152921504606846976) i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h70a210b6f18621cdE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !5316, !noalias !5319, !nonnull !7, !noundef !7
   %4 = load ptr, ptr %0, align 8, !alias.scope !5316, !noalias !5319, !nonnull !7, !noundef !7
@@ -17019,7 +17019,7 @@ define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17hfc8f7b76a295c012E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
+define hidden noundef range(i64 0, 1537228672809129302) i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17hfc8f7b76a295c012E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !5321, !noalias !5324, !nonnull !7, !noundef !7
   %4 = load ptr, ptr %0, align 8, !alias.scope !5321, !noalias !5324, !nonnull !7, !noundef !7

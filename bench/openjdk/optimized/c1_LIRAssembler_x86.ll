@@ -148,7 +148,7 @@ define hidden i64 @_ZN13LIR_Assembler11receiverOprEv() local_unnamed_addr #1 ali
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN13LIR_Assembler16osrBufferPointerEv() local_unnamed_addr #0 align 2 {
+define hidden range(i64 -2147483648, 2147483648) i64 @_ZN13LIR_Assembler16osrBufferPointerEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %class.LIR_Opr, align 8
   %.sroa.0.0.copyload.i = load i64, ptr @_ZN8FrameMap12receiver_oprE, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %1, align 8

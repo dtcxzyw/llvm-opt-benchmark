@@ -798,8 +798,8 @@ define internal fastcc void @computeLeafRecompressWALData(ptr noundef %0) unname
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  %.not6692105 = icmp eq ptr %3, %0
-  %.not6692 = or i1 %.not, %.not6692105
+  %.not6692104 = icmp eq ptr %3, %0
+  %.not6692 = or i1 %.not, %.not6692104
   br i1 %.not6692, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
@@ -826,18 +826,18 @@ define internal fastcc void @computeLeafRecompressWALData(ptr noundef %0) unname
   store i16 %14, ptr %12, align 2
   %15 = load ptr, ptr %2, align 8
   %.not67 = icmp eq ptr %15, null
-  %.not6895106 = icmp eq ptr %15, %0
-  %.not6895 = or i1 %.not67, %.not6895106
+  %.not6895105 = icmp eq ptr %15, %0
+  %.not6895 = or i1 %.not67, %.not6895105
   br i1 %.not6895, label %._crit_edge101, label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %._crit_edge, %66
   %.05898 = phi ptr [ %.159, %66 ], [ %13, %._crit_edge ]
   %.sroa.0.197 = phi ptr [ %68, %66 ], [ %15, %._crit_edge ]
-  %.06096 = phi i32 [ %spec.select74, %66 ], [ 0, %._crit_edge ]
+  %.06096 = phi i32 [ %.161, %66 ], [ 0, %._crit_edge ]
   %16 = getelementptr inbounds i8, ptr %.sroa.0.197, i64 16
   %17 = load i8, ptr %16, align 8
-  switch i8 %17, label %20 [
-    i8 0, label %66
+  switch i8 %17, label %22 [
+    i8 0, label %20
     i8 1, label %.thread77
   ]
 
@@ -846,96 +846,92 @@ define internal fastcc void @computeLeafRecompressWALData(ptr noundef %0) unname
   %19 = getelementptr i8, ptr %.05898, i64 1
   store i8 %18, ptr %.05898, align 1
   store i8 1, ptr %19, align 1
-  br label %61
+  br label %63
 
 20:                                               ; preds = %.lr.ph100
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.197, i64 40
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 6
-  %24 = load i16, ptr %23, align 2
-  %25 = zext i16 %24 to i32
-  %26 = add nuw nsw i32 %25, 1
-  %27 = and i32 %26, 131070
-  %28 = add nuw nsw i32 %27, 8
-  %29 = icmp eq i8 %17, 4
-  br i1 %29, label %30, label %48
+  %21 = add i32 %.06096, 1
+  br label %66
 
-30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %.sroa.0.197, i64 32
-  %32 = load i16, ptr %31, align 8
-  %33 = zext i16 %32 to i64
-  %34 = mul nuw nsw i64 %33, 6
-  %35 = zext nneg i32 %28 to i64
-  %36 = icmp ugt i64 %34, %35
-  %37 = trunc i32 %.06096 to i8
-  %38 = getelementptr i8, ptr %.05898, i64 1
-  store i8 %37, ptr %.05898, align 1
-  br i1 %36, label %.thread85, label %.thread81
+22:                                               ; preds = %.lr.ph100
+  %23 = getelementptr inbounds i8, ptr %.sroa.0.197, i64 40
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 6
+  %26 = load i16, ptr %25, align 2
+  %27 = zext i16 %26 to i64
+  %28 = add nuw nsw i64 %27, 1
+  %29 = and i64 %28, 131070
+  %30 = add nuw nsw i64 %29, 8
+  %31 = icmp eq i8 %17, 4
+  br i1 %31, label %32, label %48
 
-.thread81:                                        ; preds = %30
-  %39 = getelementptr i8, ptr %.05898, i64 2
-  store i8 4, ptr %38, align 1
-  %40 = load i16, ptr %31, align 8
-  %41 = zext i16 %40 to i64
-  %42 = mul nuw nsw i64 %41, 6
-  store i16 %40, ptr %39, align 1
-  %43 = getelementptr i8, ptr %.05898, i64 4
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.197, i64 24
-  %45 = load ptr, ptr %44, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 2 %45, i64 %42, i1 false)
-  %46 = trunc nuw nsw i64 %42 to i32
-  %47 = add nuw nsw i32 %46, 2
-  br label %61
+32:                                               ; preds = %22
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.197, i64 32
+  %34 = load i16, ptr %33, align 8
+  %35 = zext i16 %34 to i64
+  %36 = mul nuw nsw i64 %35, 6
+  %37 = icmp ugt i64 %36, %30
+  %38 = trunc i32 %.06096 to i8
+  %39 = getelementptr i8, ptr %.05898, i64 1
+  store i8 %38, ptr %.05898, align 1
+  br i1 %37, label %.thread85, label %.thread81
 
-.thread85:                                        ; preds = %30
-  store i8 3, ptr %38, align 1
+.thread81:                                        ; preds = %32
+  %40 = getelementptr i8, ptr %.05898, i64 2
+  store i8 4, ptr %39, align 1
+  %41 = load i16, ptr %33, align 8
+  %42 = zext i16 %41 to i64
+  %43 = mul nuw nsw i64 %42, 6
+  store i16 %41, ptr %40, align 1
+  %44 = getelementptr i8, ptr %.05898, i64 4
+  %45 = getelementptr inbounds i8, ptr %.sroa.0.197, i64 24
+  %46 = load ptr, ptr %45, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 2 %46, i64 %43, i1 false)
+  %47 = add nuw nsw i64 %43, 2
+  br label %63
+
+.thread85:                                        ; preds = %32
+  store i8 3, ptr %39, align 1
   br label %52
 
-48:                                               ; preds = %20
+48:                                               ; preds = %22
   %49 = trunc i32 %.06096 to i8
   %50 = getelementptr i8, ptr %.05898, i64 1
   store i8 %49, ptr %.05898, align 1
   store i8 %17, ptr %50, align 1
   %51 = and i8 %17, -2
   %switch = icmp eq i8 %51, 2
-  br i1 %switch, label %._crit_edge104, label %57
+  br i1 %switch, label %52, label %59
 
-._crit_edge104:                                   ; preds = %48
-  %.pre = zext nneg i32 %28 to i64
-  br label %52
-
-52:                                               ; preds = %._crit_edge104, %.thread85
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge104 ], [ %35, %.thread85 ]
-  %.090 = phi i8 [ %17, %._crit_edge104 ], [ 3, %.thread85 ]
+52:                                               ; preds = %48, %.thread85
+  %.090 = phi i8 [ 3, %.thread85 ], [ %17, %48 ]
   %53 = getelementptr i8, ptr %.05898, i64 2
-  %54 = add nuw nsw i32 %27, 9
-  %55 = and i32 %54, 262142
-  %56 = load ptr, ptr %21, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef nonnull align 2 dereferenceable(1) %56, i64 %.pre-phi, i1 false)
-  br label %61
+  %54 = add nuw nsw i64 %29, 9
+  %55 = and i64 %54, 262142
+  %56 = load ptr, ptr %23, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef nonnull align 2 dereferenceable(1) %56, i64 %30, i1 false)
+  %57 = icmp ne i8 %.090, 2
+  %58 = zext i1 %57 to i32
+  br label %63
 
-57:                                               ; preds = %48
-  %58 = zext i8 %17 to i32
-  %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %59)
-  %60 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %58) #11
+59:                                               ; preds = %48
+  %60 = zext i8 %17 to i32
+  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %61)
+  %62 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %60) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 955, ptr noundef nonnull @__func__.computeLeafRecompressWALData) #11
   unreachable
 
-61:                                               ; preds = %.thread77, %52, %.thread81
-  %.080 = phi i8 [ %.090, %52 ], [ 4, %.thread81 ], [ 1, %.thread77 ]
-  %.055 = phi i32 [ %55, %52 ], [ %47, %.thread81 ], [ 0, %.thread77 ]
-  %62 = getelementptr i8, ptr %.05898, i64 2
-  %63 = zext nneg i32 %.055 to i64
-  %64 = getelementptr i8, ptr %62, i64 %63
-  %.not70 = icmp ne i8 %.080, 2
-  %65 = zext i1 %.not70 to i32
+63:                                               ; preds = %.thread77, %52, %.thread81
+  %.080 = phi i32 [ %58, %52 ], [ 1, %.thread81 ], [ 1, %.thread77 ]
+  %.055 = phi i64 [ %55, %52 ], [ %47, %.thread81 ], [ 0, %.thread77 ]
+  %64 = getelementptr i8, ptr %.05898, i64 2
+  %65 = getelementptr i8, ptr %64, i64 %.055
+  %spec.select74 = add i32 %.080, %.06096
   br label %66
 
-66:                                               ; preds = %.lr.ph100, %61
-  %.sink = phi i32 [ %65, %61 ], [ 1, %.lr.ph100 ]
-  %.159 = phi ptr [ %64, %61 ], [ %.05898, %.lr.ph100 ]
-  %spec.select74 = add i32 %.06096, %.sink
+66:                                               ; preds = %63, %20
+  %.161 = phi i32 [ %21, %20 ], [ %spec.select74, %63 ]
+  %.159 = phi ptr [ %.05898, %20 ], [ %65, %63 ]
   %67 = getelementptr inbounds i8, ptr %.sroa.0.197, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not68 = icmp eq ptr %68, %0

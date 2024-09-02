@@ -6835,8 +6835,8 @@ do.end34:                                         ; preds = %if.end.i.i.i, %_ZNK
 if.end4.i:                                        ; preds = %do.end34
   %22 = load i64, ptr %resource.coerce, align 8
   %23 = load i64, ptr %retval.sroa.0.0.i.i2388, align 8
-  %cmp.i3745 = icmp eq i64 %22, %23
-  br i1 %cmp.i3745, label %if.end68, label %if.then36
+  %cmp.i3745.not = icmp eq i64 %22, %23
+  br i1 %cmp.i3745.not, label %if.end68, label %if.then36
 
 if.then36:                                        ; preds = %do.end34, %if.end4.i
   %24 = load ptr, ptr %realm_.i521, align 8

@@ -697,14 +697,14 @@ if.then.i:                                        ; preds = %for.body
   %idxprom.i = zext nneg i32 %add to i64
   %cfg_reg.i = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state.i, i64 0, i64 %idxprom.i, i32 1
   %2 = load i8, ptr %cfg_reg.i, align 8
+  %3 = zext i8 %2 to i64
   br label %pmp_read_cfg.exit
 
 pmp_read_cfg.exit:                                ; preds = %for.body, %if.then.i
-  %retval.0.i = phi i8 [ %2, %if.then.i ], [ 0, %for.body ]
-  %conv = zext i8 %retval.0.i to i64
+  %retval.0.i = phi i64 [ %3, %if.then.i ], [ 0, %for.body ]
   %mul2 = shl i64 %indvars.iv, 3
   %sh_prom = and i64 %mul2, 4294967288
-  %shl3 = shl i64 %conv, %sh_prom
+  %shl3 = shl i64 %retval.0.i, %sh_prom
   %or = or i64 %shl3, %cfg_val.010
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -713,37 +713,37 @@ pmp_read_cfg.exit:                                ; preds = %for.body, %if.then.
 for.end:                                          ; preds = %pmp_read_cfg.exit, %entry
   %cfg_val.0.lcssa = phi i64 [ 0, %entry ], [ %or, %pmp_read_cfg.exit ]
   %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
-  %3 = load i64, ptr %mhartid, align 8
+  %4 = load i64, ptr %mhartid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %4 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %4, 0
-  %5 = load i16, ptr @_TRACE_PMPCFG_CSR_READ_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %5, 0
+  %5 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %5, 0
+  %6 = load i16, ptr @_TRACE_PMPCFG_CSR_READ_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %6, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_pmpcfg_csr_read.exit
 
 land.lhs.true5.i.i:                               ; preds = %for.end
-  %6 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %6, 32768
+  %7 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %7, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_pmpcfg_csr_read.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %7 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %7 to i1
+  %8 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %8 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
-  %8 = load i64, ptr %_now.i.i, align 8
+  %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i64 noundef %3, i32 noundef %reg_index, i64 noundef %cfg_val.0.lcssa) #10
+  %10 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i64 noundef %4, i32 noundef %reg_index, i64 noundef %cfg_val.0.lcssa) #10
   br label %trace_pmpcfg_csr_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i64 noundef %3, i32 noundef %reg_index, i64 noundef %cfg_val.0.lcssa) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i64 noundef %4, i32 noundef %reg_index, i64 noundef %cfg_val.0.lcssa) #10
   br label %trace_pmpcfg_csr_read.exit
 
 trace_pmpcfg_csr_read.exit:                       ; preds = %for.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

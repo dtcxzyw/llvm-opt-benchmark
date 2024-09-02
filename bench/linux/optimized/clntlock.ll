@@ -313,23 +313,23 @@ define dso_local range(i32 0, 16777217) i32 @nlmclnt_grant(ptr noundef %0, ptr n
   %14 = getelementptr inbounds i8, ptr %1, i64 14
   br label %15
 
-15:                                               ; preds = %.thread, %6
-  %16 = phi ptr [ %4, %6 ], [ %83, %.thread ]
-  %17 = phi i32 [ 16777216, %6 ], [ %82, %.thread ]
+15:                                               ; preds = %.critedge, %6
+  %16 = phi ptr [ %4, %6 ], [ %83, %.critedge ]
+  %17 = phi i32 [ 16777216, %6 ], [ %82, %.critedge ]
   %18 = getelementptr inbounds i8, ptr %16, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 128
   %21 = load i64, ptr %20, align 8
   %22 = load i64, ptr %7, align 8
   %23 = icmp eq i64 %21, %22
-  br i1 %23, label %24, label %.thread
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds i8, ptr %19, i64 136
   %26 = load i64, ptr %25, align 8
   %27 = load i64, ptr %8, align 8
   %28 = icmp eq i64 %26, %27
-  br i1 %28, label %29, label %.thread
+  br i1 %28, label %29, label %.critedge
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds i8, ptr %19, i64 192
@@ -338,7 +338,7 @@ define dso_local range(i32 0, 16777217) i32 @nlmclnt_grant(ptr noundef %0, ptr n
   %33 = load i32, ptr %32, align 8
   %34 = load i32, ptr %9, align 8
   %35 = icmp eq i32 %33, %34
-  br i1 %35, label %36, label %.thread
+  br i1 %35, label %36, label %.critedge
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds i8, ptr %16, i64 40
@@ -347,10 +347,10 @@ define dso_local range(i32 0, 16777217) i32 @nlmclnt_grant(ptr noundef %0, ptr n
   %40 = load i16, ptr %39, align 2
   %41 = load i16, ptr %0, align 2
   %42 = icmp eq i16 %40, %41
-  br i1 %42, label %43, label %.thread
+  br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %36
-  switch i16 %40, label %.thread [
+  switch i16 %40, label %.critedge [
     i16 2, label %58
     i16 10, label %44
   ]
@@ -365,7 +365,7 @@ define dso_local range(i32 0, 16777217) i32 @nlmclnt_grant(ptr noundef %0, ptr n
   %51 = icmp eq i64 %46, %47
   %52 = icmp eq i64 %49, %50
   %53 = and i1 %51, %52
-  br i1 %53, label %54, label %.thread
+  br i1 %53, label %54, label %.critedge
 
 54:                                               ; preds = %44
   %55 = tail call i32 @__ipv6_addr_type(ptr noundef %45) #11
@@ -380,7 +380,7 @@ define dso_local range(i32 0, 16777217) i32 @nlmclnt_grant(ptr noundef %0, ptr n
   %62 = load i32, ptr %61, align 4
   %63 = load i32, ptr %60, align 4
   %64 = icmp eq i32 %62, %63
-  br i1 %64, label %65, label %.thread
+  br i1 %64, label %65, label %.critedge
 
 65:                                               ; preds = %58, %54
   %66 = getelementptr inbounds i8, ptr %19, i64 120
@@ -391,30 +391,30 @@ define dso_local range(i32 0, 16777217) i32 @nlmclnt_grant(ptr noundef %0, ptr n
   %71 = load i16, ptr %70, align 2
   %72 = load i16, ptr %3, align 2
   %73 = icmp eq i16 %71, %72
-  br i1 %73, label %74, label %.thread
+  br i1 %73, label %74, label %.critedge
 
 74:                                               ; preds = %65
   %75 = getelementptr i8, ptr %69, i64 -422
   %76 = zext i16 %71 to i64
   %77 = tail call i32 @bcmp(ptr %75, ptr %14, i64 %76)
   %.not = icmp eq i32 %77, 0
-  br i1 %.not, label %78, label %.thread
+  br i1 %.not, label %78, label %.critedge
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds i8, ptr %16, i64 56
   store i32 0, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %16, i64 16
   %81 = tail call i32 @__wake_up(ptr noundef %80, i32 noundef 3, i32 noundef 1, ptr noundef null) #11
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %65, %78, %74, %58, %44, %43, %36, %29, %24, %15
+.critedge:                                        ; preds = %65, %78, %74, %58, %44, %43, %36, %29, %24, %15
   %82 = phi i32 [ 0, %78 ], [ %17, %15 ], [ %17, %24 ], [ %17, %29 ], [ %17, %58 ], [ %17, %74 ], [ %17, %44 ], [ %17, %36 ], [ %17, %43 ], [ %17, %65 ]
   %83 = load ptr, ptr %16, align 8
   %84 = icmp eq ptr %83, @nlm_blocked
   br i1 %84, label %.loopexit, label %15, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.thread, %2
-  %85 = phi i32 [ 16777216, %2 ], [ %82, %.thread ]
+.loopexit:                                        ; preds = %.critedge, %2
+  %85 = phi i32 [ 16777216, %2 ], [ %82, %.critedge ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @nlm_blocked_lock) #11
   %86 = load i16, ptr %0, align 2
   switch i16 %86, label %88 [
@@ -565,8 +565,8 @@ define internal noundef i32 @reclaimer(ptr noundef %0) #0 align 16 {
   %26 = icmp eq ptr %25, %13
   br i1 %26, label %.loopexit9, label %.preheader7
 
-.preheader7:                                      ; preds = %24, %.thread
-  %27 = phi ptr [ %29, %.thread ], [ %25, %24 ]
+.preheader7:                                      ; preds = %24, %.critedge
+  %27 = phi ptr [ %29, %.critedge ], [ %25, %24 ]
   %28 = getelementptr i8, ptr %27, i64 -200
   %29 = load ptr, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %27, i64 8
@@ -581,18 +581,18 @@ define internal noundef i32 @reclaimer(ptr noundef %0) #0 align 16 {
   %35 = load volatile i64, ptr %34, align 8
   %36 = and i64 %35, 131072
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %.thread, !prof !19
+  br i1 %37, label %38, label %.critedge, !prof !19
 
 38:                                               ; preds = %.preheader7
   %39 = load volatile i64, ptr %34, align 8
   %40 = and i64 %39, 4
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %42, label %.thread
+  br i1 %41, label %42, label %.critedge
 
 42:                                               ; preds = %38
   %43 = tail call i32 @nlmclnt_reclaim(ptr noundef %0, ptr noundef %28, ptr noundef nonnull %5) #11
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %.thread
+  br i1 %44, label %45, label %.critedge
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %14, align 8
@@ -602,13 +602,13 @@ define internal noundef i32 @reclaimer(ptr noundef %0) #0 align 16 {
   store volatile ptr %27, ptr %46, align 8
   %47 = load i32, ptr %10, align 4
   %48 = icmp eq i32 %47, %15
-  br i1 %48, label %.thread, label %.loopexit8
+  br i1 %48, label %.critedge, label %.loopexit8
 
-.thread:                                          ; preds = %.preheader7, %45, %42, %38
+.critedge:                                        ; preds = %.preheader7, %45, %42, %38
   %49 = icmp eq ptr %29, %13
   br i1 %49, label %.loopexit9, label %.preheader7, !llvm.loop !22
 
-.loopexit9:                                       ; preds = %24, %.thread
+.loopexit9:                                       ; preds = %24, %.critedge
   %50 = getelementptr inbounds i8, ptr %0, i64 310
   %51 = load i8, ptr %50, align 2
   %52 = and i8 %51, -2

@@ -1374,13 +1374,16 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit330:       ; preds = %_ZL13gmx_snew_implI
   %626 = fadd float %.0247463, %625
   %indvars.iv.next554 = add nuw nsw i64 %indvars.iv553, 1
   %exitcond557.not = icmp eq i64 %indvars.iv.next554, %wide.trip.count556
-  br i1 %exitcond557.not, label %._crit_edge466, label %623, !llvm.loop !24
+  br i1 %exitcond557.not, label %._crit_edge466.loopexit, label %623, !llvm.loop !24
 
-._crit_edge466:                                   ; preds = %623, %.lr.ph469
-  %.0247.lcssa = phi float [ 0.000000e+00, %.lr.ph469 ], [ %626, %623 ]
-  %627 = load ptr, ptr @stdout, align 8
-  %628 = fpext float %.0247.lcssa to double
-  %629 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %627, ptr noundef nonnull @.str.86, double noundef %628) #18
+._crit_edge466.loopexit:                          ; preds = %623
+  %627 = fpext float %626 to double
+  br label %._crit_edge466
+
+._crit_edge466:                                   ; preds = %._crit_edge466.loopexit, %.lr.ph469
+  %.0247.lcssa = phi double [ 0.000000e+00, %.lr.ph469 ], [ %627, %._crit_edge466.loopexit ]
+  %628 = load ptr, ptr @stdout, align 8
+  %629 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %628, ptr noundef nonnull @.str.86, double noundef %.0247.lcssa) #18
   %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 1
   %630 = load i32, ptr @_ZZ11gmx_densmapiPPcE2n1, align 4
   %631 = sext i32 %630 to i64

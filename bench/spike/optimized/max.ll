@@ -401,8 +401,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z14fast_rv32e_maxP11proc
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 562951027163136
-  %or.cond.not = icmp eq i64 %5, 0
-  br i1 %or.cond.not, label %6, label %.critedge
+  %or.cond = icmp eq i64 %5, 0
+  br i1 %or.cond, label %6, label %.critedge
 
 6:                                                ; preds = %3
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -499,8 +499,8 @@ define noundef i64 @_Z14fast_rv64e_maxP11processor_t6insn_tm(ptr nocapture nound
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 562951027163136
-  %or.cond.not = icmp eq i64 %5, 0
-  br i1 %or.cond.not, label %6, label %.critedge
+  %or.cond = icmp eq i64 %5, 0
+  br i1 %or.cond, label %6, label %.critedge
 
 6:                                                ; preds = %3
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -593,8 +593,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16logged_rv32e_maxP11pr
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 562951027163136
-  %or.cond.not = icmp eq i64 %5, 0
-  br i1 %or.cond.not, label %6, label %.critedge
+  %or.cond = icmp eq i64 %5, 0
+  br i1 %or.cond, label %6, label %.critedge
 
 6:                                                ; preds = %3
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -748,8 +748,8 @@ define noundef i64 @_Z16logged_rv64e_maxP11processor_t6insn_tm(ptr noundef %0, i
   %4 = getelementptr inbounds i8, ptr %0, i64 4144
   %.sink.i = load i64, ptr %4, align 8
   %5 = and i64 %.sink.i, 562951027163136
-  %or.cond.not = icmp eq i64 %5, 0
-  br i1 %or.cond.not, label %6, label %.critedge
+  %or.cond = icmp eq i64 %5, 0
+  br i1 %or.cond, label %6, label %.critedge
 
 6:                                                ; preds = %3
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #16

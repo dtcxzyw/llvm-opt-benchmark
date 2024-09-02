@@ -1990,147 +1990,150 @@ define dso_local void @drm_framebuffer_remove(ptr noundef %0) #0 align 16 {
   %63 = icmp eq ptr %62, %45
   br i1 %63, label %.loopexit34, label %.preheader32
 
-.loopexit34:                                      ; preds = %.thread26, %61
-  %64 = phi i32 [ 0, %61 ], [ %128, %.thread26 ]
-  %65 = load i32, ptr %56, align 8
-  %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %.preheader, label %.loopexit31
+.loopexit34.loopexit:                             ; preds = %.thread26
+  %64 = icmp eq i32 %129, 0
+  br label %.loopexit34
+
+.loopexit34:                                      ; preds = %.loopexit34.loopexit, %61
+  %65 = phi i1 [ true, %61 ], [ %64, %.loopexit34.loopexit ]
+  %66 = load i32, ptr %56, align 8
+  %67 = icmp sgt i32 %66, 0
+  br i1 %67, label %.preheader, label %.loopexit31
 
 .preheader32:                                     ; preds = %61, %.thread26
-  %67 = phi ptr [ %129, %.thread26 ], [ %62, %61 ]
-  %68 = phi i32 [ %128, %.thread26 ], [ 0, %61 ]
-  %69 = getelementptr i8, ptr %67, i64 -8
-  %70 = getelementptr i8, ptr %67, i64 1232
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, %0
-  br i1 %74, label %75, label %.thread26
+  %68 = phi ptr [ %130, %.thread26 ], [ %62, %61 ]
+  %69 = phi i32 [ %129, %.thread26 ], [ 0, %61 ]
+  %70 = getelementptr i8, ptr %68, i64 -8
+  %71 = getelementptr i8, ptr %68, i64 1232
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, %0
+  br i1 %75, label %76, label %.thread26
 
-75:                                               ; preds = %.preheader32
-  br i1 %46, label %78, label %76
+76:                                               ; preds = %.preheader32
+  br i1 %46, label %79, label %77
 
-76:                                               ; preds = %75
-  %77 = load ptr, ptr %47, align 8
-  br label %78
+77:                                               ; preds = %76
+  %78 = load ptr, ptr %47, align 8
+  br label %79
 
-78:                                               ; preds = %76, %75
-  %79 = phi ptr [ %77, %76 ], [ null, %75 ]
-  %80 = getelementptr i8, ptr %67, i64 80
-  %81 = load i32, ptr %80, align 8
-  %82 = getelementptr i8, ptr %67, i64 16
-  %83 = load ptr, ptr %82, align 8
-  %84 = load i32, ptr %48, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %79, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef %81, ptr noundef %83, i32 noundef %84) #6
-  %85 = call ptr @drm_atomic_get_plane_state(ptr noundef nonnull %51, ptr noundef %69) #6
-  %86 = icmp ugt ptr %85, inttoptr (i64 -4096 to ptr)
-  br i1 %86, label %87, label %90
+79:                                               ; preds = %77, %76
+  %80 = phi ptr [ %78, %77 ], [ null, %76 ]
+  %81 = getelementptr i8, ptr %68, i64 80
+  %82 = load i32, ptr %81, align 8
+  %83 = getelementptr i8, ptr %68, i64 16
+  %84 = load ptr, ptr %83, align 8
+  %85 = load i32, ptr %48, align 8
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %80, i32 noundef 2, ptr noundef nonnull @.str.40, i32 noundef %82, ptr noundef %84, i32 noundef %85) #6
+  %86 = call ptr @drm_atomic_get_plane_state(ptr noundef nonnull %51, ptr noundef %70) #6
+  %87 = icmp ugt ptr %86, inttoptr (i64 -4096 to ptr)
+  br i1 %87, label %88, label %91
 
-87:                                               ; preds = %78
-  %88 = ptrtoint ptr %85 to i64
-  %89 = trunc i64 %88 to i32
+88:                                               ; preds = %79
+  %89 = ptrtoint ptr %86 to i64
+  %90 = trunc i64 %89 to i32
   br label %.thread21
 
-90:                                               ; preds = %78
-  br i1 %50, label %91, label %120
+91:                                               ; preds = %79
+  br i1 %50, label %92, label %121
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %85, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 128
-  %95 = load ptr, ptr %94, align 8
-  %96 = icmp eq ptr %95, %69
-  br i1 %96, label %97, label %120
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds i8, ptr %86, i64 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 128
+  %96 = load ptr, ptr %95, align 8
+  %97 = icmp eq ptr %96, %70
+  br i1 %97, label %98, label %121
 
-97:                                               ; preds = %91
-  br i1 %46, label %100, label %98
+98:                                               ; preds = %92
+  br i1 %46, label %101, label %99
 
-98:                                               ; preds = %97
-  %99 = load ptr, ptr %47, align 8
-  br label %100
+99:                                               ; preds = %98
+  %100 = load ptr, ptr %47, align 8
+  br label %101
 
-100:                                              ; preds = %98, %97
-  %101 = phi ptr [ %99, %98 ], [ null, %97 ]
-  %102 = getelementptr inbounds i8, ptr %93, i64 96
-  %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %93, i64 32
-  %105 = load ptr, ptr %104, align 8
-  %106 = load i32, ptr %48, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %101, i32 noundef 2, ptr noundef nonnull @.str.41, i32 noundef %103, ptr noundef %105, i32 noundef %106) #6
-  %107 = load ptr, ptr %92, align 8
-  %108 = load ptr, ptr %55, align 8
-  %109 = getelementptr inbounds i8, ptr %107, i64 144
-  %110 = load i32, ptr %109, align 8
-  %111 = zext i32 %110 to i64
-  %112 = getelementptr %struct.__drm_crtcs_state, ptr %108, i64 %111, i32 1
-  %113 = load ptr, ptr %112, align 8
-  %114 = call i32 @drm_atomic_add_affected_connectors(ptr noundef nonnull %51, ptr noundef %107) #6
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %.thread21
+101:                                              ; preds = %99, %98
+  %102 = phi ptr [ %100, %99 ], [ null, %98 ]
+  %103 = getelementptr inbounds i8, ptr %94, i64 96
+  %104 = load i32, ptr %103, align 8
+  %105 = getelementptr inbounds i8, ptr %94, i64 32
+  %106 = load ptr, ptr %105, align 8
+  %107 = load i32, ptr %48, align 8
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %102, i32 noundef 2, ptr noundef nonnull @.str.41, i32 noundef %104, ptr noundef %106, i32 noundef %107) #6
+  %108 = load ptr, ptr %93, align 8
+  %109 = load ptr, ptr %55, align 8
+  %110 = getelementptr inbounds i8, ptr %108, i64 144
+  %111 = load i32, ptr %110, align 8
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr %struct.__drm_crtcs_state, ptr %109, i64 %112, i32 1
+  %114 = load ptr, ptr %113, align 8
+  %115 = call i32 @drm_atomic_add_affected_connectors(ptr noundef nonnull %51, ptr noundef %108) #6
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %.thread21
 
-116:                                              ; preds = %100
-  %117 = getelementptr inbounds i8, ptr %113, i64 9
-  store i8 0, ptr %117, align 1
-  %118 = call i32 @drm_atomic_set_mode_for_crtc(ptr noundef %113, ptr noundef null) #6
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %120, label %.thread21
+117:                                              ; preds = %101
+  %118 = getelementptr inbounds i8, ptr %114, i64 9
+  store i8 0, ptr %118, align 1
+  %119 = call i32 @drm_atomic_set_mode_for_crtc(ptr noundef %114, ptr noundef null) #6
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %121, label %.thread21
 
-120:                                              ; preds = %116, %91, %90
-  call void @drm_atomic_set_fb_for_plane(ptr noundef %85, ptr noundef null) #6
-  %121 = call i32 @drm_atomic_set_crtc_for_plane(ptr noundef %85, ptr noundef null) #6
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %.thread21
+121:                                              ; preds = %117, %92, %91
+  call void @drm_atomic_set_fb_for_plane(ptr noundef %86, ptr noundef null) #6
+  %122 = call i32 @drm_atomic_set_crtc_for_plane(ptr noundef %86, ptr noundef null) #6
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %124, label %.thread21
 
-123:                                              ; preds = %120
-  %124 = getelementptr i8, ptr %67, i64 1220
-  %125 = load i32, ptr %124, align 4
-  %126 = shl nuw i32 1, %125
-  %127 = or i32 %126, %68
+124:                                              ; preds = %121
+  %125 = getelementptr i8, ptr %68, i64 1220
+  %126 = load i32, ptr %125, align 4
+  %127 = shl nuw i32 1, %126
+  %128 = or i32 %127, %69
   br label %.thread26
 
-.thread26:                                        ; preds = %.preheader32, %123
-  %128 = phi i32 [ %68, %.preheader32 ], [ %127, %123 ]
-  %129 = load ptr, ptr %67, align 8
-  %130 = icmp eq ptr %129, %45
-  br i1 %130, label %.loopexit34, label %.preheader32, !llvm.loop !45
+.thread26:                                        ; preds = %.preheader32, %124
+  %129 = phi i32 [ %69, %.preheader32 ], [ %128, %124 ]
+  %130 = load ptr, ptr %68, align 8
+  %131 = icmp eq ptr %130, %45
+  br i1 %131, label %.loopexit34.loopexit, label %.preheader32, !llvm.loop !45
 
-.preheader:                                       ; preds = %.loopexit34, %142
-  %131 = phi i32 [ %143, %142 ], [ %65, %.loopexit34 ]
-  %132 = phi i64 [ %144, %142 ], [ 0, %.loopexit34 ]
-  %133 = load ptr, ptr %57, align 8
-  %134 = getelementptr %struct.__drm_connnectors_state, ptr %133, i64 %132
-  %135 = load ptr, ptr %134, align 8
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %142, label %137
+.preheader:                                       ; preds = %.loopexit34, %143
+  %132 = phi i32 [ %144, %143 ], [ %66, %.loopexit34 ]
+  %133 = phi i64 [ %145, %143 ], [ 0, %.loopexit34 ]
+  %134 = load ptr, ptr %57, align 8
+  %135 = getelementptr %struct.__drm_connnectors_state, ptr %134, i64 %133
+  %136 = load ptr, ptr %135, align 8
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %143, label %138
 
-137:                                              ; preds = %.preheader
-  %138 = getelementptr inbounds i8, ptr %134, i64 24
-  %139 = load ptr, ptr %138, align 8
-  %140 = call i32 @drm_atomic_set_crtc_for_connector(ptr noundef %139, ptr noundef null) #6
-  %141 = icmp eq i32 %140, 0
-  br i1 %141, label %._crit_edge, label %.thread21
+138:                                              ; preds = %.preheader
+  %139 = getelementptr inbounds i8, ptr %135, i64 24
+  %140 = load ptr, ptr %139, align 8
+  %141 = call i32 @drm_atomic_set_crtc_for_connector(ptr noundef %140, ptr noundef null) #6
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %._crit_edge, label %.thread21
 
-._crit_edge:                                      ; preds = %137
+._crit_edge:                                      ; preds = %138
   %.pre = load i32, ptr %56, align 8
-  br label %142
+  br label %143
 
-142:                                              ; preds = %._crit_edge, %.preheader
-  %143 = phi i32 [ %.pre, %._crit_edge ], [ %131, %.preheader ]
-  %144 = add nuw nsw i64 %132, 1
-  %145 = sext i32 %143 to i64
-  %146 = icmp slt i64 %144, %145
-  br i1 %146, label %.preheader, label %.loopexit31, !llvm.loop !46
+143:                                              ; preds = %._crit_edge, %.preheader
+  %144 = phi i32 [ %.pre, %._crit_edge ], [ %132, %.preheader ]
+  %145 = add nuw nsw i64 %133, 1
+  %146 = sext i32 %144 to i64
+  %147 = icmp slt i64 %145, %146
+  br i1 %147, label %.preheader, label %.loopexit31, !llvm.loop !46
 
-.loopexit31:                                      ; preds = %142, %.loopexit34
-  %147 = icmp eq i32 %64, 0
-  br i1 %147, label %.thread21.thread, label %148
+.loopexit31:                                      ; preds = %143, %.loopexit34
+  br i1 %65, label %.thread21.thread, label %148
 
 148:                                              ; preds = %.loopexit31
   %149 = call i32 @drm_atomic_commit(ptr noundef nonnull %51) #6
   br label %.thread21
 
-.thread21:                                        ; preds = %116, %100, %120, %137, %87, %148, %58
-  %150 = phi i32 [ %59, %58 ], [ %149, %148 ], [ %89, %87 ], [ %140, %137 ], [ %118, %116 ], [ %114, %100 ], [ %121, %120 ]
+.thread21:                                        ; preds = %117, %101, %121, %138, %88, %148, %58
+  %150 = phi i32 [ %59, %58 ], [ %149, %148 ], [ %90, %88 ], [ %141, %138 ], [ %119, %117 ], [ %115, %101 ], [ %122, %121 ]
   %151 = icmp eq i32 %150, -35
   br i1 %151, label %152, label %.thread21.thread
 

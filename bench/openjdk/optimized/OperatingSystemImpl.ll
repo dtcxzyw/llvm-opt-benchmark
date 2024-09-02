@@ -118,7 +118,7 @@ define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getTotalMemoryS
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getOpenFileDescriptorCount0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @Java_com_sun_management_internal_OperatingSystemImpl_getOpenFileDescriptorCount0(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = tail call ptr @opendir(ptr noundef nonnull @.str.1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %.preheader

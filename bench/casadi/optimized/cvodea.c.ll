@@ -476,7 +476,7 @@ define internal void @CVAhermiteFree(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CVAhermiteGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 -107, 1) i32 @CVAhermiteGetY(ptr nocapture noundef readonly %0, double noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 2192
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 96
@@ -1105,16 +1105,16 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr nocapture noundef 
   %9 = getelementptr inbounds i8, ptr %6, i64 164
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %14, label %11
+  br i1 %.not, label %15, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %0, i64 140
   %13 = load i32, ptr %12, align 4
-  br label %14
+  %14 = freeze i32 %13
+  br label %15
 
-14:                                               ; preds = %4, %11
-  %15 = phi i32 [ %13, %11 ], [ 0, %4 ]
-  %.fr239 = freeze i32 %15
+15:                                               ; preds = %4, %11
+  %.fr239 = phi i32 [ %14, %11 ], [ 0, %4 ]
   %16 = getelementptr inbounds i8, ptr %6, i64 8
   %17 = load double, ptr %16, align 8
   %18 = load double, ptr %6, align 8
@@ -1124,14 +1124,14 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr nocapture noundef 
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %26, label %22
 
-22:                                               ; preds = %14
+22:                                               ; preds = %15
   %23 = getelementptr inbounds i8, ptr %6, i64 104
   %24 = load i64, ptr %23, align 8
   %25 = add nsw i64 %24, -1
   store i32 0, ptr %20, align 4
   br label %29
 
-26:                                               ; preds = %14
+26:                                               ; preds = %15
   %27 = getelementptr inbounds i8, ptr %6, i64 496
   %28 = load i64, ptr %27, align 8
   br label %29

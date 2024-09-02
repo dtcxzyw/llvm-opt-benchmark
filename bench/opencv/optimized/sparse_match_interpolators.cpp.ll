@@ -7093,7 +7093,7 @@ _ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit286:       ; preds = %378, %371, %363
   %397 = sub i64 %395, %396
   %398 = ashr exact i64 %397, 4
   %399 = icmp ugt i64 %398, %392
-  br i1 %399, label %321, label %._crit_edge, !llvm.loop !130
+  br i1 %399, label %321, label %._crit_edge.loopexit, !llvm.loop !130
 
 400:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i, %306
   %401 = landingpad { ptr, i32 }
@@ -7105,12 +7105,15 @@ _ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit286:       ; preds = %378, %371, %363
           cleanup
   br label %1166
 
-._crit_edge:                                      ; preds = %_ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit286, %.thread440
-  %404 = phi ptr [ %307, %.thread440 ], [ %311, %_ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit286 ]
-  %.lcssa = phi i64 [ 0, %.thread440 ], [ %398, %_ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit286 ]
-  %405 = trunc i64 %.lcssa to i32
+._crit_edge.loopexit:                             ; preds = %_ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit286
+  %404 = trunc i64 %398 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread440
+  %405 = phi ptr [ %307, %.thread440 ], [ %311, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ 0, %.thread440 ], [ %404, %._crit_edge.loopexit ]
   %406 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %405, ptr %406, align 8
+  store i32 %.lcssa, ptr %406, align 8
   %407 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %.noexc287 unwind label %402
 
@@ -7351,7 +7354,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %501
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %510) #28
   %511 = getelementptr inbounds i8, ptr %55, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %511) #28
-  %512 = load ptr, ptr %404, align 8
+  %512 = load ptr, ptr %405, align 8
   %513 = load ptr, ptr %39, align 8
   %.not406 = icmp eq ptr %512, %513
   br i1 %.not406, label %._crit_edge391, label %.lr.ph390
@@ -7402,7 +7405,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %501
   store float %543, ptr %549, align 4
   %550 = add i32 %.0194389, 1
   %551 = zext i32 %550 to i64
-  %552 = load ptr, ptr %404, align 8
+  %552 = load ptr, ptr %405, align 8
   %553 = load ptr, ptr %39, align 8
   %554 = ptrtoint ptr %552 to i64
   %555 = ptrtoint ptr %553 to i64

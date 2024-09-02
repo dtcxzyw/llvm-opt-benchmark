@@ -390,17 +390,17 @@ define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef read
   %19 = add nuw nsw i32 %16, 1
   %20 = select i1 %18, i32 %19, i32 4
   %21 = select i1 %17, i32 0, i32 %20
-  %.fr12 = freeze i32 %21
-  %22 = icmp slt i32 %.fr12, 4
-  br i1 %22, label %23, label %.thread8
+  %.fr10 = freeze i32 %21
+  %22 = icmp slt i32 %.fr10, 4
+  br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %15
   %24 = load ptr, ptr @snd_hwdep_devices, align 8
   %25 = icmp eq ptr %24, @snd_hwdep_devices
-  br i1 %25, label %.thread8, label %.preheader
+  br i1 %25, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %23, %.thread
-  %26 = phi i32 [ %42, %.thread ], [ %.fr12, %23 ]
+.preheader:                                       ; preds = %23, %.critedge
+  %26 = phi i32 [ %42, %.critedge ], [ %.fr10, %23 ]
   br label %27
 
 27:                                               ; preds = %.preheader, %36
@@ -419,27 +419,27 @@ define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef read
 36:                                               ; preds = %32, %27
   %37 = load ptr, ptr %28, align 8
   %38 = icmp eq ptr %37, @snd_hwdep_devices
-  br i1 %38, label %.thread, label %27, !llvm.loop !6
+  br i1 %38, label %.critedge, label %27, !llvm.loop !6
 
 39:                                               ; preds = %32
   %40 = getelementptr i8, ptr %28, i64 -8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread, label %44
+  br i1 %41, label %.critedge, label %44
 
-.thread:                                          ; preds = %36, %39
+.critedge:                                        ; preds = %36, %39
   %42 = add i32 %26, 1
   %43 = icmp eq i32 %42, 4
-  br i1 %43, label %.thread8, label %.preheader, !llvm.loop !10
+  br i1 %43, label %.thread, label %.preheader, !llvm.loop !10
 
 44:                                               ; preds = %39
   %45 = icmp sgt i32 %26, 3
-  br i1 %45, label %.thread8, label %46
+  br i1 %45, label %.thread, label %46
 
-.thread8:                                         ; preds = %.thread, %23, %15, %44
+.thread:                                          ; preds = %.critedge, %23, %15, %44
   br label %46
 
-46:                                               ; preds = %44, %.thread8
-  %47 = phi i32 [ -1, %.thread8 ], [ %26, %44 ]
+46:                                               ; preds = %44, %.thread
+  %47 = phi i32 [ -1, %.thread ], [ %26, %44 ]
   tail call void @mutex_unlock(ptr noundef nonnull @register_mutex) #10
   %48 = tail call i64 @llvm.read_register.i64(metadata !0)
   %49 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %8, i32 %47, i64 4, i64 %48) #10, !srcloc !11
@@ -469,30 +469,30 @@ define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef read
   tail call void @mutex_lock(ptr noundef nonnull @register_mutex) #10
   %67 = load ptr, ptr @snd_hwdep_devices, align 8
   %68 = icmp eq ptr %67, @snd_hwdep_devices
-  br i1 %68, label %.thread11, label %.preheader13
+  br i1 %68, label %.thread9, label %.preheader11
 
-.preheader13:                                     ; preds = %66, %77
+.preheader11:                                     ; preds = %66, %77
   %69 = phi ptr [ %78, %77 ], [ %67, %66 ]
   %70 = getelementptr i8, ptr %69, i64 -8
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, %0
   br i1 %72, label %73, label %77
 
-73:                                               ; preds = %.preheader13
+73:                                               ; preds = %.preheader11
   %74 = getelementptr i8, ptr %69, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, %61
   br i1 %76, label %80, label %77
 
-77:                                               ; preds = %73, %.preheader13
+77:                                               ; preds = %73, %.preheader11
   %78 = load ptr, ptr %69, align 8
   %79 = icmp eq ptr %78, @snd_hwdep_devices
-  br i1 %79, label %.thread11, label %.preheader13, !llvm.loop !6
+  br i1 %79, label %.thread9, label %.preheader11, !llvm.loop !6
 
 80:                                               ; preds = %73
   %81 = getelementptr i8, ptr %69, i64 -8
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.thread11, label %83
+  br i1 %82, label %.thread9, label %83
 
 83:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(i64 220, ptr nonnull %5) #10
@@ -514,15 +514,15 @@ define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef read
   %96 = icmp eq i64 %95, 0
   %97 = select i1 %96, i32 0, i32 -14
   call void @llvm.lifetime.end.p0(i64 220, ptr nonnull %5) #10
-  br label %.thread11
+  br label %.thread9
 
-.thread11:                                        ; preds = %77, %66, %83, %80
+.thread9:                                         ; preds = %77, %66, %83, %80
   %98 = phi i32 [ %97, %83 ], [ -6, %80 ], [ -6, %66 ], [ -6, %77 ]
   call void @mutex_unlock(ptr noundef nonnull @register_mutex) #10
   br label %99
 
-99:                                               ; preds = %.thread11, %56, %46, %6, %4
-  %100 = phi i32 [ -14, %6 ], [ %55, %46 ], [ %98, %.thread11 ], [ -14, %56 ], [ -515, %4 ]
+99:                                               ; preds = %.thread9, %56, %46, %6, %4
+  %100 = phi i32 [ -14, %6 ], [ %55, %46 ], [ %98, %.thread9 ], [ -14, %56 ], [ -515, %4 ]
   ret i32 %100
 }
 
@@ -770,7 +770,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_hwdep_ioctl(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @snd_hwdep_ioctl_compat(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snd_hwdep_ioctl_compat(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.snd_hwdep_dsp_image, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
@@ -896,13 +896,13 @@ define internal i32 @snd_hwdep_open(ptr nocapture noundef readonly %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
   %7 = load i32, ptr @snd_major, align 4
   %8 = icmp eq i32 %6, %7
-  br i1 %8, label %9, label %85
+  br i1 %8, label %9, label %84
 
 9:                                                ; preds = %2
   %10 = and i32 %5, 1048575
   %11 = tail call ptr @snd_lookup_minor_data(i32 noundef %10, i32 noundef 4) #10
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %85, label %13
+  br i1 %12, label %84, label %13
 
 13:                                               ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !19
@@ -910,7 +910,7 @@ define internal i32 @snd_hwdep_open(ptr nocapture noundef readonly %0, ptr nound
   %15 = getelementptr inbounds i8, ptr %14, i64 392
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i1 @try_module_get(ptr noundef %16) #10
-  br i1 %17, label %18, label %81
+  br i1 %17, label %18, label %80
 
 18:                                               ; preds = %13
   %19 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !20
@@ -940,27 +940,27 @@ define internal i32 @snd_hwdep_open(ptr nocapture noundef readonly %0, ptr nound
 34:                                               ; preds = %30
   %35 = load i32, ptr %25, align 8
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.thread8, label %37
+  br i1 %36, label %.critedge.thread, label %37
 
 37:                                               ; preds = %34, %30
   %38 = load ptr, ptr %29, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread9, label %40
+  br i1 %39, label %.critedge.thread8, label %40
 
-.thread9:                                         ; preds = %37
+.critedge.thread8:                                ; preds = %37
   call void @remove_wait_queue(ptr noundef %23, ptr noundef nonnull %3) #10
-  br label %63
+  br label %62
 
 40:                                               ; preds = %37
   %41 = call i32 %38(ptr noundef nonnull %11, ptr noundef %1) #10
   %42 = icmp eq i32 %41, -11
-  br i1 %42, label %43, label %61
+  br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %40
   %44 = load i32, ptr %26, align 8
   %45 = and i32 %44, 2048
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %.thread8
+  br i1 %46, label %47, label %.critedge.thread
 
 47:                                               ; preds = %43
   %48 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27, i32 1, ptr elementtype(i32) %27) #10, !srcloc !21
@@ -971,75 +971,75 @@ define internal i32 @snd_hwdep_open(ptr nocapture noundef readonly %0, ptr nound
   %50 = getelementptr inbounds i8, ptr %49, i64 628
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %.thread8
+  br i1 %52, label %53, label %.critedge.thread
 
 53:                                               ; preds = %47
   %54 = load volatile i64, ptr %20, align 8
   %55 = and i64 %54, 131072
   %56 = icmp eq i64 %55, 0
-  br i1 %56, label %57, label %.thread8, !prof !22
+  br i1 %56, label %57, label %.critedge.thread, !prof !22
 
 57:                                               ; preds = %53
   %58 = load volatile i64, ptr %20, align 8
   %59 = and i64 %58, 4
   %60 = icmp eq i64 %59, 0
-  br i1 %60, label %30, label %.thread8, !llvm.loop !23
+  br i1 %60, label %30, label %.critedge.thread, !llvm.loop !23
 
-.thread8:                                         ; preds = %34, %43, %47, %57, %53
-  %.ph = phi i32 [ -512, %57 ], [ -19, %47 ], [ -16, %43 ], [ -16, %34 ], [ -512, %53 ]
+.critedge.thread:                                 ; preds = %34, %43, %47, %57, %53
+  %.ph = phi i32 [ -512, %53 ], [ -512, %57 ], [ -19, %47 ], [ -16, %43 ], [ -16, %34 ]
   call void @remove_wait_queue(ptr noundef %23, ptr noundef nonnull %3) #10
-  br label %77
+  br label %76
 
-61:                                               ; preds = %40
+.critedge:                                        ; preds = %40
   call void @remove_wait_queue(ptr noundef %23, ptr noundef nonnull %3) #10
-  %62 = icmp sgt i32 %41, -1
-  br i1 %62, label %63, label %77
+  %61 = icmp sgt i32 %41, -1
+  br i1 %61, label %62, label %76
 
-63:                                               ; preds = %.thread9, %61
-  %64 = load ptr, ptr %11, align 8
-  %65 = call i32 @snd_card_file_add(ptr noundef %64, ptr noundef %1) #10
-  %66 = icmp sgt i32 %65, -1
-  br i1 %66, label %73, label %67
+62:                                               ; preds = %.critedge.thread8, %.critedge
+  %63 = load ptr, ptr %11, align 8
+  %64 = call i32 @snd_card_file_add(ptr noundef %63, ptr noundef %1) #10
+  %65 = icmp sgt i32 %64, -1
+  br i1 %65, label %72, label %66
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %11, i64 176
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %77, label %71
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds i8, ptr %11, i64 176
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %76, label %70
 
-71:                                               ; preds = %67
-  %72 = call i32 %69(ptr noundef nonnull %11, ptr noundef %1) #10
-  br label %77
+70:                                               ; preds = %66
+  %71 = call i32 %68(ptr noundef nonnull %11, ptr noundef %1) #10
+  br label %76
 
-73:                                               ; preds = %63
-  %74 = getelementptr inbounds i8, ptr %1, i64 200
-  store ptr %11, ptr %74, align 8
-  %75 = load i32, ptr %25, align 8
-  %76 = add i32 %75, 1
-  store i32 %76, ptr %25, align 8
+72:                                               ; preds = %62
+  %73 = getelementptr inbounds i8, ptr %1, i64 200
+  store ptr %11, ptr %73, align 8
+  %74 = load i32, ptr %25, align 8
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %25, align 8
   call void @mutex_unlock(ptr noundef %24) #10
-  br label %81
+  br label %80
 
-77:                                               ; preds = %71, %67, %61, %.thread8
-  %.ph11 = phi i32 [ %.ph, %.thread8 ], [ %41, %61 ], [ %65, %67 ], [ %65, %71 ]
+76:                                               ; preds = %70, %66, %.critedge, %.critedge.thread
+  %.ph9 = phi i32 [ %.ph, %.critedge.thread ], [ %41, %.critedge ], [ %64, %66 ], [ %64, %70 ]
   call void @mutex_unlock(ptr noundef %24) #10
-  %78 = load ptr, ptr %11, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 392
-  %80 = load ptr, ptr %79, align 8
-  call void @module_put(ptr noundef %80) #10
-  br label %81
+  %77 = load ptr, ptr %11, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 392
+  %79 = load ptr, ptr %78, align 8
+  call void @module_put(ptr noundef %79) #10
+  br label %80
 
-81:                                               ; preds = %73, %77, %13
-  %82 = phi i32 [ -14, %13 ], [ %.ph11, %77 ], [ %65, %73 ]
-  %83 = load ptr, ptr %11, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 648
-  call void @put_device(ptr noundef %84) #10
-  br label %85
+80:                                               ; preds = %72, %76, %13
+  %81 = phi i32 [ -14, %13 ], [ %.ph9, %76 ], [ %64, %72 ]
+  %82 = load ptr, ptr %11, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 648
+  call void @put_device(ptr noundef %83) #10
+  br label %84
 
-85:                                               ; preds = %81, %9, %2
-  %86 = phi i32 [ -6, %2 ], [ -19, %9 ], [ %82, %81 ]
+84:                                               ; preds = %80, %9, %2
+  %85 = phi i32 [ -6, %2 ], [ -19, %9 ], [ %81, %80 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #10
-  ret i32 %86
+  ret i32 %85
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

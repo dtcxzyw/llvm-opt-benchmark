@@ -115,7 +115,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 19:                                               ; preds = %16
   tail call void @perror(ptr noundef nonnull @.str.1) #20
-  br label %739
+  br label %738
 
 20:                                               ; preds = %16
   store i32 513, ptr %5, align 4
@@ -133,23 +133,23 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %27 = add nsw i32 %0, -2
   br label %28
 
-28:                                               ; preds = %.lr.ph, %420
-  %.04821268 = phi i32 [ 0, %.lr.ph ], [ %.1483, %420 ]
-  %.04851267 = phi i32 [ 0, %.lr.ph ], [ %.1486, %420 ]
-  %.14921266 = phi i32 [ 0, %.lr.ph ], [ %.2493, %420 ]
-  %.sroa.12.11265 = phi ptr [ %10, %.lr.ph ], [ %.sroa.12.2, %420 ]
-  %.sroa.0352.11264 = phi i64 [ %9, %.lr.ph ], [ %.sroa.0352.2, %420 ]
-  %.sroa.25.11263 = phi ptr [ %13, %.lr.ph ], [ %.sroa.25.2, %420 ]
-  %.sroa.0319.11262 = phi i64 [ %12, %.lr.ph ], [ %.sroa.0319.2, %420 ]
-  %.04951261 = phi ptr [ null, %.lr.ph ], [ %.1496, %420 ]
-  %.04981250 = phi i32 [ 0, %.lr.ph ], [ %.1499, %420 ]
-  %.05001239 = phi i32 [ 0, %.lr.ph ], [ %.1501, %420 ]
-  %.05021238 = phi i32 [ 0, %.lr.ph ], [ %.1503, %420 ]
-  %.05041237 = phi i32 [ 0, %.lr.ph ], [ %.1505, %420 ]
-  %.sroa.11.01236 = phi ptr [ %24, %.lr.ph ], [ %.sroa.11.2, %420 ]
-  %.sroa.0294.01235 = phi i64 [ %23, %.lr.ph ], [ %.sroa.0294.2, %420 ]
-  %.05071234 = phi i32 [ 1, %.lr.ph ], [ %422, %420 ]
-  %29 = phi i32 [ 513, %.lr.ph ], [ %421, %420 ]
+28:                                               ; preds = %.lr.ph, %418
+  %.04821268 = phi i32 [ 0, %.lr.ph ], [ %.1483, %418 ]
+  %.04851267 = phi i32 [ 0, %.lr.ph ], [ %.1486, %418 ]
+  %.14921266 = phi i32 [ 0, %.lr.ph ], [ %420, %418 ]
+  %.sroa.12.11265 = phi ptr [ %10, %.lr.ph ], [ %.sroa.12.2, %418 ]
+  %.sroa.0352.11264 = phi i64 [ %9, %.lr.ph ], [ %.sroa.0352.2, %418 ]
+  %.sroa.25.11263 = phi ptr [ %13, %.lr.ph ], [ %.sroa.25.2, %418 ]
+  %.sroa.0319.11262 = phi i64 [ %12, %.lr.ph ], [ %.sroa.0319.2, %418 ]
+  %.04951261 = phi ptr [ null, %.lr.ph ], [ %.1496, %418 ]
+  %.04981250 = phi i32 [ 0, %.lr.ph ], [ %.1499, %418 ]
+  %.05001239 = phi i32 [ 0, %.lr.ph ], [ %.1501, %418 ]
+  %.05021238 = phi i32 [ 0, %.lr.ph ], [ %.1503, %418 ]
+  %.05041237 = phi i32 [ 0, %.lr.ph ], [ %.1505, %418 ]
+  %.sroa.11.01236 = phi ptr [ %24, %.lr.ph ], [ %.sroa.11.2, %418 ]
+  %.sroa.0294.01235 = phi i64 [ %23, %.lr.ph ], [ %.sroa.0294.2, %418 ]
+  %.05071234 = phi i32 [ 1, %.lr.ph ], [ %421, %418 ]
+  %29 = phi i32 [ 513, %.lr.ph ], [ %419, %418 ]
   %.not546 = icmp eq i32 %.05021238, 0
   br i1 %.not546, label %30, label %isoptish.exit.thread
 
@@ -165,7 +165,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %37 = getelementptr inbounds i8, ptr %33, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 45
-  br i1 %39, label %sub_2, label %isoptish.exit
+  br i1 %39, label %isoptish.exit.thread741.tail, label %isoptish.exit
 
 isoptish.exit:                                    ; preds = %36
   %40 = tail call ptr @__ctype_b_loc() #21
@@ -175,7 +175,7 @@ isoptish.exit:                                    ; preds = %36
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 1024
   %.not547 = icmp eq i16 %45, 0
-  br i1 %.not547, label %isoptish.exit.thread, label %sub_1
+  br i1 %.not547, label %isoptish.exit.thread, label %83
 
 isoptish.exit.thread:                             ; preds = %30, %isoptish.exit, %28
   %.not609 = icmp eq ptr %.04951261, null
@@ -185,7 +185,7 @@ isoptish.exit.thread:                             ; preds = %30, %isoptish.exit,
   %47 = sext i32 %.05071234 to i64
   %48 = getelementptr inbounds ptr, ptr %1, i64 %47
   %49 = load ptr, ptr %48, align 8
-  br label %420
+  br label %418
 
 50:                                               ; preds = %isoptish.exit.thread
   %.not610 = icmp eq i32 %.04981250, 0
@@ -201,7 +201,7 @@ isoptish.exit.thread:                             ; preds = %30, %isoptish.exit,
   %58 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.0352.11264, ptr %.sroa.12.11265, i64 %56, ptr %57) #19
   %59 = extractvalue { i64, ptr } %58, 0
   %60 = extractvalue { i64, ptr } %58, 1
-  br label %420
+  br label %418
 
 61:                                               ; preds = %50
   %.not611 = icmp eq i32 %.05001239, 0
@@ -229,816 +229,807 @@ isoptish.exit.thread:                             ; preds = %30, %isoptish.exit,
   %75 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.0352.11264, ptr %.sroa.12.11265, i64 %67, ptr %68) #19
   %76 = extractvalue { i64, ptr } %75, 0
   %77 = extractvalue { i64, ptr } %75, 1
-  br label %420
+  br label %418
 
 78:                                               ; preds = %61
   tail call void @jq_util_input_add_input(ptr noundef %21, ptr noundef %64) #19
   %79 = add nsw i32 %.04851267, 1
-  br label %420
+  br label %418
 
-sub_1:                                            ; preds = %isoptish.exit
-  %80 = zext i8 %38 to i32
-  %81 = add nsw i32 %80, -45
-  %.not1317 = icmp eq i32 %81, 0
-  br i1 %.not1317, label %sub_2, label %isoptish.exit.thread741.tail
+isoptish.exit.thread741.tail:                     ; preds = %36
+  %80 = getelementptr inbounds i8, ptr %33, i64 2
+  %81 = load i8, ptr %80, align 1
+  %82 = icmp eq i8 %81, 0
+  br i1 %82, label %418, label %isoption.exit
 
-sub_2:                                            ; preds = %36, %sub_1
-  %82 = getelementptr inbounds i8, ptr %33, i64 2
-  %83 = load i8, ptr %82, align 1
-  %84 = zext i8 %83 to i32
-  br label %isoptish.exit.thread741.tail
+83:                                               ; preds = %isoptish.exit
+  %cond = icmp eq i8 %38, 76
+  br i1 %cond, label %84, label %123
 
-isoptish.exit.thread741.tail:                     ; preds = %sub_1, %sub_2
-  %85 = phi i32 [ %81, %sub_1 ], [ %84, %sub_2 ]
-  %.not548 = icmp eq i32 %85, 0
-  br i1 %.not548, label %420, label %86
+84:                                               ; preds = %83
+  %85 = tail call i32 @jv_get_kind(i64 %.sroa.0294.01235, ptr %.sroa.11.01236) #19
+  %86 = icmp eq i32 %85, 1
+  br i1 %86, label %87, label %91
 
-86:                                               ; preds = %isoptish.exit.thread741.tail
-  switch i8 %38, label %126 [
-    i8 76, label %87
-    i8 45, label %isoption.exit
-  ]
+87:                                               ; preds = %84
+  %88 = tail call { i64, ptr } @jv_array() #19
+  %89 = extractvalue { i64, ptr } %88, 0
+  %90 = extractvalue { i64, ptr } %88, 1
+  br label %91
 
-87:                                               ; preds = %86
-  %88 = tail call i32 @jv_get_kind(i64 %.sroa.0294.01235, ptr %.sroa.11.01236) #19
-  %89 = icmp eq i32 %88, 1
-  br i1 %89, label %90, label %94
+91:                                               ; preds = %87, %84
+  %.sroa.0294.1 = phi i64 [ %89, %87 ], [ %.sroa.0294.01235, %84 ]
+  %.sroa.11.1 = phi ptr [ %90, %87 ], [ %.sroa.11.01236, %84 ]
+  %92 = load ptr, ptr %32, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 2
+  %94 = load i8, ptr %93, align 1
+  %.not607 = icmp eq i8 %94, 0
+  br i1 %.not607, label %105, label %95
 
-90:                                               ; preds = %87
-  %91 = tail call { i64, ptr } @jv_array() #19
-  %92 = extractvalue { i64, ptr } %91, 0
-  %93 = extractvalue { i64, ptr } %91, 1
-  br label %94
-
-94:                                               ; preds = %90, %87
-  %.sroa.0294.1 = phi i64 [ %92, %90 ], [ %.sroa.0294.01235, %87 ]
-  %.sroa.11.1 = phi ptr [ %93, %90 ], [ %.sroa.11.01236, %87 ]
-  %95 = load ptr, ptr %32, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 2
-  %97 = load i8, ptr %96, align 1
-  %.not607 = icmp eq i8 %97, 0
-  br i1 %.not607, label %108, label %98
-
-98:                                               ; preds = %94
-  %99 = tail call { i64, ptr } @jv_string(ptr noundef nonnull %96) #19
+95:                                               ; preds = %91
+  %96 = tail call { i64, ptr } @jv_string(ptr noundef nonnull %93) #19
+  %97 = extractvalue { i64, ptr } %96, 0
+  %98 = extractvalue { i64, ptr } %96, 1
+  %99 = tail call { i64, ptr } @jq_realpath(i64 %97, ptr %98) #19
   %100 = extractvalue { i64, ptr } %99, 0
   %101 = extractvalue { i64, ptr } %99, 1
-  %102 = tail call { i64, ptr } @jq_realpath(i64 %100, ptr %101) #19
+  %102 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.0294.1, ptr %.sroa.11.1, i64 %100, ptr %101) #19
   %103 = extractvalue { i64, ptr } %102, 0
   %104 = extractvalue { i64, ptr } %102, 1
-  %105 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.0294.1, ptr %.sroa.11.1, i64 %103, ptr %104) #19
-  %106 = extractvalue { i64, ptr } %105, 0
-  %107 = extractvalue { i64, ptr } %105, 1
-  br label %420
+  br label %418
 
-108:                                              ; preds = %94
+105:                                              ; preds = %91
   %.not608 = icmp slt i32 %.05071234, %26
-  br i1 %.not608, label %112, label %109
+  br i1 %.not608, label %109, label %106
 
-109:                                              ; preds = %108
-  %110 = load ptr, ptr @stderr, align 8
-  %111 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 63, i64 1, ptr %110) #20
+106:                                              ; preds = %105
+  %107 = load ptr, ptr @stderr, align 8
+  %108 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 63, i64 1, ptr %107) #20
   tail call fastcc void @die()
   unreachable
 
-112:                                              ; preds = %108
-  %113 = add nsw i32 %.05071234, 1
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds ptr, ptr %1, i64 %114
-  %116 = load ptr, ptr %115, align 8
-  %117 = tail call { i64, ptr } @jv_string(ptr noundef %116) #19
+109:                                              ; preds = %105
+  %110 = add nsw i32 %.05071234, 1
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds ptr, ptr %1, i64 %111
+  %113 = load ptr, ptr %112, align 8
+  %114 = tail call { i64, ptr } @jv_string(ptr noundef %113) #19
+  %115 = extractvalue { i64, ptr } %114, 0
+  %116 = extractvalue { i64, ptr } %114, 1
+  %117 = tail call { i64, ptr } @jq_realpath(i64 %115, ptr %116) #19
   %118 = extractvalue { i64, ptr } %117, 0
   %119 = extractvalue { i64, ptr } %117, 1
-  %120 = tail call { i64, ptr } @jq_realpath(i64 %118, ptr %119) #19
+  %120 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.0294.1, ptr %.sroa.11.1, i64 %118, ptr %119) #19
   %121 = extractvalue { i64, ptr } %120, 0
   %122 = extractvalue { i64, ptr } %120, 1
-  %123 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.0294.1, ptr %.sroa.11.1, i64 %121, ptr %122) #19
-  %124 = extractvalue { i64, ptr } %123, 0
-  %125 = extractvalue { i64, ptr } %123, 1
-  br label %420
+  br label %418
 
-126:                                              ; preds = %86
-  %127 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 115) #23
-  %.not16.i = icmp eq ptr %127, null
+123:                                              ; preds = %83
+  %124 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 115) #23
+  %.not16.i = icmp eq ptr %124, null
   br i1 %.not16.i, label %isoption.exit.thread, label %thread-pre-split
 
-isoption.exit:                                    ; preds = %86
-  %128 = getelementptr inbounds i8, ptr %33, i64 2
-  %129 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %128, ptr noundef nonnull readonly dereferenceable(6) @.str.5) #23
-  %.not14.i.not = icmp eq i32 %129, 0
+isoption.exit:                                    ; preds = %isoptish.exit.thread741.tail
+  %125 = getelementptr inbounds i8, ptr %33, i64 2
+  %126 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %125, ptr noundef nonnull readonly dereferenceable(6) @.str.5) #23
+  %.not14.i.not = icmp eq i32 %126, 0
   br i1 %.not14.i.not, label %thread-pre-split.thread, label %isoption.exit623
 
 thread-pre-split.thread:                          ; preds = %isoption.exit
-  %130 = or i32 %.14921266, 1
-  br label %420
+  %127 = or i32 %.14921266, 1
+  br label %418
 
-thread-pre-split:                                 ; preds = %126
+thread-pre-split:                                 ; preds = %123
   store i64 1, ptr %6, align 8
-  %131 = or i32 %.14921266, 1
+  %128 = or i32 %.14921266, 1
   br label %isoption.exit.thread
 
-isoption.exit.thread:                             ; preds = %126, %thread-pre-split
-  %132 = phi i64 [ 1, %thread-pre-split ], [ 0, %126 ]
-  %.3494 = phi i32 [ %131, %thread-pre-split ], [ %.14921266, %126 ]
-  %133 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 114) #23
-  %.not16.i620 = icmp eq ptr %133, null
+isoption.exit.thread:                             ; preds = %123, %thread-pre-split
+  %129 = phi i64 [ 1, %thread-pre-split ], [ 0, %123 ]
+  %.3494 = phi i32 [ %128, %thread-pre-split ], [ %.14921266, %123 ]
+  %130 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 114) #23
+  %.not16.i620 = icmp eq ptr %130, null
   br i1 %.not16.i620, label %isoption.exit623.thread, label %thread-pre-split763
 
 isoption.exit623:                                 ; preds = %isoption.exit
-  %134 = getelementptr inbounds i8, ptr %33, i64 2
-  %135 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %134, ptr noundef nonnull readonly dereferenceable(11) @.str.6) #23
-  %.not14.i621.not = icmp eq i32 %135, 0
+  %131 = getelementptr inbounds i8, ptr %33, i64 2
+  %132 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(11) @.str.6) #23
+  %.not14.i621.not = icmp eq i32 %132, 0
   br i1 %.not14.i621.not, label %thread-pre-split763.thread, label %isoption.exit630
 
 thread-pre-split763.thread:                       ; preds = %isoption.exit623
-  %136 = or i32 %.14921266, 8
-  br label %420
+  %133 = or i32 %.14921266, 8
+  br label %418
 
 thread-pre-split763:                              ; preds = %isoption.exit.thread
-  %137 = add nuw nsw i64 %132, 1
-  store i64 %137, ptr %6, align 8
-  %138 = or i32 %.3494, 8
+  %134 = add nuw nsw i64 %129, 1
+  store i64 %134, ptr %6, align 8
+  %135 = or i32 %.3494, 8
   br label %isoption.exit623.thread
 
 isoption.exit630:                                 ; preds = %isoption.exit623
-  %139 = getelementptr inbounds i8, ptr %33, i64 2
-  %140 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %139, ptr noundef nonnull readonly dereferenceable(12) @.str.7) #23
-  %.not14.i628.not = icmp eq i32 %140, 0
-  br i1 %.not14.i628.not, label %141, label %isoption.exit638
+  %136 = getelementptr inbounds i8, ptr %33, i64 2
+  %137 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %136, ptr noundef nonnull readonly dereferenceable(12) @.str.7) #23
+  %.not14.i628.not = icmp eq i32 %137, 0
+  br i1 %.not14.i628.not, label %138, label %isoption.exit638
 
-141:                                              ; preds = %isoption.exit630
-  %142 = or i32 %.14921266, 1048
-  br label %420
+138:                                              ; preds = %isoption.exit630
+  %139 = or i32 %.14921266, 1048
+  br label %418
 
 isoption.exit623.thread:                          ; preds = %isoption.exit.thread, %thread-pre-split763
-  %143 = phi i64 [ %137, %thread-pre-split763 ], [ %132, %isoption.exit.thread ]
-  %.4 = phi i32 [ %138, %thread-pre-split763 ], [ %.3494, %isoption.exit.thread ]
-  %144 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 106) #23
-  %.not16.i635 = icmp eq ptr %144, null
+  %140 = phi i64 [ %134, %thread-pre-split763 ], [ %129, %isoption.exit.thread ]
+  %.4 = phi i32 [ %135, %thread-pre-split763 ], [ %.3494, %isoption.exit.thread ]
+  %141 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 106) #23
+  %.not16.i635 = icmp eq ptr %141, null
   br i1 %.not16.i635, label %isoption.exit638.thread, label %thread-pre-split792
 
 isoption.exit638:                                 ; preds = %isoption.exit630
-  %145 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %139, ptr noundef nonnull readonly dereferenceable(12) @.str.8) #23
-  %.not14.i636.not = icmp eq i32 %145, 0
+  %142 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %136, ptr noundef nonnull readonly dereferenceable(12) @.str.8) #23
+  %.not14.i636.not = icmp eq i32 %142, 0
   br i1 %.not14.i636.not, label %thread-pre-split792.thread, label %isoption.exit646
 
 thread-pre-split792.thread:                       ; preds = %isoption.exit638
-  %146 = or i32 %.14921266, 1032
-  br label %420
+  %143 = or i32 %.14921266, 1032
+  br label %418
 
 thread-pre-split792:                              ; preds = %isoption.exit623.thread
-  %147 = add nuw nsw i64 %143, 1
-  store i64 %147, ptr %6, align 8
-  %148 = or i32 %.4, 1032
+  %144 = add nuw nsw i64 %140, 1
+  store i64 %144, ptr %6, align 8
+  %145 = or i32 %.4, 1032
   br label %isoption.exit638.thread
 
 isoption.exit638.thread:                          ; preds = %isoption.exit623.thread, %thread-pre-split792
-  %149 = phi i64 [ %147, %thread-pre-split792 ], [ %143, %isoption.exit623.thread ]
-  %.6 = phi i32 [ %148, %thread-pre-split792 ], [ %.4, %isoption.exit623.thread ]
-  %150 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 99) #23
-  %.not16.i643 = icmp eq ptr %150, null
+  %146 = phi i64 [ %144, %thread-pre-split792 ], [ %140, %isoption.exit623.thread ]
+  %.6 = phi i32 [ %145, %thread-pre-split792 ], [ %.4, %isoption.exit623.thread ]
+  %147 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 99) #23
+  %.not16.i643 = icmp eq ptr %147, null
   br i1 %.not16.i643, label %isoption.exit646.thread.thread, label %isoption.exit646.thread
 
 isoption.exit646:                                 ; preds = %isoption.exit638
   store i64 0, ptr %6, align 8
-  %151 = getelementptr inbounds i8, ptr %33, i64 2
-  %152 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %151, ptr noundef nonnull readonly dereferenceable(15) @.str.9) #23
-  %.not14.i644.not = icmp eq i32 %152, 0
+  %148 = getelementptr inbounds i8, ptr %33, i64 2
+  %149 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %148, ptr noundef nonnull readonly dereferenceable(15) @.str.9) #23
+  %.not14.i644.not = icmp eq i32 %149, 0
   br i1 %.not14.i644.not, label %thread-pre-split811.thread, label %isoption.exit646.thread.thread
 
 thread-pre-split811.thread:                       ; preds = %isoption.exit646
-  %153 = and i32 %29, -1858
-  store i32 %153, ptr %5, align 4
-  br label %420
+  %150 = and i32 %29, -1858
+  store i32 %150, ptr %5, align 4
+  br label %418
 
 isoption.exit646.thread:                          ; preds = %isoption.exit638.thread
-  %154 = add nuw nsw i64 %149, 1
-  store i64 %154, ptr %6, align 8
-  %155 = and i32 %29, -1858
-  store i32 %155, ptr %5, align 4
+  %151 = add nuw nsw i64 %146, 1
+  store i64 %151, ptr %6, align 8
+  %152 = and i32 %29, -1858
+  store i32 %152, ptr %5, align 4
   %.pre = load i8, ptr %33, align 1
-  %.not.i647 = icmp eq i8 %.pre, 45
-  br i1 %.not.i647, label %isoption.exit646.thread.thread, label %isoption.exit738.thread.sink.split
+  %153 = icmp eq i8 %.pre, 45
+  br i1 %153, label %isoption.exit646.thread.thread, label %isoption.exit738.thread.sink.split
 
 isoption.exit646.thread.thread:                   ; preds = %isoption.exit638.thread, %isoption.exit646, %isoption.exit646.thread
   %.67978008051473 = phi i32 [ %.6, %isoption.exit646.thread ], [ %.6, %isoption.exit638.thread ], [ %.14921266, %isoption.exit646 ]
-  %156 = phi i32 [ %155, %isoption.exit646.thread ], [ %29, %isoption.exit638.thread ], [ %29, %isoption.exit646 ]
-  %157 = phi i64 [ %154, %isoption.exit646.thread ], [ %149, %isoption.exit638.thread ], [ 0, %isoption.exit646 ]
-  %158 = load i8, ptr %37, align 1
-  %159 = icmp eq i8 %158, 45
-  br i1 %159, label %isoption.exit654, label %.thread19.i650
+  %154 = phi i32 [ %152, %isoption.exit646.thread ], [ %29, %isoption.exit638.thread ], [ %29, %isoption.exit646 ]
+  %155 = phi i64 [ %151, %isoption.exit646.thread ], [ %146, %isoption.exit638.thread ], [ 0, %isoption.exit646 ]
+  %156 = load i8, ptr %37, align 1
+  %157 = icmp eq i8 %156, 45
+  br i1 %157, label %isoption.exit654, label %.thread19.i650
 
 .thread19.i650:                                   ; preds = %isoption.exit646.thread.thread
-  %160 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 67) #23
-  %.not16.i651 = icmp eq ptr %160, null
+  %158 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 67) #23
+  %.not16.i651 = icmp eq ptr %158, null
   br i1 %.not16.i651, label %.thread19.i658, label %thread-pre-split819
 
 isoption.exit654:                                 ; preds = %isoption.exit646.thread.thread
-  %161 = getelementptr inbounds i8, ptr %33, i64 2
-  %162 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %161, ptr noundef nonnull readonly dereferenceable(13) @.str.10) #23
-  %.not14.i652.not = icmp eq i32 %162, 0
+  %159 = getelementptr inbounds i8, ptr %33, i64 2
+  %160 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %159, ptr noundef nonnull readonly dereferenceable(13) @.str.10) #23
+  %.not14.i652.not = icmp eq i32 %160, 0
   br i1 %.not14.i652.not, label %thread-pre-split819.thread, label %isoption.exit662
 
 thread-pre-split819.thread:                       ; preds = %isoption.exit654
-  %163 = or i32 %.67978008051473, 64
-  br label %420
+  %161 = or i32 %.67978008051473, 64
+  br label %418
 
 thread-pre-split819:                              ; preds = %.thread19.i650
-  %164 = add nuw nsw i64 %157, 1
-  store i64 %164, ptr %6, align 8
-  %165 = or i32 %.67978008051473, 64
+  %162 = add nuw nsw i64 %155, 1
+  store i64 %162, ptr %6, align 8
+  %163 = or i32 %.67978008051473, 64
   br label %.thread19.i658
 
 .thread19.i658:                                   ; preds = %thread-pre-split819, %.thread19.i650
-  %.ph1475 = phi i64 [ %164, %thread-pre-split819 ], [ %157, %.thread19.i650 ]
-  %.7827.ph = phi i32 [ %165, %thread-pre-split819 ], [ %.67978008051473, %.thread19.i650 ]
-  %166 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 77) #23
-  %.not16.i659 = icmp eq ptr %166, null
+  %.ph1475 = phi i64 [ %162, %thread-pre-split819 ], [ %155, %.thread19.i650 ]
+  %.7827.ph = phi i32 [ %163, %thread-pre-split819 ], [ %.67978008051473, %.thread19.i650 ]
+  %164 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 77) #23
+  %.not16.i659 = icmp eq ptr %164, null
   br i1 %.not16.i659, label %.thread19.i666, label %thread-pre-split839
 
 isoption.exit662:                                 ; preds = %isoption.exit654
-  %167 = getelementptr inbounds i8, ptr %33, i64 2
-  %168 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %167, ptr noundef nonnull readonly dereferenceable(18) @.str.11) #23
-  %.not14.i660.not = icmp eq i32 %168, 0
+  %165 = getelementptr inbounds i8, ptr %33, i64 2
+  %166 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %165, ptr noundef nonnull readonly dereferenceable(18) @.str.11) #23
+  %.not14.i660.not = icmp eq i32 %166, 0
   br i1 %.not14.i660.not, label %thread-pre-split839.thread, label %isoption.exit670
 
 thread-pre-split839.thread:                       ; preds = %isoption.exit662
-  %169 = or i32 %.67978008051473, 128
-  br label %420
+  %167 = or i32 %.67978008051473, 128
+  br label %418
 
 thread-pre-split839:                              ; preds = %.thread19.i658
-  %170 = add nuw nsw i64 %.ph1475, 1
-  store i64 %170, ptr %6, align 8
-  %171 = or i32 %.7827.ph, 128
+  %168 = add nuw nsw i64 %.ph1475, 1
+  store i64 %168, ptr %6, align 8
+  %169 = or i32 %.7827.ph, 128
   br label %.thread19.i666
 
 .thread19.i666:                                   ; preds = %thread-pre-split839, %.thread19.i658
-  %.ph1481 = phi i64 [ %170, %thread-pre-split839 ], [ %.ph1475, %.thread19.i658 ]
-  %.8847.ph = phi i32 [ %171, %thread-pre-split839 ], [ %.7827.ph, %.thread19.i658 ]
-  %172 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 97) #23
-  %.not16.i667 = icmp eq ptr %172, null
+  %.ph1481 = phi i64 [ %168, %thread-pre-split839 ], [ %.ph1475, %.thread19.i658 ]
+  %.8847.ph = phi i32 [ %169, %thread-pre-split839 ], [ %.7827.ph, %.thread19.i658 ]
+  %170 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 97) #23
+  %.not16.i667 = icmp eq ptr %170, null
   br i1 %.not16.i667, label %.thread886, label %thread-pre-split860
 
 isoption.exit670:                                 ; preds = %isoption.exit662
-  %173 = getelementptr inbounds i8, ptr %33, i64 2
-  %174 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %173, ptr noundef nonnull readonly dereferenceable(13) @.str.12) #23
-  %.not14.i668.not = icmp eq i32 %174, 0
+  %171 = getelementptr inbounds i8, ptr %33, i64 2
+  %172 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %171, ptr noundef nonnull readonly dereferenceable(13) @.str.12) #23
+  %.not14.i668.not = icmp eq i32 %172, 0
   br i1 %.not14.i668.not, label %thread-pre-split860.thread, label %isoption.exit677
 
 thread-pre-split860.thread:                       ; preds = %isoption.exit670
-  %175 = or i32 %.67978008051473, 32
-  br label %420
+  %173 = or i32 %.67978008051473, 32
+  br label %418
 
 thread-pre-split860:                              ; preds = %.thread19.i666
-  %176 = add nuw nsw i64 %.ph1481, 1
-  store i64 %176, ptr %6, align 8
-  %177 = or i32 %.8847.ph, 32
+  %174 = add nuw nsw i64 %.ph1481, 1
+  store i64 %174, ptr %6, align 8
+  %175 = or i32 %.8847.ph, 32
   br label %.thread886
 
 isoption.exit677:                                 ; preds = %isoption.exit670
-  %178 = getelementptr inbounds i8, ptr %33, i64 2
-  %179 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %178, ptr noundef nonnull readonly dereferenceable(11) @.str.13) #23
-  %.not14.i675.not = icmp eq i32 %179, 0
-  br i1 %.not14.i675.not, label %180, label %isoption.exit685
+  %176 = getelementptr inbounds i8, ptr %33, i64 2
+  %177 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %176, ptr noundef nonnull readonly dereferenceable(11) @.str.13) #23
+  %.not14.i675.not = icmp eq i32 %177, 0
+  br i1 %.not14.i675.not, label %178, label %isoption.exit685
 
-180:                                              ; preds = %isoption.exit677
-  %181 = or i32 %.67978008051473, 2048
-  br label %420
+178:                                              ; preds = %isoption.exit677
+  %179 = or i32 %.67978008051473, 2048
+  br label %418
 
 .thread886:                                       ; preds = %thread-pre-split860, %.thread19.i666
-  %.ph1487 = phi i64 [ %176, %thread-pre-split860 ], [ %.ph1481, %.thread19.i666 ]
-  %.9868.ph = phi i32 [ %177, %thread-pre-split860 ], [ %.8847.ph, %.thread19.i666 ]
-  %182 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 83) #23
-  %.not16.i682 = icmp eq ptr %182, null
+  %.ph1487 = phi i64 [ %174, %thread-pre-split860 ], [ %.ph1481, %.thread19.i666 ]
+  %.9868.ph = phi i32 [ %175, %thread-pre-split860 ], [ %.8847.ph, %.thread19.i666 ]
+  %180 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 83) #23
+  %.not16.i682 = icmp eq ptr %180, null
   br i1 %.not16.i682, label %.thread19.i689, label %thread-pre-split897
 
 isoption.exit685:                                 ; preds = %isoption.exit677
-  %183 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %178, ptr noundef nonnull readonly dereferenceable(10) @.str.14) #23
-  %.not14.i683.not = icmp eq i32 %183, 0
+  %181 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %176, ptr noundef nonnull readonly dereferenceable(10) @.str.14) #23
+  %.not14.i683.not = icmp eq i32 %181, 0
   br i1 %.not14.i683.not, label %thread-pre-split897.thread, label %isoption.exit693
 
 thread-pre-split897.thread:                       ; preds = %isoption.exit685
-  %184 = or i32 %.67978008051473, 256
-  br label %420
+  %182 = or i32 %.67978008051473, 256
+  br label %418
 
 thread-pre-split897:                              ; preds = %.thread886
-  %185 = add nuw nsw i64 %.ph1487, 1
-  store i64 %185, ptr %6, align 8
-  %186 = or i32 %.9868.ph, 256
+  %183 = add nuw nsw i64 %.ph1487, 1
+  store i64 %183, ptr %6, align 8
+  %184 = or i32 %.9868.ph, 256
   br label %.thread19.i689
 
 .thread19.i689:                                   ; preds = %thread-pre-split897, %.thread886
-  %.ph1493 = phi i64 [ %185, %thread-pre-split897 ], [ %.ph1487, %.thread886 ]
-  %.10905.ph = phi i32 [ %186, %thread-pre-split897 ], [ %.9868.ph, %.thread886 ]
-  %187 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 82) #23
-  %.not16.i690 = icmp eq ptr %187, null
+  %.ph1493 = phi i64 [ %183, %thread-pre-split897 ], [ %.ph1487, %.thread886 ]
+  %.10905.ph = phi i32 [ %184, %thread-pre-split897 ], [ %.9868.ph, %.thread886 ]
+  %185 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 82) #23
+  %.not16.i690 = icmp eq ptr %185, null
   br i1 %.not16.i690, label %.thread19.i697, label %thread-pre-split918
 
 isoption.exit693:                                 ; preds = %isoption.exit685
-  %188 = getelementptr inbounds i8, ptr %33, i64 2
-  %189 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %188, ptr noundef nonnull readonly dereferenceable(10) @.str.15) #23
-  %.not14.i691.not = icmp eq i32 %189, 0
+  %186 = getelementptr inbounds i8, ptr %33, i64 2
+  %187 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %186, ptr noundef nonnull readonly dereferenceable(10) @.str.15) #23
+  %.not14.i691.not = icmp eq i32 %187, 0
   br i1 %.not14.i691.not, label %thread-pre-split918.thread, label %isoption.exit701
 
 thread-pre-split918.thread:                       ; preds = %isoption.exit693
-  %190 = or i32 %.67978008051473, 2
-  br label %420
+  %188 = or i32 %.67978008051473, 2
+  br label %418
 
 thread-pre-split918:                              ; preds = %.thread19.i689
-  %191 = add nuw nsw i64 %.ph1493, 1
-  store i64 %191, ptr %6, align 8
-  %192 = or i32 %.10905.ph, 2
+  %189 = add nuw nsw i64 %.ph1493, 1
+  store i64 %189, ptr %6, align 8
+  %190 = or i32 %.10905.ph, 2
   br label %.thread19.i697
 
 .thread19.i697:                                   ; preds = %thread-pre-split918, %.thread19.i689
-  %.ph1499 = phi i64 [ %191, %thread-pre-split918 ], [ %.ph1493, %.thread19.i689 ]
-  %.11926.ph = phi i32 [ %192, %thread-pre-split918 ], [ %.10905.ph, %.thread19.i689 ]
-  %193 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 110) #23
-  %.not16.i698 = icmp eq ptr %193, null
+  %.ph1499 = phi i64 [ %189, %thread-pre-split918 ], [ %.ph1493, %.thread19.i689 ]
+  %.11926.ph = phi i32 [ %190, %thread-pre-split918 ], [ %.10905.ph, %.thread19.i689 ]
+  %191 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 110) #23
+  %.not16.i698 = icmp eq ptr %191, null
   br i1 %.not16.i698, label %.thread19.i705, label %thread-pre-split939
 
 isoption.exit701:                                 ; preds = %isoption.exit693
-  %194 = getelementptr inbounds i8, ptr %33, i64 2
-  %195 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %194, ptr noundef nonnull readonly dereferenceable(11) @.str.16) #23
-  %.not14.i699.not = icmp eq i32 %195, 0
+  %192 = getelementptr inbounds i8, ptr %33, i64 2
+  %193 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %192, ptr noundef nonnull readonly dereferenceable(11) @.str.16) #23
+  %.not14.i699.not = icmp eq i32 %193, 0
   br i1 %.not14.i699.not, label %thread-pre-split939.thread, label %isoption.exit709
 
 thread-pre-split939.thread:                       ; preds = %isoption.exit701
-  %196 = or i32 %.67978008051473, 4
-  br label %420
+  %194 = or i32 %.67978008051473, 4
+  br label %418
 
 thread-pre-split939:                              ; preds = %.thread19.i697
-  %197 = add nuw nsw i64 %.ph1499, 1
-  store i64 %197, ptr %6, align 8
-  %198 = or i32 %.11926.ph, 4
+  %195 = add nuw nsw i64 %.ph1499, 1
+  store i64 %195, ptr %6, align 8
+  %196 = or i32 %.11926.ph, 4
   br label %.thread19.i705
 
 .thread19.i705:                                   ; preds = %thread-pre-split939, %.thread19.i697
-  %.ph1505 = phi i64 [ %197, %thread-pre-split939 ], [ %.ph1499, %.thread19.i697 ]
-  %.12947.ph = phi i32 [ %198, %thread-pre-split939 ], [ %.11926.ph, %.thread19.i697 ]
-  %199 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 102) #23
-  %.not16.i706 = icmp eq ptr %199, null
+  %.ph1505 = phi i64 [ %195, %thread-pre-split939 ], [ %.ph1499, %.thread19.i697 ]
+  %.12947.ph = phi i32 [ %196, %thread-pre-split939 ], [ %.11926.ph, %.thread19.i697 ]
+  %197 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 102) #23
+  %.not16.i706 = icmp eq ptr %197, null
   br i1 %.not16.i706, label %.thread19.i713, label %thread-pre-split960
 
 isoption.exit709:                                 ; preds = %isoption.exit701
-  %200 = getelementptr inbounds i8, ptr %33, i64 2
-  %201 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %200, ptr noundef nonnull readonly dereferenceable(10) @.str.17) #23
-  %.not14.i707.not = icmp eq i32 %201, 0
+  %198 = getelementptr inbounds i8, ptr %33, i64 2
+  %199 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %198, ptr noundef nonnull readonly dereferenceable(10) @.str.17) #23
+  %.not14.i707.not = icmp eq i32 %199, 0
   br i1 %.not14.i707.not, label %thread-pre-split960.thread, label %isoption.exit724
 
 thread-pre-split960.thread:                       ; preds = %isoption.exit709
-  %202 = or i32 %.67978008051473, 512
-  br label %420
+  %200 = or i32 %.67978008051473, 512
+  br label %418
 
 thread-pre-split960:                              ; preds = %.thread19.i705
-  %203 = add nuw nsw i64 %.ph1505, 1
-  store i64 %203, ptr %6, align 8
-  %204 = or i32 %.12947.ph, 512
+  %201 = add nuw nsw i64 %.ph1505, 1
+  store i64 %201, ptr %6, align 8
+  %202 = or i32 %.12947.ph, 512
   br label %.thread19.i713
 
 .thread19.i713:                                   ; preds = %thread-pre-split960, %.thread19.i705
-  %.ph1511 = phi i64 [ %203, %thread-pre-split960 ], [ %.ph1505, %.thread19.i705 ]
-  %.13968.ph = phi i32 [ %204, %thread-pre-split960 ], [ %.12947.ph, %.thread19.i705 ]
-  %205 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 98) #23
-  %.not16.i714 = icmp eq ptr %205, null
-  br i1 %.not16.i714, label %isoption.exit738.thread, label %206
+  %.ph1511 = phi i64 [ %201, %thread-pre-split960 ], [ %.ph1505, %.thread19.i705 ]
+  %.13968.ph = phi i32 [ %202, %thread-pre-split960 ], [ %.12947.ph, %.thread19.i705 ]
+  %203 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %33, i32 noundef 98) #23
+  %.not16.i714 = icmp eq ptr %203, null
+  br i1 %.not16.i714, label %isoption.exit738.thread, label %204
 
-206:                                              ; preds = %.thread19.i713
-  %207 = add nuw nsw i64 %.ph1511, 1
+204:                                              ; preds = %.thread19.i713
+  %205 = add nuw nsw i64 %.ph1511, 1
   br label %isoption.exit738.thread.sink.split
 
 isoption.exit724:                                 ; preds = %isoption.exit709
-  %208 = getelementptr inbounds i8, ptr %33, i64 2
-  %209 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %208, ptr noundef nonnull readonly dereferenceable(4) @.str.19) #23
-  %.not14.i722.not = icmp eq i32 %209, 0
-  br i1 %.not14.i722.not, label %210, label %isoption.exit731
+  %206 = getelementptr inbounds i8, ptr %33, i64 2
+  %207 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %206, ptr noundef nonnull readonly dereferenceable(4) @.str.19) #23
+  %.not14.i722.not = icmp eq i32 %207, 0
+  br i1 %.not14.i722.not, label %208, label %isoption.exit731
 
-210:                                              ; preds = %isoption.exit724
-  %211 = and i32 %156, -1858
-  %212 = or disjoint i32 %211, 65
-  store i32 %212, ptr %5, align 4
-  br label %420
+208:                                              ; preds = %isoption.exit724
+  %209 = and i32 %154, -1858
+  %210 = or disjoint i32 %209, 65
+  store i32 %210, ptr %5, align 4
+  br label %418
 
 isoption.exit731:                                 ; preds = %isoption.exit724
-  %213 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %208, ptr noundef nonnull readonly dereferenceable(7) @.str.20) #23
-  %.not14.i729.not = icmp eq i32 %213, 0
-  br i1 %.not14.i729.not, label %214, label %isoption.exit738
+  %211 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %206, ptr noundef nonnull readonly dereferenceable(7) @.str.20) #23
+  %.not14.i729.not = icmp eq i32 %211, 0
+  br i1 %.not14.i729.not, label %212, label %isoption.exit738
 
-214:                                              ; preds = %isoption.exit731
+212:                                              ; preds = %isoption.exit731
   %.not606 = icmp slt i32 %.05071234, %26
-  br i1 %.not606, label %219, label %215
+  br i1 %.not606, label %217, label %213
 
-215:                                              ; preds = %214
-  %216 = load ptr, ptr @stderr, align 8
-  %217 = load ptr, ptr @progname, align 8
-  %218 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %216, ptr noundef nonnull @.str.21, ptr noundef %217) #22
+213:                                              ; preds = %212
+  %214 = load ptr, ptr @stderr, align 8
+  %215 = load ptr, ptr @progname, align 8
+  %216 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %214, ptr noundef nonnull @.str.21, ptr noundef %215) #22
   tail call fastcc void @die()
   unreachable
 
-219:                                              ; preds = %214
-  %220 = add nsw i32 %.05071234, 1
-  %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds ptr, ptr %1, i64 %221
-  %223 = load ptr, ptr %222, align 8
-  %224 = tail call i32 @atoi(ptr nocapture noundef %223) #23
-  %225 = add i32 %224, -8
-  %or.cond = icmp ult i32 %225, -9
-  br i1 %or.cond, label %226, label %230
+217:                                              ; preds = %212
+  %218 = add nsw i32 %.05071234, 1
+  %219 = sext i32 %218 to i64
+  %220 = getelementptr inbounds ptr, ptr %1, i64 %219
+  %221 = load ptr, ptr %220, align 8
+  %222 = tail call i32 @atoi(ptr nocapture noundef %221) #23
+  %223 = add i32 %222, -8
+  %or.cond = icmp ult i32 %223, -9
+  br i1 %or.cond, label %224, label %228
 
-226:                                              ; preds = %219
-  %227 = load ptr, ptr @stderr, align 8
-  %228 = load ptr, ptr @progname, align 8
-  %229 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %227, ptr noundef nonnull @.str.22, ptr noundef %228) #22
+224:                                              ; preds = %217
+  %225 = load ptr, ptr @stderr, align 8
+  %226 = load ptr, ptr @progname, align 8
+  %227 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %225, ptr noundef nonnull @.str.22, ptr noundef %226) #22
   tail call fastcc void @die()
   unreachable
 
-230:                                              ; preds = %219
-  %231 = and i32 %156, -1858
-  %or.cond3 = icmp ugt i32 %224, 7
-  %232 = icmp eq i32 %224, 0
-  %233 = shl nuw nsw i32 %224, 8
-  %234 = or disjoint i32 %233, 1
-  %235 = select i1 %232, i32 0, i32 %234
-  %236 = select i1 %or.cond3, i32 65, i32 %235
-  %237 = or i32 %231, %236
-  store i32 %237, ptr %5, align 4
-  br label %420
+228:                                              ; preds = %217
+  %229 = and i32 %154, -1858
+  %or.cond3 = icmp ugt i32 %222, 7
+  %230 = icmp eq i32 %222, 0
+  %231 = shl nuw nsw i32 %222, 8
+  %232 = or disjoint i32 %231, 1
+  %233 = select i1 %230, i32 0, i32 %232
+  %234 = select i1 %or.cond3, i32 65, i32 %233
+  %235 = or i32 %229, %234
+  store i32 %235, ptr %5, align 4
+  br label %418
 
 isoption.exit738:                                 ; preds = %isoption.exit731
   store i64 0, ptr %6, align 8
-  %238 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %208, ptr noundef nonnull readonly dereferenceable(4) @.str.23) #23
-  %.not14.i736.not = icmp eq i32 %238, 0
-  br i1 %.not14.i736.not, label %239, label %isoption.exit738.thread
+  %236 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %206, ptr noundef nonnull readonly dereferenceable(4) @.str.23) #23
+  %.not14.i736.not = icmp eq i32 %236, 0
+  br i1 %.not14.i736.not, label %237, label %isoption.exit738.thread
 
-239:                                              ; preds = %isoption.exit738
-  %240 = or i32 %.67978008051473, 16384
-  br label %420
+237:                                              ; preds = %isoption.exit738
+  %238 = or i32 %.67978008051473, 16384
+  br label %418
 
-isoption.exit738.thread.sink.split:               ; preds = %isoption.exit646.thread, %206
-  %.sink = phi i64 [ %207, %206 ], [ 0, %isoption.exit646.thread ]
-  %.ph = phi i32 [ %156, %206 ], [ %155, %isoption.exit646.thread ]
-  %.1396597498398699910021014.ph = phi i32 [ %.13968.ph, %206 ], [ %.6, %isoption.exit646.thread ]
+isoption.exit738.thread.sink.split:               ; preds = %isoption.exit646.thread, %204
+  %.sink = phi i64 [ %205, %204 ], [ 0, %isoption.exit646.thread ]
+  %.ph = phi i32 [ %154, %204 ], [ %152, %isoption.exit646.thread ]
+  %.1396597498398699910021014.ph = phi i32 [ %.13968.ph, %204 ], [ %.6, %isoption.exit646.thread ]
   store i64 %.sink, ptr %6, align 8
   br label %isoption.exit738.thread
 
 isoption.exit738.thread:                          ; preds = %isoption.exit738.thread.sink.split, %.thread19.i713, %isoption.exit738
-  %241 = phi i32 [ %156, %isoption.exit738 ], [ %156, %.thread19.i713 ], [ %.ph, %isoption.exit738.thread.sink.split ]
+  %239 = phi i32 [ %154, %isoption.exit738 ], [ %154, %.thread19.i713 ], [ %.ph, %isoption.exit738.thread.sink.split ]
   %.1396597498398699910021014 = phi i32 [ %.67978008051473, %isoption.exit738 ], [ %.13968.ph, %.thread19.i713 ], [ %.1396597498398699910021014.ph, %isoption.exit738.thread.sink.split ]
-  %242 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %6)
-  %.not577 = icmp eq i32 %242, 0
-  br i1 %.not577, label %245, label %243
+  %240 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %6)
+  %.not577 = icmp eq i32 %240, 0
+  br i1 %.not577, label %243, label %241
+
+241:                                              ; preds = %isoption.exit738.thread
+  %242 = or i32 %.04821268, 2
+  br label %418
 
 243:                                              ; preds = %isoption.exit738.thread
-  %244 = or i32 %.04821268, 2
-  br label %420
+  %244 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.25, ptr noundef nonnull %6)
+  %.not578 = icmp eq i32 %244, 0
+  br i1 %.not578, label %247, label %245
 
-245:                                              ; preds = %isoption.exit738.thread
-  %246 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.25, ptr noundef nonnull %6)
-  %.not578 = icmp eq i32 %246, 0
-  br i1 %.not578, label %249, label %247
+245:                                              ; preds = %243
+  %246 = or i32 %.04821268, 6
+  br label %418
 
-247:                                              ; preds = %245
-  %248 = or i32 %.04821268, 6
-  br label %420
+247:                                              ; preds = %243
+  %248 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 101, ptr noundef nonnull @.str.26, ptr noundef nonnull %6)
+  %.not579 = icmp eq i32 %248, 0
+  br i1 %.not579, label %252, label %249
 
-249:                                              ; preds = %245
-  %250 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 101, ptr noundef nonnull @.str.26, ptr noundef nonnull %6)
-  %.not579 = icmp eq i32 %250, 0
-  br i1 %.not579, label %254, label %251
+249:                                              ; preds = %247
+  %250 = or i32 %.1396597498398699910021014, 4096
+  %251 = load i64, ptr %6, align 8
+  %.not580 = icmp eq i64 %251, 0
+  br i1 %.not580, label %418, label %252
 
-251:                                              ; preds = %249
-  %252 = or i32 %.1396597498398699910021014, 4096
-  %253 = load i64, ptr %6, align 8
-  %.not580 = icmp eq i64 %253, 0
-  br i1 %.not580, label %420, label %254
+252:                                              ; preds = %249, %247
+  %.14 = phi i32 [ %250, %249 ], [ %.1396597498398699910021014, %247 ]
+  %253 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.27, ptr noundef nonnull %6)
+  %.not581 = icmp eq i32 %253, 0
+  br i1 %.not581, label %254, label %418
 
-254:                                              ; preds = %251, %249
-  %.14 = phi i32 [ %252, %251 ], [ %.1396597498398699910021014, %249 ]
-  %255 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.27, ptr noundef nonnull %6)
-  %.not581 = icmp eq i32 %255, 0
-  br i1 %.not581, label %256, label %420
+254:                                              ; preds = %252
+  %255 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.28, ptr noundef nonnull %6)
+  %.not582 = icmp eq i32 %255, 0
+  br i1 %.not582, label %256, label %418
 
 256:                                              ; preds = %254
-  %257 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.28, ptr noundef nonnull %6)
-  %.not582 = icmp eq i32 %257, 0
-  br i1 %.not582, label %258, label %420
+  %257 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.29, ptr noundef nonnull %6)
+  %.not583 = icmp eq i32 %257, 0
+  br i1 %.not583, label %288, label %258
 
 258:                                              ; preds = %256
-  %259 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.29, ptr noundef nonnull %6)
-  %.not583 = icmp eq i32 %259, 0
-  br i1 %.not583, label %290, label %260
-
-260:                                              ; preds = %258
   %.not604 = icmp slt i32 %.05071234, %27
-  br i1 %.not604, label %265, label %261
+  br i1 %.not604, label %263, label %259
 
-261:                                              ; preds = %260
-  %262 = load ptr, ptr @stderr, align 8
-  %263 = load ptr, ptr @progname, align 8
-  %264 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %262, ptr noundef nonnull @.str.30, ptr noundef %263) #22
+259:                                              ; preds = %258
+  %260 = load ptr, ptr @stderr, align 8
+  %261 = load ptr, ptr @progname, align 8
+  %262 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %260, ptr noundef nonnull @.str.30, ptr noundef %261) #22
   tail call fastcc void @die()
   unreachable
 
-265:                                              ; preds = %260
-  %266 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.11262, ptr %.sroa.25.11263) #19
-  %267 = extractvalue { i64, ptr } %266, 0
-  %268 = extractvalue { i64, ptr } %266, 1
-  %269 = getelementptr i8, ptr %32, i64 8
-  %270 = load ptr, ptr %269, align 8
-  %271 = tail call { i64, ptr } @jv_string(ptr noundef %270) #19
-  %272 = extractvalue { i64, ptr } %271, 0
-  %273 = extractvalue { i64, ptr } %271, 1
-  %274 = tail call i32 @jv_object_has(i64 %267, ptr %268, i64 %272, ptr %273) #19
-  %.not605 = icmp eq i32 %274, 0
-  br i1 %.not605, label %275, label %288
+263:                                              ; preds = %258
+  %264 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.11262, ptr %.sroa.25.11263) #19
+  %265 = extractvalue { i64, ptr } %264, 0
+  %266 = extractvalue { i64, ptr } %264, 1
+  %267 = getelementptr i8, ptr %32, i64 8
+  %268 = load ptr, ptr %267, align 8
+  %269 = tail call { i64, ptr } @jv_string(ptr noundef %268) #19
+  %270 = extractvalue { i64, ptr } %269, 0
+  %271 = extractvalue { i64, ptr } %269, 1
+  %272 = tail call i32 @jv_object_has(i64 %265, ptr %266, i64 %270, ptr %271) #19
+  %.not605 = icmp eq i32 %272, 0
+  br i1 %.not605, label %273, label %286
 
-275:                                              ; preds = %265
-  %276 = load ptr, ptr %269, align 8
-  %277 = tail call { i64, ptr } @jv_string(ptr noundef %276) #19
-  %278 = extractvalue { i64, ptr } %277, 0
-  %279 = extractvalue { i64, ptr } %277, 1
-  %280 = getelementptr i8, ptr %32, i64 16
-  %281 = load ptr, ptr %280, align 8
-  %282 = tail call { i64, ptr } @jv_string(ptr noundef %281) #19
-  %283 = extractvalue { i64, ptr } %282, 0
-  %284 = extractvalue { i64, ptr } %282, 1
-  %285 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.11262, ptr %.sroa.25.11263, i64 %278, ptr %279, i64 %283, ptr %284) #19
-  %286 = extractvalue { i64, ptr } %285, 0
-  %287 = extractvalue { i64, ptr } %285, 1
-  br label %288
+273:                                              ; preds = %263
+  %274 = load ptr, ptr %267, align 8
+  %275 = tail call { i64, ptr } @jv_string(ptr noundef %274) #19
+  %276 = extractvalue { i64, ptr } %275, 0
+  %277 = extractvalue { i64, ptr } %275, 1
+  %278 = getelementptr i8, ptr %32, i64 16
+  %279 = load ptr, ptr %278, align 8
+  %280 = tail call { i64, ptr } @jv_string(ptr noundef %279) #19
+  %281 = extractvalue { i64, ptr } %280, 0
+  %282 = extractvalue { i64, ptr } %280, 1
+  %283 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.11262, ptr %.sroa.25.11263, i64 %276, ptr %277, i64 %281, ptr %282) #19
+  %284 = extractvalue { i64, ptr } %283, 0
+  %285 = extractvalue { i64, ptr } %283, 1
+  br label %286
 
-288:                                              ; preds = %275, %265
-  %.sroa.0319.3 = phi i64 [ %.sroa.0319.11262, %265 ], [ %286, %275 ]
-  %.sroa.25.3 = phi ptr [ %.sroa.25.11263, %265 ], [ %287, %275 ]
-  %289 = add nsw i32 %.05071234, 2
-  br label %420
+286:                                              ; preds = %273, %263
+  %.sroa.0319.3 = phi i64 [ %.sroa.0319.11262, %263 ], [ %284, %273 ]
+  %.sroa.25.3 = phi ptr [ %.sroa.25.11263, %263 ], [ %285, %273 ]
+  %287 = add nsw i32 %.05071234, 2
+  br label %418
 
-290:                                              ; preds = %258
-  %291 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.31, ptr noundef nonnull %6)
-  %.not584 = icmp eq i32 %291, 0
-  br i1 %.not584, label %328, label %292
+288:                                              ; preds = %256
+  %289 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.31, ptr noundef nonnull %6)
+  %.not584 = icmp eq i32 %289, 0
+  br i1 %.not584, label %326, label %290
 
-292:                                              ; preds = %290
+290:                                              ; preds = %288
   %.not601 = icmp slt i32 %.05071234, %27
-  br i1 %.not601, label %297, label %293
+  br i1 %.not601, label %295, label %291
 
-293:                                              ; preds = %292
-  %294 = load ptr, ptr @stderr, align 8
-  %295 = load ptr, ptr @progname, align 8
-  %296 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef nonnull @.str.32, ptr noundef %295) #22
+291:                                              ; preds = %290
+  %292 = load ptr, ptr @stderr, align 8
+  %293 = load ptr, ptr @progname, align 8
+  %294 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %292, ptr noundef nonnull @.str.32, ptr noundef %293) #22
   tail call fastcc void @die()
   unreachable
 
-297:                                              ; preds = %292
-  %298 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.11262, ptr %.sroa.25.11263) #19
-  %299 = extractvalue { i64, ptr } %298, 0
-  %300 = extractvalue { i64, ptr } %298, 1
-  %301 = getelementptr i8, ptr %32, i64 8
-  %302 = load ptr, ptr %301, align 8
-  %303 = tail call { i64, ptr } @jv_string(ptr noundef %302) #19
-  %304 = extractvalue { i64, ptr } %303, 0
-  %305 = extractvalue { i64, ptr } %303, 1
-  %306 = tail call i32 @jv_object_has(i64 %299, ptr %300, i64 %304, ptr %305) #19
-  %.not602 = icmp eq i32 %306, 0
-  br i1 %.not602, label %307, label %326
+295:                                              ; preds = %290
+  %296 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.11262, ptr %.sroa.25.11263) #19
+  %297 = extractvalue { i64, ptr } %296, 0
+  %298 = extractvalue { i64, ptr } %296, 1
+  %299 = getelementptr i8, ptr %32, i64 8
+  %300 = load ptr, ptr %299, align 8
+  %301 = tail call { i64, ptr } @jv_string(ptr noundef %300) #19
+  %302 = extractvalue { i64, ptr } %301, 0
+  %303 = extractvalue { i64, ptr } %301, 1
+  %304 = tail call i32 @jv_object_has(i64 %297, ptr %298, i64 %302, ptr %303) #19
+  %.not602 = icmp eq i32 %304, 0
+  br i1 %.not602, label %305, label %324
 
-307:                                              ; preds = %297
-  %308 = getelementptr i8, ptr %32, i64 16
-  %309 = load ptr, ptr %308, align 8
-  %310 = tail call { i64, ptr } @jv_parse(ptr noundef %309) #19
-  %311 = extractvalue { i64, ptr } %310, 0
-  %312 = extractvalue { i64, ptr } %310, 1
-  %313 = tail call i32 @jv_get_kind(i64 %311, ptr %312) #19
-  %.not1025 = icmp eq i32 %313, 0
-  br i1 %.not1025, label %314, label %318
+305:                                              ; preds = %295
+  %306 = getelementptr i8, ptr %32, i64 16
+  %307 = load ptr, ptr %306, align 8
+  %308 = tail call { i64, ptr } @jv_parse(ptr noundef %307) #19
+  %309 = extractvalue { i64, ptr } %308, 0
+  %310 = extractvalue { i64, ptr } %308, 1
+  %311 = tail call i32 @jv_get_kind(i64 %309, ptr %310) #19
+  %.not1025 = icmp eq i32 %311, 0
+  br i1 %.not1025, label %312, label %316
 
-314:                                              ; preds = %307
-  %315 = load ptr, ptr @stderr, align 8
-  %316 = load ptr, ptr @progname, align 8
-  %317 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %315, ptr noundef nonnull @.str.33, ptr noundef %316) #22
+312:                                              ; preds = %305
+  %313 = load ptr, ptr @stderr, align 8
+  %314 = load ptr, ptr @progname, align 8
+  %315 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %313, ptr noundef nonnull @.str.33, ptr noundef %314) #22
   tail call fastcc void @die()
   unreachable
 
-318:                                              ; preds = %307
-  %319 = load ptr, ptr %301, align 8
-  %320 = tail call { i64, ptr } @jv_string(ptr noundef %319) #19
-  %321 = extractvalue { i64, ptr } %320, 0
-  %322 = extractvalue { i64, ptr } %320, 1
-  %323 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.11262, ptr %.sroa.25.11263, i64 %321, ptr %322, i64 %311, ptr %312) #19
-  %324 = extractvalue { i64, ptr } %323, 0
-  %325 = extractvalue { i64, ptr } %323, 1
-  br label %326
+316:                                              ; preds = %305
+  %317 = load ptr, ptr %299, align 8
+  %318 = tail call { i64, ptr } @jv_string(ptr noundef %317) #19
+  %319 = extractvalue { i64, ptr } %318, 0
+  %320 = extractvalue { i64, ptr } %318, 1
+  %321 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.11262, ptr %.sroa.25.11263, i64 %319, ptr %320, i64 %309, ptr %310) #19
+  %322 = extractvalue { i64, ptr } %321, 0
+  %323 = extractvalue { i64, ptr } %321, 1
+  br label %324
 
-326:                                              ; preds = %318, %297
-  %.sroa.0319.4 = phi i64 [ %.sroa.0319.11262, %297 ], [ %324, %318 ]
-  %.sroa.25.4 = phi ptr [ %.sroa.25.11263, %297 ], [ %325, %318 ]
-  %327 = add nsw i32 %.05071234, 2
-  br label %420
+324:                                              ; preds = %316, %295
+  %.sroa.0319.4 = phi i64 [ %.sroa.0319.11262, %295 ], [ %322, %316 ]
+  %.sroa.25.4 = phi ptr [ %.sroa.25.11263, %295 ], [ %323, %316 ]
+  %325 = add nsw i32 %.05071234, 2
+  br label %418
 
-328:                                              ; preds = %290
-  %329 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.34, ptr noundef nonnull %6)
-  %.not585 = icmp eq i32 %329, 0
-  br i1 %.not585, label %330, label %332
+326:                                              ; preds = %288
+  %327 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.34, ptr noundef nonnull %6)
+  %.not585 = icmp eq i32 %327, 0
+  br i1 %.not585, label %328, label %330
 
-330:                                              ; preds = %328
-  %331 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.35, ptr noundef nonnull %6)
-  %.not586 = icmp eq i32 %331, 0
-  br i1 %.not586, label %376, label %332
+328:                                              ; preds = %326
+  %329 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.35, ptr noundef nonnull %6)
+  %.not586 = icmp eq i32 %329, 0
+  br i1 %.not586, label %374, label %330
 
-332:                                              ; preds = %330, %328
-  %333 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.34, ptr noundef nonnull %6)
+330:                                              ; preds = %328, %326
+  %331 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.34, ptr noundef nonnull %6)
   %.not598 = icmp slt i32 %.05071234, %27
-  br i1 %.not598, label %338, label %334
+  br i1 %.not598, label %336, label %332
 
-334:                                              ; preds = %332
-  %.not597.le = icmp eq i32 %333, 0
+332:                                              ; preds = %330
+  %.not597.le = icmp eq i32 %331, 0
   %.str.35..str.34.le1229 = select i1 %.not597.le, ptr @.str.35, ptr @.str.34
-  %335 = load ptr, ptr @stderr, align 8
-  %336 = load ptr, ptr @progname, align 8
-  %337 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %335, ptr noundef nonnull @.str.36, ptr noundef %336, ptr noundef nonnull %.str.35..str.34.le1229, ptr noundef nonnull %.str.35..str.34.le1229) #22
+  %333 = load ptr, ptr @stderr, align 8
+  %334 = load ptr, ptr @progname, align 8
+  %335 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %333, ptr noundef nonnull @.str.36, ptr noundef %334, ptr noundef nonnull %.str.35..str.34.le1229, ptr noundef nonnull %.str.35..str.34.le1229) #22
   tail call fastcc void @die()
   unreachable
 
-338:                                              ; preds = %332
-  %339 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.11262, ptr %.sroa.25.11263) #19
-  %340 = extractvalue { i64, ptr } %339, 0
-  %341 = extractvalue { i64, ptr } %339, 1
-  %342 = getelementptr i8, ptr %32, i64 8
-  %343 = load ptr, ptr %342, align 8
-  %344 = tail call { i64, ptr } @jv_string(ptr noundef %343) #19
-  %345 = extractvalue { i64, ptr } %344, 0
-  %346 = extractvalue { i64, ptr } %344, 1
-  %347 = tail call i32 @jv_object_has(i64 %340, ptr %341, i64 %345, ptr %346) #19
-  %.not599 = icmp eq i32 %347, 0
-  br i1 %.not599, label %348, label %374
+336:                                              ; preds = %330
+  %337 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0319.11262, ptr %.sroa.25.11263) #19
+  %338 = extractvalue { i64, ptr } %337, 0
+  %339 = extractvalue { i64, ptr } %337, 1
+  %340 = getelementptr i8, ptr %32, i64 8
+  %341 = load ptr, ptr %340, align 8
+  %342 = tail call { i64, ptr } @jv_string(ptr noundef %341) #19
+  %343 = extractvalue { i64, ptr } %342, 0
+  %344 = extractvalue { i64, ptr } %342, 1
+  %345 = tail call i32 @jv_object_has(i64 %338, ptr %339, i64 %343, ptr %344) #19
+  %.not599 = icmp eq i32 %345, 0
+  br i1 %.not599, label %346, label %372
 
-348:                                              ; preds = %338
-  %349 = getelementptr i8, ptr %32, i64 16
-  %350 = load ptr, ptr %349, align 8
-  %351 = tail call { i64, ptr } @jv_load_file(ptr noundef %350, i32 noundef %333) #19
-  %352 = extractvalue { i64, ptr } %351, 0
-  %353 = extractvalue { i64, ptr } %351, 1
-  %354 = tail call i32 @jv_get_kind(i64 %352, ptr %353) #19
-  %.not1026 = icmp eq i32 %354, 0
-  br i1 %.not1026, label %355, label %366
+346:                                              ; preds = %336
+  %347 = getelementptr i8, ptr %32, i64 16
+  %348 = load ptr, ptr %347, align 8
+  %349 = tail call { i64, ptr } @jv_load_file(ptr noundef %348, i32 noundef %331) #19
+  %350 = extractvalue { i64, ptr } %349, 0
+  %351 = extractvalue { i64, ptr } %349, 1
+  %352 = tail call i32 @jv_get_kind(i64 %350, ptr %351) #19
+  %.not1026 = icmp eq i32 %352, 0
+  br i1 %.not1026, label %353, label %364
 
-355:                                              ; preds = %348
-  %356 = getelementptr i8, ptr %32, i64 16
-  %.not597.le1232 = icmp eq i32 %333, 0
+353:                                              ; preds = %346
+  %354 = getelementptr i8, ptr %32, i64 16
+  %.not597.le1232 = icmp eq i32 %331, 0
   %.str.35..str.34.le = select i1 %.not597.le1232, ptr @.str.35, ptr @.str.34
-  %357 = tail call { i64, ptr } @jv_invalid_get_msg(i64 %352, ptr %353) #19
-  %358 = extractvalue { i64, ptr } %357, 0
-  %359 = extractvalue { i64, ptr } %357, 1
-  %360 = load ptr, ptr @stderr, align 8
-  %361 = load ptr, ptr @progname, align 8
-  %362 = load ptr, ptr %342, align 8
-  %363 = load ptr, ptr %356, align 8
-  %364 = tail call ptr @jv_string_value(i64 %358, ptr %359) #19
-  %365 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %360, ptr noundef nonnull @.str.37, ptr noundef %361, ptr noundef nonnull %.str.35..str.34.le, ptr noundef %362, ptr noundef %363, ptr noundef %364) #22
-  tail call void @jv_free(i64 %358, ptr %359) #19
-  br label %739
+  %355 = tail call { i64, ptr } @jv_invalid_get_msg(i64 %350, ptr %351) #19
+  %356 = extractvalue { i64, ptr } %355, 0
+  %357 = extractvalue { i64, ptr } %355, 1
+  %358 = load ptr, ptr @stderr, align 8
+  %359 = load ptr, ptr @progname, align 8
+  %360 = load ptr, ptr %340, align 8
+  %361 = load ptr, ptr %354, align 8
+  %362 = tail call ptr @jv_string_value(i64 %356, ptr %357) #19
+  %363 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %358, ptr noundef nonnull @.str.37, ptr noundef %359, ptr noundef nonnull %.str.35..str.34.le, ptr noundef %360, ptr noundef %361, ptr noundef %362) #22
+  tail call void @jv_free(i64 %356, ptr %357) #19
+  br label %738
 
-366:                                              ; preds = %348
-  %367 = load ptr, ptr %342, align 8
-  %368 = tail call { i64, ptr } @jv_string(ptr noundef %367) #19
-  %369 = extractvalue { i64, ptr } %368, 0
-  %370 = extractvalue { i64, ptr } %368, 1
-  %371 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.11262, ptr %.sroa.25.11263, i64 %369, ptr %370, i64 %352, ptr %353) #19
-  %372 = extractvalue { i64, ptr } %371, 0
-  %373 = extractvalue { i64, ptr } %371, 1
-  br label %374
+364:                                              ; preds = %346
+  %365 = load ptr, ptr %340, align 8
+  %366 = tail call { i64, ptr } @jv_string(ptr noundef %365) #19
+  %367 = extractvalue { i64, ptr } %366, 0
+  %368 = extractvalue { i64, ptr } %366, 1
+  %369 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.0319.11262, ptr %.sroa.25.11263, i64 %367, ptr %368, i64 %350, ptr %351) #19
+  %370 = extractvalue { i64, ptr } %369, 0
+  %371 = extractvalue { i64, ptr } %369, 1
+  br label %372
 
-374:                                              ; preds = %366, %338
-  %.sroa.0319.5 = phi i64 [ %.sroa.0319.11262, %338 ], [ %372, %366 ]
-  %.sroa.25.5 = phi ptr [ %.sroa.25.11263, %338 ], [ %373, %366 ]
-  %375 = add nsw i32 %.05071234, 2
-  br label %420
+372:                                              ; preds = %364, %336
+  %.sroa.0319.5 = phi i64 [ %.sroa.0319.11262, %336 ], [ %370, %364 ]
+  %.sroa.25.5 = phi ptr [ %.sroa.25.11263, %336 ], [ %371, %364 ]
+  %373 = add nsw i32 %.05071234, 2
+  br label %418
 
-376:                                              ; preds = %330
-  %377 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.38, ptr noundef nonnull %6)
-  %.not587 = icmp eq i32 %377, 0
-  br i1 %.not587, label %380, label %378
+374:                                              ; preds = %328
+  %375 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.38, ptr noundef nonnull %6)
+  %.not587 = icmp eq i32 %375, 0
+  br i1 %.not587, label %378, label %376
 
-378:                                              ; preds = %376
-  %379 = or i32 %.14, 65536
-  br label %420
+376:                                              ; preds = %374
+  %377 = or i32 %.14, 65536
+  br label %418
 
-380:                                              ; preds = %376
-  %381 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.39, ptr noundef nonnull %6)
-  %.not588 = icmp eq i32 %381, 0
-  br i1 %.not588, label %384, label %382
+378:                                              ; preds = %374
+  %379 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.39, ptr noundef nonnull %6)
+  %.not588 = icmp eq i32 %379, 0
+  br i1 %.not588, label %382, label %380
 
-382:                                              ; preds = %380
-  %383 = load i64, ptr %6, align 8
-  %.not589 = icmp eq i64 %383, 0
-  br i1 %.not589, label %420, label %384
+380:                                              ; preds = %378
+  %381 = load i64, ptr %6, align 8
+  %.not589 = icmp eq i64 %381, 0
+  br i1 %.not589, label %418, label %382
 
-384:                                              ; preds = %382, %380
-  %.2506 = phi i32 [ 3, %382 ], [ %.05041237, %380 ]
-  %385 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %6)
-  %.not590 = icmp eq i32 %385, 0
-  br i1 %.not590, label %388, label %386
+382:                                              ; preds = %380, %378
+  %.2506 = phi i32 [ 3, %380 ], [ %.05041237, %378 ]
+  %383 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %6)
+  %.not590 = icmp eq i32 %383, 0
+  br i1 %.not590, label %386, label %384
 
-386:                                              ; preds = %384
-  %387 = or i32 %.2506, 1
-  br label %420
+384:                                              ; preds = %382
+  %385 = or i32 %.2506, 1
+  br label %418
 
-388:                                              ; preds = %384
-  %389 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 104, ptr noundef nonnull @.str.41, ptr noundef nonnull %6)
-  %.not591 = icmp eq i32 %389, 0
-  br i1 %.not591, label %391, label %390
+386:                                              ; preds = %382
+  %387 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 104, ptr noundef nonnull @.str.41, ptr noundef nonnull %6)
+  %.not591 = icmp eq i32 %387, 0
+  br i1 %.not591, label %389, label %388
 
-390:                                              ; preds = %388
+388:                                              ; preds = %386
   tail call fastcc void @usage(i32 noundef 0, i32 noundef 0)
   unreachable
 
-391:                                              ; preds = %388
-  %392 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 86, ptr noundef nonnull @.str.42, ptr noundef nonnull %6)
-  %.not593 = icmp eq i32 %392, 0
-  br i1 %.not593, label %395, label %393
+389:                                              ; preds = %386
+  %390 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 86, ptr noundef nonnull @.str.42, ptr noundef nonnull %6)
+  %.not593 = icmp eq i32 %390, 0
+  br i1 %.not593, label %393, label %391
 
-393:                                              ; preds = %391
-  %394 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef nonnull @.str)
-  br label %739
+391:                                              ; preds = %389
+  %392 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, ptr noundef nonnull @.str)
+  br label %738
 
-395:                                              ; preds = %391
-  %396 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.44, ptr noundef nonnull %6)
-  %.not594 = icmp eq i32 %396, 0
-  br i1 %.not594, label %398, label %397
+393:                                              ; preds = %389
+  %394 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.44, ptr noundef nonnull %6)
+  %.not594 = icmp eq i32 %394, 0
+  br i1 %.not594, label %396, label %395
 
-397:                                              ; preds = %395
+395:                                              ; preds = %393
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.46)
-  br label %739
+  br label %738
 
-398:                                              ; preds = %395
-  %399 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.47, ptr noundef nonnull %6)
-  %.not595 = icmp eq i32 %399, 0
-  br i1 %.not595, label %412, label %400
+396:                                              ; preds = %393
+  %397 = call fastcc i32 @isoption(ptr noundef nonnull %33, i8 noundef signext 0, ptr noundef nonnull @.str.47, ptr noundef nonnull %6)
+  %.not595 = icmp eq i32 %397, 0
+  br i1 %.not595, label %410, label %398
 
-400:                                              ; preds = %398
-  %401 = add nsw i32 %.05071234, 1
-  %402 = and i32 %.14, 65536
+398:                                              ; preds = %396
+  %399 = add nsw i32 %.05071234, 1
+  %400 = and i32 %.14, 65536
+  %401 = icmp ne i32 %400, 0
+  %402 = and i32 %.2506, 1
   %403 = icmp ne i32 %402, 0
-  %404 = and i32 %.2506, 1
-  %405 = icmp ne i32 %404, 0
-  %406 = select i1 %403, i1 true, i1 %405
-  %407 = zext i1 %406 to i32
-  %408 = sub nsw i32 %0, %401
-  %409 = sext i32 %401 to i64
-  %410 = getelementptr inbounds ptr, ptr %1, i64 %409
-  %411 = tail call i32 @jq_testsuite(i64 %.sroa.0294.01235, ptr %.sroa.11.01236, i32 noundef %407, i32 noundef %408, ptr noundef %410) #19
-  br label %739
+  %404 = select i1 %401, i1 true, i1 %403
+  %405 = zext i1 %404 to i32
+  %406 = sub nsw i32 %0, %399
+  %407 = sext i32 %399 to i64
+  %408 = getelementptr inbounds ptr, ptr %1, i64 %407
+  %409 = tail call i32 @jq_testsuite(i64 %.sroa.0294.01235, ptr %.sroa.11.01236, i32 noundef %405, i32 noundef %406, ptr noundef %408) #19
+  br label %738
 
-412:                                              ; preds = %398
-  %413 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #23
-  %414 = load i64, ptr %6, align 8
-  %415 = add i64 %414, 1
-  %.not596 = icmp eq i64 %413, %415
-  br i1 %.not596, label %420, label %416
+410:                                              ; preds = %396
+  %411 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #23
+  %412 = load i64, ptr %6, align 8
+  %413 = add i64 %412, 1
+  %.not596 = icmp eq i64 %411, %413
+  br i1 %.not596, label %418, label %414
 
-416:                                              ; preds = %412
-  %417 = load ptr, ptr @stderr, align 8
-  %418 = load ptr, ptr @progname, align 8
-  %419 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %417, ptr noundef nonnull @.str.48, ptr noundef %418, ptr noundef nonnull %33) #22
+414:                                              ; preds = %410
+  %415 = load ptr, ptr @stderr, align 8
+  %416 = load ptr, ptr @progname, align 8
+  %417 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %415, ptr noundef nonnull @.str.48, ptr noundef %416, ptr noundef nonnull %33) #22
   tail call fastcc void @die()
   unreachable
 
-420:                                              ; preds = %thread-pre-split960.thread, %thread-pre-split939.thread, %thread-pre-split918.thread, %thread-pre-split897.thread, %thread-pre-split860.thread, %thread-pre-split839.thread, %thread-pre-split819.thread, %thread-pre-split811.thread, %thread-pre-split792.thread, %thread-pre-split763.thread, %thread-pre-split.thread, %141, %256, %254, %isoptish.exit.thread741.tail, %51, %78, %74, %46, %412, %382, %251, %98, %112, %386, %378, %374, %326, %288, %247, %243, %239, %230, %210, %180
-  %421 = phi i32 [ %29, %51 ], [ %29, %74 ], [ %29, %78 ], [ %29, %46 ], [ %29, %98 ], [ %29, %112 ], [ %156, %180 ], [ %212, %210 ], [ %237, %230 ], [ %156, %239 ], [ %241, %243 ], [ %241, %247 ], [ %241, %288 ], [ %241, %326 ], [ %241, %374 ], [ %241, %378 ], [ %241, %386 ], [ %241, %412 ], [ %241, %382 ], [ %241, %251 ], [ %29, %141 ], [ %29, %isoptish.exit.thread741.tail ], [ %241, %254 ], [ %241, %256 ], [ %29, %thread-pre-split.thread ], [ %29, %thread-pre-split763.thread ], [ %29, %thread-pre-split792.thread ], [ %153, %thread-pre-split811.thread ], [ %156, %thread-pre-split819.thread ], [ %156, %thread-pre-split839.thread ], [ %156, %thread-pre-split860.thread ], [ %156, %thread-pre-split897.thread ], [ %156, %thread-pre-split918.thread ], [ %156, %thread-pre-split939.thread ], [ %156, %thread-pre-split960.thread ]
-  %.1508 = phi i32 [ %.05071234, %51 ], [ %.05071234, %74 ], [ %.05071234, %78 ], [ %.05071234, %46 ], [ %.05071234, %98 ], [ %113, %112 ], [ %.05071234, %180 ], [ %.05071234, %210 ], [ %220, %230 ], [ %.05071234, %239 ], [ %.05071234, %243 ], [ %.05071234, %247 ], [ %289, %288 ], [ %327, %326 ], [ %375, %374 ], [ %.05071234, %378 ], [ %.05071234, %386 ], [ %.05071234, %412 ], [ %.05071234, %382 ], [ %.05071234, %251 ], [ %.05071234, %141 ], [ %.05071234, %isoptish.exit.thread741.tail ], [ %.05071234, %254 ], [ %.05071234, %256 ], [ %.05071234, %thread-pre-split.thread ], [ %.05071234, %thread-pre-split763.thread ], [ %.05071234, %thread-pre-split792.thread ], [ %.05071234, %thread-pre-split811.thread ], [ %.05071234, %thread-pre-split819.thread ], [ %.05071234, %thread-pre-split839.thread ], [ %.05071234, %thread-pre-split860.thread ], [ %.05071234, %thread-pre-split897.thread ], [ %.05071234, %thread-pre-split918.thread ], [ %.05071234, %thread-pre-split939.thread ], [ %.05071234, %thread-pre-split960.thread ]
-  %.sroa.0294.2 = phi i64 [ %.sroa.0294.01235, %51 ], [ %.sroa.0294.01235, %74 ], [ %.sroa.0294.01235, %78 ], [ %.sroa.0294.01235, %46 ], [ %106, %98 ], [ %124, %112 ], [ %.sroa.0294.01235, %180 ], [ %.sroa.0294.01235, %210 ], [ %.sroa.0294.01235, %230 ], [ %.sroa.0294.01235, %239 ], [ %.sroa.0294.01235, %243 ], [ %.sroa.0294.01235, %247 ], [ %.sroa.0294.01235, %288 ], [ %.sroa.0294.01235, %326 ], [ %.sroa.0294.01235, %374 ], [ %.sroa.0294.01235, %378 ], [ %.sroa.0294.01235, %386 ], [ %.sroa.0294.01235, %412 ], [ %.sroa.0294.01235, %382 ], [ %.sroa.0294.01235, %251 ], [ %.sroa.0294.01235, %141 ], [ %.sroa.0294.01235, %isoptish.exit.thread741.tail ], [ %.sroa.0294.01235, %254 ], [ %.sroa.0294.01235, %256 ], [ %.sroa.0294.01235, %thread-pre-split.thread ], [ %.sroa.0294.01235, %thread-pre-split763.thread ], [ %.sroa.0294.01235, %thread-pre-split792.thread ], [ %.sroa.0294.01235, %thread-pre-split811.thread ], [ %.sroa.0294.01235, %thread-pre-split819.thread ], [ %.sroa.0294.01235, %thread-pre-split839.thread ], [ %.sroa.0294.01235, %thread-pre-split860.thread ], [ %.sroa.0294.01235, %thread-pre-split897.thread ], [ %.sroa.0294.01235, %thread-pre-split918.thread ], [ %.sroa.0294.01235, %thread-pre-split939.thread ], [ %.sroa.0294.01235, %thread-pre-split960.thread ]
-  %.sroa.11.2 = phi ptr [ %.sroa.11.01236, %51 ], [ %.sroa.11.01236, %74 ], [ %.sroa.11.01236, %78 ], [ %.sroa.11.01236, %46 ], [ %107, %98 ], [ %125, %112 ], [ %.sroa.11.01236, %180 ], [ %.sroa.11.01236, %210 ], [ %.sroa.11.01236, %230 ], [ %.sroa.11.01236, %239 ], [ %.sroa.11.01236, %243 ], [ %.sroa.11.01236, %247 ], [ %.sroa.11.01236, %288 ], [ %.sroa.11.01236, %326 ], [ %.sroa.11.01236, %374 ], [ %.sroa.11.01236, %378 ], [ %.sroa.11.01236, %386 ], [ %.sroa.11.01236, %412 ], [ %.sroa.11.01236, %382 ], [ %.sroa.11.01236, %251 ], [ %.sroa.11.01236, %141 ], [ %.sroa.11.01236, %isoptish.exit.thread741.tail ], [ %.sroa.11.01236, %254 ], [ %.sroa.11.01236, %256 ], [ %.sroa.11.01236, %thread-pre-split.thread ], [ %.sroa.11.01236, %thread-pre-split763.thread ], [ %.sroa.11.01236, %thread-pre-split792.thread ], [ %.sroa.11.01236, %thread-pre-split811.thread ], [ %.sroa.11.01236, %thread-pre-split819.thread ], [ %.sroa.11.01236, %thread-pre-split839.thread ], [ %.sroa.11.01236, %thread-pre-split860.thread ], [ %.sroa.11.01236, %thread-pre-split897.thread ], [ %.sroa.11.01236, %thread-pre-split918.thread ], [ %.sroa.11.01236, %thread-pre-split939.thread ], [ %.sroa.11.01236, %thread-pre-split960.thread ]
-  %.1505 = phi i32 [ %.05041237, %51 ], [ %.05041237, %74 ], [ %.05041237, %78 ], [ %.05041237, %46 ], [ %.05041237, %98 ], [ %.05041237, %112 ], [ %.05041237, %180 ], [ %.05041237, %210 ], [ %.05041237, %230 ], [ %.05041237, %239 ], [ %.05041237, %243 ], [ %.05041237, %247 ], [ %.05041237, %288 ], [ %.05041237, %326 ], [ %.05041237, %374 ], [ %.05041237, %378 ], [ %387, %386 ], [ %.2506, %412 ], [ 3, %382 ], [ %.05041237, %251 ], [ %.05041237, %141 ], [ %.05041237, %isoptish.exit.thread741.tail ], [ %.05041237, %254 ], [ %.05041237, %256 ], [ %.05041237, %thread-pre-split.thread ], [ %.05041237, %thread-pre-split763.thread ], [ %.05041237, %thread-pre-split792.thread ], [ %.05041237, %thread-pre-split811.thread ], [ %.05041237, %thread-pre-split819.thread ], [ %.05041237, %thread-pre-split839.thread ], [ %.05041237, %thread-pre-split860.thread ], [ %.05041237, %thread-pre-split897.thread ], [ %.05041237, %thread-pre-split918.thread ], [ %.05041237, %thread-pre-split939.thread ], [ %.05041237, %thread-pre-split960.thread ]
-  %.1503 = phi i32 [ %.05021238, %51 ], [ %.05021238, %74 ], [ %.05021238, %78 ], [ %.05021238, %46 ], [ 0, %98 ], [ 0, %112 ], [ 0, %180 ], [ 0, %210 ], [ 0, %230 ], [ 0, %239 ], [ 0, %243 ], [ 0, %247 ], [ 0, %288 ], [ 0, %326 ], [ 0, %374 ], [ 0, %378 ], [ 0, %386 ], [ 0, %412 ], [ 0, %382 ], [ 0, %251 ], [ 0, %141 ], [ 1, %isoptish.exit.thread741.tail ], [ 0, %254 ], [ 0, %256 ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split763.thread ], [ 0, %thread-pre-split792.thread ], [ 0, %thread-pre-split811.thread ], [ 0, %thread-pre-split819.thread ], [ 0, %thread-pre-split839.thread ], [ 0, %thread-pre-split860.thread ], [ 0, %thread-pre-split897.thread ], [ 0, %thread-pre-split918.thread ], [ 0, %thread-pre-split939.thread ], [ 0, %thread-pre-split960.thread ]
-  %.1501 = phi i32 [ %.05001239, %51 ], [ 1, %74 ], [ 0, %78 ], [ %.05001239, %46 ], [ %.05001239, %98 ], [ %.05001239, %112 ], [ %.05001239, %180 ], [ %.05001239, %210 ], [ %.05001239, %230 ], [ %.05001239, %239 ], [ %.05001239, %243 ], [ %.05001239, %247 ], [ %.05001239, %288 ], [ %.05001239, %326 ], [ %.05001239, %374 ], [ %.05001239, %378 ], [ %.05001239, %386 ], [ %.05001239, %412 ], [ %.05001239, %382 ], [ %.05001239, %251 ], [ %.05001239, %141 ], [ %.05001239, %isoptish.exit.thread741.tail ], [ 0, %254 ], [ 1, %256 ], [ %.05001239, %thread-pre-split.thread ], [ %.05001239, %thread-pre-split763.thread ], [ %.05001239, %thread-pre-split792.thread ], [ %.05001239, %thread-pre-split811.thread ], [ %.05001239, %thread-pre-split819.thread ], [ %.05001239, %thread-pre-split839.thread ], [ %.05001239, %thread-pre-split860.thread ], [ %.05001239, %thread-pre-split897.thread ], [ %.05001239, %thread-pre-split918.thread ], [ %.05001239, %thread-pre-split939.thread ], [ %.05001239, %thread-pre-split960.thread ]
-  %.1499 = phi i32 [ 1, %51 ], [ 0, %74 ], [ 0, %78 ], [ %.04981250, %46 ], [ %.04981250, %98 ], [ %.04981250, %112 ], [ %.04981250, %180 ], [ %.04981250, %210 ], [ %.04981250, %230 ], [ %.04981250, %239 ], [ %.04981250, %243 ], [ %.04981250, %247 ], [ %.04981250, %288 ], [ %.04981250, %326 ], [ %.04981250, %374 ], [ %.04981250, %378 ], [ %.04981250, %386 ], [ %.04981250, %412 ], [ %.04981250, %382 ], [ %.04981250, %251 ], [ %.04981250, %141 ], [ %.04981250, %isoptish.exit.thread741.tail ], [ 1, %254 ], [ 0, %256 ], [ %.04981250, %thread-pre-split.thread ], [ %.04981250, %thread-pre-split763.thread ], [ %.04981250, %thread-pre-split792.thread ], [ %.04981250, %thread-pre-split811.thread ], [ %.04981250, %thread-pre-split819.thread ], [ %.04981250, %thread-pre-split839.thread ], [ %.04981250, %thread-pre-split860.thread ], [ %.04981250, %thread-pre-split897.thread ], [ %.04981250, %thread-pre-split918.thread ], [ %.04981250, %thread-pre-split939.thread ], [ %.04981250, %thread-pre-split960.thread ]
-  %.1496 = phi ptr [ %.04951261, %51 ], [ %.04951261, %74 ], [ %.04951261, %78 ], [ %49, %46 ], [ %.04951261, %98 ], [ %.04951261, %112 ], [ %.04951261, %180 ], [ %.04951261, %210 ], [ %.04951261, %230 ], [ %.04951261, %239 ], [ %.04951261, %243 ], [ %.04951261, %247 ], [ %.04951261, %288 ], [ %.04951261, %326 ], [ %.04951261, %374 ], [ %.04951261, %378 ], [ %.04951261, %386 ], [ %.04951261, %412 ], [ %.04951261, %382 ], [ %.04951261, %251 ], [ %.04951261, %141 ], [ %.04951261, %isoptish.exit.thread741.tail ], [ %.04951261, %254 ], [ %.04951261, %256 ], [ %.04951261, %thread-pre-split.thread ], [ %.04951261, %thread-pre-split763.thread ], [ %.04951261, %thread-pre-split792.thread ], [ %.04951261, %thread-pre-split811.thread ], [ %.04951261, %thread-pre-split819.thread ], [ %.04951261, %thread-pre-split839.thread ], [ %.04951261, %thread-pre-split860.thread ], [ %.04951261, %thread-pre-split897.thread ], [ %.04951261, %thread-pre-split918.thread ], [ %.04951261, %thread-pre-split939.thread ], [ %.04951261, %thread-pre-split960.thread ]
-  %.sroa.0319.2 = phi i64 [ %.sroa.0319.11262, %51 ], [ %.sroa.0319.11262, %74 ], [ %.sroa.0319.11262, %78 ], [ %.sroa.0319.11262, %46 ], [ %.sroa.0319.11262, %98 ], [ %.sroa.0319.11262, %112 ], [ %.sroa.0319.11262, %180 ], [ %.sroa.0319.11262, %210 ], [ %.sroa.0319.11262, %230 ], [ %.sroa.0319.11262, %239 ], [ %.sroa.0319.11262, %243 ], [ %.sroa.0319.11262, %247 ], [ %.sroa.0319.3, %288 ], [ %.sroa.0319.4, %326 ], [ %.sroa.0319.5, %374 ], [ %.sroa.0319.11262, %378 ], [ %.sroa.0319.11262, %386 ], [ %.sroa.0319.11262, %412 ], [ %.sroa.0319.11262, %382 ], [ %.sroa.0319.11262, %251 ], [ %.sroa.0319.11262, %141 ], [ %.sroa.0319.11262, %isoptish.exit.thread741.tail ], [ %.sroa.0319.11262, %254 ], [ %.sroa.0319.11262, %256 ], [ %.sroa.0319.11262, %thread-pre-split.thread ], [ %.sroa.0319.11262, %thread-pre-split763.thread ], [ %.sroa.0319.11262, %thread-pre-split792.thread ], [ %.sroa.0319.11262, %thread-pre-split811.thread ], [ %.sroa.0319.11262, %thread-pre-split819.thread ], [ %.sroa.0319.11262, %thread-pre-split839.thread ], [ %.sroa.0319.11262, %thread-pre-split860.thread ], [ %.sroa.0319.11262, %thread-pre-split897.thread ], [ %.sroa.0319.11262, %thread-pre-split918.thread ], [ %.sroa.0319.11262, %thread-pre-split939.thread ], [ %.sroa.0319.11262, %thread-pre-split960.thread ]
-  %.sroa.25.2 = phi ptr [ %.sroa.25.11263, %51 ], [ %.sroa.25.11263, %74 ], [ %.sroa.25.11263, %78 ], [ %.sroa.25.11263, %46 ], [ %.sroa.25.11263, %98 ], [ %.sroa.25.11263, %112 ], [ %.sroa.25.11263, %180 ], [ %.sroa.25.11263, %210 ], [ %.sroa.25.11263, %230 ], [ %.sroa.25.11263, %239 ], [ %.sroa.25.11263, %243 ], [ %.sroa.25.11263, %247 ], [ %.sroa.25.3, %288 ], [ %.sroa.25.4, %326 ], [ %.sroa.25.5, %374 ], [ %.sroa.25.11263, %378 ], [ %.sroa.25.11263, %386 ], [ %.sroa.25.11263, %412 ], [ %.sroa.25.11263, %382 ], [ %.sroa.25.11263, %251 ], [ %.sroa.25.11263, %141 ], [ %.sroa.25.11263, %isoptish.exit.thread741.tail ], [ %.sroa.25.11263, %254 ], [ %.sroa.25.11263, %256 ], [ %.sroa.25.11263, %thread-pre-split.thread ], [ %.sroa.25.11263, %thread-pre-split763.thread ], [ %.sroa.25.11263, %thread-pre-split792.thread ], [ %.sroa.25.11263, %thread-pre-split811.thread ], [ %.sroa.25.11263, %thread-pre-split819.thread ], [ %.sroa.25.11263, %thread-pre-split839.thread ], [ %.sroa.25.11263, %thread-pre-split860.thread ], [ %.sroa.25.11263, %thread-pre-split897.thread ], [ %.sroa.25.11263, %thread-pre-split918.thread ], [ %.sroa.25.11263, %thread-pre-split939.thread ], [ %.sroa.25.11263, %thread-pre-split960.thread ]
-  %.sroa.0352.2 = phi i64 [ %59, %51 ], [ %76, %74 ], [ %.sroa.0352.11264, %78 ], [ %.sroa.0352.11264, %46 ], [ %.sroa.0352.11264, %98 ], [ %.sroa.0352.11264, %112 ], [ %.sroa.0352.11264, %180 ], [ %.sroa.0352.11264, %210 ], [ %.sroa.0352.11264, %230 ], [ %.sroa.0352.11264, %239 ], [ %.sroa.0352.11264, %243 ], [ %.sroa.0352.11264, %247 ], [ %.sroa.0352.11264, %288 ], [ %.sroa.0352.11264, %326 ], [ %.sroa.0352.11264, %374 ], [ %.sroa.0352.11264, %378 ], [ %.sroa.0352.11264, %386 ], [ %.sroa.0352.11264, %412 ], [ %.sroa.0352.11264, %382 ], [ %.sroa.0352.11264, %251 ], [ %.sroa.0352.11264, %141 ], [ %.sroa.0352.11264, %isoptish.exit.thread741.tail ], [ %.sroa.0352.11264, %254 ], [ %.sroa.0352.11264, %256 ], [ %.sroa.0352.11264, %thread-pre-split.thread ], [ %.sroa.0352.11264, %thread-pre-split763.thread ], [ %.sroa.0352.11264, %thread-pre-split792.thread ], [ %.sroa.0352.11264, %thread-pre-split811.thread ], [ %.sroa.0352.11264, %thread-pre-split819.thread ], [ %.sroa.0352.11264, %thread-pre-split839.thread ], [ %.sroa.0352.11264, %thread-pre-split860.thread ], [ %.sroa.0352.11264, %thread-pre-split897.thread ], [ %.sroa.0352.11264, %thread-pre-split918.thread ], [ %.sroa.0352.11264, %thread-pre-split939.thread ], [ %.sroa.0352.11264, %thread-pre-split960.thread ]
-  %.sroa.12.2 = phi ptr [ %60, %51 ], [ %77, %74 ], [ %.sroa.12.11265, %78 ], [ %.sroa.12.11265, %46 ], [ %.sroa.12.11265, %98 ], [ %.sroa.12.11265, %112 ], [ %.sroa.12.11265, %180 ], [ %.sroa.12.11265, %210 ], [ %.sroa.12.11265, %230 ], [ %.sroa.12.11265, %239 ], [ %.sroa.12.11265, %243 ], [ %.sroa.12.11265, %247 ], [ %.sroa.12.11265, %288 ], [ %.sroa.12.11265, %326 ], [ %.sroa.12.11265, %374 ], [ %.sroa.12.11265, %378 ], [ %.sroa.12.11265, %386 ], [ %.sroa.12.11265, %412 ], [ %.sroa.12.11265, %382 ], [ %.sroa.12.11265, %251 ], [ %.sroa.12.11265, %141 ], [ %.sroa.12.11265, %isoptish.exit.thread741.tail ], [ %.sroa.12.11265, %254 ], [ %.sroa.12.11265, %256 ], [ %.sroa.12.11265, %thread-pre-split.thread ], [ %.sroa.12.11265, %thread-pre-split763.thread ], [ %.sroa.12.11265, %thread-pre-split792.thread ], [ %.sroa.12.11265, %thread-pre-split811.thread ], [ %.sroa.12.11265, %thread-pre-split819.thread ], [ %.sroa.12.11265, %thread-pre-split839.thread ], [ %.sroa.12.11265, %thread-pre-split860.thread ], [ %.sroa.12.11265, %thread-pre-split897.thread ], [ %.sroa.12.11265, %thread-pre-split918.thread ], [ %.sroa.12.11265, %thread-pre-split939.thread ], [ %.sroa.12.11265, %thread-pre-split960.thread ]
-  %.2493 = phi i32 [ %.14921266, %51 ], [ %.14921266, %74 ], [ %.14921266, %78 ], [ %.14921266, %46 ], [ %.14921266, %98 ], [ %.14921266, %112 ], [ %181, %180 ], [ %.67978008051473, %210 ], [ %.67978008051473, %230 ], [ %240, %239 ], [ %.1396597498398699910021014, %243 ], [ %.1396597498398699910021014, %247 ], [ %.14, %288 ], [ %.14, %326 ], [ %.14, %374 ], [ %379, %378 ], [ %.14, %386 ], [ %.14, %412 ], [ %.14, %382 ], [ %252, %251 ], [ %142, %141 ], [ %.14921266, %isoptish.exit.thread741.tail ], [ %.14, %254 ], [ %.14, %256 ], [ %130, %thread-pre-split.thread ], [ %136, %thread-pre-split763.thread ], [ %146, %thread-pre-split792.thread ], [ %.14921266, %thread-pre-split811.thread ], [ %163, %thread-pre-split819.thread ], [ %169, %thread-pre-split839.thread ], [ %175, %thread-pre-split860.thread ], [ %184, %thread-pre-split897.thread ], [ %190, %thread-pre-split918.thread ], [ %196, %thread-pre-split939.thread ], [ %202, %thread-pre-split960.thread ]
-  %.1486 = phi i32 [ %.04851267, %51 ], [ %.04851267, %74 ], [ %79, %78 ], [ %.04851267, %46 ], [ %.04851267, %98 ], [ %.04851267, %112 ], [ %.04851267, %180 ], [ %.04851267, %210 ], [ %.04851267, %230 ], [ %.04851267, %239 ], [ %.04851267, %243 ], [ %.04851267, %247 ], [ %.04851267, %288 ], [ %.04851267, %326 ], [ %.04851267, %374 ], [ %.04851267, %378 ], [ %.04851267, %386 ], [ %.04851267, %412 ], [ %.04851267, %382 ], [ %.04851267, %251 ], [ %.04851267, %141 ], [ %.04851267, %isoptish.exit.thread741.tail ], [ %.04851267, %254 ], [ %.04851267, %256 ], [ %.04851267, %thread-pre-split.thread ], [ %.04851267, %thread-pre-split763.thread ], [ %.04851267, %thread-pre-split792.thread ], [ %.04851267, %thread-pre-split811.thread ], [ %.04851267, %thread-pre-split819.thread ], [ %.04851267, %thread-pre-split839.thread ], [ %.04851267, %thread-pre-split860.thread ], [ %.04851267, %thread-pre-split897.thread ], [ %.04851267, %thread-pre-split918.thread ], [ %.04851267, %thread-pre-split939.thread ], [ %.04851267, %thread-pre-split960.thread ]
-  %.1483 = phi i32 [ %.04821268, %51 ], [ %.04821268, %74 ], [ %.04821268, %78 ], [ %.04821268, %46 ], [ %.04821268, %98 ], [ %.04821268, %112 ], [ %.04821268, %180 ], [ %.04821268, %210 ], [ %.04821268, %230 ], [ %.04821268, %239 ], [ %244, %243 ], [ %248, %247 ], [ %.04821268, %288 ], [ %.04821268, %326 ], [ %.04821268, %374 ], [ %.04821268, %378 ], [ %.04821268, %386 ], [ %.04821268, %412 ], [ %.04821268, %382 ], [ %.04821268, %251 ], [ %.04821268, %141 ], [ %.04821268, %isoptish.exit.thread741.tail ], [ %.04821268, %254 ], [ %.04821268, %256 ], [ %.04821268, %thread-pre-split.thread ], [ %.04821268, %thread-pre-split763.thread ], [ %.04821268, %thread-pre-split792.thread ], [ %.04821268, %thread-pre-split811.thread ], [ %.04821268, %thread-pre-split819.thread ], [ %.04821268, %thread-pre-split839.thread ], [ %.04821268, %thread-pre-split860.thread ], [ %.04821268, %thread-pre-split897.thread ], [ %.04821268, %thread-pre-split918.thread ], [ %.04821268, %thread-pre-split939.thread ], [ %.04821268, %thread-pre-split960.thread ]
-  %422 = add nsw i32 %.1508, 1
+418:                                              ; preds = %thread-pre-split960.thread, %thread-pre-split939.thread, %thread-pre-split918.thread, %thread-pre-split897.thread, %thread-pre-split860.thread, %thread-pre-split839.thread, %thread-pre-split819.thread, %thread-pre-split811.thread, %thread-pre-split792.thread, %thread-pre-split763.thread, %thread-pre-split.thread, %138, %254, %252, %isoptish.exit.thread741.tail, %51, %78, %74, %46, %410, %380, %249, %95, %109, %384, %376, %372, %324, %286, %245, %241, %237, %228, %208, %178
+  %419 = phi i32 [ %29, %51 ], [ %29, %74 ], [ %29, %78 ], [ %29, %46 ], [ %29, %95 ], [ %29, %109 ], [ %154, %178 ], [ %210, %208 ], [ %235, %228 ], [ %154, %237 ], [ %239, %241 ], [ %239, %245 ], [ %239, %286 ], [ %239, %324 ], [ %239, %372 ], [ %239, %376 ], [ %239, %384 ], [ %239, %410 ], [ %239, %380 ], [ %239, %249 ], [ %29, %138 ], [ %29, %isoptish.exit.thread741.tail ], [ %239, %252 ], [ %239, %254 ], [ %29, %thread-pre-split.thread ], [ %29, %thread-pre-split763.thread ], [ %29, %thread-pre-split792.thread ], [ %150, %thread-pre-split811.thread ], [ %154, %thread-pre-split819.thread ], [ %154, %thread-pre-split839.thread ], [ %154, %thread-pre-split860.thread ], [ %154, %thread-pre-split897.thread ], [ %154, %thread-pre-split918.thread ], [ %154, %thread-pre-split939.thread ], [ %154, %thread-pre-split960.thread ]
+  %.1508 = phi i32 [ %.05071234, %51 ], [ %.05071234, %74 ], [ %.05071234, %78 ], [ %.05071234, %46 ], [ %.05071234, %95 ], [ %110, %109 ], [ %.05071234, %178 ], [ %.05071234, %208 ], [ %218, %228 ], [ %.05071234, %237 ], [ %.05071234, %241 ], [ %.05071234, %245 ], [ %287, %286 ], [ %325, %324 ], [ %373, %372 ], [ %.05071234, %376 ], [ %.05071234, %384 ], [ %.05071234, %410 ], [ %.05071234, %380 ], [ %.05071234, %249 ], [ %.05071234, %138 ], [ %.05071234, %isoptish.exit.thread741.tail ], [ %.05071234, %252 ], [ %.05071234, %254 ], [ %.05071234, %thread-pre-split.thread ], [ %.05071234, %thread-pre-split763.thread ], [ %.05071234, %thread-pre-split792.thread ], [ %.05071234, %thread-pre-split811.thread ], [ %.05071234, %thread-pre-split819.thread ], [ %.05071234, %thread-pre-split839.thread ], [ %.05071234, %thread-pre-split860.thread ], [ %.05071234, %thread-pre-split897.thread ], [ %.05071234, %thread-pre-split918.thread ], [ %.05071234, %thread-pre-split939.thread ], [ %.05071234, %thread-pre-split960.thread ]
+  %.sroa.0294.2 = phi i64 [ %.sroa.0294.01235, %51 ], [ %.sroa.0294.01235, %74 ], [ %.sroa.0294.01235, %78 ], [ %.sroa.0294.01235, %46 ], [ %103, %95 ], [ %121, %109 ], [ %.sroa.0294.01235, %178 ], [ %.sroa.0294.01235, %208 ], [ %.sroa.0294.01235, %228 ], [ %.sroa.0294.01235, %237 ], [ %.sroa.0294.01235, %241 ], [ %.sroa.0294.01235, %245 ], [ %.sroa.0294.01235, %286 ], [ %.sroa.0294.01235, %324 ], [ %.sroa.0294.01235, %372 ], [ %.sroa.0294.01235, %376 ], [ %.sroa.0294.01235, %384 ], [ %.sroa.0294.01235, %410 ], [ %.sroa.0294.01235, %380 ], [ %.sroa.0294.01235, %249 ], [ %.sroa.0294.01235, %138 ], [ %.sroa.0294.01235, %isoptish.exit.thread741.tail ], [ %.sroa.0294.01235, %252 ], [ %.sroa.0294.01235, %254 ], [ %.sroa.0294.01235, %thread-pre-split.thread ], [ %.sroa.0294.01235, %thread-pre-split763.thread ], [ %.sroa.0294.01235, %thread-pre-split792.thread ], [ %.sroa.0294.01235, %thread-pre-split811.thread ], [ %.sroa.0294.01235, %thread-pre-split819.thread ], [ %.sroa.0294.01235, %thread-pre-split839.thread ], [ %.sroa.0294.01235, %thread-pre-split860.thread ], [ %.sroa.0294.01235, %thread-pre-split897.thread ], [ %.sroa.0294.01235, %thread-pre-split918.thread ], [ %.sroa.0294.01235, %thread-pre-split939.thread ], [ %.sroa.0294.01235, %thread-pre-split960.thread ]
+  %.sroa.11.2 = phi ptr [ %.sroa.11.01236, %51 ], [ %.sroa.11.01236, %74 ], [ %.sroa.11.01236, %78 ], [ %.sroa.11.01236, %46 ], [ %104, %95 ], [ %122, %109 ], [ %.sroa.11.01236, %178 ], [ %.sroa.11.01236, %208 ], [ %.sroa.11.01236, %228 ], [ %.sroa.11.01236, %237 ], [ %.sroa.11.01236, %241 ], [ %.sroa.11.01236, %245 ], [ %.sroa.11.01236, %286 ], [ %.sroa.11.01236, %324 ], [ %.sroa.11.01236, %372 ], [ %.sroa.11.01236, %376 ], [ %.sroa.11.01236, %384 ], [ %.sroa.11.01236, %410 ], [ %.sroa.11.01236, %380 ], [ %.sroa.11.01236, %249 ], [ %.sroa.11.01236, %138 ], [ %.sroa.11.01236, %isoptish.exit.thread741.tail ], [ %.sroa.11.01236, %252 ], [ %.sroa.11.01236, %254 ], [ %.sroa.11.01236, %thread-pre-split.thread ], [ %.sroa.11.01236, %thread-pre-split763.thread ], [ %.sroa.11.01236, %thread-pre-split792.thread ], [ %.sroa.11.01236, %thread-pre-split811.thread ], [ %.sroa.11.01236, %thread-pre-split819.thread ], [ %.sroa.11.01236, %thread-pre-split839.thread ], [ %.sroa.11.01236, %thread-pre-split860.thread ], [ %.sroa.11.01236, %thread-pre-split897.thread ], [ %.sroa.11.01236, %thread-pre-split918.thread ], [ %.sroa.11.01236, %thread-pre-split939.thread ], [ %.sroa.11.01236, %thread-pre-split960.thread ]
+  %.1505 = phi i32 [ %.05041237, %51 ], [ %.05041237, %74 ], [ %.05041237, %78 ], [ %.05041237, %46 ], [ %.05041237, %95 ], [ %.05041237, %109 ], [ %.05041237, %178 ], [ %.05041237, %208 ], [ %.05041237, %228 ], [ %.05041237, %237 ], [ %.05041237, %241 ], [ %.05041237, %245 ], [ %.05041237, %286 ], [ %.05041237, %324 ], [ %.05041237, %372 ], [ %.05041237, %376 ], [ %385, %384 ], [ %.2506, %410 ], [ 3, %380 ], [ %.05041237, %249 ], [ %.05041237, %138 ], [ %.05041237, %isoptish.exit.thread741.tail ], [ %.05041237, %252 ], [ %.05041237, %254 ], [ %.05041237, %thread-pre-split.thread ], [ %.05041237, %thread-pre-split763.thread ], [ %.05041237, %thread-pre-split792.thread ], [ %.05041237, %thread-pre-split811.thread ], [ %.05041237, %thread-pre-split819.thread ], [ %.05041237, %thread-pre-split839.thread ], [ %.05041237, %thread-pre-split860.thread ], [ %.05041237, %thread-pre-split897.thread ], [ %.05041237, %thread-pre-split918.thread ], [ %.05041237, %thread-pre-split939.thread ], [ %.05041237, %thread-pre-split960.thread ]
+  %.1503 = phi i32 [ %.05021238, %51 ], [ %.05021238, %74 ], [ %.05021238, %78 ], [ %.05021238, %46 ], [ 0, %95 ], [ 0, %109 ], [ 0, %178 ], [ 0, %208 ], [ 0, %228 ], [ 0, %237 ], [ 0, %241 ], [ 0, %245 ], [ 0, %286 ], [ 0, %324 ], [ 0, %372 ], [ 0, %376 ], [ 0, %384 ], [ 0, %410 ], [ 0, %380 ], [ 0, %249 ], [ 0, %138 ], [ 1, %isoptish.exit.thread741.tail ], [ 0, %252 ], [ 0, %254 ], [ 0, %thread-pre-split.thread ], [ 0, %thread-pre-split763.thread ], [ 0, %thread-pre-split792.thread ], [ 0, %thread-pre-split811.thread ], [ 0, %thread-pre-split819.thread ], [ 0, %thread-pre-split839.thread ], [ 0, %thread-pre-split860.thread ], [ 0, %thread-pre-split897.thread ], [ 0, %thread-pre-split918.thread ], [ 0, %thread-pre-split939.thread ], [ 0, %thread-pre-split960.thread ]
+  %.1501 = phi i32 [ %.05001239, %51 ], [ 1, %74 ], [ 0, %78 ], [ %.05001239, %46 ], [ %.05001239, %95 ], [ %.05001239, %109 ], [ %.05001239, %178 ], [ %.05001239, %208 ], [ %.05001239, %228 ], [ %.05001239, %237 ], [ %.05001239, %241 ], [ %.05001239, %245 ], [ %.05001239, %286 ], [ %.05001239, %324 ], [ %.05001239, %372 ], [ %.05001239, %376 ], [ %.05001239, %384 ], [ %.05001239, %410 ], [ %.05001239, %380 ], [ %.05001239, %249 ], [ %.05001239, %138 ], [ %.05001239, %isoptish.exit.thread741.tail ], [ 0, %252 ], [ 1, %254 ], [ %.05001239, %thread-pre-split.thread ], [ %.05001239, %thread-pre-split763.thread ], [ %.05001239, %thread-pre-split792.thread ], [ %.05001239, %thread-pre-split811.thread ], [ %.05001239, %thread-pre-split819.thread ], [ %.05001239, %thread-pre-split839.thread ], [ %.05001239, %thread-pre-split860.thread ], [ %.05001239, %thread-pre-split897.thread ], [ %.05001239, %thread-pre-split918.thread ], [ %.05001239, %thread-pre-split939.thread ], [ %.05001239, %thread-pre-split960.thread ]
+  %.1499 = phi i32 [ 1, %51 ], [ 0, %74 ], [ 0, %78 ], [ %.04981250, %46 ], [ %.04981250, %95 ], [ %.04981250, %109 ], [ %.04981250, %178 ], [ %.04981250, %208 ], [ %.04981250, %228 ], [ %.04981250, %237 ], [ %.04981250, %241 ], [ %.04981250, %245 ], [ %.04981250, %286 ], [ %.04981250, %324 ], [ %.04981250, %372 ], [ %.04981250, %376 ], [ %.04981250, %384 ], [ %.04981250, %410 ], [ %.04981250, %380 ], [ %.04981250, %249 ], [ %.04981250, %138 ], [ %.04981250, %isoptish.exit.thread741.tail ], [ 1, %252 ], [ 0, %254 ], [ %.04981250, %thread-pre-split.thread ], [ %.04981250, %thread-pre-split763.thread ], [ %.04981250, %thread-pre-split792.thread ], [ %.04981250, %thread-pre-split811.thread ], [ %.04981250, %thread-pre-split819.thread ], [ %.04981250, %thread-pre-split839.thread ], [ %.04981250, %thread-pre-split860.thread ], [ %.04981250, %thread-pre-split897.thread ], [ %.04981250, %thread-pre-split918.thread ], [ %.04981250, %thread-pre-split939.thread ], [ %.04981250, %thread-pre-split960.thread ]
+  %.1496 = phi ptr [ %.04951261, %51 ], [ %.04951261, %74 ], [ %.04951261, %78 ], [ %49, %46 ], [ %.04951261, %95 ], [ %.04951261, %109 ], [ %.04951261, %178 ], [ %.04951261, %208 ], [ %.04951261, %228 ], [ %.04951261, %237 ], [ %.04951261, %241 ], [ %.04951261, %245 ], [ %.04951261, %286 ], [ %.04951261, %324 ], [ %.04951261, %372 ], [ %.04951261, %376 ], [ %.04951261, %384 ], [ %.04951261, %410 ], [ %.04951261, %380 ], [ %.04951261, %249 ], [ %.04951261, %138 ], [ %.04951261, %isoptish.exit.thread741.tail ], [ %.04951261, %252 ], [ %.04951261, %254 ], [ %.04951261, %thread-pre-split.thread ], [ %.04951261, %thread-pre-split763.thread ], [ %.04951261, %thread-pre-split792.thread ], [ %.04951261, %thread-pre-split811.thread ], [ %.04951261, %thread-pre-split819.thread ], [ %.04951261, %thread-pre-split839.thread ], [ %.04951261, %thread-pre-split860.thread ], [ %.04951261, %thread-pre-split897.thread ], [ %.04951261, %thread-pre-split918.thread ], [ %.04951261, %thread-pre-split939.thread ], [ %.04951261, %thread-pre-split960.thread ]
+  %.sroa.0319.2 = phi i64 [ %.sroa.0319.11262, %51 ], [ %.sroa.0319.11262, %74 ], [ %.sroa.0319.11262, %78 ], [ %.sroa.0319.11262, %46 ], [ %.sroa.0319.11262, %95 ], [ %.sroa.0319.11262, %109 ], [ %.sroa.0319.11262, %178 ], [ %.sroa.0319.11262, %208 ], [ %.sroa.0319.11262, %228 ], [ %.sroa.0319.11262, %237 ], [ %.sroa.0319.11262, %241 ], [ %.sroa.0319.11262, %245 ], [ %.sroa.0319.3, %286 ], [ %.sroa.0319.4, %324 ], [ %.sroa.0319.5, %372 ], [ %.sroa.0319.11262, %376 ], [ %.sroa.0319.11262, %384 ], [ %.sroa.0319.11262, %410 ], [ %.sroa.0319.11262, %380 ], [ %.sroa.0319.11262, %249 ], [ %.sroa.0319.11262, %138 ], [ %.sroa.0319.11262, %isoptish.exit.thread741.tail ], [ %.sroa.0319.11262, %252 ], [ %.sroa.0319.11262, %254 ], [ %.sroa.0319.11262, %thread-pre-split.thread ], [ %.sroa.0319.11262, %thread-pre-split763.thread ], [ %.sroa.0319.11262, %thread-pre-split792.thread ], [ %.sroa.0319.11262, %thread-pre-split811.thread ], [ %.sroa.0319.11262, %thread-pre-split819.thread ], [ %.sroa.0319.11262, %thread-pre-split839.thread ], [ %.sroa.0319.11262, %thread-pre-split860.thread ], [ %.sroa.0319.11262, %thread-pre-split897.thread ], [ %.sroa.0319.11262, %thread-pre-split918.thread ], [ %.sroa.0319.11262, %thread-pre-split939.thread ], [ %.sroa.0319.11262, %thread-pre-split960.thread ]
+  %.sroa.25.2 = phi ptr [ %.sroa.25.11263, %51 ], [ %.sroa.25.11263, %74 ], [ %.sroa.25.11263, %78 ], [ %.sroa.25.11263, %46 ], [ %.sroa.25.11263, %95 ], [ %.sroa.25.11263, %109 ], [ %.sroa.25.11263, %178 ], [ %.sroa.25.11263, %208 ], [ %.sroa.25.11263, %228 ], [ %.sroa.25.11263, %237 ], [ %.sroa.25.11263, %241 ], [ %.sroa.25.11263, %245 ], [ %.sroa.25.3, %286 ], [ %.sroa.25.4, %324 ], [ %.sroa.25.5, %372 ], [ %.sroa.25.11263, %376 ], [ %.sroa.25.11263, %384 ], [ %.sroa.25.11263, %410 ], [ %.sroa.25.11263, %380 ], [ %.sroa.25.11263, %249 ], [ %.sroa.25.11263, %138 ], [ %.sroa.25.11263, %isoptish.exit.thread741.tail ], [ %.sroa.25.11263, %252 ], [ %.sroa.25.11263, %254 ], [ %.sroa.25.11263, %thread-pre-split.thread ], [ %.sroa.25.11263, %thread-pre-split763.thread ], [ %.sroa.25.11263, %thread-pre-split792.thread ], [ %.sroa.25.11263, %thread-pre-split811.thread ], [ %.sroa.25.11263, %thread-pre-split819.thread ], [ %.sroa.25.11263, %thread-pre-split839.thread ], [ %.sroa.25.11263, %thread-pre-split860.thread ], [ %.sroa.25.11263, %thread-pre-split897.thread ], [ %.sroa.25.11263, %thread-pre-split918.thread ], [ %.sroa.25.11263, %thread-pre-split939.thread ], [ %.sroa.25.11263, %thread-pre-split960.thread ]
+  %.sroa.0352.2 = phi i64 [ %59, %51 ], [ %76, %74 ], [ %.sroa.0352.11264, %78 ], [ %.sroa.0352.11264, %46 ], [ %.sroa.0352.11264, %95 ], [ %.sroa.0352.11264, %109 ], [ %.sroa.0352.11264, %178 ], [ %.sroa.0352.11264, %208 ], [ %.sroa.0352.11264, %228 ], [ %.sroa.0352.11264, %237 ], [ %.sroa.0352.11264, %241 ], [ %.sroa.0352.11264, %245 ], [ %.sroa.0352.11264, %286 ], [ %.sroa.0352.11264, %324 ], [ %.sroa.0352.11264, %372 ], [ %.sroa.0352.11264, %376 ], [ %.sroa.0352.11264, %384 ], [ %.sroa.0352.11264, %410 ], [ %.sroa.0352.11264, %380 ], [ %.sroa.0352.11264, %249 ], [ %.sroa.0352.11264, %138 ], [ %.sroa.0352.11264, %isoptish.exit.thread741.tail ], [ %.sroa.0352.11264, %252 ], [ %.sroa.0352.11264, %254 ], [ %.sroa.0352.11264, %thread-pre-split.thread ], [ %.sroa.0352.11264, %thread-pre-split763.thread ], [ %.sroa.0352.11264, %thread-pre-split792.thread ], [ %.sroa.0352.11264, %thread-pre-split811.thread ], [ %.sroa.0352.11264, %thread-pre-split819.thread ], [ %.sroa.0352.11264, %thread-pre-split839.thread ], [ %.sroa.0352.11264, %thread-pre-split860.thread ], [ %.sroa.0352.11264, %thread-pre-split897.thread ], [ %.sroa.0352.11264, %thread-pre-split918.thread ], [ %.sroa.0352.11264, %thread-pre-split939.thread ], [ %.sroa.0352.11264, %thread-pre-split960.thread ]
+  %.sroa.12.2 = phi ptr [ %60, %51 ], [ %77, %74 ], [ %.sroa.12.11265, %78 ], [ %.sroa.12.11265, %46 ], [ %.sroa.12.11265, %95 ], [ %.sroa.12.11265, %109 ], [ %.sroa.12.11265, %178 ], [ %.sroa.12.11265, %208 ], [ %.sroa.12.11265, %228 ], [ %.sroa.12.11265, %237 ], [ %.sroa.12.11265, %241 ], [ %.sroa.12.11265, %245 ], [ %.sroa.12.11265, %286 ], [ %.sroa.12.11265, %324 ], [ %.sroa.12.11265, %372 ], [ %.sroa.12.11265, %376 ], [ %.sroa.12.11265, %384 ], [ %.sroa.12.11265, %410 ], [ %.sroa.12.11265, %380 ], [ %.sroa.12.11265, %249 ], [ %.sroa.12.11265, %138 ], [ %.sroa.12.11265, %isoptish.exit.thread741.tail ], [ %.sroa.12.11265, %252 ], [ %.sroa.12.11265, %254 ], [ %.sroa.12.11265, %thread-pre-split.thread ], [ %.sroa.12.11265, %thread-pre-split763.thread ], [ %.sroa.12.11265, %thread-pre-split792.thread ], [ %.sroa.12.11265, %thread-pre-split811.thread ], [ %.sroa.12.11265, %thread-pre-split819.thread ], [ %.sroa.12.11265, %thread-pre-split839.thread ], [ %.sroa.12.11265, %thread-pre-split860.thread ], [ %.sroa.12.11265, %thread-pre-split897.thread ], [ %.sroa.12.11265, %thread-pre-split918.thread ], [ %.sroa.12.11265, %thread-pre-split939.thread ], [ %.sroa.12.11265, %thread-pre-split960.thread ]
+  %.2493 = phi i32 [ %.14921266, %51 ], [ %.14921266, %74 ], [ %.14921266, %78 ], [ %.14921266, %46 ], [ %.14921266, %95 ], [ %.14921266, %109 ], [ %179, %178 ], [ %.67978008051473, %208 ], [ %.67978008051473, %228 ], [ %238, %237 ], [ %.1396597498398699910021014, %241 ], [ %.1396597498398699910021014, %245 ], [ %.14, %286 ], [ %.14, %324 ], [ %.14, %372 ], [ %377, %376 ], [ %.14, %384 ], [ %.14, %410 ], [ %.14, %380 ], [ %250, %249 ], [ %139, %138 ], [ %.14921266, %isoptish.exit.thread741.tail ], [ %.14, %252 ], [ %.14, %254 ], [ %127, %thread-pre-split.thread ], [ %133, %thread-pre-split763.thread ], [ %143, %thread-pre-split792.thread ], [ %.14921266, %thread-pre-split811.thread ], [ %161, %thread-pre-split819.thread ], [ %167, %thread-pre-split839.thread ], [ %173, %thread-pre-split860.thread ], [ %182, %thread-pre-split897.thread ], [ %188, %thread-pre-split918.thread ], [ %194, %thread-pre-split939.thread ], [ %200, %thread-pre-split960.thread ]
+  %.1486 = phi i32 [ %.04851267, %51 ], [ %.04851267, %74 ], [ %79, %78 ], [ %.04851267, %46 ], [ %.04851267, %95 ], [ %.04851267, %109 ], [ %.04851267, %178 ], [ %.04851267, %208 ], [ %.04851267, %228 ], [ %.04851267, %237 ], [ %.04851267, %241 ], [ %.04851267, %245 ], [ %.04851267, %286 ], [ %.04851267, %324 ], [ %.04851267, %372 ], [ %.04851267, %376 ], [ %.04851267, %384 ], [ %.04851267, %410 ], [ %.04851267, %380 ], [ %.04851267, %249 ], [ %.04851267, %138 ], [ %.04851267, %isoptish.exit.thread741.tail ], [ %.04851267, %252 ], [ %.04851267, %254 ], [ %.04851267, %thread-pre-split.thread ], [ %.04851267, %thread-pre-split763.thread ], [ %.04851267, %thread-pre-split792.thread ], [ %.04851267, %thread-pre-split811.thread ], [ %.04851267, %thread-pre-split819.thread ], [ %.04851267, %thread-pre-split839.thread ], [ %.04851267, %thread-pre-split860.thread ], [ %.04851267, %thread-pre-split897.thread ], [ %.04851267, %thread-pre-split918.thread ], [ %.04851267, %thread-pre-split939.thread ], [ %.04851267, %thread-pre-split960.thread ]
+  %.1483 = phi i32 [ %.04821268, %51 ], [ %.04821268, %74 ], [ %.04821268, %78 ], [ %.04821268, %46 ], [ %.04821268, %95 ], [ %.04821268, %109 ], [ %.04821268, %178 ], [ %.04821268, %208 ], [ %.04821268, %228 ], [ %.04821268, %237 ], [ %242, %241 ], [ %246, %245 ], [ %.04821268, %286 ], [ %.04821268, %324 ], [ %.04821268, %372 ], [ %.04821268, %376 ], [ %.04821268, %384 ], [ %.04821268, %410 ], [ %.04821268, %380 ], [ %.04821268, %249 ], [ %.04821268, %138 ], [ %.04821268, %isoptish.exit.thread741.tail ], [ %.04821268, %252 ], [ %.04821268, %254 ], [ %.04821268, %thread-pre-split.thread ], [ %.04821268, %thread-pre-split763.thread ], [ %.04821268, %thread-pre-split792.thread ], [ %.04821268, %thread-pre-split811.thread ], [ %.04821268, %thread-pre-split819.thread ], [ %.04821268, %thread-pre-split839.thread ], [ %.04821268, %thread-pre-split860.thread ], [ %.04821268, %thread-pre-split897.thread ], [ %.04821268, %thread-pre-split918.thread ], [ %.04821268, %thread-pre-split939.thread ], [ %.04821268, %thread-pre-split960.thread ]
+  %420 = freeze i32 %.2493
+  %421 = add nsw i32 %.1508, 1
   store i64 0, ptr %6, align 8
-  %423 = icmp slt i32 %422, %0
-  br i1 %423, label %28, label %._crit_edge, !llvm.loop !5
+  %422 = icmp slt i32 %421, %0
+  br i1 %422, label %28, label %._crit_edge.loopexit, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %420, %20
-  %424 = phi i32 [ 513, %20 ], [ %421, %420 ]
-  %.sroa.0294.0.lcssa = phi i64 [ %23, %20 ], [ %.sroa.0294.2, %420 ]
-  %.sroa.11.0.lcssa = phi ptr [ %24, %20 ], [ %.sroa.11.2, %420 ]
-  %.0504.lcssa = phi i32 [ 0, %20 ], [ %.1505, %420 ]
-  %.0495.lcssa = phi ptr [ null, %20 ], [ %.1496, %420 ]
-  %.sroa.0319.1.lcssa = phi i64 [ %12, %20 ], [ %.sroa.0319.2, %420 ]
-  %.sroa.25.1.lcssa = phi ptr [ %13, %20 ], [ %.sroa.25.2, %420 ]
-  %.sroa.0352.1.lcssa = phi i64 [ %9, %20 ], [ %.sroa.0352.2, %420 ]
-  %.sroa.12.1.lcssa = phi ptr [ %10, %20 ], [ %.sroa.12.2, %420 ]
-  %.1492.lcssa = phi i32 [ 0, %20 ], [ %.2493, %420 ]
-  %.0485.lcssa = phi i32 [ 0, %20 ], [ %.1486, %420 ]
-  %.0482.lcssa = phi i32 [ 0, %20 ], [ %.1483, %420 ]
-  %.1492.lcssa.fr = freeze i32 %.1492.lcssa
+._crit_edge.loopexit:                             ; preds = %418
+  %423 = icmp eq i32 %.1486, 0
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %20
+  %424 = phi i32 [ 513, %20 ], [ %419, %._crit_edge.loopexit ]
+  %.sroa.0294.0.lcssa = phi i64 [ %23, %20 ], [ %.sroa.0294.2, %._crit_edge.loopexit ]
+  %.sroa.11.0.lcssa = phi ptr [ %24, %20 ], [ %.sroa.11.2, %._crit_edge.loopexit ]
+  %.0504.lcssa = phi i32 [ 0, %20 ], [ %.1505, %._crit_edge.loopexit ]
+  %.0495.lcssa = phi ptr [ null, %20 ], [ %.1496, %._crit_edge.loopexit ]
+  %.sroa.0319.1.lcssa = phi i64 [ %12, %20 ], [ %.sroa.0319.2, %._crit_edge.loopexit ]
+  %.sroa.25.1.lcssa = phi ptr [ %13, %20 ], [ %.sroa.25.2, %._crit_edge.loopexit ]
+  %.sroa.0352.1.lcssa = phi i64 [ %9, %20 ], [ %.sroa.0352.2, %._crit_edge.loopexit ]
+  %.sroa.12.1.lcssa = phi ptr [ %10, %20 ], [ %.sroa.12.2, %._crit_edge.loopexit ]
+  %.1492.lcssa = phi i32 [ 0, %20 ], [ %420, %._crit_edge.loopexit ]
+  %.0485.lcssa = phi i1 [ true, %20 ], [ %423, %._crit_edge.loopexit ]
+  %.0482.lcssa = phi i32 [ 0, %20 ], [ %.1483, %._crit_edge.loopexit ]
   %425 = tail call i32 @isatty(i32 noundef 1) #19
   %.not517 = icmp eq i32 %425, 0
   br i1 %.not517, label %433, label %426
@@ -1062,25 +1053,25 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
 
 433:                                              ; preds = %431, %429, %426, %._crit_edge
   %434 = phi i32 [ %432, %431 ], [ %427, %429 ], [ %427, %426 ], [ %424, %._crit_edge ]
-  %435 = and i32 %.1492.lcssa.fr, 480
-  %.not1666 = icmp eq i32 %435, 0
-  br i1 %.not1666, label %447, label %436
+  %435 = and i32 %.1492.lcssa, 480
+  %.not1668 = icmp eq i32 %435, 0
+  br i1 %.not1668, label %447, label %436
 
 436:                                              ; preds = %433
-  %437 = and i32 %.1492.lcssa.fr, 128
+  %437 = and i32 %.1492.lcssa, 128
   %.not523.not = icmp eq i32 %437, 0
-  %438 = lshr i32 %.1492.lcssa.fr, 5
+  %438 = lshr i32 %.1492.lcssa, 5
   %439 = and i32 %438, 8
   %440 = or i32 %434, %439
-  %441 = lshr i32 %.1492.lcssa.fr, 4
+  %441 = lshr i32 %.1492.lcssa, 4
   %442 = and i32 %441, 2
   %443 = or i32 %440, %442
-  %444 = lshr i32 %.1492.lcssa.fr, 4
+  %444 = lshr i32 %.1492.lcssa, 4
   %445 = and i32 %444, 4
-  %spec.select1660 = or i32 %443, %445
+  %spec.select1662 = or i32 %443, %445
   %446 = and i32 %443, -5
-  %spec.select1661 = select i1 %.not523.not, i32 %spec.select1660, i32 %446
-  store i32 %spec.select1661, ptr %5, align 4
+  %spec.select1663 = select i1 %.not523.not, i32 %spec.select1662, i32 %446
+  store i32 %spec.select1663, ptr %5, align 4
   br label %447
 
 447:                                              ; preds = %433, %436
@@ -1186,7 +1177,7 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
 
 .thread1016:                                      ; preds = %503, %505, %489
   %.24971019 = phi ptr [ %.0495.lcssa, %489 ], [ @.str.59, %505 ], [ @.str.59, %503 ]
-  %512 = and i32 %.1492.lcssa.fr, 512
+  %512 = and i32 %.1492.lcssa, 512
   %.not530 = icmp eq i32 %512, 0
   br i1 %.not530, label %591, label %513
 
@@ -1217,7 +1208,7 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   %528 = tail call ptr @jv_string_value(i64 %524, ptr %525) #19
   %529 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %526, ptr noundef nonnull @.str.61, ptr noundef %527, ptr noundef %528) #22
   tail call void @jv_free(i64 %524, ptr %525) #19
-  br label %739
+  br label %738
 
 530:                                              ; preds = %517
   %531 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.62) #19
@@ -1368,10 +1359,10 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   %.sroa.12.3 = phi ptr [ %558, %585 ], [ %618, %645 ]
   %.0481 = phi i32 [ %590, %585 ], [ %649, %645 ]
   %.not534 = icmp eq i32 %.0481, 0
-  br i1 %.not534, label %739, label %651
+  br i1 %.not534, label %738, label %651
 
 651:                                              ; preds = %650
-  %652 = and i32 %.1492.lcssa.fr, 65536
+  %652 = and i32 %.1492.lcssa, 65536
   %.not535 = icmp eq i32 %652, 0
   br i1 %.not535, label %654, label %653
 
@@ -1381,9 +1372,9 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   br label %654
 
 654:                                              ; preds = %653, %651
-  %655 = and i32 %.1492.lcssa.fr, 16384
+  %655 = and i32 %.1492.lcssa, 16384
   %.not536 = icmp eq i32 %655, 0
-  %656 = and i32 %.1492.lcssa.fr, 2
+  %656 = and i32 %.1492.lcssa, 2
   %.not537 = icmp eq i32 %656, 0
   br i1 %.not537, label %657, label %660
 
@@ -1394,226 +1385,225 @@ isoption.exit738.thread:                          ; preds = %isoption.exit738.th
   br label %660
 
 660:                                              ; preds = %654, %657
-  %.sink1662 = phi ptr [ %659, %657 ], [ null, %654 ]
-  %661 = and i32 %.1492.lcssa.fr, 1
-  tail call void @jq_util_input_set_parser(ptr noundef %21, ptr noundef %.sink1662, i32 noundef %661) #19
+  %.sink1664 = phi ptr [ %659, %657 ], [ null, %654 ]
+  %661 = and i32 %.1492.lcssa, 1
+  tail call void @jq_util_input_set_parser(ptr noundef %21, ptr noundef %.sink1664, i32 noundef %661) #19
   tail call void @jq_set_input_cb(ptr noundef nonnull %17, ptr noundef nonnull @jq_util_input_next_input_cb, ptr noundef %21) #19
   call void @jq_set_debug_cb(ptr noundef nonnull %17, ptr noundef nonnull @debug_cb, ptr noundef nonnull %5) #19
   call void @jq_set_stderr_cb(ptr noundef nonnull %17, ptr noundef nonnull @stderr_cb, ptr noundef nonnull %5) #19
-  %662 = icmp eq i32 %.0485.lcssa, 0
-  br i1 %662, label %663, label %664
+  br i1 %.0485.lcssa, label %662, label %663
 
-663:                                              ; preds = %660
+662:                                              ; preds = %660
   call void @jq_util_input_add_input(ptr noundef %21, ptr noundef nonnull @.str.68) #19
-  br label %664
+  br label %663
 
-664:                                              ; preds = %663, %660
-  %665 = and i32 %.1492.lcssa.fr, 4
-  %.not540 = icmp eq i32 %665, 0
-  br i1 %.not540, label %.preheader, label %692
+663:                                              ; preds = %662, %660
+  %664 = and i32 %.1492.lcssa, 4
+  %.not540 = icmp eq i32 %664, 0
+  br i1 %.not540, label %.preheader, label %691
 
-.preheader:                                       ; preds = %664
+.preheader:                                       ; preds = %663
   br i1 %.not536, label %.outer.us.preheader, label %.outer
 
 .outer.us.preheader:                              ; preds = %.preheader
-  %666 = load ptr, ptr %4, align 8
-  %667 = call i32 @jq_util_input_errors(ptr noundef %666) #19
-  %668 = icmp eq i32 %667, 0
-  br i1 %668, label %.lr.ph1279.us, label %.critedge
+  %665 = load ptr, ptr %4, align 8
+  %666 = call i32 @jq_util_input_errors(ptr noundef %665) #19
+  %667 = icmp eq i32 %666, 0
+  br i1 %667, label %.lr.ph1279.us, label %.critedge
 
 .outer.us:                                        ; preds = %.split.us.us
-  %669 = load ptr, ptr %4, align 8
-  %670 = call i32 @jq_util_input_errors(ptr noundef %669) #19
-  %671 = icmp eq i32 %670, 0
-  br i1 %671, label %.lr.ph1279.us, label %.critedge, !llvm.loop !7
+  %668 = load ptr, ptr %4, align 8
+  %669 = call i32 @jq_util_input_errors(ptr noundef %668) #19
+  %670 = icmp eq i32 %669, 0
+  br i1 %670, label %.lr.ph1279.us, label %.critedge, !llvm.loop !7
 
 .lr.ph1279.us:                                    ; preds = %.outer.us.preheader, %.outer.us
-  %672 = phi ptr [ %669, %.outer.us ], [ %666, %.outer.us.preheader ]
-  %.2.ph.us1823 = phi i32 [ %685, %.outer.us ], [ -4, %.outer.us.preheader ]
-  %.2489.ph.us1822 = phi i32 [ %.3490.us, %.outer.us ], [ -1, %.outer.us.preheader ]
-  %673 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %672) #19
-  %674 = extractvalue { i64, ptr } %673, 0
-  %675 = extractvalue { i64, ptr } %673, 1
-  %676 = call i32 @jv_get_kind(i64 %674, ptr %675) #19
-  %.not1022.us.us = icmp eq i32 %676, 0
-  br i1 %.not1022.us.us, label %677, label %.critedge5.us.us
+  %671 = phi ptr [ %668, %.outer.us ], [ %665, %.outer.us.preheader ]
+  %.2.ph.us1826 = phi i32 [ %684, %.outer.us ], [ -4, %.outer.us.preheader ]
+  %.2489.ph.us1825 = phi i32 [ %.3490.us, %.outer.us ], [ -1, %.outer.us.preheader ]
+  %672 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %671) #19
+  %673 = extractvalue { i64, ptr } %672, 0
+  %674 = extractvalue { i64, ptr } %672, 1
+  %675 = call i32 @jv_get_kind(i64 %673, ptr %674) #19
+  %.not1022.us.us = icmp eq i32 %675, 0
+  br i1 %.not1022.us.us, label %676, label %.critedge5.us.us
 
-677:                                              ; preds = %.lr.ph1279.us
-  %678 = call { i64, ptr } @jv_copy(i64 %674, ptr %675) #19
-  %679 = extractvalue { i64, ptr } %678, 0
-  %680 = extractvalue { i64, ptr } %678, 1
-  %681 = call i32 @jv_invalid_has_msg(i64 %679, ptr %680) #19
-  %.not542.us.us = icmp eq i32 %681, 0
+676:                                              ; preds = %.lr.ph1279.us
+  %677 = call { i64, ptr } @jv_copy(i64 %673, ptr %674) #19
+  %678 = extractvalue { i64, ptr } %677, 0
+  %679 = extractvalue { i64, ptr } %677, 1
+  %680 = call i32 @jv_invalid_has_msg(i64 %678, ptr %679) #19
+  %.not542.us.us = icmp eq i32 %680, 0
   br i1 %.not542.us.us, label %.critedge, label %.critedge5.us.us
 
-.critedge5.us.us:                                 ; preds = %677, %.lr.ph1279.us
-  %682 = call i32 @jv_get_kind(i64 %674, ptr %675) #19
-  %.not1023.us.us = icmp eq i32 %682, 0
+.critedge5.us.us:                                 ; preds = %676, %.lr.ph1279.us
+  %681 = call i32 @jv_get_kind(i64 %673, ptr %674) #19
+  %.not1023.us.us = icmp eq i32 %681, 0
   br i1 %.not1023.us.us, label %.split1312.us, label %.split.us.us
 
 .split.us.us:                                     ; preds = %.critedge5.us.us
-  %683 = load ptr, ptr %3, align 8
-  %684 = load i32, ptr %5, align 4
-  %685 = call fastcc i32 @process(ptr noundef %683, i64 %674, ptr %675, i32 noundef %.0504.lcssa, i32 noundef %684, i32 noundef %.1492.lcssa.fr)
-  %686 = icmp slt i32 %685, 1
-  %687 = icmp ne i32 %685, -4
-  %or.cond7.us = and i1 %686, %687
-  %688 = icmp ne i32 %685, -1
-  %689 = zext i1 %688 to i32
-  %.3490.us = select i1 %or.cond7.us, i32 %689, i32 %.2489.ph.us1822
-  %690 = load ptr, ptr %3, align 8
-  %691 = call i32 @jq_halted(ptr noundef %690) #19
-  %.not544.us = icmp eq i32 %691, 0
+  %682 = load ptr, ptr %3, align 8
+  %683 = load i32, ptr %5, align 4
+  %684 = call fastcc i32 @process(ptr noundef %682, i64 %673, ptr %674, i32 noundef %.0504.lcssa, i32 noundef %683, i32 noundef %.1492.lcssa)
+  %685 = icmp slt i32 %684, 1
+  %686 = icmp ne i32 %684, -4
+  %or.cond7.us = and i1 %685, %686
+  %687 = icmp ne i32 %684, -1
+  %688 = zext i1 %687 to i32
+  %.3490.us = select i1 %or.cond7.us, i32 %688, i32 %.2489.ph.us1825
+  %689 = load ptr, ptr %3, align 8
+  %690 = call i32 @jq_halted(ptr noundef %689) #19
+  %.not544.us = icmp eq i32 %690, 0
   br i1 %.not544.us, label %.outer.us, label %.critedge, !llvm.loop !7
 
-692:                                              ; preds = %664
-  %693 = call { i64, ptr } @jv_null() #19
-  %694 = extractvalue { i64, ptr } %693, 0
-  %695 = extractvalue { i64, ptr } %693, 1
-  %696 = load i32, ptr %5, align 4
-  %697 = call fastcc i32 @process(ptr noundef nonnull %17, i64 %694, ptr %695, i32 noundef %.0504.lcssa, i32 noundef %696, i32 noundef %.1492.lcssa.fr)
+691:                                              ; preds = %663
+  %692 = call { i64, ptr } @jv_null() #19
+  %693 = extractvalue { i64, ptr } %692, 0
+  %694 = extractvalue { i64, ptr } %692, 1
+  %695 = load i32, ptr %5, align 4
+  %696 = call fastcc i32 @process(ptr noundef nonnull %17, i64 %693, ptr %694, i32 noundef %.0504.lcssa, i32 noundef %695, i32 noundef %.1492.lcssa)
   br label %.critedge
 
-.lr.ph1279:                                       ; preds = %.outer, %727
-  %698 = phi ptr [ %734, %727 ], [ %718, %.outer ]
-  %699 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %698) #19
-  %700 = extractvalue { i64, ptr } %699, 0
-  %701 = extractvalue { i64, ptr } %699, 1
-  %702 = call i32 @jv_get_kind(i64 %700, ptr %701) #19
-  %.not1022 = icmp eq i32 %702, 0
-  br i1 %.not1022, label %703, label %.critedge5
+.lr.ph1279:                                       ; preds = %.outer, %726
+  %697 = phi ptr [ %733, %726 ], [ %717, %.outer ]
+  %698 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %697) #19
+  %699 = extractvalue { i64, ptr } %698, 0
+  %700 = extractvalue { i64, ptr } %698, 1
+  %701 = call i32 @jv_get_kind(i64 %699, ptr %700) #19
+  %.not1022 = icmp eq i32 %701, 0
+  br i1 %.not1022, label %702, label %.critedge5
 
-703:                                              ; preds = %.lr.ph1279
-  %704 = call { i64, ptr } @jv_copy(i64 %700, ptr %701) #19
-  %705 = extractvalue { i64, ptr } %704, 0
-  %706 = extractvalue { i64, ptr } %704, 1
-  %707 = call i32 @jv_invalid_has_msg(i64 %705, ptr %706) #19
-  %.not542 = icmp eq i32 %707, 0
+702:                                              ; preds = %.lr.ph1279
+  %703 = call { i64, ptr } @jv_copy(i64 %699, ptr %700) #19
+  %704 = extractvalue { i64, ptr } %703, 0
+  %705 = extractvalue { i64, ptr } %703, 1
+  %706 = call i32 @jv_invalid_has_msg(i64 %704, ptr %705) #19
+  %.not542 = icmp eq i32 %706, 0
   br i1 %.not542, label %.critedge, label %.critedge5
 
-.critedge5:                                       ; preds = %.lr.ph1279, %703
-  %708 = call i32 @jv_get_kind(i64 %700, ptr %701) #19
-  %.not1023 = icmp eq i32 %708, 0
-  br i1 %.not1023, label %727, label %.split
+.critedge5:                                       ; preds = %.lr.ph1279, %702
+  %707 = call i32 @jv_get_kind(i64 %699, ptr %700) #19
+  %.not1023 = icmp eq i32 %707, 0
+  br i1 %.not1023, label %726, label %.split
 
 .split:                                           ; preds = %.critedge5
-  %709 = load ptr, ptr %3, align 8
-  %710 = load i32, ptr %5, align 4
-  %711 = call fastcc i32 @process(ptr noundef %709, i64 %700, ptr %701, i32 noundef %.0504.lcssa, i32 noundef %710, i32 noundef %.1492.lcssa.fr)
-  %712 = icmp slt i32 %711, 1
-  %713 = icmp ne i32 %711, -4
-  %or.cond7 = and i1 %712, %713
-  %714 = icmp ne i32 %711, -1
-  %715 = zext i1 %714 to i32
-  %.3490 = select i1 %or.cond7, i32 %715, i32 %.2489.ph
-  %716 = load ptr, ptr %3, align 8
-  %717 = call i32 @jq_halted(ptr noundef %716) #19
-  %.not544 = icmp eq i32 %717, 0
+  %708 = load ptr, ptr %3, align 8
+  %709 = load i32, ptr %5, align 4
+  %710 = call fastcc i32 @process(ptr noundef %708, i64 %699, ptr %700, i32 noundef %.0504.lcssa, i32 noundef %709, i32 noundef %.1492.lcssa)
+  %711 = icmp slt i32 %710, 1
+  %712 = icmp ne i32 %710, -4
+  %or.cond7 = and i1 %711, %712
+  %713 = icmp ne i32 %710, -1
+  %714 = zext i1 %713 to i32
+  %.3490 = select i1 %or.cond7, i32 %714, i32 %.2489.ph
+  %715 = load ptr, ptr %3, align 8
+  %716 = call i32 @jq_halted(ptr noundef %715) #19
+  %.not544 = icmp eq i32 %716, 0
   br i1 %.not544, label %.outer, label %.critedge, !llvm.loop !7
 
 .outer:                                           ; preds = %.preheader, %.split
   %.2489.ph = phi i32 [ %.3490, %.split ], [ -1, %.preheader ]
-  %.2.ph = phi i32 [ %711, %.split ], [ -4, %.preheader ]
-  %718 = load ptr, ptr %4, align 8
-  %719 = call i32 @jq_util_input_errors(ptr noundef %718) #19
-  %720 = icmp eq i32 %719, 0
-  br i1 %720, label %.lr.ph1279, label %.critedge
+  %.2.ph = phi i32 [ %710, %.split ], [ -4, %.preheader ]
+  %717 = load ptr, ptr %4, align 8
+  %718 = call i32 @jq_util_input_errors(ptr noundef %717) #19
+  %719 = icmp eq i32 %718, 0
+  br i1 %719, label %.lr.ph1279, label %.critedge
 
 .split1312.us:                                    ; preds = %.critedge5.us.us
-  %721 = call { i64, ptr } @jv_invalid_get_msg(i64 %674, ptr %675) #19
-  %722 = extractvalue { i64, ptr } %721, 0
-  %723 = extractvalue { i64, ptr } %721, 1
-  %724 = load ptr, ptr @stderr, align 8
-  %725 = call ptr @jv_string_value(i64 %722, ptr %723) #19
-  %726 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %724, ptr noundef nonnull @.str.69, ptr noundef %725) #22
-  call void @jv_free(i64 %722, ptr %723) #19
+  %720 = call { i64, ptr } @jv_invalid_get_msg(i64 %673, ptr %674) #19
+  %721 = extractvalue { i64, ptr } %720, 0
+  %722 = extractvalue { i64, ptr } %720, 1
+  %723 = load ptr, ptr @stderr, align 8
+  %724 = call ptr @jv_string_value(i64 %721, ptr %722) #19
+  %725 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %723, ptr noundef nonnull @.str.69, ptr noundef %724) #22
+  call void @jv_free(i64 %721, ptr %722) #19
   br label %.critedge
 
-727:                                              ; preds = %.critedge5
-  %728 = call { i64, ptr } @jv_invalid_get_msg(i64 %700, ptr %701) #19
-  %729 = extractvalue { i64, ptr } %728, 0
-  %730 = extractvalue { i64, ptr } %728, 1
-  %731 = load ptr, ptr @stderr, align 8
-  %732 = call ptr @jv_string_value(i64 %729, ptr %730) #19
-  %733 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %731, ptr noundef nonnull @.str.70, ptr noundef %732) #22
-  call void @jv_free(i64 %729, ptr %730) #19
-  %734 = load ptr, ptr %4, align 8
-  %735 = call i32 @jq_util_input_errors(ptr noundef %734) #19
-  %736 = icmp eq i32 %735, 0
-  br i1 %736, label %.lr.ph1279, label %.critedge, !llvm.loop !7
+726:                                              ; preds = %.critedge5
+  %727 = call { i64, ptr } @jv_invalid_get_msg(i64 %699, ptr %700) #19
+  %728 = extractvalue { i64, ptr } %727, 0
+  %729 = extractvalue { i64, ptr } %727, 1
+  %730 = load ptr, ptr @stderr, align 8
+  %731 = call ptr @jv_string_value(i64 %728, ptr %729) #19
+  %732 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %730, ptr noundef nonnull @.str.70, ptr noundef %731) #22
+  call void @jv_free(i64 %728, ptr %729) #19
+  %733 = load ptr, ptr %4, align 8
+  %734 = call i32 @jq_util_input_errors(ptr noundef %733) #19
+  %735 = icmp eq i32 %734, 0
+  br i1 %735, label %.lr.ph1279, label %.critedge, !llvm.loop !7
 
-.critedge:                                        ; preds = %.outer, %.split, %727, %703, %.split.us.us, %.outer.us, %677, %.outer.us.preheader, %.split1312.us, %692
-  %.1488 = phi i32 [ -1, %692 ], [ %.2489.ph.us1822, %.split1312.us ], [ -1, %.outer.us.preheader ], [ %.2489.ph.us1822, %677 ], [ %.3490.us, %.outer.us ], [ %.3490.us, %.split.us.us ], [ %.2489.ph, %703 ], [ %.2489.ph, %727 ], [ %.2489.ph, %.outer ], [ %.3490, %.split ]
-  %.1 = phi i32 [ %697, %692 ], [ 5, %.split1312.us ], [ -4, %.outer.us.preheader ], [ %.2.ph.us1823, %677 ], [ %685, %.outer.us ], [ %685, %.split.us.us ], [ %.2.ph, %703 ], [ %.2.ph, %727 ], [ %.2.ph, %.outer ], [ %711, %.split ]
-  %737 = load ptr, ptr %4, align 8
-  %738 = call i32 @jq_util_input_errors(ptr noundef %737) #19
-  %.not545 = icmp eq i32 %738, 0
+.critedge:                                        ; preds = %.outer, %.split, %726, %702, %.split.us.us, %.outer.us, %676, %.outer.us.preheader, %.split1312.us, %691
+  %.1488 = phi i32 [ -1, %691 ], [ %.2489.ph.us1825, %.split1312.us ], [ -1, %.outer.us.preheader ], [ %.2489.ph.us1825, %676 ], [ %.3490.us, %.outer.us ], [ %.3490.us, %.split.us.us ], [ %.2489.ph, %702 ], [ %.2489.ph, %726 ], [ %.2489.ph, %.outer ], [ %.3490, %.split ]
+  %.1 = phi i32 [ %696, %691 ], [ 5, %.split1312.us ], [ -4, %.outer.us.preheader ], [ %.2.ph.us1826, %676 ], [ %684, %.outer.us ], [ %684, %.split.us.us ], [ %.2.ph, %702 ], [ %.2.ph, %726 ], [ %.2.ph, %.outer ], [ %710, %.split ]
+  %736 = load ptr, ptr %4, align 8
+  %737 = call i32 @jq_util_input_errors(ptr noundef %736) #19
+  %.not545 = icmp eq i32 %737, 0
   %spec.select615 = select i1 %.not545, i32 %.1, i32 2
-  br label %739
+  br label %738
 
-739:                                              ; preds = %.critedge, %650, %522, %400, %397, %393, %355, %19
-  %.sroa.0319.0 = phi i64 [ %12, %19 ], [ %.sroa.0319.11262, %355 ], [ %.sroa.0319.11262, %393 ], [ %.sroa.0319.11262, %397 ], [ %.sroa.0319.11262, %400 ], [ %.sroa.0319.1.lcssa, %522 ], [ %.sroa.0319.7, %650 ], [ %.sroa.0319.7, %.critedge ]
-  %.sroa.25.0 = phi ptr [ %13, %19 ], [ %.sroa.25.11263, %355 ], [ %.sroa.25.11263, %393 ], [ %.sroa.25.11263, %397 ], [ %.sroa.25.11263, %400 ], [ %.sroa.25.1.lcssa, %522 ], [ %.sroa.25.7, %650 ], [ %.sroa.25.7, %.critedge ]
-  %.sroa.0352.0 = phi i64 [ %9, %19 ], [ %.sroa.0352.11264, %355 ], [ %.sroa.0352.11264, %393 ], [ %.sroa.0352.11264, %397 ], [ %.sroa.0352.11264, %400 ], [ %.sroa.0352.1.lcssa, %522 ], [ %.sroa.0352.3, %650 ], [ %.sroa.0352.3, %.critedge ]
-  %.sroa.12.0 = phi ptr [ %10, %19 ], [ %.sroa.12.11265, %355 ], [ %.sroa.12.11265, %393 ], [ %.sroa.12.11265, %397 ], [ %.sroa.12.11265, %400 ], [ %.sroa.12.1.lcssa, %522 ], [ %.sroa.12.3, %650 ], [ %.sroa.12.3, %.critedge ]
-  %.0491 = phi i32 [ 0, %19 ], [ %.14, %355 ], [ %.14, %393 ], [ %.14, %397 ], [ %.14, %400 ], [ %.1492.lcssa.fr, %522 ], [ %.1492.lcssa.fr, %650 ], [ %.1492.lcssa.fr, %.critedge ]
-  %.0487 = phi i32 [ -1, %19 ], [ -1, %355 ], [ -1, %393 ], [ -1, %397 ], [ -1, %400 ], [ -1, %522 ], [ -1, %650 ], [ %.1488, %.critedge ]
-  %.0 = phi i32 [ 2, %19 ], [ 2, %355 ], [ 0, %393 ], [ 0, %397 ], [ %411, %400 ], [ 2, %522 ], [ 3, %650 ], [ %spec.select615, %.critedge ]
-  %740 = load ptr, ptr @stdout, align 8
-  %741 = call i32 @ferror(ptr noundef %740) #19
-  %742 = call i32 @fclose(ptr noundef %740)
-  %743 = or i32 %742, %741
-  %or.cond9.not = icmp eq i32 %743, 0
-  br i1 %or.cond9.not, label %750, label %744
+738:                                              ; preds = %.critedge, %650, %522, %398, %395, %391, %353, %19
+  %.sroa.0319.0 = phi i64 [ %12, %19 ], [ %.sroa.0319.11262, %353 ], [ %.sroa.0319.11262, %391 ], [ %.sroa.0319.11262, %395 ], [ %.sroa.0319.11262, %398 ], [ %.sroa.0319.1.lcssa, %522 ], [ %.sroa.0319.7, %650 ], [ %.sroa.0319.7, %.critedge ]
+  %.sroa.25.0 = phi ptr [ %13, %19 ], [ %.sroa.25.11263, %353 ], [ %.sroa.25.11263, %391 ], [ %.sroa.25.11263, %395 ], [ %.sroa.25.11263, %398 ], [ %.sroa.25.1.lcssa, %522 ], [ %.sroa.25.7, %650 ], [ %.sroa.25.7, %.critedge ]
+  %.sroa.0352.0 = phi i64 [ %9, %19 ], [ %.sroa.0352.11264, %353 ], [ %.sroa.0352.11264, %391 ], [ %.sroa.0352.11264, %395 ], [ %.sroa.0352.11264, %398 ], [ %.sroa.0352.1.lcssa, %522 ], [ %.sroa.0352.3, %650 ], [ %.sroa.0352.3, %.critedge ]
+  %.sroa.12.0 = phi ptr [ %10, %19 ], [ %.sroa.12.11265, %353 ], [ %.sroa.12.11265, %391 ], [ %.sroa.12.11265, %395 ], [ %.sroa.12.11265, %398 ], [ %.sroa.12.1.lcssa, %522 ], [ %.sroa.12.3, %650 ], [ %.sroa.12.3, %.critedge ]
+  %.0491 = phi i32 [ 0, %19 ], [ %.14, %353 ], [ %.14, %391 ], [ %.14, %395 ], [ %.14, %398 ], [ %.1492.lcssa, %522 ], [ %.1492.lcssa, %650 ], [ %.1492.lcssa, %.critedge ]
+  %.0487 = phi i32 [ -1, %19 ], [ -1, %353 ], [ -1, %391 ], [ -1, %395 ], [ -1, %398 ], [ -1, %522 ], [ -1, %650 ], [ %.1488, %.critedge ]
+  %.0 = phi i32 [ 2, %19 ], [ 2, %353 ], [ 0, %391 ], [ 0, %395 ], [ %409, %398 ], [ 2, %522 ], [ 3, %650 ], [ %spec.select615, %.critedge ]
+  %739 = load ptr, ptr @stdout, align 8
+  %740 = call i32 @ferror(ptr noundef %739) #19
+  %741 = call i32 @fclose(ptr noundef %739)
+  %742 = or i32 %741, %740
+  %or.cond9.not = icmp eq i32 %742, 0
+  br i1 %or.cond9.not, label %749, label %743
 
-744:                                              ; preds = %739
-  %745 = load ptr, ptr @stderr, align 8
-  %746 = tail call ptr @__errno_location() #21
-  %747 = load i32, ptr %746, align 4
-  %748 = call ptr @strerror(i32 noundef %747) #19
-  %749 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %745, ptr noundef nonnull @.str.71, ptr noundef %748) #22
-  br label %750
+743:                                              ; preds = %738
+  %744 = load ptr, ptr @stderr, align 8
+  %745 = tail call ptr @__errno_location() #21
+  %746 = load i32, ptr %745, align 4
+  %747 = call ptr @strerror(i32 noundef %746) #19
+  %748 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %744, ptr noundef nonnull @.str.71, ptr noundef %747) #22
+  br label %749
 
-750:                                              ; preds = %739, %744
-  %.3 = phi i32 [ 2, %744 ], [ %.0, %739 ]
+749:                                              ; preds = %738, %743
+  %.3 = phi i32 [ 2, %743 ], [ %.0, %738 ]
   call void @jv_free(i64 %.sroa.0352.0, ptr %.sroa.12.0) #19
   call void @jv_free(i64 %.sroa.0319.0, ptr %.sroa.25.0) #19
   call void @jq_util_input_free(ptr noundef nonnull %4) #19
   call void @jq_teardown(ptr noundef nonnull %3) #19
-  %751 = and i32 %.0491, 4096
-  %.not613 = icmp eq i32 %751, 0
-  br i1 %.not613, label %759, label %752
+  %750 = and i32 %.0491, 4096
+  %.not613 = icmp eq i32 %750, 0
+  br i1 %.not613, label %758, label %751
 
-752:                                              ; preds = %750
+751:                                              ; preds = %749
   %.not614 = icmp eq i32 %.3, -4
-  br i1 %.not614, label %755, label %753
+  br i1 %.not614, label %754, label %752
 
-753:                                              ; preds = %752
-  %754 = call i32 @llvm.abs.i32(i32 %.3, i1 true)
-  call void @exit(i32 noundef %754) #25
+752:                                              ; preds = %751
+  %753 = call i32 @llvm.abs.i32(i32 %.3, i1 true)
+  call void @exit(i32 noundef %753) #25
   unreachable
 
-755:                                              ; preds = %752
-  switch i32 %.0487, label %758 [
-    i32 -1, label %756
-    i32 0, label %757
+754:                                              ; preds = %751
+  switch i32 %.0487, label %757 [
+    i32 -1, label %755
+    i32 0, label %756
   ]
 
-756:                                              ; preds = %755
+755:                                              ; preds = %754
   call void @exit(i32 noundef 4) #24
   unreachable
 
-757:                                              ; preds = %755
+756:                                              ; preds = %754
   call void @exit(i32 noundef 1) #24
   unreachable
 
-758:                                              ; preds = %755
+757:                                              ; preds = %754
   call void @exit(i32 noundef 0) #25
   unreachable
 
-759:                                              ; preds = %750
-  %760 = call i32 @llvm.smax.i32(i32 %.3, i32 0)
-  call void @exit(i32 noundef %760) #25
+758:                                              ; preds = %749
+  %759 = call i32 @llvm.smax.i32(i32 %.3, i32 0)
+  call void @exit(i32 noundef %759) #25
   unreachable
 }
 

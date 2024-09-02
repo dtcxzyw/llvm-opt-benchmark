@@ -4724,7 +4724,7 @@ define range(i32 -128, 128) i32 @cli_bcapi_hex2ui(ptr nocapture noundef readnone
 declare i32 @cli_hex2str_to(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @cli_bcapi_atoi(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #17 {
+define range(i32 -1, 1) i32 @cli_bcapi_atoi(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #17 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
   %6 = tail call ptr @__ctype_b_loc() #30

@@ -336,7 +336,7 @@ define range(i32 0, 9) i32 @ws_log_get_level() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define range(i32 0, 9) i32 @ws_log_set_level(i32 noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 7) i32 @ws_log_set_level(i32 noundef %0) local_unnamed_addr #3 {
   %2 = add i32 %0, -9
   %or.cond = icmp ult i32 %2, -8
   br i1 %or.cond, label %4, label %3
@@ -352,7 +352,7 @@ define range(i32 0, 9) i32 @ws_log_set_level(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9) i32 @ws_log_set_level_str(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 7) i32 @ws_log_set_level_str(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call fastcc i32 @string_to_log_level(ptr noundef %0)
   %or.cond.i = icmp eq i32 %2, 0
   br i1 %or.cond.i, label %ws_log_set_level.exit, label %3
@@ -1355,7 +1355,7 @@ define void @ws_log_add_custom_file(ptr noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9) i32 @ws_log_set_fatal_level_str(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 8) i32 @ws_log_set_fatal_level_str(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call fastcc i32 @string_to_log_level(ptr noundef %0)
   %or.cond.i = icmp eq i32 %2, 0
   br i1 %or.cond.i, label %ws_log_set_fatal_level.exit, label %3
@@ -1463,7 +1463,7 @@ tokenize_filter_str.exit:                         ; preds = %free_log_filter.exi
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define range(i32 0, 9) i32 @ws_log_set_fatal_level(i32 noundef %0) local_unnamed_addr #3 {
+define range(i32 0, 8) i32 @ws_log_set_fatal_level(i32 noundef %0) local_unnamed_addr #3 {
   %2 = add i32 %0, -9
   %or.cond = icmp ult i32 %2, -8
   br i1 %or.cond, label %4, label %3

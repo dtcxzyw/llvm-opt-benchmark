@@ -1420,7 +1420,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i8 @_ZL17Unsafe_GetBooleanP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #1 {
+define internal noundef zeroext range(i8 0, 2) i8 @_ZL17Unsafe_GetBooleanP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #1 {
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
   %7 = inttoptr i64 %6 to ptr
@@ -1690,7 +1690,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %48, %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i8 @_ZL25Unsafe_GetBooleanVolatileP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #1 {
+define internal noundef zeroext range(i8 0, 2) i8 @_ZL25Unsafe_GetBooleanVolatileP7JNIEnv_P8_jobjectS2_l(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #1 {
   %5 = alloca i8, align 1
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960
@@ -5889,7 +5889,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZL25Unsafe_ObjectFieldOffset1P7JNIEnv_P8_jobjectP7_jclassP8_jstring(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal noundef range(i64 0, 2147483648) i64 @_ZL25Unsafe_ObjectFieldOffset1P7JNIEnv_P8_jobjectP7_jclassP8_jstring(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca %class.JavaFieldStream, align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = add nsw i64 %6, -960

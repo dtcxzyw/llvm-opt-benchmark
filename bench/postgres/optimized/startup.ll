@@ -166,97 +166,81 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %5 = load ptr, ptr %1, align 8
   tail call void @set_pglocale_pgservice(ptr noundef %5, ptr noundef nonnull @.str) #15
   %6 = icmp sgt i32 %0, 1
-  br i1 %6, label %sub_0, label %40
+  br i1 %6, label %sub_0, label %.tail135.thread
 
 sub_0:                                            ; preds = %2
   %7 = getelementptr i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 1
-  %10 = zext i8 %9 to i32
-  %11 = add nsw i32 %10, -45
-  %.not234 = icmp eq i32 %11, 0
-  br i1 %.not234, label %sub_1, label %.tail
+  %.not233 = icmp eq i8 %9, 45
+  br i1 %.not233, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = getelementptr inbounds i8, ptr %8, i64 1
+  %11 = load i8, ptr %10, align 1
+  %.not234 = icmp eq i8 %11, 63
+  br i1 %.not234, label %.tail, label %.tail.thread
+
+.tail:                                            ; preds = %sub_1
+  %12 = getelementptr inbounds i8, ptr %8, i64 2
   %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  %15 = add nsw i32 %14, -63
-  %.not235 = icmp eq i32 %15, 0
-  br i1 %.not235, label %sub_2, label %.tail
+  %14 = icmp eq i8 %13, 0
+  br i1 %14, label %19, label %.tail.thread
 
-sub_2:                                            ; preds = %sub_1
-  %16 = getelementptr inbounds i8, ptr %8, i64 2
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  br label %.tail
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
+  %15 = icmp eq i32 %0, 2
+  br i1 %15, label %16, label %20
 
-.tail:                                            ; preds = %sub_0, %sub_1, %sub_2
-  %19 = phi i32 [ %11, %sub_0 ], [ %15, %sub_1 ], [ %18, %sub_2 ]
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %26, label %21
+16:                                               ; preds = %.tail.thread
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.2) #16
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %20
 
-21:                                               ; preds = %.tail
-  %22 = icmp eq i32 %0, 2
-  br i1 %22, label %23, label %27
-
-23:                                               ; preds = %21
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str.2) #16
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %27
-
-26:                                               ; preds = %23, %.tail
+19:                                               ; preds = %16, %.tail
   tail call void @usage(i16 noundef zeroext 0) #15
   tail call void @exit(i32 noundef 0) #17
   unreachable
 
-27:                                               ; preds = %23, %21
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.3) #16
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %39, label %sub_0137
+20:                                               ; preds = %16, %.tail.thread
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.3) #16
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %28, label %sub_0136
 
-sub_0137:                                         ; preds = %27
-  br i1 %.not234, label %sub_1138, label %.tail136
+sub_0136:                                         ; preds = %20
+  br i1 %.not233, label %sub_1137, label %.tail135.thread
 
-sub_1138:                                         ; preds = %sub_0137
-  %30 = getelementptr inbounds i8, ptr %8, i64 1
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = add nsw i32 %32, -86
-  %.not237 = icmp eq i32 %33, 0
-  br i1 %.not237, label %sub_2139, label %.tail136
+sub_1137:                                         ; preds = %sub_0136
+  %23 = getelementptr inbounds i8, ptr %8, i64 1
+  %24 = load i8, ptr %23, align 1
+  %.not236 = icmp eq i8 %24, 86
+  br i1 %.not236, label %.tail135, label %.tail135.thread
 
-sub_2139:                                         ; preds = %sub_1138
-  %34 = getelementptr inbounds i8, ptr %8, i64 2
-  %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  br label %.tail136
+.tail135:                                         ; preds = %sub_1137
+  %25 = getelementptr inbounds i8, ptr %8, i64 2
+  %26 = load i8, ptr %25, align 1
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %28, label %.tail135.thread
 
-.tail136:                                         ; preds = %sub_0137, %sub_1138, %sub_2139
-  %37 = phi i32 [ %11, %sub_0137 ], [ %33, %sub_1138 ], [ %36, %sub_2139 ]
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %40
-
-39:                                               ; preds = %.tail136, %27
+28:                                               ; preds = %.tail135, %20
   tail call fastcc void @showVersion()
   tail call void @exit(i32 noundef 0) #17
   unreachable
 
-40:                                               ; preds = %.tail136, %2
-  %41 = load ptr, ptr %1, align 8
-  %42 = tail call ptr @get_progname(ptr noundef %41) #15
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
+.tail135.thread:                                  ; preds = %sub_1137, %sub_0136, %.tail135, %2
+  %29 = load ptr, ptr %1, align 8
+  %30 = tail call ptr @get_progname(ptr noundef %29) #15
+  store ptr %30, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
   store ptr null, ptr @pset, align 8
   store ptr null, ptr getelementptr inbounds (i8, ptr @pset, i64 376), align 8
   tail call void @setDecimalLocale() #15
-  %43 = tail call i32 @PQenv2encoding() #15
-  store i32 %43, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
-  %44 = load ptr, ptr @stdout, align 8
-  store ptr %44, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
+  %31 = tail call i32 @PQenv2encoding() #15
+  store i32 %31, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %32 = load ptr, ptr @stdout, align 8
+  store ptr %32, ptr getelementptr inbounds (i8, ptr @pset, i64 16), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 24), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @pset, i64 32), i8 0, i64 16, i1 false)
-  %45 = load ptr, ptr @stdin, align 8
-  store ptr %45, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
+  %33 = load ptr, ptr @stdin, align 8
+  store ptr %33, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @pset, i64 48), align 8
   store i16 1, ptr getelementptr inbounds (i8, ptr @pset, i64 64), align 8
@@ -271,280 +255,306 @@ sub_2139:                                         ; preds = %sub_1138
   store i32 0, ptr getelementptr inbounds (i8, ptr @pset, i64 160), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @pset, i64 164), align 4
   tail call void @refresh_utf8format(ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 48)) #15
-  %46 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #15
-  %.not = icmp eq ptr %46, null
-  br i1 %.not, label %49, label %47
+  %34 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #15
+  %.not = icmp eq ptr %34, null
+  br i1 %.not, label %37, label %35
 
-47:                                               ; preds = %40
-  %48 = tail call i32 @atoi(ptr nocapture noundef nonnull %46) #16
-  br label %49
+35:                                               ; preds = %.tail135.thread
+  %36 = tail call i32 @atoi(ptr nocapture noundef nonnull %34) #16
+  br label %37
 
-49:                                               ; preds = %40, %47
-  %50 = phi i32 [ %48, %47 ], [ 0, %40 ]
-  store i32 %50, ptr getelementptr inbounds (i8, ptr @pset, i64 148), align 4
-  %51 = load ptr, ptr @stdin, align 8
-  %52 = tail call i32 @fileno(ptr noundef %51) #15
-  %53 = tail call i32 @isatty(i32 noundef %52) #15
-  %.not92 = icmp eq i32 %53, 0
-  br i1 %.not92, label %58, label %54
+37:                                               ; preds = %.tail135.thread, %35
+  %38 = phi i32 [ %36, %35 ], [ 0, %.tail135.thread ]
+  store i32 %38, ptr getelementptr inbounds (i8, ptr @pset, i64 148), align 4
+  %39 = load ptr, ptr @stdin, align 8
+  %40 = tail call i32 @fileno(ptr noundef %39) #15
+  %41 = tail call i32 @isatty(i32 noundef %40) #15
+  %.not92 = icmp eq i32 %41, 0
+  br i1 %.not92, label %47, label %42
 
-54:                                               ; preds = %49
-  %55 = load ptr, ptr @stdout, align 8
-  %56 = tail call i32 @fileno(ptr noundef %55) #15
-  %57 = tail call i32 @isatty(i32 noundef %56) #15
-  %.not93 = icmp eq i32 %57, 0
-  br label %58
+42:                                               ; preds = %37
+  %43 = load ptr, ptr @stdout, align 8
+  %44 = tail call i32 @fileno(ptr noundef %43) #15
+  %45 = tail call i32 @isatty(i32 noundef %44) #15
+  %.not93 = icmp eq i32 %45, 0
+  %46 = zext i1 %.not93 to i8
+  br label %47
 
-58:                                               ; preds = %54, %49
-  %59 = phi i1 [ true, %49 ], [ %.not93, %54 ]
-  %60 = zext i1 %59 to i8
-  store i8 %60, ptr getelementptr inbounds (i8, ptr @pset, i64 296), align 8
+47:                                               ; preds = %42, %37
+  %48 = phi i8 [ 1, %37 ], [ %46, %42 ]
+  store i8 %48, ptr getelementptr inbounds (i8, ptr @pset, i64 296), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @pset, i64 300), align 4
-  %61 = tail call ptr @CreateVariableSpace() #15
-  store ptr %61, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %61, ptr noundef nonnull @.str.16, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @autocommit_hook) #15
+  %49 = tail call ptr @CreateVariableSpace() #15
+  store ptr %49, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %49, ptr noundef nonnull @.str.16, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @autocommit_hook) #15
+  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %50, ptr noundef nonnull @.str.100, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @on_error_stop_hook) #15
+  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %51, ptr noundef nonnull @.str.84, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @quiet_hook) #15
+  %52 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %52, ptr noundef nonnull @.str.86, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @singleline_hook) #15
+  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %53, ptr noundef nonnull @.str.85, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @singlestep_hook) #15
+  %54 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %54, ptr noundef nonnull @.str.101, ptr noundef nonnull @fetch_count_substitute_hook, ptr noundef nonnull @fetch_count_hook) #15
+  %55 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %55, ptr noundef nonnull @.str.102, ptr noundef null, ptr noundef nonnull @histfile_hook) #15
+  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %56, ptr noundef nonnull @.str.103, ptr noundef nonnull @histsize_substitute_hook, ptr noundef nonnull @histsize_hook) #15
+  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %57, ptr noundef nonnull @.str.104, ptr noundef nonnull @ignoreeof_substitute_hook, ptr noundef nonnull @ignoreeof_hook) #15
+  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %58, ptr noundef nonnull @.str.78, ptr noundef nonnull @echo_substitute_hook, ptr noundef nonnull @echo_hook) #15
+  %59 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %59, ptr noundef nonnull @.str.82, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @echo_hidden_hook) #15
+  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %60, ptr noundef nonnull @.str.105, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @on_error_rollback_hook) #15
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  tail call void @SetVariableHooks(ptr noundef %61, ptr noundef nonnull @.str.106, ptr noundef nonnull @comp_keyword_case_substitute_hook, ptr noundef nonnull @comp_keyword_case_hook) #15
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %62, ptr noundef nonnull @.str.100, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @on_error_stop_hook) #15
+  tail call void @SetVariableHooks(ptr noundef %62, ptr noundef nonnull @.str.107, ptr noundef nonnull @histcontrol_substitute_hook, ptr noundef nonnull @histcontrol_hook) #15
   %63 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %63, ptr noundef nonnull @.str.84, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @quiet_hook) #15
+  tail call void @SetVariableHooks(ptr noundef %63, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef nonnull @prompt1_hook) #15
   %64 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %64, ptr noundef nonnull @.str.86, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @singleline_hook) #15
+  tail call void @SetVariableHooks(ptr noundef %64, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef nonnull @prompt2_hook) #15
   %65 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %65, ptr noundef nonnull @.str.85, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @singlestep_hook) #15
+  tail call void @SetVariableHooks(ptr noundef %65, ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef nonnull @prompt3_hook) #15
   %66 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %66, ptr noundef nonnull @.str.101, ptr noundef nonnull @fetch_count_substitute_hook, ptr noundef nonnull @fetch_count_hook) #15
+  tail call void @SetVariableHooks(ptr noundef %66, ptr noundef nonnull @.str.108, ptr noundef nonnull @verbosity_substitute_hook, ptr noundef nonnull @verbosity_hook) #15
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %67, ptr noundef nonnull @.str.102, ptr noundef null, ptr noundef nonnull @histfile_hook) #15
+  tail call void @SetVariableHooks(ptr noundef %67, ptr noundef nonnull @.str.22, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @show_all_results_hook) #15
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %68, ptr noundef nonnull @.str.103, ptr noundef nonnull @histsize_substitute_hook, ptr noundef nonnull @histsize_hook) #15
+  tail call void @SetVariableHooks(ptr noundef %68, ptr noundef nonnull @.str.109, ptr noundef nonnull @show_context_substitute_hook, ptr noundef nonnull @show_context_hook) #15
   %69 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %69, ptr noundef nonnull @.str.104, ptr noundef nonnull @ignoreeof_substitute_hook, ptr noundef nonnull @ignoreeof_hook) #15
+  tail call void @SetVariableHooks(ptr noundef %69, ptr noundef nonnull @.str.110, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @hide_compression_hook) #15
   %70 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %70, ptr noundef nonnull @.str.78, ptr noundef nonnull @echo_substitute_hook, ptr noundef nonnull @echo_hook) #15
+  tail call void @SetVariableHooks(ptr noundef %70, ptr noundef nonnull @.str.111, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @hide_tableam_hook) #15
   %71 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %71, ptr noundef nonnull @.str.82, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @echo_hidden_hook) #15
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %72, ptr noundef nonnull @.str.105, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @on_error_rollback_hook) #15
+  %72 = tail call zeroext i1 @SetVariable(ptr noundef %71, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #15
   %73 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %73, ptr noundef nonnull @.str.106, ptr noundef nonnull @comp_keyword_case_substitute_hook, ptr noundef nonnull @comp_keyword_case_hook) #15
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %74, ptr noundef nonnull @.str.107, ptr noundef nonnull @histcontrol_substitute_hook, ptr noundef nonnull @histcontrol_hook) #15
+  %74 = tail call zeroext i1 @SetVariable(ptr noundef %73, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #15
   %75 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %75, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef nonnull @prompt1_hook) #15
-  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %76, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef nonnull @prompt2_hook) #15
+  %76 = tail call zeroext i1 @SetVariable(ptr noundef %75, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #15
   %77 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %77, ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef nonnull @prompt3_hook) #15
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %78, ptr noundef nonnull @.str.108, ptr noundef nonnull @verbosity_substitute_hook, ptr noundef nonnull @verbosity_hook) #15
+  %78 = tail call zeroext i1 @SetVariable(ptr noundef %77, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #15
   %79 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %79, ptr noundef nonnull @.str.22, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @show_all_results_hook) #15
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %80, ptr noundef nonnull @.str.109, ptr noundef nonnull @show_context_substitute_hook, ptr noundef nonnull @show_context_hook) #15
+  %80 = tail call zeroext i1 @SetVariable(ptr noundef %79, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #15
   %81 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %81, ptr noundef nonnull @.str.110, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @hide_compression_hook) #15
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  tail call void @SetVariableHooks(ptr noundef %82, ptr noundef nonnull @.str.111, ptr noundef nonnull @bool_substitute_hook, ptr noundef nonnull @hide_tableam_hook) #15
+  %82 = tail call zeroext i1 @SetVariableBool(ptr noundef %81, ptr noundef nonnull @.str.16) #15
   %83 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %84 = tail call zeroext i1 @SetVariable(ptr noundef %83, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #15
+  %84 = tail call zeroext i1 @SetVariable(ptr noundef %83, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #15
   %85 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %86 = tail call zeroext i1 @SetVariable(ptr noundef %85, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #15
+  %86 = tail call zeroext i1 @SetVariable(ptr noundef %85, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.18) #15
   %87 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %88 = tail call zeroext i1 @SetVariable(ptr noundef %87, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #15
+  %88 = tail call zeroext i1 @SetVariable(ptr noundef %87, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #15
   %89 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %90 = tail call zeroext i1 @SetVariable(ptr noundef %89, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #15
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %92 = tail call zeroext i1 @SetVariable(ptr noundef %91, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #15
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %94 = tail call zeroext i1 @SetVariableBool(ptr noundef %93, ptr noundef nonnull @.str.16) #15
-  %95 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %96 = tail call zeroext i1 @SetVariable(ptr noundef %95, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #15
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %98 = tail call zeroext i1 @SetVariable(ptr noundef %97, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.18) #15
-  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %100 = tail call zeroext i1 @SetVariable(ptr noundef %99, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #15
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %102 = tail call zeroext i1 @SetVariableBool(ptr noundef %101, ptr noundef nonnull @.str.22) #15
+  %90 = tail call zeroext i1 @SetVariableBool(ptr noundef %89, ptr noundef nonnull @.str.22) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   br label %simple_action_list_append.exit.i.cont
 
-simple_action_list_append.exit.i.cont:            ; preds = %simple_action_list_append.exit.i.cont.backedge, %58
-  %.sroa.5.0 = phi ptr [ null, %58 ], [ %.sroa.5.0.be, %simple_action_list_append.exit.i.cont.backedge ]
-  %.sroa.7.0 = phi ptr [ null, %58 ], [ %.sroa.7.0.be, %simple_action_list_append.exit.i.cont.backedge ]
-  %.sroa.9.0 = phi ptr [ null, %58 ], [ %.sroa.9.0.be, %simple_action_list_append.exit.i.cont.backedge ]
-  %.sroa.13.0 = phi ptr [ null, %58 ], [ %.sroa.13.0.be, %simple_action_list_append.exit.i.cont.backedge ]
-  %.sroa.16.0 = phi i8 [ 0, %58 ], [ %.sroa.16.0.be, %simple_action_list_append.exit.i.cont.backedge ]
-  %.sroa.18.0 = phi i8 [ 0, %58 ], [ %.sroa.18.0.be, %simple_action_list_append.exit.i.cont.backedge ]
-  %.sroa.21.0 = phi i8 [ 0, %58 ], [ %.sroa.21.0.be, %simple_action_list_append.exit.i.cont.backedge ]
-  %.sroa.25.0 = phi i1 [ false, %58 ], [ %.sroa.25.0.be, %simple_action_list_append.exit.i.cont.backedge ]
-  %.sroa.0.0 = phi ptr [ null, %58 ], [ %.sroa.0.0.be, %simple_action_list_append.exit.i.cont.backedge ]
-  %.sroa.28118.1 = phi ptr [ null, %58 ], [ %.sroa.28118.1.be, %simple_action_list_append.exit.i.cont.backedge ]
-  %.sroa.36.0 = phi ptr [ null, %58 ], [ %.sroa.36.0.be, %simple_action_list_append.exit.i.cont.backedge ]
-  %103 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.77, ptr noundef nonnull @parse_psql_options.long_options, ptr noundef nonnull %3) #15
-  switch i32 %103, label %.loopexit.i [
+simple_action_list_append.exit.i.cont:            ; preds = %simple_action_list_append.exit.i.cont.backedge, %47
+  %.sroa.5.0 = phi ptr [ null, %47 ], [ %.sroa.5.0.be, %simple_action_list_append.exit.i.cont.backedge ]
+  %.sroa.7.0 = phi ptr [ null, %47 ], [ %.sroa.7.0.be, %simple_action_list_append.exit.i.cont.backedge ]
+  %.sroa.9.0 = phi ptr [ null, %47 ], [ %.sroa.9.0.be, %simple_action_list_append.exit.i.cont.backedge ]
+  %.sroa.13.0 = phi ptr [ null, %47 ], [ %.sroa.13.0.be, %simple_action_list_append.exit.i.cont.backedge ]
+  %.sroa.16.0 = phi i8 [ 0, %47 ], [ %.sroa.16.0.be, %simple_action_list_append.exit.i.cont.backedge ]
+  %.sroa.18.0 = phi i8 [ 0, %47 ], [ %.sroa.18.0.be, %simple_action_list_append.exit.i.cont.backedge ]
+  %.sroa.21.0 = phi i8 [ 0, %47 ], [ %.sroa.21.0.be, %simple_action_list_append.exit.i.cont.backedge ]
+  %.sroa.25.0 = phi i1 [ false, %47 ], [ %.sroa.25.0.be, %simple_action_list_append.exit.i.cont.backedge ]
+  %.sroa.0.0 = phi ptr [ null, %47 ], [ %.sroa.0.0.be, %simple_action_list_append.exit.i.cont.backedge ]
+  %.sroa.28119.1 = phi ptr [ null, %47 ], [ %.sroa.28119.1.be, %simple_action_list_append.exit.i.cont.backedge ]
+  %.sroa.36.0 = phi ptr [ null, %47 ], [ %.sroa.36.0.be, %simple_action_list_append.exit.i.cont.backedge ]
+  %91 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.77, ptr noundef nonnull @parse_psql_options.long_options, ptr noundef nonnull %3) #15
+  switch i32 %91, label %.loopexit.i [
     i32 -1, label %.preheader.i
-    i32 97, label %107
-    i32 65, label %110
-    i32 98, label %111
-    i32 99, label %114
-    i32 100, label %129
-    i32 101, label %132
-    i32 69, label %135
-    i32 102, label %138
-    i32 70, label %145
-    i32 104, label %148
-    i32 72, label %151
+    i32 97, label %95
+    i32 65, label %98
+    i32 98, label %99
+    i32 99, label %102
+    i32 100, label %117
+    i32 101, label %120
+    i32 69, label %123
+    i32 102, label %126
+    i32 70, label %133
+    i32 104, label %136
+    i32 72, label %139
     i32 108, label %simple_action_list_append.exit.i.cont.backedge
-    i32 76, label %152
-    i32 110, label %155
-    i32 111, label %156
-    i32 112, label %160
-    i32 80, label %163
-    i32 113, label %174
-    i32 82, label %177
-    i32 115, label %180
-    i32 83, label %183
-    i32 116, label %186
-    i32 84, label %187
-    i32 85, label %190
-    i32 118, label %193
-    i32 86, label %207
-    i32 119, label %208
-    i32 87, label %209
-    i32 120, label %210
-    i32 88, label %211
-    i32 122, label %212
-    i32 48, label %213
-    i32 49, label %214
-    i32 63, label %215
-    i32 1, label %228
-    i32 2, label %243
+    i32 76, label %140
+    i32 110, label %143
+    i32 111, label %144
+    i32 112, label %148
+    i32 80, label %151
+    i32 113, label %162
+    i32 82, label %165
+    i32 115, label %168
+    i32 83, label %171
+    i32 116, label %174
+    i32 84, label %175
+    i32 85, label %178
+    i32 118, label %181
+    i32 86, label %195
+    i32 119, label %196
+    i32 87, label %197
+    i32 120, label %198
+    i32 88, label %199
+    i32 122, label %200
+    i32 48, label %201
+    i32 49, label %202
+    i32 63, label %203
+    i32 1, label %216
+    i32 2, label %231
   ]
 
-simple_action_list_append.exit.i.cont.backedge:   ; preds = %simple_action_list_append.exit.i.cont, %simple_action_list_append.exit63.i.else, %simple_action_list_append.exit63.i, %simple_action_list_append.exit58.i.else, %simple_action_list_append.exit58.i, %simple_action_list_append.exit.i.else, %simple_action_list_append.exit.i, %243, %214, %213, %212, %211, %210, %209, %208, %206, %190, %187, %186, %183, %180, %177, %174, %173, %160, %156, %155, %152, %151, %148, %145, %135, %132, %129, %111, %110, %107
-  %.sroa.5.0.be = phi ptr [ %.sroa.5.0, %243 ], [ %.sroa.5.0, %214 ], [ %.sroa.5.0, %213 ], [ %.sroa.5.0, %212 ], [ %.sroa.5.0, %211 ], [ %.sroa.5.0, %210 ], [ %.sroa.5.0, %209 ], [ %.sroa.5.0, %208 ], [ %.sroa.5.0, %206 ], [ %.sroa.5.0, %190 ], [ %.sroa.5.0, %187 ], [ %.sroa.5.0, %186 ], [ %.sroa.5.0, %183 ], [ %.sroa.5.0, %180 ], [ %.sroa.5.0, %177 ], [ %.sroa.5.0, %174 ], [ %.sroa.5.0, %173 ], [ %.sroa.5.0, %160 ], [ %.sroa.5.0, %156 ], [ %.sroa.5.0, %155 ], [ %.sroa.5.0, %152 ], [ %.sroa.5.0, %151 ], [ %150, %148 ], [ %.sroa.5.0, %145 ], [ %.sroa.5.0, %135 ], [ %.sroa.5.0, %132 ], [ %.sroa.5.0, %129 ], [ %.sroa.5.0, %111 ], [ %.sroa.5.0, %110 ], [ %.sroa.5.0, %107 ], [ %.sroa.5.0, %simple_action_list_append.exit.i ], [ %.sroa.5.0, %simple_action_list_append.exit.i.else ], [ %.sroa.5.0, %simple_action_list_append.exit58.i ], [ %.sroa.5.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.5.0, %simple_action_list_append.exit63.i ], [ %.sroa.5.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.5.0, %simple_action_list_append.exit.i.cont ]
-  %.sroa.7.0.be = phi ptr [ %.sroa.7.0, %243 ], [ %.sroa.7.0, %214 ], [ %.sroa.7.0, %213 ], [ %.sroa.7.0, %212 ], [ %.sroa.7.0, %211 ], [ %.sroa.7.0, %210 ], [ %.sroa.7.0, %209 ], [ %.sroa.7.0, %208 ], [ %.sroa.7.0, %206 ], [ %.sroa.7.0, %190 ], [ %.sroa.7.0, %187 ], [ %.sroa.7.0, %186 ], [ %.sroa.7.0, %183 ], [ %.sroa.7.0, %180 ], [ %.sroa.7.0, %177 ], [ %.sroa.7.0, %174 ], [ %.sroa.7.0, %173 ], [ %162, %160 ], [ %.sroa.7.0, %156 ], [ %.sroa.7.0, %155 ], [ %.sroa.7.0, %152 ], [ %.sroa.7.0, %151 ], [ %.sroa.7.0, %148 ], [ %.sroa.7.0, %145 ], [ %.sroa.7.0, %135 ], [ %.sroa.7.0, %132 ], [ %.sroa.7.0, %129 ], [ %.sroa.7.0, %111 ], [ %.sroa.7.0, %110 ], [ %.sroa.7.0, %107 ], [ %.sroa.7.0, %simple_action_list_append.exit.i ], [ %.sroa.7.0, %simple_action_list_append.exit.i.else ], [ %.sroa.7.0, %simple_action_list_append.exit58.i ], [ %.sroa.7.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.7.0, %simple_action_list_append.exit63.i ], [ %.sroa.7.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.7.0, %simple_action_list_append.exit.i.cont ]
-  %.sroa.9.0.be = phi ptr [ %.sroa.9.0, %243 ], [ %.sroa.9.0, %214 ], [ %.sroa.9.0, %213 ], [ %.sroa.9.0, %212 ], [ %.sroa.9.0, %211 ], [ %.sroa.9.0, %210 ], [ %.sroa.9.0, %209 ], [ %.sroa.9.0, %208 ], [ %.sroa.9.0, %206 ], [ %192, %190 ], [ %.sroa.9.0, %187 ], [ %.sroa.9.0, %186 ], [ %.sroa.9.0, %183 ], [ %.sroa.9.0, %180 ], [ %.sroa.9.0, %177 ], [ %.sroa.9.0, %174 ], [ %.sroa.9.0, %173 ], [ %.sroa.9.0, %160 ], [ %.sroa.9.0, %156 ], [ %.sroa.9.0, %155 ], [ %.sroa.9.0, %152 ], [ %.sroa.9.0, %151 ], [ %.sroa.9.0, %148 ], [ %.sroa.9.0, %145 ], [ %.sroa.9.0, %135 ], [ %.sroa.9.0, %132 ], [ %.sroa.9.0, %129 ], [ %.sroa.9.0, %111 ], [ %.sroa.9.0, %110 ], [ %.sroa.9.0, %107 ], [ %.sroa.9.0, %simple_action_list_append.exit.i ], [ %.sroa.9.0, %simple_action_list_append.exit.i.else ], [ %.sroa.9.0, %simple_action_list_append.exit58.i ], [ %.sroa.9.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.9.0, %simple_action_list_append.exit63.i ], [ %.sroa.9.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.9.0, %simple_action_list_append.exit.i.cont ]
-  %.sroa.13.0.be = phi ptr [ %.sroa.13.0, %243 ], [ %.sroa.13.0, %214 ], [ %.sroa.13.0, %213 ], [ %.sroa.13.0, %212 ], [ %.sroa.13.0, %211 ], [ %.sroa.13.0, %210 ], [ %.sroa.13.0, %209 ], [ %.sroa.13.0, %208 ], [ %.sroa.13.0, %206 ], [ %.sroa.13.0, %190 ], [ %.sroa.13.0, %187 ], [ %.sroa.13.0, %186 ], [ %.sroa.13.0, %183 ], [ %.sroa.13.0, %180 ], [ %.sroa.13.0, %177 ], [ %.sroa.13.0, %174 ], [ %.sroa.13.0, %173 ], [ %.sroa.13.0, %160 ], [ %.sroa.13.0, %156 ], [ %.sroa.13.0, %155 ], [ %154, %152 ], [ %.sroa.13.0, %151 ], [ %.sroa.13.0, %148 ], [ %.sroa.13.0, %145 ], [ %.sroa.13.0, %135 ], [ %.sroa.13.0, %132 ], [ %.sroa.13.0, %129 ], [ %.sroa.13.0, %111 ], [ %.sroa.13.0, %110 ], [ %.sroa.13.0, %107 ], [ %.sroa.13.0, %simple_action_list_append.exit.i ], [ %.sroa.13.0, %simple_action_list_append.exit.i.else ], [ %.sroa.13.0, %simple_action_list_append.exit58.i ], [ %.sroa.13.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.13.0, %simple_action_list_append.exit63.i ], [ %.sroa.13.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.13.0, %simple_action_list_append.exit.i.cont ]
-  %.sroa.16.0.be = phi i8 [ %.sroa.16.0, %243 ], [ %.sroa.16.0, %214 ], [ %.sroa.16.0, %213 ], [ %.sroa.16.0, %212 ], [ %.sroa.16.0, %211 ], [ %.sroa.16.0, %210 ], [ %.sroa.16.0, %209 ], [ %.sroa.16.0, %208 ], [ %.sroa.16.0, %206 ], [ %.sroa.16.0, %190 ], [ %.sroa.16.0, %187 ], [ %.sroa.16.0, %186 ], [ %.sroa.16.0, %183 ], [ %.sroa.16.0, %180 ], [ %.sroa.16.0, %177 ], [ %.sroa.16.0, %174 ], [ %.sroa.16.0, %173 ], [ %.sroa.16.0, %160 ], [ %.sroa.16.0, %156 ], [ 1, %155 ], [ %.sroa.16.0, %152 ], [ %.sroa.16.0, %151 ], [ %.sroa.16.0, %148 ], [ %.sroa.16.0, %145 ], [ %.sroa.16.0, %135 ], [ %.sroa.16.0, %132 ], [ %.sroa.16.0, %129 ], [ %.sroa.16.0, %111 ], [ %.sroa.16.0, %110 ], [ %.sroa.16.0, %107 ], [ %.sroa.16.0, %simple_action_list_append.exit.i ], [ %.sroa.16.0, %simple_action_list_append.exit.i.else ], [ %.sroa.16.0, %simple_action_list_append.exit58.i ], [ %.sroa.16.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.16.0, %simple_action_list_append.exit63.i ], [ %.sroa.16.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.16.0, %simple_action_list_append.exit.i.cont ]
-  %.sroa.18.0.be = phi i8 [ %.sroa.18.0, %243 ], [ %.sroa.18.0, %214 ], [ %.sroa.18.0, %213 ], [ %.sroa.18.0, %212 ], [ 1, %211 ], [ %.sroa.18.0, %210 ], [ %.sroa.18.0, %209 ], [ %.sroa.18.0, %208 ], [ %.sroa.18.0, %206 ], [ %.sroa.18.0, %190 ], [ %.sroa.18.0, %187 ], [ %.sroa.18.0, %186 ], [ %.sroa.18.0, %183 ], [ %.sroa.18.0, %180 ], [ %.sroa.18.0, %177 ], [ %.sroa.18.0, %174 ], [ %.sroa.18.0, %173 ], [ %.sroa.18.0, %160 ], [ %.sroa.18.0, %156 ], [ %.sroa.18.0, %155 ], [ %.sroa.18.0, %152 ], [ %.sroa.18.0, %151 ], [ %.sroa.18.0, %148 ], [ %.sroa.18.0, %145 ], [ %.sroa.18.0, %135 ], [ %.sroa.18.0, %132 ], [ %.sroa.18.0, %129 ], [ %.sroa.18.0, %111 ], [ %.sroa.18.0, %110 ], [ %.sroa.18.0, %107 ], [ %.sroa.18.0, %simple_action_list_append.exit.i ], [ %.sroa.18.0, %simple_action_list_append.exit.i.else ], [ %.sroa.18.0, %simple_action_list_append.exit58.i ], [ %.sroa.18.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.18.0, %simple_action_list_append.exit63.i ], [ %.sroa.18.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.18.0, %simple_action_list_append.exit.i.cont ]
-  %.sroa.21.0.be = phi i8 [ %.sroa.21.0, %243 ], [ 1, %214 ], [ %.sroa.21.0, %213 ], [ %.sroa.21.0, %212 ], [ %.sroa.21.0, %211 ], [ %.sroa.21.0, %210 ], [ %.sroa.21.0, %209 ], [ %.sroa.21.0, %208 ], [ %.sroa.21.0, %206 ], [ %.sroa.21.0, %190 ], [ %.sroa.21.0, %187 ], [ %.sroa.21.0, %186 ], [ %.sroa.21.0, %183 ], [ %.sroa.21.0, %180 ], [ %.sroa.21.0, %177 ], [ %.sroa.21.0, %174 ], [ %.sroa.21.0, %173 ], [ %.sroa.21.0, %160 ], [ %.sroa.21.0, %156 ], [ %.sroa.21.0, %155 ], [ %.sroa.21.0, %152 ], [ %.sroa.21.0, %151 ], [ %.sroa.21.0, %148 ], [ %.sroa.21.0, %145 ], [ %.sroa.21.0, %135 ], [ %.sroa.21.0, %132 ], [ %.sroa.21.0, %129 ], [ %.sroa.21.0, %111 ], [ %.sroa.21.0, %110 ], [ %.sroa.21.0, %107 ], [ %.sroa.21.0, %simple_action_list_append.exit.i ], [ %.sroa.21.0, %simple_action_list_append.exit.i.else ], [ %.sroa.21.0, %simple_action_list_append.exit58.i ], [ %.sroa.21.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.21.0, %simple_action_list_append.exit63.i ], [ %.sroa.21.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.21.0, %simple_action_list_append.exit.i.cont ]
-  %.sroa.25.0.be = phi i1 [ %.sroa.25.0, %243 ], [ %.sroa.25.0, %214 ], [ %.sroa.25.0, %213 ], [ %.sroa.25.0, %212 ], [ %.sroa.25.0, %211 ], [ %.sroa.25.0, %210 ], [ %.sroa.25.0, %209 ], [ %.sroa.25.0, %208 ], [ %.sroa.25.0, %206 ], [ %.sroa.25.0, %190 ], [ %.sroa.25.0, %187 ], [ %.sroa.25.0, %186 ], [ %.sroa.25.0, %183 ], [ %.sroa.25.0, %180 ], [ %.sroa.25.0, %177 ], [ %.sroa.25.0, %174 ], [ %.sroa.25.0, %173 ], [ %.sroa.25.0, %160 ], [ %.sroa.25.0, %156 ], [ %.sroa.25.0, %155 ], [ %.sroa.25.0, %152 ], [ %.sroa.25.0, %151 ], [ %.sroa.25.0, %148 ], [ %.sroa.25.0, %145 ], [ %.sroa.25.0, %135 ], [ %.sroa.25.0, %132 ], [ %.sroa.25.0, %129 ], [ %.sroa.25.0, %111 ], [ %.sroa.25.0, %110 ], [ %.sroa.25.0, %107 ], [ %.sroa.25.0, %simple_action_list_append.exit.i ], [ %.sroa.25.0, %simple_action_list_append.exit.i.else ], [ %.sroa.25.0, %simple_action_list_append.exit58.i ], [ %.sroa.25.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.25.0, %simple_action_list_append.exit63.i ], [ %.sroa.25.0, %simple_action_list_append.exit63.i.else ], [ true, %simple_action_list_append.exit.i.cont ]
-  %.sroa.0.0.be = phi ptr [ %.sroa.0.0, %243 ], [ %.sroa.0.0, %214 ], [ %.sroa.0.0, %213 ], [ %.sroa.0.0, %212 ], [ %.sroa.0.0, %211 ], [ %.sroa.0.0, %210 ], [ %.sroa.0.0, %209 ], [ %.sroa.0.0, %208 ], [ %.sroa.0.0, %206 ], [ %.sroa.0.0, %190 ], [ %.sroa.0.0, %187 ], [ %.sroa.0.0, %186 ], [ %.sroa.0.0, %183 ], [ %.sroa.0.0, %180 ], [ %.sroa.0.0, %177 ], [ %.sroa.0.0, %174 ], [ %.sroa.0.0, %173 ], [ %.sroa.0.0, %160 ], [ %.sroa.0.0, %156 ], [ %.sroa.0.0, %155 ], [ %.sroa.0.0, %152 ], [ %.sroa.0.0, %151 ], [ %.sroa.0.0, %148 ], [ %.sroa.0.0, %145 ], [ %.sroa.0.0, %135 ], [ %.sroa.0.0, %132 ], [ %131, %129 ], [ %.sroa.0.0, %111 ], [ %.sroa.0.0, %110 ], [ %.sroa.0.0, %107 ], [ %.sroa.0.0, %simple_action_list_append.exit.i ], [ %.sroa.0.0, %simple_action_list_append.exit.i.else ], [ %.sroa.0.0, %simple_action_list_append.exit58.i ], [ %.sroa.0.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.0.0, %simple_action_list_append.exit63.i ], [ %.sroa.0.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.0.0, %simple_action_list_append.exit.i.cont ]
-  %.sroa.28118.1.be = phi ptr [ %.sroa.28118.1, %243 ], [ %.sroa.28118.1, %214 ], [ %.sroa.28118.1, %213 ], [ %.sroa.28118.1, %212 ], [ %.sroa.28118.1, %211 ], [ %.sroa.28118.1, %210 ], [ %.sroa.28118.1, %209 ], [ %.sroa.28118.1, %208 ], [ %.sroa.28118.1, %206 ], [ %.sroa.28118.1, %190 ], [ %.sroa.28118.1, %187 ], [ %.sroa.28118.1, %186 ], [ %.sroa.28118.1, %183 ], [ %.sroa.28118.1, %180 ], [ %.sroa.28118.1, %177 ], [ %.sroa.28118.1, %174 ], [ %.sroa.28118.1, %173 ], [ %.sroa.28118.1, %160 ], [ %.sroa.28118.1, %156 ], [ %.sroa.28118.1, %155 ], [ %.sroa.28118.1, %152 ], [ %.sroa.28118.1, %151 ], [ %.sroa.28118.1, %148 ], [ %.sroa.28118.1, %145 ], [ %.sroa.28118.1, %135 ], [ %.sroa.28118.1, %132 ], [ %.sroa.28118.1, %129 ], [ %.sroa.28118.1, %111 ], [ %.sroa.28118.1, %110 ], [ %.sroa.28118.1, %107 ], [ %120, %simple_action_list_append.exit.i ], [ %.sroa.28118.1, %simple_action_list_append.exit.i.else ], [ %125, %simple_action_list_append.exit58.i ], [ %.sroa.28118.1, %simple_action_list_append.exit58.i.else ], [ %140, %simple_action_list_append.exit63.i ], [ %.sroa.28118.1, %simple_action_list_append.exit63.i.else ], [ %.sroa.28118.1, %simple_action_list_append.exit.i.cont ]
-  %.sroa.36.0.be = phi ptr [ %.sroa.36.0, %243 ], [ %.sroa.36.0, %214 ], [ %.sroa.36.0, %213 ], [ %.sroa.36.0, %212 ], [ %.sroa.36.0, %211 ], [ %.sroa.36.0, %210 ], [ %.sroa.36.0, %209 ], [ %.sroa.36.0, %208 ], [ %.sroa.36.0, %206 ], [ %.sroa.36.0, %190 ], [ %.sroa.36.0, %187 ], [ %.sroa.36.0, %186 ], [ %.sroa.36.0, %183 ], [ %.sroa.36.0, %180 ], [ %.sroa.36.0, %177 ], [ %.sroa.36.0, %174 ], [ %.sroa.36.0, %173 ], [ %.sroa.36.0, %160 ], [ %.sroa.36.0, %156 ], [ %.sroa.36.0, %155 ], [ %.sroa.36.0, %152 ], [ %.sroa.36.0, %151 ], [ %.sroa.36.0, %148 ], [ %.sroa.36.0, %145 ], [ %.sroa.36.0, %135 ], [ %.sroa.36.0, %132 ], [ %.sroa.36.0, %129 ], [ %.sroa.36.0, %111 ], [ %.sroa.36.0, %110 ], [ %.sroa.36.0, %107 ], [ %120, %simple_action_list_append.exit.i ], [ %120, %simple_action_list_append.exit.i.else ], [ %125, %simple_action_list_append.exit58.i ], [ %125, %simple_action_list_append.exit58.i.else ], [ %140, %simple_action_list_append.exit63.i ], [ %140, %simple_action_list_append.exit63.i.else ], [ %.sroa.36.0, %simple_action_list_append.exit.i.cont ]
+simple_action_list_append.exit.i.cont.backedge:   ; preds = %simple_action_list_append.exit.i.cont, %simple_action_list_append.exit63.i.else, %simple_action_list_append.exit63.i, %simple_action_list_append.exit58.i.else, %simple_action_list_append.exit58.i, %simple_action_list_append.exit.i.else, %simple_action_list_append.exit.i, %231, %202, %201, %200, %199, %198, %197, %196, %194, %178, %175, %174, %171, %168, %165, %162, %161, %148, %144, %143, %140, %139, %136, %133, %123, %120, %117, %99, %98, %95
+  %.sroa.5.0.be = phi ptr [ %.sroa.5.0, %231 ], [ %.sroa.5.0, %202 ], [ %.sroa.5.0, %201 ], [ %.sroa.5.0, %200 ], [ %.sroa.5.0, %199 ], [ %.sroa.5.0, %198 ], [ %.sroa.5.0, %197 ], [ %.sroa.5.0, %196 ], [ %.sroa.5.0, %194 ], [ %.sroa.5.0, %178 ], [ %.sroa.5.0, %175 ], [ %.sroa.5.0, %174 ], [ %.sroa.5.0, %171 ], [ %.sroa.5.0, %168 ], [ %.sroa.5.0, %165 ], [ %.sroa.5.0, %162 ], [ %.sroa.5.0, %161 ], [ %.sroa.5.0, %148 ], [ %.sroa.5.0, %144 ], [ %.sroa.5.0, %143 ], [ %.sroa.5.0, %140 ], [ %.sroa.5.0, %139 ], [ %138, %136 ], [ %.sroa.5.0, %133 ], [ %.sroa.5.0, %123 ], [ %.sroa.5.0, %120 ], [ %.sroa.5.0, %117 ], [ %.sroa.5.0, %99 ], [ %.sroa.5.0, %98 ], [ %.sroa.5.0, %95 ], [ %.sroa.5.0, %simple_action_list_append.exit.i ], [ %.sroa.5.0, %simple_action_list_append.exit.i.else ], [ %.sroa.5.0, %simple_action_list_append.exit58.i ], [ %.sroa.5.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.5.0, %simple_action_list_append.exit63.i ], [ %.sroa.5.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.5.0, %simple_action_list_append.exit.i.cont ]
+  %.sroa.7.0.be = phi ptr [ %.sroa.7.0, %231 ], [ %.sroa.7.0, %202 ], [ %.sroa.7.0, %201 ], [ %.sroa.7.0, %200 ], [ %.sroa.7.0, %199 ], [ %.sroa.7.0, %198 ], [ %.sroa.7.0, %197 ], [ %.sroa.7.0, %196 ], [ %.sroa.7.0, %194 ], [ %.sroa.7.0, %178 ], [ %.sroa.7.0, %175 ], [ %.sroa.7.0, %174 ], [ %.sroa.7.0, %171 ], [ %.sroa.7.0, %168 ], [ %.sroa.7.0, %165 ], [ %.sroa.7.0, %162 ], [ %.sroa.7.0, %161 ], [ %150, %148 ], [ %.sroa.7.0, %144 ], [ %.sroa.7.0, %143 ], [ %.sroa.7.0, %140 ], [ %.sroa.7.0, %139 ], [ %.sroa.7.0, %136 ], [ %.sroa.7.0, %133 ], [ %.sroa.7.0, %123 ], [ %.sroa.7.0, %120 ], [ %.sroa.7.0, %117 ], [ %.sroa.7.0, %99 ], [ %.sroa.7.0, %98 ], [ %.sroa.7.0, %95 ], [ %.sroa.7.0, %simple_action_list_append.exit.i ], [ %.sroa.7.0, %simple_action_list_append.exit.i.else ], [ %.sroa.7.0, %simple_action_list_append.exit58.i ], [ %.sroa.7.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.7.0, %simple_action_list_append.exit63.i ], [ %.sroa.7.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.7.0, %simple_action_list_append.exit.i.cont ]
+  %.sroa.9.0.be = phi ptr [ %.sroa.9.0, %231 ], [ %.sroa.9.0, %202 ], [ %.sroa.9.0, %201 ], [ %.sroa.9.0, %200 ], [ %.sroa.9.0, %199 ], [ %.sroa.9.0, %198 ], [ %.sroa.9.0, %197 ], [ %.sroa.9.0, %196 ], [ %.sroa.9.0, %194 ], [ %180, %178 ], [ %.sroa.9.0, %175 ], [ %.sroa.9.0, %174 ], [ %.sroa.9.0, %171 ], [ %.sroa.9.0, %168 ], [ %.sroa.9.0, %165 ], [ %.sroa.9.0, %162 ], [ %.sroa.9.0, %161 ], [ %.sroa.9.0, %148 ], [ %.sroa.9.0, %144 ], [ %.sroa.9.0, %143 ], [ %.sroa.9.0, %140 ], [ %.sroa.9.0, %139 ], [ %.sroa.9.0, %136 ], [ %.sroa.9.0, %133 ], [ %.sroa.9.0, %123 ], [ %.sroa.9.0, %120 ], [ %.sroa.9.0, %117 ], [ %.sroa.9.0, %99 ], [ %.sroa.9.0, %98 ], [ %.sroa.9.0, %95 ], [ %.sroa.9.0, %simple_action_list_append.exit.i ], [ %.sroa.9.0, %simple_action_list_append.exit.i.else ], [ %.sroa.9.0, %simple_action_list_append.exit58.i ], [ %.sroa.9.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.9.0, %simple_action_list_append.exit63.i ], [ %.sroa.9.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.9.0, %simple_action_list_append.exit.i.cont ]
+  %.sroa.13.0.be = phi ptr [ %.sroa.13.0, %231 ], [ %.sroa.13.0, %202 ], [ %.sroa.13.0, %201 ], [ %.sroa.13.0, %200 ], [ %.sroa.13.0, %199 ], [ %.sroa.13.0, %198 ], [ %.sroa.13.0, %197 ], [ %.sroa.13.0, %196 ], [ %.sroa.13.0, %194 ], [ %.sroa.13.0, %178 ], [ %.sroa.13.0, %175 ], [ %.sroa.13.0, %174 ], [ %.sroa.13.0, %171 ], [ %.sroa.13.0, %168 ], [ %.sroa.13.0, %165 ], [ %.sroa.13.0, %162 ], [ %.sroa.13.0, %161 ], [ %.sroa.13.0, %148 ], [ %.sroa.13.0, %144 ], [ %.sroa.13.0, %143 ], [ %142, %140 ], [ %.sroa.13.0, %139 ], [ %.sroa.13.0, %136 ], [ %.sroa.13.0, %133 ], [ %.sroa.13.0, %123 ], [ %.sroa.13.0, %120 ], [ %.sroa.13.0, %117 ], [ %.sroa.13.0, %99 ], [ %.sroa.13.0, %98 ], [ %.sroa.13.0, %95 ], [ %.sroa.13.0, %simple_action_list_append.exit.i ], [ %.sroa.13.0, %simple_action_list_append.exit.i.else ], [ %.sroa.13.0, %simple_action_list_append.exit58.i ], [ %.sroa.13.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.13.0, %simple_action_list_append.exit63.i ], [ %.sroa.13.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.13.0, %simple_action_list_append.exit.i.cont ]
+  %.sroa.16.0.be = phi i8 [ %.sroa.16.0, %231 ], [ %.sroa.16.0, %202 ], [ %.sroa.16.0, %201 ], [ %.sroa.16.0, %200 ], [ %.sroa.16.0, %199 ], [ %.sroa.16.0, %198 ], [ %.sroa.16.0, %197 ], [ %.sroa.16.0, %196 ], [ %.sroa.16.0, %194 ], [ %.sroa.16.0, %178 ], [ %.sroa.16.0, %175 ], [ %.sroa.16.0, %174 ], [ %.sroa.16.0, %171 ], [ %.sroa.16.0, %168 ], [ %.sroa.16.0, %165 ], [ %.sroa.16.0, %162 ], [ %.sroa.16.0, %161 ], [ %.sroa.16.0, %148 ], [ %.sroa.16.0, %144 ], [ 1, %143 ], [ %.sroa.16.0, %140 ], [ %.sroa.16.0, %139 ], [ %.sroa.16.0, %136 ], [ %.sroa.16.0, %133 ], [ %.sroa.16.0, %123 ], [ %.sroa.16.0, %120 ], [ %.sroa.16.0, %117 ], [ %.sroa.16.0, %99 ], [ %.sroa.16.0, %98 ], [ %.sroa.16.0, %95 ], [ %.sroa.16.0, %simple_action_list_append.exit.i ], [ %.sroa.16.0, %simple_action_list_append.exit.i.else ], [ %.sroa.16.0, %simple_action_list_append.exit58.i ], [ %.sroa.16.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.16.0, %simple_action_list_append.exit63.i ], [ %.sroa.16.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.16.0, %simple_action_list_append.exit.i.cont ]
+  %.sroa.18.0.be = phi i8 [ %.sroa.18.0, %231 ], [ %.sroa.18.0, %202 ], [ %.sroa.18.0, %201 ], [ %.sroa.18.0, %200 ], [ 1, %199 ], [ %.sroa.18.0, %198 ], [ %.sroa.18.0, %197 ], [ %.sroa.18.0, %196 ], [ %.sroa.18.0, %194 ], [ %.sroa.18.0, %178 ], [ %.sroa.18.0, %175 ], [ %.sroa.18.0, %174 ], [ %.sroa.18.0, %171 ], [ %.sroa.18.0, %168 ], [ %.sroa.18.0, %165 ], [ %.sroa.18.0, %162 ], [ %.sroa.18.0, %161 ], [ %.sroa.18.0, %148 ], [ %.sroa.18.0, %144 ], [ %.sroa.18.0, %143 ], [ %.sroa.18.0, %140 ], [ %.sroa.18.0, %139 ], [ %.sroa.18.0, %136 ], [ %.sroa.18.0, %133 ], [ %.sroa.18.0, %123 ], [ %.sroa.18.0, %120 ], [ %.sroa.18.0, %117 ], [ %.sroa.18.0, %99 ], [ %.sroa.18.0, %98 ], [ %.sroa.18.0, %95 ], [ %.sroa.18.0, %simple_action_list_append.exit.i ], [ %.sroa.18.0, %simple_action_list_append.exit.i.else ], [ %.sroa.18.0, %simple_action_list_append.exit58.i ], [ %.sroa.18.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.18.0, %simple_action_list_append.exit63.i ], [ %.sroa.18.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.18.0, %simple_action_list_append.exit.i.cont ]
+  %.sroa.21.0.be = phi i8 [ %.sroa.21.0, %231 ], [ 1, %202 ], [ %.sroa.21.0, %201 ], [ %.sroa.21.0, %200 ], [ %.sroa.21.0, %199 ], [ %.sroa.21.0, %198 ], [ %.sroa.21.0, %197 ], [ %.sroa.21.0, %196 ], [ %.sroa.21.0, %194 ], [ %.sroa.21.0, %178 ], [ %.sroa.21.0, %175 ], [ %.sroa.21.0, %174 ], [ %.sroa.21.0, %171 ], [ %.sroa.21.0, %168 ], [ %.sroa.21.0, %165 ], [ %.sroa.21.0, %162 ], [ %.sroa.21.0, %161 ], [ %.sroa.21.0, %148 ], [ %.sroa.21.0, %144 ], [ %.sroa.21.0, %143 ], [ %.sroa.21.0, %140 ], [ %.sroa.21.0, %139 ], [ %.sroa.21.0, %136 ], [ %.sroa.21.0, %133 ], [ %.sroa.21.0, %123 ], [ %.sroa.21.0, %120 ], [ %.sroa.21.0, %117 ], [ %.sroa.21.0, %99 ], [ %.sroa.21.0, %98 ], [ %.sroa.21.0, %95 ], [ %.sroa.21.0, %simple_action_list_append.exit.i ], [ %.sroa.21.0, %simple_action_list_append.exit.i.else ], [ %.sroa.21.0, %simple_action_list_append.exit58.i ], [ %.sroa.21.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.21.0, %simple_action_list_append.exit63.i ], [ %.sroa.21.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.21.0, %simple_action_list_append.exit.i.cont ]
+  %.sroa.25.0.be = phi i1 [ %.sroa.25.0, %231 ], [ %.sroa.25.0, %202 ], [ %.sroa.25.0, %201 ], [ %.sroa.25.0, %200 ], [ %.sroa.25.0, %199 ], [ %.sroa.25.0, %198 ], [ %.sroa.25.0, %197 ], [ %.sroa.25.0, %196 ], [ %.sroa.25.0, %194 ], [ %.sroa.25.0, %178 ], [ %.sroa.25.0, %175 ], [ %.sroa.25.0, %174 ], [ %.sroa.25.0, %171 ], [ %.sroa.25.0, %168 ], [ %.sroa.25.0, %165 ], [ %.sroa.25.0, %162 ], [ %.sroa.25.0, %161 ], [ %.sroa.25.0, %148 ], [ %.sroa.25.0, %144 ], [ %.sroa.25.0, %143 ], [ %.sroa.25.0, %140 ], [ %.sroa.25.0, %139 ], [ %.sroa.25.0, %136 ], [ %.sroa.25.0, %133 ], [ %.sroa.25.0, %123 ], [ %.sroa.25.0, %120 ], [ %.sroa.25.0, %117 ], [ %.sroa.25.0, %99 ], [ %.sroa.25.0, %98 ], [ %.sroa.25.0, %95 ], [ %.sroa.25.0, %simple_action_list_append.exit.i ], [ %.sroa.25.0, %simple_action_list_append.exit.i.else ], [ %.sroa.25.0, %simple_action_list_append.exit58.i ], [ %.sroa.25.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.25.0, %simple_action_list_append.exit63.i ], [ %.sroa.25.0, %simple_action_list_append.exit63.i.else ], [ true, %simple_action_list_append.exit.i.cont ]
+  %.sroa.0.0.be = phi ptr [ %.sroa.0.0, %231 ], [ %.sroa.0.0, %202 ], [ %.sroa.0.0, %201 ], [ %.sroa.0.0, %200 ], [ %.sroa.0.0, %199 ], [ %.sroa.0.0, %198 ], [ %.sroa.0.0, %197 ], [ %.sroa.0.0, %196 ], [ %.sroa.0.0, %194 ], [ %.sroa.0.0, %178 ], [ %.sroa.0.0, %175 ], [ %.sroa.0.0, %174 ], [ %.sroa.0.0, %171 ], [ %.sroa.0.0, %168 ], [ %.sroa.0.0, %165 ], [ %.sroa.0.0, %162 ], [ %.sroa.0.0, %161 ], [ %.sroa.0.0, %148 ], [ %.sroa.0.0, %144 ], [ %.sroa.0.0, %143 ], [ %.sroa.0.0, %140 ], [ %.sroa.0.0, %139 ], [ %.sroa.0.0, %136 ], [ %.sroa.0.0, %133 ], [ %.sroa.0.0, %123 ], [ %.sroa.0.0, %120 ], [ %119, %117 ], [ %.sroa.0.0, %99 ], [ %.sroa.0.0, %98 ], [ %.sroa.0.0, %95 ], [ %.sroa.0.0, %simple_action_list_append.exit.i ], [ %.sroa.0.0, %simple_action_list_append.exit.i.else ], [ %.sroa.0.0, %simple_action_list_append.exit58.i ], [ %.sroa.0.0, %simple_action_list_append.exit58.i.else ], [ %.sroa.0.0, %simple_action_list_append.exit63.i ], [ %.sroa.0.0, %simple_action_list_append.exit63.i.else ], [ %.sroa.0.0, %simple_action_list_append.exit.i.cont ]
+  %.sroa.28119.1.be = phi ptr [ %.sroa.28119.1, %231 ], [ %.sroa.28119.1, %202 ], [ %.sroa.28119.1, %201 ], [ %.sroa.28119.1, %200 ], [ %.sroa.28119.1, %199 ], [ %.sroa.28119.1, %198 ], [ %.sroa.28119.1, %197 ], [ %.sroa.28119.1, %196 ], [ %.sroa.28119.1, %194 ], [ %.sroa.28119.1, %178 ], [ %.sroa.28119.1, %175 ], [ %.sroa.28119.1, %174 ], [ %.sroa.28119.1, %171 ], [ %.sroa.28119.1, %168 ], [ %.sroa.28119.1, %165 ], [ %.sroa.28119.1, %162 ], [ %.sroa.28119.1, %161 ], [ %.sroa.28119.1, %148 ], [ %.sroa.28119.1, %144 ], [ %.sroa.28119.1, %143 ], [ %.sroa.28119.1, %140 ], [ %.sroa.28119.1, %139 ], [ %.sroa.28119.1, %136 ], [ %.sroa.28119.1, %133 ], [ %.sroa.28119.1, %123 ], [ %.sroa.28119.1, %120 ], [ %.sroa.28119.1, %117 ], [ %.sroa.28119.1, %99 ], [ %.sroa.28119.1, %98 ], [ %.sroa.28119.1, %95 ], [ %108, %simple_action_list_append.exit.i ], [ %.sroa.28119.1, %simple_action_list_append.exit.i.else ], [ %113, %simple_action_list_append.exit58.i ], [ %.sroa.28119.1, %simple_action_list_append.exit58.i.else ], [ %128, %simple_action_list_append.exit63.i ], [ %.sroa.28119.1, %simple_action_list_append.exit63.i.else ], [ %.sroa.28119.1, %simple_action_list_append.exit.i.cont ]
+  %.sroa.36.0.be = phi ptr [ %.sroa.36.0, %231 ], [ %.sroa.36.0, %202 ], [ %.sroa.36.0, %201 ], [ %.sroa.36.0, %200 ], [ %.sroa.36.0, %199 ], [ %.sroa.36.0, %198 ], [ %.sroa.36.0, %197 ], [ %.sroa.36.0, %196 ], [ %.sroa.36.0, %194 ], [ %.sroa.36.0, %178 ], [ %.sroa.36.0, %175 ], [ %.sroa.36.0, %174 ], [ %.sroa.36.0, %171 ], [ %.sroa.36.0, %168 ], [ %.sroa.36.0, %165 ], [ %.sroa.36.0, %162 ], [ %.sroa.36.0, %161 ], [ %.sroa.36.0, %148 ], [ %.sroa.36.0, %144 ], [ %.sroa.36.0, %143 ], [ %.sroa.36.0, %140 ], [ %.sroa.36.0, %139 ], [ %.sroa.36.0, %136 ], [ %.sroa.36.0, %133 ], [ %.sroa.36.0, %123 ], [ %.sroa.36.0, %120 ], [ %.sroa.36.0, %117 ], [ %.sroa.36.0, %99 ], [ %.sroa.36.0, %98 ], [ %.sroa.36.0, %95 ], [ %108, %simple_action_list_append.exit.i ], [ %108, %simple_action_list_append.exit.i.else ], [ %113, %simple_action_list_append.exit58.i ], [ %113, %simple_action_list_append.exit58.i.else ], [ %128, %simple_action_list_append.exit63.i ], [ %128, %simple_action_list_append.exit63.i.else ], [ %.sroa.36.0, %simple_action_list_append.exit.i.cont ]
   br label %simple_action_list_append.exit.i.cont, !llvm.loop !5
 
 .preheader.i:                                     ; preds = %simple_action_list_append.exit.i.cont
-  %104 = load i32, ptr @optind, align 4
-  %105 = sub i32 %0, %104
-  %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %.lr.ph.i, label %parse_psql_options.exit
+  %92 = load i32, ptr @optind, align 4
+  %93 = sub i32 %0, %92
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %.lr.ph.i, label %parse_psql_options.exit
 
-107:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %109 = call zeroext i1 @SetVariable(ptr noundef %108, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79) #15
+95:                                               ; preds = %simple_action_list_append.exit.i.cont
+  %96 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %97 = call zeroext i1 @SetVariable(ptr noundef %96, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
-110:                                              ; preds = %simple_action_list_append.exit.i.cont
+98:                                               ; preds = %simple_action_list_append.exit.i.cont
   store i32 8, ptr getelementptr inbounds (i8, ptr @pset, i64 48), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
-111:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %112 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %113 = call zeroext i1 @SetVariable(ptr noundef %112, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.80) #15
+99:                                               ; preds = %simple_action_list_append.exit.i.cont
+  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %101 = call zeroext i1 @SetVariable(ptr noundef %100, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.80) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
-114:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %115 = load ptr, ptr @optarg, align 8
-  %116 = load i8, ptr %115, align 1
-  %117 = icmp eq i8 %116, 92
-  br i1 %117, label %118, label %simple_action_list_append.exit58.i
+102:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %103 = load ptr, ptr @optarg, align 8
+  %104 = load i8, ptr %103, align 1
+  %105 = icmp eq i8 %104, 92
+  br i1 %105, label %106, label %simple_action_list_append.exit58.i
 
-118:                                              ; preds = %114
-  %119 = getelementptr i8, ptr %115, i64 1
-  %120 = call ptr @pg_malloc(i64 noundef 24) #15
-  store ptr null, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 8
-  store i32 1, ptr %121, align 8
-  %.not.i.i = icmp eq ptr %119, null
-  br i1 %.not.i.i, label %simple_action_list_append.exit.i, label %122
+106:                                              ; preds = %102
+  %107 = getelementptr i8, ptr %103, i64 1
+  %108 = call ptr @pg_malloc(i64 noundef 24) #15
+  store ptr null, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 8
+  store i32 1, ptr %109, align 8
+  %.not.i.i = icmp eq ptr %107, null
+  br i1 %.not.i.i, label %simple_action_list_append.exit.i, label %110
 
-122:                                              ; preds = %118
-  %123 = call ptr @pg_strdup(ptr noundef nonnull %119) #15
+110:                                              ; preds = %106
+  %111 = call ptr @pg_strdup(ptr noundef nonnull %107) #15
   br label %simple_action_list_append.exit.i
 
-simple_action_list_append.exit.i:                 ; preds = %122, %118
-  %.sink.i.i = phi ptr [ %123, %122 ], [ null, %118 ]
-  %124 = getelementptr inbounds i8, ptr %120, i64 16
-  store ptr %.sink.i.i, ptr %124, align 8
+simple_action_list_append.exit.i:                 ; preds = %110, %106
+  %.sink.i.i = phi ptr [ %111, %110 ], [ null, %106 ]
+  %112 = getelementptr inbounds i8, ptr %108, i64 16
+  store ptr %.sink.i.i, ptr %112, align 8
   %.not14.i.i = icmp eq ptr %.sroa.36.0, null
   br i1 %.not14.i.i, label %simple_action_list_append.exit.i.cont.backedge, label %simple_action_list_append.exit.i.else
 
 simple_action_list_append.exit.i.else:            ; preds = %simple_action_list_append.exit.i
-  store ptr %120, ptr %.sroa.36.0, align 8
+  store ptr %108, ptr %.sroa.36.0, align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
-simple_action_list_append.exit58.i:               ; preds = %114
-  %125 = call ptr @pg_malloc(i64 noundef 24) #15
-  store ptr null, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
-  store i32 0, ptr %126, align 8
-  %127 = call ptr @pg_strdup(ptr noundef nonnull %115) #15
-  %128 = getelementptr inbounds i8, ptr %125, i64 16
-  store ptr %127, ptr %128, align 8
+simple_action_list_append.exit58.i:               ; preds = %102
+  %113 = call ptr @pg_malloc(i64 noundef 24) #15
+  store ptr null, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  store i32 0, ptr %114, align 8
+  %115 = call ptr @pg_strdup(ptr noundef nonnull %103) #15
+  %116 = getelementptr inbounds i8, ptr %113, i64 16
+  store ptr %115, ptr %116, align 8
   %.not14.i56.i = icmp eq ptr %.sroa.36.0, null
   br i1 %.not14.i56.i, label %simple_action_list_append.exit.i.cont.backedge, label %simple_action_list_append.exit58.i.else
 
 simple_action_list_append.exit58.i.else:          ; preds = %simple_action_list_append.exit58.i
-  store ptr %125, ptr %.sroa.36.0, align 8
+  store ptr %113, ptr %.sroa.36.0, align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
-129:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %130 = load ptr, ptr @optarg, align 8
-  %131 = call ptr @pg_strdup(ptr noundef %130) #15
+117:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %118 = load ptr, ptr @optarg, align 8
+  %119 = call ptr @pg_strdup(ptr noundef %118) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
-132:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %134 = call zeroext i1 @SetVariable(ptr noundef %133, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.81) #15
+120:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %122 = call zeroext i1 @SetVariable(ptr noundef %121, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.81) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
-135:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %137 = call zeroext i1 @SetVariableBool(ptr noundef %136, ptr noundef nonnull @.str.82) #15
+123:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %124 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %125 = call zeroext i1 @SetVariableBool(ptr noundef %124, ptr noundef nonnull @.str.82) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
-138:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %139 = load ptr, ptr @optarg, align 8
-  %140 = call ptr @pg_malloc(i64 noundef 24) #15
-  store ptr null, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 8
-  store i32 2, ptr %141, align 8
-  %.not.i59.i = icmp eq ptr %139, null
-  br i1 %.not.i59.i, label %simple_action_list_append.exit63.i, label %142
+126:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %127 = load ptr, ptr @optarg, align 8
+  %128 = call ptr @pg_malloc(i64 noundef 24) #15
+  store ptr null, ptr %128, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  store i32 2, ptr %129, align 8
+  %.not.i59.i = icmp eq ptr %127, null
+  br i1 %.not.i59.i, label %simple_action_list_append.exit63.i, label %130
 
-142:                                              ; preds = %138
-  %143 = call ptr @pg_strdup(ptr noundef nonnull %139) #15
+130:                                              ; preds = %126
+  %131 = call ptr @pg_strdup(ptr noundef nonnull %127) #15
   br label %simple_action_list_append.exit63.i
 
-simple_action_list_append.exit63.i:               ; preds = %142, %138
-  %.sink.i60.i = phi ptr [ %143, %142 ], [ null, %138 ]
-  %144 = getelementptr inbounds i8, ptr %140, i64 16
-  store ptr %.sink.i60.i, ptr %144, align 8
+simple_action_list_append.exit63.i:               ; preds = %130, %126
+  %.sink.i60.i = phi ptr [ %131, %130 ], [ null, %126 ]
+  %132 = getelementptr inbounds i8, ptr %128, i64 16
+  store ptr %.sink.i60.i, ptr %132, align 8
   %.not14.i61.i = icmp eq ptr %.sroa.36.0, null
   br i1 %.not14.i61.i, label %simple_action_list_append.exit.i.cont.backedge, label %simple_action_list_append.exit63.i.else
 
 simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_append.exit63.i
-  store ptr %140, ptr %.sroa.36.0, align 8
+  store ptr %128, ptr %.sroa.36.0, align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
-145:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %146 = load ptr, ptr @optarg, align 8
-  %147 = call ptr @pg_strdup(ptr noundef %146) #15
-  store ptr %147, ptr getelementptr inbounds (i8, ptr @pset, i64 96), align 8
+133:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %134 = load ptr, ptr @optarg, align 8
+  %135 = call ptr @pg_strdup(ptr noundef %134) #15
+  store ptr %135, ptr getelementptr inbounds (i8, ptr @pset, i64 96), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 104), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
+
+136:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %137 = load ptr, ptr @optarg, align 8
+  %138 = call ptr @pg_strdup(ptr noundef %137) #15
+  br label %simple_action_list_append.exit.i.cont.backedge
+
+139:                                              ; preds = %simple_action_list_append.exit.i.cont
+  store i32 4, ptr getelementptr inbounds (i8, ptr @pset, i64 48), align 8
+  br label %simple_action_list_append.exit.i.cont.backedge
+
+140:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %141 = load ptr, ptr @optarg, align 8
+  %142 = call ptr @pg_strdup(ptr noundef %141) #15
+  br label %simple_action_list_append.exit.i.cont.backedge
+
+143:                                              ; preds = %simple_action_list_append.exit.i.cont
+  br label %simple_action_list_append.exit.i.cont.backedge
+
+144:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %145 = load ptr, ptr @optarg, align 8
+  %146 = call zeroext i1 @setQFout(ptr noundef %145) #15
+  br i1 %146, label %simple_action_list_append.exit.i.cont.backedge, label %147
+
+147:                                              ; preds = %144
+  call void @exit(i32 noundef 1) #18
+  unreachable
 
 148:                                              ; preds = %simple_action_list_append.exit.i.cont
   %149 = load ptr, ptr @optarg, align 8
@@ -552,711 +562,683 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
   br label %simple_action_list_append.exit.i.cont.backedge
 
 151:                                              ; preds = %simple_action_list_append.exit.i.cont
-  store i32 4, ptr getelementptr inbounds (i8, ptr @pset, i64 48), align 8
-  br label %simple_action_list_append.exit.i.cont.backedge
+  %152 = load ptr, ptr @optarg, align 8
+  %153 = call ptr @pg_strdup(ptr noundef %152) #15
+  %154 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %153, i32 noundef 61) #16
+  %.not53.i = icmp eq ptr %154, null
+  br i1 %.not53.i, label %158, label %155
 
-152:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %153 = load ptr, ptr @optarg, align 8
-  %154 = call ptr @pg_strdup(ptr noundef %153) #15
-  br label %simple_action_list_append.exit.i.cont.backedge
+155:                                              ; preds = %151
+  store i8 0, ptr %154, align 1
+  %156 = getelementptr i8, ptr %154, i64 1
+  %157 = call zeroext i1 @do_pset(ptr noundef %153, ptr noundef %156, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 48), i1 noundef zeroext true) #15
+  br i1 %157, label %161, label %160
 
-155:                                              ; preds = %simple_action_list_append.exit.i.cont
-  br label %simple_action_list_append.exit.i.cont.backedge
+158:                                              ; preds = %151
+  %159 = call zeroext i1 @do_pset(ptr noundef %153, ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 48), i1 noundef zeroext true) #15
+  br i1 %159, label %161, label %160
 
-156:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %157 = load ptr, ptr @optarg, align 8
-  %158 = call zeroext i1 @setQFout(ptr noundef %157) #15
-  br i1 %158, label %simple_action_list_append.exit.i.cont.backedge, label %159
-
-159:                                              ; preds = %156
+160:                                              ; preds = %158, %155
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.83, ptr noundef %153) #15
   call void @exit(i32 noundef 1) #18
   unreachable
 
-160:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %161 = load ptr, ptr @optarg, align 8
-  %162 = call ptr @pg_strdup(ptr noundef %161) #15
+161:                                              ; preds = %158, %155
+  call void @free(ptr noundef %153) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
-163:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %164 = load ptr, ptr @optarg, align 8
-  %165 = call ptr @pg_strdup(ptr noundef %164) #15
-  %166 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %165, i32 noundef 61) #16
-  %.not53.i = icmp eq ptr %166, null
-  br i1 %.not53.i, label %170, label %167
-
-167:                                              ; preds = %163
-  store i8 0, ptr %166, align 1
-  %168 = getelementptr i8, ptr %166, i64 1
-  %169 = call zeroext i1 @do_pset(ptr noundef %165, ptr noundef %168, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 48), i1 noundef zeroext true) #15
-  br i1 %169, label %173, label %172
-
-170:                                              ; preds = %163
-  %171 = call zeroext i1 @do_pset(ptr noundef %165, ptr noundef null, ptr noundef nonnull getelementptr inbounds (i8, ptr @pset, i64 48), i1 noundef zeroext true) #15
-  br i1 %171, label %173, label %172
-
-172:                                              ; preds = %170, %167
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.83, ptr noundef %165) #15
-  call void @exit(i32 noundef 1) #18
-  unreachable
-
-173:                                              ; preds = %170, %167
-  call void @free(ptr noundef %165) #15
+162:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %163 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %164 = call zeroext i1 @SetVariableBool(ptr noundef %163, ptr noundef nonnull @.str.84) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
-174:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %175 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %176 = call zeroext i1 @SetVariableBool(ptr noundef %175, ptr noundef nonnull @.str.84) #15
-  br label %simple_action_list_append.exit.i.cont.backedge
-
-177:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %178 = load ptr, ptr @optarg, align 8
-  %179 = call ptr @pg_strdup(ptr noundef %178) #15
-  store ptr %179, ptr getelementptr inbounds (i8, ptr @pset, i64 112), align 8
+165:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %166 = load ptr, ptr @optarg, align 8
+  %167 = call ptr @pg_strdup(ptr noundef %166) #15
+  store ptr %167, ptr getelementptr inbounds (i8, ptr @pset, i64 112), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 120), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
-180:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %181 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %182 = call zeroext i1 @SetVariableBool(ptr noundef %181, ptr noundef nonnull @.str.85) #15
+168:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %169 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %170 = call zeroext i1 @SetVariableBool(ptr noundef %169, ptr noundef nonnull @.str.85) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
-183:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %184 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %185 = call zeroext i1 @SetVariableBool(ptr noundef %184, ptr noundef nonnull @.str.86) #15
+171:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %172 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %173 = call zeroext i1 @SetVariableBool(ptr noundef %172, ptr noundef nonnull @.str.86) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
-186:                                              ; preds = %simple_action_list_append.exit.i.cont
+174:                                              ; preds = %simple_action_list_append.exit.i.cont
   store i8 1, ptr getelementptr inbounds (i8, ptr @pset, i64 72), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
-187:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %188 = load ptr, ptr @optarg, align 8
-  %189 = call ptr @pg_strdup(ptr noundef %188) #15
-  store ptr %189, ptr getelementptr inbounds (i8, ptr @pset, i64 136), align 8
+175:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %176 = load ptr, ptr @optarg, align 8
+  %177 = call ptr @pg_strdup(ptr noundef %176) #15
+  store ptr %177, ptr getelementptr inbounds (i8, ptr @pset, i64 136), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
-190:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %191 = load ptr, ptr @optarg, align 8
-  %192 = call ptr @pg_strdup(ptr noundef %191) #15
+178:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %179 = load ptr, ptr @optarg, align 8
+  %180 = call ptr @pg_strdup(ptr noundef %179) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
-193:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %194 = load ptr, ptr @optarg, align 8
-  %195 = call ptr @pg_strdup(ptr noundef %194) #15
-  %196 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %195, i32 noundef 61) #16
-  %.not52.i = icmp eq ptr %196, null
-  br i1 %.not52.i, label %197, label %201
+181:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %182 = load ptr, ptr @optarg, align 8
+  %183 = call ptr @pg_strdup(ptr noundef %182) #15
+  %184 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %183, i32 noundef 61) #16
+  %.not52.i = icmp eq ptr %184, null
+  br i1 %.not52.i, label %185, label %189
 
-197:                                              ; preds = %193
-  %198 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %199 = call zeroext i1 @DeleteVariable(ptr noundef %198, ptr noundef %195) #15
-  br i1 %199, label %206, label %200
+185:                                              ; preds = %181
+  %186 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %187 = call zeroext i1 @DeleteVariable(ptr noundef %186, ptr noundef %183) #15
+  br i1 %187, label %194, label %188
 
-200:                                              ; preds = %197
+188:                                              ; preds = %185
   call void @exit(i32 noundef 1) #18
   unreachable
 
-201:                                              ; preds = %193
-  store i8 0, ptr %196, align 1
-  %202 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
-  %203 = getelementptr i8, ptr %196, i64 1
-  %204 = call zeroext i1 @SetVariable(ptr noundef %202, ptr noundef %195, ptr noundef %203) #15
-  br i1 %204, label %206, label %205
+189:                                              ; preds = %181
+  store i8 0, ptr %184, align 1
+  %190 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 368), align 8
+  %191 = getelementptr i8, ptr %184, i64 1
+  %192 = call zeroext i1 @SetVariable(ptr noundef %190, ptr noundef %183, ptr noundef %191) #15
+  br i1 %192, label %194, label %193
 
-205:                                              ; preds = %201
+193:                                              ; preds = %189
   call void @exit(i32 noundef 1) #18
   unreachable
 
-206:                                              ; preds = %201, %197
-  call void @free(ptr noundef %195) #15
+194:                                              ; preds = %189, %185
+  call void @free(ptr noundef %183) #15
   br label %simple_action_list_append.exit.i.cont.backedge
 
-207:                                              ; preds = %simple_action_list_append.exit.i.cont
+195:                                              ; preds = %simple_action_list_append.exit.i.cont
   call fastcc void @showVersion()
   call void @exit(i32 noundef 0) #17
   unreachable
 
-208:                                              ; preds = %simple_action_list_append.exit.i.cont
+196:                                              ; preds = %simple_action_list_append.exit.i.cont
   store i32 1, ptr getelementptr inbounds (i8, ptr @pset, i64 300), align 4
   br label %simple_action_list_append.exit.i.cont.backedge
 
-209:                                              ; preds = %simple_action_list_append.exit.i.cont
+197:                                              ; preds = %simple_action_list_append.exit.i.cont
   store i32 2, ptr getelementptr inbounds (i8, ptr @pset, i64 300), align 4
   br label %simple_action_list_append.exit.i.cont.backedge
 
-210:                                              ; preds = %simple_action_list_append.exit.i.cont
+198:                                              ; preds = %simple_action_list_append.exit.i.cont
   store i16 1, ptr getelementptr inbounds (i8, ptr @pset, i64 52), align 4
   br label %simple_action_list_append.exit.i.cont.backedge
 
-211:                                              ; preds = %simple_action_list_append.exit.i.cont
+199:                                              ; preds = %simple_action_list_append.exit.i.cont
   br label %simple_action_list_append.exit.i.cont.backedge
 
-212:                                              ; preds = %simple_action_list_append.exit.i.cont
+200:                                              ; preds = %simple_action_list_append.exit.i.cont
   store i8 1, ptr getelementptr inbounds (i8, ptr @pset, i64 104), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
-213:                                              ; preds = %simple_action_list_append.exit.i.cont
+201:                                              ; preds = %simple_action_list_append.exit.i.cont
   store i8 1, ptr getelementptr inbounds (i8, ptr @pset, i64 120), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
-214:                                              ; preds = %simple_action_list_append.exit.i.cont
+202:                                              ; preds = %simple_action_list_append.exit.i.cont
   br label %simple_action_list_append.exit.i.cont.backedge
 
-215:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %216 = load i32, ptr @optind, align 4
-  %.not51.i = icmp sgt i32 %216, %0
+203:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %204 = load i32, ptr @optind, align 4
+  %.not51.i = icmp sgt i32 %204, %0
   br i1 %.not51.i, label %.loopexit.i, label %sub_0.i
 
-sub_0.i:                                          ; preds = %215
-  %217 = add i32 %216, -1
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr ptr, ptr %1, i64 %218
-  %220 = load ptr, ptr %219, align 8
-  %221 = load i8, ptr %220, align 1
-  %.not.i = icmp eq i8 %221, 45
+sub_0.i:                                          ; preds = %203
+  %205 = add i32 %204, -1
+  %206 = sext i32 %205 to i64
+  %207 = getelementptr ptr, ptr %1, i64 %206
+  %208 = load ptr, ptr %207, align 8
+  %209 = load i8, ptr %208, align 1
+  %.not.i = icmp eq i8 %209, 45
   br i1 %.not.i, label %sub_1.i, label %.loopexit.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %222 = getelementptr inbounds i8, ptr %220, i64 1
-  %223 = load i8, ptr %222, align 1
-  %.not64.i = icmp eq i8 %223, 63
+  %210 = getelementptr inbounds i8, ptr %208, i64 1
+  %211 = load i8, ptr %210, align 1
+  %.not64.i = icmp eq i8 %211, 63
   br i1 %.not64.i, label %.tail.i, label %.loopexit.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %224 = getelementptr inbounds i8, ptr %220, i64 2
-  %225 = load i8, ptr %224, align 1
-  %226 = icmp eq i8 %225, 0
-  br i1 %226, label %227, label %.loopexit.i
+  %212 = getelementptr inbounds i8, ptr %208, i64 2
+  %213 = load i8, ptr %212, align 1
+  %214 = icmp eq i8 %213, 0
+  br i1 %214, label %215, label %.loopexit.i
 
-227:                                              ; preds = %.tail.i
+215:                                              ; preds = %.tail.i
   call void @usage(i16 noundef zeroext 0) #15
   call void @exit(i32 noundef 0) #17
   unreachable
 
-228:                                              ; preds = %simple_action_list_append.exit.i.cont
-  %229 = load ptr, ptr @optarg, align 8
-  %.not49.i = icmp eq ptr %229, null
-  br i1 %.not49.i, label %233, label %230
+216:                                              ; preds = %simple_action_list_append.exit.i.cont
+  %217 = load ptr, ptr @optarg, align 8
+  %.not49.i = icmp eq ptr %217, null
+  br i1 %.not49.i, label %221, label %218
 
-230:                                              ; preds = %228
-  %231 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %229, ptr noundef nonnull dereferenceable(8) @.str.87) #16
-  %232 = icmp eq i32 %231, 0
-  br i1 %232, label %233, label %234
+218:                                              ; preds = %216
+  %219 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %217, ptr noundef nonnull dereferenceable(8) @.str.87) #16
+  %220 = icmp eq i32 %219, 0
+  br i1 %220, label %221, label %222
 
-233:                                              ; preds = %230, %228
+221:                                              ; preds = %218, %216
   call void @usage(i16 noundef zeroext 0) #15
-  br label %242
+  br label %230
 
-234:                                              ; preds = %230
-  %235 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %229, ptr noundef nonnull dereferenceable(9) @.str.88) #16
-  %236 = icmp eq i32 %235, 0
-  br i1 %236, label %237, label %238
+222:                                              ; preds = %218
+  %223 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %217, ptr noundef nonnull dereferenceable(9) @.str.88) #16
+  %224 = icmp eq i32 %223, 0
+  br i1 %224, label %225, label %226
 
-237:                                              ; preds = %234
+225:                                              ; preds = %222
   call void @slashUsage(i16 noundef zeroext 0) #15
-  br label %242
+  br label %230
 
-238:                                              ; preds = %234
-  %239 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %229, ptr noundef nonnull dereferenceable(10) @.str.89) #16
-  %240 = icmp eq i32 %239, 0
-  br i1 %240, label %241, label %.loopexit.i
+226:                                              ; preds = %222
+  %227 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %217, ptr noundef nonnull dereferenceable(10) @.str.89) #16
+  %228 = icmp eq i32 %227, 0
+  br i1 %228, label %229, label %.loopexit.i
 
-241:                                              ; preds = %238
+229:                                              ; preds = %226
   call void @helpVariables(i16 noundef zeroext 0) #15
-  br label %242
+  br label %230
 
-242:                                              ; preds = %241, %237, %233
+230:                                              ; preds = %229, %225, %221
   call void @exit(i32 noundef 0) #17
   unreachable
 
-243:                                              ; preds = %simple_action_list_append.exit.i.cont
+231:                                              ; preds = %simple_action_list_append.exit.i.cont
   store i32 3, ptr getelementptr inbounds (i8, ptr @pset, i64 48), align 8
   br label %simple_action_list_append.exit.i.cont.backedge
 
-.loopexit.i:                                      ; preds = %simple_action_list_append.exit.i.cont, %238, %.tail.i, %sub_1.i, %sub_0.i, %215
-  %244 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.90, ptr noundef %244) #15
+.loopexit.i:                                      ; preds = %simple_action_list_append.exit.i.cont, %226, %.tail.i, %sub_1.i, %sub_0.i, %203
+  %232 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.90, ptr noundef %232) #15
   call void @exit(i32 noundef 1) #18
   unreachable
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %262
-  %.sroa.9.2 = phi ptr [ %.sroa.9.3, %262 ], [ %.sroa.9.0, %.preheader.i ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %262 ], [ %.sroa.0.0, %.preheader.i ]
-  %245 = phi i32 [ %264, %262 ], [ %104, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %250
+  %.sroa.9.2 = phi ptr [ %.sroa.9.3, %250 ], [ %.sroa.9.0, %.preheader.i ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %250 ], [ %.sroa.0.0, %.preheader.i ]
+  %233 = phi i32 [ %252, %250 ], [ %92, %.preheader.i ]
   %.not47.i = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not47.i, label %246, label %250
+  br i1 %.not47.i, label %234, label %238
 
-246:                                              ; preds = %.lr.ph.i
-  %247 = sext i32 %245 to i64
+234:                                              ; preds = %.lr.ph.i
+  %235 = sext i32 %233 to i64
+  %236 = getelementptr ptr, ptr %1, i64 %235
+  %237 = load ptr, ptr %236, align 8
+  br label %250
+
+238:                                              ; preds = %.lr.ph.i
+  %.not48.i = icmp eq ptr %.sroa.9.2, null
+  br i1 %.not48.i, label %239, label %243
+
+239:                                              ; preds = %238
+  %240 = sext i32 %233 to i64
+  %241 = getelementptr ptr, ptr %1, i64 %240
+  %242 = load ptr, ptr %241, align 8
+  br label %250
+
+243:                                              ; preds = %238
+  %244 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
+  %245 = trunc i8 %244 to i1
+  br i1 %245, label %250, label %246
+
+246:                                              ; preds = %243
+  %247 = sext i32 %233 to i64
   %248 = getelementptr ptr, ptr %1, i64 %247
   %249 = load ptr, ptr %248, align 8
-  br label %262
-
-250:                                              ; preds = %.lr.ph.i
-  %.not48.i = icmp eq ptr %.sroa.9.2, null
-  br i1 %.not48.i, label %251, label %255
-
-251:                                              ; preds = %250
-  %252 = sext i32 %245 to i64
-  %253 = getelementptr ptr, ptr %1, i64 %252
-  %254 = load ptr, ptr %253, align 8
-  br label %262
-
-255:                                              ; preds = %250
-  %256 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
-  %257 = trunc i8 %256 to i1
-  br i1 %257, label %262, label %258
-
-258:                                              ; preds = %255
-  %259 = sext i32 %245 to i64
-  %260 = getelementptr ptr, ptr %1, i64 %259
-  %261 = load ptr, ptr %260, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.91, ptr noundef %261) #15
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.91, ptr noundef %249) #15
   %.pre = load i32, ptr @optind, align 4
-  br label %262
+  br label %250
 
-262:                                              ; preds = %258, %255, %251, %246
-  %263 = phi i32 [ %245, %246 ], [ %245, %251 ], [ %245, %255 ], [ %.pre, %258 ]
-  %.sroa.9.3 = phi ptr [ %.sroa.9.2, %246 ], [ %254, %251 ], [ %.sroa.9.2, %255 ], [ %.sroa.9.2, %258 ]
-  %.sroa.0.3 = phi ptr [ %249, %246 ], [ %.sroa.0.2, %251 ], [ %.sroa.0.2, %255 ], [ %.sroa.0.2, %258 ]
-  %264 = add i32 %263, 1
-  store i32 %264, ptr @optind, align 4
-  %265 = sub i32 %0, %264
-  %266 = icmp sgt i32 %265, 0
-  br i1 %266, label %.lr.ph.i, label %parse_psql_options.exit, !llvm.loop !7
+250:                                              ; preds = %246, %243, %239, %234
+  %251 = phi i32 [ %233, %234 ], [ %233, %239 ], [ %233, %243 ], [ %.pre, %246 ]
+  %.sroa.9.3 = phi ptr [ %.sroa.9.2, %234 ], [ %242, %239 ], [ %.sroa.9.2, %243 ], [ %.sroa.9.2, %246 ]
+  %.sroa.0.3 = phi ptr [ %237, %234 ], [ %.sroa.0.2, %239 ], [ %.sroa.0.2, %243 ], [ %.sroa.0.2, %246 ]
+  %252 = add i32 %251, 1
+  store i32 %252, ptr @optind, align 4
+  %253 = sub i32 %0, %252
+  %254 = icmp sgt i32 %253, 0
+  br i1 %254, label %.lr.ph.i, label %parse_psql_options.exit, !llvm.loop !7
 
-parse_psql_options.exit:                          ; preds = %262, %.preheader.i
-  %.sroa.9.4 = phi ptr [ %.sroa.9.0, %.preheader.i ], [ %.sroa.9.3, %262 ]
-  %.sroa.0.4 = phi ptr [ %.sroa.0.0, %.preheader.i ], [ %.sroa.0.3, %262 ]
+parse_psql_options.exit:                          ; preds = %250, %.preheader.i
+  %.sroa.9.4 = phi ptr [ %.sroa.9.0, %.preheader.i ], [ %.sroa.9.3, %250 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.0, %.preheader.i ], [ %.sroa.0.3, %250 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %267 = icmp eq ptr %.sroa.28118.1, null
-  br i1 %267, label %268, label %.cont.thread
+  %255 = icmp eq ptr %.sroa.28119.1, null
+  br i1 %255, label %256, label %.cont.thread
 
-268:                                              ; preds = %parse_psql_options.exit
-  %269 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 296), align 8
-  %270 = trunc i8 %269 to i1
-  br i1 %270, label %271, label %.cont
+256:                                              ; preds = %parse_psql_options.exit
+  %257 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 296), align 8
+  %258 = trunc i8 %257 to i1
+  br i1 %258, label %259, label %.cont
 
-271:                                              ; preds = %268
-  %272 = call ptr @pg_malloc(i64 noundef 24) #15
-  store ptr null, ptr %272, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 8
-  store i32 2, ptr %273, align 8
-  %274 = getelementptr inbounds i8, ptr %272, i64 16
-  store ptr null, ptr %274, align 8
+259:                                              ; preds = %256
+  %260 = call ptr @pg_malloc(i64 noundef 24) #15
+  store ptr null, ptr %260, align 8
+  %261 = getelementptr inbounds i8, ptr %260, i64 8
+  store i32 2, ptr %261, align 8
+  %262 = getelementptr inbounds i8, ptr %260, i64 16
+  store ptr null, ptr %262, align 8
   %.not14.i = icmp eq ptr %.sroa.36.0, null
   br i1 %.not14.i, label %.cont.thread, label %.else
 
-.else:                                            ; preds = %271
-  store ptr %272, ptr %.sroa.36.0, align 8
+.else:                                            ; preds = %259
+  store ptr %260, ptr %.sroa.36.0, align 8
   br label %.cont
 
-.cont.thread:                                     ; preds = %parse_psql_options.exit, %271
-  %.sroa.28118.0.ph = phi ptr [ %272, %271 ], [ %.sroa.28118.1, %parse_psql_options.exit ]
-  %275 = trunc nuw i8 %.sroa.21.0 to i1
-  br label %278
+.cont.thread:                                     ; preds = %parse_psql_options.exit, %259
+  %.sroa.28119.0.ph = phi ptr [ %260, %259 ], [ %.sroa.28119.1, %parse_psql_options.exit ]
+  %263 = trunc nuw i8 %.sroa.21.0 to i1
+  br label %266
 
-.cont:                                            ; preds = %.else, %268
-  %276 = trunc nuw i8 %.sroa.21.0 to i1
-  br i1 %276, label %277, label %278
+.cont:                                            ; preds = %.else, %256
+  %264 = trunc nuw i8 %.sroa.21.0 to i1
+  br i1 %264, label %265, label %266
 
-277:                                              ; preds = %.cont
+265:                                              ; preds = %.cont
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.23) #15
   call void @exit(i32 noundef 1) #18
   unreachable
 
-278:                                              ; preds = %.cont.thread, %.cont
-  %279 = phi i1 [ false, %.cont.thread ], [ true, %.cont ]
-  %280 = phi i1 [ %275, %.cont.thread ], [ false, %.cont ]
-  %.sroa.28118.0131 = phi ptr [ %.sroa.28118.0.ph, %.cont.thread ], [ null, %.cont ]
-  %281 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 96), align 8
-  %.not94 = icmp eq ptr %281, null
-  br i1 %.not94, label %282, label %287
+266:                                              ; preds = %.cont.thread, %.cont
+  %267 = phi i1 [ false, %.cont.thread ], [ true, %.cont ]
+  %268 = phi i1 [ %263, %.cont.thread ], [ false, %.cont ]
+  %.sroa.28119.0132 = phi ptr [ %.sroa.28119.0.ph, %.cont.thread ], [ null, %.cont ]
+  %269 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 96), align 8
+  %.not94 = icmp eq ptr %269, null
+  br i1 %.not94, label %270, label %275
 
-282:                                              ; preds = %278
-  %283 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 104), align 8
-  %284 = trunc i8 %283 to i1
-  br i1 %284, label %287, label %285
+270:                                              ; preds = %266
+  %271 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 104), align 8
+  %272 = trunc i8 %271 to i1
+  br i1 %272, label %275, label %273
+
+273:                                              ; preds = %270
+  %274 = call ptr @pg_strdup(ptr noundef nonnull @.str.24) #15
+  store ptr %274, ptr getelementptr inbounds (i8, ptr @pset, i64 96), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 104), align 8
+  br label %275
+
+275:                                              ; preds = %273, %270, %266
+  %276 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 112), align 8
+  %.not95 = icmp eq ptr %276, null
+  br i1 %.not95, label %277, label %282
+
+277:                                              ; preds = %275
+  %278 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 120), align 8
+  %279 = trunc i8 %278 to i1
+  br i1 %279, label %282, label %280
+
+280:                                              ; preds = %277
+  %281 = call ptr @pg_strdup(ptr noundef nonnull @.str.25) #15
+  store ptr %281, ptr getelementptr inbounds (i8, ptr @pset, i64 112), align 8
+  store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 120), align 8
+  br label %282
+
+282:                                              ; preds = %280, %277, %275
+  %283 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 300), align 4
+  %284 = icmp eq i32 %283, 2
+  br i1 %284, label %285, label %287
 
 285:                                              ; preds = %282
-  %286 = call ptr @pg_strdup(ptr noundef nonnull @.str.24) #15
-  store ptr %286, ptr getelementptr inbounds (i8, ptr @pset, i64 96), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 104), align 8
+  %286 = call ptr @simple_prompt(ptr noundef nonnull @.str.26, i1 noundef zeroext false) #15
   br label %287
 
-287:                                              ; preds = %285, %282, %278
-  %288 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 112), align 8
-  %.not95 = icmp eq ptr %288, null
-  br i1 %.not95, label %289, label %294
+287:                                              ; preds = %285, %282
+  %.076 = phi ptr [ %286, %285 ], [ null, %282 ]
+  %288 = icmp eq ptr %.sroa.0.4, null
+  %or.cond6 = select i1 %.sroa.25.0, i1 %288, i1 false
+  %289 = select i1 %or.cond6, ptr @.str.32, ptr %.sroa.0.4
+  br label %290
 
-289:                                              ; preds = %287
-  %290 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 120), align 8
-  %291 = trunc i8 %290 to i1
-  br i1 %291, label %294, label %292
+290:                                              ; preds = %335, %287
+  %.177 = phi ptr [ %.076, %287 ], [ %337, %335 ]
+  %291 = call ptr @pg_malloc(i64 noundef 64) #15
+  %292 = call ptr @pg_malloc(i64 noundef 64) #15
+  store ptr @.str.27, ptr %291, align 8
+  store ptr %.sroa.5.0, ptr %292, align 8
+  %293 = getelementptr i8, ptr %291, i64 8
+  store ptr @.str.28, ptr %293, align 8
+  %294 = getelementptr i8, ptr %292, i64 8
+  store ptr %.sroa.7.0, ptr %294, align 8
+  %295 = getelementptr i8, ptr %291, i64 16
+  store ptr @.str.29, ptr %295, align 8
+  %296 = getelementptr i8, ptr %292, i64 16
+  store ptr %.sroa.9.4, ptr %296, align 8
+  %297 = getelementptr i8, ptr %291, i64 24
+  store ptr @.str.30, ptr %297, align 8
+  %298 = getelementptr i8, ptr %292, i64 24
+  store ptr %.177, ptr %298, align 8
+  %299 = getelementptr i8, ptr %291, i64 32
+  store ptr @.str.31, ptr %299, align 8
+  %300 = getelementptr i8, ptr %292, i64 32
+  store ptr %289, ptr %300, align 8
+  %301 = getelementptr i8, ptr %291, i64 40
+  store ptr @.str.33, ptr %301, align 8
+  %302 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
+  %303 = getelementptr i8, ptr %292, i64 40
+  store ptr %302, ptr %303, align 8
+  %304 = getelementptr i8, ptr %291, i64 48
+  store ptr @.str.34, ptr %304, align 8
+  %305 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 296), align 8
+  %306 = trunc i8 %305 to i1
+  br i1 %306, label %310, label %307
 
-292:                                              ; preds = %289
-  %293 = call ptr @pg_strdup(ptr noundef nonnull @.str.25) #15
-  store ptr %293, ptr getelementptr inbounds (i8, ptr @pset, i64 112), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @pset, i64 120), align 8
-  br label %294
+307:                                              ; preds = %290
+  %308 = call ptr @getenv(ptr noundef nonnull @.str.35) #15
+  %.not96 = icmp eq ptr %308, null
+  %309 = select i1 %.not96, ptr @.str.36, ptr null
+  br label %310
 
-294:                                              ; preds = %292, %289, %287
-  %295 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 300), align 4
-  %296 = icmp eq i32 %295, 2
-  br i1 %296, label %297, label %299
+310:                                              ; preds = %307, %290
+  %311 = phi ptr [ null, %290 ], [ %309, %307 ]
+  %312 = getelementptr i8, ptr %292, i64 48
+  store ptr %311, ptr %312, align 8
+  %313 = getelementptr i8, ptr %291, i64 56
+  store ptr null, ptr %313, align 8
+  %314 = getelementptr i8, ptr %292, i64 56
+  store ptr null, ptr %314, align 8
+  %315 = call ptr @PQconnectdbParams(ptr noundef nonnull %291, ptr noundef nonnull %292, i32 noundef 1) #15
+  store ptr %315, ptr @pset, align 8
+  call void @free(ptr noundef nonnull %291) #15
+  call void @free(ptr noundef nonnull %292) #15
+  %316 = load ptr, ptr @pset, align 8
+  %317 = call i32 @PQstatus(ptr noundef %316) #15
+  %318 = icmp eq i32 %317, 1
+  br i1 %318, label %319, label %338
 
-297:                                              ; preds = %294
-  %298 = call ptr @simple_prompt(ptr noundef nonnull @.str.26, i1 noundef zeroext false) #15
-  br label %299
+319:                                              ; preds = %310
+  %320 = load ptr, ptr @pset, align 8
+  %321 = call i32 @PQconnectionNeedsPassword(ptr noundef %320) #15
+  %322 = icmp ne i32 %321, 0
+  %323 = icmp eq ptr %.177, null
+  %or.cond8.not99 = select i1 %322, i1 %323, i1 false
+  %324 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 300), align 4
+  %325 = icmp ne i32 %324, 1
+  %or.cond11 = select i1 %or.cond8.not99, i1 %325, i1 false
+  br i1 %or.cond11, label %326, label %338
 
-299:                                              ; preds = %297, %294
-  %.076 = phi ptr [ %298, %297 ], [ null, %294 ]
-  %300 = icmp eq ptr %.sroa.0.4, null
-  %or.cond6 = select i1 %.sroa.25.0, i1 %300, i1 false
-  %301 = select i1 %or.cond6, ptr @.str.32, ptr %.sroa.0.4
-  br label %302
-
-302:                                              ; preds = %346, %299
-  %.177 = phi ptr [ %.076, %299 ], [ %348, %346 ]
-  %303 = call ptr @pg_malloc(i64 noundef 64) #15
-  %304 = call ptr @pg_malloc(i64 noundef 64) #15
-  store ptr @.str.27, ptr %303, align 8
-  store ptr %.sroa.5.0, ptr %304, align 8
-  %305 = getelementptr i8, ptr %303, i64 8
-  store ptr @.str.28, ptr %305, align 8
-  %306 = getelementptr i8, ptr %304, i64 8
-  store ptr %.sroa.7.0, ptr %306, align 8
-  %307 = getelementptr i8, ptr %303, i64 16
-  store ptr @.str.29, ptr %307, align 8
-  %308 = getelementptr i8, ptr %304, i64 16
-  store ptr %.sroa.9.4, ptr %308, align 8
-  %309 = getelementptr i8, ptr %303, i64 24
-  store ptr @.str.30, ptr %309, align 8
-  %310 = getelementptr i8, ptr %304, i64 24
-  store ptr %.177, ptr %310, align 8
-  %311 = getelementptr i8, ptr %303, i64 32
-  store ptr @.str.31, ptr %311, align 8
-  %312 = getelementptr i8, ptr %304, i64 32
-  store ptr %301, ptr %312, align 8
-  %313 = getelementptr i8, ptr %303, i64 40
-  store ptr @.str.33, ptr %313, align 8
-  %314 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
-  %315 = getelementptr i8, ptr %304, i64 40
-  store ptr %314, ptr %315, align 8
-  %316 = getelementptr i8, ptr %303, i64 48
-  store ptr @.str.34, ptr %316, align 8
-  %317 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 296), align 8
-  %318 = trunc i8 %317 to i1
-  br i1 %318, label %.thread, label %319
-
-319:                                              ; preds = %302
-  %320 = call ptr @getenv(ptr noundef nonnull @.str.35) #15
-  %.not135 = icmp eq ptr %320, null
-  br i1 %.not135, label %321, label %.thread
-
-.thread:                                          ; preds = %302, %319
-  br label %321
-
-321:                                              ; preds = %319, %.thread
-  %322 = phi ptr [ null, %.thread ], [ @.str.36, %319 ]
-  %323 = getelementptr i8, ptr %304, i64 48
-  store ptr %322, ptr %323, align 8
-  %324 = getelementptr i8, ptr %303, i64 56
-  store ptr null, ptr %324, align 8
-  %325 = getelementptr i8, ptr %304, i64 56
-  store ptr null, ptr %325, align 8
-  %326 = call ptr @PQconnectdbParams(ptr noundef nonnull %303, ptr noundef nonnull %304, i32 noundef 1) #15
-  store ptr %326, ptr @pset, align 8
-  call void @free(ptr noundef nonnull %303) #15
-  call void @free(ptr noundef nonnull %304) #15
+326:                                              ; preds = %319
   %327 = load ptr, ptr @pset, align 8
-  %328 = call i32 @PQstatus(ptr noundef %327) #15
-  %329 = icmp eq i32 %328, 1
-  br i1 %329, label %330, label %349
+  %328 = call ptr @PQuser(ptr noundef %327) #15
+  %.not100 = icmp eq ptr %328, null
+  br i1 %.not100, label %333, label %329
 
-330:                                              ; preds = %321
-  %331 = load ptr, ptr @pset, align 8
-  %332 = call i32 @PQconnectionNeedsPassword(ptr noundef %331) #15
-  %333 = icmp ne i32 %332, 0
-  %334 = icmp eq ptr %.177, null
-  %or.cond8.not98 = select i1 %333, i1 %334, i1 false
-  %335 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 300), align 4
-  %336 = icmp ne i32 %335, 1
-  %or.cond11 = select i1 %or.cond8.not98, i1 %336, i1 false
-  br i1 %or.cond11, label %337, label %349
+329:                                              ; preds = %326
+  %330 = load i8, ptr %328, align 1
+  %.not101 = icmp eq i8 %330, 0
+  br i1 %.not101, label %333, label %331
 
-337:                                              ; preds = %330
-  %338 = load ptr, ptr @pset, align 8
-  %339 = call ptr @PQuser(ptr noundef %338) #15
-  %.not99 = icmp eq ptr %339, null
-  br i1 %.not99, label %344, label %340
+331:                                              ; preds = %329
+  %332 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.37, ptr noundef nonnull %328) #15
+  br label %335
 
-340:                                              ; preds = %337
-  %341 = load i8, ptr %339, align 1
-  %.not100 = icmp eq i8 %341, 0
-  br i1 %.not100, label %344, label %342
+333:                                              ; preds = %329, %326
+  %334 = call ptr @pg_strdup(ptr noundef nonnull @.str.26) #15
+  br label %335
 
-342:                                              ; preds = %340
-  %343 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.37, ptr noundef nonnull %339) #15
-  br label %346
-
-344:                                              ; preds = %340, %337
-  %345 = call ptr @pg_strdup(ptr noundef nonnull @.str.26) #15
-  br label %346
-
-346:                                              ; preds = %342, %344
-  %.081 = phi ptr [ %343, %342 ], [ %345, %344 ]
-  %347 = load ptr, ptr @pset, align 8
-  call void @PQfinish(ptr noundef %347) #15
-  %348 = call ptr @simple_prompt(ptr noundef %.081, i1 noundef zeroext false) #15
+335:                                              ; preds = %331, %333
+  %.081 = phi ptr [ %332, %331 ], [ %334, %333 ]
+  %336 = load ptr, ptr @pset, align 8
+  call void @PQfinish(ptr noundef %336) #15
+  %337 = call ptr @simple_prompt(ptr noundef %.081, i1 noundef zeroext false) #15
   call void @free(ptr noundef %.081) #15
-  br label %302, !llvm.loop !8
+  br label %290, !llvm.loop !8
 
-349:                                              ; preds = %330, %321
-  %350 = load ptr, ptr @pset, align 8
-  %351 = call i32 @PQstatus(ptr noundef %350) #15
-  %352 = icmp eq i32 %351, 1
-  br i1 %352, label %353, label %357
+338:                                              ; preds = %319, %310
+  %339 = load ptr, ptr @pset, align 8
+  %340 = call i32 @PQstatus(ptr noundef %339) #15
+  %341 = icmp eq i32 %340, 1
+  br i1 %341, label %342, label %346
 
-353:                                              ; preds = %349
-  %354 = load ptr, ptr @pset, align 8
-  %355 = call ptr @PQerrorMessage(ptr noundef %354) #15
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.38, ptr noundef %355) #15
-  %356 = load ptr, ptr @pset, align 8
-  call void @PQfinish(ptr noundef %356) #15
+342:                                              ; preds = %338
+  %343 = load ptr, ptr @pset, align 8
+  %344 = call ptr @PQerrorMessage(ptr noundef %343) #15
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.38, ptr noundef %344) #15
+  %345 = load ptr, ptr @pset, align 8
+  call void @PQfinish(ptr noundef %345) #15
   call void @exit(i32 noundef 2) #18
   unreachable
 
-357:                                              ; preds = %349
+346:                                              ; preds = %338
   call void @psql_setup_cancel_handler() #15
-  %358 = call ptr @pqsignal(i32 noundef 17, ptr noundef nonnull @empty_signal_handler) #15
-  %359 = call ptr @pqsignal(i32 noundef 14, ptr noundef nonnull @empty_signal_handler) #15
-  %360 = load ptr, ptr @pset, align 8
-  %361 = call ptr @PQsetNoticeProcessor(ptr noundef %360, ptr noundef nonnull @NoticeProcessor, ptr noundef null) #15
+  %347 = call ptr @pqsignal(i32 noundef 17, ptr noundef nonnull @empty_signal_handler) #15
+  %348 = call ptr @pqsignal(i32 noundef 14, ptr noundef nonnull @empty_signal_handler) #15
+  %349 = load ptr, ptr @pset, align 8
+  %350 = call ptr @PQsetNoticeProcessor(ptr noundef %349, ptr noundef nonnull @NoticeProcessor, ptr noundef null) #15
   call void @SyncVariables() #15
-  br i1 %.sroa.25.0, label %362, label %370
+  br i1 %.sroa.25.0, label %351, label %359
 
-362:                                              ; preds = %357
-  %363 = trunc nuw i8 %.sroa.18.0 to i1
-  br i1 %363, label %366, label %364
+351:                                              ; preds = %346
+  %352 = trunc nuw i8 %.sroa.18.0 to i1
+  br i1 %352, label %355, label %353
 
-364:                                              ; preds = %362
-  %365 = load ptr, ptr %1, align 8
-  call fastcc void @process_psqlrc(ptr noundef %365)
-  br label %366
+353:                                              ; preds = %351
+  %354 = load ptr, ptr %1, align 8
+  call fastcc void @process_psqlrc(ptr noundef %354)
+  br label %355
 
-366:                                              ; preds = %364, %362
-  %367 = call zeroext i1 @listAllDbs(ptr noundef null, i1 noundef zeroext false) #15
-  %368 = load ptr, ptr @pset, align 8
-  call void @PQfinish(ptr noundef %368) #15
-  %not.110 = xor i1 %367, true
-  %369 = zext i1 %not.110 to i32
-  call void @exit(i32 noundef %369) #17
+355:                                              ; preds = %353, %351
+  %356 = call zeroext i1 @listAllDbs(ptr noundef null, i1 noundef zeroext false) #15
+  %357 = load ptr, ptr @pset, align 8
+  call void @PQfinish(ptr noundef %357) #15
+  %not.111 = xor i1 %356, true
+  %358 = zext i1 %not.111 to i32
+  call void @exit(i32 noundef %358) #17
   unreachable
 
-370:                                              ; preds = %357
-  %.not101 = icmp eq ptr %.sroa.13.0, null
-  br i1 %.not101, label %374, label %371
+359:                                              ; preds = %346
+  %.not102 = icmp eq ptr %.sroa.13.0, null
+  br i1 %.not102, label %363, label %360
 
-371:                                              ; preds = %370
-  %372 = call noalias ptr @fopen(ptr noundef nonnull %.sroa.13.0, ptr noundef nonnull @.str.39)
-  store ptr %372, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
-  %.not102 = icmp eq ptr %372, null
-  br i1 %.not102, label %373, label %374
+360:                                              ; preds = %359
+  %361 = call noalias ptr @fopen(ptr noundef nonnull %.sroa.13.0, ptr noundef nonnull @.str.39)
+  store ptr %361, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
+  %.not103 = icmp eq ptr %361, null
+  br i1 %.not103, label %362, label %363
 
-373:                                              ; preds = %371
+362:                                              ; preds = %360
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %.sroa.13.0) #15
   call void @exit(i32 noundef 1) #18
   unreachable
 
-374:                                              ; preds = %371, %370
-  %375 = trunc nuw i8 %.sroa.18.0 to i1
-  br i1 %375, label %378, label %376
+363:                                              ; preds = %360, %359
+  %364 = trunc nuw i8 %.sroa.18.0 to i1
+  br i1 %364, label %367, label %365
 
-376:                                              ; preds = %374
-  %377 = load ptr, ptr %1, align 8
-  call fastcc void @process_psqlrc(ptr noundef %377)
-  br label %378
+365:                                              ; preds = %363
+  %366 = load ptr, ptr %1, align 8
+  call fastcc void @process_psqlrc(ptr noundef %366)
+  br label %367
 
-378:                                              ; preds = %376, %374
-  br i1 %279, label %442, label %379
+367:                                              ; preds = %365, %363
+  br i1 %267, label %431, label %368
 
-379:                                              ; preds = %378
-  br i1 %280, label %380, label %387
+368:                                              ; preds = %367
+  br i1 %268, label %369, label %376
 
-380:                                              ; preds = %379
-  %381 = call ptr @PSQLexec(ptr noundef nonnull @.str.41) #15
-  %382 = icmp eq ptr %381, null
-  br i1 %382, label %383, label %386
+369:                                              ; preds = %368
+  %370 = call ptr @PSQLexec(ptr noundef nonnull @.str.41) #15
+  %371 = icmp eq ptr %370, null
+  br i1 %371, label %372, label %375
 
-383:                                              ; preds = %380
-  %384 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
-  %385 = trunc i8 %384 to i1
-  br i1 %385, label %452, label %387
+372:                                              ; preds = %369
+  %373 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
+  %374 = trunc i8 %373 to i1
+  br i1 %374, label %441, label %376
 
-386:                                              ; preds = %380
-  call void @PQclear(ptr noundef nonnull %381) #15
-  br label %387
+375:                                              ; preds = %369
+  call void @PQclear(ptr noundef nonnull %370) #15
+  br label %376
 
-387:                                              ; preds = %386, %383, %379
-  %.not104229 = icmp eq ptr %.sroa.28118.0131, null
-  br i1 %.not104229, label %._crit_edge, label %.lr.ph
+376:                                              ; preds = %375, %372, %368
+  %.not105228 = icmp eq ptr %.sroa.28119.0132, null
+  br i1 %.not105228, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %387, %428
-  %.0231 = phi i32 [ %.2, %428 ], [ 0, %387 ]
-  %.079230 = phi ptr [ %429, %428 ], [ %.sroa.28118.0131, %387 ]
-  %388 = getelementptr inbounds i8, ptr %.079230, i64 8
-  %389 = load i32, ptr %388, align 8
-  switch i32 %389, label %424 [
-    i32 0, label %390
-    i32 1, label %402
-    i32 2, label %420
+.lr.ph:                                           ; preds = %376, %417
+  %.0230 = phi i32 [ %.2, %417 ], [ 0, %376 ]
+  %.079229 = phi ptr [ %418, %417 ], [ %.sroa.28119.0132, %376 ]
+  %377 = getelementptr inbounds i8, ptr %.079229, i64 8
+  %378 = load i32, ptr %377, align 8
+  switch i32 %378, label %413 [
+    i32 0, label %379
+    i32 1, label %391
+    i32 2, label %409
   ]
 
-390:                                              ; preds = %.lr.ph
+379:                                              ; preds = %.lr.ph
   call void @pg_logging_config(i32 noundef 1) #15
-  %391 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 404), align 4
-  %392 = icmp eq i32 %391, 3
-  br i1 %392, label %393, label %397
+  %380 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 404), align 4
+  %381 = icmp eq i32 %380, 3
+  br i1 %381, label %382, label %386
 
-393:                                              ; preds = %390
-  %394 = getelementptr inbounds i8, ptr %.079230, i64 16
-  %395 = load ptr, ptr %394, align 8
-  %396 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %395)
-  br label %397
+382:                                              ; preds = %379
+  %383 = getelementptr inbounds i8, ptr %.079229, i64 16
+  %384 = load ptr, ptr %383, align 8
+  %385 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %384)
+  br label %386
 
-397:                                              ; preds = %393, %390
-  %398 = getelementptr inbounds i8, ptr %.079230, i64 16
-  %399 = load ptr, ptr %398, align 8
-  %400 = call zeroext i1 @SendQuery(ptr noundef %399) #15
-  %not. = xor i1 %400, true
-  %401 = zext i1 %not. to i32
-  br label %424
+386:                                              ; preds = %382, %379
+  %387 = getelementptr inbounds i8, ptr %.079229, i64 16
+  %388 = load ptr, ptr %387, align 8
+  %389 = call zeroext i1 @SendQuery(ptr noundef %388) #15
+  %not. = xor i1 %389, true
+  %390 = zext i1 %not. to i32
+  br label %413
 
-402:                                              ; preds = %.lr.ph
+391:                                              ; preds = %.lr.ph
   call void @pg_logging_config(i32 noundef 1) #15
-  %403 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 404), align 4
-  %404 = icmp eq i32 %403, 3
-  br i1 %404, label %405, label %409
+  %392 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 404), align 4
+  %393 = icmp eq i32 %392, 3
+  br i1 %393, label %394, label %398
 
-405:                                              ; preds = %402
-  %406 = getelementptr inbounds i8, ptr %.079230, i64 16
-  %407 = load ptr, ptr %406, align 8
-  %408 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %407)
-  br label %409
+394:                                              ; preds = %391
+  %395 = getelementptr inbounds i8, ptr %.079229, i64 16
+  %396 = load ptr, ptr %395, align 8
+  %397 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %396)
+  br label %398
 
-409:                                              ; preds = %405, %402
-  %410 = call ptr @psql_scan_create(ptr noundef nonnull @psqlscan_callbacks) #15
-  %411 = getelementptr inbounds i8, ptr %.079230, i64 16
-  %412 = load ptr, ptr %411, align 8
-  %413 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %412) #16
-  %414 = trunc i64 %413 to i32
-  %415 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
-  %416 = call zeroext i1 @standard_strings() #15
-  call void @psql_scan_setup(ptr noundef %410, ptr noundef %412, i32 noundef %414, i32 noundef %415, i1 noundef zeroext %416) #15
-  %417 = call ptr @conditional_stack_create() #15
-  call void @psql_scan_set_passthrough(ptr noundef %410, ptr noundef %417) #15
-  %418 = call i32 @HandleSlashCmds(ptr noundef %410, ptr noundef %417, ptr noundef null, ptr noundef null) #15
-  %.not105 = icmp eq i32 %418, 5
-  %419 = zext i1 %.not105 to i32
-  call void @psql_scan_destroy(ptr noundef %410) #15
-  call void @conditional_stack_destroy(ptr noundef %417) #15
-  br label %424
+398:                                              ; preds = %394, %391
+  %399 = call ptr @psql_scan_create(ptr noundef nonnull @psqlscan_callbacks) #15
+  %400 = getelementptr inbounds i8, ptr %.079229, i64 16
+  %401 = load ptr, ptr %400, align 8
+  %402 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #16
+  %403 = trunc i64 %402 to i32
+  %404 = load i32, ptr getelementptr inbounds (i8, ptr @pset, i64 8), align 8
+  %405 = call zeroext i1 @standard_strings() #15
+  call void @psql_scan_setup(ptr noundef %399, ptr noundef %401, i32 noundef %403, i32 noundef %404, i1 noundef zeroext %405) #15
+  %406 = call ptr @conditional_stack_create() #15
+  call void @psql_scan_set_passthrough(ptr noundef %399, ptr noundef %406) #15
+  %407 = call i32 @HandleSlashCmds(ptr noundef %399, ptr noundef %406, ptr noundef null, ptr noundef null) #15
+  %.not106 = icmp eq i32 %407, 5
+  %408 = zext i1 %.not106 to i32
+  call void @psql_scan_destroy(ptr noundef %399) #15
+  call void @conditional_stack_destroy(ptr noundef %406) #15
+  br label %413
 
-420:                                              ; preds = %.lr.ph
-  %421 = getelementptr inbounds i8, ptr %.079230, i64 16
-  %422 = load ptr, ptr %421, align 8
-  %423 = call i32 @process_file(ptr noundef %422, i1 noundef zeroext false) #15
-  br label %424
+409:                                              ; preds = %.lr.ph
+  %410 = getelementptr inbounds i8, ptr %.079229, i64 16
+  %411 = load ptr, ptr %410, align 8
+  %412 = call i32 @process_file(ptr noundef %411, i1 noundef zeroext false) #15
+  br label %413
 
-424:                                              ; preds = %.lr.ph, %409, %420, %397
-  %.2 = phi i32 [ %401, %397 ], [ %419, %409 ], [ %423, %420 ], [ %.0231, %.lr.ph ]
-  %.not106 = icmp eq i32 %.2, 0
-  br i1 %.not106, label %428, label %425
+413:                                              ; preds = %.lr.ph, %398, %409, %386
+  %.2 = phi i32 [ %390, %386 ], [ %408, %398 ], [ %412, %409 ], [ %.0230, %.lr.ph ]
+  %.not107 = icmp eq i32 %.2, 0
+  br i1 %.not107, label %417, label %414
 
-425:                                              ; preds = %424
-  %426 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
-  %427 = trunc i8 %426 to i1
-  br i1 %427, label %._crit_edge, label %428
+414:                                              ; preds = %413
+  %415 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
+  %416 = trunc i8 %415 to i1
+  br i1 %416, label %._crit_edge, label %417
 
-428:                                              ; preds = %424, %425
-  %429 = load ptr, ptr %.079230, align 8
-  %.not104 = icmp eq ptr %429, null
-  br i1 %.not104, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+417:                                              ; preds = %413, %414
+  %418 = load ptr, ptr %.079229, align 8
+  %.not105 = icmp eq ptr %418, null
+  br i1 %.not105, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %428, %425, %387
-  %.1 = phi i32 [ 0, %387 ], [ %.2, %425 ], [ %.2, %428 ]
-  br i1 %280, label %430, label %452
+._crit_edge:                                      ; preds = %417, %414, %376
+  %.1 = phi i32 [ 0, %376 ], [ %.2, %414 ], [ %.2, %417 ]
+  br i1 %268, label %419, label %441
 
-430:                                              ; preds = %._crit_edge
-  %431 = icmp ne i32 %.1, 0
-  %432 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
-  %433 = trunc i8 %432 to i1
-  %434 = select i1 %431, i1 %433, i1 false
-  %435 = select i1 %434, ptr @.str.42, ptr @.str.43
-  %436 = call ptr @PSQLexec(ptr noundef nonnull %435) #15
-  %437 = icmp eq ptr %436, null
-  br i1 %437, label %438, label %441
+419:                                              ; preds = %._crit_edge
+  %420 = icmp ne i32 %.1, 0
+  %421 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
+  %422 = trunc i8 %421 to i1
+  %423 = select i1 %420, i1 %422, i1 false
+  %424 = select i1 %423, ptr @.str.42, ptr @.str.43
+  %425 = call ptr @PSQLexec(ptr noundef nonnull %424) #15
+  %426 = icmp eq ptr %425, null
+  br i1 %426, label %427, label %430
 
-438:                                              ; preds = %430
-  %439 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
-  %440 = trunc i8 %439 to i1
-  %spec.select = select i1 %440, i32 3, i32 %.1
-  br label %452
+427:                                              ; preds = %419
+  %428 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 385), align 1
+  %429 = trunc i8 %428 to i1
+  %spec.select = select i1 %429, i32 3, i32 %.1
+  br label %441
 
-441:                                              ; preds = %430
-  call void @PQclear(ptr noundef nonnull %436) #15
-  br label %452
+430:                                              ; preds = %419
+  call void @PQclear(ptr noundef nonnull %425) #15
+  br label %441
 
-442:                                              ; preds = %378
+431:                                              ; preds = %367
   call void @pg_logging_config(i32 noundef 1) #15
   call void @connection_warnings(i1 noundef zeroext true) #15
-  %443 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
-  %444 = trunc i8 %443 to i1
-  br i1 %444, label %447, label %445
+  %432 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 386), align 2
+  %433 = trunc i8 %432 to i1
+  br i1 %433, label %436, label %434
 
-445:                                              ; preds = %442
-  %446 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.44) #15
-  br label %447
+434:                                              ; preds = %431
+  %435 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.44) #15
+  br label %436
 
-447:                                              ; preds = %445, %442
-  %448 = xor i8 %.sroa.16.0, 1
-  %449 = zext nneg i8 %448 to i32
-  call void @initializeInput(i32 noundef %449) #15
-  %450 = load ptr, ptr @stdin, align 8
-  %451 = call i32 @MainLoop(ptr noundef %450) #15
-  br label %452
+436:                                              ; preds = %434, %431
+  %437 = xor i8 %.sroa.16.0, 1
+  %438 = zext nneg i8 %437 to i32
+  call void @initializeInput(i32 noundef %438) #15
+  %439 = load ptr, ptr @stdin, align 8
+  %440 = call i32 @MainLoop(ptr noundef %439) #15
+  br label %441
 
-452:                                              ; preds = %438, %383, %441, %._crit_edge, %447
-  %.3 = phi i32 [ %.1, %441 ], [ %.1, %._crit_edge ], [ %451, %447 ], [ 3, %383 ], [ %spec.select, %438 ]
-  %453 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
-  %.not107 = icmp eq ptr %453, null
-  br i1 %.not107, label %456, label %454
+441:                                              ; preds = %427, %372, %430, %._crit_edge, %436
+  %.3 = phi i32 [ %.1, %430 ], [ %.1, %._crit_edge ], [ %440, %436 ], [ 3, %372 ], [ %spec.select, %427 ]
+  %442 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 360), align 8
+  %.not108 = icmp eq ptr %442, null
+  br i1 %.not108, label %445, label %443
 
-454:                                              ; preds = %452
-  %455 = call i32 @fclose(ptr noundef nonnull %453)
-  br label %456
+443:                                              ; preds = %441
+  %444 = call i32 @fclose(ptr noundef nonnull %442)
+  br label %445
 
-456:                                              ; preds = %454, %452
-  %457 = load ptr, ptr @pset, align 8
-  %.not108 = icmp eq ptr %457, null
-  br i1 %.not108, label %459, label %458
+445:                                              ; preds = %443, %441
+  %446 = load ptr, ptr @pset, align 8
+  %.not109 = icmp eq ptr %446, null
+  br i1 %.not109, label %448, label %447
 
-458:                                              ; preds = %456
-  call void @PQfinish(ptr noundef nonnull %457) #15
-  br label %459
+447:                                              ; preds = %445
+  call void @PQfinish(ptr noundef nonnull %446) #15
+  br label %448
 
-459:                                              ; preds = %458, %456
-  %460 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 376), align 8
-  %.not109 = icmp eq ptr %460, null
-  br i1 %.not109, label %462, label %461
+448:                                              ; preds = %447, %445
+  %449 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 376), align 8
+  %.not110 = icmp eq ptr %449, null
+  br i1 %.not110, label %451, label %450
 
-461:                                              ; preds = %459
-  call void @PQfinish(ptr noundef nonnull %460) #15
-  br label %462
+450:                                              ; preds = %448
+  call void @PQfinish(ptr noundef nonnull %449) #15
+  br label %451
 
-462:                                              ; preds = %461, %459
-  %463 = call zeroext i1 @setQFout(ptr noundef null) #15
+451:                                              ; preds = %450, %448
+  %452 = call zeroext i1 @setQFout(ptr noundef null) #15
   ret i32 %.3
 }
 

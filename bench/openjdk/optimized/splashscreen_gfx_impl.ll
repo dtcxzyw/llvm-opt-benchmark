@@ -64,10 +64,10 @@ define hidden i32 @quantizeColors(i32 noundef %0, ptr nocapture noundef %1) loca
   store i32 2, ptr %1, align 4
   br label %5
 
-5:                                                ; preds = %56, %2
-  %6 = phi i32 [ %.pre64, %56 ], [ 2, %2 ]
-  %7 = phi i32 [ %.pre63, %56 ], [ 2, %2 ]
-  %8 = phi i32 [ %.pre, %56 ], [ 2, %2 ]
+5:                                                ; preds = %55, %2
+  %6 = phi i32 [ %.pre64, %55 ], [ 2, %2 ]
+  %7 = phi i32 [ %.pre63, %55 ], [ 2, %2 ]
+  %8 = phi i32 [ %.pre, %55 ], [ 2, %2 ]
   %9 = shl nsw i32 %8, 3
   %10 = shl nsw i32 %7, 2
   %11 = icmp sgt i32 %9, %10
@@ -83,7 +83,7 @@ define hidden i32 @quantizeColors(i32 noundef %0, ptr nocapture noundef %1) loca
   %18 = mul nsw i32 %6, 6
   %19 = icmp sgt i32 %17, %18
   %.sroa.13.1 = select i1 %19, i32 2, i32 %spec.select58
-  %.sroa.29.0 = select i1 %19, i32 %spec.select58, i32 2
+  %.sroa.29.0 = select i1 %19, i64 %12, i64 2
   %20 = zext i1 %11 to i64
   %21 = getelementptr inbounds i32, ptr %1, i64 %20
   %22 = load i32, ptr %21, align 4
@@ -107,49 +107,48 @@ define hidden i32 @quantizeColors(i32 noundef %0, ptr nocapture noundef %1) loca
   %38 = getelementptr inbounds i32, ptr %1, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = mul nsw i32 %36, %39
-  %41 = zext nneg i32 %.sroa.29.0 to i64
-  %42 = getelementptr inbounds i32, ptr %1, i64 %41
-  %43 = load i32, ptr %42, align 4
-  %44 = mul nsw i32 %40, %43
-  %.not = icmp sgt i32 %44, %0
-  br i1 %.not, label %46, label %45
+  %41 = getelementptr inbounds i32, ptr %1, i64 %.sroa.29.0
+  %42 = load i32, ptr %41, align 4
+  %43 = mul nsw i32 %40, %42
+  %.not = icmp sgt i32 %43, %0
+  br i1 %.not, label %45, label %44
+
+44:                                               ; preds = %5
+  store i32 %36, ptr %34, align 4
+  br label %55
 
 45:                                               ; preds = %5
-  store i32 %36, ptr %34, align 4
-  br label %56
+  %46 = add nsw i32 %39, 1
+  %47 = mul nsw i32 %46, %35
+  %48 = mul nsw i32 %47, %42
+  %.not56 = icmp sgt i32 %48, %0
+  br i1 %.not56, label %50, label %49
 
-46:                                               ; preds = %5
-  %47 = add nsw i32 %39, 1
-  %48 = mul nsw i32 %47, %35
-  %49 = mul nsw i32 %48, %43
-  %.not56 = icmp sgt i32 %49, %0
-  br i1 %.not56, label %51, label %50
+49:                                               ; preds = %45
+  store i32 %46, ptr %38, align 4
+  br label %55
 
-50:                                               ; preds = %46
-  store i32 %47, ptr %38, align 4
-  br label %56
+50:                                               ; preds = %45
+  %51 = mul nsw i32 %39, %35
+  %52 = add nsw i32 %42, 1
+  %53 = mul nsw i32 %51, %52
+  %.not57 = icmp sgt i32 %53, %0
+  br i1 %.not57, label %56, label %54
 
-51:                                               ; preds = %46
-  %52 = mul nsw i32 %39, %35
-  %53 = add nsw i32 %43, 1
-  %54 = mul nsw i32 %52, %53
-  %.not57 = icmp sgt i32 %54, %0
-  br i1 %.not57, label %57, label %55
+54:                                               ; preds = %50
+  store i32 %52, ptr %41, align 4
+  br label %55
 
-55:                                               ; preds = %51
-  store i32 %53, ptr %42, align 4
-  br label %56
-
-56:                                               ; preds = %50, %55, %45
+55:                                               ; preds = %49, %54, %44
   %.pre = load i32, ptr %1, align 4
   %.pre63 = load i32, ptr %4, align 4
   %.pre64 = load i32, ptr %3, align 4
   br label %5
 
-57:                                               ; preds = %51
-  %58 = mul nsw i32 %7, %8
-  %59 = mul nsw i32 %58, %6
-  ret i32 %59
+56:                                               ; preds = %50
+  %57 = mul nsw i32 %7, %8
+  %58 = mul nsw i32 %57, %6
+  ret i32 %58
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

@@ -1346,32 +1346,32 @@ sanitize_cookie_path.exit615:                     ; preds = %338, %.thread.i613,
   %444 = getelementptr inbounds i8, ptr %17, i64 57
   %445 = load i8, ptr %444, align 1
   %446 = trunc i8 %445 to i1
-  br i1 %446, label %447, label %.critedge766
+  br i1 %446, label %447, label %.tail.thread
 
 447:                                              ; preds = %443
   %448 = getelementptr inbounds i8, ptr %17, i64 24
   %449 = load ptr, ptr %448, align 8
   %.not538 = icmp eq ptr %449, null
-  br i1 %.not538, label %.critedge766, label %sub_0
+  br i1 %.not538, label %.tail.thread, label %sub_0
 
 sub_0:                                            ; preds = %447
   %450 = load i8, ptr %449, align 1
   %.not710 = icmp eq i8 %450, 47
-  br i1 %.not710, label %sub_1, label %.critedge766
+  br i1 %.not710, label %.tail, label %.tail.thread
 
-sub_1:                                            ; preds = %sub_0
+.tail:                                            ; preds = %sub_0
   %451 = getelementptr inbounds i8, ptr %449, i64 1
   %452 = load i8, ptr %451, align 1
   %453 = icmp eq i8 %452, 0
-  br i1 %453, label %454, label %.critedge766
+  br i1 %453, label %454, label %.tail.thread
 
-454:                                              ; preds = %sub_1
+454:                                              ; preds = %.tail
   %455 = getelementptr inbounds i8, ptr %17, i64 56
   %456 = load i8, ptr %455, align 8
   %457 = trunc i8 %456 to i1
-  br i1 %457, label %.critedge766, label %458
+  br i1 %457, label %.tail.thread, label %458
 
-.critedge766:                                     ; preds = %sub_0, %454, %sub_1, %447, %443
+.tail.thread:                                     ; preds = %sub_0, %454, %.tail, %447, %443
   call fastcc void @freecookie(ptr noundef nonnull %17)
   br label %627
 
@@ -1577,11 +1577,11 @@ sub_1:                                            ; preds = %sub_0
   %555 = load ptr, ptr %554, align 8
   %.not564 = icmp eq ptr %555, null
   %.pre724 = load ptr, ptr %484, align 8
-  br i1 %.not564, label %559, label %556
+  br i1 %.not564, label %560, label %556
 
 556:                                              ; preds = %553
   %.not565 = icmp eq ptr %.pre724, null
-  br i1 %.not565, label %559, label %557
+  br i1 %.not565, label %560, label %557
 
 557:                                              ; preds = %556
   %558 = call i32 @curl_strequal(ptr noundef nonnull %555, ptr noundef nonnull %.pre724) #12
@@ -1591,19 +1591,19 @@ sub_1:                                            ; preds = %sub_0
 ._crit_edge722:                                   ; preds = %557
   %.pre = load ptr, ptr %554, align 8
   %.pre723 = load ptr, ptr %484, align 8
-  br label %559
+  %559 = icmp eq ptr %.pre, null
+  br label %560
 
-559:                                              ; preds = %._crit_edge722, %556, %553
-  %560 = phi ptr [ %.pre723, %._crit_edge722 ], [ null, %556 ], [ %.pre724, %553 ]
-  %561 = phi ptr [ %.pre, %._crit_edge722 ], [ %555, %556 ], [ null, %553 ]
-  %.not567 = icmp eq ptr %561, null
-  %562 = icmp ne ptr %560, null
+560:                                              ; preds = %._crit_edge722, %556, %553
+  %561 = phi ptr [ %.pre723, %._crit_edge722 ], [ null, %556 ], [ %.pre724, %553 ]
+  %.not567 = phi i1 [ %559, %._crit_edge722 ], [ false, %556 ], [ true, %553 ]
+  %562 = icmp ne ptr %561, null
   %.not569 = xor i1 %.not567, %562
   %spec.select598 = select i1 %.not569, i8 %.2436, i8 0
   br label %563
 
-563:                                              ; preds = %559, %551
-  %.3437 = phi i8 [ %.2436, %551 ], [ %spec.select598, %559 ]
+563:                                              ; preds = %560, %551
+  %.3437 = phi i8 [ %.2436, %551 ], [ %spec.select598, %560 ]
   %564 = trunc nuw i8 %.3437 to i1
   br i1 %564, label %565, label %.thread636
 
@@ -1728,8 +1728,8 @@ sub_1:                                            ; preds = %sub_0
   store i64 %621, ptr %623, align 8
   br label %627
 
-627:                                              ; preds = %619, %622, %626, %72, %69, %63, %60, %15, %8, %572, %531, %469, %.critedge766, %440, %.thread, %300, %.thread632, %35
-  %.0 = phi ptr [ null, %35 ], [ null, %.thread632 ], [ null, %.critedge766 ], [ null, %572 ], [ null, %531 ], [ null, %469 ], [ null, %440 ], [ null, %300 ], [ null, %.thread ], [ null, %8 ], [ null, %15 ], [ null, %60 ], [ null, %63 ], [ null, %69 ], [ null, %72 ], [ %.0418, %626 ], [ %.0418, %622 ], [ %.0418, %619 ]
+627:                                              ; preds = %619, %622, %626, %72, %69, %63, %60, %15, %8, %572, %531, %469, %.tail.thread, %440, %.thread, %300, %.thread632, %35
+  %.0 = phi ptr [ null, %35 ], [ null, %.thread632 ], [ null, %.tail.thread ], [ null, %572 ], [ null, %531 ], [ null, %469 ], [ null, %440 ], [ null, %300 ], [ null, %.thread ], [ null, %8 ], [ null, %15 ], [ null, %60 ], [ null, %63 ], [ null, %69 ], [ null, %72 ], [ %.0418, %626 ], [ %.0418, %622 ], [ %.0418, %619 ]
   ret ptr %.0
 }
 

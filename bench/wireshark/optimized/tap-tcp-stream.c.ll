@@ -646,12 +646,12 @@ cmp_address.exit26.i:                             ; preds = %40, %38, %34, %cmp_
   %or.cond.i = and i1 %46, %.0.i25.i
   %47 = icmp eq i16 %8, %20
   %spec.select.i = and i1 %47, %or.cond.i
+  %48 = zext i1 %spec.select.i to i32
   br label %compare_headers.exit
 
 compare_headers.exit:                             ; preds = %14, %22, %cmp_address.exit.i, %cmp_address.exit26.i
-  %48 = phi i1 [ false, %cmp_address.exit.i ], [ %spec.select.i, %cmp_address.exit26.i ], [ false, %14 ], [ false, %22 ]
-  %49 = zext i1 %48 to i32
-  %spec.select = add i32 %.01216, %49
+  %not..0.i = phi i32 [ 0, %cmp_address.exit.i ], [ %48, %cmp_address.exit26.i ], [ 0, %14 ], [ 0, %22 ]
+  %spec.select = add i32 %not..0.i, %.01216
   %.0 = load ptr, ptr %.017, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !6

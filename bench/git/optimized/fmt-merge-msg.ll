@@ -340,7 +340,7 @@ land.lhs.true.i.i:                                ; preds = %if.end22.i
 
 do.body.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end22.i
   %cmp.not.i.i = icmp slt i32 %inc.i.i177, %div.add.i.i180
-  %.pre199 = add nsw i32 %inc.i.i177, 1
+  %.pre199 = add i32 %inc.i.i177, 1
   br i1 %cmp.not.i.i, label %do.end.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %do.body.i.i
@@ -387,7 +387,6 @@ do.end.i.i:                                       ; preds = %do.body.i.i, %st_mu
 
 while.end.i:                                      ; preds = %while.cond.backedge.i, %if.end13
   %.pre51.pre.i = phi i32 [ 0, %if.end13 ], [ %inc.i.i176, %while.cond.backedge.i ]
-  %.fr = freeze i32 %.pre51.pre.i
   %12 = load ptr, ptr @the_repository, align 8
   %call26.i = call ptr @lookup_commit(ptr noundef %12, ptr noundef nonnull %head_oid) #14
   %tobool27.not.i = icmp eq ptr %call26.i, null
@@ -406,9 +405,9 @@ if.end30.i:                                       ; preds = %if.then28.i, %while
 
 while.body33.lr.ph.i:                             ; preds = %if.end30.i
   %item.i = getelementptr inbounds i8, ptr %merge_parents, i64 8
-  %cmp3540.i = icmp sgt i32 %.fr, 0
+  %cmp3540.i = icmp sgt i32 %.pre51.pre.i, 0
   %14 = load ptr, ptr %item.i, align 8
-  %15 = zext i32 %.fr to i64
+  %15 = zext i32 %.pre51.pre.i to i64
   br i1 %cmp3540.i, label %while.body33.i.us, label %while.body33.i
 
 while.body33.i.us:                                ; preds = %while.body33.lr.ph.i, %while.cond31.loopexit.i.loopexit.us
@@ -471,13 +470,13 @@ while.cond31.loopexit.i.loopexit.us:              ; preds = %for.inc.i.us
   br i1 %tobool32.not.i.us, label %for.cond48.preheader.i, label %while.body33.i.us, !llvm.loop !8
 
 for.cond48.preheader.i:                           ; preds = %while.body33.i, %while.cond31.loopexit.i.loopexit.us, %if.end30.i
-  %cmp5043.i = icmp sgt i32 %.fr, 0
+  %cmp5043.i = icmp sgt i32 %.pre51.pre.i, 0
   br i1 %cmp5043.i, label %for.body52.lr.ph.i, label %find_merge_parents.exit
 
 for.body52.lr.ph.i:                               ; preds = %for.cond48.preheader.i
   %item53.i = getelementptr inbounds i8, ptr %merge_parents, i64 8
   %21 = load ptr, ptr %item53.i, align 8
-  %22 = zext nneg i32 %.fr to i64
+  %22 = zext nneg i32 %.pre51.pre.i to i64
   br label %for.body52.i
 
 while.body33.i:                                   ; preds = %while.body33.lr.ph.i, %while.body33.i

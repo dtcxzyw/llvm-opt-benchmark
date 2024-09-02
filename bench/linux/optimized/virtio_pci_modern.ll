@@ -1091,7 +1091,7 @@ define internal noundef range(i32 -2, 1) i32 @vp_modern_disable_vq_and_reset(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vp_modern_enable_vq_after_reset(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -16, 1) i32 @vp_modern_enable_vq_after_reset(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 808

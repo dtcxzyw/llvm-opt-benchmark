@@ -921,14 +921,14 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   %4 = alloca [4 x i32], align 16
   %5 = load ptr, ptr @pendingSyncHash, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %62, label %6
+  br i1 %.not, label %61, label %6
 
 6:                                                ; preds = %2
   br i1 %0, label %8, label %7
 
 7:                                                ; preds = %6
   store ptr null, ptr @pendingSyncHash, align 8
-  br label %62
+  br label %61
 
 8:                                                ; preds = %6
   br i1 %1, label %9, label %.preheader64
@@ -940,7 +940,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 
 9:                                                ; preds = %8
   store ptr null, ptr @pendingSyncHash, align 8
-  br label %62
+  br label %61
 
 .lr.ph:                                           ; preds = %.preheader64, %16
   %.067 = phi ptr [ %.0, %16 ], [ %.065, %.preheader64 ]
@@ -973,10 +973,10 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 
 ._crit_edge77.thread:                             ; preds = %._crit_edge
   store ptr null, ptr @pendingSyncHash, align 8
-  br label %62
+  br label %61
 
 .lr.ph76:                                         ; preds = %._crit_edge, %.loopexit
-  %20 = phi ptr [ %59, %.loopexit ], [ %19, %._crit_edge ]
+  %20 = phi ptr [ %58, %.loopexit ], [ %19, %._crit_edge ]
   %.04574 = phi i32 [ %.1, %.loopexit ], [ 0, %._crit_edge ]
   %.04673 = phi i32 [ %.2, %.loopexit ], [ 0, %._crit_edge ]
   %.04872 = phi ptr [ %.250, %.loopexit ], [ null, %._crit_edge ]
@@ -1012,93 +1012,91 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 
 .loopexit63.loopexit:                             ; preds = %30
   %.pre84 = load i8, ptr %22, align 4
+  %32 = shl i32 %.255, 3
+  %33 = and i32 %32, 4194296
   br label %.loopexit63
 
 .loopexit63:                                      ; preds = %.loopexit63.loopexit, %.lr.ph76
-  %32 = phi i8 [ %23, %.lr.ph76 ], [ %.pre84, %.loopexit63.loopexit ]
-  %.053 = phi i32 [ 0, %.lr.ph76 ], [ %.255, %.loopexit63.loopexit ]
-  %33 = trunc i8 %32 to i1
-  br i1 %33, label %38, label %34
+  %34 = phi i8 [ %23, %.lr.ph76 ], [ %.pre84, %.loopexit63.loopexit ]
+  %.053 = phi i32 [ 0, %.lr.ph76 ], [ %33, %.loopexit63.loopexit ]
+  %35 = trunc i8 %34 to i1
+  %36 = load i32, ptr @wal_skip_threshold, align 4
+  %.not59 = icmp uge i32 %.053, %36
+  %or.cond.not = select i1 %35, i1 true, i1 %.not59
+  br i1 %or.cond.not, label %37, label %.preheader
 
-34:                                               ; preds = %.loopexit63
-  %35 = shl i32 %.053, 3
-  %36 = and i32 %35, 4194296
-  %37 = load i32, ptr @wal_skip_threshold, align 4
-  %.not59 = icmp ult i32 %36, %37
-  br i1 %.not59, label %.preheader, label %38
-
-.preheader:                                       ; preds = %34
+.preheader:                                       ; preds = %.loopexit63
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
-  br label %52
+  br label %51
 
-38:                                               ; preds = %34, %.loopexit63
-  %39 = icmp eq i32 %.04673, 0
-  br i1 %39, label %40, label %42
+37:                                               ; preds = %.loopexit63
+  %38 = icmp eq i32 %.04673, 0
+  br i1 %38, label %39, label %41
 
-40:                                               ; preds = %38
-  %41 = call ptr @palloc(i64 noundef 64) #8
-  br label %48
+39:                                               ; preds = %37
+  %40 = call ptr @palloc(i64 noundef 64) #8
+  br label %47
 
-42:                                               ; preds = %38
+41:                                               ; preds = %37
   %.not60 = icmp sgt i32 %.04673, %.04574
-  br i1 %.not60, label %48, label %43
+  br i1 %.not60, label %47, label %42
 
-43:                                               ; preds = %42
-  %44 = shl i32 %.04673, 1
-  %45 = sext i32 %44 to i64
-  %46 = shl nsw i64 %45, 3
-  %47 = call ptr @repalloc(ptr noundef %.04872, i64 noundef %46) #8
-  br label %48
+42:                                               ; preds = %41
+  %43 = shl i32 %.04673, 1
+  %44 = sext i32 %43 to i64
+  %45 = shl nsw i64 %44, 3
+  %46 = call ptr @repalloc(ptr noundef %.04872, i64 noundef %45) #8
+  br label %47
 
-48:                                               ; preds = %42, %43, %40
-  %.149 = phi ptr [ %41, %40 ], [ %47, %43 ], [ %.04872, %42 ]
-  %.147 = phi i32 [ 8, %40 ], [ %44, %43 ], [ %.04673, %42 ]
-  %49 = add i32 %.04574, 1
-  %50 = sext i32 %.04574 to i64
-  %51 = getelementptr ptr, ptr %.149, i64 %50
-  store ptr %21, ptr %51, align 8
+47:                                               ; preds = %41, %42, %39
+  %.149 = phi ptr [ %40, %39 ], [ %46, %42 ], [ %.04872, %41 ]
+  %.147 = phi i32 [ 8, %39 ], [ %43, %42 ], [ %.04673, %41 ]
+  %48 = add i32 %.04574, 1
+  %49 = sext i32 %.04574 to i64
+  %50 = getelementptr ptr, ptr %.149, i64 %49
+  store ptr %21, ptr %50, align 8
   br label %.loopexit
 
-52:                                               ; preds = %.preheader, %58
-  %indvars.iv80 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next81, %58 ]
-  %53 = getelementptr [4 x i32], ptr %4, i64 0, i64 %indvars.iv80
-  %54 = load i32, ptr %53, align 4
-  %.not61 = icmp eq i32 %54, -1
-  br i1 %.not61, label %58, label %55
+51:                                               ; preds = %.preheader, %57
+  %indvars.iv80 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next81, %57 ]
+  %52 = getelementptr [4 x i32], ptr %4, i64 0, i64 %indvars.iv80
+  %53 = load i32, ptr %52, align 4
+  %.not61 = icmp eq i32 %53, -1
+  br i1 %.not61, label %57, label %54
 
-55:                                               ; preds = %52
+54:                                               ; preds = %51
   %.sroa.0.0.copyload = load i64, ptr %21, align 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %56 = call ptr @CreateFakeRelcacheEntry(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload) #8
-  %57 = trunc nuw nsw i64 %indvars.iv80 to i32
-  call void @log_newpage_range(ptr noundef %56, i32 noundef %57, i32 noundef 0, i32 noundef %54, i1 noundef zeroext false) #8
-  call void @FreeFakeRelcacheEntry(ptr noundef %56) #8
-  br label %58
+  %55 = call ptr @CreateFakeRelcacheEntry(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload) #8
+  %56 = trunc nuw nsw i64 %indvars.iv80 to i32
+  call void @log_newpage_range(ptr noundef %55, i32 noundef %56, i32 noundef 0, i32 noundef %53, i1 noundef zeroext false) #8
+  call void @FreeFakeRelcacheEntry(ptr noundef %55) #8
+  br label %57
 
-58:                                               ; preds = %52, %55
+57:                                               ; preds = %51, %54
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, 4
-  br i1 %exitcond83.not, label %.loopexit, label %52, !llvm.loop !16
+  br i1 %exitcond83.not, label %.loopexit, label %51, !llvm.loop !16
 
-.loopexit:                                        ; preds = %58, %48
-  %.250 = phi ptr [ %.149, %48 ], [ %.04872, %58 ]
-  %.2 = phi i32 [ %.147, %48 ], [ %.04673, %58 ]
-  %.1 = phi i32 [ %49, %48 ], [ %.04574, %58 ]
-  %59 = call ptr @hash_seq_search(ptr noundef nonnull %3) #8
-  %.not58 = icmp eq ptr %59, null
+.loopexit:                                        ; preds = %57, %47
+  %.250 = phi ptr [ %.149, %47 ], [ %.04872, %57 ]
+  %.2 = phi i32 [ %.147, %47 ], [ %.04673, %57 ]
+  %.1 = phi i32 [ %48, %47 ], [ %.04574, %57 ]
+  %58 = call ptr @hash_seq_search(ptr noundef nonnull %3) #8
+  %.not58 = icmp eq ptr %58, null
   br i1 %.not58, label %._crit_edge77, label %.lr.ph76, !llvm.loop !17
 
 ._crit_edge77:                                    ; preds = %.loopexit
   store ptr null, ptr @pendingSyncHash, align 8
-  %60 = icmp sgt i32 %.1, 0
-  br i1 %60, label %61, label %62
+  %59 = icmp sgt i32 %.1, 0
+  br i1 %59, label %60, label %61
 
-61:                                               ; preds = %._crit_edge77
+60:                                               ; preds = %._crit_edge77
   call void @smgrdosyncall(ptr noundef %.250, i32 noundef %.1) #8
   call void @pfree(ptr noundef %.250) #8
-  br label %62
+  br label %61
 
-62:                                               ; preds = %._crit_edge77.thread, %2, %61, %._crit_edge77, %9, %7
+61:                                               ; preds = %._crit_edge77.thread, %2, %60, %._crit_edge77, %9, %7
   ret void
 }
 

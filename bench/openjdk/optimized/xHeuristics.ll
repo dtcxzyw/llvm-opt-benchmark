@@ -75,7 +75,7 @@ define hidden noundef zeroext i1 @_ZN11XHeuristics30use_per_cpu_shared_small_pag
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN11XHeuristics17nparallel_workersEv() local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN11XHeuristics17nparallel_workersEv() local_unnamed_addr #1 align 2 {
   %1 = load i32, ptr @_ZN2os31_initial_active_processor_countE, align 4
   %2 = sitofp i32 %1 to double
   %3 = fmul double %2, 6.000000e+01
@@ -87,13 +87,13 @@ define hidden noundef i32 @_ZN11XHeuristics17nparallel_workersEv() local_unnamed
   %9 = fmul double %8, 2.000000e-02
   %10 = fmul double %9, 0x3EA0000000000000
   %11 = fptosi double %10 to i32
-  %12 = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 1)
-  %13 = tail call noundef i32 @llvm.umin.i32(i32 %6, i32 %12)
+  %12 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %11, i32 1)
+  %13 = tail call noundef range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %6, i32 %12)
   ret i32 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN11XHeuristics19nconcurrent_workersEv() local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN11XHeuristics19nconcurrent_workersEv() local_unnamed_addr #1 align 2 {
   %1 = load i8, ptr @UseDynamicNumberOfGCThreads, align 1
   %2 = trunc i8 %1 to i1
   %3 = select i1 %2, double 2.500000e+01, double 1.250000e+01
@@ -108,8 +108,8 @@ define hidden noundef i32 @_ZN11XHeuristics19nconcurrent_workersEv() local_unnam
   %12 = fmul double %11, 2.000000e-02
   %13 = fmul double %12, 0x3EA0000000000000
   %14 = fptosi double %13 to i32
-  %15 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 1)
-  %16 = tail call noundef i32 @llvm.umin.i32(i32 %9, i32 %15)
+  %15 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %14, i32 1)
+  %16 = tail call noundef range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %9, i32 %15)
   ret i32 %16
 }
 

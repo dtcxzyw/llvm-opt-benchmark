@@ -456,7 +456,7 @@ declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @BUF_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ssl_get_prev_session(ptr noundef %ssl, ptr nocapture noundef writeonly %out_session, ptr nocapture noundef writeonly %out_send_ticket, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @ssl_get_prev_session(ptr noundef %ssl, ptr nocapture noundef writeonly %out_session, ptr nocapture noundef writeonly %out_send_ticket, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %data.i = alloca %struct.ssl_session_st, align 8
   %copy.i = alloca i32, align 4

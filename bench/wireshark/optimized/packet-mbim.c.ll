@@ -9379,12 +9379,12 @@ define internal i32 @dissect_mbim_bulk(ptr noundef %0, ptr noundef %1, ptr nound
   %10 = alloca i32, align 4
   %11 = tail call i32 @tvb_captured_length(ptr noundef %0) #10
   %12 = icmp ult i32 %11, 12
-  br i1 %12, label %398, label %13
+  br i1 %12, label %361, label %13
 
 13:                                               ; preds = %4
   %14 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #10
   %15 = icmp eq i32 %14, 1213023054
-  switch i32 %14, label %398 [
+  switch i32 %14, label %361 [
     i32 1751999342, label %16
     i32 1213023054, label %16
   ]
@@ -9479,7 +9479,7 @@ proto_item_set_hidden.exit:                       ; preds = %16, %26, %29
   %65 = select i1 %15, i32 4, i32 8
   %66 = add nsw i32 %65, -1
   %. = select i1 %15, i32 2, i32 4
-  %.441 = select i1 %15, i32 4, i32 8
+  %.469 = select i1 %15, i32 4, i32 8
   br label %70
 
 67:                                               ; preds = %62
@@ -9493,7 +9493,7 @@ thread-pre-split:                                 ; preds = %proto_item_set_gene
   br i1 %.not278, label %._crit_edge385, label %70
 
 70:                                               ; preds = %.lr.ph384, %thread-pre-split
-  %.1383 = phi ptr [ %.0256, %.lr.ph384 ], [ %378, %thread-pre-split ]
+  %.1383 = phi ptr [ %.0256, %.lr.ph384 ], [ %341, %thread-pre-split ]
   %.0260382 = phi i32 [ 0, %.lr.ph384 ], [ %69, %thread-pre-split ]
   %.0261381 = phi i32 [ 0, %.lr.ph384 ], [ %.1262.lcssa, %thread-pre-split ]
   %71 = phi i32 [ %58, %.lr.ph384 ], [ %.pr, %thread-pre-split ]
@@ -9502,573 +9502,500 @@ thread-pre-split:                                 ; preds = %proto_item_set_gene
   %74 = load ptr, ptr %64, align 8
   %75 = call ptr @tvb_get_string_enc(ptr noundef %74, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef 0) #10
   %76 = load i8, ptr %75, align 1
-  %77 = zext i8 %76 to i32
   br i1 %15, label %sub_0, label %sub_0321
 
 sub_0:                                            ; preds = %70
-  %78 = add nsw i32 %77, -73
-  %.not395 = icmp eq i32 %78, 0
-  br i1 %.not395, label %sub_1, label %.critedge296.tail
+  switch i8 %76, label %.critedge308 [
+    i8 73, label %sub_1
+    i8 68, label %sub_1334
+  ]
 
 sub_1:                                            ; preds = %sub_0
-  %79 = getelementptr inbounds i8, ptr %75, i64 1
+  %77 = getelementptr inbounds i8, ptr %75, i64 1
+  %78 = load i8, ptr %77, align 1
+  %.not396 = icmp eq i8 %78, 80
+  br i1 %.not396, label %.tail, label %sub_1326
+
+.tail:                                            ; preds = %sub_1
+  %79 = getelementptr inbounds i8, ptr %75, i64 2
   %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  %82 = add nsw i32 %81, -80
-  %.not396 = icmp eq i32 %82, 0
-  br i1 %.not396, label %sub_2, label %.tail
-
-sub_2:                                            ; preds = %sub_1
-  %83 = getelementptr inbounds i8, ptr %75, i64 2
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i32
-  %86 = add nsw i32 %85, -83
-  br label %.tail
-
-.tail:                                            ; preds = %sub_1, %sub_2
-  %87 = phi i32 [ %82, %sub_1 ], [ %86, %sub_2 ]
-  %.not279 = icmp eq i32 %87, 0
-  br i1 %.not279, label %98, label %sub_1326
+  %81 = icmp eq i8 %80, 83
+  br i1 %81, label %87, label %sub_1326
 
 sub_0321:                                         ; preds = %70
-  %88 = add nsw i32 %77, -105
-  %.not387 = icmp eq i32 %88, 0
-  br i1 %.not387, label %sub_1322, label %.critedge298.tail
+  switch i8 %76, label %.critedge310 [
+    i8 105, label %sub_1322
+    i8 100, label %sub_1338
+  ]
 
 sub_1322:                                         ; preds = %sub_0321
-  %89 = getelementptr inbounds i8, ptr %75, i64 1
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
-  %92 = add nsw i32 %91, -112
-  %.not388 = icmp eq i32 %92, 0
-  br i1 %.not388, label %sub_2323, label %.critedge.tail
+  %82 = getelementptr inbounds i8, ptr %75, i64 1
+  %83 = load i8, ptr %82, align 1
+  %.not388 = icmp eq i8 %83, 112
+  br i1 %.not388, label %.critedge.tail, label %sub_1330
 
-sub_2323:                                         ; preds = %sub_1322
-  %93 = getelementptr inbounds i8, ptr %75, i64 2
-  %94 = load i8, ptr %93, align 1
-  %95 = zext i8 %94 to i32
-  %96 = add nsw i32 %95, -115
-  br label %.critedge.tail
+.critedge.tail:                                   ; preds = %sub_1322
+  %84 = getelementptr inbounds i8, ptr %75, i64 2
+  %85 = load i8, ptr %84, align 1
+  %86 = icmp eq i8 %85, 115
+  br i1 %86, label %87, label %sub_1330
 
-.critedge.tail:                                   ; preds = %sub_1322, %sub_2323
-  %97 = phi i32 [ %92, %sub_1322 ], [ %96, %sub_2323 ]
-  %.not280 = icmp eq i32 %97, 0
-  br i1 %.not280, label %98, label %sub_1330
-
-98:                                               ; preds = %.critedge.tail, %.tail
-  %99 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
-  %100 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71) #10
-  %101 = load i8, ptr %75, align 1
-  %102 = sext i8 %101 to i32
-  %103 = getelementptr i8, ptr %75, i64 1
-  %104 = load i8, ptr %103, align 1
-  %105 = sext i8 %104 to i32
-  %106 = getelementptr i8, ptr %75, i64 2
-  %107 = load i8, ptr %106, align 1
-  %108 = sext i8 %107 to i32
-  %109 = getelementptr i8, ptr %75, i64 3
-  %110 = load i8, ptr %109, align 1
+87:                                               ; preds = %.critedge.tail, %.tail
+  %88 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
+  %89 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71) #10
+  %90 = load i8, ptr %75, align 1
+  %91 = sext i8 %90 to i32
+  %92 = getelementptr i8, ptr %75, i64 1
+  %93 = load i8, ptr %92, align 1
+  %94 = sext i8 %93 to i32
+  %95 = getelementptr i8, ptr %75, i64 2
+  %96 = load i8, ptr %95, align 1
+  %97 = sext i8 %96 to i32
+  %98 = getelementptr i8, ptr %75, i64 3
+  %99 = load i8, ptr %98, align 1
+  %100 = sext i8 %99 to i32
+  %101 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %88, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %89, ptr noundef nonnull @.str.2630, i32 noundef %91, i32 noundef %94, i32 noundef %97, i32 noundef %100) #10
+  %102 = load i32, ptr @ett_mbim_msg_header, align 4
+  %103 = call ptr @proto_item_add_subtree(ptr noundef %101, i32 noundef %102) #10
+  %104 = load i32, ptr @hf_mbim_bulk_ndp_signature_ips_session_id, align 4
+  %105 = add i32 %71, 3
+  %106 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %0, i32 noundef %105, i32 noundef 1, i32 noundef 0) #10
+  %107 = load ptr, ptr %17, align 8
+  %108 = load i8, ptr %75, align 1
+  %109 = sext i8 %108 to i32
+  %110 = load i8, ptr %92, align 1
   %111 = sext i8 %110 to i32
-  %112 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %99, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %100, ptr noundef nonnull @.str.2630, i32 noundef %102, i32 noundef %105, i32 noundef %108, i32 noundef %111) #10
-  %113 = load i32, ptr @ett_mbim_msg_header, align 4
-  %114 = call ptr @proto_item_add_subtree(ptr noundef %112, i32 noundef %113) #10
-  %115 = load i32, ptr @hf_mbim_bulk_ndp_signature_ips_session_id, align 4
-  %116 = add i32 %71, 3
-  %117 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %115, ptr noundef %0, i32 noundef %116, i32 noundef 1, i32 noundef 0) #10
-  %118 = load ptr, ptr %17, align 8
-  %119 = load i8, ptr %75, align 1
-  %120 = sext i8 %119 to i32
-  %121 = load i8, ptr %103, align 1
-  %122 = sext i8 %121 to i32
-  %123 = load i8, ptr %106, align 1
-  %124 = sext i8 %123 to i32
-  %125 = load i8, ptr %109, align 1
-  %126 = sext i8 %125 to i32
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %118, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2630, i32 noundef %120, i32 noundef %122, i32 noundef %124, i32 noundef %126) #10
-  %127 = load ptr, ptr @ip_handle, align 8
-  br label %300
+  %112 = load i8, ptr %95, align 1
+  %113 = sext i8 %112 to i32
+  %114 = load i8, ptr %98, align 1
+  %115 = sext i8 %114 to i32
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %107, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2630, i32 noundef %109, i32 noundef %111, i32 noundef %113, i32 noundef %115) #10
+  %116 = load ptr, ptr @ip_handle, align 8
+  br label %263
 
-sub_1326:                                         ; preds = %.tail
-  %128 = getelementptr inbounds i8, ptr %75, i64 1
-  %129 = load i8, ptr %128, align 1
-  %130 = zext i8 %129 to i32
-  %131 = add nsw i32 %130, -80
-  %.not398 = icmp eq i32 %131, 0
-  br i1 %.not398, label %sub_2327, label %.critedge296.tail
+sub_1326:                                         ; preds = %.tail, %sub_1
+  %117 = getelementptr inbounds i8, ptr %75, i64 1
+  %118 = load i8, ptr %117, align 1
+  %.not398 = icmp eq i8 %118, 80
+  br i1 %.not398, label %.critedge296.tail, label %.critedge308
 
-sub_2327:                                         ; preds = %sub_1326
-  %132 = getelementptr inbounds i8, ptr %75, i64 2
+.critedge296.tail:                                ; preds = %sub_1326
+  %119 = getelementptr inbounds i8, ptr %75, i64 2
+  %120 = load i8, ptr %119, align 1
+  %121 = icmp eq i8 %120, 67
+  br i1 %121, label %127, label %.critedge308
+
+sub_1330:                                         ; preds = %.critedge.tail, %sub_1322
+  %122 = getelementptr inbounds i8, ptr %75, i64 1
+  %123 = load i8, ptr %122, align 1
+  %.not390 = icmp eq i8 %123, 112
+  br i1 %.not390, label %.critedge298.tail, label %.critedge310
+
+.critedge298.tail:                                ; preds = %sub_1330
+  %124 = getelementptr inbounds i8, ptr %75, i64 2
+  %125 = load i8, ptr %124, align 1
+  %126 = icmp eq i8 %125, 99
+  br i1 %126, label %127, label %.critedge310
+
+127:                                              ; preds = %.critedge298.tail, %.critedge296.tail
+  %128 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
+  %129 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71) #10
+  %130 = load i8, ptr %75, align 1
+  %131 = sext i8 %130 to i32
+  %132 = getelementptr i8, ptr %75, i64 1
   %133 = load i8, ptr %132, align 1
-  %134 = zext i8 %133 to i32
-  %135 = add nsw i32 %134, -67
-  br label %.critedge296.tail
-
-.critedge296.tail:                                ; preds = %sub_0, %sub_1326, %sub_2327
-  %136 = phi i32 [ %131, %sub_1326 ], [ %135, %sub_2327 ], [ %78, %sub_0 ]
-  %.not281 = icmp eq i32 %136, 0
-  br i1 %.not281, label %146, label %sub_0333
-
-sub_1330:                                         ; preds = %.critedge.tail
-  %137 = getelementptr inbounds i8, ptr %75, i64 1
-  %138 = load i8, ptr %137, align 1
-  %139 = zext i8 %138 to i32
-  %140 = add nsw i32 %139, -112
-  %.not390 = icmp eq i32 %140, 0
-  br i1 %.not390, label %sub_2331, label %.critedge298.tail
-
-sub_2331:                                         ; preds = %sub_1330
-  %141 = getelementptr inbounds i8, ptr %75, i64 2
-  %142 = load i8, ptr %141, align 1
-  %143 = zext i8 %142 to i32
-  %144 = add nsw i32 %143, -99
-  br label %.critedge298.tail
-
-.critedge298.tail:                                ; preds = %sub_0321, %sub_1330, %sub_2331
-  %145 = phi i32 [ %140, %sub_1330 ], [ %144, %sub_2331 ], [ %88, %sub_0321 ]
-  %.not282 = icmp eq i32 %145, 0
-  br i1 %.not282, label %146, label %sub_0337
-
-146:                                              ; preds = %.critedge298.tail, %.critedge296.tail
-  %147 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
-  %148 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71) #10
-  %149 = load i8, ptr %75, align 1
-  %150 = sext i8 %149 to i32
-  %151 = getelementptr i8, ptr %75, i64 1
-  %152 = load i8, ptr %151, align 1
+  %134 = sext i8 %133 to i32
+  %135 = getelementptr i8, ptr %75, i64 2
+  %136 = load i8, ptr %135, align 1
+  %137 = sext i8 %136 to i32
+  %138 = getelementptr i8, ptr %75, i64 3
+  %139 = load i8, ptr %138, align 1
+  %140 = sext i8 %139 to i32
+  %141 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %128, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %129, ptr noundef nonnull @.str.2630, i32 noundef %131, i32 noundef %134, i32 noundef %137, i32 noundef %140) #10
+  %142 = load i32, ptr @ett_mbim_msg_header, align 4
+  %143 = call ptr @proto_item_add_subtree(ptr noundef %141, i32 noundef %142) #10
+  %144 = load i32, ptr @hf_mbim_bulk_ndp_signature_ipc_session_id, align 4
+  %145 = add i32 %71, 3
+  %146 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %144, ptr noundef %0, i32 noundef %145, i32 noundef 1, i32 noundef 0) #10
+  %147 = load ptr, ptr %17, align 8
+  %148 = load i8, ptr %75, align 1
+  %149 = sext i8 %148 to i32
+  %150 = load i8, ptr %132, align 1
+  %151 = sext i8 %150 to i32
+  %152 = load i8, ptr %135, align 1
   %153 = sext i8 %152 to i32
-  %154 = getelementptr i8, ptr %75, i64 2
-  %155 = load i8, ptr %154, align 1
-  %156 = sext i8 %155 to i32
-  %157 = getelementptr i8, ptr %75, i64 3
+  %154 = load i8, ptr %138, align 1
+  %155 = sext i8 %154 to i32
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %147, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2630, i32 noundef %149, i32 noundef %151, i32 noundef %153, i32 noundef %155) #10
+  %156 = load ptr, ptr @bulk_ndp_ctrl_handle, align 8
+  br label %263
+
+sub_1334:                                         ; preds = %sub_0
+  %157 = getelementptr inbounds i8, ptr %75, i64 1
   %158 = load i8, ptr %157, align 1
-  %159 = sext i8 %158 to i32
-  %160 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %147, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %148, ptr noundef nonnull @.str.2630, i32 noundef %150, i32 noundef %153, i32 noundef %156, i32 noundef %159) #10
-  %161 = load i32, ptr @ett_mbim_msg_header, align 4
-  %162 = call ptr @proto_item_add_subtree(ptr noundef %160, i32 noundef %161) #10
-  %163 = load i32, ptr @hf_mbim_bulk_ndp_signature_ipc_session_id, align 4
-  %164 = add i32 %71, 3
-  %165 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %163, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef 0) #10
-  %166 = load ptr, ptr %17, align 8
-  %167 = load i8, ptr %75, align 1
-  %168 = sext i8 %167 to i32
-  %169 = load i8, ptr %151, align 1
-  %170 = sext i8 %169 to i32
-  %171 = load i8, ptr %154, align 1
-  %172 = sext i8 %171 to i32
-  %173 = load i8, ptr %157, align 1
+  %.not400 = icmp eq i8 %158, 83
+  br i1 %.not400, label %.critedge300.tail, label %sub_1342
+
+.critedge300.tail:                                ; preds = %sub_1334
+  %159 = getelementptr inbounds i8, ptr %75, i64 2
+  %160 = load i8, ptr %159, align 1
+  %161 = icmp eq i8 %160, 83
+  br i1 %161, label %167, label %sub_1342
+
+sub_1338:                                         ; preds = %sub_0321
+  %162 = getelementptr inbounds i8, ptr %75, i64 1
+  %163 = load i8, ptr %162, align 1
+  %.not392 = icmp eq i8 %163, 115
+  br i1 %.not392, label %.critedge302.tail, label %sub_1346
+
+.critedge302.tail:                                ; preds = %sub_1338
+  %164 = getelementptr inbounds i8, ptr %75, i64 2
+  %165 = load i8, ptr %164, align 1
+  %166 = icmp eq i8 %165, 115
+  br i1 %166, label %167, label %sub_1346
+
+167:                                              ; preds = %.critedge302.tail, %.critedge300.tail
+  %168 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
+  %169 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71) #10
+  %170 = load i8, ptr %75, align 1
+  %171 = sext i8 %170 to i32
+  %172 = getelementptr i8, ptr %75, i64 1
+  %173 = load i8, ptr %172, align 1
   %174 = sext i8 %173 to i32
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %166, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2630, i32 noundef %168, i32 noundef %170, i32 noundef %172, i32 noundef %174) #10
-  %175 = load ptr, ptr @bulk_ndp_ctrl_handle, align 8
-  br label %300
+  %175 = getelementptr i8, ptr %75, i64 2
+  %176 = load i8, ptr %175, align 1
+  %177 = sext i8 %176 to i32
+  %178 = getelementptr i8, ptr %75, i64 3
+  %179 = load i8, ptr %178, align 1
+  %180 = sext i8 %179 to i32
+  %181 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %168, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %169, ptr noundef nonnull @.str.2630, i32 noundef %171, i32 noundef %174, i32 noundef %177, i32 noundef %180) #10
+  %182 = load i32, ptr @ett_mbim_msg_header, align 4
+  %183 = call ptr @proto_item_add_subtree(ptr noundef %181, i32 noundef %182) #10
+  %184 = load i32, ptr @hf_mbim_bulk_ndp_signature_dss_session_id, align 4
+  %185 = add i32 %71, 3
+  %186 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %183, i32 noundef %184, ptr noundef %0, i32 noundef %185, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %10) #10
+  %187 = load ptr, ptr %17, align 8
+  %188 = load i8, ptr %75, align 1
+  %189 = sext i8 %188 to i32
+  %190 = load i8, ptr %172, align 1
+  %191 = sext i8 %190 to i32
+  %192 = load i8, ptr %175, align 1
+  %193 = sext i8 %192 to i32
+  %194 = load i8, ptr %178, align 1
+  %195 = sext i8 %194 to i32
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %187, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2630, i32 noundef %189, i32 noundef %191, i32 noundef %193, i32 noundef %195) #10
+  %196 = load ptr, ptr @dss_dissector_table, align 8
+  %197 = load i32, ptr %10, align 4
+  %198 = call ptr @dissector_get_uint_handle(ptr noundef %196, i32 noundef %197) #10
+  %199 = icmp eq ptr %198, null
+  %200 = load ptr, ptr @data_handle, align 8
+  %spec.select = select i1 %199, ptr %200, ptr %198
+  br label %263
 
-sub_0333:                                         ; preds = %.critedge296.tail
-  %176 = add nsw i32 %77, -68
-  %.not399 = icmp eq i32 %176, 0
-  br i1 %.not399, label %sub_1334, label %.critedge304.tail
-
-sub_1334:                                         ; preds = %sub_0333
-  %177 = getelementptr inbounds i8, ptr %75, i64 1
-  %178 = load i8, ptr %177, align 1
-  %179 = zext i8 %178 to i32
-  %180 = add nsw i32 %179, -83
-  %.not400 = icmp eq i32 %180, 0
-  br i1 %.not400, label %sub_2335, label %.critedge300.tail
-
-sub_2335:                                         ; preds = %sub_1334
-  %181 = getelementptr inbounds i8, ptr %75, i64 2
-  %182 = load i8, ptr %181, align 1
-  %183 = zext i8 %182 to i32
-  %184 = add nsw i32 %183, -83
-  br label %.critedge300.tail
-
-.critedge300.tail:                                ; preds = %sub_1334, %sub_2335
-  %185 = phi i32 [ %180, %sub_1334 ], [ %184, %sub_2335 ]
-  %.not283 = icmp eq i32 %185, 0
-  br i1 %.not283, label %196, label %sub_1342
-
-sub_0337:                                         ; preds = %.critedge298.tail
-  %186 = add nsw i32 %77, -100
-  %.not391 = icmp eq i32 %186, 0
-  br i1 %.not391, label %sub_1338, label %.critedge306.tail
-
-sub_1338:                                         ; preds = %sub_0337
-  %187 = getelementptr inbounds i8, ptr %75, i64 1
-  %188 = load i8, ptr %187, align 1
-  %189 = zext i8 %188 to i32
-  %190 = add nsw i32 %189, -115
-  %.not392 = icmp eq i32 %190, 0
-  br i1 %.not392, label %sub_2339, label %.critedge302.tail
-
-sub_2339:                                         ; preds = %sub_1338
-  %191 = getelementptr inbounds i8, ptr %75, i64 2
-  %192 = load i8, ptr %191, align 1
-  %193 = zext i8 %192 to i32
-  %194 = add nsw i32 %193, -115
-  br label %.critedge302.tail
-
-.critedge302.tail:                                ; preds = %sub_1338, %sub_2339
-  %195 = phi i32 [ %190, %sub_1338 ], [ %194, %sub_2339 ]
-  %.not284 = icmp eq i32 %195, 0
-  br i1 %.not284, label %196, label %sub_1346
-
-196:                                              ; preds = %.critedge302.tail, %.critedge300.tail
-  %197 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
-  %198 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71) #10
-  %199 = load i8, ptr %75, align 1
-  %200 = sext i8 %199 to i32
-  %201 = getelementptr i8, ptr %75, i64 1
+sub_1342:                                         ; preds = %.critedge300.tail, %sub_1334
+  %201 = getelementptr inbounds i8, ptr %75, i64 1
   %202 = load i8, ptr %201, align 1
-  %203 = sext i8 %202 to i32
-  %204 = getelementptr i8, ptr %75, i64 2
-  %205 = load i8, ptr %204, align 1
-  %206 = sext i8 %205 to i32
-  %207 = getelementptr i8, ptr %75, i64 3
-  %208 = load i8, ptr %207, align 1
-  %209 = sext i8 %208 to i32
-  %210 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %197, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %198, ptr noundef nonnull @.str.2630, i32 noundef %200, i32 noundef %203, i32 noundef %206, i32 noundef %209) #10
-  %211 = load i32, ptr @ett_mbim_msg_header, align 4
-  %212 = call ptr @proto_item_add_subtree(ptr noundef %210, i32 noundef %211) #10
-  %213 = load i32, ptr @hf_mbim_bulk_ndp_signature_dss_session_id, align 4
-  %214 = add i32 %71, 3
-  %215 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %212, i32 noundef %213, ptr noundef %0, i32 noundef %214, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %10) #10
-  %216 = load ptr, ptr %17, align 8
-  %217 = load i8, ptr %75, align 1
+  %.not402 = icmp eq i8 %202, 83
+  br i1 %.not402, label %.critedge304.tail, label %.critedge308
+
+.critedge304.tail:                                ; preds = %sub_1342
+  %203 = getelementptr inbounds i8, ptr %75, i64 2
+  %204 = load i8, ptr %203, align 1
+  %205 = icmp eq i8 %204, 67
+  br i1 %205, label %211, label %.critedge308
+
+sub_1346:                                         ; preds = %.critedge302.tail, %sub_1338
+  %206 = getelementptr inbounds i8, ptr %75, i64 1
+  %207 = load i8, ptr %206, align 1
+  %.not394 = icmp eq i8 %207, 115
+  br i1 %.not394, label %.critedge306.tail, label %.critedge310
+
+.critedge306.tail:                                ; preds = %sub_1346
+  %208 = getelementptr inbounds i8, ptr %75, i64 2
+  %209 = load i8, ptr %208, align 1
+  %210 = icmp eq i8 %209, 99
+  br i1 %210, label %211, label %.critedge310
+
+211:                                              ; preds = %.critedge306.tail, %.critedge304.tail
+  %212 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
+  %213 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71) #10
+  %214 = load i8, ptr %75, align 1
+  %215 = sext i8 %214 to i32
+  %216 = getelementptr i8, ptr %75, i64 1
+  %217 = load i8, ptr %216, align 1
   %218 = sext i8 %217 to i32
-  %219 = load i8, ptr %201, align 1
-  %220 = sext i8 %219 to i32
-  %221 = load i8, ptr %204, align 1
-  %222 = sext i8 %221 to i32
-  %223 = load i8, ptr %207, align 1
+  %219 = getelementptr i8, ptr %75, i64 2
+  %220 = load i8, ptr %219, align 1
+  %221 = sext i8 %220 to i32
+  %222 = getelementptr i8, ptr %75, i64 3
+  %223 = load i8, ptr %222, align 1
   %224 = sext i8 %223 to i32
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %216, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2630, i32 noundef %218, i32 noundef %220, i32 noundef %222, i32 noundef %224) #10
-  %225 = load ptr, ptr @dss_dissector_table, align 8
-  %226 = load i32, ptr %10, align 4
-  %227 = call ptr @dissector_get_uint_handle(ptr noundef %225, i32 noundef %226) #10
-  %228 = icmp eq ptr %227, null
-  %229 = load ptr, ptr @data_handle, align 8
-  %spec.select = select i1 %228, ptr %229, ptr %227
-  br label %300
+  %225 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %212, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %213, ptr noundef nonnull @.str.2630, i32 noundef %215, i32 noundef %218, i32 noundef %221, i32 noundef %224) #10
+  %226 = load i32, ptr @ett_mbim_msg_header, align 4
+  %227 = call ptr @proto_item_add_subtree(ptr noundef %225, i32 noundef %226) #10
+  %228 = load i32, ptr @hf_mbim_bulk_ndp_signature_dsc_session_id, align 4
+  %229 = add i32 %71, 3
+  %230 = call ptr @proto_tree_add_item(ptr noundef %227, i32 noundef %228, ptr noundef %0, i32 noundef %229, i32 noundef 1, i32 noundef -2147483648) #10
+  %231 = load ptr, ptr %17, align 8
+  %232 = load i8, ptr %75, align 1
+  %233 = sext i8 %232 to i32
+  %234 = load i8, ptr %216, align 1
+  %235 = sext i8 %234 to i32
+  %236 = load i8, ptr %219, align 1
+  %237 = sext i8 %236 to i32
+  %238 = load i8, ptr %222, align 1
+  %239 = sext i8 %238 to i32
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %231, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2630, i32 noundef %233, i32 noundef %235, i32 noundef %237, i32 noundef %239) #10
+  %240 = load ptr, ptr @bulk_ndp_ctrl_handle, align 8
+  br label %263
 
-sub_1342:                                         ; preds = %.critedge300.tail
-  %230 = getelementptr inbounds i8, ptr %75, i64 1
-  %231 = load i8, ptr %230, align 1
-  %232 = zext i8 %231 to i32
-  %233 = add nsw i32 %232, -83
-  %.not402 = icmp eq i32 %233, 0
-  br i1 %.not402, label %sub_2343, label %.critedge304.tail
+.critedge308:                                     ; preds = %sub_0, %sub_1326, %.critedge296.tail, %sub_1342, %.critedge304.tail
+  %241 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(5) @.str.2637) #11
+  %.not287 = icmp eq i32 %241, 0
+  br i1 %.not287, label %243, label %.critedge312
 
-sub_2343:                                         ; preds = %sub_1342
-  %234 = getelementptr inbounds i8, ptr %75, i64 2
-  %235 = load i8, ptr %234, align 1
-  %236 = zext i8 %235 to i32
-  %237 = add nsw i32 %236, -67
-  br label %.critedge304.tail
+.critedge310:                                     ; preds = %sub_0321, %sub_1330, %.critedge298.tail, %sub_1346, %.critedge306.tail
+  %242 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(5) @.str.2638) #11
+  %.not288 = icmp eq i32 %242, 0
+  br i1 %.not288, label %243, label %.critedge314
 
-.critedge304.tail:                                ; preds = %sub_0333, %sub_1342, %sub_2343
-  %238 = phi i32 [ %233, %sub_1342 ], [ %237, %sub_2343 ], [ %176, %sub_0333 ]
-  %.not285 = icmp eq i32 %238, 0
-  br i1 %.not285, label %248, label %.critedge308
-
-sub_1346:                                         ; preds = %.critedge302.tail
-  %239 = getelementptr inbounds i8, ptr %75, i64 1
-  %240 = load i8, ptr %239, align 1
-  %241 = zext i8 %240 to i32
-  %242 = add nsw i32 %241, -115
-  %.not394 = icmp eq i32 %242, 0
-  br i1 %.not394, label %sub_2347, label %.critedge306.tail
-
-sub_2347:                                         ; preds = %sub_1346
-  %243 = getelementptr inbounds i8, ptr %75, i64 2
-  %244 = load i8, ptr %243, align 1
-  %245 = zext i8 %244 to i32
-  %246 = add nsw i32 %245, -99
-  br label %.critedge306.tail
-
-.critedge306.tail:                                ; preds = %sub_0337, %sub_1346, %sub_2347
-  %247 = phi i32 [ %242, %sub_1346 ], [ %246, %sub_2347 ], [ %186, %sub_0337 ]
-  %.not286 = icmp eq i32 %247, 0
-  br i1 %.not286, label %248, label %.critedge310
-
-248:                                              ; preds = %.critedge306.tail, %.critedge304.tail
-  %249 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
-  %250 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71) #10
-  %251 = load i8, ptr %75, align 1
-  %252 = sext i8 %251 to i32
-  %253 = getelementptr i8, ptr %75, i64 1
-  %254 = load i8, ptr %253, align 1
-  %255 = sext i8 %254 to i32
-  %256 = getelementptr i8, ptr %75, i64 2
-  %257 = load i8, ptr %256, align 1
-  %258 = sext i8 %257 to i32
-  %259 = getelementptr i8, ptr %75, i64 3
-  %260 = load i8, ptr %259, align 1
-  %261 = sext i8 %260 to i32
-  %262 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %249, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %250, ptr noundef nonnull @.str.2630, i32 noundef %252, i32 noundef %255, i32 noundef %258, i32 noundef %261) #10
-  %263 = load i32, ptr @ett_mbim_msg_header, align 4
-  %264 = call ptr @proto_item_add_subtree(ptr noundef %262, i32 noundef %263) #10
-  %265 = load i32, ptr @hf_mbim_bulk_ndp_signature_dsc_session_id, align 4
-  %266 = add i32 %71, 3
-  %267 = call ptr @proto_tree_add_item(ptr noundef %264, i32 noundef %265, ptr noundef %0, i32 noundef %266, i32 noundef 1, i32 noundef -2147483648) #10
-  %268 = load ptr, ptr %17, align 8
-  %269 = load i8, ptr %75, align 1
-  %270 = sext i8 %269 to i32
-  %271 = load i8, ptr %253, align 1
-  %272 = sext i8 %271 to i32
-  %273 = load i8, ptr %256, align 1
-  %274 = sext i8 %273 to i32
-  %275 = load i8, ptr %259, align 1
-  %276 = sext i8 %275 to i32
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %268, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2630, i32 noundef %270, i32 noundef %272, i32 noundef %274, i32 noundef %276) #10
-  %277 = load ptr, ptr @bulk_ndp_ctrl_handle, align 8
-  br label %300
-
-.critedge308:                                     ; preds = %.critedge304.tail
-  %278 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(5) @.str.2637) #11
-  %.not287 = icmp eq i32 %278, 0
-  br i1 %.not287, label %280, label %.critedge312
-
-.critedge310:                                     ; preds = %.critedge306.tail
-  %279 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(5) @.str.2638) #11
-  %.not288 = icmp eq i32 %279, 0
-  br i1 %.not288, label %280, label %.critedge314
-
-280:                                              ; preds = %.critedge310, %.critedge308
-  %281 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
-  %282 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71) #10
-  %283 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %281, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %282, ptr noundef nonnull @.str.2639, ptr noundef nonnull %75) #10
-  %284 = load ptr, ptr %17, align 8
-  call void @col_append_sep_str(ptr noundef %284, i32 noundef 25, ptr noundef null, ptr noundef nonnull %75) #10
-  %285 = load ptr, ptr @eth_handle, align 8
-  br label %300
+243:                                              ; preds = %.critedge310, %.critedge308
+  %244 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
+  %245 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71) #10
+  %246 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %244, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %245, ptr noundef nonnull @.str.2639, ptr noundef nonnull %75) #10
+  %247 = load ptr, ptr %17, align 8
+  call void @col_append_sep_str(ptr noundef %247, i32 noundef 25, ptr noundef null, ptr noundef nonnull %75) #10
+  %248 = load ptr, ptr @eth_handle, align 8
+  br label %263
 
 .critedge312:                                     ; preds = %.critedge308
-  %286 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(5) @.str.2640) #11
-  %.not289 = icmp eq i32 %286, 0
-  br i1 %.not289, label %288, label %294
+  %249 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(5) @.str.2640) #11
+  %.not289 = icmp eq i32 %249, 0
+  br i1 %.not289, label %251, label %257
 
 .critedge314:                                     ; preds = %.critedge310
-  %287 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(5) @.str.2641) #11
-  %.not290 = icmp eq i32 %287, 0
-  br i1 %.not290, label %288, label %294
+  %250 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(5) @.str.2641) #11
+  %.not290 = icmp eq i32 %250, 0
+  br i1 %.not290, label %251, label %257
 
-288:                                              ; preds = %.critedge314, %.critedge312
-  %289 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
-  %290 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71) #10
-  %291 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %289, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %290, ptr noundef nonnull @.str.2639, ptr noundef nonnull %75) #10
-  %292 = load ptr, ptr %17, align 8
-  call void @col_append_sep_str(ptr noundef %292, i32 noundef 25, ptr noundef null, ptr noundef nonnull %75) #10
-  %293 = load ptr, ptr @eth_fcs_handle, align 8
-  br label %300
+251:                                              ; preds = %.critedge314, %.critedge312
+  %252 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
+  %253 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %71) #10
+  %254 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %252, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef %253, ptr noundef nonnull @.str.2639, ptr noundef nonnull %75) #10
+  %255 = load ptr, ptr %17, align 8
+  call void @col_append_sep_str(ptr noundef %255, i32 noundef 25, ptr noundef null, ptr noundef nonnull %75) #10
+  %256 = load ptr, ptr @eth_fcs_handle, align 8
+  br label %263
 
-294:                                              ; preds = %.critedge312, %.critedge314
-  %295 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
-  %296 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %295, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef 0) #10
-  %297 = load ptr, ptr %17, align 8
-  %298 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %71) #10
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %297, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2642, i32 noundef %298) #10
-  %299 = load ptr, ptr @data_handle, align 8
-  br label %300
+257:                                              ; preds = %.critedge312, %.critedge314
+  %258 = load i32, ptr @hf_mbim_bulk_ndp_signature, align 4
+  %259 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %258, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef 0) #10
+  %260 = load ptr, ptr %17, align 8
+  %261 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %71) #10
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %260, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2642, i32 noundef %261) #10
+  %262 = load ptr, ptr @data_handle, align 8
+  br label %263
 
-300:                                              ; preds = %196, %146, %248, %288, %294, %280, %98
-  %.0259 = phi ptr [ %299, %294 ], [ %293, %288 ], [ %285, %280 ], [ %277, %248 ], [ %175, %146 ], [ %127, %98 ], [ %spec.select, %196 ]
-  %301 = add i32 %71, 4
-  %302 = load i32, ptr @hf_mbim_bulk_ndp_length, align 4
-  %303 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %73, i32 noundef %302, ptr noundef %0, i32 noundef %301, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %5) #10
-  %304 = load i32, ptr %5, align 4
-  %305 = and i32 %304, %66
-  %.not291 = icmp eq i32 %305, 0
-  br i1 %.not291, label %308, label %306
+263:                                              ; preds = %167, %127, %211, %251, %257, %243, %87
+  %.0259 = phi ptr [ %262, %257 ], [ %256, %251 ], [ %248, %243 ], [ %240, %211 ], [ %156, %127 ], [ %116, %87 ], [ %spec.select, %167 ]
+  %264 = add i32 %71, 4
+  %265 = load i32, ptr @hf_mbim_bulk_ndp_length, align 4
+  %266 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %73, i32 noundef %265, ptr noundef %0, i32 noundef %264, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %5) #10
+  %267 = load i32, ptr %5, align 4
+  %268 = and i32 %267, %66
+  %.not291 = icmp eq i32 %268, 0
+  br i1 %.not291, label %271, label %269
 
-306:                                              ; preds = %300
-  %307 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %303, ptr noundef nonnull @ei_mbim_alignment_error, ptr noundef nonnull @.str.2643, i32 noundef %65) #10
+269:                                              ; preds = %263
+  %270 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %266, ptr noundef nonnull @ei_mbim_alignment_error, ptr noundef nonnull @.str.2643, i32 noundef %65) #10
   br label %.sink.split
 
-308:                                              ; preds = %300
-  call void @proto_item_set_len(ptr noundef %.1383, i32 noundef %304) #10
-  %309 = add i32 %71, 6
-  %310 = add i32 %71, 8
-  br i1 %15, label %311, label %314
+271:                                              ; preds = %263
+  call void @proto_item_set_len(ptr noundef %.1383, i32 noundef %267) #10
+  %272 = add i32 %71, 6
+  %273 = add i32 %71, 8
+  br i1 %15, label %274, label %277
 
-311:                                              ; preds = %308
-  %312 = load i32, ptr @hf_mbim_bulk_ndp_next_ndp_index, align 4
-  %313 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %73, i32 noundef %312, ptr noundef %0, i32 noundef %309, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %6) #10
-  br label %323
+274:                                              ; preds = %271
+  %275 = load i32, ptr @hf_mbim_bulk_ndp_next_ndp_index, align 4
+  %276 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %73, i32 noundef %275, ptr noundef %0, i32 noundef %272, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %6) #10
+  br label %286
 
-314:                                              ; preds = %308
-  %315 = load i32, ptr @hf_mbim_bulk_ndp_reserved, align 4
-  %316 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %315, ptr noundef %0, i32 noundef %309, i32 noundef 2, i32 noundef -2147483648) #10
-  %317 = load i32, ptr @hf_mbim_bulk_ndp_next_ndp_index_32, align 4
-  %318 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %73, i32 noundef %317, ptr noundef %0, i32 noundef %310, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
-  %319 = add i32 %71, 12
-  %320 = load i32, ptr @hf_mbim_bulk_ndp_reserved2, align 4
-  %321 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %320, ptr noundef %0, i32 noundef %319, i32 noundef 4, i32 noundef -2147483648) #10
-  %322 = add i32 %71, 16
-  br label %323
+277:                                              ; preds = %271
+  %278 = load i32, ptr @hf_mbim_bulk_ndp_reserved, align 4
+  %279 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %278, ptr noundef %0, i32 noundef %272, i32 noundef 2, i32 noundef -2147483648) #10
+  %280 = load i32, ptr @hf_mbim_bulk_ndp_next_ndp_index_32, align 4
+  %281 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %73, i32 noundef %280, ptr noundef %0, i32 noundef %273, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6) #10
+  %282 = add i32 %71, 12
+  %283 = load i32, ptr @hf_mbim_bulk_ndp_reserved2, align 4
+  %284 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %283, ptr noundef %0, i32 noundef %282, i32 noundef 4, i32 noundef -2147483648) #10
+  %285 = add i32 %71, 16
+  br label %286
 
-323:                                              ; preds = %314, %311
-  %.0266 = phi i32 [ %322, %314 ], [ %310, %311 ]
-  %.1258 = phi ptr [ %318, %314 ], [ %313, %311 ]
-  %324 = load i32, ptr %6, align 4
-  %325 = and i32 %324, 3
-  %.not292 = icmp eq i32 %325, 0
-  br i1 %.not292, label %328, label %326
+286:                                              ; preds = %277, %274
+  %.0266 = phi i32 [ %285, %277 ], [ %273, %274 ]
+  %.1258 = phi ptr [ %281, %277 ], [ %276, %274 ]
+  %287 = load i32, ptr %6, align 4
+  %288 = and i32 %287, 3
+  %.not292 = icmp eq i32 %288, 0
+  br i1 %.not292, label %291, label %289
 
-326:                                              ; preds = %323
-  %327 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %.1258, ptr noundef nonnull @ei_mbim_alignment_error, ptr noundef nonnull @.str.2626) #10
+289:                                              ; preds = %286
+  %290 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %.1258, ptr noundef nonnull @ei_mbim_alignment_error, ptr noundef nonnull @.str.2626) #10
   br label %.sink.split
 
-328:                                              ; preds = %323
-  %329 = icmp ugt i32 %324, %53
-  br i1 %329, label %333, label %.preheader
+291:                                              ; preds = %286
+  %292 = icmp ugt i32 %287, %53
+  br i1 %292, label %296, label %.preheader
 
-.preheader:                                       ; preds = %328
-  %330 = sub i32 %.0266, %71
-  %331 = load i32, ptr %5, align 4
-  %332 = icmp ult i32 %330, %331
-  br i1 %332, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %291
+  %293 = sub i32 %.0266, %71
+  %294 = load i32, ptr %5, align 4
+  %295 = icmp ult i32 %293, %294
+  br i1 %295, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   %.not293 = icmp eq ptr %.0259, null
-  br label %335
+  br label %298
 
-333:                                              ; preds = %328
-  %334 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.1258, ptr noundef nonnull @ei_mbim_out_of_bounds_index) #10
+296:                                              ; preds = %291
+  %297 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.1258, ptr noundef nonnull @ei_mbim_out_of_bounds_index) #10
   br label %.sink.split
 
-335:                                              ; preds = %.lr.ph, %373
-  %.1262378 = phi i32 [ %.0261381, %.lr.ph ], [ %.2263, %373 ]
-  %.0264377 = phi i32 [ 0, %.lr.ph ], [ %.1265, %373 ]
-  %.1267376 = phi i32 [ %.0266, %.lr.ph ], [ %341, %373 ]
+298:                                              ; preds = %.lr.ph, %336
+  %.1262378 = phi i32 [ %.0261381, %.lr.ph ], [ %.2263, %336 ]
+  %.0264377 = phi i32 [ 0, %.lr.ph ], [ %.1265, %336 ]
+  %.1267376 = phi i32 [ %.0266, %.lr.ph ], [ %304, %336 ]
   %hf_mbim_bulk_ndp_datagram_index.val = load i32, ptr @hf_mbim_bulk_ndp_datagram_index, align 4
   %hf_mbim_bulk_ndp_datagram_index_32.val = load i32, ptr @hf_mbim_bulk_ndp_datagram_index_32, align 4
-  %336 = select i1 %15, i32 %hf_mbim_bulk_ndp_datagram_index.val, i32 %hf_mbim_bulk_ndp_datagram_index_32.val
-  %337 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %73, i32 noundef %336, ptr noundef %0, i32 noundef %.1267376, i32 noundef %., i32 noundef -2147483648, ptr noundef nonnull %7) #10
-  %338 = add i32 %.1267376, %.
+  %299 = select i1 %15, i32 %hf_mbim_bulk_ndp_datagram_index.val, i32 %hf_mbim_bulk_ndp_datagram_index_32.val
+  %300 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %73, i32 noundef %299, ptr noundef %0, i32 noundef %.1267376, i32 noundef %., i32 noundef -2147483648, ptr noundef nonnull %7) #10
+  %301 = add i32 %.1267376, %.
   %hf_mbim_bulk_ndp_datagram_length.val = load i32, ptr @hf_mbim_bulk_ndp_datagram_length, align 4
   %hf_mbim_bulk_ndp_datagram_length_32.val = load i32, ptr @hf_mbim_bulk_ndp_datagram_length_32, align 4
-  %339 = select i1 %15, i32 %hf_mbim_bulk_ndp_datagram_length.val, i32 %hf_mbim_bulk_ndp_datagram_length_32.val
-  %340 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %73, i32 noundef %339, ptr noundef %0, i32 noundef %338, i32 noundef %., i32 noundef -2147483648, ptr noundef nonnull %8) #10
-  %341 = add i32 %.1267376, %.441
-  %342 = load i32, ptr %6, align 4
-  %343 = icmp ugt i32 %342, %53
-  br i1 %343, label %344, label %346
+  %302 = select i1 %15, i32 %hf_mbim_bulk_ndp_datagram_length.val, i32 %hf_mbim_bulk_ndp_datagram_length_32.val
+  %303 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %73, i32 noundef %302, ptr noundef %0, i32 noundef %301, i32 noundef %., i32 noundef -2147483648, ptr noundef nonnull %8) #10
+  %304 = add i32 %.1267376, %.469
+  %305 = load i32, ptr %6, align 4
+  %306 = icmp ugt i32 %305, %53
+  br i1 %306, label %307, label %309
 
-344:                                              ; preds = %335
-  %345 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %337, ptr noundef nonnull @ei_mbim_out_of_bounds_index) #10
+307:                                              ; preds = %298
+  %308 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %300, ptr noundef nonnull @ei_mbim_out_of_bounds_index) #10
   br label %.sink.split
 
-346:                                              ; preds = %335
-  %347 = load i32, ptr %7, align 4
-  %348 = icmp ne i32 %347, 0
-  %349 = load i32, ptr %8, align 4
-  %350 = icmp ne i32 %349, 0
-  %or.cond = select i1 %348, i1 %350, i1 false
-  br i1 %or.cond, label %351, label %373
+309:                                              ; preds = %298
+  %310 = load i32, ptr %7, align 4
+  %311 = icmp ne i32 %310, 0
+  %312 = load i32, ptr %8, align 4
+  %313 = icmp ne i32 %312, 0
+  %or.cond = select i1 %311, i1 %313, i1 false
+  br i1 %or.cond, label %314, label %336
 
-351:                                              ; preds = %346
-  %352 = load i32, ptr @hf_mbim_bulk_ndp_datagram, align 4
-  %353 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %352, ptr noundef %0, i32 noundef %347, i32 noundef %349, i32 noundef 0) #10
-  %354 = load i32, ptr %7, align 4
-  %355 = load i32, ptr %8, align 4
-  %356 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %354, i32 noundef %355) #10
-  br i1 %.not293, label %365, label %357
+314:                                              ; preds = %309
+  %315 = load i32, ptr @hf_mbim_bulk_ndp_datagram, align 4
+  %316 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %315, ptr noundef %0, i32 noundef %310, i32 noundef %312, i32 noundef 0) #10
+  %317 = load i32, ptr %7, align 4
+  %318 = load i32, ptr %8, align 4
+  %319 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %317, i32 noundef %318) #10
+  br i1 %.not293, label %328, label %320
 
-357:                                              ; preds = %351
+320:                                              ; preds = %314
   %.not294 = icmp eq i32 %.1262378, 0
-  br i1 %.not294, label %363, label %358
+  br i1 %.not294, label %326, label %321
 
-358:                                              ; preds = %357
-  %359 = load ptr, ptr %17, align 8
-  call void @col_set_str(ptr noundef %359, i32 noundef 34, ptr noundef nonnull @.str.2644) #10
-  %360 = load ptr, ptr %17, align 8
-  call void @col_set_fence(ptr noundef %360, i32 noundef 34) #10
-  %361 = load ptr, ptr %17, align 8
-  call void @col_set_str(ptr noundef %361, i32 noundef 25, ptr noundef nonnull @.str.2645) #10
-  %362 = load ptr, ptr %17, align 8
-  call void @col_set_fence(ptr noundef %362, i32 noundef 25) #10
-  br label %363
+321:                                              ; preds = %320
+  %322 = load ptr, ptr %17, align 8
+  call void @col_set_str(ptr noundef %322, i32 noundef 34, ptr noundef nonnull @.str.2644) #10
+  %323 = load ptr, ptr %17, align 8
+  call void @col_set_fence(ptr noundef %323, i32 noundef 34) #10
+  %324 = load ptr, ptr %17, align 8
+  call void @col_set_str(ptr noundef %324, i32 noundef 25, ptr noundef nonnull @.str.2645) #10
+  %325 = load ptr, ptr %17, align 8
+  call void @col_set_fence(ptr noundef %325, i32 noundef 25) #10
+  br label %326
 
-363:                                              ; preds = %358, %357
-  %364 = call i32 @call_dissector(ptr noundef nonnull %.0259, ptr noundef %356, ptr noundef %1, ptr noundef %2) #10
-  br label %365
+326:                                              ; preds = %321, %320
+  %327 = call i32 @call_dissector(ptr noundef nonnull %.0259, ptr noundef %319, ptr noundef %1, ptr noundef %2) #10
+  br label %328
 
-365:                                              ; preds = %363, %351
-  %366 = load ptr, ptr %17, align 8
-  call void @col_set_fence(ptr noundef %366, i32 noundef 34) #10
-  %367 = load ptr, ptr %17, align 8
-  call void @col_set_fence(ptr noundef %367, i32 noundef 25) #10
-  %368 = add i32 %.0264377, 1
-  %369 = add i32 %.1262378, 1
-  %370 = icmp ugt i32 %369, 1000
-  br i1 %370, label %371, label %373
+328:                                              ; preds = %326, %314
+  %329 = load ptr, ptr %17, align 8
+  call void @col_set_fence(ptr noundef %329, i32 noundef 34) #10
+  %330 = load ptr, ptr %17, align 8
+  call void @col_set_fence(ptr noundef %330, i32 noundef 25) #10
+  %331 = add i32 %.0264377, 1
+  %332 = add i32 %.1262378, 1
+  %333 = icmp ugt i32 %332, 1000
+  br i1 %333, label %334, label %336
 
-371:                                              ; preds = %365
-  %372 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @ei_mbim_too_many_items, ptr noundef nonnull @.str.2646, i32 noundef 1000) #10
+334:                                              ; preds = %328
+  %335 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @ei_mbim_too_many_items, ptr noundef nonnull @.str.2646, i32 noundef 1000) #10
   br label %.sink.split
 
-373:                                              ; preds = %365, %346
-  %.1265 = phi i32 [ %368, %365 ], [ %.0264377, %346 ]
-  %.2263 = phi i32 [ %369, %365 ], [ %.1262378, %346 ]
-  %374 = sub i32 %341, %71
-  %375 = load i32, ptr %5, align 4
-  %376 = icmp ult i32 %374, %375
-  br i1 %376, label %335, label %._crit_edge, !llvm.loop !4
+336:                                              ; preds = %328, %309
+  %.1265 = phi i32 [ %331, %328 ], [ %.0264377, %309 ]
+  %.2263 = phi i32 [ %332, %328 ], [ %.1262378, %309 ]
+  %337 = sub i32 %304, %71
+  %338 = load i32, ptr %5, align 4
+  %339 = icmp ult i32 %337, %338
+  br i1 %339, label %298, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %373, %.preheader
-  %.0264.lcssa = phi i32 [ 0, %.preheader ], [ %.1265, %373 ]
-  %.1262.lcssa = phi i32 [ %.0261381, %.preheader ], [ %.2263, %373 ]
-  %377 = load i32, ptr @hf_mbim_bulk_ndp_nb_datagrams, align 4
-  %378 = call ptr @proto_tree_add_uint(ptr noundef %73, i32 noundef %377, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0264.lcssa) #10
-  %.not.i316 = icmp eq ptr %378, null
-  br i1 %.not.i316, label %proto_item_set_generated.exit, label %379
+._crit_edge:                                      ; preds = %336, %.preheader
+  %.0264.lcssa = phi i32 [ 0, %.preheader ], [ %.1265, %336 ]
+  %.1262.lcssa = phi i32 [ %.0261381, %.preheader ], [ %.2263, %336 ]
+  %340 = load i32, ptr @hf_mbim_bulk_ndp_nb_datagrams, align 4
+  %341 = call ptr @proto_tree_add_uint(ptr noundef %73, i32 noundef %340, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0264.lcssa) #10
+  %.not.i316 = icmp eq ptr %341, null
+  br i1 %.not.i316, label %proto_item_set_generated.exit, label %342
 
-379:                                              ; preds = %._crit_edge
-  %380 = getelementptr inbounds i8, ptr %378, i64 32
-  %381 = load ptr, ptr %380, align 8
-  %.not5.i317 = icmp eq ptr %381, null
-  br i1 %.not5.i317, label %proto_item_set_generated.exit, label %382
+342:                                              ; preds = %._crit_edge
+  %343 = getelementptr inbounds i8, ptr %341, i64 32
+  %344 = load ptr, ptr %343, align 8
+  %.not5.i317 = icmp eq ptr %344, null
+  br i1 %.not5.i317, label %proto_item_set_generated.exit, label %345
 
-382:                                              ; preds = %379
-  %383 = getelementptr inbounds i8, ptr %381, i64 28
-  %384 = load i32, ptr %383, align 4
-  %385 = or i32 %384, 2
-  store i32 %385, ptr %383, align 4
+345:                                              ; preds = %342
+  %346 = getelementptr inbounds i8, ptr %344, i64 28
+  %347 = load i32, ptr %346, align 4
+  %348 = or i32 %347, 2
+  store i32 %348, ptr %346, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %._crit_edge, %379, %382
+proto_item_set_generated.exit:                    ; preds = %._crit_edge, %342, %345
   %exitcond = icmp eq i32 %.0260382, 1000
-  br i1 %exitcond, label %386, label %thread-pre-split, !llvm.loop !6
+  br i1 %exitcond, label %349, label %thread-pre-split, !llvm.loop !6
 
-386:                                              ; preds = %proto_item_set_generated.exit
-  %387 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_mbim_too_many_items, ptr noundef nonnull @.str.2647, i32 noundef 1000) #10
+349:                                              ; preds = %proto_item_set_generated.exit
+  %350 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_mbim_too_many_items, ptr noundef nonnull @.str.2647, i32 noundef 1000) #10
   br label %.sink.split
 
 ._crit_edge385:                                   ; preds = %thread-pre-split, %.preheader349
   %.0261.lcssa = phi i32 [ 0, %.preheader349 ], [ %.1262.lcssa, %thread-pre-split ]
-  %388 = load i32, ptr @hf_mbim_bulk_total_nb_datagrams, align 4
-  %389 = call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %388, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0261.lcssa) #10
-  %.not.i318 = icmp eq ptr %389, null
-  br i1 %.not.i318, label %.sink.split, label %390
+  %351 = load i32, ptr @hf_mbim_bulk_total_nb_datagrams, align 4
+  %352 = call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %351, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0261.lcssa) #10
+  %.not.i318 = icmp eq ptr %352, null
+  br i1 %.not.i318, label %.sink.split, label %353
 
-390:                                              ; preds = %._crit_edge385
-  %391 = getelementptr inbounds i8, ptr %389, i64 32
-  %392 = load ptr, ptr %391, align 8
-  %.not5.i319 = icmp eq ptr %392, null
-  br i1 %.not5.i319, label %.sink.split, label %393
+353:                                              ; preds = %._crit_edge385
+  %354 = getelementptr inbounds i8, ptr %352, i64 32
+  %355 = load ptr, ptr %354, align 8
+  %.not5.i319 = icmp eq ptr %355, null
+  br i1 %.not5.i319, label %.sink.split, label %356
 
-393:                                              ; preds = %390
-  %394 = getelementptr inbounds i8, ptr %392, i64 28
-  %395 = load i32, ptr %394, align 4
-  %396 = or i32 %395, 2
-  store i32 %396, ptr %394, align 4
+356:                                              ; preds = %353
+  %357 = getelementptr inbounds i8, ptr %355, i64 28
+  %358 = load i32, ptr %357, align 4
+  %359 = or i32 %358, 2
+  store i32 %359, ptr %357, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %393, %390, %._crit_edge385, %60, %67, %306, %326, %333, %344, %371, %386
-  %397 = call i32 @tvb_captured_length(ptr noundef %0) #10
-  br label %398
+.sink.split:                                      ; preds = %356, %353, %._crit_edge385, %60, %67, %269, %289, %296, %307, %334, %349
+  %360 = call i32 @tvb_captured_length(ptr noundef %0) #10
+  br label %361
 
-398:                                              ; preds = %.sink.split, %13, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ %397, %.sink.split ]
+361:                                              ; preds = %.sink.split, %13, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %13 ], [ %360, %.sink.split ]
   ret i32 %.0
 }
 

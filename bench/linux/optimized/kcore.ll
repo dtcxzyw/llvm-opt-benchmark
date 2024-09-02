@@ -474,19 +474,19 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   tail call void @page_offline_freeze() #15
   %11 = load ptr, ptr @kclist_head, align 8
   %12 = icmp eq ptr %11, @kclist_head
-  br i1 %12, label %23, label %.preheader57
+  br i1 %12, label %23, label %.preheader56
 
-.preheader57:                                     ; preds = %2, %15
+.preheader56:                                     ; preds = %2, %15
   %13 = phi i32 [ %16, %15 ], [ 1, %2 ]
   %14 = phi ptr [ %17, %15 ], [ %11, %2 ]
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #15
           to label %15 [label %15, label %15], !srcloc !6
 
-15:                                               ; preds = %.preheader57, %.preheader57, %.preheader57
+15:                                               ; preds = %.preheader56, %.preheader56, %.preheader56
   %16 = add i32 %13, 1
   %17 = load ptr, ptr %14, align 8
   %18 = icmp eq ptr %17, @kclist_head
-  br i1 %18, label %19, label %.preheader57, !llvm.loop !14
+  br i1 %18, label %19, label %.preheader56, !llvm.loop !14
 
 19:                                               ; preds = %15
   %20 = sext i32 %16 to i64
@@ -600,9 +600,9 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   store i64 %34, ptr %82, align 8
   %83 = load ptr, ptr @kclist_head, align 8
   %84 = icmp eq ptr %83, @kclist_head
-  br i1 %84, label %.loopexit56, label %.preheader55
+  br i1 %84, label %.loopexit55, label %.preheader54
 
-.preheader55:                                     ; preds = %80, %113
+.preheader54:                                     ; preds = %80, %113
   %85 = phi ptr [ %121, %113 ], [ %83, %80 ]
   %86 = phi ptr [ %87, %113 ], [ %78, %80 ]
   %87 = getelementptr i8, ptr %86, i64 56
@@ -614,11 +614,11 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #15
           to label %92 [label %92, label %91], !srcloc !6
 
-91:                                               ; preds = %.preheader55
+91:                                               ; preds = %.preheader54
   br label %92
 
-92:                                               ; preds = %91, %.preheader55, %.preheader55
-  %93 = phi i64 [ 140737488355327, %91 ], [ 72057594037927935, %.preheader55 ], [ 72057594037927935, %.preheader55 ]
+92:                                               ; preds = %91, %.preheader54, %.preheader54
+  %93 = phi i64 [ 140737488355327, %91 ], [ 72057594037927935, %.preheader54 ], [ 72057594037927935, %.preheader54 ]
   %94 = and i64 %93, %90
   %95 = add i64 %94, %37
   %96 = getelementptr i8, ptr %86, i64 64
@@ -663,22 +663,22 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   store i64 4096, ptr %120, align 8
   %121 = load ptr, ptr %85, align 8
   %122 = icmp eq ptr %121, @kclist_head
-  br i1 %122, label %.loopexit56, label %.preheader55, !llvm.loop !16
+  br i1 %122, label %.loopexit55, label %.preheader54, !llvm.loop !16
 
-.loopexit56:                                      ; preds = %113, %80
+.loopexit55:                                      ; preds = %113, %80
   %123 = load i64, ptr %8, align 8
   %124 = sub i64 %38, %123
   %125 = call i64 @llvm.umin.i64(i64 %75, i64 %124)
   %126 = icmp ugt i64 %125, 2147483647
   br i1 %126, label %127, label %128, !prof !9
 
-127:                                              ; preds = %.loopexit56
+127:                                              ; preds = %.loopexit55
   call void asm sideeffect "12: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 12b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 12) #15, !srcloc !17
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 249, i32 2307, i64 12) #15, !srcloc !18
   call void asm sideeffect "13: nop\0A\09.pushsection .discard.instr_end\0A\09.long 13b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 13) #15, !srcloc !19
   br label %132
 
-128:                                              ; preds = %.loopexit56
+128:                                              ; preds = %.loopexit55
   %129 = getelementptr i8, ptr %78, i64 %123
   %130 = getelementptr i8, ptr %129, i64 -64
   %131 = call i64 @_copy_to_iter(ptr noundef %130, i64 noundef %125, ptr noundef %1) #15
@@ -903,8 +903,8 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
     i32 1, label %255
     i32 4, label %269
     i32 2, label %273
-    i32 3, label %.thread49
-    i32 0, label %.thread49
+    i32 3, label %.critedge
+    i32 0, label %.critedge
   ]
 
 255:                                              ; preds = %252
@@ -1099,30 +1099,30 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
 373:                                              ; preds = %370, %366, %362, %361, %356, %353
   %374 = load ptr, ptr @mem_pfn_is_ram, align 8
   %375 = icmp eq ptr %374, null
-  br i1 %375, label %.thread49, label %376
+  br i1 %375, label %.critedge, label %376
 
 376:                                              ; preds = %373
   %377 = call i32 %374(i64 noundef %281) #15
   %378 = icmp eq i32 %377, 0
-  br i1 %378, label %.thread48, label %.thread49
+  br i1 %378, label %.thread48, label %.critedge
 
 .thread48:                                        ; preds = %310, %284, %376, %348, %340
   %379 = call i64 @iov_iter_zero(i64 noundef %213, ptr noundef %1) #15
   %380 = icmp eq i64 %379, %213
   br i1 %380, label %.thread46, label %.thread39
 
-.thread49:                                        ; preds = %373, %376, %252, %252
+.critedge:                                        ; preds = %373, %376, %252, %252
   %381 = inttoptr i64 %214 to ptr
   %382 = call i64 @copy_from_kernel_nofault(ptr noundef %7, ptr noundef %381, i64 noundef %213) #15
   %383 = icmp eq i64 %382, 0
   br i1 %383, label %387, label %384
 
-384:                                              ; preds = %.thread49
+384:                                              ; preds = %.critedge
   %385 = call i64 @iov_iter_zero(i64 noundef %213, ptr noundef %1) #15
   %386 = icmp eq i64 %385, %213
   br i1 %386, label %.thread46, label %.thread39
 
-387:                                              ; preds = %.thread49
+387:                                              ; preds = %.critedge
   %388 = call i64 @_copy_to_iter(ptr noundef %7, i64 noundef %213, ptr noundef %1) #15
   %389 = icmp eq i64 %388, %213
   br i1 %389, label %.thread46, label %.thread39

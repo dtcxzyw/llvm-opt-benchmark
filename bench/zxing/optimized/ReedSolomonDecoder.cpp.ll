@@ -1154,23 +1154,23 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit48.us.i:     ; preds = %439, %437
   %465 = getelementptr i16, ptr %489, i64 %462
   %466 = getelementptr i16, ptr %465, i64 %464
   %467 = load i16, ptr %466, align 2, !noalias !13
-  %468 = sext i16 %467 to i32
+  %468 = xor i16 %467, 1
+  %469 = sext i16 %468 to i32
   br label %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i
 
 _ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i:     ; preds = %458, %454
-  %.0.i.us.i = phi i32 [ %468, %458 ], [ 0, %454 ]
-  %469 = icmp eq i32 %.03249.us57.i, 0
-  %470 = icmp eq i32 %.0.i.us.i, 1
-  %or.cond.i40.us.i = or i1 %469, %470
-  br i1 %or.cond.i40.us.i, label %_ZNK5ZXing9GenericGF8multiplyEii.exit42.us60.i, label %471
+  %.0.i.us.i = phi i32 [ %469, %458 ], [ 1, %454 ]
+  %470 = icmp eq i32 %.03249.us57.i, 0
+  %471 = icmp eq i32 %.0.i.us.i, 0
+  %or.cond.i40.us.i = or i1 %470, %471
+  br i1 %or.cond.i40.us.i, label %_ZNK5ZXing9GenericGF8multiplyEii.exit42.us60.i, label %472
 
-471:                                              ; preds = %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i
-  %472 = xor i32 %.0.i.us.i, 1
+472:                                              ; preds = %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i
   %473 = sext i32 %.03249.us57.i to i64
   %474 = getelementptr inbounds i16, ptr %486, i64 %473
   %475 = load i16, ptr %474, align 2, !noalias !13
   %476 = sext i16 %475 to i64
-  %477 = sext i32 %472 to i64
+  %477 = sext i32 %.0.i.us.i to i64
   %478 = getelementptr inbounds i16, ptr %486, i64 %477
   %479 = load i16, ptr %478, align 2, !noalias !13
   %480 = sext i16 %479 to i64
@@ -1180,8 +1180,8 @@ _ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i:     ; preds = %458, %454
   %484 = sext i16 %483 to i32
   br label %_ZNK5ZXing9GenericGF8multiplyEii.exit42.us60.i
 
-_ZNK5ZXing9GenericGF8multiplyEii.exit42.us60.i:   ; preds = %471, %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i, %.lr.ph.split.us64.i
-  %.1.us61.i = phi i32 [ %.03249.us57.i, %.lr.ph.split.us64.i ], [ %484, %471 ], [ 0, %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i ]
+_ZNK5ZXing9GenericGF8multiplyEii.exit42.us60.i:   ; preds = %472, %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i, %.lr.ph.split.us64.i
+  %.1.us61.i = phi i32 [ %.03249.us57.i, %.lr.ph.split.us64.i ], [ %484, %472 ], [ 0, %_ZNK5ZXing9GenericGF8multiplyEii.exit.us59.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count73.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us64.i, !llvm.loop !17

@@ -1054,7 +1054,7 @@ Vec_IntFree.exit:                                 ; preds = %Abc_BddCountNodesAr
 declare void @Gia_ManFillValue(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @Abc_BddUniqueCreateInt(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @Abc_BddUniqueCreateInt(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = mul nsw i32 %1, 12582917

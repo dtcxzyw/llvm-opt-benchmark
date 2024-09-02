@@ -4738,12 +4738,12 @@ if.end.i190.i:                                    ; preds = %for.cond122.prehead
   %conv.i194.i = zext i8 %135 to i32
   %shr2.i196.i = lshr i32 %conv.i194.i, %and.i195.i
   %136 = trunc nuw i32 %shr2.i196.i to i8
-  %conv4.i197.i = and i8 %136, 1
+  %conv4.i197.i = shl i8 %136, 5
+  %137 = and i8 %conv4.i197.i, 32
   br label %get_bit.exit199.i
 
 get_bit.exit199.i:                                ; preds = %if.end.i190.i, %for.cond122.preheader.i
-  %retval.0.i198.i = phi i8 [ %conv4.i197.i, %if.end.i190.i ], [ 0, %for.cond122.preheader.i ]
-  %137 = shl nuw nsw i8 %retval.0.i198.i, 5
+  %retval.0.i198.i = phi i8 [ %137, %if.end.i190.i ], [ 0, %for.cond122.preheader.i ]
   br i1 %or.cond.i200.i, label %get_bit.exit210.i, label %if.end.i201.i
 
 if.end.i201.i:                                    ; preds = %get_bit.exit199.i
@@ -4751,13 +4751,13 @@ if.end.i201.i:                                    ; preds = %get_bit.exit199.i
   %conv.i205.i = zext i8 %138 to i32
   %shr2.i207.i = lshr i32 %conv.i205.i, %and.i206.i
   %139 = trunc nuw i32 %shr2.i207.i to i8
-  %conv4.i208.i = and i8 %139, 1
+  %conv4.i208.i = shl i8 %139, 4
+  %140 = and i8 %conv4.i208.i, 16
   br label %get_bit.exit210.i
 
 get_bit.exit210.i:                                ; preds = %if.end.i201.i, %get_bit.exit199.i
-  %retval.0.i209.i = phi i8 [ %conv4.i208.i, %if.end.i201.i ], [ 0, %get_bit.exit199.i ]
-  %140 = shl nuw nsw i8 %retval.0.i209.i, 4
-  %or14162.i = or disjoint i8 %140, %137
+  %retval.0.i209.i = phi i8 [ %140, %if.end.i201.i ], [ 0, %get_bit.exit199.i ]
+  %or14162.i = or disjoint i8 %retval.0.i209.i, %retval.0.i198.i
   br i1 %or.cond.i211.i, label %get_bit.exit221.i, label %if.end.i212.i
 
 if.end.i212.i:                                    ; preds = %get_bit.exit210.i
@@ -4765,13 +4765,13 @@ if.end.i212.i:                                    ; preds = %get_bit.exit210.i
   %conv.i216.i = zext i8 %141 to i32
   %shr2.i218.i = lshr i32 %conv.i216.i, %and.i217.i
   %142 = trunc nuw i32 %shr2.i218.i to i8
-  %conv4.i219.i = and i8 %142, 1
+  %conv4.i219.i = shl i8 %142, 3
+  %143 = and i8 %conv4.i219.i, 8
   br label %get_bit.exit221.i
 
 get_bit.exit221.i:                                ; preds = %if.end.i212.i, %get_bit.exit210.i
-  %retval.0.i220.i = phi i8 [ %conv4.i219.i, %if.end.i212.i ], [ 0, %get_bit.exit210.i ]
-  %143 = shl nuw nsw i8 %retval.0.i220.i, 3
-  %or15063.i = or disjoint i8 %143, %or14162.i
+  %retval.0.i220.i = phi i8 [ %143, %if.end.i212.i ], [ 0, %get_bit.exit210.i ]
+  %or15063.i = or disjoint i8 %or14162.i, %retval.0.i220.i
   br i1 %or.cond.i222.i, label %get_bit.exit232.i, label %if.end.i223.i
 
 if.end.i223.i:                                    ; preds = %get_bit.exit221.i
@@ -4779,13 +4779,13 @@ if.end.i223.i:                                    ; preds = %get_bit.exit221.i
   %conv.i227.i = zext i8 %144 to i32
   %shr2.i229.i = lshr i32 %conv.i227.i, %and.i228.i
   %145 = trunc nuw i32 %shr2.i229.i to i8
-  %conv4.i230.i = and i8 %145, 1
+  %conv4.i230.i = shl i8 %145, 2
+  %146 = and i8 %conv4.i230.i, 4
   br label %get_bit.exit232.i
 
 get_bit.exit232.i:                                ; preds = %if.end.i223.i, %get_bit.exit221.i
-  %retval.0.i231.i = phi i8 [ %conv4.i230.i, %if.end.i223.i ], [ 0, %get_bit.exit221.i ]
-  %146 = shl nuw nsw i8 %retval.0.i231.i, 2
-  %or15964.i = or disjoint i8 %146, %or15063.i
+  %retval.0.i231.i = phi i8 [ %146, %if.end.i223.i ], [ 0, %get_bit.exit221.i ]
+  %or15964.i = or disjoint i8 %or15063.i, %retval.0.i231.i
   br i1 %or.cond.i233.i, label %get_bit.exit243.i, label %if.end.i234.i
 
 if.end.i234.i:                                    ; preds = %get_bit.exit232.i
@@ -4793,13 +4793,13 @@ if.end.i234.i:                                    ; preds = %get_bit.exit232.i
   %conv.i238.i = zext i8 %147 to i32
   %shr2.i240.i = lshr i32 %conv.i238.i, %and.i239.i
   %148 = trunc nuw i32 %shr2.i240.i to i8
-  %conv4.i241.i = and i8 %148, 1
+  %conv4.i241.i = shl i8 %148, 1
+  %149 = and i8 %conv4.i241.i, 2
   br label %get_bit.exit243.i
 
 get_bit.exit243.i:                                ; preds = %if.end.i234.i, %get_bit.exit232.i
-  %retval.0.i242.i = phi i8 [ %conv4.i241.i, %if.end.i234.i ], [ 0, %get_bit.exit232.i ]
-  %149 = shl nuw nsw i8 %retval.0.i242.i, 1
-  %or16765.i = or disjoint i8 %149, %or15964.i
+  %retval.0.i242.i = phi i8 [ %149, %if.end.i234.i ], [ 0, %get_bit.exit232.i ]
+  %or16765.i = or disjoint i8 %or15964.i, %retval.0.i242.i
   br i1 %or.cond.i244.i, label %get_bit.exit254.i, label %if.end.i245.i
 
 if.end.i245.i:                                    ; preds = %get_bit.exit243.i
@@ -4812,7 +4812,7 @@ if.end.i245.i:                                    ; preds = %get_bit.exit243.i
 
 get_bit.exit254.i:                                ; preds = %if.end.i245.i, %get_bit.exit243.i
   %retval.0.i253.i = phi i8 [ %conv4.i252.i, %if.end.i245.i ], [ 0, %get_bit.exit243.i ]
-  %or17366.i = or disjoint i8 %retval.0.i253.i, %or16765.i
+  %or17366.i = or disjoint i8 %or16765.i, %retval.0.i253.i
   call void @ec_GFp_nistp_recode_scalar_bits(ptr noundef nonnull %sign.i, ptr noundef nonnull %digit.i, i8 noundef zeroext %or17366.i) #9
   %152 = load i8, ptr %digit.i, align 1
   %conv175.i = zext i8 %152 to i64

@@ -2400,16 +2400,14 @@ handle_stream.exit:                               ; preds = %1075, %1110
   br label %.preheader537
 
 .thread510:                                       ; preds = %1058, %parse_dispatch_cmd.exit.thread, %1063
-  %.5516 = phi i32 [ 1, %1063 ], [ 1, %parse_dispatch_cmd.exit.thread ], [ %.6, %1058 ]
   %.2490498504514 = phi i64 [ %.2490, %1063 ], [ %.1.i, %parse_dispatch_cmd.exit.thread ], [ %.2490, %1058 ]
   %1154 = call i32 @conn_reply_error(ptr noundef nonnull %20, ptr noundef nonnull @.str.176) #15
   br label %.thread518
 
 .thread518:                                       ; preds = %1059, %1061, %.thread510
-  %.5515 = phi i32 [ %.5516, %.thread510 ], [ 0, %1061 ], [ 0, %1059 ]
+  %.5515 = phi i1 [ false, %.thread510 ], [ true, %1061 ], [ true, %1059 ]
   %.2490498504513 = phi i64 [ %.2490498504514, %.thread510 ], [ %.2490, %1061 ], [ %.2490, %1059 ]
-  %.old4.not = icmp eq i32 %.5515, 0
-  br i1 %.old4.not, label %.preheader537.backedge, label %.critedge.thread524
+  br i1 %.5515, label %.preheader537.backedge, label %.critedge.thread524
 
 .critedge.sink.split:                             ; preds = %1149, %1129
   %.sink = phi i64 [ %1131, %1129 ], [ 0, %1149 ]

@@ -6199,81 +6199,91 @@ define void @Kit_TruthCountOnesInCofsSlow(ptr nocapture noundef readonly %0, i32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Kit_TruthCountOnes.exit26 ]
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Kit_TruthCofactor0New(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %12)
-  br i1 %9, label %select.unfold.i, label %Kit_TruthCountOnes.exit
+  br i1 %9, label %select.unfold.i, label %Kit_TruthCountOnes.exit.thread
+
+Kit_TruthCountOnes.exit.thread:                   ; preds = %11
+  %13 = shl nuw nsw i64 %indvars.iv, 1
+  %14 = getelementptr inbounds i32, ptr %2, i64 %13
+  store i32 0, ptr %14, align 4
+  tail call void @Kit_TruthCofactor1New(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %12)
+  br label %Kit_TruthCountOnes.exit26
 
 select.unfold.i:                                  ; preds = %11, %select.unfold.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %select.unfold.i ], [ %10, %11 ]
-  %.08.i = phi i32 [ %34, %select.unfold.i ], [ 0, %11 ]
+  %.08.i = phi i32 [ %36, %select.unfold.i ], [ 0, %11 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %13 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i
-  %14 = load i32, ptr %13, align 4
-  %15 = and i32 %14, 1431655765
-  %16 = lshr i32 %14, 1
+  %15 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i
+  %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 1431655765
-  %18 = add nuw i32 %17, %15
-  %19 = and i32 %18, 858993459
-  %20 = lshr i32 %18, 2
+  %18 = lshr i32 %16, 1
+  %19 = and i32 %18, 1431655765
+  %20 = add nuw i32 %19, %17
   %21 = and i32 %20, 858993459
-  %22 = add nuw nsw i32 %21, %19
-  %23 = and i32 %22, 117901063
-  %24 = lshr i32 %22, 4
+  %22 = lshr i32 %20, 2
+  %23 = and i32 %22, 858993459
+  %24 = add nuw nsw i32 %23, %21
   %25 = and i32 %24, 117901063
-  %26 = add nuw nsw i32 %25, %23
-  %27 = and i32 %26, 983055
-  %28 = lshr i32 %26, 8
+  %26 = lshr i32 %24, 4
+  %27 = and i32 %26, 117901063
+  %28 = add nuw nsw i32 %27, %25
   %29 = and i32 %28, 983055
-  %30 = add nuw nsw i32 %29, %27
-  %31 = and i32 %30, 31
-  %32 = lshr i32 %30, 16
-  %33 = add nuw nsw i32 %32, %.08.i
-  %34 = add nuw nsw i32 %33, %31
-  %35 = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %35, label %select.unfold.i, label %Kit_TruthCountOnes.exit, !llvm.loop !156
+  %30 = lshr i32 %28, 8
+  %31 = and i32 %30, 983055
+  %32 = add nuw nsw i32 %31, %29
+  %33 = and i32 %32, 31
+  %34 = lshr i32 %32, 16
+  %35 = add nuw nsw i32 %34, %.08.i
+  %36 = add nuw nsw i32 %35, %33
+  %37 = icmp ugt i64 %indvars.iv.i, 1
+  br i1 %37, label %select.unfold.i, label %Kit_TruthCountOnes.exit, !llvm.loop !156
 
-Kit_TruthCountOnes.exit:                          ; preds = %select.unfold.i, %11
-  %.0.lcssa.i = phi i32 [ 0, %11 ], [ %34, %select.unfold.i ]
-  %36 = sdiv i32 %.0.lcssa.i, 2
-  %37 = shl nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds i32, ptr %2, i64 %37
-  store i32 %36, ptr %38, align 4
-  tail call void @Kit_TruthCofactor1New(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %12)
-  br i1 %9, label %select.unfold.i22, label %Kit_TruthCountOnes.exit26
+Kit_TruthCountOnes.exit:                          ; preds = %select.unfold.i
+  %38 = sdiv i32 %36, 2
+  %39 = shl nuw nsw i64 %indvars.iv, 1
+  %40 = getelementptr inbounds i32, ptr %2, i64 %39
+  store i32 %38, ptr %40, align 4
+  tail call void @Kit_TruthCofactor1New(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %12)
+  br label %select.unfold.i22
 
 select.unfold.i22:                                ; preds = %Kit_TruthCountOnes.exit, %select.unfold.i22
   %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i25, %select.unfold.i22 ], [ %10, %Kit_TruthCountOnes.exit ]
-  %.08.i24 = phi i32 [ %60, %select.unfold.i22 ], [ 0, %Kit_TruthCountOnes.exit ]
+  %.08.i24 = phi i32 [ %62, %select.unfold.i22 ], [ 0, %Kit_TruthCountOnes.exit ]
   %indvars.iv.next.i25 = add nsw i64 %indvars.iv.i23, -1
-  %39 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i25
-  %40 = load i32, ptr %39, align 4
-  %41 = and i32 %40, 1431655765
-  %42 = lshr i32 %40, 1
+  %41 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i25
+  %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 1431655765
-  %44 = add nuw i32 %43, %41
-  %45 = and i32 %44, 858993459
-  %46 = lshr i32 %44, 2
+  %44 = lshr i32 %42, 1
+  %45 = and i32 %44, 1431655765
+  %46 = add nuw i32 %45, %43
   %47 = and i32 %46, 858993459
-  %48 = add nuw nsw i32 %47, %45
-  %49 = and i32 %48, 117901063
-  %50 = lshr i32 %48, 4
+  %48 = lshr i32 %46, 2
+  %49 = and i32 %48, 858993459
+  %50 = add nuw nsw i32 %49, %47
   %51 = and i32 %50, 117901063
-  %52 = add nuw nsw i32 %51, %49
-  %53 = and i32 %52, 983055
-  %54 = lshr i32 %52, 8
+  %52 = lshr i32 %50, 4
+  %53 = and i32 %52, 117901063
+  %54 = add nuw nsw i32 %53, %51
   %55 = and i32 %54, 983055
-  %56 = add nuw nsw i32 %55, %53
-  %57 = and i32 %56, 31
-  %58 = lshr i32 %56, 16
-  %59 = add nuw nsw i32 %58, %.08.i24
-  %60 = add nuw nsw i32 %59, %57
-  %61 = icmp ugt i64 %indvars.iv.i23, 1
-  br i1 %61, label %select.unfold.i22, label %Kit_TruthCountOnes.exit26, !llvm.loop !156
+  %56 = lshr i32 %54, 8
+  %57 = and i32 %56, 983055
+  %58 = add nuw nsw i32 %57, %55
+  %59 = and i32 %58, 31
+  %60 = lshr i32 %58, 16
+  %61 = add nuw nsw i32 %60, %.08.i24
+  %62 = add nuw nsw i32 %61, %59
+  %63 = icmp ugt i64 %indvars.iv.i23, 1
+  br i1 %63, label %select.unfold.i22, label %Kit_TruthCountOnes.exit26.loopexit, !llvm.loop !156
 
-Kit_TruthCountOnes.exit26:                        ; preds = %select.unfold.i22, %Kit_TruthCountOnes.exit
-  %.0.lcssa.i20 = phi i32 [ 0, %Kit_TruthCountOnes.exit ], [ %60, %select.unfold.i22 ]
-  %62 = sdiv i32 %.0.lcssa.i20, 2
-  %63 = or disjoint i64 %37, 1
-  %64 = getelementptr inbounds i32, ptr %2, i64 %63
-  store i32 %62, ptr %64, align 4
+Kit_TruthCountOnes.exit26.loopexit:               ; preds = %select.unfold.i22
+  %64 = sdiv i32 %62, 2
+  br label %Kit_TruthCountOnes.exit26
+
+Kit_TruthCountOnes.exit26:                        ; preds = %Kit_TruthCountOnes.exit.thread, %Kit_TruthCountOnes.exit26.loopexit
+  %65 = phi i64 [ %39, %Kit_TruthCountOnes.exit26.loopexit ], [ %13, %Kit_TruthCountOnes.exit.thread ]
+  %.0.lcssa.i20 = phi i32 [ %64, %Kit_TruthCountOnes.exit26.loopexit ], [ 0, %Kit_TruthCountOnes.exit.thread ]
+  %66 = or disjoint i64 %65, 1
+  %67 = getelementptr inbounds i32, ptr %2, i64 %66
+  store i32 %.0.lcssa.i20, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !157

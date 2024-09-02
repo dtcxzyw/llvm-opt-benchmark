@@ -2707,12 +2707,12 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not146, label %.critedge, label %39
 
 39:                                               ; preds = %33
-  %40 = icmp eq i8 %37, 4
-  %41 = icmp eq i8 %36, 5
-  %or.cond = select i1 %41, i1 %40, i1 false
-  %42 = icmp eq i8 %36, 96
-  %or.cond162.not = or i1 %42, %or.cond
-  br i1 %or.cond162.not, label %.critedge159, label %.critedge
+  %40 = icmp ne i8 %37, 4
+  %41 = icmp ne i8 %36, 5
+  %or.cond.not177 = select i1 %41, i1 true, i1 %40
+  %42 = icmp ne i8 %36, 96
+  %or.cond162 = and i1 %42, %or.cond.not177
+  br i1 %or.cond162, label %.critedge, label %.critedge159
 
 .critedge159:                                     ; preds = %39
   store i32 3, ptr %.0124, align 8

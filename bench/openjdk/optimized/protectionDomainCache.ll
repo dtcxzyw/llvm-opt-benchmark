@@ -886,13 +886,16 @@ define hidden void @_ZN26ProtectionDomainCacheTable22print_table_statisticsEP12o
   %8 = getelementptr inbounds i8, ptr %.01219.i, i64 24
   %.012.i = load ptr, ptr %8, align 8, !noalias !16
   %.not.i = icmp eq ptr %.012.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !19
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.1.lcssa.i = phi i64 [ %.01322.i, %.preheader.i ], [ %6, %.lr.ph.i ]
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %7, %.lr.ph.i ]
-  %9 = uitofp nneg i32 %.0.lcssa.i to double
-  call void @_ZN9NumberSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %9) #12, !noalias !16
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %9 = uitofp nneg i32 %7 to double
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
+  %.1.lcssa.i = phi i64 [ %.01322.i, %.preheader.i ], [ %6, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi double [ 0.000000e+00, %.preheader.i ], [ %9, %._crit_edge.loopexit.i ]
+  call void @_ZN9NumberSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %.0.lcssa.i) #12, !noalias !16
   %.014.add.i = add nuw nsw i64 %.014.idx21.i, 8
   %10 = icmp ult i64 %.014.idx21.i, 8064
   br i1 %10, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1009E10WeakHandleS1_ES1_S1_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZN26ProtectionDomainCacheTable12compute_hashERKS1_EEXadL_ZNS6_6equalsES8_S8_EEE20statistics_calculateIZNS6_22print_table_statisticsEP12outputStreamE3$_0EE15TableStatisticsT_.exit", !llvm.loop !20

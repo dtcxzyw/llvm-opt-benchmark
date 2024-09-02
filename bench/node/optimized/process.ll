@@ -168,13 +168,13 @@ if.end44:                                         ; preds = %do.end41
   %cmp47 = icmp eq i32 %and46, 0
   %and50 = lshr i32 %13, 8
   %shr = and i32 %and50, 255
-  %exit_status.0 = select i1 %cmp47, i32 %shr, i32 0
+  %narrow = select i1 %cmp47, i32 %shr, i32 0
+  %exit_status.0 = zext nneg i32 %narrow to i64
   %conv = shl nuw nsw i32 %and46, 24
   %sext = add nuw i32 %conv, 16777216
   %cmp56 = icmp sgt i32 %sext, 33554431
   %term_signal.0 = select i1 %cmp56, i32 %and46, i32 0
-  %conv63 = zext nneg i32 %exit_status.0 to i64
-  call void %12(ptr noundef nonnull %add.ptr21, i64 noundef %conv63, i32 noundef %term_signal.0) #12
+  call void %12(ptr noundef nonnull %add.ptr21, i64 noundef %exit_status.0, i32 noundef %term_signal.0) #12
   br label %while.cond18.backedge
 
 while.cond18.backedge:                            ; preds = %if.end44, %do.end41

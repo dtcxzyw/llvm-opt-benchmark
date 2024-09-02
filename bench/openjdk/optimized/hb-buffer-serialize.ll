@@ -1680,22 +1680,25 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
 226:                                              ; preds = %224
   %227 = getelementptr inbounds i8, ptr %.4.i, i64 1
   %.not229.i = icmp eq ptr %227, %.0202.i
-  br i1 %.not229.i, label %.loopexit453.i, label %78
+  br i1 %.not229.i, label %.loopexit453.loopexit.i, label %78
 
-.loopexit453.i:                                   ; preds = %226, %71
-  %.sroa.0.0.i = phi i32 [ 0, %71 ], [ %.sroa.0.2.i, %226 ]
-  %.sroa.22.0.i = phi i32 [ 0, %71 ], [ %.sroa.22.2.i, %226 ]
-  %.sroa.25.0.i = phi i32 [ 0, %71 ], [ %.sroa.25.2.i, %226 ]
-  %.sroa.26.0.i = phi i32 [ 0, %71 ], [ %.sroa.26.2.i, %226 ]
-  %.0207.i = phi ptr [ null, %71 ], [ %.2209.i, %226 ]
-  %.0205.i = phi i32 [ 14, %71 ], [ %107, %226 ]
-  %.2.i = phi ptr [ %.1.i, %71 ], [ %227, %226 ]
-  %228 = icmp eq ptr %.2.i, %.0202.i
-  br i1 %228, label %229, label %.loopexit452.i
+.loopexit453.loopexit.i:                          ; preds = %226
+  %228 = sext i8 %106 to i64
+  br label %.loopexit453.i
 
-229:                                              ; preds = %.loopexit453.i
-  %230 = sext i32 %.0205.i to i64
-  %231 = getelementptr inbounds [27 x i8], ptr @_ZL36_deserialize_text_glyphs_eof_actions, i64 0, i64 %230
+.loopexit453.i:                                   ; preds = %.loopexit453.loopexit.i, %71
+  %.sroa.0.0.i = phi i32 [ 0, %71 ], [ %.sroa.0.2.i, %.loopexit453.loopexit.i ]
+  %.sroa.22.0.i = phi i32 [ 0, %71 ], [ %.sroa.22.2.i, %.loopexit453.loopexit.i ]
+  %.sroa.25.0.i = phi i32 [ 0, %71 ], [ %.sroa.25.2.i, %.loopexit453.loopexit.i ]
+  %.sroa.26.0.i = phi i32 [ 0, %71 ], [ %.sroa.26.2.i, %.loopexit453.loopexit.i ]
+  %.0207.i = phi ptr [ null, %71 ], [ %.2209.i, %.loopexit453.loopexit.i ]
+  %.0205.i = phi i64 [ 14, %71 ], [ %228, %.loopexit453.loopexit.i ]
+  %.2.i = phi ptr [ %.1.i, %71 ], [ %227, %.loopexit453.loopexit.i ]
+  %229 = icmp eq ptr %.2.i, %.0202.i
+  br i1 %229, label %230, label %.loopexit452.i
+
+230:                                              ; preds = %.loopexit453.i
+  %231 = getelementptr inbounds [27 x i8], ptr @_ZL36_deserialize_text_glyphs_eof_actions, i64 0, i64 %.0205.i
   %232 = load i8, ptr %231, align 1
   switch i8 %232, label %.loopexit452.i [
     i8 6, label %233
@@ -1707,7 +1710,7 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
     i8 3, label %328
   ]
 
-233:                                              ; preds = %229
+233:                                              ; preds = %230
   %234 = ptrtoint ptr %.0202.i to i64
   %235 = ptrtoint ptr %.0207.i to i64
   %236 = sub i64 %234, %235
@@ -1742,7 +1745,7 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
   store i32 0, ptr %.sroa.29.0..sroa_idx350.i, align 4
   br label %.loopexit452.sink.split.i
 
-251:                                              ; preds = %229
+251:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr %.0207.i, ptr %16, align 8
@@ -1785,7 +1788,7 @@ _ZL10parse_uintPKcS0_Pj.exit242.i:                ; preds = %251
   store i32 0, ptr %.sroa.29.0..sroa_idx352.i, align 4
   br label %.loopexit452.sink.split.i
 
-267:                                              ; preds = %229
+267:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store ptr %.0207.i, ptr %14, align 8
@@ -1826,7 +1829,7 @@ _ZL9parse_intPKcS0_Pi.exit243.i:                  ; preds = %267
   store i32 0, ptr %.sroa.29.0..sroa_idx354.i, align 4
   br label %.loopexit452.sink.split.i
 
-282:                                              ; preds = %229
+282:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr %.0207.i, ptr %12, align 8
@@ -1867,7 +1870,7 @@ _ZL9parse_intPKcS0_Pi.exit244.i:                  ; preds = %282
   store i32 0, ptr %.sroa.29.0..sroa_idx356.i, align 4
   br label %.loopexit452.sink.split.i
 
-297:                                              ; preds = %229
+297:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr %.0207.i, ptr %10, align 8
@@ -1908,7 +1911,7 @@ _ZL9parse_intPKcS0_Pi.exit245.i:                  ; preds = %297
   store i32 0, ptr %.sroa.29.0..sroa_idx358.i, align 4
   br label %.loopexit452.sink.split.i
 
-312:                                              ; preds = %229
+312:                                              ; preds = %230
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %.0207.i, ptr %8, align 8
@@ -1951,7 +1954,7 @@ _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
   store i32 0, ptr %.sroa.29.0..sroa_idx360.i, align 4
   br label %.loopexit452.sink.split.i
 
-328:                                              ; preds = %229
+328:                                              ; preds = %230
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %37, i8 0, i64 20, i1 false)
   %329 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef nonnull %.2.i, i32 noundef 0, ptr noundef nonnull %37)
   %.not230.i = icmp eq i32 %329, 0
@@ -1979,8 +1982,8 @@ _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
   store ptr %.2.i, ptr %spec.select, align 8
   br label %.loopexit452.i
 
-.loopexit452.i:                                   ; preds = %224, %.loopexit452.sink.split.i, %229, %.loopexit453.i
-  %.3.i = phi ptr [ %.2.i, %229 ], [ %.2.i, %.loopexit453.i ], [ %.2.i, %.loopexit452.sink.split.i ], [ %.4.i, %224 ]
+.loopexit452.i:                                   ; preds = %224, %.loopexit452.sink.split.i, %230, %.loopexit453.i
+  %.3.i = phi ptr [ %.2.i, %230 ], [ %.2.i, %.loopexit453.i ], [ %.2.i, %.loopexit452.sink.split.i ], [ %.4.i, %224 ]
   %342 = icmp ult ptr %.0202.i, %55
   br i1 %342, label %343, label %349
 

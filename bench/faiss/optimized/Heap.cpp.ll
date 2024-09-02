@@ -7616,18 +7616,21 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %91 = select i1 %89, i1 %90, i1 false
   br i1 %91, label %.lr.ph109, label %.preheader
 
-.preheader:                                       ; preds = %187, %._crit_edge.thread, %._crit_edge
-  %92 = phi ptr [ %87, %._crit_edge ], [ %55, %._crit_edge.thread ], [ %87, %187 ]
-  %93 = phi ptr [ %85, %._crit_edge ], [ %54, %._crit_edge.thread ], [ %85, %187 ]
-  %94 = phi i64 [ %45, %._crit_edge ], [ %45, %._crit_edge.thread ], [ %161, %187 ]
-  %.071.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.iv.next, %187 ]
-  %95 = and i64 %.071.lcssa, 4294967295
-  %96 = icmp ugt i64 %94, %95
+.preheader.loopexit:                              ; preds = %187
+  %92 = and i64 %indvars.iv.next, 4294967295
+  br label %.preheader
+
+.preheader:                                       ; preds = %._crit_edge.thread, %.preheader.loopexit, %._crit_edge
+  %93 = phi ptr [ %87, %._crit_edge ], [ %87, %.preheader.loopexit ], [ %55, %._crit_edge.thread ]
+  %94 = phi ptr [ %85, %._crit_edge ], [ %85, %.preheader.loopexit ], [ %54, %._crit_edge.thread ]
+  %95 = phi i64 [ %45, %._crit_edge ], [ %161, %.preheader.loopexit ], [ %45, %._crit_edge.thread ]
+  %.071.lcssa = phi i64 [ 0, %._crit_edge ], [ %92, %.preheader.loopexit ], [ 0, %._crit_edge.thread ]
+  %96 = icmp ugt i64 %95, %.071.lcssa
   br i1 %96, label %.lr.ph112.preheader, label %._crit_edge113
 
 .lr.ph112.preheader:                              ; preds = %.preheader
-  %97 = getelementptr inbounds float, ptr %93, i64 %47
-  %98 = getelementptr inbounds i64, ptr %92, i64 %47
+  %97 = getelementptr inbounds float, ptr %94, i64 %47
+  %98 = getelementptr inbounds i64, ptr %93, i64 %47
   br label %.lr.ph112
 
 .lr.ph109:                                        ; preds = %._crit_edge, %187
@@ -7797,10 +7800,10 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91: ; preds = %_
   %188 = icmp ugt i64 %161, %indvars.iv.next
   %189 = icmp sgt i32 %.3, 0
   %190 = select i1 %188, i1 %189, i1 false
-  br i1 %190, label %.lr.ph109, label %.preheader, !llvm.loop !89
+  br i1 %190, label %.lr.ph109, label %.preheader.loopexit, !llvm.loop !89
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
-  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.lr.ph112 ], [ %95, %.lr.ph112.preheader ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.lr.ph112 ], [ %.071.lcssa, %.lr.ph112.preheader ]
   %191 = getelementptr inbounds i64, ptr %98, i64 %indvars.iv119
   store i64 -1, ptr %191, align 8
   %192 = getelementptr inbounds float, ptr %97, i64 %indvars.iv119
@@ -7811,7 +7814,7 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91: ; preds = %_
   br i1 %194, label %.lr.ph112, label %._crit_edge113, !llvm.loop !90
 
 ._crit_edge113:                                   ; preds = %.lr.ph112, %.preheader
-  %195 = phi i64 [ %94, %.preheader ], [ %193, %.lr.ph112 ]
+  %195 = phi i64 [ %95, %.preheader ], [ %193, %.lr.ph112 ]
   %196 = add nuw i64 %.0114, 1
   %197 = load i64, ptr %12, align 8
   %198 = add i64 %197, 1
@@ -8081,18 +8084,21 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %91 = select i1 %89, i1 %90, i1 false
   br i1 %91, label %.lr.ph109, label %.preheader
 
-.preheader:                                       ; preds = %187, %._crit_edge.thread, %._crit_edge
-  %92 = phi ptr [ %87, %._crit_edge ], [ %55, %._crit_edge.thread ], [ %87, %187 ]
-  %93 = phi ptr [ %85, %._crit_edge ], [ %54, %._crit_edge.thread ], [ %85, %187 ]
-  %94 = phi i64 [ %45, %._crit_edge ], [ %45, %._crit_edge.thread ], [ %161, %187 ]
-  %.071.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.iv.next, %187 ]
-  %95 = and i64 %.071.lcssa, 4294967295
-  %96 = icmp ugt i64 %94, %95
+.preheader.loopexit:                              ; preds = %187
+  %92 = and i64 %indvars.iv.next, 4294967295
+  br label %.preheader
+
+.preheader:                                       ; preds = %._crit_edge.thread, %.preheader.loopexit, %._crit_edge
+  %93 = phi ptr [ %87, %._crit_edge ], [ %87, %.preheader.loopexit ], [ %55, %._crit_edge.thread ]
+  %94 = phi ptr [ %85, %._crit_edge ], [ %85, %.preheader.loopexit ], [ %54, %._crit_edge.thread ]
+  %95 = phi i64 [ %45, %._crit_edge ], [ %161, %.preheader.loopexit ], [ %45, %._crit_edge.thread ]
+  %.071.lcssa = phi i64 [ 0, %._crit_edge ], [ %92, %.preheader.loopexit ], [ 0, %._crit_edge.thread ]
+  %96 = icmp ugt i64 %95, %.071.lcssa
   br i1 %96, label %.lr.ph112.preheader, label %._crit_edge113
 
 .lr.ph112.preheader:                              ; preds = %.preheader
-  %97 = getelementptr inbounds float, ptr %93, i64 %47
-  %98 = getelementptr inbounds i64, ptr %92, i64 %47
+  %97 = getelementptr inbounds float, ptr %94, i64 %47
+  %98 = getelementptr inbounds i64, ptr %93, i64 %47
   br label %.lr.ph112
 
 .lr.ph109:                                        ; preds = %._crit_edge, %187
@@ -8262,10 +8268,10 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91: ; preds = %_
   %188 = icmp ugt i64 %161, %indvars.iv.next
   %189 = icmp sgt i32 %.3, 0
   %190 = select i1 %188, i1 %189, i1 false
-  br i1 %190, label %.lr.ph109, label %.preheader, !llvm.loop !93
+  br i1 %190, label %.lr.ph109, label %.preheader.loopexit, !llvm.loop !93
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
-  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.lr.ph112 ], [ %95, %.lr.ph112.preheader ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.lr.ph112 ], [ %.071.lcssa, %.lr.ph112.preheader ]
   %191 = getelementptr inbounds i64, ptr %98, i64 %indvars.iv119
   store i64 -1, ptr %191, align 8
   %192 = getelementptr inbounds float, ptr %97, i64 %indvars.iv119
@@ -8276,7 +8282,7 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91: ; preds = %_
   br i1 %194, label %.lr.ph112, label %._crit_edge113, !llvm.loop !94
 
 ._crit_edge113:                                   ; preds = %.lr.ph112, %.preheader
-  %195 = phi i64 [ %94, %.preheader ], [ %193, %.lr.ph112 ]
+  %195 = phi i64 [ %95, %.preheader ], [ %193, %.lr.ph112 ]
   %196 = add nuw i64 %.0114, 1
   %197 = load i64, ptr %12, align 8
   %198 = add i64 %197, 1
@@ -8534,18 +8540,21 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %91 = select i1 %89, i1 %90, i1 false
   br i1 %91, label %.lr.ph113, label %.preheader
 
-.preheader:                                       ; preds = %187, %._crit_edge.thread, %._crit_edge
-  %92 = phi ptr [ %87, %._crit_edge ], [ %55, %._crit_edge.thread ], [ %87, %187 ]
-  %93 = phi ptr [ %85, %._crit_edge ], [ %54, %._crit_edge.thread ], [ %85, %187 ]
-  %94 = phi i64 [ %45, %._crit_edge ], [ %45, %._crit_edge.thread ], [ %161, %187 ]
-  %.071.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.iv.next, %187 ]
-  %95 = and i64 %.071.lcssa, 4294967295
-  %96 = icmp ugt i64 %94, %95
+.preheader.loopexit:                              ; preds = %187
+  %92 = and i64 %indvars.iv.next, 4294967295
+  br label %.preheader
+
+.preheader:                                       ; preds = %._crit_edge.thread, %.preheader.loopexit, %._crit_edge
+  %93 = phi ptr [ %87, %._crit_edge ], [ %87, %.preheader.loopexit ], [ %55, %._crit_edge.thread ]
+  %94 = phi ptr [ %85, %._crit_edge ], [ %85, %.preheader.loopexit ], [ %54, %._crit_edge.thread ]
+  %95 = phi i64 [ %45, %._crit_edge ], [ %161, %.preheader.loopexit ], [ %45, %._crit_edge.thread ]
+  %.071.lcssa = phi i64 [ 0, %._crit_edge ], [ %92, %.preheader.loopexit ], [ 0, %._crit_edge.thread ]
+  %96 = icmp ugt i64 %95, %.071.lcssa
   br i1 %96, label %.lr.ph116.preheader, label %._crit_edge117
 
 .lr.ph116.preheader:                              ; preds = %.preheader
-  %97 = getelementptr inbounds i32, ptr %93, i64 %47
-  %98 = getelementptr inbounds i64, ptr %92, i64 %47
+  %97 = getelementptr inbounds i32, ptr %94, i64 %47
+  %98 = getelementptr inbounds i64, ptr %93, i64 %47
   br label %.lr.ph116
 
 .lr.ph113:                                        ; preds = %._crit_edge, %187
@@ -8715,10 +8724,10 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94: ; preds = %_
   %188 = icmp ugt i64 %161, %indvars.iv.next
   %189 = icmp sgt i32 %.3, 0
   %190 = select i1 %188, i1 %189, i1 false
-  br i1 %190, label %.lr.ph113, label %.preheader, !llvm.loop !98
+  br i1 %190, label %.lr.ph113, label %.preheader.loopexit, !llvm.loop !98
 
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %.lr.ph116
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph116 ], [ %95, %.lr.ph116.preheader ]
+  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph116 ], [ %.071.lcssa, %.lr.ph116.preheader ]
   %191 = getelementptr inbounds i64, ptr %98, i64 %indvars.iv123
   store i64 -1, ptr %191, align 8
   %192 = getelementptr inbounds i32, ptr %97, i64 %indvars.iv123
@@ -8729,7 +8738,7 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94: ; preds = %_
   br i1 %194, label %.lr.ph116, label %._crit_edge117, !llvm.loop !99
 
 ._crit_edge117:                                   ; preds = %.lr.ph116, %.preheader
-  %195 = phi i64 [ %94, %.preheader ], [ %193, %.lr.ph116 ]
+  %195 = phi i64 [ %95, %.preheader ], [ %193, %.lr.ph116 ]
   %196 = add nuw i64 %.0118, 1
   %197 = load i64, ptr %12, align 8
   %198 = add i64 %197, 1
@@ -8987,18 +8996,21 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %91 = select i1 %89, i1 %90, i1 false
   br i1 %91, label %.lr.ph113, label %.preheader
 
-.preheader:                                       ; preds = %187, %._crit_edge.thread, %._crit_edge
-  %92 = phi ptr [ %87, %._crit_edge ], [ %55, %._crit_edge.thread ], [ %87, %187 ]
-  %93 = phi ptr [ %85, %._crit_edge ], [ %54, %._crit_edge.thread ], [ %85, %187 ]
-  %94 = phi i64 [ %45, %._crit_edge ], [ %45, %._crit_edge.thread ], [ %161, %187 ]
-  %.071.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.iv.next, %187 ]
-  %95 = and i64 %.071.lcssa, 4294967295
-  %96 = icmp ugt i64 %94, %95
+.preheader.loopexit:                              ; preds = %187
+  %92 = and i64 %indvars.iv.next, 4294967295
+  br label %.preheader
+
+.preheader:                                       ; preds = %._crit_edge.thread, %.preheader.loopexit, %._crit_edge
+  %93 = phi ptr [ %87, %._crit_edge ], [ %87, %.preheader.loopexit ], [ %55, %._crit_edge.thread ]
+  %94 = phi ptr [ %85, %._crit_edge ], [ %85, %.preheader.loopexit ], [ %54, %._crit_edge.thread ]
+  %95 = phi i64 [ %45, %._crit_edge ], [ %161, %.preheader.loopexit ], [ %45, %._crit_edge.thread ]
+  %.071.lcssa = phi i64 [ 0, %._crit_edge ], [ %92, %.preheader.loopexit ], [ 0, %._crit_edge.thread ]
+  %96 = icmp ugt i64 %95, %.071.lcssa
   br i1 %96, label %.lr.ph116.preheader, label %._crit_edge117
 
 .lr.ph116.preheader:                              ; preds = %.preheader
-  %97 = getelementptr inbounds i32, ptr %93, i64 %47
-  %98 = getelementptr inbounds i64, ptr %92, i64 %47
+  %97 = getelementptr inbounds i32, ptr %94, i64 %47
+  %98 = getelementptr inbounds i64, ptr %93, i64 %47
   br label %.lr.ph116
 
 .lr.ph113:                                        ; preds = %._crit_edge, %187
@@ -9168,10 +9180,10 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94: ; preds = %_
   %188 = icmp ugt i64 %161, %indvars.iv.next
   %189 = icmp sgt i32 %.3, 0
   %190 = select i1 %188, i1 %189, i1 false
-  br i1 %190, label %.lr.ph113, label %.preheader, !llvm.loop !103
+  br i1 %190, label %.lr.ph113, label %.preheader.loopexit, !llvm.loop !103
 
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %.lr.ph116
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph116 ], [ %95, %.lr.ph116.preheader ]
+  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.lr.ph116 ], [ %.071.lcssa, %.lr.ph116.preheader ]
   %191 = getelementptr inbounds i64, ptr %98, i64 %indvars.iv123
   store i64 -1, ptr %191, align 8
   %192 = getelementptr inbounds i32, ptr %97, i64 %indvars.iv123
@@ -9182,7 +9194,7 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94: ; preds = %_
   br i1 %194, label %.lr.ph116, label %._crit_edge117, !llvm.loop !104
 
 ._crit_edge117:                                   ; preds = %.lr.ph116, %.preheader
-  %195 = phi i64 [ %94, %.preheader ], [ %193, %.lr.ph116 ]
+  %195 = phi i64 [ %95, %.preheader ], [ %193, %.lr.ph116 ]
   %196 = add nuw i64 %.0118, 1
   %197 = load i64, ptr %12, align 8
   %198 = add i64 %197, 1

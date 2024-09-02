@@ -2512,7 +2512,7 @@ define hidden noundef i32 @_ZNK10CodeBuffer31total_skipped_instructions_sizeEv(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK10CodeBuffer21total_relocation_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -7) i32 @_ZNK10CodeBuffer21total_relocation_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i32 @_ZNK10CodeBuffer19copy_relocations_toEPhib(ptr noundef nonnull readonly align 8 dereferenceable(448) %0, ptr noundef null, i32 poison, i1 noundef zeroext false)
   %3 = add i32 %2, 7
   %4 = and i32 %3, -8

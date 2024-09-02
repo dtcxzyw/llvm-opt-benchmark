@@ -71,153 +71,150 @@ define hidden void @debugLoop_run() local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = getelementptr inbounds i8, ptr %1, i64 9
   %10 = getelementptr inbounds i8, ptr %1, i64 10
-  br label %11
+  br label %.backedge24
 
-11:                                               ; preds = %0, %.backedge
-  %12 = load ptr, ptr @cmdQueueLock, align 8
-  call void @debugMonitorEnter(ptr noundef %12) #3
+.backedge24:                                      ; preds = %.backedge24.backedge, %0
+  %11 = load ptr, ptr @cmdQueueLock, align 8
+  call void @debugMonitorEnter(ptr noundef %11) #3
   %.b10.i = load i1, ptr @transportError, align 1
-  %13 = load ptr, ptr @cmdQueue, align 8
-  %14 = icmp ne ptr %13, null
-  %.not711.i = select i1 %.b10.i, i1 true, i1 %14
+  %12 = load ptr, ptr @cmdQueue, align 8
+  %13 = icmp ne ptr %12, null
+  %.not711.i = select i1 %.b10.i, i1 true, i1 %13
   br i1 %.not711.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %11, %.lr.ph.i
-  %15 = load ptr, ptr @cmdQueueLock, align 8
-  call void @debugMonitorWait(ptr noundef %15) #3
+.lr.ph.i:                                         ; preds = %.backedge24, %.lr.ph.i
+  %14 = load ptr, ptr @cmdQueueLock, align 8
+  call void @debugMonitorWait(ptr noundef %14) #3
   %.b.i = load i1, ptr @transportError, align 1
-  %16 = load ptr, ptr @cmdQueue, align 8
-  %17 = icmp ne ptr %16, null
-  %.not7.i = select i1 %.b.i, i1 true, i1 %17
+  %15 = load ptr, ptr @cmdQueue, align 8
+  %16 = icmp ne ptr %15, null
+  %.not7.i = select i1 %.b.i, i1 true, i1 %16
   br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %11
-  %.lcssa.i = phi ptr [ %13, %11 ], [ %16, %.lr.ph.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.backedge24
+  %.lcssa.i = phi ptr [ %12, %.backedge24 ], [ %15, %.lr.ph.i ]
   %.not.i.not = icmp eq ptr %.lcssa.i, null
-  br i1 %.not.i.not, label %dequeue.exit.thread, label %19
+  br i1 %.not.i.not, label %dequeue.exit.thread, label %18
 
 dequeue.exit.thread:                              ; preds = %._crit_edge.i
-  %18 = load ptr, ptr @cmdQueueLock, align 8
-  call void @debugMonitorExit(ptr noundef %18) #3
+  %17 = load ptr, ptr @cmdQueueLock, align 8
+  call void @debugMonitorExit(ptr noundef %17) #3
   br label %.loopexit
 
-19:                                               ; preds = %._crit_edge.i
-  %20 = getelementptr inbounds i8, ptr %.lcssa.i, i64 24
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr @cmdQueue, align 8
-  %22 = load ptr, ptr @cmdQueueLock, align 8
-  call void @debugMonitorExit(ptr noundef %22) #3
+18:                                               ; preds = %._crit_edge.i
+  %19 = getelementptr inbounds i8, ptr %.lcssa.i, i64 24
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr @cmdQueue, align 8
+  %21 = load ptr, ptr @cmdQueueLock, align 8
+  call void @debugMonitorExit(ptr noundef %21) #3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %.lcssa.i, i64 24, i1 false)
   call void @jvmtiDeallocate(ptr noundef nonnull %.lcssa.i) #3
-  %23 = load i8, ptr %8, align 8
-  %.not14 = icmp sgt i8 %23, -1
-  br i1 %.not14, label %24, label %.backedge
+  %22 = load i8, ptr %8, align 8
+  %.not14 = icmp sgt i8 %22, -1
+  br i1 %.not14, label %23, label %.backedge24.backedge
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr @vmDeathLock, align 8
-  call void @debugMonitorEnter(ptr noundef %25) #3
+.backedge24.backedge:                             ; preds = %18, %56
+  br label %.backedge24, !llvm.loop !8
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr @vmDeathLock, align 8
+  call void @debugMonitorEnter(ptr noundef %24) #3
   call void @inStream_init(ptr noundef nonnull %2, ptr noundef nonnull byval(%struct.jdwpPacket) align 8 %1) #3
-  %26 = call i32 @inStream_id(ptr noundef nonnull %2) #3
-  call void @outStream_initReply(ptr noundef nonnull %3, i32 noundef %26) #3
-  %27 = load i8, ptr %9, align 1
-  %28 = sext i8 %27 to i32
-  %29 = load i8, ptr %10, align 2
-  %30 = sext i8 %29 to i32
-  %31 = call ptr @debugDispatch_getHandler(i32 noundef %28, i32 noundef %30, ptr noundef nonnull %4, ptr noundef nonnull %5) #3
-  %32 = load ptr, ptr @gdata, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 528
-  %34 = load i32, ptr %33, align 8
-  %35 = and i32 %34, 8
-  %.not15 = icmp eq i32 %35, 0
-  br i1 %.not15, label %43, label %36
+  %25 = call i32 @inStream_id(ptr noundef nonnull %2) #3
+  call void @outStream_initReply(ptr noundef nonnull %3, i32 noundef %25) #3
+  %26 = load i8, ptr %9, align 1
+  %27 = sext i8 %26 to i32
+  %28 = load i8, ptr %10, align 2
+  %29 = sext i8 %28 to i32
+  %30 = call ptr @debugDispatch_getHandler(i32 noundef %27, i32 noundef %29, ptr noundef nonnull %4, ptr noundef nonnull %5) #3
+  %31 = load ptr, ptr @gdata, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 528
+  %33 = load i32, ptr %32, align 8
+  %34 = and i32 %33, 8
+  %.not15 = icmp eq i32 %34, 0
+  br i1 %.not15, label %42, label %35
 
-36:                                               ; preds = %24
+35:                                               ; preds = %23
   call void @log_message_begin(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 145) #3
-  %37 = load ptr, ptr %4, align 8
-  %38 = load i8, ptr %9, align 1
-  %39 = sext i8 %38 to i32
-  %40 = load ptr, ptr %5, align 8
-  %41 = load i8, ptr %10, align 2
-  %42 = sext i8 %41 to i32
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.5, ptr noundef %37, i32 noundef %39, ptr noundef %40, i32 noundef %42) #3
-  br label %43
+  %36 = load ptr, ptr %4, align 8
+  %37 = load i8, ptr %9, align 1
+  %38 = sext i8 %37 to i32
+  %39 = load ptr, ptr %5, align 8
+  %40 = load i8, ptr %10, align 2
+  %41 = sext i8 %40 to i32
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.5, ptr noundef %36, i32 noundef %38, ptr noundef %39, i32 noundef %41) #3
+  br label %42
 
-43:                                               ; preds = %24, %36
-  %44 = icmp eq ptr %31, null
-  br i1 %44, label %.thread.sink.split, label %45
+42:                                               ; preds = %23, %35
+  %43 = icmp eq ptr %30, null
+  br i1 %43, label %.critedge.sink.split, label %44
 
-45:                                               ; preds = %43
-  %46 = load ptr, ptr @gdata, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
-  %48 = load volatile i8, ptr %47, align 8
-  %.not16 = icmp eq i8 %48, 0
-  %49 = load i8, ptr %9, align 1
-  %.not17 = icmp eq i8 %49, 1
+44:                                               ; preds = %42
+  %45 = load ptr, ptr @gdata, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load volatile i8, ptr %46, align 8
+  %.not16 = icmp eq i8 %47, 0
+  %48 = load i8, ptr %9, align 1
+  %.not17 = icmp eq i8 %48, 1
   %or.cond = select i1 %.not16, i1 true, i1 %.not17
-  br i1 %or.cond, label %50, label %.thread.sink.split
+  br i1 %or.cond, label %49, label %.critedge.sink.split
 
-50:                                               ; preds = %45
-  %51 = call zeroext i8 %31(ptr noundef nonnull %2, ptr noundef nonnull %3) #3
-  %.not18 = icmp eq i8 %51, 0
-  br i1 %.not18, label %56, label %.thread
+49:                                               ; preds = %44
+  %50 = call zeroext i8 %30(ptr noundef nonnull %2, ptr noundef nonnull %3) #3
+  %51 = icmp eq i8 %50, 0
+  br i1 %51, label %56, label %.critedge
 
-.thread.sink.split:                               ; preds = %45, %43
-  %.sink = phi i16 [ 99, %43 ], [ 112, %45 ]
+.critedge.sink.split:                             ; preds = %44, %42
+  %.sink = phi i16 [ 99, %42 ], [ 112, %44 ]
   call void @outStream_setError(ptr noundef nonnull %3, i16 noundef zeroext %.sink) #3
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.thread.sink.split, %50
+.critedge:                                        ; preds = %.critedge.sink.split, %49
   %52 = call zeroext i16 @inStream_error(ptr noundef nonnull %2) #3
   %.not19 = icmp eq i16 %52, 0
   br i1 %.not19, label %55, label %53
 
-53:                                               ; preds = %.thread
+53:                                               ; preds = %.critedge
   %54 = call zeroext i16 @inStream_error(ptr noundef nonnull %2) #3
   call void @outStream_setError(ptr noundef nonnull %3, i16 noundef zeroext %54) #3
   br label %55
 
-55:                                               ; preds = %53, %.thread
+55:                                               ; preds = %53, %.critedge
   call void @outStream_sendReply(ptr noundef nonnull %3) #3
   br label %56
 
-56:                                               ; preds = %55, %50
+56:                                               ; preds = %55, %49
   %57 = load ptr, ptr @vmDeathLock, align 8
   call void @debugMonitorExit(ptr noundef %57) #3
   call void @inStream_destroy(ptr noundef nonnull %2) #3
   call void @outStream_destroy(ptr noundef nonnull %3) #3
   %.val = load i8, ptr %9, align 1
   %.val21 = load i8, ptr %10, align 2
-  %58 = icmp ne i8 %.val, 1
+  %58 = icmp eq i8 %.val, 1
   %59 = add i8 %.val21, -6
   %switch.and.i = and i8 %59, -5
-  %switch.selectcmp.i = icmp ne i8 %switch.and.i, 0
-  %narrow.i.not = select i1 %58, i1 true, i1 %switch.selectcmp.i
-  %60 = zext i1 %narrow.i.not to i8
-  br label %.backedge
+  %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
+  %narrow.i.not.not = select i1 %58, i1 %switch.selectcmp.i, i1 false
+  br i1 %narrow.i.not.not, label %.loopexit, label %.backedge24.backedge
 
-.backedge:                                        ; preds = %56, %19
-  %.010.be = phi i8 [ 1, %19 ], [ %60, %56 ]
-  %.not = icmp eq i8 %.010.be, 0
-  br i1 %.not, label %.loopexit, label %11, !llvm.loop !8
-
-.loopexit:                                        ; preds = %.backedge, %dequeue.exit.thread
+.loopexit:                                        ; preds = %56, %dequeue.exit.thread
   call void @threadControl_onDisconnect() #3
   call void @standardHandlers_onDisconnect() #3
   call void @transport_close() #3
-  %61 = load ptr, ptr @cmdQueueLock, align 8
-  call void @debugMonitorDestroy(ptr noundef %61) #3
-  %62 = load ptr, ptr @gdata, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
-  %64 = load volatile i8, ptr %63, align 8
-  %.not13 = icmp eq i8 %64, 0
-  br i1 %.not13, label %65, label %67
+  %60 = load ptr, ptr @cmdQueueLock, align 8
+  call void @debugMonitorDestroy(ptr noundef %60) #3
+  %61 = load ptr, ptr @gdata, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %63 = load volatile i8, ptr %62, align 8
+  %.not13 = icmp eq i8 %63, 0
+  br i1 %.not13, label %64, label %66
 
-65:                                               ; preds = %.loopexit
-  %66 = call ptr @getEnv() #3
-  call void @debugInit_reset(ptr noundef %66) #3
-  br label %67
+64:                                               ; preds = %.loopexit
+  %65 = call ptr @getEnv() #3
+  call void @debugInit_reset(ptr noundef %65) #3
+  br label %66
 
-67:                                               ; preds = %65, %.loopexit
+66:                                               ; preds = %64, %.loopexit
   ret void
 }
 

@@ -3959,26 +3959,29 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %271, %258, %240
   %indvars.iv.next359.i = add nuw nsw i64 %indvars.iv358.i, 1
   %exitcond362.not.i = icmp eq i64 %indvars.iv.next359.i, %wide.trip.count361.i
-  br i1 %exitcond362.not.i, label %._crit_edge321.i, label %127, !llvm.loop !48
+  br i1 %exitcond362.not.i, label %._crit_edge321.loopexit.i, label %127, !llvm.loop !48
 
-._crit_edge321.i:                                 ; preds = %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit.i, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
-  %.1240.lcssa.i = phi ptr [ %.0239.i, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ], [ %.2241.i, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit.i ]
-  %.1170.lcssa.i = phi i32 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ], [ %.2171.i, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit.i ]
-  %.1168.lcssa.i = phi float [ 0.000000e+00, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ], [ %.2.i, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit.i ]
-  %.0166.lcssa.i = phi float [ 0.000000e+00, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ], [ %185, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit.i ]
-  br i1 %.not195.i, label %283, label %276
+._crit_edge321.loopexit.i:                        ; preds = %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit.i
+  %276 = fpext float %.2.i to double
+  %277 = fmul double %276, 0x402921FB54442D18
+  br label %._crit_edge321.i
 
-276:                                              ; preds = %._crit_edge321.i
-  %277 = fpext float %.1168.lcssa.i to double
-  %278 = fmul double %277, 0x402921FB54442D18
+._crit_edge321.i:                                 ; preds = %._crit_edge321.loopexit.i, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i
+  %.1240.lcssa.i = phi ptr [ %.0239.i, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ], [ %.2241.i, %._crit_edge321.loopexit.i ]
+  %.1170.lcssa.i = phi i32 [ 0, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ], [ %.2171.i, %._crit_edge321.loopexit.i ]
+  %.1168.lcssa.i = phi double [ 0.000000e+00, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ], [ %277, %._crit_edge321.loopexit.i ]
+  %.0166.lcssa.i = phi float [ 0.000000e+00, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i ], [ %185, %._crit_edge321.loopexit.i ]
+  br i1 %.not195.i, label %283, label %278
+
+278:                                              ; preds = %._crit_edge321.i
   %279 = sitofp i32 %51 to double
   %280 = fmul double %279, 3.000000e+00
-  %281 = fdiv double %278, %280
+  %281 = fdiv double %.1168.lcssa.i, %280
   %282 = fptrunc double %281 to float
   store float %282, ptr %7, align 4
   br label %283
 
-283:                                              ; preds = %276, %._crit_edge321.i
+283:                                              ; preds = %278, %._crit_edge321.i
   br i1 %.not196.i, label %290, label %284
 
 284:                                              ; preds = %283

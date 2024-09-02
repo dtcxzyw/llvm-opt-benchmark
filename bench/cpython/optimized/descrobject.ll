@@ -3138,7 +3138,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @wrapper_hash(ptr nocapture noundef readonly %wp) #0 {
+define internal range(i64 0, -1) i64 @wrapper_hash(ptr nocapture noundef readonly %wp) #0 {
 entry:
   %self = getelementptr inbounds i8, ptr %wp, i64 24
   %0 = load ptr, ptr %self, align 8

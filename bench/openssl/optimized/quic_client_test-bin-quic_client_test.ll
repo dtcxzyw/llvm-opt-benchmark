@@ -204,8 +204,8 @@ lor.end.thread:                                   ; preds = %if.then82
   %call.i = call i32 @SSL_get_error(ptr noundef %call37, i32 noundef %call83) #6
   %1 = and i32 %call.i, -2
   %2 = icmp eq i32 %1, 2
-  %lor.ext42 = zext i1 %2 to i32
-  %call9043 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @.str.29, i32 noundef %lor.ext42) #6
+  %lor.ext.i = zext i1 %2 to i32
+  %call9043 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @.str.29, i32 noundef %lor.ext.i) #6
   %tobool91.not44 = icmp eq i32 %call9043, 0
   br i1 %tobool91.not44, label %err, label %if.end114
 

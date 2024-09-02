@@ -862,22 +862,22 @@ define void @_Z14pme_loadbal_doP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RK
   br i1 %108, label %109, label %116
 
 109:                                              ; preds = %104
-  br i1 %13, label %113, label %110
+  br i1 %13, label %114, label %110
 
 110:                                              ; preds = %109
   %111 = tail call noundef float @_Z14dd_pme_f_ratioPK12gmx_domdec_t(ptr noundef nonnull %105)
   %112 = fcmp oge float %111, 0x3FF0CCCCC0000000
-  br label %113
+  %113 = zext i1 %112 to i8
+  br label %114
 
-113:                                              ; preds = %109, %110
-  %114 = phi i1 [ %112, %110 ], [ true, %109 ]
-  %115 = zext i1 %114 to i8
+114:                                              ; preds = %109, %110
+  %115 = phi i8 [ %113, %110 ], [ 1, %109 ]
   store i8 %115, ptr %87, align 1
   %.pre = load ptr, ptr %59, align 8
   br label %116
 
-116:                                              ; preds = %113, %104
-  %117 = phi ptr [ %.pre, %113 ], [ %105, %104 ]
+116:                                              ; preds = %114, %104
+  %117 = phi ptr [ %.pre, %114 ], [ %105, %104 ]
   tail call void @_Z8dd_bcastPK12gmx_domdec_tiPv(ptr noundef %117, i32 noundef 1, ptr noundef nonnull %87)
   %.pre137 = load i8, ptr %87, align 1
   br label %118
@@ -885,22 +885,22 @@ define void @_Z14pme_loadbal_doP20pme_load_balancing_tP9t_commrecP8_IO_FILES4_RK
 118:                                              ; preds = %101, %116, %97
   %119 = phi i8 [ %88, %101 ], [ %.pre137, %116 ], [ %100, %97 ]
   %120 = trunc i8 %119 to i1
-  br i1 %120, label %125, label %121
+  br i1 %120, label %126, label %121
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds i8, ptr %0, i64 8
   %123 = load i64, ptr %122, align 8
   %124 = icmp sle i64 %11, %123
-  br label %125
+  %125 = zext i1 %124 to i8
+  br label %126
 
-125:                                              ; preds = %121, %118
-  %126 = phi i1 [ true, %118 ], [ %124, %121 ]
-  %127 = zext i1 %126 to i8
+126:                                              ; preds = %121, %118
+  %127 = phi i8 [ 1, %118 ], [ %125, %121 ]
   store i8 %127, ptr %27, align 1
   br label %128
 
-128:                                              ; preds = %125, %90, %86
-  %129 = phi i8 [ %119, %125 ], [ %88, %90 ], [ %88, %86 ]
+128:                                              ; preds = %126, %90, %86
+  %129 = phi i8 [ %119, %126 ], [ %88, %90 ], [ %88, %86 ]
   %130 = trunc i8 %129 to i1
   br i1 %130, label %131, label %175
 
@@ -1614,8 +1614,8 @@ _ZNSt6vectorI11pme_setup_tSaIS0_EE6resizeEm.exit235.i: ; preds = %512, %510, %50
   %529 = getelementptr i8, ptr %515, i64 -36
   %530 = load float, ptr %529, align 4
   %531 = fmul float %530, 0x3FF0CCCCC0000000
-  %532 = fcmp olt float %528, %531
-  br i1 %532, label %.critedgethread-pre-split.i, label %.critedge229.i.backedge
+  %532 = fcmp uge float %528, %531
+  br i1 %532, label %.critedge229.i.backedge, label %.critedgethread-pre-split.i
 
 .critedge229.i.backedge:                          ; preds = %526, %.critedge227.i
   br label %.critedge229.i, !llvm.loop !9

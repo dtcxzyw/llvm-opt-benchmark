@@ -91872,7 +91872,11 @@ cleanup.cont98:                                   ; preds = %invoke.cont66
   %76 = load ptr, ptr %_M_finish.i89, align 8
   %add.ptr.i90 = getelementptr inbounds i8, ptr %64, i64 8
   %cmp.i.not9.i.i = icmp eq ptr %75, %76
-  br i1 %cmp.i.not9.i.i, label %invoke.cont112, label %for.body.i.i
+  br i1 %cmp.i.not9.i.i, label %invoke.cont112.thread, label %for.body.i.i
+
+invoke.cont112.thread:                            ; preds = %cleanup.cont98
+  store i64 0, ptr %ref.tmp102, align 8
+  br label %if.end.i.i
 
 for.body.i.i:                                     ; preds = %cleanup.cont98, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit.thread6.i.i
   %__n.011.i.i = phi i64 [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit.thread6.i.i ], [ 0, %cleanup.cont98 ]
@@ -91905,25 +91909,20 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   %78 = phi i64 [ %inc3.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit.thread.i.i ], [ %__n.011.i.i, %for.body.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit.i.i ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.010.i.i, i64 32
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %76
-  br i1 %cmp.i.not.i.i, label %invoke.cont112.loopexit, label %for.body.i.i, !llvm.loop !1857
+  br i1 %cmp.i.not.i.i, label %invoke.cont112, label %for.body.i.i, !llvm.loop !1857
 
-invoke.cont112.loopexit:                          ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit.thread6.i.i
+invoke.cont112:                                   ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINS_17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEEEbT_.exit.thread6.i.i
   %.pre = load i32, ptr %ref.tmp101, align 4, !noalias !1858
-  br label %invoke.cont112
-
-invoke.cont112:                                   ; preds = %invoke.cont112.loopexit, %cleanup.cont98
-  %79 = phi i32 [ 1, %cleanup.cont98 ], [ %.pre, %invoke.cont112.loopexit ]
-  %__n.0.lcssa.i.i = phi i64 [ 0, %cleanup.cont98 ], [ %78, %invoke.cont112.loopexit ]
-  store i64 %__n.0.lcssa.i.i, ptr %ref.tmp102, align 8
-  %conv.i.i = sext i32 %79 to i64
-  %cmp.i.i92 = icmp eq i64 %__n.0.lcssa.i.i, %conv.i.i
+  %79 = sext i32 %.pre to i64
+  store i64 %78, ptr %ref.tmp102, align 8
+  %cmp.i.i92 = icmp eq i64 %78, %79
   br i1 %cmp.i.i92, label %if.then.i.i93, label %if.end.i.i
 
 if.then.i.i93:                                    ; preds = %invoke.cont112
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar100)
           to label %invoke.cont114 unwind label %lpad61.loopexit.split-lp
 
-if.end.i.i:                                       ; preds = %invoke.cont112
+if.end.i.i:                                       ; preds = %invoke.cont112.thread, %invoke.cont112
   invoke void @_ZN7testing8internal18CmpHelperEQFailureIilEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar100, ptr noundef nonnull @.str.177, ptr noundef nonnull @.str.205, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp101, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp102)
           to label %invoke.cont114 unwind label %lpad61.loopexit.split-lp
 
@@ -92320,10 +92319,10 @@ if.end169:                                        ; preds = %_ZN7testing8interna
   br i1 %cmp.not.i.i212, label %cleanup171, label %cleanup171.sink.split
 
 cleanup171.sink.split:                            ; preds = %if.end169, %_ZN7testing7MessageD2Ev.exit75
-  %.sink307 = phi ptr [ %68, %_ZN7testing7MessageD2Ev.exit75 ], [ %121, %if.end169 ]
+  %.sink310 = phi ptr [ %68, %_ZN7testing7MessageD2Ev.exit75 ], [ %121, %if.end169 ]
   %message_.i69.sink.ph = phi ptr [ %message_.i69, %_ZN7testing7MessageD2Ev.exit75 ], [ %message_.i211, %if.end169 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink307) #25
-  call void @_ZdlPv(ptr noundef nonnull %.sink307) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink310) #25
+  call void @_ZdlPv(ptr noundef nonnull %.sink310) #29
   br label %cleanup171
 
 cleanup171:                                       ; preds = %cleanup171.sink.split, %if.end169, %_ZN7testing7MessageD2Ev.exit75
@@ -97716,7 +97715,11 @@ _ZN7testing15AssertionResultD2Ev.exit72:          ; preds = %if.end70, %_ZNKSt14
   %60 = load ptr, ptr %_M_before_begin.i.i, align 8
   %61 = load ptr, ptr %values, align 8
   %cmp.i.not9.i.i = icmp eq ptr %60, null
-  br i1 %cmp.i.not9.i.i, label %invoke.cont88, label %for.body.i.i
+  br i1 %cmp.i.not9.i.i, label %invoke.cont88.thread, label %for.body.i.i
+
+invoke.cont88.thread:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit72
+  store i64 0, ptr %ref.tmp74, align 8
+  br label %if.then.i.i77
 
 for.body.i.i:                                     ; preds = %_ZN7testing15AssertionResultD2Ev.exit72, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINSt8__detail14_Node_iteratorIS7_Lb1ELb1EEEEEbT_.exit.thread6.i.i
   %__n.011.i.i = phi i64 [ %63, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINSt8__detail14_Node_iteratorIS7_Lb1ELb1EEEEEbT_.exit.thread6.i.i ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit72 ]
@@ -97750,21 +97753,16 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
   %63 = phi i64 [ %inc3.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINSt8__detail14_Node_iteratorIS7_Lb1ELb1EEEEEbT_.exit.thread.i.i ], [ %__n.011.i.i, %for.body.i.i ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINSt8__detail14_Node_iteratorIS7_Lb1ELb1EEEEEbT_.exit.i.i ]
   %64 = load ptr, ptr %__first.sroa.0.010.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %64, null
-  br i1 %cmp.i.not.i.i, label %invoke.cont88.loopexit, label %for.body.i.i, !llvm.loop !1958
+  br i1 %cmp.i.not.i.i, label %invoke.cont88, label %for.body.i.i, !llvm.loop !1958
 
-invoke.cont88.loopexit:                           ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINSt8__detail14_Node_iteratorIS7_Lb1ELb1EEEEEbT_.exit.thread6.i.i
+invoke.cont88:                                    ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclINSt8__detail14_Node_iteratorIS7_Lb1ELb1EEEEEbT_.exit.thread6.i.i
   %.pre = load i32, ptr %ref.tmp73, align 4, !noalias !1959
-  br label %invoke.cont88
-
-invoke.cont88:                                    ; preds = %invoke.cont88.loopexit, %_ZN7testing15AssertionResultD2Ev.exit72
-  %65 = phi i32 [ 0, %_ZN7testing15AssertionResultD2Ev.exit72 ], [ %.pre, %invoke.cont88.loopexit ]
-  %__n.0.lcssa.i.i = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit72 ], [ %63, %invoke.cont88.loopexit ]
-  store i64 %__n.0.lcssa.i.i, ptr %ref.tmp74, align 8
-  %conv.i.i74 = sext i32 %65 to i64
-  %cmp.i.i75 = icmp eq i64 %__n.0.lcssa.i.i, %conv.i.i74
+  %65 = sext i32 %.pre to i64
+  store i64 %63, ptr %ref.tmp74, align 8
+  %cmp.i.i75 = icmp eq i64 %63, %65
   br i1 %cmp.i.i75, label %if.then.i.i77, label %if.end.i.i76
 
-if.then.i.i77:                                    ; preds = %invoke.cont88
+if.then.i.i77:                                    ; preds = %invoke.cont88.thread, %invoke.cont88
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar72)
           to label %invoke.cont90 unwind label %lpad24
 
@@ -98166,10 +98164,10 @@ if.end148:                                        ; preds = %_ZN7testing8interna
   br i1 %cmp.not.i.i197, label %cleanup150, label %cleanup150.sink.split
 
 cleanup150.sink.split:                            ; preds = %if.end148, %_ZN7testing7MessageD2Ev.exit
-  %.sink271 = phi ptr [ %41, %_ZN7testing7MessageD2Ev.exit ], [ %107, %if.end148 ]
+  %.sink274 = phi ptr [ %41, %_ZN7testing7MessageD2Ev.exit ], [ %107, %if.end148 ]
   %message_.i.i.sink.ph = phi ptr [ %message_.i.i, %_ZN7testing7MessageD2Ev.exit ], [ %message_.i196, %if.end148 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink271) #25
-  call void @_ZdlPv(ptr noundef nonnull %.sink271) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink274) #25
+  call void @_ZdlPv(ptr noundef nonnull %.sink274) #29
   br label %cleanup150
 
 cleanup150:                                       ; preds = %cleanup150.sink.split, %if.end148, %_ZN7testing7MessageD2Ev.exit

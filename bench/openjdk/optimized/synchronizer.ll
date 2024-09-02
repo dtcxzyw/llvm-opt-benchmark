@@ -2351,7 +2351,7 @@ _ZNK9LockStack8containsEP7oopDesc.exit.thread:    ; preds = %18, %_ZN18ObjectSyn
 declare void @_ZN13ObjectMonitor9notifyAllEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN18ObjectSynchronizer12FastHashCodeEP6ThreadP7oopDesc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 2147483648) i64 @_ZN18ObjectSynchronizer12FastHashCodeEP6ThreadP7oopDesc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.markWord, align 8
   %4 = ptrtoint ptr %1 to i64
   %5 = ashr i64 %4, 3

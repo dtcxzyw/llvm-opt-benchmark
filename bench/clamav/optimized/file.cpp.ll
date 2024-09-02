@@ -776,13 +776,13 @@ _ZN4File10DirectReadEPvm.exit54:                  ; preds = %._crit_edge.i52, %5
 ._crit_edge:                                      ; preds = %64
   %.pre = load i8, ptr %4, align 1
   %.pre69 = load i32, ptr %11, align 4
+  %67 = trunc i8 %.pre to i1
   br label %split
 
 split:                                            ; preds = %60, %._crit_edge
-  %67 = phi i32 [ %.pre69, %._crit_edge ], [ %39, %60 ]
-  %68 = phi i8 [ %.pre, %._crit_edge ], [ 0, %60 ]
-  %69 = trunc i8 %68 to i1
-  %70 = icmp eq i32 %67, 1
+  %68 = phi i32 [ %.pre69, %._crit_edge ], [ %39, %60 ]
+  %69 = phi i1 [ %67, %._crit_edge ], [ false, %60 ]
+  %70 = icmp eq i32 %68, 1
   %or.cond49 = select i1 %69, i1 true, i1 %70
   br i1 %or.cond49, label %71, label %72
 

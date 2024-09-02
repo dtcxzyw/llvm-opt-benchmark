@@ -2752,12 +2752,13 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
   br i1 %209, label %118, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.loopexit242
-  %210 = call noundef float @llvm.fabs.f32(float %206)
-  %211 = fcmp ogt float %210, 0x3E80000000000000
-  %212 = fdiv float 1.000000e+00, %206
-  %.0186 = select i1 %211, float %212, float 0.000000e+00
-  %213 = icmp sgt i32 %.1204, 0
-  br i1 %213, label %.lr.ph270.preheader, label %._crit_edge271
+  %210 = trunc nuw i8 %.1207 to i1
+  %211 = call noundef float @llvm.fabs.f32(float %206)
+  %212 = fcmp ogt float %211, 0x3E80000000000000
+  %213 = fdiv float 1.000000e+00, %206
+  %.0186 = select i1 %212, float %213, float 0.000000e+00
+  %214 = icmp sgt i32 %.1204, 0
+  br i1 %214, label %.lr.ph270.preheader, label %._crit_edge271
 
 .lr.ph270.preheader:                              ; preds = %._crit_edge
   %wide.trip.count321 = zext nneg i32 %.1204 to i64
@@ -2765,22 +2766,21 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %25
 
 .lr.ph270:                                        ; preds = %.lr.ph270.preheader, %.lr.ph270
   %indvars.iv318 = phi i64 [ 0, %.lr.ph270.preheader ], [ %indvars.iv.next319, %.lr.ph270 ]
-  %214 = getelementptr inbounds %"struct.cv::GMM", ptr %.0216283, i64 %indvars.iv318
-  %215 = load float, ptr %214, align 4
-  %216 = fmul float %.0186, %215
-  store float %216, ptr %214, align 4
+  %215 = getelementptr inbounds %"struct.cv::GMM", ptr %.0216283, i64 %indvars.iv318
+  %216 = load float, ptr %215, align 4
+  %217 = fmul float %.0186, %216
+  store float %217, ptr %215, align 4
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count321
   br i1 %exitcond322.not, label %._crit_edge271, label %.lr.ph270, !llvm.loop !50
 
 ._crit_edge271:                                   ; preds = %.lr.ph270, %.lr.ph290, %._crit_edge
   %.0203.lcssa358 = phi i32 [ %.1204, %._crit_edge ], [ 0, %.lr.ph290 ], [ %.1204, %.lr.ph270 ]
-  %.0206.lcssa357 = phi i8 [ %.1207, %._crit_edge ], [ 0, %.lr.ph290 ], [ %.1207, %.lr.ph270 ]
+  %.0206.lcssa357 = phi i1 [ %210, %._crit_edge ], [ false, %.lr.ph290 ], [ %210, %.lr.ph270 ]
   %.0208.lcssa356 = phi i1 [ %.1209, %._crit_edge ], [ false, %.lr.ph290 ], [ %.1209, %.lr.ph270 ]
-  %217 = trunc nuw i8 %.0206.lcssa357 to i1
   %218 = load float, ptr %31, align 4
   %219 = fcmp ule float %218, 0.000000e+00
-  %or.cond.not = select i1 %217, i1 true, i1 %219
+  %or.cond.not = select i1 %.0206.lcssa357, i1 true, i1 %219
   br i1 %or.cond.not, label %.loopexit244, label %220
 
 220:                                              ; preds = %._crit_edge271

@@ -4092,15 +4092,15 @@ _ZN9QMultiMapIdP11rlc_segmentE6insertERKdRKS1_.exit: ; preds = %.lr.ph.i.i.i.i, 
   %178 = getelementptr inbounds i8, ptr %.036209, i64 2108
   %179 = load i16, ptr %178, align 4
   %180 = zext nneg i16 %179 to i32
-  %181 = getelementptr inbounds i8, ptr %0, i64 196
-  %182 = getelementptr inbounds i8, ptr %0, i64 198
-  %183 = getelementptr inbounds i8, ptr %0, i64 200
-  %184 = getelementptr inbounds i8, ptr %0, i64 202
-  %185 = getelementptr inbounds i8, ptr %0, i64 204
-  %186 = getelementptr inbounds i8, ptr %0, i64 205
-  %187 = getelementptr inbounds i8, ptr %19, i64 16
   %notmask = shl nsw i32 -1, %180
-  %188 = xor i32 %notmask, -1
+  %181 = xor i32 %notmask, -1
+  %182 = getelementptr inbounds i8, ptr %0, i64 196
+  %183 = getelementptr inbounds i8, ptr %0, i64 198
+  %184 = getelementptr inbounds i8, ptr %0, i64 200
+  %185 = getelementptr inbounds i8, ptr %0, i64 202
+  %186 = getelementptr inbounds i8, ptr %0, i64 204
+  %187 = getelementptr inbounds i8, ptr %0, i64 205
+  %188 = getelementptr inbounds i8, ptr %19, i64 16
   %189 = getelementptr inbounds i8, ptr %20, i64 16
   %190 = getelementptr inbounds i8, ptr %21, i64 16
   %191 = getelementptr inbounds i8, ptr %21, i64 8
@@ -4123,14 +4123,14 @@ _ZN9QMultiMapIdP11rlc_segmentE6insertERKdRKS1_.exit: ; preds = %.lr.ph.i.i.i.i, 
   %204 = uitofp i32 %203 to double
   %205 = fdiv double %204, 1.000000e+06
   %206 = fadd double %205, %201
-  %207 = load i8, ptr %181, align 4
+  %207 = load i8, ptr %182, align 4
   %208 = getelementptr inbounds i8, ptr %.036212, i64 2098
   %209 = load i8, ptr %208, align 2
-  %210 = load i16, ptr %182, align 2
-  %211 = load i16, ptr %183, align 8
-  %212 = load i16, ptr %184, align 2
-  %213 = load i8, ptr %185, align 4
-  %214 = load i8, ptr %186, align 1
+  %210 = load i16, ptr %183, align 2
+  %211 = load i16, ptr %184, align 8
+  %212 = load i16, ptr %185, align 2
+  %213 = load i8, ptr %186, align 4
+  %214 = load i8, ptr %187, align 1
   %215 = getelementptr inbounds i8, ptr %.036212, i64 2100
   %216 = load i16, ptr %215, align 4
   %217 = getelementptr inbounds i8, ptr %.036212, i64 2102
@@ -4350,7 +4350,7 @@ _ZN5QListIdE6appendEd.exit85:                     ; preds = %275
 283:                                              ; preds = %280
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store double %206, ptr %3, align 8
-  %284 = load i64, ptr %187, align 8
+  %284 = load i64, ptr %188, align 8
   invoke void @_ZN9QtPrivate12QPodArrayOpsIdE7emplaceIJRdEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %284, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %285 unwind label %.loopexit.split-lp.loopexit
 
@@ -4358,7 +4358,7 @@ _ZN5QListIdE6appendEd.exit85:                     ; preds = %275
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %286 = load i32, ptr %281, align 8
   %287 = add i32 %286, 2147483647
-  %288 = and i32 %287, %188
+  %288 = and i32 %287, %181
   %289 = uitofp nneg i32 %288 to double
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store double %289, ptr %2, align 8

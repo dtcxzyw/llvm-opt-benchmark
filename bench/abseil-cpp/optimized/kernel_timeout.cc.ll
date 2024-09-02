@@ -119,7 +119,7 @@ return:                                           ; preds = %if.then4, %if.else1
 declare noundef i64 @_ZN4absl19GetCurrentTimeNanosEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i64 0, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout20InNanosecondsFromNowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i.not = icmp eq i64 %0, -1
@@ -398,7 +398,7 @@ return:                                           ; preds = %entry, %_ZNK4absl24
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i64 @_ZNK4absl24synchronization_internal13KernelTimeout16ToChronoDurationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, -9223372036854775808) i64 @_ZNK4absl24synchronization_internal13KernelTimeout16ToChronoDurationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp.i.not = icmp eq i64 %0, -1

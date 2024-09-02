@@ -4432,13 +4432,13 @@ _ZN10QByteArray4dataEv.exit.i341:                 ; preds = %.noexc343, %394
   %407 = sext i32 %406 to i64
   %408 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %404, i64 %407, i32 4
   %409 = load i8, ptr %408, align 4
+  %410 = uitofp i8 %409 to float
   br label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit
 
 _ZN3vcg3tri2io10VertexGrid7QualityEii.exit:       ; preds = %_ZN10QByteArray4dataEv.exit.i341, %386, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit
-  %.0.i342 = phi i8 [ %409, %_ZN10QByteArray4dataEv.exit.i341 ], [ 11, %386 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit ]
-  %410 = uitofp i8 %.0.i342 to float
+  %.0.i342 = phi float [ %410, %_ZN10QByteArray4dataEv.exit.i341 ], [ 1.100000e+01, %386 ], [ 1.100000e+01, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit ]
   %411 = getelementptr inbounds i8, ptr %229, i64 36
-  store float %410, ptr %411, align 4
+  store float %.0.i342, ptr %411, align 4
   %412 = getelementptr inbounds i8, ptr %220, i64 8
   store ptr %229, ptr %412, align 8
   %413 = getelementptr inbounds i8, ptr %229, i64 48
@@ -4745,13 +4745,13 @@ _ZN10QByteArray4dataEv.exit.i399:                 ; preds = %.noexc401, %571
   %584 = sext i32 %583 to i64
   %585 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %581, i64 %584, i32 4
   %586 = load i8, ptr %585, align 4
+  %587 = uitofp i8 %586 to float
   br label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit402
 
 _ZN3vcg3tri2io10VertexGrid7QualityEii.exit402:    ; preds = %_ZN10QByteArray4dataEv.exit.i399, %563, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391
-  %.0.i400 = phi i8 [ %586, %_ZN10QByteArray4dataEv.exit.i399 ], [ 11, %563 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391 ]
-  %587 = uitofp i8 %.0.i400 to float
+  %.0.i400 = phi float [ %587, %_ZN10QByteArray4dataEv.exit.i399 ], [ 1.100000e+01, %563 ], [ 1.100000e+01, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit391 ]
   %588 = getelementptr inbounds i8, ptr %229, i64 84
-  store float %587, ptr %588, align 4
+  store float %.0.i400, ptr %588, align 4
   %589 = getelementptr inbounds i8, ptr %220, i64 16
   store ptr %413, ptr %589, align 8
   %590 = getelementptr inbounds i8, ptr %229, i64 96
@@ -5056,13 +5056,13 @@ _ZN10QByteArray4dataEv.exit.i458:                 ; preds = %.noexc460, %746
   %759 = sext i32 %758 to i64
   %760 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %756, i64 %759, i32 4
   %761 = load i8, ptr %760, align 4
+  %762 = uitofp i8 %761 to float
   br label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit461
 
 _ZN3vcg3tri2io10VertexGrid7QualityEii.exit461:    ; preds = %_ZN10QByteArray4dataEv.exit.i458, %738, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450
-  %.0.i459 = phi i8 [ %761, %_ZN10QByteArray4dataEv.exit.i458 ], [ 11, %738 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450 ]
-  %762 = uitofp i8 %.0.i459 to float
+  %.0.i459 = phi float [ %762, %_ZN10QByteArray4dataEv.exit.i458 ], [ 1.100000e+01, %738 ], [ 1.100000e+01, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit450 ]
   %763 = getelementptr inbounds i8, ptr %229, i64 132
-  store float %762, ptr %763, align 4
+  store float %.0.i459, ptr %763, align 4
   %764 = getelementptr inbounds i8, ptr %220, i64 24
   store ptr %590, ptr %764, align 8
   %.pre795 = load i32, ptr %1, align 8
@@ -5483,13 +5483,13 @@ _ZN10QByteArray4dataEv.exit.i542:                 ; preds = %.noexc544, %968
   %981 = sext i32 %980 to i64
   %982 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %978, i64 %981, i32 4
   %983 = load i8, ptr %982, align 4
+  %984 = uitofp i8 %983 to float
   br label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit545
 
 _ZN3vcg3tri2io10VertexGrid7QualityEii.exit545:    ; preds = %_ZN10QByteArray4dataEv.exit.i542, %960, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534
-  %.0.i543 = phi i8 [ %983, %_ZN10QByteArray4dataEv.exit.i542 ], [ 11, %960 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534 ]
-  %984 = uitofp i8 %.0.i543 to float
+  %.0.i543 = phi float [ %984, %_ZN10QByteArray4dataEv.exit.i542 ], [ 1.100000e+01, %960 ], [ 1.100000e+01, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit534 ]
   %985 = getelementptr inbounds i8, ptr %803, i64 36
-  store float %984, ptr %985, align 4
+  store float %.0.i543, ptr %985, align 4
   %986 = getelementptr inbounds i8, ptr %794, i64 8
   store ptr %803, ptr %986, align 8
   %987 = getelementptr inbounds i8, ptr %803, i64 48
@@ -5796,13 +5796,13 @@ _ZN10QByteArray4dataEv.exit.i601:                 ; preds = %.noexc603, %1145
   %1158 = sext i32 %1157 to i64
   %1159 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1155, i64 %1158, i32 4
   %1160 = load i8, ptr %1159, align 4
+  %1161 = uitofp i8 %1160 to float
   br label %_ZN3vcg3tri2io10VertexGrid7QualityEii.exit604
 
 _ZN3vcg3tri2io10VertexGrid7QualityEii.exit604:    ; preds = %_ZN10QByteArray4dataEv.exit.i601, %1137, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593
-  %.0.i602 = phi i8 [ %1160, %_ZN10QByteArray4dataEv.exit.i601 ], [ 11, %1137 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593 ]
-  %1161 = uitofp i8 %.0.i602 to float
+  %.0.i602 = phi float [ %1161, %_ZN10QByteArray4dataEv.exit.i601 ], [ 1.100000e+01, %1137 ], [ 1.100000e+01, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit593 ]
   %1162 = getelementptr inbounds i8, ptr %803, i64 84
-  store float %1161, ptr %1162, align 4
+  store float %.0.i602, ptr %1162, align 4
   %1163 = getelementptr inbounds i8, ptr %794, i64 16
   store ptr %987, ptr %1163, align 8
   %1164 = getelementptr inbounds i8, ptr %803, i64 96
@@ -6109,13 +6109,13 @@ _ZN10QByteArray4dataEv.exit.i660:                 ; preds = %.noexc662, %1322
   %1335 = sext i32 %1334 to i64
   %1336 = getelementptr inbounds %"struct.vcg::tri::io::VertexGrid::Vertex", ptr %1332, i64 %1335, i32 4
   %1337 = load i8, ptr %1336, align 4
+  %1338 = uitofp i8 %1337 to float
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN10QByteArray4dataEv.exit.i660, %1314, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652
-  %.0.i661 = phi i8 [ %1337, %_ZN10QByteArray4dataEv.exit.i660 ], [ 11, %1314 ], [ 11, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652 ]
-  %1338 = uitofp i8 %.0.i661 to float
+  %.0.i661 = phi float [ %1338, %_ZN10QByteArray4dataEv.exit.i660 ], [ 1.100000e+01, %1314 ], [ 1.100000e+01, %_ZN3vcg3tri2io10VertexGrid4BlueEii.exit652 ]
   %1339 = getelementptr inbounds i8, ptr %803, i64 132
-  store float %1338, ptr %1339, align 4
+  store float %.0.i661, ptr %1339, align 4
   %1340 = getelementptr inbounds i8, ptr %794, i64 24
   store ptr %1164, ptr %1340, align 8
   %.pre796.pre = load i32, ptr %1, align 8
@@ -11920,7 +11920,7 @@ define noundef zeroext i8 @_ZNK3vcg3tri2io10BreElement7QualityEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK3vcg3tri2io10BreElement5PixelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #16 align 2 {
+define range(i64 0, 281474976710656) i64 @_ZNK3vcg3tri2io10BreElement5PixelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #16 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8

@@ -337,37 +337,40 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
   %.2 = phi i32 [ %141, %140 ], [ 5077, %139 ], [ 2283, %138 ], [ %.1420, %119 ], [ %.1420, %126 ], [ 0, %122 ], [ %137, %135 ]
   %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
   %exitcond452.not = icmp eq i64 %indvars.iv.next449, %wide.trip.count451
-  br i1 %exitcond452.not, label %.loopexit401, label %119, !llvm.loop !7
+  br i1 %exitcond452.not, label %.loopexit401.loopexit, label %119, !llvm.loop !7
 
-.loopexit401:                                     ; preds = %151, %.lr.ph, %.loopexit403
-  %.0290 = phi i32 [ 0, %.loopexit403 ], [ 0, %.lr.ph ], [ %.2, %151 ]
+.loopexit401.loopexit:                            ; preds = %151
+  %152 = zext i32 %.2 to i64
+  br label %.loopexit401
+
+.loopexit401:                                     ; preds = %.lr.ph, %.loopexit401.loopexit, %.loopexit403
+  %.0290 = phi i64 [ 0, %.loopexit403 ], [ %152, %.loopexit401.loopexit ], [ 0, %.lr.ph ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %29, i8 0, i64 30, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %30, i8 0, i64 240, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %31, i8 1, i64 30, i1 false)
   call void @namestrcpy(ptr noundef nonnull %32, ptr noundef %0) #7
-  %152 = ptrtoint ptr %32 to i64
-  %153 = getelementptr inbounds i8, ptr %30, i64 8
-  store i64 %152, ptr %153, align 8
-  %154 = zext i32 %1 to i64
-  %155 = getelementptr inbounds i8, ptr %30, i64 16
-  store i64 %154, ptr %155, align 16
-  %156 = zext i32 %5 to i64
-  %157 = getelementptr inbounds i8, ptr %30, i64 24
-  store i64 %156, ptr %157, align 8
-  %158 = zext i32 %6 to i64
-  %159 = getelementptr inbounds i8, ptr %30, i64 32
-  store i64 %158, ptr %159, align 16
-  %160 = bitcast float %25 to i32
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds i8, ptr %30, i64 40
-  store i64 %161, ptr %162, align 8
-  %163 = bitcast float %26 to i32
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds i8, ptr %30, i64 48
-  store i64 %164, ptr %165, align 16
-  %166 = zext i32 %.0290 to i64
+  %153 = ptrtoint ptr %32 to i64
+  %154 = getelementptr inbounds i8, ptr %30, i64 8
+  store i64 %153, ptr %154, align 8
+  %155 = zext i32 %1 to i64
+  %156 = getelementptr inbounds i8, ptr %30, i64 16
+  store i64 %155, ptr %156, align 16
+  %157 = zext i32 %5 to i64
+  %158 = getelementptr inbounds i8, ptr %30, i64 24
+  store i64 %157, ptr %158, align 8
+  %159 = zext i32 %6 to i64
+  %160 = getelementptr inbounds i8, ptr %30, i64 32
+  store i64 %159, ptr %160, align 16
+  %161 = bitcast float %25 to i32
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr inbounds i8, ptr %30, i64 40
+  store i64 %162, ptr %163, align 8
+  %164 = bitcast float %26 to i32
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr inbounds i8, ptr %30, i64 48
+  store i64 %165, ptr %166, align 16
   %167 = getelementptr inbounds i8, ptr %30, i64 56
-  store i64 %166, ptr %167, align 8
+  store i64 %.0290, ptr %167, align 8
   %168 = zext i32 %24 to i64
   %169 = getelementptr inbounds i8, ptr %30, i64 64
   store i64 %168, ptr %169, align 16
@@ -401,12 +404,12 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
 186:                                              ; preds = %.loopexit401
   %187 = getelementptr inbounds i8, ptr %21, i64 4
   %188 = load i32, ptr %187, align 4
+  %189 = and i32 %188, 65535
+  %190 = zext nneg i32 %189 to i64
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %.loopexit401, %186
-  %189 = phi i32 [ %188, %186 ], [ 0, %.loopexit401 ]
-  %190 = and i32 %189, 65535
-  %191 = zext nneg i32 %190 to i64
+  %191 = phi i64 [ %190, %186 ], [ 0, %.loopexit401 ]
   %192 = getelementptr inbounds i8, ptr %30, i64 136
   store i64 %191, ptr %192, align 8
   %193 = zext i32 %4 to i64
@@ -540,7 +543,7 @@ list_length.exit:                                 ; preds = %.loopexit401, %186
   %250 = getelementptr inbounds i8, ptr %249, i64 64
   %251 = load ptr, ptr %250, align 8
   %252 = ptrtoint ptr %0 to i64
-  %253 = call ptr @SearchSysCache3(i32 noundef 44, i64 noundef %252, i64 noundef %195, i64 noundef %154) #7
+  %253 = call ptr @SearchSysCache3(i32 noundef 44, i64 noundef %252, i64 noundef %195, i64 noundef %155) #7
   %.not359 = icmp ne ptr %253, null
   br i1 %.not359, label %254, label %411
 

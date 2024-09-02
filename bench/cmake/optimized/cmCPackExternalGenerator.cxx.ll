@@ -1697,11 +1697,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit208: ;
   %238 = extractvalue { i64, ptr } %237, 0
   %239 = extractvalue { i64, ptr } %237, 1
   %240 = call noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt11char_traitsIcEE(i64 %238, ptr %239) #16
+  %241 = xor i1 %240, true
   br label %_Z7cmIsOff7cmValue.exit
 
 _Z7cmIsOff7cmValue.exit:                          ; preds = %234, %236
-  %241 = phi i1 [ true, %234 ], [ %240, %236 ]
-  %242 = xor i1 %241, true
+  %242 = phi i1 [ false, %234 ], [ %241, %236 ]
   invoke void @_ZN4Json5ValueC1Eb(ptr noundef nonnull align 8 dereferenceable(40) %28, i1 noundef zeroext %242)
           to label %243 unwind label %309
 

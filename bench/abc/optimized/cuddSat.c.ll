@@ -657,15 +657,15 @@ define ptr @Cudd_LargestCube(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 ._crit_edge.i.loopexit:                           ; preds = %.backedge.i
   %111 = getelementptr inbounds i8, ptr %76, i64 4
   %.pre = load i32, ptr %111, align 4
+  %112 = add i32 %.pre, -1
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %30
-  %112 = phi i32 [ %38, %30 ], [ %.pre, %._crit_edge.i.loopexit ]
+  %113 = phi i32 [ %37, %30 ], [ %112, %._crit_edge.i.loopexit ]
   %.pre-phi86.i = phi ptr [ %35, %30 ], [ %76, %._crit_edge.i.loopexit ]
   %.060.lcssa.i = phi ptr [ %32, %30 ], [ %.sink.i, %._crit_edge.i.loopexit ]
-  %113 = getelementptr inbounds i8, ptr %.pre-phi86.i, i64 4
-  %114 = add i32 %112, -1
-  store i32 %114, ptr %113, align 4
+  %114 = getelementptr inbounds i8, ptr %.pre-phi86.i, i64 4
+  store i32 %113, ptr %114, align 4
   br label %getCube.exit
 
 getCube.exit:                                     ; preds = %.lr.ph.i, %81, %73, %107, %108, %._crit_edge.i

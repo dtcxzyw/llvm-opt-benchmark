@@ -95,8 +95,8 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %51
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %51 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %52
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %52 ]
   %35 = load ptr, ptr %33, align 8
   %36 = getelementptr %struct.SortSupportData, ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -115,17 +115,17 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
   %47 = getelementptr inbounds i8, ptr %36, i64 14
   store i16 %46, ptr %47, align 2
   %48 = icmp eq i64 %indvars.iv, 0
-  br i1 %48, label %49, label %51
+  br i1 %48, label %49, label %52
 
 49:                                               ; preds = %.lr.ph
   %50 = load i8, ptr %28, align 8
-  br label %51
+  %51 = and i8 %50, 1
+  br label %52
 
-51:                                               ; preds = %49, %.lr.ph
-  %52 = phi i8 [ 0, %.lr.ph ], [ %50, %49 ]
-  %53 = getelementptr inbounds i8, ptr %36, i64 32
-  %54 = and i8 %52, 1
-  store i8 %54, ptr %53, align 8
+52:                                               ; preds = %49, %.lr.ph
+  %53 = phi i8 [ 0, %.lr.ph ], [ %51, %49 ]
+  %54 = getelementptr inbounds i8, ptr %36, i64 32
+  store i8 %53, ptr %54, align 8
   %55 = getelementptr i32, ptr %3, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   tail call void @PrepareSortSupportFromOrderingOp(i32 noundef %56, ptr noundef nonnull %36) #10
@@ -133,7 +133,7 @@ define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr n
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %51
+._crit_edge:                                      ; preds = %52
   %57 = icmp eq i32 %1, 1
   br i1 %57, label %58, label %._crit_edge.thread
 
@@ -616,8 +616,8 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %67 = getelementptr inbounds i8, ptr %43, i64 24
   br label %68
 
-68:                                               ; preds = %.lr.ph, %87
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
+68:                                               ; preds = %.lr.ph, %88
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
   %69 = load ptr, ptr %64, align 8
   %70 = getelementptr %struct.SortSupportData, ptr %69, i64 %indvars.iv
   %71 = getelementptr %struct.ScanKeyData, ptr %67, i64 %indvars.iv
@@ -638,17 +638,17 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %83 = getelementptr inbounds i8, ptr %70, i64 14
   store i16 %82, ptr %83, align 2
   %84 = icmp eq i64 %indvars.iv, 0
-  br i1 %84, label %85, label %87
+  br i1 %84, label %85, label %88
 
 85:                                               ; preds = %68
   %86 = load i8, ptr %42, align 8
-  br label %87
+  %87 = and i8 %86, 1
+  br label %88
 
-87:                                               ; preds = %85, %68
-  %88 = phi i8 [ 0, %68 ], [ %86, %85 ]
-  %89 = getelementptr inbounds i8, ptr %70, i64 32
-  %90 = and i8 %88, 1
-  store i8 %90, ptr %89, align 8
+88:                                               ; preds = %85, %68
+  %89 = phi i8 [ 0, %68 ], [ %87, %85 ]
+  %90 = getelementptr inbounds i8, ptr %70, i64 32
+  store i8 %89, ptr %90, align 8
   %91 = load i32, ptr %71, align 8
   %92 = and i32 %91, 16777216
   %.not62 = icmp eq i32 %92, 0
@@ -660,7 +660,7 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %96 = icmp slt i64 %indvars.iv.next, %95
   br i1 %96, label %68, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %87, %59
+._crit_edge:                                      ; preds = %88, %59
   tail call void @pfree(ptr noundef %43) #10
   store ptr %9, ptr @CurrentMemoryContext, align 8
   ret ptr %6
@@ -1290,8 +1290,8 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   %48 = getelementptr inbounds i8, ptr %40, i64 24
   br label %49
 
-49:                                               ; preds = %.lr.ph, %68
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
+49:                                               ; preds = %.lr.ph, %69
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %50 = load ptr, ptr %45, align 8
   %51 = getelementptr %struct.SortSupportData, ptr %50, i64 %indvars.iv
   %52 = getelementptr %struct.ScanKeyData, ptr %48, i64 %indvars.iv
@@ -1312,17 +1312,17 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   %64 = getelementptr inbounds i8, ptr %51, i64 14
   store i16 %63, ptr %64, align 2
   %65 = icmp eq i64 %indvars.iv, 0
-  br i1 %65, label %66, label %68
+  br i1 %65, label %66, label %69
 
 66:                                               ; preds = %49
   %67 = load i8, ptr %35, align 8
-  br label %68
+  %68 = and i8 %67, 1
+  br label %69
 
-68:                                               ; preds = %66, %49
-  %69 = phi i8 [ 0, %49 ], [ %67, %66 ]
-  %70 = getelementptr inbounds i8, ptr %51, i64 32
-  %71 = and i8 %69, 1
-  store i8 %71, ptr %70, align 8
+69:                                               ; preds = %66, %49
+  %70 = phi i8 [ 0, %49 ], [ %68, %66 ]
+  %71 = getelementptr inbounds i8, ptr %51, i64 32
+  store i8 %70, ptr %71, align 8
   %72 = load i32, ptr %52, align 8
   %73 = and i32 %72, 16777216
   %.not52 = icmp eq i32 %73, 0
@@ -1334,7 +1334,7 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
   %77 = icmp slt i64 %indvars.iv.next, %76
   br i1 %77, label %49, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %68, %24
+._crit_edge:                                      ; preds = %69, %24
   tail call void @pfree(ptr noundef %40) #10
   store ptr %13, ptr @CurrentMemoryContext, align 8
   ret ptr %10
@@ -1951,8 +1951,8 @@ define dso_local ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1,
   %42 = getelementptr inbounds i8, ptr %1, i64 432
   br label %43
 
-43:                                               ; preds = %.lr.ph, %57
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
+43:                                               ; preds = %.lr.ph, %58
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %44 = load ptr, ptr %39, align 8
   %45 = getelementptr %struct.SortSupportData, ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1969,24 +1969,24 @@ define dso_local ptr @tuplesort_begin_index_gist(ptr noundef %0, ptr noundef %1,
   %53 = getelementptr inbounds i8, ptr %45, i64 14
   store i16 %52, ptr %53, align 2
   %54 = icmp eq i64 %indvars.iv, 0
-  br i1 %54, label %55, label %57
+  br i1 %54, label %55, label %58
 
 55:                                               ; preds = %43
   %56 = load i8, ptr %30, align 8
-  br label %57
+  %57 = and i8 %56, 1
+  br label %58
 
-57:                                               ; preds = %55, %43
-  %58 = phi i8 [ 0, %43 ], [ %56, %55 ]
-  %59 = getelementptr inbounds i8, ptr %45, i64 32
-  %60 = and i8 %58, 1
-  store i8 %60, ptr %59, align 8
+58:                                               ; preds = %55, %43
+  %59 = phi i8 [ 0, %43 ], [ %57, %55 ]
+  %60 = getelementptr inbounds i8, ptr %45, i64 32
+  store i8 %59, ptr %60, align 8
   tail call void @PrepareSortSupportFromGistIndexRel(ptr noundef nonnull %1, ptr noundef nonnull %45) #10
   %61 = load i32, ptr %25, align 4
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
   br i1 %63, label %43, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %57, %19
+._crit_edge:                                      ; preds = %58, %19
   store ptr %9, ptr @CurrentMemoryContext, align 8
   ret ptr %6
 }

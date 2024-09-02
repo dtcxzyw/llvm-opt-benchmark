@@ -163,12 +163,12 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pmix_os_dirpath_destroy(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %88, label %5
+  br i1 %4, label %74, label %5
 
 5:                                                ; preds = %3
   %6 = tail call ptr @opendir(ptr noundef nonnull %0)
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %88, label %.preheader
+  br i1 %7, label %74, label %.preheader
 
 .preheader:                                       ; preds = %5
   %8 = tail call ptr @readdir(ptr noundef nonnull %6) #10
@@ -180,193 +180,175 @@ sub_0.lr.ph.lr.ph:                                ; preds = %.preheader
   br i1 %1, label %sub_0.lr.ph.us, label %sub_0.lr.ph
 
 sub_0.lr.ph.us:                                   ; preds = %sub_0.lr.ph.lr.ph, %.outer.loopexit.split.us74
-  %9 = phi ptr [ %45, %.outer.loopexit.split.us74 ], [ %8, %sub_0.lr.ph.lr.ph ]
+  %9 = phi ptr [ %38, %.outer.loopexit.split.us74 ], [ %8, %sub_0.lr.ph.lr.ph ]
   %.035.ph65.us = phi i32 [ -1, %.outer.loopexit.split.us74 ], [ 0, %sub_0.lr.ph.lr.ph ]
   br label %sub_0.us67
 
 sub_0.us67:                                       ; preds = %sub_0.lr.ph.us, %.backedge.us75
-  %10 = phi ptr [ %9, %sub_0.lr.ph.us ], [ %46, %.backedge.us75 ]
+  %10 = phi ptr [ %9, %sub_0.lr.ph.us ], [ %39, %.backedge.us75 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 19
   %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = add nsw i32 %13, -46
-  %.not89 = icmp eq i32 %14, 0
-  br i1 %.not89, label %.tail.us69, label %.tail49.us73
+  %.not89 = icmp eq i8 %12, 46
+  br i1 %.not89, label %.tail.us69, label %.tail49.us73.thread
 
 .tail.us69:                                       ; preds = %sub_0.us67
-  %15 = getelementptr inbounds i8, ptr %10, i64 20
-  %16 = load i8, ptr %15, align 1
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %.backedge.us75, label %sub_151.us71
+  %13 = getelementptr inbounds i8, ptr %10, i64 20
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %.backedge.us75, label %sub_151.us71
 
 sub_151.us71:                                     ; preds = %.tail.us69
-  %18 = getelementptr inbounds i8, ptr %10, i64 20
+  %16 = getelementptr inbounds i8, ptr %10, i64 20
+  %17 = load i8, ptr %16, align 1
+  %.not91 = icmp eq i8 %17, 46
+  br i1 %.not91, label %.tail49.us73, label %.tail49.us73.thread
+
+.tail49.us73:                                     ; preds = %sub_151.us71
+  %18 = getelementptr inbounds i8, ptr %10, i64 21
   %19 = load i8, ptr %18, align 1
-  %20 = zext i8 %19 to i32
-  %21 = add nsw i32 %20, -46
-  %.not91 = icmp eq i32 %21, 0
-  br i1 %.not91, label %sub_2.us72, label %.tail49.us73
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %.backedge.us75, label %.tail49.us73.thread
 
-sub_2.us72:                                       ; preds = %sub_151.us71
-  %22 = getelementptr inbounds i8, ptr %10, i64 21
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i32
-  br label %.tail49.us73
+.tail49.us73.thread:                              ; preds = %sub_0.us67, %sub_151.us71, %.tail49.us73
+  br i1 %.not43, label %23, label %21
 
-.tail49.us73:                                     ; preds = %sub_0.us67, %sub_2.us72, %sub_151.us71
-  %25 = phi i32 [ %21, %sub_151.us71 ], [ %24, %sub_2.us72 ], [ %14, %sub_0.us67 ]
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.backedge.us75, label %27
+21:                                               ; preds = %.tail49.us73.thread
+  %22 = tail call zeroext i1 %2(ptr noundef nonnull %0, ptr noundef nonnull %11) #10
+  br i1 %22, label %23, label %.backedge.us75
 
-27:                                               ; preds = %.tail49.us73
-  br i1 %.not43, label %30, label %28
+23:                                               ; preds = %21, %.tail49.us73.thread
+  %24 = tail call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef null) #10
+  %25 = tail call i32 @unlink(ptr noundef %24) #10
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %.backedge.us75
 
-28:                                               ; preds = %27
-  %29 = tail call zeroext i1 %2(ptr noundef nonnull %0, ptr noundef nonnull %11) #10
-  br i1 %29, label %30, label %.backedge.us75
-
-30:                                               ; preds = %28, %27
-  %31 = tail call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef null) #10
-  %32 = tail call i32 @unlink(ptr noundef %31) #10
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %.backedge.us75
-
-34:                                               ; preds = %30
-  %35 = tail call ptr @__errno_location() #11
-  %36 = load i32, ptr %35, align 4
-  switch i32 %36, label %.split.us [
-    i32 21, label %37
-    i32 1, label %37
+27:                                               ; preds = %23
+  %28 = tail call ptr @__errno_location() #11
+  %29 = load i32, ptr %28, align 4
+  switch i32 %29, label %.split.us [
+    i32 21, label %30
+    i32 1, label %30
     i32 16, label %.outer.loopexit.split.us74
   ]
 
-37:                                               ; preds = %34, %34
-  %38 = tail call i32 @rmdir(ptr noundef %31) #10
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.backedge.us75, label %40
+30:                                               ; preds = %27, %27
+  %31 = tail call i32 @rmdir(ptr noundef %24) #10
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %.backedge.us75, label %33
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr %35, align 4
-  %42 = icmp eq i32 %41, 39
-  br i1 %42, label %43, label %.backedge.us75
+33:                                               ; preds = %30
+  %34 = load i32, ptr %28, align 4
+  %35 = icmp eq i32 %34, 39
+  br i1 %35, label %36, label %.backedge.us75
 
-43:                                               ; preds = %40
-  %44 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef %31, i1 noundef zeroext true, ptr noundef %2)
-  tail call void @free(ptr noundef %31) #10
-  %.not44.us = icmp eq i32 %44, 0
+36:                                               ; preds = %33
+  %37 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef %24, i1 noundef zeroext true, ptr noundef %2)
+  tail call void @free(ptr noundef %24) #10
+  %.not44.us = icmp eq i32 %37, 0
   br i1 %.not44.us, label %.backedge.us75, label %.split83.us
 
-.outer.loopexit.split.us74:                       ; preds = %34
-  %45 = tail call ptr @readdir(ptr noundef nonnull %6) #10
-  %.not60.us = icmp eq ptr %45, null
+.outer.loopexit.split.us74:                       ; preds = %27
+  %38 = tail call ptr @readdir(ptr noundef nonnull %6) #10
+  %.not60.us = icmp eq ptr %38, null
   br i1 %.not60.us, label %.split83.us, label %sub_0.lr.ph.us, !llvm.loop !6
 
-.backedge.us75:                                   ; preds = %.tail.us69, %.tail49.us73, %30, %40, %43, %37, %28
-  %46 = tail call ptr @readdir(ptr noundef nonnull %6) #10
-  %.not.us76 = icmp eq ptr %46, null
+.backedge.us75:                                   ; preds = %.tail.us69, %.tail49.us73, %23, %33, %36, %30, %21
+  %39 = tail call ptr @readdir(ptr noundef nonnull %6) #10
+  %.not.us76 = icmp eq ptr %39, null
   br i1 %.not.us76, label %.split83.us, label %sub_0.us67, !llvm.loop !6
 
 sub_0.lr.ph:                                      ; preds = %sub_0.lr.ph.lr.ph, %.outer.loopexit.split.us
-  %47 = phi ptr [ %78, %.outer.loopexit.split.us ], [ %8, %sub_0.lr.ph.lr.ph ]
+  %40 = phi ptr [ %64, %.outer.loopexit.split.us ], [ %8, %sub_0.lr.ph.lr.ph ]
   %.035.ph65 = phi i32 [ -1, %.outer.loopexit.split.us ], [ 0, %sub_0.lr.ph.lr.ph ]
   br label %sub_0.us
 
 sub_0.us:                                         ; preds = %.backedge.us, %sub_0.lr.ph
-  %48 = phi ptr [ %47, %sub_0.lr.ph ], [ %77, %.backedge.us ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 19
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i32
-  %52 = add nsw i32 %51, -46
-  %.not = icmp eq i32 %52, 0
-  br i1 %.not, label %.tail.us, label %.tail49.us
+  %41 = phi ptr [ %40, %sub_0.lr.ph ], [ %63, %.backedge.us ]
+  %42 = getelementptr inbounds i8, ptr %41, i64 19
+  %43 = load i8, ptr %42, align 1
+  %.not = icmp eq i8 %43, 46
+  br i1 %.not, label %.tail.us, label %.tail49.us.thread
 
 .tail.us:                                         ; preds = %sub_0.us
-  %53 = getelementptr inbounds i8, ptr %48, i64 20
-  %54 = load i8, ptr %53, align 1
-  %55 = icmp eq i8 %54, 0
-  br i1 %55, label %.backedge.us, label %sub_151.us
+  %44 = getelementptr inbounds i8, ptr %41, i64 20
+  %45 = load i8, ptr %44, align 1
+  %46 = icmp eq i8 %45, 0
+  br i1 %46, label %.backedge.us, label %sub_151.us
 
 sub_151.us:                                       ; preds = %.tail.us
-  %56 = getelementptr inbounds i8, ptr %48, i64 20
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = add nsw i32 %58, -46
-  %.not88 = icmp eq i32 %59, 0
-  br i1 %.not88, label %sub_2.us, label %.tail49.us
+  %47 = getelementptr inbounds i8, ptr %41, i64 20
+  %48 = load i8, ptr %47, align 1
+  %.not88 = icmp eq i8 %48, 46
+  br i1 %.not88, label %.tail49.us, label %.tail49.us.thread
 
-sub_2.us:                                         ; preds = %sub_151.us
-  %60 = getelementptr inbounds i8, ptr %48, i64 21
-  %61 = load i8, ptr %60, align 1
-  %62 = zext i8 %61 to i32
-  br label %.tail49.us
+.tail49.us:                                       ; preds = %sub_151.us
+  %49 = getelementptr inbounds i8, ptr %41, i64 21
+  %50 = load i8, ptr %49, align 1
+  %51 = icmp eq i8 %50, 0
+  br i1 %51, label %.backedge.us, label %.tail49.us.thread
 
-.tail49.us:                                       ; preds = %sub_0.us, %sub_2.us, %sub_151.us
-  %63 = phi i32 [ %59, %sub_151.us ], [ %62, %sub_2.us ], [ %52, %sub_0.us ]
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.backedge.us, label %65
+.tail49.us.thread:                                ; preds = %sub_0.us, %sub_151.us, %.tail49.us
+  br i1 %.not43, label %54, label %52
 
-65:                                               ; preds = %.tail49.us
-  br i1 %.not43, label %68, label %66
+52:                                               ; preds = %.tail49.us.thread
+  %53 = tail call zeroext i1 %2(ptr noundef nonnull %0, ptr noundef nonnull %42) #10
+  br i1 %53, label %54, label %.backedge.us
 
-66:                                               ; preds = %65
-  %67 = tail call zeroext i1 %2(ptr noundef nonnull %0, ptr noundef nonnull %49) #10
-  br i1 %67, label %68, label %.backedge.us
+54:                                               ; preds = %52, %.tail49.us.thread
+  %55 = tail call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef null) #10
+  %56 = tail call i32 @unlink(ptr noundef %55) #10
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %58, label %.backedge.us
 
-68:                                               ; preds = %66, %65
-  %69 = tail call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %0, ptr noundef nonnull %49, ptr noundef null) #10
-  %70 = tail call i32 @unlink(ptr noundef %69) #10
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %72, label %.backedge.us
-
-72:                                               ; preds = %68
-  %73 = tail call ptr @__errno_location() #11
-  %74 = load i32, ptr %73, align 4
-  switch i32 %74, label %.split.us [
-    i32 21, label %75
-    i32 1, label %75
+58:                                               ; preds = %54
+  %59 = tail call ptr @__errno_location() #11
+  %60 = load i32, ptr %59, align 4
+  switch i32 %60, label %.split.us [
+    i32 21, label %61
+    i32 1, label %61
     i32 16, label %.outer.loopexit.split.us
   ]
 
-75:                                               ; preds = %72, %72
-  %76 = tail call i32 @rmdir(ptr noundef %69) #10
+61:                                               ; preds = %58, %58
+  %62 = tail call i32 @rmdir(ptr noundef %55) #10
   br label %.backedge.us
 
-.backedge.us:                                     ; preds = %75, %.tail.us, %.tail49.us, %68, %66
-  %77 = tail call ptr @readdir(ptr noundef nonnull %6) #10
-  %.not.us = icmp eq ptr %77, null
+.backedge.us:                                     ; preds = %61, %.tail.us, %.tail49.us, %54, %52
+  %63 = tail call ptr @readdir(ptr noundef nonnull %6) #10
+  %.not.us = icmp eq ptr %63, null
   br i1 %.not.us, label %.split83.us, label %sub_0.us, !llvm.loop !6
 
-.outer.loopexit.split.us:                         ; preds = %72
-  %78 = tail call ptr @readdir(ptr noundef nonnull %6) #10
-  %.not60 = icmp eq ptr %78, null
+.outer.loopexit.split.us:                         ; preds = %58
+  %64 = tail call ptr @readdir(ptr noundef nonnull %6) #10
+  %.not60 = icmp eq ptr %64, null
   br i1 %.not60, label %.split83.us, label %sub_0.lr.ph, !llvm.loop !6
 
-.split.us:                                        ; preds = %72, %34
-  %.us-phi = phi i32 [ %36, %34 ], [ %74, %72 ]
-  %.us-phi62 = phi ptr [ %31, %34 ], [ %69, %72 ]
-  %79 = tail call ptr @strerror(i32 noundef %.us-phi) #10
-  %80 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 1, ptr noundef %.us-phi62, ptr noundef %79) #10
+.split.us:                                        ; preds = %58, %27
+  %.us-phi = phi i32 [ %29, %27 ], [ %60, %58 ]
+  %.us-phi62 = phi ptr [ %24, %27 ], [ %55, %58 ]
+  %65 = tail call ptr @strerror(i32 noundef %.us-phi) #10
+  %66 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 1, ptr noundef %.us-phi62, ptr noundef %65) #10
   tail call void @free(ptr noundef %.us-phi62) #10
   br label %.split83.us
 
-.split83.us:                                      ; preds = %.outer.loopexit.split.us, %.backedge.us, %.outer.loopexit.split.us74, %.backedge.us75, %43, %.split.us, %.preheader
-  %.2 = phi i32 [ -1, %.split.us ], [ 0, %.preheader ], [ -1, %43 ], [ %.035.ph65.us, %.backedge.us75 ], [ -1, %.outer.loopexit.split.us74 ], [ %.035.ph65, %.backedge.us ], [ -1, %.outer.loopexit.split.us ]
-  %81 = tail call i32 @closedir(ptr noundef nonnull %6)
-  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_server_globals, i64 2648), align 8
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %86, label %84
+.split83.us:                                      ; preds = %.outer.loopexit.split.us, %.backedge.us, %.outer.loopexit.split.us74, %.backedge.us75, %36, %.split.us, %.preheader
+  %.2 = phi i32 [ -1, %.split.us ], [ 0, %.preheader ], [ -1, %36 ], [ %.035.ph65.us, %.backedge.us75 ], [ -1, %.outer.loopexit.split.us74 ], [ %.035.ph65, %.backedge.us ], [ -1, %.outer.loopexit.split.us ]
+  %67 = tail call i32 @closedir(ptr noundef nonnull %6)
+  %68 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_server_globals, i64 2648), align 8
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %72, label %70
 
-84:                                               ; preds = %.split83.us
-  %85 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %82) #12
-  %.not45 = icmp eq i32 %85, 0
-  br i1 %.not45, label %88, label %86
+70:                                               ; preds = %.split83.us
+  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %68) #12
+  %.not45 = icmp eq i32 %71, 0
+  br i1 %.not45, label %74, label %72
 
-86:                                               ; preds = %84, %.split83.us
-  %87 = tail call i32 @rmdir(ptr noundef nonnull %0) #10
-  br label %88
+72:                                               ; preds = %70, %.split83.us
+  %73 = tail call i32 @rmdir(ptr noundef nonnull %0) #10
+  br label %74
 
-88:                                               ; preds = %84, %86, %5, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %5 ], [ %.2, %86 ], [ %.2, %84 ]
+74:                                               ; preds = %70, %72, %5, %3
+  %.0 = phi i32 [ -1, %3 ], [ -1, %5 ], [ %.2, %72 ], [ %.2, %70 ]
   ret i32 %.0
 }
 
@@ -392,63 +374,54 @@ declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @pmix_os_dirpath_is_empty(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %23, label %2
+  br i1 %.not, label %19, label %2
 
 2:                                                ; preds = %1
   %3 = tail call ptr @opendir(ptr noundef nonnull %0)
   %.not11 = icmp eq ptr %3, null
-  br i1 %.not11, label %23, label %.preheader
+  br i1 %.not11, label %19, label %.preheader
 
 .preheader:                                       ; preds = %2
   %4 = tail call ptr @readdir(ptr noundef nonnull %3) #10
   %.not1219 = icmp eq ptr %4, null
   br i1 %.not1219, label %.sink.split, label %sub_0
 
-sub_0:                                            ; preds = %.preheader, %20
-  %5 = phi ptr [ %21, %20 ], [ %4, %.preheader ]
+sub_0:                                            ; preds = %.preheader, %16
+  %5 = phi ptr [ %17, %16 ], [ %4, %.preheader ]
   %6 = getelementptr inbounds i8, ptr %5, i64 19
   %7 = load i8, ptr %6, align 1
-  %8 = zext i8 %7 to i32
-  %9 = add nsw i32 %8, -46
-  %.not20 = icmp eq i32 %9, 0
-  br i1 %.not20, label %.tail, label %.tail15
+  %.not20 = icmp eq i8 %7, 46
+  br i1 %.not20, label %.tail, label %.sink.split
 
 .tail:                                            ; preds = %sub_0
-  %10 = getelementptr inbounds i8, ptr %5, i64 20
-  %11 = load i8, ptr %10, align 1
-  %.not13 = icmp eq i8 %11, 0
-  br i1 %.not13, label %20, label %sub_117
+  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %16, label %sub_117
 
 sub_117:                                          ; preds = %.tail
-  %12 = getelementptr inbounds i8, ptr %5, i64 20
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  %15 = add nsw i32 %14, -46
-  %.not22 = icmp eq i32 %15, 0
-  br i1 %.not22, label %sub_2, label %.tail15
+  %11 = getelementptr inbounds i8, ptr %5, i64 20
+  %12 = load i8, ptr %11, align 1
+  %.not22 = icmp eq i8 %12, 46
+  br i1 %.not22, label %.tail15, label %.sink.split
 
-sub_2:                                            ; preds = %sub_117
-  %16 = getelementptr inbounds i8, ptr %5, i64 21
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  br label %.tail15
+.tail15:                                          ; preds = %sub_117
+  %13 = getelementptr inbounds i8, ptr %5, i64 21
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %16, label %.sink.split
 
-.tail15:                                          ; preds = %sub_0, %sub_117, %sub_2
-  %19 = phi i32 [ %15, %sub_117 ], [ %18, %sub_2 ], [ %9, %sub_0 ]
-  %.not14 = icmp eq i32 %19, 0
-  br i1 %.not14, label %20, label %.sink.split
-
-20:                                               ; preds = %.tail15, %.tail
-  %21 = tail call ptr @readdir(ptr noundef nonnull %3) #10
-  %.not12 = icmp eq ptr %21, null
+16:                                               ; preds = %.tail15, %.tail
+  %17 = tail call ptr @readdir(ptr noundef nonnull %3) #10
+  %.not12 = icmp eq ptr %17, null
   br i1 %.not12, label %.sink.split, label %sub_0, !llvm.loop !7
 
-.sink.split:                                      ; preds = %20, %.tail15, %.preheader
-  %.0.ph = phi i1 [ true, %.preheader ], [ false, %.tail15 ], [ true, %20 ]
-  %22 = tail call i32 @closedir(ptr noundef nonnull %3)
-  br label %23
+.sink.split:                                      ; preds = %16, %.tail15, %sub_117, %sub_0, %.preheader
+  %.0.ph = phi i1 [ true, %.preheader ], [ false, %sub_0 ], [ false, %sub_117 ], [ false, %.tail15 ], [ true, %16 ]
+  %18 = tail call i32 @closedir(ptr noundef nonnull %3)
+  br label %19
 
-23:                                               ; preds = %.sink.split, %1, %2
+19:                                               ; preds = %.sink.split, %1, %2
   %.0 = phi i1 [ false, %2 ], [ true, %1 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }

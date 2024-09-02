@@ -3818,7 +3818,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 93:                                               ; preds = %88
   %94 = zext i16 %60 to i32
   %95 = sub i32 %94, %75
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.smax.i32(i32 %95, i32 0)
+  %.0.sroa.speculated.i = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %95, i32 0)
   %96 = zext nneg i32 %.0.sroa.speculated.i to i64
   %97 = zext i16 %60 to i64
   %.old1126 = icmp ugt i64 %97, %96
@@ -3826,14 +3826,13 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.lr.ph:                                 ; preds = %93
   %98 = getelementptr inbounds i8, ptr %11, i64 16
-  %.064.lcssa.fr = freeze i64 %.064.lcssa
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %159
   %.2130 = phi i8 [ %.0.lcssa, %.preheader.lr.ph ], [ %.3, %159 ]
   %.158129 = phi i64 [ %.057.lcssa, %.preheader.lr.ph ], [ %.259, %159 ]
   %.162128 = phi i64 [ %97, %.preheader.lr.ph ], [ %113, %159 ]
-  %.165127 = phi i64 [ %.064.lcssa.fr, %.preheader.lr.ph ], [ %.266, %159 ]
+  %.165127 = phi i64 [ %.064.lcssa, %.preheader.lr.ph ], [ %.266, %159 ]
   %99 = add i64 %.165127, %21
   %100 = icmp ugt i64 %99, %4
   %101 = getelementptr inbounds [0 x i8], ptr %30, i64 0, i64 %.165127
@@ -4322,7 +4321,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 83:                                               ; preds = %78
   %84 = zext i16 %52 to i32
   %85 = sub i32 %84, %67
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.smax.i32(i32 %85, i32 0)
+  %.0.sroa.speculated.i = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %85, i32 0)
   %86 = zext nneg i32 %.0.sroa.speculated.i to i64
   %87 = zext i16 %52 to i64
   %.old1136 = icmp ugt i64 %87, %86
@@ -4330,14 +4329,13 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.lr.ph:                                 ; preds = %83
   %88 = getelementptr inbounds i8, ptr %11, i64 16
-  %.064.lcssa.fr = freeze i64 %.064.lcssa
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %150
   %.2140 = phi i8 [ %.0.lcssa, %.preheader.lr.ph ], [ %.3, %150 ]
   %.158139 = phi i64 [ %.057.lcssa, %.preheader.lr.ph ], [ %.259, %150 ]
   %.162138 = phi i64 [ %87, %.preheader.lr.ph ], [ %104, %150 ]
-  %.165137 = phi i64 [ %.064.lcssa.fr, %.preheader.lr.ph ], [ %.266, %150 ]
+  %.165137 = phi i64 [ %.064.lcssa, %.preheader.lr.ph ], [ %.266, %150 ]
   %.val = load i32, ptr %74, align 8, !noundef !4
   %89 = zext i32 %.val to i64
   %90 = add i64 %.165137, %20

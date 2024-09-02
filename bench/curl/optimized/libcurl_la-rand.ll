@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [32 x i8] c"WARNING: using weak random seed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_rand(ptr noundef %data, ptr nocapture noundef writeonly %rnd, i64 noundef %num) local_unnamed_addr #0 {
+define hidden range(i32 5, 4) i32 @Curl_rand(ptr noundef %data, ptr nocapture noundef writeonly %rnd, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %r = alloca i32, align 4
   %tobool.not10 = icmp eq i64 %num, 0
@@ -129,7 +129,7 @@ return:                                           ; preds = %entry, %if.end25
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_rand_hex(ptr noundef %data, ptr noundef %rnd, i64 noundef %num) local_unnamed_addr #0 {
+define hidden range(i32 5, 4) i32 @Curl_rand_hex(ptr noundef %data, ptr noundef %rnd, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %r.i = alloca i32, align 4
   %buffer = alloca [128 x i8], align 16
@@ -196,7 +196,7 @@ return:                                           ; preds = %Curl_rand.exit, %Cu
 declare void @Curl_hexencode(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_rand_alnum(ptr noundef %data, ptr nocapture noundef writeonly %rnd, i64 noundef %num) local_unnamed_addr #0 {
+define hidden range(i32 5, 4) i32 @Curl_rand_alnum(ptr noundef %data, ptr nocapture noundef writeonly %rnd, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %r = alloca i32, align 4
   %num.addr.08 = add i64 %num, -1

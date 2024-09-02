@@ -7536,7 +7536,7 @@ invoke.cont2062:                                  ; preds = %invoke.cont2059
           to label %invoke.cont2066 unwind label %lpad2065
 
 invoke.cont2066:                                  ; preds = %invoke.cont2062
-  %and20711057 = and i1 %success1672.0, %call2067
+  %tobool2072 = select i1 %call2067, i1 %success1672.0, i1 false
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2064) #18
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2063) #18
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2060) #18
@@ -7624,7 +7624,7 @@ cond.end2156:                                     ; preds = %invoke.cont2136, %c
           to label %invoke.cont2158 unwind label %ehcleanup2170
 
 invoke.cont2158:                                  ; preds = %cond.end2156
-  %and21631064 = and i1 %and20711057, %call2159
+  %and21631064 = and i1 %tobool2072, %call2159
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2115) #18
   br i1 %tobool2117, label %cleanup.action2168, label %cleanup.done2182
 
@@ -20883,7 +20883,7 @@ ehcleanup8722:                                    ; preds = %lpad8384, %ehcleanu
   br label %ehcleanup10465
 
 if.end8723:                                       ; preds = %invoke.cont8334, %invoke.cont8719
-  %success8206.0 = phi i1 [ %1894, %invoke.cont8719 ], [ true, %invoke.cont8334 ]
+  %success8206.0.not = phi i1 [ %1894, %invoke.cont8719 ], [ true, %invoke.cont8334 ]
   %d_cl8726 = getelementptr inbounds i8, ptr %this, i64 40
   %1924 = load ptr, ptr %d_cl8726, align 8
   store ptr %1924, ptr %agg.tmp8725, align 8
@@ -21031,7 +21031,7 @@ invoke.cont8927:                                  ; preds = %invoke.cont8909
           to label %cleanup.action8942 unwind label %lpad8931
 
 cleanup.action8942:                               ; preds = %invoke.cont8927
-  %and89385765238 = and i1 %success8206.0, %call8933
+  %tobool8939.not.not5238 = and i1 %success8206.0.not, %call8933
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8929) #18
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8901) #18
   %1945 = load ptr, ptr %ref.tmp8903, align 8
@@ -21066,7 +21066,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4700: ; preds = %cleanup.action894
   br label %cleanup.done8990
 
 cleanup.done8990:                                 ; preds = %invoke.cont8891, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4700
-  %and89385765239 = phi i1 [ %and89385765238, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4700 ], [ false, %invoke.cont8891 ]
+  %tobool8939.not.not5239 = phi i1 [ %tobool8939.not.not5238, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit4700 ], [ false, %invoke.cont8891 ]
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8889) #18
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp8888) #18
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp8885) #18
@@ -21077,7 +21077,7 @@ cleanup.done8990:                                 ; preds = %invoke.cont8891, %_
   br i1 %cmp.i4701, label %if.then9001, label %if.end9191
 
 if.then9001:                                      ; preds = %cleanup.done8990
-  br i1 %and89385765239, label %land.rhs9003, label %cleanup10460
+  br i1 %tobool8939.not.not5239, label %land.rhs9003, label %cleanup10460
 
 land.rhs9003:                                     ; preds = %if.then9001
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp9004, ptr noundef nonnull align 8 dereferenceable(8) %res)
@@ -21639,7 +21639,7 @@ invoke.cont9374:                                  ; preds = %invoke.cont9370
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9357) #18
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9358) #18
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9348) #18
-  br i1 %and89385765239, label %land.lhs.true9386, label %cleanup10460.sink.split.sink.split
+  br i1 %tobool8939.not.not5239, label %land.lhs.true9386, label %cleanup10460.sink.split.sink.split
 
 land.lhs.true9386:                                ; preds = %invoke.cont9374
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp9387, ptr noundef nonnull align 8 dereferenceable(8) %vp39195)
@@ -22538,7 +22538,7 @@ invoke.cont10003:                                 ; preds = %invoke.cont9999
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9986) #18
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9987) #18
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9977) #18
-  br i1 %and89385765239, label %land.lhs.true10015, label %cleanup10460.sink.split.sink.split
+  br i1 %tobool8939.not.not5239, label %land.lhs.true10015, label %cleanup10460.sink.split.sink.split
 
 land.lhs.true10015:                               ; preds = %invoke.cont10003
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp10016, ptr noundef nonnull align 8 dereferenceable(8) %vp39832)

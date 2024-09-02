@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @Ptngc_ud_to_fix_t(double noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @Ptngc_ud_to_fix_t(double noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = fcmp olt double %0, 0.000000e+00
   %.0 = select i1 %3, double 0.000000e+00, double %0
   %4 = fcmp ogt double %.0, %1
@@ -17,7 +17,7 @@ define i64 @Ptngc_ud_to_fix_t(double noundef %0, double noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @Ptngc_d_to_fix_t(double noundef %0, double noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @Ptngc_d_to_fix_t(double noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = fcmp uge double %0, 0.000000e+00
   %4 = fneg double %0
   %.011 = select i1 %3, double %0, double %4
@@ -70,7 +70,7 @@ define void @Ptngc_d_to_i32x2(double noundef %0, ptr nocapture noundef writeonly
   %.1.i = select i1 %11, double 1.000000e+00, double %.0.i
   %12 = fmul double %.1.i, 0x41EFFFFFFFE00000
   %13 = fptoui double %12 to i64
-  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %13, i64 4294967295)
+  %spec.store.select.i = tail call range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %13, i64 4294967295)
   store i64 %.012, ptr %1, align 8
   store i64 %spec.store.select.i, ptr %2, align 8
   ret void

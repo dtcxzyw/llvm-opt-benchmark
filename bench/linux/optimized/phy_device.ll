@@ -1225,8 +1225,8 @@ define internal fastcc i32 @phy_scan_fixups(ptr noundef %0) unnamed_addr #0 alig
   %7 = getelementptr inbounds i8, ptr %0, i64 988
   br label %8
 
-8:                                                ; preds = %.thread, %4
-  %9 = phi ptr [ %2, %4 ], [ %39, %.thread ]
+8:                                                ; preds = %.critedge, %4
+  %9 = phi ptr [ %2, %4 ], [ %39, %.critedge ]
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %5, align 8
   %12 = icmp eq ptr %11, null
@@ -1245,9 +1245,9 @@ define internal fastcc i32 @phy_scan_fixups(ptr noundef %0) unnamed_addr #0 alig
 19:                                               ; preds = %15
   %20 = tail call i32 @strcmp(ptr noundef %10, ptr noundef nonnull dereferenceable(14) @.str) #18
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %.thread
+  br i1 %21, label %22, label %.critedge
 
-22:                                               ; preds = %15, %19
+22:                                               ; preds = %19, %15
   %23 = load i32, ptr %6, align 8
   %24 = getelementptr inbounds i8, ptr %9, i64 80
   %25 = load i32, ptr %24, align 8
@@ -1257,29 +1257,29 @@ define internal fastcc i32 @phy_scan_fixups(ptr noundef %0) unnamed_addr #0 alig
   %29 = and i32 %28, %27
   %30 = icmp ne i32 %29, 0
   %31 = icmp ne i32 %25, -1
-  %.not6 = and i1 %31, %30
-  br i1 %.not6, label %.thread, label %32
+  %.not5 = and i1 %31, %30
+  br i1 %.not5, label %.critedge, label %32
 
 32:                                               ; preds = %22
   %33 = getelementptr inbounds i8, ptr %9, i64 88
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 %34(ptr noundef %0) #18
   %36 = icmp sgt i32 %35, -1
-  br i1 %36, label %.thread4, label %.loopexit
+  br i1 %36, label %.thread, label %.loopexit
 
-.thread4:                                         ; preds = %32
+.thread:                                          ; preds = %32
   %37 = load i32, ptr %7, align 4
   %38 = or i32 %37, 16
   store i32 %38, ptr %7, align 4
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %19, %.thread4, %22
+.critedge:                                        ; preds = %.thread, %19, %22
   %39 = load ptr, ptr %9, align 8
   %40 = icmp eq ptr %39, @phy_fixup_list
   br i1 %40, label %.loopexit, label %8, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.thread, %32, %1
-  %41 = phi i32 [ 0, %1 ], [ %35, %32 ], [ 0, %.thread ]
+.loopexit:                                        ; preds = %.critedge, %32, %1
+  %41 = phi i32 [ 0, %1 ], [ %35, %32 ], [ 0, %.critedge ]
   tail call void @mutex_unlock(ptr noundef nonnull @phy_fixup_lock) #18
   ret i32 %41
 }
@@ -1305,7 +1305,7 @@ define dso_local void @phy_device_remove(ptr noundef %0) #0 align 16 {
 declare dso_local void @device_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @phy_get_c45_ids(ptr nocapture noundef %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @phy_get_c45_ids(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 728
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 792

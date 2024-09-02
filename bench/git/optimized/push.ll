@@ -149,7 +149,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @message_advice_ref_needs_update = internal constant [261 x i8] c"Updates were rejected because the tip of the remote-tracking branch has\0Abeen updated since the last checkout. If you want to integrate the\0Aremote changes, use 'git pull' before pushing again.\0ASee the 'Note about fast-forwards' in 'git push --help' for details.\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, -1) i32 @cmd_push(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmd_push(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
   %query.i.i = alloca %struct.refspec_item, align 8
   %matched.i = alloca ptr, align 8

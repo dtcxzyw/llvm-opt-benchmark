@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [49 x i8] c"protocol error: server explicitly said version 0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, -1) i32 @get_protocol_version_config() local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @get_protocol_version_config() local_unnamed_addr #0 {
 entry:
   %value = alloca ptr, align 8
   %call = call i32 @git_config_get_string_tmp(ptr noundef nonnull @.str.1, ptr noundef nonnull %value) #6

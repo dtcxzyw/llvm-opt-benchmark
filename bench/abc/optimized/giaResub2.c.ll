@@ -907,7 +907,7 @@ define void @Gia_Rsb2ManPrint(ptr nocapture noundef readonly %0) local_unnamed_a
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_Rsb2ManLevel(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define range(i32 0, 1073741824) i32 @Gia_Rsb2ManLevel(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 0, ptr %3, align 4
@@ -6454,8 +6454,8 @@ define void @Gia_RsbExpandInputs(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %11, label %.preheader, label %.split60.us
 
 .preheader:                                       ; preds = %4, %.critedge
-  %.val3470 = phi i32 [ %.val3471, %.critedge ], [ %10, %4 ]
-  %.val3453 = phi i32 [ %.val345367, %.critedge ], [ %10, %4 ]
+  %.val3470 = phi i32 [ %.val3472, %.critedge ], [ %10, %4 ]
+  %.val3453 = phi i32 [ %.val345368, %.critedge ], [ %10, %4 ]
   %12 = icmp sgt i32 %.val3453, 0
   br i1 %12, label %.lr.ph, label %.split60.us
 
@@ -6661,11 +6661,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %94, label %.lr.ph, label %.critedge, !llvm.loop !65
 
 .critedge:                                        ; preds = %.lr.ph, %.loopexit
-  %.val3471 = phi i32 [ %.val3473, %.lr.ph ], [ %.val34, %.loopexit ]
-  %.val345367 = phi i32 [ %.val345369, %.lr.ph ], [ %.val34, %.loopexit ]
-  %.1.lcssa = phi i32 [ %.155, %.lr.ph ], [ %.2, %.loopexit ]
-  %.not = icmp eq i32 %.1.lcssa, 0
-  br i1 %.not, label %.split60.us, label %.preheader, !llvm.loop !66
+  %.val3472 = phi i32 [ %.val3473, %.lr.ph ], [ %.val34, %.loopexit ]
+  %.val345368 = phi i32 [ %.val345369, %.lr.ph ], [ %.val34, %.loopexit ]
+  %.1.lcssa.ph = phi i32 [ %.155, %.lr.ph ], [ %.2, %.loopexit ]
+  %95 = icmp eq i32 %.1.lcssa.ph, 0
+  br i1 %95, label %.split60.us, label %.preheader, !llvm.loop !66
 
 .split60.us:                                      ; preds = %.preheader, %.critedge, %4
   ret void
@@ -10334,7 +10334,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

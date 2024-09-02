@@ -806,31 +806,31 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %127 = load ptr, ptr %15, align 8, !tbaa !12
   br label %.loopexit42
 
-128:                                              ; preds = %163, %122
-  %129 = phi i64 [ 0, %122 ], [ %168, %163 ]
-  %130 = phi i64 [ 0, %122 ], [ %169, %163 ]
+128:                                              ; preds = %164, %122
+  %129 = phi i64 [ 0, %122 ], [ %168, %164 ]
+  %130 = phi i64 [ 0, %122 ], [ %169, %164 ]
   %131 = getelementptr inbounds float, ptr %2, i64 %129
   %132 = load float, ptr %131, align 32, !tbaa !22, !alias.scope !60, !noalias !63
   %133 = fcmp reassoc nsz arcp contract afn ogt float %132, %109
-  br i1 %133, label %144, label %134
+  br i1 %133, label %145, label %134
 
 134:                                              ; preds = %128
   %135 = or disjoint i64 %129, 1
   %136 = getelementptr inbounds float, ptr %2, i64 %135
   %137 = load float, ptr %136, align 4, !tbaa !22, !alias.scope !60, !noalias !63
   %138 = fcmp reassoc nsz arcp contract afn ogt float %137, %109
-  br i1 %138, label %144, label %139
+  br i1 %138, label %145, label %139
 
 139:                                              ; preds = %134
   %140 = or disjoint i64 %129, 2
   %141 = getelementptr inbounds float, ptr %2, i64 %140
   %142 = load float, ptr %141, align 8, !tbaa !22, !alias.scope !60, !noalias !63
   %143 = fcmp reassoc nsz arcp contract afn ogt float %142, %109
-  br label %144
+  %144 = zext i1 %143 to i8
+  br label %145
 
-144:                                              ; preds = %139, %134, %128
-  %145 = phi i1 [ true, %134 ], [ true, %128 ], [ %143, %139 ]
-  %146 = zext i1 %145 to i8
+145:                                              ; preds = %139, %134, %128
+  %146 = phi i8 [ 1, %134 ], [ 1, %128 ], [ %144, %139 ]
   %147 = lshr exact i64 %129, 2
   %148 = getelementptr inbounds i8, ptr %40, i64 %147
   store i8 %146, ptr %148, align 2, !tbaa !65, !alias.scope !63, !noalias !60
@@ -838,25 +838,25 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %150 = getelementptr inbounds float, ptr %2, i64 %149
   %151 = load float, ptr %150, align 16, !tbaa !22, !alias.scope !60, !noalias !63
   %152 = fcmp reassoc nsz arcp contract afn ogt float %151, %109
-  br i1 %152, label %163, label %153
+  br i1 %152, label %164, label %153
 
-153:                                              ; preds = %144
+153:                                              ; preds = %145
   %154 = or disjoint i64 %129, 5
   %155 = getelementptr inbounds float, ptr %2, i64 %154
   %156 = load float, ptr %155, align 4, !tbaa !22, !alias.scope !60, !noalias !63
   %157 = fcmp reassoc nsz arcp contract afn ogt float %156, %109
-  br i1 %157, label %163, label %158
+  br i1 %157, label %164, label %158
 
 158:                                              ; preds = %153
   %159 = or disjoint i64 %129, 6
   %160 = getelementptr inbounds float, ptr %2, i64 %159
   %161 = load float, ptr %160, align 8, !tbaa !22, !alias.scope !60, !noalias !63
   %162 = fcmp reassoc nsz arcp contract afn ogt float %161, %109
-  br label %163
+  %163 = zext i1 %162 to i8
+  br label %164
 
-163:                                              ; preds = %158, %153, %144
-  %164 = phi i1 [ true, %153 ], [ true, %144 ], [ %162, %158 ]
-  %165 = zext i1 %164 to i8
+164:                                              ; preds = %158, %153, %145
+  %165 = phi i8 [ 1, %153 ], [ 1, %145 ], [ %163, %158 ]
   %166 = lshr exact i64 %149, 2
   %167 = getelementptr inbounds i8, ptr %40, i64 %166
   store i8 %165, ptr %167, align 1, !tbaa !65, !alias.scope !63, !noalias !60
@@ -865,7 +865,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noal
   %170 = icmp eq i64 %169, %125
   br i1 %170, label %171, label %128
 
-171:                                              ; preds = %163
+171:                                              ; preds = %164
   %172 = and i64 %120, 4
   %173 = icmp eq i64 %172, 0
   br i1 %173, label %.thread, label %193

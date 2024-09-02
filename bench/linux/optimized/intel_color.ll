@@ -14908,7 +14908,7 @@ define internal i32 @glk_color_check(ptr noundef %0) #0 align 16 {
   %33 = or i32 %32, %31
   %34 = tail call fastcc i32 @_check_luts(ptr noundef %0, i32 noundef %7, i32 noundef %33), !range !42
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %305
+  br i1 %35, label %36, label %303
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds i8, ptr %0, i64 4744
@@ -14934,7 +14934,7 @@ define internal i32 @glk_color_check(ptr noundef %0) #0 align 16 {
 49:                                               ; preds = %46, %44
   %50 = phi ptr [ %48, %46 ], [ null, %44 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %50, i32 noundef 2, ptr noundef nonnull @.str.21) #12
-  br label %305
+  br label %303
 
 51:                                               ; preds = %40
   %52 = getelementptr inbounds i8, ptr %0, i64 344
@@ -14959,7 +14959,7 @@ define internal i32 @glk_color_check(ptr noundef %0) #0 align 16 {
 63:                                               ; preds = %60, %58
   %64 = phi ptr [ %62, %60 ], [ null, %58 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %64, i32 noundef 2, ptr noundef nonnull @.str.22) #12
-  br label %305
+  br label %303
 
 65:                                               ; preds = %51, %36
   %.pr = load ptr, ptr %8, align 8
@@ -14981,7 +14981,7 @@ define internal i32 @glk_color_check(ptr noundef %0) #0 align 16 {
   %73 = getelementptr inbounds i8, ptr %0, i64 4752
   store i8 %spec.select, ptr %73, align 8
   %74 = and i1 %39, %71
-  br i1 %74, label %111, label %75
+  br i1 %74, label %ilk_csc_limited_range.exit, label %75
 
 75:                                               ; preds = %.thread16, %68
   %76 = phi i8 [ 0, %.thread16 ], [ %spec.select, %68 ]
@@ -14991,13 +14991,13 @@ define internal i32 @glk_color_check(ptr noundef %0) #0 align 16 {
   %80 = load ptr, ptr %79, align 8
   %81 = icmp ne ptr %80, null
   %82 = or i1 %39, %81
-  br i1 %82, label %111, label %83
+  br i1 %82, label %ilk_csc_limited_range.exit, label %83
 
 83:                                               ; preds = %75
   %84 = getelementptr inbounds i8, ptr %0, i64 360
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %111
+  br i1 %86, label %87, label %ilk_csc_limited_range.exit
 
 87:                                               ; preds = %83
   %88 = load ptr, ptr %0, align 8
@@ -15029,293 +15029,289 @@ define internal i32 @glk_color_check(ptr noundef %0) #0 align 16 {
   %or.cond.not24 = or i1 %107, %106
   %108 = icmp eq ptr %77, null
   %spec.select21.not = or i1 %108, %or.cond.not24
+  %109 = zext i1 %spec.select21.not to i8
   br label %ilk_csc_limited_range.exit
 
-ilk_csc_limited_range.exit:                       ; preds = %87, %94, %99, %103
-  %109 = phi i1 [ %spec.select21.not, %103 ], [ false, %99 ], [ false, %94 ], [ false, %87 ]
-  %110 = zext i1 %109 to i8
-  br label %111
+ilk_csc_limited_range.exit:                       ; preds = %103, %99, %94, %87, %83, %75, %68
+  %110 = phi i8 [ %76, %83 ], [ %76, %75 ], [ %spec.select, %68 ], [ %76, %87 ], [ %76, %94 ], [ %76, %99 ], [ %76, %103 ]
+  %111 = phi i1 [ %78, %83 ], [ %78, %75 ], [ false, %68 ], [ %78, %87 ], [ %78, %94 ], [ %78, %99 ], [ %78, %103 ]
+  %112 = phi ptr [ %77, %83 ], [ %77, %75 ], [ %.pr, %68 ], [ %77, %87 ], [ %77, %94 ], [ %77, %99 ], [ %77, %103 ]
+  %113 = phi i8 [ 1, %83 ], [ 1, %75 ], [ 1, %68 ], [ 0, %87 ], [ 0, %94 ], [ 0, %99 ], [ %109, %103 ]
+  %114 = getelementptr inbounds i8, ptr %0, i64 4753
+  store i8 %113, ptr %114, align 1
+  %115 = icmp eq i8 %110, 0
+  %116 = or i1 %111, %115
+  %117 = xor i1 %115, true
+  br i1 %116, label %123, label %118
 
-111:                                              ; preds = %ilk_csc_limited_range.exit, %83, %75, %68
-  %112 = phi i8 [ %76, %83 ], [ %76, %75 ], [ %spec.select, %68 ], [ %76, %ilk_csc_limited_range.exit ]
-  %113 = phi i1 [ %78, %83 ], [ %78, %75 ], [ false, %68 ], [ %78, %ilk_csc_limited_range.exit ]
-  %114 = phi ptr [ %77, %83 ], [ %77, %75 ], [ %.pr, %68 ], [ %77, %ilk_csc_limited_range.exit ]
-  %115 = phi i8 [ 1, %83 ], [ 1, %75 ], [ 1, %68 ], [ %110, %ilk_csc_limited_range.exit ]
-  %116 = getelementptr inbounds i8, ptr %0, i64 4753
-  store i8 %115, ptr %116, align 1
-  %117 = icmp eq i8 %112, 0
-  %118 = or i1 %113, %117
-  %119 = xor i1 %117, true
-  br i1 %118, label %125, label %120
+118:                                              ; preds = %ilk_csc_limited_range.exit
+  %119 = getelementptr inbounds i8, ptr %112, i64 72
+  %120 = load i64, ptr %119, align 8
+  %121 = and i64 %120, 34359738360
+  %122 = icmp ne i64 %121, 2048
+  br label %123
 
-120:                                              ; preds = %111
-  %121 = getelementptr inbounds i8, ptr %114, i64 72
-  %122 = load i64, ptr %121, align 8
-  %123 = and i64 %122, 34359738360
-  %124 = icmp ne i64 %123, 2048
-  br label %125
+123:                                              ; preds = %118, %ilk_csc_limited_range.exit
+  %124 = phi i1 [ %117, %ilk_csc_limited_range.exit ], [ %122, %118 ]
+  %125 = zext i1 %124 to i32
+  %126 = getelementptr inbounds i8, ptr %0, i64 4320
+  store i32 %125, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %0, i64 4324
+  store i32 0, ptr %127, align 4
+  %128 = tail call fastcc i32 @intel_color_add_affected_planes(ptr noundef %0)
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %303
 
-125:                                              ; preds = %120, %111
-  %126 = phi i1 [ %119, %111 ], [ %124, %120 ]
-  %127 = zext i1 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %0, i64 4320
-  store i32 %127, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 4324
-  store i32 0, ptr %129, align 4
-  %130 = tail call fastcc i32 @intel_color_add_affected_planes(ptr noundef %0)
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %305
+130:                                              ; preds = %123
+  %131 = load ptr, ptr %0, align 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = load ptr, ptr %8, align 8
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %180, label %135
 
-132:                                              ; preds = %125
-  %133 = load ptr, ptr %0, align 8
-  %134 = load ptr, ptr %133, align 8
-  %135 = load ptr, ptr %8, align 8
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %182, label %137
+135:                                              ; preds = %130
+  %136 = getelementptr inbounds i8, ptr %0, i64 4332
+  %137 = load i8, ptr %136, align 4
+  %138 = icmp eq i8 %137, 0
+  br i1 %138, label %139, label %180
 
-137:                                              ; preds = %132
-  %138 = getelementptr inbounds i8, ptr %0, i64 4332
-  %139 = load i8, ptr %138, align 4
-  %140 = icmp eq i8 %139, 0
-  br i1 %140, label %141, label %182
+139:                                              ; preds = %135
+  %140 = load i32, ptr %37, align 8
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %180, label %142
 
-141:                                              ; preds = %137
-  %142 = load i32, ptr %37, align 8
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %182, label %144
+142:                                              ; preds = %139
+  %143 = getelementptr inbounds i8, ptr %132, i64 2624
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 108
+  %146 = load i32, ptr %145, align 4
+  %147 = getelementptr inbounds i8, ptr %133, i64 72
+  %148 = load i64, ptr %147, align 8
+  %149 = lshr i64 %148, 3
+  %150 = trunc i64 %149 to i32
+  %151 = sext i32 %146 to i64
+  %152 = shl nsw i64 %151, 3
+  %153 = tail call ptr @drm_property_create_blob(ptr noundef %132, i64 noundef %152, ptr noundef null) #12
+  %154 = icmp ugt ptr %153, inttoptr (i64 -4096 to ptr)
+  br i1 %154, label %.thread17, label %155
 
-144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %134, i64 2624
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 108
-  %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds i8, ptr %135, i64 72
-  %150 = load i64, ptr %149, align 8
-  %151 = lshr i64 %150, 3
-  %152 = trunc i64 %151 to i32
-  %153 = sext i32 %148 to i64
-  %154 = shl nsw i64 %153, 3
-  %155 = tail call ptr @drm_property_create_blob(ptr noundef %134, i64 noundef %154, ptr noundef null) #12
-  %156 = icmp ugt ptr %155, inttoptr (i64 -4096 to ptr)
-  br i1 %156, label %.thread17, label %157
-
-157:                                              ; preds = %144
-  %158 = getelementptr inbounds i8, ptr %135, i64 80
+155:                                              ; preds = %142
+  %156 = getelementptr inbounds i8, ptr %133, i64 80
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds i8, ptr %153, i64 80
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %155, i64 80
-  %161 = load ptr, ptr %160, align 8
-  %162 = icmp sgt i32 %148, 0
-  br i1 %162, label %163, label %.loopexit25
+  %160 = icmp sgt i32 %146, 0
+  br i1 %160, label %161, label %.loopexit25
 
-163:                                              ; preds = %157
-  %164 = add i32 %152, -1
-  %165 = add nsw i32 %148, -1
-  %166 = zext nneg i32 %148 to i64
-  br label %167
+161:                                              ; preds = %155
+  %162 = add i32 %150, -1
+  %163 = add nsw i32 %146, -1
+  %164 = zext nneg i32 %146 to i64
+  br label %165
 
-167:                                              ; preds = %167, %163
-  %168 = phi i64 [ 0, %163 ], [ %176, %167 ]
-  %169 = trunc i64 %168 to i32
-  %170 = mul i32 %164, %169
-  %171 = sdiv i32 %170, %165
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr %struct.drm_color_lut, ptr %159, i64 %172
-  %174 = getelementptr %struct.drm_color_lut, ptr %161, i64 %168
-  %175 = load i64, ptr %173, align 2
-  store i64 %175, ptr %174, align 2
-  %176 = add nuw nsw i64 %168, 1
-  %177 = icmp eq i64 %176, %166
-  br i1 %177, label %.loopexit25, label %167, !llvm.loop !178
+165:                                              ; preds = %165, %161
+  %166 = phi i64 [ 0, %161 ], [ %174, %165 ]
+  %167 = trunc i64 %166 to i32
+  %168 = mul i32 %162, %167
+  %169 = sdiv i32 %168, %163
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr %struct.drm_color_lut, ptr %157, i64 %170
+  %172 = getelementptr %struct.drm_color_lut, ptr %159, i64 %166
+  %173 = load i64, ptr %171, align 2
+  store i64 %173, ptr %172, align 2
+  %174 = add nuw nsw i64 %166, 1
+  %175 = icmp eq i64 %174, %164
+  br i1 %175, label %.loopexit25, label %165, !llvm.loop !178
 
-.loopexit25:                                      ; preds = %167, %157
-  %178 = getelementptr inbounds i8, ptr %0, i64 736
-  %179 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef %178, ptr noundef %155) #12
-  %180 = getelementptr inbounds i8, ptr %0, i64 744
-  %181 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef %180, ptr noundef null) #12
-  tail call void @drm_property_blob_put(ptr noundef %155) #12
+.loopexit25:                                      ; preds = %165, %155
+  %176 = getelementptr inbounds i8, ptr %0, i64 736
+  %177 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef %176, ptr noundef %153) #12
+  %178 = getelementptr inbounds i8, ptr %0, i64 744
+  %179 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef %178, ptr noundef null) #12
+  tail call void @drm_property_blob_put(ptr noundef %153) #12
   br label %.thread20
 
-182:                                              ; preds = %141, %137, %132
-  %183 = getelementptr inbounds i8, ptr %134, i64 2632
-  %184 = load i16, ptr %183, align 8
-  %185 = add i16 %184, -11
-  %186 = icmp ult i16 %185, -4
-  br i1 %186, label %265, label %187
+180:                                              ; preds = %139, %135, %130
+  %181 = getelementptr inbounds i8, ptr %132, i64 2632
+  %182 = load i16, ptr %181, align 8
+  %183 = add i16 %182, -11
+  %184 = icmp ult i16 %183, -4
+  br i1 %184, label %263, label %185
 
-187:                                              ; preds = %182
-  %188 = getelementptr inbounds i8, ptr %134, i64 7184
-  %189 = load i32, ptr %188, align 4
-  %190 = and i32 %189, 1048576
-  %191 = icmp eq i32 %190, 0
-  br i1 %191, label %192, label %265
+185:                                              ; preds = %180
+  %186 = getelementptr inbounds i8, ptr %132, i64 7184
+  %187 = load i32, ptr %186, align 4
+  %188 = and i32 %187, 1048576
+  %189 = icmp eq i32 %188, 0
+  br i1 %189, label %190, label %263
 
-192:                                              ; preds = %187
-  %193 = getelementptr inbounds i8, ptr %0, i64 868
-  %194 = load i8, ptr %193, align 4, !range !6, !noundef !7
-  %195 = icmp eq i8 %194, 0
-  br i1 %195, label %265, label %196
+190:                                              ; preds = %185
+  %191 = getelementptr inbounds i8, ptr %0, i64 868
+  %192 = load i8, ptr %191, align 4, !range !6, !noundef !7
+  %193 = icmp eq i8 %192, 0
+  br i1 %193, label %263, label %194
 
-196:                                              ; preds = %192
-  %197 = getelementptr inbounds i8, ptr %0, i64 4332
-  %198 = load i8, ptr %197, align 4
-  %199 = icmp eq i8 %198, 0
-  br i1 %199, label %200, label %265
+194:                                              ; preds = %190
+  %195 = getelementptr inbounds i8, ptr %0, i64 4332
+  %196 = load i8, ptr %195, align 4
+  %197 = icmp eq i8 %196, 0
+  br i1 %197, label %198, label %263
 
-200:                                              ; preds = %196
-  %201 = icmp eq i16 %184, 10
-  br i1 %201, label %210, label %202
+198:                                              ; preds = %194
+  %199 = icmp eq i16 %182, 10
+  br i1 %199, label %208, label %200
 
-202:                                              ; preds = %200
-  br i1 %136, label %265, label %203
+200:                                              ; preds = %198
+  br i1 %134, label %263, label %201
 
-203:                                              ; preds = %202
-  %204 = getelementptr inbounds i8, ptr %0, i64 344
-  %205 = load ptr, ptr %204, align 8
-  %206 = icmp eq ptr %205, null
-  br i1 %206, label %207, label %213
+201:                                              ; preds = %200
+  %202 = getelementptr inbounds i8, ptr %0, i64 344
+  %203 = load ptr, ptr %202, align 8
+  %204 = icmp eq ptr %203, null
+  br i1 %204, label %205, label %211
 
-207:                                              ; preds = %203
-  %208 = getelementptr inbounds i8, ptr %0, i64 360
-  %209 = load ptr, ptr %208, align 8
-  br label %210
+205:                                              ; preds = %201
+  %206 = getelementptr inbounds i8, ptr %0, i64 360
+  %207 = load ptr, ptr %206, align 8
+  br label %208
 
-210:                                              ; preds = %207, %200
-  %211 = phi ptr [ %209, %207 ], [ %135, %200 ]
-  %212 = icmp eq ptr %211, null
-  br i1 %212, label %265, label %213
+208:                                              ; preds = %205, %198
+  %209 = phi ptr [ %207, %205 ], [ %133, %198 ]
+  %210 = icmp eq ptr %209, null
+  br i1 %210, label %263, label %211
 
-213:                                              ; preds = %210, %203
-  %214 = getelementptr inbounds i8, ptr %135, i64 72
-  %215 = load i64, ptr %214, align 8
-  %216 = lshr i64 %215, 3
-  %217 = trunc i64 %216 to i32
-  %218 = shl i64 %216, 32
-  %219 = ashr exact i64 %218, 29
-  %220 = tail call ptr @drm_property_create_blob(ptr noundef %134, i64 noundef %219, ptr noundef null) #12
-  %221 = icmp ugt ptr %220, inttoptr (i64 -4096 to ptr)
-  br i1 %221, label %.thread17, label %222
+211:                                              ; preds = %208, %201
+  %212 = getelementptr inbounds i8, ptr %133, i64 72
+  %213 = load i64, ptr %212, align 8
+  %214 = lshr i64 %213, 3
+  %215 = trunc i64 %214 to i32
+  %216 = shl i64 %214, 32
+  %217 = ashr exact i64 %216, 29
+  %218 = tail call ptr @drm_property_create_blob(ptr noundef %132, i64 noundef %217, ptr noundef null) #12
+  %219 = icmp ugt ptr %218, inttoptr (i64 -4096 to ptr)
+  br i1 %219, label %.thread17, label %220
 
-222:                                              ; preds = %213
-  %223 = getelementptr inbounds i8, ptr %135, i64 80
+220:                                              ; preds = %211
+  %221 = getelementptr inbounds i8, ptr %133, i64 80
+  %222 = load ptr, ptr %221, align 8
+  %223 = getelementptr inbounds i8, ptr %218, i64 80
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %220, i64 80
-  %226 = load ptr, ptr %225, align 8
-  %227 = icmp sgt i32 %217, 0
-  br i1 %227, label %228, label %.loopexit
+  %225 = icmp sgt i32 %215, 0
+  br i1 %225, label %226, label %.loopexit
 
-228:                                              ; preds = %222
-  %229 = add nsw i32 %217, -1
-  %230 = and i64 %216, 2147483647
-  br label %231
+226:                                              ; preds = %220
+  %227 = add nsw i32 %215, -1
+  %228 = and i64 %214, 2147483647
+  br label %229
 
-231:                                              ; preds = %231, %228
-  %232 = phi i64 [ 0, %228 ], [ %261, %231 ]
-  %233 = trunc i64 %232 to i32
-  %234 = mul i32 %229, %233
-  %235 = sdiv i32 %234, %229
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr %struct.drm_color_lut, ptr %224, i64 %236
-  %238 = load i16, ptr %237, align 2
-  %239 = zext i16 %238 to i32
-  %240 = mul nuw i32 %239, 56064
-  %241 = udiv i32 %240, 65535
-  %242 = trunc nuw i32 %241 to i16
-  %243 = add nuw i16 %242, 4096
-  %244 = getelementptr %struct.drm_color_lut, ptr %226, i64 %232
-  store i16 %243, ptr %244, align 2
-  %245 = getelementptr inbounds i8, ptr %237, i64 2
-  %246 = load i16, ptr %245, align 2
-  %247 = zext i16 %246 to i32
-  %248 = mul nuw i32 %247, 56064
-  %249 = udiv i32 %248, 65535
-  %250 = trunc nuw i32 %249 to i16
-  %251 = add nuw i16 %250, 4096
-  %252 = getelementptr inbounds i8, ptr %244, i64 2
-  store i16 %251, ptr %252, align 2
-  %253 = getelementptr inbounds i8, ptr %237, i64 4
-  %254 = load i16, ptr %253, align 2
-  %255 = zext i16 %254 to i32
-  %256 = mul nuw i32 %255, 56064
-  %257 = udiv i32 %256, 65535
-  %258 = trunc nuw i32 %257 to i16
-  %259 = add nuw i16 %258, 4096
-  %260 = getelementptr inbounds i8, ptr %244, i64 4
-  store i16 %259, ptr %260, align 2
-  %261 = add nuw nsw i64 %232, 1
-  %262 = icmp eq i64 %261, %230
-  br i1 %262, label %.loopexit, label %231, !llvm.loop !178
+229:                                              ; preds = %229, %226
+  %230 = phi i64 [ 0, %226 ], [ %259, %229 ]
+  %231 = trunc i64 %230 to i32
+  %232 = mul i32 %227, %231
+  %233 = sdiv i32 %232, %227
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr %struct.drm_color_lut, ptr %222, i64 %234
+  %236 = load i16, ptr %235, align 2
+  %237 = zext i16 %236 to i32
+  %238 = mul nuw i32 %237, 56064
+  %239 = udiv i32 %238, 65535
+  %240 = trunc nuw i32 %239 to i16
+  %241 = add nuw i16 %240, 4096
+  %242 = getelementptr %struct.drm_color_lut, ptr %224, i64 %230
+  store i16 %241, ptr %242, align 2
+  %243 = getelementptr inbounds i8, ptr %235, i64 2
+  %244 = load i16, ptr %243, align 2
+  %245 = zext i16 %244 to i32
+  %246 = mul nuw i32 %245, 56064
+  %247 = udiv i32 %246, 65535
+  %248 = trunc nuw i32 %247 to i16
+  %249 = add nuw i16 %248, 4096
+  %250 = getelementptr inbounds i8, ptr %242, i64 2
+  store i16 %249, ptr %250, align 2
+  %251 = getelementptr inbounds i8, ptr %235, i64 4
+  %252 = load i16, ptr %251, align 2
+  %253 = zext i16 %252 to i32
+  %254 = mul nuw i32 %253, 56064
+  %255 = udiv i32 %254, 65535
+  %256 = trunc nuw i32 %255 to i16
+  %257 = add nuw i16 %256, 4096
+  %258 = getelementptr inbounds i8, ptr %242, i64 4
+  store i16 %257, ptr %258, align 2
+  %259 = add nuw nsw i64 %230, 1
+  %260 = icmp eq i64 %259, %228
+  br i1 %260, label %.loopexit, label %229, !llvm.loop !178
 
-.loopexit:                                        ; preds = %231, %222
-  %263 = getelementptr inbounds i8, ptr %0, i64 744
-  %264 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef %263, ptr noundef %220) #12
-  tail call void @drm_property_blob_put(ptr noundef %220) #12
-  br label %268
+.loopexit:                                        ; preds = %229, %220
+  %261 = getelementptr inbounds i8, ptr %0, i64 744
+  %262 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef %261, ptr noundef %218) #12
+  tail call void @drm_property_blob_put(ptr noundef %218) #12
+  br label %266
 
-265:                                              ; preds = %210, %202, %196, %192, %187, %182
-  %266 = getelementptr inbounds i8, ptr %0, i64 744
-  %267 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef %266, ptr noundef %135) #12
-  br label %268
+263:                                              ; preds = %208, %200, %194, %190, %185, %180
+  %264 = getelementptr inbounds i8, ptr %0, i64 744
+  %265 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef %264, ptr noundef %133) #12
+  br label %266
 
-268:                                              ; preds = %.loopexit, %265
-  %269 = getelementptr inbounds i8, ptr %0, i64 736
-  %270 = getelementptr inbounds i8, ptr %0, i64 344
-  %271 = load ptr, ptr %270, align 8
-  %272 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef %269, ptr noundef %271) #12
-  %273 = load i8, ptr %116, align 1, !range !6, !noundef !7
-  %274 = icmp eq i8 %273, 0
-  br i1 %274, label %.thread20, label %275
+266:                                              ; preds = %.loopexit, %263
+  %267 = getelementptr inbounds i8, ptr %0, i64 736
+  %268 = getelementptr inbounds i8, ptr %0, i64 344
+  %269 = load ptr, ptr %268, align 8
+  %270 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef %267, ptr noundef %269) #12
+  %271 = load i8, ptr %114, align 1, !range !6, !noundef !7
+  %272 = icmp eq i8 %271, 0
+  br i1 %272, label %.thread20, label %273
 
-275:                                              ; preds = %268
-  %276 = load ptr, ptr %269, align 8
-  %277 = icmp eq ptr %276, null
-  br i1 %277, label %278, label %.thread20
+273:                                              ; preds = %266
+  %274 = load ptr, ptr %267, align 8
+  %275 = icmp eq ptr %274, null
+  br i1 %275, label %276, label %.thread20
 
-278:                                              ; preds = %275
-  %279 = getelementptr inbounds i8, ptr %134, i64 2232
-  %280 = load ptr, ptr %279, align 8
-  %281 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef %269, ptr noundef %280) #12
+276:                                              ; preds = %273
+  %277 = getelementptr inbounds i8, ptr %132, i64 2232
+  %278 = load ptr, ptr %277, align 8
+  %279 = tail call zeroext i1 @drm_property_replace_blob(ptr noundef %267, ptr noundef %278) #12
   br label %.thread20
 
-.thread17:                                        ; preds = %213, %144
-  %.in.in = phi ptr [ %155, %144 ], [ %220, %213 ]
+.thread17:                                        ; preds = %211, %142
+  %.in.in = phi ptr [ %153, %142 ], [ %218, %211 ]
   %.in = ptrtoint ptr %.in.in to i64
-  %282 = trunc i64 %.in to i32
-  %283 = icmp eq i32 %282, 0
-  br i1 %283, label %.thread20, label %305
+  %280 = trunc i64 %.in to i32
+  %281 = icmp eq i32 %280, 0
+  br i1 %281, label %.thread20, label %303
 
-.thread20:                                        ; preds = %268, %275, %278, %.loopexit25, %.thread17
+.thread20:                                        ; preds = %266, %273, %276, %.loopexit25, %.thread17
   tail call fastcc void @ilk_assign_csc(ptr noundef %0)
-  %284 = load ptr, ptr %0, align 8
-  %285 = getelementptr inbounds i8, ptr %0, i64 328
+  %282 = load ptr, ptr %0, align 8
+  %283 = getelementptr inbounds i8, ptr %0, i64 328
+  %284 = load ptr, ptr %283, align 8
+  %285 = getelementptr inbounds i8, ptr %284, i64 32
   %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 32
-  %288 = load ptr, ptr %287, align 8
-  %289 = getelementptr inbounds i8, ptr %284, i64 144
-  %290 = load i32, ptr %289, align 8
-  %291 = zext i32 %290 to i64
-  %292 = getelementptr %struct.__drm_crtcs_state, ptr %288, i64 %291, i32 2
+  %287 = getelementptr inbounds i8, ptr %282, i64 144
+  %288 = load i32, ptr %287, align 8
+  %289 = zext i32 %288 to i64
+  %290 = getelementptr %struct.__drm_crtcs_state, ptr %286, i64 %289, i32 2
+  %291 = load ptr, ptr %290, align 8
+  %292 = getelementptr inbounds i8, ptr %291, i64 744
   %293 = load ptr, ptr %292, align 8
-  %294 = getelementptr inbounds i8, ptr %293, i64 744
-  %295 = load ptr, ptr %294, align 8
-  %296 = icmp eq ptr %295, null
-  br i1 %296, label %297, label %302
+  %294 = icmp eq ptr %293, null
+  br i1 %294, label %295, label %300
 
-297:                                              ; preds = %.thread20
-  %298 = getelementptr inbounds i8, ptr %293, i64 736
-  %299 = load ptr, ptr %298, align 8
-  %300 = icmp eq ptr %299, null
-  %301 = zext i1 %300 to i8
-  br label %302
+295:                                              ; preds = %.thread20
+  %296 = getelementptr inbounds i8, ptr %291, i64 736
+  %297 = load ptr, ptr %296, align 8
+  %298 = icmp eq ptr %297, null
+  %299 = zext i1 %298 to i8
+  br label %300
 
-302:                                              ; preds = %297, %.thread20
-  %303 = phi i8 [ 0, %.thread20 ], [ %301, %297 ]
-  %304 = getelementptr inbounds i8, ptr %0, i64 835
-  store i8 %303, ptr %304, align 1
-  br label %305
+300:                                              ; preds = %295, %.thread20
+  %301 = phi i8 [ 0, %.thread20 ], [ %299, %295 ]
+  %302 = getelementptr inbounds i8, ptr %0, i64 835
+  store i8 %301, ptr %302, align 1
+  br label %303
 
-305:                                              ; preds = %302, %.thread17, %125, %63, %49, %30
-  %306 = phi i32 [ -22, %49 ], [ -22, %63 ], [ 0, %302 ], [ %34, %30 ], [ %130, %125 ], [ %282, %.thread17 ]
-  ret i32 %306
+303:                                              ; preds = %300, %.thread17, %123, %63, %49, %30
+  %304 = phi i32 [ -22, %49 ], [ -22, %63 ], [ 0, %300 ], [ %34, %30 ], [ %128, %123 ], [ %280, %.thread17 ]
+  ret i32 %304
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -16676,11 +16672,11 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
 ..thread_crit_edge:                               ; preds = %67
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 344
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %69 = icmp ne ptr %.pre, null
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %57
-  %69 = phi ptr [ %.pre, %..thread_crit_edge ], [ %55, %57 ]
-  %70 = icmp ne ptr %69, null
+  %70 = phi i1 [ %69, %..thread_crit_edge ], [ true, %57 ]
   %spec.select = and i1 %26, %70
   br label %71
 
@@ -16691,7 +16687,7 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   %75 = getelementptr inbounds i8, ptr %0, i64 4752
   %76 = zext i1 %74 to i8
   store i8 %76, ptr %75, align 8
-  br i1 %41, label %77, label %115
+  br i1 %41, label %77, label %116
 
 77:                                               ; preds = %71
   %78 = load ptr, ptr %0, align 8
@@ -16716,7 +16712,7 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   br i1 %92, label %111, label %93
 
 93:                                               ; preds = %89
-  br i1 %26, label %94, label %115
+  br i1 %26, label %94, label %116
 
 94:                                               ; preds = %93
   %95 = icmp eq i16 %81, 10
@@ -16748,26 +16744,26 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
 108:                                              ; preds = %106, %94
   %109 = phi ptr [ %.pre17, %106 ], [ %72, %94 ]
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %115, label %111
+  br i1 %110, label %116, label %111
 
 111:                                              ; preds = %108, %102, %89, %84, %77
   %112 = getelementptr inbounds i8, ptr %0, i64 360
   %113 = load ptr, ptr %112, align 8
   %114 = icmp ne ptr %113, null
-  br label %115
+  %115 = zext i1 %114 to i8
+  br label %116
 
-115:                                              ; preds = %111, %108, %93, %71
-  %116 = phi i1 [ true, %108 ], [ true, %71 ], [ %114, %111 ], [ true, %93 ]
-  %117 = getelementptr inbounds i8, ptr %0, i64 4753
-  %118 = zext i1 %116 to i8
-  store i8 %118, ptr %117, align 1
+116:                                              ; preds = %111, %108, %93, %71
+  %117 = phi i8 [ 1, %108 ], [ 1, %71 ], [ %115, %111 ], [ 1, %93 ]
+  %118 = getelementptr inbounds i8, ptr %0, i64 4753
+  store i8 %117, ptr %118, align 1
   %119 = getelementptr inbounds i8, ptr %0, i64 344
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
   %122 = or i1 %73, %121
   br i1 %122, label %123, label %133
 
-123:                                              ; preds = %115
+123:                                              ; preds = %116
   %124 = xor i1 %74, true
   %125 = or i1 %73, %124
   %126 = zext i1 %74 to i32
@@ -16781,11 +16777,11 @@ define internal i32 @ivb_color_check(ptr noundef %0) #0 align 16 {
   %132 = zext i1 %131 to i32
   br label %133
 
-133:                                              ; preds = %.thread14, %127, %123, %115
-  %134 = phi i1 [ %121, %123 ], [ %121, %127 ], [ false, %115 ], [ %100, %.thread14 ]
-  %135 = phi ptr [ %119, %123 ], [ %119, %127 ], [ %119, %115 ], [ %98, %.thread14 ]
-  %136 = phi i1 [ %73, %123 ], [ false, %127 ], [ false, %115 ], [ true, %.thread14 ]
-  %137 = phi i32 [ %126, %123 ], [ %132, %127 ], [ 3, %115 ], [ %101, %.thread14 ]
+133:                                              ; preds = %.thread14, %127, %123, %116
+  %134 = phi i1 [ %121, %123 ], [ %121, %127 ], [ false, %116 ], [ %100, %.thread14 ]
+  %135 = phi ptr [ %119, %123 ], [ %119, %127 ], [ %119, %116 ], [ %98, %.thread14 ]
+  %136 = phi i1 [ %73, %123 ], [ false, %127 ], [ false, %116 ], [ true, %.thread14 ]
+  %137 = phi i32 [ %126, %123 ], [ %132, %127 ], [ 3, %116 ], [ %101, %.thread14 ]
   %138 = getelementptr inbounds i8, ptr %0, i64 4320
   store i32 %137, ptr %138, align 8
   %139 = load ptr, ptr %0, align 8

@@ -732,7 +732,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   %18 = lshr i64 %15, 10
   %19 = tail call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %18, i1 false)
   %20 = sub nuw nsw i64 64, %19
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %20, i64 7)
+  %.0.sroa.speculated.i.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 %20, i64 7)
   %21 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i, 2
   %22 = or disjoint i64 %21, 1
   %23 = getelementptr i8, ptr null, i64 %22
@@ -1878,7 +1878,7 @@ define hidden void @_ZN9actix_web5error14response_error13ResponseError14error_re
   %38 = lshr i64 %35, 10
   %39 = tail call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %38, i1 false)
   %40 = sub nuw nsw i64 64, %39
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 7)
+  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 %40, i64 7)
   %41 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
   %42 = or disjoint i64 %41, 1
   %43 = getelementptr i8, ptr null, i64 %42

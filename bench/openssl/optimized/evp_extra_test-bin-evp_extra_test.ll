@@ -7098,11 +7098,11 @@ land.rhs:                                         ; preds = %if.end35
   %keymgmt38 = getelementptr inbounds i8, ptr %9, i64 96
   %11 = load ptr, ptr %keymgmt38, align 8
   %cmp39 = icmp eq ptr %11, null
+  %12 = zext i1 %cmp39 to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end35
-  %12 = phi i1 [ false, %if.end35 ], [ %cmp39, %land.rhs ]
-  %land.ext = zext i1 %12 to i32
+  %land.ext = phi i32 [ 0, %if.end35 ], [ %12, %land.rhs ]
   %call43 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 4608, ptr noundef nonnull @.str.663, i32 noundef %land.ext) #8
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %err, label %if.end47

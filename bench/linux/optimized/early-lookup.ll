@@ -591,29 +591,34 @@ define internal fastcc i32 @blk_lookup_devt(ptr nocapture noundef readonly %0, i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !7
   call void @class_dev_iter_init(ptr noundef nonnull %3, ptr noundef nonnull @block_class, ptr noundef null, ptr noundef nonnull @disk_type) #12
   %4 = trunc i32 %1 to i8
-  %5 = call ptr @class_dev_iter_next(ptr noundef nonnull %3) #12
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %.thread, label %.lr.ph
+  br label %.outer
 
-.lr.ph:                                           ; preds = %2, %select.unfold
-  %7 = phi ptr [ %35, %select.unfold ], [ %5, %2 ]
-  %8 = phi i32 [ %34, %select.unfold ], [ 0, %2 ]
-  %9 = getelementptr i8, ptr %7, i64 -184
+.outer:                                           ; preds = %.outer.backedge, %2
+  %.ph = phi i32 [ 0, %2 ], [ %.ph.be, %.outer.backedge ]
+  br label %5
+
+5:                                                ; preds = %.outer, %16
+  %6 = call ptr @class_dev_iter_next(ptr noundef nonnull %3) #12
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %.loopexit, label %8
+
+8:                                                ; preds = %5
+  %9 = getelementptr i8, ptr %6, i64 -184
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 80
+  %11 = getelementptr inbounds i8, ptr %6, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %16
 
-14:                                               ; preds = %.lr.ph
-  %15 = load ptr, ptr %7, align 8
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %6, align 8
   br label %16
 
-16:                                               ; preds = %14, %.lr.ph
-  %17 = phi ptr [ %15, %14 ], [ %12, %.lr.ph ]
+16:                                               ; preds = %14, %8
+  %17 = phi ptr [ %15, %14 ], [ %12, %8 ]
   %18 = call i32 @strcmp(ptr noundef %17, ptr noundef %0) #12
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %select.unfold, !llvm.loop !14
+  br i1 %19, label %20, label %5, !llvm.loop !14
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %10, i64 8
@@ -622,30 +627,28 @@ define internal fastcc i32 @blk_lookup_devt(ptr nocapture noundef readonly %0, i
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %7, i64 644
+  %25 = getelementptr inbounds i8, ptr %6, i64 644
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, -1048576
   %28 = and i32 %26, 1048575
   %29 = add i32 %28, %1
   %30 = or i32 %29, %27
-  br label %select.unfold
+  br label %.outer.backedge
+
+.outer.backedge:                                  ; preds = %24, %31
+  %.ph.be = phi i32 [ 0, %31 ], [ %30, %24 ]
+  br label %.outer
 
 31:                                               ; preds = %20
   %32 = call i32 @part_devt(ptr noundef %10, i8 noundef zeroext %4) #12
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %select.unfold, label %.thread
+  %.not = icmp eq i32 %32, 0
+  br i1 %.not, label %.outer.backedge, label %.loopexit
 
-select.unfold:                                    ; preds = %31, %24, %16
-  %34 = phi i32 [ %8, %16 ], [ %30, %24 ], [ 0, %31 ]
-  %35 = call ptr @class_dev_iter_next(ptr noundef nonnull %3) #12
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %.thread, label %.lr.ph
-
-.thread:                                          ; preds = %select.unfold, %31, %2
-  %37 = phi i32 [ 0, %2 ], [ %32, %31 ], [ %34, %select.unfold ]
+.loopexit:                                        ; preds = %31, %5
+  %33 = phi i32 [ %.ph, %5 ], [ %32, %31 ]
   call void @class_dev_iter_exit(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
-  ret i32 %37
+  ret i32 %33
 }
 
 ; Function Attrs: null_pointer_is_valid

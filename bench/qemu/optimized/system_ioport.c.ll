@@ -983,7 +983,7 @@ declare void @memory_region_add_subregion(ptr noundef, i64 noundef, ptr noundef)
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @portio_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #1 {
+define internal range(i64 0, -9223372036854775808) i64 @portio_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #1 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 328
   %opaque.val = load ptr, ptr %0, align 8

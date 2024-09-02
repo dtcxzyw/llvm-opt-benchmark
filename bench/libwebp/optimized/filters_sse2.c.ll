@@ -384,16 +384,16 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly %0, ptr nocaptu
   %75 = add <16 x i8> %74, %71
   %76 = bitcast <16 x i8> %75 to <2 x i64>
   %77 = and <2 x i64> %76, <i64 255, i64 0>
-  br label %78
+  %78 = bitcast <2 x i64> %77 to <16 x i8>
+  br label %79
 
-78:                                               ; preds = %78, %.lr.ph.i12
-  %79 = phi i32 [ 7, %.lr.ph.i12 ], [ %94, %78 ]
-  %80 = phi <2 x i64> [ %77, %.lr.ph.i12 ], [ %93, %78 ]
-  %81 = phi <2 x i64> [ %77, %.lr.ph.i12 ], [ %92, %78 ]
-  %82 = phi <16 x i8> [ <i8 -1, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, %.lr.ph.i12 ], [ %85, %78 ]
-  %83 = bitcast <2 x i64> %81 to <16 x i8>
-  %84 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0>, <16 x i8> %83, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %85 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0>, <16 x i8> %82, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
+79:                                               ; preds = %79, %.lr.ph.i12
+  %80 = phi i32 [ 7, %.lr.ph.i12 ], [ %94, %79 ]
+  %81 = phi <2 x i64> [ %77, %.lr.ph.i12 ], [ %93, %79 ]
+  %82 = phi <16 x i8> [ %78, %.lr.ph.i12 ], [ %91, %79 ]
+  %83 = phi <16 x i8> [ <i8 -1, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, %.lr.ph.i12 ], [ %85, %79 ]
+  %84 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0>, <16 x i8> %82, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %85 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0>, <16 x i8> %83, <16 x i32> <i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30>
   %86 = shufflevector <16 x i8> %84, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %87 = bitcast <16 x i8> %86 to <8 x i16>
   %88 = add nsw <8 x i16> %70, %87
@@ -401,12 +401,12 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly %0, ptr nocaptu
   %90 = add <16 x i8> %89, %71
   %91 = and <16 x i8> %90, %85
   %92 = bitcast <16 x i8> %91 to <2 x i64>
-  %93 = or <2 x i64> %80, %92
-  %94 = add nsw i32 %79, -1
+  %93 = or <2 x i64> %81, %92
+  %94 = add nsw i32 %80, -1
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %78
+  br i1 %95, label %96, label %79
 
-96:                                               ; preds = %78
+96:                                               ; preds = %79
   %97 = shufflevector <16 x i8> %91, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22>
   %98 = bitcast <16 x i8> %97 to <2 x i64>
   %99 = getelementptr inbounds i8, ptr %43, i64 %indvars.iv.i13
@@ -429,7 +429,7 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly %0, ptr nocaptu
   %109 = zext i8 %105 to i32
   %110 = sub nsw i32 %108, %109
   %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 0)
-  %112 = tail call range(i32 -255, 511) i32 @llvm.umin.i32(i32 %111, i32 255)
+  %112 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %111, i32 255)
   %113 = getelementptr inbounds i8, ptr %41, i64 %indvars.iv105.i
   %114 = load i8, ptr %113, align 1
   %115 = trunc nuw i32 %112 to i8
@@ -959,7 +959,7 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.pre
   %90 = zext i8 %86 to i32
   %91 = sub nsw i32 %89, %90
   %92 = tail call i32 @llvm.smax.i32(i32 %91, i32 0)
-  %93 = tail call range(i32 -255, 511) i32 @llvm.umin.i32(i32 %92, i32 255)
+  %93 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %92, i32 255)
   %94 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv72.i.us.i
   %95 = load i8, ptr %94, align 1
   %96 = trunc nuw i32 %93 to i8
@@ -1010,7 +1010,7 @@ GradientPredictDirect_SSE2.exit.us.i:             ; preds = %.lr.ph70.i.us.i, %.
   %116 = zext i8 %112 to i32
   %117 = sub nsw i32 %115, %116
   %118 = tail call i32 @llvm.smax.i32(i32 %117, i32 0)
-  %119 = tail call range(i32 -255, 511) i32 @llvm.umin.i32(i32 %118, i32 255)
+  %119 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %118, i32 255)
   %120 = getelementptr inbounds i8, ptr %105, i64 %indvars.iv72.i.us63.i
   %121 = load i8, ptr %120, align 1
   %122 = trunc nuw i32 %119 to i8

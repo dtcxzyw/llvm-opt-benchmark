@@ -2039,7 +2039,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi6MatrixIdE8sp
 declare noundef double @_ZNK6casadi6MatrixIdE6scalarEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6casadi10ConstantMX6createERKNS_8SparsityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN6casadi10ConstantMX6createERKNS_8SparsityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %7
@@ -8117,7 +8117,7 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_16CompiletimeConstILi0E
   br i1 %.2, label %71, label %231
 
 71:                                               ; preds = %.thread, %70
-  %.pn.pn.pn.pn.pn.pn.pn95 = phi { ptr, i32 } [ %50, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %70 ]
+  %.pn.pn.pn.pn.pn.pn.pn97 = phi { ptr, i32 } [ %50, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %70 ]
   call void @__cxa_free_exception(ptr %39) #27
   br label %231
 
@@ -8191,7 +8191,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit: ; preds = %91
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #27
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #27
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #27
-  br label %.critedge89
+  br label %.critedge91
 
 104:                                              ; preds = %91
   %105 = landingpad { ptr, i32 }
@@ -8243,19 +8243,19 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %73, %
   %121 = load ptr, ptr %120, align 8
   %122 = tail call noundef i64 %121(ptr noundef nonnull align 8 dereferenceable(64) %118)
   %123 = icmp eq i64 %122, 44
-  br i1 %123, label %124, label %.critedge
+  br i1 %123, label %124, label %.critedge89
 
 124:                                              ; preds = %117
   %125 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %126 = icmp eq ptr %125, null
-  br i1 %126, label %.thread97, label %127
+  br i1 %126, label %.critedge, label %127
 
 127:                                              ; preds = %124
   %128 = tail call ptr @__dynamic_cast(ptr nonnull %125, ptr nonnull @_ZTIN6casadi6MXNodeE, ptr nonnull @_ZTIN6casadi10ConstantDME, i64 0) #27
   %129 = icmp eq ptr %128, null
-  br i1 %129, label %.thread97, label %.critedge
+  br i1 %129, label %.critedge, label %.critedge89
 
-.thread97:                                        ; preds = %124, %127
+.critedge:                                        ; preds = %124, %127
   %130 = trunc i64 %2 to i8
   store double 0.000000e+00, ptr %25, align 8
   %131 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -8263,7 +8263,7 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %73, %
   %133 = icmp sgt i64 %132, 0
   br i1 %133, label %134, label %140
 
-134:                                              ; preds = %.thread97
+134:                                              ; preds = %.critedge
   %135 = tail call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 416
@@ -8271,31 +8271,31 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %73, %
   %139 = tail call noundef double %138(ptr noundef nonnull align 8 dereferenceable(64) %135)
   br label %140
 
-140:                                              ; preds = %.thread97, %134
-  %141 = phi double [ %139, %134 ], [ 0.000000e+00, %.thread97 ]
+140:                                              ; preds = %.critedge, %134
+  %141 = phi double [ %139, %134 ], [ 0.000000e+00, %.critedge ]
   store double %141, ptr %26, align 8
   call void @_ZN6casadi11casadi_mathIdE3funEhRKdS3_Rd(i8 noundef zeroext %130, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %24)
   %142 = load double, ptr %24, align 8
   %143 = fcmp une double %142, 0.000000e+00
-  br i1 %143, label %.critedge, label %164
+  br i1 %143, label %.critedge89, label %164
 
-.critedge:                                        ; preds = %127, %117, %140
+.critedge89:                                      ; preds = %127, %117, %140
   %144 = call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35)
   %145 = call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35)
   call void @_ZN6casadi8Sparsity5denseExx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %27, i64 noundef %144, i64 noundef %145)
   invoke void @_ZNK6casadi20SharedObjectInternal16shared_from_thisINS_2MXEEEKT_v(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %146 unwind label %154
 
-146:                                              ; preds = %.critedge
+146:                                              ; preds = %.critedge89
   invoke void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %28, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %27, i1 noundef zeroext false)
-          to label %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit92 unwind label %156
+          to label %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit94 unwind label %156
 
-_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit92: ; preds = %146
+_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit94: ; preds = %146
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #27
   %147 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %148 unwind label %158
 
-148:                                              ; preds = %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit92
+148:                                              ; preds = %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit94
   invoke void @_ZN6casadi2MXC1ERKNS_8SparsityERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %149 unwind label %158
 
@@ -8310,9 +8310,9 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit92: ; preds = %146
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #27
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #27
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #27
-  br label %.critedge89
+  br label %.critedge91
 
-154:                                              ; preds = %.critedge
+154:                                              ; preds = %.critedge89
   %155 = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -8323,7 +8323,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit92: ; preds = %146
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #27
   br label %163
 
-158:                                              ; preds = %148, %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit92
+158:                                              ; preds = %148, %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit94
   %159 = landingpad { ptr, i32 }
           cleanup
   br label %162
@@ -8366,11 +8366,11 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit92: ; preds = %146
   %173 = call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35)
   %174 = call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35)
   call void @_ZN6casadi2MX6repmatERKS0_xx(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %173, i64 noundef %174)
-  br label %.critedge89
+  br label %.critedge91
 
 175:                                              ; preds = %166, %165
   call void @_ZN6casadi12SharedObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %.critedge89
+  br label %.critedge91
 
 176:                                              ; preds = %164
   br i1 %5, label %177, label %186
@@ -8398,11 +8398,11 @@ _ZNK6casadi6MXNode5size2Ev.exit:                  ; preds = %_ZNK6casadi6MXNode5
 
 186:                                              ; preds = %177, %176
   call void @_ZNK6casadi2MXngEv(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %.critedge89
+  br label %.critedge91
 
 _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5size2Ev.exit
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #27
-  br label %.critedge89
+  br label %.critedge91
 
 187:                                              ; preds = %183, %_ZNK6casadi6MXNode5size1Ev.exit, %_ZNK6casadi6MXNode5size2Ev.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -8413,7 +8413,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
 188:                                              ; preds = %164
   %189 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @_ZN6casadi2MXC1ERKNS_8SparsityEdb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %189, double noundef 0.000000e+00, i1 noundef zeroext false)
-  br label %.critedge89
+  br label %.critedge91
 
 190:                                              ; preds = %164
   %191 = call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -8427,20 +8427,20 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
 197:                                              ; preds = %190
   %198 = call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %199 = icmp eq ptr %198, null
-  br i1 %199, label %.critedge91, label %200
+  br i1 %199, label %.critedge93, label %200
 
 200:                                              ; preds = %197
   %201 = call ptr @__dynamic_cast(ptr nonnull %198, ptr nonnull @_ZTIN6casadi6MXNodeE, ptr nonnull @_ZTIN6casadi10ConstantDME, i64 0) #27
   %202 = icmp eq ptr %201, null
-  br i1 %202, label %.critedge91, label %230
+  br i1 %202, label %.critedge93, label %230
 
-.critedge91:                                      ; preds = %197, %200
+.critedge93:                                      ; preds = %197, %200
   %203 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %204 = call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %203)
   %205 = icmp sgt i64 %204, 0
   br i1 %205, label %206, label %212
 
-206:                                              ; preds = %.critedge91
+206:                                              ; preds = %.critedge93
   %207 = call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %208 = load ptr, ptr %207, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 416
@@ -8448,8 +8448,8 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   %211 = call noundef double %210(ptr noundef nonnull align 8 dereferenceable(64) %207)
   br label %212
 
-212:                                              ; preds = %.critedge91, %206
-  %213 = phi double [ %211, %206 ], [ 0.000000e+00, %.critedge91 ]
+212:                                              ; preds = %.critedge93, %206
+  %213 = phi double [ %211, %206 ], [ 0.000000e+00, %.critedge93 ]
   store double %213, ptr %32, align 8
   %214 = trunc i64 %2 to i8
   %215 = load ptr, ptr %1, align 8
@@ -8474,17 +8474,17 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   %228 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %229 = load double, ptr %33, align 8
   call void @_ZN6casadi2MXC1ERKNS_8SparsityEdb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %228, double noundef %229, i1 noundef zeroext false)
-  br label %.critedge89
+  br label %.critedge91
 
 230:                                              ; preds = %200, %190
   call void @_ZNK6casadi6MXNode11_get_binaryExRKNS_2MXEbb(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %4, i1 noundef zeroext %5)
-  br label %.critedge89
+  br label %.critedge91
 
-.critedge89:                                      ; preds = %186, %_ZN6casadi6repmatERKNS_2MXExx.exit, %172, %175, %230, %226, %188, %153, %103
+.critedge91:                                      ; preds = %186, %_ZN6casadi6repmatERKNS_2MXExx.exit, %172, %175, %230, %226, %188, %153, %103
   ret void
 
 231:                                              ; preds = %187, %70, %71, %163, %114
-  %.pn85 = phi { ptr, i32 } [ %lpad.thr_comm, %187 ], [ %.pn82.pn, %163 ], [ %.pn78.pn.pn, %114 ], [ %.pn.pn.pn.pn.pn.pn.pn95, %71 ], [ %.pn.pn.pn.pn.pn.pn, %70 ]
+  %.pn85 = phi { ptr, i32 } [ %lpad.thr_comm, %187 ], [ %.pn82.pn, %163 ], [ %.pn78.pn.pn, %114 ], [ %.pn.pn.pn.pn.pn.pn.pn97, %71 ], [ %.pn.pn.pn.pn.pn.pn, %70 ]
   resume { ptr, i32 } %.pn85
 
 232:                                              ; preds = %49
@@ -11079,7 +11079,7 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_16CompiletimeConstILi1E
   br i1 %.2, label %70, label %214
 
 70:                                               ; preds = %.thread, %69
-  %.pn.pn.pn.pn.pn.pn.pn82 = phi { ptr, i32 } [ %49, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %69 ]
+  %.pn.pn.pn.pn.pn.pn.pn84 = phi { ptr, i32 } [ %49, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %69 ]
   call void @__cxa_free_exception(ptr %38) #27
   br label %214
 
@@ -11205,19 +11205,19 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %72, %
   %120 = load ptr, ptr %119, align 8
   %121 = tail call noundef i64 %120(ptr noundef nonnull align 8 dereferenceable(64) %117)
   %122 = icmp eq i64 %121, 44
-  br i1 %122, label %123, label %.critedge
+  br i1 %122, label %123, label %.critedge78
 
 123:                                              ; preds = %116
   %124 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %.thread84, label %126
+  br i1 %125, label %.critedge, label %126
 
 126:                                              ; preds = %123
   %127 = tail call ptr @__dynamic_cast(ptr nonnull %124, ptr nonnull @_ZTIN6casadi6MXNodeE, ptr nonnull @_ZTIN6casadi10ConstantDME, i64 0) #27
   %128 = icmp eq ptr %127, null
-  br i1 %128, label %.thread84, label %.critedge
+  br i1 %128, label %.critedge, label %.critedge78
 
-.thread84:                                        ; preds = %123, %126
+.critedge:                                        ; preds = %123, %126
   %129 = trunc i64 %2 to i8
   store double 0.000000e+00, ptr %25, align 8
   %130 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -11225,7 +11225,7 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %72, %
   %132 = icmp sgt i64 %131, 0
   br i1 %132, label %133, label %139
 
-133:                                              ; preds = %.thread84
+133:                                              ; preds = %.critedge
   %134 = tail call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 416
@@ -11233,31 +11233,31 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %72, %
   %138 = tail call noundef double %137(ptr noundef nonnull align 8 dereferenceable(64) %134)
   br label %139
 
-139:                                              ; preds = %.thread84, %133
-  %140 = phi double [ %138, %133 ], [ 0.000000e+00, %.thread84 ]
+139:                                              ; preds = %.critedge, %133
+  %140 = phi double [ %138, %133 ], [ 0.000000e+00, %.critedge ]
   store double %140, ptr %26, align 8
   call void @_ZN6casadi11casadi_mathIdE3funEhRKdS3_Rd(i8 noundef zeroext %129, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %24)
   %141 = load double, ptr %24, align 8
   %142 = fcmp une double %141, 0.000000e+00
-  br i1 %142, label %.critedge, label %163
+  br i1 %142, label %.critedge78, label %163
 
-.critedge:                                        ; preds = %126, %116, %139
+.critedge78:                                      ; preds = %126, %116, %139
   %143 = call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %34)
   %144 = call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34)
   call void @_ZN6casadi8Sparsity5denseExx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %27, i64 noundef %143, i64 noundef %144)
   invoke void @_ZNK6casadi20SharedObjectInternal16shared_from_thisINS_2MXEEEKT_v(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %145 unwind label %153
 
-145:                                              ; preds = %.critedge
+145:                                              ; preds = %.critedge78
   invoke void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %28, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %27, i1 noundef zeroext false)
-          to label %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit79 unwind label %155
+          to label %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit81 unwind label %155
 
-_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit79: ; preds = %145
+_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit81: ; preds = %145
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #27
   %146 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %147 unwind label %157
 
-147:                                              ; preds = %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit79
+147:                                              ; preds = %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit81
   invoke void @_ZN6casadi2MXC1ERKNS_8SparsityERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %148 unwind label %157
 
@@ -11274,7 +11274,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit79: ; preds = %145
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #27
   br label %213
 
-153:                                              ; preds = %.critedge
+153:                                              ; preds = %.critedge78
   %154 = landingpad { ptr, i32 }
           cleanup
   br label %162
@@ -11285,7 +11285,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit79: ; preds = %145
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #27
   br label %162
 
-157:                                              ; preds = %147, %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit79
+157:                                              ; preds = %147, %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit81
   %158 = landingpad { ptr, i32 }
           cleanup
   br label %161
@@ -11342,20 +11342,20 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit79: ; preds = %145
 179:                                              ; preds = %172
   %180 = call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %181 = icmp eq ptr %180, null
-  br i1 %181, label %.critedge78, label %182
+  br i1 %181, label %.critedge80, label %182
 
 182:                                              ; preds = %179
   %183 = call ptr @__dynamic_cast(ptr nonnull %180, ptr nonnull @_ZTIN6casadi6MXNodeE, ptr nonnull @_ZTIN6casadi10ConstantDME, i64 0) #27
   %184 = icmp eq ptr %183, null
-  br i1 %184, label %.critedge78, label %212
+  br i1 %184, label %.critedge80, label %212
 
-.critedge78:                                      ; preds = %179, %182
+.critedge80:                                      ; preds = %179, %182
   %185 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %186 = call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %185)
   %187 = icmp sgt i64 %186, 0
   br i1 %187, label %188, label %194
 
-188:                                              ; preds = %.critedge78
+188:                                              ; preds = %.critedge80
   %189 = call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 416
@@ -11363,8 +11363,8 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit79: ; preds = %145
   %193 = call noundef double %192(ptr noundef nonnull align 8 dereferenceable(64) %189)
   br label %194
 
-194:                                              ; preds = %.critedge78, %188
-  %195 = phi double [ %193, %188 ], [ 0.000000e+00, %.critedge78 ]
+194:                                              ; preds = %.critedge80, %188
+  %195 = phi double [ %193, %188 ], [ 0.000000e+00, %.critedge80 ]
   store double %195, ptr %31, align 8
   %196 = trunc i64 %2 to i8
   %197 = load ptr, ptr %1, align 8
@@ -11399,7 +11399,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit79: ; preds = %145
   ret void
 
 214:                                              ; preds = %69, %70, %162, %113
-  %.pn72.pn.pn = phi { ptr, i32 } [ %.pn72.pn, %162 ], [ %.pn68.pn.pn, %113 ], [ %.pn.pn.pn.pn.pn.pn.pn82, %70 ], [ %.pn.pn.pn.pn.pn.pn, %69 ]
+  %.pn72.pn.pn = phi { ptr, i32 } [ %.pn72.pn, %162 ], [ %.pn68.pn.pn, %113 ], [ %.pn.pn.pn.pn.pn.pn.pn84, %70 ], [ %.pn.pn.pn.pn.pn.pn, %69 ]
   resume { ptr, i32 } %.pn72.pn.pn
 
 215:                                              ; preds = %48
@@ -12747,7 +12747,7 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_16CompiletimeConstILin1
   br i1 %.2, label %71, label %216
 
 71:                                               ; preds = %.thread, %70
-  %.pn.pn.pn.pn.pn.pn.pn83 = phi { ptr, i32 } [ %50, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %70 ]
+  %.pn.pn.pn.pn.pn.pn.pn85 = phi { ptr, i32 } [ %50, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %70 ]
   call void @__cxa_free_exception(ptr %39) #27
   br label %216
 
@@ -12873,19 +12873,19 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %73, %
   %121 = load ptr, ptr %120, align 8
   %122 = tail call noundef i64 %121(ptr noundef nonnull align 8 dereferenceable(64) %118)
   %123 = icmp eq i64 %122, 44
-  br i1 %123, label %124, label %.critedge
+  br i1 %123, label %124, label %.critedge79
 
 124:                                              ; preds = %117
   %125 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %126 = icmp eq ptr %125, null
-  br i1 %126, label %.thread85, label %127
+  br i1 %126, label %.critedge, label %127
 
 127:                                              ; preds = %124
   %128 = tail call ptr @__dynamic_cast(ptr nonnull %125, ptr nonnull @_ZTIN6casadi6MXNodeE, ptr nonnull @_ZTIN6casadi10ConstantDME, i64 0) #27
   %129 = icmp eq ptr %128, null
-  br i1 %129, label %.thread85, label %.critedge
+  br i1 %129, label %.critedge, label %.critedge79
 
-.thread85:                                        ; preds = %124, %127
+.critedge:                                        ; preds = %124, %127
   %130 = trunc i64 %2 to i8
   store double 0.000000e+00, ptr %25, align 8
   %131 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -12893,7 +12893,7 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %73, %
   %133 = icmp sgt i64 %132, 0
   br i1 %133, label %134, label %140
 
-134:                                              ; preds = %.thread85
+134:                                              ; preds = %.critedge
   %135 = tail call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 416
@@ -12901,31 +12901,31 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %73, %
   %139 = tail call noundef double %138(ptr noundef nonnull align 8 dereferenceable(64) %135)
   br label %140
 
-140:                                              ; preds = %.thread85, %134
-  %141 = phi double [ %139, %134 ], [ 0.000000e+00, %.thread85 ]
+140:                                              ; preds = %.critedge, %134
+  %141 = phi double [ %139, %134 ], [ 0.000000e+00, %.critedge ]
   store double %141, ptr %26, align 8
   call void @_ZN6casadi11casadi_mathIdE3funEhRKdS3_Rd(i8 noundef zeroext %130, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %24)
   %142 = load double, ptr %24, align 8
   %143 = fcmp une double %142, 0.000000e+00
-  br i1 %143, label %.critedge, label %164
+  br i1 %143, label %.critedge79, label %164
 
-.critedge:                                        ; preds = %127, %117, %140
+.critedge79:                                      ; preds = %127, %117, %140
   %144 = call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35)
   %145 = call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %35)
   call void @_ZN6casadi8Sparsity5denseExx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %27, i64 noundef %144, i64 noundef %145)
   invoke void @_ZNK6casadi20SharedObjectInternal16shared_from_thisINS_2MXEEEKT_v(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %146 unwind label %154
 
-146:                                              ; preds = %.critedge
+146:                                              ; preds = %.critedge79
   invoke void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %28, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %27, i1 noundef zeroext false)
-          to label %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit80 unwind label %156
+          to label %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit82 unwind label %156
 
-_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit80: ; preds = %146
+_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit82: ; preds = %146
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #27
   %147 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %148 unwind label %158
 
-148:                                              ; preds = %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit80
+148:                                              ; preds = %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit82
   invoke void @_ZN6casadi2MXC1ERKNS_8SparsityERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %149 unwind label %158
 
@@ -12942,7 +12942,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit80: ; preds = %146
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #27
   br label %215
 
-154:                                              ; preds = %.critedge
+154:                                              ; preds = %.critedge79
   %155 = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -12953,7 +12953,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit80: ; preds = %146
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #27
   br label %163
 
-158:                                              ; preds = %148, %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit80
+158:                                              ; preds = %148, %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit82
   %159 = landingpad { ptr, i32 }
           cleanup
   br label %162
@@ -13015,20 +13015,20 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit80: ; preds = %146
 181:                                              ; preds = %174
   %182 = call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %183 = icmp eq ptr %182, null
-  br i1 %183, label %.critedge79, label %184
+  br i1 %183, label %.critedge81, label %184
 
 184:                                              ; preds = %181
   %185 = call ptr @__dynamic_cast(ptr nonnull %182, ptr nonnull @_ZTIN6casadi6MXNodeE, ptr nonnull @_ZTIN6casadi10ConstantDME, i64 0) #27
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %.critedge79, label %214
+  br i1 %186, label %.critedge81, label %214
 
-.critedge79:                                      ; preds = %181, %184
+.critedge81:                                      ; preds = %181, %184
   %187 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %188 = call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %187)
   %189 = icmp sgt i64 %188, 0
   br i1 %189, label %190, label %196
 
-190:                                              ; preds = %.critedge79
+190:                                              ; preds = %.critedge81
   %191 = call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 416
@@ -13036,8 +13036,8 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit80: ; preds = %146
   %195 = call noundef double %194(ptr noundef nonnull align 8 dereferenceable(64) %191)
   br label %196
 
-196:                                              ; preds = %.critedge79, %190
-  %197 = phi double [ %195, %190 ], [ 0.000000e+00, %.critedge79 ]
+196:                                              ; preds = %.critedge81, %190
+  %197 = phi double [ %195, %190 ], [ 0.000000e+00, %.critedge81 ]
   store double %197, ptr %32, align 8
   %198 = trunc i64 %2 to i8
   %199 = load ptr, ptr %1, align 8
@@ -13072,7 +13072,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit80: ; preds = %146
   ret void
 
 216:                                              ; preds = %70, %71, %172, %163, %114
-  %.pn75 = phi { ptr, i32 } [ %173, %172 ], [ %.pn72.pn, %163 ], [ %.pn68.pn.pn, %114 ], [ %.pn.pn.pn.pn.pn.pn.pn83, %71 ], [ %.pn.pn.pn.pn.pn.pn, %70 ]
+  %.pn75 = phi { ptr, i32 } [ %173, %172 ], [ %.pn72.pn, %163 ], [ %.pn68.pn.pn, %114 ], [ %.pn.pn.pn.pn.pn.pn.pn85, %71 ], [ %.pn.pn.pn.pn.pn.pn, %70 ]
   resume { ptr, i32 } %.pn75
 
 217:                                              ; preds = %49
@@ -14552,7 +14552,7 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_12RuntimeConstIxEEE11_g
   br i1 %.2, label %72, label %271
 
 72:                                               ; preds = %.thread, %71
-  %.pn.pn.pn.pn.pn.pn.pn105 = phi { ptr, i32 } [ %51, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %71 ]
+  %.pn.pn.pn.pn.pn.pn.pn107 = phi { ptr, i32 } [ %51, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %71 ]
   call void @__cxa_free_exception(ptr %40) #27
   br label %271
 
@@ -14626,7 +14626,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit: ; preds = %92
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #27
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #27
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #27
-  br label %.critedge99
+  br label %.critedge101
 
 105:                                              ; preds = %92
   %106 = landingpad { ptr, i32 }
@@ -14678,19 +14678,19 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %74, %
   %122 = load ptr, ptr %121, align 8
   %123 = tail call noundef i64 %122(ptr noundef nonnull align 8 dereferenceable(64) %119)
   %124 = icmp eq i64 %123, 44
-  br i1 %124, label %125, label %.critedge
+  br i1 %124, label %125, label %.critedge99
 
 125:                                              ; preds = %118
   %126 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %127 = icmp eq ptr %126, null
-  br i1 %127, label %.thread107, label %128
+  br i1 %127, label %.critedge, label %128
 
 128:                                              ; preds = %125
   %129 = tail call ptr @__dynamic_cast(ptr nonnull %126, ptr nonnull @_ZTIN6casadi6MXNodeE, ptr nonnull @_ZTIN6casadi10ConstantDME, i64 0) #27
   %130 = icmp eq ptr %129, null
-  br i1 %130, label %.thread107, label %.critedge
+  br i1 %130, label %.critedge, label %.critedge99
 
-.thread107:                                       ; preds = %125, %128
+.critedge:                                        ; preds = %125, %128
   %131 = trunc i64 %2 to i8
   store double 0.000000e+00, ptr %25, align 8
   %132 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -14698,7 +14698,7 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %74, %
   %134 = icmp sgt i64 %133, 0
   br i1 %134, label %135, label %141
 
-135:                                              ; preds = %.thread107
+135:                                              ; preds = %.critedge
   %136 = tail call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 416
@@ -14706,31 +14706,31 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %74, %
   %140 = tail call noundef double %139(ptr noundef nonnull align 8 dereferenceable(64) %136)
   br label %141
 
-141:                                              ; preds = %.thread107, %135
-  %142 = phi double [ %140, %135 ], [ 0.000000e+00, %.thread107 ]
+141:                                              ; preds = %.critedge, %135
+  %142 = phi double [ %140, %135 ], [ 0.000000e+00, %.critedge ]
   store double %142, ptr %26, align 8
   call void @_ZN6casadi11casadi_mathIdE3funEhRKdS3_Rd(i8 noundef zeroext %131, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %24)
   %143 = load double, ptr %24, align 8
   %144 = fcmp une double %143, 0.000000e+00
-  br i1 %144, label %.critedge, label %165
+  br i1 %144, label %.critedge99, label %165
 
-.critedge:                                        ; preds = %128, %118, %141
+.critedge99:                                      ; preds = %128, %118, %141
   %145 = call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %36)
   %146 = call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36)
   call void @_ZN6casadi8Sparsity5denseExx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %27, i64 noundef %145, i64 noundef %146)
   invoke void @_ZNK6casadi20SharedObjectInternal16shared_from_thisINS_2MXEEEKT_v(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %147 unwind label %155
 
-147:                                              ; preds = %.critedge
+147:                                              ; preds = %.critedge99
   invoke void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %28, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %27, i1 noundef zeroext false)
-          to label %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102 unwind label %157
+          to label %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit104 unwind label %157
 
-_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102: ; preds = %147
+_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit104: ; preds = %147
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #27
   %148 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %149 unwind label %159
 
-149:                                              ; preds = %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102
+149:                                              ; preds = %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit104
   invoke void @_ZN6casadi2MXC1ERKNS_8SparsityERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %150 unwind label %159
 
@@ -14745,9 +14745,9 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102: ; preds = %147
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #27
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #27
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #27
-  br label %.critedge99
+  br label %.critedge101
 
-155:                                              ; preds = %.critedge
+155:                                              ; preds = %.critedge99
   %156 = landingpad { ptr, i32 }
           cleanup
   br label %164
@@ -14758,7 +14758,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102: ; preds = %147
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #27
   br label %164
 
-159:                                              ; preds = %149, %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102
+159:                                              ; preds = %149, %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit104
   %160 = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -14809,11 +14809,11 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102: ; preds = %147
   %178 = call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %36)
   %179 = call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36)
   call void @_ZN6casadi2MX6repmatERKS0_xx(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %178, i64 noundef %179)
-  br label %.critedge99
+  br label %.critedge101
 
 180:                                              ; preds = %171, %170
   call void @_ZN6casadi12SharedObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %.critedge99
+  br label %.critedge101
 
 181:                                              ; preds = %165
   %182 = getelementptr inbounds i8, ptr %1, i64 64
@@ -14847,11 +14847,11 @@ _ZNK6casadi6MXNode5size2Ev.exit:                  ; preds = %_ZNK6casadi6MXNode5
 
 195:                                              ; preds = %186, %185
   call void @_ZNK6casadi2MXngEv(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %.critedge99
+  br label %.critedge101
 
 _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5size2Ev.exit
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #27
-  br label %.critedge99
+  br label %.critedge101
 
 196:                                              ; preds = %192, %_ZNK6casadi6MXNode5size1Ev.exit, %_ZNK6casadi6MXNode5size2Ev.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -14870,11 +14870,11 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
 
 200:                                              ; preds = %197
   call void @_ZN6casadi12SharedObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %.critedge99
+  br label %.critedge101
 
 201:                                              ; preds = %197
   call void @_ZNK6casadi2MXngEv(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %.critedge99
+  br label %.critedge101
 
 202:                                              ; preds = %197
   %203 = call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -14882,7 +14882,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   %205 = getelementptr inbounds i8, ptr %204, i64 760
   %206 = load ptr, ptr %205, align 8
   call void %206(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %203, i64 noundef 12)
-  br label %.critedge99
+  br label %.critedge101
 
 207:                                              ; preds = %165
   %208 = getelementptr inbounds i8, ptr %1, i64 64
@@ -14898,7 +14898,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   %213 = getelementptr inbounds i8, ptr %212, i64 760
   %214 = load ptr, ptr %213, align 8
   call void %214(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %211, i64 noundef 36)
-  br label %.critedge99
+  br label %.critedge101
 
 215:                                              ; preds = %207
   %216 = call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -14911,7 +14911,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
 
 220:                                              ; preds = %215
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #27
-  br label %.critedge99
+  br label %.critedge101
 
 221:                                              ; preds = %215
   %222 = landingpad { ptr, i32 }
@@ -14930,12 +14930,12 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
 226:                                              ; preds = %223
   %227 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @_ZN6casadi2MXC1ERKNS_8SparsityEdb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %227, double noundef 0.000000e+00, i1 noundef zeroext false)
-  br label %.critedge99
+  br label %.critedge101
 
 228:                                              ; preds = %223
   %229 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @_ZN6casadi2MXC1ERKNS_8SparsityEdb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %229, double noundef 1.000000e+00, i1 noundef zeroext false)
-  br label %.critedge99
+  br label %.critedge101
 
 230:                                              ; preds = %223, %207, %197, %165, %181, %166
   %231 = call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -14949,20 +14949,20 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
 237:                                              ; preds = %230
   %238 = call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %239 = icmp eq ptr %238, null
-  br i1 %239, label %.critedge101, label %240
+  br i1 %239, label %.critedge103, label %240
 
 240:                                              ; preds = %237
   %241 = call ptr @__dynamic_cast(ptr nonnull %238, ptr nonnull @_ZTIN6casadi6MXNodeE, ptr nonnull @_ZTIN6casadi10ConstantDME, i64 0) #27
   %242 = icmp eq ptr %241, null
-  br i1 %242, label %.critedge101, label %270
+  br i1 %242, label %.critedge103, label %270
 
-.critedge101:                                     ; preds = %237, %240
+.critedge103:                                     ; preds = %237, %240
   %243 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %244 = call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %243)
   %245 = icmp sgt i64 %244, 0
   br i1 %245, label %246, label %252
 
-246:                                              ; preds = %.critedge101
+246:                                              ; preds = %.critedge103
   %247 = call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %248, i64 416
@@ -14970,8 +14970,8 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   %251 = call noundef double %250(ptr noundef nonnull align 8 dereferenceable(64) %247)
   br label %252
 
-252:                                              ; preds = %.critedge101, %246
-  %253 = phi double [ %251, %246 ], [ 0.000000e+00, %.critedge101 ]
+252:                                              ; preds = %.critedge103, %246
+  %253 = phi double [ %251, %246 ], [ 0.000000e+00, %.critedge103 ]
   store double %253, ptr %33, align 8
   %254 = trunc i64 %2 to i8
   %255 = load ptr, ptr %1, align 8
@@ -14996,17 +14996,17 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   %268 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %269 = load double, ptr %34, align 8
   call void @_ZN6casadi2MXC1ERKNS_8SparsityEdb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %268, double noundef %269, i1 noundef zeroext false)
-  br label %.critedge99
+  br label %.critedge101
 
 270:                                              ; preds = %240, %230
   call void @_ZNK6casadi6MXNode11_get_binaryExRKNS_2MXEbb(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %4, i1 noundef zeroext %5)
-  br label %.critedge99
+  br label %.critedge101
 
-.critedge99:                                      ; preds = %195, %_ZN6casadi6repmatERKNS_2MXExx.exit, %177, %180, %270, %266, %228, %226, %220, %210, %202, %201, %200, %154, %104
+.critedge101:                                     ; preds = %195, %_ZN6casadi6repmatERKNS_2MXExx.exit, %177, %180, %270, %266, %228, %226, %220, %210, %202, %201, %200, %154, %104
   ret void
 
 271:                                              ; preds = %196, %71, %72, %221, %164, %115
-  %.pn95 = phi { ptr, i32 } [ %222, %221 ], [ %lpad.thr_comm, %196 ], [ %.pn92.pn, %164 ], [ %.pn88.pn.pn, %115 ], [ %.pn.pn.pn.pn.pn.pn.pn105, %72 ], [ %.pn.pn.pn.pn.pn.pn, %71 ]
+  %.pn95 = phi { ptr, i32 } [ %222, %221 ], [ %lpad.thr_comm, %196 ], [ %.pn92.pn, %164 ], [ %.pn88.pn.pn, %115 ], [ %.pn.pn.pn.pn.pn.pn.pn107, %72 ], [ %.pn.pn.pn.pn.pn.pn, %71 ]
   resume { ptr, i32 } %.pn95
 
 272:                                              ; preds = %50
@@ -16573,7 +16573,7 @@ define linkonce_odr hidden void @_ZNK6casadi8ConstantINS_12RuntimeConstIdEEE11_g
   br i1 %.2, label %72, label %289
 
 72:                                               ; preds = %.thread, %71
-  %.pn.pn.pn.pn.pn.pn.pn105 = phi { ptr, i32 } [ %51, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %71 ]
+  %.pn.pn.pn.pn.pn.pn.pn107 = phi { ptr, i32 } [ %51, %.thread ], [ %.pn.pn.pn.pn.pn.pn, %71 ]
   call void @__cxa_free_exception(ptr %40) #27
   br label %289
 
@@ -16647,7 +16647,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit: ; preds = %92
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #27
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #27
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #27
-  br label %.critedge99
+  br label %.critedge101
 
 105:                                              ; preds = %92
   %106 = landingpad { ptr, i32 }
@@ -16699,19 +16699,19 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %74, %
   %122 = load ptr, ptr %121, align 8
   %123 = tail call noundef i64 %122(ptr noundef nonnull align 8 dereferenceable(64) %119)
   %124 = icmp eq i64 %123, 44
-  br i1 %124, label %125, label %.critedge
+  br i1 %124, label %125, label %.critedge99
 
 125:                                              ; preds = %118
   %126 = tail call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %127 = icmp eq ptr %126, null
-  br i1 %127, label %.thread107, label %128
+  br i1 %127, label %.critedge, label %128
 
 128:                                              ; preds = %125
   %129 = tail call ptr @__dynamic_cast(ptr nonnull %126, ptr nonnull @_ZTIN6casadi6MXNodeE, ptr nonnull @_ZTIN6casadi10ConstantDME, i64 0) #27
   %130 = icmp eq ptr %129, null
-  br i1 %130, label %.thread107, label %.critedge
+  br i1 %130, label %.critedge, label %.critedge99
 
-.thread107:                                       ; preds = %125, %128
+.critedge:                                        ; preds = %125, %128
   %131 = trunc i64 %2 to i8
   store double 0.000000e+00, ptr %25, align 8
   %132 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -16719,7 +16719,7 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %74, %
   %134 = icmp sgt i64 %133, 0
   br i1 %134, label %135, label %141
 
-135:                                              ; preds = %.thread107
+135:                                              ; preds = %.critedge
   %136 = tail call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 416
@@ -16727,31 +16727,31 @@ _ZN6casadi17operation_checkerINS_10FX0CheckerEEEbx.exit.thread: ; preds = %74, %
   %140 = tail call noundef double %139(ptr noundef nonnull align 8 dereferenceable(64) %136)
   br label %141
 
-141:                                              ; preds = %.thread107, %135
-  %142 = phi double [ %140, %135 ], [ 0.000000e+00, %.thread107 ]
+141:                                              ; preds = %.critedge, %135
+  %142 = phi double [ %140, %135 ], [ 0.000000e+00, %.critedge ]
   store double %142, ptr %26, align 8
   call void @_ZN6casadi11casadi_mathIdE3funEhRKdS3_Rd(i8 noundef zeroext %131, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %24)
   %143 = load double, ptr %24, align 8
   %144 = fcmp une double %143, 0.000000e+00
-  br i1 %144, label %.critedge, label %165
+  br i1 %144, label %.critedge99, label %165
 
-.critedge:                                        ; preds = %128, %118, %141
+.critedge99:                                      ; preds = %128, %118, %141
   %145 = call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %36)
   %146 = call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36)
   call void @_ZN6casadi8Sparsity5denseExx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %27, i64 noundef %145, i64 noundef %146)
   invoke void @_ZNK6casadi20SharedObjectInternal16shared_from_thisINS_2MXEEEKT_v(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %147 unwind label %155
 
-147:                                              ; preds = %.critedge
+147:                                              ; preds = %.critedge99
   invoke void @_ZN6casadi2MX7projectERKS0_RKNS_8SparsityEb(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %28, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %27, i1 noundef zeroext false)
-          to label %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102 unwind label %157
+          to label %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit104 unwind label %157
 
-_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102: ; preds = %147
+_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit104: ; preds = %147
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #27
   %148 = invoke noundef ptr @_ZN6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %149 unwind label %159
 
-149:                                              ; preds = %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102
+149:                                              ; preds = %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit104
   invoke void @_ZN6casadi2MXC1ERKNS_8SparsityERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %150 unwind label %159
 
@@ -16766,9 +16766,9 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102: ; preds = %147
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #27
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #27
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #27
-  br label %.critedge99
+  br label %.critedge101
 
-155:                                              ; preds = %.critedge
+155:                                              ; preds = %.critedge99
   %156 = landingpad { ptr, i32 }
           cleanup
   br label %164
@@ -16779,7 +16779,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102: ; preds = %147
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #27
   br label %164
 
-159:                                              ; preds = %149, %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102
+159:                                              ; preds = %149, %_ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit104
   %160 = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -16830,11 +16830,11 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit102: ; preds = %147
   %178 = call noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 dereferenceable(8) %36)
   %179 = call noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36)
   call void @_ZN6casadi2MX6repmatERKS0_xx(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %178, i64 noundef %179)
-  br label %.critedge99
+  br label %.critedge101
 
 180:                                              ; preds = %171, %170
   call void @_ZN6casadi12SharedObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %.critedge99
+  br label %.critedge101
 
 181:                                              ; preds = %165
   %182 = getelementptr inbounds i8, ptr %1, i64 64
@@ -16868,11 +16868,11 @@ _ZNK6casadi6MXNode5size2Ev.exit:                  ; preds = %_ZNK6casadi6MXNode5
 
 195:                                              ; preds = %186, %185
   call void @_ZNK6casadi2MXngEv(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %.critedge99
+  br label %.critedge101
 
 _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5size2Ev.exit
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #27
-  br label %.critedge99
+  br label %.critedge101
 
 196:                                              ; preds = %192, %_ZNK6casadi6MXNode5size1Ev.exit, %_ZNK6casadi6MXNode5size2Ev.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -16888,7 +16888,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
 
 201:                                              ; preds = %197
   call void @_ZN6casadi12SharedObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %.critedge99
+  br label %.critedge101
 
 202:                                              ; preds = %197
   %203 = fcmp oeq double %199, -1.000000e+00
@@ -16896,7 +16896,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
 
 204:                                              ; preds = %202
   call void @_ZNK6casadi2MXngEv(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br label %.critedge99
+  br label %.critedge101
 
 205:                                              ; preds = %202
   %206 = fcmp oeq double %199, 2.000000e+00
@@ -16908,7 +16908,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   %210 = getelementptr inbounds i8, ptr %209, i64 760
   %211 = load ptr, ptr %210, align 8
   call void %211(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %208, i64 noundef 12)
-  br label %.critedge99
+  br label %.critedge101
 
 212:                                              ; preds = %165
   %213 = getelementptr inbounds i8, ptr %1, i64 64
@@ -16922,7 +16922,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   %219 = getelementptr inbounds i8, ptr %218, i64 760
   %220 = load ptr, ptr %219, align 8
   call void %220(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %217, i64 noundef 36)
-  br label %.critedge99
+  br label %.critedge101
 
 221:                                              ; preds = %212
   %222 = fcmp oeq double %214, -1.000000e+00
@@ -16939,7 +16939,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
 
 228:                                              ; preds = %223
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #27
-  br label %.critedge99
+  br label %.critedge101
 
 229:                                              ; preds = %223
   %230 = landingpad { ptr, i32 }
@@ -16956,7 +16956,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
 235:                                              ; preds = %231
   %236 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @_ZN6casadi2MXC1ERKNS_8SparsityEdb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %236, double noundef 0.000000e+00, i1 noundef zeroext false)
-  br label %.critedge99
+  br label %.critedge101
 
 237:                                              ; preds = %231
   %238 = fcmp oeq double %233, 1.000000e+00
@@ -16965,7 +16965,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
 239:                                              ; preds = %237
   %240 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @_ZN6casadi2MXC1ERKNS_8SparsityEdb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %240, double noundef 1.000000e+00, i1 noundef zeroext false)
-  br label %.critedge99
+  br label %.critedge101
 
 241:                                              ; preds = %237
   %242 = fcmp oeq double %233, 0x4005BF0A8B145769
@@ -16977,7 +16977,7 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   %246 = getelementptr inbounds i8, ptr %245, i64 760
   %247 = load ptr, ptr %246, align 8
   call void %247(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %244, i64 noundef 6)
-  br label %.critedge99
+  br label %.critedge101
 
 248:                                              ; preds = %165, %241, %221, %205, %181, %166
   %249 = call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -16991,20 +16991,20 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
 255:                                              ; preds = %248
   %256 = call noundef ptr @_ZNK6casadi2MX3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %257 = icmp eq ptr %256, null
-  br i1 %257, label %.critedge101, label %258
+  br i1 %257, label %.critedge103, label %258
 
 258:                                              ; preds = %255
   %259 = call ptr @__dynamic_cast(ptr nonnull %256, ptr nonnull @_ZTIN6casadi6MXNodeE, ptr nonnull @_ZTIN6casadi10ConstantDME, i64 0) #27
   %260 = icmp eq ptr %259, null
-  br i1 %260, label %.critedge101, label %288
+  br i1 %260, label %.critedge103, label %288
 
-.critedge101:                                     ; preds = %255, %258
+.critedge103:                                     ; preds = %255, %258
   %261 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %262 = call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %261)
   %263 = icmp sgt i64 %262, 0
   br i1 %263, label %264, label %270
 
-264:                                              ; preds = %.critedge101
+264:                                              ; preds = %.critedge103
   %265 = call noundef ptr @_ZNK6casadi2MXptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %266 = load ptr, ptr %265, align 8
   %267 = getelementptr inbounds i8, ptr %266, i64 416
@@ -17012,8 +17012,8 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   %269 = call noundef double %268(ptr noundef nonnull align 8 dereferenceable(64) %265)
   br label %270
 
-270:                                              ; preds = %.critedge101, %264
-  %271 = phi double [ %269, %264 ], [ 0.000000e+00, %.critedge101 ]
+270:                                              ; preds = %.critedge103, %264
+  %271 = phi double [ %269, %264 ], [ 0.000000e+00, %.critedge103 ]
   store double %271, ptr %33, align 8
   %272 = trunc i64 %2 to i8
   %273 = load ptr, ptr %1, align 8
@@ -17038,17 +17038,17 @@ _ZN6casadi6repmatERKNS_2MXExx.exit:               ; preds = %_ZNK6casadi6MXNode5
   %286 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %287 = load double, ptr %34, align 8
   call void @_ZN6casadi2MXC1ERKNS_8SparsityEdb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %286, double noundef %287, i1 noundef zeroext false)
-  br label %.critedge99
+  br label %.critedge101
 
 288:                                              ; preds = %258, %248
   call void @_ZNK6casadi6MXNode11_get_binaryExRKNS_2MXEbb(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %4, i1 noundef zeroext %5)
-  br label %.critedge99
+  br label %.critedge101
 
-.critedge99:                                      ; preds = %195, %_ZN6casadi6repmatERKNS_2MXExx.exit, %177, %180, %288, %284, %243, %239, %235, %228, %216, %207, %204, %201, %154, %104
+.critedge101:                                     ; preds = %195, %_ZN6casadi6repmatERKNS_2MXExx.exit, %177, %180, %288, %284, %243, %239, %235, %228, %216, %207, %204, %201, %154, %104
   ret void
 
 289:                                              ; preds = %196, %71, %72, %229, %164, %115
-  %.pn95 = phi { ptr, i32 } [ %230, %229 ], [ %lpad.thr_comm, %196 ], [ %.pn92.pn, %164 ], [ %.pn88.pn.pn, %115 ], [ %.pn.pn.pn.pn.pn.pn.pn105, %72 ], [ %.pn.pn.pn.pn.pn.pn, %71 ]
+  %.pn95 = phi { ptr, i32 } [ %230, %229 ], [ %lpad.thr_comm, %196 ], [ %.pn92.pn, %164 ], [ %.pn88.pn.pn, %115 ], [ %.pn.pn.pn.pn.pn.pn.pn107, %72 ], [ %.pn.pn.pn.pn.pn.pn, %71 ]
   resume { ptr, i32 } %.pn95
 
 290:                                              ; preds = %50

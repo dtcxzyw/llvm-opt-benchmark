@@ -826,11 +826,11 @@ land.rhs:                                         ; preds = %do.body
   %7 = load ptr, ptr %vfn26, align 8
   %call27 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %start.addr.1)
   %cmp28 = icmp eq i32 %add, %call27
+  %8 = zext i1 %cmp28 to i8
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %do.body
-  %8 = phi i1 [ false, %do.body ], [ %cmp28, %land.rhs ]
-  %conv = zext i1 %8 to i8
+  %conv = phi i8 [ 0, %do.body ], [ %8, %land.rhs ]
   %arrayidx30 = getelementptr inbounds [4 x i8], ptr %isFinal, i64 0, i64 %indvars.iv70
   store i8 %conv, ptr %arrayidx30, align 1
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1

@@ -2025,7 +2025,7 @@ land.rhs:                                         ; preds = %classend.exit311
   %conv78 = zext i8 %64 to i32
   %65 = load i8, ptr %p.addr.0, align 1, !tbaa !8
   switch i8 %65, label %sw.default.i [
-    i8 46, label %singlematch.exit
+    i8 46, label %land.end
     i8 37, label %sw.bb1.i
     i8 91, label %sw.bb3.i14
   ]
@@ -2035,36 +2035,37 @@ sw.bb1.i:                                         ; preds = %land.rhs
   %66 = load i8, ptr %add.ptr.i20, align 1, !tbaa !8
   %conv2.i = zext i8 %66 to i32
   %call.i21 = tail call fastcc i32 @match_class(i32 noundef %conv78, i32 noundef %conv2.i), !range !42
-  br label %singlematch.exit
+  %67 = icmp ne i32 %call.i21, 0
+  br label %land.end
 
 sw.bb3.i14:                                       ; preds = %land.rhs
   %add.ptr4.i = getelementptr inbounds i8, ptr %retval.0.i296, i64 -1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %p.addr.0, i64 1
-  %67 = load i8, ptr %add.ptr.i.i, align 1, !tbaa !8
-  %cmp.i.i15 = icmp eq i8 %67, 94
+  %68 = load i8, ptr %add.ptr.i.i, align 1, !tbaa !8
+  %cmp.i.i15 = icmp eq i8 %68, 94
   %spec.select.i.i = select i1 %cmp.i.i15, ptr %add.ptr.i.i, ptr %p.addr.0
   %not.cmp.i.i = xor i1 %cmp.i.i15, true
   %incdec.ptr260.i.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 1
   %cmp361.i.i = icmp ult ptr %incdec.ptr260.i.i, %add.ptr4.i
-  br i1 %cmp361.i.i, label %while.body.i.i, label %matchbracketclass.exit.i
+  br i1 %cmp361.i.i, label %while.body.i.i, label %land.end
 
 while.body.i.i:                                   ; preds = %sw.bb3.i14, %if.end39.i.i
   %incdec.ptr263.i.i = phi ptr [ %incdec.ptr2.i.i, %if.end39.i.i ], [ %incdec.ptr260.i.i, %sw.bb3.i14 ]
   %p.addr.162.i.i = phi ptr [ %p.addr.2.i.i, %if.end39.i.i ], [ %spec.select.i.i, %sw.bb3.i14 ]
-  %68 = load i8, ptr %incdec.ptr263.i.i, align 1, !tbaa !8
-  %cmp6.i.i = icmp eq i8 %68, 37
+  %69 = load i8, ptr %incdec.ptr263.i.i, align 1, !tbaa !8
+  %cmp6.i.i = icmp eq i8 %69, 37
   %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %p.addr.162.i.i, i64 2
-  %69 = load i8, ptr %incdec.ptr9.i.i, align 1, !tbaa !8
+  %70 = load i8, ptr %incdec.ptr9.i.i, align 1, !tbaa !8
   br i1 %cmp6.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %while.body.i.i
-  %conv10.i.i = zext i8 %69 to i32
+  %conv10.i.i = zext i8 %70 to i32
   %call.i.i19 = tail call fastcc i32 @match_class(i32 noundef %conv78, i32 noundef %conv10.i.i), !range !42
   %tobool.not.i.i = icmp eq i32 %call.i.i19, 0
-  br i1 %tobool.not.i.i, label %if.end39.i.i, label %matchbracketclass.exit.i
+  br i1 %tobool.not.i.i, label %if.end39.i.i, label %land.end
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %cmp15.i.i = icmp eq i8 %69, 45
+  %cmp15.i.i = icmp eq i8 %70, 45
   br i1 %cmp15.i.i, label %land.lhs.true.i.i, label %if.else32.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.else.i.i
@@ -2073,43 +2074,32 @@ land.lhs.true.i.i:                                ; preds = %if.else.i.i
   br i1 %cmp18.i.i, label %if.then20.i.i, label %if.else32.i.i
 
 if.then20.i.i:                                    ; preds = %land.lhs.true.i.i
-  %cmp24.not.i.i = icmp ult i8 %64, %68
+  %cmp24.not.i.i = icmp ult i8 %64, %69
   br i1 %cmp24.not.i.i, label %if.end39.i.i, label %land.lhs.true26.i.i
 
 land.lhs.true26.i.i:                              ; preds = %if.then20.i.i
-  %70 = load i8, ptr %add.ptr17.i.i, align 1, !tbaa !8
-  %cmp28.not.i.i = icmp ugt i8 %64, %70
-  br i1 %cmp28.not.i.i, label %if.end39.i.i, label %matchbracketclass.exit.i
+  %71 = load i8, ptr %add.ptr17.i.i, align 1, !tbaa !8
+  %cmp28.not.i.i = icmp ugt i8 %64, %71
+  br i1 %cmp28.not.i.i, label %if.end39.i.i, label %land.end
 
 if.else32.i.i:                                    ; preds = %land.lhs.true.i.i, %if.else.i.i
-  %cmp34.i.i = icmp eq i8 %64, %68
-  br i1 %cmp34.i.i, label %matchbracketclass.exit.i, label %if.end39.i.i
+  %cmp34.i.i = icmp eq i8 %64, %69
+  br i1 %cmp34.i.i, label %land.end, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.else32.i.i, %land.lhs.true26.i.i, %if.then20.i.i, %if.then8.i.i
   %p.addr.2.i.i = phi ptr [ %incdec.ptr9.i.i, %if.then8.i.i ], [ %add.ptr17.i.i, %land.lhs.true26.i.i ], [ %add.ptr17.i.i, %if.then20.i.i ], [ %incdec.ptr263.i.i, %if.else32.i.i ]
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %p.addr.2.i.i, i64 1
   %cmp3.i.i18 = icmp ult ptr %incdec.ptr2.i.i, %add.ptr4.i
-  br i1 %cmp3.i.i18, label %while.body.i.i, label %matchbracketclass.exit.i, !llvm.loop !43
-
-matchbracketclass.exit.i:                         ; preds = %if.end39.i.i, %if.else32.i.i, %land.lhs.true26.i.i, %if.then8.i.i, %sw.bb3.i14
-  %retval.0.in.i.i = phi i1 [ %cmp.i.i15, %sw.bb3.i14 ], [ %not.cmp.i.i, %if.then8.i.i ], [ %not.cmp.i.i, %land.lhs.true26.i.i ], [ %not.cmp.i.i, %if.else32.i.i ], [ %cmp.i.i15, %if.end39.i.i ]
-  %retval.0.i.i16 = zext i1 %retval.0.in.i.i to i32
-  br label %singlematch.exit
+  br i1 %cmp3.i.i18, label %while.body.i.i, label %land.end, !llvm.loop !43
 
 sw.default.i:                                     ; preds = %land.rhs
   %cmp.i22 = icmp eq i8 %64, %65
-  %conv7.i = zext i1 %cmp.i22 to i32
-  br label %singlematch.exit
-
-singlematch.exit:                                 ; preds = %land.rhs, %sw.bb1.i, %matchbracketclass.exit.i, %sw.default.i
-  %retval.0.i17 = phi i32 [ %conv7.i, %sw.default.i ], [ %retval.0.i.i16, %matchbracketclass.exit.i ], [ %call.i21, %sw.bb1.i ], [ 1, %land.rhs ]
-  %tobool80 = icmp ne i32 %retval.0.i17, 0
   br label %land.end
 
-land.end:                                         ; preds = %singlematch.exit, %classend.exit311
-  %71 = phi i1 [ false, %classend.exit311 ], [ %tobool80, %singlematch.exit ]
-  %72 = load i8, ptr %retval.0.i296, align 1, !tbaa !8
-  switch i8 %72, label %sw.default105 [
+land.end:                                         ; preds = %if.end39.i.i, %if.else32.i.i, %land.lhs.true26.i.i, %if.then8.i.i, %sw.default.i, %sw.bb1.i, %land.rhs, %sw.bb3.i14, %classend.exit311
+  %72 = phi i1 [ false, %classend.exit311 ], [ %cmp.i22, %sw.default.i ], [ %67, %sw.bb1.i ], [ true, %land.rhs ], [ %cmp.i.i15, %sw.bb3.i14 ], [ %not.cmp.i.i, %if.then8.i.i ], [ %not.cmp.i.i, %land.lhs.true26.i.i ], [ %not.cmp.i.i, %if.else32.i.i ], [ %cmp.i.i15, %if.end39.i.i ]
+  %73 = load i8, ptr %retval.0.i296, align 1, !tbaa !8
+  switch i8 %73, label %sw.default105 [
     i8 63, label %sw.bb82
     i8 42, label %while.cond.i.preheader
     i8 43, label %sw.bb95
@@ -2133,14 +2123,14 @@ while.cond.i.preheader:                           ; preds = %land.end
 land.rhs.i.preheader:                             ; preds = %while.cond.i.preheader
   %s.addr.0.ph.lcssa505512 = ptrtoint ptr %s.addr.0.ph.ph to i64
   %.lcssa490511 = ptrtoint ptr %63 to i64
-  %73 = sub i64 %.lcssa490511, %s.addr.0.ph.lcssa505512
-  %74 = load i8, ptr %p.addr.0, align 1, !tbaa !8
+  %74 = sub i64 %.lcssa490511, %s.addr.0.ph.lcssa505512
+  %75 = load i8, ptr %p.addr.0, align 1, !tbaa !8
   %add.ptr4.i24 = getelementptr inbounds i8, ptr %retval.0.i296, i64 -1
   %add.ptr.i.i25 = getelementptr inbounds i8, ptr %p.addr.0, i64 1
   br label %land.rhs.i
 
 sw.bb82:                                          ; preds = %land.end
-  br i1 %71, label %land.lhs.true, label %if.end90
+  br i1 %72, label %land.lhs.true, label %if.end90
 
 land.lhs.true:                                    ; preds = %sw.bb82
   %add.ptr85 = getelementptr inbounds i8, ptr %retval.0.i296, i64 1
@@ -2155,23 +2145,23 @@ if.end90:                                         ; preds = %land.lhs.true, %sw.
 land.rhs.i:                                       ; preds = %while.body.i321, %land.rhs.i.preheader
   %i.0.i458 = phi i64 [ %inc.i322, %while.body.i321 ], [ 0, %land.rhs.i.preheader ]
   %add.ptr.i312459 = getelementptr inbounds i8, ptr %s.addr.0.ph.ph, i64 %i.0.i458
-  %75 = load i8, ptr %add.ptr.i312459, align 1, !tbaa !8
-  %conv.i = zext i8 %75 to i32
-  switch i8 %74, label %sw.default.i66 [
+  %76 = load i8, ptr %add.ptr.i312459, align 1, !tbaa !8
+  %conv.i = zext i8 %76 to i32
+  switch i8 %75, label %sw.default.i66 [
     i8 46, label %while.body.i321
     i8 37, label %sw.bb1.i62
     i8 91, label %sw.bb3.i23
   ]
 
 sw.bb1.i62:                                       ; preds = %land.rhs.i
-  %76 = load i8, ptr %add.ptr.i.i25, align 1, !tbaa !8
-  %conv2.i64 = zext i8 %76 to i32
+  %77 = load i8, ptr %add.ptr.i.i25, align 1, !tbaa !8
+  %conv2.i64 = zext i8 %77 to i32
   %call.i65 = tail call fastcc i32 @match_class(i32 noundef %conv.i, i32 noundef %conv2.i64), !range !42
   br label %singlematch.exit70
 
 sw.bb3.i23:                                       ; preds = %land.rhs.i
-  %77 = load i8, ptr %add.ptr.i.i25, align 1, !tbaa !8
-  %cmp.i.i26 = icmp eq i8 %77, 94
+  %78 = load i8, ptr %add.ptr.i.i25, align 1, !tbaa !8
+  %cmp.i.i26 = icmp eq i8 %78, 94
   %spec.select.i.i27 = select i1 %cmp.i.i26, ptr %add.ptr.i.i25, ptr %p.addr.0
   %not.cmp.i.i28 = xor i1 %cmp.i.i26, true
   %incdec.ptr260.i.i29 = getelementptr inbounds i8, ptr %spec.select.i.i27, i64 1
@@ -2181,20 +2171,20 @@ sw.bb3.i23:                                       ; preds = %land.rhs.i
 while.body.i.i35:                                 ; preds = %sw.bb3.i23, %if.end39.i.i45
   %incdec.ptr263.i.i36 = phi ptr [ %incdec.ptr2.i.i47, %if.end39.i.i45 ], [ %incdec.ptr260.i.i29, %sw.bb3.i23 ]
   %p.addr.162.i.i37 = phi ptr [ %p.addr.2.i.i46, %if.end39.i.i45 ], [ %spec.select.i.i27, %sw.bb3.i23 ]
-  %78 = load i8, ptr %incdec.ptr263.i.i36, align 1, !tbaa !8
-  %cmp6.i.i38 = icmp eq i8 %78, 37
+  %79 = load i8, ptr %incdec.ptr263.i.i36, align 1, !tbaa !8
+  %cmp6.i.i38 = icmp eq i8 %79, 37
   %incdec.ptr9.i.i39 = getelementptr inbounds i8, ptr %p.addr.162.i.i37, i64 2
-  %79 = load i8, ptr %incdec.ptr9.i.i39, align 1, !tbaa !8
+  %80 = load i8, ptr %incdec.ptr9.i.i39, align 1, !tbaa !8
   br i1 %cmp6.i.i38, label %if.then8.i.i58, label %if.else.i.i40
 
 if.then8.i.i58:                                   ; preds = %while.body.i.i35
-  %conv10.i.i59 = zext i8 %79 to i32
+  %conv10.i.i59 = zext i8 %80 to i32
   %call.i.i60 = tail call fastcc i32 @match_class(i32 noundef %conv.i, i32 noundef %conv10.i.i59), !range !42
   %tobool.not.i.i61 = icmp eq i32 %call.i.i60, 0
   br i1 %tobool.not.i.i61, label %if.end39.i.i45, label %matchbracketclass.exit.i31
 
 if.else.i.i40:                                    ; preds = %while.body.i.i35
-  %cmp15.i.i41 = icmp eq i8 %79, 45
+  %cmp15.i.i41 = icmp eq i8 %80, 45
   br i1 %cmp15.i.i41, label %land.lhs.true.i.i49, label %if.else32.i.i42
 
 land.lhs.true.i.i49:                              ; preds = %if.else.i.i40
@@ -2203,16 +2193,16 @@ land.lhs.true.i.i49:                              ; preds = %if.else.i.i40
   br i1 %cmp18.i.i51, label %if.then20.i.i52, label %if.else32.i.i42
 
 if.then20.i.i52:                                  ; preds = %land.lhs.true.i.i49
-  %cmp24.not.i.i54 = icmp ult i8 %75, %78
+  %cmp24.not.i.i54 = icmp ult i8 %76, %79
   br i1 %cmp24.not.i.i54, label %if.end39.i.i45, label %land.lhs.true26.i.i55
 
 land.lhs.true26.i.i55:                            ; preds = %if.then20.i.i52
-  %80 = load i8, ptr %add.ptr17.i.i50, align 1, !tbaa !8
-  %cmp28.not.i.i57 = icmp ugt i8 %75, %80
+  %81 = load i8, ptr %add.ptr17.i.i50, align 1, !tbaa !8
+  %cmp28.not.i.i57 = icmp ugt i8 %76, %81
   br i1 %cmp28.not.i.i57, label %if.end39.i.i45, label %matchbracketclass.exit.i31
 
 if.else32.i.i42:                                  ; preds = %land.lhs.true.i.i49, %if.else.i.i40
-  %cmp34.i.i44 = icmp eq i8 %75, %78
+  %cmp34.i.i44 = icmp eq i8 %76, %79
   br i1 %cmp34.i.i44, label %matchbracketclass.exit.i31, label %if.end39.i.i45
 
 if.end39.i.i45:                                   ; preds = %if.else32.i.i42, %land.lhs.true26.i.i55, %if.then20.i.i52, %if.then8.i.i58
@@ -2227,7 +2217,7 @@ matchbracketclass.exit.i31:                       ; preds = %if.end39.i.i45, %if
   br label %singlematch.exit70
 
 sw.default.i66:                                   ; preds = %land.rhs.i
-  %cmp.i68 = icmp eq i8 %75, %74
+  %cmp.i68 = icmp eq i8 %76, %75
   %conv7.i69 = zext i1 %cmp.i68 to i32
   br label %singlematch.exit70
 
@@ -2238,11 +2228,11 @@ singlematch.exit70:                               ; preds = %sw.bb1.i62, %matchb
 
 while.body.i321:                                  ; preds = %land.rhs.i, %singlematch.exit70
   %inc.i322 = add nuw i64 %i.0.i458, 1
-  %exitcond513.not = icmp eq i64 %inc.i322, %73
+  %exitcond513.not = icmp eq i64 %inc.i322, %74
   br i1 %exitcond513.not, label %while.end.i, label %land.rhs.i, !llvm.loop !44
 
 while.end.i:                                      ; preds = %while.body.i321, %singlematch.exit70, %while.cond.i.preheader
-  %i.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ %73, %while.body.i321 ], [ %i.0.i458, %singlematch.exit70 ]
+  %i.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ %74, %while.body.i321 ], [ %i.0.i458, %singlematch.exit70 ]
   %add.ptr7.i = getelementptr inbounds i8, ptr %retval.0.i296, i64 1
   br label %while.cond2.i
 
@@ -2261,16 +2251,16 @@ while.body5.i:                                    ; preds = %while.cond2.i
 sw.bb95:                                          ; preds = %land.end
   %.lcssa491509 = ptrtoint ptr %63 to i64
   %s.addr.0.ph.lcssa506510 = ptrtoint ptr %s.addr.0.ph.ph to i64
-  br i1 %71, label %cond.true97, label %return
+  br i1 %72, label %cond.true97, label %return
 
 cond.true97:                                      ; preds = %sw.bb95
   %cmp.i327452 = icmp ult ptr %add.ptr84, %63
   br i1 %cmp.i327452, label %land.rhs.i342.preheader, label %while.end.i328
 
 land.rhs.i342.preheader:                          ; preds = %cond.true97
-  %81 = xor i64 %s.addr.0.ph.lcssa506510, -1
-  %82 = add i64 %.lcssa491509, %81
-  %83 = load i8, ptr %p.addr.0, align 1, !tbaa !8
+  %82 = xor i64 %s.addr.0.ph.lcssa506510, -1
+  %83 = add i64 %.lcssa491509, %82
+  %84 = load i8, ptr %p.addr.0, align 1, !tbaa !8
   %add.ptr4.i72 = getelementptr inbounds i8, ptr %retval.0.i296, i64 -1
   %add.ptr.i.i73 = getelementptr inbounds i8, ptr %p.addr.0, i64 1
   br label %land.rhs.i342
@@ -2278,23 +2268,23 @@ land.rhs.i342.preheader:                          ; preds = %cond.true97
 land.rhs.i342:                                    ; preds = %while.body.i346, %land.rhs.i342.preheader
   %i.0.i324453 = phi i64 [ %inc.i347, %while.body.i346 ], [ 0, %land.rhs.i342.preheader ]
   %add.ptr.i325454 = getelementptr inbounds i8, ptr %add.ptr84, i64 %i.0.i324453
-  %84 = load i8, ptr %add.ptr.i325454, align 1, !tbaa !8
-  %conv.i343 = zext i8 %84 to i32
-  switch i8 %83, label %sw.default.i114 [
+  %85 = load i8, ptr %add.ptr.i325454, align 1, !tbaa !8
+  %conv.i343 = zext i8 %85 to i32
+  switch i8 %84, label %sw.default.i114 [
     i8 46, label %while.body.i346
     i8 37, label %sw.bb1.i110
     i8 91, label %sw.bb3.i71
   ]
 
 sw.bb1.i110:                                      ; preds = %land.rhs.i342
-  %85 = load i8, ptr %add.ptr.i.i73, align 1, !tbaa !8
-  %conv2.i112 = zext i8 %85 to i32
+  %86 = load i8, ptr %add.ptr.i.i73, align 1, !tbaa !8
+  %conv2.i112 = zext i8 %86 to i32
   %call.i113 = tail call fastcc i32 @match_class(i32 noundef %conv.i343, i32 noundef %conv2.i112), !range !42
   br label %singlematch.exit118
 
 sw.bb3.i71:                                       ; preds = %land.rhs.i342
-  %86 = load i8, ptr %add.ptr.i.i73, align 1, !tbaa !8
-  %cmp.i.i74 = icmp eq i8 %86, 94
+  %87 = load i8, ptr %add.ptr.i.i73, align 1, !tbaa !8
+  %cmp.i.i74 = icmp eq i8 %87, 94
   %spec.select.i.i75 = select i1 %cmp.i.i74, ptr %add.ptr.i.i73, ptr %p.addr.0
   %not.cmp.i.i76 = xor i1 %cmp.i.i74, true
   %incdec.ptr260.i.i77 = getelementptr inbounds i8, ptr %spec.select.i.i75, i64 1
@@ -2304,20 +2294,20 @@ sw.bb3.i71:                                       ; preds = %land.rhs.i342
 while.body.i.i83:                                 ; preds = %sw.bb3.i71, %if.end39.i.i93
   %incdec.ptr263.i.i84 = phi ptr [ %incdec.ptr2.i.i95, %if.end39.i.i93 ], [ %incdec.ptr260.i.i77, %sw.bb3.i71 ]
   %p.addr.162.i.i85 = phi ptr [ %p.addr.2.i.i94, %if.end39.i.i93 ], [ %spec.select.i.i75, %sw.bb3.i71 ]
-  %87 = load i8, ptr %incdec.ptr263.i.i84, align 1, !tbaa !8
-  %cmp6.i.i86 = icmp eq i8 %87, 37
+  %88 = load i8, ptr %incdec.ptr263.i.i84, align 1, !tbaa !8
+  %cmp6.i.i86 = icmp eq i8 %88, 37
   %incdec.ptr9.i.i87 = getelementptr inbounds i8, ptr %p.addr.162.i.i85, i64 2
-  %88 = load i8, ptr %incdec.ptr9.i.i87, align 1, !tbaa !8
+  %89 = load i8, ptr %incdec.ptr9.i.i87, align 1, !tbaa !8
   br i1 %cmp6.i.i86, label %if.then8.i.i106, label %if.else.i.i88
 
 if.then8.i.i106:                                  ; preds = %while.body.i.i83
-  %conv10.i.i107 = zext i8 %88 to i32
+  %conv10.i.i107 = zext i8 %89 to i32
   %call.i.i108 = tail call fastcc i32 @match_class(i32 noundef %conv.i343, i32 noundef %conv10.i.i107), !range !42
   %tobool.not.i.i109 = icmp eq i32 %call.i.i108, 0
   br i1 %tobool.not.i.i109, label %if.end39.i.i93, label %matchbracketclass.exit.i79
 
 if.else.i.i88:                                    ; preds = %while.body.i.i83
-  %cmp15.i.i89 = icmp eq i8 %88, 45
+  %cmp15.i.i89 = icmp eq i8 %89, 45
   br i1 %cmp15.i.i89, label %land.lhs.true.i.i97, label %if.else32.i.i90
 
 land.lhs.true.i.i97:                              ; preds = %if.else.i.i88
@@ -2326,16 +2316,16 @@ land.lhs.true.i.i97:                              ; preds = %if.else.i.i88
   br i1 %cmp18.i.i99, label %if.then20.i.i100, label %if.else32.i.i90
 
 if.then20.i.i100:                                 ; preds = %land.lhs.true.i.i97
-  %cmp24.not.i.i102 = icmp ult i8 %84, %87
+  %cmp24.not.i.i102 = icmp ult i8 %85, %88
   br i1 %cmp24.not.i.i102, label %if.end39.i.i93, label %land.lhs.true26.i.i103
 
 land.lhs.true26.i.i103:                           ; preds = %if.then20.i.i100
-  %89 = load i8, ptr %add.ptr17.i.i98, align 1, !tbaa !8
-  %cmp28.not.i.i105 = icmp ugt i8 %84, %89
+  %90 = load i8, ptr %add.ptr17.i.i98, align 1, !tbaa !8
+  %cmp28.not.i.i105 = icmp ugt i8 %85, %90
   br i1 %cmp28.not.i.i105, label %if.end39.i.i93, label %matchbracketclass.exit.i79
 
 if.else32.i.i90:                                  ; preds = %land.lhs.true.i.i97, %if.else.i.i88
-  %cmp34.i.i92 = icmp eq i8 %84, %87
+  %cmp34.i.i92 = icmp eq i8 %85, %88
   br i1 %cmp34.i.i92, label %matchbracketclass.exit.i79, label %if.end39.i.i93
 
 if.end39.i.i93:                                   ; preds = %if.else32.i.i90, %land.lhs.true26.i.i103, %if.then20.i.i100, %if.then8.i.i106
@@ -2350,7 +2340,7 @@ matchbracketclass.exit.i79:                       ; preds = %if.end39.i.i93, %if
   br label %singlematch.exit118
 
 sw.default.i114:                                  ; preds = %land.rhs.i342
-  %cmp.i116 = icmp eq i8 %84, %83
+  %cmp.i116 = icmp eq i8 %85, %84
   %conv7.i117 = zext i1 %cmp.i116 to i32
   br label %singlematch.exit118
 
@@ -2361,11 +2351,11 @@ singlematch.exit118:                              ; preds = %sw.bb1.i110, %match
 
 while.body.i346:                                  ; preds = %land.rhs.i342, %singlematch.exit118
   %inc.i347 = add nuw i64 %i.0.i324453, 1
-  %exitcond.not = icmp eq i64 %inc.i347, %82
+  %exitcond.not = icmp eq i64 %inc.i347, %83
   br i1 %exitcond.not, label %while.end.i328, label %land.rhs.i342, !llvm.loop !44
 
 while.end.i328:                                   ; preds = %while.body.i346, %singlematch.exit118, %cond.true97
-  %i.0.i324.lcssa = phi i64 [ 0, %cond.true97 ], [ %82, %while.body.i346 ], [ %i.0.i324453, %singlematch.exit118 ]
+  %i.0.i324.lcssa = phi i64 [ 0, %cond.true97 ], [ %83, %while.body.i346 ], [ %i.0.i324453, %singlematch.exit118 ]
   %add.ptr7.i336 = getelementptr inbounds i8, ptr %retval.0.i296, i64 1
   br label %while.cond2.i329
 
@@ -2389,29 +2379,29 @@ for.cond.i:                                       ; preds = %land.lhs.true.i356,
 
 if.else.i354:                                     ; preds = %if.else.i354.preheader, %for.cond.i
   %s.addr.0.i449 = phi ptr [ %incdec.ptr.i359, %for.cond.i ], [ %s.addr.0.ph.ph, %if.else.i354.preheader ]
-  %90 = load ptr, ptr %src_end.i, align 8, !tbaa !25
-  %cmp1.i = icmp ult ptr %s.addr.0.i449, %90
+  %91 = load ptr, ptr %src_end.i, align 8, !tbaa !25
+  %cmp1.i = icmp ult ptr %s.addr.0.i449, %91
   br i1 %cmp1.i, label %land.lhs.true.i356, label %return
 
 land.lhs.true.i356:                               ; preds = %if.else.i354
-  %91 = load i8, ptr %s.addr.0.i449, align 1, !tbaa !8
-  %conv.i357 = zext i8 %91 to i32
-  %92 = load i8, ptr %p.addr.0, align 1, !tbaa !8
-  switch i8 %92, label %sw.default.i162 [
+  %92 = load i8, ptr %s.addr.0.i449, align 1, !tbaa !8
+  %conv.i357 = zext i8 %92 to i32
+  %93 = load i8, ptr %p.addr.0, align 1, !tbaa !8
+  switch i8 %93, label %sw.default.i162 [
     i8 46, label %for.cond.i
     i8 37, label %sw.bb1.i158
     i8 91, label %sw.bb3.i119
   ]
 
 sw.bb1.i158:                                      ; preds = %land.lhs.true.i356
-  %93 = load i8, ptr %add.ptr.i.i121, align 1, !tbaa !8
-  %conv2.i160 = zext i8 %93 to i32
+  %94 = load i8, ptr %add.ptr.i.i121, align 1, !tbaa !8
+  %conv2.i160 = zext i8 %94 to i32
   %call.i161 = tail call fastcc i32 @match_class(i32 noundef %conv.i357, i32 noundef %conv2.i160), !range !42
   br label %singlematch.exit166
 
 sw.bb3.i119:                                      ; preds = %land.lhs.true.i356
-  %94 = load i8, ptr %add.ptr.i.i121, align 1, !tbaa !8
-  %cmp.i.i122 = icmp eq i8 %94, 94
+  %95 = load i8, ptr %add.ptr.i.i121, align 1, !tbaa !8
+  %cmp.i.i122 = icmp eq i8 %95, 94
   %spec.select.i.i123 = select i1 %cmp.i.i122, ptr %add.ptr.i.i121, ptr %p.addr.0
   %not.cmp.i.i124 = xor i1 %cmp.i.i122, true
   %incdec.ptr260.i.i125 = getelementptr inbounds i8, ptr %spec.select.i.i123, i64 1
@@ -2421,20 +2411,20 @@ sw.bb3.i119:                                      ; preds = %land.lhs.true.i356
 while.body.i.i131:                                ; preds = %sw.bb3.i119, %if.end39.i.i141
   %incdec.ptr263.i.i132 = phi ptr [ %incdec.ptr2.i.i143, %if.end39.i.i141 ], [ %incdec.ptr260.i.i125, %sw.bb3.i119 ]
   %p.addr.162.i.i133 = phi ptr [ %p.addr.2.i.i142, %if.end39.i.i141 ], [ %spec.select.i.i123, %sw.bb3.i119 ]
-  %95 = load i8, ptr %incdec.ptr263.i.i132, align 1, !tbaa !8
-  %cmp6.i.i134 = icmp eq i8 %95, 37
+  %96 = load i8, ptr %incdec.ptr263.i.i132, align 1, !tbaa !8
+  %cmp6.i.i134 = icmp eq i8 %96, 37
   %incdec.ptr9.i.i135 = getelementptr inbounds i8, ptr %p.addr.162.i.i133, i64 2
-  %96 = load i8, ptr %incdec.ptr9.i.i135, align 1, !tbaa !8
+  %97 = load i8, ptr %incdec.ptr9.i.i135, align 1, !tbaa !8
   br i1 %cmp6.i.i134, label %if.then8.i.i154, label %if.else.i.i136
 
 if.then8.i.i154:                                  ; preds = %while.body.i.i131
-  %conv10.i.i155 = zext i8 %96 to i32
+  %conv10.i.i155 = zext i8 %97 to i32
   %call.i.i156 = tail call fastcc i32 @match_class(i32 noundef %conv.i357, i32 noundef %conv10.i.i155), !range !42
   %tobool.not.i.i157 = icmp eq i32 %call.i.i156, 0
   br i1 %tobool.not.i.i157, label %if.end39.i.i141, label %matchbracketclass.exit.i127
 
 if.else.i.i136:                                   ; preds = %while.body.i.i131
-  %cmp15.i.i137 = icmp eq i8 %96, 45
+  %cmp15.i.i137 = icmp eq i8 %97, 45
   br i1 %cmp15.i.i137, label %land.lhs.true.i.i145, label %if.else32.i.i138
 
 land.lhs.true.i.i145:                             ; preds = %if.else.i.i136
@@ -2443,16 +2433,16 @@ land.lhs.true.i.i145:                             ; preds = %if.else.i.i136
   br i1 %cmp18.i.i147, label %if.then20.i.i148, label %if.else32.i.i138
 
 if.then20.i.i148:                                 ; preds = %land.lhs.true.i.i145
-  %cmp24.not.i.i150 = icmp ult i8 %91, %95
+  %cmp24.not.i.i150 = icmp ult i8 %92, %96
   br i1 %cmp24.not.i.i150, label %if.end39.i.i141, label %land.lhs.true26.i.i151
 
 land.lhs.true26.i.i151:                           ; preds = %if.then20.i.i148
-  %97 = load i8, ptr %add.ptr17.i.i146, align 1, !tbaa !8
-  %cmp28.not.i.i153 = icmp ugt i8 %91, %97
+  %98 = load i8, ptr %add.ptr17.i.i146, align 1, !tbaa !8
+  %cmp28.not.i.i153 = icmp ugt i8 %92, %98
   br i1 %cmp28.not.i.i153, label %if.end39.i.i141, label %matchbracketclass.exit.i127
 
 if.else32.i.i138:                                 ; preds = %land.lhs.true.i.i145, %if.else.i.i136
-  %cmp34.i.i140 = icmp eq i8 %91, %95
+  %cmp34.i.i140 = icmp eq i8 %92, %96
   br i1 %cmp34.i.i140, label %matchbracketclass.exit.i127, label %if.end39.i.i141
 
 if.end39.i.i141:                                  ; preds = %if.else32.i.i138, %land.lhs.true26.i.i151, %if.then20.i.i148, %if.then8.i.i154
@@ -2467,7 +2457,7 @@ matchbracketclass.exit.i127:                      ; preds = %if.end39.i.i141, %i
   br label %singlematch.exit166
 
 sw.default.i162:                                  ; preds = %land.lhs.true.i356
-  %cmp.i164 = icmp eq i8 %91, %92
+  %cmp.i164 = icmp eq i8 %92, %93
   %conv7.i165 = zext i1 %cmp.i164 to i32
   br label %singlematch.exit166
 
@@ -2477,7 +2467,7 @@ singlematch.exit166:                              ; preds = %sw.bb1.i158, %match
   br i1 %tobool.not.i358, label %return, label %for.cond.i
 
 sw.default105:                                    ; preds = %land.end
-  br i1 %71, label %init.outer.outer.backedge, label %return
+  br i1 %72, label %init.outer.outer.backedge, label %return
 
 init.outer.outer.backedge:                        ; preds = %sw.default105, %if.end55, %if.end
   %p.addr.0.ph.ph.be = phi ptr [ %add.ptr56, %if.end55 ], [ %add.ptr18, %if.end ], [ %retval.0.i296, %sw.default105 ]

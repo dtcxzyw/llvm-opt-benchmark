@@ -249,7 +249,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @hermesCompileResult_getBytecodeSize(ptr noundef readonly %res) local_unnamed_addr #3 {
+define hidden range(i64 0, 4294967296) i64 @hermesCompileResult_getBytecodeSize(ptr noundef readonly %res) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %res, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

@@ -1011,11 +1011,11 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %_ZNSt6vectorIN2cv4
   store i64 %443, ptr %32, align 8
   %444 = trunc i64 %443 to i32
   %445 = urem i32 %444, %436
+  %446 = sext i32 %445 to i64
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.thread
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.thread: ; preds = %429, %438
-  %446 = phi i32 [ %445, %438 ], [ 0, %429 ]
-  %447 = sext i32 %446 to i64
+  %447 = phi i64 [ %446, %438 ], [ 0, %429 ]
   %448 = getelementptr inbounds %"class.cv::Rect_", ptr %431, i64 %447
   %449 = invoke noundef double @_ZN2cv8tracking4impl3tld7overlapERKNS_5Rect_IdEES6_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %448)
           to label %450 unwind label %.thread189

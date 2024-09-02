@@ -1371,14 +1371,14 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15Baselin
   %106 = load i8, ptr %40, align 1, !range !83
   %107 = icmp ne i8 %106, 0
   %108 = select i1 %68, i1 true, i1 %107
-  br i1 %108, label %109, label %119
+  br i1 %108, label %109, label %120
 
 109:                                              ; preds = %104
   store i32 %70, ptr %105, align 4, !tbaa !14
   br i1 %71, label %124, label %110
 
 110:                                              ; preds = %109
-  br i1 %68, label %111, label %119
+  br i1 %68, label %111, label %120
 
 111:                                              ; preds = %110
   tail call void @llvm.assume(i1 %72)
@@ -1389,17 +1389,17 @@ define linkonce_odr hidden void @_ZN8rawspeed20PrefixCodeLUTDecoderINS_15Baselin
   %116 = icmp eq i32 %115, 0
   %117 = select i1 %116, i32 %78, i32 0
   %118 = add nsw i32 %117, %114
-  br label %119
+  %119 = shl nsw i32 %118, 9
+  br label %120
 
-119:                                              ; preds = %111, %110, %104
-  %120 = phi i32 [ %70, %111 ], [ %70, %110 ], [ %69, %104 ]
-  %121 = phi i32 [ %118, %111 ], [ -32768, %110 ], [ -32768, %104 ]
-  %122 = shl nsw i32 %121, 9
-  %123 = or i32 %122, %120
+120:                                              ; preds = %111, %110, %104
+  %121 = phi i32 [ %70, %111 ], [ %70, %110 ], [ %69, %104 ]
+  %122 = phi i32 [ %119, %111 ], [ -16777216, %110 ], [ -16777216, %104 ]
+  %123 = or i32 %122, %121
   store i32 %123, ptr %105, align 4, !tbaa !14
   br label %124
 
-124:                                              ; preds = %119, %109
+124:                                              ; preds = %120, %109
   %125 = add i16 %101, 1
   %126 = icmp ugt i16 %125, %58
   br i1 %126, label %.loopexit13, label %.preheader17, !llvm.loop !139

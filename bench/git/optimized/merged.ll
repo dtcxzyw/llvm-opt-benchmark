@@ -417,7 +417,7 @@ declare void @merged_iter_pqueue_release(ptr noundef) local_unnamed_addr #1
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @merged_iter_next_void(ptr noundef %p, ptr noundef %rec) #0 {
+define internal range(i32 -2147483648, 2) i32 @merged_iter_next_void(ptr noundef %p, ptr noundef %rec) #0 {
 entry:
   %entry1.i.i = alloca %struct.pq_entry, align 8
   %tmp.i.i = alloca %struct.pq_entry, align 8

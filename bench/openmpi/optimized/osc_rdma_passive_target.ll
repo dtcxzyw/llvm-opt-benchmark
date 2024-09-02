@@ -704,9 +704,9 @@ ompi_osc_rdma_btl_atomic_cswap.exit.i.i:          ; preds = %72, %70
 
 78:                                               ; preds = %ompi_osc_rdma_btl_atomic_cswap.exit.i.i, %61
   %.2.i.i = phi i32 [ %77, %ompi_osc_rdma_btl_atomic_cswap.exit.i.i ], [ %62, %61 ]
-  %79 = add i32 %.2.i.i, 3
-  %80 = icmp ult i32 %79, 2
-  br i1 %80, label %81, label %83
+  %79 = add i32 %.2.i.i, 1
+  %80 = icmp ult i32 %79, -2
+  br i1 %80, label %83, label %81
 
 81:                                               ; preds = %78
   %82 = call i32 @opal_progress() #7
@@ -813,7 +813,7 @@ ompi_osc_rdma_btl_cswap.exit.i:                   ; preds = %opal_obj_run_destru
 
 ompi_osc_rdma_lock_try_acquire_exclusive.exit.thread: ; preds = %ompi_osc_rdma_btl_cswap.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %128
+  br label %129
 
 123:                                              ; preds = %22
   %124 = inttoptr i64 %24 to ptr
@@ -822,61 +822,61 @@ ompi_osc_rdma_lock_try_acquire_exclusive.exit.thread: ; preds = %ompi_osc_rdma_b
   %126 = extractvalue { i64, i1 } %125, 1
   fence seq_cst
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 %126, label %147, label %128
+  br i1 %126, label %148, label %129
 
 ompi_osc_rdma_lock_try_acquire_exclusive.exit:    ; preds = %ompi_osc_rdma_btl_cswap.exit.i
   %127 = load i64, ptr %3, align 8
-  %.not6 = icmp eq i64 %127, 0
+  %128 = icmp eq i64 %127, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 %.not6, label %147, label %128
+  br i1 %128, label %148, label %129
 
-128:                                              ; preds = %123, %ompi_osc_rdma_lock_try_acquire_exclusive.exit.thread, %ompi_osc_rdma_lock_try_acquire_exclusive.exit
-  br i1 %9, label %129, label %ompi_osc_rdma_lock_release_shared.exit
+129:                                              ; preds = %123, %ompi_osc_rdma_lock_try_acquire_exclusive.exit.thread, %ompi_osc_rdma_lock_try_acquire_exclusive.exit
+  br i1 %9, label %130, label %ompi_osc_rdma_lock_release_shared.exit
 
-129:                                              ; preds = %128
-  %130 = load ptr, ptr %10, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 56
-  %132 = load i64, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %130, i64 140
-  %134 = load volatile i32, ptr %133, align 4
-  %135 = and i32 %134, 4
-  %.not.i20 = icmp eq i32 %135, 0
-  br i1 %.not.i20, label %136, label %144
+130:                                              ; preds = %129
+  %131 = load ptr, ptr %10, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 56
+  %133 = load i64, ptr %132, align 8
+  %134 = getelementptr inbounds i8, ptr %131, i64 140
+  %135 = load volatile i32, ptr %134, align 4
+  %136 = and i32 %135, 4
+  %.not.i20 = icmp eq i32 %136, 0
+  br i1 %.not.i20, label %137, label %145
 
-136:                                              ; preds = %129
-  %137 = getelementptr inbounds i8, ptr %130, i64 145
-  %138 = load i8, ptr %137, align 1
-  %139 = getelementptr inbounds i8, ptr %130, i64 48
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %130, i64 64
-  %142 = load ptr, ptr %141, align 8
-  %143 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef nonnull %0, i8 noundef zeroext %138, ptr noundef %140, i64 noundef %132, ptr noundef %142, i64 noundef -1)
+137:                                              ; preds = %130
+  %138 = getelementptr inbounds i8, ptr %131, i64 145
+  %139 = load i8, ptr %138, align 1
+  %140 = getelementptr inbounds i8, ptr %131, i64 48
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds i8, ptr %131, i64 64
+  %143 = load ptr, ptr %142, align 8
+  %144 = call fastcc i32 @ompi_osc_rdma_btl_op(ptr noundef nonnull %0, i8 noundef zeroext %139, ptr noundef %141, i64 noundef %133, ptr noundef %143, i64 noundef -1)
   br label %ompi_osc_rdma_lock_release_shared.exit
 
-144:                                              ; preds = %129
-  %145 = inttoptr i64 %132 to ptr
+145:                                              ; preds = %130
+  %146 = inttoptr i64 %133 to ptr
   fence seq_cst
-  %146 = atomicrmw volatile add ptr %145, i64 -1 monotonic, align 8
+  %147 = atomicrmw volatile add ptr %146, i64 -1 monotonic, align 8
   fence seq_cst
   br label %ompi_osc_rdma_lock_release_shared.exit
 
-147:                                              ; preds = %123, %ompi_osc_rdma_lock_try_acquire_exclusive.exit
-  %148 = load volatile i32, ptr %12, align 4
-  %149 = or i32 %148, 1
-  store volatile i32 %149, ptr %12, align 4
+148:                                              ; preds = %123, %ompi_osc_rdma_lock_try_acquire_exclusive.exit
+  %149 = load volatile i32, ptr %12, align 4
+  %150 = or i32 %149, 1
+  store volatile i32 %150, ptr %12, align 4
   br label %.loopexit
 
-ompi_osc_rdma_lock_release_shared.exit:           ; preds = %128, %136, %144, %19
-  %150 = call i32 @opal_progress() #7
+ompi_osc_rdma_lock_release_shared.exit:           ; preds = %129, %137, %145, %19
+  %151 = call i32 @opal_progress() #7
   br label %18
 
 .lr.ph:                                           ; preds = %.preheader3, %.lr.ph
-  %151 = tail call i32 @opal_progress() #7
-  %152 = tail call fastcc i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef %0, ptr noundef %1, i64 noundef 1, i64 noundef 8, i64 noundef -9223372036854775808)
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %.loopexit, label %.lr.ph
+  %152 = tail call i32 @opal_progress() #7
+  %153 = tail call fastcc i32 @ompi_osc_rdma_lock_acquire_shared(ptr noundef %0, ptr noundef %1, i64 noundef 1, i64 noundef 8, i64 noundef -9223372036854775808)
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader3, %147
+.loopexit:                                        ; preds = %.lr.ph, %.preheader3, %148
   ret void
 }
 
@@ -2249,9 +2249,9 @@ ompi_osc_rdma_btl_atomic_op.exit:                 ; preds = %44, %47
   %52 = getelementptr inbounds i8, ptr %.0.i77, i64 232
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 %53(ptr noundef %.0.i77, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef 1, i64 noundef %5, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_atomic_complete, ptr noundef %19, ptr noundef null) #7
-  %55 = add i32 %54, 3
-  %56 = icmp ult i32 %55, 2
-  br i1 %56, label %57, label %59
+  %55 = add i32 %54, 1
+  %56 = icmp ult i32 %55, -2
+  br i1 %56, label %59, label %57
 
 57:                                               ; preds = %ompi_osc_rdma_btl_atomic_op.exit
   %58 = tail call i32 @opal_progress() #7
@@ -2497,9 +2497,9 @@ ompi_osc_rdma_btl_atomic_fop.exit:                ; preds = %65, %67
 
 73:                                               ; preds = %ompi_osc_rdma_btl_atomic_fop.exit, %56
   %.2 = phi i32 [ %72, %ompi_osc_rdma_btl_atomic_fop.exit ], [ %57, %56 ]
-  %74 = add i32 %.2, 3
-  %75 = icmp ult i32 %74, 2
-  br i1 %75, label %76, label %78
+  %74 = add i32 %.2, 1
+  %75 = icmp ult i32 %74, -2
+  br i1 %75, label %78, label %76
 
 76:                                               ; preds = %73
   %77 = tail call i32 @opal_progress() #7

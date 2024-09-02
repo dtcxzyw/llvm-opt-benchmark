@@ -1992,12 +1992,12 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly 
   %68 = fptosi double %67 to i32
   %69 = trunc i32 %68 to i16
   %70 = add i16 %69, 32767
+  %71 = uitofp i16 %70 to double
   br label %_cmsQuantizeVal.exit.us
 
 _cmsQuantizeVal.exit.us:                          ; preds = %65, %63, %51
-  %.0.i.i.us = phi i16 [ %70, %65 ], [ 0, %51 ], [ -1, %63 ]
-  %71 = uitofp i16 %.0.i.i.us to double
-  %72 = fdiv double %71, 6.553500e+04
+  %.0.i.i.us = phi double [ %71, %65 ], [ 0.000000e+00, %51 ], [ 6.553500e+04, %63 ]
+  %72 = fdiv double %.0.i.i.us, 6.553500e+04
   %73 = fptrunc double %72 to float
   %74 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %indvars.iv.next148
   store float %73, ptr %74, align 4
@@ -2317,12 +2317,12 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpaceFloat(i32 noundef %0, ptr nocapt
   %34 = fptosi double %33 to i32
   %35 = trunc i32 %34 to i16
   %36 = add i16 %35, 32767
+  %37 = uitofp i16 %36 to double
   br label %_cmsQuantizeVal.exit.us
 
 _cmsQuantizeVal.exit.us:                          ; preds = %31, %29, %16
-  %.0.i.i.us = phi i16 [ %36, %31 ], [ 0, %16 ], [ -1, %29 ]
-  %37 = uitofp i16 %.0.i.i.us to double
-  %38 = fdiv double %37, 6.553500e+04
+  %.0.i.i.us = phi double [ %37, %31 ], [ 0.000000e+00, %16 ], [ 6.553500e+04, %29 ]
+  %38 = fdiv double %.0.i.i.us, 6.553500e+04
   %39 = fptrunc double %38 to float
   %40 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %17
   store float %39, ptr %40, align 4

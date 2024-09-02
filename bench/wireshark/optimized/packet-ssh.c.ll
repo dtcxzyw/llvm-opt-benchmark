@@ -1207,7 +1207,7 @@ switch.lookup:                                    ; preds = %66
   br label %125
 
 125:                                              ; preds = %.loopexit, %79
-  %.0146 = phi i32 [ %74, %79 ], [ %.1147.ph, %.loopexit ]
+  %.0145 = phi i32 [ %74, %79 ], [ %.1146.ph, %.loopexit ]
   %.0119 = phi i32 [ 0, %79 ], [ %.1.ph, %.loopexit ]
   %126 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0119) #21
   %127 = icmp sgt i32 %126, 0
@@ -1282,11 +1282,11 @@ switch.lookup:                                    ; preds = %66
 164:                                              ; preds = %161
   %165 = call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef %.0119, ptr noundef nonnull @.str.497, i64 noundef 6) #21
   %166 = icmp eq i32 %165, 0
-  %spec.select = select i1 %166, i32 1, i32 %.0146
+  %spec.select = select i1 %166, i32 1, i32 %.0145
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %164, %158, %161, %157
-  %.2 = phi i32 [ %.0146, %157 ], [ 2, %158 ], [ 2, %161 ], [ %spec.select, %164 ]
+  %.2 = phi i32 [ %.0145, %157 ], [ 2, %158 ], [ 2, %161 ], [ %spec.select, %164 ]
   %167 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.0119) #21
   %168 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0119, i32 noundef -1, i8 noundef zeroext 10) #21
   %169 = load i32, ptr @ssh_desegment, align 4
@@ -1398,7 +1398,7 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   br label %ssh_dissect_ssh1.exit
 
 223:                                              ; preds = %ssh_hash_buffer_put_string.exit.i, %155
-  %.3.ph = phi i32 [ %.0146, %155 ], [ %.2, %ssh_hash_buffer_put_string.exit.i ]
+  %.3.ph = phi i32 [ %.0145, %155 ], [ %.2, %ssh_hash_buffer_put_string.exit.i ]
   %.0.i.ph = phi i32 [ %156, %155 ], [ %219, %ssh_hash_buffer_put_string.exit.i ]
   %224 = load i32, ptr %13, align 4
   store i32 %224, ptr %83, align 8
@@ -1406,7 +1406,7 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   br label %.loopexit
 
 225:                                              ; preds = %145, %141
-  switch i32 %.0146, label %.thread [
+  switch i32 %.0145, label %.thread [
     i32 0, label %226
     i32 1, label %228
     i32 2, label %308
@@ -1572,10 +1572,10 @@ ssh_dissect_protocol.exit:                        ; preds = %172
   %310 = icmp sgt i32 %309, 0
   br i1 %310, label %.lr.ph.i, label %.thread
 
-.lr.ph.i:                                         ; preds = %308, %733
-  %.096.i = phi i32 [ %.2.i, %733 ], [ %.0119, %308 ]
-  %.06295.i = phi ptr [ %.163.i, %733 ], [ null, %308 ]
-  br i1 %.not.i130, label %340, label %311
+.lr.ph.i:                                         ; preds = %308, %734
+  %.095.i = phi i32 [ %.2.i, %734 ], [ %.0119, %308 ]
+  %.06294.i = phi ptr [ %.163.i, %734 ], [ null, %308 ]
+  br i1 %.not.i130, label %341, label %311
 
 311:                                              ; preds = %.lr.ph.i
   %312 = call ptr @wmem_packet_scope() #21
@@ -1586,833 +1586,830 @@ ssh_dissect_protocol.exit:                        ; preds = %172
 
 315:                                              ; preds = %311
   %316 = load ptr, ptr %85, align 8
-  %.not73.i137 = icmp eq ptr %316, null
-  br i1 %.not73.i137, label %317, label %319
+  %.not73.i136 = icmp eq ptr %316, null
+  br i1 %.not73.i136, label %317, label %319
 
 317:                                              ; preds = %315
   %318 = load ptr, ptr %86, align 8
-  %.not74.i138 = icmp eq ptr %318, null
-  br i1 %.not74.i138, label %336, label %319
+  %.not74.i137 = icmp eq ptr %318, null
+  br i1 %.not74.i137, label %337, label %319
 
 319:                                              ; preds = %317, %315, %311
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %313, ptr noundef nonnull @.str.560) #21
   %320 = load ptr, ptr %84, align 8
   %.not75.i131 = icmp eq ptr %320, null
-  br i1 %.not75.i131, label %327, label %321
+  br i1 %.not75.i131, label %328, label %321
 
 321:                                              ; preds = %319
   %322 = load ptr, ptr %85, align 8
   %.not76.i132 = icmp eq ptr %322, null
-  br i1 %.not76.i132, label %323, label %.thread.i133
+  br i1 %.not76.i132, label %323, label %326
 
 323:                                              ; preds = %321
   %324 = load ptr, ptr %86, align 8
-  %.fr.i = freeze ptr %324
-  %.not89.i = icmp eq ptr %.fr.i, null
-  br i1 %.not89.i, label %325, label %.thread.i133
+  %.not77.i = icmp eq ptr %324, null
+  %325 = select i1 %.not77.i, ptr @.str.505, ptr @.str.399
+  br label %326
 
-.thread.i133:                                     ; preds = %323, %321
-  br label %325
+326:                                              ; preds = %323, %321
+  %327 = phi ptr [ @.str.399, %321 ], [ %325, %323 ]
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %313, ptr noundef nonnull @.str.561, ptr noundef nonnull %320, ptr noundef nonnull %327) #21
+  br label %328
 
-325:                                              ; preds = %.thread.i133, %323
-  %326 = phi ptr [ @.str.399, %.thread.i133 ], [ @.str.505, %323 ]
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %313, ptr noundef nonnull @.str.561, ptr noundef nonnull %320, ptr noundef nonnull %326) #21
-  br label %327
+328:                                              ; preds = %326, %319
+  %329 = load ptr, ptr %85, align 8
+  %.not78.i = icmp eq ptr %329, null
+  br i1 %.not78.i, label %333, label %330
 
-327:                                              ; preds = %325, %319
-  %328 = load ptr, ptr %85, align 8
-  %.not77.i = icmp eq ptr %328, null
-  br i1 %.not77.i, label %332, label %329
+330:                                              ; preds = %328
+  %331 = load ptr, ptr %86, align 8
+  %.not79.i = icmp eq ptr %331, null
+  %332 = select i1 %.not79.i, ptr @.str.505, ptr @.str.399
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %313, ptr noundef nonnull @.str.562, ptr noundef nonnull %329, ptr noundef nonnull %332) #21
+  br label %333
 
-329:                                              ; preds = %327
-  %330 = load ptr, ptr %86, align 8
-  %.not78.i = icmp eq ptr %330, null
-  %331 = select i1 %.not78.i, ptr @.str.505, ptr @.str.399
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %313, ptr noundef nonnull @.str.562, ptr noundef nonnull %328, ptr noundef nonnull %331) #21
-  br label %332
+333:                                              ; preds = %330, %328
+  %334 = load ptr, ptr %86, align 8
+  %.not80.i = icmp eq ptr %334, null
+  br i1 %.not80.i, label %336, label %335
 
-332:                                              ; preds = %329, %327
-  %333 = load ptr, ptr %86, align 8
-  %.not79.i = icmp eq ptr %333, null
-  br i1 %.not79.i, label %335, label %334
-
-334:                                              ; preds = %332
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %313, ptr noundef nonnull @.str.563, ptr noundef nonnull %333) #21
-  br label %335
-
-335:                                              ; preds = %334, %332
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %313, ptr noundef nonnull @.str.564) #21
+335:                                              ; preds = %333
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %313, ptr noundef nonnull @.str.563, ptr noundef nonnull %334) #21
   br label %336
 
-336:                                              ; preds = %335, %317
-  %337 = load i32, ptr @ett_ssh2, align 4
-  %338 = call ptr @wmem_strbuf_get_str(ptr noundef %313) #21
-  %339 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %73, ptr noundef %0, i32 noundef %.096.i, i32 noundef -1, i32 noundef %337, ptr noundef null, ptr noundef %338) #21
-  br label %340
+336:                                              ; preds = %335, %333
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %313, ptr noundef nonnull @.str.564) #21
+  br label %337
 
-340:                                              ; preds = %336, %.lr.ph.i
-  %.163.i = phi ptr [ %339, %336 ], [ %.06295.i, %.lr.ph.i ]
-  %341 = load i32, ptr %87, align 4
-  %342 = icmp eq i32 %341, 0
-  br i1 %342, label %353, label %343
+337:                                              ; preds = %336, %317
+  %338 = load i32, ptr @ett_ssh2, align 4
+  %339 = call ptr @wmem_strbuf_get_str(ptr noundef %313) #21
+  %340 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %73, ptr noundef %0, i32 noundef %.095.i, i32 noundef -1, i32 noundef %338, ptr noundef null, ptr noundef %339) #21
+  br label %341
 
-343:                                              ; preds = %340
-  %344 = load i32, ptr %13, align 4
-  %.not80.i = icmp ugt i32 %341, %344
-  br i1 %.not80.i, label %729, label %345
+341:                                              ; preds = %337, %.lr.ph.i
+  %.163.i = phi ptr [ %340, %337 ], [ %.06294.i, %.lr.ph.i ]
+  %342 = load i32, ptr %87, align 4
+  %343 = icmp eq i32 %342, 0
+  br i1 %343, label %354, label %344
 
-345:                                              ; preds = %343
-  %346 = load i32, ptr %88, align 8
-  %347 = add i32 %346, -1
-  %or.cond.not.i = icmp ult i32 %347, %344
-  br i1 %or.cond.not.i, label %348, label %353
+344:                                              ; preds = %341
+  %345 = load i32, ptr %13, align 4
+  %.not81.i = icmp ugt i32 %342, %345
+  br i1 %.not81.i, label %730, label %346
 
-348:                                              ; preds = %345
-  %349 = icmp eq i32 %344, %346
-  br i1 %349, label %350, label %729
+346:                                              ; preds = %344
+  %347 = load i32, ptr %88, align 8
+  %348 = add i32 %347, -1
+  %or.cond.not.i = icmp ult i32 %348, %345
+  br i1 %or.cond.not.i, label %349, label %354
 
-350:                                              ; preds = %348
-  %351 = load i32, ptr %89, align 4
-  %352 = icmp slt i32 %.096.i, %351
-  br i1 %352, label %353, label %729
+349:                                              ; preds = %346
+  %350 = icmp eq i32 %345, %347
+  br i1 %350, label %351, label %730
 
-353:                                              ; preds = %350, %345, %340
+351:                                              ; preds = %349
+  %352 = load i32, ptr %89, align 4
+  %353 = icmp slt i32 %.095.i, %352
+  br i1 %353, label %354, label %730
+
+354:                                              ; preds = %351, %346, %341
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %354 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.096.i) #21
-  %355 = load i32, ptr @ssh_desegment, align 4
-  %.not.i.i134 = icmp eq i32 %355, 0
-  br i1 %.not.i.i134, label %362, label %356
+  %355 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.095.i) #21
+  %356 = load i32, ptr @ssh_desegment, align 4
+  %.not.i.i133 = icmp eq i32 %356, 0
+  br i1 %.not.i.i133, label %363, label %357
 
-356:                                              ; preds = %353
-  %357 = load i16, ptr %90, align 8
-  %358 = icmp ne i16 %357, 0
-  %359 = icmp ult i32 %354, 4
-  %or.cond3.i.i = select i1 %358, i1 %359, i1 false
-  br i1 %or.cond3.i.i, label %360, label %362
+357:                                              ; preds = %354
+  %358 = load i16, ptr %90, align 8
+  %359 = icmp ne i16 %358, 0
+  %360 = icmp ult i32 %355, 4
+  %or.cond3.i.i = select i1 %359, i1 %360, i1 false
+  br i1 %or.cond3.i.i, label %361, label %363
 
-360:                                              ; preds = %356
-  %361 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 %.096.i, ptr %361, align 4
+361:                                              ; preds = %357
+  %362 = getelementptr inbounds i8, ptr %1, i64 332
+  store i32 %.095.i, ptr %362, align 4
   br label %ssh_dissect_key_exchange.exit.thread.i
 
-362:                                              ; preds = %356, %353
-  %363 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.096.i) #21
-  %364 = load i32, ptr @ssh_desegment, align 4
-  %.not158.i.i = icmp eq i32 %364, 0
-  br i1 %.not158.i.i, label %372, label %365
+363:                                              ; preds = %357, %354
+  %364 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.095.i) #21
+  %365 = load i32, ptr @ssh_desegment, align 4
+  %.not158.i.i = icmp eq i32 %365, 0
+  br i1 %.not158.i.i, label %373, label %366
 
-365:                                              ; preds = %362
-  %366 = load i16, ptr %90, align 8
-  %.not159.i.i = icmp ne i16 %366, 0
-  %367 = add i32 %363, 4
-  %368 = icmp ugt i32 %367, %354
-  %or.cond.i135 = select i1 %.not159.i.i, i1 %368, i1 false
-  br i1 %or.cond.i135, label %369, label %372
+366:                                              ; preds = %363
+  %367 = load i16, ptr %90, align 8
+  %.not159.i.i = icmp ne i16 %367, 0
+  %368 = add i32 %364, 4
+  %369 = icmp ugt i32 %368, %355
+  %or.cond.i134 = select i1 %.not159.i.i, i1 %369, i1 false
+  br i1 %or.cond.i134, label %370, label %373
 
-369:                                              ; preds = %365
-  %370 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 %.096.i, ptr %370, align 4
-  %371 = sub nuw i32 %367, %354
+370:                                              ; preds = %366
+  %371 = getelementptr inbounds i8, ptr %1, i64 332
+  store i32 %.095.i, ptr %371, align 4
+  %372 = sub nuw i32 %368, %355
   br label %ssh_dissect_key_exchange.exit.thread.i
 
-372:                                              ; preds = %365, %362
-  %373 = load i32, ptr @hf_ssh_packet_length, align 4
-  %374 = call ptr @proto_tree_add_uint(ptr noundef %.163.i, i32 noundef %373, ptr noundef %0, i32 noundef %.096.i, i32 noundef 4, i32 noundef %363) #21
-  %375 = icmp ugt i32 %363, 65534
-  br i1 %375, label %376, label %379
+373:                                              ; preds = %366, %363
+  %374 = load i32, ptr @hf_ssh_packet_length, align 4
+  %375 = call ptr @proto_tree_add_uint(ptr noundef %.163.i, i32 noundef %374, ptr noundef %0, i32 noundef %.095.i, i32 noundef 4, i32 noundef %364) #21
+  %376 = icmp ugt i32 %364, 65534
+  br i1 %376, label %377, label %380
 
-376:                                              ; preds = %372
-  %377 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %374, ptr noundef nonnull @ei_ssh_packet_length, ptr noundef nonnull @.str.520, i32 noundef %363) #21
-  %378 = add i32 %354, -4
-  br label %379
+377:                                              ; preds = %373
+  %378 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %375, ptr noundef nonnull @ei_ssh_packet_length, ptr noundef nonnull @.str.520, i32 noundef %364) #21
+  %379 = add i32 %355, -4
+  br label %380
 
-379:                                              ; preds = %376, %372
-  %.0152.i.i = phi i32 [ %378, %376 ], [ %363, %372 ]
-  %380 = add i32 %.096.i, 4
-  %381 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %380) #21
-  %382 = load i32, ptr @hf_ssh_padding_length, align 4
-  %383 = zext i8 %381 to i32
-  %384 = call ptr @proto_tree_add_uint(ptr noundef %.163.i, i32 noundef %382, ptr noundef %0, i32 noundef %380, i32 noundef 1, i32 noundef %383) #21
-  %385 = add i32 %.096.i, 5
-  %386 = load ptr, ptr %91, align 8
-  %.not160.i.i = icmp eq ptr %386, null
-  br i1 %.not160.i.i, label %391, label %387
+380:                                              ; preds = %377, %373
+  %.0152.i.i = phi i32 [ %379, %377 ], [ %364, %373 ]
+  %381 = add i32 %.095.i, 4
+  %382 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %381) #21
+  %383 = load i32, ptr @hf_ssh_padding_length, align 4
+  %384 = zext i8 %382 to i32
+  %385 = call ptr @proto_tree_add_uint(ptr noundef %.163.i, i32 noundef %383, ptr noundef %0, i32 noundef %381, i32 noundef 1, i32 noundef %384) #21
+  %386 = add i32 %.095.i, 5
+  %387 = load ptr, ptr %91, align 8
+  %.not160.i.i = icmp eq ptr %387, null
+  br i1 %.not160.i.i, label %392, label %388
 
-387:                                              ; preds = %379
-  %388 = call ptr @wmem_packet_scope() #21
-  %389 = load ptr, ptr %91, align 8
-  %390 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %388, ptr noundef nonnull @.str.566, ptr noundef nonnull @.str.565, ptr noundef %389) #21
-  br label %391
+388:                                              ; preds = %380
+  %389 = call ptr @wmem_packet_scope() #21
+  %390 = load ptr, ptr %91, align 8
+  %391 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %389, ptr noundef nonnull @.str.566, ptr noundef nonnull @.str.565, ptr noundef %390) #21
+  br label %392
 
-391:                                              ; preds = %387, %379
-  %.0150.i.i = phi ptr [ %390, %387 ], [ @.str.565, %379 ]
-  %392 = add i32 %.0152.i.i, -1
-  %393 = load i32, ptr @ett_key_exchange, align 4
-  %394 = call ptr @proto_tree_add_subtree(ptr noundef %.163.i, ptr noundef %0, i32 noundef %385, i32 noundef %392, i32 noundef %393, ptr noundef null, ptr noundef %.0150.i.i) #21
-  %395 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %385) #21
-  %396 = add i8 %395, -30
-  %or.cond.i.i = icmp ult i8 %396, 10
-  br i1 %or.cond.i.i, label %397, label %400
+392:                                              ; preds = %388, %380
+  %.0150.i.i = phi ptr [ %391, %388 ], [ @.str.565, %380 ]
+  %393 = add i32 %.0152.i.i, -1
+  %394 = load i32, ptr @ett_key_exchange, align 4
+  %395 = call ptr @proto_tree_add_subtree(ptr noundef %.163.i, ptr noundef %0, i32 noundef %386, i32 noundef %393, i32 noundef %394, ptr noundef null, ptr noundef %.0150.i.i) #21
+  %396 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %386) #21
+  %397 = add i8 %396, -30
+  %or.cond.i.i = icmp ult i8 %397, 10
+  br i1 %or.cond.i.i, label %398, label %401
 
-397:                                              ; preds = %391
-  %398 = load ptr, ptr %118, align 8
-  %399 = call i32 %398(i8 noundef zeroext %395, ptr noundef %0, ptr noundef %1, i32 noundef %385, ptr noundef %394, ptr noundef nonnull %.0120, ptr noundef nonnull %6) #21
-  br label %691
+398:                                              ; preds = %392
+  %399 = load ptr, ptr %118, align 8
+  %400 = call i32 %399(i8 noundef zeroext %396, ptr noundef %0, ptr noundef %1, i32 noundef %386, ptr noundef %395, ptr noundef nonnull %.0120, ptr noundef nonnull %6) #21
+  br label %692
 
-400:                                              ; preds = %391
-  %401 = zext i8 %395 to i32
-  %402 = load i32, ptr @hf_ssh2_msg_code, align 4
-  %403 = call ptr @proto_tree_add_item(ptr noundef %394, i32 noundef %402, ptr noundef %0, i32 noundef %385, i32 noundef 1, i32 noundef 0) #21
-  %404 = add i32 %.096.i, 6
-  %405 = load ptr, ptr %80, align 8
-  %406 = call ptr @val_to_str(i32 noundef %401, ptr noundef nonnull @ssh2_msg_vals, ptr noundef nonnull @.str.411) #21
-  call void @col_append_sep_str(ptr noundef %405, i32 noundef 25, ptr noundef null, ptr noundef %406) #21
-  switch i8 %395, label %691 [
-    i8 20, label %407
-    i8 21, label %663
+401:                                              ; preds = %392
+  %402 = zext i8 %396 to i32
+  %403 = load i32, ptr @hf_ssh2_msg_code, align 4
+  %404 = call ptr @proto_tree_add_item(ptr noundef %395, i32 noundef %403, ptr noundef %0, i32 noundef %386, i32 noundef 1, i32 noundef 0) #21
+  %405 = add i32 %.095.i, 6
+  %406 = load ptr, ptr %80, align 8
+  %407 = call ptr @val_to_str(i32 noundef %402, ptr noundef nonnull @ssh2_msg_vals, ptr noundef nonnull @.str.411) #21
+  call void @col_append_sep_str(ptr noundef %406, i32 noundef 25, ptr noundef null, ptr noundef %407) #21
+  switch i8 %396, label %692 [
+    i8 20, label %408
+    i8 21, label %664
   ]
 
-407:                                              ; preds = %400
+408:                                              ; preds = %401
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %408 = load i32, ptr @ett_key_init, align 4
-  %409 = call ptr @proto_tree_add_subtree(ptr noundef %394, ptr noundef %0, i32 noundef %404, i32 noundef -1, i32 noundef %408, ptr noundef nonnull %5, ptr noundef nonnull @.str.571) #21
-  %410 = load ptr, ptr %15, align 8
-  %411 = getelementptr inbounds i8, ptr %410, i64 50
-  %412 = load i16, ptr %411, align 2
-  %413 = and i16 %412, 8
-  %.not.i.i.i = icmp eq i16 %413, 0
-  br i1 %.not.i.i.i, label %414, label %422
+  %409 = load i32, ptr @ett_key_init, align 4
+  %410 = call ptr @proto_tree_add_subtree(ptr noundef %395, ptr noundef %0, i32 noundef %405, i32 noundef -1, i32 noundef %409, ptr noundef nonnull %5, ptr noundef nonnull @.str.571) #21
+  %411 = load ptr, ptr %15, align 8
+  %412 = getelementptr inbounds i8, ptr %411, i64 50
+  %413 = load i16, ptr %412, align 2
+  %414 = and i16 %413, 8
+  %.not.i.i.i = icmp eq i16 %414, 0
+  br i1 %.not.i.i.i, label %415, label %423
 
-414:                                              ; preds = %407
-  %415 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %404, i32 noundef 16) #21
-  %416 = call ptr @wmem_file_scope() #21
-  %417 = call noalias ptr @wmem_alloc0(ptr noundef %416, i64 noundef 16) #21
-  %418 = call ptr @wmem_file_scope() #21
-  %419 = call noalias ptr @wmem_alloc0(ptr noundef %418, i64 noundef 16) #21
-  store ptr %419, ptr %417, align 8
-  %.not.i.i.i.i = icmp eq ptr %415, null
-  br i1 %.not.i.i.i.i, label %ssh_kex_make_bignum.exit.i.i.i, label %420
+415:                                              ; preds = %408
+  %416 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %405, i32 noundef 16) #21
+  %417 = call ptr @wmem_file_scope() #21
+  %418 = call noalias ptr @wmem_alloc0(ptr noundef %417, i64 noundef 16) #21
+  %419 = call ptr @wmem_file_scope() #21
+  %420 = call noalias ptr @wmem_alloc0(ptr noundef %419, i64 noundef 16) #21
+  store ptr %420, ptr %418, align 8
+  %.not.i.i.i.i = icmp eq ptr %416, null
+  br i1 %.not.i.i.i.i, label %ssh_kex_make_bignum.exit.i.i.i, label %421
 
-420:                                              ; preds = %414
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %419, ptr noundef nonnull readonly align 1 dereferenceable(16) %415, i64 16, i1 false)
+421:                                              ; preds = %415
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %420, ptr noundef nonnull readonly align 1 dereferenceable(16) %416, i64 16, i1 false)
   br label %ssh_kex_make_bignum.exit.i.i.i
 
-ssh_kex_make_bignum.exit.i.i.i:                   ; preds = %420, %414
-  %421 = getelementptr inbounds i8, ptr %417, i64 8
-  store i32 16, ptr %421, align 8
-  store ptr %417, ptr %108, align 8
-  br label %422
+ssh_kex_make_bignum.exit.i.i.i:                   ; preds = %421, %415
+  %422 = getelementptr inbounds i8, ptr %418, i64 8
+  store i32 16, ptr %422, align 8
+  store ptr %418, ptr %108, align 8
+  br label %423
 
-422:                                              ; preds = %ssh_kex_make_bignum.exit.i.i.i, %407
-  %423 = load i32, ptr @hf_ssh_cookie, align 4
-  %424 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %423, ptr noundef %0, i32 noundef %404, i32 noundef 16, i32 noundef 0) #21
-  %425 = add i32 %.096.i, 22
-  %426 = load i32, ptr @hf_ssh_kex_algorithms_length, align 4
-  %427 = load i32, ptr @hf_ssh_kex_algorithms, align 4
-  %428 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %425) #21
-  %429 = call ptr @proto_tree_add_uint(ptr noundef %409, i32 noundef %426, ptr noundef %0, i32 noundef %425, i32 noundef 4, i32 noundef %428) #21
-  %430 = add i32 %.096.i, 26
-  %431 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %427, ptr noundef %0, i32 noundef %430, i32 noundef %428, i32 noundef 0) #21
-  %432 = call ptr @wmem_file_scope() #21
-  %433 = call ptr @tvb_get_string_enc(ptr noundef %432, ptr noundef %0, i32 noundef %430, i32 noundef %428, i32 noundef 0) #21
-  store ptr %433, ptr %109, align 8
-  %434 = add i32 %428, %430
-  %435 = load i32, ptr @hf_ssh_server_host_key_algorithms_length, align 4
-  %436 = load i32, ptr @hf_ssh_server_host_key_algorithms, align 4
-  %437 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %434) #21
-  %438 = call ptr @proto_tree_add_uint(ptr noundef %409, i32 noundef %435, ptr noundef %0, i32 noundef %434, i32 noundef 4, i32 noundef %437) #21
-  %439 = add i32 %434, 4
-  %440 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %436, ptr noundef %0, i32 noundef %439, i32 noundef %437, i32 noundef 0) #21
-  %441 = add i32 %437, %439
-  %442 = load i32, ptr @hf_ssh_encryption_algorithms_client_to_server_length, align 4
-  %443 = load i32, ptr @hf_ssh_encryption_algorithms_client_to_server, align 4
-  %444 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %441) #21
-  %445 = call ptr @proto_tree_add_uint(ptr noundef %409, i32 noundef %442, ptr noundef %0, i32 noundef %441, i32 noundef 4, i32 noundef %444) #21
-  %446 = add i32 %441, 4
-  %447 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %443, ptr noundef %0, i32 noundef %446, i32 noundef %444, i32 noundef 0) #21
-  %448 = call ptr @wmem_file_scope() #21
-  %449 = call ptr @tvb_get_string_enc(ptr noundef %448, ptr noundef %0, i32 noundef %446, i32 noundef %444, i32 noundef 0) #21
-  store ptr %449, ptr %110, align 8
-  %450 = add i32 %444, %446
-  %451 = load i32, ptr @hf_ssh_encryption_algorithms_server_to_client_length, align 4
-  %452 = load i32, ptr @hf_ssh_encryption_algorithms_server_to_client, align 4
-  %453 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %450) #21
-  %454 = call ptr @proto_tree_add_uint(ptr noundef %409, i32 noundef %451, ptr noundef %0, i32 noundef %450, i32 noundef 4, i32 noundef %453) #21
-  %455 = add i32 %450, 4
-  %456 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %452, ptr noundef %0, i32 noundef %455, i32 noundef %453, i32 noundef 0) #21
-  br i1 %.not.i130.i.i.i, label %ssh_dissect_proposal.exit.i.i.i, label %457
+423:                                              ; preds = %ssh_kex_make_bignum.exit.i.i.i, %408
+  %424 = load i32, ptr @hf_ssh_cookie, align 4
+  %425 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %424, ptr noundef %0, i32 noundef %405, i32 noundef 16, i32 noundef 0) #21
+  %426 = add i32 %.095.i, 22
+  %427 = load i32, ptr @hf_ssh_kex_algorithms_length, align 4
+  %428 = load i32, ptr @hf_ssh_kex_algorithms, align 4
+  %429 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %426) #21
+  %430 = call ptr @proto_tree_add_uint(ptr noundef %410, i32 noundef %427, ptr noundef %0, i32 noundef %426, i32 noundef 4, i32 noundef %429) #21
+  %431 = add i32 %.095.i, 26
+  %432 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %428, ptr noundef %0, i32 noundef %431, i32 noundef %429, i32 noundef 0) #21
+  %433 = call ptr @wmem_file_scope() #21
+  %434 = call ptr @tvb_get_string_enc(ptr noundef %433, ptr noundef %0, i32 noundef %431, i32 noundef %429, i32 noundef 0) #21
+  store ptr %434, ptr %109, align 8
+  %435 = add i32 %429, %431
+  %436 = load i32, ptr @hf_ssh_server_host_key_algorithms_length, align 4
+  %437 = load i32, ptr @hf_ssh_server_host_key_algorithms, align 4
+  %438 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %435) #21
+  %439 = call ptr @proto_tree_add_uint(ptr noundef %410, i32 noundef %436, ptr noundef %0, i32 noundef %435, i32 noundef 4, i32 noundef %438) #21
+  %440 = add i32 %435, 4
+  %441 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %437, ptr noundef %0, i32 noundef %440, i32 noundef %438, i32 noundef 0) #21
+  %442 = add i32 %438, %440
+  %443 = load i32, ptr @hf_ssh_encryption_algorithms_client_to_server_length, align 4
+  %444 = load i32, ptr @hf_ssh_encryption_algorithms_client_to_server, align 4
+  %445 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %442) #21
+  %446 = call ptr @proto_tree_add_uint(ptr noundef %410, i32 noundef %443, ptr noundef %0, i32 noundef %442, i32 noundef 4, i32 noundef %445) #21
+  %447 = add i32 %442, 4
+  %448 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %444, ptr noundef %0, i32 noundef %447, i32 noundef %445, i32 noundef 0) #21
+  %449 = call ptr @wmem_file_scope() #21
+  %450 = call ptr @tvb_get_string_enc(ptr noundef %449, ptr noundef %0, i32 noundef %447, i32 noundef %445, i32 noundef 0) #21
+  store ptr %450, ptr %110, align 8
+  %451 = add i32 %445, %447
+  %452 = load i32, ptr @hf_ssh_encryption_algorithms_server_to_client_length, align 4
+  %453 = load i32, ptr @hf_ssh_encryption_algorithms_server_to_client, align 4
+  %454 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %451) #21
+  %455 = call ptr @proto_tree_add_uint(ptr noundef %410, i32 noundef %452, ptr noundef %0, i32 noundef %451, i32 noundef 4, i32 noundef %454) #21
+  %456 = add i32 %451, 4
+  %457 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %453, ptr noundef %0, i32 noundef %456, i32 noundef %454, i32 noundef 0) #21
+  br i1 %.not.i130.i.i.i, label %ssh_dissect_proposal.exit.i.i.i, label %458
 
-457:                                              ; preds = %422
-  %458 = call ptr @wmem_file_scope() #21
-  %459 = call ptr @tvb_get_string_enc(ptr noundef %458, ptr noundef %0, i32 noundef %455, i32 noundef %453, i32 noundef 0) #21
-  store ptr %459, ptr %111, align 8
+458:                                              ; preds = %423
+  %459 = call ptr @wmem_file_scope() #21
+  %460 = call ptr @tvb_get_string_enc(ptr noundef %459, ptr noundef %0, i32 noundef %456, i32 noundef %454, i32 noundef 0) #21
+  store ptr %460, ptr %111, align 8
   br label %ssh_dissect_proposal.exit.i.i.i
 
-ssh_dissect_proposal.exit.i.i.i:                  ; preds = %457, %422
-  %460 = add i32 %453, %455
-  %461 = load i32, ptr @hf_ssh_mac_algorithms_client_to_server_length, align 4
-  %462 = load i32, ptr @hf_ssh_mac_algorithms_client_to_server, align 4
-  %463 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %460) #21
-  %464 = call ptr @proto_tree_add_uint(ptr noundef %409, i32 noundef %461, ptr noundef %0, i32 noundef %460, i32 noundef 4, i32 noundef %463) #21
-  %465 = add i32 %460, 4
-  %466 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %462, ptr noundef %0, i32 noundef %465, i32 noundef %463, i32 noundef 0) #21
-  %467 = call ptr @wmem_file_scope() #21
-  %468 = call ptr @tvb_get_string_enc(ptr noundef %467, ptr noundef %0, i32 noundef %465, i32 noundef %463, i32 noundef 0) #21
-  store ptr %468, ptr %112, align 8
-  %469 = add i32 %463, %465
-  %470 = load i32, ptr @hf_ssh_mac_algorithms_server_to_client_length, align 4
-  %471 = load i32, ptr @hf_ssh_mac_algorithms_server_to_client, align 4
-  %472 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %469) #21
-  %473 = call ptr @proto_tree_add_uint(ptr noundef %409, i32 noundef %470, ptr noundef %0, i32 noundef %469, i32 noundef 4, i32 noundef %472) #21
-  %474 = add i32 %469, 4
-  %475 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %471, ptr noundef %0, i32 noundef %474, i32 noundef %472, i32 noundef 0) #21
-  br i1 %.not.i132.i.i.i, label %ssh_dissect_proposal.exit133.i.i.i, label %476
+ssh_dissect_proposal.exit.i.i.i:                  ; preds = %458, %423
+  %461 = add i32 %454, %456
+  %462 = load i32, ptr @hf_ssh_mac_algorithms_client_to_server_length, align 4
+  %463 = load i32, ptr @hf_ssh_mac_algorithms_client_to_server, align 4
+  %464 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %461) #21
+  %465 = call ptr @proto_tree_add_uint(ptr noundef %410, i32 noundef %462, ptr noundef %0, i32 noundef %461, i32 noundef 4, i32 noundef %464) #21
+  %466 = add i32 %461, 4
+  %467 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %463, ptr noundef %0, i32 noundef %466, i32 noundef %464, i32 noundef 0) #21
+  %468 = call ptr @wmem_file_scope() #21
+  %469 = call ptr @tvb_get_string_enc(ptr noundef %468, ptr noundef %0, i32 noundef %466, i32 noundef %464, i32 noundef 0) #21
+  store ptr %469, ptr %112, align 8
+  %470 = add i32 %464, %466
+  %471 = load i32, ptr @hf_ssh_mac_algorithms_server_to_client_length, align 4
+  %472 = load i32, ptr @hf_ssh_mac_algorithms_server_to_client, align 4
+  %473 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %470) #21
+  %474 = call ptr @proto_tree_add_uint(ptr noundef %410, i32 noundef %471, ptr noundef %0, i32 noundef %470, i32 noundef 4, i32 noundef %473) #21
+  %475 = add i32 %470, 4
+  %476 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %472, ptr noundef %0, i32 noundef %475, i32 noundef %473, i32 noundef 0) #21
+  br i1 %.not.i132.i.i.i, label %ssh_dissect_proposal.exit133.i.i.i, label %477
 
-476:                                              ; preds = %ssh_dissect_proposal.exit.i.i.i
-  %477 = call ptr @wmem_file_scope() #21
-  %478 = call ptr @tvb_get_string_enc(ptr noundef %477, ptr noundef %0, i32 noundef %474, i32 noundef %472, i32 noundef 0) #21
-  store ptr %478, ptr %113, align 8
+477:                                              ; preds = %ssh_dissect_proposal.exit.i.i.i
+  %478 = call ptr @wmem_file_scope() #21
+  %479 = call ptr @tvb_get_string_enc(ptr noundef %478, ptr noundef %0, i32 noundef %475, i32 noundef %473, i32 noundef 0) #21
+  store ptr %479, ptr %113, align 8
   br label %ssh_dissect_proposal.exit133.i.i.i
 
-ssh_dissect_proposal.exit133.i.i.i:               ; preds = %476, %ssh_dissect_proposal.exit.i.i.i
-  %479 = add i32 %472, %474
-  %480 = load i32, ptr @hf_ssh_compression_algorithms_client_to_server_length, align 4
-  %481 = load i32, ptr @hf_ssh_compression_algorithms_client_to_server, align 4
-  %482 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %479) #21
-  %483 = call ptr @proto_tree_add_uint(ptr noundef %409, i32 noundef %480, ptr noundef %0, i32 noundef %479, i32 noundef 4, i32 noundef %482) #21
-  %484 = add i32 %479, 4
-  %485 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %481, ptr noundef %0, i32 noundef %484, i32 noundef %482, i32 noundef 0) #21
-  %486 = call ptr @wmem_file_scope() #21
-  %487 = call ptr @tvb_get_string_enc(ptr noundef %486, ptr noundef %0, i32 noundef %484, i32 noundef %482, i32 noundef 0) #21
-  store ptr %487, ptr %114, align 8
-  %488 = add i32 %482, %484
-  %489 = load i32, ptr @hf_ssh_compression_algorithms_server_to_client_length, align 4
-  %490 = load i32, ptr @hf_ssh_compression_algorithms_server_to_client, align 4
-  %491 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %488) #21
-  %492 = call ptr @proto_tree_add_uint(ptr noundef %409, i32 noundef %489, ptr noundef %0, i32 noundef %488, i32 noundef 4, i32 noundef %491) #21
-  %493 = add i32 %488, 4
-  %494 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %490, ptr noundef %0, i32 noundef %493, i32 noundef %491, i32 noundef 0) #21
-  br i1 %.not.i135.i.i.i, label %ssh_dissect_proposal.exit136.i.i.i, label %495
+ssh_dissect_proposal.exit133.i.i.i:               ; preds = %477, %ssh_dissect_proposal.exit.i.i.i
+  %480 = add i32 %473, %475
+  %481 = load i32, ptr @hf_ssh_compression_algorithms_client_to_server_length, align 4
+  %482 = load i32, ptr @hf_ssh_compression_algorithms_client_to_server, align 4
+  %483 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %480) #21
+  %484 = call ptr @proto_tree_add_uint(ptr noundef %410, i32 noundef %481, ptr noundef %0, i32 noundef %480, i32 noundef 4, i32 noundef %483) #21
+  %485 = add i32 %480, 4
+  %486 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %482, ptr noundef %0, i32 noundef %485, i32 noundef %483, i32 noundef 0) #21
+  %487 = call ptr @wmem_file_scope() #21
+  %488 = call ptr @tvb_get_string_enc(ptr noundef %487, ptr noundef %0, i32 noundef %485, i32 noundef %483, i32 noundef 0) #21
+  store ptr %488, ptr %114, align 8
+  %489 = add i32 %483, %485
+  %490 = load i32, ptr @hf_ssh_compression_algorithms_server_to_client_length, align 4
+  %491 = load i32, ptr @hf_ssh_compression_algorithms_server_to_client, align 4
+  %492 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %489) #21
+  %493 = call ptr @proto_tree_add_uint(ptr noundef %410, i32 noundef %490, ptr noundef %0, i32 noundef %489, i32 noundef 4, i32 noundef %492) #21
+  %494 = add i32 %489, 4
+  %495 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %491, ptr noundef %0, i32 noundef %494, i32 noundef %492, i32 noundef 0) #21
+  br i1 %.not.i135.i.i.i, label %ssh_dissect_proposal.exit136.i.i.i, label %496
 
-495:                                              ; preds = %ssh_dissect_proposal.exit133.i.i.i
-  %496 = call ptr @wmem_file_scope() #21
-  %497 = call ptr @tvb_get_string_enc(ptr noundef %496, ptr noundef %0, i32 noundef %493, i32 noundef %491, i32 noundef 0) #21
-  store ptr %497, ptr %115, align 8
+496:                                              ; preds = %ssh_dissect_proposal.exit133.i.i.i
+  %497 = call ptr @wmem_file_scope() #21
+  %498 = call ptr @tvb_get_string_enc(ptr noundef %497, ptr noundef %0, i32 noundef %494, i32 noundef %492, i32 noundef 0) #21
+  store ptr %498, ptr %115, align 8
   br label %ssh_dissect_proposal.exit136.i.i.i
 
-ssh_dissect_proposal.exit136.i.i.i:               ; preds = %495, %ssh_dissect_proposal.exit133.i.i.i
-  %498 = add i32 %491, %493
-  %499 = load i32, ptr @hf_ssh_languages_client_to_server_length, align 4
-  %500 = load i32, ptr @hf_ssh_languages_client_to_server, align 4
-  %501 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %498) #21
-  %502 = call ptr @proto_tree_add_uint(ptr noundef %409, i32 noundef %499, ptr noundef %0, i32 noundef %498, i32 noundef 4, i32 noundef %501) #21
-  %503 = add i32 %498, 4
-  %504 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %500, ptr noundef %0, i32 noundef %503, i32 noundef %501, i32 noundef 0) #21
-  %505 = add i32 %501, %503
-  %506 = load i32, ptr @hf_ssh_languages_server_to_client_length, align 4
-  %507 = load i32, ptr @hf_ssh_languages_server_to_client, align 4
-  %508 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %505) #21
-  %509 = call ptr @proto_tree_add_uint(ptr noundef %409, i32 noundef %506, ptr noundef %0, i32 noundef %505, i32 noundef 4, i32 noundef %508) #21
-  %510 = add i32 %505, 4
-  %511 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %507, ptr noundef %0, i32 noundef %510, i32 noundef %508, i32 noundef 0) #21
-  %512 = add i32 %508, %510
-  %513 = load i32, ptr @hf_ssh_first_kex_packet_follows, align 4
-  %514 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %513, ptr noundef %0, i32 noundef %512, i32 noundef 1, i32 noundef 0) #21
-  %515 = add i32 %512, 1
-  %516 = load i32, ptr @hf_ssh_kex_reserved, align 4
-  %517 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %516, ptr noundef %0, i32 noundef %515, i32 noundef 4, i32 noundef 0) #21
-  %518 = add i32 %512, 5
-  %519 = call ptr @wmem_packet_scope() #21
-  %520 = call noalias ptr @wmem_strbuf_new(ptr noundef %519, ptr noundef nonnull @.str.505) #21
-  %521 = load ptr, ptr %109, align 8
-  br i1 %11, label %544, label %522
+ssh_dissect_proposal.exit136.i.i.i:               ; preds = %496, %ssh_dissect_proposal.exit133.i.i.i
+  %499 = add i32 %492, %494
+  %500 = load i32, ptr @hf_ssh_languages_client_to_server_length, align 4
+  %501 = load i32, ptr @hf_ssh_languages_client_to_server, align 4
+  %502 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %499) #21
+  %503 = call ptr @proto_tree_add_uint(ptr noundef %410, i32 noundef %500, ptr noundef %0, i32 noundef %499, i32 noundef 4, i32 noundef %502) #21
+  %504 = add i32 %499, 4
+  %505 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %501, ptr noundef %0, i32 noundef %504, i32 noundef %502, i32 noundef 0) #21
+  %506 = add i32 %502, %504
+  %507 = load i32, ptr @hf_ssh_languages_server_to_client_length, align 4
+  %508 = load i32, ptr @hf_ssh_languages_server_to_client, align 4
+  %509 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %506) #21
+  %510 = call ptr @proto_tree_add_uint(ptr noundef %410, i32 noundef %507, ptr noundef %0, i32 noundef %506, i32 noundef 4, i32 noundef %509) #21
+  %511 = add i32 %506, 4
+  %512 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %508, ptr noundef %0, i32 noundef %511, i32 noundef %509, i32 noundef 0) #21
+  %513 = add i32 %509, %511
+  %514 = load i32, ptr @hf_ssh_first_kex_packet_follows, align 4
+  %515 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %514, ptr noundef %0, i32 noundef %513, i32 noundef 1, i32 noundef 0) #21
+  %516 = add i32 %513, 1
+  %517 = load i32, ptr @hf_ssh_kex_reserved, align 4
+  %518 = call ptr @proto_tree_add_item(ptr noundef %410, i32 noundef %517, ptr noundef %0, i32 noundef %516, i32 noundef 4, i32 noundef 0) #21
+  %519 = add i32 %513, 5
+  %520 = call ptr @wmem_packet_scope() #21
+  %521 = call noalias ptr @wmem_strbuf_new(ptr noundef %520, ptr noundef nonnull @.str.505) #21
+  %522 = load ptr, ptr %109, align 8
+  br i1 %11, label %545, label %523
 
-522:                                              ; preds = %ssh_dissect_proposal.exit136.i.i.i
-  %523 = load ptr, ptr %110, align 8
-  %524 = load ptr, ptr %112, align 8
-  %525 = load ptr, ptr %114, align 8
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %520, ptr noundef nonnull @.str.572, ptr noundef %521, ptr noundef %523, ptr noundef %524, ptr noundef %525) #21
-  %526 = call ptr @wmem_strbuf_get_str(ptr noundef %520) #21
-  %527 = call i64 @wmem_strbuf_get_len(ptr noundef %520) #21
-  %528 = call ptr @g_compute_checksum_for_string(i32 noundef 0, ptr noundef %526, i64 noundef %527) #21
-  %529 = load i32, ptr @hf_ssh_kex_hassh_algo, align 4
-  %530 = call ptr @wmem_strbuf_get_str(ptr noundef %520) #21
-  %531 = call ptr @proto_tree_add_string(ptr noundef %409, i32 noundef %529, ptr noundef %0, i32 noundef %518, i32 noundef 0, ptr noundef %530) #21
-  %.not.i137.i.i.i = icmp eq ptr %531, null
-  br i1 %.not.i137.i.i.i, label %proto_item_set_generated.exit.i.i.i, label %532
+523:                                              ; preds = %ssh_dissect_proposal.exit136.i.i.i
+  %524 = load ptr, ptr %110, align 8
+  %525 = load ptr, ptr %112, align 8
+  %526 = load ptr, ptr %114, align 8
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %521, ptr noundef nonnull @.str.572, ptr noundef %522, ptr noundef %524, ptr noundef %525, ptr noundef %526) #21
+  %527 = call ptr @wmem_strbuf_get_str(ptr noundef %521) #21
+  %528 = call i64 @wmem_strbuf_get_len(ptr noundef %521) #21
+  %529 = call ptr @g_compute_checksum_for_string(i32 noundef 0, ptr noundef %527, i64 noundef %528) #21
+  %530 = load i32, ptr @hf_ssh_kex_hassh_algo, align 4
+  %531 = call ptr @wmem_strbuf_get_str(ptr noundef %521) #21
+  %532 = call ptr @proto_tree_add_string(ptr noundef %410, i32 noundef %530, ptr noundef %0, i32 noundef %519, i32 noundef 0, ptr noundef %531) #21
+  %.not.i137.i.i.i = icmp eq ptr %532, null
+  br i1 %.not.i137.i.i.i, label %proto_item_set_generated.exit.i.i.i, label %533
 
-532:                                              ; preds = %522
-  %533 = getelementptr inbounds i8, ptr %531, i64 32
-  %534 = load ptr, ptr %533, align 8
-  %.not5.i.i.i.i = icmp eq ptr %534, null
-  br i1 %.not5.i.i.i.i, label %proto_item_set_generated.exit.i.i.i, label %535
+533:                                              ; preds = %523
+  %534 = getelementptr inbounds i8, ptr %532, i64 32
+  %535 = load ptr, ptr %534, align 8
+  %.not5.i.i.i.i = icmp eq ptr %535, null
+  br i1 %.not5.i.i.i.i, label %proto_item_set_generated.exit.i.i.i, label %536
 
-535:                                              ; preds = %532
-  %536 = getelementptr inbounds i8, ptr %534, i64 28
-  %537 = load i32, ptr %536, align 4
-  %538 = or i32 %537, 2
-  store i32 %538, ptr %536, align 4
+536:                                              ; preds = %533
+  %537 = getelementptr inbounds i8, ptr %535, i64 28
+  %538 = load i32, ptr %537, align 4
+  %539 = or i32 %538, 2
+  store i32 %539, ptr %537, align 4
   br label %proto_item_set_generated.exit.i.i.i
 
-proto_item_set_generated.exit.i.i.i:              ; preds = %535, %532, %522
-  %539 = load i32, ptr @hf_ssh_kex_hassh, align 4
-  %540 = call ptr @proto_tree_add_string(ptr noundef %409, i32 noundef %539, ptr noundef %0, i32 noundef %518, i32 noundef 0, ptr noundef %528) #21
-  %.not.i138.i.i.i = icmp eq ptr %540, null
-  br i1 %.not.i138.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %541
+proto_item_set_generated.exit.i.i.i:              ; preds = %536, %533, %523
+  %540 = load i32, ptr @hf_ssh_kex_hassh, align 4
+  %541 = call ptr @proto_tree_add_string(ptr noundef %410, i32 noundef %540, ptr noundef %0, i32 noundef %519, i32 noundef 0, ptr noundef %529) #21
+  %.not.i138.i.i.i = icmp eq ptr %541, null
+  br i1 %.not.i138.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %542
 
-541:                                              ; preds = %proto_item_set_generated.exit.i.i.i
-  %542 = getelementptr inbounds i8, ptr %540, i64 32
-  %543 = load ptr, ptr %542, align 8
-  %.not5.i139.i.i.i = icmp eq ptr %543, null
+542:                                              ; preds = %proto_item_set_generated.exit.i.i.i
+  %543 = getelementptr inbounds i8, ptr %541, i64 32
+  %544 = load ptr, ptr %543, align 8
+  %.not5.i139.i.i.i = icmp eq ptr %544, null
   br i1 %.not5.i139.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %proto_item_set_generated.exit140.sink.split.i.i.i
 
-544:                                              ; preds = %ssh_dissect_proposal.exit136.i.i.i
-  %545 = load ptr, ptr %111, align 8
-  %546 = load ptr, ptr %113, align 8
-  %547 = load ptr, ptr %115, align 8
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %520, ptr noundef nonnull @.str.572, ptr noundef %521, ptr noundef %545, ptr noundef %546, ptr noundef %547) #21
-  %548 = call ptr @wmem_strbuf_get_str(ptr noundef %520) #21
-  %549 = call i64 @wmem_strbuf_get_len(ptr noundef %520) #21
-  %550 = call ptr @g_compute_checksum_for_string(i32 noundef 0, ptr noundef %548, i64 noundef %549) #21
-  %551 = load i32, ptr @hf_ssh_kex_hasshserver_algo, align 4
-  %552 = call ptr @wmem_strbuf_get_str(ptr noundef %520) #21
-  %553 = call ptr @proto_tree_add_string(ptr noundef %409, i32 noundef %551, ptr noundef %0, i32 noundef %518, i32 noundef 0, ptr noundef %552) #21
-  %.not.i141.i.i.i = icmp eq ptr %553, null
-  br i1 %.not.i141.i.i.i, label %proto_item_set_generated.exit143.i.i.i, label %554
+545:                                              ; preds = %ssh_dissect_proposal.exit136.i.i.i
+  %546 = load ptr, ptr %111, align 8
+  %547 = load ptr, ptr %113, align 8
+  %548 = load ptr, ptr %115, align 8
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %521, ptr noundef nonnull @.str.572, ptr noundef %522, ptr noundef %546, ptr noundef %547, ptr noundef %548) #21
+  %549 = call ptr @wmem_strbuf_get_str(ptr noundef %521) #21
+  %550 = call i64 @wmem_strbuf_get_len(ptr noundef %521) #21
+  %551 = call ptr @g_compute_checksum_for_string(i32 noundef 0, ptr noundef %549, i64 noundef %550) #21
+  %552 = load i32, ptr @hf_ssh_kex_hasshserver_algo, align 4
+  %553 = call ptr @wmem_strbuf_get_str(ptr noundef %521) #21
+  %554 = call ptr @proto_tree_add_string(ptr noundef %410, i32 noundef %552, ptr noundef %0, i32 noundef %519, i32 noundef 0, ptr noundef %553) #21
+  %.not.i141.i.i.i = icmp eq ptr %554, null
+  br i1 %.not.i141.i.i.i, label %proto_item_set_generated.exit143.i.i.i, label %555
 
-554:                                              ; preds = %544
-  %555 = getelementptr inbounds i8, ptr %553, i64 32
-  %556 = load ptr, ptr %555, align 8
-  %.not5.i142.i.i.i = icmp eq ptr %556, null
-  br i1 %.not5.i142.i.i.i, label %proto_item_set_generated.exit143.i.i.i, label %557
+555:                                              ; preds = %545
+  %556 = getelementptr inbounds i8, ptr %554, i64 32
+  %557 = load ptr, ptr %556, align 8
+  %.not5.i142.i.i.i = icmp eq ptr %557, null
+  br i1 %.not5.i142.i.i.i, label %proto_item_set_generated.exit143.i.i.i, label %558
 
-557:                                              ; preds = %554
-  %558 = getelementptr inbounds i8, ptr %556, i64 28
-  %559 = load i32, ptr %558, align 4
-  %560 = or i32 %559, 2
-  store i32 %560, ptr %558, align 4
+558:                                              ; preds = %555
+  %559 = getelementptr inbounds i8, ptr %557, i64 28
+  %560 = load i32, ptr %559, align 4
+  %561 = or i32 %560, 2
+  store i32 %561, ptr %559, align 4
   br label %proto_item_set_generated.exit143.i.i.i
 
-proto_item_set_generated.exit143.i.i.i:           ; preds = %557, %554, %544
-  %561 = load i32, ptr @hf_ssh_kex_hasshserver, align 4
-  %562 = call ptr @proto_tree_add_string(ptr noundef %409, i32 noundef %561, ptr noundef %0, i32 noundef %518, i32 noundef 0, ptr noundef %550) #21
-  %.not.i144.i.i.i = icmp eq ptr %562, null
-  br i1 %.not.i144.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %563
+proto_item_set_generated.exit143.i.i.i:           ; preds = %558, %555, %545
+  %562 = load i32, ptr @hf_ssh_kex_hasshserver, align 4
+  %563 = call ptr @proto_tree_add_string(ptr noundef %410, i32 noundef %562, ptr noundef %0, i32 noundef %519, i32 noundef 0, ptr noundef %551) #21
+  %.not.i144.i.i.i = icmp eq ptr %563, null
+  br i1 %.not.i144.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %564
 
-563:                                              ; preds = %proto_item_set_generated.exit143.i.i.i
-  %564 = getelementptr inbounds i8, ptr %562, i64 32
-  %565 = load ptr, ptr %564, align 8
-  %.not5.i145.i.i.i = icmp eq ptr %565, null
+564:                                              ; preds = %proto_item_set_generated.exit143.i.i.i
+  %565 = getelementptr inbounds i8, ptr %563, i64 32
+  %566 = load ptr, ptr %565, align 8
+  %.not5.i145.i.i.i = icmp eq ptr %566, null
   br i1 %.not5.i145.i.i.i, label %proto_item_set_generated.exit140.i.i.i, label %proto_item_set_generated.exit140.sink.split.i.i.i
 
-proto_item_set_generated.exit140.sink.split.i.i.i: ; preds = %563, %541
-  %.sink178.i.i.i = phi ptr [ %543, %541 ], [ %565, %563 ]
-  %.sink.ph.i.i.i = phi ptr [ %528, %541 ], [ %550, %563 ]
-  %566 = getelementptr inbounds i8, ptr %.sink178.i.i.i, i64 28
-  %567 = load i32, ptr %566, align 4
-  %568 = or i32 %567, 2
-  store i32 %568, ptr %566, align 4
+proto_item_set_generated.exit140.sink.split.i.i.i: ; preds = %564, %542
+  %.sink178.i.i.i = phi ptr [ %544, %542 ], [ %566, %564 ]
+  %.sink.ph.i.i.i = phi ptr [ %529, %542 ], [ %551, %564 ]
+  %567 = getelementptr inbounds i8, ptr %.sink178.i.i.i, i64 28
+  %568 = load i32, ptr %567, align 4
+  %569 = or i32 %568, 2
+  store i32 %569, ptr %567, align 4
   br label %proto_item_set_generated.exit140.i.i.i
 
-proto_item_set_generated.exit140.i.i.i:           ; preds = %proto_item_set_generated.exit140.sink.split.i.i.i, %563, %proto_item_set_generated.exit143.i.i.i, %541, %proto_item_set_generated.exit.i.i.i
-  %.sink.i.i.i = phi ptr [ %528, %proto_item_set_generated.exit.i.i.i ], [ %528, %541 ], [ %550, %proto_item_set_generated.exit143.i.i.i ], [ %550, %563 ], [ %.sink.ph.i.i.i, %proto_item_set_generated.exit140.sink.split.i.i.i ]
+proto_item_set_generated.exit140.i.i.i:           ; preds = %proto_item_set_generated.exit140.sink.split.i.i.i, %564, %proto_item_set_generated.exit143.i.i.i, %542, %proto_item_set_generated.exit.i.i.i
+  %.sink.i.i.i = phi ptr [ %529, %proto_item_set_generated.exit.i.i.i ], [ %529, %542 ], [ %551, %proto_item_set_generated.exit143.i.i.i ], [ %551, %564 ], [ %.sink.ph.i.i.i, %proto_item_set_generated.exit140.sink.split.i.i.i ]
   call void @g_free(ptr noundef %.sink.i.i.i) #21
-  %569 = load ptr, ptr %116, align 8
-  %.not123.i.i.i = icmp eq ptr %569, null
-  br i1 %.not123.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i, label %570
+  %570 = load ptr, ptr %116, align 8
+  %.not123.i.i.i = icmp eq ptr %570, null
+  br i1 %.not123.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i, label %571
 
-570:                                              ; preds = %proto_item_set_generated.exit140.i.i.i
-  %571 = load ptr, ptr %117, align 8
-  %.not124.i.i.i = icmp eq ptr %571, null
-  br i1 %.not124.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i, label %572
+571:                                              ; preds = %proto_item_set_generated.exit140.i.i.i
+  %572 = load ptr, ptr %117, align 8
+  %.not124.i.i.i = icmp eq ptr %572, null
+  br i1 %.not124.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i, label %573
 
-572:                                              ; preds = %570
-  %573 = load ptr, ptr %91, align 8
-  %.not125.i.i.i = icmp eq ptr %573, null
-  br i1 %.not125.i.i.i, label %574, label %ssh_set_kex_specific_dissector.exit.i.i.i
+573:                                              ; preds = %571
+  %574 = load ptr, ptr %91, align 8
+  %.not125.i.i.i = icmp eq ptr %574, null
+  br i1 %.not125.i.i.i, label %575, label %ssh_set_kex_specific_dissector.exit.i.i.i
 
-574:                                              ; preds = %572
-  call fastcc void @ssh_choose_algo(ptr noundef nonnull %569, ptr noundef nonnull %571, ptr noundef nonnull %91)
-  %575 = load ptr, ptr %91, align 8
-  %.not.i147.i.i.i = icmp eq ptr %575, null
-  br i1 %.not.i147.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i, label %576
+575:                                              ; preds = %573
+  call fastcc void @ssh_choose_algo(ptr noundef nonnull %570, ptr noundef nonnull %572, ptr noundef nonnull %91)
+  %576 = load ptr, ptr %91, align 8
+  %.not.i147.i.i.i = icmp eq ptr %576, null
+  br i1 %.not.i147.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i, label %577
 
-576:                                              ; preds = %574
-  %577 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %575, ptr noundef nonnull dereferenceable(35) @.str.573) #22
-  %578 = icmp eq i32 %577, 0
-  br i1 %578, label %.sink.split.i.i.i.i, label %579
+577:                                              ; preds = %575
+  %578 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %576, ptr noundef nonnull dereferenceable(35) @.str.573) #22
+  %579 = icmp eq i32 %578, 0
+  br i1 %579, label %.sink.split.i.i.i.i, label %580
 
-579:                                              ; preds = %576
-  %580 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %575, ptr noundef nonnull dereferenceable(37) @.str.574) #22
-  %581 = icmp eq i32 %580, 0
-  br i1 %581, label %.sink.split.i.i.i.i, label %582
+580:                                              ; preds = %577
+  %581 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %576, ptr noundef nonnull dereferenceable(37) @.str.574) #22
+  %582 = icmp eq i32 %581, 0
+  br i1 %582, label %.sink.split.i.i.i.i, label %583
 
-582:                                              ; preds = %579
-  %583 = call i32 @g_str_has_prefix(ptr noundef nonnull %575, ptr noundef nonnull @.str.575) #21
-  %.not16.i.i.i.i = icmp eq i32 %583, 0
-  br i1 %.not16.i.i.i.i, label %584, label %.sink.split.i.i.i.i
+583:                                              ; preds = %580
+  %584 = call i32 @g_str_has_prefix(ptr noundef nonnull %576, ptr noundef nonnull @.str.575) #21
+  %.not16.i.i.i.i = icmp eq i32 %584, 0
+  br i1 %.not16.i.i.i.i, label %585, label %.sink.split.i.i.i.i
 
-584:                                              ; preds = %582
-  %585 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %575, ptr noundef nonnull dereferenceable(29) @.str.576) #22
-  %586 = icmp eq i32 %585, 0
-  br i1 %586, label %.sink.split.i.i.i.i, label %587
+585:                                              ; preds = %583
+  %586 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %576, ptr noundef nonnull dereferenceable(29) @.str.576) #22
+  %587 = icmp eq i32 %586, 0
+  br i1 %587, label %.sink.split.i.i.i.i, label %588
 
-587:                                              ; preds = %584
-  %588 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %575, ptr noundef nonnull dereferenceable(18) @.str.577) #22
-  %589 = icmp eq i32 %588, 0
-  br i1 %589, label %.sink.split.i.i.i.i, label %590
+588:                                              ; preds = %585
+  %589 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %576, ptr noundef nonnull dereferenceable(18) @.str.577) #22
+  %590 = icmp eq i32 %589, 0
+  br i1 %590, label %.sink.split.i.i.i.i, label %591
 
-590:                                              ; preds = %587
-  %591 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %575, ptr noundef nonnull dereferenceable(16) @.str.578) #22
-  %592 = icmp eq i32 %591, 0
-  br i1 %592, label %.sink.split.i.i.i.i, label %593
+591:                                              ; preds = %588
+  %592 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %576, ptr noundef nonnull dereferenceable(16) @.str.578) #22
+  %593 = icmp eq i32 %592, 0
+  br i1 %593, label %.sink.split.i.i.i.i, label %594
 
-593:                                              ; preds = %590
-  %594 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %575, ptr noundef nonnull dereferenceable(30) @.str.579) #22
-  %595 = icmp eq i32 %594, 0
-  br i1 %595, label %.sink.split.i.i.i.i, label %596
+594:                                              ; preds = %591
+  %595 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %576, ptr noundef nonnull dereferenceable(30) @.str.579) #22
+  %596 = icmp eq i32 %595, 0
+  br i1 %596, label %.sink.split.i.i.i.i, label %597
 
-596:                                              ; preds = %593
-  %597 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %575, ptr noundef nonnull dereferenceable(30) @.str.580) #22
-  %598 = icmp eq i32 %597, 0
-  br i1 %598, label %.sink.split.i.i.i.i, label %599
+597:                                              ; preds = %594
+  %598 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %576, ptr noundef nonnull dereferenceable(30) @.str.580) #22
+  %599 = icmp eq i32 %598, 0
+  br i1 %599, label %.sink.split.i.i.i.i, label %600
 
-599:                                              ; preds = %596
-  %600 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %575, ptr noundef nonnull dereferenceable(30) @.str.581) #22
-  %601 = icmp eq i32 %600, 0
-  br i1 %601, label %.sink.split.i.i.i.i, label %602
+600:                                              ; preds = %597
+  %601 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %576, ptr noundef nonnull dereferenceable(30) @.str.581) #22
+  %602 = icmp eq i32 %601, 0
+  br i1 %602, label %.sink.split.i.i.i.i, label %603
 
-602:                                              ; preds = %599
-  %603 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %575, ptr noundef nonnull dereferenceable(27) @.str.582) #22
-  %604 = icmp eq i32 %603, 0
-  br i1 %604, label %.sink.split.i.i.i.i, label %605
+603:                                              ; preds = %600
+  %604 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %576, ptr noundef nonnull dereferenceable(27) @.str.582) #22
+  %605 = icmp eq i32 %604, 0
+  br i1 %605, label %.sink.split.i.i.i.i, label %606
 
-605:                                              ; preds = %602
-  %606 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %575, ptr noundef nonnull dereferenceable(28) @.str.583) #22
-  %607 = icmp eq i32 %606, 0
-  br i1 %607, label %.sink.split.i.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i
+606:                                              ; preds = %603
+  %607 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %576, ptr noundef nonnull dereferenceable(28) @.str.583) #22
+  %608 = icmp eq i32 %607, 0
+  br i1 %608, label %.sink.split.i.i.i.i, label %ssh_set_kex_specific_dissector.exit.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %605, %602, %599, %596, %593, %590, %587, %584, %582, %579, %576
-  %ssh_dissect_kex_ecdh.sink.i.i.i.i = phi ptr [ @ssh_dissect_kex_dh_gex, %579 ], [ @ssh_dissect_kex_dh_gex, %576 ], [ @ssh_dissect_kex_ecdh, %590 ], [ @ssh_dissect_kex_ecdh, %587 ], [ @ssh_dissect_kex_ecdh, %584 ], [ @ssh_dissect_kex_ecdh, %582 ], [ @ssh_dissect_kex_dh, %605 ], [ @ssh_dissect_kex_dh, %602 ], [ @ssh_dissect_kex_dh, %599 ], [ @ssh_dissect_kex_dh, %596 ], [ @ssh_dissect_kex_dh, %593 ]
+.sink.split.i.i.i.i:                              ; preds = %606, %603, %600, %597, %594, %591, %588, %585, %583, %580, %577
+  %ssh_dissect_kex_ecdh.sink.i.i.i.i = phi ptr [ @ssh_dissect_kex_dh_gex, %580 ], [ @ssh_dissect_kex_dh_gex, %577 ], [ @ssh_dissect_kex_ecdh, %591 ], [ @ssh_dissect_kex_ecdh, %588 ], [ @ssh_dissect_kex_ecdh, %585 ], [ @ssh_dissect_kex_ecdh, %583 ], [ @ssh_dissect_kex_dh, %606 ], [ @ssh_dissect_kex_dh, %603 ], [ @ssh_dissect_kex_dh, %600 ], [ @ssh_dissect_kex_dh, %597 ], [ @ssh_dissect_kex_dh, %594 ]
   store ptr %ssh_dissect_kex_ecdh.sink.i.i.i.i, ptr %118, align 8
   br label %ssh_set_kex_specific_dissector.exit.i.i.i
 
-ssh_set_kex_specific_dissector.exit.i.i.i:        ; preds = %.sink.split.i.i.i.i, %605, %574, %572, %570, %proto_item_set_generated.exit140.i.i.i
-  %608 = sub i32 %518, %404
-  %609 = load ptr, ptr %5, align 8
-  %.not126.i.i.i = icmp eq ptr %609, null
-  br i1 %.not126.i.i.i, label %611, label %610
+ssh_set_kex_specific_dissector.exit.i.i.i:        ; preds = %.sink.split.i.i.i.i, %606, %575, %573, %571, %proto_item_set_generated.exit140.i.i.i
+  %609 = sub i32 %519, %405
+  %610 = load ptr, ptr %5, align 8
+  %.not126.i.i.i = icmp eq ptr %610, null
+  br i1 %.not126.i.i.i, label %612, label %611
 
-610:                                              ; preds = %ssh_set_kex_specific_dissector.exit.i.i.i
-  call void @proto_item_set_len(ptr noundef nonnull %609, i32 noundef %608) #21
-  br label %611
+611:                                              ; preds = %ssh_set_kex_specific_dissector.exit.i.i.i
+  call void @proto_item_set_len(ptr noundef nonnull %610, i32 noundef %609) #21
+  br label %612
 
-611:                                              ; preds = %610, %ssh_set_kex_specific_dissector.exit.i.i.i
-  %612 = load ptr, ptr %15, align 8
-  %613 = getelementptr inbounds i8, ptr %612, i64 50
-  %614 = load i16, ptr %613, align 2
-  %615 = and i16 %614, 8
-  %.not127.i.i.i = icmp eq i16 %615, 0
-  br i1 %.not127.i.i.i, label %616, label %ssh_dissect_key_init.exit.i.i
+612:                                              ; preds = %611, %ssh_set_kex_specific_dissector.exit.i.i.i
+  %613 = load ptr, ptr %15, align 8
+  %614 = getelementptr inbounds i8, ptr %613, i64 50
+  %615 = load i16, ptr %614, align 2
+  %616 = and i16 %615, 8
+  %.not127.i.i.i = icmp eq i16 %616, 0
+  br i1 %.not127.i.i.i, label %617, label %ssh_dissect_key_init.exit.i.i
 
-616:                                              ; preds = %611
-  %617 = call ptr @wmem_packet_scope() #21
-  %618 = add i32 %608, 1
-  %619 = sext i32 %618 to i64
-  %620 = call noalias ptr @wmem_alloc(ptr noundef %617, i64 noundef %619) #21
-  %621 = getelementptr i8, ptr %620, i64 1
-  %622 = sext i32 %608 to i64
-  %623 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %621, i32 noundef %404, i64 noundef %622) #21
-  store i8 20, ptr %620, align 1
-  br i1 %11, label %624, label %626
+617:                                              ; preds = %612
+  %618 = call ptr @wmem_packet_scope() #21
+  %619 = add i32 %609, 1
+  %620 = sext i32 %619 to i64
+  %621 = call noalias ptr @wmem_alloc(ptr noundef %618, i64 noundef %620) #21
+  %622 = getelementptr i8, ptr %621, i64 1
+  %623 = sext i32 %609 to i64
+  %624 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %622, i32 noundef %405, i64 noundef %623) #21
+  store i8 20, ptr %621, align 1
+  br i1 %11, label %625, label %627
 
-624:                                              ; preds = %616
-  %625 = load ptr, ptr %119, align 8
-  %.not.i148.i.i.i = icmp eq ptr %625, null
+625:                                              ; preds = %617
+  %626 = load ptr, ptr %119, align 8
+  %.not.i148.i.i.i = icmp eq ptr %626, null
   br i1 %.not.i148.i.i.i, label %ssh_dissect_key_init.exit.i.i, label %ssh_hash_buffer_put_string.exit.sink.split.i.i.i
 
-626:                                              ; preds = %616
-  %627 = load ptr, ptr %120, align 8
-  %.not.i149.i.i.i = icmp eq ptr %627, null
+627:                                              ; preds = %617
+  %628 = load ptr, ptr %120, align 8
+  %.not.i149.i.i.i = icmp eq ptr %628, null
   br i1 %.not.i149.i.i.i, label %ssh_dissect_key_init.exit.i.i, label %ssh_hash_buffer_put_string.exit.sink.split.i.i.i
 
-ssh_hash_buffer_put_string.exit.sink.split.i.i.i: ; preds = %626, %624
-  %.sink151.i.i.i = phi ptr [ %625, %624 ], [ %627, %626 ]
-  %628 = call ptr @wmem_packet_scope() #21
-  %629 = add i32 %608, 5
-  %630 = zext i32 %629 to i64
-  %631 = call noalias ptr @wmem_alloc(ptr noundef %628, i64 noundef %630) #21
-  %632 = lshr i32 %618, 24
-  %633 = trunc nuw i32 %632 to i8
-  store i8 %633, ptr %631, align 1
-  %634 = lshr i32 %618, 16
-  %635 = trunc i32 %634 to i8
-  %636 = getelementptr i8, ptr %631, i64 1
-  store i8 %635, ptr %636, align 1
-  %637 = lshr i32 %618, 8
-  %638 = trunc i32 %637 to i8
-  %639 = getelementptr i8, ptr %631, i64 2
-  store i8 %638, ptr %639, align 1
-  %640 = trunc i32 %618 to i8
-  %641 = getelementptr i8, ptr %631, i64 3
-  store i8 %640, ptr %641, align 1
-  %642 = getelementptr i8, ptr %631, i64 4
-  %643 = zext i32 %618 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %642, ptr nonnull readonly align 1 %620, i64 %643, i1 false)
-  call void @wmem_array_append(ptr noundef nonnull %.sink151.i.i.i, ptr noundef nonnull %631, i32 noundef %629) #21
+ssh_hash_buffer_put_string.exit.sink.split.i.i.i: ; preds = %627, %625
+  %.sink151.i.i.i = phi ptr [ %626, %625 ], [ %628, %627 ]
+  %629 = call ptr @wmem_packet_scope() #21
+  %630 = add i32 %609, 5
+  %631 = zext i32 %630 to i64
+  %632 = call noalias ptr @wmem_alloc(ptr noundef %629, i64 noundef %631) #21
+  %633 = lshr i32 %619, 24
+  %634 = trunc nuw i32 %633 to i8
+  store i8 %634, ptr %632, align 1
+  %635 = lshr i32 %619, 16
+  %636 = trunc i32 %635 to i8
+  %637 = getelementptr i8, ptr %632, i64 1
+  store i8 %636, ptr %637, align 1
+  %638 = lshr i32 %619, 8
+  %639 = trunc i32 %638 to i8
+  %640 = getelementptr i8, ptr %632, i64 2
+  store i8 %639, ptr %640, align 1
+  %641 = trunc i32 %619 to i8
+  %642 = getelementptr i8, ptr %632, i64 3
+  store i8 %641, ptr %642, align 1
+  %643 = getelementptr i8, ptr %632, i64 4
+  %644 = zext i32 %619 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %643, ptr nonnull readonly align 1 %621, i64 %644, i1 false)
+  call void @wmem_array_append(ptr noundef nonnull %.sink151.i.i.i, ptr noundef nonnull %632, i32 noundef %630) #21
   br label %ssh_dissect_key_init.exit.i.i
 
-ssh_dissect_key_init.exit.i.i:                    ; preds = %ssh_hash_buffer_put_string.exit.sink.split.i.i.i, %626, %624, %611
+ssh_dissect_key_init.exit.i.i:                    ; preds = %ssh_hash_buffer_put_string.exit.sink.split.i.i.i, %627, %625, %612
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %644 = load i32, ptr %87, align 4
-  %645 = icmp eq i32 %644, 0
-  br i1 %645, label %649, label %646
+  %645 = load i32, ptr %87, align 4
+  %646 = icmp eq i32 %645, 0
+  br i1 %646, label %650, label %647
 
-646:                                              ; preds = %ssh_dissect_key_init.exit.i.i
-  %647 = load i32, ptr %13, align 4
-  %648 = icmp eq i32 %644, %647
-  br i1 %648, label %649, label %661
+647:                                              ; preds = %ssh_dissect_key_init.exit.i.i
+  %648 = load i32, ptr %13, align 4
+  %649 = icmp eq i32 %645, %648
+  br i1 %649, label %650, label %662
 
-649:                                              ; preds = %646, %ssh_dissect_key_init.exit.i.i
-  %650 = load ptr, ptr %15, align 8
-  %651 = getelementptr inbounds i8, ptr %650, i64 50
-  %652 = load i16, ptr %651, align 2
-  %653 = and i16 %652, 8
-  %.not163.i.i = icmp eq i16 %653, 0
-  br i1 %.not163.i.i, label %654, label %661
+650:                                              ; preds = %647, %ssh_dissect_key_init.exit.i.i
+  %651 = load ptr, ptr %15, align 8
+  %652 = getelementptr inbounds i8, ptr %651, i64 50
+  %653 = load i16, ptr %652, align 2
+  %654 = and i16 %653, 8
+  %.not163.i.i = icmp eq i16 %654, 0
+  br i1 %.not163.i.i, label %655, label %662
 
-654:                                              ; preds = %649
-  %655 = load i32, ptr %13, align 4
-  store i32 %655, ptr %87, align 4
-  %656 = load i32, ptr %121, align 4
-  %657 = icmp eq i32 %656, 0
-  br i1 %657, label %658, label %661
+655:                                              ; preds = %650
+  %656 = load i32, ptr %13, align 4
+  store i32 %656, ptr %87, align 4
+  %657 = load i32, ptr %121, align 4
+  %658 = icmp eq i32 %657, 0
+  br i1 %658, label %659, label %662
 
-658:                                              ; preds = %654
-  %659 = load i32, ptr %93, align 8
-  store i32 %659, ptr %121, align 4
-  %660 = add i32 %659, 1
-  store i32 %660, ptr %93, align 8
-  call void (ptr, ...) @ssh_debug_printf(ptr noundef nonnull @.str.567, ptr noundef nonnull %94, i32 noundef %659, i32 noundef %660)
-  br label %661
+659:                                              ; preds = %655
+  %660 = load i32, ptr %93, align 8
+  store i32 %660, ptr %121, align 4
+  %661 = add i32 %660, 1
+  store i32 %661, ptr %93, align 8
+  call void (ptr, ...) @ssh_debug_printf(ptr noundef nonnull @.str.567, ptr noundef nonnull %94, i32 noundef %660, i32 noundef %661)
+  br label %662
 
-661:                                              ; preds = %658, %654, %649, %646
-  %662 = load i32, ptr %121, align 4
-  store i32 %662, ptr %6, align 4
-  br label %691
+662:                                              ; preds = %659, %655, %650, %647
+  %663 = load i32, ptr %121, align 4
+  store i32 %663, ptr %6, align 4
+  br label %692
 
-663:                                              ; preds = %400
-  %664 = load i32, ptr %88, align 8
-  %665 = icmp eq i32 %664, 0
-  br i1 %665, label %666, label %ssh_decryption_setup_mac.exit.i.i
+664:                                              ; preds = %401
+  %665 = load i32, ptr %88, align 8
+  %666 = icmp eq i32 %665, 0
+  br i1 %666, label %667, label %ssh_decryption_setup_mac.exit.i.i
 
-666:                                              ; preds = %663
-  %667 = load i32, ptr %13, align 4
-  store i32 %667, ptr %88, align 8
-  store i32 %404, ptr %89, align 4
-  %668 = load i32, ptr %92, align 8
-  %669 = icmp eq i32 %668, 0
-  br i1 %669, label %670, label %673
+667:                                              ; preds = %664
+  %668 = load i32, ptr %13, align 4
+  store i32 %668, ptr %88, align 8
+  store i32 %405, ptr %89, align 4
+  %669 = load i32, ptr %92, align 8
+  %670 = icmp eq i32 %669, 0
+  br i1 %670, label %671, label %674
 
-670:                                              ; preds = %666
-  %671 = load i32, ptr %93, align 8
-  store i32 %671, ptr %92, align 8
-  %672 = add i32 %671, 1
-  store i32 %672, ptr %93, align 8
-  call void (ptr, ...) @ssh_debug_printf(ptr noundef nonnull @.str.568, ptr noundef nonnull %94, i32 noundef %671, i32 noundef %672)
-  br label %673
+671:                                              ; preds = %667
+  %672 = load i32, ptr %93, align 8
+  store i32 %672, ptr %92, align 8
+  %673 = add i32 %672, 1
+  store i32 %673, ptr %93, align 8
+  call void (ptr, ...) @ssh_debug_printf(ptr noundef nonnull @.str.568, ptr noundef nonnull %94, i32 noundef %672, i32 noundef %673)
+  br label %674
 
-673:                                              ; preds = %670, %666
-  br i1 %11, label %681, label %674
+674:                                              ; preds = %671, %667
+  br i1 %11, label %682, label %675
 
-674:                                              ; preds = %673
+675:                                              ; preds = %674
   call void (ptr, ...) @ssh_debug_printf(ptr noundef nonnull @.str.569)
   call fastcc void @ssh_decryption_setup_cipher(ptr noundef nonnull %67, ptr noundef nonnull %102, ptr noundef %103)
-  %675 = load i32, ptr %104, align 8
-  %676 = icmp eq i32 %675, 131073
-  br i1 %676, label %677, label %ssh_decryption_setup_mac.exit.i.i
+  %676 = load i32, ptr %104, align 8
+  %677 = icmp eq i32 %676, 131073
+  br i1 %677, label %678, label %ssh_decryption_setup_mac.exit.i.i
 
-677:                                              ; preds = %674
-  %678 = load ptr, ptr %105, align 8
-  %.not.i85.i = icmp eq ptr %678, null
-  br i1 %.not.i85.i, label %680, label %679
+678:                                              ; preds = %675
+  %679 = load ptr, ptr %105, align 8
+  %.not.i86.i = icmp eq ptr %679, null
+  br i1 %.not.i86.i, label %681, label %680
 
-679:                                              ; preds = %677
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %106, ptr noundef nonnull align 1 dereferenceable(32) %678, i64 32, i1 false)
+680:                                              ; preds = %678
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %106, ptr noundef nonnull align 1 dereferenceable(32) %679, i64 32, i1 false)
   br label %ssh_decryption_setup_mac.exit.i.sink.split.i
 
-680:                                              ; preds = %677
+681:                                              ; preds = %678
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %106, i8 0, i64 32, i1 false)
   br label %ssh_decryption_setup_mac.exit.i.sink.split.i
 
-681:                                              ; preds = %673
+682:                                              ; preds = %674
   call void (ptr, ...) @ssh_debug_printf(ptr noundef nonnull @.str.570)
   call fastcc void @ssh_decryption_setup_cipher(ptr noundef %95, ptr noundef %96, ptr noundef %97)
-  %682 = load i32, ptr %98, align 8
-  %683 = icmp eq i32 %682, 131073
-  br i1 %683, label %684, label %ssh_decryption_setup_mac.exit.i.i
+  %683 = load i32, ptr %98, align 8
+  %684 = icmp eq i32 %683, 131073
+  br i1 %684, label %685, label %ssh_decryption_setup_mac.exit.i.i
 
-684:                                              ; preds = %681
-  %685 = load ptr, ptr %99, align 8
-  %.not.i166.i.i = icmp eq ptr %685, null
-  br i1 %.not.i166.i.i, label %687, label %686
+685:                                              ; preds = %682
+  %686 = load ptr, ptr %99, align 8
+  %.not.i166.i.i = icmp eq ptr %686, null
+  br i1 %.not.i166.i.i, label %688, label %687
 
-686:                                              ; preds = %684
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %100, ptr noundef nonnull align 1 dereferenceable(32) %685, i64 32, i1 false)
+687:                                              ; preds = %685
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %100, ptr noundef nonnull align 1 dereferenceable(32) %686, i64 32, i1 false)
   br label %ssh_decryption_setup_mac.exit.i.sink.split.i
 
-687:                                              ; preds = %684
+688:                                              ; preds = %685
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %100, i8 0, i64 32, i1 false)
   br label %ssh_decryption_setup_mac.exit.i.sink.split.i
 
-ssh_decryption_setup_mac.exit.i.sink.split.i:     ; preds = %687, %686, %680, %679
-  %.sink114.i = phi ptr [ %107, %680 ], [ %107, %679 ], [ %101, %687 ], [ %101, %686 ]
-  %.sink.i136 = phi ptr [ %106, %680 ], [ %106, %679 ], [ %100, %687 ], [ %100, %686 ]
-  store i32 32, ptr %.sink114.i, align 4
+ssh_decryption_setup_mac.exit.i.sink.split.i:     ; preds = %688, %687, %681, %680
+  %.sink113.i = phi ptr [ %107, %681 ], [ %107, %680 ], [ %101, %688 ], [ %101, %687 ]
+  %.sink.i135 = phi ptr [ %106, %681 ], [ %106, %680 ], [ %100, %688 ], [ %100, %687 ]
+  store i32 32, ptr %.sink113.i, align 4
   call void (ptr, ...) @ssh_debug_printf(ptr noundef nonnull @.str.598)
-  %688 = load i32, ptr %.sink114.i, align 4
-  %689 = zext i32 %688 to i64
-  call fastcc void @ssh_print_data(ptr noundef nonnull @.str.595, ptr noundef nonnull %.sink.i136, i64 noundef %689)
+  %689 = load i32, ptr %.sink113.i, align 4
+  %690 = zext i32 %689 to i64
+  call fastcc void @ssh_print_data(ptr noundef nonnull @.str.595, ptr noundef nonnull %.sink.i135, i64 noundef %690)
   br label %ssh_decryption_setup_mac.exit.i.i
 
-ssh_decryption_setup_mac.exit.i.i:                ; preds = %ssh_decryption_setup_mac.exit.i.sink.split.i, %681, %674, %663
-  %690 = load i32, ptr %92, align 8
-  store i32 %690, ptr %6, align 4
-  br label %691
+ssh_decryption_setup_mac.exit.i.i:                ; preds = %ssh_decryption_setup_mac.exit.i.sink.split.i, %682, %675, %664
+  %691 = load i32, ptr %92, align 8
+  store i32 %691, ptr %6, align 4
+  br label %692
 
-691:                                              ; preds = %ssh_decryption_setup_mac.exit.i.i, %661, %400, %397
-  %.0151.i.i = phi i32 [ %399, %397 ], [ %404, %400 ], [ %404, %ssh_decryption_setup_mac.exit.i.i ], [ %518, %661 ]
-  %692 = add i32 %.0152.i.i, 4
-  %693 = sub i32 %692, %383
-  %.neg.i.i = sub i32 %.096.i, %.0151.i.i
-  %694 = add i32 %.neg.i.i, %693
-  %.not165.i.i = icmp eq i32 %694, 0
-  br i1 %.not165.i.i, label %698, label %695
+692:                                              ; preds = %ssh_decryption_setup_mac.exit.i.i, %662, %401, %398
+  %.0151.i.i = phi i32 [ %400, %398 ], [ %405, %401 ], [ %405, %ssh_decryption_setup_mac.exit.i.i ], [ %519, %662 ]
+  %693 = add i32 %.0152.i.i, 4
+  %694 = sub i32 %693, %384
+  %.neg.i.i = sub i32 %.095.i, %.0151.i.i
+  %695 = add i32 %.neg.i.i, %694
+  %.not165.i.i = icmp eq i32 %695, 0
+  br i1 %.not165.i.i, label %699, label %696
 
-695:                                              ; preds = %691
-  %696 = load i32, ptr @hf_ssh_payload, align 4
-  %697 = call ptr @proto_tree_add_item(ptr noundef %394, i32 noundef %696, ptr noundef %0, i32 noundef %.0151.i.i, i32 noundef %694, i32 noundef 0) #21
-  br label %698
+696:                                              ; preds = %692
+  %697 = load i32, ptr @hf_ssh_payload, align 4
+  %698 = call ptr @proto_tree_add_item(ptr noundef %395, i32 noundef %697, ptr noundef %0, i32 noundef %.0151.i.i, i32 noundef %695, i32 noundef 0) #21
+  br label %699
 
-698:                                              ; preds = %695, %691
-  %699 = add i32 %693, %.096.i
-  %700 = load i32, ptr @hf_ssh_padding_string, align 4
-  %701 = call ptr @proto_tree_add_item(ptr noundef %.163.i, i32 noundef %700, ptr noundef %0, i32 noundef %699, i32 noundef %383, i32 noundef 0) #21
-  %702 = add i32 %692, %.096.i
-  %703 = load i32, ptr @hf_ssh_seq_num, align 4
-  %704 = load i32, ptr %6, align 4
-  %705 = call ptr @proto_tree_add_uint(ptr noundef %.163.i, i32 noundef %703, ptr noundef %0, i32 noundef %702, i32 noundef 0, i32 noundef %704) #21
-  %.not.i167.i.i = icmp eq ptr %705, null
-  br i1 %.not.i167.i.i, label %714, label %706
+699:                                              ; preds = %696, %692
+  %700 = add i32 %694, %.095.i
+  %701 = load i32, ptr @hf_ssh_padding_string, align 4
+  %702 = call ptr @proto_tree_add_item(ptr noundef %.163.i, i32 noundef %701, ptr noundef %0, i32 noundef %700, i32 noundef %384, i32 noundef 0) #21
+  %703 = add i32 %693, %.095.i
+  %704 = load i32, ptr @hf_ssh_seq_num, align 4
+  %705 = load i32, ptr %6, align 4
+  %706 = call ptr @proto_tree_add_uint(ptr noundef %.163.i, i32 noundef %704, ptr noundef %0, i32 noundef %703, i32 noundef 0, i32 noundef %705) #21
+  %.not.i167.i.i = icmp eq ptr %706, null
+  br i1 %.not.i167.i.i, label %715, label %707
 
-706:                                              ; preds = %698
-  %707 = getelementptr inbounds i8, ptr %705, i64 32
-  %708 = load ptr, ptr %707, align 8
-  %.not5.i.i.i = icmp eq ptr %708, null
-  br i1 %.not5.i.i.i, label %714, label %709
+707:                                              ; preds = %699
+  %708 = getelementptr inbounds i8, ptr %706, i64 32
+  %709 = load ptr, ptr %708, align 8
+  %.not5.i.i.i = icmp eq ptr %709, null
+  br i1 %.not5.i.i.i, label %715, label %710
 
-709:                                              ; preds = %706
-  %710 = getelementptr inbounds i8, ptr %708, i64 28
-  %711 = load i32, ptr %710, align 4
-  %712 = or i32 %711, 2
-  store i32 %712, ptr %710, align 4
-  br label %714
+710:                                              ; preds = %707
+  %711 = getelementptr inbounds i8, ptr %709, i64 28
+  %712 = load i32, ptr %711, align 4
+  %713 = or i32 %712, 2
+  store i32 %713, ptr %711, align 4
+  br label %715
 
-ssh_dissect_key_exchange.exit.thread.i:           ; preds = %369, %360
-  %.sink115.i = phi i32 [ 268435455, %360 ], [ %371, %369 ]
-  %713 = getelementptr inbounds i8, ptr %1, i64 336
-  store i32 %.sink115.i, ptr %713, align 8
+ssh_dissect_key_exchange.exit.thread.i:           ; preds = %370, %361
+  %.sink114.i = phi i32 [ 268435455, %361 ], [ %372, %370 ]
+  %714 = getelementptr inbounds i8, ptr %1, i64 336
+  store i32 %.sink114.i, ptr %714, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %ssh_dissect_ssh1.exit
 
-714:                                              ; preds = %698, %706, %709
+715:                                              ; preds = %699, %707, %710
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %715 = load ptr, ptr %15, align 8
-  %716 = getelementptr inbounds i8, ptr %715, i64 50
-  %717 = load i16, ptr %716, align 2
-  %718 = and i16 %717, 8
-  %.not.i84.i = icmp eq i16 %718, 0
-  br i1 %.not.i84.i, label %719, label %ssh_increment_message_number.exit.i
+  %716 = load ptr, ptr %15, align 8
+  %717 = getelementptr inbounds i8, ptr %716, i64 50
+  %718 = load i16, ptr %717, align 2
+  %719 = and i16 %718, 8
+  %.not.i85.i = icmp eq i16 %719, 0
+  br i1 %.not.i85.i, label %720, label %ssh_increment_message_number.exit.i
 
-719:                                              ; preds = %714
-  %720 = call ptr @wmem_file_scope() #21
-  %721 = load i32, ptr @proto_ssh, align 4
-  %722 = call ptr @p_get_proto_data(ptr noundef %720, ptr noundef nonnull %1, i32 noundef %721, i32 noundef 0) #21
-  %.not7.i.i = icmp eq ptr %722, null
-  br i1 %.not7.i.i, label %723, label %ssh_increment_message_number.exit.i
+720:                                              ; preds = %715
+  %721 = call ptr @wmem_file_scope() #21
+  %722 = load i32, ptr @proto_ssh, align 4
+  %723 = call ptr @p_get_proto_data(ptr noundef %721, ptr noundef nonnull %1, i32 noundef %722, i32 noundef 0) #21
+  %.not7.i.i = icmp eq ptr %723, null
+  br i1 %.not7.i.i, label %724, label %ssh_increment_message_number.exit.i
 
-723:                                              ; preds = %719
-  %724 = call ptr @wmem_file_scope() #21
-  %725 = call noalias ptr @wmem_alloc0(ptr noundef %724, i64 noundef 16) #21
-  store i32 %12, ptr %725, align 8
-  %726 = getelementptr inbounds i8, ptr %725, i64 8
-  store ptr null, ptr %726, align 8
-  %727 = call ptr @wmem_file_scope() #21
-  %728 = load i32, ptr @proto_ssh, align 4
-  call void @p_add_proto_data(ptr noundef %727, ptr noundef nonnull %1, i32 noundef %728, i32 noundef 0, ptr noundef nonnull %725) #21
+724:                                              ; preds = %720
+  %725 = call ptr @wmem_file_scope() #21
+  %726 = call noalias ptr @wmem_alloc0(ptr noundef %725, i64 noundef 16) #21
+  store i32 %12, ptr %726, align 8
+  %727 = getelementptr inbounds i8, ptr %726, i64 8
+  store ptr null, ptr %727, align 8
+  %728 = call ptr @wmem_file_scope() #21
+  %729 = load i32, ptr @proto_ssh, align 4
+  call void @p_add_proto_data(ptr noundef %728, ptr noundef nonnull %1, i32 noundef %729, i32 noundef 0, ptr noundef nonnull %726) #21
   br label %ssh_increment_message_number.exit.i
 
-729:                                              ; preds = %343, %348, %350
-  %730 = call fastcc i32 @ssh_try_dissect_encrypted_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %69, i32 noundef %.096.i, ptr noundef %.163.i)
+730:                                              ; preds = %344, %349, %351
+  %731 = call fastcc i32 @ssh_try_dissect_encrypted_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %69, i32 noundef %.095.i, ptr noundef %.163.i)
   br label %ssh_increment_message_number.exit.i
 
-ssh_increment_message_number.exit.i:              ; preds = %729, %723, %719, %714
-  %.2.i = phi i32 [ %730, %729 ], [ %702, %714 ], [ %702, %719 ], [ %702, %723 ]
-  %.not83.i = icmp eq ptr %.163.i, null
-  br i1 %.not83.i, label %733, label %731
+ssh_increment_message_number.exit.i:              ; preds = %730, %724, %720, %715
+  %.2.i = phi i32 [ %731, %730 ], [ %703, %715 ], [ %703, %720 ], [ %703, %724 ]
+  %.not84.i = icmp eq ptr %.163.i, null
+  br i1 %.not84.i, label %734, label %732
 
-731:                                              ; preds = %ssh_increment_message_number.exit.i
-  %732 = sub i32 %.2.i, %.096.i
-  call void @proto_item_set_len(ptr noundef nonnull %.163.i, i32 noundef %732) #21
-  br label %733
+732:                                              ; preds = %ssh_increment_message_number.exit.i
+  %733 = sub i32 %.2.i, %.095.i
+  call void @proto_item_set_len(ptr noundef nonnull %.163.i, i32 noundef %733) #21
+  br label %734
 
-733:                                              ; preds = %731, %ssh_increment_message_number.exit.i
-  %734 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2.i) #21
-  %735 = icmp sgt i32 %734, 0
-  br i1 %735, label %.lr.ph.i, label %.loopexit, !llvm.loop !7
+734:                                              ; preds = %732, %ssh_increment_message_number.exit.i
+  %735 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2.i) #21
+  %736 = icmp sgt i32 %735, 0
+  br i1 %736, label %.lr.ph.i, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %733, %223, %226, %306
-  %.1147.ph = phi i32 [ 1, %306 ], [ 0, %226 ], [ %.3.ph, %223 ], [ 2, %733 ]
-  %.1.ph = phi i32 [ %307, %306 ], [ %227, %226 ], [ %.0.i.ph, %223 ], [ %.2.i, %733 ]
+.loopexit:                                        ; preds = %734, %223, %226, %306
+  %.1146.ph = phi i32 [ 1, %306 ], [ 0, %226 ], [ %.3.ph, %223 ], [ 2, %734 ]
+  %.1.ph = phi i32 [ %307, %306 ], [ %227, %226 ], [ %.0.i.ph, %223 ], [ %.2.i, %734 ]
   %.not127 = icmp sgt i32 %.1.ph, %.0119
   br i1 %.not127, label %125, label %.thread, !llvm.loop !8
 
 .thread:                                          ; preds = %225, %308, %.loopexit, %125
-  %736 = load ptr, ptr %80, align 8
-  %737 = select i1 %11, ptr @.str.408, ptr @.str.409
-  call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %736, i32 noundef 25, ptr noundef nonnull @.str.407, ptr noundef nonnull %737) #21
-  %738 = load i32, ptr @hf_ssh_direction, align 4
-  %739 = call ptr @try_val_to_str(i32 noundef %12, ptr noundef nonnull @ssh_direction_vals) #21
-  %740 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format_value(ptr noundef %73, i32 noundef %738, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %68, ptr noundef nonnull @.str.410, ptr noundef %739) #21
-  %.not.i139 = icmp eq ptr %740, null
-  br i1 %.not.i139, label %proto_item_set_generated.exit, label %741
+  %737 = load ptr, ptr %80, align 8
+  %738 = select i1 %11, ptr @.str.408, ptr @.str.409
+  call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %737, i32 noundef 25, ptr noundef nonnull @.str.407, ptr noundef nonnull %738) #21
+  %739 = load i32, ptr @hf_ssh_direction, align 4
+  %740 = call ptr @try_val_to_str(i32 noundef %12, ptr noundef nonnull @ssh_direction_vals) #21
+  %741 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format_value(ptr noundef %73, i32 noundef %739, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %68, ptr noundef nonnull @.str.410, ptr noundef %740) #21
+  %.not.i138 = icmp eq ptr %741, null
+  br i1 %.not.i138, label %proto_item_set_generated.exit, label %742
 
-741:                                              ; preds = %.thread
-  %742 = getelementptr inbounds i8, ptr %740, i64 32
-  %743 = load ptr, ptr %742, align 8
-  %.not5.i = icmp eq ptr %743, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %744
+742:                                              ; preds = %.thread
+  %743 = getelementptr inbounds i8, ptr %741, i64 32
+  %744 = load ptr, ptr %743, align 8
+  %.not5.i = icmp eq ptr %744, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %745
 
-744:                                              ; preds = %741
-  %745 = getelementptr inbounds i8, ptr %743, i64 28
-  %746 = load i32, ptr %745, align 4
-  %747 = or i32 %746, 2
-  store i32 %747, ptr %745, align 4
+745:                                              ; preds = %742
+  %746 = getelementptr inbounds i8, ptr %744, i64 28
+  %747 = load i32, ptr %746, align 4
+  %748 = or i32 %747, 2
+  store i32 %748, ptr %746, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %.thread, %741, %744
-  %748 = load ptr, ptr @ssh_debug_file, align 8
-  %.not.i140 = icmp eq ptr %748, null
-  br i1 %.not.i140, label %ssh_dissect_ssh1.exit, label %749
+proto_item_set_generated.exit:                    ; preds = %.thread, %742, %745
+  %749 = load ptr, ptr @ssh_debug_file, align 8
+  %.not.i139 = icmp eq ptr %749, null
+  br i1 %.not.i139, label %ssh_dissect_ssh1.exit, label %750
 
-749:                                              ; preds = %proto_item_set_generated.exit
-  %750 = call i32 @fflush(ptr noundef nonnull %748)
+750:                                              ; preds = %proto_item_set_generated.exit
+  %751 = call i32 @fflush(ptr noundef nonnull %749)
   br label %ssh_dissect_ssh1.exit
 
-ssh_dissect_ssh1.exit:                            ; preds = %749, %proto_item_set_generated.exit, %ssh_dissect_key_exchange.exit.thread.i, %251, %237, %ssh_dissect_protocol.exit
-  %751 = call i32 @tvb_captured_length(ptr noundef %0) #21
-  ret i32 %751
+ssh_dissect_ssh1.exit:                            ; preds = %750, %proto_item_set_generated.exit, %ssh_dissect_key_exchange.exit.thread.i, %251, %237, %ssh_dissect_protocol.exit
+  %752 = call i32 @tvb_captured_length(ptr noundef %0) #21
+  ret i32 %752
 }
 
 declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -86,7 +86,7 @@ _ZN21unicode_normalization12perfect_hash10mph_lookup17he7426c414cdc4c14E.llvm.33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: readwrite) uwtable
-define hidden noundef i32 @_ZN21unicode_normalization7lookups17composition_table17hafb6235aefd656cfE(i32 noundef %0, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 0, 1114113) i32 @_ZN21unicode_normalization7lookups17composition_table17hafb6235aefd656cfE(i32 noundef %0, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = or i32 %1, %0
   %or.cond = icmp ult i32 %3, 65536
   br i1 %or.cond, label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970.exit, label %4

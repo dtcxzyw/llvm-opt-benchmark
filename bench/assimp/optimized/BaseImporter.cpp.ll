@@ -4490,73 +4490,53 @@ for.body:                                         ; preds = %if.end21, %for.inc
 
 sub_0:                                            ; preds = %for.body
   %2 = load i8, ptr %it.sroa.0.165, align 1
-  %3 = zext i8 %2 to i32
-  %4 = add nsw i32 %3, -58
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %sub_1, label %land.lhs.true.tail
+  %.not = icmp eq i8 %2, 58
+  br i1 %.not, label %sub_1, label %if.end41
 
 sub_1:                                            ; preds = %sub_0
-  %5 = getelementptr inbounds i8, ptr %it.sroa.0.165, i64 1
+  %3 = getelementptr inbounds i8, ptr %it.sroa.0.165, i64 1
+  %4 = load i8, ptr %3, align 1
+  %.not68 = icmp eq i8 %4, 47
+  br i1 %.not68, label %land.lhs.true.tail, label %if.end41
+
+land.lhs.true.tail:                               ; preds = %sub_1
+  %5 = getelementptr inbounds i8, ptr %it.sroa.0.165, i64 2
   %6 = load i8, ptr %5, align 1
-  %7 = zext i8 %6 to i32
-  %8 = add nsw i32 %7, -47
-  %.not68 = icmp eq i32 %8, 0
-  br i1 %.not68, label %sub_2, label %land.lhs.true.tail
-
-sub_2:                                            ; preds = %sub_1
-  %9 = getelementptr inbounds i8, ptr %it.sroa.0.165, i64 2
-  %10 = load i8, ptr %9, align 1
-  %11 = zext i8 %10 to i32
-  %12 = add nsw i32 %11, -47
-  br label %land.lhs.true.tail
-
-land.lhs.true.tail:                               ; preds = %sub_0, %sub_1, %sub_2
-  %13 = phi i32 [ %4, %sub_0 ], [ %8, %sub_1 ], [ %12, %sub_2 ]
-  %tobool.not = icmp eq i32 %13, 0
-  br i1 %tobool.not, label %if.then39, label %if.end41
+  %7 = icmp eq i8 %6, 47
+  br i1 %7, label %if.then39, label %if.end41
 
 if.then39:                                        ; preds = %land.lhs.true.tail
   %add.ptr.i14 = getelementptr inbounds i8, ptr %it.sroa.0.165, i64 3
   br label %for.inc
 
-if.end41:                                         ; preds = %land.lhs.true.tail, %for.body
+if.end41:                                         ; preds = %sub_1, %sub_0, %land.lhs.true.tail, %for.body
   %call43 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %in) #26
   %cmp.i15 = icmp eq ptr %it.sroa.0.165, %call43
   %cmp47 = icmp ugt i64 %sub.ptr.sub.i.i.i, 1
   %or.cond = and i1 %cmp47, %cmp.i15
   %.pre = load i8, ptr %it.sroa.0.165, align 1
-  br i1 %or.cond, label %sub_060, label %if.end53
+  %.not69 = icmp eq i8 %.pre, 92
+  %or.cond72 = select i1 %or.cond, i1 %.not69, i1 false
+  br i1 %or.cond72, label %land.rhs.tail, label %if.end53
 
-sub_060:                                          ; preds = %if.end41
-  %14 = zext i8 %.pre to i32
-  %15 = add nsw i32 %14, -92
-  %.not69 = icmp eq i32 %15, 0
-  br i1 %.not69, label %sub_161, label %land.rhs.tail
-
-sub_161:                                          ; preds = %sub_060
-  %16 = getelementptr inbounds i8, ptr %it.sroa.0.165, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = add nsw i32 %18, -92
-  br label %land.rhs.tail
-
-land.rhs.tail:                                    ; preds = %sub_060, %sub_161
-  %20 = phi i32 [ %15, %sub_060 ], [ %19, %sub_161 ]
-  %tobool50.not = icmp eq i32 %20, 0
-  br i1 %tobool50.not, label %if.then51, label %if.end53
+land.rhs.tail:                                    ; preds = %if.end41
+  %8 = getelementptr inbounds i8, ptr %it.sroa.0.165, i64 1
+  %9 = load i8, ptr %8, align 1
+  %10 = icmp eq i8 %9, 92
+  br i1 %10, label %if.then51, label %if.then59
 
 if.then51:                                        ; preds = %land.rhs.tail
   %add.ptr.i16 = getelementptr inbounds i8, ptr %it.sroa.0.165, i64 2
   br label %for.inc
 
-if.end53:                                         ; preds = %if.end41, %land.rhs.tail
+if.end53:                                         ; preds = %if.end41
   switch i8 %.pre, label %if.end110 [
     i8 47, label %if.then59
     i8 92, label %if.then59
     i8 37, label %land.rhs76
   ]
 
-if.then59:                                        ; preds = %if.end53, %if.end53
+if.then59:                                        ; preds = %land.rhs.tail, %if.end53, %if.end53
   store i8 %call22, ptr %it.sroa.0.165, align 1
   %cmp64 = icmp eq i8 %last.067, %call22
   br i1 %cmp64, label %if.then65, label %if.end110
@@ -4574,12 +4554,12 @@ land.rhs76:                                       ; preds = %if.end53
   br i1 %cmp81, label %if.then83, label %if.end110
 
 if.then83:                                        ; preds = %land.rhs76
-  %21 = load i8, ptr %it.sroa.0.165, align 1
-  %.fr58 = freeze i8 %21
-  %22 = add i8 %.fr58, -48
-  %or.cond.i = icmp ult i8 %22, 10
-  %23 = add i8 %.fr58, -97
-  %or.cond1.i = icmp ult i8 %23, 6
+  %11 = load i8, ptr %it.sroa.0.165, align 1
+  %.fr58 = freeze i8 %11
+  %12 = add i8 %.fr58, -48
+  %or.cond.i = icmp ult i8 %12, 10
+  %13 = add i8 %.fr58, -97
+  %or.cond1.i = icmp ult i8 %13, 6
   br i1 %or.cond.i, label %land.lhs.true86, label %switch.early.test
 
 switch.early.test:                                ; preds = %if.then83
@@ -4600,12 +4580,12 @@ switch.early.test:                                ; preds = %if.then83
 
 land.lhs.true86:                                  ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %if.then83
   %arrayidx88 = getelementptr inbounds i8, ptr %it.sroa.0.165, i64 1
-  %24 = load i8, ptr %arrayidx88, align 1
-  %.fr59 = freeze i8 %24
-  %25 = add i8 %.fr59, -48
-  %or.cond.i18 = icmp ult i8 %25, 10
-  %26 = add i8 %.fr59, -97
-  %or.cond1.i19 = icmp ult i8 %26, 6
+  %14 = load i8, ptr %arrayidx88, align 1
+  %.fr59 = freeze i8 %14
+  %15 = add i8 %.fr59, -48
+  %or.cond.i18 = icmp ult i8 %15, 10
+  %16 = add i8 %.fr59, -97
+  %or.cond1.i19 = icmp ult i8 %16, 6
   br i1 %or.cond.i18, label %if.then90, label %switch.early.test57
 
 switch.early.test57:                              ; preds = %land.lhs.true86
@@ -4635,14 +4615,14 @@ if.then9.i.i:                                     ; preds = %if.else.i.i
   br label %_ZN6Assimp17HexDigitToDecimalEc.exit.i
 
 if.else12.i.i:                                    ; preds = %if.else.i.i
-  %27 = add nsw i8 %.fr58, -65
-  %or.cond2.i.i = icmp ult i8 %27, 6
+  %17 = add nsw i8 %.fr58, -65
+  %or.cond2.i.i = icmp ult i8 %17, 6
   %sub21.i.i = add nsw i8 %.fr58, -55
   %spec.select.i.i = select i1 %or.cond2.i.i, i8 %sub21.i.i, i8 -1
   br label %_ZN6Assimp17HexDigitToDecimalEc.exit.i
 
 _ZN6Assimp17HexDigitToDecimalEc.exit.i:           ; preds = %if.else12.i.i, %if.then9.i.i, %if.then90
-  %out.0.i.i = phi i8 [ %sub11.i.i, %if.then9.i.i ], [ %spec.select.i.i, %if.else12.i.i ], [ %22, %if.then90 ]
+  %out.0.i.i = phi i8 [ %sub11.i.i, %if.then9.i.i ], [ %spec.select.i.i, %if.else12.i.i ], [ %12, %if.then90 ]
   br i1 %or.cond.i18, label %_ZN6Assimp17HexOctetToDecimalEPKc.exit, label %if.else.i4.i
 
 if.else.i4.i:                                     ; preds = %_ZN6Assimp17HexDigitToDecimalEc.exit.i
@@ -4653,14 +4633,14 @@ if.then9.i11.i:                                   ; preds = %if.else.i4.i
   br label %_ZN6Assimp17HexOctetToDecimalEPKc.exit
 
 if.else12.i6.i:                                   ; preds = %if.else.i4.i
-  %28 = add nsw i8 %.fr59, -65
-  %or.cond2.i7.i = icmp ult i8 %28, 6
+  %18 = add nsw i8 %.fr59, -65
+  %or.cond2.i7.i = icmp ult i8 %18, 6
   %sub21.i8.i = add nsw i8 %.fr59, -55
   %spec.select.i9.i = select i1 %or.cond2.i7.i, i8 %sub21.i8.i, i8 -1
   br label %_ZN6Assimp17HexOctetToDecimalEPKc.exit
 
 _ZN6Assimp17HexOctetToDecimalEPKc.exit:           ; preds = %_ZN6Assimp17HexDigitToDecimalEc.exit.i, %if.then9.i11.i, %if.else12.i6.i
-  %out.0.i10.i = phi i8 [ %sub11.i12.i, %if.then9.i11.i ], [ %spec.select.i9.i, %if.else12.i6.i ], [ %25, %_ZN6Assimp17HexDigitToDecimalEc.exit.i ]
+  %out.0.i10.i = phi i8 [ %sub11.i12.i, %if.then9.i11.i ], [ %spec.select.i9.i, %if.else12.i6.i ], [ %15, %_ZN6Assimp17HexDigitToDecimalEc.exit.i ]
   %conv1.i = shl i8 %out.0.i.i, 4
   %add.i = add i8 %out.0.i10.i, %conv1.i
   store i8 %add.i, ptr %it.sroa.0.165, align 1
@@ -4671,12 +4651,12 @@ _ZN6Assimp17HexOctetToDecimalEPKc.exit:           ; preds = %_ZN6Assimp17HexDigi
 
 if.end110:                                        ; preds = %switch.early.test57, %switch.early.test, %if.end53, %land.rhs76, %_ZN6Assimp17HexOctetToDecimalEPKc.exit, %if.then59, %if.then65
   %it.sroa.0.3 = phi ptr [ %incdec.ptr.i17, %if.then65 ], [ %it.sroa.0.165, %if.then59 ], [ %incdec.ptr.i25, %_ZN6Assimp17HexOctetToDecimalEPKc.exit ], [ %it.sroa.0.165, %land.rhs76 ], [ %it.sroa.0.165, %if.end53 ], [ %it.sroa.0.165, %switch.early.test ], [ %it.sroa.0.165, %switch.early.test57 ]
-  %29 = load i8, ptr %it.sroa.0.3, align 1
+  %19 = load i8, ptr %it.sroa.0.3, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end110, %if.then51, %if.then39
   %it.sroa.0.2 = phi ptr [ %add.ptr.i14, %if.then39 ], [ %add.ptr.i16, %if.then51 ], [ %it.sroa.0.3, %if.end110 ]
-  %last.1 = phi i8 [ %last.067, %if.then39 ], [ %last.067, %if.then51 ], [ %29, %if.end110 ]
+  %last.1 = phi i8 [ %last.067, %if.then39 ], [ %last.067, %if.then51 ], [ %19, %if.end110 ]
   %incdec.ptr.i26 = getelementptr inbounds i8, ptr %it.sroa.0.2, i64 1
   %call27 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %in) #26
   %cmp.i13 = icmp ult ptr %incdec.ptr.i26, %call27

@@ -140,10 +140,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vzext_vf2P
   %35 = getelementptr inbounds i8, ptr %0, i64 659816
   %36 = load float, ptr %35, align 8
   %37 = fmul float %36, 5.000000e-01
-  %38 = fcmp oge float %37, 1.250000e-01
-  %39 = fcmp ole float %37, 8.000000e+00
-  %40 = and i1 %38, %39
-  br i1 %40, label %46, label %41
+  %38 = fcmp ult float %37, 1.250000e-01
+  %39 = fcmp ugt float %37, 8.000000e+00
+  %40 = or i1 %38, %39
+  br i1 %40, label %41, label %46
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -277,8 +277,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overla
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
   %108 = or disjoint i64 %107, %26
-  %109 = icmp ult i64 %25, 65
-  br i1 %109, label %115, label %110
+  %109 = icmp ugt i64 %25, 64
+  br i1 %109, label %110, label %115
 
 110:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %111 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -635,10 +635,10 @@ define noundef i64 @_Z20fast_rv64i_vzext_vf2P11processor_t6insn_tm(ptr noundef %
   %35 = getelementptr inbounds i8, ptr %0, i64 659816
   %36 = load float, ptr %35, align 8
   %37 = fmul float %36, 5.000000e-01
-  %38 = fcmp oge float %37, 1.250000e-01
-  %39 = fcmp ole float %37, 8.000000e+00
-  %40 = and i1 %38, %39
-  br i1 %40, label %46, label %41
+  %38 = fcmp ult float %37, 1.250000e-01
+  %39 = fcmp ugt float %37, 8.000000e+00
+  %40 = or i1 %38, %39
+  br i1 %40, label %41, label %46
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -772,8 +772,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overla
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
   %108 = or disjoint i64 %107, %26
-  %109 = icmp ult i64 %25, 65
-  br i1 %109, label %115, label %110
+  %109 = icmp ugt i64 %25, 64
+  br i1 %109, label %110, label %115
 
 110:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %111 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1098,10 +1098,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vzext_vf
   %35 = getelementptr inbounds i8, ptr %0, i64 659816
   %36 = load float, ptr %35, align 8
   %37 = fmul float %36, 5.000000e-01
-  %38 = fcmp oge float %37, 1.250000e-01
-  %39 = fcmp ole float %37, 8.000000e+00
-  %40 = and i1 %38, %39
-  br i1 %40, label %46, label %41
+  %38 = fcmp ult float %37, 1.250000e-01
+  %39 = fcmp ugt float %37, 8.000000e+00
+  %40 = or i1 %38, %39
+  br i1 %40, label %41, label %46
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1235,8 +1235,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overla
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
   %108 = or disjoint i64 %107, %26
-  %109 = icmp ult i64 %25, 65
-  br i1 %109, label %115, label %110
+  %109 = icmp ugt i64 %25, 64
+  br i1 %109, label %110, label %115
 
 110:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %111 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1563,10 +1563,10 @@ define noundef i64 @_Z22logged_rv64i_vzext_vf2P11processor_t6insn_tm(ptr noundef
   %35 = getelementptr inbounds i8, ptr %0, i64 659816
   %36 = load float, ptr %35, align 8
   %37 = fmul float %36, 5.000000e-01
-  %38 = fcmp oge float %37, 1.250000e-01
-  %39 = fcmp ole float %37, 8.000000e+00
-  %40 = and i1 %38, %39
-  br i1 %40, label %46, label %41
+  %38 = fcmp ult float %37, 1.250000e-01
+  %39 = fcmp ugt float %37, 8.000000e+00
+  %40 = or i1 %38, %39
+  br i1 %40, label %41, label %46
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1700,8 +1700,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overla
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
   %108 = or disjoint i64 %107, %26
-  %109 = icmp ult i64 %25, 65
-  br i1 %109, label %115, label %110
+  %109 = icmp ugt i64 %25, 64
+  br i1 %109, label %110, label %115
 
 110:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %111 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2026,10 +2026,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vzext_vf2P
   %35 = getelementptr inbounds i8, ptr %0, i64 659816
   %36 = load float, ptr %35, align 8
   %37 = fmul float %36, 5.000000e-01
-  %38 = fcmp oge float %37, 1.250000e-01
-  %39 = fcmp ole float %37, 8.000000e+00
-  %40 = and i1 %38, %39
-  br i1 %40, label %46, label %41
+  %38 = fcmp ult float %37, 1.250000e-01
+  %39 = fcmp ugt float %37, 8.000000e+00
+  %40 = or i1 %38, %39
+  br i1 %40, label %41, label %46
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2163,8 +2163,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overla
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
   %108 = or disjoint i64 %107, %26
-  %109 = icmp ult i64 %25, 65
-  br i1 %109, label %115, label %110
+  %109 = icmp ugt i64 %25, 64
+  br i1 %109, label %110, label %115
 
 110:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %111 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2491,10 +2491,10 @@ define noundef i64 @_Z20fast_rv64e_vzext_vf2P11processor_t6insn_tm(ptr noundef %
   %35 = getelementptr inbounds i8, ptr %0, i64 659816
   %36 = load float, ptr %35, align 8
   %37 = fmul float %36, 5.000000e-01
-  %38 = fcmp oge float %37, 1.250000e-01
-  %39 = fcmp ole float %37, 8.000000e+00
-  %40 = and i1 %38, %39
-  br i1 %40, label %46, label %41
+  %38 = fcmp ult float %37, 1.250000e-01
+  %39 = fcmp ugt float %37, 8.000000e+00
+  %40 = or i1 %38, %39
+  br i1 %40, label %41, label %46
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2628,8 +2628,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overla
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
   %108 = or disjoint i64 %107, %26
-  %109 = icmp ult i64 %25, 65
-  br i1 %109, label %115, label %110
+  %109 = icmp ugt i64 %25, 64
+  br i1 %109, label %110, label %115
 
 110:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %111 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2954,10 +2954,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vzext_vf
   %35 = getelementptr inbounds i8, ptr %0, i64 659816
   %36 = load float, ptr %35, align 8
   %37 = fmul float %36, 5.000000e-01
-  %38 = fcmp oge float %37, 1.250000e-01
-  %39 = fcmp ole float %37, 8.000000e+00
-  %40 = and i1 %38, %39
-  br i1 %40, label %46, label %41
+  %38 = fcmp ult float %37, 1.250000e-01
+  %39 = fcmp ugt float %37, 8.000000e+00
+  %40 = or i1 %38, %39
+  br i1 %40, label %41, label %46
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -3091,8 +3091,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overla
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
   %108 = or disjoint i64 %107, %26
-  %109 = icmp ult i64 %25, 65
-  br i1 %109, label %115, label %110
+  %109 = icmp ugt i64 %25, 64
+  br i1 %109, label %110, label %115
 
 110:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %111 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -3419,10 +3419,10 @@ define noundef i64 @_Z22logged_rv64e_vzext_vf2P11processor_t6insn_tm(ptr noundef
   %35 = getelementptr inbounds i8, ptr %0, i64 659816
   %36 = load float, ptr %35, align 8
   %37 = fmul float %36, 5.000000e-01
-  %38 = fcmp oge float %37, 1.250000e-01
-  %39 = fcmp ole float %37, 8.000000e+00
-  %40 = and i1 %38, %39
-  br i1 %40, label %46, label %41
+  %38 = fcmp ult float %37, 1.250000e-01
+  %39 = fcmp ugt float %37, 8.000000e+00
+  %40 = or i1 %38, %39
+  br i1 %40, label %41, label %46
 
 41:                                               ; preds = %34
   %42 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -3556,8 +3556,8 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %94, %_ZL19is_overla
   %106 = shl nuw nsw i64 %25, 1
   %107 = and i64 %106, 240
   %108 = or disjoint i64 %107, %26
-  %109 = icmp ult i64 %25, 65
-  br i1 %109, label %115, label %110
+  %109 = icmp ugt i64 %25, 64
+  br i1 %109, label %110, label %115
 
 110:                                              ; preds = %_ZL19is_overlapped_wideniiii.exit.thread
   %111 = tail call ptr @__cxa_allocate_exception(i64 32) #16

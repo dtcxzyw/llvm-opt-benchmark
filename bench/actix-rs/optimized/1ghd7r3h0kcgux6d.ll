@@ -7034,7 +7034,7 @@ thread-pre-split280.thread:                       ; preds = %192, %thread-pre-sp
   %storemerge195 = phi i64 [ %266, %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit ], [ %.1103, %thread-pre-split280.thread ]
   store i64 %storemerge195, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  br label %.sink.split299
+  br label %.sink.split298
 
 237:                                              ; preds = %231
   %.val209 = load ptr, ptr %26, align 8, !nonnull !12, !align !50, !noundef !12
@@ -7318,8 +7318,8 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   br label %360
 
 377:                                              ; preds = %360, %380
-  %.pre-phi297 = phi i64 [ %352, %360 ], [ %.pre296, %380 ]
-  %.pre-phi = phi i64 [ %354, %360 ], [ %.pre295, %380 ]
+  %.pre-phi296 = phi i64 [ %352, %360 ], [ %.pre295, %380 ]
+  %.pre-phi = phi i64 [ %354, %360 ], [ %.pre294, %380 ]
   %.val199 = load ptr, ptr %26, align 8, !nonnull !12, !align !50, !noundef !12
   %.val200 = load i64, ptr %311, align 8, !noundef !12
   %378 = load i64, ptr %312, align 8, !noundef !12
@@ -7329,9 +7329,9 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
 380:                                              ; preds = %360
   call fastcc void @_ZN6brotli3enc6encode17ExtendLastCommand17hb108d9f32eda5941E(ptr noalias noundef nonnull align 8 dereferenceable(5576) %0, ptr noalias noundef nonnull align 4 dereferenceable(4) %19, ptr noalias noundef nonnull align 4 dereferenceable(4) %17)
   %.pre = load i32, ptr %19, align 4
-  %.pre294 = load i32, ptr %17, align 4
-  %.pre295 = zext i32 %.pre to i64
-  %.pre296 = zext i32 %.pre294 to i64
+  %.pre293 = load i32, ptr %17, align 4
+  %.pre294 = zext i32 %.pre to i64
+  %.pre295 = zext i32 %.pre293 to i64
   br label %377
 
 381:                                              ; preds = %377
@@ -7354,7 +7354,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %391 = sub nuw i64 %.val254, %385
   %392 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %.val253, i64 %385
   %393 = getelementptr inbounds i8, ptr %0, i64 392
-  call void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardReferences17hdcd3c2a2cbdd0d5cE(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @_ZN6brotli3enc11static_dict20kBrotliEncDictionary17hed15bff50f586cdaE, i64 noundef %.pre-phi, i64 noundef %.pre-phi297, ptr noalias noundef nonnull readonly align 1 %389, i64 noundef %390, i64 noundef %350, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %181, ptr noalias noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 4 %382, i64 noundef 16, ptr noalias noundef nonnull align 8 dereferenceable(8) %367, ptr noalias noundef nonnull align 4 %392, i64 noundef %391, ptr noalias noundef nonnull align 8 dereferenceable(8) %222, ptr noalias noundef nonnull align 8 dereferenceable(8) %393)
+  call void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardReferences17hdcd3c2a2cbdd0d5cE(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @_ZN6brotli3enc11static_dict20kBrotliEncDictionary17hed15bff50f586cdaE, i64 noundef %.pre-phi, i64 noundef %.pre-phi296, ptr noalias noundef nonnull readonly align 1 %389, i64 noundef %390, i64 noundef %350, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %181, ptr noalias noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 4 %382, i64 noundef 16, ptr noalias noundef nonnull align 8 dereferenceable(8) %367, ptr noalias noundef nonnull align 4 %392, i64 noundef %391, ptr noalias noundef nonnull align 8 dereferenceable(8) %222, ptr noalias noundef nonnull align 8 dereferenceable(8) %393)
   %394 = getelementptr inbounds i8, ptr %0, i64 204
   %395 = load i32, ptr %394, align 4, !noundef !12
   %396 = load i32, ptr %34, align 8, !noundef !12
@@ -7380,7 +7380,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %406 = load i64, ptr %393, align 8
   %407 = add i64 %406, %399
   %408 = icmp ult i64 %407, 12287
-  %.0101.not = select i1 %405, i1 true, i1 %408
+  %.0101 = select i1 %405, i1 true, i1 %408
   %409 = sub i64 %397, %398
   %410 = load i32, ptr %34, align 8, !alias.scope !595, !noundef !12
   %411 = and i32 %410, 63
@@ -7395,7 +7395,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %418 = shl nuw i64 1, %417
   %.not190 = icmp ule i64 %414, %418
   %419 = lshr i64 %418, 3
-  %brmerge6 = select i1 %.0101.not, i1 %.not190, i1 false
+  %brmerge6 = select i1 %.0101, i1 %.not190, i1 false
   %420 = icmp ult i64 %406, %419
   %or.cond13 = select i1 %brmerge6, i1 %420, i1 false
   %421 = icmp ult i64 %399, %419
@@ -7444,7 +7444,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit265: ; pre
 
 447:                                              ; preds = %448, %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit265
   store i64 %.1103, ptr %3, align 8
-  br label %.sink.split299
+  br label %.sink.split298
 
 448:                                              ; preds = %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit265
   %449 = call noundef align 8 dereferenceable(48) ptr @"_ZN122_$LT$brotli..enc..backward_references..UnionHasher$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$15GetHasherCommon17h38dfdc60585abe5fE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %0)
@@ -7498,7 +7498,7 @@ thread-pre-split288:                              ; preds = %453
 
 471:                                              ; preds = %463
   store i64 %.1103, ptr %3, align 8
-  br label %.sink.split299
+  br label %.sink.split298
 
 472:                                              ; preds = %467
   %.val197 = load ptr, ptr %26, align 8, !nonnull !12, !align !50, !noundef !12
@@ -7948,7 +7948,7 @@ switch.lookup:                                    ; preds = %_ZN6brotli3enc6enco
   %703 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 0, ptr %703, align 4
   store i64 %636, ptr %3, align 8
-  br label %.sink.split299
+  br label %.sink.split298
 
 704:                                              ; preds = %697
   %705 = getelementptr inbounds [0 x i8], ptr %686, i64 0, i64 %700
@@ -7960,13 +7960,13 @@ switch.lookup:                                    ; preds = %_ZN6brotli3enc6enco
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %700, i64 noundef %685, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.78) #21
   unreachable
 
-.sink.split299:                                   ; preds = %236, %447, %471, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit"
+.sink.split298:                                   ; preds = %236, %447, %471, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit"
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   br label %708
 
-708:                                              ; preds = %.sink.split299, %5, %33
-  %.1 = phi i32 [ 0, %5 ], [ 0, %33 ], [ 1, %.sink.split299 ]
+708:                                              ; preds = %.sink.split298, %5, %33
+  %.1 = phi i32 [ 0, %5 ], [ 0, %33 ], [ 1, %.sink.split298 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   ret i32 %.1
 
@@ -8434,7 +8434,7 @@ thread-pre-split280.thread:                       ; preds = %192, %thread-pre-sp
   %storemerge195 = phi i64 [ %266, %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit ], [ %.1103, %thread-pre-split280.thread ]
   store i64 %storemerge195, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  br label %.sink.split299
+  br label %.sink.split298
 
 237:                                              ; preds = %231
   %.val209 = load ptr, ptr %26, align 8, !nonnull !12, !align !50, !noundef !12
@@ -8718,8 +8718,8 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   br label %360
 
 377:                                              ; preds = %360, %380
-  %.pre-phi297 = phi i64 [ %352, %360 ], [ %.pre296, %380 ]
-  %.pre-phi = phi i64 [ %354, %360 ], [ %.pre295, %380 ]
+  %.pre-phi296 = phi i64 [ %352, %360 ], [ %.pre295, %380 ]
+  %.pre-phi = phi i64 [ %354, %360 ], [ %.pre294, %380 ]
   %.val199 = load ptr, ptr %26, align 8, !nonnull !12, !align !50, !noundef !12
   %.val200 = load i64, ptr %311, align 8, !noundef !12
   %378 = load i64, ptr %312, align 8, !noundef !12
@@ -8729,9 +8729,9 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
 380:                                              ; preds = %360
   call fastcc void @_ZN6brotli3enc6encode17ExtendLastCommand17hb108d9f32eda5941E(ptr noalias noundef nonnull align 8 dereferenceable(5576) %0, ptr noalias noundef nonnull align 4 dereferenceable(4) %19, ptr noalias noundef nonnull align 4 dereferenceable(4) %17)
   %.pre = load i32, ptr %19, align 4
-  %.pre294 = load i32, ptr %17, align 4
-  %.pre295 = zext i32 %.pre to i64
-  %.pre296 = zext i32 %.pre294 to i64
+  %.pre293 = load i32, ptr %17, align 4
+  %.pre294 = zext i32 %.pre to i64
+  %.pre295 = zext i32 %.pre293 to i64
   br label %377
 
 381:                                              ; preds = %377
@@ -8754,7 +8754,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %391 = sub nuw i64 %.val254, %385
   %392 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %.val253, i64 %385
   %393 = getelementptr inbounds i8, ptr %0, i64 392
-  call void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardReferences17hdcd3c2a2cbdd0d5cE(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @_ZN6brotli3enc11static_dict20kBrotliEncDictionary17hed15bff50f586cdaE, i64 noundef %.pre-phi, i64 noundef %.pre-phi297, ptr noalias noundef nonnull readonly align 1 %389, i64 noundef %390, i64 noundef %350, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %181, ptr noalias noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 4 %382, i64 noundef 16, ptr noalias noundef nonnull align 8 dereferenceable(8) %367, ptr noalias noundef nonnull align 4 %392, i64 noundef %391, ptr noalias noundef nonnull align 8 dereferenceable(8) %222, ptr noalias noundef nonnull align 8 dereferenceable(8) %393)
+  call void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardReferences17hdcd3c2a2cbdd0d5cE(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @_ZN6brotli3enc11static_dict20kBrotliEncDictionary17hed15bff50f586cdaE, i64 noundef %.pre-phi, i64 noundef %.pre-phi296, ptr noalias noundef nonnull readonly align 1 %389, i64 noundef %390, i64 noundef %350, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %181, ptr noalias noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 4 %382, i64 noundef 16, ptr noalias noundef nonnull align 8 dereferenceable(8) %367, ptr noalias noundef nonnull align 4 %392, i64 noundef %391, ptr noalias noundef nonnull align 8 dereferenceable(8) %222, ptr noalias noundef nonnull align 8 dereferenceable(8) %393)
   %394 = getelementptr inbounds i8, ptr %0, i64 204
   %395 = load i32, ptr %394, align 4, !noundef !12
   %396 = load i32, ptr %34, align 8, !noundef !12
@@ -8780,7 +8780,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %406 = load i64, ptr %393, align 8
   %407 = add i64 %406, %399
   %408 = icmp ult i64 %407, 12287
-  %.0101.not = select i1 %405, i1 true, i1 %408
+  %.0101 = select i1 %405, i1 true, i1 %408
   %409 = sub i64 %397, %398
   %410 = load i32, ptr %34, align 8, !alias.scope !726, !noundef !12
   %411 = and i32 %410, 63
@@ -8795,7 +8795,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %418 = shl nuw i64 1, %417
   %.not190 = icmp ule i64 %414, %418
   %419 = lshr i64 %418, 3
-  %brmerge6 = select i1 %.0101.not, i1 %.not190, i1 false
+  %brmerge6 = select i1 %.0101, i1 %.not190, i1 false
   %420 = icmp ult i64 %406, %419
   %or.cond13 = select i1 %brmerge6, i1 %420, i1 false
   %421 = icmp ult i64 %399, %419
@@ -8844,7 +8844,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit265: ; pre
 
 447:                                              ; preds = %448, %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit265
   store i64 %.1103, ptr %3, align 8
-  br label %.sink.split299
+  br label %.sink.split298
 
 448:                                              ; preds = %_ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit265
   %449 = call noundef align 8 dereferenceable(48) ptr @"_ZN122_$LT$brotli..enc..backward_references..UnionHasher$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$15GetHasherCommon17h38dfdc60585abe5fE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %0)
@@ -8898,7 +8898,7 @@ thread-pre-split288:                              ; preds = %453
 
 471:                                              ; preds = %463
   store i64 %.1103, ptr %3, align 8
-  br label %.sink.split299
+  br label %.sink.split298
 
 472:                                              ; preds = %467
   %.val197 = load ptr, ptr %26, align 8, !nonnull !12, !align !50, !noundef !12
@@ -9348,7 +9348,7 @@ switch.lookup:                                    ; preds = %_ZN6brotli3enc6enco
   %703 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 0, ptr %703, align 4
   store i64 %636, ptr %3, align 8
-  br label %.sink.split299
+  br label %.sink.split298
 
 704:                                              ; preds = %697
   %705 = getelementptr inbounds [0 x i8], ptr %686, i64 0, i64 %700
@@ -9360,13 +9360,13 @@ switch.lookup:                                    ; preds = %_ZN6brotli3enc6enco
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %700, i64 noundef %685, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.78) #21
   unreachable
 
-.sink.split299:                                   ; preds = %236, %447, %471, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit"
+.sink.split298:                                   ; preds = %236, %447, %471, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hccbb10f554be06e1E.exit"
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   br label %708
 
-708:                                              ; preds = %.sink.split299, %5, %33
-  %.1 = phi i32 [ 0, %5 ], [ 0, %33 ], [ 1, %.sink.split299 ]
+708:                                              ; preds = %.sink.split298, %5, %33
+  %.1 = phi i32 [ 0, %5 ], [ 0, %33 ], [ 1, %.sink.split298 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   ret i32 %.1
 
@@ -14819,9 +14819,9 @@ define void @"_ZN91_$LT$actix_http..header..shared..charset..Charset$u20$as$u20$
   %12 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 1
   %13 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1562, !noundef !12
   %14 = add i8 %13, -97
-  %.0.i.i = icmp ult i8 %14, 26
-  %15 = select i1 %.0.i.i, i8 32, i8 0
-  %16 = xor i8 %15, %13
+  %15 = icmp ult i8 %14, 26
+  %.0.i.i = select i1 %15, i8 32, i8 0
+  %16 = xor i8 %.0.i.i, %13
   store i8 %16, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1562
   %17 = icmp eq ptr %12, %9
   br i1 %17, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_uppercase17h641d9fbbd32698cbE.exit", label %.lr.ph.i.i

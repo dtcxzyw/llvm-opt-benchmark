@@ -29682,7 +29682,7 @@ _ZNSt10unique_ptrIN6cmList17TransformSelectorESt14default_deleteIS1_EED2Ev.exit2
   %568 = load ptr, ptr %4, align 8, !noalias !904
   %569 = load ptr, ptr %79, align 8, !noalias !904
   %570 = icmp eq ptr %568, %569
-  br i1 %570, label %._crit_edge109.i.i.i, label %308, !llvm.loop !939
+  br i1 %570, label %._crit_edge109.loopexit.i.i.i, label %308, !llvm.loop !939
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit242.thread38.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit242.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit216.thread35.i.i.i
   invoke void @_ZNK26GeneratorExpressionContent21GetOriginalExpressionB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %72, ptr noundef nonnull align 8 dereferenceable(72) %.val4)
@@ -29736,13 +29736,16 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #24
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit240.i.i.i
 
-._crit_edge109.i.i.i:                             ; preds = %.backedge.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204.i.i.i
-  %.sroa.05.0.lcssa.i.i.i = phi ptr [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204.i.i.i ], [ %.sroa.05.0.be.i.i.i, %.backedge.i.i.i ]
-  %583 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 64
-  %584 = load i32, ptr %583, align 8
-  %585 = ptrtoint ptr %.sroa.05.0.lcssa.i.i.i to i64
-  store i64 %585, ptr %75, align 8, !noalias !904
-  %586 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6cmList9transformENS_15TransformActionERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESt10unique_ptrINS_17TransformSelectorESt14default_deleteISD_EE(ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %584, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull %75)
+._crit_edge109.loopexit.i.i.i:                    ; preds = %.backedge.i.i.i
+  %583 = ptrtoint ptr %.sroa.05.0.be.i.i.i to i64
+  br label %._crit_edge109.i.i.i
+
+._crit_edge109.i.i.i:                             ; preds = %._crit_edge109.loopexit.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204.i.i.i
+  %.sroa.05.0.lcssa.i.i.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit204.i.i.i ], [ %583, %._crit_edge109.loopexit.i.i.i ]
+  %584 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 64
+  %585 = load i32, ptr %584, align 8
+  store i64 %.sroa.05.0.lcssa.i.i.i, ptr %75, align 8, !noalias !904
+  %586 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6cmList9transformENS_15TransformActionERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESt10unique_ptrINS_17TransformSelectorESt14default_deleteISD_EE(ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %585, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull %75)
           to label %587 unwind label %598
 
 587:                                              ; preds = %._crit_edge109.i.i.i

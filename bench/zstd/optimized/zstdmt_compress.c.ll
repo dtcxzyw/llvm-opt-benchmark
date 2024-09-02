@@ -1311,27 +1311,27 @@ if.else.i:                                        ; preds = %if.then67
 if.end.i:                                         ; preds = %if.else.i, %cond.false.i89
   %jobLog.0.i = phi i32 [ %add10.i, %if.else.i ], [ %add8.i, %cond.false.i89 ]
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %jobLog.0.i, i32 30)
+  %47 = zext nneg i32 %spec.select.i to i64
   br label %ZSTDMT_computeTargetJobLog.exit
 
 ZSTDMT_computeTargetJobLog.exit:                  ; preds = %if.then.i, %if.else.i, %if.end.i
-  %cond28.i = phi i32 [ 21, %if.then.i ], [ 20, %if.else.i ], [ %spec.select.i, %if.end.i ]
-  %sh_prom = zext nneg i32 %cond28.i to i64
-  %shl = shl nuw nsw i64 1, %sh_prom
+  %cond28.i = phi i64 [ 21, %if.then.i ], [ 20, %if.else.i ], [ %47, %if.end.i ]
+  %shl = shl nuw nsw i64 1, %cond28.i
   store i64 %shl, ptr %targetSectionSize, align 8
   br label %if.end70
 
 if.end70:                                         ; preds = %ZSTDMT_computeTargetJobLog.exit, %ZSTDMT_computeOverlapSize.exit
-  %47 = phi i64 [ %shl, %ZSTDMT_computeTargetJobLog.exit ], [ %44, %ZSTDMT_computeOverlapSize.exit ]
+  %48 = phi i64 [ %shl, %ZSTDMT_computeTargetJobLog.exit ], [ %44, %ZSTDMT_computeOverlapSize.exit ]
   %rsyncable = getelementptr inbounds i8, ptr %params, i64 92
-  %48 = load i32, ptr %rsyncable, align 4
-  %tobool71.not = icmp eq i32 %48, 0
+  %49 = load i32, ptr %rsyncable, align 4
+  %tobool71.not = icmp eq i32 %49, 0
   br i1 %tobool71.not, label %if.end83, label %if.then72
 
 if.then72:                                        ; preds = %if.end70
-  %shr = lshr i64 %47, 10
+  %shr = lshr i64 %48, 10
   %conv74 = trunc i64 %shr to i32
-  %49 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv74, i1 true)
-  %add = sub nuw nsw i32 41, %49
+  %50 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %conv74, i1 true)
+  %add = sub nuw nsw i32 41, %50
   %rsync = getelementptr inbounds i8, ptr %mtctx, i64 2984
   store i64 0, ptr %rsync, align 8
   %sh_prom78 = zext nneg i32 %add to i64
@@ -1344,73 +1344,73 @@ if.then72:                                        ; preds = %if.end70
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then72, %if.end70
-  %50 = load i64, ptr %targetPrefixSize, align 8
-  %cmp86 = icmp ult i64 %47, %50
+  %51 = load i64, ptr %targetPrefixSize, align 8
+  %cmp86 = icmp ult i64 %48, %51
   br i1 %cmp86, label %if.then88, label %do.end95
 
 if.then88:                                        ; preds = %if.end83
-  store i64 %50, ptr %targetSectionSize, align 8
+  store i64 %51, ptr %targetSectionSize, align 8
   br label %do.end95
 
 do.end95:                                         ; preds = %if.then88, %if.end83
-  %51 = phi i64 [ %50, %if.then88 ], [ %47, %if.end83 ]
+  %52 = phi i64 [ %51, %if.then88 ], [ %48, %if.end83 ]
   %bufPool = getelementptr inbounds i8, ptr %mtctx, i64 16
-  %52 = load ptr, ptr %bufPool, align 8
-  %call97 = tail call i64 @ZSTD_compressBound(i64 noundef %51) #14
-  %call.i91 = tail call i32 @pthread_mutex_lock(ptr noundef %52) #14
-  %bufferSize.i = getelementptr inbounds i8, ptr %52, i64 40
+  %53 = load ptr, ptr %bufPool, align 8
+  %call97 = tail call i64 @ZSTD_compressBound(i64 noundef %52) #14
+  %call.i91 = tail call i32 @pthread_mutex_lock(ptr noundef %53) #14
+  %bufferSize.i = getelementptr inbounds i8, ptr %53, i64 40
   store i64 %call97, ptr %bufferSize.i, align 8
-  %call2.i = tail call i32 @pthread_mutex_unlock(ptr noundef %52) #14
+  %call2.i = tail call i32 @pthread_mutex_unlock(ptr noundef %53) #14
   %ldmParams = getelementptr inbounds i8, ptr %mtctx, i64 136
-  %53 = load i32, ptr %ldmParams, align 8
-  %cmp99 = icmp eq i32 %53, 1
+  %54 = load i32, ptr %ldmParams, align 8
+  %cmp99 = icmp eq i32 %54, 1
   br i1 %cmp99, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %do.end95
   %cParams102 = getelementptr inbounds i8, ptr %mtctx, i64 44
-  %54 = load i32, ptr %cParams102, align 4
-  %shl103 = shl nuw i32 1, %54
-  %55 = zext i32 %shl103 to i64
+  %55 = load i32, ptr %cParams102, align 4
+  %shl103 = shl nuw i32 1, %55
+  %56 = zext i32 %shl103 to i64
   br label %cond.end
 
 cond.end:                                         ; preds = %do.end95, %cond.true
-  %cond104 = phi i64 [ %55, %cond.true ], [ 0, %do.end95 ]
-  %56 = load i64, ptr %targetPrefixSize, align 8
-  %cmp107.not = icmp eq i64 %56, 0
+  %cond104 = phi i64 [ %56, %cond.true ], [ 0, %do.end95 ]
+  %57 = load i64, ptr %targetPrefixSize, align 8
+  %cmp107.not = icmp eq i64 %57, 0
   %conv110 = select i1 %cmp107.not, i64 2, i64 3
-  %57 = load i64, ptr %targetSectionSize, align 8
-  %mul = mul i64 %conv110, %57
-  %58 = load i32, ptr %nbWorkers2, align 4
-  %narrow = tail call i32 @llvm.smax.i32(i32 %58, i32 1)
+  %58 = load i64, ptr %targetSectionSize, align 8
+  %mul = mul i64 %conv110, %58
+  %59 = load i32, ptr %nbWorkers2, align 4
+  %narrow = tail call i32 @llvm.smax.i32(i32 %59, i32 1)
   %spec.select = zext nneg i32 %narrow to i64
-  %mul125 = mul i64 %57, %spec.select
+  %mul125 = mul i64 %58, %spec.select
   %cond131 = tail call i64 @llvm.umax.i64(i64 %cond104, i64 %mul125)
   %add132 = add i64 %cond131, %mul
   %roundBuff = getelementptr inbounds i8, ptr %mtctx, i64 320
   %capacity133 = getelementptr inbounds i8, ptr %mtctx, i64 328
-  %59 = load i64, ptr %capacity133, align 8
-  %cmp134 = icmp ult i64 %59, %add132
+  %60 = load i64, ptr %capacity133, align 8
+  %cmp134 = icmp ult i64 %60, %add132
   br i1 %cmp134, label %if.then136, label %do.end160
 
 if.then136:                                       ; preds = %cond.end
-  %60 = load ptr, ptr %roundBuff, align 8
-  %tobool138.not = icmp eq ptr %60, null
+  %61 = load ptr, ptr %roundBuff, align 8
+  %tobool138.not = icmp eq ptr %61, null
   br i1 %tobool138.not, label %if.end143, label %if.then.i92
 
 if.then.i92:                                      ; preds = %if.then136
-  %61 = getelementptr i8, ptr %mtctx, i64 3064
-  %cMem142.val = load ptr, ptr %61, align 8
+  %62 = getelementptr i8, ptr %mtctx, i64 3064
+  %cMem142.val = load ptr, ptr %62, align 8
   %tobool.not.i93 = icmp eq ptr %cMem142.val, null
   br i1 %tobool.not.i93, label %if.else.i94, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i92
-  %62 = getelementptr i8, ptr %mtctx, i64 3072
-  %cMem142.val72 = load ptr, ptr %62, align 8
-  tail call void %cMem142.val(ptr noundef %cMem142.val72, ptr noundef nonnull %60) #14
+  %63 = getelementptr i8, ptr %mtctx, i64 3072
+  %cMem142.val72 = load ptr, ptr %63, align 8
+  tail call void %cMem142.val(ptr noundef %cMem142.val72, ptr noundef nonnull %61) #14
   br label %if.end143
 
 if.else.i94:                                      ; preds = %if.then.i92
-  tail call void @free(ptr noundef nonnull %60) #14
+  tail call void @free(ptr noundef nonnull %61) #14
   br label %if.end143
 
 if.end143:                                        ; preds = %if.else.i94, %if.then1.i, %if.then136
@@ -1420,8 +1420,8 @@ if.end143:                                        ; preds = %if.else.i94, %if.th
   br i1 %tobool.not.i95, label %if.end.i99, label %if.then.i96
 
 if.then.i96:                                      ; preds = %if.end143
-  %63 = getelementptr i8, ptr %mtctx, i64 3072
-  %cMem144.val73 = load ptr, ptr %63, align 8
+  %64 = getelementptr i8, ptr %mtctx, i64 3072
+  %cMem144.val73 = load ptr, ptr %64, align 8
   %call.i97 = tail call ptr %cMem144.val(ptr noundef %cMem144.val73, i64 noundef %add132) #14
   br label %ZSTD_customMalloc.exit
 
@@ -1445,7 +1445,7 @@ if.end155:                                        ; preds = %ZSTD_customMalloc.e
   br label %do.end160
 
 do.end160:                                        ; preds = %if.end155, %cond.end
-  %64 = phi i64 [ %.pre, %if.end155 ], [ %57, %cond.end ]
+  %65 = phi i64 [ %.pre, %if.end155 ], [ %58, %cond.end ]
   %pos = getelementptr inbounds i8, ptr %mtctx, i64 336
   store i64 0, ptr %pos, align 8
   %inBuff = getelementptr inbounds i8, ptr %mtctx, i64 280
@@ -1455,12 +1455,12 @@ do.end160:                                        ; preds = %if.end155, %cond.en
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %doneJobID, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %consumed, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %inBuff, i8 0, i64 40, i1 false)
-  %65 = load ptr, ptr %seqPool, align 8
+  %66 = load ptr, ptr %seqPool, align 8
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %params101)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %params101, ptr noundef nonnull align 8 dereferenceable(216) %params, i64 216, i1 false)
   %ldmParams.i102 = getelementptr inbounds i8, ptr %params101, i64 96
-  %66 = load i32, ptr %ldmParams.i102, align 8
-  %cmp.i103 = icmp eq i32 %66, 1
+  %67 = load i32, ptr %ldmParams.i102, align 8
+  %cmp.i103 = icmp eq i32 %67, 1
   br i1 %cmp.i103, label %do.end.i, label %if.else.i104
 
 do.end.i:                                         ; preds = %do.end160
@@ -1476,8 +1476,8 @@ if.end.i105:                                      ; preds = %if.else.i104, %do.e
   %nextJobID.i106 = getelementptr inbounds i8, ptr %mtctx, i64 2848
   store i32 0, ptr %nextJobID.i106, align 8
   %checksumFlag.i = getelementptr inbounds i8, ptr %params101, i64 36
-  %67 = load i32, ptr %checksumFlag.i, align 4
-  %tobool.not.i107 = icmp eq i32 %67, 0
+  %68 = load i32, ptr %checksumFlag.i, align 4
+  %tobool.not.i107 = icmp eq i32 %68, 0
   br i1 %tobool.not.i107, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i105
@@ -1486,9 +1486,9 @@ if.then3.i:                                       ; preds = %if.end.i105
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i105
-  %68 = load i32, ptr %ldmParams.i102, align 8
-  %cmp7.i = icmp eq i32 %68, 1
-  br i1 %cmp7.i, label %if.then8.i, label %89
+  %69 = load i32, ptr %ldmParams.i102, align 8
+  %cmp7.i = icmp eq i32 %69, 1
+  br i1 %cmp7.i, label %if.then8.i, label %90
 
 if.then8.i:                                       ; preds = %if.end4.i
   %customMem.i = getelementptr inbounds i8, ptr %params101, i64 152
@@ -1498,28 +1498,28 @@ if.then8.i:                                       ; preds = %if.end4.i
   %cMem.sroa.5.0.customMem.sroa_idx.i = getelementptr inbounds i8, ptr %params101, i64 168
   %cMem.sroa.5.0.copyload.i = load ptr, ptr %cMem.sroa.5.0.customMem.sroa_idx.i, align 8
   %hashLog10.i = getelementptr inbounds i8, ptr %params101, i64 100
-  %69 = load i32, ptr %hashLog10.i, align 4
-  %sh_prom.i110 = zext nneg i32 %69 to i64
+  %70 = load i32, ptr %hashLog10.i, align 4
+  %sh_prom.i110 = zext nneg i32 %70 to i64
   %mul.i111 = shl i64 8, %sh_prom.i110
   %bucketSizeLog.i = getelementptr inbounds i8, ptr %params101, i64 104
-  %70 = load i32, ptr %bucketSizeLog.i, align 8
-  %sub.i112 = sub i32 %69, %70
+  %71 = load i32, ptr %bucketSizeLog.i, align 8
+  %sub.i112 = sub i32 %70, %71
   %hashLog16.i = getelementptr inbounds i8, ptr %mtctx, i64 532
-  %71 = load i32, ptr %hashLog16.i, align 4
+  %72 = load i32, ptr %hashLog16.i, align 4
   %bucketSizeLog19.i = getelementptr inbounds i8, ptr %mtctx, i64 536
-  %72 = load i32, ptr %bucketSizeLog19.i, align 8
-  %sub20.i = sub i32 %71, %72
+  %73 = load i32, ptr %bucketSizeLog19.i, align 8
+  %sub20.i = sub i32 %72, %73
   %sh_prom21.i = zext nneg i32 %sub.i112 to i64
   %shl22.i = shl nuw i64 1, %sh_prom21.i
-  %call24.i = call i64 @ZSTD_ldm_getMaxNbSeq(ptr noundef nonnull byval(%struct.ldmParams_t) align 8 %ldmParams.i102, i64 noundef %64) #14
+  %call24.i = call i64 @ZSTD_ldm_getMaxNbSeq(ptr noundef nonnull byval(%struct.ldmParams_t) align 8 %ldmParams.i102, i64 noundef %65) #14
   %mul.i.i = mul i64 %call24.i, 12
-  %call.i.i.i113 = call i32 @pthread_mutex_lock(ptr noundef %65) #14
-  %bufferSize.i.i.i114 = getelementptr inbounds i8, ptr %65, i64 40
+  %call.i.i.i113 = call i32 @pthread_mutex_lock(ptr noundef %66) #14
+  %bufferSize.i.i.i114 = getelementptr inbounds i8, ptr %66, i64 40
   store i64 %mul.i.i, ptr %bufferSize.i.i.i114, align 8
-  %call2.i.i.i115 = call i32 @pthread_mutex_unlock(ptr noundef %65) #14
+  %call2.i.i.i115 = call i32 @pthread_mutex_unlock(ptr noundef %66) #14
   %ldmState.i = getelementptr inbounds i8, ptr %mtctx, i64 648
-  %73 = getelementptr inbounds i8, ptr %mtctx, i64 680
-  store i64 0, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %mtctx, i64 680
+  store i64 0, ptr %74, align 8
   %base.i.i = getelementptr inbounds i8, ptr %mtctx, i64 656
   store ptr @.str, ptr %base.i.i, align 8
   %dictBase.i.i = getelementptr inbounds i8, ptr %mtctx, i64 664
@@ -1530,13 +1530,13 @@ if.then8.i:                                       ; preds = %if.end4.i
   store i32 2, ptr %lowLimit.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @.str, i64 2), ptr %ldmState.i, align 8
   %hashTable.i = getelementptr inbounds i8, ptr %mtctx, i64 688
-  %74 = load ptr, ptr %hashTable.i, align 8
-  %cmp26.i = icmp eq ptr %74, null
+  %75 = load ptr, ptr %hashTable.i, align 8
+  %cmp26.i = icmp eq ptr %75, null
   br i1 %cmp26.i, label %ZSTD_customFree.exit.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then8.i
-  %75 = load i32, ptr %hashLog16.i, align 4
-  %cmp30.i = icmp ult i32 %75, %69
+  %76 = load i32, ptr %hashLog16.i, align 4
+  %cmp30.i = icmp ult i32 %76, %70
   br i1 %cmp30.i, label %if.then.i.i122, label %if.end37.i
 
 if.then.i.i122:                                   ; preds = %lor.lhs.false.i
@@ -1544,11 +1544,11 @@ if.then.i.i122:                                   ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.then.i.i122
-  call void %cMem.sroa.3.0.copyload.i(ptr noundef %cMem.sroa.5.0.copyload.i, ptr noundef nonnull %74) #14
+  call void %cMem.sroa.3.0.copyload.i(ptr noundef %cMem.sroa.5.0.copyload.i, ptr noundef nonnull %75) #14
   br label %ZSTD_customFree.exit.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i122
-  call void @free(ptr noundef nonnull %74) #14
+  call void @free(ptr noundef nonnull %75) #14
   br label %ZSTD_customFree.exit.i
 
 ZSTD_customFree.exit.i:                           ; preds = %if.else.i.i, %if.then1.i.i, %if.then8.i
@@ -1569,10 +1569,10 @@ ZSTD_customMalloc.exit.i:                         ; preds = %if.end.i.i124, %if.
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %ZSTD_customMalloc.exit.i, %lor.lhs.false.i
-  %76 = phi ptr [ %retval.0.i.i, %ZSTD_customMalloc.exit.i ], [ %74, %lor.lhs.false.i ]
+  %77 = phi ptr [ %retval.0.i.i, %ZSTD_customMalloc.exit.i ], [ %75, %lor.lhs.false.i ]
   %bucketOffsets.i = getelementptr inbounds i8, ptr %mtctx, i64 704
-  %77 = load ptr, ptr %bucketOffsets.i, align 8
-  %cmp39.i = icmp eq ptr %77, null
+  %78 = load ptr, ptr %bucketOffsets.i, align 8
+  %cmp39.i = icmp eq ptr %78, null
   %cmp41.i = icmp ult i32 %sub20.i, %sub.i112
   %or.cond35.i = select i1 %cmp39.i, i1 true, i1 %cmp41.i
   br i1 %or.cond35.i, label %if.then42.i, label %if.end48.thread.i
@@ -1585,11 +1585,11 @@ if.then.i46.i:                                    ; preds = %if.then42.i
   br i1 %tobool.not.i47.i, label %if.else.i49.i, label %if.then1.i48.i
 
 if.then1.i48.i:                                   ; preds = %if.then.i46.i
-  call void %cMem.sroa.3.0.copyload.i(ptr noundef %cMem.sroa.5.0.copyload.i, ptr noundef nonnull %77) #14
+  call void %cMem.sroa.3.0.copyload.i(ptr noundef %cMem.sroa.5.0.copyload.i, ptr noundef nonnull %78) #14
   br label %ZSTD_customFree.exit50.i
 
 if.else.i49.i:                                    ; preds = %if.then.i46.i
-  call void @free(ptr noundef nonnull %77) #14
+  call void @free(ptr noundef nonnull %78) #14
   br label %ZSTD_customFree.exit50.i
 
 ZSTD_customFree.exit50.i:                         ; preds = %if.else.i49.i, %if.then1.i48.i, %if.then42.i
@@ -1608,20 +1608,20 @@ if.end48.i:                                       ; preds = %if.end.i55.i, %if.t
   %retval.0.i54.i = phi ptr [ %call.i53.i, %if.then.i52.i ], [ %call2.i56.i, %if.end.i55.i ]
   store ptr %retval.0.i54.i, ptr %bucketOffsets.i, align 8
   %.pre.i = load ptr, ptr %hashTable.i, align 8
-  %78 = icmp eq ptr %retval.0.i54.i, null
+  %79 = icmp eq ptr %retval.0.i54.i, null
   %tobool51.not.i = icmp eq ptr %.pre.i, null
-  %brmerge.i = select i1 %tobool51.not.i, i1 true, i1 %78
+  %brmerge.i = select i1 %tobool51.not.i, i1 true, i1 %79
   br i1 %brmerge.i, label %ZSTDMT_serialState_reset.exit.thread, label %if.end57.i
 
 if.end48.thread.i:                                ; preds = %if.end37.i
-  %tobool51.not65.i = icmp eq ptr %76, null
+  %tobool51.not65.i = icmp eq ptr %77, null
   br i1 %tobool51.not65.i, label %ZSTDMT_serialState_reset.exit.thread, label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.end48.thread.i, %if.end48.i
-  %79 = phi ptr [ %76, %if.end48.thread.i ], [ %.pre.i, %if.end48.i ]
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %79, i8 0, i64 %mul.i111, i1 false)
-  %80 = load ptr, ptr %bucketOffsets.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %80, i8 0, i64 %shl22.i, i1 false)
+  %80 = phi ptr [ %77, %if.end48.thread.i ], [ %.pre.i, %if.end48.i ]
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %80, i8 0, i64 %mul.i111, i1 false)
+  %81 = load ptr, ptr %bucketOffsets.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %81, i8 0, i64 %shl22.i, i1 false)
   %loadedDictEnd.i = getelementptr inbounds i8, ptr %mtctx, i64 696
   store i32 0, ptr %loadedDictEnd.i, align 8
   %cmp63.i = icmp ne i64 %dictSize, 0
@@ -1631,8 +1631,8 @@ if.end57.i:                                       ; preds = %if.end48.thread.i, 
 
 if.end.i58.i:                                     ; preds = %if.end57.i
   %add.ptr.i = getelementptr inbounds i8, ptr %dict, i64 %dictSize
-  %81 = load ptr, ptr %ldmState.i, align 8
-  %cmp1.not.i.i116 = icmp eq ptr %dict, %81
+  %82 = load ptr, ptr %ldmState.i, align 8
+  %cmp1.not.i.i116 = icmp eq ptr %dict, %82
   br i1 %cmp1.not.i.i116, label %if.end.if.end17_crit_edge.i.i, label %if.then2.i.i
 
 if.end.if.end17_crit_edge.i.i:                    ; preds = %if.end.i58.i
@@ -1642,19 +1642,19 @@ if.end.if.end17_crit_edge.i.i:                    ; preds = %if.end.i58.i
   br label %if.end17.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i58.i
-  %82 = load ptr, ptr %base.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %81 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %82 to i64
+  %83 = load ptr, ptr %base.i.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %82 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %83 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %83 = load i32, ptr %dictLimit.i.i, align 8
-  store i32 %83, ptr %lowLimit.i.i, align 4
+  %84 = load i32, ptr %dictLimit.i.i, align 8
+  store i32 %84, ptr %lowLimit.i.i, align 4
   %conv.i.i = trunc i64 %sub.ptr.sub.i.i to i32
   store i32 %conv.i.i, ptr %dictLimit.i.i, align 8
-  store ptr %82, ptr %dictBase.i.i, align 8
+  store ptr %83, ptr %dictBase.i.i, align 8
   %idx.neg.i.i = sub i64 0, %sub.ptr.sub.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %dict, i64 %idx.neg.i.i
   store ptr %add.ptr.i.i, ptr %base.i.i, align 8
-  %sub.i.i117 = sub i32 %conv.i.i, %83
+  %sub.i.i117 = sub i32 %conv.i.i, %84
   %cmp11.i.i = icmp ult i32 %sub.i.i117, 8
   br i1 %cmp11.i.i, label %if.then13.i.i, label %if.end17.i.i
 
@@ -1663,40 +1663,40 @@ if.then13.i.i:                                    ; preds = %if.then2.i.i
   br label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.then13.i.i, %if.then2.i.i, %if.end.if.end17_crit_edge.i.i
-  %84 = phi i32 [ %.pre35.i.i, %if.end.if.end17_crit_edge.i.i ], [ %conv.i.i, %if.then13.i.i ], [ %conv.i.i, %if.then2.i.i ]
-  %85 = phi i32 [ %.pre34.i.i, %if.end.if.end17_crit_edge.i.i ], [ %conv.i.i, %if.then13.i.i ], [ %83, %if.then2.i.i ]
-  %86 = phi ptr [ %.pre.i.i, %if.end.if.end17_crit_edge.i.i ], [ %82, %if.then13.i.i ], [ %82, %if.then2.i.i ]
+  %85 = phi i32 [ %.pre35.i.i, %if.end.if.end17_crit_edge.i.i ], [ %conv.i.i, %if.then13.i.i ], [ %conv.i.i, %if.then2.i.i ]
+  %86 = phi i32 [ %.pre34.i.i, %if.end.if.end17_crit_edge.i.i ], [ %conv.i.i, %if.then13.i.i ], [ %84, %if.then2.i.i ]
+  %87 = phi ptr [ %.pre.i.i, %if.end.if.end17_crit_edge.i.i ], [ %83, %if.then13.i.i ], [ %83, %if.then2.i.i ]
   store ptr %add.ptr.i, ptr %ldmState.i, align 8
-  %idx.ext.i.i = zext i32 %85 to i64
-  %add.ptr23.i.i = getelementptr inbounds i8, ptr %86, i64 %idx.ext.i.i
+  %idx.ext.i.i = zext i32 %86 to i64
+  %add.ptr23.i.i = getelementptr inbounds i8, ptr %87, i64 %idx.ext.i.i
   %cmp24.i.i = icmp ugt ptr %add.ptr.i, %add.ptr23.i.i
-  %idx.ext28.i.i = zext i32 %84 to i64
-  %add.ptr29.i.i = getelementptr inbounds i8, ptr %86, i64 %idx.ext28.i.i
+  %idx.ext28.i.i = zext i32 %85 to i64
+  %add.ptr29.i.i = getelementptr inbounds i8, ptr %87, i64 %idx.ext28.i.i
   %cmp30.i.i = icmp ult ptr %dict, %add.ptr29.i.i
   %and33.i.i = and i1 %cmp24.i.i, %cmp30.i.i
   br i1 %and33.i.i, label %if.then33.i.i, label %ZSTD_window_update.exit.i
 
 if.then33.i.i:                                    ; preds = %if.end17.i.i
   %sub.ptr.lhs.cast36.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast37.i.i = ptrtoint ptr %86 to i64
+  %sub.ptr.rhs.cast37.i.i = ptrtoint ptr %87 to i64
   %sub.ptr.sub38.i.i = sub i64 %sub.ptr.lhs.cast36.i.i, %sub.ptr.rhs.cast37.i.i
   %cmp41.i.i = icmp sgt i64 %sub.ptr.sub38.i.i, %idx.ext28.i.i
   %conv44.i.i = trunc i64 %sub.ptr.sub38.i.i to i32
-  %cond.i.i = select i1 %cmp41.i.i, i32 %84, i32 %conv44.i.i
+  %cond.i.i = select i1 %cmp41.i.i, i32 %85, i32 %conv44.i.i
   store i32 %cond.i.i, ptr %lowLimit.i.i, align 4
   br label %ZSTD_window_update.exit.i
 
 ZSTD_window_update.exit.i:                        ; preds = %if.then33.i.i, %if.end17.i.i
   call void @ZSTD_ldm_fillHashTable(ptr noundef nonnull %ldmState.i, ptr noundef %dict, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %ldmParams.i102) #14
   %forceWindow.i = getelementptr inbounds i8, ptr %params101, i64 48
-  %87 = load i32, ptr %forceWindow.i, align 8
-  %tobool72.not.i = icmp eq i32 %87, 0
+  %88 = load i32, ptr %forceWindow.i, align 8
+  %tobool72.not.i = icmp eq i32 %88, 0
   br i1 %tobool72.not.i, label %cond.false.i120, label %cond.end.i118
 
 cond.false.i120:                                  ; preds = %ZSTD_window_update.exit.i
-  %88 = load ptr, ptr %base.i.i, align 8
+  %89 = load ptr, ptr %base.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %88 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %89 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i121 = trunc i64 %sub.ptr.sub.i to i32
   br label %cond.end.i118
@@ -1709,23 +1709,23 @@ cond.end.i118:                                    ; preds = %cond.false.i120, %Z
 if.end79.i:                                       ; preds = %cond.end.i118, %if.end57.i
   %ldmWindow.i = getelementptr inbounds i8, ptr %mtctx, i64 2944
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ldmWindow.i, ptr noundef nonnull align 8 dereferenceable(40) %ldmState.i, i64 40, i1 false)
-  br label %89
+  br label %90
 
 ZSTDMT_serialState_reset.exit.thread:             ; preds = %if.end48.i, %if.end48.thread.i
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %params101)
   br label %return
 
-89:                                               ; preds = %if.end79.i, %if.end4.i
+90:                                               ; preds = %if.end79.i, %if.end4.i
   %params83.i = getelementptr inbounds i8, ptr %mtctx, i64 432
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %params83.i, ptr noundef nonnull align 8 dereferenceable(216) %params101, i64 216, i1 false)
-  %conv85.i = and i64 %64, 4294967295
+  %conv85.i = and i64 %65, 4294967295
   %jobSize87.i = getelementptr inbounds i8, ptr %mtctx, i64 512
   store i64 %conv85.i, ptr %jobSize87.i, align 8
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %params101)
   br label %return
 
-return:                                           ; preds = %ZSTDMT_expandSeqPool.exit.thread.i, %ZSTDMT_expandCCtxPool.exit.thread.i, %ZSTDMT_expandBufferPool.exit.thread.i, %ZSTDMT_expandCCtxPool.exit.i, %ZSTDMT_expandJobsTable.exit.i, %do.body3, %89, %ZSTDMT_serialState_reset.exit.thread, %if.then44, %if.then152
-  %retval.0 = phi i64 [ -64, %if.then152 ], [ -64, %if.then44 ], [ 0, %89 ], [ -64, %ZSTDMT_serialState_reset.exit.thread ], [ -64, %do.body3 ], [ -64, %ZSTDMT_expandJobsTable.exit.i ], [ -64, %ZSTDMT_expandCCtxPool.exit.i ], [ -64, %ZSTDMT_expandBufferPool.exit.thread.i ], [ -64, %ZSTDMT_expandCCtxPool.exit.thread.i ], [ -64, %ZSTDMT_expandSeqPool.exit.thread.i ]
+return:                                           ; preds = %ZSTDMT_expandSeqPool.exit.thread.i, %ZSTDMT_expandCCtxPool.exit.thread.i, %ZSTDMT_expandBufferPool.exit.thread.i, %ZSTDMT_expandCCtxPool.exit.i, %ZSTDMT_expandJobsTable.exit.i, %do.body3, %90, %ZSTDMT_serialState_reset.exit.thread, %if.then44, %if.then152
+  %retval.0 = phi i64 [ -64, %if.then152 ], [ -64, %if.then44 ], [ 0, %90 ], [ -64, %ZSTDMT_serialState_reset.exit.thread ], [ -64, %do.body3 ], [ -64, %ZSTDMT_expandJobsTable.exit.i ], [ -64, %ZSTDMT_expandCCtxPool.exit.i ], [ -64, %ZSTDMT_expandBufferPool.exit.thread.i ], [ -64, %ZSTDMT_expandCCtxPool.exit.thread.i ], [ -64, %ZSTDMT_expandSeqPool.exit.thread.i ]
   ret i64 %retval.0
 }
 
@@ -2211,36 +2211,35 @@ findSynchronizationPoint.exit:                    ; preds = %for.inc.i, %for.bod
   %38 = load i64, ptr %filled.i48, align 8
   %add39 = add i64 %38, %retval.sroa.0.0.i
   store i64 %add39, ptr %filled.i48, align 8
-  %cmp41.not = icmp eq i64 %retval.sroa.0.0.i, 0
-  %39 = zext i1 %cmp41.not to i32
+  %cmp41.not = icmp ne i64 %retval.sroa.0.0.i, 0
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end14, %findSynchronizationPoint.exit, %land.lhs.true2, %if.end
-  %forwardInputProgress.0 = phi i32 [ 1, %if.end ], [ %39, %findSynchronizationPoint.exit ], [ 1, %if.end14 ], [ 1, %land.lhs.true2 ]
+  %forwardInputProgress.0 = phi i1 [ false, %if.end ], [ %cmp41.not, %findSynchronizationPoint.exit ], [ false, %if.end14 ], [ false, %land.lhs.true2 ]
   %endOp.addr.0 = phi i32 [ %endOp, %if.end ], [ %spec.store.select, %findSynchronizationPoint.exit ], [ %endOp, %if.end14 ], [ %endOp, %land.lhs.true2 ]
   %pos44 = getelementptr inbounds i8, ptr %input, i64 16
-  %40 = load i64, ptr %pos44, align 8
+  %39 = load i64, ptr %pos44, align 8
   %size45 = getelementptr inbounds i8, ptr %input, i64 8
-  %41 = load i64, ptr %size45, align 8
-  %cmp46 = icmp ult i64 %40, %41
+  %40 = load i64, ptr %size45, align 8
+  %cmp46 = icmp ult i64 %39, %40
   %cmp49 = icmp eq i32 %endOp.addr.0, 2
   %or.cond2 = and i1 %cmp49, %cmp46
   %spec.store.select3 = select i1 %or.cond2, i32 1, i32 %endOp.addr.0
-  %42 = load i32, ptr %jobReady, align 8
-  %tobool54.not = icmp eq i32 %42, 0
+  %41 = load i32, ptr %jobReady, align 8
+  %tobool54.not = icmp eq i32 %41, 0
   %filled56 = getelementptr inbounds i8, ptr %mtctx, i64 312
-  %43 = load i64, ptr %filled56, align 8
+  %42 = load i64, ptr %filled56, align 8
   br i1 %tobool54.not, label %lor.lhs.false, label %if.then73
 
 lor.lhs.false:                                    ; preds = %if.end43
   %targetSectionSize = getelementptr inbounds i8, ptr %mtctx, i64 256
-  %44 = load i64, ptr %targetSectionSize, align 8
-  %cmp57.not = icmp ult i64 %43, %44
+  %43 = load i64, ptr %targetSectionSize, align 8
+  %cmp57.not = icmp ult i64 %42, %43
   br i1 %cmp57.not, label %lor.lhs.false59, label %if.then73
 
 lor.lhs.false59:                                  ; preds = %lor.lhs.false
   %cmp60.not = icmp eq i32 %spec.store.select3, 0
-  %cmp65.not = icmp eq i64 %43, 0
+  %cmp65.not = icmp eq i64 %42, 0
   %or.cond41 = or i1 %cmp60.not, %cmp65.not
   br i1 %or.cond41, label %lor.lhs.false67, label %if.then73
 
@@ -2249,22 +2248,22 @@ lor.lhs.false67:                                  ; preds = %lor.lhs.false59
   br i1 %cmp68, label %land.lhs.true70, label %if.end91
 
 land.lhs.true70:                                  ; preds = %lor.lhs.false67
-  %45 = load i32, ptr %frameEnded, align 4
-  %tobool72.not = icmp eq i32 %45, 0
+  %44 = load i32, ptr %frameEnded, align 4
+  %tobool72.not = icmp eq i32 %44, 0
   br i1 %tobool72.not, label %if.then73, label %if.end91
 
 if.then73:                                        ; preds = %if.end43, %lor.lhs.false59, %land.lhs.true70, %lor.lhs.false
   %nextJobID.i = getelementptr inbounds i8, ptr %mtctx, i64 3016
-  %46 = load i32, ptr %nextJobID.i, align 8
+  %45 = load i32, ptr %nextJobID.i, align 8
   %jobIDMask.i = getelementptr inbounds i8, ptr %mtctx, i64 3008
-  %47 = load i32, ptr %jobIDMask.i, align 8
-  %and.i54 = and i32 %47, %46
+  %46 = load i32, ptr %jobIDMask.i, align 8
+  %and.i54 = and i32 %46, %45
   %cmp.i55 = icmp eq i32 %spec.store.select3, 2
   %conv.i = zext i1 %cmp.i55 to i32
   %doneJobID.i = getelementptr inbounds i8, ptr %mtctx, i64 3012
-  %48 = load i32, ptr %doneJobID.i, align 4
-  %add.i = add i32 %48, %47
-  %cmp3.i = icmp ugt i32 %46, %add.i
+  %47 = load i32, ptr %doneJobID.i, align 4
+  %add.i = add i32 %47, %46
+  %cmp3.i = icmp ugt i32 %45, %add.i
   br i1 %cmp3.i, label %if.end91, label %if.end.i56
 
 if.end.i56:                                       ; preds = %if.then73
@@ -2277,113 +2276,113 @@ if.end.do.end130_crit_edge.i:                     ; preds = %if.end.i56
 if.then5.i:                                       ; preds = %if.end.i56
   %inBuff.i58 = getelementptr inbounds i8, ptr %mtctx, i64 280
   %buffer.i59 = getelementptr inbounds i8, ptr %mtctx, i64 296
-  %49 = load ptr, ptr %buffer.i59, align 8
+  %48 = load ptr, ptr %buffer.i59, align 8
   %jobs.i = getelementptr inbounds i8, ptr %mtctx, i64 8
-  %50 = load ptr, ptr %jobs.i, align 8
+  %49 = load ptr, ptr %jobs.i, align 8
   %idxprom.i = zext i32 %and.i54 to i64
-  %src8.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %50, i64 %idxprom.i, i32 10
-  store ptr %49, ptr %src8.i, align 8
+  %src8.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %49, i64 %idxprom.i, i32 10
+  store ptr %48, ptr %src8.i, align 8
+  %50 = load ptr, ptr %jobs.i, align 8
+  %size.i60 = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %50, i64 %idxprom.i, i32 10, i32 1
+  store i64 %42, ptr %size.i60, align 8
   %51 = load ptr, ptr %jobs.i, align 8
-  %size.i60 = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %51, i64 %idxprom.i, i32 10, i32 1
-  store i64 %43, ptr %size.i60, align 8
-  %52 = load ptr, ptr %jobs.i, align 8
-  %prefix.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %52, i64 %idxprom.i, i32 9
+  %prefix.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %51, i64 %idxprom.i, i32 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prefix.i, ptr noundef nonnull align 8 dereferenceable(16) %inBuff.i58, i64 16, i1 false)
-  %53 = load ptr, ptr %jobs.i, align 8
-  %arrayidx21.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %53, i64 %idxprom.i
+  %52 = load ptr, ptr %jobs.i, align 8
+  %arrayidx21.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %52, i64 %idxprom.i
   store i64 0, ptr %arrayidx21.i, align 8
-  %54 = load ptr, ptr %jobs.i, align 8
-  %cSize.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %54, i64 %idxprom.i, i32 1
+  %53 = load ptr, ptr %jobs.i, align 8
+  %cSize.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %53, i64 %idxprom.i, i32 1
   store i64 0, ptr %cSize.i, align 8
-  %55 = load ptr, ptr %jobs.i, align 8
-  %params.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %55, i64 %idxprom.i, i32 14
+  %54 = load ptr, ptr %jobs.i, align 8
+  %params.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %54, i64 %idxprom.i, i32 14
   %params28.i = getelementptr inbounds i8, ptr %mtctx, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %params.i, ptr noundef nonnull align 8 dereferenceable(216) %params28.i, i64 216, i1 false)
-  %56 = load i32, ptr %nextJobID.i, align 8
-  %cmp30.i = icmp eq i32 %56, 0
+  %55 = load i32, ptr %nextJobID.i, align 8
+  %cmp30.i = icmp eq i32 %55, 0
   br i1 %cmp30.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %if.then5.i
   %cdict.i = getelementptr inbounds i8, ptr %mtctx, i64 3088
-  %57 = load ptr, ptr %cdict.i, align 8
+  %56 = load ptr, ptr %cdict.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.then5.i
-  %cond.i = phi ptr [ %57, %cond.true.i ], [ null, %if.then5.i ]
-  %58 = load ptr, ptr %jobs.i, align 8
-  %cdict35.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %58, i64 %idxprom.i, i32 15
+  %cond.i = phi ptr [ %56, %cond.true.i ], [ null, %if.then5.i ]
+  %57 = load ptr, ptr %jobs.i, align 8
+  %cdict35.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %57, i64 %idxprom.i, i32 15
   store ptr %cond.i, ptr %cdict35.i, align 8
   %frameContentSize.i = getelementptr inbounds i8, ptr %mtctx, i64 3032
-  %59 = load i64, ptr %frameContentSize.i, align 8
+  %58 = load i64, ptr %frameContentSize.i, align 8
+  %59 = load ptr, ptr %jobs.i, align 8
+  %fullFrameSize.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %59, i64 %idxprom.i, i32 16
+  store i64 %58, ptr %fullFrameSize.i, align 8
   %60 = load ptr, ptr %jobs.i, align 8
-  %fullFrameSize.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %60, i64 %idxprom.i, i32 16
-  store i64 %59, ptr %fullFrameSize.i, align 8
-  %61 = load ptr, ptr %jobs.i, align 8
-  %dstBuff.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %61, i64 %idxprom.i, i32 8
+  %dstBuff.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %60, i64 %idxprom.i, i32 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dstBuff.i, i8 0, i64 16, i1 false)
   %cctxPool.i = getelementptr inbounds i8, ptr %mtctx, i64 24
-  %62 = load ptr, ptr %cctxPool.i, align 8
-  %63 = load ptr, ptr %jobs.i, align 8
-  %cctxPool45.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %63, i64 %idxprom.i, i32 4
-  store ptr %62, ptr %cctxPool45.i, align 8
+  %61 = load ptr, ptr %cctxPool.i, align 8
+  %62 = load ptr, ptr %jobs.i, align 8
+  %cctxPool45.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %62, i64 %idxprom.i, i32 4
+  store ptr %61, ptr %cctxPool45.i, align 8
   %bufPool.i = getelementptr inbounds i8, ptr %mtctx, i64 16
-  %64 = load ptr, ptr %bufPool.i, align 8
-  %65 = load ptr, ptr %jobs.i, align 8
-  %bufPool49.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %65, i64 %idxprom.i, i32 5
-  store ptr %64, ptr %bufPool49.i, align 8
+  %63 = load ptr, ptr %bufPool.i, align 8
+  %64 = load ptr, ptr %jobs.i, align 8
+  %bufPool49.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %64, i64 %idxprom.i, i32 5
+  store ptr %63, ptr %bufPool49.i, align 8
   %seqPool.i = getelementptr inbounds i8, ptr %mtctx, i64 32
-  %66 = load ptr, ptr %seqPool.i, align 8
-  %67 = load ptr, ptr %jobs.i, align 8
-  %seqPool53.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %67, i64 %idxprom.i, i32 6
-  store ptr %66, ptr %seqPool53.i, align 8
+  %65 = load ptr, ptr %seqPool.i, align 8
+  %66 = load ptr, ptr %jobs.i, align 8
+  %seqPool53.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %66, i64 %idxprom.i, i32 6
+  store ptr %65, ptr %seqPool53.i, align 8
   %serial.i = getelementptr inbounds i8, ptr %mtctx, i64 344
-  %68 = load ptr, ptr %jobs.i, align 8
-  %serial57.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %68, i64 %idxprom.i, i32 7
+  %67 = load ptr, ptr %jobs.i, align 8
+  %serial57.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %67, i64 %idxprom.i, i32 7
   store ptr %serial.i, ptr %serial57.i, align 8
-  %69 = load i32, ptr %nextJobID.i, align 8
-  %70 = load ptr, ptr %jobs.i, align 8
-  %jobID62.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %70, i64 %idxprom.i, i32 11
-  store i32 %69, ptr %jobID62.i, align 8
-  %cmp64.i = icmp eq i32 %69, 0
+  %68 = load i32, ptr %nextJobID.i, align 8
+  %69 = load ptr, ptr %jobs.i, align 8
+  %jobID62.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %69, i64 %idxprom.i, i32 11
+  store i32 %68, ptr %jobID62.i, align 8
+  %cmp64.i = icmp eq i32 %68, 0
   %conv65.i = zext i1 %cmp64.i to i32
-  %71 = load ptr, ptr %jobs.i, align 8
-  %firstJob.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %71, i64 %idxprom.i, i32 12
+  %70 = load ptr, ptr %jobs.i, align 8
+  %firstJob.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %70, i64 %idxprom.i, i32 12
   store i32 %conv65.i, ptr %firstJob.i, align 4
-  %72 = load ptr, ptr %jobs.i, align 8
-  %lastJob.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %72, i64 %idxprom.i, i32 13
+  %71 = load ptr, ptr %jobs.i, align 8
+  %lastJob.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %71, i64 %idxprom.i, i32 13
   store i32 %conv.i, ptr %lastJob.i, align 8
   %checksumFlag.i = getelementptr inbounds i8, ptr %mtctx, i64 76
-  %73 = load i32, ptr %checksumFlag.i, align 4
-  %tobool73.i = icmp ne i32 %73, 0
+  %72 = load i32, ptr %checksumFlag.i, align 4
+  %tobool73.i = icmp ne i32 %72, 0
   %or.cond.i61 = and i1 %cmp.i55, %tobool73.i
   br i1 %or.cond.i61, label %land.rhs.i, label %land.end.i
 
 land.rhs.i:                                       ; preds = %cond.end.i
-  %74 = load i32, ptr %nextJobID.i, align 8
-  %cmp76.i = icmp ne i32 %74, 0
-  %75 = zext i1 %cmp76.i to i32
+  %73 = load i32, ptr %nextJobID.i, align 8
+  %cmp76.i = icmp ne i32 %73, 0
+  %74 = zext i1 %cmp76.i to i32
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %cond.end.i
-  %land.ext.i = phi i32 [ 0, %cond.end.i ], [ %75, %land.rhs.i ]
-  %76 = load ptr, ptr %jobs.i, align 8
-  %frameChecksumNeeded.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %76, i64 %idxprom.i, i32 18
+  %land.ext.i = phi i32 [ 0, %cond.end.i ], [ %74, %land.rhs.i ]
+  %75 = load ptr, ptr %jobs.i, align 8
+  %frameChecksumNeeded.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %75, i64 %idxprom.i, i32 18
   store i32 %land.ext.i, ptr %frameChecksumNeeded.i, align 8
-  %77 = load ptr, ptr %jobs.i, align 8
-  %dstFlushed.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %77, i64 %idxprom.i, i32 17
+  %76 = load ptr, ptr %jobs.i, align 8
+  %dstFlushed.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %76, i64 %idxprom.i, i32 17
   store i64 0, ptr %dstFlushed.i, align 8
   %pos.i62 = getelementptr inbounds i8, ptr %mtctx, i64 336
-  %78 = load i64, ptr %pos.i62, align 8
-  %add84.i = add i64 %78, %43
+  %77 = load i64, ptr %pos.i62, align 8
+  %add84.i = add i64 %77, %42
   store i64 %add84.i, ptr %pos.i62, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer.i59, i8 0, i64 24, i1 false)
   br i1 %cmp.i55, label %if.else.i67, label %if.then89.i
 
 if.then89.i:                                      ; preds = %land.end.i
   %targetPrefixSize.i = getelementptr inbounds i8, ptr %mtctx, i64 264
-  %79 = load i64, ptr %targetPrefixSize.i, align 8
-  %srcSize..i = tail call i64 @llvm.umin.i64(i64 %43, i64 %79)
-  %add.ptr.i63 = getelementptr inbounds i8, ptr %49, i64 %43
+  %78 = load i64, ptr %targetPrefixSize.i, align 8
+  %srcSize..i = tail call i64 @llvm.umin.i64(i64 %42, i64 %78)
+  %add.ptr.i63 = getelementptr inbounds i8, ptr %48, i64 %42
   %idx.neg.i = sub i64 0, %srcSize..i
   %add.ptr97.i = getelementptr inbounds i8, ptr %add.ptr.i63, i64 %idx.neg.i
   store ptr %add.ptr97.i, ptr %inBuff.i58, align 8
@@ -2394,8 +2393,8 @@ if.then89.i:                                      ; preds = %land.end.i
 if.else.i67:                                      ; preds = %land.end.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %inBuff.i58, i8 0, i64 16, i1 false)
   store i32 %conv.i, ptr %frameEnded, align 4
-  %80 = load i32, ptr %nextJobID.i, align 8
-  %cmp107.i = icmp eq i32 %80, 0
+  %79 = load i32, ptr %nextJobID.i, align 8
+  %cmp107.i = icmp eq i32 %79, 0
   br i1 %cmp107.i, label %if.then109.i, label %if.end114.i
 
 if.then109.i:                                     ; preds = %if.else.i67
@@ -2403,57 +2402,57 @@ if.then109.i:                                     ; preds = %if.else.i67
   br label %if.end114.i
 
 if.end114.i:                                      ; preds = %if.then109.i, %if.else.i67, %if.then89.i
-  %cmp115.i = icmp eq i64 %43, 0
+  %cmp115.i = icmp eq i64 %42, 0
   br i1 %cmp115.i, label %land.lhs.true117.i, label %do.end130.i
 
 land.lhs.true117.i:                               ; preds = %if.end114.i
-  %81 = load i32, ptr %nextJobID.i, align 8
-  %cmp119.not.i = icmp eq i32 %81, 0
+  %80 = load i32, ptr %nextJobID.i, align 8
+  %cmp119.not.i = icmp eq i32 %80, 0
   br i1 %cmp119.not.i, label %do.end130.i, label %do.end123.i
 
 do.end123.i:                                      ; preds = %land.lhs.true117.i
-  %82 = load ptr, ptr %jobs.i, align 8
-  %add.ptr125.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %82, i64 %idxprom.i
+  %81 = load ptr, ptr %jobs.i, align 8
+  %add.ptr125.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %81, i64 %idxprom.i
   %dstBuff.i.i = getelementptr inbounds i8, ptr %add.ptr125.i, i64 136
   %bufPool.i.i = getelementptr inbounds i8, ptr %add.ptr125.i, i64 112
-  %83 = load ptr, ptr %bufPool.i.i, align 8
-  %call.i.i64 = tail call fastcc { ptr, i64 } @ZSTDMT_getBuffer(ptr noundef %83)
-  %84 = extractvalue { ptr, i64 } %call.i.i64, 0
-  %85 = extractvalue { ptr, i64 } %call.i.i64, 1
-  store ptr %84, ptr %dstBuff.i.i, align 8
+  %82 = load ptr, ptr %bufPool.i.i, align 8
+  %call.i.i64 = tail call fastcc { ptr, i64 } @ZSTDMT_getBuffer(ptr noundef %82)
+  %83 = extractvalue { ptr, i64 } %call.i.i64, 0
+  %84 = extractvalue { ptr, i64 } %call.i.i64, 1
+  store ptr %83, ptr %dstBuff.i.i, align 8
   %tmp.sroa.2.0.dstBuff.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr125.i, i64 144
-  store i64 %85, ptr %tmp.sroa.2.0.dstBuff.sroa_idx.i.i, align 8
-  %cmp.i.i65 = icmp eq ptr %84, null
+  store i64 %84, ptr %tmp.sroa.2.0.dstBuff.sroa_idx.i.i, align 8
+  %cmp.i.i65 = icmp eq ptr %83, null
   br i1 %cmp.i.i65, label %ZSTDMT_writeLastEmptyBlock.exit.i, label %if.end.i.i66
 
 if.end.i.i66:                                     ; preds = %do.end123.i
   %src.i.i = getelementptr inbounds i8, ptr %add.ptr125.i, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %src.i.i, i8 0, i64 16, i1 false)
-  %call5.i.i = tail call i64 @ZSTD_writeLastEmptyBlock(ptr noundef nonnull %84, i64 noundef %85) #14
+  %call5.i.i = tail call i64 @ZSTD_writeLastEmptyBlock(ptr noundef nonnull %83, i64 noundef %84) #14
   br label %ZSTDMT_writeLastEmptyBlock.exit.i
 
 ZSTDMT_writeLastEmptyBlock.exit.i:                ; preds = %if.end.i.i66, %do.end123.i
   %call5.sink.i.i = phi i64 [ %call5.i.i, %if.end.i.i66 ], [ -64, %do.end123.i ]
-  %86 = getelementptr inbounds i8, ptr %add.ptr125.i, i64 8
-  store i64 %call5.sink.i.i, ptr %86, align 8
-  %87 = load i32, ptr %nextJobID.i, align 8
-  %inc.i = add i32 %87, 1
+  %85 = getelementptr inbounds i8, ptr %add.ptr125.i, i64 8
+  store i64 %call5.sink.i.i, ptr %85, align 8
+  %86 = load i32, ptr %nextJobID.i, align 8
+  %inc.i = add i32 %86, 1
   store i32 %inc.i, ptr %nextJobID.i, align 8
   br label %if.end91
 
 do.end130.i:                                      ; preds = %land.lhs.true117.i, %if.end114.i, %if.end.do.end130_crit_edge.i
   %idxprom132.pre-phi.i = phi i64 [ %.pre.i, %if.end.do.end130_crit_edge.i ], [ %idxprom.i, %if.end114.i ], [ %idxprom.i, %land.lhs.true117.i ]
-  %88 = load ptr, ptr %mtctx, align 8
+  %87 = load ptr, ptr %mtctx, align 8
   %jobs131.i = getelementptr inbounds i8, ptr %mtctx, i64 8
-  %89 = load ptr, ptr %jobs131.i, align 8
-  %arrayidx133.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %89, i64 %idxprom132.pre-phi.i
-  %call.i = tail call i32 @POOL_tryAdd(ptr noundef %88, ptr noundef nonnull @ZSTDMT_compressionJob, ptr noundef %arrayidx133.i) #14
+  %88 = load ptr, ptr %jobs131.i, align 8
+  %arrayidx133.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %88, i64 %idxprom132.pre-phi.i
+  %call.i = tail call i32 @POOL_tryAdd(ptr noundef %87, ptr noundef nonnull @ZSTDMT_compressionJob, ptr noundef %arrayidx133.i) #14
   %tobool134.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool134.not.i, label %if.end143.i, label %if.then135.i
 
 if.then135.i:                                     ; preds = %do.end130.i
-  %90 = load i32, ptr %nextJobID.i, align 8
-  %inc137.i = add i32 %90, 1
+  %89 = load i32, ptr %nextJobID.i, align 8
+  %inc137.i = add i32 %89, 1
   store i32 %inc137.i, ptr %nextJobID.i, align 8
   br label %if.end143.i
 
@@ -2464,51 +2463,50 @@ if.end143.i:                                      ; preds = %if.then135.i, %do.e
 
 if.end91:                                         ; preds = %if.end143.i, %ZSTDMT_writeLastEmptyBlock.exit.i, %if.then73, %land.lhs.true70, %lor.lhs.false67
   %doneJobID.i68 = getelementptr inbounds i8, ptr %mtctx, i64 3012
-  %91 = load i32, ptr %doneJobID.i68, align 4
+  %90 = load i32, ptr %doneJobID.i68, align 4
   %jobIDMask.i69 = getelementptr inbounds i8, ptr %mtctx, i64 3008
-  %92 = load i32, ptr %jobIDMask.i69, align 8
-  %and.i70 = and i32 %92, %91
+  %91 = load i32, ptr %jobIDMask.i69, align 8
+  %and.i70 = and i32 %91, %90
   %jobs.i71 = getelementptr inbounds i8, ptr %mtctx, i64 8
-  %93 = load ptr, ptr %jobs.i71, align 8
+  %92 = load ptr, ptr %jobs.i71, align 8
   %idxprom.i72 = zext i32 %and.i70 to i64
-  %job_mutex.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %93, i64 %idxprom.i72, i32 2
+  %job_mutex.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %92, i64 %idxprom.i72, i32 2
   %call.i73 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %job_mutex.i) #14
-  %tobool.not.i74 = icmp eq i32 %forwardInputProgress.0, 0
-  br i1 %tobool.not.i74, label %entry.if.end29_crit_edge.i, label %land.lhs.true.i
+  br i1 %forwardInputProgress.0, label %entry.if.end29_crit_edge.i, label %land.lhs.true.i
 
 entry.if.end29_crit_edge.i:                       ; preds = %if.end91
   %.pre.i104 = load ptr, ptr %jobs.i71, align 8
   br label %if.end29.i
 
 land.lhs.true.i:                                  ; preds = %if.end91
-  %94 = load i32, ptr %doneJobID.i68, align 4
+  %93 = load i32, ptr %doneJobID.i68, align 4
   %nextJobID.i75 = getelementptr inbounds i8, ptr %mtctx, i64 3016
-  %95 = load i32, ptr %nextJobID.i75, align 8
-  %cmp.i76 = icmp ult i32 %94, %95
+  %94 = load i32, ptr %nextJobID.i75, align 8
+  %cmp.i76 = icmp ult i32 %93, %94
   %.pre105.i = load ptr, ptr %jobs.i71, align 8
   br i1 %cmp.i76, label %while.cond.preheader.i, label %if.end29.i
 
 while.cond.preheader.i:                           ; preds = %land.lhs.true.i
   %arrayidx4100.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %.pre105.i, i64 %idxprom.i72
   %dstFlushed101.i = getelementptr inbounds i8, ptr %arrayidx4100.i, i64 432
-  %96 = load i64, ptr %dstFlushed101.i, align 8
+  %95 = load i64, ptr %dstFlushed101.i, align 8
   %cSize102.i = getelementptr inbounds i8, ptr %arrayidx4100.i, i64 8
-  %97 = load i64, ptr %cSize102.i, align 8
-  %cmp8103.i = icmp eq i64 %96, %97
+  %96 = load i64, ptr %cSize102.i, align 8
+  %cmp8103.i = icmp eq i64 %95, %96
   br i1 %cmp8103.i, label %while.body.i.preheader, label %if.end29.i
 
 while.body.i.preheader:                           ; preds = %while.cond.preheader.i
-  %98 = load i64, ptr %arrayidx4100.i, align 8
+  %97 = load i64, ptr %arrayidx4100.i, align 8
   %size.i101114 = getelementptr inbounds i8, ptr %arrayidx4100.i, i64 176
-  %99 = load i64, ptr %size.i101114, align 8
-  %cmp15.i115 = icmp eq i64 %98, %99
+  %98 = load i64, ptr %size.i101114, align 8
+  %cmp15.i115 = icmp eq i64 %97, %98
   br i1 %cmp15.i115, label %if.end29.i, label %do.end20.i
 
 while.body.i:                                     ; preds = %do.end20.i
-  %100 = load i64, ptr %arrayidx4.i, align 8
+  %99 = load i64, ptr %arrayidx4.i, align 8
   %size.i101 = getelementptr inbounds i8, ptr %arrayidx4.i, i64 176
-  %101 = load i64, ptr %size.i101, align 8
-  %cmp15.i = icmp eq i64 %100, %101
+  %100 = load i64, ptr %size.i101, align 8
+  %cmp15.i = icmp eq i64 %99, %100
   br i1 %cmp15.i, label %if.end29.i, label %do.end20.i, !llvm.loop !18
 
 do.end20.i:                                       ; preds = %while.body.i.preheader, %while.body.i
@@ -2516,49 +2514,49 @@ do.end20.i:                                       ; preds = %while.body.i.prehea
   %job_cond.i = getelementptr inbounds i8, ptr %arrayidx4104.i116, i64 56
   %job_mutex27.i = getelementptr inbounds i8, ptr %arrayidx4104.i116, i64 16
   %call28.i = tail call i32 @pthread_cond_wait(ptr noundef nonnull %job_cond.i, ptr noundef nonnull %job_mutex27.i) #14
-  %102 = load ptr, ptr %jobs.i71, align 8
-  %arrayidx4.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %102, i64 %idxprom.i72
+  %101 = load ptr, ptr %jobs.i71, align 8
+  %arrayidx4.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %101, i64 %idxprom.i72
   %dstFlushed.i102 = getelementptr inbounds i8, ptr %arrayidx4.i, i64 432
-  %103 = load i64, ptr %dstFlushed.i102, align 8
+  %102 = load i64, ptr %dstFlushed.i102, align 8
   %cSize.i103 = getelementptr inbounds i8, ptr %arrayidx4.i, i64 8
-  %104 = load i64, ptr %cSize.i103, align 8
-  %cmp8.i = icmp eq i64 %103, %104
+  %103 = load i64, ptr %cSize.i103, align 8
+  %cmp8.i = icmp eq i64 %102, %103
   br i1 %cmp8.i, label %while.body.i, label %if.end29.i, !llvm.loop !18
 
 if.end29.i:                                       ; preds = %while.body.i, %do.end20.i, %while.body.i.preheader, %while.cond.preheader.i, %land.lhs.true.i, %entry.if.end29_crit_edge.i
-  %105 = phi ptr [ %.pre.i104, %entry.if.end29_crit_edge.i ], [ %.pre105.i, %while.cond.preheader.i ], [ %.pre105.i, %land.lhs.true.i ], [ %.pre105.i, %while.body.i.preheader ], [ %102, %do.end20.i ], [ %102, %while.body.i ]
-  %arrayidx33.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %105, i64 %idxprom.i72
+  %104 = phi ptr [ %.pre.i104, %entry.if.end29_crit_edge.i ], [ %.pre105.i, %while.cond.preheader.i ], [ %.pre105.i, %land.lhs.true.i ], [ %.pre105.i, %while.body.i.preheader ], [ %101, %do.end20.i ], [ %101, %while.body.i ]
+  %arrayidx33.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %104, i64 %idxprom.i72
   %cSize34.i = getelementptr inbounds i8, ptr %arrayidx33.i, i64 8
-  %106 = load i64, ptr %cSize34.i, align 8
-  %107 = load i64, ptr %arrayidx33.i, align 8
+  %105 = load i64, ptr %cSize34.i, align 8
+  %106 = load i64, ptr %arrayidx33.i, align 8
   %size43.i = getelementptr inbounds i8, ptr %arrayidx33.i, i64 176
-  %108 = load i64, ptr %size43.i, align 8
+  %107 = load i64, ptr %size43.i, align 8
   %job_mutex47.i = getelementptr inbounds i8, ptr %arrayidx33.i, i64 16
   %call48.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %job_mutex47.i) #14
-  %cmp.i.i77 = icmp ult i64 %106, -119
+  %cmp.i.i77 = icmp ult i64 %105, -119
   br i1 %cmp.i.i77, label %if.end54.i, label %do.end53.i
 
 do.end53.i:                                       ; preds = %if.end29.i
   %nextJobID.i.i78 = getelementptr inbounds i8, ptr %mtctx, i64 3016
-  %109 = load i32, ptr %doneJobID.i68, align 4
-  %110 = load i32, ptr %nextJobID.i.i78, align 8
-  %cmp20.i.i = icmp ult i32 %109, %110
+  %108 = load i32, ptr %doneJobID.i68, align 4
+  %109 = load i32, ptr %nextJobID.i.i78, align 8
+  %cmp20.i.i = icmp ult i32 %108, %109
   br i1 %cmp20.i.i, label %while.body.i.i, label %ZSTDMT_waitForAllJobsCompleted.exit.i
 
 while.body.i.i:                                   ; preds = %do.end53.i, %while.end.i.i
-  %111 = phi i32 [ %inc.i.i84, %while.end.i.i ], [ %109, %do.end53.i ]
-  %112 = load i32, ptr %jobIDMask.i69, align 8
-  %and.i.i80 = and i32 %112, %111
-  %113 = load ptr, ptr %jobs.i71, align 8
+  %110 = phi i32 [ %inc.i.i84, %while.end.i.i ], [ %108, %do.end53.i ]
+  %111 = load i32, ptr %jobIDMask.i69, align 8
+  %and.i.i80 = and i32 %111, %110
+  %112 = load ptr, ptr %jobs.i71, align 8
   %idxprom.i.i81 = zext i32 %and.i.i80 to i64
-  %job_mutex.i.i82 = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %113, i64 %idxprom.i.i81, i32 2
+  %job_mutex.i.i82 = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %112, i64 %idxprom.i.i81, i32 2
   %call.i.i83 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %job_mutex.i.i82) #14
-  %114 = load ptr, ptr %jobs.i71, align 8
-  %arrayidx516.i.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %114, i64 %idxprom.i.i81
-  %115 = load i64, ptr %arrayidx516.i.i, align 8
+  %113 = load ptr, ptr %jobs.i71, align 8
+  %arrayidx516.i.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %113, i64 %idxprom.i.i81
+  %114 = load i64, ptr %arrayidx516.i.i, align 8
   %size17.i.i = getelementptr inbounds i8, ptr %arrayidx516.i.i, i64 176
-  %116 = load i64, ptr %size17.i.i, align 8
-  %cmp918.i.i = icmp ult i64 %115, %116
+  %115 = load i64, ptr %size17.i.i, align 8
+  %cmp918.i.i = icmp ult i64 %114, %115
   br i1 %cmp918.i.i, label %do.end12.i.i, label %while.end.i.i
 
 do.end12.i.i:                                     ; preds = %while.body.i.i, %do.end12.i.i
@@ -2566,23 +2564,23 @@ do.end12.i.i:                                     ; preds = %while.body.i.i, %do
   %job_cond.i.i = getelementptr inbounds i8, ptr %arrayidx519.i.i, i64 56
   %job_mutex19.i.i = getelementptr inbounds i8, ptr %arrayidx519.i.i, i64 16
   %call20.i.i = tail call i32 @pthread_cond_wait(ptr noundef nonnull %job_cond.i.i, ptr noundef nonnull %job_mutex19.i.i) #14
-  %117 = load ptr, ptr %jobs.i71, align 8
-  %arrayidx5.i.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %117, i64 %idxprom.i.i81
-  %118 = load i64, ptr %arrayidx5.i.i, align 8
+  %116 = load ptr, ptr %jobs.i71, align 8
+  %arrayidx5.i.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %116, i64 %idxprom.i.i81
+  %117 = load i64, ptr %arrayidx5.i.i, align 8
   %size.i.i85 = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 176
-  %119 = load i64, ptr %size.i.i85, align 8
-  %cmp9.i.i86 = icmp ult i64 %118, %119
+  %118 = load i64, ptr %size.i.i85, align 8
+  %cmp9.i.i86 = icmp ult i64 %117, %118
   br i1 %cmp9.i.i86, label %do.end12.i.i, label %while.end.i.i, !llvm.loop !12
 
 while.end.i.i:                                    ; preds = %do.end12.i.i, %while.body.i.i
-  %120 = phi ptr [ %114, %while.body.i.i ], [ %117, %do.end12.i.i ]
-  %job_mutex24.i.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %120, i64 %idxprom.i.i81, i32 2
+  %119 = phi ptr [ %113, %while.body.i.i ], [ %116, %do.end12.i.i ]
+  %job_mutex24.i.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %119, i64 %idxprom.i.i81, i32 2
   %call25.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %job_mutex24.i.i) #14
-  %121 = load i32, ptr %doneJobID.i68, align 4
-  %inc.i.i84 = add i32 %121, 1
+  %120 = load i32, ptr %doneJobID.i68, align 4
+  %inc.i.i84 = add i32 %120, 1
   store i32 %inc.i.i84, ptr %doneJobID.i68, align 4
-  %122 = load i32, ptr %nextJobID.i.i78, align 8
-  %cmp.i95.i = icmp ult i32 %inc.i.i84, %122
+  %121 = load i32, ptr %nextJobID.i.i78, align 8
+  %cmp.i95.i = icmp ult i32 %inc.i.i84, %121
   br i1 %cmp.i95.i, label %while.body.i.i, label %ZSTDMT_waitForAllJobsCompleted.exit.i, !llvm.loop !13
 
 ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %while.end.i.i, %do.end53.i
@@ -2590,15 +2588,15 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %while.end.i.i, %do.
   br label %ZSTDMT_flushProduced.exit
 
 if.end54.i:                                       ; preds = %if.end29.i
-  %cmp55.i = icmp eq i64 %107, %108
+  %cmp55.i = icmp eq i64 %106, %107
   %.pre109.pre110.i = load ptr, ptr %jobs.i71, align 8
   br i1 %cmp55.i, label %land.lhs.true56.i, label %if.end81.i
 
 land.lhs.true56.i:                                ; preds = %if.end54.i
   %arrayidx59.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %.pre109.pre110.i, i64 %idxprom.i72
   %frameChecksumNeeded.i96 = getelementptr inbounds i8, ptr %arrayidx59.i, i64 440
-  %123 = load i32, ptr %frameChecksumNeeded.i96, align 8
-  %tobool60.not.i = icmp eq i32 %123, 0
+  %122 = load i32, ptr %frameChecksumNeeded.i96, align 8
+  %tobool60.not.i = icmp eq i32 %122, 0
   br i1 %tobool60.not.i, label %if.end81.i, label %if.end81.thread.i
 
 if.end81.thread.i:                                ; preds = %land.lhs.true56.i
@@ -2606,60 +2604,60 @@ if.end81.thread.i:                                ; preds = %land.lhs.true56.i
   %call62.i = tail call i64 @ZSTD_XXH64_digest(ptr nocapture noundef nonnull %xxhState.i) #17
   %conv.i97 = trunc i64 %call62.i to i32
   %dstBuff.i98 = getelementptr inbounds i8, ptr %arrayidx59.i, i64 136
-  %124 = load ptr, ptr %dstBuff.i98, align 8
+  %123 = load ptr, ptr %dstBuff.i98, align 8
   %cSize71.i = getelementptr inbounds i8, ptr %arrayidx59.i, i64 8
-  %125 = load i64, ptr %cSize71.i, align 8
-  %add.ptr.i99 = getelementptr inbounds i8, ptr %124, i64 %125
+  %124 = load i64, ptr %cSize71.i, align 8
+  %add.ptr.i99 = getelementptr inbounds i8, ptr %123, i64 %124
   store i32 %conv.i97, ptr %add.ptr.i99, align 1
-  %add.i100 = add nuw i64 %106, 4
-  %126 = load ptr, ptr %jobs.i71, align 8
-  %cSize75.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %126, i64 %idxprom.i72, i32 1
-  %127 = load i64, ptr %cSize75.i, align 8
-  %add76.i = add i64 %127, 4
+  %add.i100 = add nuw i64 %105, 4
+  %125 = load ptr, ptr %jobs.i71, align 8
+  %cSize75.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %125, i64 %idxprom.i72, i32 1
+  %126 = load i64, ptr %cSize75.i, align 8
+  %add76.i = add i64 %126, 4
   store i64 %add76.i, ptr %cSize75.i, align 8
-  %128 = load ptr, ptr %jobs.i71, align 8
-  %frameChecksumNeeded80.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %128, i64 %idxprom.i72, i32 18
+  %127 = load ptr, ptr %jobs.i71, align 8
+  %frameChecksumNeeded80.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %127, i64 %idxprom.i72, i32 18
   store i32 0, ptr %frameChecksumNeeded80.i, align 8
   %.pre109.pre.i = load ptr, ptr %jobs.i71, align 8
   br label %if.then84.i
 
 if.end81.i:                                       ; preds = %land.lhs.true56.i, %if.end54.i
-  %cmp82.not.i = icmp eq i64 %106, 0
+  %cmp82.not.i = icmp eq i64 %105, 0
   br i1 %cmp82.not.i, label %if.end170.i, label %if.then84.i
 
 if.then84.i:                                      ; preds = %if.end81.i, %if.end81.thread.i
-  %cSize30.0116.i = phi i64 [ %add.i100, %if.end81.thread.i ], [ %106, %if.end81.i ]
+  %cSize30.0116.i = phi i64 [ %add.i100, %if.end81.thread.i ], [ %105, %if.end81.i ]
   %.pre109115.i = phi ptr [ %.pre109.pre.i, %if.end81.thread.i ], [ %.pre109.pre110.i, %if.end81.i ]
   %dstFlushed88.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %.pre109115.i, i64 %idxprom.i72, i32 17
-  %129 = load i64, ptr %dstFlushed88.i, align 8
-  %sub.i87 = sub i64 %cSize30.0116.i, %129
+  %128 = load i64, ptr %dstFlushed88.i, align 8
+  %sub.i87 = sub i64 %cSize30.0116.i, %128
   %size89.i = getelementptr inbounds i8, ptr %output, i64 8
-  %130 = load i64, ptr %size89.i, align 8
+  %129 = load i64, ptr %size89.i, align 8
   %pos.i88 = getelementptr inbounds i8, ptr %output, i64 16
-  %131 = load i64, ptr %pos.i88, align 8
-  %sub90.i = sub i64 %130, %131
+  %130 = load i64, ptr %pos.i88, align 8
+  %sub90.i = sub i64 %129, %130
   %sub.sub90.i = tail call i64 @llvm.umin.i64(i64 %sub.i87, i64 %sub90.i)
   %cmp103.not.i = icmp eq i64 %sub.sub90.i, 0
   br i1 %cmp103.not.i, label %if.end118.i, label %if.then105.i
 
 if.then105.i:                                     ; preds = %if.then84.i
-  %132 = load ptr, ptr %output, align 8
-  %add.ptr107.i = getelementptr inbounds i8, ptr %132, i64 %131
+  %131 = load ptr, ptr %output, align 8
+  %add.ptr107.i = getelementptr inbounds i8, ptr %131, i64 %130
   %dstBuff111.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %.pre109115.i, i64 %idxprom.i72, i32 8
-  %133 = load ptr, ptr %dstBuff111.i, align 8
-  %add.ptr117.i = getelementptr inbounds i8, ptr %133, i64 %129
+  %132 = load ptr, ptr %dstBuff111.i, align 8
+  %add.ptr117.i = getelementptr inbounds i8, ptr %132, i64 %128
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr107.i, ptr align 1 %add.ptr117.i, i64 %sub.sub90.i, i1 false)
   %.pre106.i = load i64, ptr %pos.i88, align 8
   br label %if.end118.i
 
 if.end118.i:                                      ; preds = %if.then105.i, %if.then84.i
-  %134 = phi i64 [ %.pre106.i, %if.then105.i ], [ %131, %if.then84.i ]
-  %add120.i = add i64 %134, %sub.sub90.i
+  %133 = phi i64 [ %.pre106.i, %if.then105.i ], [ %130, %if.then84.i ]
+  %add120.i = add i64 %133, %sub.sub90.i
   store i64 %add120.i, ptr %pos.i88, align 8
-  %135 = load ptr, ptr %jobs.i71, align 8
-  %dstFlushed124.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %135, i64 %idxprom.i72, i32 17
-  %136 = load i64, ptr %dstFlushed124.i, align 8
-  %add125.i = add i64 %136, %sub.sub90.i
+  %134 = load ptr, ptr %jobs.i71, align 8
+  %dstFlushed124.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %134, i64 %idxprom.i72, i32 17
+  %135 = load i64, ptr %dstFlushed124.i, align 8
+  %add125.i = add i64 %135, %sub.sub90.i
   store i64 %add125.i, ptr %dstFlushed124.i, align 8
   %.pre108.i = load ptr, ptr %jobs.i71, align 8
   br i1 %cmp55.i, label %land.lhs.true128.i, label %if.end157.i
@@ -2667,130 +2665,130 @@ if.end118.i:                                      ; preds = %if.then105.i, %if.t
 land.lhs.true128.i:                               ; preds = %if.end118.i
   %arrayidx131.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %.pre108.i, i64 %idxprom.i72
   %dstFlushed132.i = getelementptr inbounds i8, ptr %arrayidx131.i, i64 432
-  %137 = load i64, ptr %dstFlushed132.i, align 8
-  %cmp133.i = icmp eq i64 %137, %cSize30.0116.i
+  %136 = load i64, ptr %dstFlushed132.i, align 8
+  %cmp133.i = icmp eq i64 %136, %cSize30.0116.i
   br i1 %cmp133.i, label %do.end137.i, label %if.end157.i
 
 do.end137.i:                                      ; preds = %land.lhs.true128.i
   %bufPool.i92 = getelementptr inbounds i8, ptr %mtctx, i64 16
-  %138 = load ptr, ptr %bufPool.i92, align 8
+  %137 = load ptr, ptr %bufPool.i92, align 8
   %dstBuff141.i = getelementptr inbounds i8, ptr %arrayidx131.i, i64 136
-  %139 = load ptr, ptr %dstBuff141.i, align 8
-  %140 = getelementptr inbounds i8, ptr %arrayidx131.i, i64 144
-  %141 = load i64, ptr %140, align 8
-  %cmp.i96.i = icmp eq ptr %139, null
+  %138 = load ptr, ptr %dstBuff141.i, align 8
+  %139 = getelementptr inbounds i8, ptr %arrayidx131.i, i64 144
+  %140 = load i64, ptr %139, align 8
+  %cmp.i96.i = icmp eq ptr %138, null
   br i1 %cmp.i96.i, label %ZSTDMT_releaseBuffer.exit.i, label %if.end.i.i93
 
 if.end.i.i93:                                     ; preds = %do.end137.i
-  %call.i97.i = tail call i32 @pthread_mutex_lock(ptr noundef %138) #14
-  %nbBuffers.i.i = getelementptr inbounds i8, ptr %138, i64 52
-  %142 = load i32, ptr %nbBuffers.i.i, align 4
-  %totalBuffers.i.i = getelementptr inbounds i8, ptr %138, i64 48
-  %143 = load i32, ptr %totalBuffers.i.i, align 8
-  %cmp1.i.i = icmp ult i32 %142, %143
+  %call.i97.i = tail call i32 @pthread_mutex_lock(ptr noundef %137) #14
+  %nbBuffers.i.i = getelementptr inbounds i8, ptr %137, i64 52
+  %141 = load i32, ptr %nbBuffers.i.i, align 4
+  %totalBuffers.i.i = getelementptr inbounds i8, ptr %137, i64 48
+  %142 = load i32, ptr %totalBuffers.i.i, align 8
+  %cmp1.i.i = icmp ult i32 %141, %142
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.then.i.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i93
-  %buffers.i.i = getelementptr inbounds i8, ptr %138, i64 80
-  %144 = load ptr, ptr %buffers.i.i, align 8
-  %inc.i98.i = add nuw i32 %142, 1
+  %buffers.i.i = getelementptr inbounds i8, ptr %137, i64 80
+  %143 = load ptr, ptr %buffers.i.i, align 8
+  %inc.i98.i = add nuw i32 %141, 1
   store i32 %inc.i98.i, ptr %nbBuffers.i.i, align 4
-  %idxprom.i99.i = zext i32 %142 to i64
-  %arrayidx.i.i95 = getelementptr inbounds %struct.buffer_s, ptr %144, i64 %idxprom.i99.i
-  store ptr %139, ptr %arrayidx.i.i95, align 8
+  %idxprom.i99.i = zext i32 %141 to i64
+  %arrayidx.i.i95 = getelementptr inbounds %struct.buffer_s, ptr %143, i64 %idxprom.i99.i
+  store ptr %138, ptr %arrayidx.i.i95, align 8
   %buf.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i95, i64 8
-  store i64 %141, ptr %buf.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
-  %call7.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %138) #14
+  store i64 %140, ptr %buf.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
+  %call7.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %137) #14
   br label %ZSTDMT_releaseBuffer.exit.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i93
-  %call10.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %138) #14
-  %145 = getelementptr i8, ptr %138, i64 64
-  %cMem.val.i.i = load ptr, ptr %145, align 8
+  %call10.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %137) #14
+  %144 = getelementptr i8, ptr %137, i64 64
+  %cMem.val.i.i = load ptr, ptr %144, align 8
   %tobool.not.i.i.i = icmp eq ptr %cMem.val.i.i, null
   br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %if.then1.i.i.i
 
 if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
-  %146 = getelementptr i8, ptr %138, i64 72
-  %cMem.val9.i.i = load ptr, ptr %146, align 8
-  tail call void %cMem.val.i.i(ptr noundef %cMem.val9.i.i, ptr noundef nonnull %139) #14
+  %145 = getelementptr i8, ptr %137, i64 72
+  %cMem.val9.i.i = load ptr, ptr %145, align 8
+  tail call void %cMem.val.i.i(ptr noundef %cMem.val9.i.i, ptr noundef nonnull %138) #14
   br label %ZSTDMT_releaseBuffer.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void @free(ptr noundef nonnull %139) #14
+  tail call void @free(ptr noundef nonnull %138) #14
   br label %ZSTDMT_releaseBuffer.exit.i
 
 ZSTDMT_releaseBuffer.exit.i:                      ; preds = %if.else.i.i.i, %if.then1.i.i.i, %if.then2.i.i, %do.end137.i
-  %147 = load ptr, ptr %jobs.i71, align 8
-  %dstBuff147.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %147, i64 %idxprom.i72, i32 8
+  %146 = load ptr, ptr %jobs.i71, align 8
+  %dstBuff147.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %146, i64 %idxprom.i72, i32 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dstBuff147.i, i8 0, i64 16, i1 false)
-  %148 = load ptr, ptr %jobs.i71, align 8
-  %cSize151.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %148, i64 %idxprom.i72, i32 1
+  %147 = load ptr, ptr %jobs.i71, align 8
+  %cSize151.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %147, i64 %idxprom.i72, i32 1
   store i64 0, ptr %cSize151.i, align 8
   %consumed152.i = getelementptr inbounds i8, ptr %mtctx, i64 3040
-  %149 = load i64, ptr %consumed152.i, align 8
-  %add153.i = add i64 %149, %107
+  %148 = load i64, ptr %consumed152.i, align 8
+  %add153.i = add i64 %148, %106
   store i64 %add153.i, ptr %consumed152.i, align 8
   %produced.i = getelementptr inbounds i8, ptr %mtctx, i64 3048
-  %150 = load i64, ptr %produced.i, align 8
-  %add154.i = add i64 %150, %cSize30.0116.i
+  %149 = load i64, ptr %produced.i, align 8
+  %add154.i = add i64 %149, %cSize30.0116.i
   store i64 %add154.i, ptr %produced.i, align 8
-  %151 = load i32, ptr %doneJobID.i68, align 4
-  %inc.i94 = add i32 %151, 1
+  %150 = load i32, ptr %doneJobID.i68, align 4
+  %inc.i94 = add i32 %150, 1
   store i32 %inc.i94, ptr %doneJobID.i68, align 4
   %.pre107.i = load ptr, ptr %jobs.i71, align 8
   br label %if.end157.i
 
 if.end157.i:                                      ; preds = %ZSTDMT_releaseBuffer.exit.i, %land.lhs.true128.i, %if.end118.i
-  %152 = phi ptr [ %.pre108.i, %if.end118.i ], [ %.pre108.i, %land.lhs.true128.i ], [ %.pre107.i, %ZSTDMT_releaseBuffer.exit.i ]
-  %dstFlushed161.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %152, i64 %idxprom.i72, i32 17
-  %153 = load i64, ptr %dstFlushed161.i, align 8
-  %cmp162.i = icmp ugt i64 %cSize30.0116.i, %153
+  %151 = phi ptr [ %.pre108.i, %if.end118.i ], [ %.pre108.i, %land.lhs.true128.i ], [ %.pre107.i, %ZSTDMT_releaseBuffer.exit.i ]
+  %dstFlushed161.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %151, i64 %idxprom.i72, i32 17
+  %152 = load i64, ptr %dstFlushed161.i, align 8
+  %cmp162.i = icmp ugt i64 %cSize30.0116.i, %152
   br i1 %cmp162.i, label %if.then164.i, label %if.end170.i
 
 if.then164.i:                                     ; preds = %if.end157.i
-  %sub169.i = sub nuw i64 %cSize30.0116.i, %153
+  %sub169.i = sub nuw i64 %cSize30.0116.i, %152
   br label %ZSTDMT_flushProduced.exit
 
 if.end170.i:                                      ; preds = %if.end81.i, %if.end157.i
-  %cmp171.i = icmp ugt i64 %108, %107
+  %cmp171.i = icmp ugt i64 %107, %106
   br i1 %cmp171.i, label %ZSTDMT_flushProduced.exit, label %if.end174.i
 
 if.end174.i:                                      ; preds = %if.end170.i
-  %154 = load i32, ptr %doneJobID.i68, align 4
+  %153 = load i32, ptr %doneJobID.i68, align 4
   %nextJobID176.i = getelementptr inbounds i8, ptr %mtctx, i64 3016
-  %155 = load i32, ptr %nextJobID176.i, align 8
-  %cmp177.i = icmp ult i32 %154, %155
+  %154 = load i32, ptr %nextJobID176.i, align 8
+  %cmp177.i = icmp ult i32 %153, %154
   br i1 %cmp177.i, label %ZSTDMT_flushProduced.exit, label %if.end180.i
 
 if.end180.i:                                      ; preds = %if.end174.i
-  %156 = load i32, ptr %jobReady, align 8
-  %tobool181.not.i = icmp eq i32 %156, 0
+  %155 = load i32, ptr %jobReady, align 8
+  %tobool181.not.i = icmp eq i32 %155, 0
   br i1 %tobool181.not.i, label %if.end183.i, label %ZSTDMT_flushProduced.exit
 
 if.end183.i:                                      ; preds = %if.end180.i
   %filled.i90 = getelementptr inbounds i8, ptr %mtctx, i64 312
-  %157 = load i64, ptr %filled.i90, align 8
-  %cmp184.not.i = icmp eq i64 %157, 0
+  %156 = load i64, ptr %filled.i90, align 8
+  %cmp184.not.i = icmp eq i64 %156, 0
   br i1 %cmp184.not.i, label %if.end187.i, label %ZSTDMT_flushProduced.exit
 
 if.end187.i:                                      ; preds = %if.end183.i
-  %158 = load i32, ptr %frameEnded, align 4
+  %157 = load i32, ptr %frameEnded, align 4
   %allJobsCompleted.i = getelementptr inbounds i8, ptr %mtctx, i64 3024
-  store i32 %158, ptr %allJobsCompleted.i, align 8
+  store i32 %157, ptr %allJobsCompleted.i, align 8
   %cmp188.i = icmp eq i32 %spec.store.select3, 2
   br i1 %cmp188.i, label %if.then190.i, label %ZSTDMT_flushProduced.exit
 
 if.then190.i:                                     ; preds = %if.end187.i
-  %tobool192.not.i = icmp eq i32 %158, 0
+  %tobool192.not.i = icmp eq i32 %157, 0
   %conv193.i = zext i1 %tobool192.not.i to i64
   br label %ZSTDMT_flushProduced.exit
 
 ZSTDMT_flushProduced.exit:                        ; preds = %ZSTDMT_waitForAllJobsCompleted.exit.i, %if.then164.i, %if.end170.i, %if.end174.i, %if.end180.i, %if.end183.i, %if.end187.i, %if.then190.i
-  %retval.0.i79 = phi i64 [ %106, %ZSTDMT_waitForAllJobsCompleted.exit.i ], [ %sub169.i, %if.then164.i ], [ %conv193.i, %if.then190.i ], [ 1, %if.end170.i ], [ 1, %if.end174.i ], [ 1, %if.end180.i ], [ 1, %if.end183.i ], [ 0, %if.end187.i ]
-  %159 = load i64, ptr %pos44, align 8
-  %160 = load i64, ptr %size45, align 8
-  %cmp96 = icmp ult i64 %159, %160
+  %retval.0.i79 = phi i64 [ %105, %ZSTDMT_waitForAllJobsCompleted.exit.i ], [ %sub169.i, %if.then164.i ], [ %conv193.i, %if.then190.i ], [ 1, %if.end170.i ], [ 1, %if.end174.i ], [ 1, %if.end180.i ], [ 1, %if.end183.i ], [ 0, %if.end187.i ]
+  %158 = load i64, ptr %pos44, align 8
+  %159 = load i64, ptr %size45, align 8
+  %cmp96 = icmp ult i64 %158, %159
   br i1 %cmp96, label %if.then98, label %return
 
 if.then98:                                        ; preds = %ZSTDMT_flushProduced.exit

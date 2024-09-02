@@ -1121,7 +1121,7 @@ define noundef i32 @_ZN13TextureObject13TextureHeightEm(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN13TextureObject7MaxSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZN13TextureObject7MaxSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1170,7 +1170,7 @@ _ZN13TextureObject13TextureHeightEm.exit:         ; preds = %_ZN13TextureObject1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN13TextureObject9ArraySizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #16 align 2 {
+define noundef range(i64 -288230376151711744, 288230376151711744) i64 @_ZN13TextureObject9ArraySizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8

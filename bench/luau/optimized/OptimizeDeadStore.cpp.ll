@@ -102,12 +102,12 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %1
   %.not = icmp eq i8 %44, 0
   br i1 %.not, label %45, label %483
 
-.loopexit:                                        ; preds = %.invoke102, %.invoke, %106, %.thread.i.i.i, %117, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit.i29.i.i, %137, %.thread4.i.i.i, %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit.i25.i.i, %151, %191, %203, %226, %236, %282, %290, %300, %326, %364, %372, %382, %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit214.i.i.i, %405, %441, %.noexc57
+.loopexit:                                        ; preds = %.invoke101, %.invoke, %106, %.thread.i.i.i, %117, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit.i29.i.i, %137, %.thread4.i.i.i, %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit.i25.i.i, %151, %191, %203, %226, %236, %282, %290, %300, %326, %364, %372, %382, %_ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exit214.i.i.i, %405, %441, %.noexc57
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
-.loopexit.split-lp:                               ; preds = %.invoke103
+.loopexit.split-lp:                               ; preds = %.invoke102
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
@@ -174,7 +174,7 @@ _ZNSt5arrayIN4Luau7CodeGen12StoreRegInfoELm256EEC2Ev.exit.i.i: ; preds = %46
   %71 = load ptr, ptr %19, align 8
   %72 = getelementptr inbounds %"struct.Luau::CodeGen::IrInst", ptr %71, i64 %70
   %73 = load i8, ptr %72, align 4
-  switch i8 %73, label %.invoke102 [
+  switch i8 %73, label %.invoke101 [
     i8 12, label %74
     i8 13, label %163
     i8 14, label %176
@@ -231,14 +231,14 @@ _ZNSt5arrayIN4Luau7CodeGen12StoreRegInfoELm256EEC2Ev.exit.i.i: ; preds = %46
   %80 = lshr i32 %76, 4
   %81 = zext nneg i32 %80 to i64
   %82 = icmp ugt i32 %76, 4095
-  br i1 %82, label %.invoke103, label %_ZNKSt6bitsetILm256EE4testEm.exit30.i.i
+  br i1 %82, label %.invoke102, label %_ZNKSt6bitsetILm256EE4testEm.exit30.i.i
 
-.invoke103:                                       ; preds = %344, %262, %216, %181, %79
+.invoke102:                                       ; preds = %344, %262, %216, %181, %79
   %83 = phi i64 [ %81, %79 ], [ %183, %181 ], [ %218, %216 ], [ %264, %262 ], [ %346, %344 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i64 noundef %83, i64 noundef 256) #7
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke103
+.cont:                                            ; preds = %.invoke102
   unreachable
 
 _ZNKSt6bitsetILm256EE4testEm.exit30.i.i:          ; preds = %79
@@ -482,7 +482,7 @@ _ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9
   %182 = lshr i32 %178, 4
   %183 = zext nneg i32 %182 to i64
   %184 = icmp ugt i32 %178, 4095
-  br i1 %184, label %.invoke103, label %_ZNKSt6bitsetILm256EE4testEm.exit22.i.i
+  br i1 %184, label %.invoke102, label %_ZNKSt6bitsetILm256EE4testEm.exit22.i.i
 
 _ZNKSt6bitsetILm256EE4testEm.exit22.i.i:          ; preds = %181
   %185 = lshr i64 %183, 6
@@ -550,7 +550,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
   %217 = lshr i32 %213, 4
   %218 = zext nneg i32 %217 to i64
   %219 = icmp ugt i32 %213, 4095
-  br i1 %219, label %.invoke103, label %_ZNKSt6bitsetILm256EE4testEm.exit.i.i.i
+  br i1 %219, label %.invoke102, label %_ZNKSt6bitsetILm256EE4testEm.exit.i.i.i
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i.i.i:          ; preds = %216
   %220 = lshr i64 %218, 6
@@ -632,7 +632,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit
   %263 = lshr i32 %259, 4
   %264 = zext nneg i32 %263 to i64
   %265 = icmp ugt i32 %259, 4095
-  br i1 %265, label %.invoke103, label %_ZNKSt6bitsetILm256EE4testEm.exit21.i.i
+  br i1 %265, label %.invoke102, label %_ZNKSt6bitsetILm256EE4testEm.exit21.i.i
 
 _ZNKSt6bitsetILm256EE4testEm.exit21.i.i:          ; preds = %262
   %266 = lshr i64 %264, 6
@@ -788,7 +788,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   %345 = lshr i32 %341, 4
   %346 = zext nneg i32 %345 to i64
   %347 = icmp ugt i32 %341, 4095
-  br i1 %347, label %.invoke103, label %_ZNKSt6bitsetILm256EE4testEm.exit.i.i
+  br i1 %347, label %.invoke102, label %_ZNKSt6bitsetILm256EE4testEm.exit.i.i
 
 _ZNKSt6bitsetILm256EE4testEm.exit.i.i:            ; preds = %344
   %348 = lshr i64 %346, 6
@@ -954,8 +954,8 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
   br label %.invoke
 
 .invoke:                                          ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %440, %439, %438, %437, %436, %435, %434, %432
-  %.sink104 = phi i64 [ 16, %440 ], [ 8, %439 ], [ 8, %438 ], [ 4, %437 ], [ 8, %436 ], [ 8, %435 ], [ 8, %434 ], [ 8, %432 ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ]
-  %433 = getelementptr inbounds i8, ptr %72, i64 %.sink104
+  %.sink103 = phi i64 [ 16, %440 ], [ 8, %439 ], [ 8, %438 ], [ 4, %437 ], [ 8, %436 ], [ 8, %435 ], [ 8, %434 ], [ 8, %432 ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ], [ 12, %.lr.ph.i.i ]
+  %433 = getelementptr inbounds i8, ptr %72, i64 %.sink103
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %433, align 4
   invoke void @_ZN4Luau7CodeGen20RemoveDeadStoreState12checkLiveInsENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(4109) %4, i32 %.sroa.0.0.copyload.i.i.i)
           to label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i unwind label %.loopexit
@@ -992,7 +992,7 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
 442:                                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %443 = load i8, ptr %17, align 4
   %444 = trunc i8 %443 to i1
-  br i1 %444, label %445, label %.invoke102
+  br i1 %444, label %445, label %.invoke101
 
 445:                                              ; preds = %442
   %446 = load i32, ptr %16, align 8
@@ -1027,13 +1027,13 @@ _ZN4Luau7CodeGen20RemoveDeadStoreState15killTValueStoreERNS0_12StoreRegInfoE.exi
 
 _ZN4Luau7CodeGen20RemoveDeadStoreState12flushGcoRegsEv.exit.i.i.i: ; preds = %455, %445
   store i8 0, ptr %17, align 4
-  br label %.invoke102
+  br label %.invoke101
 
-.invoke102:                                       ; preds = %.lr.ph.i.i, %442, %_ZN4Luau7CodeGen20RemoveDeadStoreState12flushGcoRegsEv.exit.i.i.i
+.invoke101:                                       ; preds = %.lr.ph.i.i, %442, %_ZN4Luau7CodeGen20RemoveDeadStoreState12flushGcoRegsEv.exit.i.i.i
   invoke fastcc void @_ZN4Luau7CodeGenL18visitVmRegDefsUsesINS0_20RemoveDeadStoreStateEEEvRT_RNS0_10IrFunctionERKNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(4109) %4, ptr noundef nonnull align 8 dereferenceable(616) %5, ptr noundef nonnull align 4 dereferenceable(43) %72)
           to label %_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i unwind label %.loopexit
 
-_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i: ; preds = %.invoke102, %.invoke, %.noexc57, %422, %417, %414, %.noexc43, %.noexc42, %_ZNKSt6bitsetILm256EE4testEm.exit.i.i, %339, %334, %_ZNKSt6bitsetILm256EE4testEm.exit21.i.i, %257, %249, %244, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit211.i.i.i, %.noexc31, %_ZNKSt6bitsetILm256EE4testEm.exit.i.i.i, %211, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit.i.i.i, %195, %_ZNKSt6bitsetILm256EE4testEm.exit22.i.i, %176, %168, %163, %.noexc26, %_ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.exit.i.i, %_ZNKSt6bitsetILm256EE4testEm.exit30.i.i, %74, %.lr.ph.i.i, %.lr.ph.i.i
+_ZN4Luau7CodeGenL20markDeadStoresInInstERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockERNS0_6IrInstEj.exit.i.i: ; preds = %.invoke101, %.invoke, %.noexc57, %422, %417, %414, %.noexc43, %.noexc42, %_ZNKSt6bitsetILm256EE4testEm.exit.i.i, %339, %334, %_ZNKSt6bitsetILm256EE4testEm.exit21.i.i, %257, %249, %244, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit211.i.i.i, %.noexc31, %_ZNKSt6bitsetILm256EE4testEm.exit.i.i.i, %211, %_ZN4Luau7CodeGen20RemoveDeadStoreState14killValueStoreERNS0_12StoreRegInfoE.exit.i.i.i, %195, %_ZNKSt6bitsetILm256EE4testEm.exit22.i.i, %176, %168, %163, %.noexc26, %_ZN4Luau7CodeGenL26tryReplaceTagWithFullStoreERNS0_20RemoveDeadStoreStateERNS0_9IrBuilderERNS0_10IrFunctionERNS0_7IrBlockEjNS0_4IrOpES9_RNS0_12StoreRegInfoE.exit.i.i, %_ZNKSt6bitsetILm256EE4testEm.exit30.i.i, %74, %.lr.ph.i.i, %.lr.ph.i.i
   %458 = add i32 %.041.i.i, 1
   %459 = load i32, ptr %68, align 4
   %.not.i25.i = icmp ugt i32 %458, %459

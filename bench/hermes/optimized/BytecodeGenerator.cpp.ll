@@ -4122,13 +4122,13 @@ _ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit: ; preds = %if.end8.sink
 cond.true90:                                      ; preds = %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit
   %text.i = getelementptr inbounds i8, ptr %160, i64 48
   %retval.sroa.0.0.copyload.i205 = load ptr, ptr %text.i, align 8
+  %161 = ptrtoint ptr %retval.sroa.0.0.copyload.i205 to i64
   br label %cond.end95
 
 cond.end95:                                       ; preds = %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit, %cond.true90
-  %ref.tmp87.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload.i205, %cond.true90 ], [ null, %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit ]
+  %ref.tmp87.sroa.0.0 = phi i64 [ %161, %cond.true90 ], [ 0, %_ZNSt10shared_ptrIKN6hermes15SerializedScopeEED2Ev.exit ]
   %closureAlias = getelementptr inbounds i8, ptr %call.i, i64 40
-  %161 = ptrtoint ptr %ref.tmp87.sroa.0.0 to i64
-  store i64 %161, ptr %closureAlias, align 8
+  store i64 %ref.tmp87.sroa.0.0, ptr %closureAlias, align 8
   %strictMode_.i206 = getelementptr inbounds i8, ptr %155, i64 188
   %162 = load i8, ptr %strictMode_.i206, align 4
   %strictMode = getelementptr inbounds i8, ptr %call.i, i64 76

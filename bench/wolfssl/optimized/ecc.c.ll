@@ -255,22 +255,22 @@ entry:
   %mul1 = and i32 %mul, 134217726
   %1 = shl nuw nsw i32 %mul1, 3
   %narrow = add nuw nsw i32 %1, 16
-  %add12 = zext nneg i32 %narrow to i64
-  %vla = alloca i8, i64 %add12, align 16
-  %vla37 = alloca i8, i64 %add12, align 16
+  %2 = zext nneg i32 %narrow to i64
+  %vla = alloca i8, i64 %2, align 16
+  %vla37 = alloca i8, i64 %2, align 16
   %cmp38 = icmp eq ptr %Q, %R
   %Q.addr.0 = select i1 %cmp38, ptr %P, ptr %Q
   %P.addr.0 = select i1 %cmp38, ptr %Q, ptr %P
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla, i8 0, i64 %add12, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla37, i8 0, i64 %add12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla, i8 0, i64 %2, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla37, i8 0, i64 %2, i1 false)
   %add94 = or disjoint i32 %mul1, 1
   %call = call i32 @sp_init_size(ptr noundef nonnull %vla, i32 noundef %add94) #19
   %cmp95 = icmp eq i32 %call, 0
   br i1 %cmp95, label %if.end106, label %cleanup
 
 if.end106:                                        ; preds = %entry
-  %2 = load i32, ptr %modulus, align 8
-  %mul99 = shl i32 %2, 1
+  %3 = load i32, ptr %modulus, align 8
+  %mul99 = shl i32 %3, 1
   %mul103 = and i32 %mul99, 134217726
   %add104 = or disjoint i32 %mul103, 1
   %call105 = call i32 @sp_init_size(ptr noundef nonnull %vla37, i32 noundef %add104) #19
@@ -280,8 +280,8 @@ if.end106:                                        ; preds = %entry
 if.then116:                                       ; preds = %if.end106
   %y117 = getelementptr inbounds i8, ptr %Q.addr.0, i64 1040
   %call118 = call i32 @sp_submod_ct(ptr noundef nonnull %modulus, ptr noundef nonnull %y117, ptr noundef nonnull %modulus, ptr noundef nonnull %vla) #19
-  %cond = icmp eq i32 %call118, 0
-  br i1 %cond, label %if.then122, label %done
+  %cond237 = icmp eq i32 %call118, 0
+  br i1 %cond237, label %if.then122, label %done
 
 if.then122:                                       ; preds = %if.then116
   %call127 = call i32 @sp_cmp(ptr noundef %P.addr.0, ptr noundef %Q.addr.0) #19
@@ -338,8 +338,8 @@ if.end194:                                        ; preds = %if.end187
 
 if.then197:                                       ; preds = %if.end194
   %z198 = getelementptr inbounds i8, ptr %Q.addr.0, i64 2080
-  %3 = load i32, ptr %z198, align 8
-  %cmp201 = icmp eq i32 %3, 0
+  %4 = load i32, ptr %z198, align 8
+  %cmp201 = icmp eq i32 %4, 0
   br i1 %cmp201, label %if.end250, label %if.then203
 
 if.then203:                                       ; preds = %if.then197
@@ -453,8 +453,8 @@ if.end319:                                        ; preds = %if.end314
   br i1 %cmp320, label %if.then322, label %done
 
 if.then322:                                       ; preds = %if.end319
-  %4 = load i32, ptr %z198, align 8
-  %cmp326 = icmp eq i32 %4, 0
+  %5 = load i32, ptr %z198, align 8
+  %cmp326 = icmp eq i32 %5, 0
   br i1 %cmp326, label %if.end343, label %if.then328
 
 if.then328:                                       ; preds = %if.then322
@@ -616,19 +616,19 @@ entry:
   %mul1 = and i32 %mul, 134217726
   %1 = shl nuw nsw i32 %mul1, 3
   %narrow = add nuw nsw i32 %1, 16
-  %add12 = zext nneg i32 %narrow to i64
-  %vla = alloca i8, i64 %add12, align 16
-  %vla37 = alloca i8, i64 %add12, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla, i8 0, i64 %add12, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla37, i8 0, i64 %add12, i1 false)
+  %2 = zext nneg i32 %narrow to i64
+  %vla = alloca i8, i64 %2, align 16
+  %vla37 = alloca i8, i64 %2, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla, i8 0, i64 %2, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla37, i8 0, i64 %2, i1 false)
   %add92 = or disjoint i32 %mul1, 1
   %call = call i32 @sp_init_size(ptr noundef nonnull %vla, i32 noundef %add92) #19
   %cmp93 = icmp eq i32 %call, 0
   br i1 %cmp93, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %entry
-  %2 = load i32, ptr %modulus, align 8
-  %mul96 = shl i32 %2, 1
+  %3 = load i32, ptr %modulus, align 8
+  %mul96 = shl i32 %3, 1
   %mul100 = and i32 %mul96, 134217726
   %add101 = or disjoint i32 %mul100, 1
   %call102 = call i32 @sp_init_size(ptr noundef nonnull %vla37, i32 noundef %add101) #19
@@ -806,9 +806,9 @@ entry:
   %mul = shl i32 %0, 4
   %mul1 = and i32 %mul, 1073741808
   %narrow = add nuw nsw i32 %mul1, 16
-  %add12 = zext nneg i32 %narrow to i64
-  %vla = alloca i8, i64 %add12, align 16
-  %vla37 = alloca i8, i64 %add12, align 16
+  %1 = zext nneg i32 %narrow to i64
+  %vla = alloca i8, i64 %1, align 16
+  %vla37 = alloca i8, i64 %1, align 16
   %cmp38 = icmp eq ptr %P, null
   br i1 %cmp38, label %cleanup, label %if.end
 
@@ -834,27 +834,27 @@ if.then58:                                        ; preds = %if.end55
   br label %cleanup
 
 if.end63:                                         ; preds = %if.end
-  %1 = load i32, ptr %modulus, align 8
-  %mul65 = shl i32 %1, 1
+  %2 = load i32, ptr %modulus, align 8
+  %mul65 = shl i32 %2, 1
   %mul69 = and i32 %mul65, 134217726
-  %2 = shl nuw nsw i32 %mul69, 3
-  %narrow76 = add nuw nsw i32 %2, 16
-  %add87 = zext nneg i32 %narrow76 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla, i8 0, i64 %add87, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla37, i8 0, i64 %add87, i1 false)
+  %3 = shl nuw nsw i32 %mul69, 3
+  %narrow76 = add nuw nsw i32 %3, 16
+  %4 = zext nneg i32 %narrow76 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla37, i8 0, i64 %4, i1 false)
   %add118 = or disjoint i32 %mul69, 1
   %call119 = call i32 @sp_init_size(ptr noundef nonnull %vla, i32 noundef %add118) #19
   %cmp120 = icmp eq i32 %call119, 0
   br i1 %cmp120, label %if.then122, label %cleanup
 
 if.then122:                                       ; preds = %if.end63
-  %3 = load i32, ptr %modulus, align 8
-  %mul124 = shl i32 %3, 1
+  %5 = load i32, ptr %modulus, align 8
+  %mul124 = shl i32 %5, 1
   %mul128 = and i32 %mul124, 134217726
   %add129 = or disjoint i32 %mul128, 1
   %call130 = call i32 @sp_init_size(ptr noundef nonnull %vla37, i32 noundef %add129) #19
-  %4 = icmp eq i32 %call130, 0
-  br i1 %4, label %if.end138, label %cleanup
+  %6 = icmp eq i32 %call130, 0
+  br i1 %6, label %if.end138, label %cleanup
 
 if.end138:                                        ; preds = %if.then122
   %y141 = getelementptr inbounds i8, ptr %P, i64 1040
@@ -3680,65 +3680,49 @@ return:                                           ; preds = %entry, %if.end
 define i32 @wc_ecc_sign_hash(ptr noundef %in, i32 noundef %inlen, ptr noundef %out, ptr noundef %outlen, ptr noundef %rng, ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %key, null
-  br i1 %cmp, label %cond.end40.thread, label %lor.lhs.false
+  br i1 %cmp, label %cond.end25, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %dp = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp, align 8
   %cmp1 = icmp eq ptr %0, null
-  br i1 %cmp1, label %lor.lhs.false53.thread, label %cond.end
+  br i1 %cmp1, label %lor.lhs.false31, label %cond.false
 
-lor.lhs.false53.thread:                           ; preds = %lor.lhs.false
-  %vla8097107 = alloca [160 x i8], align 16
-  br label %cond.end70
-
-cond.end:                                         ; preds = %lor.lhs.false
+cond.false:                                       ; preds = %lor.lhs.false
   %1 = load i32, ptr %0, align 8
   %mul = shl nsw i32 %1, 3
-  %sub = add i32 %mul, 63
-  %cmp5 = icmp ult i32 %sub, 64
-  br i1 %cmp5, label %lor.lhs.false31.thread, label %lor.lhs.false31
-
-lor.lhs.false31.thread:                           ; preds = %cond.end
-  %vla7190 = alloca [16 x i8], align 16
-  br label %cond.end40
-
-cond.end40.thread:                                ; preds = %entry
-  %vla91 = alloca [160 x i8], align 16
-  br label %cond.end70
-
-lor.lhs.false31:                                  ; preds = %cond.end
-  %2 = load i32, ptr %0, align 8
-  %mul16 = shl nsw i32 %2, 3
-  %3 = add i32 %mul16, 63
-  %4 = lshr i32 %3, 2
+  %2 = add i32 %mul, 63
+  %3 = icmp ult i32 %2, 64
+  %4 = lshr i32 %2, 2
   %5 = and i32 %4, 1073741808
-  %6 = add nuw nsw i32 %5, 16
-  %7 = zext nneg i32 %6 to i64
-  %vla80 = alloca i8, i64 %7, align 16
-  br label %cond.end40
+  %narrow = add nuw nsw i32 %5, 16
+  %narrow74 = select i1 %3, i32 16, i32 %narrow
+  %cond26.ph.ph = zext nneg i32 %narrow74 to i64
+  %vla6471 = alloca i8, i64 %cond26.ph.ph, align 16
+  %6 = load i32, ptr %0, align 8
+  %mul39 = shl nsw i32 %6, 3
+  %7 = add i32 %mul39, 63
+  %8 = icmp ult i32 %7, 64
+  br i1 %8, label %cond.end70, label %cond.false58
 
-cond.end40:                                       ; preds = %lor.lhs.false31.thread, %lor.lhs.false31
-  %vla7293 = phi ptr [ %vla7190, %lor.lhs.false31.thread ], [ %vla80, %lor.lhs.false31 ]
-  %8 = load i32, ptr %0, align 8
-  %mul39 = shl nsw i32 %8, 3
-  %9 = add i32 %mul39, 63
-  %10 = icmp ult i32 %9, 64
-  br i1 %10, label %cond.end70, label %cond.false58
-
-cond.false58:                                     ; preds = %cond.end40
-  %11 = load i32, ptr %0, align 8
-  %mul61 = shl nsw i32 %11, 3
-  %12 = add i32 %mul61, 63
-  %13 = lshr i32 %12, 2
-  %14 = and i32 %13, 1073741808
-  %narrow60 = add nuw nsw i32 %14, 16
-  %15 = zext nneg i32 %narrow60 to i64
+cond.end25:                                       ; preds = %entry
+  %vla69 = alloca [160 x i8], align 16
   br label %cond.end70
 
-cond.end70:                                       ; preds = %lor.lhs.false53.thread, %cond.end40, %cond.end40.thread, %cond.false58
-  %vla7387 = phi ptr [ %vla7293, %cond.false58 ], [ %vla91, %cond.end40.thread ], [ %vla7293, %cond.end40 ], [ %vla8097107, %lor.lhs.false53.thread ]
-  %cond71 = phi i64 [ %15, %cond.false58 ], [ 160, %cond.end40.thread ], [ 16, %cond.end40 ], [ 160, %lor.lhs.false53.thread ]
+lor.lhs.false31:                                  ; preds = %lor.lhs.false
+  %vla6475 = alloca [160 x i8], align 16
+  br label %cond.end70
+
+cond.false58:                                     ; preds = %cond.false
+  %9 = lshr i32 %7, 2
+  %10 = and i32 %9, 1073741808
+  %narrow57 = add nuw nsw i32 %10, 16
+  %11 = zext nneg i32 %narrow57 to i64
+  br label %cond.end70
+
+cond.end70:                                       ; preds = %lor.lhs.false31, %cond.end25, %cond.false, %cond.false58
+  %vla66 = phi ptr [ %vla6471, %cond.false ], [ %vla6471, %cond.false58 ], [ %vla69, %cond.end25 ], [ %vla6475, %lor.lhs.false31 ]
+  %cond71 = phi i64 [ 16, %cond.false ], [ %11, %cond.false58 ], [ 160, %cond.end25 ], [ 160, %lor.lhs.false31 ]
   %vla75 = alloca i8, i64 %cond71, align 16
   %cmp76 = icmp eq ptr %in, null
   %cmp79 = icmp eq ptr %out, null
@@ -3746,83 +3730,88 @@ cond.end70:                                       ; preds = %lor.lhs.false53.thr
   %cmp82 = icmp eq ptr %outlen, null
   %or.cond1 = or i1 %or.cond, %cmp82
   %cmp87 = icmp eq ptr %rng, null
-  %16 = or i1 %or.cond1, %cmp87
-  %or.cond63 = or i1 %16, %cmp
-  br i1 %or.cond63, label %cleanup, label %if.end90
+  %12 = or i1 %or.cond1, %cmp87
+  %or.cond62 = or i1 %12, %cmp
+  br i1 %or.cond62, label %cleanup, label %if.end90
 
 if.end90:                                         ; preds = %cond.end70
   %dp91 = getelementptr inbounds i8, ptr %key, i64 16
-  %17 = load ptr, ptr %dp91, align 8
-  %cmp92 = icmp eq ptr %17, null
+  %13 = load ptr, ptr %dp91, align 8
+  %cmp92 = icmp eq ptr %13, null
   br i1 %cmp92, label %cond.end166, label %cond.false95
 
 cond.false95:                                     ; preds = %if.end90
-  %18 = load i32, ptr %17, align 8
-  %mul98 = shl nsw i32 %18, 3
-  %19 = add i32 %mul98, 63
-  %20 = icmp ult i32 %19, 64
-  %21 = lshr i32 %19, 2
-  %22 = and i32 %21, 1073741808
-  %narrow61 = add nuw nsw i32 %22, 16
-  %narrow = select i1 %20, i32 16, i32 %narrow61
-  %cond127.ph = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla7387, i8 0, i64 %cond127.ph, i1 false)
-  %23 = load i32, ptr %17, align 8
-  %mul138 = shl nsw i32 %23, 3
-  %24 = add i32 %mul138, 63
-  %25 = icmp ult i32 %24, 64
-  %26 = lshr i32 %24, 2
-  %27 = and i32 %26, 1073741808
-  %narrow62 = add nuw nsw i32 %27, 16
-  %narrow108 = select i1 %25, i32 16, i32 %narrow62
-  %cond167.ph = zext nneg i32 %narrow108 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla75, i8 0, i64 %cond167.ph, i1 false)
-  %28 = lshr i32 %24, 5
-  %29 = or i32 %28, 1
-  br label %cond.end179
+  %14 = load i32, ptr %13, align 8
+  %mul98 = shl nsw i32 %14, 3
+  %15 = add i32 %mul98, 63
+  %16 = icmp ult i32 %15, 64
+  br i1 %16, label %cond.false135.thread, label %cond.false154
+
+cond.false135.thread:                             ; preds = %cond.false95
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %vla66, i8 0, i64 16, i1 false)
+  br label %cond.false175
+
+cond.false154:                                    ; preds = %cond.false95
+  %17 = lshr i32 %15, 2
+  %18 = and i32 %17, 1073741808
+  %narrow58 = add nuw nsw i32 %18, 16
+  %19 = zext nneg i32 %narrow58 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla66, i8 0, i64 %19, i1 false)
+  %20 = lshr i32 %15, 2
+  %21 = and i32 %20, 1073741808
+  %narrow59 = add nuw nsw i32 %21, 16
+  %22 = zext nneg i32 %narrow59 to i64
+  br label %cond.false175
 
 cond.end166:                                      ; preds = %if.end90
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla7387, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla66, i8 0, i64 160, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla75, i8 0, i64 160, i1 false)
   br label %cond.end179
 
-cond.end179:                                      ; preds = %cond.end166, %cond.false95
-  %cond180 = phi i32 [ %29, %cond.false95 ], [ 19, %cond.end166 ]
-  %call = call i32 @sp_init_size(ptr noundef nonnull %vla7387, i32 noundef %cond180) #19
+cond.false175:                                    ; preds = %cond.false135.thread, %cond.false154
+  %cond167.ph = phi i64 [ %22, %cond.false154 ], [ 16, %cond.false135.thread ]
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %vla75, i8 0, i64 %cond167.ph, i1 false)
+  %23 = lshr i32 %15, 5
+  %24 = or i32 %23, 1
+  br label %cond.end179
+
+cond.end179:                                      ; preds = %cond.end166, %cond.false175
+  %cond180 = phi i32 [ %24, %cond.false175 ], [ 19, %cond.end166 ]
+  %call = call i32 @sp_init_size(ptr noundef nonnull %vla66, i32 noundef %cond180) #19
   %cmp186.not = icmp eq i32 %call, 0
   br i1 %cmp186.not, label %if.end195, label %cleanup
 
 if.end195:                                        ; preds = %cond.end179
-  %30 = load ptr, ptr %dp91, align 8
-  %cmp197 = icmp eq ptr %30, null
+  %25 = load ptr, ptr %dp91, align 8
+  %cmp197 = icmp eq ptr %25, null
   br i1 %cmp197, label %cond.end204, label %cond.false200
 
 cond.false200:                                    ; preds = %if.end195
-  %31 = load i32, ptr %30, align 8
-  %mul203 = shl nsw i32 %31, 3
-  %32 = add i32 %mul203, 63
-  %33 = lshr i32 %32, 5
-  %34 = or i32 %33, 1
+  %26 = load i32, ptr %25, align 8
+  %mul203 = shl nsw i32 %26, 3
+  %27 = add i32 %mul203, 63
+  %28 = lshr i32 %27, 5
+  %29 = or i32 %28, 1
   br label %cond.end204
 
 cond.end204:                                      ; preds = %if.end195, %cond.false200
-  %cond205 = phi i32 [ %34, %cond.false200 ], [ 19, %if.end195 ]
+  %cond205 = phi i32 [ %29, %cond.false200 ], [ 19, %if.end195 ]
   %call211 = call i32 @sp_init_size(ptr noundef nonnull %vla75, i32 noundef %cond205) #19
   %cmp212.not = icmp eq i32 %call211, 0
   br i1 %cmp212.not, label %if.end221, label %cleanup
 
 if.end221:                                        ; preds = %cond.end204
-  %call222 = call i32 @wc_ecc_sign_hash_ex(ptr noundef nonnull %in, i32 noundef %inlen, ptr noundef nonnull %rng, ptr noundef nonnull %key, ptr noundef nonnull %vla7387, ptr noundef nonnull %vla75)
+  %call222 = call i32 @wc_ecc_sign_hash_ex(ptr noundef nonnull %in, i32 noundef %inlen, ptr noundef nonnull %rng, ptr noundef nonnull %key, ptr noundef nonnull %vla66, ptr noundef nonnull %vla75)
   %cmp223 = icmp slt i32 %call222, 0
   br i1 %cmp223, label %cleanup.sink.split, label %if.end232
 
 if.end232:                                        ; preds = %if.end221
-  %call233 = call i32 @StoreECC_DSA_Sig(ptr noundef nonnull %out, ptr noundef nonnull %outlen, ptr noundef nonnull %vla7387, ptr noundef nonnull %vla75) #19
+  %call233 = call i32 @StoreECC_DSA_Sig(ptr noundef nonnull %out, ptr noundef nonnull %outlen, ptr noundef nonnull %vla66, ptr noundef nonnull %vla75) #19
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %if.end221, %if.end232
   %retval.0.ph = phi i32 [ %call233, %if.end232 ], [ %call222, %if.end221 ]
-  call void @sp_clear(ptr noundef nonnull %vla7387) #19
+  call void @sp_clear(ptr noundef nonnull %vla66) #19
   call void @sp_clear(ptr noundef nonnull %vla75) #19
   br label %cleanup
 
@@ -3844,27 +3833,24 @@ lor.lhs.false:                                    ; preds = %entry
   %dp = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp, align 8
   %cmp1 = icmp eq ptr %0, null
-  br i1 %cmp1, label %cond.end25, label %cond.end
+  br i1 %cmp1, label %cond.end25, label %cond.false
 
-cond.end:                                         ; preds = %lor.lhs.false
+cond.false:                                       ; preds = %lor.lhs.false
   %1 = load i32, ptr %0, align 8
   %mul = shl nsw i32 %1, 3
-  %sub = add i32 %mul, 63
-  %cmp5 = icmp ult i32 %sub, 64
-  br i1 %cmp5, label %cond.end25, label %cond.false13
+  %2 = add i32 %mul, 63
+  %3 = icmp ult i32 %2, 64
+  br i1 %3, label %cond.end25, label %cond.false13
 
-cond.false13:                                     ; preds = %cond.end
-  %2 = load i32, ptr %0, align 8
-  %mul16 = shl nsw i32 %2, 3
-  %3 = add i32 %mul16, 63
-  %4 = lshr i32 %3, 2
+cond.false13:                                     ; preds = %cond.false
+  %4 = lshr i32 %2, 2
   %5 = and i32 %4, 1073741808
-  %6 = add nuw nsw i32 %5, 16
-  %7 = zext nneg i32 %6 to i64
+  %narrow = add nuw nsw i32 %5, 16
+  %6 = zext nneg i32 %narrow to i64
   br label %cond.end25
 
-cond.end25:                                       ; preds = %lor.lhs.false, %cond.false13, %entry, %cond.end
-  %cond26 = phi i64 [ 16, %cond.end ], [ %7, %cond.false13 ], [ 160, %entry ], [ 160, %lor.lhs.false ]
+cond.end25:                                       ; preds = %lor.lhs.false, %entry, %cond.false, %cond.false13
+  %cond26 = phi i64 [ 16, %cond.false ], [ %6, %cond.false13 ], [ 160, %entry ], [ 160, %lor.lhs.false ]
   %vla = alloca i8, i64 %cond26, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %curve_lcl, i8 0, i64 72, i1 false)
   %spec_ints29 = getelementptr inbounds i8, ptr %curve_lcl, i64 48
@@ -3877,61 +3863,61 @@ cond.end25:                                       ; preds = %lor.lhs.false, %con
   %cmp36 = icmp eq ptr %s, null
   %or.cond1 = or i1 %or.cond, %cmp36
   %cmp42 = icmp eq ptr %rng, null
-  %8 = or i1 %cmp42, %or.cond1
-  %or.cond3 = or i1 %cmp, %8
+  %7 = or i1 %cmp42, %or.cond1
+  %or.cond3 = or i1 %cmp, %7
   br i1 %or.cond3, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %cond.end25
-  %9 = load i32, ptr %key, align 8
-  %10 = and i32 %9, -2
-  %switch = icmp eq i32 %10, 2
+  %8 = load i32, ptr %key, align 8
+  %9 = and i32 %8, -2
+  %switch = icmp eq i32 %9, 2
   br i1 %switch, label %if.end50, label %cleanup
 
 if.end50:                                         ; preds = %if.end
   %idx = getelementptr inbounds i8, ptr %key, i64 4
-  %11 = load i32, ptr %idx, align 4
-  %12 = add i32 %11, -5
-  %narrow.i = icmp ult i32 %12, -6
+  %10 = load i32, ptr %idx, align 4
+  %11 = add i32 %10, -5
+  %narrow.i = icmp ult i32 %11, -6
   br i1 %narrow.i, label %cleanup, label %lor.lhs.false53
 
 lor.lhs.false53:                                  ; preds = %if.end50
   %dp54 = getelementptr inbounds i8, ptr %key, i64 16
-  %13 = load ptr, ptr %dp54, align 8
-  %cmp55 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %dp54, align 8
+  %cmp55 = icmp eq ptr %12, null
   br i1 %cmp55, label %cleanup, label %cond.end67
 
 cond.end67:                                       ; preds = %lor.lhs.false53
-  %14 = load i32, ptr %13, align 8
-  %mul66 = shl nsw i32 %14, 3
+  %13 = load i32, ptr %12, align 8
+  %mul66 = shl nsw i32 %13, 3
   %sub70 = add i32 %mul66, 63
   %cmp74 = icmp ult i32 %sub70, 64
-  %15 = lshr i32 %sub70, 2
-  %16 = and i32 %15, 1073741808
-  %narrow52 = add nuw nsw i32 %16, 16
-  %narrow = select i1 %cmp74, i32 16, i32 %narrow52
-  %cond95 = zext nneg i32 %narrow to i64
+  %14 = lshr i32 %sub70, 2
+  %15 = and i32 %14, 1073741808
+  %narrow50 = add nuw nsw i32 %15, 16
+  %narrow59 = select i1 %cmp74, i32 16, i32 %narrow50
+  %cond95 = zext nneg i32 %narrow59 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla, i8 0, i64 %cond95, i1 false)
-  %17 = lshr i32 %sub70, 5
-  %18 = or i32 %17, 1
-  %call114 = call i32 @sp_init_size(ptr noundef nonnull %vla, i32 noundef %18) #19
+  %16 = lshr i32 %sub70, 5
+  %17 = or i32 %16, 1
+  %call114 = call i32 @sp_init_size(ptr noundef nonnull %vla, i32 noundef %17) #19
   %cmp115.not = icmp eq i32 %call114, 0
   br i1 %cmp115.not, label %if.then124, label %cleanup
 
 if.then124:                                       ; preds = %cond.end67
-  %19 = load ptr, ptr %dp54, align 8
-  %call126 = call fastcc i32 @wc_ecc_curve_load(ptr noundef %19, ptr nonnull %curve_lcl, i8 noundef zeroext 8)
+  %18 = load ptr, ptr %dp54, align 8
+  %call126 = call fastcc i32 @wc_ecc_curve_load(ptr noundef %18, ptr nonnull %curve_lcl, i8 noundef zeroext 8)
   %cmp128 = icmp eq i32 %call126, 0
   br i1 %cmp128, label %if.then130, label %if.end165
 
 if.then130:                                       ; preds = %if.then124
   %order = getelementptr inbounds i8, ptr %curve_lcl, i64 24
-  %20 = load ptr, ptr %order, align 8
-  %call131 = call i32 @sp_count_bits(ptr noundef %20) #19
+  %19 = load ptr, ptr %order, align 8
+  %call131 = call i32 @sp_count_bits(ptr noundef %19) #19
   %mul132 = shl i32 %inlen, 3
   %cmp133 = icmp ugt i32 %mul132, %call131
   %sub137 = add i32 %call131, 7
-  %div13853 = lshr i32 %sub137, 3
-  %inlen.addr.0 = select i1 %cmp133, i32 %div13853, i32 %inlen
+  %div13851 = lshr i32 %sub137, 3
+  %inlen.addr.0 = select i1 %cmp133, i32 %div13851, i32 %inlen
   %call140 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %vla, ptr noundef nonnull %in, i32 noundef %inlen.addr.0) #19
   %cmp141 = icmp eq i32 %call140, 0
   br i1 %cmp141, label %land.lhs.true143, label %if.end165
@@ -3949,7 +3935,7 @@ if.then147:                                       ; preds = %land.lhs.true143
 
 if.then154:                                       ; preds = %if.then147, %land.lhs.true143
   %heap = getelementptr inbounds i8, ptr %key, i64 24
-  %21 = load ptr, ptr %heap, align 8
+  %20 = load ptr, ptr %heap, align 8
   %k.i = getelementptr inbounds i8, ptr %pubkey, i64 3152
   %pubkey.i = getelementptr inbounds i8, ptr %pubkey, i64 32
   %y.i = getelementptr inbounds i8, ptr %pubkey, i64 1072
@@ -3961,7 +3947,7 @@ if.then154:                                       ; preds = %if.then147, %land.l
 
 if.then159:                                       ; preds = %if.then154
   %heap9.i = getelementptr inbounds i8, ptr %pubkey, i64 24
-  store ptr %21, ptr %heap9.i, align 8
+  store ptr %20, ptr %heap9.i, align 8
   %call161 = call fastcc i32 @ecc_sign_hash_sw(ptr noundef nonnull %key, ptr noundef nonnull %pubkey, ptr noundef nonnull %rng, ptr noundef nonnull %curve_lcl, ptr noundef nonnull %vla, ptr noundef nonnull %r, ptr noundef nonnull %s)
   %call163 = call i32 @wc_ecc_free(ptr noundef nonnull %pubkey)
   br label %if.end165
@@ -3987,48 +3973,48 @@ entry:
   %dp = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp, align 8
   %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %cond.end61, label %cond.end
+  br i1 %cmp, label %cond.end61, label %cond.false
 
-cond.end:                                         ; preds = %entry
+cond.false:                                       ; preds = %entry
   %1 = load i32, ptr %0, align 8
   %mul = shl nsw i32 %1, 3
-  %sub = add i32 %mul, 63
-  %cmp4 = icmp ult i32 %sub, 64
-  br i1 %cmp4, label %cond.false30.thread, label %cond.false49
+  %2 = add i32 %mul, 63
+  %3 = icmp ult i32 %2, 64
+  br i1 %3, label %cond.false30.thread, label %cond.false49
 
-cond.false30.thread:                              ; preds = %cond.end
-  %vla7793 = alloca [16 x i8], align 16
+cond.false30.thread:                              ; preds = %cond.false
+  %vla7095104 = alloca [16 x i8], align 16
   br label %cond.false72
 
-cond.false49:                                     ; preds = %cond.end
-  %2 = lshr i32 %sub, 2
-  %3 = and i32 %2, 1073741808
-  %narrow = add nuw nsw i32 %3, 16
-  %add25 = zext nneg i32 %narrow to i64
-  %vla = alloca i8, i64 %add25, align 16
-  %4 = lshr i32 %sub, 2
+cond.false49:                                     ; preds = %cond.false
+  %4 = lshr i32 %2, 2
   %5 = and i32 %4, 1073741808
-  %narrow70 = add nuw nsw i32 %5, 16
-  %6 = zext nneg i32 %narrow70 to i64
+  %narrow = add nuw nsw i32 %5, 16
+  %6 = zext nneg i32 %narrow to i64
+  %vla70 = alloca i8, i64 %6, align 16
+  %7 = lshr i32 %2, 2
+  %8 = and i32 %7, 1073741808
+  %narrow68 = add nuw nsw i32 %8, 16
+  %9 = zext nneg i32 %narrow68 to i64
   br label %cond.false72
 
 cond.end61:                                       ; preds = %entry
-  %vla8794 = alloca [160 x i8], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla8794, i8 0, i64 160, i1 false)
+  %vla79 = alloca [160 x i8], align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla79, i8 0, i64 160, i1 false)
   br label %cond.end76
 
 cond.false72:                                     ; preds = %cond.false30.thread, %cond.false49
-  %vla79110 = phi ptr [ %vla, %cond.false49 ], [ %vla7793, %cond.false30.thread ]
-  %cond62.ph = phi i64 [ %6, %cond.false49 ], [ 16, %cond.false30.thread ]
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %vla79110, i8 0, i64 %cond62.ph, i1 false)
-  %7 = lshr i32 %sub, 5
-  %8 = or i32 %7, 1
+  %vla7096 = phi ptr [ %vla70, %cond.false49 ], [ %vla7095104, %cond.false30.thread ]
+  %cond62.ph = phi i64 [ %9, %cond.false49 ], [ 16, %cond.false30.thread ]
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %vla7096, i8 0, i64 %cond62.ph, i1 false)
+  %10 = lshr i32 %2, 5
+  %11 = or i32 %10, 1
   br label %cond.end76
 
 cond.end76:                                       ; preds = %cond.end61, %cond.false72
-  %vla7892 = phi ptr [ %vla79110, %cond.false72 ], [ %vla8794, %cond.end61 ]
-  %cond77 = phi i32 [ %8, %cond.false72 ], [ 19, %cond.end61 ]
-  %call = call i32 @sp_init_size(ptr noundef nonnull %vla7892, i32 noundef %cond77) #19
+  %vla7178 = phi ptr [ %vla7096, %cond.false72 ], [ %vla79, %cond.end61 ]
+  %cond77 = phi i32 [ %11, %cond.false72 ], [ 19, %cond.end61 ]
+  %call = call i32 @sp_init_size(ptr noundef nonnull %vla7178, i32 noundef %cond77) #19
   %cmp83 = icmp eq i32 %call, 0
   br i1 %cmp83, label %do.body.preheader, label %for.end
 
@@ -4043,10 +4029,10 @@ do.body:                                          ; preds = %do.body.preheader, 
 
 if.end89:                                         ; preds = %do.body
   %inc = add nuw nsw i32 %loop_check.1, 1
-  %9 = load ptr, ptr %dp, align 8
-  %10 = load i32, ptr %9, align 8
-  %11 = load ptr, ptr %order, align 8
-  %call92 = call i32 @wc_ecc_gen_k(ptr noundef %rng, i32 noundef %10, ptr noundef nonnull %vla7892, ptr noundef %11)
+  %12 = load ptr, ptr %dp, align 8
+  %13 = load i32, ptr %12, align 8
+  %14 = load ptr, ptr %order, align 8
+  %call92 = call i32 @wc_ecc_gen_k(ptr noundef %rng, i32 noundef %13, ptr noundef nonnull %vla7178, ptr noundef %14)
   %cmp93 = icmp eq i32 %call92, -121
   br i1 %cmp93, label %do.body, label %if.end95, !llvm.loop !19
 
@@ -4055,8 +4041,8 @@ if.end95:                                         ; preds = %if.end89
   %order112 = getelementptr inbounds i8, ptr %curve, i64 24
   %k = getelementptr inbounds i8, ptr %pubkey, i64 3152
   %k127 = getelementptr inbounds i8, ptr %key, i64 3152
-  %cmp9695 = icmp eq i32 %call92, 0
-  br i1 %cmp9695, label %for.body.lr.ph, label %for.end
+  %cmp9680 = icmp eq i32 %call92, 0
+  br i1 %cmp9680, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end95
   %y = getelementptr inbounds i8, ptr %pubkey, i64 1072
@@ -4064,71 +4050,71 @@ for.body.lr.ph:                                   ; preds = %if.end95
   br label %if.end102
 
 if.end102:                                        ; preds = %for.body.lr.ph, %if.end180
-  %inc98119 = phi i32 [ 1, %for.body.lr.ph ], [ %inc98, %if.end180 ]
-  %12 = load ptr, ptr %dp, align 8
-  %13 = load i32, ptr %12, align 8
-  %id = getelementptr inbounds i8, ptr %12, i64 4
-  %14 = load i32, ptr %id, align 4
-  %call106 = call fastcc i32 @_ecc_make_key_ex(ptr noundef %rng, i32 noundef %13, ptr noundef %pubkey, i32 noundef %14, i32 noundef 0)
+  %inc98106 = phi i32 [ 1, %for.body.lr.ph ], [ %inc98, %if.end180 ]
+  %15 = load ptr, ptr %dp, align 8
+  %16 = load i32, ptr %15, align 8
+  %id = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = load i32, ptr %id, align 4
+  %call106 = call fastcc i32 @_ecc_make_key_ex(ptr noundef %rng, i32 noundef %16, ptr noundef %pubkey, i32 noundef %17, i32 noundef 0)
   %cmp107.not = icmp eq i32 %call106, 0
   br i1 %cmp107.not, label %if.end110, label %for.end
 
 if.end110:                                        ; preds = %if.end102
-  %15 = load ptr, ptr %order112, align 8
-  %call113 = call i32 @sp_mod(ptr noundef nonnull %pubkey111, ptr noundef %15, ptr noundef %r) #19
+  %18 = load ptr, ptr %order112, align 8
+  %call113 = call i32 @sp_mod(ptr noundef nonnull %pubkey111, ptr noundef %18, ptr noundef %r) #19
   %cmp114.not = icmp eq i32 %call113, 0
   br i1 %cmp114.not, label %if.end117, label %for.end
 
 if.end117:                                        ; preds = %if.end110
-  %16 = load i32, ptr %r, align 8
-  %cmp118.not = icmp eq i32 %16, 0
+  %19 = load i32, ptr %r, align 8
+  %cmp118.not = icmp eq i32 %19, 0
   br i1 %cmp118.not, label %if.end180, label %if.then122
 
 if.then122:                                       ; preds = %if.end117
-  %17 = load ptr, ptr %order112, align 8
-  %call132 = call i32 @sp_mulmod(ptr noundef nonnull %k, ptr noundef nonnull %vla7892, ptr noundef %17, ptr noundef nonnull %k) #19
+  %20 = load ptr, ptr %order112, align 8
+  %call132 = call i32 @sp_mulmod(ptr noundef nonnull %k, ptr noundef nonnull %vla7178, ptr noundef %20, ptr noundef nonnull %k) #19
   %cmp133.not = icmp eq i32 %call132, 0
   br i1 %cmp133.not, label %if.end136, label %for.end
 
 if.end136:                                        ; preds = %if.then122
-  %18 = load ptr, ptr %order112, align 8
-  %call138 = call i32 @sp_invmod(ptr noundef nonnull %k, ptr noundef %18, ptr noundef nonnull %k) #19
+  %21 = load ptr, ptr %order112, align 8
+  %call138 = call i32 @sp_invmod(ptr noundef nonnull %k, ptr noundef %21, ptr noundef nonnull %k) #19
   %cmp139.not = icmp eq i32 %call138, 0
   br i1 %cmp139.not, label %if.end142, label %for.end
 
 if.end142:                                        ; preds = %if.end136
-  %19 = load ptr, ptr %order112, align 8
-  %call144 = call i32 @sp_mulmod(ptr noundef nonnull %k127, ptr noundef nonnull %r, ptr noundef %19, ptr noundef %s) #19
+  %22 = load ptr, ptr %order112, align 8
+  %call144 = call i32 @sp_mulmod(ptr noundef nonnull %k127, ptr noundef nonnull %r, ptr noundef %22, ptr noundef %s) #19
   %cmp145.not = icmp eq i32 %call144, 0
   br i1 %cmp145.not, label %if.end148, label %for.end
 
 if.end148:                                        ; preds = %if.end142
-  %20 = load ptr, ptr %order112, align 8
-  %call150 = call i32 @sp_mulmod(ptr noundef nonnull %k, ptr noundef %s, ptr noundef %20, ptr noundef %s) #19
+  %23 = load ptr, ptr %order112, align 8
+  %call150 = call i32 @sp_mulmod(ptr noundef nonnull %k, ptr noundef %s, ptr noundef %23, ptr noundef %s) #19
   %cmp151.not = icmp eq i32 %call150, 0
   br i1 %cmp151.not, label %if.end154, label %for.end
 
 if.end154:                                        ; preds = %if.end148
-  %21 = load ptr, ptr %order112, align 8
-  %call156 = call i32 @sp_mulmod(ptr noundef nonnull %k, ptr noundef %e, ptr noundef %21, ptr noundef nonnull %k) #19
+  %24 = load ptr, ptr %order112, align 8
+  %call156 = call i32 @sp_mulmod(ptr noundef nonnull %k, ptr noundef %e, ptr noundef %24, ptr noundef nonnull %k) #19
   %cmp157.not = icmp eq i32 %call156, 0
   br i1 %cmp157.not, label %if.end160, label %for.end
 
 if.end160:                                        ; preds = %if.end154
-  %22 = load ptr, ptr %order112, align 8
-  %call162 = call i32 @sp_addmod_ct(ptr noundef nonnull %k, ptr noundef %s, ptr noundef %22, ptr noundef %s) #19
+  %25 = load ptr, ptr %order112, align 8
+  %call162 = call i32 @sp_addmod_ct(ptr noundef nonnull %k, ptr noundef %s, ptr noundef %25, ptr noundef %s) #19
   %cmp163.not = icmp eq i32 %call162, 0
   br i1 %cmp163.not, label %if.end166, label %for.end
 
 if.end166:                                        ; preds = %if.end160
-  %23 = load ptr, ptr %order112, align 8
-  %call168 = call i32 @sp_mulmod(ptr noundef %s, ptr noundef nonnull %vla7892, ptr noundef %23, ptr noundef %s) #19
+  %26 = load ptr, ptr %order112, align 8
+  %call168 = call i32 @sp_mulmod(ptr noundef %s, ptr noundef nonnull %vla7178, ptr noundef %26, ptr noundef %s) #19
   %cmp169.not = icmp eq i32 %call168, 0
   br i1 %cmp169.not, label %if.end172, label %for.end
 
 if.end172:                                        ; preds = %if.end166
-  %24 = load i32, ptr %s, align 8
-  %cmp174.not = icmp eq i32 %24, 0
+  %27 = load i32, ptr %s, align 8
+  %cmp174.not = icmp eq i32 %27, 0
   br i1 %cmp174.not, label %if.end180, label %for.end
 
 if.end180:                                        ; preds = %if.end172, %if.end117
@@ -4136,13 +4122,13 @@ if.end180:                                        ; preds = %if.end172, %if.end1
   call void @sp_clear(ptr noundef nonnull %y) #19
   call void @sp_clear(ptr noundef nonnull %z) #19
   call void @sp_forcezero(ptr noundef nonnull %k) #19
-  %inc98 = add nuw nsw i32 %inc98119, 1
-  %exitcond108 = icmp eq i32 %inc98119, 64
-  br i1 %exitcond108, label %for.end, label %if.end102
+  %inc98 = add nuw nsw i32 %inc98106, 1
+  %exitcond93 = icmp eq i32 %inc98106, 64
+  br i1 %exitcond93, label %for.end, label %if.end102
 
 for.end:                                          ; preds = %do.body, %if.end102, %if.end110, %if.then122, %if.end136, %if.end142, %if.end148, %if.end154, %if.end160, %if.end166, %if.end172, %if.end180, %cond.end76, %if.end95
   %err.4 = phi i32 [ %call92, %if.end95 ], [ %call, %cond.end76 ], [ %call106, %if.end102 ], [ %call113, %if.end110 ], [ %call132, %if.then122 ], [ %call138, %if.end136 ], [ %call144, %if.end142 ], [ %call150, %if.end148 ], [ %call156, %if.end154 ], [ %call162, %if.end160 ], [ %call168, %if.end166 ], [ 0, %if.end172 ], [ -199, %if.end180 ], [ -199, %do.body ]
-  call void @sp_forcezero(ptr noundef nonnull %vla7892) #19
+  call void @sp_forcezero(ptr noundef nonnull %vla7178) #19
   ret i32 %err.4
 }
 
@@ -4975,65 +4961,49 @@ do.end:                                           ; preds = %entry, %if.end99
 define i32 @wc_ecc_verify_hash(ptr noundef %sig, i32 noundef %siglen, ptr noundef %hash, i32 noundef %hashlen, ptr noundef %res, ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %key, null
-  br i1 %cmp, label %cond.end40.thread, label %lor.lhs.false
+  br i1 %cmp, label %cond.end25, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %dp = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp, align 8
   %cmp1 = icmp eq ptr %0, null
-  br i1 %cmp1, label %lor.lhs.false53.thread, label %cond.end
+  br i1 %cmp1, label %lor.lhs.false31, label %cond.false
 
-lor.lhs.false53.thread:                           ; preds = %lor.lhs.false
-  %vla83100110 = alloca [160 x i8], align 16
-  br label %cond.end70
-
-cond.end:                                         ; preds = %lor.lhs.false
+cond.false:                                       ; preds = %lor.lhs.false
   %1 = load i32, ptr %0, align 8
   %mul = shl nsw i32 %1, 3
-  %sub = add i32 %mul, 63
-  %cmp5 = icmp ult i32 %sub, 64
-  br i1 %cmp5, label %lor.lhs.false31.thread, label %lor.lhs.false31
-
-lor.lhs.false31.thread:                           ; preds = %cond.end
-  %vla7393 = alloca [16 x i8], align 16
-  br label %cond.end40
-
-cond.end40.thread:                                ; preds = %entry
-  %vla94 = alloca [160 x i8], align 16
-  br label %cond.end70
-
-lor.lhs.false31:                                  ; preds = %cond.end
-  %2 = load i32, ptr %0, align 8
-  %mul16 = shl nsw i32 %2, 3
-  %3 = add i32 %mul16, 63
-  %4 = lshr i32 %3, 2
+  %2 = add i32 %mul, 63
+  %3 = icmp ult i32 %2, 64
+  %4 = lshr i32 %2, 2
   %5 = and i32 %4, 1073741808
-  %6 = add nuw nsw i32 %5, 16
-  %7 = zext nneg i32 %6 to i64
-  %vla83 = alloca i8, i64 %7, align 16
-  br label %cond.end40
+  %narrow = add nuw nsw i32 %5, 16
+  %narrow76 = select i1 %3, i32 16, i32 %narrow
+  %cond26.ph.ph = zext nneg i32 %narrow76 to i64
+  %vla6673 = alloca i8, i64 %cond26.ph.ph, align 16
+  %6 = load i32, ptr %0, align 8
+  %mul39 = shl nsw i32 %6, 3
+  %7 = add i32 %mul39, 63
+  %8 = icmp ult i32 %7, 64
+  br i1 %8, label %cond.end70, label %cond.false58
 
-cond.end40:                                       ; preds = %lor.lhs.false31.thread, %lor.lhs.false31
-  %vla7496 = phi ptr [ %vla7393, %lor.lhs.false31.thread ], [ %vla83, %lor.lhs.false31 ]
-  %8 = load i32, ptr %0, align 8
-  %mul39 = shl nsw i32 %8, 3
-  %9 = add i32 %mul39, 63
-  %10 = icmp ult i32 %9, 64
-  br i1 %10, label %cond.end70, label %cond.false58
-
-cond.false58:                                     ; preds = %cond.end40
-  %11 = load i32, ptr %0, align 8
-  %mul61 = shl nsw i32 %11, 3
-  %12 = add i32 %mul61, 63
-  %13 = lshr i32 %12, 2
-  %14 = and i32 %13, 1073741808
-  %narrow63 = add nuw nsw i32 %14, 16
-  %15 = zext nneg i32 %narrow63 to i64
+cond.end25:                                       ; preds = %entry
+  %vla71 = alloca [160 x i8], align 16
   br label %cond.end70
 
-cond.end70:                                       ; preds = %lor.lhs.false53.thread, %cond.end40, %cond.end40.thread, %cond.false58
-  %vla7690 = phi ptr [ %vla7496, %cond.false58 ], [ %vla94, %cond.end40.thread ], [ %vla7496, %cond.end40 ], [ %vla83100110, %lor.lhs.false53.thread ]
-  %cond71 = phi i64 [ %15, %cond.false58 ], [ 160, %cond.end40.thread ], [ 16, %cond.end40 ], [ 160, %lor.lhs.false53.thread ]
+lor.lhs.false31:                                  ; preds = %lor.lhs.false
+  %vla6677 = alloca [160 x i8], align 16
+  br label %cond.end70
+
+cond.false58:                                     ; preds = %cond.false
+  %9 = lshr i32 %7, 2
+  %10 = and i32 %9, 1073741808
+  %narrow60 = add nuw nsw i32 %10, 16
+  %11 = zext nneg i32 %narrow60 to i64
+  br label %cond.end70
+
+cond.end70:                                       ; preds = %lor.lhs.false31, %cond.end25, %cond.false, %cond.false58
+  %vla68 = phi ptr [ %vla6673, %cond.false ], [ %vla6673, %cond.false58 ], [ %vla71, %cond.end25 ], [ %vla6677, %lor.lhs.false31 ]
+  %cond71 = phi i64 [ 16, %cond.false ], [ %11, %cond.false58 ], [ 160, %cond.end25 ], [ 160, %lor.lhs.false31 ]
   %vla75 = alloca i8, i64 %cond71, align 16
   %cmp76 = icmp eq ptr %sig, null
   %cmp79 = icmp eq ptr %hash, null
@@ -5045,69 +5015,74 @@ cond.end70:                                       ; preds = %lor.lhs.false53.thr
 
 if.end:                                           ; preds = %cond.end70
   %dp87 = getelementptr inbounds i8, ptr %key, i64 16
-  %16 = load ptr, ptr %dp87, align 8
-  %cmp88 = icmp eq ptr %16, null
+  %12 = load ptr, ptr %dp87, align 8
+  %cmp88 = icmp eq ptr %12, null
   br i1 %cmp88, label %cond.end162, label %cond.false91
 
 cond.false91:                                     ; preds = %if.end
-  %17 = load i32, ptr %16, align 8
-  %mul94 = shl nsw i32 %17, 3
-  %18 = add i32 %mul94, 63
-  %19 = icmp ult i32 %18, 64
-  %20 = lshr i32 %18, 2
-  %21 = and i32 %20, 1073741808
-  %narrow64 = add nuw nsw i32 %21, 16
-  %narrow = select i1 %19, i32 16, i32 %narrow64
-  %cond123.ph = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla7690, i8 0, i64 %cond123.ph, i1 false)
-  %22 = load i32, ptr %16, align 8
-  %mul134 = shl nsw i32 %22, 3
-  %23 = add i32 %mul134, 63
-  %24 = icmp ult i32 %23, 64
-  %25 = lshr i32 %23, 2
-  %26 = and i32 %25, 1073741808
-  %narrow65 = add nuw nsw i32 %26, 16
-  %narrow111 = select i1 %24, i32 16, i32 %narrow65
-  %cond163.ph = zext nneg i32 %narrow111 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla75, i8 0, i64 %cond163.ph, i1 false)
-  %27 = lshr i32 %23, 5
-  %28 = or i32 %27, 1
-  br label %cond.end175
+  %13 = load i32, ptr %12, align 8
+  %mul94 = shl nsw i32 %13, 3
+  %14 = add i32 %mul94, 63
+  %15 = icmp ult i32 %14, 64
+  br i1 %15, label %cond.false131.thread, label %cond.false150
+
+cond.false131.thread:                             ; preds = %cond.false91
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %vla68, i8 0, i64 16, i1 false)
+  br label %cond.false171
+
+cond.false150:                                    ; preds = %cond.false91
+  %16 = lshr i32 %14, 2
+  %17 = and i32 %16, 1073741808
+  %narrow61 = add nuw nsw i32 %17, 16
+  %18 = zext nneg i32 %narrow61 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla68, i8 0, i64 %18, i1 false)
+  %19 = lshr i32 %14, 2
+  %20 = and i32 %19, 1073741808
+  %narrow62 = add nuw nsw i32 %20, 16
+  %21 = zext nneg i32 %narrow62 to i64
+  br label %cond.false171
 
 cond.end162:                                      ; preds = %if.end
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla7690, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla68, i8 0, i64 160, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla75, i8 0, i64 160, i1 false)
   br label %cond.end175
 
-cond.end175:                                      ; preds = %cond.end162, %cond.false91
-  %cond176 = phi i32 [ %28, %cond.false91 ], [ 19, %cond.end162 ]
-  %call = call i32 @sp_init_size(ptr noundef nonnull %vla7690, i32 noundef %cond176) #19
+cond.false171:                                    ; preds = %cond.false131.thread, %cond.false150
+  %cond163.ph = phi i64 [ %21, %cond.false150 ], [ 16, %cond.false131.thread ]
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %vla75, i8 0, i64 %cond163.ph, i1 false)
+  %22 = lshr i32 %14, 5
+  %23 = or i32 %22, 1
+  br label %cond.end175
+
+cond.end175:                                      ; preds = %cond.end162, %cond.false171
+  %cond176 = phi i32 [ %23, %cond.false171 ], [ 19, %cond.end162 ]
+  %call = call i32 @sp_init_size(ptr noundef nonnull %vla68, i32 noundef %cond176) #19
   %cmp182.not = icmp eq i32 %call, 0
   br i1 %cmp182.not, label %if.end188, label %cleanup
 
 if.end188:                                        ; preds = %cond.end175
-  %29 = load ptr, ptr %dp87, align 8
-  %cmp190 = icmp eq ptr %29, null
+  %24 = load ptr, ptr %dp87, align 8
+  %cmp190 = icmp eq ptr %24, null
   br i1 %cmp190, label %cond.end197, label %cond.false193
 
 cond.false193:                                    ; preds = %if.end188
-  %30 = load i32, ptr %29, align 8
-  %mul196 = shl nsw i32 %30, 3
-  %31 = add i32 %mul196, 63
-  %32 = lshr i32 %31, 5
-  %33 = or i32 %32, 1
+  %25 = load i32, ptr %24, align 8
+  %mul196 = shl nsw i32 %25, 3
+  %26 = add i32 %mul196, 63
+  %27 = lshr i32 %26, 5
+  %28 = or i32 %27, 1
   br label %cond.end197
 
 cond.end197:                                      ; preds = %if.end188, %cond.false193
-  %cond198 = phi i32 [ %33, %cond.false193 ], [ 19, %if.end188 ]
+  %cond198 = phi i32 [ %28, %cond.false193 ], [ 19, %if.end188 ]
   %call204 = call i32 @sp_init_size(ptr noundef nonnull %vla75, i32 noundef %cond198) #19
   %cmp205.not = icmp eq i32 %call204, 0
   br i1 %cmp205.not, label %if.end214, label %cleanup
 
 if.end214:                                        ; preds = %cond.end197
   %state = getelementptr inbounds i8, ptr %key, i64 8
-  %34 = load i32, ptr %state, align 8
-  switch i32 %34, label %do.end241 [
+  %29 = load i32, ptr %state, align 8
+  switch i32 %29, label %do.end241 [
     i32 0, label %sw.bb
     i32 5, label %sw.bb
     i32 6, label %sw.bb221
@@ -5117,14 +5092,14 @@ if.end214:                                        ; preds = %cond.end197
 sw.bb:                                            ; preds = %if.end214, %if.end214
   store i32 5, ptr %state, align 8
   store i32 0, ptr %res, align 4
-  %call216 = call i32 @DecodeECC_DSA_Sig_Ex(ptr noundef nonnull %sig, i32 noundef %siglen, ptr noundef nonnull %vla7690, ptr noundef nonnull %vla75, i32 noundef 0) #19
+  %call216 = call i32 @DecodeECC_DSA_Sig_Ex(ptr noundef nonnull %sig, i32 noundef %siglen, ptr noundef nonnull %vla68, ptr noundef nonnull %vla75, i32 noundef 0) #19
   %cmp217 = icmp slt i32 %call216, 0
   br i1 %cmp217, label %do.end241, label %sw.bb221
 
 sw.bb221:                                         ; preds = %sw.bb, %if.end214
   store i32 6, ptr %state, align 8
-  %call223 = call i32 @wc_ecc_verify_hash_ex(ptr noundef nonnull %vla7690, ptr noundef nonnull %vla75, ptr noundef nonnull %hash, i32 noundef %hashlen, ptr noundef nonnull %res, ptr noundef nonnull %key)
-  call void @sp_clear(ptr noundef nonnull %vla7690) #19
+  %call223 = call i32 @wc_ecc_verify_hash_ex(ptr noundef nonnull %vla68, ptr noundef nonnull %vla75, ptr noundef nonnull %hash, i32 noundef %hashlen, ptr noundef nonnull %res, ptr noundef nonnull %key)
+  call void @sp_clear(ptr noundef nonnull %vla68) #19
   call void @sp_clear(ptr noundef nonnull %vla75) #19
   %cmp230 = icmp slt i32 %call223, 0
   br i1 %cmp230, label %do.end241, label %sw.bb234
@@ -5270,69 +5245,70 @@ entry:
   %dp = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp, align 8
   %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %cond.end102.thread359, label %cond.end
+  br i1 %cmp, label %cond.end102, label %cond.false
 
-cond.end102.thread359:                            ; preds = %entry
-  %vla149349 = alloca [160 x i8], align 16
-  %vla66174350 = alloca [160 x i8], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla66174350, i8 0, i64 160, i1 false)
-  br label %cond.end115
-
-cond.end:                                         ; preds = %entry
+cond.false:                                       ; preds = %entry
   %1 = load i32, ptr %0, align 8
   %mul = shl nsw i32 %1, 3
-  %sub = add i32 %mul, 63
-  %cmp4 = icmp ult i32 %sub, 64
-  br i1 %cmp4, label %cond.end102.thread, label %cond.end102.cond.false111_crit_edge
+  %2 = add i32 %mul, 63
+  %3 = icmp ult i32 %2, 64
+  br i1 %3, label %cond.false71.thread, label %cond.false90
 
-cond.end102.thread:                               ; preds = %cond.end
-  %vla140347 = alloca [16 x i8], align 16
-  %vla66162348 = alloca [16 x i8], align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %vla66162348, i8 0, i64 16, i1 false)
-  br label %cond.end115
+cond.false71.thread:                              ; preds = %cond.false
+  %vla125360367 = alloca [16 x i8], align 16
+  %vla66132364368 = alloca [16 x i8], align 16
+  br label %cond.false111
 
-cond.end102.cond.false111_crit_edge:              ; preds = %cond.end
-  %2 = lshr i32 %sub, 2
-  %3 = and i32 %2, 1073741808
-  %narrow = add nuw nsw i32 %3, 16
-  %add25 = zext nneg i32 %narrow to i64
-  %vla = alloca i8, i64 %add25, align 16
-  %4 = lshr i32 %sub, 2
+cond.false90:                                     ; preds = %cond.false
+  %4 = lshr i32 %2, 2
   %5 = and i32 %4, 1073741808
-  %narrow91 = add nuw nsw i32 %5, 16
-  %add65 = zext nneg i32 %narrow91 to i64
-  %vla66 = alloca i8, i64 %add65, align 16
-  %sub97 = add nuw i32 %mul, 63
-  %6 = lshr i32 %sub97, 2
-  %7 = and i32 %6, 1073741808
-  %narrow94 = add nuw nsw i32 %7, 16
-  %add106 = zext nneg i32 %narrow94 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla66, i8 0, i64 %add106, i1 false)
-  %.pre = load i32, ptr %0, align 8
-  %.pre351 = shl nsw i32 %.pre, 3
+  %narrow = add nuw nsw i32 %5, 16
+  %6 = zext nneg i32 %narrow to i64
+  %vla125 = alloca i8, i64 %6, align 16
+  %7 = lshr i32 %2, 2
+  %8 = and i32 %7, 1073741808
+  %narrow87 = add nuw nsw i32 %8, 16
+  %9 = zext nneg i32 %narrow87 to i64
+  %vla66132 = alloca i8, i64 %9, align 16
+  %10 = lshr i32 %2, 2
+  %11 = and i32 %10, 1073741808
+  %narrow88 = add nuw nsw i32 %11, 16
+  %12 = zext nneg i32 %narrow88 to i64
+  br label %cond.false111
+
+cond.end102:                                      ; preds = %entry
+  %vla357 = alloca [160 x i8], align 16
+  %vla66358 = alloca [160 x i8], align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla66358, i8 0, i64 160, i1 false)
   br label %cond.end115
 
-cond.end115:                                      ; preds = %cond.end102.thread, %cond.end102.cond.false111_crit_edge, %cond.end102.thread359
-  %vla66166181196 = phi ptr [ %vla66174350, %cond.end102.thread359 ], [ %vla66, %cond.end102.cond.false111_crit_edge ], [ %vla66162348, %cond.end102.thread ]
-  %vla142155164183194 = phi ptr [ %vla149349, %cond.end102.thread359 ], [ %vla, %cond.end102.cond.false111_crit_edge ], [ %vla140347, %cond.end102.thread ]
-  %cond116 = phi i32 [ 521, %cond.end102.thread359 ], [ %.pre351, %cond.end102.cond.false111_crit_edge ], [ %mul, %cond.end102.thread ]
-  %sub118 = add i32 %cond116, 63
-  %8 = lshr i32 %sub118, 5
-  %add121 = or i32 %8, 1
-  %call = call i32 @sp_init_size(ptr noundef nonnull %vla66166181196, i32 noundef %add121) #19
+cond.false111:                                    ; preds = %cond.false71.thread, %cond.false90
+  %vla66132366 = phi ptr [ %vla66132, %cond.false90 ], [ %vla66132364368, %cond.false71.thread ]
+  %vla125361365 = phi ptr [ %vla125, %cond.false90 ], [ %vla125360367, %cond.false71.thread ]
+  %cond103.ph = phi i64 [ %12, %cond.false90 ], [ 16, %cond.false71.thread ]
+  call void @llvm.memset.p0.i64(ptr nonnull align 16 %vla66132366, i8 0, i64 %cond103.ph, i1 false)
+  %13 = lshr i32 %2, 5
+  %14 = or i32 %13, 1
+  br label %cond.end115
+
+cond.end115:                                      ; preds = %cond.end102, %cond.false111
+  %vla126133147 = phi ptr [ %vla125361365, %cond.false111 ], [ %vla357, %cond.end102 ]
+  %vla66136145 = phi ptr [ %vla66132366, %cond.false111 ], [ %vla66358, %cond.end102 ]
+  %cond116 = phi i32 [ %14, %cond.false111 ], [ 19, %cond.end102 ]
+  %call = call i32 @sp_init_size(ptr noundef nonnull %vla66136145, i32 noundef %cond116) #19
   %cmp122.not = icmp eq i32 %call, 0
   br i1 %cmp122.not, label %if.then126, label %cleanup
 
 if.then126:                                       ; preds = %cond.end115
   %order = getelementptr inbounds i8, ptr %curve, i64 24
-  %9 = load ptr, ptr %order, align 8
-  %call127 = call i32 @sp_count_bits(ptr noundef %9) #19
+  %15 = load ptr, ptr %order, align 8
+  %call127 = call i32 @sp_count_bits(ptr noundef %15) #19
   %mul128 = shl i32 %hashlen, 3
   %cmp129 = icmp ugt i32 %mul128, %call127
   %sub133 = add i32 %call127, 7
-  %div13496 = lshr i32 %sub133, 3
-  %hashlen.addr.0 = select i1 %cmp129, i32 %div13496, i32 %hashlen
-  %call136 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %vla66166181196, ptr noundef %hash, i32 noundef %hashlen.addr.0) #19
+  %div13489 = lshr i32 %sub133, 3
+  %hashlen.addr.0 = select i1 %cmp129, i32 %div13489, i32 %hashlen
+  %call136 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %vla66136145, ptr noundef %hash, i32 noundef %hashlen.addr.0) #19
   %cmp137 = icmp eq i32 %call136, 0
   %mul139 = shl i32 %hashlen.addr.0, 3
   %cmp140 = icmp ugt i32 %mul139, %call127
@@ -5342,49 +5318,46 @@ if.then126:                                       ; preds = %cond.end115
 if.then142:                                       ; preds = %if.then126
   %and = and i32 %call127, 7
   %sub143 = sub nuw nsw i32 8, %and
-  %call144 = call i32 @sp_rshb(ptr noundef nonnull %vla66166181196, i32 noundef %sub143, ptr noundef nonnull %vla66166181196) #19
+  %call144 = call i32 @sp_rshb(ptr noundef nonnull %vla66136145, i32 noundef %sub143, ptr noundef nonnull %vla66136145) #19
   br label %if.end146
 
 if.end146:                                        ; preds = %if.then126, %if.then142
-  %10 = load ptr, ptr %dp, align 8
-  %cmp148 = icmp eq ptr %10, null
-  br i1 %cmp148, label %cond.end182.thread, label %cond.end155
+  %16 = load ptr, ptr %dp, align 8
+  %cmp148 = icmp eq ptr %16, null
+  br i1 %cmp148, label %cond.end182.thread, label %cond.false151
 
-cond.end155:                                      ; preds = %if.end146
-  %11 = load i32, ptr %10, align 8
-  %mul154 = shl nsw i32 %11, 3
-  %sub158 = add i32 %mul154, 63
-  %cmp162 = icmp ult i32 %sub158, 64
-  %12 = lshr i32 %sub158, 2
-  %13 = and i32 %12, 1073741808
-  %14 = add nuw nsw i32 %13, 16
-  %narrow367 = select i1 %cmp162, i32 16, i32 %14
-  %cond183 = zext nneg i32 %narrow367 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla142155164183194, i8 0, i64 %cond183, i1 false)
-  br i1 %cmp137, label %cond.false198, label %wc_ecc_del_point_ex.exit122
+cond.false151:                                    ; preds = %if.end146
+  %17 = load i32, ptr %16, align 8
+  %mul154 = shl nsw i32 %17, 3
+  %18 = add i32 %mul154, 63
+  %19 = icmp ult i32 %18, 64
+  %20 = lshr i32 %18, 2
+  %21 = and i32 %20, 1073741808
+  %narrow90 = add nuw nsw i32 %21, 16
+  %narrow369 = select i1 %19, i32 16, i32 %narrow90
+  %cond183 = zext nneg i32 %narrow369 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla126133147, i8 0, i64 %cond183, i1 false)
+  br i1 %cmp137, label %cond.false198, label %wc_ecc_del_point_ex.exit112
 
 cond.end182.thread:                               ; preds = %if.end146
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla142155164183194, i8 0, i64 160, i1 false)
-  br i1 %cmp137, label %if.end210, label %wc_ecc_del_point_ex.exit122
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %vla126133147, i8 0, i64 160, i1 false)
+  br i1 %cmp137, label %if.end210, label %wc_ecc_del_point_ex.exit112
 
-cond.false198:                                    ; preds = %cond.end155
-  %15 = load i32, ptr %10, align 8
-  %mul201 = shl nsw i32 %15, 3
-  %16 = add i32 %mul201, 63
-  %17 = lshr i32 %16, 5
-  %18 = or i32 %17, 1
+cond.false198:                                    ; preds = %cond.false151
+  %22 = lshr i32 %18, 5
+  %23 = or i32 %22, 1
   br label %if.end210
 
 if.end210:                                        ; preds = %cond.end182.thread, %cond.false198
-  %cond203 = phi i32 [ %18, %cond.false198 ], [ 19, %cond.end182.thread ]
-  %call209 = call i32 @sp_init_size(ptr noundef nonnull %vla142155164183194, i32 noundef %cond203) #19
+  %cond203 = phi i32 [ %23, %cond.false198 ], [ 19, %cond.end182.thread ]
+  %call209 = call i32 @sp_init_size(ptr noundef nonnull %vla126133147, i32 noundef %cond203) #19
   %cmp211 = icmp eq i32 %call209, 0
-  br i1 %cmp211, label %if.end3.i, label %wc_ecc_del_point_ex.exit122
+  br i1 %cmp211, label %if.end3.i, label %wc_ecc_del_point_ex.exit112
 
 if.end3.i:                                        ; preds = %if.end210
   %call.i = call ptr @wolfSSL_Malloc(i64 noundef 3120) #19
   %cmp4.i = icmp eq ptr %call.i, null
-  br i1 %cmp4.i, label %wc_ecc_del_point_ex.exit122, label %if.end6.i
+  br i1 %cmp4.i, label %wc_ecc_del_point_ex.exit112, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end3.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %call.i, i8 0, i64 3120, i1 false)
@@ -5392,54 +5365,54 @@ if.end6.i:                                        ; preds = %if.end3.i
   %z.i = getelementptr inbounds i8, ptr %call.i, i64 2080
   %call9.i = call i32 @sp_init_multi(ptr noundef nonnull %call.i, ptr noundef nonnull %y.i, ptr noundef nonnull %z.i, ptr noundef null, ptr noundef null, ptr noundef null) #19
   %cmp10.not.i = icmp eq i32 %call9.i, 0
-  br i1 %cmp10.not.i, label %if.end3.i112, label %wc_ecc_del_point_ex.exit122.sink.split
+  br i1 %cmp10.not.i, label %if.end3.i102, label %wc_ecc_del_point_ex.exit112.sink.split
 
-if.end3.i112:                                     ; preds = %if.end6.i
-  %call.i113 = call ptr @wolfSSL_Malloc(i64 noundef 3120) #19
-  %cmp4.i114 = icmp eq ptr %call.i113, null
-  br i1 %cmp4.i114, label %wc_ecc_del_point_ex.exit, label %if.end6.i103
+if.end3.i102:                                     ; preds = %if.end6.i
+  %call.i103 = call ptr @wolfSSL_Malloc(i64 noundef 3120) #19
+  %cmp4.i104 = icmp eq ptr %call.i103, null
+  br i1 %cmp4.i104, label %wc_ecc_del_point_ex.exit, label %if.end6.i93
 
-if.end6.i103:                                     ; preds = %if.end3.i112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %call.i113, i8 0, i64 3120, i1 false)
-  %y.i105 = getelementptr inbounds i8, ptr %call.i113, i64 1040
-  %z.i106 = getelementptr inbounds i8, ptr %call.i113, i64 2080
-  %call9.i107 = call i32 @sp_init_multi(ptr noundef nonnull %call.i113, ptr noundef nonnull %y.i105, ptr noundef nonnull %z.i106, ptr noundef null, ptr noundef null, ptr noundef null) #19
-  %cmp10.not.i108 = icmp eq i32 %call9.i107, 0
-  br i1 %cmp10.not.i108, label %if.end227, label %if.then12.i109
+if.end6.i93:                                      ; preds = %if.end3.i102
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %call.i103, i8 0, i64 3120, i1 false)
+  %y.i95 = getelementptr inbounds i8, ptr %call.i103, i64 1040
+  %z.i96 = getelementptr inbounds i8, ptr %call.i103, i64 2080
+  %call9.i97 = call i32 @sp_init_multi(ptr noundef nonnull %call.i103, ptr noundef nonnull %y.i95, ptr noundef nonnull %z.i96, ptr noundef null, ptr noundef null, ptr noundef null) #19
+  %cmp10.not.i98 = icmp eq i32 %call9.i97, 0
+  br i1 %cmp10.not.i98, label %if.end227, label %if.then12.i99
 
-if.then12.i109:                                   ; preds = %if.end6.i103
-  call void @wolfSSL_Free(ptr noundef nonnull %call.i113) #19
+if.then12.i99:                                    ; preds = %if.end6.i93
+  call void @wolfSSL_Free(ptr noundef nonnull %call.i103) #19
   br label %wc_ecc_del_point_ex.exit
 
-if.end227:                                        ; preds = %if.end6.i103
-  %19 = load ptr, ptr %order, align 8
-  %call226 = call i32 @sp_invmod(ptr noundef %s, ptr noundef %19, ptr noundef nonnull %vla142155164183194) #19
+if.end227:                                        ; preds = %if.end6.i93
+  %24 = load ptr, ptr %order, align 8
+  %call226 = call i32 @sp_invmod(ptr noundef %s, ptr noundef %24, ptr noundef nonnull %vla126133147) #19
   %cmp228 = icmp eq i32 %call226, 0
   br i1 %cmp228, label %if.end233, label %wc_ecc_del_point_ex.exit
 
 if.end233:                                        ; preds = %if.end227
-  %20 = load ptr, ptr %order, align 8
-  %call232 = call i32 @sp_mulmod(ptr noundef nonnull %vla66166181196, ptr noundef nonnull %vla142155164183194, ptr noundef %20, ptr noundef nonnull %vla66166181196) #19
+  %25 = load ptr, ptr %order, align 8
+  %call232 = call i32 @sp_mulmod(ptr noundef nonnull %vla66136145, ptr noundef nonnull %vla126133147, ptr noundef %25, ptr noundef nonnull %vla66136145) #19
   %cmp234 = icmp eq i32 %call232, 0
   br i1 %cmp234, label %if.end239, label %wc_ecc_del_point_ex.exit
 
 if.end239:                                        ; preds = %if.end233
-  %21 = load ptr, ptr %order, align 8
-  %call238 = call i32 @sp_mulmod(ptr noundef %r, ptr noundef nonnull %vla142155164183194, ptr noundef %21, ptr noundef nonnull %vla142155164183194) #19
+  %26 = load ptr, ptr %order, align 8
+  %call238 = call i32 @sp_mulmod(ptr noundef %r, ptr noundef nonnull %vla126133147, ptr noundef %26, ptr noundef nonnull %vla126133147) #19
   %cmp240 = icmp eq i32 %call238, 0
   br i1 %cmp240, label %if.end244, label %wc_ecc_del_point_ex.exit
 
 if.end244:                                        ; preds = %if.end239
   %Gx = getelementptr inbounds i8, ptr %curve, i64 32
-  %22 = load ptr, ptr %Gx, align 8
-  %call243 = call i32 @sp_copy(ptr noundef %22, ptr noundef nonnull %call.i) #19
+  %27 = load ptr, ptr %Gx, align 8
+  %call243 = call i32 @sp_copy(ptr noundef %27, ptr noundef nonnull %call.i) #19
   %cmp245 = icmp eq i32 %call243, 0
   br i1 %cmp245, label %if.end250, label %wc_ecc_del_point_ex.exit
 
 if.end250:                                        ; preds = %if.end244
   %Gy = getelementptr inbounds i8, ptr %curve, i64 40
-  %23 = load ptr, ptr %Gy, align 8
-  %call249 = call i32 @sp_copy(ptr noundef %23, ptr noundef nonnull %y.i) #19
+  %28 = load ptr, ptr %Gy, align 8
+  %call249 = call i32 @sp_copy(ptr noundef %28, ptr noundef nonnull %y.i) #19
   %cmp251 = icmp eq i32 %call249, 0
   br i1 %cmp251, label %if.end256, label %wc_ecc_del_point_ex.exit
 
@@ -5450,37 +5423,37 @@ if.end256:                                        ; preds = %if.end250
 
 if.end265:                                        ; preds = %if.end256
   %pubkey = getelementptr inbounds i8, ptr %key, i64 32
-  %call264 = call i32 @sp_copy(ptr noundef nonnull %pubkey, ptr noundef nonnull %call.i113) #19
+  %call264 = call i32 @sp_copy(ptr noundef nonnull %pubkey, ptr noundef nonnull %call.i103) #19
   %cmp266 = icmp eq i32 %call264, 0
   br i1 %cmp266, label %if.end275, label %wc_ecc_del_point_ex.exit
 
 if.end275:                                        ; preds = %if.end265
   %y270 = getelementptr inbounds i8, ptr %key, i64 1072
-  %call274 = call i32 @sp_copy(ptr noundef nonnull %y270, ptr noundef nonnull %y.i105) #19
+  %call274 = call i32 @sp_copy(ptr noundef nonnull %y270, ptr noundef nonnull %y.i95) #19
   %cmp276 = icmp eq i32 %call274, 0
   br i1 %cmp276, label %if.end285, label %wc_ecc_del_point_ex.exit
 
 if.end285:                                        ; preds = %if.end275
   %z280 = getelementptr inbounds i8, ptr %key, i64 2112
-  %call284 = call i32 @sp_copy(ptr noundef nonnull %z280, ptr noundef nonnull %z.i106) #19
+  %call284 = call i32 @sp_copy(ptr noundef nonnull %z280, ptr noundef nonnull %z.i96) #19
   %cmp286 = icmp eq i32 %call284, 0
   br i1 %cmp286, label %if.end291, label %wc_ecc_del_point_ex.exit
 
 if.end291:                                        ; preds = %if.end285
   %prime = getelementptr inbounds i8, ptr %curve, i64 8
-  %24 = load ptr, ptr %prime, align 8
-  %call290 = call i32 @ecc_mul2add(ptr noundef nonnull %call.i, ptr noundef nonnull %vla66166181196, ptr noundef nonnull %call.i113, ptr noundef nonnull %vla142155164183194, ptr noundef nonnull %call.i, ptr poison, ptr noundef %24, ptr poison)
+  %29 = load ptr, ptr %prime, align 8
+  %call290 = call i32 @ecc_mul2add(ptr noundef nonnull %call.i, ptr noundef nonnull %vla66136145, ptr noundef nonnull %call.i103, ptr noundef nonnull %vla126133147, ptr noundef nonnull %call.i, ptr poison, ptr noundef %29, ptr poison)
   %cmp292 = icmp eq i32 %call290, 0
   br i1 %cmp292, label %if.end299, label %wc_ecc_del_point_ex.exit
 
 if.end299:                                        ; preds = %if.end291
-  %25 = load ptr, ptr %order, align 8
-  %call298 = call i32 @sp_mod(ptr noundef nonnull %call.i, ptr noundef %25, ptr noundef nonnull %vla142155164183194) #19
+  %30 = load ptr, ptr %order, align 8
+  %call298 = call i32 @sp_mod(ptr noundef nonnull %call.i, ptr noundef %30, ptr noundef nonnull %vla126133147) #19
   %cmp300 = icmp eq i32 %call298, 0
   br i1 %cmp300, label %if.then302, label %wc_ecc_del_point_ex.exit
 
 if.then302:                                       ; preds = %if.end299
-  %call303 = call i32 @sp_cmp(ptr noundef nonnull %vla142155164183194, ptr noundef %r) #19
+  %call303 = call i32 @sp_cmp(ptr noundef nonnull %vla126133147, ptr noundef %r) #19
   %cmp304 = icmp eq i32 %call303, 0
   br i1 %cmp304, label %if.then306, label %wc_ecc_del_point_ex.exit
 
@@ -5488,38 +5461,38 @@ if.then306:                                       ; preds = %if.then302
   store i32 1, ptr %res, align 4
   br label %wc_ecc_del_point_ex.exit
 
-wc_ecc_del_point_ex.exit:                         ; preds = %if.end3.i112, %if.then12.i109, %if.end299, %if.then306, %if.then302, %if.end291, %if.end285, %if.end275, %if.end265, %if.end256, %if.end250, %if.end244, %if.end239, %if.end233, %if.end227
-  %mQ.0211216223228235240247252259264271276286 = phi ptr [ %call.i113, %if.end227 ], [ %call.i113, %if.end233 ], [ %call.i113, %if.end239 ], [ %call.i113, %if.end244 ], [ %call.i113, %if.end250 ], [ %call.i113, %if.end256 ], [ %call.i113, %if.end265 ], [ %call.i113, %if.end275 ], [ %call.i113, %if.end285 ], [ %call.i113, %if.end291 ], [ %call.i113, %if.then302 ], [ %call.i113, %if.then306 ], [ %call.i113, %if.end299 ], [ null, %if.then12.i109 ], [ null, %if.end3.i112 ]
-  %err.14278283 = phi i32 [ %call226, %if.end227 ], [ %call232, %if.end233 ], [ %call238, %if.end239 ], [ %call243, %if.end244 ], [ %call249, %if.end250 ], [ %call255, %if.end256 ], [ %call264, %if.end265 ], [ %call274, %if.end275 ], [ %call284, %if.end285 ], [ %call290, %if.end291 ], [ 0, %if.then302 ], [ 0, %if.then306 ], [ %call298, %if.end299 ], [ %call9.i107, %if.then12.i109 ], [ -125, %if.end3.i112 ]
+wc_ecc_del_point_ex.exit:                         ; preds = %if.end3.i102, %if.then12.i99, %if.end299, %if.then306, %if.then302, %if.end291, %if.end285, %if.end275, %if.end265, %if.end256, %if.end250, %if.end244, %if.end239, %if.end233, %if.end227
+  %mQ.0183190203210223230243250263270280286296 = phi ptr [ %call.i103, %if.end227 ], [ %call.i103, %if.end233 ], [ %call.i103, %if.end239 ], [ %call.i103, %if.end244 ], [ %call.i103, %if.end250 ], [ %call.i103, %if.end256 ], [ %call.i103, %if.end265 ], [ %call.i103, %if.end275 ], [ %call.i103, %if.end285 ], [ %call.i103, %if.end291 ], [ %call.i103, %if.then302 ], [ %call.i103, %if.then306 ], [ %call.i103, %if.end299 ], [ null, %if.then12.i99 ], [ null, %if.end3.i102 ]
+  %err.14288293 = phi i32 [ %call226, %if.end227 ], [ %call232, %if.end233 ], [ %call238, %if.end239 ], [ %call243, %if.end244 ], [ %call249, %if.end250 ], [ %call255, %if.end256 ], [ %call264, %if.end265 ], [ %call274, %if.end275 ], [ %call284, %if.end285 ], [ %call290, %if.end291 ], [ 0, %if.then302 ], [ 0, %if.then306 ], [ %call298, %if.end299 ], [ %call9.i97, %if.then12.i99 ], [ -125, %if.end3.i102 ]
   call void @sp_clear(ptr noundef nonnull %call.i) #19
   call void @sp_clear(ptr noundef nonnull %y.i) #19
   call void @sp_clear(ptr noundef nonnull %z.i) #19
   call void @wolfSSL_Free(ptr noundef nonnull %call.i) #19
-  %cmp.not.i118 = icmp eq ptr %mQ.0211216223228235240247252259264271276286, null
-  br i1 %cmp.not.i118, label %wc_ecc_del_point_ex.exit122, label %if.then.i119
+  %cmp.not.i108 = icmp eq ptr %mQ.0183190203210223230243250263270280286296, null
+  br i1 %cmp.not.i108, label %wc_ecc_del_point_ex.exit112, label %if.then.i109
 
-if.then.i119:                                     ; preds = %wc_ecc_del_point_ex.exit
-  call void @sp_clear(ptr noundef nonnull %mQ.0211216223228235240247252259264271276286) #19
-  %y.i120 = getelementptr inbounds i8, ptr %mQ.0211216223228235240247252259264271276286, i64 1040
-  call void @sp_clear(ptr noundef nonnull %y.i120) #19
-  %z.i121 = getelementptr inbounds i8, ptr %mQ.0211216223228235240247252259264271276286, i64 2080
-  call void @sp_clear(ptr noundef nonnull %z.i121) #19
-  br label %wc_ecc_del_point_ex.exit122.sink.split
+if.then.i109:                                     ; preds = %wc_ecc_del_point_ex.exit
+  call void @sp_clear(ptr noundef nonnull %mQ.0183190203210223230243250263270280286296) #19
+  %y.i110 = getelementptr inbounds i8, ptr %mQ.0183190203210223230243250263270280286296, i64 1040
+  call void @sp_clear(ptr noundef nonnull %y.i110) #19
+  %z.i111 = getelementptr inbounds i8, ptr %mQ.0183190203210223230243250263270280286296, i64 2080
+  call void @sp_clear(ptr noundef nonnull %z.i111) #19
+  br label %wc_ecc_del_point_ex.exit112.sink.split
 
-wc_ecc_del_point_ex.exit122.sink.split:           ; preds = %if.end6.i, %if.then.i119
-  %call.i.sink = phi ptr [ %mQ.0211216223228235240247252259264271276286, %if.then.i119 ], [ %call.i, %if.end6.i ]
-  %err.14278284346.ph = phi i32 [ %err.14278283, %if.then.i119 ], [ %call9.i, %if.end6.i ]
+wc_ecc_del_point_ex.exit112.sink.split:           ; preds = %if.end6.i, %if.then.i109
+  %call.i.sink = phi ptr [ %mQ.0183190203210223230243250263270280286296, %if.then.i109 ], [ %call.i, %if.end6.i ]
+  %err.14288294356.ph = phi i32 [ %err.14288293, %if.then.i109 ], [ %call9.i, %if.end6.i ]
   call void @wolfSSL_Free(ptr noundef nonnull %call.i.sink) #19
-  br label %wc_ecc_del_point_ex.exit122
+  br label %wc_ecc_del_point_ex.exit112
 
-wc_ecc_del_point_ex.exit122:                      ; preds = %wc_ecc_del_point_ex.exit122.sink.split, %cond.end182.thread, %cond.end155, %if.end3.i, %if.end210, %wc_ecc_del_point_ex.exit
-  %err.14278284346 = phi i32 [ %err.14278283, %wc_ecc_del_point_ex.exit ], [ %call209, %if.end210 ], [ -125, %if.end3.i ], [ %call136, %cond.end155 ], [ %call136, %cond.end182.thread ], [ %err.14278284346.ph, %wc_ecc_del_point_ex.exit122.sink.split ]
-  call void @sp_clear(ptr noundef nonnull %vla66166181196) #19
-  call void @sp_clear(ptr noundef nonnull %vla142155164183194) #19
+wc_ecc_del_point_ex.exit112:                      ; preds = %wc_ecc_del_point_ex.exit112.sink.split, %cond.end182.thread, %cond.false151, %if.end3.i, %if.end210, %wc_ecc_del_point_ex.exit
+  %err.14288294356 = phi i32 [ %err.14288293, %wc_ecc_del_point_ex.exit ], [ %call209, %if.end210 ], [ -125, %if.end3.i ], [ %call136, %cond.false151 ], [ %call136, %cond.end182.thread ], [ %err.14288294356.ph, %wc_ecc_del_point_ex.exit112.sink.split ]
+  call void @sp_clear(ptr noundef nonnull %vla66136145) #19
+  call void @sp_clear(ptr noundef nonnull %vla126133147) #19
   br label %cleanup
 
-cleanup:                                          ; preds = %cond.end115, %wc_ecc_del_point_ex.exit122
-  %retval.0 = phi i32 [ %err.14278284346, %wc_ecc_del_point_ex.exit122 ], [ -125, %cond.end115 ]
+cleanup:                                          ; preds = %cond.end115, %wc_ecc_del_point_ex.exit112
+  %retval.0 = phi i32 [ %err.14288294356, %wc_ecc_del_point_ex.exit112 ], [ -125, %cond.end115 ]
   ret i32 %retval.0
 }
 

@@ -544,14 +544,15 @@ if.end31.i53.i:                                   ; preds = %if.then29.i.i, %if.
   %call32.i.i = call i32 @X509_STORE_CTX_verify(ptr noundef %call1.i42.i) #9
   %call33.i.i = call i32 @test_int_ge(ptr noundef nonnull @.str.14, i32 noundef 81, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.24, i32 noundef %call32.i.i, i32 noundef 0) #9
   %tobool34.not.i.i = icmp eq i32 %call33.i.i, 0
-  %spec.select.i.i = select i1 %tobool34.not.i.i, i32 0, i32 %call32.i.i
   %call37.i.i = call i32 @X509_STORE_CTX_get_error(ptr noundef %call1.i42.i) #9
   %conv38.i.i = sext i32 %call37.i.i to i64
   call void @SSL_set_verify_result(ptr noundef %call14.i, i64 noundef %conv38.i.i) #9
+  %34 = icmp eq i32 %call32.i.i, 0
+  %35 = or i1 %34, %tobool34.not.i.i
   br label %verify_chain.exit.i
 
 verify_chain.exit.i:                              ; preds = %if.end31.i53.i, %lor.lhs.false14.i.i, %lor.lhs.false10.i.i, %lor.lhs.false6.i.i, %lor.lhs.false.i45.i, %if.end43.i
-  %ret.0.i.i = phi i32 [ %spec.select.i.i, %if.end31.i53.i ], [ 0, %lor.lhs.false14.i.i ], [ 0, %lor.lhs.false10.i.i ], [ 0, %lor.lhs.false6.i.i ], [ 0, %lor.lhs.false.i45.i ], [ 0, %if.end43.i ]
+  %ret.0.i.i = phi i1 [ %35, %if.end31.i53.i ], [ true, %lor.lhs.false14.i.i ], [ true, %lor.lhs.false10.i.i ], [ true, %lor.lhs.false6.i.i ], [ true, %lor.lhs.false.i45.i ], [ true, %if.end43.i ]
   call void @X509_STORE_CTX_free(ptr noundef %call1.i42.i) #9
   call void @OSSL_STACK_OF_X509_free(ptr noundef %retval.0.i38.i) #9
   %call45.i = call i64 @SSL_get_verify_result(ptr noundef %call14.i) #9
@@ -562,11 +563,11 @@ verify_chain.exit.i:                              ; preds = %if.end31.i53.i, %lo
   %conv48.i = ashr exact i64 %sext.i, 32
   call void @SSL_set_verify_result(ptr noundef %call14.i, i64 noundef %conv48.i) #9
   call void @SSL_free(ptr noundef %call14.i) #9
-  %34 = load i32, ptr %want.i, align 4
-  %call49.i = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 360, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef %conv46.i, i32 noundef %34) #9
+  %36 = load i32, ptr %want.i, align 4
+  %call49.i = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 360, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef %conv46.i, i32 noundef %36) #9
   %tobool50.not.i = icmp eq i32 %call49.i, 0
-  %35 = load i32, ptr %want.i, align 4
-  %cmp52.i = icmp eq i32 %35, 0
+  %37 = load i32, ptr %want.i, align 4
+  %cmp52.i = icmp eq i32 %37, 0
   br i1 %tobool50.not.i, label %if.then51.i, label %if.end58.i
 
 if.then51.i:                                      ; preds = %verify_chain.exit.i
@@ -582,9 +583,8 @@ if.else.i:                                        ; preds = %if.then51.i
   br label %while.end.i
 
 if.end58.i:                                       ; preds = %verify_chain.exit.i
-  %cmp62.i = icmp eq i32 %ret.0.i.i, 0
-  %36 = select i1 %cmp52.i, i1 %cmp62.i, i1 false
-  %land.ext.i = zext i1 %36 to i32
+  %38 = select i1 %cmp52.i, i1 %ret.0.i.i, i1 false
+  %land.ext.i = zext i1 %38 to i32
   %call67.i = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 369, ptr noundef nonnull @.str.37, i32 noundef %land.ext.i) #9
   %tobool68.not.i = icmp eq i32 %call67.i, 0
   br i1 %tobool68.not.i, label %if.then69.i, label %if.end70.i
@@ -594,8 +594,8 @@ if.then69.i:                                      ; preds = %if.end58.i
   br label %while.end.i
 
 if.end70.i:                                       ; preds = %if.end58.i
-  %37 = load i32, ptr %want_depth.i, align 4
-  %call71.i = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 374, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %call47.i, i32 noundef %37) #9
+  %39 = load i32, ptr %want_depth.i, align 4
+  %call71.i = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 374, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %call47.i, i32 noundef %39) #9
   %tobool72.not.i = icmp eq i32 %call71.i, 0
   br i1 %tobool72.not.i, label %if.then73.i, label %land.rhs.lr.ph.i, !llvm.loop !11
 

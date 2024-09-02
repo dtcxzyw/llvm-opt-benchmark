@@ -63,7 +63,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @u_isIDStart_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isIDStart_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %call.i1 = tail call i32 @u_getUnicodeProperties_75(i32 noundef %c, i32 noundef 1)
   %and.i = lshr i32 %call.i1, 24
@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @u_isIDPart_75(i32 noundef %c) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @u_isIDPart_75(i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %call.i1 = tail call i32 @u_getUnicodeProperties_75(i32 noundef %c, i32 noundef 1)
   %and.i = lshr i32 %call.i1, 25

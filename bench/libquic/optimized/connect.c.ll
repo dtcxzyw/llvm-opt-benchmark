@@ -537,8 +537,8 @@ if.end34.i:                                       ; preds = %if.else28.i, %if.th
   br i1 %cmp36.i, label %if.then9, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.end34.i
-  %cmp40.i = icmp eq ptr %port.0.i, null
-  br i1 %cmp40.i, label %return.sink.split.i, label %if.end43.i
+  %cmp40.i = icmp ne ptr %port.0.i, null
+  br i1 %cmp40.i, label %if.end43.i, label %return.sink.split.i
 
 if.end43.i:                                       ; preds = %if.end39.i
   %call44.i = call ptr @OPENSSL_strdup(ptr noundef nonnull %port.0.i) #9
@@ -552,17 +552,15 @@ if.then47.i:                                      ; preds = %if.end43.i
 
 return.sink.split.i:                              ; preds = %if.then47.i, %if.end39.i
   %out_host.sink.i = phi ptr [ %host, %if.then47.i ], [ %port, %if.end39.i ]
-  %retval.0.ph.i = phi i32 [ 0, %if.then47.i ], [ 1, %if.end39.i ]
   store ptr null, ptr %out_host.sink.i, align 8
   %port.0.port.0.port.0.58.pre = load ptr, ptr %port, align 8
   br label %split_host_and_port.exit
 
 split_host_and_port.exit:                         ; preds = %if.end43.i, %return.sink.split.i
   %port.0.port.0.58 = phi ptr [ %call44.i, %if.end43.i ], [ %port.0.port.0.port.0.58.pre, %return.sink.split.i ]
-  %retval.0.i = phi i32 [ 1, %if.end43.i ], [ %retval.0.ph.i, %return.sink.split.i ]
-  %tobool = icmp eq i32 %retval.0.i, 0
+  %retval.0.i = phi i1 [ false, %if.end43.i ], [ %cmp40.i, %return.sink.split.i ]
   %cmp8 = icmp eq ptr %port.0.port.0.58, null
-  %or.cond = select i1 %tobool, i1 true, i1 %cmp8
+  %or.cond = select i1 %retval.0.i, i1 true, i1 %cmp8
   br i1 %or.cond, label %if.then9.loopexit, label %if.end11
 
 if.then9.loopexit:                                ; preds = %split_host_and_port.exit

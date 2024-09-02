@@ -272,7 +272,7 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   %or.cond5 = or i1 %or.cond3, %44
   %45 = icmp eq ptr %7, null
   %or.cond7 = or i1 %or.cond5, %45
-  br i1 %or.cond7, label %950, label %46
+  br i1 %or.cond7, label %949, label %46
 
 46:                                               ; preds = %8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull %1) #17
@@ -281,7 +281,7 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   store i8 0, ptr %48, align 1
   %49 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %9, i32 noundef 0) #17
   %50 = icmp eq i32 %49, -1
-  br i1 %50, label %.thread848, label %51
+  br i1 %50, label %.thread843, label %51
 
 51:                                               ; preds = %46
   %52 = call ptr @cli_vba_inflate(i32 noundef %49, i64 noundef 0, ptr noundef nonnull %10)
@@ -312,9 +312,9 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   %64 = load i32, ptr %5, align 4
   %65 = call i64 @cli_writen(i32 noundef %64, ptr noundef nonnull @.str.6, i64 noundef 58) #17
   %.not677 = icmp eq i64 %65, 58
-  br i1 %.not677, label %.preheader856, label %78
+  br i1 %.not677, label %.preheader852, label %78
 
-.preheader856:                                    ; preds = %62
+.preheader852:                                    ; preds = %62
   %66 = getelementptr inbounds i8, ptr %40, i64 4095
   %67 = getelementptr inbounds i8, ptr %0, i64 48
   %68 = getelementptr inbounds i8, ptr %0, i64 136
@@ -374,7 +374,7 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   br label %.loopexit
 
 99:                                               ; preds = %92
-  switch i16 %.0.copyload205, label %924 [
+  switch i16 %.0.copyload205, label %923 [
     i16 1, label %100
     i16 2, label %137
     i16 20, label %149
@@ -619,7 +619,7 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   br label %198
 
 194:                                              ; preds = %181
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %926) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %925) #17
   %195 = load i32, ptr %5, align 4
   %196 = call i64 @cli_writen(i32 noundef %195, ptr noundef nonnull @.str.28, i64 noundef 23) #17
   %.not790 = icmp eq i64 %196, 23
@@ -689,7 +689,7 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   br label %228
 
 224:                                              ; preds = %211
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %926) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %925) #17
   %225 = load i32, ptr %5, align 4
   %226 = call i64 @cli_writen(i32 noundef %225, ptr noundef nonnull @.str.28, i64 noundef 23) #17
   %.not786 = icmp eq i64 %226, 23
@@ -830,7 +830,7 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   br label %288
 
 284:                                              ; preds = %271
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %926) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %925) #17
   %285 = load i32, ptr %5, align 4
   %286 = call i64 @cli_writen(i32 noundef %285, ptr noundef nonnull @.str.28, i64 noundef 23) #17
   %.not763 = icmp eq i64 %286, 23
@@ -1146,9 +1146,9 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   %421 = icmp sgt i32 %420, 0
   br i1 %421, label %422, label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %416, %422, %403, %409, %389, %396, %372, %377, %360, %365, %353, %258, %228, %198, %163, %169, %151, %156, %139, %144, %133, %924, %923
-  %.0599.ph.be = phi i16 [ %.0599.ph, %924 ], [ %.0599.ph, %923 ], [ %.0599.ph, %422 ], [ %.0599.ph, %416 ], [ %.0599.ph, %409 ], [ %.0599.ph, %403 ], [ %.0599.ph, %396 ], [ %.0599.ph, %389 ], [ %.0599.ph, %377 ], [ %.0599.ph, %372 ], [ %.0599.ph, %365 ], [ %.0599.ph, %360 ], [ %.0599.ph, %353 ], [ %.0599.ph, %258 ], [ %.0599.ph, %228 ], [ %.0599.ph, %198 ], [ %.0.copyload207, %169 ], [ %.0.copyload207, %163 ], [ %.0599.ph, %156 ], [ %.0599.ph, %151 ], [ %.0599.ph, %144 ], [ %.0599.ph, %139 ], [ %.0599.ph, %133 ]
-  %.0594.ph.be = phi i64 [ %925, %924 ], [ %858, %923 ], [ %418, %422 ], [ %418, %416 ], [ %405, %409 ], [ %405, %403 ], [ %392, %396 ], [ %392, %389 ], [ %374, %377 ], [ %374, %372 ], [ %362, %365 ], [ %362, %360 ], [ %354, %353 ], [ %259, %258 ], [ %229, %228 ], [ %199, %198 ], [ %165, %169 ], [ %165, %163 ], [ %153, %156 ], [ %153, %151 ], [ %141, %144 ], [ %141, %139 ], [ %104, %133 ]
+.outer.backedge:                                  ; preds = %416, %422, %403, %409, %389, %396, %372, %377, %360, %365, %353, %258, %228, %198, %163, %169, %151, %156, %139, %144, %133, %923, %922
+  %.0599.ph.be = phi i16 [ %.0599.ph, %923 ], [ %.0599.ph, %922 ], [ %.0599.ph, %422 ], [ %.0599.ph, %416 ], [ %.0599.ph, %409 ], [ %.0599.ph, %403 ], [ %.0599.ph, %396 ], [ %.0599.ph, %389 ], [ %.0599.ph, %377 ], [ %.0599.ph, %372 ], [ %.0599.ph, %365 ], [ %.0599.ph, %360 ], [ %.0599.ph, %353 ], [ %.0599.ph, %258 ], [ %.0599.ph, %228 ], [ %.0599.ph, %198 ], [ %.0.copyload207, %169 ], [ %.0.copyload207, %163 ], [ %.0599.ph, %156 ], [ %.0599.ph, %151 ], [ %.0599.ph, %144 ], [ %.0599.ph, %139 ], [ %.0599.ph, %133 ]
+  %.0594.ph.be = phi i64 [ %924, %923 ], [ %858, %922 ], [ %418, %422 ], [ %418, %416 ], [ %405, %409 ], [ %405, %403 ], [ %392, %396 ], [ %392, %389 ], [ %374, %377 ], [ %374, %372 ], [ %362, %365 ], [ %362, %360 ], [ %354, %353 ], [ %259, %258 ], [ %229, %228 ], [ %199, %198 ], [ %165, %169 ], [ %165, %163 ], [ %153, %156 ], [ %153, %151 ], [ %141, %144 ], [ %141, %139 ], [ %104, %133 ]
   br label %.outer
 
 422:                                              ; preds = %416
@@ -1196,7 +1196,7 @@ define i32 @cli_vba_readdir_new(ptr nocapture noundef readonly %0, ptr noundef %
   br label %.loopexit
 
 443:                                              ; preds = %432
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %926) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %925) #17
   %444 = load i32, ptr %5, align 4
   %445 = call i64 @cli_writen(i32 noundef %444, ptr noundef nonnull @.str.28, i64 noundef 23) #17
   %.not680 = icmp eq i64 %445, 23
@@ -1412,7 +1412,7 @@ thread-pre-split.thread:                          ; preds = %494, %thread-pre-sp
   br label %.loopexit
 
 537:                                              ; preds = %526
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %926) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %925) #17
   %538 = load i32, ptr %5, align 4
   %539 = call i64 @cli_writen(i32 noundef %538, ptr noundef nonnull @.str.28, i64 noundef 23) #17
   %.not695 = icmp eq i64 %539, 23
@@ -1628,7 +1628,7 @@ thread-pre-split814.thread:                       ; preds = %588, %thread-pre-sp
   br label %.loopexit
 
 631:                                              ; preds = %620
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %926) #17
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i32 noundef %925) #17
   %632 = load i32, ptr %5, align 4
   %633 = call i64 @cli_writen(i32 noundef %632, ptr noundef nonnull @.str.28, i64 noundef 23) #17
   %.not711 = icmp eq i64 %633, 23
@@ -2186,8 +2186,8 @@ thread-pre-split816.thread:                       ; preds = %682, %thread-pre-sp
 
 .preheader:                                       ; preds = %868
   %872 = load i32, ptr %39, align 4
-  %.not7441407 = icmp eq i32 %872, 0
-  br i1 %.not7441407, label %.thread, label %.lr.ph
+  %.not7441403 = icmp eq i32 %872, 0
+  br i1 %.not7441403, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %873 = zext i32 %.0.copyload112 to i64
@@ -2197,14 +2197,14 @@ thread-pre-split816.thread:                       ; preds = %682, %thread-pre-sp
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.120, ptr noundef nonnull %866) #17
   br label %.loopexit
 
-875:                                              ; preds = %.lr.ph, %918
-  %.06011408 = phi i32 [ 1, %.lr.ph ], [ %919, %918 ]
+875:                                              ; preds = %.lr.ph, %919
+  %.06011404 = phi i32 [ 1, %.lr.ph ], [ %920, %919 ]
   %876 = load ptr, ptr %38, align 8
-  %877 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %40, i64 noundef 4096, ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %876, i32 noundef %.06011408) #17
+  %877 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %40, i64 noundef 4096, ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %876, i32 noundef %.06011404) #17
   store i8 0, ptr %66, align 1
   %878 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %40, i32 noundef 0) #17
   %879 = icmp eq i32 %878, -1
-  br i1 %879, label %918, label %880
+  br i1 %879, label %919, label %880
 
 880:                                              ; preds = %875
   %881 = call ptr @cli_vba_inflate(i32 noundef %878, i64 noundef %873, ptr noundef nonnull %16)
@@ -2214,186 +2214,186 @@ thread-pre-split816.thread:                       ; preds = %682, %thread-pre-sp
 882:                                              ; preds = %880
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.121) #17
   %883 = call i32 @close(i32 noundef %878) #17
-  br label %918
+  br label %919
 
 884:                                              ; preds = %880
   %885 = call i32 @close(i32 noundef %878) #17
   %886 = load i64, ptr %16, align 8
   %887 = call i32 @cli_codepage_to_utf8(ptr noundef nonnull %881, i64 noundef %886, i16 noundef zeroext %.0599.ph, ptr noundef nonnull %15, ptr noundef nonnull %17) #17
-  %888 = icmp eq i32 %887, 0
-  br i1 %888, label %889, label %906
+  %.not851 = icmp eq i32 %887, 0
+  br i1 %.not851, label %888, label %905
 
-889:                                              ; preds = %884
-  %890 = load ptr, ptr %15, align 8
-  %891 = load i64, ptr %17, align 8
-  %892 = call fastcc i64 @vba_normalize(ptr noundef %890, i64 noundef %891)
-  store i64 %892, ptr %17, align 8
-  %893 = load i32, ptr %5, align 4
-  %894 = load ptr, ptr %15, align 8
-  %895 = call i64 @cli_writen(i32 noundef %893, ptr noundef %894, i64 noundef %892) #17
-  %896 = load i64, ptr %17, align 8
-  %.not748 = icmp eq i64 %895, %896
-  br i1 %.not748, label %898, label %897
+888:                                              ; preds = %884
+  %889 = load ptr, ptr %15, align 8
+  %890 = load i64, ptr %17, align 8
+  %891 = call fastcc i64 @vba_normalize(ptr noundef %889, i64 noundef %890)
+  store i64 %891, ptr %17, align 8
+  %892 = load i32, ptr %5, align 4
+  %893 = load ptr, ptr %15, align 8
+  %894 = call i64 @cli_writen(i32 noundef %892, ptr noundef %893, i64 noundef %891) #17
+  %895 = load i64, ptr %17, align 8
+  %.not748 = icmp eq i64 %894, %895
+  br i1 %.not748, label %897, label %896
 
-897:                                              ; preds = %889
+896:                                              ; preds = %888
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.7) #17
   br label %.loopexit
 
-898:                                              ; preds = %889
-  %899 = load ptr, ptr %67, align 8
-  %900 = getelementptr inbounds i8, ptr %899, i64 352
-  %901 = load ptr, ptr %900, align 8
-  %.not749 = icmp eq ptr %901, null
-  br i1 %.not749, label %921, label %902
+897:                                              ; preds = %888
+  %898 = load ptr, ptr %67, align 8
+  %899 = getelementptr inbounds i8, ptr %898, i64 352
+  %900 = load ptr, ptr %899, align 8
+  %.not749 = icmp eq ptr %900, null
+  br i1 %.not749, label %917, label %901
 
-902:                                              ; preds = %898
-  %903 = load ptr, ptr %15, align 8
-  %904 = load ptr, ptr %68, align 8
-  %905 = call i32 %901(ptr noundef %903, i64 noundef %895, ptr noundef %904) #17
-  br label %921
+901:                                              ; preds = %897
+  %902 = load ptr, ptr %15, align 8
+  %903 = load ptr, ptr %68, align 8
+  %904 = call i32 %900(ptr noundef %902, i64 noundef %894, ptr noundef %903) #17
+  br label %917
 
-906:                                              ; preds = %884
-  %907 = load ptr, ptr %67, align 8
-  %908 = getelementptr inbounds i8, ptr %907, i64 352
-  %909 = load ptr, ptr %908, align 8
-  %.not746 = icmp eq ptr %909, null
-  br i1 %.not746, label %914, label %910
+905:                                              ; preds = %884
+  %906 = load ptr, ptr %67, align 8
+  %907 = getelementptr inbounds i8, ptr %906, i64 352
+  %908 = load ptr, ptr %907, align 8
+  %.not746 = icmp eq ptr %908, null
+  br i1 %.not746, label %913, label %909
 
-910:                                              ; preds = %906
-  %911 = load i64, ptr %16, align 8
-  %912 = load ptr, ptr %68, align 8
-  %913 = call i32 %909(ptr noundef nonnull %881, i64 noundef %911, ptr noundef %912) #17
-  br label %914
+909:                                              ; preds = %905
+  %910 = load i64, ptr %16, align 8
+  %911 = load ptr, ptr %68, align 8
+  %912 = call i32 %908(ptr noundef nonnull %881, i64 noundef %910, ptr noundef %911) #17
+  br label %913
 
-914:                                              ; preds = %906, %910
-  %915 = load i32, ptr %5, align 4
-  %916 = call i64 @cli_writen(i32 noundef %915, ptr noundef nonnull @.str.122, i64 noundef 30) #17
-  %.not747 = icmp eq i64 %916, 30
-  br i1 %.not747, label %.thread820, label %917
+913:                                              ; preds = %905, %909
+  %914 = load i32, ptr %5, align 4
+  %915 = call i64 @cli_writen(i32 noundef %914, ptr noundef nonnull @.str.122, i64 noundef 30) #17
+  %.not747 = icmp eq i64 %915, 30
+  br i1 %.not747, label %.thread, label %916
 
-917:                                              ; preds = %914
+916:                                              ; preds = %913
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.7) #17
   br label %.loopexit
 
-.thread820:                                       ; preds = %914
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.123, i32 noundef %926) #17
+.thread:                                          ; preds = %913
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.123, i32 noundef %925) #17
   call void @free(ptr noundef nonnull %881) #17
-  br label %.thread
+  br label %.critedge
 
-918:                                              ; preds = %875, %882
-  %919 = add i32 %.06011408, 1
-  %920 = load i32, ptr %39, align 4
-  %.not744 = icmp ugt i32 %919, %920
-  br i1 %.not744, label %.thread, label %875
-
-921:                                              ; preds = %898, %902
-  %922 = load ptr, ptr %15, align 8
-  call void @free(ptr noundef %922) #17
+917:                                              ; preds = %897, %901
+  %918 = load ptr, ptr %15, align 8
+  call void @free(ptr noundef %918) #17
   store ptr null, ptr %15, align 8
   call void @free(ptr noundef nonnull %881) #17
-  br label %923
+  br label %922
 
-.thread:                                          ; preds = %918, %.preheader, %.thread820
+919:                                              ; preds = %875, %882
+  %920 = add i32 %.06011404, 1
+  %921 = load i32, ptr %39, align 4
+  %.not744 = icmp ugt i32 %920, %921
+  br i1 %.not744, label %.critedge, label %875
+
+.critedge:                                        ; preds = %919, %.preheader, %.thread
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.120, ptr noundef nonnull %866) #17
-  br label %923
+  br label %922
 
-923:                                              ; preds = %921, %.thread
+922:                                              ; preds = %917, %.critedge
   call void @free(ptr noundef %866) #17
   br label %.outer.backedge
 
-924:                                              ; preds = %99
-  %925 = add i64 %94, %95
+923:                                              ; preds = %99
+  %924 = add i64 %94, %95
   br label %.outer.backedge
 
-.outer:                                           ; preds = %.outer.backedge, %.preheader856
-  %.0599.ph = phi i16 [ 28591, %.preheader856 ], [ %.0599.ph.be, %.outer.backedge ]
-  %.0594.ph = phi i64 [ 0, %.preheader856 ], [ %.0594.ph.be, %.outer.backedge ]
-  %926 = zext i16 %.0599.ph to i32
+.outer:                                           ; preds = %.outer.backedge, %.preheader852
+  %.0599.ph = phi i16 [ 28591, %.preheader852 ], [ %.0599.ph.be, %.outer.backedge ]
+  %.0594.ph = phi i64 [ 0, %.preheader852 ], [ %.0594.ph.be, %.outer.backedge ]
+  %925 = zext i16 %.0599.ph to i32
   br label %79
 
-.loopexit:                                        ; preds = %864, %99, %79, %917, %897, %874, %863, %859, %855, %851, %845, %840, %836, %832, %822, %817, %813, %809, %801, %796, %793, %787, %782, %778, %773, %762, %758, %753, %750, %745, %735, %731, %726, %723, %718, %708, %704, %699, %696, %686, %672, %668, %656, %648, %643, %640, %634, %630, %618, %610, %605, %602, %592, %578, %574, %562, %554, %549, %546, %540, %536, %524, %516, %511, %508, %498, %484, %480, %468, %460, %455, %452, %446, %442, %430, %426, %415, %413, %402, %400, %388, %383, %381, %371, %369, %359, %357, %352, %346, %334, %330, %323, %318, %315, %308, %303, %297, %292, %287, %281, %269, %265, %262, %257, %251, %239, %235, %232, %227, %221, %209, %205, %202, %197, %191, %180, %176, %173, %162, %160, %150, %148, %138, %136, %132, %124, %120, %116, %112, %107, %101, %98, %91, %85, %78, %61, %54
-  %.0602 = phi ptr [ null, %54 ], [ null, %61 ], [ null, %78 ], [ null, %85 ], [ null, %91 ], [ null, %98 ], [ null, %430 ], [ null, %442 ], [ null, %452 ], [ null, %455 ], [ null, %460 ], [ null, %468 ], [ null, %480 ], [ null, %498 ], [ null, %508 ], [ null, %511 ], [ null, %516 ], [ null, %524 ], [ null, %536 ], [ null, %546 ], [ null, %549 ], [ null, %554 ], [ null, %562 ], [ null, %574 ], [ null, %592 ], [ null, %602 ], [ null, %605 ], [ null, %610 ], [ null, %618 ], [ null, %630 ], [ null, %640 ], [ null, %643 ], [ null, %648 ], [ null, %656 ], [ null, %668 ], [ null, %686 ], [ null, %696 ], [ null, %699 ], [ null, %704 ], [ null, %708 ], [ null, %718 ], [ null, %723 ], [ null, %726 ], [ null, %731 ], [ null, %735 ], [ null, %745 ], [ null, %750 ], [ null, %753 ], [ null, %758 ], [ null, %762 ], [ null, %773 ], [ null, %778 ], [ null, %782 ], [ null, %787 ], [ null, %793 ], [ null, %801 ], [ null, %809 ], [ null, %813 ], [ null, %817 ], [ null, %822 ], [ null, %832 ], [ null, %836 ], [ null, %840 ], [ null, %845 ], [ null, %851 ], [ null, %855 ], [ null, %859 ], [ null, %863 ], [ null, %874 ], [ %881, %897 ], [ %881, %917 ], [ null, %796 ], [ null, %672 ], [ null, %634 ], [ null, %578 ], [ null, %540 ], [ null, %484 ], [ null, %446 ], [ null, %415 ], [ null, %426 ], [ null, %402 ], [ null, %413 ], [ null, %383 ], [ null, %388 ], [ null, %400 ], [ null, %371 ], [ null, %381 ], [ null, %359 ], [ null, %369 ], [ null, %265 ], [ null, %269 ], [ null, %281 ], [ null, %292 ], [ null, %297 ], [ null, %303 ], [ null, %308 ], [ null, %315 ], [ null, %318 ], [ null, %323 ], [ null, %334 ], [ null, %346 ], [ null, %357 ], [ null, %352 ], [ null, %330 ], [ null, %287 ], [ null, %235 ], [ null, %239 ], [ null, %251 ], [ null, %262 ], [ null, %257 ], [ null, %205 ], [ null, %209 ], [ null, %221 ], [ null, %232 ], [ null, %227 ], [ null, %176 ], [ null, %180 ], [ null, %191 ], [ null, %202 ], [ null, %197 ], [ null, %162 ], [ null, %173 ], [ null, %150 ], [ null, %160 ], [ null, %138 ], [ null, %148 ], [ null, %101 ], [ null, %107 ], [ null, %132 ], [ null, %136 ], [ null, %124 ], [ null, %120 ], [ null, %116 ], [ null, %112 ], [ null, %79 ], [ null, %99 ], [ null, %864 ]
-  %.0596 = phi ptr [ null, %54 ], [ null, %61 ], [ null, %78 ], [ null, %85 ], [ null, %91 ], [ null, %98 ], [ null, %430 ], [ null, %442 ], [ null, %452 ], [ null, %455 ], [ null, %460 ], [ null, %468 ], [ null, %480 ], [ null, %498 ], [ null, %508 ], [ null, %511 ], [ null, %516 ], [ null, %524 ], [ null, %536 ], [ null, %546 ], [ null, %549 ], [ null, %554 ], [ null, %562 ], [ null, %574 ], [ null, %592 ], [ null, %602 ], [ null, %605 ], [ null, %610 ], [ null, %618 ], [ null, %630 ], [ null, %640 ], [ null, %643 ], [ null, %648 ], [ null, %656 ], [ null, %668 ], [ null, %686 ], [ null, %696 ], [ null, %699 ], [ null, %704 ], [ null, %708 ], [ null, %718 ], [ null, %723 ], [ null, %726 ], [ null, %731 ], [ null, %735 ], [ null, %745 ], [ null, %750 ], [ null, %753 ], [ null, %758 ], [ null, %762 ], [ null, %773 ], [ null, %778 ], [ null, %782 ], [ null, %787 ], [ null, %793 ], [ null, %801 ], [ null, %809 ], [ null, %813 ], [ null, %817 ], [ null, %822 ], [ null, %832 ], [ null, %836 ], [ null, %840 ], [ null, %845 ], [ null, %851 ], [ null, %855 ], [ null, %859 ], [ null, %863 ], [ %866, %874 ], [ %866, %897 ], [ %866, %917 ], [ null, %796 ], [ null, %672 ], [ null, %634 ], [ null, %578 ], [ null, %540 ], [ null, %484 ], [ null, %446 ], [ null, %415 ], [ null, %426 ], [ null, %402 ], [ null, %413 ], [ null, %383 ], [ null, %388 ], [ null, %400 ], [ null, %371 ], [ null, %381 ], [ null, %359 ], [ null, %369 ], [ null, %265 ], [ null, %269 ], [ null, %281 ], [ null, %292 ], [ null, %297 ], [ null, %303 ], [ null, %308 ], [ null, %315 ], [ null, %318 ], [ null, %323 ], [ null, %334 ], [ null, %346 ], [ null, %357 ], [ null, %352 ], [ null, %330 ], [ null, %287 ], [ null, %235 ], [ null, %239 ], [ null, %251 ], [ null, %262 ], [ null, %257 ], [ null, %205 ], [ null, %209 ], [ null, %221 ], [ null, %232 ], [ null, %227 ], [ null, %176 ], [ null, %180 ], [ null, %191 ], [ null, %202 ], [ null, %197 ], [ null, %162 ], [ null, %173 ], [ null, %150 ], [ null, %160 ], [ null, %138 ], [ null, %148 ], [ null, %101 ], [ null, %107 ], [ null, %132 ], [ null, %136 ], [ null, %124 ], [ null, %120 ], [ null, %116 ], [ null, %112 ], [ null, %79 ], [ null, %99 ], [ null, %864 ]
-  %.0592 = phi i32 [ 3, %54 ], [ %60, %61 ], [ 14, %78 ], [ 12, %85 ], [ 12, %91 ], [ 12, %98 ], [ 14, %430 ], [ 14, %442 ], [ 12, %452 ], [ 12, %455 ], [ 14, %460 ], [ 12, %468 ], [ 14, %480 ], [ 14, %498 ], [ 12, %508 ], [ 12, %511 ], [ 14, %516 ], [ 12, %524 ], [ 14, %536 ], [ 12, %546 ], [ 12, %549 ], [ 14, %554 ], [ 12, %562 ], [ 14, %574 ], [ 14, %592 ], [ 12, %602 ], [ 12, %605 ], [ 14, %610 ], [ 12, %618 ], [ 14, %630 ], [ 12, %640 ], [ 12, %643 ], [ 14, %648 ], [ 12, %656 ], [ 14, %668 ], [ 14, %686 ], [ 12, %696 ], [ 12, %699 ], [ 12, %704 ], [ 12, %708 ], [ 14, %718 ], [ 12, %723 ], [ 12, %726 ], [ 12, %731 ], [ 12, %735 ], [ 14, %745 ], [ 12, %750 ], [ 12, %753 ], [ 12, %758 ], [ 12, %762 ], [ 14, %773 ], [ 12, %778 ], [ 12, %782 ], [ 12, %787 ], [ 14, %793 ], [ 12, %801 ], [ 12, %809 ], [ 12, %813 ], [ 14, %817 ], [ 12, %822 ], [ 12, %832 ], [ 12, %836 ], [ 14, %840 ], [ 12, %845 ], [ 12, %851 ], [ 12, %855 ], [ 12, %859 ], [ 14, %863 ], [ 8, %874 ], [ 14, %897 ], [ 14, %917 ], [ 14, %796 ], [ 14, %672 ], [ 14, %634 ], [ 14, %578 ], [ 14, %540 ], [ 14, %484 ], [ 14, %446 ], [ 12, %415 ], [ 14, %426 ], [ 12, %402 ], [ 14, %413 ], [ 12, %383 ], [ 12, %388 ], [ 14, %400 ], [ 12, %371 ], [ 14, %381 ], [ 12, %359 ], [ 14, %369 ], [ 12, %265 ], [ 14, %269 ], [ 14, %281 ], [ 14, %292 ], [ 12, %297 ], [ 14, %303 ], [ 12, %308 ], [ 12, %315 ], [ 12, %318 ], [ 14, %323 ], [ 14, %334 ], [ 14, %346 ], [ 14, %357 ], [ 14, %352 ], [ 14, %330 ], [ 14, %287 ], [ 12, %235 ], [ 14, %239 ], [ 14, %251 ], [ 14, %262 ], [ 14, %257 ], [ 12, %205 ], [ 14, %209 ], [ 14, %221 ], [ 14, %232 ], [ 14, %227 ], [ 12, %176 ], [ 14, %180 ], [ 14, %191 ], [ 14, %202 ], [ 14, %197 ], [ 12, %162 ], [ 14, %173 ], [ 12, %150 ], [ 14, %160 ], [ 12, %138 ], [ 14, %148 ], [ 12, %101 ], [ 14, %107 ], [ 14, %132 ], [ 14, %136 ], [ 14, %124 ], [ 14, %120 ], [ 14, %116 ], [ 14, %112 ], [ 0, %79 ], [ 0, %99 ], [ 20, %864 ]
-  %927 = icmp sgt i32 %49, -1
-  br i1 %927, label %928, label %930
+.loopexit:                                        ; preds = %864, %99, %79, %916, %896, %874, %863, %859, %855, %851, %845, %840, %836, %832, %822, %817, %813, %809, %801, %796, %793, %787, %782, %778, %773, %762, %758, %753, %750, %745, %735, %731, %726, %723, %718, %708, %704, %699, %696, %686, %672, %668, %656, %648, %643, %640, %634, %630, %618, %610, %605, %602, %592, %578, %574, %562, %554, %549, %546, %540, %536, %524, %516, %511, %508, %498, %484, %480, %468, %460, %455, %452, %446, %442, %430, %426, %415, %413, %402, %400, %388, %383, %381, %371, %369, %359, %357, %352, %346, %334, %330, %323, %318, %315, %308, %303, %297, %292, %287, %281, %269, %265, %262, %257, %251, %239, %235, %232, %227, %221, %209, %205, %202, %197, %191, %180, %176, %173, %162, %160, %150, %148, %138, %136, %132, %124, %120, %116, %112, %107, %101, %98, %91, %85, %78, %61, %54
+  %.0602 = phi ptr [ null, %54 ], [ null, %61 ], [ null, %78 ], [ null, %85 ], [ null, %91 ], [ null, %98 ], [ null, %430 ], [ null, %442 ], [ null, %452 ], [ null, %455 ], [ null, %460 ], [ null, %468 ], [ null, %480 ], [ null, %498 ], [ null, %508 ], [ null, %511 ], [ null, %516 ], [ null, %524 ], [ null, %536 ], [ null, %546 ], [ null, %549 ], [ null, %554 ], [ null, %562 ], [ null, %574 ], [ null, %592 ], [ null, %602 ], [ null, %605 ], [ null, %610 ], [ null, %618 ], [ null, %630 ], [ null, %640 ], [ null, %643 ], [ null, %648 ], [ null, %656 ], [ null, %668 ], [ null, %686 ], [ null, %696 ], [ null, %699 ], [ null, %704 ], [ null, %708 ], [ null, %718 ], [ null, %723 ], [ null, %726 ], [ null, %731 ], [ null, %735 ], [ null, %745 ], [ null, %750 ], [ null, %753 ], [ null, %758 ], [ null, %762 ], [ null, %773 ], [ null, %778 ], [ null, %782 ], [ null, %787 ], [ null, %793 ], [ null, %801 ], [ null, %809 ], [ null, %813 ], [ null, %817 ], [ null, %822 ], [ null, %832 ], [ null, %836 ], [ null, %840 ], [ null, %845 ], [ null, %851 ], [ null, %855 ], [ null, %859 ], [ null, %863 ], [ null, %874 ], [ %881, %896 ], [ %881, %916 ], [ null, %796 ], [ null, %672 ], [ null, %634 ], [ null, %578 ], [ null, %540 ], [ null, %484 ], [ null, %446 ], [ null, %415 ], [ null, %426 ], [ null, %402 ], [ null, %413 ], [ null, %383 ], [ null, %388 ], [ null, %400 ], [ null, %371 ], [ null, %381 ], [ null, %359 ], [ null, %369 ], [ null, %265 ], [ null, %269 ], [ null, %281 ], [ null, %292 ], [ null, %297 ], [ null, %303 ], [ null, %308 ], [ null, %315 ], [ null, %318 ], [ null, %323 ], [ null, %334 ], [ null, %346 ], [ null, %357 ], [ null, %352 ], [ null, %330 ], [ null, %287 ], [ null, %235 ], [ null, %239 ], [ null, %251 ], [ null, %262 ], [ null, %257 ], [ null, %205 ], [ null, %209 ], [ null, %221 ], [ null, %232 ], [ null, %227 ], [ null, %176 ], [ null, %180 ], [ null, %191 ], [ null, %202 ], [ null, %197 ], [ null, %162 ], [ null, %173 ], [ null, %150 ], [ null, %160 ], [ null, %138 ], [ null, %148 ], [ null, %101 ], [ null, %107 ], [ null, %132 ], [ null, %136 ], [ null, %124 ], [ null, %120 ], [ null, %116 ], [ null, %112 ], [ null, %79 ], [ null, %99 ], [ null, %864 ]
+  %.0596 = phi ptr [ null, %54 ], [ null, %61 ], [ null, %78 ], [ null, %85 ], [ null, %91 ], [ null, %98 ], [ null, %430 ], [ null, %442 ], [ null, %452 ], [ null, %455 ], [ null, %460 ], [ null, %468 ], [ null, %480 ], [ null, %498 ], [ null, %508 ], [ null, %511 ], [ null, %516 ], [ null, %524 ], [ null, %536 ], [ null, %546 ], [ null, %549 ], [ null, %554 ], [ null, %562 ], [ null, %574 ], [ null, %592 ], [ null, %602 ], [ null, %605 ], [ null, %610 ], [ null, %618 ], [ null, %630 ], [ null, %640 ], [ null, %643 ], [ null, %648 ], [ null, %656 ], [ null, %668 ], [ null, %686 ], [ null, %696 ], [ null, %699 ], [ null, %704 ], [ null, %708 ], [ null, %718 ], [ null, %723 ], [ null, %726 ], [ null, %731 ], [ null, %735 ], [ null, %745 ], [ null, %750 ], [ null, %753 ], [ null, %758 ], [ null, %762 ], [ null, %773 ], [ null, %778 ], [ null, %782 ], [ null, %787 ], [ null, %793 ], [ null, %801 ], [ null, %809 ], [ null, %813 ], [ null, %817 ], [ null, %822 ], [ null, %832 ], [ null, %836 ], [ null, %840 ], [ null, %845 ], [ null, %851 ], [ null, %855 ], [ null, %859 ], [ null, %863 ], [ %866, %874 ], [ %866, %896 ], [ %866, %916 ], [ null, %796 ], [ null, %672 ], [ null, %634 ], [ null, %578 ], [ null, %540 ], [ null, %484 ], [ null, %446 ], [ null, %415 ], [ null, %426 ], [ null, %402 ], [ null, %413 ], [ null, %383 ], [ null, %388 ], [ null, %400 ], [ null, %371 ], [ null, %381 ], [ null, %359 ], [ null, %369 ], [ null, %265 ], [ null, %269 ], [ null, %281 ], [ null, %292 ], [ null, %297 ], [ null, %303 ], [ null, %308 ], [ null, %315 ], [ null, %318 ], [ null, %323 ], [ null, %334 ], [ null, %346 ], [ null, %357 ], [ null, %352 ], [ null, %330 ], [ null, %287 ], [ null, %235 ], [ null, %239 ], [ null, %251 ], [ null, %262 ], [ null, %257 ], [ null, %205 ], [ null, %209 ], [ null, %221 ], [ null, %232 ], [ null, %227 ], [ null, %176 ], [ null, %180 ], [ null, %191 ], [ null, %202 ], [ null, %197 ], [ null, %162 ], [ null, %173 ], [ null, %150 ], [ null, %160 ], [ null, %138 ], [ null, %148 ], [ null, %101 ], [ null, %107 ], [ null, %132 ], [ null, %136 ], [ null, %124 ], [ null, %120 ], [ null, %116 ], [ null, %112 ], [ null, %79 ], [ null, %99 ], [ null, %864 ]
+  %.0592 = phi i32 [ 3, %54 ], [ %60, %61 ], [ 14, %78 ], [ 12, %85 ], [ 12, %91 ], [ 12, %98 ], [ 14, %430 ], [ 14, %442 ], [ 12, %452 ], [ 12, %455 ], [ 14, %460 ], [ 12, %468 ], [ 14, %480 ], [ 14, %498 ], [ 12, %508 ], [ 12, %511 ], [ 14, %516 ], [ 12, %524 ], [ 14, %536 ], [ 12, %546 ], [ 12, %549 ], [ 14, %554 ], [ 12, %562 ], [ 14, %574 ], [ 14, %592 ], [ 12, %602 ], [ 12, %605 ], [ 14, %610 ], [ 12, %618 ], [ 14, %630 ], [ 12, %640 ], [ 12, %643 ], [ 14, %648 ], [ 12, %656 ], [ 14, %668 ], [ 14, %686 ], [ 12, %696 ], [ 12, %699 ], [ 12, %704 ], [ 12, %708 ], [ 14, %718 ], [ 12, %723 ], [ 12, %726 ], [ 12, %731 ], [ 12, %735 ], [ 14, %745 ], [ 12, %750 ], [ 12, %753 ], [ 12, %758 ], [ 12, %762 ], [ 14, %773 ], [ 12, %778 ], [ 12, %782 ], [ 12, %787 ], [ 14, %793 ], [ 12, %801 ], [ 12, %809 ], [ 12, %813 ], [ 14, %817 ], [ 12, %822 ], [ 12, %832 ], [ 12, %836 ], [ 14, %840 ], [ 12, %845 ], [ 12, %851 ], [ 12, %855 ], [ 12, %859 ], [ 14, %863 ], [ 8, %874 ], [ 14, %896 ], [ 14, %916 ], [ 14, %796 ], [ 14, %672 ], [ 14, %634 ], [ 14, %578 ], [ 14, %540 ], [ 14, %484 ], [ 14, %446 ], [ 12, %415 ], [ 14, %426 ], [ 12, %402 ], [ 14, %413 ], [ 12, %383 ], [ 12, %388 ], [ 14, %400 ], [ 12, %371 ], [ 14, %381 ], [ 12, %359 ], [ 14, %369 ], [ 12, %265 ], [ 14, %269 ], [ 14, %281 ], [ 14, %292 ], [ 12, %297 ], [ 14, %303 ], [ 12, %308 ], [ 12, %315 ], [ 12, %318 ], [ 14, %323 ], [ 14, %334 ], [ 14, %346 ], [ 14, %357 ], [ 14, %352 ], [ 14, %330 ], [ 14, %287 ], [ 12, %235 ], [ 14, %239 ], [ 14, %251 ], [ 14, %262 ], [ 14, %257 ], [ 12, %205 ], [ 14, %209 ], [ 14, %221 ], [ 14, %232 ], [ 14, %227 ], [ 12, %176 ], [ 14, %180 ], [ 14, %191 ], [ 14, %202 ], [ 14, %197 ], [ 12, %162 ], [ 14, %173 ], [ 12, %150 ], [ 14, %160 ], [ 12, %138 ], [ 14, %148 ], [ 12, %101 ], [ 14, %107 ], [ 14, %132 ], [ 14, %136 ], [ 14, %124 ], [ 14, %120 ], [ 14, %116 ], [ 14, %112 ], [ 0, %79 ], [ 0, %99 ], [ 20, %864 ]
+  %926 = icmp sgt i32 %49, -1
+  br i1 %926, label %927, label %929
 
-928:                                              ; preds = %.loopexit
-  %929 = call i32 @close(i32 noundef %49) #17
-  br label %930
+927:                                              ; preds = %.loopexit
+  %928 = call i32 @close(i32 noundef %49) #17
+  br label %929
 
-930:                                              ; preds = %928, %.loopexit
-  br i1 %53, label %932, label %931
+929:                                              ; preds = %927, %.loopexit
+  br i1 %53, label %931, label %930
 
-931:                                              ; preds = %930
+930:                                              ; preds = %929
   call void @free(ptr noundef nonnull %52) #17
-  br label %932
+  br label %931
 
-932:                                              ; preds = %931, %930
+931:                                              ; preds = %930, %929
   %.not808 = icmp eq ptr %.0596, null
-  br i1 %.not808, label %934, label %933
+  br i1 %.not808, label %933, label %932
 
-933:                                              ; preds = %932
+932:                                              ; preds = %931
   call void @free(ptr noundef nonnull %.0596) #17
-  br label %934
+  br label %933
 
-934:                                              ; preds = %933, %932
+933:                                              ; preds = %932, %931
   %.not809 = icmp eq i32 %.0592, 0
-  br i1 %.not809, label %939, label %.thread848
+  br i1 %.not809, label %938, label %.thread843
 
-.thread848:                                       ; preds = %46, %934
-  %.0602828840846854 = phi ptr [ %.0602, %934 ], [ null, %46 ]
-  %.0592831838847852 = phi i32 [ %.0592, %934 ], [ 8, %46 ]
-  %935 = load i32, ptr %5, align 4
-  %936 = icmp sgt i32 %935, -1
-  br i1 %936, label %937, label %939
+.thread843:                                       ; preds = %46, %933
+  %.0602823835841849 = phi ptr [ %.0602, %933 ], [ null, %46 ]
+  %.0592826833842847 = phi i32 [ %.0592, %933 ], [ 8, %46 ]
+  %934 = load i32, ptr %5, align 4
+  %935 = icmp sgt i32 %934, -1
+  br i1 %935, label %936, label %938
 
-937:                                              ; preds = %.thread848
-  %938 = call i32 @close(i32 noundef %935) #17
+936:                                              ; preds = %.thread843
+  %937 = call i32 @close(i32 noundef %934) #17
   store i32 -1, ptr %5, align 4
-  br label %939
+  br label %938
 
-939:                                              ; preds = %937, %.thread848, %934
-  %.0602828840846855 = phi ptr [ %.0602828840846854, %937 ], [ %.0602828840846854, %.thread848 ], [ %.0602, %934 ]
-  %.0592831838847853 = phi i32 [ %.0592831838847852, %937 ], [ %.0592831838847852, %.thread848 ], [ 0, %934 ]
-  %940 = load ptr, ptr %12, align 8
-  %.not810 = icmp eq ptr %940, null
-  br i1 %.not810, label %942, label %941
+938:                                              ; preds = %936, %.thread843, %933
+  %.0602823835841850 = phi ptr [ %.0602823835841849, %936 ], [ %.0602823835841849, %.thread843 ], [ %.0602, %933 ]
+  %.0592826833842848 = phi i32 [ %.0592826833842847, %936 ], [ %.0592826833842847, %.thread843 ], [ 0, %933 ]
+  %939 = load ptr, ptr %12, align 8
+  %.not810 = icmp eq ptr %939, null
+  br i1 %.not810, label %941, label %940
 
-941:                                              ; preds = %939
-  call void @free(ptr noundef nonnull %940) #17
+940:                                              ; preds = %938
+  call void @free(ptr noundef nonnull %939) #17
   store ptr null, ptr %12, align 8
-  br label %942
+  br label %941
 
-942:                                              ; preds = %941, %939
-  %943 = load ptr, ptr %11, align 8
-  %.not811 = icmp eq ptr %943, null
-  br i1 %.not811, label %945, label %944
+941:                                              ; preds = %940, %938
+  %942 = load ptr, ptr %11, align 8
+  %.not811 = icmp eq ptr %942, null
+  br i1 %.not811, label %944, label %943
 
-944:                                              ; preds = %942
-  call void @free(ptr noundef nonnull %943) #17
+943:                                              ; preds = %941
+  call void @free(ptr noundef nonnull %942) #17
   store ptr null, ptr %11, align 8
-  br label %945
+  br label %944
 
-945:                                              ; preds = %944, %942
-  %.not812 = icmp eq ptr %.0602828840846855, null
-  br i1 %.not812, label %947, label %946
+944:                                              ; preds = %943, %941
+  %.not812 = icmp eq ptr %.0602823835841850, null
+  br i1 %.not812, label %946, label %945
 
-946:                                              ; preds = %945
-  call void @free(ptr noundef nonnull %.0602828840846855) #17
-  br label %947
+945:                                              ; preds = %944
+  call void @free(ptr noundef nonnull %.0602823835841850) #17
+  br label %946
 
-947:                                              ; preds = %946, %945
-  %948 = load ptr, ptr %15, align 8
-  %.not813 = icmp eq ptr %948, null
-  br i1 %.not813, label %950, label %949
+946:                                              ; preds = %945, %944
+  %947 = load ptr, ptr %15, align 8
+  %.not813 = icmp eq ptr %947, null
+  br i1 %.not813, label %949, label %948
 
-949:                                              ; preds = %947
-  call void @free(ptr noundef nonnull %948) #17
-  br label %950
+948:                                              ; preds = %946
+  call void @free(ptr noundef nonnull %947) #17
+  br label %949
 
-950:                                              ; preds = %947, %949, %8
-  %.0 = phi i32 [ 3, %8 ], [ %.0592831838847853, %949 ], [ %.0592831838847853, %947 ]
+949:                                              ; preds = %946, %948, %8
+  %.0 = phi i32 [ 3, %8 ], [ %.0592826833842848, %948 ], [ %.0592826833842848, %946 ]
   ret i32 %.0
 }
 
@@ -2411,12 +2411,12 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %5 = alloca i16, align 2
   %6 = alloca [4096 x i8], align 16
   %7 = icmp slt i32 %0, 0
-  br i1 %7, label %109, label %8
+  br i1 %7, label %110, label %8
 
 8:                                                ; preds = %3
   %9 = tail call ptr @blobCreate() #17
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %109, label %11
+  br i1 %10, label %110, label %11
 
 11:                                               ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %6, i8 0, i64 4096, i1 false)
@@ -2426,199 +2426,198 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %15 = icmp eq i64 %14, 1
   br i1 %15, label %.preheader, label %._crit_edge
 
-.preheader:                                       ; preds = %11, %.preheader.backedge
-  %.1113 = phi i32 [ %.1113.be, %.preheader.backedge ], [ 0, %11 ]
-  %.173112 = phi i32 [ %.173112.be, %.preheader.backedge ], [ 1, %11 ]
-  %.075111 = phi i32 [ %.075111.be, %.preheader.backedge ], [ 1, %11 ]
-  %16 = and i32 %.1113, 4095
-  %17 = load i8, ptr %4, align 1
-  %18 = zext i8 %17 to i32
-  %19 = and i32 %.075111, %18
-  %.not85 = icmp eq i32 %19, 0
-  br i1 %.not85, label %78, label %20
+.preheader:                                       ; preds = %11, %.loopexit101
+  %.071115 = phi i32 [ %.1104, %.loopexit101 ], [ 0, %11 ]
+  %.072114 = phi i32 [ %.274, %.loopexit101 ], [ 1, %11 ]
+  %16 = icmp ne i32 %.072114, 0
+  br label %17
 
-20:                                               ; preds = %.preheader
-  %21 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 2) #17
-  %.not.i = icmp eq i64 %21, 2
-  br i1 %.not.i, label %24, label %22
+17:                                               ; preds = %.preheader, %.loopexit
+  %.1113 = phi i32 [ %.071115, %.preheader ], [ %.3, %.loopexit ]
+  %.173112 = phi i1 [ %16, %.preheader ], [ true, %.loopexit ]
+  %.075111 = phi i32 [ 1, %.preheader ], [ %95, %.loopexit ]
+  %18 = and i32 %.1113, 4095
+  %19 = load i8, ptr %4, align 1
+  %20 = zext i8 %19 to i32
+  %21 = and i32 %.075111, %20
+  %.not85 = icmp eq i32 %21, 0
+  br i1 %.not85, label %80, label %22
 
-22:                                               ; preds = %20
+22:                                               ; preds = %17
+  %23 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 2) #17
+  %.not.i = icmp eq i64 %23, 2
+  br i1 %.not.i, label %26, label %24
+
+24:                                               ; preds = %22
   call void @blobDestroy(ptr noundef nonnull %9) #17
   %.not89 = icmp eq ptr %2, null
-  br i1 %.not89, label %109, label %23
+  br i1 %.not89, label %110, label %25
 
-23:                                               ; preds = %22
+25:                                               ; preds = %24
   store i64 0, ptr %2, align 8
-  br label %109
+  br label %110
 
-24:                                               ; preds = %20
-  %25 = icmp ugt i32 %16, 16
-  %26 = select i1 %25, i32 11, i32 12
-  %27 = icmp ugt i32 %16, 32
-  %.neg = sext i1 %27 to i32
-  %28 = add nsw i32 %26, %.neg
-  %29 = icmp ugt i32 %16, 64
-  %.neg90 = sext i1 %29 to i32
-  %30 = add nsw i32 %28, %.neg90
-  %31 = icmp ugt i32 %16, 128
-  %.neg91 = sext i1 %31 to i32
-  %32 = add nsw i32 %30, %.neg91
-  %33 = icmp ugt i32 %16, 256
-  %.neg92 = sext i1 %33 to i32
-  %34 = add nsw i32 %32, %.neg92
-  %35 = icmp ugt i32 %16, 512
-  %.neg93 = sext i1 %35 to i32
-  %36 = add nsw i32 %34, %.neg93
-  %37 = icmp ugt i32 %16, 1024
-  %.neg94 = sext i1 %37 to i32
-  %38 = add nsw i32 %36, %.neg94
-  %39 = icmp ugt i32 %16, 2048
-  %.neg95 = sext i1 %39 to i32
-  %40 = add nsw i32 %38, %.neg95
-  %41 = load i16, ptr %5, align 2
-  %42 = zext i16 %41 to i32
-  %notmask = shl nsw i32 -1, %40
-  %43 = trunc nsw i32 %notmask to i16
-  %44 = xor i16 %43, -1
-  %45 = and i16 %41, %44
-  %46 = add nuw nsw i16 %45, 3
-  %47 = lshr i32 %42, %40
-  %48 = xor i32 %47, -1
-  %49 = add i32 %.1113, %48
-  %50 = zext nneg i16 %46 to i32
-  %51 = add i32 %49, %50
-  %52 = and i32 %51, 4095
-  %53 = icmp ult i32 %52, %16
-  %54 = add nuw nsw i32 %16, %50
-  %55 = icmp ult i32 %54, 4096
-  %or.cond98 = select i1 %53, i1 %55, i1 false
-  br i1 %or.cond98, label %56, label %.preheader122
+26:                                               ; preds = %22
+  %27 = icmp ugt i32 %18, 16
+  %28 = select i1 %27, i32 11, i32 12
+  %29 = icmp ugt i32 %18, 32
+  %.neg = sext i1 %29 to i32
+  %30 = add nsw i32 %28, %.neg
+  %31 = icmp ugt i32 %18, 64
+  %.neg90 = sext i1 %31 to i32
+  %32 = add nsw i32 %30, %.neg90
+  %33 = icmp ugt i32 %18, 128
+  %.neg91 = sext i1 %33 to i32
+  %34 = add nsw i32 %32, %.neg91
+  %35 = icmp ugt i32 %18, 256
+  %.neg92 = sext i1 %35 to i32
+  %36 = add nsw i32 %34, %.neg92
+  %37 = icmp ugt i32 %18, 512
+  %.neg93 = sext i1 %37 to i32
+  %38 = add nsw i32 %36, %.neg93
+  %39 = icmp ugt i32 %18, 1024
+  %.neg94 = sext i1 %39 to i32
+  %40 = add nsw i32 %38, %.neg94
+  %41 = icmp ugt i32 %18, 2048
+  %.neg95 = sext i1 %41 to i32
+  %42 = add nsw i32 %40, %.neg95
+  %43 = load i16, ptr %5, align 2
+  %44 = zext i16 %43 to i32
+  %notmask = shl nsw i32 -1, %42
+  %45 = trunc nsw i32 %notmask to i16
+  %46 = xor i16 %45, -1
+  %47 = and i16 %43, %46
+  %48 = add nuw nsw i16 %47, 3
+  %49 = lshr i32 %44, %42
+  %50 = xor i32 %49, -1
+  %51 = add i32 %.1113, %50
+  %52 = zext nneg i16 %48 to i32
+  %53 = add i32 %51, %52
+  %54 = and i32 %53, 4095
+  %55 = icmp ult i32 %54, %18
+  %56 = add nuw nsw i32 %18, %52
+  %57 = icmp ult i32 %56, 4096
+  %or.cond98 = select i1 %55, i1 %57, i1 false
+  br i1 %or.cond98, label %58, label %.preheader122
 
-.preheader122:                                    ; preds = %56, %24
-  br label %67
+.preheader122:                                    ; preds = %58, %26
+  br label %69
 
-56:                                               ; preds = %24
-  %57 = and i32 %49, 4095
-  %58 = add nuw nsw i32 %57, %50
-  %59 = icmp ult i32 %58, 4096
-  br i1 %59, label %60, label %.preheader122
+58:                                               ; preds = %26
+  %59 = and i32 %51, 4095
+  %60 = add nuw nsw i32 %59, %52
+  %61 = icmp ult i32 %60, 4096
+  br i1 %61, label %62, label %.preheader122
 
-60:                                               ; preds = %56
-  %61 = zext nneg i32 %16 to i64
-  %62 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %61
-  %63 = zext nneg i32 %57 to i64
+62:                                               ; preds = %58
+  %63 = zext nneg i32 %18 to i64
   %64 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %63
-  %65 = zext nneg i16 %46 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %64, i64 %65, i1 false)
-  %66 = add i32 %.1113, %50
+  %65 = zext nneg i32 %59 to i64
+  %66 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %65
+  %67 = zext nneg i16 %48 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull align 1 dereferenceable(1) %66, i64 %67, i1 false)
+  %68 = add i32 %.1113, %52
   br label %.loopexit
 
-67:                                               ; preds = %.preheader122, %67
-  %.0110 = phi i16 [ %68, %67 ], [ %46, %.preheader122 ]
-  %.2109 = phi i32 [ %74, %67 ], [ %.1113, %.preheader122 ]
-  %68 = add i16 %.0110, -1
-  %69 = add i32 %.2109, %48
-  %70 = and i32 %69, 4095
-  %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1
-  %74 = add i32 %.2109, 1
-  %75 = and i32 %.2109, 4095
-  %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %76
-  store i8 %73, ptr %77, align 1
-  %.not96 = icmp eq i16 %68, 0
-  br i1 %.not96, label %.loopexit, label %67
+69:                                               ; preds = %.preheader122, %69
+  %.0110 = phi i16 [ %70, %69 ], [ %48, %.preheader122 ]
+  %.2109 = phi i32 [ %76, %69 ], [ %.1113, %.preheader122 ]
+  %70 = add i16 %.0110, -1
+  %71 = add i32 %.2109, %50
+  %72 = and i32 %71, 4095
+  %73 = zext nneg i32 %72 to i64
+  %74 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %73
+  %75 = load i8, ptr %74, align 1
+  %76 = add i32 %.2109, 1
+  %77 = and i32 %.2109, 4095
+  %78 = zext nneg i32 %77 to i64
+  %79 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %78
+  store i8 %75, ptr %79, align 1
+  %.not96 = icmp eq i16 %70, 0
+  br i1 %.not96, label %.loopexit, label %69
 
-78:                                               ; preds = %.preheader
-  %79 = icmp ne i32 %.1113, 0
-  %80 = icmp eq i32 %16, 0
-  %or.cond4 = and i1 %79, %80
-  %81 = icmp ne i32 %.173112, 0
-  %or.cond6 = and i1 %or.cond4, %81
-  br i1 %or.cond6, label %82, label %88
+80:                                               ; preds = %17
+  %81 = icmp ne i32 %.1113, 0
+  %82 = icmp eq i32 %18, 0
+  %or.cond4 = and i1 %81, %82
+  %or.cond6 = and i1 %or.cond4, %.173112
+  br i1 %or.cond6, label %83, label %89
 
-82:                                               ; preds = %78
-  %83 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 2) #17
-  %.not86 = icmp eq i64 %83, 2
-  br i1 %.not86, label %86, label %84
+83:                                               ; preds = %80
+  %84 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %5, i64 noundef 2) #17
+  %.not86 = icmp eq i64 %84, 2
+  br i1 %.not86, label %87, label %85
 
-84:                                               ; preds = %82
+85:                                               ; preds = %83
   call void @blobDestroy(ptr noundef nonnull %9) #17
   %.not87 = icmp eq ptr %2, null
-  br i1 %.not87, label %109, label %85
+  br i1 %.not87, label %110, label %86
 
-85:                                               ; preds = %84
+86:                                               ; preds = %85
   store i64 0, ptr %2, align 8
-  br label %109
+  br label %110
 
-86:                                               ; preds = %82
-  %87 = call i32 @blobAddData(ptr noundef nonnull %9, ptr noundef nonnull %6, i64 noundef 4096) #17
+87:                                               ; preds = %83
+  %88 = call i32 @blobAddData(ptr noundef nonnull %9, ptr noundef nonnull %6, i64 noundef 4096) #17
   br label %.loopexit101
 
-88:                                               ; preds = %78
-  %89 = zext nneg i32 %16 to i64
-  %90 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %89
-  %91 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %90, i64 noundef 1) #17
-  %92 = icmp eq i64 %91, 1
-  %93 = zext i1 %92 to i32
-  %spec.select = add i32 %.1113, %93
+89:                                               ; preds = %80
+  %90 = zext nneg i32 %18 to i64
+  %91 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %90
+  %92 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %91, i64 noundef 1) #17
+  %93 = icmp eq i64 %92, 1
+  %94 = zext i1 %93 to i32
+  %spec.select = add i32 %.1113, %94
   br label %.loopexit
 
-.loopexit:                                        ; preds = %67, %88, %60
-  %.3 = phi i32 [ %66, %60 ], [ %spec.select, %88 ], [ %74, %67 ]
-  %94 = shl nuw nsw i32 %.075111, 1
-  %95 = icmp ult i32 %.075111, 128
-  br i1 %95, label %.preheader.backedge, label %.loopexit101
+.loopexit:                                        ; preds = %69, %89, %62
+  %.3 = phi i32 [ %68, %62 ], [ %spec.select, %89 ], [ %76, %69 ]
+  %95 = shl nuw nsw i32 %.075111, 1
+  %96 = icmp ult i32 %.075111, 128
+  br i1 %96, label %17, label %.loopexit101
 
-.preheader.backedge:                              ; preds = %.loopexit, %.loopexit101
-  %.1113.be = phi i32 [ %.3, %.loopexit ], [ %.1104, %.loopexit101 ]
-  %.173112.be = phi i32 [ 1, %.loopexit ], [ %.274, %.loopexit101 ]
-  %.075111.be = phi i32 [ %94, %.loopexit ], [ 1, %.loopexit101 ]
-  br label %.preheader
-
-.loopexit101:                                     ; preds = %.loopexit, %86
-  %.1104 = phi i32 [ %.1113, %86 ], [ %.3, %.loopexit ]
-  %.274 = phi i32 [ 0, %86 ], [ 1, %.loopexit ]
-  %96 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 1) #17
-  %97 = icmp eq i64 %96, 1
-  br i1 %97, label %.preheader.backedge, label %._crit_edge.loopexit
+.loopexit101:                                     ; preds = %.loopexit, %87
+  %.1104 = phi i32 [ %.1113, %87 ], [ %.3, %.loopexit ]
+  %.274 = phi i32 [ 0, %87 ], [ 1, %.loopexit ]
+  %97 = call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %4, i64 noundef 1) #17
+  %98 = icmp eq i64 %97, 1
+  br i1 %98, label %.preheader, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit101
-  %98 = and i32 %.1104, 4095
-  %99 = zext nneg i32 %98 to i64
+  %99 = and i32 %.1104, 4095
+  %100 = zext nneg i32 %99 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
-  %.071.lcssa = phi i64 [ 0, %11 ], [ %99, %._crit_edge.loopexit ]
-  %100 = call i32 @blobAddData(ptr noundef nonnull %9, ptr noundef nonnull %6, i64 noundef %.071.lcssa) #17
-  %101 = icmp slt i32 %100, 0
-  br i1 %101, label %102, label %104
+  %.071.lcssa = phi i64 [ 0, %11 ], [ %100, %._crit_edge.loopexit ]
+  %101 = call i32 @blobAddData(ptr noundef nonnull %9, ptr noundef nonnull %6, i64 noundef %.071.lcssa) #17
+  %102 = icmp slt i32 %101, 0
+  br i1 %102, label %103, label %105
 
-102:                                              ; preds = %._crit_edge
+103:                                              ; preds = %._crit_edge
   call void @blobDestroy(ptr noundef nonnull %9) #17
   %.not84 = icmp eq ptr %2, null
-  br i1 %.not84, label %109, label %103
+  br i1 %.not84, label %110, label %104
 
-103:                                              ; preds = %102
+104:                                              ; preds = %103
   store i64 0, ptr %2, align 8
-  br label %109
+  br label %110
 
-104:                                              ; preds = %._crit_edge
+105:                                              ; preds = %._crit_edge
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %107, label %105
+  br i1 %.not, label %108, label %106
 
-105:                                              ; preds = %104
-  %106 = call i64 @blobGetDataSize(ptr noundef nonnull %9) #17
-  store i64 %106, ptr %2, align 8
-  br label %107
+106:                                              ; preds = %105
+  %107 = call i64 @blobGetDataSize(ptr noundef nonnull %9) #17
+  store i64 %107, ptr %2, align 8
+  br label %108
 
-107:                                              ; preds = %105, %104
-  %108 = call ptr @blobToMem(ptr noundef nonnull %9) #17
-  br label %109
+108:                                              ; preds = %106, %105
+  %109 = call ptr @blobToMem(ptr noundef nonnull %9) #17
+  br label %110
 
-109:                                              ; preds = %102, %103, %84, %85, %22, %23, %8, %3, %107
-  %.070 = phi ptr [ %108, %107 ], [ null, %3 ], [ null, %8 ], [ null, %23 ], [ null, %22 ], [ null, %85 ], [ null, %84 ], [ null, %103 ], [ null, %102 ]
+110:                                              ; preds = %103, %104, %85, %86, %24, %25, %8, %3, %108
+  %.070 = phi ptr [ %109, %108 ], [ null, %3 ], [ null, %8 ], [ null, %25 ], [ null, %24 ], [ null, %86 ], [ null, %85 ], [ null, %104 ], [ null, %103 ]
   ret ptr %.070
 }
 

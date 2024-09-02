@@ -276,7 +276,7 @@ define internal noundef range(i32 0, 2) i32 @sync_file_poll(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @sync_file_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @sync_file_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.sync_set_deadline, align 8
   %5 = alloca %struct.dma_fence_unwrap, align 8
   %6 = alloca %struct.sync_file_info, align 8

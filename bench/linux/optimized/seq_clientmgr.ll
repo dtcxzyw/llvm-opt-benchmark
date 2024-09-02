@@ -1444,27 +1444,27 @@ snd_seq_info_dump_subscribers.exit9:              ; preds = %.loopexit.i8, %124,
   %170 = getelementptr inbounds i8, ptr %12, i64 232
   %171 = load ptr, ptr %170, align 8
   %172 = icmp eq ptr %171, null
-  br i1 %172, label %.thread, label %173
+  br i1 %172, label %.critedge, label %173
 
 173:                                              ; preds = %.loopexit
   %174 = getelementptr inbounds i8, ptr %171, i64 16
   %175 = load i32, ptr %174, align 8
   %176 = icmp slt i32 %175, 1
-  br i1 %176, label %.thread, label %177
+  br i1 %176, label %.critedge, label %177
 
 177:                                              ; preds = %173
   %178 = load ptr, ptr %1, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %178, ptr noundef nonnull @.str.10) #18
   %179 = load ptr, ptr %170, align 8
   tail call void @snd_seq_info_pool(ptr noundef %1, ptr noundef %179, ptr noundef nonnull @.str.11) #18
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.loopexit, %177, %173
+.critedge:                                        ; preds = %.loopexit, %177, %173
   %180 = load i32, ptr %12, align 8
   %181 = icmp eq i32 %180, 1
   br i1 %181, label %182, label %193
 
-182:                                              ; preds = %.thread
+182:                                              ; preds = %.critedge
   %183 = getelementptr inbounds i8, ptr %12, i64 256
   %184 = load ptr, ptr %183, align 8
   %185 = icmp eq ptr %184, null
@@ -1483,7 +1483,7 @@ snd_seq_info_dump_subscribers.exit9:              ; preds = %.loopexit.i8, %124,
   tail call void @snd_seq_info_pool(ptr noundef %1, ptr noundef %192, ptr noundef nonnull @.str.11) #18
   br label %193
 
-193:                                              ; preds = %189, %186, %182, %.thread
+193:                                              ; preds = %189, %186, %182, %.critedge
   %194 = getelementptr inbounds i8, ptr %12, i64 124
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %194, ptr elementtype(i32) %194) #18, !srcloc !16
   br label %195
@@ -4089,20 +4089,20 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_seq_write(ptr nounde
 
 41:                                               ; preds = %33
   %42 = icmp eq ptr %37, null
-  br i1 %42, label %.thread, label %43
+  br i1 %42, label %.critedge, label %43
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds i8, ptr %37, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = icmp slt i32 %45, 1
-  br i1 %46, label %.thread, label %.preheader
+  br i1 %46, label %.critedge, label %.preheader
 
-.thread:                                          ; preds = %41, %43
+.critedge:                                        ; preds = %41, %43
   %47 = call i32 @snd_seq_pool_init(ptr noundef %37) #18
   %48 = icmp slt i32 %47, 0
-  br i1 %48, label %.thread8, label %.preheader
+  br i1 %48, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %.thread, %43, %33
+.preheader:                                       ; preds = %.critedge, %43, %33
   br label %49
 
 49:                                               ; preds = %.preheader, %115
@@ -4112,12 +4112,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_seq_write(ptr nounde
   %53 = phi i32 [ %123, %115 ], [ 0, %.preheader ]
   %54 = phi ptr [ %121, %115 ], [ %36, %.preheader ]
   %55 = icmp ugt i64 %50, 27
-  br i1 %55, label %56, label %.thread8
+  br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %49
   %57 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %54, i64 noundef 28) #18
   %58 = icmp eq i64 %57, 0
-  br i1 %58, label %59, label %.thread8
+  br i1 %58, label %59, label %.thread
 
 59:                                               ; preds = %56
   %60 = load i32, ptr %25, align 8
@@ -4137,24 +4137,24 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_seq_write(ptr nounde
   %66 = load i8, ptr %5, align 4
   %67 = add i8 %66, 126
   %68 = icmp ult i8 %67, 10
-  br i1 %68, label %.thread8, label %80
+  br i1 %68, label %.thread, label %80
 
 69:                                               ; preds = %59
   %70 = load i8, ptr %5, align 4
   %71 = add i8 %70, 126
   %72 = icmp ult i8 %71, 10
-  br i1 %72, label %73, label %.thread8
+  br i1 %72, label %73, label %.thread
 
 73:                                               ; preds = %69
   %74 = load i32, ptr %29, align 4
   %75 = and i32 %74, 1073741823
   %76 = icmp eq i32 %75, 1073741823
-  br i1 %76, label %.thread8, label %thread-pre-split
+  br i1 %76, label %.thread, label %thread-pre-split
 
 77:                                               ; preds = %59
   %78 = load i8, ptr %28, align 1
   %79 = icmp eq i8 %78, -3
-  br i1 %79, label %thread-pre-split, label %.thread8
+  br i1 %79, label %thread-pre-split, label %.thread
 
 default.unreachable:                              ; preds = %59
   unreachable
@@ -4170,7 +4170,7 @@ thread-pre-split:                                 ; preds = %73, %77, %59
 
 83:                                               ; preds = %80
   %84 = icmp ugt i8 %81, -107
-  br i1 %84, label %.thread8, label %85
+  br i1 %84, label %.thread, label %85
 
 85:                                               ; preds = %83
   %86 = icmp eq i8 %63, 4
@@ -4182,7 +4182,7 @@ thread-pre-split:                                 ; preds = %73, %77, %59
   %90 = add nuw nsw i32 %89, 28
   %91 = zext nneg i32 %90 to i64
   %92 = icmp ult i64 %50, %91
-  br i1 %92, label %.thread8, label %93
+  br i1 %92, label %.thread, label %93
 
 93:                                               ; preds = %87
   %94 = or disjoint i32 %89, -2147483648
@@ -4205,19 +4205,19 @@ thread-pre-split:                                 ; preds = %73, %77, %59
 
 .sink.split:                                      ; preds = %101, %93
   %.sink = phi ptr [ %95, %93 ], [ %104, %101 ]
-  %.ph39 = phi i32 [ %90, %93 ], [ 28, %101 ]
+  %.ph38 = phi i32 [ %90, %93 ], [ 28, %101 ]
   store ptr %.sink, ptr %31, align 4
   br label %105
 
 105:                                              ; preds = %.sink.split, %96
-  %106 = phi i32 [ 28, %96 ], [ %.ph39, %.sink.split ]
+  %106 = phi i32 [ 28, %96 ], [ %.ph38, %.sink.split ]
   %107 = load i32, ptr %32, align 8
   %108 = lshr i32 %107, 11
   %109 = and i32 %108, 1
   %110 = xor i32 %109, 1
   %111 = call fastcc i32 @snd_seq_client_enqueue_event(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef %0, i32 noundef %110, ptr noundef %24)
   %112 = icmp slt i32 %111, 0
-  br i1 %112, label %.thread8, label %113
+  br i1 %112, label %.thread, label %113
 
 113:                                              ; preds = %105
   %114 = add nsw i32 %53, 1
@@ -4239,17 +4239,17 @@ thread-pre-split:                                 ; preds = %73, %77, %59
   call void @mutex_unlock(ptr noundef %24) #18
   br label %33
 
-.thread8:                                         ; preds = %.thread, %87, %105, %83, %77, %73, %69, %65, %56, %49
-  %126 = phi i32 [ %51, %49 ], [ %51, %56 ], [ %51, %65 ], [ %51, %69 ], [ %51, %73 ], [ %51, %77 ], [ %51, %83 ], [ %51, %105 ], [ %51, %87 ], [ %35, %.thread ]
-  %127 = phi i32 [ -22, %87 ], [ %111, %105 ], [ -22, %83 ], [ -22, %77 ], [ -22, %73 ], [ -22, %69 ], [ -22, %65 ], [ -14, %56 ], [ %52, %49 ], [ %47, %.thread ]
+.thread:                                          ; preds = %.critedge, %87, %105, %83, %77, %73, %69, %65, %56, %49
+  %126 = phi i32 [ %51, %49 ], [ %51, %56 ], [ %51, %65 ], [ %51, %69 ], [ %51, %73 ], [ %51, %77 ], [ %51, %83 ], [ %51, %105 ], [ %51, %87 ], [ %35, %.critedge ]
+  %127 = phi i32 [ -22, %87 ], [ %111, %105 ], [ -22, %83 ], [ -22, %77 ], [ -22, %73 ], [ -22, %69 ], [ -22, %65 ], [ -14, %56 ], [ %52, %49 ], [ %47, %.critedge ]
   call void @mutex_unlock(ptr noundef %24) #18
   %128 = icmp eq i32 %126, 0
   %129 = select i1 %128, i32 %127, i32 %126
   %130 = sext i32 %129 to i64
   br label %131
 
-131:                                              ; preds = %.thread8, %19, %14, %4
-  %132 = phi i64 [ %130, %.thread8 ], [ -6, %4 ], [ -6, %19 ], [ -6, %14 ]
+131:                                              ; preds = %.thread, %19, %14, %4
+  %132 = phi i64 [ %130, %.thread ], [ -6, %4 ], [ -6, %19 ], [ -6, %14 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #18
   ret i64 %132
 }

@@ -1615,7 +1615,7 @@ define hidden range(i32 -50, 1) i32 @mbedtls_des3_crypt_cbc(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -50, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %2 = alloca [96 x i32], align 16
   %3 = alloca [96 x i32], align 16
   %4 = alloca [96 x i32], align 16

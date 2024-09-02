@@ -4156,18 +4156,18 @@ define dso_local noundef ptr @generateClonedIndexStmt(ptr noundef %0, ptr nocapt
 81:                                               ; preds = %64
   %82 = load i8, ptr %67, align 4
   %83 = trunc i8 %82 to i1
-  br i1 %83, label %84, label %87
+  br i1 %83, label %84, label %88
 
 84:                                               ; preds = %81, %64
   %85 = getelementptr inbounds i8, ptr %33, i64 15
   %86 = load i8, ptr %85, align 1
-  br label %87
+  %87 = and i8 %86, 1
+  br label %88
 
-87:                                               ; preds = %84, %81
-  %88 = phi i8 [ 0, %81 ], [ %86, %84 ]
-  %89 = getelementptr inbounds i8, ptr %55, i64 108
-  %90 = and i8 %88, 1
-  store i8 %90, ptr %89, align 4
+88:                                               ; preds = %84, %81
+  %89 = phi i8 [ 0, %81 ], [ %87, %84 ]
+  %90 = getelementptr inbounds i8, ptr %55, i64 108
+  store i8 %89, ptr %90, align 4
   %91 = getelementptr inbounds i8, ptr %55, i64 111
   store i8 1, ptr %91, align 1
   %92 = getelementptr inbounds i8, ptr %55, i64 112
@@ -4181,7 +4181,7 @@ define dso_local noundef ptr @generateClonedIndexStmt(ptr noundef %0, ptr nocapt
   %96 = trunc i8 %76 to i1
   br i1 %96, label %103, label %97
 
-97:                                               ; preds = %87
+97:                                               ; preds = %88
   %98 = trunc i8 %68 to i1
   br i1 %98, label %103, label %99
 
@@ -4191,7 +4191,7 @@ define dso_local noundef ptr @generateClonedIndexStmt(ptr noundef %0, ptr nocapt
   %102 = trunc i8 %101 to i1
   br i1 %102, label %103, label %169
 
-103:                                              ; preds = %99, %97, %87
+103:                                              ; preds = %99, %97, %88
   %104 = tail call i32 @get_index_constraint(i32 noundef %11) #8
   %.not199 = icmp eq i32 %104, 0
   br i1 %.not199, label %167, label %105

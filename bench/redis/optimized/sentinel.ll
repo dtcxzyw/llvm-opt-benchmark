@@ -3414,21 +3414,23 @@ if.end:                                           ; preds = %entry
   %call6 = tail call noalias ptr @zmalloc(i64 noundef %mul) #32
   %3 = load ptr, ptr %slaves1, align 8
   %call8 = tail call ptr @dictGetIterator(ptr noundef %3) #29
+  %call96670 = tail call ptr @dictNext(ptr noundef %call8) #29
+  %cmp10.not6771 = icmp eq ptr %call96670, null
+  br i1 %cmp10.not6771, label %while.end, label %while.body.lr.ph.lr.ph
+
+while.body.lr.ph.lr.ph:                           ; preds = %if.end
   %port1.i = getelementptr inbounds i8, ptr %call, i64 16
   %ip2.i = getelementptr inbounds i8, ptr %call, i64 8
-  br label %while.cond.outer
+  br label %while.body.lr.ph
 
-while.cond.outer:                                 ; preds = %if.end14, %if.end
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end14 ], [ 0, %if.end ]
-  br label %while.cond
+while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end14
+  %indvars.iv = phi i64 [ 0, %while.body.lr.ph.lr.ph ], [ %indvars.iv.next, %if.end14 ]
+  %call96673 = phi ptr [ %call96670, %while.body.lr.ph.lr.ph ], [ %call966, %if.end14 ]
+  br label %while.body
 
-while.cond:                                       ; preds = %while.cond.outer, %sentinelAddrOrHostnameEqual.exit
-  %call9 = tail call ptr @dictNext(ptr noundef %call8) #29
-  %cmp10.not = icmp eq ptr %call9, null
-  br i1 %cmp10.not, label %while.end, label %while.body
-
-while.body:                                       ; preds = %while.cond
-  %call11 = tail call ptr @dictGetVal(ptr noundef nonnull %call9) #29
+while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
+  %call968 = phi ptr [ %call96673, %while.body.lr.ph ], [ %call9, %while.cond.backedge ]
+  %call11 = tail call ptr @dictGetVal(ptr noundef nonnull %call968) #29
   %addr = getelementptr inbounds i8, ptr %call11, i64 32
   %4 = load ptr, ptr %addr, align 8
   %port.i = getelementptr inbounds i8, ptr %4, i64 16
@@ -3443,53 +3445,64 @@ land.rhs.i:                                       ; preds = %while.body
   %8 = load ptr, ptr %ip2.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %8) #33
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %sentinelAddrOrHostnameEqual.exit, label %lor.rhs.i
+  br i1 %tobool.not.i, label %while.cond.backedge, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %call, align 8
   %call4.i = tail call i32 @strcasecmp(ptr noundef %9, ptr noundef %10) #33
-  %tobool5.not.i = icmp eq i32 %call4.i, 0
-  %11 = zext i1 %tobool5.not.i to i32
-  br label %sentinelAddrOrHostnameEqual.exit
+  %tobool5.not.i.not = icmp eq i32 %call4.i, 0
+  br i1 %tobool5.not.i.not, label %while.cond.backedge, label %if.end14
 
-sentinelAddrOrHostnameEqual.exit:                 ; preds = %land.rhs.i, %lor.rhs.i
-  %land.ext.i = phi i32 [ 1, %land.rhs.i ], [ %11, %lor.rhs.i ]
-  %tobool.not = icmp eq i32 %land.ext.i, 0
-  br i1 %tobool.not, label %if.end14, label %while.cond, !llvm.loop !28
+while.cond.backedge:                              ; preds = %lor.rhs.i, %land.rhs.i
+  %call9 = tail call ptr @dictNext(ptr noundef %call8) #29
+  %cmp10.not = icmp eq ptr %call9, null
+  br i1 %cmp10.not, label %while.end.loopexit, label %while.body, !llvm.loop !28
 
-if.end14:                                         ; preds = %while.body, %sentinelAddrOrHostnameEqual.exit
+if.end14:                                         ; preds = %while.body, %lor.rhs.i
   %port.i.le = getelementptr inbounds i8, ptr %4, i64 16
   %call.i29 = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #32
-  %12 = load ptr, ptr %4, align 8
-  %call1.i = tail call ptr @sdsnew(ptr noundef %12) #29
+  %11 = load ptr, ptr %4, align 8
+  %call1.i = tail call ptr @sdsnew(ptr noundef %11) #29
   store ptr %call1.i, ptr %call.i29, align 8
   %ip.i30 = getelementptr inbounds i8, ptr %4, i64 8
-  %13 = load ptr, ptr %ip.i30, align 8
-  %call3.i = tail call ptr @sdsnew(ptr noundef %13) #29
+  %12 = load ptr, ptr %ip.i30, align 8
+  %call3.i = tail call ptr @sdsnew(ptr noundef %12) #29
   %ip4.i = getelementptr inbounds i8, ptr %call.i29, i64 8
   store ptr %call3.i, ptr %ip4.i, align 8
-  %14 = load i32, ptr %port.i.le, align 8
+  %13 = load i32, ptr %port.i.le, align 8
   %port5.i = getelementptr inbounds i8, ptr %call.i29, i64 16
-  store i32 %14, ptr %port5.i, align 8
+  store i32 %13, ptr %port5.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx17 = getelementptr inbounds ptr, ptr %call6, i64 %indvars.iv
   store ptr %call.i29, ptr %arrayidx17, align 8
-  br label %while.cond.outer, !llvm.loop !28
+  %call966 = tail call ptr @dictNext(ptr noundef %call8) #29
+  %cmp10.not67 = icmp eq ptr %call966, null
+  br i1 %cmp10.not67, label %while.end.loopexit77, label %while.body.lr.ph, !llvm.loop !28
 
-while.end:                                        ; preds = %while.cond
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
+while.end.loopexit:                               ; preds = %while.cond.backedge
+  %14 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %while.end
+
+while.end.loopexit77:                             ; preds = %if.end14
+  %15 = trunc nuw i64 %indvars.iv.next to i32
+  br label %while.end
+
+while.end:                                        ; preds = %while.end.loopexit77, %while.end.loopexit, %if.end
+  %numslaves.0.ph.lcssa = phi i32 [ 0, %if.end ], [ %14, %while.end.loopexit ], [ %15, %while.end.loopexit77 ]
   tail call void @dictReleaseIterator(ptr noundef %call8) #29
   %addr18 = getelementptr inbounds i8, ptr %master, i64 32
   %16 = load ptr, ptr %addr18, align 8
-  %17 = load i32, ptr %port1.i, align 8
+  %port.i32 = getelementptr inbounds i8, ptr %call, i64 16
+  %17 = load i32, ptr %port.i32, align 8
   %port1.i33 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i32, ptr %port1.i33, align 8
   %cmp.i34 = icmp eq i32 %17, %18
   br i1 %cmp.i34, label %land.rhs.i36, label %if.then21
 
 land.rhs.i36:                                     ; preds = %while.end
-  %19 = load ptr, ptr %ip2.i, align 8
+  %ip.i37 = getelementptr inbounds i8, ptr %call, i64 8
+  %19 = load ptr, ptr %ip.i37, align 8
   %ip2.i38 = getelementptr inbounds i8, ptr %16, i64 8
   %20 = load ptr, ptr %ip2.i38, align 8
   %call.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %20) #33
@@ -3516,21 +3529,21 @@ if.then21:                                        ; preds = %while.end, %sentine
   %25 = load i32, ptr %port1.i33, align 8
   %port5.i51 = getelementptr inbounds i8, ptr %call.i45, i64 16
   store i32 %25, ptr %port5.i51, align 8
-  %inc24 = add nuw nsw i32 %15, 1
-  %idxprom25 = and i64 %indvars.iv, 4294967295
+  %inc24 = add nsw i32 %numslaves.0.ph.lcssa, 1
+  %idxprom25 = sext i32 %numslaves.0.ph.lcssa to i64
   %arrayidx26 = getelementptr inbounds ptr, ptr %call6, i64 %idxprom25
   store ptr %call.i45, ptr %arrayidx26, align 8
   br label %if.end27
 
 if.end27:                                         ; preds = %land.rhs.i36, %if.then21, %sentinelAddrOrHostnameEqual.exit44
-  %numslaves.1 = phi i32 [ %15, %sentinelAddrOrHostnameEqual.exit44 ], [ %inc24, %if.then21 ], [ %15, %land.rhs.i36 ]
+  %numslaves.1 = phi i32 [ %numslaves.0.ph.lcssa, %sentinelAddrOrHostnameEqual.exit44 ], [ %inc24, %if.then21 ], [ %numslaves.0.ph.lcssa, %land.rhs.i36 ]
   tail call void @sentinelResetMaster(ptr noundef nonnull %master, i32 noundef 1)
   %26 = load ptr, ptr %addr18, align 8
   store ptr %call, ptr %addr18, align 8
   %s_down_since_time = getelementptr inbounds i8, ptr %master, i64 72
-  %cmp3066 = icmp sgt i32 %numslaves.1, 0
+  %cmp3075 = icmp sgt i32 %numslaves.1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s_down_since_time, i8 0, i64 16, i1 false)
-  br i1 %cmp3066, label %for.body.lr.ph, label %for.end
+  br i1 %cmp3075, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end27
   %quorum = getelementptr inbounds i8, ptr %master, i64 168
@@ -3538,8 +3551,8 @@ for.body.lr.ph:                                   ; preds = %if.end27
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv69 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next70, %for.inc ]
-  %arrayidx33 = getelementptr inbounds ptr, ptr %call6, i64 %indvars.iv69
+  %indvars.iv81 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next82, %for.inc ]
+  %arrayidx33 = getelementptr inbounds ptr, ptr %call6, i64 %indvars.iv81
   %27 = load ptr, ptr %arrayidx33, align 8
   %28 = load ptr, ptr %27, align 8
   %port37 = getelementptr inbounds i8, ptr %27, i64 16
@@ -3560,8 +3573,8 @@ if.then42:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then42
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.end:                                          ; preds = %for.inc, %if.end27

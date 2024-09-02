@@ -757,14 +757,14 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK22G1CardSetConfiguration23max_cards_in_inline_ptrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, 60) i32 @_ZNK22G1CardSetConfiguration23max_cards_in_inline_ptrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = udiv i32 59, %2
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN22G1CardSetConfiguration23max_cards_in_inline_ptrEj(i32 noundef %0) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 0, 60) i32 @_ZN22G1CardSetConfiguration23max_cards_in_inline_ptrEj(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = udiv i32 59, %0
   ret i32 %2
 }
@@ -2051,7 +2051,7 @@ _ZN9G1CardSet13get_containerEj.exit:              ; preds = %69, %_ZN9G1CardSet1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN9G1CardSet13add_to_bitmapEPvj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN9G1CardSet13add_to_bitmapEPvj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -4
   %6 = inttoptr i64 %5 to ptr
@@ -2108,7 +2108,7 @@ _ZN15G1CardSetBitMap3addEjmm.exit:                ; preds = %31, %21, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN9G1CardSet17add_to_inline_ptrEPVPvS0_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8

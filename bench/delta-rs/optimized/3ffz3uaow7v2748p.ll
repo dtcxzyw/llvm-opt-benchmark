@@ -358,16 +358,16 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
 "_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h98e87d2ee091092fE.exit.i": ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(760) %55, ptr noundef nonnull align 8 dereferenceable(760) %4, i64 760, i1 false), !noalias !95
   call void @llvm.lifetime.end.p0(i64 760, ptr nonnull %4), !noalias !88
-  br label %61
+  %61 = ptrtoint ptr %55 to i64
+  br label %62
 
 "_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h98e87d2ee091092fE.exit.thread.i": ; preds = %44
   store i8 1, ptr %12, align 8, !alias.scope !50, !noalias !47
-  br label %61
+  br label %62
 
-61:                                               ; preds = %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h98e87d2ee091092fE.exit.thread.i", %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h98e87d2ee091092fE.exit.i"
-  %.sroa.02.0.i5.i = phi ptr [ %55, %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h98e87d2ee091092fE.exit.i" ], [ null, %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h98e87d2ee091092fE.exit.thread.i" ]
-  %62 = ptrtoint ptr %.sroa.02.0.i5.i to i64
-  store i64 %62, ptr %.sroa.5, align 8, !alias.scope !47, !noalias !50
+62:                                               ; preds = %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h98e87d2ee091092fE.exit.thread.i", %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h98e87d2ee091092fE.exit.i"
+  %.sroa.02.0.i5.i = phi i64 [ %61, %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h98e87d2ee091092fE.exit.i" ], [ 0, %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h98e87d2ee091092fE.exit.thread.i" ]
+  store i64 %.sroa.02.0.i5.i, ptr %.sroa.5, align 8, !alias.scope !47, !noalias !50
   br label %64
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h624ebc8ccc0f5e12E.exit", %66
@@ -379,9 +379,9 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
     i64 17, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h87317069c81500f5E.exit"
   ]
 
-64:                                               ; preds = %61, %41
-  %.sink7.i.sroa.phi = phi ptr [ %.sroa.8, %61 ], [ %.sroa.5, %41 ]
-  %anon.aec9b68cf3e6411168581c35a1e4fa1e.23.llvm.7608025862437578149.sink.i = phi ptr [ @anon.aec9b68cf3e6411168581c35a1e4fa1e.23.llvm.7608025862437578149, %61 ], [ null, %41 ]
+64:                                               ; preds = %62, %41
+  %.sink7.i.sroa.phi = phi ptr [ %.sroa.8, %62 ], [ %.sroa.5, %41 ]
+  %anon.aec9b68cf3e6411168581c35a1e4fa1e.23.llvm.7608025862437578149.sink.i = phi ptr [ @anon.aec9b68cf3e6411168581c35a1e4fa1e.23.llvm.7608025862437578149, %62 ], [ null, %41 ]
   store ptr %anon.aec9b68cf3e6411168581c35a1e4fa1e.23.llvm.7608025862437578149.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !47, !noalias !50
   %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8. = load i64, ptr %.sroa.5, align 8, !noundef !9
   %65 = icmp eq i64 %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8., 0
@@ -1101,16 +1101,16 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
 "_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd93088001650078eE.exit.i": ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(760) %55, ptr noundef nonnull align 8 dereferenceable(760) %4, i64 760, i1 false), !noalias !277
   call void @llvm.lifetime.end.p0(i64 760, ptr nonnull %4), !noalias !270
-  br label %61
+  %61 = ptrtoint ptr %55 to i64
+  br label %62
 
 "_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd93088001650078eE.exit.thread.i": ; preds = %44
   store i8 1, ptr %12, align 8, !alias.scope !232, !noalias !229
-  br label %61
+  br label %62
 
-61:                                               ; preds = %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd93088001650078eE.exit.thread.i", %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd93088001650078eE.exit.i"
-  %.sroa.02.0.i5.i = phi ptr [ %55, %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd93088001650078eE.exit.i" ], [ null, %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd93088001650078eE.exit.thread.i" ]
-  %62 = ptrtoint ptr %.sroa.02.0.i5.i to i64
-  store i64 %62, ptr %.sroa.5, align 8, !alias.scope !229, !noalias !232
+62:                                               ; preds = %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd93088001650078eE.exit.thread.i", %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd93088001650078eE.exit.i"
+  %.sroa.02.0.i5.i = phi i64 [ %61, %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd93088001650078eE.exit.i" ], [ 0, %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd93088001650078eE.exit.thread.i" ]
+  store i64 %.sroa.02.0.i5.i, ptr %.sroa.5, align 8, !alias.scope !229, !noalias !232
   br label %64
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h624ebc8ccc0f5e12E.exit", %66
@@ -1122,9 +1122,9 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
     i64 17, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h87317069c81500f5E.exit"
   ]
 
-64:                                               ; preds = %61, %41
-  %.sink7.i.sroa.phi = phi ptr [ %.sroa.8, %61 ], [ %.sroa.5, %41 ]
-  %anon.d660e7ba2df0139b0426019a06548a1a.20.llvm.14717219417407196840.sink.i = phi ptr [ @anon.d660e7ba2df0139b0426019a06548a1a.20.llvm.14717219417407196840, %61 ], [ null, %41 ]
+64:                                               ; preds = %62, %41
+  %.sink7.i.sroa.phi = phi ptr [ %.sroa.8, %62 ], [ %.sroa.5, %41 ]
+  %anon.d660e7ba2df0139b0426019a06548a1a.20.llvm.14717219417407196840.sink.i = phi ptr [ @anon.d660e7ba2df0139b0426019a06548a1a.20.llvm.14717219417407196840, %62 ], [ null, %41 ]
   store ptr %anon.d660e7ba2df0139b0426019a06548a1a.20.llvm.14717219417407196840.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !229, !noalias !232
   %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8. = load i64, ptr %.sroa.5, align 8, !noundef !9
   %65 = icmp eq i64 %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8., 0
@@ -1249,7 +1249,7 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %45 = load ptr, ptr %13, align 8, !alias.scope !292, !noalias !295, !nonnull !9, !noundef !9
   %46 = load ptr, ptr %7, align 8, !alias.scope !292, !noalias !295, !nonnull !9, !noundef !9
   %47 = icmp eq ptr %46, %45
-  br i1 %47, label %63, label %48
+  br i1 %47, label %64, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds i8, ptr %46, i64 16
@@ -1309,16 +1309,16 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
 "_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h1a6e048e16674f89E.exit.i": ; preds = %.noexc.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(760) %56, ptr noundef nonnull align 8 dereferenceable(760) %4, i64 760, i1 false)
   call void @llvm.lifetime.end.p0(i64 760, ptr nonnull %4), !noalias !319
-  br label %64
+  %63 = ptrtoint ptr %56 to i64
+  br label %65
 
-63:                                               ; preds = %44
+64:                                               ; preds = %44
   store i8 1, ptr %12, align 8, !alias.scope !281, !noalias !278
-  br label %64
+  br label %65
 
-64:                                               ; preds = %63, %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h1a6e048e16674f89E.exit.i"
-  %.sroa.02.0.i5.i = phi ptr [ %56, %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h1a6e048e16674f89E.exit.i" ], [ null, %63 ]
-  %65 = ptrtoint ptr %.sroa.02.0.i5.i to i64
-  store i64 %65, ptr %.sroa.5, align 8, !alias.scope !278, !noalias !281
+65:                                               ; preds = %64, %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h1a6e048e16674f89E.exit.i"
+  %.sroa.02.0.i5.i = phi i64 [ %63, %"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h1a6e048e16674f89E.exit.i" ], [ 0, %64 ]
+  store i64 %.sroa.02.0.i5.i, ptr %.sroa.5, align 8, !alias.scope !278, !noalias !281
   br label %67
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h624ebc8ccc0f5e12E.exit", %69
@@ -1330,9 +1330,9 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
     i64 17, label %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h87317069c81500f5E.exit"
   ]
 
-67:                                               ; preds = %64, %41
-  %.sink7.i.sroa.phi = phi ptr [ %.sroa.8, %64 ], [ %.sroa.5, %41 ]
-  %anon.ce01e364a3d3c6ae31f51731403c352c.16.llvm.1076522478569107936.sink.i = phi ptr [ @anon.ce01e364a3d3c6ae31f51731403c352c.16.llvm.1076522478569107936, %64 ], [ null, %41 ]
+67:                                               ; preds = %65, %41
+  %.sink7.i.sroa.phi = phi ptr [ %.sroa.8, %65 ], [ %.sroa.5, %41 ]
+  %anon.ce01e364a3d3c6ae31f51731403c352c.16.llvm.1076522478569107936.sink.i = phi ptr [ @anon.ce01e364a3d3c6ae31f51731403c352c.16.llvm.1076522478569107936, %65 ], [ null, %41 ]
   store ptr %anon.ce01e364a3d3c6ae31f51731403c352c.16.llvm.1076522478569107936.sink.i, ptr %.sink7.i.sroa.phi, align 8, !alias.scope !278, !noalias !281
   %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8. = load i64, ptr %.sroa.5, align 8, !noundef !9
   %68 = icmp eq i64 %.sroa.5.0..sroa.5.0..sroa.5.0..sroa.5.8., 0

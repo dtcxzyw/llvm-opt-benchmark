@@ -48,8 +48,8 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
 
 8:                                                ; preds = %4
   %9 = tail call i32 @Mvc_CoverIsOneLiteral(ptr noundef %1) #4
-  %.not264 = icmp eq i32 %9, 0
-  br i1 %.not264, label %11, label %10
+  %.not265 = icmp eq i32 %9, 0
+  br i1 %.not265, label %11, label %10
 
 10:                                               ; preds = %8
   tail call void @Mvc_CoverDivideByLiteral(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
@@ -88,7 +88,7 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
 ._crit_edge.thread:                               ; preds = %12
   %29 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 %6, ptr %29, align 4
-  br label %.lr.ph304
+  br label %.lr.ph310
 
 .lr.ph:                                           ; preds = %12
   %30 = getelementptr inbounds i8, ptr %0, i64 40
@@ -96,9 +96,9 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %32
 
-32:                                               ; preds = %.lr.ph, %.critedge
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %.0254280 = phi i32 [ 1, %.lr.ph ], [ %.1255, %.critedge ]
+32:                                               ; preds = %.lr.ph, %.thread268
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %.thread268 ]
+  %.0254286 = phi i32 [ 1, %.lr.ph ], [ %.1255, %.thread268 ]
   %33 = getelementptr ptr, ptr %31, i64 %indvars.iv
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8
@@ -107,12 +107,12 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 16777215
   %40 = getelementptr inbounds i8, ptr %35, i64 16
-  switch i32 %39, label %.preheader275 [
+  switch i32 %39, label %.preheader281 [
     i32 0, label %44
     i32 1, label %54
   ]
 
-.preheader275:                                    ; preds = %32
+.preheader281:                                    ; preds = %32
   %41 = load ptr, ptr %21, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = getelementptr inbounds i8, ptr %36, i64 16
@@ -128,7 +128,7 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %51 = load i32, ptr %50, align 8
   %52 = or i32 %51, %48
   %53 = icmp eq i32 %49, %52
-  br i1 %53, label %.critedge, label %.critedge266
+  br i1 %53, label %.thread268, label %.thread
 
 54:                                               ; preds = %32
   %55 = load i32, ptr %40, align 8
@@ -140,16 +140,16 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %61 = load i32, ptr %60, align 8
   %62 = or i32 %61, %58
   %63 = icmp eq i32 %59, %62
-  br i1 %63, label %77, label %.critedge266
+  br i1 %63, label %77, label %.thread
 
 64:                                               ; preds = %67
-  %65 = add nsw i32 %.0237279, -1
-  %66 = icmp sgt i32 %.0237279, 0
-  br i1 %66, label %67, label %.critedge, !llvm.loop !4
+  %65 = add nsw i32 %.0237285, -1
+  %66 = icmp sgt i32 %.0237285, 0
+  br i1 %66, label %67, label %.thread268, !llvm.loop !4
 
-67:                                               ; preds = %.preheader275, %64
-  %.0237279 = phi i32 [ %39, %.preheader275 ], [ %65, %64 ]
-  %68 = zext nneg i32 %.0237279 to i64
+67:                                               ; preds = %.preheader281, %64
+  %.0237285 = phi i32 [ %39, %.preheader281 ], [ %65, %64 ]
+  %68 = zext nneg i32 %.0237285 to i64
   %69 = getelementptr inbounds [1 x i32], ptr %40, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = getelementptr inbounds [1 x i32], ptr %42, i64 0, i64 %68
@@ -159,7 +159,7 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %75 = load i32, ptr %74, align 4
   %76 = or i32 %75, %72
   %.not263 = icmp eq i32 %73, %76
-  br i1 %.not263, label %64, label %.critedge266
+  br i1 %.not263, label %64, label %.thread
 
 77:                                               ; preds = %54
   %78 = getelementptr inbounds i8, ptr %35, i64 20
@@ -171,31 +171,31 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %84 = load i32, ptr %83, align 4
   %85 = or i32 %84, %81
   %86 = icmp eq i32 %82, %85
-  br i1 %86, label %.critedge, label %.critedge266
+  br i1 %86, label %.thread268, label %.thread
 
-.critedge266:                                     ; preds = %67, %44, %54, %77
-  %87 = add nsw i32 %.0254280, 1
-  %88 = sext i32 %.0254280 to i64
+.thread:                                          ; preds = %67, %44, %54, %77
+  %87 = add nsw i32 %.0254286, 1
+  %88 = sext i32 %.0254286 to i64
   %89 = getelementptr inbounds i32, ptr %27, i64 %88
   %90 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %90, ptr %89, align 4
-  br label %.critedge
+  br label %.thread268
 
-.critedge:                                        ; preds = %64, %44, %77, %.critedge266
-  %.1255 = phi i32 [ %.0254280, %77 ], [ %87, %.critedge266 ], [ %.0254280, %44 ], [ %.0254280, %64 ]
+.thread268:                                       ; preds = %64, %44, %77, %.thread
+  %.1255 = phi i32 [ %.0254286, %77 ], [ %87, %.thread ], [ %.0254286, %44 ], [ %.0254286, %64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.critedge
+._crit_edge:                                      ; preds = %.thread268
   %91 = sext i32 %.1255 to i64
   %92 = getelementptr inbounds i32, ptr %27, i64 %91
   store i32 %6, ptr %92, align 4
   %93 = icmp sgt i32 %.1255, 0
-  br i1 %93, label %.lr.ph304, label %._crit_edge305
+  br i1 %93, label %.lr.ph310, label %._crit_edge311
 
-.lr.ph304:                                        ; preds = %._crit_edge.thread, %._crit_edge
-  %.0254.lcssa348 = phi i32 [ 1, %._crit_edge.thread ], [ %.1255, %._crit_edge ]
+.lr.ph310:                                        ; preds = %._crit_edge.thread, %._crit_edge
+  %.0254.lcssa354 = phi i32 [ 1, %._crit_edge.thread ], [ %.1255, %._crit_edge ]
   %94 = getelementptr inbounds i8, ptr %0, i64 40
   %95 = getelementptr inbounds i8, ptr %1, i64 40
   %96 = getelementptr inbounds i8, ptr %20, i64 16
@@ -205,86 +205,86 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %100 = getelementptr inbounds i8, ptr %17, i64 24
   %101 = getelementptr inbounds i8, ptr %17, i64 32
   %102 = zext i32 %5 to i64
-  %wide.trip.count344 = zext nneg i32 %.0254.lcssa348 to i64
+  %wide.trip.count350 = zext nneg i32 %.0254.lcssa354 to i64
   %.pre = load i32, ptr %27, align 4
   br label %103
 
-103:                                              ; preds = %.lr.ph304, %.loopexit
-  %104 = phi i32 [ %.pre, %.lr.ph304 ], [ %106, %.loopexit ]
-  %indvars.iv341 = phi i64 [ 0, %.lr.ph304 ], [ %indvars.iv.next342, %.loopexit ]
-  %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
-  %105 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.next342
+103:                                              ; preds = %.lr.ph310, %.loopexit
+  %104 = phi i32 [ %.pre, %.lr.ph310 ], [ %106, %.loopexit ]
+  %indvars.iv347 = phi i64 [ 0, %.lr.ph310 ], [ %indvars.iv.next348, %.loopexit ]
+  %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
+  %105 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.next348
   %106 = load i32, ptr %105, align 4
   %107 = sub nsw i32 %106, %104
   %108 = icmp slt i32 %107, %5
   %109 = icmp slt i32 %104, %106
-  br i1 %108, label %.preheader, label %.preheader274
+  br i1 %108, label %.preheader, label %.preheader280
 
-.preheader274:                                    ; preds = %103
+.preheader280:                                    ; preds = %103
   %110 = sext i32 %104 to i64
-  br i1 %109, label %.lr.ph283.preheader, label %._crit_edge284
+  br i1 %109, label %.lr.ph289.preheader, label %._crit_edge290
 
-.lr.ph283.preheader:                              ; preds = %.preheader274
-  %wide.trip.count316 = sext i32 %106 to i64
-  br label %.lr.ph283
+.lr.ph289.preheader:                              ; preds = %.preheader280
+  %wide.trip.count322 = sext i32 %106 to i64
+  br label %.lr.ph289
 
 .preheader:                                       ; preds = %103
-  br i1 %109, label %.lr.ph298.preheader, label %.loopexit
+  br i1 %109, label %.lr.ph304.preheader, label %.loopexit
 
-.lr.ph298.preheader:                              ; preds = %.preheader
+.lr.ph304.preheader:                              ; preds = %.preheader
   %111 = sext i32 %104 to i64
-  br label %.lr.ph298
+  br label %.lr.ph304
 
-.lr.ph298:                                        ; preds = %.lr.ph298.preheader, %120
-  %indvars.iv336 = phi i64 [ %111, %.lr.ph298.preheader ], [ %indvars.iv.next337, %120 ]
+.lr.ph304:                                        ; preds = %.lr.ph304.preheader, %120
+  %indvars.iv342 = phi i64 [ %111, %.lr.ph304.preheader ], [ %indvars.iv.next343, %120 ]
   %112 = load ptr, ptr %94, align 8
-  %113 = getelementptr inbounds ptr, ptr %112, i64 %indvars.iv336
+  %113 = getelementptr inbounds ptr, ptr %112, i64 %indvars.iv342
   %114 = load ptr, ptr %113, align 8
   %115 = tail call ptr @Mvc_CubeDup(ptr noundef %20, ptr noundef %114) #4
   %116 = load ptr, ptr %96, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %120, label %118
 
-118:                                              ; preds = %.lr.ph298
+118:                                              ; preds = %.lr.ph304
   %119 = load ptr, ptr %97, align 8
   br label %120
 
-120:                                              ; preds = %.lr.ph298, %118
-  %.sink = phi ptr [ %119, %118 ], [ %96, %.lr.ph298 ]
+120:                                              ; preds = %.lr.ph304, %118
+  %.sink = phi ptr [ %119, %118 ], [ %96, %.lr.ph304 ]
   store ptr %115, ptr %.sink, align 8
   store ptr %115, ptr %97, align 8
   store ptr null, ptr %115, align 8
   %121 = load i32, ptr %98, align 8
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %98, align 8
-  %indvars.iv.next337 = add nsw i64 %indvars.iv336, 1
-  %lftr.wideiv339 = trunc i64 %indvars.iv.next337 to i32
-  %exitcond340.not = icmp eq i32 %106, %lftr.wideiv339
-  br i1 %exitcond340.not, label %.loopexit, label %.lr.ph298, !llvm.loop !7
+  %indvars.iv.next343 = add nsw i64 %indvars.iv342, 1
+  %lftr.wideiv345 = trunc i64 %indvars.iv.next343 to i32
+  %exitcond346.not = icmp eq i32 %106, %lftr.wideiv345
+  br i1 %exitcond346.not, label %.loopexit, label %.lr.ph304, !llvm.loop !7
 
-.lr.ph283:                                        ; preds = %.lr.ph283.preheader, %.lr.ph283
-  %indvars.iv313 = phi i64 [ %110, %.lr.ph283.preheader ], [ %indvars.iv.next314, %.lr.ph283 ]
+.lr.ph289:                                        ; preds = %.lr.ph289.preheader, %.lr.ph289
+  %indvars.iv319 = phi i64 [ %110, %.lr.ph289.preheader ], [ %indvars.iv.next320, %.lr.ph289 ]
   %123 = load ptr, ptr %94, align 8
-  %124 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv313
+  %124 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv319
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 12
   store i32 1, ptr %126, align 4
-  %indvars.iv.next314 = add nsw i64 %indvars.iv313, 1
-  %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count316
-  br i1 %exitcond317.not, label %._crit_edge284, label %.lr.ph283, !llvm.loop !8
+  %indvars.iv.next320 = add nsw i64 %indvars.iv319, 1
+  %exitcond323.not = icmp eq i64 %indvars.iv.next320, %wide.trip.count322
+  br i1 %exitcond323.not, label %._crit_edge290, label %.lr.ph289, !llvm.loop !8
 
-._crit_edge284:                                   ; preds = %.lr.ph283, %.preheader274
+._crit_edge290:                                   ; preds = %.lr.ph289, %.preheader280
   %127 = load ptr, ptr %95, align 8
   %128 = load ptr, ptr %94, align 8
   %129 = getelementptr inbounds ptr, ptr %128, i64 %110
   br label %.outer
 
-.outer:                                           ; preds = %146, %._crit_edge284
-  %indvars.iv321 = phi i64 [ %indvars.iv.next322, %146 ], [ 1, %._crit_edge284 ]
-  %.0253.ph = phi i32 [ %147, %146 ], [ 0, %._crit_edge284 ]
-  %.0252.ph = phi i64 [ %151, %146 ], [ 1, %._crit_edge284 ]
-  %.0236.ph.in = phi ptr [ %149, %146 ], [ %127, %._crit_edge284 ]
-  %.0.in.ph = phi ptr [ %154, %146 ], [ %129, %._crit_edge284 ]
+.outer:                                           ; preds = %146, %._crit_edge290
+  %indvars.iv327 = phi i64 [ %indvars.iv.next328, %146 ], [ 1, %._crit_edge290 ]
+  %.0253.ph = phi i32 [ %147, %146 ], [ 0, %._crit_edge290 ]
+  %.0252.ph = phi i64 [ %151, %146 ], [ 1, %._crit_edge290 ]
+  %.0236.ph.in = phi ptr [ %149, %146 ], [ %127, %._crit_edge290 ]
+  %.0.in.ph = phi ptr [ %154, %146 ], [ %129, %._crit_edge290 ]
   %.0236.ph = load ptr, ptr %.0236.ph.in, align 8
   %130 = sub nsw i32 %5, %.0253.ph
   %sext = shl i64 %.0252.ph, 32
@@ -292,9 +292,9 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   br label %132
 
 132:                                              ; preds = %.outer, %138
-  %indvars.iv318 = phi i64 [ %131, %.outer ], [ %indvars.iv.next319, %138 ]
+  %indvars.iv324 = phi i64 [ %131, %.outer ], [ %indvars.iv.next325, %138 ]
   %.0.in = phi ptr [ %.0.in.ph, %.outer ], [ %141, %138 ]
-  %indvars320 = trunc i64 %indvars.iv318 to i32
+  %indvars326 = trunc i64 %indvars.iv324 to i32
   %.0 = load ptr, ptr %.0.in, align 8
   %133 = load ptr, ptr %21, align 8
   %134 = tail call i32 @Mvc_CubeCompareIntUnderMask(ptr noundef %.0, ptr noundef %.0236.ph, ptr noundef %133) #4
@@ -304,80 +304,80 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   ]
 
 135:                                              ; preds = %132
-  %136 = sub nsw i32 %107, %indvars320
+  %136 = sub nsw i32 %107, %indvars326
   %137 = icmp slt i32 %136, %130
   br i1 %137, label %155, label %138
 
 138:                                              ; preds = %135
   %139 = load ptr, ptr %94, align 8
-  %indvars.iv.next319 = add nsw i64 %indvars.iv318, 1
-  %140 = getelementptr ptr, ptr %139, i64 %indvars.iv318
+  %indvars.iv.next325 = add nsw i64 %indvars.iv324, 1
+  %140 = getelementptr ptr, ptr %139, i64 %indvars.iv324
   %141 = getelementptr ptr, ptr %140, i64 %110
   br label %132
 
 142:                                              ; preds = %132
   %143 = getelementptr inbounds i8, ptr %.0, i64 12
   store i32 0, ptr %143, align 4
-  %144 = icmp eq i64 %indvars.iv321, %102
-  br i1 %144, label %.preheader272, label %146
+  %144 = icmp eq i64 %indvars.iv327, %102
+  br i1 %144, label %.preheader278, label %146
 
-.preheader272:                                    ; preds = %142
-  %145 = add nsw i32 %indvars320, -1
-  br i1 %109, label %.lr.ph292, label %._crit_edge293
+.preheader278:                                    ; preds = %142
+  %145 = add nsw i32 %indvars326, -1
+  br i1 %109, label %.lr.ph298, label %._crit_edge299
 
 146:                                              ; preds = %142
   %147 = add nuw nsw i32 %.0253.ph, 1
   %148 = load ptr, ptr %95, align 8
-  %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
-  %149 = getelementptr inbounds ptr, ptr %148, i64 %indvars.iv321
+  %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
+  %149 = getelementptr inbounds ptr, ptr %148, i64 %indvars.iv327
   %150 = load ptr, ptr %94, align 8
-  %151 = add i64 %indvars.iv318, 1
-  %152 = add nsw i32 %104, %indvars320
+  %151 = add i64 %indvars.iv324, 1
+  %152 = add nsw i32 %104, %indvars326
   %153 = sext i32 %152 to i64
   %154 = getelementptr inbounds ptr, ptr %150, i64 %153
   br label %.outer
 
 155:                                              ; preds = %135, %132
-  br i1 %109, label %.lr.ph288, label %.loopexit
+  br i1 %109, label %.lr.ph294, label %.loopexit
 
-.lr.ph288:                                        ; preds = %155, %164
-  %indvars.iv324 = phi i64 [ %indvars.iv.next325, %164 ], [ %110, %155 ]
+.lr.ph294:                                        ; preds = %155, %164
+  %indvars.iv330 = phi i64 [ %indvars.iv.next331, %164 ], [ %110, %155 ]
   %156 = load ptr, ptr %94, align 8
-  %157 = getelementptr inbounds ptr, ptr %156, i64 %indvars.iv324
+  %157 = getelementptr inbounds ptr, ptr %156, i64 %indvars.iv330
   %158 = load ptr, ptr %157, align 8
   %159 = tail call ptr @Mvc_CubeDup(ptr noundef %20, ptr noundef %158) #4
   %160 = load ptr, ptr %96, align 8
   %161 = icmp eq ptr %160, null
   br i1 %161, label %164, label %162
 
-162:                                              ; preds = %.lr.ph288
+162:                                              ; preds = %.lr.ph294
   %163 = load ptr, ptr %97, align 8
   br label %164
 
-164:                                              ; preds = %.lr.ph288, %162
-  %.sink353 = phi ptr [ %163, %162 ], [ %96, %.lr.ph288 ]
-  store ptr %159, ptr %.sink353, align 8
+164:                                              ; preds = %.lr.ph294, %162
+  %.sink359 = phi ptr [ %163, %162 ], [ %96, %.lr.ph294 ]
+  store ptr %159, ptr %.sink359, align 8
   store ptr %159, ptr %97, align 8
   store ptr null, ptr %159, align 8
   %165 = load i32, ptr %98, align 8
   %166 = add nsw i32 %165, 1
   store i32 %166, ptr %98, align 8
-  %indvars.iv.next325 = add nsw i64 %indvars.iv324, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next325 to i32
-  %exitcond327.not = icmp eq i32 %106, %lftr.wideiv
-  br i1 %exitcond327.not, label %.loopexit, label %.lr.ph288, !llvm.loop !9
+  %indvars.iv.next331 = add nsw i64 %indvars.iv330, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next331 to i32
+  %exitcond333.not = icmp eq i32 %106, %lftr.wideiv
+  br i1 %exitcond333.not, label %.loopexit, label %.lr.ph294, !llvm.loop !9
 
-.lr.ph292:                                        ; preds = %.preheader272, %181
-  %indvars.iv328 = phi i64 [ %indvars.iv.next329, %181 ], [ %110, %.preheader272 ]
+.lr.ph298:                                        ; preds = %.preheader278, %181
+  %indvars.iv334 = phi i64 [ %indvars.iv.next335, %181 ], [ %110, %.preheader278 ]
   %167 = load ptr, ptr %94, align 8
-  %168 = getelementptr inbounds ptr, ptr %167, i64 %indvars.iv328
+  %168 = getelementptr inbounds ptr, ptr %167, i64 %indvars.iv334
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 12
   %171 = load i32, ptr %170, align 4
   %.not262 = icmp eq i32 %171, 0
   br i1 %.not262, label %181, label %172
 
-172:                                              ; preds = %.lr.ph292
+172:                                              ; preds = %.lr.ph298
   %173 = tail call ptr @Mvc_CubeDup(ptr noundef %20, ptr noundef nonnull %169) #4
   %174 = load ptr, ptr %96, align 8
   %175 = icmp eq ptr %174, null
@@ -388,8 +388,8 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   br label %178
 
 178:                                              ; preds = %172, %176
-  %.sink354 = phi ptr [ %177, %176 ], [ %96, %172 ]
-  store ptr %173, ptr %.sink354, align 8
+  %.sink360 = phi ptr [ %177, %176 ], [ %96, %172 ]
+  store ptr %173, ptr %.sink360, align 8
   store ptr %173, ptr %97, align 8
   store ptr null, ptr %173, align 8
   %179 = load i32, ptr %98, align 8
@@ -397,13 +397,13 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   store i32 %180, ptr %98, align 8
   br label %181
 
-181:                                              ; preds = %.lr.ph292, %178
-  %indvars.iv.next329 = add nsw i64 %indvars.iv328, 1
-  %lftr.wideiv331 = trunc i64 %indvars.iv.next329 to i32
-  %exitcond332.not = icmp eq i32 %106, %lftr.wideiv331
-  br i1 %exitcond332.not, label %._crit_edge293, label %.lr.ph292, !llvm.loop !10
+181:                                              ; preds = %.lr.ph298, %178
+  %indvars.iv.next335 = add nsw i64 %indvars.iv334, 1
+  %lftr.wideiv337 = trunc i64 %indvars.iv.next335 to i32
+  %exitcond338.not = icmp eq i32 %106, %lftr.wideiv337
+  br i1 %exitcond338.not, label %._crit_edge299, label %.lr.ph298, !llvm.loop !10
 
-._crit_edge293:                                   ; preds = %181, %.preheader272
+._crit_edge299:                                   ; preds = %181, %.preheader278
   %182 = tail call ptr @Mvc_CubeAlloc(ptr noundef %17) #4
   %183 = load ptr, ptr %94, align 8
   %184 = add nsw i32 %145, %104
@@ -413,18 +413,18 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %188 = getelementptr inbounds i8, ptr %187, i64 8
   %189 = load i32, ptr %188, align 8
   %190 = and i32 %189, 16777215
-  switch i32 %190, label %.preheader270 [
+  switch i32 %190, label %.preheader276 [
     i32 0, label %194
     i32 1, label %203
   ]
 
-.preheader270:                                    ; preds = %._crit_edge293
+.preheader276:                                    ; preds = %._crit_edge299
   %191 = getelementptr inbounds i8, ptr %182, i64 16
   %192 = and i32 %189, 16777215
   %193 = zext nneg i32 %192 to i64
   br label %223
 
-194:                                              ; preds = %._crit_edge293
+194:                                              ; preds = %._crit_edge299
   %195 = getelementptr inbounds i8, ptr %187, i64 16
   %196 = load i32, ptr %195, align 8
   %197 = load ptr, ptr %21, align 8
@@ -434,9 +434,9 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %201 = and i32 %196, %200
   %202 = getelementptr inbounds i8, ptr %182, i64 16
   store i32 %201, ptr %202, align 8
-  br label %.loopexit271
+  br label %.loopexit277
 
-203:                                              ; preds = %._crit_edge293
+203:                                              ; preds = %._crit_edge299
   %204 = getelementptr inbounds i8, ptr %187, i64 16
   %205 = load i32, ptr %204, align 8
   %206 = load ptr, ptr %21, align 8
@@ -458,40 +458,40 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %221 = and i32 %216, %220
   %222 = getelementptr inbounds i8, ptr %182, i64 20
   store i32 %221, ptr %222, align 4
-  br label %.loopexit271
+  br label %.loopexit277
 
-223:                                              ; preds = %.preheader270, %223
-  %indvars.iv333 = phi i64 [ %193, %.preheader270 ], [ %indvars.iv.next334, %223 ]
+223:                                              ; preds = %.preheader276, %223
+  %indvars.iv339 = phi i64 [ %193, %.preheader276 ], [ %indvars.iv.next340, %223 ]
   %224 = load ptr, ptr %94, align 8
   %225 = getelementptr inbounds ptr, ptr %224, i64 %185
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds i8, ptr %226, i64 16
-  %228 = getelementptr inbounds [1 x i32], ptr %227, i64 0, i64 %indvars.iv333
+  %228 = getelementptr inbounds [1 x i32], ptr %227, i64 0, i64 %indvars.iv339
   %229 = load i32, ptr %228, align 4
   %230 = load ptr, ptr %21, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 16
-  %232 = getelementptr inbounds [1 x i32], ptr %231, i64 0, i64 %indvars.iv333
+  %232 = getelementptr inbounds [1 x i32], ptr %231, i64 0, i64 %indvars.iv339
   %233 = load i32, ptr %232, align 4
   %234 = xor i32 %233, -1
   %235 = and i32 %229, %234
-  %236 = getelementptr inbounds [1 x i32], ptr %191, i64 0, i64 %indvars.iv333
+  %236 = getelementptr inbounds [1 x i32], ptr %191, i64 0, i64 %indvars.iv339
   store i32 %235, ptr %236, align 4
-  %indvars.iv.next334 = add nsw i64 %indvars.iv333, -1
-  %.not = icmp eq i64 %indvars.iv333, 0
-  br i1 %.not, label %.loopexit271, label %223, !llvm.loop !11
+  %indvars.iv.next340 = add nsw i64 %indvars.iv339, -1
+  %.not = icmp eq i64 %indvars.iv339, 0
+  br i1 %.not, label %.loopexit277, label %223, !llvm.loop !11
 
-.loopexit271:                                     ; preds = %223, %203, %194
+.loopexit277:                                     ; preds = %223, %203, %194
   %237 = load ptr, ptr %99, align 8
   %238 = icmp eq ptr %237, null
   br i1 %238, label %241, label %239
 
-239:                                              ; preds = %.loopexit271
+239:                                              ; preds = %.loopexit277
   %240 = load ptr, ptr %100, align 8
   br label %241
 
-241:                                              ; preds = %.loopexit271, %239
-  %.sink355 = phi ptr [ %240, %239 ], [ %99, %.loopexit271 ]
-  store ptr %182, ptr %.sink355, align 8
+241:                                              ; preds = %.loopexit277, %239
+  %.sink361 = phi ptr [ %240, %239 ], [ %99, %.loopexit277 ]
+  store ptr %182, ptr %.sink361, align 8
   store ptr %182, ptr %100, align 8
   store ptr null, ptr %182, align 8
   %242 = load i32, ptr %101, align 8
@@ -500,16 +500,16 @@ define void @Mvc_CoverDivideInternal(ptr noundef %0, ptr noundef %1, ptr nocaptu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %164, %120, %155, %.preheader, %241
-  %exitcond345.not = icmp eq i64 %indvars.iv.next342, %wide.trip.count344
-  br i1 %exitcond345.not, label %._crit_edge305, label %103, !llvm.loop !12
+  %exitcond351.not = icmp eq i64 %indvars.iv.next348, %wide.trip.count350
+  br i1 %exitcond351.not, label %._crit_edge311, label %103, !llvm.loop !12
 
-._crit_edge305:                                   ; preds = %.loopexit, %._crit_edge
+._crit_edge311:                                   ; preds = %.loopexit, %._crit_edge
   tail call void @free(ptr noundef %27) #4
   store ptr %20, ptr %3, align 8
   store ptr %17, ptr %2, align 8
   br label %244
 
-244:                                              ; preds = %10, %11, %._crit_edge305
+244:                                              ; preds = %10, %11, %._crit_edge311
   ret void
 }
 

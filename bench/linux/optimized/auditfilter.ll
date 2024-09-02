@@ -2058,7 +2058,7 @@ define dso_local i32 @audit_list_rules_send(ptr nocapture noundef readonly %0, i
   %54 = getelementptr i8, ptr %33, i64 -336
   %55 = getelementptr inbounds i8, ptr %39, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(256) %55, ptr noundef align 4 dereferenceable(256) %54, i64 256, i1 false)
-  br label %148
+  br label %149
 
 56:                                               ; preds = %41
   %57 = getelementptr inbounds i8, ptr %39, i64 1040
@@ -2214,20 +2214,20 @@ define dso_local i32 @audit_list_rules_send(ptr nocapture noundef readonly %0, i
   %147 = getelementptr inbounds i8, ptr %39, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(256) %147, ptr noundef align 4 dereferenceable(256) %146, i64 256, i1 false)
   %.pre = load i32, ptr %63, align 4
-  br label %148
+  %148 = add i32 %.pre, 1040
+  br label %149
 
-148:                                              ; preds = %145, %.thread12
-  %149 = phi i32 [ %.pre, %145 ], [ 0, %.thread12 ]
-  %150 = add i32 %149, 1040
+149:                                              ; preds = %145, %.thread12
+  %150 = phi i32 [ %148, %145 ], [ 1040, %.thread12 ]
   %151 = tail call ptr @audit_make_reply(i32 noundef %1, i32 noundef 1013, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %39, i32 noundef %150) #14
   %152 = icmp eq ptr %151, null
   br i1 %152, label %154, label %153
 
-153:                                              ; preds = %148
+153:                                              ; preds = %149
   tail call void @skb_queue_tail(ptr noundef %24, ptr noundef nonnull %151) #14
   br label %154
 
-154:                                              ; preds = %153, %148
+154:                                              ; preds = %153, %149
   tail call void @kfree(ptr noundef nonnull %39) #14
   %155 = load ptr, ptr %33, align 8
   %156 = icmp eq ptr %155, %30
@@ -2563,7 +2563,7 @@ define dso_local i32 @audit_compare_dname_path(ptr nocapture noundef readonly %0
 declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @audit_filter(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @audit_filter(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   tail call void @__rcu_read_lock() #14
   %4 = zext i32 %1 to i64

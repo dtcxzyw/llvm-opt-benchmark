@@ -8294,7 +8294,7 @@ define hidden void @_ZN17PSParallelCompact9copy_backEPP12HeapWordImplS2_(ptr noc
 declare void @_ZN20ParCompactionManager26push_shadow_region_mt_safeEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden noundef i64 @_ZN17PSParallelCompact15next_src_regionER20MoveAndUpdateClosureRNS_7SpaceIdERPP12HeapWordImplS6_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i64 0, 461168601842738791) i64 @_ZN17PSParallelCompact15next_src_regionER20MoveAndUpdateClosureRNS_7SpaceIdERPP12HeapWordImplS6_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #8 align 2 {
   %5 = getelementptr inbounds i8, ptr %3, i64 524280
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, -524288

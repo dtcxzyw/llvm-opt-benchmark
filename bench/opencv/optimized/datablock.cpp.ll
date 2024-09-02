@@ -349,7 +349,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EEC2EmRKS5_.exit.t
   store i32 1, ptr %68, align 8
   store i32 %67, ptr %62, align 8
   %73 = icmp eq i32 %67, 0
-  br i1 %73, label %74, label %78
+  br i1 %73, label %74, label %79
 
 74:                                               ; preds = %66
   store i32 -559026175, ptr %62, align 8
@@ -358,19 +358,19 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EEC2EmRKS5_.exit.t
   %77 = load ptr, ptr %76, align 8
   tail call void %77(ptr noundef nonnull align 8 dereferenceable(12) %57) #13
   %.pre = load i32, ptr %68, align 8
-  br label %78
+  %78 = add i32 %.pre, 1
+  br label %79
 
-78:                                               ; preds = %66, %74
-  %79 = phi i32 [ 1, %66 ], [ %.pre, %74 ]
+79:                                               ; preds = %66, %74
+  %80 = phi i32 [ 2, %66 ], [ %78, %74 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %80 = getelementptr inbounds %"class.zxing::Ref", ptr %40, i64 %indvars.iv
-  %81 = add i32 %79, 1
-  store i32 %81, ptr %68, align 8
-  %82 = load ptr, ptr %80, align 8
+  %81 = getelementptr inbounds %"class.zxing::Ref", ptr %40, i64 %indvars.iv
+  store i32 %80, ptr %68, align 8
+  %82 = load ptr, ptr %81, align 8
   %.not5.i.i104 = icmp eq ptr %82, null
   br i1 %.not5.i.i104, label %92, label %83
 
-83:                                               ; preds = %78
+83:                                               ; preds = %79
   %84 = getelementptr inbounds i8, ptr %82, i64 8
   %85 = load i32, ptr %84, align 8
   %86 = add i32 %85, -1
@@ -386,8 +386,8 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EEC2EmRKS5_.exit.t
   tail call void %91(ptr noundef nonnull align 8 dereferenceable(12) %82) #13
   br label %92
 
-92:                                               ; preds = %88, %83, %78
-  store ptr %65, ptr %80, align 8
+92:                                               ; preds = %88, %83, %79
+  store ptr %65, ptr %81, align 8
   %93 = load i32, ptr %68, align 8
   %94 = add i32 %93, -1
   store i32 %94, ptr %68, align 8

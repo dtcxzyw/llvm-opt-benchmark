@@ -8610,7 +8610,7 @@ lxb_encoding_decode_utf_16_single.exit:           ; preds = %13, %27, %32, %34, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 33554432) i32 @lxb_encoding_decode_valid_utf_8_single(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2097152) i32 @lxb_encoding_decode_valid_utf_8_single(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32

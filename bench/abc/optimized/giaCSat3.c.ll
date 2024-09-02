@@ -2725,7 +2725,7 @@ Cbs3_QuePush.exit94:                              ; preds = %._crit_edge.i88, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cbs3_ManSolve(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @Cbs3_ManSolve(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %Cbs3_ManSolveInt.exit._crit_edge
 
@@ -4172,8 +4172,8 @@ Cbs3_ManToSolver2.exit:                           ; preds = %438, %Vec_WecInit.e
   %448 = lshr i32 %447, 29
   %449 = and i32 %448, 1
   %450 = xor i32 %449, %446
-  %451 = call noundef i32 @Cbs3_ManSolve(ptr noundef nonnull %18, i32 noundef %450, i32 noundef %137)
-  %452 = trunc i32 %451 to i8
+  %451 = call range(i32 -1, 2) i32 @Cbs3_ManSolve(ptr noundef nonnull %18, i32 noundef %450, i32 noundef %137)
+  %452 = trunc nsw i32 %451 to i8
   %453 = load i32, ptr %26, align 4
   %454 = load i32, ptr %24, align 8
   %455 = icmp eq i32 %453, %454
@@ -5170,7 +5170,7 @@ common.ret42:                                     ; preds = %17, %Gia_ObjUpdateT
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc i32 @Cbs3_ManAddNode(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @Cbs3_ManAddNode(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   %6 = getelementptr inbounds i8, ptr %0, i64 148
   %7 = load i32, ptr %6, align 4

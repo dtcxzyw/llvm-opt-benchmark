@@ -51,7 +51,7 @@ define void @_Z9close_xtcP8t_fileio(ptr noundef %0) local_unnamed_addr #0 {
 declare noundef i32 @_Z13gmx_fio_closeP8t_fileio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z9write_xtcP8t_fileioilfPA3_KfS3_f(ptr noundef %0, i32 noundef %1, i64 noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, float noundef %6) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z9write_xtcP8t_fileioilfPA3_KfS3_f(ptr noundef %0, i32 noundef %1, i64 noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, float noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
   %10 = alloca float, align 4

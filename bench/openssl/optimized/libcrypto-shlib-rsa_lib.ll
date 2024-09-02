@@ -347,7 +347,7 @@ entry:
 declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define zeroext i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef %n) local_unnamed_addr #5 {
+define zeroext range(i16 0, 1201) i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef %n) local_unnamed_addr #5 {
 entry:
   switch i32 %n, label %sw.epilog [
     i32 2048, label %return
@@ -465,7 +465,7 @@ return:                                           ; preds = %if.end, %sw.epilog,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 65536) i32 @RSA_security_bits(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
+define range(i32 0, 1201) i32 @RSA_security_bits(ptr nocapture noundef readonly %rsa) local_unnamed_addr #0 {
 entry:
   %n = getelementptr inbounds i8, ptr %rsa, i64 40
   %0 = load ptr, ptr %n, align 8
@@ -490,7 +490,7 @@ lor.lhs.false:                                    ; preds = %if.then
 
 if.end6:                                          ; preds = %lor.lhs.false, %entry
   %call7 = tail call zeroext i16 @ossl_ifc_ffc_compute_security_bits(i32 noundef %call)
-  %conv = zext i16 %call7 to i32
+  %conv = zext nneg i16 %call7 to i32
   br label %return
 
 return:                                           ; preds = %if.then, %lor.lhs.false, %if.end6
@@ -864,7 +864,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @RSA_get_multi_prime_extra_count(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @RSA_get_multi_prime_extra_count(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
   %prime_infos = getelementptr inbounds i8, ptr %r, i64 136
   %0 = load ptr, ptr %prime_infos, align 8

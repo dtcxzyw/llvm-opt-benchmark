@@ -33506,10 +33506,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i79: ; preds = %for.end22
   %cmp.i.i81 = icmp eq i32 %bcmp.i80, 0
   br label %lor.end
 
-lor.end:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %for.end22, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i79
-  %5 = phi i1 [ %cmp.i.i81, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i79 ], [ false, %for.end22 ], [ %cmp.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+lor.end:                                          ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i79, %for.end22
+  %frombool.shrunk = phi i1 [ %cmp.i.i81, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i79 ], [ false, %for.end22 ], [ %cmp.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+  %frombool = zext i1 %frombool.shrunk to i8
   %is_ssl = getelementptr inbounds i8, ptr %this, i64 112
-  %frombool = zext i1 %5 to i8
   store i8 %frombool, ptr %is_ssl, align 8
   %incdec.ptr30 = getelementptr inbounds i8, ptr %encoded.pn.lcssa, i64 2
   br label %if.end31
@@ -33519,20 +33519,20 @@ if.end31.loopexit:                                ; preds = %for.cond, %for.cond
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end31.loopexit, %lor.end
-  %6 = phi i64 [ %sub.ptr.sub, %lor.end ], [ %.pre, %if.end31.loopexit ]
+  %5 = phi i64 [ %sub.ptr.sub, %lor.end ], [ %.pre, %if.end31.loopexit ]
   %p.0 = phi ptr [ %incdec.ptr30, %lor.end ], [ %encoded, %if.end31.loopexit ]
-  %cmp.i84 = icmp eq i64 %6, 0
+  %cmp.i84 = icmp eq i64 %5, 0
   br i1 %cmp.i84, label %return, label %if.end35
 
 if.end35:                                         ; preds = %if.end31
-  %7 = load i8, ptr %p.0, align 1
-  %cmp37 = icmp eq i8 %7, 47
+  %6 = load i8, ptr %p.0, align 1
+  %cmp37 = icmp eq i8 %6, 47
   br i1 %cmp37, label %land.lhs.true, label %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %if.end35
   %arrayidx = getelementptr inbounds i8, ptr %p.0, i64 1
-  %8 = load i8, ptr %arrayidx, align 1
-  %cmp39 = icmp eq i8 %8, 47
+  %7 = load i8, ptr %arrayidx, align 1
+  %cmp39 = icmp eq i8 %7, 47
   br i1 %cmp39, label %if.then40, label %if.then114
 
 if.then40:                                        ; preds = %land.lhs.true
@@ -33542,8 +33542,8 @@ if.then40:                                        ; preds = %land.lhs.true
 for.cond41:                                       ; preds = %for.inc59, %if.then40
   %p.3.idx = phi i64 [ 2, %if.then40 ], [ %p.3.add, %for.inc59 ]
   %p.3.ptr.ptr = getelementptr inbounds i8, ptr %p.0, i64 %p.3.idx
-  %9 = load i8, ptr %p.3.ptr.ptr, align 1
-  switch i8 %9, label %for.body54 [
+  %8 = load i8, ptr %p.3.ptr.ptr, align 1
+  switch i8 %8, label %for.body54 [
     i8 47, label %for.end61
     i8 63, label %for.end61
     i8 35, label %for.end61
@@ -33551,7 +33551,7 @@ for.cond41:                                       ; preds = %for.inc59, %if.then
   ]
 
 for.body54:                                       ; preds = %for.cond41
-  %conv42 = sext i8 %9 to i32
+  %conv42 = sext i8 %8 to i32
   %call56 = tail call noundef zeroext i1 @_ZN7cinatra5uri_t22is_authority_characterEi(ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %conv42)
   br i1 %call56, label %for.inc59, label %return
 
@@ -33568,16 +33568,16 @@ for.cond65:                                       ; preds = %for.end61, %for.con
   %port_begin.0.idx.in = phi i64 [ %port_begin.0.idx, %for.cond65 ], [ %p.3.idx, %for.end61 ]
   %port_begin.0.idx = add nsw i64 %port_begin.0.idx.in, -1
   %port_begin.0.ptr = getelementptr inbounds i8, ptr %p.0, i64 %port_begin.0.idx
-  %10 = load i8, ptr %port_begin.0.ptr, align 1
-  %conv66 = sext i8 %10 to i32
+  %9 = load i8, ptr %port_begin.0.ptr, align 1
+  %conv66 = sext i8 %9 to i32
   %isdigittmp = add nsw i32 %conv66, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
   %cmp70 = icmp ne i64 %port_begin.0.idx, 2
-  %11 = and i1 %cmp70, %isdigit
-  br i1 %11, label %for.cond65, label %for.end75, !llvm.loop !450
+  %10 = and i1 %cmp70, %isdigit
+  br i1 %10, label %for.cond65, label %for.end75, !llvm.loop !450
 
 for.end75:                                        ; preds = %for.cond65
-  %cmp77 = icmp eq i8 %10, 58
+  %cmp77 = icmp eq i8 %9, 58
   br i1 %cmp77, label %if.then78, label %if.end84
 
 if.then78:                                        ; preds = %for.end75
@@ -33596,17 +33596,17 @@ if.end84:                                         ; preds = %for.end75, %if.then
 
 for.cond85:                                       ; preds = %for.cond85, %if.end84
   %u_end.0 = phi ptr [ %add.ptr.ptr, %if.end84 ], [ %incdec.ptr93, %for.cond85 ]
-  %12 = load i8, ptr %u_end.0, align 1
-  %conv86 = sext i8 %12 to i32
+  %11 = load i8, ptr %u_end.0, align 1
+  %conv86 = sext i8 %11 to i32
   %call87 = tail call noundef zeroext i1 @_ZN7cinatra5uri_t22is_user_info_characterEi(ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %conv86)
   %cmp89 = icmp ne ptr %u_end.0, %host_end.0
-  %13 = and i1 %cmp89, %call87
+  %12 = and i1 %cmp89, %call87
   %incdec.ptr93 = getelementptr inbounds i8, ptr %u_end.0, i64 1
-  br i1 %13, label %for.cond85, label %for.end94, !llvm.loop !451
+  br i1 %12, label %for.cond85, label %for.end94, !llvm.loop !451
 
 for.end94:                                        ; preds = %for.cond85
-  %14 = load i8, ptr %u_end.0, align 1
-  %cmp96 = icmp eq i8 %14, 64
+  %13 = load i8, ptr %u_end.0, align 1
+  %cmp96 = icmp eq i8 %13, 64
   br i1 %cmp96, label %if.then97, label %if.end103
 
 if.then97:                                        ; preds = %for.end94
@@ -33632,14 +33632,14 @@ if.end103:                                        ; preds = %if.then97, %for.end
   br label %if.end109
 
 if.end109:                                        ; preds = %for.end61, %if.end103
-  %.pr = phi i8 [ %9, %for.end61 ], [ %.pr.pre, %if.end103 ]
+  %.pr = phi i8 [ %8, %for.end61 ], [ %.pr.pre, %if.end103 ]
   %cmp111 = icmp eq i8 %.pr, 47
   br i1 %cmp111, label %if.then114, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end35, %if.end109
   %p.297 = phi ptr [ %p.3.ptr.ptr.le, %if.end109 ], [ %p.0, %if.end35 ]
-  %15 = phi i8 [ %.pr, %if.end109 ], [ %7, %if.end35 ]
-  %conv110 = sext i8 %15 to i32
+  %14 = phi i8 [ %.pr, %if.end109 ], [ %6, %if.end35 ]
+  %conv110 = sext i8 %14 to i32
   %call113 = tail call noundef zeroext i1 @_ZN7cinatra5uri_t17is_path_characterEi(ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %conv110)
   br i1 %call113, label %if.then114, label %if.end137
 
@@ -33649,15 +33649,15 @@ if.then114:                                       ; preds = %land.lhs.true, %lor
 
 for.cond115:                                      ; preds = %for.inc130, %if.then114
   %p.5 = phi ptr [ %p.298, %if.then114 ], [ %incdec.ptr131, %for.inc130 ]
-  %16 = load i8, ptr %p.5, align 1
-  switch i8 %16, label %for.body125 [
+  %15 = load i8, ptr %p.5, align 1
+  switch i8 %15, label %for.body125 [
     i8 63, label %for.end132
     i8 35, label %for.end132
     i8 0, label %for.end132
   ]
 
 for.body125:                                      ; preds = %for.cond115
-  %conv116 = sext i8 %16 to i32
+  %conv116 = sext i8 %15 to i32
   %call127 = tail call noundef zeroext i1 @_ZN7cinatra5uri_t17is_path_characterEi(ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %conv116)
   br i1 %call127, label %for.inc130, label %return
 
@@ -33677,8 +33677,8 @@ for.end132:                                       ; preds = %for.cond115, %for.c
 
 if.end137:                                        ; preds = %for.end132, %lor.lhs.false
   %p.4 = phi ptr [ %p.5, %for.end132 ], [ %p.297, %lor.lhs.false ]
-  %17 = load i8, ptr %p.4, align 1
-  %cmp139 = icmp eq i8 %17, 63
+  %16 = load i8, ptr %p.4, align 1
+  %cmp139 = icmp eq i8 %16, 63
   br i1 %cmp139, label %if.then140, label %if.end161
 
 if.then140:                                       ; preds = %if.end137
@@ -33687,18 +33687,18 @@ if.then140:                                       ; preds = %if.end137
 
 for.cond142:                                      ; preds = %for.inc154, %if.then140
   %p.7 = phi ptr [ %incdec.ptr141, %if.then140 ], [ %incdec.ptr155, %for.inc154 ]
-  %18 = load i8, ptr %p.7, align 1
-  switch i8 %18, label %for.body149 [
+  %17 = load i8, ptr %p.7, align 1
+  switch i8 %17, label %for.body149 [
     i8 35, label %for.end156
     i8 0, label %for.end156
   ]
 
 for.body149:                                      ; preds = %for.cond142
-  %conv143 = sext i8 %18 to i32
+  %conv143 = sext i8 %17 to i32
   %call.i89 = tail call noundef zeroext i1 @_ZN7cinatra5uri_t17is_path_characterEi(ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %conv143)
-  %cmp.i90 = icmp eq i8 %18, 63
-  %19 = or i1 %cmp.i90, %call.i89
-  br i1 %19, label %for.inc154, label %return
+  %cmp.i90 = icmp eq i8 %17, 63
+  %18 = or i1 %cmp.i90, %call.i89
+  br i1 %18, label %for.inc154, label %return
 
 for.inc154:                                       ; preds = %for.body149
   %incdec.ptr155 = getelementptr inbounds i8, ptr %p.7, i64 1
@@ -33716,30 +33716,30 @@ for.end156:                                       ; preds = %for.cond142, %for.c
   br label %if.end161
 
 if.end161:                                        ; preds = %for.end156, %if.end137
-  %20 = phi i8 [ %.pr99, %for.end156 ], [ %17, %if.end137 ]
+  %19 = phi i8 [ %.pr99, %for.end156 ], [ %16, %if.end137 ]
   %p.6 = phi ptr [ %p.7, %for.end156 ], [ %p.4, %if.end137 ]
-  %cmp163 = icmp eq i8 %20, 35
+  %cmp163 = icmp eq i8 %19, 35
   br i1 %cmp163, label %if.then164, label %return
 
 if.then164:                                       ; preds = %if.end161
   %incdec.ptr165 = getelementptr inbounds i8, ptr %p.6, i64 1
-  %21 = load i8, ptr %incdec.ptr165, align 1
-  %cmp168.not116 = icmp eq i8 %21, 0
+  %20 = load i8, ptr %incdec.ptr165, align 1
+  %cmp168.not116 = icmp eq i8 %20, 0
   br i1 %cmp168.not116, label %for.end176, label %for.body169
 
 for.body169:                                      ; preds = %if.then164, %for.inc174
-  %22 = phi i8 [ %24, %for.inc174 ], [ %21, %if.then164 ]
+  %21 = phi i8 [ %23, %for.inc174 ], [ %20, %if.then164 ]
   %p.8117 = phi ptr [ %incdec.ptr175, %for.inc174 ], [ %incdec.ptr165, %if.then164 ]
-  %conv167 = sext i8 %22 to i32
+  %conv167 = sext i8 %21 to i32
   %call.i.i92 = tail call noundef zeroext i1 @_ZN7cinatra5uri_t17is_path_characterEi(ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %conv167)
-  %cmp.i.i93 = icmp eq i8 %22, 63
-  %23 = or i1 %cmp.i.i93, %call.i.i92
-  br i1 %23, label %for.inc174, label %return
+  %cmp.i.i93 = icmp eq i8 %21, 63
+  %22 = or i1 %cmp.i.i93, %call.i.i92
+  br i1 %22, label %for.inc174, label %return
 
 for.inc174:                                       ; preds = %for.body169
   %incdec.ptr175 = getelementptr inbounds i8, ptr %p.8117, i64 1
-  %24 = load i8, ptr %incdec.ptr175, align 1
-  %cmp168.not = icmp eq i8 %24, 0
+  %23 = load i8, ptr %incdec.ptr175, align 1
+  %cmp168.not = icmp eq i8 %23, 0
   br i1 %cmp168.not, label %for.end176, label %for.body169, !llvm.loop !454
 
 for.end176:                                       ; preds = %for.inc174, %if.then164

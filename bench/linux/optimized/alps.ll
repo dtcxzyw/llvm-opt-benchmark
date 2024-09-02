@@ -872,7 +872,7 @@ declare dso_local i32 @psmouse_reset(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @alps_detect(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @alps_detect(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [2 x i8], align 2
   %4 = tail call fastcc i32 @alps_identify(ptr noundef %0, ptr noundef null)
   %5 = icmp eq i32 %4, 0
@@ -948,7 +948,7 @@ define dso_local noundef i32 @alps_detect(ptr noundef %0, i1 noundef zeroext %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @alps_identify(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @alps_identify(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
@@ -4379,7 +4379,7 @@ define internal noundef i32 @alps_decode_dolphin(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @alps_hw_init_v6(ptr noundef %0) #0 align 16 {
+define internal range(i32 -1, 1) i32 @alps_hw_init_v6(ptr noundef %0) #0 align 16 {
   %2 = alloca [4 x i8], align 4
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
@@ -6964,33 +6964,33 @@ define internal fastcc i32 @alps_process_bitmap(ptr nocapture noundef %0, ptr no
   br i1 %20, label %30, label %22
 
 22:                                               ; preds = %.preheader8
-  br i1 %21, label %23, label %._crit_edge
+  br i1 %21, label %24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %22
   %.phi.trans.insert = getelementptr inbounds i8, ptr %17, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br label %25
+  %23 = add i32 %.pre, 1
+  br label %26
 
-23:                                               ; preds = %22
+24:                                               ; preds = %22
   store i32 %16, ptr %17, align 4
-  %24 = add i32 %14, 1
-  br label %25
+  %25 = add i32 %14, 1
+  br label %26
 
-25:                                               ; preds = %._crit_edge, %23
-  %26 = phi i32 [ 0, %23 ], [ %.pre, %._crit_edge ]
-  %27 = phi i32 [ %24, %23 ], [ %14, %._crit_edge ]
-  %28 = getelementptr inbounds i8, ptr %17, i64 4
-  %29 = add i32 %26, 1
-  store i32 %29, ptr %28, align 4
+26:                                               ; preds = %._crit_edge, %24
+  %27 = phi i32 [ 1, %24 ], [ %23, %._crit_edge ]
+  %28 = phi i32 [ %25, %24 ], [ %14, %._crit_edge ]
+  %29 = getelementptr inbounds i8, ptr %17, i64 4
+  store i32 %27, ptr %29, align 4
   br label %32
 
 30:                                               ; preds = %.preheader8
   %31 = select i1 %21, ptr %17, ptr %4
   br label %32
 
-32:                                               ; preds = %30, %25
-  %33 = phi i32 [ %14, %30 ], [ %27, %25 ]
-  %34 = phi ptr [ %31, %30 ], [ %17, %25 ]
+32:                                               ; preds = %30, %26
+  %33 = phi i32 [ %14, %30 ], [ %28, %26 ]
+  %34 = phi ptr [ %31, %30 ], [ %17, %26 ]
   %35 = add nuw nsw i32 %16, 1
   %36 = lshr i32 %18, 1
   %37 = icmp ult i32 %18, 2
@@ -7013,33 +7013,33 @@ define internal fastcc i32 @alps_process_bitmap(ptr nocapture noundef %0, ptr no
   br i1 %47, label %57, label %49
 
 49:                                               ; preds = %.preheader
-  br i1 %48, label %50, label %._crit_edge12
+  br i1 %48, label %51, label %._crit_edge12
 
 ._crit_edge12:                                    ; preds = %49
   %.phi.trans.insert13 = getelementptr inbounds i8, ptr %44, i64 4
   %.pre14 = load i32, ptr %.phi.trans.insert13, align 4
-  br label %52
+  %50 = add i32 %.pre14, 1
+  br label %53
 
-50:                                               ; preds = %49
+51:                                               ; preds = %49
   store i32 %43, ptr %44, align 4
-  %51 = add i32 %41, 1
-  br label %52
+  %52 = add i32 %41, 1
+  br label %53
 
-52:                                               ; preds = %._crit_edge12, %50
-  %53 = phi i32 [ 0, %50 ], [ %.pre14, %._crit_edge12 ]
-  %54 = phi i32 [ %51, %50 ], [ %41, %._crit_edge12 ]
-  %55 = getelementptr inbounds i8, ptr %44, i64 4
-  %56 = add i32 %53, 1
-  store i32 %56, ptr %55, align 4
+53:                                               ; preds = %._crit_edge12, %51
+  %54 = phi i32 [ 1, %51 ], [ %50, %._crit_edge12 ]
+  %55 = phi i32 [ %52, %51 ], [ %41, %._crit_edge12 ]
+  %56 = getelementptr inbounds i8, ptr %44, i64 4
+  store i32 %54, ptr %56, align 4
   br label %59
 
 57:                                               ; preds = %.preheader
   %58 = select i1 %48, ptr %44, ptr %6
   br label %59
 
-59:                                               ; preds = %57, %52
-  %60 = phi i32 [ %41, %57 ], [ %54, %52 ]
-  %61 = phi ptr [ %58, %57 ], [ %44, %52 ]
+59:                                               ; preds = %57, %53
+  %60 = phi i32 [ %41, %57 ], [ %55, %53 ]
+  %61 = phi ptr [ %58, %57 ], [ %44, %53 ]
   %62 = add nuw nsw i32 %43, 1
   %63 = lshr i32 %45, 1
   %64 = icmp ult i32 %45, 2

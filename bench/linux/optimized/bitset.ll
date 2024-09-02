@@ -35,7 +35,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr nocapture noundef
 
 7:                                                ; preds = %5
   %8 = icmp eq i32 %2, 0
-  br i1 %8, label %121, label %9
+  br i1 %8, label %120, label %9
 
 9:                                                ; preds = %7
   %10 = icmp eq ptr %3, null
@@ -149,11 +149,11 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr nocapture noundef
   %88 = and i32 %87, 1073741820
   %89 = zext i1 %6 to i32
   %90 = shl nuw nsw i32 %88, %89
-  br label %121
+  br label %120
 
-.split.split:                                     ; preds = %.split, %115
-  %91 = phi i64 [ %117, %115 ], [ 0, %.split ]
-  %92 = phi i32 [ %116, %115 ], [ 0, %.split ]
+.split.split:                                     ; preds = %.split, %114
+  %91 = phi i64 [ %116, %114 ], [ 0, %.split ]
+  %92 = phi i32 [ %115, %114 ], [ 0, %.split ]
   %93 = getelementptr [32 x i8], ptr %3, i64 %91
   %94 = lshr i64 %91, 5
   %95 = and i64 %94, 134217727
@@ -164,44 +164,43 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr nocapture noundef
   %100 = shl nuw i32 1, %99
   %101 = and i32 %100, %97
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %115, label %103
+  br i1 %102, label %114, label %103
 
 103:                                              ; preds = %.split.split
   %104 = icmp eq ptr %93, null
-  br i1 %104, label %110, label %105
+  br i1 %104, label %111, label %105
 
 105:                                              ; preds = %103
   %106 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %93, i64 noundef 32)
   %107 = trunc i64 %106 to i32
   %108 = and i32 %107, -4
-  %109 = add i32 %108, 16
-  br label %110
+  %109 = add i32 %108, 23
+  %110 = and i32 %109, -4
+  br label %111
 
-110:                                              ; preds = %105, %103
-  %111 = phi i32 [ %109, %105 ], [ 8, %103 ]
-  %112 = add i32 %111, 7
-  %113 = and i32 %112, -4
-  %114 = add i32 %113, %92
-  br label %115
+111:                                              ; preds = %105, %103
+  %112 = phi i32 [ %110, %105 ], [ 12, %103 ]
+  %113 = add i32 %112, %92
+  br label %114
 
-115:                                              ; preds = %110, %.split.split
-  %116 = phi i32 [ %114, %110 ], [ %92, %.split.split ]
-  %117 = add nuw nsw i64 %91, 1
-  %118 = icmp eq i64 %117, %12
-  br i1 %118, label %.split4.us, label %.split.split, !llvm.loop !5
+114:                                              ; preds = %111, %.split.split
+  %115 = phi i32 [ %113, %111 ], [ %92, %.split.split ]
+  %116 = add nuw nsw i64 %91, 1
+  %117 = icmp eq i64 %116, %12
+  br i1 %117, label %.split4.us, label %.split.split, !llvm.loop !5
 
-.split4.us:                                       ; preds = %115, %.split.split.us, %65, %31
-  %.us-phi = phi i32 [ %32, %31 ], [ %66, %65 ], [ %spec.select, %.split.split.us ], [ %116, %115 ]
-  %119 = add i32 %.us-phi, 7
-  %120 = and i32 %119, -4
-  br label %121
+.split4.us:                                       ; preds = %114, %.split.split.us, %65, %31
+  %.us-phi = phi i32 [ %32, %31 ], [ %66, %65 ], [ %spec.select, %.split.split.us ], [ %115, %114 ]
+  %118 = add i32 %.us-phi, 7
+  %119 = and i32 %118, -4
+  br label %120
 
-121:                                              ; preds = %.split4.us, %83, %7
-  %122 = phi i32 [ %90, %83 ], [ 4, %7 ], [ %120, %.split4.us ]
-  %123 = select i1 %6, i32 15, i32 23
-  %124 = add i32 %122, %123
-  %125 = and i32 %124, -4
-  ret i32 %125
+120:                                              ; preds = %.split4.us, %83, %7
+  %121 = phi i32 [ %90, %83 ], [ 4, %7 ], [ %119, %.split4.us ]
+  %122 = select i1 %6, i32 15, i32 23
+  %123 = add i32 %121, %122
+  %124 = and i32 %123, -4
+  ret i32 %124
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -211,7 +210,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ethnl_put_bitset32(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef readonly %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef readonly %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 16 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = or i32 %1, 32768
@@ -532,7 +531,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
   %9 = alloca [6 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #8
   %10 = icmp eq ptr %2, null
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %2, i64 2
@@ -543,7 +542,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
 15:                                               ; preds = %11
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nla_parse_nested.__msg) #8
   %16 = icmp eq ptr %4, null
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %15
   store ptr @nla_parse_nested.__msg, ptr %4, align 8
@@ -551,7 +550,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
   store ptr %2, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %19, align 8
-  br label %.thread
+  br label %.critedge
 
 20:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %9, i8 0, i64 48, i1 false), !annotation !13
@@ -561,7 +560,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
   %24 = zext i16 %23 to i32
   %25 = call i32 @__nla_parse(ptr noundef nonnull %9, i32 noundef 5, ptr noundef %21, i32 noundef %24, ptr noundef nonnull @bitset_policy, i32 noundef 31, ptr noundef %4) #8
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %.thread, label %27
+  br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds i8, ptr %9, i64 24
@@ -578,7 +577,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
 35:                                               ; preds = %31
   call void @do_trace_netlink_extack(ptr noundef nonnull @ethnl_update_bitset32_verbose.__msg) #8
   %36 = icmp eq ptr %4, null
-  br i1 %36, label %.thread, label %37
+  br i1 %36, label %.critedge, label %37
 
 37:                                               ; preds = %35
   store ptr @ethnl_update_bitset32_verbose.__msg, ptr %4, align 8
@@ -587,7 +586,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
   store ptr %38, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %40, align 8
-  br label %.thread
+  br label %.critedge
 
 41:                                               ; preds = %31
   %42 = getelementptr inbounds i8, ptr %9, i64 40
@@ -598,7 +597,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
 45:                                               ; preds = %41
   call void @do_trace_netlink_extack(ptr noundef nonnull @ethnl_update_bitset32_verbose.__msg.3) #8
   %46 = icmp eq ptr %4, null
-  br i1 %46, label %.thread, label %47
+  br i1 %46, label %.critedge, label %47
 
 47:                                               ; preds = %45
   store ptr @ethnl_update_bitset32_verbose.__msg.3, ptr %4, align 8
@@ -607,7 +606,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
   store ptr %48, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %50, align 8
-  br label %.thread
+  br label %.critedge
 
 51:                                               ; preds = %41
   %52 = getelementptr inbounds i8, ptr %9, i64 8
@@ -622,7 +621,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
 
 58:                                               ; preds = %55
   %59 = icmp ult i32 %1, 32
-  br i1 %59, label %.loopexit30, label %60
+  br i1 %59, label %.loopexit28, label %60
 
 60:                                               ; preds = %58
   %61 = zext nneg i32 %56 to i64
@@ -643,14 +642,14 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
 68:                                               ; preds = %67, %62
   %69 = add nuw nsw i64 %63, 1
   %70 = icmp eq i64 %69, %61
-  br i1 %70, label %.loopexit30, label %62, !llvm.loop !14
+  br i1 %70, label %.loopexit28, label %62, !llvm.loop !14
 
-.loopexit30:                                      ; preds = %68, %58
+.loopexit28:                                      ; preds = %68, %58
   %71 = and i32 %1, 31
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %84, label %73
 
-73:                                               ; preds = %.loopexit30
+73:                                               ; preds = %.loopexit28
   %74 = sub nuw nsw i32 32, %71
   %75 = lshr i32 -1, %74
   %76 = zext nneg i32 %56 to i64
@@ -667,14 +666,14 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
   store i8 1, ptr %5, align 1
   br label %84
 
-84:                                               ; preds = %81, %73, %.loopexit30, %55, %51
+84:                                               ; preds = %81, %73, %.loopexit28, %55, %51
   %85 = load i16, ptr %29, align 2
   %86 = add i16 %85, -4
   %87 = icmp eq ptr %4, null
   %88 = getelementptr inbounds i8, ptr %4, i64 8
   %89 = getelementptr inbounds i8, ptr %4, i64 16
   %90 = icmp ugt i16 %86, 3
-  br i1 %90, label %.lr.ph.preheader, label %.thread
+  br i1 %90, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %84
   %91 = zext i16 %86 to i32
@@ -689,7 +688,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
   %97 = zext i16 %95 to i32
   %.not = icmp ult i32 %94, %97
   %or.cond = or i1 %96, %.not
-  br i1 %or.cond, label %.thread, label %98
+  br i1 %or.cond, label %.critedge, label %98
 
 98:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #8
@@ -704,18 +703,18 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
 
 103:                                              ; preds = %98
   call void @do_trace_netlink_extack(ptr noundef nonnull @ethnl_update_bitset32_verbose.__msg.4) #8
-  br i1 %87, label %.thread27, label %104
+  br i1 %87, label %.thread25, label %104
 
 104:                                              ; preds = %103
   store ptr @ethnl_update_bitset32_verbose.__msg.4, ptr %4, align 8
   store ptr %93, ptr %88, align 8
   store ptr null, ptr %89, align 8
-  br label %.thread27
+  br label %.thread25
 
 105:                                              ; preds = %98
   %106 = call fastcc i32 @ethnl_parse_bit(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef %1, ptr noundef %93, i1 noundef zeroext %54, ptr noundef %3, ptr noundef %4)
   %107 = icmp slt i32 %106, 0
-  br i1 %107, label %.thread27, label %108
+  br i1 %107, label %.thread25, label %108
 
 108:                                              ; preds = %105
   %109 = load i32, ptr %8, align 4
@@ -742,11 +741,11 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
   store i8 1, ptr %5, align 1
   br label %127
 
-.thread27:                                        ; preds = %105, %104, %103
+.thread25:                                        ; preds = %105, %104, %103
   %.ph = phi i32 [ -22, %103 ], [ -22, %104 ], [ %106, %105 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #8
-  br label %.thread
+  br label %.critedge
 
 127:                                              ; preds = %108, %120
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
@@ -759,12 +758,12 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
   %133 = zext nneg i32 %131 to i64
   %134 = getelementptr i8, ptr %93, i64 %133
   %135 = icmp sgt i32 %132, 3
-  br i1 %135, label %.lr.ph, label %.thread, !llvm.loop !17
+  br i1 %135, label %.lr.ph, label %.critedge, !llvm.loop !17
 
 136:                                              ; preds = %27
   %137 = call fastcc i32 @ethnl_compact_sanity_checks(i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef %4), !range !18
   %138 = icmp slt i32 %137, 0
-  br i1 %138, label %.thread, label %139
+  br i1 %138, label %.critedge, label %139
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds i8, ptr %9, i64 8
@@ -789,31 +788,31 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
 
 155:                                              ; preds = %139
   %156 = icmp eq i32 %148, 0
-  br i1 %156, label %.thread, label %.lr.ph35.preheader
+  br i1 %156, label %.critedge, label %.lr.ph33.preheader
 
-.lr.ph35.preheader:                               ; preds = %155
+.lr.ph33.preheader:                               ; preds = %155
   %157 = getelementptr inbounds i8, ptr %9, i64 40
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr i8, ptr %158, i64 4
   %160 = and i32 %148, 31
   %161 = sub nuw nsw i32 32, %160
   %162 = lshr i32 -1, %161
-  br label %.lr.ph35
+  br label %.lr.ph33
 
-.lr.ph35:                                         ; preds = %.lr.ph35.backedge, %.lr.ph35.preheader
-  %163 = phi ptr [ %0, %.lr.ph35.preheader ], [ %185, %.lr.ph35.backedge ]
-  %164 = phi ptr [ %159, %.lr.ph35.preheader ], [ %.be, %.lr.ph35.backedge ]
-  %165 = phi ptr [ %151, %.lr.ph35.preheader ], [ %187, %.lr.ph35.backedge ]
-  %166 = phi i32 [ %148, %.lr.ph35.preheader ], [ %186, %.lr.ph35.backedge ]
+.lr.ph33:                                         ; preds = %.lr.ph33.backedge, %.lr.ph33.preheader
+  %163 = phi ptr [ %0, %.lr.ph33.preheader ], [ %185, %.lr.ph33.backedge ]
+  %164 = phi ptr [ %159, %.lr.ph33.preheader ], [ %.be, %.lr.ph33.backedge ]
+  %165 = phi ptr [ %151, %.lr.ph33.preheader ], [ %187, %.lr.ph33.backedge ]
+  %166 = phi i32 [ %148, %.lr.ph33.preheader ], [ %186, %.lr.ph33.backedge ]
   %167 = icmp eq ptr %164, null
   br i1 %167, label %170, label %168
 
-168:                                              ; preds = %.lr.ph35
+168:                                              ; preds = %.lr.ph33
   %169 = load i32, ptr %164, align 4
   br label %170
 
-170:                                              ; preds = %168, %.lr.ph35
-  %171 = phi i32 [ %169, %168 ], [ -1, %.lr.ph35 ]
+170:                                              ; preds = %168, %.lr.ph33
+  %171 = phi i32 [ %169, %168 ], [ -1, %.lr.ph33 ]
   %172 = icmp ult i32 %166, 32
   %173 = select i1 %172, i32 %162, i32 -1
   %174 = and i32 %171, %173
@@ -833,15 +832,15 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
 
 183:                                              ; preds = %182, %170
   %184 = icmp ugt i32 %166, 32
-  br i1 %184, label %.lr.ph35.backedge, label %.thread
+  br i1 %184, label %.lr.ph33.backedge, label %.critedge
 
-.lr.ph35.backedge:                                ; preds = %183
+.lr.ph33.backedge:                                ; preds = %183
   %185 = getelementptr i8, ptr %163, i64 4
   %186 = add i32 %166, -32
   %187 = getelementptr i8, ptr %165, i64 4
   %188 = getelementptr i8, ptr %164, i64 4
   %.be = select i1 %167, ptr null, ptr %188
-  br label %.lr.ph35
+  br label %.lr.ph33
 
 .preheader:                                       ; preds = %.preheader.preheader, %204
   %189 = phi i32 [ %206, %204 ], [ %148, %.preheader.preheader ]
@@ -876,7 +875,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
   br i1 %205, label %.preheader, label %210
 
 210:                                              ; preds = %204, %.preheader
-  br i1 %147, label %211, label %.thread
+  br i1 %147, label %211, label %.critedge
 
 211:                                              ; preds = %210
   %212 = lshr i32 %148, 5
@@ -900,14 +899,14 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
   %226 = load i32, ptr %225, align 4
   %227 = and i32 %226, %223
   %228 = icmp eq i32 %227, 0
-  br i1 %228, label %.thread, label %229
+  br i1 %228, label %.critedge, label %229
 
 229:                                              ; preds = %219
   %230 = xor i32 %223, -1
   %231 = and i32 %226, %230
   store i32 %231, ptr %225, align 4
   store i8 1, ptr %5, align 1
-  br label %.thread
+  br label %.critedge
 
 232:                                              ; preds = %216
   %233 = zext nneg i32 %212 to i64
@@ -958,7 +957,7 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
 .loopexit:                                        ; preds = %255, %243
   %258 = and i32 %1, 31
   %259 = icmp eq i32 %258, 0
-  br i1 %259, label %.thread, label %260
+  br i1 %259, label %.critedge, label %260
 
 260:                                              ; preds = %.loopexit
   %261 = sub nuw nsw i32 32, %258
@@ -968,17 +967,17 @@ define dso_local i32 @ethnl_update_bitset32(ptr nocapture noundef %0, i32 nounde
   %265 = load i32, ptr %264, align 4
   %266 = and i32 %265, %262
   %267 = icmp eq i32 %266, 0
-  br i1 %267, label %.thread, label %268
+  br i1 %267, label %.critedge, label %268
 
 268:                                              ; preds = %260
   %269 = xor i32 %262, -1
   %270 = and i32 %265, %269
   store i32 %270, ptr %264, align 4
   store i8 1, ptr %5, align 1
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph, %127, %183, %84, %155, %15, %17, %.thread27, %268, %260, %.loopexit, %229, %219, %210, %136, %47, %45, %37, %35, %20, %6
-  %271 = phi i32 [ 0, %6 ], [ %25, %20 ], [ %137, %136 ], [ 0, %210 ], [ -22, %37 ], [ -22, %35 ], [ -22, %47 ], [ -22, %45 ], [ 0, %219 ], [ 0, %229 ], [ 0, %.loopexit ], [ 0, %260 ], [ 0, %268 ], [ %.ph, %.thread27 ], [ -22, %17 ], [ -22, %15 ], [ 0, %155 ], [ 0, %84 ], [ 0, %183 ], [ 0, %127 ], [ 0, %.lr.ph ]
+.critedge:                                        ; preds = %127, %.lr.ph, %183, %84, %155, %15, %17, %.thread25, %268, %260, %.loopexit, %229, %219, %210, %136, %47, %45, %37, %35, %20, %6
+  %271 = phi i32 [ 0, %6 ], [ %25, %20 ], [ %137, %136 ], [ 0, %210 ], [ -22, %37 ], [ -22, %35 ], [ -22, %47 ], [ -22, %45 ], [ 0, %219 ], [ 0, %229 ], [ 0, %.loopexit ], [ 0, %260 ], [ 0, %268 ], [ %.ph, %.thread25 ], [ -22, %17 ], [ -22, %15 ], [ 0, %155 ], [ 0, %84 ], [ 0, %183 ], [ 0, %.lr.ph ], [ 0, %127 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #8
   ret i32 %271
 }
@@ -1198,7 +1197,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   %9 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #8
   %10 = icmp eq ptr %3, null
-  br i1 %10, label %.thread, label %11
+  br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds i8, ptr %3, i64 2
@@ -1209,7 +1208,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
 15:                                               ; preds = %11
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nla_parse_nested.__msg) #8
   %16 = icmp eq ptr %5, null
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %15
   store ptr @nla_parse_nested.__msg, ptr %5, align 8
@@ -1217,7 +1216,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr %3, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr null, ptr %19, align 8
-  br label %.thread
+  br label %.critedge
 
 20:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false), !annotation !13
@@ -1227,12 +1226,12 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   %24 = zext i16 %23 to i32
   %25 = call i32 @__nla_parse(ptr noundef nonnull %7, i32 noundef 5, ptr noundef %21, i32 noundef %24, ptr noundef nonnull @bitset_policy, i32 noundef 31, ptr noundef %5) #8
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %.thread, label %27
+  br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds i8, ptr %7, i64 8
   %29 = load ptr, ptr %28, align 8
-  %.not17 = icmp eq ptr %29, null
+  %.not15 = icmp eq ptr %29, null
   %30 = getelementptr inbounds i8, ptr %7, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -1241,7 +1240,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
 33:                                               ; preds = %27
   %34 = call fastcc i32 @ethnl_compact_sanity_checks(i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef %5), !range !18
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %.thread, label %36
+  br i1 %35, label %.critedge, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %7, i64 16
@@ -1259,17 +1258,17 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
 46:                                               ; preds = %36
   %47 = sub i32 %2, %41
   call void @__bitmap_clear(ptr noundef %0, i32 noundef %41, i32 noundef %47) #8
-  br i1 %.not17, label %56, label %51
+  br i1 %.not15, label %56, label %51
 
 .thread10:                                        ; preds = %36
-  br i1 %.not17, label %.thread11, label %51
+  br i1 %.not15, label %.thread11, label %51
 
 .thread11:                                        ; preds = %.thread10
   %48 = getelementptr inbounds i8, ptr %7, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr i8, ptr %49, i64 4
   call void @bitmap_from_arr32(ptr noundef %1, ptr noundef %50, i32 noundef %41) #8
-  br label %.thread
+  br label %.critedge
 
 51:                                               ; preds = %.thread10, %46
   %52 = zext i32 %2 to i64
@@ -1277,7 +1276,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   %54 = lshr i64 %53, 3
   %55 = and i64 %54, 1073741816
   call void @llvm.memset.p0.i64(ptr align 8 %1, i8 -1, i64 %55, i1 false)
-  br label %.thread
+  br label %.critedge
 
 56:                                               ; preds = %46
   %57 = getelementptr inbounds i8, ptr %7, i64 40
@@ -1285,7 +1284,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   %59 = getelementptr i8, ptr %58, i64 4
   call void @bitmap_from_arr32(ptr noundef %1, ptr noundef %59, i32 noundef %41) #8
   call void @__bitmap_clear(ptr noundef %1, i32 noundef %41, i32 noundef %47) #8
-  br label %.thread
+  br label %.critedge
 
 60:                                               ; preds = %27
   %61 = getelementptr inbounds i8, ptr %7, i64 32
@@ -1296,7 +1295,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
 64:                                               ; preds = %60
   call void @do_trace_netlink_extack(ptr noundef nonnull @ethnl_parse_bitset.__msg) #8
   %65 = icmp eq ptr %5, null
-  br i1 %65, label %.thread, label %66
+  br i1 %65, label %.critedge, label %66
 
 66:                                               ; preds = %64
   store ptr @ethnl_parse_bitset.__msg, ptr %5, align 8
@@ -1305,7 +1304,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr %67, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr null, ptr %69, align 8
-  br label %.thread
+  br label %.critedge
 
 70:                                               ; preds = %60
   %71 = getelementptr inbounds i8, ptr %7, i64 40
@@ -1316,7 +1315,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
 74:                                               ; preds = %70
   call void @do_trace_netlink_extack(ptr noundef nonnull @ethnl_parse_bitset.__msg.1) #8
   %75 = icmp eq ptr %5, null
-  br i1 %75, label %.thread, label %76
+  br i1 %75, label %.critedge, label %76
 
 76:                                               ; preds = %74
   store ptr @ethnl_parse_bitset.__msg.1, ptr %5, align 8
@@ -1325,7 +1324,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr %77, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr null, ptr %79, align 8
-  br label %.thread
+  br label %.critedge
 
 80:                                               ; preds = %70
   %81 = zext i32 %2 to i64
@@ -1333,23 +1332,23 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   %83 = lshr i64 %82, 3
   %84 = and i64 %83, 1073741816
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %84, i1 false)
-  br i1 %.not17, label %85, label %.thread22
+  br i1 %.not15, label %85, label %.thread
 
 85:                                               ; preds = %80
   call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %84, i1 false)
   %86 = load i16, ptr %31, align 2
   %87 = add i16 %86, -4
   %88 = icmp ugt i16 %87, 3
-  br i1 %88, label %.lr.ph.split.preheader, label %.thread
+  br i1 %88, label %.lr.ph.split.preheader, label %.critedge
 
-.thread22:                                        ; preds = %80
+.thread:                                          ; preds = %80
   call void @llvm.memset.p0.i64(ptr align 8 %1, i8 -1, i64 %84, i1 false)
   %89 = load i16, ptr %31, align 2
   %90 = add i16 %89, -4
   %91 = icmp ugt i16 %90, 3
-  br i1 %91, label %.lr.ph.split.us.preheader, label %.thread
+  br i1 %91, label %.lr.ph.split.us.preheader, label %.critedge
 
-.lr.ph.split.us.preheader:                        ; preds = %.thread22
+.lr.ph.split.us.preheader:                        ; preds = %.thread
   %92 = zext i16 %90 to i32
   %93 = getelementptr i8, ptr %31, i64 4
   br label %.lr.ph.split.us
@@ -1367,7 +1366,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   %100 = zext i16 %98 to i32
   %.not.us = icmp ult i32 %97, %100
   %or.cond.us = or i1 %99, %.not.us
-  br i1 %or.cond.us, label %.thread, label %101
+  br i1 %or.cond.us, label %.critedge, label %101
 
 101:                                              ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
@@ -1400,7 +1399,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   %116 = zext nneg i32 %114 to i64
   %117 = getelementptr i8, ptr %96, i64 %116
   %118 = icmp sgt i32 %115, 3
-  br i1 %118, label %.lr.ph.split.us, label %.thread, !llvm.loop !20
+  br i1 %118, label %.lr.ph.split.us, label %.critedge, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %._crit_edge
   %119 = phi ptr [ %137, %._crit_edge ], [ %95, %.lr.ph.split.preheader ]
@@ -1410,7 +1409,7 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   %123 = zext i16 %121 to i32
   %.not = icmp ult i32 %120, %123
   %or.cond = or i1 %122, %.not
-  br i1 %or.cond, label %.thread, label %124
+  br i1 %or.cond, label %.critedge, label %124
 
 124:                                              ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
@@ -1425,15 +1424,15 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   %128 = load i8, ptr %9, align 1, !range !15, !noundef !16
   %129 = icmp eq i8 %128, 0
   %.pre = load i32, ptr %8, align 4
-  %.pre21 = zext i32 %.pre to i64
+  %.pre19 = zext i32 %.pre to i64
   br i1 %129, label %._crit_edge, label %130
 
 130:                                              ; preds = %127
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %.pre21) #8, !srcloc !19
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %.pre19) #8, !srcloc !19
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %127, %130
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %.pre21) #8, !srcloc !19
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %.pre19) #8, !srcloc !19
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   %131 = load i16, ptr %119, align 2
@@ -1444,16 +1443,16 @@ define dso_local i32 @ethnl_parse_bitset(ptr noundef %0, ptr noundef %1, i32 nou
   %136 = zext nneg i32 %134 to i64
   %137 = getelementptr i8, ptr %119, i64 %136
   %138 = icmp sgt i32 %135, 3
-  br i1 %138, label %.lr.ph.split, label %.thread, !llvm.loop !20
+  br i1 %138, label %.lr.ph.split, label %.critedge, !llvm.loop !20
 
 .split.us:                                        ; preds = %101, %124
   %.us-phi = phi i32 [ %125, %124 ], [ %102, %101 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %.lr.ph.split.us, %110, %.lr.ph.split, %._crit_edge, %.thread22, %85, %15, %17, %.split.us, %.thread11, %76, %74, %66, %64, %56, %51, %33, %20, %6
-  %139 = phi i32 [ 0, %6 ], [ %25, %20 ], [ %34, %33 ], [ -22, %66 ], [ -22, %64 ], [ -22, %76 ], [ -22, %74 ], [ 0, %51 ], [ 0, %56 ], [ %.us-phi, %.split.us ], [ 0, %.thread11 ], [ -22, %17 ], [ -22, %15 ], [ 0, %85 ], [ 0, %.thread22 ], [ 0, %._crit_edge ], [ 0, %.lr.ph.split ], [ 0, %110 ], [ 0, %.lr.ph.split.us ]
+.critedge:                                        ; preds = %110, %.lr.ph.split.us, %._crit_edge, %.lr.ph.split, %.thread, %85, %15, %17, %.split.us, %.thread11, %76, %74, %66, %64, %56, %51, %33, %20, %6
+  %139 = phi i32 [ 0, %6 ], [ %25, %20 ], [ %34, %33 ], [ -22, %66 ], [ -22, %64 ], [ -22, %76 ], [ -22, %74 ], [ 0, %51 ], [ 0, %56 ], [ %.us-phi, %.split.us ], [ 0, %.thread11 ], [ -22, %17 ], [ -22, %15 ], [ 0, %85 ], [ 0, %.thread ], [ 0, %.lr.ph.split ], [ 0, %._crit_edge ], [ 0, %.lr.ph.split.us ], [ 0, %110 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #8
   ret i32 %139
 }
@@ -1647,7 +1646,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr nocapture noundef r
 
 7:                                                ; preds = %5
   %8 = icmp eq i32 %2, 0
-  br i1 %8, label %121, label %9
+  br i1 %8, label %120, label %9
 
 9:                                                ; preds = %7
   %10 = icmp eq ptr %3, null
@@ -1761,11 +1760,11 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr nocapture noundef r
   %88 = and i32 %87, 1073741820
   %89 = zext i1 %6 to i32
   %90 = shl nuw nsw i32 %88, %89
-  br label %121
+  br label %120
 
-.split.split:                                     ; preds = %.split, %115
-  %91 = phi i64 [ %117, %115 ], [ 0, %.split ]
-  %92 = phi i32 [ %116, %115 ], [ 0, %.split ]
+.split.split:                                     ; preds = %.split, %114
+  %91 = phi i64 [ %116, %114 ], [ 0, %.split ]
+  %92 = phi i32 [ %115, %114 ], [ 0, %.split ]
   %93 = getelementptr [32 x i8], ptr %3, i64 %91
   %94 = lshr i64 %91, 5
   %95 = and i64 %94, 134217727
@@ -1776,48 +1775,47 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr nocapture noundef r
   %100 = shl nuw i32 1, %99
   %101 = and i32 %100, %97
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %115, label %103
+  br i1 %102, label %114, label %103
 
 103:                                              ; preds = %.split.split
   %104 = icmp eq ptr %93, null
-  br i1 %104, label %110, label %105
+  br i1 %104, label %111, label %105
 
 105:                                              ; preds = %103
   %106 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %93, i64 noundef 32)
   %107 = trunc i64 %106 to i32
   %108 = and i32 %107, -4
-  %109 = add i32 %108, 16
-  br label %110
+  %109 = add i32 %108, 23
+  %110 = and i32 %109, -4
+  br label %111
 
-110:                                              ; preds = %105, %103
-  %111 = phi i32 [ %109, %105 ], [ 8, %103 ]
-  %112 = add i32 %111, 7
-  %113 = and i32 %112, -4
-  %114 = add i32 %113, %92
-  br label %115
+111:                                              ; preds = %105, %103
+  %112 = phi i32 [ %110, %105 ], [ 12, %103 ]
+  %113 = add i32 %112, %92
+  br label %114
 
-115:                                              ; preds = %110, %.split.split
-  %116 = phi i32 [ %114, %110 ], [ %92, %.split.split ]
-  %117 = add nuw nsw i64 %91, 1
-  %118 = icmp eq i64 %117, %12
-  br i1 %118, label %.split4.us, label %.split.split, !llvm.loop !5
+114:                                              ; preds = %111, %.split.split
+  %115 = phi i32 [ %113, %111 ], [ %92, %.split.split ]
+  %116 = add nuw nsw i64 %91, 1
+  %117 = icmp eq i64 %116, %12
+  br i1 %117, label %.split4.us, label %.split.split, !llvm.loop !5
 
-.split4.us:                                       ; preds = %115, %.split.split.us, %65, %31
-  %.us-phi = phi i32 [ %32, %31 ], [ %66, %65 ], [ %spec.select, %.split.split.us ], [ %116, %115 ]
-  %119 = add i32 %.us-phi, 7
-  %120 = and i32 %119, -4
-  br label %121
+.split4.us:                                       ; preds = %114, %.split.split.us, %65, %31
+  %.us-phi = phi i32 [ %32, %31 ], [ %66, %65 ], [ %spec.select, %.split.split.us ], [ %115, %114 ]
+  %118 = add i32 %.us-phi, 7
+  %119 = and i32 %118, -4
+  br label %120
 
-121:                                              ; preds = %.split4.us, %83, %7
-  %122 = phi i32 [ %90, %83 ], [ 4, %7 ], [ %120, %.split4.us ]
-  %123 = select i1 %6, i32 15, i32 23
-  %124 = add i32 %122, %123
-  %125 = and i32 %124, -4
-  ret i32 %125
+120:                                              ; preds = %.split4.us, %83, %7
+  %121 = phi i32 [ %90, %83 ], [ 4, %7 ], [ %119, %.split4.us ]
+  %122 = select i1 %6, i32 15, i32 23
+  %123 = add i32 %121, %122
+  %124 = and i32 %123, -4
+  ret i32 %124
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ethnl_put_bitset(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #2 align 16 {
   %8 = tail call i32 @ethnl_put_bitset32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6)
   ret i32 %8
 }

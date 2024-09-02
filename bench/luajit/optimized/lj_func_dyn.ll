@@ -417,20 +417,19 @@ func_finduv.exit:                                 ; preds = %if.then.i, %if.then
   %xor = xor i32 %shl, %conv19
   %dhash = getelementptr inbounds i8, ptr %retval.0.i, i64 40
   store i32 %xor, ptr %dhash, align 8
+  %36 = ptrtoint ptr %retval.0.i to i64
   br label %if.end23
 
 if.else:                                          ; preds = %for.body
   %idxprom20 = zext nneg i16 %12 to i64
   %arrayidx21 = getelementptr inbounds %struct.GCRef, ptr %uvptr, i64 %idxprom20
-  %36 = load i64, ptr %arrayidx21, align 8
-  %37 = inttoptr i64 %36 to ptr
+  %37 = load i64, ptr %arrayidx21, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %if.else, %func_finduv.exit
-  %uv11.0 = phi ptr [ %retval.0.i, %func_finduv.exit ], [ %37, %if.else ]
-  %38 = ptrtoint ptr %uv11.0 to i64
+  %uv11.0 = phi i64 [ %36, %func_finduv.exit ], [ %37, %if.else ]
   %arrayidx26 = getelementptr inbounds [1 x %struct.GCRef], ptr %uvptr24, i64 0, i64 %indvars.iv
-  store i64 %38, ptr %arrayidx26, align 8
+  store i64 %uv11.0, ptr %arrayidx26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7

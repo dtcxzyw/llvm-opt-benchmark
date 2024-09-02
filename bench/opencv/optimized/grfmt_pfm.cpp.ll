@@ -835,12 +835,12 @@ define hidden noundef zeroext i1 @_ZN2cv10PFMDecoder8readDataERNS_3MatE(ptr noun
   %50 = getelementptr i64, ptr %41, i64 %49
   %51 = getelementptr i8, ptr %50, i64 -8
   %52 = load i64, ptr %51, align 8
+  %53 = trunc i64 %52 to i32
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %39, %48
-  %53 = phi i64 [ %52, %48 ], [ 0, %39 ]
-  %54 = trunc i64 %53 to i32
-  %55 = mul i32 %45, %54
+  %54 = phi i32 [ %53, %48 ], [ 0, %39 ]
+  %55 = mul i32 %54, %45
   %56 = invoke noundef i32 @_ZN2cv12RLByteStream8getBytesEPvi(ptr noundef nonnull align 8 dereferenceable(57) %12, ptr noundef %44, i32 noundef %55)
           to label %57 unwind label %.loopexit28
 

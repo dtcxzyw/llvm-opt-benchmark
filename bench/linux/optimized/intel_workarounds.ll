@@ -4549,9 +4549,9 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef %0) local_unnam
   %.phi.trans.insert92 = getelementptr i8, ptr %147, i64 7188
   %.pre93 = load i32, ptr %.phi.trans.insert92, align 4
   %.pre131 = and i32 %.pre93, 6144
-  %581 = getelementptr i8, ptr %147, i64 7188
-  %582 = icmp eq i32 %.pre131, 0
-  br i1 %582, label %594, label %583
+  %581 = icmp eq i32 %.pre131, 0
+  %582 = getelementptr i8, ptr %147, i64 7188
+  br i1 %581, label %594, label %583
 
 583:                                              ; preds = %575
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %67) #10
@@ -4582,11 +4582,11 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef %0) local_unnam
   store i8 1, ptr %593, align 4
   call fastcc void @_wa_add(ptr noundef %79, ptr noundef nonnull %66)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %66) #10
-  %.pre129 = load i32, ptr %581, align 4
+  %.pre129 = load i32, ptr %582, align 4
   br label %594
 
 594:                                              ; preds = %.thread139, %583, %575
-  %595 = phi ptr [ %581, %583 ], [ %581, %575 ], [ %574, %.thread139 ]
+  %595 = phi ptr [ %582, %583 ], [ %582, %575 ], [ %574, %.thread139 ]
   %596 = phi i32 [ %.pre129, %583 ], [ %.pre93, %575 ], [ %571, %.thread139 ]
   %597 = and i32 %596, 2048
   %598 = icmp eq i32 %597, 0

@@ -1037,7 +1037,7 @@ _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hash
           cleanup
   br label %561
 
-.loopexit.split-lp:                               ; preds = %529, %521, %536
+.loopexit.split-lp:                               ; preds = %530, %523, %536
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %561
@@ -1484,44 +1484,47 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRKS5_EENS
   %516 = sub i64 %514, %515
   %517 = ashr exact i64 %516, 5
   %518 = icmp ugt i64 %517, %511
-  br i1 %518, label %286, label %._crit_edge388, !llvm.loop !29
+  br i1 %518, label %286, label %._crit_edge388.loopexit, !llvm.loop !29
 
-._crit_edge388:                                   ; preds = %"_ZZ28cmTargetLinkLibrariesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusENK3$_0clEv.exit267.thread", %271
-  %.0.lcssa = phi i32 [ 0, %271 ], [ %.1, %"_ZZ28cmTargetLinkLibrariesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusENK3$_0clEv.exit267.thread" ]
-  %.0199.lcssa = phi i8 [ 0, %271 ], [ %.1200, %"_ZZ28cmTargetLinkLibrariesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusENK3$_0clEv.exit267.thread" ]
-  %.0197.lcssa = phi i32 [ 0, %271 ], [ %.1198, %"_ZZ28cmTargetLinkLibrariesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusENK3$_0clEv.exit267.thread" ]
-  %519 = load i8, ptr %242, align 8
-  %520 = trunc i8 %519 to i1
-  br i1 %520, label %521, label %527
+._crit_edge388.loopexit:                          ; preds = %"_ZZ28cmTargetLinkLibrariesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusENK3$_0clEv.exit267.thread"
+  %519 = trunc nuw i8 %.1200 to i1
+  %520 = zext nneg i32 %.1198 to i64
+  br label %._crit_edge388
 
-521:                                              ; preds = %._crit_edge388
-  %522 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_13TLL13HandleLibraryENS_15ProcessingStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE23cmTargetLinkLibraryType(ptr noundef nonnull align 8 dereferenceable(112) %21, i32 noundef %.0.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 0)
+._crit_edge388:                                   ; preds = %._crit_edge388.loopexit, %271
+  %.0.lcssa = phi i32 [ 0, %271 ], [ %.1, %._crit_edge388.loopexit ]
+  %.0199.lcssa = phi i1 [ false, %271 ], [ %519, %._crit_edge388.loopexit ]
+  %.0197.lcssa = phi i64 [ 0, %271 ], [ %520, %._crit_edge388.loopexit ]
+  %521 = load i8, ptr %242, align 8
+  %522 = trunc i8 %521 to i1
+  br i1 %522, label %523, label %529
+
+523:                                              ; preds = %._crit_edge388
+  %524 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_13TLL13HandleLibraryENS_15ProcessingStateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE23cmTargetLinkLibraryType(ptr noundef nonnull align 8 dereferenceable(112) %21, i32 noundef %.0.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 0)
           to label %.noexc269 unwind label %.loopexit.split-lp
 
-.noexc269:                                        ; preds = %521
-  br i1 %522, label %523, label %"_ZZ28cmTargetLinkLibrariesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusENK3$_0clEv.exit"
+.noexc269:                                        ; preds = %523
+  br i1 %524, label %525, label %"_ZZ28cmTargetLinkLibrariesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusENK3$_0clEv.exit"
 
-523:                                              ; preds = %.noexc269
-  %524 = load i8, ptr %242, align 8
-  %525 = trunc i8 %524 to i1
-  br i1 %525, label %526, label %527
+525:                                              ; preds = %.noexc269
+  %526 = load i8, ptr %242, align 8
+  %527 = trunc i8 %526 to i1
+  br i1 %527, label %528, label %529
 
-526:                                              ; preds = %523
+528:                                              ; preds = %525
   store i8 0, ptr %242, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #17
-  br label %527
+  br label %529
 
-527:                                              ; preds = %._crit_edge388, %523, %526
-  %528 = trunc nuw i8 %.0199.lcssa to i1
-  br i1 %528, label %529, label %536
+529:                                              ; preds = %._crit_edge388, %525, %528
+  br i1 %.0199.lcssa, label %530, label %536
 
-529:                                              ; preds = %527
-  %530 = zext nneg i32 %.0197.lcssa to i64
-  %531 = getelementptr inbounds [3 x ptr], ptr @_ZN12_GLOBAL__N_120LinkLibraryTypeNamesE, i64 0, i64 %530
+530:                                              ; preds = %529
+  %531 = getelementptr inbounds [3 x ptr], ptr @_ZN12_GLOBAL__N_120LinkLibraryTypeNamesE, i64 0, i64 %.0197.lcssa
   invoke void @_Z8cmStrCatIRA6_KcRPS0_JRA42_S0_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_OT0_DpOT1_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %48, ptr noundef nonnull align 1 dereferenceable(6) @.str.27, ptr noundef nonnull align 8 dereferenceable(8) %531, ptr noundef nonnull align 1 dereferenceable(42) @.str.28)
           to label %532 unwind label %.loopexit.split-lp
 
-532:                                              ; preds = %529
+532:                                              ; preds = %530
   invoke void @_ZNK10cmMakefile12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520) %70, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %48)
           to label %533 unwind label %534
 
@@ -1536,7 +1539,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRKS5_EENS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #17
   br label %561
 
-536:                                              ; preds = %533, %527
+536:                                              ; preds = %533, %529
   %537 = invoke noundef i32 @_ZNK8cmTarget15GetPolicyStatusEN10cmPolicies8PolicyIDE(ptr noundef nonnull align 8 dereferenceable(8) %.0172316, i32 noundef 22)
           to label %_ZNK8cmTarget22GetPolicyStatusCMP0022Ev.exit unwind label %.loopexit.split-lp
 

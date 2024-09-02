@@ -1001,12 +1001,12 @@ for.cond186:                                      ; preds = %invoke.cont144, %_Z
 if.end.i.i196:                                    ; preds = %for.cond186
   %arrayidx.i.i197 = getelementptr inbounds i8, ptr %114, i64 -4
   %115 = load i32, ptr %arrayidx.i.i197, align 4
+  %116 = zext i32 %115 to i64
   br label %invoke.cont187
 
 invoke.cont187:                                   ; preds = %if.end.i.i196, %for.cond186
-  %retval.0.i.i198 = phi i32 [ %115, %if.end.i.i196 ], [ 0, %for.cond186 ]
-  %116 = zext i32 %retval.0.i.i198 to i64
-  %cmp189 = icmp ult i64 %indvars.iv563, %116
+  %retval.0.i.i198 = phi i64 [ %116, %if.end.i.i196 ], [ 0, %for.cond186 ]
+  %cmp189 = icmp ult i64 %indvars.iv563, %retval.0.i.i198
   br i1 %cmp189, label %invoke.cont192, label %for.end219
 
 invoke.cont192:                                   ; preds = %invoke.cont187
@@ -1865,12 +1865,12 @@ for.cond338:                                      ; preds = %invoke.cont238, %_Z
 if.end.i.i414:                                    ; preds = %for.cond338
   %arrayidx.i.i415 = getelementptr inbounds i8, ptr %229, i64 -4
   %230 = load i32, ptr %arrayidx.i.i415, align 4
+  %231 = zext i32 %230 to i64
   br label %invoke.cont339
 
 invoke.cont339:                                   ; preds = %if.end.i.i414, %for.cond338
-  %retval.0.i.i417 = phi i32 [ %230, %if.end.i.i414 ], [ 0, %for.cond338 ]
-  %231 = zext i32 %retval.0.i.i417 to i64
-  %cmp341 = icmp ult i64 %indvars.iv566, %231
+  %retval.0.i.i417 = phi i64 [ %231, %if.end.i.i414 ], [ 0, %for.cond338 ]
+  %cmp341 = icmp ult i64 %indvars.iv566, %retval.0.i.i417
   br i1 %cmp341, label %invoke.cont344, label %for.end369
 
 invoke.cont344:                                   ; preds = %invoke.cont339

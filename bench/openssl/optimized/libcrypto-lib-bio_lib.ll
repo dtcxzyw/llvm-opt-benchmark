@@ -1628,7 +1628,7 @@ return:                                           ; preds = %if.end27.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @BIO_ctrl_pending(ptr noundef %bio) local_unnamed_addr #0 {
+define range(i64 0, -9223372036854775808) i64 @BIO_ctrl_pending(ptr noundef %bio) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @BIO_ctrl(ptr noundef %bio, i32 noundef 10, i64 noundef 0, ptr noundef null)
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %call, i64 0)
@@ -1636,7 +1636,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @BIO_ctrl_wpending(ptr noundef %bio) local_unnamed_addr #0 {
+define range(i64 0, -9223372036854775808) i64 @BIO_ctrl_wpending(ptr noundef %bio) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @BIO_ctrl(ptr noundef %bio, i32 noundef 13, i64 noundef 0, ptr noundef null)
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %call, i64 0)
@@ -2321,6 +2321,7 @@ if.then3.i:                                       ; preds = %if.then34
   %7 = load i32, ptr %flags1.i, align 8
   %and.i.i = and i32 %7, 1
   %call5.i = call i32 @BIO_socket_wait(i32 noundef %6, i32 noundef %and.i.i, i64 noundef %cond) #14
+  %8 = freeze i32 %call5.i
   br label %bio_wait.exit
 
 if.end6.i:                                        ; preds = %if.then34
@@ -2354,14 +2355,13 @@ if.end22.i:                                       ; preds = %if.end10.i, %if.the
   br label %bio_wait.exit
 
 bio_wait.exit:                                    ; preds = %if.then3.i, %if.end22.i
-  %retval.0.i19 = phi i32 [ %call5.i, %if.then3.i ], [ 1, %if.end22.i ]
-  %8 = freeze i32 %retval.0.i19
+  %retval.0.i19 = phi i32 [ %8, %if.then3.i ], [ 1, %if.end22.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fd.i)
-  %cmp37 = icmp sgt i32 %8, 0
+  %cmp37 = icmp sgt i32 %retval.0.i19, 0
   br i1 %cmp37, label %retry, label %if.end40
 
 if.end40:                                         ; preds = %bio_wait.exit, %bio_wait.exit.thread
-  %retval.0.i1922 = phi i32 [ 0, %bio_wait.exit.thread ], [ %8, %bio_wait.exit ]
+  %retval.0.i1922 = phi i32 [ 0, %bio_wait.exit.thread ], [ %retval.0.i19, %bio_wait.exit ]
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1065, ptr noundef nonnull @__func__.BIO_do_connect_retry) #14
   %cmp41 = icmp eq i32 %retval.0.i1922, 0

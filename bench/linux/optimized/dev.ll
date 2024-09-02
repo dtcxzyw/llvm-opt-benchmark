@@ -111,31 +111,31 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr nocaptu
   store i64 0, ptr %21, align 8
   call void @_raw_spin_unlock_irq(ptr noundef %20) #9
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %.thread
+  br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %16
   %25 = load i32, ptr %18, align 8
   %26 = and i32 %25, 2048
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.preheader, label %.thread
+  br i1 %27, label %.preheader, label %.critedge
 
 28:                                               ; preds = %39
   %29 = load i32, ptr %18, align 8
   %30 = and i32 %29, 2048
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.preheader, label %.thread, !llvm.loop !7
+  br i1 %31, label %.preheader, label %.critedge, !llvm.loop !7
 
 .preheader:                                       ; preds = %24, %28
   %32 = load volatile i64, ptr %10, align 8
   %33 = and i64 %32, 131072
   %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %.thread, !prof !9
+  br i1 %34, label %35, label %.critedge, !prof !9
 
 35:                                               ; preds = %.preheader
   %36 = load volatile i64, ptr %10, align 8
   %37 = and i64 %36, 4
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %39, label %.thread
+  br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %35
   call void @schedule() #9
@@ -145,9 +145,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr nocaptu
   store i64 0, ptr %21, align 8
   call void @_raw_spin_unlock_irq(ptr noundef %20) #9
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %28, label %.thread, !llvm.loop !7
+  br i1 %41, label %28, label %.critedge, !llvm.loop !7
 
-.thread:                                          ; preds = %.preheader, %39, %35, %28, %24, %16
+.critedge:                                        ; preds = %.preheader, %39, %35, %28, %24, %16
   %42 = phi i64 [ %22, %16 ], [ 0, %24 ], [ 0, %.preheader ], [ 0, %35 ], [ 0, %28 ], [ %40, %39 ]
   %43 = phi i1 [ false, %16 ], [ true, %24 ], [ true, %.preheader ], [ true, %35 ], [ true, %28 ], [ false, %39 ]
   %44 = phi i64 [ 0, %16 ], [ -11, %24 ], [ -512, %.preheader ], [ -512, %35 ], [ -11, %28 ], [ 0, %39 ]
@@ -155,7 +155,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr nocaptu
   call void @remove_wait_queue(ptr noundef %17, ptr noundef nonnull %5) #9
   br i1 %43, label %62, label %46
 
-46:                                               ; preds = %.thread
+46:                                               ; preds = %.critedge
   %47 = icmp eq i64 %2, 4
   br i1 %47, label %48, label %52
 
@@ -183,8 +183,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr nocaptu
   %61 = select i1 %60, i64 %.sink11, i64 %59
   br label %62
 
-62:                                               ; preds = %.sink.split, %.thread, %4
-  %63 = phi i64 [ -22, %4 ], [ %44, %.thread ], [ %61, %.sink.split ]
+62:                                               ; preds = %.sink.split, %.critedge, %4
+  %63 = phi i64 [ -22, %4 ], [ %44, %.critedge ], [ %61, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
   ret i64 %63
 }
@@ -217,7 +217,7 @@ define internal range(i32 0, 66) i32 @rtc_dev_poll(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rtc_dev_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 4294967296) i64 @rtc_dev_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.rtc_time, align 4
   %5 = alloca %struct.rtc_wkalrm, align 4
   %6 = alloca %struct.rtc_param, align 8
@@ -640,7 +640,7 @@ define internal i64 @rtc_dev_ioctl(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rtc_dev_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 4294967296) i64 @rtc_dev_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = trunc i64 %2 to i32

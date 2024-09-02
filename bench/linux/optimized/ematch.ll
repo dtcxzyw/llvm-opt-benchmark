@@ -153,7 +153,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %32 = add i16 %24, -4
   %33 = getelementptr inbounds i8, ptr %0, i64 48
   %34 = icmp ugt i16 %32, 3
-  br i1 %34, label %.lr.ph.preheader, label %.thread
+  br i1 %34, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %31
   %35 = getelementptr i8, ptr %17, i64 4
@@ -169,7 +169,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %42 = zext i16 %40 to i32
   %.not = icmp ult i32 %38, %42
   %or.cond = or i1 %41, %.not
-  br i1 %or.cond, label %.thread.loopexit, label %43
+  br i1 %or.cond, label %.critedge.loopexit, label %43
 
 43:                                               ; preds = %.lr.ph
   %44 = getelementptr inbounds i8, ptr %37, i64 2
@@ -177,19 +177,19 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %46 = add nuw nsw i64 %39, 1
   %47 = zext i16 %45 to i64
   %48 = icmp eq i64 %46, %47
-  br i1 %48, label %49, label %.thread29
+  br i1 %48, label %49, label %.thread27
 
 49:                                               ; preds = %43
   %50 = load i16, ptr %22, align 2
   %51 = zext i16 %50 to i32
   %52 = zext i16 %50 to i64
   %53 = icmp ult i64 %39, %52
-  br i1 %53, label %54, label %.thread29
+  br i1 %53, label %54, label %.thread27
 
 54:                                               ; preds = %49
   %55 = add i16 %40, -4
   %56 = icmp ult i16 %55, 8
-  br i1 %56, label %.thread29, label %57
+  br i1 %56, label %.thread27, label %57
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %29, align 8
@@ -207,7 +207,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %70 = load i16, ptr %69, align 2
   %71 = and i16 %70, 3
   %72 = icmp eq i16 %71, 3
-  br i1 %72, label %.thread29, label %73
+  br i1 %72, label %.thread27, label %73
 
 73:                                               ; preds = %57
   %74 = getelementptr i8, ptr %37, i64 6
@@ -217,7 +217,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
 
 77:                                               ; preds = %73
   %78 = icmp ult i32 %62, 4
-  br i1 %78, label %.thread29, label %79
+  br i1 %78, label %.thread27, label %79
 
 79:                                               ; preds = %77
   %80 = load i32, ptr %63, align 4
@@ -225,7 +225,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %82 = zext i32 %80 to i64
   %83 = icmp ult i64 %39, %82
   %84 = and i1 %81, %83
-  br i1 %84, label %85, label %.thread29
+  br i1 %84, label %85, label %.thread27
 
 85:                                               ; preds = %79
   %86 = getelementptr inbounds i8, ptr %59, i64 8
@@ -241,7 +241,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %90 = phi ptr [ @ematch_ops, %87 ], [ %91, %93 ]
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, @ematch_ops
-  br i1 %92, label %.thread23, label %93
+  br i1 %92, label %.thread, label %93
 
 93:                                               ; preds = %89
   %94 = getelementptr i8, ptr %91, i64 -48
@@ -253,21 +253,21 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %98 = getelementptr i8, ptr %91, i64 -8
   %99 = load ptr, ptr %98, align 8
   %100 = call zeroext i1 @try_module_get(ptr noundef %99) #7
-  br i1 %100, label %101, label %.thread23
+  br i1 %100, label %101, label %.thread
 
-.thread23:                                        ; preds = %97, %89
+.thread:                                          ; preds = %97, %89
   call void @_raw_read_unlock(ptr noundef nonnull @ematch_mod_lock) #7
   store ptr null, ptr %59, align 8
-  br label %.loopexit31
+  br label %.loopexit29
 
 101:                                              ; preds = %97
   %102 = getelementptr i8, ptr %91, i64 -48
   call void @_raw_read_unlock(ptr noundef nonnull @ematch_mod_lock) #7
   store ptr %102, ptr %59, align 8
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %.loopexit31, label %127
+  br i1 %103, label %.loopexit29, label %127
 
-.loopexit31:                                      ; preds = %101, %.thread23
+.loopexit29:                                      ; preds = %101, %.thread
   %104 = getelementptr i8, ptr %37, i64 6
   call void @__rtnl_unlock() #7
   %105 = load i16, ptr %104, align 2
@@ -279,11 +279,11 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %109 = zext i16 %108 to i32
   br label %110
 
-110:                                              ; preds = %114, %.loopexit31
-  %111 = phi ptr [ @ematch_ops, %.loopexit31 ], [ %112, %114 ]
+110:                                              ; preds = %114, %.loopexit29
+  %111 = phi ptr [ @ematch_ops, %.loopexit29 ], [ %112, %114 ]
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, @ematch_ops
-  br i1 %113, label %.thread26, label %114
+  br i1 %113, label %.thread24, label %114
 
 114:                                              ; preds = %110
   %115 = getelementptr i8, ptr %112, i64 -48
@@ -295,23 +295,23 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %119 = getelementptr i8, ptr %112, i64 -8
   %120 = load ptr, ptr %119, align 8
   %121 = call zeroext i1 @try_module_get(ptr noundef %120) #7
-  br i1 %121, label %122, label %.thread26
+  br i1 %121, label %122, label %.thread24
 
-.thread26:                                        ; preds = %110, %118
+.thread24:                                        ; preds = %110, %118
   call void @_raw_read_unlock(ptr noundef nonnull @ematch_mod_lock) #7
-  br label %.thread29.sink.split
+  br label %.thread27.sink.split
 
 122:                                              ; preds = %118
   %123 = getelementptr i8, ptr %112, i64 -48
   call void @_raw_read_unlock(ptr noundef nonnull @ematch_mod_lock) #7
   store ptr %123, ptr %59, align 8
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %.thread29, label %125
+  br i1 %124, label %.thread27, label %125
 
 125:                                              ; preds = %122
   %126 = load ptr, ptr %119, align 8
   call void @module_put(ptr noundef %126) #7
-  br label %.thread29.sink.split
+  br label %.thread27.sink.split
 
 127:                                              ; preds = %101
   %128 = getelementptr i8, ptr %91, i64 -44
@@ -319,7 +319,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %130 = icmp ne i32 %129, 0
   %131 = icmp slt i32 %62, %129
   %132 = select i1 %130, i1 %131, i1 false
-  br i1 %132, label %.thread29, label %133
+  br i1 %132, label %.thread27, label %133
 
 133:                                              ; preds = %127
   %134 = getelementptr i8, ptr %91, i64 -40
@@ -331,12 +331,12 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %138 = load i16, ptr %69, align 2
   %139 = and i16 %138, 8
   %140 = icmp eq i16 %139, 0
-  br i1 %140, label %141, label %.thread29
+  br i1 %140, label %141, label %.thread27
 
 141:                                              ; preds = %137
   %142 = call i32 %135(ptr noundef %68, ptr noundef %63, i32 noundef %62, ptr noundef %59) #7
   %143 = icmp slt i32 %142, 0
-  br i1 %143, label %.thread29, label %166
+  br i1 %143, label %.thread27, label %166
 
 144:                                              ; preds = %133
   %145 = icmp eq i16 %55, 8
@@ -352,7 +352,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %151 = icmp sgt i32 %129, 0
   %152 = icmp ult i32 %62, 4
   %153 = select i1 %151, i1 true, i1 %152
-  br i1 %153, label %.thread29, label %154
+  br i1 %153, label %.thread27, label %154
 
 154:                                              ; preds = %150
   %155 = load i32, ptr %63, align 4
@@ -363,7 +363,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %158 = zext nneg i32 %62 to i64
   %159 = call ptr @kmemdup(ptr noundef %63, i64 noundef %158, i32 noundef 3264) #9
   %160 = icmp eq ptr %159, null
-  br i1 %160, label %.thread29, label %161
+  br i1 %160, label %.thread27, label %161
 
 161:                                              ; preds = %157
   %162 = ptrtoint ptr %159 to i64
@@ -394,32 +394,32 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %177 = zext nneg i32 %175 to i64
   %178 = getelementptr i8, ptr %37, i64 %177
   %179 = icmp sgt i32 %176, 3
-  br i1 %179, label %.lr.ph, label %.thread.loopexit, !llvm.loop !10
+  br i1 %179, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !10
 
-.thread.loopexit:                                 ; preds = %166, %.lr.ph
-  %.lcssa41.ph = phi i64 [ %39, %.lr.ph ], [ %46, %166 ]
-  %180 = trunc i64 %.lcssa41.ph to i32
-  br label %.thread
+.critedge.loopexit:                               ; preds = %.lr.ph, %166
+  %.lcssa39.ph = phi i64 [ %46, %166 ], [ %39, %.lr.ph ]
+  %180 = trunc i64 %.lcssa39.ph to i32
+  br label %.critedge
 
-.thread:                                          ; preds = %.thread.loopexit, %31
-  %.lcssa41 = phi i32 [ 0, %31 ], [ %180, %.thread.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %31
+  %.lcssa39 = phi i32 [ 0, %31 ], [ %180, %.critedge.loopexit ]
   %181 = load i16, ptr %22, align 2
   %182 = zext i16 %181 to i32
-  %183 = icmp eq i32 %.lcssa41, %182
-  br i1 %183, label %220, label %.thread29
+  %183 = icmp eq i32 %.lcssa39, %182
+  br i1 %183, label %220, label %.thread27
 
-.thread29.sink.split:                             ; preds = %125, %.thread26
-  %.ph = phi i32 [ -11, %125 ], [ -2, %.thread26 ]
+.thread27.sink.split:                             ; preds = %125, %.thread24
+  %.ph = phi i32 [ -11, %125 ], [ -2, %.thread24 ]
   store ptr null, ptr %59, align 8
-  br label %.thread29
+  br label %.thread27
 
-.thread29:                                        ; preds = %157, %77, %79, %127, %57, %150, %141, %137, %54, %49, %43, %.thread29.sink.split, %122, %.thread
-  %184 = phi i32 [ -22, %.thread ], [ -2, %122 ], [ %.ph, %.thread29.sink.split ], [ -105, %157 ], [ -22, %137 ], [ %142, %141 ], [ -22, %150 ], [ -22, %57 ], [ -22, %127 ], [ -22, %79 ], [ -22, %77 ], [ -22, %54 ], [ -22, %49 ], [ -22, %43 ]
+.thread27:                                        ; preds = %157, %77, %79, %127, %57, %150, %141, %137, %54, %49, %43, %.thread27.sink.split, %122, %.critedge
+  %184 = phi i32 [ -22, %.critedge ], [ -2, %122 ], [ %.ph, %.thread27.sink.split ], [ -105, %157 ], [ -22, %137 ], [ %142, %141 ], [ -22, %150 ], [ -22, %57 ], [ -22, %127 ], [ -22, %79 ], [ -22, %77 ], [ -22, %54 ], [ -22, %49 ], [ -22, %43 ]
   %185 = load ptr, ptr %29, align 8
   %186 = icmp eq ptr %185, null
   br i1 %186, label %220, label %187
 
-187:                                              ; preds = %.thread29
+187:                                              ; preds = %.thread27
   %188 = load i16, ptr %2, align 8
   %189 = icmp eq i16 %188, 0
   br i1 %189, label %.loopexit, label %.preheader
@@ -473,18 +473,18 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   br i1 %218, label %.preheader, label %.loopexit.loopexit, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %214
-  %.pre62 = load ptr, ptr %29, align 8
+  %.pre60 = load ptr, ptr %29, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %187
-  %219 = phi ptr [ %.pre62, %.loopexit.loopexit ], [ %185, %187 ]
+  %219 = phi ptr [ %.pre60, %.loopexit.loopexit ], [ %185, %187 ]
   store i16 0, ptr %2, align 8
   call void @kfree(ptr noundef %219) #7
   store ptr null, ptr %29, align 8
   br label %220
 
-220:                                              ; preds = %.loopexit, %.thread29, %.thread, %21, %13, %6, %3
-  %221 = phi i32 [ 0, %3 ], [ %11, %6 ], [ -22, %13 ], [ -22, %21 ], [ 0, %.thread ], [ %184, %.thread29 ], [ %184, %.loopexit ]
+220:                                              ; preds = %.loopexit, %.thread27, %.critedge, %21, %13, %6, %3
+  %221 = phi i32 [ 0, %3 ], [ %11, %6 ], [ -22, %13 ], [ -22, %21 ], [ 0, %.critedge ], [ %184, %.thread27 ], [ %184, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
   ret i32 %221
 }
@@ -633,15 +633,15 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   store i16 %43, ptr %4, align 8
   %44 = load ptr, ptr %41, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %48, label %46
+  br i1 %45, label %49, label %46
 
 46:                                               ; preds = %.lr.ph
   %47 = load i32, ptr %44, align 8
-  br label %48
+  %48 = trunc i32 %47 to i16
+  br label %49
 
-48:                                               ; preds = %46, %.lr.ph
-  %49 = phi i32 [ %47, %46 ], [ 0, %.lr.ph ]
-  %50 = trunc i32 %49 to i16
+49:                                               ; preds = %46, %.lr.ph
+  %50 = phi i16 [ %48, %46 ], [ 0, %.lr.ph ]
   store i16 %50, ptr %33, align 2
   %51 = getelementptr inbounds i8, ptr %41, i64 22
   %52 = load i16, ptr %51, align 2
@@ -653,7 +653,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %.thread
 
-57:                                               ; preds = %48
+57:                                               ; preds = %49
   %58 = load ptr, ptr %41, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %71, label %60
@@ -698,7 +698,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   %84 = call i32 @nla_put_nohdr(ptr noundef %0, i32 noundef %78, ptr noundef %83) #7
   br label %85
 
-.thread:                                          ; preds = %48, %64
+.thread:                                          ; preds = %49, %64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   br label %111
 
@@ -785,22 +785,25 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr nocapture noundef 
   %21 = getelementptr %struct.tcf_ematch, ptr %20, i64 %60
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.loopexit8, label %.preheader, !llvm.loop !13
+  br i1 %23, label %.loopexit8.loopexit, label %.preheader, !llvm.loop !13
 
-.loopexit8:                                       ; preds = %19, %13
-  %24 = phi i64 [ %14, %13 ], [ %60, %19 ]
-  %25 = phi i32 [ %9, %13 ], [ %48, %19 ]
-  %26 = phi ptr [ %16, %13 ], [ %21, %19 ]
-  %27 = icmp sgt i32 %7, 31
-  br i1 %27, label %98, label %28, !prof !14
+.loopexit8.loopexit:                              ; preds = %19
+  %24 = trunc nsw i64 %60 to i32
+  br label %.loopexit8
 
-28:                                               ; preds = %.loopexit8
-  %29 = trunc nsw i64 %24 to i32
+.loopexit8:                                       ; preds = %.loopexit8.loopexit, %13
+  %25 = phi i32 [ %8, %13 ], [ %24, %.loopexit8.loopexit ]
+  %26 = phi i32 [ %9, %13 ], [ %48, %.loopexit8.loopexit ]
+  %27 = phi ptr [ %16, %13 ], [ %21, %.loopexit8.loopexit ]
+  %28 = icmp sgt i32 %7, 31
+  br i1 %28, label %98, label %29, !prof !14
+
+29:                                               ; preds = %.loopexit8
   %30 = add nsw i32 %7, 1
   %31 = sext i32 %7 to i64
   %32 = getelementptr [32 x i32], ptr %4, i64 0, i64 %31
-  store i32 %29, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %26, i64 8
+  store i32 %25, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %27, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = trunc i64 %34 to i32
   br label %.backedge
@@ -891,10 +894,10 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr nocapture noundef 
   %95 = add i32 %74, 1
   br label %.backedge
 
-.backedge:                                        ; preds = %93, %28
-  %.be = phi i32 [ %30, %28 ], [ %94, %93 ]
-  %.be54 = phi i32 [ %35, %28 ], [ %95, %93 ]
-  %.be55 = phi i32 [ %25, %28 ], [ %82, %93 ]
+.backedge:                                        ; preds = %93, %29
+  %.be = phi i32 [ %30, %29 ], [ %94, %93 ]
+  %.be54 = phi i32 [ %35, %29 ], [ %95, %93 ]
+  %.be55 = phi i32 [ %26, %29 ], [ %82, %93 ]
   br label %6
 
 96:                                               ; preds = %90, %87, %69

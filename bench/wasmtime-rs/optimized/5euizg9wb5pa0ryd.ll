@@ -1161,9 +1161,9 @@ _ZN14wasmtime_cache6worker12WorkerThread21lower_thread_priority17h9ae9f4840a594a
   %264 = getelementptr inbounds i8, ptr %51, i64 16
   %265 = getelementptr inbounds i8, ptr %105, i64 8
   %266 = getelementptr inbounds i8, ptr %105, i64 16
-  %267 = getelementptr inbounds i8, ptr %101, i64 8
-  %268 = getelementptr inbounds i8, ptr %101, i64 16
-  %269 = getelementptr inbounds i8, ptr %102, i64 8
+  %267 = getelementptr inbounds i8, ptr %102, i64 8
+  %268 = getelementptr inbounds i8, ptr %101, i64 8
+  %269 = getelementptr inbounds i8, ptr %101, i64 16
   %270 = getelementptr inbounds i8, ptr %0, i64 112
   %271 = getelementptr inbounds i8, ptr %0, i64 116
   %272 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1523,7 +1523,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %422
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %105) #18
           to label %.body.i unwind label %625, !noalias !199
 
-.loopexit101:                                     ; preds = %438, %449, %481, %596, %695
+.loopexit101:                                     ; preds = %438, %450, %481, %596, %695
   %lpad.loopexit103 = landingpad { ptr, i32 }
           cleanup
   br label %441
@@ -1541,30 +1541,30 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %422
 444:                                              ; preds = %442
   %.val.i = load i32, ptr %185, align 8, !range !115, !alias.scope !239, !noalias !197, !noundef !5
   %trunc.i.i.i = trunc nuw i32 %.val.i to i1
-  br i1 %trunc.i.i.i, label %448, label %.invoke279.i
+  br i1 %trunc.i.i.i, label %449, label %.invoke279.i
 
 445:                                              ; preds = %442
-  %446 = load i64, ptr %267, align 8, !noalias !199, !noundef !5
-  %447 = load i32, ptr %268, align 8, !noalias !199, !noundef !5
-  br label %449
+  %446 = load i64, ptr %268, align 8, !noalias !199, !noundef !5
+  %447 = load i32, ptr %269, align 8, !noalias !199, !noundef !5
+  store i32 %447, ptr %267, align 8, !noalias !199
+  %448 = add i64 %446, 1
+  br label %450
 
-448:                                              ; preds = %444
+449:                                              ; preds = %444
   %.val236.i = load i32, ptr %186, align 4, !alias.scope !194, !noalias !197
-  br label %449
+  store i32 %.val236.i, ptr %267, align 8, !noalias !199
+  br label %450
 
-449:                                              ; preds = %448, %445
-  %.val236.sink.i = phi i32 [ %.val236.i, %448 ], [ %447, %445 ]
-  %450 = phi i64 [ 0, %448 ], [ %446, %445 ]
-  store i32 %.val236.sink.i, ptr %269, align 8, !noalias !199
+450:                                              ; preds = %449, %445
+  %451 = phi i64 [ 1, %449 ], [ %448, %445 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %101), !noalias !199
-  %451 = add i64 %450, 1
   store i64 %451, ptr %102, align 8, !noalias !199
   %452 = load ptr, ptr %265, align 8, !noalias !199, !nonnull !5, !noundef !5
   %453 = load i64, ptr %266, align 8, !noalias !199, !noundef !5
   %454 = invoke fastcc noundef zeroext i1 @_ZN14wasmtime_cache6worker16write_stats_file17h5fc313ba2c328b9aE(ptr noalias noundef nonnull readonly align 1 %452, i64 noundef %453, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %102)
           to label %455 unwind label %.loopexit101, !noalias !199
 
-455:                                              ; preds = %449
+455:                                              ; preds = %450
   br i1 %454, label %456, label %458
 
 456:                                              ; preds = %455
@@ -1595,7 +1595,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %422
 
 465:                                              ; preds = %456
   %466 = load i32, ptr %271, align 4, !alias.scope !242, !noalias !197
-  %467 = load i32, ptr %269, align 8, !noalias !199, !noundef !5
+  %467 = load i32, ptr %267, align 8, !noalias !199, !noundef !5
   %.not.i = icmp slt i32 %467, %466
   br i1 %.not.i, label %468, label %458
 

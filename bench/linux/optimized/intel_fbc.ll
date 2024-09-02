@@ -434,7 +434,7 @@ define dso_local zeroext i1 @intel_fbc_pre_update(ptr nocapture noundef readonly
   %189 = tail call fastcc zeroext i16 @intel_fbc_override_cfb_stride(ptr noundef %49)
   %190 = tail call fastcc zeroext i16 @intel_fbc_override_cfb_stride(ptr noundef %51)
   %191 = icmp eq i16 %189, %190
-  br i1 %191, label %235, label %192
+  br i1 %191, label %236, label %192
 
 192:                                              ; preds = %188, %184, %181, %109, %72, %64, %62, %60, %35
   %193 = getelementptr inbounds i8, ptr %37, i64 398
@@ -499,27 +499,27 @@ define dso_local zeroext i1 @intel_fbc_pre_update(ptr nocapture noundef readonly
   %226 = getelementptr inbounds i8, ptr %37, i64 399
   %227 = load i8, ptr %226, align 1, !range !13, !noundef !14
   %228 = icmp eq i8 %227, 0
-  br i1 %228, label %233, label %229
+  br i1 %228, label %234, label %229
 
 229:                                              ; preds = %224
   %230 = getelementptr inbounds i8, ptr %36, i64 2632
   %231 = load i16, ptr %230, align 8
   %232 = icmp ugt i16 %231, 9
-  br label %233
+  %233 = zext i1 %232 to i8
+  br label %234
 
-233:                                              ; preds = %229, %224
-  %234 = phi i1 [ false, %224 ], [ %232, %229 ]
+234:                                              ; preds = %229, %224
+  %235 = phi i8 [ 0, %224 ], [ %233, %229 ]
   store i8 0, ptr %226, align 1
-  br label %235
+  br label %236
 
-235:                                              ; preds = %233, %188
-  %236 = phi i1 [ %234, %233 ], [ false, %188 ]
-  %237 = zext i1 %236 to i8
-  %238 = or i8 %16, %237
+236:                                              ; preds = %234, %188
+  %237 = phi i8 [ %235, %234 ], [ 0, %188 ]
+  %238 = or i8 %237, %16
   br label %239
 
-239:                                              ; preds = %235, %30
-  %240 = phi i8 [ %238, %235 ], [ %16, %30 ]
+239:                                              ; preds = %236, %30
+  %240 = phi i8 [ %238, %236 ], [ %16, %30 ]
   tail call void @mutex_unlock(ptr noundef %31) #11
   %.pre = load ptr, ptr %3, align 8
   br label %241

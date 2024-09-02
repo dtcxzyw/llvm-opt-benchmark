@@ -438,7 +438,7 @@ if.then173:                                       ; preds = %if.then156
 for.inc179:                                       ; preds = %if.end148, %if.then156, %if.then173, %if.else151, %if.then142
   %n_data.7 = phi i32 [ %add167, %if.then173 ], [ %add167, %if.then156 ], [ %n_data.6244, %if.else151 ], [ %n_data.6244, %if.then142 ], [ %n_data.6244, %if.end148 ]
   %n_subtiles.7 = phi i32 [ %inc168, %if.then173 ], [ %inc168, %if.then156 ], [ %n_subtiles.6245, %if.else151 ], [ %n_subtiles.6245, %if.then142 ], [ %n_subtiles.6245, %if.end148 ]
-  %tobool182.not = phi i1 [ false, %if.then173 ], [ true, %if.then156 ], [ false, %if.else151 ], [ true, %if.then142 ], [ false, %if.end148 ]
+  %19 = phi i1 [ false, %if.then173 ], [ true, %if.then156 ], [ false, %if.else151 ], [ true, %if.then142 ], [ false, %if.end148 ]
   %has_color.1 = phi i32 [ 1, %if.then173 ], [ 0, %if.then156 ], [ 1, %if.else151 ], [ 0, %if.then142 ], [ 1, %if.end148 ]
   %min_x136.1 = phi i32 [ %16, %if.then173 ], [ -1, %if.then156 ], [ %min_x136.0247, %if.else151 ], [ %min_x136.0247, %if.then142 ], [ %16, %if.end148 ]
   %color.1 = phi i32 [ %17, %if.then173 ], [ %color.0248, %if.then156 ], [ %color.0248, %if.else151 ], [ %color.0248, %if.then142 ], [ %17, %if.end148 ]
@@ -447,7 +447,7 @@ for.inc179:                                       ; preds = %if.end148, %if.then
   br i1 %exitcond291.not, label %for.end181, label %for.body140, !llvm.loop !12
 
 for.end181:                                       ; preds = %for.inc179
-  br i1 %tobool182.not, label %if.end196, label %if.then183
+  br i1 %19, label %if.end196, label %if.then183
 
 if.then183:                                       ; preds = %for.end181
   %idx.ext185 = sext i32 %n_data.7 to i64
@@ -463,8 +463,8 @@ if.then183:                                       ; preds = %for.end181
   %conv.i175 = trunc i32 %or.i174 to i8
   store i8 %conv.i175, ptr %add.ptr192, align 1
   %w.tr.i176 = trunc i32 %sub193 to i8
-  %19 = shl i8 %w.tr.i176, 4
-  %conv7.i177 = add i8 %19, -16
+  %20 = shl i8 %w.tr.i176, 4
+  %conv7.i177 = add i8 %20, -16
   %arrayidx8.i178 = getelementptr i8, ptr %add.ptr192, i64 1
   store i8 %conv7.i177, ptr %arrayidx8.i178, align 1
   %add194 = add i32 %n_data.7, 6
@@ -520,8 +520,8 @@ if.then220:                                       ; preds = %for.cond82.preheade
 
 if.then222:                                       ; preds = %if.then220
   %write_pixels = getelementptr inbounds i8, ptr %vs, i64 49408
-  %20 = load ptr, ptr %write_pixels, align 8
-  tail call void %20(ptr noundef %vs, ptr noundef %last_bg_, i32 noundef 4) #7
+  %21 = load ptr, ptr %write_pixels, align 8
+  tail call void %21(ptr noundef %vs, ptr noundef %last_bg_, i32 noundef 4) #7
   br label %if.end223
 
 if.end223:                                        ; preds = %if.then222, %if.then220
@@ -531,8 +531,8 @@ if.end223:                                        ; preds = %if.then222, %if.the
 
 if.then226:                                       ; preds = %if.end223
   %write_pixels227 = getelementptr inbounds i8, ptr %vs, i64 49408
-  %21 = load ptr, ptr %write_pixels227, align 8
-  tail call void %21(ptr noundef %vs, ptr noundef %last_fg_, i32 noundef 4) #7
+  %22 = load ptr, ptr %write_pixels227, align 8
+  tail call void %22(ptr noundef %vs, ptr noundef %last_fg_, i32 noundef 4) #7
   br label %if.end228
 
 if.end228:                                        ; preds = %if.then226, %if.end223
@@ -549,8 +549,8 @@ if.then230:                                       ; preds = %if.end228
 for.body239:                                      ; preds = %for.body239.lr.ph, %for.body239
   %row.0281 = phi ptr [ %call, %for.body239.lr.ph ], [ %add.ptr244, %for.body239 ]
   %j.3280 = phi i32 [ 0, %for.body239.lr.ph ], [ %inc246, %for.body239 ]
-  %22 = load ptr, ptr %write_pixels240, align 8
-  tail call void %22(ptr noundef %vs, ptr noundef %row.0281, i32 noundef %mul241) #7
+  %23 = load ptr, ptr %write_pixels240, align 8
+  tail call void %23(ptr noundef %vs, ptr noundef %row.0281, i32 noundef %mul241) #7
   %call242 = tail call i32 @vnc_server_fb_stride(ptr noundef %0) #7
   %idx.ext243 = sext i32 %call242 to i64
   %add.ptr244 = getelementptr i8, ptr %row.0281, i64 %idx.ext243
@@ -934,7 +934,7 @@ if.then174:                                       ; preds = %if.then156
 for.inc180:                                       ; preds = %if.end148, %if.then156, %if.then174, %if.else151, %if.then142
   %n_data.7 = phi i32 [ %add168, %if.then174 ], [ %add168, %if.then156 ], [ %n_data.6249, %if.else151 ], [ %n_data.6249, %if.then142 ], [ %n_data.6249, %if.end148 ]
   %n_subtiles.7 = phi i32 [ %inc169, %if.then174 ], [ %inc169, %if.then156 ], [ %n_subtiles.6250, %if.else151 ], [ %n_subtiles.6250, %if.then142 ], [ %n_subtiles.6250, %if.end148 ]
-  %tobool183.not = phi i1 [ false, %if.then174 ], [ true, %if.then156 ], [ false, %if.else151 ], [ true, %if.then142 ], [ false, %if.end148 ]
+  %21 = phi i1 [ false, %if.then174 ], [ true, %if.then156 ], [ false, %if.else151 ], [ true, %if.then142 ], [ false, %if.end148 ]
   %has_color.1 = phi i32 [ 1, %if.then174 ], [ 0, %if.then156 ], [ 1, %if.else151 ], [ 0, %if.then142 ], [ 1, %if.end148 ]
   %min_x136.1 = phi i32 [ %16, %if.then174 ], [ -1, %if.then156 ], [ %min_x136.0252, %if.else151 ], [ %min_x136.0252, %if.then142 ], [ %16, %if.end148 ]
   %color.1 = phi i32 [ %20, %if.then174 ], [ %color.0253, %if.then156 ], [ %color.0253, %if.else151 ], [ %color.0253, %if.then142 ], [ %17, %if.end148 ]
@@ -943,14 +943,14 @@ for.inc180:                                       ; preds = %if.end148, %if.then
   br i1 %exitcond296.not, label %for.end182, label %for.body140, !llvm.loop !19
 
 for.end182:                                       ; preds = %for.inc180
-  br i1 %tobool183.not, label %if.end198, label %if.then184
+  br i1 %21, label %if.end198, label %if.then184
 
 if.then184:                                       ; preds = %for.end182
   %idx.ext186 = sext i32 %n_data.7 to i64
   %add.ptr187 = getelementptr i8, ptr %data, i64 %idx.ext186
   call void @vnc_convert_pixel(ptr noundef %vs, ptr noundef %add.ptr187, i32 noundef %color.1) #7
-  %21 = load i8, ptr %bytes_per_pixel, align 1
-  %conv190 = zext i8 %21 to i32
+  %22 = load i8, ptr %bytes_per_pixel, align 1
+  %conv190 = zext i8 %22 to i32
   %add191 = add i32 %n_data.7, %conv190
   %idx.ext193 = sext i32 %add191 to i64
   %add.ptr194 = getelementptr i8, ptr %data, i64 %idx.ext193
@@ -961,8 +961,8 @@ if.then184:                                       ; preds = %for.end182
   %conv.i180 = trunc i32 %or.i179 to i8
   store i8 %conv.i180, ptr %add.ptr194, align 1
   %w.tr.i181 = trunc i32 %sub195 to i8
-  %22 = shl i8 %w.tr.i181, 4
-  %conv7.i182 = add i8 %22, -16
+  %23 = shl i8 %w.tr.i181, 4
+  %conv7.i182 = add i8 %23, -16
   %arrayidx8.i183 = getelementptr i8, ptr %add.ptr194, i64 1
   store i8 %conv7.i182, ptr %arrayidx8.i183, align 1
   %add196 = add i32 %add191, 2
@@ -1018,8 +1018,8 @@ if.then222:                                       ; preds = %for.cond82.preheade
 
 if.then224:                                       ; preds = %if.then222
   %write_pixels = getelementptr inbounds i8, ptr %vs, i64 49408
-  %23 = load ptr, ptr %write_pixels, align 8
-  call void %23(ptr noundef %vs, ptr noundef %last_bg_, i32 noundef 4) #7
+  %24 = load ptr, ptr %write_pixels, align 8
+  call void %24(ptr noundef %vs, ptr noundef %last_bg_, i32 noundef 4) #7
   br label %if.end225
 
 if.end225:                                        ; preds = %if.then224, %if.then222
@@ -1029,8 +1029,8 @@ if.end225:                                        ; preds = %if.then224, %if.the
 
 if.then228:                                       ; preds = %if.end225
   %write_pixels229 = getelementptr inbounds i8, ptr %vs, i64 49408
-  %24 = load ptr, ptr %write_pixels229, align 8
-  call void %24(ptr noundef %vs, ptr noundef %last_fg_, i32 noundef 4) #7
+  %25 = load ptr, ptr %write_pixels229, align 8
+  call void %25(ptr noundef %vs, ptr noundef %last_fg_, i32 noundef 4) #7
   br label %if.end230
 
 if.end230:                                        ; preds = %if.then228, %if.end225
@@ -1047,8 +1047,8 @@ if.then232:                                       ; preds = %if.end230
 for.body241:                                      ; preds = %for.body241.lr.ph, %for.body241
   %row.0286 = phi ptr [ %call, %for.body241.lr.ph ], [ %add.ptr246, %for.body241 ]
   %j.3285 = phi i32 [ 0, %for.body241.lr.ph ], [ %inc248, %for.body241 ]
-  %25 = load ptr, ptr %write_pixels242, align 8
-  call void %25(ptr noundef %vs, ptr noundef %row.0286, i32 noundef %mul243) #7
+  %26 = load ptr, ptr %write_pixels242, align 8
+  call void %26(ptr noundef %vs, ptr noundef %row.0286, i32 noundef %mul243) #7
   %call244 = call i32 @vnc_server_fb_stride(ptr noundef %0) #7
   %idx.ext245 = sext i32 %call244 to i64
   %add.ptr246 = getelementptr i8, ptr %row.0286, i64 %idx.ext245

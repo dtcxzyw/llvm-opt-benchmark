@@ -2226,15 +2226,15 @@ for.end226:                                       ; preds = %for.end226.loopexit
 while.end.loopexit:                               ; preds = %for.end226
   %.pre1563 = load ptr, ptr %_M_finish.i874, align 8
   %.pre1564 = load ptr, ptr %vars, align 8
+  %216 = ptrtoint ptr %.pre1563 to i64
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %for.end174
-  %216 = phi ptr [ %.pre1564, %while.end.loopexit ], [ null, %for.end174 ]
-  %217 = phi ptr [ %.pre1563, %while.end.loopexit ], [ null, %for.end174 ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %217 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %216 to i64
+  %217 = phi ptr [ %.pre1564, %while.end.loopexit ], [ null, %for.end174 ]
+  %sub.ptr.lhs.cast.i.i = phi i64 [ %216, %while.end.loopexit ], [ 0, %for.end174 ]
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %217 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %add.ptr.i.i959 = getelementptr inbounds i8, ptr %216, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i959 = getelementptr inbounds i8, ptr %217, i64 %sub.ptr.sub.i.i
   invoke void @_ZNSt6vectorImSaImEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPmS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %vars, ptr %add.ptr.i.i959, ptr %unique_vars.sroa.0.2.lcssa, ptr %unique_vars.sroa.6.1.lcssa)
           to label %cleanup.done271 unwind label %lpad196.loopexit.split-lp.loopexit
 

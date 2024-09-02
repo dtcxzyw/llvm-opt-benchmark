@@ -48,13 +48,13 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
   %.not331 = icmp eq i32 %24, 0
   br label %25
 
-25:                                               ; preds = %.lr.ph, %174
-  %.0294337 = phi i32 [ 0, %.lr.ph ], [ %.1, %174 ]
-  %.0295336 = phi ptr [ null, %.lr.ph ], [ %.1296, %174 ]
-  %.0298335 = phi ptr [ %8, %.lr.ph ], [ %175, %174 ]
+25:                                               ; preds = %.lr.ph, %173
+  %.0294337 = phi i32 [ 0, %.lr.ph ], [ %.1, %173 ]
+  %.0295336 = phi ptr [ null, %.lr.ph ], [ %.1296, %173 ]
+  %.0298335 = phi ptr [ %8, %.lr.ph ], [ %174, %173 ]
   %26 = getelementptr inbounds i8, ptr %.0298335, i64 28
   %27 = load i8, ptr %26, align 4
-  switch i8 %27, label %174 [
+  switch i8 %27, label %173 [
     i8 61, label %28
     i8 112, label %28
     i8 113, label %28
@@ -81,8 +81,8 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
     i8 106, label %158
     i8 50, label %158
     i8 120, label %158
-    i8 119, label %171
-    i8 -91, label %171
+    i8 119, label %170
+    i8 -91, label %170
   ]
 
 28:                                               ; preds = %25, %25, %25
@@ -210,14 +210,14 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
 96:                                               ; preds = %28, %77, %90, %94, %82
   %.2 = phi ptr [ %.0293, %77 ], [ %.0293, %82 ], [ %.0293, %90 ], [ %.0293, %94 ], [ null, %28 ]
   %97 = add nsw i32 %.0294337, 1
-  br label %174
+  br label %173
 
 98:                                               ; preds = %25, %25, %25, %25, %25
   %99 = sext i32 %.0294337 to i64
   %100 = getelementptr inbounds ptr, ptr %21, i64 %99
   store ptr %.0295336, ptr %100, align 8
   %101 = add nsw i32 %.0294337, 1
-  br label %174
+  br label %173
 
 102:                                              ; preds = %25, %25, %25, %25
   %103 = load ptr, ptr @zend_flf_functions, align 8
@@ -296,7 +296,7 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
   %147 = getelementptr inbounds i8, ptr %.0292, i64 32
   store ptr null, ptr %147, align 8
   store ptr %.0292, ptr %23, align 8
-  br label %174
+  br label %173
 
 148:                                              ; preds = %25, %25, %25, %25, %25
   %149 = load i32, ptr %22, align 4
@@ -315,11 +315,11 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
   %155 = sext i32 %154 to i64
   %156 = getelementptr inbounds ptr, ptr %21, i64 %155
   %157 = load ptr, ptr %156, align 8
-  br label %174
+  br label %173
 
 158:                                              ; preds = %25, %25, %25, %25, %25, %25, %25, %25, %25
   %.not323 = icmp eq ptr %.0295336, null
-  br i1 %.not323, label %174, label %159
+  br i1 %.not323, label %173, label %159
 
 159:                                              ; preds = %158
   %160 = getelementptr inbounds i8, ptr %.0298335, i64 30
@@ -330,42 +330,42 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
 163:                                              ; preds = %159
   %164 = getelementptr inbounds i8, ptr %.0295336, i64 50
   store i8 1, ptr %164, align 2
-  br label %174
+  br label %173
 
 165:                                              ; preds = %159
   %166 = getelementptr inbounds i8, ptr %.0298335, i64 12
   %167 = load i32, ptr %166, align 4
-  %spec.select = call i32 @llvm.usub.sat.i32(i32 %167, i32 1)
+  %narrow = call i32 @llvm.usub.sat.i32(i32 %167, i32 1)
+  %.0 = zext i32 %narrow to i64
   %168 = getelementptr inbounds i8, ptr %.0295336, i64 64
-  %169 = zext i32 %spec.select to i64
-  %170 = getelementptr inbounds [1 x %struct._zend_send_arg_info], ptr %168, i64 0, i64 %169
-  store ptr %.0298335, ptr %170, align 8
-  br label %174
+  %169 = getelementptr inbounds [1 x %struct._zend_send_arg_info], ptr %168, i64 0, i64 %.0
+  store ptr %.0298335, ptr %169, align 8
+  br label %173
 
-171:                                              ; preds = %25, %25
+170:                                              ; preds = %25, %25
   %.not322 = icmp eq ptr %.0295336, null
-  br i1 %.not322, label %174, label %172
+  br i1 %.not322, label %173, label %171
 
-172:                                              ; preds = %171
-  %173 = getelementptr inbounds i8, ptr %.0295336, i64 49
-  store i8 1, ptr %173, align 1
-  br label %174
+171:                                              ; preds = %170
+  %172 = getelementptr inbounds i8, ptr %.0295336, i64 49
+  store i8 1, ptr %172, align 1
+  br label %173
 
-174:                                              ; preds = %171, %172, %158, %165, %163, %153, %135, %98, %96, %25
-  %.1296 = phi ptr [ %.0295336, %25 ], [ %.0295336, %172 ], [ null, %171 ], [ %.0295336, %163 ], [ %.0295336, %165 ], [ null, %158 ], [ %157, %153 ], [ %.0295336, %135 ], [ null, %98 ], [ %.2, %96 ]
-  %.1 = phi i32 [ %.0294337, %25 ], [ %.0294337, %172 ], [ %.0294337, %171 ], [ %.0294337, %163 ], [ %.0294337, %165 ], [ %.0294337, %158 ], [ %154, %153 ], [ %.0294337, %135 ], [ %101, %98 ], [ %97, %96 ]
-  %175 = getelementptr inbounds i8, ptr %.0298335, i64 32
-  %.not = icmp eq ptr %175, %12
+173:                                              ; preds = %170, %171, %158, %165, %163, %153, %135, %98, %96, %25
+  %.1296 = phi ptr [ %.0295336, %25 ], [ %.0295336, %171 ], [ null, %170 ], [ %.0295336, %163 ], [ %.0295336, %165 ], [ null, %158 ], [ %157, %153 ], [ %.0295336, %135 ], [ null, %98 ], [ %.2, %96 ]
+  %.1 = phi i32 [ %.0294337, %25 ], [ %.0294337, %171 ], [ %.0294337, %170 ], [ %.0294337, %163 ], [ %.0294337, %165 ], [ %.0294337, %158 ], [ %154, %153 ], [ %.0294337, %135 ], [ %101, %98 ], [ %97, %96 ]
+  %174 = getelementptr inbounds i8, ptr %.0298335, i64 32
+  %.not = icmp eq ptr %174, %12
   br i1 %.not, label %._crit_edge, label %25
 
-._crit_edge:                                      ; preds = %174
-  br i1 %16, label %176, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %173
+  br i1 %16, label %175, label %._crit_edge.thread
 
-176:                                              ; preds = %._crit_edge
+175:                                              ; preds = %._crit_edge
   call void @_efree(ptr noundef %21) #10
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %19, %._crit_edge, %176
+._crit_edge.thread:                               ; preds = %19, %._crit_edge, %175
   ret void
 }
 

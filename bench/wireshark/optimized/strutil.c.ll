@@ -166,14 +166,14 @@ define range(i32 0, 2) i32 @hex_str_to_bytes(ptr noundef readonly %0, ptr nounde
   br label %22
 
 22:                                               ; preds = %.lr.ph, %.backedge
-  %23 = phi i8 [ %13, %.lr.ph ], [ %57, %.backedge ]
+  %23 = phi i8 [ %13, %.lr.ph ], [ %58, %.backedge ]
   %.05089 = phi ptr [ %0, %.lr.ph ], [ %.050.be, %.backedge ]
   %24 = getelementptr i8, ptr %.05089, i64 1
   %25 = getelementptr i8, ptr %.05089, i64 2
   %26 = getelementptr i8, ptr %.05089, i64 3
   %27 = load i8, ptr %24, align 1
   %.not56 = icmp eq i8 %27, 0
-  br i1 %.not56, label %75, label %28
+  br i1 %.not56, label %76, label %28
 
 28:                                               ; preds = %22
   %29 = load i8, ptr %25, align 1
@@ -182,147 +182,147 @@ define range(i32 0, 2) i32 @hex_str_to_bytes(ptr noundef readonly %0, ptr nounde
   %.phi.trans.insert102 = getelementptr i16, ptr %14, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert102, align 2
   %.pre104 = and i16 %.pre, 1024
-  %.not62 = icmp eq i16 %.pre104, 0
-  br i1 %.not57, label %59, label %30
+  %30 = icmp eq i16 %.pre104, 0
+  br i1 %.not57, label %60, label %31
 
-30:                                               ; preds = %28
-  br i1 %.not62, label %.thread84, label %31
+31:                                               ; preds = %28
+  br i1 %30, label %.thread84, label %32
 
-31:                                               ; preds = %30
-  %32 = zext i8 %27 to i64
-  %33 = getelementptr i16, ptr %14, i64 %32
-  %34 = load i16, ptr %33, align 2
-  %35 = and i16 %34, 1024
-  %.not59 = icmp eq i16 %35, 0
-  br i1 %.not59, label %.thread, label %36
+32:                                               ; preds = %31
+  %33 = zext i8 %27 to i64
+  %34 = getelementptr i16, ptr %14, i64 %33
+  %35 = load i16, ptr %34, align 2
+  %36 = and i16 %35, 1024
+  %.not59 = icmp eq i16 %36, 0
+  br i1 %.not59, label %.thread, label %37
 
-36:                                               ; preds = %31
-  %37 = zext i8 %29 to i64
-  %38 = getelementptr i16, ptr %14, i64 %37
-  %39 = load i16, ptr %38, align 2
-  %40 = and i16 %39, 1024
-  %.not60 = icmp eq i16 %40, 0
-  br i1 %.not60, label %.thread, label %41
+37:                                               ; preds = %32
+  %38 = zext i8 %29 to i64
+  %39 = getelementptr i16, ptr %14, i64 %38
+  %40 = load i16, ptr %39, align 2
+  %41 = and i16 %40, 1024
+  %.not60 = icmp eq i16 %41, 0
+  br i1 %.not60, label %.thread, label %42
 
-41:                                               ; preds = %36
-  %42 = load i8, ptr %26, align 1
-  %43 = zext i8 %42 to i64
-  %44 = getelementptr i16, ptr %14, i64 %43
-  %45 = load i16, ptr %44, align 2
-  %46 = and i16 %45, 1024
-  %.not72 = icmp eq i16 %46, 0
-  br i1 %.not72, label %.thread84, label %47
+42:                                               ; preds = %37
+  %43 = load i8, ptr %26, align 1
+  %44 = zext i8 %43 to i64
+  %45 = getelementptr i16, ptr %14, i64 %44
+  %46 = load i16, ptr %45, align 2
+  %47 = and i16 %46, 1024
+  %.not72 = icmp eq i16 %47, 0
+  br i1 %.not72, label %.thread84, label %48
 
-47:                                               ; preds = %41
+48:                                               ; preds = %42
   store i8 %23, ptr %5, align 1
   store i8 %27, ptr %15, align 1
   store i8 0, ptr %16, align 1
   store i8 %29, ptr %6, align 1
-  store i8 %42, ptr %17, align 1
+  store i8 %43, ptr %17, align 1
   store i8 0, ptr %18, align 1
-  %48 = call i64 @strtoul(ptr nocapture noundef nonnull %5, ptr noundef null, i32 noundef 16) #13
-  %49 = trunc i64 %48 to i8
-  store i8 %49, ptr %4, align 1
-  %50 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1) #13
-  %51 = call i64 @strtoul(ptr nocapture noundef nonnull %6, ptr noundef null, i32 noundef 16) #13
-  %52 = trunc i64 %51 to i8
-  store i8 %52, ptr %4, align 1
-  %53 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1) #13
-  %54 = getelementptr i8, ptr %.05089, i64 4
-  %55 = load i8, ptr %54, align 1
-  switch i8 %55, label %58 [
+  %49 = call i64 @strtoul(ptr nocapture noundef nonnull %5, ptr noundef null, i32 noundef 16) #13
+  %50 = trunc i64 %49 to i8
+  store i8 %50, ptr %4, align 1
+  %51 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1) #13
+  %52 = call i64 @strtoul(ptr nocapture noundef nonnull %6, ptr noundef null, i32 noundef 16) #13
+  %53 = trunc i64 %52 to i8
+  store i8 %53, ptr %4, align 1
+  %54 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1) #13
+  %55 = getelementptr i8, ptr %.05089, i64 4
+  %56 = load i8, ptr %55, align 1
+  switch i8 %56, label %59 [
     i8 0, label %.thread84
     i8 58, label %is_byte_sep.exit.thread
     i8 45, label %is_byte_sep.exit.thread
     i8 46, label %is_byte_sep.exit.thread
   ]
 
-is_byte_sep.exit.thread:                          ; preds = %47, %47, %47
-  %56 = getelementptr i8, ptr %.05089, i64 5
+is_byte_sep.exit.thread:                          ; preds = %48, %48, %48
+  %57 = getelementptr i8, ptr %.05089, i64 5
   br label %.backedgethread-pre-split
 
-.backedgethread-pre-split:                        ; preds = %80, %is_byte_sep.exit77.thread, %70, %is_byte_sep.exit.thread, %64, %64, %64
-  %.050.be.ph = phi ptr [ %26, %64 ], [ %26, %64 ], [ %26, %64 ], [ %24, %80 ], [ %25, %is_byte_sep.exit77.thread ], [ %25, %70 ], [ %56, %is_byte_sep.exit.thread ]
+.backedgethread-pre-split:                        ; preds = %81, %is_byte_sep.exit77.thread, %71, %is_byte_sep.exit.thread, %65, %65, %65
+  %.050.be.ph = phi ptr [ %26, %65 ], [ %26, %65 ], [ %26, %65 ], [ %24, %81 ], [ %25, %is_byte_sep.exit77.thread ], [ %25, %71 ], [ %57, %is_byte_sep.exit.thread ]
   %.pr = load i8, ptr %.050.be.ph, align 1
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedgethread-pre-split, %58
-  %57 = phi i8 [ %.pr, %.backedgethread-pre-split ], [ %55, %58 ]
-  %.050.be = phi ptr [ %.050.be.ph, %.backedgethread-pre-split ], [ %54, %58 ]
-  %.not = icmp eq i8 %57, 0
+.backedge:                                        ; preds = %.backedgethread-pre-split, %59
+  %58 = phi i8 [ %.pr, %.backedgethread-pre-split ], [ %56, %59 ]
+  %.050.be = phi ptr [ %.050.be.ph, %.backedgethread-pre-split ], [ %55, %59 ]
+  %.not = icmp eq i8 %58, 0
   br i1 %.not, label %.thread84, label %22, !llvm.loop !7
 
-58:                                               ; preds = %47
+59:                                               ; preds = %48
   br i1 %.not75, label %.backedge, label %.thread84
 
-59:                                               ; preds = %28
-  br i1 %.not62, label %.thread84, label %.thread
+60:                                               ; preds = %28
+  br i1 %30, label %.thread84, label %.thread
 
-.thread:                                          ; preds = %31, %36, %59
-  %60 = zext i8 %27 to i64
-  %61 = getelementptr i16, ptr %14, i64 %60
-  %62 = load i16, ptr %61, align 2
-  %63 = and i16 %62, 1024
-  %.not63 = icmp eq i16 %63, 0
-  br i1 %.not63, label %71, label %64
+.thread:                                          ; preds = %32, %37, %60
+  %61 = zext i8 %27 to i64
+  %62 = getelementptr i16, ptr %14, i64 %61
+  %63 = load i16, ptr %62, align 2
+  %64 = and i16 %63, 1024
+  %.not63 = icmp eq i16 %64, 0
+  br i1 %.not63, label %72, label %65
 
-64:                                               ; preds = %.thread
+65:                                               ; preds = %.thread
   store i8 %23, ptr %7, align 1
   store i8 %27, ptr %19, align 1
   store i8 0, ptr %20, align 1
-  %65 = call i64 @strtoul(ptr nocapture noundef nonnull %7, ptr noundef null, i32 noundef 16) #13
-  %66 = trunc i64 %65 to i8
-  store i8 %66, ptr %4, align 1
-  %67 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1) #13
-  %68 = load i8, ptr %25, align 1
-  switch i8 %68, label %69 [
-    i8 0, label %70
+  %66 = call i64 @strtoul(ptr nocapture noundef nonnull %7, ptr noundef null, i32 noundef 16) #13
+  %67 = trunc i64 %66 to i8
+  store i8 %67, ptr %4, align 1
+  %68 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1) #13
+  %69 = load i8, ptr %25, align 1
+  switch i8 %69, label %70 [
+    i8 0, label %71
     i8 58, label %.backedgethread-pre-split
     i8 45, label %.backedgethread-pre-split
     i8 46, label %.backedgethread-pre-split
   ]
 
-69:                                               ; preds = %64
-  br i1 %.not75, label %70, label %.thread84
+70:                                               ; preds = %65
+  br i1 %.not75, label %71, label %.thread84
 
-70:                                               ; preds = %64, %69
+71:                                               ; preds = %65, %70
   br label %.backedgethread-pre-split
 
-71:                                               ; preds = %.thread
+72:                                               ; preds = %.thread
   switch i8 %27, label %.thread84 [
     i8 58, label %is_byte_sep.exit77.thread
     i8 45, label %is_byte_sep.exit77.thread
     i8 46, label %is_byte_sep.exit77.thread
   ]
 
-is_byte_sep.exit77.thread:                        ; preds = %71, %71, %71
+is_byte_sep.exit77.thread:                        ; preds = %72, %72, %72
   store i8 %23, ptr %8, align 1
   store i8 0, ptr %21, align 1
-  %72 = call i64 @strtoul(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 16) #13
-  %73 = trunc i64 %72 to i8
-  store i8 %73, ptr %4, align 1
-  %74 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1) #13
+  %73 = call i64 @strtoul(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 16) #13
+  %74 = trunc i64 %73 to i8
+  store i8 %74, ptr %4, align 1
+  %75 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1) #13
   br label %.backedgethread-pre-split
 
-75:                                               ; preds = %22
-  %76 = zext i8 %23 to i64
-  %77 = getelementptr i16, ptr %14, i64 %76
-  %78 = load i16, ptr %77, align 2
-  %79 = and i16 %78, 1024
-  %.not68 = icmp eq i16 %79, 0
-  br i1 %.not68, label %.thread84, label %80
+76:                                               ; preds = %22
+  %77 = zext i8 %23 to i64
+  %78 = getelementptr i16, ptr %14, i64 %77
+  %79 = load i16, ptr %78, align 2
+  %80 = and i16 %79, 1024
+  %.not68 = icmp eq i16 %80, 0
+  br i1 %.not68, label %.thread84, label %81
 
-80:                                               ; preds = %75
+81:                                               ; preds = %76
   store i8 %23, ptr %8, align 1
   store i8 0, ptr %21, align 1
-  %81 = call i64 @strtoul(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 16) #13
-  %82 = trunc i64 %81 to i8
-  store i8 %82, ptr %4, align 1
-  %83 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1) #13
+  %82 = call i64 @strtoul(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 16) #13
+  %83 = trunc i64 %82 to i8
+  store i8 %83, ptr %4, align 1
+  %84 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1) #13
   br label %.backedgethread-pre-split
 
-.thread84:                                        ; preds = %30, %59, %47, %41, %58, %69, %75, %.backedge, %71, %11, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %11 ], [ 0, %30 ], [ 0, %59 ], [ 1, %47 ], [ 0, %41 ], [ 0, %58 ], [ 0, %69 ], [ 0, %75 ], [ 1, %.backedge ], [ 0, %71 ]
+.thread84:                                        ; preds = %31, %60, %48, %42, %59, %70, %76, %.backedge, %72, %11, %3
+  %.0 = phi i32 [ 0, %3 ], [ 1, %11 ], [ 0, %31 ], [ 0, %60 ], [ 1, %48 ], [ 0, %42 ], [ 0, %59 ], [ 0, %70 ], [ 0, %76 ], [ 1, %.backedge ], [ 0, %72 ]
   ret i32 %.0
 }
 

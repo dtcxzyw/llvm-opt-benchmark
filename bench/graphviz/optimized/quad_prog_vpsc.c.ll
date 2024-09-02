@@ -107,7 +107,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   br label %.preheader170
 
 .preheader170:                                    ; preds = %.preheader170.lr.ph, %._crit_edge226
-  %.0162228 = phi i32 [ 0, %.preheader170.lr.ph ], [ %145, %._crit_edge226 ]
+  %.0162228 = phi i32 [ 0, %.preheader170.lr.ph ], [ %146, %._crit_edge226 ]
   br i1 %43, label %.lr.ph183, label %._crit_edge199
 
 .lr.ph192.preheader:                              ; preds = %._crit_edge181
@@ -210,7 +210,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 ._crit_edge202.thread:                            ; preds = %.preheader168
   %89 = load ptr, ptr %45, align 8
   tail call void @satisfyVPSC(ptr noundef %89) #13
-  br label %._crit_edge226
+  br label %._crit_edge226.thread
 
 .lr.ph201:                                        ; preds = %.preheader168, %.lr.ph201
   %indvars.iv268 = phi i64 [ %indvars.iv.next269, %.lr.ph201 ], [ 0, %.preheader168 ]
@@ -244,7 +244,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   br i1 %exitcond277.not, label %.loopexit, label %.lr.ph205
 
 .loopexit:                                        ; preds = %.lr.ph205, %._crit_edge199
-  br i1 %43, label %.lr.ph208, label %._crit_edge226
+  br i1 %43, label %.lr.ph208, label %._crit_edge226.thread
 
 .lr.ph218.preheader:                              ; preds = %.lr.ph208
   %.pre298 = load ptr, ptr %0, align 8
@@ -335,17 +335,20 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count296
   br i1 %exitcond297.not, label %._crit_edge226, label %128
 
-._crit_edge226:                                   ; preds = %136, %._crit_edge202.thread, %.loopexit
-  %.0153.lcssa = phi float [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %._crit_edge202.thread ], [ %142, %136 ]
-  %143 = fpext float %.0153.lcssa to double
-  %144 = fcmp ule double %143, 1.000000e-04
-  %145 = add nuw nsw i32 %.0162228, 1
-  %146 = icmp sge i32 %145, %3
-  %.not167 = or i1 %146, %144
+._crit_edge226.thread:                            ; preds = %.loopexit, %._crit_edge202.thread
+  %143 = add nuw nsw i32 %.0162228, 1
+  br label %.loopexit171
+
+._crit_edge226:                                   ; preds = %136
+  %144 = fpext float %142 to double
+  %145 = fcmp ule double %144, 1.000000e-04
+  %146 = add nuw nsw i32 %.0162228, 1
+  %147 = icmp sge i32 %146, %3
+  %.not167 = or i1 %147, %145
   br i1 %.not167, label %.loopexit171, label %.preheader170
 
-.loopexit171:                                     ; preds = %._crit_edge226, %.loopexit172, %4
-  %.0156 = phi i32 [ 0, %4 ], [ 0, %.loopexit172 ], [ %145, %._crit_edge226 ]
+.loopexit171:                                     ; preds = %._crit_edge226, %._crit_edge226.thread, %.loopexit172, %4
+  %.0156 = phi i32 [ 0, %4 ], [ 0, %.loopexit172 ], [ %143, %._crit_edge226.thread ], [ %146, %._crit_edge226 ]
   ret i32 %.0156
 }
 

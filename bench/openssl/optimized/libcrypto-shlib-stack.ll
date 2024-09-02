@@ -323,56 +323,48 @@ if.end13:                                         ; preds = %if.end
 
 if.then14:                                        ; preds = %if.end13
   %cmp16.not = icmp sgt i32 %spec.store.select, %2
-  br i1 %cmp16.not, label %while.cond.i, label %return
+  br i1 %cmp16.not, label %if.end.i, label %return
 
-while.cond.i:                                     ; preds = %if.then14, %safe_muldiv_int.exit.i
-  %current.addr.0.i = phi i32 [ %retval.0.i.i, %safe_muldiv_int.exit.i ], [ %2, %if.then14 ]
-  %cmp.i = icmp slt i32 %current.addr.0.i, %spec.store.select
-  br i1 %cmp.i, label %if.end.i, label %if.end31
-
-if.end.i:                                         ; preds = %while.cond.i
-  %3 = add i32 %current.addr.0.i, -268435456
+if.end.i:                                         ; preds = %if.then14, %while.cond.backedge.i
+  %current.addr.0.i24 = phi i32 [ %current.addr.0.be.i, %while.cond.backedge.i ], [ %2, %if.then14 ]
+  %3 = add i32 %current.addr.0.i24, -268435456
   %4 = icmp ult i32 %3, -536870912
-  br i1 %4, label %if.end5.i.i, label %if.then3.i.i
-
-if.then3.i.i:                                     ; preds = %if.end.i
-  %5 = shl nsw i32 %current.addr.0.i, 3
-  %div.i.i.i = sdiv i32 %5, 5
-  br label %safe_muldiv_int.exit.i
+  br i1 %4, label %if.end5.i.i, label %safe_muldiv_int.exit.i
 
 if.end5.i.i:                                      ; preds = %if.end.i
-  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %current.addr.0.i, i32 8)
-  %spec.select25.i.i = tail call i32 @llvm.smax.i32(i32 %current.addr.0.i, i32 8)
+  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %current.addr.0.i24, i32 8)
+  %spec.select25.i.i = tail call i32 @llvm.smax.i32(i32 %current.addr.0.i24, i32 8)
   %div.i2654.i.i = udiv i32 %spec.select25.i.i, 5
   %rem.i.i.i = urem i32 %spec.select25.i.i, 5
-  %6 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %rem.i.i.i, i32 %spec.select.i.i)
-  %7 = extractvalue { i32, i1 } %6, 1
-  %tobool.not.i32.i.i = icmp sgt i32 %current.addr.0.i, -1
+  %5 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %rem.i.i.i, i32 %spec.select.i.i)
+  %6 = extractvalue { i32, i1 } %5, 1
+  %tobool.not.i32.i.i = icmp sgt i32 %current.addr.0.i24, -1
   %cond.i33.i.i = select i1 %tobool.not.i32.i.i, i32 2147483647, i32 -2147483648
-  %8 = extractvalue { i32, i1 } %6, 0
-  %retval.0.i28.i.i = select i1 %7, i32 %cond.i33.i.i, i32 %8
-  %9 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %div.i2654.i.i, i32 %spec.select.i.i)
-  %10 = extractvalue { i32, i1 } %9, 1
-  %11 = extractvalue { i32, i1 } %9, 0
-  %retval.0.i36.i.i = select i1 %10, i32 %cond.i33.i.i, i32 %11
+  %7 = extractvalue { i32, i1 } %5, 0
+  %retval.0.i28.i.i = select i1 %6, i32 %cond.i33.i.i, i32 %7
+  %8 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %div.i2654.i.i, i32 %spec.select.i.i)
+  %9 = extractvalue { i32, i1 } %8, 1
+  %10 = extractvalue { i32, i1 } %8, 0
+  %retval.0.i36.i.i = select i1 %9, i32 %cond.i33.i.i, i32 %10
   %div.i43.i.i = sdiv i32 %retval.0.i28.i.i, 5
-  %12 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %retval.0.i36.i.i, i32 %div.i43.i.i)
-  %13 = extractvalue { i32, i1 } %12, 1
-  br i1 %13, label %if.then24, label %if.then.i44.i.i
+  %11 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %retval.0.i36.i.i, i32 %div.i43.i.i)
+  %12 = extractvalue { i32, i1 } %11, 1
+  %13 = extractvalue { i32, i1 } %11, 0
+  %14 = or i1 %6, %12
+  %or.cond.demorgan.i = or i1 %9, %14
+  br i1 %or.cond.demorgan.i, label %if.then24, label %while.cond.backedge.i
 
-if.then.i44.i.i:                                  ; preds = %if.end5.i.i
-  %narrow.i = or i1 %10, %7
-  %err.2.i = zext i1 %narrow.i to i32
-  %14 = extractvalue { i32, i1 } %12, 0
-  br label %safe_muldiv_int.exit.i
+while.cond.backedge.i:                            ; preds = %safe_muldiv_int.exit.i, %if.end5.i.i
+  %current.addr.0.be.i = phi i32 [ %div.i.i.i, %safe_muldiv_int.exit.i ], [ %13, %if.end5.i.i ]
+  %cmp.i = icmp slt i32 %current.addr.0.be.i, %spec.store.select
+  br i1 %cmp.i, label %if.end.i, label %if.end31, !llvm.loop !7
 
-safe_muldiv_int.exit.i:                           ; preds = %if.then.i44.i.i, %if.then3.i.i
-  %err.3.i = phi i32 [ %err.2.i, %if.then.i44.i.i ], [ 0, %if.then3.i.i ]
-  %retval.0.i.i = phi i32 [ %14, %if.then.i44.i.i ], [ %div.i.i.i, %if.then3.i.i ]
-  %cmp2.not.i = icmp eq i32 %err.3.i, 0
-  br i1 %cmp2.not.i, label %while.cond.i, label %if.then24, !llvm.loop !7
+safe_muldiv_int.exit.i:                           ; preds = %if.end.i
+  %15 = shl nsw i32 %current.addr.0.i24, 3
+  %div.i.i.i = sdiv i32 %15, 5
+  br label %while.cond.backedge.i
 
-if.then24:                                        ; preds = %if.end5.i.i, %safe_muldiv_int.exit.i
+if.then24:                                        ; preds = %if.end5.i.i
   tail call void @ERR_new() #16
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 210, ptr noundef nonnull @__func__.sk_reserve) #16
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 114, ptr noundef null) #16
@@ -382,8 +374,8 @@ if.else:                                          ; preds = %if.end13
   %cmp27 = icmp eq i32 %spec.store.select, %2
   br i1 %cmp27, label %return, label %if.end31
 
-if.end31:                                         ; preds = %while.cond.i, %if.else
-  %num_alloc.0 = phi i32 [ %spec.store.select, %if.else ], [ %current.addr.0.i, %while.cond.i ]
+if.end31:                                         ; preds = %while.cond.backedge.i, %if.else
+  %num_alloc.0 = phi i32 [ %spec.store.select, %if.else ], [ %current.addr.0.be.i, %while.cond.backedge.i ]
   %conv33 = sext i32 %num_alloc.0 to i64
   %mul34 = shl nsw i64 %conv33, 3
   %call35 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %1, i64 noundef %mul34, ptr noundef nonnull @.str, i32 noundef 217) #16
@@ -433,7 +425,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @OPENSSL_sk_insert(ptr noundef %st, ptr noundef %data, i32 noundef %loc) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_insert(ptr noundef %st, ptr noundef %data, i32 noundef %loc) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %st, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1014,7 +1006,7 @@ internal_find.exit:                               ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OPENSSL_sk_push(ptr noundef %st, ptr noundef %data) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_push(ptr noundef %st, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %st, null
   br i1 %cmp, label %return, label %if.end.i
@@ -1077,7 +1069,7 @@ return:                                           ; preds = %if.end22.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OPENSSL_sk_unshift(ptr noundef %st, ptr noundef %data) local_unnamed_addr #1 {
+define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_unshift(ptr noundef %st, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @OPENSSL_sk_insert(ptr noundef %st, ptr noundef %data, i32 noundef 0)
   ret i32 %call

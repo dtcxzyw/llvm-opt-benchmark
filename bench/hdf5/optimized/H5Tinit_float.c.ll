@@ -453,13 +453,16 @@ H5T__byte_cmp.exit.thread:                        ; preds = %59, %H5T__byte_cmp.
   %207 = sub i32 %.02325.i, %191
   %208 = add i32 %191, %.02127.i
   %.not.i254 = icmp eq i32 %207, 0
-  br i1 %.not.i254, label %H5T__find_bias.exit, label %.lr.ph.i253
+  br i1 %.not.i254, label %H5T__find_bias.exit.loopexit, label %.lr.ph.i253
 
-H5T__find_bias.exit:                              ; preds = %.lr.ph.i253, %180
-  %.0.lcssa.i = phi i32 [ 0, %180 ], [ %205, %.lr.ph.i253 ]
-  %209 = zext i32 %.0.lcssa.i to i64
+H5T__find_bias.exit.loopexit:                     ; preds = %.lr.ph.i253
+  %209 = zext i32 %205 to i64
+  br label %H5T__find_bias.exit
+
+H5T__find_bias.exit:                              ; preds = %H5T__find_bias.exit.loopexit, %180
+  %.0.lcssa.i = phi i64 [ 0, %180 ], [ %209, %H5T__find_bias.exit.loopexit ]
   %210 = getelementptr inbounds i8, ptr %2, i64 176
-  store i64 %209, ptr %210, align 8
+  store i64 %.0.lcssa.i, ptr %210, align 8
   %211 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %211, align 8
   %212 = add nuw i32 %148, 1

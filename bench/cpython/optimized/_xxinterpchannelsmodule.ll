@@ -2832,7 +2832,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @channel_destroy(i64 noundef %cid) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 1) i32 @channel_destroy(i64 noundef %cid) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_globals, i64 8), align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 1) #6
@@ -3169,7 +3169,7 @@ declare ptr @PyInterpreterState_Next(ptr noundef) local_unnamed_addr #1
 declare i32 @PyThread_ParseTimeoutArg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @channel_send_wait(i64 noundef %cid, ptr noundef %obj, i64 noundef %timeout) unnamed_addr #0 {
+define internal fastcc range(i32 -10, 1) i32 @channel_send_wait(i64 noundef %cid, ptr noundef %obj, i64 noundef %timeout) unnamed_addr #0 {
 entry:
   %waiting = alloca %struct.wait_info, align 8
   %call.i = tail call ptr @PyThread_allocate_lock() #6
@@ -3434,7 +3434,7 @@ return:                                           ; preds = %if.then.i15, %final
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @channel_send(i64 noundef %cid, ptr noundef %obj, ptr noundef %waiting) unnamed_addr #0 {
+define internal fastcc range(i32 -4, 1) i32 @channel_send(i64 noundef %cid, ptr noundef %obj, ptr noundef %waiting) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyInterpreterState_Get() #6
   %cmp = icmp eq ptr %call.i, null

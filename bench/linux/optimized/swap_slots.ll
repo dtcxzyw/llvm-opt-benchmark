@@ -303,7 +303,7 @@ define dso_local i64 @folio_alloc_swap(ptr noundef %0) local_unnamed_addr #0 ali
   %8 = inttoptr i64 %7 to ptr
   %9 = load i8, ptr @swap_slot_cache_enabled, align 1, !range !16, !noundef !17
   %10 = icmp eq i8 %9, 0
-  br i1 %10, label %.thread8, label %11
+  br i1 %10, label %.thread9, label %11
 
 11:                                               ; preds = %6
   %12 = load volatile i64, ptr @nr_swap_pages, align 8
@@ -315,7 +315,7 @@ define dso_local i64 @folio_alloc_swap(ptr noundef %0) local_unnamed_addr #0 ali
   %16 = mul i32 %14, 320
   %17 = zext i32 %16 to i64
   %18 = icmp sgt i64 %12, %17
-  br i1 %18, label %19, label %.thread8, !prof !23
+  br i1 %18, label %19, label %.thread9, !prof !23
 
 19:                                               ; preds = %15
   tail call void @mutex_lock(ptr noundef nonnull @swap_slots_cache_mutex) #3
@@ -326,7 +326,7 @@ define dso_local i64 @folio_alloc_swap(ptr noundef %0) local_unnamed_addr #0 ali
   %21 = shl i32 %14, 7
   %22 = zext i32 %21 to i64
   %23 = icmp slt i64 %12, %22
-  br i1 %23, label %24, label %.thread7
+  br i1 %23, label %24, label %.thread8
 
 24:                                               ; preds = %20
   tail call void @mutex_lock(ptr noundef nonnull @swap_slots_cache_mutex) #3
@@ -357,52 +357,52 @@ define dso_local i64 @folio_alloc_swap(ptr noundef %0) local_unnamed_addr #0 ali
 .loopexit:                                        ; preds = %31, %35, %25, %19
   tail call void @mutex_unlock(ptr noundef nonnull @swap_slots_cache_mutex) #3
   %.pre = load i1, ptr @swap_slot_cache_active, align 1
-  br i1 %.pre, label %.thread7, label %.thread8, !prof !24
+  br i1 %.pre, label %.thread8, label %.thread9, !prof !24
 
-.thread7:                                         ; preds = %20, %.loopexit
+.thread8:                                         ; preds = %20, %.loopexit
   %39 = getelementptr inbounds i8, ptr %8, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread8, label %42, !prof !21
+  br i1 %41, label %.thread9, label %42, !prof !21
 
-42:                                               ; preds = %.thread7
+42:                                               ; preds = %.thread8
   %43 = getelementptr inbounds i8, ptr %8, i64 8
   tail call void @mutex_lock(ptr noundef %43) #3
   %44 = load ptr, ptr %39, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.thread4.thread, label %46
+  br i1 %45, label %.critedge.thread, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds i8, ptr %8, i64 48
   %48 = getelementptr inbounds i8, ptr %8, i64 52
   %.pr = load i32, ptr %47, align 8
   %49 = icmp eq i32 %.pr, 0
-  br i1 %49, label %50, label %.thread4
+  br i1 %49, label %50, label %.critedge
 
 50:                                               ; preds = %46
   %51 = load i1, ptr @swap_slot_cache_active, align 1
   %52 = load i8, ptr @swap_slot_cache_enabled, align 1, !range !16
   %53 = icmp ne i8 %52, 0
   %54 = select i1 %51, i1 %53, i1 false
-  br i1 %54, label %55, label %.thread4.thread
+  br i1 %54, label %55, label %.critedge.thread
 
 55:                                               ; preds = %50
   store i32 0, ptr %48, align 4
   %56 = tail call i32 @get_swap_pages(i32 noundef 64, ptr noundef nonnull %44, i32 noundef 1) #3
   store i32 %56, ptr %47, align 8
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %.thread4.thread, label %..critedge_crit_edge
+  br i1 %57, label %.critedge.thread, label %..critedge5_crit_edge
 
-..critedge_crit_edge:                             ; preds = %55
-  %.pre5 = load ptr, ptr %39, align 8
-  br label %.thread4
+..critedge5_crit_edge:                            ; preds = %55
+  %.pre6 = load ptr, ptr %39, align 8
+  br label %.critedge
 
-.thread4.thread:                                  ; preds = %50, %55, %42
+.critedge.thread:                                 ; preds = %50, %55, %42
   tail call void @mutex_unlock(ptr noundef %43) #3
-  br label %.thread8
+  br label %.thread9
 
-.thread4:                                         ; preds = %46, %..critedge_crit_edge
-  %58 = phi ptr [ %.pre5, %..critedge_crit_edge ], [ %44, %46 ]
+.critedge:                                        ; preds = %46, %..critedge5_crit_edge
+  %58 = phi ptr [ %.pre6, %..critedge5_crit_edge ], [ %44, %46 ]
   %59 = load i32, ptr %48, align 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr %struct.swp_entry_t, ptr %58, i64 %60
@@ -416,15 +416,15 @@ define dso_local i64 @folio_alloc_swap(ptr noundef %0) local_unnamed_addr #0 ali
   store i32 %65, ptr %47, align 8
   tail call void @mutex_unlock(ptr noundef %43) #3
   %66 = icmp eq i64 %62, 0
-  br i1 %66, label %.thread8, label %68
+  br i1 %66, label %.thread9, label %68
 
-.thread8:                                         ; preds = %15, %.thread4.thread, %.thread4, %.thread7, %.loopexit, %6
+.thread9:                                         ; preds = %15, %.critedge.thread, %.critedge, %.thread8, %.loopexit, %6
   %67 = call i32 @get_swap_pages(i32 noundef 1, ptr noundef nonnull %2, i32 noundef 1) #3
-  %.pre6 = load i64, ptr %2, align 8
+  %.pre7 = load i64, ptr %2, align 8
   br label %68
 
-68:                                               ; preds = %.thread8, %.thread4, %1
-  %69 = phi i64 [ %.pre6, %.thread8 ], [ %62, %.thread4 ], [ 0, %1 ]
+68:                                               ; preds = %.thread9, %.critedge, %1
+  %69 = phi i64 [ %.pre7, %.thread9 ], [ %62, %.critedge ], [ 0, %1 ]
   ret i64 %69
 }
 

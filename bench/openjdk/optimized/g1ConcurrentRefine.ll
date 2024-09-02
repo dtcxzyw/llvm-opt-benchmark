@@ -1272,7 +1272,7 @@ _ZN18G1ConcurrentRefine27update_pending_cards_targetEdmmd.exit: ; preds = %15, %
 declare void @_ZN19G1DirtyCardQueueSet32set_mutator_refinement_thresholdEm(ptr noundef nonnull align 8 dereferenceable(928), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef i64 @_ZNK18G1ConcurrentRefine22adjust_threads_wait_msEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i64 50, 1) i64 @_ZNK18G1ConcurrentRefine22adjust_threads_wait_msEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, -1

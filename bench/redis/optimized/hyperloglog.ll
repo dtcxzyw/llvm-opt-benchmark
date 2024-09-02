@@ -2045,7 +2045,7 @@ declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare i64 @llroundl(x86_fp80 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hllAdd(ptr nocapture noundef %o, ptr noundef %ele, i64 noundef %elesize) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 2) i32 @hllAdd(ptr nocapture noundef %o, ptr noundef %ele, i64 noundef %elesize) local_unnamed_addr #3 {
 entry:
   %index.i5 = alloca i64, align 8
   %index.i = alloca i64, align 8
@@ -3101,47 +3101,50 @@ while.body.i:                                     ; preds = %for.body87, %while.
   %shl.i = shl i64 %bit.08.i, 1
   %and1.i = and i64 %shl.i, %or.i
   %cmp.i = icmp eq i64 %and1.i, 0
-  br i1 %cmp.i, label %while.body.i, label %hllPatLen.exit, !llvm.loop !7
+  br i1 %cmp.i, label %while.body.i, label %hllPatLen.exit.loopexit, !llvm.loop !7
 
-hllPatLen.exit:                                   ; preds = %while.body.i, %for.body87
-  %count.0.lcssa.i = phi i32 [ 1, %for.body87 ], [ %inc.i, %while.body.i ]
+hllPatLen.exit.loopexit:                          ; preds = %while.body.i
+  %17 = and i32 %inc.i, 255
+  br label %hllPatLen.exit
+
+hllPatLen.exit:                                   ; preds = %hllPatLen.exit.loopexit, %for.body87
+  %count.0.lcssa.i = phi i32 [ 1, %for.body87 ], [ %17, %hllPatLen.exit.loopexit ]
   %conv3.i = and i64 %xor46.i.i, 16383
   %mul.i.i = mul nuw nsw i64 %conv3.i, 6
   %div.i.i707172 = lshr i64 %mul.i.i, 3
   %and.i.i = and i64 %mul.i.i, 6
   %sub.i.i = sub nuw nsw i64 8, %and.i.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %registers, i64 %div.i.i707172
-  %17 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %17 to i64
+  %18 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i8 %18 to i64
   %arrayidx2.i.i = getelementptr i8, ptr %arrayidx.i.i, i64 1
-  %18 = load i8, ptr %arrayidx2.i.i, align 1
-  %conv3.i.i = zext i8 %18 to i64
+  %19 = load i8, ptr %arrayidx2.i.i, align 1
+  %conv3.i.i = zext i8 %19 to i64
   %shr.i.i = lshr i64 %conv.i.i, %and.i.i
   %shl.i.i = shl nuw nsw i64 %conv3.i.i, %sub.i.i
   %or.i.i = or i64 %shl.i.i, %shr.i.i
-  %19 = trunc nuw nsw i64 %or.i.i to i32
-  %conv5.i.i = and i32 %19, 63
-  %conv6.i.i = and i32 %count.0.lcssa.i, 255
-  %cmp.i.i = icmp ult i32 %conv5.i.i, %conv6.i.i
+  %20 = trunc nuw nsw i64 %or.i.i to i32
+  %conv5.i.i = and i32 %20, 63
+  %cmp.i.i = icmp ult i32 %conv5.i.i, %count.0.lcssa.i
   br i1 %cmp.i.i, label %do.body9.i.i, label %hllDenseAdd.exit
 
 do.body9.i.i:                                     ; preds = %hllPatLen.exit
-  %conv19.i.i = zext nneg i32 %conv6.i.i to i64
+  %conv19.i.i = zext nneg i32 %count.0.lcssa.i to i64
   %sh_prom.i.i = trunc nuw nsw i64 %and.i.i to i8
   %shl20.i.i = shl i8 63, %sh_prom.i.i
   %not.i.i = xor i8 %shl20.i.i, -1
-  %and23.i.i = and i8 %17, %not.i.i
+  %and23.i.i = and i8 %18, %not.i.i
   %shl25.i.i = shl nuw nsw i64 %conv19.i.i, %and.i.i
-  %20 = trunc i64 %shl25.i.i to i8
-  %conv29.i.i = or i8 %and23.i.i, %20
+  %21 = trunc i64 %shl25.i.i to i8
+  %conv29.i.i = or i8 %and23.i.i, %21
   store i8 %conv29.i.i, ptr %arrayidx.i.i, align 1
   %sh_prom30.i.i = trunc nuw nsw i64 %sub.i.i to i16
   %not32.i.i = ashr i16 -64, %sh_prom30.i.i
-  %21 = trunc nsw i16 %not32.i.i to i8
-  %conv37.i.i = and i8 %18, %21
+  %22 = trunc nsw i16 %not32.i.i to i8
+  %conv37.i.i = and i8 %19, %22
   %shr38.i.i = lshr i64 %conv19.i.i, %sub.i.i
-  %22 = trunc nuw nsw i64 %shr38.i.i to i8
-  %conv43.i.i = or i8 %conv37.i.i, %22
+  %23 = trunc nuw nsw i64 %shr38.i.i to i8
+  %conv43.i.i = or i8 %conv37.i.i, %23
   store i8 %conv43.i.i, ptr %arrayidx2.i.i, align 1
   br label %hllDenseAdd.exit
 
@@ -3151,16 +3154,16 @@ hllDenseAdd.exit:                                 ; preds = %hllPatLen.exit, %do
   br i1 %cmp94, label %land.lhs.true, label %for.inc143
 
 land.lhs.true:                                    ; preds = %hllDenseAdd.exit
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5040), align 8
-  %div9759 = lshr i64 %23, 1
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5040), align 8
+  %div9759 = lshr i64 %24, 1
   %cmp98 = icmp ugt i64 %div9759, %indvars.iv96
   br i1 %cmp98, label %if.then100, label %land.lhs.true110
 
 if.then100:                                       ; preds = %land.lhs.true
-  %24 = load ptr, ptr %ptr.i, align 8
-  %encoding = getelementptr inbounds i8, ptr %24, i64 4
-  %25 = load i8, ptr %encoding, align 1
-  %cmp102.not = icmp eq i8 %25, 1
+  %25 = load ptr, ptr %ptr.i, align 8
+  %encoding = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = load i8, ptr %encoding, align 1
+  %cmp102.not = icmp eq i8 %26, 1
   br i1 %cmp102.not, label %land.lhs.true110, label %if.then104
 
 if.then104:                                       ; preds = %if.then100
@@ -3169,8 +3172,8 @@ if.then104:                                       ; preds = %if.then100
 
 land.lhs.true110:                                 ; preds = %land.lhs.true, %if.then100
   %call111 = call i64 @hllCount(ptr noundef nonnull %call, ptr noundef null)
-  %26 = load ptr, ptr %ptr.i, align 8
-  %call113 = call i64 @hllCount(ptr noundef %26, ptr noundef null)
+  %27 = load ptr, ptr %ptr.i, align 8
+  %call113 = call i64 @hllCount(ptr noundef %27, ptr noundef null)
   %cmp114.not = icmp eq i64 %call111, %call113
   br i1 %cmp114.not, label %if.then121, label %if.then116
 
@@ -3183,8 +3186,8 @@ if.then121:                                       ; preds = %land.lhs.true110
   %sub123 = sub nsw i64 %indvars.iv96, %call122
   %conv125 = uitofp nneg i64 %indvars.iv96 to double
   %mul126 = fmul double %conv125, 4.875000e-02
-  %27 = call double @llvm.ceil.f64(double %mul126)
-  %conv127 = fptoui double %27 to i64
+  %28 = call double @llvm.ceil.f64(double %mul126)
+  %conv127 = fptoui double %28 to i64
   %cmp128 = icmp eq i64 %indvars.iv96, 10
   %spec.store.select = select i1 %cmp128, i64 1, i64 %conv127
   %spec.select = call i64 @llvm.abs.i64(i64 %sub123, i1 true)
@@ -3210,8 +3213,8 @@ cleanup.thread:                                   ; preds = %if.then104, %if.the
   br label %if.then146
 
 cleanup:                                          ; preds = %for.inc143
-  %28 = load ptr, ptr @shared, align 8
-  call void @addReply(ptr noundef %c, ptr noundef %28) #18
+  %29 = load ptr, ptr @shared, align 8
+  call void @addReply(ptr noundef %c, ptr noundef %29) #18
   call void @sdsfree(ptr noundef nonnull %call) #18
   %tobool.not = icmp eq ptr %call13.i, null
   br i1 %tobool.not, label %if.end147, label %if.then146

@@ -7085,9 +7085,9 @@ define void @_ZN8mini_lsm5table5bloom5Bloom21build_from_key_hashes17h5e017453245
   %12 = uitofp i64 %3 to double
   %13 = fmul double %12, 6.900000e-01
   %14 = tail call i32 @llvm.fptoui.sat.i32.f64(double %13)
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %14, i32 30)
+  %.0.sroa.speculated.i = tail call noundef range(i32 0, 31) i32 @llvm.umin.i32(i32 %14, i32 30)
   %15 = mul i64 %3, %2
-  %.0.sroa.speculated.i18 = tail call noundef i64 @llvm.umax.i64(i64 %15, i64 64)
+  %.0.sroa.speculated.i18 = tail call noundef range(i64 64, 0) i64 @llvm.umax.i64(i64 %15, i64 64)
   %16 = add i64 %.0.sroa.speculated.i18, 7
   %17 = lshr i64 %16, 3
   %18 = and i64 %16, -8
@@ -7244,7 +7244,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h6a0ba5143776ed0fE.exit: ; preds = %65, %39
   %.sroa.523.0 = phi ptr [ %.sroa.030.0.copyload, %39 ], [ %69, %65 ]
   %.sroa.021.0 = phi ptr [ @_ZN5bytes9bytes_mut13SHARED_VTABLE17hcad67e3b5ebba104E, %39 ], [ %.sroa.021.0.copyload22, %65 ]
   %.sroa.7.0 = phi ptr [ %.sroa.8.0.copyload, %39 ], [ %.sroa.7.0.copyload29, %65 ]
-  %.0.sroa.speculated.i17 = tail call noundef i32 @llvm.umax.i32(i32 %.0.sroa.speculated.i, i32 1)
+  %.0.sroa.speculated.i17 = tail call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %.0.sroa.speculated.i, i32 1)
   %77 = trunc nuw nsw i32 %.0.sroa.speculated.i17 to i8
   store ptr %.sroa.021.0, ptr %0, align 8
   %.sroa.523.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

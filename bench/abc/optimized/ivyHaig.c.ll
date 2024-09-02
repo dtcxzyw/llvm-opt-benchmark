@@ -1215,13 +1215,16 @@ define void @Ivy_ManHaigSimulate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %130, label %131, label %156
 
 131:                                              ; preds = %128
-  %132 = lshr exact i32 %.0.i165, 9
   %.not133191 = icmp eq ptr %127, %96
-  br i1 %.not133191, label %._crit_edge, label %.lr.ph194
+  br i1 %.not133191, label %._crit_edge, label %.lr.ph194.preheader
 
-.lr.ph194:                                        ; preds = %131, %Ivy_ManHaigSimulateChoice.exit
-  %.0118193 = phi i32 [ %.0.i173, %Ivy_ManHaigSimulateChoice.exit ], [ %132, %131 ]
-  %.0119192 = phi ptr [ %151, %Ivy_ManHaigSimulateChoice.exit ], [ %127, %131 ]
+.lr.ph194.preheader:                              ; preds = %131
+  %132 = lshr exact i32 %.0.i165, 9
+  br label %.lr.ph194
+
+.lr.ph194:                                        ; preds = %.lr.ph194.preheader, %Ivy_ManHaigSimulateChoice.exit
+  %.0118193 = phi i32 [ %.0.i173, %Ivy_ManHaigSimulateChoice.exit ], [ %132, %.lr.ph194.preheader ]
+  %.0119192 = phi ptr [ %151, %Ivy_ManHaigSimulateChoice.exit ], [ %127, %.lr.ph194.preheader ]
   %133 = getelementptr inbounds i8, ptr %.0119192, i64 8
   %134 = load i32, ptr %133, align 8
   %135 = lshr i32 %134, 9
@@ -1268,14 +1271,14 @@ Ivy_ManHaigSimulateChoice.exit:                   ; preds = %147, %148
 
 ._crit_edge.loopexit:                             ; preds = %Ivy_ManHaigSimulateChoice.exit
   %.pre238 = load i32, ptr %122, align 8
+  %152 = shl nuw nsw i32 %.0.i173, 9
+  %153 = and i32 %.pre238, -1537
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %131
-  %152 = phi i32 [ %125, %131 ], [ %.pre238, %._crit_edge.loopexit ]
-  %.0118.lcssa = phi i32 [ %132, %131 ], [ %.0.i173, %._crit_edge.loopexit ]
-  %153 = shl nuw nsw i32 %.0118.lcssa, 9
-  %154 = and i32 %152, -1537
-  %155 = add nuw nsw i32 %154, %153
+  %154 = phi i32 [ %124, %131 ], [ %153, %._crit_edge.loopexit ]
+  %.0118.lcssa = phi i32 [ %.0.i165, %131 ], [ %152, %._crit_edge.loopexit ]
+  %155 = add nuw nsw i32 %154, %.0118.lcssa
   store i32 %155, ptr %122, align 8
   br label %156
 

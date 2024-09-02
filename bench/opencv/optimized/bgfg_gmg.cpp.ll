@@ -588,17 +588,17 @@ define hidden void @_ZNK2cv6bgsegm12GMG_LoopBodyclERKNS_5RangeE(ptr nocapture no
 85:                                               ; preds = %.lr.ph.i
   %86 = getelementptr inbounds float, ptr %71, i64 %indvars.iv.i
   %87 = load float, ptr %86, align 4
+  %88 = fpext float %87 to double
   br label %_ZN2cv6bgsegmL11findFeatureEiPKiPKfi.exit
 
 _ZN2cv6bgsegmL11findFeatureEiPKiPKfi.exit:        ; preds = %81, %79, %85
-  %.08.i = phi float [ %87, %85 ], [ 0.000000e+00, %79 ], [ 0.000000e+00, %81 ]
-  %88 = fpext float %.08.i to double
+  %.08.i = phi double [ %88, %85 ], [ 0.000000e+00, %79 ], [ 0.000000e+00, %81 ]
   %89 = load double, ptr %33, align 8
-  %90 = fmul double %89, %88
-  %91 = fsub double 1.000000e+00, %88
+  %90 = fmul double %.08.i, %89
+  %91 = fsub double 1.000000e+00, %.08.i
   %92 = fsub double 1.000000e+00, %89
   %93 = fmul double %91, %92
-  %94 = tail call double @llvm.fmuladd.f64(double %88, double %89, double %93)
+  %94 = tail call double @llvm.fmuladd.f64(double %.08.i, double %89, double %93)
   %95 = fdiv double %90, %94
   %96 = fsub double 1.000000e+00, %95
   %97 = load double, ptr %34, align 8

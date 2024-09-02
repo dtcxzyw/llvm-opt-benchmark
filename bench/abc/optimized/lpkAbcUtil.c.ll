@@ -464,7 +464,7 @@ declare void @Kit_TruthCofactor0New(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @Kit_TruthCofactor1New(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Lpk_SuppDelay(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define range(i32 1, -2147483648) i32 @Lpk_SuppDelay(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %2, %11

@@ -32,7 +32,7 @@ define hidden void @_ZN4LIEF15vector_iostreamC2Eb(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN4LIEF15vector_iostream12uleb128_sizeEm(i64 noundef %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 1, 0) i64 @_ZN4LIEF15vector_iostream12uleb128_sizeEm(i64 noundef %0) local_unnamed_addr #1 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1

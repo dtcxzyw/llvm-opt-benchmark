@@ -3048,18 +3048,19 @@ if.then340:                                       ; preds = %land.lhs.true315, %
   %idxprom343 = sext i32 %destIx.0 to i64
   %arrayidx344 = getelementptr inbounds i16, ptr %buf215, i64 %idxprom343
   store i16 %conv341, ptr %arrayidx344, align 2
+  %73 = icmp eq i32 %c222.4353358, 0
   br label %do.end358
 
 if.else345:                                       ; preds = %do.body338
   %shr346 = lshr i32 %c222.4, 10
-  %73 = trunc i32 %shr346 to i16
-  %conv347 = add i16 %73, -10304
+  %74 = trunc i32 %shr346 to i16
+  %conv347 = add i16 %74, -10304
   %idxprom349 = sext i32 %destIx.0 to i64
   %arrayidx350 = getelementptr inbounds i16, ptr %buf215, i64 %idxprom349
   store i16 %conv347, ptr %arrayidx350, align 2
-  %74 = trunc i32 %c222.4 to i16
-  %75 = and i16 %74, 1023
-  %conv353 = or disjoint i16 %75, -9216
+  %75 = trunc i32 %c222.4 to i16
+  %76 = and i16 %75, 1023
+  %conv353 = or disjoint i16 %76, -9216
   %inc354 = add nsw i32 %destIx.0, 2
   %arrayidx356 = getelementptr i8, ptr %arrayidx350, i64 2
   store i16 %conv353, ptr %arrayidx356, align 2
@@ -3070,47 +3071,46 @@ do.end358:                                        ; preds = %if.then340, %if.els
   %.pre-phi396 = phi i32 [ %inc342, %if.then340 ], [ %.pre395, %if.else345 ]
   %.pre-phi394 = phi i64 [ %idxprom343, %if.then340 ], [ %idxprom349, %if.else345 ]
   %srcIx.6352359 = phi i32 [ %srcIx.6352360, %if.then340 ], [ %srcIx.6, %if.else345 ]
-  %c222.4353357 = phi i32 [ %c222.4353358, %if.then340 ], [ %c222.4, %if.else345 ]
+  %c222.4353357 = phi i1 [ %73, %if.then340 ], [ false, %if.else345 ]
   %destIx.3 = phi i32 [ %inc342, %if.then340 ], [ %inc354, %if.else345 ]
   %sub360 = sub nsw i32 %srcIx.0, %61
   %conv361 = trunc i32 %sub360 to i8
   %scevgep370 = getelementptr i8, ptr %mapToNative217, i64 %.pre-phi394
   %smax = tail call i32 @llvm.smax.i32(i32 %destIx.3, i32 %.pre-phi396)
-  %76 = xor i32 %destIx.0, -1
-  %77 = add i32 %smax, %76
-  %78 = zext i32 %77 to i64
-  %79 = add nuw nsw i64 %78, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep370, i8 %conv361, i64 %79, i1 false)
+  %77 = xor i32 %destIx.0, -1
+  %78 = add i32 %smax, %77
+  %79 = zext i32 %78 to i64
+  %80 = add nuw nsw i64 %79, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep370, i8 %conv361, i64 %80, i1 false)
   %conv368 = trunc i32 %destIx.0 to i8
   %scevgep375 = getelementptr i8, ptr %scevgep374, i64 %idxprom226
   %smax376 = tail call i32 @llvm.smax.i32(i32 %srcIx.6352359, i32 %inc253)
-  %80 = xor i32 %srcIx.0, -1
-  %81 = add i32 %smax376, %80
-  %82 = zext i32 %81 to i64
-  %83 = add nuw nsw i64 %82, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep375, i8 %conv368, i64 %83, i1 false)
+  %81 = xor i32 %srcIx.0, -1
+  %82 = add i32 %smax376, %81
+  %83 = zext i32 %82 to i64
+  %84 = add nuw nsw i64 %83, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep375, i8 %conv368, i64 %84, i1 false)
   br label %if.end376
 
 if.end376:                                        ; preds = %do.end358, %if.then232
   %destIx.2 = phi i32 [ %inc245, %if.then232 ], [ %destIx.3, %do.end358 ]
   %srcIx.2 = phi i32 [ %inc244, %if.then232 ], [ %srcIx.6352359, %do.end358 ]
   %seenNonAscii.2 = phi i8 [ %seenNonAscii.0, %if.then232 ], [ %seenNonAscii.3, %do.end358 ]
-  %c222.1 = phi i32 [ 1, %if.then232 ], [ %c222.4353357, %do.end358 ]
+  %c222.1 = phi i1 [ false, %if.then232 ], [ %c222.4353357, %do.end358 ]
   %cmp377 = icmp slt i32 %srcIx.2, %spec.select347
   %cmp224 = icmp slt i32 %destIx.2, 32
   %or.cond2 = select i1 %cmp377, i1 %cmp224, i1 false
   br i1 %or.cond2, label %while.body225, label %while.end380.loopexit, !llvm.loop !9
 
 while.end380.loopexit:                            ; preds = %if.end376
-  %84 = icmp eq i8 %seenNonAscii.2, 0
-  %85 = icmp eq i32 %c222.1, 0
+  %85 = icmp eq i8 %seenNonAscii.2, 0
   br label %while.end380
 
 while.end380:                                     ; preds = %while.end380.loopexit, %if.then336
   %destIx.1 = phi i32 [ %destIx.0, %if.then336 ], [ %destIx.2, %while.end380.loopexit ]
   %srcIx.1 = phi i32 [ %dec, %if.then336 ], [ %srcIx.2, %while.end380.loopexit ]
-  %seenNonAscii.1 = phi i1 [ false, %if.then336 ], [ %84, %while.end380.loopexit ]
-  %c222.0 = phi i1 [ true, %if.then336 ], [ %85, %while.end380.loopexit ]
+  %seenNonAscii.1 = phi i1 [ false, %if.then336 ], [ %85, %while.end380.loopexit ]
+  %c222.0 = phi i1 [ true, %if.then336 ], [ %c222.1, %while.end380.loopexit ]
   %sub381 = sub nsw i32 %srcIx.1, %61
   %conv382 = trunc i32 %sub381 to i8
   %idxprom383 = sext i32 %destIx.1 to i64

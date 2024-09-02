@@ -485,7 +485,7 @@ define hidden noundef i32 @_ZNK16MutableNUMASpace16lgrp_space_indexEi(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK16MutableNUMASpace13tlab_capacityEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace13tlab_capacityEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %5
 
@@ -571,7 +571,7 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %32, %25, %11,
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK16MutableNUMASpace9tlab_usedEP6Thread(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace9tlab_usedEP6Thread(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %5
 
@@ -650,7 +650,7 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %31, %24, %11,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK16MutableNUMASpace21unsafe_max_tlab_allocEP6Thread(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace21unsafe_max_tlab_allocEP6Thread(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %5
 

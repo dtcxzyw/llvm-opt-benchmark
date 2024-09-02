@@ -271,7 +271,7 @@ do.end:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @nghttp2_stream_dep_distributed_weight(ptr nocapture noundef readonly %stream, i32 noundef %weight) local_unnamed_addr #2 {
+define hidden range(i32 1, -2147483648) i32 @nghttp2_stream_dep_distributed_weight(ptr nocapture noundef readonly %stream, i32 noundef %weight) local_unnamed_addr #2 {
 entry:
   %weight1 = getelementptr inbounds i8, ptr %stream, i64 192
   %0 = load i32, ptr %weight1, align 8
@@ -933,7 +933,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul.i = mul nsw i32 %2, %1
   %3 = load i32, ptr %sum_dep_weight.i, align 8
   %div.i = sdiv i32 %mul.i, %3
-  %cond.i = tail call i32 @llvm.smax.i32(i32 %div.i, i32 1)
+  %cond.i = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %div.i, i32 1)
   store i32 %cond.i, ptr %weight1, align 8
   %add = add nsw i32 %cond.i, %sum_dep_weight_delta.062
   %queued = getelementptr inbounds i8, ptr %si.063, i64 218

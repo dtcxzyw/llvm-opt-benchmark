@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [31 x i8] c"invalid regular expression: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %union.YYSTYPE, align 8
   %4 = alloca [200 x i8], align 16
   %5 = alloca [200 x %union.YYSTYPE], align 16

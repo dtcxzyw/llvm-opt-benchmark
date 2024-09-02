@@ -114,7 +114,7 @@ entry:
 declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @DSA_generate_parameters_ex(ptr nocapture noundef %dsa, i32 noundef %bits, ptr noundef readonly %seed_in, i64 noundef %seed_len, ptr noundef writeonly %out_counter, ptr noundef writeonly %out_h, ptr noundef %cb) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr nocapture noundef %dsa, i32 noundef %bits, ptr noundef readonly %seed_in, i64 noundef %seed_len, ptr noundef writeonly %out_counter, ptr noundef writeonly %out_h, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %seed = alloca [32 x i8], align 16
   %md = alloca [32 x i8], align 16
@@ -189,12 +189,11 @@ for.cond.preheader:                               ; preds = %lor.lhs.false
   %div138 = udiv i32 %sub, 160
   %shl = shl i32 %conv, 3
   %wide.trip.count = and i64 %call2, 4294967295
-  %0 = icmp eq ptr %seed_in, null
   br label %for.cond44
 
 for.cond44:                                       ; preds = %for.cond44.backedge, %for.cond.preheader
   %m.1 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.cond44.backedge ]
-  %seed_in.addr.1 = phi i1 [ %0, %for.cond.preheader ], [ true, %for.cond44.backedge ]
+  %seed_in.addr.1 = phi i1 [ %cmp5.not, %for.cond.preheader ], [ true, %for.cond44.backedge ]
   %inc = add nuw nsw i32 %m.1, 1
   %call45 = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 0, i32 noundef %m.1) #8
   %tobool46.not = icmp eq i32 %call45, 0
@@ -218,8 +217,8 @@ for.body:                                         ; preds = %if.end59, %for.body
   %i.0160 = phi i32 [ %dec, %for.body ], [ %sub66, %if.end59 ]
   %idxprom = zext i32 %i.0160 to i64
   %arrayidx = getelementptr inbounds [32 x i8], ptr %buf, i64 0, i64 %idxprom
-  %1 = load i8, ptr %arrayidx, align 1
-  %inc70 = add i8 %1, 1
+  %0 = load i8, ptr %arrayidx, align 1
+  %inc70 = add i8 %0, 1
   store i8 %inc70, ptr %arrayidx, align 1
   %cmp74.not = icmp eq i8 %inc70, 0
   %dec = add i32 %i.0160, -1
@@ -243,22 +242,22 @@ for.cond91.preheader:                             ; preds = %lor.lhs.false83
 for.body94:                                       ; preds = %for.cond91.preheader, %for.body94
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body94 ], [ 0, %for.cond91.preheader ]
   %arrayidx96 = getelementptr inbounds [32 x i8], ptr %buf2, i64 0, i64 %indvars.iv
-  %2 = load i8, ptr %arrayidx96, align 1
+  %1 = load i8, ptr %arrayidx96, align 1
   %arrayidx99 = getelementptr inbounds [32 x i8], ptr %md, i64 0, i64 %indvars.iv
-  %3 = load i8, ptr %arrayidx99, align 1
-  %xor132 = xor i8 %3, %2
+  %2 = load i8, ptr %arrayidx99, align 1
+  %xor132 = xor i8 %2, %1
   store i8 %xor132, ptr %arrayidx99, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end104, label %for.body94, !llvm.loop !9
 
 for.end104:                                       ; preds = %for.body94, %for.cond91.preheader
-  %4 = load i8, ptr %md, align 16
-  %5 = or i8 %4, -128
-  store i8 %5, ptr %md, align 16
-  %6 = load i8, ptr %arrayidx110, align 1
-  %7 = or i8 %6, 1
-  store i8 %7, ptr %arrayidx110, align 1
+  %3 = load i8, ptr %md, align 16
+  %4 = or i8 %3, -128
+  store i8 %4, ptr %md, align 16
+  %5 = load i8, ptr %arrayidx110, align 1
+  %6 = or i8 %5, 1
+  store i8 %6, ptr %arrayidx110, align 1
   %call116 = call ptr @BN_bin2bn(ptr noundef nonnull %md, i64 noundef %conv54, ptr noundef %call33) #8
   %tobool117.not = icmp eq ptr %call116, null
   br i1 %tobool117.not, label %if.then311, label %if.end119
@@ -307,8 +306,8 @@ for.body154.us:                                   ; preds = %for.body154.us, %fo
   %i.2164.us = phi i32 [ %sub66, %for.cond151.preheader.us ], [ %dec166.us, %for.body154.us ]
   %idxprom155.us = zext i32 %i.2164.us to i64
   %arrayidx156.us = getelementptr inbounds [32 x i8], ptr %buf, i64 0, i64 %idxprom155.us
-  %8 = load i8, ptr %arrayidx156.us, align 1
-  %inc157.us = add i8 %8, 1
+  %7 = load i8, ptr %arrayidx156.us, align 1
+  %inc157.us = add i8 %7, 1
   store i8 %inc157.us, ptr %arrayidx156.us, align 1
   %cmp161.not.us = icmp eq i8 %inc157.us, 0
   %dec166.us = add i32 %i.2164.us, -1
@@ -482,25 +481,25 @@ if.then277.lr.ph:                                 ; preds = %err.preheader
   %p278 = getelementptr inbounds i8, ptr %dsa, i64 8
   %q279 = getelementptr inbounds i8, ptr %dsa, i64 16
   %g280 = getelementptr inbounds i8, ptr %dsa, i64 24
-  %9 = load ptr, ptr %p278, align 8
+  %8 = load ptr, ptr %p278, align 8
+  call void @BN_free(ptr noundef %8) #8
+  %9 = load ptr, ptr %q279, align 8
   call void @BN_free(ptr noundef %9) #8
-  %10 = load ptr, ptr %q279, align 8
+  %10 = load ptr, ptr %g280, align 8
   call void @BN_free(ptr noundef %10) #8
-  %11 = load ptr, ptr %g280, align 8
-  call void @BN_free(ptr noundef %11) #8
   %call281 = call ptr @BN_dup(ptr noundef %call36) #8
   store ptr %call281, ptr %p278, align 8
   %call283 = call ptr @BN_dup(ptr noundef %call33) #8
   store ptr %call283, ptr %q279, align 8
   %call285 = call ptr @BN_dup(ptr noundef %call31) #8
   store ptr %call285, ptr %g280, align 8
-  %12 = load ptr, ptr %p278, align 8
-  %cmp288 = icmp eq ptr %12, null
+  %11 = load ptr, ptr %p278, align 8
+  %cmp288 = icmp eq ptr %11, null
   br i1 %cmp288, label %if.then311, label %lor.lhs.false290
 
 lor.lhs.false290:                                 ; preds = %if.then277.lr.ph
-  %13 = load ptr, ptr %q279, align 8
-  %cmp292 = icmp eq ptr %13, null
+  %12 = load ptr, ptr %q279, align 8
+  %cmp292 = icmp eq ptr %12, null
   %cmp296 = icmp eq ptr %call285, null
   %or.cond = select i1 %cmp292, i1 true, i1 %cmp296
   br i1 %or.cond, label %if.then311, label %if.end299

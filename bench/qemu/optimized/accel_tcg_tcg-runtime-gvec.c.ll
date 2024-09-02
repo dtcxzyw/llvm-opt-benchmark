@@ -6331,15 +6331,15 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.013 = phi i64 [ 0, %entry ], [ %add11, %for.body ]
-  %add.ptr = getelementptr i8, ptr %a, i64 %i.013
+  %i.014 = phi i64 [ 0, %entry ], [ %add11, %for.body ]
+  %add.ptr = getelementptr i8, ptr %a, i64 %i.014
   %0 = load i8, ptr %add.ptr, align 1
-  %add.ptr1 = getelementptr i8, ptr %b, i64 %i.013
+  %add.ptr1 = getelementptr i8, ptr %b, i64 %i.014
   %1 = load i8, ptr %add.ptr1, align 1
   %2 = tail call i8 @llvm.sadd.sat.i8(i8 %0, i8 %1)
-  %add.ptr10 = getelementptr i8, ptr %d, i64 %i.013
+  %add.ptr10 = getelementptr i8, ptr %d, i64 %i.014
   store i8 %2, ptr %add.ptr10, align 1
-  %add11 = add nuw nsw i64 %i.013, 1
+  %add11 = add nuw nsw i64 %i.014, 1
   %exitcond.not = icmp eq i64 %add11, %cond.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !133
 
@@ -6379,15 +6379,15 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.013 = phi i64 [ 0, %entry ], [ %add11, %for.body ]
-  %add.ptr = getelementptr i8, ptr %a, i64 %i.013
+  %i.014 = phi i64 [ 0, %entry ], [ %add11, %for.body ]
+  %add.ptr = getelementptr i8, ptr %a, i64 %i.014
   %0 = load i16, ptr %add.ptr, align 2
-  %add.ptr1 = getelementptr i8, ptr %b, i64 %i.013
+  %add.ptr1 = getelementptr i8, ptr %b, i64 %i.014
   %1 = load i16, ptr %add.ptr1, align 2
   %2 = tail call i16 @llvm.sadd.sat.i16(i16 %0, i16 %1)
-  %add.ptr10 = getelementptr i8, ptr %d, i64 %i.013
+  %add.ptr10 = getelementptr i8, ptr %d, i64 %i.014
   store i16 %2, ptr %add.ptr10, align 2
-  %add11 = add nuw nsw i64 %i.013, 2
+  %add11 = add nuw nsw i64 %i.014, 2
   %cmp = icmp ult i64 %add11, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !134
 
@@ -6533,15 +6533,15 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.013 = phi i64 [ 0, %entry ], [ %add, %for.body ]
-  %add.ptr = getelementptr i8, ptr %a, i64 %i.013
+  %i.014 = phi i64 [ 0, %entry ], [ %add, %for.body ]
+  %add.ptr = getelementptr i8, ptr %a, i64 %i.014
   %0 = load i8, ptr %add.ptr, align 1
-  %add.ptr1 = getelementptr i8, ptr %b, i64 %i.013
+  %add.ptr1 = getelementptr i8, ptr %b, i64 %i.014
   %1 = load i8, ptr %add.ptr1, align 1
   %2 = tail call i8 @llvm.ssub.sat.i8(i8 %0, i8 %1)
-  %add.ptr10 = getelementptr i8, ptr %d, i64 %i.013
+  %add.ptr10 = getelementptr i8, ptr %d, i64 %i.014
   store i8 %2, ptr %add.ptr10, align 1
-  %add = add nuw nsw i64 %i.013, 1
+  %add = add nuw nsw i64 %i.014, 1
   %exitcond.not = icmp eq i64 %add, %cond.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !137
 
@@ -6581,15 +6581,15 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.013 = phi i64 [ 0, %entry ], [ %add, %for.body ]
-  %add.ptr = getelementptr i8, ptr %a, i64 %i.013
+  %i.014 = phi i64 [ 0, %entry ], [ %add, %for.body ]
+  %add.ptr = getelementptr i8, ptr %a, i64 %i.014
   %0 = load i16, ptr %add.ptr, align 2
-  %add.ptr1 = getelementptr i8, ptr %b, i64 %i.013
+  %add.ptr1 = getelementptr i8, ptr %b, i64 %i.014
   %1 = load i16, ptr %add.ptr1, align 2
   %2 = tail call i16 @llvm.ssub.sat.i16(i16 %0, i16 %1)
-  %add.ptr10 = getelementptr i8, ptr %d, i64 %i.013
+  %add.ptr10 = getelementptr i8, ptr %d, i64 %i.014
   store i16 %2, ptr %add.ptr10, align 2
-  %add = add nuw nsw i64 %i.013, 2
+  %add = add nuw nsw i64 %i.014, 2
   %cmp = icmp ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !138
 

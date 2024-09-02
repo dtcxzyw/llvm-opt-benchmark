@@ -463,14 +463,14 @@ define void @Aig_ManPackSimulate(ptr nocapture noundef readonly %0) local_unname
   %58 = inttoptr i64 %57 to ptr
   %59 = getelementptr inbounds i8, ptr %58, i64 36
   %60 = load i32, ptr %59, align 4
+  %61 = sext i32 %60 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %52, %55
-  %61 = phi i32 [ %60, %55 ], [ -1, %52 ]
-  %62 = getelementptr i8, ptr %53, i64 8
-  %.val65 = load ptr, ptr %62, align 8
-  %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds i64, ptr %.val65, i64 %63
+  %62 = phi i64 [ %61, %55 ], [ -1, %52 ]
+  %63 = getelementptr i8, ptr %53, i64 8
+  %.val65 = load ptr, ptr %63, align 8
+  %64 = getelementptr inbounds i64, ptr %.val65, i64 %62
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr i8, ptr %45, i64 16
   %.val77 = load ptr, ptr %66, align 8
@@ -483,11 +483,11 @@ Aig_ObjFaninId0.exit:                             ; preds = %52, %55
   %70 = inttoptr i64 %69 to ptr
   %71 = getelementptr inbounds i8, ptr %70, i64 36
   %72 = load i32, ptr %71, align 4
+  %73 = sext i32 %72 to i64
   br label %Aig_ObjFaninId1.exit
 
 Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %67
-  %73 = phi i32 [ %72, %67 ], [ -1, %Aig_ObjFaninId0.exit ]
-  %74 = sext i32 %73 to i64
+  %74 = phi i64 [ %73, %67 ], [ -1, %Aig_ObjFaninId0.exit ]
   %75 = getelementptr inbounds i64, ptr %.val65, i64 %74
   %76 = load i64, ptr %75, align 8
   %77 = ptrtoint ptr %.val75 to i64
@@ -563,14 +563,14 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %112 = inttoptr i64 %111 to ptr
   %113 = getelementptr inbounds i8, ptr %112, i64 36
   %114 = load i32, ptr %113, align 4
+  %115 = sext i32 %114 to i64
   br label %Aig_ObjFaninId0.exit85
 
 Aig_ObjFaninId0.exit85:                           ; preds = %.lr.ph93, %110
-  %115 = phi i32 [ %114, %110 ], [ -1, %.lr.ph93 ]
-  %116 = getelementptr i8, ptr %108, i64 8
-  %.val63 = load ptr, ptr %116, align 8
-  %117 = sext i32 %115 to i64
-  %118 = getelementptr inbounds i64, ptr %.val63, i64 %117
+  %116 = phi i64 [ %115, %110 ], [ -1, %.lr.ph93 ]
+  %117 = getelementptr i8, ptr %108, i64 8
+  %.val63 = load ptr, ptr %117, align 8
+  %118 = getelementptr inbounds i64, ptr %.val63, i64 %116
   %119 = load i64, ptr %118, align 8
   %120 = and i64 %.pre101, 1
   %sext = sub nsw i64 0, %120

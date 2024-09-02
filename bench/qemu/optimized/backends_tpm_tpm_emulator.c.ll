@@ -604,7 +604,7 @@ declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) loca
 declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @tpm_emulator_post_load(ptr noundef %opaque, i32 %version_id) #0 {
+define internal range(i32 -5, 1) i32 @tpm_emulator_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %_now.i.i24.i = alloca %struct.timeval, align 8
   %_now.i.i10.i = alloca %struct.timeval, align 8

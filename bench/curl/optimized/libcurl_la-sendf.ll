@@ -282,7 +282,7 @@ return:                                           ; preds = %if.end.i11, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_init_stack(ptr noundef %data) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @do_init_stack(ptr noundef %data) unnamed_addr #0 {
 entry:
   %writer_stack = getelementptr inbounds i8, ptr %data, i64 336
   %0 = load ptr, ptr @Curl_ccalloc, align 8
@@ -1084,7 +1084,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_cwriter_add(ptr noundef %data, ptr noundef %writer) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_cwriter_add(ptr noundef %data, ptr noundef %writer) local_unnamed_addr #0 {
 entry:
   %writer_stack = getelementptr inbounds i8, ptr %data, i64 336
   %0 = load ptr, ptr %writer_stack, align 8

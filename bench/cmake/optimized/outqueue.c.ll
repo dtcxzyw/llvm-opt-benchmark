@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lzma_outbuf = type { ptr, i64, i64, i64, i8 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @lzma_outq_memusage(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 48, 0) i64 @lzma_outq_memusage(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ugt i32 %1, 16384
   %4 = icmp ugt i64 %0, 281474976710655
   %or.cond.i = or i1 %4, %3

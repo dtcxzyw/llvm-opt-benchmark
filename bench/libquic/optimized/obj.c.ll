@@ -2379,10 +2379,11 @@ if.else89:                                        ; preds = %if.then77
   %conv90 = zext i1 %div.cmp to i8
   %mul.neg = select i1 %div.cmp, i64 -40, i64 0
   %sub92 = add nsw i64 %mul.neg, %l.1
+  %11 = or disjoint i8 %conv90, 48
   br label %if.end93
 
 if.end93:                                         ; preds = %if.else87, %if.then82, %if.else89
-  %i.0 = phi i8 [ 2, %if.then82 ], [ 2, %if.else87 ], [ %conv90, %if.else89 ]
+  %i.0 = phi i8 [ 50, %if.then82 ], [ 50, %if.else87 ], [ %11, %if.else89 ]
   %l.4 = phi i64 [ %l.1, %if.then82 ], [ %sub, %if.else87 ], [ %sub92, %if.else89 ]
   %tobool94 = icmp ne ptr %out.addr.0133, null
   %cmp96 = icmp sgt i32 %out_len.addr.0129, 1
@@ -2390,9 +2391,8 @@ if.end93:                                         ; preds = %if.else87, %if.then
   br i1 %or.cond2, label %if.then98, label %if.end102
 
 if.then98:                                        ; preds = %if.end93
-  %add = or disjoint i8 %i.0, 48
   %incdec.ptr100 = getelementptr inbounds i8, ptr %out.addr.0133, i64 1
-  store i8 %add, ptr %out.addr.0133, align 1
+  store i8 %i.0, ptr %out.addr.0133, align 1
   store i8 48, ptr %incdec.ptr100, align 1
   %dec101 = add nsw i32 %out_len.addr.0129, -1
   br label %if.end102

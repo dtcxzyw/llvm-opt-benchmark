@@ -3732,9 +3732,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:
   %12 = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 1
   %13 = load i8, ptr %.sroa.0.06.i, align 1, !alias.scope !350, !noundef !4
   %14 = add i8 %13, -97
-  %.0.i = icmp ult i8 %14, 26
-  %15 = select i1 %.0.i, i8 32, i8 0
-  %16 = xor i8 %15, %13
+  %15 = icmp ult i8 %14, 26
+  %.0.i = select i1 %15, i8 32, i8 0
+  %16 = xor i8 %.0.i, %13
   store i8 %16, ptr %.sroa.0.06.i, align 1, !alias.scope !350
   %17 = icmp eq ptr %12, %10
   br i1 %17, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20make_ascii_uppercase17he69c090925cd148dE.exit", label %.lr.ph.i
@@ -4749,9 +4749,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit98:  ; preds = %27
   %48 = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 1
   %49 = load i8, ptr %.sroa.0.06.i, align 1, !alias.scope !514, !noundef !4
   %50 = add i8 %49, -97
-  %.0.i = icmp ult i8 %50, 26
-  %51 = select i1 %.0.i, i8 32, i8 0
-  %52 = xor i8 %51, %49
+  %51 = icmp ult i8 %50, 26
+  %.0.i = select i1 %51, i8 32, i8 0
+  %52 = xor i8 %.0.i, %49
   store i8 %52, ptr %.sroa.0.06.i, align 1, !alias.scope !514
   %53 = icmp eq ptr %48, %46
   br i1 %53, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20make_ascii_uppercase17he69c090925cd148dE.exit", label %.lr.ph.i

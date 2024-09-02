@@ -485,26 +485,26 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   %84 = add nsw i32 %.0.i.i, -1
   %85 = zext nneg i32 %84 to i64
   %86 = shl i64 8, %85
-  %.070.i = select i1 %.not81.i, i64 %76, i64 %86
+  %87 = add nuw i64 %86, 8
+  %.070.i = select i1 %.not81.i, i64 %.07386.i, i64 %87
   %.0.i35 = select i1 %.not81.i, i32 %.0.i.i, i32 %84
-  %87 = load ptr, ptr %65, align 8
-  %88 = add i64 %.070.i, 8
-  %89 = getelementptr i8, ptr %87, i64 %88
+  %88 = load ptr, ptr %65, align 8
+  %89 = getelementptr i8, ptr %88, i64 %.070.i
   store ptr %89, ptr %65, align 8
-  %90 = sub i64 %.07386.i, %88
+  %90 = sub i64 %.07386.i, %.070.i
   %91 = sext i32 %.0.i35 to i64
-  %92 = ptrtoint ptr %87 to i64
+  %92 = ptrtoint ptr %88 to i64
   %93 = sub i64 %92, %74
   %94 = shl i64 %93, 34
   %95 = shl nsw i64 %91, 4
   %96 = or i64 %94, %95
   %97 = or disjoint i64 %96, 3
-  store i64 %97, ptr %87, align 8
-  %98 = getelementptr i8, ptr %87, i64 8
+  store i64 %97, ptr %88, align 8
+  %98 = getelementptr i8, ptr %88, i64 8
   %99 = getelementptr [11 x ptr], ptr %51, i64 0, i64 %91
   %100 = load ptr, ptr %99, align 8
   store ptr %100, ptr %98, align 8
-  store ptr %87, ptr %99, align 8
+  store ptr %88, ptr %99, align 8
   %101 = icmp ugt i64 %90, 15
   br i1 %101, label %75, label %._crit_edge.i, !llvm.loop !10
 

@@ -235,9 +235,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z26fast_rv32i_vrgatherei
   unreachable
 
 92:                                               ; preds = %83
-  %93 = add i64 %6, -8
-  %spec.select = icmp ult i64 %93, 57
-  br i1 %spec.select, label %99, label %94
+  %93 = add i64 %6, -65
+  %spec.select = icmp ult i64 %93, -57
+  br i1 %spec.select, label %94, label %99
 
 94:                                               ; preds = %92
   %95 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -700,9 +700,9 @@ define noundef i64 @_Z26fast_rv64i_vrgatherei16_vvP11processor_t6insn_tm(ptr nou
   unreachable
 
 92:                                               ; preds = %83
-  %93 = add i64 %6, -8
-  %spec.select = icmp ult i64 %93, 57
-  br i1 %spec.select, label %99, label %94
+  %93 = add i64 %6, -65
+  %spec.select = icmp ult i64 %93, -57
+  br i1 %spec.select, label %94, label %99
 
 94:                                               ; preds = %92
   %95 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1133,9 +1133,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z28logged_rv32i_vrgather
   unreachable
 
 92:                                               ; preds = %83
-  %93 = add i64 %6, -8
-  %spec.select = icmp ult i64 %93, 57
-  br i1 %spec.select, label %99, label %94
+  %93 = add i64 %6, -65
+  %spec.select = icmp ult i64 %93, -57
+  br i1 %spec.select, label %94, label %99
 
 94:                                               ; preds = %92
   %95 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -1568,9 +1568,9 @@ define noundef i64 @_Z28logged_rv64i_vrgatherei16_vvP11processor_t6insn_tm(ptr n
   unreachable
 
 92:                                               ; preds = %83
-  %93 = add i64 %6, -8
-  %spec.select = icmp ult i64 %93, 57
-  br i1 %spec.select, label %99, label %94
+  %93 = add i64 %6, -65
+  %spec.select = icmp ult i64 %93, -57
+  br i1 %spec.select, label %94, label %99
 
 94:                                               ; preds = %92
   %95 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2001,9 +2001,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z26fast_rv32e_vrgatherei
   unreachable
 
 92:                                               ; preds = %83
-  %93 = add i64 %6, -8
-  %spec.select = icmp ult i64 %93, 57
-  br i1 %spec.select, label %99, label %94
+  %93 = add i64 %6, -65
+  %spec.select = icmp ult i64 %93, -57
+  br i1 %spec.select, label %94, label %99
 
 94:                                               ; preds = %92
   %95 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2436,9 +2436,9 @@ define noundef i64 @_Z26fast_rv64e_vrgatherei16_vvP11processor_t6insn_tm(ptr nou
   unreachable
 
 92:                                               ; preds = %83
-  %93 = add i64 %6, -8
-  %spec.select = icmp ult i64 %93, 57
-  br i1 %spec.select, label %99, label %94
+  %93 = add i64 %6, -65
+  %spec.select = icmp ult i64 %93, -57
+  br i1 %spec.select, label %94, label %99
 
 94:                                               ; preds = %92
   %95 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -2869,9 +2869,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z28logged_rv32e_vrgather
   unreachable
 
 92:                                               ; preds = %83
-  %93 = add i64 %6, -8
-  %spec.select = icmp ult i64 %93, 57
-  br i1 %spec.select, label %99, label %94
+  %93 = add i64 %6, -65
+  %spec.select = icmp ult i64 %93, -57
+  br i1 %spec.select, label %94, label %99
 
 94:                                               ; preds = %92
   %95 = tail call ptr @__cxa_allocate_exception(i64 32) #16
@@ -3304,9 +3304,9 @@ define noundef i64 @_Z28logged_rv64e_vrgatherei16_vvP11processor_t6insn_tm(ptr n
   unreachable
 
 92:                                               ; preds = %83
-  %93 = add i64 %6, -8
-  %spec.select = icmp ult i64 %93, 57
-  br i1 %spec.select, label %99, label %94
+  %93 = add i64 %6, -65
+  %spec.select = icmp ult i64 %93, -57
+  br i1 %spec.select, label %94, label %99
 
 94:                                               ; preds = %92
   %95 = tail call ptr @__cxa_allocate_exception(i64 32) #16

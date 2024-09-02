@@ -217,14 +217,17 @@ wildcardFileList.exit.i:                          ; preds = %.split.i.i, %.split
   %107 = add nuw i64 %.14256.i, 1
   %108 = load i64, ptr %82, align 8
   %109 = icmp ult i64 %107, %108
-  br i1 %109, label %.lr.ph57.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %109, label %.lr.ph57.i, label %._crit_edge.loopexit.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %.lr.ph57.i, %.preheader.i
-  %.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %108, %.lr.ph57.i ]
-  %110 = add i64 %.lcssa.i, -1
-  %111 = add i64 %110, %.059.i
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph57.i
+  %110 = add i64 %108, -1
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
+  %.lcssa.i = phi i64 [ -1, %.preheader.i ], [ %110, %._crit_edge.loopexit.i ]
+  %111 = add i64 %.lcssa.i, %.059.i
   %112 = load i64, ptr %6, align 8
-  %113 = add i64 %112, %110
+  %113 = add i64 %112, %.lcssa.i
   store i64 %113, ptr %6, align 8
   store i64 0, ptr %82, align 8
   br label %114

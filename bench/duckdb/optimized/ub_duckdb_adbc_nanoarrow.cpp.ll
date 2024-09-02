@@ -1124,7 +1124,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN16duckdb_nanoarrow19ArrowSchemaDeepCopyEP11ArrowSchemaS1_(ptr nocapture noundef readonly %schema, ptr noundef %schema_out) local_unnamed_addr #8 {
+define noundef range(i32 0, 18) i32 @_ZN16duckdb_nanoarrow19ArrowSchemaDeepCopyEP11ArrowSchemaS1_(ptr nocapture noundef readonly %schema, ptr noundef %schema_out) local_unnamed_addr #8 {
 entry:
   %flags.i = getelementptr inbounds i8, ptr %schema_out, i64 24
   %0 = getelementptr inbounds i8, ptr %schema_out, i64 8
@@ -1720,7 +1720,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN11duckdb_adbcL31SingleBatchArrayStreamGetSchemaEP16ArrowArrayStreamP11ArrowSchema(ptr noundef readonly %stream, ptr noundef %schema) #8 {
+define internal noundef range(i32 0, 23) i32 @_ZN11duckdb_adbcL31SingleBatchArrayStreamGetSchemaEP16ArrowArrayStreamP11ArrowSchema(ptr noundef readonly %stream, ptr noundef %schema) #8 {
 entry:
   %tobool.not = icmp eq ptr %stream, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

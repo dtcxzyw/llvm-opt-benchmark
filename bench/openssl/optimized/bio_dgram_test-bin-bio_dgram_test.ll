@@ -421,11 +421,11 @@ lor.rhs.i:                                        ; preds = %if.end166.i
   %3 = load i64, ptr %num_processed.i, align 8
   %call178.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str, i32 noundef 263, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.16, i64 noundef %3, i64 noundef 0) #6
   %tobool179.not.i = icmp eq i32 %call178.i, 0
+  %4 = zext i1 %tobool179.not.i to i32
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end166.i
-  %4 = phi i1 [ true, %if.end166.i ], [ %tobool179.not.i, %lor.rhs.i ]
-  %lor.ext.i = zext i1 %4 to i32
+  %lor.ext.i = phi i32 [ 1, %if.end166.i ], [ %4, %lor.rhs.i ]
   %call182.i = call i32 @test_false(ptr noundef nonnull @.str, i32 noundef 263, ptr noundef nonnull @.str.41, i32 noundef %lor.ext.i) #6
   %tobool183.not.i = icmp eq i32 %call182.i, 0
   br i1 %tobool183.not.i, label %err.i, label %if.end185.i

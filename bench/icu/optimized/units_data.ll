@@ -2221,7 +2221,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharStringa
 declare i32 @ulocimp_getRegionForSupplementalData_75(ptr noundef, i8 noundef signext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN6icu_755units12_GLOBAL__N_126getPreferenceMetadataIndexEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEENS_11StringPieceES7_S7_R10UErrorCode(ptr nocapture noundef readonly %metadata, ptr %category.coerce0, i32 %category.coerce1, ptr %usage.coerce0, i32 %usage.coerce1, ptr nocapture noundef readonly byval(%"class.icu_75::StringPiece") align 8 %region, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN6icu_755units12_GLOBAL__N_126getPreferenceMetadataIndexEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEENS_11StringPieceES7_S7_R10UErrorCode(ptr nocapture noundef readonly %metadata, ptr %category.coerce0, i32 %category.coerce1, ptr %usage.coerce0, i32 %usage.coerce1, ptr nocapture noundef readonly byval(%"class.icu_75::StringPiece") align 8 %region, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %foundCategory = alloca i8, align 1
   %foundUsage = alloca i8, align 1
@@ -2332,7 +2332,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %region13.i.i32 = getelementptr inbounds i8, ptr %desired, i64 136
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %invoke.cont38
+while.body:                                       ; preds = %while.body.backedge, %while.body.lr.ph
   %call16 = invoke noundef i32 @_ZNK6icu_7510CharString11lastIndexOfEc(ptr noundef nonnull align 8 dereferenceable(60) %usage14, i8 noundef signext 45)
           to label %invoke.cont15 unwind label %lpad.loopexit
 
@@ -2372,7 +2372,7 @@ if.end37:                                         ; preds = %invoke.cont32, %if.
 if.end.i26:                                       ; preds = %if.end37
   %18 = load i32, ptr %metadata, align 8
   %cmp7.i27 = icmp sgt i32 %18, 0
-  br i1 %cmp7.i27, label %while.body.lr.ph.i28, label %invoke.cont38
+  br i1 %cmp7.i27, label %while.body.lr.ph.i28, label %while.body.backedge
 
 while.body.lr.ph.i28:                             ; preds = %if.end.i26
   %19 = load ptr, ptr %fPool.i.i29, align 8
@@ -2418,18 +2418,20 @@ _ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43: ; pr
   %spec.select.i47 = select i1 %cmp5.i45, i32 %end.08.i35, i32 %div11.i37
   %spec.select6.i48 = select i1 %cmp5.i45, i32 %add7.i46, i32 %start.09.i34
   %cmp.i49 = icmp slt i32 %spec.select6.i48, %spec.select.i47
-  br i1 %cmp.i49, label %while.body.i33, label %invoke.cont38, !llvm.loop !20
+  br i1 %cmp.i49, label %while.body.i33, label %invoke.cont38.loopexit, !llvm.loop !20
 
-invoke.cont38:                                    ; preds = %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43, %if.end.i26
-  %.lcssa9598 = phi i8 [ 0, %if.end.i26 ], [ %28, %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43 ]
-  %tobool13 = trunc nuw i8 %.lcssa9598 to i1
-  br i1 %tobool13, label %if.then45, label %while.body, !llvm.loop !21
+invoke.cont38.loopexit:                           ; preds = %_ZNK6icu_755units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i43
+  %29 = trunc nuw i8 %28 to i1
+  br i1 %29, label %if.then45, label %while.body.backedge
 
-if.then45:                                        ; preds = %invoke.cont38, %while.cond.preheader
+while.body.backedge:                              ; preds = %invoke.cont38.loopexit, %if.end.i26
+  br label %while.body, !llvm.loop !21
+
+if.then45:                                        ; preds = %invoke.cont38.loopexit, %while.cond.preheader
   store i8 0, ptr %foundRegion, align 1
   %region46 = getelementptr inbounds i8, ptr %desired, i64 136
-  %29 = load ptr, ptr %region46, align 8
-  %call49 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(4) @.str.16) #19
+  %30 = load ptr, ptr %region46, align 8
+  %call49 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(4) @.str.16) #19
   %cmp50.not = icmp eq i32 %call49, 0
   br i1 %cmp50.not, label %cleanup.sink.split, label %if.then51
 
@@ -2442,10 +2444,10 @@ invoke.cont53:                                    ; preds = %if.then51
           to label %invoke.cont56 unwind label %lpad.loopexit.split-lp
 
 invoke.cont56:                                    ; preds = %invoke.cont53
-  %30 = load ptr, ptr %agg.tmp55, align 8
-  %31 = getelementptr inbounds i8, ptr %agg.tmp55, i64 8
-  %32 = load i32, ptr %31, align 8
-  %call3.i62 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call54, ptr noundef %30, i32 noundef %32, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %31 = load ptr, ptr %agg.tmp55, align 8
+  %32 = getelementptr inbounds i8, ptr %agg.tmp55, i64 8
+  %33 = load i32, ptr %32, align 8
+  %call3.i62 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call54, ptr noundef %31, i32 noundef %33, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %if.end61 unwind label %lpad.loopexit.split-lp
 
 if.end61:                                         ; preds = %invoke.cont56

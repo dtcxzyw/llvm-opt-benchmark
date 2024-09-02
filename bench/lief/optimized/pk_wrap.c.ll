@@ -149,7 +149,7 @@ mbedtls_pk_error_from_psa.exit:                   ; preds = %1, %1, %1, %mbedtls
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_psa_rsa_sign_ext(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
+define hidden range(i32 -17536, 1) i32 @mbedtls_pk_psa_rsa_sign_ext(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = alloca %struct.psa_key_attributes_s, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.mbedtls_pk_context, align 8
@@ -281,7 +281,7 @@ declare i32 @psa_sign_hash(i32 noundef, i32 noundef, ptr noundef, i64 noundef, p
 declare i32 @psa_destroy_key(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rsa_get_bitlen(ptr noundef %0) #1 {
+define internal range(i64 0, -7) i64 @rsa_get_bitlen(ptr noundef %0) #1 {
   %2 = tail call i64 @mbedtls_rsa_get_len(ptr noundef %0) #10
   %3 = shl i64 %2, 3
   ret i64 %3
@@ -567,7 +567,7 @@ define internal void @ecdsa_free_wrap(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rsa_alt_get_bitlen(ptr nocapture noundef readonly %0) #1 {
+define internal range(i64 0, -7) i64 @rsa_alt_get_bitlen(ptr nocapture noundef readonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8

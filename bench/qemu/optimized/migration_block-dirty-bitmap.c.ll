@@ -1161,13 +1161,13 @@ cond.false:                                       ; preds = %for.body
   %cur_sector = getelementptr inbounds i8, ptr %dbms.012, i64 64
   %3 = load i64, ptr %cur_sector, align 8
   %sub = sub i64 %2, %3
+  %4 = shl i64 %sub, 9
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.false
-  %cond = phi i64 [ %sub, %cond.false ], [ 0, %for.body ]
-  %mul = shl i64 %cond, 9
+  %cond = phi i64 [ %4, %cond.false ], [ 0, %for.body ]
   %add = add nsw i64 %conv, -1
-  %sub3 = add i64 %add, %mul
+  %sub3 = add i64 %add, %cond
   %div = udiv i64 %sub3, %conv
   %add4 = add i64 %div, %pending.011
   %entry5 = getelementptr inbounds i8, ptr %dbms.012, i64 48
@@ -1179,31 +1179,31 @@ for.end:                                          ; preds = %cond.end, %entry
   %pending.0.lcssa = phi i64 [ 0, %entry ], [ %add4, %cond.end ]
   tail call void @qemu_mutex_unlock_iothread() #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %4 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %4, 0
-  %5 = load i16, ptr @_TRACE_DIRTY_BITMAP_STATE_PENDING_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %5, 0
+  %5 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %5, 0
+  %6 = load i16, ptr @_TRACE_DIRTY_BITMAP_STATE_PENDING_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %6, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_dirty_bitmap_state_pending.exit
 
 land.lhs.true5.i.i:                               ; preds = %for.end
-  %6 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %6, 32768
+  %7 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %7, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_dirty_bitmap_state_pending.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %7 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i = trunc i8 %7 to i1
+  %8 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i = trunc i8 %8 to i1
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
-  %8 = load i64, ptr %_now.i.i, align 8
+  %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i64 noundef %pending.0.lcssa) #11
+  %10 = load i64, ptr %tv_usec.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i64 noundef %pending.0.lcssa) #11
   br label %trace_dirty_bitmap_state_pending.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1212,8 +1212,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dirty_bitmap_state_pending.exit:            ; preds = %for.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %10 = load i64, ptr %can_postcopy, align 8
-  %add6 = add i64 %10, %pending.0.lcssa
+  %11 = load i64, ptr %can_postcopy, align 8
+  %add6 = add i64 %11, %pending.0.lcssa
   store i64 %add6, ptr %can_postcopy, align 8
   ret void
 }

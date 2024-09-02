@@ -6975,10 +6975,10 @@ _ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %153, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %156 = load i32, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
-  %157 = icmp ugt i32 %156, 2147483646
-  %158 = icmp eq i64 %.pr.pre.pre182, 1
-  %or.cond = select i1 %157, i1 true, i1 %158
-  br i1 %or.cond, label %.critedge67, label %159
+  %157 = icmp ult i32 %156, 2147483647
+  %158 = icmp ne i64 %.pr.pre.pre182, 1
+  %or.cond = select i1 %157, i1 %158, i1 false
+  br i1 %or.cond, label %159, label %.critedge67
 
 159:                                              ; preds = %155
   %160 = load ptr, ptr %4, align 8

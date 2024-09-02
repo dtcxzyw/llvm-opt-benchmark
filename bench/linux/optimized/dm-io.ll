@@ -668,11 +668,11 @@ define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr noc
 .split.us.split.us.preheader:                     ; preds = %.split.us, %.split.us
   br label %.split.us.split.us
 
-.split.us.split.us:                               ; preds = %.split.us.split.us.preheader, %68
-  %62 = phi i64 [ %86, %68 ], [ %39, %.split.us.split.us.preheader ]
+.split.us.split.us:                               ; preds = %.split.us.split.us.preheader, %69
+  %62 = phi i64 [ %86, %69 ], [ %39, %.split.us.split.us.preheader ]
   switch i8 %25, label %63 [
-    i8 3, label %68
-    i8 9, label %68
+    i8 3, label %69
+    i8 9, label %69
   ]
 
 63:                                               ; preds = %.split.us.split.us
@@ -680,15 +680,15 @@ define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr noc
   %65 = lshr i64 %64, 3
   %66 = trunc i64 %65 to i32
   %67 = call noundef i32 @llvm.umin.i32(i32 %66, i32 256)
-  br label %68
+  %68 = trunc nuw nsw i32 %67 to i16
+  br label %69
 
-68:                                               ; preds = %63, %.split.us.split.us, %.split.us.split.us
-  %69 = phi i32 [ %67, %63 ], [ 0, %.split.us.split.us ], [ 0, %.split.us.split.us ]
-  %70 = load ptr, ptr %37, align 8
-  %71 = trunc nuw nsw i32 %69 to i16
+69:                                               ; preds = %63, %.split.us.split.us, %.split.us.split.us
+  %70 = phi i16 [ %68, %63 ], [ 0, %.split.us.split.us ], [ 0, %.split.us.split.us ]
+  %71 = load ptr, ptr %37, align 8
   %72 = load ptr, ptr %26, align 16
   %73 = getelementptr inbounds i8, ptr %72, i64 72
-  %74 = call ptr @bio_alloc_bioset(ptr noundef %70, i16 noundef zeroext %71, i32 noundef %16, i32 noundef 3072, ptr noundef %73) #12
+  %74 = call ptr @bio_alloc_bioset(ptr noundef %71, i16 noundef zeroext %70, i32 noundef %16, i32 noundef 3072, ptr noundef %73) #12
   %75 = load i64, ptr %58, align 8
   %76 = load i64, ptr %38, align 8
   %77 = sub i64 %75, %62
@@ -713,8 +713,8 @@ define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr noc
 .split.us.split:                                  ; preds = %.split.us, %.loopexit.us
   %88 = phi i64 [ %125, %.loopexit.us ], [ %39, %.split.us ]
   switch i8 %25, label %89 [
-    i8 3, label %94
-    i8 9, label %94
+    i8 3, label %95
+    i8 9, label %95
   ]
 
 89:                                               ; preds = %.split.us.split
@@ -722,15 +722,15 @@ define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr noc
   %91 = lshr i64 %90, 3
   %92 = trunc i64 %91 to i32
   %93 = call noundef i32 @llvm.umin.i32(i32 %92, i32 256)
-  br label %94
+  %94 = trunc nuw nsw i32 %93 to i16
+  br label %95
 
-94:                                               ; preds = %89, %.split.us.split, %.split.us.split
-  %95 = phi i32 [ %93, %89 ], [ 0, %.split.us.split ], [ 0, %.split.us.split ]
-  %96 = load ptr, ptr %37, align 8
-  %97 = trunc nuw nsw i32 %95 to i16
+95:                                               ; preds = %89, %.split.us.split, %.split.us.split
+  %96 = phi i16 [ %94, %89 ], [ 0, %.split.us.split ], [ 0, %.split.us.split ]
+  %97 = load ptr, ptr %37, align 8
   %98 = load ptr, ptr %26, align 16
   %99 = getelementptr inbounds i8, ptr %98, i64 72
-  %100 = call ptr @bio_alloc_bioset(ptr noundef %96, i16 noundef zeroext %97, i32 noundef %16, i32 noundef 3072, ptr noundef %99) #12
+  %100 = call ptr @bio_alloc_bioset(ptr noundef %97, i16 noundef zeroext %96, i32 noundef %16, i32 noundef 3072, ptr noundef %99) #12
   %101 = load i64, ptr %58, align 8
   %102 = load i64, ptr %38, align 8
   %103 = sub i64 %101, %88
@@ -744,8 +744,8 @@ define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr noc
   %108 = icmp eq i64 %88, 0
   br i1 %108, label %.loopexit.us, label %.preheader.us
 
-.preheader.us:                                    ; preds = %94, %119
-  %109 = phi i64 [ %122, %119 ], [ %88, %94 ]
+.preheader.us:                                    ; preds = %95, %119
+  %109 = phi i64 [ %122, %119 ], [ %88, %95 ]
   %110 = load ptr, ptr %3, align 8
   call void %110(ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
   %111 = load i64, ptr %8, align 8
@@ -769,8 +769,8 @@ define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr noc
   %124 = icmp eq i64 %122, 0
   br i1 %124, label %.loopexit.us, label %.preheader.us, !llvm.loop !26
 
-.loopexit.us:                                     ; preds = %.preheader.us, %119, %94
-  %125 = phi i64 [ 0, %94 ], [ %109, %.preheader.us ], [ 0, %119 ]
+.loopexit.us:                                     ; preds = %.preheader.us, %119, %95
+  %125 = phi i64 [ 0, %95 ], [ %109, %.preheader.us ], [ 0, %119 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31, ptr elementtype(i32) %31) #12, !srcloc !24
   call void @submit_bio(ptr noundef %100) #12
   %126 = icmp eq i64 %125, 0
@@ -826,7 +826,7 @@ define internal fastcc void @dispatch_io(i32 noundef %0, i32 noundef %1, ptr noc
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 98, i32 0, i64 12) #12, !srcloc !30
   unreachable
 
-.loopexit5.split.us:                              ; preds = %68, %.loopexit.us, %131, %127
+.loopexit5.split.us:                              ; preds = %69, %.loopexit.us, %131, %127
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12

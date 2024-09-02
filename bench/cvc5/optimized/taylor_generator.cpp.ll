@@ -1409,20 +1409,20 @@ lpad98:                                           ; preds = %if.then13.i4.i, %if
 for.end.loopexit:                                 ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit254
   %.pre = load ptr, ptr %_M_finish.i.i131, align 8
   %.pre421 = load ptr, ptr %sum, align 8
+  %123 = ptrtoint ptr %.pre to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZN4cvc58internal8RationalD2Ev.exit
-  %123 = phi ptr [ %.pre421, %for.end.loopexit ], [ null, %_ZN4cvc58internal8RationalD2Ev.exit ]
-  %124 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %_ZN4cvc58internal8RationalD2Ev.exit ]
+  %124 = phi ptr [ %.pre421, %for.end.loopexit ], [ null, %_ZN4cvc58internal8RationalD2Ev.exit ]
+  %sub.ptr.lhs.cast.i = phi i64 [ %123, %for.end.loopexit ], [ 0, %_ZN4cvc58internal8RationalD2Ev.exit ]
   %_M_finish.i = getelementptr inbounds i8, ptr %sum, i64 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %124 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %123 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %124 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp105 = icmp eq i64 %sub.ptr.sub.i, 8
   br i1 %cmp105, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %for.end
-  %125 = load ptr, ptr %123, align 8
+  %125 = load ptr, ptr %124, align 8
   store ptr %125, ptr %taylor_sum, align 8
   %bf.load.i.i257 = load i64, ptr %125, align 8
   %bf.lshr.i.i258 = lshr i64 %bf.load.i.i257, 40

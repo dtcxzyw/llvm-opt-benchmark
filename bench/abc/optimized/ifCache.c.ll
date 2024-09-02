@@ -878,7 +878,7 @@ Hsh_IntManHashArray.exit:                         ; preds = %Vec_IntFree.exit.i.
   br i1 %.not33103, label %._crit_edge, label %.lr.ph105
 
 .lr.ph105:                                        ; preds = %.critedge.preheader
-  %228 = tail call noundef i32 @llvm.smax.i32(i32 %.val.lcssa, i32 1)
+  %228 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.val.lcssa, i32 1)
   %229 = uitofp nneg i32 %228 to double
   br label %275
 
@@ -1055,7 +1055,7 @@ Vec_IntCountUnique.exit:                          ; preds = %._crit_edge.i45, %.
   %306 = fdiv double %305, %229
   %307 = sitofp i32 %.014.lcssa22.i to double
   %308 = fmul double %307, 1.000000e+02
-  %309 = tail call noundef i32 @llvm.smax.i32(i32 %279, i32 1)
+  %309 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %279, i32 1)
   %310 = uitofp nneg i32 %309 to double
   %311 = fdiv double %308, %310
   %312 = trunc nuw nsw i64 %indvars.iv129 to i32
@@ -1165,7 +1165,7 @@ Vec_IntCountUnique.exit77:                        ; preds = %._crit_edge.i57, %.
   %349 = sdiv i32 %.val39, 4
   %350 = sitofp i32 %.014.lcssa22.i61 to double
   %351 = fmul double %350, 1.000000e+02
-  %352 = tail call noundef i32 @llvm.smax.i32(i32 %349, i32 1)
+  %352 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %349, i32 1)
   %353 = uitofp nneg i32 %352 to double
   %354 = fdiv double %351, %353
   %355 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %349, double noundef 1.000000e+02, i32 noundef %.014.lcssa22.i61, double noundef %354)

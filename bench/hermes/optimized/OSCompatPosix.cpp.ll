@@ -387,20 +387,24 @@ entry:
   %1 = ptrtoint ptr %end to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %label, ptr noundef nonnull align 1 dereferenceable(5) @__const._ZN6hermes8oscompat12vm_footprintEPcS1_.label, i64 5, i1 false)
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %smaps, ptr noundef nonnull @.str, i32 noundef 8) #22
-  %vtable11 = load ptr, ptr %smaps, align 8
-  %vbase.offset.ptr12 = getelementptr i8, ptr %vtable11, i64 -24
-  %vbase.offset13 = load i64, ptr %vbase.offset.ptr12, align 8
-  %add.ptr14 = getelementptr inbounds i8, ptr %smaps, i64 %vbase.offset13
-  %call15 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr14) #22
-  br i1 %call15, label %while.body, label %while.end
+  %vtable4 = load ptr, ptr %smaps, align 8
+  %vbase.offset.ptr5 = getelementptr i8, ptr %vtable4, i64 -24
+  %vbase.offset6 = load i64, ptr %vbase.offset.ptr5, align 8
+  %add.ptr7 = getelementptr inbounds i8, ptr %smaps, i64 %vbase.offset6
+  %call10 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr7) #22
+  br i1 %call10, label %while.body, label %while.end
 
-while.body:                                       ; preds = %entry, %cleanup14
+while.cond.critedge:                              ; preds = %while.body
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %firstToken) #22
+  br label %while.cond.backedge
+
+while.body:                                       ; preds = %entry, %while.cond.backedge
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %firstToken) #22
   %call1 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %smaps, ptr noundef nonnull align 8 dereferenceable(32) %firstToken) #22
   %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi6ignoreEli(ptr noundef nonnull align 8 dereferenceable(16) %smaps, i64 noundef 9223372036854775807, i32 noundef 10) #22
   %call4 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %firstToken, i8 noundef signext 58, i64 noundef -1) #22
   %cmp.not = icmp eq i64 %call4, -1
-  br i1 %cmp.not, label %if.end, label %cleanup14, !llvm.loop !19
+  br i1 %cmp.not, label %if.end, label %while.cond.critedge, !llvm.loop !19
 
 if.end:                                           ; preds = %while.body
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(128) %ris, ptr noundef nonnull align 8 dereferenceable(32) %firstToken, i32 noundef 24) #22
@@ -409,19 +413,15 @@ if.end:                                           ; preds = %while.body
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi6ignoreEv(ptr noundef nonnull align 8 dereferenceable(16) %ris) #22
   %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERm(ptr noundef nonnull align 8 dereferenceable(16) %ris, ptr noundef nonnull align 8 dereferenceable(8) %mEnd) #22
   %2 = load i64, ptr %mStart, align 8
-  %cmp10.not = icmp ugt i64 %2, %0
+  %cmp10.not = icmp ule i64 %2, %0
   %3 = load i64, ptr %mEnd, align 8
-  %cmp11.not = icmp ult i64 %3, %1
-  %or.cond = select i1 %cmp10.not, i1 true, i1 %cmp11.not
+  %cmp11.not = icmp uge i64 %3, %1
+  %or.cond.not = select i1 %cmp10.not, i1 %cmp11.not, i1 false
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ris) #22
-  br i1 %or.cond, label %cleanup14, label %cleanup14.thread
-
-cleanup14.thread:                                 ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %firstToken) #22
-  br label %while.end
+  br i1 %or.cond.not, label %while.end, label %while.cond.backedge
 
-cleanup14:                                        ; preds = %if.end, %while.body
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %firstToken) #22
+while.cond.backedge:                              ; preds = %if.end, %while.cond.critedge
   %vtable = load ptr, ptr %smaps, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -429,13 +429,13 @@ cleanup14:                                        ; preds = %if.end, %while.body
   %call = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr) #22
   br i1 %call, label %while.body, label %while.end
 
-while.end:                                        ; preds = %cleanup14, %entry, %cleanup14.thread
-  %vtable164 = load ptr, ptr %smaps, align 8
-  %vbase.offset.ptr175 = getelementptr i8, ptr %vtable164, i64 -24
-  %vbase.offset186 = load i64, ptr %vbase.offset.ptr175, align 8
-  %add.ptr197 = getelementptr inbounds i8, ptr %smaps, i64 %vbase.offset186
-  %call208 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr197) #22
-  br i1 %call208, label %while.body21, label %while.end38
+while.end:                                        ; preds = %while.cond.backedge, %if.end, %entry
+  %vtable1611 = load ptr, ptr %smaps, align 8
+  %vbase.offset.ptr1712 = getelementptr i8, ptr %vtable1611, i64 -24
+  %vbase.offset1813 = load i64, ptr %vbase.offset.ptr1712, align 8
+  %add.ptr1914 = getelementptr inbounds i8, ptr %smaps, i64 %vbase.offset1813
+  %call2015 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr1914) #22
+  br i1 %call2015, label %while.body21, label %while.end38
 
 while.cond15.critedge:                            ; preds = %while.body21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %line) #22
@@ -720,7 +720,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %cleanup, %if.then.i
 declare i32 @mincore(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN6hermes8oscompat8peak_rssEv() local_unnamed_addr #1 {
+define hidden noundef range(i64 0, -1023) i64 @_ZN6hermes8oscompat8peak_rssEv() local_unnamed_addr #1 {
 entry:
   %ru = alloca %struct.rusage, align 8
   %call = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %ru) #22
@@ -771,7 +771,7 @@ declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef i64 @_ZN6hermes8oscompat21current_private_dirtyEv() local_unnamed_addr #8 {
+define hidden noundef range(i64 0, -1023) i64 @_ZN6hermes8oscompat21current_private_dirtyEv() local_unnamed_addr #8 {
 entry:
   %buf = alloca [128 x i8], align 16
   %call = tail call noalias ptr @fopen(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)
@@ -1172,9 +1172,9 @@ cond.true:                                        ; preds = %entry, %_ZNSt6vecto
   %rem = and i64 %indvars.iv, 63
   %2 = shl nuw i64 1, %rem
   %3 = and i64 %1, %2
-  %tobool = icmp ne i64 %3, 0
-  %4 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %cmp.not.i = icmp eq ptr %0, %4
+  %4 = icmp ne i64 %3, 0
+  %5 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %cmp.not.i = icmp eq ptr %0, %5
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.true
@@ -1192,23 +1192,23 @@ if.then.i.i.i:                                    ; preds = %if.then.i
 _ZNSt13_Bit_iteratorppEi.exit.i:                  ; preds = %if.then.i.i.i, %if.then.i
   %sh_prom.i.i = zext nneg i32 %retval.sroa.2.0.copyload.i5.i to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  br i1 %tobool, label %if.then.i.i, label %if.else.i.i
+  br i1 %4, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit.i
-  %5 = load i64, ptr %0, align 8
-  %or.i.i = or i64 %5, %shl.i.i
+  %6 = load i64, ptr %0, align 8
+  %or.i.i = or i64 %6, %shl.i.i
   store i64 %or.i.i, ptr %0, align 8
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit
 
 if.else.i.i:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit.i
   %not.i.i = xor i64 %shl.i.i, -1
-  %6 = load i64, ptr %0, align 8
-  %and.i.i = and i64 %6, %not.i.i
+  %7 = load i64, ptr %0, align 8
+  %and.i.i = and i64 %7, %not.i.i
   store i64 %and.i.i, ptr %0, align 8
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit
 
 if.else.i:                                        ; preds = %cond.true
-  call void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr %0, i32 %retval.sroa.2.0.copyload.i5.i, i1 noundef zeroext %tobool)
+  call void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr %0, i32 %retval.sroa.2.0.copyload.i5.i, i1 noundef zeroext %4)
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit
 
 _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %if.then.i.i, %if.else.i.i, %if.else.i
@@ -1218,17 +1218,17 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %if.then.i.i, %if.el
   %add.i.i.i.i.i = add nsw i64 %conv.i.i.i.i.i, -1
   %div.i.i.i.i.i = sdiv i64 %add.i.i.i.i.i, 64
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %retval.sroa.0.0.copyload.i.i, i64 %div.i.i.i.i.i
-  %7 = and i64 %add.i.i.i.i.i, -9223372036854775745
-  %cmp.i.i.i.i.i = icmp ugt i64 %7, -9223372036854775808
+  %8 = and i64 %add.i.i.i.i.i, -9223372036854775745
+  %cmp.i.i.i.i.i = icmp ugt i64 %8, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %storemerge.idx.i.i.i.i.i
   %conv4.i.i.i.i.i = and i64 %add.i.i.i.i.i, 63
-  %shl.i.i9 = shl nuw i64 1, %conv4.i.i.i.i.i
-  %8 = load i64, ptr %storemerge.i.i.i.i.i, align 8
-  %and.i = and i64 %shl.i.i9, %8
+  %shl.i.i10 = shl nuw i64 1, %conv4.i.i.i.i.i
+  %9 = load i64, ptr %storemerge.i.i.i.i.i, align 8
+  %and.i = and i64 %shl.i.i10, %9
   %tobool.i.not = icmp eq i64 %and.i, 0
-  %9 = trunc nuw nsw i64 %indvars.iv to i32
-  %lastSet.1 = select i1 %tobool.i.not, i32 %lastSet.014, i32 %9
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
+  %lastSet.1 = select i1 %tobool.i.not, i32 %lastSet.014, i32 %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
   br i1 %exitcond.not, label %for.end, label %cond.true, !llvm.loop !25
@@ -1236,21 +1236,21 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit:            ; preds = %if.then.i.i, %if.el
 for.end:                                          ; preds = %_ZNSt6vectorIbSaIbEE9push_backEb.exit
   %add = add nsw i32 %lastSet.1, 1
   %conv10 = sext i32 %add to i64
-  %10 = load ptr, ptr %agg.result, align 8
+  %11 = load ptr, ptr %agg.result, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %mul.i.i.i = shl nsw i64 %sub.ptr.sub.i.i.i, 3
   %add.i.i.i = add nsw i64 %mul.i.i.i, %conv.i.i.i.i.i
   %cmp.i = icmp ugt i64 %add.i.i.i, %conv10
-  br i1 %cmp.i, label %if.then.i11, label %if.else.i10
+  br i1 %cmp.i, label %if.then.i12, label %if.else.i11
 
-if.then.i11:                                      ; preds = %for.end
-  %div.i.i.i.i12 = sdiv i32 %add, 64
-  %div.i.i.i.i.sext = sext i32 %div.i.i.i.i12 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %10, i64 %div.i.i.i.i.sext
-  %11 = and i64 %conv10, -9223372036854775745
-  %cmp.i.i.i.i = icmp ugt i64 %11, -9223372036854775808
+if.then.i12:                                      ; preds = %for.end
+  %div.i.i.i.i13 = sdiv i32 %add, 64
+  %div.i.i.i.i.sext = sext i32 %div.i.i.i.i13 to i64
+  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %11, i64 %div.i.i.i.i.sext
+  %12 = and i64 %conv10, -9223372036854775745
+  %cmp.i.i.i.i = icmp ugt i64 %12, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 0
   %storemerge.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %storemerge.idx.i.i.i.i
   %conv4.i.i.i.i = and i32 %add, 63
@@ -1258,12 +1258,12 @@ if.then.i11:                                      ; preds = %for.end
   store i32 %conv4.i.i.i.i, ptr %_M_offset.i.i1.i.i.i.i, align 8
   br label %nrvo.skipdtor
 
-if.else.i10:                                      ; preds = %for.end
+if.else.i11:                                      ; preds = %for.end
   %sub.i = sub nuw i64 %conv10, %add.i.i.i
   call void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr nonnull %retval.sroa.0.0.copyload.i.i, i32 %retval.sroa.2.0.copyload.i.i, i64 noundef %sub.i, i1 noundef zeroext false)
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %if.else.i10, %if.then.i11, %entry
+nrvo.skipdtor:                                    ; preds = %if.else.i11, %if.then.i12, %entry
   ret void
 }
 

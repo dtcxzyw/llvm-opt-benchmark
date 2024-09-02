@@ -708,7 +708,7 @@ if.end46:                                         ; preds = %for.body29
   br i1 %cmp40.not.not, label %for.body54.lr.ph, label %for.end236
 
 for.body54.lr.ph:                                 ; preds = %if.end46.thread, %if.end46
-  %authpubp.0128 = phi ptr [ null, %if.end46.thread ], [ %authpub, %if.end46 ]
+  %authpubp.0127 = phi ptr [ null, %if.end46.thread ], [ %authpub, %if.end46 ]
   %hpke_suite.sroa.0.0.insert.ext27 = zext i16 %3 to i48
   %cmp166 = icmp eq i64 %kemind.0120, 0
   %arrayidx227 = getelementptr inbounds [15 x ptr], ptr @kem_str_list, i64 0, i64 %kemind.0120
@@ -835,7 +835,7 @@ if.then168:                                       ; preds = %if.then163
 if.end177:                                        ; preds = %if.then168, %if.then163
   %overallresult.16 = phi i32 [ %overallresult.14, %if.then163 ], [ %spec.select109, %if.then168 ]
   %16 = load i64, ptr %authpublen, align 8
-  %call178 = call i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %call139, ptr noundef %authpubp.0128, i64 noundef %16) #6
+  %call178 = call i32 @OSSL_HPKE_CTX_set1_authpub(ptr noundef %call139, ptr noundef %authpubp.0127, i64 noundef %16) #6
   %cmp179 = icmp ne i32 %call178, 0
   %conv180 = zext i1 %cmp179 to i32
   %call181 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1069, ptr noundef nonnull @.str.94, i32 noundef %conv180) #6
@@ -1089,7 +1089,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_hpke_ikms() #1 {
+define internal range(i32 0, 2) i32 @test_hpke_ikms() #1 {
 entry:
   %call = tail call fastcc i32 @test_hpke_one_ikm_gen(i16 noundef zeroext 32, ptr noundef nonnull @ikm25519, i64 noundef 32, ptr noundef nonnull @pub25519, i64 noundef 32)
   %cmp.not.not = icmp eq i32 %call, 0

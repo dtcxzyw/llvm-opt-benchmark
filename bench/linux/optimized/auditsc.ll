@@ -215,28 +215,28 @@ define dso_local void @audit_filter_inodes(ptr noundef %0, ptr noundef %1) local
   %24 = and i32 %18, 31
   %25 = shl nuw i32 1, %24
   %26 = icmp ugt i32 %18, 2047
-  br i1 %26, label %.thread.us, label %.split
+  br i1 %26, label %.critedge.us, label %.split
 
-.thread.us:                                       ; preds = %21, %.thread.us
-  %27 = phi ptr [ %28, %.thread.us ], [ %19, %21 ]
+.critedge.us:                                     ; preds = %21, %.critedge.us
+  %27 = phi ptr [ %28, %.critedge.us ], [ %19, %21 ]
   %28 = load volatile ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %17
-  br i1 %29, label %.loopexit, label %.thread.us, !llvm.loop !6
+  br i1 %29, label %.loopexit, label %.critedge.us, !llvm.loop !6
 
-.split:                                           ; preds = %21, %.thread
-  %30 = phi ptr [ %43, %.thread ], [ %19, %21 ]
+.split:                                           ; preds = %21, %.critedge
+  %30 = phi ptr [ %43, %.critedge ], [ %19, %21 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 48
   %32 = getelementptr [64 x i32], ptr %31, i64 0, i64 %23
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, %25
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %.thread, label %36
+  br i1 %35, label %.critedge, label %36
 
 36:                                               ; preds = %.split
   %37 = getelementptr inbounds i8, ptr %30, i64 32
   %38 = call fastcc i32 @audit_filter_rules(ptr noundef %0, ptr noundef %37, ptr noundef %1, ptr noundef %13, ptr noundef nonnull %3)
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.thread, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %36
   %41 = load i32, ptr %3, align 4
@@ -245,12 +245,12 @@ define dso_local void @audit_filter_inodes(ptr noundef %0, ptr noundef %1) local
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   br label %.loopexit6
 
-.thread:                                          ; preds = %36, %.split
+.critedge:                                        ; preds = %36, %.split
   %43 = load volatile ptr, ptr %30, align 8
   %44 = icmp eq ptr %43, %17
   br i1 %44, label %.loopexit, label %.split, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.thread, %.thread.us, %12
+.loopexit:                                        ; preds = %.critedge, %.critedge.us, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   %45 = load ptr, ptr %13, align 8
   %46 = icmp eq ptr %45, %7
@@ -460,28 +460,28 @@ define dso_local void @__audit_free(ptr noundef %0) local_unnamed_addr #0 align 
   %35 = and i32 %29, 31
   %36 = shl nuw i32 1, %35
   %37 = icmp ugt i32 %29, 2047
-  br i1 %37, label %.thread.us.i, label %.split.i
+  br i1 %37, label %.critedge.us.i, label %.split.i
 
-.thread.us.i:                                     ; preds = %32, %.thread.us.i
-  %38 = phi ptr [ %39, %.thread.us.i ], [ %30, %32 ]
+.critedge.us.i:                                   ; preds = %32, %.critedge.us.i
+  %38 = phi ptr [ %39, %.critedge.us.i ], [ %30, %32 ]
   %39 = load volatile ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, getelementptr (i8, ptr @audit_filter_list, i64 64)
-  br i1 %40, label %.loopexit.i, label %.thread.us.i, !llvm.loop !6
+  br i1 %40, label %.loopexit.i, label %.critedge.us.i, !llvm.loop !6
 
-.split.i:                                         ; preds = %32, %.thread.i
-  %41 = phi ptr [ %54, %.thread.i ], [ %30, %32 ]
+.split.i:                                         ; preds = %32, %.critedge.i
+  %41 = phi ptr [ %54, %.critedge.i ], [ %30, %32 ]
   %42 = getelementptr inbounds i8, ptr %41, i64 48
   %43 = getelementptr [64 x i32], ptr %42, i64 0, i64 %34
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, %36
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.thread.i, label %47
+  br i1 %46, label %.critedge.i, label %47
 
 47:                                               ; preds = %.split.i
   %48 = getelementptr inbounds i8, ptr %41, i64 32
   %49 = call fastcc i32 @audit_filter_rules(ptr noundef %0, ptr noundef %48, ptr noundef %5, ptr noundef null, ptr noundef nonnull %3)
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.thread.i, label %51
+  br i1 %50, label %.critedge.i, label %51
 
 51:                                               ; preds = %47
   %52 = load i32, ptr %3, align 4
@@ -489,12 +489,12 @@ define dso_local void @__audit_free(ptr noundef %0) local_unnamed_addr #0 align 
   store i32 %52, ptr %53, align 4
   br label %.loopexit.i
 
-.thread.i:                                        ; preds = %47, %.split.i
+.critedge.i:                                      ; preds = %47, %.split.i
   %54 = load volatile ptr, ptr %41, align 8
   %55 = icmp eq ptr %54, getelementptr (i8, ptr @audit_filter_list, i64 64)
   br i1 %55, label %.loopexit.i, label %.split.i, !llvm.loop !6
 
-.loopexit.i:                                      ; preds = %.thread.i, %.thread.us.i, %51, %27
+.loopexit.i:                                      ; preds = %.critedge.i, %.critedge.us.i, %51, %27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   tail call void @__rcu_read_unlock() #12
   br label %audit_filter_syscall.exit
@@ -531,28 +531,28 @@ audit_filter_syscall.exit:                        ; preds = %24, %.loopexit.i
   %71 = and i32 %65, 31
   %72 = shl nuw i32 1, %71
   %73 = icmp ugt i32 %65, 2047
-  br i1 %73, label %.thread.us.i6, label %.split.i3
+  br i1 %73, label %.critedge.us.i6, label %.split.i3
 
-.thread.us.i6:                                    ; preds = %68, %.thread.us.i6
-  %74 = phi ptr [ %75, %.thread.us.i6 ], [ %66, %68 ]
+.critedge.us.i6:                                  ; preds = %68, %.critedge.us.i6
+  %74 = phi ptr [ %75, %.critedge.us.i6 ], [ %66, %68 ]
   %75 = load volatile ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, getelementptr (i8, ptr @audit_filter_list, i64 112)
-  br i1 %76, label %.loopexit.i4, label %.thread.us.i6, !llvm.loop !6
+  br i1 %76, label %.loopexit.i4, label %.critedge.us.i6, !llvm.loop !6
 
-.split.i3:                                        ; preds = %68, %.thread.i5
-  %77 = phi ptr [ %90, %.thread.i5 ], [ %66, %68 ]
+.split.i3:                                        ; preds = %68, %.critedge.i5
+  %77 = phi ptr [ %90, %.critedge.i5 ], [ %66, %68 ]
   %78 = getelementptr inbounds i8, ptr %77, i64 48
   %79 = getelementptr [64 x i32], ptr %78, i64 0, i64 %70
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, %72
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %.thread.i5, label %83
+  br i1 %82, label %.critedge.i5, label %83
 
 83:                                               ; preds = %.split.i3
   %84 = getelementptr inbounds i8, ptr %77, i64 32
   %85 = call fastcc i32 @audit_filter_rules(ptr noundef %0, ptr noundef %84, ptr noundef %5, ptr noundef null, ptr noundef nonnull %2)
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.thread.i5, label %87
+  br i1 %86, label %.critedge.i5, label %87
 
 87:                                               ; preds = %83
   %88 = load i32, ptr %2, align 4
@@ -560,12 +560,12 @@ audit_filter_syscall.exit:                        ; preds = %24, %.loopexit.i
   store i32 %88, ptr %89, align 4
   br label %.loopexit.i4
 
-.thread.i5:                                       ; preds = %83, %.split.i3
+.critedge.i5:                                     ; preds = %83, %.split.i3
   %90 = load volatile ptr, ptr %77, align 8
   %91 = icmp eq ptr %90, getelementptr (i8, ptr @audit_filter_list, i64 112)
   br i1 %91, label %.loopexit.i4, label %.split.i3, !llvm.loop !6
 
-.loopexit.i4:                                     ; preds = %.thread.i5, %.thread.us.i6, %87, %63
+.loopexit.i4:                                     ; preds = %.critedge.i5, %.critedge.us.i6, %87, %63
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   tail call void @__rcu_read_unlock() #12
   br label %audit_filter_uring.exit
@@ -1212,28 +1212,28 @@ define internal fastcc void @audit_log_exit() unnamed_addr #0 align 16 {
 326:                                              ; preds = %322
   %327 = and i8 %296, 1
   %328 = icmp eq i8 %327, 0
-  br i1 %328, label %329, label %332
+  br i1 %328, label %329, label %333
 
 329:                                              ; preds = %326
   %330 = call zeroext i1 @audit_string_contains_control(ptr noundef nonnull %284, i64 noundef %318) #12
   %331 = zext i1 %330 to i8
-  br label %332
+  %332 = zext i1 %330 to i64
+  br label %333
 
-332:                                              ; preds = %329, %326
-  %.pre-phi = phi i8 [ %331, %329 ], [ 1, %326 ]
-  %333 = phi i8 [ %331, %329 ], [ %296, %326 ]
-  %334 = icmp slt i64 %309, 7500
-  %335 = zext nneg i8 %.pre-phi to i64
-  %336 = shl i64 %318, %335
-  %337 = select i1 %334, i64 %336, i64 %309
+333:                                              ; preds = %329, %326
+  %.pre-phi = phi i64 [ %332, %329 ], [ 1, %326 ]
+  %334 = phi i8 [ %331, %329 ], [ %296, %326 ]
+  %335 = icmp slt i64 %309, 7500
+  %336 = shl i64 %318, %.pre-phi
+  %337 = select i1 %335, i64 %336, i64 %309
   %338 = add i64 %318, 1
   br label %339
 
-339:                                              ; preds = %332, %324
-  %340 = phi i8 [ 1, %324 ], [ 0, %332 ]
-  %341 = phi i8 [ 1, %324 ], [ %333, %332 ]
-  %342 = phi i64 [ %317, %324 ], [ %338, %332 ]
-  %343 = phi i64 [ %325, %324 ], [ %337, %332 ]
+339:                                              ; preds = %333, %324
+  %340 = phi i8 [ 1, %324 ], [ 0, %333 ]
+  %341 = phi i8 [ 1, %324 ], [ %334, %333 ]
+  %342 = phi i64 [ %317, %324 ], [ %338, %333 ]
+  %343 = phi i64 [ %325, %324 ], [ %337, %333 ]
   %344 = getelementptr i8, ptr %300, i64 %342
   %345 = add i64 %318, %301
   %346 = getelementptr i8, ptr %284, i64 %345
@@ -2221,28 +2221,28 @@ define dso_local void @__audit_uring_exit(i32 noundef %0, i64 noundef %1) local_
   %43 = and i32 %37, 31
   %44 = shl nuw i32 1, %43
   %45 = icmp ugt i32 %37, 2047
-  br i1 %45, label %.thread.us.i, label %.split.i
+  br i1 %45, label %.critedge.us.i, label %.split.i
 
-.thread.us.i:                                     ; preds = %40, %.thread.us.i
-  %46 = phi ptr [ %47, %.thread.us.i ], [ %38, %40 ]
+.critedge.us.i:                                   ; preds = %40, %.critedge.us.i
+  %46 = phi ptr [ %47, %.critedge.us.i ], [ %38, %40 ]
   %47 = load volatile ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, getelementptr (i8, ptr @audit_filter_list, i64 64)
-  br i1 %48, label %.loopexit.i, label %.thread.us.i, !llvm.loop !6
+  br i1 %48, label %.loopexit.i, label %.critedge.us.i, !llvm.loop !6
 
-.split.i:                                         ; preds = %40, %.thread.i
-  %49 = phi ptr [ %62, %.thread.i ], [ %38, %40 ]
+.split.i:                                         ; preds = %40, %.critedge.i
+  %49 = phi ptr [ %62, %.critedge.i ], [ %38, %40 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 48
   %51 = getelementptr [64 x i32], ptr %50, i64 0, i64 %42
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, %44
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %.thread.i, label %55
+  br i1 %54, label %.critedge.i, label %55
 
 55:                                               ; preds = %.split.i
   %56 = getelementptr inbounds i8, ptr %49, i64 32
   %57 = call fastcc i32 @audit_filter_rules(ptr noundef %7, ptr noundef %56, ptr noundef %9, ptr noundef null, ptr noundef nonnull %5)
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.thread.i, label %59
+  br i1 %58, label %.critedge.i, label %59
 
 59:                                               ; preds = %55
   %60 = load i32, ptr %5, align 4
@@ -2250,12 +2250,12 @@ define dso_local void @__audit_uring_exit(i32 noundef %0, i64 noundef %1) local_
   store i32 %60, ptr %61, align 4
   br label %.loopexit.i
 
-.thread.i:                                        ; preds = %55, %.split.i
+.critedge.i:                                      ; preds = %55, %.split.i
   %62 = load volatile ptr, ptr %49, align 8
   %63 = icmp eq ptr %62, getelementptr (i8, ptr @audit_filter_list, i64 64)
   br i1 %63, label %.loopexit.i, label %.split.i, !llvm.loop !6
 
-.loopexit.i:                                      ; preds = %.thread.i, %.thread.us.i, %59, %35
+.loopexit.i:                                      ; preds = %.critedge.i, %.critedge.us.i, %59, %35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
   tail call void @__rcu_read_unlock() #12
   br label %audit_filter_syscall.exit
@@ -2287,40 +2287,40 @@ audit_filter_syscall.exit:                        ; preds = %32, %.loopexit.i
   %78 = and i32 %72, 31
   %79 = shl nuw i32 1, %78
   %80 = icmp ugt i32 %72, 2047
-  br i1 %80, label %.thread.us.i4, label %.split.i1
+  br i1 %80, label %.critedge.us.i4, label %.split.i1
 
-.thread.us.i4:                                    ; preds = %75, %.thread.us.i4
-  %81 = phi ptr [ %82, %.thread.us.i4 ], [ %73, %75 ]
+.critedge.us.i4:                                  ; preds = %75, %.critedge.us.i4
+  %81 = phi ptr [ %82, %.critedge.us.i4 ], [ %73, %75 ]
   %82 = load volatile ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, getelementptr (i8, ptr @audit_filter_list, i64 112)
-  br i1 %83, label %.loopexit.i2, label %.thread.us.i4, !llvm.loop !6
+  br i1 %83, label %.loopexit.i2, label %.critedge.us.i4, !llvm.loop !6
 
-.split.i1:                                        ; preds = %75, %.thread.i3
-  %84 = phi ptr [ %96, %.thread.i3 ], [ %73, %75 ]
+.split.i1:                                        ; preds = %75, %.critedge.i3
+  %84 = phi ptr [ %96, %.critedge.i3 ], [ %73, %75 ]
   %85 = getelementptr inbounds i8, ptr %84, i64 48
   %86 = getelementptr [64 x i32], ptr %85, i64 0, i64 %77
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, %79
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %.thread.i3, label %90
+  br i1 %89, label %.critedge.i3, label %90
 
 90:                                               ; preds = %.split.i1
   %91 = getelementptr inbounds i8, ptr %84, i64 32
   %92 = call fastcc i32 @audit_filter_rules(ptr noundef %7, ptr noundef %91, ptr noundef %9, ptr noundef null, ptr noundef nonnull %4)
   %93 = icmp eq i32 %92, 0
-  br i1 %93, label %.thread.i3, label %94
+  br i1 %93, label %.critedge.i3, label %94
 
 94:                                               ; preds = %90
   %95 = load i32, ptr %4, align 4
   store i32 %95, ptr %64, align 4
   br label %.loopexit.i2
 
-.thread.i3:                                       ; preds = %90, %.split.i1
+.critedge.i3:                                     ; preds = %90, %.split.i1
   %96 = load volatile ptr, ptr %84, align 8
   %97 = icmp eq ptr %96, getelementptr (i8, ptr @audit_filter_list, i64 112)
   br i1 %97, label %.loopexit.i2, label %.split.i1, !llvm.loop !6
 
-.loopexit.i2:                                     ; preds = %.thread.i3, %.thread.us.i4, %94, %70
+.loopexit.i2:                                     ; preds = %.critedge.i3, %.critedge.us.i4, %94, %70
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   tail call void @__rcu_read_unlock() #12
   br label %audit_filter_uring.exit
@@ -2366,28 +2366,28 @@ audit_filter_uring.exit:                          ; preds = %.loopexit.i2, %67, 
   %117 = and i32 %111, 31
   %118 = shl nuw i32 1, %117
   %119 = icmp ugt i32 %111, 2047
-  br i1 %119, label %.thread.us.i8, label %.split.i5
+  br i1 %119, label %.critedge.us.i8, label %.split.i5
 
-.thread.us.i8:                                    ; preds = %114, %.thread.us.i8
-  %120 = phi ptr [ %121, %.thread.us.i8 ], [ %112, %114 ]
+.critedge.us.i8:                                  ; preds = %114, %.critedge.us.i8
+  %120 = phi ptr [ %121, %.critedge.us.i8 ], [ %112, %114 ]
   %121 = load volatile ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, getelementptr (i8, ptr @audit_filter_list, i64 112)
-  br i1 %122, label %.loopexit.i6, label %.thread.us.i8, !llvm.loop !6
+  br i1 %122, label %.loopexit.i6, label %.critedge.us.i8, !llvm.loop !6
 
-.split.i5:                                        ; preds = %114, %.thread.i7
-  %123 = phi ptr [ %136, %.thread.i7 ], [ %112, %114 ]
+.split.i5:                                        ; preds = %114, %.critedge.i7
+  %123 = phi ptr [ %136, %.critedge.i7 ], [ %112, %114 ]
   %124 = getelementptr inbounds i8, ptr %123, i64 48
   %125 = getelementptr [64 x i32], ptr %124, i64 0, i64 %116
   %126 = load i32, ptr %125, align 4
   %127 = and i32 %126, %118
   %128 = icmp eq i32 %127, 0
-  br i1 %128, label %.thread.i7, label %129
+  br i1 %128, label %.critedge.i7, label %129
 
 129:                                              ; preds = %.split.i5
   %130 = getelementptr inbounds i8, ptr %123, i64 32
   %131 = call fastcc i32 @audit_filter_rules(ptr noundef %7, ptr noundef %130, ptr noundef %9, ptr noundef null, ptr noundef nonnull %3)
   %132 = icmp eq i32 %131, 0
-  br i1 %132, label %.thread.i7, label %133
+  br i1 %132, label %.critedge.i7, label %133
 
 133:                                              ; preds = %129
   %134 = load i32, ptr %3, align 4
@@ -2395,12 +2395,12 @@ audit_filter_uring.exit:                          ; preds = %.loopexit.i2, %67, 
   store i32 %134, ptr %135, align 4
   br label %.loopexit.i6
 
-.thread.i7:                                       ; preds = %129, %.split.i5
+.critedge.i7:                                     ; preds = %129, %.split.i5
   %136 = load volatile ptr, ptr %123, align 8
   %137 = icmp eq ptr %136, getelementptr (i8, ptr @audit_filter_list, i64 112)
   br i1 %137, label %.loopexit.i6, label %.split.i5, !llvm.loop !6
 
-.loopexit.i6:                                     ; preds = %.thread.i7, %.thread.us.i8, %133, %109
+.loopexit.i6:                                     ; preds = %.critedge.i7, %.critedge.us.i8, %133, %109
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   tail call void @__rcu_read_unlock() #12
   br label %audit_filter_uring.exit9
@@ -2821,28 +2821,28 @@ define dso_local void @__audit_syscall_exit(i32 noundef %0, i64 noundef %1) loca
   %44 = and i32 %38, 31
   %45 = shl nuw i32 1, %44
   %46 = icmp ugt i32 %38, 2047
-  br i1 %46, label %.thread.us.i, label %.split.i
+  br i1 %46, label %.critedge.us.i, label %.split.i
 
-.thread.us.i:                                     ; preds = %41, %.thread.us.i
-  %47 = phi ptr [ %48, %.thread.us.i ], [ %39, %41 ]
+.critedge.us.i:                                   ; preds = %41, %.critedge.us.i
+  %47 = phi ptr [ %48, %.critedge.us.i ], [ %39, %41 ]
   %48 = load volatile ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, getelementptr (i8, ptr @audit_filter_list, i64 64)
-  br i1 %49, label %.loopexit.i, label %.thread.us.i, !llvm.loop !6
+  br i1 %49, label %.loopexit.i, label %.critedge.us.i, !llvm.loop !6
 
-.split.i:                                         ; preds = %41, %.thread.i
-  %50 = phi ptr [ %63, %.thread.i ], [ %39, %41 ]
+.split.i:                                         ; preds = %41, %.critedge.i
+  %50 = phi ptr [ %63, %.critedge.i ], [ %39, %41 ]
   %51 = getelementptr inbounds i8, ptr %50, i64 48
   %52 = getelementptr [64 x i32], ptr %51, i64 0, i64 %43
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, %45
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %.thread.i, label %56
+  br i1 %55, label %.critedge.i, label %56
 
 56:                                               ; preds = %.split.i
   %57 = getelementptr inbounds i8, ptr %50, i64 32
   %58 = call fastcc i32 @audit_filter_rules(ptr noundef %5, ptr noundef %57, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %3)
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.thread.i, label %60
+  br i1 %59, label %.critedge.i, label %60
 
 60:                                               ; preds = %56
   %61 = load i32, ptr %3, align 4
@@ -2850,12 +2850,12 @@ define dso_local void @__audit_syscall_exit(i32 noundef %0, i64 noundef %1) loca
   store i32 %61, ptr %62, align 4
   br label %.loopexit.i
 
-.thread.i:                                        ; preds = %56, %.split.i
+.critedge.i:                                      ; preds = %56, %.split.i
   %63 = load volatile ptr, ptr %50, align 8
   %64 = icmp eq ptr %63, getelementptr (i8, ptr @audit_filter_list, i64 64)
   br i1 %64, label %.loopexit.i, label %.split.i, !llvm.loop !6
 
-.loopexit.i:                                      ; preds = %.thread.i, %.thread.us.i, %60, %36
+.loopexit.i:                                      ; preds = %.critedge.i, %.critedge.us.i, %60, %36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   tail call void @__rcu_read_unlock() #12
   br label %audit_filter_syscall.exit

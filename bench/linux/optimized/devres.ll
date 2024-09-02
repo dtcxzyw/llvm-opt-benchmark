@@ -604,66 +604,66 @@ define dso_local i32 @pcim_iomap_regions(ptr noundef %0, i32 noundef %1, ptr nou
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %.thread9, label %28
+  br i1 %27, label %.critedge.thread, label %28
 
 28:                                               ; preds = %23
   %29 = load i64, ptr %24, align 8
   %30 = add i64 %26, 1
   %31 = icmp eq i64 %30, %29
-  br i1 %31, label %.thread9, label %32
+  br i1 %31, label %.critedge.thread, label %32
 
 32:                                               ; preds = %28
   %33 = tail call i32 @pci_request_region(ptr noundef %0, i32 noundef %19, ptr noundef %2) #5
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %.thread9
+  br i1 %34, label %35, label %.critedge.thread
 
 35:                                               ; preds = %32
   %36 = tail call ptr @pcim_iomap(ptr noundef %0, i32 noundef %19, i64 noundef 0)
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %41, label %38
+  br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %17, %35
   %39 = add nuw nsw i64 %18, 1
   %40 = icmp eq i64 %39, 11
   br i1 %40, label %.thread, label %17, !llvm.loop !27
 
-41:                                               ; preds = %35
+.critedge:                                        ; preds = %35
   tail call void @pci_release_region(ptr noundef %0, i32 noundef %19) #5
-  br label %.thread9
+  br label %.critedge.thread
 
-.thread9:                                         ; preds = %23, %32, %28, %41
-  %42 = phi i32 [ -12, %41 ], [ -22, %23 ], [ -22, %28 ], [ %33, %32 ]
-  %43 = icmp eq i32 %19, 0
-  br i1 %43, label %.thread, label %44
+.critedge.thread:                                 ; preds = %23, %32, %28, %.critedge
+  %41 = phi i32 [ -12, %.critedge ], [ -22, %28 ], [ %33, %32 ], [ -22, %23 ]
+  %42 = icmp eq i32 %19, 0
+  br i1 %42, label %.thread, label %43
 
-44:                                               ; preds = %.thread9
-  %45 = add nuw i64 %18, 4294967295
-  %46 = and i64 %45, 4294967295
-  br label %47
+43:                                               ; preds = %.critedge.thread
+  %44 = add nuw i64 %18, 4294967295
+  %45 = and i64 %44, 4294967295
+  br label %46
 
-47:                                               ; preds = %56, %44
-  %48 = phi i64 [ %46, %44 ], [ %57, %56 ]
-  %49 = trunc i64 %48 to i32
-  %50 = shl nuw i32 1, %49
-  %51 = and i32 %50, %1
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %56, label %53
+46:                                               ; preds = %55, %43
+  %47 = phi i64 [ %45, %43 ], [ %56, %55 ]
+  %48 = trunc i64 %47 to i32
+  %49 = shl nuw i32 1, %48
+  %50 = and i32 %49, %1
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %55, label %52
 
-53:                                               ; preds = %47
-  %54 = getelementptr ptr, ptr %15, i64 %48
-  %55 = load ptr, ptr %54, align 8
-  tail call void @pcim_iounmap(ptr noundef %0, ptr noundef %55)
-  tail call void @pci_release_region(ptr noundef %0, i32 noundef %49) #5
-  br label %56
+52:                                               ; preds = %46
+  %53 = getelementptr ptr, ptr %15, i64 %47
+  %54 = load ptr, ptr %53, align 8
+  tail call void @pcim_iounmap(ptr noundef %0, ptr noundef %54)
+  tail call void @pci_release_region(ptr noundef %0, i32 noundef %48) #5
+  br label %55
 
-56:                                               ; preds = %53, %47
-  %57 = add nsw i64 %48, -1
-  %58 = icmp sgt i64 %48, 0
-  br i1 %58, label %47, label %.thread, !llvm.loop !28
+55:                                               ; preds = %52, %46
+  %56 = add nsw i64 %47, -1
+  %57 = icmp sgt i64 %47, 0
+  br i1 %57, label %46, label %.thread, !llvm.loop !28
 
-.thread:                                          ; preds = %38, %56, %7, %.thread9, %12
-  %59 = phi i32 [ -12, %12 ], [ %42, %.thread9 ], [ -12, %7 ], [ %42, %56 ], [ 0, %38 ]
-  ret i32 %59
+.thread:                                          ; preds = %38, %55, %7, %.critedge.thread, %12
+  %58 = phi i32 [ -12, %12 ], [ %41, %.critedge.thread ], [ -12, %7 ], [ %41, %55 ], [ 0, %38 ]
+  ret i32 %58
 }
 
 ; Function Attrs: null_pointer_is_valid

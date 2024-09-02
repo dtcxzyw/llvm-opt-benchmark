@@ -1100,7 +1100,7 @@ cbuf_replayer.exit:                               ; preds = %14, %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483646, -2147483648) i32 @cbuf_rewind(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483646, 2147483647) i32 @cbuf_rewind(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, -1
   br i1 %3, label %4, label %6
 

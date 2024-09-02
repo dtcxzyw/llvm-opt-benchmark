@@ -174,11 +174,11 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
   store ptr %39, ptr %8, align 8
   br label %.lr.ph68
 
-.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %72
-  %.in = phi i32 [ %40, %72 ], [ %17, %.lr.ph68.preheader ]
-  %.04566 = phi i32 [ %.146, %72 ], [ 1, %.lr.ph68.preheader ]
-  %.05065 = phi ptr [ %73, %72 ], [ %16, %.lr.ph68.preheader ]
-  %.05264 = phi ptr [ %.153, %72 ], [ %39, %.lr.ph68.preheader ]
+.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %73
+  %.in = phi i32 [ %40, %73 ], [ %17, %.lr.ph68.preheader ]
+  %.04566 = phi i32 [ %.146, %73 ], [ 1, %.lr.ph68.preheader ]
+  %.05065 = phi ptr [ %74, %73 ], [ %16, %.lr.ph68.preheader ]
+  %.05264 = phi ptr [ %.153, %73 ], [ %39, %.lr.ph68.preheader ]
   %40 = add nsw i32 %.in, -1
   %41 = load i32, ptr %5, align 4
   %42 = icmp sgt i32 %41, 0
@@ -217,45 +217,45 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
   br i1 %57, label %45, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %55
-  %.not60 = icmp eq i32 %.1, 0
-  br i1 %.not60, label %72, label %._crit_edge.thread
+  %58 = icmp eq i32 %.1, 0
+  br i1 %58, label %73, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph68, %._crit_edge
-  %58 = load i32, ptr %7, align 4
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %7, align 4
-  %.not61 = icmp slt i32 %58, %.04566
-  br i1 %.not61, label %70, label %60
+  %59 = load i32, ptr %7, align 4
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %7, align 4
+  %.not61 = icmp slt i32 %59, %.04566
+  br i1 %.not61, label %71, label %61
 
-60:                                               ; preds = %._crit_edge.thread
-  %61 = add nsw i32 %.04566, 1
-  %62 = load ptr, ptr %8, align 8
-  %63 = sext i32 %61 to i64
-  %64 = shl nsw i64 %63, 3
-  %65 = call ptr @realloc(ptr noundef %62, i64 noundef %64) #11
-  store ptr %65, ptr %8, align 8
-  %66 = load i32, ptr %7, align 4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr ptr, ptr %65, i64 %67
-  %69 = getelementptr i8, ptr %68, i64 -8
-  br label %70
+61:                                               ; preds = %._crit_edge.thread
+  %62 = add nsw i32 %.04566, 1
+  %63 = load ptr, ptr %8, align 8
+  %64 = sext i32 %62 to i64
+  %65 = shl nsw i64 %64, 3
+  %66 = call ptr @realloc(ptr noundef %63, i64 noundef %65) #11
+  store ptr %66, ptr %8, align 8
+  %67 = load i32, ptr %7, align 4
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr ptr, ptr %66, i64 %68
+  %70 = getelementptr i8, ptr %69, i64 -8
+  br label %71
 
-70:                                               ; preds = %60, %._crit_edge.thread
-  %.254 = phi ptr [ %69, %60 ], [ %.05264, %._crit_edge.thread ]
-  %.2 = phi i32 [ %61, %60 ], [ %.04566, %._crit_edge.thread ]
-  %71 = getelementptr inbounds i8, ptr %.254, i64 8
+71:                                               ; preds = %61, %._crit_edge.thread
+  %.254 = phi ptr [ %70, %61 ], [ %.05264, %._crit_edge.thread ]
+  %.2 = phi i32 [ %62, %61 ], [ %.04566, %._crit_edge.thread ]
+  %72 = getelementptr inbounds i8, ptr %.254, i64 8
   store ptr %.05065, ptr %.254, align 8
-  br label %72
+  br label %73
 
-72:                                               ; preds = %70, %._crit_edge
-  %.153 = phi ptr [ %71, %70 ], [ %.05264, %._crit_edge ]
-  %.146 = phi i32 [ %.2, %70 ], [ %.04566, %._crit_edge ]
-  %73 = getelementptr inbounds i8, ptr %.05065, i64 64
-  %74 = icmp sgt i32 %.in, 1
-  br i1 %74, label %.lr.ph68, label %.loopexit, !llvm.loop !9
+73:                                               ; preds = %71, %._crit_edge
+  %.153 = phi ptr [ %72, %71 ], [ %.05264, %._crit_edge ]
+  %.146 = phi i32 [ %.2, %71 ], [ %.04566, %._crit_edge ]
+  %74 = getelementptr inbounds i8, ptr %.05065, i64 64
+  %75 = icmp sgt i32 %.in, 1
+  br i1 %75, label %.lr.ph68, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %72, %9
-  %.047 = phi i32 [ 1, %9 ], [ 0, %72 ]
+.loopexit:                                        ; preds = %73, %9
+  %.047 = phi i32 [ 1, %9 ], [ 0, %73 ]
   ret i32 %.047
 }
 

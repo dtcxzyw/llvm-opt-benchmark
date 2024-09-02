@@ -235,7 +235,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit93:                  ; preds = %_ZNSt12_Vector_base
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit109
 
-.loopexit.split-lp214:                            ; preds = %._crit_edge, %104
+.loopexit.split-lp214:                            ; preds = %._crit_edge, %106
   %lpad.loopexit.split-lp216 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit109
@@ -268,25 +268,28 @@ _ZNSt6vectorIiSaIiEED2Ev.exit93:                  ; preds = %_ZNSt12_Vector_base
   %100 = zext i32 %93 to i64
   %101 = icmp ugt i64 %69, %100
   %102 = select i1 %99, i1 %101, i1 false
-  br i1 %102, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  br i1 %102, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %87, %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %.051.lcssa = phi i32 [ %58, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %93, %87 ]
-  %.050.lcssa = phi i32 [ 0, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %98, %87 ]
-  %103 = invoke noundef nonnull align 1 dereferenceable(32) ptr @_ZN2cv7barcode16FIRST_CHAR_ARRAYEv()
-          to label %104 unwind label %.loopexit.split-lp214
+._crit_edge.loopexit:                             ; preds = %87
+  %103 = lshr i32 %98, 2
+  %104 = zext nneg i32 %103 to i64
+  br label %._crit_edge
 
-104:                                              ; preds = %._crit_edge
-  %105 = lshr i32 %.050.lcssa, 2
-  %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds [32 x i8], ptr %103, i64 0, i64 %106
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIiSaIiEED2Ev.exit
+  %.051.lcssa = phi i32 [ %58, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %93, %._crit_edge.loopexit ]
+  %.050.lcssa = phi i64 [ 0, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %104, %._crit_edge.loopexit ]
+  %105 = invoke noundef nonnull align 1 dereferenceable(32) ptr @_ZN2cv7barcode16FIRST_CHAR_ARRAYEv()
+          to label %106 unwind label %.loopexit.split-lp214
+
+106:                                              ; preds = %._crit_edge
+  %107 = getelementptr inbounds [32 x i8], ptr %105, i64 0, i64 %.050.lcssa
   %108 = load i8, ptr %107, align 1
   %109 = add i8 %108, 48
   store i8 %109, ptr %5, align 1
   %110 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7barcode14MIDDLE_PATTERNEv()
           to label %111 unwind label %.loopexit.split-lp214
 
-111:                                              ; preds = %104
+111:                                              ; preds = %106
   %112 = getelementptr inbounds i8, ptr %110, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %110, align 8

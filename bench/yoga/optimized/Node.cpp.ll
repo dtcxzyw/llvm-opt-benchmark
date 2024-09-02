@@ -527,7 +527,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
+define noundef zeroext range(i8 0, 4) i8 @_ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
 entry:
   %config_.i = getelementptr inbounds i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i, align 8
@@ -563,7 +563,7 @@ cond.end:                                         ; preds = %switch.lookup, %con
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK8facebook4yoga4Node27getInlineEndEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
+define noundef zeroext range(i8 0, 4) i8 @_ZNK8facebook4yoga4Node27getInlineEndEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
 entry:
   %config_.i = getelementptr inbounds i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i, align 8
@@ -599,7 +599,7 @@ cond.end:                                         ; preds = %switch.lookup, %con
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
+define noundef zeroext range(i8 4, 6) i8 @_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
 entry:
   %config_.i = getelementptr inbounds i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i, align 8
@@ -633,7 +633,7 @@ cond.end:                                         ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
+define noundef zeroext range(i8 4, 6) i8 @_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
 entry:
   %config_.i = getelementptr inbounds i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i, align 8

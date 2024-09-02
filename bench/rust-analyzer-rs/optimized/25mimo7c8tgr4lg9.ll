@@ -666,7 +666,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   %99 = load i64, ptr %80, align 8, !alias.scope !220, !noalias !217, !noundef !4
   %100 = load i64, ptr %16, align 8, !alias.scope !220, !noalias !217, !noundef !4
   %101 = add i64 %100, %99
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %101, i64 88686269585142075)
+  %.0.sroa.speculated.i.i.i = tail call noundef range(i64 0, 88686269585142076) i64 @llvm.umin.i64(i64 %101, i64 88686269585142075)
   %102 = sub i64 %.0.sroa.speculated.i.i.i, %95
   %103 = icmp ugt i64 %102, 1
   br i1 %103, label %112, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h6da3f297e942286bE.exit.i.thread.i"

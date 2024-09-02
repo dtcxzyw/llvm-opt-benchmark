@@ -710,11 +710,11 @@ land.rhs:                                         ; preds = %if.then215
   %absolutePath = getelementptr inbounds i8, ptr %uri, i64 144
   %84 = load i32, ptr %absolutePath, align 8
   %tobool221.not = icmp eq i32 %84, 0
+  %85 = zext i1 %tobool221.not to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then215
-  %85 = phi i1 [ false, %if.then215 ], [ %tobool221.not, %land.rhs ]
-  %cond = zext i1 %85 to i32
+  %cond = phi i32 [ 0, %if.then215 ], [ %85, %land.rhs ]
   %pathHead222 = getelementptr inbounds i8, ptr %uri, i64 96
   %86 = load ptr, ptr %pathHead222, align 8
   %owner223 = getelementptr inbounds i8, ptr %uri, i64 148
@@ -1424,7 +1424,7 @@ return:                                           ; preds = %if.end339.thread451
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriNormalizeSyntaxExA(ptr noundef %uri, i32 noundef %mask) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @uriNormalizeSyntaxExA(ptr noundef %uri, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
   %call4.i = tail call fastcc i32 @uriNormalizeSyntaxEngineA(ptr noundef %uri, i32 noundef %mask, ptr noundef null, ptr noundef nonnull @defaultMemoryManager)
   ret i32 %call4.i
@@ -1454,9 +1454,9 @@ return:                                           ; preds = %if.else, %do.end
 declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriNormalizeSyntaxA(ptr noundef %uri) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @uriNormalizeSyntaxA(ptr noundef %uri) local_unnamed_addr #0 {
 entry:
-  %call4.i.i = tail call fastcc range(i32 0, 11) i32 @uriNormalizeSyntaxEngineA(ptr noundef %uri, i32 noundef -1, ptr noundef null, ptr noundef nonnull @defaultMemoryManager)
+  %call4.i.i = tail call fastcc range(i32 0, 4) i32 @uriNormalizeSyntaxEngineA(ptr noundef %uri, i32 noundef -1, ptr noundef null, ptr noundef nonnull @defaultMemoryManager)
   ret i32 %call4.i.i
 }
 
@@ -2159,11 +2159,11 @@ land.rhs:                                         ; preds = %if.then210
   %absolutePath = getelementptr inbounds i8, ptr %uri, i64 144
   %84 = load i32, ptr %absolutePath, align 8
   %tobool215.not = icmp eq i32 %84, 0
+  %85 = zext i1 %tobool215.not to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then210
-  %85 = phi i1 [ false, %if.then210 ], [ %tobool215.not, %land.rhs ]
-  %cond = zext i1 %85 to i32
+  %cond = phi i32 [ 0, %if.then210 ], [ %85, %land.rhs ]
   %pathHead216 = getelementptr inbounds i8, ptr %uri, i64 96
   %86 = load ptr, ptr %pathHead216, align 8
   %owner217 = getelementptr inbounds i8, ptr %uri, i64 148
@@ -2887,7 +2887,7 @@ return:                                           ; preds = %if.end326.thread458
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriNormalizeSyntaxExW(ptr noundef %uri, i32 noundef %mask) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @uriNormalizeSyntaxExW(ptr noundef %uri, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
   %call4.i = tail call fastcc i32 @uriNormalizeSyntaxEngineW(ptr noundef %uri, i32 noundef %mask, ptr noundef null, ptr noundef nonnull @defaultMemoryManager)
   ret i32 %call4.i
@@ -2915,9 +2915,9 @@ return:                                           ; preds = %if.else, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriNormalizeSyntaxW(ptr noundef %uri) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @uriNormalizeSyntaxW(ptr noundef %uri) local_unnamed_addr #0 {
 entry:
-  %call4.i.i = tail call fastcc range(i32 0, 11) i32 @uriNormalizeSyntaxEngineW(ptr noundef %uri, i32 noundef -1, ptr noundef null, ptr noundef nonnull @defaultMemoryManager)
+  %call4.i.i = tail call fastcc range(i32 0, 4) i32 @uriNormalizeSyntaxEngineW(ptr noundef %uri, i32 noundef -1, ptr noundef null, ptr noundef nonnull @defaultMemoryManager)
   ret i32 %call4.i.i
 }
 

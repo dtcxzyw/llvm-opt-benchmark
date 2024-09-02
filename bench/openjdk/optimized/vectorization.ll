@@ -1077,7 +1077,7 @@ _ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArrayIiE.exit: ; preds = 
   %290 = getelementptr inbounds ptr, ptr %289, i64 %indvars.iv.i
   %291 = load ptr, ptr %290, align 8
   %292 = call noundef i32 @_ZNK20VLoopDependencyGraph19find_max_pred_depthEPK4Node(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %291)
-  %293 = add nsw i32 %292, 1
+  %293 = add nuw nsw i32 %292, 1
   %294 = load ptr, ptr %280, align 8
   %295 = getelementptr inbounds i8, ptr %294, i64 32
   %296 = load ptr, ptr %295, align 8
@@ -1595,7 +1595,7 @@ define hidden void @_ZN20VLoopDependencyGraph13compute_depthEv(ptr nocapture nou
   %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 @_ZNK20VLoopDependencyGraph19find_max_pred_depthEPK4Node(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %13)
-  %15 = add nsw i32 %14, 1
+  %15 = add nuw nsw i32 %14, 1
   %16 = load ptr, ptr %2, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
@@ -1626,7 +1626,7 @@ define hidden void @_ZN20VLoopDependencyGraph13compute_depthEv(ptr nocapture nou
 declare noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden noundef i32 @_ZNK20VLoopDependencyGraph19find_max_pred_depthEPK4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZNK20VLoopDependencyGraph19find_max_pred_depthEPK4Node(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 15
@@ -2595,7 +2595,7 @@ define hidden void @_ZN8VPointerC2EPS_(ptr nocapture noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK8VPointer12invar_factorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483647) i32 @_ZNK8VPointer12invar_factorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

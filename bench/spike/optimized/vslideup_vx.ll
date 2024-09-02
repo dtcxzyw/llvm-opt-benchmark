@@ -167,9 +167,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32i_vslideup_v
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 659808
   %54 = load i64, ptr %53, align 8
-  %55 = add i64 %54, -8
-  %spec.select = icmp ult i64 %55, 57
-  br i1 %spec.select, label %61, label %56
+  %55 = add i64 %54, -65
+  %spec.select = icmp ult i64 %55, -57
+  br i1 %spec.select, label %56, label %61
 
 56:                                               ; preds = %47
   %57 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -541,9 +541,9 @@ define noundef i64 @_Z22fast_rv64i_vslideup_vxP11processor_t6insn_tm(ptr noundef
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 659808
   %54 = load i64, ptr %53, align 8
-  %55 = add i64 %54, -8
-  %spec.select = icmp ult i64 %55, 57
-  br i1 %spec.select, label %61, label %56
+  %55 = add i64 %54, -65
+  %spec.select = icmp ult i64 %55, -57
+  br i1 %spec.select, label %56, label %61
 
 56:                                               ; preds = %47
   %57 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -881,9 +881,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32i_vslideup
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 659808
   %54 = load i64, ptr %53, align 8
-  %55 = add i64 %54, -8
-  %spec.select = icmp ult i64 %55, 57
-  br i1 %spec.select, label %61, label %56
+  %55 = add i64 %54, -65
+  %spec.select = icmp ult i64 %55, -57
+  br i1 %spec.select, label %56, label %61
 
 56:                                               ; preds = %47
   %57 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -1223,9 +1223,9 @@ define noundef i64 @_Z24logged_rv64i_vslideup_vxP11processor_t6insn_tm(ptr nound
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 659808
   %54 = load i64, ptr %53, align 8
-  %55 = add i64 %54, -8
-  %spec.select = icmp ult i64 %55, 57
-  br i1 %spec.select, label %61, label %56
+  %55 = add i64 %54, -65
+  %spec.select = icmp ult i64 %55, -57
+  br i1 %spec.select, label %56, label %61
 
 56:                                               ; preds = %47
   %57 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -1579,9 +1579,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32e_vslideup_v
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 659808
   %61 = load i64, ptr %60, align 8
-  %62 = add i64 %61, -8
-  %spec.select = icmp ult i64 %62, 57
-  br i1 %spec.select, label %68, label %63
+  %62 = add i64 %61, -65
+  %spec.select = icmp ult i64 %62, -57
+  br i1 %spec.select, label %63, label %68
 
 63:                                               ; preds = %56
   %64 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -1937,9 +1937,9 @@ define noundef i64 @_Z22fast_rv64e_vslideup_vxP11processor_t6insn_tm(ptr noundef
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 659808
   %61 = load i64, ptr %60, align 8
-  %62 = add i64 %61, -8
-  %spec.select = icmp ult i64 %62, 57
-  br i1 %spec.select, label %68, label %63
+  %62 = add i64 %61, -65
+  %spec.select = icmp ult i64 %62, -57
+  br i1 %spec.select, label %63, label %68
 
 63:                                               ; preds = %56
   %64 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -2293,9 +2293,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32e_vslideup
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 659808
   %61 = load i64, ptr %60, align 8
-  %62 = add i64 %61, -8
-  %spec.select = icmp ult i64 %62, 57
-  br i1 %spec.select, label %68, label %63
+  %62 = add i64 %61, -65
+  %spec.select = icmp ult i64 %62, -57
+  br i1 %spec.select, label %63, label %68
 
 63:                                               ; preds = %56
   %64 = tail call ptr @__cxa_allocate_exception(i64 32) #15
@@ -2651,9 +2651,9 @@ define noundef i64 @_Z24logged_rv64e_vslideup_vxP11processor_t6insn_tm(ptr nound
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 659808
   %61 = load i64, ptr %60, align 8
-  %62 = add i64 %61, -8
-  %spec.select = icmp ult i64 %62, 57
-  br i1 %spec.select, label %68, label %63
+  %62 = add i64 %61, -65
+  %spec.select = icmp ult i64 %62, -57
+  br i1 %spec.select, label %63, label %68
 
 63:                                               ; preds = %56
   %64 = tail call ptr @__cxa_allocate_exception(i64 32) #15

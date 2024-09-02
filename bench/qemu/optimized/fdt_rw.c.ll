@@ -108,7 +108,7 @@ return:                                           ; preds = %if.end8.i, %if.end3
 declare i32 @fdt_num_mem_rsv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @fdt_splice_mem_rsv_(ptr noundef %fdt, ptr noundef %p, i32 noundef %oldn, i32 noundef %newn) unnamed_addr #2 {
+define internal fastcc range(i32 -4, 1) i32 @fdt_splice_mem_rsv_(ptr noundef %fdt, ptr noundef %p, i32 noundef %oldn, i32 noundef %newn) unnamed_addr #2 {
 entry:
   %mul3 = shl i32 %oldn, 4
   %mul6 = shl i32 %newn, 4

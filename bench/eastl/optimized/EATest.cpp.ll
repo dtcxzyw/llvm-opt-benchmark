@@ -215,7 +215,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #2
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2EA8UnitTest12TestInternal21EATEST_VERIFY_F_IMP_GEbPKcz(i1 noundef zeroext %bExpression, ptr noundef %pFormat, ...) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN2EA8UnitTest12TestInternal21EATEST_VERIFY_F_IMP_GEbPKcz(i1 noundef zeroext %bExpression, ptr noundef %pFormat, ...) local_unnamed_addr #0 {
 entry:
   %buffer = alloca [2048 x i8], align 16
   %arguments = alloca [1 x %struct.__va_list_tag], align 16
@@ -1964,7 +1964,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit27: ; preds = %cleanup, %if.the
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK2EA8UnitTest14TestCollection14EnumerateTestsEPPNS0_4TestEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef writeonly %pTestArray, i64 noundef %nTestArrayCapacity) unnamed_addr #19 align 2 {
+define dso_local noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZNK2EA8UnitTest14TestCollection14EnumerateTestsEPPNS0_4TestEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef writeonly %pTestArray, i64 noundef %nTestArrayCapacity) unnamed_addr #19 align 2 {
 entry:
   %tobool.not = icmp eq ptr %pTestArray, null
   br i1 %tobool.not, label %if.end8, label %if.then

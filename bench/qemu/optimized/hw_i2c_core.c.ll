@@ -561,21 +561,17 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_i2c_send.exit:                              ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %tobool2.not = icmp eq i32 %ret.010, 0
-  br i1 %tobool2.not, label %lor.rhs, label %lor.end
+  br i1 %tobool2.not, label %lor.rhs, label %for.inc
 
 lor.rhs:                                          ; preds = %trace_i2c_send.exit
   %9 = load ptr, ptr %send, align 8
   %call4 = tail call i32 %9(ptr noundef nonnull %0, i8 noundef zeroext %data) #9
   %tobool5 = icmp ne i32 %call4, 0
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %trace_i2c_send.exit
-  %10 = phi i1 [ true, %trace_i2c_send.exit ], [ %tobool5, %lor.rhs ]
-  %lor.ext = zext i1 %10 to i32
+  %10 = zext i1 %tobool5 to i32
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %lor.end
-  %ret.1 = phi i32 [ %lor.ext, %lor.end ], [ -1, %for.body ]
+for.inc:                                          ; preds = %for.body, %trace_i2c_send.exit, %lor.rhs
+  %ret.1 = phi i32 [ 1, %trace_i2c_send.exit ], [ %10, %lor.rhs ], [ -1, %for.body ]
   %next = getelementptr inbounds i8, ptr %node.011, i64 8
   %node.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %node.0, null

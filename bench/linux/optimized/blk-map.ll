@@ -913,47 +913,47 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly %0, ptr noundef %
   %463 = trunc i64 %462 to i32
   %464 = load ptr, ptr %1, align 8
   %465 = icmp eq ptr %464, null
-  br i1 %465, label %469, label %466
+  br i1 %465, label %470, label %466
 
 466:                                              ; preds = %458
   %467 = getelementptr inbounds i8, ptr %464, i64 232
   %468 = load i32, ptr %467, align 8
-  br label %469
+  %469 = sext i32 %468 to i64
+  br label %470
 
-469:                                              ; preds = %466, %458
-  %470 = phi i32 [ %468, %466 ], [ 511, %458 ]
-  %471 = sext i32 %470 to i64
-  %472 = and i64 %459, %471
+470:                                              ; preds = %466, %458
+  %471 = phi i64 [ %469, %466 ], [ 511, %458 ]
+  %472 = and i64 %471, %459
   %473 = icmp eq i64 %472, 0
   %474 = icmp sgt i32 %463, 0
   %475 = select i1 %473, i1 %474, i1 false
   br i1 %475, label %476, label %509, !prof !16
 
-476:                                              ; preds = %469
+476:                                              ; preds = %470
   %477 = and i64 %462, 2147483647
-  br label %478
+  %478 = trunc i64 %459 to i32
+  br label %479
 
-478:                                              ; preds = %502, %476
-  %479 = phi i64 [ %459, %476 ], [ 0, %502 ]
-  %480 = phi i64 [ 0, %476 ], [ %505, %502 ]
-  %481 = phi i64 [ %453, %476 ], [ %504, %502 ]
-  %482 = load ptr, ptr %7, align 8
-  %483 = getelementptr ptr, ptr %482, i64 %480
-  %484 = load ptr, ptr %483, align 8
-  %485 = trunc i64 %479 to i32
-  %486 = sub i32 4096, %485
+479:                                              ; preds = %502, %476
+  %480 = phi i32 [ %478, %476 ], [ 0, %502 ]
+  %481 = phi i64 [ 0, %476 ], [ %505, %502 ]
+  %482 = phi i64 [ %453, %476 ], [ %504, %502 ]
+  %483 = load ptr, ptr %7, align 8
+  %484 = getelementptr ptr, ptr %483, i64 %481
+  %485 = load ptr, ptr %484, align 8
+  %486 = sub i32 4096, %480
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #8
   store i8 0, ptr %9, align 1
   %487 = zext i32 %486 to i64
-  %488 = icmp slt i64 %481, %487
-  %489 = trunc i64 %481 to i32
+  %488 = icmp slt i64 %482, %487
+  %489 = trunc i64 %482 to i32
   %490 = select i1 %488, i32 %489, i32 %486
   %491 = load ptr, ptr %1, align 8
-  %492 = call i32 @bio_add_hw_page(ptr noundef %491, ptr noundef nonnull %433, ptr noundef %484, i32 noundef %490, i32 noundef %485, i32 noundef %408, ptr noundef nonnull %9) #8
+  %492 = call i32 @bio_add_hw_page(ptr noundef %491, ptr noundef nonnull %433, ptr noundef %485, i32 noundef %490, i32 noundef %480, i32 noundef %408, ptr noundef nonnull %9) #8
   %493 = icmp eq i32 %492, 0
   br i1 %493, label %507, label %494
 
-494:                                              ; preds = %478
+494:                                              ; preds = %479
   %495 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %496 = icmp eq i8 %495, 0
   br i1 %496, label %502, label %497
@@ -965,26 +965,26 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly %0, ptr noundef %
   br i1 %500, label %502, label %501
 
 501:                                              ; preds = %497
-  call void @unpin_user_page(ptr noundef %484) #8
+  call void @unpin_user_page(ptr noundef %485) #8
   br label %502
 
 502:                                              ; preds = %501, %497, %494
   %503 = zext i32 %490 to i64
-  %504 = sub i64 %481, %503
+  %504 = sub i64 %482, %503
   store i64 0, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #8
-  %505 = add nuw nsw i64 %480, 1
+  %505 = add nuw nsw i64 %481, 1
   %506 = icmp eq i64 %505, %477
-  br i1 %506, label %.thread72, label %478, !llvm.loop !17
+  br i1 %506, label %.thread72, label %479, !llvm.loop !17
 
-507:                                              ; preds = %478
+507:                                              ; preds = %479
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #8
-  %508 = trunc i64 %480 to i32
+  %508 = trunc i64 %481 to i32
   br label %509
 
-509:                                              ; preds = %507, %469
-  %510 = phi i32 [ 0, %469 ], [ %508, %507 ]
-  %511 = phi i64 [ %453, %469 ], [ %481, %507 ]
+509:                                              ; preds = %507, %470
+  %510 = phi i32 [ 0, %470 ], [ %508, %507 ]
+  %511 = phi i64 [ %453, %470 ], [ %482, %507 ]
   %512 = icmp slt i32 %510, %463
   br i1 %512, label %513, label %.thread72
 

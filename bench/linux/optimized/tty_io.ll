@@ -1145,7 +1145,7 @@ define internal fastcc i64 @file_tty_write(ptr noundef %0, ptr noundef %1) unnam
   %12 = lshr i32 %11, 20
   %13 = and i32 %11, 1048575
   %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.46, i32 noundef %12, i32 noundef %13, ptr noundef nonnull @.str.43) #23
-  br label %148
+  br label %147
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %5, i64 32
@@ -1153,14 +1153,14 @@ define internal fastcc i64 @file_tty_write(ptr noundef %0, ptr noundef %1) unnam
   %18 = getelementptr inbounds i8, ptr %17, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %148, label %21
+  br i1 %20, label %147, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds i8, ptr %5, i64 416
   %23 = load volatile i64, ptr %22, align 8
   %24 = and i64 %23, 2
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %148
+  br i1 %25, label %26, label %147
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds i8, ptr %17, i64 80
@@ -1188,7 +1188,7 @@ define internal fastcc i64 @file_tty_write(ptr noundef %0, ptr noundef %1) unnam
 41:                                               ; preds = %37, %26
   %42 = tail call ptr @tty_ldisc_ref_wait(ptr noundef nonnull %5) #22
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %148, label %44
+  br i1 %43, label %147, label %44
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr %42, align 8
@@ -1227,9 +1227,9 @@ define internal fastcc i64 @file_tty_write(ptr noundef %0, ptr noundef %1) unnam
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
   %72 = icmp ugt i64 %68, %71
-  br i1 %72, label %73, label %._crit_edge
+  br i1 %72, label %73, label %._crit_edge32
 
-._crit_edge:                                      ; preds = %63
+._crit_edge32:                                    ; preds = %63
   %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 600
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %81
@@ -1249,31 +1249,31 @@ define internal fastcc i64 @file_tty_write(ptr noundef %0, ptr noundef %1) unnam
   store ptr %75, ptr %78, align 8
   br label %81
 
-81:                                               ; preds = %._crit_edge, %77
-  %82 = phi ptr [ %75, %77 ], [ %.pre, %._crit_edge ]
-  %83 = phi i64 [ %74, %77 ], [ %68, %._crit_edge ]
+81:                                               ; preds = %._crit_edge32, %77
+  %82 = phi ptr [ %75, %77 ], [ %.pre, %._crit_edge32 ]
+  %83 = phi i64 [ %74, %77 ], [ %68, %._crit_edge32 ]
   %84 = getelementptr inbounds i8, ptr %5, i64 600
   %85 = tail call i64 @llvm.umin.i64(i64 %83, i64 %51)
   %86 = tail call i64 @_copy_from_iter(ptr noundef %82, i64 noundef %85, ptr noundef %1) #22
   %87 = icmp eq i64 %86, %85
   br i1 %87, label %.lr.ph, label %.thread12
 
-.lr.ph:                                           ; preds = %81, %117
-  %88 = phi i64 [ %119, %117 ], [ %85, %81 ]
-  %89 = phi i64 [ %105, %117 ], [ %51, %81 ]
-  %90 = phi i64 [ %98, %117 ], [ 0, %81 ]
+.lr.ph:                                           ; preds = %81, %.critedge
+  %88 = phi i64 [ %118, %.critedge ], [ %85, %81 ]
+  %89 = phi i64 [ %105, %.critedge ], [ %51, %81 ]
+  %90 = phi i64 [ %98, %.critedge ], [ 0, %81 ]
   %91 = load ptr, ptr %42, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 48
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %84, align 8
   %95 = tail call i64 %93(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %94, i64 noundef %88) #22
   %96 = icmp slt i64 %95, 1
-  br i1 %96, label %.thread13, label %97
+  br i1 %96, label %._crit_edge, label %97
 
 97:                                               ; preds = %.lr.ph
   %98 = add i64 %95, %90
   %99 = icmp ugt i64 %95, %88
-  br i1 %99, label %.thread13, label %100
+  br i1 %99, label %._crit_edge, label %100
 
 100:                                              ; preds = %97
   %101 = icmp eq i64 %95, %88
@@ -1287,7 +1287,7 @@ define internal fastcc i64 @file_tty_write(ptr noundef %0, ptr noundef %1) unnam
 104:                                              ; preds = %102, %100
   %105 = sub i64 %89, %95
   %106 = icmp eq i64 %105, 0
-  br i1 %106, label %.thread13, label %107
+  br i1 %106, label %._crit_edge, label %107
 
 107:                                              ; preds = %104
   %108 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #25, !srcloc !23
@@ -1295,79 +1295,79 @@ define internal fastcc i64 @file_tty_write(ptr noundef %0, ptr noundef %1) unnam
   %110 = load volatile i64, ptr %109, align 8
   %111 = and i64 %110, 131072
   %112 = icmp eq i64 %111, 0
-  br i1 %112, label %113, label %.thread13, !prof !15
+  br i1 %112, label %113, label %._crit_edge, !prof !15
 
 113:                                              ; preds = %107
   %114 = load volatile i64, ptr %109, align 8
   %115 = and i64 %114, 4
   %116 = icmp eq i64 %115, 0
-  br i1 %116, label %117, label %.thread13
+  br i1 %116, label %.critedge, label %._crit_edge
 
-117:                                              ; preds = %113
-  %118 = tail call i32 @__SCT__cond_resched() #22
-  %119 = tail call i64 @llvm.umin.i64(i64 %83, i64 %105)
-  %120 = load ptr, ptr %84, align 8
-  %121 = tail call i64 @_copy_from_iter(ptr noundef %120, i64 noundef %119, ptr noundef %1) #22
-  %122 = icmp eq i64 %121, %119
-  br i1 %122, label %.lr.ph, label %.thread13
+.critedge:                                        ; preds = %113
+  %117 = tail call i32 @__SCT__cond_resched() #22
+  %118 = tail call i64 @llvm.umin.i64(i64 %83, i64 %105)
+  %119 = load ptr, ptr %84, align 8
+  %120 = tail call i64 @_copy_from_iter(ptr noundef %119, i64 noundef %118, ptr noundef %1) #22
+  %121 = icmp eq i64 %120, %118
+  br i1 %121, label %.lr.ph, label %._crit_edge
 
-.thread13:                                        ; preds = %113, %104, %97, %.lr.ph, %117, %107
-  %.ph15 = phi i64 [ %98, %113 ], [ %98, %104 ], [ %98, %97 ], [ %90, %.lr.ph ], [ %98, %117 ], [ %98, %107 ]
-  %.ph16 = phi i64 [ -512, %113 ], [ %95, %104 ], [ %95, %97 ], [ %95, %.lr.ph ], [ -14, %117 ], [ -512, %107 ]
-  %123 = icmp eq i64 %.ph15, 0
-  br i1 %123, label %.thread12, label %124
+._crit_edge:                                      ; preds = %107, %113, %104, %97, %.lr.ph, %.critedge
+  %.ph13 = phi i64 [ %98, %107 ], [ %98, %113 ], [ %98, %104 ], [ %98, %97 ], [ %90, %.lr.ph ], [ %98, %.critedge ]
+  %.ph14 = phi i64 [ -512, %107 ], [ -512, %113 ], [ %95, %104 ], [ %95, %97 ], [ %95, %.lr.ph ], [ -14, %.critedge ]
+  %122 = icmp eq i64 %.ph13, 0
+  br i1 %122, label %.thread12, label %123
 
-124:                                              ; preds = %.thread13
-  %125 = tail call i64 @ktime_get_real_seconds() #22
-  %126 = getelementptr inbounds i8, ptr %5, i64 592
-  tail call void @_raw_spin_lock(ptr noundef %126) #22
-  %127 = getelementptr inbounds i8, ptr %5, i64 608
-  %128 = load ptr, ptr %127, align 8
-  %129 = icmp eq ptr %128, %127
-  br i1 %129, label %.loopexit, label %.preheader
+123:                                              ; preds = %._crit_edge
+  %124 = tail call i64 @ktime_get_real_seconds() #22
+  %125 = getelementptr inbounds i8, ptr %5, i64 592
+  tail call void @_raw_spin_lock(ptr noundef %125) #22
+  %126 = getelementptr inbounds i8, ptr %5, i64 608
+  %127 = load ptr, ptr %126, align 8
+  %128 = icmp eq ptr %127, %126
+  br i1 %128, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %124, %141
-  %130 = phi ptr [ %142, %141 ], [ %128, %124 ]
-  %131 = getelementptr i8, ptr %130, i64 -8
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 168
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 104
-  %136 = load i64, ptr %135, align 8
-  %137 = xor i64 %136, %125
-  %138 = icmp ult i64 %137, 8
-  br i1 %138, label %141, label %139
+.preheader:                                       ; preds = %123, %140
+  %129 = phi ptr [ %141, %140 ], [ %127, %123 ]
+  %130 = getelementptr i8, ptr %129, i64 -8
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 168
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds i8, ptr %133, i64 104
+  %135 = load i64, ptr %134, align 8
+  %136 = xor i64 %135, %124
+  %137 = icmp ult i64 %136, 8
+  br i1 %137, label %140, label %138
 
-139:                                              ; preds = %.preheader
-  store i64 %125, ptr %135, align 8
-  %140 = getelementptr inbounds i8, ptr %134, i64 112
-  store i64 0, ptr %140, align 8
-  br label %141
+138:                                              ; preds = %.preheader
+  store i64 %124, ptr %134, align 8
+  %139 = getelementptr inbounds i8, ptr %133, i64 112
+  store i64 0, ptr %139, align 8
+  br label %140
 
-141:                                              ; preds = %139, %.preheader
-  %142 = load ptr, ptr %130, align 8
-  %143 = icmp eq ptr %142, %127
-  br i1 %143, label %.loopexit, label %.preheader, !llvm.loop !24
+140:                                              ; preds = %138, %.preheader
+  %141 = load ptr, ptr %129, align 8
+  %142 = icmp eq ptr %141, %126
+  br i1 %142, label %.loopexit, label %.preheader, !llvm.loop !24
 
-.loopexit:                                        ; preds = %141, %124
-  tail call void @_raw_spin_unlock(ptr noundef %126) #22
+.loopexit:                                        ; preds = %140, %123
+  tail call void @_raw_spin_unlock(ptr noundef %125) #22
   br label %.thread12
 
-.thread12:                                        ; preds = %81, %73, %.loopexit, %.thread13
-  %144 = phi i64 [ %.ph15, %.loopexit ], [ %.ph16, %.thread13 ], [ -12, %73 ], [ -14, %81 ]
+.thread12:                                        ; preds = %81, %73, %.loopexit, %._crit_edge
+  %143 = phi i64 [ %.ph13, %.loopexit ], [ %.ph14, %._crit_edge ], [ -12, %73 ], [ -14, %81 ]
   tail call void @mutex_unlock(ptr noundef %54) #22
-  %145 = getelementptr inbounds i8, ptr %5, i64 496
-  %146 = tail call i32 @__wake_up(ptr noundef %145, i32 noundef 1, i32 noundef 1, ptr noundef nonnull inttoptr (i64 4 to ptr)) #22
+  %144 = getelementptr inbounds i8, ptr %5, i64 496
+  %145 = tail call i32 @__wake_up(ptr noundef %144, i32 noundef 1, i32 noundef 1, ptr noundef nonnull inttoptr (i64 4 to ptr)) #22
   br label %.thread
 
 .thread:                                          ; preds = %60, %57, %.thread12, %44
-  %147 = phi i64 [ -5, %44 ], [ %144, %.thread12 ], [ -512, %60 ], [ -11, %57 ]
+  %146 = phi i64 [ -5, %44 ], [ %143, %.thread12 ], [ -512, %60 ], [ -11, %57 ]
   tail call void @tty_ldisc_deref(ptr noundef nonnull %42) #22
-  br label %148
+  br label %147
 
-148:                                              ; preds = %.thread, %41, %21, %15, %7
-  %149 = phi i64 [ %147, %.thread ], [ -5, %7 ], [ -5, %21 ], [ -5, %15 ], [ -5, %41 ]
-  ret i64 %149
+147:                                              ; preds = %.thread, %41, %21, %15, %7
+  %148 = phi i64 [ %146, %.thread ], [ -5, %7 ], [ -5, %21 ], [ -5, %15 ], [ -5, %41 ]
+  ret i64 %148
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2947,7 +2947,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_ioctl(ptr noundef %
   %20 = lshr i32 %19, 20
   %21 = and i32 %19, 1048575
   %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.46, i32 noundef %20, i32 noundef %21, ptr noundef nonnull @.str.9) #23
-  br label %.thread
+  br label %.critedge
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds i8, ptr %12, i64 16
@@ -3004,7 +3004,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_ioctl(ptr noundef %
 
 41:                                               ; preds = %38
   %42 = sext i32 %39 to i64
-  br label %.thread
+  br label %.critedge
 
 43:                                               ; preds = %38
   %44 = icmp eq i32 %1, 21544
@@ -3017,13 +3017,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_ioctl(ptr noundef %
   %48 = load volatile i64, ptr %47, align 8
   %49 = and i64 %48, 131072
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %51, label %.thread, !prof !15
+  br i1 %50, label %51, label %.critedge, !prof !15
 
 51:                                               ; preds = %45
   %52 = load volatile i64, ptr %47, align 8
   %53 = and i64 %52, 4
   %54 = icmp eq i64 %53, 0
-  br i1 %54, label %55, label %.thread
+  br i1 %54, label %55, label %.critedge
 
 55:                                               ; preds = %51
   switch i32 %1, label %337 [
@@ -3113,7 +3113,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_ioctl(ptr noundef %
 tiocsti.exit:                                     ; preds = %59, %69, %71, %80, %91
   %93 = phi i64 [ 0, %91 ], [ -5, %59 ], [ -1, %69 ], [ -14, %71 ], [ -5, %80 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #22
-  br label %.thread
+  br label %.critedge
 
 94:                                               ; preds = %55, %36
   %95 = getelementptr inbounds i8, ptr %37, i64 232
@@ -3124,7 +3124,7 @@ tiocsti.exit:                                     ; preds = %59, %69, %71, %80, 
   %99 = icmp eq i64 %98, 0
   tail call void @mutex_unlock(ptr noundef %95) #22
   %100 = select i1 %99, i64 0, i64 -14
-  br label %.thread
+  br label %.critedge
 
 101:                                              ; preds = %55, %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
@@ -3176,26 +3176,26 @@ tiocsti.exit:                                     ; preds = %59, %69, %71, %80, 
 tiocswinsz.exit:                                  ; preds = %101, %110, %125
   %126 = phi i64 [ %112, %110 ], [ 0, %125 ], [ -14, %101 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  br label %.thread
+  br label %.critedge
 
 127:                                              ; preds = %55, %36
   %128 = icmp eq ptr %37, %12
-  br i1 %128, label %129, label %.thread
+  br i1 %128, label %129, label %.critedge
 
 129:                                              ; preds = %127
   %130 = tail call fastcc i32 @tioccons(ptr noundef %0), !range !40
   %131 = sext i32 %130 to i64
-  br label %.thread
+  br label %.critedge
 
 132:                                              ; preds = %55, %36
   %133 = getelementptr inbounds i8, ptr %12, i64 416
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %133, i32 8, ptr elementtype(i8) %133) #22, !srcloc !11
-  br label %.thread
+  br label %.critedge
 
 134:                                              ; preds = %55, %36
   %135 = getelementptr inbounds i8, ptr %12, i64 416
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %135, i32 -9, ptr elementtype(i8) %135) #22, !srcloc !18
-  br label %.thread
+  br label %.critedge
 
 136:                                              ; preds = %36
   %137 = getelementptr inbounds i8, ptr %12, i64 416
@@ -3211,12 +3211,12 @@ tiocswinsz.exit:                                  ; preds = %101, %110, %125
   tail call void @llvm.write_register.i64(metadata !0, i64 %145)
   %147 = shl i64 %146, 32
   %148 = ashr exact i64 %147, 32
-  br label %.thread
+  br label %.critedge
 
 149:                                              ; preds = %55, %36
   %150 = tail call ptr @tty_ldisc_ref_wait(ptr noundef nonnull %12) #22
   %151 = icmp eq ptr %150, null
-  br i1 %151, label %.thread, label %152
+  br i1 %151, label %.critedge, label %152
 
 152:                                              ; preds = %149
   %153 = load ptr, ptr %150, align 8
@@ -3231,20 +3231,20 @@ tiocswinsz.exit:                                  ; preds = %101, %110, %125
   tail call void @tty_ldisc_deref(ptr noundef nonnull %150) #22
   %sext = shl i64 %160, 32
   %161 = ashr exact i64 %sext, 32
-  br label %.thread
+  br label %.critedge
 
 162:                                              ; preds = %55
   %163 = tail call fastcc i32 @tiocsetd(ptr noundef nonnull %12, ptr noundef %13)
   %164 = sext i32 %163 to i64
-  br label %.thread
+  br label %.critedge
 
 165:                                              ; preds = %36
   %166 = tail call zeroext i1 @capable(i32 noundef 21) #22
-  br i1 %166, label %167, label %.thread
+  br i1 %166, label %167, label %.critedge
 
 167:                                              ; preds = %165
   tail call fastcc void @__tty_hangup(ptr noundef nonnull %12, i32 noundef 0)
-  br label %.thread
+  br label %.critedge
 
 168:                                              ; preds = %36
   %169 = getelementptr inbounds i8, ptr %37, i64 16
@@ -3273,7 +3273,7 @@ tiocswinsz.exit:                                  ; preds = %101, %110, %125
   tail call void @llvm.write_register.i64(metadata !0, i64 %190)
   %192 = shl i64 %191, 32
   %193 = ashr exact i64 %192, 32
-  br label %.thread
+  br label %.critedge
 
 194:                                              ; preds = %55
   %195 = getelementptr inbounds i8, ptr %12, i64 32
@@ -3281,12 +3281,12 @@ tiocswinsz.exit:                                  ; preds = %101, %110, %125
   %197 = getelementptr inbounds i8, ptr %196, i64 160
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, null
-  br i1 %199, label %.thread, label %200
+  br i1 %199, label %.critedge, label %200
 
 200:                                              ; preds = %194
   %201 = tail call i32 %198(ptr noundef nonnull %12, i32 noundef -1) #22
   %202 = sext i32 %201 to i64
-  br label %.thread
+  br label %.critedge
 
 203:                                              ; preds = %43
   %204 = getelementptr inbounds i8, ptr %12, i64 32
@@ -3294,21 +3294,21 @@ tiocswinsz.exit:                                  ; preds = %101, %110, %125
   %206 = getelementptr inbounds i8, ptr %205, i64 160
   %207 = load ptr, ptr %206, align 8
   %208 = icmp eq ptr %207, null
-  br i1 %208, label %.thread, label %209
+  br i1 %208, label %.critedge, label %209
 
 209:                                              ; preds = %203
   %210 = tail call i32 %207(ptr noundef nonnull %12, i32 noundef 0) #22
   %211 = sext i32 %210 to i64
-  br label %.thread
+  br label %.critedge
 
 212:                                              ; preds = %55
   %213 = icmp eq i64 %2, 0
-  br i1 %213, label %214, label %.thread
+  br i1 %213, label %214, label %.critedge
 
 214:                                              ; preds = %212
   %215 = tail call fastcc i32 @send_break(ptr noundef nonnull %12, i32 noundef 250)
   %216 = sext i32 %215 to i64
-  br label %.thread
+  br label %.critedge
 
 217:                                              ; preds = %55
   %218 = icmp eq i64 %2, 0
@@ -3317,7 +3317,7 @@ tiocswinsz.exit:                                  ; preds = %101, %110, %125
   %221 = select i1 %218, i32 250, i32 %220
   %222 = tail call fastcc i32 @send_break(ptr noundef nonnull %12, i32 noundef %221)
   %223 = sext i32 %222 to i64
-  br label %.thread
+  br label %.critedge
 
 224:                                              ; preds = %55, %36
   %225 = getelementptr inbounds i8, ptr %12, i64 32
@@ -3325,12 +3325,12 @@ tiocswinsz.exit:                                  ; preds = %101, %110, %125
   %227 = getelementptr inbounds i8, ptr %226, i64 200
   %228 = load ptr, ptr %227, align 8
   %229 = icmp eq ptr %228, null
-  br i1 %229, label %.thread12, label %230
+  br i1 %229, label %.thread, label %230
 
 230:                                              ; preds = %224
   %231 = tail call i32 %228(ptr noundef nonnull %12) #22
   %232 = icmp sgt i32 %231, -1
-  br i1 %232, label %233, label %.thread12
+  br i1 %232, label %233, label %.thread
 
 233:                                              ; preds = %230
   %234 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -3340,12 +3340,12 @@ tiocswinsz.exit:                                  ; preds = %101, %110, %125
   %238 = ptrtoint ptr %236 to i64
   %239 = trunc i64 %238 to i32
   tail call void @llvm.write_register.i64(metadata !0, i64 %237)
-  br label %.thread12
+  br label %.thread
 
-.thread12:                                        ; preds = %224, %233, %230
+.thread:                                          ; preds = %224, %233, %230
   %240 = phi i32 [ %239, %233 ], [ %231, %230 ], [ -25, %224 ]
   %241 = sext i32 %240 to i64
-  br label %.thread
+  br label %.critedge
 
 242:                                              ; preds = %55, %55, %55, %36, %36, %36
   %243 = getelementptr inbounds i8, ptr %12, i64 32
@@ -3398,7 +3398,7 @@ default.unreachable:                              ; preds = %257
 270:                                              ; preds = %261, %248, %242
   %271 = phi i32 [ %269, %261 ], [ -25, %242 ], [ %255, %248 ]
   %272 = sext i32 %271 to i64
-  br label %.thread
+  br label %.critedge
 
 273:                                              ; preds = %36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #22
@@ -3425,7 +3425,7 @@ tty_tiocgicount.exit:                             ; preds = %273, %279, %282
   %286 = phi i32 [ %280, %279 ], [ %285, %282 ], [ -25, %273 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #22
   %287 = sext i32 %286 to i64
-  br label %.thread
+  br label %.critedge
 
 288:                                              ; preds = %55, %36
   switch i64 %2, label %344 [
@@ -3486,7 +3486,7 @@ tty_tiocgicount.exit:                             ; preds = %273, %279, %282
 tty_tiocsserial.exit:                             ; preds = %290, %315
   %317 = phi i64 [ %316, %315 ], [ -14, %290 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #22
-  br label %.thread
+  br label %.critedge
 
 318:                                              ; preds = %55, %36
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #22
@@ -3513,13 +3513,13 @@ tty_tiocgserial.exit:                             ; preds = %318, %324, %327
   %331 = phi i32 [ -25, %318 ], [ %325, %324 ], [ %330, %327 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #22
   %332 = sext i32 %331 to i64
-  br label %.thread
+  br label %.critedge
 
 333:                                              ; preds = %36
   %334 = trunc i64 %2 to i32
   %335 = tail call i32 @ptm_open_peer(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %334) #22
   %336 = sext i32 %335 to i64
-  br label %.thread
+  br label %.critedge
 
 337:                                              ; preds = %55, %36
   %338 = tail call i64 @tty_jobctrl_ioctl(ptr noundef nonnull %12, ptr noundef %37, ptr noundef %0, i32 noundef %1, i64 noundef %2) #22
@@ -3530,7 +3530,7 @@ tty_tiocgserial.exit:                             ; preds = %318, %324, %327
 341:                                              ; preds = %337
   %342 = shl i64 %338, 32
   %343 = ashr exact i64 %342, 32
-  br label %.thread
+  br label %.critedge
 
 344:                                              ; preds = %337, %289, %288
   %345 = getelementptr inbounds i8, ptr %12, i64 32
@@ -3547,7 +3547,7 @@ tty_tiocgserial.exit:                             ; preds = %318, %324, %327
 
 353:                                              ; preds = %350
   %354 = sext i32 %351 to i64
-  br label %.thread
+  br label %.critedge
 
 355:                                              ; preds = %350, %344
   %356 = tail call ptr @tty_ldisc_ref_wait(ptr noundef nonnull %12) #22
@@ -3557,7 +3557,7 @@ tty_tiocgserial.exit:                             ; preds = %318, %324, %327
 358:                                              ; preds = %355
   %359 = icmp eq i32 %1, 21520
   %360 = select i1 %359, i64 -25, i64 -5
-  br label %.thread
+  br label %.critedge
 
 361:                                              ; preds = %355
   %362 = load ptr, ptr %356, align 8
@@ -3576,10 +3576,10 @@ tty_tiocgserial.exit:                             ; preds = %318, %324, %327
 371:                                              ; preds = %366, %361
   %372 = phi i64 [ %370, %366 ], [ -22, %361 ]
   tail call void @tty_ldisc_deref(ptr noundef nonnull %356) #22
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %152, %149, %45, %371, %358, %353, %341, %333, %tty_tiocgserial.exit, %tty_tiocsserial.exit, %tty_tiocgicount.exit, %270, %.thread12, %217, %214, %212, %209, %203, %200, %194, %168, %167, %165, %162, %136, %134, %132, %129, %127, %tiocswinsz.exit, %94, %tiocsti.exit, %51, %41, %15
-  %373 = phi i64 [ %343, %341 ], [ %354, %353 ], [ %372, %371 ], [ %360, %358 ], [ %336, %333 ], [ %332, %tty_tiocgserial.exit ], [ %317, %tty_tiocsserial.exit ], [ %287, %tty_tiocgicount.exit ], [ %272, %270 ], [ %241, %.thread12 ], [ %223, %217 ], [ %216, %214 ], [ %211, %209 ], [ %202, %200 ], [ %193, %168 ], [ 0, %167 ], [ %164, %162 ], [ %148, %136 ], [ 0, %134 ], [ 0, %132 ], [ %126, %tiocswinsz.exit ], [ %100, %94 ], [ %93, %tiocsti.exit ], [ %42, %41 ], [ -22, %15 ], [ -4, %51 ], [ %131, %129 ], [ -22, %127 ], [ -1, %165 ], [ 0, %194 ], [ 0, %203 ], [ 0, %212 ], [ -4, %45 ], [ %161, %152 ], [ -5, %149 ]
+.critedge:                                        ; preds = %152, %149, %45, %371, %358, %353, %341, %333, %tty_tiocgserial.exit, %tty_tiocsserial.exit, %tty_tiocgicount.exit, %270, %.thread, %217, %214, %212, %209, %203, %200, %194, %168, %167, %165, %162, %136, %134, %132, %129, %127, %tiocswinsz.exit, %94, %tiocsti.exit, %51, %41, %15
+  %373 = phi i64 [ %343, %341 ], [ %354, %353 ], [ %372, %371 ], [ %360, %358 ], [ %336, %333 ], [ %332, %tty_tiocgserial.exit ], [ %317, %tty_tiocsserial.exit ], [ %287, %tty_tiocgicount.exit ], [ %272, %270 ], [ %241, %.thread ], [ %223, %217 ], [ %216, %214 ], [ %211, %209 ], [ %202, %200 ], [ %193, %168 ], [ 0, %167 ], [ %164, %162 ], [ %148, %136 ], [ 0, %134 ], [ 0, %132 ], [ %126, %tiocswinsz.exit ], [ %100, %94 ], [ %93, %tiocsti.exit ], [ %42, %41 ], [ -22, %15 ], [ -4, %51 ], [ %131, %129 ], [ -22, %127 ], [ -1, %165 ], [ 0, %194 ], [ 0, %203 ], [ 0, %212 ], [ -4, %45 ], [ %161, %152 ], [ -5, %149 ]
   ret i64 %373
 }
 
@@ -5671,7 +5671,7 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %10 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3264, i64 noundef 32) #21
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.thread35, label %12
+  br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %1, i64 200
@@ -5680,15 +5680,15 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %16 = getelementptr inbounds i8, ptr %1, i64 176
   br label %17
 
-17:                                               ; preds = %.thread38, %12
-  %18 = phi ptr [ %10, %12 ], [ %153, %.thread38 ]
+17:                                               ; preds = %.critedge27, %12
+  %18 = phi ptr [ %10, %12 ], [ %153, %.critedge27 ]
   store ptr %18, ptr %13, align 8
-  br i1 %14, label %19, label %.thread26
+  br i1 %14, label %19, label %.thread30
 
 19:                                               ; preds = %17
   %20 = call ptr @get_current_tty() #22
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread25.thread, label %22
+  br i1 %21, label %.thread29.thread, label %22
 
 22:                                               ; preds = %19
   %23 = load i32, ptr %6, align 8
@@ -5724,15 +5724,15 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 .thread:                                          ; preds = %27, %29, %30
   %37 = call fastcc i32 @tty_reopen(ptr noundef nonnull %20)
   %38 = icmp slt i32 %37, 0
-  br i1 %38, label %39, label %.thread25
+  br i1 %38, label %39, label %.thread29
 
 39:                                               ; preds = %.thread
   call void @tty_unlock(ptr noundef nonnull %20) #22
   %40 = sext i32 %37 to i64
   %41 = inttoptr i64 %40 to ptr
-  br label %.thread25
+  br label %.thread29
 
-.thread26:                                        ; preds = %17
+.thread30:                                        ; preds = %17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #22
   store i32 -1, ptr %3, align 4
   call void @mutex_lock(ptr noundef nonnull @tty_mutex) #22
@@ -5740,11 +5740,11 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %43 = icmp ugt ptr %42, inttoptr (i64 -4096 to ptr)
   br i1 %43, label %44, label %45
 
-44:                                               ; preds = %.thread26
+44:                                               ; preds = %.thread30
   call void @mutex_unlock(ptr noundef nonnull @tty_mutex) #22
   br label %132
 
-45:                                               ; preds = %.thread26
+45:                                               ; preds = %.thread30
   %46 = load i32, ptr %3, align 4
   %47 = getelementptr inbounds i8, ptr %42, i64 160
   %48 = load ptr, ptr %47, align 8
@@ -5753,7 +5753,7 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %45
-  br i1 %15, label %.thread30, label %52
+  br i1 %15, label %.thread34, label %52
 
 52:                                               ; preds = %51
   %53 = call ptr %49(ptr noundef %42, ptr noundef nonnull %1, i32 noundef %46) #22
@@ -5763,7 +5763,7 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %55 = getelementptr inbounds i8, ptr %42, i64 52
   %56 = load i32, ptr %55, align 4
   %57 = icmp ugt i32 %56, %46
-  br i1 %57, label %58, label %.thread30
+  br i1 %57, label %58, label %.thread34
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds i8, ptr %42, i64 128
@@ -5797,9 +5797,9 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %78
 
 78:                                               ; preds = %76, %72, %64
-  br i1 %66, label %.thread30, label %80
+  br i1 %66, label %.thread34, label %80
 
-.thread30:                                        ; preds = %51, %54, %78
+.thread34:                                        ; preds = %51, %54, %78
   %79 = phi ptr [ %65, %78 ], [ inttoptr (i64 -22 to ptr), %54 ], [ inttoptr (i64 -5 to ptr), %51 ]
   call void @mutex_unlock(ptr noundef nonnull @tty_mutex) #22
   br label %130
@@ -5823,11 +5823,11 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 91:                                               ; preds = %88
   %92 = icmp sgt i32 %89, 0
-  br i1 %92, label %.thread32, label %93, !prof !15
+  br i1 %92, label %.thread36, label %93, !prof !15
 
 93:                                               ; preds = %91
   call void @refcount_warn_saturate(ptr noundef nonnull %65, i32 noundef 3) #22
-  br label %.thread32
+  br label %.thread36
 
 94:                                               ; preds = %88
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !16
@@ -5841,9 +5841,9 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   store ptr @release_one_tty, ptr %98, align 8
   %99 = load ptr, ptr @system_wq, align 8
   %100 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %99, ptr noundef %95) #22
-  br label %.thread32
+  br label %.thread36
 
-.thread32:                                        ; preds = %91, %93, %94
+.thread36:                                        ; preds = %91, %93, %94
   call void @mutex_unlock(ptr noundef nonnull @tty_mutex) #22
   br label %130
 
@@ -5856,11 +5856,11 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 105:                                              ; preds = %101
   %106 = icmp sgt i32 %103, 0
-  br i1 %106, label %.thread34, label %107, !prof !15
+  br i1 %106, label %.thread38, label %107, !prof !15
 
 107:                                              ; preds = %105
   call void @refcount_warn_saturate(ptr noundef nonnull %65, i32 noundef 3) #22
-  br label %.thread34
+  br label %.thread38
 
 108:                                              ; preds = %101
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !16
@@ -5874,20 +5874,20 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   store ptr @release_one_tty, ptr %112, align 8
   %113 = load ptr, ptr @system_wq, align 8
   %114 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %113, ptr noundef %109) #22
-  br label %.thread34
+  br label %.thread38
 
-.thread34:                                        ; preds = %105, %107, %108
+.thread38:                                        ; preds = %105, %107, %108
   %115 = icmp eq i32 %102, 0
   br i1 %115, label %121, label %116
 
-116:                                              ; preds = %.thread34
+116:                                              ; preds = %.thread38
   %117 = icmp eq i32 %102, -4
   %118 = select i1 %117, i32 -512, i32 %102
   %119 = sext i32 %118 to i64
   %120 = inttoptr i64 %119 to ptr
   br label %130
 
-121:                                              ; preds = %.thread34
+121:                                              ; preds = %.thread38
   %122 = call fastcc i32 @tty_reopen(ptr noundef nonnull %65)
   %123 = icmp slt i32 %122, 0
   br i1 %123, label %124, label %130
@@ -5904,56 +5904,56 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   call void @mutex_unlock(ptr noundef nonnull @tty_mutex) #22
   br label %130
 
-130:                                              ; preds = %127, %124, %121, %116, %.thread32, %.thread30
-  %131 = phi ptr [ %79, %.thread30 ], [ inttoptr (i64 -16 to ptr), %.thread32 ], [ %120, %116 ], [ %126, %124 ], [ %65, %121 ], [ %129, %127 ]
+130:                                              ; preds = %127, %124, %121, %116, %.thread36, %.thread34
+  %131 = phi ptr [ %79, %.thread34 ], [ inttoptr (i64 -16 to ptr), %.thread36 ], [ %120, %116 ], [ %126, %124 ], [ %65, %121 ], [ %129, %127 ]
   call void @tty_driver_kref_put(ptr noundef %42)
   br label %132
 
 132:                                              ; preds = %130, %44
   %133 = phi ptr [ %42, %44 ], [ %131, %130 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #22
-  br label %.thread25
+  br label %.thread29
 
-.thread25:                                        ; preds = %39, %.thread, %132
+.thread29:                                        ; preds = %39, %.thread, %132
   %134 = phi ptr [ %41, %39 ], [ %133, %132 ], [ %20, %.thread ]
   %135 = icmp ugt ptr %134, inttoptr (i64 -4096 to ptr)
-  br i1 %135, label %.thread25.thread, label %155
+  br i1 %135, label %.thread29.thread, label %155
 
-.thread25.thread:                                 ; preds = %19, %.thread25
-  %136 = phi ptr [ %134, %.thread25 ], [ inttoptr (i64 -6 to ptr), %19 ]
+.thread29.thread:                                 ; preds = %19, %.thread29
+  %136 = phi ptr [ %134, %.thread29 ], [ inttoptr (i64 -6 to ptr), %19 ]
   %137 = load ptr, ptr %13, align 8
   store ptr null, ptr %13, align 8
   call void @kfree(ptr noundef %137) #22
   %138 = ptrtoint ptr %136 to i64
   %139 = trunc i64 %138 to i32
   %140 = icmp eq i32 %139, -11
-  br i1 %140, label %141, label %.thread35
+  br i1 %140, label %141, label %.critedge
 
-141:                                              ; preds = %.thread25.thread
+141:                                              ; preds = %.thread29.thread
   %142 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #25, !srcloc !23
   %143 = inttoptr i64 %142 to ptr
   %144 = load volatile i64, ptr %143, align 8
   %145 = and i64 %144, 131072
   %146 = icmp eq i64 %145, 0
-  br i1 %146, label %147, label %.thread35, !prof !15
+  br i1 %146, label %147, label %.critedge, !prof !15
 
 147:                                              ; preds = %141
   %148 = load volatile i64, ptr %143, align 8
   %149 = and i64 %148, 4
   %150 = icmp eq i64 %149, 0
-  br i1 %150, label %151, label %.thread35
+  br i1 %150, label %151, label %.critedge
 
 151:                                              ; preds = %147
   call void @schedule() #22
-  br label %.thread38
+  br label %.critedge27
 
-.thread38:                                        ; preds = %237, %240, %238, %151
+.critedge27:                                      ; preds = %237, %240, %238, %151
   %152 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %153 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %152, i32 noundef 3264, i64 noundef 32) #21
   %154 = icmp eq ptr %153, null
-  br i1 %154, label %.thread35, label %17
+  br i1 %154, label %.critedge, label %17
 
-155:                                              ; preds = %.thread25
+155:                                              ; preds = %.thread29
   %156 = load ptr, ptr %13, align 8
   store ptr %134, ptr %156, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 8
@@ -6049,9 +6049,9 @@ check_tty_count.exit:                             ; preds = %190, %210
   %217 = getelementptr inbounds i8, ptr %216, i64 24
   %218 = load ptr, ptr %217, align 8
   %219 = icmp eq ptr %218, null
-  br i1 %219, label %.thread36, label %220
+  br i1 %219, label %.thread39, label %220
 
-.thread36:                                        ; preds = %check_tty_count.exit
+.thread39:                                        ; preds = %check_tty_count.exit
   store i32 %7, ptr %6, align 8
   br label %223
 
@@ -6061,12 +6061,12 @@ check_tty_count.exit:                             ; preds = %190, %210
   %222 = icmp eq i32 %221, 0
   br i1 %222, label %241, label %223
 
-223:                                              ; preds = %.thread36, %220
-  %224 = phi i32 [ -19, %.thread36 ], [ %221, %220 ]
+223:                                              ; preds = %.thread39, %220
+  %224 = phi i32 [ -19, %.thread39 ], [ %221, %220 ]
   call void @tty_unlock(ptr noundef %134) #22
   %225 = call i32 @tty_release(ptr noundef %0, ptr noundef %1)
   %226 = icmp eq i32 %224, -512
-  br i1 %226, label %227, label %.thread35
+  br i1 %226, label %227, label %.critedge
 
 227:                                              ; preds = %223
   %228 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #25, !srcloc !23
@@ -6074,26 +6074,26 @@ check_tty_count.exit:                             ; preds = %190, %210
   %230 = load volatile i64, ptr %229, align 8
   %231 = and i64 %230, 131072
   %232 = icmp eq i64 %231, 0
-  br i1 %232, label %233, label %.thread35, !prof !15
+  br i1 %232, label %233, label %.critedge, !prof !15
 
 233:                                              ; preds = %227
   %234 = load volatile i64, ptr %229, align 8
   %235 = and i64 %234, 4
   %236 = icmp eq i64 %235, 0
-  br i1 %236, label %237, label %.thread35
+  br i1 %236, label %237, label %.critedge
 
 237:                                              ; preds = %233
   call void @schedule() #22
-  br i1 %15, label %.thread38, label %238
+  br i1 %15, label %.critedge27, label %238
 
 238:                                              ; preds = %237
   %239 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %239, @hung_up_tty_fops
-  br i1 %.not, label %240, label %.thread38
+  br i1 %.not, label %240, label %.critedge27
 
 240:                                              ; preds = %238
   store ptr @tty_fops, ptr %16, align 8
-  br label %.thread38
+  br label %.critedge27
 
 241:                                              ; preds = %220
   %242 = getelementptr inbounds i8, ptr %134, i64 16
@@ -6130,10 +6130,10 @@ check_tty_count.exit:                             ; preds = %190, %210
 
 259:                                              ; preds = %258, %254, %248, %248, %241
   call void @tty_unlock(ptr noundef %134) #22
-  br label %.thread35
+  br label %.critedge
 
-.thread35:                                        ; preds = %227, %141, %233, %223, %.thread38, %147, %.thread25.thread, %259, %2
-  %260 = phi i32 [ 0, %259 ], [ -12, %2 ], [ -512, %227 ], [ -11, %141 ], [ -11, %147 ], [ %139, %.thread25.thread ], [ %224, %223 ], [ -512, %233 ], [ -12, %.thread38 ]
+.critedge:                                        ; preds = %227, %141, %233, %223, %.critedge27, %147, %.thread29.thread, %259, %2
+  %260 = phi i32 [ 0, %259 ], [ -12, %2 ], [ -512, %227 ], [ -11, %141 ], [ -11, %147 ], [ %139, %.thread29.thread ], [ %224, %223 ], [ -512, %233 ], [ -12, %.critedge27 ]
   ret i32 %260
 }
 

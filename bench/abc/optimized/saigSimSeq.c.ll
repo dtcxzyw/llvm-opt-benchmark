@@ -1708,13 +1708,13 @@ Abc_Clock.exit46:                                 ; preds = %39, %42
   %56 = load i64, ptr %35, align 8
   %57 = sdiv i64 %56, 1000
   %58 = add nsw i64 %57, %55
+  %59 = sitofp i64 %58 to double
   br label %Abc_Clock.exit48
 
 Abc_Clock.exit48:                                 ; preds = %48, %53
-  %.0.i47 = phi i64 [ %58, %53 ], [ -1, %48 ]
+  %.0.i47 = phi double [ %59, %53 ], [ -1.000000e+00, %48 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %59 = sitofp i64 %.0.i47 to double
-  %60 = fsub double %59, %36
+  %60 = fsub double %.0.i47, %36
   %61 = fdiv double %60, 1.000000e+06
   %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %61)
   br label %63

@@ -997,7 +997,7 @@ declare dso_local i32 @vfsgid_in_group_p(i32) local_unnamed_addr #7
 declare dso_local i32 @make_vfsgid(ptr noundef, ptr noundef, i32) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__posix_acl_create(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local range(i32 -12, 2) i32 @__posix_acl_create(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread11, label %6

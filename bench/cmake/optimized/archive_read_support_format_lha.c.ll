@@ -197,7 +197,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_lha_options(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_read_format_lha_read_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -30, 2) i32 @archive_read_format_lha_read_header(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i16, align 2
   %5 = alloca i64, align 8
@@ -1493,7 +1493,7 @@ lha_read_file_header_0.exit.thread:               ; preds = %247, %207, %203, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_read_format_lha_read_data(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 -30, 2) i32 @archive_read_format_lha_read_data(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.lzh_br, align 8
   %7 = alloca i64, align 8

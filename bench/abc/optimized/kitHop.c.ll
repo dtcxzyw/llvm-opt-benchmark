@@ -111,7 +111,7 @@ define i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr nocapture noundef readonl
 
 63:                                               ; preds = %59
   %64 = shl nsw i32 %60, 1
-  %65 = tail call noundef i32 @llvm.smin.i32(i32 %64, i32 536870912)
+  %65 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %64, i32 536870912)
   %66 = icmp eq i32 %60, 536870912
   br i1 %66, label %.split.us, label %67
 
@@ -1114,28 +1114,28 @@ Vec_IntGrow.exit.i66:                             ; preds = %57, %55
   %84 = and i32 %83, 1073741823
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val50, i64 %85
+  %87 = ptrtoint ptr %80 to i64
+  %88 = ptrtoint ptr %86 to i64
   br label %Kit_GraphNodeFanin1.exit
 
 Kit_GraphNodeFanin1.exit:                         ; preds = %.Kit_GraphNodeFanin1.exit_crit_edge, %76
-  %87 = phi i32 [ %82, %76 ], [ %.pre80, %.Kit_GraphNodeFanin1.exit_crit_edge ]
-  %88 = phi ptr [ %80, %76 ], [ null, %.Kit_GraphNodeFanin1.exit_crit_edge ]
-  %89 = phi ptr [ %86, %76 ], [ null, %.Kit_GraphNodeFanin1.exit_crit_edge ]
-  %90 = ptrtoint ptr %88 to i64
-  %91 = sub i64 %90, %74
-  %92 = sdiv exact i64 %91, 24
-  %93 = trunc i64 %92 to i32
-  %94 = and i32 %.pre, 1
-  %95 = shl nsw i32 %93, 1
-  %96 = or disjoint i32 %95, %94
-  %97 = ptrtoint ptr %89 to i64
-  %98 = sub i64 %97, %74
+  %89 = phi i32 [ %82, %76 ], [ %.pre80, %.Kit_GraphNodeFanin1.exit_crit_edge ]
+  %90 = phi i64 [ %87, %76 ], [ 0, %.Kit_GraphNodeFanin1.exit_crit_edge ]
+  %91 = phi i64 [ %88, %76 ], [ 0, %.Kit_GraphNodeFanin1.exit_crit_edge ]
+  %92 = sub i64 %90, %74
+  %93 = sdiv exact i64 %92, 24
+  %94 = trunc i64 %93 to i32
+  %95 = and i32 %.pre, 1
+  %96 = shl nsw i32 %94, 1
+  %97 = or disjoint i32 %96, %95
+  %98 = sub i64 %91, %74
   %99 = sdiv exact i64 %98, 24
   %100 = trunc i64 %99 to i32
-  %101 = and i32 %87, 1
+  %101 = and i32 %89, 1
   %102 = shl nsw i32 %100, 1
   %103 = or disjoint i32 %102, %101
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %96, i32 %103)
-  %spec.select45 = tail call i32 @llvm.smax.i32(i32 %96, i32 %103)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %97, i32 %103)
+  %spec.select45 = tail call i32 @llvm.smax.i32(i32 %97, i32 %103)
   %104 = add nsw i32 %spec.select, 4
   %105 = add nsw i32 %spec.select45, 4
   %106 = load i32, ptr %42, align 4

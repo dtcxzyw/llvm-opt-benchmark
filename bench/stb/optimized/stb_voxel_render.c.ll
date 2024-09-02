@@ -1996,15 +1996,15 @@ if.else708:                                       ; preds = %if.end673
   br label %if.end723
 
 if.end723:                                        ; preds = %if.else708, %if.then677
-  %rotate.sroa.0.3 = phi i8 [ %130, %if.then677 ], [ %bf.set722, %if.else708 ]
-  %bf.clear725 = and i8 %rotate.sroa.0.3, -49
+  %rotate.sroa.0.3.in = phi i8 [ %130, %if.then677 ], [ %bf.set722, %if.else708 ]
+  %rotate.sroa.0.3 = and i8 %rotate.sroa.0.3.in, -49
   %and727 = and i32 %visible_faces.5, 2
   %tobool728.not = icmp eq i32 %and727, 0
   br i1 %tobool728.not, label %if.end734, label %if.then729
 
 if.then729:                                       ; preds = %if.end723
   %arrayidx730 = getelementptr inbounds i8, ptr %vmesh, i64 16
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.clear725, i32 noundef 1, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx730, i8 noundef zeroext %mesh.2, i32 noundef 1)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate.sroa.0.3, i32 noundef 1, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx730, i8 noundef zeroext %mesh.2, i32 noundef 1)
   br label %if.end734
 
 if.end734:                                        ; preds = %if.then729, %if.end723
@@ -2014,7 +2014,7 @@ if.end734:                                        ; preds = %if.then729, %if.end
 
 if.then737:                                       ; preds = %if.end734
   %arrayidx738 = getelementptr inbounds i8, ptr %vmesh, i64 48
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.clear725, i32 noundef 3, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx738, i8 noundef zeroext %mesh.2, i32 noundef 3)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate.sroa.0.3, i32 noundef 3, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx738, i8 noundef zeroext %mesh.2, i32 noundef 3)
   br label %if.end742
 
 if.end742:                                        ; preds = %if.then737, %if.end734
@@ -2023,7 +2023,7 @@ if.end742:                                        ; preds = %if.then737, %if.end
   br i1 %tobool744.not, label %if.end750, label %if.then745
 
 if.then745:                                       ; preds = %if.end742
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.clear725, i32 noundef 0, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %vmesh, i8 noundef zeroext %mesh.2, i32 noundef 0)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate.sroa.0.3, i32 noundef 0, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %vmesh, i8 noundef zeroext %mesh.2, i32 noundef 0)
   br label %if.end750
 
 if.end750:                                        ; preds = %if.then745, %if.end742
@@ -2033,7 +2033,7 @@ if.end750:                                        ; preds = %if.then745, %if.end
 
 if.then753:                                       ; preds = %if.end750
   %arrayidx754 = getelementptr inbounds i8, ptr %vmesh, i64 32
-  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %bf.clear725, i32 noundef 2, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx754, i8 noundef zeroext %mesh.2, i32 noundef 2)
+  call void @stbvox_make_mesh_for_face(ptr noundef nonnull %mm, i8 %rotate.sroa.0.3, i32 noundef 2, i32 noundef %v_off, i24 poison, i32 noundef %add558, ptr noundef nonnull %arrayidx754, i8 noundef zeroext %mesh.2, i32 noundef 2)
   br label %if.end759
 
 if.end759:                                        ; preds = %if.end750, %if.then753, %if.end521

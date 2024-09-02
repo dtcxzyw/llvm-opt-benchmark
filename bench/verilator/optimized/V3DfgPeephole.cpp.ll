@@ -1746,11 +1746,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 17:                                               ; preds = %.lr.ph.i
   %18 = zext i8 %15 to i32
   %19 = call i32 @tolower(i32 noundef %18) #21
+  %20 = trunc i32 %19 to i8
   br label %"_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i"
 
 "_ZZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i": ; preds = %17, %.lr.ph.i
-  %20 = phi i32 [ %19, %17 ], [ 45, %.lr.ph.i ]
-  %21 = trunc i32 %20 to i8
+  %21 = phi i8 [ %20, %17 ], [ 45, %.lr.ph.i ]
   store i8 %21, ptr %.sroa.0.08.i, align 1
   %22 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
   %23 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 1
@@ -2155,11 +2155,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 20:                                               ; preds = %.lr.ph.i
   %21 = zext i8 %18 to i32
   %22 = call i32 @tolower(i32 noundef %21) #21
+  %23 = trunc i32 %22 to i8
   br label %"_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i"
 
 "_ZZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeepholePatternENKUlhE_clEh.exit.i": ; preds = %20, %.lr.ph.i
-  %23 = phi i32 [ %22, %20 ], [ 32, %.lr.ph.i ]
-  %24 = trunc i32 %23 to i8
+  %24 = phi i8 [ %23, %20 ], [ 32, %.lr.ph.i ]
   store i8 %24, ptr %.sroa.0.08.i, align 1
   %25 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
   %26 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 1

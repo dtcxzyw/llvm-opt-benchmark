@@ -1320,12 +1320,12 @@ for.cond261:                                      ; preds = %for.cond261.prehead
 if.end.i.i324:                                    ; preds = %for.cond261
   %arrayidx.i.i325 = getelementptr inbounds i8, ptr %149, i64 -4
   %150 = load i32, ptr %arrayidx.i.i325, align 4
+  %151 = zext i32 %150 to i64
   br label %invoke.cont263
 
 invoke.cont263:                                   ; preds = %if.end.i.i324, %for.cond261
-  %retval.0.i.i326 = phi i32 [ %150, %if.end.i.i324 ], [ 0, %for.cond261 ]
-  %151 = zext i32 %retval.0.i.i326 to i64
-  %cmp265 = icmp ult i64 %indvars.iv497, %151
+  %retval.0.i.i326 = phi i64 [ %151, %if.end.i.i324 ], [ 0, %for.cond261 ]
+  %cmp265 = icmp ult i64 %indvars.iv497, %retval.0.i.i326
   br i1 %cmp265, label %for.body266, label %cleanup
 
 for.body266:                                      ; preds = %invoke.cont263

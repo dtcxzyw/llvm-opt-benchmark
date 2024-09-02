@@ -986,7 +986,7 @@ declare void @_ZN6icu_7513UnicodeString8fromUTF8ENS_11StringPieceE(ptr sret(%"cl
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uspoof_areConfusable_75(ptr noundef %sc, ptr noundef %id1, i32 noundef %length1, ptr noundef %id2, i32 noundef %length2, ptr noundef nonnull %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 7) i32 @uspoof_areConfusable_75(ptr noundef %sc, ptr noundef %id1, i32 noundef %length1, ptr noundef %id2, i32 noundef %length2, ptr noundef nonnull %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %id1Str = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1069,7 +1069,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uspoof_areConfusableUnicodeString_75(ptr noundef %sc, ptr noundef nonnull align 8 dereferenceable(64) %id1, ptr noundef nonnull align 8 dereferenceable(64) %id2, ptr noundef nonnull %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 7) i32 @uspoof_areConfusableUnicodeString_75(ptr noundef %sc, ptr noundef nonnull align 8 dereferenceable(64) %id1, ptr noundef nonnull align 8 dereferenceable(64) %id2, ptr noundef nonnull %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %id1Skeleton = alloca %"class.icu_75::UnicodeString", align 8
   %id2Skeleton = alloca %"class.icu_75::UnicodeString", align 8
@@ -1258,7 +1258,7 @@ return:                                           ; preds = %entry, %cleanup, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uspoof_areConfusableUTF8_75(ptr noundef %sc, ptr noundef %id1, i32 noundef %length1, ptr noundef %id2, i32 noundef %length2, ptr noundef nonnull %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 7) i32 @uspoof_areConfusableUTF8_75(ptr noundef %sc, ptr noundef %id1, i32 noundef %length1, ptr noundef %id2, i32 noundef %length2, ptr noundef nonnull %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %id1Str = alloca %"class.icu_75::UnicodeString", align 8
   %id2Str = alloca %"class.icu_75::UnicodeString", align 8
@@ -2096,12 +2096,12 @@ invoke.cont62.us:                                 ; preds = %invoke.cont57.us
   %cond60.us = select i1 %cmp59.us, i32 1, i32 2
   %add61.us = add nsw i32 %cond60.us, %i50.0.ph
   %cmp64.not.us = icmp eq i8 %call63.us, 6
-  %spec.select78 = select i1 %cmp64.not.us, i32 %call58.us, i32 0
+  %spec.select77 = select i1 %cmp64.not.us, i32 %call58.us, i32 0
   br label %for.cond53.outer.backedge
 
 for.cond53.outer.backedge:                        ; preds = %invoke.cont62.us, %if.then65, %if.then67
   %i50.0.ph.be = phi i32 [ %add61, %if.then67 ], [ %add61, %if.then65 ], [ %add61.us, %invoke.cont62.us ]
-  %firstNonspacingMark.0.ph.be = phi i32 [ 0, %if.then67 ], [ 0, %if.then65 ], [ %spec.select78, %invoke.cont62.us ]
+  %firstNonspacingMark.0.ph.be = phi i32 [ 0, %if.then67 ], [ 0, %if.then65 ], [ %spec.select77, %invoke.cont62.us ]
   br label %for.cond53.outer, !llvm.loop !8
 
 lpad56.loopexit.split.us:                         ; preds = %invoke.cont57.us, %for.body55.us

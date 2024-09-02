@@ -936,8 +936,8 @@ getRGBA.exit100:                                  ; preds = %202, %206
   br i1 %exitcond143.not, label %.critedge4, label %.lr.ph125, !llvm.loop !12
 
 .critedge4:                                       ; preds = %272, %.lr.ph125, %278
-  %.377.lcssa = phi i64 [ %indvars.iv, %272 ], [ %indvars.iv, %.lr.ph125 ], [ %258, %278 ]
-  %279 = and i64 %.377.lcssa, 4294967295
+  %.377.lcssa.ph = phi i64 [ %indvars.iv, %272 ], [ %indvars.iv, %.lr.ph125 ], [ %258, %278 ]
+  %279 = and i64 %.377.lcssa.ph, 4294967295
   %.not = icmp eq i64 %263, %279
   %.273.mux = select i1 %.not, ptr %.071134, ptr %.273
   %.071134.mux = select i1 %.not, ptr %.0135, ptr %.071134

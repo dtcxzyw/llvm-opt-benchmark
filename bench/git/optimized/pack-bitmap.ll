@@ -1418,27 +1418,22 @@ if.end37.i:                                       ; preds = %if.end32.i
   store i64 %or.i10.i.i93.i, ptr %offset39.i, align 8
   %54 = load ptr, ptr %midx.i.i.i, align 8
   %tobool.not.i110.i = icmp eq ptr %54, null
-  br i1 %tobool.not.i110.i, label %if.end.i114.i, label %if.then.i111.i
+  br i1 %tobool.not.i110.i, label %nth_bitmap_object_oid.exit.i, label %if.then.i111.i
 
 if.then.i111.i:                                   ; preds = %if.end37.i
   %call.i112.i = call ptr @nth_midxed_object_oid(ptr noundef nonnull %arrayidx.i11, ptr noundef nonnull %54, i32 noundef %or11.i.i.i63.i) #18
   %tobool2.not.i.i = icmp eq ptr %call.i112.i, null
-  %cond.i.i = sext i1 %tobool2.not.i.i to i32
-  br label %nth_bitmap_object_oid.exit.i
+  br i1 %tobool2.not.i.i, label %if.then45.i, label %if.end50.i
 
-if.end.i114.i:                                    ; preds = %if.end37.i
+nth_bitmap_object_oid.exit.i:                     ; preds = %if.end37.i
   %55 = load ptr, ptr %bitmap_git, align 8
   %call3.i.i = call i32 @nth_packed_object_id(ptr noundef nonnull %arrayidx.i11, ptr noundef %55, i32 noundef %or11.i.i.i63.i) #18
-  br label %nth_bitmap_object_oid.exit.i
+  %56 = icmp slt i32 %call3.i.i, 0
+  br i1 %56, label %if.then45.i, label %if.end50.i
 
-nth_bitmap_object_oid.exit.i:                     ; preds = %if.end.i114.i, %if.then.i111.i
-  %retval.0.i113.i = phi i32 [ %cond.i.i, %if.then.i111.i ], [ %call3.i.i, %if.end.i114.i ]
-  %cmp43.i = icmp slt i32 %retval.0.i113.i, 0
-  br i1 %cmp43.i, label %if.then45.i, label %if.end50.i
-
-if.then45.i:                                      ; preds = %nth_bitmap_object_oid.exit.i
-  %56 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i116.i = icmp eq i32 %56, 0
+if.then45.i:                                      ; preds = %nth_bitmap_object_oid.exit.i, %if.then.i111.i
+  %57 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i116.i = icmp eq i32 %57, 0
   br i1 %tobool1.not.i116.i, label %_.exit120.i, label %if.end3.i117.i
 
 if.end3.i117.i:                                   ; preds = %if.then45.i
@@ -1450,24 +1445,24 @@ _.exit120.i:                                      ; preds = %if.end3.i117.i, %if
   %call48.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i119.i, i32 noundef %or11.i.i.i63.i) #18
   br label %corrupt.i
 
-if.end50.i:                                       ; preds = %nth_bitmap_object_oid.exit.i
-  %57 = load ptr, ptr %bitmaps, align 8
+if.end50.i:                                       ; preds = %nth_bitmap_object_oid.exit.i, %if.then.i111.i
+  %58 = load ptr, ptr %bitmaps, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %arrayidx121.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %arrayidx121.i, ptr noundef nonnull align 1 dereferenceable(36) %arrayidx.i11, i64 36, i1 false)
-  %58 = load i32, ptr %57, align 8
-  %tobool.not.i122.i = icmp eq i32 %58, 0
+  %59 = load i32, ptr %58, align 8
+  %tobool.not.i122.i = icmp eq i32 %59, 0
   br i1 %tobool.not.i122.i, label %kh_get_oid_map.exit.i, label %if.then.i123.i
 
 if.then.i123.i:                                   ; preds = %if.end50.i
-  %sub.i.i = add i32 %58, -1
+  %sub.i.i = add i32 %59, -1
   %key.val.i.i = load i32, ptr %arrayidx121.i, align 8
   %and.i.i = and i32 %key.val.i.i, %sub.i.i
-  %flags.i.i = getelementptr inbounds i8, ptr %57, i64 16
-  %59 = load ptr, ptr %flags.i.i, align 8
-  %keys.i.i = getelementptr inbounds i8, ptr %57, i64 24
-  %60 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i.i = getelementptr inbounds i8, ptr %60, i64 256
+  %flags.i.i = getelementptr inbounds i8, ptr %58, i64 16
+  %60 = load ptr, ptr %flags.i.i, align 8
+  %keys.i.i = getelementptr inbounds i8, ptr %58, i64 24
+  %61 = load ptr, ptr @the_repository, align 8
+  %hash_algo.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 256
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %if.then.i123.i
@@ -1475,11 +1470,11 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %if
   %step.0.i.i = phi i32 [ 0, %if.then.i123.i ], [ %inc.i.i, %while.body.i.i ]
   %shr.i.i = lshr i32 %i.0.i.i, 4
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %59, i64 %idxprom.i.i
-  %61 = load i32, ptr %arrayidx.i.i, align 4
+  %arrayidx.i.i = getelementptr inbounds i32, ptr %60, i64 %idxprom.i.i
+  %62 = load i32, ptr %arrayidx.i.i, align 4
   %and2.i.i = shl i32 %i.0.i.i, 1
   %shl.i.i = and i32 %and2.i.i, 30
-  %shr3.i.i = lshr i32 %61, %shl.i.i
+  %shr3.i.i = lshr i32 %62, %shl.i.i
   %and4.i.i = and i32 %shr3.i.i, 2
   %tobool5.not.i.i = icmp eq i32 %and4.i.i, 0
   br i1 %tobool5.not.i.i, label %land.rhs.i.i, label %while.end.i.i
@@ -1490,27 +1485,27 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
   br i1 %tobool14.not.i.i, label %lor.rhs.i.i, label %while.body.i.i
 
 lor.rhs.i.i:                                      ; preds = %land.rhs.i.i
-  %62 = load ptr, ptr %keys.i.i, align 8
+  %63 = load ptr, ptr %keys.i.i, align 8
   %idxprom15.i.i = zext i32 %i.0.i.i to i64
-  %arrayidx16.i.i = getelementptr inbounds %struct.object_id, ptr %62, i64 %idxprom15.i.i
+  %arrayidx16.i.i = getelementptr inbounds %struct.object_id, ptr %63, i64 %idxprom15.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp.i.i, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx16.i.i, i64 36, i1 false)
-  %63 = load i32, ptr %algo.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq i32 %63, 0
+  %64 = load i32, ptr %algo.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq i32 %64, 0
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i16, label %if.else.i.i.i.i
 
 if.then.i.i.i.i16:                                ; preds = %lor.rhs.i.i
-  %64 = load ptr, ptr %hash_algo.i.i.i.i, align 8
+  %65 = load ptr, ptr %hash_algo.i.i.i.i, align 8
   br label %if.end.i.i.i.i15
 
 if.else.i.i.i.i:                                  ; preds = %lor.rhs.i.i
-  %idxprom.i.i.i.i = sext i32 %63 to i64
+  %idxprom.i.i.i.i = sext i32 %64 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i.i.i.i
   br label %if.end.i.i.i.i15
 
 if.end.i.i.i.i15:                                 ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i16
-  %algop.0.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %if.else.i.i.i.i ], [ %64, %if.then.i.i.i.i16 ]
-  %65 = getelementptr i8, ptr %algop.0.i.i.i.i, i64 16
-  %algop.0.val.i.i.i.i = load i64, ptr %65, align 8
+  %algop.0.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %if.else.i.i.i.i ], [ %65, %if.then.i.i.i.i16 ]
+  %66 = getelementptr i8, ptr %algop.0.i.i.i.i, i64 16
+  %algop.0.val.i.i.i.i = load i64, ptr %66, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %algop.0.val.i.i.i.i, 32
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
@@ -1540,26 +1535,26 @@ kh_get_oid_map.exit.thread.i:                     ; preds = %while.body.i.i
   br label %if.end60.i
 
 while.end.i.i:                                    ; preds = %oideq_by_value.exit.i.i, %while.cond.i.i
-  %66 = shl nuw i32 3, %shl.i.i
-  %67 = and i32 %66, %61
-  %tobool30.not.i.i = icmp eq i32 %67, 0
-  %spec.select.i.i = select i1 %tobool30.not.i.i, i32 %i.0.i.i, i32 %58
+  %67 = shl nuw i32 3, %shl.i.i
+  %68 = and i32 %67, %62
+  %tobool30.not.i.i = icmp eq i32 %68, 0
+  %spec.select.i.i = select i1 %tobool30.not.i.i, i32 %i.0.i.i, i32 %59
   br label %kh_get_oid_map.exit.i
 
 kh_get_oid_map.exit.i:                            ; preds = %while.end.i.i, %if.end50.i
   %retval.0.i124.i = phi i32 [ 0, %if.end50.i ], [ %spec.select.i.i, %while.end.i.i ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %arrayidx121.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %byval-temp.i.i)
-  %cmp54.i = icmp ult i32 %retval.0.i124.i, %58
+  %cmp54.i = icmp ult i32 %retval.0.i124.i, %59
   br i1 %cmp54.i, label %land.lhs.true.i, label %if.end60.i
 
 land.lhs.true.i:                                  ; preds = %kh_get_oid_map.exit.i
-  %vals.i = getelementptr inbounds i8, ptr %57, i64 32
-  %68 = load ptr, ptr %vals.i, align 8
+  %vals.i = getelementptr inbounds i8, ptr %58, i64 32
+  %69 = load ptr, ptr %vals.i, align 8
   %idxprom.i14 = zext i32 %retval.0.i124.i to i64
-  %arrayidx57.i = getelementptr inbounds ptr, ptr %68, i64 %idxprom.i14
-  %69 = load ptr, ptr %arrayidx57.i, align 8
-  %tobool58.not.i = icmp eq ptr %69, null
+  %arrayidx57.i = getelementptr inbounds ptr, ptr %69, i64 %idxprom.i14
+  %70 = load ptr, ptr %arrayidx57.i, align 8
+  %tobool58.not.i = icmp eq ptr %70, null
   br i1 %tobool58.not.i, label %if.end60.i, label %land.lhs.true.while.end.loopexit_crit_edge.i
 
 land.lhs.true.while.end.loopexit_crit_edge.i:     ; preds = %land.lhs.true.i
@@ -1567,15 +1562,15 @@ land.lhs.true.while.end.loopexit_crit_edge.i:     ; preds = %land.lhs.true.i
   br label %while.end.i13
 
 if.end60.i:                                       ; preds = %land.lhs.true.i, %kh_get_oid_map.exit.i, %kh_get_oid_map.exit.thread.i
-  %70 = load i64, ptr @lazy_bitmap_for_commit.xor_items_nr, align 8
-  %inc.i12 = add i64 %70, 1
+  %71 = load i64, ptr @lazy_bitmap_for_commit.xor_items_nr, align 8
+  %inc.i12 = add i64 %71, 1
   store i64 %inc.i12, ptr @lazy_bitmap_for_commit.xor_items_nr, align 8
   %cmp10.not.i = icmp eq i32 %or11.i23.i.i108.i, -1
   br i1 %cmp10.not.i, label %while.end.i13, label %do.body.i, !llvm.loop !12
 
 while.end.i13:                                    ; preds = %if.end60.i, %land.lhs.true.while.end.loopexit_crit_edge.i
   %.pr.i = phi i64 [ %.pr.pre.pre.i, %land.lhs.true.while.end.loopexit_crit_edge.i ], [ %inc.i12, %if.end60.i ]
-  %xor_bitmap.1.i = phi ptr [ %69, %land.lhs.true.while.end.loopexit_crit_edge.i ], [ null, %if.end60.i ]
+  %xor_bitmap.1.i = phi ptr [ %70, %land.lhs.true.while.end.loopexit_crit_edge.i ], [ null, %if.end60.i ]
   %tobool63.not184.i = icmp eq i64 %.pr.i, 0
   br i1 %tobool63.not184.i, label %while.end89.i, label %while.body64.lr.ph.i
 
@@ -1587,21 +1582,21 @@ while.body64.lr.ph.i:                             ; preds = %while.end.i13
 
 while.body64.i:                                   ; preds = %if.end86.i, %while.body64.lr.ph.i
   %xor_bitmap.3185.i = phi ptr [ %xor_bitmap.1.i, %while.body64.lr.ph.i ], [ %call88.i, %if.end86.i ]
-  %71 = phi i64 [ %.pr.i, %while.body64.lr.ph.i ], [ %dec.i, %if.end86.i ]
-  %72 = load ptr, ptr @lazy_bitmap_for_commit.xor_items, align 8
-  %73 = getelementptr %struct.bitmap_lookup_table_xor_item, ptr %72, i64 %71
-  %arrayidx65.i = getelementptr i8, ptr %73, i64 -48
-  %offset66.i = getelementptr i8, ptr %73, i64 -8
-  %74 = load i64, ptr %offset66.i, align 8
-  store i64 %74, ptr %map_pos.i, align 8
-  %75 = load i64, ptr %map_size.i, align 8
-  %sub68.i = sub i64 %75, %74
+  %72 = phi i64 [ %.pr.i, %while.body64.lr.ph.i ], [ %dec.i, %if.end86.i ]
+  %73 = load ptr, ptr @lazy_bitmap_for_commit.xor_items, align 8
+  %74 = getelementptr %struct.bitmap_lookup_table_xor_item, ptr %73, i64 %72
+  %arrayidx65.i = getelementptr i8, ptr %74, i64 -48
+  %offset66.i = getelementptr i8, ptr %74, i64 -8
+  %75 = load i64, ptr %offset66.i, align 8
+  store i64 %75, ptr %map_pos.i, align 8
+  %76 = load i64, ptr %map_size.i, align 8
+  %sub68.i = sub i64 %76, %75
   %cmp69.i = icmp ult i64 %sub68.i, 6
   br i1 %cmp69.i, label %if.then71.i, label %if.end77.i
 
 if.then71.i:                                      ; preds = %while.body64.i
-  %76 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i126.i = icmp eq i32 %76, 0
+  %77 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i126.i = icmp eq i32 %77, 0
   br i1 %tobool1.not.i126.i, label %_.exit130.i, label %if.end3.i127.i
 
 if.end3.i127.i:                                   ; preds = %if.then71.i
@@ -1615,25 +1610,25 @@ _.exit130.i:                                      ; preds = %if.end3.i127.i, %if
   br label %corrupt.i
 
 if.end77.i:                                       ; preds = %while.body64.i
-  %77 = load ptr, ptr %map.i, align 8
-  %inc.i131.i = add i64 %74, 6
+  %78 = load ptr, ptr %map.i, align 8
+  %inc.i131.i = add i64 %75, 6
   store i64 %inc.i131.i, ptr %map_pos.i, align 8
-  %78 = getelementptr i8, ptr %77, i64 %74
-  %arrayidx.i132.i = getelementptr i8, ptr %78, i64 5
-  %79 = load i8, ptr %arrayidx.i132.i, align 1
+  %79 = getelementptr i8, ptr %78, i64 %75
+  %arrayidx.i132.i = getelementptr i8, ptr %79, i64 5
+  %80 = load i8, ptr %arrayidx.i132.i, align 1
   %call.i133.i = call ptr @ewah_pool_new() #18
-  %80 = load ptr, ptr %map.i, align 8
-  %81 = load i64, ptr %map_pos.i, align 8
-  %add.ptr.i134.i = getelementptr inbounds i8, ptr %80, i64 %81
-  %82 = load i64, ptr %map_size.i, align 8
-  %sub.i135.i = sub i64 %82, %81
+  %81 = load ptr, ptr %map.i, align 8
+  %82 = load i64, ptr %map_pos.i, align 8
+  %add.ptr.i134.i = getelementptr inbounds i8, ptr %81, i64 %82
+  %83 = load i64, ptr %map_size.i, align 8
+  %sub.i135.i = sub i64 %83, %82
   %call2.i136.i = call i64 @ewah_read_mmap(ptr noundef %call.i133.i, ptr noundef %add.ptr.i134.i, i64 noundef %sub.i135.i) #18
   %cmp.i137.i = icmp slt i64 %call2.i136.i, 0
   br i1 %cmp.i137.i, label %if.then.i141.i, label %read_bitmap_1.exit.i
 
 if.then.i141.i:                                   ; preds = %if.end77.i
-  %83 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i142.i = icmp eq i32 %83, 0
+  %84 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i142.i = icmp eq i32 %84, 0
   br i1 %tobool1.not.i.i142.i, label %read_bitmap_1.exit.thread.i, label %if.end3.i.i143.i
 
 if.end3.i.i143.i:                                 ; preds = %if.then.i141.i
@@ -1647,17 +1642,17 @@ read_bitmap_1.exit.thread.i:                      ; preds = %if.end3.i.i143.i, %
   br label %corrupt.i
 
 read_bitmap_1.exit.i:                             ; preds = %if.end77.i
-  %84 = load i64, ptr %map_pos.i, align 8
-  %add.i139.i = add i64 %84, %call2.i136.i
+  %85 = load i64, ptr %map_pos.i, align 8
+  %add.i139.i = add i64 %85, %call2.i136.i
   store i64 %add.i139.i, ptr %map_pos.i, align 8
   %tobool84.not.i = icmp eq ptr %call.i133.i, null
   br i1 %tobool84.not.i, label %corrupt.i, label %if.end86.i
 
 if.end86.i:                                       ; preds = %read_bitmap_1.exit.i
-  %conv82.i = zext i8 %79 to i32
+  %conv82.i = zext i8 %80 to i32
   %call88.i = call fastcc ptr @store_bitmap(ptr noundef nonnull %bitmap_git, ptr noundef nonnull %call.i133.i, ptr noundef %arrayidx65.i, ptr noundef %xor_bitmap.3185.i, i32 noundef %conv82.i)
-  %85 = load i64, ptr @lazy_bitmap_for_commit.xor_items_nr, align 8
-  %dec.i = add i64 %85, -1
+  %86 = load i64, ptr @lazy_bitmap_for_commit.xor_items_nr, align 8
+  %dec.i = add i64 %86, -1
   store i64 %dec.i, ptr @lazy_bitmap_for_commit.xor_items_nr, align 8
   %tobool63.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool63.not.i, label %while.end89.i, label %while.body64.i, !llvm.loop !13
@@ -1667,14 +1662,14 @@ while.end89.i:                                    ; preds = %if.end86.i, %while.
   %map_pos90.i = getelementptr inbounds i8, ptr %bitmap_git, i64 40
   store i64 %or.i10.i.i.i, ptr %map_pos90.i, align 8
   %map_size91.i = getelementptr inbounds i8, ptr %bitmap_git, i64 32
-  %86 = load i64, ptr %map_size91.i, align 8
-  %sub93.i = sub i64 %86, %or.i10.i.i.i
+  %87 = load i64, ptr %map_size91.i, align 8
+  %sub93.i = sub i64 %87, %or.i10.i.i.i
   %cmp94.i = icmp ult i64 %sub93.i, 6
   br i1 %cmp94.i, label %if.then96.i, label %if.end101.i
 
 if.then96.i:                                      ; preds = %while.end89.i
-  %87 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i148.i = icmp eq i32 %87, 0
+  %88 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i148.i = icmp eq i32 %88, 0
   br i1 %tobool1.not.i148.i, label %_.exit152.i, label %if.end3.i149.i
 
 if.end3.i149.i:                                   ; preds = %if.then96.i
@@ -1689,19 +1684,19 @@ _.exit152.i:                                      ; preds = %if.end3.i149.i, %if
 
 if.end101.i:                                      ; preds = %while.end89.i
   %map104.i = getelementptr inbounds i8, ptr %bitmap_git, i64 24
-  %88 = load ptr, ptr %map104.i, align 8
+  %89 = load ptr, ptr %map104.i, align 8
   %inc.i153.i = add i64 %or.i10.i.i.i, 6
   store i64 %inc.i153.i, ptr %map_pos90.i, align 8
-  %89 = getelementptr i8, ptr %88, i64 %or.i10.i.i.i
-  %arrayidx.i154.i = getelementptr i8, ptr %89, i64 5
-  %90 = load i8, ptr %arrayidx.i154.i, align 1
+  %90 = getelementptr i8, ptr %89, i64 %or.i10.i.i.i
+  %arrayidx.i154.i = getelementptr i8, ptr %90, i64 5
+  %91 = load i8, ptr %arrayidx.i154.i, align 1
   %call108.i = call fastcc ptr @read_bitmap_1(ptr noundef nonnull %bitmap_git)
   %tobool109.not.i = icmp eq ptr %call108.i, null
   br i1 %tobool109.not.i, label %corrupt.i, label %lazy_bitmap_for_commit.exit
 
 corrupt.i:                                        ; preds = %read_bitmap_1.exit.i, %if.end101.i, %_.exit152.i, %read_bitmap_1.exit.thread.i, %_.exit130.i, %_.exit120.i, %bitmap_lookup_table_get_triplet.exit.thread.i, %_.exit.i
-  %91 = load ptr, ptr @lazy_bitmap_for_commit.xor_items, align 8
-  call void @free(ptr noundef %91) #18
+  %92 = load ptr, ptr @lazy_bitmap_for_commit.xor_items, align 8
+  call void @free(ptr noundef %92) #18
   store i1 true, ptr @lazy_bitmap_for_commit.is_corrupt, align 4
   br label %lazy_bitmap_for_commit.exit.thread
 
@@ -1710,7 +1705,7 @@ lazy_bitmap_for_commit.exit.thread:               ; preds = %corrupt.i, %if.end,
   br label %return
 
 lazy_bitmap_for_commit.exit:                      ; preds = %if.end101.i
-  %conv107.i = zext i8 %90 to i32
+  %conv107.i = zext i8 %91 to i32
   %call112.i = call fastcc ptr @store_bitmap(ptr noundef nonnull %bitmap_git, ptr noundef nonnull %call108.i, ptr noundef nonnull %oid, ptr noundef %xor_bitmap.3.lcssa.i, i32 noundef %conv107.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %commit_pos.i)
   %tobool4.not = icmp eq ptr %call112.i, null
@@ -1722,11 +1717,11 @@ if.end6:                                          ; preds = %lazy_bitmap_for_com
 
 if.end8:                                          ; preds = %kh_get_oid_map.exit
   %vals = getelementptr inbounds i8, ptr %0, i64 32
-  %92 = load ptr, ptr %vals, align 8
+  %93 = load ptr, ptr %vals, align 8
   %idxprom = zext i32 %retval.0.i to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %92, i64 %idxprom
-  %93 = load ptr, ptr %arrayidx, align 8
-  %call10 = tail call fastcc ptr @lookup_stored_bitmap(ptr noundef %93)
+  %arrayidx = getelementptr inbounds ptr, ptr %93, i64 %idxprom
+  %94 = load ptr, ptr %arrayidx, align 8
+  %call10 = tail call fastcc ptr @lookup_stored_bitmap(ptr noundef %94)
   br label %return
 
 return:                                           ; preds = %lazy_bitmap_for_commit.exit.thread, %lazy_bitmap_for_commit.exit, %if.then, %if.end8, %if.end6
@@ -4405,27 +4400,22 @@ if.end:                                           ; preds = %for.body
   %conv12 = zext i8 %10 to i32
   %11 = load ptr, ptr %midx.i, align 8
   %tobool.not.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i, label %if.end.i, label %if.then.i
+  br i1 %tobool.not.i, label %nth_bitmap_object_oid.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %call.i25 = call ptr @nth_midxed_object_oid(ptr noundef nonnull %oid, ptr noundef nonnull %11, i32 noundef %or11.i.i) #18
   %tobool2.not.i = icmp eq ptr %call.i25, null
-  %cond.i = sext i1 %tobool2.not.i to i32
-  br label %nth_bitmap_object_oid.exit
+  br i1 %tobool2.not.i, label %if.then16, label %if.end20
 
-if.end.i:                                         ; preds = %if.end
+nth_bitmap_object_oid.exit:                       ; preds = %if.end
   %12 = load ptr, ptr %index, align 8
   %call3.i = call i32 @nth_packed_object_id(ptr noundef nonnull %oid, ptr noundef %12, i32 noundef %or11.i.i) #18
-  br label %nth_bitmap_object_oid.exit
+  %13 = icmp slt i32 %call3.i, 0
+  br i1 %13, label %if.then16, label %if.end20
 
-nth_bitmap_object_oid.exit:                       ; preds = %if.then.i, %if.end.i
-  %retval.0.i26 = phi i32 [ %cond.i, %if.then.i ], [ %call3.i, %if.end.i ]
-  %cmp14 = icmp slt i32 %retval.0.i26, 0
-  br i1 %cmp14, label %if.then16, label %if.end20
-
-if.then16:                                        ; preds = %nth_bitmap_object_oid.exit
-  %13 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i28 = icmp eq i32 %13, 0
+if.then16:                                        ; preds = %if.then.i, %nth_bitmap_object_oid.exit
+  %14 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i28 = icmp eq i32 %14, 0
   br i1 %tobool1.not.i28, label %_.exit32, label %if.end3.i29
 
 if.end3.i29:                                      ; preds = %if.then16
@@ -4437,20 +4427,20 @@ _.exit32:                                         ; preds = %if.then16, %if.end3
   %call18 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i31, i32 noundef %or11.i.i) #18
   br label %return
 
-if.end20:                                         ; preds = %nth_bitmap_object_oid.exit
+if.end20:                                         ; preds = %if.then.i, %nth_bitmap_object_oid.exit
   %call.i33 = call ptr @ewah_pool_new() #18
-  %14 = load ptr, ptr %map, align 8
-  %15 = load i64, ptr %map_pos, align 8
-  %add.ptr.i34 = getelementptr inbounds i8, ptr %14, i64 %15
-  %16 = load i64, ptr %map_size, align 8
-  %sub.i = sub i64 %16, %15
+  %15 = load ptr, ptr %map, align 8
+  %16 = load i64, ptr %map_pos, align 8
+  %add.ptr.i34 = getelementptr inbounds i8, ptr %15, i64 %16
+  %17 = load i64, ptr %map_size, align 8
+  %sub.i = sub i64 %17, %16
   %call2.i = call i64 @ewah_read_mmap(ptr noundef %call.i33, ptr noundef %add.ptr.i34, i64 noundef %sub.i) #18
   %cmp.i = icmp slt i64 %call2.i, 0
   br i1 %cmp.i, label %if.then.i38, label %read_bitmap_1.exit
 
 if.then.i38:                                      ; preds = %if.end20
-  %17 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i = icmp eq i32 %17, 0
+  %18 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i = icmp eq i32 %18, 0
   br i1 %tobool1.not.i.i, label %read_bitmap_1.exit.thread, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then.i38
@@ -4464,8 +4454,8 @@ read_bitmap_1.exit.thread:                        ; preds = %if.then.i38, %if.en
   br label %return
 
 read_bitmap_1.exit:                               ; preds = %if.end20
-  %18 = load i64, ptr %map_pos, align 8
-  %add.i36 = add i64 %18, %call2.i
+  %19 = load i64, ptr %map_pos, align 8
+  %add.i36 = add i64 %19, %call2.i
   store i64 %add.i36, ptr %map_pos, align 8
   %tobool.not = icmp eq ptr %call.i33, null
   br i1 %tobool.not, label %return, label %if.end23
@@ -4477,8 +4467,8 @@ if.end23:                                         ; preds = %read_bitmap_1.exit
   br i1 %or.cond, label %if.then28, label %if.end32
 
 if.then28:                                        ; preds = %if.end23
-  %19 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i40 = icmp eq i32 %19, 0
+  %20 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i40 = icmp eq i32 %20, 0
   br i1 %tobool1.not.i40, label %_.exit44, label %if.end3.i41
 
 if.end3.i41:                                      ; preds = %if.then28
@@ -4499,13 +4489,13 @@ if.then35:                                        ; preds = %if.end32
   %rem = urem i32 %sub36, 160
   %idxprom = zext nneg i32 %rem to i64
   %arrayidx = getelementptr inbounds [160 x ptr], ptr %recent_bitmaps, i64 0, i64 %idxprom
-  %20 = load ptr, ptr %arrayidx, align 8
-  %tobool37.not = icmp eq ptr %20, null
+  %21 = load ptr, ptr %arrayidx, align 8
+  %tobool37.not = icmp eq ptr %21, null
   br i1 %tobool37.not, label %if.then38, label %if.end43
 
 if.then38:                                        ; preds = %if.then35
-  %21 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i46 = icmp eq i32 %21, 0
+  %22 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i46 = icmp eq i32 %22, 0
   br i1 %tobool1.not.i46, label %_.exit50, label %if.end3.i47
 
 if.end3.i47:                                      ; preds = %if.then38
@@ -4518,15 +4508,15 @@ _.exit50:                                         ; preds = %if.then38, %if.end3
   br label %return
 
 if.end43:                                         ; preds = %if.then35, %if.end32
-  %xor_bitmap.0 = phi ptr [ %20, %if.then35 ], [ null, %if.end32 ]
+  %xor_bitmap.0 = phi ptr [ %21, %if.then35 ], [ null, %if.end32 ]
   %call44 = call fastcc ptr @store_bitmap(ptr noundef nonnull %index, ptr noundef nonnull %call.i33, ptr noundef nonnull %oid, ptr noundef %xor_bitmap.0, i32 noundef %conv12)
   %rem45 = urem i32 %i.064, 160
   %idxprom46 = zext nneg i32 %rem45 to i64
   %arrayidx47 = getelementptr inbounds [160 x ptr], ptr %recent_bitmaps, i64 0, i64 %idxprom46
   store ptr %call44, ptr %arrayidx47, align 8
   %inc = add nuw i32 %i.064, 1
-  %22 = load i32, ptr %entry_count, align 8
-  %cmp = icmp ult i32 %inc, %22
+  %23 = load i32, ptr %entry_count, align 8
+  %cmp = icmp ult i32 %inc, %23
   br i1 %cmp, label %for.body, label %return, !llvm.loop !40
 
 return:                                           ; preds = %read_bitmap_1.exit, %if.end43, %entry, %read_bitmap_1.exit.thread, %_.exit50, %_.exit44, %_.exit32, %_.exit

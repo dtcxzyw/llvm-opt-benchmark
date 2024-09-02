@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @bio_type_count = global %struct.CRYPTO_REF_COUNT zeroinitializer, align 4
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_get_new_index() local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @BIO_get_new_index() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @bio_type_init, ptr noundef nonnull @do_bio_type_init_ossl_) #6
   %tobool = icmp ne i32 %call, 0

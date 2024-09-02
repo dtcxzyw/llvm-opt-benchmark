@@ -731,7 +731,7 @@ define internal fastcc range(i32 -22, 1) i32 @check_overlay_dst(ptr %.16.val.170
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef range(i32 -22, 5) i32 @check_overlay_src(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #4 align 16 {
   %4 = load i32, ptr %1, align 4
   %5 = and i32 %4, 65280
   %6 = add nsw i32 %5, -256
@@ -1860,7 +1860,7 @@ define internal fastcc void @i915_gem_object_put(ptr noundef %0) unnamed_addr #5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_overlay_attrs_ioctl(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @intel_overlay_attrs_ioctl(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 6736
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

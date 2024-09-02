@@ -3063,19 +3063,19 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %633)
   br label %1049
 
-1049:                                             ; preds = %1312, %1043
-  %1050 = phi i32 [ %1040, %1043 ], [ %1247, %1312 ]
-  %1051 = phi i32 [ %1048, %1043 ], [ %1322, %1312 ]
-  %1052 = phi i32 [ %1047, %1043 ], [ %1320, %1312 ]
-  %1053 = phi i32 [ %1046, %1043 ], [ %1318, %1312 ]
-  %1054 = phi i32 [ %1045, %1043 ], [ %1316, %1312 ]
-  %1055 = phi ptr [ %1044, %1043 ], [ %1315, %1312 ]
-  %1056 = phi i1 [ false, %1043 ], [ true, %1312 ]
-  %.sroa.phi94 = phi ptr [ %.sroa.4, %1043 ], [ %.sroa.6, %1312 ]
-  %.sroa.phi99.sroa.speculated = phi i32 [ %613, %1043 ], [ %621, %1312 ]
-  %1057 = phi i32 [ %1041, %1043 ], [ %1264, %1312 ]
-  %1058 = phi i32 [ %1040, %1043 ], [ %1249, %1312 ]
-  %1059 = phi i64 [ %1039, %1043 ], [ %1263, %1312 ]
+1049:                                             ; preds = %1313, %1043
+  %1050 = phi i32 [ %1040, %1043 ], [ %1247, %1313 ]
+  %1051 = phi i32 [ %1048, %1043 ], [ %1322, %1313 ]
+  %1052 = phi i32 [ %1047, %1043 ], [ %1320, %1313 ]
+  %1053 = phi i32 [ %1046, %1043 ], [ %1318, %1313 ]
+  %1054 = phi i32 [ %1045, %1043 ], [ %1316, %1313 ]
+  %1055 = phi ptr [ %1044, %1043 ], [ %1315, %1313 ]
+  %1056 = phi i1 [ false, %1043 ], [ true, %1313 ]
+  %.sroa.phi94 = phi ptr [ %.sroa.4, %1043 ], [ %.sroa.6, %1313 ]
+  %.sroa.phi99.sroa.speculated = phi i32 [ %613, %1043 ], [ %621, %1313 ]
+  %1057 = phi i32 [ %1041, %1043 ], [ %1264, %1313 ]
+  %1058 = phi i32 [ %1040, %1043 ], [ %1249, %1313 ]
+  %1059 = phi i64 [ %1039, %1043 ], [ %1263, %1313 ]
   %1060 = load i32, ptr %.sroa.phi94, align 4, !tbaa !86
   %1061 = shl i32 %1060, 1
   %1062 = or disjoint i32 %1061, 1
@@ -3413,7 +3413,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 1303:                                             ; preds = %1301, %1296
   %1304 = phi i32 [ %1297, %1296 ], [ %1302, %1301 ]
   %1305 = icmp slt i32 %1304, 0
-  br i1 %1305, label %1312, label %1306
+  br i1 %1305, label %1313, label %1306
 
 1306:                                             ; preds = %1303
   %1307 = load i32, ptr %589, align 4, !tbaa !86
@@ -3423,11 +3423,11 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1309 = phi i32 [ %1307, %1306 ], [ %1299, %1298 ]
   %1310 = phi i32 [ %1304, %1306 ], [ %1294, %1298 ]
   %1311 = call i32 @llvm.smin.i32(i32 %1309, i32 %1310)
-  br label %1312
+  %1312 = trunc i32 %1311 to i16
+  br label %1313
 
-1312:                                             ; preds = %1308, %1303
-  %1313 = phi i32 [ %1311, %1308 ], [ 0, %1303 ]
-  %1314 = trunc i32 %1313 to i16
+1313:                                             ; preds = %1308, %1303
+  %1314 = phi i16 [ %1312, %1308 ], [ 0, %1303 ]
   %1315 = load ptr, ptr %219, align 8, !tbaa !11, !nonnull !105, !noundef !105
   %1316 = load i32, ptr %223, align 8, !tbaa !86
   %1317 = icmp sgt i32 %1316, -1
@@ -3464,11 +3464,11 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i32 %1336, ptr %.sroa.phi94, align 4, !tbaa !86
   br i1 %1056, label %.loopexit138, label %1049, !llvm.loop !233
 
-.loopexit138:                                     ; preds = %1312, %.loopexit141
-  %1337 = phi i64 [ %1038, %.loopexit141 ], [ %1263, %1312 ]
-  %1338 = phi i64 [ %1039, %.loopexit141 ], [ %1263, %1312 ]
-  %1339 = phi i32 [ %1040, %.loopexit141 ], [ %1247, %1312 ]
-  %1340 = phi i32 [ %1041, %.loopexit141 ], [ %1264, %1312 ]
+.loopexit138:                                     ; preds = %1313, %.loopexit141
+  %1337 = phi i64 [ %1038, %.loopexit141 ], [ %1263, %1313 ]
+  %1338 = phi i64 [ %1039, %.loopexit141 ], [ %1263, %1313 ]
+  %1339 = phi i32 [ %1040, %.loopexit141 ], [ %1247, %1313 ]
+  %1340 = phi i32 [ %1041, %.loopexit141 ], [ %1264, %1313 ]
   %1341 = add nuw nsw i32 %640, 1
   %1342 = icmp eq i32 %640, %594
   br i1 %1342, label %1343, label %635, !llvm.loop !234
@@ -3910,18 +3910,18 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1618 = load i32, ptr %224, align 8, !tbaa !201
   br label %1619
 
-1619:                                             ; preds = %1881, %1613
-  %1620 = phi i32 [ %1891, %1881 ], [ %1618, %1613 ]
-  %1621 = phi i32 [ %1889, %1881 ], [ %1617, %1613 ]
-  %1622 = phi i32 [ %1887, %1881 ], [ %1616, %1613 ]
-  %1623 = phi i32 [ %1885, %1881 ], [ %1615, %1613 ]
-  %1624 = phi ptr [ %1884, %1881 ], [ %1614, %1613 ]
-  %1625 = phi i32 [ %1817, %1881 ], [ %1609, %1613 ]
-  %1626 = phi i32 [ %1833, %1881 ], [ %1610, %1613 ]
-  %1627 = phi i64 [ %1832, %1881 ], [ %1608, %1613 ]
-  %1628 = phi i1 [ true, %1881 ], [ false, %1613 ]
-  %.sroa.phi108 = phi ptr [ %.sroa.5115, %1881 ], [ %.sroa.0113, %1613 ]
-  %.sroa.phi117.sroa.speculated = phi i32 [ %1594, %1881 ], [ %1586, %1613 ]
+1619:                                             ; preds = %1882, %1613
+  %1620 = phi i32 [ %1891, %1882 ], [ %1618, %1613 ]
+  %1621 = phi i32 [ %1889, %1882 ], [ %1617, %1613 ]
+  %1622 = phi i32 [ %1887, %1882 ], [ %1616, %1613 ]
+  %1623 = phi i32 [ %1885, %1882 ], [ %1615, %1613 ]
+  %1624 = phi ptr [ %1884, %1882 ], [ %1614, %1613 ]
+  %1625 = phi i32 [ %1817, %1882 ], [ %1609, %1613 ]
+  %1626 = phi i32 [ %1833, %1882 ], [ %1610, %1613 ]
+  %1627 = phi i64 [ %1832, %1882 ], [ %1608, %1613 ]
+  %1628 = phi i1 [ true, %1882 ], [ false, %1613 ]
+  %.sroa.phi108 = phi ptr [ %.sroa.5115, %1882 ], [ %.sroa.0113, %1613 ]
+  %.sroa.phi117.sroa.speculated = phi i32 [ %1594, %1882 ], [ %1586, %1613 ]
   %1629 = load i32, ptr %.sroa.phi108, align 4, !tbaa !86
   %1630 = add nsw i32 %.sroa.phi117.sroa.speculated, -1
   %1631 = shl i32 %1629, 1
@@ -4258,7 +4258,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 1872:                                             ; preds = %1870, %1865
   %1873 = phi i32 [ %1866, %1865 ], [ %1871, %1870 ]
   %1874 = icmp slt i32 %1873, 0
-  br i1 %1874, label %1881, label %1875
+  br i1 %1874, label %1882, label %1875
 
 1875:                                             ; preds = %1872
   %1876 = load i32, ptr %589, align 4, !tbaa !86
@@ -4268,11 +4268,11 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %1878 = phi i32 [ %1876, %1875 ], [ %1868, %1867 ]
   %1879 = phi i32 [ %1873, %1875 ], [ %1863, %1867 ]
   %1880 = call i32 @llvm.smin.i32(i32 %1878, i32 %1879)
-  br label %1881
+  %1881 = trunc i32 %1880 to i16
+  br label %1882
 
-1881:                                             ; preds = %1877, %1872
-  %1882 = phi i32 [ %1880, %1877 ], [ 0, %1872 ]
-  %1883 = trunc i32 %1882 to i16
+1882:                                             ; preds = %1877, %1872
+  %1883 = phi i16 [ %1881, %1877 ], [ 0, %1872 ]
   %1884 = load ptr, ptr %219, align 8, !tbaa !11, !nonnull !105, !noundef !105
   %1885 = load i32, ptr %223, align 8, !tbaa !86
   %1886 = icmp sgt i32 %1885, -1
@@ -4309,11 +4309,11 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i32 %1905, ptr %.sroa.phi108, align 4, !tbaa !86
   br i1 %1628, label %.loopexit147, label %1619, !llvm.loop !236
 
-.loopexit147:                                     ; preds = %1881, %1606
-  %1906 = phi i64 [ %1607, %1606 ], [ %1832, %1881 ]
-  %1907 = phi i64 [ %1608, %1606 ], [ %1832, %1881 ]
-  %1908 = phi i32 [ %1609, %1606 ], [ %1817, %1881 ]
-  %1909 = phi i32 [ %1610, %1606 ], [ %1833, %1881 ]
+.loopexit147:                                     ; preds = %1882, %1606
+  %1906 = phi i64 [ %1607, %1606 ], [ %1832, %1882 ]
+  %1907 = phi i64 [ %1608, %1606 ], [ %1832, %1882 ]
+  %1908 = phi i32 [ %1609, %1606 ], [ %1817, %1882 ]
+  %1909 = phi i32 [ %1610, %1606 ], [ %1833, %1882 ]
   %1910 = icmp ugt i32 %1611, 3
   br i1 %1910, label %1911, label %.loopexit144
 
@@ -4326,19 +4326,19 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   call void @llvm.assume(i1 %1604)
   br label %1917
 
-1917:                                             ; preds = %2182, %1911
-  %1918 = phi i32 [ %1908, %1911 ], [ %2116, %2182 ]
-  %1919 = phi i32 [ %1916, %1911 ], [ %2192, %2182 ]
-  %1920 = phi i32 [ %1915, %1911 ], [ %2190, %2182 ]
-  %1921 = phi i32 [ %1914, %1911 ], [ %2188, %2182 ]
-  %1922 = phi i32 [ %1913, %1911 ], [ %2186, %2182 ]
-  %1923 = phi ptr [ %1912, %1911 ], [ %2185, %2182 ]
-  %1924 = phi i1 [ false, %1911 ], [ true, %2182 ]
-  %.sroa.phi110 = phi ptr [ %.sroa.4114, %1911 ], [ %.sroa.6116, %2182 ]
-  %.sroa.phi119.sroa.speculated = phi i32 [ %1586, %1911 ], [ %1594, %2182 ]
-  %1925 = phi i32 [ %1909, %1911 ], [ %2133, %2182 ]
-  %1926 = phi i32 [ %1908, %1911 ], [ %2118, %2182 ]
-  %1927 = phi i64 [ %1907, %1911 ], [ %2132, %2182 ]
+1917:                                             ; preds = %2183, %1911
+  %1918 = phi i32 [ %1908, %1911 ], [ %2116, %2183 ]
+  %1919 = phi i32 [ %1916, %1911 ], [ %2192, %2183 ]
+  %1920 = phi i32 [ %1915, %1911 ], [ %2190, %2183 ]
+  %1921 = phi i32 [ %1914, %1911 ], [ %2188, %2183 ]
+  %1922 = phi i32 [ %1913, %1911 ], [ %2186, %2183 ]
+  %1923 = phi ptr [ %1912, %1911 ], [ %2185, %2183 ]
+  %1924 = phi i1 [ false, %1911 ], [ true, %2183 ]
+  %.sroa.phi110 = phi ptr [ %.sroa.4114, %1911 ], [ %.sroa.6116, %2183 ]
+  %.sroa.phi119.sroa.speculated = phi i32 [ %1586, %1911 ], [ %1594, %2183 ]
+  %1925 = phi i32 [ %1909, %1911 ], [ %2133, %2183 ]
+  %1926 = phi i32 [ %1908, %1911 ], [ %2118, %2183 ]
+  %1927 = phi i64 [ %1907, %1911 ], [ %2132, %2183 ]
   %1928 = load i32, ptr %.sroa.phi110, align 4, !tbaa !86
   %1929 = shl i32 %1928, 1
   %1930 = or disjoint i32 %1929, 1
@@ -4690,7 +4690,7 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
 2173:                                             ; preds = %2171, %2166
   %2174 = phi i32 [ %2167, %2166 ], [ %2172, %2171 ]
   %2175 = icmp slt i32 %2174, 0
-  br i1 %2175, label %2182, label %2176
+  br i1 %2175, label %2183, label %2176
 
 2176:                                             ; preds = %2173
   %2177 = load i32, ptr %589, align 4, !tbaa !86
@@ -4700,11 +4700,11 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2179 = phi i32 [ %2177, %2176 ], [ %2169, %2168 ]
   %2180 = phi i32 [ %2174, %2176 ], [ %2164, %2168 ]
   %2181 = call i32 @llvm.smin.i32(i32 %2179, i32 %2180)
-  br label %2182
+  %2182 = trunc i32 %2181 to i16
+  br label %2183
 
-2182:                                             ; preds = %2178, %2173
-  %2183 = phi i32 [ %2181, %2178 ], [ 0, %2173 ]
-  %2184 = trunc i32 %2183 to i16
+2183:                                             ; preds = %2178, %2173
+  %2184 = phi i16 [ %2182, %2178 ], [ 0, %2173 ]
   %2185 = load ptr, ptr %219, align 8, !tbaa !11, !nonnull !105, !noundef !105
   %2186 = load i32, ptr %223, align 8, !tbaa !86
   %2187 = icmp sgt i32 %2186, -1
@@ -4741,11 +4741,11 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   store i32 %2206, ptr %.sroa.phi110, align 4, !tbaa !86
   br i1 %1924, label %.loopexit144, label %1917, !llvm.loop !237
 
-.loopexit144:                                     ; preds = %2182, %.loopexit147
-  %2207 = phi i64 [ %1906, %.loopexit147 ], [ %2132, %2182 ]
-  %2208 = phi i64 [ %1907, %.loopexit147 ], [ %2132, %2182 ]
-  %2209 = phi i32 [ %1908, %.loopexit147 ], [ %2116, %2182 ]
-  %2210 = phi i32 [ %1909, %.loopexit147 ], [ %2133, %2182 ]
+.loopexit144:                                     ; preds = %2183, %.loopexit147
+  %2207 = phi i64 [ %1906, %.loopexit147 ], [ %2132, %2183 ]
+  %2208 = phi i64 [ %1907, %.loopexit147 ], [ %2132, %2183 ]
+  %2209 = phi i32 [ %1908, %.loopexit147 ], [ %2116, %2183 ]
+  %2210 = phi i32 [ %1909, %.loopexit147 ], [ %2133, %2183 ]
   %2211 = add nuw nsw i32 %1611, 1
   %2212 = icmp eq i32 %1611, %594
   br i1 %2212, label %2213, label %1606, !llvm.loop !238

@@ -19427,13 +19427,13 @@ _ZN5gimli4read4line7LineRow7execute17h6d33499332f9b955E.exit.thread.i: ; preds =
 818:                                              ; preds = %.loopexit
   %819 = getelementptr inbounds i8, ptr %.0333, i64 8
   %820 = load i64, ptr %819, align 8, !noundef !4
-  %821 = icmp eq i64 %.sroa.0157.01509, 1
-  %822 = icmp eq i64 %820, %.sroa.7160.01510
-  %.0 = select i1 %821, i1 %822, i1 false
-  br i1 %.0, label %.thread670, label %823
+  %821 = icmp ne i64 %.sroa.0157.01509, 1
+  %822 = icmp ne i64 %820, %.sroa.7160.01510
+  %.0 = select i1 %821, i1 true, i1 %822
+  br i1 %.0, label %823, label %.thread670
 
 823:                                              ; preds = %818
-  br i1 %821, label %824, label %827
+  br i1 %821, label %827, label %824
 
 824:                                              ; preds = %823
   %825 = load i64, ptr %.sroa.0563.01508, align 8, !noundef !4

@@ -799,8 +799,8 @@ for.end66:                                        ; preds = %for.body56, %if.end
 lor.lhs.false92:                                  ; preds = %for.end66
   %arrayidx94.phi.trans.insert = getelementptr inbounds i32, ptr %0, i64 %indvars.iv123
   %.pre = load i32, ptr %arrayidx94.phi.trans.insert, align 4
-  %cmp95 = icmp eq i32 %.pre, -1
-  br i1 %cmp95, label %if.then96, label %lor.lhs.false92.for.inc169_crit_edge
+  %28 = icmp eq i32 %.pre, -1
+  br i1 %28, label %if.then96, label %lor.lhs.false92.for.inc169_crit_edge
 
 lor.lhs.false92.for.inc169_crit_edge:             ; preds = %lor.lhs.false92
   %.pre128 = add nuw nsw i64 %indvars.iv123, 1
@@ -808,85 +808,85 @@ lor.lhs.false92.for.inc169_crit_edge:             ; preds = %lor.lhs.false92
 
 if.then96:                                        ; preds = %lor.lhs.false, %lor.lhs.false92, %for.end66
   %cond101 = select i1 %tobool.not, i32 %indvars126, i32 %last_barrier_pos.0102
-  %28 = add nuw nsw i64 %indvars.iv123, 1
+  %29 = add nuw nsw i64 %indvars.iv123, 1
   %cond107 = add nuw nsw i32 %indvars126, %add105
   %cmp11098 = icmp slt i32 %cond101, %cond107
   br i1 %cmp11098, label %for.body111.preheader, label %for.end163
 
 for.body111.preheader:                            ; preds = %if.then96
-  %29 = sext i32 %cond101 to i64
+  %30 = sext i32 %cond101 to i64
   br label %for.body111
 
 for.body111:                                      ; preds = %for.body111.preheader, %for.inc161
-  %indvars.iv119 = phi i64 [ %29, %for.body111.preheader ], [ %indvars.iv.next120, %for.inc161 ]
-  %30 = trunc nsw i64 %indvars.iv119 to i32
+  %indvars.iv119 = phi i64 [ %30, %for.body111.preheader ], [ %indvars.iv.next120, %for.inc161 ]
+  %31 = trunc nsw i64 %indvars.iv119 to i32
   br i1 %tobool.not, label %cond.end117, label %cond.true113
 
 cond.true113:                                     ; preds = %for.body111
   %arrayidx115 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv119
-  %31 = load i32, ptr %arrayidx115, align 4
+  %32 = load i32, ptr %arrayidx115, align 4
   br label %cond.end117
 
 cond.end117:                                      ; preds = %for.body111, %cond.true113
-  %cond118 = phi i32 [ %31, %cond.true113 ], [ %30, %for.body111 ]
-  %32 = load ptr, ptr %nodes50, align 8
+  %cond118 = phi i32 [ %32, %cond.true113 ], [ %31, %for.body111 ]
+  %33 = load ptr, ptr %nodes50, align 8
   %idxprom121 = sext i32 %cond118 to i64
-  %arrayidx122 = getelementptr inbounds ptr, ptr %32, i64 %idxprom121
-  %33 = load ptr, ptr %arrayidx122, align 8
-  %src128 = getelementptr inbounds i8, ptr %33, i64 160
+  %arrayidx122 = getelementptr inbounds ptr, ptr %33, i64 %idxprom121
+  %34 = load ptr, ptr %arrayidx122, align 8
+  %src128 = getelementptr inbounds i8, ptr %34, i64 160
   br label %for.body126
 
 for.body126:                                      ; preds = %cond.end117, %for.inc158
   %indvars.iv115 = phi i64 [ 0, %cond.end117 ], [ %indvars.iv.next116, %for.inc158 ]
   %arrayidx130 = getelementptr inbounds [10 x ptr], ptr %src128, i64 0, i64 %indvars.iv115
-  %34 = load ptr, ptr %arrayidx130, align 8
-  %cmp131 = icmp eq ptr %34, null
+  %35 = load ptr, ptr %arrayidx130, align 8
+  %cmp131 = icmp eq ptr %35, null
   br i1 %cmp131, label %for.inc161, label %if.end133
 
 if.end133:                                        ; preds = %for.body126
-  %35 = load i64, ptr %hash_set.i83, align 8
-  %36 = load ptr, ptr %23, align 8
-  %call.i84 = tail call i64 @ggml_hash_find_or_insert(i64 %35, ptr %36, ptr noundef nonnull %34) #15
-  %37 = load ptr, ptr %hash_values.i85, align 8
-  %arrayidx.i86 = getelementptr inbounds %struct.hash_node, ptr %37, i64 %call.i84
-  %38 = load i32, ptr %arrayidx.i86, align 4
-  %sub = add nsw i32 %38, -1
+  %36 = load i64, ptr %hash_set.i83, align 8
+  %37 = load ptr, ptr %23, align 8
+  %call.i84 = tail call i64 @ggml_hash_find_or_insert(i64 %36, ptr %37, ptr noundef nonnull %35) #15
+  %38 = load ptr, ptr %hash_values.i85, align 8
+  %arrayidx.i86 = getelementptr inbounds %struct.hash_node, ptr %38, i64 %call.i84
+  %39 = load i32, ptr %arrayidx.i86, align 4
+  %sub = add nsw i32 %39, -1
   store i32 %sub, ptr %arrayidx.i86, align 4
   %cmp137 = icmp eq i32 %sub, 0
   br i1 %cmp137, label %land.lhs.true138, label %for.inc158
 
 land.lhs.true138:                                 ; preds = %if.end133
   %n_views139 = getelementptr inbounds i8, ptr %arrayidx.i86, i64 4
-  %39 = load i32, ptr %n_views139, align 4
-  %cmp140 = icmp eq i32 %39, 0
+  %40 = load i32, ptr %n_views139, align 4
+  %cmp140 = icmp eq i32 %40, 0
   br i1 %cmp140, label %if.then141, label %for.inc158
 
 if.then141:                                       ; preds = %land.lhs.true138
-  %40 = getelementptr i8, ptr %34, i64 264
-  %.val = load ptr, ptr %40, align 8
+  %41 = getelementptr i8, ptr %35, i64 264
+  %.val = load ptr, ptr %41, align 8
   %cmp.i87.not = icmp eq ptr %.val, null
   br i1 %cmp.i87.not, label %for.inc158.sink.split, label %if.then143
 
 if.then143:                                       ; preds = %if.then141
-  %41 = load i64, ptr %hash_set.i83, align 8
-  %42 = load ptr, ptr %23, align 8
-  %call.i89 = tail call i64 @ggml_hash_find_or_insert(i64 %41, ptr %42, ptr noundef nonnull %.val) #15
-  %43 = load ptr, ptr %hash_values.i85, align 8
-  %arrayidx.i91 = getelementptr inbounds %struct.hash_node, ptr %43, i64 %call.i89
+  %42 = load i64, ptr %hash_set.i83, align 8
+  %43 = load ptr, ptr %23, align 8
+  %call.i89 = tail call i64 @ggml_hash_find_or_insert(i64 %42, ptr %43, ptr noundef nonnull %.val) #15
+  %44 = load ptr, ptr %hash_values.i85, align 8
+  %arrayidx.i91 = getelementptr inbounds %struct.hash_node, ptr %44, i64 %call.i89
   %n_views147 = getelementptr inbounds i8, ptr %arrayidx.i91, i64 4
-  %44 = load i32, ptr %n_views147, align 4
-  %sub148 = add nsw i32 %44, -1
+  %45 = load i32, ptr %n_views147, align 4
+  %sub148 = add nsw i32 %45, -1
   store i32 %sub148, ptr %n_views147, align 4
   %cmp150 = icmp eq i32 %sub148, 0
   br i1 %cmp150, label %land.lhs.true151, label %for.inc158
 
 land.lhs.true151:                                 ; preds = %if.then143
-  %45 = load i32, ptr %arrayidx.i91, align 4
-  %cmp153 = icmp eq i32 %45, 0
+  %46 = load i32, ptr %arrayidx.i91, align 4
+  %cmp153 = icmp eq i32 %46, 0
   br i1 %cmp153, label %for.inc158.sink.split, label %for.inc158
 
 for.inc158.sink.split:                            ; preds = %if.then141, %land.lhs.true151
-  %.val.sink = phi ptr [ %.val, %land.lhs.true151 ], [ %34, %if.then141 ]
+  %.val.sink = phi ptr [ %.val, %land.lhs.true151 ], [ %35, %if.then141 ]
   tail call fastcc void @free_node(ptr noundef nonnull %galloc, ptr noundef nonnull %.val.sink)
   br label %for.inc158
 
@@ -902,12 +902,12 @@ for.inc161:                                       ; preds = %for.inc158, %for.bo
   br i1 %exitcond122.not, label %for.end163, label %for.body111, !llvm.loop !12
 
 for.end163:                                       ; preds = %for.inc161, %if.then96
-  %46 = trunc nuw nsw i64 %28 to i32
-  %spec.select = select i1 %tobool.not, i32 %last_barrier_pos.0102, i32 %46
+  %47 = trunc nuw nsw i64 %29 to i32
+  %spec.select = select i1 %tobool.not, i32 %last_barrier_pos.0102, i32 %47
   br label %for.inc169
 
 for.inc169:                                       ; preds = %lor.lhs.false92.for.inc169_crit_edge, %for.end163
-  %indvars.iv.next124.pre-phi = phi i64 [ %.pre128, %lor.lhs.false92.for.inc169_crit_edge ], [ %28, %for.end163 ]
+  %indvars.iv.next124.pre-phi = phi i64 [ %.pre128, %lor.lhs.false92.for.inc169_crit_edge ], [ %29, %for.end163 ]
   %last_barrier_pos.1 = phi i32 [ %last_barrier_pos.0102, %lor.lhs.false92.for.inc169_crit_edge ], [ %spec.select, %for.end163 ]
   %exitcond127.not = icmp eq i64 %indvars.iv.next124.pre-phi, %wide.trip.count
   br i1 %exitcond127.not, label %for.end171, label %for.body35, !llvm.loop !13

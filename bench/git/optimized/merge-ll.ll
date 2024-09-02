@@ -896,7 +896,7 @@ if.end:                                           ; preds = %if.else, %entry, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ll_xdl_merge(ptr nocapture readnone %drv_unused, ptr noundef %result, ptr nocapture readnone %path, ptr noundef %orig, ptr noundef %orig_name, ptr noundef %src1, ptr noundef %name1, ptr noundef %src2, ptr noundef %name2, ptr nocapture noundef readonly %opts, i32 noundef %marker_size) #0 {
+define internal range(i32 -2147483648, 3) i32 @ll_xdl_merge(ptr nocapture readnone %drv_unused, ptr noundef %result, ptr nocapture readnone %path, ptr noundef %orig, ptr noundef %orig_name, ptr noundef %src1, ptr noundef %name1, ptr noundef %src2, ptr noundef %name2, ptr nocapture noundef readonly %opts, i32 noundef %marker_size) #0 {
 entry:
   %xmp = alloca %struct.s_xmparam, align 8
   %size = getelementptr inbounds i8, ptr %orig, i64 8
@@ -1017,7 +1017,7 @@ return:                                           ; preds = %if.end25, %ll_binar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ll_union_merge(ptr nocapture readnone %drv_unused, ptr noundef %result, ptr nocapture readnone %path, ptr noundef %orig, ptr noundef %orig_name, ptr noundef %src1, ptr noundef %name1, ptr noundef %src2, ptr noundef %name2, ptr nocapture noundef readonly %opts, i32 noundef %marker_size) #0 {
+define internal range(i32 -2147483648, 3) i32 @ll_union_merge(ptr nocapture readnone %drv_unused, ptr noundef %result, ptr nocapture readnone %path, ptr noundef %orig, ptr noundef %orig_name, ptr noundef %src1, ptr noundef %name1, ptr noundef %src2, ptr noundef %name2, ptr nocapture noundef readonly %opts, i32 noundef %marker_size) #0 {
 entry:
   %o = alloca %struct.ll_merge_options, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %o, ptr noundef nonnull align 8 dereferenceable(16) %opts, i64 16, i1 false)

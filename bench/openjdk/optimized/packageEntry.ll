@@ -1306,7 +1306,7 @@ _ZN9QuickSort10find_pivotIP12PackageEntryPFiS2_S2_EEEmPT_mT0_.exit._crit_edge: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZL23compare_package_by_nameP12PackageEntryS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal noundef range(i32 -1, 2) i32 @_ZL23compare_package_by_nameP12PackageEntryS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp ult ptr %3, %4

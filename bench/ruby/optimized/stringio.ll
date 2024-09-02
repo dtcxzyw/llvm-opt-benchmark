@@ -1828,7 +1828,7 @@ RSTRING_PTR.exit:                                 ; preds = %58, %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @strio_getbyte(i64 noundef %0) #0 {
+define internal range(i64 1, 512) i64 @strio_getbyte(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_io_taint_check(i64 noundef %0) #14
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @strio_data_type) #14
   %.not.i.i = icmp eq ptr %3, null

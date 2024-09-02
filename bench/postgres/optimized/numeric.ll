@@ -1791,15 +1791,18 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_mul(ptr nocapture noundef readonly %
   %57 = sdiv i64 %53, 10
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not133 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not133, label %._crit_edge, label %38, !llvm.loop !25
+  br i1 %.not133, label %._crit_edge.loopexit, label %38, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %38, %33
-  %.083.lcssa = phi i32 [ %34, %33 ], [ %56, %38 ]
-  %.079.lcssa = phi i64 [ 0, %33 ], [ %57, %38 ]
-  %58 = trunc i64 %.079.lcssa to i8
+._crit_edge.loopexit:                             ; preds = %38
+  %58 = trunc i64 %57 to i8
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %33
+  %.083.lcssa = phi i32 [ %34, %33 ], [ %56, %._crit_edge.loopexit ]
+  %.079.lcssa = phi i8 [ 0, %33 ], [ %58, %._crit_edge.loopexit ]
   %59 = sext i32 %.083.lcssa to i64
   %60 = getelementptr i8, ptr %25, i64 %59
-  store i8 %58, ptr %60, align 1
+  store i8 %.079.lcssa, ptr %60, align 1
   %indvars.iv.next127 = add nsw i64 %indvars.iv126, -1
   %61 = icmp sgt i64 %indvars.iv126, 0
   br i1 %61, label %33, label %._crit_edge106, !llvm.loop !26
@@ -2428,7 +2431,7 @@ declare ptr @__errno_location() local_unnamed_addr #7
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 2147483647, 2) i32 @PGTYPESnumeric_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define range(i32 -1, -2147483648) i32 @PGTYPESnumeric_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %.thread12 [
@@ -2878,7 +2881,7 @@ numericvar_to_double.exit.thread:                 ; preds = %PGTYPESnumeric_copy
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PGTYPESnumeric_to_int(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPESnumeric_to_int(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = tail call ptr @PGTYPESnumeric_to_asc(ptr noundef readonly %0, i32 noundef 0)

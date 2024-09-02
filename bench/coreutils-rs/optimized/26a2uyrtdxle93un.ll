@@ -6797,9 +6797,9 @@ define void @_ZN10uu_hashsum15handle_captures17hbd8bbb1231077497E(ptr noalias no
   %132 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 1
   %133 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1529, !noundef !5
   %134 = add i8 %133, -65
-  %.0.i.i = icmp ult i8 %134, 26
-  %135 = select i1 %.0.i.i, i8 32, i8 0
-  %136 = or i8 %135, %133
+  %135 = icmp ult i8 %134, 26
+  %.0.i.i = select i1 %135, i8 32, i8 0
+  %136 = or i8 %.0.i.i, %133
   store i8 %136, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1529
   %137 = icmp eq ptr %132, %130
   br i1 %137, label %.loopexit, label %.lr.ph.i.i

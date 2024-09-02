@@ -13676,12 +13676,12 @@ define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readnone %0, 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %3, i64 1
   %13 = load i8, ptr %12, align 1
-  %.fr97 = freeze i8 %13
-  %14 = icmp eq i8 %.fr97, 0
+  %.fr77 = freeze i8 %13
+  %14 = icmp eq i8 %.fr77, 0
   br label %15
 
 15:                                               ; preds = %11, %8
-  %.fr72 = phi i1 [ false, %8 ], [ %14, %11 ]
+  %.fr75 = phi i1 [ false, %8 ], [ %14, %11 ]
   %16 = icmp eq ptr %2, null
   br i1 %16, label %24, label %17
 
@@ -13693,8 +13693,8 @@ define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readnone %0, 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %2, i64 1
   %22 = load i8, ptr %21, align 1
-  %.fr98 = freeze i8 %22
-  %23 = icmp eq i8 %.fr98, 0
+  %.fr76 = freeze i8 %22
+  %23 = icmp eq i8 %.fr76, 0
   br label %24
 
 24:                                               ; preds = %20, %15
@@ -13712,7 +13712,7 @@ define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readnone %0, 
   br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.fr72, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  br i1 %.fr75, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.backedge.us.us
   %27 = phi i32 [ %50, %.backedge.us.us ], [ %25, %.lr.ph.split.us ]
@@ -13825,7 +13825,7 @@ define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readnone %0, 
 
 .lr.ph.split:                                     ; preds = %.thread, %.lr.ph
   %79 = phi i32 [ %25, %.lr.ph ], [ %26, %.thread ]
-  br i1 %.fr72, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %.fr75, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.backedge.us65
   %80 = phi i32 [ %115, %.backedge.us65 ], [ %79, %.lr.ph.split ]
@@ -13854,14 +13854,14 @@ define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readnone %0, 
   %93 = load ptr, ptr %92, align 8
   %94 = tail call i32 @xmlStrEqual(ptr noundef %93, ptr noundef nonnull %2) #16
   %.not46.us = icmp eq i32 %94, 0
-  br i1 %.not46.us, label %100, label %._crit_edge95
+  br i1 %.not46.us, label %100, label %._crit_edge97
 
-._crit_edge95:                                    ; preds = %.thread103
-  %.pre96 = load i32, ptr %4, align 4
+._crit_edge97:                                    ; preds = %.thread103
+  %.pre98 = load i32, ptr %4, align 4
   br label %95
 
-95:                                               ; preds = %._crit_edge95, %90
-  %96 = phi i32 [ %.pre96, %._crit_edge95 ], [ %80, %90 ]
+95:                                               ; preds = %._crit_edge97, %90
+  %96 = phi i32 [ %.pre98, %._crit_edge97 ], [ %80, %90 ]
   %97 = icmp eq i32 %96, %5
   br i1 %97, label %.loopexit, label %98
 

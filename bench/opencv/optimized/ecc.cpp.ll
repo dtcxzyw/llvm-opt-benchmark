@@ -1020,7 +1020,7 @@ _ZNK2cv11_InputArray6getMatEi.exit338:            ; preds = %377, %380
           cleanup
   br label %2280
 
-387:                                              ; preds = %419, %416, %413, %._crit_edge587, %421, %411, %408, %397, %_ZNK2cv11_InputArray6getMatEi.exit338
+387:                                              ; preds = %419, %416, %413, %switch.lookup, %421, %411, %408, %397, %_ZNK2cv11_InputArray6getMatEi.exit338
   %388 = landingpad { ptr, i32 }
           cleanup
   br label %2279
@@ -1400,44 +1400,47 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %422
   %513 = and i32 %.sroa.0121.0.extract.trunc, 1
   %.not224 = icmp eq i32 %513, 0
   %514 = and i32 %.sroa.0121.0.extract.trunc, 2
-  br i1 %.not224, label %515, label %._crit_edge587
-
-515:                                              ; preds = %512
   %.not225 = icmp eq i32 %514, 0
-  br i1 %.not225, label %516, label %._crit_edge587
+  br i1 %.not224, label %516, label %._crit_edge587
 
-516:                                              ; preds = %515
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %239) #10
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %238, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %239)
-          to label %517 unwind label %519
+._crit_edge587:                                   ; preds = %512
+  %515 = select i1 %.not225, double -1.000000e+00, double %5
+  br label %switch.lookup
+
+516:                                              ; preds = %512
+  br i1 %.not225, label %517, label %switch.lookup
 
 517:                                              ; preds = %516
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %238, ptr noundef nonnull @__func__._ZN2cv16findTransformECCERKNS_11_InputArrayES2_RKNS_17_InputOutputArrayEiNS_12TermCriteriaES2_i, ptr noundef nonnull @.str.1, i32 noundef 408) #11
-          to label %518 unwind label %521
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %239) #10
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %238, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %239)
+          to label %518 unwind label %520
 
 518:                                              ; preds = %517
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %238, ptr noundef nonnull @__func__._ZN2cv16findTransformECCERKNS_11_InputArrayES2_RKNS_17_InputOutputArrayEiNS_12TermCriteriaES2_i, ptr noundef nonnull @.str.1, i32 noundef 408) #11
+          to label %519 unwind label %522
+
+519:                                              ; preds = %518
   unreachable
 
-519:                                              ; preds = %516
-  %520 = landingpad { ptr, i32 }
+520:                                              ; preds = %517
+  %521 = landingpad { ptr, i32 }
           cleanup
-  br label %523
+  br label %524
 
-521:                                              ; preds = %517
-  %522 = landingpad { ptr, i32 }
+522:                                              ; preds = %518
+  %523 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %238) #10
-  br label %523
+  br label %524
 
-523:                                              ; preds = %521, %519
-  %.pn226 = phi { ptr, i32 } [ %522, %521 ], [ %520, %519 ]
+524:                                              ; preds = %522, %520
+  %.pn226 = phi { ptr, i32 } [ %523, %522 ], [ %521, %520 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %239) #10
   br label %2279
 
-._crit_edge587:                                   ; preds = %512, %515
-  %524 = phi i32 [ 200, %515 ], [ %.sroa.5.0.extract.trunc, %512 ]
-  %.not228 = icmp eq i32 %514, 0
-  %525 = select i1 %.not228, double -1.000000e+00, double %5
+switch.lookup:                                    ; preds = %516, %._crit_edge587
+  %.pre-phi = phi double [ %515, %._crit_edge587 ], [ %5, %516 ]
+  %525 = phi i32 [ %.sroa.5.0.extract.trunc, %._crit_edge587 ], [ 200, %516 ]
   %526 = zext nneg i32 %3 to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN2cv16findTransformECCERKNS_11_InputArrayES2_RKNS_17_InputOutputArrayEiNS_12TermCriteriaES2_i, i64 0, i64 %526
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -1452,7 +1455,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %422
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %240, i32 noundef 1, i32 noundef %528, i32 noundef 5)
           to label %535 unwind label %387
 
-535:                                              ; preds = %._crit_edge587
+535:                                              ; preds = %switch.lookup
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %241, i32 noundef %530, i32 noundef 1, i32 noundef 5)
           to label %536 unwind label %548
 
@@ -2006,11 +2009,11 @@ _ZN2cv3MataSERKNS_7MatExprE.exit357:              ; preds = %717
           to label %734 unwind label %1193
 
 734:                                              ; preds = %733
-  %.not249572 = icmp slt i32 %524, 1
+  %.not249572 = icmp slt i32 %525, 1
   br i1 %.not249572, label %.critedge, label %.lr.ph577
 
 .lr.ph577:                                        ; preds = %734
-  %735 = fneg double %525
+  %735 = fneg double %.pre-phi
   %736 = getelementptr inbounds i8, ptr %312, i64 16
   %737 = getelementptr inbounds i8, ptr %312, i64 20
   %738 = getelementptr inbounds i8, ptr %312, i64 8
@@ -2399,7 +2402,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit357:              ; preds = %717
   %.0209573 = phi i32 [ 1, %.lr.ph577 ], [ %2248, %2247 ]
   %1117 = fsub double %.0207575, %.0208574
   %1118 = call double @llvm.fabs.f64(double %1117)
-  %1119 = fcmp ult double %1118, %525
+  %1119 = fcmp ult double %1118, %.pre-phi
   br i1 %1119, label %.critedge, label %1120
 
 1120:                                             ; preds = %1116
@@ -6245,7 +6248,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit425:              ; preds = %2043
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26)
   %2248 = add nuw i32 %.0209573, 1
-  %exitcond586.not = icmp eq i32 %.0209573, %524
+  %exitcond586.not = icmp eq i32 %.0209573, %525
   br i1 %exitcond586.not, label %.critedge, label %1116, !llvm.loop !115
 
 2249:                                             ; preds = %2036
@@ -6423,8 +6426,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit425:              ; preds = %2043
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %240) #10
   br label %2279
 
-2279:                                             ; preds = %2278, %523, %511, %501, %492, %479, %467, %456, %447, %432, %430, %407, %396, %387
-  %.pn327.pn = phi { ptr, i32 } [ %.pn327, %396 ], [ %.pn325, %407 ], [ %.pn323, %456 ], [ %.pn321, %467 ], [ %.pn295.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2278 ], [ %388, %387 ], [ %.pn226, %523 ], [ %.pn222, %511 ], [ %.pn220, %501 ], [ %.pn218, %492 ], [ %.pn216, %479 ], [ %.pn, %447 ], [ %433, %432 ], [ %431, %430 ]
+2279:                                             ; preds = %2278, %524, %511, %501, %492, %479, %467, %456, %447, %432, %430, %407, %396, %387
+  %.pn327.pn = phi { ptr, i32 } [ %.pn327, %396 ], [ %.pn325, %407 ], [ %.pn323, %456 ], [ %.pn321, %467 ], [ %.pn295.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %2278 ], [ %388, %387 ], [ %.pn226, %524 ], [ %.pn222, %511 ], [ %.pn220, %501 ], [ %.pn218, %492 ], [ %.pn216, %479 ], [ %.pn, %447 ], [ %433, %432 ], [ %431, %430 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %217) #10
   br label %2280
 

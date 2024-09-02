@@ -865,7 +865,7 @@ declare i32 @SSL_in_init(ptr noundef) local_unnamed_addr #3
 declare i32 @ossl_statem_get_in_handshake(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_tls_handle_rlayer_return(ptr noundef %s, i32 noundef %writing, i32 noundef %ret, ptr noundef %file, i32 noundef %line) local_unnamed_addr #1 {
+define range(i32 -1, -2147483648) i32 @ossl_tls_handle_rlayer_return(ptr noundef %s, i32 noundef %writing, i32 noundef %ret, ptr noundef %file, i32 noundef %line) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq i32 %ret, 0
   br i1 %cmp, label %if.then, label %if.else

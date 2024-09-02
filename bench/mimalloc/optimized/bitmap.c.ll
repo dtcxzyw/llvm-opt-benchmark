@@ -341,7 +341,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %sub.i = sub i64 64, %count
   %cmp8.i = icmp eq i64 %count, 1
   %cmp3 = icmp eq ptr %pred_fun, null
-  %cmp1.i.i13 = icmp eq i64 %count, 0
+  %cmp.i.i11 = icmp ult i64 %count, 64
   br i1 %cmp8.i, label %for.body.us, label %for.body.lr.ph.split
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
@@ -398,18 +398,16 @@ if.end6.us:                                       ; preds = %lor.lhs.false.us
   %rem.i.i.us = and i64 %5, 63
   %shl4.i.i.us = shl nuw i64 %sub.i.i, %rem.i.i.us
   %6 = xor i64 %shl4.i.i.us, -1
-  %7 = select i1 %cmp1.i.i13, i64 -1, i64 %6
   %div1.i.i.us = lshr i64 %5, 6
   %arrayidx.i19.us = getelementptr inbounds i64, ptr %bitmap, i64 %div1.i.i.us
-  %not.i20.us = select i1 %cmp.i.i, i64 0, i64 %7
-  %8 = atomicrmw and ptr %arrayidx.i19.us, i64 %not.i20.us acq_rel, align 8
+  %7 = atomicrmw and ptr %arrayidx.i19.us, i64 %6 acq_rel, align 8
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.else7.us.i.us, %if.end6.us, %if.end.i.us, %for.body.us
   %inc.us = add nuw i64 %visited.034.us, 1
   %inc9.us = add i64 %spec.store.select.us, 1
-  %exitcond97.not = icmp eq i64 %inc.us, %bitmap_fields
-  br i1 %exitcond97.not, label %return, label %for.body.us, !llvm.loop !7
+  %exitcond98.not = icmp eq i64 %inc.us, %bitmap_fields
+  br i1 %exitcond98.not, label %return, label %for.body.us, !llvm.loop !7
 
 if.then2.loopexit.us:                             ; preds = %if.then4.us.i.us
   %mul.i.i.us = shl i64 %spec.store.select.us, 6
@@ -422,6 +420,9 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
 
 for.body.preheader:                               ; preds = %for.body.lr.ph.split
   %retval.0.i.i = select i1 %cmp.i.i, i64 -1, i64 %sub.i.i
+  %8 = add i64 %count, -64
+  %brmerge75 = icmp ult i64 %8, -63
+  %.mux76 = sext i1 %cmp.i.i11 to i64
   br label %for.body
 
 for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.split
@@ -478,8 +479,8 @@ if.then4.i.us.us:                                 ; preds = %while.cond.i.us.us
 for.inc.us57.us:                                  ; preds = %if.else7.i.us.us, %if.end.i.us48.us, %for.body.us40.us
   %inc.us58.us = add nuw i64 %visited.034.us42.us, 1
   %inc9.us59.us = add i64 %spec.store.select.us45.us, 1
-  %exitcond96.not = icmp eq i64 %inc.us58.us, %bitmap_fields
-  br i1 %exitcond96.not, label %return, label %for.body.us40.us, !llvm.loop !7
+  %exitcond97.not = icmp eq i64 %inc.us58.us, %bitmap_fields
+  br i1 %exitcond97.not, label %return, label %for.body.us40.us, !llvm.loop !7
 
 for.body.us40:                                    ; preds = %for.body.lr.ph.split.split.us, %for.inc.us57
   %visited.034.us42 = phi i64 [ %inc.us58, %for.inc.us57 ], [ 0, %for.body.lr.ph.split.split.us ]
@@ -532,8 +533,8 @@ if.then4.i.us:                                    ; preds = %while.cond.i.us
 for.inc.us57:                                     ; preds = %if.else7.i.us, %if.end.i.us48, %for.body.us40
   %inc.us58 = add nuw i64 %visited.034.us42, 1
   %inc9.us59 = add i64 %spec.store.select.us45, 1
-  %exitcond95.not = icmp eq i64 %inc.us58, %bitmap_fields
-  br i1 %exitcond95.not, label %return, label %for.body.us40, !llvm.loop !7
+  %exitcond96.not = icmp eq i64 %inc.us58, %bitmap_fields
+  br i1 %exitcond96.not, label %return, label %for.body.us40, !llvm.loop !7
 
 if.then2.loopexit25.us:                           ; preds = %if.then4.i.us, %if.then4.i.us.us
   %.us-phi70 = phi i64 [ %spec.store.select.us45.us, %if.then4.i.us.us ], [ %spec.store.select.us45, %if.then4.i.us ]
@@ -603,11 +604,10 @@ if.end6:                                          ; preds = %if.then2.loopexit25
   %rem.i.i = and i64 %30, 63
   %shl4.i.i = shl i64 %sub.i.i, %rem.i.i
   %31 = xor i64 %shl4.i.i, -1
-  %32 = select i1 %cmp1.i.i13, i64 -1, i64 %31
+  %retval.0.i.i18 = select i1 %brmerge75, i64 %.mux76, i64 %31
   %div1.i.i = lshr i64 %30, 6
   %arrayidx.i19 = getelementptr inbounds i64, ptr %bitmap, i64 %div1.i.i
-  %not.i20 = select i1 %cmp.i.i, i64 0, i64 %32
-  %33 = atomicrmw and ptr %arrayidx.i19, i64 %not.i20 acq_rel, align 8
+  %32 = atomicrmw and ptr %arrayidx.i19, i64 %retval.0.i.i18 acq_rel, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else7.i, %if.end.i, %for.body, %if.end6

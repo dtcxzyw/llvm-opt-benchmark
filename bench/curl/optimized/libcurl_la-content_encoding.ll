@@ -491,7 +491,7 @@ declare i32 @inflateInit_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @Curl_cwriter_write(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_trailer(ptr noundef %data, ptr noundef %zp) unnamed_addr #0 {
+define internal fastcc range(i32 0, 62) i32 @process_trailer(ptr noundef %data, ptr noundef %zp) unnamed_addr #0 {
 entry:
   %z1 = getelementptr inbounds i8, ptr %zp, i64 32
   %avail_in = getelementptr inbounds i8, ptr %zp, i64 40

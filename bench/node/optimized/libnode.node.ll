@@ -812,12 +812,12 @@ do.body110:                                       ; preds = %do.body102.thread, 
 land.rhs119:                                      ; preds = %do.body102
   %call120 = tail call ptr @__errno_location() #24
   %11 = load i32, ptr %call120, align 4
-  %cmp121 = icmp eq i32 %11, 1
-  br i1 %cmp121, label %for.inc, label %do.body128
+  %cmp121.not = icmp eq i32 %11, 1
+  br i1 %cmp121.not, label %for.inc, label %do.body128
 
 lor.end:                                          ; preds = %do.body102.thread
-  %cmp117.not = icmp eq i32 %call94, 0
-  br i1 %cmp117.not, label %for.inc, label %do.body128
+  %cmp117.not.not = icmp eq i32 %call94, 0
+  br i1 %cmp117.not.not, label %for.inc, label %do.body128
 
 do.body128:                                       ; preds = %land.rhs119, %lor.end
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node10ResetStdioEvE4args_4) #22
@@ -1349,8 +1349,8 @@ lor.rhs:                                          ; preds = %if.then39
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 872
   %16 = load ptr, ptr %vfn.i, align 8
   %call2.i = call ptr %16(ptr noundef nonnull align 8 dereferenceable(872) %15) #22
-  %cmp.i204.not = icmp eq ptr %call2.i, null
-  br i1 %cmp.i204.not, label %do.body53, label %if.end59
+  %cmp.i204 = icmp eq ptr %call2.i, null
+  br i1 %cmp.i204, label %do.body53, label %if.end59
 
 do.body53:                                        ; preds = %lor.rhs
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node14StartExecutionEPNS_11EnvironmentESt8functionIFN2v810MaybeLocalINS3_5ValueEEERKNS_26StartExecutionCallbackInfoEEEE4args_0) #22
@@ -2667,14 +2667,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4node22InitializeNodeWithArgsEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EES9_S9_NS_26ProcessInitializationFlags5FlagsE(ptr noundef %argv, ptr noundef %exec_argv, ptr noundef %errors, i32 noundef %flags) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 13) i32 @_ZN4node22InitializeNodeWithArgsEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EES9_S9_NS_26ProcessInitializationFlags5FlagsE(ptr noundef %argv, ptr noundef %exec_argv, ptr noundef %errors, i32 noundef %flags) local_unnamed_addr #4 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN4nodeL30InitializeNodeWithArgsInternalEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EES9_S9_NS_26ProcessInitializationFlags5FlagsE(ptr noundef %argv, ptr noundef %exec_argv, ptr noundef %errors, i32 noundef %flags)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4nodeL30InitializeNodeWithArgsInternalEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EES9_S9_NS_26ProcessInitializationFlags5FlagsE(ptr noundef %argv, ptr noundef %exec_argv, ptr noundef %errors, i32 noundef %flags) unnamed_addr #4 {
+define internal fastcc noundef range(i32 0, 13) i32 @_ZN4nodeL30InitializeNodeWithArgsInternalEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EES9_S9_NS_26ProcessInitializationFlags5FlagsE(ptr noundef %argv, ptr noundef %exec_argv, ptr noundef %errors, i32 noundef %flags) unnamed_addr #4 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.135", align 8
   %node_options = alloca %"class.std::__cxx11::basic_string", align 8

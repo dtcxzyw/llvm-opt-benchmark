@@ -78,7 +78,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN110_$LT$bincode..config..WithOthe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN110_$LT$core..iter..sources..once..Once$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h71c3649a91fc42b1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #2 {
+define hidden noundef range(i64 0, 2) i64 @"_ZN110_$LT$core..iter..sources..once..Once$LT$T$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h71c3649a91fc42b1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !alias.scope !4, !noalias !9, !noundef !11
   %3 = icmp ne ptr %2, null
   %spec.select.i.i = zext i1 %3 to i64
@@ -457,7 +457,7 @@ define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$bincode..error..Err
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hd808ce29a4cd1234E.llvm.12642593798105491766(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #8 {
+define hidden noundef range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hd808ce29a4cd1234E.llvm.12642593798105491766(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8, !alias.scope !157, !noalias !160, !noundef !11
   %3 = icmp ne ptr %2, null
   %spec.select.i = zext i1 %3 to i64

@@ -29927,7 +29927,7 @@ define { i64, i64 } @_ZN8wasmtime7runtime2gc7enabled7rooting11PackedIndex7as_lif
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN8wasmtime7runtime2gc7enabled7rooting11PackedIndex9as_manual17hb10d81903f4a74aeE(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #26 personality ptr @rust_eh_personality {
+define noundef range(i32 0, -2147483647) i32 @_ZN8wasmtime7runtime2gc7enabled7rooting11PackedIndex9as_manual17hb10d81903f4a74aeE(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #26 personality ptr @rust_eh_personality {
   %.val.i = load i32, ptr %0, align 4, !noundef !16
   %2 = icmp slt i32 %.val.i, 0
   %3 = and i32 %.val.i, 2147483647

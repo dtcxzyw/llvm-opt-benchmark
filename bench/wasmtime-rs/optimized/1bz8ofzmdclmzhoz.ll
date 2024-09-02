@@ -14560,12 +14560,12 @@ select.unfold.i:                                  ; preds = %319, %338, %._crit_
   %.pre1762.pre = load ptr, ptr %430, align 8
   %.pre1763.pre = load i64, ptr %431, align 8
   %.pre1764.pre = load i64, ptr %477, align 8, !alias.scope !1828, !noalias !1831
+  %685 = icmp eq i64 %.pre1764.pre, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54), !noalias !1819
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %87)
   call void @llvm.experimental.noalias.scope.decl(metadata !1834)
   call void @llvm.experimental.noalias.scope.decl(metadata !1828)
   call void @llvm.experimental.noalias.scope.decl(metadata !1835)
-  %685 = icmp eq i64 %.pre1764.pre, 0
   br i1 %685, label %686, label %694
 
 686:                                              ; preds = %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23monotonize_inst_offsets17h2dc548ec9a058feeE.exit.thread", %"_ZN17cranelift_codegen8machinst5vcode14VCode$LT$I$GT$23monotonize_inst_offsets17h2dc548ec9a058feeE.exit"
@@ -16380,10 +16380,10 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i71.i
   %1389 = load ptr, ptr %581, align 8, !nonnull !11, !noundef !11
   %1390 = getelementptr inbounds [0 x i32], ptr %1389, i64 0, i64 %1373
   %1391 = load i32, ptr %1390, align 4, !noundef !11
-  %switch396 = icmp ne i32 %.sroa.07.11416, 0
-  %1392 = icmp eq i32 %.sroa.8.11415, %1391
-  %.0 = select i1 %switch396, i1 %1392, i1 false
-  br i1 %.0, label %1395, label %1393
+  %switch396 = icmp eq i32 %.sroa.07.11416, 0
+  %1392 = icmp ne i32 %.sroa.8.11415, %1391
+  %.0 = select i1 %switch396, i1 true, i1 %1392
+  br i1 %.0, label %1393, label %1395
 
 1393:                                             ; preds = %1388
   %1394 = icmp eq i32 %.sroa.07.11416, 1
@@ -18369,7 +18369,7 @@ select.unfold:                                    ; preds = %20, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN90_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$regalloc2..Function$GT$9num_vregs17h6b64ccddf829591aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %0) unnamed_addr #21 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 192, 0) i64 @"_ZN90_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$regalloc2..Function$GT$9num_vregs17h6b64ccddf829591aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %0) unnamed_addr #21 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 528
   %3 = load i64, ptr %2, align 8, !noundef !11
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %3, i64 192)
@@ -18399,7 +18399,7 @@ define hidden { ptr, i64 } @"_ZN90_$LT$cranelift_codegen..machinst..vcode..VCode
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @"_ZN90_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$regalloc2..Function$GT$14spillslot_size17h09f9e57b6b1b6489E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %0, i8 noundef %1) unnamed_addr #3 {
+define hidden noundef range(i64 0, 536870912) i64 @"_ZN90_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$regalloc2..Function$GT$14spillslot_size17h09f9e57b6b1b6489E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %0, i8 noundef %1) unnamed_addr #3 {
   %3 = alloca { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2487)
   %4 = getelementptr inbounds i8, ptr %0, i64 456
@@ -19959,7 +19959,7 @@ define hidden i64 @"_ZN17cranelift_codegen8machinst5vcode22VRegAllocator$LT$I$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden i64 @"_ZN17cranelift_codegen8machinst5vcode22VRegAllocator$LT$I$GT$24bogus_for_deferred_error17h4cdada70c3360934E.llvm.6890334928246803750"(ptr noalias nocapture readonly align 8 %0, i16 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden range(i64 17179869184, 36028779839094788) i64 @"_ZN17cranelift_codegen8machinst5vcode22VRegAllocator$LT$I$GT$24bogus_for_deferred_error17h4cdada70c3360934E.llvm.6890334928246803750"(ptr noalias nocapture readonly align 8 %0, i16 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [31 x i8] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
@@ -20756,7 +20756,7 @@ _ZN17cranelift_codegen2ir3pcc4Fact19max_range_for_width17h8af536b7f7a1a8d0E.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h05590e0fc90127cdE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(16) %5, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %6) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h05590e0fc90127cdE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(16) %5, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %6) unnamed_addr #3 personality ptr @rust_eh_personality {
   %8 = alloca { i8, [39 x i8] }, align 8
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -21126,7 +21126,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h199a45588b98398eE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h199a45588b98398eE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca [2 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -21508,7 +21508,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h1ac8fd68b8d7c7f1E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 2, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h1ac8fd68b8d7c7f1E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -21848,7 +21848,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h235949b4a5b9d272E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h235949b4a5b9d272E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca [2 x { ptr, ptr }], align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = alloca ptr, align 8
@@ -22208,7 +22208,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h24f20fa540eb1282E.llvm.6890334928246803750(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h24f20fa540eb1282E.llvm.6890334928246803750(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca { i8, [39 x i8] }, align 8
   %9 = alloca { i8, [39 x i8] }, align 8
@@ -22654,7 +22654,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h32d673beb01e3ff0E.llvm.6890334928246803750(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h32d673beb01e3ff0E.llvm.6890334928246803750(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca { i8, [39 x i8] }, align 8
   %9 = alloca [2 x { ptr, ptr }], align 8
@@ -23102,7 +23102,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h3821632b4fd306a3E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h3821632b4fd306a3E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca [2 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -23488,7 +23488,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h4108e4e1f395777aE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h4108e4e1f395777aE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca [2 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -23902,7 +23902,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h91681f165254febaE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h91681f165254febaE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca [2 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -24288,7 +24288,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h963a6b062da0415dE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h963a6b062da0415dE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca { i8, [39 x i8] }, align 8
   %9 = alloca [2 x { ptr, ptr }], align 8
@@ -24722,7 +24722,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h97cef2df41b4e811E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17h97cef2df41b4e811E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca [2 x { ptr, ptr }], align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -25108,7 +25108,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17ha31fa88d717729ccE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(16) %5, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %6) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17ha31fa88d717729ccE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(16) %5, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %6) unnamed_addr #3 personality ptr @rust_eh_personality {
   %8 = alloca { i8, [39 x i8] }, align 8
   %9 = alloca [2 x { ptr, ptr }], align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -25486,7 +25486,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hb7428e2bc4bb36d2E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 2, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hb7428e2bc4bb36d2E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca [2 x { ptr, ptr }], align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = alloca ptr, align 8
@@ -25824,7 +25824,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hcf32163b16f0f608E.llvm.6890334928246803750(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hcf32163b16f0f608E.llvm.6890334928246803750(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca { i8, [39 x i8] }, align 8
   %9 = alloca [2 x { ptr, ptr }], align 8
@@ -26242,7 +26242,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hd822d75b0ca17fa4E.llvm.6890334928246803750(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hd822d75b0ca17fa4E.llvm.6890334928246803750(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca { i8, [39 x i8] }, align 8
   %9 = alloca [2 x { ptr, ptr }], align 8
@@ -26658,7 +26658,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hf0f570d870cd7c66E.llvm.6890334928246803750(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hf0f570d870cd7c66E.llvm.6890334928246803750(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca { i8, [39 x i8] }, align 8
   %8 = alloca { i8, [39 x i8] }, align 8
   %9 = alloca { i8, [39 x i8] }, align 8
@@ -27082,7 +27082,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hf2cafc86bfe66316E.llvm.6890334928246803750(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc12check_output17hf2cafc86bfe66316E.llvm.6890334928246803750(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i32 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %5) unnamed_addr #3 personality ptr @rust_eh_personality {
   %7 = alloca [2 x { ptr, ptr }], align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = alloca ptr, align 8
@@ -27442,7 +27442,7 @@ _ZN17cranelift_codegen8machinst3pcc24check_subsumes_optionals17he792ffc4d57dd918
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17h22bcc8eb224d26c7E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i16 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #3 {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17h22bcc8eb224d26c7E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i16 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #3 {
   %7 = alloca { ptr, ptr, { ptr, ptr, ptr } }, align 8
   %8 = alloca [1 x i32], align 4
   %9 = alloca i32, align 4
@@ -27464,7 +27464,7 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17h22bc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17h4bff1a798f563b26E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i16 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(16) %5, ptr noalias noundef readonly align 2 dereferenceable(2) %6) unnamed_addr #3 {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17h4bff1a798f563b26E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i16 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(16) %5, ptr noalias noundef readonly align 2 dereferenceable(2) %6) unnamed_addr #3 {
   %8 = alloca { ptr, ptr, { ptr, ptr } }, align 8
   %9 = alloca [1 x i32], align 4
   %10 = alloca i32, align 4
@@ -27488,7 +27488,7 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17h4bff
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17h76568f3b4b8ff9b1E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i16 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %5) unnamed_addr #3 {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17h76568f3b4b8ff9b1E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i16 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %5) unnamed_addr #3 {
   %7 = alloca { { { i8, [39 x i8] }, ptr, ptr }, ptr, ptr }, align 8
   %8 = alloca [1 x i32], align 4
   %9 = alloca i32, align 4
@@ -27510,7 +27510,7 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17h7656
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17hc0472a8ebc5e0831E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i16 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #3 {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17hc0472a8ebc5e0831E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i16 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #3 {
   %7 = alloca { ptr, ptr, { ptr, ptr, ptr } }, align 8
   %8 = alloca [1 x i32], align 4
   %9 = alloca i32, align 4
@@ -27532,7 +27532,7 @@ define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17hc047
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17hd1a9eed4885f7bfdE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i16 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #3 {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc10check_unop17hd1a9eed4885f7bfdE(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i16 noundef %2, i32 noundef %3, i32 noundef %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %5) unnamed_addr #3 {
   %7 = alloca { ptr, ptr, { ptr, ptr, ptr } }, align 8
   %8 = alloca [1 x i32], align 4
   %9 = alloca i32, align 4
@@ -27836,7 +27836,7 @@ default.unreachable:                              ; preds = %"_ZN71_$LT$cranelif
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN17cranelift_codegen8machinst3pcc11check_binop17hdf1f8947e78777f6E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i16 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(16) %6, ptr noalias noundef readonly align 2 dereferenceable(2) %7) unnamed_addr #3 {
+define hidden noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen8machinst3pcc11check_binop17hdf1f8947e78777f6E(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1424) %1, i16 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(16) %6, ptr noalias noundef readonly align 2 dereferenceable(2) %7) unnamed_addr #3 {
   %9 = alloca { ptr, ptr, ptr, { ptr, ptr } }, align 8
   %10 = alloca [2 x i32], align 4
   %11 = alloca i32, align 4
@@ -28179,7 +28179,7 @@ define noundef i8 @"_ZN104_$LT$cranelift_codegen..machinst..reg..RealReg$u20$as$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN100_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$regalloc2..PReg$GT$$GT$4from17h7cf34e565a4c415bE"(i8 noundef %0) unnamed_addr #3 {
+define noundef range(i32 0, 1024) i32 @"_ZN100_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$regalloc2..PReg$GT$$GT$4from17h7cf34e565a4c415bE"(i8 noundef %0) unnamed_addr #3 {
   %2 = lshr i8 %0, 6
   %switch.not.i.i = icmp eq i8 %2, 3
   br i1 %switch.not.i.i, label %3, label %"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E.exit"
@@ -28197,7 +28197,7 @@ define noundef i32 @"_ZN100_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i32 @"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E"(i8 noundef %0) unnamed_addr #3 {
+define noundef range(i32 0, 1024) i32 @"_ZN126_$LT$cranelift_codegen..machinst..reg..Reg$u20$as$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$GT$4from17h74b7944bde3496e2E"(i8 noundef %0) unnamed_addr #3 {
   %2 = lshr i8 %0, 6
   %switch.not.i = icmp eq i8 %2, 3
   br i1 %switch.not.i, label %3, label %"_ZN17cranelift_codegen8machinst3reg114_$LT$impl$u20$core..convert..From$LT$cranelift_codegen..machinst..reg..RealReg$GT$$u20$for$u20$regalloc2..VReg$GT$4from17hade3aba56c056672E.exit"
@@ -28290,7 +28290,7 @@ define hidden void @_ZN17cranelift_codegen8machinst3reg18AllocationConsumer25nex
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @"_ZN17cranelift_codegen8machinst3reg18AllocationConsumer25next_fixed_nonallocatable28_$u7b$$u7b$closure$u7d$$u7d$17h6da334503e660782E.llvm.6890334928246803750"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #0 {
+define hidden noundef range(i32 0, 1024) i32 @"_ZN17cranelift_codegen8machinst3reg18AllocationConsumer25next_fixed_nonallocatable28_$u7b$$u7b$closure$u7d$$u7d$17h6da334503e660782E.llvm.6890334928246803750"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4, !noundef !11
   %3 = lshr i32 %2, 29
   switch i32 %3, label %4 [
@@ -28386,7 +28386,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen8machinst3reg18AllocationConsum
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i32 @"_ZN17cranelift_codegen8machinst3reg18AllocationConsumer4next28_$u7b$$u7b$closure$u7d$$u7d$17hbcb0c18ebffe93c6E.llvm.6890334928246803750"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #0 {
+define hidden noundef range(i32 0, 1024) i32 @"_ZN17cranelift_codegen8machinst3reg18AllocationConsumer4next28_$u7b$$u7b$closure$u7d$$u7d$17hbcb0c18ebffe93c6E.llvm.6890334928246803750"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4, !noundef !11
   %3 = lshr i32 %2, 29
   switch i32 %3, label %4 [

@@ -1539,7 +1539,7 @@ _ZN2cv10AutoBufferIjLm264EEC2Em.exit301:          ; preds = %.noexc300, %._crit_
   %205 = getelementptr inbounds %"class.cv::Vec.34", ptr %62, i64 %212
   %206 = load i32, ptr %205, align 4
   %.not287 = icmp ugt i32 %206, %27
-  br i1 %.not287, label %.critedge, label %.lr.ph394, !llvm.loop !17
+  br i1 %.not287, label %.critedge.loopexit, label %.lr.ph394, !llvm.loop !17
 
 .lr.ph394:                                        ; preds = %.lr.ph345.preheader, %.lr.ph345
   %.0263343393 = phi i32 [ %211, %.lr.ph345 ], [ %191, %.lr.ph345.preheader ]
@@ -1554,21 +1554,24 @@ _ZN2cv10AutoBufferIjLm264EEC2Em.exit301:          ; preds = %.noexc300, %._crit_
   %213 = getelementptr inbounds i32, ptr %98, i64 %212
   %214 = load i32, ptr %213, align 4
   %215 = icmp eq i32 %214, 1
-  br i1 %215, label %.lr.ph345, label %.critedge, !llvm.loop !17
+  br i1 %215, label %.lr.ph345, label %.critedge.loopexit, !llvm.loop !17
 
-216:                                              ; preds = %389, %363
+216:                                              ; preds = %390, %363
   %217 = landingpad { ptr, i32 }
           cleanup
   br label %440
 
-.critedge:                                        ; preds = %.lr.ph394, %.lr.ph345, %.lr.ph345.preheader
-  %.0264.lcssa.ph = phi i32 [ %191, %.lr.ph345.preheader ], [ %.0263343393, %.lr.ph345 ], [ %.0263343393, %.lr.ph394 ]
-  %.0262.lcssa.ph = phi i32 [ 0, %.lr.ph345.preheader ], [ %209, %.lr.ph345 ], [ %209, %.lr.ph394 ]
-  %218 = getelementptr inbounds i8, ptr %152, i64 %192
-  %219 = load i8, ptr %218, align 1
-  %220 = trunc i8 %219 to i1
-  %221 = icmp ult i32 %.0262.lcssa.ph, 2
-  %or.cond.not = select i1 %220, i1 %221, i1 false
+.critedge.loopexit:                               ; preds = %.lr.ph345, %.lr.ph394
+  %218 = icmp ult i32 %209, 2
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph345.preheader
+  %.0264.lcssa.ph = phi i32 [ %191, %.lr.ph345.preheader ], [ %.0263343393, %.critedge.loopexit ]
+  %.0262.lcssa.ph = phi i1 [ true, %.lr.ph345.preheader ], [ %218, %.critedge.loopexit ]
+  %219 = getelementptr inbounds i8, ptr %152, i64 %192
+  %220 = load i8, ptr %219, align 1
+  %221 = trunc i8 %220 to i1
+  %or.cond.not = select i1 %221, i1 %.0262.lcssa.ph, i1 false
   br i1 %or.cond.not, label %226, label %222
 
 222:                                              ; preds = %.critedge
@@ -1803,28 +1806,28 @@ _ZN2cv10AutoBufferIjLm264EEC2Em.exit301:          ; preds = %.noexc300, %._crit_
 
 382:                                              ; preds = %380
   %383 = fcmp olt double %265, %271
-  %. = select i1 %383, double 0.000000e+00, double 0x3FF921FB54442D18
-  br label %389
+  %. = select i1 %383, float 0.000000e+00, float 0x3FF921FB60000000
+  br label %390
 
 384:                                              ; preds = %380
   %385 = fmul double %268, 2.000000e+00
   %386 = fsub double %265, %271
   %387 = call double @atan2(double noundef %385, double noundef %386) #20
   %388 = call double @llvm.fmuladd.f64(double %387, double 5.000000e-01, double 0x3FF921FB54442D18)
-  br label %389
+  %389 = fptrunc double %388 to float
+  br label %390
 
-389:                                              ; preds = %384, %382
-  %.0251 = phi double [ %388, %384 ], [ %., %382 ]
-  %390 = fptrunc double %.sroa.speculated to float
-  %391 = fptrunc double %249 to float
-  %392 = fptrunc double %250 to float
-  %393 = fmul float %4, %391
+390:                                              ; preds = %384, %382
+  %.0251 = phi float [ %389, %384 ], [ %., %382 ]
+  %391 = fptrunc double %.sroa.speculated to float
+  %392 = fptrunc double %249 to float
+  %393 = fptrunc double %250 to float
   %394 = fmul float %4, %392
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %393, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %394, i64 1
-  %395 = fptrunc double %.0251 to float
+  %395 = fmul float %4, %393
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %394, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %395, i64 1
   %396 = fptrunc double %.sroa.speculated330 to float
-  %397 = fmul float %4, %390
+  %397 = fmul float %4, %391
   %398 = fmul float %4, %396
   %399 = insertelement <4 x float> poison, float %397, i64 0
   %400 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %399)
@@ -1834,10 +1837,10 @@ _ZN2cv10AutoBufferIjLm264EEC2Em.exit301:          ; preds = %.noexc300, %._crit_
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %400 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  invoke void @_ZN2cv11xfeatures2d17Elliptic_KeyPointC1ENS_6Point_IfEEfNS_5Size_IiEEff(ptr noundef nonnull align 8 dereferenceable(72) %15, <2 x float> %.sroa.0.4.vec.insert.i, float noundef %395, i64 %.sroa.0.0.insert.insert.i, float noundef %397, float noundef %4)
+  invoke void @_ZN2cv11xfeatures2d17Elliptic_KeyPointC1ENS_6Point_IfEEfNS_5Size_IiEEff(ptr noundef nonnull align 8 dereferenceable(72) %15, <2 x float> %.sroa.0.4.vec.insert.i, float noundef %.0251, i64 %.sroa.0.0.insert.insert.i, float noundef %397, float noundef %4)
           to label %403 unwind label %216
 
-403:                                              ; preds = %389
+403:                                              ; preds = %390
   store i32 %5, ptr %185, align 4
   %404 = load ptr, ptr %186, align 8
   %405 = load ptr, ptr %187, align 8

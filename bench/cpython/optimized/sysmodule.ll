@@ -2578,7 +2578,7 @@ declare ptr @PyThread_allocate_lock() local_unnamed_addr #1
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyUnstable_WritePerfMapEntry(ptr noundef %code_addr, i32 noundef %code_size, ptr noundef %entry_name) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @PyUnstable_WritePerfMapEntry(ptr noundef %code_addr, i32 noundef %code_size, ptr noundef %entry_name) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @perf_map_state.0, align 8
   %cmp = icmp eq ptr %0, null
@@ -2642,7 +2642,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @PyThread_free_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @PyUnstable_CopyPerfMapFile(ptr nocapture noundef readonly %parent_filename) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @PyUnstable_CopyPerfMapFile(ptr nocapture noundef readonly %parent_filename) local_unnamed_addr #0 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %call = tail call noalias ptr @fopen64(ptr noundef %parent_filename, ptr noundef nonnull @.str.12)

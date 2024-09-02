@@ -1050,7 +1050,7 @@ declare i32 @H5G_root_loc(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @H5G_visit(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5G__get_name_by_addr_cb(i64 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) #2 {
+define internal range(i32 -1, 2) i32 @H5G__get_name_by_addr_cb(i64 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) #2 {
   %5 = alloca %struct.H5G_loc_t, align 8
   %6 = alloca %struct.H5G_name_t, align 8
   %7 = alloca %struct.H5O_loc_t, align 8

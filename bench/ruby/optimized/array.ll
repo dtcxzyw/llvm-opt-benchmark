@@ -231,7 +231,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %5, %14, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @rb_ary_size_as_embedded(i64 noundef %0) local_unnamed_addr #0 {
+define hidden range(i64 16, 9) i64 @rb_ary_size_as_embedded(i64 noundef %0) local_unnamed_addr #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 8192
@@ -1331,7 +1331,7 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %1, %ary_heap_free.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @rb_ary_memsize(i64 noundef %0) local_unnamed_addr #0 {
+define hidden range(i64 0, -7) i64 @rb_ary_memsize(i64 noundef %0) local_unnamed_addr #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 24576

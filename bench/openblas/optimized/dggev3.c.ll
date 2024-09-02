@@ -227,12 +227,12 @@ define void @dggev3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %144 = sub nsw i32 0, %143
   store i32 %144, ptr %18, align 4, !tbaa !3
   %145 = call i32 @xerbla_(ptr noundef nonnull @.str.6, ptr noundef nonnull %18, i32 noundef 6) #6
-  br label %451
+  br label %450
 
 146:                                              ; preds = %128
   %147 = icmp eq i32 %135, 0
   %or.cond83 = select i1 %72, i1 true, i1 %147
-  br i1 %or.cond83, label %451, label %148
+  br i1 %or.cond83, label %450, label %148
 
 148:                                              ; preds = %146
   %149 = call double @dlamch_(ptr noundef nonnull @.str.7) #6
@@ -740,11 +740,10 @@ define void @dggev3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %449
 
 449:                                              ; preds = %448, %447
-  %450 = uitofp nneg i32 %140 to double
-  store double %450, ptr %14, align 8, !tbaa !7
-  br label %451
+  store double %141, ptr %14, align 8, !tbaa !7
+  br label %450
 
-451:                                              ; preds = %449, %146, %.thread22
+450:                                              ; preds = %449, %146, %.thread22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #6

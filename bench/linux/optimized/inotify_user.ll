@@ -880,14 +880,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @inotify_read(ptr nocaptu
 21:                                               ; preds = %95, %4
   %22 = phi i64 [ %99, %95 ], [ %2, %4 ]
   %23 = phi ptr [ %98, %95 ], [ %1, %4 ]
-  %.fr31 = freeze ptr %23
+  %.fr30 = freeze ptr %23
   call void @_raw_spin_lock(ptr noundef %17) #10
   %24 = call ptr @fsnotify_peek_first_event(ptr noundef %14) #10
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %21
-  %26 = icmp eq ptr %.fr31, %1
+  %26 = icmp eq ptr %.fr30, %1
   br i1 %26, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -895,17 +895,17 @@ define internal range(i64 -2147483648, 2147483648) i64 @inotify_read(ptr nocaptu
   %27 = load i32, ptr %16, align 8
   %28 = and i32 %27, 2048
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %.thread9
+  br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %.lr.ph.split.us
   %31 = load volatile i64, ptr %9, align 8
   %32 = and i64 %31, 131072
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %.thread9, !prof !6
+  br i1 %33, label %34, label %.critedge, !prof !6
 
 34:                                               ; preds = %30
   %35 = load volatile i64, ptr %9, align 8
-  br label %.thread9
+  br label %.critedge
 
 ._crit_edge:                                      ; preds = %111, %21
   %.lcssa = phi ptr [ %24, %21 ], [ %113, %111 ]
@@ -922,7 +922,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @inotify_read(ptr nocaptu
 
 .thread3:                                         ; preds = %._crit_edge
   call void @_raw_spin_unlock(ptr noundef %17) #10
-  br label %.thread9
+  br label %.critedge
 
 45:                                               ; preds = %._crit_edge
   %46 = call ptr @fsnotify_remove_first_event(ptr noundef %14) #10
@@ -950,12 +950,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @inotify_read(ptr nocaptu
   %61 = getelementptr inbounds i8, ptr %.lcssa, i64 24
   %62 = load i32, ptr %61, align 8
   store i32 %62, ptr %20, align 4
-  %63 = call i64 @_copy_to_user(ptr noundef %.fr31, ptr noundef nonnull %5, i64 noundef 16) #10
+  %63 = call i64 @_copy_to_user(ptr noundef %.fr30, ptr noundef nonnull %5, i64 noundef 16) #10
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %65, label %.thread7
 
 65:                                               ; preds = %48
-  %66 = getelementptr i8, ptr %.fr31, i64 16
+  %66 = getelementptr i8, ptr %.fr30, i64 16
   %67 = icmp eq i32 %54, 0
   br i1 %67, label %.thread8, label %68
 
@@ -1003,7 +1003,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @inotify_read(ptr nocaptu
 .thread7:                                         ; preds = %48, %71, %70
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   call void @fsnotify_destroy_event(ptr noundef %14, ptr noundef nonnull %.lcssa) #10
-  br label %.thread9
+  br label %.critedge
 
 88:                                               ; preds = %75, %83
   %89 = phi i64 [ %86, %83 ], [ %77, %75 ]
@@ -1014,12 +1014,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @inotify_read(ptr nocaptu
   %93 = trunc i64 %92 to i32
   call void @fsnotify_destroy_event(ptr noundef %14, ptr noundef nonnull %.lcssa) #10
   %94 = icmp slt i32 %93, 0
-  br i1 %94, label %.thread9, label %95
+  br i1 %94, label %.critedge, label %95
 
 95:                                               ; preds = %.thread8, %88
   %96 = phi i64 [ 16, %.thread8 ], [ %92, %88 ]
   %97 = and i64 %96, 2147483647
-  %98 = getelementptr i8, ptr %.fr31, i64 %97
+  %98 = getelementptr i8, ptr %.fr30, i64 %97
   %99 = sub i64 %22, %97
   br label %21, !llvm.loop !45
 
@@ -1028,19 +1028,19 @@ define internal range(i64 -2147483648, 2147483648) i64 @inotify_read(ptr nocaptu
   %100 = load i32, ptr %16, align 8
   %101 = and i32 %100, 2048
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %.thread9
+  br i1 %102, label %103, label %.critedge
 
 103:                                              ; preds = %.lr.ph.split
   %104 = load volatile i64, ptr %9, align 8
   %105 = and i64 %104, 131072
   %106 = icmp eq i64 %105, 0
-  br i1 %106, label %107, label %.thread9, !prof !6
+  br i1 %106, label %107, label %.critedge, !prof !6
 
 107:                                              ; preds = %103
   %108 = load volatile i64, ptr %9, align 8
   %109 = and i64 %108, 4
   %110 = icmp eq i64 %109, 0
-  br i1 %110, label %111, label %.thread9
+  br i1 %110, label %111, label %.critedge
 
 111:                                              ; preds = %107
   %112 = call i64 @wait_woken(ptr noundef nonnull %6, i32 noundef 1, i64 noundef 9223372036854775807) #10
@@ -1052,16 +1052,16 @@ define internal range(i64 -2147483648, 2147483648) i64 @inotify_read(ptr nocaptu
 .loopexit.loopexit:                               ; preds = %45
   %115 = ptrtoint ptr %.lcssa to i64
   %116 = trunc i64 %115 to i32
-  br label %.thread9
+  br label %.critedge
 
-.thread9:                                         ; preds = %88, %.lr.ph.split, %107, %103, %.thread3, %.loopexit.loopexit, %34, %30, %.lr.ph.split.us, %.thread7
-  %.fr3140 = phi ptr [ %.fr31, %.thread7 ], [ %.fr31, %30 ], [ %.fr31, %.lr.ph.split.us ], [ %.fr31, %34 ], [ %.fr31, %.loopexit.loopexit ], [ %.fr31, %.thread3 ], [ %1, %103 ], [ %1, %107 ], [ %1, %.lr.ph.split ], [ %.fr31, %88 ]
+.critedge:                                        ; preds = %88, %.lr.ph.split, %107, %103, %.thread3, %.loopexit.loopexit, %34, %30, %.lr.ph.split.us, %.thread7
+  %.fr3039 = phi ptr [ %.fr30, %.thread7 ], [ %.fr30, %30 ], [ %.fr30, %.lr.ph.split.us ], [ %.fr30, %34 ], [ %.fr30, %.loopexit.loopexit ], [ %.fr30, %.thread3 ], [ %1, %103 ], [ %1, %107 ], [ %1, %.lr.ph.split ], [ %.fr30, %88 ]
   %117 = phi i32 [ -14, %.thread7 ], [ -512, %30 ], [ -11, %.lr.ph.split.us ], [ -512, %34 ], [ %116, %.loopexit.loopexit ], [ -22, %.thread3 ], [ -11, %.lr.ph.split ], [ -512, %107 ], [ -512, %103 ], [ %93, %88 ]
   call void @remove_wait_queue(ptr noundef %15, ptr noundef nonnull %6) #10
-  %118 = icmp ne ptr %.fr3140, %1
+  %118 = icmp ne ptr %.fr3039, %1
   %119 = icmp ne i32 %117, -14
   %120 = select i1 %118, i1 %119, i1 false
-  %121 = ptrtoint ptr %.fr3140 to i64
+  %121 = ptrtoint ptr %.fr3039 to i64
   %122 = ptrtoint ptr %1 to i64
   %123 = sub i64 %121, %122
   %124 = trunc i64 %123 to i32

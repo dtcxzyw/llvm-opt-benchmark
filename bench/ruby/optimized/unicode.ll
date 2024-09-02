@@ -728,7 +728,7 @@ onigenc_unicode_ctype_code_range.exit:            ; preds = %4, %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -223, -2147483648) i32 @onigenc_unicode_property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -223, 65536) i32 @onigenc_unicode_property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [46 x i8], align 16
   %5 = icmp ult ptr %1, %2
   br i1 %5, label %.lr.ph, label %uniname2ctype.exit.thread

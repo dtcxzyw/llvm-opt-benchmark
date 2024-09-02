@@ -70,7 +70,7 @@ _asn1_check_infinite_end.exit:                    ; preds = %entry, %if.else.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ASN1_get_object(ptr nocapture noundef %pp, ptr nocapture noundef writeonly %plength, ptr nocapture noundef writeonly %ptag, ptr nocapture noundef writeonly %pclass, i64 noundef %omax) local_unnamed_addr #1 {
+define hidden range(i32 0, 256) i32 @ASN1_get_object(ptr nocapture noundef %pp, ptr nocapture noundef writeonly %plength, ptr nocapture noundef writeonly %ptag, ptr nocapture noundef writeonly %pclass, i64 noundef %omax) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %pp, align 8
   %tobool.not = icmp eq i64 %omax, 0
@@ -543,8 +543,7 @@ entry:
   %call = tail call i32 @ASN1_get_object(ptr noundef nonnull %c, ptr noundef nonnull %slen, ptr noundef nonnull %tag, ptr noundef nonnull %xclass, i64 noundef %1)
   %inf = getelementptr inbounds i8, ptr %c, i64 16
   store i32 %call, ptr %inf, align 8
-  %and = and i32 %call, 128
-  %tobool.not = icmp eq i32 %and, 0
+  %tobool.not = icmp ult i32 %call, 128
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

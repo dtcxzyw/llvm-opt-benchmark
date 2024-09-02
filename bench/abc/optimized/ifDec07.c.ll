@@ -960,7 +960,7 @@ If_Dec6DeriveNonDisjoint.exit:                    ; preds = %260
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @If_Dec7Perform(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i64 8070450532247928832, 2) i64 @If_Dec7Perform(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = alloca [2 x i64], align 16
   %4 = alloca [7 x i32], align 16
   %5 = alloca [7 x i32], align 16
@@ -2052,7 +2052,7 @@ If_Dec7SuppSize.exit42:                           ; preds = %If_Dec7Cofactor.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @If_Dec5Perform(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i64 31525197391593472, 2) i64 @If_Dec5Perform(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca [4 x i64], align 16
   %5 = alloca [4 x i64], align 16
@@ -2316,12 +2316,12 @@ If_Dec6MoveTo.exit:                               ; preds = %.lr.ph.i, %.prehead
   %131 = and i32 %130, 1
   %132 = xor i32 %131, 1
   %.5.i.i = add nuw nsw i32 %132, %.4.i.i
+  %133 = zext nneg i32 %.5.i.i to i64
   br label %Abc_Tt6FirstBit.exit.i
 
 Abc_Tt6FirstBit.exit.i:                           ; preds = %116, %114
-  %.025.i.i = phi i32 [ %.5.i.i, %116 ], [ -1, %114 ]
-  %133 = sext i32 %.025.i.i to i64
-  %134 = getelementptr inbounds [4 x i64], ptr @__const.If_Dec5CofCount2.F, i64 0, i64 %133
+  %.025.i.i = phi i64 [ %133, %116 ], [ -1, %114 ]
+  %134 = getelementptr inbounds [4 x i64], ptr @__const.If_Dec5CofCount2.F, i64 0, i64 %.025.i.i
   %135 = load i64, ptr %134, align 8
   %136 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %indvars.iv259.i
   store i64 %135, ptr %136, align 8
@@ -2403,12 +2403,12 @@ Abc_Tt6FirstBit.exit221.i:                        ; preds = %141, %138
   %182 = and i32 %181, 1
   %183 = xor i32 %182, 1
   %.5.i232.i = add nuw nsw i32 %183, %.4.i231.i
+  %184 = zext nneg i32 %.5.i232.i to i64
   br label %Abc_Tt6FirstBit.exit234.i
 
 Abc_Tt6FirstBit.exit234.i:                        ; preds = %160, %Abc_Tt6FirstBit.exit221.i
-  %.025.i233.i = phi i32 [ %.5.i232.i, %160 ], [ -1, %Abc_Tt6FirstBit.exit221.i ]
-  %184 = sext i32 %.025.i233.i to i64
-  %185 = getelementptr inbounds [4 x i64], ptr @__const.If_Dec5CofCount2.F, i64 0, i64 %184
+  %.025.i233.i = phi i64 [ %184, %160 ], [ -1, %Abc_Tt6FirstBit.exit221.i ]
+  %185 = getelementptr inbounds [4 x i64], ptr @__const.If_Dec5CofCount2.F, i64 0, i64 %.025.i233.i
   %186 = load i64, ptr %185, align 8
   %187 = and i64 %186, -3689348814741910324
   %188 = sext i32 %.025.i220.i to i64
@@ -2440,7 +2440,7 @@ Abc_Tt6FirstBit.exit234.i:                        ; preds = %160, %Abc_Tt6FirstB
   %206 = shl nuw nsw i64 %indvars.iv255.i, 1
   %207 = lshr i64 %.0.lcssa.i, %206
   %208 = and i64 %207, 3
-  %209 = icmp eq i64 %208, %184
+  %209 = icmp eq i64 %208, %.025.i233.i
   br i1 %209, label %210, label %221
 
 210:                                              ; preds = %205

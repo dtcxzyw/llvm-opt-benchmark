@@ -8109,59 +8109,58 @@ define void @_ZN3nix10LocalStore6openDBERNS0_5StateEb(ptr noundef nonnull align 
   %33 = getelementptr inbounds i8, ptr %0, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 288
   %35 = load i8, ptr %34, align 1
-  %.fr = freeze i8 %35
-  %36 = trunc i8 %.fr to i1
-  br i1 %2, label %37, label %46
+  %36 = trunc i8 %35 to i1
+  br i1 %2, label %38, label %._crit_edge
 
-37:                                               ; preds = %3
-  br i1 %36, label %38, label %.thread98
+._crit_edge:                                      ; preds = %3
+  %37 = select i1 %36, i32 4, i32 6
+  br label %47
 
-38:                                               ; preds = %37
-  %39 = tail call ptr @__cxa_allocate_exception(i64 376) #35
+38:                                               ; preds = %3
+  br i1 %36, label %39, label %47
+
+39:                                               ; preds = %38
+  %40 = tail call ptr @__cxa_allocate_exception(i64 376) #35
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.79, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %40 unwind label %.thread
+          to label %41 unwind label %.thread
 
-40:                                               ; preds = %38
-  invoke void @_ZN3nix5ErrorCI2NS_9BaseErrorEIJEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %39, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %41 unwind label %43
+41:                                               ; preds = %39
+  invoke void @_ZN3nix5ErrorCI2NS_9BaseErrorEIJEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %40, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %42 unwind label %44
 
-41:                                               ; preds = %40
-  invoke void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #36
-          to label %276 unwind label %43
+42:                                               ; preds = %41
+  invoke void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #36
+          to label %276 unwind label %44
 
-.thread:                                          ; preds = %38
-  %42 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %39
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #35
-  br label %45
+  br label %46
 
-43:                                               ; preds = %40, %41
-  %.035 = phi i1 [ false, %41 ], [ true, %40 ]
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %41, %42
+  %.035 = phi i1 [ false, %42 ], [ true, %41 ]
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #35
-  br i1 %.035, label %45, label %275
+  br i1 %.035, label %46, label %275
 
-45:                                               ; preds = %.thread, %43
-  %.pn5487 = phi { ptr, i32 } [ %42, %.thread ], [ %44, %43 ]
-  call void @__cxa_free_exception(ptr %39) #35
+46:                                               ; preds = %.thread, %44
+  %.pn5487 = phi { ptr, i32 } [ %43, %.thread ], [ %45, %44 ]
+  call void @__cxa_free_exception(ptr %40) #35
   br label %275
 
-46:                                               ; preds = %3
-  %spec.select = select i1 %36, i32 4, i32 6
-  br label %.thread98
-
-.thread98:                                        ; preds = %37, %46
-  %47 = phi i32 [ %spec.select, %46 ], [ 6, %37 ]
+47:                                               ; preds = %._crit_edge, %38
+  %.pre-phi = phi i32 [ %37, %._crit_edge ], [ 6, %38 ]
   %48 = getelementptr inbounds i8, ptr %0, i64 120
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 @access(ptr noundef %49, i32 noundef %47) #35
+  %50 = tail call i32 @access(ptr noundef %49, i32 noundef %.pre-phi) #35
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %56, label %51
 
-51:                                               ; preds = %.thread98
+51:                                               ; preds = %47
   %52 = tail call ptr @__cxa_allocate_exception(i64 384) #35
   invoke void @_ZN3nix8SysErrorC2IJA45_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(380) %52, ptr noundef nonnull align 1 dereferenceable(45) @.str.80, ptr noundef nonnull align 8 dereferenceable(32) %48)
           to label %53 unwind label %54
@@ -8176,7 +8175,7 @@ define void @_ZN3nix10LocalStore6openDBERNS0_5StateEb(ptr noundef nonnull align 
   tail call void @__cxa_free_exception(ptr %52) #35
   br label %275
 
-56:                                               ; preds = %.thread98
+56:                                               ; preds = %47
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull @.str.81)
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr i8, ptr %57, i64 -152
@@ -8816,11 +8815,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #35
   br label %275
 
-275:                                              ; preds = %43, %45, %274, %54
-  %.pn54.pn = phi { ptr, i32 } [ %.pn5487, %45 ], [ %44, %43 ], [ %55, %54 ], [ %.pn48.pn.pn.pn.pn, %274 ]
+275:                                              ; preds = %44, %46, %274, %54
+  %.pn54.pn = phi { ptr, i32 } [ %.pn5487, %46 ], [ %45, %44 ], [ %55, %54 ], [ %.pn48.pn.pn.pn.pn, %274 ]
   resume { ptr, i32 } %.pn54.pn
 
-276:                                              ; preds = %41
+276:                                              ; preds = %42
   unreachable
 }
 

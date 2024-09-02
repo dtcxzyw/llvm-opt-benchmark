@@ -5851,7 +5851,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
 
 61:                                               ; preds = %.lr.ph, %dissect_hid_field.exit
   %.159 = phi i32 [ %.047, %.lr.ph ], [ %.2, %dissect_hid_field.exit ]
-  %.04858 = phi i32 [ 0, %.lr.ph ], [ %500, %dissect_hid_field.exit ]
+  %.04858 = phi i32 [ 0, %.lr.ph ], [ %499, %dissect_hid_field.exit ]
   %62 = call ptr @wmem_array_index(ptr noundef %.049, i32 noundef %.04858) #7
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
@@ -5885,7 +5885,7 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %82, 2
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %142
+  br i1 %84, label %85, label %141
 
 85:                                               ; preds = %80
   %86 = load i32, ptr @hf_usbhid_array, align 4
@@ -5896,25 +5896,25 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   %91 = load i32, ptr @ett_usb_hid_array, align 4
   %92 = call ptr @proto_item_add_subtree(ptr noundef %90, i32 noundef %91) #7
   %93 = load i32, ptr %65, align 4
-  %.not93.i = icmp eq i32 %93, 0
-  br i1 %.not93.i, label %dissect_hid_field.exit, label %.lr.ph91.i
+  %.not89.i = icmp eq i32 %93, 0
+  br i1 %.not89.i, label %dissect_hid_field.exit, label %.lr.ph87.i
 
-.lr.ph91.i:                                       ; preds = %85
+.lr.ph87.i:                                       ; preds = %85
   %94 = getelementptr inbounds i8, ptr %62, i64 20
   %95 = getelementptr inbounds i8, ptr %62, i64 24
-  %.pre95.i = load i32, ptr %63, align 8
+  %.pre91.i = load i32, ptr %63, align 8
   br label %96
 
-96:                                               ; preds = %136, %.lr.ph91.i
-  %97 = phi i32 [ %.pre95.i, %.lr.ph91.i ], [ %137, %136 ]
-  %.089.i = phi i32 [ %.159, %.lr.ph91.i ], [ %138, %136 ]
-  %.05788.i = phi i32 [ 0, %.lr.ph91.i ], [ %139, %136 ]
+96:                                               ; preds = %135, %.lr.ph87.i
+  %97 = phi i32 [ %.pre91.i, %.lr.ph87.i ], [ %136, %135 ]
+  %.085.i = phi i32 [ %.159, %.lr.ph87.i ], [ %137, %135 ]
+  %.05784.i = phi i32 [ 0, %.lr.ph87.i ], [ %138, %135 ]
   %98 = icmp ugt i32 %97, 32
-  br i1 %98, label %131, label %99
+  br i1 %98, label %.critedge.i, label %99
 
 99:                                               ; preds = %96
   %100 = load i32, ptr %94, align 4
-  %101 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.089.i, i32 noundef %97, i32 noundef -2147483648) #7
+  %101 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.085.i, i32 noundef %97, i32 noundef -2147483648) #7
   %102 = icmp sgt i32 %100, -1
   %103 = and i32 %97, 31
   %or.cond.i.i.i = icmp eq i32 %103, 0
@@ -5935,19 +5935,19 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   %.171.ph.i = phi i32 [ %.010.i.i.i, %104 ], [ %101, %99 ]
   %111 = load i32, ptr %94, align 4
   %.not.i.i = icmp slt i32 %.171.ph.i, %111
-  br i1 %.not.i.i, label %131, label %112
+  br i1 %.not.i.i, label %.critedge.i, label %112
 
 112:                                              ; preds = %110
   %113 = load i32, ptr %95, align 8
   %.not14.i.i = icmp sgt i32 %.171.ph.i, %113
-  br i1 %.not14.i.i, label %131, label %114
+  br i1 %.not14.i.i, label %.critedge.i, label %114
 
 114:                                              ; preds = %112
   %115 = sub i32 %.171.ph.i, %111
   %116 = load ptr, ptr %62, align 8
   %117 = call i32 @wmem_array_get_count(ptr noundef %116) #7
   %118 = icmp ult i32 %115, %117
-  br i1 %118, label %119, label %131
+  br i1 %118, label %119, label %.critedge.i
 
 119:                                              ; preds = %114
   %120 = load ptr, ptr %62, align 8
@@ -5960,693 +5960,693 @@ get_report_descriptor.exit:                       ; preds = %is_correct_interfac
   %127 = lshr i32 %122, 16
   %128 = and i32 %122, 65535
   %129 = call fastcc ptr @get_usage_page_item_string(ptr noundef %126, i32 noundef %127, i32 noundef %128)
-  %130 = call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %92, i32 noundef %123, ptr noundef %0, i32 noundef %.089.i, i32 noundef %124, i64 noundef %125, i32 noundef -2147483648, ptr noundef nonnull @.str.3304, ptr noundef %129, i32 noundef %127, i32 noundef %128) #7
-  br label %136
+  %130 = call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %92, i32 noundef %123, ptr noundef %0, i32 noundef %.085.i, i32 noundef %124, i64 noundef %125, i32 noundef -2147483648, ptr noundef nonnull @.str.3304, ptr noundef %129, i32 noundef %127, i32 noundef %128) #7
+  br label %135
 
-131:                                              ; preds = %114, %112, %110, %96
-  %.070.ph.i = phi i32 [ %.171.ph.i, %114 ], [ %.171.ph.i, %112 ], [ %.171.ph.i, %110 ], [ 0, %96 ]
-  %132 = load i32, ptr @hf_usbhid_array_usage, align 4
-  %133 = load i32, ptr %63, align 8
-  %134 = zext i32 %.070.ph.i to i64
-  %135 = call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %92, i32 noundef %132, ptr noundef %0, i32 noundef %.089.i, i32 noundef %133, i64 noundef %134, i32 noundef -2147483648, ptr noundef nonnull @.str.3305) #7
-  br label %136
+.critedge.i:                                      ; preds = %114, %112, %110, %96
+  %.070.i = phi i32 [ 0, %96 ], [ %.171.ph.i, %114 ], [ %.171.ph.i, %112 ], [ %.171.ph.i, %110 ]
+  %131 = load i32, ptr @hf_usbhid_array_usage, align 4
+  %132 = load i32, ptr %63, align 8
+  %133 = zext i32 %.070.i to i64
+  %134 = call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %92, i32 noundef %131, ptr noundef %0, i32 noundef %.085.i, i32 noundef %132, i64 noundef %133, i32 noundef -2147483648, ptr noundef nonnull @.str.3305) #7
+  br label %135
 
-136:                                              ; preds = %131, %119
-  %137 = load i32, ptr %63, align 8
-  %138 = add i32 %137, %.089.i
-  %139 = add nuw i32 %.05788.i, 1
-  %140 = load i32, ptr %65, align 4
-  %141 = icmp ult i32 %139, %140
-  br i1 %141, label %96, label %dissect_hid_field.exit, !llvm.loop !12
+135:                                              ; preds = %.critedge.i, %119
+  %136 = load i32, ptr %63, align 8
+  %137 = add i32 %136, %.085.i
+  %138 = add nuw i32 %.05784.i, 1
+  %139 = load i32, ptr %65, align 4
+  %140 = icmp ult i32 %138, %139
+  br i1 %140, label %96, label %dissect_hid_field.exit, !llvm.loop !12
 
-142:                                              ; preds = %80
-  %143 = load ptr, ptr %62, align 8
-  %144 = call i32 @wmem_array_get_count(ptr noundef %143) #7
-  %145 = load i32, ptr %65, align 4
-  %spec.select.i = call i32 @llvm.umin.i32(i32 %144, i32 %145)
+141:                                              ; preds = %80
+  %142 = load ptr, ptr %62, align 8
+  %143 = call i32 @wmem_array_get_count(ptr noundef %142) #7
+  %144 = load i32, ptr %65, align 4
+  %spec.select.i = call i32 @llvm.umin.i32(i32 %143, i32 %144)
   %.not.i56 = icmp eq i32 %spec.select.i, 0
   br i1 %.not.i56, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %62, i64 20
-  br label %147
+.lr.ph.i:                                         ; preds = %141
+  %145 = getelementptr inbounds i8, ptr %62, i64 20
+  br label %146
 
-147:                                              ; preds = %dissect_hid_variable.exit.i, %.lr.ph.i
-  %.287.i = phi i32 [ %.159, %.lr.ph.i ], [ %489, %dissect_hid_variable.exit.i ]
-  %.05986.i = phi i32 [ 0, %.lr.ph.i ], [ %490, %dissect_hid_variable.exit.i ]
-  %148 = load ptr, ptr %62, align 8
-  %149 = call ptr @wmem_array_index(ptr noundef %148, i32 noundef %.05986.i) #7
-  %150 = load i32, ptr %149, align 4
-  %151 = lshr i32 %150, 16
-  %152 = icmp ugt i32 %150, -16777217
-  br i1 %152, label %153, label %157
+146:                                              ; preds = %dissect_hid_variable.exit.i, %.lr.ph.i
+  %.283.i = phi i32 [ %.159, %.lr.ph.i ], [ %488, %dissect_hid_variable.exit.i ]
+  %.05982.i = phi i32 [ 0, %.lr.ph.i ], [ %489, %dissect_hid_variable.exit.i ]
+  %147 = load ptr, ptr %62, align 8
+  %148 = call ptr @wmem_array_index(ptr noundef %147, i32 noundef %.05982.i) #7
+  %149 = load i32, ptr %148, align 4
+  %150 = lshr i32 %149, 16
+  %151 = icmp ugt i32 %149, -16777217
+  br i1 %151, label %152, label %156
 
-153:                                              ; preds = %147
-  %154 = load i32, ptr @hf_usbhid_vendor_data, align 4
-  %155 = load i32, ptr %63, align 8
-  %156 = call ptr @proto_tree_add_bits_item(ptr noundef %46, i32 noundef %154, ptr noundef %0, i32 noundef %.287.i, i32 noundef %155, i32 noundef -2147483648) #7
+152:                                              ; preds = %146
+  %153 = load i32, ptr @hf_usbhid_vendor_data, align 4
+  %154 = load i32, ptr %63, align 8
+  %155 = call ptr @proto_tree_add_bits_item(ptr noundef %46, i32 noundef %153, ptr noundef %0, i32 noundef %.283.i, i32 noundef %154, i32 noundef -2147483648) #7
   br label %dissect_hid_variable.exit.i
 
-157:                                              ; preds = %147
-  %trunc.i.i = trunc nuw i32 %151 to i16
-  switch i16 %trunc.i.i, label %467 [
-    i16 1, label %158
-    i16 7, label %414
-    i16 9, label %439
+156:                                              ; preds = %146
+  %trunc.i.i = trunc nuw i32 %150 to i16
+  switch i16 %trunc.i.i, label %466 [
+    i16 1, label %157
+    i16 7, label %413
+    i16 9, label %438
   ]
 
-158:                                              ; preds = %157
-  %.mask.i.i.i = and i32 %150, -65536
-  %159 = icmp eq i32 %.mask.i.i.i, 65536
-  br i1 %159, label %161, label %160
+157:                                              ; preds = %156
+  %.mask.i.i.i = and i32 %149, -65536
+  %158 = icmp eq i32 %.mask.i.i.i, 65536
+  br i1 %158, label %160, label %159
 
-160:                                              ; preds = %158
+159:                                              ; preds = %157
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3307, ptr noundef nonnull @.str.3308, i32 noundef 5062, ptr noundef nonnull @.str.3309) #8
   unreachable
 
-161:                                              ; preds = %158
-  %trunc.i.i.i = trunc i32 %150 to i16
-  switch i16 %trunc.i.i.i, label %467 [
-    i16 48, label %162
-    i16 49, label %180
-    i16 50, label %198
-    i16 51, label %216
-    i16 52, label %234
-    i16 53, label %252
-    i16 54, label %270
-    i16 64, label %288
-    i16 65, label %306
-    i16 66, label %324
-    i16 67, label %342
-    i16 68, label %360
-    i16 69, label %378
-    i16 70, label %396
+160:                                              ; preds = %157
+  %trunc.i.i.i = trunc i32 %149 to i16
+  switch i16 %trunc.i.i.i, label %466 [
+    i16 48, label %161
+    i16 49, label %179
+    i16 50, label %197
+    i16 51, label %215
+    i16 52, label %233
+    i16 53, label %251
+    i16 54, label %269
+    i16 64, label %287
+    i16 65, label %305
+    i16 66, label %323
+    i16 67, label %341
+    i16 68, label %359
+    i16 69, label %377
+    i16 70, label %395
   ]
 
-162:                                              ; preds = %161
-  %163 = load i32, ptr @hf_usbhid_axis_x, align 4
-  %164 = load i32, ptr %63, align 8
-  %165 = icmp ugt i32 %164, 32
-  br i1 %165, label %467, label %166
+161:                                              ; preds = %160
+  %162 = load i32, ptr @hf_usbhid_axis_x, align 4
+  %163 = load i32, ptr %63, align 8
+  %164 = icmp ugt i32 %163, 32
+  br i1 %164, label %466, label %165
 
-166:                                              ; preds = %162
-  %167 = load i32, ptr %146, align 4
-  %168 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %164, i32 noundef -2147483648) #7
-  %169 = icmp sgt i32 %167, -1
-  %170 = and i32 %164, 31
-  %or.cond.i.i.i.i.i.i = icmp eq i32 %170, 0
-  %or.cond.i.i.i.i = or i1 %or.cond.i.i.i.i.i.i, %169
-  br i1 %or.cond.i.i.i.i, label %177, label %171
+165:                                              ; preds = %161
+  %166 = load i32, ptr %145, align 4
+  %167 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %163, i32 noundef -2147483648) #7
+  %168 = icmp sgt i32 %166, -1
+  %169 = and i32 %163, 31
+  %or.cond.i.i.i.i.i.i = icmp eq i32 %169, 0
+  %or.cond.i.i.i.i = or i1 %or.cond.i.i.i.i.i.i, %168
+  br i1 %or.cond.i.i.i.i, label %176, label %170
 
-171:                                              ; preds = %166
-  %172 = add nsw i32 %164, -1
-  %173 = shl nuw nsw i32 1, %172
-  %174 = and i32 %168, %173
-  %.not.i.i.i.i.i.i = icmp eq i32 %174, 0
-  %175 = shl nsw i32 -1, %164
-  %176 = select i1 %.not.i.i.i.i.i.i, i32 0, i32 %175
-  %.010.i.i.i.i.i.i = or i32 %176, %168
-  br label %177
+170:                                              ; preds = %165
+  %171 = add nsw i32 %163, -1
+  %172 = shl nuw nsw i32 1, %171
+  %173 = and i32 %167, %172
+  %.not.i.i.i.i.i.i = icmp eq i32 %173, 0
+  %174 = shl nsw i32 -1, %163
+  %175 = select i1 %.not.i.i.i.i.i.i, i32 0, i32 %174
+  %.010.i.i.i.i.i.i = or i32 %175, %167
+  br label %176
 
-177:                                              ; preds = %171, %166
-  %.09.ph.i.i.i.i = phi i32 [ %.010.i.i.i.i.i.i, %171 ], [ %168, %166 ]
-  %178 = load i32, ptr %63, align 8
-  %179 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %163, ptr noundef %0, i32 noundef %.287.i, i32 noundef %178, i32 noundef %.09.ph.i.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i.i.i.i) #7
+176:                                              ; preds = %170, %165
+  %.09.ph.i.i.i.i = phi i32 [ %.010.i.i.i.i.i.i, %170 ], [ %167, %165 ]
+  %177 = load i32, ptr %63, align 8
+  %178 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %162, ptr noundef %0, i32 noundef %.283.i, i32 noundef %177, i32 noundef %.09.ph.i.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-180:                                              ; preds = %161
-  %181 = load i32, ptr @hf_usbhid_axis_y, align 4
-  %182 = load i32, ptr %63, align 8
-  %183 = icmp ugt i32 %182, 32
-  br i1 %183, label %467, label %184
+179:                                              ; preds = %160
+  %180 = load i32, ptr @hf_usbhid_axis_y, align 4
+  %181 = load i32, ptr %63, align 8
+  %182 = icmp ugt i32 %181, 32
+  br i1 %182, label %466, label %183
 
-184:                                              ; preds = %180
-  %185 = load i32, ptr %146, align 4
-  %186 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %182, i32 noundef -2147483648) #7
-  %187 = icmp sgt i32 %185, -1
-  %188 = and i32 %182, 31
-  %or.cond.i.i.i59.i.i.i = icmp eq i32 %188, 0
-  %or.cond.i60.i.i.i = or i1 %or.cond.i.i.i59.i.i.i, %187
-  br i1 %or.cond.i60.i.i.i, label %195, label %189
+183:                                              ; preds = %179
+  %184 = load i32, ptr %145, align 4
+  %185 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %181, i32 noundef -2147483648) #7
+  %186 = icmp sgt i32 %184, -1
+  %187 = and i32 %181, 31
+  %or.cond.i.i.i59.i.i.i = icmp eq i32 %187, 0
+  %or.cond.i60.i.i.i = or i1 %or.cond.i.i.i59.i.i.i, %186
+  br i1 %or.cond.i60.i.i.i, label %194, label %188
 
-189:                                              ; preds = %184
-  %190 = add nsw i32 %182, -1
-  %191 = shl nuw nsw i32 1, %190
-  %192 = and i32 %186, %191
-  %.not.i.i.i61.i.i.i = icmp eq i32 %192, 0
-  %193 = shl nsw i32 -1, %182
-  %194 = select i1 %.not.i.i.i61.i.i.i, i32 0, i32 %193
-  %.010.i.i.i62.i.i.i = or i32 %194, %186
-  br label %195
+188:                                              ; preds = %183
+  %189 = add nsw i32 %181, -1
+  %190 = shl nuw nsw i32 1, %189
+  %191 = and i32 %185, %190
+  %.not.i.i.i61.i.i.i = icmp eq i32 %191, 0
+  %192 = shl nsw i32 -1, %181
+  %193 = select i1 %.not.i.i.i61.i.i.i, i32 0, i32 %192
+  %.010.i.i.i62.i.i.i = or i32 %193, %185
+  br label %194
 
-195:                                              ; preds = %189, %184
-  %.09.ph.i63.i.i.i = phi i32 [ %.010.i.i.i62.i.i.i, %189 ], [ %186, %184 ]
-  %196 = load i32, ptr %63, align 8
-  %197 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %181, ptr noundef %0, i32 noundef %.287.i, i32 noundef %196, i32 noundef %.09.ph.i63.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i63.i.i.i) #7
+194:                                              ; preds = %188, %183
+  %.09.ph.i63.i.i.i = phi i32 [ %.010.i.i.i62.i.i.i, %188 ], [ %185, %183 ]
+  %195 = load i32, ptr %63, align 8
+  %196 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %180, ptr noundef %0, i32 noundef %.283.i, i32 noundef %195, i32 noundef %.09.ph.i63.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i63.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-198:                                              ; preds = %161
-  %199 = load i32, ptr @hf_usbhid_axis_z, align 4
-  %200 = load i32, ptr %63, align 8
-  %201 = icmp ugt i32 %200, 32
-  br i1 %201, label %467, label %202
+197:                                              ; preds = %160
+  %198 = load i32, ptr @hf_usbhid_axis_z, align 4
+  %199 = load i32, ptr %63, align 8
+  %200 = icmp ugt i32 %199, 32
+  br i1 %200, label %466, label %201
 
-202:                                              ; preds = %198
-  %203 = load i32, ptr %146, align 4
-  %204 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %200, i32 noundef -2147483648) #7
-  %205 = icmp sgt i32 %203, -1
-  %206 = and i32 %200, 31
-  %or.cond.i.i.i66.i.i.i = icmp eq i32 %206, 0
-  %or.cond.i67.i.i.i = or i1 %or.cond.i.i.i66.i.i.i, %205
-  br i1 %or.cond.i67.i.i.i, label %213, label %207
+201:                                              ; preds = %197
+  %202 = load i32, ptr %145, align 4
+  %203 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %199, i32 noundef -2147483648) #7
+  %204 = icmp sgt i32 %202, -1
+  %205 = and i32 %199, 31
+  %or.cond.i.i.i66.i.i.i = icmp eq i32 %205, 0
+  %or.cond.i67.i.i.i = or i1 %or.cond.i.i.i66.i.i.i, %204
+  br i1 %or.cond.i67.i.i.i, label %212, label %206
 
-207:                                              ; preds = %202
-  %208 = add nsw i32 %200, -1
-  %209 = shl nuw nsw i32 1, %208
-  %210 = and i32 %204, %209
-  %.not.i.i.i68.i.i.i = icmp eq i32 %210, 0
-  %211 = shl nsw i32 -1, %200
-  %212 = select i1 %.not.i.i.i68.i.i.i, i32 0, i32 %211
-  %.010.i.i.i69.i.i.i = or i32 %212, %204
-  br label %213
+206:                                              ; preds = %201
+  %207 = add nsw i32 %199, -1
+  %208 = shl nuw nsw i32 1, %207
+  %209 = and i32 %203, %208
+  %.not.i.i.i68.i.i.i = icmp eq i32 %209, 0
+  %210 = shl nsw i32 -1, %199
+  %211 = select i1 %.not.i.i.i68.i.i.i, i32 0, i32 %210
+  %.010.i.i.i69.i.i.i = or i32 %211, %203
+  br label %212
 
-213:                                              ; preds = %207, %202
-  %.09.ph.i70.i.i.i = phi i32 [ %.010.i.i.i69.i.i.i, %207 ], [ %204, %202 ]
-  %214 = load i32, ptr %63, align 8
-  %215 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %199, ptr noundef %0, i32 noundef %.287.i, i32 noundef %214, i32 noundef %.09.ph.i70.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i70.i.i.i) #7
+212:                                              ; preds = %206, %201
+  %.09.ph.i70.i.i.i = phi i32 [ %.010.i.i.i69.i.i.i, %206 ], [ %203, %201 ]
+  %213 = load i32, ptr %63, align 8
+  %214 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %198, ptr noundef %0, i32 noundef %.283.i, i32 noundef %213, i32 noundef %.09.ph.i70.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i70.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-216:                                              ; preds = %161
-  %217 = load i32, ptr @hf_usbhid_axis_rx, align 4
-  %218 = load i32, ptr %63, align 8
-  %219 = icmp ugt i32 %218, 32
-  br i1 %219, label %467, label %220
+215:                                              ; preds = %160
+  %216 = load i32, ptr @hf_usbhid_axis_rx, align 4
+  %217 = load i32, ptr %63, align 8
+  %218 = icmp ugt i32 %217, 32
+  br i1 %218, label %466, label %219
 
-220:                                              ; preds = %216
-  %221 = load i32, ptr %146, align 4
-  %222 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %218, i32 noundef -2147483648) #7
-  %223 = icmp sgt i32 %221, -1
-  %224 = and i32 %218, 31
-  %or.cond.i.i.i73.i.i.i = icmp eq i32 %224, 0
-  %or.cond.i74.i.i.i = or i1 %or.cond.i.i.i73.i.i.i, %223
-  br i1 %or.cond.i74.i.i.i, label %231, label %225
+219:                                              ; preds = %215
+  %220 = load i32, ptr %145, align 4
+  %221 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %217, i32 noundef -2147483648) #7
+  %222 = icmp sgt i32 %220, -1
+  %223 = and i32 %217, 31
+  %or.cond.i.i.i73.i.i.i = icmp eq i32 %223, 0
+  %or.cond.i74.i.i.i = or i1 %or.cond.i.i.i73.i.i.i, %222
+  br i1 %or.cond.i74.i.i.i, label %230, label %224
 
-225:                                              ; preds = %220
-  %226 = add nsw i32 %218, -1
-  %227 = shl nuw nsw i32 1, %226
-  %228 = and i32 %222, %227
-  %.not.i.i.i75.i.i.i = icmp eq i32 %228, 0
-  %229 = shl nsw i32 -1, %218
-  %230 = select i1 %.not.i.i.i75.i.i.i, i32 0, i32 %229
-  %.010.i.i.i76.i.i.i = or i32 %230, %222
-  br label %231
+224:                                              ; preds = %219
+  %225 = add nsw i32 %217, -1
+  %226 = shl nuw nsw i32 1, %225
+  %227 = and i32 %221, %226
+  %.not.i.i.i75.i.i.i = icmp eq i32 %227, 0
+  %228 = shl nsw i32 -1, %217
+  %229 = select i1 %.not.i.i.i75.i.i.i, i32 0, i32 %228
+  %.010.i.i.i76.i.i.i = or i32 %229, %221
+  br label %230
 
-231:                                              ; preds = %225, %220
-  %.09.ph.i77.i.i.i = phi i32 [ %.010.i.i.i76.i.i.i, %225 ], [ %222, %220 ]
-  %232 = load i32, ptr %63, align 8
-  %233 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %217, ptr noundef %0, i32 noundef %.287.i, i32 noundef %232, i32 noundef %.09.ph.i77.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i77.i.i.i) #7
+230:                                              ; preds = %224, %219
+  %.09.ph.i77.i.i.i = phi i32 [ %.010.i.i.i76.i.i.i, %224 ], [ %221, %219 ]
+  %231 = load i32, ptr %63, align 8
+  %232 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %216, ptr noundef %0, i32 noundef %.283.i, i32 noundef %231, i32 noundef %.09.ph.i77.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i77.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-234:                                              ; preds = %161
-  %235 = load i32, ptr @hf_usbhid_axis_ry, align 4
-  %236 = load i32, ptr %63, align 8
-  %237 = icmp ugt i32 %236, 32
-  br i1 %237, label %467, label %238
+233:                                              ; preds = %160
+  %234 = load i32, ptr @hf_usbhid_axis_ry, align 4
+  %235 = load i32, ptr %63, align 8
+  %236 = icmp ugt i32 %235, 32
+  br i1 %236, label %466, label %237
 
-238:                                              ; preds = %234
-  %239 = load i32, ptr %146, align 4
-  %240 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %236, i32 noundef -2147483648) #7
-  %241 = icmp sgt i32 %239, -1
-  %242 = and i32 %236, 31
-  %or.cond.i.i.i80.i.i.i = icmp eq i32 %242, 0
-  %or.cond.i81.i.i.i = or i1 %or.cond.i.i.i80.i.i.i, %241
-  br i1 %or.cond.i81.i.i.i, label %249, label %243
+237:                                              ; preds = %233
+  %238 = load i32, ptr %145, align 4
+  %239 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %235, i32 noundef -2147483648) #7
+  %240 = icmp sgt i32 %238, -1
+  %241 = and i32 %235, 31
+  %or.cond.i.i.i80.i.i.i = icmp eq i32 %241, 0
+  %or.cond.i81.i.i.i = or i1 %or.cond.i.i.i80.i.i.i, %240
+  br i1 %or.cond.i81.i.i.i, label %248, label %242
 
-243:                                              ; preds = %238
-  %244 = add nsw i32 %236, -1
-  %245 = shl nuw nsw i32 1, %244
-  %246 = and i32 %240, %245
-  %.not.i.i.i82.i.i.i = icmp eq i32 %246, 0
-  %247 = shl nsw i32 -1, %236
-  %248 = select i1 %.not.i.i.i82.i.i.i, i32 0, i32 %247
-  %.010.i.i.i83.i.i.i = or i32 %248, %240
-  br label %249
+242:                                              ; preds = %237
+  %243 = add nsw i32 %235, -1
+  %244 = shl nuw nsw i32 1, %243
+  %245 = and i32 %239, %244
+  %.not.i.i.i82.i.i.i = icmp eq i32 %245, 0
+  %246 = shl nsw i32 -1, %235
+  %247 = select i1 %.not.i.i.i82.i.i.i, i32 0, i32 %246
+  %.010.i.i.i83.i.i.i = or i32 %247, %239
+  br label %248
 
-249:                                              ; preds = %243, %238
-  %.09.ph.i84.i.i.i = phi i32 [ %.010.i.i.i83.i.i.i, %243 ], [ %240, %238 ]
-  %250 = load i32, ptr %63, align 8
-  %251 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %235, ptr noundef %0, i32 noundef %.287.i, i32 noundef %250, i32 noundef %.09.ph.i84.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i84.i.i.i) #7
+248:                                              ; preds = %242, %237
+  %.09.ph.i84.i.i.i = phi i32 [ %.010.i.i.i83.i.i.i, %242 ], [ %239, %237 ]
+  %249 = load i32, ptr %63, align 8
+  %250 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %234, ptr noundef %0, i32 noundef %.283.i, i32 noundef %249, i32 noundef %.09.ph.i84.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i84.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-252:                                              ; preds = %161
-  %253 = load i32, ptr @hf_usbhid_axis_rz, align 4
-  %254 = load i32, ptr %63, align 8
-  %255 = icmp ugt i32 %254, 32
-  br i1 %255, label %467, label %256
+251:                                              ; preds = %160
+  %252 = load i32, ptr @hf_usbhid_axis_rz, align 4
+  %253 = load i32, ptr %63, align 8
+  %254 = icmp ugt i32 %253, 32
+  br i1 %254, label %466, label %255
 
-256:                                              ; preds = %252
-  %257 = load i32, ptr %146, align 4
-  %258 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %254, i32 noundef -2147483648) #7
-  %259 = icmp sgt i32 %257, -1
-  %260 = and i32 %254, 31
-  %or.cond.i.i.i87.i.i.i = icmp eq i32 %260, 0
-  %or.cond.i88.i.i.i = or i1 %or.cond.i.i.i87.i.i.i, %259
-  br i1 %or.cond.i88.i.i.i, label %267, label %261
+255:                                              ; preds = %251
+  %256 = load i32, ptr %145, align 4
+  %257 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %253, i32 noundef -2147483648) #7
+  %258 = icmp sgt i32 %256, -1
+  %259 = and i32 %253, 31
+  %or.cond.i.i.i87.i.i.i = icmp eq i32 %259, 0
+  %or.cond.i88.i.i.i = or i1 %or.cond.i.i.i87.i.i.i, %258
+  br i1 %or.cond.i88.i.i.i, label %266, label %260
 
-261:                                              ; preds = %256
-  %262 = add nsw i32 %254, -1
-  %263 = shl nuw nsw i32 1, %262
-  %264 = and i32 %258, %263
-  %.not.i.i.i89.i.i.i = icmp eq i32 %264, 0
-  %265 = shl nsw i32 -1, %254
-  %266 = select i1 %.not.i.i.i89.i.i.i, i32 0, i32 %265
-  %.010.i.i.i90.i.i.i = or i32 %266, %258
-  br label %267
+260:                                              ; preds = %255
+  %261 = add nsw i32 %253, -1
+  %262 = shl nuw nsw i32 1, %261
+  %263 = and i32 %257, %262
+  %.not.i.i.i89.i.i.i = icmp eq i32 %263, 0
+  %264 = shl nsw i32 -1, %253
+  %265 = select i1 %.not.i.i.i89.i.i.i, i32 0, i32 %264
+  %.010.i.i.i90.i.i.i = or i32 %265, %257
+  br label %266
 
-267:                                              ; preds = %261, %256
-  %.09.ph.i91.i.i.i = phi i32 [ %.010.i.i.i90.i.i.i, %261 ], [ %258, %256 ]
-  %268 = load i32, ptr %63, align 8
-  %269 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %253, ptr noundef %0, i32 noundef %.287.i, i32 noundef %268, i32 noundef %.09.ph.i91.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i91.i.i.i) #7
+266:                                              ; preds = %260, %255
+  %.09.ph.i91.i.i.i = phi i32 [ %.010.i.i.i90.i.i.i, %260 ], [ %257, %255 ]
+  %267 = load i32, ptr %63, align 8
+  %268 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %252, ptr noundef %0, i32 noundef %.283.i, i32 noundef %267, i32 noundef %.09.ph.i91.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i91.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-270:                                              ; preds = %161
-  %271 = load i32, ptr @hf_usbhid_axis_slider, align 4
-  %272 = load i32, ptr %63, align 8
-  %273 = icmp ugt i32 %272, 32
-  br i1 %273, label %467, label %274
+269:                                              ; preds = %160
+  %270 = load i32, ptr @hf_usbhid_axis_slider, align 4
+  %271 = load i32, ptr %63, align 8
+  %272 = icmp ugt i32 %271, 32
+  br i1 %272, label %466, label %273
 
-274:                                              ; preds = %270
-  %275 = load i32, ptr %146, align 4
-  %276 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %272, i32 noundef -2147483648) #7
-  %277 = icmp sgt i32 %275, -1
-  %278 = and i32 %272, 31
-  %or.cond.i.i.i94.i.i.i = icmp eq i32 %278, 0
-  %or.cond.i95.i.i.i = or i1 %or.cond.i.i.i94.i.i.i, %277
-  br i1 %or.cond.i95.i.i.i, label %285, label %279
+273:                                              ; preds = %269
+  %274 = load i32, ptr %145, align 4
+  %275 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %271, i32 noundef -2147483648) #7
+  %276 = icmp sgt i32 %274, -1
+  %277 = and i32 %271, 31
+  %or.cond.i.i.i94.i.i.i = icmp eq i32 %277, 0
+  %or.cond.i95.i.i.i = or i1 %or.cond.i.i.i94.i.i.i, %276
+  br i1 %or.cond.i95.i.i.i, label %284, label %278
 
-279:                                              ; preds = %274
-  %280 = add nsw i32 %272, -1
-  %281 = shl nuw nsw i32 1, %280
-  %282 = and i32 %276, %281
-  %.not.i.i.i96.i.i.i = icmp eq i32 %282, 0
-  %283 = shl nsw i32 -1, %272
-  %284 = select i1 %.not.i.i.i96.i.i.i, i32 0, i32 %283
-  %.010.i.i.i97.i.i.i = or i32 %284, %276
-  br label %285
+278:                                              ; preds = %273
+  %279 = add nsw i32 %271, -1
+  %280 = shl nuw nsw i32 1, %279
+  %281 = and i32 %275, %280
+  %.not.i.i.i96.i.i.i = icmp eq i32 %281, 0
+  %282 = shl nsw i32 -1, %271
+  %283 = select i1 %.not.i.i.i96.i.i.i, i32 0, i32 %282
+  %.010.i.i.i97.i.i.i = or i32 %283, %275
+  br label %284
 
-285:                                              ; preds = %279, %274
-  %.09.ph.i98.i.i.i = phi i32 [ %.010.i.i.i97.i.i.i, %279 ], [ %276, %274 ]
-  %286 = load i32, ptr %63, align 8
-  %287 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %271, ptr noundef %0, i32 noundef %.287.i, i32 noundef %286, i32 noundef %.09.ph.i98.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i98.i.i.i) #7
+284:                                              ; preds = %278, %273
+  %.09.ph.i98.i.i.i = phi i32 [ %.010.i.i.i97.i.i.i, %278 ], [ %275, %273 ]
+  %285 = load i32, ptr %63, align 8
+  %286 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %270, ptr noundef %0, i32 noundef %.283.i, i32 noundef %285, i32 noundef %.09.ph.i98.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i98.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-288:                                              ; preds = %161
-  %289 = load i32, ptr @hf_usbhid_axis_vx, align 4
-  %290 = load i32, ptr %63, align 8
-  %291 = icmp ugt i32 %290, 32
-  br i1 %291, label %467, label %292
+287:                                              ; preds = %160
+  %288 = load i32, ptr @hf_usbhid_axis_vx, align 4
+  %289 = load i32, ptr %63, align 8
+  %290 = icmp ugt i32 %289, 32
+  br i1 %290, label %466, label %291
 
-292:                                              ; preds = %288
-  %293 = load i32, ptr %146, align 4
-  %294 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %290, i32 noundef -2147483648) #7
-  %295 = icmp sgt i32 %293, -1
-  %296 = and i32 %290, 31
-  %or.cond.i.i.i101.i.i.i = icmp eq i32 %296, 0
-  %or.cond.i102.i.i.i = or i1 %or.cond.i.i.i101.i.i.i, %295
-  br i1 %or.cond.i102.i.i.i, label %303, label %297
+291:                                              ; preds = %287
+  %292 = load i32, ptr %145, align 4
+  %293 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %289, i32 noundef -2147483648) #7
+  %294 = icmp sgt i32 %292, -1
+  %295 = and i32 %289, 31
+  %or.cond.i.i.i101.i.i.i = icmp eq i32 %295, 0
+  %or.cond.i102.i.i.i = or i1 %or.cond.i.i.i101.i.i.i, %294
+  br i1 %or.cond.i102.i.i.i, label %302, label %296
 
-297:                                              ; preds = %292
-  %298 = add nsw i32 %290, -1
-  %299 = shl nuw nsw i32 1, %298
-  %300 = and i32 %294, %299
-  %.not.i.i.i103.i.i.i = icmp eq i32 %300, 0
-  %301 = shl nsw i32 -1, %290
-  %302 = select i1 %.not.i.i.i103.i.i.i, i32 0, i32 %301
-  %.010.i.i.i104.i.i.i = or i32 %302, %294
-  br label %303
+296:                                              ; preds = %291
+  %297 = add nsw i32 %289, -1
+  %298 = shl nuw nsw i32 1, %297
+  %299 = and i32 %293, %298
+  %.not.i.i.i103.i.i.i = icmp eq i32 %299, 0
+  %300 = shl nsw i32 -1, %289
+  %301 = select i1 %.not.i.i.i103.i.i.i, i32 0, i32 %300
+  %.010.i.i.i104.i.i.i = or i32 %301, %293
+  br label %302
 
-303:                                              ; preds = %297, %292
-  %.09.ph.i105.i.i.i = phi i32 [ %.010.i.i.i104.i.i.i, %297 ], [ %294, %292 ]
-  %304 = load i32, ptr %63, align 8
-  %305 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %289, ptr noundef %0, i32 noundef %.287.i, i32 noundef %304, i32 noundef %.09.ph.i105.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i105.i.i.i) #7
+302:                                              ; preds = %296, %291
+  %.09.ph.i105.i.i.i = phi i32 [ %.010.i.i.i104.i.i.i, %296 ], [ %293, %291 ]
+  %303 = load i32, ptr %63, align 8
+  %304 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %288, ptr noundef %0, i32 noundef %.283.i, i32 noundef %303, i32 noundef %.09.ph.i105.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i105.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-306:                                              ; preds = %161
-  %307 = load i32, ptr @hf_usbhid_axis_vy, align 4
-  %308 = load i32, ptr %63, align 8
-  %309 = icmp ugt i32 %308, 32
-  br i1 %309, label %467, label %310
+305:                                              ; preds = %160
+  %306 = load i32, ptr @hf_usbhid_axis_vy, align 4
+  %307 = load i32, ptr %63, align 8
+  %308 = icmp ugt i32 %307, 32
+  br i1 %308, label %466, label %309
 
-310:                                              ; preds = %306
-  %311 = load i32, ptr %146, align 4
-  %312 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %308, i32 noundef -2147483648) #7
-  %313 = icmp sgt i32 %311, -1
-  %314 = and i32 %308, 31
-  %or.cond.i.i.i108.i.i.i = icmp eq i32 %314, 0
-  %or.cond.i109.i.i.i = or i1 %or.cond.i.i.i108.i.i.i, %313
-  br i1 %or.cond.i109.i.i.i, label %321, label %315
+309:                                              ; preds = %305
+  %310 = load i32, ptr %145, align 4
+  %311 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %307, i32 noundef -2147483648) #7
+  %312 = icmp sgt i32 %310, -1
+  %313 = and i32 %307, 31
+  %or.cond.i.i.i108.i.i.i = icmp eq i32 %313, 0
+  %or.cond.i109.i.i.i = or i1 %or.cond.i.i.i108.i.i.i, %312
+  br i1 %or.cond.i109.i.i.i, label %320, label %314
 
-315:                                              ; preds = %310
-  %316 = add nsw i32 %308, -1
-  %317 = shl nuw nsw i32 1, %316
-  %318 = and i32 %312, %317
-  %.not.i.i.i110.i.i.i = icmp eq i32 %318, 0
-  %319 = shl nsw i32 -1, %308
-  %320 = select i1 %.not.i.i.i110.i.i.i, i32 0, i32 %319
-  %.010.i.i.i111.i.i.i = or i32 %320, %312
-  br label %321
+314:                                              ; preds = %309
+  %315 = add nsw i32 %307, -1
+  %316 = shl nuw nsw i32 1, %315
+  %317 = and i32 %311, %316
+  %.not.i.i.i110.i.i.i = icmp eq i32 %317, 0
+  %318 = shl nsw i32 -1, %307
+  %319 = select i1 %.not.i.i.i110.i.i.i, i32 0, i32 %318
+  %.010.i.i.i111.i.i.i = or i32 %319, %311
+  br label %320
 
-321:                                              ; preds = %315, %310
-  %.09.ph.i112.i.i.i = phi i32 [ %.010.i.i.i111.i.i.i, %315 ], [ %312, %310 ]
-  %322 = load i32, ptr %63, align 8
-  %323 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %307, ptr noundef %0, i32 noundef %.287.i, i32 noundef %322, i32 noundef %.09.ph.i112.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i112.i.i.i) #7
+320:                                              ; preds = %314, %309
+  %.09.ph.i112.i.i.i = phi i32 [ %.010.i.i.i111.i.i.i, %314 ], [ %311, %309 ]
+  %321 = load i32, ptr %63, align 8
+  %322 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %306, ptr noundef %0, i32 noundef %.283.i, i32 noundef %321, i32 noundef %.09.ph.i112.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i112.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-324:                                              ; preds = %161
-  %325 = load i32, ptr @hf_usbhid_axis_vz, align 4
-  %326 = load i32, ptr %63, align 8
-  %327 = icmp ugt i32 %326, 32
-  br i1 %327, label %467, label %328
+323:                                              ; preds = %160
+  %324 = load i32, ptr @hf_usbhid_axis_vz, align 4
+  %325 = load i32, ptr %63, align 8
+  %326 = icmp ugt i32 %325, 32
+  br i1 %326, label %466, label %327
 
-328:                                              ; preds = %324
-  %329 = load i32, ptr %146, align 4
-  %330 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %326, i32 noundef -2147483648) #7
-  %331 = icmp sgt i32 %329, -1
-  %332 = and i32 %326, 31
-  %or.cond.i.i.i115.i.i.i = icmp eq i32 %332, 0
-  %or.cond.i116.i.i.i = or i1 %or.cond.i.i.i115.i.i.i, %331
-  br i1 %or.cond.i116.i.i.i, label %339, label %333
+327:                                              ; preds = %323
+  %328 = load i32, ptr %145, align 4
+  %329 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %325, i32 noundef -2147483648) #7
+  %330 = icmp sgt i32 %328, -1
+  %331 = and i32 %325, 31
+  %or.cond.i.i.i115.i.i.i = icmp eq i32 %331, 0
+  %or.cond.i116.i.i.i = or i1 %or.cond.i.i.i115.i.i.i, %330
+  br i1 %or.cond.i116.i.i.i, label %338, label %332
 
-333:                                              ; preds = %328
-  %334 = add nsw i32 %326, -1
-  %335 = shl nuw nsw i32 1, %334
-  %336 = and i32 %330, %335
-  %.not.i.i.i117.i.i.i = icmp eq i32 %336, 0
-  %337 = shl nsw i32 -1, %326
-  %338 = select i1 %.not.i.i.i117.i.i.i, i32 0, i32 %337
-  %.010.i.i.i118.i.i.i = or i32 %338, %330
-  br label %339
+332:                                              ; preds = %327
+  %333 = add nsw i32 %325, -1
+  %334 = shl nuw nsw i32 1, %333
+  %335 = and i32 %329, %334
+  %.not.i.i.i117.i.i.i = icmp eq i32 %335, 0
+  %336 = shl nsw i32 -1, %325
+  %337 = select i1 %.not.i.i.i117.i.i.i, i32 0, i32 %336
+  %.010.i.i.i118.i.i.i = or i32 %337, %329
+  br label %338
 
-339:                                              ; preds = %333, %328
-  %.09.ph.i119.i.i.i = phi i32 [ %.010.i.i.i118.i.i.i, %333 ], [ %330, %328 ]
-  %340 = load i32, ptr %63, align 8
-  %341 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %325, ptr noundef %0, i32 noundef %.287.i, i32 noundef %340, i32 noundef %.09.ph.i119.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i119.i.i.i) #7
+338:                                              ; preds = %332, %327
+  %.09.ph.i119.i.i.i = phi i32 [ %.010.i.i.i118.i.i.i, %332 ], [ %329, %327 ]
+  %339 = load i32, ptr %63, align 8
+  %340 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %324, ptr noundef %0, i32 noundef %.283.i, i32 noundef %339, i32 noundef %.09.ph.i119.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i119.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-342:                                              ; preds = %161
-  %343 = load i32, ptr @hf_usbhid_axis_vbrx, align 4
-  %344 = load i32, ptr %63, align 8
-  %345 = icmp ugt i32 %344, 32
-  br i1 %345, label %467, label %346
+341:                                              ; preds = %160
+  %342 = load i32, ptr @hf_usbhid_axis_vbrx, align 4
+  %343 = load i32, ptr %63, align 8
+  %344 = icmp ugt i32 %343, 32
+  br i1 %344, label %466, label %345
 
-346:                                              ; preds = %342
-  %347 = load i32, ptr %146, align 4
-  %348 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %344, i32 noundef -2147483648) #7
-  %349 = icmp sgt i32 %347, -1
-  %350 = and i32 %344, 31
-  %or.cond.i.i.i122.i.i.i = icmp eq i32 %350, 0
-  %or.cond.i123.i.i.i = or i1 %or.cond.i.i.i122.i.i.i, %349
-  br i1 %or.cond.i123.i.i.i, label %357, label %351
+345:                                              ; preds = %341
+  %346 = load i32, ptr %145, align 4
+  %347 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %343, i32 noundef -2147483648) #7
+  %348 = icmp sgt i32 %346, -1
+  %349 = and i32 %343, 31
+  %or.cond.i.i.i122.i.i.i = icmp eq i32 %349, 0
+  %or.cond.i123.i.i.i = or i1 %or.cond.i.i.i122.i.i.i, %348
+  br i1 %or.cond.i123.i.i.i, label %356, label %350
 
-351:                                              ; preds = %346
-  %352 = add nsw i32 %344, -1
-  %353 = shl nuw nsw i32 1, %352
-  %354 = and i32 %348, %353
-  %.not.i.i.i124.i.i.i = icmp eq i32 %354, 0
-  %355 = shl nsw i32 -1, %344
-  %356 = select i1 %.not.i.i.i124.i.i.i, i32 0, i32 %355
-  %.010.i.i.i125.i.i.i = or i32 %356, %348
-  br label %357
+350:                                              ; preds = %345
+  %351 = add nsw i32 %343, -1
+  %352 = shl nuw nsw i32 1, %351
+  %353 = and i32 %347, %352
+  %.not.i.i.i124.i.i.i = icmp eq i32 %353, 0
+  %354 = shl nsw i32 -1, %343
+  %355 = select i1 %.not.i.i.i124.i.i.i, i32 0, i32 %354
+  %.010.i.i.i125.i.i.i = or i32 %355, %347
+  br label %356
 
-357:                                              ; preds = %351, %346
-  %.09.ph.i126.i.i.i = phi i32 [ %.010.i.i.i125.i.i.i, %351 ], [ %348, %346 ]
-  %358 = load i32, ptr %63, align 8
-  %359 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %343, ptr noundef %0, i32 noundef %.287.i, i32 noundef %358, i32 noundef %.09.ph.i126.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i126.i.i.i) #7
+356:                                              ; preds = %350, %345
+  %.09.ph.i126.i.i.i = phi i32 [ %.010.i.i.i125.i.i.i, %350 ], [ %347, %345 ]
+  %357 = load i32, ptr %63, align 8
+  %358 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %342, ptr noundef %0, i32 noundef %.283.i, i32 noundef %357, i32 noundef %.09.ph.i126.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i126.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-360:                                              ; preds = %161
-  %361 = load i32, ptr @hf_usbhid_axis_vbry, align 4
-  %362 = load i32, ptr %63, align 8
-  %363 = icmp ugt i32 %362, 32
-  br i1 %363, label %467, label %364
+359:                                              ; preds = %160
+  %360 = load i32, ptr @hf_usbhid_axis_vbry, align 4
+  %361 = load i32, ptr %63, align 8
+  %362 = icmp ugt i32 %361, 32
+  br i1 %362, label %466, label %363
 
-364:                                              ; preds = %360
-  %365 = load i32, ptr %146, align 4
-  %366 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %362, i32 noundef -2147483648) #7
-  %367 = icmp sgt i32 %365, -1
-  %368 = and i32 %362, 31
-  %or.cond.i.i.i129.i.i.i = icmp eq i32 %368, 0
-  %or.cond.i130.i.i.i = or i1 %or.cond.i.i.i129.i.i.i, %367
-  br i1 %or.cond.i130.i.i.i, label %375, label %369
+363:                                              ; preds = %359
+  %364 = load i32, ptr %145, align 4
+  %365 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %361, i32 noundef -2147483648) #7
+  %366 = icmp sgt i32 %364, -1
+  %367 = and i32 %361, 31
+  %or.cond.i.i.i129.i.i.i = icmp eq i32 %367, 0
+  %or.cond.i130.i.i.i = or i1 %or.cond.i.i.i129.i.i.i, %366
+  br i1 %or.cond.i130.i.i.i, label %374, label %368
 
-369:                                              ; preds = %364
-  %370 = add nsw i32 %362, -1
-  %371 = shl nuw nsw i32 1, %370
-  %372 = and i32 %366, %371
-  %.not.i.i.i131.i.i.i = icmp eq i32 %372, 0
-  %373 = shl nsw i32 -1, %362
-  %374 = select i1 %.not.i.i.i131.i.i.i, i32 0, i32 %373
-  %.010.i.i.i132.i.i.i = or i32 %374, %366
-  br label %375
+368:                                              ; preds = %363
+  %369 = add nsw i32 %361, -1
+  %370 = shl nuw nsw i32 1, %369
+  %371 = and i32 %365, %370
+  %.not.i.i.i131.i.i.i = icmp eq i32 %371, 0
+  %372 = shl nsw i32 -1, %361
+  %373 = select i1 %.not.i.i.i131.i.i.i, i32 0, i32 %372
+  %.010.i.i.i132.i.i.i = or i32 %373, %365
+  br label %374
 
-375:                                              ; preds = %369, %364
-  %.09.ph.i133.i.i.i = phi i32 [ %.010.i.i.i132.i.i.i, %369 ], [ %366, %364 ]
-  %376 = load i32, ptr %63, align 8
-  %377 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %361, ptr noundef %0, i32 noundef %.287.i, i32 noundef %376, i32 noundef %.09.ph.i133.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i133.i.i.i) #7
+374:                                              ; preds = %368, %363
+  %.09.ph.i133.i.i.i = phi i32 [ %.010.i.i.i132.i.i.i, %368 ], [ %365, %363 ]
+  %375 = load i32, ptr %63, align 8
+  %376 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %360, ptr noundef %0, i32 noundef %.283.i, i32 noundef %375, i32 noundef %.09.ph.i133.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i133.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-378:                                              ; preds = %161
-  %379 = load i32, ptr @hf_usbhid_axis_vbrz, align 4
-  %380 = load i32, ptr %63, align 8
-  %381 = icmp ugt i32 %380, 32
-  br i1 %381, label %467, label %382
+377:                                              ; preds = %160
+  %378 = load i32, ptr @hf_usbhid_axis_vbrz, align 4
+  %379 = load i32, ptr %63, align 8
+  %380 = icmp ugt i32 %379, 32
+  br i1 %380, label %466, label %381
 
-382:                                              ; preds = %378
-  %383 = load i32, ptr %146, align 4
-  %384 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %380, i32 noundef -2147483648) #7
-  %385 = icmp sgt i32 %383, -1
-  %386 = and i32 %380, 31
-  %or.cond.i.i.i136.i.i.i = icmp eq i32 %386, 0
-  %or.cond.i137.i.i.i = or i1 %or.cond.i.i.i136.i.i.i, %385
-  br i1 %or.cond.i137.i.i.i, label %393, label %387
+381:                                              ; preds = %377
+  %382 = load i32, ptr %145, align 4
+  %383 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %379, i32 noundef -2147483648) #7
+  %384 = icmp sgt i32 %382, -1
+  %385 = and i32 %379, 31
+  %or.cond.i.i.i136.i.i.i = icmp eq i32 %385, 0
+  %or.cond.i137.i.i.i = or i1 %or.cond.i.i.i136.i.i.i, %384
+  br i1 %or.cond.i137.i.i.i, label %392, label %386
 
-387:                                              ; preds = %382
-  %388 = add nsw i32 %380, -1
-  %389 = shl nuw nsw i32 1, %388
-  %390 = and i32 %384, %389
-  %.not.i.i.i138.i.i.i = icmp eq i32 %390, 0
-  %391 = shl nsw i32 -1, %380
-  %392 = select i1 %.not.i.i.i138.i.i.i, i32 0, i32 %391
-  %.010.i.i.i139.i.i.i = or i32 %392, %384
-  br label %393
+386:                                              ; preds = %381
+  %387 = add nsw i32 %379, -1
+  %388 = shl nuw nsw i32 1, %387
+  %389 = and i32 %383, %388
+  %.not.i.i.i138.i.i.i = icmp eq i32 %389, 0
+  %390 = shl nsw i32 -1, %379
+  %391 = select i1 %.not.i.i.i138.i.i.i, i32 0, i32 %390
+  %.010.i.i.i139.i.i.i = or i32 %391, %383
+  br label %392
 
-393:                                              ; preds = %387, %382
-  %.09.ph.i140.i.i.i = phi i32 [ %.010.i.i.i139.i.i.i, %387 ], [ %384, %382 ]
-  %394 = load i32, ptr %63, align 8
-  %395 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %379, ptr noundef %0, i32 noundef %.287.i, i32 noundef %394, i32 noundef %.09.ph.i140.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i140.i.i.i) #7
+392:                                              ; preds = %386, %381
+  %.09.ph.i140.i.i.i = phi i32 [ %.010.i.i.i139.i.i.i, %386 ], [ %383, %381 ]
+  %393 = load i32, ptr %63, align 8
+  %394 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %378, ptr noundef %0, i32 noundef %.283.i, i32 noundef %393, i32 noundef %.09.ph.i140.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i140.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-396:                                              ; preds = %161
-  %397 = load i32, ptr @hf_usbhid_axis_vno, align 4
-  %398 = load i32, ptr %63, align 8
-  %399 = icmp ugt i32 %398, 32
-  br i1 %399, label %467, label %400
+395:                                              ; preds = %160
+  %396 = load i32, ptr @hf_usbhid_axis_vno, align 4
+  %397 = load i32, ptr %63, align 8
+  %398 = icmp ugt i32 %397, 32
+  br i1 %398, label %466, label %399
 
-400:                                              ; preds = %396
-  %401 = load i32, ptr %146, align 4
-  %402 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %398, i32 noundef -2147483648) #7
-  %403 = icmp sgt i32 %401, -1
-  %404 = and i32 %398, 31
-  %or.cond.i.i.i143.i.i.i = icmp eq i32 %404, 0
-  %or.cond.i144.i.i.i = or i1 %or.cond.i.i.i143.i.i.i, %403
-  br i1 %or.cond.i144.i.i.i, label %411, label %405
+399:                                              ; preds = %395
+  %400 = load i32, ptr %145, align 4
+  %401 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %397, i32 noundef -2147483648) #7
+  %402 = icmp sgt i32 %400, -1
+  %403 = and i32 %397, 31
+  %or.cond.i.i.i143.i.i.i = icmp eq i32 %403, 0
+  %or.cond.i144.i.i.i = or i1 %or.cond.i.i.i143.i.i.i, %402
+  br i1 %or.cond.i144.i.i.i, label %410, label %404
 
-405:                                              ; preds = %400
-  %406 = add nsw i32 %398, -1
-  %407 = shl nuw nsw i32 1, %406
-  %408 = and i32 %402, %407
-  %.not.i.i.i145.i.i.i = icmp eq i32 %408, 0
-  %409 = shl nsw i32 -1, %398
-  %410 = select i1 %.not.i.i.i145.i.i.i, i32 0, i32 %409
-  %.010.i.i.i146.i.i.i = or i32 %410, %402
-  br label %411
+404:                                              ; preds = %399
+  %405 = add nsw i32 %397, -1
+  %406 = shl nuw nsw i32 1, %405
+  %407 = and i32 %401, %406
+  %.not.i.i.i145.i.i.i = icmp eq i32 %407, 0
+  %408 = shl nsw i32 -1, %397
+  %409 = select i1 %.not.i.i.i145.i.i.i, i32 0, i32 %408
+  %.010.i.i.i146.i.i.i = or i32 %409, %401
+  br label %410
 
-411:                                              ; preds = %405, %400
-  %.09.ph.i147.i.i.i = phi i32 [ %.010.i.i.i146.i.i.i, %405 ], [ %402, %400 ]
-  %412 = load i32, ptr %63, align 8
-  %413 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %397, ptr noundef %0, i32 noundef %.287.i, i32 noundef %412, i32 noundef %.09.ph.i147.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i147.i.i.i) #7
+410:                                              ; preds = %404, %399
+  %.09.ph.i147.i.i.i = phi i32 [ %.010.i.i.i146.i.i.i, %404 ], [ %401, %399 ]
+  %411 = load i32, ptr %63, align 8
+  %412 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_int_bits_format_value(ptr noundef %46, i32 noundef %396, ptr noundef %0, i32 noundef %.283.i, i32 noundef %411, i32 noundef %.09.ph.i147.i.i.i, i32 noundef -2147483648, ptr noundef nonnull @.str.3310, i32 noundef %.09.ph.i147.i.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-414:                                              ; preds = %157
-  %415 = load i32, ptr %63, align 8
-  %416 = icmp ugt i32 %415, 32
-  br i1 %416, label %467, label %417
+413:                                              ; preds = %156
+  %414 = load i32, ptr %63, align 8
+  %415 = icmp ugt i32 %414, 32
+  br i1 %415, label %466, label %416
 
-417:                                              ; preds = %414
-  %418 = load i32, ptr %146, align 4
-  %419 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %415, i32 noundef -2147483648) #7
-  %420 = icmp sgt i32 %418, -1
-  %421 = and i32 %415, 31
-  %or.cond.i.i.i.i.i = icmp eq i32 %421, 0
-  %or.cond.i.i66.i = or i1 %or.cond.i.i.i.i.i, %420
-  br i1 %or.cond.i.i66.i, label %428, label %422
+416:                                              ; preds = %413
+  %417 = load i32, ptr %145, align 4
+  %418 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %414, i32 noundef -2147483648) #7
+  %419 = icmp sgt i32 %417, -1
+  %420 = and i32 %414, 31
+  %or.cond.i.i.i.i.i = icmp eq i32 %420, 0
+  %or.cond.i.i66.i = or i1 %or.cond.i.i.i.i.i, %419
+  br i1 %or.cond.i.i66.i, label %427, label %421
 
-422:                                              ; preds = %417
-  %423 = add nsw i32 %415, -1
-  %424 = shl nuw nsw i32 1, %423
-  %425 = and i32 %419, %424
-  %.not.i.i.i.i.i = icmp eq i32 %425, 0
-  %426 = shl nsw i32 -1, %415
-  %427 = select i1 %.not.i.i.i.i.i, i32 0, i32 %426
-  %.010.i.i.i.i.i = or i32 %427, %419
-  br label %428
+421:                                              ; preds = %416
+  %422 = add nsw i32 %414, -1
+  %423 = shl nuw nsw i32 1, %422
+  %424 = and i32 %418, %423
+  %.not.i.i.i.i.i = icmp eq i32 %424, 0
+  %425 = shl nsw i32 -1, %414
+  %426 = select i1 %.not.i.i.i.i.i, i32 0, i32 %425
+  %.010.i.i.i.i.i = or i32 %426, %418
+  br label %427
 
-428:                                              ; preds = %422, %417
-  %.02.ph.i.i.i = phi i32 [ %.010.i.i.i.i.i, %422 ], [ %419, %417 ]
-  %.mask.i37.i.i = and i32 %150, -65536
-  %429 = icmp eq i32 %.mask.i37.i.i, 458752
-  br i1 %429, label %431, label %430
+427:                                              ; preds = %421, %416
+  %.02.ph.i.i.i = phi i32 [ %.010.i.i.i.i.i, %421 ], [ %418, %416 ]
+  %.mask.i37.i.i = and i32 %149, -65536
+  %428 = icmp eq i32 %.mask.i37.i.i, 458752
+  br i1 %428, label %430, label %429
 
-430:                                              ; preds = %428
+429:                                              ; preds = %427
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3307, ptr noundef nonnull @.str.3308, i32 noundef 5141, ptr noundef nonnull @.str.3311) #8
   unreachable
 
-431:                                              ; preds = %428
-  %432 = and i32 %150, 65535
-  %433 = load i32, ptr @hf_usbhid_key, align 4
-  %434 = load i32, ptr %63, align 8
-  %435 = sext i32 %.02.ph.i.i.i to i64
-  %436 = call ptr @val_to_str_ext_const(i32 noundef %432, ptr noundef nonnull @keycode_vals_ext, ptr noundef nonnull @.str.188) #7
+430:                                              ; preds = %427
+  %431 = and i32 %149, 65535
+  %432 = load i32, ptr @hf_usbhid_key, align 4
+  %433 = load i32, ptr %63, align 8
+  %434 = sext i32 %.02.ph.i.i.i to i64
+  %435 = call ptr @val_to_str_ext_const(i32 noundef %431, ptr noundef nonnull @keycode_vals_ext, ptr noundef nonnull @.str.188) #7
   %.not12.i.i.i = icmp eq i32 %.02.ph.i.i.i, 0
-  %437 = select i1 %.not12.i.i.i, ptr @.str.3314, ptr @.str.3313
-  %438 = call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %46, i32 noundef %433, ptr noundef %0, i32 noundef %.287.i, i32 noundef %434, i64 noundef %435, i32 noundef -2147483648, ptr noundef nonnull @.str.3312, ptr noundef %436, i32 noundef %432, ptr noundef nonnull %437) #7
+  %436 = select i1 %.not12.i.i.i, ptr @.str.3314, ptr @.str.3313
+  %437 = call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %46, i32 noundef %432, ptr noundef %0, i32 noundef %.283.i, i32 noundef %433, i64 noundef %434, i32 noundef -2147483648, ptr noundef nonnull @.str.3312, ptr noundef %435, i32 noundef %431, ptr noundef nonnull %436) #7
   br label %dissect_hid_variable.exit.i
 
-439:                                              ; preds = %157
-  %.mask.i39.i.i = and i32 %150, -65536
-  %440 = icmp eq i32 %.mask.i39.i.i, 589824
-  br i1 %440, label %442, label %441
+438:                                              ; preds = %156
+  %.mask.i39.i.i = and i32 %149, -65536
+  %439 = icmp eq i32 %.mask.i39.i.i, 589824
+  br i1 %439, label %441, label %440
 
-441:                                              ; preds = %439
+440:                                              ; preds = %438
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.3307, ptr noundef nonnull @.str.3308, i32 noundef 5157, ptr noundef nonnull @.str.3315) #8
   unreachable
 
-442:                                              ; preds = %439
-  %443 = and i32 %150, 65535
-  %444 = load i32, ptr %63, align 8
-  %445 = icmp ugt i32 %444, 32
-  br i1 %445, label %467, label %446
+441:                                              ; preds = %438
+  %442 = and i32 %149, 65535
+  %443 = load i32, ptr %63, align 8
+  %444 = icmp ugt i32 %443, 32
+  br i1 %444, label %466, label %445
 
-446:                                              ; preds = %442
-  %447 = load i32, ptr %146, align 4
-  %448 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %444, i32 noundef -2147483648) #7
-  %449 = icmp sgt i32 %447, -1
-  %450 = and i32 %444, 31
-  %or.cond.i.i.i40.i.i = icmp eq i32 %450, 0
-  %or.cond.i41.i.i = or i1 %or.cond.i.i.i40.i.i, %449
-  br i1 %or.cond.i41.i.i, label %457, label %451
+445:                                              ; preds = %441
+  %446 = load i32, ptr %145, align 4
+  %447 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %443, i32 noundef -2147483648) #7
+  %448 = icmp sgt i32 %446, -1
+  %449 = and i32 %443, 31
+  %or.cond.i.i.i40.i.i = icmp eq i32 %449, 0
+  %or.cond.i41.i.i = or i1 %or.cond.i.i.i40.i.i, %448
+  br i1 %or.cond.i41.i.i, label %456, label %450
 
-451:                                              ; preds = %446
-  %452 = add nsw i32 %444, -1
-  %453 = shl nuw nsw i32 1, %452
-  %454 = and i32 %448, %453
-  %.not.i.i.i42.i.i = icmp eq i32 %454, 0
-  %455 = shl nsw i32 -1, %444
-  %456 = select i1 %.not.i.i.i42.i.i, i32 0, i32 %455
-  %.010.i.i.i43.i.i = or i32 %456, %448
-  br label %457
+450:                                              ; preds = %445
+  %451 = add nsw i32 %443, -1
+  %452 = shl nuw nsw i32 1, %451
+  %453 = and i32 %447, %452
+  %.not.i.i.i42.i.i = icmp eq i32 %453, 0
+  %454 = shl nsw i32 -1, %443
+  %455 = select i1 %.not.i.i.i42.i.i, i32 0, i32 %454
+  %.010.i.i.i43.i.i = or i32 %455, %447
+  br label %456
 
-457:                                              ; preds = %451, %446
-  %.02.ph.i44.i.i = phi i32 [ %.010.i.i.i43.i.i, %451 ], [ %448, %446 ]
-  %458 = load i32, ptr @hf_usbhid_button, align 4
-  %459 = load i32, ptr %63, align 8
-  %460 = sext i32 %.02.ph.i44.i.i to i64
-  %461 = call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %46, i32 noundef %458, ptr noundef %0, i32 noundef %.287.i, i32 noundef %459, i64 noundef %460, i32 noundef -2147483648, ptr noundef nonnull @.str.3316, i32 noundef %443) #7
-  %462 = and i32 %150, 65532
-  %463 = icmp eq i32 %462, 0
-  br i1 %463, label %switch.lookup, label %465
+456:                                              ; preds = %450, %445
+  %.02.ph.i44.i.i = phi i32 [ %.010.i.i.i43.i.i, %450 ], [ %447, %445 ]
+  %457 = load i32, ptr @hf_usbhid_button, align 4
+  %458 = load i32, ptr %63, align 8
+  %459 = sext i32 %.02.ph.i44.i.i to i64
+  %460 = call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %46, i32 noundef %457, ptr noundef %0, i32 noundef %.283.i, i32 noundef %458, i64 noundef %459, i32 noundef -2147483648, ptr noundef nonnull @.str.3316, i32 noundef %442) #7
+  %461 = and i32 %149, 65532
+  %462 = icmp eq i32 %461, 0
+  br i1 %462, label %switch.lookup, label %464
 
-switch.lookup:                                    ; preds = %457
-  %trunc.i45.i.i.mask = and i32 %150, 3
-  %464 = zext nneg i32 %trunc.i45.i.i.mask to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_usb_hid_data, i64 0, i64 %464
+switch.lookup:                                    ; preds = %456
+  %trunc.i45.i.i.mask = and i32 %149, 3
+  %463 = zext nneg i32 %trunc.i45.i.i.mask to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_usb_hid_data, i64 0, i64 %463
   %switch.load = load ptr, ptr %switch.gep, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %461, ptr noundef nonnull %switch.load) #7
-  br label %465
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %460, ptr noundef nonnull %switch.load) #7
+  br label %464
 
-465:                                              ; preds = %457, %switch.lookup
+464:                                              ; preds = %456, %switch.lookup
   %.not21.i.i.i = icmp eq i32 %.02.ph.i44.i.i, 0
-  %466 = select i1 %.not21.i.i.i, ptr @.str.3314, ptr @.str.3313
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %461, ptr noundef nonnull @.str.3321, ptr noundef nonnull %466) #7
+  %465 = select i1 %.not21.i.i.i, ptr @.str.3314, ptr @.str.3313
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %460, ptr noundef nonnull @.str.3321, ptr noundef nonnull %465) #7
   br label %dissect_hid_variable.exit.i
 
-467:                                              ; preds = %442, %414, %396, %378, %360, %342, %324, %306, %288, %270, %252, %234, %216, %198, %180, %162, %161, %157
-  %468 = load i32, ptr @hf_usb_hid_localitem_usage, align 4
-  %469 = load i32, ptr %63, align 8
-  %470 = load ptr, ptr %60, align 8
-  %471 = and i32 %150, 65535
-  %472 = call fastcc ptr @get_usage_page_item_string(ptr noundef %470, i32 noundef %151, i32 noundef %471)
-  %473 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %46, i32 noundef %468, ptr noundef %0, i32 noundef %.287.i, i32 noundef %469, i32 noundef %150, i32 noundef -2147483648, ptr noundef nonnull @.str.242, ptr noundef %472) #7
-  %474 = load i32, ptr %63, align 8
-  %475 = icmp ugt i32 %474, 32
-  br i1 %475, label %dissect_hid_variable.exit.i, label %476
+466:                                              ; preds = %441, %413, %395, %377, %359, %341, %323, %305, %287, %269, %251, %233, %215, %197, %179, %161, %160, %156
+  %467 = load i32, ptr @hf_usb_hid_localitem_usage, align 4
+  %468 = load i32, ptr %63, align 8
+  %469 = load ptr, ptr %60, align 8
+  %470 = and i32 %149, 65535
+  %471 = call fastcc ptr @get_usage_page_item_string(ptr noundef %469, i32 noundef %150, i32 noundef %470)
+  %472 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %46, i32 noundef %467, ptr noundef %0, i32 noundef %.283.i, i32 noundef %468, i32 noundef %149, i32 noundef -2147483648, ptr noundef nonnull @.str.242, ptr noundef %471) #7
+  %473 = load i32, ptr %63, align 8
+  %474 = icmp ugt i32 %473, 32
+  br i1 %474, label %dissect_hid_variable.exit.i, label %475
 
-476:                                              ; preds = %467
-  %477 = load i32, ptr %146, align 4
-  %478 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.287.i, i32 noundef %474, i32 noundef -2147483648) #7
-  %479 = icmp sgt i32 %477, -1
-  %480 = and i32 %474, 31
-  %or.cond.i.i48.i.i = icmp eq i32 %480, 0
-  %or.cond.i.i = or i1 %or.cond.i.i48.i.i, %479
-  br i1 %or.cond.i.i, label %487, label %481
+475:                                              ; preds = %466
+  %476 = load i32, ptr %145, align 4
+  %477 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %.283.i, i32 noundef %473, i32 noundef -2147483648) #7
+  %478 = icmp sgt i32 %476, -1
+  %479 = and i32 %473, 31
+  %or.cond.i.i48.i.i = icmp eq i32 %479, 0
+  %or.cond.i.i = or i1 %or.cond.i.i48.i.i, %478
+  br i1 %or.cond.i.i, label %486, label %480
 
-481:                                              ; preds = %476
-  %482 = add nsw i32 %474, -1
-  %483 = shl nuw nsw i32 1, %482
-  %484 = and i32 %478, %483
-  %.not.i.i.i.i = icmp eq i32 %484, 0
-  %485 = shl nsw i32 -1, %474
-  %486 = select i1 %.not.i.i.i.i, i32 0, i32 %485
-  %.010.i.i.i.i = or i32 %486, %478
-  br label %487
+480:                                              ; preds = %475
+  %481 = add nsw i32 %473, -1
+  %482 = shl nuw nsw i32 1, %481
+  %483 = and i32 %477, %482
+  %.not.i.i.i.i = icmp eq i32 %483, 0
+  %484 = shl nsw i32 -1, %473
+  %485 = select i1 %.not.i.i.i.i, i32 0, i32 %484
+  %.010.i.i.i.i = or i32 %485, %477
+  br label %486
 
-487:                                              ; preds = %481, %476
-  %.049.ph.i.i = phi i32 [ %.010.i.i.i.i, %481 ], [ %478, %476 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %473, ptr noundef nonnull @.str.3306, i32 noundef %.049.ph.i.i) #7
+486:                                              ; preds = %480, %475
+  %.049.ph.i.i = phi i32 [ %.010.i.i.i.i, %480 ], [ %477, %475 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %472, ptr noundef nonnull @.str.3306, i32 noundef %.049.ph.i.i) #7
   br label %dissect_hid_variable.exit.i
 
-dissect_hid_variable.exit.i:                      ; preds = %487, %467, %465, %431, %411, %393, %375, %357, %339, %321, %303, %285, %267, %249, %231, %213, %195, %177, %153
-  %488 = load i32, ptr %63, align 8
-  %489 = add i32 %488, %.287.i
-  %490 = add nuw i32 %.05986.i, 1
-  %exitcond.not.i = icmp eq i32 %490, %spec.select.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %147, !llvm.loop !13
+dissect_hid_variable.exit.i:                      ; preds = %486, %466, %464, %430, %410, %392, %374, %356, %338, %320, %302, %284, %266, %248, %230, %212, %194, %176, %152
+  %487 = load i32, ptr %63, align 8
+  %488 = add i32 %487, %.283.i
+  %489 = add nuw i32 %.05982.i, 1
+  %exitcond.not.i = icmp eq i32 %489, %spec.select.i
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %146, !llvm.loop !13
 
 ._crit_edge.loopexit.i:                           ; preds = %dissect_hid_variable.exit.i
   %.pre.i = load i32, ptr %65, align 4
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %142
-  %491 = phi i32 [ %145, %142 ], [ %.pre.i, %._crit_edge.loopexit.i ]
-  %.2.lcssa.i = phi i32 [ %.159, %142 ], [ %489, %._crit_edge.loopexit.i ]
-  %492 = icmp ugt i32 %491, %spec.select.i
-  br i1 %492, label %493, label %dissect_hid_field.exit
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %141
+  %490 = phi i32 [ %144, %141 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %.2.lcssa.i = phi i32 [ %.159, %141 ], [ %488, %._crit_edge.loopexit.i ]
+  %491 = icmp ugt i32 %490, %spec.select.i
+  br i1 %491, label %492, label %dissect_hid_field.exit
 
-493:                                              ; preds = %._crit_edge.i
-  %494 = sub nuw i32 %491, %spec.select.i
-  %495 = load i32, ptr %63, align 8
-  %496 = mul i32 %495, %494
-  %497 = load i32, ptr @hf_usbhid_padding, align 4
-  %498 = call ptr @proto_tree_add_bits_item(ptr noundef %46, i32 noundef %497, ptr noundef %0, i32 noundef %.2.lcssa.i, i32 noundef %496, i32 noundef -2147483648) #7
-  %499 = add i32 %496, %.2.lcssa.i
+492:                                              ; preds = %._crit_edge.i
+  %493 = sub nuw i32 %490, %spec.select.i
+  %494 = load i32, ptr %63, align 8
+  %495 = mul i32 %494, %493
+  %496 = load i32, ptr @hf_usbhid_padding, align 4
+  %497 = call ptr @proto_tree_add_bits_item(ptr noundef %46, i32 noundef %496, ptr noundef %0, i32 noundef %.2.lcssa.i, i32 noundef %495, i32 noundef -2147483648) #7
+  %498 = add i32 %495, %.2.lcssa.i
   br label %dissect_hid_field.exit
 
-dissect_hid_field.exit:                           ; preds = %136, %493, %._crit_edge.i, %85, %69, %76
-  %.2 = phi i32 [ %.159, %69 ], [ %79, %76 ], [ %499, %493 ], [ %.2.lcssa.i, %._crit_edge.i ], [ %.159, %85 ], [ %138, %136 ]
-  %500 = add nuw i32 %.04858, 1
-  %501 = call i32 @wmem_array_get_count(ptr noundef %.049) #7
-  %502 = icmp ult i32 %500, %501
-  br i1 %502, label %61, label %.loopexit, !llvm.loop !14
+dissect_hid_field.exit:                           ; preds = %135, %492, %._crit_edge.i, %85, %69, %76
+  %.2 = phi i32 [ %.159, %69 ], [ %79, %76 ], [ %498, %492 ], [ %.2.lcssa.i, %._crit_edge.i ], [ %.159, %85 ], [ %137, %135 ]
+  %499 = add nuw i32 %.04858, 1
+  %500 = call i32 @wmem_array_get_count(ptr noundef %.049) #7
+  %501 = icmp ult i32 %499, %500
+  br i1 %501, label %61, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %dissect_hid_field.exit, %54, %42, %get_report_descriptor.exit
   ret i32 %41

@@ -986,7 +986,7 @@ define internal fastcc i32 @set_termios(ptr noundef %0, ptr noundef %1, i32 noun
   store i32 %29, ptr %30, align 4
   %31 = and i64 %11, 3
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %109, label %33
+  br i1 %32, label %108, label %33
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds i8, ptr %0, i64 32
@@ -999,12 +999,12 @@ define internal fastcc i32 @set_termios(ptr noundef %0, ptr noundef %1, i32 noun
   %39 = getelementptr inbounds i8, ptr %38, i64 88
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread13, label %42
+  br i1 %41, label %.critedge.thread, label %42
 
 42:                                               ; preds = %36
   %43 = call i32 %40(ptr noundef %0) #12
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %.thread13, label %45
+  br i1 %44, label %.critedge.thread, label %45
 
 45:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
@@ -1015,132 +1015,132 @@ define internal fastcc i32 @set_termios(ptr noundef %0, ptr noundef %1, i32 noun
   %48 = getelementptr inbounds i8, ptr %47, i64 88
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread11.thread, label %.lr.ph
+  br i1 %50, label %.critedge.thread17, label %.lr.ph
 
-.lr.ph:                                           ; preds = %45, %57
-  %51 = phi ptr [ %61, %57 ], [ %49, %45 ]
-  %52 = phi i64 [ %58, %57 ], [ %46, %45 ]
+.lr.ph:                                           ; preds = %45, %.critedge10
+  %51 = phi ptr [ %60, %.critedge10 ], [ %49, %45 ]
+  %52 = phi i64 [ %57, %.critedge10 ], [ %46, %45 ]
   %53 = call i32 %51(ptr noundef %0) #12
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %.thread11.thread, label %55
+  br i1 %54, label %.critedge.thread17, label %55
 
 55:                                               ; preds = %.lr.ph
   %56 = icmp eq i64 %52, 0
-  br i1 %56, label %57, label %.thread11
+  br i1 %56, label %.critedge10, label %.critedge
 
-57:                                               ; preds = %55
+.critedge10:                                      ; preds = %55
   call void @schedule() #12
-  %58 = call i64 @prepare_to_wait_event(ptr noundef %35, ptr noundef nonnull %5, i32 noundef 1) #12
-  %59 = load ptr, ptr %34, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 88
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %.thread11.thread, label %.lr.ph
+  %57 = call i64 @prepare_to_wait_event(ptr noundef %35, ptr noundef nonnull %5, i32 noundef 1) #12
+  %58 = load ptr, ptr %34, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 88
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %.critedge.thread17, label %.lr.ph
 
-.thread11.thread:                                 ; preds = %57, %.lr.ph, %45
+.critedge.thread17:                               ; preds = %.lr.ph, %.critedge10, %45
   call void @finish_wait(ptr noundef %35, ptr noundef nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
-  br label %.thread13
+  br label %.critedge.thread
 
-.thread11:                                        ; preds = %55
+.critedge:                                        ; preds = %55
+  %62 = trunc i64 %52 to i32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
-  %63 = trunc i64 %52 to i32
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %.loopexit, label %.thread13
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %.loopexit, label %.critedge.thread
 
-.thread13:                                        ; preds = %.thread11.thread, %36, %42, %.thread11
-  %65 = call i32 @tty_write_lock(ptr noundef %0, i1 noundef zeroext false) #12
-  %66 = icmp slt i32 %65, 0
-  br i1 %66, label %.backedge, label %67
+.critedge.thread:                                 ; preds = %.critedge.thread17, %36, %42, %.critedge
+  %64 = call i32 @tty_write_lock(ptr noundef %0, i1 noundef zeroext false) #12
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %.backedge, label %66
 
-67:                                               ; preds = %.thread13
-  %68 = load ptr, ptr %34, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 88
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %.thread14, label %72
+66:                                               ; preds = %.critedge.thread
+  %67 = load ptr, ptr %34, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 88
+  %69 = load ptr, ptr %68, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %.critedge12, label %71
 
-72:                                               ; preds = %67
-  %73 = call i32 %70(ptr noundef %0) #12
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.thread14, label %75
+71:                                               ; preds = %66
+  %72 = call i32 %69(ptr noundef %0) #12
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %.critedge12, label %74
 
-75:                                               ; preds = %72
+74:                                               ; preds = %71
   call void @tty_write_unlock(ptr noundef %0) #12
   br label %.backedge
 
-.backedge:                                        ; preds = %75, %.thread13
+.backedge:                                        ; preds = %74, %.critedge.thread
   br label %36
 
-.thread14:                                        ; preds = %67, %72
-  %76 = call ptr @tty_ldisc_ref(ptr noundef %0) #12
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %88, label %78
+.critedge12:                                      ; preds = %66, %71
+  %75 = call ptr @tty_ldisc_ref(ptr noundef %0) #12
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %87, label %77
 
-78:                                               ; preds = %.thread14
-  %79 = and i64 %11, 1
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %87, label %81
+77:                                               ; preds = %.critedge12
+  %78 = and i64 %11, 1
+  %79 = icmp eq i64 %78, 0
+  br i1 %79, label %86, label %80
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr %76, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 32
-  %84 = load ptr, ptr %83, align 8
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %87, label %86
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %75, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 32
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %86, label %85
 
-86:                                               ; preds = %81
-  call void %84(ptr noundef %0) #12
+85:                                               ; preds = %80
+  call void %83(ptr noundef %0) #12
+  br label %86
+
+86:                                               ; preds = %85, %80, %77
+  call void @tty_ldisc_deref(ptr noundef nonnull %75) #12
   br label %87
 
-87:                                               ; preds = %86, %81, %78
-  call void @tty_ldisc_deref(ptr noundef nonnull %76) #12
-  br label %88
+87:                                               ; preds = %86, %.critedge12
+  %88 = and i64 %11, 2
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %106, label %90
 
-88:                                               ; preds = %87, %.thread14
-  %89 = and i64 %11, 2
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %107, label %91
+90:                                               ; preds = %87
+  %91 = load ptr, ptr %34, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 184
+  %93 = load ptr, ptr %92, align 8
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %106, label %95
 
-91:                                               ; preds = %88
-  %92 = load ptr, ptr %34, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 184
-  %94 = load ptr, ptr %93, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %107, label %96
+95:                                               ; preds = %90
+  call void %93(ptr noundef %0, i32 noundef 0) #12
+  %96 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !20
+  %97 = inttoptr i64 %96 to ptr
+  %98 = load volatile i64, ptr %97, align 8
+  %99 = and i64 %98, 131072
+  %100 = icmp eq i64 %99, 0
+  br i1 %100, label %101, label %105, !prof !21
 
-96:                                               ; preds = %91
-  call void %94(ptr noundef %0, i32 noundef 0) #12
-  %97 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !20
-  %98 = inttoptr i64 %97 to ptr
-  %99 = load volatile i64, ptr %98, align 8
-  %100 = and i64 %99, 131072
-  %101 = icmp eq i64 %100, 0
-  br i1 %101, label %102, label %106, !prof !21
+101:                                              ; preds = %95
+  %102 = load volatile i64, ptr %97, align 8
+  %103 = and i64 %102, 4
+  %104 = icmp eq i64 %103, 0
+  br i1 %104, label %106, label %105
 
-102:                                              ; preds = %96
-  %103 = load volatile i64, ptr %98, align 8
-  %104 = and i64 %103, 4
-  %105 = icmp eq i64 %104, 0
-  br i1 %105, label %107, label %106
-
-106:                                              ; preds = %102, %96
+105:                                              ; preds = %101, %95
   call void @tty_write_unlock(ptr noundef %0) #12
   br label %.loopexit
 
-107:                                              ; preds = %102, %91, %88
-  %108 = call i32 @tty_set_termios(ptr noundef %0, ptr noundef nonnull %4)
+106:                                              ; preds = %101, %90, %87
+  %107 = call i32 @tty_set_termios(ptr noundef %0, ptr noundef nonnull %4)
   call void @tty_write_unlock(ptr noundef %0) #12
   br label %.loopexit
 
-109:                                              ; preds = %26
-  %110 = call i32 @tty_set_termios(ptr noundef %0, ptr noundef nonnull %4)
+108:                                              ; preds = %26
+  %109 = call i32 @tty_set_termios(ptr noundef %0, ptr noundef nonnull %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread11, %109, %107, %106, %23, %20, %14, %3
-  %111 = phi i32 [ -512, %106 ], [ %6, %3 ], [ -14, %14 ], [ -14, %20 ], [ -14, %23 ], [ 0, %109 ], [ 0, %107 ], [ %63, %.thread11 ]
+.loopexit:                                        ; preds = %.critedge, %108, %106, %105, %23, %20, %14, %3
+  %110 = phi i32 [ -512, %105 ], [ %6, %3 ], [ -14, %14 ], [ -14, %20 ], [ -14, %23 ], [ 0, %108 ], [ 0, %106 ], [ %62, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %4) #12
-  ret i32 %111
+  ret i32 %110
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)

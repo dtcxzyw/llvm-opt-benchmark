@@ -194,7 +194,7 @@ define dso_local void @nghttp2_hd_entry_free(ptr nocapture noundef readonly %0) 
 declare void @nghttp2_rcbuf_decref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_hd_deflate_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 60
@@ -231,7 +231,7 @@ nghttp2_hd_deflate_init2.exit:                    ; preds = %2, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_hd_deflate_init2(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_init2(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 60
@@ -277,7 +277,7 @@ hd_context_init.exit:                             ; preds = %3, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_hd_inflate_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_hd_inflate_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 60
@@ -1490,7 +1490,7 @@ define dso_local i64 @nghttp2_hd_deflate_bound(ptr nocapture noundef readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_hd_deflate_new(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_new(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @nghttp2_mem_default() #13
   %4 = tail call ptr @nghttp2_mem_malloc(ptr noundef %3, i64 noundef 1112) #13
   %5 = icmp eq ptr %4, null
@@ -1547,7 +1547,7 @@ nghttp2_hd_deflate_new2.exit:                     ; preds = %2, %nghttp2_hd_defl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_hd_deflate_new2(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_new2(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %5, label %7
 
@@ -1752,7 +1752,7 @@ define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture nou
   %10 = getelementptr inbounds i8, ptr %0, i64 60
   %11 = load i8, ptr %10, align 4
   %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %12, label %435
+  br i1 %.not, label %12, label %436
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds i8, ptr %0, i64 176
@@ -1792,23 +1792,23 @@ define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture nou
   %39 = getelementptr inbounds i8, ptr %0, i64 234
   br label %40
 
-40:                                               ; preds = %.lr.ph, %417
-  %.0207431 = phi ptr [ %3, %.lr.ph ], [ %.1208, %417 ]
+40:                                               ; preds = %.lr.ph, %418
+  %.0207431 = phi ptr [ %3, %.lr.ph ], [ %.1208, %418 ]
   %41 = load i32, ptr %17, align 4
-  switch i32 %41, label %417 [
+  switch i32 %41, label %418 [
     i32 0, label %42
     i32 1, label %45
     i32 2, label %45
     i32 3, label %63
     i32 4, label %134
     i32 5, label %.thread487
-    i32 6, label %194
-    i32 7, label %252
-    i32 8, label %276
+    i32 6, label %195
+    i32 7, label %253
+    i32 8, label %277
     i32 9, label %.thread499
-    i32 10, label %295
-    i32 11, label %353
-    i32 12, label %383
+    i32 10, label %296
+    i32 11, label %354
+    i32 12, label %384
   ]
 
 42:                                               ; preds = %40
@@ -1873,7 +1873,7 @@ define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture nou
   %.2 = phi ptr [ %.0207431, %.thread330 ], [ %.0207431, %52 ], [ %spec.select, %55 ]
   store i64 0, ptr %19, align 8
   store i64 0, ptr %20, align 8
-  br label %417
+  br label %418
 
 63:                                               ; preds = %40
   %64 = load i64, ptr %33, align 8
@@ -2023,146 +2023,146 @@ hd_map_remove.exit.us.i:                          ; preds = %.lr.ph23.split.us.i
 
 hd_context_shrink_table_size.exit:                ; preds = %.lr.ph23.split.us.i, %hd_map_remove.exit.us.i, %106
   store i32 1, ptr %17, align 4
-  br label %417
+  br label %418
 
 134:                                              ; preds = %40
   %135 = load i32, ptr %29, align 8
   %136 = icmp eq i32 %135, 1
-  br i1 %136, label %139, label %137
+  br i1 %136, label %140, label %137
 
 137:                                              ; preds = %134
   %138 = load i8, ptr %30, align 1
   %.not249 = icmp eq i8 %138, 0
-  %.255 = select i1 %.not249, i32 4, i32 6
-  br label %139
+  %139 = select i1 %.not249, i32 4, i32 6
+  br label %140
 
-139:                                              ; preds = %137, %134
-  %.0 = phi i32 [ 7, %134 ], [ %.255, %137 ]
+140:                                              ; preds = %137, %134
+  %.0 = phi i32 [ 7, %134 ], [ %139, %137 ]
   %.val = load i64, ptr %31, align 8
-  %140 = add i64 %.val, 61
-  %141 = load i64, ptr %19, align 8
-  %142 = trunc i64 %141 to i32
-  %143 = load i64, ptr %20, align 8
+  %141 = add i64 %.val, 61
+  %142 = load i64, ptr %19, align 8
+  %143 = trunc i64 %142 to i32
+  %144 = load i64, ptr %20, align 8
   %notmask.i.i = shl nsw i32 -1, %.0
-  %144 = and i32 %notmask.i.i, 112
-  %145 = xor i32 %144, 127
+  %145 = and i32 %notmask.i.i, 112
+  %146 = xor i32 %145, 127
   store i64 0, ptr %20, align 8
-  %146 = icmp eq i32 %142, 0
-  br i1 %146, label %147, label %154
+  %147 = icmp eq i32 %143, 0
+  br i1 %147, label %148, label %155
 
-147:                                              ; preds = %139
-  %148 = load i8, ptr %.0207431, align 1
-  %149 = zext i8 %148 to i32
-  %150 = and i32 %145, %149
-  %.not.i.i276 = icmp eq i32 %150, %145
-  br i1 %.not.i.i276, label %151, label %decode_length.exit.thread18.i272
+148:                                              ; preds = %140
+  %149 = load i8, ptr %.0207431, align 1
+  %150 = zext i8 %149 to i32
+  %151 = and i32 %146, %150
+  %.not.i.i276 = icmp eq i32 %151, %146
+  br i1 %.not.i.i276, label %152, label %decode_length.exit.thread18.i272
 
-151:                                              ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %.0207431, i64 1
-  %153 = icmp eq ptr %152, %7
-  br i1 %153, label %decode_length.exit.thread18.i272, label %154
+152:                                              ; preds = %148
+  %153 = getelementptr inbounds i8, ptr %.0207431, i64 1
+  %154 = icmp eq ptr %153, %7
+  br i1 %154, label %decode_length.exit.thread18.i272, label %155
 
-154:                                              ; preds = %151, %139
-  %.050.i.i257 = phi ptr [ %152, %151 ], [ %.0207431, %139 ]
-  %.048.i.i258 = phi i32 [ %145, %151 ], [ %142, %139 ]
+155:                                              ; preds = %152, %140
+  %.050.i.i257 = phi ptr [ %153, %152 ], [ %.0207431, %140 ]
+  %.048.i.i258 = phi i32 [ %146, %152 ], [ %143, %140 ]
   %.not5867.i.i259 = icmp eq ptr %.050.i.i257, %7
   br i1 %.not5867.i.i259, label %._crit_edge.i.i265, label %.lr.ph.i.i260
 
-.lr.ph.i.i260:                                    ; preds = %154, %170
-  %.170.i.i261 = phi i32 [ %168, %170 ], [ %.048.i.i258, %154 ]
-  %.04969.i.i262 = phi i64 [ %172, %170 ], [ %143, %154 ]
-  %.15168.i.i263 = phi ptr [ %171, %170 ], [ %.050.i.i257, %154 ]
-  %155 = load i8, ptr %.15168.i.i263, align 1
-  %156 = and i8 %155, 127
-  %157 = zext nneg i8 %156 to i32
-  %158 = icmp ugt i64 %.04969.i.i262, 31
-  br i1 %158, label %hd_inflate_read_len.exit.thread, label %159
+.lr.ph.i.i260:                                    ; preds = %155, %171
+  %.170.i.i261 = phi i32 [ %169, %171 ], [ %.048.i.i258, %155 ]
+  %.04969.i.i262 = phi i64 [ %173, %171 ], [ %144, %155 ]
+  %.15168.i.i263 = phi ptr [ %172, %171 ], [ %.050.i.i257, %155 ]
+  %156 = load i8, ptr %.15168.i.i263, align 1
+  %157 = and i8 %156, 127
+  %158 = zext nneg i8 %157 to i32
+  %159 = icmp ugt i64 %.04969.i.i262, 31
+  br i1 %159, label %hd_inflate_read_len.exit.thread, label %160
 
-159:                                              ; preds = %.lr.ph.i.i260
-  %160 = trunc nuw nsw i64 %.04969.i.i262 to i32
-  %161 = lshr i32 -1, %160
-  %162 = icmp ult i32 %161, %157
-  br i1 %162, label %hd_inflate_read_len.exit.thread, label %163
+160:                                              ; preds = %.lr.ph.i.i260
+  %161 = trunc nuw nsw i64 %.04969.i.i262 to i32
+  %162 = lshr i32 -1, %161
+  %163 = icmp ult i32 %162, %158
+  br i1 %163, label %hd_inflate_read_len.exit.thread, label %164
 
-163:                                              ; preds = %159
-  %164 = shl i32 %157, %160
-  %165 = xor i32 %164, -1
-  %166 = icmp ugt i32 %.170.i.i261, %165
-  br i1 %166, label %hd_inflate_read_len.exit.thread, label %167
+164:                                              ; preds = %160
+  %165 = shl i32 %158, %161
+  %166 = xor i32 %165, -1
+  %167 = icmp ugt i32 %.170.i.i261, %166
+  br i1 %167, label %hd_inflate_read_len.exit.thread, label %168
 
-167:                                              ; preds = %163
-  %168 = add i32 %164, %.170.i.i261
-  %169 = icmp sgt i8 %155, -1
-  br i1 %169, label %173, label %170
+168:                                              ; preds = %164
+  %169 = add i32 %165, %.170.i.i261
+  %170 = icmp sgt i8 %156, -1
+  br i1 %170, label %174, label %171
 
-170:                                              ; preds = %167
-  %171 = getelementptr inbounds i8, ptr %.15168.i.i263, i64 1
-  %172 = add nuw nsw i64 %.04969.i.i262, 7
-  %.not58.i.i264 = icmp eq ptr %171, %7
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds i8, ptr %.15168.i.i263, i64 1
+  %173 = add nuw nsw i64 %.04969.i.i262, 7
+  %.not58.i.i264 = icmp eq ptr %172, %7
   br i1 %.not58.i.i264, label %._crit_edge.i.i265, label %.lr.ph.i.i260, !llvm.loop !19
 
-._crit_edge.i.i265:                               ; preds = %170, %154
-  %.049.lcssa.i.i266 = phi i64 [ %143, %154 ], [ %172, %170 ]
-  %.1.lcssa.i.i267 = phi i32 [ %.048.i.i258, %154 ], [ %168, %170 ]
+._crit_edge.i.i265:                               ; preds = %171, %155
+  %.049.lcssa.i.i266 = phi i64 [ %144, %155 ], [ %173, %171 ]
+  %.1.lcssa.i.i267 = phi i32 [ %.048.i.i258, %155 ], [ %169, %171 ]
   store i64 %.049.lcssa.i.i266, ptr %20, align 8
   br label %decode_length.exit.i268
 
-173:                                              ; preds = %167
+174:                                              ; preds = %168
   store i64 %.04969.i.i262, ptr %20, align 8
-  %174 = getelementptr inbounds i8, ptr %.15168.i.i263, i64 1
-  %.pre483 = ptrtoint ptr %174 to i64
+  %175 = getelementptr inbounds i8, ptr %.15168.i.i263, i64 1
+  %.pre483 = ptrtoint ptr %175 to i64
   br label %decode_length.exit.i268
 
-decode_length.exit.i268:                          ; preds = %173, %._crit_edge.i.i265
-  %.sink.i271.pre-phi = phi i64 [ %.pre483, %173 ], [ %24, %._crit_edge.i.i265 ]
-  %.3328 = phi i32 [ 1, %173 ], [ 0, %._crit_edge.i.i265 ]
-  %.014.i270 = phi i32 [ %168, %173 ], [ %.1.lcssa.i.i267, %._crit_edge.i.i265 ]
-  %175 = ptrtoint ptr %.0207431 to i64
-  %176 = sub i64 %.sink.i271.pre-phi, %175
-  %177 = icmp eq i64 %176, -1
-  br i1 %177, label %hd_inflate_read_len.exit.thread, label %decode_length.exit.thread18.i272
+decode_length.exit.i268:                          ; preds = %174, %._crit_edge.i.i265
+  %.sink.i271.pre-phi = phi i64 [ %.pre483, %174 ], [ %24, %._crit_edge.i.i265 ]
+  %.3328 = phi i32 [ 1, %174 ], [ 0, %._crit_edge.i.i265 ]
+  %.014.i270 = phi i32 [ %169, %174 ], [ %.1.lcssa.i.i267, %._crit_edge.i.i265 ]
+  %176 = ptrtoint ptr %.0207431 to i64
+  %177 = sub i64 %.sink.i271.pre-phi, %176
+  %178 = icmp eq i64 %177, -1
+  br i1 %178, label %hd_inflate_read_len.exit.thread, label %decode_length.exit.thread18.i272
 
-decode_length.exit.thread18.i272:                 ; preds = %147, %decode_length.exit.i268, %151
-  %.4329 = phi i32 [ 0, %151 ], [ %.3328, %decode_length.exit.i268 ], [ 1, %147 ]
-  %.0.i22.i273 = phi i64 [ 1, %151 ], [ %176, %decode_length.exit.i268 ], [ 1, %147 ]
-  %.01421.i274 = phi i32 [ %145, %151 ], [ %.014.i270, %decode_length.exit.i268 ], [ %150, %147 ]
-  %178 = zext i32 %.01421.i274 to i64
-  %179 = icmp ult i64 %140, %178
-  br i1 %179, label %hd_inflate_read_len.exit.thread, label %hd_inflate_read_len.exit277
+decode_length.exit.thread18.i272:                 ; preds = %148, %decode_length.exit.i268, %152
+  %.4329 = phi i32 [ 0, %152 ], [ %.3328, %decode_length.exit.i268 ], [ 1, %148 ]
+  %.0.i22.i273 = phi i64 [ 1, %152 ], [ %177, %decode_length.exit.i268 ], [ 1, %148 ]
+  %.01421.i274 = phi i32 [ %146, %152 ], [ %.014.i270, %decode_length.exit.i268 ], [ %151, %148 ]
+  %179 = zext i32 %.01421.i274 to i64
+  %180 = icmp ult i64 %141, %179
+  br i1 %180, label %hd_inflate_read_len.exit.thread, label %hd_inflate_read_len.exit277
 
 hd_inflate_read_len.exit277:                      ; preds = %decode_length.exit.thread18.i272
-  store i64 %178, ptr %19, align 8
-  %180 = icmp slt i64 %.0.i22.i273, 0
-  br i1 %180, label %hd_inflate_read_len.exit.thread, label %181
+  store i64 %179, ptr %19, align 8
+  %181 = icmp slt i64 %.0.i22.i273, 0
+  br i1 %181, label %hd_inflate_read_len.exit.thread, label %182
 
-181:                                              ; preds = %hd_inflate_read_len.exit277
-  %182 = getelementptr inbounds i8, ptr %.0207431, i64 %.0.i22.i273
+182:                                              ; preds = %hd_inflate_read_len.exit277
+  %183 = getelementptr inbounds i8, ptr %.0207431, i64 %.0.i22.i273
   %.not250 = icmp eq i32 %.4329, 0
-  br i1 %.not250, label %.loopexit, label %183
+  br i1 %.not250, label %.loopexit, label %184
 
-183:                                              ; preds = %181
-  %184 = icmp eq i32 %.01421.i274, 0
-  br i1 %184, label %hd_inflate_read_len.exit.thread, label %185
+184:                                              ; preds = %182
+  %185 = icmp eq i32 %.01421.i274, 0
+  br i1 %185, label %hd_inflate_read_len.exit.thread, label %186
 
-185:                                              ; preds = %183
-  %186 = add nsw i64 %178, -1
-  store i64 %186, ptr %32, align 8
-  br i1 %136, label %187, label %193
+186:                                              ; preds = %184
+  %187 = add nsw i64 %179, -1
+  store i64 %187, ptr %32, align 8
+  br i1 %136, label %188, label %194
 
-187:                                              ; preds = %185
+188:                                              ; preds = %186
   tail call fastcc void @hd_inflate_commit_indexed(ptr noundef nonnull %0, ptr noundef %1)
   store i32 2, ptr %17, align 4
-  %188 = load i32, ptr %2, align 4
-  %189 = or i32 %188, 2
-  store i32 %189, ptr %2, align 4
-  %190 = ptrtoint ptr %182 to i64
-  %191 = ptrtoint ptr %3 to i64
-  %192 = sub i64 %190, %191
-  br label %435
+  %189 = load i32, ptr %2, align 4
+  %190 = or i32 %189, 2
+  store i32 %190, ptr %2, align 4
+  %191 = ptrtoint ptr %183 to i64
+  %192 = ptrtoint ptr %3 to i64
+  %193 = sub i64 %191, %192
+  br label %436
 
-193:                                              ; preds = %185
+194:                                              ; preds = %186
   store i32 9, ptr %17, align 4
-  br label %417
+  br label %418
 
 .thread487:                                       ; preds = %40
   %.0207.val = load i8, ptr %.0207431, align 1
@@ -2171,217 +2171,217 @@ hd_inflate_read_len.exit277:                      ; preds = %decode_length.exit.
   store i32 6, ptr %17, align 4
   store i64 0, ptr %19, align 8
   store i64 0, ptr %20, align 8
-  br label %197
+  br label %198
 
-194:                                              ; preds = %40
+195:                                              ; preds = %40
   %.pre480 = load i64, ptr %19, align 8
   %.pre481 = load i64, ptr %20, align 8
-  %195 = trunc i64 %.pre480 to i32
+  %196 = trunc i64 %.pre480 to i32
   store i64 0, ptr %20, align 8
-  %196 = icmp eq i32 %195, 0
-  br i1 %196, label %197, label %205
+  %197 = icmp eq i32 %196, 0
+  br i1 %197, label %198, label %206
 
-197:                                              ; preds = %.thread487, %194
-  %198 = phi i64 [ 0, %.thread487 ], [ %.pre481, %194 ]
-  %199 = load i8, ptr %.0207431, align 1
-  %200 = and i8 %199, 127
-  %201 = zext nneg i8 %200 to i64
-  %.not.i.i297 = icmp eq i8 %200, 127
-  br i1 %.not.i.i297, label %202, label %hd_inflate_read_len.exit298.thread
+198:                                              ; preds = %.thread487, %195
+  %199 = phi i64 [ 0, %.thread487 ], [ %.pre481, %195 ]
+  %200 = load i8, ptr %.0207431, align 1
+  %201 = and i8 %200, 127
+  %202 = zext nneg i8 %201 to i64
+  %.not.i.i297 = icmp eq i8 %201, 127
+  br i1 %.not.i.i297, label %203, label %hd_inflate_read_len.exit298.thread
 
-202:                                              ; preds = %197
-  %203 = getelementptr inbounds i8, ptr %.0207431, i64 1
-  %204 = icmp eq ptr %203, %7
-  br i1 %204, label %hd_inflate_read_len.exit298.thread, label %205
+203:                                              ; preds = %198
+  %204 = getelementptr inbounds i8, ptr %.0207431, i64 1
+  %205 = icmp eq ptr %204, %7
+  br i1 %205, label %hd_inflate_read_len.exit298.thread, label %206
 
-205:                                              ; preds = %202, %194
-  %206 = phi i64 [ %198, %202 ], [ %.pre481, %194 ]
-  %.050.i.i278 = phi ptr [ %203, %202 ], [ %.0207431, %194 ]
-  %.048.i.i279 = phi i32 [ 127, %202 ], [ %195, %194 ]
+206:                                              ; preds = %203, %195
+  %207 = phi i64 [ %199, %203 ], [ %.pre481, %195 ]
+  %.050.i.i278 = phi ptr [ %204, %203 ], [ %.0207431, %195 ]
+  %.048.i.i279 = phi i32 [ 127, %203 ], [ %196, %195 ]
   %.not5867.i.i280 = icmp eq ptr %.050.i.i278, %7
   br i1 %.not5867.i.i280, label %._crit_edge.i.i286, label %.lr.ph.i.i281
 
-.lr.ph.i.i281:                                    ; preds = %205, %222
-  %.170.i.i282 = phi i32 [ %220, %222 ], [ %.048.i.i279, %205 ]
-  %.04969.i.i283 = phi i64 [ %224, %222 ], [ %206, %205 ]
-  %.15168.i.i284 = phi ptr [ %223, %222 ], [ %.050.i.i278, %205 ]
-  %207 = load i8, ptr %.15168.i.i284, align 1
-  %208 = and i8 %207, 127
-  %209 = zext nneg i8 %208 to i32
-  %210 = icmp ugt i64 %.04969.i.i283, 31
-  br i1 %210, label %hd_inflate_read_len.exit.thread, label %211
+.lr.ph.i.i281:                                    ; preds = %206, %223
+  %.170.i.i282 = phi i32 [ %221, %223 ], [ %.048.i.i279, %206 ]
+  %.04969.i.i283 = phi i64 [ %225, %223 ], [ %207, %206 ]
+  %.15168.i.i284 = phi ptr [ %224, %223 ], [ %.050.i.i278, %206 ]
+  %208 = load i8, ptr %.15168.i.i284, align 1
+  %209 = and i8 %208, 127
+  %210 = zext nneg i8 %209 to i32
+  %211 = icmp ugt i64 %.04969.i.i283, 31
+  br i1 %211, label %hd_inflate_read_len.exit.thread, label %212
 
-211:                                              ; preds = %.lr.ph.i.i281
-  %212 = trunc nuw nsw i64 %.04969.i.i283 to i32
-  %213 = lshr i32 -1, %212
-  %214 = icmp ult i32 %213, %209
-  br i1 %214, label %hd_inflate_read_len.exit.thread, label %215
+212:                                              ; preds = %.lr.ph.i.i281
+  %213 = trunc nuw nsw i64 %.04969.i.i283 to i32
+  %214 = lshr i32 -1, %213
+  %215 = icmp ult i32 %214, %210
+  br i1 %215, label %hd_inflate_read_len.exit.thread, label %216
 
-215:                                              ; preds = %211
-  %216 = shl i32 %209, %212
-  %217 = xor i32 %216, -1
-  %218 = icmp ugt i32 %.170.i.i282, %217
-  br i1 %218, label %hd_inflate_read_len.exit.thread, label %219
+216:                                              ; preds = %212
+  %217 = shl i32 %210, %213
+  %218 = xor i32 %217, -1
+  %219 = icmp ugt i32 %.170.i.i282, %218
+  br i1 %219, label %hd_inflate_read_len.exit.thread, label %220
 
-219:                                              ; preds = %215
-  %220 = add i32 %216, %.170.i.i282
-  %221 = icmp sgt i8 %207, -1
-  br i1 %221, label %225, label %222
+220:                                              ; preds = %216
+  %221 = add i32 %217, %.170.i.i282
+  %222 = icmp sgt i8 %208, -1
+  br i1 %222, label %226, label %223
 
-222:                                              ; preds = %219
-  %223 = getelementptr inbounds i8, ptr %.15168.i.i284, i64 1
-  %224 = add nuw nsw i64 %.04969.i.i283, 7
-  %.not58.i.i285 = icmp eq ptr %223, %7
+223:                                              ; preds = %220
+  %224 = getelementptr inbounds i8, ptr %.15168.i.i284, i64 1
+  %225 = add nuw nsw i64 %.04969.i.i283, 7
+  %.not58.i.i285 = icmp eq ptr %224, %7
   br i1 %.not58.i.i285, label %._crit_edge.i.i286, label %.lr.ph.i.i281, !llvm.loop !19
 
-._crit_edge.i.i286:                               ; preds = %222, %205
-  %.049.lcssa.i.i287 = phi i64 [ %206, %205 ], [ %224, %222 ]
-  %.1.lcssa.i.i288 = phi i32 [ %.048.i.i279, %205 ], [ %220, %222 ]
+._crit_edge.i.i286:                               ; preds = %223, %206
+  %.049.lcssa.i.i287 = phi i64 [ %207, %206 ], [ %225, %223 ]
+  %.1.lcssa.i.i288 = phi i32 [ %.048.i.i279, %206 ], [ %221, %223 ]
   store i64 %.049.lcssa.i.i287, ptr %20, align 8
   br label %decode_length.exit.i289
 
-225:                                              ; preds = %219
+226:                                              ; preds = %220
   store i64 %.04969.i.i283, ptr %20, align 8
-  %226 = getelementptr inbounds i8, ptr %.15168.i.i284, i64 1
-  %.pre484 = ptrtoint ptr %226 to i64
+  %227 = getelementptr inbounds i8, ptr %.15168.i.i284, i64 1
+  %.pre484 = ptrtoint ptr %227 to i64
   br label %decode_length.exit.i289
 
-decode_length.exit.i289:                          ; preds = %225, %._crit_edge.i.i286
-  %.sink.i292.pre-phi = phi i64 [ %.pre484, %225 ], [ %24, %._crit_edge.i.i286 ]
-  %.6 = phi i32 [ 1, %225 ], [ 0, %._crit_edge.i.i286 ]
-  %.014.i291 = phi i32 [ %220, %225 ], [ %.1.lcssa.i.i288, %._crit_edge.i.i286 ]
-  %227 = ptrtoint ptr %.0207431 to i64
-  %228 = sub i64 %.sink.i292.pre-phi, %227
-  %229 = icmp eq i64 %228, -1
-  %230 = icmp ugt i32 %.014.i291, 65536
-  %or.cond = select i1 %229, i1 true, i1 %230
+decode_length.exit.i289:                          ; preds = %226, %._crit_edge.i.i286
+  %.sink.i292.pre-phi = phi i64 [ %.pre484, %226 ], [ %24, %._crit_edge.i.i286 ]
+  %.6 = phi i32 [ 1, %226 ], [ 0, %._crit_edge.i.i286 ]
+  %.014.i291 = phi i32 [ %221, %226 ], [ %.1.lcssa.i.i288, %._crit_edge.i.i286 ]
+  %228 = ptrtoint ptr %.0207431 to i64
+  %229 = sub i64 %.sink.i292.pre-phi, %228
+  %230 = icmp eq i64 %229, -1
+  %231 = icmp ugt i32 %.014.i291, 65536
+  %or.cond = select i1 %230, i1 true, i1 %231
   br i1 %or.cond, label %hd_inflate_read_len.exit.thread, label %hd_inflate_read_len.exit298
 
-hd_inflate_read_len.exit298.thread:               ; preds = %197, %202
-  %.7.ph = phi i32 [ 1, %197 ], [ 0, %202 ]
-  %.01421.i295.ph = phi i64 [ %201, %197 ], [ 127, %202 ]
+hd_inflate_read_len.exit298.thread:               ; preds = %198, %203
+  %.7.ph = phi i32 [ 1, %198 ], [ 0, %203 ]
+  %.01421.i295.ph = phi i64 [ %202, %198 ], [ 127, %203 ]
   store i64 %.01421.i295.ph, ptr %19, align 8
-  br label %233
+  br label %234
 
 hd_inflate_read_len.exit298:                      ; preds = %decode_length.exit.i289
-  %231 = zext nneg i32 %.014.i291 to i64
-  store i64 %231, ptr %19, align 8
-  %232 = icmp slt i64 %228, 0
-  br i1 %232, label %hd_inflate_read_len.exit.thread, label %233
+  %232 = zext nneg i32 %.014.i291 to i64
+  store i64 %232, ptr %19, align 8
+  %233 = icmp slt i64 %229, 0
+  br i1 %233, label %hd_inflate_read_len.exit.thread, label %234
 
-233:                                              ; preds = %hd_inflate_read_len.exit298.thread, %hd_inflate_read_len.exit298
-  %234 = phi i64 [ %.01421.i295.ph, %hd_inflate_read_len.exit298.thread ], [ %231, %hd_inflate_read_len.exit298 ]
+234:                                              ; preds = %hd_inflate_read_len.exit298.thread, %hd_inflate_read_len.exit298
+  %235 = phi i64 [ %.01421.i295.ph, %hd_inflate_read_len.exit298.thread ], [ %232, %hd_inflate_read_len.exit298 ]
   %.7491498 = phi i32 [ %.7.ph, %hd_inflate_read_len.exit298.thread ], [ %.6, %hd_inflate_read_len.exit298 ]
-  %.0.i22.i294492497 = phi i64 [ 1, %hd_inflate_read_len.exit298.thread ], [ %228, %hd_inflate_read_len.exit298 ]
-  %235 = getelementptr inbounds i8, ptr %.0207431, i64 %.0.i22.i294492497
+  %.0.i22.i294492497 = phi i64 [ 1, %hd_inflate_read_len.exit298.thread ], [ %229, %hd_inflate_read_len.exit298 ]
+  %236 = getelementptr inbounds i8, ptr %.0207431, i64 %.0.i22.i294492497
   %.not246 = icmp eq i32 %.7491498, 0
-  br i1 %.not246, label %.loopexit, label %236
+  br i1 %.not246, label %.loopexit, label %237
 
-236:                                              ; preds = %233
-  %237 = load i8, ptr %18, align 8
-  %.not247 = icmp eq i8 %237, 0
-  br i1 %.not247, label %242, label %238
+237:                                              ; preds = %234
+  %238 = load i8, ptr %18, align 8
+  %.not247 = icmp eq i8 %238, 0
+  br i1 %.not247, label %243, label %239
 
-238:                                              ; preds = %236
+239:                                              ; preds = %237
   tail call void @nghttp2_hd_huff_decode_context_init(ptr noundef nonnull %21) #13
   store i32 7, ptr %17, align 4
-  %239 = load i64, ptr %19, align 8
-  %240 = shl i64 %239, 1
-  %241 = or disjoint i64 %240, 1
-  br label %244
+  %240 = load i64, ptr %19, align 8
+  %241 = shl i64 %240, 1
+  %242 = or disjoint i64 %241, 1
+  br label %245
 
-242:                                              ; preds = %236
+243:                                              ; preds = %237
   store i32 8, ptr %17, align 4
-  %243 = add nuw nsw i64 %234, 1
-  br label %244
+  %244 = add nuw nsw i64 %235, 1
+  br label %245
 
-244:                                              ; preds = %242, %238
-  %.sink = phi i64 [ %243, %242 ], [ %241, %238 ]
-  %245 = tail call i32 @nghttp2_rcbuf_new(ptr noundef nonnull %27, i64 noundef %.sink, ptr noundef %9) #13
-  %.not248 = icmp eq i32 %245, 0
-  br i1 %.not248, label %246, label %hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit397
+245:                                              ; preds = %243, %239
+  %.sink = phi i64 [ %244, %243 ], [ %242, %239 ]
+  %246 = tail call i32 @nghttp2_rcbuf_new(ptr noundef nonnull %27, i64 noundef %.sink, ptr noundef %9) #13
+  %.not248 = icmp eq i32 %246, 0
+  br i1 %.not248, label %247, label %hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit397
 
-246:                                              ; preds = %244
-  %247 = load ptr, ptr %27, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 16
-  %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %247, i64 24
-  %251 = load i64, ptr %250, align 8
-  tail call void @nghttp2_buf_wrap_init(ptr noundef nonnull %28, ptr noundef %249, i64 noundef %251) #13
-  br label %417
+247:                                              ; preds = %245
+  %248 = load ptr, ptr %27, align 8
+  %249 = getelementptr inbounds i8, ptr %248, i64 16
+  %250 = load ptr, ptr %249, align 8
+  %251 = getelementptr inbounds i8, ptr %248, i64 24
+  %252 = load i64, ptr %251, align 8
+  tail call void @nghttp2_buf_wrap_init(ptr noundef nonnull %28, ptr noundef %250, i64 noundef %252) #13
+  br label %418
 
-252:                                              ; preds = %40
-  %253 = ptrtoint ptr %.0207431 to i64
-  %254 = sub i64 %24, %253
-  %255 = load i64, ptr %19, align 8
-  %.not.i = icmp uge i64 %254, %255
-  %256 = getelementptr inbounds i8, ptr %.0207431, i64 %255
-  %spec.select.i = select i1 %.not.i, ptr %256, ptr %7
+253:                                              ; preds = %40
+  %254 = ptrtoint ptr %.0207431 to i64
+  %255 = sub i64 %24, %254
+  %256 = load i64, ptr %19, align 8
+  %.not.i = icmp uge i64 %255, %256
+  %257 = getelementptr inbounds i8, ptr %.0207431, i64 %256
+  %spec.select.i = select i1 %.not.i, ptr %257, ptr %7
   %spec.select22.i = zext i1 %.not.i to i32
-  %257 = ptrtoint ptr %spec.select.i to i64
-  %258 = sub i64 %257, %253
-  %259 = tail call i64 @nghttp2_hd_huff_decode(ptr noundef nonnull %21, ptr noundef nonnull %28, ptr noundef %.0207431, i64 noundef %258, i32 noundef %spec.select22.i) #13
-  %260 = icmp slt i64 %259, 0
-  br i1 %260, label %hd_inflate_read_len.exit.thread, label %261
+  %258 = ptrtoint ptr %spec.select.i to i64
+  %259 = sub i64 %258, %254
+  %260 = tail call i64 @nghttp2_hd_huff_decode(ptr noundef nonnull %21, ptr noundef nonnull %28, ptr noundef %.0207431, i64 noundef %259, i32 noundef %spec.select22.i) #13
+  %261 = icmp slt i64 %260, 0
+  br i1 %261, label %hd_inflate_read_len.exit.thread, label %262
 
-261:                                              ; preds = %252
-  %262 = tail call i32 @nghttp2_hd_huff_decode_failure_state(ptr noundef nonnull %21) #13
-  %.not21.i = icmp eq i32 %262, 0
-  br i1 %.not21.i, label %263, label %hd_inflate_read_len.exit.thread
+262:                                              ; preds = %253
+  %263 = tail call i32 @nghttp2_hd_huff_decode_failure_state(ptr noundef nonnull %21) #13
+  %.not21.i = icmp eq i32 %263, 0
+  br i1 %.not21.i, label %264, label %hd_inflate_read_len.exit.thread
 
-263:                                              ; preds = %261
-  %264 = load i64, ptr %19, align 8
-  %265 = sub i64 %264, %259
-  store i64 %265, ptr %19, align 8
-  %266 = getelementptr inbounds i8, ptr %.0207431, i64 %259
-  %.not245 = icmp eq i64 %264, %259
-  br i1 %.not245, label %267, label %.loopexit
+264:                                              ; preds = %262
+  %265 = load i64, ptr %19, align 8
+  %266 = sub i64 %265, %260
+  store i64 %266, ptr %19, align 8
+  %267 = getelementptr inbounds i8, ptr %.0207431, i64 %260
+  %.not245 = icmp eq i64 %265, %260
+  br i1 %.not245, label %268, label %.loopexit
 
-267:                                              ; preds = %263
-  %268 = load ptr, ptr %25, align 8
-  store i8 0, ptr %268, align 1
+268:                                              ; preds = %264
   %269 = load ptr, ptr %25, align 8
-  %270 = load ptr, ptr %26, align 8
-  %271 = ptrtoint ptr %269 to i64
+  store i8 0, ptr %269, align 1
+  %270 = load ptr, ptr %25, align 8
+  %271 = load ptr, ptr %26, align 8
   %272 = ptrtoint ptr %270 to i64
-  %273 = sub i64 %271, %272
-  %274 = load ptr, ptr %27, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 24
-  store i64 %273, ptr %275, align 8
+  %273 = ptrtoint ptr %271 to i64
+  %274 = sub i64 %272, %273
+  %275 = load ptr, ptr %27, align 8
+  %276 = getelementptr inbounds i8, ptr %275, i64 24
+  store i64 %274, ptr %276, align 8
   store i32 9, ptr %17, align 4
-  br label %417
+  br label %418
 
-276:                                              ; preds = %40
-  %277 = ptrtoint ptr %.0207431 to i64
-  %278 = sub i64 %24, %277
-  %279 = load i64, ptr %19, align 8
-  %..i = tail call i64 @llvm.umin.i64(i64 %278, i64 %279)
-  %280 = load ptr, ptr %25, align 8
-  %281 = tail call ptr @nghttp2_cpymem(ptr noundef %280, ptr noundef %.0207431, i64 noundef %..i) #13
-  store ptr %281, ptr %25, align 8
-  %282 = load i64, ptr %19, align 8
-  %283 = sub i64 %282, %..i
-  store i64 %283, ptr %19, align 8
-  %284 = icmp slt i64 %..i, 0
-  br i1 %284, label %hd_inflate_read_len.exit.thread, label %285
+277:                                              ; preds = %40
+  %278 = ptrtoint ptr %.0207431 to i64
+  %279 = sub i64 %24, %278
+  %280 = load i64, ptr %19, align 8
+  %..i = tail call i64 @llvm.umin.i64(i64 %279, i64 %280)
+  %281 = load ptr, ptr %25, align 8
+  %282 = tail call ptr @nghttp2_cpymem(ptr noundef %281, ptr noundef %.0207431, i64 noundef %..i) #13
+  store ptr %282, ptr %25, align 8
+  %283 = load i64, ptr %19, align 8
+  %284 = sub i64 %283, %..i
+  store i64 %284, ptr %19, align 8
+  %285 = icmp slt i64 %..i, 0
+  br i1 %285, label %hd_inflate_read_len.exit.thread, label %286
 
-285:                                              ; preds = %276
-  %286 = getelementptr inbounds i8, ptr %.0207431, i64 %..i
-  %.not244 = icmp eq i64 %282, %..i
-  br i1 %.not244, label %287, label %.loopexit
+286:                                              ; preds = %277
+  %287 = getelementptr inbounds i8, ptr %.0207431, i64 %..i
+  %.not244 = icmp eq i64 %283, %..i
+  br i1 %.not244, label %288, label %.loopexit
 
-287:                                              ; preds = %285
-  store i8 0, ptr %281, align 1
-  %288 = load ptr, ptr %25, align 8
-  %289 = load ptr, ptr %26, align 8
-  %290 = ptrtoint ptr %288 to i64
+288:                                              ; preds = %286
+  store i8 0, ptr %282, align 1
+  %289 = load ptr, ptr %25, align 8
+  %290 = load ptr, ptr %26, align 8
   %291 = ptrtoint ptr %289 to i64
-  %292 = sub i64 %290, %291
-  %293 = load ptr, ptr %27, align 8
-  %294 = getelementptr inbounds i8, ptr %293, i64 24
-  store i64 %292, ptr %294, align 8
+  %292 = ptrtoint ptr %290 to i64
+  %293 = sub i64 %291, %292
+  %294 = load ptr, ptr %27, align 8
+  %295 = getelementptr inbounds i8, ptr %294, i64 24
+  store i64 %293, ptr %295, align 8
   store i32 9, ptr %17, align 4
-  br label %417
+  br label %418
 
 .thread499:                                       ; preds = %40
   %.0207.val256 = load i8, ptr %.0207431, align 1
@@ -2390,313 +2390,313 @@ hd_inflate_read_len.exit298:                      ; preds = %decode_length.exit.
   store i32 10, ptr %17, align 4
   store i64 0, ptr %19, align 8
   store i64 0, ptr %20, align 8
-  br label %298
+  br label %299
 
-295:                                              ; preds = %40
+296:                                              ; preds = %40
   %.pre = load i64, ptr %19, align 8
   %.pre478 = load i64, ptr %20, align 8
-  %296 = trunc i64 %.pre to i32
+  %297 = trunc i64 %.pre to i32
   store i64 0, ptr %20, align 8
-  %297 = icmp eq i32 %296, 0
-  br i1 %297, label %298, label %306
+  %298 = icmp eq i32 %297, 0
+  br i1 %298, label %299, label %307
 
-298:                                              ; preds = %.thread499, %295
-  %299 = phi i64 [ 0, %.thread499 ], [ %.pre478, %295 ]
-  %300 = load i8, ptr %.0207431, align 1
-  %301 = and i8 %300, 127
-  %302 = zext nneg i8 %301 to i64
-  %.not.i.i319 = icmp eq i8 %301, 127
-  br i1 %.not.i.i319, label %303, label %hd_inflate_read_len.exit320.thread
+299:                                              ; preds = %.thread499, %296
+  %300 = phi i64 [ 0, %.thread499 ], [ %.pre478, %296 ]
+  %301 = load i8, ptr %.0207431, align 1
+  %302 = and i8 %301, 127
+  %303 = zext nneg i8 %302 to i64
+  %.not.i.i319 = icmp eq i8 %302, 127
+  br i1 %.not.i.i319, label %304, label %hd_inflate_read_len.exit320.thread
 
-303:                                              ; preds = %298
-  %304 = getelementptr inbounds i8, ptr %.0207431, i64 1
-  %305 = icmp eq ptr %304, %7
-  br i1 %305, label %hd_inflate_read_len.exit320.thread, label %306
+304:                                              ; preds = %299
+  %305 = getelementptr inbounds i8, ptr %.0207431, i64 1
+  %306 = icmp eq ptr %305, %7
+  br i1 %306, label %hd_inflate_read_len.exit320.thread, label %307
 
-306:                                              ; preds = %303, %295
-  %307 = phi i64 [ %299, %303 ], [ %.pre478, %295 ]
-  %.050.i.i300 = phi ptr [ %304, %303 ], [ %.0207431, %295 ]
-  %.048.i.i301 = phi i32 [ 127, %303 ], [ %296, %295 ]
+307:                                              ; preds = %304, %296
+  %308 = phi i64 [ %300, %304 ], [ %.pre478, %296 ]
+  %.050.i.i300 = phi ptr [ %305, %304 ], [ %.0207431, %296 ]
+  %.048.i.i301 = phi i32 [ 127, %304 ], [ %297, %296 ]
   %.not5867.i.i302 = icmp eq ptr %.050.i.i300, %7
   br i1 %.not5867.i.i302, label %._crit_edge.i.i308, label %.lr.ph.i.i303
 
-.lr.ph.i.i303:                                    ; preds = %306, %323
-  %.170.i.i304 = phi i32 [ %321, %323 ], [ %.048.i.i301, %306 ]
-  %.04969.i.i305 = phi i64 [ %325, %323 ], [ %307, %306 ]
-  %.15168.i.i306 = phi ptr [ %324, %323 ], [ %.050.i.i300, %306 ]
-  %308 = load i8, ptr %.15168.i.i306, align 1
-  %309 = and i8 %308, 127
-  %310 = zext nneg i8 %309 to i32
-  %311 = icmp ugt i64 %.04969.i.i305, 31
-  br i1 %311, label %hd_inflate_read_len.exit.thread, label %312
+.lr.ph.i.i303:                                    ; preds = %307, %324
+  %.170.i.i304 = phi i32 [ %322, %324 ], [ %.048.i.i301, %307 ]
+  %.04969.i.i305 = phi i64 [ %326, %324 ], [ %308, %307 ]
+  %.15168.i.i306 = phi ptr [ %325, %324 ], [ %.050.i.i300, %307 ]
+  %309 = load i8, ptr %.15168.i.i306, align 1
+  %310 = and i8 %309, 127
+  %311 = zext nneg i8 %310 to i32
+  %312 = icmp ugt i64 %.04969.i.i305, 31
+  br i1 %312, label %hd_inflate_read_len.exit.thread, label %313
 
-312:                                              ; preds = %.lr.ph.i.i303
-  %313 = trunc nuw nsw i64 %.04969.i.i305 to i32
-  %314 = lshr i32 -1, %313
-  %315 = icmp ult i32 %314, %310
-  br i1 %315, label %hd_inflate_read_len.exit.thread, label %316
+313:                                              ; preds = %.lr.ph.i.i303
+  %314 = trunc nuw nsw i64 %.04969.i.i305 to i32
+  %315 = lshr i32 -1, %314
+  %316 = icmp ult i32 %315, %311
+  br i1 %316, label %hd_inflate_read_len.exit.thread, label %317
 
-316:                                              ; preds = %312
-  %317 = shl i32 %310, %313
-  %318 = xor i32 %317, -1
-  %319 = icmp ugt i32 %.170.i.i304, %318
-  br i1 %319, label %hd_inflate_read_len.exit.thread, label %320
+317:                                              ; preds = %313
+  %318 = shl i32 %311, %314
+  %319 = xor i32 %318, -1
+  %320 = icmp ugt i32 %.170.i.i304, %319
+  br i1 %320, label %hd_inflate_read_len.exit.thread, label %321
 
-320:                                              ; preds = %316
-  %321 = add i32 %317, %.170.i.i304
-  %322 = icmp sgt i8 %308, -1
-  br i1 %322, label %326, label %323
+321:                                              ; preds = %317
+  %322 = add i32 %318, %.170.i.i304
+  %323 = icmp sgt i8 %309, -1
+  br i1 %323, label %327, label %324
 
-323:                                              ; preds = %320
-  %324 = getelementptr inbounds i8, ptr %.15168.i.i306, i64 1
-  %325 = add nuw nsw i64 %.04969.i.i305, 7
-  %.not58.i.i307 = icmp eq ptr %324, %7
+324:                                              ; preds = %321
+  %325 = getelementptr inbounds i8, ptr %.15168.i.i306, i64 1
+  %326 = add nuw nsw i64 %.04969.i.i305, 7
+  %.not58.i.i307 = icmp eq ptr %325, %7
   br i1 %.not58.i.i307, label %._crit_edge.i.i308, label %.lr.ph.i.i303, !llvm.loop !19
 
-._crit_edge.i.i308:                               ; preds = %323, %306
-  %.049.lcssa.i.i309 = phi i64 [ %307, %306 ], [ %325, %323 ]
-  %.1.lcssa.i.i310 = phi i32 [ %.048.i.i301, %306 ], [ %321, %323 ]
+._crit_edge.i.i308:                               ; preds = %324, %307
+  %.049.lcssa.i.i309 = phi i64 [ %308, %307 ], [ %326, %324 ]
+  %.1.lcssa.i.i310 = phi i32 [ %.048.i.i301, %307 ], [ %322, %324 ]
   store i64 %.049.lcssa.i.i309, ptr %20, align 8
   br label %decode_length.exit.i311
 
-326:                                              ; preds = %320
+327:                                              ; preds = %321
   store i64 %.04969.i.i305, ptr %20, align 8
-  %327 = getelementptr inbounds i8, ptr %.15168.i.i306, i64 1
-  %.pre485 = ptrtoint ptr %327 to i64
+  %328 = getelementptr inbounds i8, ptr %.15168.i.i306, i64 1
+  %.pre485 = ptrtoint ptr %328 to i64
   br label %decode_length.exit.i311
 
-decode_length.exit.i311:                          ; preds = %326, %._crit_edge.i.i308
-  %.sink.i314.pre-phi = phi i64 [ %.pre485, %326 ], [ %24, %._crit_edge.i.i308 ]
-  %.9 = phi i32 [ 1, %326 ], [ 0, %._crit_edge.i.i308 ]
-  %.014.i313 = phi i32 [ %321, %326 ], [ %.1.lcssa.i.i310, %._crit_edge.i.i308 ]
-  %328 = ptrtoint ptr %.0207431 to i64
-  %329 = sub i64 %.sink.i314.pre-phi, %328
-  %330 = icmp eq i64 %329, -1
-  %331 = icmp ugt i32 %.014.i313, 65536
-  %or.cond555 = select i1 %330, i1 true, i1 %331
+decode_length.exit.i311:                          ; preds = %327, %._crit_edge.i.i308
+  %.sink.i314.pre-phi = phi i64 [ %.pre485, %327 ], [ %24, %._crit_edge.i.i308 ]
+  %.9 = phi i32 [ 1, %327 ], [ 0, %._crit_edge.i.i308 ]
+  %.014.i313 = phi i32 [ %322, %327 ], [ %.1.lcssa.i.i310, %._crit_edge.i.i308 ]
+  %329 = ptrtoint ptr %.0207431 to i64
+  %330 = sub i64 %.sink.i314.pre-phi, %329
+  %331 = icmp eq i64 %330, -1
+  %332 = icmp ugt i32 %.014.i313, 65536
+  %or.cond555 = select i1 %331, i1 true, i1 %332
   br i1 %or.cond555, label %hd_inflate_read_len.exit.thread, label %hd_inflate_read_len.exit320
 
-hd_inflate_read_len.exit320.thread:               ; preds = %298, %303
-  %.10.ph = phi i32 [ 1, %298 ], [ 0, %303 ]
-  %.01421.i317.ph = phi i64 [ %302, %298 ], [ 127, %303 ]
+hd_inflate_read_len.exit320.thread:               ; preds = %299, %304
+  %.10.ph = phi i32 [ 1, %299 ], [ 0, %304 ]
+  %.01421.i317.ph = phi i64 [ %303, %299 ], [ 127, %304 ]
   store i64 %.01421.i317.ph, ptr %19, align 8
-  br label %334
+  br label %335
 
 hd_inflate_read_len.exit320:                      ; preds = %decode_length.exit.i311
-  %332 = zext nneg i32 %.014.i313 to i64
-  store i64 %332, ptr %19, align 8
-  %333 = icmp slt i64 %329, 0
-  br i1 %333, label %hd_inflate_read_len.exit.thread, label %334
+  %333 = zext nneg i32 %.014.i313 to i64
+  store i64 %333, ptr %19, align 8
+  %334 = icmp slt i64 %330, 0
+  br i1 %334, label %hd_inflate_read_len.exit.thread, label %335
 
-334:                                              ; preds = %hd_inflate_read_len.exit320.thread, %hd_inflate_read_len.exit320
-  %335 = phi i64 [ %.01421.i317.ph, %hd_inflate_read_len.exit320.thread ], [ %332, %hd_inflate_read_len.exit320 ]
+335:                                              ; preds = %hd_inflate_read_len.exit320.thread, %hd_inflate_read_len.exit320
+  %336 = phi i64 [ %.01421.i317.ph, %hd_inflate_read_len.exit320.thread ], [ %333, %hd_inflate_read_len.exit320 ]
   %.10503510 = phi i32 [ %.10.ph, %hd_inflate_read_len.exit320.thread ], [ %.9, %hd_inflate_read_len.exit320 ]
-  %.0.i22.i316504509 = phi i64 [ 1, %hd_inflate_read_len.exit320.thread ], [ %329, %hd_inflate_read_len.exit320 ]
-  %336 = getelementptr inbounds i8, ptr %.0207431, i64 %.0.i22.i316504509
+  %.0.i22.i316504509 = phi i64 [ 1, %hd_inflate_read_len.exit320.thread ], [ %330, %hd_inflate_read_len.exit320 ]
+  %337 = getelementptr inbounds i8, ptr %.0207431, i64 %.0.i22.i316504509
   %.not241 = icmp eq i32 %.10503510, 0
-  br i1 %.not241, label %.loopexit, label %337
+  br i1 %.not241, label %.loopexit, label %338
 
-337:                                              ; preds = %334
-  %338 = load i8, ptr %18, align 8
-  %.not242 = icmp eq i8 %338, 0
-  br i1 %.not242, label %343, label %339
+338:                                              ; preds = %335
+  %339 = load i8, ptr %18, align 8
+  %.not242 = icmp eq i8 %339, 0
+  br i1 %.not242, label %344, label %340
 
-339:                                              ; preds = %337
+340:                                              ; preds = %338
   tail call void @nghttp2_hd_huff_decode_context_init(ptr noundef nonnull %21) #13
   store i32 11, ptr %17, align 4
-  %340 = load i64, ptr %19, align 8
-  %341 = shl i64 %340, 1
-  %342 = or disjoint i64 %341, 1
-  br label %345
+  %341 = load i64, ptr %19, align 8
+  %342 = shl i64 %341, 1
+  %343 = or disjoint i64 %342, 1
+  br label %346
 
-343:                                              ; preds = %337
+344:                                              ; preds = %338
   store i32 12, ptr %17, align 4
-  %344 = add nuw nsw i64 %335, 1
-  br label %345
+  %345 = add nuw nsw i64 %336, 1
+  br label %346
 
-345:                                              ; preds = %343, %339
-  %.sink556 = phi i64 [ %344, %343 ], [ %342, %339 ]
-  %346 = tail call i32 @nghttp2_rcbuf_new(ptr noundef nonnull %22, i64 noundef %.sink556, ptr noundef %9) #13
-  %.not243 = icmp eq i32 %346, 0
-  br i1 %.not243, label %347, label %hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit403
+346:                                              ; preds = %344, %340
+  %.sink556 = phi i64 [ %345, %344 ], [ %343, %340 ]
+  %347 = tail call i32 @nghttp2_rcbuf_new(ptr noundef nonnull %22, i64 noundef %.sink556, ptr noundef %9) #13
+  %.not243 = icmp eq i32 %347, 0
+  br i1 %.not243, label %348, label %hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit403
 
-347:                                              ; preds = %345
-  %348 = load ptr, ptr %22, align 8
-  %349 = getelementptr inbounds i8, ptr %348, i64 16
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds i8, ptr %348, i64 24
-  %352 = load i64, ptr %351, align 8
-  tail call void @nghttp2_buf_wrap_init(ptr noundef nonnull %23, ptr noundef %350, i64 noundef %352) #13
-  br label %417
+348:                                              ; preds = %346
+  %349 = load ptr, ptr %22, align 8
+  %350 = getelementptr inbounds i8, ptr %349, i64 16
+  %351 = load ptr, ptr %350, align 8
+  %352 = getelementptr inbounds i8, ptr %349, i64 24
+  %353 = load i64, ptr %352, align 8
+  tail call void @nghttp2_buf_wrap_init(ptr noundef nonnull %23, ptr noundef %351, i64 noundef %353) #13
+  br label %418
 
-353:                                              ; preds = %40
-  %354 = tail call fastcc i64 @hd_inflate_read_huff(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef %.0207431, ptr noundef nonnull %7)
-  %355 = icmp slt i64 %354, 0
-  br i1 %355, label %hd_inflate_read_len.exit.thread, label %356
+354:                                              ; preds = %40
+  %355 = tail call fastcc i64 @hd_inflate_read_huff(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef %.0207431, ptr noundef nonnull %7)
+  %356 = icmp slt i64 %355, 0
+  br i1 %356, label %hd_inflate_read_len.exit.thread, label %357
 
-356:                                              ; preds = %353
-  %357 = getelementptr inbounds i8, ptr %.0207431, i64 %354
-  %358 = load i64, ptr %19, align 8
-  %.not239 = icmp eq i64 %358, 0
-  br i1 %.not239, label %359, label %.loopexit
+357:                                              ; preds = %354
+  %358 = getelementptr inbounds i8, ptr %.0207431, i64 %355
+  %359 = load i64, ptr %19, align 8
+  %.not239 = icmp eq i64 %359, 0
+  br i1 %.not239, label %360, label %.loopexit
 
-359:                                              ; preds = %356
-  %360 = getelementptr inbounds i8, ptr %0, i64 136
-  %361 = load ptr, ptr %360, align 8
-  store i8 0, ptr %361, align 1
-  %362 = load ptr, ptr %360, align 8
-  %363 = getelementptr inbounds i8, ptr %0, i64 128
-  %364 = load ptr, ptr %363, align 8
-  %365 = ptrtoint ptr %362 to i64
-  %366 = ptrtoint ptr %364 to i64
-  %367 = sub i64 %365, %366
-  %368 = load ptr, ptr %22, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 24
-  store i64 %367, ptr %369, align 8
-  %370 = load i32, ptr %29, align 8
-  %371 = icmp eq i32 %370, 2
-  br i1 %371, label %372, label %374
+360:                                              ; preds = %357
+  %361 = getelementptr inbounds i8, ptr %0, i64 136
+  %362 = load ptr, ptr %361, align 8
+  store i8 0, ptr %362, align 1
+  %363 = load ptr, ptr %361, align 8
+  %364 = getelementptr inbounds i8, ptr %0, i64 128
+  %365 = load ptr, ptr %364, align 8
+  %366 = ptrtoint ptr %363 to i64
+  %367 = ptrtoint ptr %365 to i64
+  %368 = sub i64 %366, %367
+  %369 = load ptr, ptr %22, align 8
+  %370 = getelementptr inbounds i8, ptr %369, i64 24
+  store i64 %368, ptr %370, align 8
+  %371 = load i32, ptr %29, align 8
+  %372 = icmp eq i32 %371, 2
+  br i1 %372, label %373, label %375
 
-372:                                              ; preds = %359
-  %373 = tail call fastcc i32 @hd_inflate_commit_newname(ptr noundef nonnull %0, ptr noundef %1)
-  br label %376
+373:                                              ; preds = %360
+  %374 = tail call fastcc i32 @hd_inflate_commit_newname(ptr noundef nonnull %0, ptr noundef %1)
+  br label %377
 
-374:                                              ; preds = %359
-  %375 = tail call fastcc i32 @hd_inflate_commit_indname(ptr noundef nonnull %0, ptr noundef %1)
-  br label %376
+375:                                              ; preds = %360
+  %376 = tail call fastcc i32 @hd_inflate_commit_indname(ptr noundef nonnull %0, ptr noundef %1)
+  br label %377
 
-376:                                              ; preds = %374, %372
-  %.2211.in = phi i32 [ %373, %372 ], [ %375, %374 ]
+377:                                              ; preds = %375, %373
+  %.2211.in = phi i32 [ %374, %373 ], [ %376, %375 ]
   %.2211 = sext i32 %.2211.in to i64
   %.not240 = icmp eq i32 %.2211.in, 0
-  br i1 %.not240, label %377, label %hd_inflate_read_len.exit.thread
+  br i1 %.not240, label %378, label %hd_inflate_read_len.exit.thread
 
-377:                                              ; preds = %376
+378:                                              ; preds = %377
   store i32 2, ptr %17, align 4
-  %378 = load i32, ptr %2, align 4
-  %379 = or i32 %378, 2
-  store i32 %379, ptr %2, align 4
-  %380 = ptrtoint ptr %357 to i64
-  %381 = ptrtoint ptr %3 to i64
-  %382 = sub i64 %380, %381
-  br label %435
+  %379 = load i32, ptr %2, align 4
+  %380 = or i32 %379, 2
+  store i32 %380, ptr %2, align 4
+  %381 = ptrtoint ptr %358 to i64
+  %382 = ptrtoint ptr %3 to i64
+  %383 = sub i64 %381, %382
+  br label %436
 
-383:                                              ; preds = %40
-  %384 = ptrtoint ptr %.0207431 to i64
-  %385 = sub i64 %24, %384
-  %386 = load i64, ptr %19, align 8
-  %..i321 = tail call i64 @llvm.umin.i64(i64 %385, i64 %386)
-  %387 = getelementptr inbounds i8, ptr %0, i64 136
-  %388 = load ptr, ptr %387, align 8
-  %389 = tail call ptr @nghttp2_cpymem(ptr noundef %388, ptr noundef %.0207431, i64 noundef %..i321) #13
-  store ptr %389, ptr %387, align 8
-  %390 = load i64, ptr %19, align 8
-  %391 = sub i64 %390, %..i321
-  store i64 %391, ptr %19, align 8
-  %392 = icmp slt i64 %..i321, 0
-  br i1 %392, label %hd_inflate_read_len.exit.thread, label %393
+384:                                              ; preds = %40
+  %385 = ptrtoint ptr %.0207431 to i64
+  %386 = sub i64 %24, %385
+  %387 = load i64, ptr %19, align 8
+  %..i321 = tail call i64 @llvm.umin.i64(i64 %386, i64 %387)
+  %388 = getelementptr inbounds i8, ptr %0, i64 136
+  %389 = load ptr, ptr %388, align 8
+  %390 = tail call ptr @nghttp2_cpymem(ptr noundef %389, ptr noundef %.0207431, i64 noundef %..i321) #13
+  store ptr %390, ptr %388, align 8
+  %391 = load i64, ptr %19, align 8
+  %392 = sub i64 %391, %..i321
+  store i64 %392, ptr %19, align 8
+  %393 = icmp slt i64 %..i321, 0
+  br i1 %393, label %hd_inflate_read_len.exit.thread, label %394
 
-393:                                              ; preds = %383
-  %394 = getelementptr inbounds i8, ptr %.0207431, i64 %..i321
-  %.not237 = icmp eq i64 %390, %..i321
-  br i1 %.not237, label %395, label %.loopexit
+394:                                              ; preds = %384
+  %395 = getelementptr inbounds i8, ptr %.0207431, i64 %..i321
+  %.not237 = icmp eq i64 %391, %..i321
+  br i1 %.not237, label %396, label %.loopexit
 
-395:                                              ; preds = %393
-  store i8 0, ptr %389, align 1
-  %396 = load ptr, ptr %387, align 8
-  %397 = getelementptr inbounds i8, ptr %0, i64 128
-  %398 = load ptr, ptr %397, align 8
-  %399 = ptrtoint ptr %396 to i64
-  %400 = ptrtoint ptr %398 to i64
-  %401 = sub i64 %399, %400
-  %402 = load ptr, ptr %22, align 8
-  %403 = getelementptr inbounds i8, ptr %402, i64 24
-  store i64 %401, ptr %403, align 8
-  %404 = load i32, ptr %29, align 8
-  %405 = icmp eq i32 %404, 2
-  br i1 %405, label %406, label %408
+396:                                              ; preds = %394
+  store i8 0, ptr %390, align 1
+  %397 = load ptr, ptr %388, align 8
+  %398 = getelementptr inbounds i8, ptr %0, i64 128
+  %399 = load ptr, ptr %398, align 8
+  %400 = ptrtoint ptr %397 to i64
+  %401 = ptrtoint ptr %399 to i64
+  %402 = sub i64 %400, %401
+  %403 = load ptr, ptr %22, align 8
+  %404 = getelementptr inbounds i8, ptr %403, i64 24
+  store i64 %402, ptr %404, align 8
+  %405 = load i32, ptr %29, align 8
+  %406 = icmp eq i32 %405, 2
+  br i1 %406, label %407, label %409
 
-406:                                              ; preds = %395
-  %407 = tail call fastcc i32 @hd_inflate_commit_newname(ptr noundef nonnull %0, ptr noundef %1)
-  br label %410
+407:                                              ; preds = %396
+  %408 = tail call fastcc i32 @hd_inflate_commit_newname(ptr noundef nonnull %0, ptr noundef %1)
+  br label %411
 
-408:                                              ; preds = %395
-  %409 = tail call fastcc i32 @hd_inflate_commit_indname(ptr noundef nonnull %0, ptr noundef %1)
-  br label %410
+409:                                              ; preds = %396
+  %410 = tail call fastcc i32 @hd_inflate_commit_indname(ptr noundef nonnull %0, ptr noundef %1)
+  br label %411
 
-410:                                              ; preds = %408, %406
-  %.3212.in = phi i32 [ %407, %406 ], [ %409, %408 ]
+411:                                              ; preds = %409, %407
+  %.3212.in = phi i32 [ %408, %407 ], [ %410, %409 ]
   %.3212 = sext i32 %.3212.in to i64
   %.not238 = icmp eq i32 %.3212.in, 0
-  br i1 %.not238, label %411, label %hd_inflate_read_len.exit.thread
+  br i1 %.not238, label %412, label %hd_inflate_read_len.exit.thread
 
-411:                                              ; preds = %410
+412:                                              ; preds = %411
   store i32 2, ptr %17, align 4
-  %412 = load i32, ptr %2, align 4
-  %413 = or i32 %412, 2
-  store i32 %413, ptr %2, align 4
-  %414 = ptrtoint ptr %394 to i64
-  %415 = ptrtoint ptr %3 to i64
-  %416 = sub i64 %414, %415
-  br label %435
+  %413 = load i32, ptr %2, align 4
+  %414 = or i32 %413, 2
+  store i32 %414, ptr %2, align 4
+  %415 = ptrtoint ptr %395 to i64
+  %416 = ptrtoint ptr %3 to i64
+  %417 = sub i64 %415, %416
+  br label %436
 
-417:                                              ; preds = %347, %287, %267, %246, %193, %hd_context_shrink_table_size.exit, %62, %40
-  %.1208 = phi ptr [ %.0207431, %40 ], [ %336, %347 ], [ %286, %287 ], [ %266, %267 ], [ %235, %246 ], [ %182, %193 ], [ %105, %hd_context_shrink_table_size.exit ], [ %.2, %62 ]
-  %418 = phi i1 [ false, %40 ], [ true, %347 ], [ false, %287 ], [ false, %267 ], [ false, %246 ], [ false, %193 ], [ false, %hd_context_shrink_table_size.exit ], [ false, %62 ]
-  %419 = icmp ne ptr %.1208, %7
-  %420 = or i1 %419, %418
-  br i1 %420, label %40, label %._crit_edge, !llvm.loop !20
+418:                                              ; preds = %348, %288, %268, %247, %194, %hd_context_shrink_table_size.exit, %62, %40
+  %.1208 = phi ptr [ %.0207431, %40 ], [ %337, %348 ], [ %287, %288 ], [ %267, %268 ], [ %236, %247 ], [ %183, %194 ], [ %105, %hd_context_shrink_table_size.exit ], [ %.2, %62 ]
+  %419 = phi i1 [ false, %40 ], [ true, %348 ], [ false, %288 ], [ false, %268 ], [ false, %247 ], [ false, %194 ], [ false, %hd_context_shrink_table_size.exit ], [ false, %62 ]
+  %420 = icmp ne ptr %.1208, %7
+  %421 = or i1 %420, %419
+  br i1 %421, label %40, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %417, %12
-  %.0207.lcssa = phi ptr [ %3, %12 ], [ %7, %417 ]
+._crit_edge:                                      ; preds = %418, %12
+  %.0207.lcssa = phi ptr [ %3, %12 ], [ %7, %418 ]
   %.not234 = icmp eq i32 %5, 0
-  br i1 %.not234, label %427, label %421
+  br i1 %.not234, label %428, label %422
 
-421:                                              ; preds = %._crit_edge
-  %422 = getelementptr inbounds i8, ptr %0, i64 228
-  %423 = load i32, ptr %422, align 4
-  %.off = add i32 %423, -1
+422:                                              ; preds = %._crit_edge
+  %423 = getelementptr inbounds i8, ptr %0, i64 228
+  %424 = load i32, ptr %423, align 4
+  %.off = add i32 %424, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %424, label %hd_inflate_read_len.exit.thread
+  br i1 %switch, label %425, label %hd_inflate_read_len.exit.thread
 
-424:                                              ; preds = %421
-  %425 = load i32, ptr %2, align 4
-  %426 = or i32 %425, 1
-  store i32 %426, ptr %2, align 4
-  br label %427
+425:                                              ; preds = %422
+  %426 = load i32, ptr %2, align 4
+  %427 = or i32 %426, 1
+  store i32 %427, ptr %2, align 4
+  br label %428
 
-427:                                              ; preds = %424, %._crit_edge
-  %428 = ptrtoint ptr %.0207.lcssa to i64
-  %429 = ptrtoint ptr %3 to i64
-  %430 = sub i64 %428, %429
-  br label %435
+428:                                              ; preds = %425, %._crit_edge
+  %429 = ptrtoint ptr %.0207.lcssa to i64
+  %430 = ptrtoint ptr %3 to i64
+  %431 = sub i64 %429, %430
+  br label %436
 
-.loopexit:                                        ; preds = %334, %285, %263, %233, %181, %104, %393, %356
-  %.3 = phi ptr [ %394, %393 ], [ %357, %356 ], [ %105, %104 ], [ %182, %181 ], [ %235, %233 ], [ %266, %263 ], [ %286, %285 ], [ %336, %334 ]
+.loopexit:                                        ; preds = %335, %286, %264, %234, %182, %104, %394, %357
+  %.3 = phi ptr [ %395, %394 ], [ %358, %357 ], [ %105, %104 ], [ %183, %182 ], [ %236, %234 ], [ %267, %264 ], [ %287, %286 ], [ %337, %335 ]
   %.not252 = icmp eq i32 %5, 0
-  br i1 %.not252, label %431, label %hd_inflate_read_len.exit.thread
+  br i1 %.not252, label %432, label %hd_inflate_read_len.exit.thread
 
-431:                                              ; preds = %.loopexit
-  %432 = ptrtoint ptr %.3 to i64
-  %433 = ptrtoint ptr %3 to i64
-  %434 = sub i64 %432, %433
-  br label %435
+432:                                              ; preds = %.loopexit
+  %433 = ptrtoint ptr %.3 to i64
+  %434 = ptrtoint ptr %3 to i64
+  %435 = sub i64 %433, %434
+  br label %436
 
-hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit397: ; preds = %244
-  %.0209.le = sext i32 %245 to i64
+hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit397: ; preds = %245
+  %.0209.le = sext i32 %246 to i64
   br label %hd_inflate_read_len.exit.thread
 
-hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit403: ; preds = %345
-  %.1210.le = sext i32 %346 to i64
+hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit403: ; preds = %346
+  %.1210.le = sext i32 %347 to i64
   br label %hd_inflate_read_len.exit.thread
 
-hd_inflate_read_len.exit.thread:                  ; preds = %hd_inflate_read_len.exit, %hd_inflate_read_len.exit277, %hd_inflate_read_len.exit298, %276, %hd_inflate_read_len.exit320, %42, %49, %183, %decode_length.exit.i, %decode_length.exit.thread18.i, %decode_length.exit.i268, %decode_length.exit.thread18.i272, %decode_length.exit.i289, %252, %261, %decode_length.exit.i311, %316, %312, %.lr.ph.i.i303, %215, %211, %.lr.ph.i.i281, %163, %159, %.lr.ph.i.i260, %86, %82, %.lr.ph.i.i, %hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit397, %hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit403, %421, %.loopexit, %410, %383, %376, %353
-  %.4 = phi i64 [ %..i321, %383 ], [ %.3212, %410 ], [ %354, %353 ], [ %.2211, %376 ], [ -523, %421 ], [ -523, %.loopexit ], [ %.0209.le, %hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit397 ], [ %.1210.le, %hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit403 ], [ -523, %.lr.ph.i.i ], [ -523, %82 ], [ -523, %86 ], [ -523, %.lr.ph.i.i260 ], [ -523, %159 ], [ -523, %163 ], [ -523, %.lr.ph.i.i281 ], [ -523, %211 ], [ -523, %215 ], [ -523, %.lr.ph.i.i303 ], [ -523, %312 ], [ -523, %316 ], [ %.0.i22.i, %hd_inflate_read_len.exit ], [ %.0.i22.i273, %hd_inflate_read_len.exit277 ], [ %228, %hd_inflate_read_len.exit298 ], [ %..i, %276 ], [ %329, %hd_inflate_read_len.exit320 ], [ -523, %42 ], [ -523, %49 ], [ -523, %183 ], [ -523, %decode_length.exit.i ], [ -523, %decode_length.exit.thread18.i ], [ -523, %decode_length.exit.i268 ], [ -523, %decode_length.exit.thread18.i272 ], [ -523, %decode_length.exit.i289 ], [ %259, %252 ], [ -523, %261 ], [ -523, %decode_length.exit.i311 ]
+hd_inflate_read_len.exit.thread:                  ; preds = %hd_inflate_read_len.exit, %hd_inflate_read_len.exit277, %hd_inflate_read_len.exit298, %277, %hd_inflate_read_len.exit320, %42, %49, %184, %decode_length.exit.i, %decode_length.exit.thread18.i, %decode_length.exit.i268, %decode_length.exit.thread18.i272, %decode_length.exit.i289, %253, %262, %decode_length.exit.i311, %317, %313, %.lr.ph.i.i303, %216, %212, %.lr.ph.i.i281, %164, %160, %.lr.ph.i.i260, %86, %82, %.lr.ph.i.i, %hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit397, %hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit403, %422, %.loopexit, %411, %384, %377, %354
+  %.4 = phi i64 [ %..i321, %384 ], [ %.3212, %411 ], [ %355, %354 ], [ %.2211, %377 ], [ -523, %422 ], [ -523, %.loopexit ], [ %.0209.le, %hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit397 ], [ %.1210.le, %hd_inflate_read_len.exit.thread.loopexit345.split.loop.exit403 ], [ -523, %.lr.ph.i.i ], [ -523, %82 ], [ -523, %86 ], [ -523, %.lr.ph.i.i260 ], [ -523, %160 ], [ -523, %164 ], [ -523, %.lr.ph.i.i281 ], [ -523, %212 ], [ -523, %216 ], [ -523, %.lr.ph.i.i303 ], [ -523, %313 ], [ -523, %317 ], [ %.0.i22.i, %hd_inflate_read_len.exit ], [ %.0.i22.i273, %hd_inflate_read_len.exit277 ], [ %229, %hd_inflate_read_len.exit298 ], [ %..i, %277 ], [ %330, %hd_inflate_read_len.exit320 ], [ -523, %42 ], [ -523, %49 ], [ -523, %184 ], [ -523, %decode_length.exit.i ], [ -523, %decode_length.exit.thread18.i ], [ -523, %decode_length.exit.i268 ], [ -523, %decode_length.exit.thread18.i272 ], [ -523, %decode_length.exit.i289 ], [ %260, %253 ], [ -523, %262 ], [ -523, %decode_length.exit.i311 ]
   store i8 1, ptr %10, align 4
-  br label %435
+  br label %436
 
-435:                                              ; preds = %6, %hd_inflate_read_len.exit.thread, %431, %427, %411, %377, %187
-  %.0205 = phi i64 [ %.4, %hd_inflate_read_len.exit.thread ], [ %434, %431 ], [ %416, %411 ], [ %382, %377 ], [ %192, %187 ], [ %430, %427 ], [ -523, %6 ]
+436:                                              ; preds = %6, %hd_inflate_read_len.exit.thread, %432, %428, %412, %378, %188
+  %.0205 = phi i64 [ %.4, %hd_inflate_read_len.exit.thread ], [ %435, %432 ], [ %417, %412 ], [ %383, %378 ], [ %193, %188 ], [ %431, %428 ], [ -523, %6 ]
   ret i64 %.0205
 }
 
@@ -2795,7 +2795,7 @@ define internal fastcc i64 @hd_inflate_read_huff(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @hd_inflate_commit_newname(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_newname(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.nghttp2_hd_nv, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 234
   %5 = load i8, ptr %4, align 2
@@ -2936,13 +2936,13 @@ define dso_local noundef i32 @nghttp2_hd_inflate_end_headers(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_hd_inflate_new(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_hd_inflate_new(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call i32 @nghttp2_hd_inflate_new2(ptr noundef %0, ptr noundef null)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @nghttp2_hd_inflate_new2(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_hd_inflate_new2(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -3952,7 +3952,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
 declare i32 @nghttp2_rcbuf_new2(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @add_hd_table_incremental(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -901, 1) i32 @add_hd_table_incremental(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8

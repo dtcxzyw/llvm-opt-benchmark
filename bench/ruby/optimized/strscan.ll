@@ -1032,7 +1032,7 @@ define internal noundef i64 @strscan_getbyte(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @strscan_scan_byte(i64 noundef %0) #0 {
+define internal range(i64 1, 512) i64 @strscan_scan_byte(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1180,7 +1180,7 @@ extract_beg_len.exit:                             ; preds = %23, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @strscan_peek_byte(i64 noundef %0) #0 {
+define internal range(i64 1, 512) i64 @strscan_peek_byte(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8

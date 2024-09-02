@@ -1219,7 +1219,7 @@ define internal fastcc i32 @get_eff_addr_reg(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @get_seg_base_limit(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.desc_ptr, align 2
   %7 = icmp eq ptr %3, null
   br i1 %7, label %resolve_default_seg.exit, label %8

@@ -992,76 +992,76 @@ proto_item_set_generated.exit395:                 ; preds = %proto_item_set_gene
   %187 = zext i8 %.0310 to i16
   %188 = load i32, ptr %.0304.sroa.phi350, align 4
   %.not376 = icmp eq i32 %188, 0
-  br i1 %.not376, label %189, label %213
+  br i1 %.not376, label %189, label %214
 
 189:                                              ; preds = %186
   %190 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4) #7
   %191 = and i8 %190, -16
   %192 = icmp eq i8 %191, -32
-  br i1 %192, label %193, label %203
+  br i1 %192, label %193, label %204
 
 193:                                              ; preds = %189
   %194 = and i8 %190, 15
-  %195 = zext nneg i8 %194 to i64
-  %196 = load i32, ptr @hf_rohc_add_cid, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %196, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef 0) #7
-  %198 = load i32, ptr @hf_rohc_small_cid, align 4
-  %199 = zext nneg i8 %194 to i32
-  %200 = call ptr @proto_tree_add_uint(ptr noundef %175, i32 noundef %198, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef %199) #7
-  %201 = add i32 %.4, 1
-  %202 = add nsw i16 %187, -1
+  %195 = load i32, ptr @hf_rohc_add_cid, align 4
+  %196 = call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %195, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef 0) #7
+  %197 = load i32, ptr @hf_rohc_small_cid, align 4
+  %198 = zext nneg i8 %194 to i32
+  %199 = call ptr @proto_tree_add_uint(ptr noundef %175, i32 noundef %197, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef %198) #7
+  %200 = add i32 %.4, 1
+  %201 = add nsw i16 %187, -1
+  %202 = zext nneg i8 %194 to i64
+  %203 = inttoptr i64 %202 to ptr
   br label %proto_item_set_generated.exit404
 
-203:                                              ; preds = %189
-  %204 = load i32, ptr @hf_rohc_small_cid, align 4
-  %205 = call ptr @proto_tree_add_uint(ptr noundef %175, i32 noundef %204, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
-  store ptr %205, ptr %8, align 8
-  %.not.i402 = icmp eq ptr %205, null
-  br i1 %.not.i402, label %proto_item_set_generated.exit404, label %206
+204:                                              ; preds = %189
+  %205 = load i32, ptr @hf_rohc_small_cid, align 4
+  %206 = call ptr @proto_tree_add_uint(ptr noundef %175, i32 noundef %205, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
+  store ptr %206, ptr %8, align 8
+  %.not.i402 = icmp eq ptr %206, null
+  br i1 %.not.i402, label %proto_item_set_generated.exit404, label %207
 
-206:                                              ; preds = %203
-  %207 = getelementptr inbounds i8, ptr %205, i64 32
-  %208 = load ptr, ptr %207, align 8
-  %.not5.i403 = icmp eq ptr %208, null
-  br i1 %.not5.i403, label %proto_item_set_generated.exit404, label %209
+207:                                              ; preds = %204
+  %208 = getelementptr inbounds i8, ptr %206, i64 32
+  %209 = load ptr, ptr %208, align 8
+  %.not5.i403 = icmp eq ptr %209, null
+  br i1 %.not5.i403, label %proto_item_set_generated.exit404, label %210
 
-209:                                              ; preds = %206
-  %210 = getelementptr inbounds i8, ptr %208, i64 28
-  %211 = load i32, ptr %210, align 4
-  %212 = or i32 %211, 2
-  store i32 %212, ptr %210, align 4
+210:                                              ; preds = %207
+  %211 = getelementptr inbounds i8, ptr %209, i64 28
+  %212 = load i32, ptr %211, align 4
+  %213 = or i32 %212, 2
+  store i32 %213, ptr %211, align 4
   br label %proto_item_set_generated.exit404
 
-213:                                              ; preds = %186
-  %214 = load i32, ptr @hf_rohc_large_cid, align 4
-  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %175, i32 noundef %.4, i32 noundef %214, ptr noundef nonnull %9)
-  %215 = zext i8 %.0310 to i32
-  %216 = load i8, ptr %9, align 1
-  %217 = zext i8 %216 to i32
-  %218 = sub nsw i32 %215, %217
-  %219 = trunc nsw i32 %218 to i16
-  %220 = add i32 %.4, %217
+214:                                              ; preds = %186
+  %215 = load i32, ptr @hf_rohc_large_cid, align 4
+  call fastcc void @get_self_describing_var_len_val(ptr noundef %0, ptr noundef %175, i32 noundef %.4, i32 noundef %215, ptr noundef nonnull %9)
+  %216 = zext i8 %.0310 to i32
+  %217 = load i8, ptr %9, align 1
+  %218 = zext i8 %217 to i32
+  %219 = sub nsw i32 %216, %218
+  %220 = trunc nsw i32 %219 to i16
+  %221 = add i32 %.4, %218
   br label %proto_item_set_generated.exit404
 
-proto_item_set_generated.exit404:                 ; preds = %209, %206, %203, %193, %213
-  %.5 = phi i32 [ %220, %213 ], [ %201, %193 ], [ %.4, %203 ], [ %.4, %206 ], [ %.4, %209 ]
-  %.0309 = phi i16 [ %219, %213 ], [ %202, %193 ], [ %187, %203 ], [ %187, %206 ], [ %187, %209 ]
-  %.1308 = phi i64 [ 0, %213 ], [ %195, %193 ], [ 0, %203 ], [ 0, %206 ], [ 0, %209 ]
-  %221 = load ptr, ptr %135, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 50
-  %223 = load i16, ptr %222, align 2
-  %224 = and i16 %223, 8
-  %.not.i405 = icmp eq i16 %224, 0
-  br i1 %.not.i405, label %225, label %231
+proto_item_set_generated.exit404:                 ; preds = %210, %207, %204, %193, %214
+  %.5 = phi i32 [ %221, %214 ], [ %200, %193 ], [ %.4, %204 ], [ %.4, %207 ], [ %.4, %210 ]
+  %.0309 = phi i16 [ %220, %214 ], [ %201, %193 ], [ %187, %204 ], [ %187, %207 ], [ %187, %210 ]
+  %.1308 = phi ptr [ null, %214 ], [ %203, %193 ], [ null, %204 ], [ null, %207 ], [ null, %210 ]
+  %222 = load ptr, ptr %135, align 8
+  %223 = getelementptr inbounds i8, ptr %222, i64 50
+  %224 = load i16, ptr %223, align 2
+  %225 = and i16 %224, 8
+  %.not.i405 = icmp eq i16 %225, 0
+  br i1 %.not.i405, label %226, label %231
 
-225:                                              ; preds = %proto_item_set_generated.exit404
-  %226 = load ptr, ptr @rohc_cid_hash, align 8
-  %227 = inttoptr i64 %.1308 to ptr
-  %228 = call ptr @g_hash_table_lookup(ptr noundef %226, ptr noundef %227) #7
+226:                                              ; preds = %proto_item_set_generated.exit404
+  %227 = load ptr, ptr @rohc_cid_hash, align 8
+  %228 = call ptr @g_hash_table_lookup(ptr noundef %227, ptr noundef %.1308) #7
   %.not163.i = icmp eq ptr %228, null
   br i1 %.not163.i, label %.thread.i, label %.thread169.i
 
-.thread169.i:                                     ; preds = %225
+.thread169.i:                                     ; preds = %226
   %229 = call ptr @wmem_file_scope() #7
   %230 = load i32, ptr @proto_rohc, align 4
   call void @p_add_proto_data(ptr noundef %229, ptr noundef nonnull %1, i32 noundef %230, i32 noundef 0, ptr noundef nonnull %228) #7
@@ -1074,7 +1074,7 @@ proto_item_set_generated.exit404:                 ; preds = %209, %206, %203, %1
   %.not164.i = icmp eq ptr %234, null
   br i1 %.not164.i, label %.thread.i, label %257
 
-.thread.i:                                        ; preds = %231, %225
+.thread.i:                                        ; preds = %231, %226
   br i1 %.not483, label %251, label %235
 
 235:                                              ; preds = %.thread.i

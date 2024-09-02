@@ -870,7 +870,7 @@ first_token.exit.thread:                          ; preds = %.preheader.i, %97, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define i32 @MPL_str_get_int_arg(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
+define range(i32 0, 7) i32 @MPL_str_get_int_arg(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %4 = alloca [12 x i8], align 1
   %5 = call i32 @MPL_str_get_string_arg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 12)
   %6 = icmp eq i32 %5, 0
@@ -1494,7 +1494,7 @@ define range(i32 0, 6) i32 @MPL_str_add_int_arg(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_str_add_binary_arg(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 7) i32 @MPL_str_add_binary_arg(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %85, label %7
 

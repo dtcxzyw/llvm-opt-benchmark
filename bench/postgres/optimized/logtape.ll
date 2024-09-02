@@ -991,9 +991,9 @@ ltsReleaseBlock.exit:                             ; preds = %._crit_edge.i, %40,
   %63 = icmp slt i64 %62, 0
   %64 = trunc i64 %62 to i32
   %65 = sub i32 0, %64
-  %66 = load i32, ptr %3, align 4
-  %67 = select i1 %63, i32 %65, i32 8176
-  %68 = add i32 %67, %66
+  %66 = select i1 %63, i32 %65, i32 8176
+  %67 = load i32, ptr %3, align 4
+  %68 = add i32 %66, %67
   store i32 %68, ptr %3, align 4
   %69 = load i64, ptr %61, align 8
   %70 = icmp slt i64 %69, 0

@@ -2943,7 +2943,7 @@ rb_float_new_inline.exit:                         ; preds = %21, %24, %26
 declare double @llvm.fabs.f64(double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i64 1, 0) i64 @rb_flo_is_infinite_p(i64 noundef %0) #10 {
+define hidden range(i64 -1, 5) i64 @rb_flo_is_infinite_p(i64 noundef %0) #10 {
   %2 = and i64 %0, 3
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %4, label %11

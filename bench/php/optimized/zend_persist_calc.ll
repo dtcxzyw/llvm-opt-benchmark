@@ -1693,7 +1693,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %1036 = shl nuw nsw i64 %1035, 3
   br label %._crit_edge555
 
-._crit_edge555:                                   ; preds = %._crit_edge555.loopexit, %.preheader523.._crit_edge555_crit_edge
+._crit_edge555:                                   ; preds = %.preheader523.._crit_edge555_crit_edge, %._crit_edge555.loopexit
   %1037 = phi i64 [ %.pre602, %.preheader523.._crit_edge555_crit_edge ], [ %1028, %._crit_edge555.loopexit ]
   %1038 = phi ptr [ %880, %.preheader523.._crit_edge555_crit_edge ], [ %.pre600.pre609618, %._crit_edge555.loopexit ]
   %.1.lcssa = phi i64 [ 8, %.preheader523.._crit_edge555_crit_edge ], [ %1036, %._crit_edge555.loopexit ]
@@ -1721,7 +1721,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 .lr.ph564:                                        ; preds = %.preheader, %._crit_edge560
   %.pre606614 = phi ptr [ %.pre606615, %._crit_edge560 ], [ %1042, %.preheader ]
-  %1046 = phi ptr [ %1194, %._crit_edge560 ], [ %1042, %.preheader ]
+  %1046 = phi ptr [ %1199, %._crit_edge560 ], [ %1042, %.preheader ]
   %1047 = phi ptr [ %1207, %._crit_edge560 ], [ %1045, %.preheader ]
   %1048 = phi i64 [ %1205, %._crit_edge560 ], [ 0, %.preheader ]
   %.2563 = phi i32 [ %1203, %._crit_edge560 ], [ 0, %.preheader ]
@@ -1940,20 +1940,23 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
   %1191 = load i32, ptr %1190, align 8
   %1192 = zext i32 %1191 to i64
   %1193 = icmp ult i64 %indvars.iv.next586, %1192
-  br i1 %1193, label %.lr.ph559, label %._crit_edge560
+  br i1 %1193, label %.lr.ph559, label %._crit_edge560.loopexit
 
-._crit_edge560:                                   ; preds = %1185, %1134
-  %.pre606615 = phi ptr [ %.pre606, %1134 ], [ %.pre606611, %1185 ]
-  %1194 = phi ptr [ %.pre606, %1134 ], [ %1186, %1185 ]
-  %.lcssa = phi i32 [ 0, %1134 ], [ %1191, %1185 ]
-  %1195 = add i32 %.lcssa, -1
-  %1196 = zext i32 %1195 to i64
-  %1197 = shl nuw nsw i64 %1196, 3
-  %1198 = add nuw nsw i64 %1197, 39
-  %1199 = and i64 %1198, 68719476728
-  %1200 = getelementptr inbounds i8, ptr %1194, i64 424
+._crit_edge560.loopexit:                          ; preds = %1185
+  %1194 = add i32 %1191, -1
+  %1195 = zext i32 %1194 to i64
+  %1196 = shl nuw nsw i64 %1195, 3
+  %1197 = add nuw nsw i64 %1196, 39
+  %1198 = and i64 %1197, 68719476728
+  br label %._crit_edge560
+
+._crit_edge560:                                   ; preds = %._crit_edge560.loopexit, %1134
+  %.pre606615 = phi ptr [ %.pre606, %1134 ], [ %.pre606611, %._crit_edge560.loopexit ]
+  %1199 = phi ptr [ %.pre606, %1134 ], [ %1186, %._crit_edge560.loopexit ]
+  %.lcssa = phi i64 [ 34359738392, %1134 ], [ %1198, %._crit_edge560.loopexit ]
+  %1200 = getelementptr inbounds i8, ptr %1199, i64 424
   %1201 = load i64, ptr %1200, align 8
-  %1202 = add i64 %1201, %1199
+  %1202 = add i64 %1201, %.lcssa
   store i64 %1202, ptr %1200, align 8
   %1203 = add i32 %.2563, 1
   %1204 = load ptr, ptr %1043, align 8
@@ -1971,7 +1974,7 @@ zend_persist_property_info_calc.exit:             ; preds = %614, %611, %548, %.
 
 ._crit_edge565:                                   ; preds = %.preheader.._crit_edge565_crit_edge, %._crit_edge565.loopexit
   %1211 = phi i64 [ %.pre608, %.preheader.._crit_edge565_crit_edge ], [ %1202, %._crit_edge565.loopexit ]
-  %1212 = phi ptr [ %1042, %.preheader.._crit_edge565_crit_edge ], [ %1194, %._crit_edge565.loopexit ]
+  %1212 = phi ptr [ %1042, %.preheader.._crit_edge565_crit_edge ], [ %1199, %._crit_edge565.loopexit ]
   %.2.lcssa = phi i64 [ 8, %.preheader.._crit_edge565_crit_edge ], [ %1210, %._crit_edge565.loopexit ]
   %1213 = getelementptr inbounds i8, ptr %1212, i64 424
   %1214 = add i64 %1211, %.2.lcssa

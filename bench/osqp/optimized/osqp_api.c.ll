@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [19 x i8] c"Solver interrupted\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 16, 0) i64 @osqp_capabilities() local_unnamed_addr #0 {
+define range(i64 28, 0) i64 @osqp_capabilities() local_unnamed_addr #0 {
   %1 = tail call i64 @osqp_algebra_linsys_supported() #15
   %2 = or i64 %1, 28
   ret i64 %2

@@ -78,7 +78,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 declare double @sqrt(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local noundef i32 @_ZN7msdfgen10solveCubicEPddddd(ptr nocapture noundef writeonly %x, double noundef %a, double noundef %b, double noundef %c, double noundef %d) local_unnamed_addr #0 {
+define dso_local noundef range(i32 -1, 4) i32 @_ZN7msdfgen10solveCubicEPddddd(ptr nocapture noundef writeonly %x, double noundef %a, double noundef %b, double noundef %c, double noundef %d) local_unnamed_addr #0 {
 entry:
   %cmp = fcmp une double %a, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end5

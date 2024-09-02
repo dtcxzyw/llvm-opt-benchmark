@@ -2636,7 +2636,7 @@ _ZN7QStringD2Ev.exit130:                          ; preds = %_ZN7QStringD2Ev.exi
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.invoke, %switch.lookup, %144, %150, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i, %180, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i161, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i175, %235, %246, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i186, %257, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i193, %271, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i200, %_ZN7QStringD2Ev.exit223, %.noexc224, %348
+.loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.invoke, %switch.lookup, %144, %150, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i, %180, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i161, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i175, %236, %247, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i186, %257, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i193, %271, %_ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i200, %_ZN7QStringD2Ev.exit223, %.noexc224, %348
   %lpad.loopexit461 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -2945,24 +2945,24 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i175: ; preds = %_ZNK1
   %227 = getelementptr i8, ptr %226, i64 %220
   %228 = load i8, ptr %227, align 1
   %229 = icmp ult i8 %228, 100
-  br i1 %229, label %235, label %230
+  br i1 %229, label %236, label %230
 
 230:                                              ; preds = %225
   %231 = udiv i8 %228, 100
   %232 = zext nneg i8 %231 to i64
   %233 = getelementptr [16 x i8], ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 0, i64 %232
   %234 = load i8, ptr %233, align 1
-  br label %235
+  %235 = zext i8 %234 to i16
+  br label %236
 
-235:                                              ; preds = %225, %230
-  %236 = phi i8 [ %234, %230 ], [ 32, %225 ]
-  %237 = zext i8 %236 to i16
+236:                                              ; preds = %225, %230
+  %237 = phi i16 [ %235, %230 ], [ 32, %225 ]
   %238 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6appendE5QChar(ptr noundef nonnull align 8 dereferenceable(24) %13, i16 %237)
           to label %_ZN7QStringpLE5QChar.exit179 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZN7QStringpLE5QChar.exit179:                     ; preds = %235
+_ZN7QStringpLE5QChar.exit179:                     ; preds = %236
   %239 = icmp ult i8 %228, 10
-  br i1 %239, label %246, label %240
+  br i1 %239, label %247, label %240
 
 240:                                              ; preds = %_ZN7QStringpLE5QChar.exit179
   %241 = udiv i8 %228, 10
@@ -2970,15 +2970,15 @@ _ZN7QStringpLE5QChar.exit179:                     ; preds = %235
   %243 = zext nneg i8 %242 to i64
   %244 = getelementptr [16 x i8], ptr @_ZZN12ByteViewText8drawLineEP8QPainteriiE8hexchars, i64 0, i64 %243
   %245 = load i8, ptr %244, align 1
-  br label %246
+  %246 = zext i8 %245 to i16
+  br label %247
 
-246:                                              ; preds = %_ZN7QStringpLE5QChar.exit179, %240
-  %247 = phi i8 [ %245, %240 ], [ 32, %_ZN7QStringpLE5QChar.exit179 ]
-  %248 = zext i8 %247 to i16
+247:                                              ; preds = %_ZN7QStringpLE5QChar.exit179, %240
+  %248 = phi i16 [ %246, %240 ], [ 32, %_ZN7QStringpLE5QChar.exit179 ]
   %249 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6appendE5QChar(ptr noundef nonnull align 8 dereferenceable(24) %13, i16 %248)
           to label %_ZN7QStringpLE5QChar.exit181 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-_ZN7QStringpLE5QChar.exit181:                     ; preds = %246
+_ZN7QStringpLE5QChar.exit181:                     ; preds = %247
   %250 = urem i8 %228, 10
   br label %.invoke
 

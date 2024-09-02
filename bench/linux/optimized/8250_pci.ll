@@ -3950,29 +3950,29 @@ define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr nocaptu
   %50 = trunc i64 %49 to i32
   br label %86
 
-.preheader:                                       ; preds = %35, %.thread6
-  %51 = phi i64 [ %80, %.thread6 ], [ 0, %35 ]
-  %52 = phi i32 [ %79, %.thread6 ], [ -1, %35 ]
-  %53 = phi i32 [ %78, %.thread6 ], [ 0, %35 ]
+.preheader:                                       ; preds = %35, %.critedge
+  %51 = phi i64 [ %80, %.critedge ], [ 0, %35 ]
+  %52 = phi i32 [ %79, %.critedge ], [ -1, %35 ]
+  %53 = phi i32 [ %78, %.critedge ], [ 0, %35 ]
   %54 = getelementptr [11 x %struct.resource], ptr %12, i64 0, i64 %51
   %55 = getelementptr inbounds i8, ptr %54, i64 24
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, 256
   %58 = icmp eq i64 %57, 0
-  br i1 %58, label %.thread6, label %59
+  br i1 %58, label %.critedge, label %59
 
 59:                                               ; preds = %.preheader
   %60 = getelementptr inbounds i8, ptr %54, i64 8
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 0
-  br i1 %62, label %.thread6, label %63
+  br i1 %62, label %.critedge, label %63
 
 63:                                               ; preds = %59
   %64 = load i64, ptr %54, align 8
   %65 = add i64 %61, 1
   %66 = sub i64 %65, %64
   %67 = icmp eq i64 %66, 8
-  br i1 %67, label %68, label %.thread6
+  br i1 %67, label %68, label %.critedge
 
 68:                                               ; preds = %63
   %69 = icmp eq i32 %52, -1
@@ -3980,22 +3980,22 @@ define internal fastcc range(i32 -19, 1) i32 @serial_pci_guess_board(ptr nocaptu
   %71 = zext i32 %70 to i64
   %72 = icmp eq i64 %51, %71
   %73 = select i1 %69, i1 true, i1 %72
-  br i1 %73, label %74, label %.thread6
+  br i1 %73, label %74, label %.critedge
 
 74:                                               ; preds = %68
   %75 = add i32 %53, 1
   %76 = trunc i64 %51 to i32
   %77 = select i1 %69, i32 %76, i32 %52
-  br label %.thread6
+  br label %.critedge
 
-.thread6:                                         ; preds = %59, %74, %68, %63, %.preheader
+.critedge:                                        ; preds = %59, %74, %68, %63, %.preheader
   %78 = phi i32 [ %53, %63 ], [ %53, %.preheader ], [ %53, %68 ], [ %75, %74 ], [ %53, %59 ]
   %79 = phi i32 [ %52, %63 ], [ %52, %.preheader ], [ %52, %68 ], [ %77, %74 ], [ %52, %59 ]
   %80 = add nuw nsw i64 %51, 1
   %81 = icmp eq i64 %80, 6
   br i1 %81, label %82, label %.preheader, !llvm.loop !34
 
-82:                                               ; preds = %.thread6
+82:                                               ; preds = %.critedge
   %83 = icmp sgt i32 %78, 1
   br i1 %83, label %84, label %.thread
 

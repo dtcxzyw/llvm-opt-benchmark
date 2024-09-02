@@ -305,11 +305,11 @@ Vec_IntRemove.exit:                               ; preds = %96, %._crit_edge.i,
   %129 = and i64 %128, -2
   %130 = inttoptr i64 %129 to ptr
   %.val.i = load i32, ptr %130, align 8
+  %131 = shl i32 %.val.i, 8
   br label %Ivy_ObjFaninId0.exit
 
 Ivy_ObjFaninId0.exit:                             ; preds = %Vec_IntRemove.exit, %127
-  %131 = phi i32 [ %.val.i, %127 ], [ 0, %Vec_IntRemove.exit ]
-  %132 = shl i32 %131, 8
+  %132 = phi i32 [ %131, %127 ], [ 0, %Vec_IntRemove.exit ]
   %133 = or i32 %132, %125
   %.not = icmp eq i32 %133, 0
   br i1 %.not, label %Vec_IntFind.exit, label %134
@@ -624,11 +624,11 @@ define void @Ivy_ManSeqFindCut(ptr nocapture noundef readonly %0, ptr nocapture 
   %10 = and i64 %9, -2
   %11 = inttoptr i64 %10 to ptr
   %.val.i = load i32, ptr %11, align 8
+  %12 = shl i32 %.val.i, 8
   br label %Ivy_ObjFaninId0.exit
 
 Ivy_ObjFaninId0.exit:                             ; preds = %5, %8
-  %12 = phi i32 [ %.val.i, %8 ], [ 0, %5 ]
-  %13 = shl i32 %12, 8
+  %13 = phi i32 [ %12, %8 ], [ 0, %5 ]
   %14 = load i32, ptr %2, align 8
   %15 = icmp eq i32 %14, 0
   %16 = getelementptr inbounds i8, ptr %2, i64 8
@@ -673,11 +673,11 @@ Vec_IntPush.exit:                                 ; preds = %Ivy_ObjFaninId0.exi
   %32 = and i64 %31, -2
   %33 = inttoptr i64 %32 to ptr
   %.val.i19 = load i32, ptr %33, align 8
+  %34 = shl i32 %.val.i19, 8
   br label %Ivy_ObjFaninId1.exit
 
 Ivy_ObjFaninId1.exit:                             ; preds = %Vec_IntPush.exit, %30
-  %34 = phi i32 [ %.val.i19, %30 ], [ 0, %Vec_IntPush.exit ]
-  %35 = shl i32 %34, 8
+  %35 = phi i32 [ %34, %30 ], [ 0, %Vec_IntPush.exit ]
   %36 = load i32, ptr %6, align 4
   %37 = load i32, ptr %2, align 8
   %38 = icmp eq i32 %36, %37

@@ -296,7 +296,7 @@ define dso_local void @page_counter_uncharge(ptr noundef %0, i64 noundef %1) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @page_counter_set_max(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -16, 1) i32 @page_counter_set_max(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load volatile i64, ptr %0, align 8
   %5 = icmp ugt i64 %4, %1

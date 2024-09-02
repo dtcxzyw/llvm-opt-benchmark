@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Gia_ManHashLookupInt(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @Gia_ManHashLookupInt(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
   %spec.select14 = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %4 = getelementptr i8, ptr %0, i64 100
@@ -194,7 +194,7 @@ Gia_ObjFaninLit2p.exit:                           ; preds = %50
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Gia_ManHashLookup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483648, 2147483647) i32 @Gia_ManHashLookup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8
   %5 = ptrtoint ptr %1 to i64

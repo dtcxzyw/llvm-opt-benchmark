@@ -5948,7 +5948,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_u3217h9a8e8e3617bbbdbeE(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h0ee5f0bf4eaf59abE(i64 noundef %0, i64 %1) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 14564) i64 @_ZN5serde2de9size_hint8cautious17h0ee5f0bf4eaf59abE(i64 noundef %0, i64 %1) unnamed_addr #15 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
   %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 14563)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
@@ -5956,7 +5956,7 @@ define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h0ee5f0bf4eaf59abE(i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h3eb967bccf489bf9E(i64 noundef %0, i64 %1) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 21846) i64 @_ZN5serde2de9size_hint8cautious17h3eb967bccf489bf9E(i64 noundef %0, i64 %1) unnamed_addr #15 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
   %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 21845)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
@@ -5964,7 +5964,7 @@ define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h3eb967bccf489bf9E(i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h5e3841d77bdae0dbE(i64 noundef %0, i64 %1) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 21846) i64 @_ZN5serde2de9size_hint8cautious17h5e3841d77bdae0dbE(i64 noundef %0, i64 %1) unnamed_addr #15 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
   %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 21845)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
@@ -5972,7 +5972,7 @@ define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h5e3841d77bdae0dbE(i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h60472801b1edc10bE(i64 noundef %0, i64 %1) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 1048577) i64 @_ZN5serde2de9size_hint8cautious17h60472801b1edc10bE(i64 noundef %0, i64 %1) unnamed_addr #15 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
   %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 1048576)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
@@ -5980,7 +5980,7 @@ define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h60472801b1edc10bE(i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5serde2de9size_hint8cautious17h7908e6949197e1fcE(i64 noundef %0, i64 %1) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef range(i64 0, 32769) i64 @_ZN5serde2de9size_hint8cautious17h7908e6949197e1fcE(i64 noundef %0, i64 %1) unnamed_addr #15 personality ptr @rust_eh_personality {
   %switch = icmp eq i64 %0, 0
   %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 32768)
   %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3

@@ -3467,10 +3467,10 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
   br i1 %225, label %.lr.ph169, label %.critedge7, !llvm.loop !43
 
 .critedge7:                                       ; preds = %.lr.ph169, %223
-  %.0111.lcssa = phi i32 [ %.0111166, %.lr.ph169 ], [ %.1112, %223 ]
-  %.0110.lcssa = phi i32 [ %.0110167, %.lr.ph169 ], [ %.1, %223 ]
-  %226 = icmp eq i32 %.0111.lcssa, 0
-  %227 = icmp ne i32 %.0110.lcssa, 0
+  %.0111.lcssa.ph = phi i32 [ %.0111166, %.lr.ph169 ], [ %.1112, %223 ]
+  %.0110.lcssa.ph = phi i32 [ %.0110167, %.lr.ph169 ], [ %.1, %223 ]
+  %226 = icmp eq i32 %.0111.lcssa.ph, 0
+  %227 = icmp ne i32 %.0110.lcssa.ph, 0
   %or.cond11 = select i1 %226, i1 true, i1 %227
   br i1 %or.cond11, label %.critedge7.thread, label %.critedge7._crit_edge
 
@@ -3479,7 +3479,7 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr nocapture noundef readonly %0, pt
   br label %.critedge5._crit_edge
 
 .critedge7.thread:                                ; preds = %182, %.critedge7
-  %.0110.lcssa190 = phi i32 [ %.0110.lcssa, %.critedge7 ], [ %38, %182 ]
+  %.0110.lcssa190 = phi i32 [ %.0110.lcssa.ph, %.critedge7 ], [ %38, %182 ]
   br i1 %.not, label %229, label %228
 
 228:                                              ; preds = %.critedge7.thread
@@ -4062,12 +4062,15 @@ define void @Gia_ManCountCareBits(ptr nocapture noundef readonly %0, ptr nocaptu
   %.1 = add nuw nsw i32 %158, %.0145
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge10, label %.lr.ph146.split, !llvm.loop !51
+  br i1 %exitcond.not, label %.critedge10.loopexit, label %.lr.ph146.split, !llvm.loop !51
 
-.critedge10:                                      ; preds = %.lr.ph146.split, %.lr.ph146, %.critedge8
-  %.0.lcssa = phi i32 [ 0, %.critedge8 ], [ 0, %.lr.ph146 ], [ %.1, %.lr.ph146.split ]
-  %159 = zext nneg i32 %.0.lcssa to i64
-  %160 = add i64 %.082151, %159
+.critedge10.loopexit:                             ; preds = %.lr.ph146.split
+  %159 = zext nneg i32 %.1 to i64
+  br label %.critedge10
+
+.critedge10:                                      ; preds = %.critedge10.loopexit, %.lr.ph146, %.critedge8
+  %.0.lcssa = phi i64 [ 0, %.critedge8 ], [ 0, %.lr.ph146 ], [ %159, %.critedge10.loopexit ]
+  %160 = add i64 %.082151, %.0.lcssa
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %.val118 = load i32, ptr %3, align 4
   %161 = sext i32 %.val118 to i64
@@ -4361,7 +4364,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

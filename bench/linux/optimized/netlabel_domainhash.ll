@@ -1824,7 +1824,7 @@ define dso_local noundef range(i32 -2, 1) i32 @netlbl_domhsh_remove_af6(ptr noun
 declare dso_local ptr @netlbl_af6list_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlbl_domhsh_remove(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove(ptr noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #10
   switch i16 %1, label %56 [
     i16 2, label %4
@@ -2016,7 +2016,7 @@ define dso_local noundef i32 @netlbl_domhsh_remove(ptr noundef readonly %0, i16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlbl_domhsh_remove_default(i16 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @netlbl_domhsh_remove_default(i16 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   tail call void @__rcu_read_lock() #10
   switch i16 %0, label %13 [
     i16 2, label %3

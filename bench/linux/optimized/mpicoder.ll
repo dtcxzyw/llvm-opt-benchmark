@@ -255,33 +255,33 @@ define dso_local noundef range(i32 -22, 1) i32 @mpi_fromstr(ptr noundef %0, ptr 
   %38 = and i32 %37, 7
   %39 = getelementptr inbounds i8, ptr %0, i64 24
   %40 = zext nneg i32 %27 to i64
-  br label %41
+  %41 = icmp eq i32 %23, 0
+  br label %42
 
-41:                                               ; preds = %96, %36
-  %42 = phi i64 [ %40, %36 ], [ %100, %96 ]
-  %43 = phi i32 [ %38, %36 ], [ 0, %96 ]
-  %44 = phi i32 [ %23, %36 ], [ 0, %96 ]
-  %45 = phi ptr [ %17, %36 ], [ %59, %96 ]
-  br label %46
+42:                                               ; preds = %96, %36
+  %43 = phi i64 [ %40, %36 ], [ %100, %96 ]
+  %44 = phi i32 [ %38, %36 ], [ 0, %96 ]
+  %45 = phi i1 [ %41, %36 ], [ true, %96 ]
+  %46 = phi ptr [ %17, %36 ], [ %59, %96 ]
+  br label %47
 
-46:                                               ; preds = %87, %41
-  %47 = phi i64 [ 0, %41 ], [ %93, %87 ]
-  %48 = phi i32 [ %43, %41 ], [ %94, %87 ]
-  %49 = phi i32 [ %44, %41 ], [ 0, %87 ]
-  %50 = phi ptr [ %45, %41 ], [ %59, %87 ]
-  %51 = icmp eq i32 %49, 0
-  br i1 %51, label %52, label %.thread
+47:                                               ; preds = %87, %42
+  %48 = phi i64 [ 0, %42 ], [ %93, %87 ]
+  %49 = phi i32 [ %44, %42 ], [ %94, %87 ]
+  %50 = phi i1 [ %45, %42 ], [ true, %87 ]
+  %51 = phi ptr [ %46, %42 ], [ %59, %87 ]
+  br i1 %50, label %52, label %.thread
 
-52:                                               ; preds = %46
-  %53 = getelementptr i8, ptr %50, i64 1
-  %54 = load i8, ptr %50, align 1
+52:                                               ; preds = %47
+  %53 = getelementptr i8, ptr %51, i64 1
+  %54 = load i8, ptr %51, align 1
   %55 = zext i8 %54 to i32
   %56 = icmp eq i8 %54, 0
   br i1 %56, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %46, %52
-  %57 = phi i32 [ %55, %52 ], [ 48, %46 ]
-  %58 = phi ptr [ %53, %52 ], [ %50, %46 ]
+.thread:                                          ; preds = %47, %52
+  %57 = phi i32 [ %55, %52 ], [ 48, %47 ]
+  %58 = phi ptr [ %53, %52 ], [ %51, %47 ]
   %59 = getelementptr i8, ptr %58, i64 1
   %60 = load i8, ptr %58, align 1
   %61 = zext i8 %60 to i32
@@ -332,21 +332,21 @@ define dso_local noundef range(i32 -22, 1) i32 @mpi_fromstr(ptr noundef %0, ptr 
   %88 = phi i32 [ -48, %76 ], [ -87, %81 ], [ -55, %84 ]
   %89 = add nsw i32 %88, %61
   %90 = or i32 %89, %78
-  %91 = shl i64 %47, 8
+  %91 = shl i64 %48, 8
   %92 = zext nneg i32 %90 to i64
   %93 = or i64 %91, %92
-  %94 = add nuw nsw i32 %48, 1
+  %94 = add nuw nsw i32 %49, 1
   %95 = icmp eq i32 %94, 8
-  br i1 %95, label %96, label %46, !llvm.loop !11
+  br i1 %95, label %96, label %47, !llvm.loop !11
 
 96:                                               ; preds = %87
   %97 = load ptr, ptr %39, align 8
-  %98 = getelementptr i64, ptr %97, i64 %42
+  %98 = getelementptr i64, ptr %97, i64 %43
   %99 = getelementptr i8, ptr %98, i64 -8
   store i64 %93, ptr %99, align 8
-  %100 = add nsw i64 %42, -1
-  %101 = icmp sgt i64 %42, 1
-  br i1 %101, label %41, label %.loopexit6, !llvm.loop !12
+  %100 = add nsw i64 %43, -1
+  %101 = icmp sgt i64 %43, 1
+  br i1 %101, label %42, label %.loopexit6, !llvm.loop !12
 
 .loopexit:                                        ; preds = %84, %71, %.thread, %52, %16
   tail call void @mpi_clear(ptr noundef %0) #12

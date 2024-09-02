@@ -2494,14 +2494,14 @@ land.rhs.preheader:                               ; preds = %_ZN10ptr_vectorI4ex
   %arrayidx.i314739 = getelementptr inbounds %"class.datalog::const_info", ptr %273, i64 %idxprom.i289
   %274 = load i32, ptr %arrayidx.i314739, align 4
   %cmp94740 = icmp eq i32 %274, %257
-  br i1 %cmp94740, label %for.body95, label %for.end124.loopexit.split.loop.exit718
+  br i1 %cmp94740, label %for.body95, label %for.end124
 
 land.rhs:                                         ; preds = %invoke.cont116
   %275 = load ptr, ptr %const_infos, align 8
   %arrayidx.i314 = getelementptr inbounds %"class.datalog::const_info", ptr %275, i64 %indvars.iv.next686
   %276 = load i32, ptr %arrayidx.i314, align 4
   %cmp94 = icmp eq i32 %276, %257
-  br i1 %cmp94, label %for.body95, label %for.end124.loopexit.split.loop.exit718, !llvm.loop !27
+  br i1 %cmp94, label %for.body95, label %land.rhs.for.end124.loopexit.split.loop.exit718_crit_edge, !llvm.loop !27
 
 for.body95:                                       ; preds = %land.rhs.preheader, %land.rhs
   %arrayidx.i314743 = phi ptr [ %arrayidx.i314, %land.rhs ], [ %arrayidx.i314739, %land.rhs.preheader ]
@@ -2812,17 +2812,14 @@ invoke.cont116:                                   ; preds = %lor.lhs.false.i341.
   %exitcond688.not = icmp eq i64 %indvars.iv.next686, %conv
   br i1 %exitcond688.not, label %for.end124, label %land.rhs, !llvm.loop !27
 
-for.end124.loopexit.split.loop.exit718:           ; preds = %land.rhs, %land.rhs.preheader
-  %.lcssa730 = phi ptr [ %272, %land.rhs.preheader ], [ %306, %land.rhs ]
-  %indvars.iv685.lcssa = phi i64 [ %idxprom.i289, %land.rhs.preheader ], [ %indvars.iv.next686, %land.rhs ]
-  %aux_column_index.1675.lcssa = phi i32 [ %aux_column_index.0681, %land.rhs.preheader ], [ %aux_column_index.2628, %land.rhs ]
-  %307 = trunc nuw i64 %indvars.iv685.lcssa to i32
+land.rhs.for.end124.loopexit.split.loop.exit718_crit_edge: ; preds = %land.rhs
+  %307 = trunc nuw i64 %indvars.iv.next686 to i32
   br label %for.end124
 
-for.end124:                                       ; preds = %invoke.cont116, %for.end124.loopexit.split.loop.exit718, %_ZN10ptr_vectorI4exprEC2EjPKPS0_.exit
-  %308 = phi ptr [ %272, %_ZN10ptr_vectorI4exprEC2EjPKPS0_.exit ], [ %.lcssa730, %for.end124.loopexit.split.loop.exit718 ], [ %306, %invoke.cont116 ]
-  %aux_column_index.1.lcssa = phi i32 [ %aux_column_index.0681, %_ZN10ptr_vectorI4exprEC2EjPKPS0_.exit ], [ %aux_column_index.1675.lcssa, %for.end124.loopexit.split.loop.exit718 ], [ %aux_column_index.2628, %invoke.cont116 ]
-  %i70.1.lcssa = phi i32 [ %i70.0682, %_ZN10ptr_vectorI4exprEC2EjPKPS0_.exit ], [ %307, %for.end124.loopexit.split.loop.exit718 ], [ %retval.0.i618, %invoke.cont116 ]
+for.end124:                                       ; preds = %invoke.cont116, %land.rhs.preheader, %land.rhs.for.end124.loopexit.split.loop.exit718_crit_edge, %_ZN10ptr_vectorI4exprEC2EjPKPS0_.exit
+  %308 = phi ptr [ %272, %_ZN10ptr_vectorI4exprEC2EjPKPS0_.exit ], [ %306, %land.rhs.for.end124.loopexit.split.loop.exit718_crit_edge ], [ %272, %land.rhs.preheader ], [ %306, %invoke.cont116 ]
+  %aux_column_index.1.lcssa = phi i32 [ %aux_column_index.0681, %_ZN10ptr_vectorI4exprEC2EjPKPS0_.exit ], [ %aux_column_index.2628, %land.rhs.for.end124.loopexit.split.loop.exit718_crit_edge ], [ %aux_column_index.0681, %land.rhs.preheader ], [ %aux_column_index.2628, %invoke.cont116 ]
+  %i70.1.lcssa = phi i32 [ %i70.0682, %_ZN10ptr_vectorI4exprEC2EjPKPS0_.exit ], [ %307, %land.rhs.for.end124.loopexit.split.loop.exit718_crit_edge ], [ %i70.0682, %land.rhs.preheader ], [ %retval.0.i618, %invoke.cont116 ]
   %309 = load ptr, ptr %m_manager, align 8
   br i1 %cmp79, label %for.end124.cont, label %for.end124.else
 

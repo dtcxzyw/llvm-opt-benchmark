@@ -5429,47 +5429,47 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %25 = lshr i32 %24, 16
   %26 = and i32 %24, 4
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.thread, label %28
+  br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %14
   %29 = getelementptr inbounds i8, ptr %0, i64 14728
   %30 = load i32, ptr %29, align 8
   %31 = icmp slt i32 %25, %30
-  br i1 %31, label %32, label %.thread
+  br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %0, i64 14736
   %34 = load ptr, ptr %33, align 16
   %35 = zext nneg i32 %25 to i64
   %36 = getelementptr %struct.ata_link, ptr %34, i64 %35
-  br label %.thread
+  br label %.critedge
 
 37:                                               ; preds = %2
   %38 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #12
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread, label %.preheader5
+  br i1 %39, label %.critedge, label %.preheader7
 
-.preheader5:                                      ; preds = %37, %47
+.preheader7:                                      ; preds = %37, %47
   %40 = phi ptr [ %48, %47 ], [ %38, %37 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 744
   %42 = load i32, ptr %41, align 8
   %43 = icmp ult i32 %42, 33
-  br i1 %43, label %.thread, label %44
+  br i1 %43, label %.critedge, label %44
 
-44:                                               ; preds = %.preheader5
+44:                                               ; preds = %.preheader7
   %45 = getelementptr inbounds i8, ptr %40, i64 748
   %46 = load i32, ptr %45, align 4
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %47, label %.thread
+  br i1 %.not, label %47, label %.critedge
 
 47:                                               ; preds = %44
   %48 = tail call ptr @ata_link_next(ptr noundef nonnull %40, ptr noundef %0, i32 noundef 0) #12
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread, label %.preheader5, !llvm.loop !39
+  br i1 %49, label %.critedge, label %.preheader7, !llvm.loop !39
 
-.thread:                                          ; preds = %.preheader5, %47, %44, %37, %32, %28, %14
-  %50 = phi ptr [ %36, %32 ], [ null, %28 ], [ null, %14 ], [ null, %37 ], [ %40, %.preheader5 ], [ %40, %44 ], [ null, %47 ]
-  %51 = phi i1 [ true, %32 ], [ false, %28 ], [ false, %14 ], [ false, %37 ], [ false, %44 ], [ false, %47 ], [ false, %.preheader5 ]
+.critedge:                                        ; preds = %.preheader7, %47, %44, %37, %32, %28, %14
+  %50 = phi ptr [ %36, %32 ], [ null, %28 ], [ null, %14 ], [ null, %37 ], [ %40, %.preheader7 ], [ %40, %44 ], [ null, %47 ]
+  %51 = phi i1 [ true, %32 ], [ false, %28 ], [ false, %14 ], [ false, %37 ], [ false, %44 ], [ false, %47 ], [ false, %.preheader7 ]
   %52 = icmp eq ptr %50, null
   %53 = select i1 %52, ptr %9, ptr %50
   %54 = getelementptr inbounds i8, ptr %53, i64 744
@@ -5482,7 +5482,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %61 = select i1 %56, i1 true, i1 %60
   br i1 %61, label %68, label %62, !prof !13
 
-62:                                               ; preds = %.thread
+62:                                               ; preds = %.critedge
   %63 = getelementptr inbounds i8, ptr %59, i64 80
   %64 = load i64, ptr %63, align 8
   %65 = and i64 %64, 65537
@@ -5490,8 +5490,8 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %67 = select i1 %66, ptr %59, ptr null
   br label %68
 
-68:                                               ; preds = %62, %.thread
-  %69 = phi ptr [ null, %.thread ], [ %67, %62 ]
+68:                                               ; preds = %62, %.critedge
+  %69 = phi ptr [ null, %.critedge ], [ %67, %62 ]
   %70 = getelementptr inbounds i8, ptr %53, i64 776
   tail call void @ata_ehi_clear_desc(ptr noundef %10) #12
   tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef %10, ptr noundef nonnull @.str.83, i32 noundef %1) #12
@@ -5687,7 +5687,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
 
 205:                                              ; preds = %202
   %206 = tail call i32 @ata_port_freeze(ptr noundef %0) #12
-  br label %.critedge
+  br label %.critedge6
 
 207:                                              ; preds = %202
   br i1 %51, label %208, label %245
@@ -5724,7 +5724,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %230 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %222) #12, !srcloc !11
   %231 = and i32 %230, 2
   %232 = icmp eq i32 %231, 0
-  br i1 %232, label %.critedge, label %.preheader
+  br i1 %232, label %.critedge6, label %.preheader
 
 .preheader:                                       ; preds = %228, %.preheader
   %233 = phi i32 [ %234, %.preheader ], [ 3, %228 ]
@@ -5738,20 +5738,20 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   br i1 %239, label %240, label %.preheader, !llvm.loop !42
 
 240:                                              ; preds = %.preheader
-  br i1 %237, label %.critedge, label %241
+  br i1 %237, label %.critedge6, label %241
 
 241:                                              ; preds = %240
   %242 = load ptr, ptr %3, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 8
   %244 = load ptr, ptr %243, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %244, ptr noundef nonnull @.str.91) #14
-  br label %.critedge
+  br label %.critedge6
 
 245:                                              ; preds = %207
   %246 = tail call i32 @ata_port_abort(ptr noundef %0) #12
-  br label %.critedge
+  br label %.critedge6
 
-.critedge:                                        ; preds = %228, %245, %241, %240, %205
+.critedge6:                                       ; preds = %228, %245, %241, %240, %205
   ret void
 }
 

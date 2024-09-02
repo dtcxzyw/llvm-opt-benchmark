@@ -670,7 +670,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
   br i1 %56, label %61, label %78
 
 57:                                               ; preds = %52
-  %.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.0.i, i32 6)
+  %.0.sroa.speculated.i.i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0.i, i32 6)
   %58 = mul nuw nsw i32 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i.i.i
   %.not.i34.i = icmp eq i32 %.0.i, 0
   br i1 %.not.i34.i, label %.backedge.i.backedge, label %.lr.ph.i35.i

@@ -2432,16 +2432,16 @@ define internal fastcc i64 @load_elf_interp(ptr nocapture noundef readonly %0, p
   %54 = icmp ne i64 %2, 0
   br label %55
 
-55:                                               ; preds = %164, %53
-  %56 = phi i16 [ %21, %53 ], [ %165, %164 ]
-  %57 = phi i32 [ 0, %53 ], [ %169, %164 ]
-  %58 = phi i64 [ %51, %53 ], [ %168, %164 ]
-  %59 = phi i32 [ 0, %53 ], [ %167, %164 ]
-  %60 = phi i64 [ 0, %53 ], [ %166, %164 ]
-  %61 = phi ptr [ %3, %53 ], [ %170, %164 ]
+55:                                               ; preds = %163, %53
+  %56 = phi i16 [ %21, %53 ], [ %164, %163 ]
+  %57 = phi i32 [ 0, %53 ], [ %168, %163 ]
+  %58 = phi i64 [ %51, %53 ], [ %167, %163 ]
+  %59 = phi i32 [ 0, %53 ], [ %166, %163 ]
+  %60 = phi i64 [ 0, %53 ], [ %165, %163 ]
+  %61 = phi ptr [ %3, %53 ], [ %169, %163 ]
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 1
-  br i1 %63, label %64, label %164
+  br i1 %63, label %64, label %163
 
 64:                                               ; preds = %55
   %65 = getelementptr inbounds i8, ptr %61, i64 4
@@ -2576,31 +2576,31 @@ define internal fastcc i64 @load_elf_interp(ptr nocapture noundef readonly %0, p
   %158 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #15, !srcloc !13
   br label %159
 
-159:                                              ; preds = %157, %151
+159:                                              ; preds = %151, %157
   %160 = phi i64 [ %156, %151 ], [ %158, %157 ]
   %161 = load i64, ptr %129, align 8
   %162 = sub i64 %160, %161
-  %163 = icmp ult i64 %162, %111
-  br i1 %163, label %.thread, label %._crit_edge
+  %.not = icmp ult i64 %162, %111
+  br i1 %.not, label %.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %159
   %.pre = load i16, ptr %20, align 8
-  br label %164
+  br label %163
 
-164:                                              ; preds = %._crit_edge, %55
-  %165 = phi i16 [ %56, %55 ], [ %.pre, %._crit_edge ]
-  %166 = phi i64 [ %60, %55 ], [ %108, %._crit_edge ]
-  %167 = phi i32 [ %59, %55 ], [ %109, %._crit_edge ]
-  %168 = phi i64 [ %58, %55 ], [ 0, %._crit_edge ]
-  %169 = add nuw nsw i32 %57, 1
-  %170 = getelementptr i8, ptr %61, i64 56
-  %171 = zext i16 %165 to i32
-  %172 = icmp ult i32 %169, %171
-  br i1 %172, label %55, label %.thread, !llvm.loop !49
+163:                                              ; preds = %._crit_edge, %55
+  %164 = phi i16 [ %.pre, %._crit_edge ], [ %56, %55 ]
+  %165 = phi i64 [ %108, %._crit_edge ], [ %60, %55 ]
+  %166 = phi i32 [ %109, %._crit_edge ], [ %59, %55 ]
+  %167 = phi i64 [ 0, %._crit_edge ], [ %58, %55 ]
+  %168 = add nuw nsw i32 %57, 1
+  %169 = getelementptr i8, ptr %61, i64 56
+  %170 = zext i16 %164 to i32
+  %171 = icmp ult i32 %168, %170
+  br i1 %171, label %55, label %.thread, !llvm.loop !49
 
-.thread:                                          ; preds = %159, %123, %126, %144, %97, %164, %48, %19, %13, %9, %4
-  %173 = phi i64 [ -1, %13 ], [ -1, %9 ], [ -1, %4 ], [ -22, %19 ], [ -22, %48 ], [ -12, %159 ], [ %83, %97 ], [ -12, %144 ], [ -12, %126 ], [ -12, %123 ], [ %166, %164 ]
-  ret i64 %173
+.thread:                                          ; preds = %123, %126, %144, %97, %163, %159, %48, %19, %13, %9, %4
+  %172 = phi i64 [ -1, %13 ], [ -1, %9 ], [ -1, %4 ], [ -22, %19 ], [ -22, %48 ], [ %83, %97 ], [ -12, %144 ], [ -12, %126 ], [ -12, %123 ], [ %165, %163 ], [ -12, %159 ]
+  ret i64 %172
 }
 
 ; Function Attrs: null_pointer_is_valid

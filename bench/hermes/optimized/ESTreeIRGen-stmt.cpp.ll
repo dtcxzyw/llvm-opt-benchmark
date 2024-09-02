@@ -2372,7 +2372,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i, %if.en
   %APtr.027.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %14, %if.then.i.i ]
   %16 = load ptr, ptr %APtr.027.i.i, align 8, !noalias !6
   %cmp3.i.i = icmp eq ptr %16, %12
-  br i1 %cmp3.i.i, label %_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_.exit, label %if.end.i.i
+  br i1 %cmp3.i.i, label %if.end29, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp8.i.i = icmp eq ptr %16, inttoptr (i64 -2 to ptr)
@@ -2390,7 +2390,7 @@ if.then12.i.i:                                    ; preds = %for.end.i.i
   %17 = load i32, ptr %NumTombstones.i.i.i, align 8, !noalias !6
   %dec.i.i = add i32 %17, -1
   store i32 %dec.i.i, ptr %NumTombstones.i.i.i, align 8, !noalias !6
-  br label %_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_.exit
+  br label %if.then27
 
 if.end16.i.i:                                     ; preds = %for.end.i.i, %if.then.i.i
   %18 = load i32, ptr %CurArraySize.i.i.i, align 8, !noalias !6
@@ -2401,22 +2401,18 @@ if.then19.i.i:                                    ; preds = %if.end16.i.i
   %inc.i.i = add nuw i32 %15, 1
   store i32 %inc.i.i, ptr %NumNonEmpty.i.i.i, align 4, !noalias !6
   store ptr %12, ptr %add.ptr.i.i, align 8, !noalias !6
-  br label %_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_.exit
+  br label %if.then27
 
 if.end31.i.i:                                     ; preds = %if.end16.i.i, %if.else
   %call32.i.i = call { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %valueSet, ptr noundef %12) #8, !noalias !6
   %19 = extractvalue { ptr, i8 } %call32.i.i, 1
-  br label %_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_.exit
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %if.then27, label %if.end29
 
-_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_.exit: ; preds = %for.body.i.i, %if.then12.i.i, %if.then19.i.i, %if.end31.i.i
-  %retval.sroa.5.0.i.i = phi i8 [ 1, %if.then19.i.i ], [ %19, %if.end31.i.i ], [ 1, %if.then12.i.i ], [ 0, %for.body.i.i ]
-  %tobool26 = trunc i8 %retval.sroa.5.0.i.i to i1
-  br i1 %tobool26, label %if.then27, label %if.end29
-
-if.then27:                                        ; preds = %_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_.exit
-  %20 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %21 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
-  %cmp.not.i = icmp ult i32 %20, %21
+if.then27:                                        ; preds = %if.then19.i.i, %if.then12.i.i, %if.end31.i.i
+  %21 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %22 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
+  %cmp.not.i = icmp ult i32 %21, %22
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then27
@@ -2425,18 +2421,18 @@ if.then.i:                                        ; preds = %if.then27
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit: ; preds = %if.then27, %if.then.i
-  %22 = phi i32 [ %.pre.i, %if.then.i ], [ %20, %if.then27 ]
-  %23 = load ptr, ptr %values, align 8
-  %conv.i3.i = zext i32 %22 to i64
-  %add.ptr.i.i17 = getelementptr inbounds ptr, ptr %23, i64 %conv.i3.i
-  %24 = ptrtoint ptr %12 to i64
-  store i64 %24, ptr %add.ptr.i.i17, align 1
-  %25 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %add.i = add i32 %25, 1
+  %23 = phi i32 [ %.pre.i, %if.then.i ], [ %21, %if.then27 ]
+  %24 = load ptr, ptr %values, align 8
+  %conv.i3.i = zext i32 %23 to i64
+  %add.ptr.i.i17 = getelementptr inbounds ptr, ptr %24, i64 %conv.i3.i
+  %25 = ptrtoint ptr %12 to i64
+  store i64 %25, ptr %add.ptr.i.i17, align 1
+  %26 = load i32, ptr %Size.i.i.i.i.i, align 8
+  %add.i = add i32 %26, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
-  %26 = load i32, ptr %Size.i.i.i.i.i14, align 8
-  %27 = load i32, ptr %Capacity2.i.i.i.i.i15, align 4
-  %cmp.not.i20 = icmp ult i32 %26, %27
+  %27 = load i32, ptr %Size.i.i.i.i.i14, align 8
+  %28 = load i32, ptr %Capacity2.i.i.i.i.i15, align 4
+  %cmp.not.i20 = icmp ult i32 %27, %28
   br i1 %cmp.not.i20, label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit, label %if.then.i21
 
 if.then.i21:                                      ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit
@@ -2445,19 +2441,19 @@ if.then.i21:                                      ; preds = %_ZN4llvh23SmallVect
   br label %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit: ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit, %if.then.i21
-  %28 = phi i32 [ %.pre.i23, %if.then.i21 ], [ %26, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit ]
-  %29 = load ptr, ptr %blocks, align 8
-  %conv.i3.i24 = zext i32 %28 to i64
-  %add.ptr.i.i25 = getelementptr inbounds ptr, ptr %29, i64 %conv.i3.i24
-  %30 = ptrtoint ptr %call21 to i64
-  store i64 %30, ptr %add.ptr.i.i25, align 1
-  %31 = load i32, ptr %Size.i.i.i.i.i14, align 8
-  %add.i26 = add i32 %31, 1
+  %29 = phi i32 [ %.pre.i23, %if.then.i21 ], [ %27, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes7LiteralELb1EE9push_backERKS3_.exit ]
+  %30 = load ptr, ptr %blocks, align 8
+  %conv.i3.i24 = zext i32 %29 to i64
+  %add.ptr.i.i25 = getelementptr inbounds ptr, ptr %30, i64 %conv.i3.i24
+  %31 = ptrtoint ptr %call21 to i64
+  store i64 %31, ptr %add.ptr.i.i25, align 1
+  %32 = load i32, ptr %Size.i.i.i.i.i14, align 8
+  %add.i26 = add i32 %32, 1
   store i32 %add.i26, ptr %Size.i.i.i.i.i14, align 8
   br label %if.end29
 
-if.end29:                                         ; preds = %for.body, %_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_.exit, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit
-  %defaultBlock.1 = phi ptr [ %defaultBlock.049, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit ], [ %defaultBlock.049, %_ZN4llvh15SmallPtrSetImplIPN6hermes7LiteralEE6insertES3_.exit ], [ %call21, %for.body ]
+if.end29:                                         ; preds = %for.body.i.i, %for.body, %if.end31.i.i, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit
+  %defaultBlock.1 = phi ptr [ %defaultBlock.049, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes10BasicBlockELb1EE9push_backERKS3_.exit ], [ %defaultBlock.049, %if.end31.i.i ], [ %call21, %for.body ], [ %defaultBlock.049, %for.body.i.i ]
   br i1 %isFirstCase.047, label %if.end34, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
@@ -2495,36 +2491,36 @@ if.end41:                                         ; preds = %if.end, %if.then38
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call12) #8
   %call44 = call noundef ptr @_ZN6hermes9IRBuilder16createSwitchInstEPNS_5ValueEPNS_10BasicBlockERKN4llvh11SmallVectorIPNS_7LiteralELj8EEERKNS6_IS4_Lj8EEE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call6, ptr noundef %defaultBlock.0.lcssa54, ptr noundef nonnull align 8 dereferenceable(80) %values, ptr noundef nonnull align 8 dereferenceable(80) %blocks) #8
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call4) #8
-  %32 = load ptr, ptr %blocks, align 8
-  %cmp.i.i.i29 = icmp eq ptr %32, %add.ptr.i.i.i.i.i13
+  %33 = load ptr, ptr %blocks, align 8
+  %cmp.i.i.i29 = icmp eq ptr %33, %add.ptr.i.i.i.i.i13
   br i1 %cmp.i.i.i29, label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit, label %if.then.i.i30
 
 if.then.i.i30:                                    ; preds = %if.end41
-  call void @free(ptr noundef %32) #8
+  call void @free(ptr noundef %33) #8
   br label %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit: ; preds = %if.end41, %if.then.i.i30
-  %33 = load ptr, ptr %values, align 8
-  %cmp.i.i.i32 = icmp eq ptr %33, %add.ptr.i.i.i.i.i
+  %34 = load ptr, ptr %values, align 8
+  %cmp.i.i.i32 = icmp eq ptr %34, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i32, label %_ZN4llvh11SmallVectorIPN6hermes7LiteralELj8EED2Ev.exit, label %if.then.i.i33
 
 if.then.i.i33:                                    ; preds = %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit
-  call void @free(ptr noundef %33) #8
+  call void @free(ptr noundef %34) #8
   br label %_ZN4llvh11SmallVectorIPN6hermes7LiteralELj8EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPN6hermes7LiteralELj8EED2Ev.exit: ; preds = %_ZN4llvh11SmallVectorIPN6hermes10BasicBlockELj8EED2Ev.exit, %if.then.i.i33
-  %34 = load ptr, ptr %CurArray.i.i.i, align 8
-  %35 = load ptr, ptr %valueSet, align 8
-  %cmp.i.i.i.i = icmp eq ptr %34, %35
+  %35 = load ptr, ptr %CurArray.i.i.i, align 8
+  %36 = load ptr, ptr %valueSet, align 8
+  %cmp.i.i.i.i = icmp eq ptr %35, %36
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallPtrSetIPN6hermes7LiteralELj8EED2Ev.exit, label %if.then.i.i.i34
 
 if.then.i.i.i34:                                  ; preds = %_ZN4llvh11SmallVectorIPN6hermes7LiteralELj8EED2Ev.exit
-  call void @free(ptr noundef %34) #8
+  call void @free(ptr noundef %35) #8
   br label %_ZN4llvh11SmallPtrSetIPN6hermes7LiteralELj8EED2Ev.exit
 
 _ZN4llvh11SmallPtrSetIPN6hermes7LiteralELj8EED2Ev.exit: ; preds = %_ZN4llvh11SmallVectorIPN6hermes7LiteralELj8EED2Ev.exit, %if.then.i.i.i34
-  %36 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
-  %tobool.i.i.i.i = trunc i8 %36 to i1
+  %37 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
+  %tobool.i.i.i.i = trunc i8 %37 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8optionalIN6hermes5irgen15EnterBlockScopeEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4llvh11SmallPtrSetIPN6hermes7LiteralELj8EED2Ev.exit

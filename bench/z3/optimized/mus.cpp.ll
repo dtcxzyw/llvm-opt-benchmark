@@ -1988,12 +1988,12 @@ for.cond.i.i:                                     ; preds = %_ZN15ref_vector_cor
 if.end.i.i.i.i:                                   ; preds = %for.cond.i.i
   %arrayidx.i.i.i.i65 = getelementptr inbounds i8, ptr %51, i64 -4
   %52 = load i32, ptr %arrayidx.i.i.i.i65, align 4
+  %53 = zext i32 %52 to i64
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i: ; preds = %if.end.i.i.i.i, %for.cond.i.i
-  %retval.0.i.i.i.i = phi i32 [ %52, %if.end.i.i.i.i ], [ 0, %for.cond.i.i ]
-  %53 = zext i32 %retval.0.i.i.i.i to i64
-  %cmp.i.i66 = icmp ult i64 %indvars.iv.i.i63, %53
+  %retval.0.i.i.i.i = phi i64 [ %53, %if.end.i.i.i.i ], [ 0, %for.cond.i.i ]
+  %cmp.i.i66 = icmp ult i64 %indvars.iv.i.i63, %retval.0.i.i.i.i
   br i1 %cmp.i.i66, label %for.body.i.i67, label %invoke.cont54
 
 for.body.i.i67:                                   ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i
@@ -2877,12 +2877,12 @@ for.cond:                                         ; preds = %invoke.cont3, %for.
 if.end.i.i:                                       ; preds = %for.cond
   %arrayidx.i.i8 = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i8, align 4
+  %10 = zext i32 %9 to i64
   br label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %for.cond, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %9, %if.end.i.i ], [ 0, %for.cond ]
-  %10 = zext i32 %retval.0.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %10
+  %retval.0.i.i = phi i64 [ %10, %if.end.i.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit

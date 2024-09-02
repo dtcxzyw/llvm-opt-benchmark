@@ -347,18 +347,21 @@ define ptr @Llb_ManComputeQuant(ptr nocapture noundef readonly %0) local_unnamed
   %.1.i = phi i32 [ %60, %59 ], [ %.029.i, %54 ], [ %.029.i, %41 ], [ %spec.select.i, %48 ], [ %.029.i, %44 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Llb_ManComputeCommonQuant.exit, label %41, !llvm.loop !4
+  br i1 %exitcond.not.i, label %Llb_ManComputeCommonQuant.exit.loopexit, label %41, !llvm.loop !4
 
-Llb_ManComputeCommonQuant.exit:                   ; preds = %.thread27.i, %32
-  %.0.lcssa.i = phi i32 [ 0, %32 ], [ %.1.i, %.thread27.i ]
-  %61 = sitofp i32 %.0.lcssa.i to float
+Llb_ManComputeCommonQuant.exit.loopexit:          ; preds = %.thread27.i
+  %61 = sitofp i32 %.1.i to float
+  br label %Llb_ManComputeCommonQuant.exit
+
+Llb_ManComputeCommonQuant.exit:                   ; preds = %Llb_ManComputeCommonQuant.exit.loopexit, %32
+  %.0.lcssa.i = phi float [ 0.000000e+00, %32 ], [ %61, %Llb_ManComputeCommonQuant.exit.loopexit ]
   %62 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv42
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds float, ptr %63, i64 %indvars.iv45
-  store float %61, ptr %64, align 4
+  store float %.0.lcssa.i, ptr %64, align 4
   %65 = load ptr, ptr %31, align 8
   %66 = getelementptr inbounds float, ptr %65, i64 %indvars.iv42
-  store float %61, ptr %66, align 4
+  store float %.0.lcssa.i, ptr %66, align 4
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %67 = load i32, ptr %2, align 4
   %68 = add nsw i32 %67, -1

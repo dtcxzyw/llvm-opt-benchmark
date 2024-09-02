@@ -1384,17 +1384,16 @@ lor.lhs.false.i:                                  ; preds = %if.then
   br i1 %cmp1.i, label %if.end.i, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
-  %cmp3.i = icmp slt i32 %.pre.pre11.i, 0
-  %cmp5.i = icmp sgt i32 %.pre.pre11.i, %4
-  %or.cond.i = or i1 %cmp3.i, %cmp5.i
-  %cmp7.i = icmp eq i32 %3, %.pre.pre11.i
-  %or.cond8.i = or i1 %cmp7.i, %or.cond.i
-  %spec.select.i = select i1 %or.cond8.i, i32 -2, i32 0
+  %cmp3.i = icmp sgt i32 %.pre.pre11.i, -1
+  %cmp5.i = icmp sle i32 %.pre.pre11.i, %4
+  %or.cond.i.not86 = and i1 %cmp3.i, %cmp5.i
+  %cmp7.i = icmp ne i32 %3, %.pre.pre11.i
+  %or.cond8.i.not = and i1 %cmp7.i, %or.cond.i.not86
   br label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false2.i, %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %5 = phi i32 [ %.pre.pre.i, %entry.if.then_crit_edge.i ], [ %.pre.pre11.i, %lor.lhs.false.i ], [ %.pre.pre11.i, %lor.lhs.false2.i ]
-  %no_go.0.i = phi i32 [ -2, %entry.if.then_crit_edge.i ], [ -2, %lor.lhs.false.i ], [ %spec.select.i, %lor.lhs.false2.i ]
+  %no_go.0.i = phi i1 [ false, %entry.if.then_crit_edge.i ], [ false, %lor.lhs.false.i ], [ %or.cond8.i.not, %lor.lhs.false2.i ]
   %idxprom.i = sext i32 %3 to i64
   %arrayidx.i = getelementptr inbounds [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %idxprom.i
   %idxprom.i.i = zext i32 %5 to i64
@@ -1427,8 +1426,7 @@ grow_slab_list.exit.i:                            ; preds = %if.end.i.i, %if.end
   %slabs.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
   %9 = load i32, ptr %slabs.i, align 4
   %cmp11.i = icmp ugt i32 %9, 1
-  %cmp14.not.i75 = icmp eq i32 %no_go.0.i, 0
-  %cmp14.not.i = select i1 %cmp11.i, i1 %cmp14.not.i75, i1 false
+  %cmp14.not.i = select i1 %cmp11.i, i1 %no_go.0.i, i1 false
   br i1 %cmp14.not.i, label %if.end17.i, label %if.then4
 
 if.end17.i:                                       ; preds = %grow_slab_list.exit.i
@@ -1716,9 +1714,9 @@ for.body.i45.preheader:                           ; preds = %for.body.lr.ph.i42
   br label %for.body.i45
 
 for.body.i45:                                     ; preds = %for.body.i45.preheader, %if.then4.i
-  %dec.i.i4888 = phi i32 [ %dec.i.i48, %if.then4.i ], [ %sl_curr.i.i39.promoted, %for.body.i45.preheader ]
+  %dec.i.i4889 = phi i32 [ %dec.i.i48, %if.then4.i ], [ %sl_curr.i.i39.promoted, %for.body.i45.preheader ]
   %x.010.i = phi i32 [ %inc6.i, %if.then4.i ], [ 0, %for.body.i45.preheader ]
-  %cmp7.not.i.i = icmp eq i32 %dec.i.i4888, 0
+  %cmp7.not.i.i = icmp eq i32 %dec.i.i4889, 0
   br i1 %cmp7.not.i.i, label %do.body214.sink.split.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %for.body.i45
@@ -1740,7 +1738,7 @@ if.end.i47:                                       ; preds = %if.then11.i.i, %if.
   store i16 %64, ptr %it_flags.i.i, align 2
   %refcount.i.i = getelementptr inbounds i8, ptr %61, i64 36
   store i16 1, ptr %refcount.i.i, align 4
-  %dec.i.i48 = add i32 %dec.i.i4888, -1
+  %dec.i.i48 = add i32 %dec.i.i4889, -1
   store i32 %dec.i.i48, ptr %sl_curr.i.i39, align 8
   %cmp2.not.i = icmp uge ptr %61, %60
   %65 = load ptr, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 8), align 8
@@ -2192,13 +2190,13 @@ land.rhs.i.i.preheader:                           ; preds = %while.cond.preheade
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body.i.i
-  %sub.i.i.i89 = phi i32 [ %sub.i.i.i, %while.body.i.i ], [ %.promoted, %land.rhs.i.i.preheader ]
+  %sub.i.i.i90 = phi i32 [ %sub.i.i.i, %while.body.i.i ], [ %.promoted, %land.rhs.i.i.preheader ]
   %sub35.i.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %mem_malloced.promoted.i.i, %land.rhs.i.i.preheader ]
-  %cmp.i.i.i = icmp eq i32 %sub.i.i.i89, 0
+  %cmp.i.i.i = icmp eq i32 %sub.i.i.i90, 0
   br i1 %cmp.i.i.i, label %if.end18.i, label %get_page_from_global_pool.exit.i.i
 
 get_page_from_global_pool.exit.i.i:               ; preds = %land.rhs.i.i
-  %sub.i.i.i = add i32 %sub.i.i.i89, -1
+  %sub.i.i.i = add i32 %sub.i.i.i90, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %139, i64 %idxprom.i.i.i
   %140 = load ptr, ptr %arrayidx.i.i.i, align 8

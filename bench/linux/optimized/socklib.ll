@@ -199,11 +199,11 @@ define internal fastcc i64 @xdr_partial_copy_from_skb(ptr nocapture noundef read
   %30 = getelementptr inbounds i8, ptr %1, i64 16
   br label %31
 
-31:                                               ; preds = %87, %22
-  %32 = phi i32 [ %28, %22 ], [ 0, %87 ]
-  %33 = phi ptr [ %27, %22 ], [ %88, %87 ]
-  %34 = phi i32 [ %7, %22 ], [ %89, %87 ]
-  %35 = phi i64 [ %10, %22 ], [ %82, %87 ]
+31:                                               ; preds = %86, %22
+  %32 = phi i32 [ %28, %22 ], [ 0, %86 ]
+  %33 = phi ptr [ %27, %22 ], [ %87, %86 ]
+  %34 = phi i32 [ %7, %22 ], [ %88, %86 ]
+  %35 = phi i64 [ %10, %22 ], [ %82, %86 ]
   %36 = load i32, ptr %29, align 8
   %37 = and i32 %36, 4
   %38 = icmp ne i32 %37, 0
@@ -284,33 +284,33 @@ define internal fastcc i64 @xdr_partial_copy_from_skb(ptr nocapture noundef read
 
 84:                                               ; preds = %81
   %85 = load i64, ptr %30, align 8
-  %86 = icmp eq i64 %85, 0
-  br i1 %86, label %.thread, label %87
+  %.not = icmp eq i64 %85, 0
+  br i1 %.not, label %.thread, label %86
 
-87:                                               ; preds = %84
-  %88 = getelementptr i8, ptr %33, i64 8
-  %89 = sub i32 %34, %69
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %.loopexit, label %31, !llvm.loop !20
+86:                                               ; preds = %84
+  %87 = getelementptr i8, ptr %33, i64 8
+  %88 = sub i32 %34, %69
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %.loopexit, label %31, !llvm.loop !20
 
-.loopexit:                                        ; preds = %87, %20
-  %91 = phi i64 [ %10, %20 ], [ %82, %87 ]
-  %92 = getelementptr inbounds i8, ptr %0, i64 24
-  %93 = load i64, ptr %92, align 8
-  %94 = and i64 %93, 4294967295
-  %.not = icmp eq i64 %94, 0
-  br i1 %.not, label %.thread, label %95
+.loopexit:                                        ; preds = %86, %20
+  %90 = phi i64 [ %10, %20 ], [ %82, %86 ]
+  %91 = getelementptr inbounds i8, ptr %0, i64 24
+  %92 = load i64, ptr %91, align 8
+  %93 = and i64 %92, 4294967295
+  %.not9 = icmp eq i64 %93, 0
+  br i1 %.not9, label %.thread, label %94
 
-95:                                               ; preds = %.loopexit
-  %96 = getelementptr inbounds i8, ptr %0, i64 16
-  %97 = load ptr, ptr %96, align 8
-  %98 = tail call i64 %2(ptr noundef %1, ptr noundef %97, i64 noundef %94) #9, !callees !10
-  %99 = add i64 %98, %91
+94:                                               ; preds = %.loopexit
+  %95 = getelementptr inbounds i8, ptr %0, i64 16
+  %96 = load ptr, ptr %95, align 8
+  %97 = tail call i64 %2(ptr noundef %1, ptr noundef %96, i64 noundef %93) #9, !callees !10
+  %98 = add i64 %97, %90
   br label %.thread
 
-.thread:                                          ; preds = %84, %81, %43, %95, %.loopexit, %16, %12
-  %100 = phi i64 [ %14, %12 ], [ %99, %95 ], [ %91, %.loopexit ], [ %10, %16 ], [ %45, %43 ], [ %82, %81 ], [ %82, %84 ]
-  ret i64 %100
+.thread:                                          ; preds = %81, %84, %43, %94, %.loopexit, %16, %12
+  %99 = phi i64 [ %14, %12 ], [ %98, %94 ], [ %90, %.loopexit ], [ %10, %16 ], [ %45, %43 ], [ %82, %84 ], [ %82, %81 ]
+  ret i64 %99
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

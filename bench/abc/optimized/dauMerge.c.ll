@@ -431,7 +431,7 @@ define void @Dau_DsdMergeSubstitute_rec(ptr noundef %0, ptr noundef %1, ptr noun
   %storemerge150195 = phi ptr [ %storemerge150194, %.lr.ph197 ], [ %storemerge150, %164 ]
   %109 = load i8, ptr %storemerge150195, align 1
   %110 = icmp eq i8 %109, 33
-  br i1 %110, label %111, label %116
+  br i1 %110, label %111, label %118
 
 111:                                              ; preds = %108
   %112 = load ptr, ptr %102, align 8
@@ -442,18 +442,18 @@ define void @Dau_DsdMergeSubstitute_rec(ptr noundef %0, ptr noundef %1, ptr noun
   %115 = getelementptr inbounds i8, ptr %114, i64 1
   store ptr %115, ptr %2, align 8
   %.pre218 = load i8, ptr %115, align 1
-  br label %116
+  %116 = icmp eq i8 %.pre218, 33
+  %117 = zext i1 %116 to i64
+  br label %118
 
-116:                                              ; preds = %111, %108
-  %117 = phi i8 [ %.pre218, %111 ], [ %109, %108 ]
-  %118 = phi ptr [ %115, %111 ], [ %storemerge150195, %108 ]
-  %119 = icmp eq i8 %117, 33
-  %spec.select.idx.i = zext i1 %119 to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %118, i64 %spec.select.idx.i
+118:                                              ; preds = %111, %108
+  %spec.select.idx.i = phi i64 [ %117, %111 ], [ 0, %108 ]
+  %119 = phi ptr [ %115, %111 ], [ %storemerge150195, %108 ]
+  %spec.select.i = getelementptr inbounds i8, ptr %119, i64 %spec.select.idx.i
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge.i, %116
-  %.1.i = phi ptr [ %spec.select.i, %116 ], [ %123, %.critedge.i ]
+.critedge.i:                                      ; preds = %.critedge.i, %118
+  %.1.i = phi ptr [ %spec.select.i, %118 ], [ %123, %.critedge.i ]
   %120 = load i8, ptr %.1.i, align 1
   %121 = add i8 %120, -65
   %or.cond.i = icmp ult i8 %121, 6
@@ -502,7 +502,7 @@ Dau_DsdMergeGetStatus.exit:                       ; preds = %.critedge2.i, %125
   %147 = load i32, ptr %0, align 8
   %148 = add nsw i32 %147, 1
   store i32 %148, ptr %0, align 8
-  %149 = icmp ult ptr %118, %142
+  %149 = icmp ult ptr %119, %142
   %150 = sext i32 %147 to i64
   br i1 %149, label %.lr.ph.i.i, label %Dau_DsdMergeStoreCreateDef.exit
 
@@ -511,7 +511,7 @@ Dau_DsdMergeGetStatus.exit:                       ; preds = %.critedge2.i, %125
   br label %152
 
 152:                                              ; preds = %152, %.lr.ph.i.i
-  %.04.i.i = phi ptr [ %118, %.lr.ph.i.i ], [ %153, %152 ]
+  %.04.i.i = phi ptr [ %119, %.lr.ph.i.i ], [ %153, %152 ]
   %153 = getelementptr inbounds i8, ptr %.04.i.i, i64 1
   %154 = load i8, ptr %.04.i.i, align 1
   %155 = load ptr, ptr %151, align 8

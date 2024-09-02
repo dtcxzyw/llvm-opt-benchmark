@@ -618,7 +618,11 @@ if.end12:                                         ; preds = %if.then11, %if.end9
   %tobool37.not = icmp eq i32 %recurse, 0
   br label %land.rhs
 
-land.rhs:                                         ; preds = %if.end12, %if.end45
+land.rhs.critedge:                                ; preds = %if.else36, %_.exit30, %if.then27
+  call void @strbuf_release(ptr noundef nonnull %abspath) #12
+  br label %land.rhs.backedge
+
+land.rhs:                                         ; preds = %land.rhs.backedge, %if.end12
   %call17 = call ptr @readdir_skip_dot_and_dotdot(ptr noundef nonnull %call) #12
   %tobool18.not = icmp eq ptr %call17, null
   br i1 %tobool18.not, label %while.end, label %while.body
@@ -686,7 +690,7 @@ strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4
 if.then27:                                        ; preds = %strbuf_setlen.exit
   %13 = load ptr, ptr %buf14, align 8
   %call29 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %archiver_args, ptr noundef nonnull @.str.40, ptr noundef %13) #12
-  br label %if.end45
+  br label %land.rhs.critedge
 
 if.then33:                                        ; preds = %strbuf_setlen.exit
   %14 = load i32, ptr @git_gettext_enabled, align 4
@@ -701,24 +705,23 @@ _.exit30:                                         ; preds = %if.then33, %if.end3
   %retval.0.i29 = phi ptr [ %call.i28, %if.end3.i27 ], [ @.str.41, %if.then33 ]
   %15 = load ptr, ptr %buf14, align 8
   call void (ptr, ...) @warning(ptr noundef %retval.0.i29, ptr noundef %15) #12
-  br label %if.end45
+  br label %land.rhs.critedge
 
 if.else36:                                        ; preds = %strbuf_setlen.exit
-  br i1 %tobool37.not, label %if.end45, label %land.lhs.true
+  br i1 %tobool37.not, label %land.rhs.critedge, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else36
   %16 = load ptr, ptr %buf14, align 8
   %call39 = call fastcc i32 @add_directory_to_archiver(ptr noundef %archiver_args, ptr noundef %16, i32 noundef %recurse)
-  br label %if.end45
-
-if.end45:                                         ; preds = %land.lhs.true, %_.exit30, %if.else36, %if.then27
-  %res.1 = phi i32 [ 0, %if.then27 ], [ 0, %_.exit30 ], [ 0, %if.else36 ], [ %call39, %land.lhs.true ]
+  %17 = icmp eq i32 %call39, 0
   call void @strbuf_release(ptr noundef nonnull %abspath) #12
-  %tobool16.not = icmp eq i32 %res.1, 0
-  br i1 %tobool16.not, label %land.rhs, label %while.end, !llvm.loop !10
+  br i1 %17, label %land.rhs.backedge, label %while.end
 
-while.end:                                        ; preds = %if.end45, %land.rhs
-  %res.0.lcssa = phi i32 [ -1, %if.end45 ], [ 0, %land.rhs ]
+land.rhs.backedge:                                ; preds = %land.lhs.true, %land.rhs.critedge
+  br label %land.rhs, !llvm.loop !10
+
+while.end:                                        ; preds = %land.lhs.true, %land.rhs
+  %res.0.lcssa = phi i32 [ -1, %land.lhs.true ], [ 0, %land.rhs ]
   %call46 = call i32 @closedir(ptr noundef nonnull %call)
   call void @strbuf_release(ptr noundef nonnull %buf) #12
   br label %return

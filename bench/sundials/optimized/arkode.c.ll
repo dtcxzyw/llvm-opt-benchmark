@@ -1326,7 +1326,7 @@ define range(i32 -23, 1) i32 @arkResStolerance(ptr noundef %0, double noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkRwtSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define range(i32 -18, 1) i32 @arkRwtSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 256
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -3548,7 +3548,7 @@ define i32 @arkCompleteStep(ptr noundef %0, double noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @arkHandleFailure(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -99, -2) i32 @arkHandleFailure(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   switch i32 %1, label %70 [
     i32 -3, label %3
     i32 -4, label %8

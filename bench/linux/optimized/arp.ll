@@ -1701,7 +1701,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @arp_process(ptr noundef %0, 
   %11 = load i16, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
   %12 = icmp eq ptr %9, null
-  br i1 %12, label %280, label %13
+  br i1 %12, label %283, label %13
 
 13:                                               ; preds = %2
   store i32 0, ptr %3, align 4, !annotation !15
@@ -1723,17 +1723,17 @@ define internal fastcc noundef range(i32 0, 2) i32 @arp_process(ptr noundef %0, 
   %21 = getelementptr inbounds i8, ptr %19, i64 2
   %22 = load i16, ptr %21, align 2
   %23 = icmp eq i16 %22, 8
-  br i1 %23, label %24, label %280
+  br i1 %23, label %24, label %283
 
 24:                                               ; preds = %20
   %25 = tail call i16 @llvm.bswap.i16(i16 %11)
   %26 = load i16, ptr %19, align 2
   %27 = icmp eq i16 %25, %26
-  br i1 %27, label %48, label %280
+  br i1 %27, label %48, label %283
 
 28:                                               ; preds = %13, %13, %13
   %29 = load i16, ptr %19, align 2
-  switch i16 %29, label %280 [
+  switch i16 %29, label %283 [
     i16 256, label %30
     i16 1536, label %30
   ]
@@ -1742,34 +1742,34 @@ define internal fastcc noundef range(i32 0, 2) i32 @arp_process(ptr noundef %0, 
   %31 = getelementptr inbounds i8, ptr %19, i64 2
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %32, 8
-  br i1 %33, label %48, label %280
+  br i1 %33, label %48, label %283
 
 34:                                               ; preds = %13
   %35 = getelementptr inbounds i8, ptr %19, i64 2
   %36 = load i16, ptr %35, align 2
   %37 = icmp eq i16 %36, -13312
-  br i1 %37, label %38, label %280
+  br i1 %37, label %38, label %283
 
 38:                                               ; preds = %34
   %39 = load i16, ptr %19, align 2
   %40 = icmp eq i16 %39, 768
-  br i1 %40, label %48, label %280
+  br i1 %40, label %48, label %283
 
 41:                                               ; preds = %13
   %42 = getelementptr inbounds i8, ptr %19, i64 2
   %43 = load i16, ptr %42, align 2
   %44 = icmp eq i16 %43, -13312
-  br i1 %44, label %45, label %280
+  br i1 %44, label %45, label %283
 
 45:                                               ; preds = %41
   %46 = load i16, ptr %19, align 2
   %47 = icmp eq i16 %46, 0
-  br i1 %47, label %48, label %280
+  br i1 %47, label %48, label %283
 
 48:                                               ; preds = %45, %38, %30, %24
   %49 = getelementptr inbounds i8, ptr %19, i64 6
   %50 = load i16, ptr %49, align 2
-  switch i16 %50, label %280 [
+  switch i16 %50, label %283 [
     i16 512, label %51
     i16 256, label %51
   ]
@@ -1788,7 +1788,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @arp_process(ptr noundef %0, 
   store i32 %60, ptr %4, align 4
   %61 = and i32 %60, 240
   %62 = icmp eq i32 %61, 224
-  br i1 %62, label %280, label %63
+  br i1 %62, label %283, label %63
 
 63:                                               ; preds = %51
   %64 = load ptr, ptr %9, align 8
@@ -1808,7 +1808,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @arp_process(ptr noundef %0, 
   %76 = and i32 %60, 255
   %77 = icmp eq i32 %76, 127
   %78 = and i1 %77, %75
-  br i1 %78, label %280, label %79
+  br i1 %78, label %283, label %79
 
 79:                                               ; preds = %72, %63
   %80 = icmp eq i32 %57, %60
@@ -1818,21 +1818,22 @@ define internal fastcc noundef range(i32 0, 2) i32 @arp_process(ptr noundef %0, 
   %82 = getelementptr i8, ptr %68, i64 128
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %280
+  br i1 %84, label %85, label %283
 
 85:                                               ; preds = %81
   %86 = getelementptr i8, ptr %9, i64 320
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %280
+  br i1 %88, label %89, label %283
 
 89:                                               ; preds = %85, %79
+  store i32 0, ptr %5, align 4, !annotation !15
   %90 = icmp eq i16 %11, 15
   %91 = getelementptr inbounds i8, ptr %7, i64 1000
   %92 = select i1 %90, ptr %91, ptr %52
   %93 = load i16, ptr %49, align 2
   %94 = icmp eq i16 %93, 256
-  br i1 %94, label %95, label %thread-pre-split
+  br i1 %94, label %95, label %thread-pre-split.thread
 
 95:                                               ; preds = %89
   %96 = getelementptr inbounds i8, ptr %1, i64 88
@@ -1852,295 +1853,301 @@ define internal fastcc noundef range(i32 0, 2) i32 @arp_process(ptr noundef %0, 
 106:                                              ; preds = %100
   %107 = tail call ptr @iptunnel_metadata_reply(ptr noundef nonnull %101, i32 noundef 2080) #14
   %.pr.pre = load i16, ptr %49, align 2
+  %108 = icmp eq i16 %.pr.pre, 256
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %106, %100, %95, %89
-  %108 = phi i16 [ %93, %89 ], [ 256, %95 ], [ 256, %100 ], [ %.pr.pre, %106 ]
-  %109 = phi ptr [ null, %89 ], [ null, %95 ], [ null, %100 ], [ %107, %106 ]
-  store i32 0, ptr %5, align 4, !annotation !15
-  %110 = icmp eq i32 %57, 0
-  %111 = icmp eq i16 %108, 256
-  br i1 %110, label %112, label %122
+thread-pre-split:                                 ; preds = %106, %100, %95
+  %109 = phi i1 [ true, %95 ], [ true, %100 ], [ %108, %106 ]
+  %110 = phi ptr [ null, %95 ], [ null, %100 ], [ %107, %106 ]
+  %111 = icmp eq i32 %57, 0
+  br i1 %111, label %113, label %123
 
-112:                                              ; preds = %thread-pre-split
-  br i1 %111, label %113, label %.thread
+thread-pre-split.thread:                          ; preds = %89
+  %112 = icmp eq i32 %57, 0
+  br i1 %112, label %.thread, label %.thread11
 
-113:                                              ; preds = %112
-  %114 = tail call i32 @inet_addr_type_dev_table(ptr noundef %0, ptr noundef %7, i32 noundef %60) #14
-  %115 = icmp eq i32 %114, 2
-  br i1 %115, label %116, label %.thread
+113:                                              ; preds = %thread-pre-split
+  br i1 %109, label %114, label %.thread
 
-116:                                              ; preds = %113
-  %117 = tail call fastcc i32 @arp_ignore(ptr noundef nonnull %9, i32 noundef 0, i32 noundef %60), !range !25
-  %118 = icmp eq i32 %117, 0
-  br i1 %118, label %119, label %.thread
+114:                                              ; preds = %113
+  %115 = tail call i32 @inet_addr_type_dev_table(ptr noundef %0, ptr noundef %7, i32 noundef %60) #14
+  %116 = icmp eq i32 %115, 2
+  br i1 %116, label %117, label %.thread
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %7, i64 968
-  %121 = load ptr, ptr %120, align 8
-  tail call fastcc void @arp_send_dst(i32 noundef 2, i32 noundef 0, ptr noundef %7, i32 noundef %60, ptr noundef %92, ptr noundef %121, ptr noundef %92, ptr noundef %109)
+117:                                              ; preds = %114
+  %118 = tail call fastcc i32 @arp_ignore(ptr noundef nonnull %9, i32 noundef 0, i32 noundef %60), !range !25
+  %119 = icmp eq i32 %118, 0
+  br i1 %119, label %120, label %.thread
+
+120:                                              ; preds = %117
+  %121 = getelementptr inbounds i8, ptr %7, i64 968
+  %122 = load ptr, ptr %121, align 8
+  tail call fastcc void @arp_send_dst(i32 noundef 2, i32 noundef 0, ptr noundef %7, i32 noundef %60, ptr noundef %92, ptr noundef %122, ptr noundef %92, ptr noundef %110)
   br label %.thread
 
-122:                                              ; preds = %thread-pre-split
-  br i1 %111, label %123, label %218
+123:                                              ; preds = %thread-pre-split
+  br i1 %109, label %124, label %.thread11
 
-123:                                              ; preds = %122
-  %124 = tail call i32 @ip_route_input_noref(ptr noundef %1, i32 noundef %60, i32 noundef %57, i8 noundef zeroext 0, ptr noundef %7) #14
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %126, label %218
+124:                                              ; preds = %123
+  %125 = tail call i32 @ip_route_input_noref(ptr noundef %1, i32 noundef %60, i32 noundef %57, i8 noundef zeroext 0, ptr noundef %7) #14
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %.thread11
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %1, i64 88
-  %128 = load i64, ptr %127, align 8
-  %129 = and i64 %128, -2
-  %130 = inttoptr i64 %129 to ptr
-  %131 = getelementptr inbounds i8, ptr %130, i64 144
-  %132 = load i16, ptr %131, align 8
-  %133 = zext i16 %132 to i32
-  store i32 %133, ptr %5, align 4
-  %134 = icmp eq i16 %132, 2
-  br i1 %134, label %135, label %161
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds i8, ptr %1, i64 88
+  %129 = load i64, ptr %128, align 8
+  %130 = and i64 %129, -2
+  %131 = inttoptr i64 %130 to ptr
+  %132 = getelementptr inbounds i8, ptr %131, i64 144
+  %133 = load i16, ptr %132, align 8
+  %134 = zext i16 %133 to i32
+  store i32 %134, ptr %5, align 4
+  %135 = icmp eq i16 %133, 2
+  br i1 %135, label %136, label %162
 
-135:                                              ; preds = %126
-  %136 = tail call fastcc i32 @arp_ignore(ptr noundef nonnull %9, i32 noundef %57, i32 noundef %60), !range !25
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %.thread
+136:                                              ; preds = %127
+  %137 = tail call fastcc i32 @arp_ignore(ptr noundef nonnull %9, i32 noundef %57, i32 noundef %60), !range !25
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %139, label %.thread
 
-138:                                              ; preds = %135
-  %139 = load ptr, ptr %9, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 272
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 944
-  %143 = load ptr, ptr %142, align 16
-  %144 = getelementptr i8, ptr %143, i64 56
-  %145 = load i32, ptr %144, align 8
-  %146 = icmp eq i32 %145, 0
-  br i1 %146, label %147, label %151
+139:                                              ; preds = %136
+  %140 = load ptr, ptr %9, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 272
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %142, i64 944
+  %144 = load ptr, ptr %143, align 16
+  %145 = getelementptr i8, ptr %144, i64 56
+  %146 = load i32, ptr %145, align 8
+  %147 = icmp eq i32 %146, 0
+  br i1 %147, label %148, label %152
 
-147:                                              ; preds = %138
-  %148 = getelementptr i8, ptr %9, i64 248
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %154, label %151
+148:                                              ; preds = %139
+  %149 = getelementptr i8, ptr %9, i64 248
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp eq i32 %150, 0
+  br i1 %151, label %155, label %152
 
-151:                                              ; preds = %147, %138
-  %152 = tail call fastcc i32 @arp_filter(i32 noundef %57, i32 noundef %60, ptr noundef %7), !range !25
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %154, label %.thread
+152:                                              ; preds = %148, %139
+  %153 = tail call fastcc i32 @arp_filter(i32 noundef %57, i32 noundef %60, ptr noundef %7), !range !25
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %155, label %.thread
 
-154:                                              ; preds = %151, %147
-  %155 = call ptr @neigh_event_ns(ptr noundef nonnull @arp_tbl, ptr noundef %92, ptr noundef nonnull %3, ptr noundef %7) #14
-  %156 = icmp eq ptr %155, null
-  br i1 %156, label %.thread, label %157
+155:                                              ; preds = %152, %148
+  %156 = call ptr @neigh_event_ns(ptr noundef nonnull @arp_tbl, ptr noundef %92, ptr noundef nonnull %3, ptr noundef %7) #14
+  %157 = icmp eq ptr %156, null
+  br i1 %157, label %.thread, label %158
 
-157:                                              ; preds = %154
-  %158 = load i32, ptr %3, align 4
-  %159 = getelementptr inbounds i8, ptr %7, i64 968
-  %160 = load ptr, ptr %159, align 8
-  call fastcc void @arp_send_dst(i32 noundef 2, i32 noundef %158, ptr noundef %7, i32 noundef %60, ptr noundef %92, ptr noundef %160, ptr noundef %92, ptr noundef %109)
-  call fastcc void @neigh_release(ptr noundef nonnull %155)
+158:                                              ; preds = %155
+  %159 = load i32, ptr %3, align 4
+  %160 = getelementptr inbounds i8, ptr %7, i64 968
+  %161 = load ptr, ptr %160, align 8
+  call fastcc void @arp_send_dst(i32 noundef 2, i32 noundef %159, ptr noundef %7, i32 noundef %60, ptr noundef %92, ptr noundef %161, ptr noundef %92, ptr noundef %110)
+  call fastcc void @neigh_release(ptr noundef nonnull %156)
   br label %.thread
 
-161:                                              ; preds = %126
-  %162 = getelementptr inbounds i8, ptr %9, i64 200
-  %163 = load i32, ptr %162, align 4
-  %164 = icmp ne i32 %163, 0
-  %165 = icmp eq i16 %132, 1
-  %166 = and i1 %165, %164
-  br i1 %166, label %167, label %218
+162:                                              ; preds = %127
+  %163 = getelementptr inbounds i8, ptr %9, i64 200
+  %164 = load i32, ptr %163, align 4
+  %165 = icmp ne i32 %164, 0
+  %166 = icmp eq i16 %133, 1
+  %167 = and i1 %166, %165
+  br i1 %167, label %168, label %.thread11
 
-167:                                              ; preds = %161
-  %.val = load ptr, ptr %130, align 8
-  %168 = tail call fastcc i32 @arp_fwd_proxy(ptr noundef nonnull %9, ptr noundef %7, ptr %.val)
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %170, label %192
+168:                                              ; preds = %162
+  %.val = load ptr, ptr %131, align 8
+  %169 = tail call fastcc i32 @arp_fwd_proxy(ptr noundef nonnull %9, ptr noundef %7, ptr %.val)
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %171, label %193
 
-170:                                              ; preds = %167
-  %171 = load ptr, ptr %130, align 8
-  %172 = icmp ne ptr %171, %7
-  %173 = or i1 %80, %172
-  br i1 %173, label %187, label %174
+171:                                              ; preds = %168
+  %172 = load ptr, ptr %131, align 8
+  %173 = icmp ne ptr %172, %7
+  %174 = or i1 %80, %173
+  br i1 %174, label %188, label %175
 
-174:                                              ; preds = %170
-  %175 = load ptr, ptr %9, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 272
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 944
-  %179 = load ptr, ptr %178, align 16
-  %180 = getelementptr i8, ptr %179, i64 104
-  %181 = load i32, ptr %180, align 8
-  %182 = icmp eq i32 %181, 0
-  br i1 %182, label %183, label %192
+175:                                              ; preds = %171
+  %176 = load ptr, ptr %9, align 8
+  %177 = getelementptr inbounds i8, ptr %176, i64 272
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds i8, ptr %178, i64 944
+  %180 = load ptr, ptr %179, align 16
+  %181 = getelementptr i8, ptr %180, i64 104
+  %182 = load i32, ptr %181, align 8
+  %183 = icmp eq i32 %182, 0
+  br i1 %183, label %184, label %193
 
-183:                                              ; preds = %174
-  %184 = getelementptr i8, ptr %9, i64 296
-  %185 = load i32, ptr %184, align 4
-  %186 = icmp eq i32 %185, 0
-  br i1 %186, label %187, label %192
+184:                                              ; preds = %175
+  %185 = getelementptr i8, ptr %9, i64 296
+  %186 = load i32, ptr %185, align 4
+  %187 = icmp eq i32 %186, 0
+  br i1 %187, label %188, label %193
 
-187:                                              ; preds = %183, %170
-  %188 = icmp eq ptr %171, %7
-  br i1 %188, label %218, label %189
+188:                                              ; preds = %184, %171
+  %189 = icmp eq ptr %172, %7
+  br i1 %189, label %.thread11, label %190
 
-189:                                              ; preds = %187
-  %190 = call ptr @pneigh_lookup(ptr noundef nonnull @arp_tbl, ptr noundef %0, ptr noundef nonnull %4, ptr noundef %7, i32 noundef 0) #14
-  %191 = icmp eq ptr %190, null
-  br i1 %191, label %218, label %192
+190:                                              ; preds = %188
+  %191 = call ptr @pneigh_lookup(ptr noundef nonnull @arp_tbl, ptr noundef %0, ptr noundef nonnull %4, ptr noundef %7, i32 noundef 0) #14
+  %192 = icmp eq ptr %191, null
+  br i1 %192, label %.thread11, label %193
 
-192:                                              ; preds = %189, %183, %174, %167
-  %193 = call ptr @neigh_event_ns(ptr noundef nonnull @arp_tbl, ptr noundef %92, ptr noundef nonnull %3, ptr noundef %7) #14
-  %194 = icmp eq ptr %193, null
-  br i1 %194, label %196, label %195
+193:                                              ; preds = %190, %184, %175, %168
+  %194 = call ptr @neigh_event_ns(ptr noundef nonnull @arp_tbl, ptr noundef %92, ptr noundef nonnull %3, ptr noundef %7) #14
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %197, label %196
 
-195:                                              ; preds = %192
-  call fastcc void @neigh_release(ptr noundef nonnull %193)
-  br label %196
+196:                                              ; preds = %193
+  call fastcc void @neigh_release(ptr noundef nonnull %194)
+  br label %197
 
-196:                                              ; preds = %195, %192
-  %197 = getelementptr inbounds i8, ptr %1, i64 48
-  %198 = load i32, ptr %197, align 8
-  %199 = and i32 %198, 1
-  %200 = icmp eq i32 %199, 0
-  br i1 %200, label %201, label %212
+197:                                              ; preds = %196, %193
+  %198 = getelementptr inbounds i8, ptr %1, i64 48
+  %199 = load i32, ptr %198, align 8
+  %200 = and i32 %199, 1
+  %201 = icmp eq i32 %200, 0
+  br i1 %201, label %202, label %213
 
-201:                                              ; preds = %196
-  %202 = getelementptr inbounds i8, ptr %1, i64 128
-  %203 = load i8, ptr %202, align 8
-  %204 = and i8 %203, 7
-  %205 = icmp eq i8 %204, 0
-  br i1 %205, label %212, label %206
+202:                                              ; preds = %197
+  %203 = getelementptr inbounds i8, ptr %1, i64 128
+  %204 = load i8, ptr %203, align 8
+  %205 = and i8 %204, 7
+  %206 = icmp eq i8 %205, 0
+  br i1 %206, label %213, label %207
 
-206:                                              ; preds = %201
-  %207 = getelementptr inbounds i8, ptr %9, i64 184
-  %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr i8, ptr %208, i64 136
-  %210 = load i32, ptr %209, align 8
-  %211 = icmp eq i32 %210, 0
-  br i1 %211, label %212, label %217
+207:                                              ; preds = %202
+  %208 = getelementptr inbounds i8, ptr %9, i64 184
+  %209 = load ptr, ptr %208, align 8
+  %210 = getelementptr i8, ptr %209, i64 136
+  %211 = load i32, ptr %210, align 8
+  %212 = icmp eq i32 %211, 0
+  br i1 %212, label %213, label %218
 
-212:                                              ; preds = %206, %201, %196
-  %213 = load i32, ptr %3, align 4
-  %214 = load i32, ptr %4, align 4
-  %215 = getelementptr inbounds i8, ptr %7, i64 968
-  %216 = load ptr, ptr %215, align 8
-  call fastcc void @arp_send_dst(i32 noundef 2, i32 noundef %213, ptr noundef %7, i32 noundef %214, ptr noundef %92, ptr noundef %216, ptr noundef %92, ptr noundef %109)
+213:                                              ; preds = %207, %202, %197
+  %214 = load i32, ptr %3, align 4
+  %215 = load i32, ptr %4, align 4
+  %216 = getelementptr inbounds i8, ptr %7, i64 968
+  %217 = load ptr, ptr %216, align 8
+  call fastcc void @arp_send_dst(i32 noundef 2, i32 noundef %214, ptr noundef %7, i32 noundef %215, ptr noundef %92, ptr noundef %217, ptr noundef %92, ptr noundef %110)
   br label %.thread
 
-217:                                              ; preds = %206
-  call void @pneigh_enqueue(ptr noundef nonnull @arp_tbl, ptr noundef %208, ptr noundef %1) #14
-  br label %279
+218:                                              ; preds = %207
+  call void @pneigh_enqueue(ptr noundef nonnull @arp_tbl, ptr noundef %209, ptr noundef %1) #14
+  br label %281
 
-218:                                              ; preds = %189, %187, %161, %123, %122
-  %219 = call ptr @neigh_lookup(ptr noundef nonnull @arp_tbl, ptr noundef nonnull %3, ptr noundef %7) #14
+.thread11:                                        ; preds = %thread-pre-split.thread, %190, %188, %162, %124, %123
+  %219 = phi ptr [ %110, %190 ], [ %110, %188 ], [ %110, %162 ], [ %110, %124 ], [ %110, %123 ], [ null, %thread-pre-split.thread ]
+  %220 = call ptr @neigh_lookup(ptr noundef nonnull @arp_tbl, ptr noundef nonnull %3, ptr noundef %7) #14
   store i32 -1, ptr %5, align 4
-  %220 = icmp ne ptr %219, null
-  br i1 %220, label %225, label %221
+  %221 = icmp ne ptr %220, null
+  br i1 %221, label %226, label %222
 
-221:                                              ; preds = %218
-  %222 = load i32, ptr %3, align 4
-  %223 = call fastcc i32 @arp_accept(ptr noundef nonnull %9, i32 noundef %222), !range !25
-  %224 = icmp eq i32 %223, 0
-  br i1 %224, label %230, label %225
+222:                                              ; preds = %.thread11
+  %223 = load i32, ptr %3, align 4
+  %224 = call fastcc i32 @arp_accept(ptr noundef nonnull %9, i32 noundef %223), !range !25
+  %225 = icmp eq i32 %224, 0
+  br i1 %225, label %231, label %226
 
-225:                                              ; preds = %221, %218
-  %226 = load i16, ptr %49, align 2
-  %227 = load i32, ptr %3, align 4
-  %228 = load i32, ptr %4, align 4
-  %229 = call fastcc zeroext i1 @arp_is_garp(ptr noundef %0, ptr noundef %7, ptr noundef nonnull %5, i16 noundef zeroext %226, i32 noundef %227, i32 noundef %228, ptr noundef %92, ptr noundef %58)
-  br label %230
+226:                                              ; preds = %222, %.thread11
+  %227 = load i16, ptr %49, align 2
+  %228 = load i32, ptr %3, align 4
+  %229 = load i32, ptr %4, align 4
+  %230 = call fastcc zeroext i1 @arp_is_garp(ptr noundef %0, ptr noundef %7, ptr noundef nonnull %5, i16 noundef zeroext %227, i32 noundef %228, i32 noundef %229, ptr noundef %92, ptr noundef %58)
+  br label %231
 
-230:                                              ; preds = %225, %221
-  %231 = phi i1 [ %229, %225 ], [ false, %221 ]
-  %232 = load i32, ptr %3, align 4
-  %233 = call fastcc i32 @arp_accept(ptr noundef nonnull %9, i32 noundef %232), !range !25
-  %234 = icmp eq i32 %233, 0
-  %235 = or i1 %220, %234
-  br i1 %235, label %251, label %236
+231:                                              ; preds = %226, %222
+  %232 = phi i1 [ %230, %226 ], [ false, %222 ]
+  %233 = load i32, ptr %3, align 4
+  %234 = call fastcc i32 @arp_accept(ptr noundef nonnull %9, i32 noundef %233), !range !25
+  %235 = icmp eq i32 %234, 0
+  %236 = or i1 %221, %235
+  br i1 %236, label %252, label %237
 
-236:                                              ; preds = %230
-  br i1 %231, label %249, label %237
+237:                                              ; preds = %231
+  br i1 %232, label %250, label %238
 
-237:                                              ; preds = %236
-  %238 = load i16, ptr %49, align 2
-  %239 = icmp eq i16 %238, 512
-  br i1 %239, label %240, label %.thread
+238:                                              ; preds = %237
+  %239 = load i16, ptr %49, align 2
+  %240 = icmp eq i16 %239, 512
+  br i1 %240, label %241, label %.thread
 
-240:                                              ; preds = %237
-  %241 = load i32, ptr %5, align 4
-  %242 = icmp eq i32 %241, 1
-  br i1 %242, label %249, label %243
+241:                                              ; preds = %238
+  %242 = load i32, ptr %5, align 4
+  %243 = icmp eq i32 %242, 1
+  br i1 %243, label %250, label %244
 
-243:                                              ; preds = %240
-  %244 = icmp slt i32 %241, 0
-  br i1 %244, label %245, label %.thread
+244:                                              ; preds = %241
+  %245 = icmp slt i32 %242, 0
+  br i1 %245, label %246, label %.thread
 
-245:                                              ; preds = %243
-  %246 = load i32, ptr %3, align 4
-  %247 = call i32 @inet_addr_type_dev_table(ptr noundef %0, ptr noundef %7, i32 noundef %246) #14
-  %248 = icmp eq i32 %247, 1
-  br i1 %248, label %249, label %.thread
+246:                                              ; preds = %244
+  %247 = load i32, ptr %3, align 4
+  %248 = call i32 @inet_addr_type_dev_table(ptr noundef %0, ptr noundef %7, i32 noundef %247) #14
+  %249 = icmp eq i32 %248, 1
+  br i1 %249, label %250, label %.thread
 
-249:                                              ; preds = %245, %240, %236
-  %250 = call fastcc ptr @__neigh_lookup(ptr noundef nonnull %3, ptr noundef %7)
-  br label %251
+250:                                              ; preds = %246, %241, %237
+  %251 = call fastcc ptr @__neigh_lookup(ptr noundef nonnull %3, ptr noundef %7)
+  br label %252
 
-251:                                              ; preds = %249, %230
-  %252 = phi ptr [ %219, %230 ], [ %250, %249 ]
-  %253 = icmp eq ptr %252, null
-  br i1 %253, label %.thread, label %254
+252:                                              ; preds = %250, %231
+  %253 = phi ptr [ %220, %231 ], [ %251, %250 ]
+  %254 = icmp eq ptr %253, null
+  br i1 %254, label %.thread, label %255
 
-254:                                              ; preds = %251
-  %255 = getelementptr inbounds i8, ptr %252, i64 32
-  %256 = load i64, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %252, i64 16
-  %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr i8, ptr %258, i64 140
-  %260 = load i32, ptr %259, align 4
-  %261 = sext i32 %260 to i64
-  %262 = add i64 %256, %261
-  %263 = load volatile i64, ptr @jiffies, align 64
-  %264 = sub i64 %262, %263
-  %265 = icmp slt i64 %264, 0
-  %266 = select i1 %265, i1 true, i1 %231
-  %267 = load i16, ptr %49, align 2
-  %268 = icmp eq i16 %267, 512
-  br i1 %268, label %269, label %274
+255:                                              ; preds = %252
+  %256 = getelementptr inbounds i8, ptr %253, i64 32
+  %257 = load i64, ptr %256, align 8
+  %258 = getelementptr inbounds i8, ptr %253, i64 16
+  %259 = load ptr, ptr %258, align 8
+  %260 = getelementptr i8, ptr %259, i64 140
+  %261 = load i32, ptr %260, align 4
+  %262 = sext i32 %261 to i64
+  %263 = add i64 %257, %262
+  %264 = load volatile i64, ptr @jiffies, align 64
+  %265 = sub i64 %263, %264
+  %266 = icmp slt i64 %265, 0
+  %267 = select i1 %266, i1 true, i1 %232
+  %268 = load i16, ptr %49, align 2
+  %269 = icmp eq i16 %268, 512
+  br i1 %269, label %270, label %275
 
-269:                                              ; preds = %254
-  %270 = getelementptr inbounds i8, ptr %1, i64 128
-  %271 = load i8, ptr %270, align 8
-  %272 = and i8 %271, 7
-  %273 = icmp eq i8 %272, 0
-  br i1 %273, label %275, label %274
+270:                                              ; preds = %255
+  %271 = getelementptr inbounds i8, ptr %1, i64 128
+  %272 = load i8, ptr %271, align 8
+  %273 = and i8 %272, 7
+  %274 = icmp eq i8 %273, 0
+  br i1 %274, label %276, label %275
 
-274:                                              ; preds = %269, %254
-  br label %275
+275:                                              ; preds = %270, %255
+  br label %276
 
-275:                                              ; preds = %274, %269
-  %276 = phi i8 [ 4, %274 ], [ 2, %269 ]
-  %277 = zext i1 %266 to i32
-  %278 = call i32 @neigh_update(ptr noundef nonnull %252, ptr noundef %92, i8 noundef zeroext %276, i32 noundef %277, i32 noundef 0) #14
-  call fastcc void @neigh_release(ptr noundef nonnull %252)
+276:                                              ; preds = %275, %270
+  %277 = phi i8 [ 4, %275 ], [ 2, %270 ]
+  %278 = zext i1 %267 to i32
+  %279 = call i32 @neigh_update(ptr noundef nonnull %253, ptr noundef %92, i8 noundef zeroext %277, i32 noundef %278, i32 noundef 0) #14
+  call fastcc void @neigh_release(ptr noundef nonnull %253)
   br label %.thread
 
-.thread:                                          ; preds = %237, %243, %245, %275, %251, %212, %157, %154, %151, %135, %119, %116, %113, %112
+.thread:                                          ; preds = %thread-pre-split.thread, %238, %244, %246, %276, %252, %213, %158, %155, %152, %136, %120, %117, %114, %113
+  %280 = phi ptr [ %219, %238 ], [ %219, %244 ], [ %219, %246 ], [ %219, %276 ], [ %219, %252 ], [ %110, %213 ], [ %110, %158 ], [ %110, %155 ], [ %110, %152 ], [ %110, %136 ], [ %110, %120 ], [ %110, %117 ], [ %110, %114 ], [ %110, %113 ], [ null, %thread-pre-split.thread ]
   call void @consume_skb(ptr noundef %1) #14
-  br label %279
-
-279:                                              ; preds = %.thread, %217
-  call void @dst_release(ptr noundef %109) #14
   br label %281
 
-280:                                              ; preds = %85, %81, %72, %51, %48, %45, %41, %38, %34, %30, %28, %24, %20, %2
+281:                                              ; preds = %.thread, %218
+  %282 = phi ptr [ %280, %.thread ], [ %110, %218 ]
+  call void @dst_release(ptr noundef %282) #14
+  br label %284
+
+283:                                              ; preds = %85, %81, %72, %51, %48, %45, %41, %38, %34, %30, %28, %24, %20, %2
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #14
-  br label %281
+  br label %284
 
-281:                                              ; preds = %280, %279
-  %282 = phi i32 [ 1, %280 ], [ 0, %279 ]
+284:                                              ; preds = %283, %281
+  %285 = phi i32 [ 1, %283 ], [ 0, %281 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
-  ret i32 %282
+  ret i32 %285
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -2177,22 +2177,23 @@ proto_item_set_generated.exit436:                 ; preds = %proto_item_set_gene
 
 .critedge425:                                     ; preds = %572, %395, %.critedge, %568, %579, %575, %581
   %.2523 = phi i32 [ %.3524, %.critedge ], [ %.3524, %568 ], [ %.3524, %575 ], [ %.3524, %579 ], [ 0, %581 ], [ %398, %395 ], [ %.3524, %572 ]
-  br i1 %.not385, label %585, label %582
+  br i1 %.not385, label %586, label %582
 
 582:                                              ; preds = %.critedge425
   %583 = getelementptr inbounds i8, ptr %297, i64 4
   %584 = load i32, ptr %583, align 4
-  br label %585
+  %585 = icmp eq i32 %584, 0
+  br label %586
 
-585:                                              ; preds = %.critedge425, %582
-  %586 = phi i32 [ %584, %582 ], [ 0, %.critedge425 ]
+586:                                              ; preds = %.critedge425, %582
+  %.not62.i = phi i1 [ %585, %582 ], [ true, %.critedge425 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %587 = load i32, ptr %12, align 8
   %588 = icmp eq i32 %587, 0
   br i1 %588, label %decipher_payload.exit.thread, label %589
 
-589:                                              ; preds = %585
+589:                                              ; preds = %586
   %590 = getelementptr inbounds i8, ptr %12, i64 24
   %591 = load i32, ptr %590, align 8
   %.not.i437 = icmp ne i32 %591, 0
@@ -2238,13 +2239,11 @@ proto_item_set_generated.exit436:                 ; preds = %proto_item_set_gene
   %611 = getelementptr inbounds i8, ptr %23, i64 4
   %612 = load i32, ptr %611, align 4
   %.not61.i = icmp ne i32 %612, 1
-  %.not62.i = icmp eq i32 %586, 0
   %or.cond68.i = or i1 %.not62.i, %.not61.i
   br i1 %or.cond68.i, label %decipher_payload.exit.thread, label %614
 
 613:                                              ; preds = %607
-  %.not62.old.i = icmp eq i32 %586, 0
-  br i1 %.not62.old.i, label %decipher_payload.exit.thread, label %614
+  br i1 %.not62.i, label %decipher_payload.exit.thread, label %614
 
 614:                                              ; preds = %610, %613
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -2313,7 +2312,7 @@ decipher_payload.exit.thread.sink.split:          ; preds = %636, %644
   call void @gcry_cipher_close(ptr noundef %.sink) #13
   br label %decipher_payload.exit.thread
 
-decipher_payload.exit.thread:                     ; preds = %decipher_payload.exit.thread.sink.split, %585, %604, %610, %646, %614, %613, %598, %592, %589
+decipher_payload.exit.thread:                     ; preds = %decipher_payload.exit.thread.sink.split, %586, %604, %610, %646, %614, %613, %598, %592, %589
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %660

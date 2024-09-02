@@ -1243,17 +1243,18 @@ if.then.i11:                                      ; preds = %cond.true.i.i.i
   store ptr %incdec.ptr.i.i, ptr %_M_end_of_storage.i, align 8
   store i64 1, ptr %buf_pos, align 8
   store i32 %0, ptr %buf_.i, align 8
+  %6 = ptrtoint ptr %incdec.ptr.i.i to i64
   br label %if.end
 
 lpad3:                                            ; preds = %if.then.i.i.i.i99.invoke, %land.end.thread.i, %call.i.noexc, %land.lhs.true15.i, %cond.true.i.i.i.i85, %cond.true.i.i.i46, %cond.true.i.i.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup61
 
 if.end:                                           ; preds = %entry, %land.lhs.true.i, %if.then.i11, %_ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit
-  %7 = phi i64 [ 0, %entry ], [ 0, %land.lhs.true.i ], [ 1, %if.then.i11 ], [ 0, %_ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit ]
-  %8 = phi ptr [ null, %entry ], [ null, %land.lhs.true.i ], [ %call5.i.i.i.i.i7, %if.then.i11 ], [ null, %_ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit ]
-  %9 = phi ptr [ null, %entry ], [ null, %land.lhs.true.i ], [ %incdec.ptr.i.i, %if.then.i11 ], [ null, %_ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit ]
+  %8 = phi i64 [ 0, %entry ], [ 0, %land.lhs.true.i ], [ 1, %if.then.i11 ], [ 0, %_ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit ]
+  %9 = phi ptr [ null, %entry ], [ null, %land.lhs.true.i ], [ %call5.i.i.i.i.i7, %if.then.i11 ], [ null, %_ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit ]
+  %sub.ptr.lhs.cast.i.i.i.i35 = phi i64 [ 0, %entry ], [ 0, %land.lhs.true.i ], [ %6, %if.then.i11 ], [ 0, %_ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit ]
   %conv.i15 = zext i32 %xor to i64
   %add.ptr.i.i16 = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %1, i64 %conv.i15
   %async_read_in_progress_.i17 = getelementptr inbounds i8, ptr %add.ptr.i.i16, i64 56
@@ -1279,8 +1280,7 @@ _ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit27: ; 
 if.else.i34:                                      ; preds = %_ZN7rocksdb18FilePrefetchBuffer33IsBufferOutdatedWithAsyncProgressEmj.exit27
   %_M_finish.i29 = getelementptr inbounds i8, ptr %handles, i64 8
   %_M_end_of_storage.i30 = getelementptr inbounds i8, ptr %handles, i64 16
-  %sub.ptr.lhs.cast.i.i.i.i35 = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i.i36 = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i.i.i36 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i.i.i35, %sub.ptr.rhs.cast.i.i.i.i36
   %cmp.i.i.i38 = icmp eq i64 %sub.ptr.sub.i.i.i.i37, 9223372036854775800
   br i1 %cmp.i.i.i38, label %if.then.i.i.i.i99.invoke, label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i39
@@ -1308,13 +1308,13 @@ _ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i48: ; preds = %cond.true.i
   br i1 %cmp.i.i.i.i.i51, label %if.then.i.i.i.i.i59, label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i52
 
 if.then.i.i.i.i.i59:                              ; preds = %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i48
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i49, ptr align 8 %8, i64 %sub.ptr.sub.i.i.i.i37, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i49, ptr align 8 %9, i64 %sub.ptr.sub.i.i.i.i37, i1 false)
   br label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i52
 
 _ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i52: ; preds = %if.then.i.i.i.i.i59, %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i.i48
   %add.ptr.i.i.i.i.i53 = getelementptr inbounds i8, ptr %cond.i10.i.i49, i64 %sub.ptr.sub.i.i.i.i37
   %incdec.ptr.i.i54 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i53, i64 8
-  %tobool.not.i.i.i55 = icmp eq ptr %8, null
+  %tobool.not.i.i.i55 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i55, label %invoke.cont18.thread, label %invoke.cont18
 
 invoke.cont18.thread:                             ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i52
@@ -1325,7 +1325,7 @@ invoke.cont18.thread:                             ; preds = %_ZNSt6vectorIPvSaIS
   br label %if.then.i100
 
 invoke.cont18:                                    ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i52
-  call void @_ZdlPv(ptr noundef nonnull %8) #15
+  call void @_ZdlPv(ptr noundef nonnull %9) #15
   %.pre.pre = load i64, ptr %buf_pos, align 8
   store ptr %cond.i10.i.i49, ptr %handles, align 8
   store ptr %incdec.ptr.i.i54, ptr %_M_finish.i29, align 8
@@ -1335,7 +1335,7 @@ invoke.cont18:                                    ; preds = %_ZNSt6vectorIPvSaIS
   br i1 %cmp.i65, label %if.then.i100, label %if.else.i66
 
 if.then.i100:                                     ; preds = %invoke.cont18.thread, %invoke.cont18
-  %.pre193 = phi i64 [ %7, %invoke.cont18.thread ], [ %.pre.pre, %invoke.cont18 ]
+  %.pre193 = phi i64 [ %8, %invoke.cont18.thread ], [ %.pre.pre, %invoke.cont18 ]
   %15 = load ptr, ptr %values_.i, align 8
   %inc.i102 = add nuw nsw i64 %.pre193, 1
   store i64 %inc.i102, ptr %buf_pos, align 8
@@ -1715,7 +1715,7 @@ _ZNSt6vectorIPvSaIS0_EED2Ev.exit:                 ; preds = %_ZN7rocksdb10autove
   ret void
 
 ehcleanup61:                                      ; preds = %lpad31, %lpad25, %lpad3
-  %.pn.pn = phi { ptr, i32 } [ %6, %lpad3 ], [ %39, %lpad25 ], [ %45, %lpad31 ]
+  %.pn.pn = phi { ptr, i32 } [ %7, %lpad3 ], [ %39, %lpad25 ], [ %45, %lpad31 ]
   %.pr.i.i161 = load i64, ptr %buf_pos, align 8
   %cmp.not1.i.i162 = icmp eq i64 %.pr.i.i161, 0
   br i1 %cmp.not1.i.i162, label %while.end.i.i164, label %while.body.preheader.i.i163

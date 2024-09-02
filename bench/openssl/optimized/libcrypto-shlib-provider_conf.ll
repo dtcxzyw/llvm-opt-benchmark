@@ -164,8 +164,9 @@ for.inc.i:                                        ; preds = %if.else19.i, %if.el
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.inc.i
-  %tobool27.not.i = icmp eq i64 %activate.1.i, 0
-  br i1 %tobool27.not.i, label %if.else30.i, label %if.then28.i
+  %4 = icmp eq i64 %activate.1.i, 0
+  %5 = icmp eq i32 %soft.1.i, 0
+  br i1 %4, label %if.else30.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %for.end.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %actual.i.i)
@@ -175,8 +176,8 @@ if.then28.i:                                      ; preds = %for.end.i
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then28.i
-  %4 = load ptr, ptr %call.i33.i, align 8
-  %call1.i.i = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %4) #5
+  %6 = load ptr, ptr %call.i33.i, align 8
+  %call1.i.i = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %6) #5
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -188,12 +189,12 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %activated_providers.i.i = getelementptr inbounds i8, ptr %call.i33.i, i64 8
-  %5 = load ptr, ptr %activated_providers.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %5, null
+  %7 = load ptr, ptr %activated_providers.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.i.i.i, label %if.then4.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
-  %call.i.i.i.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #5
+  %call.i.i.i.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %7) #5
   %cmp16.i.i.i = icmp sgt i32 %call.i.i.i.i, 0
   br i1 %cmp16.i.i.i, label %for.body.i.i.i, label %if.then4.i.i
 
@@ -204,7 +205,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end.i.i.i, %for.cond.i.i.i
   %i.07.i.i.i = phi i32 [ %inc.i.i.i, %for.cond.i.i.i ], [ 0, %if.end.i.i.i ]
-  %call.i5.i.i.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %5, i32 noundef %i.07.i.i.i) #5
+  %call.i5.i.i.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %7, i32 noundef %i.07.i.i.i) #5
   %call3.i.i.i = call ptr @OSSL_PROVIDER_get0_name(ptr noundef %call.i5.i.i.i) #5
   %call4.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call3.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %name.addr.1.i) #6
   %cmp5.i.i.i = icmp eq i32 %call4.i.i.i, 0
@@ -216,8 +217,8 @@ if.then4.i.i:                                     ; preds = %for.cond.i.i.i, %if
   br i1 %tobool6.not.i.i, label %if.then7.i.i, label %if.end10.i.i
 
 if.then7.i.i:                                     ; preds = %if.then4.i.i
-  %6 = load ptr, ptr %call.i33.i, align 8
-  %call9.i.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %6) #5
+  %8 = load ptr, ptr %call.i33.i, align 8
+  %call9.i.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %8) #5
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 156, ptr noundef nonnull @__func__.provider_conf_activate) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 786691, ptr noundef null) #5
@@ -234,10 +235,9 @@ if.end15.i.i:                                     ; preds = %if.end10.i.i
   br i1 %cmp16.i.i, label %if.then17.i.i, label %if.end23.i.i
 
 if.then17.i.i:                                    ; preds = %if.end15.i.i
-  %7 = load ptr, ptr %call.i33.i, align 8
-  %call19.i.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %7) #5
-  %tobool20.not.i.i = icmp eq i32 %soft.1.i, 0
-  br i1 %tobool20.not.i.i, label %provider_conf_activate.exit.i, label %if.then21.i.i
+  %9 = load ptr, ptr %call.i33.i, align 8
+  %call19.i.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %9) #5
+  br i1 %5, label %provider_conf_activate.exit.i, label %if.then21.i.i
 
 if.then21.i.i:                                    ; preds = %if.then17.i.i
   call void @ERR_clear_error() #5
@@ -272,23 +272,23 @@ if.then36.i.i:                                    ; preds = %if.else.i.i
   br label %if.then65.critedge.i.i
 
 if.else38.i.i:                                    ; preds = %if.else.i.i
-  %8 = load ptr, ptr %actual.i.i, align 8
-  %cmp39.not.i.i = icmp eq ptr %8, %prov.032.i.i
+  %10 = load ptr, ptr %actual.i.i, align 8
+  %cmp39.not.i.i = icmp eq ptr %10, %prov.032.i.i
   br i1 %cmp39.not.i.i, label %if.else43.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.else38.i.i
-  %call40.i.i = call i32 @ossl_provider_activate(ptr noundef %8, i32 noundef 1, i32 noundef 0) #5
+  %call40.i.i = call i32 @ossl_provider_activate(ptr noundef %10, i32 noundef 1, i32 noundef 0) #5
   %tobool41.not.i.i = icmp eq i32 %call40.i.i, 0
   br i1 %tobool41.not.i.i, label %if.then42.i.i, label %if.else43.i.i
 
 if.then42.i.i:                                    ; preds = %land.lhs.true.i.i
-  %9 = load ptr, ptr %actual.i.i, align 8
-  call void @ossl_provider_free(ptr noundef %9) #5
+  %11 = load ptr, ptr %actual.i.i, align 8
+  call void @ossl_provider_free(ptr noundef %11) #5
   br label %if.then65.critedge.i.i
 
 if.else43.i.i:                                    ; preds = %land.lhs.true.i.i, %if.else38.i.i
-  %10 = load ptr, ptr %activated_providers.i.i, align 8
-  %cmp45.i.i = icmp eq ptr %10, null
+  %12 = load ptr, ptr %activated_providers.i.i, align 8
+  %cmp45.i.i = icmp eq ptr %12, null
   br i1 %cmp45.i.i, label %if.end49.i.i, label %lor.lhs.false52.i.i
 
 if.end49.i.i:                                     ; preds = %if.else43.i.i
@@ -298,17 +298,17 @@ if.end49.i.i:                                     ; preds = %if.else43.i.i
   br i1 %cmp51.i.i, label %if.then56.i.i, label %lor.lhs.false52.i.i
 
 lor.lhs.false52.i.i:                              ; preds = %if.end49.i.i, %if.else43.i.i
-  %11 = phi ptr [ %call.i.i.i, %if.end49.i.i ], [ %10, %if.else43.i.i ]
-  %12 = load ptr, ptr %actual.i.i, align 8
-  %call.i27.i.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %11, ptr noundef %12) #5
+  %13 = phi ptr [ %call.i.i.i, %if.end49.i.i ], [ %12, %if.else43.i.i ]
+  %14 = load ptr, ptr %actual.i.i, align 8
+  %call.i27.i.i = call i32 @OPENSSL_sk_push(ptr noundef nonnull %13, ptr noundef %14) #5
   %tobool55.not.i.i = icmp eq i32 %call.i27.i.i, 0
   br i1 %tobool55.not.i.i, label %if.then56.i.i, label %if.end67.i.i
 
 if.then56.i.i:                                    ; preds = %lor.lhs.false52.i.i, %if.end49.i.i
-  %13 = load ptr, ptr %actual.i.i, align 8
-  %call57.i.i = call i32 @ossl_provider_deactivate(ptr noundef %13, i32 noundef 1) #5
-  %14 = load ptr, ptr %actual.i.i, align 8
-  call void @ossl_provider_free(ptr noundef %14) #5
+  %15 = load ptr, ptr %actual.i.i, align 8
+  %call57.i.i = call i32 @ossl_provider_deactivate(ptr noundef %15, i32 noundef 1) #5
+  %16 = load ptr, ptr %actual.i.i, align 8
+  call void @ossl_provider_free(ptr noundef %16) #5
   br label %if.then65.critedge.i.i
 
 if.then65.critedge.i.i:                           ; preds = %if.then56.i.i, %if.then42.i.i, %if.then36.i.i, %if.then30.i.i, %if.end27.i.i
@@ -316,8 +316,8 @@ if.then65.critedge.i.i:                           ; preds = %if.then56.i.i, %if.
   br label %if.end67.i.i
 
 if.end67.i.i:                                     ; preds = %for.body.i.i.i, %if.then65.critedge.i.i, %lor.lhs.false52.i.i
-  %15 = load ptr, ptr %call.i33.i, align 8
-  %call69.i.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %15) #5
+  %17 = load ptr, ptr %call.i33.i, align 8
+  %call69.i.i = call i32 @CRYPTO_THREAD_unlock(ptr noundef %17) #5
   br label %provider_conf_activate.exit.i
 
 provider_conf_activate.exit.i:                    ; preds = %if.end67.i.i, %if.then21.i.i, %if.then17.i.i, %if.then7.i.i, %if.then.i.i
@@ -331,26 +331,26 @@ if.else30.i:                                      ; preds = %for.end.i
 
 if.else30.thread.i:                               ; preds = %for.cond.preheader.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %entry31.i, i8 0, i64 40, i1 false)
-  %cmp32.not67.i = icmp eq ptr %retval.0.i.i, null
-  br i1 %cmp32.not67.i, label %if.then52.i, label %if.end40.i
+  %cmp32.not66.i = icmp eq ptr %retval.0.i.i, null
+  br i1 %cmp32.not66.i, label %if.then52.i, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.else30.thread.i, %if.else30.i
-  %path.0.lcssa5670.i = phi ptr [ null, %if.else30.thread.i ], [ %path.1.i, %if.else30.i ]
-  %name.addr.0.lcssa5768.i = phi ptr [ %retval.0.i.i, %if.else30.thread.i ], [ %name.addr.1.i, %if.else30.i ]
-  %call34.i = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %name.addr.0.lcssa5768.i, ptr noundef nonnull @.str, i32 noundef 258) #5
+  %path.0.lcssa5569.i = phi ptr [ null, %if.else30.thread.i ], [ %path.1.i, %if.else30.i ]
+  %name.addr.0.lcssa5667.i = phi ptr [ %retval.0.i.i, %if.else30.thread.i ], [ %name.addr.1.i, %if.else30.i ]
+  %call34.i = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %name.addr.0.lcssa5667.i, ptr noundef nonnull @.str, i32 noundef 258) #5
   store ptr %call34.i, ptr %entry31.i, align 8
   %cmp37.i = icmp ne ptr %call34.i, null
-  %cmp42.i = icmp ne ptr %path.0.lcssa5670.i, null
+  %cmp42.i = icmp ne ptr %path.0.lcssa5569.i, null
   %or.cond.i = select i1 %cmp37.i, i1 %cmp42.i, i1 false
   br i1 %or.cond.i, label %if.then43.i, label %if.end50.i
 
 if.end40.thread.i:                                ; preds = %if.else30.i
-  %cmp4260.not.i = icmp eq ptr %path.1.i, null
-  br i1 %cmp4260.not.i, label %if.then52.i, label %if.then43.i
+  %cmp4259.not.i = icmp eq ptr %path.1.i, null
+  br i1 %cmp4259.not.i, label %if.then52.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end40.thread.i, %if.end40.i
-  %path.0.lcssa5669.i = phi ptr [ %path.1.i, %if.end40.thread.i ], [ %path.0.lcssa5670.i, %if.end40.i ]
-  %call44.i = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %path.0.lcssa5669.i, ptr noundef nonnull @.str, i32 noundef 263) #5
+  %path.0.lcssa5568.i = phi ptr [ %path.1.i, %if.end40.thread.i ], [ %path.0.lcssa5569.i, %if.end40.i ]
+  %call44.i = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %path.0.lcssa5568.i, ptr noundef nonnull @.str, i32 noundef 263) #5
   store ptr %call44.i, ptr %path45.i, align 8
   %cmp47.i = icmp eq ptr %call44.i, null
   br i1 %cmp47.i, label %if.then70.i, label %if.then52.i
@@ -360,29 +360,29 @@ if.end50.i:                                       ; preds = %if.end40.i
 
 if.then52.i:                                      ; preds = %if.end50.i, %if.then43.i, %if.end40.thread.i, %if.else30.thread.i
   %call53.i = call fastcc i32 @provider_conf_params(ptr noundef null, ptr noundef nonnull %entry31.i, ptr noundef null, ptr noundef %1, ptr noundef %cnf)
-  %16 = icmp eq i32 %call53.i, 0
-  br i1 %16, label %if.then70.i, label %land.lhs.true56.i
+  %18 = icmp eq i32 %call53.i, 0
+  br i1 %18, label %if.then70.i, label %land.lhs.true56.i
 
 land.lhs.true56.i:                                ; preds = %if.then52.i
-  %17 = load ptr, ptr %path45.i, align 8
-  %cmp58.i = icmp ne ptr %17, null
-  %18 = load ptr, ptr %parameters.i, align 8
-  %cmp59.i = icmp ne ptr %18, null
+  %19 = load ptr, ptr %path45.i, align 8
+  %cmp58.i = icmp ne ptr %19, null
+  %20 = load ptr, ptr %parameters.i, align 8
+  %cmp59.i = icmp ne ptr %20, null
   %or.cond1.i = select i1 %cmp58.i, i1 true, i1 %cmp59.i
   br i1 %or.cond1.i, label %if.then60.i, label %if.then70.i
 
 if.then60.i:                                      ; preds = %land.lhs.true56.i
   %call61.i = call i32 @ossl_provider_info_add_to_store(ptr noundef %call6, ptr noundef nonnull %entry31.i) #5
-  %19 = icmp eq i32 %call61.i, 0
-  br i1 %19, label %if.then70.i, label %lor.lhs.false64.i
+  %21 = icmp eq i32 %call61.i, 0
+  br i1 %21, label %if.then70.i, label %lor.lhs.false64.i
 
 lor.lhs.false64.i:                                ; preds = %if.then60.i
   %.pre.i = load ptr, ptr %path45.i, align 8
   %.pre50.i = load ptr, ptr %parameters.i, align 8
-  %20 = icmp eq ptr %.pre.i, null
-  %21 = icmp eq ptr %.pre50.i, null
-  %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %if.then70.i, label %for.inc
+  %22 = icmp eq ptr %.pre.i, null
+  %23 = icmp eq ptr %.pre50.i, null
+  %24 = select i1 %22, i1 %23, i1 false
+  br i1 %24, label %if.then70.i, label %for.inc
 
 if.then70.i:                                      ; preds = %lor.lhs.false64.i, %if.then60.i, %land.lhs.true56.i, %if.then52.i, %if.end50.i, %if.then43.i
   call void @ossl_provider_info_clear(ptr noundef nonnull %entry31.i) #5

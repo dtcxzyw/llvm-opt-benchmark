@@ -5896,7 +5896,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN13wasmtime_wasi4host7n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i64 @_ZN13wasmtime_wasi4host7network4util25normalize_set_buffer_size17h857420d7ba4544bdE(i64 noundef %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define noundef range(i64 0, 2147483648) i64 @_ZN13wasmtime_wasi4host7network4util25normalize_set_buffer_size17h857420d7ba4544bdE(i64 noundef %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = icmp eq i64 %0, 0
   %.0.in.sroa.speculate.load.4.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %0, i64 2147483647)
   %.0.in.sroa.speculated.i = select i1 %2, i64 1, i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i
@@ -9810,34 +9810,34 @@ common.ret:                                       ; preds = %89, %"_ZN4core6resu
 
 23:                                               ; preds = %22
   %24 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h437debc8ba700dedE"(i8 noundef 28)
-          to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha51221c7dd429f49E.exit" unwind label %28
+          to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha51221c7dd429f49E.exit" unwind label %29
 
 .critedge.i:                                      ; preds = %9
   %.lobit = lshr exact i16 %21, 1
   %spec.select = zext nneg i16 %.lobit to i64
-  br label %30
+  br label %31
 
 25:                                               ; preds = %22
   %26 = udiv i64 %14, 1000000000
   %27 = urem i64 %14, 1000000000
-  br label %30
+  %28 = inttoptr i64 %26 to ptr
+  br label %31
 
-28:                                               ; preds = %23
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %23
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-30:                                               ; preds = %.critedge.i, %25
+31:                                               ; preds = %.critedge.i, %25
   %.sroa.13.0.ph = phi i64 [ %27, %25 ], [ undef, %.critedge.i ]
-  %.sroa.9.0.ph = phi i64 [ %26, %25 ], [ undef, %.critedge.i ]
+  %.sroa.9.0.ph = phi ptr [ %28, %25 ], [ undef, %.critedge.i ]
   %.sroa.042.0.ph = phi i64 [ 2, %25 ], [ %spec.select, %.critedge.i ]
-  %31 = inttoptr i64 %.sroa.9.0.ph to ptr
   %32 = and i16 %19, 4
   %.not98 = icmp eq i16 %32, 0
   %33 = and i16 %19, 8
   br i1 %.not98, label %.critedge.i24, label %34
 
-34:                                               ; preds = %30
+34:                                               ; preds = %31
   %.not99.not = icmp eq i16 %33, 0
   br i1 %.not99.not, label %37, label %35
 
@@ -9845,7 +9845,7 @@ common.ret:                                       ; preds = %89, %"_ZN4core6resu
   %36 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h437debc8ba700dedE"(i8 noundef 28)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha51221c7dd429f49E.exit" unwind label %41
 
-.critedge.i24:                                    ; preds = %30
+.critedge.i24:                                    ; preds = %31
   %.lobit100 = lshr exact i16 %33, 3
   %spec.select96 = zext nneg i16 %.lobit100 to i64
   br label %43
@@ -9896,7 +9896,7 @@ common.ret:                                       ; preds = %89, %"_ZN4core6resu
   store i64 %.sroa.1062.8.copyload64, ptr %.sroa.266.0..sroa_idx, align 8, !noalias !1458
   store i64 %.sroa.042.0.ph, ptr %4, align 8, !noalias !1459
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %31, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !1459
+  store ptr %.sroa.9.0.ph, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !1459
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %.sroa.13.0.ph, ptr %.sroa.3.0..sroa_idx, align 8, !noalias !1459
   %53 = getelementptr inbounds i8, ptr %4, i64 24
@@ -9947,8 +9947,8 @@ common.ret:                                       ; preds = %89, %"_ZN4core6resu
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha51221c7dd429f49E.exit"
 
-.body:                                            ; preds = %90, %85, %28, %41, %44, %59, %77
-  %.pn16 = phi { ptr, i32 } [ %78, %77 ], [ %60, %59 ], [ %45, %44 ], [ %42, %41 ], [ %29, %28 ], [ %91, %90 ], [ %86, %85 ]
+.body:                                            ; preds = %90, %85, %29, %41, %44, %59, %77
+  %.pn16 = phi { ptr, i32 } [ %78, %77 ], [ %60, %59 ], [ %45, %44 ], [ %42, %41 ], [ %30, %29 ], [ %91, %90 ], [ %86, %85 ]
   store i8 2, ptr %6, align 8
   resume { ptr, i32 } %.pn16
 
@@ -16719,7 +16719,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h89c6d01bf8ed98b6E.exit.thread.
 "_ZN4core6option15Option$LT$T$GT$6unwrap17h59dcd0eabe1a2e52E.exit157": ; preds = %"_ZN4core6option15Option$LT$T$GT$6unwrap17h59dcd0eabe1a2e52E.exit157.sink.split", %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89043cb42388753dE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i.i, i64 24, i1 false)
-  %.0.sroa.speculated.i.i = call noundef i32 @llvm.umin.i32(i32 %.036, i32 24)
+  %.0.sroa.speculated.i.i = call noundef range(i32 0, 25) i32 @llvm.umin.i32(i32 %.036, i32 24)
   %443 = sub i32 %.036, %.0.sroa.speculated.i.i
   %444 = zext nneg i32 %.0.sroa.speculated.i.i to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
@@ -18256,72 +18256,72 @@ common.ret:                                       ; preds = %110, %"_ZN4core6res
 
 28:                                               ; preds = %27
   %29 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h437debc8ba700dedE"(i8 noundef 28)
-          to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38f38d5642dfb46bE.exit" unwind label %33
+          to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38f38d5642dfb46bE.exit" unwind label %34
 
 .critedge.i:                                      ; preds = %12
   %.lobit = lshr exact i16 %26, 1
   %spec.select = zext nneg i16 %.lobit to i64
-  br label %35
+  br label %36
 
 30:                                               ; preds = %27
   %31 = udiv i64 %19, 1000000000
   %32 = urem i64 %19, 1000000000
-  br label %35
+  %33 = inttoptr i64 %31 to ptr
+  br label %36
 
-33:                                               ; preds = %28
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %28
+  %35 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-35:                                               ; preds = %.critedge.i, %30
+36:                                               ; preds = %.critedge.i, %30
   %.sroa.13.0.ph = phi i64 [ %32, %30 ], [ undef, %.critedge.i ]
-  %.sroa.9.0.ph = phi i64 [ %31, %30 ], [ undef, %.critedge.i ]
+  %.sroa.9.0.ph = phi ptr [ %33, %30 ], [ undef, %.critedge.i ]
   %.sroa.053.0.ph = phi i64 [ 2, %30 ], [ %spec.select, %.critedge.i ]
-  %36 = inttoptr i64 %.sroa.9.0.ph to ptr
   %37 = and i16 %24, 4
   %.not123 = icmp eq i16 %37, 0
   %38 = and i16 %24, 8
   br i1 %.not123, label %.critedge.i33, label %39
 
-39:                                               ; preds = %35
+39:                                               ; preds = %36
   %.not124.not = icmp eq i16 %38, 0
   br i1 %.not124.not, label %42, label %40
 
 40:                                               ; preds = %39
   %41 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h437debc8ba700dedE"(i8 noundef 28)
-          to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38f38d5642dfb46bE.exit" unwind label %45
+          to label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38f38d5642dfb46bE.exit" unwind label %46
 
-.critedge.i33:                                    ; preds = %35
+.critedge.i33:                                    ; preds = %36
   %.lobit125 = lshr exact i16 %38, 3
   %spec.select121 = zext nneg i16 %.lobit125 to i64
-  br label %47
+  br label %48
 
 42:                                               ; preds = %39
   %43 = udiv i64 %21, 1000000000
   %44 = urem i64 %21, 1000000000
-  br label %47
+  %45 = inttoptr i64 %43 to ptr
+  br label %48
 
-45:                                               ; preds = %40
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %40
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-47:                                               ; preds = %.critedge.i33, %42
+48:                                               ; preds = %.critedge.i33, %42
   %.sroa.1367.0.ph = phi i64 [ %44, %42 ], [ undef, %.critedge.i33 ]
-  %.sroa.966.0.ph = phi i64 [ %43, %42 ], [ undef, %.critedge.i33 ]
+  %.sroa.966.0.ph = phi ptr [ %45, %42 ], [ undef, %.critedge.i33 ]
   %.sroa.064.0.ph = phi i64 [ 2, %42 ], [ %spec.select121, %.critedge.i33 ]
-  %48 = inttoptr i64 %.sroa.966.0.ph to ptr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   invoke void @_ZN13wasmtime_wasi8preview19WasiP1Ctx10get_dir_fd17h42b48dedaa331815E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 16 dereferenceable(320) %13, i32 noundef %15)
           to label %51 unwind label %49
 
-49:                                               ; preds = %47
+49:                                               ; preds = %48
   %50 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %.body
 
-51:                                               ; preds = %47
+51:                                               ; preds = %48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2729)
   %52 = load i64, ptr %7, align 8, !range !6, !alias.scope !2732, !noalias !2729, !noundef !4
   %trunc.i = trunc nuw i64 %52 to i1
@@ -18381,13 +18381,13 @@ common.ret:                                       ; preds = %110, %"_ZN4core6res
   store i64 %.sroa.1082.0.copyload83, ptr %.sroa.084.sroa.6.0..sroa_idx, align 8, !noalias !2753
   store i64 %.sroa.053.0.ph, ptr %4, align 8, !noalias !2754
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %36, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !2754
+  store ptr %.sroa.9.0.ph, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !2754
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i64 %.sroa.13.0.ph, ptr %.sroa.3.0..sroa_idx, align 8, !noalias !2754
   %71 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %.sroa.064.0.ph, ptr %71, align 8, !noalias !2755
   %.sroa.269.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %48, ptr %.sroa.269.0..sroa_idx, align 8, !noalias !2755
+  store ptr %.sroa.966.0.ph, ptr %.sroa.269.0..sroa_idx, align 8, !noalias !2755
   %.sroa.370.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
   store i64 %.sroa.1367.0.ph, ptr %.sroa.370.0..sroa_idx, align 8, !noalias !2755
   %72 = getelementptr inbounds i8, ptr %4, i64 112
@@ -18438,8 +18438,8 @@ common.ret:                                       ; preds = %110, %"_ZN4core6res
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h38f38d5642dfb46bE.exit"
 
-.body:                                            ; preds = %98, %106, %111, %77, %33, %45, %49, %58
-  %.pn18.pn = phi { ptr, i32 } [ %59, %58 ], [ %50, %49 ], [ %46, %45 ], [ %34, %33 ], [ %78, %77 ], [ %99, %98 ], [ %112, %111 ], [ %107, %106 ]
+.body:                                            ; preds = %98, %106, %111, %77, %34, %46, %49, %58
+  %.pn18.pn = phi { ptr, i32 } [ %59, %58 ], [ %50, %49 ], [ %47, %46 ], [ %35, %34 ], [ %78, %77 ], [ %99, %98 ], [ %112, %111 ], [ %107, %106 ]
   store i8 2, ptr %8, align 4
   resume { ptr, i32 } %.pn18.pn
 

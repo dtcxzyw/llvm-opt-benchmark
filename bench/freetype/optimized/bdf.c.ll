@@ -1508,7 +1508,7 @@ define internal void @BDF_Face_Done(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 36) i32 @BDF_Glyph_Load(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %3) #0 {
+define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %3) #0 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 152
   %7 = getelementptr inbounds i8, ptr %5, i64 264
@@ -1915,13 +1915,13 @@ switch.edge:                                      ; preds = %17, %17, %17, %17, 
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
-  %.not210 = icmp eq i32 %23, 0
-  %brmerge = or i1 %.not, %.not210
+  %.not214 = icmp eq i32 %23, 0
+  %brmerge = or i1 %.not, %.not214
   br i1 %brmerge, label %.loopexit, label %24
 
 24:                                               ; preds = %switch.edge
-  %.not212 = icmp eq i8 %19, 0
-  %.0.v = select i1 %.not212, i64 -7, i64 -8
+  %.not216 = icmp eq i8 %19, 0
+  %.0.v = select i1 %.not216, i64 -7, i64 -8
   %.0 = add i64 %.0.v, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %25 = getelementptr inbounds i8, ptr %11, i64 184
@@ -1941,7 +1941,7 @@ switch.edge:                                      ; preds = %17, %17, %17, %17, 
 
 35:                                               ; preds = %24
   %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %.0169 = select i1 %.not212, ptr %18, ptr %36
+  %.0169 = select i1 %.not216, ptr %18, ptr %36
   %37 = load i64, ptr %27, align 8
   %38 = getelementptr inbounds i8, ptr %33, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr nonnull readonly align 1 %.0169, i64 %.0, i1 false)
@@ -1961,36 +1961,36 @@ bdf_add_comment_.exit:                            ; preds = %24, %35
 .critedge:                                        ; preds = %17, %15
   %43 = load i64, ptr %4, align 8
   %44 = and i64 %43, 1
-  %.not182 = icmp eq i64 %44, 0
-  br i1 %.not182, label %45, label %83
+  %.not183 = icmp eq i64 %44, 0
+  br i1 %.not183, label %45, label %83
 
 45:                                               ; preds = %.critedge
   %46 = getelementptr inbounds i8, ptr %4, i64 104
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.18, i64 noundef 9) #19
-  %.not183 = icmp eq i32 %48, 0
-  br i1 %.not183, label %49, label %.loopexit
+  %.not184 = icmp eq i32 %48, 0
+  br i1 %.not184, label %49, label %.loopexit
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds i8, ptr %0, i64 9
   %51 = load i8, ptr %50, align 1
   switch i8 %51, label %.loopexit [
-    i8 32, label %switch.edge213
-    i8 0, label %switch.edge213
-    i8 10, label %switch.edge213
-    i8 13, label %switch.edge213
-    i8 9, label %switch.edge213
+    i8 32, label %switch.edge217
+    i8 0, label %switch.edge217
+    i8 10, label %switch.edge217
+    i8 13, label %switch.edge217
+    i8 9, label %switch.edge217
   ]
 
-switch.edge213:                                   ; preds = %49, %49, %49, %49, %49
+switch.edge217:                                   ; preds = %49, %49, %49, %49, %49
   store i64 1, ptr %4, align 8
   store ptr null, ptr %10, align 8
   %52 = call ptr @ft_mem_alloc(ptr noundef %47, i64 noundef 248, ptr noundef nonnull %8) #18
   %53 = load i32, ptr %8, align 4
-  %.not184 = icmp eq i32 %53, 0
-  br i1 %.not184, label %54, label %.loopexit
+  %.not185 = icmp eq i32 %53, 0
+  br i1 %.not185, label %54, label %.loopexit
 
-54:                                               ; preds = %switch.edge213
+54:                                               ; preds = %switch.edge217
   store ptr %52, ptr %10, align 8
   %55 = load ptr, ptr %46, align 8
   %56 = getelementptr inbounds i8, ptr %52, i64 184
@@ -1998,21 +1998,21 @@ switch.edge213:                                   ; preds = %49, %49, %49, %49, 
   %57 = getelementptr inbounds i8, ptr %52, i64 208
   %58 = call i32 @ft_hash_str_init(ptr noundef nonnull %57, ptr noundef %47) #18
   store i32 %58, ptr %8, align 4
-  %.not185 = icmp eq i32 %58, 0
-  br i1 %.not185, label %.preheader, label %.loopexit
+  %.not186 = icmp eq i32 %58, 0
+  br i1 %.not186, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %54, %61
-  %.0166239 = phi ptr [ %63, %61 ], [ @bdf_properties_, %54 ]
-  %.0167238 = phi i64 [ %62, %61 ], [ 0, %54 ]
-  %59 = load ptr, ptr %.0166239, align 8
-  %60 = call i32 @ft_hash_str_insert(ptr noundef %59, i64 noundef %.0167238, ptr noundef nonnull %57, ptr noundef %47) #18
+  %.0166243 = phi ptr [ %63, %61 ], [ @bdf_properties_, %54 ]
+  %.0167242 = phi i64 [ %62, %61 ], [ 0, %54 ]
+  %59 = load ptr, ptr %.0166243, align 8
+  %60 = call i32 @ft_hash_str_insert(ptr noundef %59, i64 noundef %.0167242, ptr noundef nonnull %57, ptr noundef %47) #18
   store i32 %60, ptr %8, align 4
-  %.not188 = icmp eq i32 %60, 0
-  br i1 %.not188, label %61, label %.loopexit
+  %.not189 = icmp eq i32 %60, 0
+  br i1 %.not189, label %61, label %.loopexit
 
 61:                                               ; preds = %.preheader
-  %62 = add nuw nsw i64 %.0167238, 1
-  %63 = getelementptr inbounds i8, ptr %.0166239, i64 24
+  %62 = add nuw nsw i64 %.0167242, 1
+  %63 = getelementptr inbounds i8, ptr %.0166243, i64 24
   %exitcond.not = icmp eq i64 %62, 83
   br i1 %exitcond.not, label %64, label %.preheader, !llvm.loop !10
 
@@ -2022,16 +2022,16 @@ switch.edge213:                                   ; preds = %49, %49, %49, %49, 
   %67 = getelementptr inbounds i8, ptr %66, i64 168
   store ptr %65, ptr %67, align 8
   %68 = load i32, ptr %8, align 4
-  %.not186 = icmp eq i32 %68, 0
-  br i1 %.not186, label %69, label %.loopexit
+  %.not187 = icmp eq i32 %68, 0
+  br i1 %.not187, label %69, label %.loopexit
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr %10, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 168
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 @ft_hash_str_init(ptr noundef %72, ptr noundef %47) #18
-  %.not187 = icmp eq i32 %73, 0
-  br i1 %.not187, label %74, label %.loopexit
+  %.not188 = icmp eq i32 %73, 0
+  br i1 %.not188, label %74, label %.loopexit
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds i8, ptr %4, i64 64
@@ -2048,31 +2048,31 @@ switch.edge213:                                   ; preds = %49, %49, %49, %49, 
 
 83:                                               ; preds = %.critedge
   %84 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.19, i64 noundef 15) #19
-  %.not189 = icmp eq i32 %84, 0
-  br i1 %.not189, label %85, label %.critedge218
+  %.not190 = icmp eq i32 %84, 0
+  br i1 %.not190, label %85, label %.critedge222
 
 85:                                               ; preds = %83
   %86 = getelementptr inbounds i8, ptr %0, i64 15
   %87 = load i8, ptr %86, align 1
-  switch i8 %87, label %.critedge218 [
-    i8 32, label %switch.edge216
-    i8 0, label %switch.edge216
-    i8 10, label %switch.edge216
-    i8 13, label %switch.edge216
-    i8 9, label %switch.edge216
+  switch i8 %87, label %.critedge222 [
+    i8 32, label %switch.edge220
+    i8 0, label %switch.edge220
+    i8 10, label %switch.edge220
+    i8 13, label %switch.edge220
+    i8 9, label %switch.edge220
   ]
 
-switch.edge216:                                   ; preds = %85, %85, %85, %85, %85
+switch.edge220:                                   ; preds = %85, %85, %85, %85, %85
   %88 = and i64 %43, 8
-  %.not207 = icmp eq i64 %88, 0
-  br i1 %.not207, label %.loopexit, label %89
+  %.not211 = icmp eq i64 %88, 0
+  br i1 %.not211, label %.loopexit, label %89
 
-89:                                               ; preds = %switch.edge216
+89:                                               ; preds = %switch.edge220
   %90 = getelementptr inbounds i8, ptr %4, i64 72
   %91 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %90, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %91, ptr %8, align 4
-  %.not208 = icmp eq i32 %91, 0
-  br i1 %.not208, label %92, label %.loopexit
+  %.not212 = icmp eq i32 %91, 0
+  br i1 %.not212, label %92, label %.loopexit
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %90, align 8
@@ -2104,9 +2104,9 @@ switch.edge216:                                   ; preds = %85, %85, %85, %85, 
   %.014.i = phi i64 [ %120, %114 ], [ 0, %.preheader.i ]
   %.0913.i = phi ptr [ %121, %114 ], [ %95, %.preheader.i ]
   %110 = icmp ult i64 %.014.i, 1844674407370955160
-  br i1 %110, label %114, label %bdf_atoul_.exit.thread235
+  br i1 %110, label %114, label %bdf_atoul_.exit.thread239
 
-bdf_atoul_.exit.thread235:                        ; preds = %.lr.ph.i
+bdf_atoul_.exit.thread239:                        ; preds = %.lr.ph.i
   %111 = load ptr, ptr %10, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 128
   store i64 -1, ptr %112, align 8
@@ -2132,8 +2132,8 @@ bdf_atoul_.exit.thread235:                        ; preds = %.lr.ph.i
   %129 = zext nneg i8 %128 to i32
   %130 = shl nuw nsw i32 1, %129
   %131 = and i32 %130, %127
-  %.not.i231 = icmp eq i32 %131, 0
-  br i1 %.not.i231, label %bdf_atoul_.exit, label %.lr.ph.i, !llvm.loop !11
+  %.not.i235 = icmp eq i32 %131, 0
+  br i1 %.not.i235, label %bdf_atoul_.exit, label %.lr.ph.i, !llvm.loop !11
 
 bdf_atoul_.exit.thread:                           ; preds = %97, %92, %.preheader.i
   %132 = load ptr, ptr %10, align 8
@@ -2155,21 +2155,21 @@ bdf_atoul_.exit:                                  ; preds = %114
   %141 = icmp ugt i64 %120, %140
   br i1 %141, label %142, label %145
 
-142:                                              ; preds = %bdf_atoul_.exit.thread235, %bdf_atoul_.exit
+142:                                              ; preds = %bdf_atoul_.exit.thread239, %bdf_atoul_.exit
   %143 = load ptr, ptr %10, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 128
   store i64 0, ptr %144, align 8
   br label %.loopexit
 
 145:                                              ; preds = %bdf_atoul_.exit.thread, %bdf_atoul_.exit
-  %.010.i234 = phi i64 [ 0, %bdf_atoul_.exit.thread ], [ %120, %bdf_atoul_.exit ]
-  %146 = call ptr @ft_mem_realloc(ptr noundef %.0168, i64 noundef 24, i64 noundef 0, i64 noundef %.010.i234, ptr noundef null, ptr noundef nonnull %8) #18
+  %.010.i238 = phi i64 [ 0, %bdf_atoul_.exit.thread ], [ %120, %bdf_atoul_.exit ]
+  %146 = call ptr @ft_mem_realloc(ptr noundef %.0168, i64 noundef 24, i64 noundef 0, i64 noundef %.010.i238, ptr noundef null, ptr noundef nonnull %8) #18
   %147 = load ptr, ptr %10, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 144
   store ptr %146, ptr %148, align 8
   %149 = load i32, ptr %8, align 4
-  %.not209 = icmp eq i32 %149, 0
-  br i1 %.not209, label %153, label %150
+  %.not213 = icmp eq i32 %149, 0
+  br i1 %.not213, label %153, label %150
 
 150:                                              ; preds = %145
   %151 = load ptr, ptr %10, align 8
@@ -2184,32 +2184,32 @@ bdf_atoul_.exit:                                  ; preds = %114
   store ptr @bdf_parse_properties_, ptr %3, align 8
   br label %.loopexit
 
-.critedge218:                                     ; preds = %85, %83
+.critedge222:                                     ; preds = %85, %83
   %156 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.21, i64 noundef 15) #19
-  %.not190 = icmp eq i32 %156, 0
-  br i1 %.not190, label %157, label %.critedge221
+  %.not192 = icmp eq i32 %156, 0
+  br i1 %.not192, label %157, label %.critedge225
 
-157:                                              ; preds = %.critedge218
+157:                                              ; preds = %.critedge222
   %158 = getelementptr inbounds i8, ptr %0, i64 15
   %159 = load i8, ptr %158, align 1
-  switch i8 %159, label %.critedge221 [
-    i8 32, label %switch.edge219
-    i8 0, label %switch.edge219
-    i8 10, label %switch.edge219
-    i8 13, label %switch.edge219
-    i8 9, label %switch.edge219
+  switch i8 %159, label %.critedge225 [
+    i8 32, label %switch.edge223
+    i8 0, label %switch.edge223
+    i8 10, label %switch.edge223
+    i8 13, label %switch.edge223
+    i8 9, label %switch.edge223
   ]
 
-switch.edge219:                                   ; preds = %157, %157, %157, %157, %157
+switch.edge223:                                   ; preds = %157, %157, %157, %157, %157
   %160 = and i64 %43, 4
-  %.not205 = icmp eq i64 %160, 0
-  br i1 %.not205, label %.loopexit, label %161
+  %.not209 = icmp eq i64 %160, 0
+  br i1 %.not209, label %.loopexit, label %161
 
-161:                                              ; preds = %switch.edge219
+161:                                              ; preds = %switch.edge223
   %162 = getelementptr inbounds i8, ptr %4, i64 72
   %163 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %162, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
-  %.not206 = icmp eq i32 %163, 0
-  br i1 %.not206, label %164, label %.loopexit
+  %.not210 = icmp eq i32 %163, 0
+  br i1 %.not210, label %164, label %.loopexit
 
 164:                                              ; preds = %161
   %165 = load ptr, ptr %162, align 8
@@ -2259,40 +2259,40 @@ switch.edge219:                                   ; preds = %157, %157, %157, %1
   store i64 %202, ptr %4, align 8
   br label %.loopexit
 
-.critedge221:                                     ; preds = %157, %.critedge218
+.critedge225:                                     ; preds = %157, %.critedge222
   %203 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.22, i64 noundef 4) #19
-  %.not191 = icmp eq i32 %203, 0
-  br i1 %.not191, label %204, label %.critedge224
+  %.not194 = icmp eq i32 %203, 0
+  br i1 %.not194, label %204, label %.critedge228
 
-204:                                              ; preds = %.critedge221
+204:                                              ; preds = %.critedge225
   %205 = getelementptr inbounds i8, ptr %0, i64 4
   %206 = load i8, ptr %205, align 1
-  switch i8 %206, label %.critedge224 [
-    i8 32, label %switch.edge222
-    i8 0, label %switch.edge222
-    i8 10, label %switch.edge222
-    i8 13, label %switch.edge222
-    i8 9, label %switch.edge222
+  switch i8 %206, label %.critedge228 [
+    i8 32, label %switch.edge226
+    i8 0, label %switch.edge226
+    i8 10, label %switch.edge226
+    i8 13, label %switch.edge226
+    i8 9, label %switch.edge226
   ]
 
-switch.edge222:                                   ; preds = %204, %204, %204, %204, %204
+switch.edge226:                                   ; preds = %204, %204, %204, %204, %204
   %207 = getelementptr inbounds i8, ptr %4, i64 72
   %208 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %207, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %208, ptr %8, align 4
-  %.not201 = icmp eq i32 %208, 0
-  br i1 %.not201, label %209, label %.loopexit
+  %.not205 = icmp eq i32 %208, 0
+  br i1 %.not205, label %209, label %.loopexit
 
-209:                                              ; preds = %switch.edge222
+209:                                              ; preds = %switch.edge226
   %210 = getelementptr inbounds i8, ptr %4, i64 88
   %211 = load i64, ptr %210, align 8
-  switch i64 %211, label %.lr.ph.i232 [
+  switch i64 %211, label %.lr.ph.i236 [
     i64 0, label %bdf_list_shift_.exit
     i64 1, label %.sink.split.i
   ]
 
-.lr.ph.i232:                                      ; preds = %209, %.lr.ph.i232
-  %.023.i = phi i64 [ %217, %.lr.ph.i232 ], [ 1, %209 ]
-  %.01722.i = phi i64 [ %216, %.lr.ph.i232 ], [ 0, %209 ]
+.lr.ph.i236:                                      ; preds = %209, %.lr.ph.i236
+  %.023.i = phi i64 [ %217, %.lr.ph.i236 ], [ 1, %209 ]
+  %.01722.i = phi i64 [ %216, %.lr.ph.i236 ], [ 0, %209 ]
   %212 = load ptr, ptr %207, align 8
   %213 = getelementptr inbounds ptr, ptr %212, i64 %.023.i
   %214 = load ptr, ptr %213, align 8
@@ -2302,9 +2302,9 @@ switch.edge222:                                   ; preds = %204, %204, %204, %2
   %217 = add nuw i64 %.023.i, 1
   %218 = load i64, ptr %210, align 8
   %219 = icmp ult i64 %217, %218
-  br i1 %219, label %.lr.ph.i232, label %._crit_edge.i, !llvm.loop !12
+  br i1 %219, label %.lr.ph.i236, label %._crit_edge.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i232
+._crit_edge.i:                                    ; preds = %.lr.ph.i236
   %220 = add i64 %218, -1
   br label %.sink.split.i
 
@@ -2315,8 +2315,8 @@ switch.edge222:                                   ; preds = %204, %204, %204, %2
 
 bdf_list_shift_.exit:                             ; preds = %209, %.sink.split.i
   %221 = call fastcc ptr @bdf_list_join_(ptr noundef nonnull %207, ptr noundef nonnull %7)
-  %.not202 = icmp eq ptr %221, null
-  br i1 %.not202, label %.loopexit, label %222
+  %.not206 = icmp eq ptr %221, null
+  br i1 %.not206, label %.loopexit, label %222
 
 222:                                              ; preds = %bdf_list_shift_.exit
   %223 = load ptr, ptr %10, align 8
@@ -2330,16 +2330,16 @@ bdf_list_shift_.exit:                             ; preds = %209, %.sink.split.i
   %229 = load ptr, ptr %10, align 8
   store ptr %228, ptr %229, align 8
   %230 = load i32, ptr %8, align 4
-  %.not203 = icmp eq i32 %230, 0
-  br i1 %.not203, label %231, label %.loopexit
+  %.not207 = icmp eq i32 %230, 0
+  br i1 %.not207, label %231, label %.loopexit
 
 231:                                              ; preds = %222
   %232 = load ptr, ptr %10, align 8
   %233 = getelementptr inbounds i8, ptr %4, i64 64
   %234 = load ptr, ptr %233, align 8
   %235 = call fastcc i32 @bdf_set_default_spacing_(ptr noundef %232, ptr noundef %234)
-  %.not204 = icmp eq i32 %235, 0
-  br i1 %.not204, label %236, label %.loopexit
+  %.not208 = icmp eq i32 %235, 0
+  br i1 %.not208, label %236, label %.loopexit
 
 236:                                              ; preds = %231
   %237 = load i64, ptr %4, align 8
@@ -2347,32 +2347,32 @@ bdf_list_shift_.exit:                             ; preds = %209, %.sink.split.i
   store i64 %238, ptr %4, align 8
   br label %.loopexit
 
-.critedge224:                                     ; preds = %204, %.critedge221
+.critedge228:                                     ; preds = %204, %.critedge225
   %239 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.23, i64 noundef 4) #19
-  %.not192 = icmp eq i32 %239, 0
-  br i1 %.not192, label %240, label %.critedge227
+  %.not196 = icmp eq i32 %239, 0
+  br i1 %.not196, label %240, label %.critedge231
 
-240:                                              ; preds = %.critedge224
+240:                                              ; preds = %.critedge228
   %241 = getelementptr inbounds i8, ptr %0, i64 4
   %242 = load i8, ptr %241, align 1
-  switch i8 %242, label %.critedge227 [
-    i8 32, label %switch.edge225
-    i8 0, label %switch.edge225
-    i8 10, label %switch.edge225
-    i8 13, label %switch.edge225
-    i8 9, label %switch.edge225
+  switch i8 %242, label %.critedge231 [
+    i8 32, label %switch.edge229
+    i8 0, label %switch.edge229
+    i8 10, label %switch.edge229
+    i8 13, label %switch.edge229
+    i8 9, label %switch.edge229
   ]
 
-switch.edge225:                                   ; preds = %240, %240, %240, %240, %240
+switch.edge229:                                   ; preds = %240, %240, %240, %240, %240
   %243 = and i64 %43, 2
-  %.not199 = icmp eq i64 %243, 0
-  br i1 %.not199, label %.loopexit, label %244
+  %.not203 = icmp eq i64 %243, 0
+  br i1 %.not203, label %.loopexit, label %244
 
-244:                                              ; preds = %switch.edge225
+244:                                              ; preds = %switch.edge229
   %245 = getelementptr inbounds i8, ptr %4, i64 72
   %246 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %245, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
-  %.not200 = icmp eq i32 %246, 0
-  br i1 %.not200, label %247, label %.loopexit
+  %.not204 = icmp eq i32 %246, 0
+  br i1 %.not204, label %247, label %.loopexit
 
 247:                                              ; preds = %244
   %248 = load ptr, ptr %245, align 8
@@ -2451,28 +2451,28 @@ switch.edge225:                                   ; preds = %240, %240, %240, %2
   store i64 %294, ptr %4, align 8
   br label %.loopexit
 
-.critedge227:                                     ; preds = %240, %.critedge224
+.critedge231:                                     ; preds = %240, %.critedge228
   %295 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.24, i64 noundef 5) #19
-  %.not194 = icmp eq i32 %295, 0
-  br i1 %.not194, label %296, label %.loopexit
+  %.not198 = icmp eq i32 %295, 0
+  br i1 %.not198, label %296, label %.loopexit
 
-296:                                              ; preds = %.critedge227
+296:                                              ; preds = %.critedge231
   %297 = getelementptr inbounds i8, ptr %0, i64 5
   %298 = load i8, ptr %297, align 1
   switch i8 %298, label %.loopexit [
-    i8 32, label %switch.edge228
-    i8 0, label %switch.edge228
-    i8 10, label %switch.edge228
-    i8 13, label %switch.edge228
-    i8 9, label %switch.edge228
+    i8 32, label %switch.edge232
+    i8 0, label %switch.edge232
+    i8 10, label %switch.edge232
+    i8 13, label %switch.edge232
+    i8 9, label %switch.edge232
   ]
 
-switch.edge228:                                   ; preds = %296, %296, %296, %296, %296
+switch.edge232:                                   ; preds = %296, %296, %296, %296, %296
   %299 = and i64 %43, 8
-  %.not196 = icmp eq i64 %299, 0
-  br i1 %.not196, label %.loopexit, label %300
+  %.not200 = icmp eq i64 %299, 0
+  br i1 %.not200, label %.loopexit, label %300
 
-300:                                              ; preds = %switch.edge228
+300:                                              ; preds = %switch.edge232
   %301 = getelementptr inbounds i8, ptr %11, i64 16
   %302 = load i16, ptr %301, align 8
   %303 = sext i16 %302 to i64
@@ -2486,8 +2486,8 @@ switch.edge228:                                   ; preds = %296, %296, %296, %2
   %310 = load ptr, ptr %10, align 8
   %311 = call fastcc i32 @bdf_add_property_(ptr noundef %310, ptr noundef nonnull @.str.26, ptr noundef nonnull %9)
   store i32 %311, ptr %8, align 4
-  %.not197 = icmp eq i32 %311, 0
-  br i1 %.not197, label %312, label %.loopexit
+  %.not201 = icmp eq i32 %311, 0
+  br i1 %.not201, label %312, label %.loopexit
 
 312:                                              ; preds = %300
   %313 = load ptr, ptr %10, align 8
@@ -2503,15 +2503,15 @@ switch.edge228:                                   ; preds = %296, %296, %296, %2
   %322 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.25, i32 noundef %321) #18
   %323 = load ptr, ptr %10, align 8
   %324 = call fastcc i32 @bdf_add_property_(ptr noundef %323, ptr noundef nonnull @.str.27, ptr noundef nonnull %9)
-  %.not198 = icmp eq i32 %324, 0
-  br i1 %.not198, label %325, label %.loopexit
+  %.not202 = icmp eq i32 %324, 0
+  br i1 %.not202, label %325, label %.loopexit
 
 325:                                              ; preds = %312
   store ptr @bdf_parse_glyphs_, ptr %3, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %.critedge227, %296, %switch.edge228, %switch.edge225, %bdf_list_shift_.exit, %switch.edge219, %switch.edge216, %45, %49, %switch.edge, %312, %300, %244, %231, %222, %switch.edge222, %161, %89, %69, %64, %54, %switch.edge213, %bdf_add_comment_.exit, %325, %292, %236, %164, %153, %150, %142, %74
-  %326 = phi i32 [ 0, %switch.edge ], [ %324, %312 ], [ %311, %300 ], [ %246, %244 ], [ %235, %231 ], [ %230, %222 ], [ %208, %switch.edge222 ], [ %163, %161 ], [ %91, %89 ], [ %73, %69 ], [ %68, %64 ], [ %58, %54 ], [ %53, %switch.edge213 ], [ %42, %bdf_add_comment_.exit ], [ -1, %325 ], [ 0, %292 ], [ 0, %236 ], [ 0, %164 ], [ 0, %153 ], [ %149, %150 ], [ 6, %142 ], [ 0, %74 ], [ 176, %49 ], [ 176, %45 ], [ 179, %switch.edge216 ], [ 178, %switch.edge219 ], [ 3, %bdf_list_shift_.exit ], [ 177, %switch.edge225 ], [ 179, %switch.edge228 ], [ 3, %296 ], [ 3, %.critedge227 ], [ %60, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %.critedge231, %296, %switch.edge232, %switch.edge229, %bdf_list_shift_.exit, %switch.edge223, %switch.edge220, %45, %49, %switch.edge, %312, %300, %244, %231, %222, %switch.edge226, %161, %89, %69, %64, %54, %switch.edge217, %bdf_add_comment_.exit, %325, %292, %236, %164, %153, %150, %142, %74
+  %326 = phi i32 [ 0, %switch.edge ], [ %324, %312 ], [ %311, %300 ], [ %246, %244 ], [ %235, %231 ], [ %230, %222 ], [ %208, %switch.edge226 ], [ %163, %161 ], [ %91, %89 ], [ %73, %69 ], [ %68, %64 ], [ %58, %54 ], [ %53, %switch.edge217 ], [ %42, %bdf_add_comment_.exit ], [ -1, %325 ], [ 0, %292 ], [ 0, %236 ], [ 0, %164 ], [ 0, %153 ], [ %149, %150 ], [ 6, %142 ], [ 0, %74 ], [ 176, %49 ], [ 176, %45 ], [ 179, %switch.edge220 ], [ 178, %switch.edge223 ], [ 3, %bdf_list_shift_.exit ], [ 177, %switch.edge229 ], [ 179, %switch.edge232 ], [ 3, %296 ], [ 3, %.critedge231 ], [ %60, %.preheader ]
   ret i32 %326
 }
 
@@ -2798,7 +2798,7 @@ define internal fastcc i32 @bdf_list_split_(ptr nocapture noundef %0, ptr nounde
 
 .preheader113.preheader:                          ; preds = %.critedge6.thread110, %.lr.ph122
   %.070121139 = phi ptr [ %2, %.lr.ph122 ], [ %.373108, %.critedge6.thread110 ]
-  %51 = phi i8 [ %24, %.lr.ph122 ], [ %108, %.critedge6.thread110 ]
+  %51 = phi i8 [ %24, %.lr.ph122 ], [ %109, %.critedge6.thread110 ]
   br label %.preheader113
 
 .preheader113:                                    ; preds = %.preheader113.preheader, %62
@@ -2924,23 +2924,20 @@ bdf_list_ensure_.exit:                            ; preds = %67, %68
   %106 = phi i8 [ %.pre126, %.critedge6.thread ], [ %103, %.critedge6 ]
   %.373109 = phi ptr [ %102, %.critedge6.thread ], [ %.272.lcssa, %.critedge6 ]
   %107 = icmp eq i8 %106, 0
+  %108 = zext i1 %107 to i64
   br label %.critedge6.thread110
 
 .critedge6.thread110:                             ; preds = %.preheader, %101, %105, %.critedge6
-  %108 = phi i8 [ %103, %.critedge6 ], [ %106, %105 ], [ 0, %101 ], [ 0, %.preheader ]
+  %109 = phi i8 [ %103, %.critedge6 ], [ %106, %105 ], [ 0, %101 ], [ 0, %.preheader ]
   %.373108 = phi ptr [ %.272.lcssa, %.critedge6 ], [ %.373109, %105 ], [ %.171.lcssa, %101 ], [ %.171.lcssa, %.preheader ]
-  %109 = phi i1 [ false, %.critedge6 ], [ %107, %105 ], [ false, %101 ], [ false, %.preheader ]
-  %110 = icmp uge ptr %.373108, %48
-  %.not91 = icmp eq i8 %108, 0
-  %or.cond = select i1 %110, i1 true, i1 %.not91
-  br i1 %or.cond, label %.critedge2.loopexit, label %.preheader113.preheader, !llvm.loop !20
+  %110 = phi i64 [ 0, %.critedge6 ], [ %108, %105 ], [ 0, %101 ], [ 0, %.preheader ]
+  %111 = icmp uge ptr %.373108, %48
+  %.not91 = icmp eq i8 %109, 0
+  %or.cond = select i1 %111, i1 true, i1 %.not91
+  br i1 %or.cond, label %.critedge2, label %.preheader113.preheader, !llvm.loop !20
 
-.critedge2.loopexit:                              ; preds = %.critedge6.thread110
-  %111 = zext i1 %109 to i64
-  br label %.critedge2
-
-.critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge
-  %.074.lcssa = phi i64 [ 0, %.critedge ], [ %111, %.critedge2.loopexit ]
+.critedge2:                                       ; preds = %.critedge6.thread110, %.critedge
+  %.074.lcssa = phi i64 [ 0, %.critedge ], [ %110, %.critedge6.thread110 ]
   %112 = load i64, ptr %8, align 8
   %113 = add i64 %112, %.074.lcssa
   %114 = load i64, ptr %9, align 8
@@ -3770,7 +3767,7 @@ define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, pt
   %15 = getelementptr inbounds %struct.bdf_property_t_, ptr %13, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
-  switch i32 %17, label %.critedge149 [
+  switch i32 %17, label %.critedge151 [
     i32 1, label %18
     i32 2, label %25
     i32 3, label %64
@@ -3781,18 +3778,18 @@ define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, pt
   %20 = load ptr, ptr %19, align 8
   tail call void @ft_mem_free(ptr noundef %7, ptr noundef %20) #18
   store ptr null, ptr %19, align 8
-  %.not136 = icmp eq ptr %2, null
-  br i1 %.not136, label %.critedge149, label %21
+  %.not138 = icmp eq ptr %2, null
+  br i1 %.not138, label %.critedge151, label %21
 
 21:                                               ; preds = %18
   %22 = load i8, ptr %2, align 1
-  %.not137 = icmp eq i8 %22, 0
-  br i1 %.not137, label %.critedge149, label %23
+  %.not139 = icmp eq i8 %22, 0
+  br i1 %.not139, label %.critedge151, label %23
 
 23:                                               ; preds = %21
   %24 = call ptr @ft_mem_strdup(ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %5) #18
   store ptr %24, ptr %19, align 8
-  br label %.critedge149
+  br label %.critedge151
 
 25:                                               ; preds = %11
   %26 = icmp eq ptr %2, null
@@ -3858,7 +3855,7 @@ bdf_atol_.exit:                                   ; preds = %25, %27, %._crit_ed
   %.016.i = phi i64 [ %62, %._crit_edge.i ], [ 0, %27 ], [ 0, %25 ]
   %63 = getelementptr inbounds i8, ptr %15, i64 16
   store i64 %.016.i, ptr %63, align 8
-  br label %.critedge149
+  br label %.critedge151
 
 64:                                               ; preds = %11
   %65 = icmp eq ptr %2, null
@@ -3880,16 +3877,16 @@ bdf_atol_.exit:                                   ; preds = %25, %27, %._crit_ed
   %76 = shl nuw nsw i32 1, %75
   %77 = and i32 %76, %73
   %.not12.i = icmp eq i32 %77, 0
-  br i1 %.not12.i, label %bdf_atoul_.exit, label %.lr.ph.i150
+  br i1 %.not12.i, label %bdf_atoul_.exit, label %.lr.ph.i152
 
-.lr.ph.i150:                                      ; preds = %.preheader.i, %80
+.lr.ph.i152:                                      ; preds = %.preheader.i, %80
   %78 = phi i8 [ %88, %80 ], [ %67, %.preheader.i ]
   %.014.i = phi i64 [ %86, %80 ], [ 0, %.preheader.i ]
   %.0913.i = phi ptr [ %87, %80 ], [ %2, %.preheader.i ]
   %79 = icmp ult i64 %.014.i, 1844674407370955160
   br i1 %79, label %80, label %bdf_atoul_.exit
 
-80:                                               ; preds = %.lr.ph.i150
+80:                                               ; preds = %.lr.ph.i152
   %81 = mul nuw i64 %.014.i, 10
   %82 = sext i8 %78 to i64
   %83 = getelementptr inbounds [128 x i8], ptr @a2i, i64 0, i64 %82
@@ -3907,14 +3904,14 @@ bdf_atol_.exit:                                   ; preds = %25, %27, %._crit_ed
   %95 = zext nneg i8 %94 to i32
   %96 = shl nuw nsw i32 1, %95
   %97 = and i32 %96, %93
-  %.not.i151 = icmp eq i32 %97, 0
-  br i1 %.not.i151, label %bdf_atoul_.exit, label %.lr.ph.i150, !llvm.loop !11
+  %.not.i153 = icmp eq i32 %97, 0
+  br i1 %.not.i153, label %bdf_atoul_.exit, label %.lr.ph.i152, !llvm.loop !11
 
-bdf_atoul_.exit:                                  ; preds = %.lr.ph.i150, %80, %64, %66, %.preheader.i
-  %.010.i = phi i64 [ 0, %66 ], [ 0, %64 ], [ 0, %.preheader.i ], [ %86, %80 ], [ -1, %.lr.ph.i150 ]
+bdf_atoul_.exit:                                  ; preds = %.lr.ph.i152, %80, %64, %66, %.preheader.i
+  %.010.i = phi i64 [ 0, %66 ], [ 0, %64 ], [ 0, %.preheader.i ], [ %86, %80 ], [ -1, %.lr.ph.i152 ]
   %98 = getelementptr inbounds i8, ptr %15, i64 16
   store i64 %.010.i, ptr %98, align 8
-  br label %.critedge149
+  br label %.critedge151
 
 99:                                               ; preds = %3
   %100 = getelementptr inbounds i8, ptr %0, i64 208
@@ -3927,8 +3924,8 @@ bdf_atoul_.exit:                                  ; preds = %.lr.ph.i150, %80, %
   %103 = load ptr, ptr %6, align 8
   store i32 0, ptr %4, align 4
   %104 = tail call ptr @ft_hash_str_lookup(ptr noundef %1, ptr noundef nonnull %100) #18
-  %.not.i152 = icmp eq ptr %104, null
-  br i1 %.not.i152, label %105, label %128
+  %.not.i154 = icmp eq ptr %104, null
+  br i1 %.not.i154, label %105, label %128
 
 105:                                              ; preds = %102
   %106 = getelementptr inbounds i8, ptr %0, i64 200
@@ -3974,7 +3971,7 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   %.ph = phi i32 [ %112, %105 ], [ %117, %113 ], [ %124, %118 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   store i32 %.ph, ptr %5, align 4
-  br label %.critedge149
+  br label %.critedge151
 
 128:                                              ; preds = %125, %102
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -3999,7 +3996,7 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   store ptr %140, ptr %138, align 8
   %141 = load i32, ptr %5, align 4
   %.not123 = icmp eq i32 %141, 0
-  br i1 %.not123, label %142, label %.critedge149
+  br i1 %.not123, label %142, label %.critedge151
 
 142:                                              ; preds = %136
   %143 = load i64, ptr %133, align 8
@@ -4062,7 +4059,7 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   store ptr %173, ptr %169, align 8
   %174 = load i32, ptr %5, align 4
   %.not126 = icmp eq i32 %174, 0
-  br i1 %.not126, label %248, label %.critedge149
+  br i1 %.not126, label %248, label %.critedge151
 
 175:                                              ; preds = %155
   %176 = icmp eq ptr %2, null
@@ -4074,10 +4071,10 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   br i1 %179, label %.sink.split, label %180
 
 180:                                              ; preds = %177
-  %.not20.i153 = icmp eq i8 %178, 45
-  %spec.select.idx.i154 = zext i1 %.not20.i153 to i64
-  %spec.select.i155 = getelementptr inbounds i8, ptr %2, i64 %spec.select.idx.i154
-  %181 = load i8, ptr %spec.select.i155, align 1
+  %.not20.i155 = icmp eq i8 %178, 45
+  %spec.select.idx.i156 = zext i1 %.not20.i155 to i64
+  %spec.select.i157 = getelementptr inbounds i8, ptr %2, i64 %spec.select.idx.i156
+  %181 = load i8, ptr %spec.select.i157, align 1
   %182 = lshr i8 %181, 3
   %183 = zext nneg i8 %182 to i64
   %184 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %183
@@ -4087,24 +4084,24 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   %188 = zext nneg i8 %187 to i32
   %189 = shl nuw nsw i32 1, %188
   %190 = and i32 %189, %186
-  %.not21.i156 = icmp eq i32 %190, 0
-  br i1 %.not21.i156, label %._crit_edge.i160, label %.lr.ph.i157
+  %.not21.i158 = icmp eq i32 %190, 0
+  br i1 %.not21.i158, label %._crit_edge.i162, label %.lr.ph.i159
 
-.lr.ph.i157:                                      ; preds = %180, %193
+.lr.ph.i159:                                      ; preds = %180, %193
   %191 = phi i8 [ %201, %193 ], [ %181, %180 ]
-  %.01323.i158 = phi i64 [ %199, %193 ], [ 0, %180 ]
-  %.11522.i159 = phi ptr [ %200, %193 ], [ %spec.select.i155, %180 ]
-  %192 = icmp slt i64 %.01323.i158, 922337203685477579
-  br i1 %192, label %193, label %._crit_edge.i160
+  %.01323.i160 = phi i64 [ %199, %193 ], [ 0, %180 ]
+  %.11522.i161 = phi ptr [ %200, %193 ], [ %spec.select.i157, %180 ]
+  %192 = icmp slt i64 %.01323.i160, 922337203685477579
+  br i1 %192, label %193, label %._crit_edge.i162
 
-193:                                              ; preds = %.lr.ph.i157
-  %194 = mul nsw i64 %.01323.i158, 10
+193:                                              ; preds = %.lr.ph.i159
+  %194 = mul nsw i64 %.01323.i160, 10
   %195 = sext i8 %191 to i64
   %196 = getelementptr inbounds [128 x i8], ptr @a2i, i64 0, i64 %195
   %197 = load i8, ptr %196, align 1
   %198 = zext i8 %197 to i64
   %199 = add nsw i64 %194, %198
-  %200 = getelementptr inbounds i8, ptr %.11522.i159, i64 1
+  %200 = getelementptr inbounds i8, ptr %.11522.i161, i64 1
   %201 = load i8, ptr %200, align 1
   %202 = lshr i8 %201, 3
   %203 = zext nneg i8 %202 to i64
@@ -4115,13 +4112,13 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   %208 = zext nneg i8 %207 to i32
   %209 = shl nuw nsw i32 1, %208
   %210 = and i32 %209, %206
-  %.not.i163 = icmp eq i32 %210, 0
-  br i1 %.not.i163, label %._crit_edge.i160, label %.lr.ph.i157, !llvm.loop !26
+  %.not.i165 = icmp eq i32 %210, 0
+  br i1 %.not.i165, label %._crit_edge.i162, label %.lr.ph.i159, !llvm.loop !26
 
-._crit_edge.i160:                                 ; preds = %193, %.lr.ph.i157, %180
-  %.1.i161 = phi i64 [ 0, %180 ], [ %199, %193 ], [ 9223372036854775807, %.lr.ph.i157 ]
-  %211 = sub nsw i64 0, %.1.i161
-  %212 = select i1 %.not20.i153, i64 %211, i64 %.1.i161
+._crit_edge.i162:                                 ; preds = %193, %.lr.ph.i159, %180
+  %.1.i163 = phi i64 [ 0, %180 ], [ %199, %193 ], [ 9223372036854775807, %.lr.ph.i159 ]
+  %211 = sub nsw i64 0, %.1.i163
+  %212 = select i1 %.not20.i155, i64 %211, i64 %.1.i163
   br label %.sink.split
 
 213:                                              ; preds = %155
@@ -4131,9 +4128,9 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
 215:                                              ; preds = %213
   %216 = load i8, ptr %2, align 1
   %217 = icmp eq i8 %216, 0
-  br i1 %217, label %.sink.split, label %.preheader.i165
+  br i1 %217, label %.sink.split, label %.preheader.i167
 
-.preheader.i165:                                  ; preds = %215
+.preheader.i167:                                  ; preds = %215
   %218 = lshr i8 %216, 3
   %219 = zext nneg i8 %218 to i64
   %220 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %219
@@ -4143,24 +4140,24 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   %224 = zext nneg i8 %223 to i32
   %225 = shl nuw nsw i32 1, %224
   %226 = and i32 %225, %222
-  %.not12.i166 = icmp eq i32 %226, 0
-  br i1 %.not12.i166, label %.sink.split, label %.lr.ph.i167
+  %.not12.i168 = icmp eq i32 %226, 0
+  br i1 %.not12.i168, label %.sink.split, label %.lr.ph.i169
 
-.lr.ph.i167:                                      ; preds = %.preheader.i165, %229
-  %227 = phi i8 [ %237, %229 ], [ %216, %.preheader.i165 ]
-  %.014.i168 = phi i64 [ %235, %229 ], [ 0, %.preheader.i165 ]
-  %.0913.i169 = phi ptr [ %236, %229 ], [ %2, %.preheader.i165 ]
-  %228 = icmp ult i64 %.014.i168, 1844674407370955160
+.lr.ph.i169:                                      ; preds = %.preheader.i167, %229
+  %227 = phi i8 [ %237, %229 ], [ %216, %.preheader.i167 ]
+  %.014.i170 = phi i64 [ %235, %229 ], [ 0, %.preheader.i167 ]
+  %.0913.i171 = phi ptr [ %236, %229 ], [ %2, %.preheader.i167 ]
+  %228 = icmp ult i64 %.014.i170, 1844674407370955160
   br i1 %228, label %229, label %.sink.split
 
-229:                                              ; preds = %.lr.ph.i167
-  %230 = mul nuw i64 %.014.i168, 10
+229:                                              ; preds = %.lr.ph.i169
+  %230 = mul nuw i64 %.014.i170, 10
   %231 = sext i8 %227 to i64
   %232 = getelementptr inbounds [128 x i8], ptr @a2i, i64 0, i64 %231
   %233 = load i8, ptr %232, align 1
   %234 = zext i8 %233 to i64
   %235 = add i64 %230, %234
-  %236 = getelementptr inbounds i8, ptr %.0913.i169, i64 1
+  %236 = getelementptr inbounds i8, ptr %.0913.i171, i64 1
   %237 = load i8, ptr %236, align 1
   %238 = lshr i8 %237, 3
   %239 = zext nneg i8 %238 to i64
@@ -4171,13 +4168,13 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   %244 = zext nneg i8 %243 to i32
   %245 = shl nuw nsw i32 1, %244
   %246 = and i32 %245, %242
-  %.not.i171 = icmp eq i32 %246, 0
-  br i1 %.not.i171, label %.sink.split, label %.lr.ph.i167, !llvm.loop !11
+  %.not.i173 = icmp eq i32 %246, 0
+  br i1 %.not.i173, label %.sink.split, label %.lr.ph.i169, !llvm.loop !11
 
-.sink.split:                                      ; preds = %229, %.lr.ph.i167, %.preheader.i165, %215, %213, %._crit_edge.i160, %177, %175
-  %.010.i170.sink = phi i64 [ %212, %._crit_edge.i160 ], [ 0, %177 ], [ 0, %175 ], [ 0, %215 ], [ 0, %213 ], [ 0, %.preheader.i165 ], [ %235, %229 ], [ -1, %.lr.ph.i167 ]
+.sink.split:                                      ; preds = %229, %.lr.ph.i169, %.preheader.i167, %215, %213, %._crit_edge.i162, %177, %175
+  %.010.i172.sink = phi i64 [ %212, %._crit_edge.i162 ], [ 0, %177 ], [ 0, %175 ], [ 0, %215 ], [ 0, %213 ], [ 0, %.preheader.i167 ], [ %235, %229 ], [ -1, %.lr.ph.i169 ]
   %247 = getelementptr inbounds i8, ptr %159, i64 16
-  store i64 %.010.i170.sink, ptr %247, align 8
+  store i64 %.010.i172.sink, ptr %247, align 8
   br label %248
 
 248:                                              ; preds = %.sink.split, %168, %170, %172, %155
@@ -4189,11 +4186,11 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   %251 = getelementptr inbounds i8, ptr %1, i64 7
   %252 = load i8, ptr %251, align 1
   switch i8 %252, label %.critedge [
-    i8 32, label %switch.edge.thread174
-    i8 0, label %switch.edge.thread174
-    i8 10, label %switch.edge.thread174
-    i8 13, label %switch.edge.thread174
-    i8 9, label %switch.edge.thread174
+    i8 32, label %switch.edge
+    i8 0, label %switch.edge
+    i8 10, label %switch.edge
+    i8 13, label %switch.edge
+    i8 9, label %switch.edge
   ]
 
 .critedge:                                        ; preds = %250, %248
@@ -4203,109 +4200,109 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   %256 = call i32 @ft_hash_str_insert(ptr noundef %253, i64 noundef %254, ptr noundef %255, ptr noundef %7) #18
   store i32 %256, ptr %5, align 4
   %.not128 = icmp eq i32 %256, 0
-  br i1 %.not128, label %switch.edge.thread174, label %.critedge149
+  br i1 %.not128, label %switch.edge, label %.critedge151
 
-switch.edge.thread174:                            ; preds = %250, %250, %250, %250, %250, %.critedge
+switch.edge:                                      ; preds = %250, %250, %250, %250, %250, %.critedge
   %257 = load i64, ptr %131, align 8
   %258 = add i64 %257, 1
   store i64 %258, ptr %131, align 8
   %259 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.34, i64 noundef 12) #19
   %.not129 = icmp eq i32 %259, 0
-  br i1 %.not129, label %260, label %.critedge140
+  br i1 %.not129, label %260, label %.critedge142
 
-260:                                              ; preds = %switch.edge.thread174
+260:                                              ; preds = %switch.edge
   %261 = getelementptr inbounds i8, ptr %1, i64 12
   %262 = load i8, ptr %261, align 1
-  switch i8 %262, label %.critedge140 [
-    i8 32, label %switch.edge138
-    i8 0, label %switch.edge138
-    i8 10, label %switch.edge138
-    i8 13, label %switch.edge138
-    i8 9, label %switch.edge138
+  switch i8 %262, label %.critedge142 [
+    i8 32, label %switch.edge140
+    i8 0, label %switch.edge140
+    i8 10, label %switch.edge140
+    i8 13, label %switch.edge140
+    i8 9, label %switch.edge140
   ]
 
-switch.edge138:                                   ; preds = %260, %260, %260, %260, %260
+switch.edge140:                                   ; preds = %260, %260, %260, %260, %260
   %263 = getelementptr inbounds i8, ptr %159, i64 16
   %264 = load i64, ptr %263, align 8
   %265 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %264, ptr %265, align 8
-  br label %.critedge149
+  br label %.critedge151
 
-.critedge140:                                     ; preds = %260, %switch.edge.thread174
+.critedge142:                                     ; preds = %260, %switch.edge
   %266 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.26, i64 noundef 11) #19
-  %.not130 = icmp eq i32 %266, 0
-  br i1 %.not130, label %267, label %.critedge143
+  %.not131 = icmp eq i32 %266, 0
+  br i1 %.not131, label %267, label %.critedge145
 
-267:                                              ; preds = %.critedge140
+267:                                              ; preds = %.critedge142
   %268 = getelementptr inbounds i8, ptr %1, i64 11
   %269 = load i8, ptr %268, align 1
-  switch i8 %269, label %.critedge143 [
-    i8 32, label %switch.edge141
-    i8 0, label %switch.edge141
-    i8 10, label %switch.edge141
-    i8 13, label %switch.edge141
-    i8 9, label %switch.edge141
+  switch i8 %269, label %.critedge145 [
+    i8 32, label %switch.edge143
+    i8 0, label %switch.edge143
+    i8 10, label %switch.edge143
+    i8 13, label %switch.edge143
+    i8 9, label %switch.edge143
   ]
 
-switch.edge141:                                   ; preds = %267, %267, %267, %267, %267
+switch.edge143:                                   ; preds = %267, %267, %267, %267, %267
   %270 = getelementptr inbounds i8, ptr %159, i64 16
   %271 = load i64, ptr %270, align 8
   %272 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %271, ptr %272, align 8
-  br label %.critedge149
+  br label %.critedge151
 
-.critedge143:                                     ; preds = %267, %.critedge140
+.critedge145:                                     ; preds = %267, %.critedge142
   %273 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(13) @.str.27, i64 noundef 12) #19
-  %.not131 = icmp eq i32 %273, 0
-  br i1 %.not131, label %274, label %.critedge146
+  %.not133 = icmp eq i32 %273, 0
+  br i1 %.not133, label %274, label %.critedge148
 
-274:                                              ; preds = %.critedge143
+274:                                              ; preds = %.critedge145
   %275 = getelementptr inbounds i8, ptr %1, i64 12
   %276 = load i8, ptr %275, align 1
-  switch i8 %276, label %.critedge146 [
-    i8 32, label %switch.edge144
-    i8 0, label %switch.edge144
-    i8 10, label %switch.edge144
-    i8 13, label %switch.edge144
-    i8 9, label %switch.edge144
+  switch i8 %276, label %.critedge148 [
+    i8 32, label %switch.edge146
+    i8 0, label %switch.edge146
+    i8 10, label %switch.edge146
+    i8 13, label %switch.edge146
+    i8 9, label %switch.edge146
   ]
 
-switch.edge144:                                   ; preds = %274, %274, %274, %274, %274
+switch.edge146:                                   ; preds = %274, %274, %274, %274, %274
   %277 = getelementptr inbounds i8, ptr %159, i64 16
   %278 = load i64, ptr %277, align 8
   %279 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 %278, ptr %279, align 8
-  br label %.critedge149
+  br label %.critedge151
 
-.critedge146:                                     ; preds = %274, %.critedge143
+.critedge148:                                     ; preds = %274, %.critedge145
   %280 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.3, i64 noundef 7) #19
-  %.not133 = icmp eq i32 %280, 0
-  br i1 %.not133, label %281, label %.critedge149
+  %.not135 = icmp eq i32 %280, 0
+  br i1 %.not135, label %281, label %.critedge151
 
-281:                                              ; preds = %.critedge146
+281:                                              ; preds = %.critedge148
   %282 = getelementptr inbounds i8, ptr %1, i64 7
   %283 = load i8, ptr %282, align 1
-  switch i8 %283, label %.critedge149 [
-    i8 32, label %switch.edge147
-    i8 0, label %switch.edge147
-    i8 10, label %switch.edge147
-    i8 13, label %switch.edge147
-    i8 9, label %switch.edge147
+  switch i8 %283, label %.critedge151 [
+    i8 32, label %switch.edge149
+    i8 0, label %switch.edge149
+    i8 10, label %switch.edge149
+    i8 13, label %switch.edge149
+    i8 9, label %switch.edge149
   ]
 
-switch.edge147:                                   ; preds = %281, %281, %281, %281, %281
+switch.edge149:                                   ; preds = %281, %281, %281, %281, %281
   %284 = getelementptr inbounds i8, ptr %159, i64 16
   %285 = load ptr, ptr %284, align 8
-  %.not135 = icmp eq ptr %285, null
-  br i1 %.not135, label %286, label %287
+  %.not137 = icmp eq ptr %285, null
+  br i1 %.not137, label %286, label %287
 
-286:                                              ; preds = %switch.edge147
+286:                                              ; preds = %switch.edge149
   store i32 3, ptr %5, align 4
-  br label %.critedge149
+  br label %.critedge151
 
-287:                                              ; preds = %switch.edge147
+287:                                              ; preds = %switch.edge149
   %288 = load i8, ptr %285, align 1
-  switch i8 %288, label %.critedge149 [
+  switch i8 %288, label %.critedge151 [
     i8 112, label %289
     i8 80, label %289
     i8 109, label %291
@@ -4317,19 +4314,19 @@ switch.edge147:                                   ; preds = %281, %281, %281, %2
 289:                                              ; preds = %287, %287
   %290 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 8, ptr %290, align 8
-  br label %.critedge149
+  br label %.critedge151
 
 291:                                              ; preds = %287, %287
   %292 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 16, ptr %292, align 8
-  br label %.critedge149
+  br label %.critedge151
 
 293:                                              ; preds = %287, %287
   %294 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 32, ptr %294, align 8
-  br label %.critedge149
+  br label %.critedge151
 
-.critedge149:                                     ; preds = %bdf_create_property.exit.thread, %281, %.critedge146, %287, %23, %switch.edge138, %switch.edge144, %289, %293, %291, %switch.edge141, %.critedge, %172, %136, %bdf_atol_.exit, %bdf_atoul_.exit, %21, %18, %11, %286
+.critedge151:                                     ; preds = %bdf_create_property.exit.thread, %281, %.critedge148, %287, %23, %switch.edge140, %switch.edge146, %289, %293, %291, %switch.edge143, %.critedge, %172, %136, %bdf_atol_.exit, %bdf_atoul_.exit, %21, %18, %11, %286
   %295 = load i32, ptr %5, align 4
   ret i32 %295
 }
@@ -4364,12 +4361,12 @@ switch.edge:                                      ; preds = %14, %14, %14, %14, 
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 4
-  %.not389 = icmp eq i32 %20, 0
-  br i1 %.not389, label %thread-pre-split, label %21
+  %.not397 = icmp eq i32 %20, 0
+  br i1 %.not397, label %thread-pre-split, label %21
 
 21:                                               ; preds = %switch.edge
-  %.not390 = icmp eq i8 %16, 0
-  %.0.v = select i1 %.not390, i64 -7, i64 -8
+  %.not398 = icmp eq i8 %16, 0
+  %.0.v = select i1 %.not398, i64 -7, i64 -8
   %.0 = add i64 %.0.v, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
@@ -4387,7 +4384,7 @@ switch.edge:                                      ; preds = %14, %14, %14, %14, 
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %.0309 = select i1 %.not390, ptr %15, ptr %31
+  %.0309 = select i1 %.not398, ptr %15, ptr %31
   %32 = load i64, ptr %22, align 8
   %33 = getelementptr inbounds i8, ptr %28, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull readonly align 1 %.0309, i64 %.0, i1 false)
@@ -4408,33 +4405,33 @@ bdf_add_comment_.exit:                            ; preds = %21, %30
 .critedge:                                        ; preds = %14, %5
   %38 = load i64, ptr %4, align 8
   %39 = and i64 %38, 32
-  %.not342 = icmp eq i64 %39, 0
-  br i1 %.not342, label %40, label %121
+  %.not343 = icmp eq i64 %39, 0
+  br i1 %.not343, label %40, label %121
 
 40:                                               ; preds = %.critedge
   %41 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.24, i64 noundef 5) #19
-  %.not343 = icmp eq i32 %41, 0
-  br i1 %.not343, label %42, label %.thread430.sink.split
+  %.not344 = icmp eq i32 %41, 0
+  br i1 %.not344, label %42, label %.thread438.sink.split
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds i8, ptr %0, i64 5
   %44 = load i8, ptr %43, align 1
-  switch i8 %44, label %.thread430.sink.split [
-    i8 32, label %switch.edge393
-    i8 0, label %switch.edge393
-    i8 10, label %switch.edge393
-    i8 13, label %switch.edge393
-    i8 9, label %switch.edge393
+  switch i8 %44, label %.thread438.sink.split [
+    i8 32, label %switch.edge401
+    i8 0, label %switch.edge401
+    i8 10, label %switch.edge401
+    i8 13, label %switch.edge401
+    i8 9, label %switch.edge401
   ]
 
-switch.edge393:                                   ; preds = %42, %42, %42, %42, %42
+switch.edge401:                                   ; preds = %42, %42, %42, %42, %42
   %45 = getelementptr inbounds i8, ptr %4, i64 72
   %46 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %45, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %46, ptr %8, align 4
-  %.not344 = icmp eq i32 %46, 0
-  br i1 %.not344, label %47, label %.thread430
+  %.not345 = icmp eq i32 %46, 0
+  br i1 %.not345, label %47, label %.thread438
 
-47:                                               ; preds = %switch.edge393
+47:                                               ; preds = %switch.edge401
   %48 = load ptr, ptr %45, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
@@ -4464,9 +4461,9 @@ switch.edge393:                                   ; preds = %42, %42, %42, %42, 
   %.014.i = phi i64 [ %77, %71 ], [ 0, %.preheader.i ]
   %.0913.i = phi ptr [ %78, %71 ], [ %50, %.preheader.i ]
   %65 = icmp ult i64 %.014.i, 1844674407370955160
-  br i1 %65, label %71, label %bdf_atoul_.exit.thread427
+  br i1 %65, label %71, label %bdf_atoul_.exit.thread435
 
-bdf_atoul_.exit.thread427:                        ; preds = %.lr.ph.i
+bdf_atoul_.exit.thread435:                        ; preds = %.lr.ph.i
   %66 = getelementptr inbounds i8, ptr %10, i64 80
   store i64 -1, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4493,8 +4490,8 @@ bdf_atoul_.exit.thread427:                        ; preds = %.lr.ph.i
   %86 = zext nneg i8 %85 to i32
   %87 = shl nuw nsw i32 1, %86
   %88 = and i32 %87, %84
-  %.not.i424 = icmp eq i32 %88, 0
-  br i1 %.not.i424, label %bdf_atoul_.exit, label %.lr.ph.i, !llvm.loop !11
+  %.not.i432 = icmp eq i32 %88, 0
+  br i1 %.not.i432, label %bdf_atoul_.exit, label %.lr.ph.i, !llvm.loop !11
 
 .thread:                                          ; preds = %.preheader.i, %47, %52
   %89 = getelementptr inbounds i8, ptr %10, i64 80
@@ -4514,10 +4511,10 @@ bdf_atoul_.exit:                                  ; preds = %71
   %96 = icmp ugt i64 %77, %95
   br i1 %96, label %97, label %101
 
-97:                                               ; preds = %bdf_atoul_.exit.thread427, %bdf_atoul_.exit
-  %98 = phi i64 [ %70, %bdf_atoul_.exit.thread427 ], [ %95, %bdf_atoul_.exit ]
-  %99 = phi ptr [ %67, %bdf_atoul_.exit.thread427 ], [ %92, %bdf_atoul_.exit ]
-  %100 = phi ptr [ %66, %bdf_atoul_.exit.thread427 ], [ %91, %bdf_atoul_.exit ]
+97:                                               ; preds = %bdf_atoul_.exit.thread435, %bdf_atoul_.exit
+  %98 = phi i64 [ %70, %bdf_atoul_.exit.thread435 ], [ %95, %bdf_atoul_.exit ]
+  %99 = phi ptr [ %67, %bdf_atoul_.exit.thread435 ], [ %92, %bdf_atoul_.exit ]
+  %100 = phi ptr [ %66, %bdf_atoul_.exit.thread435 ], [ %91, %bdf_atoul_.exit ]
   store i64 %98, ptr %100, align 8
   store i64 %98, ptr %99, align 8
   br label %101
@@ -4533,14 +4530,14 @@ bdf_atoul_.exit:                                  ; preds = %71
   %107 = phi ptr [ %89, %.thread ], [ %104, %101 ]
   %108 = phi ptr [ %90, %.thread ], [ %103, %101 ]
   store i64 64, ptr %107, align 8
-  %.pre453 = load i64, ptr %108, align 8
+  %.pre461 = load i64, ptr %108, align 8
   br label %109
 
 109:                                              ; preds = %106, %101
-  %110 = phi i64 [ %.pre453, %106 ], [ %102, %101 ]
+  %110 = phi i64 [ %.pre461, %106 ], [ %102, %101 ]
   %111 = phi ptr [ %107, %106 ], [ %104, %101 ]
   %112 = icmp ugt i64 %110, 1114111
-  br i1 %112, label %.thread430.sink.split, label %113
+  br i1 %112, label %.thread438.sink.split, label %113
 
 113:                                              ; preds = %109
   %114 = load i64, ptr %111, align 8
@@ -4548,8 +4545,8 @@ bdf_atoul_.exit:                                  ; preds = %71
   %116 = getelementptr inbounds i8, ptr %10, i64 96
   store ptr %115, ptr %116, align 8
   %117 = load i32, ptr %8, align 4
-  %.not345 = icmp eq i32 %117, 0
-  br i1 %.not345, label %118, label %.thread430
+  %.not346 = icmp eq i32 %117, 0
+  br i1 %.not346, label %118, label %.thread438
 
 118:                                              ; preds = %113
   %119 = load i64, ptr %4, align 8
@@ -4559,26 +4556,26 @@ bdf_atoul_.exit:                                  ; preds = %71
 
 121:                                              ; preds = %.critedge
   %122 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.103, i64 noundef 7) #19
-  %.not346 = icmp eq i32 %122, 0
-  br i1 %.not346, label %123, label %.critedge398
+  %.not347 = icmp eq i32 %122, 0
+  br i1 %.not347, label %123, label %.critedge406
 
 123:                                              ; preds = %121
   %124 = getelementptr inbounds i8, ptr %0, i64 7
   %125 = load i8, ptr %124, align 1
-  switch i8 %125, label %.critedge398 [
-    i8 32, label %switch.edge396
-    i8 0, label %switch.edge396
-    i8 10, label %switch.edge396
-    i8 13, label %switch.edge396
-    i8 9, label %switch.edge396
+  switch i8 %125, label %.critedge406 [
+    i8 32, label %switch.edge404
+    i8 0, label %switch.edge404
+    i8 10, label %switch.edge404
+    i8 13, label %switch.edge404
+    i8 9, label %switch.edge404
   ]
 
-switch.edge396:                                   ; preds = %123, %123, %123, %123, %123
+switch.edge404:                                   ; preds = %123, %123, %123, %123, %123
   %126 = and i64 %38, 4032
-  %.not388 = icmp eq i64 %126, 0
-  br i1 %.not388, label %127, label %.thread430.sink.split
+  %.not396 = icmp eq i64 %126, 0
+  br i1 %.not396, label %127, label %.thread438.sink.split
 
-127:                                              ; preds = %switch.edge396
+127:                                              ; preds = %switch.edge404
   %128 = getelementptr inbounds i8, ptr %10, i64 96
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %10, i64 88
@@ -4590,35 +4587,35 @@ switch.edge396:                                   ; preds = %123, %123, %123, %1
   store ptr @bdf_parse_end_, ptr %3, align 8
   br label %thread-pre-split
 
-.critedge398:                                     ; preds = %123, %121
+.critedge406:                                     ; preds = %123, %121
   %134 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.104, i64 noundef 7) #19
-  %.not347 = icmp eq i32 %134, 0
-  br i1 %.not347, label %135, label %.critedge401
+  %.not349 = icmp eq i32 %134, 0
+  br i1 %.not349, label %135, label %.critedge409
 
-135:                                              ; preds = %.critedge398
+135:                                              ; preds = %.critedge406
   %136 = getelementptr inbounds i8, ptr %0, i64 7
   %137 = load i8, ptr %136, align 1
-  switch i8 %137, label %.critedge401 [
-    i8 32, label %switch.edge399
-    i8 0, label %switch.edge399
-    i8 10, label %switch.edge399
-    i8 13, label %switch.edge399
-    i8 9, label %switch.edge399
+  switch i8 %137, label %.critedge409 [
+    i8 32, label %switch.edge407
+    i8 0, label %switch.edge407
+    i8 10, label %switch.edge407
+    i8 13, label %switch.edge407
+    i8 9, label %switch.edge407
   ]
 
-switch.edge399:                                   ; preds = %135, %135, %135, %135, %135
+switch.edge407:                                   ; preds = %135, %135, %135, %135, %135
   %138 = getelementptr inbounds i8, ptr %4, i64 48
   store i64 0, ptr %138, align 8
   %139 = and i64 %38, 4294963263
   store i64 %139, ptr %4, align 8
   br label %thread-pre-split
 
-.critedge401:                                     ; preds = %135, %.critedge398
+.critedge409:                                     ; preds = %135, %.critedge406
   %140 = and i64 %38, 64
-  %.not348 = icmp eq i64 %140, 0
-  br i1 %.not348, label %151, label %141
+  %.not351 = icmp eq i64 %140, 0
+  br i1 %.not351, label %151, label %141
 
-141:                                              ; preds = %.critedge401
+141:                                              ; preds = %.critedge409
   %142 = getelementptr inbounds i8, ptr %4, i64 48
   %143 = load i64, ptr %142, align 8
   %144 = icmp eq i64 %143, -1
@@ -4632,28 +4629,28 @@ switch.edge399:                                   ; preds = %135, %135, %135, %1
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %thread-pre-split, label %151
 
-151:                                              ; preds = %145, %141, %.critedge401
+151:                                              ; preds = %145, %141, %.critedge409
   %152 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.105, i64 noundef 9) #19
-  %.not349 = icmp eq i32 %152, 0
-  br i1 %.not349, label %153, label %.critedge404
+  %.not352 = icmp eq i32 %152, 0
+  br i1 %.not352, label %153, label %.critedge412
 
 153:                                              ; preds = %151
   %154 = getelementptr inbounds i8, ptr %0, i64 9
   %155 = load i8, ptr %154, align 1
-  switch i8 %155, label %.critedge404 [
-    i8 32, label %switch.edge402
-    i8 0, label %switch.edge402
-    i8 10, label %switch.edge402
-    i8 13, label %switch.edge402
-    i8 9, label %switch.edge402
+  switch i8 %155, label %.critedge412 [
+    i8 32, label %switch.edge410
+    i8 0, label %switch.edge410
+    i8 10, label %switch.edge410
+    i8 13, label %switch.edge410
+    i8 9, label %switch.edge410
   ]
 
-switch.edge402:                                   ; preds = %153, %153, %153, %153, %153
+switch.edge410:                                   ; preds = %153, %153, %153, %153, %153
   %156 = and i64 %38, 4032
-  %.not384 = icmp eq i64 %156, 0
-  br i1 %.not384, label %157, label %.thread430.sink.split
+  %.not392 = icmp eq i64 %156, 0
+  br i1 %.not392, label %157, label %.thread438.sink.split
 
-157:                                              ; preds = %switch.edge402
+157:                                              ; preds = %switch.edge410
   %158 = getelementptr inbounds i8, ptr %4, i64 40
   %159 = load ptr, ptr %158, align 8
   tail call void @ft_mem_free(ptr noundef %12, ptr noundef %159) #18
@@ -4661,20 +4658,20 @@ switch.edge402:                                   ; preds = %153, %153, %153, %1
   %160 = getelementptr inbounds i8, ptr %4, i64 72
   %161 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %160, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %161, ptr %8, align 4
-  %.not385 = icmp eq i32 %161, 0
-  br i1 %.not385, label %162, label %.thread430
+  %.not393 = icmp eq i32 %161, 0
+  br i1 %.not393, label %162, label %.thread438
 
 162:                                              ; preds = %157
   %163 = getelementptr inbounds i8, ptr %4, i64 88
   %164 = load i64, ptr %163, align 8
-  switch i64 %164, label %.lr.ph.i425 [
+  switch i64 %164, label %.lr.ph.i433 [
     i64 0, label %bdf_list_shift_.exit
     i64 1, label %.sink.split.i
   ]
 
-.lr.ph.i425:                                      ; preds = %162, %.lr.ph.i425
-  %.023.i = phi i64 [ %170, %.lr.ph.i425 ], [ 1, %162 ]
-  %.01722.i = phi i64 [ %169, %.lr.ph.i425 ], [ 0, %162 ]
+.lr.ph.i433:                                      ; preds = %162, %.lr.ph.i433
+  %.023.i = phi i64 [ %170, %.lr.ph.i433 ], [ 1, %162 ]
+  %.01722.i = phi i64 [ %169, %.lr.ph.i433 ], [ 0, %162 ]
   %165 = load ptr, ptr %160, align 8
   %166 = getelementptr inbounds ptr, ptr %165, i64 %.023.i
   %167 = load ptr, ptr %166, align 8
@@ -4684,9 +4681,9 @@ switch.edge402:                                   ; preds = %153, %153, %153, %1
   %170 = add nuw i64 %.023.i, 1
   %171 = load i64, ptr %163, align 8
   %172 = icmp ult i64 %170, %171
-  br i1 %172, label %.lr.ph.i425, label %._crit_edge.i, !llvm.loop !12
+  br i1 %172, label %.lr.ph.i433, label %._crit_edge.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i425
+._crit_edge.i:                                    ; preds = %.lr.ph.i433
   %173 = add i64 %171, -1
   br label %.sink.split.i
 
@@ -4697,8 +4694,8 @@ switch.edge402:                                   ; preds = %153, %153, %153, %1
 
 bdf_list_shift_.exit:                             ; preds = %162, %.sink.split.i
   %174 = call fastcc ptr @bdf_list_join_(ptr noundef nonnull %160, ptr noundef nonnull %7)
-  %.not386 = icmp eq ptr %174, null
-  br i1 %.not386, label %.thread430.sink.split, label %175
+  %.not394 = icmp eq ptr %174, null
+  br i1 %.not394, label %.thread438.sink.split, label %175
 
 175:                                              ; preds = %bdf_list_shift_.exit
   %176 = load i64, ptr %7, align 8
@@ -4706,8 +4703,8 @@ bdf_list_shift_.exit:                             ; preds = %162, %.sink.split.i
   %178 = call ptr @ft_mem_dup(ptr noundef %12, ptr noundef nonnull %174, i64 noundef %177, ptr noundef nonnull %8) #18
   store ptr %178, ptr %158, align 8
   %179 = load i32, ptr %8, align 4
-  %.not387 = icmp eq i32 %179, 0
-  br i1 %.not387, label %180, label %.thread430
+  %.not395 = icmp eq i32 %179, 0
+  br i1 %.not395, label %180, label %.thread438
 
 180:                                              ; preds = %175
   %181 = load i64, ptr %4, align 8
@@ -4715,31 +4712,31 @@ bdf_list_shift_.exit:                             ; preds = %162, %.sink.split.i
   store i64 %182, ptr %4, align 8
   br label %thread-pre-split
 
-.critedge404:                                     ; preds = %153, %151
+.critedge412:                                     ; preds = %153, %151
   %183 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.106, i64 noundef 8) #19
-  %.not350 = icmp eq i32 %183, 0
-  br i1 %.not350, label %184, label %.critedge407
+  %.not354 = icmp eq i32 %183, 0
+  br i1 %.not354, label %184, label %.critedge415
 
-184:                                              ; preds = %.critedge404
+184:                                              ; preds = %.critedge412
   %185 = getelementptr inbounds i8, ptr %0, i64 8
   %186 = load i8, ptr %185, align 1
-  switch i8 %186, label %.critedge407 [
-    i8 32, label %switch.edge405
-    i8 0, label %switch.edge405
-    i8 10, label %switch.edge405
-    i8 13, label %switch.edge405
-    i8 9, label %switch.edge405
+  switch i8 %186, label %.critedge415 [
+    i8 32, label %switch.edge413
+    i8 0, label %switch.edge413
+    i8 10, label %switch.edge413
+    i8 13, label %switch.edge413
+    i8 9, label %switch.edge413
   ]
 
-switch.edge405:                                   ; preds = %184, %184, %184, %184, %184
-  br i1 %.not348, label %.thread430.sink.split, label %187
+switch.edge413:                                   ; preds = %184, %184, %184, %184, %184
+  br i1 %.not351, label %.thread438.sink.split, label %187
 
-187:                                              ; preds = %switch.edge405
+187:                                              ; preds = %switch.edge413
   %188 = getelementptr inbounds i8, ptr %4, i64 72
   %189 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %188, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %189, ptr %8, align 4
-  %.not380 = icmp eq i32 %189, 0
-  br i1 %.not380, label %190, label %.thread430
+  %.not388 = icmp eq i32 %189, 0
+  br i1 %.not388, label %190, label %.thread438
 
 190:                                              ; preds = %187
   %191 = load ptr, ptr %188, align 8
@@ -4768,10 +4765,10 @@ switch.edge405:                                   ; preds = %184, %184, %184, %1
 205:                                              ; preds = %201, %197, %190
   %206 = phi i64 [ %204, %201 ], [ %spec.select, %197 ], [ %spec.select, %190 ]
   %207 = add i64 %206, -1114112
-  %or.cond408 = icmp ult i64 %207, -1114113
-  br i1 %or.cond408, label %.thread429, label %208
+  %or.cond416 = icmp ult i64 %207, -1114113
+  br i1 %or.cond416, label %.thread437, label %208
 
-.thread429:                                       ; preds = %205
+.thread437:                                       ; preds = %205
   store i64 -1, ptr %195, align 8
   br label %234
 
@@ -4799,18 +4796,18 @@ switch.edge405:                                   ; preds = %184, %184, %184, %1
   %220 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 56, i64 noundef %212, i64 noundef %217, ptr noundef %219, ptr noundef nonnull %8) #18
   store ptr %220, ptr %218, align 8
   %221 = load i32, ptr %8, align 4
-  %.not383 = icmp eq i32 %221, 0
-  br i1 %.not383, label %222, label %.thread430
+  %.not391 = icmp eq i32 %221, 0
+  br i1 %.not391, label %222, label %.thread438
 
 222:                                              ; preds = %216
   %223 = load i64, ptr %213, align 8
   %224 = add i64 %223, 64
   store i64 %224, ptr %213, align 8
-  %.pre447 = load i64, ptr %211, align 8
+  %.pre455 = load i64, ptr %211, align 8
   br label %225
 
 225:                                              ; preds = %._crit_edge, %222
-  %226 = phi i64 [ %212, %._crit_edge ], [ %.pre447, %222 ]
+  %226 = phi i64 [ %212, %._crit_edge ], [ %.pre455, %222 ]
   %227 = phi ptr [ %.pre, %._crit_edge ], [ %220, %222 ]
   %228 = add i64 %226, 1
   store i64 %228, ptr %211, align 8
@@ -4823,13 +4820,13 @@ switch.edge405:                                   ; preds = %184, %184, %184, %1
   store i64 %232, ptr %233, align 8
   br label %266
 
-234:                                              ; preds = %.thread429, %208
+234:                                              ; preds = %.thread437, %208
   %235 = getelementptr inbounds i8, ptr %4, i64 64
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds i8, ptr %236, i64 4
   %238 = load i32, ptr %237, align 4
-  %.not381 = icmp eq i32 %238, 0
-  br i1 %.not381, label %263, label %239
+  %.not389 = icmp eq i32 %238, 0
+  br i1 %.not389, label %263, label %239
 
 239:                                              ; preds = %234
   %240 = getelementptr inbounds i8, ptr %10, i64 112
@@ -4837,11 +4834,11 @@ switch.edge405:                                   ; preds = %184, %184, %184, %1
   %242 = getelementptr inbounds i8, ptr %10, i64 104
   %243 = load i64, ptr %242, align 8
   %244 = icmp eq i64 %241, %243
-  br i1 %244, label %245, label %._crit_edge448
+  br i1 %244, label %245, label %._crit_edge456
 
-._crit_edge448:                                   ; preds = %239
-  %.phi.trans.insert449 = getelementptr inbounds i8, ptr %10, i64 120
-  %.pre450 = load ptr, ptr %.phi.trans.insert449, align 8
+._crit_edge456:                                   ; preds = %239
+  %.phi.trans.insert457 = getelementptr inbounds i8, ptr %10, i64 120
+  %.pre458 = load ptr, ptr %.phi.trans.insert457, align 8
   br label %254
 
 245:                                              ; preds = %239
@@ -4851,19 +4848,19 @@ switch.edge405:                                   ; preds = %184, %184, %184, %1
   %249 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 56, i64 noundef %241, i64 noundef %246, ptr noundef %248, ptr noundef nonnull %8) #18
   store ptr %249, ptr %247, align 8
   %250 = load i32, ptr %8, align 4
-  %.not382 = icmp eq i32 %250, 0
-  br i1 %.not382, label %251, label %.thread430
+  %.not390 = icmp eq i32 %250, 0
+  br i1 %.not390, label %251, label %.thread438
 
 251:                                              ; preds = %245
   %252 = load i64, ptr %242, align 8
   %253 = add i64 %252, 4
   store i64 %253, ptr %242, align 8
-  %.pre451 = load i64, ptr %240, align 8
+  %.pre459 = load i64, ptr %240, align 8
   br label %254
 
-254:                                              ; preds = %._crit_edge448, %251
-  %255 = phi i64 [ %241, %._crit_edge448 ], [ %.pre451, %251 ]
-  %256 = phi ptr [ %.pre450, %._crit_edge448 ], [ %249, %251 ]
+254:                                              ; preds = %._crit_edge456, %251
+  %255 = phi i64 [ %241, %._crit_edge456 ], [ %.pre459, %251 ]
+  %256 = phi ptr [ %.pre458, %._crit_edge456 ], [ %249, %251 ]
   %257 = getelementptr inbounds %struct.bdf_glyph_t_, ptr %256, i64 %255
   %258 = getelementptr inbounds i8, ptr %4, i64 40
   %259 = load ptr, ptr %258, align 8
@@ -4890,25 +4887,25 @@ switch.edge405:                                   ; preds = %184, %184, %184, %1
   store i64 %269, ptr %4, align 8
   br label %thread-pre-split
 
-.critedge407:                                     ; preds = %184, %.critedge404
+.critedge415:                                     ; preds = %184, %.critedge412
   %270 = and i64 %38, 128
-  %.not351 = icmp eq i64 %270, 0
-  br i1 %.not351, label %.thread430.sink.split, label %271
+  %.not356 = icmp eq i64 %270, 0
+  br i1 %.not356, label %.thread438.sink.split, label %271
 
-271:                                              ; preds = %.critedge407
+271:                                              ; preds = %.critedge415
   %272 = getelementptr inbounds i8, ptr %4, i64 48
   %273 = load i64, ptr %272, align 8
   %274 = icmp eq i64 %273, -1
-  %.466 = select i1 %274, i64 120, i64 96
-  %.467 = select i1 %274, i64 112, i64 88
-  %275 = getelementptr inbounds i8, ptr %10, i64 %.466
+  %.474 = select i1 %274, i64 120, i64 96
+  %.475 = select i1 %274, i64 112, i64 88
+  %275 = getelementptr inbounds i8, ptr %10, i64 %.474
   %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds i8, ptr %10, i64 %.467
+  %277 = getelementptr inbounds i8, ptr %10, i64 %.475
   %278 = load i64, ptr %277, align 8
   %279 = getelementptr %struct.bdf_glyph_t_, ptr %276, i64 %278
   %280 = and i64 %38, 2048
-  %.not352 = icmp eq i64 %280, 0
-  br i1 %.not352, label %364, label %281
+  %.not357 = icmp eq i64 %280, 0
+  br i1 %.not357, label %364, label %281
 
 281:                                              ; preds = %271
   %282 = getelementptr inbounds i8, ptr %4, i64 16
@@ -4917,13 +4914,13 @@ switch.edge405:                                   ; preds = %184, %184, %184, %1
   %285 = getelementptr i8, ptr %279, i64 -34
   %286 = load i16, ptr %285, align 2
   %287 = zext i16 %286 to i64
-  %.not371 = icmp ult i64 %283, %287
-  br i1 %.not371, label %292, label %288
+  %.not379 = icmp ult i64 %283, %287
+  br i1 %.not379, label %292, label %288
 
 288:                                              ; preds = %281
   %289 = and i64 %38, 2147483648
-  %.not378 = icmp eq i64 %289, 0
-  br i1 %.not378, label %290, label %thread-pre-split
+  %.not386 = icmp eq i64 %289, 0
+  br i1 %.not386, label %290, label %thread-pre-split
 
 290:                                              ; preds = %288
   %291 = or disjoint i64 %38, 2147483648
@@ -4938,13 +4935,13 @@ switch.edge405:                                   ; preds = %184, %184, %184, %1
   %297 = load ptr, ptr %296, align 8
   %298 = mul i64 %294, %283
   %299 = getelementptr inbounds i8, ptr %297, i64 %298
-  %.not440 = icmp eq i64 %295, 0
-  br i1 %.not440, label %.critedge411, label %.lr.ph
+  %.not448 = icmp eq i64 %295, 0
+  br i1 %.not448, label %.critedge419, label %.lr.ph
 
 .lr.ph:                                           ; preds = %292, %323
-  %.0310438 = phi ptr [ %.1, %323 ], [ %299, %292 ]
-  %.0311437 = phi i64 [ %318, %323 ], [ 0, %292 ]
-  %300 = getelementptr inbounds i8, ptr %0, i64 %.0311437
+  %.0310446 = phi ptr [ %.1, %323 ], [ %299, %292 ]
+  %.0311445 = phi i64 [ %318, %323 ], [ 0, %292 ]
+  %300 = getelementptr inbounds i8, ptr %0, i64 %.0311445
   %301 = load i8, ptr %300, align 1
   %302 = lshr i8 %301, 3
   %303 = zext nneg i8 %302 to i64
@@ -4955,53 +4952,53 @@ switch.edge405:                                   ; preds = %184, %184, %184, %1
   %308 = zext nneg i8 %307 to i32
   %309 = shl nuw nsw i32 1, %308
   %310 = and i32 %309, %306
-  %.not372 = icmp eq i32 %310, 0
-  br i1 %.not372, label %324, label %311
+  %.not380 = icmp eq i32 %310, 0
+  br i1 %.not380, label %324, label %311
 
 311:                                              ; preds = %.lr.ph
-  %312 = load i8, ptr %.0310438, align 1
+  %312 = load i8, ptr %.0310446, align 1
   %313 = shl i8 %312, 4
   %314 = sext i8 %301 to i64
   %315 = getelementptr inbounds [128 x i8], ptr @a2i, i64 0, i64 %314
   %316 = load i8, ptr %315, align 1
   %317 = add i8 %313, %316
-  store i8 %317, ptr %.0310438, align 1
-  %318 = add nuw i64 %.0311437, 1
+  store i8 %317, ptr %.0310446, align 1
+  %318 = add nuw i64 %.0311445, 1
   %319 = icmp uge i64 %318, %295
-  %320 = and i64 %.0311437, 1
-  %.not377 = icmp eq i64 %320, 0
-  %or.cond409 = or i1 %319, %.not377
-  br i1 %or.cond409, label %323, label %321
+  %320 = and i64 %.0311445, 1
+  %.not385 = icmp eq i64 %320, 0
+  %or.cond417 = or i1 %319, %.not385
+  br i1 %or.cond417, label %323, label %321
 
 321:                                              ; preds = %311
-  %322 = getelementptr inbounds i8, ptr %.0310438, i64 1
+  %322 = getelementptr inbounds i8, ptr %.0310446, i64 1
   store i8 0, ptr %322, align 1
   br label %323
 
 323:                                              ; preds = %311, %321
-  %.1 = phi ptr [ %322, %321 ], [ %.0310438, %311 ]
+  %.1 = phi ptr [ %322, %321 ], [ %.0310446, %311 ]
   %exitcond.not = icmp eq i64 %318, %295
-  br i1 %exitcond.not, label %.critedge411, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.critedge419, label %.lr.ph, !llvm.loop !27
 
 324:                                              ; preds = %.lr.ph
   %325 = load i64, ptr %4, align 8
   %326 = and i64 %325, 1073741824
-  %.not373 = icmp eq i64 %326, 0
-  br i1 %.not373, label %327, label %.critedge411
+  %.not381 = icmp eq i64 %326, 0
+  br i1 %.not381, label %327, label %.critedge419
 
 327:                                              ; preds = %324
   %328 = or disjoint i64 %325, 1073741824
   store i64 %328, ptr %4, align 8
-  br label %.critedge411
+  br label %.critedge419
 
-.critedge411:                                     ; preds = %323, %292, %327, %324
-  %.0311435 = phi i64 [ %.0311437, %327 ], [ %.0311437, %324 ], [ 0, %292 ], [ %295, %323 ]
-  %.0310433 = phi ptr [ %.0310438, %327 ], [ %.0310438, %324 ], [ %299, %292 ], [ %.1, %323 ]
+.critedge419:                                     ; preds = %323, %292, %327, %324
+  %.0311443 = phi i64 [ %.0311445, %327 ], [ %.0311445, %324 ], [ 0, %292 ], [ %295, %323 ]
+  %.0310441 = phi ptr [ %.0310446, %327 ], [ %.0310446, %324 ], [ %299, %292 ], [ %.1, %323 ]
   %329 = load i16, ptr %284, align 4
-  %.not374 = icmp eq i16 %329, 0
-  br i1 %.not374, label %342, label %330
+  %.not382 = icmp eq i16 %329, 0
+  br i1 %.not382, label %342, label %330
 
-330:                                              ; preds = %.critedge411
+330:                                              ; preds = %.critedge419
   %331 = zext i16 %329 to i64
   %332 = load ptr, ptr %9, align 8
   %333 = getelementptr inbounds i8, ptr %332, i64 176
@@ -5011,13 +5008,13 @@ switch.edge405:                                   ; preds = %184, %184, %184, %1
   %337 = and i64 %336, 7
   %338 = getelementptr inbounds [8 x i8], ptr @nibble_mask, i64 0, i64 %337
   %339 = load i8, ptr %338, align 1
-  %340 = load i8, ptr %.0310433, align 1
+  %340 = load i8, ptr %.0310441, align 1
   %341 = and i8 %340, %339
-  store i8 %341, ptr %.0310433, align 1
+  store i8 %341, ptr %.0310441, align 1
   br label %342
 
-342:                                              ; preds = %330, %.critedge411
-  %343 = icmp eq i64 %.0311435, %295
+342:                                              ; preds = %330, %.critedge419
+  %343 = icmp eq i64 %.0311443, %295
   br i1 %343, label %344, label %361
 
 344:                                              ; preds = %342
@@ -5032,14 +5029,14 @@ switch.edge405:                                   ; preds = %184, %184, %184, %1
   %353 = zext nneg i8 %352 to i32
   %354 = shl nuw nsw i32 1, %353
   %355 = and i32 %354, %351
-  %.not375 = icmp eq i32 %355, 0
-  br i1 %.not375, label %361, label %356
+  %.not383 = icmp eq i32 %355, 0
+  br i1 %.not383, label %361, label %356
 
 356:                                              ; preds = %344
   %357 = load i64, ptr %4, align 8
   %358 = and i64 %357, 1073741824
-  %.not376 = icmp eq i64 %358, 0
-  br i1 %.not376, label %359, label %361
+  %.not384 = icmp eq i64 %358, 0
+  br i1 %.not384, label %359, label %361
 
 359:                                              ; preds = %356
   %360 = or disjoint i64 %357, 1073741824
@@ -5054,28 +5051,28 @@ switch.edge405:                                   ; preds = %184, %184, %184, %1
 
 364:                                              ; preds = %271
   %365 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.107, i64 noundef 6) #19
-  %.not353 = icmp eq i32 %365, 0
-  br i1 %.not353, label %366, label %.critedge414
+  %.not358 = icmp eq i32 %365, 0
+  br i1 %.not358, label %366, label %.critedge422
 
 366:                                              ; preds = %364
   %367 = getelementptr inbounds i8, ptr %0, i64 6
   %368 = load i8, ptr %367, align 1
-  switch i8 %368, label %.critedge414 [
-    i8 32, label %switch.edge412
-    i8 0, label %switch.edge412
-    i8 10, label %switch.edge412
-    i8 13, label %switch.edge412
-    i8 9, label %switch.edge412
+  switch i8 %368, label %.critedge422 [
+    i8 32, label %switch.edge420
+    i8 0, label %switch.edge420
+    i8 10, label %switch.edge420
+    i8 13, label %switch.edge420
+    i8 9, label %switch.edge420
   ]
 
-switch.edge412:                                   ; preds = %366, %366, %366, %366, %366
+switch.edge420:                                   ; preds = %366, %366, %366, %366, %366
   %369 = getelementptr inbounds i8, ptr %4, i64 72
   %370 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %369, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %370, ptr %8, align 4
-  %.not370 = icmp eq i32 %370, 0
-  br i1 %.not370, label %371, label %.thread430
+  %.not378 = icmp eq i32 %370, 0
+  br i1 %.not378, label %371, label %.thread438
 
-371:                                              ; preds = %switch.edge412
+371:                                              ; preds = %switch.edge420
   %372 = load ptr, ptr %369, align 8
   %373 = getelementptr inbounds i8, ptr %372, i64 8
   %374 = load ptr, ptr %373, align 8
@@ -5087,30 +5084,30 @@ switch.edge412:                                   ; preds = %366, %366, %366, %3
   store i64 %378, ptr %4, align 8
   br label %thread-pre-split
 
-.critedge414:                                     ; preds = %366, %364
+.critedge422:                                     ; preds = %366, %364
   %379 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.108, i64 noundef 6) #19
-  %.not354 = icmp eq i32 %379, 0
-  br i1 %.not354, label %380, label %sub_0
+  %.not360 = icmp eq i32 %379, 0
+  br i1 %.not360, label %380, label %sub_0
 
-380:                                              ; preds = %.critedge414
+380:                                              ; preds = %.critedge422
   %381 = getelementptr inbounds i8, ptr %0, i64 6
   %382 = load i8, ptr %381, align 1
   switch i8 %382, label %sub_0 [
-    i8 32, label %switch.edge415
-    i8 0, label %switch.edge415
-    i8 10, label %switch.edge415
-    i8 13, label %switch.edge415
-    i8 9, label %switch.edge415
+    i8 32, label %switch.edge423
+    i8 0, label %switch.edge423
+    i8 10, label %switch.edge423
+    i8 13, label %switch.edge423
+    i8 9, label %switch.edge423
   ]
 
-switch.edge415:                                   ; preds = %380, %380, %380, %380, %380
+switch.edge423:                                   ; preds = %380, %380, %380, %380, %380
   %383 = getelementptr inbounds i8, ptr %4, i64 72
   %384 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %383, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %384, ptr %8, align 4
-  %.not368 = icmp eq i32 %384, 0
-  br i1 %.not368, label %385, label %.thread430
+  %.not376 = icmp eq i32 %384, 0
+  br i1 %.not376, label %385, label %.thread438
 
-385:                                              ; preds = %switch.edge415
+385:                                              ; preds = %switch.edge423
   %386 = load ptr, ptr %383, align 8
   %387 = getelementptr inbounds i8, ptr %386, i64 8
   %388 = load ptr, ptr %387, align 8
@@ -5119,8 +5116,8 @@ switch.edge415:                                   ; preds = %380, %380, %380, %3
   store i16 %389, ptr %390, align 2
   %391 = load i64, ptr %4, align 8
   %392 = and i64 %391, 256
-  %.not369 = icmp eq i64 %392, 0
-  br i1 %.not369, label %393, label %403
+  %.not377 = icmp eq i64 %392, 0
+  br i1 %.not377, label %393, label %403
 
 393:                                              ; preds = %385
   %394 = zext i16 %389 to i64
@@ -5133,51 +5130,51 @@ switch.edge415:                                   ; preds = %380, %380, %380, %3
   %401 = trunc i64 %400 to i16
   %402 = getelementptr i8, ptr %279, i64 -40
   store i16 %401, ptr %402, align 8
-  %.pre452 = load i64, ptr %4, align 8
+  %.pre460 = load i64, ptr %4, align 8
   br label %403
 
 403:                                              ; preds = %393, %385
-  %404 = phi i64 [ %.pre452, %393 ], [ %391, %385 ]
+  %404 = phi i64 [ %.pre460, %393 ], [ %391, %385 ]
   %405 = or i64 %404, 512
   store i64 %405, ptr %4, align 8
   br label %thread-pre-split
 
-sub_0:                                            ; preds = %.critedge414, %380
+sub_0:                                            ; preds = %.critedge422, %380
   %406 = load i8, ptr %0, align 1
-  %.not441 = icmp eq i8 %406, 66
-  br i1 %.not441, label %sub_1, label %.critedge420
+  %.not449 = icmp eq i8 %406, 66
+  br i1 %.not449, label %sub_1, label %.critedge428
 
 sub_1:                                            ; preds = %sub_0
   %407 = getelementptr inbounds i8, ptr %0, i64 1
   %408 = load i8, ptr %407, align 1
-  %.not442 = icmp eq i8 %408, 66
-  br i1 %.not442, label %.critedge417.tail, label %.critedge420
+  %.not450 = icmp eq i8 %408, 66
+  br i1 %.not450, label %.critedge425.tail, label %.critedge428
 
-.critedge417.tail:                                ; preds = %sub_1
+.critedge425.tail:                                ; preds = %sub_1
   %409 = getelementptr inbounds i8, ptr %0, i64 2
   %410 = load i8, ptr %409, align 1
   %411 = icmp eq i8 %410, 88
-  br i1 %411, label %412, label %.critedge420
+  br i1 %411, label %412, label %.critedge428
 
-412:                                              ; preds = %.critedge417.tail
+412:                                              ; preds = %.critedge425.tail
   %413 = getelementptr inbounds i8, ptr %0, i64 3
   %414 = load i8, ptr %413, align 1
-  switch i8 %414, label %.critedge420 [
-    i8 32, label %switch.edge418
-    i8 0, label %switch.edge418
-    i8 10, label %switch.edge418
-    i8 13, label %switch.edge418
-    i8 9, label %switch.edge418
+  switch i8 %414, label %.critedge428 [
+    i8 32, label %switch.edge426
+    i8 0, label %switch.edge426
+    i8 10, label %switch.edge426
+    i8 13, label %switch.edge426
+    i8 9, label %switch.edge426
   ]
 
-switch.edge418:                                   ; preds = %412, %412, %412, %412, %412
+switch.edge426:                                   ; preds = %412, %412, %412, %412, %412
   %415 = getelementptr inbounds i8, ptr %4, i64 72
   %416 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %415, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %416, ptr %8, align 4
-  %.not360 = icmp eq i32 %416, 0
-  br i1 %.not360, label %417, label %.thread430
+  %.not368 = icmp eq i32 %416, 0
+  br i1 %.not368, label %417, label %.thread438
 
-417:                                              ; preds = %switch.edge418
+417:                                              ; preds = %switch.edge426
   %418 = load ptr, ptr %415, align 8
   %419 = getelementptr inbounds i8, ptr %418, i64 8
   %420 = load ptr, ptr %419, align 8
@@ -5215,8 +5212,8 @@ switch.edge418:                                   ; preds = %412, %412, %412, %4
   %444 = load i16, ptr %441, align 2
   %445 = getelementptr inbounds i8, ptr %4, i64 32
   %446 = load i16, ptr %445, align 8
-  %.in361 = tail call i16 @llvm.smax.i16(i16 %444, i16 %446)
-  store i16 %.in361, ptr %445, align 8
+  %.in369 = tail call i16 @llvm.smax.i16(i16 %444, i16 %446)
+  store i16 %.in369, ptr %445, align 8
   %447 = load i16, ptr %422, align 4
   %448 = load i16, ptr %432, align 4
   %449 = add i16 %448, %447
@@ -5224,22 +5221,22 @@ switch.edge418:                                   ; preds = %412, %412, %412, %4
   store i16 %449, ptr %450, align 2
   %451 = getelementptr inbounds i8, ptr %4, i64 28
   %452 = load i16, ptr %451, align 4
-  %.in362 = tail call i16 @llvm.smax.i16(i16 %449, i16 %452)
-  store i16 %.in362, ptr %451, align 4
+  %.in370 = tail call i16 @llvm.smax.i16(i16 %449, i16 %452)
+  store i16 %.in370, ptr %451, align 4
   %453 = load i16, ptr %432, align 4
   %454 = getelementptr inbounds i8, ptr %4, i64 24
   %455 = load i16, ptr %454, align 8
-  %.in363 = tail call i16 @llvm.smin.i16(i16 %453, i16 %455)
-  store i16 %.in363, ptr %454, align 8
+  %.in371 = tail call i16 @llvm.smin.i16(i16 %453, i16 %455)
+  store i16 %.in371, ptr %454, align 8
   %456 = load i16, ptr %432, align 4
   %457 = getelementptr inbounds i8, ptr %4, i64 26
   %458 = load i16, ptr %457, align 2
-  %.in364 = tail call i16 @llvm.smax.i16(i16 %456, i16 %458)
-  store i16 %.in364, ptr %457, align 2
+  %.in372 = tail call i16 @llvm.smax.i16(i16 %456, i16 %458)
+  store i16 %.in372, ptr %457, align 2
   %459 = load i64, ptr %4, align 8
   %460 = and i64 %459, 512
-  %.not365 = icmp eq i64 %460, 0
-  br i1 %.not365, label %461, label %464
+  %.not373 = icmp eq i64 %460, 0
+  br i1 %.not373, label %461, label %464
 
 461:                                              ; preds = %417
   %462 = load i16, ptr %422, align 4
@@ -5251,8 +5248,8 @@ switch.edge418:                                   ; preds = %412, %412, %412, %4
   %465 = getelementptr inbounds i8, ptr %4, i64 64
   %466 = load ptr, ptr %465, align 8
   %467 = load i32, ptr %466, align 4
-  %.not366 = icmp eq i32 %467, 0
-  br i1 %.not366, label %484, label %468
+  %.not374 = icmp eq i32 %467, 0
+  br i1 %.not374, label %484, label %468
 
 468:                                              ; preds = %464
   %469 = getelementptr i8, ptr %279, i64 -38
@@ -5267,8 +5264,8 @@ switch.edge418:                                   ; preds = %412, %412, %412, %4
   %478 = getelementptr i8, ptr %279, i64 -40
   %479 = load i16, ptr %478, align 8
   %480 = trunc i64 %477 to i16
-  %.not367 = icmp eq i16 %479, %480
-  br i1 %.not367, label %484, label %481
+  %.not375 = icmp eq i16 %479, %480
+  br i1 %.not375, label %484, label %481
 
 481:                                              ; preds = %468
   store i16 %480, ptr %478, align 8
@@ -5283,28 +5280,28 @@ switch.edge418:                                   ; preds = %412, %412, %412, %4
   store i64 %486, ptr %4, align 8
   br label %thread-pre-split
 
-.critedge420:                                     ; preds = %sub_1, %sub_0, %412, %.critedge417.tail
+.critedge428:                                     ; preds = %sub_1, %sub_0, %412, %.critedge425.tail
   %487 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.110, i64 noundef 6) #19
-  %.not356 = icmp eq i32 %487, 0
-  br i1 %.not356, label %488, label %.thread430.sink.split
+  %.not364 = icmp eq i32 %487, 0
+  br i1 %.not364, label %488, label %.thread438.sink.split
 
-488:                                              ; preds = %.critedge420
+488:                                              ; preds = %.critedge428
   %489 = getelementptr inbounds i8, ptr %0, i64 6
   %490 = load i8, ptr %489, align 1
-  switch i8 %490, label %.thread430.sink.split [
-    i8 32, label %switch.edge421
-    i8 0, label %switch.edge421
-    i8 10, label %switch.edge421
-    i8 13, label %switch.edge421
-    i8 9, label %switch.edge421
+  switch i8 %490, label %.thread438.sink.split [
+    i8 32, label %switch.edge429
+    i8 0, label %switch.edge429
+    i8 10, label %switch.edge429
+    i8 13, label %switch.edge429
+    i8 9, label %switch.edge429
   ]
 
-switch.edge421:                                   ; preds = %488, %488, %488, %488, %488
+switch.edge429:                                   ; preds = %488, %488, %488, %488, %488
   %491 = and i64 %38, 1024
-  %.not358 = icmp eq i64 %491, 0
-  br i1 %.not358, label %.thread430.sink.split, label %492
+  %.not366 = icmp eq i64 %491, 0
+  br i1 %.not366, label %.thread438.sink.split, label %492
 
-492:                                              ; preds = %switch.edge421
+492:                                              ; preds = %switch.edge429
   %493 = getelementptr i8, ptr %279, i64 -36
   %494 = load i16, ptr %493, align 4
   %495 = zext i16 %494 to i64
@@ -5323,7 +5320,7 @@ switch.edge421:                                   ; preds = %488, %488, %488, %4
   %507 = icmp ugt i64 %499, 524280
   %508 = icmp ugt i64 %506, 65535
   %or.cond = select i1 %507, i1 true, i1 %508
-  br i1 %or.cond, label %.thread430.sink.split, label %509
+  br i1 %or.cond, label %.thread438.sink.split, label %509
 
 509:                                              ; preds = %492
   %510 = trunc nuw i64 %506 to i16
@@ -5333,8 +5330,8 @@ switch.edge421:                                   ; preds = %488, %488, %488, %4
   %513 = getelementptr i8, ptr %279, i64 -24
   store ptr %512, ptr %513, align 8
   %514 = load i32, ptr %8, align 4
-  %.not359 = icmp eq i32 %514, 0
-  br i1 %.not359, label %515, label %.thread430
+  %.not367 = icmp eq i32 %514, 0
+  br i1 %.not367, label %515, label %.thread438
 
 515:                                              ; preds = %509
   %516 = getelementptr inbounds i8, ptr %4, i64 16
@@ -5344,37 +5341,37 @@ switch.edge421:                                   ; preds = %488, %488, %488, %4
   store i64 %518, ptr %4, align 8
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %118, %127, %switch.edge399, %180, %266, %361, %371, %403, %484, %515, %switch.edge, %145, %290, %288
+thread-pre-split:                                 ; preds = %118, %127, %switch.edge407, %180, %266, %361, %371, %403, %484, %515, %switch.edge, %145, %290, %288
   %.pr = load i32, ptr %8, align 4
   br label %519
 
 519:                                              ; preds = %thread-pre-split, %bdf_add_comment_.exit
   %520 = phi i32 [ %.pr, %thread-pre-split ], [ %37, %bdf_add_comment_.exit ]
-  %.not391 = icmp eq i32 %520, 0
-  br i1 %.not391, label %527, label %.thread430
+  %.not399 = icmp eq i32 %520, 0
+  br i1 %.not399, label %527, label %.thread438
 
-.thread430.sink.split:                            ; preds = %.critedge407, %.critedge420, %488, %492, %switch.edge421, %switch.edge405, %bdf_list_shift_.exit, %switch.edge402, %switch.edge396, %109, %40, %42
-  %.sink465 = phi i32 [ 180, %42 ], [ 180, %40 ], [ 6, %109 ], [ 186, %switch.edge396 ], [ 181, %switch.edge402 ], [ 3, %bdf_list_shift_.exit ], [ 181, %switch.edge405 ], [ 183, %switch.edge421 ], [ 184, %492 ], [ 3, %488 ], [ 3, %.critedge420 ], [ 182, %.critedge407 ]
-  store i32 %.sink465, ptr %8, align 4
-  br label %.thread430
+.thread438.sink.split:                            ; preds = %.critedge415, %.critedge428, %488, %492, %switch.edge429, %switch.edge413, %bdf_list_shift_.exit, %switch.edge410, %switch.edge404, %109, %40, %42
+  %.sink473 = phi i32 [ 180, %42 ], [ 180, %40 ], [ 6, %109 ], [ 186, %switch.edge404 ], [ 181, %switch.edge410 ], [ 3, %bdf_list_shift_.exit ], [ 181, %switch.edge413 ], [ 183, %switch.edge429 ], [ 184, %492 ], [ 3, %488 ], [ 3, %.critedge428 ], [ 182, %.critedge415 ]
+  store i32 %.sink473, ptr %8, align 4
+  br label %.thread438
 
-.thread430:                                       ; preds = %.thread430.sink.split, %switch.edge393, %113, %157, %175, %187, %216, %245, %switch.edge412, %switch.edge415, %switch.edge418, %509, %519
-  %521 = phi i32 [ %46, %switch.edge393 ], [ %117, %113 ], [ %161, %157 ], [ %179, %175 ], [ %189, %187 ], [ %221, %216 ], [ %250, %245 ], [ %370, %switch.edge412 ], [ %384, %switch.edge415 ], [ %416, %switch.edge418 ], [ %514, %509 ], [ %520, %519 ], [ %.sink465, %.thread430.sink.split ]
+.thread438:                                       ; preds = %.thread438.sink.split, %switch.edge401, %113, %157, %175, %187, %216, %245, %switch.edge420, %switch.edge423, %switch.edge426, %509, %519
+  %521 = phi i32 [ %46, %switch.edge401 ], [ %117, %113 ], [ %161, %157 ], [ %179, %175 ], [ %189, %187 ], [ %221, %216 ], [ %250, %245 ], [ %370, %switch.edge420 ], [ %384, %switch.edge423 ], [ %416, %switch.edge426 ], [ %514, %509 ], [ %520, %519 ], [ %.sink473, %.thread438.sink.split ]
   %522 = load i64, ptr %4, align 8
   %523 = and i64 %522, 64
-  %.not392 = icmp eq i64 %523, 0
-  br i1 %.not392, label %527, label %524
+  %.not400 = icmp eq i64 %523, 0
+  br i1 %.not400, label %527, label %524
 
-524:                                              ; preds = %.thread430
+524:                                              ; preds = %.thread438
   %525 = getelementptr inbounds i8, ptr %4, i64 40
   %526 = load ptr, ptr %525, align 8
   call void @ft_mem_free(ptr noundef %12, ptr noundef %526) #18
   store ptr null, ptr %525, align 8
-  %.pre454 = load i32, ptr %8, align 4
+  %.pre462 = load i32, ptr %8, align 4
   br label %527
 
-527:                                              ; preds = %524, %.thread430, %519
-  %528 = phi i32 [ %.pre454, %524 ], [ %521, %.thread430 ], [ 0, %519 ]
+527:                                              ; preds = %524, %.thread438, %519
+  %528 = phi i32 [ %.pre462, %524 ], [ %521, %.thread438 ], [ 0, %519 ]
   ret i32 %528
 }
 

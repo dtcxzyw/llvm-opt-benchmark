@@ -785,7 +785,7 @@ define void @_ZN15actix_multipart4test50create_form_data_payload_and_headers_wit
   %69 = lshr i64 %66, 10
   %70 = tail call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %69, i1 false)
   %71 = sub nuw nsw i64 64, %70
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %71, i64 7)
+  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 %71, i64 7)
   %72 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
   %73 = or disjoint i64 %72, 1
   %74 = getelementptr i8, ptr null, i64 %73

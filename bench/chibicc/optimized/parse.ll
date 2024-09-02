@@ -9742,7 +9742,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @error(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @count_array_init_elements(ptr noundef %tok, ptr nocapture noundef readonly %ty) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483648) i32 @count_array_init_elements(ptr noundef %tok, ptr nocapture noundef readonly %ty) unnamed_addr #0 {
 entry:
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8

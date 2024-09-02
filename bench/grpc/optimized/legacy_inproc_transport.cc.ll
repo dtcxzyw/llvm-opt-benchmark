@@ -7061,11 +7061,11 @@ land.rhs:                                         ; preds = %if.then247
   %send_trailing_md_op249 = getelementptr inbounds i8, ptr %2, i64 2368
   %124 = load ptr, ptr %send_trailing_md_op249, align 8
   %cmp250 = icmp ne ptr %124, null
+  %125 = zext i1 %cmp250 to i8
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then247
-  %125 = phi i1 [ false, %if.then247 ], [ %cmp250, %land.rhs ]
-  %frombool = zext i1 %125 to i8
+  %frombool = phi i8 [ 0, %if.then247 ], [ %125, %land.rhs ]
   store i8 %frombool, ptr %123, align 1
   br label %if.end255
 

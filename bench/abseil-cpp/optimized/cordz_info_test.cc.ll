@@ -4305,14 +4305,14 @@ if.then.i:                                        ; preds = %invoke.cont3
 
 if.then.i.invoke.cont11_crit_edge:                ; preds = %if.then.i
   %.pre = load i64, ptr %data.i13, align 8
+  %1 = add nsw i64 %.pre, -1
+  %2 = inttoptr i64 %1 to ptr
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.then.i.invoke.cont11_crit_edge, %invoke.cont3
-  %1 = phi i64 [ %.pre, %if.then.i.invoke.cont11_crit_edge ], [ 1, %invoke.cont3 ]
+  %sub.i = phi ptr [ %2, %if.then.i.invoke.cont11_crit_edge ], [ null, %invoke.cont3 ]
   store i64 0, ptr %ref.tmp, align 8, !alias.scope !52
-  %sub.i = add nsw i64 %1, -1
-  %2 = inttoptr i64 %sub.i to ptr
-  store ptr %2, ptr %ref.tmp9, align 8
+  store ptr %sub.i, ptr %ref.tmp9, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIDnEEEclIPN4absl13cord_internal9CordzInfoEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull @.str.63, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9)
           to label %invoke.cont12 unwind label %lpad5
 
@@ -4981,14 +4981,14 @@ if.then.i:                                        ; preds = %invoke.cont3
 
 if.then.i.invoke.cont11_crit_edge:                ; preds = %if.then.i
   %.pre = load i64, ptr %data.i13, align 8
+  %1 = add nsw i64 %.pre, -1
+  %2 = inttoptr i64 %1 to ptr
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.then.i.invoke.cont11_crit_edge, %invoke.cont3
-  %1 = phi i64 [ %.pre, %if.then.i.invoke.cont11_crit_edge ], [ 1, %invoke.cont3 ]
+  %sub.i = phi ptr [ %2, %if.then.i.invoke.cont11_crit_edge ], [ null, %invoke.cont3 ]
   store i64 0, ptr %ref.tmp, align 8, !alias.scope !68
-  %sub.i = add nsw i64 %1, -1
-  %2 = inttoptr i64 %sub.i to ptr
-  store ptr %2, ptr %ref.tmp9, align 8
+  store ptr %sub.i, ptr %ref.tmp9, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIDnEEEclIPN4absl13cord_internal9CordzInfoEEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull @.str.63, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9)
           to label %invoke.cont12 unwind label %lpad5
 

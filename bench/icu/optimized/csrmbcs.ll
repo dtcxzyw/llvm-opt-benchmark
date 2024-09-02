@@ -118,7 +118,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef readonly %commonChars, i32 noundef %commonCharsLen) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 101) i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef readonly %commonChars, i32 noundef %commonCharsLen) local_unnamed_addr #6 align 2 {
 entry:
   %iter = alloca %"class.icu_75::IteratedChar", align 4
   call void @_ZN6icu_7512IteratedCharC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %iter)
@@ -437,7 +437,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517CharsetRecog_sjis5matchEP
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef nonnull @_ZN6icu_75L16commonChars_sjisE, i32 noundef 57)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %det, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
-  %cmp = icmp sgt i32 %call, 0
+  %cmp = icmp ne i32 %call, 0
   %conv = zext i1 %cmp to i8
   ret i8 %conv
 }
@@ -621,7 +621,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519CharsetRecog_euc_jp5match
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef nonnull @_ZN6icu_75L18commonChars_euc_jpE, i32 noundef 100)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %det, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
-  %cmp = icmp sgt i32 %call, 0
+  %cmp = icmp ne i32 %call, 0
   %conv = zext i1 %cmp to i8
   ret i8 %conv
 }
@@ -658,7 +658,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519CharsetRecog_euc_kr5match
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef nonnull @_ZN6icu_75L18commonChars_euc_krE, i32 noundef 100)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %det, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
-  %cmp = icmp sgt i32 %call, 0
+  %cmp = icmp ne i32 %call, 0
   %conv = zext i1 %cmp to i8
   ret i8 %conv
 }
@@ -764,7 +764,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517CharsetRecog_big55matchEP
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef nonnull @_ZN6icu_75L16commonChars_big5E, i32 noundef 96)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %det, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
-  %cmp = icmp sgt i32 %call, 0
+  %cmp = icmp ne i32 %call, 0
   %conv = zext i1 %cmp to i8
   ret i8 %conv
 }
@@ -928,7 +928,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521CharsetRecog_gb_180305mat
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcsEPNS_9InputTextEPKti(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %det, ptr noundef nonnull @_ZN6icu_75L20commonChars_gb_18030E, i32 noundef 100)
   tail call void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %results, ptr noundef %det, ptr noundef nonnull %this, i32 noundef %call, ptr noundef null, ptr noundef null)
-  %cmp = icmp sgt i32 %call, 0
+  %cmp = icmp ne i32 %call, 0
   %conv = zext i1 %cmp to i8
   ret i8 %conv
 }

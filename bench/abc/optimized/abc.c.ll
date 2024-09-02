@@ -16268,18 +16268,18 @@ Abc_TtReadHexDigit.exit.i:                        ; preds = %125, %123, %119
   %140 = and i64 %.pre, 3
   %141 = mul nuw nsw i64 %140, 5
   %spec.select = select i1 %139, i64 %141, i64 %.pre
+  %142 = and i64 %spec.select, 15
+  %143 = mul nuw nsw i64 %142, 17
   br label %.thread
 
 .thread:                                          ; preds = %138, %._crit_edge.i, %84
-  %142 = phi i32 [ 2, %84 ], [ 2, %._crit_edge.i ], [ %111, %138 ]
-  %143 = phi i64 [ 0, %84 ], [ 0, %._crit_edge.i ], [ %.pre, %138 ]
-  %144 = phi i64 [ 0, %84 ], [ 0, %._crit_edge.i ], [ %spec.select, %138 ]
-  %.1.i.i = tail call i32 @llvm.umax.i32(i32 %142, i32 2)
-  %145 = icmp ult i32 %142, 3
-  %146 = and i64 %144, 15
-  %147 = mul nuw nsw i64 %146, 17
-  %.227.i.i = select i1 %145, i64 %147, i64 %143
-  %.2.i.i = select i1 %145, i32 3, i32 %.1.i.i
+  %144 = phi i32 [ 2, %84 ], [ 2, %._crit_edge.i ], [ %111, %138 ]
+  %145 = phi i64 [ 0, %84 ], [ 0, %._crit_edge.i ], [ %.pre, %138 ]
+  %146 = phi i64 [ 0, %84 ], [ 0, %._crit_edge.i ], [ %143, %138 ]
+  %.1.i.i = tail call i32 @llvm.umax.i32(i32 %144, i32 2)
+  %147 = icmp ult i32 %144, 3
+  %.227.i.i = select i1 %147, i64 %146, i64 %145
+  %.2.i.i = select i1 %147, i32 3, i32 %.1.i.i
   %148 = icmp eq i32 %.2.i.i, 3
   %149 = and i64 %.227.i.i, 255
   %150 = mul nuw nsw i64 %149, 257
@@ -16298,7 +16298,7 @@ Abc_TtReadHexDigit.exit.i:                        ; preds = %125, %123, %119
 
 .sink.split.i:                                    ; preds = %.thread, %100, %97
   %.5.i.sink.i = phi i64 [ %.5.i.i, %.thread ], [ %102, %100 ], [ %99, %97 ]
-  %.037.ph.i = phi i32 [ %142, %.thread ], [ 1, %100 ], [ 0, %97 ]
+  %.037.ph.i = phi i32 [ %144, %.thread ], [ 1, %100 ], [ 0, %97 ]
   store i64 %.5.i.sink.i, ptr %74, align 16
   br label %Abc_TtReadHex.exit
 
@@ -29751,7 +29751,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 98:                                               ; preds = %96
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.2075)
-  br label %557
+  br label %556
 
 99:                                               ; preds = %96
   %100 = sext i32 %97 to i64
@@ -30070,7 +30070,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 266:                                              ; preds = %264
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.568)
-  br label %557
+  br label %556
 
 267:                                              ; preds = %264
   %268 = load i32, ptr %6, align 8
@@ -30084,7 +30084,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 273:                                              ; preds = %270
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2084)
-  br label %557
+  br label %556
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds i8, ptr %271, i64 8
@@ -30100,7 +30100,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 280:                                              ; preds = %277
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.825, i32 noundef %278)
-  br label %557
+  br label %556
 
 281:                                              ; preds = %277
   %282 = load i32, ptr %47, align 4
@@ -30110,7 +30110,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 284:                                              ; preds = %281
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.826)
-  br label %557
+  br label %556
 
 285:                                              ; preds = %281
   %286 = call i32 @Abc_NtkGetChoiceNum(ptr noundef nonnull %7) #28
@@ -30134,7 +30134,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 293:                                              ; preds = %290
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2085)
-  br label %557
+  br label %556
 
 294:                                              ; preds = %290
   store i32 1, ptr %26, align 4
@@ -30155,7 +30155,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 306:                                              ; preds = %295
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2086)
-  br label %557
+  br label %556
 
 307:                                              ; preds = %295
   %.not314 = icmp eq i32 %296, 0
@@ -30169,7 +30169,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 311:                                              ; preds = %308
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2087)
-  br label %557
+  br label %556
 
 312:                                              ; preds = %308
   %313 = getelementptr inbounds i8, ptr %6, i64 320
@@ -30189,7 +30189,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 318:                                              ; preds = %315
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2088)
-  br label %557
+  br label %556
 
 319:                                              ; preds = %315
   store i32 1, ptr %26, align 4
@@ -30206,7 +30206,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 324:                                              ; preds = %321
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2089)
-  br label %557
+  br label %556
 
 325:                                              ; preds = %321
   %326 = load i32, ptr %6, align 8
@@ -30218,7 +30218,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
   %330 = load i32, ptr %6, align 8
   %331 = call i32 @If_DsdManVarNum(ptr noundef nonnull %322) #28
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2090, i32 noundef %330, i32 noundef %331)
-  br label %557
+  br label %556
 
 332:                                              ; preds = %325
   %333 = getelementptr inbounds i8, ptr %6, i64 172
@@ -30233,7 +30233,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 338:                                              ; preds = %335
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2091)
-  br label %557
+  br label %556
 
 339:                                              ; preds = %335, %332
   store i32 1, ptr %26, align 4
@@ -30254,7 +30254,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 344:                                              ; preds = %342
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2092)
-  br label %557
+  br label %556
 
 345:                                              ; preds = %342
   %346 = load i32, ptr %6, align 8
@@ -30264,7 +30264,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 348:                                              ; preds = %345
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2093)
-  br label %557
+  br label %556
 
 349:                                              ; preds = %345
   %350 = load i32, ptr %25, align 4
@@ -30287,7 +30287,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 358:                                              ; preds = %355
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2094, i32 noundef 0)
-  br label %557
+  br label %556
 
 359:                                              ; preds = %355
   %360 = load i32, ptr %6, align 8
@@ -30296,7 +30296,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 361:                                              ; preds = %359
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2095, i32 noundef %360, i32 noundef %356)
-  br label %557
+  br label %556
 
 362:                                              ; preds = %359
   %363 = add i32 %360, -11
@@ -30305,7 +30305,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 364:                                              ; preds = %362
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2096)
-  br label %557
+  br label %556
 
 365:                                              ; preds = %362, %353
   %366 = load i32, ptr %26, align 4
@@ -30346,7 +30346,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
   %379 = or i32 %378, %354
   %380 = icmp eq i32 %379, 0
   %or.cond408 = select i1 %or.cond405, i1 %380, i1 false
-  br i1 %or.cond408, label %386, label %381
+  br i1 %or.cond408, label %385, label %381
 
 381:                                              ; preds = %375
   %382 = getelementptr inbounds i8, ptr %6, i64 220
@@ -30355,244 +30355,244 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
   store i32 0, ptr %31, align 8
   %383 = icmp ne i32 %378, 0
   %not..not328 = xor i1 %.not328, true
-  %384 = select i1 %not..not328, i1 true, i1 %383
-  %385 = zext i1 %384 to i32
-  store i32 %385, ptr %12, align 8
+  %narrow = select i1 %not..not328, i1 true, i1 %383
+  %384 = zext i1 %narrow to i32
+  store i32 %384, ptr %12, align 8
   store ptr null, ptr %9, align 8
-  br label %386
+  br label %385
 
-386:                                              ; preds = %375, %381
-  %387 = load i32, ptr %44, align 8
-  %388 = icmp sgt i32 %387, 0
-  br i1 %388, label %389, label %392
+385:                                              ; preds = %375, %381
+  %386 = load i32, ptr %44, align 8
+  %387 = icmp sgt i32 %386, 0
+  br i1 %387, label %388, label %391
 
-389:                                              ; preds = %386
-  %390 = getelementptr inbounds i8, ptr %6, i64 220
-  store i32 1, ptr %390, align 4
+388:                                              ; preds = %385
+  %389 = getelementptr inbounds i8, ptr %6, i64 220
+  store i32 1, ptr %389, align 4
   store i32 1, ptr %26, align 4
   store i32 0, ptr %31, align 8
-  %391 = getelementptr inbounds i8, ptr %6, i64 224
-  store i32 1, ptr %391, align 8
+  %390 = getelementptr inbounds i8, ptr %6, i64 224
+  store i32 1, ptr %390, align 8
   store ptr null, ptr %9, align 8
-  store i32 %387, ptr %6, align 8
-  br label %392
+  store i32 %386, ptr %6, align 8
+  br label %391
 
-392:                                              ; preds = %389, %386
-  %393 = load i32, ptr %12, align 8
-  %.not332 = icmp eq i32 %393, 0
-  %394 = load i32, ptr %11, align 8
-  %.not333 = icmp eq i32 %394, 0
+391:                                              ; preds = %388, %385
+  %392 = load i32, ptr %12, align 8
+  %.not332 = icmp eq i32 %392, 0
+  %393 = load i32, ptr %11, align 8
+  %.not333 = icmp eq i32 %393, 0
   %or.cond410 = select i1 %.not332, i1 %.not333, i1 false
-  br i1 %or.cond410, label %.critedge, label %395
+  br i1 %or.cond410, label %.critedge, label %394
 
-395:                                              ; preds = %392
-  %396 = getelementptr inbounds i8, ptr %6, i64 220
-  store i32 1, ptr %396, align 4
+394:                                              ; preds = %391
+  %395 = getelementptr inbounds i8, ptr %6, i64 220
+  store i32 1, ptr %395, align 4
   store i32 1, ptr %26, align 4
   store i32 0, ptr %31, align 8
-  br i1 %.not332, label %.critedge, label %397
+  br i1 %.not332, label %.critedge, label %396
 
-397:                                              ; preds = %395
-  br i1 %.not319, label %406, label %398
+396:                                              ; preds = %394
+  br i1 %.not319, label %405, label %397
 
-398:                                              ; preds = %397
-  %399 = getelementptr inbounds i8, ptr %341, i64 2
-  %400 = load i8, ptr %399, align 1
-  %401 = icmp eq i8 %400, 0
-  br i1 %401, label %402, label %406
+397:                                              ; preds = %396
+  %398 = getelementptr inbounds i8, ptr %341, i64 2
+  %399 = load i8, ptr %398, align 1
+  %400 = icmp eq i8 %399, 0
+  br i1 %400, label %401, label %405
 
-402:                                              ; preds = %398
-  %403 = load i8, ptr %341, align 1
-  %404 = sext i8 %403 to i32
-  %405 = add nsw i32 %404, -48
-  br label %406
+401:                                              ; preds = %397
+  %402 = load i8, ptr %341, align 1
+  %403 = sext i8 %402 to i32
+  %404 = add nsw i32 %403, -48
+  br label %405
 
-406:                                              ; preds = %397, %398, %402
-  %407 = phi i32 [ %405, %402 ], [ 0, %398 ], [ 0, %397 ]
-  %408 = call ptr (...) @Abc_FrameReadManDsd() #28
-  %409 = load ptr, ptr %34, align 8
-  %.not336 = icmp eq ptr %409, null
-  br i1 %.not336, label %414, label %410
+405:                                              ; preds = %396, %397, %401
+  %406 = phi i32 [ %404, %401 ], [ 0, %397 ], [ 0, %396 ]
+  %407 = call ptr (...) @Abc_FrameReadManDsd() #28
+  %408 = load ptr, ptr %34, align 8
+  %.not336 = icmp eq ptr %408, null
+  br i1 %.not336, label %413, label %409
 
-410:                                              ; preds = %406
-  %411 = getelementptr inbounds i8, ptr %409, i64 2
-  %412 = load i8, ptr %411, align 1
-  %.not337 = icmp eq i8 %412, 0
-  br i1 %.not337, label %414, label %413
+409:                                              ; preds = %405
+  %410 = getelementptr inbounds i8, ptr %408, i64 2
+  %411 = load i8, ptr %410, align 1
+  %.not337 = icmp eq i8 %411, 0
+  br i1 %.not337, label %413, label %412
 
-413:                                              ; preds = %410
+412:                                              ; preds = %409
   %puts352 = call i32 @puts(ptr nonnull dereferenceable(1) @str.29)
-  br label %557
+  br label %556
 
-414:                                              ; preds = %410, %406
-  %.not338 = icmp eq ptr %408, null
-  br i1 %.not338, label %424, label %415
+413:                                              ; preds = %409, %405
+  %.not338 = icmp eq ptr %407, null
+  br i1 %.not338, label %423, label %414
 
-415:                                              ; preds = %414
-  %416 = load i32, ptr %6, align 8
-  %417 = call i32 @If_DsdManVarNum(ptr noundef nonnull %408) #28
-  %418 = icmp sgt i32 %416, %417
-  br i1 %418, label %419, label %420
+414:                                              ; preds = %413
+  %415 = load i32, ptr %6, align 8
+  %416 = call i32 @If_DsdManVarNum(ptr noundef nonnull %407) #28
+  %417 = icmp sgt i32 %415, %416
+  br i1 %417, label %418, label %419
 
-419:                                              ; preds = %415
+418:                                              ; preds = %414
   %puts351 = call i32 @puts(ptr nonnull dereferenceable(1) @str.28)
-  br label %557
+  br label %556
 
-420:                                              ; preds = %415
-  %421 = call i32 @If_DsdManLutSize(ptr noundef nonnull %408) #28
-  %.not339 = icmp ne i32 %407, %421
-  %422 = load i32, ptr %21, align 8
-  %.not340 = icmp eq i32 %422, 0
+419:                                              ; preds = %414
+  %420 = call i32 @If_DsdManLutSize(ptr noundef nonnull %407) #28
+  %.not339 = icmp ne i32 %406, %420
+  %421 = load i32, ptr %21, align 8
+  %.not340 = icmp eq i32 %421, 0
   %or.cond412 = select i1 %.not339, i1 %.not340, i1 false
-  br i1 %or.cond412, label %423, label %.critedge
+  br i1 %or.cond412, label %422, label %.critedge
 
-423:                                              ; preds = %420
+422:                                              ; preds = %419
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.26)
-  br label %557
+  br label %556
 
-424:                                              ; preds = %414
-  %425 = icmp sgt i32 %407, 12
-  br i1 %425, label %429, label %426
+423:                                              ; preds = %413
+  %424 = icmp sgt i32 %406, 12
+  br i1 %424, label %428, label %425
 
-426:                                              ; preds = %424
-  %427 = load i32, ptr %6, align 8
-  %428 = icmp sgt i32 %427, 12
-  br i1 %428, label %429, label %431
+425:                                              ; preds = %423
+  %426 = load i32, ptr %6, align 8
+  %427 = icmp sgt i32 %426, 12
+  br i1 %427, label %428, label %430
 
-429:                                              ; preds = %426, %424
-  %430 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2100, i32 noundef %407, i32 noundef 12)
-  br label %557
+428:                                              ; preds = %425, %423
+  %429 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2100, i32 noundef %406, i32 noundef 12)
+  br label %556
 
-431:                                              ; preds = %426
-  %432 = call ptr @If_DsdManAlloc(i32 noundef %427, i32 noundef %407) #28
-  call void @Abc_FrameSetManDsd(ptr noundef %432) #28
+430:                                              ; preds = %425
+  %431 = call ptr @If_DsdManAlloc(i32 noundef %426, i32 noundef %406) #28
+  call void @Abc_FrameSetManDsd(ptr noundef %431) #28
   br label %.critedge
 
-.critedge:                                        ; preds = %392, %420, %431, %395
-  %433 = load i32, ptr %20, align 4
-  %.not341 = icmp eq i32 %433, 0
-  br i1 %.not341, label %444, label %434
+.critedge:                                        ; preds = %391, %419, %430, %394
+  %432 = load i32, ptr %20, align 4
+  %.not341 = icmp eq i32 %432, 0
+  br i1 %.not341, label %443, label %433
 
-434:                                              ; preds = %.critedge
-  %435 = call i32 (...) @Abc_NtkRecIsRunning3() #28
-  %.not342 = icmp eq i32 %435, 0
-  br i1 %.not342, label %436, label %437
+433:                                              ; preds = %.critedge
+  %434 = call i32 (...) @Abc_NtkRecIsRunning3() #28
+  %.not342 = icmp eq i32 %434, 0
+  br i1 %.not342, label %435, label %436
 
-436:                                              ; preds = %434
+435:                                              ; preds = %433
   %puts343 = call i32 @puts(ptr nonnull dereferenceable(1) @str.27)
-  br label %557
+  br label %556
 
-437:                                              ; preds = %434
-  %438 = call i32 (...) @Abc_NtkRecInputNum3() #28
-  %439 = load i32, ptr %6, align 8
-  %.not344 = icmp eq i32 %438, %439
-  br i1 %.not344, label %444, label %440
+436:                                              ; preds = %433
+  %437 = call i32 (...) @Abc_NtkRecInputNum3() #28
+  %438 = load i32, ptr %6, align 8
+  %.not344 = icmp eq i32 %437, %438
+  br i1 %.not344, label %443, label %439
 
-440:                                              ; preds = %437
-  %441 = call i32 (...) @Abc_NtkRecInputNum3() #28
-  %442 = load i32, ptr %6, align 8
-  %443 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2102, i32 noundef %441, i32 noundef %442)
-  br label %557
+439:                                              ; preds = %436
+  %440 = call i32 (...) @Abc_NtkRecInputNum3() #28
+  %441 = load i32, ptr %6, align 8
+  %442 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2102, i32 noundef %440, i32 noundef %441)
+  br label %556
 
-444:                                              ; preds = %437, %.critedge
-  %445 = load i32, ptr %18, align 8
-  %.not345 = icmp eq i32 %445, 0
-  br i1 %.not345, label %._crit_edge, label %446
+443:                                              ; preds = %436, %.critedge
+  %444 = load i32, ptr %18, align 8
+  %.not345 = icmp eq i32 %444, 0
+  br i1 %.not345, label %._crit_edge, label %445
 
-._crit_edge:                                      ; preds = %444
+._crit_edge:                                      ; preds = %443
   %.pre415 = load i32, ptr %6, align 8
-  br label %457
+  br label %456
 
-446:                                              ; preds = %444
-  %447 = call i32 (...) @Abc_ExactIsRunning() #28
-  %.not346 = icmp eq i32 %447, 0
-  br i1 %.not346, label %448, label %449
+445:                                              ; preds = %443
+  %446 = call i32 (...) @Abc_ExactIsRunning() #28
+  %.not346 = icmp eq i32 %446, 0
+  br i1 %.not346, label %447, label %448
 
-448:                                              ; preds = %446
+447:                                              ; preds = %445
   %puts347 = call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
-  br label %557
+  br label %556
 
-449:                                              ; preds = %446
-  %450 = call i32 (...) @Abc_ExactInputNum() #28
-  %451 = load i32, ptr %6, align 8
-  %452 = icmp slt i32 %450, %451
-  br i1 %452, label %453, label %457
+448:                                              ; preds = %445
+  %449 = call i32 (...) @Abc_ExactInputNum() #28
+  %450 = load i32, ptr %6, align 8
+  %451 = icmp slt i32 %449, %450
+  br i1 %451, label %452, label %456
 
-453:                                              ; preds = %449
-  %454 = call i32 (...) @Abc_ExactInputNum() #28
-  %455 = load i32, ptr %6, align 8
-  %456 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2104, i32 noundef %454, i32 noundef %455)
-  br label %557
+452:                                              ; preds = %448
+  %453 = call i32 (...) @Abc_ExactInputNum() #28
+  %454 = load i32, ptr %6, align 8
+  %455 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2104, i32 noundef %453, i32 noundef %454)
+  br label %556
 
-457:                                              ; preds = %._crit_edge, %449
-  %458 = phi i32 [ %.pre415, %._crit_edge ], [ %451, %449 ]
-  %459 = getelementptr inbounds i8, ptr %6, i64 220
-  %460 = load i32, ptr %459, align 4
-  %.not348 = icmp ne i32 %460, 0
-  %461 = icmp sgt i32 %458, 15
-  %or.cond414 = select i1 %.not348, i1 %461, i1 false
-  br i1 %or.cond414, label %462, label %463
+456:                                              ; preds = %._crit_edge, %448
+  %457 = phi i32 [ %.pre415, %._crit_edge ], [ %450, %448 ]
+  %458 = getelementptr inbounds i8, ptr %6, i64 220
+  %459 = load i32, ptr %458, align 4
+  %.not348 = icmp ne i32 %459, 0
+  %460 = icmp sgt i32 %457, 15
+  %or.cond414 = select i1 %.not348, i1 %460, i1 false
+  br i1 %or.cond414, label %461, label %462
 
-462:                                              ; preds = %457
+461:                                              ; preds = %456
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2105, i32 noundef 15)
-  br label %557
+  br label %556
 
-463:                                              ; preds = %457
+462:                                              ; preds = %456
   %.val = load i32, ptr %7, align 8
   %.not = icmp eq i32 %.val, 3
-  br i1 %.not, label %479, label %464
+  br i1 %.not, label %478, label %463
 
-464:                                              ; preds = %463
-  %465 = call ptr @Abc_NtkStrash(ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28
-  %466 = icmp eq ptr %465, null
-  br i1 %466, label %467, label %468
+463:                                              ; preds = %462
+  %464 = call ptr @Abc_NtkStrash(ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28
+  %465 = icmp eq ptr %464, null
+  br i1 %465, label %466, label %467
 
-467:                                              ; preds = %464
+466:                                              ; preds = %463
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2106)
-  br label %557
+  br label %556
 
-468:                                              ; preds = %464
-  %469 = call ptr @Abc_NtkBalance(ptr noundef nonnull %465, i32 noundef 0, i32 noundef 0, i32 noundef 1) #28
-  call void @Abc_NtkDelete(ptr noundef nonnull %465) #28
-  %470 = icmp eq ptr %469, null
-  br i1 %470, label %471, label %472
+467:                                              ; preds = %463
+  %468 = call ptr @Abc_NtkBalance(ptr noundef nonnull %464, i32 noundef 0, i32 noundef 0, i32 noundef 1) #28
+  call void @Abc_NtkDelete(ptr noundef nonnull %464) #28
+  %469 = icmp eq ptr %468, null
+  br i1 %469, label %470, label %471
 
-471:                                              ; preds = %468
+470:                                              ; preds = %467
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2107)
-  br label %557
+  br label %556
 
-472:                                              ; preds = %468
-  %473 = call ptr @Abc_FrameReadFlag(ptr noundef nonnull @.str.2108) #28
-  %.not350 = icmp eq ptr %473, null
-  br i1 %.not350, label %474, label %475
+471:                                              ; preds = %467
+  %472 = call ptr @Abc_FrameReadFlag(ptr noundef nonnull @.str.2108) #28
+  %.not350 = icmp eq ptr %472, null
+  br i1 %.not350, label %473, label %474
 
-474:                                              ; preds = %472
+473:                                              ; preds = %471
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.2109)
-  br label %475
+  br label %474
 
-475:                                              ; preds = %474, %472
-  %476 = call ptr @Abc_NtkIf(ptr noundef nonnull %469, ptr noundef nonnull %6) #28
-  %477 = icmp eq ptr %476, null
-  call void @Abc_NtkDelete(ptr noundef nonnull %469) #28
-  br i1 %477, label %478, label %483
+474:                                              ; preds = %473, %471
+  %475 = call ptr @Abc_NtkIf(ptr noundef nonnull %468, ptr noundef nonnull %6) #28
+  %476 = icmp eq ptr %475, null
+  call void @Abc_NtkDelete(ptr noundef nonnull %468) #28
+  br i1 %476, label %477, label %482
 
-478:                                              ; preds = %475
+477:                                              ; preds = %474
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2110)
-  br label %557
+  br label %556
 
-479:                                              ; preds = %463
-  %480 = call ptr @Abc_NtkIf(ptr noundef nonnull %7, ptr noundef nonnull %6) #28
-  %481 = icmp eq ptr %480, null
-  br i1 %481, label %482, label %483
+478:                                              ; preds = %462
+  %479 = call ptr @Abc_NtkIf(ptr noundef nonnull %7, ptr noundef nonnull %6) #28
+  %480 = icmp eq ptr %479, null
+  br i1 %480, label %481, label %482
 
-482:                                              ; preds = %479
+481:                                              ; preds = %478
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2110)
-  br label %557
+  br label %556
 
-483:                                              ; preds = %475, %479
-  %.0267 = phi ptr [ %480, %479 ], [ %476, %475 ]
+482:                                              ; preds = %474, %478
+  %.0267 = phi ptr [ %479, %478 ], [ %475, %474 ]
   call void @Abc_FrameReplaceCurrentNetwork(ptr noundef %0, ptr noundef nonnull %.0267) #28
-  br label %557
+  br label %556
 
 .loopexitthread-pre-split.sink.split:             ; preds = %185, %183, %173, %162, %152, %143, %133, %123, %115, %106, %87, %78, %69, %60, %50
   %.str.1022.sink = phi ptr [ @.str.1022, %50 ], [ @.str.2073, %60 ], [ @.str.822, %69 ], [ @.str.823, %78 ], [ @.str.2074, %87 ], [ @.str.2076, %106 ], [ @.str.2077, %115 ], [ @.str.2078, %123 ], [ @.str.2079, %133 ], [ @.str.2080, %143 ], [ @.str.1998, %152 ], [ @.str.2030, %162 ], [ @.str.2081, %173 ], [ @.str.2082, %183 ], [ @.str.2083, %185 ]
@@ -30604,163 +30604,163 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %154, %.loopexitthread-pre-split
-  %484 = phi float [ %.pr, %.loopexitthread-pre-split ], [ %159, %154 ]
-  %485 = fcmp oeq float %484, -1.000000e+00
-  br i1 %485, label %486, label %487
+  %483 = phi float [ %.pr, %.loopexitthread-pre-split ], [ %159, %154 ]
+  %484 = fcmp oeq float %483, -1.000000e+00
+  br i1 %484, label %485, label %486
+
+485:                                              ; preds = %.loopexit
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %4, ptr noundef nonnull align 1 dereferenceable(14) @.str.2111, i64 14, i1 false)
+  br label %489
 
 486:                                              ; preds = %.loopexit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %4, ptr noundef nonnull align 1 dereferenceable(14) @.str.2111, i64 14, i1 false)
-  br label %490
+  %487 = fpext float %483 to double
+  %488 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.589, double noundef %487) #28
+  br label %489
 
-487:                                              ; preds = %.loopexit
-  %488 = fpext float %484 to double
-  %489 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.589, double noundef %488) #28
-  br label %490
+489:                                              ; preds = %486, %485
+  %490 = load i32, ptr %6, align 8
+  %491 = icmp eq i32 %490, -1
+  br i1 %491, label %492, label %493
 
-490:                                              ; preds = %487, %486
-  %491 = load i32, ptr %6, align 8
-  %492 = icmp eq i32 %491, -1
-  br i1 %492, label %493, label %494
-
-493:                                              ; preds = %490
+492:                                              ; preds = %489
   store i64 34184235038435692, ptr %5, align 16
-  br label %496
+  br label %495
 
-494:                                              ; preds = %490
-  %495 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.1365, i32 noundef %491) #28
-  br label %496
+493:                                              ; preds = %489
+  %494 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.1365, i32 noundef %490) #28
+  br label %495
 
-496:                                              ; preds = %494, %493
+495:                                              ; preds = %493, %492
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2113)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2114)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2115, i32 noundef 33, ptr noundef nonnull %5)
-  %497 = load i32, ptr %47, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2116, i32 noundef %497)
-  %498 = load i32, ptr %46, align 8
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2117, i32 noundef %498)
-  %499 = load i32, ptr %45, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2118, i32 noundef %499)
-  %500 = load i32, ptr %44, align 8
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2119, i32 noundef %500)
-  %501 = load i32, ptr %43, align 8
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2120, i32 noundef %501)
-  %502 = load i32, ptr %42, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2121, i32 noundef %502)
+  %496 = load i32, ptr %47, align 4
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2116, i32 noundef %496)
+  %497 = load i32, ptr %46, align 8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2117, i32 noundef %497)
+  %498 = load i32, ptr %45, align 4
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2118, i32 noundef %498)
+  %499 = load i32, ptr %44, align 8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2119, i32 noundef %499)
+  %500 = load i32, ptr %43, align 8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2120, i32 noundef %500)
+  %501 = load i32, ptr %42, align 4
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2121, i32 noundef %501)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2122)
-  %503 = load i32, ptr %40, align 8
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2123, i32 noundef %503)
-  %504 = load i32, ptr %39, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2124, i32 noundef %504)
-  %505 = load i32, ptr %38, align 8
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2125, i32 noundef %505)
+  %502 = load i32, ptr %40, align 8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2123, i32 noundef %502)
+  %503 = load i32, ptr %39, align 4
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2124, i32 noundef %503)
+  %504 = load i32, ptr %38, align 8
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2125, i32 noundef %504)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2126, ptr noundef nonnull %4)
-  %506 = load float, ptr %36, align 4
-  %507 = fpext float %506 to double
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2036, double noundef %507)
-  %508 = load float, ptr %35, align 8
-  %509 = fpext float %508 to double
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2127, double noundef %509)
-  %510 = load ptr, ptr %34, align 8
-  %.not370 = icmp eq ptr %510, null
-  %spec.select = select i1 %.not370, ptr @.str.2009, ptr %510
+  %505 = load float, ptr %36, align 4
+  %506 = fpext float %505 to double
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2036, double noundef %506)
+  %507 = load float, ptr %35, align 8
+  %508 = fpext float %507 to double
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2127, double noundef %508)
+  %509 = load ptr, ptr %34, align 8
+  %.not370 = icmp eq ptr %509, null
+  %spec.select = select i1 %.not370, ptr @.str.2009, ptr %509
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2128, ptr noundef nonnull %spec.select)
-  %511 = load i32, ptr %33, align 4
-  %.not371 = icmp eq i32 %511, 0
-  %512 = select i1 %.not371, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2129, ptr noundef nonnull %512)
-  %513 = load i32, ptr %32, align 8
-  %.not372 = icmp eq i32 %513, 0
-  %514 = select i1 %.not372, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2130, ptr noundef nonnull %514)
-  %515 = load i32, ptr %31, align 8
-  %.not373 = icmp eq i32 %515, 0
-  %516 = select i1 %.not373, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2131, ptr noundef nonnull %516)
-  %517 = load i32, ptr %29, align 4
-  %.not374 = icmp eq i32 %517, 0
-  %518 = select i1 %.not374, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2132, ptr noundef nonnull %518)
-  %519 = load i32, ptr %28, align 4
-  %.not375 = icmp eq i32 %519, 0
-  %520 = select i1 %.not375, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2133, ptr noundef nonnull %520)
-  %521 = load i32, ptr %27, align 8
-  %.not376 = icmp eq i32 %521, 0
-  %522 = select i1 %.not376, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2134, ptr noundef nonnull %522)
-  %523 = load i32, ptr %26, align 4
-  %.not377 = icmp eq i32 %523, 0
-  %524 = select i1 %.not377, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2135, ptr noundef nonnull %524)
-  %525 = load i32, ptr %25, align 4
-  %.not378 = icmp eq i32 %525, 0
-  %526 = select i1 %.not378, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2136, ptr noundef nonnull %526)
-  %527 = load i32, ptr %24, align 4
-  %.not379 = icmp eq i32 %527, 0
-  %528 = select i1 %.not379, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2137, ptr noundef nonnull %528)
-  %529 = load i32, ptr %23, align 4
-  %.not380 = icmp eq i32 %529, 0
-  %530 = select i1 %.not380, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2138, ptr noundef nonnull %530)
-  %531 = load i32, ptr %22, align 8
-  %.not381 = icmp eq i32 %531, 0
-  %532 = select i1 %.not381, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2139, ptr noundef nonnull %532)
-  %533 = load i32, ptr %21, align 8
-  %.not382 = icmp eq i32 %533, 0
-  %534 = select i1 %.not382, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2140, ptr noundef nonnull %534)
-  %535 = load i32, ptr %20, align 4
-  %.not383 = icmp eq i32 %535, 0
-  %536 = select i1 %.not383, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2141, ptr noundef nonnull %536)
-  %537 = load i32, ptr %19, align 8
-  %.not384 = icmp eq i32 %537, 0
-  %538 = select i1 %.not384, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2142, ptr noundef nonnull %538)
-  %539 = load i32, ptr %18, align 8
-  %.not385 = icmp eq i32 %539, 0
-  %540 = select i1 %.not385, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2143, ptr noundef nonnull %540)
-  %541 = load i32, ptr %17, align 8
-  %.not386 = icmp eq i32 %541, 0
-  %542 = select i1 %.not386, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2026, ptr noundef nonnull %542)
-  %543 = load i32, ptr %16, align 4
-  %.not387 = icmp eq i32 %543, 0
-  %544 = select i1 %.not387, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2144, ptr noundef nonnull %544)
-  %545 = load i32, ptr %15, align 8
-  %.not388 = icmp eq i32 %545, 0
-  %546 = select i1 %.not388, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2145, ptr noundef nonnull %546)
-  %547 = load i32, ptr %14, align 4
-  %.not389 = icmp eq i32 %547, 0
-  %548 = select i1 %.not389, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2146, ptr noundef nonnull %548)
-  %549 = load i32, ptr %13, align 8
-  %.not390 = icmp eq i32 %549, 0
-  %550 = select i1 %.not390, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2147, ptr noundef nonnull %550)
-  %551 = load i32, ptr %12, align 8
-  %.not391 = icmp eq i32 %551, 0
-  %552 = select i1 %.not391, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2148, ptr noundef nonnull %552)
-  %553 = load i32, ptr %11, align 8
-  %.not392 = icmp eq i32 %553, 0
-  %554 = select i1 %.not392, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2149, ptr noundef nonnull %554)
-  %555 = load i32, ptr %10, align 4
-  %.not393 = icmp eq i32 %555, 0
-  %556 = select i1 %.not393, ptr @.str.527, ptr @.str.526
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2027, ptr noundef nonnull %556)
+  %510 = load i32, ptr %33, align 4
+  %.not371 = icmp eq i32 %510, 0
+  %511 = select i1 %.not371, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2129, ptr noundef nonnull %511)
+  %512 = load i32, ptr %32, align 8
+  %.not372 = icmp eq i32 %512, 0
+  %513 = select i1 %.not372, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2130, ptr noundef nonnull %513)
+  %514 = load i32, ptr %31, align 8
+  %.not373 = icmp eq i32 %514, 0
+  %515 = select i1 %.not373, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2131, ptr noundef nonnull %515)
+  %516 = load i32, ptr %29, align 4
+  %.not374 = icmp eq i32 %516, 0
+  %517 = select i1 %.not374, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2132, ptr noundef nonnull %517)
+  %518 = load i32, ptr %28, align 4
+  %.not375 = icmp eq i32 %518, 0
+  %519 = select i1 %.not375, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2133, ptr noundef nonnull %519)
+  %520 = load i32, ptr %27, align 8
+  %.not376 = icmp eq i32 %520, 0
+  %521 = select i1 %.not376, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2134, ptr noundef nonnull %521)
+  %522 = load i32, ptr %26, align 4
+  %.not377 = icmp eq i32 %522, 0
+  %523 = select i1 %.not377, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2135, ptr noundef nonnull %523)
+  %524 = load i32, ptr %25, align 4
+  %.not378 = icmp eq i32 %524, 0
+  %525 = select i1 %.not378, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2136, ptr noundef nonnull %525)
+  %526 = load i32, ptr %24, align 4
+  %.not379 = icmp eq i32 %526, 0
+  %527 = select i1 %.not379, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2137, ptr noundef nonnull %527)
+  %528 = load i32, ptr %23, align 4
+  %.not380 = icmp eq i32 %528, 0
+  %529 = select i1 %.not380, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2138, ptr noundef nonnull %529)
+  %530 = load i32, ptr %22, align 8
+  %.not381 = icmp eq i32 %530, 0
+  %531 = select i1 %.not381, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2139, ptr noundef nonnull %531)
+  %532 = load i32, ptr %21, align 8
+  %.not382 = icmp eq i32 %532, 0
+  %533 = select i1 %.not382, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2140, ptr noundef nonnull %533)
+  %534 = load i32, ptr %20, align 4
+  %.not383 = icmp eq i32 %534, 0
+  %535 = select i1 %.not383, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2141, ptr noundef nonnull %535)
+  %536 = load i32, ptr %19, align 8
+  %.not384 = icmp eq i32 %536, 0
+  %537 = select i1 %.not384, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2142, ptr noundef nonnull %537)
+  %538 = load i32, ptr %18, align 8
+  %.not385 = icmp eq i32 %538, 0
+  %539 = select i1 %.not385, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2143, ptr noundef nonnull %539)
+  %540 = load i32, ptr %17, align 8
+  %.not386 = icmp eq i32 %540, 0
+  %541 = select i1 %.not386, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2026, ptr noundef nonnull %541)
+  %542 = load i32, ptr %16, align 4
+  %.not387 = icmp eq i32 %542, 0
+  %543 = select i1 %.not387, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2144, ptr noundef nonnull %543)
+  %544 = load i32, ptr %15, align 8
+  %.not388 = icmp eq i32 %544, 0
+  %545 = select i1 %.not388, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2145, ptr noundef nonnull %545)
+  %546 = load i32, ptr %14, align 4
+  %.not389 = icmp eq i32 %546, 0
+  %547 = select i1 %.not389, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2146, ptr noundef nonnull %547)
+  %548 = load i32, ptr %13, align 8
+  %.not390 = icmp eq i32 %548, 0
+  %549 = select i1 %.not390, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2147, ptr noundef nonnull %549)
+  %550 = load i32, ptr %12, align 8
+  %.not391 = icmp eq i32 %550, 0
+  %551 = select i1 %.not391, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2148, ptr noundef nonnull %551)
+  %552 = load i32, ptr %11, align 8
+  %.not392 = icmp eq i32 %552, 0
+  %553 = select i1 %.not392, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2149, ptr noundef nonnull %553)
+  %554 = load i32, ptr %10, align 4
+  %.not393 = icmp eq i32 %554, 0
+  %555 = select i1 %.not393, ptr @.str.527, ptr @.str.526
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2027, ptr noundef nonnull %555)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2150)
-  br label %557
+  br label %556
 
-557:                                              ; preds = %496, %483, %482, %478, %471, %467, %462, %453, %448, %440, %436, %429, %423, %419, %413, %364, %361, %358, %348, %344, %338, %329, %324, %318, %311, %306, %293, %284, %280, %273, %266, %98
-  %.0 = phi i32 [ 1, %496 ], [ 0, %98 ], [ 1, %266 ], [ 1, %273 ], [ 1, %280 ], [ 1, %284 ], [ 1, %293 ], [ 1, %306 ], [ 1, %311 ], [ 1, %324 ], [ 1, %329 ], [ 1, %338 ], [ 1, %344 ], [ 1, %348 ], [ 1, %358 ], [ 1, %361 ], [ 1, %364 ], [ 0, %413 ], [ 0, %419 ], [ 0, %429 ], [ 0, %440 ], [ 0, %453 ], [ 1, %462 ], [ 0, %482 ], [ 0, %483 ], [ 1, %467 ], [ 1, %471 ], [ 0, %478 ], [ 0, %448 ], [ 0, %436 ], [ 0, %423 ], [ 1, %318 ]
+556:                                              ; preds = %495, %482, %481, %477, %470, %466, %461, %452, %447, %439, %435, %428, %422, %418, %412, %364, %361, %358, %348, %344, %338, %329, %324, %318, %311, %306, %293, %284, %280, %273, %266, %98
+  %.0 = phi i32 [ 1, %495 ], [ 0, %98 ], [ 1, %266 ], [ 1, %273 ], [ 1, %280 ], [ 1, %284 ], [ 1, %293 ], [ 1, %306 ], [ 1, %311 ], [ 1, %324 ], [ 1, %329 ], [ 1, %338 ], [ 1, %344 ], [ 1, %348 ], [ 1, %358 ], [ 1, %361 ], [ 1, %364 ], [ 0, %412 ], [ 0, %418 ], [ 0, %428 ], [ 0, %439 ], [ 0, %452 ], [ 1, %461 ], [ 0, %481 ], [ 0, %482 ], [ 1, %466 ], [ 1, %470 ], [ 0, %477 ], [ 0, %447 ], [ 0, %435 ], [ 0, %422 ], [ 1, %318 ]
   ret i32 %.0
 }
 
@@ -64940,69 +64940,69 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr nocapture noundef %0,
 .thread:                                          ; preds = %382
   store i32 1, ptr %34, align 4
   store i32 4, ptr %6, align 8
-  br label %386
+  br label %387
 
 384:                                              ; preds = %382
   %.pre495 = load i32, ptr %34, align 4
-  %.not354 = icmp eq i32 %.pre495, 0
-  %385 = load i32, ptr %21, align 4
-  %.not355 = icmp eq i32 %385, 0
-  %or.cond441 = select i1 %.not354, i1 %.not355, i1 false
-  br i1 %or.cond441, label %390, label %386
+  %385 = icmp eq i32 %.pre495, 0
+  %386 = load i32, ptr %21, align 4
+  %.not355 = icmp eq i32 %386, 0
+  %or.cond441 = select i1 %385, i1 %.not355, i1 false
+  br i1 %or.cond441, label %391, label %387
 
-386:                                              ; preds = %.thread, %384
-  %387 = getelementptr inbounds i8, ptr %6, i64 220
-  store i32 1, ptr %387, align 4
+387:                                              ; preds = %.thread, %384
+  %388 = getelementptr inbounds i8, ptr %6, i64 220
+  store i32 1, ptr %388, align 4
   store i32 0, ptr %38, align 8
-  %388 = load i32, ptr %22, align 4
-  %.not356 = icmp eq i32 %388, 0
+  %389 = load i32, ptr %22, align 4
+  %.not356 = icmp eq i32 %389, 0
   %or.cond442 = select i1 %.not350, i1 %.not356, i1 false
-  br i1 %or.cond442, label %389, label %390
+  br i1 %or.cond442, label %390, label %391
 
-389:                                              ; preds = %386
+390:                                              ; preds = %387
   store i32 1, ptr %21, align 4
-  br label %390
+  br label %391
 
-390:                                              ; preds = %384, %386, %389
-  %391 = load i32, ptr %28, align 4
-  %.not357 = icmp eq i32 %391, 0
-  br i1 %.not357, label %395, label %392
+391:                                              ; preds = %384, %387, %390
+  %392 = load i32, ptr %28, align 4
+  %.not357 = icmp eq i32 %392, 0
+  br i1 %.not357, label %396, label %393
 
-392:                                              ; preds = %390
-  %393 = getelementptr inbounds i8, ptr %6, i64 220
-  store i32 1, ptr %393, align 4
+393:                                              ; preds = %391
+  %394 = getelementptr inbounds i8, ptr %6, i64 220
+  store i32 1, ptr %394, align 4
   store i32 1, ptr %34, align 4
   store i32 0, ptr %38, align 8
-  %394 = getelementptr inbounds i8, ptr %6, i64 224
-  store i32 1, ptr %394, align 8
+  %395 = getelementptr inbounds i8, ptr %6, i64 224
+  store i32 1, ptr %395, align 8
   store ptr null, ptr %14, align 8
-  br label %395
+  br label %396
 
-395:                                              ; preds = %392, %390
-  %396 = load i32, ptr %30, align 8
-  %.not358 = icmp eq i32 %396, 0
-  %397 = load i32, ptr %29, align 8
-  %.not359 = icmp eq i32 %397, 0
+396:                                              ; preds = %393, %391
+  %397 = load i32, ptr %30, align 8
+  %.not358 = icmp eq i32 %397, 0
+  %398 = load i32, ptr %29, align 8
+  %.not359 = icmp eq i32 %398, 0
   %or.cond444 = select i1 %.not358, i1 %.not359, i1 false
-  %398 = load i32, ptr %33, align 4
-  %.not360 = icmp eq i32 %398, 0
+  %399 = load i32, ptr %33, align 4
+  %.not360 = icmp eq i32 %399, 0
   %or.cond446 = select i1 %or.cond444, i1 %.not360, i1 false
-  br i1 %or.cond446, label %404, label %399
+  br i1 %or.cond446, label %404, label %400
 
-399:                                              ; preds = %395
-  %400 = getelementptr inbounds i8, ptr %6, i64 220
-  store i32 1, ptr %400, align 4
+400:                                              ; preds = %396
+  %401 = getelementptr inbounds i8, ptr %6, i64 220
+  store i32 1, ptr %401, align 4
   store i32 1, ptr %34, align 4
   store i32 0, ptr %38, align 8
-  %401 = icmp ne i32 %398, 0
+  %402 = icmp ne i32 %399, 0
   %not..not359 = xor i1 %.not359, true
-  %402 = select i1 %not..not359, i1 true, i1 %401
-  %403 = zext i1 %402 to i32
+  %narrow = select i1 %not..not359, i1 true, i1 %402
+  %403 = zext i1 %narrow to i32
   store i32 %403, ptr %19, align 8
   store ptr null, ptr %14, align 8
   br label %404
 
-404:                                              ; preds = %395, %399
+404:                                              ; preds = %396, %400
   %405 = load i32, ptr %49, align 8
   %406 = icmp sgt i32 %405, 0
   br i1 %406, label %407, label %410
@@ -89147,7 +89147,7 @@ define internal fastcc void @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

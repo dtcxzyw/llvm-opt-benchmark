@@ -14251,7 +14251,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %32, %_ZNSt
   %81 = phi ptr [ %7, %.preheader39 ], [ %129, %._crit_edge ]
   %82 = phi ptr [ %.pre54, %.preheader39 ], [ %132, %._crit_edge ]
   %83 = phi ptr [ %.pre, %.preheader39 ], [ %131, %._crit_edge ]
-  %.01845 = phi i64 [ 0, %.preheader39 ], [ %138, %._crit_edge ]
+  %.01845 = phi i64 [ 0, %.preheader39 ], [ %140, %._crit_edge ]
   %.not = icmp eq ptr %83, %82
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -14366,10 +14366,10 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit36: ; preds = %_ZNSt6ve
   br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !273
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit36
-  %138 = add i64 %.01845, 1
-  %139 = and i8 %.2, 1
-  %.not.not = icmp eq i8 %139, 0
-  br i1 %.not.not, label %.preheader38, label %.loopexit, !llvm.loop !274
+  %138 = and i8 %.2, 1
+  %139 = icmp eq i8 %138, 0
+  %140 = add i64 %.01845, 1
+  br i1 %139, label %.preheader38, label %.loopexit, !llvm.loop !274
 
 .loopexit:                                        ; preds = %.preheader38, %._crit_edge, %._crit_edge48, %.preheader37
   ret void
@@ -14930,7 +14930,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit72:  ; preds = %_ZNSt6vectorIN2cv6P
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZNK17CirclesGridFinder14getFirstCornerERSt6vectorIN2cv6Point_IiEESaIS3_EES6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 0, 2147483648) i64 @_ZNK17CirclesGridFinder14getFirstCornerERSt6vectorIN2cv6Point_IiEESaIS3_EES6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector.74", align 8
   %7 = alloca %"class.std::vector.74", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

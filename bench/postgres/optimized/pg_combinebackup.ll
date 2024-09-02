@@ -725,8 +725,8 @@ check_input_dir_permissions.exit:                 ; preds = %check_backup_label_
   br i1 %.not808296.i, label %.outer._crit_edge.i, label %sub_0.lr.ph.lr.ph.i
 
 sub_0.lr.ph.lr.ph.i:                              ; preds = %.preheader.i, %.outer.outer.i
-  %244 = phi ptr [ %333, %.outer.outer.i ], [ %243, %.preheader.i ]
-  %.043.ph.ph97.i = phi ptr [ %288, %.outer.outer.i ], [ null, %.preheader.i ]
+  %244 = phi ptr [ %325, %.outer.outer.i ], [ %243, %.preheader.i ]
+  %.043.ph.ph97.i = phi ptr [ %280, %.outer.outer.i ], [ null, %.preheader.i ]
   br label %sub_0.i
 
 245:                                              ; preds = %240
@@ -738,225 +738,214 @@ sub_0.i:                                          ; preds = %sub_0.i.backedge, %
   %246 = phi ptr [ %244, %sub_0.lr.ph.lr.ph.i ], [ %.be, %sub_0.i.backedge ]
   %247 = getelementptr inbounds i8, ptr %246, i64 19
   %248 = load i8, ptr %247, align 1
-  %249 = zext i8 %248 to i32
-  %250 = add nsw i32 %249, -46
-  %.not99.i = icmp eq i32 %250, 0
-  br i1 %.not99.i, label %.tail.i, label %.tail58.i
+  %.not99.i = icmp eq i8 %248, 46
+  br i1 %.not99.i, label %.tail.i, label %.tail58.thread.i
 
 .tail.i:                                          ; preds = %sub_0.i
-  %251 = getelementptr inbounds i8, ptr %246, i64 20
+  %249 = getelementptr inbounds i8, ptr %246, i64 20
+  %250 = load i8, ptr %249, align 1
+  switch i8 %250, label %.tail58.thread.i [
+    i8 0, label %.backedge.i
+    i8 46, label %.tail58.i
+  ]
+
+.tail58.i:                                        ; preds = %.tail.i
+  %251 = getelementptr inbounds i8, ptr %246, i64 21
   %252 = load i8, ptr %251, align 1
   %253 = icmp eq i8 %252, 0
-  br i1 %253, label %.backedge.i, label %sub_160.i
+  br i1 %253, label %.backedge.i, label %.tail58.thread.i
 
-sub_160.i:                                        ; preds = %.tail.i
-  %254 = zext i8 %252 to i32
-  %255 = add nsw i32 %254, -46
-  %.not101.i = icmp eq i32 %255, 0
-  br i1 %.not101.i, label %sub_2.i, label %.tail58.i
-
-sub_2.i:                                          ; preds = %sub_160.i
-  %256 = getelementptr inbounds i8, ptr %246, i64 21
-  %257 = load i8, ptr %256, align 1
-  %258 = zext i8 %257 to i32
-  br label %.tail58.i
-
-.tail58.i:                                        ; preds = %sub_2.i, %sub_160.i, %sub_0.i
-  %259 = phi i32 [ %255, %sub_160.i ], [ %258, %sub_2.i ], [ %250, %sub_0.i ]
-  %260 = icmp eq i32 %259, 0
-  br i1 %260, label %.backedge.i, label %262
-
-.backedge.i:                                      ; preds = %275, %272, %.tail58.i, %.tail.i
+.backedge.i:                                      ; preds = %.tail.i, %267, %264, %.tail58.i
   store i32 0, ptr %114, align 4
-  %261 = call ptr @readdir(ptr noundef nonnull %241) #12
-  %.not.i89 = icmp eq ptr %261, null
+  %254 = call ptr @readdir(ptr noundef nonnull %241) #12
+  %.not.i89 = icmp eq ptr %254, null
   br i1 %.not.i89, label %.outer._crit_edge.i, label %sub_0.i.backedge
 
 sub_0.i.backedge:                                 ; preds = %.backedge.i, %.outer.i
-  %.be = phi ptr [ %261, %.backedge.i ], [ %286, %.outer.i ]
+  %.be = phi ptr [ %254, %.backedge.i ], [ %278, %.outer.i ]
   br label %sub_0.i, !llvm.loop !10
 
-262:                                              ; preds = %.tail58.i
-  %263 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %4, ptr noundef nonnull %247) #12
+.tail58.thread.i:                                 ; preds = %.tail.i, %.tail58.i, %sub_0.i
+  %255 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %4, ptr noundef nonnull %247) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 0, ptr %114, align 4
-  %264 = call i64 @strtoul(ptr noundef nonnull %247, ptr noundef nonnull %3, i32 noundef 10) #12
-  %265 = load i32, ptr %114, align 4
-  %.not.i.i = icmp eq i32 %265, 0
-  br i1 %.not.i.i, label %266, label %272
+  %256 = call i64 @strtoul(ptr noundef nonnull %247, ptr noundef nonnull %3, i32 noundef 10) #12
+  %257 = load i32, ptr %114, align 4
+  %.not.i.i = icmp eq i32 %257, 0
+  br i1 %.not.i.i, label %258, label %264
 
-266:                                              ; preds = %262
-  %267 = trunc i64 %264 to i32
-  %268 = load ptr, ptr %3, align 8
-  %269 = load i8, ptr %268, align 1
-  %270 = icmp ne i8 %269, 0
-  %271 = icmp eq i32 %267, 0
-  %or.cond.i.i = select i1 %270, i1 true, i1 %271
-  br i1 %or.cond.i.i, label %272, label %276
+258:                                              ; preds = %.tail58.thread.i
+  %259 = trunc i64 %256 to i32
+  %260 = load ptr, ptr %3, align 8
+  %261 = load i8, ptr %260, align 1
+  %262 = icmp ne i8 %261, 0
+  %263 = icmp eq i32 %259, 0
+  %or.cond.i.i = select i1 %262, i1 true, i1 %263
+  br i1 %or.cond.i.i, label %264, label %268
 
-272:                                              ; preds = %266, %262
+264:                                              ; preds = %258, %.tail58.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %273 = load i32, ptr @__pg_log_level, align 4
-  %274 = icmp ult i32 %273, 2
-  br i1 %274, label %275, label %.backedge.i
+  %265 = load i32, ptr @__pg_log_level, align 4
+  %266 = icmp ult i32 %265, 2
+  br i1 %266, label %267, label %.backedge.i
 
-275:                                              ; preds = %272
+267:                                              ; preds = %264
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.97, ptr noundef nonnull %5) #12
   br label %.backedge.i
 
-276:                                              ; preds = %266
+268:                                              ; preds = %258
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %277 = call i32 @get_dirent_type(ptr noundef nonnull %5, ptr noundef nonnull %246, i1 noundef zeroext false, i32 noundef 4) #12
-  %278 = icmp eq i32 %277, 0
-  br i1 %278, label %279, label %280
+  %269 = call i32 @get_dirent_type(ptr noundef nonnull %5, ptr noundef nonnull %246, i1 noundef zeroext false, i32 noundef 4) #12
+  %270 = icmp eq i32 %269, 0
+  br i1 %270, label %271, label %272
 
-279:                                              ; preds = %276
+271:                                              ; preds = %268
   call void @exit(i32 noundef 1) #13
   unreachable
 
-280:                                              ; preds = %276
-  %281 = add i32 %277, -5
-  %or.cond.i90 = icmp ult i32 %281, -2
-  br i1 %or.cond.i90, label %282, label %287
+272:                                              ; preds = %268
+  %273 = add i32 %269, -5
+  %or.cond.i90 = icmp ult i32 %273, -2
+  br i1 %or.cond.i90, label %274, label %279
 
-282:                                              ; preds = %280
-  %283 = load i32, ptr @__pg_log_level, align 4
-  %284 = icmp ult i32 %283, 2
-  br i1 %284, label %285, label %.outer.i
+274:                                              ; preds = %272
+  %275 = load i32, ptr @__pg_log_level, align 4
+  %276 = icmp ult i32 %275, 2
+  br i1 %276, label %277, label %.outer.i
 
-285:                                              ; preds = %282
+277:                                              ; preds = %274
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.98, ptr noundef nonnull %5) #12
   br label %.outer.i
 
-.outer.i:                                         ; preds = %285, %282
+.outer.i:                                         ; preds = %277, %274
   store i32 0, ptr %114, align 4
-  %286 = call ptr @readdir(ptr noundef nonnull %241) #12
-  %.not80.i = icmp eq ptr %286, null
+  %278 = call ptr @readdir(ptr noundef nonnull %241) #12
+  %.not80.i = icmp eq ptr %278, null
   br i1 %.not80.i, label %.outer._crit_edge.i, label %sub_0.i.backedge
 
-287:                                              ; preds = %280
-  %288 = call ptr @pg_malloc0(i64 noundef 2064) #12
-  store i32 %267, ptr %288, align 8
-  %289 = icmp eq i32 %277, 4
-  br i1 %289, label %290, label %314
+279:                                              ; preds = %272
+  %280 = call ptr @pg_malloc0(i64 noundef 2064) #12
+  store i32 %259, ptr %280, align 8
+  %281 = icmp eq i32 %269, 4
+  br i1 %281, label %282, label %306
 
-290:                                              ; preds = %287
-  %291 = call i64 @readlink(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 1024) #12
-  %292 = and i64 %291, 2147483648
-  %.not50.i = icmp eq i64 %292, 0
-  br i1 %.not50.i, label %294, label %293
+282:                                              ; preds = %279
+  %283 = call i64 @readlink(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 1024) #12
+  %284 = and i64 %283, 2147483648
+  %.not50.i = icmp eq i64 %284, 0
+  br i1 %.not50.i, label %286, label %285
 
-293:                                              ; preds = %290
+285:                                              ; preds = %282
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.99, ptr noundef nonnull %5) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
-294:                                              ; preds = %290
-  %295 = and i64 %291, 2147483647
-  %296 = icmp ugt i64 %295, 1023
-  br i1 %296, label %297, label %298
+286:                                              ; preds = %282
+  %287 = and i64 %283, 2147483647
+  %288 = icmp ugt i64 %287, 1023
+  br i1 %288, label %289, label %290
 
-297:                                              ; preds = %294
+289:                                              ; preds = %286
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.100, ptr noundef nonnull %5) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
-298:                                              ; preds = %294
-  %299 = getelementptr [1024 x i8], ptr %6, i64 0, i64 %295
-  store i8 0, ptr %299, align 1
-  %300 = load i8, ptr %6, align 16
-  %301 = icmp eq i8 %300, 47
-  br i1 %301, label %303, label %302
+290:                                              ; preds = %286
+  %291 = getelementptr [1024 x i8], ptr %6, i64 0, i64 %287
+  store i8 0, ptr %291, align 1
+  %292 = load i8, ptr %6, align 16
+  %293 = icmp eq i8 %292, 47
+  br i1 %293, label %295, label %294
 
-302:                                              ; preds = %298
+294:                                              ; preds = %290
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.101, ptr noundef nonnull %5) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
-303:                                              ; preds = %298
+295:                                              ; preds = %290
   call void @canonicalize_path(ptr noundef nonnull %6) #12
   %.085.i = load ptr, ptr %26, align 8
   %cond86.i = icmp eq ptr %.085.i, null
   br i1 %cond86.i, label %._crit_edge89.i, label %.lr.ph.i91
 
-.lr.ph.i91:                                       ; preds = %303, %312
-  %.087.i = phi ptr [ %.0.i, %312 ], [ %.085.i, %303 ]
-  %304 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.087.i, ptr noundef nonnull dereferenceable(1) %6) #15
-  %305 = icmp eq i32 %304, 0
-  br i1 %305, label %306, label %312
+.lr.ph.i91:                                       ; preds = %295, %304
+  %.087.i = phi ptr [ %.0.i, %304 ], [ %.085.i, %295 ]
+  %296 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.087.i, ptr noundef nonnull dereferenceable(1) %6) #15
+  %297 = icmp eq i32 %296, 0
+  br i1 %297, label %298, label %304
 
-306:                                              ; preds = %.lr.ph.i91
-  %307 = getelementptr inbounds i8, ptr %288, i64 5
-  %308 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %307, ptr noundef nonnull dereferenceable(1) %.087.i, i64 noundef 1024) #12
-  %309 = getelementptr inbounds i8, ptr %288, i64 1029
-  %310 = getelementptr inbounds i8, ptr %.087.i, i64 1024
-  %311 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %309, ptr noundef nonnull dereferenceable(1) %310, i64 noundef 1024) #12
-  br label %320
+298:                                              ; preds = %.lr.ph.i91
+  %299 = getelementptr inbounds i8, ptr %280, i64 5
+  %300 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %299, ptr noundef nonnull dereferenceable(1) %.087.i, i64 noundef 1024) #12
+  %301 = getelementptr inbounds i8, ptr %280, i64 1029
+  %302 = getelementptr inbounds i8, ptr %.087.i, i64 1024
+  %303 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %301, ptr noundef nonnull dereferenceable(1) %302, i64 noundef 1024) #12
+  br label %312
 
-312:                                              ; preds = %.lr.ph.i91
-  %313 = getelementptr inbounds i8, ptr %.087.i, i64 2048
-  %.0.i = load ptr, ptr %313, align 8
+304:                                              ; preds = %.lr.ph.i91
+  %305 = getelementptr inbounds i8, ptr %.087.i, i64 2048
+  %.0.i = load ptr, ptr %305, align 8
   %cond.i = icmp eq ptr %.0.i, null
   br i1 %cond.i, label %._crit_edge89.i, label %.lr.ph.i91, !llvm.loop !11
 
-._crit_edge89.i:                                  ; preds = %303, %312
+._crit_edge89.i:                                  ; preds = %295, %304
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.102, ptr noundef nonnull %6) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
-314:                                              ; preds = %287
-  %315 = getelementptr inbounds i8, ptr %288, i64 5
-  %316 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %315, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %4, ptr noundef nonnull %247) #12
-  %317 = getelementptr inbounds i8, ptr %288, i64 1029
-  %318 = load ptr, ptr %27, align 8
-  %319 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %317, i64 noundef 1024, ptr noundef nonnull @.str.103, ptr noundef %318, ptr noundef nonnull %247) #12
-  br label %320
+306:                                              ; preds = %279
+  %307 = getelementptr inbounds i8, ptr %280, i64 5
+  %308 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %307, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %4, ptr noundef nonnull %247) #12
+  %309 = getelementptr inbounds i8, ptr %280, i64 1029
+  %310 = load ptr, ptr %27, align 8
+  %311 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %309, i64 noundef 1024, ptr noundef nonnull @.str.103, ptr noundef %310, ptr noundef nonnull %247) #12
+  br label %312
 
-320:                                              ; preds = %314, %306
-  %.sink.i = phi i8 [ 0, %306 ], [ 1, %314 ]
-  %321 = getelementptr inbounds i8, ptr %288, i64 4
-  store i8 %.sink.i, ptr %321, align 4
+312:                                              ; preds = %306, %298
+  %.sink.i = phi i8 [ 0, %298 ], [ 1, %306 ]
+  %313 = getelementptr inbounds i8, ptr %280, i64 4
+  store i8 %.sink.i, ptr %313, align 4
   %.not5291.i = icmp eq ptr %.043.ph.ph97.i, null
   br i1 %.not5291.i, label %.outer.outer.i, label %.lr.ph94.i
 
-.lr.ph94.i:                                       ; preds = %320
-  %322 = getelementptr inbounds i8, ptr %288, i64 1029
-  br label %323
+.lr.ph94.i:                                       ; preds = %312
+  %314 = getelementptr inbounds i8, ptr %280, i64 1029
+  br label %315
 
-323:                                              ; preds = %329, %.lr.ph94.i
-  %.04492.i = phi ptr [ %.043.ph.ph97.i, %.lr.ph94.i ], [ %331, %329 ]
-  %324 = getelementptr inbounds i8, ptr %.04492.i, i64 1029
-  %325 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %322, ptr noundef nonnull dereferenceable(1) %324) #15
-  %326 = icmp eq i32 %325, 0
-  br i1 %326, label %327, label %329
+315:                                              ; preds = %321, %.lr.ph94.i
+  %.04492.i = phi ptr [ %.043.ph.ph97.i, %.lr.ph94.i ], [ %323, %321 ]
+  %316 = getelementptr inbounds i8, ptr %.04492.i, i64 1029
+  %317 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %314, ptr noundef nonnull dereferenceable(1) %316) #15
+  %318 = icmp eq i32 %317, 0
+  br i1 %318, label %319, label %321
 
-327:                                              ; preds = %323
-  %328 = load i32, ptr %.04492.i, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.104, i32 noundef %328, i32 noundef %267, ptr noundef nonnull %322) #12
+319:                                              ; preds = %315
+  %320 = load i32, ptr %.04492.i, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.104, i32 noundef %320, i32 noundef %259, ptr noundef nonnull %314) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
-329:                                              ; preds = %323
-  %330 = getelementptr inbounds i8, ptr %.04492.i, i64 2056
-  %331 = load ptr, ptr %330, align 8
-  %.not52.i = icmp eq ptr %331, null
-  br i1 %.not52.i, label %.outer.outer.i, label %323, !llvm.loop !12
+321:                                              ; preds = %315
+  %322 = getelementptr inbounds i8, ptr %.04492.i, i64 2056
+  %323 = load ptr, ptr %322, align 8
+  %.not52.i = icmp eq ptr %323, null
+  br i1 %.not52.i, label %.outer.outer.i, label %315, !llvm.loop !12
 
-.outer.outer.i:                                   ; preds = %329, %320
-  %332 = getelementptr inbounds i8, ptr %288, i64 2056
-  store ptr %.043.ph.ph97.i, ptr %332, align 8
+.outer.outer.i:                                   ; preds = %321, %312
+  %324 = getelementptr inbounds i8, ptr %280, i64 2056
+  store ptr %.043.ph.ph97.i, ptr %324, align 8
   store i32 0, ptr %114, align 4
-  %333 = call ptr @readdir(ptr noundef nonnull %241) #12
-  %.not8082.i = icmp eq ptr %333, null
+  %325 = call ptr @readdir(ptr noundef nonnull %241) #12
+  %.not8082.i = icmp eq ptr %325, null
   br i1 %.not8082.i, label %.outer._crit_edge.i, label %sub_0.lr.ph.lr.ph.i, !llvm.loop !10
 
 .outer._crit_edge.i:                              ; preds = %.outer.outer.i, %.outer.i, %.backedge.i, %.preheader.i
-  %.043.ph.ph.lcssa79.i = phi ptr [ null, %.preheader.i ], [ %.043.ph.ph97.i, %.backedge.i ], [ %.043.ph.ph97.i, %.outer.i ], [ %288, %.outer.outer.i ]
-  %334 = call i32 @closedir(ptr noundef nonnull %241)
-  %.not49.i = icmp eq i32 %334, 0
-  br i1 %.not49.i, label %scan_for_existing_tablespaces.exit, label %335
+  %.043.ph.ph.lcssa79.i = phi ptr [ null, %.preheader.i ], [ %.043.ph.ph97.i, %.backedge.i ], [ %.043.ph.ph97.i, %.outer.i ], [ %280, %.outer.outer.i ]
+  %326 = call i32 @closedir(ptr noundef nonnull %241)
+  %.not49.i = icmp eq i32 %326, 0
+  br i1 %.not49.i, label %scan_for_existing_tablespaces.exit, label %327
 
-335:                                              ; preds = %.outer._crit_edge.i
+327:                                              ; preds = %.outer._crit_edge.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.105, ptr noundef nonnull %4) #12
   call void @exit(i32 noundef 1) #13
   unreachable
@@ -965,252 +954,252 @@ scan_for_existing_tablespaces.exit:               ; preds = %.outer._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
-  %336 = call i32 @atexit(ptr noundef nonnull @cleanup_directories_atexit) #12
-  %337 = load ptr, ptr %27, align 8
-  call fastcc void @create_output_directory(ptr noundef %337, ptr noundef nonnull %18)
+  %328 = call i32 @atexit(ptr noundef nonnull @cleanup_directories_atexit) #12
+  %329 = load ptr, ptr %27, align 8
+  call fastcc void @create_output_directory(ptr noundef %329, ptr noundef nonnull %18)
   %.not72178 = icmp eq ptr %.043.ph.ph.lcssa79.i, null
   br i1 %.not72178, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %scan_for_existing_tablespaces.exit, %343
-  %.068179 = phi ptr [ %345, %343 ], [ %.043.ph.ph.lcssa79.i, %scan_for_existing_tablespaces.exit ]
-  %338 = getelementptr inbounds i8, ptr %.068179, i64 4
-  %339 = load i8, ptr %338, align 4
-  %340 = trunc i8 %339 to i1
-  br i1 %340, label %343, label %341
+.lr.ph:                                           ; preds = %scan_for_existing_tablespaces.exit, %335
+  %.068179 = phi ptr [ %337, %335 ], [ %.043.ph.ph.lcssa79.i, %scan_for_existing_tablespaces.exit ]
+  %330 = getelementptr inbounds i8, ptr %.068179, i64 4
+  %331 = load i8, ptr %330, align 4
+  %332 = trunc i8 %331 to i1
+  br i1 %332, label %335, label %333
 
-341:                                              ; preds = %.lr.ph
-  %342 = getelementptr inbounds i8, ptr %.068179, i64 1029
-  call fastcc void @create_output_directory(ptr noundef nonnull %342, ptr noundef nonnull %18)
-  br label %343
+333:                                              ; preds = %.lr.ph
+  %334 = getelementptr inbounds i8, ptr %.068179, i64 1029
+  call fastcc void @create_output_directory(ptr noundef nonnull %334, ptr noundef nonnull %18)
+  br label %335
 
-343:                                              ; preds = %.lr.ph, %341
-  %344 = getelementptr inbounds i8, ptr %.068179, i64 2056
-  %345 = load ptr, ptr %344, align 8
-  %.not72 = icmp eq ptr %345, null
+335:                                              ; preds = %.lr.ph, %333
+  %336 = getelementptr inbounds i8, ptr %.068179, i64 2056
+  %337 = load ptr, ptr %336, align 8
+  %.not72 = icmp eq ptr %337, null
   br i1 %.not72, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %343, %scan_for_existing_tablespaces.exit
-  %346 = load i8, ptr %29, align 8
-  %347 = trunc i8 %346 to i1
-  br i1 %347, label %359, label %348
+._crit_edge:                                      ; preds = %335, %scan_for_existing_tablespaces.exit
+  %338 = load i8, ptr %29, align 8
+  %339 = trunc i8 %338 to i1
+  br i1 %339, label %351, label %340
 
-348:                                              ; preds = %._crit_edge
-  %349 = load i8, ptr %25, align 4
-  %350 = trunc i8 %349 to i1
-  br i1 %350, label %359, label %351
+340:                                              ; preds = %._crit_edge
+  %341 = load i8, ptr %25, align 4
+  %342 = trunc i8 %341 to i1
+  br i1 %342, label %351, label %343
 
-351:                                              ; preds = %348
-  %352 = load ptr, ptr %27, align 8
-  %353 = call ptr @create_manifest_writer(ptr noundef %352) #12
-  %354 = sext i32 %227 to i64
-  %355 = getelementptr ptr, ptr %230, i64 %354
-  %356 = load ptr, ptr %355, align 8
-  %357 = icmp eq ptr %356, null
-  br i1 %357, label %358, label %._crit_edge267
+343:                                              ; preds = %340
+  %344 = load ptr, ptr %27, align 8
+  %345 = call ptr @create_manifest_writer(ptr noundef %344) #12
+  %346 = sext i32 %227 to i64
+  %347 = getelementptr ptr, ptr %230, i64 %346
+  %348 = load ptr, ptr %347, align 8
+  %349 = icmp eq ptr %348, null
+  br i1 %349, label %350, label %._crit_edge267
 
-._crit_edge267:                                   ; preds = %351
+._crit_edge267:                                   ; preds = %343
   %.pre = load i8, ptr %29, align 8
-  br label %359
+  br label %351
 
-358:                                              ; preds = %351
+350:                                              ; preds = %343
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
-359:                                              ; preds = %._crit_edge267, %._crit_edge, %348
-  %360 = phi i8 [ %.pre, %._crit_edge267 ], [ %346, %348 ], [ %346, %._crit_edge ]
-  %.0 = phi ptr [ %353, %._crit_edge267 ], [ null, %348 ], [ null, %._crit_edge ]
-  %361 = trunc i8 %360 to i1
-  %362 = load i32, ptr @__pg_log_level, align 4
-  %363 = icmp ult i32 %362, 2
-  br i1 %361, label %364, label %367
+351:                                              ; preds = %._crit_edge267, %._crit_edge, %340
+  %352 = phi i8 [ %.pre, %._crit_edge267 ], [ %338, %340 ], [ %338, %._crit_edge ]
+  %.0 = phi ptr [ %345, %._crit_edge267 ], [ null, %340 ], [ null, %._crit_edge ]
+  %353 = trunc i8 %352 to i1
+  %354 = load i32, ptr @__pg_log_level, align 4
+  %355 = icmp ult i32 %354, 2
+  br i1 %353, label %356, label %359
 
-364:                                              ; preds = %359
-  br i1 %363, label %365, label %.thread
+356:                                              ; preds = %351
+  br i1 %355, label %357, label %.thread
 
-365:                                              ; preds = %364
-  %366 = load ptr, ptr %27, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %366) #12
-  br label %374
+357:                                              ; preds = %356
+  %358 = load ptr, ptr %27, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %358) #12
+  br label %366
 
-367:                                              ; preds = %359
-  br i1 %363, label %368, label %370
+359:                                              ; preds = %351
+  br i1 %355, label %360, label %362
 
-368:                                              ; preds = %367
-  %369 = load ptr, ptr %27, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef %369) #12
-  br label %370
+360:                                              ; preds = %359
+  %361 = load ptr, ptr %27, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.15, ptr noundef %361) #12
+  br label %362
 
-370:                                              ; preds = %367, %368
-  %371 = getelementptr inbounds i8, ptr %171, i64 16
-  store i32 0, ptr %371, align 8
-  %372 = load ptr, ptr %27, align 8
-  %373 = load i32, ptr %23, align 8
-  call void @write_backup_label(ptr noundef %372, ptr noundef %171, i32 noundef %373, ptr noundef %.0) #12
-  br label %374
+362:                                              ; preds = %359, %360
+  %363 = getelementptr inbounds i8, ptr %171, i64 16
+  store i32 0, ptr %363, align 8
+  %364 = load ptr, ptr %27, align 8
+  %365 = load i32, ptr %23, align 8
+  call void @write_backup_label(ptr noundef %364, ptr noundef %171, i32 noundef %365, ptr noundef %.0) #12
+  br label %366
 
-374:                                              ; preds = %370, %365
+366:                                              ; preds = %362, %357
   %.pr = load i32, ptr @__pg_log_level, align 4
-  %375 = icmp ult i32 %.pr, 2
-  br i1 %375, label %376, label %.thread
+  %367 = icmp ult i32 %.pr, 2
+  br i1 %367, label %368, label %.thread
 
-376:                                              ; preds = %374
+368:                                              ; preds = %366
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %231) #12
   br label %.thread
 
-.thread:                                          ; preds = %364, %374, %376
-  %377 = load ptr, ptr %27, align 8
-  call fastcc void @process_directory_recursively(i32 noundef 0, ptr noundef %231, ptr noundef %377, ptr noundef null, i32 noundef %227, ptr noundef %229, ptr noundef %230, ptr noundef %.0, ptr noundef nonnull %18)
+.thread:                                          ; preds = %356, %366, %368
+  %369 = load ptr, ptr %27, align 8
+  call fastcc void @process_directory_recursively(i32 noundef 0, ptr noundef %231, ptr noundef %369, ptr noundef null, i32 noundef %227, ptr noundef %229, ptr noundef %230, ptr noundef %.0, ptr noundef nonnull %18)
   br i1 %.not72178, label %._crit_edge183, label %.lr.ph182
 
-.lr.ph182:                                        ; preds = %.thread, %421
-  %.1181 = phi ptr [ %426, %421 ], [ %.043.ph.ph.lcssa79.i, %.thread ]
-  %378 = load i32, ptr @__pg_log_level, align 4
-  %379 = icmp ult i32 %378, 2
-  br i1 %379, label %380, label %382
+.lr.ph182:                                        ; preds = %.thread, %413
+  %.1181 = phi ptr [ %418, %413 ], [ %.043.ph.ph.lcssa79.i, %.thread ]
+  %370 = load i32, ptr @__pg_log_level, align 4
+  %371 = icmp ult i32 %370, 2
+  br i1 %371, label %372, label %374
 
-380:                                              ; preds = %.lr.ph182
-  %381 = getelementptr inbounds i8, ptr %.1181, i64 5
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef nonnull %381) #12
-  br label %382
+372:                                              ; preds = %.lr.ph182
+  %373 = getelementptr inbounds i8, ptr %.1181, i64 5
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef nonnull %373) #12
+  br label %374
 
-382:                                              ; preds = %.lr.ph182, %380
-  %383 = getelementptr inbounds i8, ptr %.1181, i64 4
-  %384 = load i8, ptr %383, align 4
-  %385 = trunc i8 %384 to i1
-  br i1 %385, label %404, label %386
+374:                                              ; preds = %.lr.ph182, %372
+  %375 = getelementptr inbounds i8, ptr %.1181, i64 4
+  %376 = load i8, ptr %375, align 4
+  %377 = trunc i8 %376 to i1
+  br i1 %377, label %396, label %378
 
-386:                                              ; preds = %382
-  %387 = load ptr, ptr %27, align 8
-  %388 = load i32, ptr %.1181, align 8
-  %389 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %19, i64 noundef 1024, ptr noundef nonnull @.str.18, ptr noundef %387, i32 noundef %388) #12
-  %390 = load i8, ptr %29, align 8
-  %391 = trunc i8 %390 to i1
-  %392 = load i32, ptr @__pg_log_level, align 4
-  %393 = icmp ult i32 %392, 2
-  br i1 %391, label %394, label %397
+378:                                              ; preds = %374
+  %379 = load ptr, ptr %27, align 8
+  %380 = load i32, ptr %.1181, align 8
+  %381 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %19, i64 noundef 1024, ptr noundef nonnull @.str.18, ptr noundef %379, i32 noundef %380) #12
+  %382 = load i8, ptr %29, align 8
+  %383 = trunc i8 %382 to i1
+  %384 = load i32, ptr @__pg_log_level, align 4
+  %385 = icmp ult i32 %384, 2
+  br i1 %383, label %386, label %389
 
-394:                                              ; preds = %386
-  br i1 %393, label %395, label %421
+386:                                              ; preds = %378
+  br i1 %385, label %387, label %413
 
-395:                                              ; preds = %394
-  %396 = getelementptr inbounds i8, ptr %.1181, i64 1029
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull %19, ptr noundef nonnull %396) #12
-  br label %421
+387:                                              ; preds = %386
+  %388 = getelementptr inbounds i8, ptr %.1181, i64 1029
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull %19, ptr noundef nonnull %388) #12
+  br label %413
 
-397:                                              ; preds = %386
-  br i1 %393, label %398, label %400
+389:                                              ; preds = %378
+  br i1 %385, label %390, label %392
 
-398:                                              ; preds = %397
-  %399 = getelementptr inbounds i8, ptr %.1181, i64 1029
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull %19, ptr noundef nonnull %399) #12
-  br label %400
+390:                                              ; preds = %389
+  %391 = getelementptr inbounds i8, ptr %.1181, i64 1029
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull %19, ptr noundef nonnull %391) #12
+  br label %392
 
-400:                                              ; preds = %397, %398
-  %401 = getelementptr inbounds i8, ptr %.1181, i64 1029
-  %402 = call i32 @symlink(ptr noundef nonnull %401, ptr noundef nonnull %19) #12
-  %.not75 = icmp eq i32 %402, 0
-  br i1 %.not75, label %421, label %403
+392:                                              ; preds = %389, %390
+  %393 = getelementptr inbounds i8, ptr %.1181, i64 1029
+  %394 = call i32 @symlink(ptr noundef nonnull %393, ptr noundef nonnull %19) #12
+  %.not75 = icmp eq i32 %394, 0
+  br i1 %.not75, label %413, label %395
 
-403:                                              ; preds = %400
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.21, ptr noundef nonnull %19, ptr noundef nonnull %401) #12
+395:                                              ; preds = %392
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.21, ptr noundef nonnull %19, ptr noundef nonnull %393) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
-404:                                              ; preds = %382
-  %405 = load i8, ptr %29, align 8
-  %406 = trunc i8 %405 to i1
-  %407 = load i32, ptr @__pg_log_level, align 4
-  %408 = icmp ult i32 %407, 2
-  br i1 %406, label %409, label %412
+396:                                              ; preds = %374
+  %397 = load i8, ptr %29, align 8
+  %398 = trunc i8 %397 to i1
+  %399 = load i32, ptr @__pg_log_level, align 4
+  %400 = icmp ult i32 %399, 2
+  br i1 %398, label %401, label %404
 
-409:                                              ; preds = %404
-  br i1 %408, label %410, label %421
+401:                                              ; preds = %396
+  br i1 %400, label %402, label %413
 
-410:                                              ; preds = %409
-  %411 = getelementptr inbounds i8, ptr %.1181, i64 1029
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull %411) #12
-  br label %421
+402:                                              ; preds = %401
+  %403 = getelementptr inbounds i8, ptr %.1181, i64 1029
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.22, ptr noundef nonnull %403) #12
+  br label %413
 
-412:                                              ; preds = %404
-  br i1 %408, label %413, label %415
+404:                                              ; preds = %396
+  br i1 %400, label %405, label %407
 
-413:                                              ; preds = %412
-  %414 = getelementptr inbounds i8, ptr %.1181, i64 1029
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.23, ptr noundef nonnull %414) #12
-  br label %415
+405:                                              ; preds = %404
+  %406 = getelementptr inbounds i8, ptr %.1181, i64 1029
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.23, ptr noundef nonnull %406) #12
+  br label %407
 
-415:                                              ; preds = %412, %413
+407:                                              ; preds = %404, %405
+  %408 = getelementptr inbounds i8, ptr %.1181, i64 1029
+  %409 = load i32, ptr @pg_dir_create_mode, align 4
+  %410 = call i32 @pg_mkdir_p(ptr noundef nonnull %408, i32 noundef %409) #12
+  %411 = icmp eq i32 %410, -1
+  br i1 %411, label %412, label %413
+
+412:                                              ; preds = %407
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %408) #12
+  call void @exit(i32 noundef 1) #13
+  unreachable
+
+413:                                              ; preds = %401, %402, %407, %386, %387, %392
+  %414 = load i32, ptr %.1181, align 8
+  %415 = getelementptr inbounds i8, ptr %.1181, i64 5
   %416 = getelementptr inbounds i8, ptr %.1181, i64 1029
-  %417 = load i32, ptr @pg_dir_create_mode, align 4
-  %418 = call i32 @pg_mkdir_p(ptr noundef nonnull %416, i32 noundef %417) #12
-  %419 = icmp eq i32 %418, -1
-  br i1 %419, label %420, label %421
-
-420:                                              ; preds = %415
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef nonnull %416) #12
-  call void @exit(i32 noundef 1) #13
-  unreachable
-
-421:                                              ; preds = %409, %410, %415, %394, %395, %400
-  %422 = load i32, ptr %.1181, align 8
-  %423 = getelementptr inbounds i8, ptr %.1181, i64 5
-  %424 = getelementptr inbounds i8, ptr %.1181, i64 1029
-  call fastcc void @process_directory_recursively(i32 noundef %422, ptr noundef nonnull %423, ptr noundef nonnull %424, ptr noundef null, i32 noundef %227, ptr noundef %229, ptr noundef %230, ptr noundef %.0, ptr noundef nonnull %18)
-  %425 = getelementptr inbounds i8, ptr %.1181, i64 2056
-  %426 = load ptr, ptr %425, align 8
-  %.not73 = icmp eq ptr %426, null
+  call fastcc void @process_directory_recursively(i32 noundef %414, ptr noundef nonnull %415, ptr noundef nonnull %416, ptr noundef null, i32 noundef %227, ptr noundef %229, ptr noundef %230, ptr noundef %.0, ptr noundef nonnull %18)
+  %417 = getelementptr inbounds i8, ptr %.1181, i64 2056
+  %418 = load ptr, ptr %417, align 8
+  %.not73 = icmp eq ptr %418, null
   br i1 %.not73, label %._crit_edge183, label %.lr.ph182, !llvm.loop !14
 
-._crit_edge183:                                   ; preds = %421, %.thread
+._crit_edge183:                                   ; preds = %413, %.thread
   %.not74 = icmp eq ptr %.0, null
-  br i1 %.not74, label %433, label %427
+  br i1 %.not74, label %425, label %419
 
-427:                                              ; preds = %._crit_edge183
-  %428 = sext i32 %227 to i64
-  %429 = getelementptr ptr, ptr %230, i64 %428
-  %430 = load ptr, ptr %429, align 8
-  %431 = getelementptr inbounds i8, ptr %430, i64 8
-  %432 = load ptr, ptr %431, align 8
-  call void @finalize_manifest(ptr noundef nonnull %.0, ptr noundef %432) #12
-  br label %433
+419:                                              ; preds = %._crit_edge183
+  %420 = sext i32 %227 to i64
+  %421 = getelementptr ptr, ptr %230, i64 %420
+  %422 = load ptr, ptr %421, align 8
+  %423 = getelementptr inbounds i8, ptr %422, i64 8
+  %424 = load ptr, ptr %423, align 8
+  call void @finalize_manifest(ptr noundef nonnull %.0, ptr noundef %424) #12
+  br label %425
 
-433:                                              ; preds = %427, %._crit_edge183
-  %434 = load i8, ptr %28, align 1
-  %435 = trunc i8 %434 to i1
-  br i1 %435, label %451, label %436
+425:                                              ; preds = %419, %._crit_edge183
+  %426 = load i8, ptr %28, align 1
+  %427 = trunc i8 %426 to i1
+  br i1 %427, label %443, label %428
 
-436:                                              ; preds = %433
-  %437 = load i8, ptr %29, align 8
-  %438 = trunc i8 %437 to i1
-  %439 = load i32, ptr @__pg_log_level, align 4
-  %440 = icmp ult i32 %439, 2
-  br i1 %438, label %441, label %444
+428:                                              ; preds = %425
+  %429 = load i8, ptr %29, align 8
+  %430 = trunc i8 %429 to i1
+  %431 = load i32, ptr @__pg_log_level, align 4
+  %432 = icmp ult i32 %431, 2
+  br i1 %430, label %433, label %436
 
-441:                                              ; preds = %436
-  br i1 %440, label %442, label %451
+433:                                              ; preds = %428
+  br i1 %432, label %434, label %443
 
-442:                                              ; preds = %441
-  %443 = load ptr, ptr %27, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.25, ptr noundef %443) #12
-  br label %451
+434:                                              ; preds = %433
+  %435 = load ptr, ptr %27, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.25, ptr noundef %435) #12
+  br label %443
 
-444:                                              ; preds = %436
-  br i1 %440, label %445, label %447
+436:                                              ; preds = %428
+  br i1 %432, label %437, label %439
 
-445:                                              ; preds = %444
-  %446 = load ptr, ptr %27, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef %446) #12
-  br label %447
+437:                                              ; preds = %436
+  %438 = load ptr, ptr %27, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef %438) #12
+  br label %439
 
-447:                                              ; preds = %444, %445
-  %448 = load ptr, ptr %27, align 8
-  %449 = mul i32 %117, 100000000
-  %450 = load i32, ptr %24, align 8
-  call void @sync_pgdata(ptr noundef %448, i32 noundef %449, i32 noundef %450) #12
-  br label %451
+439:                                              ; preds = %436, %437
+  %440 = load ptr, ptr %27, align 8
+  %441 = mul i32 %117, 100000000
+  %442 = load i32, ptr %24, align 8
+  call void @sync_pgdata(ptr noundef %440, i32 noundef %441, i32 noundef %442) #12
+  br label %443
 
-451:                                              ; preds = %447, %441, %442, %433
+443:                                              ; preds = %439, %433, %434, %425
   call fastcc void @reset_directory_cleanup_list()
   call void @exit(i32 noundef 0) #16
   unreachable
@@ -1544,238 +1533,229 @@ sub_0.lr.ph:                                      ; preds = %.preheader
   unreachable
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
-  %81 = phi ptr [ %74, %sub_0.lr.ph ], [ %98, %.backedge ]
+  %81 = phi ptr [ %74, %sub_0.lr.ph ], [ %92, %.backedge ]
   store i32 0, ptr %17, align 4
   store ptr null, ptr %18, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 19
   %83 = load i8, ptr %82, align 1
-  %84 = zext i8 %83 to i32
-  %85 = add nsw i32 %84, -46
-  %.not = icmp eq i32 %85, 0
-  br i1 %.not, label %.tail, label %.tail121
+  %.not = icmp eq i8 %83, 46
+  br i1 %.not, label %.tail, label %.tail121.thread
 
 .tail:                                            ; preds = %sub_0
-  %86 = getelementptr inbounds i8, ptr %81, i64 20
-  %87 = load i8, ptr %86, align 1
-  %88 = icmp eq i8 %87, 0
-  br i1 %88, label %.backedge, label %sub_1123
+  %84 = getelementptr inbounds i8, ptr %81, i64 20
+  %85 = load i8, ptr %84, align 1
+  %86 = icmp eq i8 %85, 0
+  br i1 %86, label %.backedge, label %sub_1123
 
 sub_1123:                                         ; preds = %.tail
-  %89 = getelementptr inbounds i8, ptr %81, i64 20
+  %87 = getelementptr inbounds i8, ptr %81, i64 20
+  %88 = load i8, ptr %87, align 1
+  %.not127 = icmp eq i8 %88, 46
+  br i1 %.not127, label %.tail121, label %.tail121.thread
+
+.tail121:                                         ; preds = %sub_1123
+  %89 = getelementptr inbounds i8, ptr %81, i64 21
   %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
-  %92 = add nsw i32 %91, -46
-  %.not127 = icmp eq i32 %92, 0
-  br i1 %.not127, label %sub_2, label %.tail121
+  %91 = icmp eq i8 %90, 0
+  br i1 %91, label %.backedge, label %.tail121.thread
 
-sub_2:                                            ; preds = %sub_1123
-  %93 = getelementptr inbounds i8, ptr %81, i64 21
-  %94 = load i8, ptr %93, align 1
-  %95 = zext i8 %94 to i32
-  br label %.tail121
-
-.tail121:                                         ; preds = %sub_0, %sub_1123, %sub_2
-  %96 = phi i32 [ %92, %sub_1123 ], [ %95, %sub_2 ], [ %85, %sub_0 ]
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %.backedge, label %99
-
-.backedge:                                        ; preds = %182, %184, %125, %128, %122, %123, %.tail, %.tail121, %121, %parse_oid.exit
+.backedge:                                        ; preds = %175, %177, %118, %121, %115, %116, %.tail, %.tail121, %114, %parse_oid.exit
   store i32 0, ptr %73, align 4
-  %98 = call ptr @readdir(ptr noundef nonnull %71) #12
-  %.not101 = icmp eq ptr %98, null
+  %92 = call ptr @readdir(ptr noundef nonnull %71) #12
+  %.not101 = icmp eq ptr %92, null
   br i1 %.not101, label %._crit_edge, label %sub_0, !llvm.loop !16
 
-99:                                               ; preds = %.tail121
-  %100 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %11, ptr noundef nonnull %82) #12
-  %101 = call i32 @get_dirent_type(ptr noundef nonnull %14, ptr noundef nonnull %81, i1 noundef zeroext false, i32 noundef 4) #12
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %104
+.tail121.thread:                                  ; preds = %sub_0, %sub_1123, %.tail121
+  %93 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %11, ptr noundef nonnull %82) #12
+  %94 = call i32 @get_dirent_type(ptr noundef nonnull %14, ptr noundef nonnull %81, i1 noundef zeroext false, i32 noundef 4) #12
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %97
 
-103:                                              ; preds = %99
+96:                                               ; preds = %.tail121.thread
   call void @exit(i32 noundef 1) #13
   unreachable
 
-104:                                              ; preds = %99
-  br i1 %69, label %105, label %115
+97:                                               ; preds = %.tail121.thread
+  br i1 %69, label %98, label %108
 
-105:                                              ; preds = %104
+98:                                               ; preds = %97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i32 0, ptr %73, align 4
-  %106 = call i64 @strtoul(ptr noundef nonnull %82, ptr noundef nonnull %10, i32 noundef 10) #12
-  %107 = load i32, ptr %73, align 4
-  %.not.i = icmp eq i32 %107, 0
-  br i1 %.not.i, label %108, label %parse_oid.exit.thread
+  %99 = call i64 @strtoul(ptr noundef nonnull %82, ptr noundef nonnull %10, i32 noundef 10) #12
+  %100 = load i32, ptr %73, align 4
+  %.not.i = icmp eq i32 %100, 0
+  br i1 %.not.i, label %101, label %parse_oid.exit.thread
 
-108:                                              ; preds = %105
-  %109 = load ptr, ptr %10, align 8
-  %110 = load i8, ptr %109, align 1
-  %111 = icmp ne i8 %110, 0
-  %112 = and i64 %106, 4294967295
-  %113 = icmp eq i64 %112, 0
-  %or.cond.i = select i1 %111, i1 true, i1 %113
+101:                                              ; preds = %98
+  %102 = load ptr, ptr %10, align 8
+  %103 = load i8, ptr %102, align 1
+  %104 = icmp ne i8 %103, 0
+  %105 = and i64 %99, 4294967295
+  %106 = icmp eq i64 %105, 0
+  %or.cond.i = select i1 %104, i1 true, i1 %106
   br i1 %or.cond.i, label %parse_oid.exit.thread, label %parse_oid.exit
 
-parse_oid.exit.thread:                            ; preds = %108, %105
+parse_oid.exit.thread:                            ; preds = %101, %98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  br label %115
+  br label %108
 
-parse_oid.exit:                                   ; preds = %108
+parse_oid.exit:                                   ; preds = %101
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %114 = add i32 %101, -3
-  %or.cond5 = icmp ult i32 %114, 2
-  br i1 %or.cond5, label %.backedge, label %115
+  %107 = add i32 %94, -3
+  %or.cond5 = icmp ult i32 %107, 2
+  br i1 %or.cond5, label %.backedge, label %108
 
-115:                                              ; preds = %parse_oid.exit.thread, %parse_oid.exit, %104
-  switch i32 %101, label %123 [
-    i32 3, label %116
-    i32 2, label %124
-    i32 4, label %122
+108:                                              ; preds = %parse_oid.exit.thread, %parse_oid.exit, %97
+  switch i32 %94, label %116 [
+    i32 3, label %109
+    i32 2, label %117
+    i32 4, label %115
   ]
 
-116:                                              ; preds = %115
-  br i1 %70, label %117, label %119
+109:                                              ; preds = %108
+  br i1 %70, label %110, label %112
 
-117:                                              ; preds = %116
-  %118 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %82, i64 noundef 1024) #12
-  br label %121
+110:                                              ; preds = %109
+  %111 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %82, i64 noundef 1024) #12
+  br label %114
 
-119:                                              ; preds = %116
-  %120 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %20, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %3, ptr noundef nonnull %82) #12
-  br label %121
+112:                                              ; preds = %109
+  %113 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %20, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %3, ptr noundef nonnull %82) #12
+  br label %114
 
-121:                                              ; preds = %119, %117
+114:                                              ; preds = %112, %110
   call fastcc void @process_directory_recursively(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %20, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   br label %.backedge
 
-122:                                              ; preds = %115
+115:                                              ; preds = %108
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.83, ptr noundef nonnull %14) #12
   br label %.backedge
 
-123:                                              ; preds = %115
+116:                                              ; preds = %108
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.84, ptr noundef nonnull %14) #12
   br label %.backedge
 
-124:                                              ; preds = %115
-  br i1 %70, label %125, label %131
+117:                                              ; preds = %108
+  br i1 %70, label %118, label %124
 
-125:                                              ; preds = %124
-  %126 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(13) @.str.85) #15
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %.backedge, label %128
+118:                                              ; preds = %117
+  %119 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(13) @.str.85) #15
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %.backedge, label %121
 
-128:                                              ; preds = %125
-  %129 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(16) @.str.86) #15
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %.backedge, label %131
+121:                                              ; preds = %118
+  %122 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(16) @.str.86) #15
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %.backedge, label %124
 
-131:                                              ; preds = %128, %124
-  %132 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(13) @.str.87, i64 noundef 12) #15
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %142
+124:                                              ; preds = %121, %117
+  %125 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull dereferenceable(13) @.str.87, i64 noundef 12) #15
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %135
 
-134:                                              ; preds = %131
-  %135 = getelementptr i8, ptr %81, i64 31
-  %136 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %12, ptr noundef %135) #12
-  %137 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.88, ptr noundef nonnull %13, ptr noundef %135) #12
-  %138 = load i8, ptr %8, align 8
-  %139 = trunc i8 %138 to i1
-  %140 = load i8, ptr %77, align 8
-  %141 = trunc i8 %140 to i1
-  call void @reconstruct_from_incremental_file(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %135, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %16, i32 noundef %.0111116, ptr noundef nonnull %17, ptr noundef nonnull %18, i1 noundef zeroext %139, i1 noundef zeroext %141) #12
-  br label %172
+127:                                              ; preds = %124
+  %128 = getelementptr i8, ptr %81, i64 31
+  %129 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %12, ptr noundef %128) #12
+  %130 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.88, ptr noundef nonnull %13, ptr noundef %128) #12
+  %131 = load i8, ptr %8, align 8
+  %132 = trunc i8 %131 to i1
+  %133 = load i8, ptr %77, align 8
+  %134 = trunc i8 %133 to i1
+  call void @reconstruct_from_incremental_file(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %128, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %16, i32 noundef %.0111116, ptr noundef nonnull %17, ptr noundef nonnull %18, i1 noundef zeroext %132, i1 noundef zeroext %134) #12
+  br label %165
 
-142:                                              ; preds = %131
-  %143 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.88, ptr noundef nonnull %13, ptr noundef nonnull %82) #12
-  br i1 %or.cond7, label %144, label %thread-pre-split
+135:                                              ; preds = %124
+  %136 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.88, ptr noundef nonnull %13, ptr noundef nonnull %82) #12
+  br i1 %or.cond7, label %137, label %thread-pre-split
 
-144:                                              ; preds = %142
-  %145 = load ptr, ptr %24, align 8
-  %146 = call ptr @manifest_files_lookup(ptr noundef %145, ptr noundef nonnull %16) #12
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %148, label %150
+137:                                              ; preds = %135
+  %138 = load ptr, ptr %24, align 8
+  %139 = call ptr @manifest_files_lookup(ptr noundef %138, ptr noundef nonnull %16) #12
+  %140 = icmp eq ptr %139, null
+  br i1 %140, label %141, label %143
 
-148:                                              ; preds = %144
-  %149 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.43, ptr noundef %1, ptr noundef nonnull @.str.86) #12
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.89, ptr noundef %149, ptr noundef nonnull %16) #12
-  call void @pfree(ptr noundef %149) #12
+141:                                              ; preds = %137
+  %142 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.43, ptr noundef %1, ptr noundef nonnull @.str.86) #12
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.89, ptr noundef %142, ptr noundef nonnull %16) #12
+  call void @pfree(ptr noundef %142) #12
   br label %thread-pre-split
 
-150:                                              ; preds = %144
-  %151 = getelementptr inbounds i8, ptr %146, i64 24
-  %152 = load i32, ptr %151, align 8
-  %153 = icmp eq i32 %152, %.0111116
-  br i1 %153, label %154, label %thread-pre-split
+143:                                              ; preds = %137
+  %144 = getelementptr inbounds i8, ptr %139, i64 24
+  %145 = load i32, ptr %144, align 8
+  %146 = icmp eq i32 %145, %.0111116
+  br i1 %146, label %147, label %thread-pre-split
 
-154:                                              ; preds = %150
-  %155 = getelementptr inbounds i8, ptr %146, i64 28
-  %156 = load i32, ptr %155, align 4
-  store i32 %156, ptr %17, align 4
-  %157 = getelementptr inbounds i8, ptr %146, i64 32
-  %158 = load ptr, ptr %157, align 8
-  store ptr %158, ptr %18, align 8
-  br label %159
+147:                                              ; preds = %143
+  %148 = getelementptr inbounds i8, ptr %139, i64 28
+  %149 = load i32, ptr %148, align 4
+  store i32 %149, ptr %17, align 4
+  %150 = getelementptr inbounds i8, ptr %139, i64 32
+  %151 = load ptr, ptr %150, align 8
+  store ptr %151, ptr %18, align 8
+  br label %152
 
-thread-pre-split:                                 ; preds = %142, %150, %148
+thread-pre-split:                                 ; preds = %135, %143, %141
   %.pr = load i32, ptr %17, align 4
-  br label %159
+  br label %152
 
-159:                                              ; preds = %thread-pre-split, %154
-  %160 = phi i32 [ %.pr, %thread-pre-split ], [ %156, %154 ]
-  %.not103 = icmp eq i32 %160, 0
+152:                                              ; preds = %thread-pre-split, %147
+  %153 = phi i32 [ %.pr, %thread-pre-split ], [ %149, %147 ]
+  %.not103 = icmp eq i32 %153, 0
   %.0111116. = select i1 %.not103, i32 %.0111116, i32 0
-  %161 = call i32 @pg_checksum_init(ptr noundef nonnull %19, i32 noundef %.0111116.) #12
-  %162 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %12, ptr noundef nonnull %82) #12
-  %163 = load i8, ptr %77, align 8
-  %164 = trunc i8 %163 to i1
-  call void @copy_file(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %19, i1 noundef zeroext %164) #12
-  %165 = load i32, ptr %19, align 8
-  %.not104 = icmp eq i32 %165, 0
-  br i1 %.not104, label %172, label %166
+  %154 = call i32 @pg_checksum_init(ptr noundef nonnull %19, i32 noundef %.0111116.) #12
+  %155 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %12, ptr noundef nonnull %82) #12
+  %156 = load i8, ptr %77, align 8
+  %157 = trunc i8 %156 to i1
+  call void @copy_file(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %19, i1 noundef zeroext %157) #12
+  %158 = load i32, ptr %19, align 8
+  %.not104 = icmp eq i32 %158, 0
+  br i1 %.not104, label %165, label %159
 
-166:                                              ; preds = %159
-  %167 = load i8, ptr %77, align 8
-  %168 = trunc i8 %167 to i1
-  br i1 %168, label %172, label %169
+159:                                              ; preds = %152
+  %160 = load i8, ptr %77, align 8
+  %161 = trunc i8 %160 to i1
+  br i1 %161, label %165, label %162
+
+162:                                              ; preds = %159
+  %163 = call ptr @pg_malloc(i64 noundef 64) #12
+  store ptr %163, ptr %18, align 8
+  %164 = call i32 @pg_checksum_final(ptr noundef nonnull %19, ptr noundef %163) #12
+  store i32 %164, ptr %17, align 4
+  br label %165
+
+165:                                              ; preds = %152, %159, %162, %127
+  br i1 %.not105, label %175, label %166
+
+166:                                              ; preds = %165
+  %167 = call i32 @stat(ptr noundef nonnull %15, ptr noundef nonnull %21) #12
+  %168 = icmp slt i32 %167, 0
+  br i1 %168, label %169, label %170
 
 169:                                              ; preds = %166
-  %170 = call ptr @pg_malloc(i64 noundef 64) #12
-  store ptr %170, ptr %18, align 8
-  %171 = call i32 @pg_checksum_final(ptr noundef nonnull %19, ptr noundef %170) #12
-  store i32 %171, ptr %17, align 4
-  br label %172
-
-172:                                              ; preds = %159, %166, %169, %134
-  br i1 %.not105, label %182, label %173
-
-173:                                              ; preds = %172
-  %174 = call i32 @stat(ptr noundef nonnull %15, ptr noundef nonnull %21) #12
-  %175 = icmp slt i32 %174, 0
-  br i1 %175, label %176, label %177
-
-176:                                              ; preds = %173
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.90, ptr noundef nonnull %15) #12
   call void @exit(i32 noundef 1) #13
   unreachable
 
-177:                                              ; preds = %173
-  %178 = load i64, ptr %78, align 8
-  %179 = load i64, ptr %79, align 8
-  %180 = load i32, ptr %17, align 4
-  %181 = load ptr, ptr %18, align 8
-  call void @add_file_to_manifest(ptr noundef nonnull %7, ptr noundef nonnull %16, i64 noundef %178, i64 noundef %179, i32 noundef %.0111116, i32 noundef %180, ptr noundef %181) #12
-  br label %182
+170:                                              ; preds = %166
+  %171 = load i64, ptr %78, align 8
+  %172 = load i64, ptr %79, align 8
+  %173 = load i32, ptr %17, align 4
+  %174 = load ptr, ptr %18, align 8
+  call void @add_file_to_manifest(ptr noundef nonnull %7, ptr noundef nonnull %16, i64 noundef %171, i64 noundef %172, i32 noundef %.0111116, i32 noundef %173, ptr noundef %174) #12
+  br label %175
 
-182:                                              ; preds = %177, %172
-  %183 = load ptr, ptr %18, align 8
-  %.not106 = icmp eq ptr %183, null
-  br i1 %.not106, label %.backedge, label %184
+175:                                              ; preds = %170, %165
+  %176 = load ptr, ptr %18, align 8
+  %.not106 = icmp eq ptr %176, null
+  br i1 %.not106, label %.backedge, label %177
 
-184:                                              ; preds = %182
-  call void @pfree(ptr noundef nonnull %183) #12
+177:                                              ; preds = %175
+  call void @pfree(ptr noundef nonnull %176) #12
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
-  %185 = call i32 @closedir(ptr noundef nonnull %71)
+  %178 = call i32 @closedir(ptr noundef nonnull %71)
   ret void
 }
 

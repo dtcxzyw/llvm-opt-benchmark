@@ -194,12 +194,15 @@ define dso_local i64 @gtsvector_compress(ptr nocapture noundef readonly %0) loca
   %50 = shl i32 %.07992, 8
   %51 = xor i32 %49, %50
   %.not88 = icmp eq i32 %41, 0
-  br i1 %.not88, label %._crit_edge97, label %.lr.ph96, !llvm.loop !5
+  br i1 %.not88, label %._crit_edge97.loopexit, label %.lr.ph96, !llvm.loop !5
 
-._crit_edge97:                                    ; preds = %.lr.ph96, %.lr.ph102
-  %.079.lcssa = phi i32 [ -1, %.lr.ph102 ], [ %51, %.lr.ph96 ]
-  %52 = xor i32 %.079.lcssa, -1
-  store i32 %52, ptr %.080100, align 4
+._crit_edge97.loopexit:                           ; preds = %.lr.ph96
+  %52 = xor i32 %51, -1
+  br label %._crit_edge97
+
+._crit_edge97:                                    ; preds = %._crit_edge97.loopexit, %.lr.ph102
+  %.079.lcssa = phi i32 [ 0, %.lr.ph102 ], [ %52, %._crit_edge97.loopexit ]
+  store i32 %.079.lcssa, ptr %.080100, align 4
   %53 = getelementptr i8, ptr %.080100, i64 4
   %54 = getelementptr i8, ptr %.08199, i64 4
   %.not86 = icmp eq i32 %34, 0

@@ -2767,18 +2767,18 @@ _ZNK8BlockEnd13number_of_suxEv.exit.i.thread:     ; preds = %_ZN22ComputeLinearS
 
 _ZNK8BlockEnd13number_of_suxEv.exit.i:            ; preds = %_ZN22ComputeLinearScanOrder12append_blockEP10BlockBegin.exit
   %43 = load i32, ptr %38, align 4
-  %44 = getelementptr inbounds i8, ptr %38, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = sext i32 %43 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 -8
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp slt i32 %43, 2
-  br i1 %50, label %_ZNK4Base9osr_entryEv.exit.thread, label %_ZNK4Base9osr_entryEv.exit
+  %44 = icmp slt i32 %43, 2
+  %45 = getelementptr inbounds i8, ptr %38, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = sext i32 %43 to i64
+  %48 = getelementptr ptr, ptr %46, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 -8
+  %50 = load ptr, ptr %49, align 8
+  br i1 %44, label %_ZNK4Base9osr_entryEv.exit.thread, label %_ZNK4Base9osr_entryEv.exit
 
 _ZNK4Base9osr_entryEv.exit:                       ; preds = %_ZNK8BlockEnd13number_of_suxEv.exit.i.thread, %_ZNK8BlockEnd13number_of_suxEv.exit.i
-  %51 = phi ptr [ %42, %_ZNK8BlockEnd13number_of_suxEv.exit.i.thread ], [ %49, %_ZNK8BlockEnd13number_of_suxEv.exit.i ]
-  %52 = phi ptr [ %40, %_ZNK8BlockEnd13number_of_suxEv.exit.i.thread ], [ %45, %_ZNK8BlockEnd13number_of_suxEv.exit.i ]
+  %51 = phi ptr [ %42, %_ZNK8BlockEnd13number_of_suxEv.exit.i.thread ], [ %50, %_ZNK8BlockEnd13number_of_suxEv.exit.i ]
+  %52 = phi ptr [ %40, %_ZNK8BlockEnd13number_of_suxEv.exit.i.thread ], [ %46, %_ZNK8BlockEnd13number_of_suxEv.exit.i ]
   %53 = load ptr, ptr %52, align 8
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %_ZNK4Base9osr_entryEv.exit.thread, label %54
@@ -2836,7 +2836,7 @@ _ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit: ; preds = 
   br label %_ZNK4Base9osr_entryEv.exit.thread
 
 _ZNK4Base9osr_entryEv.exit.thread:                ; preds = %_ZNK8BlockEnd13number_of_suxEv.exit.i, %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit, %_ZNK4Base9osr_entryEv.exit
-  %85 = phi ptr [ %51, %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit ], [ %51, %_ZNK4Base9osr_entryEv.exit ], [ %49, %_ZNK8BlockEnd13number_of_suxEv.exit.i ]
+  %85 = phi ptr [ %51, %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit ], [ %51, %_ZNK4Base9osr_entryEv.exit ], [ %50, %_ZNK8BlockEnd13number_of_suxEv.exit.i ]
   %86 = phi ptr [ %53, %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit ], [ null, %_ZNK4Base9osr_entryEv.exit ], [ null, %_ZNK8BlockEnd13number_of_suxEv.exit.i ]
   %.0 = phi ptr [ %61, %_ZN22ComputeLinearScanOrder17compute_dominatorEP10BlockBeginS1_.exit ], [ null, %_ZNK4Base9osr_entryEv.exit ], [ null, %_ZNK8BlockEnd13number_of_suxEv.exit.i ]
   %87 = getelementptr inbounds i8, ptr %0, i64 48

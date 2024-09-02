@@ -579,133 +579,136 @@ define internal fastcc i64 @FASTCOVER_buildDictionary(ptr nocapture noundef read
   %33 = zext nneg i32 %32 to i64
   %34 = and i64 %27, 4294967295
   %wide.trip.count.i = zext i32 %29 to i64
-  br label %39
+  br label %40
 
-.preheader1.i:                                    ; preds = %71, %26
-  %.sroa.011.0.lcssa.i = phi i32 [ %28, %26 ], [ %.sroa.011.1.i, %71 ]
-  %.sroa.6.0.lcssa.i = phi i32 [ 0, %26 ], [ %.sroa.6.1.i, %71 ]
-  %.sroa.049.sroa.4.0.lcssa.i = phi i32 [ 0, %26 ], [ %.sroa.049.sroa.4.1.i, %71 ]
-  %.sroa.049.sroa.0.0.lcssa.i = phi i32 [ 0, %26 ], [ %.sroa.049.sroa.0.1.i, %71 ]
-  %35 = icmp ult i32 %.sroa.011.0.lcssa.i, %29
-  br i1 %35, label %.lr.ph12.i, label %.preheader.i
+.preheader1.i.loopexit:                           ; preds = %72
+  %35 = icmp eq i32 %.sroa.6.1.i, 0
+  br label %.preheader1.i
+
+.preheader1.i:                                    ; preds = %.preheader1.i.loopexit, %26
+  %.sroa.011.0.lcssa.i = phi i32 [ %28, %26 ], [ %.sroa.011.1.i, %.preheader1.i.loopexit ]
+  %.sroa.6.0.lcssa.i = phi i1 [ true, %26 ], [ %35, %.preheader1.i.loopexit ]
+  %.sroa.049.sroa.4.0.lcssa.i = phi i32 [ 0, %26 ], [ %.sroa.049.sroa.4.1.i, %.preheader1.i.loopexit ]
+  %.sroa.049.sroa.0.0.lcssa.i = phi i32 [ 0, %26 ], [ %.sroa.049.sroa.0.1.i, %.preheader1.i.loopexit ]
+  %36 = icmp ult i32 %.sroa.011.0.lcssa.i, %29
+  br i1 %36, label %.lr.ph12.i, label %.preheader.i
 
 .lr.ph12.i:                                       ; preds = %.preheader1.i
-  %36 = sub i32 64, %30
-  %37 = zext nneg i32 %36 to i64
-  %38 = zext i32 %.sroa.011.0.lcssa.i to i64
+  %37 = sub i32 64, %30
+  %38 = zext nneg i32 %37 to i64
+  %39 = zext i32 %.sroa.011.0.lcssa.i to i64
   %wide.trip.count21.i = zext i32 %29 to i64
-  br label %75
+  br label %76
 
-39:                                               ; preds = %71, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %34, %.lr.ph.i ], [ %indvars.iv.next.i, %71 ]
-  %.sroa.049.sroa.0.07.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.049.sroa.0.1.i, %71 ]
-  %.sroa.049.sroa.4.06.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.049.sroa.4.1.i, %71 ]
-  %.sroa.6.05.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.6.1.i, %71 ]
-  %.sroa.16.04.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.16.2.i, %71 ]
-  %.sroa.011.02.i = phi i32 [ %28, %.lr.ph.i ], [ %.sroa.011.1.i, %71 ]
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv.i
-  %.val.i.i = load i64, ptr %41, align 1
-  %42 = mul i64 %.val.i.i, %..i.i
-  %43 = lshr i64 %42, %33
-  %44 = getelementptr inbounds i16, ptr %4, i64 %43
-  %45 = load i16, ptr %44, align 2
-  %46 = icmp eq i16 %45, 0
-  br i1 %46, label %47, label %51
+40:                                               ; preds = %72, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %34, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
+  %.sroa.049.sroa.0.07.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.049.sroa.0.1.i, %72 ]
+  %.sroa.049.sroa.4.06.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.049.sroa.4.1.i, %72 ]
+  %.sroa.6.05.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.6.1.i, %72 ]
+  %.sroa.16.04.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.16.2.i, %72 ]
+  %.sroa.011.02.i = phi i32 [ %28, %.lr.ph.i ], [ %.sroa.011.1.i, %72 ]
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 %indvars.iv.i
+  %.val.i.i = load i64, ptr %42, align 1
+  %43 = mul i64 %.val.i.i, %..i.i
+  %44 = lshr i64 %43, %33
+  %45 = getelementptr inbounds i16, ptr %4, i64 %44
+  %46 = load i16, ptr %45, align 2
+  %47 = icmp eq i16 %46, 0
+  br i1 %47, label %48, label %52
 
-47:                                               ; preds = %39
-  %48 = getelementptr inbounds i32, ptr %1, i64 %43
-  %49 = load i32, ptr %48, align 4
-  %50 = add i32 %49, %.sroa.16.04.i
-  br label %51
+48:                                               ; preds = %40
+  %49 = getelementptr inbounds i32, ptr %1, i64 %44
+  %50 = load i32, ptr %49, align 4
+  %51 = add i32 %50, %.sroa.16.04.i
+  br label %52
 
-51:                                               ; preds = %47, %39
-  %.sroa.16.1.i = phi i32 [ %50, %47 ], [ %.sroa.16.04.i, %39 ]
+52:                                               ; preds = %48, %40
+  %.sroa.16.1.i = phi i32 [ %51, %48 ], [ %.sroa.16.04.i, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
-  %52 = add i16 %45, 1
-  store i16 %52, ptr %44, align 2
-  %53 = sub i32 %indvars.i, %.sroa.011.02.i
-  %54 = icmp eq i32 %53, %22
-  br i1 %54, label %55, label %71
+  %53 = add i16 %46, 1
+  store i16 %53, ptr %45, align 2
+  %54 = sub i32 %indvars.i, %.sroa.011.02.i
+  %55 = icmp eq i32 %54, %22
+  br i1 %55, label %56, label %72
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %0, align 8
-  %57 = zext i32 %.sroa.011.02.i to i64
-  %58 = getelementptr inbounds i8, ptr %56, i64 %57
-  %.val.i54.i = load i64, ptr %58, align 1
-  %59 = mul i64 %.val.i54.i, %..i.i
-  %60 = lshr i64 %59, %33
-  %61 = getelementptr inbounds i16, ptr %4, i64 %60
-  %62 = load i16, ptr %61, align 2
-  %63 = add i16 %62, -1
-  store i16 %63, ptr %61, align 2
-  %64 = icmp eq i16 %63, 0
-  br i1 %64, label %65, label %69
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %0, align 8
+  %58 = zext i32 %.sroa.011.02.i to i64
+  %59 = getelementptr inbounds i8, ptr %57, i64 %58
+  %.val.i54.i = load i64, ptr %59, align 1
+  %60 = mul i64 %.val.i54.i, %..i.i
+  %61 = lshr i64 %60, %33
+  %62 = getelementptr inbounds i16, ptr %4, i64 %61
+  %63 = load i16, ptr %62, align 2
+  %64 = add i16 %63, -1
+  store i16 %64, ptr %62, align 2
+  %65 = icmp eq i16 %64, 0
+  br i1 %65, label %66, label %70
 
-65:                                               ; preds = %55
-  %66 = getelementptr inbounds i32, ptr %1, i64 %60
-  %67 = load i32, ptr %66, align 4
-  %68 = sub i32 %.sroa.16.1.i, %67
-  br label %69
+66:                                               ; preds = %56
+  %67 = getelementptr inbounds i32, ptr %1, i64 %61
+  %68 = load i32, ptr %67, align 4
+  %69 = sub i32 %.sroa.16.1.i, %68
+  br label %70
 
-69:                                               ; preds = %65, %55
-  %.sroa.16.3.i = phi i32 [ %68, %65 ], [ %.sroa.16.1.i, %55 ]
-  %70 = add i32 %.sroa.011.02.i, 1
-  br label %71
+70:                                               ; preds = %66, %56
+  %.sroa.16.3.i = phi i32 [ %69, %66 ], [ %.sroa.16.1.i, %56 ]
+  %71 = add i32 %.sroa.011.02.i, 1
+  br label %72
 
-71:                                               ; preds = %69, %51
-  %.sroa.011.1.i = phi i32 [ %70, %69 ], [ %.sroa.011.02.i, %51 ]
-  %.sroa.16.2.i = phi i32 [ %.sroa.16.3.i, %69 ], [ %.sroa.16.1.i, %51 ]
-  %72 = icmp ugt i32 %.sroa.16.2.i, %.sroa.6.05.i
+72:                                               ; preds = %70, %52
+  %.sroa.011.1.i = phi i32 [ %71, %70 ], [ %.sroa.011.02.i, %52 ]
+  %.sroa.16.2.i = phi i32 [ %.sroa.16.3.i, %70 ], [ %.sroa.16.1.i, %52 ]
+  %73 = icmp ugt i32 %.sroa.16.2.i, %.sroa.6.05.i
   %.sroa.6.1.i = tail call i32 @llvm.umax.i32(i32 %.sroa.16.2.i, i32 %.sroa.6.05.i)
-  %.sroa.049.sroa.4.1.i = select i1 %72, i32 %indvars.i, i32 %.sroa.049.sroa.4.06.i
-  %.sroa.049.sroa.0.1.i = select i1 %72, i32 %.sroa.011.1.i, i32 %.sroa.049.sroa.0.07.i
+  %.sroa.049.sroa.4.1.i = select i1 %73, i32 %indvars.i, i32 %.sroa.049.sroa.4.06.i
+  %.sroa.049.sroa.0.1.i = select i1 %73, i32 %.sroa.011.1.i, i32 %.sroa.049.sroa.0.07.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader1.i, label %39, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.preheader1.i.loopexit, label %40, !llvm.loop !9
 
-.preheader.i:                                     ; preds = %75, %.preheader1.i
+.preheader.i:                                     ; preds = %76, %.preheader1.i
   %.not13.i = icmp eq i32 %.sroa.049.sroa.0.0.lcssa.i, %.sroa.049.sroa.4.0.lcssa.i
   br i1 %.not13.i, label %FASTCOVER_selectSegment.exit, label %.lr.ph15.i
 
 .lr.ph15.i:                                       ; preds = %.preheader.i
-  %73 = sub i32 64, %30
-  %74 = zext nneg i32 %73 to i64
-  br label %83
+  %74 = sub i32 64, %30
+  %75 = zext nneg i32 %74 to i64
+  br label %84
 
-75:                                               ; preds = %75, %.lr.ph12.i
-  %indvars.iv17.i = phi i64 [ %38, %.lr.ph12.i ], [ %indvars.iv.next18.i, %75 ]
-  %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv17.i
-  %.val.i56.i = load i64, ptr %77, align 1
-  %78 = mul i64 %.val.i56.i, %..i.i
-  %79 = lshr i64 %78, %37
-  %80 = getelementptr inbounds i16, ptr %4, i64 %79
-  %81 = load i16, ptr %80, align 2
-  %82 = add i16 %81, -1
-  store i16 %82, ptr %80, align 2
+76:                                               ; preds = %76, %.lr.ph12.i
+  %indvars.iv17.i = phi i64 [ %39, %.lr.ph12.i ], [ %indvars.iv.next18.i, %76 ]
+  %77 = load ptr, ptr %0, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 %indvars.iv17.i
+  %.val.i56.i = load i64, ptr %78, align 1
+  %79 = mul i64 %.val.i56.i, %..i.i
+  %80 = lshr i64 %79, %38
+  %81 = getelementptr inbounds i16, ptr %4, i64 %80
+  %82 = load i16, ptr %81, align 2
+  %83 = add i16 %82, -1
+  store i16 %83, ptr %81, align 2
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count21.i
-  br i1 %exitcond22.not.i, label %.preheader.i, label %75, !llvm.loop !10
+  br i1 %exitcond22.not.i, label %.preheader.i, label %76, !llvm.loop !10
 
-83:                                               ; preds = %83, %.lr.ph15.i
-  %.014.i = phi i32 [ %.sroa.049.sroa.0.0.lcssa.i, %.lr.ph15.i ], [ %90, %83 ]
-  %84 = load ptr, ptr %0, align 8
-  %85 = zext i32 %.014.i to i64
-  %86 = getelementptr inbounds i8, ptr %84, i64 %85
-  %.val.i58.i = load i64, ptr %86, align 1
-  %87 = mul i64 %.val.i58.i, %..i.i
-  %88 = lshr i64 %87, %74
-  %89 = getelementptr inbounds i32, ptr %1, i64 %88
-  store i32 0, ptr %89, align 4
-  %90 = add i32 %.014.i, 1
-  %.not.i = icmp eq i32 %90, %.sroa.049.sroa.4.0.lcssa.i
-  br i1 %.not.i, label %FASTCOVER_selectSegment.exit, label %83, !llvm.loop !11
+84:                                               ; preds = %84, %.lr.ph15.i
+  %.014.i = phi i32 [ %.sroa.049.sroa.0.0.lcssa.i, %.lr.ph15.i ], [ %91, %84 ]
+  %85 = load ptr, ptr %0, align 8
+  %86 = zext i32 %.014.i to i64
+  %87 = getelementptr inbounds i8, ptr %85, i64 %86
+  %.val.i58.i = load i64, ptr %87, align 1
+  %88 = mul i64 %.val.i58.i, %..i.i
+  %89 = lshr i64 %88, %75
+  %90 = getelementptr inbounds i32, ptr %1, i64 %89
+  store i32 0, ptr %90, align 4
+  %91 = add i32 %.014.i, 1
+  %.not.i = icmp eq i32 %91, %.sroa.049.sroa.4.0.lcssa.i
+  br i1 %.not.i, label %FASTCOVER_selectSegment.exit, label %84, !llvm.loop !11
 
-FASTCOVER_selectSegment.exit:                     ; preds = %83, %.preheader.i
+FASTCOVER_selectSegment.exit:                     ; preds = %84, %.preheader.i
   %.sroa.049.sroa.0.0.insert.ext.i = zext i32 %.sroa.049.sroa.0.0.lcssa.i to i64
-  %91 = icmp eq i32 %.sroa.6.0.lcssa.i, 0
-  br i1 %91, label %92, label %95
+  br i1 %.sroa.6.0.lcssa.i, label %92, label %95
 
 92:                                               ; preds = %FASTCOVER_selectSegment.exit
   %93 = add nuw nsw i64 %.0353, 1

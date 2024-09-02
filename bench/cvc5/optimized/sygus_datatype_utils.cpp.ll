@@ -2682,19 +2682,19 @@ if.else.i.if.end83_crit_edge:                     ; preds = %if.else.i
   %.pre876 = load ptr, ptr %children, align 8
   %.pre877 = load ptr, ptr %_M_finish.i.i, align 8
   %.pre878 = load ptr, ptr %schildren, align 8
+  %38 = ptrtoint ptr %.pre to i64
   br label %if.end83
 
 if.end83:                                         ; preds = %if.else.i.if.end83_crit_edge, %invoke.cont
-  %38 = phi ptr [ %.pre878, %if.else.i.if.end83_crit_edge ], [ null, %invoke.cont ]
-  %39 = phi ptr [ %.pre877, %if.else.i.if.end83_crit_edge ], [ %1, %invoke.cont ]
-  %40 = phi ptr [ %.pre876, %if.else.i.if.end83_crit_edge ], [ %0, %invoke.cont ]
-  %41 = phi ptr [ %.pre, %if.else.i.if.end83_crit_edge ], [ null, %invoke.cont ]
+  %39 = phi ptr [ %.pre878, %if.else.i.if.end83_crit_edge ], [ null, %invoke.cont ]
+  %40 = phi ptr [ %.pre877, %if.else.i.if.end83_crit_edge ], [ %1, %invoke.cont ]
+  %41 = phi ptr [ %.pre876, %if.else.i.if.end83_crit_edge ], [ %0, %invoke.cont ]
+  %sub.ptr.lhs.cast.i.i = phi i64 [ %38, %if.else.i.if.end83_crit_edge ], [ 0, %invoke.cont ]
   %_M_finish.i307 = getelementptr inbounds i8, ptr %schildren, i64 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %41 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %38 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %39 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %add.ptr.i.i309 = getelementptr inbounds i8, ptr %38, i64 %sub.ptr.sub.i.i
-  invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEvNS8_IPS3_S5_EET_SE_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %schildren, ptr %add.ptr.i.i309, ptr %40, ptr %39)
+  %add.ptr.i.i309 = getelementptr inbounds i8, ptr %39, i64 %sub.ptr.sub.i.i
+  invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEvNS8_IPS3_S5_EET_SE_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %schildren, ptr %add.ptr.i.i309, ptr %41, ptr %40)
           to label %invoke.cont97 unwind label %lpad
 
 invoke.cont97:                                    ; preds = %if.end83

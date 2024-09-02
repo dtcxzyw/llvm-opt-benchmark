@@ -600,158 +600,194 @@ do.end22:                                         ; preds = %do.body12, %if.then
 if.end23:                                         ; preds = %if.end3
   store ptr null, ptr %iov, align 8
   %tobool24.not = icmp eq ptr %addr, null
-  br i1 %tobool24.not, label %if.end26, label %if.then25
+  br i1 %tobool24.not, label %if.end26, label %if.end26.thread
 
-if.then25:                                        ; preds = %if.end23
+if.end26:                                         ; preds = %if.end23
+  %cmp2773.not = icmp eq i32 %nr_entries, 0
+  br i1 %cmp2773.not, label %for.end, label %for.body.us.preheader
+
+if.end26.thread:                                  ; preds = %if.end23
   store ptr null, ptr %addr, align 8
-  br label %if.end26
+  %cmp2773.not91 = icmp eq i32 %nr_entries, 0
+  br i1 %cmp2773.not91, label %for.end, label %for.body.preheader
 
-if.end26:                                         ; preds = %if.then25, %if.end23
-  %cmp2772.not = icmp eq i32 %nr_entries, 0
-  br i1 %cmp2772.not, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %if.end26
+for.body.preheader:                               ; preds = %if.end26.thread
   %wide.trip.count = zext nneg i32 %nr_entries to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %.compoundliteral.sroa.0.075 = phi i32 [ undef, %for.body.preheader ], [ %bf.clear38, %for.inc ]
-  %v.074 = phi i32 [ 0, %for.body.preheader ], [ %add105, %for.inc ]
+for.body.us.preheader:                            ; preds = %if.end26
+  %wide.trip.count89 = zext nneg i32 %nr_entries to i64
+  br label %for.body.us
+
+for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.split.us.us
+  %indvars.iv86 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next87, %for.inc.split.us.us ]
+  %v.075.us = phi i32 [ 0, %for.body.us.preheader ], [ %add105.us.us, %for.inc.split.us.us ]
+  %arrayidx.us = getelementptr %struct.virtio_gpu_mem_entry, ptr %call5, i64 %indvars.iv86
+  %5 = load i64, ptr %arrayidx.us, align 8
+  %length.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 8
+  %6 = load i32, ptr %length.us, align 8
+  br label %do.body34.us.us
+
+do.body34.us.us:                                  ; preds = %if.end92.us.us, %for.body.us
+  %v.1.us.us = phi i32 [ %v.075.us, %for.body.us ], [ %add105.us.us, %if.end92.us.us ]
+  %a.0.us.us = phi i64 [ %5, %for.body.us ], [ %add102.us.us, %if.end92.us.us ]
+  %l.0.us.us = phi i32 [ %6, %for.body.us ], [ %conv104.us.us, %if.end92.us.us ]
+  %conv35.us.us = zext i32 %l.0.us.us to i64
+  %call.i59.us.us = call ptr @object_dynamic_cast_assert(ptr noundef %g, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
+  %dma_as.us.us = getelementptr inbounds i8, ptr %call.i59.us.us, i64 472
+  %7 = load ptr, ptr %dma_as.us.us, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xlen.i)
+  store i64 %conv35.us.us, ptr %xlen.i, align 8
+  %call.i60.us.us = call ptr @address_space_map(ptr noundef %7, i64 noundef %a.0.us.us, ptr noundef nonnull %xlen.i, i1 noundef zeroext false, i32 1) #12
+  %8 = load i64, ptr %xlen.i, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xlen.i)
+  %tobool65.not.us.us = icmp eq ptr %call.i60.us.us, null
+  br i1 %tobool65.not.us.us, label %do.body67, label %if.end81.us.us
+
+if.end81.us.us:                                   ; preds = %do.body34.us.us
+  %9 = and i32 %v.1.us.us, 15
+  %tobool82.not.us.us = icmp eq i32 %9, 0
+  %.pre = load ptr, ptr %iov, align 8
+  br i1 %tobool82.not.us.us, label %if.then83.us.us, label %if.end92.us.us
+
+if.then83.us.us:                                  ; preds = %if.end81.us.us
+  %add.us.us = add i32 %v.1.us.us, 16
+  %conv84.us.us = sext i32 %add.us.us to i64
+  %call85.us.us = call ptr @g_realloc_n(ptr noundef %.pre, i64 noundef %conv84.us.us, i64 noundef 16) #12
+  store ptr %call85.us.us, ptr %iov, align 8
+  br label %if.end92.us.us
+
+if.end92.us.us:                                   ; preds = %if.then83.us.us, %if.end81.us.us
+  %10 = phi ptr [ %call85.us.us, %if.then83.us.us ], [ %.pre, %if.end81.us.us ]
+  %idxprom93.us.us = sext i32 %v.1.us.us to i64
+  %arrayidx94.us.us = getelementptr %struct.iovec, ptr %10, i64 %idxprom93.us.us
+  store ptr %call.i60.us.us, ptr %arrayidx94.us.us, align 8
+  %11 = load ptr, ptr %iov, align 8
+  %iov_len.us.us = getelementptr %struct.iovec, ptr %11, i64 %idxprom93.us.us, i32 1
+  store i64 %8, ptr %iov_len.us.us, align 8
+  %add102.us.us = add i64 %8, %a.0.us.us
+  %12 = trunc i64 %8 to i32
+  %conv104.us.us = sub i32 %l.0.us.us, %12
+  %add105.us.us = add i32 %v.1.us.us, 1
+  %cmp106.not.us.us = icmp eq i32 %conv104.us.us, 0
+  br i1 %cmp106.not.us.us, label %for.inc.split.us.us, label %do.body34.us.us, !llvm.loop !7
+
+for.inc.split.us.us:                              ; preds = %if.end92.us.us
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
+  br i1 %exitcond90.not, label %for.end, label %for.body.us, !llvm.loop !8
+
+for.body:                                         ; preds = %for.body.preheader, %for.inc.split
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc.split ]
+  %v.075 = phi i32 [ 0, %for.body.preheader ], [ %add105, %for.inc.split ]
   %arrayidx = getelementptr %struct.virtio_gpu_mem_entry, ptr %call5, i64 %indvars.iv
-  %5 = load i64, ptr %arrayidx, align 8
+  %13 = load i64, ptr %arrayidx, align 8
   %length = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %6 = load i32, ptr %length, align 8
+  %14 = load i32, ptr %length, align 8
   br label %do.body34
 
-do.body34:                                        ; preds = %if.end101, %for.body
-  %v.1 = phi i32 [ %v.074, %for.body ], [ %add105, %if.end101 ]
-  %a.0 = phi i64 [ %5, %for.body ], [ %add102, %if.end101 ]
-  %l.0 = phi i32 [ %6, %for.body ], [ %conv104, %if.end101 ]
-  %.compoundliteral.sroa.0.1 = phi i32 [ %.compoundliteral.sroa.0.075, %for.body ], [ %bf.clear38, %if.end101 ]
+do.body34:                                        ; preds = %if.end92, %for.body
+  %v.1 = phi i32 [ %v.075, %for.body ], [ %add105, %if.end92 ]
+  %a.0 = phi i64 [ %13, %for.body ], [ %add102, %if.end92 ]
+  %l.0 = phi i32 [ %14, %for.body ], [ %conv104, %if.end92 ]
   %conv35 = zext i32 %l.0 to i64
   %call.i59 = call ptr @object_dynamic_cast_assert(ptr noundef %g, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   %dma_as = getelementptr inbounds i8, ptr %call.i59, i64 472
-  %7 = load ptr, ptr %dma_as, align 8
-  %bf.set = and i32 %.compoundliteral.sroa.0.1, -67108864
-  %bf.clear38 = or disjoint i32 %bf.set, 1
+  %15 = load ptr, ptr %dma_as, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xlen.i)
   store i64 %conv35, ptr %xlen.i, align 8
-  %call.i60 = call ptr @address_space_map(ptr noundef %7, i64 noundef %a.0, ptr noundef nonnull %xlen.i, i1 noundef zeroext false, i32 %bf.clear38) #12
-  %8 = load i64, ptr %xlen.i, align 8
+  %call.i60 = call ptr @address_space_map(ptr noundef %15, i64 noundef %a.0, ptr noundef nonnull %xlen.i, i1 noundef zeroext false, i32 1) #12
+  %16 = load i64, ptr %xlen.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xlen.i)
   %tobool65.not = icmp eq ptr %call.i60, null
   br i1 %tobool65.not, label %do.body67, label %if.end81
 
-do.body67:                                        ; preds = %do.body34
-  %9 = load i32, ptr @qemu_loglevel, align 4
-  %and.i61 = and i32 %9, 2048
+do.body67:                                        ; preds = %do.body34, %do.body34.us.us
+  %.us-phi.in = phi i64 [ %indvars.iv86, %do.body34.us.us ], [ %indvars.iv, %do.body34 ]
+  %.us-phi71 = phi i32 [ %v.1.us.us, %do.body34.us.us ], [ %v.1, %do.body34 ]
+  %17 = load i32, ptr @qemu_loglevel, align 4
+  %and.i61 = and i32 %17, 2048
   %cmp.i62.not = icmp eq i32 %and.i61, 0
   br i1 %cmp.i62.not, label %do.end77, label %if.then75
 
 if.then75:                                        ; preds = %do.body67
-  %10 = trunc nuw nsw i64 %indvars.iv to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.virtio_gpu_create_mapping_iov, i32 noundef %10) #12
+  %.us-phi = trunc i64 %.us-phi.in to i32
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.virtio_gpu_create_mapping_iov, i32 noundef %.us-phi) #12
   br label %do.end77
 
 do.end77:                                         ; preds = %do.body67, %if.then75
-  %11 = load ptr, ptr %iov, align 8
-  %cmp8.not.i = icmp eq i32 %v.1, 0
+  %18 = load ptr, ptr %iov, align 8
+  %cmp8.not.i = icmp eq i32 %.us-phi71, 0
   br i1 %cmp8.not.i, label %virtio_gpu_cleanup_mapping_iov.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %do.end77, %for.body.i
   %i.09.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %do.end77 ]
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %g, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #12
   %dma_as.i = getelementptr inbounds i8, ptr %call.i.i, i64 472
-  %12 = load ptr, ptr %dma_as.i, align 8
+  %19 = load ptr, ptr %dma_as.i, align 8
   %idxprom.i = sext i32 %i.09.i to i64
-  %arrayidx.i = getelementptr %struct.iovec, ptr %11, i64 %idxprom.i
-  %13 = load ptr, ptr %arrayidx.i, align 8
+  %arrayidx.i = getelementptr %struct.iovec, ptr %18, i64 %idxprom.i
+  %20 = load ptr, ptr %arrayidx.i, align 8
   %iov_len.i63 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %14 = load i64, ptr %iov_len.i63, align 8
-  call void @address_space_unmap(ptr noundef %12, ptr noundef %13, i64 noundef %14, i1 noundef zeroext false, i64 noundef %14) #12
+  %21 = load i64, ptr %iov_len.i63, align 8
+  call void @address_space_unmap(ptr noundef %19, ptr noundef %20, i64 noundef %21, i1 noundef zeroext false, i64 noundef %21) #12
   %inc.i = add nuw i32 %i.09.i, 1
-  %exitcond.not.i = icmp eq i32 %inc.i, %v.1
-  br i1 %exitcond.not.i, label %virtio_gpu_cleanup_mapping_iov.exit, label %for.body.i, !llvm.loop !7
+  %exitcond.not.i = icmp eq i32 %inc.i, %.us-phi71
+  br i1 %exitcond.not.i, label %virtio_gpu_cleanup_mapping_iov.exit, label %for.body.i, !llvm.loop !9
 
 virtio_gpu_cleanup_mapping_iov.exit:              ; preds = %for.body.i, %do.end77
-  call void @g_free(ptr noundef %11) #12
+  call void @g_free(ptr noundef %18) #12
   call void @g_free(ptr noundef %call5) #12
   store ptr null, ptr %iov, align 8
   br i1 %tobool24.not, label %return, label %if.then79
 
 if.then79:                                        ; preds = %virtio_gpu_cleanup_mapping_iov.exit
-  %15 = load ptr, ptr %addr, align 8
-  call void @g_free(ptr noundef %15) #12
+  %22 = load ptr, ptr %addr, align 8
+  call void @g_free(ptr noundef %22) #12
   store ptr null, ptr %addr, align 8
   br label %return
 
 if.end81:                                         ; preds = %do.body34
-  %16 = and i32 %v.1, 15
-  %tobool82.not = icmp eq i32 %16, 0
-  %.pre80 = load ptr, ptr %iov, align 8
+  %23 = and i32 %v.1, 15
+  %tobool82.not = icmp eq i32 %23, 0
   br i1 %tobool82.not, label %if.then83, label %if.end92
 
 if.then83:                                        ; preds = %if.end81
+  %24 = load ptr, ptr %iov, align 8
   %add = add i32 %v.1, 16
   %conv84 = sext i32 %add to i64
-  %call85 = call ptr @g_realloc_n(ptr noundef %.pre80, i64 noundef %conv84, i64 noundef 16) #12
+  %call85 = call ptr @g_realloc_n(ptr noundef %24, i64 noundef %conv84, i64 noundef 16) #12
   store ptr %call85, ptr %iov, align 8
-  br i1 %tobool24.not, label %if.end92.thread, label %if.end92.thread84
-
-if.end92.thread:                                  ; preds = %if.then83
-  %idxprom9381 = sext i32 %v.1 to i64
-  %arrayidx9482 = getelementptr %struct.iovec, ptr %call85, i64 %idxprom9381
-  store ptr %call.i60, ptr %arrayidx9482, align 8
-  %17 = load ptr, ptr %iov, align 8
-  %iov_len83 = getelementptr %struct.iovec, ptr %17, i64 %idxprom9381, i32 1
-  store i64 %8, ptr %iov_len83, align 8
-  br label %if.end101
-
-if.end92.thread84:                                ; preds = %if.then83
-  %18 = load ptr, ptr %addr, align 8
-  %call90 = call ptr @g_realloc_n(ptr noundef %18, i64 noundef %conv84, i64 noundef 8) #12
+  %25 = load ptr, ptr %addr, align 8
+  %call90 = call ptr @g_realloc_n(ptr noundef %25, i64 noundef %conv84, i64 noundef 8) #12
   store ptr %call90, ptr %addr, align 8
-  %.pre = load ptr, ptr %iov, align 8
-  %idxprom9385 = sext i32 %v.1 to i64
-  %arrayidx9486 = getelementptr %struct.iovec, ptr %.pre, i64 %idxprom9385
-  store ptr %call.i60, ptr %arrayidx9486, align 8
-  %19 = load ptr, ptr %iov, align 8
-  %iov_len87 = getelementptr %struct.iovec, ptr %19, i64 %idxprom9385, i32 1
-  store i64 %8, ptr %iov_len87, align 8
-  br label %if.then98
+  br label %if.end92
 
-if.end92:                                         ; preds = %if.end81
+if.end92:                                         ; preds = %if.then83, %if.end81
+  %26 = load ptr, ptr %iov, align 8
   %idxprom93 = sext i32 %v.1 to i64
-  %arrayidx94 = getelementptr %struct.iovec, ptr %.pre80, i64 %idxprom93
+  %arrayidx94 = getelementptr %struct.iovec, ptr %26, i64 %idxprom93
   store ptr %call.i60, ptr %arrayidx94, align 8
-  %20 = load ptr, ptr %iov, align 8
-  %iov_len = getelementptr %struct.iovec, ptr %20, i64 %idxprom93, i32 1
-  store i64 %8, ptr %iov_len, align 8
-  br i1 %tobool24.not, label %if.end101, label %if.then98
-
-if.then98:                                        ; preds = %if.end92.thread84, %if.end92
-  %idxprom9388 = phi i64 [ %idxprom9385, %if.end92.thread84 ], [ %idxprom93, %if.end92 ]
-  %21 = load ptr, ptr %addr, align 8
-  %arrayidx100 = getelementptr i64, ptr %21, i64 %idxprom9388
+  %27 = load ptr, ptr %iov, align 8
+  %iov_len = getelementptr %struct.iovec, ptr %27, i64 %idxprom93, i32 1
+  store i64 %16, ptr %iov_len, align 8
+  %28 = load ptr, ptr %addr, align 8
+  %arrayidx100 = getelementptr i64, ptr %28, i64 %idxprom93
   store i64 %a.0, ptr %arrayidx100, align 8
-  br label %if.end101
-
-if.end101:                                        ; preds = %if.end92.thread, %if.then98, %if.end92
-  %add102 = add i64 %8, %a.0
-  %22 = trunc i64 %8 to i32
-  %conv104 = sub i32 %l.0, %22
+  %add102 = add i64 %16, %a.0
+  %29 = trunc i64 %16 to i32
+  %conv104 = sub i32 %l.0, %29
   %add105 = add i32 %v.1, 1
   %cmp106.not = icmp eq i32 %conv104, 0
-  br i1 %cmp106.not, label %for.inc, label %do.body34, !llvm.loop !8
+  br i1 %cmp106.not, label %for.inc.split, label %do.body34, !llvm.loop !7
 
-for.inc:                                          ; preds = %if.end101
+for.inc.split:                                    ; preds = %if.end92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
-for.end:                                          ; preds = %for.inc, %if.end26
-  %v.0.lcssa = phi i32 [ 0, %if.end26 ], [ %add105, %for.inc ]
+for.end:                                          ; preds = %for.inc.split, %for.inc.split.us.us, %if.end26.thread, %if.end26
+  %v.0.lcssa = phi i32 [ 0, %if.end26 ], [ 0, %if.end26.thread ], [ %add105.us.us, %for.inc.split.us.us ], [ %add105, %for.inc.split ]
   store i32 %v.0.lcssa, ptr %niov, align 4
   call void @g_free(ptr noundef %call5) #12
   br label %return
@@ -785,7 +821,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @address_space_unmap(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext false, i64 noundef %2) #12
   %inc = add nuw i32 %i.09, 1
   %exitcond.not = icmp eq i32 %inc, %count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %entry
   tail call void @g_free(ptr noundef %iov) #12
@@ -817,7 +853,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   tail call void @address_space_unmap(ptr noundef %2, ptr noundef %3, i64 noundef %4, i1 noundef zeroext false, i64 noundef %4) #12
   %inc.i = add nuw i32 %i.09.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %1
-  br i1 %exitcond.not.i, label %virtio_gpu_cleanup_mapping_iov.exit, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %virtio_gpu_cleanup_mapping_iov.exit, label %for.body.i, !llvm.loop !9
 
 virtio_gpu_cleanup_mapping_iov.exit:              ; preds = %for.body.i, %entry
   tail call void @g_free(ptr noundef %0) #12

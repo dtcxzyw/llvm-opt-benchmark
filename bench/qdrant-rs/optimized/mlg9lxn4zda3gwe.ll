@@ -269,7 +269,7 @@ default.unreachable:                              ; preds = %1
   %3 = tail call noundef i64 @_ZN6common3cpu12get_num_cpus17h977909401643c6caE()
   %4 = sub i64 0, %0
   %5 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %4)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %5, i64 1)
+  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %5, i64 1)
   br label %21
 
 6:                                                ; preds = %1
@@ -304,7 +304,7 @@ default.unreachable:                              ; preds = %1
 _ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit: ; preds = %6, %9, %11, %13, %15, %17, %19
   %.0.i.neg = phi i64 [ %.neg.i.neg, %19 ], [ 0, %6 ], [ 1, %9 ], [ 2, %11 ], [ 3, %13 ], [ 4, %15 ], [ 6, %17 ]
   %20 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %.0.i.neg)
-  %.0.sroa.speculated.i9 = tail call noundef i64 @llvm.umax.i64(i64 %20, i64 1)
+  %.0.sroa.speculated.i9 = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %20, i64 1)
   br label %21
 
 21:                                               ; preds = %1, %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit, %2
@@ -498,7 +498,7 @@ define { ptr, i64 } @"_ZN65_$LT$common..cpu..CpuBudget$u20$as$u20$core..default.
 _ZN6common3cpu14get_cpu_budget17hf0884385e486daffE.exit: ; preds = %0, %3, %5, %7, %9, %11, %13
   %.0.i.neg.i = phi i64 [ %.neg.i.neg.i, %13 ], [ 0, %0 ], [ 1, %3 ], [ 2, %5 ], [ 3, %7 ], [ 4, %9 ], [ 6, %11 ]
   %14 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %.0.i.neg.i)
-  %.0.sroa.speculated.i9.i = tail call noundef i64 @llvm.umax.i64(i64 %14, i64 1)
+  %.0.sroa.speculated.i9.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %14, i64 1)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.5.i)
   call void @_ZN5tokio4sync9semaphore9Semaphore3new17hfd3968a7889ce3e0E(ptr noalias nocapture noundef nonnull sret({ { { {}, { { { i8 } }, [7 x i8], { { { ptr, ptr, {} }, i8, [7 x i8] } } } }, { { { i64 } } } } }) align 8 dereferenceable(40) %.sroa.5.i, i64 noundef %.0.sroa.speculated.i9.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a6d557859d0675d687d6045e54bc0e3d.9)
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !86

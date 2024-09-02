@@ -1814,7 +1814,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -1, -9223372036854775804) i64 @qemu_put_compression_data(ptr noundef %f, ptr noundef %stream, ptr noundef %p, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i64 -1, 2147483652) i64 @qemu_put_compression_data(ptr noundef %f, ptr noundef %stream, ptr noundef %p, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %buf_index = getelementptr inbounds i8, ptr %f, i64 12
   %0 = load i32, ptr %buf_index, align 4

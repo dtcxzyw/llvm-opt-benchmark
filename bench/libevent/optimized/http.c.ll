@@ -5953,16 +5953,19 @@ if.end47.i:                                       ; preds = %for.body.i, %if.end
   %inc50.i = add i32 %i.1.i, 1
   %conv.i = zext i32 %inc50.i to i64
   %cmp1.i = icmp ugt i64 %call46, %conv.i
-  br i1 %cmp1.i, label %for.body.i, label %evhttp_decode_uri_internal.exit, !llvm.loop !21
+  br i1 %cmp1.i, label %for.body.i, label %for.end.loopexit27.i, !llvm.loop !21
 
-evhttp_decode_uri_internal.exit:                  ; preds = %if.end47.i, %if.end45
-  %j.0.lcssa.i = phi i64 [ 0, %if.end45 ], [ %indvars.iv.next.i, %if.end47.i ]
-  %idxprom51.i = and i64 %j.0.lcssa.i, 4294967295
-  %arrayidx52.i = getelementptr inbounds i8, ptr %call41, i64 %idxprom51.i
+for.end.loopexit27.i:                             ; preds = %if.end47.i
+  %14 = and i64 %indvars.iv.next.i, 4294967295
+  br label %evhttp_decode_uri_internal.exit
+
+evhttp_decode_uri_internal.exit:                  ; preds = %if.end45, %for.end.loopexit27.i
+  %j.0.lcssa.i = phi i64 [ 0, %if.end45 ], [ %14, %for.end.loopexit27.i ]
+  %arrayidx52.i = getelementptr inbounds i8, ptr %call41, i64 %j.0.lcssa.i
   store i8 0, ptr %arrayidx52.i, align 1
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %tmp.i)
-  %14 = load i32, ptr @event_debug_logging_mask_, align 4
-  %tobool49.not = icmp eq i32 %14, 0
+  %15 = load i32, ptr @event_debug_logging_mask_, align 4
+  %tobool49.not = icmp eq i32 %15, 0
   br i1 %tobool49.not, label %do.end52, label %if.then50
 
 if.then50:                                        ; preds = %evhttp_decode_uri_internal.exit
@@ -5980,27 +5983,27 @@ for.cond.i:                                       ; preds = %do.end52, %for.body
 
 for.body.i23:                                     ; preds = %for.cond.i
   %key1.i = getelementptr inbounds i8, ptr %header.0.i, i64 16
-  %15 = load ptr, ptr %key1.i, align 8
-  %call.i24 = call i32 @evutil_ascii_strcasecmp(ptr noundef %15, ptr noundef %call18) #19
+  %16 = load ptr, ptr %key1.i, align 8
+  %call.i24 = call i32 @evutil_ascii_strcasecmp(ptr noundef %16, ptr noundef %call18) #19
   %cmp2.i = icmp eq i32 %call.i24, 0
   br i1 %cmp2.i, label %do.body.i, label %for.cond.i, !llvm.loop !10
 
 do.body.i:                                        ; preds = %for.body.i23
   %key1.i.le = getelementptr inbounds i8, ptr %header.0.i, i64 16
-  %16 = load ptr, ptr %header.0.i, align 8
-  %cmp8.not.i = icmp eq ptr %16, null
+  %17 = load ptr, ptr %header.0.i, align 8
+  %cmp8.not.i = icmp eq ptr %17, null
   %tqe_prev16.i = getelementptr inbounds i8, ptr %header.0.i, i64 8
-  %17 = load ptr, ptr %tqe_prev16.i, align 8
-  %headers..i = select i1 %cmp8.not.i, ptr %headers, ptr %16
+  %18 = load ptr, ptr %tqe_prev16.i, align 8
+  %headers..i = select i1 %cmp8.not.i, ptr %headers, ptr %17
   %tqh_last.i = getelementptr inbounds i8, ptr %headers..i, i64 8
-  store ptr %17, ptr %tqh_last.i, align 8
-  %18 = load ptr, ptr %header.0.i, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = load ptr, ptr %key1.i.le, align 8
-  call void @event_mm_free_(ptr noundef %19) #19
-  %value.i = getelementptr inbounds i8, ptr %header.0.i, i64 24
-  %20 = load ptr, ptr %value.i, align 8
+  store ptr %18, ptr %tqh_last.i, align 8
+  %19 = load ptr, ptr %header.0.i, align 8
+  store ptr %19, ptr %18, align 8
+  %20 = load ptr, ptr %key1.i.le, align 8
   call void @event_mm_free_(ptr noundef %20) #19
+  %value.i = getelementptr inbounds i8, ptr %header.0.i, i64 24
+  %21 = load ptr, ptr %value.i, align 8
+  call void @event_mm_free_(ptr noundef %21) #19
   call void @event_mm_free_(ptr noundef nonnull %header.0.i) #19
   br label %if.end57
 
@@ -6019,21 +6022,21 @@ error:                                            ; preds = %if.end57, %if.else3
 
 do.body.i25:                                      ; preds = %error, %do.body.i25
   %header.014.i = phi ptr [ %header.0.i27, %do.body.i25 ], [ %header.012.i, %error ]
-  %21 = load ptr, ptr %header.014.i, align 8
-  %cmp1.not.i = icmp eq ptr %21, null
+  %22 = load ptr, ptr %header.014.i, align 8
+  %cmp1.not.i = icmp eq ptr %22, null
   %tqe_prev8.i = getelementptr inbounds i8, ptr %header.014.i, i64 8
-  %22 = load ptr, ptr %tqe_prev8.i, align 8
-  %tqh_last.sink.v.i = select i1 %cmp1.not.i, ptr %headers, ptr %21
+  %23 = load ptr, ptr %tqe_prev8.i, align 8
+  %tqh_last.sink.v.i = select i1 %cmp1.not.i, ptr %headers, ptr %22
   %tqh_last.sink.i = getelementptr inbounds i8, ptr %tqh_last.sink.v.i, i64 8
-  store ptr %22, ptr %tqh_last.sink.i, align 8
-  %23 = load ptr, ptr %header.014.i, align 8
-  store ptr %23, ptr %22, align 8
+  store ptr %23, ptr %tqh_last.sink.i, align 8
+  %24 = load ptr, ptr %header.014.i, align 8
+  store ptr %24, ptr %23, align 8
   %key.i = getelementptr inbounds i8, ptr %header.014.i, i64 16
-  %24 = load ptr, ptr %key.i, align 8
-  call void @event_mm_free_(ptr noundef %24) #19
-  %value.i26 = getelementptr inbounds i8, ptr %header.014.i, i64 24
-  %25 = load ptr, ptr %value.i26, align 8
+  %25 = load ptr, ptr %key.i, align 8
   call void @event_mm_free_(ptr noundef %25) #19
+  %value.i26 = getelementptr inbounds i8, ptr %header.014.i, i64 24
+  %26 = load ptr, ptr %value.i26, align 8
+  call void @event_mm_free_(ptr noundef %26) #19
   call void @event_mm_free_(ptr noundef nonnull %header.014.i) #19
   %header.0.i27 = load ptr, ptr %headers, align 8
   %cmp.not.i = icmp eq ptr %header.0.i27, null

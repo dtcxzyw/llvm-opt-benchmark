@@ -2783,7 +2783,7 @@ define internal fastcc i32 @do_cpu_nanosleep(i32 noundef %0, i32 noundef %1, ptr
   %21 = load volatile i64, ptr %11, align 8
   %22 = and i64 %21, 131072
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %.lr.ph, label %.thread, !prof !47
+  br i1 %23, label %.lr.ph, label %.critedge, !prof !47
 
 24:                                               ; preds = %14
   call void @_raw_spin_unlock_irq(ptr noundef %6) #11
@@ -2793,7 +2793,7 @@ define internal fastcc i32 @do_cpu_nanosleep(i32 noundef %0, i32 noundef %1, ptr
   %25 = load volatile i64, ptr %11, align 8
   %26 = and i64 %25, 4
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %.thread
+  br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %.lr.ph
   %29 = load i64, ptr %19, align 8
@@ -2813,9 +2813,9 @@ define internal fastcc i32 @do_cpu_nanosleep(i32 noundef %0, i32 noundef %1, ptr
   %34 = load volatile i64, ptr %11, align 8
   %35 = and i64 %34, 131072
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %.lr.ph, label %.thread, !prof !49, !llvm.loop !50
+  br i1 %36, label %.lr.ph, label %.critedge, !prof !49, !llvm.loop !50
 
-.thread:                                          ; preds = %.lr.ph, %33, %18
+.critedge:                                        ; preds = %.lr.ph, %33, %18
   %37 = load i64, ptr %19, align 8
   %38 = call i32 @posix_cpu_timer_set(ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull @do_cpu_nanosleep.zero_it, ptr noundef nonnull %4), !range !46
   switch i32 %38, label %.loopexit [
@@ -2823,11 +2823,11 @@ define internal fastcc i32 @do_cpu_nanosleep(i32 noundef %0, i32 noundef %1, ptr
     i32 1, label %.preheader
   ]
 
-39:                                               ; preds = %.thread
+39:                                               ; preds = %.critedge
   %40 = call i32 @posix_cpu_timer_del(ptr noundef nonnull %5), !range !48
   br label %.loopexit
 
-.preheader:                                       ; preds = %.thread, %.preheader
+.preheader:                                       ; preds = %.critedge, %.preheader
   call void @__rcu_read_lock() #11
   call void @_raw_spin_unlock_irq(ptr noundef %6) #11
   call void @posix_cpu_timer_wait_running(ptr noundef nonnull %5)
@@ -2837,7 +2837,7 @@ define internal fastcc i32 @do_cpu_nanosleep(i32 noundef %0, i32 noundef %1, ptr
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %.loopexit, label %.preheader, !llvm.loop !51
 
-.loopexit:                                        ; preds = %.preheader, %39, %.thread
+.loopexit:                                        ; preds = %.preheader, %39, %.critedge
   call void @_raw_spin_unlock_irq(ptr noundef %6) #11
   %43 = load i64, ptr %15, align 8
   %44 = getelementptr inbounds i8, ptr %4, i64 24

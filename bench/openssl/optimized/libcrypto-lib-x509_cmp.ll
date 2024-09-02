@@ -1048,7 +1048,7 @@ return:                                           ; preds = %if.end, %sw.default
 declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_chain_check_suiteb(ptr noundef writeonly %perror_depth, ptr noundef %x, ptr noundef %chain, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 62) i32 @X509_chain_check_suiteb(ptr noundef writeonly %perror_depth, ptr noundef %x, ptr noundef %chain, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %curve_name.i83 = alloca [80 x i8], align 16
   %curve_name_len.i84 = alloca i64, align 8
@@ -1377,7 +1377,7 @@ declare i64 @X509_get_version(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_get_signature_nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_CRL_check_suiteb(ptr nocapture noundef readonly %crl, ptr noundef %pk, i64 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr nocapture noundef readonly %crl, ptr noundef %pk, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
   %curve_name.i = alloca [80 x i8], align 16
   %curve_name_len.i = alloca i64, align 8

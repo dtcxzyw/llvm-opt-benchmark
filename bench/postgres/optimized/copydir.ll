@@ -40,7 +40,7 @@ define dso_local void @copydir(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
   br i1 %.not2744, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.backedge43
-  %14 = phi ptr [ %33, %.backedge43 ], [ %13, %11 ]
+  %14 = phi ptr [ %27, %.backedge43 ], [ %13, %11 ]
   %15 = load volatile i32, ptr @InterruptPending, align 4
   %.not29 = icmp eq i32 %15, 0
   br i1 %.not29, label %sub_0, label %16
@@ -52,128 +52,110 @@ define dso_local void @copydir(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
 sub_0:                                            ; preds = %.lr.ph, %16
   %17 = getelementptr inbounds i8, ptr %14, i64 19
   %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i32
-  %20 = add nsw i32 %19, -46
-  %.not47 = icmp eq i32 %20, 0
-  br i1 %.not47, label %.tail, label %.tail30
+  %.not47 = icmp eq i8 %18, 46
+  br i1 %.not47, label %.tail, label %.tail30.thread
 
 .tail:                                            ; preds = %sub_0
-  %21 = getelementptr inbounds i8, ptr %14, i64 20
-  %22 = load i8, ptr %21, align 1
-  %23 = icmp eq i8 %22, 0
-  br i1 %23, label %.backedge43, label %sub_132
+  %19 = getelementptr inbounds i8, ptr %14, i64 20
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %.backedge43, label %sub_132
 
 sub_132:                                          ; preds = %.tail
-  %24 = getelementptr inbounds i8, ptr %14, i64 20
+  %22 = getelementptr inbounds i8, ptr %14, i64 20
+  %23 = load i8, ptr %22, align 1
+  %.not49 = icmp eq i8 %23, 46
+  br i1 %.not49, label %.tail30, label %.tail30.thread
+
+.tail30:                                          ; preds = %sub_132
+  %24 = getelementptr inbounds i8, ptr %14, i64 21
   %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  %27 = add nsw i32 %26, -46
-  %.not49 = icmp eq i32 %27, 0
-  br i1 %.not49, label %sub_2, label %.tail30
+  %26 = icmp eq i8 %25, 0
+  br i1 %26, label %.backedge43, label %.tail30.thread
 
-sub_2:                                            ; preds = %sub_132
-  %28 = getelementptr inbounds i8, ptr %14, i64 21
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i32
-  br label %.tail30
-
-.tail30:                                          ; preds = %sub_0, %sub_132, %sub_2
-  %31 = phi i32 [ %27, %sub_132 ], [ %30, %sub_2 ], [ %20, %sub_0 ]
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.backedge43, label %34
-
-.backedge43:                                      ; preds = %39, %38, %40, %34, %.tail, %.tail30
-  %33 = call ptr @ReadDir(ptr noundef %12, ptr noundef %0) #6
-  %.not27 = icmp eq ptr %33, null
+.backedge43:                                      ; preds = %32, %31, %33, %.tail30.thread, %.tail, %.tail30
+  %27 = call ptr @ReadDir(ptr noundef %12, ptr noundef %0) #6
+  %.not27 = icmp eq ptr %27, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
-34:                                               ; preds = %.tail30
-  %35 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef nonnull %17) #6
-  %36 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %17) #6
-  %37 = call i32 @get_dirent_type(ptr noundef nonnull %4, ptr noundef nonnull %14, i1 noundef zeroext false, i32 noundef 21) #6
-  switch i32 %37, label %.backedge43 [
-    i32 3, label %38
-    i32 2, label %40
+.tail30.thread:                                   ; preds = %sub_0, %sub_132, %.tail30
+  %28 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef nonnull %17) #6
+  %29 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %17) #6
+  %30 = call i32 @get_dirent_type(ptr noundef nonnull %4, ptr noundef nonnull %14, i1 noundef zeroext false, i32 noundef 21) #6
+  switch i32 %30, label %.backedge43 [
+    i32 3, label %31
+    i32 2, label %33
   ]
 
-38:                                               ; preds = %34
-  br i1 %2, label %39, label %.backedge43
+31:                                               ; preds = %.tail30.thread
+  br i1 %2, label %32, label %.backedge43
 
-39:                                               ; preds = %38
+32:                                               ; preds = %31
   call void @copydir(ptr noundef nonnull %4, ptr noundef nonnull %5, i1 noundef zeroext true)
   br label %.backedge43
 
-40:                                               ; preds = %34
+33:                                               ; preds = %.tail30.thread
   call void @copy_file(ptr noundef nonnull %4, ptr noundef nonnull %5)
   br label %.backedge43
 
 ._crit_edge:                                      ; preds = %.backedge43, %11
-  %41 = call i32 @FreeDir(ptr noundef %12) #6
-  %42 = load i8, ptr @enableFsync, align 1
-  %43 = trunc i8 %42 to i1
-  br i1 %43, label %44, label %71
+  %34 = call i32 @FreeDir(ptr noundef %12) #6
+  %35 = load i8, ptr @enableFsync, align 1
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %57
 
-44:                                               ; preds = %._crit_edge
-  %45 = call ptr @AllocateDir(ptr noundef %1) #6
-  %46 = call ptr @ReadDir(ptr noundef %45, ptr noundef %1) #6
-  %.not2845 = icmp eq ptr %46, null
+37:                                               ; preds = %._crit_edge
+  %38 = call ptr @AllocateDir(ptr noundef %1) #6
+  %39 = call ptr @ReadDir(ptr noundef %38, ptr noundef %1) #6
+  %.not2845 = icmp eq ptr %39, null
   br i1 %.not2845, label %._crit_edge46, label %sub_035
 
-sub_035:                                          ; preds = %44, %.backedge
-  %47 = phi ptr [ %64, %.backedge ], [ %46, %44 ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 19
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = add nsw i32 %50, -46
-  %.not50 = icmp eq i32 %51, 0
-  br i1 %.not50, label %.tail34, label %.tail38
+sub_035:                                          ; preds = %37, %.backedge
+  %40 = phi ptr [ %51, %.backedge ], [ %39, %37 ]
+  %41 = getelementptr inbounds i8, ptr %40, i64 19
+  %42 = load i8, ptr %41, align 1
+  %.not50 = icmp eq i8 %42, 46
+  br i1 %.not50, label %.tail34, label %.tail38.thread
 
 .tail34:                                          ; preds = %sub_035
-  %52 = getelementptr inbounds i8, ptr %47, i64 20
-  %53 = load i8, ptr %52, align 1
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %.backedge, label %sub_140
+  %43 = getelementptr inbounds i8, ptr %40, i64 20
+  %44 = load i8, ptr %43, align 1
+  %45 = icmp eq i8 %44, 0
+  br i1 %45, label %.backedge, label %sub_140
 
 sub_140:                                          ; preds = %.tail34
-  %55 = getelementptr inbounds i8, ptr %47, i64 20
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = add nsw i32 %57, -46
-  %.not52 = icmp eq i32 %58, 0
-  br i1 %.not52, label %sub_241, label %.tail38
+  %46 = getelementptr inbounds i8, ptr %40, i64 20
+  %47 = load i8, ptr %46, align 1
+  %.not52 = icmp eq i8 %47, 46
+  br i1 %.not52, label %.tail38, label %.tail38.thread
 
-sub_241:                                          ; preds = %sub_140
-  %59 = getelementptr inbounds i8, ptr %47, i64 21
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
-  br label %.tail38
+.tail38:                                          ; preds = %sub_140
+  %48 = getelementptr inbounds i8, ptr %40, i64 21
+  %49 = load i8, ptr %48, align 1
+  %50 = icmp eq i8 %49, 0
+  br i1 %50, label %.backedge, label %.tail38.thread
 
-.tail38:                                          ; preds = %sub_035, %sub_140, %sub_241
-  %62 = phi i32 [ %58, %sub_140 ], [ %61, %sub_241 ], [ %51, %sub_035 ]
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.backedge, label %65
-
-.backedge:                                        ; preds = %65, %69, %.tail34, %.tail38
-  %64 = call ptr @ReadDir(ptr noundef %45, ptr noundef %1) #6
-  %.not28 = icmp eq ptr %64, null
+.backedge:                                        ; preds = %.tail38.thread, %55, %.tail34, %.tail38
+  %51 = call ptr @ReadDir(ptr noundef %38, ptr noundef %1) #6
+  %.not28 = icmp eq ptr %51, null
   br i1 %.not28, label %._crit_edge46, label %sub_035, !llvm.loop !7
 
-65:                                               ; preds = %.tail38
-  %66 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %48) #6
-  %67 = call i32 @get_dirent_type(ptr noundef nonnull %5, ptr noundef nonnull %47, i1 noundef zeroext false, i32 noundef 21) #6
-  %68 = icmp eq i32 %67, 2
-  br i1 %68, label %69, label %.backedge
+.tail38.thread:                                   ; preds = %sub_035, %sub_140, %.tail38
+  %52 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef nonnull %41) #6
+  %53 = call i32 @get_dirent_type(ptr noundef nonnull %5, ptr noundef nonnull %40, i1 noundef zeroext false, i32 noundef 21) #6
+  %54 = icmp eq i32 %53, 2
+  br i1 %54, label %55, label %.backedge
 
-69:                                               ; preds = %65
+55:                                               ; preds = %.tail38.thread
   call void @fsync_fname(ptr noundef nonnull %5, i1 noundef zeroext false) #6
   br label %.backedge
 
-._crit_edge46:                                    ; preds = %.backedge, %44
-  %70 = call i32 @FreeDir(ptr noundef %45) #6
+._crit_edge46:                                    ; preds = %.backedge, %37
+  %56 = call i32 @FreeDir(ptr noundef %38) #6
   call void @fsync_fname(ptr noundef %1, i1 noundef zeroext true) #6
-  br label %71
+  br label %57
 
-71:                                               ; preds = %._crit_edge, %._crit_edge46
+57:                                               ; preds = %._crit_edge, %._crit_edge46
   ret void
 }
 

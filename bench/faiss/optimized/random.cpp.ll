@@ -1514,14 +1514,14 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %39 = getelementptr i8, ptr %37, i64 4
   %40 = add nsw i64 %36, -4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %39, i8 0, i64 %40, i1 false)
+  %41 = ptrtoint ptr %38 to i64
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.noexc13, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %.sroa.055.0 = phi ptr [ %37, %.noexc13 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %.0.i.i.i.i.i = phi ptr [ %38, %.noexc13 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %41 = ptrtoint ptr %.0.i.i.i.i.i to i64
+  %.0.i.i.i.i.i = phi i64 [ %41, %.noexc13 ], [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   %42 = ptrtoint ptr %.sroa.055.0 to i64
-  %43 = sub i64 %41, %42
+  %43 = sub i64 %.0.i.i.i.i.i, %42
   %44 = ashr exact i64 %43, 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
@@ -1585,14 +1585,14 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i17: ; preds = %51
   %61 = getelementptr i8, ptr %59, i64 4
   %62 = add nsw i64 %58, -4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %61, i8 0, i64 %62, i1 false)
+  %63 = ptrtoint ptr %60 to i64
   br label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit23
 
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit23:             ; preds = %.noexc22, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i17
   %.sroa.0.0 = phi ptr [ %59, %.noexc22 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i17 ]
-  %.0.i.i.i.i.i19 = phi ptr [ %60, %.noexc22 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i17 ]
-  %63 = ptrtoint ptr %.0.i.i.i.i.i19 to i64
+  %.0.i.i.i.i.i19 = phi i64 [ %63, %.noexc22 ], [ 0, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i17 ]
   %64 = ptrtoint ptr %.sroa.0.0 to i64
-  %65 = sub i64 %63, %64
+  %65 = sub i64 %.0.i.i.i.i.i19, %64
   %66 = ashr exact i64 %65, 2
   %67 = add nsw i64 %3, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)

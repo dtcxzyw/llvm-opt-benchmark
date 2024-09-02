@@ -415,12 +415,13 @@ if.then159:                                       ; preds = %land.lhs.true156
 
 if.else160:                                       ; preds = %land.lhs.true156, %if.end154
   %38 = load i8, ptr %seq_eoc, align 1
+  %39 = icmp eq i8 %38, 0
   br label %if.end161
 
 if.end161:                                        ; preds = %if.else160, %if.then159
-  %seq_nolen.0 = phi i8 [ 1, %if.then159 ], [ %38, %if.else160 ]
-  %39 = load i8, ptr %cst, align 1
-  %tobool162.not = icmp eq i8 %39, 0
+  %seq_nolen.0 = phi i1 [ false, %if.then159 ], [ %39, %if.else160 ]
+  %40 = load i8, ptr %cst, align 1
+  %tobool162.not = icmp eq i8 %40, 0
   br i1 %tobool162.not, label %if.then163, label %if.end164
 
 if.then163:                                       ; preds = %if.end161
@@ -428,8 +429,8 @@ if.then163:                                       ; preds = %if.end161
   br label %err
 
 if.end164:                                        ; preds = %if.end161
-  %40 = load ptr, ptr %pval, align 8
-  %tobool165.not = icmp eq ptr %40, null
+  %41 = load ptr, ptr %pval, align 8
+  %tobool165.not = icmp eq ptr %41, null
   br i1 %tobool165.not, label %land.lhs.true166, label %if.end170
 
 land.lhs.true166:                                 ; preds = %if.end164
@@ -452,18 +453,18 @@ land.lhs.true172:                                 ; preds = %if.end170
 
 if.end176:                                        ; preds = %land.lhs.true172, %if.end170
   %templates177 = getelementptr inbounds i8, ptr %it, i64 16
-  %41 = load ptr, ptr %templates177, align 8
+  %42 = load ptr, ptr %templates177, align 8
   %tcount180 = getelementptr inbounds i8, ptr %it, i64 24
-  %42 = load i64, ptr %tcount180, align 8
-  %cmp181207 = icmp sgt i64 %42, 0
+  %43 = load i64, ptr %tcount180, align 8
+  %cmp181207 = icmp sgt i64 %43, 0
   br i1 %cmp181207, label %for.body183, label %for.end250thread-pre-split
 
 for.body183:                                      ; preds = %if.end176, %for.inc191
-  %43 = phi i64 [ %45, %for.inc191 ], [ %42, %if.end176 ]
+  %44 = phi i64 [ %46, %for.inc191 ], [ %43, %if.end176 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc191 ], [ 0, %if.end176 ]
-  %tt.1209 = phi ptr [ %incdec.ptr193, %for.inc191 ], [ %41, %if.end176 ]
-  %44 = load i64, ptr %tt.1209, align 8
-  %and185 = and i64 %44, 768
+  %tt.1209 = phi ptr [ %incdec.ptr193, %for.inc191 ], [ %42, %if.end176 ]
+  %45 = load i64, ptr %tt.1209, align 8
+  %and185 = and i64 %45, 768
   %tobool186.not = icmp eq i64 %and185, 0
   br i1 %tobool186.not, label %for.inc191, label %if.then187
 
@@ -475,16 +476,16 @@ if.then187:                                       ; preds = %for.body183
   br label %for.inc191
 
 for.inc191:                                       ; preds = %for.body183, %if.then187
-  %45 = phi i64 [ %43, %for.body183 ], [ %.pre, %if.then187 ]
+  %46 = phi i64 [ %44, %for.body183 ], [ %.pre, %if.then187 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %incdec.ptr193 = getelementptr inbounds i8, ptr %tt.1209, i64 40
-  %cmp181 = icmp sgt i64 %45, %indvars.iv.next
+  %cmp181 = icmp sgt i64 %46, %indvars.iv.next
   br i1 %cmp181, label %for.body183, label %for.end194, !llvm.loop !9
 
 for.end194:                                       ; preds = %for.inc191
   %.pre251 = load ptr, ptr %templates177, align 8
-  %cmp199210 = icmp sgt i64 %45, 0
-  br i1 %cmp199210, label %for.body201, label %for.end250thread-pre-split
+  %47 = icmp sgt i64 %46, 0
+  br i1 %47, label %for.body201, label %for.end250thread-pre-split
 
 for.body201:                                      ; preds = %for.end194, %for.inc247
   %indvars.iv240 = phi i64 [ %indvars.iv.next241, %for.inc247 ], [ 0, %for.end194 ]
@@ -495,31 +496,31 @@ for.body201:                                      ; preds = %for.end194, %for.in
 
 if.end207:                                        ; preds = %for.body201
   %call208 = call ptr @asn1_get_field_ptr(ptr noundef nonnull %pval, ptr noundef nonnull %call204) #7
-  %46 = load i64, ptr %len.addr, align 8
-  %tobool209.not = icmp eq i64 %46, 0
+  %48 = load i64, ptr %len.addr, align 8
+  %tobool209.not = icmp eq i64 %48, 0
   br i1 %tobool209.not, label %for.end250.loopexit, label %if.end211
 
 if.end211:                                        ; preds = %if.end207
-  %47 = load ptr, ptr %p, align 8
-  %cmp.i = icmp slt i64 %46, 2
+  %49 = load ptr, ptr %p, align 8
+  %cmp.i = icmp slt i64 %48, 2
   br i1 %cmp.i, label %if.end222, label %if.end.i172
 
 if.end.i172:                                      ; preds = %if.end211
-  %48 = load i8, ptr %47, align 1
-  %tobool.not.i = icmp eq i8 %48, 0
+  %50 = load i8, ptr %49, align 1
+  %tobool.not.i = icmp eq i8 %50, 0
   br i1 %tobool.not.i, label %land.lhs.true.i, label %if.end222
 
 land.lhs.true.i:                                  ; preds = %if.end.i172
-  %arrayidx1.i = getelementptr inbounds i8, ptr %47, i64 1
-  %49 = load i8, ptr %arrayidx1.i, align 1
-  %tobool2.not.i = icmp eq i8 %49, 0
+  %arrayidx1.i = getelementptr inbounds i8, ptr %49, i64 1
+  %51 = load i8, ptr %arrayidx1.i, align 1
+  %tobool2.not.i = icmp eq i8 %51, 0
   br i1 %tobool2.not.i, label %if.then214, label %if.end222
 
 if.then214:                                       ; preds = %land.lhs.true.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %47, i64 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %49, i64 2
   store ptr %add.ptr.i, ptr %p, align 8
-  %50 = load i8, ptr %seq_eoc, align 1
-  %tobool215.not = icmp eq i8 %50, 0
+  %52 = load i8, ptr %seq_eoc, align 1
+  %tobool215.not = icmp eq i8 %52, 0
   br i1 %tobool215.not, label %if.then216, label %for.end250.thread
 
 if.then216:                                       ; preds = %if.then214
@@ -527,30 +528,30 @@ if.then216:                                       ; preds = %if.then214
   br label %err
 
 for.end250.thread:                                ; preds = %if.then214
-  %51 = trunc nuw nsw i64 %indvars.iv240 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv240 to i32
   %sub.ptr.lhs.cast218 = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast219 = ptrtoint ptr %47 to i64
-  %sub.ptr.sub220.neg = add i64 %46, %sub.ptr.rhs.cast219
+  %sub.ptr.rhs.cast219 = ptrtoint ptr %49 to i64
+  %sub.ptr.sub220.neg = add i64 %48, %sub.ptr.rhs.cast219
   %sub221 = sub i64 %sub.ptr.sub220.neg, %sub.ptr.lhs.cast218
   store i64 %sub221, ptr %len.addr, align 8
   store i8 0, ptr %seq_eoc, align 1
   br label %if.end257
 
 if.end222:                                        ; preds = %if.end211, %land.lhs.true.i, %if.end.i172
-  %52 = load i64, ptr %tcount180, align 8
-  %sub225 = add nsw i64 %52, -1
+  %54 = load i64, ptr %tcount180, align 8
+  %sub225 = add nsw i64 %54, -1
   %cmp226 = icmp eq i64 %sub225, %indvars.iv240
   br i1 %cmp226, label %if.end233, label %if.else229
 
 if.else229:                                       ; preds = %if.end222
-  %53 = load i64, ptr %call204, align 8
-  %54 = trunc i64 %53 to i8
-  %conv232 = and i8 %54, 1
+  %55 = load i64, ptr %call204, align 8
+  %56 = trunc i64 %55 to i8
+  %conv232 = and i8 %56, 1
   br label %if.end233
 
 if.end233:                                        ; preds = %if.end222, %if.else229
   %isopt.0 = phi i8 [ %conv232, %if.else229 ], [ 0, %if.end222 ]
-  %call234 = call fastcc i32 @asn1_template_ex_d2i(ptr noundef %call208, ptr noundef nonnull %p, i64 noundef %46, ptr noundef nonnull %call204, i8 noundef signext %isopt.0, ptr noundef %ctx)
+  %call234 = call fastcc i32 @asn1_template_ex_d2i(ptr noundef %call208, ptr noundef nonnull %p, i64 noundef %48, ptr noundef nonnull %call204, i8 noundef signext %isopt.0, ptr noundef %ctx)
   switch i32 %call234, label %if.end242 [
     i32 0, label %err
     i32 -1, label %if.then240
@@ -561,20 +562,20 @@ if.then240:                                       ; preds = %if.end233
   br label %for.inc247
 
 if.end242:                                        ; preds = %if.end233
-  %55 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast243 = ptrtoint ptr %55 to i64
-  %sub.ptr.rhs.cast244 = ptrtoint ptr %47 to i64
+  %57 = load ptr, ptr %p, align 8
+  %sub.ptr.lhs.cast243 = ptrtoint ptr %57 to i64
+  %sub.ptr.rhs.cast244 = ptrtoint ptr %49 to i64
   %sub.ptr.sub245.neg = sub i64 %sub.ptr.rhs.cast244, %sub.ptr.lhs.cast243
-  %56 = load i64, ptr %len.addr, align 8
-  %sub246 = add i64 %sub.ptr.sub245.neg, %56
+  %58 = load i64, ptr %len.addr, align 8
+  %sub246 = add i64 %sub.ptr.sub245.neg, %58
   store i64 %sub246, ptr %len.addr, align 8
   br label %for.inc247
 
 for.inc247:                                       ; preds = %if.end242, %if.then240
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %incdec.ptr249 = getelementptr inbounds i8, ptr %tt.2212, i64 40
-  %57 = load i64, ptr %tcount180, align 8
-  %cmp199 = icmp sgt i64 %57, %indvars.iv.next241
+  %59 = load i64, ptr %tcount180, align 8
+  %cmp199 = icmp sgt i64 %59, %indvars.iv.next241
   br i1 %cmp199, label %for.body201, label %for.end250thread-pre-split.loopexit, !llvm.loop !10
 
 for.end250thread-pre-split.loopexit:              ; preds = %for.inc247
@@ -583,17 +584,17 @@ for.end250thread-pre-split.loopexit:              ; preds = %for.inc247
 
 for.end250thread-pre-split:                       ; preds = %for.end250thread-pre-split.loopexit, %if.end176, %for.end194
   %i.2.lcssa.ph = phi i32 [ 0, %for.end194 ], [ 0, %if.end176 ], [ %indvars.le, %for.end250thread-pre-split.loopexit ]
-  %tt.2.lcssa.ph = phi ptr [ %.pre251, %for.end194 ], [ %41, %if.end176 ], [ %incdec.ptr249, %for.end250thread-pre-split.loopexit ]
+  %tt.2.lcssa.ph = phi ptr [ %.pre251, %for.end194 ], [ %42, %if.end176 ], [ %incdec.ptr249, %for.end250thread-pre-split.loopexit ]
   %.pre252.pr = load i64, ptr %len.addr, align 8
   br label %for.end250
 
 for.end250.loopexit:                              ; preds = %if.end207
-  %58 = trunc nuw nsw i64 %indvars.iv240 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv240 to i32
   br label %for.end250
 
 for.end250:                                       ; preds = %for.end250.loopexit, %for.end250thread-pre-split
   %.pre252 = phi i64 [ %.pre252.pr, %for.end250thread-pre-split ], [ 0, %for.end250.loopexit ]
-  %i.2.lcssa = phi i32 [ %i.2.lcssa.ph, %for.end250thread-pre-split ], [ %58, %for.end250.loopexit ]
+  %i.2.lcssa = phi i32 [ %i.2.lcssa.ph, %for.end250thread-pre-split ], [ %60, %for.end250.loopexit ]
   %tt.2.lcssa = phi ptr [ %tt.2.lcssa.ph, %for.end250thread-pre-split ], [ %tt.2212, %for.end250.loopexit ]
   %.pr = load i8, ptr %seq_eoc, align 1
   %tobool252.not = icmp eq i8 %.pr, 0
@@ -604,19 +605,19 @@ land.lhs.true253:                                 ; preds = %for.end250
   br i1 %cmp.i174, label %if.then256, label %if.end.i175
 
 if.end.i175:                                      ; preds = %land.lhs.true253
-  %59 = load ptr, ptr %p, align 8
-  %60 = load i8, ptr %59, align 1
-  %tobool.not.i176 = icmp eq i8 %60, 0
+  %61 = load ptr, ptr %p, align 8
+  %62 = load i8, ptr %61, align 1
+  %tobool.not.i176 = icmp eq i8 %62, 0
   br i1 %tobool.not.i176, label %land.lhs.true.i178, label %if.then256
 
 land.lhs.true.i178:                               ; preds = %if.end.i175
-  %arrayidx1.i179 = getelementptr inbounds i8, ptr %59, i64 1
-  %61 = load i8, ptr %arrayidx1.i179, align 1
-  %tobool2.not.i180 = icmp eq i8 %61, 0
+  %arrayidx1.i179 = getelementptr inbounds i8, ptr %61, i64 1
+  %63 = load i8, ptr %arrayidx1.i179, align 1
+  %tobool2.not.i180 = icmp eq i8 %63, 0
   br i1 %tobool2.not.i180, label %asn1_check_eoc.exit183, label %if.then256
 
 asn1_check_eoc.exit183:                           ; preds = %land.lhs.true.i178
-  %add.ptr.i182 = getelementptr inbounds i8, ptr %59, i64 2
+  %add.ptr.i182 = getelementptr inbounds i8, ptr %61, i64 2
   store ptr %add.ptr.i182, ptr %p, align 8
   br label %if.end257
 
@@ -625,18 +626,17 @@ if.then256:                                       ; preds = %land.lhs.true253, %
   br label %err
 
 if.end257:                                        ; preds = %asn1_check_eoc.exit183, %for.end250.thread, %for.end250
-  %62 = phi i64 [ 1, %asn1_check_eoc.exit183 ], [ %sub221, %for.end250.thread ], [ %.pre252, %for.end250 ]
-  %i.2206 = phi i32 [ %i.2.lcssa, %asn1_check_eoc.exit183 ], [ %51, %for.end250.thread ], [ %i.2.lcssa, %for.end250 ]
+  %64 = phi i64 [ 1, %asn1_check_eoc.exit183 ], [ %sub221, %for.end250.thread ], [ %.pre252, %for.end250 ]
+  %i.2206 = phi i32 [ %i.2.lcssa, %asn1_check_eoc.exit183 ], [ %53, %for.end250.thread ], [ %i.2.lcssa, %for.end250 ]
   %tt.2203 = phi ptr [ %tt.2.lcssa, %asn1_check_eoc.exit183 ], [ %tt.2212, %for.end250.thread ], [ %tt.2.lcssa, %for.end250 ]
-  %tobool258 = icmp eq i8 %seq_nolen.0, 0
-  %tobool260 = icmp ne i64 %62, 0
-  %or.cond1 = select i1 %tobool258, i1 %tobool260, i1 false
+  %tobool260 = icmp ne i64 %64, 0
+  %or.cond1 = select i1 %seq_nolen.0, i1 %tobool260, i1 false
   br i1 %or.cond1, label %if.then261, label %for.cond263.preheader
 
 for.cond263.preheader:                            ; preds = %if.end257
   %conv264217 = zext i32 %i.2206 to i64
-  %63 = load i64, ptr %tcount180, align 8
-  %cmp266218 = icmp sgt i64 %63, %conv264217
+  %65 = load i64, ptr %tcount180, align 8
+  %cmp266218 = icmp sgt i64 %65, %conv264217
   br i1 %cmp266218, label %for.body268, label %for.end285
 
 if.then261:                                       ; preds = %if.end257
@@ -651,8 +651,8 @@ for.body268:                                      ; preds = %for.cond263.prehead
   br i1 %tobool271.not, label %err, label %if.end273
 
 if.end273:                                        ; preds = %for.body268
-  %64 = load i64, ptr %call270, align 8
-  %and275 = and i64 %64, 1
+  %66 = load i64, ptr %call270, align 8
+  %and275 = and i64 %66, 1
   %tobool276.not = icmp eq i64 %and275, 0
   br i1 %tobool276.not, label %if.else280, label %if.then277
 
@@ -661,8 +661,8 @@ if.then277:                                       ; preds = %if.end273
   call void @ASN1_template_free(ptr noundef %call279, ptr noundef nonnull %call270) #7
   %incdec.ptr283 = getelementptr inbounds i8, ptr %tt.3220, i64 40
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
-  %65 = load i64, ptr %tcount180, align 8
-  %cmp266 = icmp sgt i64 %65, %indvars.iv.next244
+  %67 = load i64, ptr %tcount180, align 8
+  %cmp266 = icmp sgt i64 %67, %indvars.iv.next244
   br i1 %cmp266, label %for.body268, label %for.end285, !llvm.loop !11
 
 if.else280:                                       ; preds = %if.end273
@@ -670,13 +670,13 @@ if.else280:                                       ; preds = %if.end273
   br label %err
 
 for.end285:                                       ; preds = %if.then277, %for.cond263.preheader
-  %66 = load ptr, ptr %in, align 8
-  %67 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast286 = ptrtoint ptr %67 to i64
-  %sub.ptr.rhs.cast287 = ptrtoint ptr %66 to i64
+  %68 = load ptr, ptr %in, align 8
+  %69 = load ptr, ptr %p, align 8
+  %sub.ptr.lhs.cast286 = ptrtoint ptr %69 to i64
+  %sub.ptr.rhs.cast287 = ptrtoint ptr %68 to i64
   %sub.ptr.sub288 = sub i64 %sub.ptr.lhs.cast286, %sub.ptr.rhs.cast287
   %conv289 = trunc i64 %sub.ptr.sub288 to i32
-  %call290 = call i32 @asn1_enc_save(ptr noundef nonnull %pval, ptr noundef %66, i32 noundef %conv289, ptr noundef nonnull %it) #7
+  %call290 = call i32 @asn1_enc_save(ptr noundef nonnull %pval, ptr noundef %68, i32 noundef %conv289, ptr noundef nonnull %it) #7
   %tobool291.not = icmp eq i32 %call290, 0
   br i1 %tobool291.not, label %auxerr, label %if.end293
 
@@ -689,8 +689,8 @@ land.lhs.true295:                                 ; preds = %if.end293
   br i1 %tobool297.not, label %auxerr, label %if.end299
 
 if.end299:                                        ; preds = %land.lhs.true295, %if.end293
-  %68 = load ptr, ptr %p, align 8
-  store ptr %68, ptr %in, align 8
+  %70 = load ptr, ptr %p, align 8
+  store ptr %70, ptr %in, align 8
   br label %return
 
 auxerr:                                           ; preds = %land.lhs.true295, %for.end285, %land.lhs.true172, %land.lhs.true136, %land.lhs.true85
@@ -712,16 +712,16 @@ if.end303:                                        ; preds = %if.then302, %err
 
 if.then305:                                       ; preds = %if.end303
   %field_name = getelementptr inbounds i8, ptr %errtt.0, i64 24
-  %69 = load ptr, ptr %field_name, align 8
+  %71 = load ptr, ptr %field_name, align 8
   %sname = getelementptr inbounds i8, ptr %it, i64 48
-  %70 = load ptr, ptr %sname, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %69, ptr noundef nonnull @.str.2, ptr noundef %70) #7
+  %72 = load ptr, ptr %sname, align 8
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %71, ptr noundef nonnull @.str.2, ptr noundef %72) #7
   br label %return
 
 if.else306:                                       ; preds = %if.end303
   %sname307 = getelementptr inbounds i8, ptr %it, i64 48
-  %71 = load ptr, ptr %sname307, align 8
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %71) #7
+  %73 = load ptr, ptr %sname307, align 8
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %73) #7
   br label %return
 
 return:                                           ; preds = %if.then305, %if.else306, %if.end6, %sw.bb141, %if.end79, %if.end52, %if.then33, %if.then25, %entry, %if.end299, %if.end140, %if.then131, %sw.bb39, %if.end37, %if.end15, %if.end13

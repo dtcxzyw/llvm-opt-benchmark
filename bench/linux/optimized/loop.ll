@@ -2224,7 +2224,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   store i32 %19, ptr %11, align 8
   %20 = call i32 @loop_configure(ptr noundef %16, i32 noundef %1, ptr noundef %0, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %11) #14
-  br label %.thread35
+  br label %.thread33
 
 21:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %12) #14
@@ -2240,13 +2240,13 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
 26:                                               ; preds = %24, %21
   %27 = phi i32 [ %25, %24 ], [ -14, %21 ]
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %12) #14
-  br label %.thread35
+  br label %.thread33
 
 28:                                               ; preds = %4
   %29 = trunc i64 %3 to i32
   %30 = tail call ptr @fget(i32 noundef %29) #14
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.thread35, label %32
+  br i1 %31, label %.thread33, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %16, i64 432
@@ -2298,40 +2298,40 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %64 = getelementptr inbounds i8, ptr %16, i64 120
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 1
-  br i1 %66, label %67, label %.thread32
+  br i1 %66, label %67, label %.thread30
 
 67:                                               ; preds = %.thread
   %68 = getelementptr inbounds i8, ptr %16, i64 24
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %.thread32, label %72
+  br i1 %71, label %.thread30, label %72
 
 72:                                               ; preds = %67
   %73 = load ptr, ptr %40, align 8
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %0, i64 52
   %76 = icmp eq ptr %74, null
-  br i1 %76, label %.thread26, label %.lr.ph
+  br i1 %76, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %72, %97
   %77 = phi ptr [ %102, %97 ], [ %74, %72 ]
   %78 = load i16, ptr %77, align 8
   %79 = and i16 %78, -4096
   %80 = icmp eq i16 %79, 24576
-  br i1 %80, label %81, label %.thread26
+  br i1 %80, label %81, label %.critedge
 
 81:                                               ; preds = %.lr.ph
   %82 = getelementptr inbounds i8, ptr %77, i64 76
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, -1048576
-  %.not44 = icmp eq i32 %84, 7340032
-  br i1 %.not44, label %85, label %.thread26
+  %.not42 = icmp eq i32 %84, 7340032
+  br i1 %.not42, label %85, label %.critedge
 
 85:                                               ; preds = %81
   %86 = load i32, ptr %75, align 4
   %87 = icmp eq i32 %83, %86
-  br i1 %87, label %.thread32, label %88
+  br i1 %87, label %.thread30, label %88
 
 88:                                               ; preds = %85
   %89 = tail call ptr @I_BDEV(ptr noundef nonnull %77) #14
@@ -2342,7 +2342,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %94 = getelementptr inbounds i8, ptr %93, i64 120
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, 1
-  br i1 %96, label %97, label %.thread32
+  br i1 %96, label %97, label %.thread30
 
 97:                                               ; preds = %88
   tail call void asm sideeffect "lfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !39
@@ -2352,17 +2352,17 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %.thread26, label %.lr.ph, !llvm.loop !40
+  br i1 %103, label %.critedge, label %.lr.ph, !llvm.loop !40
 
-.thread26:                                        ; preds = %81, %.lr.ph, %97, %72
+.critedge:                                        ; preds = %81, %97, %.lr.ph, %72
   %104 = load i16, ptr %74, align 8
   %105 = and i16 %104, -4096
-  switch i16 %105, label %.thread32 [
+  switch i16 %105, label %.thread30 [
     i16 -32768, label %106
     i16 24576, label %106
   ]
 
-106:                                              ; preds = %.thread26, %.thread26
+106:                                              ; preds = %.critedge, %.critedge
   %107 = getelementptr inbounds i8, ptr %16, i64 96
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds i8, ptr %16, i64 8
@@ -2408,7 +2408,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
 141:                                              ; preds = %134, %125
   %142 = phi i64 [ %140, %134 ], [ 0, %125 ]
   %143 = icmp eq i64 %126, %142
-  br i1 %143, label %144, label %.thread32
+  br i1 %143, label %144, label %.thread30
 
 144:                                              ; preds = %141
   %145 = load ptr, ptr %33, align 8
@@ -2471,28 +2471,28 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %181 = load i8, ptr %180, align 4
   %182 = and i8 %181, -17
   store i8 %182, ptr %180, align 4
-  br label %.thread35
+  br label %.thread33
 
-.thread32:                                        ; preds = %88, %85, %.thread26, %141, %67, %.thread
-  %183 = phi i32 [ -6, %.thread ], [ -22, %141 ], [ -22, %67 ], [ -22, %.thread26 ], [ -9, %85 ], [ -22, %88 ]
+.thread30:                                        ; preds = %88, %85, %.critedge, %141, %67, %.thread
+  %183 = phi i32 [ -6, %.thread ], [ -22, %141 ], [ -22, %67 ], [ -22, %.critedge ], [ -9, %85 ], [ -22, %88 ]
   %184 = getelementptr inbounds i8, ptr %16, i64 440
   tail call void @mutex_unlock(ptr noundef %184) #14
   br i1 %63, label %.thread24.sink.split, label %.thread24
 
-.thread24.sink.split:                             ; preds = %.thread32, %56
-  %.ph = phi i32 [ %58, %56 ], [ %183, %.thread32 ]
+.thread24.sink.split:                             ; preds = %.thread30, %56
+  %.ph = phi i32 [ %58, %56 ], [ %183, %.thread30 ]
   tail call void @mutex_unlock(ptr noundef nonnull @loop_validate_mutex) #14
   br label %.thread24
 
-.thread24:                                        ; preds = %.thread24.sink.split, %53, %.thread32, %59
-  %185 = phi i32 [ %61, %59 ], [ %183, %.thread32 ], [ %54, %53 ], [ %.ph, %.thread24.sink.split ]
+.thread24:                                        ; preds = %.thread24.sink.split, %53, %.thread30, %59
+  %185 = phi i32 [ %61, %59 ], [ %183, %.thread30 ], [ %54, %53 ], [ %.ph, %.thread24.sink.split ]
   tail call void @fput(ptr noundef nonnull %30) #14
   br label %175
 
 186:                                              ; preds = %4
   %187 = tail call i32 @mutex_lock_killable(ptr noundef nonnull @loop_validate_mutex) #14
   %188 = icmp eq i32 %187, 0
-  br i1 %188, label %189, label %.thread35
+  br i1 %188, label %189, label %.thread33
 
 189:                                              ; preds = %186
   %190 = getelementptr inbounds i8, ptr %16, i64 440
@@ -2502,7 +2502,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
 
 193:                                              ; preds = %189
   tail call void @mutex_unlock(ptr noundef nonnull @loop_validate_mutex) #14
-  br label %.thread35
+  br label %.thread33
 
 194:                                              ; preds = %189
   %195 = getelementptr inbounds i8, ptr %16, i64 120
@@ -2513,7 +2513,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
 198:                                              ; preds = %194
   tail call void @mutex_unlock(ptr noundef %190) #14
   tail call void @mutex_unlock(ptr noundef nonnull @loop_validate_mutex) #14
-  br label %.thread35
+  br label %.thread33
 
 199:                                              ; preds = %194
   %200 = getelementptr inbounds i8, ptr %16, i64 432
@@ -2532,14 +2532,14 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   store i32 %210, ptr %208, align 8
   tail call void @mutex_unlock(ptr noundef %190) #14
   tail call void @mutex_unlock(ptr noundef nonnull @loop_validate_mutex) #14
-  br label %.thread35
+  br label %.thread33
 
 211:                                              ; preds = %199
   store i32 2, ptr %195, align 8
   tail call void @mutex_unlock(ptr noundef %190) #14
   tail call void @mutex_unlock(ptr noundef nonnull @loop_validate_mutex) #14
   tail call fastcc void @__loop_clr_fd(ptr noundef %16, i1 noundef zeroext false)
-  br label %.thread35
+  br label %.thread33
 
 212:                                              ; preds = %4
   %213 = and i32 %1, 2
@@ -2548,7 +2548,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
 
 215:                                              ; preds = %212
   %216 = tail call zeroext i1 @capable(i32 noundef 21) #14
-  br i1 %216, label %217, label %.thread35
+  br i1 %216, label %217, label %.thread33
 
 217:                                              ; preds = %215, %212
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %9) #14
@@ -2596,19 +2596,19 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %244 = phi i32 [ %242, %220 ], [ -14, %217 ]
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %9) #14
-  br label %.thread35
+  br label %.thread33
 
 245:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %7) #14
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %8) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %8, i8 0, i64 232, i1 false), !annotation !10
   %246 = icmp eq i64 %3, 0
-  br i1 %246, label %.thread39, label %247
+  br i1 %246, label %.thread37, label %247
 
 247:                                              ; preds = %245
   %248 = call fastcc i32 @loop_get_status(ptr noundef %16, ptr noundef nonnull %8)
   %249 = icmp eq i32 %248, 0
-  br i1 %249, label %250, label %.thread39
+  br i1 %249, label %250, label %.thread37
 
 250:                                              ; preds = %247
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %7, i8 0, i64 168, i1 false)
@@ -2640,19 +2640,19 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(64) %268, ptr noundef align 8 dereferenceable(64) %269, i64 64, i1 false)
   %270 = add i64 %262, 2147483648
   %271 = icmp ult i64 %270, 4294967296
-  br i1 %271, label %272, label %.thread39
+  br i1 %271, label %272, label %.thread37
 
 272:                                              ; preds = %250
   %273 = call i64 @_copy_to_user(ptr noundef nonnull %17, ptr noundef nonnull %7, i64 noundef 168) #14
   %274 = icmp eq i64 %273, 0
   %275 = select i1 %274, i32 0, i32 -14
-  br label %.thread39
+  br label %.thread37
 
-.thread39:                                        ; preds = %250, %247, %272, %245
+.thread37:                                        ; preds = %250, %247, %272, %245
   %276 = phi i32 [ -22, %245 ], [ %275, %272 ], [ -75, %250 ], [ %248, %247 ]
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7) #14
-  br label %.thread35
+  br label %.thread33
 
 277:                                              ; preds = %4
   %278 = and i32 %1, 2
@@ -2661,7 +2661,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
 
 280:                                              ; preds = %277
   %281 = tail call zeroext i1 @capable(i32 noundef 21) #14
-  br i1 %281, label %282, label %.thread35
+  br i1 %281, label %282, label %.thread33
 
 282:                                              ; preds = %280, %277
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %6) #14
@@ -2677,7 +2677,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
 287:                                              ; preds = %285, %282
   %288 = phi i32 [ %286, %285 ], [ -14, %282 ]
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %6) #14
-  br label %.thread35
+  br label %.thread33
 
 289:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %5) #14
@@ -2699,7 +2699,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
 298:                                              ; preds = %294, %291, %289
   %299 = phi i32 [ -22, %289 ], [ %292, %291 ], [ %297, %294 ]
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %5) #14
-  br label %.thread35
+  br label %.thread33
 
 300:                                              ; preds = %4, %4, %4
   %301 = and i32 %1, 2
@@ -2708,16 +2708,16 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
 
 303:                                              ; preds = %300
   %304 = tail call zeroext i1 @capable(i32 noundef 21) #14
-  br i1 %304, label %305, label %.thread35
+  br i1 %304, label %305, label %.thread33
 
 305:                                              ; preds = %303, %300, %4
   %306 = getelementptr inbounds i8, ptr %16, i64 440
   %307 = tail call i32 @mutex_lock_killable(ptr noundef %306) #14
   %308 = icmp eq i32 %307, 0
-  br i1 %308, label %309, label %.thread35
+  br i1 %308, label %309, label %.thread33
 
 309:                                              ; preds = %305
-  switch i32 %2, label %.thread42 [
+  switch i32 %2, label %.thread40 [
     i32 19463, label %310
     i32 19464, label %345
     i32 19465, label %356
@@ -2727,7 +2727,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %311 = getelementptr inbounds i8, ptr %16, i64 120
   %312 = load i32, ptr %311, align 8
   %313 = icmp eq i32 %312, 1
-  br i1 %313, label %314, label %.thread42, !prof !11
+  br i1 %313, label %314, label %.thread40, !prof !11
 
 314:                                              ; preds = %310
   %315 = getelementptr inbounds i8, ptr %16, i64 96
@@ -2758,7 +2758,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %336 = getelementptr inbounds i8, ptr %16, i64 432
   %337 = load ptr, ptr %336, align 8
   %338 = tail call zeroext i1 @set_capacity_and_notify(ptr noundef %337, i64 noundef %335) #14
-  br i1 %338, label %.thread42, label %339
+  br i1 %338, label %.thread40, label %339
 
 339:                                              ; preds = %334
   %340 = load ptr, ptr %336, align 8
@@ -2766,13 +2766,13 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %342 = load ptr, ptr %341, align 8
   %343 = getelementptr inbounds i8, ptr %342, i64 200
   %344 = tail call i32 @kobject_uevent(ptr noundef %343, i32 noundef 2) #14
-  br label %.thread42
+  br label %.thread40
 
 345:                                              ; preds = %309
   %346 = getelementptr inbounds i8, ptr %16, i64 120
   %347 = load i32, ptr %346, align 8
   %348 = icmp eq i32 %347, 1
-  br i1 %348, label %349, label %.thread42
+  br i1 %348, label %349, label %.thread40
 
 349:                                              ; preds = %345
   %350 = icmp ne i64 %3, 0
@@ -2782,13 +2782,13 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %353 = zext i1 %350 to i8
   %354 = icmp eq i8 %352, %353
   %355 = select i1 %354, i32 0, i32 -22
-  br label %.thread42
+  br label %.thread40
 
 356:                                              ; preds = %309
   %357 = getelementptr inbounds i8, ptr %16, i64 120
   %358 = load i32, ptr %357, align 8
   %359 = icmp eq i32 %358, 1
-  br i1 %359, label %360, label %.thread42
+  br i1 %359, label %360, label %.thread40
 
 360:                                              ; preds = %356
   %361 = add i64 %3, -512
@@ -2796,7 +2796,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %363 = tail call range(i64 0, 14) i64 @llvm.ctpop.i64(i64 %3), !range !41
   %364 = icmp ult i64 %363, 2
   %or.cond = select i1 %362, i1 %364, i1 false
-  br i1 %or.cond, label %365, label %.thread42
+  br i1 %or.cond, label %365, label %.thread40
 
 365:                                              ; preds = %360
   %366 = getelementptr inbounds i8, ptr %16, i64 256
@@ -2805,7 +2805,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %369 = load i32, ptr %368, align 4
   %370 = zext i32 %369 to i64
   %371 = icmp eq i64 %3, %370
-  br i1 %371, label %.thread42, label %372
+  br i1 %371, label %.thread40, label %372
 
 372:                                              ; preds = %365
   %373 = getelementptr inbounds i8, ptr %16, i64 104
@@ -2835,15 +2835,15 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   tail call fastcc void @__loop_update_dio(ptr noundef %16, i1 noundef zeroext %391)
   %392 = load ptr, ptr %366, align 8
   tail call void @blk_mq_unfreeze_queue(ptr noundef %392) #14
-  br label %.thread42
+  br label %.thread40
 
-.thread42:                                        ; preds = %360, %372, %365, %356, %349, %345, %339, %334, %310, %309
+.thread40:                                        ; preds = %360, %372, %365, %356, %349, %345, %339, %334, %310, %309
   %393 = phi i32 [ -22, %309 ], [ -6, %310 ], [ 0, %334 ], [ 0, %339 ], [ -6, %345 ], [ %355, %349 ], [ 0, %372 ], [ -6, %356 ], [ 0, %365 ], [ -22, %360 ]
   tail call void @mutex_unlock(ptr noundef %306) #14
-  br label %.thread35
+  br label %.thread33
 
-.thread35:                                        ; preds = %193, %186, %.thread42, %305, %303, %298, %287, %280, %.thread39, %243, %215, %211, %207, %198, %175, %28, %26, %18
-  %394 = phi i32 [ %299, %298 ], [ %276, %.thread39 ], [ %27, %26 ], [ %20, %18 ], [ -1, %303 ], [ %288, %287 ], [ -1, %280 ], [ %244, %243 ], [ -1, %215 ], [ %176, %175 ], [ -9, %28 ], [ -6, %198 ], [ 0, %207 ], [ 0, %211 ], [ %393, %.thread42 ], [ %307, %305 ], [ %191, %193 ], [ %187, %186 ]
+.thread33:                                        ; preds = %193, %186, %.thread40, %305, %303, %298, %287, %280, %.thread37, %243, %215, %211, %207, %198, %175, %28, %26, %18
+  %394 = phi i32 [ %299, %298 ], [ %276, %.thread37 ], [ %27, %26 ], [ %20, %18 ], [ -1, %303 ], [ %288, %287 ], [ -1, %280 ], [ %244, %243 ], [ -1, %215 ], [ %176, %175 ], [ -9, %28 ], [ -6, %198 ], [ 0, %207 ], [ 0, %211 ], [ %393, %.thread40 ], [ %307, %305 ], [ %191, %193 ], [ %187, %186 ]
   ret i32 %394
 }
 
@@ -3337,45 +3337,45 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   %34 = getelementptr inbounds i8, ptr %0, i64 440
   %35 = tail call i32 @mutex_lock_killable(ptr noundef %34) #14
   %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %.thread34, label %.thread18.sink.split
+  br i1 %.not, label %.thread32, label %.thread18.sink.split
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds i8, ptr %0, i64 440
   %38 = tail call i32 @mutex_lock_killable(ptr noundef %37) #14
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.thread34, label %.thread18
+  br i1 %39, label %.thread32, label %.thread18
 
-.thread34:                                        ; preds = %33, %36
+.thread32:                                        ; preds = %33, %36
   %40 = getelementptr inbounds i8, ptr %0, i64 120
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %.thread26
+  br i1 %42, label %43, label %.thread24
 
-43:                                               ; preds = %.thread34
+43:                                               ; preds = %.thread32
   %44 = load ptr, ptr %9, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %2, i64 52
   %47 = icmp eq ptr %45, null
-  br i1 %47, label %.thread20, label %.lr.ph
+  br i1 %47, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %43, %68
   %48 = phi ptr [ %73, %68 ], [ %45, %43 ]
   %49 = load i16, ptr %48, align 8
   %50 = and i16 %49, -4096
   %51 = icmp eq i16 %50, 24576
-  br i1 %51, label %52, label %.thread20
+  br i1 %51, label %52, label %.critedge
 
 52:                                               ; preds = %.lr.ph
   %53 = getelementptr inbounds i8, ptr %48, i64 76
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, -1048576
-  %.not31 = icmp eq i32 %55, 7340032
-  br i1 %.not31, label %56, label %.thread20
+  %.not29 = icmp eq i32 %55, 7340032
+  br i1 %.not29, label %56, label %.critedge
 
 56:                                               ; preds = %52
   %57 = load i32, ptr %46, align 4
   %58 = icmp eq i32 %54, %57
-  br i1 %58, label %.thread26, label %59
+  br i1 %58, label %.thread24, label %59
 
 59:                                               ; preds = %56
   %60 = tail call ptr @I_BDEV(ptr noundef nonnull %48) #14
@@ -3386,7 +3386,7 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   %65 = getelementptr inbounds i8, ptr %64, i64 120
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, 1
-  br i1 %67, label %68, label %.thread26
+  br i1 %67, label %68, label %.thread24
 
 68:                                               ; preds = %59
   tail call void asm sideeffect "lfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !39
@@ -3396,17 +3396,17 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.thread20, label %.lr.ph, !llvm.loop !40
+  br i1 %74, label %.critedge, label %.lr.ph, !llvm.loop !40
 
-.thread20:                                        ; preds = %52, %.lr.ph, %68, %43
+.critedge:                                        ; preds = %52, %68, %.lr.ph, %43
   %75 = load i16, ptr %45, align 8
   %76 = and i16 %75, -4096
-  switch i16 %76, label %.thread26 [
+  switch i16 %76, label %.thread24 [
     i16 -32768, label %77
     i16 24576, label %77
   ]
 
-77:                                               ; preds = %.thread20, %.thread20
+77:                                               ; preds = %.critedge, %.critedge
   %78 = load ptr, ptr %9, align 8
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %3, i64 8
@@ -3414,7 +3414,7 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %82, -30
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %85, label %.thread26
+  br i1 %84, label %85, label %.thread24
 
 85:                                               ; preds = %77
   %86 = getelementptr inbounds i8, ptr %3, i64 4
@@ -3429,12 +3429,12 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   %93 = tail call range(i64 1, 14) i64 @llvm.ctpop.i64(i64 %90), !range !41
   %94 = icmp ult i64 %93, 2
   %or.cond = select i1 %92, i1 %94, i1 false
-  br i1 %or.cond, label %95, label %.thread26
+  br i1 %or.cond, label %95, label %.thread24
 
 95:                                               ; preds = %89, %85
   %96 = tail call fastcc i32 @loop_set_status_from_info(ptr noundef %0, ptr noundef %80), !range !42
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %.thread26
+  br i1 %97, label %98, label %.thread24
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds i8, ptr %6, i64 20
@@ -3470,7 +3470,7 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   %120 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.5, i32 noundef 6, i32 noundef 0, i32 noundef %119) #14
   store ptr %120, ptr %115, align 8
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %.thread26, label %122
+  br i1 %121, label %.thread24, label %122
 
 122:                                              ; preds = %118, %114
   %123 = getelementptr inbounds i8, ptr %0, i64 432
@@ -3685,19 +3685,19 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
   tail call void @bd_abort_claiming(ptr noundef %2, ptr noundef nonnull @loop_configure) #14
   br label %263
 
-.thread26:                                        ; preds = %59, %56, %.thread20, %89, %118, %95, %77, %.thread34
-  %257 = phi i32 [ -16, %.thread34 ], [ %96, %95 ], [ -22, %77 ], [ -12, %118 ], [ -22, %.thread20 ], [ -22, %89 ], [ -9, %56 ], [ -22, %59 ]
+.thread24:                                        ; preds = %59, %56, %.critedge, %89, %118, %95, %77, %.thread32
+  %257 = phi i32 [ -16, %.thread32 ], [ %96, %95 ], [ -22, %77 ], [ -12, %118 ], [ -22, %.critedge ], [ -22, %89 ], [ -9, %56 ], [ -22, %59 ]
   %258 = getelementptr inbounds i8, ptr %0, i64 440
   tail call void @mutex_unlock(ptr noundef %258) #14
   br i1 %23, label %.thread18.sink.split, label %.thread18
 
-.thread18.sink.split:                             ; preds = %.thread26, %33
-  %.ph = phi i32 [ %35, %33 ], [ %257, %.thread26 ]
+.thread18.sink.split:                             ; preds = %.thread24, %33
+  %.ph = phi i32 [ %35, %33 ], [ %257, %.thread24 ]
   tail call void @mutex_unlock(ptr noundef nonnull @loop_validate_mutex) #14
   br label %.thread18
 
-.thread18:                                        ; preds = %.thread18.sink.split, %30, %.thread26, %36
-  %259 = phi i32 [ %38, %36 ], [ %257, %.thread26 ], [ %31, %30 ], [ %.ph, %.thread18.sink.split ]
+.thread18:                                        ; preds = %.thread18.sink.split, %30, %.thread24, %36
+  %259 = phi i32 [ %38, %36 ], [ %257, %.thread24 ], [ %31, %30 ], [ %.ph, %.thread18.sink.split ]
   br i1 %25, label %260, label %261
 
 260:                                              ; preds = %.thread18

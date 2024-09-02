@@ -412,8 +412,8 @@ define internal fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenalty
   ret i32 %18
 
 19:                                               ; preds = %51
-  %20 = icmp sgt i32 %55, 4
-  %21 = add nsw i32 %55, -2
+  %20 = icmp sgt i32 %52, 4
+  %21 = add nsw i32 %52, -2
   %22 = select i1 %20, i32 %21, i32 0
   br label %23
 
@@ -427,9 +427,9 @@ define internal fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenalty
 
 29:                                               ; preds = %51, %16
   %30 = phi i32 [ %14, %16 ], [ %54, %51 ]
-  %31 = phi i32 [ 0, %16 ], [ %56, %51 ]
+  %31 = phi i32 [ 0, %16 ], [ %55, %51 ]
   %32 = phi i32 [ -1, %16 ], [ %53, %51 ]
-  %33 = phi i32 [ 0, %16 ], [ %55, %51 ]
+  %33 = phi i32 [ 0, %16 ], [ %52, %51 ]
   %34 = add nsw i32 %31, %17
   %35 = mul nsw i32 %31, %3
   %36 = add nsw i32 %35, %15
@@ -443,7 +443,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenalty
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %29
-  %45 = add nsw i32 %33, 1
+  %45 = add i32 %33, 1
   br label %51
 
 46:                                               ; preds = %29
@@ -457,10 +457,9 @@ define internal fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenalty
   %52 = phi i32 [ %45, %44 ], [ 1, %46 ]
   %53 = phi i32 [ %32, %44 ], [ %42, %46 ]
   %54 = phi i32 [ %30, %44 ], [ %50, %46 ]
-  %55 = freeze i32 %52
-  %56 = add nuw nsw i32 %31, 1
-  %57 = icmp eq i32 %56, %7
-  br i1 %57, label %19, label %29, !llvm.loop !33
+  %55 = add nuw nsw i32 %31, 1
+  %56 = icmp eq i32 %55, %7
+  br i1 %56, label %19, label %29, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

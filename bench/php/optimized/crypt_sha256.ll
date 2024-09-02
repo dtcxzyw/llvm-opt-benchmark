@@ -99,8 +99,8 @@ sub_2:                                            ; preds = %sub_1
 
 39:                                               ; preds = %34
   %40 = add i64 %36, 4
-  %41 = icmp ugt i64 %40, 32768
-  br i1 %41, label %42, label %44
+  %41 = icmp ult i64 %40, 32769
+  br i1 %41, label %44, label %42
 
 42:                                               ; preds = %39
   %43 = tail call noalias ptr @_emalloc(i64 noundef %40) #16
@@ -123,7 +123,7 @@ sub_2:                                            ; preds = %sub_1
 53:                                               ; preds = %46, %34
   %.0409 = phi ptr [ %52, %46 ], [ null, %34 ]
   %.0381 = phi ptr [ %47, %46 ], [ null, %34 ]
-  %.0380 = phi i1 [ %41, %46 ], [ true, %34 ]
+  %.0380 = phi i1 [ %41, %46 ], [ false, %34 ]
   %.0376 = phi ptr [ %52, %46 ], [ %0, %34 ]
   %54 = ptrtoint ptr %.1 to i64
   %55 = and i64 %54, 3
@@ -1218,9 +1218,9 @@ sha256_finish_ctx.exit466:                        ; preds = %630
   br label %638
 
 638:                                              ; preds = %637, %636
-  %.not428 = icmp ne ptr %.0381, null
-  %brmerge.not = and i1 %.not428, %.0380
-  br i1 %brmerge.not, label %639, label %640
+  %.not428 = icmp eq ptr %.0381, null
+  %brmerge = or i1 %.not428, %.0380
+  br i1 %brmerge, label %640, label %639
 
 639:                                              ; preds = %638
   call void @_efree(ptr noundef nonnull %.0381) #15

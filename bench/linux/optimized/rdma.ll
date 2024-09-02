@@ -609,115 +609,116 @@ define internal noundef i32 @rdmacg_resource_read(ptr noundef %0, ptr nocapture 
   br label %10
 
 10:                                               ; preds = %.split8.us, %8
-  %11 = phi ptr [ %6, %8 ], [ %53, %.split8.us ]
+  %11 = phi ptr [ %6, %8 ], [ %52, %.split8.us ]
   %12 = getelementptr inbounds i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %13) #8
   br label %14
 
 14:                                               ; preds = %18, %10
-  %15 = phi ptr [ %9, %10 ], [ %16, %18 ]
+  %15 = phi ptr [ %9, %10 ], [ %.fr13, %18 ]
   %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, %9
+  %.fr13 = freeze ptr %16
+  %17 = icmp eq ptr %.fr13, %9
   br i1 %17, label %.split.loop.exit5, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr i8, ptr %16, i64 -24
+  %19 = getelementptr i8, ptr %.fr13, i64 -24
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %11
-  br i1 %21, label %.split.loop.exit5.split.loop.exit16, label %14, !llvm.loop !5
+  br i1 %21, label %.split.loop.exit5.split.loop.exit17, label %14, !llvm.loop !5
 
-.split.loop.exit5.split.loop.exit16:              ; preds = %18
-  %22 = getelementptr i8, ptr %16, i64 -24
+.split.loop.exit5.split.loop.exit17:              ; preds = %18
+  %22 = getelementptr i8, ptr %.fr13, i64 -24
   br label %.split.loop.exit5
 
-.split.loop.exit5:                                ; preds = %14, %.split.loop.exit5.split.loop.exit16
-  %23 = phi ptr [ %22, %.split.loop.exit5.split.loop.exit16 ], [ null, %14 ]
-  %24 = load ptr, ptr %3, align 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 64
-  %29 = load i64, ptr %28, align 8
-  %.fr = freeze i64 %29
-  %30 = and i64 %.fr, 4294967295
-  %31 = icmp eq i64 %30, 0
-  %32 = icmp eq ptr %23, null
-  %33 = getelementptr inbounds i8, ptr %23, i64 8
-  br i1 %31, label %.split.us, label %.split
+.split.loop.exit5:                                ; preds = %14, %.split.loop.exit5.split.loop.exit17
+  %.fr12 = phi ptr [ %22, %.split.loop.exit5.split.loop.exit17 ], [ null, %14 ]
+  %23 = load ptr, ptr %3, align 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 64
+  %28 = load i64, ptr %27, align 8
+  %.fr = freeze i64 %28
+  %29 = and i64 %.fr, 4294967295
+  %30 = icmp eq i64 %29, 0
+  %31 = icmp eq ptr %.fr12, null
+  %32 = getelementptr inbounds i8, ptr %.fr12, i64 8
+  br i1 %30, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %.split.loop.exit5, %42
-  %34 = phi i1 [ false, %42 ], [ true, %.split.loop.exit5 ]
-  %35 = phi i64 [ 1, %42 ], [ 0, %.split.loop.exit5 ]
-  %36 = getelementptr [2 x ptr], ptr @rdmacg_resource_names, i64 0, i64 %35
-  %37 = load ptr, ptr %36, align 8
-  tail call void @seq_puts(ptr noundef %0, ptr noundef %37) #8
+.split.us:                                        ; preds = %.split.loop.exit5, %41
+  %33 = phi i1 [ false, %41 ], [ true, %.split.loop.exit5 ]
+  %34 = phi i64 [ 1, %41 ], [ 0, %.split.loop.exit5 ]
+  %35 = getelementptr [2 x ptr], ptr @rdmacg_resource_names, i64 0, i64 %34
+  %36 = load ptr, ptr %35, align 8
+  tail call void @seq_puts(ptr noundef %0, ptr noundef %36) #8
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 61) #8
-  br i1 %32, label %.thread.us, label %38
+  br i1 %31, label %.thread.us, label %37
 
-38:                                               ; preds = %.split.us
-  %39 = getelementptr [2 x %struct.rdmacg_resource], ptr %33, i64 0, i64 %35
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp eq i32 %40, 2147483647
-  br i1 %41, label %.thread.us, label %.thread4.us
+37:                                               ; preds = %.split.us
+  %38 = getelementptr [2 x %struct.rdmacg_resource], ptr %32, i64 0, i64 %34
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp eq i32 %39, 2147483647
+  br i1 %40, label %.thread.us, label %.thread4.us
 
-.thread4.us:                                      ; preds = %38
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %40) #8
-  br label %42
+.thread4.us:                                      ; preds = %37
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %39) #8
+  br label %41
 
-.thread.us:                                       ; preds = %38, %.split.us
+.thread.us:                                       ; preds = %37, %.split.us
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.4) #8
-  br label %42
+  br label %41
 
-42:                                               ; preds = %.thread.us, %.thread4.us
+41:                                               ; preds = %.thread.us, %.thread4.us
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #8
-  br i1 %34, label %.split.us, label %.split8.us, !llvm.loop !29
+  br i1 %33, label %.split.us, label %.split8.us, !llvm.loop !29
 
 .split:                                           ; preds = %.split.loop.exit5
-  br i1 %32, label %.thread4.us9, label %.split.split
+  br i1 %31, label %.thread4.us9, label %.split.split
 
 .thread4.us9:                                     ; preds = %.split
-  %43 = load ptr, ptr @rdmacg_resource_names, align 16
-  tail call void @seq_puts(ptr noundef %0, ptr noundef %43) #8
+  %42 = load ptr, ptr @rdmacg_resource_names, align 16
+  tail call void @seq_puts(ptr noundef %0, ptr noundef %42) #8
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 61) #8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef 0) #8
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @rdmacg_resource_names, i64 8), align 8
-  tail call void @seq_puts(ptr noundef %0, ptr noundef %44) #8
+  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @rdmacg_resource_names, i64 8), align 8
+  tail call void @seq_puts(ptr noundef %0, ptr noundef %43) #8
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 61) #8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef 0) #8
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #8
   br label %.split8.us
 
-.split.split:                                     ; preds = %.split, %52
-  %45 = phi i1 [ false, %52 ], [ true, %.split ]
-  %46 = phi i64 [ 1, %52 ], [ 0, %.split ]
-  %47 = getelementptr [2 x ptr], ptr @rdmacg_resource_names, i64 0, i64 %46
-  %48 = load ptr, ptr %47, align 8
-  tail call void @seq_puts(ptr noundef %0, ptr noundef %48) #8
+.split.split:                                     ; preds = %.split, %51
+  %44 = phi i1 [ false, %51 ], [ true, %.split ]
+  %45 = phi i64 [ 1, %51 ], [ 0, %.split ]
+  %46 = getelementptr [2 x ptr], ptr @rdmacg_resource_names, i64 0, i64 %45
+  %47 = load ptr, ptr %46, align 8
+  tail call void @seq_puts(ptr noundef %0, ptr noundef %47) #8
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 61) #8
-  %49 = getelementptr [2 x %struct.rdmacg_resource], ptr %33, i64 0, i64 %46, i32 1
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp eq i32 %50, 2147483647
-  br i1 %51, label %.thread, label %.thread4
+  %48 = getelementptr [2 x %struct.rdmacg_resource], ptr %32, i64 0, i64 %45, i32 1
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, 2147483647
+  br i1 %50, label %.thread, label %.thread4
 
 .thread:                                          ; preds = %.split.split
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.4) #8
-  br label %52
+  br label %51
 
 .thread4:                                         ; preds = %.split.split
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %50) #8
-  br label %52
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %49) #8
+  br label %51
 
-52:                                               ; preds = %.thread4, %.thread
+51:                                               ; preds = %.thread4, %.thread
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #8
-  br i1 %45, label %.split.split, label %.split8.us, !llvm.loop !29
+  br i1 %44, label %.split.split, label %.split8.us, !llvm.loop !29
 
-.split8.us:                                       ; preds = %52, %42, %.thread4.us9
+.split8.us:                                       ; preds = %51, %41, %.thread4.us9
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #8
-  %53 = load ptr, ptr %11, align 8
-  %54 = icmp eq ptr %53, @rdmacg_devices
-  br i1 %54, label %.loopexit, label %10, !llvm.loop !30
+  %52 = load ptr, ptr %11, align 8
+  %53 = icmp eq ptr %52, @rdmacg_devices
+  br i1 %53, label %.loopexit, label %10, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.split8.us, %2
   tail call void @mutex_unlock(ptr noundef nonnull @rdmacg_mutex) #8

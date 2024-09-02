@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [49 x i8] c"openioc_parse: No text for XML Content element.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = icmp eq ptr %0, null
@@ -377,7 +377,7 @@ declare i32 @xmlStrEqual(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @xmlTextReaderNodeType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @openioc_parse_indicator(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @xmlTextReaderRead(ptr noundef %0) #6
   %.not.i30 = icmp eq i32 %3, 1
   br i1 %.not.i30, label %.lr.ph, label %openioc_read.exit.thread

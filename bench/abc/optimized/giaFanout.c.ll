@@ -593,10 +593,10 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   store i32 %53, ptr %51, align 4
   %.val84.pre = load i64, ptr %27, align 4
   %.pre = and i64 %.val84.pre, 536870911
-  %54 = and i64 %.val84.pre, 2147483648
-  %.not.i101 = icmp eq i64 %54, 0
-  %55 = icmp ne i64 %.pre, 536870911
-  %narrow.i102 = and i1 %.not.i101, %55
+  %54 = icmp ne i64 %.pre, 536870911
+  %55 = and i64 %.val84.pre, 2147483648
+  %.not.i101 = icmp eq i64 %55, 0
+  %narrow.i102 = and i1 %.not.i101, %54
   br i1 %narrow.i102, label %56, label %.thread
 
 56:                                               ; preds = %30

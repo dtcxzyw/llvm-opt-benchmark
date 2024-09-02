@@ -4187,9 +4187,9 @@ default.unreachable:                              ; preds = %if.else
 
 if.end.sink.split:                                ; preds = %sw.bb20, %sw.bb13, %sw.bb10, %sw.bb
   %cmd.sink = phi ptr [ %cmd, %sw.bb ], [ %arrayidx, %sw.bb10 ], [ %arrayidx16, %sw.bb13 ], [ %8, %sw.bb20 ]
-  %.sink48 = phi i64 [ 216, %sw.bb ], [ 8, %sw.bb10 ], [ 8, %sw.bb13 ], [ 8, %sw.bb20 ]
+  %.sink52 = phi i64 [ 216, %sw.bb ], [ 8, %sw.bb10 ], [ 8, %sw.bb13 ], [ 8, %sw.bb20 ]
   %9 = load ptr, ptr %cmd.sink, align 8
-  %fullname = getelementptr inbounds i8, ptr %9, i64 %.sink48
+  %fullname = getelementptr inbounds i8, ptr %9, i64 %.sink52
   %10 = load ptr, ptr %fullname, align 8
   %call8 = tail call ptr @sdsdup(ptr noundef %10) #24
   br label %if.end
@@ -4210,15 +4210,10 @@ if.end:                                           ; preds = %if.end.sink.split, 
   %12 = load ptr, ptr @ACLLog, align 8
   call void @listRewind(ptr noundef %12, ptr noundef nonnull %li) #24
   %object14.i = getelementptr inbounds i8, ptr %call, i64 16
-  br label %while.cond
+  br label %land.rhs
 
-while.cond:                                       ; preds = %ACLLogMatchEntry.exit, %if.end
-  %toscan.0 = phi i64 [ 10, %if.end ], [ %dec, %ACLLogMatchEntry.exit ]
-  %dec = add nsw i64 %toscan.0, -1
-  %tobool36.not = icmp eq i64 %toscan.0, 0
-  br i1 %tobool36.not, label %if.else52, label %land.rhs
-
-land.rhs:                                         ; preds = %while.cond
+land.rhs:                                         ; preds = %if.end, %while.cond.backedge
+  %dec46 = phi i64 [ 9, %if.end ], [ %dec, %while.cond.backedge ]
   %call37 = call ptr @listNext(ptr noundef nonnull %li) #24
   %cmp.not = icmp eq ptr %call37, null
   br i1 %cmp.not, label %if.else52, label %while.body
@@ -4230,14 +4225,14 @@ while.body:                                       ; preds = %land.rhs
   %14 = load i32, ptr %reason.i, align 8
   %15 = load i32, ptr %reason1, align 8
   %cmp.not.i = icmp eq i32 %14, %15
-  br i1 %cmp.not.i, label %if.end.i, label %ACLLogMatchEntry.exit
+  br i1 %cmp.not.i, label %if.end.i, label %while.cond.backedge
 
 if.end.i:                                         ; preds = %while.body
   %context.i = getelementptr inbounds i8, ptr %13, i64 12
   %16 = load i32, ptr %context.i, align 4
   %17 = load i32, ptr %context35, align 4
   %cmp3.not.i = icmp eq i32 %16, %17
-  br i1 %cmp3.not.i, label %if.end5.i, label %ACLLogMatchEntry.exit
+  br i1 %cmp3.not.i, label %if.end5.i, label %while.cond.backedge
 
 if.end5.i:                                        ; preds = %if.end.i
   %ctime.i = getelementptr inbounds i8, ptr %13, i64 32
@@ -4246,7 +4241,7 @@ if.end5.i:                                        ; preds = %if.end.i
   %sub.i = sub nsw i64 %18, %19
   %spec.select.i = call i64 @llvm.abs.i64(i64 %sub.i, i1 true)
   %cmp11.i = icmp ugt i64 %spec.select.i, 60000
-  br i1 %cmp11.i, label %ACLLogMatchEntry.exit, label %if.end13.i
+  br i1 %cmp11.i, label %while.cond.backedge, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end5.i
   %object.i = getelementptr inbounds i8, ptr %13, i64 16
@@ -4254,23 +4249,23 @@ if.end13.i:                                       ; preds = %if.end5.i
   %21 = load ptr, ptr %object14.i, align 8
   %call.i = call i32 @sdscmp(ptr noundef %20, ptr noundef %21) #24
   %cmp15.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp15.not.i, label %if.end17.i, label %ACLLogMatchEntry.exit
+  br i1 %cmp15.not.i, label %if.end17.i, label %while.cond.backedge
 
 if.end17.i:                                       ; preds = %if.end13.i
   %username.i = getelementptr inbounds i8, ptr %13, i64 24
   %22 = load ptr, ptr %username.i, align 8
   %23 = load ptr, ptr %username3, align 8
   %call19.i = call i32 @sdscmp(ptr noundef %22, ptr noundef %23) #24
-  %cmp20.not.i = icmp eq i32 %call19.i, 0
-  %..i = zext i1 %cmp20.not.i to i32
-  br label %ACLLogMatchEntry.exit
+  %cmp20.not.i.not = icmp eq i32 %call19.i, 0
+  br i1 %cmp20.not.i.not, label %if.then44, label %while.cond.backedge
 
-ACLLogMatchEntry.exit:                            ; preds = %while.body, %if.end.i, %if.end5.i, %if.end13.i, %if.end17.i
-  %retval.0.i = phi i32 [ 0, %while.body ], [ 0, %if.end.i ], [ 0, %if.end5.i ], [ 0, %if.end13.i ], [ %..i, %if.end17.i ]
-  %tobool39.not = icmp eq i32 %retval.0.i, 0
-  br i1 %tobool39.not, label %while.cond, label %if.then44, !llvm.loop !37
+while.cond.backedge:                              ; preds = %while.body, %if.end.i, %if.end5.i, %if.end13.i, %if.end17.i
+  %dec = add nsw i64 %dec46, -1
+  %tobool36.not = icmp eq i64 %dec46, 0
+  br i1 %tobool36.not, label %if.else52, label %land.rhs, !llvm.loop !37
 
-if.then44:                                        ; preds = %ACLLogMatchEntry.exit
+if.then44:                                        ; preds = %if.end17.i
+  %ctime.i.le = getelementptr inbounds i8, ptr %13, i64 32
   %24 = load ptr, ptr @ACLLog, align 8
   call void @listDelNode(ptr noundef %24, ptr noundef nonnull %call37) #24
   %25 = load ptr, ptr @ACLLog, align 8
@@ -4281,8 +4276,7 @@ if.then44:                                        ; preds = %ACLLogMatchEntry.ex
   %27 = load ptr, ptr %cinfo, align 8
   store ptr %27, ptr %cinfo45, align 8
   %28 = load i64, ptr %ctime, align 8
-  %ctime49 = getelementptr inbounds i8, ptr %13, i64 32
-  store i64 %28, ptr %ctime49, align 8
+  store i64 %28, ptr %ctime.i.le, align 8
   %29 = load i64, ptr %13, align 8
   %inc = add i64 %29, 1
   store i64 %inc, ptr %13, align 8
@@ -4296,18 +4290,18 @@ if.then44:                                        ; preds = %ACLLogMatchEntry.ex
   call void @zfree(ptr noundef nonnull %call) #24
   br label %if.end62
 
-if.else52:                                        ; preds = %land.rhs, %while.cond
+if.else52:                                        ; preds = %land.rhs, %while.cond.backedge
   %33 = load i64, ptr @ACLLogEntryCount, align 8
   %inc53 = add nsw i64 %33, 1
   store i64 %inc53, ptr @ACLLogEntryCount, align 8
   %34 = load ptr, ptr @ACLLog, align 8
   %call54 = call ptr @listAddNodeHead(ptr noundef %34, ptr noundef nonnull %call) #24
   %35 = load ptr, ptr @ACLLog, align 8
-  %len46 = getelementptr inbounds i8, ptr %35, i64 40
-  %36 = load i64, ptr %len46, align 8
+  %len47 = getelementptr inbounds i8, ptr %35, i64 40
+  %36 = load i64, ptr %len47, align 8
   %37 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 5376), align 8
-  %cmp5647 = icmp ugt i64 %36, %37
-  br i1 %cmp5647, label %while.body57, label %if.end62
+  %cmp5648 = icmp ugt i64 %36, %37
+  br i1 %cmp5648, label %while.body57, label %if.end62
 
 while.body57:                                     ; preds = %if.else52, %while.body57
   %38 = phi ptr [ %45, %while.body57 ], [ %35, %if.else52 ]
@@ -4674,7 +4668,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.co
   %cmp.not.i = icmp eq i32 %and26.i, %access_flags.3.i
   br i1 %cmp.not.i, label %if.end29.i, label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %if.end29.tail.i, %while.body.i
+while.cond.backedge.i:                            ; preds = %if.end29.tail.i, %if.end29.i, %while.body.i
   %call.i = call ptr @listNext(ptr noundef nonnull %li.i) #24
   %tobool24.not.i = icmp eq ptr %call.i, null
   br i1 %tobool24.not.i, label %ACLSelectorHasUnrestrictedKeyAccess.exit.thread, label %while.body.i, !llvm.loop !41
@@ -4683,21 +4677,14 @@ if.end29.i:                                       ; preds = %while.body.i
   %pattern30.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %pattern30.i, align 8
   %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i32
-  %14 = add nsw i32 %13, -42
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %sub_1.i, label %if.end29.tail.i
+  %.not.i = icmp eq i8 %12, 42
+  br i1 %.not.i, label %if.end29.tail.i, label %while.cond.backedge.i
 
-sub_1.i:                                          ; preds = %if.end29.i
-  %15 = getelementptr inbounds i8, ptr %11, i64 1
-  %16 = load i8, ptr %15, align 1
-  %17 = zext i8 %16 to i32
-  br label %if.end29.tail.i
-
-if.end29.tail.i:                                  ; preds = %sub_1.i, %if.end29.i
-  %18 = phi i32 [ %14, %if.end29.i ], [ %17, %sub_1.i ]
-  %tobool32.not.i = icmp eq i32 %18, 0
-  br i1 %tobool32.not.i, label %if.then5, label %while.cond.backedge.i
+if.end29.tail.i:                                  ; preds = %if.end29.i
+  %13 = getelementptr inbounds i8, ptr %11, i64 1
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %if.then5, label %while.cond.backedge.i
 
 ACLSelectorHasUnrestrictedKeyAccess.exit.thread:  ; preds = %while.cond.backedge.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
@@ -4705,8 +4692,8 @@ ACLSelectorHasUnrestrictedKeyAccess.exit.thread:  ; preds = %while.cond.backedge
 
 if.then5:                                         ; preds = %land.lhs.true, %if.end29.tail.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
-  %19 = load i32, ptr %cache, align 8
-  %tobool.not.i3 = icmp eq i32 %19, 0
+  %16 = load i32, ptr %cache, align 8
+  %tobool.not.i3 = icmp eq i32 %16, 0
   br i1 %tobool.not.i3, label %return, label %return.sink.split
 
 if.end6:                                          ; preds = %ACLSelectorHasUnrestrictedKeyAccess.exit.thread, %while.body
@@ -4716,8 +4703,8 @@ if.end6:                                          ; preds = %ACLSelectorHasUnres
 
 while.end:                                        ; preds = %if.end6
   %.pre = load i32, ptr %cache, align 8
-  %20 = icmp eq i32 %.pre, 0
-  br i1 %20, label %return, label %return.sink.split
+  %17 = icmp eq i32 %.pre, 0
+  br i1 %17, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %while.end, %if.then5
   %retval.0.ph = phi i32 [ 1, %if.then5 ], [ 0, %while.end ]
@@ -4731,7 +4718,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ACLSelectorCheckCmd(ptr nocapture noundef readonly %selector, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr nocapture noundef writeonly %keyidxptr, ptr noundef %cache) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @ACLSelectorCheckCmd(ptr nocapture noundef readonly %selector, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr nocapture noundef writeonly %keyidxptr, ptr noundef %cache) unnamed_addr #0 {
 entry:
   %channels = alloca %struct.getKeysResult, align 8
   %id1 = getelementptr inbounds i8, ptr %cmd, i64 208
@@ -5200,7 +5187,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly %u, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr nocapture noundef writeonly %idxptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly %u, ptr noundef %cmd, ptr noundef %argv, i32 noundef %argc, ptr nocapture noundef writeonly %idxptr) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %local_idxptr = alloca i32, align 4
@@ -5280,7 +5267,7 @@ return:                                           ; preds = %while.end.thread, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ACLCheckAllPerm(ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %idxptr) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ACLCheckAllPerm(ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %idxptr) local_unnamed_addr #0 {
 entry:
   %user = getelementptr inbounds i8, ptr %c, i64 152
   %0 = load ptr, ptr %user, align 8
@@ -5297,8 +5284,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @ACLKillPubsubClientsIfNeeded(ptr nocapture noundef readonly %new, ptr noundef readonly %original) local_unnamed_addr #0 {
 entry:
-  %li.i83 = alloca %struct.listIter, align 8
-  %li.i58 = alloca %struct.listIter, align 8
+  %li.i84 = alloca %struct.listIter, align 8
+  %li.i59 = alloca %struct.listIter, align 8
   %li.i = alloca %struct.listIter, align 8
   %li = alloca %struct.listIter, align 8
   %lpi = alloca %struct.listIter, align 8
@@ -5354,9 +5341,9 @@ while.end:                                        ; preds = %while.cond
   %call20 = call ptr @listCreate() #24
   %12 = load ptr, ptr %selectors, align 8
   call void @listRewind(ptr noundef %12, ptr noundef nonnull %li) #24
-  %call23131 = call ptr @listNext(ptr noundef nonnull %li) #24
-  %tobool24.not132 = icmp eq ptr %call23131, null
-  br i1 %tobool24.not132, label %while.end35, label %while.body25
+  %call23124 = call ptr @listNext(ptr noundef nonnull %li) #24
+  %tobool24.not125 = icmp eq ptr %call23124, null
+  br i1 %tobool24.not125, label %while.end35, label %while.body25
 
 while.cond22.loopexit:                            ; preds = %while.body31, %while.body25
   %call23 = call ptr @listNext(ptr noundef nonnull %li) #24
@@ -5364,19 +5351,19 @@ while.cond22.loopexit:                            ; preds = %while.body31, %whil
   br i1 %tobool24.not, label %while.end35, label %while.body25, !llvm.loop !49
 
 while.body25:                                     ; preds = %while.end, %while.cond22.loopexit
-  %call23133 = phi ptr [ %call23, %while.cond22.loopexit ], [ %call23131, %while.end ]
-  %value27 = getelementptr inbounds i8, ptr %call23133, i64 16
+  %call23126 = phi ptr [ %call23, %while.cond22.loopexit ], [ %call23124, %while.end ]
+  %value27 = getelementptr inbounds i8, ptr %call23126, i64 16
   %13 = load ptr, ptr %value27, align 8
   %channels = getelementptr inbounds i8, ptr %13, i64 152
   %14 = load ptr, ptr %channels, align 8
   call void @listRewind(ptr noundef %14, ptr noundef nonnull %lpi) #24
-  %call29128 = call ptr @listNext(ptr noundef nonnull %lpi) #24
-  %tobool30.not129 = icmp eq ptr %call29128, null
-  br i1 %tobool30.not129, label %while.cond22.loopexit, label %while.body31
+  %call29121 = call ptr @listNext(ptr noundef nonnull %lpi) #24
+  %tobool30.not122 = icmp eq ptr %call29121, null
+  br i1 %tobool30.not122, label %while.cond22.loopexit, label %while.body31
 
 while.body31:                                     ; preds = %while.body25, %while.body31
-  %call29130 = phi ptr [ %call29, %while.body31 ], [ %call29128, %while.body25 ]
-  %value32 = getelementptr inbounds i8, ptr %call29130, i64 16
+  %call29123 = phi ptr [ %call29, %while.body31 ], [ %call29121, %while.body25 ]
+  %value32 = getelementptr inbounds i8, ptr %call29123, i64 16
   %15 = load ptr, ptr %value32, align 8
   %call33 = call ptr @listAddNodeTail(ptr noundef %call20, ptr noundef %15) #24
   %call29 = call ptr @listNext(ptr noundef nonnull %lpi) #24
@@ -5387,13 +5374,13 @@ while.end35:                                      ; preds = %while.cond22.loopex
   %selectors36 = getelementptr inbounds i8, ptr %original, i64 24
   %16 = load ptr, ptr %selectors36, align 8
   call void @listRewind(ptr noundef %16, ptr noundef nonnull %li) #24
-  %call38134 = call ptr @listNext(ptr noundef nonnull %li) #24
-  %tobool39135.not = icmp eq ptr %call38134, null
-  br i1 %tobool39135.not, label %return.sink.split, label %while.body41
+  %call38127 = call ptr @listNext(ptr noundef nonnull %li) #24
+  %tobool39128.not = icmp eq ptr %call38127, null
+  br i1 %tobool39128.not, label %return.sink.split, label %while.body41
 
 while.body41:                                     ; preds = %while.end35, %while.end62
-  %call38136 = phi ptr [ %call38, %while.end62 ], [ %call38134, %while.end35 ]
-  %value43 = getelementptr inbounds i8, ptr %call38136, i64 16
+  %call38129 = phi ptr [ %call38, %while.end62 ], [ %call38127, %while.end35 ]
+  %value43 = getelementptr inbounds i8, ptr %call38129, i64 16
   %17 = load ptr, ptr %value43, align 8
   %18 = load i32, ptr %17, align 8
   %and45 = and i32 %18, 8
@@ -5416,10 +5403,10 @@ while.body56:                                     ; preds = %while.cond50
   %20 = load ptr, ptr %value57, align 8
   %call58 = call ptr @listSearchKey(ptr noundef %call20, ptr noundef %20) #24
   %tobool59.not = icmp eq ptr %call58, null
-  br i1 %tobool59.not, label %while.end63.thread143, label %while.cond50, !llvm.loop !51
+  br i1 %tobool59.not, label %while.end63.thread136, label %while.cond50, !llvm.loop !51
 
-while.end63.thread143:                            ; preds = %while.body56
-  %call38140 = call ptr @listNext(ptr noundef nonnull %li) #24
+while.end63.thread136:                            ; preds = %while.body56
+  %call38133 = call ptr @listNext(ptr noundef nonnull %li) #24
   br label %if.end66
 
 while.end62:                                      ; preds = %while.cond50
@@ -5427,16 +5414,16 @@ while.end62:                                      ; preds = %while.cond50
   %tobool39.not = icmp eq ptr %call38, null
   br i1 %tobool39.not, label %return.sink.split, label %while.body41, !llvm.loop !52
 
-if.end66:                                         ; preds = %while.body41, %while.end63.thread143
+if.end66:                                         ; preds = %while.body41, %while.end63.thread136
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1432), align 8
   call void @listRewind(ptr noundef %21, ptr noundef nonnull %li) #24
-  %call68137 = call ptr @listNext(ptr noundef nonnull %li) #24
-  %cmp.not138 = icmp eq ptr %call68137, null
-  br i1 %cmp.not138, label %return.sink.split, label %while.body69
+  %call68130 = call ptr @listNext(ptr noundef nonnull %li) #24
+  %cmp.not131 = icmp eq ptr %call68130, null
+  br i1 %cmp.not131, label %return.sink.split, label %while.body69
 
 while.body69:                                     ; preds = %if.end66, %if.end138
-  %call68139 = phi ptr [ %call68, %if.end138 ], [ %call68137, %if.end66 ]
-  %value70 = getelementptr inbounds i8, ptr %call68139, i64 16
+  %call68132 = phi ptr [ %call68, %if.end138 ], [ %call68130, %if.end66 ]
+  %value70 = getelementptr inbounds i8, ptr %call68132, i64 16
   %22 = load ptr, ptr %value70, align 8
   %user = getelementptr inbounds i8, ptr %22, i64 152
   %23 = load ptr, ptr %user, align 8
@@ -5452,20 +5439,20 @@ if.then75:                                        ; preds = %land.lhs.true72
   %pubsub_patterns = getelementptr inbounds i8, ptr %22, i64 552
   %24 = load ptr, ptr %pubsub_patterns, align 8
   %call76 = call ptr @dictGetIterator(ptr noundef %24) #24
-  %call80155 = call ptr @dictNext(ptr noundef %call76) #24
-  %cmp81.not156 = icmp eq ptr %call80155, null
-  br i1 %cmp81.not156, label %if.then92, label %while.body83
+  %call80148 = call ptr @dictNext(ptr noundef %call76) #24
+  %cmp81.not149 = icmp eq ptr %call80148, null
+  br i1 %cmp81.not149, label %if.then92, label %while.body83
 
 while.body83:                                     ; preds = %if.then75, %ACLCheckChannelAgainstList.exit
-  %call80157 = phi ptr [ %call80, %ACLCheckChannelAgainstList.exit ], [ %call80155, %if.then75 ]
-  %call84 = call ptr @dictGetKey(ptr noundef nonnull %call80157) #24
+  %call80150 = phi ptr [ %call80, %ACLCheckChannelAgainstList.exit ], [ %call80148, %if.then75 ]
+  %call84 = call ptr @dictGetKey(ptr noundef nonnull %call80150) #24
   %ptr = getelementptr inbounds i8, ptr %call84, i64 8
   %25 = load ptr, ptr %ptr, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i)
   call void @listRewind(ptr noundef %call20, ptr noundef nonnull %li.i) #24
   %call5.i = call ptr @listNext(ptr noundef nonnull %li.i) #24
   %tobool.not6.i = icmp eq ptr %call5.i, null
-  br i1 %tobool.not6.i, label %if.end112.thread, label %while.body.i
+  br i1 %tobool.not6.i, label %if.end112.critedge, label %while.body.i
 
 while.body.i:                                     ; preds = %while.body83, %if.end.i
   %call8.i = phi ptr [ %call.i, %if.end.i ], [ %call5.i, %while.body83 ]
@@ -5478,7 +5465,7 @@ while.body.i:                                     ; preds = %while.body83, %if.e
 if.end.i:                                         ; preds = %while.body.i
   %call.i = call ptr @listNext(ptr noundef nonnull %li.i) #24
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.end112.thread, label %while.body.i, !llvm.loop !46
+  br i1 %tobool.not.i, label %if.end112.critedge, label %while.body.i, !llvm.loop !46
 
 ACLCheckChannelAgainstList.exit:                  ; preds = %while.body.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
@@ -5491,66 +5478,66 @@ if.then92:                                        ; preds = %ACLCheckChannelAgai
   %pubsub_channels = getelementptr inbounds i8, ptr %22, i64 544
   %27 = load ptr, ptr %pubsub_channels, align 8
   %call93 = call ptr @dictGetIterator(ptr noundef %27) #24
-  %call97158 = call ptr @dictNext(ptr noundef %call93) #24
-  %cmp98.not159 = icmp eq ptr %call97158, null
-  br i1 %cmp98.not159, label %if.then114, label %while.body101
+  %call97151 = call ptr @dictNext(ptr noundef %call93) #24
+  %cmp98.not152 = icmp eq ptr %call97151, null
+  br i1 %cmp98.not152, label %if.then114, label %while.body101
 
-while.body101:                                    ; preds = %if.then92, %ACLCheckChannelAgainstList.exit63
-  %call97160 = phi ptr [ %call97, %ACLCheckChannelAgainstList.exit63 ], [ %call97158, %if.then92 ]
-  %call102 = call ptr @dictGetKey(ptr noundef nonnull %call97160) #24
+while.body101:                                    ; preds = %if.then92, %ACLCheckChannelAgainstList.exit64
+  %call97153 = phi ptr [ %call97, %ACLCheckChannelAgainstList.exit64 ], [ %call97151, %if.then92 ]
+  %call102 = call ptr @dictGetKey(ptr noundef nonnull %call97153) #24
   %ptr104 = getelementptr inbounds i8, ptr %call102, i64 8
   %28 = load ptr, ptr %ptr104, align 8
-  %arrayidx.i39 = getelementptr inbounds i8, ptr %28, i64 -1
-  %29 = load i8, ptr %arrayidx.i39, align 1
-  %conv.i40 = zext i8 %29 to i32
-  %and.i41 = and i32 %conv.i40, 7
-  switch i32 %and.i41, label %sdslen.exit57 [
-    i32 0, label %sw.bb.i54
-    i32 1, label %sw.bb3.i51
-    i32 2, label %sw.bb5.i48
-    i32 3, label %sw.bb9.i45
-    i32 4, label %sw.bb13.i42
+  %arrayidx.i40 = getelementptr inbounds i8, ptr %28, i64 -1
+  %29 = load i8, ptr %arrayidx.i40, align 1
+  %conv.i41 = zext i8 %29 to i32
+  %and.i42 = and i32 %conv.i41, 7
+  switch i32 %and.i42, label %sdslen.exit58 [
+    i32 0, label %sw.bb.i55
+    i32 1, label %sw.bb3.i52
+    i32 2, label %sw.bb5.i49
+    i32 3, label %sw.bb9.i46
+    i32 4, label %sw.bb13.i43
   ]
 
-sw.bb.i54:                                        ; preds = %while.body101
-  %shr.i55 = lshr i32 %conv.i40, 3
-  %conv2.i56 = zext nneg i32 %shr.i55 to i64
-  br label %sdslen.exit57
+sw.bb.i55:                                        ; preds = %while.body101
+  %shr.i56 = lshr i32 %conv.i41, 3
+  %conv2.i57 = zext nneg i32 %shr.i56 to i64
+  br label %sdslen.exit58
 
-sw.bb3.i51:                                       ; preds = %while.body101
-  %add.ptr.i52 = getelementptr inbounds i8, ptr %28, i64 -3
-  %30 = load i8, ptr %add.ptr.i52, align 1
-  %conv4.i53 = zext i8 %30 to i64
-  br label %sdslen.exit57
+sw.bb3.i52:                                       ; preds = %while.body101
+  %add.ptr.i53 = getelementptr inbounds i8, ptr %28, i64 -3
+  %30 = load i8, ptr %add.ptr.i53, align 1
+  %conv4.i54 = zext i8 %30 to i64
+  br label %sdslen.exit58
 
-sw.bb5.i48:                                       ; preds = %while.body101
-  %add.ptr6.i49 = getelementptr inbounds i8, ptr %28, i64 -5
-  %31 = load i16, ptr %add.ptr6.i49, align 1
-  %conv8.i50 = zext i16 %31 to i64
-  br label %sdslen.exit57
+sw.bb5.i49:                                       ; preds = %while.body101
+  %add.ptr6.i50 = getelementptr inbounds i8, ptr %28, i64 -5
+  %31 = load i16, ptr %add.ptr6.i50, align 1
+  %conv8.i51 = zext i16 %31 to i64
+  br label %sdslen.exit58
 
-sw.bb9.i45:                                       ; preds = %while.body101
-  %add.ptr10.i46 = getelementptr inbounds i8, ptr %28, i64 -9
-  %32 = load i32, ptr %add.ptr10.i46, align 1
-  %conv12.i47 = zext i32 %32 to i64
-  br label %sdslen.exit57
+sw.bb9.i46:                                       ; preds = %while.body101
+  %add.ptr10.i47 = getelementptr inbounds i8, ptr %28, i64 -9
+  %32 = load i32, ptr %add.ptr10.i47, align 1
+  %conv12.i48 = zext i32 %32 to i64
+  br label %sdslen.exit58
 
-sw.bb13.i42:                                      ; preds = %while.body101
-  %add.ptr14.i43 = getelementptr inbounds i8, ptr %28, i64 -17
-  %33 = load i64, ptr %add.ptr14.i43, align 1
-  br label %sdslen.exit57
+sw.bb13.i43:                                      ; preds = %while.body101
+  %add.ptr14.i44 = getelementptr inbounds i8, ptr %28, i64 -17
+  %33 = load i64, ptr %add.ptr14.i44, align 1
+  br label %sdslen.exit58
 
-sdslen.exit57:                                    ; preds = %while.body101, %sw.bb.i54, %sw.bb3.i51, %sw.bb5.i48, %sw.bb9.i45, %sw.bb13.i42
-  %retval.0.i44 = phi i64 [ %33, %sw.bb13.i42 ], [ %conv12.i47, %sw.bb9.i45 ], [ %conv8.i50, %sw.bb5.i48 ], [ %conv4.i53, %sw.bb3.i51 ], [ %conv2.i56, %sw.bb.i54 ], [ 0, %while.body101 ]
-  %conv107 = trunc i64 %retval.0.i44 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i58)
-  call void @listRewind(ptr noundef %call20, ptr noundef nonnull %li.i58) #24
-  %call5.i59 = call ptr @listNext(ptr noundef nonnull %li.i58) #24
-  %tobool.not6.i60 = icmp eq ptr %call5.i59, null
-  br i1 %tobool.not6.i60, label %if.end112, label %while.body.us.i
+sdslen.exit58:                                    ; preds = %while.body101, %sw.bb.i55, %sw.bb3.i52, %sw.bb5.i49, %sw.bb9.i46, %sw.bb13.i43
+  %retval.0.i45 = phi i64 [ %33, %sw.bb13.i43 ], [ %conv12.i48, %sw.bb9.i46 ], [ %conv8.i51, %sw.bb5.i49 ], [ %conv4.i54, %sw.bb3.i52 ], [ %conv2.i57, %sw.bb.i55 ], [ 0, %while.body101 ]
+  %conv107 = trunc i64 %retval.0.i45 to i32
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i59)
+  call void @listRewind(ptr noundef %call20, ptr noundef nonnull %li.i59) #24
+  %call5.i60 = call ptr @listNext(ptr noundef nonnull %li.i59) #24
+  %tobool.not6.i61 = icmp eq ptr %call5.i60, null
+  br i1 %tobool.not6.i61, label %while.end111, label %while.body.us.i
 
-while.body.us.i:                                  ; preds = %sdslen.exit57, %if.end.us.i
-  %call8.us.i = phi ptr [ %call.us.i, %if.end.us.i ], [ %call5.i59, %sdslen.exit57 ]
+while.body.us.i:                                  ; preds = %sdslen.exit58, %if.end.us.i
+  %call8.us.i = phi ptr [ %call.us.i, %if.end.us.i ], [ %call5.i60, %sdslen.exit58 ]
   %value.us.i = getelementptr inbounds i8, ptr %call8.us.i, i64 16
   %34 = load ptr, ptr %value.us.i, align 8
   %arrayidx.i.us.i = getelementptr inbounds i8, ptr %34, i64 -1
@@ -5598,167 +5585,167 @@ sdslen.exit.us.i:                                 ; preds = %sw.bb.i.us.i, %sw.b
   %conv.us.i = trunc i64 %retval.0.i.us.i to i32
   %call7.us.i = call i32 @stringmatchlen(ptr noundef nonnull %34, i32 noundef %conv.us.i, ptr noundef %28, i32 noundef %conv107, i32 noundef 0) #24
   %tobool8.not.us.i.not = icmp eq i32 %call7.us.i, 0
-  br i1 %tobool8.not.us.i.not, label %if.end.us.i, label %ACLCheckChannelAgainstList.exit63
+  br i1 %tobool8.not.us.i.not, label %if.end.us.i, label %ACLCheckChannelAgainstList.exit64
 
 if.end.us.i:                                      ; preds = %sdslen.exit.us.i
-  %call.us.i = call ptr @listNext(ptr noundef nonnull %li.i58) #24
+  %call.us.i = call ptr @listNext(ptr noundef nonnull %li.i59) #24
   %tobool.not.us.i = icmp eq ptr %call.us.i, null
-  br i1 %tobool.not.us.i, label %if.end112, label %while.body.us.i, !llvm.loop !46
+  br i1 %tobool.not.us.i, label %while.end111, label %while.body.us.i, !llvm.loop !46
 
-ACLCheckChannelAgainstList.exit63:                ; preds = %sdslen.exit.us.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i58)
+ACLCheckChannelAgainstList.exit64:                ; preds = %sdslen.exit.us.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i59)
   %call97 = call ptr @dictNext(ptr noundef %call93) #24
   %cmp98.not = icmp eq ptr %call97, null
   br i1 %cmp98.not, label %if.then114, label %while.body101
 
-if.end112.thread:                                 ; preds = %while.body83, %if.end.i
+while.end111:                                     ; preds = %sdslen.exit58, %if.end.us.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i59)
+  br label %if.then136
+
+if.end112.critedge:                               ; preds = %while.body83, %if.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
   br label %if.then136
 
-if.end112:                                        ; preds = %sdslen.exit57, %if.end.us.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i58)
-  br label %if.then136
-
-if.then114:                                       ; preds = %ACLCheckChannelAgainstList.exit63, %if.then92
+if.then114:                                       ; preds = %ACLCheckChannelAgainstList.exit64, %if.then92
   call void @dictReleaseIterator(ptr noundef %call93) #24
   %pubsubshard_channels = getelementptr inbounds i8, ptr %22, i64 560
   %40 = load ptr, ptr %pubsubshard_channels, align 8
   %call115 = call ptr @dictGetIterator(ptr noundef %40) #24
-  %call119161 = call ptr @dictNext(ptr noundef %call115) #24
-  %cmp120.not162 = icmp eq ptr %call119161, null
-  br i1 %cmp120.not162, label %if.end134.thread125, label %while.body123
+  %call119154 = call ptr @dictNext(ptr noundef %call115) #24
+  %cmp120.not155 = icmp eq ptr %call119154, null
+  br i1 %cmp120.not155, label %while.end133.thread, label %while.body123
 
-if.end134.thread125:                              ; preds = %ACLCheckChannelAgainstList.exit116, %if.then114
+while.end133.thread:                              ; preds = %ACLCheckChannelAgainstList.exit117, %if.then114
   call void @dictReleaseIterator(ptr noundef %call115) #24
   br label %if.end138
 
-while.body123:                                    ; preds = %if.then114, %ACLCheckChannelAgainstList.exit116
-  %call119163 = phi ptr [ %call119, %ACLCheckChannelAgainstList.exit116 ], [ %call119161, %if.then114 ]
-  %call124 = call ptr @dictGetKey(ptr noundef nonnull %call119163) #24
+while.body123:                                    ; preds = %if.then114, %ACLCheckChannelAgainstList.exit117
+  %call119156 = phi ptr [ %call119, %ACLCheckChannelAgainstList.exit117 ], [ %call119154, %if.then114 ]
+  %call124 = call ptr @dictGetKey(ptr noundef nonnull %call119156) #24
   %ptr126 = getelementptr inbounds i8, ptr %call124, i64 8
   %41 = load ptr, ptr %ptr126, align 8
-  %arrayidx.i64 = getelementptr inbounds i8, ptr %41, i64 -1
-  %42 = load i8, ptr %arrayidx.i64, align 1
-  %conv.i65 = zext i8 %42 to i32
-  %and.i66 = and i32 %conv.i65, 7
-  switch i32 %and.i66, label %sdslen.exit82 [
-    i32 0, label %sw.bb.i79
-    i32 1, label %sw.bb3.i76
-    i32 2, label %sw.bb5.i73
-    i32 3, label %sw.bb9.i70
-    i32 4, label %sw.bb13.i67
+  %arrayidx.i65 = getelementptr inbounds i8, ptr %41, i64 -1
+  %42 = load i8, ptr %arrayidx.i65, align 1
+  %conv.i66 = zext i8 %42 to i32
+  %and.i67 = and i32 %conv.i66, 7
+  switch i32 %and.i67, label %sdslen.exit83 [
+    i32 0, label %sw.bb.i80
+    i32 1, label %sw.bb3.i77
+    i32 2, label %sw.bb5.i74
+    i32 3, label %sw.bb9.i71
+    i32 4, label %sw.bb13.i68
   ]
 
-sw.bb.i79:                                        ; preds = %while.body123
-  %shr.i80 = lshr i32 %conv.i65, 3
-  %conv2.i81 = zext nneg i32 %shr.i80 to i64
-  br label %sdslen.exit82
+sw.bb.i80:                                        ; preds = %while.body123
+  %shr.i81 = lshr i32 %conv.i66, 3
+  %conv2.i82 = zext nneg i32 %shr.i81 to i64
+  br label %sdslen.exit83
 
-sw.bb3.i76:                                       ; preds = %while.body123
-  %add.ptr.i77 = getelementptr inbounds i8, ptr %41, i64 -3
-  %43 = load i8, ptr %add.ptr.i77, align 1
-  %conv4.i78 = zext i8 %43 to i64
-  br label %sdslen.exit82
+sw.bb3.i77:                                       ; preds = %while.body123
+  %add.ptr.i78 = getelementptr inbounds i8, ptr %41, i64 -3
+  %43 = load i8, ptr %add.ptr.i78, align 1
+  %conv4.i79 = zext i8 %43 to i64
+  br label %sdslen.exit83
 
-sw.bb5.i73:                                       ; preds = %while.body123
-  %add.ptr6.i74 = getelementptr inbounds i8, ptr %41, i64 -5
-  %44 = load i16, ptr %add.ptr6.i74, align 1
-  %conv8.i75 = zext i16 %44 to i64
-  br label %sdslen.exit82
+sw.bb5.i74:                                       ; preds = %while.body123
+  %add.ptr6.i75 = getelementptr inbounds i8, ptr %41, i64 -5
+  %44 = load i16, ptr %add.ptr6.i75, align 1
+  %conv8.i76 = zext i16 %44 to i64
+  br label %sdslen.exit83
 
-sw.bb9.i70:                                       ; preds = %while.body123
-  %add.ptr10.i71 = getelementptr inbounds i8, ptr %41, i64 -9
-  %45 = load i32, ptr %add.ptr10.i71, align 1
-  %conv12.i72 = zext i32 %45 to i64
-  br label %sdslen.exit82
+sw.bb9.i71:                                       ; preds = %while.body123
+  %add.ptr10.i72 = getelementptr inbounds i8, ptr %41, i64 -9
+  %45 = load i32, ptr %add.ptr10.i72, align 1
+  %conv12.i73 = zext i32 %45 to i64
+  br label %sdslen.exit83
 
-sw.bb13.i67:                                      ; preds = %while.body123
-  %add.ptr14.i68 = getelementptr inbounds i8, ptr %41, i64 -17
-  %46 = load i64, ptr %add.ptr14.i68, align 1
-  br label %sdslen.exit82
+sw.bb13.i68:                                      ; preds = %while.body123
+  %add.ptr14.i69 = getelementptr inbounds i8, ptr %41, i64 -17
+  %46 = load i64, ptr %add.ptr14.i69, align 1
+  br label %sdslen.exit83
 
-sdslen.exit82:                                    ; preds = %while.body123, %sw.bb.i79, %sw.bb3.i76, %sw.bb5.i73, %sw.bb9.i70, %sw.bb13.i67
-  %retval.0.i69 = phi i64 [ %46, %sw.bb13.i67 ], [ %conv12.i72, %sw.bb9.i70 ], [ %conv8.i75, %sw.bb5.i73 ], [ %conv4.i78, %sw.bb3.i76 ], [ %conv2.i81, %sw.bb.i79 ], [ 0, %while.body123 ]
-  %conv129 = trunc i64 %retval.0.i69 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i83)
-  call void @listRewind(ptr noundef %call20, ptr noundef nonnull %li.i83) #24
-  %call5.i84 = call ptr @listNext(ptr noundef nonnull %li.i83) #24
-  %tobool.not6.i85 = icmp eq ptr %call5.i84, null
-  br i1 %tobool.not6.i85, label %if.end134, label %while.body.us.i87
+sdslen.exit83:                                    ; preds = %while.body123, %sw.bb.i80, %sw.bb3.i77, %sw.bb5.i74, %sw.bb9.i71, %sw.bb13.i68
+  %retval.0.i70 = phi i64 [ %46, %sw.bb13.i68 ], [ %conv12.i73, %sw.bb9.i71 ], [ %conv8.i76, %sw.bb5.i74 ], [ %conv4.i79, %sw.bb3.i77 ], [ %conv2.i82, %sw.bb.i80 ], [ 0, %while.body123 ]
+  %conv129 = trunc i64 %retval.0.i70 to i32
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i84)
+  call void @listRewind(ptr noundef %call20, ptr noundef nonnull %li.i84) #24
+  %call5.i85 = call ptr @listNext(ptr noundef nonnull %li.i84) #24
+  %tobool.not6.i86 = icmp eq ptr %call5.i85, null
+  br i1 %tobool.not6.i86, label %while.end133, label %while.body.us.i88
 
-while.body.us.i87:                                ; preds = %sdslen.exit82, %if.end.us.i101
-  %call8.us.i88 = phi ptr [ %call.us.i102, %if.end.us.i101 ], [ %call5.i84, %sdslen.exit82 ]
-  %value.us.i89 = getelementptr inbounds i8, ptr %call8.us.i88, i64 16
-  %47 = load ptr, ptr %value.us.i89, align 8
-  %arrayidx.i.us.i90 = getelementptr inbounds i8, ptr %47, i64 -1
-  %48 = load i8, ptr %arrayidx.i.us.i90, align 1
-  %conv.i.us.i91 = zext i8 %48 to i32
-  %and.i.us.i92 = and i32 %conv.i.us.i91, 7
-  switch i32 %and.i.us.i92, label %sdslen.exit.us.i95 [
-    i32 0, label %sw.bb.i.us.i113
-    i32 1, label %sw.bb3.i.us.i110
-    i32 2, label %sw.bb5.i.us.i107
-    i32 3, label %sw.bb9.i.us.i104
-    i32 4, label %sw.bb13.i.us.i93
+while.body.us.i88:                                ; preds = %sdslen.exit83, %if.end.us.i102
+  %call8.us.i89 = phi ptr [ %call.us.i103, %if.end.us.i102 ], [ %call5.i85, %sdslen.exit83 ]
+  %value.us.i90 = getelementptr inbounds i8, ptr %call8.us.i89, i64 16
+  %47 = load ptr, ptr %value.us.i90, align 8
+  %arrayidx.i.us.i91 = getelementptr inbounds i8, ptr %47, i64 -1
+  %48 = load i8, ptr %arrayidx.i.us.i91, align 1
+  %conv.i.us.i92 = zext i8 %48 to i32
+  %and.i.us.i93 = and i32 %conv.i.us.i92, 7
+  switch i32 %and.i.us.i93, label %sdslen.exit.us.i96 [
+    i32 0, label %sw.bb.i.us.i114
+    i32 1, label %sw.bb3.i.us.i111
+    i32 2, label %sw.bb5.i.us.i108
+    i32 3, label %sw.bb9.i.us.i105
+    i32 4, label %sw.bb13.i.us.i94
   ]
 
-sw.bb13.i.us.i93:                                 ; preds = %while.body.us.i87
-  %add.ptr14.i.us.i94 = getelementptr inbounds i8, ptr %47, i64 -17
-  %49 = load i64, ptr %add.ptr14.i.us.i94, align 1
-  br label %sdslen.exit.us.i95
+sw.bb13.i.us.i94:                                 ; preds = %while.body.us.i88
+  %add.ptr14.i.us.i95 = getelementptr inbounds i8, ptr %47, i64 -17
+  %49 = load i64, ptr %add.ptr14.i.us.i95, align 1
+  br label %sdslen.exit.us.i96
 
-sw.bb9.i.us.i104:                                 ; preds = %while.body.us.i87
-  %add.ptr10.i.us.i105 = getelementptr inbounds i8, ptr %47, i64 -9
-  %50 = load i32, ptr %add.ptr10.i.us.i105, align 1
-  %conv12.i.us.i106 = zext i32 %50 to i64
-  br label %sdslen.exit.us.i95
+sw.bb9.i.us.i105:                                 ; preds = %while.body.us.i88
+  %add.ptr10.i.us.i106 = getelementptr inbounds i8, ptr %47, i64 -9
+  %50 = load i32, ptr %add.ptr10.i.us.i106, align 1
+  %conv12.i.us.i107 = zext i32 %50 to i64
+  br label %sdslen.exit.us.i96
 
-sw.bb5.i.us.i107:                                 ; preds = %while.body.us.i87
-  %add.ptr6.i.us.i108 = getelementptr inbounds i8, ptr %47, i64 -5
-  %51 = load i16, ptr %add.ptr6.i.us.i108, align 1
-  %conv8.i.us.i109 = zext i16 %51 to i64
-  br label %sdslen.exit.us.i95
+sw.bb5.i.us.i108:                                 ; preds = %while.body.us.i88
+  %add.ptr6.i.us.i109 = getelementptr inbounds i8, ptr %47, i64 -5
+  %51 = load i16, ptr %add.ptr6.i.us.i109, align 1
+  %conv8.i.us.i110 = zext i16 %51 to i64
+  br label %sdslen.exit.us.i96
 
-sw.bb3.i.us.i110:                                 ; preds = %while.body.us.i87
-  %add.ptr.i.us.i111 = getelementptr inbounds i8, ptr %47, i64 -3
-  %52 = load i8, ptr %add.ptr.i.us.i111, align 1
-  %conv4.i.us.i112 = zext i8 %52 to i64
-  br label %sdslen.exit.us.i95
+sw.bb3.i.us.i111:                                 ; preds = %while.body.us.i88
+  %add.ptr.i.us.i112 = getelementptr inbounds i8, ptr %47, i64 -3
+  %52 = load i8, ptr %add.ptr.i.us.i112, align 1
+  %conv4.i.us.i113 = zext i8 %52 to i64
+  br label %sdslen.exit.us.i96
 
-sw.bb.i.us.i113:                                  ; preds = %while.body.us.i87
-  %shr.i.us.i114 = lshr i32 %conv.i.us.i91, 3
-  %conv2.i.us.i115 = zext nneg i32 %shr.i.us.i114 to i64
-  br label %sdslen.exit.us.i95
+sw.bb.i.us.i114:                                  ; preds = %while.body.us.i88
+  %shr.i.us.i115 = lshr i32 %conv.i.us.i92, 3
+  %conv2.i.us.i116 = zext nneg i32 %shr.i.us.i115 to i64
+  br label %sdslen.exit.us.i96
 
-sdslen.exit.us.i95:                               ; preds = %sw.bb.i.us.i113, %sw.bb3.i.us.i110, %sw.bb5.i.us.i107, %sw.bb9.i.us.i104, %sw.bb13.i.us.i93, %while.body.us.i87
-  %retval.0.i.us.i96 = phi i64 [ %49, %sw.bb13.i.us.i93 ], [ %conv12.i.us.i106, %sw.bb9.i.us.i104 ], [ %conv8.i.us.i109, %sw.bb5.i.us.i107 ], [ %conv4.i.us.i112, %sw.bb3.i.us.i110 ], [ %conv2.i.us.i115, %sw.bb.i.us.i113 ], [ 0, %while.body.us.i87 ]
-  %conv.us.i97 = trunc i64 %retval.0.i.us.i96 to i32
-  %call7.us.i98 = call i32 @stringmatchlen(ptr noundef nonnull %47, i32 noundef %conv.us.i97, ptr noundef %41, i32 noundef %conv129, i32 noundef 0) #24
-  %tobool8.not.us.i99.not = icmp eq i32 %call7.us.i98, 0
-  br i1 %tobool8.not.us.i99.not, label %if.end.us.i101, label %ACLCheckChannelAgainstList.exit116
+sdslen.exit.us.i96:                               ; preds = %sw.bb.i.us.i114, %sw.bb3.i.us.i111, %sw.bb5.i.us.i108, %sw.bb9.i.us.i105, %sw.bb13.i.us.i94, %while.body.us.i88
+  %retval.0.i.us.i97 = phi i64 [ %49, %sw.bb13.i.us.i94 ], [ %conv12.i.us.i107, %sw.bb9.i.us.i105 ], [ %conv8.i.us.i110, %sw.bb5.i.us.i108 ], [ %conv4.i.us.i113, %sw.bb3.i.us.i111 ], [ %conv2.i.us.i116, %sw.bb.i.us.i114 ], [ 0, %while.body.us.i88 ]
+  %conv.us.i98 = trunc i64 %retval.0.i.us.i97 to i32
+  %call7.us.i99 = call i32 @stringmatchlen(ptr noundef nonnull %47, i32 noundef %conv.us.i98, ptr noundef %41, i32 noundef %conv129, i32 noundef 0) #24
+  %tobool8.not.us.i100.not = icmp eq i32 %call7.us.i99, 0
+  br i1 %tobool8.not.us.i100.not, label %if.end.us.i102, label %ACLCheckChannelAgainstList.exit117
 
-if.end.us.i101:                                   ; preds = %sdslen.exit.us.i95
-  %call.us.i102 = call ptr @listNext(ptr noundef nonnull %li.i83) #24
-  %tobool.not.us.i103 = icmp eq ptr %call.us.i102, null
-  br i1 %tobool.not.us.i103, label %if.end134, label %while.body.us.i87, !llvm.loop !46
+if.end.us.i102:                                   ; preds = %sdslen.exit.us.i96
+  %call.us.i103 = call ptr @listNext(ptr noundef nonnull %li.i84) #24
+  %tobool.not.us.i104 = icmp eq ptr %call.us.i103, null
+  br i1 %tobool.not.us.i104, label %while.end133, label %while.body.us.i88, !llvm.loop !46
 
-ACLCheckChannelAgainstList.exit116:               ; preds = %sdslen.exit.us.i95
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i83)
+ACLCheckChannelAgainstList.exit117:               ; preds = %sdslen.exit.us.i96
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i84)
   %call119 = call ptr @dictNext(ptr noundef %call115) #24
   %cmp120.not = icmp eq ptr %call119, null
-  br i1 %cmp120.not, label %if.end134.thread125, label %while.body123
+  br i1 %cmp120.not, label %while.end133.thread, label %while.body123
 
-if.end134:                                        ; preds = %sdslen.exit82, %if.end.us.i101
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i83)
+while.end133:                                     ; preds = %sdslen.exit83, %if.end.us.i102
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i84)
   br label %if.then136
 
-if.then136:                                       ; preds = %if.end112.thread, %if.end112, %if.end134
-  %call76.sink = phi ptr [ %call76, %if.end112.thread ], [ %call93, %if.end112 ], [ %call115, %if.end134 ]
-  call void @dictReleaseIterator(ptr noundef %call76.sink) #24
+if.then136:                                       ; preds = %while.end133, %while.end111, %if.end112.critedge
+  %call115.sink = phi ptr [ %call115, %while.end133 ], [ %call93, %while.end111 ], [ %call76, %if.end112.critedge ]
+  call void @dictReleaseIterator(ptr noundef %call115.sink) #24
   call void @freeClient(ptr noundef %22) #24
   br label %if.end138
 
-if.end138:                                        ; preds = %if.end134.thread125, %if.then136, %land.lhs.true72, %while.body69
+if.end138:                                        ; preds = %while.end133.thread, %if.then136, %land.lhs.true72, %while.body69
   %call68 = call ptr @listNext(ptr noundef nonnull %li) #24
   %cmp.not = icmp eq ptr %call68, null
   br i1 %cmp.not, label %return.sink.split, label %while.body69, !llvm.loop !53

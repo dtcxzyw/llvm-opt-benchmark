@@ -1245,17 +1245,17 @@ for.end:                                          ; preds = %for.cond1
   br i1 %cmp10157.not, label %for.inc102, label %for.body11.preheader
 
 for.body11.preheader:                             ; preds = %for.end
-  %add.ptr7 = getelementptr inbounds i8, ptr %transposed, i64 %k.0162
   %add.ptr4 = getelementptr inbounds i8, ptr %last_vertex, i64 %k.0162
   %196 = load i32, ptr %add.ptr4, align 4
   %vecinit3.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %196, i64 0
-  %197 = bitcast <4 x i32> %vecinit3.i to <2 x i64>
+  %197 = bitcast <4 x i32> %vecinit3.i to <16 x i8>
+  %add.ptr7 = getelementptr inbounds i8, ptr %transposed, i64 %k.0162
   br label %for.body11
 
 for.body11:                                       ; preds = %for.body11.preheader, %for.body11
   %j8.0160 = phi i64 [ %add100, %for.body11 ], [ 0, %for.body11.preheader ]
   %savep.0159 = phi ptr [ %add.ptr98, %for.body11 ], [ %add.ptr7, %for.body11.preheader ]
-  %pi.0158 = phi <2 x i64> [ %263, %for.body11 ], [ %197, %for.body11.preheader ]
+  %pi.0158 = phi <16 x i8> [ %add.i, %for.body11 ], [ %197, %for.body11.preheader ]
   %add.ptr13 = getelementptr inbounds i8, ptr %buffer, i64 %j8.0160
   %198 = load <2 x i64>, ptr %add.ptr13, align 16
   %add.ptr20 = getelementptr inbounds i8, ptr %add.ptr13, i64 %and
@@ -1304,102 +1304,100 @@ for.body11:                                       ; preds = %for.body11.preheade
   %231 = shufflevector <16 x i8> %shuffle.i10.i, <16 x i8> %shuffle.i.i, <16 x i32> <i32 8, i32 9, i32 24, i32 25, i32 10, i32 11, i32 26, i32 27, i32 12, i32 13, i32 28, i32 29, i32 14, i32 15, i32 30, i32 31>
   %232 = shufflevector <16 x i8> %shuffle.i16.i, <16 x i8> %shuffle.i13.i, <16 x i32> <i32 0, i32 1, i32 16, i32 17, i32 2, i32 3, i32 18, i32 19, i32 4, i32 5, i32 20, i32 21, i32 6, i32 7, i32 22, i32 23>
   %233 = shufflevector <16 x i8> %shuffle.i16.i, <16 x i8> %shuffle.i13.i, <16 x i32> <i32 8, i32 9, i32 24, i32 25, i32 10, i32 11, i32 26, i32 27, i32 12, i32 13, i32 28, i32 29, i32 14, i32 15, i32 30, i32 31>
-  %234 = bitcast <2 x i64> %pi.0158 to <16 x i8>
-  %235 = shufflevector <16 x i8> %230, <16 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i157 = add <16 x i8> %235, %234
-  %236 = shufflevector <16 x i8> %230, <16 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i154 = add <16 x i8> %add.i157, %236
-  %237 = shufflevector <16 x i8> %230, <16 x i8> poison, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i151 = add <16 x i8> %add.i154, %237
-  %238 = shufflevector <16 x i8> %230, <16 x i8> poison, <16 x i32> <i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i148 = add <16 x i8> %add.i151, %238
-  %239 = bitcast <16 x i8> %add.i157 to <4 x i32>
-  %vecext.i203 = extractelement <4 x i32> %239, i64 0
+  %234 = shufflevector <16 x i8> %230, <16 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i157 = add <16 x i8> %pi.0158, %234
+  %235 = shufflevector <16 x i8> %230, <16 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i154 = add <16 x i8> %add.i157, %235
+  %236 = shufflevector <16 x i8> %230, <16 x i8> poison, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i151 = add <16 x i8> %add.i154, %236
+  %237 = shufflevector <16 x i8> %230, <16 x i8> poison, <16 x i32> <i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i148 = add <16 x i8> %add.i151, %237
+  %238 = bitcast <16 x i8> %add.i157 to <4 x i32>
+  %vecext.i203 = extractelement <4 x i32> %238, i64 0
   store i32 %vecext.i203, ptr %savep.0159, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %savep.0159, i64 %vertex_size
-  %240 = bitcast <16 x i8> %add.i154 to <4 x i32>
-  %vecext.i200 = extractelement <4 x i32> %240, i64 0
+  %239 = bitcast <16 x i8> %add.i154 to <4 x i32>
+  %vecext.i200 = extractelement <4 x i32> %239, i64 0
   store i32 %vecext.i200, ptr %add.ptr44, align 4
   %add.ptr46 = getelementptr inbounds i8, ptr %add.ptr44, i64 %vertex_size
-  %241 = bitcast <16 x i8> %add.i151 to <4 x i32>
-  %vecext.i197 = extractelement <4 x i32> %241, i64 0
+  %240 = bitcast <16 x i8> %add.i151 to <4 x i32>
+  %vecext.i197 = extractelement <4 x i32> %240, i64 0
   store i32 %vecext.i197, ptr %add.ptr46, align 4
   %add.ptr48 = getelementptr inbounds i8, ptr %add.ptr46, i64 %vertex_size
-  %242 = bitcast <16 x i8> %add.i148 to <4 x i32>
-  %vecext.i194 = extractelement <4 x i32> %242, i64 0
+  %241 = bitcast <16 x i8> %add.i148 to <4 x i32>
+  %vecext.i194 = extractelement <4 x i32> %241, i64 0
   store i32 %vecext.i194, ptr %add.ptr48, align 4
   %add.ptr50 = getelementptr inbounds i8, ptr %add.ptr48, i64 %vertex_size
-  %243 = shufflevector <16 x i8> %231, <16 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i145 = add <16 x i8> %add.i148, %243
-  %244 = shufflevector <16 x i8> %231, <16 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i142 = add <16 x i8> %add.i145, %244
-  %245 = shufflevector <16 x i8> %231, <16 x i8> poison, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i139 = add <16 x i8> %add.i142, %245
-  %246 = shufflevector <16 x i8> %231, <16 x i8> poison, <16 x i32> <i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i136 = add <16 x i8> %add.i139, %246
-  %247 = bitcast <16 x i8> %add.i145 to <4 x i32>
-  %vecext.i191 = extractelement <4 x i32> %247, i64 0
+  %242 = shufflevector <16 x i8> %231, <16 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i145 = add <16 x i8> %add.i148, %242
+  %243 = shufflevector <16 x i8> %231, <16 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i142 = add <16 x i8> %add.i145, %243
+  %244 = shufflevector <16 x i8> %231, <16 x i8> poison, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i139 = add <16 x i8> %add.i142, %244
+  %245 = shufflevector <16 x i8> %231, <16 x i8> poison, <16 x i32> <i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i136 = add <16 x i8> %add.i139, %245
+  %246 = bitcast <16 x i8> %add.i145 to <4 x i32>
+  %vecext.i191 = extractelement <4 x i32> %246, i64 0
   store i32 %vecext.i191, ptr %add.ptr50, align 4
   %add.ptr60 = getelementptr inbounds i8, ptr %add.ptr50, i64 %vertex_size
-  %248 = bitcast <16 x i8> %add.i142 to <4 x i32>
-  %vecext.i188 = extractelement <4 x i32> %248, i64 0
+  %247 = bitcast <16 x i8> %add.i142 to <4 x i32>
+  %vecext.i188 = extractelement <4 x i32> %247, i64 0
   store i32 %vecext.i188, ptr %add.ptr60, align 4
   %add.ptr62 = getelementptr inbounds i8, ptr %add.ptr60, i64 %vertex_size
-  %249 = bitcast <16 x i8> %add.i139 to <4 x i32>
-  %vecext.i185 = extractelement <4 x i32> %249, i64 0
+  %248 = bitcast <16 x i8> %add.i139 to <4 x i32>
+  %vecext.i185 = extractelement <4 x i32> %248, i64 0
   store i32 %vecext.i185, ptr %add.ptr62, align 4
   %add.ptr64 = getelementptr inbounds i8, ptr %add.ptr62, i64 %vertex_size
-  %250 = bitcast <16 x i8> %add.i136 to <4 x i32>
-  %vecext.i182 = extractelement <4 x i32> %250, i64 0
+  %249 = bitcast <16 x i8> %add.i136 to <4 x i32>
+  %vecext.i182 = extractelement <4 x i32> %249, i64 0
   store i32 %vecext.i182, ptr %add.ptr64, align 4
   %add.ptr66 = getelementptr inbounds i8, ptr %add.ptr64, i64 %vertex_size
-  %251 = shufflevector <16 x i8> %232, <16 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i133 = add <16 x i8> %add.i136, %251
-  %252 = shufflevector <16 x i8> %232, <16 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i130 = add <16 x i8> %add.i133, %252
-  %253 = shufflevector <16 x i8> %232, <16 x i8> poison, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i127 = add <16 x i8> %add.i130, %253
-  %254 = shufflevector <16 x i8> %232, <16 x i8> poison, <16 x i32> <i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i124 = add <16 x i8> %add.i127, %254
-  %255 = bitcast <16 x i8> %add.i133 to <4 x i32>
-  %vecext.i179 = extractelement <4 x i32> %255, i64 0
+  %250 = shufflevector <16 x i8> %232, <16 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i133 = add <16 x i8> %add.i136, %250
+  %251 = shufflevector <16 x i8> %232, <16 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i130 = add <16 x i8> %add.i133, %251
+  %252 = shufflevector <16 x i8> %232, <16 x i8> poison, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i127 = add <16 x i8> %add.i130, %252
+  %253 = shufflevector <16 x i8> %232, <16 x i8> poison, <16 x i32> <i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i124 = add <16 x i8> %add.i127, %253
+  %254 = bitcast <16 x i8> %add.i133 to <4 x i32>
+  %vecext.i179 = extractelement <4 x i32> %254, i64 0
   store i32 %vecext.i179, ptr %add.ptr66, align 4
   %add.ptr76 = getelementptr inbounds i8, ptr %add.ptr66, i64 %vertex_size
-  %256 = bitcast <16 x i8> %add.i130 to <4 x i32>
-  %vecext.i176 = extractelement <4 x i32> %256, i64 0
+  %255 = bitcast <16 x i8> %add.i130 to <4 x i32>
+  %vecext.i176 = extractelement <4 x i32> %255, i64 0
   store i32 %vecext.i176, ptr %add.ptr76, align 4
   %add.ptr78 = getelementptr inbounds i8, ptr %add.ptr76, i64 %vertex_size
-  %257 = bitcast <16 x i8> %add.i127 to <4 x i32>
-  %vecext.i173 = extractelement <4 x i32> %257, i64 0
+  %256 = bitcast <16 x i8> %add.i127 to <4 x i32>
+  %vecext.i173 = extractelement <4 x i32> %256, i64 0
   store i32 %vecext.i173, ptr %add.ptr78, align 4
   %add.ptr80 = getelementptr inbounds i8, ptr %add.ptr78, i64 %vertex_size
-  %258 = bitcast <16 x i8> %add.i124 to <4 x i32>
-  %vecext.i170 = extractelement <4 x i32> %258, i64 0
+  %257 = bitcast <16 x i8> %add.i124 to <4 x i32>
+  %vecext.i170 = extractelement <4 x i32> %257, i64 0
   store i32 %vecext.i170, ptr %add.ptr80, align 4
   %add.ptr82 = getelementptr inbounds i8, ptr %add.ptr80, i64 %vertex_size
-  %259 = shufflevector <16 x i8> %233, <16 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i121 = add <16 x i8> %add.i124, %259
-  %260 = shufflevector <16 x i8> %233, <16 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i118 = add <16 x i8> %add.i121, %260
-  %261 = shufflevector <16 x i8> %233, <16 x i8> poison, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i115 = add <16 x i8> %add.i118, %261
-  %262 = shufflevector <16 x i8> %233, <16 x i8> poison, <16 x i32> <i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %add.i = add <16 x i8> %add.i115, %262
-  %263 = bitcast <16 x i8> %add.i to <2 x i64>
-  %264 = bitcast <16 x i8> %add.i121 to <4 x i32>
-  %vecext.i167 = extractelement <4 x i32> %264, i64 0
+  %258 = shufflevector <16 x i8> %233, <16 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i121 = add <16 x i8> %add.i124, %258
+  %259 = shufflevector <16 x i8> %233, <16 x i8> poison, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i118 = add <16 x i8> %add.i121, %259
+  %260 = shufflevector <16 x i8> %233, <16 x i8> poison, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i115 = add <16 x i8> %add.i118, %260
+  %261 = shufflevector <16 x i8> %233, <16 x i8> poison, <16 x i32> <i32 12, i32 13, i32 14, i32 15, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %add.i = add <16 x i8> %add.i115, %261
+  %262 = bitcast <16 x i8> %add.i121 to <4 x i32>
+  %vecext.i167 = extractelement <4 x i32> %262, i64 0
   store i32 %vecext.i167, ptr %add.ptr82, align 4
   %add.ptr92 = getelementptr inbounds i8, ptr %add.ptr82, i64 %vertex_size
-  %265 = bitcast <16 x i8> %add.i118 to <4 x i32>
-  %vecext.i164 = extractelement <4 x i32> %265, i64 0
+  %263 = bitcast <16 x i8> %add.i118 to <4 x i32>
+  %vecext.i164 = extractelement <4 x i32> %263, i64 0
   store i32 %vecext.i164, ptr %add.ptr92, align 4
   %add.ptr94 = getelementptr inbounds i8, ptr %add.ptr92, i64 %vertex_size
-  %266 = bitcast <16 x i8> %add.i115 to <4 x i32>
-  %vecext.i161 = extractelement <4 x i32> %266, i64 0
+  %264 = bitcast <16 x i8> %add.i115 to <4 x i32>
+  %vecext.i161 = extractelement <4 x i32> %264, i64 0
   store i32 %vecext.i161, ptr %add.ptr94, align 4
   %add.ptr96 = getelementptr inbounds i8, ptr %add.ptr94, i64 %vertex_size
-  %267 = bitcast <16 x i8> %add.i to <4 x i32>
-  %vecext.i = extractelement <4 x i32> %267, i64 0
+  %265 = bitcast <16 x i8> %add.i to <4 x i32>
+  %vecext.i = extractelement <4 x i32> %265, i64 0
   store i32 %vecext.i, ptr %add.ptr96, align 4
   %add.ptr98 = getelementptr inbounds i8, ptr %add.ptr96, i64 %vertex_size
   %add100 = add nuw i64 %j8.0160, 16

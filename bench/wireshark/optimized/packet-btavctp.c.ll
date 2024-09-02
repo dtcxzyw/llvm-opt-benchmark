@@ -150,12 +150,12 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br label %33
 
 33:                                               ; preds = %4, %23
-  %.sink240 = phi i32 [ %24, %23 ], [ 0, %4 ]
-  %.sink239 = phi i32 [ %26, %23 ], [ 0, %4 ]
+  %.sink239 = phi i32 [ %24, %23 ], [ 0, %4 ]
+  %.sink238 = phi i32 [ %26, %23 ], [ 0, %4 ]
   %.sink = phi i32 [ %29, %23 ], [ 0, %4 ]
   %storemerge = phi i32 [ %32, %23 ], [ 0, %4 ]
-  store i32 %.sink240, ptr %5, align 4
-  store i32 %.sink239, ptr %6, align 4
+  store i32 %.sink239, ptr %5, align 4
+  store i32 %.sink238, ptr %6, align 4
   store i32 %.sink, ptr %7, align 4
   store i32 %storemerge, ptr %8, align 4
   %34 = load i32, ptr @proto_btavctp, align 4
@@ -173,9 +173,9 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %44 = load ptr, ptr %39, align 8
   %switch.selectcmp = icmp eq i32 %43, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.39, ptr @.str.40
-  %switch.selectcmp249 = icmp eq i32 %43, 0
-  %switch.select250 = select i1 %switch.selectcmp249, ptr @.str.38, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %44, i32 noundef 25, ptr noundef nonnull %switch.select250) #3
+  %switch.selectcmp248 = icmp eq i32 %43, 0
+  %switch.select249 = select i1 %switch.selectcmp248, ptr @.str.38, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %44, i32 noundef 25, ptr noundef nonnull %switch.select249) #3
   %45 = load i32, ptr @hf_btavctp_transaction, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %45, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %47 = load i32, ptr @hf_btavctp_packet_type, align 4
@@ -203,7 +203,7 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %65, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %67 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %68 = and i8 %67, 1
-  %69 = zext nneg i8 %68 to i32
+  %69 = icmp eq i8 %68, 0
   br i1 %63, label %70, label %78
 
 70:                                               ; preds = %64
@@ -257,20 +257,19 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br label %103
 
 103:                                              ; preds = %75, %101
-  %.0198232 = phi i32 [ %.0198.ph, %101 ], [ 0, %75 ]
-  %.0194220229 = phi i32 [ %69, %101 ], [ 0, %75 ]
-  %.0193221227 = phi ptr [ %66, %101 ], [ null, %75 ]
+  %.0198231 = phi i32 [ %.0198.ph, %101 ], [ 0, %75 ]
+  %.0194219228 = phi i1 [ %69, %101 ], [ true, %75 ]
+  %.0193220226 = phi ptr [ %66, %101 ], [ null, %75 ]
   %.0201 = phi i32 [ %82, %101 ], [ 0, %75 ]
   %.1200 = phi i32 [ %102, %101 ], [ 1, %75 ]
   %104 = load ptr, ptr %39, align 8
   %105 = call ptr @val_to_str_const(i32 noundef %61, ptr noundef nonnull @cr_vals, ptr noundef nonnull @.str.42) #3
   %106 = call ptr @val_to_str_const(i32 noundef %57, ptr noundef nonnull @packet_type_vals, ptr noundef nonnull @.str.43) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %104, i32 noundef 25, ptr noundef nonnull @.str.41, ptr noundef %105, i32 noundef %53, ptr noundef %106) #3
-  %.not = icmp eq i32 %.0194220229, 0
-  br i1 %.not, label %112, label %107
+  br i1 %.0194219228, label %112, label %107
 
 107:                                              ; preds = %103
-  %108 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0193221227, ptr noundef nonnull @ei_btavctp_invalid_profile) #3
+  %108 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0193220226, ptr noundef nonnull @ei_btavctp_invalid_profile) #3
   %109 = load ptr, ptr %39, align 8
   call void @col_append_sep_str(ptr noundef %109, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.36) #3
   %110 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1200) #3
@@ -316,8 +315,8 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %137 = load ptr, ptr %113, align 8
   %138 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %137, ptr noundef nonnull %10) #3
   %139 = call i32 @dissector_try_string(ptr noundef %136, ptr noundef %138, ptr noundef %127, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %115) #3
-  %.not217 = icmp eq i32 %139, 0
-  br i1 %.not217, label %140, label %370
+  %.not216 = icmp eq i32 %139, 0
+  br i1 %.not216, label %140, label %370
 
 140:                                              ; preds = %128
   %141 = call i32 @call_data_dissector(ptr noundef %127, ptr noundef nonnull %1, ptr noundef %2) #3
@@ -358,8 +357,8 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %159 = getelementptr inbounds i8, ptr %158, i64 50
   %160 = load i16, ptr %159, align 2
   %161 = and i16 %160, 8
-  %.not215 = icmp eq i16 %161, 0
-  br i1 %.not215, label %162, label %190
+  %.not214 = icmp eq i16 %161, 0
+  br i1 %.not214, label %162, label %190
 
 162:                                              ; preds = %156
   %163 = call ptr @wmem_file_scope() #3
@@ -375,7 +374,7 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %171 = call noalias ptr @wmem_alloc(ptr noundef %170, i64 noundef 40) #3
   store ptr %171, ptr @fragments, align 8
   %172 = getelementptr inbounds i8, ptr %171, i64 20
-  store i32 %.0198232, ptr %172, align 4
+  store i32 %.0198231, ptr %172, align 4
   %173 = getelementptr inbounds i8, ptr %171, i64 24
   store i32 %.0201, ptr %173, align 8
   %174 = getelementptr inbounds i8, ptr %171, i64 16
@@ -408,8 +407,8 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %191 = load ptr, ptr @reassembling, align 8
   %192 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %191, ptr noundef nonnull %11) #3
   store ptr %192, ptr @fragments, align 8
-  %.not216 = icmp eq ptr %192, null
-  br i1 %.not216, label %212, label %193
+  %.not215 = icmp eq ptr %192, null
+  br i1 %.not215, label %212, label %193
 
 193:                                              ; preds = %190
   %194 = load i32, ptr %192, align 8
@@ -451,11 +450,11 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %217 = load ptr, ptr @reassembling, align 8
   %218 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %217, ptr noundef nonnull %11) #3
   store ptr %218, ptr @fragments, align 8
-  %.not214 = icmp eq ptr %218, null
+  %.not213 = icmp eq ptr %218, null
   br i1 %216, label %219, label %272
 
 219:                                              ; preds = %215
-  br i1 %.not214, label %.thread, label %220
+  br i1 %.not213, label %.thread, label %220
 
 220:                                              ; preds = %219
   %221 = load i32, ptr %218, align 8
@@ -550,36 +549,36 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br label %370
 
 272:                                              ; preds = %215
-  br i1 %.not214, label %.thread244, label %273
+  br i1 %.not213, label %.thread243, label %273
 
 273:                                              ; preds = %272
   %274 = load i32, ptr %218, align 8
   %275 = load i32, ptr %5, align 4
   %276 = icmp eq i32 %274, %275
-  br i1 %276, label %277, label %.thread244
+  br i1 %276, label %277, label %.thread243
 
 277:                                              ; preds = %273
   %278 = getelementptr inbounds i8, ptr %218, i64 4
   %279 = load i32, ptr %278, align 4
   %280 = load i32, ptr %6, align 4
   %281 = icmp eq i32 %279, %280
-  br i1 %281, label %282, label %.thread244
+  br i1 %281, label %282, label %.thread243
 
 282:                                              ; preds = %277
   %283 = getelementptr inbounds i8, ptr %218, i64 8
   %284 = load i32, ptr %283, align 8
   %285 = load i32, ptr %7, align 4
   %286 = icmp eq i32 %284, %285
-  br i1 %286, label %287, label %.thread244
+  br i1 %286, label %287, label %.thread243
 
 287:                                              ; preds = %282
   %288 = getelementptr inbounds i8, ptr %218, i64 12
   %289 = load i32, ptr %288, align 4
   %290 = load i32, ptr %8, align 4
   %291 = icmp eq i32 %289, %290
-  br i1 %291, label %292, label %.thread244
+  br i1 %291, label %292, label %.thread243
 
-.thread244:                                       ; preds = %287, %282, %277, %273, %272
+.thread243:                                       ; preds = %287, %282, %277, %273, %272
   store ptr null, ptr @fragments, align 8
   br label %328
 
@@ -590,7 +589,7 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %296 = load i16, ptr %295, align 2
   %297 = and i16 %296, 8
   %298 = icmp eq i16 %297, 0
-  br i1 %298, label %299, label %.thread246
+  br i1 %298, label %299, label %.thread245
 
 299:                                              ; preds = %292
   %300 = call ptr @wmem_file_scope() #3
@@ -639,44 +638,44 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %322 = load ptr, ptr @reassembling, align 8
   call void @wmem_tree_insert32_array(ptr noundef %322, ptr noundef nonnull %11, ptr noundef nonnull %314) #3
   %.pr = load ptr, ptr @fragments, align 8
-  %.not209 = icmp eq ptr %.pr, null
-  br i1 %.not209, label %328, label %.thread246
+  %.not208 = icmp eq ptr %.pr, null
+  br i1 %.not208, label %328, label %.thread245
 
-.thread246:                                       ; preds = %292, %299
+.thread245:                                       ; preds = %292, %299
   %323 = phi ptr [ %.pr, %299 ], [ %218, %292 ]
   %324 = getelementptr inbounds i8, ptr %323, i64 16
   %325 = load i32, ptr %324, align 8
   %326 = getelementptr inbounds i8, ptr %323, i64 20
   %327 = load i32, ptr %326, align 4
-  %.not210 = icmp eq i32 %325, %327
-  br i1 %.not210, label %.preheader, label %328
+  %.not209 = icmp eq i32 %325, %327
+  br i1 %.not209, label %.preheader, label %328
 
-.preheader:                                       ; preds = %.thread246
-  %.not211234 = icmp eq i32 %325, 0
-  br i1 %.not211234, label %._crit_edge, label %.lr.ph
+.preheader:                                       ; preds = %.thread245
+  %.not210233 = icmp eq i32 %325, 0
+  br i1 %.not210233, label %._crit_edge, label %.lr.ph
 
-328:                                              ; preds = %.thread244, %.thread246, %299
+328:                                              ; preds = %.thread243, %.thread245, %299
   %329 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %48, ptr noundef nonnull @ei_btavctp_unexpected_frame) #3
   br label %.sink.split
 
 .lr.ph:                                           ; preds = %.preheader, %348
   %330 = phi ptr [ %350, %348 ], [ %323, %.preheader ]
-  %.0237 = phi ptr [ %.1, %348 ], [ null, %.preheader ]
-  %.0195236 = phi i32 [ %349, %348 ], [ 1, %.preheader ]
-  %.0196235 = phi i32 [ %.1197, %348 ], [ 0, %.preheader ]
+  %.0236 = phi ptr [ %.1, %348 ], [ null, %.preheader ]
+  %.0195235 = phi i32 [ %349, %348 ], [ 1, %.preheader ]
+  %.0196234 = phi i32 [ %.1197, %348 ], [ 0, %.preheader ]
   %331 = getelementptr inbounds i8, ptr %330, i64 32
   %332 = load ptr, ptr %331, align 8
-  %333 = call ptr @wmem_tree_lookup32_le(ptr noundef %332, i32 noundef %.0195236) #3
-  %.not213 = icmp eq ptr %333, null
-  br i1 %.not213, label %348, label %334
+  %333 = call ptr @wmem_tree_lookup32_le(ptr noundef %332, i32 noundef %.0195235) #3
+  %.not212 = icmp eq ptr %333, null
+  br i1 %.not212, label %348, label %334
 
 334:                                              ; preds = %.lr.ph
   %335 = load ptr, ptr %113, align 8
   %336 = load i32, ptr %333, align 8
-  %337 = add i32 %336, %.0196235
+  %337 = add i32 %336, %.0196234
   %338 = zext i32 %337 to i64
-  %339 = call noalias ptr @wmem_realloc(ptr noundef %335, ptr noundef %.0237, i64 noundef %338) #3
-  %340 = zext i32 %.0196235 to i64
+  %339 = call noalias ptr @wmem_realloc(ptr noundef %335, ptr noundef %.0236, i64 noundef %338) #3
+  %340 = zext i32 %.0196234 to i64
   %341 = getelementptr i8, ptr %339, i64 %340
   %342 = getelementptr inbounds i8, ptr %333, i64 8
   %343 = load ptr, ptr %342, align 8
@@ -684,18 +683,18 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %345 = zext i32 %344 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %341, ptr align 1 %343, i64 %345, i1 false)
   %346 = load i32, ptr %333, align 8
-  %347 = add i32 %346, %.0196235
+  %347 = add i32 %346, %.0196234
   br label %348
 
 348:                                              ; preds = %.lr.ph, %334
-  %.1197 = phi i32 [ %347, %334 ], [ %.0196235, %.lr.ph ]
-  %.1 = phi ptr [ %339, %334 ], [ %.0237, %.lr.ph ]
-  %349 = add i32 %.0195236, 1
+  %.1197 = phi i32 [ %347, %334 ], [ %.0196234, %.lr.ph ]
+  %.1 = phi ptr [ %339, %334 ], [ %.0236, %.lr.ph ]
+  %349 = add i32 %.0195235, 1
   %350 = load ptr, ptr @fragments, align 8
   %351 = getelementptr inbounds i8, ptr %350, i64 16
   %352 = load i32, ptr %351, align 8
-  %.not211 = icmp ugt i32 %349, %352
-  br i1 %.not211, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  %.not210 = icmp ugt i32 %349, %352
+  br i1 %.not210, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %348, %.preheader
   %.0196.lcssa = phi i32 [ 0, %.preheader ], [ %.1197, %348 ]
@@ -720,12 +719,12 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %365 = load ptr, ptr %113, align 8
   %366 = call ptr @print_numeric_bluetooth_uuid(ptr noundef %365, ptr noundef nonnull %13) #3
   %367 = call i32 @dissector_try_string(ptr noundef %364, ptr noundef %366, ptr noundef %353, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %115) #3
-  %.not212 = icmp eq i32 %367, 0
-  br i1 %.not212, label %.sink.split, label %369
+  %.not211 = icmp eq i32 %367, 0
+  br i1 %.not211, label %.sink.split, label %369
 
 .sink.split:                                      ; preds = %._crit_edge, %328
-  %.sink248 = phi ptr [ %127, %328 ], [ %353, %._crit_edge ]
-  %368 = call i32 @call_data_dissector(ptr noundef %.sink248, ptr noundef nonnull %1, ptr noundef %2) #3
+  %.sink247 = phi ptr [ %127, %328 ], [ %353, %._crit_edge ]
+  %368 = call i32 @call_data_dissector(ptr noundef %.sink247, ptr noundef nonnull %1, ptr noundef %2) #3
   br label %369
 
 369:                                              ; preds = %.sink.split, %._crit_edge

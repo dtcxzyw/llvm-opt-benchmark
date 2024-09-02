@@ -74635,16 +74635,16 @@ _ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5r
   %25 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #24
   %26 = add nsw i64 %25, %5
   %.pre = load i32, ptr %17, align 4
-  %.pre87 = load ptr, ptr %21, align 8
-  %.pre88 = zext i32 %.pre to i64
-  %.pre89 = shl nuw nsw i64 %.pre88, 16
+  %.pre86 = load ptr, ptr %21, align 8
+  %.pre87 = zext i32 %.pre to i64
+  %.pre88 = shl nuw nsw i64 %.pre87, 16
   br label %27
 
 27:                                               ; preds = %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit, %23
-  %.pre-phi90 = phi i64 [ %.pre89, %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit ], [ %20, %23 ]
-  %28 = phi ptr [ %.pre87, %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit ], [ %22, %23 ]
+  %.pre-phi89 = phi i64 [ %.pre88, %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit ], [ %20, %23 ]
+  %28 = phi ptr [ %.pre86, %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit ], [ %22, %23 ]
   %.sroa.049.0 = phi i64 [ %26, %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit ], [ undef, %23 ]
-  %.not.i30 = icmp ugt i64 %16, %.pre-phi90
+  %.not.i30 = icmp ugt i64 %16, %.pre-phi89
   %29 = getelementptr inbounds i8, ptr %28, i64 %15
   %.0.i31 = select i1 %.not.i30, ptr null, ptr %29
   %30 = icmp ne ptr %.0.i31, null
@@ -74660,7 +74660,7 @@ _ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5r
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %.invoke
 
 .invoke:                                          ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit38, %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us, %_ZNSt11unique_lockISt5mutexED2Ev.exit, %32
-  %34 = phi i32 [ %33, %32 ], [ %58, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ %80, %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us ], [ %96, %_ZNSt11unique_lockISt5mutexED2Ev.exit38 ]
+  %34 = phi i32 [ %33, %32 ], [ %58, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ %81, %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us ], [ %97, %_ZNSt11unique_lockISt5mutexED2Ev.exit38 ]
   invoke void @_ZSt20__throw_system_errori(i32 noundef %34) #25
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -74734,8 +74734,8 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.loopexit.i.i.i.i
   store ptr %57, ptr %11, align 8
   store i8 0, ptr %56, align 8
   %58 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %57) #24
-  %.not.i.i.i3372 = icmp eq i32 %58, 0
-  br i1 %.not.i.i.i3372, label %.lr.ph, label %.invoke
+  %.not.i.i.i3371 = icmp eq i32 %58, 0
+  br i1 %.not.i.i.i3371, label %.lr.ph, label %.invoke
 
 .lr.ph:                                           ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit
   %59 = sdiv i64 %.sroa.049.0, 1000000000
@@ -74746,7 +74746,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.loopexit.i.i.i.i
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us
-  %63 = phi ptr [ %79, %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us ], [ %57, %.lr.ph ]
+  %63 = phi ptr [ %80, %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us ], [ %57, %.lr.ph ]
   store i8 1, ptr %56, align 8
   %64 = load ptr, ptr %9, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 56
@@ -74754,43 +74754,43 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.loopexit.i.i.i.i
   store i64 %59, ptr %7, align 8
   store i64 %60, ptr %61, align 8
   %66 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %65, ptr noundef nonnull %63, i32 noundef 1, ptr noundef nonnull %7)
-          to label %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit.us unwind label %.loopexit.split.us
+          to label %67 unwind label %.loopexit.split.us
 
-_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit.us: ; preds = %.lr.ph.split.us
-  %67 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #24
+67:                                               ; preds = %.lr.ph.split.us
+  %68 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %68 = load atomic i32, ptr %62 monotonic, align 8
-  %.not60.us = icmp eq i32 %68, 0
-  br i1 %.not60.us, label %69, label %.critedge
+  %69 = load atomic i32, ptr %62 monotonic, align 8
+  %.not60.us = icmp eq i32 %69, 0
+  br i1 %.not60.us, label %70, label %.critedge
 
-69:                                               ; preds = %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit.us
-  %.not81 = icmp sge i64 %67, %.sroa.049.0
-  %70 = load atomic i32, ptr %.0.i31 seq_cst, align 4
-  %.not61.us = icmp ne i32 %70, %4
-  %brmerge = select i1 %.not61.us, i1 true, i1 %.not81
-  br i1 %brmerge, label %.critedge.loopexit.split.loop.exit112, label %71
+70:                                               ; preds = %67
+  %.not80 = icmp sge i64 %68, %.sroa.049.0
+  %71 = load atomic i32, ptr %.0.i31 seq_cst, align 4
+  %.not61.us = icmp ne i32 %71, %4
+  %brmerge = select i1 %.not61.us, i1 true, i1 %.not80
+  br i1 %brmerge, label %.critedge.loopexit.split.loop.exit111, label %72
 
-71:                                               ; preds = %69
-  %72 = load i8, ptr %56, align 8
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us
+72:                                               ; preds = %70
+  %73 = load i8, ptr %56, align 8
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %11, align 8
-  %.not.i.i37.us = icmp eq ptr %75, null
-  br i1 %.not.i.i37.us, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us, label %76
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %11, align 8
+  %.not.i.i37.us = icmp eq ptr %76, null
+  br i1 %.not.i.i37.us, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us, label %77
 
-76:                                               ; preds = %74
-  %77 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %75) #24
+77:                                               ; preds = %75
+  %78 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %76) #24
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit38.us:       ; preds = %76, %74, %71
-  %78 = load ptr, ptr %9, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
-  store ptr %79, ptr %11, align 8
+_ZNSt11unique_lockISt5mutexED2Ev.exit38.us:       ; preds = %77, %75, %72
+  %79 = load ptr, ptr %9, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  store ptr %80, ptr %11, align 8
   store i8 0, ptr %56, align 8
-  %80 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %79) #24
-  %.not.i.i.i33.us = icmp eq i32 %80, 0
+  %81 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %80) #24
+  %.not.i.i.i33.us = icmp eq i32 %81, 0
   br i1 %.not.i.i.i33.us, label %.lr.ph.split.us, label %.invoke, !llvm.loop !1413
 
 .loopexit.split.us:                               ; preds = %.lr.ph.split.us
@@ -74800,86 +74800,86 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit38.us:       ; preds = %76, %74, %71
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %_ZNSt11unique_lockISt5mutexED2Ev.exit38
   store i8 1, ptr %56, align 8
-  %81 = load ptr, ptr %9, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 56
-  invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(9) %11)
-          to label %83 unwind label %.loopexit.split
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 56
+  invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef nonnull align 8 dereferenceable(9) %11)
+          to label %84 unwind label %.loopexit.split
 
-83:                                               ; preds = %.lr.ph.split.split
-  %84 = load atomic i32, ptr %62 monotonic, align 8
-  %.not60 = icmp eq i32 %84, 0
-  br i1 %.not60, label %85, label %.critedge
+84:                                               ; preds = %.lr.ph.split.split
+  %85 = load atomic i32, ptr %62 monotonic, align 8
+  %.not60 = icmp eq i32 %85, 0
+  br i1 %.not60, label %86, label %.critedge
 
-85:                                               ; preds = %83
-  %86 = load atomic i32, ptr %.0.i31 seq_cst, align 4
-  %.not61 = icmp eq i32 %86, %4
-  br i1 %.not61, label %87, label %.critedge
+86:                                               ; preds = %84
+  %87 = load atomic i32, ptr %.0.i31 seq_cst, align 4
+  %.not61 = icmp eq i32 %87, %4
+  br i1 %.not61, label %88, label %.critedge
 
-87:                                               ; preds = %85
-  %88 = load i8, ptr %56, align 8
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %90, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38
+88:                                               ; preds = %86
+  %89 = load i8, ptr %56, align 8
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %91, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %11, align 8
-  %.not.i.i37 = icmp eq ptr %91, null
-  br i1 %.not.i.i37, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38, label %92
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %11, align 8
+  %.not.i.i37 = icmp eq ptr %92, null
+  br i1 %.not.i.i37, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38, label %93
 
-92:                                               ; preds = %90
-  %93 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %91) #24
+93:                                               ; preds = %91
+  %94 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %92) #24
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit38
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit38:          ; preds = %87, %90, %92
-  %94 = load ptr, ptr %9, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 16
-  store ptr %95, ptr %11, align 8
+_ZNSt11unique_lockISt5mutexED2Ev.exit38:          ; preds = %88, %91, %93
+  %95 = load ptr, ptr %9, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  store ptr %96, ptr %11, align 8
   store i8 0, ptr %56, align 8
-  %96 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %95) #24
-  %.not.i.i.i33 = icmp eq i32 %96, 0
+  %97 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %96) #24
+  %.not.i.i.i33 = icmp eq i32 %97, 0
   br i1 %.not.i.i.i33, label %.lr.ph.split.split, label %.invoke, !llvm.loop !1413
 
-.critedge.loopexit.split.loop.exit112:            ; preds = %69
+.critedge.loopexit.split.loop.exit111:            ; preds = %70
   %.mux.le = select i1 %.not61.us, i32 0, i32 2
   br label %.critedge
 
-.critedge:                                        ; preds = %85, %83, %.critedge.loopexit.split.loop.exit112, %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit.us
-  %.sink97 = phi i8 [ 1, %.critedge.loopexit.split.loop.exit112 ], [ 0, %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit.us ], [ 0, %83 ], [ 1, %85 ]
-  %.sink = phi i32 [ %.mux.le, %.critedge.loopexit.split.loop.exit112 ], [ 7, %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit.us ], [ 7, %83 ], [ 0, %85 ]
-  store i8 %.sink97, ptr %0, align 4
-  %97 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink, ptr %97, align 4
-  %98 = load i8, ptr %56, align 8
-  %99 = trunc i8 %98 to i1
-  br i1 %99, label %100, label %_ZNSt11unique_lockISt5mutexED2Ev.exit40
+.critedge:                                        ; preds = %86, %84, %.critedge.loopexit.split.loop.exit111, %67
+  %.sink96 = phi i8 [ 1, %.critedge.loopexit.split.loop.exit111 ], [ 0, %67 ], [ 0, %84 ], [ 1, %86 ]
+  %.sink = phi i32 [ %.mux.le, %.critedge.loopexit.split.loop.exit111 ], [ 7, %67 ], [ 7, %84 ], [ 0, %86 ]
+  store i8 %.sink96, ptr %0, align 4
+  %98 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink, ptr %98, align 4
+  %99 = load i8, ptr %56, align 8
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %101, label %_ZNSt11unique_lockISt5mutexED2Ev.exit40
 
-100:                                              ; preds = %.critedge
-  %101 = load ptr, ptr %11, align 8
-  %.not.i.i39 = icmp eq ptr %101, null
-  br i1 %.not.i.i39, label %_ZNSt11unique_lockISt5mutexED2Ev.exit40, label %102
+101:                                              ; preds = %.critedge
+  %102 = load ptr, ptr %11, align 8
+  %.not.i.i39 = icmp eq ptr %102, null
+  br i1 %.not.i.i39, label %_ZNSt11unique_lockISt5mutexED2Ev.exit40, label %103
 
-102:                                              ; preds = %100
-  %103 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %101) #24
+103:                                              ; preds = %101
+  %104 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %102) #24
   store i8 0, ptr %56, align 8
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit40
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit40:          ; preds = %.critedge, %100, %102
-  %104 = load i8, ptr %55, align 8
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %106, label %_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIiEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit
+_ZNSt11unique_lockISt5mutexED2Ev.exit40:          ; preds = %.critedge, %101, %103
+  %105 = load i8, ptr %55, align 8
+  %106 = trunc i8 %105 to i1
+  br i1 %106, label %107, label %_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIiEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit
 
-106:                                              ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit40
+107:                                              ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit40
   call void @_ZZN8WasmEdge8Executor8Executor10atomicWaitIiEEN5cxx208expectedIjNS_7ErrCodeEEERNS_7Runtime8Instance14MemoryInstanceEjT_lENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #24
   br label %_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIiEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit
 
 _ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIiEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit.sink.split: ; preds = %27, %14, %6
-  %.sink100 = phi i8 [ 0, %6 ], [ 0, %14 ], [ 1, %27 ]
-  %.sink98 = phi i32 [ 1041, %6 ], [ 1032, %14 ], [ 1, %27 ]
-  store i8 %.sink100, ptr %0, align 4
-  %107 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink98, ptr %107, align 4
+  %.sink99 = phi i8 [ 0, %6 ], [ 0, %14 ], [ 1, %27 ]
+  %.sink97 = phi i32 [ 1041, %6 ], [ 1032, %14 ], [ 1, %27 ]
+  store i8 %.sink99, ptr %0, align 4
+  %108 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink97, ptr %108, align 4
   br label %_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIiEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit
 
-_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIiEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit: ; preds = %106, %_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIiEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit.sink.split, %_ZNSt11unique_lockISt5mutexED2Ev.exit40
+_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIiEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit: ; preds = %107, %_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIiEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit.sink.split, %_ZNSt11unique_lockISt5mutexED2Ev.exit40
   ret void
 
 .loopexit.split:                                  ; preds = %.lr.ph.split.split
@@ -74894,8 +74894,8 @@ _ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIiEENS_8expectedI
 
 .body:                                            ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %52
   %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
-  %108 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %108) #27
+  %109 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %109) #27
   unreachable
 }
 
@@ -75525,16 +75525,16 @@ _ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5r
   %25 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #24
   %26 = add nsw i64 %25, %5
   %.pre = load i32, ptr %17, align 4
-  %.pre87 = load ptr, ptr %21, align 8
-  %.pre88 = zext i32 %.pre to i64
-  %.pre89 = shl nuw nsw i64 %.pre88, 16
+  %.pre86 = load ptr, ptr %21, align 8
+  %.pre87 = zext i32 %.pre to i64
+  %.pre88 = shl nuw nsw i64 %.pre87, 16
   br label %27
 
 27:                                               ; preds = %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit, %23
-  %.pre-phi90 = phi i64 [ %.pre89, %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit ], [ %20, %23 ]
-  %28 = phi ptr [ %.pre87, %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit ], [ %22, %23 ]
+  %.pre-phi89 = phi i64 [ %.pre88, %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit ], [ %20, %23 ]
+  %28 = phi ptr [ %.pre86, %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit ], [ %22, %23 ]
   %.sroa.049.0 = phi i64 [ %26, %_ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEEE7emplaceIJS8_EEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit ], [ undef, %23 ]
-  %.not.i30 = icmp ugt i64 %16, %.pre-phi90
+  %.not.i30 = icmp ugt i64 %16, %.pre-phi89
   %29 = getelementptr inbounds i8, ptr %28, i64 %15
   %.0.i31 = select i1 %.not.i30, ptr null, ptr %29
   %30 = icmp ne ptr %.0.i31, null
@@ -75550,7 +75550,7 @@ _ZNSt8optionalINSt6chrono10time_pointINS0_3_V212steady_clockENS0_8durationIlSt5r
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %.invoke
 
 .invoke:                                          ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit38, %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us, %_ZNSt11unique_lockISt5mutexED2Ev.exit, %32
-  %34 = phi i32 [ %33, %32 ], [ %58, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ %80, %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us ], [ %96, %_ZNSt11unique_lockISt5mutexED2Ev.exit38 ]
+  %34 = phi i32 [ %33, %32 ], [ %58, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ %81, %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us ], [ %97, %_ZNSt11unique_lockISt5mutexED2Ev.exit38 ]
   invoke void @_ZSt20__throw_system_errori(i32 noundef %34) #25
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -75624,8 +75624,8 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.loopexit.i.i.i.i
   store ptr %57, ptr %11, align 8
   store i8 0, ptr %56, align 8
   %58 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %57) #24
-  %.not.i.i.i3372 = icmp eq i32 %58, 0
-  br i1 %.not.i.i.i3372, label %.lr.ph, label %.invoke
+  %.not.i.i.i3371 = icmp eq i32 %58, 0
+  br i1 %.not.i.i.i3371, label %.lr.ph, label %.invoke
 
 .lr.ph:                                           ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit
   %59 = sdiv i64 %.sroa.049.0, 1000000000
@@ -75636,7 +75636,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.loopexit.i.i.i.i
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us
-  %63 = phi ptr [ %79, %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us ], [ %57, %.lr.ph ]
+  %63 = phi ptr [ %80, %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us ], [ %57, %.lr.ph ]
   store i8 1, ptr %56, align 8
   %64 = load ptr, ptr %9, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 56
@@ -75644,43 +75644,43 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.loopexit.i.i.i.i
   store i64 %59, ptr %7, align 8
   store i64 %60, ptr %61, align 8
   %66 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull %65, ptr noundef nonnull %63, i32 noundef 1, ptr noundef nonnull %7)
-          to label %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit.us unwind label %.loopexit.split.us
+          to label %67 unwind label %.loopexit.split.us
 
-_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit.us: ; preds = %.lr.ph.split.us
-  %67 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #24
+67:                                               ; preds = %.lr.ph.split.us
+  %68 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %68 = load atomic i32, ptr %62 monotonic, align 8
-  %.not60.us = icmp eq i32 %68, 0
-  br i1 %.not60.us, label %69, label %.critedge
+  %69 = load atomic i32, ptr %62 monotonic, align 8
+  %.not60.us = icmp eq i32 %69, 0
+  br i1 %.not60.us, label %70, label %.critedge
 
-69:                                               ; preds = %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit.us
-  %.not81 = icmp sge i64 %67, %.sroa.049.0
-  %70 = load atomic i64, ptr %.0.i31 seq_cst, align 8
-  %.not61.us = icmp ne i64 %70, %4
-  %brmerge = select i1 %.not61.us, i1 true, i1 %.not81
-  br i1 %brmerge, label %.critedge.loopexit.split.loop.exit112, label %71
+70:                                               ; preds = %67
+  %.not80 = icmp sge i64 %68, %.sroa.049.0
+  %71 = load atomic i64, ptr %.0.i31 seq_cst, align 8
+  %.not61.us = icmp ne i64 %71, %4
+  %brmerge = select i1 %.not61.us, i1 true, i1 %.not80
+  br i1 %brmerge, label %.critedge.loopexit.split.loop.exit111, label %72
 
-71:                                               ; preds = %69
-  %72 = load i8, ptr %56, align 8
-  %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us
+72:                                               ; preds = %70
+  %73 = load i8, ptr %56, align 8
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %11, align 8
-  %.not.i.i37.us = icmp eq ptr %75, null
-  br i1 %.not.i.i37.us, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us, label %76
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %11, align 8
+  %.not.i.i37.us = icmp eq ptr %76, null
+  br i1 %.not.i.i37.us, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us, label %77
 
-76:                                               ; preds = %74
-  %77 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %75) #24
+77:                                               ; preds = %75
+  %78 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %76) #24
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit38.us
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit38.us:       ; preds = %76, %74, %71
-  %78 = load ptr, ptr %9, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
-  store ptr %79, ptr %11, align 8
+_ZNSt11unique_lockISt5mutexED2Ev.exit38.us:       ; preds = %77, %75, %72
+  %79 = load ptr, ptr %9, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  store ptr %80, ptr %11, align 8
   store i8 0, ptr %56, align 8
-  %80 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %79) #24
-  %.not.i.i.i33.us = icmp eq i32 %80, 0
+  %81 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %80) #24
+  %.not.i.i.i33.us = icmp eq i32 %81, 0
   br i1 %.not.i.i.i33.us, label %.lr.ph.split.us, label %.invoke, !llvm.loop !1417
 
 .loopexit.split.us:                               ; preds = %.lr.ph.split.us
@@ -75690,86 +75690,86 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit38.us:       ; preds = %76, %74, %71
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %_ZNSt11unique_lockISt5mutexED2Ev.exit38
   store i8 1, ptr %56, align 8
-  %81 = load ptr, ptr %9, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 56
-  invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(9) %11)
-          to label %83 unwind label %.loopexit.split
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 56
+  invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef nonnull align 8 dereferenceable(9) %11)
+          to label %84 unwind label %.loopexit.split
 
-83:                                               ; preds = %.lr.ph.split.split
-  %84 = load atomic i32, ptr %62 monotonic, align 8
-  %.not60 = icmp eq i32 %84, 0
-  br i1 %.not60, label %85, label %.critedge
+84:                                               ; preds = %.lr.ph.split.split
+  %85 = load atomic i32, ptr %62 monotonic, align 8
+  %.not60 = icmp eq i32 %85, 0
+  br i1 %.not60, label %86, label %.critedge
 
-85:                                               ; preds = %83
-  %86 = load atomic i64, ptr %.0.i31 seq_cst, align 8
-  %.not61 = icmp eq i64 %86, %4
-  br i1 %.not61, label %87, label %.critedge
+86:                                               ; preds = %84
+  %87 = load atomic i64, ptr %.0.i31 seq_cst, align 8
+  %.not61 = icmp eq i64 %87, %4
+  br i1 %.not61, label %88, label %.critedge
 
-87:                                               ; preds = %85
-  %88 = load i8, ptr %56, align 8
-  %89 = trunc i8 %88 to i1
-  br i1 %89, label %90, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38
+88:                                               ; preds = %86
+  %89 = load i8, ptr %56, align 8
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %91, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %11, align 8
-  %.not.i.i37 = icmp eq ptr %91, null
-  br i1 %.not.i.i37, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38, label %92
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %11, align 8
+  %.not.i.i37 = icmp eq ptr %92, null
+  br i1 %.not.i.i37, label %_ZNSt11unique_lockISt5mutexED2Ev.exit38, label %93
 
-92:                                               ; preds = %90
-  %93 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %91) #24
+93:                                               ; preds = %91
+  %94 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %92) #24
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit38
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit38:          ; preds = %87, %90, %92
-  %94 = load ptr, ptr %9, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 16
-  store ptr %95, ptr %11, align 8
+_ZNSt11unique_lockISt5mutexED2Ev.exit38:          ; preds = %88, %91, %93
+  %95 = load ptr, ptr %9, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  store ptr %96, ptr %11, align 8
   store i8 0, ptr %56, align 8
-  %96 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %95) #24
-  %.not.i.i.i33 = icmp eq i32 %96, 0
+  %97 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %96) #24
+  %.not.i.i.i33 = icmp eq i32 %97, 0
   br i1 %.not.i.i.i33, label %.lr.ph.split.split, label %.invoke, !llvm.loop !1417
 
-.critedge.loopexit.split.loop.exit112:            ; preds = %69
+.critedge.loopexit.split.loop.exit111:            ; preds = %70
   %.mux.le = select i1 %.not61.us, i32 0, i32 2
   br label %.critedge
 
-.critedge:                                        ; preds = %85, %83, %.critedge.loopexit.split.loop.exit112, %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit.us
-  %.sink97 = phi i8 [ 1, %.critedge.loopexit.split.loop.exit112 ], [ 0, %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit.us ], [ 0, %83 ], [ 1, %85 ]
-  %.sink = phi i32 [ %.mux.le, %.critedge.loopexit.split.loop.exit112 ], [ 7, %_ZNSt18condition_variable10wait_untilINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEESt9cv_statusRSt11unique_lockISt5mutexERKNS1_10time_pointINS1_3_V212steady_clockET_EE.exit.us ], [ 7, %83 ], [ 0, %85 ]
-  store i8 %.sink97, ptr %0, align 4
-  %97 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink, ptr %97, align 4
-  %98 = load i8, ptr %56, align 8
-  %99 = trunc i8 %98 to i1
-  br i1 %99, label %100, label %_ZNSt11unique_lockISt5mutexED2Ev.exit40
+.critedge:                                        ; preds = %86, %84, %.critedge.loopexit.split.loop.exit111, %67
+  %.sink96 = phi i8 [ 1, %.critedge.loopexit.split.loop.exit111 ], [ 0, %67 ], [ 0, %84 ], [ 1, %86 ]
+  %.sink = phi i32 [ %.mux.le, %.critedge.loopexit.split.loop.exit111 ], [ 7, %67 ], [ 7, %84 ], [ 0, %86 ]
+  store i8 %.sink96, ptr %0, align 4
+  %98 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink, ptr %98, align 4
+  %99 = load i8, ptr %56, align 8
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %101, label %_ZNSt11unique_lockISt5mutexED2Ev.exit40
 
-100:                                              ; preds = %.critedge
-  %101 = load ptr, ptr %11, align 8
-  %.not.i.i39 = icmp eq ptr %101, null
-  br i1 %.not.i.i39, label %_ZNSt11unique_lockISt5mutexED2Ev.exit40, label %102
+101:                                              ; preds = %.critedge
+  %102 = load ptr, ptr %11, align 8
+  %.not.i.i39 = icmp eq ptr %102, null
+  br i1 %.not.i.i39, label %_ZNSt11unique_lockISt5mutexED2Ev.exit40, label %103
 
-102:                                              ; preds = %100
-  %103 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %101) #24
+103:                                              ; preds = %101
+  %104 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %102) #24
   store i8 0, ptr %56, align 8
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit40
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit40:          ; preds = %.critedge, %100, %102
-  %104 = load i8, ptr %55, align 8
-  %105 = trunc i8 %104 to i1
-  br i1 %105, label %106, label %_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIlEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit
+_ZNSt11unique_lockISt5mutexED2Ev.exit40:          ; preds = %.critedge, %101, %103
+  %105 = load i8, ptr %55, align 8
+  %106 = trunc i8 %105 to i1
+  br i1 %106, label %107, label %_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIlEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit
 
-106:                                              ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit40
+107:                                              ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit40
   call void @_ZZN8WasmEdge8Executor8Executor10atomicWaitIlEEN5cxx208expectedIjNS_7ErrCodeEEERNS_7Runtime8Instance14MemoryInstanceEjT_lENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #24
   br label %_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIlEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit
 
 _ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIlEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit.sink.split: ; preds = %27, %14, %6
-  %.sink100 = phi i8 [ 0, %6 ], [ 0, %14 ], [ 1, %27 ]
-  %.sink98 = phi i32 [ 1041, %6 ], [ 1032, %14 ], [ 1, %27 ]
-  store i8 %.sink100, ptr %0, align 4
-  %107 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sink98, ptr %107, align 4
+  %.sink99 = phi i8 [ 0, %6 ], [ 0, %14 ], [ 1, %27 ]
+  %.sink97 = phi i32 [ 1041, %6 ], [ 1032, %14 ], [ 1, %27 ]
+  store i8 %.sink99, ptr %0, align 4
+  %108 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink97, ptr %108, align 4
   br label %_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIlEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit
 
-_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIlEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit: ; preds = %106, %_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIlEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit.sink.split, %_ZNSt11unique_lockISt5mutexED2Ev.exit40
+_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIlEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit: ; preds = %107, %_ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIlEENS_8expectedIjNS1_7ErrCodeEEERNS1_7Runtime8Instance14MemoryInstanceEjT_lEUlvE_vED2Ev.exit.sink.split, %_ZNSt11unique_lockISt5mutexED2Ev.exit40
   ret void
 
 .loopexit.split:                                  ; preds = %.lr.ph.split.split
@@ -75784,8 +75784,8 @@ _ZN5cxx2010scope_exitIZN8WasmEdge8Executor8Executor10atomicWaitIlEENS_8expectedI
 
 .body:                                            ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %52
   %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
-  %108 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %108) #27
+  %109 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %109) #27
   unreachable
 }
 

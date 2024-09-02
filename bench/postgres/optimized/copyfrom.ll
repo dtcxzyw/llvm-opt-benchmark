@@ -401,23 +401,23 @@ define dso_local i64 @CopyFrom(ptr noundef %0) local_unnamed_addr #0 {
   %97 = getelementptr inbounds i8, ptr %95, i64 152
   %98 = load ptr, ptr %97, align 8
   %.not316 = icmp eq ptr %98, null
-  br i1 %.not316, label %.thread414, label %99
+  br i1 %.not316, label %.thread413, label %99
 
 99:                                               ; preds = %96
   tail call void %98(ptr noundef nonnull %87, ptr noundef nonnull %86) #11
   %.pr.pre = load ptr, ptr %94, align 8
   %.not317 = icmp eq ptr %.pr.pre, null
-  br i1 %.not317, label %.thread, label %.thread414
+  br i1 %.not317, label %.thread, label %.thread413
 
-.thread414:                                       ; preds = %96, %99
-  %.pr417 = phi ptr [ %.pr.pre, %99 ], [ %95, %96 ]
-  %100 = getelementptr inbounds i8, ptr %.pr417, i64 120
+.thread413:                                       ; preds = %96, %99
+  %.pr416 = phi ptr [ %.pr.pre, %99 ], [ %95, %96 ]
+  %100 = getelementptr inbounds i8, ptr %.pr416, i64 120
   %101 = load ptr, ptr %100, align 8
   %.not318 = icmp eq ptr %101, null
   br i1 %.not318, label %.thread, label %102
 
-102:                                              ; preds = %.thread414
-  %103 = getelementptr inbounds i8, ptr %.pr417, i64 112
+102:                                              ; preds = %.thread413
+  %103 = getelementptr inbounds i8, ptr %.pr416, i64 112
   %104 = load ptr, ptr %103, align 8
   %.not319 = icmp eq ptr %104, null
   br i1 %.not319, label %.thread, label %105
@@ -426,8 +426,8 @@ define dso_local i64 @CopyFrom(ptr noundef %0) local_unnamed_addr #0 {
   %106 = tail call i32 %101(ptr noundef nonnull %86) #11
   br label %.thread
 
-.thread:                                          ; preds = %99, %.thread414, %102, %81, %105
-  %.sink = phi i32 [ %106, %105 ], [ 1, %81 ], [ 1, %102 ], [ 1, %.thread414 ], [ 1, %99 ]
+.thread:                                          ; preds = %99, %.thread413, %102, %81, %105
+  %.sink = phi i32 [ %106, %105 ], [ 1, %81 ], [ 1, %102 ], [ 1, %.thread413 ], [ 1, %99 ]
   %107 = getelementptr inbounds i8, ptr %86, i64 172
   store i32 %.sink, ptr %107, align 4
   tail call void @AfterTriggerBeginQuery() #11
@@ -562,745 +562,743 @@ CopyMultiInsertInfoSetupBuffer.exit.i:            ; preds = %175, %170
   br label %CopyMultiInsertInfoInit.exit
 
 CopyMultiInsertInfoInit.exit:                     ; preds = %CopyMultiInsertInfoSetupBuffer.exit.i, %159
-  br i1 %.not323, label %189, label %CopyMultiInsertInfoInit.exit.thread
+  br i1 %.not323, label %188, label %CopyMultiInsertInfoInit.exit.thread
 
 CopyMultiInsertInfoInit.exit.thread:              ; preds = %CopyMultiInsertInfoInit.exit, %156, %152, %148, %143, %133, %137
-  %182 = phi i1 [ true, %CopyMultiInsertInfoInit.exit ], [ false, %137 ], [ false, %133 ], [ false, %143 ], [ false, %148 ], [ false, %152 ], [ false, %156 ]
-  %183 = phi i1 [ false, %CopyMultiInsertInfoInit.exit ], [ true, %137 ], [ true, %133 ], [ true, %143 ], [ true, %148 ], [ true, %152 ], [ true, %156 ]
-  %184 = getelementptr inbounds i8, ptr %86, i64 8
-  %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %6, i64 168
-  %187 = tail call ptr @table_slot_create(ptr noundef %185, ptr noundef nonnull %186) #11
-  %188 = tail call ptr @GetBulkInsertState() #11
-  br label %189
+  %182 = phi i1 [ false, %CopyMultiInsertInfoInit.exit ], [ true, %137 ], [ true, %133 ], [ true, %143 ], [ true, %148 ], [ true, %152 ], [ true, %156 ]
+  %183 = getelementptr inbounds i8, ptr %86, i64 8
+  %184 = load ptr, ptr %183, align 8
+  %185 = getelementptr inbounds i8, ptr %6, i64 168
+  %186 = tail call ptr @table_slot_create(ptr noundef %184, ptr noundef nonnull %185) #11
+  %187 = tail call ptr @GetBulkInsertState() #11
+  br label %188
 
-189:                                              ; preds = %CopyMultiInsertInfoInit.exit, %CopyMultiInsertInfoInit.exit.thread
-  %190 = phi i1 [ %182, %CopyMultiInsertInfoInit.exit.thread ], [ false, %CopyMultiInsertInfoInit.exit ]
-  %191 = phi i1 [ %183, %CopyMultiInsertInfoInit.exit.thread ], [ false, %CopyMultiInsertInfoInit.exit ]
+188:                                              ; preds = %CopyMultiInsertInfoInit.exit, %CopyMultiInsertInfoInit.exit.thread
+  %.not366 = phi i1 [ %182, %CopyMultiInsertInfoInit.exit.thread ], [ true, %CopyMultiInsertInfoInit.exit ]
+  %189 = phi i1 [ %182, %CopyMultiInsertInfoInit.exit.thread ], [ false, %CopyMultiInsertInfoInit.exit ]
   %.0274359 = phi i1 [ false, %CopyMultiInsertInfoInit.exit.thread ], [ true, %CopyMultiInsertInfoInit.exit ]
-  %.0276 = phi ptr [ %188, %CopyMultiInsertInfoInit.exit.thread ], [ null, %CopyMultiInsertInfoInit.exit ]
-  %.0258 = phi ptr [ %187, %CopyMultiInsertInfoInit.exit.thread ], [ null, %CopyMultiInsertInfoInit.exit ]
-  %192 = load ptr, ptr %131, align 8
-  %.not325 = icmp eq ptr %192, null
-  br i1 %.not325, label %.thread360, label %193
+  %.0276 = phi ptr [ %187, %CopyMultiInsertInfoInit.exit.thread ], [ null, %CopyMultiInsertInfoInit.exit ]
+  %.0258 = phi ptr [ %186, %CopyMultiInsertInfoInit.exit.thread ], [ null, %CopyMultiInsertInfoInit.exit ]
+  %190 = load ptr, ptr %131, align 8
+  %.not325 = icmp eq ptr %190, null
+  br i1 %.not325, label %.thread360, label %191
 
-193:                                              ; preds = %189
-  %194 = getelementptr inbounds i8, ptr %192, i64 12
-  %195 = load i8, ptr %194, align 4
-  %196 = getelementptr inbounds i8, ptr %192, i64 14
-  %197 = load i8, ptr %196, align 2
+191:                                              ; preds = %188
+  %192 = getelementptr inbounds i8, ptr %190, i64 12
+  %193 = load i8, ptr %192, align 4
+  %194 = getelementptr inbounds i8, ptr %190, i64 14
+  %195 = load i8, ptr %194, align 2
   br label %.thread360
 
-.thread360:                                       ; preds = %189, %193
-  %198 = phi i8 [ %195, %193 ], [ 0, %189 ]
-  %199 = phi i8 [ %197, %193 ], [ 0, %189 ]
+.thread360:                                       ; preds = %188, %191
+  %196 = phi i8 [ %193, %191 ], [ 0, %188 ]
+  %197 = phi i8 [ %195, %191 ], [ 0, %188 ]
   tail call void @ExecBSInsertTriggers(ptr noundef %6, ptr noundef nonnull %86) #11
-  %200 = getelementptr inbounds i8, ptr %6, i64 232
-  %201 = load ptr, ptr %200, align 8
-  %.not327 = icmp eq ptr %201, null
-  br i1 %.not327, label %202, label %204
+  %198 = getelementptr inbounds i8, ptr %6, i64 232
+  %199 = load ptr, ptr %198, align 8
+  %.not327 = icmp eq ptr %199, null
+  br i1 %.not327, label %200, label %202
 
-202:                                              ; preds = %.thread360
-  %203 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %6) #11
-  br label %204
+200:                                              ; preds = %.thread360
+  %201 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %6) #11
+  br label %202
 
-204:                                              ; preds = %.thread360, %202
-  %205 = phi ptr [ %203, %202 ], [ %201, %.thread360 ]
-  %206 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @CopyFromErrorCallback, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %0, ptr %207, align 8
-  %208 = load ptr, ptr @error_context_stack, align 8
-  store ptr %208, ptr %3, align 8
+202:                                              ; preds = %.thread360, %200
+  %203 = phi ptr [ %201, %200 ], [ %199, %.thread360 ]
+  %204 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @CopyFromErrorCallback, ptr %204, align 8
+  %205 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %0, ptr %205, align 8
+  %206 = load ptr, ptr @error_context_stack, align 8
+  store ptr %206, ptr %3, align 8
   store ptr %3, ptr @error_context_stack, align 8
-  %209 = icmp ne ptr %.0279, null
-  %or.cond3 = select i1 %191, i1 true, i1 %209
-  %210 = getelementptr inbounds i8, ptr %0, i64 336
-  %211 = getelementptr inbounds i8, ptr %86, i64 8
-  %212 = getelementptr inbounds i8, ptr %205, i64 8
-  %213 = getelementptr inbounds i8, ptr %0, i64 400
-  %214 = getelementptr inbounds i8, ptr %205, i64 40
-  %.not = xor i1 %190, true
-  %215 = getelementptr inbounds i8, ptr %4, i64 8
+  %207 = icmp ne ptr %.0279, null
+  %or.cond3 = select i1 %189, i1 true, i1 %207
+  %208 = getelementptr inbounds i8, ptr %0, i64 336
+  %209 = getelementptr inbounds i8, ptr %86, i64 8
+  %210 = getelementptr inbounds i8, ptr %203, i64 8
+  %211 = getelementptr inbounds i8, ptr %0, i64 400
+  %212 = getelementptr inbounds i8, ptr %203, i64 40
+  %213 = getelementptr inbounds i8, ptr %4, i64 8
   %.not342 = icmp eq ptr %.0276, null
-  %216 = icmp eq ptr %.0279, null
-  %217 = getelementptr inbounds i8, ptr %0, i64 464
-  %218 = getelementptr inbounds i8, ptr %0, i64 272
-  %219 = getelementptr inbounds i8, ptr %4, i64 12
+  %214 = icmp eq ptr %.0279, null
+  %215 = getelementptr inbounds i8, ptr %0, i64 464
+  %216 = getelementptr inbounds i8, ptr %0, i64 272
+  %217 = getelementptr inbounds i8, ptr %4, i64 12
   br label %.outer
 
-.outer:                                           ; preds = %284, %204
-  %.0273.ph = phi i64 [ %285, %284 ], [ 0, %204 ]
-  %.0272.ph = phi i64 [ %.0272.ph375, %284 ], [ 0, %204 ]
-  %.0269.ph = phi i8 [ %.0269, %284 ], [ %198, %204 ]
-  %.0266.ph = phi i8 [ %.0266, %284 ], [ %199, %204 ]
-  %.0263.ph = phi i8 [ %.0263, %284 ], [ 0, %204 ]
-  %.0256.ph = phi ptr [ %.0256, %284 ], [ null, %204 ]
-  %.0255.ph = phi ptr [ %.0255, %284 ], [ %86, %204 ]
-  br label %.outer374
+.outer:                                           ; preds = %282, %202
+  %.0273.ph = phi i64 [ %283, %282 ], [ 0, %202 ]
+  %.0272.ph = phi i64 [ %.0272.ph374, %282 ], [ 0, %202 ]
+  %.0269.ph = phi i8 [ %.0269, %282 ], [ %196, %202 ]
+  %.0266.ph = phi i8 [ %.0266, %282 ], [ %197, %202 ]
+  %.0263.ph = phi i8 [ %.0263, %282 ], [ 0, %202 ]
+  %.0256.ph = phi ptr [ %.0256, %282 ], [ null, %202 ]
+  %.0255.ph = phi ptr [ %.0255, %282 ], [ %86, %202 ]
+  br label %.outer373
 
-.outer374:                                        ; preds = %.outer, %268
-  %.0272.ph375 = phi i64 [ %.0272.ph, %.outer ], [ %269, %268 ]
-  %.0269.ph376 = phi i8 [ %.0269.ph, %.outer ], [ %.0269, %268 ]
-  %.0266.ph377 = phi i8 [ %.0266.ph, %.outer ], [ %.0266, %268 ]
-  %.0263.ph378 = phi i8 [ %.0263.ph, %.outer ], [ %.0263, %268 ]
-  %.0256.ph379 = phi ptr [ %.0256.ph, %.outer ], [ %.0256, %268 ]
-  %.0255.ph380 = phi ptr [ %.0255.ph, %.outer ], [ %.0255, %268 ]
+.outer373:                                        ; preds = %.outer, %266
+  %.0272.ph374 = phi i64 [ %.0272.ph, %.outer ], [ %267, %266 ]
+  %.0269.ph375 = phi i8 [ %.0269.ph, %.outer ], [ %.0269, %266 ]
+  %.0266.ph376 = phi i8 [ %.0266.ph, %.outer ], [ %.0266, %266 ]
+  %.0263.ph377 = phi i8 [ %.0263.ph, %.outer ], [ %.0263, %266 ]
+  %.0256.ph378 = phi ptr [ %.0256.ph, %.outer ], [ %.0256, %266 ]
+  %.0255.ph379 = phi ptr [ %.0255.ph, %.outer ], [ %.0255, %266 ]
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.outer374
-  %.0269 = phi i8 [ %.0269.ph376, %.outer374 ], [ %.1270, %.backedge.backedge ]
-  %.0266 = phi i8 [ %.0266.ph377, %.outer374 ], [ %.1267, %.backedge.backedge ]
-  %.0263 = phi i8 [ %.0263.ph378, %.outer374 ], [ %.1264, %.backedge.backedge ]
-  %.0256 = phi ptr [ %.0256.ph379, %.outer374 ], [ %.1257, %.backedge.backedge ]
-  %.0255 = phi ptr [ %.0255.ph380, %.outer374 ], [ %.1, %.backedge.backedge ]
-  %220 = load volatile i32, ptr @InterruptPending, align 4
-  %.not328 = icmp eq i32 %220, 0
-  br i1 %.not328, label %222, label %221
+.backedge:                                        ; preds = %.backedge.backedge, %.outer373
+  %.0269 = phi i8 [ %.0269.ph375, %.outer373 ], [ %.1270, %.backedge.backedge ]
+  %.0266 = phi i8 [ %.0266.ph376, %.outer373 ], [ %.1267, %.backedge.backedge ]
+  %.0263 = phi i8 [ %.0263.ph377, %.outer373 ], [ %.1264, %.backedge.backedge ]
+  %.0256 = phi ptr [ %.0256.ph378, %.outer373 ], [ %.1257, %.backedge.backedge ]
+  %.0255 = phi ptr [ %.0255.ph379, %.outer373 ], [ %.1, %.backedge.backedge ]
+  %218 = load volatile i32, ptr @InterruptPending, align 4
+  %.not328 = icmp eq i32 %218, 0
+  br i1 %.not328, label %220, label %219
 
-221:                                              ; preds = %.backedge
+219:                                              ; preds = %.backedge
   call void @ProcessInterrupts() #11
-  br label %222
+  br label %220
 
-222:                                              ; preds = %221, %.backedge
-  %223 = load ptr, ptr %200, align 8
-  %.not329 = icmp eq ptr %223, null
-  br i1 %.not329, label %227, label %224
+220:                                              ; preds = %219, %.backedge
+  %221 = load ptr, ptr %198, align 8
+  %.not329 = icmp eq ptr %221, null
+  br i1 %.not329, label %225, label %222
 
-224:                                              ; preds = %222
-  %225 = getelementptr inbounds i8, ptr %223, i64 40
-  %226 = load ptr, ptr %225, align 8
-  call void @MemoryContextReset(ptr noundef %226) #11
-  br label %227
+222:                                              ; preds = %220
+  %223 = getelementptr inbounds i8, ptr %221, i64 40
+  %224 = load ptr, ptr %223, align 8
+  call void @MemoryContextReset(ptr noundef %224) #11
+  br label %225
 
-227:                                              ; preds = %222, %224
-  br i1 %or.cond3, label %CopyMultiInsertInfoNextFreeSlot.exit, label %228
+225:                                              ; preds = %220, %222
+  br i1 %or.cond3, label %CopyMultiInsertInfoNextFreeSlot.exit, label %226
 
-228:                                              ; preds = %227
-  %229 = getelementptr inbounds i8, ptr %.0255, i64 344
-  %230 = load ptr, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 8016
-  %232 = load i32, ptr %231, align 8
-  %233 = sext i32 %232 to i64
-  %234 = getelementptr [1000 x ptr], ptr %230, i64 0, i64 %233
-  %235 = load ptr, ptr %234, align 8
-  %236 = icmp eq ptr %235, null
-  br i1 %236, label %237, label %CopyMultiInsertInfoNextFreeSlot.exit
+226:                                              ; preds = %225
+  %227 = getelementptr inbounds i8, ptr %.0255, i64 344
+  %228 = load ptr, ptr %227, align 8
+  %229 = getelementptr inbounds i8, ptr %228, i64 8016
+  %230 = load i32, ptr %229, align 8
+  %231 = sext i32 %230 to i64
+  %232 = getelementptr [1000 x ptr], ptr %228, i64 0, i64 %231
+  %233 = load ptr, ptr %232, align 8
+  %234 = icmp eq ptr %233, null
+  br i1 %234, label %235, label %CopyMultiInsertInfoNextFreeSlot.exit
 
-237:                                              ; preds = %228
-  %238 = getelementptr inbounds i8, ptr %.0255, i64 8
-  %239 = load ptr, ptr %238, align 8
-  %240 = call ptr @table_slot_create(ptr noundef %239, ptr noundef null) #11
-  store ptr %240, ptr %234, align 8
+235:                                              ; preds = %226
+  %236 = getelementptr inbounds i8, ptr %.0255, i64 8
+  %237 = load ptr, ptr %236, align 8
+  %238 = call ptr @table_slot_create(ptr noundef %237, ptr noundef null) #11
+  store ptr %238, ptr %232, align 8
   br label %CopyMultiInsertInfoNextFreeSlot.exit
 
-CopyMultiInsertInfoNextFreeSlot.exit:             ; preds = %237, %228, %227
-  %.0260 = phi ptr [ %.0258, %227 ], [ %240, %237 ], [ %235, %228 ]
-  %241 = load ptr, ptr %200, align 8
-  %.not330 = icmp eq ptr %241, null
-  br i1 %.not330, label %242, label %244
+CopyMultiInsertInfoNextFreeSlot.exit:             ; preds = %235, %226, %225
+  %.0260 = phi ptr [ %.0258, %225 ], [ %238, %235 ], [ %233, %226 ]
+  %239 = load ptr, ptr %198, align 8
+  %.not330 = icmp eq ptr %239, null
+  br i1 %.not330, label %240, label %242
 
-242:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.exit
-  %243 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %6) #11
-  br label %244
+240:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.exit
+  %241 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %6) #11
+  br label %242
 
-244:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.exit, %242
-  %245 = phi ptr [ %243, %242 ], [ %241, %CopyMultiInsertInfoNextFreeSlot.exit ]
-  %246 = getelementptr inbounds i8, ptr %245, i64 40
+242:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.exit, %240
+  %243 = phi ptr [ %241, %240 ], [ %239, %CopyMultiInsertInfoNextFreeSlot.exit ]
+  %244 = getelementptr inbounds i8, ptr %243, i64 40
+  %245 = load ptr, ptr %244, align 8
+  store ptr %245, ptr @CurrentMemoryContext, align 8
+  %246 = getelementptr inbounds i8, ptr %.0260, i64 8
   %247 = load ptr, ptr %246, align 8
-  store ptr %247, ptr @CurrentMemoryContext, align 8
-  %248 = getelementptr inbounds i8, ptr %.0260, i64 8
+  %248 = getelementptr inbounds i8, ptr %247, i64 24
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 24
+  call void %249(ptr noundef %.0260) #11
+  %250 = getelementptr inbounds i8, ptr %.0260, i64 24
   %251 = load ptr, ptr %250, align 8
-  call void %251(ptr noundef %.0260) #11
-  %252 = getelementptr inbounds i8, ptr %.0260, i64 24
+  %252 = getelementptr inbounds i8, ptr %.0260, i64 32
   %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds i8, ptr %.0260, i64 32
-  %255 = load ptr, ptr %254, align 8
-  %256 = call zeroext i1 @NextCopyFrom(ptr noundef nonnull %0, ptr noundef %205, ptr noundef %253, ptr noundef %255) #11
-  br i1 %256, label %257, label %468
+  %254 = call zeroext i1 @NextCopyFrom(ptr noundef nonnull %0, ptr noundef %203, ptr noundef %251, ptr noundef %253) #11
+  br i1 %254, label %255, label %466
 
-257:                                              ; preds = %244
-  %258 = load i32, ptr %9, align 4
-  %.not337 = icmp eq i32 %258, 0
-  br i1 %.not337, label %270, label %259
+255:                                              ; preds = %242
+  %256 = load i32, ptr %9, align 4
+  %.not337 = icmp eq i32 %256, 0
+  br i1 %.not337, label %268, label %257
 
-259:                                              ; preds = %257
-  %260 = load ptr, ptr %210, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 4
-  %262 = load i8, ptr %261, align 4
-  %263 = trunc i8 %262 to i1
-  br i1 %263, label %264, label %270
+257:                                              ; preds = %255
+  %258 = load ptr, ptr %208, align 8
+  %259 = getelementptr inbounds i8, ptr %258, i64 4
+  %260 = load i8, ptr %259, align 4
+  %261 = trunc i8 %260 to i1
+  br i1 %261, label %262, label %268
 
-264:                                              ; preds = %259
-  %265 = icmp eq i32 %258, 1
-  br i1 %265, label %266, label %268
+262:                                              ; preds = %257
+  %263 = icmp eq i32 %256, 1
+  br i1 %263, label %264, label %266
 
-266:                                              ; preds = %264
-  %267 = getelementptr inbounds i8, ptr %260, i64 4
-  store i8 0, ptr %267, align 4
-  br label %268
+264:                                              ; preds = %262
+  %265 = getelementptr inbounds i8, ptr %258, i64 4
+  store i8 0, ptr %265, align 4
+  br label %266
 
-268:                                              ; preds = %266, %264
-  %269 = add i64 %.0272.ph375, 1
-  call void @pgstat_progress_update_param(i32 noundef 6, i64 noundef %269) #11
-  br label %.outer374
+266:                                              ; preds = %264, %262
+  %267 = add i64 %.0272.ph374, 1
+  call void @pgstat_progress_update_param(i32 noundef 6, i64 noundef %267) #11
+  br label %.outer373
 
-270:                                              ; preds = %259, %257
-  %271 = call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %.0260) #11
-  %272 = load ptr, ptr %211, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 72
-  %274 = load i32, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %.0260, i64 56
-  store i32 %274, ptr %275, align 8
+268:                                              ; preds = %257, %255
+  %269 = call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %.0260) #11
+  %270 = load ptr, ptr %209, align 8
+  %271 = getelementptr inbounds i8, ptr %270, i64 72
+  %272 = load i32, ptr %271, align 8
+  %273 = getelementptr inbounds i8, ptr %.0260, i64 56
+  store i32 %272, ptr %273, align 8
   store ptr %7, ptr @CurrentMemoryContext, align 8
-  %276 = load ptr, ptr %125, align 8
-  %.not338 = icmp eq ptr %276, null
-  br i1 %.not338, label %286, label %277
+  %274 = load ptr, ptr %125, align 8
+  %.not338 = icmp eq ptr %274, null
+  br i1 %.not338, label %284, label %275
 
-277:                                              ; preds = %270
-  store ptr %.0260, ptr %212, align 8
-  %278 = load ptr, ptr %213, align 8
+275:                                              ; preds = %268
+  store ptr %.0260, ptr %210, align 8
+  %276 = load ptr, ptr %211, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %279 = icmp eq ptr %278, null
-  br i1 %279, label %ExecQual.exit.thread, label %ExecQual.exit
+  %277 = icmp eq ptr %276, null
+  br i1 %277, label %ExecQual.exit.thread, label %ExecQual.exit
 
-ExecQual.exit.thread:                             ; preds = %277
+ExecQual.exit.thread:                             ; preds = %275
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  br label %286
+  br label %284
 
-ExecQual.exit:                                    ; preds = %277
-  %280 = load ptr, ptr %214, align 8
-  store ptr %280, ptr @CurrentMemoryContext, align 8
-  %281 = getelementptr inbounds i8, ptr %278, i64 32
-  %282 = load ptr, ptr %281, align 8
-  %283 = call i64 %282(ptr noundef nonnull %278, ptr noundef nonnull %205, ptr noundef nonnull %2) #11
+ExecQual.exit:                                    ; preds = %275
+  %278 = load ptr, ptr %212, align 8
+  store ptr %278, ptr @CurrentMemoryContext, align 8
+  %279 = getelementptr inbounds i8, ptr %276, i64 32
+  %280 = load ptr, ptr %279, align 8
+  %281 = call i64 %280(ptr noundef nonnull %276, ptr noundef nonnull %203, ptr noundef nonnull %2) #11
   store ptr %7, ptr @CurrentMemoryContext, align 8
-  %.not372 = icmp eq i64 %283, 0
+  %.not372 = icmp eq i64 %281, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  br i1 %.not372, label %284, label %286
+  br i1 %.not372, label %282, label %284
 
-284:                                              ; preds = %ExecQual.exit
-  %285 = add i64 %.0273.ph, 1
-  call void @pgstat_progress_update_param(i32 noundef 3, i64 noundef %285) #11
+282:                                              ; preds = %ExecQual.exit
+  %283 = add i64 %.0273.ph, 1
+  call void @pgstat_progress_update_param(i32 noundef 3, i64 noundef %283) #11
   br label %.outer
 
-286:                                              ; preds = %ExecQual.exit.thread, %ExecQual.exit, %270
-  br i1 %209, label %287, label %377
+284:                                              ; preds = %ExecQual.exit.thread, %ExecQual.exit, %268
+  br i1 %207, label %285, label %375
 
-287:                                              ; preds = %286
-  %288 = call ptr @ExecFindPartition(ptr noundef nonnull %87, ptr noundef nonnull %86, ptr noundef nonnull %.0279, ptr noundef nonnull %.0260, ptr noundef nonnull %6) #11
-  %.not339 = icmp eq ptr %.0256, %288
-  br i1 %.not339, label %331, label %289
+285:                                              ; preds = %284
+  %286 = call ptr @ExecFindPartition(ptr noundef nonnull %87, ptr noundef nonnull %86, ptr noundef nonnull %.0279, ptr noundef nonnull %.0260, ptr noundef nonnull %6) #11
+  %.not339 = icmp eq ptr %.0256, %286
+  br i1 %.not339, label %329, label %287
 
-289:                                              ; preds = %287
-  %290 = getelementptr inbounds i8, ptr %288, i64 88
-  %291 = load ptr, ptr %290, align 8
-  %.not340 = icmp eq ptr %291, null
-  br i1 %.not340, label %.thread362, label %292
+287:                                              ; preds = %285
+  %288 = getelementptr inbounds i8, ptr %286, i64 88
+  %289 = load ptr, ptr %288, align 8
+  %.not340 = icmp eq ptr %289, null
+  br i1 %.not340, label %.thread362, label %290
 
-292:                                              ; preds = %289
-  %293 = getelementptr inbounds i8, ptr %291, i64 12
-  %294 = load i8, ptr %293, align 4
-  %295 = trunc i8 %294 to i1
-  %296 = getelementptr inbounds i8, ptr %291, i64 14
-  %297 = load i8, ptr %296, align 2
-  %298 = trunc i8 %297 to i1
+290:                                              ; preds = %287
+  %291 = getelementptr inbounds i8, ptr %289, i64 12
+  %292 = load i8, ptr %291, align 4
+  %293 = trunc i8 %292 to i1
+  %294 = getelementptr inbounds i8, ptr %289, i64 14
+  %295 = load i8, ptr %294, align 2
+  %296 = trunc i8 %295 to i1
   br label %.thread362
 
-.thread362:                                       ; preds = %289, %292
-  %299 = phi i8 [ %294, %292 ], [ 0, %289 ]
-  %300 = phi i1 [ %295, %292 ], [ false, %289 ]
-  %301 = phi i1 [ %298, %292 ], [ false, %289 ]
-  %302 = zext i1 %301 to i8
-  %brmerge = select i1 %.not, i1 true, i1 %300
-  %brmerge349 = select i1 %brmerge, i1 true, i1 %301
-  br i1 %brmerge349, label %.thread364, label %303
+.thread362:                                       ; preds = %287, %290
+  %297 = phi i8 [ %292, %290 ], [ 0, %287 ]
+  %298 = phi i1 [ %293, %290 ], [ false, %287 ]
+  %299 = phi i1 [ %296, %290 ], [ false, %287 ]
+  %300 = zext i1 %299 to i8
+  %brmerge = select i1 %.not366, i1 true, i1 %298
+  %brmerge349 = select i1 %brmerge, i1 true, i1 %299
+  br i1 %brmerge349, label %.thread364, label %301
 
-303:                                              ; preds = %.thread362
-  %304 = getelementptr inbounds i8, ptr %288, i64 144
-  %305 = load ptr, ptr %304, align 8
-  %306 = icmp eq ptr %305, null
-  br i1 %306, label %.thread363, label %307
+301:                                              ; preds = %.thread362
+  %302 = getelementptr inbounds i8, ptr %286, i64 144
+  %303 = load ptr, ptr %302, align 8
+  %304 = icmp eq ptr %303, null
+  br i1 %304, label %.thread363, label %305
 
-307:                                              ; preds = %303
-  %308 = getelementptr inbounds i8, ptr %288, i64 172
-  %309 = load i32, ptr %308, align 4
-  %310 = icmp sgt i32 %309, 1
-  br i1 %310, label %.thread363, label %.thread364
+305:                                              ; preds = %301
+  %306 = getelementptr inbounds i8, ptr %286, i64 172
+  %307 = load i32, ptr %306, align 4
+  %308 = icmp sgt i32 %307, 1
+  br i1 %308, label %.thread363, label %.thread364
 
-.thread363:                                       ; preds = %303, %307
-  %311 = getelementptr inbounds i8, ptr %288, i64 344
-  %312 = load ptr, ptr %311, align 8
-  %313 = icmp eq ptr %312, null
-  br i1 %313, label %314, label %328
+.thread363:                                       ; preds = %301, %305
+  %309 = getelementptr inbounds i8, ptr %286, i64 344
+  %310 = load ptr, ptr %309, align 8
+  %311 = icmp eq ptr %310, null
+  br i1 %311, label %312, label %326
 
-314:                                              ; preds = %.thread363
-  %315 = call ptr @palloc(i64 noundef 16024) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8000) %315, i8 0, i64 8000, i1 false)
-  %316 = getelementptr inbounds i8, ptr %315, i64 8000
-  store ptr %288, ptr %316, align 8
-  %317 = load ptr, ptr %304, align 8
-  %318 = icmp eq ptr %317, null
-  br i1 %318, label %319, label %CopyMultiInsertInfoSetupBuffer.exit
+312:                                              ; preds = %.thread363
+  %313 = call ptr @palloc(i64 noundef 16024) #11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8000) %313, i8 0, i64 8000, i1 false)
+  %314 = getelementptr inbounds i8, ptr %313, i64 8000
+  store ptr %286, ptr %314, align 8
+  %315 = load ptr, ptr %302, align 8
+  %316 = icmp eq ptr %315, null
+  br i1 %316, label %317, label %CopyMultiInsertInfoSetupBuffer.exit
 
-319:                                              ; preds = %314
-  %320 = call ptr @GetBulkInsertState() #11
+317:                                              ; preds = %312
+  %318 = call ptr @GetBulkInsertState() #11
   br label %CopyMultiInsertInfoSetupBuffer.exit
 
-CopyMultiInsertInfoSetupBuffer.exit:              ; preds = %314, %319
-  %321 = phi ptr [ %320, %319 ], [ null, %314 ]
-  %322 = getelementptr inbounds i8, ptr %315, i64 8008
-  store ptr %321, ptr %322, align 8
-  %323 = getelementptr inbounds i8, ptr %315, i64 8016
-  store i32 0, ptr %323, align 8
-  store ptr %315, ptr %311, align 8
-  %324 = load ptr, ptr %4, align 8
-  %325 = call ptr @lappend(ptr noundef %324, ptr noundef nonnull %315) #11
-  store ptr %325, ptr %4, align 8
-  br label %328
+CopyMultiInsertInfoSetupBuffer.exit:              ; preds = %312, %317
+  %319 = phi ptr [ %318, %317 ], [ null, %312 ]
+  %320 = getelementptr inbounds i8, ptr %313, i64 8008
+  store ptr %319, ptr %320, align 8
+  %321 = getelementptr inbounds i8, ptr %313, i64 8016
+  store i32 0, ptr %321, align 8
+  store ptr %313, ptr %309, align 8
+  %322 = load ptr, ptr %4, align 8
+  %323 = call ptr @lappend(ptr noundef %322, ptr noundef nonnull %313) #11
+  store ptr %323, ptr %4, align 8
+  br label %326
 
-.thread364:                                       ; preds = %.thread362, %307
-  %.val = load i32, ptr %215, align 8
-  %326 = icmp ne i32 %.val, 0
-  %or.cond368.not = select i1 %190, i1 %326, i1 false
-  br i1 %or.cond368.not, label %327, label %328
+.thread364:                                       ; preds = %.thread362, %305
+  %.val = load i32, ptr %213, align 8
+  %324 = icmp eq i32 %.val, 0
+  %or.cond368 = select i1 %.not366, i1 true, i1 %324
+  br i1 %or.cond368, label %326, label %325
 
-327:                                              ; preds = %.thread364
-  call fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull %4, ptr noundef nonnull %288, ptr noundef nonnull %5)
-  br label %328
+325:                                              ; preds = %.thread364
+  call fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull %4, ptr noundef nonnull %286, ptr noundef nonnull %5)
+  br label %326
 
-328:                                              ; preds = %.thread364, %327, %.thread363, %CopyMultiInsertInfoSetupBuffer.exit
-  %329 = phi i8 [ 0, %.thread364 ], [ 0, %327 ], [ 1, %.thread363 ], [ 1, %CopyMultiInsertInfoSetupBuffer.exit ]
-  br i1 %.not342, label %331, label %330
+326:                                              ; preds = %.thread364, %325, %.thread363, %CopyMultiInsertInfoSetupBuffer.exit
+  %327 = phi i8 [ 0, %.thread364 ], [ 0, %325 ], [ 1, %.thread363 ], [ 1, %CopyMultiInsertInfoSetupBuffer.exit ]
+  br i1 %.not342, label %329, label %328
 
-330:                                              ; preds = %328
+328:                                              ; preds = %326
   call void @ReleaseBulkInsertStatePin(ptr noundef nonnull %.0276) #11
-  br label %331
+  br label %329
 
-331:                                              ; preds = %328, %330, %287
-  %.2271 = phi i8 [ %.0269, %287 ], [ %299, %330 ], [ %299, %328 ]
-  %.2268 = phi i8 [ %.0266, %287 ], [ %302, %330 ], [ %302, %328 ]
-  %.2265 = phi i8 [ %.0263, %287 ], [ %329, %330 ], [ %329, %328 ]
-  %.2 = phi ptr [ %.0256, %287 ], [ %288, %330 ], [ %288, %328 ]
-  %332 = load ptr, ptr %115, align 8
-  %.not343 = icmp eq ptr %332, null
-  br i1 %.not343, label %337, label %333
+329:                                              ; preds = %326, %328, %285
+  %.2271 = phi i8 [ %.0269, %285 ], [ %297, %328 ], [ %297, %326 ]
+  %.2268 = phi i8 [ %.0266, %285 ], [ %300, %328 ], [ %300, %326 ]
+  %.2265 = phi i8 [ %.0263, %285 ], [ %327, %328 ], [ %327, %326 ]
+  %.2 = phi ptr [ %.0256, %285 ], [ %286, %328 ], [ %286, %326 ]
+  %330 = load ptr, ptr %115, align 8
+  %.not343 = icmp eq ptr %330, null
+  br i1 %.not343, label %335, label %331
 
-333:                                              ; preds = %331
-  %334 = trunc i8 %.2271 to i1
-  %335 = select i1 %334, ptr null, ptr %.0260
-  %336 = getelementptr inbounds i8, ptr %332, i64 8
-  store ptr %335, ptr %336, align 8
-  br label %337
+331:                                              ; preds = %329
+  %332 = trunc i8 %.2271 to i1
+  %333 = select i1 %332, ptr null, ptr %.0260
+  %334 = getelementptr inbounds i8, ptr %330, i64 8
+  store ptr %333, ptr %334, align 8
+  br label %335
 
-337:                                              ; preds = %333, %331
-  %338 = call ptr @ExecGetRootToChildMap(ptr noundef %288, ptr noundef %6) #11
-  br i1 %191, label %341, label %339
+335:                                              ; preds = %331, %329
+  %336 = call ptr @ExecGetRootToChildMap(ptr noundef %286, ptr noundef %6) #11
+  br i1 %189, label %339, label %337
 
-339:                                              ; preds = %337
-  %340 = trunc nuw i8 %.2265 to i1
-  br i1 %340, label %348, label %341
+337:                                              ; preds = %335
+  %338 = trunc nuw i8 %.2265 to i1
+  br i1 %338, label %346, label %339
 
-341:                                              ; preds = %339, %337
-  %.not345 = icmp eq ptr %338, null
-  br i1 %.not345, label %371, label %342
+339:                                              ; preds = %337, %335
+  %.not345 = icmp eq ptr %336, null
+  br i1 %.not345, label %369, label %340
 
-342:                                              ; preds = %341
-  %343 = getelementptr inbounds i8, ptr %288, i64 336
+340:                                              ; preds = %339
+  %341 = getelementptr inbounds i8, ptr %286, i64 336
+  %342 = load ptr, ptr %341, align 8
+  %343 = getelementptr inbounds i8, ptr %336, i64 16
   %344 = load ptr, ptr %343, align 8
-  %345 = getelementptr inbounds i8, ptr %338, i64 16
-  %346 = load ptr, ptr %345, align 8
-  %347 = call ptr @execute_attr_map_slot(ptr noundef %346, ptr noundef nonnull %.0260, ptr noundef %344) #11
-  br label %371
+  %345 = call ptr @execute_attr_map_slot(ptr noundef %344, ptr noundef nonnull %.0260, ptr noundef %342) #11
+  br label %369
 
-348:                                              ; preds = %339
-  %349 = getelementptr inbounds i8, ptr %288, i64 344
-  %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 8016
-  %352 = load i32, ptr %351, align 8
-  %353 = sext i32 %352 to i64
-  %354 = getelementptr [1000 x ptr], ptr %350, i64 0, i64 %353
-  %355 = load ptr, ptr %354, align 8
-  %356 = icmp eq ptr %355, null
-  br i1 %356, label %357, label %CopyMultiInsertInfoNextFreeSlot.exit354
+346:                                              ; preds = %337
+  %347 = getelementptr inbounds i8, ptr %286, i64 344
+  %348 = load ptr, ptr %347, align 8
+  %349 = getelementptr inbounds i8, ptr %348, i64 8016
+  %350 = load i32, ptr %349, align 8
+  %351 = sext i32 %350 to i64
+  %352 = getelementptr [1000 x ptr], ptr %348, i64 0, i64 %351
+  %353 = load ptr, ptr %352, align 8
+  %354 = icmp eq ptr %353, null
+  br i1 %354, label %355, label %CopyMultiInsertInfoNextFreeSlot.exit354
 
-357:                                              ; preds = %348
-  %358 = getelementptr inbounds i8, ptr %288, i64 8
-  %359 = load ptr, ptr %358, align 8
-  %360 = call ptr @table_slot_create(ptr noundef %359, ptr noundef null) #11
-  store ptr %360, ptr %354, align 8
+355:                                              ; preds = %346
+  %356 = getelementptr inbounds i8, ptr %286, i64 8
+  %357 = load ptr, ptr %356, align 8
+  %358 = call ptr @table_slot_create(ptr noundef %357, ptr noundef null) #11
+  store ptr %358, ptr %352, align 8
   br label %CopyMultiInsertInfoNextFreeSlot.exit354
 
-CopyMultiInsertInfoNextFreeSlot.exit354:          ; preds = %348, %357
-  %361 = phi ptr [ %360, %357 ], [ %355, %348 ]
-  %.not344 = icmp eq ptr %338, null
-  br i1 %.not344, label %366, label %362
+CopyMultiInsertInfoNextFreeSlot.exit354:          ; preds = %346, %355
+  %359 = phi ptr [ %358, %355 ], [ %353, %346 ]
+  %.not344 = icmp eq ptr %336, null
+  br i1 %.not344, label %364, label %360
 
-362:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.exit354
-  %363 = getelementptr inbounds i8, ptr %338, i64 16
-  %364 = load ptr, ptr %363, align 8
-  %365 = call ptr @execute_attr_map_slot(ptr noundef %364, ptr noundef nonnull %.0260, ptr noundef %361) #11
-  br label %371
+360:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.exit354
+  %361 = getelementptr inbounds i8, ptr %336, i64 16
+  %362 = load ptr, ptr %361, align 8
+  %363 = call ptr @execute_attr_map_slot(ptr noundef %362, ptr noundef nonnull %.0260, ptr noundef %359) #11
+  br label %369
 
-366:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.exit354
-  %367 = getelementptr inbounds i8, ptr %361, i64 8
+364:                                              ; preds = %CopyMultiInsertInfoNextFreeSlot.exit354
+  %365 = getelementptr inbounds i8, ptr %359, i64 8
+  %366 = load ptr, ptr %365, align 8
+  %367 = getelementptr inbounds i8, ptr %366, i64 56
   %368 = load ptr, ptr %367, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 56
-  %370 = load ptr, ptr %369, align 8
-  call void %370(ptr noundef %361, ptr noundef nonnull %.0260) #11
-  br label %371
+  call void %368(ptr noundef %359, ptr noundef nonnull %.0260) #11
+  br label %369
 
-371:                                              ; preds = %362, %366, %341, %342
-  %.2262 = phi ptr [ %347, %342 ], [ %.0260, %341 ], [ %365, %362 ], [ %361, %366 ]
-  %372 = getelementptr inbounds i8, ptr %288, i64 8
-  %373 = load ptr, ptr %372, align 8
-  %374 = getelementptr inbounds i8, ptr %373, i64 72
-  %375 = load i32, ptr %374, align 8
-  %376 = getelementptr inbounds i8, ptr %.2262, i64 56
-  store i32 %375, ptr %376, align 8
-  br label %377
+369:                                              ; preds = %360, %364, %339, %340
+  %.2262 = phi ptr [ %345, %340 ], [ %.0260, %339 ], [ %363, %360 ], [ %359, %364 ]
+  %370 = getelementptr inbounds i8, ptr %286, i64 8
+  %371 = load ptr, ptr %370, align 8
+  %372 = getelementptr inbounds i8, ptr %371, i64 72
+  %373 = load i32, ptr %372, align 8
+  %374 = getelementptr inbounds i8, ptr %.2262, i64 56
+  store i32 %373, ptr %374, align 8
+  br label %375
 
-377:                                              ; preds = %371, %286
-  %.1270 = phi i8 [ %.2271, %371 ], [ %.0269, %286 ]
-  %.1267 = phi i8 [ %.2268, %371 ], [ %.0266, %286 ]
-  %.1264 = phi i8 [ %.2265, %371 ], [ %.0263, %286 ]
-  %.1261 = phi ptr [ %.2262, %371 ], [ %.0260, %286 ]
-  %.1257 = phi ptr [ %.2, %371 ], [ %.0256, %286 ]
-  %.1 = phi ptr [ %288, %371 ], [ %.0255, %286 ]
-  %378 = trunc i8 %.1270 to i1
-  br i1 %378, label %379, label %.critedge
+375:                                              ; preds = %369, %284
+  %.1270 = phi i8 [ %.2271, %369 ], [ %.0269, %284 ]
+  %.1267 = phi i8 [ %.2268, %369 ], [ %.0266, %284 ]
+  %.1264 = phi i8 [ %.2265, %369 ], [ %.0263, %284 ]
+  %.1261 = phi ptr [ %.2262, %369 ], [ %.0260, %284 ]
+  %.1257 = phi ptr [ %.2, %369 ], [ %.0256, %284 ]
+  %.1 = phi ptr [ %286, %369 ], [ %.0255, %284 ]
+  %376 = trunc i8 %.1270 to i1
+  br i1 %376, label %377, label %.critedge
 
-379:                                              ; preds = %377
-  %380 = call zeroext i1 @ExecBRInsertTriggers(ptr noundef %6, ptr noundef %.1, ptr noundef nonnull %.1261) #11
-  br i1 %380, label %.critedge, label %.backedge.backedge
+377:                                              ; preds = %375
+  %378 = call zeroext i1 @ExecBRInsertTriggers(ptr noundef %6, ptr noundef %.1, ptr noundef nonnull %.1261) #11
+  br i1 %378, label %.critedge, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %379, %465, %418, %439, %442
+.backedge.backedge:                               ; preds = %377, %463, %416, %437, %440
   br label %.backedge
 
-.critedge:                                        ; preds = %377, %379
-  %381 = trunc i8 %.1267 to i1
-  br i1 %381, label %382, label %384
+.critedge:                                        ; preds = %375, %377
+  %379 = trunc i8 %.1267 to i1
+  br i1 %379, label %380, label %382
+
+380:                                              ; preds = %.critedge
+  %381 = call zeroext i1 @ExecIRInsertTriggers(ptr noundef %6, ptr noundef %.1, ptr noundef nonnull %.1261) #11
+  br label %463
 
 382:                                              ; preds = %.critedge
-  %383 = call zeroext i1 @ExecIRInsertTriggers(ptr noundef %6, ptr noundef %.1, ptr noundef nonnull %.1261) #11
-  br label %465
-
-384:                                              ; preds = %.critedge
-  %385 = getelementptr inbounds i8, ptr %.1, i64 8
+  %383 = getelementptr inbounds i8, ptr %.1, i64 8
+  %384 = load ptr, ptr %383, align 8
+  %385 = getelementptr inbounds i8, ptr %384, i64 64
   %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 64
+  %387 = getelementptr inbounds i8, ptr %386, i64 16
   %388 = load ptr, ptr %387, align 8
-  %389 = getelementptr inbounds i8, ptr %388, i64 16
-  %390 = load ptr, ptr %389, align 8
-  %.not346 = icmp eq ptr %390, null
-  br i1 %.not346, label %396, label %391
+  %.not346 = icmp eq ptr %388, null
+  br i1 %.not346, label %394, label %389
 
-391:                                              ; preds = %384
-  %392 = getelementptr inbounds i8, ptr %390, i64 29
-  %393 = load i8, ptr %392, align 1
-  %394 = trunc i8 %393 to i1
-  br i1 %394, label %395, label %396
+389:                                              ; preds = %382
+  %390 = getelementptr inbounds i8, ptr %388, i64 29
+  %391 = load i8, ptr %390, align 1
+  %392 = trunc i8 %391 to i1
+  br i1 %392, label %393, label %394
 
-395:                                              ; preds = %391
+393:                                              ; preds = %389
   call void @ExecComputeStoredGenerated(ptr noundef nonnull %.1, ptr noundef %6, ptr noundef nonnull %.1261, i32 noundef 3) #11
-  %.pre412.pre = load ptr, ptr %385, align 8
-  br label %396
+  %.pre411.pre = load ptr, ptr %383, align 8
+  br label %394
 
-396:                                              ; preds = %395, %391, %384
-  %.pre412 = phi ptr [ %.pre412.pre, %395 ], [ %386, %391 ], [ %386, %384 ]
-  %397 = getelementptr inbounds i8, ptr %.1, i64 144
-  %398 = load ptr, ptr %397, align 8
-  %399 = icmp eq ptr %398, null
-  br i1 %399, label %400, label %406
+394:                                              ; preds = %393, %389, %382
+  %.pre411 = phi ptr [ %.pre411.pre, %393 ], [ %384, %389 ], [ %384, %382 ]
+  %395 = getelementptr inbounds i8, ptr %.1, i64 144
+  %396 = load ptr, ptr %395, align 8
+  %397 = icmp eq ptr %396, null
+  br i1 %397, label %398, label %404
 
-400:                                              ; preds = %396
-  %401 = getelementptr inbounds i8, ptr %.pre412, i64 64
+398:                                              ; preds = %394
+  %399 = getelementptr inbounds i8, ptr %.pre411, i64 64
+  %400 = load ptr, ptr %399, align 8
+  %401 = getelementptr inbounds i8, ptr %400, i64 16
   %402 = load ptr, ptr %401, align 8
-  %403 = getelementptr inbounds i8, ptr %402, i64 16
-  %404 = load ptr, ptr %403, align 8
-  %.not347 = icmp eq ptr %404, null
-  br i1 %.not347, label %406, label %405
+  %.not347 = icmp eq ptr %402, null
+  br i1 %.not347, label %404, label %403
 
-405:                                              ; preds = %400
+403:                                              ; preds = %398
   call void @ExecConstraints(ptr noundef nonnull %.1, ptr noundef nonnull %.1261, ptr noundef %6) #11
-  %.pre = load ptr, ptr %385, align 8
-  br label %406
+  %.pre = load ptr, ptr %383, align 8
+  br label %404
 
-406:                                              ; preds = %405, %400, %396
-  %407 = phi ptr [ %.pre, %405 ], [ %.pre412, %400 ], [ %.pre412, %396 ]
-  %408 = getelementptr inbounds i8, ptr %407, i64 56
-  %409 = load ptr, ptr %408, align 8
-  %410 = getelementptr inbounds i8, ptr %409, i64 127
-  %411 = load i8, ptr %410, align 1
-  %412 = trunc i8 %411 to i1
-  %brmerge350 = or i1 %216, %378
-  %or.cond = select i1 %412, i1 %brmerge350, i1 false
-  br i1 %or.cond, label %413, label %415
+404:                                              ; preds = %403, %398, %394
+  %405 = phi ptr [ %.pre, %403 ], [ %.pre411, %398 ], [ %.pre411, %394 ]
+  %406 = getelementptr inbounds i8, ptr %405, i64 56
+  %407 = load ptr, ptr %406, align 8
+  %408 = getelementptr inbounds i8, ptr %407, i64 127
+  %409 = load i8, ptr %408, align 1
+  %410 = trunc i8 %409 to i1
+  %brmerge350 = or i1 %214, %376
+  %or.cond = select i1 %410, i1 %brmerge350, i1 false
+  br i1 %or.cond, label %411, label %413
 
-413:                                              ; preds = %406
-  %414 = call zeroext i1 @ExecPartitionCheck(ptr noundef nonnull %.1, ptr noundef nonnull %.1261, ptr noundef %6, i1 noundef zeroext true) #11
-  br label %415
+411:                                              ; preds = %404
+  %412 = call zeroext i1 @ExecPartitionCheck(ptr noundef nonnull %.1, ptr noundef nonnull %.1261, ptr noundef %6, i1 noundef zeroext true) #11
+  br label %413
 
-415:                                              ; preds = %413, %406
-  br i1 %.0274359, label %418, label %416
+413:                                              ; preds = %411, %404
+  br i1 %.0274359, label %416, label %414
 
-416:                                              ; preds = %415
-  %417 = trunc nuw i8 %.1264 to i1
-  br i1 %417, label %418, label %440
+414:                                              ; preds = %413
+  %415 = trunc nuw i8 %.1264 to i1
+  br i1 %415, label %416, label %438
 
-418:                                              ; preds = %416, %415
-  %419 = getelementptr inbounds i8, ptr %.1261, i64 8
+416:                                              ; preds = %414, %413
+  %417 = getelementptr inbounds i8, ptr %.1261, i64 8
+  %418 = load ptr, ptr %417, align 8
+  %419 = getelementptr inbounds i8, ptr %418, i64 48
   %420 = load ptr, ptr %419, align 8
-  %421 = getelementptr inbounds i8, ptr %420, i64 48
-  %422 = load ptr, ptr %421, align 8
-  call void %422(ptr noundef nonnull %.1261) #11
-  %423 = load i32, ptr %217, align 8
-  %424 = load i64, ptr %218, align 8
-  %425 = getelementptr i8, ptr %.1, i64 344
-  %.1.val = load ptr, ptr %425, align 8
-  %426 = getelementptr inbounds i8, ptr %.1.val, i64 8024
-  %427 = getelementptr inbounds i8, ptr %.1.val, i64 8016
-  %428 = load i32, ptr %427, align 8
-  %429 = sext i32 %428 to i64
-  %430 = getelementptr [1000 x i64], ptr %426, i64 0, i64 %429
-  store i64 %424, ptr %430, align 8
-  %431 = load i32, ptr %427, align 8
+  call void %420(ptr noundef nonnull %.1261) #11
+  %421 = load i32, ptr %215, align 8
+  %422 = load i64, ptr %216, align 8
+  %423 = getelementptr i8, ptr %.1, i64 344
+  %.1.val = load ptr, ptr %423, align 8
+  %424 = getelementptr inbounds i8, ptr %.1.val, i64 8024
+  %425 = getelementptr inbounds i8, ptr %.1.val, i64 8016
+  %426 = load i32, ptr %425, align 8
+  %427 = sext i32 %426 to i64
+  %428 = getelementptr [1000 x i64], ptr %424, i64 0, i64 %427
+  store i64 %422, ptr %428, align 8
+  %429 = load i32, ptr %425, align 8
+  %430 = add i32 %429, 1
+  store i32 %430, ptr %425, align 8
+  %431 = load i32, ptr %213, align 8
   %432 = add i32 %431, 1
-  store i32 %432, ptr %427, align 8
-  %433 = load i32, ptr %215, align 8
-  %434 = add i32 %433, 1
-  store i32 %434, ptr %215, align 8
-  %435 = load i32, ptr %219, align 4
-  %436 = add i32 %435, %423
-  store i32 %436, ptr %219, align 4
-  %437 = icmp sgt i32 %434, 999
-  %438 = icmp sgt i32 %436, 65534
-  %spec.select.i = select i1 %437, i1 true, i1 %438
-  br i1 %spec.select.i, label %439, label %.backedge.backedge
+  store i32 %432, ptr %213, align 8
+  %433 = load i32, ptr %217, align 4
+  %434 = add i32 %433, %421
+  store i32 %434, ptr %217, align 4
+  %435 = icmp sgt i32 %432, 999
+  %436 = icmp sgt i32 %434, 65534
+  %spec.select.i = select i1 %435, i1 true, i1 %436
+  br i1 %spec.select.i, label %437, label %.backedge.backedge
 
-439:                                              ; preds = %418
+437:                                              ; preds = %416
   call fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull %4, ptr noundef nonnull %.1, ptr noundef nonnull %5)
   br label %.backedge.backedge
 
-440:                                              ; preds = %416
-  %441 = load ptr, ptr %397, align 8
-  %.not348 = icmp eq ptr %441, null
-  br i1 %.not348, label %452, label %442
+438:                                              ; preds = %414
+  %439 = load ptr, ptr %395, align 8
+  %.not348 = icmp eq ptr %439, null
+  br i1 %.not348, label %450, label %440
 
-442:                                              ; preds = %440
-  %443 = getelementptr inbounds i8, ptr %441, i64 104
-  %444 = load ptr, ptr %443, align 8
-  %445 = call ptr %444(ptr noundef %6, ptr noundef nonnull %.1, ptr noundef nonnull %.1261, ptr noundef null) #11
-  %446 = icmp eq ptr %445, null
-  br i1 %446, label %.backedge.backedge, label %447
+440:                                              ; preds = %438
+  %441 = getelementptr inbounds i8, ptr %439, i64 104
+  %442 = load ptr, ptr %441, align 8
+  %443 = call ptr %442(ptr noundef %6, ptr noundef nonnull %.1, ptr noundef nonnull %.1261, ptr noundef null) #11
+  %444 = icmp eq ptr %443, null
+  br i1 %444, label %.backedge.backedge, label %445
 
-447:                                              ; preds = %442
-  %448 = load ptr, ptr %385, align 8
-  %449 = getelementptr inbounds i8, ptr %448, i64 72
-  %450 = load i32, ptr %449, align 8
-  %451 = getelementptr inbounds i8, ptr %445, i64 56
-  store i32 %450, ptr %451, align 8
-  br label %463
+445:                                              ; preds = %440
+  %446 = load ptr, ptr %383, align 8
+  %447 = getelementptr inbounds i8, ptr %446, i64 72
+  %448 = load i32, ptr %447, align 8
+  %449 = getelementptr inbounds i8, ptr %443, i64 56
+  store i32 %448, ptr %449, align 8
+  br label %461
 
-452:                                              ; preds = %440
-  %453 = load ptr, ptr %385, align 8
-  %454 = getelementptr inbounds i8, ptr %453, i64 312
+450:                                              ; preds = %438
+  %451 = load ptr, ptr %383, align 8
+  %452 = getelementptr inbounds i8, ptr %451, i64 312
+  %453 = load ptr, ptr %452, align 8
+  %454 = getelementptr inbounds i8, ptr %453, i64 160
   %455 = load ptr, ptr %454, align 8
-  %456 = getelementptr inbounds i8, ptr %455, i64 160
-  %457 = load ptr, ptr %456, align 8
-  call void %457(ptr noundef %453, ptr noundef nonnull %.1261, i32 noundef %8, i32 noundef %.1278, ptr noundef %.0276) #11
-  %458 = getelementptr inbounds i8, ptr %.1, i64 16
-  %459 = load i32, ptr %458, align 8
-  %460 = icmp sgt i32 %459, 0
-  br i1 %460, label %461, label %463
+  call void %455(ptr noundef %451, ptr noundef nonnull %.1261, i32 noundef %8, i32 noundef %.1278, ptr noundef %.0276) #11
+  %456 = getelementptr inbounds i8, ptr %.1, i64 16
+  %457 = load i32, ptr %456, align 8
+  %458 = icmp sgt i32 %457, 0
+  br i1 %458, label %459, label %461
 
-461:                                              ; preds = %452
-  %462 = call ptr @ExecInsertIndexTuples(ptr noundef nonnull %.1, ptr noundef nonnull %.1261, ptr noundef %6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #11
+459:                                              ; preds = %450
+  %460 = call ptr @ExecInsertIndexTuples(ptr noundef nonnull %.1, ptr noundef nonnull %.1261, ptr noundef %6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #11
+  br label %461
+
+461:                                              ; preds = %450, %459, %445
+  %.3 = phi ptr [ %443, %445 ], [ %.1261, %459 ], [ %.1261, %450 ]
+  %.0 = phi ptr [ null, %445 ], [ %460, %459 ], [ null, %450 ]
+  %462 = load ptr, ptr %115, align 8
+  call void @ExecARInsertTriggers(ptr noundef %6, ptr noundef nonnull %.1, ptr noundef nonnull %.3, ptr noundef %.0, ptr noundef %462) #11
+  call void @list_free(ptr noundef %.0) #11
   br label %463
 
-463:                                              ; preds = %452, %461, %447
-  %.3 = phi ptr [ %445, %447 ], [ %.1261, %461 ], [ %.1261, %452 ]
-  %.0 = phi ptr [ null, %447 ], [ %462, %461 ], [ null, %452 ]
-  %464 = load ptr, ptr %115, align 8
-  call void @ExecARInsertTriggers(ptr noundef %6, ptr noundef nonnull %.1, ptr noundef nonnull %.3, ptr noundef %.0, ptr noundef %464) #11
-  call void @list_free(ptr noundef %.0) #11
-  br label %465
-
-465:                                              ; preds = %463, %382
-  %466 = load i64, ptr %5, align 8
-  %467 = add i64 %466, 1
-  store i64 %467, ptr %5, align 8
-  call void @pgstat_progress_update_param(i32 noundef 2, i64 noundef %467) #11
+463:                                              ; preds = %461, %380
+  %464 = load i64, ptr %5, align 8
+  %465 = add i64 %464, 1
+  store i64 %465, ptr %5, align 8
+  call void @pgstat_progress_update_param(i32 noundef 2, i64 noundef %465) #11
   br label %.backedge.backedge
 
-468:                                              ; preds = %244
-  %.val351 = load i32, ptr %215, align 8
-  %469 = icmp eq i32 %.val351, 0
-  %or.cond370 = select i1 %191, i1 true, i1 %469
-  br i1 %or.cond370, label %471, label %470
+466:                                              ; preds = %242
+  %.val351 = load i32, ptr %213, align 8
+  %467 = icmp eq i32 %.val351, 0
+  %or.cond370 = select i1 %189, i1 true, i1 %467
+  br i1 %or.cond370, label %469, label %468
 
-470:                                              ; preds = %468
+468:                                              ; preds = %466
   call fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %5)
-  br label %471
+  br label %469
 
-471:                                              ; preds = %470, %468
-  %472 = load ptr, ptr %3, align 8
-  store ptr %472, ptr @error_context_stack, align 8
-  %473 = load i32, ptr %9, align 4
-  %.not332 = icmp eq i32 %473, 0
-  br i1 %.not332, label %482, label %474
+469:                                              ; preds = %468, %466
+  %470 = load ptr, ptr %3, align 8
+  store ptr %470, ptr @error_context_stack, align 8
+  %471 = load i32, ptr %9, align 4
+  %.not332 = icmp eq i32 %471, 0
+  br i1 %.not332, label %480, label %472
 
-474:                                              ; preds = %471
-  %475 = getelementptr inbounds i8, ptr %0, i64 344
-  %476 = load i64, ptr %475, align 8
-  %.not333 = icmp eq i64 %476, 0
-  br i1 %.not333, label %482, label %477
+472:                                              ; preds = %469
+  %473 = getelementptr inbounds i8, ptr %0, i64 344
+  %474 = load i64, ptr %473, align 8
+  %.not333 = icmp eq i64 %474, 0
+  br i1 %.not333, label %480, label %475
 
-477:                                              ; preds = %474
-  %478 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #11
-  br i1 %478, label %479, label %482
+475:                                              ; preds = %472
+  %476 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #11
+  br i1 %476, label %477, label %480
 
-479:                                              ; preds = %477
-  %480 = load i64, ptr %475, align 8
-  %481 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i64 noundef %480, i64 noundef %480) #11
+477:                                              ; preds = %475
+  %478 = load i64, ptr %473, align 8
+  %479 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i64 noundef %478, i64 noundef %478) #11
   call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 1321, ptr noundef nonnull @__func__.CopyFrom) #11
+  br label %480
+
+480:                                              ; preds = %477, %475, %472, %469
+  br i1 %.not342, label %482, label %481
+
+481:                                              ; preds = %480
+  call void @FreeBulkInsertState(ptr noundef nonnull %.0276) #11
   br label %482
 
-482:                                              ; preds = %479, %477, %474, %471
-  br i1 %.not342, label %484, label %483
-
-483:                                              ; preds = %482
-  call void @FreeBulkInsertState(ptr noundef nonnull %.0276) #11
-  br label %484
-
-484:                                              ; preds = %483, %482
+482:                                              ; preds = %481, %480
   store ptr %7, ptr @CurrentMemoryContext, align 8
-  %485 = load ptr, ptr %115, align 8
-  call void @ExecASInsertTriggers(ptr noundef nonnull %6, ptr noundef %86, ptr noundef %485) #11
+  %483 = load ptr, ptr %115, align 8
+  call void @ExecASInsertTriggers(ptr noundef nonnull %6, ptr noundef %86, ptr noundef %483) #11
   call void @AfterTriggerEndQuery(ptr noundef nonnull %6) #11
-  %486 = getelementptr inbounds i8, ptr %6, i64 168
-  %487 = load ptr, ptr %486, align 8
-  call void @ExecResetTupleTable(ptr noundef %487, i1 noundef zeroext false) #11
-  %488 = load ptr, ptr %94, align 8
-  %.not335 = icmp eq ptr %488, null
-  br i1 %.not335, label %493, label %489
+  %484 = getelementptr inbounds i8, ptr %6, i64 168
+  %485 = load ptr, ptr %484, align 8
+  call void @ExecResetTupleTable(ptr noundef %485, i1 noundef zeroext false) #11
+  %486 = load ptr, ptr %94, align 8
+  %.not335 = icmp eq ptr %486, null
+  br i1 %.not335, label %491, label %487
 
-489:                                              ; preds = %484
-  %490 = getelementptr inbounds i8, ptr %488, i64 160
-  %491 = load ptr, ptr %490, align 8
-  %.not336 = icmp eq ptr %491, null
-  br i1 %.not336, label %493, label %492
+487:                                              ; preds = %482
+  %488 = getelementptr inbounds i8, ptr %486, i64 160
+  %489 = load ptr, ptr %488, align 8
+  %.not336 = icmp eq ptr %489, null
+  br i1 %.not336, label %491, label %490
 
-492:                                              ; preds = %489
-  call void %491(ptr noundef nonnull %6, ptr noundef nonnull %86) #11
-  br label %493
+490:                                              ; preds = %487
+  call void %489(ptr noundef nonnull %6, ptr noundef nonnull %86) #11
+  br label %491
 
-493:                                              ; preds = %492, %489, %484
-  br i1 %191, label %532, label %494
+491:                                              ; preds = %490, %487, %482
+  br i1 %189, label %530, label %492
 
-494:                                              ; preds = %493
-  %495 = load ptr, ptr %4, align 8
-  %496 = getelementptr inbounds i8, ptr %495, i64 4
-  %.not.i355 = icmp eq ptr %495, null
+492:                                              ; preds = %491
+  %493 = load ptr, ptr %4, align 8
+  %494 = getelementptr inbounds i8, ptr %493, i64 4
+  %.not.i355 = icmp eq ptr %493, null
   br i1 %.not.i355, label %CopyMultiInsertInfoCleanup.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %494
-  %497 = getelementptr inbounds i8, ptr %495, i64 16
-  %498 = load i32, ptr %496, align 4
-  %499 = icmp sgt i32 %498, 0
-  br i1 %499, label %.lr.ph15.i.preheader, label %CopyMultiInsertInfoCleanup.exit
+.lr.ph.i:                                         ; preds = %492
+  %495 = getelementptr inbounds i8, ptr %493, i64 16
+  %496 = load i32, ptr %494, align 4
+  %497 = icmp sgt i32 %496, 0
+  br i1 %497, label %.lr.ph15.i.preheader, label %CopyMultiInsertInfoCleanup.exit
 
 .lr.ph15.i.preheader:                             ; preds = %.lr.ph.i
-  %500 = getelementptr inbounds i8, ptr %4, i64 36
-  %501 = load i32, ptr %500, align 4
+  %498 = getelementptr inbounds i8, ptr %4, i64 36
+  %499 = load i32, ptr %498, align 4
   br label %.lr.ph15.i
 
 .lr.ph15.i:                                       ; preds = %.lr.ph15.i.preheader, %CopyMultiInsertBufferCleanup.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %CopyMultiInsertBufferCleanup.exit.i ], [ 0, %.lr.ph15.i.preheader ]
-  %502 = load ptr, ptr %497, align 8
-  %503 = getelementptr %union.ListCell, ptr %502, i64 %indvars.iv.i
+  %500 = load ptr, ptr %495, align 8
+  %501 = getelementptr %union.ListCell, ptr %500, i64 %indvars.iv.i
+  %502 = load ptr, ptr %501, align 8
+  %503 = getelementptr inbounds i8, ptr %502, i64 8000
   %504 = load ptr, ptr %503, align 8
-  %505 = getelementptr inbounds i8, ptr %504, i64 8000
-  %506 = load ptr, ptr %505, align 8
-  %507 = getelementptr inbounds i8, ptr %506, i64 344
-  store ptr null, ptr %507, align 8
-  %508 = getelementptr inbounds i8, ptr %506, i64 144
-  %509 = load ptr, ptr %508, align 8
-  %510 = icmp eq ptr %509, null
-  br i1 %510, label %511, label %.preheader
+  %505 = getelementptr inbounds i8, ptr %504, i64 344
+  store ptr null, ptr %505, align 8
+  %506 = getelementptr inbounds i8, ptr %504, i64 144
+  %507 = load ptr, ptr %506, align 8
+  %508 = icmp eq ptr %507, null
+  br i1 %508, label %509, label %.preheader
 
-511:                                              ; preds = %.lr.ph15.i
-  %512 = getelementptr inbounds i8, ptr %504, i64 8008
-  %513 = load ptr, ptr %512, align 8
-  call void @FreeBulkInsertState(ptr noundef %513) #11
+509:                                              ; preds = %.lr.ph15.i
+  %510 = getelementptr inbounds i8, ptr %502, i64 8008
+  %511 = load ptr, ptr %510, align 8
+  call void @FreeBulkInsertState(ptr noundef %511) #11
   br label %.preheader
 
-.preheader:                                       ; preds = %511, %.lr.ph15.i
-  br label %514
+.preheader:                                       ; preds = %509, %.lr.ph15.i
+  br label %512
 
-514:                                              ; preds = %.preheader, %517
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %517 ], [ 0, %.preheader ]
-  %515 = getelementptr [1000 x ptr], ptr %504, i64 0, i64 %indvars.iv.i.i
-  %516 = load ptr, ptr %515, align 8
-  %.not.i.i = icmp eq ptr %516, null
-  br i1 %.not.i.i, label %.critedge.i.i, label %517
+512:                                              ; preds = %.preheader, %515
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %515 ], [ 0, %.preheader ]
+  %513 = getelementptr [1000 x ptr], ptr %502, i64 0, i64 %indvars.iv.i.i
+  %514 = load ptr, ptr %513, align 8
+  %.not.i.i = icmp eq ptr %514, null
+  br i1 %.not.i.i, label %.critedge.i.i, label %515
 
-517:                                              ; preds = %514
-  call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %516) #11
+515:                                              ; preds = %512
+  call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %514) #11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 1000
-  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %514, !llvm.loop !5
+  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %512, !llvm.loop !5
 
-.critedge.i.i:                                    ; preds = %517, %514
-  %518 = load ptr, ptr %508, align 8
-  %519 = icmp eq ptr %518, null
-  br i1 %519, label %520, label %CopyMultiInsertBufferCleanup.exit.i
+.critedge.i.i:                                    ; preds = %515, %512
+  %516 = load ptr, ptr %506, align 8
+  %517 = icmp eq ptr %516, null
+  br i1 %517, label %518, label %CopyMultiInsertBufferCleanup.exit.i
 
-520:                                              ; preds = %.critedge.i.i
-  %521 = getelementptr inbounds i8, ptr %506, i64 8
+518:                                              ; preds = %.critedge.i.i
+  %519 = getelementptr inbounds i8, ptr %504, i64 8
+  %520 = load ptr, ptr %519, align 8
+  %521 = getelementptr inbounds i8, ptr %520, i64 312
   %522 = load ptr, ptr %521, align 8
-  %523 = getelementptr inbounds i8, ptr %522, i64 312
-  %524 = load ptr, ptr %523, align 8
-  %.not.i.i.i = icmp eq ptr %524, null
-  br i1 %.not.i.i.i, label %CopyMultiInsertBufferCleanup.exit.i, label %525
+  %.not.i.i.i = icmp eq ptr %522, null
+  br i1 %.not.i.i.i, label %CopyMultiInsertBufferCleanup.exit.i, label %523
 
-525:                                              ; preds = %520
-  %526 = getelementptr inbounds i8, ptr %524, i64 216
-  %527 = load ptr, ptr %526, align 8
-  %.not5.i.i.i = icmp eq ptr %527, null
-  br i1 %.not5.i.i.i, label %CopyMultiInsertBufferCleanup.exit.i, label %528
+523:                                              ; preds = %518
+  %524 = getelementptr inbounds i8, ptr %522, i64 216
+  %525 = load ptr, ptr %524, align 8
+  %.not5.i.i.i = icmp eq ptr %525, null
+  br i1 %.not5.i.i.i, label %CopyMultiInsertBufferCleanup.exit.i, label %526
 
-528:                                              ; preds = %525
-  call void %527(ptr noundef nonnull %522, i32 noundef %501) #11
+526:                                              ; preds = %523
+  call void %525(ptr noundef nonnull %520, i32 noundef %499) #11
   br label %CopyMultiInsertBufferCleanup.exit.i
 
-CopyMultiInsertBufferCleanup.exit.i:              ; preds = %528, %525, %520, %.critedge.i.i
-  call void @pfree(ptr noundef nonnull %504) #11
+CopyMultiInsertBufferCleanup.exit.i:              ; preds = %526, %523, %518, %.critedge.i.i
+  call void @pfree(ptr noundef nonnull %502) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %529 = load i32, ptr %496, align 4
-  %530 = sext i32 %529 to i64
-  %531 = icmp slt i64 %indvars.iv.next.i, %530
-  br i1 %531, label %.lr.ph15.i, label %CopyMultiInsertInfoCleanup.exit
+  %527 = load i32, ptr %494, align 4
+  %528 = sext i32 %527 to i64
+  %529 = icmp slt i64 %indvars.iv.next.i, %528
+  br i1 %529, label %.lr.ph15.i, label %CopyMultiInsertInfoCleanup.exit
 
-CopyMultiInsertInfoCleanup.exit:                  ; preds = %CopyMultiInsertBufferCleanup.exit.i, %494, %.lr.ph.i
-  call void @list_free(ptr noundef %495) #11
+CopyMultiInsertInfoCleanup.exit:                  ; preds = %CopyMultiInsertBufferCleanup.exit.i, %492, %.lr.ph.i
+  call void @list_free(ptr noundef %493) #11
+  br label %530
+
+530:                                              ; preds = %CopyMultiInsertInfoCleanup.exit, %491
+  br i1 %207, label %531, label %532
+
+531:                                              ; preds = %530
+  call void @ExecCleanupTupleRouting(ptr noundef nonnull %87, ptr noundef nonnull %.0279) #11
   br label %532
 
-532:                                              ; preds = %CopyMultiInsertInfoCleanup.exit, %493
-  br i1 %209, label %533, label %534
-
-533:                                              ; preds = %532
-  call void @ExecCleanupTupleRouting(ptr noundef nonnull %87, ptr noundef nonnull %.0279) #11
-  br label %534
-
-534:                                              ; preds = %533, %532
+532:                                              ; preds = %531, %530
   call void @ExecCloseResultRelations(ptr noundef %6) #11
   call void @ExecCloseRangeTableRelations(ptr noundef %6) #11
   call void @FreeExecutorState(ptr noundef %6) #11
-  %535 = load i64, ptr %5, align 8
-  ret i64 %535
+  %533 = load i64, ptr %5, align 8
+  ret i64 %533
 }
 
 declare ptr @CreateExecutorState() local_unnamed_addr #1

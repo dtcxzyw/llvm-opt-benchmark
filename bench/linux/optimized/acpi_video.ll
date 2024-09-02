@@ -838,49 +838,49 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 @acpi_evaluate_integer(ptr noundef %77, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef nonnull %5) #18
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %._crit_edge, label %80
+  br i1 %79, label %._crit_edge, label %81
 
 ._crit_edge:                                      ; preds = %74
   %.pre = load i64, ptr %5, align 8
-  br label %89
+  %80 = trunc i64 %.pre to i32
+  br label %90
 
-80:                                               ; preds = %74
-  %81 = load ptr, ptr %61, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
-  %83 = load ptr, ptr %82, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %83, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.41) #18
-  %84 = load i8, ptr %70, align 1
-  %85 = and i8 %84, -25
-  store i8 %85, ptr %70, align 1
-  %86 = load ptr, ptr %67, align 8
-  %87 = load i32, ptr %86, align 8
-  %88 = sext i32 %87 to i64
-  store i64 %88, ptr %5, align 8
-  br label %89
+81:                                               ; preds = %74
+  %82 = load ptr, ptr %61, align 8
+  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %84 = load ptr, ptr %83, align 8
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str, ptr noundef %84, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.41) #18
+  %85 = load i8, ptr %70, align 1
+  %86 = and i8 %85, -25
+  store i8 %86, ptr %70, align 1
+  %87 = load ptr, ptr %67, align 8
+  %88 = load i32, ptr %87, align 8
+  %89 = sext i32 %88 to i64
+  store i64 %89, ptr %5, align 8
+  br label %90
 
-89:                                               ; preds = %._crit_edge, %80
-  %90 = phi i64 [ %.pre, %._crit_edge ], [ %88, %80 ]
-  %91 = load i32, ptr %4, align 4
-  %92 = load ptr, ptr %67, align 8
+90:                                               ; preds = %._crit_edge, %81
+  %91 = phi i32 [ %80, %._crit_edge ], [ %88, %81 ]
+  %92 = load i32, ptr %4, align 4
+  %93 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   store i64 0, ptr %3, align 8, !annotation !10
-  %93 = load i1, ptr @bqc_offset_aml_bug_workaround, align 4
-  br i1 %93, label %192, label %94
+  %94 = load i1, ptr @bqc_offset_aml_bug_workaround, align 4
+  br i1 %94, label %192, label %95
 
-94:                                               ; preds = %89
-  %95 = trunc i64 %90 to i32
-  %96 = icmp eq i32 %91, %95
+95:                                               ; preds = %90
+  %96 = icmp eq i32 %92, %91
   br i1 %96, label %97, label %102
 
-97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %92, i64 8
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds i8, ptr %93, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr i8, ptr %99, i64 12
   %101 = load i32, ptr %100, align 4
   br label %102
 
-102:                                              ; preds = %97, %94
-  %103 = phi i32 [ %101, %97 ], [ %91, %94 ]
+102:                                              ; preds = %97, %95
+  %103 = phi i32 [ %101, %97 ], [ %92, %95 ]
   %104 = load ptr, ptr %61, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
@@ -972,11 +972,11 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
   br i1 %158, label %192, label %159
 
 159:                                              ; preds = %156
-  %160 = getelementptr inbounds i8, ptr %92, i64 4
+  %160 = getelementptr inbounds i8, ptr %93, i64 4
   %161 = load i32, ptr %160, align 4
   %162 = sext i32 %161 to i64
   %163 = icmp ult i64 %157, %162
-  %164 = getelementptr inbounds i8, ptr %92, i64 16
+  %164 = getelementptr inbounds i8, ptr %93, i64 16
   %165 = load i8, ptr %164, align 8
   br i1 %163, label %166, label %._crit_edge34
 
@@ -994,7 +994,7 @@ define internal fastcc void @acpi_video_bus_register_backlight(ptr noundef %0) u
 
 173:                                              ; preds = %169, %166
   %174 = phi i64 [ %172, %169 ], [ %157, %166 ]
-  %175 = getelementptr inbounds i8, ptr %92, i64 8
+  %175 = getelementptr inbounds i8, ptr %93, i64 8
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr i32, ptr %176, i64 %174
   %178 = getelementptr i8, ptr %177, i64 8
@@ -1028,7 +1028,7 @@ acpi_video_device_lcd_set_level.exit:             ; preds = %131, %110, %102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   br label %acpi_video_device_lcd_set_level.exit18
 
-192:                                              ; preds = %186, %._crit_edge34, %156, %89
+192:                                              ; preds = %186, %._crit_edge34, %156, %90
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   %193 = load i8, ptr %70, align 1
   %194 = and i8 %193, 8

@@ -64,7 +64,7 @@ declare i32 @strhash(ptr noundef) local_unnamed_addr #3
 declare ptr @hashmap_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @subprocess_read_status(i32 noundef %fd, ptr noundef %status) local_unnamed_addr #2 {
+define dso_local range(i32 -2147483648, 1) i32 @subprocess_read_status(i32 noundef %fd, ptr noundef %status) local_unnamed_addr #2 {
 entry:
   %line = alloca ptr, align 8
   %call10 = call i32 @packet_read_line_gently(i32 noundef %fd, ptr noundef null, ptr noundef nonnull %line) #12

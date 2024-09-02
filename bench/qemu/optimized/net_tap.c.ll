@@ -1095,31 +1095,22 @@ if.then7:                                         ; preds = %if.else
 if.else10:                                        ; preds = %if.else
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %call, ptr noundef nonnull @.str.42, ptr noundef %ifname, ptr noundef %script, ptr noundef %downscript) #15
   %5 = load i8, ptr %downscript, align 1
-  %6 = zext i8 %5 to i32
-  %7 = add nsw i32 %6, -110
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %sub_1, label %if.else10.tail
+  %.not = icmp eq i8 %5, 110
+  br i1 %.not, label %sub_1, label %if.then13
 
 sub_1:                                            ; preds = %if.else10
-  %8 = getelementptr inbounds i8, ptr %downscript, i64 1
+  %6 = getelementptr inbounds i8, ptr %downscript, i64 1
+  %7 = load i8, ptr %6, align 1
+  %.not47 = icmp eq i8 %7, 111
+  br i1 %.not47, label %if.else10.tail, label %if.then13
+
+if.else10.tail:                                   ; preds = %sub_1
+  %8 = getelementptr inbounds i8, ptr %downscript, i64 2
   %9 = load i8, ptr %8, align 1
-  %10 = zext i8 %9 to i32
-  %11 = add nsw i32 %10, -111
-  %.not47 = icmp eq i32 %11, 0
-  br i1 %.not47, label %sub_2, label %if.else10.tail
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %if.end19, label %if.then13
 
-sub_2:                                            ; preds = %sub_1
-  %12 = getelementptr inbounds i8, ptr %downscript, i64 2
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i32
-  br label %if.else10.tail
-
-if.else10.tail:                                   ; preds = %if.else10, %sub_1, %sub_2
-  %15 = phi i32 [ %7, %if.else10 ], [ %11, %sub_1 ], [ %14, %sub_2 ]
-  %cmp.not = icmp eq i32 %15, 0
-  br i1 %cmp.not, label %if.end19, label %if.then13
-
-if.then13:                                        ; preds = %if.else10.tail
+if.then13:                                        ; preds = %sub_1, %if.else10, %if.else10.tail
   %down_script = getelementptr inbounds i8, ptr %call, i64 380
   %call14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %down_script, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef nonnull %downscript) #15
   %down_script_arg = getelementptr inbounds i8, ptr %call, i64 1404
@@ -1128,14 +1119,14 @@ if.then13:                                        ; preds = %if.else10.tail
 
 if.end19:                                         ; preds = %if.then7, %if.then13, %if.else10.tail, %if.then5
   %has_vhost = getelementptr inbounds i8, ptr %tap, i64 74
-  %16 = load i8, ptr %has_vhost, align 2
-  %tobool20 = trunc i8 %16 to i1
+  %11 = load i8, ptr %has_vhost, align 2
+  %tobool20 = trunc i8 %11 to i1
   br i1 %tobool20, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end19
   %vhost = getelementptr inbounds i8, ptr %tap, i64 75
-  %17 = load i8, ptr %vhost, align 1
-  %tobool21 = trunc i8 %17 to i1
+  %12 = load i8, ptr %vhost, align 1
+  %tobool21 = trunc i8 %12 to i1
   br i1 %tobool21, label %if.then26, label %if.else90
 
 cond.false:                                       ; preds = %if.end19
@@ -1144,14 +1135,14 @@ cond.false:                                       ; preds = %if.end19
 
 lor.lhs.false23:                                  ; preds = %cond.false
   %has_vhostforce = getelementptr inbounds i8, ptr %tap, i64 96
-  %18 = load i8, ptr %has_vhostforce, align 8
-  %tobool24 = trunc i8 %18 to i1
+  %13 = load i8, ptr %has_vhostforce, align 8
+  %tobool24 = trunc i8 %13 to i1
   br i1 %tobool24, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %lor.lhs.false23
   %vhostforce = getelementptr inbounds i8, ptr %tap, i64 97
-  %19 = load i8, ptr %vhostforce, align 1
-  %tobool25 = trunc i8 %19 to i1
+  %14 = load i8, ptr %vhostforce, align 1
+  %tobool25 = trunc i8 %14 to i1
   br i1 %tobool25, label %if.then26, label %return
 
 if.then26:                                        ; preds = %land.lhs.true, %cond.false, %cond.true
@@ -1159,19 +1150,19 @@ if.then26:                                        ; preds = %land.lhs.true, %con
   %net_backend = getelementptr inbounds i8, ptr %options, i64 8
   store ptr %call, ptr %net_backend, align 8
   %has_poll_us = getelementptr inbounds i8, ptr %tap, i64 104
-  %20 = load i8, ptr %has_poll_us, align 8
-  %tobool28 = trunc i8 %20 to i1
+  %15 = load i8, ptr %has_poll_us, align 8
+  %tobool28 = trunc i8 %15 to i1
   br i1 %tobool28, label %if.then29, label %if.end32
 
 if.then29:                                        ; preds = %if.then26
   %poll_us = getelementptr inbounds i8, ptr %tap, i64 108
-  %21 = load i32, ptr %poll_us, align 4
+  %16 = load i32, ptr %poll_us, align 4
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then26, %if.then29
-  %.sink = phi i32 [ %21, %if.then29 ], [ 0, %if.then26 ]
-  %22 = getelementptr inbounds i8, ptr %options, i64 16
-  store i32 %.sink, ptr %22, align 8
+  %.sink = phi i32 [ %16, %if.then29 ], [ 0, %if.then26 ]
+  %17 = getelementptr inbounds i8, ptr %options, i64 16
+  store i32 %.sink, ptr %17, align 8
   %tobool33.not = icmp eq ptr %vhostfdname, null
   br i1 %tobool33.not, label %if.else53, label %if.then34
 
@@ -1183,24 +1174,24 @@ if.then34:                                        ; preds = %if.end32
 
 if.then38:                                        ; preds = %if.then34
   %has_vhostforce39 = getelementptr inbounds i8, ptr %tap, i64 96
-  %23 = load i8, ptr %has_vhostforce39, align 8
-  %tobool40 = trunc i8 %23 to i1
+  %18 = load i8, ptr %has_vhostforce39, align 8
+  %tobool40 = trunc i8 %18 to i1
   br i1 %tobool40, label %land.lhs.true41, label %if.else45
 
 land.lhs.true41:                                  ; preds = %if.then38
   %vhostforce42 = getelementptr inbounds i8, ptr %tap, i64 97
-  %24 = load i8, ptr %vhostforce42, align 1
-  %tobool43 = trunc i8 %24 to i1
+  %19 = load i8, ptr %vhostforce42, align 1
+  %tobool43 = trunc i8 %19 to i1
   br i1 %tobool43, label %if.then44, label %if.else45
 
 if.then44:                                        ; preds = %land.lhs.true41
-  %25 = load ptr, ptr %err, align 8
-  call void @error_propagate(ptr noundef %errp, ptr noundef %25) #15
+  %20 = load ptr, ptr %err, align 8
+  call void @error_propagate(ptr noundef %errp, ptr noundef %20) #15
   br label %failed
 
 if.else45:                                        ; preds = %land.lhs.true41, %if.then38
-  %26 = load ptr, ptr %err, align 8
-  call void @warn_report_err(ptr noundef %26) #15
+  %21 = load ptr, ptr %err, align 8
+  call void @warn_report_err(ptr noundef %21) #15
   br label %failed
 
 if.end47:                                         ; preds = %if.then34
@@ -1210,8 +1201,8 @@ if.end47:                                         ; preds = %if.then34
 
 if.then50:                                        ; preds = %if.end47
   %call51 = tail call ptr @__errno_location() #17
-  %27 = load i32, ptr %call51, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 755, ptr noundef nonnull @__func__.net_init_tap_one, i32 noundef %27, ptr noundef nonnull @.str.10, ptr noundef %name, i32 noundef %fd) #15
+  %22 = load i32, ptr %call51, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 755, ptr noundef nonnull @__func__.net_init_tap_one, i32 noundef %22, ptr noundef nonnull @.str.10, ptr noundef %name, i32 noundef %fd) #15
   br label %failed
 
 if.else53:                                        ; preds = %if.end32
@@ -1221,26 +1212,26 @@ if.else53:                                        ; preds = %if.end32
 
 if.then56:                                        ; preds = %if.else53
   %has_vhostforce57 = getelementptr inbounds i8, ptr %tap, i64 96
-  %28 = load i8, ptr %has_vhostforce57, align 8
-  %tobool58 = trunc i8 %28 to i1
+  %23 = load i8, ptr %has_vhostforce57, align 8
+  %tobool58 = trunc i8 %23 to i1
   br i1 %tobool58, label %land.lhs.true59, label %if.else64
 
 land.lhs.true59:                                  ; preds = %if.then56
   %vhostforce60 = getelementptr inbounds i8, ptr %tap, i64 97
-  %29 = load i8, ptr %vhostforce60, align 1
-  %tobool61 = trunc i8 %29 to i1
+  %24 = load i8, ptr %vhostforce60, align 1
+  %tobool61 = trunc i8 %24 to i1
   br i1 %tobool61, label %if.then62, label %if.else64
 
 if.then62:                                        ; preds = %land.lhs.true59
   %call63 = tail call ptr @__errno_location() #17
-  %30 = load i32, ptr %call63, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 763, ptr noundef nonnull @__func__.net_init_tap_one, i32 noundef %30, ptr noundef nonnull @.str.45) #15
+  %25 = load i32, ptr %call63, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 763, ptr noundef nonnull @__func__.net_init_tap_one, i32 noundef %25, ptr noundef nonnull @.str.45) #15
   br label %failed
 
 if.else64:                                        ; preds = %land.lhs.true59, %if.then56
   %call65 = tail call ptr @__errno_location() #17
-  %31 = load i32, ptr %call65, align 4
-  %call66 = call ptr @strerror(i32 noundef %31) #15
+  %26 = load i32, ptr %call65, align 4
+  %call66 = call ptr @strerror(i32 noundef %26) #15
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.46, ptr noundef %call66) #15
   br label %failed
 
@@ -1251,16 +1242,16 @@ if.end68:                                         ; preds = %if.else53
 
 if.then71:                                        ; preds = %if.end68
   %call72 = tail call ptr @__errno_location() #17
-  %32 = load i32, ptr %call72, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 771, ptr noundef nonnull @__func__.net_init_tap_one, i32 noundef %32, ptr noundef nonnull @.str.4) #15
+  %27 = load i32, ptr %call72, align 4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 771, ptr noundef nonnull @__func__.net_init_tap_one, i32 noundef %27, ptr noundef nonnull @.str.4) #15
   br label %failed
 
 if.end74:                                         ; preds = %if.end68, %if.end47
   %vhostfd.0 = phi i32 [ %call36, %if.end47 ], [ %call54, %if.end68 ]
   %conv = sext i32 %vhostfd.0 to i64
-  %33 = inttoptr i64 %conv to ptr
+  %28 = inttoptr i64 %conv to ptr
   %opaque = getelementptr inbounds i8, ptr %options, i64 24
-  store ptr %33, ptr %opaque, align 8
+  store ptr %28, ptr %opaque, align 8
   %nvqs = getelementptr inbounds i8, ptr %options, i64 20
   store i32 2, ptr %nvqs, align 4
   %call75 = call ptr @vhost_net_init(ptr noundef nonnull %options) #15
@@ -1271,14 +1262,14 @@ if.end74:                                         ; preds = %if.end68, %if.end47
 
 if.then78:                                        ; preds = %if.end74
   %has_vhostforce79 = getelementptr inbounds i8, ptr %tap, i64 96
-  %34 = load i8, ptr %has_vhostforce79, align 8
-  %tobool80 = trunc i8 %34 to i1
+  %29 = load i8, ptr %has_vhostforce79, align 8
+  %tobool80 = trunc i8 %29 to i1
   br i1 %tobool80, label %land.lhs.true82, label %if.else87
 
 land.lhs.true82:                                  ; preds = %if.then78
   %vhostforce83 = getelementptr inbounds i8, ptr %tap, i64 97
-  %35 = load i8, ptr %vhostforce83, align 1
-  %tobool84 = trunc i8 %35 to i1
+  %30 = load i8, ptr %vhostforce83, align 1
+  %tobool84 = trunc i8 %30 to i1
   br i1 %tobool84, label %if.then86, label %if.else87
 
 if.then86:                                        ; preds = %land.lhs.true82

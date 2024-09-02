@@ -1645,19 +1645,19 @@ entry:
 
 _ZNR5folly8OptionalIhEdeEv.exit:                  ; preds = %entry
   %1 = load i8, ptr %padding, align 1
+  %2 = zext i8 %1 to i64
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %_ZNR5folly8OptionalIhEdeEv.exit
-  %cond = phi i8 [ %1, %_ZNR5folly8OptionalIhEdeEv.exit ], [ 0, %entry ]
+  %cond = phi i64 [ %2, %_ZNR5folly8OptionalIhEdeEv.exit ], [ 0, %entry ]
   %sendWindow_ = getelementptr inbounds i8, ptr %this, i64 88
-  %2 = load ptr, ptr %chain, align 8
-  %call5 = tail call noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %conv6 = zext i8 %cond to i64
-  %add = add i64 %call5, %conv6
+  %3 = load ptr, ptr %chain, align 8
+  %call5 = tail call noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
+  %add = add i64 %call5, %cond
   %conv7 = trunc i64 %add to i32
   %call8 = tail call noundef zeroext i1 @_ZN8proxygen6Window7reserveEjb(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_, i32 noundef %conv7, i1 noundef zeroext true)
-  %3 = load ptr, ptr @_ZZN8proxygen17FlowControlFilter12generateBodyERN5folly10IOBufQueueEmSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EENS1_8OptionalIhEEbE8vlocal__, align 8
-  %cmp = icmp eq ptr %3, null
+  %4 = load ptr, ptr @_ZZN8proxygen17FlowControlFilter12generateBodyERN5folly10IOBufQueueEmSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EENS1_8OptionalIhEEbE8vlocal__, align 8
+  %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %cond.true10, label %cond.end14
 
 cond.true10:                                      ; preds = %cond.end
@@ -1665,8 +1665,8 @@ cond.true10:                                      ; preds = %cond.end
   br i1 %call11, label %cond.false18, label %cleanup.done
 
 cond.end14:                                       ; preds = %cond.end
-  %4 = load i32, ptr %3, align 4
-  %cmp13 = icmp sgt i32 %4, 4
+  %5 = load i32, ptr %4, align 4
+  %cmp13 = icmp sgt i32 %5, 4
   br i1 %cmp13, label %cond.false18, label %cleanup.done
 
 cond.false18:                                     ; preds = %cond.true10, %cond.end14
@@ -1679,8 +1679,8 @@ invoke.cont:                                      ; preds = %cond.false18
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont
-  %5 = load ptr, ptr %chain, align 8
-  %call25 = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %5)
+  %6 = load ptr, ptr %chain, align 8
+  %call25 = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %6)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont21
@@ -1728,13 +1728,13 @@ cleanup.action59:                                 ; preds = %invoke.cont52
   unreachable
 
 lpad:                                             ; preds = %invoke.cont31, %invoke.cont28, %invoke.cont26, %invoke.cont24, %invoke.cont21, %invoke.cont, %cond.false18
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp19) #17
   br label %eh.resume
 
 lpad47:                                           ; preds = %invoke.cont52, %invoke.cont50, %invoke.cont48, %cond.false43
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp45) #18
   unreachable
@@ -1745,8 +1745,8 @@ cleanup.done60:                                   ; preds = %cleanup.done
   br i1 %cmp66, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cleanup.done60
-  %8 = load ptr, ptr @_ZZN8proxygen17FlowControlFilter12generateBodyERN5folly10IOBufQueueEmSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EENS1_8OptionalIhEEbE8vlocal___0, align 8
-  %cmp69 = icmp eq ptr %8, null
+  %9 = load ptr, ptr @_ZZN8proxygen17FlowControlFilter12generateBodyERN5folly10IOBufQueueEmSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EENS1_8OptionalIhEEbE8vlocal___0, align 8
+  %cmp69 = icmp eq ptr %9, null
   br i1 %cmp69, label %cond.true70, label %cond.end74
 
 cond.true70:                                      ; preds = %if.then
@@ -1754,8 +1754,8 @@ cond.true70:                                      ; preds = %if.then
   br i1 %call71, label %cond.false79, label %cleanup.done92
 
 cond.end74:                                       ; preds = %if.then
-  %9 = load i32, ptr %8, align 4
-  %cmp73 = icmp sgt i32 %9, 3
+  %10 = load i32, ptr %9, align 4
+  %cmp73 = icmp sgt i32 %10, 3
   br i1 %cmp73, label %cond.false79, label %cleanup.done92
 
 cond.false79:                                     ; preds = %cond.true70, %cond.end74
@@ -1777,66 +1777,66 @@ cleanup.done92:                                   ; preds = %cond.true70, %cond.
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %sendsBlocked_, align 4
   %notify_ = getelementptr inbounds i8, ptr %this, i64 72
-  %10 = load ptr, ptr %notify_, align 8
-  %vtable = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %notify_, align 8
+  %vtable = load ptr, ptr %11, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %11 = load ptr, ptr %vfn, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %12 = load ptr, ptr %vfn, align 8
+  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
   br label %if.end
 
 lpad83:                                           ; preds = %invoke.cont84, %cond.false79
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp81) #17
   br label %eh.resume
 
 if.end:                                           ; preds = %cleanup.done92, %cleanup.done60
   %call_ = getelementptr inbounds i8, ptr %this, i64 24
-  %13 = load ptr, ptr %call_, align 8
-  %14 = load i64, ptr %chain, align 8
-  store i64 %14, ptr %agg.tmp, align 8
+  %14 = load ptr, ptr %call_, align 8
+  %15 = load i64, ptr %chain, align 8
+  store i64 %15, ptr %agg.tmp, align 8
   store ptr null, ptr %chain, align 8
   store i8 0, ptr %agg.tmp96, align 1
   %hasValue.i.i5 = getelementptr inbounds i8, ptr %agg.tmp96, i64 1
   store i8 0, ptr %hasValue.i.i5, align 1
-  %15 = load i8, ptr %hasValue.i.i, align 1
-  %tobool.i.i.i7 = trunc i8 %15 to i1
+  %16 = load i8, ptr %hasValue.i.i, align 1
+  %tobool.i.i.i7 = trunc i8 %16 to i1
   br i1 %tobool.i.i.i7, label %invoke.cont2.i, label %_ZN5folly8OptionalIhEC2ERKS1_.exit
 
 invoke.cont2.i:                                   ; preds = %if.end
-  %16 = load i8, ptr %padding, align 1
-  store i8 %16, ptr %agg.tmp96, align 1
+  %17 = load i8, ptr %padding, align 1
+  store i8 %17, ptr %agg.tmp96, align 1
   store i8 1, ptr %hasValue.i.i5, align 1
   br label %_ZN5folly8OptionalIhEC2ERKS1_.exit
 
 _ZN5folly8OptionalIhEC2ERKS1_.exit:               ; preds = %if.end, %invoke.cont2.i
-  %vtable98 = load ptr, ptr %13, align 8
+  %vtable98 = load ptr, ptr %14, align 8
   %vfn99 = getelementptr inbounds i8, ptr %vtable98, i64 208
-  %17 = load ptr, ptr %vfn99, align 8
-  %call102 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp96, i1 noundef zeroext %eom)
+  %18 = load ptr, ptr %vfn99, align 8
+  %call102 = invoke noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp96, i1 noundef zeroext %eom)
           to label %invoke.cont101 unwind label %lpad100
 
 invoke.cont101:                                   ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit
-  %18 = load ptr, ptr %agg.tmp, align 8
-  %cmp.not.i = icmp eq ptr %18, null
+  %19 = load ptr, ptr %agg.tmp, align 8
+  %cmp.not.i = icmp eq ptr %19, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %invoke.cont101
-  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %18) #17
-  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %18) #17
+  call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %19) #17
+  call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %19) #17
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont101, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   ret i64 %call102
 
 lpad100:                                          ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #17
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad83, %lpad, %lpad100
-  %.pn = phi { ptr, i32 } [ %19, %lpad100 ], [ %12, %lpad83 ], [ %6, %lpad ]
+  %.pn = phi { ptr, i32 } [ %20, %lpad100 ], [ %13, %lpad83 ], [ %7, %lpad ]
   resume { ptr, i32 } %.pn
 }
 

@@ -1800,12 +1800,12 @@ _ZN3gmx3endINS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_right
   %62 = fdiv float %58, %57
   %63 = tail call noundef float @logf(float noundef %62) #28
   %64 = fmul float %57, %63
+  %65 = fpext float %64 to double
   br label %_ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit
 
 _ZN3gmx12_GLOBAL__N_122relativeEntropyAtVoxelEff.exit: ; preds = %.lr.ph.i, %61
-  %.0.i = phi float [ %64, %61 ], [ 0.000000e+00, %.lr.ph.i ]
-  %65 = fpext float %.0.i to double
-  %66 = fadd double %.01012.i, %65
+  %.0.i = phi double [ %65, %61 ], [ 0.000000e+00, %.lr.ph.i ]
+  %66 = fadd double %.01012.i, %.0.i
   %67 = getelementptr inbounds i8, ptr %.014.i, i64 4
   %68 = getelementptr inbounds i8, ptr %.0713.i, i64 4
   %.not.i = icmp eq ptr %67, %54

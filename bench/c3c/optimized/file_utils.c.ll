@@ -1088,18 +1088,18 @@ expand_.exit.us:                                  ; preds = %57, %53
   %74 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %17, ptr noundef %spec.select54, ptr noundef nonnull %20) #17
   %75 = load ptr, ptr %0, align 8
   %.not51.us = icmp eq ptr %75, null
-  br i1 %.not51.us, label %79, label %76
+  br i1 %.not51.us, label %81, label %76
 
 76:                                               ; preds = %expand_.exit.us
   %77 = getelementptr inbounds i8, ptr %75, i64 -8
   %78 = load i32, ptr %77, align 4
-  br label %79
+  %79 = add i32 %78, -1
+  %80 = zext i32 %79 to i64
+  br label %81
 
-79:                                               ; preds = %76, %expand_.exit.us
-  %.0.us = phi i32 [ %78, %76 ], [ 0, %expand_.exit.us ]
-  %80 = add i32 %.0.us, -1
-  %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr %75, i64 %81
+81:                                               ; preds = %76, %expand_.exit.us
+  %.0.us = phi i64 [ %80, %76 ], [ 4294967295, %expand_.exit.us ]
+  %82 = getelementptr inbounds ptr, ptr %75, i64 %.0.us
   store ptr %74, ptr %82, align 8
   br label %.backedge.us
 
@@ -1125,7 +1125,7 @@ file_has_suffix_in_list.exit.thread.us:           ; preds = %40, %26
   tail call void @file_add_wildcard_files(ptr noundef %0, ptr noundef %83, i1 noundef zeroext true, ptr noundef %3, i32 noundef %4)
   br label %.backedge.us
 
-.backedge.us:                                     ; preds = %.lr.ph.split.us, %23, %85, %89, %91, %file_has_suffix_in_list.exit.thread.us, %79
+.backedge.us:                                     ; preds = %.lr.ph.split.us, %23, %85, %89, %91, %file_has_suffix_in_list.exit.thread.us, %81
   %92 = tail call ptr @readdir(ptr noundef nonnull %10) #17
   %.not50.us = icmp eq ptr %92, null
   br i1 %.not50.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17

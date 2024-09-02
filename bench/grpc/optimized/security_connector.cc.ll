@@ -209,7 +209,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK30grpc_server_security_connector29server_security_connector_cmpEPKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %other) local_unnamed_addr #4 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZNK30grpc_server_security_connector29server_security_connector_cmpEPKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %other) local_unnamed_addr #4 align 2 {
 entry:
   %server_creds_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %server_creds_.i, align 8

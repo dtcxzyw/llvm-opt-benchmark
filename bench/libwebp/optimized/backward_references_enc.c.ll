@@ -332,7 +332,7 @@ define hidden i32 @VP8LHashChainFill(ptr nocapture noundef readonly %0, i32 noun
 
 GetWindowSizeForHashChain.exit:                   ; preds = %9, %17, %19
   %22 = phi i32 [ 1048456, %9 ], [ %18, %17 ], [ %21, %19 ]
-  %23 = tail call range(i32 0, -15) i32 @llvm.smin.i32(i32 %22, i32 1048456)
+  %23 = tail call range(i32 -2147483648, 1048457) i32 @llvm.smin.i32(i32 %22, i32 1048456)
   %24 = load i32, ptr %8, align 4
   %25 = load ptr, ptr %0, align 8
   %26 = icmp slt i32 %10, 3
@@ -532,7 +532,7 @@ GetWindowSizeForHashChain.exit:                   ; preds = %9, %17, %19
 
 132:                                              ; preds = %131
   %133 = sub nsw i32 %124, %.0214
-  %134 = tail call range(i32 -2147483645, 2147483647) i32 @llvm.smin.i32(i32 %133, i32 4095)
+  %134 = tail call range(i32 -2147483645, 4096) i32 @llvm.smin.i32(i32 %133, i32 4095)
   %135 = zext nneg i32 %.0214 to i64
   %136 = getelementptr inbounds i32, ptr %2, i64 %135
   %137 = tail call i32 @llvm.usub.sat.i32(i32 %.0214, i32 %23)
@@ -1051,7 +1051,7 @@ AddSingleLiteral.exit.i.i:                        ; preds = %152, %BackwardRefsN
 .lr.ph.i.i49:                                     ; preds = %AddSingleLiteral.exit.i.i, %VP8LBackwardRefsCursorAdd.exit.i.i
   %.05584.i.i = phi i32 [ %.1.i.i, %VP8LBackwardRefsCursorAdd.exit.i.i ], [ 1, %AddSingleLiteral.exit.i.i ]
   %157 = sub nsw i32 %90, %.05584.i.i
-  %158 = call range(i32 -2147483645, 2147483647) i32 @llvm.smin.i32(i32 %157, i32 4095)
+  %158 = call range(i32 -2147483645, 4096) i32 @llvm.smin.i32(i32 %157, i32 4095)
   %159 = zext nneg i32 %.05584.i.i to i64
   %160 = getelementptr inbounds i32, ptr %2, i64 %159
   %161 = getelementptr inbounds i8, ptr %160, i64 -4

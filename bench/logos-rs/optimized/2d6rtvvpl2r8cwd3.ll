@@ -27,7 +27,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hf4ab7dfe13fcb822E(ptr
   %11 = getelementptr inbounds i8, ptr %6, i64 8
   br label %12
 
-12:                                               ; preds = %39, %2
+12:                                               ; preds = %40, %2
   %13 = load i64, ptr %8, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98b8720207c96f75E.exit.thread", label %15
@@ -92,7 +92,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hf4ab7dfe13fcb822E(ptr
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %15, %39
+.loopexit.split-lp.loopexit:                      ; preds = %15, %40
   %lpad.loopexit5 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -105,7 +105,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hf4ab7dfe13fcb822E(ptr
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit5, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp6, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr152drop_in_place$LT$hashbrown..raw..RawIntoIter$LT$$LP$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$RP$$GT$$GT$17he7031b19518ed872E"(ptr nonnull align 8 %0) #15
-          to label %43 unwind label %41
+          to label %44 unwind label %42
 
 "_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98b8720207c96f75E.exit": ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5630e94b782c912dE.exit.i"
   %35 = extractvalue { i64, i64 } %.lcssa.i.i.i, 1
@@ -114,29 +114,29 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hf4ab7dfe13fcb822E(ptr
   %38 = getelementptr inbounds i8, ptr %37, i64 -32
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32, i1 false)
   %.pre = load i64, ptr %11, align 8
-  %.not = icmp eq i64 %.pre, -9223372036854775808
-  br i1 %.not, label %.loopexit9, label %39
+  %39 = icmp eq i64 %.pre, -9223372036854775808
+  br i1 %39, label %.loopexit9, label %40
 
-39:                                               ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98b8720207c96f75E.exit"
+40:                                               ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98b8720207c96f75E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   invoke void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hc8575fe5fc983b71E"(ptr align 8 %1, ptr nonnull align 8 %5)
           to label %12 unwind label %.loopexit.split-lp.loopexit
 
 .loopexit9:                                       ; preds = %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98b8720207c96f75E.exit", %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98b8720207c96f75E.exit.thread"
   invoke void @"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$$LP$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$RP$$GT$$GT$17hc48a2e59e375482fE"(ptr nonnull align 8 %6)
-          to label %40 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %41 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-40:                                               ; preds = %.loopexit9
+41:                                               ; preds = %.loopexit9
   call void @"_ZN4core3ptr152drop_in_place$LT$hashbrown..raw..RawIntoIter$LT$$LP$logos_codegen..graph..NodeId$C$alloc..vec..Vec$LT$logos_codegen..graph..range..Range$GT$$RP$$GT$$GT$17he7031b19518ed872E"(ptr nonnull align 8 %0)
   ret void
 
-41:                                               ; preds = %.loopexit.split-lp
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %.loopexit.split-lp
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #16
   unreachable
 
-43:                                               ; preds = %.loopexit.split-lp
+44:                                               ; preds = %.loopexit.split-lp
   resume { ptr, i32 } %lpad.phi
 }
 

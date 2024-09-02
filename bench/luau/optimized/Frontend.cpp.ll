@@ -2827,7 +2827,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN4Luau9parseModeERKSt6vectorINS_10HotCommentESaIS1_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN4Luau9parseModeERKSt6vectorINS_10HotCommentESaIS1_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -12686,14 +12686,14 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit.i:        ; preds = %321
 
 ._crit_edge395.loopexit:                          ; preds = %337
   %.pre529 = load i64, ptr %21, align 8
+  %346 = icmp ne i64 %.pre529, 0
   br label %._crit_edge395
 
 ._crit_edge395:                                   ; preds = %._crit_edge395.loopexit, %158
-  %346 = phi i64 [ 0, %158 ], [ %.pre529, %._crit_edge395.loopexit ]
+  %347 = phi i1 [ false, %158 ], [ %346, %._crit_edge395.loopexit ]
   %.lcssa371 = phi ptr [ %159, %158 ], [ %339, %._crit_edge395.loopexit ]
   %.lcssa363 = phi ptr [ %160, %158 ], [ %340, %._crit_edge395.loopexit ]
   %.lcssa355 = phi i64 [ %164, %158 ], [ %344, %._crit_edge395.loopexit ]
-  %347 = icmp ne i64 %346, 0
   %.not.i91 = icmp eq ptr %.lcssa371, %.lcssa363
   %or.cond232 = or i1 %.not.i91, %347
   br i1 %or.cond232, label %"_ZZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS_15FrontendOptionsEESt8functionIFvS4_IFvvEEEES4_IFvmmEEENK3$_3clEv.exit", label %.lr.ph.preheader.i
@@ -13149,7 +13149,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit129:             ; preds = %486, %456
 
 493:                                              ; preds = %490
   %494 = trunc nuw i8 %.sroa.2189.2 to i1
-  br i1 %494, label %495, label %498
+  br i1 %494, label %495, label %499
 
 495:                                              ; preds = %493
   %496 = load ptr, ptr %14, align 8
@@ -13159,16 +13159,16 @@ _ZNSt6vectorImSaImEE5clearEv.exit129:             ; preds = %486, %456
 
 ._crit_edge532:                                   ; preds = %495
   %.pre533 = load i64, ptr %21, align 8
-  br label %498
+  %498 = icmp eq i64 %.pre533, 0
+  br label %499
 
-498:                                              ; preds = %._crit_edge532, %493
-  %499 = phi i64 [ %.pre533, %._crit_edge532 ], [ 0, %493 ]
-  %500 = icmp ne i64 %438, 0
-  %501 = icmp eq i64 %499, 0
-  %or.cond = select i1 %500, i1 %501, i1 false
+499:                                              ; preds = %._crit_edge532, %493
+  %500 = phi i1 [ %498, %._crit_edge532 ], [ true, %493 ]
+  %501 = icmp ne i64 %438, 0
+  %or.cond = select i1 %501, i1 %500, i1 false
   br i1 %or.cond, label %502, label %"_ZZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS_15FrontendOptionsEESt8functionIFvS4_IFvvEEEES4_IFvmmEEENK3$_3clEv.exit137"
 
-502:                                              ; preds = %498
+502:                                              ; preds = %499
   %503 = load ptr, ptr %131, align 8
   %504 = load ptr, ptr %14, align 8
   %.not.i130 = icmp eq ptr %503, %504
@@ -13198,7 +13198,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit129:             ; preds = %486, %456
   %exitcond.not.i135 = icmp eq i64 %514, %umax.i132
   br i1 %exitcond.not.i135, label %"_ZZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS_15FrontendOptionsEESt8functionIFvS4_IFvvEEEES4_IFvmmEEENK3$_3clEv.exit137", label %.lr.ph.i133, !llvm.loop !69
 
-"_ZZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS_15FrontendOptionsEESt8functionIFvS4_IFvvEEEES4_IFvmmEEENK3$_3clEv.exit137": ; preds = %513, %_ZNSt6vectorImSaImEE5clearEv.exit129, %502, %512, %498
+"_ZZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS_15FrontendOptionsEESt8functionIFvS4_IFvvEEEES4_IFvmmEEENK3$_3clEv.exit137": ; preds = %513, %_ZNSt6vectorImSaImEE5clearEv.exit129, %502, %512, %499
   %.not = icmp eq i64 %438, 0
   br i1 %.not, label %._crit_edge451, label %360, !llvm.loop !71
 

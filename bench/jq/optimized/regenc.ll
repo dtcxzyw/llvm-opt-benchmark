@@ -1243,62 +1243,62 @@ onigenc_strlen.exit:                              ; preds = %.lr.ph.i, %3
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   br label %12
 
-12:                                               ; preds = %onigenc_strlen.exit, %onigenc_with_ascii_strncmp.exit.thread35
-  %13 = phi ptr [ @.str, %onigenc_strlen.exit ], [ %38, %onigenc_with_ascii_strncmp.exit.thread35 ]
-  %.01326 = phi ptr [ @onigenc_minimum_property_name_to_ctype.PBS, %onigenc_strlen.exit ], [ %37, %onigenc_with_ascii_strncmp.exit.thread35 ]
-  %14 = getelementptr inbounds i8, ptr %.01326, i64 12
+12:                                               ; preds = %onigenc_strlen.exit, %.critedge
+  %13 = phi ptr [ @.str, %onigenc_strlen.exit ], [ %38, %.critedge ]
+  %.01324 = phi ptr [ @onigenc_minimum_property_name_to_ctype.PBS, %onigenc_strlen.exit ], [ %37, %.critedge ]
+  %14 = getelementptr inbounds i8, ptr %.01324, i64 12
   %15 = load i16, ptr %14, align 4
   %16 = sext i16 %15 to i32
   %17 = icmp eq i32 %.07.lcssa.i, %16
-  br i1 %17, label %18, label %onigenc_with_ascii_strncmp.exit.thread35
+  br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %12
   %19 = icmp sgt i16 %15, 0
   br i1 %19, label %.lr.ph.i16, label %onigenc_with_ascii_strncmp.exit.thread
 
-.lr.ph.i16:                                       ; preds = %18, %26
-  %.in.i = phi i32 [ %20, %26 ], [ %.07.lcssa.i, %18 ]
-  %.01523.i = phi ptr [ %31, %26 ], [ %1, %18 ]
-  %.01722.i = phi ptr [ %27, %26 ], [ %13, %18 ]
+.lr.ph.i16:                                       ; preds = %18, %28
+  %.in.i = phi i32 [ %20, %28 ], [ %.07.lcssa.i, %18 ]
+  %.01523.i = phi ptr [ %33, %28 ], [ %1, %18 ]
+  %.01722.i = phi ptr [ %29, %28 ], [ %13, %18 ]
   %20 = add nsw i32 %.in.i, -1
   %.not.i = icmp ult ptr %.01523.i, %2
-  br i1 %.not.i, label %21, label %onigenc_with_ascii_strncmp.exit
-
-21:                                               ; preds = %.lr.ph.i16
-  %22 = load ptr, ptr %11, align 8
-  %23 = tail call i32 %22(ptr noundef %.01523.i, ptr noundef nonnull %2) #16
-  %24 = load i8, ptr %.01722.i, align 1
-  %25 = zext i8 %24 to i32
-  %.not20.i = icmp eq i32 %23, %25
-  br i1 %.not20.i, label %26, label %onigenc_with_ascii_strncmp.exit.thread35
-
-26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %.01722.i, i64 1
-  %28 = load ptr, ptr %0, align 8
-  %29 = tail call i32 %28(ptr noundef %.01523.i) #16
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %.01523.i, i64 %30
-  %32 = icmp ugt i32 %.in.i, 1
-  br i1 %32, label %.lr.ph.i16, label %onigenc_with_ascii_strncmp.exit.thread, !llvm.loop !22
+  br i1 %.not.i, label %23, label %onigenc_with_ascii_strncmp.exit
 
 onigenc_with_ascii_strncmp.exit:                  ; preds = %.lr.ph.i16
-  %33 = load i8, ptr %.01722.i, align 1
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %onigenc_with_ascii_strncmp.exit.thread, label %onigenc_with_ascii_strncmp.exit.thread35
+  %21 = load i8, ptr %.01722.i, align 1
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %onigenc_with_ascii_strncmp.exit.thread, label %.critedge
 
-onigenc_with_ascii_strncmp.exit.thread:           ; preds = %18, %onigenc_with_ascii_strncmp.exit, %26
-  %35 = getelementptr inbounds i8, ptr %.01326, i64 8
+23:                                               ; preds = %.lr.ph.i16
+  %24 = load ptr, ptr %11, align 8
+  %25 = tail call i32 %24(ptr noundef %.01523.i, ptr noundef nonnull %2) #16
+  %26 = load i8, ptr %.01722.i, align 1
+  %27 = zext i8 %26 to i32
+  %.not20.i = icmp eq i32 %25, %27
+  br i1 %.not20.i, label %28, label %.critedge
+
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds i8, ptr %.01722.i, i64 1
+  %30 = load ptr, ptr %0, align 8
+  %31 = tail call i32 %30(ptr noundef %.01523.i) #16
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i8, ptr %.01523.i, i64 %32
+  %34 = icmp ugt i32 %.in.i, 1
+  br i1 %34, label %.lr.ph.i16, label %onigenc_with_ascii_strncmp.exit.thread, !llvm.loop !22
+
+onigenc_with_ascii_strncmp.exit.thread:           ; preds = %18, %onigenc_with_ascii_strncmp.exit, %28
+  %35 = getelementptr inbounds i8, ptr %.01324, i64 8
   %36 = load i32, ptr %35, align 8
   br label %.loopexit
 
-onigenc_with_ascii_strncmp.exit.thread35:         ; preds = %21, %12, %onigenc_with_ascii_strncmp.exit
-  %37 = getelementptr inbounds i8, ptr %.01326, i64 16
+.critedge:                                        ; preds = %23, %12, %onigenc_with_ascii_strncmp.exit
+  %37 = getelementptr inbounds i8, ptr %.01324, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !23
 
-.loopexit:                                        ; preds = %onigenc_with_ascii_strncmp.exit.thread35, %onigenc_with_ascii_strncmp.exit.thread
-  %.0 = phi i32 [ %36, %onigenc_with_ascii_strncmp.exit.thread ], [ -223, %onigenc_with_ascii_strncmp.exit.thread35 ]
+.loopexit:                                        ; preds = %.critedge, %onigenc_with_ascii_strncmp.exit.thread
+  %.0 = phi i32 [ %36, %onigenc_with_ascii_strncmp.exit.thread ], [ -223, %.critedge ]
   ret i32 %.0
 }
 

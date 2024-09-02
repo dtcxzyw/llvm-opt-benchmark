@@ -1273,8 +1273,8 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noca
   br label %9
 
 9:                                                ; preds = %.lr.ph100, %.loopexit
-  %.08199 = phi i32 [ %3, %.lr.ph100 ], [ %56, %.loopexit ]
-  %.08798 = phi i32 [ 1, %.lr.ph100 ], [ %57, %.loopexit ]
+  %.08199 = phi i32 [ %3, %.lr.ph100 ], [ %57, %.loopexit ]
+  %.08798 = phi i32 [ 1, %.lr.ph100 ], [ %58, %.loopexit ]
   %10 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08199) #2
   %11 = icmp eq i8 %10, 42
   br i1 %11, label %12, label %.thread
@@ -1309,64 +1309,64 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noca
   %34 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %31, ptr noundef %0, i32 noundef %13, i32 noundef %23, ptr noundef %33) #2
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %29, %53
-  %.18297.in = phi i32 [ %36, %53 ], [ %22, %29 ]
-  %.08596 = phi i32 [ %35, %53 ], [ 0, %29 ]
+.lr.ph:                                           ; preds = %29, %54
+  %.18297.in = phi i32 [ %36, %54 ], [ %22, %29 ]
+  %.08596 = phi i32 [ %35, %54 ], [ 0, %29 ]
   %.18297 = add nuw i32 %.18297.in, 1
   %35 = add i32 %.08596, 1
   %36 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.18297, i32 noundef -1, i8 noundef zeroext 42) #2
-  %.not101 = icmp eq i32 %36, -1
-  %spec.select93 = select i1 %.not101, i32 %14, i32 %36
-  switch i32 %.08596, label %53 [
-    i32 0, label %37
-    i32 1, label %41
-    i32 2, label %45
-    i32 3, label %49
+  %37 = icmp eq i32 %36, -1
+  %spec.select93 = select i1 %37, i32 %14, i32 %36
+  switch i32 %.08596, label %54 [
+    i32 0, label %38
+    i32 1, label %42
+    i32 2, label %46
+    i32 3, label %50
   ]
 
-37:                                               ; preds = %.lr.ph
-  %38 = load i32, ptr %5, align 4
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %39, i32 3
+38:                                               ; preds = %.lr.ph
+  %39 = load i32, ptr %5, align 4
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %40, i32 3
   br label %.sink.split
 
-41:                                               ; preds = %.lr.ph
-  %42 = load i32, ptr %5, align 4
-  %43 = zext i32 %42 to i64
-  %44 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %43, i32 4
+42:                                               ; preds = %.lr.ph
+  %43 = load i32, ptr %5, align 4
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %44, i32 4
   br label %.sink.split
 
-45:                                               ; preds = %.lr.ph
-  %46 = load i32, ptr %5, align 4
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %47, i32 5
+46:                                               ; preds = %.lr.ph
+  %47 = load i32, ptr %5, align 4
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %48, i32 5
   br label %.sink.split
 
-49:                                               ; preds = %.lr.ph
-  %50 = load i32, ptr %5, align 4
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %51, i32 6
+50:                                               ; preds = %.lr.ph
+  %51 = load i32, ptr %5, align 4
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr [255 x %struct.dpnns_sup_serv_set_t], ptr @dpnns_sup_serv_set, i64 0, i64 %52, i32 6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %37, %41, %45, %49
-  %.sink.in = phi ptr [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ]
+.sink.split:                                      ; preds = %38, %42, %46, %50
+  %.sink.in = phi ptr [ %53, %50 ], [ %49, %46 ], [ %45, %42 ], [ %41, %38 ]
   %.sink = load i32, ptr %.sink.in, align 4
   call fastcc void @dissect_dpnns_sup_str_par(ptr noundef %0, ptr noundef %1, ptr noundef %20, i32 noundef %.sink, i32 noundef %.18297, i32 noundef %spec.select93)
-  br label %53
+  br label %54
 
-53:                                               ; preds = %.sink.split, %.lr.ph
-  br i1 %.not101, label %.loopexit, label %.lr.ph, !llvm.loop !4
+54:                                               ; preds = %.sink.split, %.lr.ph
+  br i1 %37, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .thread:                                          ; preds = %9
-  %54 = load i32, ptr @hf_dpnss_dest_addr, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %.08199, i32 noundef -1, i32 noundef 0) #2
+  %55 = load i32, ptr @hf_dpnss_dest_addr, align 4
+  %56 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef %.08199, i32 noundef -1, i32 noundef 0) #2
   br label %._crit_edge
 
-.loopexit:                                        ; preds = %53, %12, %29
-  %56 = add i32 %14, 1
-  %57 = add i32 %.08798, 1
-  %58 = icmp slt i32 %56, %6
-  br i1 %58, label %9, label %._crit_edge, !llvm.loop !6
+.loopexit:                                        ; preds = %54, %12, %29
+  %57 = add i32 %14, 1
+  %58 = add i32 %.08798, 1
+  %59 = icmp slt i32 %57, %6
+  br i1 %59, label %9, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit, %.thread, %4
   ret void

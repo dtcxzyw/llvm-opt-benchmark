@@ -884,7 +884,7 @@ terminate.lpad:                                   ; preds = %lpad13
 declare void @_Z24log_Z3_goal_inconsistentP11_Z3_contextP8_Z3_goal(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define i32 @Z3_goal_depth(ptr noundef %c, ptr noundef %g) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 67108864) i32 @Z3_goal_depth(ptr noundef %c, ptr noundef %g) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = atomicrmw xchg ptr @g_z3_log_enabled, i8 0 seq_cst, align 1
   %tobool.i = trunc i8 %0 to i1

@@ -565,18 +565,22 @@ lor.lhs.false82:                                  ; preds = %if.then80
   %26 = load i32, ptr %renegotiate_mode.i, align 4
   switch i32 %26, label %if.then85 [
     i32 3, label %while.cond.preheader
-    i32 1, label %ssl3_can_renegotiate.exit
+    i32 1, label %sw.bb1.i
     i32 2, label %while.cond.preheader
   ]
 
-ssl3_can_renegotiate.exit:                        ; preds = %lor.lhs.false82
+sw.bb1.i:                                         ; preds = %lor.lhs.false82
   %27 = load ptr, ptr %s3, align 8
   %total_renegotiations.i = getelementptr inbounds i8, ptr %27, i64 252
   %28 = load i32, ptr %total_renegotiations.i, align 4
   %cmp.i100.not = icmp eq i32 %28, 0
   br i1 %cmp.i100.not, label %while.cond.preheader, label %if.then85
 
-while.cond.preheader:                             ; preds = %lor.lhs.false82, %lor.lhs.false82, %ssl3_can_renegotiate.exit
+if.then85:                                        ; preds = %lor.lhs.false82, %sw.bb1.i, %if.then80
+  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 182, ptr noundef nonnull @.str, i32 noundef 452) #5
+  br label %f_err
+
+while.cond.preheader:                             ; preds = %lor.lhs.false82, %lor.lhs.false82, %sw.bb1.i
   %29 = load ptr, ptr %s3, align 8
   %hello_request_len193 = getelementptr inbounds i8, ptr %29, i64 136
   %30 = load i8, ptr %hello_request_len193, align 8
@@ -586,10 +590,6 @@ while.cond.preheader:                             ; preds = %lor.lhs.false82, %l
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %data97 = getelementptr inbounds i8, ptr %0, i64 128
   br label %while.body
-
-if.then85:                                        ; preds = %lor.lhs.false82, %ssl3_can_renegotiate.exit, %if.then80
-  call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 182, ptr noundef nonnull @.str, i32 noundef 452) #5
-  br label %f_err
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end106
   %31 = load i16, ptr %length, align 2
@@ -711,16 +711,16 @@ if.then157:                                       ; preds = %if.end154
   %51 = load ptr, ptr %msg_callback_arg, align 8
   call void %48(i32 noundef 0, i32 noundef %49, i32 noundef 21, ptr noundef %50, i64 noundef 2, ptr noundef nonnull %ssl, ptr noundef %51) #5
   %.pre = load i16, ptr %length, align 2
+  %52 = add i16 %.pre, -2
   br label %if.end162
 
 if.end162:                                        ; preds = %if.then157, %if.end154
-  %52 = phi i16 [ %.pre, %if.then157 ], [ 2, %if.end154 ]
+  %sub169 = phi i16 [ %52, %if.then157 ], [ 0, %if.end154 ]
   %data163 = getelementptr inbounds i8, ptr %0, i64 128
   %53 = load ptr, ptr %data163, align 8
   %54 = load i8, ptr %53, align 1
   %arrayidx166 = getelementptr inbounds i8, ptr %53, i64 1
   %55 = load i8, ptr %arrayidx166, align 1
-  %sub169 = add i16 %52, -2
   store i16 %sub169, ptr %length, align 2
   %add.ptr172 = getelementptr inbounds i8, ptr %53, i64 2
   store ptr %add.ptr172, ptr %data163, align 8

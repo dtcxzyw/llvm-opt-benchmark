@@ -208,7 +208,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %136, label %6
+  br i1 %5, label %137, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8
@@ -221,10 +221,10 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %13 = getelementptr i8, ptr %1, i64 48
   br label %14
 
-14:                                               ; preds = %.thread11, %6
-  %15 = phi i1 [ true, %6 ], [ false, %.thread11 ]
-  %16 = phi i64 [ 0, %6 ], [ 1, %.thread11 ]
-  %.pn = phi ptr [ %7, %6 ], [ %129, %.thread11 ]
+14:                                               ; preds = %136, %6
+  %15 = phi i1 [ true, %6 ], [ false, %136 ]
+  %16 = phi i64 [ 0, %6 ], [ 1, %136 ]
+  %.pn = phi ptr [ %7, %6 ], [ %129, %136 ]
   %17 = getelementptr i8, ptr %.pn, i64 1
   %18 = getelementptr [2 x %struct.mls_level], ptr %8, i64 0, i64 %16
   %19 = load i32, ptr %18, align 8
@@ -239,9 +239,9 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %28 = getelementptr inbounds i8, ptr %18, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread, label %.preheader14
+  br i1 %30, label %.thread, label %.preheader13
 
-.preheader14:                                     ; preds = %14, %36
+.preheader13:                                     ; preds = %14, %36
   %31 = phi ptr [ %37, %36 ], [ %29, %14 ]
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = tail call i64 @_find_first_bit(ptr noundef %32, i64 noundef 384) #10
@@ -249,12 +249,12 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %35 = icmp ult i64 %34, 384
   br i1 %35, label %39, label %36
 
-36:                                               ; preds = %.preheader14
+36:                                               ; preds = %.preheader13
   %37 = load ptr, ptr %31, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread, label %.preheader14, !llvm.loop !5
+  br i1 %38, label %.thread, label %.preheader13, !llvm.loop !5
 
-39:                                               ; preds = %.preheader14
+39:                                               ; preds = %.preheader13
   %40 = trunc i64 %33 to i32
   %41 = getelementptr inbounds i8, ptr %31, i64 56
   %42 = load i32, ptr %41, align 8
@@ -263,9 +263,9 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %44 = getelementptr inbounds i8, ptr %18, i64 16
   %45 = icmp ult i32 %43, %.pre
-  br i1 %45, label %.preheader13, label %.thread
+  br i1 %45, label %.preheader12, label %.thread
 
-.preheader13:                                     ; preds = %39, %110
+.preheader12:                                     ; preds = %39, %110
   %46 = phi i32 [ %48, %110 ], [ -2, %39 ]
   %47 = phi i32 [ %81, %110 ], [ -2, %39 ]
   %48 = phi i32 [ %112, %110 ], [ %43, %39 ]
@@ -275,7 +275,7 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %52 = icmp sgt i32 %51, 1
   br i1 %52, label %53, label %79
 
-53:                                               ; preds = %.preheader13
+53:                                               ; preds = %.preheader12
   %54 = icmp eq i32 %46, %47
   br i1 %54, label %67, label %55
 
@@ -309,9 +309,9 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %78 = getelementptr i8, ptr %71, i64 %77
   br label %79
 
-79:                                               ; preds = %67, %.preheader13
-  %80 = phi ptr [ %78, %67 ], [ %49, %.preheader13 ]
-  %81 = phi i32 [ %48, %67 ], [ %47, %.preheader13 ]
+79:                                               ; preds = %67, %.preheader12
+  %80 = phi ptr [ %78, %67 ], [ %49, %.preheader12 ]
+  %81 = phi i32 [ %48, %67 ], [ %47, %.preheader12 ]
   %82 = getelementptr inbounds i8, ptr %50, i64 8
   %83 = getelementptr inbounds i8, ptr %50, i64 56
   %84 = load i32, ptr %83, align 8
@@ -358,7 +358,7 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %112 = phi i32 [ %94, %91 ], [ %109, %108 ], [ %107, %103 ]
   %113 = load i32, ptr %44, align 8
   %114 = icmp ult i32 %112, %113
-  br i1 %114, label %.preheader13, label %115, !llvm.loop !11
+  br i1 %114, label %.preheader12, label %115, !llvm.loop !11
 
 115:                                              ; preds = %110
   %116 = icmp eq i32 %48, %81
@@ -381,28 +381,28 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
 
 .thread:                                          ; preds = %36, %14, %39, %117, %115
   %129 = phi ptr [ %128, %117 ], [ %80, %115 ], [ %27, %39 ], [ %27, %14 ], [ %27, %36 ]
-  br i1 %15, label %130, label %.thread12
+  br i1 %15, label %130, label %.thread11
 
 130:                                              ; preds = %.thread
   %131 = load i32, ptr %8, align 8
   %132 = load i32, ptr %11, align 8
   %133 = icmp eq i32 %131, %132
-  br i1 %133, label %134, label %.thread11
+  br i1 %133, label %134, label %136
 
 134:                                              ; preds = %130
   %135 = tail call i32 @ebitmap_cmp(ptr noundef %12, ptr noundef %13) #10
   %.not = icmp eq i32 %135, 0
-  br i1 %.not, label %.thread11, label %.thread12
+  br i1 %.not, label %136, label %.thread11
 
-.thread11:                                        ; preds = %130, %134
+136:                                              ; preds = %134, %130
   store i8 45, ptr %129, align 1
   br label %14, !llvm.loop !12
 
-.thread12:                                        ; preds = %.thread, %134
+.thread11:                                        ; preds = %.thread, %134
   store ptr %129, ptr %2, align 8
-  br label %136
+  br label %137
 
-136:                                              ; preds = %.thread12, %3
+137:                                              ; preds = %.thread11, %3
   ret void
 }
 

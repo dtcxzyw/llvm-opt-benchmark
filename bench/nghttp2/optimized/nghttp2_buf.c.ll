@@ -764,7 +764,7 @@ return:                                           ; preds = %if.then3.i, %if.end
 declare ptr @nghttp2_cpymem(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_addb(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_addb(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
 entry:
   %cur.i = getelementptr inbounds i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur.i, align 8
@@ -801,7 +801,7 @@ return:                                           ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_addb_hold(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_addb_hold(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
 entry:
   %cur.i = getelementptr inbounds i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur.i, align 8
@@ -834,7 +834,7 @@ return:                                           ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_orb(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_orb(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
 entry:
   %cur.i = getelementptr inbounds i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur.i, align 8
@@ -873,7 +873,7 @@ return:                                           ; preds = %bufs_ensure_addb.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_bufs_orb_hold(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_bufs_orb_hold(ptr nocapture noundef %bufs, i8 noundef zeroext %b) local_unnamed_addr #1 {
 entry:
   %cur.i = getelementptr inbounds i8, ptr %bufs, i64 8
   %0 = load ptr, ptr %cur.i, align 8

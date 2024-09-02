@@ -1510,22 +1510,22 @@ declare i32 @compare_fractional_path_costs(ptr noundef, ptr noundef, double noun
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @get_cheapest_parallel_safe_total_inner(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph30, label %.thread
+  br i1 %4, label %.lr.ph29, label %.critedge
 
-.lr.ph30:                                         ; preds = %.lr.ph
+.lr.ph29:                                         ; preds = %.lr.ph
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
 
-7:                                                ; preds = %.lr.ph30, %20
-  %indvars.iv = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next, %20 ]
+7:                                                ; preds = %.lr.ph29, %20
+  %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %20 ]
   %8 = getelementptr %union.ListCell, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 33
@@ -1537,21 +1537,21 @@ define dso_local ptr @get_cheapest_parallel_safe_total_inner(ptr noundef readonl
   %14 = getelementptr inbounds i8, ptr %9, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not15 = icmp eq ptr %15, null
-  br i1 %.not15, label %.thread, label %16
+  br i1 %.not15, label %.critedge, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.thread, label %20
+  br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %7, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %7
+  br i1 %exitcond.not, label %.critedge, label %7
 
-.thread:                                          ; preds = %16, %20, %13, %.lr.ph, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ %9, %13 ], [ null, %20 ], [ %9, %16 ]
+.critedge:                                        ; preds = %16, %13, %20, %.lr.ph, %1
+  %.0 = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ null, %20 ], [ %9, %13 ], [ %9, %16 ]
   ret ptr %.0
 }
 
@@ -3418,8 +3418,8 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %wide.trip.count244 = zext nneg i32 %.0116.lcssa to i64
   br label %119
 
-119:                                              ; preds = %126, %.thread160
-  %.1 = phi ptr [ %.0111, %.thread160 ], [ %136, %126 ]
+119:                                              ; preds = %127, %.thread160
+  %.1 = phi ptr [ %.0111, %.thread160 ], [ %136, %127 ]
   %120 = load i32, ptr %12, align 4
   br i1 %118, label %.lr.ph207, label %._crit_edge208
 
@@ -3435,19 +3435,22 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %spec.select144 = tail call i32 @llvm.smax.i32(i32 %122, i32 %.0112205)
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
-  br i1 %exitcond245.not, label %._crit_edge208, label %.lr.ph207, !llvm.loop !21
+  br i1 %exitcond245.not, label %._crit_edge208.loopexit, label %.lr.ph207, !llvm.loop !21
 
-._crit_edge208:                                   ; preds = %.lr.ph207, %119
-  %.0114.lcssa = phi i32 [ 0, %119 ], [ %spec.select143, %.lr.ph207 ]
-  %.0112.lcssa = phi i32 [ %120, %119 ], [ %spec.select144, %.lr.ph207 ]
-  %125 = icmp slt i32 %.0112.lcssa, 0
-  br i1 %125, label %137, label %126
+._crit_edge208.loopexit:                          ; preds = %.lr.ph207
+  %125 = sext i32 %spec.select143 to i64
+  br label %._crit_edge208
 
-126:                                              ; preds = %._crit_edge208
-  %127 = sext i32 %.0114.lcssa to i64
-  %128 = getelementptr ptr, ptr %10, i64 %127
+._crit_edge208:                                   ; preds = %._crit_edge208.loopexit, %119
+  %.0114.lcssa = phi i64 [ 0, %119 ], [ %125, %._crit_edge208.loopexit ]
+  %.0112.lcssa = phi i32 [ %120, %119 ], [ %spec.select144, %._crit_edge208.loopexit ]
+  %126 = icmp slt i32 %.0112.lcssa, 0
+  br i1 %126, label %137, label %127
+
+127:                                              ; preds = %._crit_edge208
+  %128 = getelementptr ptr, ptr %10, i64 %.0114.lcssa
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr i32, ptr %12, i64 %127
+  %130 = getelementptr i32, ptr %12, i64 %.0114.lcssa
   store i32 -1, ptr %130, align 4
   %131 = getelementptr inbounds i8, ptr %129, i64 8
   %132 = load ptr, ptr %131, align 8

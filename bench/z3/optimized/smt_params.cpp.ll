@@ -195,9 +195,9 @@ land.rhs:                                         ; preds = %invoke.cont
 cleanup.action:                                   ; preds = %land.rhs
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.1) #16
   %cmp.i = icmp eq i32 %call.i, 0
+  %1 = zext i1 %cmp.i to i8
   %m_auto_config = getelementptr inbounds i8, ptr %this, i64 771
-  %frombool = zext i1 %cmp.i to i8
-  store i8 %frombool, ptr %m_auto_config, align 1
+  store i8 %1, ptr %m_auto_config, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   br label %cleanup.done
 
@@ -207,46 +207,46 @@ cleanup.done.critedge:                            ; preds = %invoke.cont
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.done.critedge, %cleanup.action
-  %1 = load ptr, ptr %p, align 8
-  %call.i1415 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.88, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 0)
+  %2 = load ptr, ptr %p, align 8
+  %call.i1415 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.88, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 0)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %cleanup.done
   %m_random_seed = getelementptr inbounds i8, ptr %this, i64 520
   store i32 %call.i1415, ptr %m_random_seed, align 8
-  %2 = load ptr, ptr %p, align 8
-  %call.i1718 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 2)
+  %3 = load ptr, ptr %p, align 8
+  %call.i1718 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.89, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 2)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 %call.i1718, ptr %m_relevancy_lvl, align 8
-  %3 = load ptr, ptr %p, align 8
-  %call.i2021 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.90, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext true)
+  %4 = load ptr, ptr %p, align 8
+  %call.i2021 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.90, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext true)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   %m_ematching = getelementptr inbounds i8, ptr %this, i64 602
   %frombool15 = zext i1 %call.i2021 to i8
   store i8 %frombool15, ptr %m_ematching, align 2
-  %4 = load ptr, ptr %p, align 8
-  %call.i2324 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.91, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
+  %5 = load ptr, ptr %p, align 8
+  %call.i2324 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.91, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont13
   %m_induction = getelementptr inbounds i8, ptr %this, i64 603
   %frombool18 = zext i1 %call.i2324 to i8
   store i8 %frombool18, ptr %m_induction, align 1
-  %5 = load ptr, ptr %p, align 8
-  %call.i2627 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.92, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
+  %6 = load ptr, ptr %p, align 8
+  %call.i2627 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.92, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont16
   %m_clause_proof = getelementptr inbounds i8, ptr %this, i64 604
   %frombool21 = zext i1 %call.i2627 to i8
   store i8 %frombool21, ptr %m_clause_proof, align 4
-  %6 = load ptr, ptr %p, align 8
-  %call.i2930 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.93, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 3)
+  %7 = load ptr, ptr %p, align 8
+  %call.i2930 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.93, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 3)
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont19
@@ -269,41 +269,41 @@ invoke.cont28:                                    ; preds = %if.then
           to label %unreachable unwind label %ehcleanup
 
 lpad:                                             ; preds = %invoke.cont113, %.noexc, %invoke.cont93, %invoke.cont87, %invoke.cont85, %invoke.cont83, %invoke.cont81, %invoke.cont79, %invoke.cont77, %invoke.cont74, %invoke.cont69, %invoke.cont66, %invoke.cont63, %invoke.cont61, %invoke.cont59, %if.end58, %invoke.cont37, %invoke.cont35, %if.end, %invoke.cont19, %invoke.cont16, %invoke.cont13, %invoke.cont11, %invoke.cont9, %cleanup.done, %entry, %if.end111, %if.else, %invoke.cont101, %invoke.cont97, %invoke.cont89, %invoke.cont72, %land.rhs
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup130
 
 ehcleanup:                                        ; preds = %invoke.cont28
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #16
   br label %ehcleanup130
 
 cleanup.action33:                                 ; preds = %if.then
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #16
   call void @__cxa_free_exception(ptr %exception) #16
   br label %ehcleanup130
 
 if.end:                                           ; preds = %invoke.cont22
-  %10 = load ptr, ptr %p, align 8
-  %call.i3233 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.94, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 400)
+  %11 = load ptr, ptr %p, align 8
+  %call.i3233 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.94, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 400)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %if.end
   %m_phase_caching_on = getelementptr inbounds i8, ptr %this, i64 556
   store i32 %call.i3233, ptr %m_phase_caching_on, align 4
-  %11 = load ptr, ptr %p, align 8
-  %call.i3536 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.95, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 100)
+  %12 = load ptr, ptr %p, align 8
+  %call.i3536 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.95, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 100)
           to label %invoke.cont37 unwind label %lpad
 
 invoke.cont37:                                    ; preds = %invoke.cont35
   %m_phase_caching_off = getelementptr inbounds i8, ptr %this, i64 560
   store i32 %call.i3536, ptr %m_phase_caching_off, align 8
-  %12 = load ptr, ptr %p, align 8
-  %call.i3839 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.96, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
+  %13 = load ptr, ptr %p, align 8
+  %call.i3839 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.96, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
           to label %invoke.cont39 unwind label %lpad
 
 invoke.cont39:                                    ; preds = %invoke.cont37
@@ -326,60 +326,60 @@ invoke.cont48:                                    ; preds = %if.then43
           to label %unreachable unwind label %ehcleanup53
 
 ehcleanup53:                                      ; preds = %invoke.cont48
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #16
   br label %ehcleanup130
 
 cleanup.action56:                                 ; preds = %if.then43
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp46) #16
   call void @__cxa_free_exception(ptr %exception44) #16
   br label %ehcleanup130
 
 if.end58:                                         ; preds = %invoke.cont39
-  %15 = load ptr, ptr %p, align 8
-  %call.i4243 = invoke noundef double @_ZNK10params_ref10get_doubleEPKcRKS_d(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.97, ptr noundef nonnull align 8 dereferenceable(8) %g.i, double noundef 1.100000e+00)
+  %16 = load ptr, ptr %p, align 8
+  %call.i4243 = invoke noundef double @_ZNK10params_ref10get_doubleEPKcRKS_d(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.97, ptr noundef nonnull align 8 dereferenceable(8) %g.i, double noundef 1.100000e+00)
           to label %invoke.cont59 unwind label %lpad
 
 invoke.cont59:                                    ; preds = %if.end58
   %m_restart_factor = getelementptr inbounds i8, ptr %this, i64 648
   store double %call.i4243, ptr %m_restart_factor, align 8
-  %16 = load ptr, ptr %p, align 8
-  %call.i4546 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.98, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
+  %17 = load ptr, ptr %p, align 8
+  %call.i4546 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.98, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
           to label %invoke.cont61 unwind label %lpad
 
 invoke.cont61:                                    ; preds = %invoke.cont59
   %m_case_split_strategy = getelementptr inbounds i8, ptr %this, i64 616
   store i32 %call.i4546, ptr %m_case_split_strategy, align 8
-  %17 = load ptr, ptr %p, align 8
-  %call.i4849 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.99, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
+  %18 = load ptr, ptr %p, align 8
+  %call.i4849 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.99, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont63 unwind label %lpad
 
 invoke.cont63:                                    ; preds = %invoke.cont61
   %m_theory_case_split = getelementptr inbounds i8, ptr %this, i64 625
   %frombool65 = zext i1 %call.i4849 to i8
   store i8 %frombool65, ptr %m_theory_case_split, align 1
-  %18 = load ptr, ptr %p, align 8
-  %call.i5152 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull @.str.100, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
+  %19 = load ptr, ptr %p, align 8
+  %call.i5152 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.100, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont66 unwind label %lpad
 
 invoke.cont66:                                    ; preds = %invoke.cont63
   %m_theory_aware_branching = getelementptr inbounds i8, ptr %this, i64 626
   %frombool68 = zext i1 %call.i5152 to i8
   store i8 %frombool68, ptr %m_theory_aware_branching, align 2
-  %19 = load ptr, ptr %p, align 8
-  %call.i5455 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.101, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
+  %20 = load ptr, ptr %p, align 8
+  %call.i5455 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.101, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont69 unwind label %lpad
 
 invoke.cont69:                                    ; preds = %invoke.cont66
   %m_delay_units = getelementptr inbounds i8, ptr %this, i64 627
   %frombool71 = zext i1 %call.i5455 to i8
   store i8 %frombool71, ptr %m_delay_units, align 1
-  %20 = load ptr, ptr %p, align 8
-  %call.i5758 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.102, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 32)
+  %21 = load ptr, ptr %p, align 8
+  %call.i5758 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.102, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 32)
           to label %invoke.cont72 unwind label %lpad
 
 invoke.cont72:                                    ; preds = %invoke.cont69
@@ -392,50 +392,50 @@ invoke.cont74:                                    ; preds = %invoke.cont72
   %m_preprocess = getelementptr inbounds i8, ptr %this, i64 765
   %frombool76 = zext i1 %call75 to i8
   store i8 %frombool76, ptr %m_preprocess, align 1
-  %21 = load ptr, ptr %p, align 8
-  %call.i6061 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.103, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef -1)
+  %22 = load ptr, ptr %p, align 8
+  %call.i6061 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.103, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef -1)
           to label %invoke.cont77 unwind label %lpad
 
 invoke.cont77:                                    ; preds = %invoke.cont74
   %m_max_conflicts = getelementptr inbounds i8, ptr %this, i64 568
   store i32 %call.i6061, ptr %m_max_conflicts, align 8
-  %22 = load ptr, ptr %p, align 8
-  %call.i6364 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.104, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef -1)
+  %23 = load ptr, ptr %p, align 8
+  %call.i6364 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.104, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef -1)
           to label %invoke.cont79 unwind label %lpad
 
 invoke.cont79:                                    ; preds = %invoke.cont77
   %m_restart_max = getelementptr inbounds i8, ptr %this, i64 572
   store i32 %call.i6364, ptr %m_restart_max, align 4
-  %23 = load ptr, ptr %p, align 8
-  %call.i6667 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.105, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
+  %24 = load ptr, ptr %p, align 8
+  %call.i6667 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.105, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
           to label %invoke.cont81 unwind label %lpad
 
 invoke.cont81:                                    ; preds = %invoke.cont79
   %m_cube_depth = getelementptr inbounds i8, ptr %this, i64 576
   store i32 %call.i6667, ptr %m_cube_depth, align 8
-  %24 = load ptr, ptr %p, align 8
-  %call.i6970 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.106, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
+  %25 = load ptr, ptr %p, align 8
+  %call.i6970 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.106, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %invoke.cont81
   %m_threads = getelementptr inbounds i8, ptr %this, i64 580
   store i32 %call.i6970, ptr %m_threads, align 4
-  %25 = load ptr, ptr %p, align 8
-  %call.i7273 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.107, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 400)
+  %26 = load ptr, ptr %p, align 8
+  %call.i7273 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.107, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 400)
           to label %invoke.cont85 unwind label %lpad
 
 invoke.cont85:                                    ; preds = %invoke.cont83
   %m_threads_max_conflicts = getelementptr inbounds i8, ptr %this, i64 584
   store i32 %call.i7273, ptr %m_threads_max_conflicts, align 8
-  %26 = load ptr, ptr %p, align 8
-  %call.i7576 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.108, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 2)
+  %27 = load ptr, ptr %p, align 8
+  %call.i7576 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.108, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 2)
           to label %invoke.cont87 unwind label %lpad
 
 invoke.cont87:                                    ; preds = %invoke.cont85
   %m_threads_cube_frequency = getelementptr inbounds i8, ptr %this, i64 588
   store i32 %call.i7576, ptr %m_threads_cube_frequency, align 4
-  %27 = load ptr, ptr %p, align 8
-  %call.i7879 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.109, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
+  %28 = load ptr, ptr %p, align 8
+  %call.i7879 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.109, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont89 unwind label %lpad
 
 invoke.cont89:                                    ; preds = %invoke.cont87
@@ -449,12 +449,12 @@ invoke.cont89:                                    ; preds = %invoke.cont87
 invoke.cont93:                                    ; preds = %invoke.cont89
   store ptr %call94, ptr %m_logic, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %28 = load ptr, ptr %p, align 8
+  %29 = load ptr, ptr %p, align 8
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull @.str.81)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont93
-  %call.i8182 = invoke ptr @_ZNK10params_ref7get_symEPKcRKS_RK6symbol(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.110, ptr noundef nonnull align 8 dereferenceable(8) %g.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
+  %call.i8182 = invoke ptr @_ZNK10params_ref7get_symEPKcRKS_RK6symbol(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.110, ptr noundef nonnull align 8 dereferenceable(8) %g.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %invoke.cont97 unwind label %lpad
 
 invoke.cont97:                                    ; preds = %.noexc
@@ -502,24 +502,24 @@ invoke.cont113:                                   ; preds = %if.end111
           to label %invoke.cont114 unwind label %lpad
 
 invoke.cont114:                                   ; preds = %invoke.cont113
-  %29 = load ptr, ptr %sp, align 8
-  %call.i8687 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.112, ptr noundef nonnull align 8 dereferenceable(8) %g.i83, i1 noundef zeroext false)
+  %30 = load ptr, ptr %sp, align 8
+  %call.i8687 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.112, ptr noundef nonnull align 8 dereferenceable(8) %g.i83, i1 noundef zeroext false)
           to label %invoke.cont116 unwind label %lpad115
 
 invoke.cont116:                                   ; preds = %invoke.cont114
   %m_axioms2files = getelementptr inbounds i8, ptr %this, i64 736
   %frombool118 = zext i1 %call.i8687 to i8
   store i8 %frombool118, ptr %m_axioms2files, align 8
-  %30 = load ptr, ptr %sp, align 8
-  %call.i8990 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.113, ptr noundef nonnull align 8 dereferenceable(8) %g.i83, i1 noundef zeroext false)
+  %31 = load ptr, ptr %sp, align 8
+  %call.i8990 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.113, ptr noundef nonnull align 8 dereferenceable(8) %g.i83, i1 noundef zeroext false)
           to label %invoke.cont119 unwind label %lpad115
 
 invoke.cont119:                                   ; preds = %invoke.cont116
   %m_lemmas2console = getelementptr inbounds i8, ptr %this, i64 737
   %frombool121 = zext i1 %call.i8990 to i8
   store i8 %frombool121, ptr %m_lemmas2console, align 1
-  %31 = load ptr, ptr %sp, align 8
-  %call.i9293 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.114, ptr noundef nonnull align 8 dereferenceable(8) %g.i83, i1 noundef zeroext false)
+  %32 = load ptr, ptr %sp, align 8
+  %call.i9293 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str.114, ptr noundef nonnull align 8 dereferenceable(8) %g.i83, i1 noundef zeroext false)
           to label %invoke.cont122 unwind label %lpad115
 
 invoke.cont122:                                   ; preds = %invoke.cont119
@@ -527,12 +527,12 @@ invoke.cont122:                                   ; preds = %invoke.cont119
   %frombool124 = zext i1 %call.i9293 to i8
   store i8 %frombool124, ptr %m_instantiations2console, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i94)
-  %32 = load ptr, ptr %sp, align 8
+  %33 = load ptr, ptr %sp, align 8
   invoke void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i94, ptr noundef nonnull @.str.116)
           to label %.noexc97 unwind label %lpad115
 
 .noexc97:                                         ; preds = %invoke.cont122
-  %call.i9698 = invoke ptr @_ZNK10params_ref7get_symEPKcRKS_RK6symbol(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @.str.115, ptr noundef nonnull align 8 dereferenceable(8) %g.i83, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i94)
+  %call.i9698 = invoke ptr @_ZNK10params_ref7get_symEPKcRKS_RK6symbol(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull @.str.115, ptr noundef nonnull align 8 dereferenceable(8) %g.i83, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i94)
           to label %invoke.cont126 unwind label %lpad115
 
 invoke.cont126:                                   ; preds = %.noexc97
@@ -544,13 +544,13 @@ invoke.cont126:                                   ; preds = %.noexc97
   ret void
 
 lpad115:                                          ; preds = %.noexc97, %invoke.cont122, %invoke.cont119, %invoke.cont116, %invoke.cont114
-  %33 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i83) #16
   br label %ehcleanup130
 
 ehcleanup130:                                     ; preds = %ehcleanup53, %ehcleanup, %cleanup.action56, %cleanup.action33, %lpad115, %lpad
-  %.pn8.pn = phi { ptr, i32 } [ %9, %cleanup.action33 ], [ %8, %ehcleanup ], [ %14, %cleanup.action56 ], [ %13, %ehcleanup53 ], [ %33, %lpad115 ], [ %7, %lpad ]
+  %.pn8.pn = phi { ptr, i32 } [ %10, %cleanup.action33 ], [ %9, %ehcleanup ], [ %15, %cleanup.action56 ], [ %14, %ehcleanup53 ], [ %34, %lpad115 ], [ %8, %lpad ]
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #16
   resume { ptr, i32 } %.pn8.pn
 

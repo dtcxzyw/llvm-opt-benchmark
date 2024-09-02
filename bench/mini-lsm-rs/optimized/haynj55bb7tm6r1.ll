@@ -1365,7 +1365,7 @@ define hidden void @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_
 }
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$13random_height17h6ca9600ef8d1af46E"(ptr nocapture noundef nonnull align 128 %0) unnamed_addr #9 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i64 1, 65) i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$13random_height17h6ca9600ef8d1af46E"(ptr nocapture noundef nonnull align 128 %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load atomic i64, ptr %2 monotonic, align 128
   %4 = shl i64 %3, 13
@@ -1400,7 +1400,7 @@ define internal fastcc noundef i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K
 }
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$13random_height17hca781b878cc1f003E"(ptr nocapture noundef nonnull align 128 %0) unnamed_addr #9 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i64 1, 65) i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$13random_height17hca781b878cc1f003E"(ptr nocapture noundef nonnull align 128 %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load atomic i64, ptr %2 monotonic, align 128
   %4 = shl i64 %3, 13
@@ -1692,7 +1692,7 @@ define hidden void @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$3get17hb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$3len17hf452002b4d92e1cfE"(ptr nocapture noundef nonnull readonly align 128 %0) unnamed_addr #10 {
+define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$3len17hf452002b4d92e1cfE"(ptr nocapture noundef nonnull readonly align 128 %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
@@ -2638,7 +2638,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h45d9715ad4e5830fE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h7f883db44d88d17cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
+define hidden noundef range(i64 0, 576460752303423488) i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h7f883db44d88d17cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !670, !noalias !673, !nonnull !4, !noundef !4
   %4 = load ptr, ptr %0, align 8, !alias.scope !670, !noalias !673, !nonnull !4, !noundef !4
@@ -7474,9 +7474,9 @@ define void @_ZN13mini_lsm_mvcc5table5bloom5Bloom21build_from_key_hashes17hc643a
   %12 = uitofp i64 %3 to double
   %13 = fmul double %12, 6.900000e-01
   %14 = tail call i32 @llvm.fptoui.sat.i32.f64(double %13)
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %14, i32 30)
+  %.0.sroa.speculated.i = tail call noundef range(i32 0, 31) i32 @llvm.umin.i32(i32 %14, i32 30)
   %15 = mul i64 %3, %2
-  %.0.sroa.speculated.i18 = tail call noundef i64 @llvm.umax.i64(i64 %15, i64 64)
+  %.0.sroa.speculated.i18 = tail call noundef range(i64 64, 0) i64 @llvm.umax.i64(i64 %15, i64 64)
   %16 = add i64 %.0.sroa.speculated.i18, 7
   %17 = lshr i64 %16, 3
   %18 = and i64 %16, -8
@@ -7633,7 +7633,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h6a0ba5143776ed0fE.exit: ; preds = %65, %39
   %.sroa.523.0 = phi ptr [ %.sroa.030.0.copyload, %39 ], [ %69, %65 ]
   %.sroa.021.0 = phi ptr [ @_ZN5bytes9bytes_mut13SHARED_VTABLE17hcad67e3b5ebba104E, %39 ], [ %.sroa.021.0.copyload22, %65 ]
   %.sroa.7.0 = phi ptr [ %.sroa.8.0.copyload, %39 ], [ %.sroa.7.0.copyload29, %65 ]
-  %.0.sroa.speculated.i17 = tail call noundef i32 @llvm.umax.i32(i32 %.0.sroa.speculated.i, i32 1)
+  %.0.sroa.speculated.i17 = tail call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %.0.sroa.speculated.i, i32 1)
   %77 = trunc nuw nsw i32 %.0.sroa.speculated.i17 to i8
   store ptr %.sroa.021.0, ptr %0, align 8
   %.sroa.523.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

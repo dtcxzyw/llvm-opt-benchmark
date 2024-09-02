@@ -366,7 +366,7 @@ declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @ne2000_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #2 {
+define internal range(i64 0, -9223372036854775808) i64 @ne2000_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8

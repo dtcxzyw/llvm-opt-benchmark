@@ -1854,13 +1854,13 @@ Gia_ManSimInfoInit.exit:                          ; preds = %Gia_ManSimInfoRando
   %114 = load i64, ptr %96, align 8
   %115 = sdiv i64 %114, 1000
   %116 = add nsw i64 %115, %113
+  %117 = sitofp i64 %116 to double
   br label %Abc_Clock.exit61
 
 Abc_Clock.exit61:                                 ; preds = %105, %111
-  %.0.i60 = phi i64 [ %116, %111 ], [ -1, %105 ]
+  %.0.i60 = phi double [ %117, %111 ], [ -1.000000e+00, %105 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %117 = sitofp i64 %.0.i60 to double
-  %118 = fsub double %117, %97
+  %118 = fsub double %.0.i60, %97
   %119 = fdiv double %118, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %119)
   br label %120

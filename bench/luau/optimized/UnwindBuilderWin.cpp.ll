@@ -992,7 +992,7 @@ define dso_local noundef i64 @_ZNK4Luau7CodeGen16UnwindBuilderWin17getUnwindInfo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4Luau7CodeGen16UnwindBuilderWin8finalizeEPcmPvm(ptr noundef nonnull align 8 dereferenceable(1099) %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr nocapture readnone %3, i64 noundef %4) unnamed_addr #6 align 2 {
+define dso_local noundef range(i64 -768614336404564650, 768614336404564651) i64 @_ZNK4Luau7CodeGen16UnwindBuilderWin8finalizeEPcmPvm(ptr noundef nonnull align 8 dereferenceable(1099) %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr nocapture readnone %3, i64 noundef %4) unnamed_addr #6 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 1048
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 1056

@@ -4833,18 +4833,18 @@ for.body:                                         ; preds = %cond.end8, %_ZL13it
 if.end.i:                                         ; preds = %for.body
   %second.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %2 = load i32, ptr %second.i, align 8, !tbaa !121
+  %3 = shl i32 %2, 16
+  %4 = ashr exact i32 %3, 16
+  %5 = sitofp i32 %4 to float
   br label %_ZL13itemgroup_getRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEERSB_.exit
 
 _ZL13itemgroup_getRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEERSB_.exit: ; preds = %if.end.i, %for.body
-  %retval.0.i = phi i32 [ %2, %if.end.i ], [ 0, %for.body ]
+  %retval.0.i = phi float [ %5, %if.end.i ], [ 0.000000e+00, %for.body ]
   %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.066, i64 40
-  %3 = load i16, ptr %second, align 8, !tbaa !45
-  %conv18 = sitofp i16 %3 to float
+  %6 = load i16, ptr %second, align 8, !tbaa !45
+  %conv18 = sitofp i16 %6 to float
   %mul = fmul nsz float %cond9, %conv18
-  %sext = shl i32 %retval.0.i, 16
-  %conv19 = ashr exact i32 %sext, 16
-  %conv20 = sitofp i32 %conv19 to float
-  %mul21 = fmul nsz float %mul, %conv20
+  %mul21 = fmul nsz float %retval.0.i, %mul
   %conv22 = fpext float %mul21 to double
   %div23 = fdiv nsz double %conv22, 1.000000e+02
   %conv24 = sitofp i32 %damage.065 to double
@@ -4875,13 +4875,13 @@ _Z19calculateResultWearjt.exit:                   ; preds = %if.then3.i, %if.end
   %add.i = add nuw nsw i32 %wear_extra.1.i, %div.i
   %conv30 = uitofp nneg i32 %add.i to float
   %mul31 = fmul nsz float %cond9, %conv30
-  %4 = fptoui float %mul31 to i32
-  %5 = zext i32 %4 to i64
-  %6 = shl nuw i64 %5, 32
+  %7 = fptoui float %mul31 to i32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %if.end
 
 if.end:                                           ; preds = %_Z19calculateResultWearjt.exit, %for.cond.cleanup
-  %result_wear.0 = phi i64 [ %6, %_Z19calculateResultWearjt.exit ], [ 0, %for.cond.cleanup ]
+  %result_wear.0 = phi i64 [ %9, %_Z19calculateResultWearjt.exit ], [ 0, %for.cond.cleanup ]
   %cond39 = tail call i32 @llvm.smin.i32(i32 %damage.0.lcssa, i32 65535)
   %cond41 = tail call i32 @llvm.smax.i32(i32 %cond39, i32 -65535)
   %retval.sroa.0.0.insert.ext = zext i32 %cond41 to i64
@@ -4929,18 +4929,18 @@ for.body.i:                                       ; preds = %cond.end8.i, %_ZL13
 if.end.i.i:                                       ; preds = %for.body.i
   %second.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
   %2 = load i32, ptr %second.i.i, align 8, !tbaa !121
+  %3 = shl i32 %2, 16
+  %4 = ashr exact i32 %3, 16
+  %5 = sitofp i32 %4 to float
   br label %_ZL13itemgroup_getRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEERSB_.exit.i
 
 _ZL13itemgroup_getRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEERSB_.exit.i: ; preds = %if.end.i.i, %for.body.i
-  %retval.0.i.i = phi i32 [ %2, %if.end.i.i ], [ 0, %for.body.i ]
+  %retval.0.i.i = phi float [ %5, %if.end.i.i ], [ 0.000000e+00, %for.body.i ]
   %second.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.066.i, i64 40
-  %3 = load i16, ptr %second.i, align 8, !tbaa !45
-  %conv18.i = sitofp i16 %3 to float
+  %6 = load i16, ptr %second.i, align 8, !tbaa !45
+  %conv18.i = sitofp i16 %6 to float
   %mul.i = fmul nsz float %cond9.i, %conv18.i
-  %sext.i = shl i32 %retval.0.i.i, 16
-  %conv19.i = ashr exact i32 %sext.i, 16
-  %conv20.i = sitofp i32 %conv19.i to float
-  %mul21.i = fmul nsz float %mul.i, %conv20.i
+  %mul21.i = fmul nsz float %retval.0.i.i, %mul.i
   %conv22.i = fpext float %mul21.i to double
   %div23.i = fdiv nsz double %conv22.i, 1.000000e+02
   %conv24.i = sitofp i32 %damage.065.i to double
@@ -4970,13 +4970,13 @@ _Z19calculateResultWearjt.exit.i:                 ; preds = %if.then3.i.i, %if.e
   %add.i.i = add nuw nsw i32 %wear_extra.1.i.i, %div.i.i
   %conv30.i = uitofp nneg i32 %add.i.i to float
   %mul31.i = fmul nsz float %cond9.i, %conv30.i
-  %4 = fptoui float %mul31.i to i32
-  %5 = zext i32 %4 to i64
-  %6 = shl nuw i64 %5, 32
+  %7 = fptoui float %mul31.i to i32
+  %8 = zext i32 %7 to i64
+  %9 = shl nuw i64 %8, 32
   br label %_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft.exit
 
 _Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft.exit: ; preds = %_Z19calculateResultWearjt.exit.i, %for.cond.cleanup.i
-  %result_wear.0.i = phi i64 [ %6, %_Z19calculateResultWearjt.exit.i ], [ 0, %for.cond.cleanup.i ]
+  %result_wear.0.i = phi i64 [ %9, %_Z19calculateResultWearjt.exit.i ], [ 0, %for.cond.cleanup.i ]
   %cond39.i = tail call i32 @llvm.smin.i32(i32 %damage.0.lcssa.i, i32 65535)
   %cond41.i = tail call i32 @llvm.smax.i32(i32 %cond39.i, i32 -65535)
   %retval.sroa.0.0.insert.ext.i = zext i32 %cond41.i to i64
@@ -5202,18 +5202,18 @@ for.body.i:                                       ; preds = %cond.end8.i, %_ZL13
 if.end.i.i104:                                    ; preds = %for.body.i
   %second.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
   %23 = load i32, ptr %second.i.i, align 8, !tbaa !121
+  %24 = shl i32 %23, 16
+  %25 = ashr exact i32 %24, 16
+  %26 = sitofp i32 %25 to float
   br label %_ZL13itemgroup_getRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEERSB_.exit.i
 
 _ZL13itemgroup_getRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEERSB_.exit.i: ; preds = %if.end.i.i104, %for.body.i
-  %retval.0.i.i = phi i32 [ %23, %if.end.i.i104 ], [ 0, %for.body.i ]
+  %retval.0.i.i = phi float [ %26, %if.end.i.i104 ], [ 0.000000e+00, %for.body.i ]
   %second.i105 = getelementptr inbounds i8, ptr %__begin1.sroa.0.066.i, i64 40
-  %24 = load i16, ptr %second.i105, align 8, !tbaa !45
-  %conv18.i = sitofp i16 %24 to float
+  %27 = load i16, ptr %second.i105, align 8, !tbaa !45
+  %conv18.i = sitofp i16 %27 to float
   %mul.i = fmul nsz float %cond9.i, %conv18.i
-  %sext.i = shl i32 %retval.0.i.i, 16
-  %conv19.i = ashr exact i32 %sext.i, 16
-  %conv20.i = sitofp i32 %conv19.i to float
-  %mul21.i = fmul nsz float %mul.i, %conv20.i
+  %mul21.i = fmul nsz float %retval.0.i.i, %mul.i
   %conv22.i = fpext float %mul21.i to double
   %div23.i = fdiv nsz double %conv22.i, 1.000000e+02
   %conv24.i = sitofp i32 %damage.065.i to double
@@ -5244,20 +5244,20 @@ _Z19calculateResultWearjt.exit.i:                 ; preds = %if.then3.i.i, %if.e
   %add.i.i = add nuw nsw i32 %wear_extra.1.i.i, %div.i.i
   %conv30.i = uitofp nneg i32 %add.i.i to float
   %mul31.i = fmul nsz float %cond9.i, %conv30.i
-  %25 = fptoui float %mul31.i to i32
+  %28 = fptoui float %mul31.i to i32
   br label %_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft.exit
 
 _Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft.exit: ; preds = %_Z19calculateResultWearjt.exit.i, %for.cond.cleanup.i
-  %result_wear.0.i = phi i32 [ %25, %_Z19calculateResultWearjt.exit.i ], [ 0, %for.cond.cleanup.i ]
+  %result_wear.0.i = phi i32 [ %28, %_Z19calculateResultWearjt.exit.i ], [ 0, %for.cond.cleanup.i ]
   %cond39.i = call i32 @llvm.smin.i32(i32 %damage.0.lcssa.i, i32 65535)
   %cond41.i = call i32 @llvm.smax.i32(i32 %cond39.i, i32 -65535)
-  %26 = zext i32 %cond41.i to i64
-  %27 = shl nuw i64 %26, 32
+  %29 = zext i32 %cond41.i to i64
+  %30 = shl nuw i64 %29, 32
   br label %if.end33
 
 if.end33:                                         ; preds = %_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft.exit, %if.end27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %retval.sroa.0.0 = phi i64 [ 0, %if.end27 ], [ 1, %_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ]
-  %retval.sroa.3107.0 = phi i64 [ 0, %if.end27 ], [ %27, %_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ]
+  %retval.sroa.3107.0 = phi i64 [ 0, %if.end27 ], [ %30, %_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ]
   %retval.sroa.5.0 = phi i32 [ 0, %if.end27 ], [ %result_wear.0.i, %_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ]
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3107.0, %retval.sroa.0.0
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert, 0

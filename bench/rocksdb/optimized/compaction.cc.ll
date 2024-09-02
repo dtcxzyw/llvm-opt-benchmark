@@ -583,7 +583,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc71
-  %8 = phi ptr [ %1, %for.body.lr.ph ], [ %22, %for.inc71 ]
+  %8 = phi ptr [ %1, %for.body.lr.ph ], [ %23, %for.inc71 ]
   %initialized.066 = phi i8 [ 0, %for.body.lr.ph ], [ %initialized.1, %for.inc71 ]
   %i.065 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc71 ]
   %add.ptr.i = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %8, i64 %i.065
@@ -601,26 +601,29 @@ lor.lhs.false:                                    ; preds = %for.body
 
 if.end:                                           ; preds = %lor.lhs.false
   %cmp9 = icmp eq i32 %11, 0
-  br i1 %cmp9, label %for.body18, label %if.else
+  br i1 %cmp9, label %for.body18.preheader, label %if.else
 
-for.body18:                                       ; preds = %if.end, %if.end36
-  %initialized.259 = phi i8 [ 1, %if.end36 ], [ %initialized.066, %if.end ]
-  %__begin3.sroa.0.058 = phi ptr [ %incdec.ptr.i, %if.end36 ], [ %9, %if.end ]
-  %12 = load ptr, ptr %__begin3.sroa.0.058, align 8
-  %smallest = getelementptr inbounds i8, ptr %12, i64 40
+for.body18.preheader:                             ; preds = %if.end
+  %12 = trunc nuw i8 %initialized.066 to i1
+  br label %for.body18
+
+for.body18:                                       ; preds = %for.body18.preheader, %if.end36
+  %initialized.259 = phi i1 [ true, %if.end36 ], [ %12, %for.body18.preheader ]
+  %__begin3.sroa.0.058 = phi ptr [ %incdec.ptr.i, %if.end36 ], [ %9, %for.body18.preheader ]
+  %13 = load ptr, ptr %__begin3.sroa.0.058, align 8
+  %smallest = getelementptr inbounds i8, ptr %13, i64 40
   %call.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %smallest) #27
   %call2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %smallest) #27
   %sub.i.i = add i64 %call2.i.i, -8
   store ptr %call.i.i, ptr %ref.tmp, align 8
   store i64 %sub.i.i, ptr %6, align 8
-  %tobool = trunc nuw i8 %initialized.259 to i1
-  br i1 %tobool, label %lor.lhs.false21, label %if.then24
+  br i1 %initialized.259, label %lor.lhs.false21, label %if.then24
 
 lor.lhs.false21:                                  ; preds = %for.body18
   %vtable = load ptr, ptr %add.ptr47, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %13 = load ptr, ptr %vfn, align 8
-  %call22 = call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %smallest_user_key)
+  %14 = load ptr, ptr %vfn, align 8
+  %call22 = call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %smallest_user_key)
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %if.then24, label %if.end25
 
@@ -629,19 +632,19 @@ if.then24:                                        ; preds = %lor.lhs.false21, %f
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then24, %lor.lhs.false21
-  %largest = getelementptr inbounds i8, ptr %12, i64 72
+  %largest = getelementptr inbounds i8, ptr %13, i64 72
   %call.i.i36 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %largest) #27
   %call2.i.i37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %largest) #27
   %sub.i.i38 = add i64 %call2.i.i37, -8
   store ptr %call.i.i36, ptr %ref.tmp26, align 8
   store i64 %sub.i.i38, ptr %7, align 8
-  br i1 %tobool, label %lor.lhs.false29, label %if.then35
+  br i1 %initialized.259, label %lor.lhs.false29, label %if.then35
 
 lor.lhs.false29:                                  ; preds = %if.end25
   %vtable31 = load ptr, ptr %add.ptr47, align 8
   %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 16
-  %14 = load ptr, ptr %vfn32, align 8
-  %call33 = call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(16) %largest_user_key)
+  %15 = load ptr, ptr %vfn32, align 8
+  %call33 = call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(16) %largest_user_key)
   %cmp34 = icmp sgt i32 %call33, 0
   br i1 %cmp34, label %if.then35, label %if.end36
 
@@ -655,8 +658,8 @@ if.end36:                                         ; preds = %if.then35, %lor.lhs
   br i1 %cmp.i.not, label %for.inc71, label %for.body18
 
 if.else:                                          ; preds = %if.end
-  %15 = load ptr, ptr %9, align 8
-  %smallest43 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = load ptr, ptr %9, align 8
+  %smallest43 = getelementptr inbounds i8, ptr %16, i64 40
   %call.i.i43 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %smallest43) #27
   %call2.i.i44 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %smallest43) #27
   %sub.i.i45 = add i64 %call2.i.i44, -8
@@ -668,8 +671,8 @@ if.else:                                          ; preds = %if.end
 lor.lhs.false46:                                  ; preds = %if.else
   %vtable48 = load ptr, ptr %add.ptr47, align 8
   %vfn49 = getelementptr inbounds i8, ptr %vtable48, i64 16
-  %16 = load ptr, ptr %vfn49, align 8
-  %call50 = call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(16) %smallest_user_key)
+  %17 = load ptr, ptr %vfn49, align 8
+  %call50 = call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(16) %smallest_user_key)
   %cmp51 = icmp slt i32 %call50, 0
   br i1 %cmp51, label %if.then52, label %if.end53
 
@@ -678,12 +681,12 @@ if.then52:                                        ; preds = %lor.lhs.false46, %i
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then52, %lor.lhs.false46
-  %17 = load ptr, ptr %inputs, align 8
-  %_M_finish.i.i49 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %17, i64 %i.065, i32 1, i32 0, i32 0, i32 0, i32 1
-  %18 = load ptr, ptr %_M_finish.i.i49, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %18, i64 -8
-  %19 = load ptr, ptr %add.ptr.i.i, align 8
-  %largest59 = getelementptr inbounds i8, ptr %19, i64 72
+  %18 = load ptr, ptr %inputs, align 8
+  %_M_finish.i.i49 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %18, i64 %i.065, i32 1, i32 0, i32 0, i32 0, i32 1
+  %19 = load ptr, ptr %_M_finish.i.i49, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %19, i64 -8
+  %20 = load ptr, ptr %add.ptr.i.i, align 8
+  %largest59 = getelementptr inbounds i8, ptr %20, i64 72
   %call.i.i50 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %largest59) #27
   %call2.i.i51 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %largest59) #27
   %sub.i.i52 = add i64 %call2.i.i51, -8
@@ -694,8 +697,8 @@ if.end53:                                         ; preds = %if.then52, %lor.lhs
 lor.lhs.false62:                                  ; preds = %if.end53
   %vtable64 = load ptr, ptr %add.ptr47, align 8
   %vfn65 = getelementptr inbounds i8, ptr %vtable64, i64 16
-  %20 = load ptr, ptr %vfn65, align 8
-  %call66 = call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(16) %largest_user_key)
+  %21 = load ptr, ptr %vfn65, align 8
+  %call66 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr47, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(16) %largest_user_key)
   %cmp67 = icmp sgt i32 %call66, 0
   br i1 %cmp67, label %if.then68, label %for.inc71
 
@@ -706,10 +709,10 @@ if.then68:                                        ; preds = %lor.lhs.false62, %i
 for.inc71:                                        ; preds = %if.end36, %lor.lhs.false62, %if.then68, %for.body, %lor.lhs.false
   %initialized.1 = phi i8 [ %initialized.066, %for.body ], [ %initialized.066, %lor.lhs.false ], [ 1, %if.then68 ], [ 1, %lor.lhs.false62 ], [ 1, %if.end36 ]
   %inc = add nuw i64 %i.065, 1
-  %21 = load ptr, ptr %_M_finish.i, align 8
-  %22 = load ptr, ptr %inputs, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %21 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %22 to i64
+  %22 = load ptr, ptr %_M_finish.i, align 8
+  %23 = load ptr, ptr %inputs, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %22 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
@@ -733,7 +736,7 @@ entry:
   br i1 %cmp62.not, label %for.end67, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc66
-  %3 = phi ptr [ %19, %for.inc66 ], [ %2, %entry ]
+  %3 = phi ptr [ %20, %for.inc66 ], [ %2, %entry ]
   %initialized.064 = phi i8 [ %initialized.1, %for.inc66 ], [ 0, %entry ]
   %i.063 = phi i64 [ %inc, %for.inc66 ], [ 0, %entry ]
   %add.ptr.i = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %3, i64 %i.063
@@ -751,15 +754,15 @@ lor.lhs.false:                                    ; preds = %for.body
 
 if.end:                                           ; preds = %lor.lhs.false
   %cmp8 = icmp eq i32 %6, 0
+  %7 = trunc nuw i8 %initialized.064 to i1
   br i1 %cmp8, label %for.body17, label %if.else
 
 for.body17:                                       ; preds = %if.end, %if.end33
-  %initialized.257 = phi i8 [ 1, %if.end33 ], [ %initialized.064, %if.end ]
+  %initialized.257 = phi i1 [ true, %if.end33 ], [ %7, %if.end ]
   %__begin3.sroa.0.056 = phi ptr [ %incdec.ptr.i, %if.end33 ], [ %4, %if.end ]
-  %7 = load ptr, ptr %__begin3.sroa.0.056, align 8
-  %tobool = trunc nuw i8 %initialized.257 to i1
-  %smallest = getelementptr inbounds i8, ptr %7, i64 40
-  br i1 %tobool, label %lor.lhs.false19, label %if.end25
+  %8 = load ptr, ptr %__begin3.sroa.0.056, align 8
+  %smallest = getelementptr inbounds i8, ptr %8, i64 40
+  br i1 %initialized.257, label %lor.lhs.false19, label %if.end25
 
 lor.lhs.false19:                                  ; preds = %for.body17
   %call20 = tail call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %smallest, ptr noundef nonnull align 8 dereferenceable(32) %smallest_key)
@@ -775,13 +778,13 @@ if.end25:                                         ; preds = %for.body17
   br label %if.then30
 
 lor.lhs.false27:                                  ; preds = %lor.lhs.false19, %if.end25.thread52
-  %largest = getelementptr inbounds i8, ptr %7, i64 72
+  %largest = getelementptr inbounds i8, ptr %8, i64 72
   %call28 = tail call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %largest, ptr noundef nonnull align 8 dereferenceable(32) %largest_key)
   %cmp29 = icmp sgt i32 %call28, 0
   br i1 %cmp29, label %if.then30, label %if.end33
 
 if.then30:                                        ; preds = %if.end25, %lor.lhs.false27
-  %largest31 = getelementptr inbounds i8, ptr %7, i64 72
+  %largest31 = getelementptr inbounds i8, ptr %8, i64 72
   %call.i38 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %largest_key, ptr noundef nonnull align 8 dereferenceable(32) %largest31)
   br label %if.end33
 
@@ -791,10 +794,9 @@ if.end33:                                         ; preds = %if.then30, %lor.lhs
   br i1 %cmp.i.not, label %for.inc66, label %for.body17
 
 if.else:                                          ; preds = %if.end
-  %tobool35 = trunc nuw i8 %initialized.064 to i1
-  %8 = load ptr, ptr %4, align 8
-  %smallest40 = getelementptr inbounds i8, ptr %8, i64 40
-  br i1 %tobool35, label %lor.lhs.false36, label %if.then58.critedge
+  %9 = load ptr, ptr %4, align 8
+  %smallest40 = getelementptr inbounds i8, ptr %9, i64 40
+  br i1 %7, label %lor.lhs.false36, label %if.then58.critedge
 
 lor.lhs.false36:                                  ; preds = %if.else
   %call41 = tail call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %smallest40, ptr noundef nonnull align 8 dereferenceable(32) %smallest_key)
@@ -802,21 +804,21 @@ lor.lhs.false36:                                  ; preds = %if.else
   br i1 %cmp42, label %if.end49, label %lor.lhs.false51
 
 if.end49:                                         ; preds = %lor.lhs.false36
-  %9 = load ptr, ptr %inputs, align 8
-  %files45 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %9, i64 %i.063, i32 1
-  %10 = load ptr, ptr %files45, align 8
-  %11 = load ptr, ptr %10, align 8
-  %smallest47 = getelementptr inbounds i8, ptr %11, i64 40
+  %10 = load ptr, ptr %inputs, align 8
+  %files45 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %10, i64 %i.063, i32 1
+  %11 = load ptr, ptr %files45, align 8
+  %12 = load ptr, ptr %11, align 8
+  %smallest47 = getelementptr inbounds i8, ptr %12, i64 40
   %call.i43 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %smallest_key, ptr noundef nonnull align 8 dereferenceable(32) %smallest47)
   br label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %if.end49, %lor.lhs.false36
-  %12 = load ptr, ptr %inputs, align 8
-  %_M_finish.i.i45 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %12, i64 %i.063, i32 1, i32 0, i32 0, i32 0, i32 1
-  %13 = load ptr, ptr %_M_finish.i.i45, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 -8
-  %14 = load ptr, ptr %add.ptr.i.i, align 8
-  %largest55 = getelementptr inbounds i8, ptr %14, i64 72
+  %13 = load ptr, ptr %inputs, align 8
+  %_M_finish.i.i45 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %13, i64 %i.063, i32 1, i32 0, i32 0, i32 0, i32 1
+  %14 = load ptr, ptr %_M_finish.i.i45, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 -8
+  %15 = load ptr, ptr %add.ptr.i.i, align 8
+  %largest55 = getelementptr inbounds i8, ptr %15, i64 72
   %call56 = tail call noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %largest55, ptr noundef nonnull align 8 dereferenceable(32) %largest_key)
   %cmp57 = icmp sgt i32 %call56, 0
   br i1 %cmp57, label %if.then58, label %for.inc66
@@ -826,22 +828,22 @@ if.then58.critedge:                               ; preds = %if.else
   br label %if.then58
 
 if.then58:                                        ; preds = %if.then58.critedge, %lor.lhs.false51
-  %15 = load ptr, ptr %inputs, align 8
-  %_M_finish.i.i47 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %15, i64 %i.063, i32 1, i32 0, i32 0, i32 0, i32 1
-  %16 = load ptr, ptr %_M_finish.i.i47, align 8
-  %add.ptr.i.i48 = getelementptr inbounds i8, ptr %16, i64 -8
-  %17 = load ptr, ptr %add.ptr.i.i48, align 8
-  %largest62 = getelementptr inbounds i8, ptr %17, i64 72
+  %16 = load ptr, ptr %inputs, align 8
+  %_M_finish.i.i47 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %16, i64 %i.063, i32 1, i32 0, i32 0, i32 0, i32 1
+  %17 = load ptr, ptr %_M_finish.i.i47, align 8
+  %add.ptr.i.i48 = getelementptr inbounds i8, ptr %17, i64 -8
+  %18 = load ptr, ptr %add.ptr.i.i48, align 8
+  %largest62 = getelementptr inbounds i8, ptr %18, i64 72
   %call.i49 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %largest_key, ptr noundef nonnull align 8 dereferenceable(32) %largest62)
   br label %for.inc66
 
 for.inc66:                                        ; preds = %if.end33, %lor.lhs.false51, %if.then58, %for.body, %lor.lhs.false
   %initialized.1 = phi i8 [ %initialized.064, %for.body ], [ %initialized.064, %lor.lhs.false ], [ 1, %if.then58 ], [ 1, %lor.lhs.false51 ], [ 1, %if.end33 ]
   %inc = add nuw i64 %i.063, 1
-  %18 = load ptr, ptr %_M_finish.i, align 8
-  %19 = load ptr, ptr %inputs, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %19 to i64
+  %19 = load ptr, ptr %_M_finish.i, align 8
+  %20 = load ptr, ptr %inputs, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
@@ -2333,33 +2335,33 @@ _ZN7rocksdb10Compaction17IsBottommostLevelEiPNS_18VersionStorageInfoERKSt6vector
   %lnot.i = xor i1 %call12.i35, true
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %smallest_key.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %largest_key.i)
+  %24 = zext i1 %lnot.i to i8
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZN7rocksdb10Compaction17IsBottommostLevelEiPNS_18VersionStorageInfoERKSt6vectorINS_20CompactionInputFilesESaIS4_EE.exit, %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EED2Ev.exit, %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EED2Ev.exit
-  %cond = phi i1 [ false, %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EED2Ev.exit ], [ %lnot.i, %_ZN7rocksdb10Compaction17IsBottommostLevelEiPNS_18VersionStorageInfoERKSt6vectorINS_20CompactionInputFilesESaIS4_EE.exit ], [ false, %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EED2Ev.exit ]
-  %frombool23 = zext i1 %cond to i8
-  store i8 %frombool23, ptr %bottommost_level_, align 8
-  %24 = load i32, ptr %num_levels_.i, align 16
-  %cmp14.i = icmp sgt i32 %24, 0
+  %cond = phi i8 [ 0, %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EED2Ev.exit ], [ %24, %_ZN7rocksdb10Compaction17IsBottommostLevelEiPNS_18VersionStorageInfoERKSt6vectorINS_20CompactionInputFilesESaIS4_EE.exit ], [ 0, %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EED2Ev.exit ]
+  store i8 %cond, ptr %bottommost_level_, align 8
+  %25 = load i32, ptr %num_levels_.i, align 16
+  %cmp14.i = icmp sgt i32 %25, 0
   br i1 %cmp14.i, label %for.body.lr.ph.i37, label %for.cond2.preheader.i
 
 for.body.lr.ph.i37:                               ; preds = %cond.end
   %files_.i.i38 = getelementptr inbounds i8, ptr %vstorage, i64 2712
-  %25 = load ptr, ptr %files_.i.i38, align 8
-  %wide.trip.count.i = zext nneg i32 %24 to i64
+  %26 = load ptr, ptr %files_.i.i38, align 8
+  %wide.trip.count.i = zext nneg i32 %25 to i64
   br label %for.body.i39
 
 for.cond2.preheader.i:                            ; preds = %for.body.i39, %cond.end
   %total_num_files.0.lcssa.i = phi i64 [ 0, %cond.end ], [ %add.i, %for.body.i39 ]
   %_M_finish.i.i36 = getelementptr inbounds i8, ptr %this, i64 4384
-  %26 = load ptr, ptr %_M_finish.i.i36, align 16
-  %27 = load ptr, ptr %inputs_, align 8
-  %cmp417.not.i = icmp eq ptr %26, %27
+  %27 = load ptr, ptr %_M_finish.i.i36, align 16
+  %28 = load ptr, ptr %inputs_, align 8
+  %cmp417.not.i = icmp eq ptr %27, %28
   br i1 %cmp417.not.i, label %invoke.cont25, label %for.body5.preheader.i
 
 for.body5.preheader.i:                            ; preds = %for.cond2.preheader.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %27 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %27 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %28 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 56
   %umax.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
@@ -2368,12 +2370,12 @@ for.body5.preheader.i:                            ; preds = %for.cond2.preheader
 for.body.i39:                                     ; preds = %for.body.i39, %for.body.lr.ph.i37
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i37 ], [ %indvars.iv.next.i, %for.body.i39 ]
   %total_num_files.015.i = phi i64 [ 0, %for.body.lr.ph.i37 ], [ %add.i, %for.body.i39 ]
-  %arrayidx.i.i = getelementptr inbounds %"class.std::vector.8", ptr %25, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds %"class.std::vector.8", ptr %26, i64 %indvars.iv.i
   %_M_finish.i.i.i40 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %28 = load ptr, ptr %_M_finish.i.i.i40, align 8
-  %29 = load ptr, ptr %arrayidx.i.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %28 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %29 to i64
+  %29 = load ptr, ptr %_M_finish.i.i.i40, align 8
+  %30 = load ptr, ptr %arrayidx.i.i, align 8
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %29 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %30 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sext.i = shl i64 %sub.ptr.sub.i.i.i, 29
   %conv.i = ashr i64 %sext.i, 32
@@ -2385,13 +2387,13 @@ for.body.i39:                                     ; preds = %for.body.i39, %for.
 for.body5.i:                                      ; preds = %for.body5.i, %for.body5.preheader.i
   %i.019.i = phi i64 [ %inc10.i, %for.body5.i ], [ 0, %for.body5.preheader.i ]
   %num_files_in_compaction.018.i = phi i64 [ %add8.i, %for.body5.i ], [ 0, %for.body5.preheader.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %27, i64 %i.019.i
+  %add.ptr.i.i = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %28, i64 %i.019.i
   %files.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %_M_finish.i.i9.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  %30 = load ptr, ptr %_M_finish.i.i9.i, align 8
-  %31 = load ptr, ptr %files.i.i, align 8
-  %sub.ptr.lhs.cast.i.i10.i = ptrtoint ptr %30 to i64
-  %sub.ptr.rhs.cast.i.i11.i = ptrtoint ptr %31 to i64
+  %31 = load ptr, ptr %_M_finish.i.i9.i, align 8
+  %32 = load ptr, ptr %files.i.i, align 8
+  %sub.ptr.lhs.cast.i.i10.i = ptrtoint ptr %31 to i64
+  %sub.ptr.rhs.cast.i.i11.i = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i12.i = sub i64 %sub.ptr.lhs.cast.i.i10.i, %sub.ptr.rhs.cast.i.i11.i
   %sub.ptr.div.i.i13.i = ashr exact i64 %sub.ptr.sub.i.i12.i, 3
   %add8.i = add i64 %sub.ptr.div.i.i13.i, %num_files_in_compaction.018.i
@@ -2456,23 +2458,23 @@ invoke.cont30:                                    ; preds = %invoke.cont25
 
 cond.false39:                                     ; preds = %invoke.cont30
   %enable_blob_garbage_collection = getelementptr inbounds i8, ptr %this, i64 1225
-  %32 = load i8, ptr %enable_blob_garbage_collection, align 1
+  %33 = load i8, ptr %enable_blob_garbage_collection, align 1
+  %34 = and i8 %33, 1
   br label %cond.end45
 
 cond.end45.fold.split:                            ; preds = %invoke.cont30
   br label %cond.end45
 
 cond.end45:                                       ; preds = %invoke.cont30, %cond.end45.fold.split, %cond.false39
-  %cond46 = phi i8 [ 1, %invoke.cont30 ], [ %32, %cond.false39 ], [ 0, %cond.end45.fold.split ]
-  %frombool47 = and i8 %cond46, 1
-  store i8 %frombool47, ptr %enable_blob_garbage_collection_, align 1
+  %cond46 = phi i8 [ 1, %invoke.cont30 ], [ %34, %cond.false39 ], [ 0, %cond.end45.fold.split ]
+  store i8 %cond46, ptr %enable_blob_garbage_collection_, align 1
   %blob_garbage_collection_age_cutoff_ = getelementptr inbounds i8, ptr %this, i64 4704
   %cmp48 = fcmp olt double %_blob_garbage_collection_age_cutoff, 0.000000e+00
   %cmp50 = fcmp ogt double %_blob_garbage_collection_age_cutoff, 1.000000e+00
   %or.cond1 = or i1 %cmp48, %cmp50
   %blob_garbage_collection_age_cutoff = getelementptr inbounds i8, ptr %this, i64 1232
-  %33 = load double, ptr %blob_garbage_collection_age_cutoff, align 16
-  %cond56 = select i1 %or.cond1, double %33, double %_blob_garbage_collection_age_cutoff
+  %35 = load double, ptr %blob_garbage_collection_age_cutoff, align 16
+  %cond56 = select i1 %or.cond1, double %35, double %_blob_garbage_collection_age_cutoff
   store double %cond56, ptr %blob_garbage_collection_age_cutoff_, align 16
   %penultimate_level_ = getelementptr inbounds i8, ptr %this, i64 4712
   switch i32 %_compaction_reason, label %cond.false61 [
@@ -2481,47 +2483,47 @@ cond.end45:                                       ; preds = %invoke.cont30, %con
   ]
 
 cond.false61:                                     ; preds = %cond.end45
-  %34 = load i32, ptr %start_level_, align 8
-  %35 = load i32, ptr %output_level_, align 4
-  %36 = load i8, ptr %2, align 16
-  %switch.i = icmp ult i8 %36, 2
+  %36 = load i32, ptr %start_level_, align 8
+  %37 = load i32, ptr %output_level_, align 4
+  %38 = load i8, ptr %2, align 16
+  %switch.i = icmp ult i8 %38, 2
   br i1 %switch.i, label %if.end.i49, label %cond.end67
 
 if.end.i49:                                       ; preds = %cond.false61
   %num_levels.i = getelementptr inbounds i8, ptr %this, i64 792
-  %37 = load i32, ptr %num_levels.i, align 8
-  %sub.i = add nsw i32 %37, -1
-  %cmp6.not.i = icmp eq i32 %35, %sub.i
+  %39 = load i32, ptr %num_levels.i, align 8
+  %sub.i = add nsw i32 %39, -1
+  %cmp6.not.i = icmp eq i32 %37, %sub.i
   br i1 %cmp6.not.i, label %if.end8.i, label %cond.end67
 
 if.end8.i:                                        ; preds = %if.end.i49
-  %sub9.i = add nsw i32 %35, -1
-  %cmp10.i = icmp slt i32 %35, 2
+  %sub9.i = add nsw i32 %37, -1
+  %cmp10.i = icmp slt i32 %37, 2
   br i1 %cmp10.i, label %cond.end67, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end8.i
-  %cmp16.i = icmp eq i32 %34, %35
+  %cmp16.i = icmp eq i32 %36, %37
   br i1 %cmp16.i, label %land.lhs.true17.i, label %if.end24.i
 
 land.lhs.true17.i:                                ; preds = %if.end12.i
-  %cmp21.not.i = icmp eq i8 %36, 1
+  %cmp21.not.i = icmp eq i8 %38, 1
   br i1 %cmp21.not.i, label %lor.lhs.false.i, label %cond.end67
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true17.i
   %files_.i.i50 = getelementptr inbounds i8, ptr %vstorage, i64 2712
-  %38 = load ptr, ptr %files_.i.i50, align 8
+  %40 = load ptr, ptr %files_.i.i50, align 8
   %idxprom.i.i = zext nneg i32 %sub9.i to i64
-  %arrayidx.i.i51 = getelementptr inbounds %"class.std::vector.8", ptr %38, i64 %idxprom.i.i
-  %39 = load ptr, ptr %arrayidx.i.i51, align 8
+  %arrayidx.i.i51 = getelementptr inbounds %"class.std::vector.8", ptr %40, i64 %idxprom.i.i
+  %41 = load ptr, ptr %arrayidx.i.i51, align 8
   %_M_finish.i.i.i52 = getelementptr inbounds i8, ptr %arrayidx.i.i51, i64 8
-  %40 = load ptr, ptr %_M_finish.i.i.i52, align 8
-  %cmp.i.i.i = icmp eq ptr %39, %40
+  %42 = load ptr, ptr %_M_finish.i.i.i52, align 8
+  %cmp.i.i.i = icmp eq ptr %41, %42
   br i1 %cmp.i.i.i, label %if.end24.i, label %cond.end67
 
 if.end24.i:                                       ; preds = %lor.lhs.false.i, %if.end12.i
   %preclude_last_level_data_seconds.i = getelementptr inbounds i8, ptr %this, i64 800
-  %41 = load i64, ptr %preclude_last_level_data_seconds.i, align 16
-  %cmp26.not.i = icmp eq i64 %41, 0
+  %43 = load i64, ptr %preclude_last_level_data_seconds.i, align 16
+  %cmp26.not.i = icmp eq i64 %43, 0
   %.sub9.i = select i1 %cmp26.not.i, i32 -1, i32 %sub9.i
   br label %cond.end67
 
@@ -2534,39 +2536,39 @@ cond.end67:                                       ; preds = %if.end24.i, %lor.lh
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %penultimate_level_largest_) #27
   %penultimate_output_range_type_ = getelementptr inbounds i8, ptr %this, i64 4784
   store i32 0, ptr %penultimate_output_range_type_, align 16
-  %42 = load ptr, ptr %_M_finish.i.i36, align 16
-  %43 = load ptr, ptr %inputs_, align 8
-  %cmp26.not.i54 = icmp eq ptr %42, %43
+  %44 = load ptr, ptr %_M_finish.i.i36, align 16
+  %45 = load ptr, ptr %inputs_, align 8
+  %cmp26.not.i54 = icmp eq ptr %44, %45
   br i1 %cmp26.not.i54, label %invoke.cont73, label %for.cond2.preheader.i55
 
 for.cond2.preheader.i55:                          ; preds = %cond.end67, %for.inc11.i
-  %44 = phi ptr [ %53, %for.inc11.i ], [ %43, %cond.end67 ]
-  %45 = phi ptr [ %54, %for.inc11.i ], [ %42, %cond.end67 ]
+  %46 = phi ptr [ %55, %for.inc11.i ], [ %45, %cond.end67 ]
+  %47 = phi ptr [ %56, %for.inc11.i ], [ %44, %cond.end67 ]
   %i.027.i = phi i64 [ %inc12.i, %for.inc11.i ], [ 0, %cond.end67 ]
-  %add.ptr.i13.i = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %44, i64 %i.027.i
+  %add.ptr.i13.i = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %46, i64 %i.027.i
   %files.i14.i = getelementptr inbounds i8, ptr %add.ptr.i13.i, i64 8
   %_M_finish.i.i615.i = getelementptr inbounds i8, ptr %add.ptr.i13.i, i64 16
-  %46 = load ptr, ptr %_M_finish.i.i615.i, align 8
-  %47 = load ptr, ptr %files.i14.i, align 8
-  %cmp520.not.i = icmp eq ptr %46, %47
+  %48 = load ptr, ptr %_M_finish.i.i615.i, align 8
+  %49 = load ptr, ptr %files.i14.i, align 8
+  %cmp520.not.i = icmp eq ptr %48, %49
   br i1 %cmp520.not.i, label %for.inc11.i, label %for.body6.i
 
 for.body6.i:                                      ; preds = %for.cond2.preheader.i55, %for.body6.i
-  %48 = phi ptr [ %52, %for.body6.i ], [ %47, %for.cond2.preheader.i55 ]
+  %50 = phi ptr [ %54, %for.body6.i ], [ %49, %for.cond2.preheader.i55 ]
   %j.021.i = phi i64 [ %inc.i57, %for.body6.i ], [ 0, %for.cond2.preheader.i55 ]
-  %add.ptr.i.i.i56 = getelementptr inbounds ptr, ptr %48, i64 %j.021.i
-  %49 = load ptr, ptr %add.ptr.i.i.i56, align 8
-  %being_compacted.i = getelementptr inbounds i8, ptr %49, i64 180
+  %add.ptr.i.i.i56 = getelementptr inbounds ptr, ptr %50, i64 %j.021.i
+  %51 = load ptr, ptr %add.ptr.i.i.i56, align 8
+  %being_compacted.i = getelementptr inbounds i8, ptr %51, i64 180
   store i8 1, ptr %being_compacted.i, align 4
   %inc.i57 = add nuw i64 %j.021.i, 1
-  %50 = load ptr, ptr %inputs_, align 8
-  %add.ptr.i.i58 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %50, i64 %i.027.i
+  %52 = load ptr, ptr %inputs_, align 8
+  %add.ptr.i.i58 = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %52, i64 %i.027.i
   %files.i.i59 = getelementptr inbounds i8, ptr %add.ptr.i.i58, i64 8
   %_M_finish.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i.i58, i64 16
-  %51 = load ptr, ptr %_M_finish.i.i6.i, align 8
-  %52 = load ptr, ptr %files.i.i59, align 8
-  %sub.ptr.lhs.cast.i.i7.i = ptrtoint ptr %51 to i64
-  %sub.ptr.rhs.cast.i.i8.i = ptrtoint ptr %52 to i64
+  %53 = load ptr, ptr %_M_finish.i.i6.i, align 8
+  %54 = load ptr, ptr %files.i.i59, align 8
+  %sub.ptr.lhs.cast.i.i7.i = ptrtoint ptr %53 to i64
+  %sub.ptr.rhs.cast.i.i8.i = ptrtoint ptr %54 to i64
   %sub.ptr.sub.i.i9.i = sub i64 %sub.ptr.lhs.cast.i.i7.i, %sub.ptr.rhs.cast.i.i8.i
   %sub.ptr.div.i.i10.i = ashr exact i64 %sub.ptr.sub.i.i9.i, 3
   %cmp5.i = icmp ult i64 %inc.i57, %sub.ptr.div.i.i10.i
@@ -2577,21 +2579,21 @@ for.inc11.loopexit.i:                             ; preds = %for.body6.i
   br label %for.inc11.i
 
 for.inc11.i:                                      ; preds = %for.inc11.loopexit.i, %for.cond2.preheader.i55
-  %53 = phi ptr [ %50, %for.inc11.loopexit.i ], [ %44, %for.cond2.preheader.i55 ]
-  %54 = phi ptr [ %.pre.i, %for.inc11.loopexit.i ], [ %45, %for.cond2.preheader.i55 ]
+  %55 = phi ptr [ %52, %for.inc11.loopexit.i ], [ %46, %for.cond2.preheader.i55 ]
+  %56 = phi ptr [ %.pre.i, %for.inc11.loopexit.i ], [ %47, %for.cond2.preheader.i55 ]
   %inc12.i = add nuw i64 %i.027.i, 1
-  %sub.ptr.lhs.cast.i.i.i60 = ptrtoint ptr %54 to i64
-  %sub.ptr.rhs.cast.i.i.i61 = ptrtoint ptr %53 to i64
+  %sub.ptr.lhs.cast.i.i.i60 = ptrtoint ptr %56 to i64
+  %sub.ptr.rhs.cast.i.i.i61 = ptrtoint ptr %55 to i64
   %sub.ptr.sub.i.i.i62 = sub i64 %sub.ptr.lhs.cast.i.i.i60, %sub.ptr.rhs.cast.i.i.i61
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i62, 56
   %cmp.i63 = icmp ult i64 %inc12.i, %sub.ptr.div.i.i.i
   br i1 %cmp.i63, label %for.cond2.preheader.i55, label %invoke.cont73, !llvm.loop !29
 
 invoke.cont73:                                    ; preds = %for.inc11.i, %cond.end67
-  %55 = phi ptr [ %42, %cond.end67 ], [ %53, %for.inc11.i ]
-  %56 = phi ptr [ %42, %cond.end67 ], [ %54, %for.inc11.i ]
-  %57 = load i8, ptr %is_manual_compaction_, align 2
-  %tobool75 = trunc i8 %57 to i1
+  %57 = phi ptr [ %44, %cond.end67 ], [ %55, %for.inc11.i ]
+  %58 = phi ptr [ %44, %cond.end67 ], [ %56, %for.inc11.i ]
+  %59 = load i8, ptr %is_manual_compaction_, align 2
+  %tobool75 = trunc i8 %59 to i1
   br i1 %tobool75, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont73
@@ -2599,22 +2601,22 @@ if.then:                                          ; preds = %invoke.cont73
   br label %if.end
 
 lpad:                                             ; preds = %_ZN7rocksdb16ImmutableOptionsC2ERKS0_.exit
-  %58 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup164
 
 lpad6:                                            ; preds = %invoke.cont5
-  %59 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup162
 
 lpad13:                                           ; preds = %invoke.cont9
-  %60 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup161
 
 lpad20:                                           ; preds = %.noexc, %if.end11.i, %invoke.cont25
-  %61 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup158
 
@@ -2638,48 +2640,48 @@ lpad72:                                           ; preds = %lpad72.loopexit.spl
   br label %ehcleanup158
 
 if.end:                                           ; preds = %if.then, %invoke.cont73
-  %62 = load i32, ptr %max_subcompactions_, align 8
-  %cmp78 = icmp eq i32 %62, 0
+  %64 = load i32, ptr %max_subcompactions_, align 8
+  %cmp78 = icmp eq i32 %64, 0
   br i1 %cmp78, label %if.then79, label %if.end81
 
 if.then79:                                        ; preds = %if.end
   %max_subcompactions = getelementptr inbounds i8, ptr %_mutable_db_options, i64 8
-  %63 = load i32, ptr %max_subcompactions, align 8
-  store i32 %63, ptr %max_subcompactions_, align 8
+  %65 = load i32, ptr %max_subcompactions, align 8
+  store i32 %65, ptr %max_subcompactions_, align 8
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then79, %if.end
-  %64 = load i8, ptr %bottommost_level_, align 8
-  %tobool83 = trunc i8 %64 to i1
+  %66 = load i8, ptr %bottommost_level_, align 8
+  %tobool83 = trunc i8 %66 to i1
   br i1 %tobool83, label %cond.true89, label %lor.lhs.false84
 
 lor.lhs.false84:                                  ; preds = %if.end81
-  %65 = load ptr, ptr %grandparents_, align 8
-  %66 = load ptr, ptr %_M_finish.i.i.i.i31, align 16
-  %cmp.i.i = icmp eq ptr %65, %66
+  %67 = load ptr, ptr %grandparents_, align 8
+  %68 = load ptr, ptr %_M_finish.i.i.i.i31, align 16
+  %cmp.i.i = icmp eq ptr %67, %68
   br i1 %cmp.i.i, label %cond.true89, label %lor.lhs.false87
 
 lor.lhs.false87:                                  ; preds = %lor.lhs.false84
   %level_compaction_dynamic_file_size = getelementptr inbounds i8, ptr %_immutable_options, i64 741
-  %67 = load i8, ptr %level_compaction_dynamic_file_size, align 1
-  %tobool88 = trunc i8 %67 to i1
+  %69 = load i8, ptr %level_compaction_dynamic_file_size, align 1
+  %tobool88 = trunc i8 %69 to i1
   br i1 %tobool88, label %cond.false91, label %cond.true89
 
 cond.true89:                                      ; preds = %lor.lhs.false87, %lor.lhs.false84, %if.end81
-  %68 = load i64, ptr %target_output_file_size_, align 16
+  %70 = load i64, ptr %target_output_file_size_, align 16
   br label %cond.end93
 
 cond.false91:                                     ; preds = %lor.lhs.false87
-  %69 = load i64, ptr %target_output_file_size_, align 16
-  %mul = shl i64 %69, 1
+  %71 = load i64, ptr %target_output_file_size_, align 16
+  %mul = shl i64 %71, 1
   br label %cond.end93
 
 cond.end93:                                       ; preds = %cond.false91, %cond.true89
-  %cond94 = phi i64 [ %68, %cond.true89 ], [ %mul, %cond.false91 ]
+  %cond94 = phi i64 [ %70, %cond.true89 ], [ %mul, %cond.false91 ]
   %max_output_file_size_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %cond94, ptr %max_output_file_size_, align 8
-  %sub.ptr.lhs.cast.i.i66 = ptrtoint ptr %56 to i64
-  %sub.ptr.rhs.cast.i.i67 = ptrtoint ptr %55 to i64
+  %sub.ptr.lhs.cast.i.i66 = ptrtoint ptr %58 to i64
+  %sub.ptr.rhs.cast.i.i67 = ptrtoint ptr %57 to i64
   %sub.ptr.sub.i.i68 = sub i64 %sub.ptr.lhs.cast.i.i66, %sub.ptr.rhs.cast.i.i67
   %sub.ptr.div.i.i69 = sdiv exact i64 %sub.ptr.sub.i.i68, 56
   %cmp.i70 = icmp ugt i64 %sub.ptr.div.i.i69, 2
@@ -2691,51 +2693,51 @@ if.then.i77:                                      ; preds = %cond.end93
           to label %.noexc81 unwind label %lpad72.loopexit.split-lp
 
 .noexc81:                                         ; preds = %if.then.i77
-  %70 = load i64, ptr %input_levels_, align 16
-  %cmp210.i = icmp ult i64 %70, 2
+  %72 = load i64, ptr %input_levels_, align 16
+  %cmp210.i = icmp ult i64 %72, 2
   br i1 %cmp210.i, label %while.body.i, label %if.end.sink.split.i
 
 while.body.i:                                     ; preds = %.noexc81, %while.body.i
-  %71 = phi i64 [ %73, %while.body.i ], [ %70, %.noexc81 ]
-  %72 = load ptr, ptr %values_.i, align 8
-  %inc.i80 = add nuw nsw i64 %71, 1
+  %73 = phi i64 [ %75, %while.body.i ], [ %72, %.noexc81 ]
+  %74 = load ptr, ptr %values_.i, align 8
+  %inc.i80 = add nuw nsw i64 %73, 1
   store i64 %inc.i80, ptr %input_levels_, align 16
-  %arrayidx.i = getelementptr inbounds %"struct.rocksdb::LevelFilesBrief", ptr %72, i64 %71
+  %arrayidx.i = getelementptr inbounds %"struct.rocksdb::LevelFilesBrief", ptr %74, i64 %73
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, i8 0, i64 16, i1 false)
-  %73 = load i64, ptr %input_levels_, align 16
-  %cmp2.i = icmp ult i64 %73, 2
+  %75 = load i64, ptr %input_levels_, align 16
+  %cmp2.i = icmp ult i64 %75, 2
   br i1 %cmp2.i, label %while.body.i, label %if.end.sink.split.i, !llvm.loop !30
 
 if.else.i:                                        ; preds = %cond.end93
-  %74 = load ptr, ptr %vect_.i, align 16
+  %76 = load ptr, ptr %vect_.i, align 16
   %_M_finish.i.i.i72 = getelementptr inbounds i8, ptr %this, i64 4456
-  %75 = load ptr, ptr %_M_finish.i.i.i72, align 8
-  %tobool.not.i.i.i73 = icmp eq ptr %75, %74
+  %77 = load ptr, ptr %_M_finish.i.i.i72, align 8
+  %tobool.not.i.i.i73 = icmp eq ptr %77, %76
   br i1 %tobool.not.i.i.i73, label %_ZNSt6vectorIN7rocksdb15LevelFilesBriefESaIS1_EE5clearEv.exit.i, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.else.i
-  store ptr %74, ptr %_M_finish.i.i.i72, align 8
+  store ptr %76, ptr %_M_finish.i.i.i72, align 8
   br label %_ZNSt6vectorIN7rocksdb15LevelFilesBriefESaIS1_EE5clearEv.exit.i
 
 _ZNSt6vectorIN7rocksdb15LevelFilesBriefESaIS1_EE5clearEv.exit.i: ; preds = %invoke.cont.i.i.i, %if.else.i
-  %76 = load i64, ptr %input_levels_, align 16
-  %cmp86.i = icmp ult i64 %76, %sub.ptr.div.i.i69
+  %78 = load i64, ptr %input_levels_, align 16
+  %cmp86.i = icmp ult i64 %78, %sub.ptr.div.i.i69
   br i1 %cmp86.i, label %while.body9.i, label %while.cond15.preheader.i
 
 while.cond15.preheader.i:                         ; preds = %while.body9.i, %_ZNSt6vectorIN7rocksdb15LevelFilesBriefESaIS1_EE5clearEv.exit.i
-  %this.promoted.i = phi i64 [ %76, %_ZNSt6vectorIN7rocksdb15LevelFilesBriefESaIS1_EE5clearEv.exit.i ], [ %79, %while.body9.i ]
+  %this.promoted.i = phi i64 [ %78, %_ZNSt6vectorIN7rocksdb15LevelFilesBriefESaIS1_EE5clearEv.exit.i ], [ %81, %while.body9.i ]
   %cmp178.i = icmp ugt i64 %this.promoted.i, %sub.ptr.div.i.i69
   br i1 %cmp178.i, label %if.end.sink.split.i, label %_ZN7rocksdb10autovectorINS_15LevelFilesBriefELm2EE6resizeEm.exit
 
 while.body9.i:                                    ; preds = %_ZNSt6vectorIN7rocksdb15LevelFilesBriefESaIS1_EE5clearEv.exit.i, %while.body9.i
-  %77 = phi i64 [ %79, %while.body9.i ], [ %76, %_ZNSt6vectorIN7rocksdb15LevelFilesBriefESaIS1_EE5clearEv.exit.i ]
-  %78 = load ptr, ptr %values_.i, align 8
-  %inc12.i75 = add nuw nsw i64 %77, 1
+  %79 = phi i64 [ %81, %while.body9.i ], [ %78, %_ZNSt6vectorIN7rocksdb15LevelFilesBriefESaIS1_EE5clearEv.exit.i ]
+  %80 = load ptr, ptr %values_.i, align 8
+  %inc12.i75 = add nuw nsw i64 %79, 1
   store i64 %inc12.i75, ptr %input_levels_, align 16
-  %arrayidx13.i = getelementptr inbounds %"struct.rocksdb::LevelFilesBrief", ptr %78, i64 %77
+  %arrayidx13.i = getelementptr inbounds %"struct.rocksdb::LevelFilesBrief", ptr %80, i64 %79
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx13.i, i8 0, i64 16, i1 false)
-  %79 = load i64, ptr %input_levels_, align 16
-  %cmp8.i76 = icmp ult i64 %79, %sub.ptr.div.i.i69
+  %81 = load i64, ptr %input_levels_, align 16
+  %cmp8.i76 = icmp ult i64 %81, %sub.ptr.div.i.i69
   br i1 %cmp8.i76, label %while.body9.i, label %while.cond15.preheader.i, !llvm.loop !31
 
 if.end.sink.split.i:                              ; preds = %while.body.i, %while.cond15.preheader.i, %.noexc81
@@ -2744,31 +2746,31 @@ if.end.sink.split.i:                              ; preds = %while.body.i, %whil
   br label %_ZN7rocksdb10autovectorINS_15LevelFilesBriefELm2EE6resizeEm.exit
 
 _ZN7rocksdb10autovectorINS_15LevelFilesBriefELm2EE6resizeEm.exit: ; preds = %while.cond15.preheader.i, %if.end.sink.split.i
-  %80 = load ptr, ptr %_M_finish.i.i36, align 16
-  %81 = load ptr, ptr %inputs_, align 8
-  %cmp101115.not = icmp eq ptr %80, %81
+  %82 = load ptr, ptr %_M_finish.i.i36, align 16
+  %83 = load ptr, ptr %inputs_, align 8
+  %cmp101115.not = icmp eq ptr %82, %83
   br i1 %cmp101115.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN7rocksdb10autovectorINS_15LevelFilesBriefELm2EE6resizeEm.exit, %for.inc
-  %82 = phi ptr [ %87, %for.inc ], [ %81, %_ZN7rocksdb10autovectorINS_15LevelFilesBriefELm2EE6resizeEm.exit ]
+  %84 = phi ptr [ %89, %for.inc ], [ %83, %_ZN7rocksdb10autovectorINS_15LevelFilesBriefELm2EE6resizeEm.exit ]
   %which.0116 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN7rocksdb10autovectorINS_15LevelFilesBriefELm2EE6resizeEm.exit ]
   %cmp.i88 = icmp ult i64 %which.0116, 2
-  %83 = load ptr, ptr %values_.i, align 8
-  %arrayidx.i90 = getelementptr inbounds %"struct.rocksdb::LevelFilesBrief", ptr %83, i64 %which.0116
-  %84 = load ptr, ptr %vect_.i, align 16
-  %85 = getelementptr %"struct.rocksdb::LevelFilesBrief", ptr %84, i64 %which.0116
-  %add.ptr.i.i92 = getelementptr i8, ptr %85, i64 -32
+  %85 = load ptr, ptr %values_.i, align 8
+  %arrayidx.i90 = getelementptr inbounds %"struct.rocksdb::LevelFilesBrief", ptr %85, i64 %which.0116
+  %86 = load ptr, ptr %vect_.i, align 16
+  %87 = getelementptr %"struct.rocksdb::LevelFilesBrief", ptr %86, i64 %which.0116
+  %add.ptr.i.i92 = getelementptr i8, ptr %87, i64 -32
   %retval.0.i93 = select i1 %cmp.i88, ptr %arrayidx.i90, ptr %add.ptr.i.i92
-  %files = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %82, i64 %which.0116, i32 1
+  %files = getelementptr inbounds %"struct.rocksdb::CompactionInputFiles", ptr %84, i64 %which.0116, i32 1
   invoke void @_ZN7rocksdb25DoGenerateLevelFilesBriefEPNS_15LevelFilesBriefERKSt6vectorIPNS_12FileMetaDataESaIS4_EEPNS_5ArenaE(ptr noundef nonnull %retval.0.i93, ptr noundef nonnull align 8 dereferenceable(24) %files, ptr noundef nonnull %arena_)
           to label %for.inc unwind label %lpad72.loopexit
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw i64 %which.0116, 1
-  %86 = load ptr, ptr %_M_finish.i.i36, align 16
-  %87 = load ptr, ptr %inputs_, align 8
-  %sub.ptr.lhs.cast.i.i84 = ptrtoint ptr %86 to i64
-  %sub.ptr.rhs.cast.i.i85 = ptrtoint ptr %87 to i64
+  %88 = load ptr, ptr %_M_finish.i.i36, align 16
+  %89 = load ptr, ptr %inputs_, align 8
+  %sub.ptr.lhs.cast.i.i84 = ptrtoint ptr %88 to i64
+  %sub.ptr.rhs.cast.i.i85 = ptrtoint ptr %89 to i64
   %sub.ptr.sub.i.i86 = sub i64 %sub.ptr.lhs.cast.i.i84, %sub.ptr.rhs.cast.i.i85
   %sub.ptr.div.i.i87 = sdiv exact i64 %sub.ptr.sub.i.i86, 56
   %cmp101 = icmp ult i64 %inc, %sub.ptr.div.i.i87
@@ -2781,21 +2783,21 @@ for.end:                                          ; preds = %for.inc, %_ZN7rocks
 invoke.cont112:                                   ; preds = %for.end
   %output_split_key_ = getelementptr inbounds i8, ptr %this, i64 4360
   store ptr null, ptr %output_split_key_, align 8
-  %88 = load i8, ptr %2, align 16
-  %cmp115 = icmp eq i8 %88, 0
+  %90 = load i8, ptr %2, align 16
+  %cmp115 = icmp eq i8 %90, 0
   %compaction_pri = getelementptr inbounds i8, ptr %this, i64 625
-  %89 = load i8, ptr %compaction_pri, align 1
-  %cmp119 = icmp eq i8 %89, 4
+  %91 = load i8, ptr %compaction_pri, align 1
+  %cmp119 = icmp eq i8 %91, 4
   %or.cond = select i1 %cmp115, i1 %cmp119, i1 false
   br i1 %or.cond, label %if.then120, label %if.end153
 
 if.then120:                                       ; preds = %invoke.cont112
-  %90 = load ptr, ptr %this, align 16
-  %compact_cursor_.i = getelementptr inbounds i8, ptr %90, i64 3952
-  %91 = load i32, ptr %output_level_, align 4
-  %conv125 = sext i32 %91 to i64
-  %92 = load ptr, ptr %compact_cursor_.i, align 8
-  %add.ptr.i95 = getelementptr inbounds %"class.rocksdb::InternalKey", ptr %92, i64 %conv125
+  %92 = load ptr, ptr %this, align 16
+  %compact_cursor_.i = getelementptr inbounds i8, ptr %92, i64 3952
+  %93 = load i32, ptr %output_level_, align 4
+  %conv125 = sext i32 %93 to i64
+  %94 = load ptr, ptr %compact_cursor_.i, align 8
+  %add.ptr.i95 = getelementptr inbounds %"class.rocksdb::InternalKey", ptr %94, i64 %conv125
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i95) #27
   %cmp129.not = icmp eq i64 %call.i, 0
   br i1 %cmp129.not, label %if.end153, label %invoke.cont138
@@ -2805,15 +2807,15 @@ invoke.cont138:                                   ; preds = %if.then120
   %call2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i95) #27
   %sub.i97 = add i64 %call2.i.i, -8
   store ptr %call.i.i, ptr %ref.tmp, align 8
-  %93 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 %sub.i97, ptr %93, align 8
-  %94 = load ptr, ptr %vstorage, align 16
-  %user_comparator_.i = getelementptr inbounds i8, ptr %94, i64 8
-  %95 = load ptr, ptr %user_comparator_.i, align 8
-  %vtable.i = load ptr, ptr %95, align 8
+  %95 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 %sub.i97, ptr %95, align 8
+  %96 = load ptr, ptr %vstorage, align 16
+  %user_comparator_.i = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = load ptr, ptr %user_comparator_.i, align 8
+  %vtable.i = load ptr, ptr %97, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 208
-  %96 = load ptr, ptr %vfn.i, align 8
-  %call.i100101 = invoke noundef i32 %96(ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %smallest_user_key_, i1 noundef zeroext true)
+  %98 = load ptr, ptr %vfn.i, align 8
+  %call.i100101 = invoke noundef i32 %98(ptr noundef nonnull align 8 dereferenceable(48) %97, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %smallest_user_key_, i1 noundef zeroext true)
           to label %invoke.cont141 unwind label %lpad72.loopexit.split-lp
 
 invoke.cont141:                                   ; preds = %invoke.cont138
@@ -2821,10 +2823,10 @@ invoke.cont141:                                   ; preds = %invoke.cont138
   br i1 %cmp143, label %land.lhs.true144, label %if.end153
 
 land.lhs.true144:                                 ; preds = %invoke.cont141
-  %vtable.i102 = load ptr, ptr %95, align 8
+  %vtable.i102 = load ptr, ptr %97, align 8
   %vfn.i103 = getelementptr inbounds i8, ptr %vtable.i102, i64 208
-  %97 = load ptr, ptr %vfn.i103, align 8
-  %call.i104105 = invoke noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %largest_user_key_, i1 noundef zeroext true)
+  %99 = load ptr, ptr %vfn.i103, align 8
+  %call.i104105 = invoke noundef i32 %99(ptr noundef nonnull align 8 dereferenceable(48) %97, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %largest_user_key_, i1 noundef zeroext true)
           to label %invoke.cont146 unwind label %lpad72.loopexit.split-lp
 
 invoke.cont146:                                   ; preds = %land.lhs.true144
@@ -2843,13 +2845,13 @@ invoke.cont154:                                   ; preds = %if.end153
   ret void
 
 ehcleanup158:                                     ; preds = %lpad72, %lpad20
-  %.pn.pn = phi { ptr, i32 } [ %lpad.phi, %lpad72 ], [ %61, %lpad20 ]
-  %98 = load ptr, ptr %grandparents_, align 8
-  %tobool.not.i.i.i108 = icmp eq ptr %98, null
+  %.pn.pn = phi { ptr, i32 } [ %lpad.phi, %lpad72 ], [ %63, %lpad20 ]
+  %100 = load ptr, ptr %grandparents_, align 8
+  %tobool.not.i.i.i108 = icmp eq ptr %100, null
   br i1 %tobool.not.i.i.i108, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit, label %if.then.i.i.i109
 
 if.then.i.i.i109:                                 ; preds = %ehcleanup158
-  call void @_ZdlPv(ptr noundef nonnull %98) #26
+  call void @_ZdlPv(ptr noundef nonnull %100) #26
   br label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit: ; preds = %ehcleanup158, %if.then.i.i.i109
@@ -2858,19 +2860,19 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit: ; preds = %ehcleanup158
 
 ehcleanup161:                                     ; preds = %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit, %lpad13
   %inputs_.sink = phi ptr [ %inputs_, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit ], [ %agg.tmp, %lpad13 ]
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit ], [ %60, %lpad13 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit ], [ %62, %lpad13 ]
   call void @_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %inputs_.sink) #27
   call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_) #27
   br label %ehcleanup162
 
 ehcleanup162:                                     ; preds = %ehcleanup161, %lpad6
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup161 ], [ %59, %lpad6 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup161 ], [ %61, %lpad6 ]
   call void @_ZN7rocksdb11VersionEditD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %edit_) #27
   call void @_ZN7rocksdb16MutableCFOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options_) #27
   br label %ehcleanup164
 
 ehcleanup164:                                     ; preds = %ehcleanup162, %lpad
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup162 ], [ %58, %lpad ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup162 ], [ %60, %lpad ]
   call void @_ZN7rocksdb18ImmutableCFOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(281) %2) #27
   call void @_ZN7rocksdb18ImmutableDBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(569) %immutable_options_) #27
   br label %common.resume
@@ -5640,7 +5642,7 @@ return:                                           ; preds = %_ZN7rocksdb12_GLOBA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK7rocksdb10Compaction27OutputFilePreallocationSizeEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(4788) %this) local_unnamed_addr #4 align 2 {
+define noundef range(i64 0, 1073741825) i64 @_ZNK7rocksdb10Compaction27OutputFilePreallocationSizeEv(ptr nocapture noundef nonnull readonly align 16 dereferenceable(4788) %this) local_unnamed_addr #4 align 2 {
 entry:
   %inputs_ = getelementptr inbounds i8, ptr %this, i64 4376
   %0 = load ptr, ptr %inputs_, align 8

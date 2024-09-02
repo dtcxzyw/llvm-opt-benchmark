@@ -9,35 +9,35 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ut_valid_nameseg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   br label %4
 
-.thread:                                          ; preds = %4, %10
+.critedge:                                        ; preds = %10, %4
   %2 = add nuw nsw i64 %5, 1
   %3 = icmp eq i64 %2, 4
-  br i1 %3, label %.thread.thread, label %4, !llvm.loop !5
+  br i1 %3, label %.critedge.thread, label %4, !llvm.loop !5
 
-4:                                                ; preds = %.thread, %1
-  %5 = phi i64 [ 0, %1 ], [ %2, %.thread ]
+4:                                                ; preds = %.critedge, %1
+  %5 = phi i64 [ 0, %1 ], [ %2, %.critedge ]
   %6 = getelementptr i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = add i8 %7, -65
   %9 = icmp ult i8 %8, 26
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %4
   %11 = add i8 %7, -48
   %12 = icmp ult i8 %11, 10
   %13 = icmp eq i8 %7, 95
   %14 = or i1 %13, %12
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %10
   %16 = icmp eq i8 %7, 33
   %17 = icmp eq i64 %5, 3
   %.not3.not = and i1 %17, %16
   %spec.select = zext i1 %.not3.not to i8
-  br label %.thread.thread
+  br label %.critedge.thread
 
-.thread.thread:                                   ; preds = %.thread, %15
-  %18 = phi i8 [ %spec.select, %15 ], [ 1, %.thread ]
+.critedge.thread:                                 ; preds = %.critedge, %15
+  %18 = phi i8 [ %spec.select, %15 ], [ 1, %.critedge ]
   ret i8 %18
 }
 

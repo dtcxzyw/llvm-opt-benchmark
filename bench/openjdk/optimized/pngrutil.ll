@@ -4624,7 +4624,7 @@ define hidden void @png_read_IDAT_data(ptr noalias noundef %0, ptr noundef %1, i
   %.1 = phi i64 [ %spec.select, %3 ], [ %.3, %114 ]
   %25 = load i32, ptr %10, align 8
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.preheader.preheader, label %81
+  br i1 %26, label %.preheader.preheader, label %82
 
 .preheader.preheader:                             ; preds = %24
   %.pre = load i32, ptr %11, align 8
@@ -4759,19 +4759,20 @@ png_crc_read.exit:                                ; preds = %71, %77
   store i32 %80, ptr %11, align 8
   store ptr %.1.i, ptr %6, align 8
   store i32 %spec.select73, ptr %10, align 8
-  br label %81
+  %81 = icmp eq i32 %68, 0
+  br label %82
 
-81:                                               ; preds = %png_crc_read.exit, %24
-  %82 = phi i32 [ %spec.select73, %png_crc_read.exit ], [ %25, %24 ]
+82:                                               ; preds = %png_crc_read.exit, %24
+  %.not7.i = phi i1 [ %81, %png_crc_read.exit ], [ false, %24 ]
   br i1 %9, label %85, label %83
 
-83:                                               ; preds = %81
+83:                                               ; preds = %82
   %spec.select7476 = call i64 @llvm.umin.i64(i64 %.1, i64 4294967295)
   %spec.select74 = trunc nuw i64 %spec.select7476 to i32
   %84 = sub i64 %.1, %spec.select7476
   br label %86
 
-85:                                               ; preds = %81
+85:                                               ; preds = %82
   store ptr %5, ptr %7, align 8
   br label %86
 
@@ -4782,9 +4783,8 @@ png_crc_read.exit:                                ; preds = %71, %77
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %87 = load i8, ptr %22, align 1, !alias.scope !75
   %.not.i75 = icmp eq i8 %87, 0
-  %.not7.i = icmp eq i32 %82, 0
-  %or.cond = select i1 %.not.i75, i1 true, i1 %.not7.i
-  br i1 %or.cond, label %94, label %88
+  %brmerge = select i1 %.not.i75, i1 true, i1 %.not7.i
+  br i1 %brmerge, label %94, label %88
 
 88:                                               ; preds = %86
   %89 = load ptr, ptr %6, align 8, !alias.scope !75
@@ -4800,7 +4800,7 @@ png_crc_read.exit:                                ; preds = %71, %77
   store i8 0, ptr %22, align 1, !alias.scope !75
   br label %94
 
-94:                                               ; preds = %93, %86
+94:                                               ; preds = %86, %93
   %95 = call i32 @inflate(ptr noundef nonnull %6, i32 noundef 0) #12
   br label %png_zlib_inflate.exit
 

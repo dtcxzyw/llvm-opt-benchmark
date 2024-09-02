@@ -263,7 +263,7 @@ define void @Cmd_HistoryWrite(ptr nocapture noundef readonly %0, i32 noundef %1)
   %9 = getelementptr i8, ptr %8, i64 4
   %.val12 = load i32, ptr %9, align 4
   %10 = sub nsw i32 %.val12, %1
-  %11 = tail call noundef i32 @llvm.smax.i32(i32 %10, i32 0)
+  %11 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %10, i32 0)
   %12 = icmp slt i32 %11, %.val12
   br i1 %12, label %.lr.ph.preheader, label %.critedge
 
@@ -525,7 +525,7 @@ define void @Cmd_HistoryPrint(ptr nocapture noundef readonly %0, i32 noundef %1)
   %5 = getelementptr i8, ptr %4, i64 4
   %.val10 = load i32, ptr %5, align 4
   %6 = sub nsw i32 %.val10, %1
-  %7 = tail call noundef i32 @llvm.smax.i32(i32 %6, i32 0)
+  %7 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %6, i32 0)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr i8, ptr %8, i64 4

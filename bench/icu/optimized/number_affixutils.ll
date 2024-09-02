@@ -277,7 +277,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i8 @_ZN6icu_756number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE(i32 noundef %type) local_unnamed_addr #7 align 2 {
+define range(i8 39, 46) i8 @_ZN6icu_756number4impl10AffixUtils15getFieldForTypeENS1_16AffixPatternTypeE(i32 noundef %type) local_unnamed_addr #7 align 2 {
 entry:
   %switch.tableidx = add i32 %type, 15
   %0 = icmp ugt i32 %type, -16

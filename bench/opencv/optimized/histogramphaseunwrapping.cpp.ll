@@ -2058,14 +2058,17 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc148, %_ZNSt6v
   %36 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 12
   %37 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i.i = icmp eq ptr %36, %26
-  br i1 %.not.i.i.i.i.i.i.i, label %.loopexit184, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i.i.i, label %.loopexit184.loopexit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !10
 
-.loopexit184:                                     ; preds = %.lr.ph.i.i.i.i.i.i.i, %21
-  %.sroa.0.0.i = phi ptr [ null, %21 ], [ %35, %.lr.ph.i.i.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %21 ], [ %37, %.lr.ph.i.i.i.i.i.i.i ]
-  %38 = ptrtoint ptr %.0.lcssa.i.i.i.i.i.i.i to i64
+.loopexit184.loopexit:                            ; preds = %.lr.ph.i.i.i.i.i.i.i
+  %38 = ptrtoint ptr %37 to i64
+  br label %.loopexit184
+
+.loopexit184:                                     ; preds = %.loopexit184.loopexit, %21
+  %.sroa.0.0.i = phi ptr [ null, %21 ], [ %35, %.loopexit184.loopexit ]
+  %.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %21 ], [ %38, %.loopexit184.loopexit ]
   %39 = ptrtoint ptr %.sroa.0.0.i to i64
-  %40 = sub i64 %38, %39
+  %40 = sub i64 %.0.lcssa.i.i.i.i.i.i.i, %39
   %41 = sdiv exact i64 %40, 12
   %42 = trunc i64 %41 to i32
   %43 = icmp sgt i32 %42, 0

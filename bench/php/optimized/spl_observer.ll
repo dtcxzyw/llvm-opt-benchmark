@@ -3150,8 +3150,8 @@ define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 n
   %19 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %0, ptr noundef nonnull %19) #10
   %20 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %0, ptr noundef nonnull %19) #10
-  %.not113 = icmp eq ptr %20, null
-  br i1 %.not113, label %.thread, label %.lr.ph
+  %.not112 = icmp eq ptr %20, null
+  br i1 %.not112, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %21 = getelementptr inbounds i8, ptr %5, i64 8
@@ -3178,12 +3178,12 @@ define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 n
   call void @zend_call_known_function(ptr noundef %35, ptr noundef %29, ptr noundef %31, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %36 = load i8, ptr %21, align 8
   %37 = icmp eq i8 %36, 0
-  br i1 %37, label %.thread109, label %38
+  br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %28
-  %.not112 = icmp eq i8 %36, 3
+  %.not111 = icmp eq i8 %36, 3
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #10
-  br i1 %.not112, label %39, label %.thread109
+  br i1 %.not111, label %39, label %.critedge
 
 39:                                               ; preds = %38
   %40 = load ptr, ptr %30, align 8
@@ -3205,13 +3205,13 @@ define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 n
   %49 = call ptr @zend_throw_exception(ptr noundef %48, ptr noundef nonnull @.str.23, i64 noundef 0) #10
   br label %.thread
 
-.thread109:                                       ; preds = %28, %38
+.critedge:                                        ; preds = %28, %38
   %50 = load i64, ptr %23, align 8
   %51 = and i64 %50, 1
   %.not104 = icmp eq i64 %51, 0
   br i1 %.not104, label %58, label %52
 
-52:                                               ; preds = %.thread109
+52:                                               ; preds = %.critedge
   %53 = load ptr, ptr @spl_ce_RuntimeException, align 8
   br i1 %22, label %54, label %56
 
@@ -3223,7 +3223,7 @@ define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 n
   %57 = call ptr @zend_throw_exception(ptr noundef %53, ptr noundef nonnull @.str.25, i64 noundef 0) #10
   br label %.thread
 
-58:                                               ; preds = %.thread109
+58:                                               ; preds = %.critedge
   store i32 1, ptr %21, align 8
   br label %59
 
@@ -3256,7 +3256,7 @@ define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 n
   %75 = load i64, ptr %74, align 8
   %76 = load i8, ptr %73, align 1
   %77 = icmp sgt i8 %76, 57
-  br i1 %77, label %.critedge, label %78
+  br i1 %77, label %.critedge108, label %78
 
 78:                                               ; preds = %70
   %79 = icmp slt i8 %76, 48
@@ -3264,25 +3264,25 @@ define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 n
 
 80:                                               ; preds = %78
   %.not106 = icmp eq i8 %76, 45
-  br i1 %.not106, label %81, label %.critedge
+  br i1 %.not106, label %81, label %.critedge108
 
 81:                                               ; preds = %80
   %82 = getelementptr inbounds i8, ptr %72, i64 25
   %83 = load i8, ptr %82, align 1
   %84 = add i8 %83, -58
   %or.cond = icmp ult i8 %84, -10
-  br i1 %or.cond, label %.critedge, label %85
+  br i1 %or.cond, label %.critedge108, label %85
 
 85:                                               ; preds = %81, %78
   %86 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %73, i64 noundef %75, ptr noundef nonnull %4) #10
-  br i1 %86, label %87, label %.critedge
+  br i1 %86, label %87, label %.critedge108
 
 87:                                               ; preds = %85
   %88 = load i64, ptr %4, align 8
   %89 = call ptr @zend_hash_index_update(ptr noundef %71, i64 noundef %88, ptr noundef nonnull %5) #10
   br label %97
 
-.critedge:                                        ; preds = %70, %80, %81, %85
+.critedge108:                                     ; preds = %70, %80, %81, %85
   %90 = call ptr @zend_hash_update(ptr noundef %71, ptr noundef nonnull %72, ptr noundef nonnull %5) #10
   br label %97
 
@@ -3297,7 +3297,7 @@ define internal fastcc void @spl_multiple_iterator_get_all(ptr noundef %0, i32 n
   %96 = call ptr @zend_hash_next_index_insert(ptr noundef %95, ptr noundef nonnull %5) #10
   br label %97
 
-97:                                               ; preds = %66, %.critedge, %87, %94
+97:                                               ; preds = %66, %.critedge108, %87, %94
   %98 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %0, ptr noundef nonnull %19) #10
   %99 = call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %0, ptr noundef nonnull %19) #10
   %.not = icmp eq ptr %99, null

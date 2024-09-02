@@ -517,7 +517,7 @@ guc_mmio_reg_add.exit:                            ; preds = %.lr.ph, %.preheader
   br label %149
 
 149:                                              ; preds = %guc_mmio_reg_add.exit14, %.loopexit
-  %150 = phi ptr [ %.pre32, %.loopexit ], [ %206, %guc_mmio_reg_add.exit14 ]
+  %150 = phi ptr [ %.pre32, %.loopexit ], [ %207, %guc_mmio_reg_add.exit14 ]
   %151 = phi i32 [ 0, %.loopexit ], [ %210, %guc_mmio_reg_add.exit14 ]
   %152 = phi i32 [ %147, %.loopexit ], [ %209, %guc_mmio_reg_add.exit14 ]
   %153 = shl nuw nsw i32 %151, 2
@@ -604,33 +604,33 @@ guc_mmio_reg_add.exit:                            ; preds = %.lr.ph, %.preheader
   %195 = phi ptr [ %183, %._crit_edge37 ], [ %150, %176 ], [ %150, %178 ]
   %196 = phi ptr [ %186, %._crit_edge37 ], [ inttoptr (i64 -12 to ptr), %176 ], [ inttoptr (i64 -12 to ptr), %178 ]
   %197 = ptrtoint ptr %196 to i64
+  %198 = trunc i64 %197 to i32
   br label %guc_mmio_reg_add.exit14
 
 .preheader.i12:                                   ; preds = %.lr.ph53
-  %198 = getelementptr i8, ptr %202, i64 -16
-  %199 = load i32, ptr %202, align 1
-  %200 = load i32, ptr %198, align 1
-  %201 = icmp ugt i32 %199, %200
-  br i1 %201, label %guc_mmio_reg_add.exit14, label %.lr.ph53, !llvm.loop !22
+  %199 = getelementptr i8, ptr %203, i64 -16
+  %200 = load i32, ptr %203, align 1
+  %201 = load i32, ptr %199, align 1
+  %202 = icmp ugt i32 %200, %201
+  br i1 %202, label %guc_mmio_reg_add.exit14, label %.lr.ph53, !llvm.loop !22
 
 .lr.ph53:                                         ; preds = %.preheader.i12.preheader, %.preheader.i12
-  %202 = phi ptr [ %198, %.preheader.i12 ], [ %191, %.preheader.i12.preheader ]
-  %203 = phi ptr [ %202, %.preheader.i12 ], [ %186, %.preheader.i12.preheader ]
+  %203 = phi ptr [ %199, %.preheader.i12 ], [ %191, %.preheader.i12.preheader ]
+  %204 = phi ptr [ %203, %.preheader.i12 ], [ %186, %.preheader.i12.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %203, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %203, ptr noundef align 1 dereferenceable(16) %202, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %202, ptr noundef nonnull align 1 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %204, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %204, ptr noundef align 1 dereferenceable(16) %203, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %203, ptr noundef nonnull align 1 dereferenceable(16) %7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %204 = load ptr, ptr %12, align 8
-  %205 = icmp ugt ptr %202, %204
-  br i1 %205, label %.preheader.i12, label %guc_mmio_reg_add.exit14, !llvm.loop !22
+  %205 = load ptr, ptr %12, align 8
+  %206 = icmp ugt ptr %203, %205
+  br i1 %206, label %.preheader.i12, label %guc_mmio_reg_add.exit14, !llvm.loop !22
 
 guc_mmio_reg_add.exit14:                          ; preds = %.lr.ph53, %.preheader.i12, %.preheader.i12.preheader, %149, %188, %.thread4.i13
-  %206 = phi ptr [ %195, %.thread4.i13 ], [ %150, %149 ], [ %189, %188 ], [ %189, %.preheader.i12.preheader ], [ %204, %.preheader.i12 ], [ %204, %.lr.ph53 ]
-  %207 = phi i64 [ %197, %.thread4.i13 ], [ 0, %149 ], [ 0, %188 ], [ 0, %.preheader.i12.preheader ], [ 0, %.preheader.i12 ], [ 0, %.lr.ph53 ]
+  %207 = phi ptr [ %195, %.thread4.i13 ], [ %150, %149 ], [ %189, %188 ], [ %189, %.preheader.i12.preheader ], [ %205, %.preheader.i12 ], [ %205, %.lr.ph53 ]
+  %208 = phi i32 [ %198, %.thread4.i13 ], [ 0, %149 ], [ 0, %188 ], [ 0, %.preheader.i12.preheader ], [ 0, %.preheader.i12 ], [ 0, %.lr.ph53 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
-  %208 = trunc i64 %207 to i32
-  %209 = or i32 %152, %208
+  %209 = or i32 %208, %152
   %210 = add nuw nsw i32 %151, 1
   %211 = icmp eq i32 %210, 12
   br i1 %211, label %.preheader, label %149, !llvm.loop !26

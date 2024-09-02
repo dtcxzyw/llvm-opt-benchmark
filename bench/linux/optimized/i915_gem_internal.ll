@@ -97,7 +97,7 @@ define dso_local ptr @i915_gem_object_create_internal(ptr noundef %0, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @i915_gem_object_get_pages_internal(ptr noundef %0) #0 align 16 {
+define internal range(i32 -12, 1) i32 @i915_gem_object_get_pages_internal(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load i64, ptr %2, align 8
   %4 = icmp ugt i64 %3, 17592186044415

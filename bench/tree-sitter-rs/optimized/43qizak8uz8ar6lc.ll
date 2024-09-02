@@ -12677,7 +12677,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h03312a3bcefecbd5E(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #15 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h03312a3bcefecbd5E(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %0, align 4, !alias.scope !3520, !noalias !3523, !noundef !9
   %4 = load i32, ptr %2, align 4, !alias.scope !3520, !noalias !3523, !noundef !9

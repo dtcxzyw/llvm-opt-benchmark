@@ -17026,13 +17026,12 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 invoke.cont202.i:                                 ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i194.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i189.i, %invoke.cont200.i
   store ptr null, ptr %state_.i186.i, align 8, !noalias !76
   %175 = load i8, ptr %status, align 8, !alias.scope !76
-  %cmp.i196.i = icmp eq i8 %175, 0
-  %..i = select i1 %cmp.i196.i, i32 0, i32 2
+  %cmp.i196.i = icmp ne i8 %175, 0
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %invoke.cont202.i, %if.then180.i
   %counter.2.i = phi i32 [ %counter.0.i, %if.then180.i ], [ %inc.i, %invoke.cont202.i ]
-  %cleanup.dest.slot.0.i = phi i32 [ 4, %if.then180.i ], [ %..i, %invoke.cont202.i ]
+  %cleanup.dest.slot.0.i = phi i1 [ false, %if.then180.i ], [ %cmp.i196.i, %invoke.cont202.i ]
   %176 = load ptr, ptr %state_.i167.i, align 8, !noalias !76
   %cmp.not.i.i198.i = icmp eq ptr %176, null
   br i1 %cmp.not.i.i198.i, label %_ZN7rocksdb6StatusD2Ev.exit200.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i199.i
@@ -17043,8 +17042,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit200.i:                 ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i199.i, %cleanup.i
   store ptr null, ptr %state_.i167.i, align 8, !noalias !76
-  %switch.i = icmp eq i32 %cleanup.dest.slot.0.i, 2
-  br i1 %switch.i, label %invoke.cont209.i, label %for.inc.i
+  br i1 %cleanup.dest.slot.0.i, label %invoke.cont209.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit200.i
   %vtable206.i = load ptr, ptr %call161.i, align 8

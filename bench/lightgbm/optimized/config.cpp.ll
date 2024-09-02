@@ -11670,11 +11670,11 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 130:                                              ; preds = %125
   %bcmp.i169 = call i32 @bcmp(ptr %126, ptr %127, i64 %128)
   %131 = icmp eq i32 %bcmp.i169, 0
+  %132 = select i1 %131, i1 %86, i1 false
   br label %.critedge130.thread
 
 .critedge130.thread:                              ; preds = %130, %125, %121
-  %132 = phi i1 [ false, %121 ], [ %131, %130 ], [ true, %125 ]
-  %133 = select i1 %132, i1 %86, i1 false
+  %133 = phi i1 [ false, %121 ], [ %132, %130 ], [ %86, %125 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #23
   br label %.critedge132.thread

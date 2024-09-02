@@ -71,7 +71,7 @@ define dso_local noundef range(i32 -1, 1) i32 @early_dbgp_init(ptr noundef %0) l
   %22 = trunc i32 %21 to i8
   %23 = load i32, ptr %4, align 4
   %24 = trunc i32 %23 to i8
-  %25 = trunc i32 %16 to i8
+  %25 = trunc nuw i32 %16 to i8
   %26 = call i32 @read_pci_config(i8 noundef zeroext %20, i8 noundef zeroext %22, i8 noundef zeroext %24, i8 noundef zeroext %25) #7
   %27 = lshr i32 %26, 16
   %28 = and i32 %27, 4095
@@ -146,7 +146,7 @@ declare dso_local i32 @early_pci_allowed() local_unnamed_addr #2
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @find_dbgp(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 253) i32 @find_dbgp(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 section ".init.text" align 16 {
   br label %5
 
 5:                                                ; preds = %26, %4
@@ -372,7 +372,7 @@ define internal void @early_dbgp_write(ptr nocapture readnone %0, ptr nocapture 
   %6 = icmp eq ptr %5, null
   %7 = load i1, ptr @dbgp_not_safe, align 4
   %8 = select i1 %6, i1 true, i1 %7
-  br i1 %8, label %120, label %9
+  br i1 %8, label %119, label %9
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr @ehci_regs, align 8
@@ -411,142 +411,141 @@ define internal void @early_dbgp_write(ptr nocapture readnone %0, ptr nocapture 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.preheader
   %27 = phi i64 [ 0, %.preheader.preheader ], [ %.be, %.preheader.backedge ]
   %28 = phi i32 [ 0, %.preheader.preheader ], [ %41, %.preheader.backedge ]
-  %29 = phi i32 [ %2, %.preheader.preheader ], [ %44, %.preheader.backedge ]
+  %29 = phi i32 [ %2, %.preheader.preheader ], [ %40, %.preheader.backedge ]
   %30 = phi ptr [ %1, %.preheader.preheader ], [ %42, %.preheader.backedge ]
   %31 = icmp eq i32 %28, 0
   %.pre = load i8, ptr %30, align 1
   %32 = icmp eq i8 %.pre, 10
   %or.cond = select i1 %31, i1 %32, i1 false
   %33 = getelementptr [8 x i8], ptr %4, i64 0, i64 %27
-  br i1 %or.cond, label %34, label %37
+  br i1 %or.cond, label %34, label %36
 
 34:                                               ; preds = %.preheader
   store i8 13, ptr %33, align 1
   %35 = getelementptr i8, ptr %30, i64 -1
-  %36 = add i32 %29, 1
   br label %38
 
-37:                                               ; preds = %.preheader
+36:                                               ; preds = %.preheader
   store i8 %.pre, ptr %33, align 1
+  %37 = add i32 %29, -1
   br label %38
 
-38:                                               ; preds = %37, %34
-  %39 = phi ptr [ %30, %37 ], [ %35, %34 ]
-  %40 = phi i32 [ %29, %37 ], [ %36, %34 ]
-  %41 = phi i32 [ 0, %37 ], [ 1, %34 ]
+38:                                               ; preds = %36, %34
+  %39 = phi ptr [ %30, %36 ], [ %35, %34 ]
+  %40 = phi i32 [ %37, %36 ], [ %29, %34 ]
+  %41 = phi i32 [ 0, %36 ], [ 1, %34 ]
   %42 = getelementptr i8, ptr %39, i64 1
   %43 = add nuw nsw i64 %27, 1
-  %44 = add i32 %40, -1
-  %45 = icmp ult i64 %27, 7
-  %46 = icmp ne i32 %44, 0
-  %47 = select i1 %45, i1 %46, i1 false
-  br i1 %47, label %.preheader.backedge, label %48
+  %44 = icmp ult i64 %27, 7
+  %45 = icmp ne i32 %40, 0
+  %46 = select i1 %44, i1 %45, i1 false
+  br i1 %46, label %.preheader.backedge, label %47
 
-48:                                               ; preds = %38
-  %49 = trunc i64 %27 to i32
-  %50 = icmp ugt i32 %49, 7
-  br i1 %50, label %113, label %51
+47:                                               ; preds = %38
+  %48 = trunc i64 %27 to i32
+  %49 = icmp ugt i32 %48, 7
+  br i1 %49, label %112, label %50
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr @dbgp_endpoint_out, align 4
-  %53 = load ptr, ptr @ehci_debug, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
-  %55 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54) #7, !srcloc !6
-  %56 = load i32, ptr @dbgp_pid_write_update.data0, align 4
-  %57 = xor i32 %56, 136
-  store i32 %57, ptr @dbgp_pid_write_update.data0, align 4
-  %58 = and i32 %55, -65536
-  %59 = load ptr, ptr @ehci_debug, align 8
-  %60 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %59) #7, !srcloc !6
-  %61 = tail call i32 @llvm.umin.i32(i32 %49, i32 3)
-  %62 = add nuw nsw i32 %61, 1
-  %63 = zext nneg i32 %62 to i64
-  br label %76
+50:                                               ; preds = %47
+  %51 = load i32, ptr @dbgp_endpoint_out, align 4
+  %52 = load ptr, ptr @ehci_debug, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %54 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53) #7, !srcloc !6
+  %55 = load i32, ptr @dbgp_pid_write_update.data0, align 4
+  %56 = xor i32 %55, 136
+  store i32 %56, ptr @dbgp_pid_write_update.data0, align 4
+  %57 = and i32 %54, -65536
+  %58 = load ptr, ptr @ehci_debug, align 8
+  %59 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %58) #7, !srcloc !6
+  %60 = tail call i32 @llvm.umin.i32(i32 %48, i32 3)
+  %61 = add nuw nsw i32 %60, 1
+  %62 = zext nneg i32 %61 to i64
+  br label %75
 
-64:                                               ; preds = %76
-  %65 = trunc i64 %43 to i32
-  %66 = shl nuw nsw i32 %57, 8
-  %67 = and i32 %60, -64
-  %68 = or i32 %52, 32512
-  %69 = or i32 %58, %66
-  %70 = or disjoint i32 %69, 225
-  %71 = or disjoint i32 %67, %65
-  %72 = or disjoint i32 %71, 48
-  %73 = icmp ugt i32 %49, 3
-  br i1 %73, label %74, label %.loopexit
+63:                                               ; preds = %75
+  %64 = trunc i64 %43 to i32
+  %65 = shl nuw nsw i32 %56, 8
+  %66 = and i32 %59, -64
+  %67 = or i32 %51, 32512
+  %68 = or i32 %57, %65
+  %69 = or disjoint i32 %68, 225
+  %70 = or disjoint i32 %66, %64
+  %71 = or disjoint i32 %70, 48
+  %72 = icmp ugt i32 %48, 3
+  br i1 %72, label %73, label %.loopexit
 
-74:                                               ; preds = %64
-  %75 = and i64 %43, 15
-  br label %88
+73:                                               ; preds = %63
+  %74 = and i64 %43, 15
+  br label %87
 
-76:                                               ; preds = %76, %51
-  %77 = phi i64 [ 0, %51 ], [ %86, %76 ]
-  %78 = phi i32 [ 0, %51 ], [ %85, %76 ]
-  %79 = getelementptr i8, ptr %4, i64 %77
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i32
-  %82 = trunc i64 %77 to i32
-  %83 = shl i32 %82, 3
-  %84 = shl nuw i32 %81, %83
-  %85 = or i32 %84, %78
-  %86 = add nuw nsw i64 %77, 1
-  %87 = icmp eq i64 %86, %63
-  br i1 %87, label %64, label %76, !llvm.loop !18
+75:                                               ; preds = %75, %50
+  %76 = phi i64 [ 0, %50 ], [ %85, %75 ]
+  %77 = phi i32 [ 0, %50 ], [ %84, %75 ]
+  %78 = getelementptr i8, ptr %4, i64 %76
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = trunc i64 %76 to i32
+  %82 = shl i32 %81, 3
+  %83 = shl nuw i32 %80, %82
+  %84 = or i32 %83, %77
+  %85 = add nuw nsw i64 %76, 1
+  %86 = icmp eq i64 %85, %62
+  br i1 %86, label %63, label %75, !llvm.loop !18
 
-88:                                               ; preds = %88, %74
-  %89 = phi i64 [ %63, %74 ], [ %99, %88 ]
-  %90 = phi i32 [ 0, %74 ], [ %98, %88 ]
-  %91 = getelementptr i8, ptr %4, i64 %89
-  %92 = load i8, ptr %91, align 1
-  %93 = zext i8 %92 to i32
-  %94 = trunc i64 %89 to i32
-  %95 = shl i32 %94, 3
-  %96 = add i32 %95, -32
-  %97 = shl i32 %93, %96
-  %98 = or i32 %97, %90
-  %99 = add nuw nsw i64 %89, 1
-  %100 = icmp ult i64 %89, 7
-  %101 = icmp ult i64 %99, %75
-  %102 = and i1 %100, %101
-  br i1 %102, label %88, label %.loopexit, !llvm.loop !19
+87:                                               ; preds = %87, %73
+  %88 = phi i64 [ %62, %73 ], [ %98, %87 ]
+  %89 = phi i32 [ 0, %73 ], [ %97, %87 ]
+  %90 = getelementptr i8, ptr %4, i64 %88
+  %91 = load i8, ptr %90, align 1
+  %92 = zext i8 %91 to i32
+  %93 = trunc i64 %88 to i32
+  %94 = shl i32 %93, 3
+  %95 = add i32 %94, -32
+  %96 = shl i32 %92, %95
+  %97 = or i32 %96, %89
+  %98 = add nuw nsw i64 %88, 1
+  %99 = icmp ult i64 %88, 7
+  %100 = icmp ult i64 %98, %74
+  %101 = and i1 %99, %100
+  br i1 %101, label %87, label %.loopexit, !llvm.loop !19
 
-.loopexit:                                        ; preds = %88, %64
-  %103 = phi i32 [ 0, %64 ], [ %98, %88 ]
-  %104 = load ptr, ptr @ehci_debug, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %85, ptr elementtype(i32) %105) #7, !srcloc !15
-  %106 = load ptr, ptr @ehci_debug, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 12
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %103, ptr elementtype(i32) %107) #7, !srcloc !15
-  %108 = load ptr, ptr @ehci_debug, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 16
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %68, ptr elementtype(i32) %109) #7, !srcloc !15
-  %110 = load ptr, ptr @ehci_debug, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %70, ptr elementtype(i32) %111) #7, !srcloc !15
-  %112 = tail call fastcc i32 @dbgp_wait_until_done(i32 noundef %72)
-  br label %113
+.loopexit:                                        ; preds = %87, %63
+  %102 = phi i32 [ 0, %63 ], [ %97, %87 ]
+  %103 = load ptr, ptr @ehci_debug, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 8
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %84, ptr elementtype(i32) %104) #7, !srcloc !15
+  %105 = load ptr, ptr @ehci_debug, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 12
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %102, ptr elementtype(i32) %106) #7, !srcloc !15
+  %107 = load ptr, ptr @ehci_debug, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %67, ptr elementtype(i32) %108) #7, !srcloc !15
+  %109 = load ptr, ptr @ehci_debug, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %69, ptr elementtype(i32) %110) #7, !srcloc !15
+  %111 = tail call fastcc i32 @dbgp_wait_until_done(i32 noundef %71)
+  br label %112
 
-113:                                              ; preds = %.loopexit, %48
-  %114 = icmp eq i32 %44, 0
-  br i1 %114, label %.loopexit3, label %.preheader.backedge
+112:                                              ; preds = %.loopexit, %47
+  %113 = icmp eq i32 %40, 0
+  br i1 %113, label %.loopexit3, label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %113, %38
-  %.be = phi i64 [ %43, %38 ], [ 0, %113 ]
+.preheader.backedge:                              ; preds = %112, %38
+  %.be = phi i64 [ %43, %38 ], [ 0, %112 ]
   br label %.preheader, !llvm.loop !20
 
-.loopexit3:                                       ; preds = %113, %24
-  br i1 %25, label %120, label %115, !prof !21
+.loopexit3:                                       ; preds = %112, %24
+  br i1 %25, label %119, label %114, !prof !21
 
-115:                                              ; preds = %.loopexit3
-  %116 = load ptr, ptr @ehci_regs, align 8
-  %117 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %116) #7, !srcloc !6
-  %118 = and i32 %117, -2
-  %119 = load ptr, ptr @ehci_regs, align 8
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %118, ptr elementtype(i32) %119) #7, !srcloc !15
-  br label %120
+114:                                              ; preds = %.loopexit3
+  %115 = load ptr, ptr @ehci_regs, align 8
+  %116 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %115) #7, !srcloc !6
+  %117 = and i32 %116, -2
+  %118 = load ptr, ptr @ehci_regs, align 8
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %117, ptr elementtype(i32) %118) #7, !srcloc !15
+  br label %119
 
-120:                                              ; preds = %115, %.loopexit3, %3
+119:                                              ; preds = %114, %.loopexit3, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   ret void
 }
@@ -1007,7 +1006,7 @@ dbgp_control_msg.exit:                            ; preds = %243
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @__find_dbgp(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 253) i32 @__find_dbgp(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = trunc i32 %0 to i8
   %5 = trunc i32 %1 to i8
   %6 = trunc i32 %2 to i8
@@ -1026,7 +1025,7 @@ define internal fastcc noundef i32 @__find_dbgp(i32 noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef i32 @find_cap(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 253) i32 @find_cap(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = trunc i32 %0 to i8
   %5 = trunc i32 %1 to i8
   %6 = trunc i32 %2 to i8

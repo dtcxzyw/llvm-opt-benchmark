@@ -21404,14 +21404,14 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i117: ; preds = %2
 
 _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread: ; preds = %198, %191, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i117, %211
   %.not.i.i114139151.ph = phi i1 [ false, %191 ], [ %204, %211 ], [ %204, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i117 ], [ false, %198 ]
-  %cond.fr159193 = freeze i1 %.not.i.i114139151.ph
+  %cond.fr159192 = freeze i1 %.not.i.i114139151.ph
   br label %215
 
 _ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit: ; preds = %188, %_ZNK7QCPAxis6tickerEv.exit
   br i1 %.not.i.i111, label %.critedge98.thread, label %215
 
 215:                                              ; preds = %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit
-  %cond.fr159194 = phi i1 [ %cond.fr159193, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread ], [ false, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit ]
+  %cond.fr159193 = phi i1 [ %cond.fr159192, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit.thread ], [ false, %_ZN14QSharedPointerI21QCPAxisTickerDateTimeED2Ev.exit ]
   %216 = getelementptr inbounds i8, ptr %182, i64 4
   %217 = atomicrmw sub ptr %216, i32 1 seq_cst, align 4
   %.not5.i.i.i120 = icmp eq i32 %217, 1
@@ -21430,7 +21430,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i121: ; preds = %2
 
 222:                                              ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i121
   call void @_ZdlPv(ptr noundef nonnull %182) #27
-  br i1 %cond.fr159194, label %226, label %.critedge98.thread
+  br i1 %cond.fr159193, label %226, label %.critedge98.thread
 
 223:                                              ; preds = %218
   %224 = landingpad { ptr, i32 }
@@ -21440,7 +21440,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i121: ; preds = %2
   unreachable
 
 .critedge98:                                      ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i121
-  br i1 %cond.fr159194, label %226, label %.critedge98.thread
+  br i1 %cond.fr159193, label %226, label %.critedge98.thread
 
 226:                                              ; preds = %222, %.critedge98
   %.pn = load double, ptr %.pn.in, align 8

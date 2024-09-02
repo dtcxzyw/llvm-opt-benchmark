@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @m_table_common = internal unnamed_addr constant [13 x i32] [i32 -1, i32 0, i32 3, i32 3, i32 6, i32 1, i32 4, i32 6, i32 2, i32 5, i32 0, i32 3, i32 5], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i64 -395, 400) i64 @timelib_day_of_week(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i64 -6, 14) i64 @timelib_day_of_week(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = srem i64 %0, 400
   %5 = srem i64 %0, 100
   %6 = and i64 %0, 3
@@ -59,7 +59,7 @@ timelib_day_of_week_ex.exit:                      ; preds = %8, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i64 -395, 400) i64 @timelib_iso_day_of_week(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i64 -6, 14) i64 @timelib_iso_day_of_week(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = srem i64 %0, 400
   %5 = srem i64 %0, 100
   %6 = and i64 %0, 3

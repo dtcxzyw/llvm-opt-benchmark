@@ -1034,7 +1034,7 @@ Aig_ManObj.exit.thread:                           ; preds = %18, %13, %Aig_ManOb
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Llb_NonlinCompPerms(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define range(i32 0, -2147483648) i32 @Llb_NonlinCompPerms(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0

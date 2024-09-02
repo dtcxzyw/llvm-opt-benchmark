@@ -304,98 +304,101 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %.1 = phi i32 [ %.0213270, %118 ], [ %147, %146 ], [ %147, %148 ], [ %147, %158 ], [ %147, %154 ], [ %.0213270, %144 ], [ %.0213270, %141 ], [ %.0213270, %138 ]
   %165 = add nsw i32 %.1, 1
   %166 = icmp slt i32 %165, %164
-  br i1 %166, label %118, label %._crit_edge, !llvm.loop !6
+  br i1 %166, label %118, label %._crit_edge.loopexit, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %163, %113
-  %.0224.lcssa = phi i32 [ 3, %113 ], [ %.1225, %163 ]
-  %.0219.lcssa = phi i32 [ 100, %113 ], [ %.1220, %163 ]
-  %.0216.lcssa = phi i32 [ -1, %113 ], [ %.2218, %163 ]
-  %167 = icmp sgt i32 %.0226, 0
-  %or.cond284 = select i1 %.not256, i1 %167, i1 false
+._crit_edge.loopexit:                             ; preds = %163
+  %167 = mul nuw nsw i32 %.1220, 10
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %113
+  %.0224.lcssa = phi i32 [ 3, %113 ], [ %.1225, %._crit_edge.loopexit ]
+  %.0219.lcssa = phi i32 [ 1000, %113 ], [ %167, %._crit_edge.loopexit ]
+  %.0216.lcssa = phi i32 [ -1, %113 ], [ %.2218, %._crit_edge.loopexit ]
+  %168 = icmp sgt i32 %.0226, 0
+  %or.cond284 = select i1 %.not256, i1 %168, i1 false
   br i1 %or.cond284, label %.lr.ph274, label %.loopexit266
 
 .lr.ph274:                                        ; preds = %._crit_edge
-  %168 = getelementptr inbounds i8, ptr %87, i64 16
+  %169 = getelementptr inbounds i8, ptr %87, i64 16
   %wide.trip.count = zext nneg i32 %.0226 to i64
-  br label %169
+  br label %170
 
-169:                                              ; preds = %.lr.ph274, %169
-  %indvars.iv = phi i64 [ 0, %.lr.ph274 ], [ %indvars.iv.next, %169 ]
-  %170 = load ptr, ptr %168, align 8
-  %171 = getelementptr inbounds %struct.GifColorType, ptr %170, i64 %indvars.iv
-  %172 = load i8, ptr %171, align 1
-  %173 = zext i8 %172 to i32
-  %174 = shl nuw nsw i32 %173, 16
-  %175 = getelementptr inbounds i8, ptr %171, i64 1
-  %176 = load i8, ptr %175, align 1
-  %177 = zext i8 %176 to i32
-  %178 = shl nuw nsw i32 %177, 8
-  %179 = getelementptr inbounds i8, ptr %171, i64 2
-  %180 = load i8, ptr %179, align 1
-  %181 = zext i8 %180 to i32
-  %182 = or disjoint i32 %174, %178
-  %183 = or disjoint i32 %182, %181
-  %184 = or disjoint i32 %183, -16777216
-  %185 = getelementptr inbounds [256 x i32], ptr %3, i64 0, i64 %indvars.iv
-  store i32 %184, ptr %185, align 4
+170:                                              ; preds = %.lr.ph274, %170
+  %indvars.iv = phi i64 [ 0, %.lr.ph274 ], [ %indvars.iv.next, %170 ]
+  %171 = load ptr, ptr %169, align 8
+  %172 = getelementptr inbounds %struct.GifColorType, ptr %171, i64 %indvars.iv
+  %173 = load i8, ptr %172, align 1
+  %174 = zext i8 %173 to i32
+  %175 = shl nuw nsw i32 %174, 16
+  %176 = getelementptr inbounds i8, ptr %172, i64 1
+  %177 = load i8, ptr %176, align 1
+  %178 = zext i8 %177 to i32
+  %179 = shl nuw nsw i32 %178, 8
+  %180 = getelementptr inbounds i8, ptr %172, i64 2
+  %181 = load i8, ptr %180, align 1
+  %182 = zext i8 %181 to i32
+  %183 = or disjoint i32 %175, %179
+  %184 = or disjoint i32 %183, %182
+  %185 = or disjoint i32 %184, -16777216
+  %186 = getelementptr inbounds [256 x i32], ptr %3, i64 0, i64 %indvars.iv
+  store i32 %185, ptr %186, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit266, label %169, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit266, label %170, !llvm.loop !8
 
-.loopexit266:                                     ; preds = %169, %._crit_edge
-  %186 = getelementptr inbounds i8, ptr %81, i64 32
-  %187 = load ptr, ptr %186, align 8
+.loopexit266:                                     ; preds = %170, %._crit_edge
+  %187 = getelementptr inbounds i8, ptr %81, i64 32
+  %188 = load ptr, ptr %187, align 8
   store ptr %3, ptr %71, align 8
   store i32 1, ptr %72, align 8
   store i32 2, ptr %73, align 4
   store i32 %.0216.lcssa, ptr %74, align 8
   store i32 -16777216, ptr %75, align 8
   store i32 0, ptr %76, align 4
-  %188 = icmp slt i32 %110, 1
-  %189 = load i32, ptr %98, align 8
-  call void @initRect(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0, i32 noundef %189, i32 noundef %110, i32 noundef 1, i32 noundef %189, ptr noundef %187, ptr noundef nonnull %4) #8
-  br i1 %188, label %192, label %190
+  %189 = icmp slt i32 %110, 1
+  %190 = load i32, ptr %98, align 8
+  call void @initRect(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0, i32 noundef %190, i32 noundef %110, i32 noundef 1, i32 noundef %190, ptr noundef %188, ptr noundef nonnull %4) #8
+  br i1 %189, label %193, label %191
 
-190:                                              ; preds = %.loopexit266
+191:                                              ; preds = %.loopexit266
   call void @initRect(ptr noundef nonnull %6, i32 noundef %93, i32 noundef %97, i32 noundef %104, i32 noundef %110, i32 noundef 1, i32 noundef %.0211, ptr noundef nonnull %44, ptr noundef nonnull %14) #8
-  %191 = call i32 @convertRect(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1) #8
-  br label %192
+  %192 = call i32 @convertRect(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1) #8
+  br label %193
 
-192:                                              ; preds = %190, %.loopexit266
-  %193 = call noalias ptr @malloc(i64 noundef %43) #9
-  %194 = load ptr, ptr %60, align 8
-  %195 = getelementptr inbounds %struct.SplashImage, ptr %194, i64 %indvars.iv289
-  store ptr %193, ptr %195, align 8
-  %196 = load ptr, ptr %60, align 8
-  %197 = getelementptr inbounds %struct.SplashImage, ptr %196, i64 %indvars.iv289
-  %198 = load ptr, ptr %197, align 8
-  %.not257 = icmp eq ptr %198, null
-  br i1 %.not257, label %199, label %200
+193:                                              ; preds = %191, %.loopexit266
+  %194 = call noalias ptr @malloc(i64 noundef %43) #9
+  %195 = load ptr, ptr %60, align 8
+  %196 = getelementptr inbounds %struct.SplashImage, ptr %195, i64 %indvars.iv289
+  store ptr %194, ptr %196, align 8
+  %197 = load ptr, ptr %60, align 8
+  %198 = getelementptr inbounds %struct.SplashImage, ptr %197, i64 %indvars.iv289
+  %199 = load ptr, ptr %198, align 8
+  %.not257 = icmp eq ptr %199, null
+  br i1 %.not257, label %200, label %201
 
-199:                                              ; preds = %192
+200:                                              ; preds = %193
   call void @free(ptr noundef %44) #8
   call void @free(ptr noundef %46) #8
   br label %248
 
-200:                                              ; preds = %192
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %198, ptr nonnull align 1 %44, i64 %43, i1 false)
-  %201 = trunc nuw nsw i64 %indvars.iv289 to i32
-  call void @SplashInitFrameShape(ptr noundef nonnull %0, i32 noundef %201) #8
-  %202 = mul nuw nsw i32 %.0219.lcssa, 10
+201:                                              ; preds = %193
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %199, ptr nonnull align 1 %44, i64 %43, i1 false)
+  %202 = trunc nuw nsw i64 %indvars.iv289 to i32
+  call void @SplashInitFrameShape(ptr noundef nonnull %0, i32 noundef %202) #8
   %203 = load ptr, ptr %60, align 8
   %204 = getelementptr inbounds %struct.SplashImage, ptr %203, i64 %indvars.iv289, i32 1
-  store i32 %202, ptr %204, align 8
+  store i32 %.0219.lcssa, ptr %204, align 8
   switch i32 %.0224.lcssa, label %.loopexit [
     i32 1, label %205
     i32 3, label %229
     i32 2, label %206
   ]
 
-205:                                              ; preds = %200
+205:                                              ; preds = %201
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %44, i64 %43, i1 false)
   br label %.loopexit
 
-206:                                              ; preds = %200
+206:                                              ; preds = %201
   %207 = icmp slt i32 %.0216.lcssa, 0
   br i1 %207, label %208, label %227
 
@@ -426,11 +429,11 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %228 = call i32 @fillRect(i32 noundef %.0212, ptr noundef nonnull %7) #8
   br label %.loopexit
 
-229:                                              ; preds = %200
+229:                                              ; preds = %201
   %230 = load i32, ptr %15, align 8
   %231 = mul nsw i32 %230, %104
   %232 = icmp slt i32 %231, 1
-  %brmerge = select i1 %232, i1 true, i1 %188
+  %brmerge = select i1 %232, i1 true, i1 %189
   br i1 %brmerge, label %.loopexit, label %.lr.ph279
 
 .lr.ph279:                                        ; preds = %229
@@ -452,7 +455,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %242 = icmp slt i32 %241, %110
   br i1 %242, label %238, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %238, %229, %200, %205, %227
+.loopexit:                                        ; preds = %238, %229, %201, %205, %227
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %243 = load i32, ptr %38, align 8
   %244 = sext i32 %243 to i64
@@ -467,8 +470,8 @@ define hidden range(i32 0, 2) i32 @SplashDecodeGif(ptr noundef %0, ptr noundef %
   %.264 = zext i1 %247 to i32
   br label %248
 
-248:                                              ; preds = %._crit_edge283, %41, %37, %21, %34, %10, %13, %18, %2, %199, %61, %47
-  %.0210 = phi i32 [ 0, %199 ], [ 0, %61 ], [ 0, %47 ], [ 0, %2 ], [ 0, %18 ], [ 0, %13 ], [ 0, %10 ], [ 0, %34 ], [ 0, %21 ], [ 0, %37 ], [ 0, %41 ], [ %.264, %._crit_edge283 ]
+248:                                              ; preds = %._crit_edge283, %41, %37, %21, %34, %10, %13, %18, %2, %200, %61, %47
+  %.0210 = phi i32 [ 0, %200 ], [ 0, %61 ], [ 0, %47 ], [ 0, %2 ], [ 0, %18 ], [ 0, %13 ], [ 0, %10 ], [ 0, %34 ], [ 0, %21 ], [ 0, %37 ], [ 0, %41 ], [ %.264, %._crit_edge283 ]
   ret i32 %.0210
 }
 

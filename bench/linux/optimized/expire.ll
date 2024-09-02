@@ -182,20 +182,20 @@ define internal fastcc noundef ptr @autofs_expire_indirect(ptr %.104.val, ptr no
   %29 = or i1 %26, %28
   br i1 %29, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %16, %.thread
-  %30 = phi ptr [ %45, %.thread ], [ %27, %16 ]
+.preheader:                                       ; preds = %16, %.critedge
+  %30 = phi ptr [ %45, %.critedge ], [ %27, %16 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 96
   tail call void @_raw_spin_lock(ptr noundef %31) #7
   %32 = getelementptr inbounds i8, ptr %30, i64 48
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread, label %35
+  br i1 %34, label %.critedge, label %35
 
 35:                                               ; preds = %.preheader
   %36 = getelementptr inbounds i8, ptr %30, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %.thread, label %38
+  br i1 %.not, label %.critedge, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %30, i64 100
@@ -205,7 +205,7 @@ define internal fastcc noundef ptr @autofs_expire_indirect(ptr %.104.val, ptr no
   tail call void @_raw_spin_unlock(ptr noundef %31) #7
   br label %.loopexit
 
-.thread:                                          ; preds = %.preheader, %35
+.critedge:                                        ; preds = %.preheader, %35
   tail call void @_raw_spin_unlock(ptr noundef %31) #7
   %42 = getelementptr inbounds i8, ptr %30, i64 152
   %43 = load ptr, ptr %42, align 8
@@ -215,8 +215,8 @@ define internal fastcc noundef ptr @autofs_expire_indirect(ptr %.104.val, ptr no
   %47 = or i1 %44, %46
   br i1 %47, label %.loopexit, label %.preheader, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.thread, %38, %16
-  %48 = phi ptr [ %30, %38 ], [ null, %16 ], [ null, %.thread ]
+.loopexit:                                        ; preds = %.critedge, %38, %16
+  %48 = phi ptr [ %30, %38 ], [ null, %16 ], [ null, %.critedge ]
   tail call void @_raw_spin_unlock(ptr noundef %9) #7
   tail call void @_raw_spin_unlock(ptr noundef %21) #7
   tail call void @dput(ptr noundef %17) #7
@@ -1083,12 +1083,12 @@ define internal fastcc ptr @get_next_positive_dentry(ptr noundef %0, ptr noundef
   br label %8
 
 8:                                                ; preds = %34, %2
-  %.sink23 = phi ptr [ %36, %34 ], [ %0, %2 ]
-  %9 = phi ptr [ %.sink23, %34 ], [ null, %2 ]
-  %10 = getelementptr inbounds i8, ptr %.sink23, i64 96
+  %.sink22 = phi ptr [ %36, %34 ], [ %0, %2 ]
+  %9 = phi ptr [ %.sink22, %34 ], [ null, %2 ]
+  %10 = getelementptr inbounds i8, ptr %.sink22, i64 96
   tail call void @_raw_spin_lock(ptr noundef %10) #7
   %11 = icmp eq ptr %9, null
-  %12 = getelementptr inbounds i8, ptr %.sink23, i64 168
+  %12 = getelementptr inbounds i8, ptr %.sink22, i64 168
   %13 = getelementptr inbounds i8, ptr %9, i64 152
   %14 = select i1 %11, ptr %12, ptr %13
   %15 = load ptr, ptr %14, align 8
@@ -1098,22 +1098,22 @@ define internal fastcc ptr @get_next_positive_dentry(ptr noundef %0, ptr noundef
   %19 = or i1 %16, %18
   br i1 %19, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %8, %.thread
-  %20 = phi ptr [ %31, %.thread ], [ %17, %8 ]
+.preheader:                                       ; preds = %8, %.critedge
+  %20 = phi ptr [ %31, %.critedge ], [ %17, %8 ]
   %21 = getelementptr inbounds i8, ptr %20, i64 96
   tail call void @_raw_spin_lock(ptr noundef %21) #7
   %22 = getelementptr inbounds i8, ptr %20, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.thread, label %25
+  br i1 %24, label %.critedge, label %25
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds i8, ptr %20, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %.thread, label %38
+  br i1 %.not, label %.critedge, label %38
 
-.thread:                                          ; preds = %.preheader, %25
+.critedge:                                        ; preds = %.preheader, %25
   tail call void @_raw_spin_unlock(ptr noundef %21) #7
   %28 = getelementptr inbounds i8, ptr %20, i64 152
   %29 = load ptr, ptr %28, align 8
@@ -1123,14 +1123,14 @@ define internal fastcc ptr @get_next_positive_dentry(ptr noundef %0, ptr noundef
   %33 = or i1 %30, %32
   br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.thread, %8
-  %.not7 = icmp eq ptr %.sink23, %1
-  br i1 %.not7, label %.thread6, label %34
+.loopexit:                                        ; preds = %.critedge, %8
+  %.not6 = icmp eq ptr %.sink22, %1
+  br i1 %.not6, label %.thread5, label %34
 
 34:                                               ; preds = %.loopexit
-  %35 = getelementptr inbounds i8, ptr %.sink23, i64 24
+  %35 = getelementptr inbounds i8, ptr %.sink22, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %.sink23, i64 96
+  %37 = getelementptr inbounds i8, ptr %.sink22, i64 96
   tail call void @_raw_spin_unlock(ptr noundef %37) #7
   br label %8
 
@@ -1140,11 +1140,11 @@ define internal fastcc ptr @get_next_positive_dentry(ptr noundef %0, ptr noundef
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 4
   tail call void @_raw_spin_unlock(ptr noundef %21) #7
-  br label %.thread6
+  br label %.thread5
 
-.thread6:                                         ; preds = %.loopexit, %38
+.thread5:                                         ; preds = %.loopexit, %38
   %42 = phi ptr [ %20, %38 ], [ null, %.loopexit ]
-  %43 = getelementptr inbounds i8, ptr %.sink23, i64 96
+  %43 = getelementptr inbounds i8, ptr %.sink22, i64 96
   tail call void @_raw_spin_unlock(ptr noundef %43) #7
   tail call void @_raw_spin_unlock(ptr noundef %7) #7
   tail call void @dput(ptr noundef nonnull %0) #7

@@ -884,7 +884,7 @@ define noundef nonnull ptr @jsonnet_version() local_unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @jsonnet_make() local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @jsonnet_make() local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %1 = invoke noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #32
           to label %2 unwind label %3
 
@@ -8351,14 +8351,14 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i: ; preds =
   %33 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.0)
   %34 = icmp eq i32 %33, -1
   %spec.select42 = select i1 %34, ptr null, ptr %.sroa.0.0
+  %35 = icmp eq i32 %33, -1
   br label %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
 
 _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = %32, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i
   %.sroa.0.2 = phi ptr [ null, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %spec.select42, %32 ]
-  %.0.i.i4.i.i = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %33, %32 ]
-  %35 = icmp eq i32 %.0.i.i.i.i, -1
-  %36 = icmp eq i32 %.0.i.i4.i.i, -1
-  %37 = xor i1 %35, %36
+  %.0.i.i4.i.i = phi i1 [ true, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %35, %32 ]
+  %36 = icmp eq i32 %.0.i.i.i.i, -1
+  %37 = xor i1 %36, %.0.i.i4.i.i
   %38 = icmp ult i64 %.0, 15
   %39 = select i1 %37, i1 %38, i1 false
   br i1 %39, label %40, label %.split.us

@@ -1616,12 +1616,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .critedge2.loopexit:                              ; preds = %Vec_IntPush.exit
   %.val104.pre = load i32, ptr %12, align 4
+  %100 = add nsw i32 %.val104.pre, -1
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %23
-  %.val104 = phi i32 [ %.val104.pre, %.critedge2.loopexit ], [ 0, %23 ]
-  %100 = add nsw i32 %.val104, -1
-  %101 = tail call i32 @Wlc_ObjCreate(ptr noundef nonnull %0, i32 noundef 23, i32 noundef 0, i32 noundef %100, i32 noundef 0, ptr noundef nonnull %11) #10
+  %.val104 = phi i32 [ %100, %.critedge2.loopexit ], [ -1, %23 ]
+  %101 = tail call i32 @Wlc_ObjCreate(ptr noundef nonnull %0, i32 noundef 23, i32 noundef 0, i32 noundef %.val104, i32 noundef 0, ptr noundef nonnull %11) #10
   %102 = load i32, ptr %7, align 8
   %.not.i.i123 = icmp slt i32 %102, 1
   %.pre192 = load ptr, ptr %10, align 8

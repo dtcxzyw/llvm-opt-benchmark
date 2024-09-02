@@ -5420,10 +5420,11 @@ if.then.i801:                                     ; preds = %if.end145
   %bf.set10.i = or disjoint i16 %bf.clear9.i, 512
   store i16 %bf.set10.i, ptr %Lighting.i, align 8
   %.pre1366 = load i8, ptr %m_enable_shaders, align 8, !tbaa !179, !range !32
+  %82 = icmp eq i8 %.pre1366, 0
   br label %"_ZZN10GenericCAO10addToSceneEP14ITextureSourcePN3irr5scene13ISceneManagerEENK3$_1clERNS2_5video9SMaterialE.exit"
 
 "_ZZN10GenericCAO10addToSceneEP14ITextureSourcePN3irr5scene13ISceneManagerEENK3$_1clERNS2_5video9SMaterialE.exit": ; preds = %if.then.i801, %if.end145
-  %82 = phi i8 [ 0, %if.end145 ], [ %.pre1366, %if.then.i801 ]
+  %tobool154.not = phi i1 [ true, %if.end145 ], [ %82, %if.then.i801 ]
   %MinFilter.i.i.i802 = getelementptr inbounds i8, ptr %call152, i64 12
   store i32 0, ptr %MinFilter.i.i.i802, align 4, !tbaa !87
   %MagFilter.i.i.i803 = getelementptr inbounds i8, ptr %call152, i64 16
@@ -5440,7 +5441,6 @@ if.then.i801:                                     ; preds = %if.end145
   store i32 0, ptr %MinFilter.i.3.i.i808, align 4, !tbaa !87
   %MagFilter.i.3.i.i809 = getelementptr inbounds i8, ptr %call152, i64 112
   store i32 0, ptr %MagFilter.i.3.i.i809, align 8, !tbaa !91
-  %tobool154.not = icmp eq i8 %82, 0
   br i1 %tobool154.not, label %if.end159, label %if.then155
 
 if.then155:                                       ; preds = %"_ZZN10GenericCAO10addToSceneEP14ITextureSourcePN3irr5scene13ISceneManagerEENK3$_1clERNS2_5video9SMaterialE.exit"
@@ -5720,10 +5720,11 @@ if.then.i933:                                     ; preds = %if.end218
   %bf.set10.i935 = or disjoint i16 %bf.clear9.i934, 512
   store i16 %bf.set10.i935, ptr %Lighting.i927, align 8
   %.pre1368 = load i8, ptr %m_enable_shaders, align 8, !tbaa !179, !range !32
+  %98 = icmp eq i8 %.pre1368, 0
   br label %"_ZZN10GenericCAO10addToSceneEP14ITextureSourcePN3irr5scene13ISceneManagerEENK3$_1clERNS2_5video9SMaterialE.exit944"
 
 "_ZZN10GenericCAO10addToSceneEP14ITextureSourcePN3irr5scene13ISceneManagerEENK3$_1clERNS2_5video9SMaterialE.exit944": ; preds = %if.then.i933, %if.end218
-  %98 = phi i8 [ 0, %if.end218 ], [ %.pre1368, %if.then.i933 ]
+  %tobool228.not = phi i1 [ true, %if.end218 ], [ %98, %if.then.i933 ]
   %MinFilter.i.i.i936 = getelementptr inbounds i8, ptr %call226, i64 12
   store i32 0, ptr %MinFilter.i.i.i936, align 4, !tbaa !87
   %MagFilter.i.i.i937 = getelementptr inbounds i8, ptr %call226, i64 16
@@ -5740,7 +5741,6 @@ if.then.i933:                                     ; preds = %if.end218
   store i32 0, ptr %MinFilter.i.3.i.i942, align 4, !tbaa !87
   %MagFilter.i.3.i.i943 = getelementptr inbounds i8, ptr %call226, i64 112
   store i32 0, ptr %MagFilter.i.3.i.i943, align 8, !tbaa !91
-  %tobool228.not = icmp eq i8 %98, 0
   br i1 %tobool228.not, label %if.end234, label %if.then229
 
 if.then229:                                       ; preds = %"_ZZN10GenericCAO10addToSceneEP14ITextureSourcePN3irr5scene13ISceneManagerEENK3$_1clERNS2_5video9SMaterialE.exit944"
@@ -8625,6 +8625,7 @@ if.then247:                                       ; preds = %for.body235
 
 if.then247.if.end255_crit_edge:                   ; preds = %if.then247
   %.pre1092 = load i64, ptr %_M_string_length.i.i.i.i778, align 8, !tbaa !14
+  %117 = sub i64 4611686018427387903, %.pre1092
   br label %if.end255
 
 lpad252.loopexit:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i798, %if.then247
@@ -8638,9 +8639,8 @@ lpad252.loopexit.split-lp:                        ; preds = %if.then.i.i.i.i799
   br label %ehcleanup315
 
 if.end255:                                        ; preds = %if.then247.if.end255_crit_edge, %for.body235
-  %117 = phi i64 [ %.pre1092, %if.then247.if.end255_crit_edge ], [ 14, %for.body235 ]
+  %sub3.i.i.i.i796 = phi i64 [ %117, %if.then247.if.end255_crit_edge ], [ 4611686018427387889, %for.body235 ]
   %118 = load i64, ptr %_M_string_length.i.i.i794, align 8, !tbaa !14
-  %sub3.i.i.i.i796 = sub i64 4611686018427387903, %117
   %cmp.i.i.i.i797 = icmp ult i64 %sub3.i.i.i.i796, %118
   br i1 %cmp.i.i.i.i797, label %if.then.i.i.i.i799, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i798
 
@@ -8839,18 +8839,18 @@ if.then339:                                       ; preds = %if.then326
 
 if.then339.if.end346_crit_edge:                   ; preds = %if.then339
   %.pre1091 = load i64, ptr %_M_string_length.i.i.i.i851, align 8, !tbaa !14
+  %145 = sub i64 4611686018427387903, %.pre1091
   br label %if.end346
 
 lpad343:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i867, %if.then.i.i.i.i868, %if.then339
-  %145 = landingpad { ptr, i32 }
+  %146 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup389
 
 if.end346:                                        ; preds = %if.then339.if.end346_crit_edge, %if.then326
-  %146 = phi i64 [ %.pre1091, %if.then339.if.end346_crit_edge ], [ 14, %if.then326 ]
+  %sub3.i.i.i.i865 = phi i64 [ %145, %if.then339.if.end346_crit_edge ], [ 4611686018427387889, %if.then326 ]
   %_M_string_length.i.i.i863 = getelementptr inbounds i8, ptr %mod, i64 8
   %147 = load i64, ptr %_M_string_length.i.i.i863, align 8, !tbaa !14
-  %sub3.i.i.i.i865 = sub i64 4611686018427387903, %146
   %cmp.i.i.i.i866 = icmp ult i64 %sub3.i.i.i.i865, %147
   br i1 %cmp.i.i.i.i866, label %if.then.i.i.i.i868, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i867
 
@@ -8968,7 +8968,7 @@ lpad385:                                          ; preds = %.noexc891, %.noexc8
   br label %ehcleanup389
 
 ehcleanup389:                                     ; preds = %lpad385, %lpad353, %lpad343
-  %.pn585.pn = phi { ptr, i32 } [ %145, %lpad343 ], [ %162, %lpad385 ], [ %156, %lpad353 ]
+  %.pn585.pn = phi { ptr, i32 } [ %146, %lpad343 ], [ %162, %lpad385 ], [ %156, %lpad353 ]
   %163 = load ptr, ptr %tname, align 8, !tbaa !11
   %cmp.i.i.i919 = icmp eq ptr %163, %142
   br i1 %cmp.i.i.i919, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i921, label %if.then.i.i920

@@ -2988,12 +2988,12 @@ set_append_rel_size.exit:                         ; preds = %._crit_edge110, %._
 300:                                              ; preds = %289
   %301 = getelementptr inbounds i8, ptr %299, i64 4
   %302 = load i32, ptr %301, align 4
+  %303 = add i32 %302, 1
+  %304 = sext i32 %303 to i64
   br label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %300, %289
-  %303 = phi i32 [ %302, %300 ], [ 0, %289 ]
-  %304 = add i32 %303, 1
-  %305 = sext i32 %304 to i64
+  %305 = phi i64 [ %304, %300 ], [ 1, %289 ]
   %306 = tail call ptr @palloc0(i64 noundef %305) #9
   store ptr %306, ptr %7, align 8
   %307 = getelementptr inbounds i8, ptr %3, i64 48

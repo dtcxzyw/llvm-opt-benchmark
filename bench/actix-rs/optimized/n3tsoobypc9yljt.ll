@@ -2357,7 +2357,7 @@ define hidden void @_ZN9actix_web5error14response_error13ResponseError14error_re
   %37 = lshr i64 %34, 10
   %38 = tail call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %37, i1 false)
   %39 = sub nuw nsw i64 64, %38
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %39, i64 7)
+  %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 %39, i64 7)
   %40 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
   %41 = or disjoint i64 %40, 1
   %42 = getelementptr i8, ptr null, i64 %41
@@ -3091,7 +3091,7 @@ common.resume:                                    ; preds = %.body, %.body13.i
 
 tailrecurse._crit_edge.thread:                    ; preds = %92
   %97 = tail call i64 @llvm.usub.sat.i64(i64 %14, i64 %16)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %97, i64 65536)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, 65537) i64 @llvm.umin.i64(i64 %97, i64 65536)
   store i64 %15, ptr %10, align 8
   store i64 %.0.sroa.speculated.i, ptr %.sroa.574.0..sroa_idx75, align 8
   store i32 %93, ptr %.sroa.7.0..sroa_idx78, align 8

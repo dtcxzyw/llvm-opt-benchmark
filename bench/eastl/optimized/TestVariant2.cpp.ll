@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(inaccessiblemem: readwrite) uwtable
-define dso_local noundef range(i32 0, 8) i32 @_Z40TestVariantGeneratingComparisonOverloadsv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_Z40TestVariantGeneratingComparisonOverloadsv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %a37.sroa.1 = alloca i32, align 8
   %b38.sroa.1 = alloca i32, align 8

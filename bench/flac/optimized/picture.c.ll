@@ -63,20 +63,23 @@ land.rhs.lr.ph:                                   ; preds = %for.cond.preheader
   %height.i = getelementptr inbounds i8, ptr %call, i64 44
   %width.i = getelementptr inbounds i8, ptr %call, i64 40
   %data = getelementptr inbounds i8, ptr %call, i64 16
+  br label %land.rhs.outer
+
+land.rhs.outer:                                   ; preds = %sw.epilog, %land.rhs.lr.ph
+  %p.0150.ph = phi ptr [ %incdec.ptr, %sw.epilog ], [ %spec, %land.rhs.lr.ph ]
+  %state.0149.ph = phi i32 [ %inc, %sw.epilog ], [ 0, %land.rhs.lr.ph ]
   br label %land.rhs
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end63
-  %p.0150 = phi ptr [ %spec, %land.rhs.lr.ph ], [ %p.1, %if.end63 ]
-  %state.0149 = phi i32 [ 0, %land.rhs.lr.ph ], [ %state.1, %if.end63 ]
-  %spec.addr.0148 = phi ptr [ %spec, %land.rhs.lr.ph ], [ %spec.addr.1, %if.end63 ]
+land.rhs:                                         ; preds = %land.rhs.outer, %if.end63
+  %p.0150 = phi ptr [ %incdec.ptr62, %if.end63 ], [ %p.0150.ph, %land.rhs.outer ]
   %1 = load i8, ptr %p.0150, align 1
-  switch i8 %1, label %if.else61 [
+  switch i8 %1, label %if.end63 [
     i8 0, label %if.then80
     i8 124, label %if.then14
   ]
 
 if.then14:                                        ; preds = %land.rhs
-  switch i32 %state.0149, label %sw.default [
+  switch i32 %state.0149.ph, label %if.then151.sink.split [
     i32 0, label %sw.bb
     i32 1, label %sw.bb19
     i32 2, label %sw.bb38
@@ -85,20 +88,20 @@ if.then14:                                        ; preds = %land.rhs
 
 sw.bb:                                            ; preds = %if.then14
   %sub.ptr.lhs.cast = ptrtoint ptr %p.0150 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %spec.addr.0148 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %p.0150.ph to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i32 3, ptr %data, align 8
-  %cmp.i = icmp eq ptr %p.0150, %spec.addr.0148
+  %cmp.i = icmp eq ptr %p.0150, %p.0150.ph
   br i1 %cmp.i, label %sw.epilog, label %for.body.i
 
 for.body.i:                                       ; preds = %sw.bb, %if.then8.i
   %val.015.i = phi i32 [ %add.i, %if.then8.i ], [ 0, %sw.bb ]
   %i.014.i = phi i64 [ %inc.i, %if.then8.i ], [ 0, %sw.bb ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %spec.addr.0148, i64 %i.014.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %p.0150.ph, i64 %i.014.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %3 = add i8 %2, -48
   %or.cond.i = icmp ult i8 %3, 10
-  br i1 %or.cond.i, label %if.then8.i, label %if.then17
+  br i1 %or.cond.i, label %if.then8.i, label %if.then151.sink.split
 
 if.then8.i:                                       ; preds = %for.body.i
   %mul.i = mul i32 %val.015.i, 10
@@ -112,77 +115,57 @@ if.then14.i:                                      ; preds = %if.then8.i
   store i32 %add.i, ptr %data, align 8
   br label %sw.epilog
 
-if.then17:                                        ; preds = %for.body.i
-  store ptr @.str.10, ptr %error_message, align 8
-  br label %sw.epilog
-
 sw.bb19:                                          ; preds = %if.then14
-  %tobool23.not = icmp eq ptr %p.0150, %spec.addr.0148
+  %tobool23.not = icmp eq ptr %p.0150, %p.0150.ph
   br i1 %tobool23.not, label %sw.epilog, label %if.then24
 
 if.then24:                                        ; preds = %sw.bb19
-  %sub.ptr.rhs.cast21 = ptrtoint ptr %spec.addr.0148 to i64
+  %sub.ptr.rhs.cast21 = ptrtoint ptr %p.0150.ph to i64
   %sub.ptr.lhs.cast20 = ptrtoint ptr %p.0150 to i64
   %sub.ptr.sub22 = sub i64 %sub.ptr.lhs.cast20, %sub.ptr.rhs.cast21
   %cmp.i.i = icmp eq i64 %sub.ptr.sub22, -1
-  br i1 %cmp.i.i, label %if.then31, label %safe_malloc_add_2op_.exit.i
+  br i1 %cmp.i.i, label %if.then151.sink.split, label %safe_malloc_add_2op_.exit.i
 
 safe_malloc_add_2op_.exit.i:                      ; preds = %if.then24
   %add.i.i = add nuw i64 %sub.ptr.sub22, 1
   %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #13
   %tobool.not.i = icmp eq ptr %call.i.i.i, null
-  br i1 %tobool.not.i, label %if.then31, label %if.else
-
-if.then31:                                        ; preds = %safe_malloc_add_2op_.exit.i, %if.then24
-  store ptr @.str.3, ptr %error_message, align 8
-  br label %sw.epilog
+  br i1 %tobool.not.i, label %if.then151.sink.split, label %if.else
 
 if.else:                                          ; preds = %safe_malloc_add_2op_.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr readonly align 1 %spec.addr.0148, i64 %sub.ptr.sub22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr readonly align 1 %p.0150.ph, i64 %sub.ptr.sub22, i1 false)
   %arrayidx.i69 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub22
   store i8 0, ptr %arrayidx.i69, align 1
   %call32 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %call, ptr noundef nonnull %call.i.i.i, i32 noundef 0) #11
   %tobool33.not = icmp eq i32 %call32, 0
-  br i1 %tobool33.not, label %if.then34, label %sw.epilog
-
-if.then34:                                        ; preds = %if.else
-  store ptr @.str.3, ptr %error_message, align 8
-  br label %sw.epilog
+  br i1 %tobool33.not, label %if.then151.sink.split, label %sw.epilog
 
 sw.bb38:                                          ; preds = %if.then14
   %sub.ptr.lhs.cast39 = ptrtoint ptr %p.0150 to i64
-  %sub.ptr.rhs.cast40 = ptrtoint ptr %spec.addr.0148 to i64
+  %sub.ptr.rhs.cast40 = ptrtoint ptr %p.0150.ph to i64
   %sub.ptr.sub41 = sub i64 %sub.ptr.lhs.cast39, %sub.ptr.rhs.cast40
   %cmp.i.i70 = icmp eq i64 %sub.ptr.sub41, -1
-  br i1 %cmp.i.i70, label %if.then45, label %safe_malloc_add_2op_.exit.i71
+  br i1 %cmp.i.i70, label %if.then151.sink.split, label %safe_malloc_add_2op_.exit.i71
 
 safe_malloc_add_2op_.exit.i71:                    ; preds = %sw.bb38
   %add.i.i72 = add nuw i64 %sub.ptr.sub41, 1
   %call.i.i.i73 = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i72) #13
   %tobool.not.i74 = icmp eq ptr %call.i.i.i73, null
-  br i1 %tobool.not.i74, label %if.then45, label %if.else46
-
-if.then45:                                        ; preds = %safe_malloc_add_2op_.exit.i71, %sw.bb38
-  store ptr @.str.3, ptr %error_message, align 8
-  br label %sw.epilog
+  br i1 %tobool.not.i74, label %if.then151.sink.split, label %if.else46
 
 if.else46:                                        ; preds = %safe_malloc_add_2op_.exit.i71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i73, ptr readonly align 1 %spec.addr.0148, i64 %sub.ptr.sub41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i73, ptr readonly align 1 %p.0150.ph, i64 %sub.ptr.sub41, i1 false)
   %arrayidx.i76 = getelementptr inbounds i8, ptr %call.i.i.i73, i64 %sub.ptr.sub41
   store i8 0, ptr %arrayidx.i76, align 1
   %call47 = tail call i32 @FLAC__metadata_object_picture_set_description(ptr noundef nonnull %call, ptr noundef nonnull %call.i.i.i73, i32 noundef 0) #11
   %tobool48.not = icmp eq i32 %call47, 0
-  br i1 %tobool48.not, label %if.then49, label %sw.epilog
-
-if.then49:                                        ; preds = %if.else46
-  store ptr @.str.3, ptr %error_message, align 8
-  br label %sw.epilog
+  br i1 %tobool48.not, label %if.then151.sink.split, label %sw.epilog
 
 sw.bb52:                                          ; preds = %if.then14
   %sub.ptr.lhs.cast53 = ptrtoint ptr %p.0150 to i64
-  %sub.ptr.rhs.cast54 = ptrtoint ptr %spec.addr.0148 to i64
+  %sub.ptr.rhs.cast54 = ptrtoint ptr %p.0150.ph to i64
   %sub.ptr.sub55 = sub i64 %sub.ptr.lhs.cast53, %sub.ptr.rhs.cast54
-  %cmp.i79 = icmp eq ptr %p.0150, %spec.addr.0148
+  %cmp.i79 = icmp eq ptr %p.0150, %p.0150.ph
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %width.i, i8 0, i64 16, i1 false)
   br i1 %cmp.i79, label %sw.epilog, label %for.body.outer.i
 
@@ -196,7 +179,7 @@ for.body.i80:                                     ; preds = %for.inc.i, %for.bod
   %val.039.i = phi i32 [ %val.1.i, %for.inc.i ], [ 0, %for.body.outer.i ]
   %i.038.i = phi i64 [ %inc45.i, %for.inc.i ], [ %i.038.ph.i, %for.body.outer.i ]
   %state.037.i = phi i32 [ %state.1.i, %for.inc.i ], [ %state.037.ph.i, %for.body.outer.i ]
-  %arrayidx.i81 = getelementptr inbounds i8, ptr %spec.addr.0148, i64 %i.038.i
+  %arrayidx.i81 = getelementptr inbounds i8, ptr %p.0150.ph, i64 %i.038.i
   %4 = load i8, ptr %arrayidx.i81, align 1
   switch i8 %4, label %if.else29.i [
     i8 120, label %if.then4.i
@@ -204,7 +187,7 @@ for.body.i80:                                     ; preds = %for.inc.i, %for.bod
   ]
 
 if.then4.i:                                       ; preds = %for.body.i80
-  switch i32 %state.037.i, label %if.then59 [
+  switch i32 %state.037.i, label %if.then151.sink.split [
     i32 0, label %if.then7.i
     i32 1, label %if.then11.i
   ]
@@ -223,12 +206,12 @@ if.end15.i:                                       ; preds = %if.then11.i, %if.th
 
 if.then21.i:                                      ; preds = %for.body.i80
   %cmp22.i = icmp eq i32 %state.037.i, 2
-  br i1 %cmp22.i, label %for.inc.thread.i, label %if.then59
+  br i1 %cmp22.i, label %for.inc.thread.i, label %if.then151.sink.split
 
 if.else29.i:                                      ; preds = %for.body.i80
   %5 = add i8 %4, -48
   %or.cond.i85 = icmp ult i8 %5, 10
-  br i1 %or.cond.i85, label %if.then38.i, label %if.then59
+  br i1 %or.cond.i85, label %if.then38.i, label %if.then151.sink.split
 
 if.then38.i:                                      ; preds = %if.else29.i
   %mul.i86 = mul i32 %val.039.i, 10
@@ -255,10 +238,10 @@ local__parse_resolution_.exit.thread:             ; preds = %for.inc.thread.i
 
 for.end.i:                                        ; preds = %for.inc.i
   %cmp46.i = icmp slt i32 %state.1.i, 2
-  br i1 %cmp46.i, label %if.then59, label %if.else49.i
+  br i1 %cmp46.i, label %if.then151.sink.split, label %if.else49.i
 
 if.else49.i:                                      ; preds = %for.end.i
-  switch i32 %state.1.i, label %if.then59 [
+  switch i32 %state.1.i, label %if.then151.sink.split [
     i32 2, label %local__parse_resolution_.exit.thread106
     i32 3, label %local__parse_resolution_.exit
   ]
@@ -273,33 +256,18 @@ local__parse_resolution_.exit:                    ; preds = %if.else49.i
   %shl.i = shl nuw i32 1, %.pr40.ph.i
   %cmp69.i = icmp ult i32 %shl.i, %val.1.i
   %or.cond73.not.i.not = select i1 %cmp64.i, i1 %cmp69.i, i1 false
-  br i1 %or.cond73.not.i.not, label %if.then59, label %sw.epilog
+  br i1 %or.cond73.not.i.not, label %if.then151.sink.split, label %sw.epilog
 
-if.then59:                                        ; preds = %if.then21.i, %if.else29.i, %if.then4.i, %if.else49.i, %for.end.i, %local__parse_resolution_.exit
-  store ptr @.str.5, ptr %error_message, align 8
-  br label %sw.epilog
-
-sw.default:                                       ; preds = %if.then14
-  store ptr @.str.4, ptr %error_message, align 8
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %local__parse_resolution_.exit.thread, %sw.bb52, %sw.bb, %if.then14.i, %local__parse_resolution_.exit.thread106, %local__parse_resolution_.exit, %if.then59, %if.then45, %if.then49, %if.else46, %sw.bb19, %if.else, %if.then34, %if.then31, %if.then17, %sw.default
+sw.epilog:                                        ; preds = %local__parse_resolution_.exit.thread, %sw.bb52, %sw.bb, %if.then14.i, %local__parse_resolution_.exit.thread106, %local__parse_resolution_.exit, %if.else46, %sw.bb19, %if.else
+  %.pre.pr = load ptr, ptr %error_message, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0150, i64 1
-  %inc = add nsw i32 %state.0149, 1
-  %.pre = load ptr, ptr %error_message, align 8
-  br label %if.end63
+  %inc = add nuw nsw i32 %state.0149.ph, 1
+  %6 = icmp eq ptr %.pre.pr, null
+  br i1 %6, label %land.rhs.outer, label %if.then151, !llvm.loop !8
 
-if.else61:                                        ; preds = %land.rhs
+if.end63:                                         ; preds = %land.rhs
   %incdec.ptr62 = getelementptr inbounds i8, ptr %p.0150, i64 1
-  br label %if.end63
-
-if.end63:                                         ; preds = %if.else61, %sw.epilog
-  %6 = phi ptr [ %.pre, %sw.epilog ], [ null, %if.else61 ]
-  %spec.addr.1 = phi ptr [ %incdec.ptr, %sw.epilog ], [ %spec.addr.0148, %if.else61 ]
-  %state.1 = phi i32 [ %inc, %sw.epilog ], [ %state.0149, %if.else61 ]
-  %p.1 = phi ptr [ %incdec.ptr, %sw.epilog ], [ %incdec.ptr62, %if.else61 ]
-  %cmp9 = icmp eq ptr %6, null
-  br i1 %cmp9, label %land.rhs, label %if.then151, !llvm.loop !8
+  br label %land.rhs, !llvm.loop !8
 
 if.end77:                                         ; preds = %if.end6
   %data65 = getelementptr inbounds i8, ptr %call, i64 16
@@ -311,11 +279,11 @@ if.end77:                                         ; preds = %if.end6
   br i1 %cmp78, label %if.else84, label %if.then151
 
 if.then80:                                        ; preds = %land.rhs
-  %cmp81.not = icmp eq i32 %state.0149, 4
+  %cmp81.not = icmp eq i32 %state.0149.ph, 4
   br i1 %cmp81.not, label %if.else84, label %if.then151.sink.split
 
 if.else84:                                        ; preds = %if.end77, %if.then80
-  %spec.addr.2116125 = phi ptr [ %spec.addr.0148, %if.then80 ], [ %spec, %if.end77 ]
+  %spec.addr.2116125 = phi ptr [ %p.0150.ph, %if.then80 ], [ %spec, %if.end77 ]
   %mime_type = getelementptr inbounds i8, ptr %call, i64 24
   %7 = load ptr, ptr %mime_type, align 8
   %call86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(4) @.str.1) #12
@@ -394,12 +362,12 @@ lor.lhs.false140:                                 ; preds = %lor.lhs.false135
   %cmp143.not = icmp eq i32 %14, 32
   br i1 %cmp143.not, label %return, label %if.then151.sink.split
 
-if.then151.sink.split:                            ; preds = %lor.lhs.false140, %lor.lhs.false135, %land.lhs.true130, %if.else100, %lor.lhs.false, %lor.lhs.false107, %if.else94, %if.then89, %if.then80
-  %.str.4.sink = phi ptr [ @.str.4, %if.then80 ], [ @.str.4, %if.then89 ], [ @.str.3, %if.else94 ], [ @.str.6, %lor.lhs.false107 ], [ @.str.6, %lor.lhs.false ], [ @.str.6, %if.else100 ], [ @.str.12, %land.lhs.true130 ], [ @.str.12, %lor.lhs.false135 ], [ @.str.12, %lor.lhs.false140 ]
+if.then151.sink.split:                            ; preds = %if.then14, %local__parse_resolution_.exit, %for.end.i, %if.else49.i, %if.else46, %sw.bb38, %safe_malloc_add_2op_.exit.i71, %if.else, %if.then24, %safe_malloc_add_2op_.exit.i, %if.then21.i, %for.body.i, %if.then4.i, %if.else29.i, %lor.lhs.false140, %lor.lhs.false135, %land.lhs.true130, %if.else100, %lor.lhs.false, %lor.lhs.false107, %if.else94, %if.then89, %if.then80
+  %.str.4.sink = phi ptr [ @.str.4, %if.then80 ], [ @.str.4, %if.then89 ], [ @.str.3, %if.else94 ], [ @.str.6, %lor.lhs.false107 ], [ @.str.6, %lor.lhs.false ], [ @.str.6, %if.else100 ], [ @.str.12, %land.lhs.true130 ], [ @.str.12, %lor.lhs.false135 ], [ @.str.12, %lor.lhs.false140 ], [ @.str.5, %if.else29.i ], [ @.str.5, %if.then4.i ], [ @.str.10, %for.body.i ], [ @.str.5, %if.then21.i ], [ @.str.3, %safe_malloc_add_2op_.exit.i ], [ @.str.3, %if.then24 ], [ @.str.3, %if.else ], [ @.str.3, %safe_malloc_add_2op_.exit.i71 ], [ @.str.3, %sw.bb38 ], [ @.str.3, %if.else46 ], [ @.str.5, %if.else49.i ], [ @.str.5, %for.end.i ], [ @.str.5, %local__parse_resolution_.exit ], [ @.str.4, %if.then14 ]
   store ptr %.str.4.sink, ptr %error_message, align 8
   br label %if.then151
 
-if.then151:                                       ; preds = %if.end63, %if.then151.sink.split, %if.end119, %for.cond.preheader, %if.end77
+if.then151:                                       ; preds = %sw.epilog, %if.then151.sink.split, %if.end119, %for.cond.preheader, %if.end77
   tail call void @FLAC__metadata_object_delete(ptr noundef nonnull %call) #11
   br label %return
 

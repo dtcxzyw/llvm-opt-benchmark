@@ -162,7 +162,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN15G1YoungGenSizer28calculate_default_min_lengthEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 1, 42949673) i32 @_ZN15G1YoungGenSizer28calculate_default_min_lengthEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr @G1NewSizePercent, align 4
   %4 = mul i32 %3, %1
   %5 = udiv i32 %4, 100
@@ -171,7 +171,7 @@ define hidden noundef i32 @_ZN15G1YoungGenSizer28calculate_default_min_lengthEj(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN15G1YoungGenSizer28calculate_default_max_lengthEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 1, 42949673) i32 @_ZN15G1YoungGenSizer28calculate_default_max_lengthEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr @G1MaxNewSizePercent, align 4
   %4 = mul i32 %3, %1
   %5 = udiv i32 %4, 100
@@ -195,12 +195,12 @@ define hidden void @_ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0
   %8 = load i32, ptr @G1NewSizePercent, align 4
   %9 = mul i32 %8, %1
   %10 = udiv i32 %9, 100
-  %11 = tail call noundef i32 @llvm.umax.i32(i32 %10, i32 1)
+  %11 = tail call noundef range(i32 1, 42949673) i32 @llvm.umax.i32(i32 %10, i32 1)
   store i32 %11, ptr %2, align 4
   %12 = load i32, ptr @G1MaxNewSizePercent, align 4
   %13 = mul i32 %12, %1
   %14 = udiv i32 %13, 100
-  %15 = tail call noundef i32 @llvm.umax.i32(i32 %14, i32 1)
+  %15 = tail call noundef range(i32 1, 42949673) i32 @llvm.umax.i32(i32 %14, i32 1)
   store i32 %15, ptr %3, align 4
   br label %39
 
@@ -208,7 +208,7 @@ define hidden void @_ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0
   %17 = load i32, ptr @G1MaxNewSizePercent, align 4
   %18 = mul i32 %17, %1
   %19 = udiv i32 %18, 100
-  %20 = tail call noundef i32 @llvm.umax.i32(i32 %19, i32 1)
+  %20 = tail call noundef range(i32 1, 42949673) i32 @llvm.umax.i32(i32 %19, i32 1)
   store i32 %20, ptr %3, align 4
   %21 = load i32, ptr %2, align 4
   %22 = tail call noundef i32 @llvm.umax.i32(i32 %21, i32 %20)
@@ -219,7 +219,7 @@ define hidden void @_ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0
   %24 = load i32, ptr @G1NewSizePercent, align 4
   %25 = mul i32 %24, %1
   %26 = udiv i32 %25, 100
-  %27 = tail call noundef i32 @llvm.umax.i32(i32 %26, i32 1)
+  %27 = tail call noundef range(i32 1, 42949673) i32 @llvm.umax.i32(i32 %26, i32 1)
   store i32 %27, ptr %2, align 4
   %28 = load i32, ptr %3, align 4
   %29 = tail call noundef i32 @llvm.umin.i32(i32 %27, i32 %28)
@@ -269,7 +269,7 @@ define hidden void @_ZN15G1YoungGenSizer19adjust_max_new_sizeEj(ptr nocapture no
   %9 = load i32, ptr @G1MaxNewSizePercent, align 4
   %10 = mul i32 %9, %1
   %11 = udiv i32 %10, 100
-  %12 = tail call noundef i32 @llvm.umax.i32(i32 %11, i32 1)
+  %12 = tail call noundef range(i32 1, 42949673) i32 @llvm.umax.i32(i32 %11, i32 1)
   br label %_ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0_.exit
 
 13:                                               ; preds = %2
@@ -335,12 +335,12 @@ define hidden void @_ZN15G1YoungGenSizer17heap_size_changedEj(ptr nocapture noun
   %8 = load i32, ptr @G1NewSizePercent, align 4
   %9 = mul i32 %8, %1
   %10 = udiv i32 %9, 100
-  %11 = tail call noundef i32 @llvm.umax.i32(i32 %10, i32 1)
+  %11 = tail call noundef range(i32 1, 42949673) i32 @llvm.umax.i32(i32 %10, i32 1)
   store i32 %11, ptr %3, align 8
   %12 = load i32, ptr @G1MaxNewSizePercent, align 4
   %13 = mul i32 %12, %1
   %14 = udiv i32 %13, 100
-  %15 = tail call noundef i32 @llvm.umax.i32(i32 %14, i32 1)
+  %15 = tail call noundef range(i32 1, 42949673) i32 @llvm.umax.i32(i32 %14, i32 1)
   store i32 %15, ptr %4, align 4
   br label %_ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0_.exit
 
@@ -358,7 +358,7 @@ define hidden void @_ZN15G1YoungGenSizer17heap_size_changedEj(ptr nocapture noun
   %24 = load i32, ptr @G1NewSizePercent, align 4
   %25 = mul i32 %24, %1
   %26 = udiv i32 %25, 100
-  %27 = tail call noundef i32 @llvm.umax.i32(i32 %26, i32 1)
+  %27 = tail call noundef range(i32 1, 42949673) i32 @llvm.umax.i32(i32 %26, i32 1)
   %28 = load i32, ptr %4, align 4
   %29 = tail call noundef i32 @llvm.umin.i32(i32 %27, i32 %28)
   store i32 %29, ptr %3, align 8

@@ -1693,7 +1693,7 @@ _ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611
   %44 = phi i64 [ %.sroa.0.0.copyload.i.i, %.noexc4 ], [ %40, %_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit.i.i ], [ %39, %38 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %45 = tail call i64 @llvm.uadd.sat.i64(i64 %44, i64 1)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %45, i64 4)
+  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %45, i64 4)
   %46 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h9fbd4c32ccf64276E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %47 unwind label %42
 
@@ -2660,7 +2660,7 @@ _ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611
   %47 = phi i64 [ %.sroa.0.0.copyload.i, %.noexc ], [ %43, %_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit.i ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %48 = tail call i64 @llvm.uadd.sat.i64(i64 %47, i64 1)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %48, i64 4)
+  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %48, i64 4)
   %49 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h9fbd4c32ccf64276E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %50 unwind label %45
 
@@ -3677,7 +3677,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
   %41 = tail call i64 @llvm.uadd.sat.i64(i64 %28, i64 1)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %41, i64 4)
+  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %41, i64 4)
   %42 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h9fbd4c32ccf64276E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %43 unwind label %38
 
@@ -6517,7 +6517,7 @@ common.resume:                                    ; preds = %81, %.body, %17
   %.sroa.8.0.i.i = select i1 %trunc45.i.i, i64 %32, i64 0
   %33 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.7.0.i.i, i64 %.sroa.8.0.i.i)
   %34 = tail call i64 @llvm.uadd.sat.i64(i64 %33, i64 1)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %34, i64 4)
+  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %34, i64 4)
   %35 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1559ff83830a4c0aE"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %39 unwind label %37
 
@@ -6955,7 +6955,7 @@ _ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611
   %44 = phi i64 [ %.sroa.0.0.copyload.i.i, %.noexc4 ], [ %40, %_ZN9itertools9size_hint10add_scalar17hf8d6812a184bf281E.llvm.3421199298475542611.exit.i.i ], [ %39, %38 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %45 = tail call i64 @llvm.uadd.sat.i64(i64 %44, i64 1)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %45, i64 4)
+  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %45, i64 4)
   %46 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h9fbd4c32ccf64276E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %47 unwind label %42
 
@@ -7238,7 +7238,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i32 %18, ptr %.sroa.108.0..sroa_idx, align 8
   %.val = load i64, ptr %7, align 8, !noundef !16
   %43 = tail call i64 @llvm.uadd.sat.i64(i64 %.val, i64 1)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %43, i64 4)
+  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %43, i64 4)
   %44 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb8a3503ebf301947E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %45 unwind label %40
 
@@ -8223,7 +8223,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.618, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.4..sroa_idx, i64 3, i1 false)
   %.val = load i64, ptr %5, align 8, !noundef !16
   %33 = tail call i64 @llvm.uadd.sat.i64(i64 %.val, i64 1)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %33, i64 4)
+  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %33, i64 4)
   %34 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h64024a2d6b889de8E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
   %35 = extractvalue { i64, ptr } %34, 0
   %36 = extractvalue { i64, ptr } %34, 1

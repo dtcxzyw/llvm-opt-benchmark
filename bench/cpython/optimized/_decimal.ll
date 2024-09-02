@@ -1406,7 +1406,7 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @context_setattrs(ptr noundef %self, ptr noundef %prec, ptr noundef %rounding, ptr noundef %emin, ptr noundef %emax, ptr noundef %capitals, ptr noundef %clamp, ptr noundef %status, ptr noundef %traps) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @context_setattrs(ptr noundef %self, ptr noundef %prec, ptr noundef %rounding, ptr noundef %emin, ptr noundef %emax, ptr noundef %capitals, ptr noundef %clamp, ptr noundef %status, ptr noundef %traps) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %prec, @_Py_NoneStruct
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -20179,7 +20179,7 @@ return:                                           ; preds = %if.then11.i26, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @context_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal range(i32 -1, 1) i32 @context_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %prec = alloca ptr, align 8
   %rounding = alloca ptr, align 8

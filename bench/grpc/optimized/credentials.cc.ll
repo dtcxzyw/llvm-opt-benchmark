@@ -1123,7 +1123,7 @@ _ZNK9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL30server_credentials_pointer_cmpPvS_(ptr noundef readnone %a, ptr noundef readnone %b) #15 {
+define internal noundef range(i32 -1, 2) i32 @_ZL30server_credentials_pointer_cmpPvS_(ptr noundef readnone %a, ptr noundef readnone %b) #15 {
 entry:
   %cmp.i = icmp ult ptr %a, %b
   %cmp1.i = icmp ult ptr %b, %a

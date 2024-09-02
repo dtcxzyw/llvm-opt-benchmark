@@ -2004,8 +2004,7 @@ if.end496.thread:                                 ; preds = %if.end489
   %m_depth.i = getelementptr inbounds i8, ptr %this, i64 1056
   %195 = load float, ptr %m_depth.i, align 8
   %mul493 = fmul float %cond, %195
-  %cmp494 = fcmp ogt float %mul493, 0.000000e+00
-  %cond495 = select i1 %cmp494, i32 2, i32 1
+  %cmp494 = fcmp ule float %mul493, 0.000000e+00
   %m_poweredLinMotor.i1118 = getelementptr inbounds i8, ptr %this, i64 1120
   %196 = load i8, ptr %m_poweredLinMotor.i1118, align 8
   %tobool.i7691119 = trunc i8 %196 to i1
@@ -2020,7 +2019,7 @@ if.end496:                                        ; preds = %if.end489
 if.then501:                                       ; preds = %if.end496.thread, %if.end496
   %tobool.i7691125 = phi i1 [ %tobool.i7691119, %if.end496.thread ], [ true, %if.end496 ]
   %limit_err.01124 = phi float [ %mul493, %if.end496.thread ], [ 0.000000e+00, %if.end496 ]
-  %limit.01123 = phi i32 [ %cond495, %if.end496.thread ], [ 0, %if.end496 ]
+  %limit.01123 = phi i1 [ %cmp494, %if.end496.thread ], [ false, %if.end496 ]
   %198 = load i32, ptr %rowskip, align 8
   %mul504 = shl nsw i32 %198, 2
   %ax1.sroa.0.0.vec.extract985 = extractelement <2 x float> %ax1.sroa.0.0, i64 0
@@ -2256,73 +2255,61 @@ if.then712:                                       ; preds = %if.then702
   br label %if.end716
 
 if.end716:                                        ; preds = %if.then712, %if.then702
-  br i1 %cmp646, label %if.then718, label %if.else725
-
-if.then718:                                       ; preds = %if.end716
   %260 = load ptr, ptr %m_lowerLimit, align 8
   %arrayidx721 = getelementptr inbounds float, ptr %260, i64 %idxprom509
-  store float 0xC7EFFFFFE0000000, ptr %arrayidx721, align 4
-  br label %if.end742
+  br i1 %cmp646, label %if.end742, label %if.else725
 
 if.else725:                                       ; preds = %if.end716
-  %cmp726 = icmp eq i32 %limit.01123, 1
-  %261 = load ptr, ptr %m_lowerLimit, align 8
-  %arrayidx730 = getelementptr inbounds float, ptr %261, i64 %idxprom509
-  br i1 %cmp726, label %if.then727, label %if.else734
-
-if.then727:                                       ; preds = %if.else725
-  store float 0xC7EFFFFFE0000000, ptr %arrayidx730, align 4
+  %. = select i1 %limit.01123, float 0xC7EFFFFFE0000000, float 0.000000e+00
+  %.1252 = select i1 %limit.01123, float 0.000000e+00, float 0x47EFFFFFE0000000
   br label %if.end742
 
-if.else734:                                       ; preds = %if.else725
-  store float 0.000000e+00, ptr %arrayidx730, align 4
-  br label %if.end742
-
-if.end742:                                        ; preds = %if.then727, %if.else734, %if.then718
-  %.sink1247 = phi float [ 0.000000e+00, %if.then727 ], [ 0x47EFFFFFE0000000, %if.else734 ], [ 0x47EFFFFFE0000000, %if.then718 ]
-  %262 = load ptr, ptr %m_upperLimit, align 8
-  %arrayidx733 = getelementptr inbounds float, ptr %262, i64 %idxprom509
+if.end742:                                        ; preds = %if.else725, %if.end716
+  %.sink1251 = phi float [ 0xC7EFFFFFE0000000, %if.end716 ], [ %., %if.else725 ]
+  %.sink1247 = phi float [ 0x47EFFFFFE0000000, %if.end716 ], [ %.1252, %if.else725 ]
+  store float %.sink1251, ptr %arrayidx721, align 4
+  %261 = load ptr, ptr %m_upperLimit, align 8
+  %arrayidx733 = getelementptr inbounds float, ptr %261, i64 %idxprom509
   store float %.sink1247, ptr %arrayidx733, align 4
   %m_dampingLimLin.i = getelementptr inbounds i8, ptr %this, i64 264
-  %263 = load float, ptr %m_dampingLimLin.i, align 8
-  %sub744 = fsub float 1.000000e+00, %263
-  %264 = tail call noundef float @llvm.fabs.f32(float %sub744)
+  %262 = load float, ptr %m_dampingLimLin.i, align 8
+  %sub744 = fsub float 1.000000e+00, %262
+  %263 = tail call noundef float @llvm.fabs.f32(float %sub744)
   %cmp746 = fcmp ueq float %sub744, 0.000000e+00
   br i1 %cmp746, label %if.end785, label %if.then747
 
 if.then747:                                       ; preds = %if.end742
-  %265 = load float, ptr %linVelA, align 4
+  %264 = load float, ptr %linVelA, align 4
   %arrayidx5.i808 = getelementptr inbounds i8, ptr %linVelA, i64 4
-  %266 = load float, ptr %arrayidx5.i808, align 4
-  %mul8.i810 = fmul float %ax1.sroa.0.4.vec.extract1026, %266
-  %267 = tail call float @llvm.fmuladd.f32(float %265, float %ax1.sroa.0.0.vec.extract985, float %mul8.i810)
+  %265 = load float, ptr %arrayidx5.i808, align 4
+  %mul8.i810 = fmul float %ax1.sroa.0.4.vec.extract1026, %265
+  %266 = tail call float @llvm.fmuladd.f32(float %264, float %ax1.sroa.0.0.vec.extract985, float %mul8.i810)
   %arrayidx10.i811 = getelementptr inbounds i8, ptr %linVelA, i64 8
-  %268 = load float, ptr %arrayidx10.i811, align 4
-  %269 = tail call noundef float @llvm.fmuladd.f32(float %268, float %ax1.sroa.47.8.vec.extract1069, float %267)
-  %270 = load float, ptr %linVelB, align 4
+  %267 = load float, ptr %arrayidx10.i811, align 4
+  %268 = tail call noundef float @llvm.fmuladd.f32(float %267, float %ax1.sroa.47.8.vec.extract1069, float %266)
+  %269 = load float, ptr %linVelB, align 4
   %arrayidx5.i813 = getelementptr inbounds i8, ptr %linVelB, i64 4
-  %271 = load float, ptr %arrayidx5.i813, align 4
-  %mul8.i815 = fmul float %ax1.sroa.0.4.vec.extract1026, %271
-  %272 = tail call float @llvm.fmuladd.f32(float %270, float %ax1.sroa.0.0.vec.extract985, float %mul8.i815)
+  %270 = load float, ptr %arrayidx5.i813, align 4
+  %mul8.i815 = fmul float %ax1.sroa.0.4.vec.extract1026, %270
+  %271 = tail call float @llvm.fmuladd.f32(float %269, float %ax1.sroa.0.0.vec.extract985, float %mul8.i815)
   %arrayidx10.i816 = getelementptr inbounds i8, ptr %linVelB, i64 8
-  %273 = load float, ptr %arrayidx10.i816, align 4
-  %274 = tail call noundef float @llvm.fmuladd.f32(float %273, float %ax1.sroa.47.8.vec.extract1069, float %272)
-  %sub750 = fsub float %269, %274
+  %272 = load float, ptr %arrayidx10.i816, align 4
+  %273 = tail call noundef float @llvm.fmuladd.f32(float %272, float %ax1.sroa.47.8.vec.extract1069, float %271)
+  %sub750 = fsub float %268, %273
   %mul751 = fmul float %cond, %sub750
-  %cmp752 = icmp eq i32 %limit.01123, 1
-  br i1 %cmp752, label %if.then753, label %if.else768
+  br i1 %limit.01123, label %if.then753, label %if.else768
 
 if.then753:                                       ; preds = %if.then747
   %cmp754 = fcmp olt float %mul751, 0.000000e+00
   br i1 %cmp754, label %if.then755, label %if.end785
 
 if.then755:                                       ; preds = %if.then753
-  %fneg756 = fneg float %264
+  %fneg756 = fneg float %263
   %mul757 = fmul float %mul751, %fneg756
-  %275 = load ptr, ptr %m_constraintError, align 8
-  %arrayidx760 = getelementptr inbounds float, ptr %275, i64 %idxprom509
-  %276 = load float, ptr %arrayidx760, align 4
-  %cmp761 = fcmp ogt float %mul757, %276
+  %274 = load ptr, ptr %m_constraintError, align 8
+  %arrayidx760 = getelementptr inbounds float, ptr %274, i64 %idxprom509
+  %275 = load float, ptr %arrayidx760, align 4
+  %cmp761 = fcmp ogt float %mul757, %275
   br i1 %cmp761, label %if.then762, label %if.end785
 
 if.then762:                                       ; preds = %if.then755
@@ -2334,12 +2321,12 @@ if.else768:                                       ; preds = %if.then747
   br i1 %cmp769, label %if.then770, label %if.end785
 
 if.then770:                                       ; preds = %if.else768
-  %fneg772 = fneg float %264
+  %fneg772 = fneg float %263
   %mul773 = fmul float %mul751, %fneg772
-  %277 = load ptr, ptr %m_constraintError, align 8
-  %arrayidx776 = getelementptr inbounds float, ptr %277, i64 %idxprom509
-  %278 = load float, ptr %arrayidx776, align 4
-  %cmp777 = fcmp olt float %mul773, %278
+  %276 = load ptr, ptr %m_constraintError, align 8
+  %arrayidx776 = getelementptr inbounds float, ptr %276, i64 %idxprom509
+  %277 = load float, ptr %arrayidx776, align 4
+  %cmp777 = fcmp olt float %mul773, %277
   br i1 %cmp777, label %if.then778, label %if.end785
 
 if.then778:                                       ; preds = %if.then770
@@ -2347,81 +2334,81 @@ if.then778:                                       ; preds = %if.then770
   br label %if.end785
 
 if.end785:                                        ; preds = %if.then755, %if.then762, %if.then753, %if.then770, %if.then778, %if.else768, %if.end742
-  %279 = load float, ptr %m_softnessLimLin, align 8
-  %280 = load ptr, ptr %m_constraintError, align 8
-  %arrayidx789 = getelementptr inbounds float, ptr %280, i64 %idxprom509
-  %281 = load float, ptr %arrayidx789, align 4
-  %mul790 = fmul float %279, %281
+  %278 = load float, ptr %m_softnessLimLin, align 8
+  %279 = load ptr, ptr %m_constraintError, align 8
+  %arrayidx789 = getelementptr inbounds float, ptr %279, i64 %idxprom509
+  %280 = load float, ptr %arrayidx789, align 4
+  %mul790 = fmul float %278, %280
   store float %mul790, ptr %arrayidx789, align 4
   br label %if.end792
 
 if.end792:                                        ; preds = %if.end496, %if.end700, %if.end785
   %nrow.0 = phi i32 [ 5, %if.end785 ], [ 5, %if.end700 ], [ 4, %if.end496 ]
   %m_solveAngLim.i818 = getelementptr inbounds i8, ptr %this, i64 321
-  %282 = load i8, ptr %m_solveAngLim.i818, align 1
-  %tobool.i819 = trunc i8 %282 to i1
+  %281 = load i8, ptr %m_solveAngLim.i818, align 1
+  %tobool.i819 = trunc i8 %281 to i1
   br i1 %tobool.i819, label %if.end798.thread, label %if.end798
 
 if.end798.thread:                                 ; preds = %if.end792
   %m_angDepth.i = getelementptr inbounds i8, ptr %this, i64 1112
-  %283 = load float, ptr %m_angDepth.i, align 8
-  %cmp796 = fcmp ogt float %283, 0.000000e+00
+  %282 = load float, ptr %m_angDepth.i, align 8
+  %cmp796 = fcmp ogt float %282, 0.000000e+00
   %m_poweredAngMotor.i1130 = getelementptr inbounds i8, ptr %this, i64 1136
-  %284 = load i8, ptr %m_poweredAngMotor.i1130, align 8
-  %tobool.i8201131 = trunc i8 %284 to i1
+  %283 = load i8, ptr %m_poweredAngMotor.i1130, align 8
+  %tobool.i8201131 = trunc i8 %283 to i1
   br label %if.then804
 
 if.end798:                                        ; preds = %if.end792
   %m_poweredAngMotor.i = getelementptr inbounds i8, ptr %this, i64 1136
-  %285 = load i8, ptr %m_poweredAngMotor.i, align 8
-  %tobool.i820 = trunc i8 %285 to i1
+  %284 = load i8, ptr %m_poweredAngMotor.i, align 8
+  %tobool.i820 = trunc i8 %284 to i1
   br i1 %tobool.i820, label %if.then804, label %if.end993
 
 if.then804:                                       ; preds = %if.end798.thread, %if.end798
   %tobool.i8201137 = phi i1 [ %tobool.i8201131, %if.end798.thread ], [ true, %if.end798 ]
-  %limit_err.11136 = phi float [ %283, %if.end798.thread ], [ 0.000000e+00, %if.end798 ]
+  %limit_err.11136 = phi float [ %282, %if.end798.thread ], [ 0.000000e+00, %if.end798 ]
   %limit.11135 = phi i1 [ %cmp796, %if.end798.thread ], [ false, %if.end798 ]
-  %286 = load i32, ptr %rowskip, align 8
-  %mul807 = mul nsw i32 %286, %nrow.0
+  %285 = load i32, ptr %rowskip, align 8
+  %mul807 = mul nsw i32 %285, %nrow.0
   %ax1.sroa.0.0.vec.extract999 = extractelement <2 x float> %ax1.sroa.0.0, i64 0
-  %287 = load ptr, ptr %m_J1angularAxis, align 8
+  %286 = load ptr, ptr %m_J1angularAxis, align 8
   %idxprom812 = sext i32 %mul807 to i64
-  %arrayidx813 = getelementptr inbounds float, ptr %287, i64 %idxprom812
+  %arrayidx813 = getelementptr inbounds float, ptr %286, i64 %idxprom812
   store float %ax1.sroa.0.0.vec.extract999, ptr %arrayidx813, align 4
   %ax1.sroa.0.4.vec.extract1040 = extractelement <2 x float> %ax1.sroa.0.0, i64 1
-  %288 = load ptr, ptr %m_J1angularAxis, align 8
+  %287 = load ptr, ptr %m_J1angularAxis, align 8
   %add817 = add nsw i32 %mul807, 1
   %idxprom818 = sext i32 %add817 to i64
-  %arrayidx819 = getelementptr inbounds float, ptr %288, i64 %idxprom818
+  %arrayidx819 = getelementptr inbounds float, ptr %287, i64 %idxprom818
   store float %ax1.sroa.0.4.vec.extract1040, ptr %arrayidx819, align 4
   %ax1.sroa.47.8.vec.extract1083 = extractelement <2 x float> %ax1.sroa.47.0, i64 0
-  %289 = load ptr, ptr %m_J1angularAxis, align 8
+  %288 = load ptr, ptr %m_J1angularAxis, align 8
   %add823 = add nsw i32 %mul807, 2
   %idxprom824 = sext i32 %add823 to i64
-  %arrayidx825 = getelementptr inbounds float, ptr %289, i64 %idxprom824
+  %arrayidx825 = getelementptr inbounds float, ptr %288, i64 %idxprom824
   store float %ax1.sroa.47.8.vec.extract1083, ptr %arrayidx825, align 4
   %fneg828 = fneg float %ax1.sroa.0.0.vec.extract999
-  %290 = load ptr, ptr %m_J2angularAxis, align 8
-  %arrayidx832 = getelementptr inbounds float, ptr %290, i64 %idxprom812
+  %289 = load ptr, ptr %m_J2angularAxis, align 8
+  %arrayidx832 = getelementptr inbounds float, ptr %289, i64 %idxprom812
   store float %fneg828, ptr %arrayidx832, align 4
   %fneg835 = fneg float %ax1.sroa.0.4.vec.extract1040
-  %291 = load ptr, ptr %m_J2angularAxis, align 8
-  %arrayidx839 = getelementptr inbounds float, ptr %291, i64 %idxprom818
+  %290 = load ptr, ptr %m_J2angularAxis, align 8
+  %arrayidx839 = getelementptr inbounds float, ptr %290, i64 %idxprom818
   store float %fneg835, ptr %arrayidx839, align 4
   %fneg842 = fneg float %ax1.sroa.47.8.vec.extract1083
-  %292 = load ptr, ptr %m_J2angularAxis, align 8
-  %arrayidx846 = getelementptr inbounds float, ptr %292, i64 %idxprom824
+  %291 = load ptr, ptr %m_J2angularAxis, align 8
+  %arrayidx846 = getelementptr inbounds float, ptr %291, i64 %idxprom824
   store float %fneg842, ptr %arrayidx846, align 4
   %m_lowerAngLimit.i = getelementptr inbounds i8, ptr %this, i64 216
-  %293 = load float, ptr %m_lowerAngLimit.i, align 8
+  %292 = load float, ptr %m_lowerAngLimit.i, align 8
   %m_upperAngLimit.i = getelementptr inbounds i8, ptr %this, i64 220
-  %294 = load float, ptr %m_upperAngLimit.i, align 4
-  %cmp853 = fcmp oeq float %293, %294
+  %293 = load float, ptr %m_upperAngLimit.i, align 4
+  %cmp853 = fcmp oeq float %292, %293
   %or.cond337 = and i1 %cmp853, %tobool.i819
   %not.or.cond337 = xor i1 %or.cond337, true
   %spec.select338 = select i1 %not.or.cond337, i1 %tobool.i8201137, i1 false
-  %295 = load i32, ptr %m_flags, align 4
-  %and857 = and i32 %295, 2048
+  %294 = load i32, ptr %m_flags, align 4
+  %and857 = and i32 %294, 2048
   %tobool858.not = icmp eq i32 %and857, 0
   %m_softnessLimAng = getelementptr inbounds i8, ptr %this, i64 272
   %erp861 = getelementptr inbounds i8, ptr %info, i64 4
@@ -2430,51 +2417,51 @@ if.then804:                                       ; preds = %if.end798.thread, %
   br i1 %spec.select338, label %if.then865, label %if.end897
 
 if.then865:                                       ; preds = %if.then804
-  %and867 = and i32 %295, 4
+  %and867 = and i32 %294, 4
   %tobool868.not = icmp eq i32 %and867, 0
   br i1 %tobool868.not, label %if.end873, label %if.then869
 
 if.then869:                                       ; preds = %if.then865
   %m_cfmDirAng = getelementptr inbounds i8, ptr %this, i64 252
-  %296 = load float, ptr %m_cfmDirAng, align 4
+  %295 = load float, ptr %m_cfmDirAng, align 4
   %cfm870 = getelementptr inbounds i8, ptr %info, i64 56
-  %297 = load ptr, ptr %cfm870, align 8
-  %arrayidx872 = getelementptr inbounds float, ptr %297, i64 %idxprom812
-  store float %296, ptr %arrayidx872, align 4
+  %296 = load ptr, ptr %cfm870, align 8
+  %arrayidx872 = getelementptr inbounds float, ptr %296, i64 %idxprom812
+  store float %295, ptr %arrayidx872, align 4
   %.pre = load float, ptr %m_lowerAngLimit.i, align 8
   %.pre1235 = load float, ptr %m_upperAngLimit.i, align 4
   br label %if.end873
 
 if.end873:                                        ; preds = %if.then869, %if.then865
-  %298 = phi float [ %.pre1235, %if.then869 ], [ %294, %if.then865 ]
-  %299 = phi float [ %.pre, %if.then869 ], [ %293, %if.then865 ]
+  %297 = phi float [ %.pre1235, %if.then869 ], [ %293, %if.then865 ]
+  %298 = phi float [ %.pre, %if.then869 ], [ %292, %if.then865 ]
   %m_angPos = getelementptr inbounds i8, ptr %this, i64 1108
-  %300 = load float, ptr %m_angPos, align 4
+  %299 = load float, ptr %m_angPos, align 4
   %m_targetAngMotorVelocity.i = getelementptr inbounds i8, ptr %this, i64 1140
-  %301 = load float, ptr %m_targetAngMotorVelocity.i, align 4
-  %302 = load float, ptr %info, align 8
-  %mul877 = fmul float %cond863, %302
-  %call878 = tail call noundef float @_ZN17btTypedConstraint14getMotorFactorEfffff(ptr noundef nonnull align 8 dereferenceable(72) %this, float noundef %300, float noundef %299, float noundef %298, float noundef %301, float noundef %mul877)
-  %303 = load float, ptr %m_targetAngMotorVelocity.i, align 4
-  %mul880 = fmul float %call878, %303
-  %304 = load ptr, ptr %m_constraintError, align 8
-  %arrayidx883 = getelementptr inbounds float, ptr %304, i64 %idxprom812
+  %300 = load float, ptr %m_targetAngMotorVelocity.i, align 4
+  %301 = load float, ptr %info, align 8
+  %mul877 = fmul float %cond863, %301
+  %call878 = tail call noundef float @_ZN17btTypedConstraint14getMotorFactorEfffff(ptr noundef nonnull align 8 dereferenceable(72) %this, float noundef %299, float noundef %298, float noundef %297, float noundef %300, float noundef %mul877)
+  %302 = load float, ptr %m_targetAngMotorVelocity.i, align 4
+  %mul880 = fmul float %call878, %302
+  %303 = load ptr, ptr %m_constraintError, align 8
+  %arrayidx883 = getelementptr inbounds float, ptr %303, i64 %idxprom812
   store float %mul880, ptr %arrayidx883, align 4
   %m_maxAngMotorForce.i = getelementptr inbounds i8, ptr %this, i64 1144
-  %305 = load float, ptr %m_maxAngMotorForce.i, align 8
-  %fneg885 = fneg float %305
-  %306 = load float, ptr %info, align 8
-  %div887 = fdiv float %fneg885, %306
+  %304 = load float, ptr %m_maxAngMotorForce.i, align 8
+  %fneg885 = fneg float %304
+  %305 = load float, ptr %info, align 8
+  %div887 = fdiv float %fneg885, %305
   %m_lowerLimit888 = getelementptr inbounds i8, ptr %info, i64 64
-  %307 = load ptr, ptr %m_lowerLimit888, align 8
-  %arrayidx890 = getelementptr inbounds float, ptr %307, i64 %idxprom812
+  %306 = load ptr, ptr %m_lowerLimit888, align 8
+  %arrayidx890 = getelementptr inbounds float, ptr %306, i64 %idxprom812
   store float %div887, ptr %arrayidx890, align 4
-  %308 = load float, ptr %m_maxAngMotorForce.i, align 8
-  %309 = load float, ptr %info, align 8
-  %div893 = fdiv float %308, %309
+  %307 = load float, ptr %m_maxAngMotorForce.i, align 8
+  %308 = load float, ptr %info, align 8
+  %div893 = fdiv float %307, %308
   %m_upperLimit894 = getelementptr inbounds i8, ptr %info, i64 72
-  %310 = load ptr, ptr %m_upperLimit894, align 8
-  %arrayidx896 = getelementptr inbounds float, ptr %310, i64 %idxprom812
+  %309 = load ptr, ptr %m_upperLimit894, align 8
+  %arrayidx896 = getelementptr inbounds float, ptr %309, i64 %idxprom812
   store float %div893, ptr %arrayidx896, align 4
   br label %if.end897
 
@@ -2482,77 +2469,77 @@ if.end897:                                        ; preds = %if.end873, %if.then
   br i1 %tobool.i819, label %if.then899, label %if.end993
 
 if.then899:                                       ; preds = %if.end897
-  %311 = load float, ptr %info, align 8
-  %mul901 = fmul float %cond863, %311
-  %312 = load ptr, ptr %m_constraintError, align 8
-  %arrayidx905 = getelementptr inbounds float, ptr %312, i64 %idxprom812
-  %313 = load float, ptr %arrayidx905, align 4
-  %314 = tail call float @llvm.fmuladd.f32(float %mul901, float %limit_err.11136, float %313)
-  store float %314, ptr %arrayidx905, align 4
-  %315 = load i32, ptr %m_flags, align 4
-  %and907 = and i32 %315, 1024
+  %310 = load float, ptr %info, align 8
+  %mul901 = fmul float %cond863, %310
+  %311 = load ptr, ptr %m_constraintError, align 8
+  %arrayidx905 = getelementptr inbounds float, ptr %311, i64 %idxprom812
+  %312 = load float, ptr %arrayidx905, align 4
+  %313 = tail call float @llvm.fmuladd.f32(float %mul901, float %limit_err.11136, float %312)
+  store float %313, ptr %arrayidx905, align 4
+  %314 = load i32, ptr %m_flags, align 4
+  %and907 = and i32 %314, 1024
   %tobool908.not = icmp eq i32 %and907, 0
   br i1 %tobool908.not, label %if.end913, label %if.then909
 
 if.then909:                                       ; preds = %if.then899
   %m_cfmLimAng = getelementptr inbounds i8, ptr %this, i64 284
-  %316 = load float, ptr %m_cfmLimAng, align 4
+  %315 = load float, ptr %m_cfmLimAng, align 4
   %cfm910 = getelementptr inbounds i8, ptr %info, i64 56
-  %317 = load ptr, ptr %cfm910, align 8
-  %arrayidx912 = getelementptr inbounds float, ptr %317, i64 %idxprom812
-  store float %316, ptr %arrayidx912, align 4
+  %316 = load ptr, ptr %cfm910, align 8
+  %arrayidx912 = getelementptr inbounds float, ptr %316, i64 %idxprom812
+  store float %315, ptr %arrayidx912, align 4
   br label %if.end913
 
 if.end913:                                        ; preds = %if.then909, %if.then899
   %m_lowerLimit916 = getelementptr inbounds i8, ptr %info, i64 64
-  %318 = load ptr, ptr %m_lowerLimit916, align 8
-  %arrayidx918 = getelementptr inbounds float, ptr %318, i64 %idxprom812
+  %317 = load ptr, ptr %m_lowerLimit916, align 8
+  %arrayidx918 = getelementptr inbounds float, ptr %317, i64 %idxprom812
   br i1 %cmp853, label %if.end939, label %if.else922
 
 if.else922:                                       ; preds = %if.end913
-  %. = select i1 %limit.11135, float 0.000000e+00, float 0xC7EFFFFFE0000000
-  %.1252 = select i1 %limit.11135, float 0x47EFFFFFE0000000, float 0.000000e+00
+  %.1254 = select i1 %limit.11135, float 0.000000e+00, float 0xC7EFFFFFE0000000
+  %.1255 = select i1 %limit.11135, float 0x47EFFFFFE0000000, float 0.000000e+00
   br label %if.end939
 
 if.end939:                                        ; preds = %if.else922, %if.end913
-  %.sink1251 = phi float [ 0xC7EFFFFFE0000000, %if.end913 ], [ %., %if.else922 ]
-  %.sink1249 = phi float [ 0x47EFFFFFE0000000, %if.end913 ], [ %.1252, %if.else922 ]
-  store float %.sink1251, ptr %arrayidx918, align 4
+  %.sink1253 = phi float [ 0xC7EFFFFFE0000000, %if.end913 ], [ %.1254, %if.else922 ]
+  %.sink1249 = phi float [ 0x47EFFFFFE0000000, %if.end913 ], [ %.1255, %if.else922 ]
+  store float %.sink1253, ptr %arrayidx918, align 4
   %m_upperLimit928.sink = getelementptr inbounds i8, ptr %info, i64 72
-  %319 = load ptr, ptr %m_upperLimit928.sink, align 8
-  %arrayidx930 = getelementptr inbounds float, ptr %319, i64 %idxprom812
+  %318 = load ptr, ptr %m_upperLimit928.sink, align 8
+  %arrayidx930 = getelementptr inbounds float, ptr %318, i64 %idxprom812
   store float %.sink1249, ptr %arrayidx930, align 4
   %m_dampingLimAng.i = getelementptr inbounds i8, ptr %this, i64 280
-  %320 = load float, ptr %m_dampingLimAng.i, align 8
-  %sub942 = fsub float 1.000000e+00, %320
-  %321 = tail call noundef float @llvm.fabs.f32(float %sub942)
+  %319 = load float, ptr %m_dampingLimAng.i, align 8
+  %sub942 = fsub float 1.000000e+00, %319
+  %320 = tail call noundef float @llvm.fabs.f32(float %sub942)
   %cmp944 = fcmp ueq float %sub942, 0.000000e+00
   br i1 %cmp944, label %if.end986, label %if.then945
 
 if.then945:                                       ; preds = %if.end939
   %m_rbA = getelementptr inbounds i8, ptr %this, i64 40
-  %322 = load ptr, ptr %m_rbA, align 8
-  %m_angularVelocity.i = getelementptr inbounds i8, ptr %322, i64 436
-  %323 = load float, ptr %m_angularVelocity.i, align 4
-  %arrayidx5.i823 = getelementptr inbounds i8, ptr %322, i64 440
-  %324 = load float, ptr %arrayidx5.i823, align 4
-  %mul8.i825 = fmul float %ax1.sroa.0.4.vec.extract1040, %324
-  %325 = tail call float @llvm.fmuladd.f32(float %323, float %ax1.sroa.0.0.vec.extract999, float %mul8.i825)
-  %arrayidx10.i826 = getelementptr inbounds i8, ptr %322, i64 444
-  %326 = load float, ptr %arrayidx10.i826, align 4
-  %327 = tail call noundef float @llvm.fmuladd.f32(float %326, float %ax1.sroa.47.8.vec.extract1083, float %325)
+  %321 = load ptr, ptr %m_rbA, align 8
+  %m_angularVelocity.i = getelementptr inbounds i8, ptr %321, i64 436
+  %322 = load float, ptr %m_angularVelocity.i, align 4
+  %arrayidx5.i823 = getelementptr inbounds i8, ptr %321, i64 440
+  %323 = load float, ptr %arrayidx5.i823, align 4
+  %mul8.i825 = fmul float %ax1.sroa.0.4.vec.extract1040, %323
+  %324 = tail call float @llvm.fmuladd.f32(float %322, float %ax1.sroa.0.0.vec.extract999, float %mul8.i825)
+  %arrayidx10.i826 = getelementptr inbounds i8, ptr %321, i64 444
+  %325 = load float, ptr %arrayidx10.i826, align 4
+  %326 = tail call noundef float @llvm.fmuladd.f32(float %325, float %ax1.sroa.47.8.vec.extract1083, float %324)
   %m_rbB = getelementptr inbounds i8, ptr %this, i64 48
-  %328 = load ptr, ptr %m_rbB, align 8
-  %m_angularVelocity.i828 = getelementptr inbounds i8, ptr %328, i64 436
-  %329 = load float, ptr %m_angularVelocity.i828, align 4
-  %arrayidx5.i829 = getelementptr inbounds i8, ptr %328, i64 440
-  %330 = load float, ptr %arrayidx5.i829, align 4
-  %mul8.i831 = fmul float %ax1.sroa.0.4.vec.extract1040, %330
-  %331 = tail call float @llvm.fmuladd.f32(float %329, float %ax1.sroa.0.0.vec.extract999, float %mul8.i831)
-  %arrayidx10.i832 = getelementptr inbounds i8, ptr %328, i64 444
-  %332 = load float, ptr %arrayidx10.i832, align 4
-  %333 = tail call noundef float @llvm.fmuladd.f32(float %332, float %ax1.sroa.47.8.vec.extract1083, float %331)
-  %sub951 = fsub float %327, %333
+  %327 = load ptr, ptr %m_rbB, align 8
+  %m_angularVelocity.i828 = getelementptr inbounds i8, ptr %327, i64 436
+  %328 = load float, ptr %m_angularVelocity.i828, align 4
+  %arrayidx5.i829 = getelementptr inbounds i8, ptr %327, i64 440
+  %329 = load float, ptr %arrayidx5.i829, align 4
+  %mul8.i831 = fmul float %ax1.sroa.0.4.vec.extract1040, %329
+  %330 = tail call float @llvm.fmuladd.f32(float %328, float %ax1.sroa.0.0.vec.extract999, float %mul8.i831)
+  %arrayidx10.i832 = getelementptr inbounds i8, ptr %327, i64 444
+  %331 = load float, ptr %arrayidx10.i832, align 4
+  %332 = tail call noundef float @llvm.fmuladd.f32(float %331, float %ax1.sroa.47.8.vec.extract1083, float %330)
+  %sub951 = fsub float %326, %332
   br i1 %limit.11135, label %if.then953, label %if.else969
 
 if.then953:                                       ; preds = %if.then945
@@ -2560,12 +2547,12 @@ if.then953:                                       ; preds = %if.then945
   br i1 %cmp954, label %if.then955, label %if.end986
 
 if.then955:                                       ; preds = %if.then953
-  %fneg957 = fneg float %321
+  %fneg957 = fneg float %320
   %mul958 = fmul float %sub951, %fneg957
-  %334 = load ptr, ptr %m_constraintError, align 8
-  %arrayidx961 = getelementptr inbounds float, ptr %334, i64 %idxprom812
-  %335 = load float, ptr %arrayidx961, align 4
-  %cmp962 = fcmp ogt float %mul958, %335
+  %333 = load ptr, ptr %m_constraintError, align 8
+  %arrayidx961 = getelementptr inbounds float, ptr %333, i64 %idxprom812
+  %334 = load float, ptr %arrayidx961, align 4
+  %cmp962 = fcmp ogt float %mul958, %334
   br i1 %cmp962, label %if.then963, label %if.end986
 
 if.then963:                                       ; preds = %if.then955
@@ -2577,12 +2564,12 @@ if.else969:                                       ; preds = %if.then945
   br i1 %cmp970, label %if.then971, label %if.end986
 
 if.then971:                                       ; preds = %if.else969
-  %fneg973 = fneg float %321
+  %fneg973 = fneg float %320
   %mul974 = fmul float %sub951, %fneg973
-  %336 = load ptr, ptr %m_constraintError, align 8
-  %arrayidx977 = getelementptr inbounds float, ptr %336, i64 %idxprom812
-  %337 = load float, ptr %arrayidx977, align 4
-  %cmp978 = fcmp olt float %mul974, %337
+  %335 = load ptr, ptr %m_constraintError, align 8
+  %arrayidx977 = getelementptr inbounds float, ptr %335, i64 %idxprom812
+  %336 = load float, ptr %arrayidx977, align 4
+  %cmp978 = fcmp olt float %mul974, %336
   br i1 %cmp978, label %if.then979, label %if.end986
 
 if.then979:                                       ; preds = %if.then971
@@ -2590,11 +2577,11 @@ if.then979:                                       ; preds = %if.then971
   br label %if.end986
 
 if.end986:                                        ; preds = %if.then955, %if.then963, %if.then953, %if.then971, %if.then979, %if.else969, %if.end939
-  %338 = load float, ptr %m_softnessLimAng, align 8
-  %339 = load ptr, ptr %m_constraintError, align 8
-  %arrayidx990 = getelementptr inbounds float, ptr %339, i64 %idxprom812
-  %340 = load float, ptr %arrayidx990, align 4
-  %mul991 = fmul float %338, %340
+  %337 = load float, ptr %m_softnessLimAng, align 8
+  %338 = load ptr, ptr %m_constraintError, align 8
+  %arrayidx990 = getelementptr inbounds float, ptr %338, i64 %idxprom812
+  %339 = load float, ptr %arrayidx990, align 4
+  %mul991 = fmul float %337, %339
   store float %mul991, ptr %arrayidx990, align 4
   br label %if.end993
 

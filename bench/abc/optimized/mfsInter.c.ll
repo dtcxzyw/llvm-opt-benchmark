@@ -681,7 +681,7 @@ declare i32 @Int_ManInterpolate(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare void @Sto_ManFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 131621) i32 @Abc_NtkMfsInterplateEval(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 117) i32 @Abc_NtkMfsInterplateEval(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Abc_NtkMfsInterplateTruth(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0)
   %5 = icmp eq i32 %2, 6
   br i1 %5, label %6, label %16

@@ -590,18 +590,22 @@ while.body.lr.ph.i:                               ; preds = %for.body
   %wide.trip.count.i = zext i32 %add to i64
   br label %while.body.i
 
-while.cond53.preheader.i:                         ; preds = %if.end46.i, %for.body
-  %activeSegment.sroa.0.0.lcssa.i = phi i32 [ %conv9, %for.body ], [ %activeSegment.sroa.0.1.i, %if.end46.i ]
-  %retval.sroa.6.0.lcssa.i = phi i32 [ 0, %for.body ], [ %retval.sroa.6.1.i, %if.end46.i ]
-  %retval.sroa.0.sroa.4.0.lcssa.i = phi i32 [ 0, %for.body ], [ %retval.sroa.0.sroa.4.1.i, %if.end46.i ]
-  %retval.sroa.0.sroa.0.0.lcssa.i = phi i32 [ 0, %for.body ], [ %retval.sroa.0.sroa.0.1.i, %if.end46.i ]
+while.cond53.preheader.i.loopexit:                ; preds = %if.end46.i
+  %6 = icmp eq i32 %retval.sroa.6.1.i, 0
+  br label %while.cond53.preheader.i
+
+while.cond53.preheader.i:                         ; preds = %while.cond53.preheader.i.loopexit, %for.body
+  %activeSegment.sroa.0.0.lcssa.i = phi i32 [ %conv9, %for.body ], [ %activeSegment.sroa.0.1.i, %while.cond53.preheader.i.loopexit ]
+  %retval.sroa.6.0.lcssa.i = phi i1 [ true, %for.body ], [ %6, %while.cond53.preheader.i.loopexit ]
+  %retval.sroa.0.sroa.4.0.lcssa.i = phi i32 [ 0, %for.body ], [ %retval.sroa.0.sroa.4.1.i, %while.cond53.preheader.i.loopexit ]
+  %retval.sroa.0.sroa.0.0.lcssa.i = phi i32 [ 0, %for.body ], [ %retval.sroa.0.sroa.0.1.i, %while.cond53.preheader.i.loopexit ]
   %cmp5511.i = icmp ult i32 %activeSegment.sroa.0.0.lcssa.i, %add
   br i1 %cmp5511.i, label %while.body57.lr.ph.i, label %for.cond.preheader.i
 
 while.body57.lr.ph.i:                             ; preds = %while.cond53.preheader.i
   %sub.i.i.i48.i = sub i32 64, %4
   %sh_prom.i.i.i49.i = zext nneg i32 %sub.i.i.i48.i to i64
-  %6 = zext i32 %activeSegment.sroa.0.0.lcssa.i to i64
+  %7 = zext i32 %activeSegment.sroa.0.0.lcssa.i to i64
   %wide.trip.count20.i = zext i32 %add to i64
   br label %while.body57.i
 
@@ -612,50 +616,50 @@ while.body.i:                                     ; preds = %if.end46.i, %while.
   %retval.sroa.6.05.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %retval.sroa.6.1.i, %if.end46.i ]
   %activeSegment.sroa.16.04.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %activeSegment.sroa.16.2.i, %if.end46.i ]
   %activeSegment.sroa.0.02.i = phi i32 [ %conv9, %while.body.lr.ph.i ], [ %activeSegment.sroa.0.1.i, %if.end46.i ]
-  %7 = load ptr, ptr %ctx, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.i
+  %8 = load ptr, ptr %ctx, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.i
   %p.val.i.i = load i64, ptr %add.ptr.i, align 1
   %mul.i.i4.i.i = mul i64 %p.val.i.i, %..i.i
   %shr.i.i7.i.i = lshr i64 %mul.i.i4.i.i, %sh_prom.i.i.i.i
   %arrayidx.i = getelementptr inbounds i16, ptr %segmentFreqs, i64 %shr.i.i7.i.i
-  %8 = load i16, ptr %arrayidx.i, align 2
-  %cmp8.i = icmp eq i16 %8, 0
+  %9 = load i16, ptr %arrayidx.i, align 2
+  %cmp8.i = icmp eq i16 %9, 0
   br i1 %cmp8.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body.i
   %arrayidx10.i = getelementptr inbounds i32, ptr %freqs, i64 %shr.i.i7.i.i
-  %9 = load i32, ptr %arrayidx10.i, align 4
-  %add12.i = add i32 %9, %activeSegment.sroa.16.04.i
+  %10 = load i32, ptr %arrayidx10.i, align 4
+  %add12.i = add i32 %10, %activeSegment.sroa.16.04.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   %activeSegment.sroa.16.1.i = phi i32 [ %add12.i, %if.then.i ], [ %activeSegment.sroa.16.04.i, %while.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
-  %add17.i = add i16 %8, 1
+  %add17.i = add i16 %9, 1
   store i16 %add17.i, ptr %arrayidx.i, align 2
   %sub21.i = sub i32 %indvars.i, %activeSegment.sroa.0.02.i
   %cmp23.i = icmp eq i32 %sub21.i, %add22.i
   br i1 %cmp23.i, label %if.then25.i, label %if.end46.i
 
 if.then25.i:                                      ; preds = %if.end.i
-  %10 = load ptr, ptr %ctx, align 8
+  %11 = load ptr, ptr %ctx, align 8
   %idx.ext28.i = zext i32 %activeSegment.sroa.0.02.i to i64
-  %add.ptr29.i = getelementptr inbounds i8, ptr %10, i64 %idx.ext28.i
+  %add.ptr29.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext28.i
   %p.val.i40.i = load i64, ptr %add.ptr29.i, align 1
   %mul.i.i4.i44.i = mul i64 %p.val.i40.i, %..i.i
   %shr.i.i7.i45.i = lshr i64 %mul.i.i4.i44.i, %sh_prom.i.i.i.i
   %arrayidx31.i = getelementptr inbounds i16, ptr %segmentFreqs, i64 %shr.i.i7.i45.i
-  %11 = load i16, ptr %arrayidx31.i, align 2
-  %sub33.i = add i16 %11, -1
+  %12 = load i16, ptr %arrayidx31.i, align 2
+  %sub33.i = add i16 %12, -1
   store i16 %sub33.i, ptr %arrayidx31.i, align 2
   %cmp37.i = icmp eq i16 %sub33.i, 0
   br i1 %cmp37.i, label %if.then39.i, label %if.end43.i
 
 if.then39.i:                                      ; preds = %if.then25.i
   %arrayidx40.i = getelementptr inbounds i32, ptr %freqs, i64 %shr.i.i7.i45.i
-  %12 = load i32, ptr %arrayidx40.i, align 4
-  %sub42.i = sub i32 %activeSegment.sroa.16.1.i, %12
+  %13 = load i32, ptr %arrayidx40.i, align 4
+  %sub42.i = sub i32 %activeSegment.sroa.16.1.i, %13
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.then39.i, %if.then25.i
@@ -671,7 +675,7 @@ if.end46.i:                                       ; preds = %if.end43.i, %if.end
   %retval.sroa.0.sroa.4.1.i = select i1 %cmp49.i, i32 %indvars.i, i32 %retval.sroa.0.sroa.4.06.i
   %retval.sroa.0.sroa.0.1.i = select i1 %cmp49.i, i32 %activeSegment.sroa.0.1.i, i32 %retval.sroa.0.sroa.0.07.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %while.cond53.preheader.i, label %while.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %while.cond53.preheader.i.loopexit, label %while.body.i, !llvm.loop !8
 
 for.cond.preheader.i:                             ; preds = %while.body57.i, %while.cond53.preheader.i
   %cmp73.not13.i = icmp eq i32 %retval.sroa.0.sroa.0.0.lcssa.i, %retval.sroa.0.sroa.4.0.lcssa.i
@@ -683,15 +687,15 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i
 
 while.body57.i:                                   ; preds = %while.body57.i, %while.body57.lr.ph.i
-  %indvars.iv16.i = phi i64 [ %6, %while.body57.lr.ph.i ], [ %indvars.iv.next17.i, %while.body57.i ]
-  %13 = load ptr, ptr %ctx, align 8
-  %add.ptr62.i = getelementptr inbounds i8, ptr %13, i64 %indvars.iv16.i
+  %indvars.iv16.i = phi i64 [ %7, %while.body57.lr.ph.i ], [ %indvars.iv.next17.i, %while.body57.i ]
+  %14 = load ptr, ptr %ctx, align 8
+  %add.ptr62.i = getelementptr inbounds i8, ptr %14, i64 %indvars.iv16.i
   %p.val.i47.i = load i64, ptr %add.ptr62.i, align 1
   %mul.i.i4.i51.i = mul i64 %p.val.i47.i, %..i.i
   %shr.i.i7.i52.i = lshr i64 %mul.i.i4.i51.i, %sh_prom.i.i.i49.i
   %arrayidx64.i = getelementptr inbounds i16, ptr %segmentFreqs, i64 %shr.i.i7.i52.i
-  %14 = load i16, ptr %arrayidx64.i, align 2
-  %sub66.i = add i16 %14, -1
+  %15 = load i16, ptr %arrayidx64.i, align 2
+  %sub66.i = add i16 %15, -1
   store i16 %sub66.i, ptr %arrayidx64.i, align 2
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next17.i, %wide.trip.count20.i
@@ -699,9 +703,9 @@ while.body57.i:                                   ; preds = %while.body57.i, %wh
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %pos.014.i = phi i32 [ %retval.sroa.0.sroa.0.0.lcssa.i, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
-  %15 = load ptr, ptr %ctx, align 8
+  %16 = load ptr, ptr %ctx, align 8
   %idx.ext76.i = zext i32 %pos.014.i to i64
-  %add.ptr77.i = getelementptr inbounds i8, ptr %15, i64 %idx.ext76.i
+  %add.ptr77.i = getelementptr inbounds i8, ptr %16, i64 %idx.ext76.i
   %p.val.i54.i = load i64, ptr %add.ptr77.i, align 1
   %mul.i.i4.i58.i = mul i64 %p.val.i54.i, %..i.i
   %shr.i.i7.i59.i = lshr i64 %mul.i.i4.i58.i, %sh_prom.i.i.i56.i
@@ -713,8 +717,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 FASTCOVER_selectSegment.exit:                     ; preds = %for.body.i, %for.cond.preheader.i
   %retval.sroa.0.sroa.0.0.insert.ext.i = zext i32 %retval.sroa.0.sroa.0.0.lcssa.i to i64
-  %cmp12 = icmp eq i32 %retval.sroa.6.0.lcssa.i, 0
-  br i1 %cmp12, label %if.then14, label %if.end19
+  br i1 %retval.sroa.6.0.lcssa.i, label %if.then14, label %if.end19
 
 if.then14:                                        ; preds = %FASTCOVER_selectSegment.exit
   %inc = add nuw nsw i64 %zeroScoreRun.03, 1
@@ -732,34 +735,34 @@ if.end19:                                         ; preds = %FASTCOVER_selectSeg
 if.end37:                                         ; preds = %if.end19
   %sub38 = sub i64 %tail.04, %conv22.tail.0
   %add.ptr = getelementptr inbounds i8, ptr %dictBuffer, i64 %sub38
-  %16 = load ptr, ptr %ctx, align 8
-  %add.ptr40 = getelementptr inbounds i8, ptr %16, i64 %retval.sroa.0.sroa.0.0.insert.ext.i
+  %17 = load ptr, ptr %ctx, align 8
+  %add.ptr40 = getelementptr inbounds i8, ptr %17, i64 %retval.sroa.0.sroa.0.0.insert.ext.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr40, i64 %conv22.tail.0, i1 false)
-  %17 = load i32, ptr @g_displayLevel, align 4
-  %cmp41 = icmp sgt i32 %17, 1
+  %18 = load i32, ptr @g_displayLevel, align 4
+  %cmp41 = icmp sgt i32 %18, 1
   br i1 %cmp41, label %if.then43, label %for.inc
 
 if.then43:                                        ; preds = %if.end37
   %call44 = tail call i64 @clock() #12
-  %18 = load i64, ptr @g_time, align 8
-  %sub45 = sub nsw i64 %call44, %18
+  %19 = load i64, ptr @g_time, align 8
+  %sub45 = sub nsw i64 %call44, %19
   %cmp46 = icmp sgt i64 %sub45, 150000
-  %19 = load i32, ptr @g_displayLevel, align 4
-  %cmp48 = icmp sgt i32 %19, 3
+  %20 = load i32, ptr @g_displayLevel, align 4
+  %cmp48 = icmp sgt i32 %20, 3
   %or.cond = select i1 %cmp46, i1 true, i1 %cmp48
   br i1 %or.cond, label %if.then50, label %for.inc
 
 if.then50:                                        ; preds = %if.then43
   %call51 = tail call i64 @clock() #12
   store i64 %call51, ptr @g_time, align 8
-  %20 = load ptr, ptr @stderr, align 8
+  %21 = load ptr, ptr @stderr, align 8
   %sub52 = sub i64 %dictBufferCapacity, %sub38
   %mul53 = mul i64 %sub52, 100
   %div = udiv i64 %mul53, %dictBufferCapacity
   %conv54 = trunc i64 %div to i32
-  %call55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.13, i32 noundef %conv54) #11
-  %21 = load ptr, ptr @stderr, align 8
-  %call56 = tail call i32 @fflush(ptr noundef %21)
+  %call55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.13, i32 noundef %conv54) #11
+  %22 = load ptr, ptr @stderr, align 8
+  %call56 = tail call i32 @fflush(ptr noundef %22)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end37, %if.then43, %if.then50, %if.then14
@@ -772,15 +775,15 @@ for.inc:                                          ; preds = %if.end37, %if.then4
 
 for.end:                                          ; preds = %for.inc, %if.then14, %if.end19, %if.end
   %tail.0.lcssa = phi i64 [ 0, %if.end ], [ %tail.04, %if.end19 ], [ %tail.04, %if.then14 ], [ 0, %for.inc ]
-  %22 = load i32, ptr @g_displayLevel, align 4
-  %cmp62 = icmp sgt i32 %22, 1
+  %23 = load i32, ptr @g_displayLevel, align 4
+  %cmp62 = icmp sgt i32 %23, 1
   br i1 %cmp62, label %if.then64, label %if.end67
 
 if.then64:                                        ; preds = %for.end
-  %23 = load ptr, ptr @stderr, align 8
-  %call65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #11
   %24 = load ptr, ptr @stderr, align 8
-  %call66 = tail call i32 @fflush(ptr noundef %24)
+  %call65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #11
+  %25 = load ptr, ptr @stderr, align 8
+  %call66 = tail call i32 @fflush(ptr noundef %25)
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then64, %for.end

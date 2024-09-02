@@ -2186,27 +2186,27 @@ define internal fastcc i32 @dissect_jxta_welcome(ptr noundef %0, ptr nocapture n
 13:                                               ; preds = %11
   %14 = load i32, ptr @gDESEGMENT, align 4
   %.not149 = icmp eq i32 %14, 0
-  br i1 %.not149, label %19, label %15
+  br i1 %.not149, label %20, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %1, i64 328
   %17 = load i16, ptr %16, align 8
   %18 = icmp ne i16 %17, 0
-  br label %19
+  %19 = zext i1 %18 to i32
+  br label %20
 
-19:                                               ; preds = %15, %13
-  %20 = phi i1 [ false, %13 ], [ %18, %15 ]
-  %21 = zext i1 %20 to i32
+20:                                               ; preds = %15, %13
+  %21 = phi i32 [ 0, %13 ], [ %19, %15 ]
   %22 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %6, i32 noundef %21) #12
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %24, label %26
 
-24:                                               ; preds = %19
+24:                                               ; preds = %20
   %25 = icmp ugt i32 %7, 4096
   %. = select i1 %25, i32 0, i32 -268435455
   br label %204
 
-26:                                               ; preds = %19
+26:                                               ; preds = %20
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.136) #12

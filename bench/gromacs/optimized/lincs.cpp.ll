@@ -456,13 +456,16 @@ define noundef nonnull ptr @_ZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS_8Arr
   %.3.i = phi i8 [ %.04739.i, %.lr.ph40.i ], [ %.04739.i, %120 ], [ %.2.i, %144 ]
   %146 = getelementptr inbounds i8, ptr %.sroa.011.038.i, i64 4
   %.not30.i = icmp eq ptr %146, %105
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph40.i
+  br i1 %.not30.i, label %._crit_edge.loopexit.i, label %.lr.ph40.i
 
-._crit_edge.i:                                    ; preds = %.loopexit.i, %92
-  %.047.lcssa.i = phi i8 [ 0, %92 ], [ %.3.i, %.loopexit.i ]
-  %147 = and i8 %.047.lcssa.i, 1
+._crit_edge.loopexit.i:                           ; preds = %.loopexit.i
+  %147 = and i8 %.3.i, 1
   %148 = zext nneg i8 %147 to i32
-  %spec.select.i = add nuw nsw i32 %.043.i, %148
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %92
+  %.047.lcssa.i = phi i32 [ 0, %92 ], [ %148, %._crit_edge.loopexit.i ]
+  %spec.select.i = add nuw nsw i32 %.047.lcssa.i, %.043.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit, label %92, !llvm.loop !8

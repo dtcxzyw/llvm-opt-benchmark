@@ -99,7 +99,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %19 = load ptr, ptr %11, align 8, !noalias !45, !nonnull !18, !noundef !18
   %20 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %19, i64 0, i64 %13, i32 0, i32 1
   %21 = load i64, ptr %20, align 8, !noalias !45, !noundef !18
-  %.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %switch.select2.i.i.i.i.i.i, i64 %21)
+  %.0.sroa.speculated.i.i.i.i.i.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %switch.select2.i.i.i.i.i.i, i64 %21)
   %22 = getelementptr inbounds i64, ptr %.sroa.53.0.copyload, i64 %.val18.i.i
   store i64 %.0.sroa.speculated.i.i.i.i.i.i, ptr %22, align 8, !noalias !61
   %23 = add i64 %.val18.i.i, 1
@@ -393,7 +393,7 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   %22 = load ptr, ptr %14, align 8, !noalias !250, !nonnull !18, !noundef !18
   %23 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %22, i64 0, i64 %16, i32 0, i32 1
   %24 = load i64, ptr %23, align 8, !noalias !250, !noundef !18
-  %.0.sroa.speculated.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %switch.select2.i.i.i.i.i, i64 %24)
+  %.0.sroa.speculated.i.i.i.i.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %switch.select2.i.i.i.i.i, i64 %24)
   %25 = getelementptr inbounds i64, ptr %.sroa.9.0.copyload, i64 %.val18.i
   store i64 %.0.sroa.speculated.i.i.i.i.i, ptr %25, align 8, !noalias !261
   %26 = add i64 %.val18.i, 1
@@ -981,7 +981,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %26 = load ptr, ptr %13, align 8, !noalias !562, !nonnull !18, !noundef !18
   %27 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %26, i64 0, i64 %20, i32 0, i32 1
   %28 = load i64, ptr %27, align 8, !noalias !562, !noundef !18
-  %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %switch.select2.i.i.i.i, i64 %28)
+  %.0.sroa.speculated.i.i.i.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %switch.select2.i.i.i.i, i64 %28)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !582)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !585)
   %29 = getelementptr inbounds i64, ptr %15, i64 %.val18

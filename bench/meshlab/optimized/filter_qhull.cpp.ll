@@ -8171,22 +8171,25 @@ define linkonce_odr void @_ZN3vcg3tri10ConvexHullI6CMeshOS2_E22ComputePointVisib
   %52 = getelementptr inbounds i8, ptr %.sroa.0103.0116, i64 48
   %53 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %52, %53
-  br i1 %.not, label %._crit_edge, label %36, !llvm.loop !64
+  br i1 %.not, label %._crit_edge.loopexit, label %36, !llvm.loop !64
 
 54:                                               ; preds = %220, %_ZN3vcg3tri5CleanI6CMeshOE8FlipMeshERS2_b.exit, %._crit_edge135, %99
   %55 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-._crit_edge:                                      ; preds = %36, %29
-  %.0113.lcssa = phi float [ 0.000000e+00, %29 ], [ %.sroa.speculated, %36 ]
-  %56 = fpext float %.0113.lcssa to double
+._crit_edge.loopexit:                             ; preds = %36
+  %56 = fpext float %.sroa.speculated to double
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %29
+  %.0113.lcssa = phi double [ 0.000000e+00, %29 ], [ %56, %._crit_edge.loopexit ]
   %57 = fpext float %4 to double
   %58 = call noundef double @pow(double noundef 1.000000e+01, double noundef %57) #27
-  %59 = fmul double %58, %56
+  %59 = fmul double %58, %.0113.lcssa
   %60 = fptrunc double %59 to float
   %61 = fpext float %60 to double
-  %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, double noundef %61, double noundef %57, double noundef %56)
+  %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, double noundef %61, double noundef %57, double noundef %.0113.lcssa)
   %63 = load ptr, ptr %30, align 8
   %64 = getelementptr inbounds i8, ptr %9, i64 16
   %65 = load ptr, ptr %64, align 8

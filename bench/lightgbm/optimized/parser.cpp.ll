@@ -2146,166 +2146,166 @@ _ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit42:    ; preds = %41
   %55 = icmp eq i32 %.0..0..0.59, %.0..0..0.50
   %56 = icmp sgt i32 %.0..0..0.59, 0
   %or.cond5 = and i1 %56, %55
-  %.fr = freeze i1 %or.cond5
-  %57 = icmp ugt i64 %30, 2
-  %or.cond82 = select i1 %.fr, i1 %57, i1 false
+  %57 = freeze i1 %or.cond5
+  %58 = icmp ugt i64 %30, 2
+  %or.cond82 = select i1 %57, i1 %58, i1 false
   br i1 %or.cond82, label %.lr.ph.split, label %.loopexit
 
 .thread90:                                        ; preds = %51
-  %58 = icmp ugt i64 %30, 2
-  br i1 %58, label %.lr.ph.split.us.preheader, label %.loopexit..thread69_crit_edge
+  %59 = icmp ugt i64 %30, 2
+  br i1 %59, label %.lr.ph.split.us.preheader, label %.loopexit..thread69_crit_edge
 
 .lr.ph.split.us.preheader:                        ; preds = %.thread90
   %.0..0..0.56100 = load i32, ptr %6, align 4
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %69
-  %.03272.us = phi i64 [ %70, %69 ], [ 2, %.lr.ph.split.us.preheader ]
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %59, i64 %.03272.us
-  %61 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #27
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %70
+  %.03272.us = phi i64 [ %71, %70 ], [ 2, %.lr.ph.split.us.preheader ]
+  %60 = load ptr, ptr %2, align 8
+  %61 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %60, i64 %.03272.us
+  %62 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %61) #27
   store i32 0, ptr %8, align 4
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 4
-  br label %62
+  br label %63
 
-62:                                               ; preds = %71, %.lr.ph.split.us
-  %indvars.iv.i43.us = phi i64 [ %indvars.iv.next.i46.us, %71 ], [ 0, %.lr.ph.split.us ]
-  %63 = getelementptr inbounds i8, ptr %61, i64 %indvars.iv.i43.us
-  %64 = load i8, ptr %63, align 1
-  switch i8 %64, label %71 [
+63:                                               ; preds = %72, %.lr.ph.split.us
+  %indvars.iv.i43.us = phi i64 [ %indvars.iv.next.i46.us, %72 ], [ 0, %.lr.ph.split.us ]
+  %64 = getelementptr inbounds i8, ptr %62, i64 %indvars.iv.i43.us
+  %65 = load i8, ptr %64, align 1
+  switch i8 %65, label %72 [
     i8 0, label %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us
     i8 44, label %.sink.split.i44.us
-    i8 9, label %66
-    i8 58, label %65
+    i8 9, label %67
+    i8 58, label %66
   ]
 
-65:                                               ; preds = %62
+66:                                               ; preds = %63
   br label %.sink.split.i44.us
 
-66:                                               ; preds = %62
+67:                                               ; preds = %63
   br label %.sink.split.i44.us
 
-.sink.split.i44.us:                               ; preds = %66, %65, %62
-  %.sink.i45.us = phi ptr [ %10, %65 ], [ %9, %66 ], [ %8, %62 ]
-  %67 = load i32, ptr %.sink.i45.us, align 4
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %.sink.i45.us, align 4
-  br label %71
+.sink.split.i44.us:                               ; preds = %67, %66, %63
+  %.sink.i45.us = phi ptr [ %10, %66 ], [ %9, %67 ], [ %8, %63 ]
+  %68 = load i32, ptr %.sink.i45.us, align 4
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %.sink.i45.us, align 4
+  br label %72
 
-_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us: ; preds = %62
+_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us: ; preds = %63
   %.0..0..0.49.us = load i32, ptr %9, align 4
   %.not.us = icmp eq i32 %.0..0..0.49.us, %.0..0..0.56100
-  br i1 %.not.us, label %69, label %.thread
+  br i1 %.not.us, label %70, label %.thread
 
-69:                                               ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us
-  %70 = add nuw i64 %.03272.us, 1
-  %exitcond87.not = icmp eq i64 %70, %30
+70:                                               ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us
+  %71 = add nuw i64 %.03272.us, 1
+  %exitcond87.not = icmp eq i64 %71, %30
   br i1 %exitcond87.not, label %.loopexit..thread69_crit_edge, label %.lr.ph.split.us, !llvm.loop !30
 
-71:                                               ; preds = %.sink.split.i44.us, %62
+72:                                               ; preds = %.sink.split.i44.us, %63
   %indvars.iv.next.i46.us = add nuw nsw i64 %indvars.iv.i43.us, 1
-  br label %62, !llvm.loop !5
+  br label %63, !llvm.loop !5
 
 .lr.ph.split:                                     ; preds = %54
   %.0..0..0.60 = load i32, ptr %5, align 4
-  br i1 %.fr, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  br i1 %57, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %82
-  %.03272.us73 = phi i64 [ %83, %82 ], [ 2, %.lr.ph.split ]
-  %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %72, i64 %.03272.us73
-  %74 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %73) #27
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %83
+  %.03272.us73 = phi i64 [ %84, %83 ], [ 2, %.lr.ph.split ]
+  %73 = load ptr, ptr %2, align 8
+  %74 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %73, i64 %.03272.us73
+  %75 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %74) #27
   store i32 0, ptr %8, align 4
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 4
-  br label %75
+  br label %76
 
-75:                                               ; preds = %84, %.lr.ph.split.split.us
-  %indvars.iv.i43.us74 = phi i64 [ %indvars.iv.next.i46.us80, %84 ], [ 0, %.lr.ph.split.split.us ]
-  %76 = getelementptr inbounds i8, ptr %74, i64 %indvars.iv.i43.us74
-  %77 = load i8, ptr %76, align 1
-  switch i8 %77, label %84 [
+76:                                               ; preds = %85, %.lr.ph.split.split.us
+  %indvars.iv.i43.us74 = phi i64 [ %indvars.iv.next.i46.us80, %85 ], [ 0, %.lr.ph.split.split.us ]
+  %77 = getelementptr inbounds i8, ptr %75, i64 %indvars.iv.i43.us74
+  %78 = load i8, ptr %77, align 1
+  switch i8 %78, label %85 [
     i8 0, label %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us77
     i8 44, label %.sink.split.i44.us75
-    i8 9, label %79
-    i8 58, label %78
+    i8 9, label %80
+    i8 58, label %79
   ]
 
-78:                                               ; preds = %75
+79:                                               ; preds = %76
   br label %.sink.split.i44.us75
 
-79:                                               ; preds = %75
+80:                                               ; preds = %76
   br label %.sink.split.i44.us75
 
-.sink.split.i44.us75:                             ; preds = %79, %78, %75
-  %.sink.i45.us76 = phi ptr [ %10, %78 ], [ %9, %79 ], [ %8, %75 ]
-  %80 = load i32, ptr %.sink.i45.us76, align 4
-  %81 = add nsw i32 %80, 1
-  store i32 %81, ptr %.sink.i45.us76, align 4
-  br label %84
+.sink.split.i44.us75:                             ; preds = %80, %79, %76
+  %.sink.i45.us76 = phi ptr [ %10, %79 ], [ %9, %80 ], [ %8, %76 ]
+  %81 = load i32, ptr %.sink.i45.us76, align 4
+  %82 = add nsw i32 %81, 1
+  store i32 %82, ptr %.sink.i45.us76, align 4
+  br label %85
 
-_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us77: ; preds = %75
+_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us77: ; preds = %76
   %.0..0..0.51.us78 = load i32, ptr %8, align 4
   %.not35.us79 = icmp eq i32 %.0..0..0.60, %.0..0..0.51.us78
-  br i1 %.not35.us79, label %82, label %.thread
+  br i1 %.not35.us79, label %83, label %.thread
 
-82:                                               ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us77
-  %83 = add nuw i64 %.03272.us73, 1
-  %exitcond86.not = icmp eq i64 %83, %30
+83:                                               ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us77
+  %84 = add nuw i64 %.03272.us73, 1
+  %exitcond86.not = icmp eq i64 %84, %30
   br i1 %exitcond86.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !30
 
-84:                                               ; preds = %.sink.split.i44.us75, %75
+85:                                               ; preds = %.sink.split.i44.us75, %76
   %indvars.iv.next.i46.us80 = add nuw nsw i64 %indvars.iv.i43.us74, 1
-  br label %75, !llvm.loop !5
+  br label %76, !llvm.loop !5
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47
-  %.03272 = phi i64 [ %96, %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47 ], [ 2, %.lr.ph.split ]
-  %85 = load ptr, ptr %2, align 8
-  %86 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %85, i64 %.03272
-  %87 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %86) #27
+  %.03272 = phi i64 [ %97, %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47 ], [ 2, %.lr.ph.split ]
+  %86 = load ptr, ptr %2, align 8
+  %87 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %86, i64 %.03272
+  %88 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %87) #27
   store i32 0, ptr %8, align 4
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 4
-  br label %88
+  br label %89
 
-88:                                               ; preds = %95, %.lr.ph.split.split
-  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i46, %95 ], [ 0, %.lr.ph.split.split ]
-  %89 = getelementptr inbounds i8, ptr %87, i64 %indvars.iv.i43
-  %90 = load i8, ptr %89, align 1
-  switch i8 %90, label %95 [
+89:                                               ; preds = %96, %.lr.ph.split.split
+  %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i46, %96 ], [ 0, %.lr.ph.split.split ]
+  %90 = getelementptr inbounds i8, ptr %88, i64 %indvars.iv.i43
+  %91 = load i8, ptr %90, align 1
+  switch i8 %91, label %96 [
     i8 0, label %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47
     i8 44, label %.sink.split.i44
-    i8 9, label %91
-    i8 58, label %92
+    i8 9, label %92
+    i8 58, label %93
   ]
 
-91:                                               ; preds = %88
+92:                                               ; preds = %89
   br label %.sink.split.i44
 
-92:                                               ; preds = %88
+93:                                               ; preds = %89
   br label %.sink.split.i44
 
-.sink.split.i44:                                  ; preds = %92, %91, %88
-  %.sink.i45 = phi ptr [ %10, %92 ], [ %9, %91 ], [ %8, %88 ]
-  %93 = load i32, ptr %.sink.i45, align 4
-  %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %.sink.i45, align 4
-  br label %95
+.sink.split.i44:                                  ; preds = %93, %92, %89
+  %.sink.i45 = phi ptr [ %10, %93 ], [ %9, %92 ], [ %8, %89 ]
+  %94 = load i32, ptr %.sink.i45, align 4
+  %95 = add nsw i32 %94, 1
+  store i32 %95, ptr %.sink.i45, align 4
+  br label %96
 
-95:                                               ; preds = %.sink.split.i44, %88
+96:                                               ; preds = %.sink.split.i44, %89
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i43, 1
-  br label %88, !llvm.loop !5
+  br label %89, !llvm.loop !5
 
-_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47:    ; preds = %88
-  %96 = add nuw i64 %.03272, 1
-  %exitcond.not = icmp eq i64 %96, %30
+_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47:    ; preds = %89
+  %97 = add nuw i64 %.03272, 1
+  %exitcond.not = icmp eq i64 %97, %30
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !30
 
-.loopexit:                                        ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47, %82, %54
-  br i1 %.fr, label %.loopexit..thread66_crit_edge, label %.thread
+.loopexit:                                        ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47, %83, %54
+  br i1 %57, label %.loopexit..thread66_crit_edge, label %.thread
 
-.loopexit..thread69_crit_edge:                    ; preds = %69, %.thread90
+.loopexit..thread69_crit_edge:                    ; preds = %70, %.thread90
   %.0..0..0.57.pre = load i32, ptr %6, align 4
   br label %.thread.sink.split
 
@@ -2314,14 +2314,14 @@ _ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47:    ; preds = %88
   br label %.thread.sink.split
 
 .thread63:                                        ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit42, %32
-  %97 = tail call noundef i32 @_ZN8LightGBM23GetNumColFromLIBSVMFileEPKcb(ptr noundef %0, i1 noundef zeroext %1)
+  %98 = tail call noundef i32 @_ZN8LightGBM23GetNumColFromLIBSVMFileEPKcb(ptr noundef %0, i1 noundef zeroext %1)
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %34, %.loopexit..thread69_crit_edge, %36, %.loopexit..thread66_crit_edge, %.thread63
-  %.sink115 = phi i32 [ %97, %.thread63 ], [ %.0..0..0.61.pre, %.loopexit..thread66_crit_edge ], [ %.0..0..0.58, %36 ], [ %.0..0..0.57.pre, %.loopexit..thread69_crit_edge ], [ %.0..0..0.54, %34 ]
+  %.sink115 = phi i32 [ %98, %.thread63 ], [ %.0..0..0.61.pre, %.loopexit..thread66_crit_edge ], [ %.0..0..0.58, %36 ], [ %.0..0..0.57.pre, %.loopexit..thread69_crit_edge ], [ %.0..0..0.54, %34 ]
   %.0.ph = phi i32 [ 3, %.thread63 ], [ 1, %.loopexit..thread66_crit_edge ], [ 1, %36 ], [ 2, %.loopexit..thread69_crit_edge ], [ 2, %34 ]
-  %98 = add nsw i32 %.sink115, 1
-  store i32 %98, ptr %3, align 4
+  %99 = add nsw i32 %.sink115, 1
+  store i32 %99, ptr %3, align 4
   br label %.thread
 
 .thread:                                          ; preds = %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us77, %_ZN8LightGBM12GetStatisticEPKcPiS2_S2_.exit47.us, %.thread.sink.split, %.loopexit, %36, %4

@@ -339,7 +339,7 @@ common.resume:                                    ; preds = %470, %96
   %170 = mul nsw i32 %14, %168
   %171 = add nsw i32 %170, %166
   %172 = select i1 %165, i32 %169, i32 %171
-  switch i32 %0, label %234 [
+  switch i32 %0, label %236 [
     i32 33, label %173
     i32 35, label %210
     i32 36, label %223
@@ -431,29 +431,29 @@ common.resume:                                    ; preds = %470, %96
   %.0.ph.i = phi float [ %230, %223 ], [ %220, %210 ], [ %206, %197 ]
   %.0204.ph.i = load float, ptr %.0204.ph.in.i, align 4
   %233 = load float, ptr %.sink19.i, align 4
-  br label %234
+  %234 = fmul float %.0204.ph.i, 6.000000e+00
+  %235 = fmul float %233, 1.200000e+01
+  br label %236
 
-234:                                              ; preds = %.sink.split.i, %152
+236:                                              ; preds = %.sink.split.i, %152
   %.1212.i = phi i1 [ %.02115.i, %152 ], [ %.1212.ph.i, %.sink.split.i ]
-  %.0205.i = phi float [ 0.000000e+00, %152 ], [ %233, %.sink.split.i ]
-  %.0204.i = phi float [ 0.000000e+00, %152 ], [ %.0204.ph.i, %.sink.split.i ]
+  %.0205.i = phi float [ 0.000000e+00, %152 ], [ %235, %.sink.split.i ]
+  %.0204.i = phi float [ 0.000000e+00, %152 ], [ %234, %.sink.split.i ]
   %.0.i = phi float [ 0.000000e+00, %152 ], [ %.0.ph.i, %.sink.split.i ]
-  %235 = fmul float %.0204.i, 6.000000e+00
-  %236 = fmul float %.0205.i, 1.200000e+01
   %237 = load i8, ptr %145, align 4
   %238 = trunc i8 %237 to i1
   %239 = getelementptr inbounds [3 x float], ptr %4, i64 %159
   %240 = getelementptr inbounds [3 x float], ptr %4, i64 %162
   br i1 %238, label %241, label %243
 
-241:                                              ; preds = %234
+241:                                              ; preds = %236
   %242 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef %7, ptr noundef %239, ptr noundef %240, ptr noundef nonnull %32)
   %.pre14.i = load float, ptr %32, align 4
   %.pre15.i = load float, ptr %146, align 4
   %.pre16.i = load float, ptr %147, align 4
   br label %257
 
-243:                                              ; preds = %234
+243:                                              ; preds = %236
   %244 = load float, ptr %239, align 4
   %245 = load float, ptr %240, align 4
   %246 = fsub float %244, %245
@@ -547,11 +547,11 @@ common.resume:                                    ; preds = %470, %96
   br i1 %or.cond.i, label %310, label %312
 
 310:                                              ; preds = %297
-  %311 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %263, float noundef %304, ptr noundef %306, float noundef %309, float noundef %.0.i, float noundef %235, float noundef %236, float noundef %282, float noundef %287, float noundef %290, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef %9)
+  %311 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %263, float noundef %304, ptr noundef %306, float noundef %309, float noundef %.0.i, float noundef %.0204.i, float noundef %.0205.i, float noundef %282, float noundef %287, float noundef %290, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef %9)
   br label %415
 
 312:                                              ; preds = %297
-  %313 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType0EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %263, ptr noundef nonnull align 4 dereferenceable(36) %293, float noundef %304, ptr noundef %306, float noundef %309, float noundef %.0.i, float noundef %235, float noundef %236, float noundef %282, float noundef %287, float noundef %290, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef %9)
+  %313 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType0EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %263, ptr noundef nonnull align 4 dereferenceable(36) %293, float noundef %304, ptr noundef %306, float noundef %309, float noundef %.0.i, float noundef %.0204.i, float noundef %.0205.i, float noundef %282, float noundef %287, float noundef %290, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef %9)
   br label %415
 
 314:                                              ; preds = %274
@@ -572,13 +572,13 @@ common.resume:                                    ; preds = %470, %96
   br i1 %or.cond221.i, label %328, label %330
 
 328:                                              ; preds = %314
-  %329 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %263, float noundef %322, ptr noundef %324, float noundef %327, float noundef %.0.i, float noundef %235, float noundef %236, float noundef %282, float noundef %287, float noundef %290, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef %9)
+  %329 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %263, float noundef %322, ptr noundef %324, float noundef %327, float noundef %.0.i, float noundef %.0204.i, float noundef %.0205.i, float noundef %282, float noundef %287, float noundef %290, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef %9)
   br label %415
 
 330:                                              ; preds = %314
   %331 = getelementptr inbounds i8, ptr %291, i64 76
   %332 = load float, ptr %331, align 4
-  %333 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType1EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %263, float noundef %332, ptr noundef nonnull align 4 dereferenceable(36) %293, float noundef %322, ptr noundef %324, float noundef %327, float noundef %.0.i, float noundef %235, float noundef %236, float noundef %282, float noundef %287, float noundef %290, float noundef %141, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef %9)
+  %333 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType1EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %263, float noundef %332, ptr noundef nonnull align 4 dereferenceable(36) %293, float noundef %322, ptr noundef %324, float noundef %327, float noundef %.0.i, float noundef %.0204.i, float noundef %.0205.i, float noundef %282, float noundef %287, float noundef %290, float noundef %141, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef %9)
   br label %415
 
 334:                                              ; preds = %273
@@ -656,12 +656,12 @@ common.resume:                                    ; preds = %470, %96
   %405 = fptrunc double %404 to float
   %406 = fmul float %.0.i, %364
   store float %406, ptr %33, align 4
-  %407 = fmul float %236, %400
-  %408 = call float @llvm.fmuladd.f32(float %235, float %382, float %407)
+  %407 = fmul float %.0205.i, %400
+  %408 = call float @llvm.fmuladd.f32(float %.0204.i, float %382, float %407)
   store float %408, ptr %34, align 4
-  %409 = fmul float %235, %387
+  %409 = fmul float %.0204.i, %387
   %410 = call float @llvm.fmuladd.f32(float %.0.i, float %369, float %409)
-  %411 = call float @llvm.fmuladd.f32(float %236, float %405, float %410)
+  %411 = call float @llvm.fmuladd.f32(float %.0205.i, float %405, float %410)
   %412 = fneg float %411
   %413 = fmul float %336, %412
   %414 = fmul float %342, %413
@@ -919,7 +919,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %541 = mul nsw i32 %14, %539
   %542 = add nsw i32 %541, %537
   %543 = select i1 %536, i32 %540, i32 %542
-  switch i32 %0, label %605 [
+  switch i32 %0, label %607 [
     i32 33, label %544
     i32 35, label %581
     i32 36, label %594
@@ -1011,29 +1011,29 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %.0.ph.i74 = phi float [ %601, %594 ], [ %591, %581 ], [ %577, %568 ]
   %.0200.ph.i = load float, ptr %.0200.ph.in.i, align 4
   %604 = load float, ptr %.sink19.i73, align 4
-  br label %605
+  %605 = fmul float %.0200.ph.i, 6.000000e+00
+  %606 = fmul float %604, 1.200000e+01
+  br label %607
 
-605:                                              ; preds = %.sink.split.i72, %523
+607:                                              ; preds = %.sink.split.i72, %523
   %.1207.i = phi i1 [ %.02065.i, %523 ], [ %.1207.ph.i, %.sink.split.i72 ]
-  %.0201.i = phi float [ 0.000000e+00, %523 ], [ %604, %.sink.split.i72 ]
-  %.0200.i = phi float [ 0.000000e+00, %523 ], [ %.0200.ph.i, %.sink.split.i72 ]
+  %.0201.i = phi float [ 0.000000e+00, %523 ], [ %606, %.sink.split.i72 ]
+  %.0200.i = phi float [ 0.000000e+00, %523 ], [ %605, %.sink.split.i72 ]
   %.0.i75 = phi float [ 0.000000e+00, %523 ], [ %.0.ph.i74, %.sink.split.i72 ]
-  %606 = fmul float %.0200.i, 6.000000e+00
-  %607 = fmul float %.0201.i, 1.200000e+01
   %608 = load i8, ptr %519, align 4
   %609 = trunc i8 %608 to i1
   %610 = getelementptr inbounds [3 x float], ptr %4, i64 %530
   %611 = getelementptr inbounds [3 x float], ptr %4, i64 %533
   br i1 %609, label %612, label %614
 
-612:                                              ; preds = %605
+612:                                              ; preds = %607
   %613 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef %7, ptr noundef %610, ptr noundef %611, ptr noundef nonnull %21)
   %.pre14.i80 = load float, ptr %21, align 4
   %.pre15.i81 = load float, ptr %520, align 4
   %.pre16.i82 = load float, ptr %521, align 4
   br label %628
 
-614:                                              ; preds = %605
+614:                                              ; preds = %607
   %615 = load float, ptr %610, align 4
   %616 = load float, ptr %611, align 4
   %617 = fsub float %615, %616
@@ -1126,11 +1126,11 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   br i1 %or.cond.i79, label %681, label %683
 
 681:                                              ; preds = %668
-  %682 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %634, float noundef %675, ptr noundef %677, float noundef %680, float noundef %.0.i75, float noundef %606, float noundef %607, float noundef %653, float noundef %658, float noundef %661, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
+  %682 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %634, float noundef %675, ptr noundef %677, float noundef %680, float noundef %.0.i75, float noundef %.0200.i, float noundef %.0201.i, float noundef %653, float noundef %658, float noundef %661, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
   br label %786
 
 683:                                              ; preds = %668
-  %684 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType0EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %634, ptr noundef nonnull align 4 dereferenceable(36) %664, float noundef %675, ptr noundef %677, float noundef %680, float noundef %.0.i75, float noundef %606, float noundef %607, float noundef %653, float noundef %658, float noundef %661, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
+  %684 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType0EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %634, ptr noundef nonnull align 4 dereferenceable(36) %664, float noundef %675, ptr noundef %677, float noundef %680, float noundef %.0.i75, float noundef %.0200.i, float noundef %.0201.i, float noundef %653, float noundef %658, float noundef %661, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
   br label %786
 
 685:                                              ; preds = %645
@@ -1151,13 +1151,13 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   br i1 %or.cond215.i, label %699, label %701
 
 699:                                              ; preds = %685
-  %700 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %634, float noundef %693, ptr noundef %695, float noundef %698, float noundef %.0.i75, float noundef %606, float noundef %607, float noundef %653, float noundef %658, float noundef %661, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
+  %700 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType2EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %634, float noundef %693, ptr noundef %695, float noundef %698, float noundef %.0.i75, float noundef %.0200.i, float noundef %.0201.i, float noundef %653, float noundef %658, float noundef %661, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
   br label %786
 
 701:                                              ; preds = %685
   %702 = getelementptr inbounds i8, ptr %662, i64 76
   %703 = load float, ptr %702, align 4
-  %704 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType1EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %634, float noundef %703, ptr noundef nonnull align 4 dereferenceable(36) %664, float noundef %693, ptr noundef %695, float noundef %698, float noundef %.0.i75, float noundef %606, float noundef %607, float noundef %653, float noundef %658, float noundef %661, float noundef %515, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
+  %704 = call fastcc noundef float @_ZL27free_energy_evaluate_singleIL18KernelSoftcoreType1EEfffRKN19interaction_const_t18SoftCoreParametersEfPKfffffffffS6_S6_S6_S6_S6_S6_S6_PfS7_S7_(float noundef %634, float noundef %703, ptr noundef nonnull align 4 dereferenceable(36) %664, float noundef %693, ptr noundef %695, float noundef %698, float noundef %.0.i75, float noundef %.0200.i, float noundef %.0201.i, float noundef %653, float noundef %658, float noundef %661, float noundef %515, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %9)
   br label %786
 
 705:                                              ; preds = %644
@@ -1235,12 +1235,12 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %776 = fptrunc double %775 to float
   %777 = fmul float %.0.i75, %735
   store float %777, ptr %22, align 4
-  %778 = fmul float %607, %771
-  %779 = call float @llvm.fmuladd.f32(float %606, float %753, float %778)
+  %778 = fmul float %.0201.i, %771
+  %779 = call float @llvm.fmuladd.f32(float %.0200.i, float %753, float %778)
   store float %779, ptr %23, align 4
-  %780 = fmul float %606, %758
+  %780 = fmul float %.0200.i, %758
   %781 = call float @llvm.fmuladd.f32(float %.0.i75, float %740, float %780)
-  %782 = call float @llvm.fmuladd.f32(float %607, float %776, float %781)
+  %782 = call float @llvm.fmuladd.f32(float %.0201.i, float %776, float %781)
   %783 = fneg float %782
   %784 = fmul float %707, %783
   %785 = fmul float %713, %784

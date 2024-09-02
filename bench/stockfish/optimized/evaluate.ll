@@ -699,7 +699,7 @@ define dso_local noundef i32 @_ZN9Stockfish4Eval11simple_evalERKNS_8PositionENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN9Stockfish4Eval8evaluateERKNS_8PositionEi(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local noundef range(i32 -31506, 31507) i32 @_ZN9Stockfish4Eval8evaluateERKNS_8PositionEi(ptr noundef nonnull align 8 dereferenceable(865) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 860
   %5 = load i32, ptr %4, align 4

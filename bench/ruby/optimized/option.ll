@@ -1833,7 +1833,7 @@ sockopt_pack_byte.exit:                           ; preds = %RSTRING_PTR.exit.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @sockopt_byte(i64 noundef %0) #0 {
+define internal range(i64 1, 512) i64 @sockopt_byte(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)

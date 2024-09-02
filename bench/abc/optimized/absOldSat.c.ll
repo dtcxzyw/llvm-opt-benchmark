@@ -685,11 +685,11 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %.crited
 127:                                              ; preds = %106
   %128 = getelementptr inbounds i8, ptr %112, i64 36
   %129 = load i32, ptr %128, align 4
+  %130 = sext i32 %129 to i64
   br label %Aig_ObjFaninId0.exit
 
 Aig_ObjFaninId0.exit:                             ; preds = %106, %127
-  %130 = phi i32 [ %129, %127 ], [ -1, %106 ]
-  %131 = sext i32 %130 to i64
+  %131 = phi i64 [ %130, %127 ], [ -1, %106 ]
   %132 = getelementptr inbounds i32, ptr %.val85, i64 %131
   %133 = load i32, ptr %132, align 4
   %.not.i126 = icmp eq ptr %.val94, null
@@ -698,11 +698,11 @@ Aig_ObjFaninId0.exit:                             ; preds = %106, %127
 134:                                              ; preds = %Aig_ObjFaninId0.exit
   %135 = getelementptr inbounds i8, ptr %122, i64 36
   %136 = load i32, ptr %135, align 4
+  %137 = sext i32 %136 to i64
   br label %Aig_ObjFaninId1.exit
 
 Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exit, %134
-  %137 = phi i32 [ %136, %134 ], [ -1, %Aig_ObjFaninId0.exit ]
-  %138 = sext i32 %137 to i64
+  %138 = phi i64 [ %137, %134 ], [ -1, %Aig_ObjFaninId0.exit ]
   %139 = getelementptr inbounds i32, ptr %.val85, i64 %138
   %140 = load i32, ptr %139, align 4
   %141 = icmp ne i32 %110, %117

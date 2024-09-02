@@ -1150,7 +1150,7 @@ _ZN7rocksdb6StatusD2Ev.exit295:                   ; preds = %ehcleanup177, %_ZNK
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7rocksdb10TableCache23CreateRowCacheKeyPrefixERKNS_11ReadOptionsERKNS_14FileDescriptorERKNS_5SliceEPNS_10GetContextERNS_7IterKeyE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(154) %options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %internal_key, ptr nocapture noundef readonly %get_context, ptr noundef nonnull align 8 dereferenceable(72) %row_cache_key) local_unnamed_addr #2 align 2 {
+define noundef range(i64 0, 72057594037927936) i64 @_ZN7rocksdb10TableCache23CreateRowCacheKeyPrefixERKNS_11ReadOptionsERKNS_14FileDescriptorERKNS_5SliceEPNS_10GetContextERNS_7IterKeyE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(154) %options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %internal_key, ptr nocapture noundef readonly %get_context, ptr noundef nonnull align 8 dereferenceable(72) %row_cache_key) local_unnamed_addr #2 align 2 {
 entry:
   %buf.i12 = alloca [10 x i8], align 1
   %buf.i = alloca [10 x i8], align 1

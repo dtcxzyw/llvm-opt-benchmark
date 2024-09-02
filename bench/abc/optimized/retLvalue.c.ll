@@ -616,199 +616,202 @@ define internal fastcc range(i32 0, 2) i32 @Abc_NtkRetimeForPeriod(ptr nocapture
   br i1 %29, label %.lr.ph, label %.critedge.preheader, !llvm.loop !9
 
 30:                                               ; preds = %.lr.ph67, %.critedge
-  %.02765 = phi i32 [ 1, %.lr.ph67 ], [ %104, %.critedge ]
+  %.02765 = phi i32 [ 1, %.lr.ph67 ], [ %105, %.critedge ]
   %.val363.i = load i32, ptr %11, align 4
   %31 = icmp sgt i32 %.val363.i, 0
   br i1 %31, label %.lr.ph6.i, label %.critedge.preheader.i
 
-.critedge.preheader.i:                            ; preds = %56, %30
-  %.0.lcssa.i = phi i32 [ 0, %30 ], [ %.1.i, %56 ]
-  %.val8.i = load i32, ptr %13, align 4
-  %32 = icmp sgt i32 %.val8.i, 0
-  br i1 %32, label %.critedge.i, label %Abc_NtkRetimeUpdateLValue.exit
+.critedge.preheader.i.loopexit:                   ; preds = %57
+  %32 = icmp eq i32 %.1.i, 0
+  br label %.critedge.preheader.i
 
-.lr.ph6.i:                                        ; preds = %30, %56
-  %.val3618.i = phi i32 [ %.val36.i, %56 ], [ %.val363.i, %30 ]
-  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %56 ], [ 0, %30 ]
-  %.05.i = phi i32 [ %.1.i, %56 ], [ 0, %30 ]
+.critedge.preheader.i:                            ; preds = %.critedge.preheader.i.loopexit, %30
+  %.0.lcssa.i = phi i1 [ true, %30 ], [ %32, %.critedge.preheader.i.loopexit ]
+  %.val8.i = load i32, ptr %13, align 4
+  %33 = icmp sgt i32 %.val8.i, 0
+  br i1 %33, label %.critedge.i, label %Abc_NtkRetimeUpdateLValue.exit
+
+.lr.ph6.i:                                        ; preds = %30, %57
+  %.val3618.i = phi i32 [ %.val36.i, %57 ], [ %.val363.i, %30 ]
+  %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %57 ], [ 0, %30 ]
+  %.05.i = phi i32 [ %.1.i, %57 ], [ 0, %30 ]
   %.val38.i = load ptr, ptr %12, align 8
-  %33 = getelementptr inbounds ptr, ptr %.val38.i, i64 %indvars.iv12.i
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr i8, ptr %34, i64 28
-  %.val43.i = load i32, ptr %35, align 4
-  %36 = icmp sgt i32 %.val43.i, 0
-  br i1 %36, label %.lr.ph.i, label %.critedge2.i
+  %34 = getelementptr inbounds ptr, ptr %.val38.i, i64 %indvars.iv12.i
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr i8, ptr %35, i64 28
+  %.val43.i = load i32, ptr %36, align 4
+  %37 = icmp sgt i32 %.val43.i, 0
+  br i1 %37, label %.lr.ph.i, label %.critedge2.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph6.i
-  %.val44.i = load ptr, ptr %34, align 8
-  %37 = getelementptr i8, ptr %34, i64 32
-  %.val45.i = load ptr, ptr %37, align 8
-  %38 = getelementptr i8, ptr %.val44.i, i64 32
-  %.val44.val.i = load ptr, ptr %38, align 8
-  %39 = getelementptr i8, ptr %.val44.val.i, i64 8
-  %.val44.val.val.i = load ptr, ptr %39, align 8
+  %.val44.i = load ptr, ptr %35, align 8
+  %38 = getelementptr i8, ptr %35, i64 32
+  %.val45.i = load ptr, ptr %38, align 8
+  %39 = getelementptr i8, ptr %.val44.i, i64 32
+  %.val44.val.i = load ptr, ptr %39, align 8
+  %40 = getelementptr i8, ptr %.val44.val.i, i64 8
+  %.val44.val.val.i = load ptr, ptr %40, align 8
   %wide.trip.count.i = zext nneg i32 %.val43.i to i64
-  br label %40
+  br label %41
 
-40:                                               ; preds = %40, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
-  %.0302.i = phi i32 [ -1000000000, %.lr.ph.i ], [ %spec.select.i, %40 ]
-  %41 = getelementptr inbounds i32, ptr %.val45.i, i64 %indvars.iv.i
-  %42 = load i32, ptr %41, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr %.val44.val.val.i, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr i8, ptr %45, i64 64
-  %.val49.i = load ptr, ptr %46, align 8
-  %47 = ptrtoint ptr %.val49.i to i64
-  %48 = trunc i64 %47 to i32
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.0302.i, i32 %48)
+41:                                               ; preds = %41, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
+  %.0302.i = phi i32 [ -1000000000, %.lr.ph.i ], [ %spec.select.i, %41 ]
+  %42 = getelementptr inbounds i32, ptr %.val45.i, i64 %indvars.iv.i
+  %43 = load i32, ptr %42, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds ptr, ptr %.val44.val.val.i, i64 %44
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr i8, ptr %46, i64 64
+  %.val49.i = load ptr, ptr %47, align 8
+  %48 = ptrtoint ptr %.val49.i to i64
+  %49 = trunc i64 %48 to i32
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.0302.i, i32 %49)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge2.i, label %40, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.critedge2.i, label %41, !llvm.loop !10
 
-.critedge2.i:                                     ; preds = %40, %.lr.ph6.i
-  %.030.lcssa.i = phi i32 [ -1000000000, %.lr.ph6.i ], [ %spec.select.i, %40 ]
-  %49 = getelementptr i8, ptr %34, i64 64
-  %.val47.i = load ptr, ptr %49, align 8
-  %50 = ptrtoint ptr %.val47.i to i64
-  %51 = trunc i64 %50 to i32
-  %.not.i = icmp slt i32 %.030.lcssa.i, %51
-  br i1 %.not.i, label %56, label %52
+.critedge2.i:                                     ; preds = %41, %.lr.ph6.i
+  %.030.lcssa.i = phi i32 [ -1000000000, %.lr.ph6.i ], [ %spec.select.i, %41 ]
+  %50 = getelementptr i8, ptr %35, i64 64
+  %.val47.i = load ptr, ptr %50, align 8
+  %51 = ptrtoint ptr %.val47.i to i64
+  %52 = trunc i64 %51 to i32
+  %.not.i = icmp slt i32 %.030.lcssa.i, %52
+  br i1 %.not.i, label %57, label %53
 
-52:                                               ; preds = %.critedge2.i
-  %53 = add nsw i32 %.030.lcssa.i, 1
-  %54 = sext i32 %53 to i64
-  %55 = inttoptr i64 %54 to ptr
-  store ptr %55, ptr %49, align 8
+53:                                               ; preds = %.critedge2.i
+  %54 = add nsw i32 %.030.lcssa.i, 1
+  %55 = sext i32 %54 to i64
+  %56 = inttoptr i64 %55 to ptr
+  store ptr %56, ptr %50, align 8
   %.val36.pre.i = load i32, ptr %11, align 4
-  br label %56
+  br label %57
 
-56:                                               ; preds = %52, %.critedge2.i
-  %.val36.i = phi i32 [ %.val36.pre.i, %52 ], [ %.val3618.i, %.critedge2.i ]
-  %.1.i = phi i32 [ 1, %52 ], [ %.05.i, %.critedge2.i ]
+57:                                               ; preds = %53, %.critedge2.i
+  %.val36.i = phi i32 [ %.val36.pre.i, %53 ], [ %.val3618.i, %.critedge2.i ]
+  %.1.i = phi i32 [ 1, %53 ], [ %.05.i, %.critedge2.i ]
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
-  %57 = sext i32 %.val36.i to i64
-  %58 = icmp slt i64 %indvars.iv.next13.i, %57
-  br i1 %58, label %.lr.ph6.i, label %.critedge.preheader.i, !llvm.loop !11
+  %58 = sext i32 %.val36.i to i64
+  %59 = icmp slt i64 %indvars.iv.next13.i, %58
+  br i1 %59, label %.lr.ph6.i, label %.critedge.preheader.i.loopexit, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %.critedge.preheader.i, %.critedge.i
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %.critedge.i ], [ 0, %.critedge.preheader.i ]
   %.val37.i = load ptr, ptr %14, align 8
-  %59 = getelementptr inbounds ptr, ptr %.val37.i, i64 %indvars.iv15.i
-  %60 = load ptr, ptr %59, align 8
-  %.val50.i = load ptr, ptr %60, align 8
-  %61 = getelementptr i8, ptr %60, i64 48
-  %.val51.i = load ptr, ptr %61, align 8
-  %62 = getelementptr i8, ptr %.val50.i, i64 32
-  %.val50.val.i = load ptr, ptr %62, align 8
+  %60 = getelementptr inbounds ptr, ptr %.val37.i, i64 %indvars.iv15.i
+  %61 = load ptr, ptr %60, align 8
+  %.val50.i = load ptr, ptr %61, align 8
+  %62 = getelementptr i8, ptr %61, i64 48
+  %.val51.i = load ptr, ptr %62, align 8
+  %63 = getelementptr i8, ptr %.val50.i, i64 32
+  %.val50.val.i = load ptr, ptr %63, align 8
   %.val51.val.i = load i32, ptr %.val51.i, align 4
-  %63 = getelementptr i8, ptr %.val50.val.i, i64 8
-  %.val50.val.val.i = load ptr, ptr %63, align 8
-  %64 = sext i32 %.val51.val.i to i64
-  %65 = getelementptr inbounds ptr, ptr %.val50.val.val.i, i64 %64
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr i8, ptr %60, i64 32
-  %.val42.i = load ptr, ptr %67, align 8
+  %64 = getelementptr i8, ptr %.val50.val.i, i64 8
+  %.val50.val.val.i = load ptr, ptr %64, align 8
+  %65 = sext i32 %.val51.val.i to i64
+  %66 = getelementptr inbounds ptr, ptr %.val50.val.val.i, i64 %65
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr i8, ptr %61, i64 32
+  %.val42.i = load ptr, ptr %68, align 8
   %.val42.val.i = load i32, ptr %.val42.i, align 4
-  %68 = sext i32 %.val42.val.i to i64
-  %69 = getelementptr inbounds ptr, ptr %.val50.val.val.i, i64 %68
-  %70 = load ptr, ptr %69, align 8
-  %.val39.i = load ptr, ptr %70, align 8
-  %71 = getelementptr i8, ptr %70, i64 32
-  %.val40.i = load ptr, ptr %71, align 8
-  %72 = getelementptr i8, ptr %.val39.i, i64 32
-  %.val39.val.i = load ptr, ptr %72, align 8
+  %69 = sext i32 %.val42.val.i to i64
+  %70 = getelementptr inbounds ptr, ptr %.val50.val.val.i, i64 %69
+  %71 = load ptr, ptr %70, align 8
+  %.val39.i = load ptr, ptr %71, align 8
+  %72 = getelementptr i8, ptr %71, i64 32
+  %.val40.i = load ptr, ptr %72, align 8
+  %73 = getelementptr i8, ptr %.val39.i, i64 32
+  %.val39.val.i = load ptr, ptr %73, align 8
   %.val40.val.i = load i32, ptr %.val40.i, align 4
-  %73 = getelementptr i8, ptr %.val39.val.i, i64 8
-  %.val39.val.val.i = load ptr, ptr %73, align 8
-  %74 = sext i32 %.val40.val.i to i64
-  %75 = getelementptr inbounds ptr, ptr %.val39.val.val.i, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr i8, ptr %76, i64 64
-  %.val46.i = load ptr, ptr %77, align 8
-  %78 = ptrtoint ptr %.val46.i to i64
-  %79 = trunc i64 %78 to i32
-  %80 = sub nsw i32 %79, %3
-  %81 = sext i32 %80 to i64
-  %82 = inttoptr i64 %81 to ptr
-  %83 = getelementptr inbounds i8, ptr %66, i64 64
-  store ptr %82, ptr %83, align 8
+  %74 = getelementptr i8, ptr %.val39.val.i, i64 8
+  %.val39.val.val.i = load ptr, ptr %74, align 8
+  %75 = sext i32 %.val40.val.i to i64
+  %76 = getelementptr inbounds ptr, ptr %.val39.val.val.i, i64 %75
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr i8, ptr %77, i64 64
+  %.val46.i = load ptr, ptr %78, align 8
+  %79 = ptrtoint ptr %.val46.i to i64
+  %80 = trunc i64 %79 to i32
+  %81 = sub nsw i32 %80, %3
+  %82 = sext i32 %81 to i64
+  %83 = inttoptr i64 %82 to ptr
+  %84 = getelementptr inbounds i8, ptr %67, i64 64
+  store ptr %83, ptr %84, align 8
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %.val.i = load i32, ptr %13, align 4
-  %84 = sext i32 %.val.i to i64
-  %85 = icmp slt i64 %indvars.iv.next16.i, %84
-  br i1 %85, label %.critedge.i, label %Abc_NtkRetimeUpdateLValue.exit, !llvm.loop !12
+  %85 = sext i32 %.val.i to i64
+  %86 = icmp slt i64 %indvars.iv.next16.i, %85
+  br i1 %86, label %.critedge.i, label %Abc_NtkRetimeUpdateLValue.exit, !llvm.loop !12
 
 Abc_NtkRetimeUpdateLValue.exit:                   ; preds = %.critedge.i, %.critedge.preheader.i
-  %.not29 = icmp eq i32 %.0.lcssa.i, 0
-  br i1 %.not29, label %Abc_NtkRetimePosOverLimit.exit.thread45, label %86
+  br i1 %.0.lcssa.i, label %Abc_NtkRetimePosOverLimit.exit.thread45, label %87
 
-86:                                               ; preds = %Abc_NtkRetimeUpdateLValue.exit
+87:                                               ; preds = %Abc_NtkRetimeUpdateLValue.exit
   %.val10.i = load ptr, ptr %15, align 8
-  %87 = getelementptr i8, ptr %.val10.i, i64 4
-  %.val10.val.i = load i32, ptr %87, align 4
-  %88 = icmp sgt i32 %.val10.val.i, 0
-  br i1 %88, label %.lr.ph.i36, label %.critedge
+  %88 = getelementptr i8, ptr %.val10.i, i64 4
+  %.val10.val.i = load i32, ptr %88, align 4
+  %89 = icmp sgt i32 %.val10.val.i, 0
+  br i1 %89, label %.lr.ph.i36, label %.critedge
 
-.lr.ph.i36:                                       ; preds = %86
-  %89 = getelementptr i8, ptr %.val10.i, i64 8
-  %.val11.val.i = load ptr, ptr %89, align 8
+.lr.ph.i36:                                       ; preds = %87
+  %90 = getelementptr i8, ptr %.val10.i, i64 8
+  %.val11.val.i = load ptr, ptr %90, align 8
   %wide.trip.count.i37 = zext nneg i32 %.val10.val.i to i64
-  br label %91
+  br label %92
 
-90:                                               ; preds = %91
+91:                                               ; preds = %92
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i37
-  br i1 %exitcond.not.i42, label %.critedge, label %91, !llvm.loop !13
+  br i1 %exitcond.not.i42, label %.critedge, label %92, !llvm.loop !13
 
-91:                                               ; preds = %90, %.lr.ph.i36
-  %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i41, %90 ]
-  %92 = getelementptr inbounds ptr, ptr %.val11.val.i, i64 %indvars.iv.i38
-  %93 = load ptr, ptr %92, align 8
-  %.val.i39 = load ptr, ptr %93, align 8
-  %94 = getelementptr i8, ptr %93, i64 32
-  %.val8.i40 = load ptr, ptr %94, align 8
-  %95 = getelementptr i8, ptr %.val.i39, i64 32
-  %.val.val.i = load ptr, ptr %95, align 8
+92:                                               ; preds = %91, %.lr.ph.i36
+  %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i41, %91 ]
+  %93 = getelementptr inbounds ptr, ptr %.val11.val.i, i64 %indvars.iv.i38
+  %94 = load ptr, ptr %93, align 8
+  %.val.i39 = load ptr, ptr %94, align 8
+  %95 = getelementptr i8, ptr %94, i64 32
+  %.val8.i40 = load ptr, ptr %95, align 8
+  %96 = getelementptr i8, ptr %.val.i39, i64 32
+  %.val.val.i = load ptr, ptr %96, align 8
   %.val8.val.i = load i32, ptr %.val8.i40, align 4
-  %96 = getelementptr i8, ptr %.val.val.i, i64 8
-  %.val.val.val.i = load ptr, ptr %96, align 8
-  %97 = sext i32 %.val8.val.i to i64
-  %98 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %97
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr i8, ptr %99, i64 64
-  %.val9.i = load ptr, ptr %100, align 8
-  %101 = ptrtoint ptr %.val9.i to i64
-  %102 = trunc i64 %101 to i32
-  %103 = icmp slt i32 %3, %102
-  br i1 %103, label %Abc_NtkRetimePosOverLimit.exit, label %90
+  %97 = getelementptr i8, ptr %.val.val.i, i64 8
+  %.val.val.val.i = load ptr, ptr %97, align 8
+  %98 = sext i32 %.val8.val.i to i64
+  %99 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %98
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr i8, ptr %100, i64 64
+  %.val9.i = load ptr, ptr %101, align 8
+  %102 = ptrtoint ptr %.val9.i to i64
+  %103 = trunc i64 %102 to i32
+  %104 = icmp slt i32 %3, %103
+  br i1 %104, label %Abc_NtkRetimePosOverLimit.exit, label %91
 
-.critedge:                                        ; preds = %90, %86
-  %104 = add nuw i32 %.02765, 1
+.critedge:                                        ; preds = %91, %87
+  %105 = add nuw i32 %.02765, 1
   %exitcond.not = icmp eq i32 %.02765, %4
   br i1 %exitcond.not, label %Abc_NtkRetimePosOverLimit.exit, label %30, !llvm.loop !14
 
-Abc_NtkRetimePosOverLimit.exit:                   ; preds = %.critedge, %91, %.critedge.preheader
-  %.02761 = phi i32 [ 1, %.critedge.preheader ], [ %.02765, %91 ], [ %16, %.critedge ]
-  %.not58 = phi ptr [ @.str.4, %.critedge.preheader ], [ @.str.5, %91 ], [ @.str.4, %.critedge ]
+Abc_NtkRetimePosOverLimit.exit:                   ; preds = %.critedge, %92, %.critedge.preheader
+  %.02761 = phi i32 [ 1, %.critedge.preheader ], [ %.02765, %92 ], [ %16, %.critedge ]
+  %.not58 = phi ptr [ @.str.4, %.critedge.preheader ], [ @.str.5, %92 ], [ @.str.4, %.critedge ]
   %.not31 = icmp eq i32 %5, 0
-  br i1 %.not31, label %109, label %105
+  br i1 %.not31, label %110, label %106
 
 Abc_NtkRetimePosOverLimit.exit.thread45:          ; preds = %Abc_NtkRetimeUpdateLValue.exit
   %.not3148 = icmp eq i32 %5, 0
-  br i1 %.not3148, label %109, label %107
+  br i1 %.not3148, label %110, label %108
 
-105:                                              ; preds = %Abc_NtkRetimePosOverLimit.exit
-  %106 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %3, i32 noundef %.02761, ptr noundef nonnull %.not58)
-  br label %109
+106:                                              ; preds = %Abc_NtkRetimePosOverLimit.exit
+  %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %3, i32 noundef %.02761, ptr noundef nonnull %.not58)
+  br label %110
 
-107:                                              ; preds = %Abc_NtkRetimePosOverLimit.exit.thread45
-  %108 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %3, i32 noundef %.02765)
-  br label %109
+108:                                              ; preds = %Abc_NtkRetimePosOverLimit.exit.thread45
+  %109 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %3, i32 noundef %.02765)
+  br label %110
 
-109:                                              ; preds = %Abc_NtkRetimePosOverLimit.exit.thread45, %105, %107, %Abc_NtkRetimePosOverLimit.exit
-  %.051 = phi i32 [ 1, %Abc_NtkRetimePosOverLimit.exit.thread45 ], [ 0, %105 ], [ 1, %107 ], [ 0, %Abc_NtkRetimePosOverLimit.exit ]
+110:                                              ; preds = %Abc_NtkRetimePosOverLimit.exit.thread45, %106, %108, %Abc_NtkRetimePosOverLimit.exit
+  %.051 = phi i32 [ 1, %Abc_NtkRetimePosOverLimit.exit.thread45 ], [ 0, %106 ], [ 1, %108 ], [ 0, %Abc_NtkRetimePosOverLimit.exit ]
   ret i32 %.051
 }
 

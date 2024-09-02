@@ -656,32 +656,35 @@ define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr
   %319 = add nsw i32 %318, %.0440604
   %indvars.iv.next675 = add nuw nsw i64 %indvars.iv674, 1
   %exitcond678.not = icmp eq i64 %indvars.iv.next675, %indvars.iv679
-  br i1 %exitcond678.not, label %._crit_edge606, label %.lr.ph605, !llvm.loop !12
+  br i1 %exitcond678.not, label %._crit_edge606.loopexit, label %.lr.ph605, !llvm.loop !12
 
-._crit_edge606:                                   ; preds = %.lr.ph605, %.preheader
-  %.0440.lcssa = phi i32 [ 0, %.preheader ], [ %319, %.lr.ph605 ]
-  %320 = getelementptr inbounds i32, ptr %187, i64 %indvars.iv679
-  %321 = load i32, ptr %320, align 4
-  %322 = icmp sgt i32 %321, 0
-  br i1 %322, label %323, label %335
+._crit_edge606.loopexit:                          ; preds = %.lr.ph605
+  %320 = sext i32 %319 to i64
+  br label %._crit_edge606
 
-323:                                              ; preds = %._crit_edge606
-  %324 = sext i32 %.0440.lcssa to i64
-  %325 = getelementptr inbounds i8, ptr %171, i64 %324
+._crit_edge606:                                   ; preds = %._crit_edge606.loopexit, %.preheader
+  %.0440.lcssa = phi i64 [ 0, %.preheader ], [ %320, %._crit_edge606.loopexit ]
+  %321 = getelementptr inbounds i32, ptr %187, i64 %indvars.iv679
+  %322 = load i32, ptr %321, align 4
+  %323 = icmp sgt i32 %322, 0
+  br i1 %323, label %324, label %335
+
+324:                                              ; preds = %._crit_edge606
+  %325 = getelementptr inbounds i8, ptr %171, i64 %.0440.lcssa
   %326 = getelementptr inbounds i32, ptr %.0461, i64 %indvars.iv679
   %327 = load i32, ptr %326, align 4
   %328 = load ptr, ptr %17, align 8
   %329 = sext i32 %.0441609 to i64
   %330 = getelementptr inbounds ptr, ptr %167, i64 %329
-  %331 = call i32 @PMPI_Irecv(ptr noundef %325, i32 noundef %321, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %327, i32 noundef 0, ptr noundef %328, ptr noundef %330) #4
+  %331 = call i32 @PMPI_Irecv(ptr noundef %325, i32 noundef %322, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %327, i32 noundef 0, ptr noundef %328, ptr noundef %330) #4
   %332 = getelementptr inbounds i32, ptr %188, i64 %329
   %333 = trunc nuw nsw i64 %indvars.iv679 to i32
   store i32 %333, ptr %332, align 4
   %334 = add nsw i32 %.0441609, 1
   br label %335
 
-335:                                              ; preds = %._crit_edge606, %323
-  %.1 = phi i32 [ %334, %323 ], [ %.0441609, %._crit_edge606 ]
+335:                                              ; preds = %._crit_edge606, %324
+  %.1 = phi i32 [ %334, %324 ], [ %.0441609, %._crit_edge606 ]
   %indvars.iv.next680 = add nuw nsw i64 %indvars.iv679, 1
   %exitcond683.not = icmp eq i64 %indvars.iv.next680, %wide.trip.count682
   br i1 %exitcond683.not, label %.preheader560, label %.preheader, !llvm.loop !13
@@ -1379,31 +1382,34 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   %274 = add nsw i32 %273, %.0571
   %indvars.iv.next625 = add nuw nsw i64 %indvars.iv624, 1
   %exitcond628.not = icmp eq i64 %indvars.iv.next625, %indvars.iv629
-  br i1 %exitcond628.not, label %._crit_edge573, label %.lr.ph572, !llvm.loop !25
+  br i1 %exitcond628.not, label %._crit_edge573.loopexit, label %.lr.ph572, !llvm.loop !25
 
-._crit_edge573:                                   ; preds = %.lr.ph572, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %274, %.lr.ph572 ]
-  %275 = getelementptr inbounds i32, ptr %179, i64 %indvars.iv629
-  %276 = load i32, ptr %275, align 4
-  %277 = icmp sgt i32 %276, 0
-  br i1 %277, label %278, label %297
+._crit_edge573.loopexit:                          ; preds = %.lr.ph572
+  %275 = sext i32 %274 to i64
+  br label %._crit_edge573
 
-278:                                              ; preds = %._crit_edge573
-  %279 = sext i32 %.0.lcssa to i64
-  %280 = getelementptr inbounds i8, ptr %163, i64 %279
+._crit_edge573:                                   ; preds = %._crit_edge573.loopexit, %.preheader
+  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %275, %._crit_edge573.loopexit ]
+  %276 = getelementptr inbounds i32, ptr %179, i64 %indvars.iv629
+  %277 = load i32, ptr %276, align 4
+  %278 = icmp sgt i32 %277, 0
+  br i1 %278, label %279, label %297
+
+279:                                              ; preds = %._crit_edge573
+  %280 = getelementptr inbounds i8, ptr %163, i64 %.0.lcssa
   %281 = getelementptr inbounds i32, ptr %.0436, i64 %indvars.iv629
   %282 = load i32, ptr %281, align 4
   %283 = load ptr, ptr %15, align 8
   %284 = sext i32 %.0413576 to i64
   %285 = getelementptr inbounds ptr, ptr %161, i64 %284
-  %286 = call i32 @PMPI_Isend(ptr noundef %280, i32 noundef %276, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %282, i32 noundef 0, ptr noundef %283, ptr noundef %285) #4
+  %286 = call i32 @PMPI_Isend(ptr noundef %280, i32 noundef %277, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %282, i32 noundef 0, ptr noundef %283, ptr noundef %285) #4
   %287 = add nsw i32 %.0413576, 1
-  %288 = load i32, ptr %275, align 4
+  %288 = load i32, ptr %276, align 4
   %289 = getelementptr inbounds i32, ptr %.0450, i64 %indvars.iv629
   %290 = load i32, ptr %289, align 4
   %291 = sub nsw i32 %290, %288
   store i32 %291, ptr %289, align 4
-  %292 = load i32, ptr %275, align 4
+  %292 = load i32, ptr %276, align 4
   %293 = sext i32 %292 to i64
   %294 = getelementptr inbounds i64, ptr %.0454, i64 %indvars.iv629
   %295 = load i64, ptr %294, align 8
@@ -1411,8 +1417,8 @@ define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr 
   store i64 %296, ptr %294, align 8
   br label %297
 
-297:                                              ; preds = %._crit_edge573, %278
-  %.1 = phi i32 [ %287, %278 ], [ %.0413576, %._crit_edge573 ]
+297:                                              ; preds = %._crit_edge573, %279
+  %.1 = phi i32 [ %287, %279 ], [ %.0413576, %._crit_edge573 ]
   %indvars.iv.next630 = add nuw nsw i64 %indvars.iv629, 1
   %exitcond633.not = icmp eq i64 %indvars.iv.next630, %wide.trip.count632
   br i1 %exitcond633.not, label %.preheader536, label %.preheader, !llvm.loop !26

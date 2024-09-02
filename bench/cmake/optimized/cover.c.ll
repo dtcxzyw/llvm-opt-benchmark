@@ -1030,10 +1030,10 @@ COVER_map_at.exit80.i:                            ; preds = %.lr.ph.i.i73.i
   %.phi.trans.insert.phi.trans.insert.i79.i = zext i32 %.01213.i.i74.i to i64
   %115 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %92, i64 %.phi.trans.insert.phi.trans.insert.i79.i, i32 1
   %.pre.i = load i32, ptr %115, align 4
-  %116 = add i32 %.sroa.022.06.i, 1
-  %117 = add i32 %.pre.i, -1
-  store i32 %117, ptr %115, align 4
-  %118 = icmp eq i32 %117, 0
+  %116 = add i32 %.pre.i, -1
+  %117 = add i32 %.sroa.022.06.i, 1
+  store i32 %116, ptr %115, align 4
+  %118 = icmp eq i32 %116, 0
   br i1 %118, label %119, label %179
 
 119:                                              ; preds = %COVER_map_at.exit80.i
@@ -1138,7 +1138,7 @@ COVER_map_remove.exit.i:                          ; preds = %130, %._crit_edge.i
   br label %179
 
 179:                                              ; preds = %COVER_map_remove.exit.i, %COVER_map_at.exit80.i, %COVER_map_at.exit80.thread.i, %81
-  %.sroa.022.1.i = phi i32 [ %116, %COVER_map_remove.exit.i ], [ %116, %COVER_map_at.exit80.i ], [ %.sroa.022.06.i, %81 ], [ %114, %COVER_map_at.exit80.thread.i ]
+  %.sroa.022.1.i = phi i32 [ %117, %COVER_map_remove.exit.i ], [ %117, %COVER_map_at.exit80.i ], [ %.sroa.022.06.i, %81 ], [ %114, %COVER_map_at.exit80.thread.i ]
   %.sroa.12.2.i = phi i32 [ %178, %COVER_map_remove.exit.i ], [ %.sroa.12.1.i, %COVER_map_at.exit80.i ], [ %.sroa.12.1.i, %81 ], [ %.sroa.12.1.i, %COVER_map_at.exit80.thread.i ]
   %180 = icmp ugt i32 %.sroa.12.2.i, %.sroa.1257.010.i
   %.sroa.1257.1.i = tail call i32 @llvm.umax.i32(i32 %.sroa.12.2.i, i32 %.sroa.1257.010.i)

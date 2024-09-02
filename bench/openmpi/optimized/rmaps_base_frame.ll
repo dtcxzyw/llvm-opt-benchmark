@@ -566,7 +566,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @prte_rmaps_base_print_mapping(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @prte_rmaps_base_set_mapping_policy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i16, align 2
   %5 = alloca ptr, align 8

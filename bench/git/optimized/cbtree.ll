@@ -17,12 +17,12 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %k = getelementptr inbounds i8, ptr %node, i64 21
   %1 = ptrtoint ptr %0 to i64
-  %and7.i = and i64 %1, 1
-  %tobool.not8.i = icmp eq i64 %and7.i, 0
-  br i1 %tobool.not8.i, label %cb_internal_best_match.exit, label %while.body.i
+  %and6.i = and i64 %1, 1
+  %tobool.not7.i = icmp eq i64 %and6.i, 0
+  br i1 %tobool.not7.i, label %cb_internal_best_match.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end, %cond.end.i
-  %2 = phi i64 [ %8, %cond.end.i ], [ %1, %if.end ]
+  %2 = phi i64 [ %9, %cond.end.i ], [ %1, %if.end ]
   %sub.i.i = add nsw i64 %2, -1
   %3 = inttoptr i64 %sub.i.i to ptr
   %byte.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -34,48 +34,49 @@ while.body.i:                                     ; preds = %if.end, %cond.end.i
 cond.true.i:                                      ; preds = %while.body.i
   %arrayidx.i = getelementptr inbounds i8, ptr %k, i64 %conv.i
   %5 = load i8, ptr %arrayidx.i, align 1
+  %6 = zext i8 %5 to i64
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %while.body.i
-  %cond.i = phi i8 [ %5, %cond.true.i ], [ 0, %while.body.i ]
+  %cond.i = phi i64 [ %6, %cond.true.i ], [ 0, %while.body.i ]
   %otherbits.i = getelementptr inbounds i8, ptr %3, i64 20
-  %6 = load i8, ptr %otherbits.i, align 4
-  %or6.i = or i8 %6, %cond.i
-  %or.i = zext i8 %or6.i to i64
+  %7 = load i8, ptr %otherbits.i, align 4
+  %conv5.i = zext i8 %7 to i64
+  %or.i = or i64 %cond.i, %conv5.i
   %add.i = add nuw nsw i64 %or.i, 1
   %shr.i = lshr i64 %add.i, 8
   %arrayidx8.i = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %shr.i
-  %7 = load ptr, ptr %arrayidx8.i, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %and.i = and i64 %8, 1
+  %8 = load ptr, ptr %arrayidx8.i, align 8
+  %9 = ptrtoint ptr %8 to i64
+  %and.i = and i64 %9, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cb_internal_best_match.exit, label %while.body.i, !llvm.loop !5
 
 cb_internal_best_match.exit:                      ; preds = %cond.end.i, %if.end
-  %p.addr.0.lcssa.i = phi ptr [ %0, %if.end ], [ %7, %cond.end.i ]
-  %cmp57.not = icmp eq i64 %klen, 0
-  br i1 %cmp57.not, label %return, label %for.body.lr.ph
+  %p.addr.0.lcssa.i = phi ptr [ %0, %if.end ], [ %8, %cond.end.i ]
+  %cmp56.not = icmp eq i64 %klen, 0
+  br i1 %cmp56.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %cb_internal_best_match.exit
   %k3 = getelementptr inbounds i8, ptr %p.addr.0.lcssa.i, i64 21
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %newbyte.058 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds [0 x i8], ptr %k3, i64 0, i64 %newbyte.058
-  %9 = load i8, ptr %arrayidx, align 1
-  %arrayidx5 = getelementptr inbounds [0 x i8], ptr %k, i64 0, i64 %newbyte.058
-  %10 = load i8, ptr %arrayidx5, align 1
-  %cmp7.not = icmp eq i8 %9, %10
+  %newbyte.057 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr inbounds [0 x i8], ptr %k3, i64 0, i64 %newbyte.057
+  %10 = load i8, ptr %arrayidx, align 1
+  %arrayidx5 = getelementptr inbounds [0 x i8], ptr %k, i64 0, i64 %newbyte.057
+  %11 = load i8, ptr %arrayidx5, align 1
+  %cmp7.not = icmp eq i8 %10, %11
   br i1 %cmp7.not, label %for.inc, label %different_byte_found
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw i64 %newbyte.058, 1
+  %inc = add nuw i64 %newbyte.057, 1
   %exitcond.not = icmp eq i64 %inc, %klen
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
 different_byte_found:                             ; preds = %for.body
-  %xor50 = xor i8 %10, %9
+  %xor50 = xor i8 %11, %10
   %conv17 = zext i8 %xor50 to i64
   %shr = lshr i64 %conv17, 1
   %or = or i64 %shr, %conv17
@@ -87,82 +88,82 @@ different_byte_found:                             ; preds = %for.body
   %not = xor i64 %shr22, -1
   %and = and i64 %or21, %not
   %xor23 = xor i64 %and, 255
-  %conv26 = zext i8 %9 to i64
+  %conv26 = zext i8 %10 to i64
   %or27 = or i64 %xor23, %conv26
-  %conv30 = trunc i64 %newbyte.058 to i32
+  %conv30 = trunc i64 %newbyte.057 to i32
   %byte = getelementptr inbounds i8, ptr %node, i64 16
   store i32 %conv30, ptr %byte, align 8
   %conv31 = trunc nuw i64 %xor23 to i8
   %otherbits = getelementptr inbounds i8, ptr %node, i64 20
   store i8 %conv31, ptr %otherbits, align 4
   %add = shl nuw nsw i64 %or27, 24
-  %11 = add nuw nsw i64 %add, 16777216
-  %12 = and i64 %11, 9223372032559808512
-  %sext = sub nuw nsw i64 4294967296, %12
+  %12 = add nuw nsw i64 %add, 16777216
+  %13 = and i64 %12, 9223372032559808512
+  %sext = sub nuw nsw i64 4294967296, %13
   %idxprom = lshr exact i64 %sext, 32
   %arrayidx32 = getelementptr inbounds [2 x ptr], ptr %node, i64 0, i64 %idxprom
   store ptr %node, ptr %arrayidx32, align 8
-  %13 = load ptr, ptr %t, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %and3559 = and i64 %14, 1
-  %tobool36.not60 = icmp eq i64 %and3559, 0
-  br i1 %tobool36.not60, label %for.end75, label %if.end38.preheader
+  %14 = load ptr, ptr %t, align 8
+  %15 = ptrtoint ptr %14 to i64
+  %and3558 = and i64 %15, 1
+  %tobool36.not59 = icmp eq i64 %and3558, 0
+  br i1 %tobool36.not59, label %for.end75, label %if.end38.preheader
 
 if.end38.preheader:                               ; preds = %different_byte_found
-  %sub.i85 = add nsw i64 %14, -1
-  %15 = inttoptr i64 %sub.i85 to ptr
-  %byte4086 = getelementptr inbounds i8, ptr %15, i64 16
-  %16 = load i32, ptr %byte4086, align 8
-  %conv4187 = zext i32 %16 to i64
-  %cmp4288 = icmp ult i64 %newbyte.058, %conv4187
+  %sub.i85 = add nsw i64 %15, -1
+  %16 = inttoptr i64 %sub.i85 to ptr
+  %byte4086 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = load i32, ptr %byte4086, align 8
+  %conv4187 = zext i32 %17 to i64
+  %cmp4288 = icmp ult i64 %newbyte.057, %conv4187
   br i1 %cmp4288, label %for.end75, label %if.end45
 
 if.end38:                                         ; preds = %if.end55
-  %sub.i = add nsw i64 %24, -1
-  %17 = inttoptr i64 %sub.i to ptr
-  %byte40 = getelementptr inbounds i8, ptr %17, i64 16
-  %18 = load i32, ptr %byte40, align 8
-  %conv41 = zext i32 %18 to i64
-  %cmp42 = icmp ult i64 %newbyte.058, %conv41
+  %sub.i = add nsw i64 %25, -1
+  %18 = inttoptr i64 %sub.i to ptr
+  %byte40 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = load i32, ptr %byte40, align 8
+  %conv41 = zext i32 %19 to i64
+  %cmp42 = icmp ult i64 %newbyte.057, %conv41
   br i1 %cmp42, label %for.end75, label %if.end45
 
 if.end45:                                         ; preds = %if.end38.preheader, %if.end38
   %conv4190 = phi i64 [ %conv41, %if.end38 ], [ %conv4187, %if.end38.preheader ]
-  %19 = phi ptr [ %17, %if.end38 ], [ %15, %if.end38.preheader ]
-  %wherep.06189 = phi ptr [ %add.ptr, %if.end38 ], [ %t, %if.end38.preheader ]
-  %20 = phi ptr [ %23, %if.end38 ], [ %13, %if.end38.preheader ]
-  %cmp48 = icmp eq i64 %newbyte.058, %conv4190
-  %otherbits50 = getelementptr inbounds i8, ptr %19, i64 20
-  %21 = load i8, ptr %otherbits50, align 4
-  %conv51 = zext i8 %21 to i64
+  %20 = phi ptr [ %18, %if.end38 ], [ %16, %if.end38.preheader ]
+  %wherep.06089 = phi ptr [ %add.ptr, %if.end38 ], [ %t, %if.end38.preheader ]
+  %21 = phi ptr [ %24, %if.end38 ], [ %14, %if.end38.preheader ]
+  %cmp48 = icmp eq i64 %newbyte.057, %conv4190
+  %otherbits50 = getelementptr inbounds i8, ptr %20, i64 20
+  %22 = load i8, ptr %otherbits50, align 4
+  %conv51 = zext i8 %22 to i64
   %cmp52 = icmp ult i64 %xor23, %conv51
   %or.cond = select i1 %cmp48, i1 %cmp52, i1 false
   br i1 %or.cond, label %for.end75, label %if.end55
 
 if.end55:                                         ; preds = %if.end45
   %arrayidx63 = getelementptr inbounds [0 x i8], ptr %k, i64 0, i64 %conv4190
-  %22 = load i8, ptr %arrayidx63, align 1
-  %or6951 = or i8 %21, %22
-  %or69 = zext i8 %or6951 to i64
+  %23 = load i8, ptr %arrayidx63, align 1
+  %or6966 = or i8 %22, %23
+  %or69 = zext i8 %or6966 to i64
   %add70 = add nuw nsw i64 %or69, 1
   %shr71 = lshr i64 %add70, 8
-  %add.ptr = getelementptr inbounds ptr, ptr %19, i64 %shr71
-  %23 = load ptr, ptr %add.ptr, align 8
-  %24 = ptrtoint ptr %23 to i64
-  %and35 = and i64 %24, 1
+  %add.ptr = getelementptr inbounds ptr, ptr %20, i64 %shr71
+  %24 = load ptr, ptr %add.ptr, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %and35 = and i64 %25, 1
   %tobool36.not = icmp eq i64 %and35, 0
   br i1 %tobool36.not, label %for.end75, label %if.end38
 
 for.end75:                                        ; preds = %if.end45, %if.end38, %if.end55, %if.end38.preheader, %different_byte_found
-  %wherep.0.lcssa = phi ptr [ %t, %different_byte_found ], [ %t, %if.end38.preheader ], [ %add.ptr, %if.end55 ], [ %add.ptr, %if.end38 ], [ %wherep.06189, %if.end45 ]
-  %.lcssa = phi ptr [ %13, %different_byte_found ], [ %13, %if.end38.preheader ], [ %23, %if.end55 ], [ %23, %if.end38 ], [ %20, %if.end45 ]
-  %idxprom77 = lshr i64 %11, 32
+  %wherep.0.lcssa = phi ptr [ %t, %different_byte_found ], [ %t, %if.end38.preheader ], [ %add.ptr, %if.end55 ], [ %add.ptr, %if.end38 ], [ %wherep.06089, %if.end45 ]
+  %.lcssa = phi ptr [ %14, %different_byte_found ], [ %14, %if.end38.preheader ], [ %24, %if.end55 ], [ %24, %if.end38 ], [ %21, %if.end45 ]
+  %idxprom77 = lshr i64 %12, 32
   %arrayidx78 = getelementptr inbounds [2 x ptr], ptr %node, i64 0, i64 %idxprom77
   store ptr %.lcssa, ptr %arrayidx78, align 8
-  %25 = ptrtoint ptr %node to i64
-  %add79 = add i64 %25, 1
-  %26 = inttoptr i64 %add79 to ptr
-  store ptr %26, ptr %wherep.0.lcssa, align 8
+  %26 = ptrtoint ptr %node to i64
+  %add79 = add i64 %26, 1
+  %27 = inttoptr i64 %add79 to ptr
+  store ptr %27, ptr %wherep.0.lcssa, align 8
   br label %return
 
 return:                                           ; preds = %for.inc, %cb_internal_best_match.exit, %for.end75, %if.then
@@ -175,12 +176,12 @@ define dso_local ptr @cb_lookup(ptr nocapture noundef readonly %t, ptr nocapture
 entry:
   %0 = load ptr, ptr %t, align 8
   %1 = ptrtoint ptr %0 to i64
-  %and7.i = and i64 %1, 1
-  %tobool.not8.i = icmp eq i64 %and7.i, 0
-  br i1 %tobool.not8.i, label %cb_internal_best_match.exit, label %while.body.i
+  %and6.i = and i64 %1, 1
+  %tobool.not7.i = icmp eq i64 %and6.i, 0
+  br i1 %tobool.not7.i, label %cb_internal_best_match.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %cond.end.i
-  %2 = phi i64 [ %8, %cond.end.i ], [ %1, %entry ]
+  %2 = phi i64 [ %9, %cond.end.i ], [ %1, %entry ]
   %sub.i.i = add nsw i64 %2, -1
   %3 = inttoptr i64 %sub.i.i to ptr
   %byte.i = getelementptr inbounds i8, ptr %3, i64 16
@@ -192,25 +193,26 @@ while.body.i:                                     ; preds = %entry, %cond.end.i
 cond.true.i:                                      ; preds = %while.body.i
   %arrayidx.i = getelementptr inbounds i8, ptr %k, i64 %conv.i
   %5 = load i8, ptr %arrayidx.i, align 1
+  %6 = zext i8 %5 to i64
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %while.body.i
-  %cond.i = phi i8 [ %5, %cond.true.i ], [ 0, %while.body.i ]
+  %cond.i = phi i64 [ %6, %cond.true.i ], [ 0, %while.body.i ]
   %otherbits.i = getelementptr inbounds i8, ptr %3, i64 20
-  %6 = load i8, ptr %otherbits.i, align 4
-  %or6.i = or i8 %6, %cond.i
-  %or.i = zext i8 %or6.i to i64
+  %7 = load i8, ptr %otherbits.i, align 4
+  %conv5.i = zext i8 %7 to i64
+  %or.i = or i64 %cond.i, %conv5.i
   %add.i = add nuw nsw i64 %or.i, 1
   %shr.i = lshr i64 %add.i, 8
   %arrayidx8.i = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %shr.i
-  %7 = load ptr, ptr %arrayidx8.i, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %and.i = and i64 %8, 1
+  %8 = load ptr, ptr %arrayidx8.i, align 8
+  %9 = ptrtoint ptr %8 to i64
+  %and.i = and i64 %9, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %cb_internal_best_match.exit, label %while.body.i, !llvm.loop !5
 
 cb_internal_best_match.exit:                      ; preds = %cond.end.i, %entry
-  %p.addr.0.lcssa.i = phi ptr [ %0, %entry ], [ %7, %cond.end.i ]
+  %p.addr.0.lcssa.i = phi ptr [ %0, %entry ], [ %8, %cond.end.i ]
   %tobool.not = icmp eq ptr %p.addr.0.lcssa.i, null
   br i1 %tobool.not, label %cond.end, label %land.lhs.true
 
@@ -235,23 +237,23 @@ entry:
 
 while.cond.preheader:                             ; preds = %entry
   %1 = ptrtoint ptr %0 to i64
-  %and17 = and i64 %1, 1
-  %tobool1.not18 = icmp eq i64 %and17, 0
-  br i1 %tobool1.not18, label %for.cond.preheader, label %while.body
+  %and16 = and i64 %1, 1
+  %tobool1.not17 = icmp eq i64 %and16, 0
+  br i1 %tobool1.not17, label %for.cond.preheader, label %while.body
 
 for.cond.preheader:                               ; preds = %cond.end, %while.cond.preheader
   %top.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %spec.select, %cond.end ]
-  %p.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %7, %cond.end ]
-  %cmp1621.not = icmp eq i64 %klen, 0
-  br i1 %cmp1621.not, label %for.end, label %for.body.lr.ph
+  %p.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %8, %cond.end ]
+  %cmp1620.not = icmp eq i64 %klen, 0
+  br i1 %cmp1620.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %k = getelementptr inbounds i8, ptr %p.0.lcssa, i64 21
   br label %for.body
 
 while.body:                                       ; preds = %while.cond.preheader, %cond.end
-  %2 = phi i64 [ %8, %cond.end ], [ %1, %while.cond.preheader ]
-  %top.019 = phi ptr [ %spec.select, %cond.end ], [ %0, %while.cond.preheader ]
+  %2 = phi i64 [ %9, %cond.end ], [ %1, %while.cond.preheader ]
+  %top.018 = phi ptr [ %spec.select, %cond.end ], [ %0, %while.cond.preheader ]
   %sub.i = add nsw i64 %2, -1
   %3 = inttoptr i64 %sub.i to ptr
   %byte = getelementptr inbounds i8, ptr %3, i64 16
@@ -263,36 +265,37 @@ while.body:                                       ; preds = %while.cond.preheade
 cond.true:                                        ; preds = %while.body
   %arrayidx = getelementptr inbounds i8, ptr %kpfx, i64 %conv
   %5 = load i8, ptr %arrayidx, align 1
+  %6 = zext i8 %5 to i64
   br label %cond.end
 
 cond.end:                                         ; preds = %while.body, %cond.true
-  %cond = phi i8 [ %5, %cond.true ], [ 0, %while.body ]
+  %cond = phi i64 [ %6, %cond.true ], [ 0, %while.body ]
   %otherbits = getelementptr inbounds i8, ptr %3, i64 20
-  %6 = load i8, ptr %otherbits, align 4
-  %or16 = or i8 %6, %cond
-  %or = zext i8 %or16 to i64
+  %7 = load i8, ptr %otherbits, align 4
+  %conv6 = zext i8 %7 to i64
+  %or = or i64 %cond, %conv6
   %add = add nuw nsw i64 %or, 1
   %shr = lshr i64 %add, 8
   %arrayidx9 = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %shr
-  %7 = load ptr, ptr %arrayidx9, align 8
-  %spec.select = select i1 %cmp, ptr %7, ptr %top.019
-  %8 = ptrtoint ptr %7 to i64
-  %and = and i64 %8, 1
+  %8 = load ptr, ptr %arrayidx9, align 8
+  %spec.select = select i1 %cmp, ptr %8, ptr %top.018
+  %9 = ptrtoint ptr %8 to i64
+  %and = and i64 %9, 1
   %tobool1.not = icmp eq i64 %and, 0
   br i1 %tobool1.not, label %for.cond.preheader, label %while.body, !llvm.loop !8
 
 for.cond:                                         ; preds = %for.body
-  %inc = add nuw i64 %i.022, 1
+  %inc = add nuw i64 %i.021, 1
   %exitcond.not = icmp eq i64 %inc, %klen
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %i.022 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
-  %arrayidx18 = getelementptr inbounds [0 x i8], ptr %k, i64 0, i64 %i.022
-  %9 = load i8, ptr %arrayidx18, align 1
-  %arrayidx20 = getelementptr inbounds i8, ptr %kpfx, i64 %i.022
-  %10 = load i8, ptr %arrayidx20, align 1
-  %cmp22.not = icmp eq i8 %9, %10
+  %i.021 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
+  %arrayidx18 = getelementptr inbounds [0 x i8], ptr %k, i64 0, i64 %i.021
+  %10 = load i8, ptr %arrayidx18, align 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %kpfx, i64 %i.021
+  %11 = load i8, ptr %arrayidx20, align 1
+  %cmp22.not = icmp eq i8 %10, %11
   br i1 %cmp22.not, label %for.cond, label %return
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader

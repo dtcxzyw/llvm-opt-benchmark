@@ -236,7 +236,7 @@ define hidden noundef zeroext i1 @_ZN21ZVirtualMemoryManager18reserve_contiguous
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN21ZVirtualMemoryManager19calculate_min_rangeEm(i64 noundef %0) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 0, 184467440739192668) i64 @_ZN21ZVirtualMemoryManager19calculate_min_rangeEm(i64 noundef %0) local_unnamed_addr #2 align 2 {
   %2 = udiv i64 %0, 100
   %3 = add nuw nsw i64 %2, 2097151
   %4 = and i64 %3, 576460752301326336

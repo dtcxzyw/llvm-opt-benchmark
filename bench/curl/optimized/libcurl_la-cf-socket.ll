@@ -256,7 +256,7 @@ do.end:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cf_tcp_connect(ptr noundef %cf, ptr noundef %data, i1 noundef zeroext %blocking, ptr nocapture noundef writeonly %done) #2 {
+define internal range(i32 0, 46) i32 @cf_tcp_connect(ptr noundef %cf, ptr noundef %data, i1 noundef zeroext %blocking, ptr nocapture noundef writeonly %done) #2 {
 entry:
   %err.i = alloca i32, align 4
   %errSize.i = alloca i32, align 4
@@ -1452,7 +1452,7 @@ if.end9:                                          ; preds = %do.body5, %out
 declare i32 @Curl_cf_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cf_udp_connect(ptr noundef %cf, ptr noundef %data, i1 zeroext %blocking, ptr nocapture noundef writeonly %done) #2 {
+define internal range(i32 0, 46) i32 @cf_udp_connect(ptr noundef %cf, ptr noundef %data, i1 zeroext %blocking, ptr nocapture noundef writeonly %done) #2 {
 entry:
   %buffer.i.i = alloca [256 x i8], align 16
   %val.i = alloca i32, align 4
@@ -2224,7 +2224,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 declare void @Curl_bufq_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cf_socket_open(ptr noundef %cf, ptr noundef %data) unnamed_addr #2 {
+define internal fastcc range(i32 0, 46) i32 @cf_socket_open(ptr noundef %cf, ptr noundef %data) unnamed_addr #2 {
 entry:
   %sa.i = alloca %struct.Curl_sockaddr_storage, align 8
   %h.i = alloca ptr, align 8

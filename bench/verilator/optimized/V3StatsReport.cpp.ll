@@ -2919,7 +2919,7 @@ _ZNK11V3Statistic4nameB5cxx11Ev.exit43:           ; preds = %51
           cleanup
   br label %.loopexit.split-lp111
 
-.loopexit.split-lp111.loopexit.split-lp.loopexit.split-lp: ; preds = %._crit_edge, %87, %89, %93, %._crit_edge133, %111, %114, %116, %118
+.loopexit.split-lp111.loopexit.split-lp.loopexit.split-lp: ; preds = %._crit_edge, %88, %90, %93, %._crit_edge133, %111, %114, %116, %118
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp111
@@ -3010,25 +3010,28 @@ _ZNK11V3Statistic4nameB5cxx11Ev.exit47:           ; preds = %76
   %83 = getelementptr inbounds i8, ptr %.sroa.089.0127, i64 96
   %84 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11StatsReport10s_allStatsE, i64 8), align 8
   %.not99 = icmp eq ptr %83, %84
-  br i1 %.not99, label %._crit_edge, label %38, !llvm.loop !14
+  br i1 %.not99, label %._crit_edge.loopexit, label %38, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %82, %1
-  %.0.lcssa = phi i64 [ 0, %1 ], [ %.2, %82 ]
-  %85 = load ptr, ptr %0, align 8
-  %86 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull @.str.51)
-          to label %87 unwind label %.loopexit.split-lp111.loopexit.split-lp.loopexit.split-lp
+._crit_edge.loopexit:                             ; preds = %82
+  %85 = trunc i64 %.2 to i32
+  br label %._crit_edge
 
-87:                                               ; preds = %._crit_edge
-  %88 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
-          to label %89 unwind label %.loopexit.split-lp111.loopexit.split-lp.loopexit.split-lp
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %85, %._crit_edge.loopexit ]
+  %86 = load ptr, ptr %0, align 8
+  %87 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull @.str.51)
+          to label %88 unwind label %.loopexit.split-lp111.loopexit.split-lp.loopexit.split-lp
 
-89:                                               ; preds = %87
-  %90 = trunc i64 %.0.lcssa to i32
-  %91 = add i32 %90, -7
-  %92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %88, i32 %91)
+88:                                               ; preds = %._crit_edge
+  %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %87, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
+          to label %90 unwind label %.loopexit.split-lp111.loopexit.split-lp.loopexit.split-lp
+
+90:                                               ; preds = %88
+  %91 = add i32 %.0.lcssa, -7
+  %92 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %89, i32 %91)
           to label %93 unwind label %.loopexit.split-lp111.loopexit.split-lp.loopexit.split-lp
 
-93:                                               ; preds = %89
+93:                                               ; preds = %90
   %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull @.str.45)
           to label %95 unwind label %.loopexit.split-lp111.loopexit.split-lp.loopexit.split-lp
 
@@ -3294,7 +3297,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit6
           to label %184 unwind label %.loopexit.split-lp.loopexit
 
 184:                                              ; preds = %182
-  %185 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %183, i32 %90)
+  %185 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %183, i32 %.0.lcssa)
           to label %186 unwind label %.loopexit.split-lp.loopexit
 
 186:                                              ; preds = %184

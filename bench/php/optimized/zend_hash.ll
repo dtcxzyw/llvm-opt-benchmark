@@ -6726,7 +6726,7 @@ define ptr @zend_hash_str_add(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
 
 52:                                               ; preds = %9
   tail call void @zend_hash_packed_to_hash(ptr noundef nonnull %0)
-  br label %.thread
+  br label %.critedge176
 
 53:                                               ; preds = %4
   %54 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6739,7 +6739,7 @@ define ptr @zend_hash_str_add(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   %61 = getelementptr inbounds i32, ptr %55, i64 %60
   %.0161177 = load i32, ptr %61, align 4
   %.not168178 = icmp eq i32 %.0161177, -1
-  br i1 %.not168178, label %.thread, label %.lr.ph
+  br i1 %.not168178, label %.critedge176, label %.lr.ph
 
 .lr.ph:                                           ; preds = %53
   %62 = getelementptr inbounds i8, ptr %0, i64 32
@@ -6779,9 +6779,9 @@ define ptr @zend_hash_str_add(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   %80 = getelementptr inbounds i8, ptr %67, i64 12
   %.0161 = load i32, ptr %80, align 4
   %.not168 = icmp eq i32 %.0161, -1
-  br i1 %.not168, label %.thread, label %64
+  br i1 %.not168, label %.critedge176, label %64
 
-.thread:                                          ; preds = %.critedge, %53, %52
+.critedge176:                                     ; preds = %.critedge, %53, %52
   %81 = getelementptr inbounds i8, ptr %0, i64 24
   %82 = load i32, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 32
@@ -6789,11 +6789,11 @@ define ptr @zend_hash_str_add(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   %.not173 = icmp ult i32 %82, %84
   br i1 %.not173, label %zend_hash_real_init_mixed.exit, label %85
 
-85:                                               ; preds = %.thread
+85:                                               ; preds = %.critedge176
   tail call fastcc void @zend_hash_do_resize(ptr noundef nonnull %0)
   br label %zend_hash_real_init_mixed.exit
 
-zend_hash_real_init_mixed.exit:                   ; preds = %49, %29, %.thread, %85
+zend_hash_real_init_mixed.exit:                   ; preds = %49, %29, %.critedge176, %85
   %86 = getelementptr inbounds i8, ptr %0, i64 24
   %87 = load i32, ptr %86, align 8
   %88 = add i32 %87, 1

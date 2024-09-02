@@ -542,7 +542,7 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
 
 get_encode_size.exit.i:                           ; preds = %while.body.i.i, %if.else.i
   %cnt.0.lcssa.i.i = phi i32 [ 0, %if.else.i ], [ %inc.i.i, %while.body.i.i ]
-  %spec.store.select.i.i = call i32 @llvm.umax.i32(i32 %cnt.0.lcssa.i.i, i32 1)
+  %spec.store.select.i.i = call range(i32 1, 0) i32 @llvm.umax.i32(i32 %cnt.0.lcssa.i.i, i32 1)
   %conv.i = zext nneg i32 %spec.store.select.i.i to i64
   %add.i = add nuw nsw i64 %3, 1
   %add1.i = add nuw nsw i64 %add.i, %conv.i

@@ -515,14 +515,14 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
   %68 = load ptr, ptr %67, align 8
   %69 = call i32 @xstrcmp(ptr noundef %68, ptr noundef %48) #11
   %.not84.us.i = icmp eq i32 %69, 0
-  %70 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.27, i32 noundef 399, ptr noundef nonnull @__func__._load_fed_steps) #11
-  store ptr %60, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
-  %72 = zext i1 %.not84.us.i to i8
-  store i8 %72, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
+  %70 = zext i1 %.not84.us.i to i8
+  %71 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.27, i32 noundef 399, ptr noundef nonnull @__func__._load_fed_steps) #11
+  store ptr %60, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  store i8 %70, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %71, i64 16
   store ptr %11, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %70, i64 24
+  %74 = getelementptr inbounds i8, ptr %71, i64 24
   store ptr %49, ptr %74, align 8
   %75 = call i32 @pthread_attr_init(ptr noundef nonnull %9) #11
   %.not86.i = icmp eq i32 %75, 0
@@ -563,7 +563,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
 
 89:                                               ; preds = %86, %84
   %90 = getelementptr inbounds i64, ptr %55, i64 %indvars.iv.i
-  %91 = call i32 @pthread_create(ptr noundef %90, ptr noundef nonnull %9, ptr noundef nonnull @_load_step_thread, ptr noundef nonnull %70) #11
+  %91 = call i32 @pthread_create(ptr noundef %90, ptr noundef nonnull %9, ptr noundef nonnull @_load_step_thread, ptr noundef nonnull %71) #11
   %.not89.i = icmp eq i32 %91, 0
   br i1 %.not89.i, label %94, label %92
 

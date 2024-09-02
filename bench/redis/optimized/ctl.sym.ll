@@ -950,7 +950,7 @@ label_return:                                     ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ctl_mibnametomib(ptr noundef %tsd, ptr noundef %mib, i64 noundef %miblen, ptr noundef %name, ptr nocapture noundef %miblenp) local_unnamed_addr #0 {
+define hidden range(i32 0, 12) i32 @ctl_mibnametomib(ptr noundef %tsd, ptr noundef %mib, i64 noundef %miblen, ptr noundef %name, ptr nocapture noundef %miblenp) local_unnamed_addr #0 {
 entry:
   %.b10 = load i1, ptr @ctl_initialized, align 1
   br i1 %.b10, label %if.end, label %land.lhs.true

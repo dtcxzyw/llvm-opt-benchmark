@@ -175,7 +175,7 @@ declare i32 @adjustInfoAfterSwap(ptr noundef, i32 noundef, i32 noundef, i32 noun
 declare i32 @llvm.abs.i32(i32, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @firstShiftWithOneBit(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 0, 17) i32 @firstShiftWithOneBit(i64 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq i32 %1, 16
   br i1 %3, label %28, label %4
 

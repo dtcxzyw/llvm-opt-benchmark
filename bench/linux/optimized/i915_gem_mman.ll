@@ -1982,7 +1982,7 @@ declare dso_local i32 @i915_gem_ww_ctx_backoff(ptr noundef) local_unnamed_addr #
 declare dso_local void @i915_gem_ww_ctx_fini(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @vm_fault_gtt(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef range(i32 1, 257) i32 @vm_fault_gtt(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca %struct.i915_gem_ww_ctx, align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.i915_gtt_view, align 4

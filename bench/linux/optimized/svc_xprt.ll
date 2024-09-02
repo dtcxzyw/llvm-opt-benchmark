@@ -932,7 +932,7 @@ define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr nocapture nound
   br label %.thread6
 
 .thread6:                                         ; preds = %76, %85, %.thread, %.thread7
-  %90 = phi i32 [ -93, %.thread7 ], [ %73, %.thread ], [ 0, %76 ], [ %89, %85 ]
+  %90 = phi i32 [ -93, %.thread7 ], [ %89, %85 ], [ 0, %76 ], [ %73, %.thread ]
   ret i32 %90
 }
 
@@ -2925,7 +2925,7 @@ define dso_local i32 @svc_xprt_names(ptr noundef %0, ptr nocapture noundef write
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %10, i64 112
   %18 = load i16, ptr %17, align 2
-  switch i16 %18, label %23 [
+  switch i16 %18, label %24 [
     i16 2, label %19
     i16 10, label %19
   ]
@@ -2934,23 +2934,23 @@ define dso_local i32 @svc_xprt_names(ptr noundef %0, ptr nocapture noundef write
   %20 = getelementptr i8, ptr %10, i64 114
   %21 = load i16, ptr %20, align 2
   %22 = tail call i16 @llvm.bswap.i16(i16 %21)
-  br label %23
+  %23 = zext i16 %22 to i32
+  br label %24
 
-23:                                               ; preds = %19, %.preheader
-  %24 = phi i16 [ 0, %.preheader ], [ %22, %19 ]
-  %25 = sext i32 %14 to i64
-  %26 = zext i16 %24 to i32
-  %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %12, i64 noundef %25, ptr noundef nonnull @.str.16, ptr noundef %16, i32 noundef %26) #18
+24:                                               ; preds = %19, %.preheader
+  %25 = phi i32 [ 0, %.preheader ], [ %23, %19 ]
+  %26 = sext i32 %14 to i64
+  %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %12, i64 noundef %26, ptr noundef nonnull @.str.16, ptr noundef %16, i32 noundef %25) #18
   %28 = icmp slt i32 %27, %14
   %29 = select i1 %28, i32 %27, i32 -36
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %.thread, label %31
 
-.thread:                                          ; preds = %23
+.thread:                                          ; preds = %24
   store i8 0, ptr %1, align 1
   br label %.loopexit
 
-31:                                               ; preds = %23
+31:                                               ; preds = %24
   %32 = icmp eq i32 %29, 0
   br i1 %32, label %.loopexit, label %33
 

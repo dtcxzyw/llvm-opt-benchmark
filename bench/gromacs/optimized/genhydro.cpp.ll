@@ -733,17 +733,16 @@ _ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i: ; preds = %182
   br i1 %exitcond.not.i59.i, label %_ZL15hacksearch_atomPiS_PKcN3gmx8ArrayRefIKSt6vectorI13MoleculePatchSaIS5_EEEEiPK7t_atoms.exit.thread.i, label %194, !llvm.loop !18
 
 .critedge.loopexit.i.i:                           ; preds = %194
-  %198 = trunc nuw nsw i64 %indvars.iv.i56.i to i32
+  %198 = trunc i64 %indvars.iv.i56.i to i32
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.loopexit.i.i, %186
   %.031.lcssa.i.i = phi i32 [ 0, %186 ], [ %198, %.critedge.loopexit.i.i ]
-  %.031.lcssa.i.fr.i = freeze i32 %.031.lcssa.i.i
-  %199 = icmp slt i32 %.031.lcssa.i.fr.i, %191
+  %199 = icmp slt i32 %.031.lcssa.i.i, %191
   br i1 %199, label %.lr.ph46.preheader.i.i, label %_ZL15hacksearch_atomPiS_PKcN3gmx8ArrayRefIKSt6vectorI13MoleculePatchSaIS5_EEEEiPK7t_atoms.exit.thread.i
 
 .lr.ph46.preheader.i.i:                           ; preds = %.critedge.i.i
-  %200 = zext i32 %.031.lcssa.i.fr.i to i64
+  %200 = zext i32 %.031.lcssa.i.i to i64
   br label %.lr.ph46.i.i
 
 .lr.ph46.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph46.preheader.i.i
@@ -819,7 +818,7 @@ _ZL15pdbasearch_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE.exit.i: ; preds = %182
   %.7.i = phi i32 [ %.335.i, %208 ], [ %.us-phi.i, %._crit_edge.loopexit.i.i ]
   %.4.i = phi i32 [ %.030.i, %208 ], [ %.us-phi58.i, %._crit_edge.loopexit.i.i ]
   %225 = phi i32 [ %201, %208 ], [ %.pre.i.i, %._crit_edge.loopexit.i.i ]
-  %indvars.iv.next52.i.i = add i64 %indvars.iv51.i.i, 1
+  %indvars.iv.next52.i.i = add nuw i64 %indvars.iv51.i.i, 1
   %226 = trunc nuw i64 %indvars.iv.next52.i.i to i32
   %227 = icmp sgt i32 %225, %226
   br i1 %227, label %.lr.ph46.i.i, label %_ZL15hacksearch_atomPiS_PKcN3gmx8ArrayRefIKSt6vectorI13MoleculePatchSaIS5_EEEEiPK7t_atoms.exit.i, !llvm.loop !19

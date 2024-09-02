@@ -2403,17 +2403,17 @@ _ZN7xgboost8BatchSetINS_7CSCPageEED2Ev.exit:      ; preds = %_ZN7xgboost13BatchI
           to label %.noexc35 unwind label %269
 
 .noexc35:                                         ; preds = %259
-  %261 = add i64 %260, -1
+  %261 = trunc i64 %260 to i32
+  %262 = add i32 %261, -1
   br label %_ZNK7xgboost10SparsePage4SizeEv.exit
 
 _ZNK7xgboost10SparsePage4SizeEv.exit:             ; preds = %.noexc35, %.noexc34
-  %262 = phi i64 [ %261, %.noexc35 ], [ 0, %.noexc34 ]
-  %263 = load ptr, ptr %91, align 8
-  %264 = invoke noundef i32 @_ZNK7xgboost7Context7ThreadsEv(ptr noundef nonnull align 8 dereferenceable(84) %263)
-          to label %265 unwind label %269
+  %263 = phi i32 [ %262, %.noexc35 ], [ 0, %.noexc34 ]
+  %264 = load ptr, ptr %91, align 8
+  %265 = invoke noundef i32 @_ZNK7xgboost7Context7ThreadsEv(ptr noundef nonnull align 8 dereferenceable(84) %264)
+          to label %266 unwind label %269
 
-265:                                              ; preds = %_ZNK7xgboost10SparsePage4SizeEv.exit
-  %266 = trunc i64 %262 to i32
+266:                                              ; preds = %_ZNK7xgboost10SparsePage4SizeEv.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   store ptr %0, ptr %6, align 8
   store ptr %13, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2422,15 +2422,15 @@ _ZNK7xgboost10SparsePage4SizeEv.exit:             ; preds = %.noexc35, %.noexc34
   store ptr %19, ptr %.sroa.5.0..sroa_idx, align 8
   store ptr %15, ptr %.sroa.6.0..sroa_idx, align 8
   store ptr %101, ptr %.sroa.7.0..sroa_idx, align 8
-  invoke void @_ZN7xgboost6common11ParallelForIjZNS_6linear14ShotgunUpdater6UpdateEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEPNS_7DMatrixEPNS_3gbm13GBLinearModelEdEUlT_E_EEvSG_iNS0_5SchedET0_(i32 noundef %266, i32 noundef %264, i32 2, i64 0, ptr noundef nonnull byval(%class.anon.177) align 8 %6)
+  invoke void @_ZN7xgboost6common11ParallelForIjZNS_6linear14ShotgunUpdater6UpdateEPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEPNS_7DMatrixEPNS_3gbm13GBLinearModelEdEUlT_E_EEvSG_iNS0_5SchedET0_(i32 noundef %263, i32 noundef %265, i32 2, i64 0, ptr noundef nonnull byval(%class.anon.177) align 8 %6)
           to label %267 unwind label %269
 
-267:                                              ; preds = %265
+267:                                              ; preds = %266
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   %268 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7xgboost13BatchIteratorINS_7CSCPageEEppEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
           to label %_ZN7xgboost8BatchSetINS_7CSCPageEE3endEv.exit unwind label %233
 
-269:                                              ; preds = %265, %259, %249, %_ZNK7xgboost10SparsePage4SizeEv.exit
+269:                                              ; preds = %266, %259, %249, %_ZNK7xgboost10SparsePage4SizeEv.exit
   %270 = landingpad { ptr, i32 }
           cleanup
   br label %271

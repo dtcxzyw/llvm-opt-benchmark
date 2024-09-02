@@ -15237,7 +15237,7 @@ _ZN3nix20UnkeyedValidPathInfoD2Ev.exit:           ; preds = %_ZNSt3setIN3nix9Sto
   %80 = getelementptr inbounds i8, ptr %11, i64 104
   %81 = load ptr, ptr %80, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %96, label %82
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %97, label %82
 
 82:                                               ; preds = %77
   %83 = getelementptr inbounds i8, ptr %11, i64 96
@@ -15263,26 +15263,26 @@ _ZN3nix20UnkeyedValidPathInfoD2Ev.exit:           ; preds = %_ZNSt3setIN3nix9Sto
   store ptr %83, ptr %86, align 8
   store ptr %83, ptr %89, align 8
   %.pre = load i8, ptr %78, align 8
+  %96 = and i8 %.pre, 1
   br label %_ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit
 
-96:                                               ; preds = %77
+97:                                               ; preds = %77
   store i32 0, ptr %79, align 8
-  %97 = getelementptr inbounds i8, ptr %10, i64 104
-  store ptr null, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %10, i64 112
-  store ptr %79, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %10, i64 120
+  %98 = getelementptr inbounds i8, ptr %10, i64 104
+  store ptr null, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %10, i64 112
   store ptr %79, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %10, i64 128
+  %100 = getelementptr inbounds i8, ptr %10, i64 120
+  store ptr %79, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %10, i64 128
   br label %_ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit
 
-_ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit: ; preds = %82, %96
-  %101 = phi i8 [ 1, %96 ], [ %.pre, %82 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %100, %96 ], [ %93, %82 ]
+_ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit: ; preds = %82, %97
+  %102 = phi i8 [ 1, %97 ], [ %96, %82 ]
+  %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %101, %97 ], [ %93, %82 ]
   store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %102 = getelementptr inbounds i8, ptr %10, i64 136
-  %103 = and i8 %101, 1
-  store i8 %103, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %10, i64 136
+  store i8 %102, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %10, i64 144
   store i8 1, ptr %104, align 8
   invoke void @_ZN3nix4Hash8parseSRIESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"struct.nix::Hash") align 8 %15, i64 51, ptr nonnull @.str.33)
@@ -16112,7 +16112,7 @@ _ZN3nix20UnkeyedValidPathInfoD2Ev.exit:           ; preds = %_ZNSt3setIN3nix9Sto
   %80 = getelementptr inbounds i8, ptr %11, i64 104
   %81 = load ptr, ptr %80, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %96, label %82
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %97, label %82
 
 82:                                               ; preds = %77
   %83 = getelementptr inbounds i8, ptr %11, i64 96
@@ -16138,26 +16138,26 @@ _ZN3nix20UnkeyedValidPathInfoD2Ev.exit:           ; preds = %_ZNSt3setIN3nix9Sto
   store ptr %83, ptr %86, align 8
   store ptr %83, ptr %89, align 8
   %.pre = load i8, ptr %78, align 8
+  %96 = and i8 %.pre, 1
   br label %_ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit
 
-96:                                               ; preds = %77
+97:                                               ; preds = %77
   store i32 0, ptr %79, align 8
-  %97 = getelementptr inbounds i8, ptr %10, i64 104
-  store ptr null, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %10, i64 112
-  store ptr %79, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %10, i64 120
+  %98 = getelementptr inbounds i8, ptr %10, i64 104
+  store ptr null, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %10, i64 112
   store ptr %79, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %10, i64 128
+  %100 = getelementptr inbounds i8, ptr %10, i64 120
+  store ptr %79, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %10, i64 128
   br label %_ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit
 
-_ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit: ; preds = %82, %96
-  %101 = phi i8 [ 1, %96 ], [ %.pre, %82 ]
-  %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %100, %96 ], [ %93, %82 ]
+_ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit: ; preds = %82, %97
+  %102 = phi i8 [ 1, %97 ], [ %96, %82 ]
+  %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %101, %97 ], [ %93, %82 ]
   store i64 0, ptr %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %102 = getelementptr inbounds i8, ptr %10, i64 136
-  %103 = and i8 %101, 1
-  store i8 %103, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %10, i64 136
+  store i8 %102, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %10, i64 144
   store i8 1, ptr %104, align 8
   invoke void @_ZN3nix4Hash8parseSRIESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"struct.nix::Hash") align 8 %15, i64 51, ptr nonnull @.str.33)

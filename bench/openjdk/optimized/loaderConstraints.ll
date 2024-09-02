@@ -1666,23 +1666,29 @@ define hidden void @_ZN21LoaderConstraintTable22print_table_statisticsEP12output
   %19 = add i32 %18, %17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %"_ZZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamENK3$_0clER16SymbolHandleBaseILb0EER13ConstraintSet.exit.i", label %11, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %"_ZZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamENK3$_0clER16SymbolHandleBaseILb0EER13ConstraintSet.exit.loopexit.i", label %11, !llvm.loop !23
 
-"_ZZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamENK3$_0clER16SymbolHandleBaseILb0EER13ConstraintSet.exit.i": ; preds = %11, %.lr.ph.i
-  %.0.lcssa.i.i = phi i32 [ 0, %.lr.ph.i ], [ %19, %11 ]
-  %20 = sext i32 %.0.lcssa.i.i to i64
-  %21 = add i64 %.117.i, %20
+"_ZZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamENK3$_0clER16SymbolHandleBaseILb0EER13ConstraintSet.exit.loopexit.i": ; preds = %11
+  %20 = sext i32 %19 to i64
+  br label %"_ZZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamENK3$_0clER16SymbolHandleBaseILb0EER13ConstraintSet.exit.i"
+
+"_ZZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamENK3$_0clER16SymbolHandleBaseILb0EER13ConstraintSet.exit.i": ; preds = %"_ZZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamENK3$_0clER16SymbolHandleBaseILb0EER13ConstraintSet.exit.loopexit.i", %.lr.ph.i
+  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph.i ], [ %20, %"_ZZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamENK3$_0clER16SymbolHandleBaseILb0EER13ConstraintSet.exit.loopexit.i" ]
+  %21 = add i64 %.0.lcssa.i.i, %.117.i
   %22 = add nuw nsw i32 %.018.i, 1
   %23 = getelementptr inbounds i8, ptr %.01219.i, i64 24
   %.012.i = load ptr, ptr %23, align 8, !noalias !20
   %.not.i = icmp eq ptr %.012.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !24
 
-._crit_edge.i:                                    ; preds = %"_ZZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamENK3$_0clER16SymbolHandleBaseILb0EER13ConstraintSet.exit.i", %.preheader.i
-  %.1.lcssa.i = phi i64 [ %.01322.i, %.preheader.i ], [ %21, %"_ZZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamENK3$_0clER16SymbolHandleBaseILb0EER13ConstraintSet.exit.i" ]
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %22, %"_ZZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamENK3$_0clER16SymbolHandleBaseILb0EER13ConstraintSet.exit.i" ]
-  %24 = uitofp nneg i32 %.0.lcssa.i to double
-  call void @_ZN9NumberSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %24) #12, !noalias !20
+._crit_edge.loopexit.i:                           ; preds = %"_ZZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamENK3$_0clER16SymbolHandleBaseILb0EER13ConstraintSet.exit.i"
+  %24 = uitofp nneg i32 %22 to double
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
+  %.1.lcssa.i = phi i64 [ %.01322.i, %.preheader.i ], [ %21, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi double [ 0.000000e+00, %.preheader.i ], [ %24, %._crit_edge.loopexit.i ]
+  call void @_ZN9NumberSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef %.0.lcssa.i) #12, !noalias !20
   %.014.add.i = add nuw nsw i64 %.014.idx21.i, 8
   %25 = icmp ult i64 %.014.idx21.i, 848
   br i1 %25, label %.preheader.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj107E16SymbolHandleBaseILb0EE13ConstraintSetES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS2_12compute_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SD_EEE20statistics_calculateIZN21LoaderConstraintTable22print_table_statisticsEP12outputStreamE3$_0EE15TableStatisticsSB_.exit", !llvm.loop !25

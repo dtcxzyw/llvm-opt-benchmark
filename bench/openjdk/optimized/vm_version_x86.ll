@@ -501,7 +501,7 @@ define hidden void @_ZN10VM_Version22get_processor_featuresEv() local_unnamed_ad
 
 _ZN10VM_Version12L1_line_sizeEv.exit:             ; preds = %16, %20, %24, %27
   %.0.i = phi i32 [ %23, %20 ], [ %26, %24 ], [ %30, %27 ], [ 0, %16 ]
-  %spec.store.select.i = tail call noundef range(i32 0, 4097) i32 @llvm.umax.i32(i32 %.0.i, i32 32)
+  %spec.store.select.i = tail call noundef range(i32 32, 4097) i32 @llvm.umax.i32(i32 %.0.i, i32 32)
   store i32 %spec.store.select.i, ptr @_ZN19Abstract_VM_Version24_L1_data_cache_line_sizeE, align 4
   br label %31
 
@@ -2813,7 +2813,7 @@ switch.early.test:                                ; preds = %809
 
 _ZN10VM_Version18prefetch_data_sizeEv.exit:       ; preds = %969, %971, %975, %978
   %.0.i.i = phi i32 [ %974, %971 ], [ %977, %975 ], [ %981, %978 ], [ 0, %969 ]
-  %spec.store.select.i.i = call noundef range(i32 0, 4097) i32 @llvm.umax.i32(i32 %.0.i.i, i32 32)
+  %spec.store.select.i.i = call noundef range(i32 32, 4097) i32 @llvm.umax.i32(i32 %.0.i.i, i32 32)
   %982 = call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 748) #14
   %983 = load i32, ptr @AllocatePrefetchStepSize, align 4
   %984 = icmp sgt i32 %spec.store.select.i.i, %983
@@ -3434,7 +3434,7 @@ _ZN10VM_Version28is_intel_tsc_synched_at_initEv.exit: ; preds = %236, %_ZN10VM_V
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 4097) i32 @_ZN10VM_Version12L1_line_sizeEv() local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 32, 4097) i32 @_ZN10VM_Version12L1_line_sizeEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %1, label %13 [
     i32 1970169159, label %2
@@ -3644,7 +3644,7 @@ _ZN10VM_Version27supports_processor_topologyEv.exit13: ; preds = %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 65536) i32 @_ZN10VM_Version16threads_per_coreEv() local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 1, 65536) i32 @_ZN10VM_Version16threads_per_coreEv() local_unnamed_addr #3 align 2 {
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   %2 = icmp eq i32 %1, 1970169159
   %3 = load i32, ptr @_ZN10VM_Version11_cpuid_infoE, align 8

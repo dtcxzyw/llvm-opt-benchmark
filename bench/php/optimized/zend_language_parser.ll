@@ -5033,7 +5033,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
 
 .lr.ph.i.i:                                       ; preds = %38, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %18, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %38 ]
-  %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.fr.i, %38 ]
+  %.14.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %38 ]
   %21 = add nsw i64 %indvars.iv.i.i, %19
   %22 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %21
   %23 = load i16, ptr %22, align 2
@@ -5055,7 +5055,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br i1 %33, label %yy_syntax_error_arguments.exit.thread4, label %34
 
 34:                                               ; preds = %32
-  %35 = add nsw i32 %.14.i.i, 1
+  %35 = add i32 %.14.i.i, 1
   %36 = sext i32 %.14.i.i to i64
   %37 = getelementptr inbounds i32, ptr %5, i64 %36
   store i32 %24, ptr %37, align 4
@@ -5063,13 +5063,12 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
 
 38:                                               ; preds = %34, %28, %.lr.ph.i.i
   %.2.i.i = phi i32 [ %.14.i.i, %28 ], [ %35, %34 ], [ %.14.i.i, %.lr.ph.i.i ]
-  %.2.i.fr.i = freeze i32 %.2.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %20
   br i1 %exitcond.not.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %38
-  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit [
+  switch i32 %.2.i.i, label %yy_syntax_error_arguments.exit [
     i32 0, label %.thread.i.i
     i32 -2, label %yy_syntax_error_arguments.exit.thread6
   ]
@@ -5079,8 +5078,8 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br label %yy_syntax_error_arguments.exit.thread4
 
 yy_syntax_error_arguments.exit:                   ; preds = %._crit_edge.i.i
-  %39 = add nsw i32 %.2.i.fr.i, 1
-  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit.thread4 [
+  %39 = add nsw i32 %.2.i.i, 1
+  switch i32 %.2.i.i, label %yy_syntax_error_arguments.exit.thread4 [
     i32 -3, label %yy_syntax_error_arguments.exit.thread6
     i32 4, label %43
     i32 3, label %42
@@ -5189,7 +5188,7 @@ yy_syntax_error_arguments.exit.thread4:           ; preds = %32, %.thread.i.i, %
   br label %63
 
 yy_syntax_error_arguments.exit.thread6:           ; preds = %.lr.ph, %63, %._crit_edge.i.i, %59, %yy_syntax_error_arguments.exit
-  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %59 ], [ %.2.i.fr.i, %._crit_edge.i.i ], [ 0, %63 ], [ -2, %.lr.ph ]
+  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %59 ], [ %.2.i.i, %._crit_edge.i.i ], [ 0, %63 ], [ -2, %.lr.ph ]
   ret i32 %.038
 }
 

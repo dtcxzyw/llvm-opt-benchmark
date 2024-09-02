@@ -1485,9 +1485,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit305:       ; preds = %478, %481
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %487 = sitofp i32 %.pre to float
   %488 = fdiv float %487, %485
-  %.0145 = select i1 %486, float 1.000000e+00, float %488
+  %489 = fpext float %488 to double
+  %.0145 = select i1 %486, double 1.000000e+00, double %489
   %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
-  %489 = fpext float %.0145 to double
   %490 = fpext float %485 to double
   %491 = getelementptr inbounds i32, ptr %.0.i190, i64 %indvars.iv503
   %492 = load i32, ptr %491, align 4
@@ -1495,7 +1495,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit305:       ; preds = %478, %481
   %494 = fdiv float %485, %493
   %495 = fpext float %494 to double
   %496 = trunc nuw i64 %indvars.iv.next504 to i32
-  %497 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %477, ptr noundef nonnull @.str.55, i32 noundef %496, double noundef %489, i32 noundef %.pre, double noundef %490, i32 noundef %492, double noundef %495) #17
+  %497 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %477, ptr noundef nonnull @.str.55, i32 noundef %496, double noundef %.0145, i32 noundef %.pre, double noundef %490, i32 noundef %492, double noundef %495) #17
   %exitcond507.not = icmp eq i64 %indvars.iv.next504, %wide.trip.count85.i
   br i1 %exitcond507.not, label %._crit_edge446, label %.lr.ph445, !llvm.loop !27
 

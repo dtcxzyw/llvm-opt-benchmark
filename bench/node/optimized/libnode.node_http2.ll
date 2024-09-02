@@ -2419,7 +2419,7 @@ declare void @nghttp2_option_set_peer_max_concurrent_streams(ptr noundef, i32 no
 declare void @nghttp2_option_set_max_settings(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZN4node5http213Http2Settings4InitEPNS0_10Http2StateEP22nghttp2_settings_entry(ptr nocapture noundef readonly %http2_state, ptr nocapture noundef writeonly %entries) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i64 0, 8) i64 @_ZN4node5http213Http2Settings4InitEPNS0_10Http2StateEP22nghttp2_settings_entry(ptr nocapture noundef readonly %http2_state, ptr nocapture noundef writeonly %entries) local_unnamed_addr #6 align 2 {
 entry:
   %buffer_.i.i = getelementptr inbounds i8, ptr %http2_state, i64 400
   %0 = load ptr, ptr %buffer_.i.i, align 8
@@ -15499,17 +15499,17 @@ do.body6.i:                                       ; preds = %_ZNK4node17BaseObje
 
 do.end8.i:                                        ; preds = %_ZNK4node17BaseObjectPtrImplINS_9AsyncWrapELb0EE12pointer_dataEv.exit.i
   call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %call11) #28
+  %13 = ptrtoint ptr %call11 to i64
   br label %_ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC2EPS1_.exit
 
 _ZN4node17BaseObjectPtrImplINS_9AsyncWrapELb0EEC2EPS1_.exit: ; preds = %for.body, %cond.end, %do.end8.i
-  %agg.tmp.sroa.0.0 = phi ptr [ null, %cond.end ], [ %call11, %do.end8.i ], [ null, %for.body ]
+  %agg.tmp.sroa.0.0 = phi i64 [ 0, %cond.end ], [ %13, %do.end8.i ], [ 0, %for.body ]
   %arrayidx = getelementptr inbounds %struct.uv_buf_t, ptr %bufs, i64 %i.028
   %agg.tmp12.sroa.0.0.copyload = load ptr, ptr %arrayidx, align 8
   %agg.tmp12.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %agg.tmp12.sroa.2.0.copyload = load i64, ptr %agg.tmp12.sroa.2.0.arrayidx.sroa_idx, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http218NgHttp2StreamWriteE, i64 16), ptr %ref.tmp, align 8
-  %13 = ptrtoint ptr %agg.tmp.sroa.0.0 to i64
-  store i64 %13, ptr %req_wrap2.i, align 8
+  store i64 %agg.tmp.sroa.0.0, ptr %req_wrap2.i, align 8
   store ptr %agg.tmp12.sroa.0.0.copyload, ptr %buf.i, align 8
   store i64 %agg.tmp12.sroa.2.0.copyload, ptr %buf_.sroa.2.0.buf.sroa_idx.i, align 8
   %14 = load ptr, ptr %_M_finish.i.i, align 8

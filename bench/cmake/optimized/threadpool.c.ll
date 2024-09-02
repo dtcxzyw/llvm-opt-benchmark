@@ -434,7 +434,7 @@ define internal void @uv__queue_done(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv_cancel(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @uv_cancel(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %switch.tableidx = add i32 %3, -6

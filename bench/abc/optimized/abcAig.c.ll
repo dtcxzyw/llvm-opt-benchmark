@@ -2527,41 +2527,40 @@ Abc_AigRemoveFromLevelStructureR.exit.i:          ; preds = %134, %138, %124
   br i1 %165, label %Vec_IntFind.exit.i, label %166
 
 166:                                              ; preds = %162
-  %indvars.iv.next.i98.i = add nuw nsw i64 %indvars.iv.i97.i, 1
+  %indvars.iv.next.i98.i = add i64 %indvars.iv.i97.i, 1
   %exitcond.not.i99.i = icmp eq i64 %indvars.iv.next.i98.i, %wide.trip.count.i96.i
   br i1 %exitcond.not.i99.i, label %Vec_IntFind.exit.thread.i, label %162, !llvm.loop !31
 
 Vec_IntFind.exit.i:                               ; preds = %162
-  %167 = trunc nuw nsw i64 %indvars.iv.i97.i to i32
+  %167 = trunc i64 %indvars.iv.i97.i to i32
   %.not.i100.i = icmp eq i64 %indvars.iv.i97.i, 0
   %spec.select.i = select i1 %.not.i100.i, i32 10, i32 11
+  %168 = xor i32 %167, 1
   br label %Vec_IntFind.exit.thread.i
 
 Vec_IntFind.exit.thread.i:                        ; preds = %166, %Vec_IntFind.exit.i, %155
-  %.07.i133.i = phi i32 [ %167, %Vec_IntFind.exit.i ], [ -1, %155 ], [ -1, %166 ]
-  %168 = phi i32 [ %spec.select.i, %Vec_IntFind.exit.i ], [ 11, %155 ], [ 11, %166 ]
-  %.07.i133.fr.i = freeze i32 %.07.i133.i
-  %169 = lshr i32 %.val89.i, %168
-  %170 = and i32 %169, 1
-  %171 = zext nneg i32 %170 to i64
-  %172 = xor i64 %171, %104
-  %173 = inttoptr i64 %172 to ptr
-  %174 = xor i32 %.07.i133.fr.i, 1
+  %.07.i133.i = phi i32 [ %168, %Vec_IntFind.exit.i ], [ -2, %155 ], [ -2, %166 ]
+  %169 = phi i32 [ %spec.select.i, %Vec_IntFind.exit.i ], [ 11, %155 ], [ 11, %166 ]
+  %170 = lshr i32 %.val89.i, %169
+  %171 = and i32 %170, 1
+  %172 = zext nneg i32 %171 to i64
+  %173 = xor i64 %172, %104
+  %174 = inttoptr i64 %173 to ptr
   %.val.i101.i = load ptr, ptr %117, align 8
   %175 = getelementptr i8, ptr %.val.i101.i, i64 32
   %.val.val.i.i = load ptr, ptr %175, align 8
   %176 = getelementptr i8, ptr %.val.val.i.i, i64 8
   %.val.val.val.i.i = load ptr, ptr %176, align 8
-  %177 = sext i32 %174 to i64
+  %177 = sext i32 %.07.i133.i to i64
   %178 = getelementptr inbounds i32, ptr %161, i64 %177
   %179 = load i32, ptr %178, align 4
   %180 = sext i32 %179 to i64
   %181 = getelementptr inbounds ptr, ptr %.val.val.val.i.i, i64 %180
   %182 = load ptr, ptr %181, align 8
-  %.not.i.i.i = icmp eq i32 %.07.i133.fr.i, 1
+  %.not.i.i.i = icmp eq i32 %.07.i133.i, 0
   %183 = ptrtoint ptr %182 to i64
-  %spec.select175.i = select i1 %.not.i.i.i, i32 1024, i32 2048
-  %184 = and i32 %spec.select175.i, %.val89.i
+  %spec.select = select i1 %.not.i.i.i, i32 1024, i32 2048
+  %184 = and i32 %spec.select, %.val89.i
   %185 = icmp ne i32 %184, 0
   %186 = zext i1 %185 to i64
   %187 = xor i64 %183, %186
@@ -2571,13 +2570,13 @@ Vec_IntFind.exit.thread.i:                        ; preds = %166, %Vec_IntFind.e
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8
-  %194 = icmp eq ptr %173, %188
+  %194 = icmp eq ptr %174, %188
   br i1 %194, label %Abc_AigAndLookup.exit, label %195
 
 195:                                              ; preds = %Vec_IntFind.exit.thread.i
   %196 = xor i64 %187, 1
   %197 = inttoptr i64 %196 to ptr
-  %198 = icmp eq ptr %173, %197
+  %198 = icmp eq ptr %174, %197
   br i1 %198, label %199, label %203
 
 199:                                              ; preds = %195
@@ -2591,7 +2590,7 @@ Vec_IntFind.exit.thread.i:                        ; preds = %166, %Vec_IntFind.e
   br i1 %204, label %205, label %207
 
 205:                                              ; preds = %203
-  %206 = icmp eq ptr %106, %173
+  %206 = icmp eq ptr %106, %174
   br i1 %206, label %Abc_AigAndLookup.exit, label %Abc_AigAndLookup.exit.thread92
 
 207:                                              ; preds = %203
@@ -2624,8 +2623,8 @@ Vec_IntFind.exit.thread.i:                        ; preds = %166, %Vec_IntFind.e
   %223 = getelementptr inbounds i8, ptr %209, i64 16
   %224 = load i32, ptr %223, align 8
   %225 = icmp sgt i32 %222, %224
-  %spec.select.i84 = select i1 %225, ptr %173, ptr %188
-  %spec.select47.i = select i1 %225, ptr %188, ptr %173
+  %spec.select.i84 = select i1 %225, ptr %174, ptr %188
+  %spec.select47.i = select i1 %225, ptr %188, ptr %174
   %226 = load i32, ptr %76, align 8
   %227 = ptrtoint ptr %spec.select47.i to i64
   %228 = and i64 %227, -2
@@ -2700,7 +2699,7 @@ Vec_IntFind.exit.thread.i:                        ; preds = %166, %Vec_IntFind.e
   br i1 %.not.i89, label %Abc_AigAndLookup.exit.thread, label %.lr.ph.i85, !llvm.loop !22
 
 Abc_AigAndLookup.exit:                            ; preds = %Vec_IntFind.exit.thread.i, %199, %205, %211, %213
-  %.0.i = phi ptr [ %202, %199 ], [ %216, %213 ], [ %173, %Vec_IntFind.exit.thread.i ], [ %188, %205 ], [ %173, %211 ]
+  %.0.i = phi ptr [ %202, %199 ], [ %216, %213 ], [ %174, %Vec_IntFind.exit.thread.i ], [ %188, %205 ], [ %174, %211 ]
   %.not75.i = icmp eq ptr %.0.i, null
   br i1 %.not75.i, label %Abc_AigAndLookup.exit.thread, label %Abc_AigAndLookup.exit.thread92
 
@@ -3038,8 +3037,8 @@ Abc_AigAndDelete.exit.i:                          ; preds = %429, %.loopexit.i.i
   %433 = getelementptr inbounds i8, ptr %432, i64 16
   %434 = load i32, ptr %433, align 8
   %435 = icmp sgt i32 %430, %434
-  %spec.select.i.i = select i1 %435, ptr %173, ptr %188
-  %spec.select26.i.i = select i1 %435, ptr %188, ptr %173
+  %spec.select.i.i = select i1 %435, ptr %174, ptr %188
+  %spec.select26.i.i = select i1 %435, ptr %188, ptr %174
   tail call void @Abc_ObjAddFanin(ptr noundef nonnull %117, ptr noundef %spec.select26.i.i) #21
   tail call void @Abc_ObjAddFanin(ptr noundef nonnull %117, ptr noundef %spec.select.i.i) #21
   %436 = ptrtoint ptr %spec.select26.i.i to i64

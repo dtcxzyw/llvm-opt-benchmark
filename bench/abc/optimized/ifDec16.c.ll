@@ -933,7 +933,7 @@ define void @If_CluHashPrintStats(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -176, -2147483648) i32 @If_CluHashFindMedian(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 1, -2147483648) i32 @If_CluHashFindMedian(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 1000, ptr %3, align 8
@@ -4790,7 +4790,7 @@ If_CluCopy.exit:                                  ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @If_CluCountCofs4(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #9 {
+define i32 @If_CluCountCofs4(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #9 {
   %5 = alloca [128 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
   %6 = shl nuw i32 1, %2
@@ -4823,7 +4823,7 @@ define noundef i32 @If_CluCountCofs4(ptr nocapture noundef readonly %0, i32 noun
   %indvars.iv65 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next66, %35 ]
   %.057 = phi i64 [ 0, %.lr.ph59.preheader ], [ %.1, %35 ]
   %.04456 = phi i64 [ 0, %.lr.ph59.preheader ], [ %.145, %35 ]
-  %.04655 = phi i32 [ 0, %.lr.ph59.preheader ], [ %.147.fr, %35 ]
+  %.04655 = phi i32 [ 0, %.lr.ph59.preheader ], [ %.147, %35 ]
   %15 = trunc nuw nsw i64 %indvars.iv65 to i32
   %16 = shl nsw i32 %15, %7
   %17 = lshr i32 %16, 6
@@ -4864,7 +4864,7 @@ define noundef i32 @If_CluCountCofs4(ptr nocapture noundef readonly %0, i32 noun
 
 ._crit_edge.thread:                               ; preds = %29, %._crit_edge
   %.048.lcssa77 = phi i32 [ %.048.lcssa, %._crit_edge ], [ %.04655, %29 ]
-  %32 = add nsw i32 %.04655, 1
+  %32 = add i32 %.04655, 1
   %33 = sext i32 %.04655 to i64
   %34 = getelementptr inbounds [128 x i64], ptr %5, i64 0, i64 %33
   store i64 %24, ptr %34, align 8
@@ -4873,7 +4873,6 @@ define noundef i32 @If_CluCountCofs4(ptr nocapture noundef readonly %0, i32 noun
 35:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.048.lcssa76 = phi i32 [ %.048.lcssa77, %._crit_edge.thread ], [ %.048.lcssa, %._crit_edge ]
   %.147 = phi i32 [ %32, %._crit_edge.thread ], [ %.04655, %._crit_edge ]
-  %.147.fr = freeze i32 %.147
   %36 = and i32 %.048.lcssa76, 2147483645
   %or.cond = icmp eq i32 %36, 1
   %37 = shl nuw i64 1, %indvars.iv65
@@ -4900,14 +4899,14 @@ define noundef i32 @If_CluCountCofs4(ptr nocapture noundef readonly %0, i32 noun
   store i64 %.pre70, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %3, i64 4096
   store i64 %.pre72, ptr %42, align 8
-  %43 = icmp eq i32 %.147.fr, 4
+  %43 = icmp eq i32 %.147, 4
   %spec.select = select i1 %43, i64 %.pre74, i64 %.pre72
   br label %44
 
 44:                                               ; preds = %._crit_edge60, %._crit_edge60.thread
   %.0.lcssa84 = phi i64 [ 0, %._crit_edge60.thread ], [ %.1, %._crit_edge60 ]
   %.044.lcssa83 = phi i64 [ 0, %._crit_edge60.thread ], [ %.145, %._crit_edge60 ]
-  %.046.lcssa82 = phi i32 [ 0, %._crit_edge60.thread ], [ %.147.fr, %._crit_edge60 ]
+  %.046.lcssa82 = phi i32 [ 0, %._crit_edge60.thread ], [ %.147, %._crit_edge60 ]
   %45 = phi i64 [ 0, %._crit_edge60.thread ], [ %spec.select, %._crit_edge60 ]
   %46 = getelementptr inbounds i8, ptr %3, i64 6144
   store i64 %45, ptr %46, align 8
@@ -5853,7 +5852,7 @@ define void @If_CluDeriveDisjoint4(ptr nocapture noundef %0, i32 noundef %1, ptr
   %indvars.iv65.i = phi i64 [ 0, %.lr.ph59.preheader.i ], [ %indvars.iv.next66.i, %39 ]
   %.057.i = phi i64 [ 0, %.lr.ph59.preheader.i ], [ %.1.i, %39 ]
   %.04456.i = phi i64 [ 0, %.lr.ph59.preheader.i ], [ %.145.i, %39 ]
-  %.04655.i = phi i32 [ 0, %.lr.ph59.preheader.i ], [ %.147.fr.i, %39 ]
+  %.04655.i = phi i32 [ 0, %.lr.ph59.preheader.i ], [ %.147.i, %39 ]
   %19 = trunc nuw nsw i64 %indvars.iv65.i to i32
   %20 = shl nsw i32 %19, %12
   %21 = lshr i32 %20, 6
@@ -5893,7 +5892,7 @@ define void @If_CluDeriveDisjoint4(ptr nocapture noundef %0, i32 noundef %1, ptr
   br i1 %35, label %._crit_edge.thread.i, label %39
 
 ._crit_edge.thread.i:                             ; preds = %33, %._crit_edge.i
-  %36 = add nsw i32 %.04655.i, 1
+  %36 = add i32 %.04655.i, 1
   %37 = sext i32 %.04655.i to i64
   %38 = getelementptr inbounds [128 x i64], ptr %9, i64 0, i64 %37
   store i64 %28, ptr %38, align 8
@@ -5902,7 +5901,6 @@ define void @If_CluDeriveDisjoint4(ptr nocapture noundef %0, i32 noundef %1, ptr
 39:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i
   %.048.lcssa76.i = phi i32 [ %.04655.i, %._crit_edge.thread.i ], [ %.048.lcssa.i, %._crit_edge.i ]
   %.147.i = phi i32 [ %36, %._crit_edge.thread.i ], [ %.04655.i, %._crit_edge.i ]
-  %.147.fr.i = freeze i32 %.147.i
   %40 = and i32 %.048.lcssa76.i, 2147483645
   %or.cond.i = icmp eq i32 %40, 1
   %41 = shl nuw i64 1, %indvars.iv65.i
@@ -5928,10 +5926,10 @@ If_CluCountCofs4.exit:                            ; preds = %39
   %.pre72.i = load i64, ptr %.phi.trans.insert71.i, align 16
   %.phi.trans.insert73.i = getelementptr inbounds i8, ptr %9, i64 24
   %.pre74.i = load i64, ptr %.phi.trans.insert73.i, align 8
-  %45 = icmp eq i32 %.147.fr.i, 4
+  %45 = icmp eq i32 %.147.i, 4
   %spec.select.i = select i1 %45, i64 %.pre74.i, i64 %.pre72.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9)
-  %46 = add i32 %.147.fr.i, -5
+  %46 = add i32 %.147.i, -5
   %or.cond = icmp ult i32 %46, -2
   br i1 %or.cond, label %47, label %48
 

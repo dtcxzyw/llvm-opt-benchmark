@@ -840,8 +840,8 @@ if.end.i:                                         ; preds = %_ZN2v810MaybeLocalI
   %sub.i = add i64 %4, 11
   %5 = inttoptr i64 %sub.i to ptr
   %6 = load i16, ptr %5, align 2
-  %cmp.i98 = icmp ult i16 %6, 128
-  br i1 %cmp.i98, label %do.end29, label %do.body27
+  %cmp.i98 = icmp ugt i16 %6, 127
+  br i1 %cmp.i98, label %do.body27, label %do.end29
 
 do.body27:                                        ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %if.end.i
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZNK4node7KVStore5CloneEPN2v87IsolateEE4args) #20
@@ -1378,7 +1378,7 @@ _ZNSt10shared_ptrIN4node10MapKVStoreEED2Ev.exit:  ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node7KVStore16AssignFromObjectEN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nonnull %context.coerce, ptr %entries.coerce) unnamed_addr #3 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node7KVStore16AssignFromObjectEN2v85LocalINS1_7ContextEEENS2_INS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nonnull %context.coerce, ptr %entries.coerce) unnamed_addr #3 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %call7 = tail call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #20
@@ -1451,7 +1451,7 @@ declare ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr nou
 declare ptr @_ZNK2v85Value8ToStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node7KVStore14AssignToObjectEPN2v87IsolateENS1_5LocalINS1_7ContextEEENS4_INS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %isolate, ptr %context.coerce, ptr %object.coerce) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node7KVStore14AssignToObjectEPN2v87IsolateENS1_5LocalINS1_7ContextEEENS4_INS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %isolate, ptr %context.coerce, ptr %object.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %isolate) #20

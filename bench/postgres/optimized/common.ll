@@ -850,30 +850,30 @@ ClearOrSaveResult.exit:                           ; preds = %87, %89
   %109 = call ptr @PQcmdStatus(ptr noundef nonnull %.0145165) #16
   %110 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(7) @.str.63) #17
   %111 = icmp eq i32 %110, 0
-  br i1 %111, label %121, label %112
+  br i1 %111, label %122, label %112
 
 112:                                              ; preds = %108
   %113 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(10) @.str.64) #17
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %121, label %115
+  br i1 %114, label %122, label %115
 
 115:                                              ; preds = %112
   %116 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(8) @.str.65) #17
   %117 = icmp eq i32 %116, 0
-  br i1 %117, label %121, label %118
+  br i1 %117, label %122, label %118
 
 118:                                              ; preds = %115
   %119 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(9) @.str.66) #17
   %120 = icmp eq i32 %119, 0
-  br label %121
+  %121 = zext i1 %120 to i8
+  br label %122
 
-121:                                              ; preds = %118, %115, %112, %108
-  %122 = phi i1 [ true, %115 ], [ true, %112 ], [ true, %108 ], [ %120, %118 ]
-  %123 = zext i1 %122 to i8
+122:                                              ; preds = %118, %115, %112, %108
+  %123 = phi i8 [ 1, %115 ], [ 1, %112 ], [ 1, %108 ], [ %121, %118 ]
   store i8 %123, ptr %2, align 1
   br label %124
 
-124:                                              ; preds = %104, %105, %121
+124:                                              ; preds = %104, %105, %122
   %125 = call i32 @PQresultStatus(ptr noundef nonnull %.0145165) #16
   %126 = add i32 %125, -3
   %or.cond5 = icmp ult i32 %126, 2

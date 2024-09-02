@@ -656,8 +656,8 @@ define hidden void @key_exchange_calc_key(i32 noundef %0) local_unnamed_addr #6 
 
 6:                                                ; preds = %.lr.ph.split.i
   %lhsv = load i64, ptr %3, align 16
-  %.not55 = icmp eq i64 %lhsv, %rhsv
-  br i1 %.not55, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit, label %7
+  %.not53 = icmp eq i64 %lhsv, %rhsv
+  br i1 %.not53, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit, label %7
 
 7:                                                ; preds = %6, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -666,7 +666,7 @@ define hidden void @key_exchange_calc_key(i32 noundef %0) local_unnamed_addr #6 
 
 rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %6, %7
   %.07.i = phi ptr [ null, %7 ], [ %3, %6 ]
-  %rhsv57 = load i64, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 24), align 8
+  %rhsv55 = load i64, ptr getelementptr inbounds (i8, ptr @key_exchange_context, i64 24), align 8
   br label %.lr.ph.split.i17
 
 .lr.ph.split.i17:                                 ; preds = %12, %rf4ce_addr_table_get_addr_entry_by_ieee.exit
@@ -678,9 +678,9 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit:     ; preds = %6, %7
   br i1 %.not.i19, label %12, label %11
 
 11:                                               ; preds = %.lr.ph.split.i17
-  %lhsv56 = load i64, ptr %8, align 16
-  %.not58 = icmp eq i64 %lhsv56, %rhsv57
-  br i1 %.not58, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit24, label %12
+  %lhsv54 = load i64, ptr %8, align 16
+  %.not56 = icmp eq i64 %lhsv54, %rhsv55
+  br i1 %.not56, label %rf4ce_addr_table_get_addr_entry_by_ieee.exit24, label %12
 
 12:                                               ; preds = %11, %.lr.ph.split.i17
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i18, 1
@@ -691,96 +691,96 @@ rf4ce_addr_table_get_addr_entry_by_ieee.exit24:   ; preds = %11, %12
   %.07.i23 = phi ptr [ null, %12 ], [ %8, %11 ]
   br label %13
 
-13:                                               ; preds = %rf4ce_addr_table_get_addr_entry_by_ieee.exit24, %42
-  %indvars.iv = phi i64 [ 0, %rf4ce_addr_table_get_addr_entry_by_ieee.exit24 ], [ %indvars.iv.next, %42 ]
+13:                                               ; preds = %rf4ce_addr_table_get_addr_entry_by_ieee.exit24, %43
+  %indvars.iv = phi i64 [ 0, %rf4ce_addr_table_get_addr_entry_by_ieee.exit24 ], [ %indvars.iv.next, %43 ]
   %14 = getelementptr [64 x %struct.vendor_secret_entry_s], ptr @vendor_secret_storage, i64 0, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %42, label %17
+  br i1 %.not, label %43, label %17
 
 17:                                               ; preds = %13
   %18 = call fastcc i32 @key_exchange_calc_key_cont(ptr noundef %14, i32 noundef %0, i32 noundef 1, ptr noundef nonnull %2)
   %.not15 = icmp eq i32 %18, 0
-  br i1 %.not15, label %19, label %.thread.preheader
+  br i1 %.not15, label %19, label %.critedge.preheader
 
 19:                                               ; preds = %17
   %20 = call fastcc i32 @key_exchange_calc_key_cont(ptr noundef %14, i32 noundef %0, i32 noundef 0, ptr noundef nonnull %2)
-  %.not16 = icmp eq i32 %20, 0
-  br i1 %.not16, label %42, label %.thread.preheader
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %43, label %.critedge.preheader
 
-.thread.preheader:                                ; preds = %17, %19
-  br label %.thread
+.critedge.preheader:                              ; preds = %17, %19
+  br label %.critedge
 
-.thread:                                          ; preds = %.thread.preheader, %30
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %30 ], [ 0, %.thread.preheader ]
-  %21 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i.i
-  %22 = getelementptr inbounds i8, ptr %21, i64 36
-  %23 = load i32, ptr %22, align 4
-  %.not.i.i = icmp eq i32 %23, 0
-  br i1 %.not.i.i, label %30, label %24
+.critedge:                                        ; preds = %.critedge.preheader, %31
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %31 ], [ 0, %.critedge.preheader ]
+  %22 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds i8, ptr %22, i64 36
+  %24 = load i32, ptr %23, align 4
+  %.not.i.i = icmp eq i32 %24, 0
+  br i1 %.not.i.i, label %31, label %25
 
-24:                                               ; preds = %.thread
-  %25 = getelementptr inbounds i8, ptr %21, i64 32
-  %26 = load i32, ptr %25, align 16
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %30
+25:                                               ; preds = %.critedge
+  %26 = getelementptr inbounds i8, ptr %22, i64 32
+  %27 = load i32, ptr %26, align 16
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %31
 
-28:                                               ; preds = %24
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %21, ptr noundef nonnull readonly dereferenceable(16) %2, i64 16)
-  %29 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %29, label %nwk_key_storage_get_entry_by_key.exit.i, label %30
+29:                                               ; preds = %25
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %22, ptr noundef nonnull readonly dereferenceable(16) %2, i64 16)
+  %30 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %30, label %nwk_key_storage_get_entry_by_key.exit.i, label %31
 
-30:                                               ; preds = %28, %24, %.thread
+31:                                               ; preds = %29, %25, %.critedge
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
-  br i1 %exitcond.not.i.i, label %.preheader.i.preheader, label %.thread, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %.preheader.i.preheader, label %.critedge, !llvm.loop !10
 
-nwk_key_storage_get_entry_by_key.exit.i:          ; preds = %28
-  %31 = icmp eq ptr %21, null
-  br i1 %31, label %.preheader.i.preheader, label %nwk_key_storage_add_entry.exit
+nwk_key_storage_get_entry_by_key.exit.i:          ; preds = %29
+  %32 = icmp eq ptr %22, null
+  br i1 %32, label %.preheader.i.preheader, label %nwk_key_storage_add_entry.exit
 
-.preheader.i.preheader:                           ; preds = %30, %nwk_key_storage_get_entry_by_key.exit.i
+.preheader.i.preheader:                           ; preds = %31, %nwk_key_storage_get_entry_by_key.exit.i
   br label %.preheader.i
 
-32:                                               ; preds = %.preheader.i
+33:                                               ; preds = %.preheader.i
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 64
   br i1 %exitcond.not.i28, label %nwk_key_storage_add_entry.exit, label %.preheader.i, !llvm.loop !11
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %32
-  %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i27, %32 ], [ 0, %.preheader.i.preheader ]
-  %33 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i25
-  %34 = getelementptr inbounds i8, ptr %33, i64 36
-  %35 = load i32, ptr %34, align 4
-  %.not.i26 = icmp eq i32 %35, 0
-  br i1 %.not.i26, label %36, label %32
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %33
+  %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i27, %33 ], [ 0, %.preheader.i.preheader ]
+  %34 = getelementptr [64 x %struct.nwk_key_entry_s], ptr @nwk_key_storage, i64 0, i64 %indvars.iv.i25
+  %35 = getelementptr inbounds i8, ptr %34, i64 36
+  %36 = load i32, ptr %35, align 4
+  %.not.i26 = icmp eq i32 %36, 0
+  br i1 %.not.i26, label %37, label %33
 
-36:                                               ; preds = %.preheader.i
-  %37 = getelementptr inbounds i8, ptr %33, i64 36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %33, ptr noundef nonnull readonly align 16 dereferenceable(16) %2, i64 16, i1 false)
-  %38 = getelementptr inbounds i8, ptr %33, i64 16
-  store ptr %.07.i, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %33, i64 24
-  store ptr %.07.i23, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %33, i64 32
-  store i32 0, ptr %40, align 16
-  store i32 1, ptr %37, align 4
-  %41 = getelementptr inbounds i8, ptr %33, i64 40
-  store i32 0, ptr %41, align 8
+37:                                               ; preds = %.preheader.i
+  %38 = getelementptr inbounds i8, ptr %34, i64 36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %34, ptr noundef nonnull readonly align 16 dereferenceable(16) %2, i64 16, i1 false)
+  %39 = getelementptr inbounds i8, ptr %34, i64 16
+  store ptr %.07.i, ptr %39, align 16
+  %40 = getelementptr inbounds i8, ptr %34, i64 24
+  store ptr %.07.i23, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %34, i64 32
+  store i32 0, ptr %41, align 16
+  store i32 1, ptr %38, align 4
+  %42 = getelementptr inbounds i8, ptr %34, i64 40
+  store i32 0, ptr %42, align 8
   br label %nwk_key_storage_add_entry.exit
 
-42:                                               ; preds = %19, %13
+43:                                               ; preds = %19, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %nwk_key_storage_add_entry.exit, label %13, !llvm.loop !15
 
-nwk_key_storage_add_entry.exit:                   ; preds = %42, %32, %36, %nwk_key_storage_get_entry_by_key.exit.i
+nwk_key_storage_add_entry.exit:                   ; preds = %43, %33, %37, %nwk_key_storage_get_entry_by_key.exit.i
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @key_exchange_calc_key_cont(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @key_exchange_calc_key_cont(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #6 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8

@@ -228,11 +228,11 @@ cond.true.i69:                                    ; preds = %if.end17
   %8 = load ptr, ptr %args, align 8, !noalias !5
   %incdec.ptr.i.i.i71 = getelementptr inbounds i8, ptr %8, i64 -8
   %retval.sroa.0.0.copyload.i72215 = load double, ptr %incdec.ptr.i.i.i71, align 8
+  %9 = fptoui double %retval.sroa.0.0.copyload.i72215 to i32
   br label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit73
 
 _ZNK6hermes2vm10NativeArgs6getArgEj.exit73:       ; preds = %if.end17, %cond.true.i69
-  %9 = phi double [ %retval.sroa.0.0.copyload.i72215, %cond.true.i69 ], [ 0xFFFA000000000000, %if.end17 ]
-  %conv.i = fptoui double %9 to i32
+  %conv.i = phi i32 [ %9, %cond.true.i69 ], [ poison, %if.end17 ]
   %currentFrame_.i = getelementptr inbounds i8, ptr %runtime, i64 9496
   %agg.tmp2.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.copyload.i, i64 -24
@@ -270,7 +270,7 @@ if.end.i.i.i:                                     ; preds = %if.end37
   %idx.ext20.i.i.i = zext i32 %BucketNo.019.i.i.i to i64
   %add.ptr21.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %14, i64 %idx.ext20.i.i.i
   %16 = load i32, ptr %add.ptr21.i.i.i, align 4
-  %cmp.i22.i.i.i = icmp eq i32 %16, %conv.i
+  %cmp.i22.i.i.i = icmp eq i32 %conv.i, %16
   br i1 %cmp.i22.i.i.i, label %_ZN6hermes2vm13RuntimeModule24findCachedTemplateObjectEj.exit, label %if.end9.i.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end.i.i.i, %if.end13.i.i.i
@@ -287,7 +287,7 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
   %add.ptr.i.i.i84 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %14, i64 %idx.ext.i.i.i
   %18 = load i32, ptr %add.ptr.i.i.i84, align 4
-  %cmp.i.i.i.i = icmp eq i32 %18, %conv.i
+  %cmp.i.i.i.i = icmp eq i32 %conv.i, %18
   br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm13RuntimeModule24findCachedTemplateObjectEj.exit, label %if.end9.i.i.i, !llvm.loop !8
 
 _ZN6hermes2vm13RuntimeModule24findCachedTemplateObjectEj.exit: ; preds = %if.end13.i.i.i, %if.end.i.i.i

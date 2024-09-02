@@ -12161,7 +12161,7 @@ define noundef nonnull ptr @slurm_bb_flags2str(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_bb_str2flags(ptr noundef %0) local_unnamed_addr #1 {
+define range(i32 0, 32) i32 @slurm_bb_str2flags(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @xstrcasestr(ptr noundef %0, ptr noundef nonnull @.str.615) #22
   %.not = icmp ne ptr %2, null
   %spec.select = zext i1 %.not to i32

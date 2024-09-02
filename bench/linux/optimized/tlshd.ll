@@ -554,7 +554,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   %5 = getelementptr inbounds i8, ptr %4, i64 56
   store i32 0, ptr %5, align 8
   %6 = icmp eq ptr %2, null
-  br i1 %6, label %.thread8, label %7
+  br i1 %6, label %.critedge9, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %2, i64 16
@@ -563,7 +563,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   %11 = load i32, ptr %9, align 4
   %12 = add i32 %11, -20
   %13 = icmp sgt i32 %12, 3
-  br i1 %13, label %.lr.ph, label %.thread8
+  br i1 %13, label %.lr.ph, label %.critedge9
 
 .lr.ph:                                           ; preds = %7, %20
   %14 = phi ptr [ %31, %20 ], [ %10, %7 ]
@@ -574,7 +574,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   %19 = zext i16 %17 to i32
   %.not = icmp ult i32 %16, %19
   %or.cond = or i1 %18, %.not
-  br i1 %or.cond, label %.thread, label %20
+  br i1 %or.cond, label %.critedge, label %20
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds i8, ptr %14, i64 2
@@ -589,14 +589,14 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   %30 = zext nneg i32 %28 to i64
   %31 = getelementptr i8, ptr %14, i64 %30
   %32 = icmp sgt i32 %29, 3
-  br i1 %32, label %.lr.ph, label %.thread, !llvm.loop !14
+  br i1 %32, label %.lr.ph, label %.critedge, !llvm.loop !14
 
-.thread:                                          ; preds = %.lr.ph, %20
-  %.lcssa = phi i32 [ %15, %.lr.ph ], [ %26, %20 ]
+.critedge:                                        ; preds = %20, %.lr.ph
+  %.lcssa = phi i32 [ %26, %20 ], [ %15, %.lr.ph ]
   %33 = icmp eq i32 %.lcssa, 0
-  br i1 %33, label %.thread8, label %34
+  br i1 %33, label %.critedge9, label %34
 
-34:                                               ; preds = %.thread
+34:                                               ; preds = %.critedge
   %35 = tail call i32 @llvm.umin.i32(i32 %.lcssa, i32 5)
   %36 = getelementptr inbounds i8, ptr %4, i64 52
   store i32 %35, ptr %36, align 4
@@ -609,9 +609,9 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   %40 = load i16, ptr %37, align 2
   %41 = icmp ult i16 %40, 4
   %42 = zext i16 %40 to i32
-  %.not9 = icmp ult i32 %39, %42
-  %or.cond10 = or i1 %41, %.not9
-  br i1 %or.cond10, label %.thread8, label %43
+  %.not7 = icmp ult i32 %39, %42
+  %or.cond10 = or i1 %41, %.not7
+  br i1 %or.cond10, label %.critedge9, label %43
 
 43:                                               ; preds = %.lr.ph13
   %44 = getelementptr inbounds i8, ptr %37, i64 2
@@ -632,7 +632,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
 54:                                               ; preds = %48, %43
   %55 = phi i32 [ %51, %48 ], [ %38, %43 ]
   %56 = icmp ult i32 %55, %35
-  br i1 %56, label %57, label %.thread8
+  br i1 %56, label %57, label %.critedge9
 
 57:                                               ; preds = %54
   %58 = load i16, ptr %37, align 2
@@ -643,18 +643,18 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   %63 = zext nneg i32 %61 to i64
   %64 = getelementptr i8, ptr %37, i64 %63
   %65 = icmp sgt i32 %62, 3
-  br i1 %65, label %.lr.ph13, label %.thread8, !llvm.loop !15
+  br i1 %65, label %.lr.ph13, label %.critedge9, !llvm.loop !15
 
-.thread8:                                         ; preds = %54, %.lr.ph13, %57, %7, %.thread, %3
+.critedge9:                                       ; preds = %54, %57, %.lr.ph13, %7, %.critedge, %3
   %66 = icmp eq i32 %1, 0
   br i1 %66, label %67, label %69
 
-67:                                               ; preds = %.thread8
+67:                                               ; preds = %.critedge9
   %68 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %68, i32 2, ptr elementtype(i8) %68) #6, !srcloc !16
   br label %69
 
-69:                                               ; preds = %67, %.thread8
+69:                                               ; preds = %67, %.critedge9
   %70 = load ptr, ptr %4, align 8
   %71 = getelementptr inbounds i8, ptr %4, i64 8
   %72 = load ptr, ptr %71, align 8

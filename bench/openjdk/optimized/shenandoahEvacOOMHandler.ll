@@ -141,7 +141,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandlerC2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN24ShenandoahEvacOOMHandler17calc_num_countersEv() local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 1, 257) i32 @_ZN24ShenandoahEvacOOMHandler17calc_num_countersEv() local_unnamed_addr #1 align 2 {
   %1 = tail call noundef i32 @_ZN2os22active_processor_countEv() #8
   %2 = tail call noundef i32 @llvm.smin.i32(i32 %1, i32 128)
   %3 = tail call noundef i32 @llvm.smax.i32(i32 %2, i32 1)

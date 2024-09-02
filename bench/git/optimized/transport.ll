@@ -350,7 +350,7 @@ if.end19:                                         ; preds = %update_one_tracking
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483645, -2147483648) i32 @transport_summary_width(ptr noundef %refs) local_unnamed_addr #1 {
+define dso_local range(i32 1, -2147483648) i32 @transport_summary_width(ptr noundef %refs) local_unnamed_addr #1 {
 entry:
   %hex.i7 = alloca [65 x i8], align 16
   %hex.i = alloca [65 x i8], align 16

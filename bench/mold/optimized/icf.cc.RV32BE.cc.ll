@@ -20292,13 +20292,16 @@ if.end:                                           ; preds = %if.end.loopexit, %_
 while.body:                                       ; preds = %if.end, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33
   %prev.056 = phi ptr [ %prev.4, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33 ], [ %prev.2.ph, %if.end ]
   %12 = load atomic i64, ptr %prev.056 acquire, align 8
-  %curr.018.i14 = inttoptr i64 %12 to ptr
   %cmp.not19.i15 = icmp eq i64 %12, 0
-  br i1 %cmp.not19.i15, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33, label %land.rhs.i16
+  br i1 %cmp.not19.i15, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33, label %land.rhs.i16.preheader
 
-land.rhs.i16:                                     ; preds = %while.body, %while.body.i30
-  %prev.3 = phi ptr [ %curr.020.i17, %while.body.i30 ], [ %prev.056, %while.body ]
-  %curr.020.i17 = phi ptr [ %curr.0.i31, %while.body.i30 ], [ %curr.018.i14, %while.body ]
+land.rhs.i16.preheader:                           ; preds = %while.body
+  %curr.018.i14 = inttoptr i64 %12 to ptr
+  br label %land.rhs.i16
+
+land.rhs.i16:                                     ; preds = %land.rhs.i16.preheader, %while.body.i30
+  %prev.3 = phi ptr [ %curr.020.i17, %while.body.i30 ], [ %prev.056, %land.rhs.i16.preheader ]
+  %curr.020.i17 = phi ptr [ %curr.0.i31, %while.body.i30 ], [ %curr.018.i14, %land.rhs.i16.preheader ]
   %my_order_key.i.i18 = getelementptr inbounds i8, ptr %curr.020.i17, i64 8
   %13 = load i64, ptr %my_order_key.i.i18, align 8
   %cmp3.i19 = icmp ult i64 %13, %or.i
@@ -20306,7 +20309,7 @@ land.rhs.i16:                                     ; preds = %while.body, %while.
 
 lor.rhs.i20:                                      ; preds = %land.rhs.i16
   %cmp5.i21 = icmp eq i64 %13, %or.i
-  br i1 %cmp5.i21, label %land.rhs6.i26, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33
+  br i1 %cmp5.i21, label %land.rhs6.i26, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33.loopexit
 
 land.rhs6.i26:                                    ; preds = %lor.rhs.i20
   %my_value.i.i.i27 = getelementptr inbounds i8, ptr %curr.020.i17, i64 16
@@ -20318,14 +20321,19 @@ while.body.i30:                                   ; preds = %land.rhs6.i26, %lan
   %14 = load atomic i64, ptr %curr.020.i17 acquire, align 8
   %curr.0.i31 = inttoptr i64 %14 to ptr
   %cmp.not.i32 = icmp eq i64 %14, 0
-  br i1 %cmp.not.i32, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33, label %land.rhs.i16, !llvm.loop !319
+  br i1 %cmp.not.i32, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33.loopexit, label %land.rhs.i16, !llvm.loop !319
 
-_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33: ; preds = %lor.rhs.i20, %while.body.i30, %while.body
-  %prev.4 = phi ptr [ %prev.056, %while.body ], [ %prev.3, %lor.rhs.i20 ], [ %curr.020.i17, %while.body.i30 ]
-  %curr.0.lcssa.i22 = phi ptr [ %curr.018.i14, %while.body ], [ %curr.020.i17, %lor.rhs.i20 ], [ %curr.0.i31, %while.body.i30 ]
-  %15 = ptrtoint ptr %curr.0.lcssa.i22 to i64
-  store atomic i64 %15, ptr %call.i.i.i.i release, align 8
-  %16 = cmpxchg ptr %prev.4, i64 %15, i64 %9 seq_cst seq_cst, align 8
+_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33.loopexit: ; preds = %while.body.i30, %lor.rhs.i20
+  %prev.4.ph = phi ptr [ %curr.020.i17, %while.body.i30 ], [ %prev.3, %lor.rhs.i20 ]
+  %curr.0.lcssa.i22.ph = phi ptr [ %curr.0.i31, %while.body.i30 ], [ %curr.020.i17, %lor.rhs.i20 ]
+  %15 = ptrtoint ptr %curr.0.lcssa.i22.ph to i64
+  br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33
+
+_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33: ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33.loopexit, %while.body
+  %prev.4 = phi ptr [ %prev.056, %while.body ], [ %prev.4.ph, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33.loopexit ]
+  %curr.0.lcssa.i22 = phi i64 [ 0, %while.body ], [ %15, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsISt5arrayIhLm16EEPN4mold3elf12InputSectionINS7_6RV32BEEEESt4hashIS5_ESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_SB_EEELb0EEEE12search_afterERPNS1_9list_nodeImEEmRSI_.exit33.loopexit ]
+  store atomic i64 %curr.0.lcssa.i22, ptr %call.i.i.i.i release, align 8
+  %16 = cmpxchg ptr %prev.4, i64 %curr.0.lcssa.i22, i64 %9 seq_cst seq_cst, align 8
   %17 = extractvalue { i64, i1 } %16, 1
   br i1 %17, label %seqcst.i, label %while.body
 
@@ -23058,13 +23066,16 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.loopexit.i.i
 while.body.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.i.i.i.i.i.i
   %prev.036.i.i.i.i.i.i = phi ptr [ %prev.4.i.i.i.i.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.i.i.i.i.i.i ], [ %prev.2.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
   %46 = load atomic i64, ptr %prev.036.i.i.i.i.i.i acquire, align 8, !noalias !345
-  %curr.014.i14.i.i.i.i.i.i = inttoptr i64 %46 to ptr
   %cmp.not15.i15.i.i.i.i.i.i = icmp eq i64 %46, 0
-  br i1 %cmp.not15.i15.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.i.i.i.i.i.i, label %land.rhs.i16.i.i.i.i.i.i
+  br i1 %cmp.not15.i15.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.i.i.i.i.i.i, label %land.rhs.i16.preheader.i.i.i.i.i.i
 
-land.rhs.i16.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.i.i, %while.body.i28.i.i.i.i.i.i
-  %prev.3.i.i.i.i.i.i = phi ptr [ %curr.016.i17.i.i.i.i.i.i, %while.body.i28.i.i.i.i.i.i ], [ %prev.036.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
-  %curr.016.i17.i.i.i.i.i.i = phi ptr [ %curr.0.i29.i.i.i.i.i.i, %while.body.i28.i.i.i.i.i.i ], [ %curr.014.i14.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
+land.rhs.i16.preheader.i.i.i.i.i.i:               ; preds = %while.body.i.i.i.i.i.i
+  %curr.014.i14.i.i.i.i.i.i = inttoptr i64 %46 to ptr
+  br label %land.rhs.i16.i.i.i.i.i.i
+
+land.rhs.i16.i.i.i.i.i.i:                         ; preds = %while.body.i28.i.i.i.i.i.i, %land.rhs.i16.preheader.i.i.i.i.i.i
+  %prev.3.i.i.i.i.i.i = phi ptr [ %curr.016.i17.i.i.i.i.i.i, %while.body.i28.i.i.i.i.i.i ], [ %prev.036.i.i.i.i.i.i, %land.rhs.i16.preheader.i.i.i.i.i.i ]
+  %curr.016.i17.i.i.i.i.i.i = phi ptr [ %curr.0.i29.i.i.i.i.i.i, %while.body.i28.i.i.i.i.i.i ], [ %curr.014.i14.i.i.i.i.i.i, %land.rhs.i16.preheader.i.i.i.i.i.i ]
   %my_order_key.i.i18.i.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.016.i17.i.i.i.i.i.i, i64 8
   %47 = load i64, ptr %my_order_key.i.i18.i.i.i.i.i.i, align 8, !noalias !345
   %cmp3.i19.i.i.i.i.i.i = icmp ult i64 %47, %or.i.i.i.i.i.i.i
@@ -23072,26 +23083,31 @@ land.rhs.i16.i.i.i.i.i.i:                         ; preds = %while.body.i.i.i.i.
 
 lor.rhs.i20.i.i.i.i.i.i:                          ; preds = %land.rhs.i16.i.i.i.i.i.i
   %cmp5.i21.i.i.i.i.i.i = icmp eq i64 %47, %or.i.i.i.i.i.i.i
-  br i1 %cmp5.i21.i.i.i.i.i.i, label %land.rhs6.i25.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.i.i.i.i.i.i
+  br i1 %cmp5.i21.i.i.i.i.i.i, label %land.rhs6.i25.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.loopexit.i.i.i.i.i.i
 
 land.rhs6.i25.i.i.i.i.i.i:                        ; preds = %lor.rhs.i20.i.i.i.i.i.i
   %my_value.i.i.i26.i.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.016.i17.i.i.i.i.i.i, i64 16
   %48 = load ptr, ptr %my_value.i.i.i26.i.i.i.i.i.i, align 8, !noalias !345
   %cmp.i.i.i27.i.i.i.i.i.i = icmp eq ptr %48, %8
-  br i1 %cmp.i.i.i27.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.i.i.i.i.i.i, label %while.body.i28.i.i.i.i.i.i
+  br i1 %cmp.i.i.i27.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.loopexit.i.i.i.i.i.i, label %while.body.i28.i.i.i.i.i.i
 
 while.body.i28.i.i.i.i.i.i:                       ; preds = %land.rhs6.i25.i.i.i.i.i.i, %land.rhs.i16.i.i.i.i.i.i
   %49 = load atomic i64, ptr %curr.016.i17.i.i.i.i.i.i acquire, align 8, !noalias !345
   %curr.0.i29.i.i.i.i.i.i = inttoptr i64 %49 to ptr
   %cmp.not.i30.i.i.i.i.i.i = icmp eq i64 %49, 0
-  br i1 %cmp.not.i30.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.i.i.i.i.i.i, label %land.rhs.i16.i.i.i.i.i.i, !llvm.loop !352
+  br i1 %cmp.not.i30.i.i.i.i.i.i, label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.loopexit.i.i.i.i.i.i, label %land.rhs.i16.i.i.i.i.i.i, !llvm.loop !352
 
-_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.i.i.i.i.i.i: ; preds = %while.body.i28.i.i.i.i.i.i, %land.rhs6.i25.i.i.i.i.i.i, %lor.rhs.i20.i.i.i.i.i.i, %while.body.i.i.i.i.i.i
-  %prev.4.i.i.i.i.i.i = phi ptr [ %prev.036.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %prev.3.i.i.i.i.i.i, %lor.rhs.i20.i.i.i.i.i.i ], [ %prev.3.i.i.i.i.i.i, %land.rhs6.i25.i.i.i.i.i.i ], [ %curr.016.i17.i.i.i.i.i.i, %while.body.i28.i.i.i.i.i.i ]
-  %curr.0.lcssa.i22.i.i.i.i.i.i = phi ptr [ %curr.014.i14.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %curr.016.i17.i.i.i.i.i.i, %lor.rhs.i20.i.i.i.i.i.i ], [ %curr.016.i17.i.i.i.i.i.i, %land.rhs6.i25.i.i.i.i.i.i ], [ %curr.0.i29.i.i.i.i.i.i, %while.body.i28.i.i.i.i.i.i ]
-  %50 = ptrtoint ptr %curr.0.lcssa.i22.i.i.i.i.i.i to i64
-  store atomic i64 %50, ptr %call.i.i.i.i.i.i.i.i.i.i release, align 8, !noalias !345
-  %51 = cmpxchg ptr %prev.4.i.i.i.i.i.i, i64 %50, i64 %43 seq_cst seq_cst, align 8, !noalias !345
+_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.loopexit.i.i.i.i.i.i: ; preds = %while.body.i28.i.i.i.i.i.i, %land.rhs6.i25.i.i.i.i.i.i, %lor.rhs.i20.i.i.i.i.i.i
+  %prev.4.ph.i.i.i.i.i.i = phi ptr [ %curr.016.i17.i.i.i.i.i.i, %while.body.i28.i.i.i.i.i.i ], [ %prev.3.i.i.i.i.i.i, %land.rhs6.i25.i.i.i.i.i.i ], [ %prev.3.i.i.i.i.i.i, %lor.rhs.i20.i.i.i.i.i.i ]
+  %curr.0.lcssa.i22.ph.i.i.i.i.i.i = phi ptr [ %curr.0.i29.i.i.i.i.i.i, %while.body.i28.i.i.i.i.i.i ], [ %curr.016.i17.i.i.i.i.i.i, %land.rhs6.i25.i.i.i.i.i.i ], [ %curr.016.i17.i.i.i.i.i.i, %lor.rhs.i20.i.i.i.i.i.i ]
+  %50 = ptrtoint ptr %curr.0.lcssa.i22.ph.i.i.i.i.i.i to i64
+  br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.i.i.i.i.i.i
+
+_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.i.i.i.i.i.i: ; preds = %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.loopexit.i.i.i.i.i.i, %while.body.i.i.i.i.i.i
+  %prev.4.i.i.i.i.i.i = phi ptr [ %prev.036.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %prev.4.ph.i.i.i.i.i.i, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.loopexit.i.i.i.i.i.i ]
+  %curr.0.lcssa.i22.i.i.i.i.i.i = phi i64 [ 0, %while.body.i.i.i.i.i.i ], [ %50, %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPN4mold3elf12InputSectionINS5_6RV32BEEEES9_St4hashIS9_ESt8equal_toIS9_ENS1_13tbb_allocatorISt4pairIKS9_S9_EEELb1EEEE12search_afterERPNS1_9list_nodeImEEmRSG_.exit31.loopexit.i.i.i.i.i.i ]
+  store atomic i64 %curr.0.lcssa.i22.i.i.i.i.i.i, ptr %call.i.i.i.i.i.i.i.i.i.i release, align 8, !noalias !345
+  %51 = cmpxchg ptr %prev.4.i.i.i.i.i.i, i64 %curr.0.lcssa.i22.i.i.i.i.i.i, i64 %43 seq_cst seq_cst, align 8, !noalias !345
   %52 = extractvalue { i64, i1 } %51, 1
   br i1 %52, label %seqcst.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !353
 

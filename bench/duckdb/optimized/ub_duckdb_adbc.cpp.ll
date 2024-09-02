@@ -955,7 +955,7 @@ return:                                           ; preds = %if.end, %_ZNSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc19ConnectionSetOptionEP14AdbcConnectionPKcS3_P9AdbcError(ptr noundef readonly %connection, ptr noundef readonly %key, ptr noundef readonly %value, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc19ConnectionSetOptionEP14AdbcConnectionPKcS3_P9AdbcError(ptr noundef readonly %connection, ptr noundef readonly %key, ptr noundef readonly %value, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i358 = alloca i64, align 8
   %__dnew.i.i306 = alloca i64, align 8
@@ -2417,7 +2417,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc23ConnectionGetTableTypesEP14AdbcConnectionP16ArrowArrayStreamP9AdbcError(ptr noundef %connection, ptr noundef %out, ptr noundef %error) #2 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc23ConnectionGetTableTypesEP14AdbcConnectionP16ArrowArrayStreamP9AdbcError(ptr noundef %connection, ptr noundef %out, ptr noundef %error) #2 {
 entry:
   %call = tail call fastcc noundef zeroext i8 @_ZN11duckdb_adbcL13QueryInternalEP14AdbcConnectionP16ArrowArrayStreamPKcP9AdbcError(ptr noundef %connection, ptr noundef %out, ptr noundef nonnull @.str.82, ptr noundef %error)
   ret i8 %call
@@ -3396,7 +3396,7 @@ eh.resume:                                        ; preds = %ehcleanup28, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc21StatementExecuteQueryEP13AdbcStatementP16ArrowArrayStreamPlP9AdbcError(ptr noundef readonly %statement, ptr noundef writeonly %out, ptr noundef writeonly %rows_affected, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc21StatementExecuteQueryEP13AdbcStatementP16ArrowArrayStreamPlP9AdbcError(ptr noundef readonly %statement, ptr noundef writeonly %out, ptr noundef writeonly %rows_affected, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i440 = alloca i64, align 8
   %__dnew.i.i404 = alloca i64, align 8
@@ -5212,7 +5212,7 @@ eh.resume:                                        ; preds = %ehcleanup28, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc20ConnectionGetObjectsEP14AdbcConnectioniPKcS3_S3_PS3_S3_P16ArrowArrayStreamP9AdbcError(ptr noundef %connection, i32 noundef %depth, ptr noundef readonly %catalog, ptr noundef %db_schema, ptr noundef %table_name, ptr noundef readnone %table_type, ptr noundef %column_name, ptr noundef %out, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc20ConnectionGetObjectsEP14AdbcConnectioniPKcS3_S3_PS3_S3_P16ArrowArrayStreamP9AdbcError(ptr noundef %connection, i32 noundef %depth, ptr noundef readonly %catalog, ptr noundef %db_schema, ptr noundef %table_name, ptr noundef readnone %table_type, ptr noundef %column_name, ptr noundef %out, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i414 = alloca i64, align 8
   %values.i.i345 = alloca %"class.std::vector.234", align 8
@@ -6249,7 +6249,7 @@ eh.resume:                                        ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc16ConnectionCommitEP14AdbcConnectionP9AdbcError(ptr noundef readonly %connection, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc16ConnectionCommitEP14AdbcConnectionP9AdbcError(ptr noundef readonly %connection, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i44 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -6419,7 +6419,7 @@ eh.resume:                                        ; preds = %ehcleanup14, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc18ConnectionRollbackEP14AdbcConnectionP9AdbcError(ptr noundef readonly %connection, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc18ConnectionRollbackEP14AdbcConnectionP9AdbcError(ptr noundef readonly %connection, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i44 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -6717,7 +6717,7 @@ ehcleanup:                                        ; preds = %if.then.i.i11, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc17ConnectionGetInfoEP14AdbcConnectionPKjmP16ArrowArrayStreamP9AdbcError(ptr noundef %connection, ptr noundef readonly %info_codes, i64 noundef %info_codes_length, ptr noundef %out, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc17ConnectionGetInfoEP14AdbcConnectionPKjmP16ArrowArrayStreamP9AdbcError(ptr noundef %connection, ptr noundef readonly %info_codes, i64 noundef %info_codes_length, ptr noundef %out, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %values.i.i = alloca %"class.std::vector.234", align 8
   %__dnew.i.i210 = alloca i64, align 8
@@ -7633,7 +7633,7 @@ eh.resume:                                        ; preds = %ehcleanup28, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN11duckdb_adbc24ConnectionGetTableSchemaEP14AdbcConnectionPKcS3_S3_P11ArrowSchemaP9AdbcError(ptr noundef %connection, ptr noundef readonly %catalog, ptr noundef readonly %db_schema, ptr noundef readonly %table_name, ptr noundef %schema, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbc24ConnectionGetTableSchemaEP14AdbcConnectionPKcS3_S3_P11ArrowSchemaP9AdbcError(ptr noundef %connection, ptr noundef readonly %catalog, ptr noundef readonly %db_schema, ptr noundef readonly %table_name, ptr noundef %schema, ptr noundef %error) #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i278 = alloca i64, align 8
   %__dnew.i.i231 = alloca i64, align 8
@@ -9369,7 +9369,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i8 @_ZN11duckdb_adbcL13QueryInternalEP14AdbcConnectionP16ArrowArrayStreamPKcP9AdbcError(ptr noundef %connection, ptr noundef %out, ptr noundef %query, ptr noundef %error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext range(i8 0, 10) i8 @_ZN11duckdb_adbcL13QueryInternalEP14AdbcConnectionP16ArrowArrayStreamPKcP9AdbcError(ptr noundef %connection, ptr noundef %out, ptr noundef %query, ptr noundef %error) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i138 = alloca i64, align 8
   %__dnew.i.i93 = alloca i64, align 8
@@ -22829,12 +22829,12 @@ invoke.cont19:                                    ; preds = %lor.lhs.false
 invoke.cont19.if.then22_crit_edge:                ; preds = %invoke.cont19
   %.pre = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !40
   %.pre188 = load i64, ptr %_M_string_length.i.i.i94, align 8, !tbaa !40
+  %16 = sub i64 4611686018427387903, %.pre188
   br label %if.then22
 
 if.then22:                                        ; preds = %invoke.cont19.if.then22_crit_edge, %invoke.cont14
-  %16 = phi i64 [ %.pre188, %invoke.cont19.if.then22_crit_edge ], [ 0, %invoke.cont14 ]
+  %sub3.i.i.i.i = phi i64 [ %16, %invoke.cont19.if.then22_crit_edge ], [ 4611686018427387903, %invoke.cont14 ]
   %17 = phi i64 [ %.pre, %invoke.cont19.if.then22_crit_edge ], [ %15, %invoke.cont14 ]
-  %sub3.i.i.i.i = sub i64 4611686018427387903, %16
   %cmp.i.i.i.i = icmp ult i64 %sub3.i.i.i.i, %17
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i145.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i
 

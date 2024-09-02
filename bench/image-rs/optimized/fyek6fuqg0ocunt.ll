@@ -11712,7 +11712,7 @@ default.unreachable11:                            ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef i64 @_ZN5image6codecs4webp8lossless11HuffmanInfo14get_huff_index17heb13ded0a5600da3E(ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %0, i16 noundef %1, i16 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define noundef range(i64 0, 4294967296) i64 @_ZN5image6codecs4webp8lossless11HuffmanInfo14get_huff_index17heb13ded0a5600da3E(ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %0, i16 noundef %1, i16 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 86
   %5 = load i8, ptr %4, align 2, !noundef !4
   %6 = icmp eq i8 %5, 0

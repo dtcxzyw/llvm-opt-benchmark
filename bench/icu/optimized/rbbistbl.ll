@@ -717,24 +717,24 @@ if.then.i.i:                                      ; preds = %while.body
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %7, ptr %fBuffer.i.i.i
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %indvars.iv
   %8 = load i16, ptr %arrayidx.i.i, align 2
+  %9 = zext i16 %8 to i32
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %while.body
-  %retval.0.i.i = phi i16 [ %8, %if.then.i.i ], [ -1, %while.body ]
-  %9 = icmp eq i64 %indvars.iv, %1
-  %conv = zext i16 %retval.0.i.i to i32
-  br i1 %9, label %land.lhs.true, label %lor.lhs.false
+  %retval.0.i.i = phi i32 [ %9, %if.then.i.i ], [ 65535, %while.body ]
+  %10 = icmp eq i64 %indvars.iv, %1
+  br i1 %10, label %land.lhs.true, label %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %invoke.cont
-  %call5 = invoke signext i8 @u_isIDStart_75(i32 noundef %conv)
+  %call5 = invoke signext i8 @u_isIDStart_75(i32 noundef %retval.0.i.i)
           to label %invoke.cont4 unwind label %lpad.loopexit
 
 invoke.cont4:                                     ; preds = %land.lhs.true
   %tobool.not = icmp eq i8 %call5, 0
   br i1 %tobool.not, label %while.end, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %invoke.cont, %invoke.cont4
-  %call8 = invoke signext i8 @u_isIDPart_75(i32 noundef %conv)
+lor.lhs.false:                                    ; preds = %invoke.cont4, %invoke.cont
+  %call8 = invoke signext i8 @u_isIDPart_75(i32 noundef %retval.0.i.i)
           to label %invoke.cont7 unwind label %lpad.loopexit
 
 invoke.cont7:                                     ; preds = %lor.lhs.false
@@ -771,8 +771,8 @@ if.end12:                                         ; preds = %while.end
   store i32 %i.0.lcssa, ptr %index.i, align 8
   %vtable = load ptr, ptr %text, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %10 = load ptr, ptr %vfn, align 8
-  invoke void %10(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef %i.0.lcssa, ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
+  %11 = load ptr, ptr %vfn, align 8
+  invoke void %11(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %0, i32 noundef %i.0.lcssa, ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %nrvo.skipdtor unwind label %lpad.loopexit.split-lp
 
 nrvo.skipdtor:                                    ; preds = %entry, %while.end, %if.end12

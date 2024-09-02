@@ -733,8 +733,8 @@ if.end10:                                         ; preds = %if.end4
 if.then13:                                        ; preds = %if.end10
   %0 = load i64, ptr %bsize, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call11, i64 %0
-  %cmp1452 = icmp sgt i64 %0, 0
-  br i1 %cmp1452, label %for.body.lr.ph, label %if.end37
+  %cmp1453 = icmp sgt i64 %0, 0
+  br i1 %cmp1453, label %for.body.lr.ph, label %if.end37
 
 for.body.lr.ph:                                   ; preds = %if.then13
   %rchash.i = getelementptr inbounds i8, ptr %cf, i64 16
@@ -752,22 +752,22 @@ for.body.lr.ph:                                   ; preds = %if.then13
 
 for.body:                                         ; preds = %for.body.lr.ph, %xdl_classify_record.exit
   %1 = phi ptr [ %call11, %for.body.lr.ph ], [ %30, %xdl_classify_record.exit ]
-  %recs.254 = phi ptr [ %call2, %for.body.lr.ph ], [ %recs.344, %xdl_classify_record.exit ]
-  %nrec.153 = phi i64 [ 0, %for.body.lr.ph ], [ %add17, %xdl_classify_record.exit ]
+  %recs.255 = phi ptr [ %call2, %for.body.lr.ph ], [ %recs.345, %xdl_classify_record.exit ]
+  %nrec.154 = phi i64 [ 0, %for.body.lr.ph ], [ %add17, %xdl_classify_record.exit ]
   %2 = load i64, ptr %xpp, align 8
   %call16 = call i64 @xdl_hash_record(ptr noundef nonnull %cur, ptr noundef nonnull %add.ptr, i64 noundef %2) #5
-  %add17 = add nuw nsw i64 %nrec.153, 1
+  %add17 = add nuw nsw i64 %nrec.154, 1
   %3 = load i64, ptr %narec.addr, align 8
-  %cmp18.not.not = icmp slt i64 %nrec.153, %3
+  %cmp18.not.not = icmp slt i64 %nrec.154, %3
   br i1 %cmp18.not.not, label %if.end25, label %lor.end
 
 lor.end:                                          ; preds = %for.body
-  %call21 = call ptr @xdl_alloc_grow_helper(ptr noundef %recs.254, i64 noundef %add17, ptr noundef nonnull %narec.addr, i64 noundef 8) #5
+  %call21 = call ptr @xdl_alloc_grow_helper(ptr noundef %recs.255, i64 noundef %add17, ptr noundef nonnull %narec.addr, i64 noundef 8) #5
   %tobool22.not = icmp eq ptr %call21, null
   br i1 %tobool22.not, label %abort, label %if.end25
 
 if.end25:                                         ; preds = %for.body, %lor.end
-  %recs.344 = phi ptr [ %call21, %lor.end ], [ %recs.254, %for.body ]
+  %recs.345 = phi ptr [ %call21, %lor.end ], [ %recs.255, %for.body ]
   %call27 = call ptr @xdl_cha_alloc(ptr noundef %xdf) #5
   %tobool28.not = icmp eq ptr %call27, null
   br i1 %tobool28.not, label %abort, label %if.end30
@@ -783,7 +783,7 @@ if.end30:                                         ; preds = %if.end25
   store i64 %sub.ptr.sub, ptr %size, align 8
   %ha31 = getelementptr inbounds i8, ptr %call27, i64 24
   store i64 %call16, ptr %ha31, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %recs.344, i64 %nrec.153
+  %arrayidx = getelementptr inbounds ptr, ptr %recs.345, i64 %nrec.154
   store ptr %call27, ptr %arrayidx, align 8
   %5 = load ptr, ptr %ptr, align 8
   %6 = load i64, ptr %ha31, align 8
@@ -898,7 +898,7 @@ xdl_classify_record.exit:                         ; preds = %land.lhs.true.i, %i
 
 if.end37:                                         ; preds = %xdl_classify_record.exit, %if.then13, %if.end10
   %nrec.0 = phi i64 [ 0, %if.end10 ], [ 0, %if.then13 ], [ %add17, %xdl_classify_record.exit ]
-  %recs.1 = phi ptr [ %call2, %if.end10 ], [ %call2, %if.then13 ], [ %recs.344, %xdl_classify_record.exit ]
+  %recs.1 = phi ptr [ %call2, %if.end10 ], [ %call2, %if.then13 ], [ %recs.345, %xdl_classify_record.exit ]
   %add38 = add nuw nsw i64 %nrec.0, 2
   %call39 = call ptr @xcalloc(i64 noundef %add38, i64 noundef 1) #5
   %tobool40.not = icmp eq ptr %call39, null
@@ -957,7 +957,7 @@ if.end77:                                         ; preds = %if.end42, %if.end42
   br label %return
 
 abort:                                            ; preds = %lor.rhs.i, %if.then12.i, %if.end25, %lor.end, %if.then50, %cond.end72, %cond.end59, %if.end37, %if.end4, %cond.end, %entry
-  %recs.0 = phi ptr [ null, %entry ], [ %recs.1, %cond.end72 ], [ %recs.1, %cond.end59 ], [ %recs.1, %if.end37 ], [ %call2, %if.end4 ], [ null, %cond.end ], [ %recs.1, %if.then50 ], [ %recs.344, %lor.rhs.i ], [ %recs.344, %if.then12.i ], [ %recs.344, %if.end25 ], [ null, %lor.end ]
+  %recs.0 = phi ptr [ null, %entry ], [ %recs.1, %cond.end72 ], [ %recs.1, %cond.end59 ], [ %recs.1, %if.end37 ], [ %call2, %if.end4 ], [ null, %cond.end ], [ %recs.1, %if.then50 ], [ %recs.345, %lor.rhs.i ], [ %recs.345, %if.then12.i ], [ %recs.345, %if.end25 ], [ null, %lor.end ]
   %rhash.0 = phi ptr [ null, %entry ], [ %call7, %cond.end72 ], [ %call7, %cond.end59 ], [ %call7, %if.end37 ], [ null, %if.end4 ], [ null, %cond.end ], [ %call7, %if.then50 ], [ %call7, %lor.end ], [ %call7, %if.end25 ], [ %call7, %if.then12.i ], [ %call7, %lor.rhs.i ]
   %rchg.0 = phi ptr [ null, %entry ], [ %call39, %cond.end72 ], [ %call39, %cond.end59 ], [ null, %if.end37 ], [ null, %if.end4 ], [ null, %cond.end ], [ %call39, %if.then50 ], [ null, %lor.end ], [ null, %if.end25 ], [ null, %if.then12.i ], [ null, %lor.rhs.i ]
   %rindex.0 = phi ptr [ null, %entry ], [ %call57, %cond.end72 ], [ null, %cond.end59 ], [ null, %if.end37 ], [ null, %if.end4 ], [ null, %cond.end ], [ null, %if.then50 ], [ null, %lor.end ], [ null, %if.end25 ], [ null, %if.then12.i ], [ null, %lor.rhs.i ]

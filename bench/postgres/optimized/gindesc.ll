@@ -255,9 +255,9 @@ define internal fastcc void @desc_recompress_leaf(ptr noundef %0, ptr nocapture 
   %23 = zext i16 %.0.copyload to i64
   %24 = mul nuw nsw i64 %23, 6
   %25 = getelementptr i8, ptr %22, i64 %24
-  %26 = zext i8 %8 to i32
-  %27 = zext i16 %.0.copyload to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %26, i32 noundef %27) #3
+  %26 = zext i16 %.0.copyload to i32
+  %27 = zext i8 %8 to i32
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %27, i32 noundef %26) #3
   br label %38
 
 28:                                               ; preds = %.thread, %20

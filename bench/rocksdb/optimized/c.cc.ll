@@ -31861,7 +31861,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @rocksdb_column_family_metadata_get_level_count(ptr nocapture noundef readonly %cf_meta) local_unnamed_addr #7 {
+define range(i64 -230584300921369395, 230584300921369396) i64 @rocksdb_column_family_metadata_get_level_count(ptr nocapture noundef readonly %cf_meta) local_unnamed_addr #7 {
 entry:
   %levels = getelementptr inbounds i8, ptr %cf_meta, i64 48
   %_M_finish.i = getelementptr inbounds i8, ptr %cf_meta, i64 56
@@ -31924,7 +31924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @rocksdb_level_metadata_get_file_count(ptr nocapture noundef readonly %level_meta) local_unnamed_addr #8 {
+define range(i64 -21350398233460129, 21350398233460130) i64 @rocksdb_level_metadata_get_file_count(ptr nocapture noundef readonly %level_meta) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %level_meta, align 8
   %files = getelementptr inbounds i8, ptr %0, i64 16

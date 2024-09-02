@@ -565,11 +565,11 @@ if.then.i111:                                     ; preds = %new.cont
 
 invoke.cont148:                                   ; preds = %new.notnull
   %.pre = load i32, ptr %status, align 4
-  %cmp.i112 = icmp slt i32 %.pre, 1
-  br i1 %cmp.i112, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit, label %delete.notnull.i
+  %34 = icmp slt i32 %.pre, 1
+  br i1 %34, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit, label %delete.notnull.i
 
 lpad146:                                          ; preds = %new.notnull
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call145) #13
   br label %ehcleanup
@@ -577,8 +577,8 @@ lpad146:                                          ; preds = %new.notnull
 delete.notnull.i:                                 ; preds = %invoke.cont148
   %vtable.i = load ptr, ptr %call145, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %35 = load ptr, ptr %vfn.i, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(40) %call145) #13
+  %36 = load ptr, ptr %vfn.i, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(40) %call145) #13
   br label %cleanup188.thread
 
 _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %invoke.cont148
@@ -588,8 +588,8 @@ _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %invoke.cont148
 if.end158:                                        ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit, %if.end142
   %call159 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #13
   %cmp.i114 = icmp ne ptr %call159, null
-  %36 = load i32, ptr %status, align 4
-  %cmp.i.i115 = icmp sgt i32 %36, 0
+  %37 = load i32, ptr %status, align 4
+  %cmp.i.i115 = icmp sgt i32 %37, 0
   %or.cond.i116 = select i1 %cmp.i114, i1 true, i1 %cmp.i.i115
   br i1 %or.cond.i116, label %invoke.cont165, label %cleanup187.thread
 
@@ -598,11 +598,11 @@ cleanup187.thread:                                ; preds = %if.end158
   br label %cleanup188.thread
 
 invoke.cont165:                                   ; preds = %if.end158
-  %cmp.i118 = icmp slt i32 %36, 1
+  %cmp.i118 = icmp slt i32 %37, 1
   br i1 %cmp.i118, label %if.end171, label %cleanup187
 
 _ZN6icu_7512LocalPointerINS_10TransitionEED2Ev.exit: ; preds = %if.end171
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -612,8 +612,8 @@ if.end171:                                        ; preds = %invoke.cont165
   store ptr %curRule.2, ptr %from, align 8
   %to = getelementptr inbounds i8, ptr %call159, i64 16
   store ptr %nextRule.2, ptr %to, align 8
-  %38 = load ptr, ptr %fHistoricTransitions, align 8
-  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull %call159, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %39 = load ptr, ptr %fHistoricTransitions, align 8
+  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull %call159, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %cleanup188 unwind label %_ZN6icu_7512LocalPointerINS_10TransitionEED2Ev.exit
 
 cleanup187:                                       ; preds = %invoke.cont165
@@ -635,14 +635,14 @@ cleanup188.thread227:                             ; preds = %if.end139, %for.con
   br label %cleanup193
 
 cleanup188:                                       ; preds = %if.end171
-  %39 = load i32, ptr %status, align 4
-  %cmp.i122 = icmp slt i32 %39, 1
+  %40 = load i32, ptr %status, align 4
+  %cmp.i122 = icmp slt i32 %40, 1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %name) #13
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %curName) #13
   br i1 %cmp.i122, label %while.cond, label %cleanup193
 
 ehcleanup:                                        ; preds = %lpad38.loopexit, %lpad38.loopexit.split-lp.loopexit.split-lp, %lpad38.loopexit.split-lp.loopexit, %lpad146, %_ZN6icu_7512LocalPointerINS_10TransitionEED2Ev.exit
-  %.pn = phi { ptr, i32 } [ %37, %_ZN6icu_7512LocalPointerINS_10TransitionEED2Ev.exit ], [ %34, %lpad146 ], [ %lpad.loopexit, %lpad38.loopexit ], [ %lpad.loopexit283, %lpad38.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp284, %lpad38.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %38, %_ZN6icu_7512LocalPointerINS_10TransitionEED2Ev.exit ], [ %35, %lpad146 ], [ %lpad.loopexit, %lpad38.loopexit ], [ %lpad.loopexit283, %lpad38.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp284, %lpad38.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %name) #13
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %curName) #13
   br label %ehcleanup196
@@ -655,10 +655,10 @@ cleanup193:                                       ; preds = %cleanup188, %cleanu
           to label %_ZN6icu_7511LocalMemoryIbED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup193
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #15
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #15
   unreachable
 
 _ZN6icu_7511LocalMemoryIbED2Ev.exit:              ; preds = %cleanup193
@@ -674,26 +674,26 @@ ehcleanup196:                                     ; preds = %ehcleanup, %lpad
           to label %eh.resume unwind label %terminate.lpad.i127
 
 terminate.lpad.i127:                              ; preds = %ehcleanup196
-  %42 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #15
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #15
   unreachable
 
 if.end197:                                        ; preds = %_ZN6icu_7511LocalMemoryIbED2Ev.exit.if.end197_crit_edge, %land.lhs.true16
-  %44 = phi ptr [ %.pre370, %_ZN6icu_7511LocalMemoryIbED2Ev.exit.if.end197_crit_edge ], [ %2, %land.lhs.true16 ]
+  %45 = phi ptr [ %.pre370, %_ZN6icu_7511LocalMemoryIbED2Ev.exit.if.end197_crit_edge ], [ %2, %land.lhs.true16 ]
   %lastTransitionTime.0 = phi double [ %lastTransitionTime.1, %_ZN6icu_7511LocalMemoryIbED2Ev.exit.if.end197_crit_edge ], [ 0xC384763B62073280, %land.lhs.true16 ]
   %curRule.0 = phi ptr [ %curRule.1, %_ZN6icu_7511LocalMemoryIbED2Ev.exit.if.end197_crit_edge ], [ %8, %land.lhs.true16 ]
-  %cmp199.not = icmp eq ptr %44, null
+  %cmp199.not = icmp eq ptr %45, null
   br i1 %cmp199.not, label %if.end346, label %if.then200
 
 if.then200:                                       ; preds = %if.end9.thread, %if.end197
   %curRule.0380 = phi ptr [ %curRule.0, %if.end197 ], [ %5, %if.end9.thread ]
   %lastTransitionTime.0379 = phi double [ %lastTransitionTime.0, %if.end197 ], [ 0xC384763B62073280, %if.end9.thread ]
-  %45 = phi ptr [ %44, %if.end197 ], [ %2, %if.end9.thread ]
+  %46 = phi ptr [ %45, %if.end197 ], [ %2, %if.end9.thread ]
   %fHistoricTransitions201 = getelementptr inbounds i8, ptr %this, i64 96
-  %46 = load ptr, ptr %fHistoricTransitions201, align 8
-  %cmp202 = icmp eq ptr %46, null
+  %47 = load ptr, ptr %fHistoricTransitions201, align 8
+  %cmp202 = icmp eq ptr %47, null
   br i1 %cmp202, label %if.then203, label %if.end230
 
 if.then203:                                       ; preds = %if.then200
@@ -706,8 +706,8 @@ new.notnull207:                                   ; preds = %if.then203
           to label %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit133 unwind label %lpad210
 
 new.cont216:                                      ; preds = %if.then203
-  %47 = load i32, ptr %status, align 4
-  %cmp.i.i130 = icmp sgt i32 %47, 0
+  %48 = load i32, ptr %status, align 4
+  %cmp.i.i130 = icmp sgt i32 %48, 0
   br i1 %cmp.i.i130, label %cleanup348, label %if.then.i132
 
 if.then.i132:                                     ; preds = %new.cont216
@@ -716,19 +716,19 @@ if.then.i132:                                     ; preds = %new.cont216
 
 _ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit133: ; preds = %new.notnull207
   %.pre371 = load i32, ptr %status, align 4
-  %cmp.i134 = icmp slt i32 %.pre371, 1
-  br i1 %cmp.i134, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit140, label %delete.notnull.i137
+  %49 = icmp slt i32 %.pre371, 1
+  br i1 %49, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit140, label %delete.notnull.i137
 
 lpad210:                                          ; preds = %new.notnull207
-  %48 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.sink.split
 
 delete.notnull.i137:                              ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit133
   %vtable.i138 = load ptr, ptr %call205, align 8
   %vfn.i139 = getelementptr inbounds i8, ptr %vtable.i138, i64 8
-  %49 = load ptr, ptr %vfn.i139, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(40) %call205) #13
+  %51 = load ptr, ptr %vfn.i139, align 8
+  call void %51(ptr noundef nonnull align 8 dereferenceable(40) %call205) #13
   br label %cleanup348
 
 _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit140: ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit133
@@ -737,22 +737,22 @@ _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit140: ; preds = %_ZN6icu_7512Local
   br label %if.end230
 
 if.end230:                                        ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit140, %if.then200
-  %50 = phi ptr [ %.pre372, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit140 ], [ %45, %if.then200 ]
-  %call232 = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %50, i32 noundef 0)
-  %51 = load ptr, ptr %fFinalRules, align 8
-  %call234 = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %51, i32 noundef 1)
+  %52 = phi ptr [ %.pre372, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit140 ], [ %46, %if.then200 ]
+  %call232 = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %52, i32 noundef 0)
+  %53 = load ptr, ptr %fFinalRules, align 8
+  %call234 = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %53, i32 noundef 1)
   %call235 = call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %curRule.0380)
   %call236 = call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %curRule.0380)
   %vtable237 = load ptr, ptr %call232, align 8
   %vfn238 = getelementptr inbounds i8, ptr %vtable237, i64 72
-  %52 = load ptr, ptr %vfn238, align 8
-  %call239 = call noundef signext i8 %52(ptr noundef nonnull align 8 dereferenceable(80) %call232, double noundef %lastTransitionTime.0379, i32 noundef %call235, i32 noundef %call236, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %tt0)
+  %54 = load ptr, ptr %vfn238, align 8
+  %call239 = call noundef signext i8 %54(ptr noundef nonnull align 8 dereferenceable(80) %call232, double noundef %lastTransitionTime.0379, i32 noundef %call235, i32 noundef %call236, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %tt0)
   %call240 = call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %curRule.0380)
   %call241 = call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %curRule.0380)
   %vtable242 = load ptr, ptr %call234, align 8
   %vfn243 = getelementptr inbounds i8, ptr %vtable242, i64 72
-  %53 = load ptr, ptr %vfn243, align 8
-  %call244 = call noundef signext i8 %53(ptr noundef nonnull align 8 dereferenceable(80) %call234, double noundef %lastTransitionTime.0379, i32 noundef %call240, i32 noundef %call241, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %tt1)
+  %55 = load ptr, ptr %vfn243, align 8
+  %call244 = call noundef signext i8 %55(ptr noundef nonnull align 8 dereferenceable(80) %call234, double noundef %lastTransitionTime.0379, i32 noundef %call240, i32 noundef %call241, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %tt1)
   %tobool245 = icmp ne i8 %call239, 0
   %tobool247 = icmp ne i8 %call244, 0
   %or.cond = and i1 %tobool245, %tobool247
@@ -765,8 +765,8 @@ if.then248:                                       ; preds = %if.end230
 if.end249:                                        ; preds = %if.end230
   %call250 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #13
   %cmp.i141 = icmp ne ptr %call250, null
-  %54 = load i32, ptr %status, align 4
-  %cmp.i.i142 = icmp sgt i32 %54, 0
+  %56 = load i32, ptr %status, align 4
+  %cmp.i.i142 = icmp sgt i32 %56, 0
   %or.cond.i143 = select i1 %cmp.i141, i1 true, i1 %cmp.i.i142
   br i1 %or.cond.i143, label %_ZN6icu_7512LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit145, label %if.then.i144
 
@@ -777,8 +777,8 @@ if.then.i144:                                     ; preds = %if.end249
 _ZN6icu_7512LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit145: ; preds = %if.end249, %if.then.i144
   %call256 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 24) #13
   %cmp.i146 = icmp ne ptr %call256, null
-  %55 = load i32, ptr %status, align 4
-  %cmp.i.i147 = icmp sgt i32 %55, 0
+  %57 = load i32, ptr %status, align 4
+  %cmp.i.i147 = icmp sgt i32 %57, 0
   %or.cond.i148 = select i1 %cmp.i146, i1 true, i1 %cmp.i.i147
   br i1 %or.cond.i148, label %invoke.cont263, label %cleanup339.thread
 
@@ -787,28 +787,28 @@ cleanup339.thread:                                ; preds = %_ZN6icu_7512LocalPo
   br label %_ZN6icu_7512LocalPointerINS_10TransitionEED2Ev.exit160
 
 invoke.cont263:                                   ; preds = %_ZN6icu_7512LocalPointerINS_10TransitionEEC2EPS1_R10UErrorCode.exit145
-  %cmp.i151 = icmp slt i32 %55, 1
+  %cmp.i151 = icmp slt i32 %57, 1
   br i1 %cmp.i151, label %if.end269, label %cleanup339
 
 lpad264:                                          ; preds = %invoke.cont310, %invoke.cont308, %if.else298, %invoke.cont283, %invoke.cont281, %if.then271
-  %56 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   %isnull.i153 = icmp eq ptr %call256, null
   br i1 %isnull.i153, label %eh.resume.sink.split, label %ehcleanup344
 
 if.end269:                                        ; preds = %invoke.cont263
-  %57 = load double, ptr %tt0, align 8
-  %58 = load double, ptr %tt1, align 8
-  %cmp270 = fcmp olt double %57, %58
+  %59 = load double, ptr %tt0, align 8
+  %60 = load double, ptr %tt1, align 8
+  %cmp270 = fcmp olt double %59, %60
   %from277 = getelementptr inbounds i8, ptr %call250, i64 8
   %to280 = getelementptr inbounds i8, ptr %call250, i64 16
   br i1 %cmp270, label %if.then271, label %if.else298
 
 if.then271:                                       ; preds = %if.end269
-  store double %57, ptr %call250, align 8
+  store double %59, ptr %call250, align 8
   store ptr %curRule.0380, ptr %from277, align 8
   store ptr %call232, ptr %to280, align 8
-  %59 = load double, ptr %tt0, align 8
+  %61 = load double, ptr %tt0, align 8
   %call282 = invoke noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %call232)
           to label %invoke.cont281 unwind label %lpad264
 
@@ -819,15 +819,15 @@ invoke.cont281:                                   ; preds = %if.then271
 invoke.cont283:                                   ; preds = %invoke.cont281
   %vtable288 = load ptr, ptr %call234, align 8
   %vfn289 = getelementptr inbounds i8, ptr %vtable288, i64 72
-  %60 = load ptr, ptr %vfn289, align 8
-  %call291 = invoke noundef signext i8 %60(ptr noundef nonnull align 8 dereferenceable(80) %call234, double noundef %59, i32 noundef %call282, i32 noundef %call284, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %call256)
+  %62 = load ptr, ptr %vfn289, align 8
+  %call291 = invoke noundef signext i8 %62(ptr noundef nonnull align 8 dereferenceable(80) %call234, double noundef %61, i32 noundef %call282, i32 noundef %call284, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %call256)
           to label %if.end325 unwind label %lpad264
 
 if.else298:                                       ; preds = %if.end269
-  store double %58, ptr %call250, align 8
+  store double %60, ptr %call250, align 8
   store ptr %curRule.0380, ptr %from277, align 8
   store ptr %call234, ptr %to280, align 8
-  %61 = load double, ptr %tt1, align 8
+  %63 = load double, ptr %tt1, align 8
   %call309 = invoke noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %call234)
           to label %invoke.cont308 unwind label %lpad264
 
@@ -838,8 +838,8 @@ invoke.cont308:                                   ; preds = %if.else298
 invoke.cont310:                                   ; preds = %invoke.cont308
   %vtable315 = load ptr, ptr %call232, align 8
   %vfn316 = getelementptr inbounds i8, ptr %vtable315, i64 72
-  %62 = load ptr, ptr %vfn316, align 8
-  %call318 = invoke noundef signext i8 %62(ptr noundef nonnull align 8 dereferenceable(80) %call232, double noundef %61, i32 noundef %call309, i32 noundef %call311, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %call256)
+  %64 = load ptr, ptr %vfn316, align 8
+  %call318 = invoke noundef signext i8 %64(ptr noundef nonnull align 8 dereferenceable(80) %call232, double noundef %63, i32 noundef %call309, i32 noundef %call311, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %call256)
           to label %if.end325 unwind label %lpad264
 
 if.end325:                                        ; preds = %invoke.cont310, %invoke.cont283
@@ -849,20 +849,20 @@ if.end325:                                        ; preds = %invoke.cont310, %in
   store ptr %call234.sink, ptr %from321, align 8
   %to324 = getelementptr inbounds i8, ptr %call256, i64 16
   store ptr %call232.sink, ptr %to324, align 8
-  %63 = load ptr, ptr %fHistoricTransitions201, align 8
-  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %63, ptr noundef nonnull %call250, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %65 = load ptr, ptr %fHistoricTransitions201, align 8
+  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %65, ptr noundef nonnull %call250, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont329 unwind label %ehcleanup344.thread279
 
 ehcleanup344.thread279:                           ; preds = %if.end325
-  %64 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.sink.split
 
 invoke.cont329:                                   ; preds = %if.end325
-  %65 = load ptr, ptr %fHistoricTransitions201, align 8
-  call void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %65, ptr noundef nonnull %call256, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %66 = load i32, ptr %status, align 4
-  %cmp.i156.inv = icmp slt i32 %66, 1
+  %67 = load ptr, ptr %fHistoricTransitions201, align 8
+  call void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %67, ptr noundef nonnull %call256, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %68 = load i32, ptr %status, align 4
+  %cmp.i156.inv = icmp slt i32 %68, 1
   br i1 %cmp.i156.inv, label %if.end346, label %cleanup348
 
 cleanup339:                                       ; preds = %invoke.cont263
@@ -891,15 +891,15 @@ if.end346:                                        ; preds = %invoke.cont329, %if
 
 cleanup348:                                       ; preds = %new.cont216, %if.then.i132, %delete.notnull.i162, %_ZN6icu_7512LocalPointerINS_10TransitionEED2Ev.exit160, %delete.notnull.i137, %invoke.cont329, %_ZN6icu_7511LocalMemoryIbED2Ev.exit, %if.then248
   %fHistoricTransitions.i = getelementptr inbounds i8, ptr %this, i64 96
-  %67 = load ptr, ptr %fHistoricTransitions.i, align 8
-  %cmp.not.i = icmp eq ptr %67, null
+  %69 = load ptr, ptr %fHistoricTransitions.i, align 8
+  %cmp.not.i = icmp eq ptr %69, null
   br i1 %cmp.not.i, label %_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit, label %delete.notnull.i167
 
 delete.notnull.i167:                              ; preds = %cleanup348
-  %vtable.i168 = load ptr, ptr %67, align 8
+  %vtable.i168 = load ptr, ptr %69, align 8
   %vfn.i169 = getelementptr inbounds i8, ptr %vtable.i168, i64 8
-  %68 = load ptr, ptr %vfn.i169, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(40) %67) #13
+  %70 = load ptr, ptr %vfn.i169, align 8
+  call void %70(ptr noundef nonnull align 8 dereferenceable(40) %69) #13
   br label %_ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit
 
 _ZN6icu_7517RuleBasedTimeZone17deleteTransitionsEv.exit: ; preds = %cleanup348, %delete.notnull.i167
@@ -912,7 +912,7 @@ return:                                           ; preds = %if.end, %entry, %_Z
 
 eh.resume.sink.split:                             ; preds = %ehcleanup344, %lpad264, %lpad210, %ehcleanup344.thread279
   %call250.sink = phi ptr [ %call256, %ehcleanup344.thread279 ], [ %call205, %lpad210 ], [ %call250, %lpad264 ], [ %call250, %ehcleanup344 ]
-  %.pn92.pn.ph = phi { ptr, i32 } [ %64, %ehcleanup344.thread279 ], [ %48, %lpad210 ], [ %56, %lpad264 ], [ %56, %ehcleanup344 ]
+  %.pn92.pn.ph = phi { ptr, i32 } [ %66, %ehcleanup344.thread279 ], [ %50, %lpad210 ], [ %58, %lpad264 ], [ %58, %ehcleanup344 ]
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call250.sink) #13
   br label %eh.resume
 

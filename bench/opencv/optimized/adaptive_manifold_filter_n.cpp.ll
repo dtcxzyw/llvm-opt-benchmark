@@ -1607,7 +1607,7 @@ _ZN12_GLOBAL__N_123AdaptiveManifoldFilterN11initBuffersERKN2cv11_InputArrayES4_.
   %395 = fmul double %394, %393
   %396 = call double @llvm.ceil.f64(double %395)
   %397 = fptosi double %396 to i32
-  %.sroa.speculated.i = call noundef i32 @llvm.smax.i32(i32 %397, i32 2)
+  %.sroa.speculated.i = call noundef range(i32 2, -2147483648) i32 @llvm.smax.i32(i32 %397, i32 2)
   br label %398
 
 398:                                              ; preds = %_ZN12_GLOBAL__N_123AdaptiveManifoldFilterN11initBuffersERKN2cv11_InputArrayES4_.exit, %387
@@ -1706,8 +1706,8 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i
   %.pre = load i32, ptr %273, align 4
-  store ptr %439, ptr %435, align 8
   %440 = icmp sgt i32 %.pre, 0
+  store ptr %439, ptr %435, align 8
   br i1 %440, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit, %453

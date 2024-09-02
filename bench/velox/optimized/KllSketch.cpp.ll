@@ -74,7 +74,7 @@ _ZN8facebook5velox9functions3kll6detail13levelCapacityEjhh.exit: ; preds = %for.
   %4 = load double, ptr %arrayidx.i.i.i.i, align 8
   %mul.i = fmul double %4, %conv.i
   %conv5.i = fptoui double %mul.i to i32
-  %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %conv5.i, i32 8)
+  %.sroa.speculated.i = tail call noundef range(i32 8, 0) i32 @llvm.umax.i32(i32 %conv5.i, i32 8)
   %add = add i32 %.sroa.speculated.i, %total.06
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv2.i
@@ -86,7 +86,7 @@ for.end:                                          ; preds = %_ZN8facebook5velox9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN8facebook5velox9functions3kll6detail13levelCapacityEjhh(i32 noundef %k, i8 noundef zeroext %numLevels, i8 noundef zeroext %height) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 8, 0) i32 @_ZN8facebook5velox9functions3kll6detail13levelCapacityEjhh(i32 noundef %k, i8 noundef zeroext %numLevels, i8 noundef zeroext %height) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN8facebook5velox9functions3kll6detail12_GLOBAL__N_116powerOfTwoThirdsEiE5kMemo acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0

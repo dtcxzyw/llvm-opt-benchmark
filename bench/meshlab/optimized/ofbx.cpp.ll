@@ -13515,7 +13515,7 @@ _ZN4ofbx8PropertyD0Ev.exit.i:                     ; preds = %_ZN4ofbxL4readIjEEN
   %.0113 = phi ptr [ %141, %139 ], [ %55, %130 ]
   %135 = tail call fastcc { ptr, i8 } @_ZN4ofbxL11readElementEPNS_6CursorEj(ptr noundef nonnull %0, i32 noundef %1)
   %136 = extractvalue { ptr, i8 } %135, 1
-  %137 = trunc i8 %136 to i1
+  %137 = trunc nuw i8 %136 to i1
   br i1 %137, label %138, label %139
 
 138:                                              ; preds = %.lr.ph115
@@ -15228,7 +15228,7 @@ _ZN4ofbxL15skipWhitespacesEPNS_6CursorE.exit122:  ; preds = %_ZN4ofbxL8skipLineE
   %281 = tail call fastcc { ptr, i8 } @_ZN4ofbxL15readTextElementEPNS_6CursorE(ptr noundef nonnull %0)
   %282 = extractvalue { ptr, i8 } %281, 0
   %283 = extractvalue { ptr, i8 } %281, 1
-  %284 = trunc i8 %283 to i1
+  %284 = trunc nuw i8 %283 to i1
   br i1 %284, label %285, label %286
 
 285:                                              ; preds = %280

@@ -389,14 +389,17 @@ define internal fastcc void @"_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5ar
   %12 = ashr i32 %.12, 1
   %13 = and i32 %12, 1
   %14 = icmp eq i32 %13, %.0177
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.1.lcssa = phi i32 [ %.0186, %.preheader ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i8 [ 0, %.preheader ], [ %11, %.lr.ph ]
-  %.lcssa = phi i32 [ %9, %.preheader ], [ %13, %.lr.ph ]
-  %15 = sitofp i8 %.0.lcssa to float
-  %16 = fdiv float %15, 1.700000e+01
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %15 = sitofp i8 %11 to float
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.1.lcssa = phi i32 [ %.0186, %.preheader ], [ %12, %._crit_edge.loopexit ]
+  %.0.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %15, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ %9, %.preheader ], [ %13, %._crit_edge.loopexit ]
+  %16 = fdiv float %.0.lcssa, 1.700000e+01
   %17 = load ptr, ptr @_ZZN5ZXing6Pdf417L22GetClosestDecodedValueERKSt5arrayIiLm8EEE10ratioTable, align 8
   %18 = getelementptr inbounds %"struct.std::array.1", ptr %17, i64 %indvars.iv14
   %19 = sub nuw nsw i64 7, %indvars.iv

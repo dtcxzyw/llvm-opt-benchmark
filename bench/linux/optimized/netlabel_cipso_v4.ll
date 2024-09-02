@@ -43,13 +43,13 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %6 = getelementptr i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.thread56, label %9
+  br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %5, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.thread56, label %13
+  br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %9
   call void @security_current_getsecid_subj(ptr noundef nonnull %3) #8
@@ -68,7 +68,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
-  switch i32 %26, label %.thread56 [
+  switch i32 %26, label %.thread [
     i32 1, label %27
     i32 2, label %436
     i32 3, label %504
@@ -78,13 +78,13 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %28 = getelementptr i8, ptr %22, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread56, label %31
+  br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr i8, ptr %22, i64 64
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread56, label %35
+  br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr i8, ptr %33, i64 4
@@ -93,13 +93,13 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %39 = zext i16 %38 to i32
   %40 = call i32 @__nla_validate(ptr noundef %36, i32 noundef %39, i32 noundef 12, ptr noundef nonnull @netlbl_cipsov4_genl_policy, i32 noundef 0, ptr noundef null) #8
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %.thread56
+  br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %35
   %43 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %44 = call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %43, i32 noundef 3264, i64 noundef 64) #10
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.thread56, label %46
+  br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
@@ -111,7 +111,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
 
 51:                                               ; preds = %46
   call void @kfree(ptr noundef nonnull %44) #8
-  br label %.thread56
+  br label %.thread
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds i8, ptr %44, i64 4
@@ -127,29 +127,29 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %60 = load i16, ptr %59, align 2
   %61 = add i16 %60, -4
   %62 = icmp ugt i16 %61, 3
-  br i1 %62, label %.lr.ph80.preheader, label %.thread
+  br i1 %62, label %.lr.ph78.preheader, label %.critedge
 
-.lr.ph80.preheader:                               ; preds = %56
+.lr.ph78.preheader:                               ; preds = %56
   %63 = zext i16 %61 to i32
   %64 = getelementptr i8, ptr %59, i64 4
-  br label %.lr.ph80
+  br label %.lr.ph78
 
-.lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.thread46
-  %65 = phi ptr [ %132, %.thread46 ], [ %64, %.lr.ph80.preheader ]
-  %66 = phi i32 [ %130, %.thread46 ], [ %63, %.lr.ph80.preheader ]
+.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.critedge38
+  %65 = phi ptr [ %132, %.critedge38 ], [ %64, %.lr.ph78.preheader ]
+  %66 = phi i32 [ %130, %.critedge38 ], [ %63, %.lr.ph78.preheader ]
   %67 = load i16, ptr %65, align 2
   %68 = icmp ult i16 %67, 4
   %69 = zext i16 %67 to i32
   %.not = icmp ult i32 %66, %69
   %or.cond = or i1 %68, %.not
-  br i1 %or.cond, label %.thread, label %70
+  br i1 %or.cond, label %.critedge, label %70
 
-70:                                               ; preds = %.lr.ph80
+70:                                               ; preds = %.lr.ph78
   %71 = getelementptr inbounds i8, ptr %65, i64 2
   %72 = load i16, ptr %71, align 2
   %73 = and i16 %72, 16383
   %74 = icmp eq i16 %73, 7
-  br i1 %74, label %75, label %.thread46
+  br i1 %74, label %75, label %.critedge38
 
 75:                                               ; preds = %70
   %76 = getelementptr i8, ptr %65, i64 4
@@ -163,7 +163,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %82 = load i16, ptr %65, align 2
   %83 = add i16 %82, -4
   %84 = icmp ugt i16 %83, 3
-  br i1 %84, label %.lr.ph.preheader, label %.thread46
+  br i1 %84, label %.lr.ph.preheader, label %.critedge38
 
 .lr.ph.preheader:                                 ; preds = %81
   %85 = zext i16 %83 to i32
@@ -175,9 +175,9 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %88 = load i16, ptr %86, align 2
   %89 = icmp ult i16 %88, 4
   %90 = zext i16 %88 to i32
-  %.not57 = icmp ult i32 %87, %90
-  %or.cond62 = or i1 %89, %.not57
-  br i1 %or.cond62, label %.thread46.loopexit, label %91
+  %.not32 = icmp ult i32 %87, %90
+  %or.cond47 = or i1 %89, %.not32
+  br i1 %or.cond47, label %.critedge38.loopexit, label %91
 
 91:                                               ; preds = %.lr.ph
   %92 = getelementptr inbounds i8, ptr %86, i64 2
@@ -233,14 +233,14 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %123 = zext nneg i32 %121 to i64
   %124 = getelementptr i8, ptr %86, i64 %123
   %125 = icmp sgt i32 %122, 3
-  br i1 %125, label %.lr.ph, label %.thread46.loopexit, !llvm.loop !8
+  br i1 %125, label %.lr.ph, label %.critedge38.loopexit, !llvm.loop !8
 
-.thread46.loopexit:                               ; preds = %117, %.lr.ph
+.critedge38.loopexit:                             ; preds = %.lr.ph, %117
   %.pre = load i16, ptr %65, align 2
-  br label %.thread46
+  br label %.critedge38
 
-.thread46:                                        ; preds = %.thread46.loopexit, %81, %70
-  %126 = phi i16 [ %.pre, %.thread46.loopexit ], [ %82, %81 ], [ %67, %70 ]
+.critedge38:                                      ; preds = %.critedge38.loopexit, %81, %70
+  %126 = phi i16 [ %.pre, %.critedge38.loopexit ], [ %82, %81 ], [ %67, %70 ]
   %127 = zext i16 %126 to i32
   %128 = add nuw nsw i32 %127, 3
   %129 = and i32 %128, 131068
@@ -248,9 +248,9 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %131 = zext nneg i32 %129 to i64
   %132 = getelementptr i8, ptr %65, i64 %131
   %133 = icmp sgt i32 %130, 3
-  br i1 %133, label %.lr.ph80, label %.thread, !llvm.loop !11
+  br i1 %133, label %.lr.ph78, label %.critedge, !llvm.loop !11
 
-.thread:                                          ; preds = %.lr.ph80, %.thread46, %56
+.critedge:                                        ; preds = %.critedge38, %.lr.ph78, %56
   %134 = load ptr, ptr %49, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 20
   %136 = load i32, ptr %135, align 4
@@ -266,7 +266,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %145 = icmp eq ptr %144, null
   br i1 %145, label %.loopexit, label %146
 
-146:                                              ; preds = %.thread
+146:                                              ; preds = %.critedge
   %147 = getelementptr inbounds i8, ptr %142, i64 16
   %148 = load i32, ptr %147, align 8
   %149 = zext i32 %148 to i64
@@ -283,18 +283,18 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %157 = getelementptr inbounds i8, ptr %153, i64 20
   %158 = load i32, ptr %157, align 4
   %159 = icmp eq i32 %158, 0
-  br i1 %159, label %.loopexit76, label %.preheader75
+  br i1 %159, label %.loopexit74, label %.preheader73
 
-.loopexit76:                                      ; preds = %.preheader75, %156
-  %160 = phi ptr [ %153, %156 ], [ %170, %.preheader75 ]
+.loopexit74:                                      ; preds = %.preheader73, %156
+  %160 = phi ptr [ %153, %156 ], [ %170, %.preheader73 ]
   %161 = getelementptr inbounds i8, ptr %160, i64 16
   %162 = load i32, ptr %161, align 8
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %.loopexit74, label %.preheader73
+  br i1 %163, label %.loopexit72, label %.preheader71
 
-.preheader75:                                     ; preds = %156, %.preheader75
-  %164 = phi i64 [ %169, %.preheader75 ], [ 0, %156 ]
-  %165 = phi ptr [ %170, %.preheader75 ], [ %153, %156 ]
+.preheader73:                                     ; preds = %156, %.preheader73
+  %164 = phi i64 [ %169, %.preheader73 ], [ 0, %156 ]
+  %165 = phi ptr [ %170, %.preheader73 ], [ %153, %156 ]
   %166 = getelementptr inbounds i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr i32, ptr %167, i64 %164
@@ -305,11 +305,11 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %172 = load i32, ptr %171, align 4
   %173 = zext i32 %172 to i64
   %174 = icmp ult i64 %169, %173
-  br i1 %174, label %.preheader75, label %.loopexit76, !llvm.loop !12
+  br i1 %174, label %.preheader73, label %.loopexit74, !llvm.loop !12
 
-.preheader73:                                     ; preds = %.loopexit76, %.preheader73
-  %175 = phi i64 [ %179, %.preheader73 ], [ 0, %.loopexit76 ]
-  %176 = phi ptr [ %180, %.preheader73 ], [ %160, %.loopexit76 ]
+.preheader71:                                     ; preds = %.loopexit74, %.preheader71
+  %175 = phi i64 [ %179, %.preheader71 ], [ 0, %.loopexit74 ]
+  %176 = phi ptr [ %180, %.preheader71 ], [ %160, %.loopexit74 ]
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr i32, ptr %177, i64 %175
   store i32 -2147483648, ptr %178, align 4
@@ -319,33 +319,33 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %182 = load i32, ptr %181, align 8
   %183 = zext i32 %182 to i64
   %184 = icmp ult i64 %179, %183
-  br i1 %184, label %.preheader73, label %.loopexit74, !llvm.loop !13
+  br i1 %184, label %.preheader71, label %.loopexit72, !llvm.loop !13
 
-.loopexit74:                                      ; preds = %.preheader73, %.loopexit76
+.loopexit72:                                      ; preds = %.preheader71, %.loopexit74
   %185 = load ptr, ptr %4, align 8
   %186 = getelementptr i8, ptr %185, i64 64
   %187 = load ptr, ptr %186, align 8
   %188 = load i16, ptr %187, align 2
   %189 = add i16 %188, -4
   %190 = icmp ugt i16 %189, 3
-  br i1 %190, label %.lr.ph82.preheader, label %.thread48
+  br i1 %190, label %.lr.ph80.preheader, label %.critedge40
 
-.lr.ph82.preheader:                               ; preds = %.loopexit74
+.lr.ph80.preheader:                               ; preds = %.loopexit72
   %191 = zext i16 %189 to i32
   %192 = getelementptr i8, ptr %187, i64 4
-  br label %.lr.ph82
+  br label %.lr.ph80
 
-.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %230
-  %193 = phi ptr [ %235, %230 ], [ %192, %.lr.ph82.preheader ]
-  %194 = phi i32 [ %233, %230 ], [ %191, %.lr.ph82.preheader ]
+.lr.ph80:                                         ; preds = %.lr.ph80.preheader, %230
+  %193 = phi ptr [ %235, %230 ], [ %192, %.lr.ph80.preheader ]
+  %194 = phi i32 [ %233, %230 ], [ %191, %.lr.ph80.preheader ]
   %195 = load i16, ptr %193, align 2
   %196 = icmp ult i16 %195, 4
   %197 = zext i16 %195 to i32
-  %.not58 = icmp ult i32 %194, %197
-  %or.cond63 = or i1 %196, %.not58
-  br i1 %or.cond63, label %.thread48.loopexit, label %198
+  %.not33 = icmp ult i32 %194, %197
+  %or.cond48 = or i1 %196, %.not33
+  br i1 %or.cond48, label %.critedge40.loopexit, label %198
 
-198:                                              ; preds = %.lr.ph82
+198:                                              ; preds = %.lr.ph80
   %199 = getelementptr inbounds i8, ptr %193, i64 2
   %200 = load i16, ptr %199, align 2
   %201 = and i16 %200, 16383
@@ -383,32 +383,32 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %228 = zext i32 %217 to i64
   %229 = getelementptr i32, ptr %227, i64 %228
   store i32 %225, ptr %229, align 4
-  %.pre95 = load i16, ptr %193, align 2
-  %.pre100 = zext i16 %.pre95 to i32
+  %.pre93 = load i16, ptr %193, align 2
+  %.pre98 = zext i16 %.pre93 to i32
   br label %230
 
 230:                                              ; preds = %215, %198
-  %.pre-phi101 = phi i32 [ %.pre100, %215 ], [ %197, %198 ]
-  %231 = add nuw nsw i32 %.pre-phi101, 3
+  %.pre-phi99 = phi i32 [ %.pre98, %215 ], [ %197, %198 ]
+  %231 = add nuw nsw i32 %.pre-phi99, 3
   %232 = and i32 %231, 131068
   %233 = sub nsw i32 %194, %232
   %234 = zext nneg i32 %232 to i64
   %235 = getelementptr i8, ptr %193, i64 %234
   %236 = icmp sgt i32 %233, 3
-  br i1 %236, label %.lr.ph82, label %.thread48.loopexit, !llvm.loop !14
+  br i1 %236, label %.lr.ph80, label %.critedge40.loopexit, !llvm.loop !14
 
-.thread48.loopexit:                               ; preds = %230, %.lr.ph82
-  %.pre96 = load ptr, ptr %4, align 8
-  br label %.thread48
+.critedge40.loopexit:                             ; preds = %.lr.ph80, %230
+  %.pre94 = load ptr, ptr %4, align 8
+  br label %.critedge40
 
-.thread48:                                        ; preds = %.thread48.loopexit, %.loopexit74
-  %237 = phi ptr [ %.pre96, %.thread48.loopexit ], [ %185, %.loopexit74 ]
+.critedge40:                                      ; preds = %.critedge40.loopexit, %.loopexit72
+  %237 = phi ptr [ %.pre94, %.critedge40.loopexit ], [ %185, %.loopexit72 ]
   %238 = getelementptr i8, ptr %237, i64 96
   %239 = load ptr, ptr %238, align 8
   %240 = icmp eq ptr %239, null
-  br i1 %240, label %.thread54, label %241
+  br i1 %240, label %.critedge46, label %241
 
-241:                                              ; preds = %.thread48
+241:                                              ; preds = %.critedge40
   %242 = getelementptr i8, ptr %239, i64 4
   %243 = load i16, ptr %239, align 2
   %244 = add i16 %243, -4
@@ -424,29 +424,29 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %252 = load i16, ptr %251, align 2
   %253 = add i16 %252, -4
   %254 = icmp ugt i16 %253, 3
-  br i1 %254, label %.lr.ph86.preheader, label %.thread50
+  br i1 %254, label %.lr.ph84.preheader, label %.critedge42
 
-.lr.ph86.preheader:                               ; preds = %248
+.lr.ph84.preheader:                               ; preds = %248
   %255 = zext i16 %253 to i32
   %256 = getelementptr i8, ptr %251, i64 4
-  br label %.lr.ph86
+  br label %.lr.ph84
 
-.lr.ph86:                                         ; preds = %.lr.ph86.preheader, %.thread52
-  %257 = phi ptr [ %324, %.thread52 ], [ %256, %.lr.ph86.preheader ]
-  %258 = phi i32 [ %322, %.thread52 ], [ %255, %.lr.ph86.preheader ]
+.lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.critedge44
+  %257 = phi ptr [ %324, %.critedge44 ], [ %256, %.lr.ph84.preheader ]
+  %258 = phi i32 [ %322, %.critedge44 ], [ %255, %.lr.ph84.preheader ]
   %259 = load i16, ptr %257, align 2
   %260 = icmp ult i16 %259, 4
   %261 = zext i16 %259 to i32
-  %.not59 = icmp ult i32 %258, %261
-  %or.cond64 = or i1 %260, %.not59
-  br i1 %or.cond64, label %.thread50, label %262
+  %.not34 = icmp ult i32 %258, %261
+  %or.cond49 = or i1 %260, %.not34
+  br i1 %or.cond49, label %.critedge42, label %262
 
-262:                                              ; preds = %.lr.ph86
+262:                                              ; preds = %.lr.ph84
   %263 = getelementptr inbounds i8, ptr %257, i64 2
   %264 = load i16, ptr %263, align 2
   %265 = and i16 %264, 16383
   %266 = icmp eq i16 %265, 11
-  br i1 %266, label %267, label %.thread52
+  br i1 %266, label %267, label %.critedge44
 
 267:                                              ; preds = %262
   %268 = getelementptr i8, ptr %257, i64 4
@@ -460,23 +460,23 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %274 = load i16, ptr %257, align 2
   %275 = add i16 %274, -4
   %276 = icmp ugt i16 %275, 3
-  br i1 %276, label %.lr.ph84.preheader, label %.thread52
+  br i1 %276, label %.lr.ph82.preheader, label %.critedge44
 
-.lr.ph84.preheader:                               ; preds = %273
+.lr.ph82.preheader:                               ; preds = %273
   %277 = zext i16 %275 to i32
-  br label %.lr.ph84
+  br label %.lr.ph82
 
-.lr.ph84:                                         ; preds = %.lr.ph84.preheader, %309
-  %278 = phi ptr [ %316, %309 ], [ %268, %.lr.ph84.preheader ]
-  %279 = phi i32 [ %314, %309 ], [ %277, %.lr.ph84.preheader ]
+.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %309
+  %278 = phi ptr [ %316, %309 ], [ %268, %.lr.ph82.preheader ]
+  %279 = phi i32 [ %314, %309 ], [ %277, %.lr.ph82.preheader ]
   %280 = load i16, ptr %278, align 2
   %281 = icmp ult i16 %280, 4
   %282 = zext i16 %280 to i32
-  %.not60 = icmp ult i32 %279, %282
-  %or.cond65 = or i1 %281, %.not60
-  br i1 %or.cond65, label %.thread52.loopexit, label %283
+  %.not35 = icmp ult i32 %279, %282
+  %or.cond50 = or i1 %281, %.not35
+  br i1 %or.cond50, label %.critedge44.loopexit, label %283
 
-283:                                              ; preds = %.lr.ph84
+283:                                              ; preds = %.lr.ph82
   %284 = getelementptr inbounds i8, ptr %278, i64 2
   %285 = load i16, ptr %284, align 2
   %286 = and i16 %285, 16383
@@ -530,14 +530,14 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %315 = zext nneg i32 %313 to i64
   %316 = getelementptr i8, ptr %278, i64 %315
   %317 = icmp sgt i32 %314, 3
-  br i1 %317, label %.lr.ph84, label %.thread52.loopexit, !llvm.loop !15
+  br i1 %317, label %.lr.ph82, label %.critedge44.loopexit, !llvm.loop !15
 
-.thread52.loopexit:                               ; preds = %309, %.lr.ph84
-  %.pre97 = load i16, ptr %257, align 2
-  br label %.thread52
+.critedge44.loopexit:                             ; preds = %.lr.ph82, %309
+  %.pre95 = load i16, ptr %257, align 2
+  br label %.critedge44
 
-.thread52:                                        ; preds = %.thread52.loopexit, %273, %262
-  %318 = phi i16 [ %.pre97, %.thread52.loopexit ], [ %274, %273 ], [ %259, %262 ]
+.critedge44:                                      ; preds = %.critedge44.loopexit, %273, %262
+  %318 = phi i16 [ %.pre95, %.critedge44.loopexit ], [ %274, %273 ], [ %259, %262 ]
   %319 = zext i16 %318 to i32
   %320 = add nuw nsw i32 %319, 3
   %321 = and i32 %320, 131068
@@ -545,9 +545,9 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %323 = zext nneg i32 %321 to i64
   %324 = getelementptr i8, ptr %257, i64 %323
   %325 = icmp sgt i32 %322, 3
-  br i1 %325, label %.lr.ph86, label %.thread50, !llvm.loop !16
+  br i1 %325, label %.lr.ph84, label %.critedge42, !llvm.loop !16
 
-.thread50:                                        ; preds = %.lr.ph86, %.thread52, %248
+.critedge42:                                      ; preds = %.critedge44, %.lr.ph84, %248
   %326 = load ptr, ptr %49, align 8
   %327 = getelementptr inbounds i8, ptr %326, i64 44
   %328 = load i32, ptr %327, align 4
@@ -563,7 +563,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %337 = icmp eq ptr %336, null
   br i1 %337, label %.loopexit, label %338
 
-338:                                              ; preds = %.thread50
+338:                                              ; preds = %.critedge42
   %339 = getelementptr inbounds i8, ptr %334, i64 40
   %340 = load i32, ptr %339, align 8
   %341 = zext i32 %340 to i64
@@ -582,18 +582,18 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %351 = getelementptr inbounds i8, ptr %346, i64 44
   %352 = load i32, ptr %351, align 4
   %353 = icmp eq i32 %352, 0
-  br i1 %353, label %.loopexit69, label %.preheader68
+  br i1 %353, label %.loopexit67, label %.preheader66
 
-.loopexit69:                                      ; preds = %.preheader68, %350
-  %354 = phi ptr [ %346, %350 ], [ %364, %.preheader68 ]
+.loopexit67:                                      ; preds = %.preheader66, %350
+  %354 = phi ptr [ %346, %350 ], [ %364, %.preheader66 ]
   %355 = getelementptr inbounds i8, ptr %354, i64 40
   %356 = load i32, ptr %355, align 8
   %357 = icmp eq i32 %356, 0
-  br i1 %357, label %.loopexit67, label %.preheader
+  br i1 %357, label %.loopexit65, label %.preheader
 
-.preheader68:                                     ; preds = %350, %.preheader68
-  %358 = phi i64 [ %363, %.preheader68 ], [ 0, %350 ]
-  %359 = phi ptr [ %364, %.preheader68 ], [ %346, %350 ]
+.preheader66:                                     ; preds = %350, %.preheader66
+  %358 = phi i64 [ %363, %.preheader66 ], [ 0, %350 ]
+  %359 = phi ptr [ %364, %.preheader66 ], [ %346, %350 ]
   %360 = getelementptr inbounds i8, ptr %359, i64 32
   %361 = load ptr, ptr %360, align 8
   %362 = getelementptr i32, ptr %361, i64 %358
@@ -604,11 +604,11 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %366 = load i32, ptr %365, align 4
   %367 = zext i32 %366 to i64
   %368 = icmp ult i64 %363, %367
-  br i1 %368, label %.preheader68, label %.loopexit69, !llvm.loop !17
+  br i1 %368, label %.preheader66, label %.loopexit67, !llvm.loop !17
 
-.preheader:                                       ; preds = %.loopexit69, %.preheader
-  %369 = phi i64 [ %374, %.preheader ], [ 0, %.loopexit69 ]
-  %370 = phi ptr [ %375, %.preheader ], [ %354, %.loopexit69 ]
+.preheader:                                       ; preds = %.loopexit67, %.preheader
+  %369 = phi i64 [ %374, %.preheader ], [ 0, %.loopexit67 ]
+  %370 = phi ptr [ %375, %.preheader ], [ %354, %.loopexit67 ]
   %371 = getelementptr inbounds i8, ptr %370, i64 24
   %372 = load ptr, ptr %371, align 8
   %373 = getelementptr i32, ptr %372, i64 %369
@@ -619,33 +619,33 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %377 = load i32, ptr %376, align 8
   %378 = zext i32 %377 to i64
   %379 = icmp ult i64 %374, %378
-  br i1 %379, label %.preheader, label %.loopexit67, !llvm.loop !18
+  br i1 %379, label %.preheader, label %.loopexit65, !llvm.loop !18
 
-.loopexit67:                                      ; preds = %.preheader, %.loopexit69
+.loopexit65:                                      ; preds = %.preheader, %.loopexit67
   %380 = load ptr, ptr %4, align 8
   %381 = getelementptr i8, ptr %380, i64 96
   %382 = load ptr, ptr %381, align 8
   %383 = load i16, ptr %382, align 2
   %384 = add i16 %383, -4
   %385 = icmp ugt i16 %384, 3
-  br i1 %385, label %.lr.ph88.preheader, label %.thread54
+  br i1 %385, label %.lr.ph86.preheader, label %.critedge46
 
-.lr.ph88.preheader:                               ; preds = %.loopexit67
+.lr.ph86.preheader:                               ; preds = %.loopexit65
   %386 = zext i16 %384 to i32
   %387 = getelementptr i8, ptr %382, i64 4
-  br label %.lr.ph88
+  br label %.lr.ph86
 
-.lr.ph88:                                         ; preds = %.lr.ph88.preheader, %426
-  %388 = phi ptr [ %431, %426 ], [ %387, %.lr.ph88.preheader ]
-  %389 = phi i32 [ %429, %426 ], [ %386, %.lr.ph88.preheader ]
+.lr.ph86:                                         ; preds = %.lr.ph86.preheader, %426
+  %388 = phi ptr [ %431, %426 ], [ %387, %.lr.ph86.preheader ]
+  %389 = phi i32 [ %429, %426 ], [ %386, %.lr.ph86.preheader ]
   %390 = load i16, ptr %388, align 2
   %391 = icmp ult i16 %390, 4
   %392 = zext i16 %390 to i32
-  %.not61 = icmp ult i32 %389, %392
-  %or.cond66 = or i1 %391, %.not61
-  br i1 %or.cond66, label %.thread54, label %393
+  %.not36 = icmp ult i32 %389, %392
+  %or.cond51 = or i1 %391, %.not36
+  br i1 %or.cond51, label %.critedge46, label %393
 
-393:                                              ; preds = %.lr.ph88
+393:                                              ; preds = %.lr.ph86
   %394 = getelementptr inbounds i8, ptr %388, i64 2
   %395 = load i16, ptr %394, align 2
   %396 = and i16 %395, 16383
@@ -684,41 +684,41 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %424 = zext i32 %412 to i64
   %425 = getelementptr i32, ptr %423, i64 %424
   store i32 %420, ptr %425, align 4
-  %.pre98 = load i16, ptr %388, align 2
-  %.pre99 = zext i16 %.pre98 to i32
+  %.pre96 = load i16, ptr %388, align 2
+  %.pre97 = zext i16 %.pre96 to i32
   br label %426
 
 426:                                              ; preds = %410, %393
-  %.pre-phi = phi i32 [ %.pre99, %410 ], [ %392, %393 ]
+  %.pre-phi = phi i32 [ %.pre97, %410 ], [ %392, %393 ]
   %427 = add nuw nsw i32 %.pre-phi, 3
   %428 = and i32 %427, 131068
   %429 = sub nsw i32 %389, %428
   %430 = zext nneg i32 %428 to i64
   %431 = getelementptr i8, ptr %388, i64 %430
   %432 = icmp sgt i32 %429, 3
-  br i1 %432, label %.lr.ph88, label %.thread54, !llvm.loop !19
+  br i1 %432, label %.lr.ph86, label %.critedge46, !llvm.loop !19
 
-.thread54:                                        ; preds = %.lr.ph88, %426, %.loopexit67, %.thread48
+.critedge46:                                      ; preds = %426, %.lr.ph86, %.loopexit65, %.critedge40
   %433 = call i32 @cipso_v4_doi_add(ptr noundef nonnull %44, ptr noundef nonnull %3) #8
   %434 = icmp eq i32 %433, 0
   br i1 %434, label %572, label %.loopexit
 
-.loopexit:                                        ; preds = %75, %106, %95, %203, %267, %298, %287, %398, %.thread54, %338, %.thread50, %241, %146, %.thread, %52
-  %435 = phi i32 [ %54, %52 ], [ -22, %241 ], [ %433, %.thread54 ], [ -12, %.thread ], [ -12, %146 ], [ -12, %.thread50 ], [ -12, %338 ], [ -22, %398 ], [ -22, %287 ], [ -22, %298 ], [ -22, %267 ], [ -22, %203 ], [ -22, %95 ], [ -22, %106 ], [ -22, %75 ]
+.loopexit:                                        ; preds = %75, %106, %95, %203, %267, %298, %287, %398, %.critedge46, %338, %.critedge42, %241, %146, %.critedge, %52
+  %435 = phi i32 [ %54, %52 ], [ -22, %241 ], [ %433, %.critedge46 ], [ -12, %.critedge ], [ -12, %146 ], [ -12, %.critedge42 ], [ -12, %338 ], [ -22, %398 ], [ -22, %287 ], [ -22, %298 ], [ -22, %267 ], [ -22, %203 ], [ -22, %95 ], [ -22, %106 ], [ -22, %75 ]
   call void @cipso_v4_doi_free(ptr noundef nonnull %44) #8
-  br label %.thread56
+  br label %.thread
 
 436:                                              ; preds = %13
   %437 = getelementptr i8, ptr %22, i64 32
   %438 = load ptr, ptr %437, align 8
   %439 = icmp eq ptr %438, null
-  br i1 %439, label %.thread56, label %440
+  br i1 %439, label %.thread, label %440
 
 440:                                              ; preds = %436
   %441 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %442 = call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %441, i32 noundef 3264, i64 noundef 64) #10
   %443 = icmp eq ptr %442, null
-  br i1 %443, label %.thread56, label %444
+  br i1 %443, label %.thread, label %444
 
 444:                                              ; preds = %440
   %445 = getelementptr inbounds i8, ptr %442, i64 4
@@ -747,7 +747,7 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %464 = add i16 %463, -4
   %465 = getelementptr inbounds i8, ptr %442, i64 16
   %466 = icmp ugt i16 %464, 3
-  br i1 %466, label %.lr.ph.preheader.i, label %.thread.thread.i
+  br i1 %466, label %.lr.ph.preheader.i, label %.critedge.thread.i
 
 .lr.ph.preheader.i:                               ; preds = %459
   %467 = zext i16 %464 to i32
@@ -763,15 +763,15 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %474 = zext i16 %472 to i32
   %.not.i = icmp ult i32 %471, %474
   %or.cond.i = or i1 %473, %.not.i
-  br i1 %or.cond.i, label %.thread.i, label %479
+  br i1 %or.cond.i, label %.critedge.i, label %479
 
-.thread.i:                                        ; preds = %492, %.lr.ph.i
-  %.lcssa.i = phi i32 [ %469, %.lr.ph.i ], [ %493, %492 ]
+.critedge.i:                                      ; preds = %492, %.lr.ph.i
+  %.lcssa.i = phi i32 [ %493, %492 ], [ %469, %.lr.ph.i ]
   %475 = icmp ult i32 %.lcssa.i, 5
-  br i1 %475, label %.thread.thread.i, label %500
+  br i1 %475, label %.critedge.thread.i, label %500
 
-.thread.thread.i:                                 ; preds = %.thread.i, %459
-  %.lcssa8.i = phi i32 [ %.lcssa.i, %.thread.i ], [ 0, %459 ]
+.critedge.thread.i:                               ; preds = %.critedge.i, %459
+  %.lcssa8.i = phi i32 [ %.lcssa.i, %.critedge.i ], [ 0, %459 ]
   %476 = zext nneg i32 %.lcssa8.i to i64
   %477 = getelementptr i8, ptr %465, i64 %476
   %narrow.i = sub nuw nsw i32 5, %.lcssa8.i
@@ -810,9 +810,9 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
   %497 = zext nneg i32 %495 to i64
   %498 = getelementptr i8, ptr %470, i64 %497
   %499 = icmp sgt i32 %496, 3
-  br i1 %499, label %.lr.ph.i, label %.thread.i, !llvm.loop !20
+  br i1 %499, label %.lr.ph.i, label %.critedge.i, !llvm.loop !20
 
-500:                                              ; preds = %.thread.i, %.thread.thread.i
+500:                                              ; preds = %.critedge.i, %.critedge.thread.i
   %501 = call i32 @cipso_v4_doi_add(ptr noundef nonnull %442, ptr noundef nonnull %3) #8
   %502 = icmp eq i32 %501, 0
   br i1 %502, label %572, label %netlbl_cipsov4_add_common.exit
@@ -820,19 +820,19 @@ define internal i32 @netlbl_cipsov4_add(ptr nocapture readnone %0, ptr nocapture
 netlbl_cipsov4_add_common.exit:                   ; preds = %484, %444, %500
   %503 = phi i32 [ %501, %500 ], [ -22, %444 ], [ -22, %484 ]
   call void @cipso_v4_doi_free(ptr noundef nonnull %442) #8
-  br label %.thread56
+  br label %.thread
 
 504:                                              ; preds = %13
   %505 = getelementptr i8, ptr %22, i64 32
   %506 = load ptr, ptr %505, align 8
   %507 = icmp eq ptr %506, null
-  br i1 %507, label %.thread56, label %508
+  br i1 %507, label %.thread, label %508
 
 508:                                              ; preds = %504
   %509 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %510 = call noalias align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %509, i32 noundef 3264, i64 noundef 64) #10
   %511 = icmp eq ptr %510, null
-  br i1 %511, label %.thread56, label %512
+  br i1 %511, label %.thread, label %512
 
 512:                                              ; preds = %508
   %513 = getelementptr inbounds i8, ptr %510, i64 4
@@ -851,7 +851,7 @@ netlbl_cipsov4_add_common.exit:                   ; preds = %484, %444, %500
   %524 = zext i16 %523 to i32
   %525 = call i32 @__nla_validate(ptr noundef %521, i32 noundef %524, i32 noundef 12, ptr noundef nonnull @netlbl_cipsov4_genl_policy, i32 noundef 0, ptr noundef null) #8
   %526 = icmp eq i32 %525, 0
-  br i1 %526, label %527, label %netlbl_cipsov4_add_common.exit44
+  br i1 %526, label %527, label %netlbl_cipsov4_add_common.exit64
 
 527:                                              ; preds = %512
   %528 = load ptr, ptr %4, align 8
@@ -861,39 +861,39 @@ netlbl_cipsov4_add_common.exit:                   ; preds = %484, %444, %500
   %532 = add i16 %531, -4
   %533 = getelementptr inbounds i8, ptr %510, i64 16
   %534 = icmp ugt i16 %532, 3
-  br i1 %534, label %.lr.ph.preheader.i35, label %.thread.thread.i32
+  br i1 %534, label %.lr.ph.preheader.i55, label %.critedge.thread.i52
 
-.lr.ph.preheader.i35:                             ; preds = %527
+.lr.ph.preheader.i55:                             ; preds = %527
   %535 = zext i16 %532 to i32
   %536 = getelementptr i8, ptr %530, i64 4
-  br label %.lr.ph.i36
+  br label %.lr.ph.i56
 
-.lr.ph.i36:                                       ; preds = %560, %.lr.ph.preheader.i35
-  %537 = phi i32 [ %561, %560 ], [ 0, %.lr.ph.preheader.i35 ]
-  %538 = phi ptr [ %566, %560 ], [ %536, %.lr.ph.preheader.i35 ]
-  %539 = phi i32 [ %564, %560 ], [ %535, %.lr.ph.preheader.i35 ]
+.lr.ph.i56:                                       ; preds = %560, %.lr.ph.preheader.i55
+  %537 = phi i32 [ %561, %560 ], [ 0, %.lr.ph.preheader.i55 ]
+  %538 = phi ptr [ %566, %560 ], [ %536, %.lr.ph.preheader.i55 ]
+  %539 = phi i32 [ %564, %560 ], [ %535, %.lr.ph.preheader.i55 ]
   %540 = load i16, ptr %538, align 2
   %541 = icmp ult i16 %540, 4
   %542 = zext i16 %540 to i32
-  %.not.i37 = icmp ult i32 %539, %542
-  %or.cond.i38 = or i1 %541, %.not.i37
-  br i1 %or.cond.i38, label %.thread.i40, label %547
+  %.not.i57 = icmp ult i32 %539, %542
+  %or.cond.i58 = or i1 %541, %.not.i57
+  br i1 %or.cond.i58, label %.critedge.i60, label %547
 
-.thread.i40:                                      ; preds = %560, %.lr.ph.i36
-  %.lcssa.i41 = phi i32 [ %537, %.lr.ph.i36 ], [ %561, %560 ]
-  %543 = icmp ult i32 %.lcssa.i41, 5
-  br i1 %543, label %.thread.thread.i32, label %568
+.critedge.i60:                                    ; preds = %560, %.lr.ph.i56
+  %.lcssa.i61 = phi i32 [ %561, %560 ], [ %537, %.lr.ph.i56 ]
+  %543 = icmp ult i32 %.lcssa.i61, 5
+  br i1 %543, label %.critedge.thread.i52, label %568
 
-.thread.thread.i32:                               ; preds = %.thread.i40, %527
-  %.lcssa8.i33 = phi i32 [ %.lcssa.i41, %.thread.i40 ], [ 0, %527 ]
-  %544 = zext nneg i32 %.lcssa8.i33 to i64
+.critedge.thread.i52:                             ; preds = %.critedge.i60, %527
+  %.lcssa8.i53 = phi i32 [ %.lcssa.i61, %.critedge.i60 ], [ 0, %527 ]
+  %544 = zext nneg i32 %.lcssa8.i53 to i64
   %545 = getelementptr i8, ptr %533, i64 %544
-  %narrow.i34 = sub nuw nsw i32 5, %.lcssa8.i33
-  %546 = zext nneg i32 %narrow.i34 to i64
+  %narrow.i54 = sub nuw nsw i32 5, %.lcssa8.i53
+  %546 = zext nneg i32 %narrow.i54 to i64
   call void @llvm.memset.p0.i64(ptr noundef align 1 %545, i8 0, i64 %546, i1 false)
   br label %568
 
-547:                                              ; preds = %.lr.ph.i36
+547:                                              ; preds = %.lr.ph.i56
   %548 = getelementptr inbounds i8, ptr %538, i64 2
   %549 = load i16, ptr %548, align 2
   %550 = and i16 %549, 16383
@@ -902,7 +902,7 @@ netlbl_cipsov4_add_common.exit:                   ; preds = %484, %444, %500
 
 552:                                              ; preds = %547
   %553 = icmp ugt i32 %537, 4
-  br i1 %553, label %netlbl_cipsov4_add_common.exit44, label %554
+  br i1 %553, label %netlbl_cipsov4_add_common.exit64, label %554
 
 554:                                              ; preds = %552
   %555 = getelementptr i8, ptr %538, i64 4
@@ -911,37 +911,37 @@ netlbl_cipsov4_add_common.exit:                   ; preds = %484, %444, %500
   %558 = zext nneg i32 %537 to i64
   %559 = getelementptr [5 x i8], ptr %533, i64 0, i64 %558
   store i8 %556, ptr %559, align 1
-  %.pre.i42 = load i16, ptr %538, align 2
-  %.pre6.i43 = zext i16 %.pre.i42 to i32
+  %.pre.i62 = load i16, ptr %538, align 2
+  %.pre6.i63 = zext i16 %.pre.i62 to i32
   br label %560
 
 560:                                              ; preds = %554, %547
-  %.pre-phi.i39 = phi i32 [ %.pre6.i43, %554 ], [ %542, %547 ]
+  %.pre-phi.i59 = phi i32 [ %.pre6.i63, %554 ], [ %542, %547 ]
   %561 = phi i32 [ %557, %554 ], [ %537, %547 ]
-  %562 = add nuw nsw i32 %.pre-phi.i39, 3
+  %562 = add nuw nsw i32 %.pre-phi.i59, 3
   %563 = and i32 %562, 131068
   %564 = sub nsw i32 %539, %563
   %565 = zext nneg i32 %563 to i64
   %566 = getelementptr i8, ptr %538, i64 %565
   %567 = icmp sgt i32 %564, 3
-  br i1 %567, label %.lr.ph.i36, label %.thread.i40, !llvm.loop !20
+  br i1 %567, label %.lr.ph.i56, label %.critedge.i60, !llvm.loop !20
 
-568:                                              ; preds = %.thread.i40, %.thread.thread.i32
+568:                                              ; preds = %.critedge.i60, %.critedge.thread.i52
   %569 = call i32 @cipso_v4_doi_add(ptr noundef nonnull %510, ptr noundef nonnull %3) #8
   %570 = icmp eq i32 %569, 0
-  br i1 %570, label %572, label %netlbl_cipsov4_add_common.exit44
+  br i1 %570, label %572, label %netlbl_cipsov4_add_common.exit64
 
-netlbl_cipsov4_add_common.exit44:                 ; preds = %552, %512, %568
+netlbl_cipsov4_add_common.exit64:                 ; preds = %552, %512, %568
   %571 = phi i32 [ %569, %568 ], [ -22, %512 ], [ -22, %552 ]
   call void @cipso_v4_doi_free(ptr noundef nonnull %510) #8
-  br label %.thread56
+  br label %.thread
 
-572:                                              ; preds = %.thread54, %500, %568
+572:                                              ; preds = %.critedge46, %500, %568
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @netlabel_mgmt_protocount, ptr nonnull elementtype(i32) @netlabel_mgmt_protocount) #8, !srcloc !21
-  br label %.thread56
+  br label %.thread
 
-.thread56:                                        ; preds = %508, %504, %netlbl_cipsov4_add_common.exit44, %440, %436, %netlbl_cipsov4_add_common.exit, %42, %35, %27, %31, %.loopexit, %51, %13, %572, %9, %2
-  %573 = phi i32 [ -22, %9 ], [ -22, %2 ], [ 0, %572 ], [ -12, %508 ], [ -22, %504 ], [ %571, %netlbl_cipsov4_add_common.exit44 ], [ -12, %440 ], [ -22, %436 ], [ %503, %netlbl_cipsov4_add_common.exit ], [ -12, %42 ], [ -22, %35 ], [ -22, %27 ], [ -22, %31 ], [ %435, %.loopexit ], [ -12, %51 ], [ -22, %13 ]
+.thread:                                          ; preds = %508, %504, %netlbl_cipsov4_add_common.exit64, %440, %436, %netlbl_cipsov4_add_common.exit, %42, %35, %27, %31, %.loopexit, %51, %13, %572, %9, %2
+  %573 = phi i32 [ -22, %9 ], [ -22, %2 ], [ 0, %572 ], [ -12, %508 ], [ -22, %504 ], [ %571, %netlbl_cipsov4_add_common.exit64 ], [ -12, %440 ], [ -22, %436 ], [ %503, %netlbl_cipsov4_add_common.exit ], [ -12, %42 ], [ -22, %35 ], [ -22, %27 ], [ -22, %31 ], [ %435, %.loopexit ], [ -12, %51 ], [ -22, %13 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #8
   ret i32 %573
 }
@@ -1436,7 +1436,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(
   %23 = add i16 %22, -4
   %24 = getelementptr inbounds i8, ptr %1, i64 16
   %25 = icmp ugt i16 %23, 3
-  br i1 %25, label %.lr.ph.preheader, label %.thread.thread
+  br i1 %25, label %.lr.ph.preheader, label %.critedge.thread
 
 .lr.ph.preheader:                                 ; preds = %18
   %26 = zext i16 %23 to i32
@@ -1452,15 +1452,15 @@ define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(
   %33 = zext i16 %31 to i32
   %.not = icmp ult i32 %30, %33
   %or.cond = or i1 %32, %.not
-  br i1 %or.cond, label %.thread, label %38
+  br i1 %or.cond, label %.critedge, label %38
 
-.thread:                                          ; preds = %.lr.ph, %51
-  %.lcssa = phi i32 [ %28, %.lr.ph ], [ %52, %51 ]
+.critedge:                                        ; preds = %51, %.lr.ph
+  %.lcssa = phi i32 [ %52, %51 ], [ %28, %.lr.ph ]
   %34 = icmp ult i32 %.lcssa, 5
-  br i1 %34, label %.thread.thread, label %.loopexit
+  br i1 %34, label %.critedge.thread, label %.loopexit
 
-.thread.thread:                                   ; preds = %18, %.thread
-  %.lcssa8 = phi i32 [ %.lcssa, %.thread ], [ 0, %18 ]
+.critedge.thread:                                 ; preds = %18, %.critedge
+  %.lcssa8 = phi i32 [ %.lcssa, %.critedge ], [ 0, %18 ]
   %35 = zext nneg i32 %.lcssa8 to i64
   %36 = getelementptr i8, ptr %24, i64 %35
   %narrow = sub nuw nsw i32 5, %.lcssa8
@@ -1499,10 +1499,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @netlbl_cipsov4_add_common(
   %56 = zext nneg i32 %54 to i64
   %57 = getelementptr i8, ptr %29, i64 %56
   %58 = icmp sgt i32 %55, 3
-  br i1 %58, label %.lr.ph, label %.thread, !llvm.loop !20
+  br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !20
 
-.loopexit:                                        ; preds = %43, %.thread.thread, %.thread, %2
-  %59 = phi i32 [ -22, %2 ], [ 0, %.thread ], [ 0, %.thread.thread ], [ -22, %43 ]
+.loopexit:                                        ; preds = %43, %.critedge.thread, %.critedge, %2
+  %59 = phi i32 [ -22, %2 ], [ 0, %.critedge ], [ 0, %.critedge.thread ], [ -22, %43 ]
   ret i32 %59
 }
 

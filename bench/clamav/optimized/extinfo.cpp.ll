@@ -708,32 +708,32 @@ declare noundef zeroext i1 @_Z14IsFullRootPathPKw(ptr noundef) local_unnamed_add
 declare noundef zeroext i1 @_Z9IsPathDivi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, -2147483648) i32 @_ZL16CalcAllowedDepthPKw(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %.not26 = icmp eq i32 %2, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %39
-  %3 = phi i32 [ %41, %39 ], [ %2, %1 ]
-  %.028 = phi ptr [ %40, %39 ], [ %0, %1 ]
-  %.01827 = phi i32 [ %.1, %39 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %37
+  %3 = phi i32 [ %39, %37 ], [ %2, %1 ]
+  %.028 = phi ptr [ %38, %37 ], [ %0, %1 ]
+  %.01827 = phi i32 [ %.1, %37 ], [ 0, %1 ]
   %4 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %3)
-  br i1 %4, label %5, label %39
+  br i1 %4, label %5, label %37
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds i8, ptr %.028, i64 4
   %7 = load i32, ptr %6, align 4
   %.not21 = icmp eq i32 %7, 0
-  br i1 %.not21, label %39, label %8
+  br i1 %.not21, label %37, label %8
 
 8:                                                ; preds = %5
   %9 = tail call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %7)
-  br i1 %9, label %39, label %10
+  br i1 %9, label %37, label %10
 
 10:                                               ; preds = %8
   %11 = load i32, ptr %6, align 4
   %12 = icmp eq i32 %11, 46
-  br i1 %12, label %13, label %.thread
+  br i1 %12, label %13, label %.thread.thread
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %.028, i64 8
@@ -765,40 +765,39 @@ define internal fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr nocapture nound
 
 .thread24:                                        ; preds = %25
   %29 = add nsw i32 %.01827, -1
-  br label %39
+  br label %37
 
 30:                                               ; preds = %25
   %31 = load i32, ptr %26, align 4
-  %32 = icmp eq i32 %31, 0
-  br label %.thread
+  %.fr = freeze i32 %31
+  %32 = icmp eq i32 %.fr, 0
+  %33 = or i1 %.ph, %32
+  %34 = sext i1 %32 to i32
+  br i1 %33, label %36, label %.thread.thread
 
-.thread:                                          ; preds = %10, %30, %22, %20
-  %33 = phi i1 [ %.ph, %22 ], [ %.ph, %20 ], [ %.ph, %30 ], [ false, %10 ]
-  %34 = phi i1 [ false, %22 ], [ false, %20 ], [ %32, %30 ], [ false, %10 ]
-  %cond.fr = freeze i1 %34
-  %brmerge = or i1 %33, %cond.fr
-  br i1 %brmerge, label %37, label %35
+.thread:                                          ; preds = %22, %20
+  br i1 %.ph, label %36, label %.thread.thread
 
-35:                                               ; preds = %.thread
-  %36 = add nsw i32 %.01827, 1
-  br label %39
+.thread.thread:                                   ; preds = %10, %30, %.thread
+  %35 = add nsw i32 %.01827, 1
+  br label %37
 
-37:                                               ; preds = %.thread
-  %38 = sext i1 %cond.fr to i32
-  %spec.select = add nsw i32 %.01827, %38
-  br label %39
+36:                                               ; preds = %30, %.thread
+  %cond.fr31 = phi i32 [ %34, %30 ], [ 0, %.thread ]
+  %spec.select = add nsw i32 %cond.fr31, %.01827
+  br label %37
 
-39:                                               ; preds = %37, %.thread24, %35, %8, %5, %.lr.ph
-  %.1 = phi i32 [ %.01827, %8 ], [ %36, %35 ], [ %.01827, %5 ], [ %.01827, %.lr.ph ], [ %29, %.thread24 ], [ %spec.select, %37 ]
-  %40 = getelementptr inbounds i8, ptr %.028, i64 4
-  %41 = load i32, ptr %40, align 4
-  %.not = icmp eq i32 %41, 0
+37:                                               ; preds = %36, %.thread24, %.thread.thread, %8, %5, %.lr.ph
+  %.1 = phi i32 [ %.01827, %8 ], [ %35, %.thread.thread ], [ %.01827, %5 ], [ %.01827, %.lr.ph ], [ %29, %.thread24 ], [ %spec.select, %36 ]
+  %38 = getelementptr inbounds i8, ptr %.028, i64 4
+  %39 = load i32, ptr %38, align 4
+  %.not = icmp eq i32 %39, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %39, %1
-  %.018.lcssa = phi i32 [ 0, %1 ], [ %.1, %39 ]
-  %42 = tail call i32 @llvm.smax.i32(i32 %.018.lcssa, i32 0)
-  ret i32 %42
+._crit_edge:                                      ; preds = %37, %1
+  %.018.lcssa = phi i32 [ 0, %1 ], [ %.1, %37 ]
+  %40 = tail call i32 @llvm.smax.i32(i32 %.018.lcssa, i32 0)
+  ret i32 %40
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

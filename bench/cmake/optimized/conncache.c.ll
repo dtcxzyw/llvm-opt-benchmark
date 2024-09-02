@@ -173,7 +173,7 @@ declare ptr @Curl_hash_pick(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_conncache_add_conn(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_conncache_add_conn(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [128 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8

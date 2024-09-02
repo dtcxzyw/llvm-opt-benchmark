@@ -167,20 +167,20 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
 17:                                               ; preds = %16
   %18 = load i8, ptr %3, align 1
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %22
+  br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
   %21 = call noundef zeroext i1 @_Z18gmx_fio_doe_stringP8t_fileioPcPKcS3_i(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 116)
-  br label %22
+  %22 = zext i1 %21 to i8
+  br label %23
 
-22:                                               ; preds = %20, %17
-  %23 = phi i1 [ false, %17 ], [ %21, %20 ]
-  %24 = zext i1 %23 to i8
+23:                                               ; preds = %20, %17
+  %24 = phi i8 [ 0, %17 ], [ %22, %20 ]
   store i8 %24, ptr %3, align 1
   %.b86 = load i1, ptr @_ZZL19do_trr_frame_headerP8t_fileiobP16gmx_trr_header_tPbE6bFirst, align 1
   br i1 %.b86, label %36, label %25
 
-25:                                               ; preds = %22
+25:                                               ; preds = %23
   %26 = load ptr, ptr @stderr, align 8
   %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.6, ptr noundef nonnull %6) #13
   %.pre = load i8, ptr %3, align 1
@@ -190,20 +190,20 @@ define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(13) %6, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %29 = load i8, ptr %3, align 1
   %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %33
+  br i1 %30, label %31, label %34
 
 31:                                               ; preds = %28
   %32 = call noundef zeroext i1 @_Z18gmx_fio_doe_stringP8t_fileioPcPKcS3_i(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 125)
-  br label %33
+  %33 = zext i1 %32 to i8
+  br label %34
 
-33:                                               ; preds = %31, %28
-  %34 = phi i1 [ false, %28 ], [ %32, %31 ]
-  %35 = zext i1 %34 to i8
+34:                                               ; preds = %31, %28
+  %35 = phi i8 [ 0, %28 ], [ %33, %31 ]
   store i8 %35, ptr %3, align 1
   br label %36
 
-36:                                               ; preds = %22, %25, %33
-  %37 = phi i8 [ %24, %22 ], [ %.pre, %25 ], [ %35, %33 ]
+36:                                               ; preds = %23, %25, %34
+  %37 = phi i8 [ %24, %23 ], [ %.pre, %25 ], [ %35, %34 ]
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %.critedge
 

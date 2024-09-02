@@ -880,23 +880,23 @@ define dso_local range(i32 -512, 1) i32 @tty_port_block_til_ready(ptr noundef %0
   %75 = load ptr, ptr %52, align 8
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %.thread, label %78
+  br i1 %77, label %.critedge, label %78
 
 78:                                               ; preds = %74
   %79 = call zeroext i1 %76(ptr noundef %0) #6
-  br i1 %79, label %.thread, label %80
+  br i1 %79, label %.critedge, label %80
 
 80:                                               ; preds = %78
   %81 = load volatile i64, ptr %7, align 8
   %82 = and i64 %81, 131072
   %83 = icmp eq i64 %82, 0
-  br i1 %83, label %84, label %.thread, !prof !7
+  br i1 %83, label %84, label %.critedge, !prof !7
 
 84:                                               ; preds = %80
   %85 = load volatile i64, ptr %7, align 8
   %86 = and i64 %85, 4
   %87 = icmp eq i64 %86, 0
-  br i1 %87, label %88, label %.thread
+  br i1 %87, label %88, label %.critedge
 
 88:                                               ; preds = %84
   call void @tty_unlock(ptr noundef %1) #6
@@ -937,7 +937,7 @@ define dso_local range(i32 -512, 1) i32 @tty_port_block_til_ready(ptr noundef %0
   %106 = load volatile i64, ptr %51, align 8
   %107 = and i64 %106, 1
   %108 = icmp eq i64 %107, 0
-  br i1 %108, label %.split6.us, label %.thread
+  br i1 %108, label %.split6.us, label %.critedge
 
 .split6.us:                                       ; preds = %67, %70, %102, %105
   %109 = getelementptr inbounds i8, ptr %0, i64 232
@@ -945,9 +945,9 @@ define dso_local range(i32 -512, 1) i32 @tty_port_block_til_ready(ptr noundef %0
   %111 = and i64 %110, 1
   %112 = icmp eq i64 %111, 0
   %113 = select i1 %112, i32 -512, i32 -11
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %84, %80, %78, %74, %105, %.split6.us
+.critedge:                                        ; preds = %84, %80, %78, %74, %105, %.split6.us
   %114 = phi i1 [ false, %.split6.us ], [ true, %105 ], [ false, %80 ], [ true, %74 ], [ false, %84 ], [ true, %78 ]
   %115 = phi i32 [ %113, %.split6.us ], [ 0, %105 ], [ -512, %80 ], [ 0, %74 ], [ -512, %84 ], [ 0, %78 ]
   call void @finish_wait(ptr noundef %53, ptr noundef nonnull %4) #6
@@ -956,13 +956,13 @@ define dso_local range(i32 -512, 1) i32 @tty_port_block_til_ready(ptr noundef %0
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %122
 
-119:                                              ; preds = %.thread
+119:                                              ; preds = %.critedge
   %120 = load i32, ptr %45, align 8
   %121 = add i32 %120, 1
   store i32 %121, ptr %45, align 8
   br label %122
 
-122:                                              ; preds = %119, %.thread
+122:                                              ; preds = %119, %.critedge
   %123 = load i32, ptr %48, align 4
   %124 = add i32 %123, -1
   store i32 %124, ptr %48, align 4

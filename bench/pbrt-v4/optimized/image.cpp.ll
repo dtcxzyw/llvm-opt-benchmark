@@ -2416,12 +2416,12 @@ lpad.i:                                           ; preds = %if.else.i.i, %if.th
 invoke.cont35.loopexit:                           ; preds = %for.inc.i
   %.pre109 = load ptr, ptr %ref.tmp31, align 8
   %.pre110 = load ptr, ptr %_M_finish.i.i, align 8
+  %27 = ptrtoint ptr %.pre110 to i64
   br label %invoke.cont35
 
 invoke.cont35:                                    ; preds = %invoke.cont35.loopexit, %for.end28
-  %27 = phi ptr [ %.pre110, %invoke.cont35.loopexit ], [ null, %for.end28 ]
+  %sub.ptr.lhs.cast.i.i = phi i64 [ %27, %invoke.cont35.loopexit ], [ 0, %for.end28 ]
   %28 = phi ptr [ %.pre109, %invoke.cont35.loopexit ], [ null, %for.end28 ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %28 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
@@ -8538,13 +8538,13 @@ ehcleanup143.thread:                              ; preds = %if.then.i.i36, %if.
 invoke.cont5.loopexit:                            ; preds = %for.inc.i
   %.pre = load ptr, ptr %ref.tmp3, align 8
   %.pre219 = load ptr, ptr %_M_finish.i.i, align 8
+  %10 = ptrtoint ptr %.pre219 to i64
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont5.loopexit, %invoke.cont.thread
-  %10 = phi ptr [ null, %invoke.cont.thread ], [ %.pre219, %invoke.cont5.loopexit ]
+  %sub.ptr.lhs.cast.i.i = phi i64 [ 0, %invoke.cont.thread ], [ %10, %invoke.cont5.loopexit ]
   %11 = phi ptr [ null, %invoke.cont.thread ], [ %.pre, %invoke.cont5.loopexit ]
   %sumError.sroa.0.0171 = phi ptr [ null, %invoke.cont.thread ], [ %call5.i.i.i.i2.i.i35, %invoke.cont5.loopexit ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
@@ -9285,13 +9285,13 @@ ehcleanup150.thread:                              ; preds = %if.then.i.i37, %if.
 invoke.cont5.loopexit:                            ; preds = %for.inc.i
   %.pre = load ptr, ptr %ref.tmp3, align 8
   %.pre220 = load ptr, ptr %_M_finish.i.i, align 8
+  %10 = ptrtoint ptr %.pre220 to i64
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont5.loopexit, %invoke.cont.thread
-  %10 = phi ptr [ null, %invoke.cont.thread ], [ %.pre220, %invoke.cont5.loopexit ]
+  %sub.ptr.lhs.cast.i.i = phi i64 [ 0, %invoke.cont.thread ], [ %10, %invoke.cont5.loopexit ]
   %11 = phi ptr [ null, %invoke.cont.thread ], [ %.pre, %invoke.cont5.loopexit ]
   %sumSE.sroa.0.0172 = phi ptr [ null, %invoke.cont.thread ], [ %call5.i.i.i.i2.i.i36, %invoke.cont5.loopexit ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
@@ -10011,13 +10011,13 @@ ehcleanup153.thread:                              ; preds = %if.then.i.i37, %if.
 invoke.cont5.loopexit:                            ; preds = %for.inc.i
   %.pre = load ptr, ptr %ref.tmp3, align 8
   %.pre225 = load ptr, ptr %_M_finish.i.i, align 8
+  %10 = ptrtoint ptr %.pre225 to i64
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont5.loopexit, %invoke.cont.thread
-  %10 = phi ptr [ null, %invoke.cont.thread ], [ %.pre225, %invoke.cont5.loopexit ]
+  %sub.ptr.lhs.cast.i.i = phi i64 [ 0, %invoke.cont.thread ], [ %10, %invoke.cont5.loopexit ]
   %11 = phi ptr [ null, %invoke.cont.thread ], [ %.pre, %invoke.cont5.loopexit ]
   %sumRSE.sroa.0.0177 = phi ptr [ null, %invoke.cont.thread ], [ %call5.i.i.i.i2.i.i36, %invoke.cont5.loopexit ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
@@ -13255,12 +13255,12 @@ lpad.i:                                           ; preds = %if.else.i.i, %if.th
 invoke.cont.loopexit:                             ; preds = %for.inc.i
   %.pre = load ptr, ptr %ref.tmp, align 8
   %.pre110 = load ptr, ptr %_M_finish.i.i, align 8
+  %12 = ptrtoint ptr %.pre110 to i64
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.loopexit, %do.end
-  %12 = phi ptr [ %.pre110, %invoke.cont.loopexit ], [ null, %do.end ]
+  %sub.ptr.lhs.cast.i.i = phi i64 [ %12, %invoke.cont.loopexit ], [ 0, %do.end ]
   %13 = phi ptr [ %.pre, %invoke.cont.loopexit ], [ null, %do.end ]
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5

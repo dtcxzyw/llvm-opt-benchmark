@@ -210,32 +210,32 @@ while.cond10.us.i:                                ; preds = %land.rhs.us.i, %if.
 
 while.cond10.us.while.end.us_crit_edge.i:         ; preds = %while.cond10.us.i
   %.pre39.i = load i8, ptr %bol.0.us.i, align 1
+  %9 = icmp eq i8 %.pre39.i, 10
+  %10 = zext i1 %9 to i64
   br label %while.end.us.i
 
 land.rhs.us.i:                                    ; preds = %while.cond10.us.i
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %bol.0.us.i, i64 -1
-  %9 = load i8, ptr %incdec.ptr.us.i, align 1
-  %cmp12.not.us.i = icmp eq i8 %9, 10
+  %11 = load i8, ptr %incdec.ptr.us.i, align 1
+  %cmp12.not.us.i = icmp eq i8 %11, 10
   br i1 %cmp12.not.us.i, label %while.end.us.i, label %while.cond10.us.i, !llvm.loop !7
 
 while.end.us.i:                                   ; preds = %land.rhs.us.i, %while.cond10.us.while.end.us_crit_edge.i
-  %10 = phi i8 [ %.pre39.i, %while.cond10.us.while.end.us_crit_edge.i ], [ 10, %land.rhs.us.i ]
+  %cmp16.us.i = phi i64 [ %10, %while.cond10.us.while.end.us_crit_edge.i ], [ 1, %land.rhs.us.i ]
   %bol.1.us.i = phi ptr [ %bol.0.us.i, %while.cond10.us.while.end.us_crit_edge.i ], [ %incdec.ptr.us.i, %land.rhs.us.i ]
-  %cmp16.us.i = icmp eq i8 %10, 10
-  %spec.select.idx.us.i = zext i1 %cmp16.us.i to i64
-  %spec.select.us.i = getelementptr inbounds i8, ptr %bol.1.us.i, i64 %spec.select.idx.us.i
+  %spec.select.us.i = getelementptr inbounds i8, ptr %bol.1.us.i, i64 %cmp16.us.i
   br label %while.cond21.us.i
 
 while.cond21.us.i:                                ; preds = %while.body29.us.i, %while.end.us.i
   %eol.0.us.i = phi ptr [ %add.ptr9.us.i, %while.end.us.i ], [ %incdec.ptr30.us.i, %while.body29.us.i ]
-  %11 = load i8, ptr %eol.0.us.i, align 1
-  switch i8 %11, label %while.body29.us.i [
+  %12 = load i8, ptr %eol.0.us.i, align 1
+  switch i8 %12, label %while.body29.us.i [
     i8 0, label %while.end31.us.i
     i8 10, label %while.end31.us.i
   ]
 
 while.end31.us.i:                                 ; preds = %while.cond21.us.i, %while.cond21.us.i
-  %cmp33.us.i = icmp eq i8 %11, 10
+  %cmp33.us.i = icmp eq i8 %12, 10
   %spec.select19.idx.us.i = zext i1 %cmp33.us.i to i64
   %spec.select19.us.i = getelementptr inbounds i8, ptr %eol.0.us.i, i64 %spec.select19.idx.us.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i.i)
@@ -243,18 +243,18 @@ while.end31.us.i:                                 ; preds = %while.cond21.us.i, 
   br i1 %cmp1.i.us.i, label %while.cond.critedge.us.i, label %if.end4.i.us.i
 
 if.end4.i.us.i:                                   ; preds = %while.end31.us.i
-  %12 = load i8, ptr %spec.select.us.i, align 1
-  %idxprom.i.us.i = zext i8 %12 to i64
+  %13 = load i8, ptr %spec.select.us.i, align 1
+  %idxprom.i.us.i = zext i8 %13 to i64
   %arrayidx.i.us.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.us.i
-  %13 = load i8, ptr %arrayidx.i.us.i, align 1
-  %.fr10.i.us.i = freeze i8 %13
-  %14 = and i8 %.fr10.i.us.i, 4
-  %cmp6.not.not.i.us.i = icmp eq i8 %14, 0
+  %14 = load i8, ptr %arrayidx.i.us.i, align 1
+  %.fr10.i.us.i = freeze i8 %14
+  %15 = and i8 %.fr10.i.us.i, 4
+  %cmp6.not.not.i.us.i = icmp eq i8 %15, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i.i)
   br i1 %cmp6.not.not.i.us.i, label %switch.early.test.i.us.i, label %find_funcname_matching_regexp.exit
 
 switch.early.test.i.us.i:                         ; preds = %if.end4.i.us.i
-  switch i8 %12, label %while.cond.backedge.us.i [
+  switch i8 %13, label %while.cond.backedge.us.i [
     i8 95, label %find_funcname_matching_regexp.exit
     i8 36, label %find_funcname_matching_regexp.exit
   ]
@@ -268,8 +268,8 @@ while.body29.us.i:                                ; preds = %while.cond21.us.i
   br label %while.cond21.us.i, !llvm.loop !8
 
 while.cond.backedge.us.i:                         ; preds = %while.cond.critedge.us.i, %switch.early.test.i.us.i
-  %15 = load i8, ptr %spec.select19.us.i, align 1
-  %tobool.not.us.i = icmp eq i8 %15, 0
+  %16 = load i8, ptr %spec.select19.us.i, align 1
+  %tobool.not.us.i = icmp eq i8 %16, 0
   br i1 %tobool.not.us.i, label %find_funcname_matching_regexp.exit.thread, label %while.body.us.i, !llvm.loop !9
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.cond.backedge.i
@@ -287,11 +287,11 @@ if.then2.i:                                       ; preds = %while.body.i, %whil
   unreachable
 
 if.end6.i:                                        ; preds = %while.body.i
-  %16 = load i32, ptr %match.i, align 4
-  %idx.ext.i = sext i32 %16 to i64
+  %17 = load i32, ptr %match.i, align 4
+  %idx.ext.i = sext i32 %17 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %start.addr.025.i, i64 %idx.ext.i
-  %17 = load i32, ptr %rm_eo.i, align 4
-  %idx.ext8.i = sext i32 %17 to i64
+  %18 = load i32, ptr %rm_eo.i, align 4
+  %idx.ext8.i = sext i32 %18 to i64
   %add.ptr9.i = getelementptr inbounds i8, ptr %start.addr.025.i, i64 %idx.ext8.i
   br label %while.cond10.i
 
@@ -302,26 +302,26 @@ while.cond10.i:                                   ; preds = %land.rhs.i, %if.end
 
 while.cond10.while.end_crit_edge.i:               ; preds = %while.cond10.i
   %.pre.i = load i8, ptr %bol.0.i, align 1
+  %19 = icmp eq i8 %.pre.i, 10
+  %20 = zext i1 %19 to i64
   br label %while.end.i
 
 land.rhs.i:                                       ; preds = %while.cond10.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %bol.0.i, i64 -1
-  %18 = load i8, ptr %incdec.ptr.i, align 1
-  %cmp12.not.i = icmp eq i8 %18, 10
+  %21 = load i8, ptr %incdec.ptr.i, align 1
+  %cmp12.not.i = icmp eq i8 %21, 10
   br i1 %cmp12.not.i, label %while.end.i, label %while.cond10.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %land.rhs.i, %while.cond10.while.end_crit_edge.i
-  %19 = phi i8 [ %.pre.i, %while.cond10.while.end_crit_edge.i ], [ 10, %land.rhs.i ]
+  %cmp16.i = phi i64 [ %20, %while.cond10.while.end_crit_edge.i ], [ 1, %land.rhs.i ]
   %bol.1.i = phi ptr [ %bol.0.i, %while.cond10.while.end_crit_edge.i ], [ %incdec.ptr.i, %land.rhs.i ]
-  %cmp16.i = icmp eq i8 %19, 10
-  %spec.select.idx.i = zext i1 %cmp16.i to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %bol.1.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds i8, ptr %bol.1.i, i64 %cmp16.i
   br label %while.cond21.i
 
 while.cond21.i:                                   ; preds = %while.body29.i, %while.end.i
   %eol.0.i = phi ptr [ %add.ptr9.i, %while.end.i ], [ %incdec.ptr30.i, %while.body29.i ]
-  %20 = load i8, ptr %eol.0.i, align 1
-  switch i8 %20, label %while.body29.i [
+  %22 = load i8, ptr %eol.0.i, align 1
+  switch i8 %22, label %while.body29.i [
     i8 0, label %while.end31.i
     i8 10, label %while.end31.i
   ]
@@ -331,23 +331,23 @@ while.body29.i:                                   ; preds = %while.cond21.i
   br label %while.cond21.i, !llvm.loop !8
 
 while.end31.i:                                    ; preds = %while.cond21.i, %while.cond21.i
-  %cmp33.i = icmp eq i8 %20, 10
+  %cmp33.i = icmp eq i8 %22, 10
   %spec.select19.idx.i = zext i1 %cmp33.i to i64
   %spec.select19.i = getelementptr inbounds i8, ptr %eol.0.i, i64 %spec.select19.idx.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i.i)
-  %21 = load ptr, ptr %find_func.i.i, align 8
+  %23 = load ptr, ptr %find_func.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %spec.select19.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %spec.select.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %22 = load ptr, ptr %find_func_priv.i.i, align 8
-  %call.i.i = call i64 %21(ptr noundef nonnull %spec.select.i, i64 noundef %sub.ptr.sub.i.i, ptr noundef nonnull %buf.i.i, i64 noundef 1, ptr noundef %22) #8
+  %24 = load ptr, ptr %find_func_priv.i.i, align 8
+  %call.i.i = call i64 %23(ptr noundef nonnull %spec.select.i, i64 noundef %sub.ptr.sub.i.i, ptr noundef nonnull %buf.i.i, i64 noundef 1, ptr noundef %24) #8
   %cmp.i.i = icmp sgt i64 %call.i.i, -1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i.i)
   br i1 %cmp.i.i, label %find_funcname_matching_regexp.exit, label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %while.end31.i
-  %23 = load i8, ptr %spec.select19.i, align 1
-  %tobool.not.i = icmp eq i8 %23, 0
+  %25 = load i8, ptr %spec.select19.i, align 1
+  %tobool.not.i = icmp eq i8 %25, 0
   br i1 %tobool.not.i, label %find_funcname_matching_regexp.exit.thread, label %while.body.i, !llvm.loop !9
 
 find_funcname_matching_regexp.exit.thread:        ; preds = %while.body.i, %while.cond.backedge.i, %while.body.us.i, %while.cond.backedge.us.i, %if.end42
@@ -366,20 +366,20 @@ find_funcname_matching_regexp.exit:               ; preds = %while.end31.i, %swi
   br i1 %cmp4976, label %while.body51, label %while.end52
 
 while.body51:                                     ; preds = %find_funcname_matching_regexp.exit, %while.body51
-  %24 = load i64, ptr %begin, align 8
-  %inc = add nsw i64 %24, 1
+  %26 = load i64, ptr %begin, align 8
+  %inc = add nsw i64 %26, 1
   store i64 %inc, ptr %begin, align 8
   %call48 = call ptr %nth_line_cb(ptr noundef %cb_data, i64 noundef %inc) #8
   %cmp49 = icmp ugt ptr %retval.0.i, %call48
   br i1 %cmp49, label %while.body51, label %while.end52, !llvm.loop !10
 
 while.end52:                                      ; preds = %while.body51, %find_funcname_matching_regexp.exit
-  %25 = load i64, ptr %begin, align 8
-  %cmp53.not = icmp slt i64 %25, %lines
+  %27 = load i64, ptr %begin, align 8
+  %cmp53.not = icmp slt i64 %27, %lines
   br i1 %cmp53.not, label %while.cond58.preheader, label %if.then55
 
 while.cond58.preheader:                           ; preds = %while.end52
-  %storemerge4777 = add nsw i64 %25, 1
+  %storemerge4777 = add nsw i64 %27, 1
   store i64 %storemerge4777, ptr %end, align 8
   %cmp5978 = icmp slt i64 %storemerge4777, %lines
   br i1 %cmp5978, label %while.body61.lr.ph, label %while.end70
@@ -390,26 +390,26 @@ while.body61.lr.ph:                               ; preds = %while.cond58.prehea
 while.body61.us:                                  ; preds = %while.body61.lr.ph, %if.end68.us
   %storemerge4779.us = phi i64 [ %storemerge47.us, %if.end68.us ], [ %storemerge4777, %while.body61.lr.ph ]
   %call62.us = call ptr %nth_line_cb(ptr noundef %cb_data, i64 noundef %storemerge4779.us) #8
-  %26 = load i64, ptr %end, align 8
-  %add63.us = add nsw i64 %26, 1
+  %28 = load i64, ptr %end, align 8
+  %add63.us = add nsw i64 %28, 1
   %call64.us = call ptr %nth_line_cb(ptr noundef %cb_data, i64 noundef %add63.us) #8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i)
   %cmp1.i.us = icmp eq ptr %call62.us, %call64.us
   br i1 %cmp1.i.us, label %match_funcname.exit.thread.us, label %if.end4.i.us
 
 if.end4.i.us:                                     ; preds = %while.body61.us
-  %27 = load i8, ptr %call62.us, align 1
-  %idxprom.i.us = zext i8 %27 to i64
+  %29 = load i8, ptr %call62.us, align 1
+  %idxprom.i.us = zext i8 %29 to i64
   %arrayidx.i.us = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.us
-  %28 = load i8, ptr %arrayidx.i.us, align 1
-  %.fr10.i.us = freeze i8 %28
-  %29 = and i8 %.fr10.i.us, 4
-  %cmp6.not.not.i.us = icmp eq i8 %29, 0
+  %30 = load i8, ptr %arrayidx.i.us, align 1
+  %.fr10.i.us = freeze i8 %30
+  %31 = and i8 %.fr10.i.us, 4
+  %cmp6.not.not.i.us = icmp eq i8 %31, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i)
   br i1 %cmp6.not.not.i.us, label %switch.early.test.i.us, label %while.end70
 
 switch.early.test.i.us:                           ; preds = %if.end4.i.us
-  switch i8 %27, label %if.end68.us [
+  switch i8 %29, label %if.end68.us [
     i8 95, label %while.end70
     i8 36, label %while.end70
   ]
@@ -419,8 +419,8 @@ match_funcname.exit.thread.us:                    ; preds = %while.body61.us
   br label %if.end68.us
 
 if.end68.us:                                      ; preds = %switch.early.test.i.us, %match_funcname.exit.thread.us
-  %30 = load i64, ptr %end, align 8
-  %storemerge47.us = add nsw i64 %30, 1
+  %32 = load i64, ptr %end, align 8
+  %storemerge47.us = add nsw i64 %32, 1
   store i64 %storemerge47.us, ptr %end, align 8
   %cmp59.us = icmp slt i64 %storemerge47.us, %lines
   br i1 %cmp59.us, label %while.body61.us, label %while.end70, !llvm.loop !11
@@ -432,23 +432,23 @@ if.then55:                                        ; preds = %while.end52
 while.body61:                                     ; preds = %while.body61.lr.ph, %if.end68
   %storemerge4779 = phi i64 [ %storemerge47, %if.end68 ], [ %storemerge4777, %while.body61.lr.ph ]
   %call62 = call ptr %nth_line_cb(ptr noundef %cb_data, i64 noundef %storemerge4779) #8
-  %31 = load i64, ptr %end, align 8
-  %add63 = add nsw i64 %31, 1
+  %33 = load i64, ptr %end, align 8
+  %add63 = add nsw i64 %33, 1
   %call64 = call ptr %nth_line_cb(ptr noundef %cb_data, i64 noundef %add63) #8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %buf.i)
-  %32 = load ptr, ptr %find_func.i.i, align 8
+  %34 = load ptr, ptr %find_func.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call64 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call62 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %33 = load ptr, ptr %find_func_priv.i.i, align 8
-  %call.i51 = call i64 %32(ptr noundef %call62, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull %buf.i, i64 noundef 1, ptr noundef %33) #8
+  %35 = load ptr, ptr %find_func_priv.i.i, align 8
+  %call.i51 = call i64 %34(ptr noundef %call62, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull %buf.i, i64 noundef 1, ptr noundef %35) #8
   %cmp.i = icmp sgt i64 %call.i51, -1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %buf.i)
   br i1 %cmp.i, label %while.end70, label %if.end68
 
 if.end68:                                         ; preds = %while.body61
-  %34 = load i64, ptr %end, align 8
-  %storemerge47 = add nsw i64 %34, 1
+  %36 = load i64, ptr %end, align 8
+  %storemerge47 = add nsw i64 %36, 1
   store i64 %storemerge47, ptr %end, align 8
   %cmp59 = icmp slt i64 %storemerge47, %lines
   br i1 %cmp59, label %while.body61, label %while.end70, !llvm.loop !11
@@ -457,8 +457,8 @@ while.end70:                                      ; preds = %if.end68, %while.bo
   call void @regfree(ptr noundef nonnull %regexp) #8
   call void @free(ptr noundef %xecfg.0) #8
   call void @free(ptr noundef %call) #8
-  %35 = load i64, ptr %begin, align 8
-  %inc71 = add nsw i64 %35, 1
+  %37 = load i64, ptr %begin, align 8
+  %inc71 = add nsw i64 %37, 1
   store i64 %inc71, ptr %begin, align 8
   br label %return
 

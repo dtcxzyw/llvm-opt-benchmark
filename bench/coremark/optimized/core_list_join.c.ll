@@ -821,9 +821,9 @@ define dso_local ptr @core_list_mergesort(ptr noundef %list, ptr nocapture nound
 entry:
   br label %while.body
 
-while.body:                                       ; preds = %while.end37, %entry
-  %list.addr.0 = phi ptr [ %list, %entry ], [ %list.addr.2.us.ph, %while.end37 ]
-  %insize.0 = phi i32 [ 1, %entry ], [ %mul, %while.end37 ]
+while.body:                                       ; preds = %while.end37.loopexit, %entry
+  %list.addr.0 = phi ptr [ %list, %entry ], [ %list.addr.2.us.ph, %while.end37.loopexit ]
+  %insize.0 = phi i32 [ 1, %entry ], [ %mul, %while.end37.loopexit ]
   %tobool.not40 = icmp ne ptr %list.addr.0, null
   tail call void @llvm.assume(i1 %tobool.not40)
   br label %while.body2.us
@@ -930,15 +930,15 @@ if.then33.us:                                     ; preds = %if.end31.us
 
 while.cond1.loopexit.us:                          ; preds = %lor.rhs.us
   %tobool.not.us = icmp eq ptr %q.2.us, null
-  br i1 %tobool.not.us, label %while.end37, label %while.body2.us, !llvm.loop !12
+  br i1 %tobool.not.us, label %while.end37.loopexit, label %while.body2.us, !llvm.loop !12
 
-while.end37:                                      ; preds = %while.cond1.loopexit.us
+while.end37.loopexit:                             ; preds = %while.cond1.loopexit.us
+  %8 = icmp eq i32 %nmerges.044.us, 0
   store ptr null, ptr %tail.1.us, align 8
-  %cmp39 = icmp eq i32 %nmerges.044.us, 0
   %mul = shl nuw nsw i32 %insize.0, 1
-  br i1 %cmp39, label %if.then40, label %while.body
+  br i1 %8, label %if.then40, label %while.body
 
-if.then40:                                        ; preds = %while.end37
+if.then40:                                        ; preds = %while.end37.loopexit
   ret ptr %list.addr.2.us.ph
 }
 

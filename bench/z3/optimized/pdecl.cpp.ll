@@ -7364,12 +7364,12 @@ for.cond60:                                       ; preds = %for.cond60.preheade
 if.end.i61:                                       ; preds = %for.cond60
   %arrayidx.i62 = getelementptr inbounds i8, ptr %55, i64 -4
   %56 = load i32, ptr %arrayidx.i62, align 4
+  %57 = zext i32 %56 to i64
   br label %_ZNK6vectorIP14pdatatype_declLb0EjE4sizeEv.exit64
 
 _ZNK6vectorIP14pdatatype_declLb0EjE4sizeEv.exit64: ; preds = %for.cond60, %if.end.i61
-  %retval.0.i63 = phi i32 [ %56, %if.end.i61 ], [ 0, %for.cond60 ]
-  %57 = zext i32 %retval.0.i63 to i64
-  %cmp64 = icmp ult i64 %indvars.iv116, %57
+  %retval.0.i63 = phi i64 [ %57, %if.end.i61 ], [ 0, %for.cond60 ]
+  %cmp64 = icmp ult i64 %indvars.iv116, %retval.0.i63
   br i1 %cmp64, label %for.body65, label %if.end80
 
 for.body65:                                       ; preds = %_ZNK6vectorIP14pdatatype_declLb0EjE4sizeEv.exit64

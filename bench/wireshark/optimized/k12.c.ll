@@ -865,7 +865,7 @@ define internal range(i32 0, 2) i32 @k12_read(ptr nocapture noundef readonly %0,
   br label %.loopexit
 
 16:                                               ; preds = %.lr.ph, %.backedge
-  %.04252 = phi i64 [ %10, %.lr.ph ], [ %77, %.backedge ]
+  %.04252 = phi i64 [ %10, %.lr.ph ], [ %78, %.backedge ]
   store i64 %.04252, ptr %5, align 8
   %17 = load ptr, ptr %0, align 8
   %18 = tail call fastcc i32 @get_record(ptr noundef nonnull %8, ptr noundef %17, i64 noundef %.04252, i32 noundef 0, ptr noundef %3, ptr noundef %4)
@@ -934,7 +934,7 @@ define internal range(i32 0, 2) i32 @k12_read(ptr nocapture noundef readonly %0,
   %67 = inttoptr i64 %66 to ptr
   %68 = tail call ptr @g_hash_table_lookup(ptr noundef %65, ptr noundef %67) #11
   %.not = icmp eq ptr %68, null
-  br i1 %.not, label %69, label %75
+  br i1 %.not, label %69, label %76
 
 69:                                               ; preds = %27
   %70 = load ptr, ptr %15, align 8
@@ -942,43 +942,42 @@ define internal range(i32 0, 2) i32 @k12_read(ptr nocapture noundef readonly %0,
   %72 = zext nneg i32 %71 to i64
   %73 = inttoptr i64 %72 to ptr
   %74 = tail call ptr @g_hash_table_lookup(ptr noundef %70, ptr noundef %73) #11
-  br label %75
+  %75 = icmp eq ptr %74, null
+  br label %76
 
-75:                                               ; preds = %69, %27
-  %.041 = phi ptr [ %68, %27 ], [ %74, %69 ]
-  %76 = zext nneg i32 %18 to i64
-  %77 = add i64 %.04252, %76
-  %78 = and i8 %46, -16
-  %.masked = zext i8 %78 to i32
-  %79 = or disjoint i32 %44, %.masked
-  %.not46 = icmp eq i32 %79, 65568
-  br i1 %.not46, label %83, label %80
+76:                                               ; preds = %69, %27
+  %.041 = phi i1 [ false, %27 ], [ %75, %69 ]
+  %77 = zext nneg i32 %18 to i64
+  %78 = add i64 %.04252, %77
+  %79 = and i8 %46, -16
+  %.masked = zext i8 %79 to i32
+  %80 = or disjoint i32 %44, %.masked
+  %.not46 = icmp eq i32 %80, 65568
+  br i1 %.not46, label %84, label %81
 
-80:                                               ; preds = %75
-  %81 = icmp ne i32 %79, 852000
-  %82 = icmp eq i32 %64, 0
-  %or.cond.not57 = or i1 %81, %82
-  %.not47 = icmp eq ptr %.041, null
-  %or.cond53 = select i1 %or.cond.not57, i1 true, i1 %.not47
-  br i1 %or.cond53, label %.backedge, label %86
+81:                                               ; preds = %76
+  %82 = icmp ne i32 %80, 852000
+  %83 = icmp eq i32 %64, 0
+  %or.cond.not56 = or i1 %82, %83
+  %brmerge = select i1 %or.cond.not56, i1 true, i1 %.041
+  br i1 %brmerge, label %.backedge, label %87
 
-83:                                               ; preds = %75
+84:                                               ; preds = %76
   %.old1.not = icmp eq i32 %64, 0
-  %.not47.old = icmp eq ptr %.041, null
-  %or.cond54 = select i1 %.old1.not, i1 true, i1 %.not47.old
-  br i1 %or.cond54, label %.backedge, label %86
+  %brmerge53 = select i1 %.old1.not, i1 true, i1 %.041
+  br i1 %brmerge53, label %.backedge, label %87
 
-.backedge:                                        ; preds = %83, %80
-  %84 = load i32, ptr %11, align 4
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %._crit_edge, label %16, !llvm.loop !9
+.backedge:                                        ; preds = %84, %81
+  %85 = load i32, ptr %11, align 4
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %._crit_edge, label %16, !llvm.loop !9
 
-86:                                               ; preds = %83, %80
-  %87 = tail call fastcc i32 @process_packet_data(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %30, i32 noundef %18, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
+87:                                               ; preds = %84, %81
+  %88 = tail call fastcc i32 @process_packet_data(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %30, i32 noundef %18, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %86, %25, %22, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %22 ], [ 0, %25 ], [ %87, %86 ], [ 0, %16 ]
+.loopexit:                                        ; preds = %16, %87, %25, %22, %._crit_edge
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %22 ], [ 0, %25 ], [ %88, %87 ], [ 0, %16 ]
   ret i32 %.0
 }
 

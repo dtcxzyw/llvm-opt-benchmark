@@ -3724,11 +3724,11 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit367: ; preds = %_ZN5Ipopt8Smar
   %871 = load ptr, ptr %870, align 8
   call void %871(ptr noundef nonnull align 8 dereferenceable(205) %832) #14
   %.pre848 = load i32, ptr %864, align 8
+  %872 = add nsw i32 %.pre848, -1
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit377
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit377:     ; preds = %868, %863
-  %872 = phi i32 [ %.pre848, %868 ], [ %866, %863 ]
-  %873 = add nsw i32 %872, -1
+  %873 = phi i32 [ %872, %868 ], [ %865, %863 ]
   store i32 %873, ptr %864, align 8
   %874 = icmp eq i32 %873, 0
   br i1 %874, label %875, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit235
@@ -5509,7 +5509,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit43: ; 
   store i32 %142, ptr %140, align 8, !noalias !163
   %143 = call ptr @__dynamic_cast(ptr nonnull %138, ptr nonnull @_ZTIN5Ipopt25SearchDirectionCalculatorE, ptr nonnull @_ZTIN5Ipopt21PDSearchDirCalculatorE, i64 0) #14
   %.not.i.i50 = icmp eq ptr %143, null
-  br i1 %.not.i.i50, label %148, label %144
+  br i1 %.not.i.i50, label %149, label %144
 
 144:                                              ; preds = %139
   %145 = getelementptr inbounds i8, ptr %143, i64 8
@@ -5517,25 +5517,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit43: ; 
   %147 = add nsw i32 %146, 1
   store i32 %147, ptr %145, align 8
   %.pre123 = load i32, ptr %140, align 8
-  br label %148
+  %148 = add nsw i32 %.pre123, -1
+  br label %149
 
-148:                                              ; preds = %144, %139
-  %149 = phi i32 [ %.pre123, %144 ], [ %142, %139 ]
-  %150 = add nsw i32 %149, -1
+149:                                              ; preds = %144, %139
+  %150 = phi i32 [ %148, %144 ], [ %141, %139 ]
   store i32 %150, ptr %140, align 8
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %152, label %_ZN5Ipopt8SmartPtrINS_25SearchDirectionCalculatorEED2Ev.exit53
 
-152:                                              ; preds = %148
+152:                                              ; preds = %149
   %153 = load ptr, ptr %138, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
   call void %155(ptr noundef nonnull align 8 dereferenceable(49) %138) #14
   br label %_ZN5Ipopt8SmartPtrINS_25SearchDirectionCalculatorEED2Ev.exit53
 
-_ZN5Ipopt8SmartPtrINS_25SearchDirectionCalculatorEED2Ev.exit53: ; preds = %134, %148, %152
-  %156 = phi ptr [ %143, %148 ], [ %143, %152 ], [ null, %134 ]
-  %.not.i.i50108116 = phi i1 [ %.not.i.i50, %148 ], [ %.not.i.i50, %152 ], [ true, %134 ]
+_ZN5Ipopt8SmartPtrINS_25SearchDirectionCalculatorEED2Ev.exit53: ; preds = %134, %149, %152
+  %156 = phi ptr [ %143, %149 ], [ %143, %152 ], [ null, %134 ]
+  %.not.i.i50108116 = phi i1 [ %.not.i.i50, %149 ], [ %.not.i.i50, %152 ], [ true, %134 ]
   %157 = getelementptr inbounds i8, ptr %156, i64 56
   %158 = load ptr, ptr %157, align 8, !noalias !166
   %.not.i.i.i.i54 = icmp eq ptr %158, null

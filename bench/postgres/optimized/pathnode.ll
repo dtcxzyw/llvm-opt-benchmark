@@ -1704,11 +1704,11 @@ list_length.exit:                                 ; preds = %37, %38
   %.pre = load i8, ptr %32, align 1
   br label %.lr.ph77
 
-.lr.ph77:                                         ; preds = %.lr.ph77.preheader, %69
-  %61 = phi i8 [ %.pre, %.lr.ph77.preheader ], [ %71, %69 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph77.preheader ], [ %indvars.iv.next, %69 ]
+.lr.ph77:                                         ; preds = %.lr.ph77.preheader, %70
+  %61 = phi i8 [ %.pre, %.lr.ph77.preheader ], [ %71, %70 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph77.preheader ], [ %indvars.iv.next, %70 ]
   %62 = trunc i8 %61 to i1
-  br i1 %62, label %63, label %69
+  br i1 %62, label %63, label %70
 
 63:                                               ; preds = %.lr.ph77
   %64 = load ptr, ptr %58, align 8
@@ -1716,11 +1716,11 @@ list_length.exit:                                 ; preds = %37, %38
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 33
   %68 = load i8, ptr %67, align 1
-  br label %69
+  %69 = and i8 %68, 1
+  br label %70
 
-69:                                               ; preds = %63, %.lr.ph77
-  %70 = phi i8 [ 0, %.lr.ph77 ], [ %68, %63 ]
-  %71 = and i8 %70, 1
+70:                                               ; preds = %63, %.lr.ph77
+  %71 = phi i8 [ 0, %.lr.ph77 ], [ %69, %63 ]
   store i8 %71, ptr %32, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load i32, ptr %57, align 4
@@ -1728,7 +1728,7 @@ list_length.exit:                                 ; preds = %37, %38
   %74 = icmp slt i64 %indvars.iv.next, %73
   br i1 %74, label %.lr.ph77, label %list_length.exit71
 
-list_length.exit71:                               ; preds = %69
+list_length.exit71:                               ; preds = %70
   %75 = icmp eq i32 %72, 1
   br i1 %75, label %76, label %list_length.exit71.thread
 
@@ -1953,29 +1953,29 @@ define dso_local noundef ptr @create_merge_append_path(ptr noundef %0, ptr nound
   store double %46, ptr %33, align 8
   %47 = load i8, ptr %18, align 1
   %48 = trunc i8 %47 to i1
-  br i1 %48, label %49, label %52
+  br i1 %48, label %49, label %53
 
 49:                                               ; preds = %.lr.ph89
   %50 = getelementptr inbounds i8, ptr %42, i64 33
   %51 = load i8, ptr %50, align 1
-  br label %52
+  %52 = and i8 %51, 1
+  br label %53
 
-52:                                               ; preds = %49, %.lr.ph89
-  %53 = phi i8 [ 0, %.lr.ph89 ], [ %51, %49 ]
-  %54 = and i8 %53, 1
+53:                                               ; preds = %49, %.lr.ph89
+  %54 = phi i8 [ 0, %.lr.ph89 ], [ %52, %49 ]
   store i8 %54, ptr %18, align 1
   %55 = getelementptr inbounds i8, ptr %42, i64 64
   %56 = load ptr, ptr %55, align 8
   %57 = call zeroext i1 @pathkeys_contained_in(ptr noundef %3, ptr noundef %56) #9
   br i1 %57, label %58, label %62
 
-58:                                               ; preds = %52
+58:                                               ; preds = %53
   %59 = getelementptr inbounds i8, ptr %42, i64 48
   %60 = load double, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %42, i64 56
   br label %73
 
-62:                                               ; preds = %52
+62:                                               ; preds = %53
   %63 = getelementptr inbounds i8, ptr %42, i64 56
   %64 = load double, ptr %63, align 8
   %65 = load double, ptr %43, align 8
@@ -2292,18 +2292,18 @@ define dso_local ptr @create_unique_path(ptr noundef %0, ptr noundef %1, ptr nou
   %30 = getelementptr inbounds i8, ptr %1, i64 26
   %31 = load i8, ptr %30, align 2
   %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %36
+  br i1 %32, label %33, label %37
 
 33:                                               ; preds = %17
   %34 = getelementptr inbounds i8, ptr %2, i64 33
   %35 = load i8, ptr %34, align 1
-  br label %36
+  %36 = and i8 %35, 1
+  br label %37
 
-36:                                               ; preds = %33, %17
-  %37 = phi i8 [ 0, %17 ], [ %35, %33 ]
-  %38 = getelementptr inbounds i8, ptr %20, i64 33
-  %39 = and i8 %37, 1
-  store i8 %39, ptr %38, align 1
+37:                                               ; preds = %33, %17
+  %38 = phi i8 [ 0, %17 ], [ %36, %33 ]
+  %39 = getelementptr inbounds i8, ptr %20, i64 33
+  store i8 %38, ptr %39, align 1
   %40 = getelementptr inbounds i8, ptr %2, i64 36
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds i8, ptr %20, i64 36
@@ -2327,7 +2327,7 @@ define dso_local ptr @create_unique_path(ptr noundef %0, ptr noundef %1, ptr nou
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %76
 
-56:                                               ; preds = %36
+56:                                               ; preds = %37
   %57 = load i8, ptr %10, align 1
   %58 = trunc i8 %57 to i1
   br i1 %58, label %59, label %.thread
@@ -2362,8 +2362,8 @@ thread-pre-split:                                 ; preds = %59
   %.pr = load i32, ptr %53, align 8
   br label %76
 
-76:                                               ; preds = %thread-pre-split, %36
-  %77 = phi i32 [ %.pr, %thread-pre-split ], [ %54, %36 ]
+76:                                               ; preds = %thread-pre-split, %37
+  %77 = phi i32 [ %.pr, %thread-pre-split ], [ %54, %37 ]
   %78 = icmp eq i32 %77, 1
   br i1 %78, label %79, label %.thread
 

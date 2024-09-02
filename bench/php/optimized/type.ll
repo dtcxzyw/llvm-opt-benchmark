@@ -273,410 +273,410 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   %5 = getelementptr inbounds i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 2
-  br i1 %.not, label %7, label %.thread154
-
-.thread154:                                       ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #8
-  br label %16
+  br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
-  %11 = load i8, ptr %10, align 8
-  %12 = icmp eq i8 %11, 6
-  br i1 %12, label %.thread166, label %14
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #8
+  br label %.thread167
 
-.thread166:                                       ; preds = %7
-  %13 = load ptr, ptr %9, align 8
-  store ptr %13, ptr %3, align 8
-  br label %17
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = load i8, ptr %11, align 8
+  %13 = icmp eq i8 %12, 6
+  br i1 %13, label %.thread154, label %15
 
-14:                                               ; preds = %7
-  %15 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef 2) #8
-  %cond.fr143 = freeze i1 %15
-  br i1 %cond.fr143, label %17, label %16
+.thread154:                                       ; preds = %8
+  %14 = load ptr, ptr %10, align 8
+  store ptr %14, ptr %3, align 8
+  br label %.thread158
 
-16:                                               ; preds = %14, %.thread154
-  %.093164 = phi i32 [ 0, %.thread154 ], [ 2, %14 ]
-  %.094163 = phi i32 [ 1, %.thread154 ], [ 9, %14 ]
-  %.095162 = phi ptr [ null, %.thread154 ], [ %9, %14 ]
-  %.096161 = phi i32 [ 0, %.thread154 ], [ 4, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.094163, i32 noundef %.093164, ptr noundef null, i32 noundef %.096161, ptr noundef %.095162) #8
-  br label %204
+15:                                               ; preds = %8
+  %16 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 2) #8
+  %.fr = freeze i1 %16
+  br i1 %.fr, label %.thread158, label %.thread167
 
-17:                                               ; preds = %14, %.thread166
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
-  %20 = load ptr, ptr %19, align 8
-  %.not127 = icmp eq ptr %20, null
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
-  br i1 %.not127, label %31, label %22
+.thread167:                                       ; preds = %15, %7
+  %.093177 = phi i32 [ 0, %7 ], [ 2, %15 ]
+  %.094176 = phi i32 [ 1, %7 ], [ 9, %15 ]
+  %.095175 = phi ptr [ null, %7 ], [ %10, %15 ]
+  %.096174 = phi i32 [ 0, %7 ], [ 4, %15 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.094176, i32 noundef %.093177, ptr noundef null, i32 noundef %.096174, ptr noundef %.095175) #8
+  br label %203
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 16
-  %25 = load i32, ptr %24, align 8
-  store ptr %23, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 %25, ptr %26, align 8
-  %27 = and i32 %25, 65280
-  %.not128 = icmp eq i32 %27, 0
-  br i1 %.not128, label %31, label %28
+.thread158:                                       ; preds = %15, %.thread154
+  %17 = load ptr, ptr %9, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = load ptr, ptr %18, align 8
+  %.not127 = icmp eq ptr %19, null
+  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  br i1 %.not127, label %30, label %21
 
-28:                                               ; preds = %22
-  %29 = load i32, ptr %23, align 4
-  %30 = add i32 %29, 1
-  store i32 %30, ptr %23, align 4
-  br label %31
+21:                                               ; preds = %.thread158
+  %22 = load ptr, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %17, i64 16
+  %24 = load i32, ptr %23, align 8
+  store ptr %22, ptr %4, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %24, ptr %25, align 8
+  %26 = and i32 %24, 65280
+  %.not128 = icmp eq i32 %26, 0
+  br i1 %.not128, label %30, label %27
 
-31:                                               ; preds = %17, %28, %22
-  %.092 = phi ptr [ %4, %22 ], [ %4, %28 ], [ %21, %17 ]
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = load i64, ptr %33, align 8
-  %35 = load ptr, ptr @zend_known_strings, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 312
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
-  %39 = load i64, ptr %38, align 8
-  %40 = icmp eq i64 %34, %39
-  br i1 %40, label %41, label %46
+27:                                               ; preds = %21
+  %28 = load i32, ptr %22, align 4
+  %29 = add i32 %28, 1
+  store i32 %29, ptr %22, align 4
+  br label %30
 
-41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %32, i64 24
-  %43 = getelementptr inbounds i8, ptr %37, i64 24
-  %44 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %42, i64 noundef %34, ptr noundef nonnull %43, i64 noundef %34) #8
-  %.not129 = icmp eq i32 %44, 0
-  br i1 %.not129, label %45, label %._crit_edge
+30:                                               ; preds = %.thread158, %27, %21
+  %.092 = phi ptr [ %4, %21 ], [ %4, %27 ], [ %20, %.thread158 ]
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr @zend_known_strings, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 312
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load i64, ptr %37, align 8
+  %39 = icmp eq i64 %33, %38
+  br i1 %39, label %40, label %45
 
-._crit_edge:                                      ; preds = %41
+40:                                               ; preds = %30
+  %41 = getelementptr inbounds i8, ptr %31, i64 24
+  %42 = getelementptr inbounds i8, ptr %36, i64 24
+  %43 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %41, i64 noundef %33, ptr noundef nonnull %42, i64 noundef %33) #8
+  %.not129 = icmp eq i32 %43, 0
+  br i1 %.not129, label %44, label %._crit_edge
+
+._crit_edge:                                      ; preds = %40
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
-  %.pre168 = load i64, ptr %.phi.trans.insert, align 8
-  %.pre169 = load ptr, ptr @zend_known_strings, align 8
-  br label %46
+  %.pre179 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre180 = load ptr, ptr @zend_known_strings, align 8
+  br label %45
 
-45:                                               ; preds = %41
+44:                                               ; preds = %40
   call void @convert_to_long(ptr noundef nonnull %.092) #8
-  br label %197
+  br label %196
 
-46:                                               ; preds = %._crit_edge, %31
-  %47 = phi ptr [ %.pre169, %._crit_edge ], [ %35, %31 ]
-  %48 = phi i64 [ %.pre168, %._crit_edge ], [ %34, %31 ]
-  %49 = phi ptr [ %.pre, %._crit_edge ], [ %32, %31 ]
-  %50 = getelementptr inbounds i8, ptr %47, i64 392
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
-  %53 = load i64, ptr %52, align 8
-  %54 = icmp eq i64 %48, %53
-  br i1 %54, label %55, label %60
+45:                                               ; preds = %._crit_edge, %30
+  %46 = phi ptr [ %.pre180, %._crit_edge ], [ %34, %30 ]
+  %47 = phi i64 [ %.pre179, %._crit_edge ], [ %33, %30 ]
+  %48 = phi ptr [ %.pre, %._crit_edge ], [ %31, %30 ]
+  %49 = getelementptr inbounds i8, ptr %46, i64 392
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = load i64, ptr %51, align 8
+  %53 = icmp eq i64 %47, %52
+  br i1 %53, label %54, label %59
 
-55:                                               ; preds = %46
-  %56 = getelementptr inbounds i8, ptr %49, i64 24
-  %57 = getelementptr inbounds i8, ptr %51, i64 24
-  %58 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %56, i64 noundef %48, ptr noundef nonnull %57, i64 noundef %48) #8
-  %.not130 = icmp eq i32 %58, 0
-  br i1 %.not130, label %59, label %._crit_edge170
+54:                                               ; preds = %45
+  %55 = getelementptr inbounds i8, ptr %48, i64 24
+  %56 = getelementptr inbounds i8, ptr %50, i64 24
+  %57 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %55, i64 noundef %47, ptr noundef nonnull %56, i64 noundef %47) #8
+  %.not130 = icmp eq i32 %57, 0
+  br i1 %.not130, label %58, label %._crit_edge181
 
-._crit_edge170:                                   ; preds = %55
-  %.pre171 = load ptr, ptr %3, align 8
-  %.phi.trans.insert172 = getelementptr inbounds i8, ptr %.pre171, i64 16
-  %.pre173 = load i64, ptr %.phi.trans.insert172, align 8
-  %.pre174 = load ptr, ptr @zend_known_strings, align 8
-  br label %60
+._crit_edge181:                                   ; preds = %54
+  %.pre182 = load ptr, ptr %3, align 8
+  %.phi.trans.insert183 = getelementptr inbounds i8, ptr %.pre182, i64 16
+  %.pre184 = load i64, ptr %.phi.trans.insert183, align 8
+  %.pre185 = load ptr, ptr @zend_known_strings, align 8
+  br label %59
 
-59:                                               ; preds = %55
+58:                                               ; preds = %54
   call void @convert_to_long(ptr noundef nonnull %.092) #8
-  br label %197
+  br label %196
 
-60:                                               ; preds = %._crit_edge170, %46
-  %61 = phi ptr [ %.pre174, %._crit_edge170 ], [ %47, %46 ]
-  %62 = phi i64 [ %.pre173, %._crit_edge170 ], [ %48, %46 ]
-  %63 = phi ptr [ %.pre171, %._crit_edge170 ], [ %49, %46 ]
-  %64 = getelementptr inbounds i8, ptr %61, i64 400
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
-  %67 = load i64, ptr %66, align 8
-  %68 = icmp eq i64 %62, %67
-  br i1 %68, label %69, label %74
+59:                                               ; preds = %._crit_edge181, %45
+  %60 = phi ptr [ %.pre185, %._crit_edge181 ], [ %46, %45 ]
+  %61 = phi i64 [ %.pre184, %._crit_edge181 ], [ %47, %45 ]
+  %62 = phi ptr [ %.pre182, %._crit_edge181 ], [ %48, %45 ]
+  %63 = getelementptr inbounds i8, ptr %60, i64 400
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %66 = load i64, ptr %65, align 8
+  %67 = icmp eq i64 %61, %66
+  br i1 %67, label %68, label %73
 
-69:                                               ; preds = %60
-  %70 = getelementptr inbounds i8, ptr %63, i64 24
-  %71 = getelementptr inbounds i8, ptr %65, i64 24
-  %72 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %70, i64 noundef %62, ptr noundef nonnull %71, i64 noundef %62) #8
-  %.not131 = icmp eq i32 %72, 0
-  br i1 %.not131, label %73, label %._crit_edge175
+68:                                               ; preds = %59
+  %69 = getelementptr inbounds i8, ptr %62, i64 24
+  %70 = getelementptr inbounds i8, ptr %64, i64 24
+  %71 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %69, i64 noundef %61, ptr noundef nonnull %70, i64 noundef %61) #8
+  %.not131 = icmp eq i32 %71, 0
+  br i1 %.not131, label %72, label %._crit_edge186
 
-._crit_edge175:                                   ; preds = %69
-  %.pre176 = load ptr, ptr %3, align 8
-  %.phi.trans.insert177 = getelementptr inbounds i8, ptr %.pre176, i64 16
-  %.pre178 = load i64, ptr %.phi.trans.insert177, align 8
-  %.pre179 = load ptr, ptr @zend_known_strings, align 8
-  br label %74
+._crit_edge186:                                   ; preds = %68
+  %.pre187 = load ptr, ptr %3, align 8
+  %.phi.trans.insert188 = getelementptr inbounds i8, ptr %.pre187, i64 16
+  %.pre189 = load i64, ptr %.phi.trans.insert188, align 8
+  %.pre190 = load ptr, ptr @zend_known_strings, align 8
+  br label %73
 
-73:                                               ; preds = %69
+72:                                               ; preds = %68
   call void @convert_to_double(ptr noundef nonnull %.092) #8
-  br label %197
+  br label %196
 
-74:                                               ; preds = %._crit_edge175, %60
-  %75 = phi ptr [ %.pre179, %._crit_edge175 ], [ %61, %60 ]
-  %76 = phi i64 [ %.pre178, %._crit_edge175 ], [ %62, %60 ]
-  %77 = phi ptr [ %.pre176, %._crit_edge175 ], [ %63, %60 ]
-  %78 = getelementptr inbounds i8, ptr %75, i64 320
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
-  %81 = load i64, ptr %80, align 8
-  %82 = icmp eq i64 %76, %81
-  br i1 %82, label %83, label %88
+73:                                               ; preds = %._crit_edge186, %59
+  %74 = phi ptr [ %.pre190, %._crit_edge186 ], [ %60, %59 ]
+  %75 = phi i64 [ %.pre189, %._crit_edge186 ], [ %61, %59 ]
+  %76 = phi ptr [ %.pre187, %._crit_edge186 ], [ %62, %59 ]
+  %77 = getelementptr inbounds i8, ptr %74, i64 320
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %80 = load i64, ptr %79, align 8
+  %81 = icmp eq i64 %75, %80
+  br i1 %81, label %82, label %87
 
-83:                                               ; preds = %74
-  %84 = getelementptr inbounds i8, ptr %77, i64 24
-  %85 = getelementptr inbounds i8, ptr %79, i64 24
-  %86 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %84, i64 noundef %76, ptr noundef nonnull %85, i64 noundef %76) #8
-  %.not132 = icmp eq i32 %86, 0
-  br i1 %.not132, label %87, label %._crit_edge180
+82:                                               ; preds = %73
+  %83 = getelementptr inbounds i8, ptr %76, i64 24
+  %84 = getelementptr inbounds i8, ptr %78, i64 24
+  %85 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %83, i64 noundef %75, ptr noundef nonnull %84, i64 noundef %75) #8
+  %.not132 = icmp eq i32 %85, 0
+  br i1 %.not132, label %86, label %._crit_edge191
 
-._crit_edge180:                                   ; preds = %83
-  %.pre181 = load ptr, ptr %3, align 8
-  %.phi.trans.insert182 = getelementptr inbounds i8, ptr %.pre181, i64 16
-  %.pre183 = load i64, ptr %.phi.trans.insert182, align 8
-  %.pre184 = load ptr, ptr @zend_known_strings, align 8
-  br label %88
+._crit_edge191:                                   ; preds = %82
+  %.pre192 = load ptr, ptr %3, align 8
+  %.phi.trans.insert193 = getelementptr inbounds i8, ptr %.pre192, i64 16
+  %.pre194 = load i64, ptr %.phi.trans.insert193, align 8
+  %.pre195 = load ptr, ptr @zend_known_strings, align 8
+  br label %87
 
-87:                                               ; preds = %83
+86:                                               ; preds = %82
   call void @convert_to_double(ptr noundef nonnull %.092) #8
-  br label %197
+  br label %196
 
-88:                                               ; preds = %._crit_edge180, %74
-  %89 = phi ptr [ %.pre184, %._crit_edge180 ], [ %75, %74 ]
-  %90 = phi i64 [ %.pre183, %._crit_edge180 ], [ %76, %74 ]
-  %91 = phi ptr [ %.pre181, %._crit_edge180 ], [ %77, %74 ]
-  %92 = getelementptr inbounds i8, ptr %89, i64 216
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
-  %95 = load i64, ptr %94, align 8
-  %96 = icmp eq i64 %90, %95
-  br i1 %96, label %97, label %105
+87:                                               ; preds = %._crit_edge191, %73
+  %88 = phi ptr [ %.pre195, %._crit_edge191 ], [ %74, %73 ]
+  %89 = phi i64 [ %.pre194, %._crit_edge191 ], [ %75, %73 ]
+  %90 = phi ptr [ %.pre192, %._crit_edge191 ], [ %76, %73 ]
+  %91 = getelementptr inbounds i8, ptr %88, i64 216
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %94 = load i64, ptr %93, align 8
+  %95 = icmp eq i64 %89, %94
+  br i1 %95, label %96, label %104
 
-97:                                               ; preds = %88
-  %98 = getelementptr inbounds i8, ptr %91, i64 24
-  %99 = getelementptr inbounds i8, ptr %93, i64 24
-  %100 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %98, i64 noundef %90, ptr noundef nonnull %99, i64 noundef %90) #8
-  %.not133 = icmp eq i32 %100, 0
-  br i1 %.not133, label %101, label %._crit_edge185
+96:                                               ; preds = %87
+  %97 = getelementptr inbounds i8, ptr %90, i64 24
+  %98 = getelementptr inbounds i8, ptr %92, i64 24
+  %99 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %97, i64 noundef %89, ptr noundef nonnull %98, i64 noundef %89) #8
+  %.not133 = icmp eq i32 %99, 0
+  br i1 %.not133, label %100, label %._crit_edge196
 
-._crit_edge185:                                   ; preds = %97
-  %.pre186 = load ptr, ptr %3, align 8
-  %.phi.trans.insert187 = getelementptr inbounds i8, ptr %.pre186, i64 16
-  %.pre188 = load i64, ptr %.phi.trans.insert187, align 8
-  %.pre189 = load ptr, ptr @zend_known_strings, align 8
-  br label %105
+._crit_edge196:                                   ; preds = %96
+  %.pre197 = load ptr, ptr %3, align 8
+  %.phi.trans.insert198 = getelementptr inbounds i8, ptr %.pre197, i64 16
+  %.pre199 = load i64, ptr %.phi.trans.insert198, align 8
+  %.pre200 = load ptr, ptr @zend_known_strings, align 8
+  br label %104
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %.092, i64 8
-  %103 = load i8, ptr %102, align 8
-  %.not134 = icmp eq i8 %103, 6
-  br i1 %.not134, label %197, label %104
+100:                                              ; preds = %96
+  %101 = getelementptr inbounds i8, ptr %.092, i64 8
+  %102 = load i8, ptr %101, align 8
+  %.not134 = icmp eq i8 %102, 6
+  br i1 %.not134, label %196, label %103
 
-104:                                              ; preds = %101
+103:                                              ; preds = %100
   call void @_convert_to_string(ptr noundef nonnull %.092) #8
-  br label %197
+  br label %196
 
-105:                                              ; preds = %._crit_edge185, %88
-  %106 = phi ptr [ %.pre189, %._crit_edge185 ], [ %89, %88 ]
-  %107 = phi i64 [ %.pre188, %._crit_edge185 ], [ %90, %88 ]
-  %108 = phi ptr [ %.pre186, %._crit_edge185 ], [ %91, %88 ]
-  %109 = getelementptr inbounds i8, ptr %106, i64 328
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
-  %112 = load i64, ptr %111, align 8
-  %113 = icmp eq i64 %107, %112
-  br i1 %113, label %114, label %119
+104:                                              ; preds = %._crit_edge196, %87
+  %105 = phi ptr [ %.pre200, %._crit_edge196 ], [ %88, %87 ]
+  %106 = phi i64 [ %.pre199, %._crit_edge196 ], [ %89, %87 ]
+  %107 = phi ptr [ %.pre197, %._crit_edge196 ], [ %90, %87 ]
+  %108 = getelementptr inbounds i8, ptr %105, i64 328
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 16
+  %111 = load i64, ptr %110, align 8
+  %112 = icmp eq i64 %106, %111
+  br i1 %112, label %113, label %118
 
-114:                                              ; preds = %105
-  %115 = getelementptr inbounds i8, ptr %108, i64 24
-  %116 = getelementptr inbounds i8, ptr %110, i64 24
-  %117 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %115, i64 noundef %107, ptr noundef nonnull %116, i64 noundef %107) #8
-  %.not135 = icmp eq i32 %117, 0
-  br i1 %.not135, label %118, label %._crit_edge190
+113:                                              ; preds = %104
+  %114 = getelementptr inbounds i8, ptr %107, i64 24
+  %115 = getelementptr inbounds i8, ptr %109, i64 24
+  %116 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %114, i64 noundef %106, ptr noundef nonnull %115, i64 noundef %106) #8
+  %.not135 = icmp eq i32 %116, 0
+  br i1 %.not135, label %117, label %._crit_edge201
 
-._crit_edge190:                                   ; preds = %114
-  %.pre191 = load ptr, ptr %3, align 8
-  %.phi.trans.insert192 = getelementptr inbounds i8, ptr %.pre191, i64 16
-  %.pre193 = load i64, ptr %.phi.trans.insert192, align 8
-  %.pre194 = load ptr, ptr @zend_known_strings, align 8
-  br label %119
+._crit_edge201:                                   ; preds = %113
+  %.pre202 = load ptr, ptr %3, align 8
+  %.phi.trans.insert203 = getelementptr inbounds i8, ptr %.pre202, i64 16
+  %.pre204 = load i64, ptr %.phi.trans.insert203, align 8
+  %.pre205 = load ptr, ptr @zend_known_strings, align 8
+  br label %118
 
-118:                                              ; preds = %114
+117:                                              ; preds = %113
   call void @convert_to_array(ptr noundef nonnull %.092) #8
-  br label %197
+  br label %196
 
-119:                                              ; preds = %._crit_edge190, %105
-  %120 = phi ptr [ %.pre194, %._crit_edge190 ], [ %106, %105 ]
-  %121 = phi i64 [ %.pre193, %._crit_edge190 ], [ %107, %105 ]
-  %122 = phi ptr [ %.pre191, %._crit_edge190 ], [ %108, %105 ]
-  %123 = getelementptr inbounds i8, ptr %120, i64 32
-  %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 16
-  %126 = load i64, ptr %125, align 8
-  %127 = icmp eq i64 %121, %126
-  br i1 %127, label %128, label %133
+118:                                              ; preds = %._crit_edge201, %104
+  %119 = phi ptr [ %.pre205, %._crit_edge201 ], [ %105, %104 ]
+  %120 = phi i64 [ %.pre204, %._crit_edge201 ], [ %106, %104 ]
+  %121 = phi ptr [ %.pre202, %._crit_edge201 ], [ %107, %104 ]
+  %122 = getelementptr inbounds i8, ptr %119, i64 32
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %125 = load i64, ptr %124, align 8
+  %126 = icmp eq i64 %120, %125
+  br i1 %126, label %127, label %132
 
-128:                                              ; preds = %119
-  %129 = getelementptr inbounds i8, ptr %122, i64 24
-  %130 = getelementptr inbounds i8, ptr %124, i64 24
-  %131 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %129, i64 noundef %121, ptr noundef nonnull %130, i64 noundef %121) #8
-  %.not136 = icmp eq i32 %131, 0
-  br i1 %.not136, label %132, label %._crit_edge195
+127:                                              ; preds = %118
+  %128 = getelementptr inbounds i8, ptr %121, i64 24
+  %129 = getelementptr inbounds i8, ptr %123, i64 24
+  %130 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %128, i64 noundef %120, ptr noundef nonnull %129, i64 noundef %120) #8
+  %.not136 = icmp eq i32 %130, 0
+  br i1 %.not136, label %131, label %._crit_edge206
 
-._crit_edge195:                                   ; preds = %128
-  %.pre196 = load ptr, ptr %3, align 8
-  %.phi.trans.insert197 = getelementptr inbounds i8, ptr %.pre196, i64 16
-  %.pre198 = load i64, ptr %.phi.trans.insert197, align 8
-  %.pre199 = load ptr, ptr @zend_known_strings, align 8
-  br label %133
+._crit_edge206:                                   ; preds = %127
+  %.pre207 = load ptr, ptr %3, align 8
+  %.phi.trans.insert208 = getelementptr inbounds i8, ptr %.pre207, i64 16
+  %.pre209 = load i64, ptr %.phi.trans.insert208, align 8
+  %.pre210 = load ptr, ptr @zend_known_strings, align 8
+  br label %132
 
-132:                                              ; preds = %128
+131:                                              ; preds = %127
   call void @convert_to_object(ptr noundef nonnull %.092) #8
-  br label %197
+  br label %196
 
-133:                                              ; preds = %._crit_edge195, %119
-  %134 = phi ptr [ %.pre199, %._crit_edge195 ], [ %120, %119 ]
-  %135 = phi i64 [ %.pre198, %._crit_edge195 ], [ %121, %119 ]
-  %136 = phi ptr [ %.pre196, %._crit_edge195 ], [ %122, %119 ]
-  %137 = getelementptr inbounds i8, ptr %134, i64 384
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 16
-  %140 = load i64, ptr %139, align 8
-  %141 = icmp eq i64 %135, %140
-  br i1 %141, label %142, label %147
+132:                                              ; preds = %._crit_edge206, %118
+  %133 = phi ptr [ %.pre210, %._crit_edge206 ], [ %119, %118 ]
+  %134 = phi i64 [ %.pre209, %._crit_edge206 ], [ %120, %118 ]
+  %135 = phi ptr [ %.pre207, %._crit_edge206 ], [ %121, %118 ]
+  %136 = getelementptr inbounds i8, ptr %133, i64 384
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds i8, ptr %137, i64 16
+  %139 = load i64, ptr %138, align 8
+  %140 = icmp eq i64 %134, %139
+  br i1 %140, label %141, label %146
 
-142:                                              ; preds = %133
-  %143 = getelementptr inbounds i8, ptr %136, i64 24
-  %144 = getelementptr inbounds i8, ptr %138, i64 24
-  %145 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %143, i64 noundef %135, ptr noundef nonnull %144, i64 noundef %135) #8
-  %.not137 = icmp eq i32 %145, 0
-  br i1 %.not137, label %146, label %._crit_edge200
+141:                                              ; preds = %132
+  %142 = getelementptr inbounds i8, ptr %135, i64 24
+  %143 = getelementptr inbounds i8, ptr %137, i64 24
+  %144 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %142, i64 noundef %134, ptr noundef nonnull %143, i64 noundef %134) #8
+  %.not137 = icmp eq i32 %144, 0
+  br i1 %.not137, label %145, label %._crit_edge211
 
-._crit_edge200:                                   ; preds = %142
-  %.pre201 = load ptr, ptr %3, align 8
-  %.phi.trans.insert202 = getelementptr inbounds i8, ptr %.pre201, i64 16
-  %.pre203 = load i64, ptr %.phi.trans.insert202, align 8
-  %.pre204 = load ptr, ptr @zend_known_strings, align 8
-  br label %147
+._crit_edge211:                                   ; preds = %141
+  %.pre212 = load ptr, ptr %3, align 8
+  %.phi.trans.insert213 = getelementptr inbounds i8, ptr %.pre212, i64 16
+  %.pre214 = load i64, ptr %.phi.trans.insert213, align 8
+  %.pre215 = load ptr, ptr @zend_known_strings, align 8
+  br label %146
 
-146:                                              ; preds = %142
+145:                                              ; preds = %141
   call void @convert_to_boolean(ptr noundef nonnull %.092) #8
-  br label %197
+  br label %196
 
-147:                                              ; preds = %._crit_edge200, %133
-  %148 = phi ptr [ %.pre204, %._crit_edge200 ], [ %134, %133 ]
-  %149 = phi i64 [ %.pre203, %._crit_edge200 ], [ %135, %133 ]
-  %150 = phi ptr [ %.pre201, %._crit_edge200 ], [ %136, %133 ]
-  %151 = getelementptr inbounds i8, ptr %148, i64 304
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 16
-  %154 = load i64, ptr %153, align 8
-  %155 = icmp eq i64 %149, %154
-  br i1 %155, label %156, label %161
+146:                                              ; preds = %._crit_edge211, %132
+  %147 = phi ptr [ %.pre215, %._crit_edge211 ], [ %133, %132 ]
+  %148 = phi i64 [ %.pre214, %._crit_edge211 ], [ %134, %132 ]
+  %149 = phi ptr [ %.pre212, %._crit_edge211 ], [ %135, %132 ]
+  %150 = getelementptr inbounds i8, ptr %147, i64 304
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 16
+  %153 = load i64, ptr %152, align 8
+  %154 = icmp eq i64 %148, %153
+  br i1 %154, label %155, label %160
 
-156:                                              ; preds = %147
-  %157 = getelementptr inbounds i8, ptr %150, i64 24
-  %158 = getelementptr inbounds i8, ptr %152, i64 24
-  %159 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %157, i64 noundef %149, ptr noundef nonnull %158, i64 noundef %149) #8
-  %.not138 = icmp eq i32 %159, 0
-  br i1 %.not138, label %160, label %._crit_edge205
+155:                                              ; preds = %146
+  %156 = getelementptr inbounds i8, ptr %149, i64 24
+  %157 = getelementptr inbounds i8, ptr %151, i64 24
+  %158 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %156, i64 noundef %148, ptr noundef nonnull %157, i64 noundef %148) #8
+  %.not138 = icmp eq i32 %158, 0
+  br i1 %.not138, label %159, label %._crit_edge216
 
-._crit_edge205:                                   ; preds = %156
-  %.pre206 = load ptr, ptr %3, align 8
-  %.phi.trans.insert207 = getelementptr inbounds i8, ptr %.pre206, i64 16
-  %.pre208 = load i64, ptr %.phi.trans.insert207, align 8
-  %.pre209 = load ptr, ptr @zend_known_strings, align 8
-  br label %161
+._crit_edge216:                                   ; preds = %155
+  %.pre217 = load ptr, ptr %3, align 8
+  %.phi.trans.insert218 = getelementptr inbounds i8, ptr %.pre217, i64 16
+  %.pre219 = load i64, ptr %.phi.trans.insert218, align 8
+  %.pre220 = load ptr, ptr @zend_known_strings, align 8
+  br label %160
 
-160:                                              ; preds = %156
+159:                                              ; preds = %155
   call void @convert_to_boolean(ptr noundef nonnull %.092) #8
-  br label %197
+  br label %196
 
-161:                                              ; preds = %._crit_edge205, %147
-  %162 = phi ptr [ %.pre209, %._crit_edge205 ], [ %148, %147 ]
-  %163 = phi i64 [ %.pre208, %._crit_edge205 ], [ %149, %147 ]
-  %164 = phi ptr [ %.pre206, %._crit_edge205 ], [ %150, %147 ]
-  %165 = getelementptr inbounds i8, ptr %162, i64 456
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 16
-  %168 = load i64, ptr %167, align 8
-  %169 = icmp eq i64 %163, %168
-  br i1 %169, label %170, label %175
+160:                                              ; preds = %._crit_edge216, %146
+  %161 = phi ptr [ %.pre220, %._crit_edge216 ], [ %147, %146 ]
+  %162 = phi i64 [ %.pre219, %._crit_edge216 ], [ %148, %146 ]
+  %163 = phi ptr [ %.pre217, %._crit_edge216 ], [ %149, %146 ]
+  %164 = getelementptr inbounds i8, ptr %161, i64 456
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 16
+  %167 = load i64, ptr %166, align 8
+  %168 = icmp eq i64 %162, %167
+  br i1 %168, label %169, label %174
 
-170:                                              ; preds = %161
-  %171 = getelementptr inbounds i8, ptr %164, i64 24
-  %172 = getelementptr inbounds i8, ptr %166, i64 24
-  %173 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %171, i64 noundef %163, ptr noundef nonnull %172, i64 noundef %163) #8
-  %.not139 = icmp eq i32 %173, 0
-  br i1 %.not139, label %174, label %175
+169:                                              ; preds = %160
+  %170 = getelementptr inbounds i8, ptr %163, i64 24
+  %171 = getelementptr inbounds i8, ptr %165, i64 24
+  %172 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %170, i64 noundef %162, ptr noundef nonnull %171, i64 noundef %162) #8
+  %.not139 = icmp eq i32 %172, 0
+  br i1 %.not139, label %173, label %174
 
-174:                                              ; preds = %170
+173:                                              ; preds = %169
   call void @convert_to_null(ptr noundef nonnull %.092) #8
-  br label %197
+  br label %196
 
-175:                                              ; preds = %170, %161
-  %176 = icmp eq ptr %.092, %4
-  br i1 %176, label %177, label %178
+174:                                              ; preds = %169, %160
+  %175 = icmp eq ptr %.092, %4
+  br i1 %175, label %176, label %177
 
-177:                                              ; preds = %175
+176:                                              ; preds = %174
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #8
-  br label %178
+  br label %177
 
-178:                                              ; preds = %177, %175
-  %179 = load ptr, ptr %3, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 16
-  %181 = load i64, ptr %180, align 8
-  %182 = load ptr, ptr @zend_known_strings, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 336
-  %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 16
-  %186 = load i64, ptr %185, align 8
-  %187 = icmp eq i64 %181, %186
-  br i1 %187, label %188, label %193
+177:                                              ; preds = %176, %174
+  %178 = load ptr, ptr %3, align 8
+  %179 = getelementptr inbounds i8, ptr %178, i64 16
+  %180 = load i64, ptr %179, align 8
+  %181 = load ptr, ptr @zend_known_strings, align 8
+  %182 = getelementptr inbounds i8, ptr %181, i64 336
+  %183 = load ptr, ptr %182, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 16
+  %185 = load i64, ptr %184, align 8
+  %186 = icmp eq i64 %180, %185
+  br i1 %186, label %187, label %192
 
-188:                                              ; preds = %178
-  %189 = getelementptr inbounds i8, ptr %179, i64 24
-  %190 = getelementptr inbounds i8, ptr %184, i64 24
-  %191 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %189, i64 noundef %181, ptr noundef nonnull %190, i64 noundef %181) #8
-  %.not140 = icmp eq i32 %191, 0
-  br i1 %.not140, label %192, label %193
+187:                                              ; preds = %177
+  %188 = getelementptr inbounds i8, ptr %178, i64 24
+  %189 = getelementptr inbounds i8, ptr %183, i64 24
+  %190 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %188, i64 noundef %180, ptr noundef nonnull %189, i64 noundef %180) #8
+  %.not140 = icmp eq i32 %190, 0
+  br i1 %.not140, label %191, label %192
 
-192:                                              ; preds = %188
+191:                                              ; preds = %187
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.2) #8
-  br label %194
+  br label %193
 
-193:                                              ; preds = %188, %178
+192:                                              ; preds = %187, %177
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.3) #8
-  br label %194
+  br label %193
 
-194:                                              ; preds = %192, %193
-  %195 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %196 = icmp ne ptr %195, null
-  call void @llvm.assume(i1 %196)
-  br label %204
+193:                                              ; preds = %191, %192
+  %194 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %195 = icmp ne ptr %194, null
+  call void @llvm.assume(i1 %195)
+  br label %203
 
-197:                                              ; preds = %59, %87, %118, %146, %174, %160, %132, %101, %104, %73, %45
-  %198 = icmp eq ptr %.092, %4
-  br i1 %198, label %199, label %202
+196:                                              ; preds = %58, %86, %117, %145, %173, %159, %131, %100, %103, %72, %44
+  %197 = icmp eq ptr %.092, %4
+  br i1 %197, label %198, label %201
 
-199:                                              ; preds = %197
-  %200 = load ptr, ptr %8, align 8
-  %201 = call i32 @zend_try_assign_typed_ref(ptr noundef %200, ptr noundef nonnull %4) #8
-  br label %202
+198:                                              ; preds = %196
+  %199 = load ptr, ptr %9, align 8
+  %200 = call i32 @zend_try_assign_typed_ref(ptr noundef %199, ptr noundef nonnull %4) #8
+  br label %201
 
-202:                                              ; preds = %197, %199
-  %203 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 3, ptr %203, align 8
-  br label %204
+201:                                              ; preds = %196, %198
+  %202 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 3, ptr %202, align 8
+  br label %203
 
-204:                                              ; preds = %202, %194, %16
+203:                                              ; preds = %201, %193, %.thread167
   ret void
 }
 
@@ -712,18 +712,14 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, -3
   %or.cond170 = icmp ult i32 %6, -2
-  br i1 %or.cond170, label %.thread183, label %7
-
-.thread183:                                       ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #8
-  br label %20
+  br i1 %or.cond170, label %.thread188, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = icmp eq i32 %5, 1
-  br i1 %9, label %.thread176.thread, label %12
+  br i1 %9, label %.thread197.thread, label %12
 
-.thread176.thread:                                ; preds = %7
+.thread197.thread:                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   br label %26
@@ -733,30 +729,35 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
   %14 = getelementptr inbounds i8, ptr %0, i64 104
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 4
-  br i1 %16, label %.thread, label %18
+  br i1 %16, label %.thread176, label %18
 
-.thread:                                          ; preds = %12
+.thread176:                                       ; preds = %12
   %17 = load i64, ptr %13, align 8
   store i64 %17, ptr %3, align 8
-  br label %.thread176
+  br label %.thread197
 
 18:                                               ; preds = %12
   %19 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %13, ptr noundef nonnull %3, i32 noundef 2) #8
-  br i1 %19, label %..thread176_crit_edge, label %20
+  %.fr = freeze i1 %19
+  br i1 %.fr, label %..thread197_crit_edge, label %20
 
-..thread176_crit_edge:                            ; preds = %18
+..thread197_crit_edge:                            ; preds = %18
   %.pre = load i64, ptr %3, align 8
-  br label %.thread176
+  br label %.thread197
 
-20:                                               ; preds = %18, %.thread183
-  %.0151191 = phi i32 [ 0, %.thread183 ], [ 2, %18 ]
-  %.0155190 = phi ptr [ null, %.thread183 ], [ %13, %18 ]
-  %.0156189 = phi i32 [ 1, %.thread183 ], [ 9, %18 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0156189, i32 noundef %.0151191, ptr noundef null, i32 noundef 0, ptr noundef %.0155190) #8
+.thread188:                                       ; preds = %2
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #8
+  br label %20
+
+20:                                               ; preds = %18, %.thread188
+  %.0151196 = phi i32 [ 0, %.thread188 ], [ 2, %18 ]
+  %.0155195 = phi ptr [ null, %.thread188 ], [ %13, %18 ]
+  %.0156194 = phi i32 [ 1, %.thread188 ], [ 9, %18 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0156194, i32 noundef %.0151196, ptr noundef null, i32 noundef 0, ptr noundef %.0155195) #8
   br label %93
 
-.thread176:                                       ; preds = %..thread176_crit_edge, %.thread
-  %21 = phi i64 [ %.pre, %..thread176_crit_edge ], [ %17, %.thread ]
+.thread197:                                       ; preds = %..thread197_crit_edge, %.thread176
+  %21 = phi i64 [ %.pre, %..thread197_crit_edge ], [ %17, %.thread176 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 88
   %23 = load i8, ptr %22, align 8
   %24 = icmp ne i8 %23, 6
@@ -764,8 +765,8 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
   %or.cond = select i1 %24, i1 true, i1 %25
   br i1 %or.cond, label %26, label %36
 
-26:                                               ; preds = %.thread176.thread, %.thread176
-  %27 = phi i8 [ %11, %.thread176.thread ], [ %23, %.thread176 ]
+26:                                               ; preds = %.thread197.thread, %.thread197
+  %27 = phi i8 [ %11, %.thread197.thread ], [ %23, %.thread197 ]
   %28 = icmp eq i8 %27, 4
   br i1 %28, label %29, label %31
 
@@ -784,15 +785,15 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
   store i32 4, ptr %35, align 8
   br label %93
 
-36:                                               ; preds = %.thread176
+36:                                               ; preds = %.thread197
   %37 = and i64 %21, -3
   %or.cond3 = icmp eq i64 %37, 0
-  %.pre200 = load ptr, ptr %8, align 8
+  %.pre206 = load ptr, ptr %8, align 8
   br i1 %or.cond3, label %38, label %88
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %.pre200, i64 24
-  %40 = getelementptr inbounds i8, ptr %.pre200, i64 16
+  %39 = getelementptr inbounds i8, ptr %.pre206, i64 24
+  %40 = getelementptr inbounds i8, ptr %.pre206, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = tail call ptr @__ctype_b_loc() #11
   %43 = load ptr, ptr %42, align 8
@@ -807,10 +808,10 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
-  %.0153193 = phi i64 [ %53, %.lr.ph ], [ %41, %38 ]
-  %.0154192 = phi ptr [ %52, %.lr.ph ], [ %39, %38 ]
-  %52 = getelementptr inbounds i8, ptr %.0154192, i64 1
-  %53 = add i64 %.0153193, -1
+  %.0153199 = phi i64 [ %53, %.lr.ph ], [ %41, %38 ]
+  %.0154198 = phi ptr [ %52, %.lr.ph ], [ %39, %38 ]
+  %52 = getelementptr inbounds i8, ptr %.0154198, i64 1
+  %53 = add i64 %.0153199, -1
   %54 = load i8, ptr %52, align 1
   %55 = sext i8 %54 to i64
   %56 = getelementptr inbounds i16, ptr %43, i64 %55
@@ -836,11 +837,11 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
 
 64:                                               ; preds = %63, %63
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.0154.lcssa, i64 1
-  %.pre199 = load i8, ptr %.phi.trans.insert, align 1
+  %.pre205 = load i8, ptr %.phi.trans.insert, align 1
   br label %65
 
 65:                                               ; preds = %63, %64
-  %66 = phi i8 [ %.pre199, %64 ], [ %.lcssa, %63 ]
+  %66 = phi i8 [ %.pre205, %64 ], [ %.lcssa, %63 ]
   %.not169 = phi i1 [ false, %64 ], [ true, %63 ]
   %.0152 = phi i32 [ 1, %64 ], [ 0, %63 ]
   %67 = zext nneg i32 %.0152 to i64
@@ -884,7 +885,7 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %93
 
 88:                                               ; preds = %70, %36, %65, %._crit_edge
-  %89 = getelementptr inbounds i8, ptr %.pre200, i64 24
+  %89 = getelementptr inbounds i8, ptr %.pre206, i64 24
   %90 = trunc i64 %21 to i32
   %91 = call i64 @strtoll(ptr nocapture noundef nonnull %89, ptr noundef null, i32 noundef %90) #8
   store i64 %91, ptr %1, align 8

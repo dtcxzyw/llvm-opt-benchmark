@@ -1342,15 +1342,15 @@ land.rhs12:                                       ; preds = %if.else
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else, %land.rhs12, %cond.end
-  %status.1.in = phi i1 [ %1, %cond.end ], [ false, %if.else ], [ %cmp14, %land.rhs12 ]
-  %status.1 = zext i1 %status.1.in to i32
+  %status.1.shrunk = phi i1 [ %1, %cond.end ], [ false, %if.else ], [ %cmp14, %land.rhs12 ]
+  %status.1 = zext i1 %status.1.shrunk to i32
   %inc = add nsw i32 %arg.addr.021, 1
   %dec = add nsw i32 %dec23, -1
   %tobool.not = icmp eq i32 %dec23, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc
-  br i1 %status.1.in, label %return, label %if.else21
+  br i1 %status.1.shrunk, label %return, label %if.else21
 
 if.else21:                                        ; preds = %for.end
   %call22 = call i32 @luaL_fileresult(ptr noundef %L, i32 noundef 0, ptr noundef null) #10

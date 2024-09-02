@@ -3764,10 +3764,10 @@ define dso_local void @bio_free_pages(ptr nocapture noundef readonly %0) #0 alig
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %22
-  %5 = phi i32 [ %34, %22 ], [ 0, %1 ]
-  %6 = phi i32 [ %33, %22 ], [ 0, %1 ]
-  %7 = phi ptr [ %23, %22 ], [ null, %1 ]
+.lr.ph:                                           ; preds = %1, %23
+  %5 = phi i32 [ %34, %23 ], [ 0, %1 ]
+  %6 = phi i32 [ %33, %23 ], [ 0, %1 ]
+  %7 = phi ptr [ %24, %23 ], [ null, %1 ]
   %8 = load ptr, ptr %3, align 8
   %9 = zext nneg i32 %6 to i64
   %10 = getelementptr %struct.bio_vec, ptr %8, i64 %9
@@ -3776,7 +3776,7 @@ define dso_local void @bio_free_pages(ptr nocapture noundef readonly %0) #0 alig
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr i8, ptr %7, i64 64
-  br label %22
+  br label %23
 
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr %10, align 8
@@ -3786,12 +3786,12 @@ define dso_local void @bio_free_pages(ptr nocapture noundef readonly %0) #0 alig
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr %struct.page, ptr %15, i64 %19
   %21 = and i32 %17, 4095
-  br label %22
+  %22 = sub nuw nsw i32 4096, %21
+  br label %23
 
-22:                                               ; preds = %12, %14
-  %23 = phi ptr [ %20, %14 ], [ %13, %12 ]
-  %24 = phi i32 [ %21, %14 ], [ 0, %12 ]
-  %25 = sub nuw nsw i32 4096, %24
+23:                                               ; preds = %12, %14
+  %24 = phi ptr [ %20, %14 ], [ %13, %12 ]
+  %25 = phi i32 [ %22, %14 ], [ 4096, %12 ]
   %26 = getelementptr inbounds i8, ptr %10, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = sub i32 %27, %5
@@ -3801,13 +3801,13 @@ define dso_local void @bio_free_pages(ptr nocapture noundef readonly %0) #0 alig
   %32 = zext i1 %31 to i32
   %33 = add nuw nsw i32 %6, %32
   %34 = select i1 %31, i32 0, i32 %30
-  tail call void @__free_pages(ptr noundef %23, i32 noundef 0) #17
+  tail call void @__free_pages(ptr noundef %24, i32 noundef 0) #17
   %35 = load i16, ptr %2, align 8
   %36 = zext i16 %35 to i32
   %37 = icmp ult i32 %33, %36
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !118
 
-._crit_edge:                                      ; preds = %22, %1
+._crit_edge:                                      ; preds = %23, %1
   ret void
 }
 

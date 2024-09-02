@@ -11271,8 +11271,8 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform10expression18compile
   %46 = alloca { i64, [2 x i64] }, align 8
   %47 = alloca { { ptr, i64 }, {} }, align 8
   %48 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
-  %.not482 = icmp ne ptr %3, null
-  br i1 %.not482, label %49, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h918368743278089dE.exit"
+  %.not482 = icmp eq ptr %3, null
+  br i1 %.not482, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h918368743278089dE.exit", label %49
 
 49:                                               ; preds = %4
   %50 = getelementptr inbounds i8, ptr %3, i64 8
@@ -11404,7 +11404,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.13596
 
 .noexc552:                                        ; preds = %.thread14.i
   %88 = extractvalue { i64, i64 } %87, 0
-  %89 = icmp eq i64 %88, 1
+  %89 = icmp ne i64 %88, 1
   br label %_ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17ha2da0d946182ddf2E.exit
 
 .lr.ph.i6.i:                                      ; preds = %83, %93
@@ -11420,9 +11420,9 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.13596
   br i1 %exitcond.not.i8.i, label %_ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17ha2da0d946182ddf2E.exit.thread, label %.lr.ph.i6.i
 
 _ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17ha2da0d946182ddf2E.exit: ; preds = %.lr.ph.i6.i, %.noexc552
-  %.0.i = phi i1 [ %89, %.noexc552 ], [ true, %.lr.ph.i6.i ]
-  %brmerge517.not = and i1 %.not482, %.0.i
-  br i1 %brmerge517.not, label %95, label %_ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17ha2da0d946182ddf2E.exit.thread
+  %.0.i = phi i1 [ %89, %.noexc552 ], [ false, %.lr.ph.i6.i ]
+  %brmerge517 = or i1 %.not482, %.0.i
+  br i1 %brmerge517, label %_ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17ha2da0d946182ddf2E.exit.thread, label %95
 
 95:                                               ; preds = %_ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17ha2da0d946182ddf2E.exit
   %96 = getelementptr inbounds i8, ptr %3, i64 8
@@ -11927,7 +11927,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h454b7e920355a17fE.exit: ; preds = %189
   br label %681
 
 266:                                              ; preds = %261
-  br i1 %.not482, label %523, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h195fa984b2d08792E.exit687"
+  br i1 %.not482, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h195fa984b2d08792E.exit687", label %523
 
 267:                                              ; preds = %261
   %268 = load i64, ptr %77, align 8, !noundef !34

@@ -684,12 +684,12 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
   %67 = and i8 %66, 8
   %.not = icmp eq i8 %67, 0
   %.lobit = lshr exact i8 %67, 3
-  %.sink28 = zext nneg i8 %.lobit to i32
-  %.sink27 = select i1 %.not, i64 256, i64 32768
+  %.sink23 = zext nneg i8 %.lobit to i32
+  %.sink22 = select i1 %.not, i64 256, i64 32768
   %.sink = select i1 %.not, i32 10, i32 1000
-  store i32 %.sink28, ptr %62, align 8
+  store i32 %.sink23, ptr %62, align 8
   %68 = getelementptr inbounds i8, ptr %15, i64 240
-  store i64 %.sink27, ptr %68, align 8
+  store i64 %.sink22, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %15, i64 248
   store i32 %.sink, ptr %69, align 8
   %70 = load i32, ptr %7, align 8
@@ -732,7 +732,7 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
   %89 = getelementptr inbounds i8, ptr %88, i64 768
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, %89
-  br i1 %91, label %.loopexit, label %92
+  br i1 %91, label %.loopexit19, label %92
 
 92:                                               ; preds = %85
   %93 = getelementptr inbounds i8, ptr %79, i64 40
@@ -766,16 +766,16 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
 115:                                              ; preds = %102, %94
   %116 = load ptr, ptr %95, align 8
   %117 = icmp eq ptr %116, %89
-  br i1 %117, label %.loopexit, label %94, !llvm.loop !23
+  br i1 %117, label %.loopexit19, label %94, !llvm.loop !23
 
-.loopexit:                                        ; preds = %115, %85
+.loopexit19:                                      ; preds = %115, %85
   %118 = getelementptr inbounds i8, ptr %88, i64 784
   call void @list_sort(ptr noundef null, ptr noundef %118, ptr noundef nonnull @iommu_dma_ranges_sort) #15
   %119 = load ptr, ptr %118, align 16
   %120 = icmp eq ptr %119, %118
   br i1 %120, label %.thread, label %121
 
-121:                                              ; preds = %.loopexit
+121:                                              ; preds = %.loopexit19
   %122 = getelementptr inbounds i8, ptr %79, i64 40
   %.pre.pre = load i64, ptr %4, align 8
   br label %124
@@ -809,17 +809,17 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
   %141 = lshr i64 %135, %140
   %142 = lshr i64 %136, %140
   %143 = call ptr @reserve_iova(ptr noundef %80, i64 noundef %141, i64 noundef %142) #15
-  %.pre29 = load ptr, ptr %126, align 8
-  %.pre30 = load i64, ptr %129, align 8
+  %.pre24 = load ptr, ptr %126, align 8
+  %.pre25 = load i64, ptr %129, align 8
   br label %146
 
 144:                                              ; preds = %132
   %145 = icmp ult i64 %136, %135
-  br i1 %145, label %.thread24, label %146
+  br i1 %145, label %.thread17, label %146
 
 146:                                              ; preds = %144, %138
-  %147 = phi i64 [ %133, %144 ], [ %.pre30, %138 ]
-  %148 = phi ptr [ %134, %144 ], [ %.pre29, %138 ]
+  %147 = phi i64 [ %133, %144 ], [ %.pre25, %138 ]
+  %148 = phi ptr [ %134, %144 ], [ %.pre24, %138 ]
   %149 = getelementptr inbounds i8, ptr %148, i64 8
   %150 = load i64, ptr %149, align 8
   %151 = add i64 %150, 1
@@ -831,12 +831,12 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
   %156 = and i1 %154, %155
   br i1 %156, label %132, label %123, !llvm.loop !24
 
-.thread:                                          ; preds = %123, %.loopexit
+.thread:                                          ; preds = %123, %.loopexit19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   br label %157
 
-.thread24:                                        ; preds = %144
+.thread17:                                        ; preds = %144
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
@@ -852,80 +852,80 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
   %161 = icmp eq ptr %160, %6
   br i1 %161, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %157, %.thread18
-  %162 = phi ptr [ %210, %.thread18 ], [ %160, %157 ]
+.lr.ph:                                           ; preds = %157, %.backedge
+  %162 = phi ptr [ %166, %.backedge ], [ %160, %157 ]
   %163 = getelementptr inbounds i8, ptr %162, i64 36
   %164 = load i32, ptr %163, align 4
   %165 = icmp eq i32 %164, 4
-  br i1 %165, label %.thread18, label %166
+  br i1 %165, label %.backedge, label %168
 
-166:                                              ; preds = %.lr.ph
-  %167 = getelementptr inbounds i8, ptr %162, i64 16
-  %168 = load i64, ptr %167, align 8
-  %169 = load i64, ptr %158, align 8
-  %170 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %169) #18, !srcloc !10
-  %171 = lshr i64 %168, %170
-  %172 = getelementptr inbounds i8, ptr %162, i64 24
-  %173 = load i64, ptr %172, align 8
-  %174 = add i64 %168, -1
-  %175 = add i64 %174, %173
-  %176 = lshr i64 %175, %170
-  %177 = call ptr @reserve_iova(ptr noundef %80, i64 noundef %171, i64 noundef %176) #15
-  %178 = load i32, ptr %163, align 4
-  %179 = icmp eq i32 %178, 3
-  br i1 %179, label %180, label %.thread18
+.backedge:                                        ; preds = %202, %168, %182, %.lr.ph
+  %166 = load ptr, ptr %162, align 8
+  %167 = icmp eq ptr %166, %6
+  br i1 %167, label %.critedge, label %.lr.ph, !llvm.loop !25
 
-180:                                              ; preds = %166
-  %181 = load i64, ptr %167, align 8
-  %182 = load i64, ptr %172, align 8
-  %183 = add i64 %182, %181
-  %184 = load i64, ptr %158, align 8
-  %185 = sub i64 0, %184
-  %186 = and i64 %181, %185
-  %187 = xor i64 %186, -1
-  %188 = add i64 %183, %184
-  %189 = add i64 %188, %187
-  %190 = and i64 %189, %185
-  %191 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %184) #18, !srcloc !10
-  %192 = lshr i64 %190, %191
-  %193 = trunc i64 %192 to i32
-  %194 = icmp sgt i32 %193, 0
-  br i1 %194, label %.preheader, label %.thread18
+168:                                              ; preds = %.lr.ph
+  %169 = getelementptr inbounds i8, ptr %162, i64 16
+  %170 = load i64, ptr %169, align 8
+  %171 = load i64, ptr %158, align 8
+  %172 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %171) #18, !srcloc !10
+  %173 = lshr i64 %170, %172
+  %174 = getelementptr inbounds i8, ptr %162, i64 24
+  %175 = load i64, ptr %174, align 8
+  %176 = add i64 %170, -1
+  %177 = add i64 %176, %175
+  %178 = lshr i64 %177, %172
+  %179 = call ptr @reserve_iova(ptr noundef %80, i64 noundef %173, i64 noundef %178) #15
+  %180 = load i32, ptr %163, align 4
+  %181 = icmp eq i32 %180, 3
+  br i1 %181, label %182, label %.backedge
 
-.preheader:                                       ; preds = %180, %200
-  %195 = phi i32 [ %208, %200 ], [ 0, %180 ]
-  %196 = phi i64 [ %207, %200 ], [ %186, %180 ]
-  %197 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
-  %198 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %197, i32 noundef 3264, i64 noundef 32) #19
-  %199 = icmp eq ptr %198, null
-  br i1 %199, label %.thread23, label %200
+182:                                              ; preds = %168
+  %183 = load i64, ptr %169, align 8
+  %184 = load i64, ptr %174, align 8
+  %185 = add i64 %184, %183
+  %186 = load i64, ptr %158, align 8
+  %187 = sub i64 0, %186
+  %188 = and i64 %183, %187
+  %189 = xor i64 %188, -1
+  %190 = add i64 %185, %186
+  %191 = add i64 %190, %189
+  %192 = and i64 %191, %187
+  %193 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %186) #18, !srcloc !10
+  %194 = lshr i64 %192, %193
+  %195 = trunc i64 %194 to i32
+  %196 = icmp sgt i32 %195, 0
+  br i1 %196, label %.preheader, label %.backedge
 
-200:                                              ; preds = %.preheader
-  %201 = getelementptr inbounds i8, ptr %198, i64 24
-  store i64 %196, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %198, i64 16
-  store i64 %196, ptr %202, align 8
-  store volatile ptr %198, ptr %198, align 8
-  %203 = getelementptr inbounds i8, ptr %198, i64 8
-  store volatile ptr %198, ptr %203, align 8
-  %204 = load ptr, ptr %159, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 8
-  store ptr %198, ptr %205, align 8
-  store ptr %204, ptr %198, align 8
-  store ptr %159, ptr %203, align 8
-  store volatile ptr %198, ptr %159, align 8
-  %206 = load i64, ptr %158, align 8
-  %207 = add i64 %206, %196
-  %208 = add nuw nsw i32 %195, 1
-  %209 = icmp eq i32 %208, %193
-  br i1 %209, label %.thread18, label %.preheader, !llvm.loop !25
+.preheader:                                       ; preds = %182, %202
+  %197 = phi i32 [ %210, %202 ], [ 0, %182 ]
+  %198 = phi i64 [ %209, %202 ], [ %188, %182 ]
+  %199 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
+  %200 = call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %199, i32 noundef 3264, i64 noundef 32) #19
+  %201 = icmp eq ptr %200, null
+  br i1 %201, label %.thread18, label %202
 
-.thread18:                                        ; preds = %200, %166, %180, %.lr.ph
-  %210 = load ptr, ptr %162, align 8
-  %211 = icmp eq ptr %210, %6
-  br i1 %211, label %.critedge, label %.lr.ph, !llvm.loop !26
+202:                                              ; preds = %.preheader
+  %203 = getelementptr inbounds i8, ptr %200, i64 24
+  store i64 %198, ptr %203, align 8
+  %204 = getelementptr inbounds i8, ptr %200, i64 16
+  store i64 %198, ptr %204, align 8
+  store volatile ptr %200, ptr %200, align 8
+  %205 = getelementptr inbounds i8, ptr %200, i64 8
+  store volatile ptr %200, ptr %205, align 8
+  %206 = load ptr, ptr %159, align 8
+  %207 = getelementptr inbounds i8, ptr %206, i64 8
+  store ptr %200, ptr %207, align 8
+  store ptr %206, ptr %200, align 8
+  store ptr %159, ptr %205, align 8
+  store volatile ptr %200, ptr %159, align 8
+  %208 = load i64, ptr %158, align 8
+  %209 = add i64 %208, %198
+  %210 = add nuw nsw i32 %197, 1
+  %211 = icmp eq i32 %210, %195
+  br i1 %211, label %.backedge, label %.preheader, !llvm.loop !26
 
-.thread23:                                        ; preds = %.preheader
+.thread18:                                        ; preds = %.preheader
   call void @iommu_put_resv_regions(ptr noundef %0, ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
   call void @mutex_unlock(ptr noundef %45) #15
@@ -935,7 +935,7 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
   tail call void @mutex_unlock(ptr noundef %45) #15
   br label %213
 
-.critedge:                                        ; preds = %.thread18, %157
+.critedge:                                        ; preds = %.backedge, %157
   call void @iommu_put_resv_regions(ptr noundef %0, ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
   call void @mutex_unlock(ptr noundef %45) #15
@@ -950,7 +950,7 @@ define dso_local void @iommu_setup_dma_ops(ptr noundef %0, i64 noundef %1, i64 n
   tail call void @mutex_unlock(ptr noundef %45) #15
   br label %216
 
-216:                                              ; preds = %.thread23, %.thread24, %215, %38, %17, %13, %3
+216:                                              ; preds = %.thread18, %.thread17, %215, %38, %17, %13, %3
   %217 = getelementptr inbounds i8, ptr %0, i64 80
   %218 = load ptr, ptr %217, align 8
   %219 = icmp eq ptr %218, null

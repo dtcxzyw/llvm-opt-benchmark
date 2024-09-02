@@ -134,7 +134,7 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
   br label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit
 
 49:                                               ; preds = %2
-  switch i64 %7, label %90 [
+  switch i64 %7, label %89 [
     i64 2, label %50
     i64 4, label %52
     i64 5, label %54
@@ -198,13 +198,13 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds i8, ptr %1, i64 48
-  %.035.i = load ptr, ptr %56, align 8
-  %.not36.i = icmp eq ptr %.035.i, null
-  br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i
+  %.036.i = load ptr, ptr %56, align 8
+  %.not37.i = icmp eq ptr %.036.i, null
+  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %55, %62
-  %.037.i = phi ptr [ %.0.i19, %62 ], [ %.035.i, %55 ]
-  %57 = getelementptr inbounds i8, ptr %.037.i, i64 32
+  %.038.i = phi ptr [ %.0.i19, %62 ], [ %.036.i, %55 ]
+  %57 = getelementptr inbounds i8, ptr %.038.i, i64 32
   %58 = load ptr, ptr %57, align 8
   %.not26.i = icmp eq ptr %58, null
   br i1 %.not26.i, label %62, label %59
@@ -219,7 +219,7 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
   ]
 
 62:                                               ; preds = %59, %.lr.ph.i
-  %63 = getelementptr inbounds i8, ptr %.037.i, i64 56
+  %63 = getelementptr inbounds i8, ptr %.038.i, i64 56
   %.0.i19 = load ptr, ptr %63, align 8
   %.not.i = icmp eq ptr %.0.i19, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -279,15 +279,15 @@ lxb_html_tree_mathml_text_integration_point.exit.i: ; preds = %83, %79
 
 87:                                               ; preds = %lxb_html_tree_mathml_text_integration_point.exit.i
   %88 = load i64, ptr %80, align 8
-  %89 = icmp eq i64 %88, 2
-  br i1 %89, label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit, label %70
+  %.not35.i = icmp eq i64 %88, 2
+  br i1 %.not35.i, label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit, label %70
 
-90:                                               ; preds = %49
-  %91 = tail call fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_anything_else(ptr noundef %0, ptr noundef nonnull %1)
+89:                                               ; preds = %49
+  %90 = tail call fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_anything_else(ptr noundef %0, ptr noundef nonnull %1)
   br label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit
 
-lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit: ; preds = %87, %lxb_html_tree_mathml_text_integration_point.exit.i, %83, %lxb_html_tree_current_node.exit.i, %70, %68, %._crit_edge.i, %.loopexit.i, %37, %17, %90, %54, %52, %50, %9
-  %.0 = phi i1 [ %10, %9 ], [ %91, %90 ], [ true, %54 ], [ %53, %52 ], [ %51, %50 ], [ %20, %17 ], [ true, %37 ], [ %48, %.loopexit.i ], [ %69, %68 ], [ %64, %._crit_edge.i ], [ false, %70 ], [ false, %lxb_html_tree_current_node.exit.i ], [ false, %83 ], [ false, %lxb_html_tree_mathml_text_integration_point.exit.i ], [ false, %87 ]
+lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit: ; preds = %87, %lxb_html_tree_mathml_text_integration_point.exit.i, %83, %lxb_html_tree_current_node.exit.i, %70, %68, %._crit_edge.i, %.loopexit.i, %37, %17, %89, %54, %52, %50, %9
+  %.0 = phi i1 [ %10, %9 ], [ %90, %89 ], [ true, %54 ], [ %53, %52 ], [ %51, %50 ], [ %20, %17 ], [ true, %37 ], [ %48, %.loopexit.i ], [ %69, %68 ], [ %64, %._crit_edge.i ], [ false, %70 ], [ false, %lxb_html_tree_current_node.exit.i ], [ false, %83 ], [ false, %lxb_html_tree_mathml_text_integration_point.exit.i ], [ false, %87 ]
   ret i1 %.0
 }
 

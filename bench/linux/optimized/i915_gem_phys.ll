@@ -378,7 +378,7 @@ declare dso_local zeroext i1 @i915_gem_object_has_struct_page(ptr noundef) local
 declare dso_local i32 @i915_gem_object_unbind(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @i915_gem_object_shmem_to_phys(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @i915_gem_object_shmem_to_phys(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = tail call ptr @__i915_gem_object_unset_pages(ptr noundef %0) #6
   %4 = getelementptr inbounds i8, ptr %0, i64 16

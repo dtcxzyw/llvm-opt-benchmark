@@ -990,36 +990,36 @@ _ZN12vmIntrinsics28init_vm_intrinsic_name_tableEv.exit.i: ; preds = %.preheader.
 _ZN12vmIntrinsics7find_idEPKc.exit:               ; preds = %20
   %26 = load i8, ptr %2, align 8
   %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %32
+  br i1 %27, label %28, label %34
 
 28:                                               ; preds = %_ZN12vmIntrinsics7find_idEPKc.exit
   %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   %30 = call noundef zeroext i1 @_ZN12vmIntrinsics21disabled_by_jvm_flagsE13vmIntrinsicID(i32 noundef %29)
   %31 = xor i1 %30, true
-  br label %32
+  %32 = zext i1 %31 to i32
+  %33 = or disjoint i32 %32, 2
+  br label %34
 
-32:                                               ; preds = %28, %_ZN12vmIntrinsics7find_idEPKc.exit
-  %33 = phi i1 [ false, %_ZN12vmIntrinsics7find_idEPKc.exit ], [ %31, %28 ]
+34:                                               ; preds = %28, %_ZN12vmIntrinsics7find_idEPKc.exit
+  %35 = phi i32 [ 2, %_ZN12vmIntrinsics7find_idEPKc.exit ], [ %33, %28 ]
   %sext = shl i64 %indvars.iv.i, 32
-  %34 = ashr exact i64 %sext, 32
-  %35 = lshr i64 %34, 4
-  %36 = getelementptr inbounds [27 x i32], ptr @_ZL26vm_intrinsic_control_words, i64 0, i64 %35
-  %37 = lshr exact i64 %sext, 31
-  %38 = load i32, ptr %36, align 4
-  %39 = trunc i64 %37 to i32
-  %40 = and i32 %39, 30
-  %41 = ashr i32 %38, %40
-  %42 = and i32 %41, 3
-  %43 = shl nuw i32 %42, %40
-  %44 = xor i32 %43, %38
-  %45 = zext i1 %33 to i32
-  %46 = or disjoint i32 %45, 2
-  %47 = shl nuw i32 %46, %40
-  %48 = or i32 %44, %47
-  store i32 %48, ptr %36, align 4
+  %36 = ashr exact i64 %sext, 32
+  %37 = lshr i64 %36, 4
+  %38 = getelementptr inbounds [27 x i32], ptr @_ZL26vm_intrinsic_control_words, i64 0, i64 %37
+  %39 = lshr exact i64 %sext, 31
+  %40 = load i32, ptr %38, align 4
+  %41 = trunc i64 %39 to i32
+  %42 = and i32 %41, 30
+  %43 = ashr i32 %40, %42
+  %44 = and i32 %43, 3
+  %45 = shl nuw i32 %44, %42
+  %46 = xor i32 %45, %40
+  %47 = shl nuw i32 %35, %42
+  %48 = or i32 %46, %47
+  store i32 %48, ptr %38, align 4
   br label %_ZN12vmIntrinsics7find_idEPKc.exit.thread
 
-_ZN12vmIntrinsics7find_idEPKc.exit.thread:        ; preds = %25, %32
+_ZN12vmIntrinsics7find_idEPKc.exit.thread:        ; preds = %25, %34
   %49 = call noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIterppEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #10
   %50 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %50, null

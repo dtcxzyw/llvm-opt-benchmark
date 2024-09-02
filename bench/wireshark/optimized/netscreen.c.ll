@@ -186,7 +186,7 @@ netscreen_seek_next_packet.exit:                  ; preds = %19, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netscreen_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 2) i32 @netscreen_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca [128 x i8], align 16
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8

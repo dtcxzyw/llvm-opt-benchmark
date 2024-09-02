@@ -453,7 +453,7 @@ HIST_countFast_wksp.exit:                         ; preds = %38, %HIST_count_sim
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i64 -66, 4294967296) i64 @HIST_countFast(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define dso_local range(i64 -48, 4294967296) i64 @HIST_countFast(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [1024 x i32], align 16
   %6 = icmp ult i64 %3, 1500
   br i1 %6, label %7, label %31
@@ -521,7 +521,7 @@ HIST_countFast_wksp.exit:                         ; preds = %14, %HIST_count_sim
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i64 -66, 4294967296) i64 @HIST_count(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+define dso_local range(i64 -48, 4294967296) i64 @HIST_count(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [1024 x i32], align 16
   %6 = load i32, ptr %1, align 4
   %7 = icmp ult i32 %6, 255

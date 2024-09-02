@@ -1998,17 +1998,17 @@ define dso_local noundef range(i32 -4, 1) i32 @intel_gt_reset_lock_interruptible
   %7 = load volatile i64, ptr %5, align 8
   %8 = and i64 %7, 1
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %._crit_edge6, label %.lr.ph5
+  br i1 %9, label %._crit_edge5, label %.lr.ph4
 
-.lr.ph5:                                          ; preds = %2, %.thread2
+.lr.ph4:                                          ; preds = %2, %.critedge
   call void @__rcu_read_unlock() #10
   %10 = call i32 @__SCT__might_resched() #10
   %11 = load volatile i64, ptr %5, align 8
   %12 = and i64 %11, 1
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %.thread2, label %14
+  br i1 %13, label %.critedge, label %14
 
-14:                                               ; preds = %.lr.ph5
+14:                                               ; preds = %.lr.ph4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !36
   call void @init_wait_entry(ptr noundef nonnull %3, i32 noundef 0) #10
@@ -2034,30 +2034,30 @@ define dso_local noundef range(i32 -4, 1) i32 @intel_gt_reset_lock_interruptible
 .thread1.thread:                                  ; preds = %21, %14
   call void @finish_wait(ptr noundef %6, ptr noundef nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #10
-  br label %.thread2
+  br label %.critedge
 
 .thread1:                                         ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #10
   %26 = and i64 %19, 4294967295
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %.thread2, label %.loopexit
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #10
+  br i1 %27, label %.critedge, label %.loopexit
 
-.thread2:                                         ; preds = %.thread1.thread, %.lr.ph5, %.thread1
+.critedge:                                        ; preds = %.thread1.thread, %.lr.ph4, %.thread1
   call void @__rcu_read_lock() #10
   %28 = load volatile i64, ptr %5, align 8
   %29 = and i64 %28, 1
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %._crit_edge6, label %.lr.ph5, !llvm.loop !48
+  br i1 %30, label %._crit_edge5, label %.lr.ph4, !llvm.loop !48
 
-._crit_edge6:                                     ; preds = %.thread2, %2
+._crit_edge5:                                     ; preds = %.critedge, %2
   %31 = getelementptr inbounds i8, ptr %0, i64 3552
   %32 = call i32 @__srcu_read_lock(ptr noundef %31) #10
   store i32 %32, ptr %1, align 4
   call void @__rcu_read_unlock() #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread1, %._crit_edge6
-  %33 = phi i32 [ 0, %._crit_edge6 ], [ -4, %.thread1 ]
+.loopexit:                                        ; preds = %.thread1, %._crit_edge5
+  %33 = phi i32 [ 0, %._crit_edge5 ], [ -4, %.thread1 ]
   ret i32 %33
 }
 

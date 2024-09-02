@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.28 = private unnamed_addr constant [33 x i8] c"assertion failed: (bit & 1) == 0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @CRYPTO_secure_malloc_init(i64 noundef %size, i64 noundef %minsize) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %size, i64 noundef %minsize) local_unnamed_addr #0 {
 entry:
   %.b = load i1, ptr @secure_mem_initialized, align 4
   br i1 %.b, label %return, label %if.then

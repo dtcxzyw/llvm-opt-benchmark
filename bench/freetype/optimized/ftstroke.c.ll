@@ -497,7 +497,7 @@ define internal fastcc i32 @ft_stroker_process_corner(ptr nocapture noundef %0, 
   br i1 %.not.i, label %.critedge.i, label %36
 
 36:                                               ; preds = %29
-  %37 = call i64 @llvm.abs.i64(i64 %35, i1 true)
+  %37 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %35, i1 true)
   %38 = getelementptr inbounds i8, ptr %0, i64 32
   %39 = load i64, ptr %38, align 8
   %.not40.i = icmp slt i64 %39, %37
@@ -605,7 +605,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   br i1 %.not72.i, label %101, label %.thread77.i
 
 101:                                              ; preds = %100
-  %102 = call i64 @llvm.abs.i64(i64 %spec.select.i14, i1 true)
+  %102 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %spec.select.i14, i1 true)
   %103 = icmp ugt i64 %102, 57
   br i1 %103, label %117, label %177
 
@@ -1030,7 +1030,7 @@ ft_conic_is_small_enough.exit:                    ; preds = %80, %77, %78, %82
   %.1160 = phi i64 [ %53, %77 ], [ %79, %78 ], [ %81, %82 ], [ %81, %80 ]
   %.1 = phi i64 [ %53, %77 ], [ %79, %78 ], [ %83, %82 ], [ %81, %80 ]
   %84 = call i64 @FT_Angle_Diff(i64 noundef %.1160, i64 noundef %.1) #11
-  %85 = call i64 @llvm.abs.i64(i64 %84, i1 true)
+  %85 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %84, i1 true)
   %86 = icmp ugt i64 %85, 1966079
   br i1 %86, label %87, label %ft_conic_is_small_enough.exit._crit_edge
 
@@ -1098,7 +1098,7 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %90, %ft_conic_is_sm
 115:                                              ; preds = %ft_conic_is_small_enough.exit._crit_edge
   %116 = load i64, ptr %0, align 8
   %117 = call i64 @FT_Angle_Diff(i64 noundef %116, i64 noundef %.0159) #11
-  %118 = call i64 @llvm.abs.i64(i64 %117, i1 true)
+  %118 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %117, i1 true)
   %119 = icmp ugt i64 %118, 491520
   br i1 %119, label %120, label %.thread
 
@@ -1195,7 +1195,7 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %90, %ft_conic_is_sm
   %177 = sub nsw i64 %165, %176
   %178 = call i64 @FT_Atan2(i64 noundef %175, i64 noundef %177) #11
   %179 = call i64 @FT_Angle_Diff(i64 noundef %.0112, i64 noundef %178) #11
-  %180 = call i64 @llvm.abs.i64(i64 %179, i1 true)
+  %180 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %179, i1 true)
   %181 = icmp ugt i64 %180, 5898240
   br i1 %181, label %182, label %217
 
@@ -1219,10 +1219,10 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %90, %ft_conic_is_sm
   %197 = call i64 @FT_Vector_Length(ptr noundef nonnull %8) #11
   %198 = sub nsw i64 %178, %192
   %199 = call i64 @FT_Sin(i64 noundef %198) #11
-  %200 = call i64 @llvm.abs.i64(i64 %199, i1 true)
+  %200 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %199, i1 true)
   %201 = sub nsw i64 %187, %192
   %202 = call i64 @FT_Sin(i64 noundef %201) #11
-  %203 = call i64 @llvm.abs.i64(i64 %202, i1 true)
+  %203 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %202, i1 true)
   %204 = call i64 @FT_MulDiv(i64 noundef %197, i64 noundef %200, i64 noundef %203) #11
   call void @FT_Vector_From_Polar(ptr noundef nonnull %9, i64 noundef %204, i64 noundef %187) #11
   %205 = load i64, ptr %9, align 8
@@ -1565,9 +1565,9 @@ ft_cubic_is_small_enough.exit:                    ; preds = %117, %111, %105, %1
   %.1192 = phi i64 [ %67, %102 ], [ %104, %103 ], [ %106, %107 ], [ %116, %112 ], [ %118, %119 ], [ %106, %105 ], [ %110, %111 ], [ %118, %117 ]
   %.1 = phi i64 [ %67, %102 ], [ %104, %103 ], [ %108, %107 ], [ %113, %112 ], [ %120, %119 ], [ %106, %105 ], [ %110, %111 ], [ %118, %117 ]
   %121 = call i64 @FT_Angle_Diff(i64 noundef %.1194, i64 noundef %.1192) #11
-  %122 = call i64 @llvm.abs.i64(i64 %121, i1 true)
+  %122 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %121, i1 true)
   %123 = call i64 @FT_Angle_Diff(i64 noundef %.1192, i64 noundef %.1) #11
-  %124 = call i64 @llvm.abs.i64(i64 %123, i1 true)
+  %124 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %123, i1 true)
   %125 = icmp ugt i64 %122, 1474559
   %126 = icmp ugt i64 %124, 1474559
   %.not199 = select i1 %125, i1 true, i1 %126
@@ -1654,7 +1654,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %130, %ft_cubic_is_s
 167:                                              ; preds = %ft_cubic_is_small_enough.exit._crit_edge
   %168 = load i64, ptr %0, align 8
   %169 = call i64 @FT_Angle_Diff(i64 noundef %168, i64 noundef %.0193) #11
-  %170 = call i64 @llvm.abs.i64(i64 %169, i1 true)
+  %170 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %169, i1 true)
   %171 = icmp ugt i64 %170, 368640
   br i1 %171, label %172, label %.thread
 
@@ -1771,7 +1771,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %130, %ft_cubic_is_s
   %248 = sub nsw i64 %236, %247
   %249 = call i64 @FT_Atan2(i64 noundef %246, i64 noundef %248) #11
   %250 = call i64 @FT_Angle_Diff(i64 noundef %.0131, i64 noundef %249) #11
-  %251 = call i64 @llvm.abs.i64(i64 %250, i1 true)
+  %251 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %250, i1 true)
   %252 = icmp ugt i64 %251, 5898240
   br i1 %252, label %253, label %288
 
@@ -1795,10 +1795,10 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %130, %ft_cubic_is_s
   %268 = call i64 @FT_Vector_Length(ptr noundef nonnull %10) #11
   %269 = sub nsw i64 %249, %263
   %270 = call i64 @FT_Sin(i64 noundef %269) #11
-  %271 = call i64 @llvm.abs.i64(i64 %270, i1 true)
+  %271 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %270, i1 true)
   %272 = sub nsw i64 %258, %263
   %273 = call i64 @FT_Sin(i64 noundef %272) #11
-  %274 = call i64 @llvm.abs.i64(i64 %273, i1 true)
+  %274 = call range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %273, i1 true)
   %275 = call i64 @FT_MulDiv(i64 noundef %268, i64 noundef %271, i64 noundef %274) #11
   call void @FT_Vector_From_Polar(ptr noundef nonnull %11, i64 noundef %275, i64 noundef %258) #11
   %276 = load i64, ptr %11, align 8

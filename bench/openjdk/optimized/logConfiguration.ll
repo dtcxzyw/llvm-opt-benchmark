@@ -676,9 +676,9 @@ define hidden void @_ZN16LogConfiguration16configure_outputEmRK16LogSelectionLis
   %.not3750 = icmp eq ptr %.03349, null
   br i1 %.not3750, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %31
-  %.03353 = phi ptr [ %.033, %31 ], [ %.03349, %3 ]
-  %.03451 = phi i1 [ %.1, %31 ], [ false, %3 ]
+.lr.ph:                                           ; preds = %3, %32
+  %.03353 = phi ptr [ %.033, %32 ], [ %.03349, %3 ]
+  %.03451 = phi i1 [ %.1, %32 ], [ false, %3 ]
   %9 = tail call noundef i32 @_ZNK16LogSelectionList9level_forERK9LogTagSet(ptr noundef nonnull align 8 dereferenceable(15368) %1, ptr noundef nonnull align 8 dereferenceable(112) %.03353) #11
   %10 = tail call noundef zeroext i1 @_ZN9LogTagSet10has_outputEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(112) %.03353, ptr noundef %7) #11
   %11 = and i32 %9, -9
@@ -690,7 +690,7 @@ define hidden void @_ZN16LogConfiguration16configure_outputEmRK16LogSelectionLis
   %13 = load i64, ptr %4, align 16
   %14 = add i64 %13, 1
   store i64 %14, ptr %4, align 16
-  br label %31
+  br label %32
 
 15:                                               ; preds = %.lr.ph
   %cond = icmp eq i32 %9, 0
@@ -715,37 +715,37 @@ define hidden void @_ZN16LogConfiguration16configure_outputEmRK16LogSelectionLis
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %21, i64 16
   %25 = load i32, ptr %24, align 8
+  %26 = freeze i32 %25
   br label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit
 
 _ZNK9LogTagSet9level_forEPK9LogOutput.exit:       ; preds = %23, %17
-  %.032 = phi i32 [ %9, %17 ], [ %25, %23 ]
-  %.032.fr = freeze i32 %.032
-  %.not41 = icmp ne i32 %.032.fr, 0
+  %.032 = phi i32 [ %9, %17 ], [ %26, %23 ]
+  %.not41 = icmp ne i32 %.032, 0
   %spec.select = select i1 %.not41, i1 true, i1 %.03451
+  %27 = zext i32 %.032 to i64
   br label %_ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread
 
 _ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread: ; preds = %_ZNK9LogTagSet9level_forEPK9LogOutput.exit, %19
-  %.03247 = phi i32 [ 0, %19 ], [ %.032.fr, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit ]
-  %26 = phi i1 [ %.03451, %19 ], [ %spec.select, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit ]
-  %27 = zext i32 %.03247 to i64
-  %28 = getelementptr inbounds [6 x i64], ptr %4, i64 0, i64 %27
-  %29 = load i64, ptr %28, align 8
-  %30 = add i64 %29, 1
-  store i64 %30, ptr %28, align 8
-  br label %31
+  %.03247 = phi i64 [ 0, %19 ], [ %27, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit ]
+  %28 = phi i1 [ %.03451, %19 ], [ %spec.select, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit ]
+  %29 = getelementptr inbounds [6 x i64], ptr %4, i64 0, i64 %.03247
+  %30 = load i64, ptr %29, align 8
+  %31 = add i64 %30, 1
+  store i64 %31, ptr %29, align 8
+  br label %32
 
-31:                                               ; preds = %_ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread, %12
-  %.1 = phi i1 [ %26, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread ], [ %.03451, %12 ]
+32:                                               ; preds = %_ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread, %12
+  %.1 = phi i1 [ %28, %_ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread ], [ %.03451, %12 ]
   %.033 = load ptr, ptr %.03353, align 8
   %.not37 = icmp eq ptr %.033, null
   br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %31, %3
-  %.034.lcssa = phi i1 [ false, %3 ], [ %.1, %31 ]
+._crit_edge:                                      ; preds = %32, %3
+  %.034.lcssa = phi i1 [ false, %3 ], [ %.1, %32 ]
   tail call void @_ZN14AsyncLogWriter5flushEv() #11
-  %32 = getelementptr inbounds i8, ptr %7, i64 152
-  %33 = load i32, ptr %2, align 4
-  store i32 %33, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %7, i64 152
+  %34 = load i32, ptr %2, align 4
+  store i32 %34, ptr %33, align 8
   %.054 = load ptr, ptr @_ZN9LogTagSet5_listE, align 8
   %.not3855 = icmp eq ptr %.054, null
   br i1 %.not3855, label %._crit_edge59, label %.lr.ph58
@@ -758,40 +758,40 @@ _ZNK9LogTagSet9level_forEPK9LogOutput.exit.thread: ; preds = %_ZNK9LogTagSet9lev
   br i1 %.not38, label %._crit_edge59, label %.lr.ph58, !llvm.loop !16
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %._crit_edge
-  %34 = icmp ult i64 %0, 2
-  %or.cond3.not = or i1 %34, %.034.lcssa
-  br i1 %or.cond3.not, label %52, label %35
+  %35 = icmp ult i64 %0, 2
+  %or.cond3.not = or i1 %35, %.034.lcssa
+  br i1 %or.cond3.not, label %53, label %36
 
-35:                                               ; preds = %._crit_edge59
-  %36 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %0
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
-  %40 = add i64 %39, -1
-  store i64 %40, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
-  %41 = getelementptr inbounds ptr, ptr %36, i64 %40
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %37, align 8
-  %43 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %44 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
-  %45 = shl i64 %44, 3
-  %46 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %43, i64 noundef %45, i8 noundef zeroext 17, i32 noundef 0) #11
-  store ptr %46, ptr @_ZN16LogConfiguration8_outputsE, align 8
-  %47 = icmp eq ptr %38, null
-  br i1 %47, label %_ZN16LogConfiguration13delete_outputEm.exit, label %48
+36:                                               ; preds = %._crit_edge59
+  %37 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
+  %38 = getelementptr inbounds ptr, ptr %37, i64 %0
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
+  %41 = add i64 %40, -1
+  store i64 %41, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
+  %42 = getelementptr inbounds ptr, ptr %37, i64 %41
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %38, align 8
+  %44 = load ptr, ptr @_ZN16LogConfiguration8_outputsE, align 8
+  %45 = load i64, ptr @_ZN16LogConfiguration10_n_outputsE, align 8
+  %46 = shl i64 %45, 3
+  %47 = tail call noundef ptr @_Z14ReallocateHeapPcm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(ptr noundef %44, i64 noundef %46, i8 noundef zeroext 17, i32 noundef 0) #11
+  store ptr %47, ptr @_ZN16LogConfiguration8_outputsE, align 8
+  %48 = icmp eq ptr %39, null
+  br i1 %48, label %_ZN16LogConfiguration13delete_outputEm.exit, label %49
 
-48:                                               ; preds = %35
-  %49 = load ptr, ptr %38, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef nonnull align 8 dereferenceable(156) %38) #11
+49:                                               ; preds = %36
+  %50 = load ptr, ptr %39, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(156) %39) #11
   br label %_ZN16LogConfiguration13delete_outputEm.exit
 
-52:                                               ; preds = %._crit_edge59
+53:                                               ; preds = %._crit_edge59
   call void @_ZN9LogOutput20update_config_stringEPKm(ptr noundef nonnull align 8 dereferenceable(156) %7, ptr noundef nonnull %4) #11
   br label %_ZN16LogConfiguration13delete_outputEm.exit
 
-_ZN16LogConfiguration13delete_outputEm.exit:      ; preds = %48, %35, %52
+_ZN16LogConfiguration13delete_outputEm.exit:      ; preds = %49, %36, %53
   ret void
 }
 

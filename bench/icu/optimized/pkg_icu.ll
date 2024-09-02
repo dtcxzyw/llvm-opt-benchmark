@@ -336,7 +336,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 declare void @_ZN6icu_757Package11readPackageEPKc(ptr noundef nonnull align 8 dereferenceable(201237), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 8) i32 @writePackageDatFile(ptr noundef %outFilename, ptr noundef %outComment, ptr noundef %sourcePath, ptr noundef %addList, ptr noundef %pkg, i8 noundef signext %outType) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @writePackageDatFile(ptr noundef %outFilename, ptr noundef %outComment, ptr noundef %sourcePath, ptr noundef %addList, ptr noundef %pkg, i8 noundef signext %outType) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ownedPkg = alloca %"class.icu_75::LocalPointer", align 8
   %addListPkg = alloca %"class.icu_75::LocalPointer", align 8

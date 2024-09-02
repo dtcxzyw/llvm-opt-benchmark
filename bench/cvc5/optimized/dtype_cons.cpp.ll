@@ -3002,7 +3002,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK4cvc58internal16DTypeConstructor10getNumArgsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZNK4cvc58internal16DTypeConstructor10getNumArgsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_args = getelementptr inbounds i8, ptr %this, i64 80
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -3961,7 +3961,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
 
 if.then53:                                        ; preds = %invoke.cont49
   %tobool55 = trunc nuw i8 %retval.sroa.6.1152 to i1
-  br i1 %tobool55, label %lor.end, label %lor.rhs
+  br i1 %tobool55, label %if.end60, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.then53
   %call57 = invoke noundef zeroext i1 @_ZNK4cvc58internal8TypeNode10isDatatypeEv(ptr noundef nonnull align 8 dereferenceable(8) %tc)
@@ -3969,15 +3969,11 @@ lor.rhs:                                          ; preds = %if.then53
 
 invoke.cont56:                                    ; preds = %lor.rhs
   %lnot = xor i1 %call57, true
-  br label %lor.end
-
-lor.end:                                          ; preds = %invoke.cont56, %if.then53
-  %26 = phi i1 [ true, %if.then53 ], [ %lnot, %invoke.cont56 ]
-  %frombool59 = zext i1 %26 to i8
+  %26 = zext i1 %lnot to i8
   br label %if.end60
 
-if.end60:                                         ; preds = %lor.end, %invoke.cont49
-  %retval.sroa.6.2 = phi i8 [ %retval.sroa.6.1152, %invoke.cont49 ], [ %frombool59, %lor.end ]
+if.end60:                                         ; preds = %if.then53, %invoke.cont56, %invoke.cont49
+  %retval.sroa.6.2 = phi i8 [ %retval.sroa.6.1152, %invoke.cont49 ], [ 1, %if.then53 ], [ %26, %invoke.cont56 ]
   %27 = load ptr, ptr %tc, align 8
   %bf.load.i.i67 = load i64, ptr %27, align 8
   %28 = and i64 %bf.load.i.i67, 1152920405095219200

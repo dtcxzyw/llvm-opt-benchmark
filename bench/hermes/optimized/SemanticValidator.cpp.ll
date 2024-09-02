@@ -1703,12 +1703,12 @@ cond.true:                                        ; preds = %entry
   %1 = load i8, ptr %strictMode, align 8
   %sourceVisibility = getelementptr inbounds i8, ptr %0, i64 84
   %2 = load i32, ptr %sourceVisibility, align 4
+  %3 = and i8 %1, 1
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
-  %3 = phi i8 [ %1, %cond.true ], [ 0, %entry ]
+  %frombool.i = phi i8 [ %3, %cond.true ], [ 0, %entry ]
   %cond = phi i32 [ %2, %cond.true ], [ 0, %entry ]
-  %frombool.i = and i8 %3, 1
   store ptr %this, ptr %newFuncCtx, align 8
   %oldContextValue_.i = getelementptr inbounds i8, ptr %newFuncCtx, i64 8
   store ptr %0, ptr %oldContextValue_.i, align 8
@@ -2250,7 +2250,7 @@ for.body.i.i:                                     ; preds = %if.then.i.i117, %if
   %APtr.027.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %77, %if.then.i.i117 ]
   %79 = load ptr, ptr %APtr.027.i.i, align 8, !noalias !35
   %cmp3.i.i = icmp eq ptr %79, %75
-  br i1 %cmp3.i.i, label %_ZN4llvh15SmallPtrSetImplIPN6hermes12UniqueStringEE6insertES3_.exit, label %if.end.i.i
+  br i1 %cmp3.i.i, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %cmp8.i.i = icmp eq ptr %79, inttoptr (i64 -2 to ptr)
@@ -2268,7 +2268,7 @@ if.then12.i.i:                                    ; preds = %for.end.i.i
   %80 = load i32, ptr %NumTombstones.i.i.i.i, align 8, !noalias !35
   %dec.i.i = add i32 %80, -1
   store i32 %dec.i.i, ptr %NumTombstones.i.i.i.i, align 8, !noalias !35
-  br label %_ZN4llvh15SmallPtrSetImplIPN6hermes12UniqueStringEE6insertES3_.exit
+  br label %for.inc104
 
 if.end16.i.i:                                     ; preds = %for.end.i.i, %if.then.i.i117
   %81 = load i32, ptr %CurArraySize.i.i.i.i, align 8, !noalias !35
@@ -2279,40 +2279,36 @@ if.then19.i.i:                                    ; preds = %if.end16.i.i
   %inc.i.i = add nuw i32 %78, 1
   store i32 %inc.i.i, ptr %NumNonEmpty.i.i.i.i, align 4, !noalias !35
   store ptr %75, ptr %add.ptr.i.i, align 8, !noalias !35
-  br label %_ZN4llvh15SmallPtrSetImplIPN6hermes12UniqueStringEE6insertES3_.exit
+  br label %for.inc104
 
 if.end31.i.i:                                     ; preds = %if.end16.i.i, %for.body88
   %call32.i.i = call { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %paramNameSet, ptr noundef %75) #21, !noalias !35
   %82 = extractvalue { ptr, i8 } %call32.i.i, 1
   %83 = and i8 %82, 1
-  br label %_ZN4llvh15SmallPtrSetImplIPN6hermes12UniqueStringEE6insertES3_.exit
+  %84 = icmp eq i8 %83, 0
+  br i1 %84, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.inc104
 
-_ZN4llvh15SmallPtrSetImplIPN6hermes12UniqueStringEE6insertES3_.exit: ; preds = %for.body.i.i, %if.then12.i.i, %if.then19.i.i, %if.end31.i.i
-  %retval.sroa.5.0.i.i = phi i8 [ 1, %if.then19.i.i ], [ %83, %if.end31.i.i ], [ 1, %if.then12.i.i ], [ 0, %for.body.i.i ]
-  %cmp91 = icmp eq i8 %retval.sroa.5.0.i.i, 0
-  br i1 %cmp91, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %for.inc104
-
-_ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvh15SmallPtrSetImplIPN6hermes12UniqueStringEE6insertES3_.exit
-  %84 = load ptr, ptr %sm_93, align 8
-  %85 = load ptr, ptr %identifier, align 8
-  %sourceRange_.i118 = getelementptr inbounds i8, ptr %85, i64 24
+_ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %for.body.i.i, %if.end31.i.i
+  %85 = load ptr, ptr %sm_93, align 8
+  %86 = load ptr, ptr %identifier, align 8
+  %sourceRange_.i118 = getelementptr inbounds i8, ptr %86, i64 24
   %retval.sroa.0.0.copyload.i119 = load ptr, ptr %sourceRange_.i118, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i120 = getelementptr inbounds i8, ptr %85, i64 32
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i120 = getelementptr inbounds i8, ptr %86, i64 32
   %retval.sroa.2.0.copyload.i121 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i120, align 8
-  %_name100 = getelementptr inbounds i8, ptr %85, i64 48
-  %86 = load ptr, ptr %_name100, align 8
+  %_name100 = getelementptr inbounds i8, ptr %86, i64 48
+  %87 = load ptr, ptr %_name100, align 8
   store i8 3, ptr %LHSKind.i.i, align 8, !alias.scope !40
   store i8 5, ptr %RHSKind.i.i, align 1, !alias.scope !40
   store ptr @.str.58, ptr %ref.tmp98, align 8, !alias.scope !40
-  store ptr %86, ptr %RHS5.i.i, align 8, !alias.scope !40
+  store ptr %87, ptr %RHS5.i.i, align 8, !alias.scope !40
   store ptr %ref.tmp98, ptr %ref.tmp97, align 8, !alias.scope !43
   store ptr @.str.59, ptr %RHS4.i.i.i, align 8, !alias.scope !43
   store i8 2, ptr %LHSKind5.i.i.i, align 8, !alias.scope !43
   store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !43
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %84, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i119, ptr %retval.sroa.2.0.copyload.i121, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp97, i32 noundef 0) #21
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %85, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i119, ptr %retval.sroa.2.0.copyload.i121, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp97, i32 noundef 0) #21
   br label %for.inc104
 
-for.inc104:                                       ; preds = %_ZN4llvh15SmallPtrSetImplIPN6hermes12UniqueStringEE6insertES3_.exit, %_ZN4llvhplERKNS_5TwineES2_.exit
+for.inc104:                                       ; preds = %if.then19.i.i, %if.then12.i.i, %if.end31.i.i, %_ZN4llvhplERKNS_5TwineES2_.exit
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0156, i64 24
   %cmp87.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp87.not, label %for.end105, label %for.body88

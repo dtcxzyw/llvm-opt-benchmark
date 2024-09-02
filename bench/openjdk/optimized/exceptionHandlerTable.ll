@@ -288,15 +288,15 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23.us: ; preds = %.
   %61 = load ptr, ptr %32, align 8
   %62 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv
   %63 = load i64, ptr %62, align 8
-  %64 = load ptr, ptr %33, align 8
-  %65 = getelementptr inbounds i64, ptr %64, i64 %indvars.iv
-  %66 = load i64, ptr %65, align 8
-  %67 = load ptr, ptr %34, align 8
-  %68 = getelementptr inbounds i64, ptr %67, i64 %indvars.iv
-  %69 = load i64, ptr %68, align 8
-  %70 = trunc i64 %63 to i32
-  %.sroa.2.0.insert.ext = shl i64 %69, 32
-  %.sroa.0.0.insert.ext = and i64 %66, 4294967295
+  %64 = trunc i64 %63 to i32
+  %65 = load ptr, ptr %33, align 8
+  %66 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv
+  %67 = load i64, ptr %66, align 8
+  %68 = load ptr, ptr %34, align 8
+  %69 = getelementptr inbounds i64, ptr %68, i64 %indvars.iv
+  %70 = load i64, ptr %69, align 8
+  %.sroa.2.0.insert.ext = shl i64 %70, 32
+  %.sroa.0.0.insert.ext = and i64 %67, 4294967295
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext, %.sroa.0.0.insert.ext
   %71 = load i32, ptr %9, align 8
   %72 = load i32, ptr %11, align 4
@@ -339,7 +339,7 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23: ; preds = %._cr
   %88 = getelementptr inbounds %class.HandlerTableEntry, ptr %85, i64 %87
   store i64 %.sroa.0.0.insert.insert, ptr %88, align 4
   %.sroa.23.0..sroa_idx.i20 = getelementptr inbounds i8, ptr %88, i64 8
-  store i32 %70, ptr %.sroa.23.0..sroa_idx.i20, align 4
+  store i32 %64, ptr %.sroa.23.0..sroa_idx.i20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %89 = load i32, ptr %2, align 4
   %90 = sext i32 %89 to i64

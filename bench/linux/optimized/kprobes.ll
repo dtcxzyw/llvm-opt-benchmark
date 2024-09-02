@@ -2947,7 +2947,7 @@ __disable_kprobe.exit:                            ; preds = %8, %20, %41, %.loop
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @enable_kprobe(ptr noundef %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @enable_kprobe(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @kprobe_mutex) #21
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8

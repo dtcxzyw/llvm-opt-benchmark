@@ -477,7 +477,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Gem_GroupsDerive(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #9 {
+define range(i32 1, 0) i32 @Gem_GroupsDerive(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #9 {
   %5 = add i32 %1, -1
   %6 = shl nuw i32 1, %5
   %7 = icmp sgt i32 %1, 1
@@ -1696,9 +1696,9 @@ Abc_TtCofactor0p.exit:                            ; preds = %._crit_edge.us.i79,
   %.pre = zext nneg i32 %159 to i64
   %.pre123 = add nsw i32 %.0.lcssa, -6
   %.pre125 = shl nuw i32 1, %.pre123
-  %187 = getelementptr inbounds i64, ptr %36, i64 %.pre
-  %188 = icmp sgt i32 %159, 0
-  br i1 %188, label %.preheader.lr.ph.i81, label %Abc_TtCofactor1p.exit
+  %187 = icmp sgt i32 %159, 0
+  %188 = getelementptr inbounds i64, ptr %36, i64 %.pre
+  br i1 %187, label %.preheader.lr.ph.i81, label %Abc_TtCofactor1p.exit
 
 .preheader.lr.ph.i81:                             ; preds = %.thread
   %.not.i82 = icmp eq i32 %.pre123, 31
@@ -1733,7 +1733,7 @@ Abc_TtCofactor0p.exit:                            ; preds = %._crit_edge.us.i79,
 ._crit_edge.us.i90:                               ; preds = %192
   %198 = getelementptr inbounds i64, ptr %.04452.us.i, i64 %190
   %199 = getelementptr inbounds i64, ptr %.053.us.i, i64 %190
-  %200 = icmp ult ptr %198, %187
+  %200 = icmp ult ptr %198, %188
   br i1 %200, label %.preheader.us.i86, label %Abc_TtCofactor1p.exit, !llvm.loop !17
 
 Abc_TtCofactor1p.exit:                            ; preds = %._crit_edge.us.i90, %180, %.preheader.lr.ph.i72, %161, %173, %.thread, %.preheader.lr.ph.i81
@@ -3100,9 +3100,9 @@ Abc_TtCofactor0p.exit:                            ; preds = %._crit_edge.us.i105
   %.pre189 = zext nneg i32 %224 to i64
   %.pre191 = add nsw i32 %.1.lcssa, -5
   %.pre193 = shl nuw i32 1, %.pre191
-  %252 = getelementptr inbounds i64, ptr %37, i64 %.pre189
-  %253 = icmp sgt i32 %224, 0
-  br i1 %253, label %.preheader.lr.ph.i107, label %Abc_TtCofactor1p.exit
+  %252 = icmp sgt i32 %224, 0
+  %253 = getelementptr inbounds i64, ptr %37, i64 %.pre189
+  br i1 %252, label %.preheader.lr.ph.i107, label %Abc_TtCofactor1p.exit
 
 .preheader.lr.ph.i107:                            ; preds = %.thread
   %.not.i108 = icmp eq i32 %.pre191, 31
@@ -3137,7 +3137,7 @@ Abc_TtCofactor0p.exit:                            ; preds = %._crit_edge.us.i105
 ._crit_edge.us.i116:                              ; preds = %257
   %263 = getelementptr inbounds i64, ptr %.04452.us.i, i64 %255
   %264 = getelementptr inbounds i64, ptr %.053.us.i, i64 %255
-  %265 = icmp ult ptr %263, %252
+  %265 = icmp ult ptr %263, %253
   br i1 %265, label %.preheader.us.i112, label %Abc_TtCofactor1p.exit, !llvm.loop !17
 
 Abc_TtCofactor1p.exit:                            ; preds = %._crit_edge.us.i116, %245, %226, %238, %.thread, %.preheader.lr.ph.i107

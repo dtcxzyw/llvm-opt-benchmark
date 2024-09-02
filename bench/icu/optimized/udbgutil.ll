@@ -694,7 +694,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -1, 27) i32 @udbg_enumCount(i32 noundef %type) local_unnamed_addr #7 {
+define range(i32 -1, 25) i32 @udbg_enumCount(i32 noundef %type) local_unnamed_addr #7 {
 entry:
   %0 = icmp ult i32 %type, 6
   br i1 %0, label %switch.lookup, label %_ZL15_udbg_enumCount14UDebugEnumTypea.exit

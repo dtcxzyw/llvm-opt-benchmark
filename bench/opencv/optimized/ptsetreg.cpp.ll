@@ -7972,7 +7972,7 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %.lr.ph125, %119
   %128 = lshr i64 %indvars.iv144, 2
   %129 = and i64 %.idx109, 8589934576
   %scevgep.i.i.i = getelementptr i8, ptr %25, i64 %129
-  %gepdiff = and i64 %.idx109, 9223372028264841228
+  %130 = and i64 %indvars.iv144, 2305843007066210307
   br label %_ZN2cv3RNG7uniformEii.exit94.outer
 
 _ZN2cv3RNG7uniformEii.exit94.outer:               ; preds = %164, %_ZN2cv3RNG7uniformEii.exit
@@ -7984,42 +7984,41 @@ _ZN2cv3RNG7uniformEii.exit94:                     ; preds = %_ZN2cv3RNG7uniformE
   %storemerge = phi i32 [ 0, %163 ], [ %storemerge.ph, %_ZN2cv3RNG7uniformEii.exit94.outer ]
   br i1 %.not108, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZN2cv3RNG7uniformEii.exit94, %144
-  %.047.i.i.i = phi i64 [ %146, %144 ], [ %128, %_ZN2cv3RNG7uniformEii.exit94 ]
-  %.02946.i.i.i = phi ptr [ %145, %144 ], [ %25, %_ZN2cv3RNG7uniformEii.exit94 ]
-  %130 = load i32, ptr %.02946.i.i.i, align 4
-  %131 = icmp eq i32 %130, %storemerge
-  br i1 %131, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit, label %132
+.lr.ph.i.i.i:                                     ; preds = %_ZN2cv3RNG7uniformEii.exit94, %145
+  %.047.i.i.i = phi i64 [ %147, %145 ], [ %128, %_ZN2cv3RNG7uniformEii.exit94 ]
+  %.02946.i.i.i = phi ptr [ %146, %145 ], [ %25, %_ZN2cv3RNG7uniformEii.exit94 ]
+  %131 = load i32, ptr %.02946.i.i.i, align 4
+  %132 = icmp eq i32 %131, %storemerge
+  br i1 %132, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit, label %133
 
-132:                                              ; preds = %.lr.ph.i.i.i
-  %133 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 4
-  %134 = load i32, ptr %133, align 4
-  %135 = icmp eq i32 %134, %storemerge
-  br i1 %135, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit151, label %136
+133:                                              ; preds = %.lr.ph.i.i.i
+  %134 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 4
+  %135 = load i32, ptr %134, align 4
+  %136 = icmp eq i32 %135, %storemerge
+  br i1 %136, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit151, label %137
 
-136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
-  %138 = load i32, ptr %137, align 4
-  %139 = icmp eq i32 %138, %storemerge
-  br i1 %139, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit149, label %140
+137:                                              ; preds = %133
+  %138 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
+  %139 = load i32, ptr %138, align 4
+  %140 = icmp eq i32 %139, %storemerge
+  br i1 %140, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit149, label %141
 
-140:                                              ; preds = %136
-  %141 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 12
-  %142 = load i32, ptr %141, align 4
-  %143 = icmp eq i32 %142, %storemerge
-  br i1 %143, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, label %144
+141:                                              ; preds = %137
+  %142 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 12
+  %143 = load i32, ptr %142, align 4
+  %144 = icmp eq i32 %143, %storemerge
+  br i1 %144, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit, label %145
 
-144:                                              ; preds = %140
-  %145 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 16
-  %146 = add nsw i64 %.047.i.i.i, -1
-  %147 = icmp sgt i64 %.047.i.i.i, 1
-  br i1 %147, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !145
+145:                                              ; preds = %141
+  %146 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 16
+  %147 = add nsw i64 %.047.i.i.i, -1
+  %148 = icmp sgt i64 %.047.i.i.i, 1
+  br i1 %148, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !145
 
-._crit_edge.i.i.i:                                ; preds = %144, %_ZN2cv3RNG7uniformEii.exit94
-  %.pre-phi56.i.i.i = phi i64 [ %.idx109, %_ZN2cv3RNG7uniformEii.exit94 ], [ %gepdiff, %144 ]
-  %.029.lcssa.i.i.i = phi ptr [ %25, %_ZN2cv3RNG7uniformEii.exit94 ], [ %scevgep.i.i.i, %144 ]
-  %148 = lshr exact i64 %.pre-phi56.i.i.i, 2
-  switch i64 %148, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.thread [
+._crit_edge.i.i.i:                                ; preds = %145, %_ZN2cv3RNG7uniformEii.exit94
+  %.pre-phi56.i.i.i = phi i64 [ %indvars.iv144, %_ZN2cv3RNG7uniformEii.exit94 ], [ %130, %145 ]
+  %.029.lcssa.i.i.i = phi ptr [ %25, %_ZN2cv3RNG7uniformEii.exit94 ], [ %scevgep.i.i.i, %145 ]
+  switch i64 %.pre-phi56.i.i.i, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.thread [
     i64 3, label %149
     i64 2, label %._crit_edge._crit_edge.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i
@@ -8050,15 +8049,15 @@ _ZN2cv3RNG7uniformEii.exit94:                     ; preds = %_ZN2cv3RNG7uniformE
   %159 = icmp eq i32 %158, %storemerge
   br i1 %159, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit, label %_ZSt4findIPiiET_S1_S1_RKT0_.exit.thread
 
-_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit: ; preds = %140
+_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit: ; preds = %141
   %160 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 12
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit
 
-_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit149: ; preds = %136
+_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit149: ; preds = %137
   %161 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit
 
-_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit151: ; preds = %132
+_ZSt4findIPiiET_S1_S1_RKT0_.exit.loopexit.split.loop.exit151: ; preds = %133
   %162 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 4
   br label %_ZSt4findIPiiET_S1_S1_RKT0_.exit
 

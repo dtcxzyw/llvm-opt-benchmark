@@ -1350,11 +1350,11 @@ define i32 @Gia_ManAreListCountUsed_rec(ptr noundef %0, i32 %1, i32 noundef %2) 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr i8, ptr %0, i64 16
   %.val14 = load ptr, ptr %4, align 8
-  br label %28
+  br label %.backedge
 
-tailrecurse._crit_edge:                           ; preds = %Gia_ObjHasBranch2.exit, %Gia_ObjHasBranch2.exit.thread, %3
-  %accumulator.tr.lcssa = phi i32 [ 0, %3 ], [ %61, %Gia_ObjHasBranch2.exit.thread ], [ %64, %Gia_ObjHasBranch2.exit ]
-  %.tr19.lcssa = phi i32 [ %1, %3 ], [ %.pre28, %Gia_ObjHasBranch2.exit.thread ], [ %.pre28, %Gia_ObjHasBranch2.exit ]
+tailrecurse._crit_edge:                           ; preds = %63, %Gia_ObjHasBranch2.exit.thread, %3
+  %accumulator.tr.lcssa = phi i32 [ 0, %3 ], [ %60, %Gia_ObjHasBranch2.exit.thread ], [ %66, %63 ]
+  %.tr19.lcssa = phi i32 [ %1, %3 ], [ %.pre29, %Gia_ObjHasBranch2.exit.thread ], [ %.pre29, %63 ]
   %5 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 48
@@ -1393,75 +1393,89 @@ tailrecurse._crit_edge:                           ; preds = %Gia_ObjHasBranch2.e
   %.not1.i = icmp eq ptr %27, %.val9.val.i
   br i1 %.not1.i, label %Gia_ManAreListCountListUsed.exit, label %.lr.ph.i, !llvm.loop !18
 
-28:                                               ; preds = %.lr.ph, %Gia_ObjHasBranch2.exit
-  %.tr1923 = phi i32 [ %1, %.lr.ph ], [ %.pre28, %Gia_ObjHasBranch2.exit ]
-  %accumulator.tr22 = phi i32 [ 0, %.lr.ph ], [ %64, %Gia_ObjHasBranch2.exit ]
-  %29 = lshr i32 %.tr1923, 20
-  %30 = and i32 %29, 2047
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %.val14, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  %34 = shl i32 %.tr1923, 2
-  %35 = and i32 %34, 4194300
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %33, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
-  %39 = load i32, ptr %37, align 4
-  %40 = and i32 %39, 1032192
-  %.not.i = icmp eq i32 %40, 0
-  %.pre = load i32, ptr %38, align 4
-  br i1 %.not.i, label %41, label %Gia_ObjHasBranch0.exit
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
+  %.tr1923 = phi i32 [ %1, %.lr.ph ], [ %.pre29, %.backedge.backedge ]
+  %accumulator.tr22 = phi i32 [ 0, %.lr.ph ], [ %accumulator.tr22.be, %.backedge.backedge ]
+  %28 = lshr i32 %.tr1923, 20
+  %29 = and i32 %28, 2047
+  %30 = zext nneg i32 %29 to i64
+  %31 = getelementptr inbounds ptr, ptr %.val14, i64 %30
+  %32 = load ptr, ptr %31, align 8
+  %33 = shl i32 %.tr1923, 2
+  %34 = and i32 %33, 4194300
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr inbounds i32, ptr %32, i64 %35
+  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %38 = load i32, ptr %36, align 4
+  %39 = and i32 %38, 1032192
+  %.not.i = icmp eq i32 %39, 0
+  %.pre = load i32, ptr %37, align 4
+  br i1 %.not.i, label %40, label %Gia_ObjHasBranch0.exit
 
-41:                                               ; preds = %28
-  %42 = and i32 %.pre, 2146435072
-  %.not3.i = icmp eq i32 %42, 0
-  br i1 %.not3.i, label %43, label %Gia_ObjHasBranch0.exit
+40:                                               ; preds = %.backedge
+  %41 = and i32 %.pre, 2146435072
+  %.not3.i = icmp eq i32 %41, 0
+  br i1 %.not3.i, label %42, label %Gia_ObjHasBranch0.exit
 
-43:                                               ; preds = %41
-  %44 = and i32 %.pre, 1048575
-  %45 = icmp ne i32 %44, 0
-  %46 = zext i1 %45 to i32
+42:                                               ; preds = %40
+  %43 = and i32 %.pre, 1048575
+  %44 = icmp ne i32 %43, 0
+  %45 = zext i1 %44 to i32
   br label %Gia_ObjHasBranch0.exit
 
-Gia_ObjHasBranch0.exit:                           ; preds = %28, %41, %43
-  %47 = phi i32 [ 0, %28 ], [ 1, %41 ], [ %46, %43 ]
-  %48 = tail call i32 @Gia_ManAreListCountUsed_rec(ptr noundef nonnull %0, i32 %.pre, i32 noundef %47)
-  %49 = getelementptr inbounds i8, ptr %37, i64 8
-  %50 = and i32 %39, 66060288
-  %.not.i15 = icmp eq i32 %50, 0
-  %.pre27 = load i32, ptr %49, align 4
-  br i1 %.not.i15, label %51, label %Gia_ObjHasBranch1.exit
+Gia_ObjHasBranch0.exit:                           ; preds = %.backedge, %40, %42
+  %46 = phi i32 [ 0, %.backedge ], [ 1, %40 ], [ %45, %42 ]
+  %47 = tail call i32 @Gia_ManAreListCountUsed_rec(ptr noundef nonnull %0, i32 %.pre, i32 noundef %46)
+  %48 = getelementptr inbounds i8, ptr %36, i64 8
+  %49 = and i32 %38, 66060288
+  %.not.i15 = icmp eq i32 %49, 0
+  %.pre28 = load i32, ptr %48, align 4
+  br i1 %.not.i15, label %50, label %Gia_ObjHasBranch1.exit
 
-51:                                               ; preds = %Gia_ObjHasBranch0.exit
-  %52 = and i32 %.pre27, 2146435072
-  %.not3.i16 = icmp eq i32 %52, 0
-  br i1 %.not3.i16, label %53, label %Gia_ObjHasBranch1.exit
+50:                                               ; preds = %Gia_ObjHasBranch0.exit
+  %51 = and i32 %.pre28, 2146435072
+  %.not3.i16 = icmp eq i32 %51, 0
+  br i1 %.not3.i16, label %52, label %Gia_ObjHasBranch1.exit
 
-53:                                               ; preds = %51
-  %54 = and i32 %.pre27, 1048575
-  %55 = icmp ne i32 %54, 0
-  %56 = zext i1 %55 to i32
+52:                                               ; preds = %50
+  %53 = and i32 %.pre28, 1048575
+  %54 = icmp ne i32 %53, 0
+  %55 = zext i1 %54 to i32
   br label %Gia_ObjHasBranch1.exit
 
-Gia_ObjHasBranch1.exit:                           ; preds = %Gia_ObjHasBranch0.exit, %51, %53
-  %57 = phi i32 [ 0, %Gia_ObjHasBranch0.exit ], [ 1, %51 ], [ %56, %53 ]
-  %58 = tail call i32 @Gia_ManAreListCountUsed_rec(ptr noundef nonnull %0, i32 %.pre27, i32 noundef %57)
-  %59 = getelementptr inbounds i8, ptr %37, i64 12
-  %.not.i17 = icmp ult i32 %39, 67108864
-  %.pre28 = load i32, ptr %59, align 4
-  br i1 %.not.i17, label %Gia_ObjHasBranch2.exit, label %Gia_ObjHasBranch2.exit.thread
+Gia_ObjHasBranch1.exit:                           ; preds = %Gia_ObjHasBranch0.exit, %50, %52
+  %56 = phi i32 [ 0, %Gia_ObjHasBranch0.exit ], [ 1, %50 ], [ %55, %52 ]
+  %57 = tail call i32 @Gia_ManAreListCountUsed_rec(ptr noundef nonnull %0, i32 %.pre28, i32 noundef %56)
+  %58 = getelementptr inbounds i8, ptr %36, i64 12
+  %.not.i17 = icmp ult i32 %38, 67108864
+  %.pre29 = load i32, ptr %58, align 4
+  br i1 %.not.i17, label %61, label %Gia_ObjHasBranch2.exit.thread
 
 Gia_ObjHasBranch2.exit.thread:                    ; preds = %Gia_ObjHasBranch1.exit
-  %60 = add i32 %48, %accumulator.tr22
-  %61 = add i32 %60, %58
+  %59 = add i32 %47, %accumulator.tr22
+  %60 = add i32 %59, %57
   br label %tailrecurse._crit_edge
 
-Gia_ObjHasBranch2.exit:                           ; preds = %Gia_ObjHasBranch1.exit
-  %62 = and i32 %.pre28, 2147483647
-  %narrow.not = icmp eq i32 %62, 0
-  %63 = add i32 %48, %accumulator.tr22
-  %64 = add i32 %63, %58
-  br i1 %narrow.not, label %tailrecurse._crit_edge, label %28
+61:                                               ; preds = %Gia_ObjHasBranch1.exit
+  %62 = and i32 %.pre29, 2146435072
+  %.not3.i18 = icmp eq i32 %62, 0
+  br i1 %.not3.i18, label %63, label %Gia_ObjHasBranch2.exit
+
+63:                                               ; preds = %61
+  %64 = and i32 %.pre29, 1048575
+  %.not25 = icmp eq i32 %64, 0
+  %65 = add i32 %47, %accumulator.tr22
+  %66 = add i32 %65, %57
+  br i1 %.not25, label %tailrecurse._crit_edge, label %.backedge.backedge
+
+.backedge.backedge:                               ; preds = %63, %Gia_ObjHasBranch2.exit
+  %accumulator.tr22.be = phi i32 [ %66, %63 ], [ %68, %Gia_ObjHasBranch2.exit ]
+  br label %.backedge
+
+Gia_ObjHasBranch2.exit:                           ; preds = %61
+  %67 = add i32 %47, %accumulator.tr22
+  %68 = add i32 %67, %57
+  br label %.backedge.backedge
 
 Gia_ManAreListCountListUsed.exit:                 ; preds = %.lr.ph.i, %tailrecurse._crit_edge
   %.0 = phi i32 [ 0, %tailrecurse._crit_edge ], [ %17, %.lr.ph.i ]
@@ -1470,22 +1484,22 @@ Gia_ManAreListCountListUsed.exit:                 ; preds = %.lr.ph.i, %tailrecu
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @Gia_ManArePrintUsed_rec(ptr noundef %0, i32 %1, i32 noundef %2) local_unnamed_addr #6 {
+define range(i32 -2147483647, -2147483648) i32 @Gia_ManArePrintUsed_rec(ptr noundef %0, i32 %1, i32 noundef %2) local_unnamed_addr #6 {
   %.not19 = icmp eq i32 %2, 0
   br i1 %.not19, label %tailrecurse._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr i8, ptr %0, i64 16
-  br label %30
+  br label %.backedge
 
-tailrecurse._crit_edge.loopexit:                  ; preds = %Gia_ObjHasBranch2.exit, %Gia_ObjHasBranch2.exit.thread
-  %5 = phi i32 [ %65, %Gia_ObjHasBranch2.exit.thread ], [ %68, %Gia_ObjHasBranch2.exit ]
+tailrecurse._crit_edge.loopexit:                  ; preds = %67, %Gia_ObjHasBranch2.exit.thread
+  %5 = phi i32 [ %64, %Gia_ObjHasBranch2.exit.thread ], [ %70, %67 ]
   %6 = add nsw i32 %5, 1
   br label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse._crit_edge.loopexit, %3
   %accumulator.tr.lcssa = phi i32 [ 1, %3 ], [ %6, %tailrecurse._crit_edge.loopexit ]
-  %.tr17.lcssa = phi i32 [ %1, %3 ], [ %.pre25, %tailrecurse._crit_edge.loopexit ]
+  %.tr17.lcssa = phi i32 [ %1, %3 ], [ %.pre26, %tailrecurse._crit_edge.loopexit ]
   %7 = getelementptr i8, ptr %0, i64 24
   %.val.i = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %0, i64 48
@@ -1537,78 +1551,92 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse._crit_e
   %.not14.i = icmp eq ptr %29, %.val10.val.i
   br i1 %.not14.i, label %Gia_ManArePrintListUsed.exit, label %.lr.ph.i, !llvm.loop !19
 
-30:                                               ; preds = %.lr.ph, %Gia_ObjHasBranch2.exit
-  %.tr1721 = phi i32 [ %1, %.lr.ph ], [ %.pre25, %Gia_ObjHasBranch2.exit ]
-  %accumulator.tr20 = phi i32 [ 0, %.lr.ph ], [ %68, %Gia_ObjHasBranch2.exit ]
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
+  %.tr1721 = phi i32 [ %1, %.lr.ph ], [ %.pre26, %.backedge.backedge ]
+  %accumulator.tr20 = phi i32 [ 0, %.lr.ph ], [ %accumulator.tr20.be, %.backedge.backedge ]
   %.val = load ptr, ptr %4, align 8
-  %31 = lshr i32 %.tr1721, 20
-  %32 = and i32 %31, 2047
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %.val, i64 %33
-  %35 = load ptr, ptr %34, align 8
-  %36 = shl i32 %.tr1721, 2
-  %37 = and i32 %36, 4194300
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %35, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
-  %41 = load i32, ptr %39, align 4
-  %42 = and i32 %41, 1032192
-  %.not.i = icmp eq i32 %42, 0
-  %.pre = load i32, ptr %40, align 4
-  br i1 %.not.i, label %43, label %Gia_ObjHasBranch0.exit
+  %30 = lshr i32 %.tr1721, 20
+  %31 = and i32 %30, 2047
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr inbounds ptr, ptr %.val, i64 %32
+  %34 = load ptr, ptr %33, align 8
+  %35 = shl i32 %.tr1721, 2
+  %36 = and i32 %35, 4194300
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds i32, ptr %34, i64 %37
+  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %40 = load i32, ptr %38, align 4
+  %41 = and i32 %40, 1032192
+  %.not.i = icmp eq i32 %41, 0
+  %.pre = load i32, ptr %39, align 4
+  br i1 %.not.i, label %42, label %Gia_ObjHasBranch0.exit
 
-43:                                               ; preds = %30
-  %44 = and i32 %.pre, 2146435072
-  %.not3.i = icmp eq i32 %44, 0
-  br i1 %.not3.i, label %45, label %Gia_ObjHasBranch0.exit
+42:                                               ; preds = %.backedge
+  %43 = and i32 %.pre, 2146435072
+  %.not3.i = icmp eq i32 %43, 0
+  br i1 %.not3.i, label %44, label %Gia_ObjHasBranch0.exit
 
-45:                                               ; preds = %43
-  %46 = and i32 %.pre, 1048575
-  %47 = icmp ne i32 %46, 0
-  %48 = zext i1 %47 to i32
+44:                                               ; preds = %42
+  %45 = and i32 %.pre, 1048575
+  %46 = icmp ne i32 %45, 0
+  %47 = zext i1 %46 to i32
   br label %Gia_ObjHasBranch0.exit
 
-Gia_ObjHasBranch0.exit:                           ; preds = %30, %43, %45
-  %49 = phi i32 [ 0, %30 ], [ 1, %43 ], [ %48, %45 ]
-  %50 = tail call i32 @Gia_ManArePrintUsed_rec(ptr noundef nonnull %0, i32 %.pre, i32 noundef %49)
-  %51 = getelementptr inbounds i8, ptr %39, i64 8
-  %52 = load i32, ptr %39, align 4
-  %53 = and i32 %52, 66060288
-  %.not.i13 = icmp eq i32 %53, 0
-  %.pre24 = load i32, ptr %51, align 4
-  br i1 %.not.i13, label %54, label %Gia_ObjHasBranch1.exit
+Gia_ObjHasBranch0.exit:                           ; preds = %.backedge, %42, %44
+  %48 = phi i32 [ 0, %.backedge ], [ 1, %42 ], [ %47, %44 ]
+  %49 = tail call i32 @Gia_ManArePrintUsed_rec(ptr noundef nonnull %0, i32 %.pre, i32 noundef %48)
+  %50 = getelementptr inbounds i8, ptr %38, i64 8
+  %51 = load i32, ptr %38, align 4
+  %52 = and i32 %51, 66060288
+  %.not.i13 = icmp eq i32 %52, 0
+  %.pre25 = load i32, ptr %50, align 4
+  br i1 %.not.i13, label %53, label %Gia_ObjHasBranch1.exit
 
-54:                                               ; preds = %Gia_ObjHasBranch0.exit
-  %55 = and i32 %.pre24, 2146435072
-  %.not3.i14 = icmp eq i32 %55, 0
-  br i1 %.not3.i14, label %56, label %Gia_ObjHasBranch1.exit
+53:                                               ; preds = %Gia_ObjHasBranch0.exit
+  %54 = and i32 %.pre25, 2146435072
+  %.not3.i14 = icmp eq i32 %54, 0
+  br i1 %.not3.i14, label %55, label %Gia_ObjHasBranch1.exit
 
-56:                                               ; preds = %54
-  %57 = and i32 %.pre24, 1048575
-  %58 = icmp ne i32 %57, 0
-  %59 = zext i1 %58 to i32
+55:                                               ; preds = %53
+  %56 = and i32 %.pre25, 1048575
+  %57 = icmp ne i32 %56, 0
+  %58 = zext i1 %57 to i32
   br label %Gia_ObjHasBranch1.exit
 
-Gia_ObjHasBranch1.exit:                           ; preds = %Gia_ObjHasBranch0.exit, %54, %56
-  %60 = phi i32 [ 0, %Gia_ObjHasBranch0.exit ], [ 1, %54 ], [ %59, %56 ]
-  %61 = tail call i32 @Gia_ManArePrintUsed_rec(ptr noundef nonnull %0, i32 %.pre24, i32 noundef %60)
-  %62 = getelementptr inbounds i8, ptr %39, i64 12
-  %63 = load i32, ptr %39, align 4
-  %.not.i15 = icmp ult i32 %63, 67108864
-  %.pre25 = load i32, ptr %62, align 4
-  br i1 %.not.i15, label %Gia_ObjHasBranch2.exit, label %Gia_ObjHasBranch2.exit.thread
+Gia_ObjHasBranch1.exit:                           ; preds = %Gia_ObjHasBranch0.exit, %53, %55
+  %59 = phi i32 [ 0, %Gia_ObjHasBranch0.exit ], [ 1, %53 ], [ %58, %55 ]
+  %60 = tail call i32 @Gia_ManArePrintUsed_rec(ptr noundef nonnull %0, i32 %.pre25, i32 noundef %59)
+  %61 = getelementptr inbounds i8, ptr %38, i64 12
+  %62 = load i32, ptr %38, align 4
+  %.not.i15 = icmp ult i32 %62, 67108864
+  %.pre26 = load i32, ptr %61, align 4
+  br i1 %.not.i15, label %65, label %Gia_ObjHasBranch2.exit.thread
 
 Gia_ObjHasBranch2.exit.thread:                    ; preds = %Gia_ObjHasBranch1.exit
-  %64 = add i32 %50, %accumulator.tr20
-  %65 = add i32 %64, %61
+  %63 = add i32 %49, %accumulator.tr20
+  %64 = add i32 %63, %60
   br label %tailrecurse._crit_edge.loopexit
 
-Gia_ObjHasBranch2.exit:                           ; preds = %Gia_ObjHasBranch1.exit
-  %66 = and i32 %.pre25, 2147483647
-  %narrow.not = icmp eq i32 %66, 0
-  %67 = add i32 %50, %accumulator.tr20
-  %68 = add i32 %67, %61
-  br i1 %narrow.not, label %tailrecurse._crit_edge.loopexit, label %30
+65:                                               ; preds = %Gia_ObjHasBranch1.exit
+  %66 = and i32 %.pre26, 2146435072
+  %.not3.i16 = icmp eq i32 %66, 0
+  br i1 %.not3.i16, label %67, label %Gia_ObjHasBranch2.exit
+
+67:                                               ; preds = %65
+  %68 = and i32 %.pre26, 1048575
+  %.not23 = icmp eq i32 %68, 0
+  %69 = add i32 %49, %accumulator.tr20
+  %70 = add i32 %69, %60
+  br i1 %.not23, label %tailrecurse._crit_edge.loopexit, label %.backedge.backedge
+
+.backedge.backedge:                               ; preds = %67, %Gia_ObjHasBranch2.exit
+  %accumulator.tr20.be = phi i32 [ %70, %67 ], [ %72, %Gia_ObjHasBranch2.exit ]
+  br label %.backedge
+
+Gia_ObjHasBranch2.exit:                           ; preds = %65
+  %71 = add i32 %49, %accumulator.tr20
+  %72 = add i32 %71, %60
+  br label %.backedge.backedge
 
 Gia_ManArePrintListUsed.exit:                     ; preds = %19, %tailrecurse._crit_edge
   ret i32 %accumulator.tr.lcssa
@@ -4527,7 +4555,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 
 56:                                               ; preds = %49
   %57 = shl nsw i32 %52, 1
-  %58 = call noundef i32 @llvm.smin.i32(i32 %57, i32 536870912)
+  %58 = call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %57, i32 536870912)
   %59 = icmp eq i32 %52, 536870912
   br i1 %59, label %60, label %61
 

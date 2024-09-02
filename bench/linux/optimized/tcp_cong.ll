@@ -1104,56 +1104,56 @@ define dso_local noundef range(i32 -12, 1) i32 @tcp_set_allowed_congestion_contr
 10:                                               ; preds = %7
   %11 = load i8, ptr %8, align 1
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %23, label %.preheader11
+  br i1 %12, label %23, label %.preheader10
 
-.preheader11:                                     ; preds = %10, %16
+.preheader10:                                     ; preds = %10, %16
   %13 = phi ptr [ %14, %16 ], [ @tcp_cong_list, %10 ]
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, @tcp_cong_list
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %.critedge, label %16
 
-16:                                               ; preds = %.preheader11
+16:                                               ; preds = %.preheader10
   %17 = getelementptr i8, ptr %14, i64 -24
   %18 = call i32 @strcmp(ptr noundef %17, ptr noundef nonnull dereferenceable(1) %8) #16
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %.preheader11, !llvm.loop !6
+  br i1 %19, label %20, label %.preheader10, !llvm.loop !6
 
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %14, i64 -112
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.thread, label %7, !llvm.loop !30
+  br i1 %22, label %.critedge, label %7, !llvm.loop !30
 
 23:                                               ; preds = %10, %7
   %24 = load volatile ptr, ptr @tcp_cong_list, align 8
   %25 = icmp eq ptr %24, @tcp_cong_list
-  br i1 %25, label %.loopexit, label %.preheader10
+  br i1 %25, label %.loopexit, label %.preheader9
 
-.loopexit:                                        ; preds = %.preheader10, %23
+.loopexit:                                        ; preds = %.preheader9, %23
   %26 = call ptr @strsep(ptr noundef nonnull %2, ptr noundef nonnull @.str.6) #16
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread, label %.preheader9
+  br i1 %27, label %.critedge, label %.preheader8
 
-.preheader10:                                     ; preds = %23, %.preheader10
-  %28 = phi ptr [ %32, %.preheader10 ], [ %24, %23 ]
+.preheader9:                                      ; preds = %23, %.preheader9
+  %28 = phi ptr [ %32, %.preheader9 ], [ %24, %23 ]
   %29 = getelementptr i8, ptr %28, i64 20
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, -2
   store i32 %31, ptr %29, align 4
   %32 = load volatile ptr, ptr %28, align 8
   %33 = icmp eq ptr %32, @tcp_cong_list
-  br i1 %33, label %.loopexit, label %.preheader10, !llvm.loop !31
+  br i1 %33, label %.loopexit, label %.preheader9, !llvm.loop !31
 
-.preheader9:                                      ; preds = %.loopexit, %51
+.preheader8:                                      ; preds = %.loopexit, %51
   %34 = phi ptr [ %52, %51 ], [ %26, %.loopexit ]
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 0
-  br i1 %36, label %.thread, label %.preheader
+  br i1 %36, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %.preheader9, %40
-  %37 = phi ptr [ %38, %40 ], [ @tcp_cong_list, %.preheader9 ]
+.preheader:                                       ; preds = %.preheader8, %40
+  %37 = phi ptr [ %38, %40 ], [ @tcp_cong_list, %.preheader8 ]
   %38 = load volatile ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, @tcp_cong_list
-  br i1 %39, label %.thread8, label %40
+  br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %.preheader
   %41 = getelementptr i8, ptr %38, i64 -24
@@ -1164,9 +1164,9 @@ define dso_local noundef range(i32 -12, 1) i32 @tcp_set_allowed_congestion_contr
 44:                                               ; preds = %40
   %45 = getelementptr i8, ptr %38, i64 -112
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread8, label %47, !prof !32
+  br i1 %46, label %.thread, label %47, !prof !32
 
-.thread8:                                         ; preds = %.preheader, %44
+.thread:                                          ; preds = %.preheader, %44
   call void asm sideeffect "1052: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1052b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1052) #16, !srcloc !33
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.7, i32 398, i32 2305, i64 12) #16, !srcloc !34
   call void asm sideeffect "1053: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1053b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1053) #16, !srcloc !35
@@ -1179,19 +1179,19 @@ define dso_local noundef range(i32 -12, 1) i32 @tcp_set_allowed_congestion_contr
   store i32 %50, ptr %48, align 4
   br label %51
 
-51:                                               ; preds = %47, %.thread8
+51:                                               ; preds = %47, %.thread
   %52 = call ptr @strsep(ptr noundef nonnull %2, ptr noundef nonnull @.str.6) #16
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %.thread, label %.preheader9, !llvm.loop !36
+  br i1 %53, label %.critedge, label %.preheader8, !llvm.loop !36
 
-.thread:                                          ; preds = %20, %.preheader11, %51, %.preheader9, %.loopexit
-  %54 = phi i32 [ 0, %.loopexit ], [ 0, %.preheader9 ], [ 0, %51 ], [ -2, %.preheader11 ], [ -2, %20 ]
+.critedge:                                        ; preds = %20, %.preheader10, %51, %.preheader8, %.loopexit
+  %54 = phi i32 [ 0, %.loopexit ], [ 0, %.preheader8 ], [ 0, %51 ], [ -2, %.preheader10 ], [ -2, %20 ]
   call void @_raw_spin_unlock(ptr noundef nonnull @tcp_cong_list_lock) #16
   call void @kfree(ptr noundef nonnull %4) #16
   br label %55
 
-55:                                               ; preds = %.thread, %1
-  %56 = phi i32 [ %54, %.thread ], [ -12, %1 ]
+55:                                               ; preds = %.critedge, %1
+  %56 = phi i32 [ %54, %.critedge ], [ -12, %1 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   ret i32 %56
 }

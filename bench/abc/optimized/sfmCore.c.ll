@@ -102,7 +102,7 @@ define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %31 = add nsw i32 %30, %28
   %32 = getelementptr inbounds i8, ptr %0, i64 7668
   %33 = load i32, ptr %32, align 4
-  %34 = tail call noundef i32 @llvm.smax.i32(i32 %26, i32 1)
+  %34 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %26, i32 1)
   %35 = sdiv i32 %33, %34
   %36 = getelementptr inbounds i8, ptr %0, i64 7672
   %37 = load i32, ptr %36, align 8
@@ -117,7 +117,7 @@ define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %46 = load i32, ptr %45, align 4
   %47 = sitofp i32 %44 to double
   %48 = fmul double %47, 1.000000e+02
-  %49 = tail call noundef i32 @llvm.smax.i32(i32 %46, i32 1)
+  %49 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %46, i32 1)
   %50 = uitofp nneg i32 %49 to double
   %51 = fdiv double %48, %50
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %44, i32 noundef %46, double noundef %51)
@@ -126,7 +126,7 @@ define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %55 = load i32, ptr %54, align 4
   %56 = sitofp i32 %53 to double
   %57 = fmul double %56, 1.000000e+02
-  %58 = tail call noundef i32 @llvm.smax.i32(i32 %55, i32 1)
+  %58 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %55, i32 1)
   %59 = uitofp nneg i32 %58 to double
   %60 = fdiv double %57, %59
   %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %53, i32 noundef %55, double noundef %60)
@@ -143,7 +143,7 @@ define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %69 = load i32, ptr %68, align 8
   %70 = sitofp i32 %67 to double
   %71 = fmul double %70, 1.000000e+02
-  %72 = tail call noundef i32 @llvm.smax.i32(i32 %69, i32 1)
+  %72 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %69, i32 1)
   %73 = uitofp nneg i32 %72 to double
   %74 = fdiv double %71, %73
   %75 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %67, i32 noundef %69, double noundef %74)
@@ -159,7 +159,7 @@ define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %82 = sub nsw i32 %79, %81
   %83 = sitofp i32 %82 to double
   %84 = fmul double %83, 1.000000e+02
-  %85 = tail call noundef i32 @llvm.smax.i32(i32 %79, i32 1)
+  %85 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %79, i32 1)
   %86 = uitofp nneg i32 %85 to double
   %87 = fdiv double %84, %86
   %88 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %82, i32 noundef %79, double noundef %87)
@@ -170,7 +170,7 @@ define void @Sfm_NtkPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %93 = sub nsw i32 %90, %92
   %94 = sitofp i32 %93 to double
   %95 = fmul double %94, 1.000000e+02
-  %96 = tail call noundef i32 @llvm.smax.i32(i32 %90, i32 1)
+  %96 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %90, i32 1)
   %97 = uitofp nneg i32 %96 to double
   %98 = fdiv double %95, %97
   %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %93, i32 noundef %90, double noundef %98)

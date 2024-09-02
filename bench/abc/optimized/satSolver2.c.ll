@@ -399,14 +399,17 @@ clause2_read.exit127:                             ; preds = %156, %157
   %.1.i = add nuw nsw i32 %.016.i, %185
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %sat_clause_compute_lbd.exit, label %174, !llvm.loop !7
+  br i1 %exitcond.not.i, label %sat_clause_compute_lbd.exit.loopexit, label %174, !llvm.loop !7
 
-sat_clause_compute_lbd.exit:                      ; preds = %174, %172
-  %.0.lcssa.i = phi i32 [ 0, %172 ], [ %.1.i, %174 ]
-  %186 = shl i32 %.0.lcssa.i, 3
+sat_clause_compute_lbd.exit.loopexit:             ; preds = %174
+  %186 = shl i32 %.1.i, 3
   %187 = and i32 %186, 2040
+  br label %sat_clause_compute_lbd.exit
+
+sat_clause_compute_lbd.exit:                      ; preds = %sat_clause_compute_lbd.exit.loopexit, %172
+  %.0.lcssa.i = phi i32 [ 0, %172 ], [ %187, %sat_clause_compute_lbd.exit.loopexit ]
   %188 = and i32 %170, -2041
-  %189 = or disjoint i32 %187, %188
+  %189 = or disjoint i32 %.0.lcssa.i, %188
   store i32 %189, ptr %51, align 4
   br label %190
 
@@ -5303,7 +5306,7 @@ define noundef i32 @sat_solver2_check_watched(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -128, 128) i32 @sat_solver2_solve(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @sat_solver2_solve(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 480

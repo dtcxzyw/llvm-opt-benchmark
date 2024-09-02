@@ -518,11 +518,11 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIiSaIi
   br i1 %244, label %.lr.ph543, label %._crit_edge544, !llvm.loop !8
 
 ._crit_edge544:                                   ; preds = %.lr.ph543
+  %245 = icmp sgt i32 %241, 0
   %spec.select = select i1 %.not444, i32 1, i32 2
-  %245 = lshr exact i32 %46, 10
-  %.1268 = add nuw nsw i32 %spec.select, %245
-  %246 = icmp sgt i32 %241, 0
-  br i1 %246, label %.lr.ph547, label %._crit_edge548
+  %246 = lshr exact i32 %46, 10
+  %.1268 = add nuw nsw i32 %spec.select, %246
+  br i1 %245, label %.lr.ph547, label %._crit_edge548
 
 .lr.ph547:                                        ; preds = %._crit_edge544
   %247 = add nuw nsw i32 %.1268, 1

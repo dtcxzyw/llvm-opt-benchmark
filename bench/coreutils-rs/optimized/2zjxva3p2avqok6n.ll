@@ -161,7 +161,7 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   br i1 %.not90, label %59, label %.critedge41
 
 49:                                               ; preds = %44
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.0110.lcssa, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0110.lcssa, i32 6)
   %50 = mul nuw nsw i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i
   %.not.i54 = icmp eq i32 %.0110.lcssa, 0
   br i1 %.not.i54, label %.outer.backedge, label %.lr.ph.i55
@@ -384,7 +384,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
   br i1 %56, label %61, label %80
 
 57:                                               ; preds = %52
-  %.0.sroa.speculated.i.i.i = call noundef i32 @llvm.umin.i32(i32 %.0.i, i32 6)
+  %.0.sroa.speculated.i.i.i = call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0.i, i32 6)
   %58 = mul nuw nsw i32 %.0.sroa.speculated.i.i.i, %.0.sroa.speculated.i.i.i
   %.not.i34.i = icmp eq i32 %.0.i, 0
   br i1 %.not.i34.i, label %.backedge.i.backedge, label %.lr.ph.i35.i

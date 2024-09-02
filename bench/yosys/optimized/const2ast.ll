@@ -1279,19 +1279,18 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %170, %
   %.07.i = phi i32 [ %198, %.lr.ph.i145 ], [ 0, %194 ]
   %.056.i = phi i32 [ %197, %.lr.ph.i145 ], [ %195, %194 ]
   %197 = ashr i32 %.056.i, 1
-  %198 = add nuw nsw i32 %.07.i, 1
+  %198 = add i32 %.07.i, 1
   %199 = add nsw i32 %197, -1
   %200 = icmp ult i32 %199, -2
   br i1 %200, label %.lr.ph.i145, label %_ZN5YosysL8my_ilog2Ei.exit, !llvm.loop !14
 
 _ZN5YosysL8my_ilog2Ei.exit:                       ; preds = %.lr.ph.i145, %194
   %.0.lcssa.i144 = phi i32 [ 0, %194 ], [ %198, %.lr.ph.i145 ]
-  %.0.lcssa.i144.fr = freeze i32 %.0.lcssa.i144
   %.not250288 = icmp eq ptr %.sroa.21.0.lcssa, %.sroa.0213.0.lcssa
   br i1 %.not250288, label %.loopexit, label %.lr.ph290
 
 .lr.ph290:                                        ; preds = %_ZN5YosysL8my_ilog2Ei.exit
-  %201 = icmp sgt i32 %.0.lcssa.i144.fr, 0
+  %201 = icmp sgt i32 %.0.lcssa.i144, 0
   %202 = and i8 %4, -3
   %203 = icmp eq i8 %202, 120
   %204 = select i1 %203, i8 4, i8 3
@@ -1507,7 +1506,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit156.us: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i175.us, %269, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i153.us, %241, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i164.us, %217
   %291 = phi ptr [ %288, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i175.us ], [ %271, %269 ], [ %260, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i153.us ], [ %243, %241 ], [ %236, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i164.us ], [ %219, %217 ]
   %292 = add nuw nsw i32 %.068286.us, 1
-  %exitcond.not = icmp eq i32 %292, %.0.lcssa.i144.fr
+  %exitcond.not = icmp eq i32 %292, %.0.lcssa.i144
   br i1 %exitcond.not, label %..loopexit255_crit_edge.us, label %.preheader254.us, !llvm.loop !15
 
 ..loopexit255_crit_edge.us:                       ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit156.us

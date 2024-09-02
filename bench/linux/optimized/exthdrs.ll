@@ -1574,25 +1574,25 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
 
 ._crit_edge:                                      ; preds = %33
   %.pre = load ptr, ptr %12, align 8
-  %.pre84 = load i16, ptr %14, align 2
-  %.pre85 = load ptr, ptr %18, align 8
-  %.pre86 = load i32, ptr %25, align 8
-  %.pre87 = load i32, ptr %27, align 4
-  %.pre91 = zext i16 %.pre84 to i64
-  %.pre92 = ptrtoint ptr %.pre85 to i64
-  %.pre94 = sub i32 %.pre86, %.pre87
+  %.pre83 = load i16, ptr %14, align 2
+  %.pre84 = load ptr, ptr %18, align 8
+  %.pre85 = load i32, ptr %25, align 8
+  %.pre86 = load i32, ptr %27, align 4
+  %.pre90 = zext i16 %.pre83 to i64
+  %.pre91 = ptrtoint ptr %.pre84 to i64
+  %.pre93 = sub i32 %.pre85, %.pre86
   br label %37
 
 37:                                               ; preds = %._crit_edge, %1
-  %.pre-phi95 = phi i32 [ %.pre94, %._crit_edge ], [ %29, %1 ]
-  %.pre-phi93 = phi i64 [ %.pre92, %._crit_edge ], [ %21, %1 ]
-  %.pre-phi = phi i64 [ %.pre91, %._crit_edge ], [ %16, %1 ]
-  %38 = phi i32 [ %.pre86, %._crit_edge ], [ %26, %1 ]
-  %39 = phi i16 [ %.pre84, %._crit_edge ], [ %15, %1 ]
+  %.pre-phi94 = phi i32 [ %.pre93, %._crit_edge ], [ %29, %1 ]
+  %.pre-phi92 = phi i64 [ %.pre91, %._crit_edge ], [ %21, %1 ]
+  %.pre-phi = phi i64 [ %.pre90, %._crit_edge ], [ %16, %1 ]
+  %38 = phi i32 [ %.pre85, %._crit_edge ], [ %26, %1 ]
+  %39 = phi i16 [ %.pre83, %._crit_edge ], [ %15, %1 ]
   %40 = phi ptr [ %.pre, %._crit_edge ], [ %13, %1 ]
   %41 = getelementptr i8, ptr %40, i64 %.pre-phi
   %42 = ptrtoint ptr %41 to i64
-  %43 = sub i64 %42, %.pre-phi93
+  %43 = sub i64 %42, %.pre-phi92
   %44 = trunc i64 %43 to i32
   %45 = getelementptr i8, ptr %41, i64 1
   %46 = load i8, ptr %45, align 1
@@ -1600,7 +1600,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
   %48 = shl nuw nsw i32 %47, 3
   %49 = add nuw nsw i32 %48, 8
   %50 = add i32 %49, %44
-  %51 = icmp ult i32 %.pre-phi95, %50
+  %51 = icmp ult i32 %.pre-phi94, %50
   br i1 %51, label %52, label %67, !prof !5
 
 52:                                               ; preds = %37
@@ -1608,15 +1608,15 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
   br i1 %53, label %58, label %54, !prof !5
 
 54:                                               ; preds = %52
-  %55 = sub i32 %50, %.pre-phi95
+  %55 = sub i32 %50, %.pre-phi94
   %56 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %55) #10
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %._crit_edge88
+  br i1 %57, label %58, label %._crit_edge87
 
-._crit_edge88:                                    ; preds = %54
-  %.pre89 = load ptr, ptr %12, align 8
-  %.pre90 = load i16, ptr %14, align 2
-  %.pre96 = zext i16 %.pre90 to i64
+._crit_edge87:                                    ; preds = %54
+  %.pre88 = load ptr, ptr %12, align 8
+  %.pre89 = load i16, ptr %14, align 2
+  %.pre95 = zext i16 %.pre89 to i64
   br label %67
 
 58:                                               ; preds = %54, %52, %33, %31
@@ -1637,11 +1637,11 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #10
   br label %ipv6_srh_rcv.exit
 
-67:                                               ; preds = %._crit_edge88, %37
-  %.pre-phi97 = phi i64 [ %.pre96, %._crit_edge88 ], [ %.pre-phi, %37 ]
-  %68 = phi i16 [ %.pre90, %._crit_edge88 ], [ %39, %37 ]
-  %69 = phi ptr [ %.pre89, %._crit_edge88 ], [ %40, %37 ]
-  %70 = getelementptr i8, ptr %69, i64 %.pre-phi97
+67:                                               ; preds = %._crit_edge87, %37
+  %.pre-phi96 = phi i64 [ %.pre95, %._crit_edge87 ], [ %.pre-phi, %37 ]
+  %68 = phi i16 [ %.pre89, %._crit_edge87 ], [ %39, %37 ]
+  %69 = phi ptr [ %.pre88, %._crit_edge87 ], [ %40, %37 ]
+  %70 = getelementptr i8, ptr %69, i64 %.pre-phi96
   %71 = getelementptr inbounds i8, ptr %0, i64 180
   %72 = load i16, ptr %71, align 4
   %73 = zext i16 %72 to i64
@@ -1937,7 +1937,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
   %268 = load i8, ptr %115, align 2
   %269 = and i8 %268, 1
   %270 = icmp eq i8 %269, 0
-  br i1 %270, label %.thread.i, label %271
+  br i1 %270, label %.critedge.i, label %271
 
 271:                                              ; preds = %267
   %272 = load ptr, ptr %12, align 8
@@ -1948,7 +1948,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
   %277 = load volatile i32, ptr %276, align 4
   %278 = and i32 %277, 65535
   %.not.i = icmp eq i32 %278, 1
-  br i1 %.not.i, label %.thread.i, label %279
+  br i1 %.not.i, label %.critedge.i, label %279
 
 279:                                              ; preds = %271
   %280 = call i32 @pskb_expand_head(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 2080) #10
@@ -1984,9 +1984,9 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
   %299 = load i16, ptr %14, align 2
   %300 = zext i16 %299 to i64
   %301 = getelementptr i8, ptr %298, i64 %300
-  br label %.thread.i
+  br label %.critedge.i
 
-.thread.i:                                        ; preds = %297, %271, %267
+.critedge.i:                                      ; preds = %297, %271, %267
   %302 = phi ptr [ %301, %297 ], [ %243, %271 ], [ %243, %267 ]
   %303 = getelementptr inbounds i8, ptr %302, i64 3
   %304 = load i8, ptr %303, align 1
@@ -2001,7 +2001,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
   %312 = icmp eq i8 %311, 64
   br i1 %312, label %313, label %356
 
-313:                                              ; preds = %.thread.i
+313:                                              ; preds = %.critedge.i
   %314 = load ptr, ptr %12, align 8
   %315 = load i16, ptr %14, align 2
   %316 = zext i16 %315 to i64
@@ -2065,7 +2065,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
   br label %356
 
-356:                                              ; preds = %313, %.thread.i
+356:                                              ; preds = %313, %.critedge.i
   %357 = load ptr, ptr %12, align 8
   %358 = load i16, ptr %71, align 4
   %359 = zext i16 %358 to i64
@@ -2434,9 +2434,9 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
   %604 = add nuw nsw i64 %603, 80
   %605 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %604, i32 noundef 2336) #11
   %606 = icmp eq ptr %605, null
-  br i1 %606, label %.thread.i7, label %607, !prof !24
+  br i1 %606, label %.thread.i, label %607, !prof !24
 
-.thread.i7:                                       ; preds = %601
+.thread.i:                                        ; preds = %601
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #10
   br label %ipv6_srh_rcv.exit
 
@@ -2839,8 +2839,8 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
   tail call void @icmpv6_param_prob_reason(ptr noundef %0, i8 noundef zeroext 0, i32 noundef %872, i32 noundef 2) #10
   br label %ipv6_srh_rcv.exit
 
-ipv6_srh_rcv.exit:                                ; preds = %836, %834, %830, %811, %789, %787, %783, %701, %632, %627, %.thread.i7, %589, %579, %535, %529, %445, %420, %418, %414, %400, %378, %376, %372, %293, %255, %221, %215, %127, %861, %842, %89, %63
-  %873 = phi i32 [ -1, %89 ], [ 1, %842 ], [ -1, %861 ], [ -1, %63 ], [ -1, %215 ], [ 1, %221 ], [ -1, %255 ], [ -1, %293 ], [ -1, %400 ], [ -1, %127 ], [ -1, %372 ], [ -1, %376 ], [ -1, %378 ], [ -1, %414 ], [ -1, %418 ], [ -1, %420 ], [ -1, %529 ], [ 1, %535 ], [ -1, %579 ], [ -1, %589 ], [ -1, %.thread.i7 ], [ -1, %627 ], [ -1, %632 ], [ -1, %701 ], [ -1, %811 ], [ -1, %445 ], [ -1, %783 ], [ -1, %787 ], [ -1, %789 ], [ -1, %830 ], [ -1, %834 ], [ -1, %836 ]
+ipv6_srh_rcv.exit:                                ; preds = %836, %834, %830, %811, %789, %787, %783, %701, %632, %627, %.thread.i, %589, %579, %535, %529, %445, %420, %418, %414, %400, %378, %376, %372, %293, %255, %221, %215, %127, %861, %842, %89, %63
+  %873 = phi i32 [ -1, %89 ], [ 1, %842 ], [ -1, %861 ], [ -1, %63 ], [ -1, %215 ], [ 1, %221 ], [ -1, %255 ], [ -1, %293 ], [ -1, %400 ], [ -1, %127 ], [ -1, %372 ], [ -1, %376 ], [ -1, %378 ], [ -1, %414 ], [ -1, %418 ], [ -1, %420 ], [ -1, %529 ], [ 1, %535 ], [ -1, %579 ], [ -1, %589 ], [ -1, %.thread.i ], [ -1, %627 ], [ -1, %632 ], [ -1, %701 ], [ -1, %811 ], [ -1, %445 ], [ -1, %783 ], [ -1, %787 ], [ -1, %789 ], [ -1, %830 ], [ -1, %834 ], [ -1, %836 ]
   ret i32 %873
 }
 

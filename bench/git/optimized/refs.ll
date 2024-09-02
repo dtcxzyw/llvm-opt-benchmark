@@ -142,7 +142,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.95 = private unnamed_addr constant [10 x i8] c"%s %s %s\0A\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @ref_storage_format_by_name(ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @ref_storage_format_by_name(ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
 entry:
   br label %for.body
 

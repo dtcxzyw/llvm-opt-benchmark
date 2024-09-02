@@ -147,7 +147,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @virtio_9p_get_features(ptr nocapture readnone %vdev, i64 noundef %features, ptr nocapture readnone %errp) #2 {
+define internal noundef range(i64 1, 0) i64 @virtio_9p_get_features(ptr nocapture readnone %vdev, i64 noundef %features, ptr nocapture readnone %errp) #2 {
 entry:
   %or.i = or i64 %features, 1
   ret i64 %or.i

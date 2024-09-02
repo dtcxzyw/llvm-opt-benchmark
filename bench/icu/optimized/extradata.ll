@@ -290,7 +290,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_755Norms10EnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6icu_759ExtraData12writeMappingEiRKNS_4NormERNS_13UnicodeStringE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %dataString) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_759ExtraData12writeMappingEiRKNS_4NormERNS_13UnicodeStringE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %dataString) local_unnamed_addr #0 align 2 {
 entry:
   %srcChar.addr.i42 = alloca i16, align 2
   %srcChar.addr.i40 = alloca i16, align 2

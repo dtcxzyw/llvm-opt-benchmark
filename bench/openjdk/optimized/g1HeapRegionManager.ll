@@ -1160,8 +1160,8 @@ define hidden void @_ZN19G1HeapRegionManager12expand_exactEjjP13WorkerThreads(pt
   %12 = zext i32 %1 to i64
   br label %13
 
-13:                                               ; preds = %.lr.ph, %36
-  %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %36 ]
+13:                                               ; preds = %.lr.ph, %37
+  %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %indvars17 = trunc i64 %indvars.iv to i32
   %14 = load ptr, ptr %8, align 8
   %15 = lshr i64 %indvars.iv, 6
@@ -1184,18 +1184,18 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %21
   %.phi.trans.insert = getelementptr inbounds i64, ptr %.pre, i64 %15
   %.pre18 = load i64, ptr %.phi.trans.insert, align 8
   %.pre19 = and i64 %.pre18, %19
-  %.not13 = icmp eq i64 %.pre19, 0
-  br i1 %.not13, label %.thread, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread
+  %23 = icmp eq i64 %.pre19, 0
+  br i1 %23, label %.thread, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %23 = load ptr, ptr %9, align 8
-  tail call void @_ZN21G1RegionToSpaceMapper22signal_mapping_changedEjm(ptr noundef nonnull align 8 dereferenceable(129) %23, i32 noundef %indvars17, i64 noundef 1) #16
-  %24 = load ptr, ptr %0, align 8
+  %24 = load ptr, ptr %9, align 8
   tail call void @_ZN21G1RegionToSpaceMapper22signal_mapping_changedEjm(ptr noundef nonnull align 8 dereferenceable(129) %24, i32 noundef %indvars17, i64 noundef 1) #16
-  %25 = load ptr, ptr %10, align 8
+  %25 = load ptr, ptr %0, align 8
   tail call void @_ZN21G1RegionToSpaceMapper22signal_mapping_changedEjm(ptr noundef nonnull align 8 dereferenceable(129) %25, i32 noundef %indvars17, i64 noundef 1) #16
-  %26 = add nuw i32 %indvars17, 1
-  tail call void @_ZN20G1CommittedRegionMap10reactivateEjj(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %indvars17, i32 noundef %26) #16
+  %26 = load ptr, ptr %10, align 8
+  tail call void @_ZN21G1RegionToSpaceMapper22signal_mapping_changedEjm(ptr noundef nonnull align 8 dereferenceable(129) %26, i32 noundef %indvars17, i64 noundef 1) #16
+  %27 = add nuw i32 %indvars17, 1
+  tail call void @_ZN20G1CommittedRegionMap10reactivateEjj(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %indvars17, i32 noundef %27) #16
   tail call void @_ZN19G1HeapRegionManager18initialize_regionsEjj(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %indvars17, i32 noundef 1)
   br label %.thread
 
@@ -1204,37 +1204,37 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %_ZN1
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit.critedge:               ; preds = %21
-  %27 = load ptr, ptr %9, align 8
-  tail call void @_ZN21G1RegionToSpaceMapper22signal_mapping_changedEjm(ptr noundef nonnull align 8 dereferenceable(129) %27, i32 noundef %indvars17, i64 noundef 1) #16
-  %28 = load ptr, ptr %0, align 8
+  %28 = load ptr, ptr %9, align 8
   tail call void @_ZN21G1RegionToSpaceMapper22signal_mapping_changedEjm(ptr noundef nonnull align 8 dereferenceable(129) %28, i32 noundef %indvars17, i64 noundef 1) #16
-  %29 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %0, align 8
   tail call void @_ZN21G1RegionToSpaceMapper22signal_mapping_changedEjm(ptr noundef nonnull align 8 dereferenceable(129) %29, i32 noundef %indvars17, i64 noundef 1) #16
-  %30 = add nuw i32 %indvars17, 1
-  tail call void @_ZN20G1CommittedRegionMap10reactivateEjj(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %indvars17, i32 noundef %30) #16
+  %30 = load ptr, ptr %10, align 8
+  tail call void @_ZN21G1RegionToSpaceMapper22signal_mapping_changedEjm(ptr noundef nonnull align 8 dereferenceable(129) %30, i32 noundef %indvars17, i64 noundef 1) #16
+  %31 = add nuw i32 %indvars17, 1
+  tail call void @_ZN20G1CommittedRegionMap10reactivateEjj(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %indvars17, i32 noundef %31) #16
   tail call void @_ZN19G1HeapRegionManager18initialize_regionsEjj(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %indvars17, i32 noundef 1)
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerD2Ev.exit.critedge, %.thread, %13
-  %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds i64, ptr %31, i64 %15
-  %33 = load volatile i64, ptr %32, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = getelementptr inbounds i64, ptr %32, i64 %15
+  %34 = load volatile i64, ptr %33, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !11
-  %34 = and i64 %33, %19
-  %.not14 = icmp eq i64 %34, 0
-  br i1 %.not14, label %35, label %36
+  %35 = and i64 %34, %19
+  %.not14 = icmp eq i64 %35, 0
+  br i1 %.not14, label %36, label %37
 
-35:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
+36:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
   tail call void @_ZN19G1HeapRegionManager6expandEjjP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %indvars17, i32 noundef 1, ptr noundef %3)
-  br label %36
+  br label %37
 
-36:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %35
+37:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %36, %4
+._crit_edge:                                      ; preds = %37, %4
   ret void
 }
 

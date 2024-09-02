@@ -33,7 +33,7 @@ $_ZTIN6icu_7517CharsetRecog_2022E = comdat any
 @_ZN6icu_7517CharsetRecog_2022D1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7517CharsetRecog_2022D2Ev
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7517CharsetRecog_202210match_2022EPKhiPA5_S1_i(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %text, i32 noundef %textLen, ptr nocapture noundef readonly %escapeSequences, i32 noundef %escapeSequences_length) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK6icu_7517CharsetRecog_202210match_2022EPKhiPA5_S1_i(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %text, i32 noundef %textLen, ptr nocapture noundef readonly %escapeSequences, i32 noundef %escapeSequences_length) local_unnamed_addr #0 align 2 {
 entry:
   %cmp36 = icmp sgt i32 %textLen, 0
   %cmp434 = icmp sgt i32 %escapeSequences_length, 0

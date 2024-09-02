@@ -350,7 +350,7 @@ contains_cc.exit:                                 ; preds = %36, %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dlp_has_cc(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dlp_has_cc(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp ult i64 %1, 13
   %or.cond.i = or i1 %4, %5
@@ -772,7 +772,7 @@ dlp_get_normal_ssn_count.exit:                    ; preds = %57, %5, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ult i64 %1, 9
   %or.cond.i = or i1 %3, %4
@@ -875,7 +875,7 @@ contains_ssn.exit12:                              ; preds = %47, %51, %5, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dlp_has_stripped_ssn(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dlp_has_stripped_ssn(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ult i64 %1, 9
   %or.cond.i = or i1 %3, %4
@@ -935,7 +935,7 @@ contains_ssn.exit:                                ; preds = %25, %29, %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dlp_has_normal_ssn(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dlp_has_normal_ssn(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ult i64 %1, 9
   %or.cond.i = or i1 %3, %4

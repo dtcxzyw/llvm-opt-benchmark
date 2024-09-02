@@ -783,84 +783,84 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   %18 = getelementptr inbounds i8, ptr %1, i64 136
   %19 = tail call ptr @find_conversation(i32 noundef %16, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %25, label %20
+  br i1 %.not, label %26, label %20
 
 20:                                               ; preds = %14
   %21 = load i32, ptr @proto_pn_io_time_aware_status, align 4
   %22 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %19, i32 noundef %21) #7
   %23 = ptrtoint ptr %22 to i64
-  %24 = trunc i64 %23 to i8
-  br label %25
+  %24 = and i64 %23, 255
+  %25 = icmp ne i64 %24, 0
+  br label %26
 
-25:                                               ; preds = %20, %14
-  %.0 = phi i8 [ %24, %20 ], [ 0, %14 ]
-  %26 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #7
-  %27 = zext i16 %26 to i32
-  %28 = icmp ult i16 %26, 32
-  br i1 %28, label %119, label %29
+26:                                               ; preds = %20, %14
+  %.0 = phi i1 [ %25, %20 ], [ false, %14 ]
+  %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #7
+  %28 = zext i16 %27 to i32
+  %29 = icmp ult i16 %27, 32
+  br i1 %29, label %119, label %30
 
-29:                                               ; preds = %25
-  %30 = icmp ult i16 %26, 34
-  br i1 %30, label %119, label %31
+30:                                               ; preds = %26
+  %31 = icmp ult i16 %27, 34
+  br i1 %31, label %119, label %32
 
-31:                                               ; preds = %29
-  %32 = icmp ult i16 %26, 128
-  br i1 %32, label %119, label %33
+32:                                               ; preds = %30
+  %33 = icmp ult i16 %27, 128
+  br i1 %33, label %119, label %34
 
-33:                                               ; preds = %31
-  %34 = icmp ult i16 %26, 130
-  br i1 %34, label %119, label %35
+34:                                               ; preds = %32
+  %35 = icmp ult i16 %27, 130
+  br i1 %35, label %119, label %36
 
-35:                                               ; preds = %33
-  %36 = icmp ult i16 %26, 256
-  br i1 %36, label %119, label %37
+36:                                               ; preds = %34
+  %37 = icmp ult i16 %27, 256
+  br i1 %37, label %119, label %38
 
-37:                                               ; preds = %35
-  %38 = icmp ugt i16 %26, 1791
-  %39 = icmp ne i8 %.0, 0
-  %or.cond = select i1 %38, i1 true, i1 %39
+38:                                               ; preds = %36
+  %39 = icmp ugt i16 %27, 1791
+  %or.cond = select i1 %39, i1 true, i1 %.0
   br i1 %or.cond, label %40, label %100
 
-40:                                               ; preds = %37
-  %41 = icmp ugt i16 %26, 4095
-  %or.cond3 = select i1 %41, i1 true, i1 %39
+40:                                               ; preds = %38
+  %41 = icmp ugt i16 %27, 4095
+  %or.cond3 = select i1 %41, i1 true, i1 %.0
   br i1 %or.cond3, label %42, label %100
 
 42:                                               ; preds = %40
-  %43 = icmp slt i16 %26, 0
-  %or.cond5 = select i1 %43, i1 true, i1 %39
+  %43 = icmp slt i16 %27, 0
+  %or.cond5 = select i1 %43, i1 true, i1 %.0
   br i1 %or.cond5, label %44, label %119
 
 44:                                               ; preds = %42
-  %45 = icmp ult i16 %26, 4096
-  %or.cond8 = select i1 %45, i1 %39, i1 false
+  %45 = icmp ult i16 %27, 4096
+  %or.cond8 = select i1 %45, i1 %.0, i1 false
   br i1 %or.cond8, label %119, label %46
 
 46:                                               ; preds = %44
-  %47 = icmp ult i16 %26, 12288
-  %or.cond11 = select i1 %47, i1 %39, i1 false
+  %47 = icmp ult i16 %27, 12288
+  %or.cond11 = select i1 %47, i1 %.0, i1 false
   br i1 %or.cond11, label %100, label %48
 
 48:                                               ; preds = %46
-  %49 = icmp ult i16 %26, 14336
-  %or.cond14 = select i1 %49, i1 %39, i1 false
+  %49 = icmp ult i16 %27, 14336
+  %or.cond14 = select i1 %49, i1 %.0, i1 false
   br i1 %or.cond14, label %119, label %50
 
 50:                                               ; preds = %48
-  %51 = icmp ult i16 %26, 16384
-  %or.cond17 = select i1 %51, i1 %39, i1 false
+  %51 = icmp ult i16 %27, 16384
+  %or.cond17 = select i1 %51, i1 %.0, i1 false
   br i1 %or.cond17, label %100, label %52
 
 52:                                               ; preds = %50
-  %53 = icmp ult i16 %26, -17408
+  %53 = icmp ult i16 %27, -17408
   br i1 %53, label %100, label %54
 
 54:                                               ; preds = %52
-  %55 = icmp ult i16 %26, -16384
+  %55 = icmp ult i16 %27, -16384
   br i1 %55, label %100, label %56
 
 56:                                               ; preds = %54
-  %57 = icmp ult i16 %26, -2048
+  %57 = icmp ult i16 %27, -2048
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %56
@@ -873,7 +873,7 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %100
 
 62:                                               ; preds = %56
-  %63 = icmp ult i16 %26, -1024
+  %63 = icmp ult i16 %27, -1024
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %62
@@ -886,79 +886,79 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %100
 
 68:                                               ; preds = %62
-  %69 = icmp ult i16 %26, -512
+  %69 = icmp ult i16 %27, -512
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
-  %71 = icmp eq i16 %26, -1023
+  %71 = icmp eq i16 %27, -1023
   %spec.select = select i1 %71, ptr @.str.149, ptr @.str.146
   %spec.select189 = select i1 %71, ptr @.str.150, ptr @.str.148
   br label %119
 
 72:                                               ; preds = %68
-  %73 = icmp ult i16 %26, -256
+  %73 = icmp ult i16 %27, -256
   br i1 %73, label %74, label %86
 
 74:                                               ; preds = %72
-  %75 = icmp eq i16 %26, -511
+  %75 = icmp eq i16 %27, -511
   %spec.select190 = select i1 %75, ptr @.str.152, ptr @.str.146
   %spec.select191 = select i1 %75, ptr @.str.153, ptr @.str.151
-  %76 = icmp eq i16 %26, -510
+  %76 = icmp eq i16 %27, -510
   %.4158 = select i1 %76, ptr @.str.154, ptr @.str.145
   %.4 = select i1 %76, ptr @.str.156, ptr %spec.select191
-  %77 = icmp eq i16 %26, -260
+  %77 = icmp eq i16 %27, -260
   %.5 = select i1 %77, ptr @.str.157, ptr %.4
-  %78 = icmp eq i16 %26, -259
-  %79 = and i16 %26, -2
+  %78 = icmp eq i16 %27, -259
+  %79 = and i16 %27, -2
   %80 = icmp eq i16 %79, -260
   %81 = or i1 %76, %80
   %.6 = select i1 %78, ptr @.str.158, ptr %.5
-  %82 = icmp eq i16 %26, -258
+  %82 = icmp eq i16 %27, -258
   %83 = or i1 %82, %81
   %.7169 = select i1 %83, ptr @.str.155, ptr %spec.select190
   %.7 = select i1 %82, ptr @.str.159, ptr %.6
-  %84 = icmp eq i16 %26, -257
+  %84 = icmp eq i16 %27, -257
   br i1 %84, label %85, label %119
 
 85:                                               ; preds = %74
   br label %119
 
 86:                                               ; preds = %72
-  %87 = icmp ult i16 %26, -254
+  %87 = icmp ult i16 %27, -254
   br i1 %87, label %119, label %88
 
 88:                                               ; preds = %86
-  %89 = icmp ult i16 %26, -224
+  %89 = icmp ult i16 %27, -224
   br i1 %89, label %119, label %90
 
 90:                                               ; preds = %88
-  %91 = icmp ult i16 %26, -222
+  %91 = icmp ult i16 %27, -222
   br i1 %91, label %119, label %92
 
 92:                                               ; preds = %90
-  %93 = icmp eq i16 %26, -222
+  %93 = icmp eq i16 %27, -222
   br i1 %93, label %119, label %94
 
 94:                                               ; preds = %92
-  %95 = icmp ult i16 %26, -188
+  %95 = icmp ult i16 %27, -188
   br i1 %95, label %119, label %96
 
 96:                                               ; preds = %94
-  %97 = icmp ult i16 %26, -128
+  %97 = icmp ult i16 %27, -128
   br i1 %97, label %119, label %98
 
 98:                                               ; preds = %96
-  %99 = icmp ult i16 %26, -112
+  %99 = icmp ult i16 %27, -112
   %.str.155..str.146 = select i1 %99, ptr @.str.155, ptr @.str.146
   %.str.170..str.113 = select i1 %99, ptr @.str.170, ptr @.str.113
   %.str.171..str.172 = select i1 %99, ptr @.str.171, ptr @.str.172
   br label %119
 
-100:                                              ; preds = %58, %64, %37, %40, %46, %50, %52, %54
-  %.0162 = phi ptr [ %.str.139..str.141, %58 ], [ %.str.139..str.141187, %64 ], [ @.str.123, %37 ], [ @.str.123, %40 ], [ @.str.129, %46 ], [ @.str.129, %50 ], [ @.str.134, %52 ], [ @.str.134, %54 ]
-  %.0154 = phi ptr [ %.str.138..str.68, %58 ], [ %.str.138..str.68188, %64 ], [ @.str.122, %37 ], [ @.str.122, %40 ], [ @.str.128, %46 ], [ @.str.128, %50 ], [ @.str.133, %52 ], [ @.str.133, %54 ]
-  %.0148 = phi ptr [ @.str.135, %58 ], [ @.str.135, %64 ], [ @.str.119, %37 ], [ @.str.119, %40 ], [ @.str.113, %46 ], [ @.str.113, %50 ], [ @.str.135, %52 ], [ @.str.135, %54 ]
-  %.0147 = phi ptr [ %.str.140..str.142, %58 ], [ %.str.143..str.144, %64 ], [ @.str.124, %37 ], [ @.str.125, %40 ], [ @.str.130, %46 ], [ @.str.132, %50 ], [ @.str.136, %52 ], [ @.str.137, %54 ]
+100:                                              ; preds = %58, %64, %38, %40, %46, %50, %52, %54
+  %.0162 = phi ptr [ %.str.139..str.141, %58 ], [ %.str.139..str.141187, %64 ], [ @.str.123, %38 ], [ @.str.123, %40 ], [ @.str.129, %46 ], [ @.str.129, %50 ], [ @.str.134, %52 ], [ @.str.134, %54 ]
+  %.0154 = phi ptr [ %.str.138..str.68, %58 ], [ %.str.138..str.68188, %64 ], [ @.str.122, %38 ], [ @.str.122, %40 ], [ @.str.128, %46 ], [ @.str.128, %50 ], [ @.str.133, %52 ], [ @.str.133, %54 ]
+  %.0148 = phi ptr [ @.str.135, %58 ], [ @.str.135, %64 ], [ @.str.119, %38 ], [ @.str.119, %40 ], [ @.str.113, %46 ], [ @.str.113, %50 ], [ @.str.135, %52 ], [ @.str.135, %54 ]
+  %.0147 = phi ptr [ %.str.140..str.142, %58 ], [ %.str.143..str.144, %64 ], [ @.str.124, %38 ], [ @.str.125, %40 ], [ @.str.130, %46 ], [ @.str.132, %50 ], [ @.str.136, %52 ], [ @.str.137, %54 ]
   %101 = add nsw i32 %10, -4
   %102 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %101) #7
   %103 = add nsw i32 %10, -2
@@ -980,16 +980,16 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   %116 = and i32 %109, 16
   %.not182 = icmp eq i32 %116, 0
   %117 = select i1 %.not182, ptr @.str.10, ptr @.str.9
-  %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.173, ptr noundef nonnull %.0162, i32 noundef %27, i32 noundef %107, i32 noundef %108, ptr noundef nonnull %111, ptr noundef nonnull %113, ptr noundef nonnull %115, ptr noundef nonnull %117) #7
+  %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.173, ptr noundef nonnull %.0162, i32 noundef %28, i32 noundef %107, i32 noundef %108, ptr noundef nonnull %111, ptr noundef nonnull %113, ptr noundef nonnull %115, ptr noundef nonnull %117) #7
   br label %122
 
-119:                                              ; preds = %85, %74, %25, %29, %31, %33, %35, %42, %44, %48, %70, %86, %88, %90, %92, %94, %96, %98
-  %.0162.ph = phi ptr [ %.str.155..str.146, %98 ], [ @.str.146, %96 ], [ @.str.167, %94 ], [ @.str.164, %92 ], [ @.str.164, %90 ], [ @.str.161, %88 ], [ @.str.161, %86 ], [ %spec.select, %70 ], [ @.str.112, %48 ], [ @.str.112, %44 ], [ @.str.112, %42 ], [ @.str.112, %35 ], [ @.str.116, %33 ], [ @.str.112, %31 ], [ @.str.116, %29 ], [ @.str.112, %25 ], [ %.7169, %74 ], [ @.str.155, %85 ]
-  %.0154.ph = phi ptr [ @.str.68, %98 ], [ @.str.68, %96 ], [ @.str.115, %94 ], [ @.str.115, %92 ], [ @.str.115, %90 ], [ @.str.115, %88 ], [ @.str.115, %86 ], [ @.str.145, %70 ], [ @.str.68, %48 ], [ @.str.68, %44 ], [ @.str.68, %42 ], [ @.str.68, %35 ], [ @.str.115, %33 ], [ @.str.68, %31 ], [ @.str.115, %29 ], [ @.str.68, %25 ], [ %.4158, %74 ], [ @.str.145, %85 ]
-  %.0148.ph = phi ptr [ %.str.170..str.113, %98 ], [ @.str.113, %96 ], [ @.str.147, %94 ], [ @.str.147, %92 ], [ @.str.147, %90 ], [ @.str.147, %88 ], [ @.str.147, %86 ], [ @.str.147, %70 ], [ @.str.113, %48 ], [ @.str.113, %44 ], [ @.str.113, %42 ], [ @.str.113, %35 ], [ @.str.119, %33 ], [ @.str.113, %31 ], [ @.str.113, %29 ], [ @.str.113, %25 ], [ @.str.147, %74 ], [ @.str.147, %85 ]
-  %.0147.ph = phi ptr [ %.str.171..str.172, %98 ], [ @.str.169, %96 ], [ @.str.168, %94 ], [ @.str.166, %92 ], [ @.str.165, %90 ], [ @.str.163, %88 ], [ @.str.162, %86 ], [ %spec.select189, %70 ], [ @.str.131, %48 ], [ @.str.127, %44 ], [ @.str.126, %42 ], [ @.str.121, %35 ], [ @.str.120, %33 ], [ @.str.118, %31 ], [ @.str.117, %29 ], [ @.str.114, %25 ], [ %.7, %74 ], [ @.str.160, %85 ]
+119:                                              ; preds = %85, %74, %26, %30, %32, %34, %36, %42, %44, %48, %70, %86, %88, %90, %92, %94, %96, %98
+  %.0162.ph = phi ptr [ %.str.155..str.146, %98 ], [ @.str.146, %96 ], [ @.str.167, %94 ], [ @.str.164, %92 ], [ @.str.164, %90 ], [ @.str.161, %88 ], [ @.str.161, %86 ], [ %spec.select, %70 ], [ @.str.112, %48 ], [ @.str.112, %44 ], [ @.str.112, %42 ], [ @.str.112, %36 ], [ @.str.116, %34 ], [ @.str.112, %32 ], [ @.str.116, %30 ], [ @.str.112, %26 ], [ %.7169, %74 ], [ @.str.155, %85 ]
+  %.0154.ph = phi ptr [ @.str.68, %98 ], [ @.str.68, %96 ], [ @.str.115, %94 ], [ @.str.115, %92 ], [ @.str.115, %90 ], [ @.str.115, %88 ], [ @.str.115, %86 ], [ @.str.145, %70 ], [ @.str.68, %48 ], [ @.str.68, %44 ], [ @.str.68, %42 ], [ @.str.68, %36 ], [ @.str.115, %34 ], [ @.str.68, %32 ], [ @.str.115, %30 ], [ @.str.68, %26 ], [ %.4158, %74 ], [ @.str.145, %85 ]
+  %.0148.ph = phi ptr [ %.str.170..str.113, %98 ], [ @.str.113, %96 ], [ @.str.147, %94 ], [ @.str.147, %92 ], [ @.str.147, %90 ], [ @.str.147, %88 ], [ @.str.147, %86 ], [ @.str.147, %70 ], [ @.str.113, %48 ], [ @.str.113, %44 ], [ @.str.113, %42 ], [ @.str.113, %36 ], [ @.str.119, %34 ], [ @.str.113, %32 ], [ @.str.113, %30 ], [ @.str.113, %26 ], [ @.str.147, %74 ], [ @.str.147, %85 ]
+  %.0147.ph = phi ptr [ %.str.171..str.172, %98 ], [ @.str.169, %96 ], [ @.str.168, %94 ], [ @.str.166, %92 ], [ @.str.165, %90 ], [ @.str.163, %88 ], [ @.str.162, %86 ], [ %spec.select189, %70 ], [ @.str.131, %48 ], [ @.str.127, %44 ], [ @.str.126, %42 ], [ @.str.121, %36 ], [ @.str.120, %34 ], [ @.str.118, %32 ], [ @.str.117, %30 ], [ @.str.114, %26 ], [ %.7, %74 ], [ @.str.160, %85 ]
   %120 = add nsw i32 %10, -2
-  %121 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.174, ptr noundef %.0162.ph, i32 noundef %27, i32 noundef %120) #7
+  %121 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.174, ptr noundef %.0162.ph, i32 noundef %28, i32 noundef %120) #7
   br label %122
 
 122:                                              ; preds = %119, %100
@@ -1023,7 +1023,7 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   %131 = load i32, ptr @ett_pn_rt, align 4
   %132 = call ptr @proto_item_add_subtree(ptr noundef %.0146, i32 noundef %131) #7
   %133 = load i32, ptr @hf_pn_rt_frame_id, align 4
-  %134 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %132, i32 noundef %133, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %27, ptr noundef nonnull @.str.176, i32 noundef %27, ptr noundef %.0147202) #7
+  %134 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %132, i32 noundef %133, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %28, ptr noundef nonnull @.str.176, i32 noundef %28, ptr noundef %.0147202) #7
   br i1 %.not178204, label %147, label %135
 
 135:                                              ; preds = %130
@@ -1047,7 +1047,7 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %147
 
 147:                                              ; preds = %130, %145, %142, %122
-  %148 = icmp eq i16 %26, -510
+  %148 = icmp eq i16 %27, -510
   br i1 %148, label %149, label %150
 
 149:                                              ; preds = %147
@@ -1061,7 +1061,7 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void @col_set_str(ptr noundef %152, i32 noundef 34, ptr noundef %.0154198) #7
   %153 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef %.0145) #7
   %154 = load ptr, ptr @heur_subdissector_list, align 8
-  %155 = zext i16 %26 to i64
+  %155 = zext i16 %27 to i64
   %156 = inttoptr i64 %155 to ptr
   %157 = call i32 @dissector_try_heuristic(ptr noundef %154, ptr noundef %153, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef %156) #7
   %.not186 = icmp eq i32 %157, 0

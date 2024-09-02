@@ -1373,7 +1373,7 @@ define void @_ZN7mitsuba6Logger15static_shutdownEv() local_unnamed_addr #0 align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK7mitsuba6Logger14appender_countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #6 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK7mitsuba6Logger14appender_countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 48

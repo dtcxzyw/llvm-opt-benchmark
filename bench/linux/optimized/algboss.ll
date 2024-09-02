@@ -54,7 +54,7 @@ define internal i32 @cryptomgr_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cryptomgr_notify(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2) #2 align 16 {
+define internal range(i32 0, 32770) i32 @cryptomgr_notify(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2) #2 align 16 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %5, label %105
 
@@ -299,7 +299,7 @@ define internal noundef i32 @cryptomgr_probe(ptr noundef %0) #5 align 16 {
   %8 = load ptr, ptr %6, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %3, ptr noundef %0) #8
   %10 = icmp eq i32 %9, -11
-  br i1 %10, label %11, label %.thread
+  br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %7
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !15
@@ -307,21 +307,21 @@ define internal noundef i32 @cryptomgr_probe(ptr noundef %0) #5 align 16 {
   %14 = load volatile i64, ptr %13, align 8
   %15 = and i64 %14, 131072
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %.thread, !prof !5
+  br i1 %16, label %17, label %.critedge, !prof !5
 
 17:                                               ; preds = %11
   %18 = load volatile i64, ptr %13, align 8
   %19 = and i64 %18, 4
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %7, label %.thread, !llvm.loop !16
+  br i1 %20, label %7, label %.critedge, !llvm.loop !16
 
-.thread:                                          ; preds = %11, %17, %7
+.critedge:                                        ; preds = %11, %17, %7
   %21 = getelementptr inbounds i8, ptr %3, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void @module_put(ptr noundef %22) #8
   br label %23
 
-23:                                               ; preds = %.thread, %1
+23:                                               ; preds = %.critedge, %1
   %24 = getelementptr inbounds i8, ptr %0, i64 4640
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 392

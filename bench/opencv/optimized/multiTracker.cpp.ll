@@ -1740,10 +1740,10 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201: ; preds = %_ZNSt6vectorIN2
   %521 = icmp sgt i32 %520, 0
   br i1 %521, label %.lr.ph360, label %._crit_edge361
 
-.lr.ph360:                                        ; preds = %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201, %542
-  %522 = phi ptr [ %545, %542 ], [ %511, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201 ]
-  %indvars.iv369 = phi i64 [ %indvars.iv.next370, %542 ], [ 0, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201 ]
-  %523 = phi ptr [ %552, %542 ], [ %515, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201 ]
+.lr.ph360:                                        ; preds = %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201, %543
+  %522 = phi ptr [ %545, %543 ], [ %511, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201 ]
+  %indvars.iv369 = phi i64 [ %indvars.iv.next370, %543 ], [ 0, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201 ]
+  %523 = phi ptr [ %552, %543 ], [ %515, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201 ]
   %524 = getelementptr inbounds %"struct.cv::tracking::impl::tld::TLDDetector::LabeledPatch", ptr %523, i64 %indvars.iv369
   %525 = getelementptr inbounds i8, ptr %524, i64 32
   %526 = load i8, ptr %525, align 8
@@ -1782,18 +1782,18 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201: ; preds = %_ZNSt6vectorIN2
   %534 = getelementptr inbounds i8, ptr %533, i64 33
   %535 = load i8, ptr %534, align 1
   %536 = trunc i8 %535 to i1
-  br i1 %536, label %542, label %537
+  br i1 %536, label %543, label %537
 
 537:                                              ; preds = %531
   %538 = getelementptr inbounds i8, ptr %533, i64 32
   %539 = load i8, ptr %538, align 8
   %540 = trunc i8 %539 to i1
   %541 = xor i1 %.0.in, %540
-  br label %542
+  %542 = zext i1 %541 to i8
+  br label %543
 
-542:                                              ; preds = %537, %531
-  %543 = phi i1 [ true, %531 ], [ %541, %537 ]
-  %544 = zext i1 %543 to i8
+543:                                              ; preds = %537, %531
+  %544 = phi i8 [ 1, %531 ], [ %542, %537 ]
   store i8 %544, ptr %534, align 1
   %545 = load ptr, ptr %15, align 8
   %546 = getelementptr inbounds %"class.std::vector.105", ptr %545, i64 %indvars.iv372
@@ -1814,8 +1814,8 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201: ; preds = %_ZNSt6vectorIN2
   %558 = icmp slt i64 %indvars.iv.next370, %557
   br i1 %558, label %.lr.ph360, label %._crit_edge361, !llvm.loop !28
 
-._crit_edge361:                                   ; preds = %542, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201
-  %.lcssa337 = phi ptr [ %512, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201 ], [ %546, %542 ]
+._crit_edge361:                                   ; preds = %543, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201
+  %.lcssa337 = phi ptr [ %512, %_ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit201 ], [ %546, %543 ]
   invoke void @_ZN2cv8tracking4impl3tld15TrackerTLDModel18integrateRelabeledERNS_3MatES5_RKSt6vectorINS2_11TLDDetector12LabeledPatchESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(512) %222, ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(24) %.lcssa337)
           to label %559 unwind label %.loopexit.split-lp
 

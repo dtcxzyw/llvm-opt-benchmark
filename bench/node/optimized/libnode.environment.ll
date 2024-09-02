@@ -2331,7 +2331,7 @@ declare ptr @_ZN2v87Context12FromSnapshotEPNS_7IsolateEmNS_33DeserializeInternal
 declare void @_ZN4node29DeserializeNodeInternalFieldsEN2v85LocalINS0_6ObjectEEEiNS0_11StartupDataEPv(ptr, i32 noundef, ptr, i32, ptr noundef) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node24InitializeContextRuntimeEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node24InitializeContextRuntimeEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce) local_unnamed_addr #3 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %descriptor = alloca %"class.v8::PropertyDescriptor", align 8
@@ -2906,7 +2906,7 @@ declare ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef) local_unnamed_addr #0
 declare i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node21InitializePrimordialsEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node21InitializePrimordialsEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce) local_unnamed_addr #3 {
 entry:
   %arguments = alloca [2 x %"class.v8::Local.2"], align 16
   %call3 = tail call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #12
@@ -3000,7 +3000,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 declare ptr @_ZN2v87Context3NewEPNS_7IsolateEPNS_22ExtensionConfigurationENS_10MaybeLocalINS_14ObjectTemplateEEENS5_INS_5ValueEEENS_33DeserializeInternalFieldsCallbackEPNS_14MicrotaskQueueE(ptr noundef, ptr noundef, ptr, ptr, ptr, ptr, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node17InitializeContextEN2v85LocalINS0_7ContextEEE(ptr %context.coerce) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node17InitializeContextEN2v85LocalINS0_7ContextEEE(ptr %context.coerce) local_unnamed_addr #3 {
 entry:
   %call = tail call i16 @_ZN4node32InitializeMainContextForSnapshotEN2v85LocalINS0_7ContextEEE(ptr %context.coerce)
   %tobool.i = trunc i16 %call to i1
@@ -3050,7 +3050,7 @@ declare i16 @_ZN2v86Object14DefinePropertyENS_5LocalINS_7ContextEEENS1_INS_4Name
 declare void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node32InitializeBaseContextForSnapshotEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node32InitializeBaseContextForSnapshotEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce) local_unnamed_addr #3 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %call3 = tail call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #12
@@ -3099,7 +3099,7 @@ cleanup69:                                        ; preds = %_ZN4node21FIXED_ONE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node32InitializeMainContextForSnapshotEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node32InitializeMainContextForSnapshotEN2v85LocalINS0_7ContextEEE(ptr nonnull %context.coerce) local_unnamed_addr #3 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %call3 = tail call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #12

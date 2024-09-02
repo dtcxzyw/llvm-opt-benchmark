@@ -563,7 +563,7 @@ define hidden noundef zeroext i1 @_ZNK5XMark14is_initializedEv(ptr noundef nonnu
 declare noundef zeroext i1 @_ZNK19XMarkStackAllocator14is_initializedEv(ptr noundef nonnull align 64 dereferenceable(128)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZNK5XMark18calculate_nstripesEj(ptr nocapture noundef nonnull readnone align 64 dereferenceable(2492) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 1, 17) i64 @_ZNK5XMark18calculate_nstripesEj(ptr nocapture noundef nonnull readnone align 64 dereferenceable(2492) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
   %4 = xor i32 %3, 31
   %5 = shl nuw i32 1, %4

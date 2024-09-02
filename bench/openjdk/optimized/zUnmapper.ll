@@ -384,7 +384,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_166ELS1_0ELS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK9ZUnmapper14queue_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1050) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -2097151) i64 @_ZNK9ZUnmapper14queue_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1050) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 920
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK14ZPageAllocator12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #9

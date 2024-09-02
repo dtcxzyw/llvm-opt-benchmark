@@ -709,7 +709,7 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr nocapture noundef
   %24 = getelementptr inbounds i8, ptr %23, i64 48
   %25 = load i8, ptr %24, align 8, !range !34, !noundef !35
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %.thread
+  br i1 %26, label %27, label %.critedge
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds i8, ptr %23, i64 16
@@ -719,16 +719,16 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr nocapture noundef
   %32 = getelementptr inbounds i8, ptr %31, i64 48
   %33 = load i8, ptr %32, align 8, !range !34, !noundef !35
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %35, label %.thread
+  br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %27
   %36 = getelementptr inbounds i8, ptr %29, i64 352
   %37 = load volatile i64, ptr %36, align 8
   %38 = and i64 %37, 2
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %.thread
+  br i1 %39, label %40, label %.critedge
 
-.thread:                                          ; preds = %27, %21, %35
+.critedge:                                        ; preds = %21, %27, %35
   tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #9
   br label %177
 
@@ -766,7 +766,7 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr nocapture noundef
   %58 = and i64 %6, 4294967295
   %59 = and i64 %6, 1
   %60 = icmp eq i64 %59, 0
-  br i1 %60, label %.thread15.preheader, label %61
+  br i1 %60, label %.thread.preheader, label %61
 
 61:                                               ; preds = %57
   tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8) #9
@@ -780,29 +780,29 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr nocapture noundef
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, 256
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %.thread15.preheader, label %71
+  br i1 %70, label %.thread.preheader, label %71
 
-.thread15.preheader:                              ; preds = %57, %74, %71, %61
+.thread.preheader:                                ; preds = %57, %74, %71, %61
   %.ph = phi i32 [ 0, %61 ], [ 1, %71 ], [ 0, %74 ], [ 0, %57 ]
-  br label %.thread15
+  br label %.thread
 
 71:                                               ; preds = %61
   %72 = tail call i32 @ext4_enable_quotas(ptr noundef %0) #9
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.thread15.preheader, label %74
+  br i1 %73, label %.thread.preheader, label %74
 
 74:                                               ; preds = %71
   tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.9, i32 noundef %72) #9
-  br label %.thread15.preheader
+  br label %.thread.preheader
 
 75:                                               ; preds = %92
   %76 = load i32, ptr %15, align 8
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %.loopexit18, label %.preheader
+  br i1 %77, label %.loopexit17, label %.preheader
 
-.thread15:                                        ; preds = %.thread15.preheader, %92
-  %78 = phi i64 [ %94, %92 ], [ 0, %.thread15.preheader ]
-  %79 = phi i32 [ %93, %92 ], [ %.ph, %.thread15.preheader ]
+.thread:                                          ; preds = %.thread.preheader, %92
+  %78 = phi i64 [ %94, %92 ], [ 0, %.thread.preheader ]
+  %79 = phi i32 [ %93, %92 ], [ %.ph, %.thread.preheader ]
   %80 = load ptr, ptr %7, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 656
   %82 = getelementptr [3 x ptr], ptr %81, i64 0, i64 %78
@@ -810,7 +810,7 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr nocapture noundef
   %84 = icmp eq ptr %83, null
   br i1 %84, label %92, label %85
 
-85:                                               ; preds = %.thread15
+85:                                               ; preds = %.thread
   %86 = getelementptr inbounds i8, ptr %80, i64 680
   %87 = load i32, ptr %86, align 8
   %88 = trunc nuw nsw i64 %78 to i32
@@ -822,11 +822,11 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr nocapture noundef
   tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.10, i32 noundef %88, i32 noundef %89) #9
   br label %92
 
-92:                                               ; preds = %91, %85, %.thread15
-  %93 = phi i32 [ %79, %.thread15 ], [ %79, %91 ], [ 1, %85 ]
+92:                                               ; preds = %91, %85, %.thread
+  %93 = phi i32 [ %79, %.thread ], [ %79, %91 ], [ 1, %85 ]
   %94 = add nuw nsw i64 %78, 1
   %95 = icmp eq i64 %94, 3
-  br i1 %95, label %75, label %.thread15, !llvm.loop !36
+  br i1 %95, label %75, label %.thread, !llvm.loop !36
 
 .preheader:                                       ; preds = %75, %106
   %96 = phi i32 [ %113, %106 ], [ %76, %75 ]
@@ -857,25 +857,25 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr nocapture noundef
   call fastcc void @ext4_process_orphan(ptr noundef %104, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %113 = load i32, ptr %15, align 8
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %.loopexit18, label %.preheader, !llvm.loop !37
+  br i1 %114, label %.loopexit17, label %.preheader, !llvm.loop !37
 
 115:                                              ; preds = %102, %.preheader
   store i32 0, ptr %15, align 8
-  br label %.loopexit18
+  br label %.loopexit17
 
-.loopexit18:                                      ; preds = %106, %115, %75
+.loopexit17:                                      ; preds = %106, %115, %75
   %116 = load i32, ptr %9, align 8
   %117 = icmp sgt i32 %116, 0
-  br i1 %117, label %118, label %.loopexit17
+  br i1 %117, label %118, label %.loopexit16
 
-118:                                              ; preds = %.loopexit18
+118:                                              ; preds = %.loopexit17
   %119 = getelementptr inbounds i8, ptr %8, i64 624
   %120 = icmp sgt i32 %14, 0
   %121 = and i64 %13, 4294967295
-  br i1 %120, label %.split.us, label %.loopexit17
+  br i1 %120, label %.split.us, label %.loopexit16
 
-.split.us:                                        ; preds = %118, %.loopexit16.us
-  %122 = phi i64 [ %147, %.loopexit16.us ], [ 0, %118 ]
+.split.us:                                        ; preds = %118, %.loopexit15.us
+  %122 = phi i64 [ %147, %.loopexit15.us ], [ 0, %118 ]
   %123 = load ptr, ptr %119, align 8
   %124 = getelementptr %struct.ext4_orphan_block, ptr %123, i64 %122, i32 1
   %125 = load ptr, ptr %124, align 8
@@ -911,27 +911,27 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr nocapture noundef
 144:                                              ; preds = %139, %135, %130
   %145 = add nuw nsw i64 %131, 1
   %146 = icmp eq i64 %145, %121
-  br i1 %146, label %.loopexit16.us, label %130, !llvm.loop !38
+  br i1 %146, label %.loopexit15.us, label %130, !llvm.loop !38
 
-.loopexit16.us:                                   ; preds = %144
+.loopexit15.us:                                   ; preds = %144
   %147 = add nuw nsw i64 %122, 1
   %148 = load i32, ptr %9, align 8
   %149 = sext i32 %148 to i64
   %150 = icmp slt i64 %147, %149
-  br i1 %150, label %.split.us, label %.loopexit17, !llvm.loop !39
+  br i1 %150, label %.split.us, label %.loopexit16, !llvm.loop !39
 
-.loopexit17:                                      ; preds = %.loopexit16.us, %118, %.loopexit18
+.loopexit16:                                      ; preds = %.loopexit15.us, %118, %.loopexit17
   %151 = load i32, ptr %3, align 4
   %152 = icmp eq i32 %151, 0
   br i1 %152, label %156, label %153
 
-153:                                              ; preds = %.loopexit17
+153:                                              ; preds = %.loopexit16
   %154 = icmp eq i32 %151, 1
   %155 = select i1 %154, ptr @.str.12, ptr @.str.13
   tail call void (ptr, ptr, ptr, ...) @__ext4_msg(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.11, i32 noundef %151, ptr noundef nonnull %155) #9
   br label %156
 
-156:                                              ; preds = %153, %.loopexit17
+156:                                              ; preds = %153, %.loopexit16
   %157 = load i32, ptr %4, align 4
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %162, label %159
@@ -971,7 +971,7 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr nocapture noundef
   store i64 %58, ptr %5, align 16
   br label %177
 
-177:                                              ; preds = %.loopexit, %56, %50, %43, %.thread, %18
+177:                                              ; preds = %.loopexit, %56, %50, %43, %.critedge, %18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   ret void
@@ -1320,13 +1320,13 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
   %85 = load i32, ptr %84, align 4
   %86 = and i32 %85, 1024
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %.thread, label %88
+  br i1 %87, label %.critedge, label %88
 
 88:                                               ; preds = %75
   %89 = getelementptr inbounds i8, ptr %79, i64 1280
   %90 = load ptr, ptr %89, align 64
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %92, label %.thread53, !prof !5
+  br i1 %91, label %92, label %.thread52, !prof !5
 
 92:                                               ; preds = %88
   call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #9, !srcloc !46
@@ -1339,16 +1339,16 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
   %.pre49 = load i32, ptr %.phi.trans.insert48, align 4
   %.pre50 = and i32 %.pre49, 1024
   %93 = icmp eq i32 %.pre50, 0
-  br i1 %93, label %.thread, label %.thread53
+  br i1 %93, label %.critedge, label %.thread52
 
-.thread53:                                        ; preds = %88, %92
+.thread52:                                        ; preds = %88, %92
   %94 = phi ptr [ %.pre, %92 ], [ %79, %88 ]
   %95 = getelementptr inbounds i8, ptr %94, i64 1280
   %96 = load ptr, ptr %95, align 64
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %.thread, label %98
+  br i1 %97, label %.critedge, label %98
 
-98:                                               ; preds = %.thread53
+98:                                               ; preds = %.thread52
   %99 = load ptr, ptr %67, align 8
   %100 = load i64, ptr %8, align 8
   %101 = getelementptr i8, ptr %99, i64 %100
@@ -1407,10 +1407,6 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.21, i32 2476, i32 0, i64 12) #9, !srcloc !45
   unreachable
 
-.thread:                                          ; preds = %75, %.thread53, %92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  br label %129
-
 124:                                              ; preds = %120
   %125 = load i32, ptr %49, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
@@ -1424,7 +1420,11 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
   call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_init_orphan_info, i32 noundef 617, i1 noundef zeroext false, i32 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.17, i32 noundef %53) #9
   br label %.loopexit8
 
-129:                                              ; preds = %.thread, %124
+.critedge:                                        ; preds = %75, %92, %.thread52
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  br label %129
+
+129:                                              ; preds = %.critedge, %124
   %130 = load ptr, ptr %42, align 8
   %131 = getelementptr %struct.ext4_orphan_block, ptr %130, i64 %indvars.iv, i32 1
   %132 = load ptr, ptr %131, align 8

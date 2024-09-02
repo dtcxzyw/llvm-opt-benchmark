@@ -415,7 +415,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h6b05d77bbb1d8a79E.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h401a0b7cef98d5f8E.llvm.464580060634382159(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define hidden noundef range(i64 0, 768614336404564651) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h401a0b7cef98d5f8E.llvm.464580060634382159(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !79, !noalias !82, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -428,7 +428,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8d867d4627f44fceE.llvm.464580060634382159(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define hidden noundef range(i64 0, 1152921504606846976) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8d867d4627f44fceE.llvm.464580060634382159(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !84, !noalias !87, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -441,7 +441,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hdb013bea9f76e4acE.llvm.464580060634382159(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
+define hidden noundef range(i64 0, 576460752303423488) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hdb013bea9f76e4acE.llvm.464580060634382159(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !89, !noalias !92, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -884,9 +884,9 @@ _ZN8lscolors8LsColors13indicator_for17hd25fc815184a6751E.exit: ; preds = %31, %2
   %105 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 1
   %106 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !152, !noundef !4
   %107 = add i8 %106, -65
-  %.0.i.i = icmp ult i8 %107, 26
-  %108 = select i1 %.0.i.i, i8 32, i8 0
-  %109 = or i8 %108, %106
+  %108 = icmp ult i8 %107, 26
+  %.0.i.i = select i1 %108, i8 32, i8 0
+  %109 = or i8 %.0.i.i, %106
   store i8 %109, ptr %.sroa.0.06.i.i, align 1, !alias.scope !152
   %110 = icmp eq ptr %105, %103
   br i1 %110, label %.loopexit, label %.lr.ph.i.i
@@ -1298,9 +1298,9 @@ _ZN8lscolors8LsColors13indicator_for17h9c3cdf1080826a28E.exit: ; preds = %31, %2
   %105 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 1
   %106 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !235, !noundef !4
   %107 = add i8 %106, -65
-  %.0.i.i = icmp ult i8 %107, 26
-  %108 = select i1 %.0.i.i, i8 32, i8 0
-  %109 = or i8 %108, %106
+  %108 = icmp ult i8 %107, 26
+  %.0.i.i = select i1 %108, i8 32, i8 0
+  %109 = or i8 %.0.i.i, %106
   store i8 %109, ptr %.sroa.0.06.i.i, align 1, !alias.scope !235
   %110 = icmp eq ptr %105, %103
   br i1 %110, label %.loopexit, label %.lr.ph.i.i

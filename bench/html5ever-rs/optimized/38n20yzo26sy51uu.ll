@@ -1149,20 +1149,20 @@ define void @_ZN8xml5ever9tokenizer13process_qname17h9fcb45af2807e1b5E(ptr noali
   %20 = icmp ult i64 %.sroa.4.0.i, 3
   br i1 %20, label %.thread68, label %23
 
-21:                                               ; preds = %.loopexit, %.loopexit.split-lp, %77, %90
-  %.pn5 = phi { ptr, i32 } [ %.pn3, %90 ], [ %66, %77 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+21:                                               ; preds = %.loopexit, %.loopexit.split-lp, %78, %90
+  %.pn5 = phi { ptr, i32 } [ %.pn3, %90 ], [ %67, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.val16 = load i64, ptr %1, align 8, !range !55, !alias.scope !10, !noundef !21
   %22 = getelementptr inbounds i8, ptr %1, i64 12
   %.val17 = load i32, ptr %22, align 4
   invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17heb3abae07ce4e237E"(i64 %.val16, i32 %.val17) #15
-          to label %158 unwind label %75
+          to label %158 unwind label %76
 
 .loopexit:                                        ; preds = %.preheader.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %21
 
-.loopexit.split-lp:                               ; preds = %78, %150, %82
+.loopexit.split-lp:                               ; preds = %79, %150, %82
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %21
@@ -1255,70 +1255,72 @@ define void @_ZN8xml5ever9tokenizer13process_qname17h9fcb45af2807e1b5E(ptr noali
 
 59:                                               ; preds = %43
   %60 = icmp eq i64 %.pr79.pre, 15
-  br i1 %60, label %78, label %61
+  br i1 %60, label %79, label %61
 
 61:                                               ; preds = %59
   %62 = icmp ult i64 %.pr79.pre, 9
-  br i1 %62, label %78, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i36"
+  br i1 %62, label %64, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i36"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i36": ; preds = %61
   %63 = load i32, ptr %17, align 8, !noundef !21
-  %64 = zext i32 %63 to i64
-  br label %78
+  br label %79
 
-65:                                               ; preds = %.thread68.thread
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %61
+  %65 = trunc nuw i64 %.pr79.pre to i32
+  br label %79
+
+66:                                               ; preds = %.thread68.thread
+  %67 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$17hfbdf1953761a7a91E"(i64 25769803778) #15
-          to label %77 unwind label %75
+          to label %78 unwind label %76
 
 .thread68.thread:                                 ; preds = %47, %2, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i30", %.thread68
   %.sroa.4.0.i32 = phi i64 [ %57, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i30" ], [ 0, %.thread68 ], [ 0, %2 ], [ %.pr79, %47 ]
   %.sroa.0.0.i33 = phi ptr [ %58, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i30" ], [ @anon.0be88e6ea4f7bae043f6d9c052666337.2, %.thread68 ], [ @anon.0be88e6ea4f7bae043f6d9c052666337.2, %2 ], [ %17, %47 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  %67 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sroa.0.0.i33, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %.sroa.4.0.i32, ptr %68, align 8
+  %68 = getelementptr inbounds i8, ptr %9, i64 8
+  store ptr %.sroa.0.0.i33, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %9, i64 16
+  store i64 %.sroa.4.0.i32, ptr %69, align 8
   store i64 -9223372036854775808, ptr %9, align 8
-  %69 = invoke noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$4from17h964d0c010988aaaaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9)
-          to label %70 unwind label %65, !range !55
+  %70 = invoke noundef i64 @"_ZN115_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$4from17h964d0c010988aaaaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9)
+          to label %71 unwind label %66, !range !55
 
-70:                                               ; preds = %.thread68.thread
+71:                                               ; preds = %.thread68.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 0, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 0, ptr %72, align 8
   store i64 25769803778, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %69, ptr %72, align 8
-  br label %73
+  %73 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %70, ptr %73, align 8
+  br label %74
 
-73:                                               ; preds = %152, %70
+74:                                               ; preds = %152, %71
   %.val14 = load i64, ptr %1, align 8, !range !55, !alias.scope !10, !noundef !21
-  %74 = getelementptr inbounds i8, ptr %1, i64 12
-  %.val15 = load i32, ptr %74, align 4
+  %75 = getelementptr inbounds i8, ptr %1, i64 12
+  %.val15 = load i32, ptr %75, align 4
   call fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17heb3abae07ce4e237E"(i64 %.val14, i32 %.val15)
   ret void
 
-75:                                               ; preds = %77, %153, %65, %140, %156, %21, %90, %154
-  %76 = landingpad { ptr, i32 }
+76:                                               ; preds = %78, %153, %66, %140, %156, %21, %90, %154
+  %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #16
   unreachable
 
-77:                                               ; preds = %65
+78:                                               ; preds = %66
   invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$$GT$17h7bae43038dc2dbb2E"(i64 0) #15
-          to label %21 unwind label %75
+          to label %21 unwind label %76
 
-78:                                               ; preds = %61, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i36", %59
-  %.sroa.4.0.i38 = phi i64 [ %64, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i36" ], [ 0, %59 ], [ %.pr79.pre, %61 ]
-  %79 = trunc nuw i64 %.sroa.4.0.i38 to i32
+79:                                               ; preds = %64, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i36", %59
+  %.sroa.4.0.i38 = phi i32 [ %65, %64 ], [ %63, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i36" ], [ 0, %59 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   invoke fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$14try_subtendril17hd6303abf4dc9c07bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 %1, i32 noundef 0, i32 noundef %45)
           to label %80 unwind label %.loopexit.split-lp
 
-80:                                               ; preds = %78
+80:                                               ; preds = %79
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %81 = load i8, ptr %8, align 8, !range !54, !alias.scope !120, !noalias !117, !noundef !21
@@ -1343,7 +1345,7 @@ define void @_ZN8xml5ever9tokenizer13process_qname17h9fcb45af2807e1b5E(ptr noali
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %87 = add i32 %45, 1
   %88 = xor i32 %45, -1
-  %89 = add i32 %79, %88
+  %89 = add i32 %.sroa.4.0.i38, %88
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   invoke fastcc void @"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$14try_subtendril17hd6303abf4dc9c07bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 %1, i32 noundef %87, i32 noundef %89)
           to label %94 unwind label %92
@@ -1354,7 +1356,7 @@ define void @_ZN8xml5ever9tokenizer13process_qname17h9fcb45af2807e1b5E(ptr noali
   %91 = getelementptr inbounds i8, ptr %11, i64 12
   %.val13 = load i32, ptr %91, align 4
   invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17heb3abae07ce4e237E"(i64 %.val12, i32 %.val13) #15
-          to label %21 unwind label %75
+          to label %21 unwind label %76
 
 92:                                               ; preds = %96, %146, %85
   %93 = landingpad { ptr, i32 }
@@ -1457,7 +1459,7 @@ define void @_ZN8xml5ever9tokenizer13process_qname17h9fcb45af2807e1b5E(ptr noali
   %141 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$17hfbdf1953761a7a91E"(i64 25769803778) #15
-          to label %153 unwind label %75
+          to label %153 unwind label %76
 
 142:                                              ; preds = %138, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i52", %122
   %.sroa.4.0.i54 = phi i64 [ %123, %138 ], [ %136, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217haa4b98ed148da900E.exit.i52" ], [ 0, %122 ]
@@ -1494,11 +1496,11 @@ define void @_ZN8xml5ever9tokenizer13process_qname17h9fcb45af2807e1b5E(ptr noali
 
 152:                                              ; preds = %150
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  br label %73
+  br label %74
 
 153:                                              ; preds = %140
   invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$$GT$17h7bae43038dc2dbb2E"(i64 %121) #15
-          to label %154 unwind label %75
+          to label %154 unwind label %76
 
 154:                                              ; preds = %153, %156
   %.pn77 = phi { ptr, i32 } [ %157, %156 ], [ %141, %153 ]
@@ -1506,13 +1508,13 @@ define void @_ZN8xml5ever9tokenizer13process_qname17h9fcb45af2807e1b5E(ptr noali
   %155 = getelementptr inbounds i8, ptr %10, i64 12
   %.val7 = load i32, ptr %155, align 4
   invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..UTF8$GT$$GT$17heb3abae07ce4e237E"(i64 %.val, i32 %.val7) #15
-          to label %90 unwind label %75
+          to label %90 unwind label %76
 
 156:                                              ; preds = %118
   %157 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$17hfbdf1953761a7a91E"(i64 25769803778) #15
-          to label %154 unwind label %75
+          to label %154 unwind label %76
 
 158:                                              ; preds = %21
   resume { ptr, i32 } %.pn5

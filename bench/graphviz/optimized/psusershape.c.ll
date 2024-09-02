@@ -437,37 +437,37 @@ define void @epsf_emit_body(ptr noundef %0, ptr nocapture noundef readonly %1) l
   br i1 %.not52, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.backedge
-  %6 = phi i8 [ %24, %.backedge ], [ %5, %2 ]
+  %6 = phi i8 [ %26, %.backedge ], [ %5, %2 ]
   %.053 = phi ptr [ %.0.be, %.backedge ], [ %4, %2 ]
   %7 = tail call i32 @strncasecmp(ptr noundef nonnull %.053, ptr noundef nonnull @.str.6, i64 noundef 5) #16
   %.not31 = icmp eq i32 %7, 0
-  br i1 %.not31, label %.preheader76, label %8
+  br i1 %.not31, label %.preheader75, label %8
 
 8:                                                ; preds = %.lr.ph
   %9 = tail call i32 @strncasecmp(ptr noundef nonnull %.053, ptr noundef nonnull @.str.7, i64 noundef 7) #16
   %.not32 = icmp eq i32 %9, 0
-  br i1 %.not32, label %.preheader76, label %10
+  br i1 %.not32, label %.preheader75, label %10
 
 10:                                               ; preds = %8
   %11 = tail call i32 @strncasecmp(ptr noundef nonnull %.053, ptr noundef nonnull @.str.8, i64 noundef 5) #16
   %.not33 = icmp eq i32 %11, 0
-  br i1 %.not33, label %.preheader76, label %12
+  br i1 %.not33, label %.preheader75, label %12
 
 12:                                               ; preds = %10
   %13 = tail call i32 @strncasecmp(ptr noundef nonnull %.053, ptr noundef nonnull @.str.9, i64 noundef 9) #16
   %.not34 = icmp eq i32 %13, 0
-  br i1 %.not34, label %.preheader76, label %.preheader
+  br i1 %.not34, label %.preheader75, label %.preheader
 
-.preheader76:                                     ; preds = %12, %10, %8, %.lr.ph
+.preheader75:                                     ; preds = %12, %10, %8, %.lr.ph
   br label %14
 
-14:                                               ; preds = %.preheader76, %16
-  %15 = phi i8 [ %.pre61, %16 ], [ %6, %.preheader76 ]
-  %.1 = phi ptr [ %17, %16 ], [ %.053, %.preheader76 ]
+14:                                               ; preds = %.preheader75, %16
+  %15 = phi i8 [ %.pre61, %16 ], [ %6, %.preheader75 ]
+  %.1 = phi ptr [ %17, %16 ], [ %.053, %.preheader75 ]
   switch i8 %15, label %16 [
     i8 13, label %18
-    i8 0, label %.loopexit
-    i8 10, label %.loopexit
+    i8 0, label %.loopexit.loopexit
+    i8 10, label %.loopexit.loopexit
   ]
 
 16:                                               ; preds = %14
@@ -485,49 +485,54 @@ define void @epsf_emit_body(ptr noundef %0, ptr nocapture noundef readonly %1) l
   %23 = getelementptr inbounds i8, ptr %.1, i64 2
   br label %.backedge
 
-.loopexit:                                        ; preds = %14, %14, %18
-  %.not38 = icmp ne i8 %15, 0
-  %spec.select.idx = zext i1 %.not38 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.1, i64 %spec.select.idx
+.loopexit.loopexit:                               ; preds = %14, %14
+  %24 = icmp ne i8 %15, 0
+  %25 = zext i1 %24 to i64
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %18
+  %.not38 = phi i64 [ %25, %.loopexit.loopexit ], [ 1, %18 ]
+  %spec.select = getelementptr inbounds i8, ptr %.1, i64 %.not38
   br label %.backedge
 
-.backedge:                                        ; preds = %22, %.loopexit, %34
-  %.0.be = phi ptr [ %spec.select43, %34 ], [ %23, %22 ], [ %spec.select, %.loopexit ]
-  %24 = load i8, ptr %.0.be, align 1
-  %.not = icmp eq i8 %24, 0
+.backedge:                                        ; preds = %22, %.loopexit, %.loopexit44
+  %.0.be = phi ptr [ %spec.select43, %.loopexit44 ], [ %23, %22 ], [ %spec.select, %.loopexit ]
+  %26 = load i8, ptr %.0.be, align 1
+  %.not = icmp eq i8 %26, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.preheader:                                       ; preds = %12, %26
-  %25 = phi i8 [ %.pre, %26 ], [ %6, %12 ]
-  %.3 = phi ptr [ %29, %26 ], [ %.053, %12 ]
-  switch i8 %25, label %26 [
-    i8 13, label %30
-    i8 0, label %.loopexit44
-    i8 10, label %.loopexit44
+.preheader:                                       ; preds = %12, %28
+  %27 = phi i8 [ %.pre, %28 ], [ %6, %12 ]
+  %.3 = phi ptr [ %31, %28 ], [ %.053, %12 ]
+  switch i8 %27, label %28 [
+    i8 13, label %32
+    i8 0, label %.loopexit44.loopexit
+    i8 10, label %.loopexit44.loopexit
   ]
 
-26:                                               ; preds = %.preheader
-  %27 = sext i8 %25 to i32
-  %28 = tail call i32 @gvputc(ptr noundef %0, i32 noundef %27) #15
-  %29 = getelementptr inbounds i8, ptr %.3, i64 1
-  %.pre = load i8, ptr %29, align 1
+28:                                               ; preds = %.preheader
+  %29 = sext i8 %27 to i32
+  %30 = tail call i32 @gvputc(ptr noundef %0, i32 noundef %29) #15
+  %31 = getelementptr inbounds i8, ptr %.3, i64 1
+  %.pre = load i8, ptr %31, align 1
   br label %.preheader
 
-30:                                               ; preds = %.preheader
-  %31 = getelementptr inbounds i8, ptr %.3, i64 1
-  %32 = load i8, ptr %31, align 1
-  %33 = icmp eq i8 %32, 10
-  br i1 %33, label %34, label %.loopexit44
+32:                                               ; preds = %.preheader
+  %33 = getelementptr inbounds i8, ptr %.3, i64 1
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp eq i8 %34, 10
+  %spec.select74 = select i1 %35, i64 2, i64 1
+  br label %.loopexit44
 
-.loopexit44:                                      ; preds = %.preheader, %.preheader, %30
-  %.not42 = icmp ne i8 %25, 0
-  %spec.select43.idx = zext i1 %.not42 to i64
-  br label %34
+.loopexit44.loopexit:                             ; preds = %.preheader, %.preheader
+  %36 = icmp ne i8 %27, 0
+  %37 = zext i1 %36 to i64
+  br label %.loopexit44
 
-34:                                               ; preds = %30, %.loopexit44
-  %spec.select43.idx.sink = phi i64 [ %spec.select43.idx, %.loopexit44 ], [ 2, %30 ]
-  %spec.select43 = getelementptr inbounds i8, ptr %.3, i64 %spec.select43.idx.sink
-  %35 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 10) #15
+.loopexit44:                                      ; preds = %32, %.loopexit44.loopexit
+  %.not42.sink = phi i64 [ %37, %.loopexit44.loopexit ], [ %spec.select74, %32 ]
+  %spec.select43 = getelementptr inbounds i8, ptr %.3, i64 %.not42.sink
+  %38 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 10) #15
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %2

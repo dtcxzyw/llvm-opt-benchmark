@@ -1758,7 +1758,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_cpuset(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @cmp_geometry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %3, %4
@@ -2637,7 +2637,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @cmp_nodestats(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr %1, align 8

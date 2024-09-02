@@ -3603,14 +3603,14 @@ if.end2:                                          ; preds = %write_accept_langua
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @http_get_strbuf(ptr noundef %url, ptr noundef %result, ptr noundef %options) local_unnamed_addr #2 {
+define dso_local range(i32 0, 7) i32 @http_get_strbuf(ptr noundef %url, ptr noundef %result, ptr noundef %options) local_unnamed_addr #2 {
 entry:
   %call = tail call fastcc i32 @http_request_reauth(ptr noundef %url, ptr noundef %result, i32 noundef 0, ptr noundef %options)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @http_request_reauth(ptr noundef %url, ptr noundef %result, i32 noundef %target, ptr noundef %options) unnamed_addr #2 {
+define internal fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %url, ptr noundef %result, i32 noundef %target, ptr noundef %options) unnamed_addr #2 {
 entry:
   %call = tail call fastcc i32 @http_request(ptr noundef %url, ptr noundef %result, i32 noundef %target, ptr noundef %options)
   %cmp1.not = icmp eq i32 %call, 4
@@ -3758,7 +3758,7 @@ return:                                           ; preds = %if.end16, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @http_get_file(ptr noundef %url, ptr noundef %filename, ptr noundef %options) local_unnamed_addr #2 {
+define dso_local range(i32 0, 7) i32 @http_get_file(ptr noundef %url, ptr noundef %filename, ptr noundef %options) local_unnamed_addr #2 {
 entry:
   %tmpfile = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tmpfile, ptr noundef nonnull align 8 dereferenceable(24) @__const.fetch_pack_index.buf, i64 24, i1 false)
@@ -3879,7 +3879,7 @@ for.inc.i:                                        ; preds = %strbuf_addch.exit.i
 quote_ref_url.exit:                               ; preds = %for.inc.i, %entry
   %call3.i = call ptr @strbuf_detach(ptr noundef nonnull %buf.i, ptr noundef null) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
-  %call.i = call fastcc i32 @http_request_reauth(ptr noundef %call3.i, ptr noundef nonnull %buffer, i32 noundef 0, ptr noundef nonnull %options)
+  %call.i = call fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %call3.i, ptr noundef nonnull %buffer, i32 noundef 0, ptr noundef nonnull %options)
   %cmp = icmp eq i32 %call.i, 0
   br i1 %cmp, label %if.then, label %if.end11
 
@@ -3927,7 +3927,7 @@ declare void @strbuf_rtrim(ptr noundef) local_unnamed_addr #4
 declare i32 @get_oid_hex(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @http_get_info_packs(ptr noundef %base_url, ptr nocapture noundef %packs_head) local_unnamed_addr #2 {
+define dso_local range(i32 0, 7) i32 @http_get_info_packs(ptr noundef %base_url, ptr nocapture noundef %packs_head) local_unnamed_addr #2 {
 entry:
   %buf.i.i = alloca %struct.strbuf, align 8
   %options = alloca %struct.http_get_options, align 8
@@ -3940,7 +3940,7 @@ entry:
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull @.str.40, i64 noundef 18) #21
   %call = call ptr @strbuf_detach(ptr noundef nonnull %buf, ptr noundef null) #21
   store i8 1, ptr %options, align 8
-  %call.i4 = call fastcc i32 @http_request_reauth(ptr noundef %call, ptr noundef nonnull %buf, i32 noundef 0, ptr noundef nonnull %options)
+  %call.i4 = call fastcc range(i32 0, 7) i32 @http_request_reauth(ptr noundef %call, ptr noundef nonnull %buf, i32 noundef 0, ptr noundef nonnull %options)
   %cmp.not = icmp eq i32 %call.i4, 0
   br i1 %cmp.not, label %if.end, label %cleanup
 
@@ -4106,8 +4106,8 @@ if.end20:                                         ; preds = %if.end17
   %incdec.ptr = getelementptr inbounds i8, ptr %13, i64 1
   store ptr %incdec.ptr, ptr %data, align 8
   %.pre27 = load i8, ptr %incdec.ptr, align 1
-  %tobool.not = icmp eq i8 %.pre27, 0
-  br i1 %tobool.not, label %cleanup, label %do.body.i.preheader, !llvm.loop !34
+  %15 = icmp eq i8 %.pre27, 0
+  br i1 %15, label %cleanup, label %do.body.i.preheader, !llvm.loop !34
 
 cleanup:                                          ; preds = %if.end17, %if.end20, %if.end, %entry
   call void @free(ptr noundef %call) #21

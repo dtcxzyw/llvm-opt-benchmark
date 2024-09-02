@@ -3593,53 +3593,53 @@ define hidden void @zif_var_export(ptr noundef %0, ptr nocapture noundef writeon
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -3
   %or.cond = icmp ult i32 %7, -2
-  br i1 %or.cond, label %.thread240, label %8
-
-.thread240:                                       ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #12
-  br label %18
+  br i1 %or.cond, label %8, label %9
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = icmp eq i32 %6, 1
-  br i1 %10, label %.thread232, label %11
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #12
+  br label %.thread245
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
-  %13 = load i8, ptr %12, align 8
-  switch i8 %13, label %15 [
-    i8 3, label %.thread251
-    i8 2, label %14
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = icmp eq i32 %6, 1
+  br i1 %11, label %.thread236, label %12
+
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = load i8, ptr %13, align 8
+  switch i8 %14, label %16 [
+    i8 3, label %.thread232
+    i8 2, label %15
   ]
 
-14:                                               ; preds = %11
-  br label %.thread251
-
-.thread251:                                       ; preds = %14, %11
-  %storemerge = phi i8 [ 0, %14 ], [ 1, %11 ]
-  store i8 %storemerge, ptr %3, align 1
+15:                                               ; preds = %12
   br label %.thread232
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 96
-  %17 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 2) #12
-  %cond.fr221 = freeze i1 %17
-  br i1 %cond.fr221, label %.thread232, label %18
+.thread232:                                       ; preds = %15, %12
+  %storemerge = phi i8 [ 0, %15 ], [ 1, %12 ]
+  store i8 %storemerge, ptr %3, align 1
+  br label %.thread236
 
-18:                                               ; preds = %15, %.thread240
-  %.0194250 = phi i32 [ 1, %.thread240 ], [ 9, %15 ]
-  %.0197248 = phi ptr [ null, %.thread240 ], [ %16, %15 ]
-  %.0198247 = phi i32 [ 0, %.thread240 ], [ 2, %15 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0194250, i32 noundef %.0198247, ptr noundef null, i32 noundef %.0198247, ptr noundef %.0197248) #12
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %18 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %17, ptr noundef nonnull %3, i32 noundef 2) #12
+  %.fr = freeze i1 %18
+  br i1 %.fr, label %.thread236, label %.thread245
+
+.thread245:                                       ; preds = %16, %8
+  %.0194255 = phi i32 [ 1, %8 ], [ 9, %16 ]
+  %.0196254 = phi i32 [ 0, %8 ], [ 2, %16 ]
+  %.0197253 = phi ptr [ null, %8 ], [ %17, %16 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0194255, i32 noundef %.0196254, ptr noundef null, i32 noundef %.0196254, ptr noundef %.0197253) #12
   br label %102
 
-.thread232:                                       ; preds = %15, %.thread251, %8
-  call void @php_var_export_ex(ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %4)
+.thread236:                                       ; preds = %16, %.thread232, %9
+  call void @php_var_export_ex(ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %4)
   %19 = load ptr, ptr %4, align 8
   %.not210 = icmp eq ptr %19, null
   br i1 %.not210, label %25, label %20
 
-20:                                               ; preds = %.thread232
+20:                                               ; preds = %.thread236
   %21 = getelementptr inbounds i8, ptr %19, i64 24
   %22 = getelementptr inbounds i8, ptr %19, i64 16
   %23 = load i64, ptr %22, align 8
@@ -3647,7 +3647,7 @@ define hidden void @zif_var_export(ptr noundef %0, ptr nocapture noundef writeon
   store i8 0, ptr %24, align 1
   br label %25
 
-25:                                               ; preds = %20, %.thread232
+25:                                               ; preds = %20, %.thread236
   %26 = load i8, ptr %3, align 1
   %27 = trunc i8 %26 to i1
   %28 = load ptr, ptr %4, align 8
@@ -3786,7 +3786,7 @@ define hidden void @zif_var_export(ptr noundef %0, ptr nocapture noundef writeon
   call void @_efree(ptr noundef nonnull %91) #12
   br label %102
 
-102:                                              ; preds = %86, %96, %101, %92, %80, %18
+102:                                              ; preds = %86, %96, %101, %92, %80, %.thread245
   ret void
 }
 

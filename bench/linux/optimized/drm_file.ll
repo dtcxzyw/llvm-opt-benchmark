@@ -1053,7 +1053,7 @@ define dso_local i64 @drm_read(ptr nocapture noundef readonly %0, ptr noundef %1
 
 21:                                               ; preds = %4
   %22 = sext i32 %13 to i64
-  br label %.thread19
+  br label %.thread18
 
 23:                                               ; preds = %.backedge, %15
   %24 = phi i64 [ 0, %15 ], [ %.be, %.backedge ]
@@ -1089,13 +1089,13 @@ define dso_local i64 @drm_read(ptr nocapture noundef readonly %0, ptr noundef %1
 
 40:                                               ; preds = %.thread, %27
   %41 = icmp eq i64 %24, 0
-  br i1 %41, label %42, label %.loopexit21
+  br i1 %41, label %42, label %.loopexit20
 
 42:                                               ; preds = %40
   %43 = load i32, ptr %20, align 8
   %44 = and i32 %43, 2048
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %.loopexit21
+  br i1 %45, label %46, label %.loopexit20
 
 46:                                               ; preds = %42
   call void @mutex_unlock(ptr noundef %12) #9
@@ -1131,19 +1131,19 @@ define dso_local i64 @drm_read(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %.thread11
 
 .thread10:                                        ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
   %60 = shl i64 %54, 32
   %61 = ashr exact i64 %60, 32
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
   %62 = icmp sgt i64 %61, -1
-  br i1 %62, label %.thread11, label %.thread19
+  br i1 %62, label %.thread11, label %.thread18
 
 .thread11:                                        ; preds = %.thread10.thread, %46, %.thread10
   %63 = call i32 @mutex_lock_interruptible(ptr noundef %12) #9
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.backedge, label %.thread19.loopexit.split.loop.exit
+  br i1 %64, label %.backedge, label %.thread18.loopexit.split.loop.exit
 
-.backedge:                                        ; preds = %.thread11, %.thread14
-  %.be = phi i64 [ %80, %.thread14 ], [ 0, %.thread11 ]
+.backedge:                                        ; preds = %.thread11, %.thread13
+  %.be = phi i64 [ %80, %.thread13 ], [ 0, %.thread11 ]
   br label %23
 
 65:                                               ; preds = %27
@@ -1157,32 +1157,32 @@ define dso_local i64 @drm_read(ptr nocapture noundef readonly %0, ptr noundef %1
 
 72:                                               ; preds = %65
   %73 = icmp slt i32 %68, 0
-  br i1 %73, label %.thread13, label %74, !prof !8
+  br i1 %73, label %.critedge, label %74, !prof !8
 
-.thread13:                                        ; preds = %72
+.critedge:                                        ; preds = %72
   call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #9, !srcloc !24
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.22, i32 249, i32 2307, i64 12) #9, !srcloc !25
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #9, !srcloc !26
-  br label %.loopexit20
+  br label %.loopexit19
 
 74:                                               ; preds = %72
   %75 = getelementptr i8, ptr %1, i64 %24
   %76 = call i64 @_copy_to_user(ptr noundef %75, ptr noundef %66, i64 noundef %69) #9
   %77 = icmp eq i64 %76, 0
-  br i1 %77, label %.thread14, label %.loopexit20
+  br i1 %77, label %.thread13, label %.loopexit19
 
-.loopexit20:                                      ; preds = %74, %.thread13
+.loopexit19:                                      ; preds = %74, %.critedge
   %78 = icmp eq i64 %24, 0
   %79 = select i1 %78, i64 -14, i64 %24
   br label %.loopexit
 
-.thread14:                                        ; preds = %74
+.thread13:                                        ; preds = %74
   %80 = add i64 %24, %69
   call void @kfree(ptr noundef nonnull %28) #9
   br label %.backedge
 
-.loopexit:                                        ; preds = %65, %.loopexit20
-  %81 = phi i64 [ %79, %.loopexit20 ], [ %24, %65 ]
+.loopexit:                                        ; preds = %65, %.loopexit19
+  %81 = phi i64 [ %79, %.loopexit19 ], [ %24, %65 ]
   %82 = getelementptr i8, ptr %25, i64 8
   call void @_raw_spin_lock_irq(ptr noundef %16) #9
   %83 = load i32, ptr %18, align 8
@@ -1196,19 +1196,19 @@ define dso_local i64 @drm_read(ptr nocapture noundef readonly %0, ptr noundef %1
   store volatile ptr %25, ptr %17, align 8
   call void @_raw_spin_unlock_irq(ptr noundef %16) #9
   %87 = call i32 @__wake_up(ptr noundef %19, i32 noundef 1, i32 noundef 1, ptr noundef nonnull inttoptr (i64 65 to ptr)) #9
-  br label %.loopexit21
+  br label %.loopexit20
 
-.loopexit21:                                      ; preds = %40, %42, %.loopexit
+.loopexit20:                                      ; preds = %40, %42, %.loopexit
   %.ph = phi i64 [ %81, %.loopexit ], [ %24, %40 ], [ -11, %42 ]
   call void @mutex_unlock(ptr noundef %12) #9
-  br label %.thread19
+  br label %.thread18
 
-.thread19.loopexit.split.loop.exit:               ; preds = %.thread11
+.thread18.loopexit.split.loop.exit:               ; preds = %.thread11
   %88 = sext i32 %63 to i64
-  br label %.thread19
+  br label %.thread18
 
-.thread19:                                        ; preds = %.thread10, %.thread19.loopexit.split.loop.exit, %.loopexit21, %21
-  %89 = phi i64 [ %22, %21 ], [ %.ph, %.loopexit21 ], [ %88, %.thread19.loopexit.split.loop.exit ], [ %61, %.thread10 ]
+.thread18:                                        ; preds = %.thread10, %.thread18.loopexit.split.loop.exit, %.loopexit20, %21
+  %89 = phi i64 [ %22, %21 ], [ %.ph, %.loopexit20 ], [ %88, %.thread18.loopexit.split.loop.exit ], [ %61, %.thread10 ]
   ret i64 %89
 }
 

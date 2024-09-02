@@ -337,7 +337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4node4quic3CID4HashclERKS1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %cid) local_unnamed_addr #7 align 2 {
+define dso_local noundef range(i64 0, 256) i64 @_ZNK4node4quic3CID4HashclERKS1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %cid) local_unnamed_addr #7 align 2 {
 entry:
   %ptr_.i = getelementptr inbounds i8, ptr %cid, i64 40
   %0 = load ptr, ptr %ptr_.i, align 8

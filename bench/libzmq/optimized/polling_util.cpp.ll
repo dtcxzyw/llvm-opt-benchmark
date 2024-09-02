@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3zmq15compute_timeoutEblmm(i1 noundef zeroext %first_pass_, i64 noundef %timeout_, i64 noundef %now_, i64 noundef %end_) local_unnamed_addr #0 {
+define noundef range(i32 -1, -2147483648) i32 @_ZN3zmq15compute_timeoutEblmm(i1 noundef zeroext %first_pass_, i64 noundef %timeout_, i64 noundef %now_, i64 noundef %end_) local_unnamed_addr #0 {
 entry:
   br i1 %first_pass_, label %return, label %if.end
 

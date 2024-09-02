@@ -682,10 +682,10 @@ _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %52, %_ZNSt12_Vector
   %90 = getelementptr inbounds i8, ptr %15, i64 16
   br label %91
 
-91:                                               ; preds = %85, %.critedge.thread154
-  %.032134 = phi i8 [ %89, %85 ], [ %spec.select, %.critedge.thread154 ]
-  %.sroa.12.2133 = phi ptr [ %.sroa.12.0.ph, %85 ], [ %189, %.critedge.thread154 ]
-  %.sroa.093.2132 = phi i64 [ %.sroa.093.0.ph, %85 ], [ %190, %.critedge.thread154 ]
+91:                                               ; preds = %85, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit
+  %.032134 = phi i8 [ %89, %85 ], [ %spec.select, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ]
+  %.sroa.12.2133 = phi ptr [ %.sroa.12.0.ph, %85 ], [ %189, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ]
+  %.sroa.093.2132 = phi i64 [ %.sroa.093.0.ph, %85 ], [ %190, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ]
   %.032134.fr = freeze i8 %.032134
   call void @_ZNK13sentencepiece10normalizer10Normalizer15NormalizePrefixESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %15, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 %.sroa.093.2132, ptr %.sroa.12.2133)
   %.sroa.089.0.copyload = load i64, ptr %15, align 8
@@ -706,11 +706,11 @@ _ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; p
   %94 = getelementptr inbounds i8, ptr %.sroa.6.0123, i64 1
   %95 = add i64 %.sroa.089.0122, -1
   %.not.i.i38 = icmp eq i64 %95, 0
-  br i1 %.not.i.i38, label %.critedge.thread154, label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i, !llvm.loop !12
+  br i1 %.not.i.i38, label %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, label %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i, !llvm.loop !12
 
 .critedge:                                        ; preds = %91
   %96 = icmp eq i64 %.sroa.089.0.copyload, 0
-  br i1 %96, label %.critedge.thread154, label %.lr.ph131.preheader
+  br i1 %96, label %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, label %.lr.ph131.preheader
 
 .lr.ph131.preheader:                              ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i, %.critedge
   %.sroa.089.0115 = phi i64 [ %.sroa.089.0.copyload, %.critedge ], [ %.sroa.089.0122, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ]
@@ -895,18 +895,18 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
 _ZNSt6vectorImSaImEE9push_backEOm.exit49:         ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit, %105, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i48, %154
   %180 = add nuw i64 %.033129, 1
   %exitcond.not = icmp eq i64 %180, %.sroa.089.0115
-  br i1 %exitcond.not, label %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, label %.lr.ph131, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph131, !llvm.loop !14
 
-_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit49
+._crit_edge:                                      ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit49
   %181 = add i64 %.sroa.089.0115, -1
   %182 = getelementptr inbounds i8, ptr %.sroa.6.0113, i64 %181
   %lhsc111 = load i8, ptr %182, align 1
   %183 = icmp eq i8 %lhsc111, 32
   %184 = zext i1 %183 to i8
-  br label %.critedge.thread154
+  br label %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit
 
-.critedge.thread154:                              ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %.critedge
-  %.1 = phi i8 [ %.032134.fr, %.critedge ], [ %184, %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit ], [ %.032134.fr, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit ]
+_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit, %._crit_edge, %.critedge
+  %.1 = phi i8 [ %.032134.fr, %.critedge ], [ %184, %._crit_edge ], [ %.032134.fr, %_ZN4absl13ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES3_.exit ]
   %185 = load i32, ptr %90, align 8
   %186 = load i32, ptr %11, align 4
   %187 = add nsw i32 %186, %185
@@ -922,7 +922,7 @@ _ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = 
   %195 = icmp eq i64 %190, 0
   br i1 %195, label %196, label %91, !llvm.loop !15
 
-196:                                              ; preds = %.critedge.thread154
+196:                                              ; preds = %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit
   br i1 %194, label %197, label %_ZN4absl8EndsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit52.thread110
 
 197:                                              ; preds = %196
@@ -2428,17 +2428,17 @@ define void @_ZNK13sentencepiece10normalizer13PrefixMatcher13GlobalReplaceB5cxx1
   %26 = load i8, ptr %25, align 1
   %27 = sext i8 %26 to i32
   %.011.in.sroa.speculate.load..sroa.speculated.i = call i32 @llvm.smin.i32(i32 %27, i32 %21)
+  %28 = sext i32 %.011.in.sroa.speculate.load..sroa.speculated.i to i64
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.preheader.i
-  %.011.in.sroa.speculated.i11.ph = phi i32 [ 0, %.preheader.i ], [ %.011.in.sroa.speculate.load..sroa.speculated.i, %.sink.split.sink.split ]
+  %.011.in.sroa.speculated.i11.ph = phi i64 [ 0, %.preheader.i ], [ %28, %.sink.split.sink.split ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
-  %28 = sext i32 %.011.in.sroa.speculated.i11.ph to i64
-  %29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.sroa.5.014, i64 noundef %28)
+  %29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.sroa.5.014, i64 noundef %.011.in.sroa.speculated.i11.ph)
           to label %30 unwind label %19
 
 30:                                               ; preds = %._crit_edge15, %.sink.split
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge15 ], [ %28, %.sink.split ]
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge15 ], [ %.011.in.sroa.speculated.i11.ph, %.sink.split ]
   %31 = getelementptr inbounds i8, ptr %.sroa.5.014, i64 %.pre-phi
   %32 = sub i64 %.sroa.05.013, %.pre-phi
   %33 = icmp eq i64 %32, 0

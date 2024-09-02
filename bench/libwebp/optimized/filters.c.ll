@@ -206,7 +206,7 @@ define internal void @GradientUnfilter_C(ptr noundef readonly %0, ptr nocapture 
   %21 = sub nsw i32 %18, %20
   %22 = add nsw i32 %21, %19
   %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 0)
-  %24 = tail call range(i32 -255, 511) i32 @llvm.umin.i32(i32 %23, i32 255)
+  %24 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %23, i32 255)
   %25 = trunc nuw i32 %24 to i8
   %26 = add i8 %17, %25
   %27 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
@@ -448,7 +448,7 @@ PredictLine_C.exit69.us.i:                        ; preds = %PredictLine_C.exit6
   %35 = zext i8 %31 to i32
   %36 = sub nsw i32 %34, %35
   %37 = tail call i32 @llvm.smax.i32(i32 %36, i32 0)
-  %38 = tail call range(i32 -255, 511) i32 @llvm.umin.i32(i32 %37, i32 255)
+  %38 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %37, i32 255)
   %39 = load i8, ptr %25, align 1
   %40 = trunc nuw i32 %38 to i8
   %41 = sub i8 %39, %40

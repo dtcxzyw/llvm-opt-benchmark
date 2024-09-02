@@ -137,7 +137,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node21EmitProcessBeforeExitEPNS_11EnvironmentE(ptr noundef %env) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node21EmitProcessBeforeExitEPNS_11EnvironmentE(ptr noundef %env) local_unnamed_addr #3 {
 entry:
   %arg_convertibles.i.i = alloca [2 x %"class.std::unique_ptr.267"], align 16
   %trace_event_unique_tracer34 = alloca %"class.node::tracing::ScopedTracer", align 8

@@ -440,47 +440,46 @@ define dso_local noundef i32 @security_init() local_unnamed_addr #0 section ".in
   %14 = icmp ult ptr @__start_early_lsm_info, @__end_early_lsm_info
   br i1 %14, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.thread3, %33
-  %15 = phi ptr [ %34, %33 ], [ @__start_early_lsm_info, %.thread3 ]
+.preheader:                                       ; preds = %.thread3, %35
+  %15 = phi ptr [ %36, %35 ], [ @__start_early_lsm_info, %.thread3 ]
   %16 = load i1, ptr @debug, align 1
-  br i1 %16, label %17, label %26
+  br i1 %16, label %17, label %28
 
 17:                                               ; preds = %.preheader
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr inbounds i8, ptr %15, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread4, label %22
+  br i1 %21, label %25, label %22
 
 22:                                               ; preds = %17
   %23 = load i32, ptr %20, align 4
-  %.fr = freeze i32 %23
-  %.not = icmp eq i32 %.fr, 0
-  %spec.select = select i1 %.not, ptr @.str.37, ptr @.str.36
-  br label %.thread4
+  %.not = icmp eq i32 %23, 0
+  %24 = select i1 %.not, ptr @.str.37, ptr @.str.36
+  br label %25
 
-.thread4:                                         ; preds = %22, %17
-  %24 = phi ptr [ @.str.37, %17 ], [ %spec.select, %22 ]
-  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef %18, ptr noundef nonnull %24) #16
-  br label %26
+25:                                               ; preds = %22, %17
+  %26 = phi ptr [ %24, %22 ], [ @.str.37, %17 ]
+  %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, ptr noundef %18, ptr noundef nonnull %26) #16
+  br label %28
 
-26:                                               ; preds = %.thread4, %.preheader
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %33, label %30
+28:                                               ; preds = %25, %.preheader
+  %29 = getelementptr inbounds i8, ptr %15, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %35, label %32
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %15, align 8
-  %32 = tail call fastcc i32 @lsm_append(ptr noundef %31)
-  br label %33
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %15, align 8
+  %34 = tail call fastcc i32 @lsm_append(ptr noundef %33)
+  br label %35
 
-33:                                               ; preds = %30, %26
-  %34 = getelementptr i8, ptr %15, i64 48
-  %35 = icmp ult ptr %34, @__end_early_lsm_info
-  br i1 %35, label %.preheader, label %.loopexit, !llvm.loop !15
+35:                                               ; preds = %32, %28
+  %36 = getelementptr i8, ptr %15, i64 48
+  %37 = icmp ult ptr %36, @__end_early_lsm_info
+  br i1 %37, label %.preheader, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %33, %.thread3
+.loopexit:                                        ; preds = %35, %.thread3
   tail call fastcc void @ordered_lsm_init() #15
   ret i32 0
 }

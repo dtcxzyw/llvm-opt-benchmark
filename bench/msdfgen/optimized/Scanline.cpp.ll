@@ -410,7 +410,7 @@ if.end:                                           ; preds = %for.body, %if.then,
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i32 @_ZN7msdfgenL20compareIntersectionsEPKvS1_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
+define internal noundef range(i32 -1, 2) i32 @_ZN7msdfgenL20compareIntersectionsEPKvS1_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #5 {
 entry:
   %0 = load double, ptr %a, align 8
   %1 = load double, ptr %b, align 8

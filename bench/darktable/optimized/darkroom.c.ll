@@ -626,20 +626,20 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %36 = getelementptr inbounds i8, ptr %20, i64 2056
   %37 = load ptr, ptr %36, align 8, !tbaa !81
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %43, label %.preheader
+  br i1 %38, label %44, label %.preheader
 
 39:                                               ; preds = %.preheader
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !76
   %41 = getelementptr inbounds i8, ptr %40, i64 120
   %42 = load i32, ptr %41, align 8, !tbaa !77
-  br label %43
+  %43 = add nsw i32 %42, -1
+  br label %44
 
-43:                                               ; preds = %39, %31
-  %44 = phi i32 [ %42, %39 ], [ %35, %31 ]
-  %45 = phi ptr [ %40, %39 ], [ %32, %31 ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 120
-  %47 = add nsw i32 %44, -1
-  store i32 %47, ptr %46, align 8, !tbaa !77
+44:                                               ; preds = %39, %31
+  %45 = phi i32 [ %43, %39 ], [ %34, %31 ]
+  %46 = phi ptr [ %40, %39 ], [ %32, %31 ]
+  %47 = getelementptr inbounds i8, ptr %46, i64 120
+  store i32 %45, ptr %47, align 8, !tbaa !77
   store i32 0, ptr %22, align 8, !tbaa !69
   br label %53
 
@@ -652,7 +652,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %52 = icmp eq ptr %51, null
   br i1 %52, label %39, label %.preheader
 
-53:                                               ; preds = %43, %25, %6
+53:                                               ; preds = %44, %25, %6
   %54 = getelementptr inbounds i8, ptr %20, i64 2696
   %55 = load ptr, ptr %54, align 8, !tbaa !84
   %56 = getelementptr inbounds i8, ptr %55, i64 340
@@ -787,38 +787,38 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %123 = phi float [ 0x3FF028F5C0000000, %121 ], [ %119, %118 ]
   %124 = load float, ptr %13, align 4, !tbaa !94
   %125 = fcmp reassoc nsz arcp contract afn ogt float %124, 0x3FEE666660000000
-  br i1 %125, label %128, label %126
+  br i1 %125, label %129, label %126
 
 126:                                              ; preds = %122
   %127 = load float, ptr %11, align 4, !tbaa !94
-  br label %129
+  %128 = fmul reassoc nsz arcp contract afn float %124, 5.000000e-01
+  br label %130
 
-128:                                              ; preds = %122
+129:                                              ; preds = %122
   store float 0.000000e+00, ptr %11, align 4, !tbaa !94
   store float 0x3FF028F5C0000000, ptr %13, align 4, !tbaa !94
-  br label %129
+  br label %130
 
-129:                                              ; preds = %128, %126
-  %130 = phi float [ %124, %126 ], [ 0x3FF028F5C0000000, %128 ]
-  %131 = phi float [ %127, %126 ], [ 0.000000e+00, %128 ]
-  %132 = load float, ptr %10, align 4, !tbaa !94
-  %133 = fmul reassoc nsz arcp contract afn float %123, 5.000000e-01
-  %134 = fadd reassoc nsz arcp contract afn float %133, -5.000000e-01
-  %135 = fmul reassoc nsz arcp contract afn float %130, 5.000000e-01
-  %136 = fadd reassoc nsz arcp contract afn float %135, -5.000000e-01
-  call void @dt_view_set_scrollbar(ptr noundef %0, float noundef %132, float noundef %134, float noundef 5.000000e-01, float noundef %133, float noundef %131, float noundef %136, float noundef 5.000000e-01, float noundef %135) #19
+130:                                              ; preds = %129, %126
+  %131 = phi float [ %128, %126 ], [ 0x3FE028F5C0000000, %129 ]
+  %132 = phi float [ %127, %126 ], [ 0.000000e+00, %129 ]
+  %133 = load float, ptr %10, align 4, !tbaa !94
+  %134 = fmul reassoc nsz arcp contract afn float %123, 5.000000e-01
+  %135 = fadd reassoc nsz arcp contract afn float %134, -5.000000e-01
+  %136 = fadd reassoc nsz arcp contract afn float %131, -5.000000e-01
+  call void @dt_view_set_scrollbar(ptr noundef %0, float noundef %133, float noundef %135, float noundef 5.000000e-01, float noundef %134, float noundef %132, float noundef %136, float noundef 5.000000e-01, float noundef %131) #19
   %137 = load ptr, ptr %54, align 8, !tbaa !70
   %138 = getelementptr inbounds i8, ptr %137, i64 352
   %139 = load ptr, ptr %138, align 16, !tbaa !95
   %140 = icmp eq ptr %139, null
   br i1 %140, label %141, label %144
 
-141:                                              ; preds = %129
+141:                                              ; preds = %130
   %142 = getelementptr inbounds i8, ptr %20, i64 1544
   %143 = load i32, ptr %142, align 8, !tbaa !96
   br label %167
 
-144:                                              ; preds = %129
+144:                                              ; preds = %130
   %145 = getelementptr inbounds i8, ptr %137, i64 580
   %146 = load i32, ptr %145, align 4, !tbaa !97
   %147 = getelementptr inbounds i8, ptr %20, i64 1544
@@ -1436,7 +1436,7 @@ define internal fastcc void @_darkroom_pickers_draw(ptr noundef %0, float nounde
   %14 = alloca double, align 8
   %15 = alloca double, align 8
   %16 = icmp eq ptr %4, null
-  br i1 %16, label %209, label %17
+  br i1 %16, label %207, label %17
 
 17:                                               ; preds = %6
   tail call void @cairo_save(ptr noundef %0) #19
@@ -1470,19 +1470,19 @@ define internal fastcc void @_darkroom_pickers_draw(ptr noundef %0, float nounde
   %38 = getelementptr inbounds i8, ptr %23, i64 4
   br label %39
 
-39:                                               ; preds = %204, %31
-  %40 = phi ptr [ %4, %31 ], [ %206, %204 ]
+39:                                               ; preds = %202, %31
+  %40 = phi ptr [ %4, %31 ], [ %204, %202 ]
   %41 = load ptr, ptr %40, align 8, !tbaa !125
   %42 = icmp eq ptr %41, %23
   %43 = select i1 %32, i1 true, i1 %42
-  br i1 %43, label %44, label %204
+  br i1 %43, label %44, label %202
 
 44:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
   store double 5.000000e-01, ptr %8, align 8, !tbaa !145
   %45 = getelementptr inbounds i8, ptr %41, i64 24
   %46 = load i32, ptr %45, align 8, !tbaa !146
-  switch i32 %46, label %150 [
+  switch i32 %46, label %149 [
     i32 1, label %47
     i32 0, label %104
   ]
@@ -1573,7 +1573,7 @@ define internal fastcc void @_darkroom_pickers_draw(ptr noundef %0, float nounde
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
-  br label %150
+  br label %149
 
 104:                                              ; preds = %44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #19
@@ -1601,151 +1601,149 @@ define internal fastcc void @_darkroom_pickers_draw(ptr noundef %0, float nounde
   %120 = load double, ptr %8, align 8, !tbaa !145
   %121 = fmul reassoc nsz arcp contract afn double %120, %18
   %122 = call reassoc nsz arcp contract afn double @llvm.round.f64(double %121)
-  %123 = fcmp reassoc nsz arcp contract afn uge double %122, 4.000000e+00
-  %124 = select i1 %123, double %122, double 4.000000e+00
-  %125 = zext i1 %123 to i32
+  %123 = fcmp reassoc nsz arcp contract afn olt double %122, 4.000000e+00
+  %124 = select i1 %123, double 4.000000e+00, double %122
   store double %124, ptr %8, align 8, !tbaa !145
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #19
-  %126 = fmul reassoc nsz arcp contract afn double %124, %33
-  %127 = fmul reassoc nsz arcp contract afn double %126, 2.000000e+00
-  %128 = select i1 %42, double %127, double %126
-  store double %128, ptr %15, align 8, !tbaa !145
+  %125 = fmul reassoc nsz arcp contract afn double %124, %33
+  %126 = fmul reassoc nsz arcp contract afn double %125, 2.000000e+00
+  %127 = select i1 %42, double %126, double %125
+  store double %127, ptr %15, align 8, !tbaa !145
   call void @cairo_device_to_user(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %14) #19
   call void @cairo_device_to_user_distance(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %8) #19
-  br i1 %24, label %133, label %129
+  br i1 %24, label %132, label %128
 
-129:                                              ; preds = %104
-  %130 = load double, ptr %13, align 8, !tbaa !145
-  %131 = load double, ptr %14, align 8, !tbaa !145
-  %132 = load double, ptr %15, align 8, !tbaa !145
-  call void @cairo_arc(ptr noundef %0, double noundef %130, double noundef %131, double noundef %132, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #19
-  br label %133
+128:                                              ; preds = %104
+  %129 = load double, ptr %13, align 8, !tbaa !145
+  %130 = load double, ptr %14, align 8, !tbaa !145
+  %131 = load double, ptr %15, align 8, !tbaa !145
+  call void @cairo_arc(ptr noundef %0, double noundef %129, double noundef %130, double noundef %131, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #19
+  br label %132
 
-133:                                              ; preds = %129, %104
-  %134 = load double, ptr %13, align 8, !tbaa !145
-  %135 = load double, ptr %15, align 8, !tbaa !145
-  %136 = fsub reassoc nsz arcp contract afn double %134, %135
-  %137 = load double, ptr %14, align 8, !tbaa !145
-  call void @cairo_move_to(ptr noundef %0, double noundef %136, double noundef %137) #19
-  %138 = load double, ptr %13, align 8, !tbaa !145
-  %139 = load double, ptr %15, align 8, !tbaa !145
-  %140 = fadd reassoc nsz arcp contract afn double %139, %138
-  %141 = load double, ptr %14, align 8, !tbaa !145
-  call void @cairo_line_to(ptr noundef %0, double noundef %140, double noundef %141) #19
-  %142 = load double, ptr %13, align 8, !tbaa !145
-  %143 = load double, ptr %14, align 8, !tbaa !145
-  %144 = load double, ptr %15, align 8, !tbaa !145
-  %145 = fsub reassoc nsz arcp contract afn double %143, %144
-  call void @cairo_move_to(ptr noundef %0, double noundef %142, double noundef %145) #19
-  %146 = load double, ptr %13, align 8, !tbaa !145
-  %147 = load double, ptr %14, align 8, !tbaa !145
-  %148 = load double, ptr %15, align 8, !tbaa !145
-  %149 = fadd reassoc nsz arcp contract afn double %148, %147
-  call void @cairo_line_to(ptr noundef %0, double noundef %146, double noundef %149) #19
+132:                                              ; preds = %128, %104
+  %133 = load double, ptr %13, align 8, !tbaa !145
+  %134 = load double, ptr %15, align 8, !tbaa !145
+  %135 = fsub reassoc nsz arcp contract afn double %133, %134
+  %136 = load double, ptr %14, align 8, !tbaa !145
+  call void @cairo_move_to(ptr noundef %0, double noundef %135, double noundef %136) #19
+  %137 = load double, ptr %13, align 8, !tbaa !145
+  %138 = load double, ptr %15, align 8, !tbaa !145
+  %139 = fadd reassoc nsz arcp contract afn double %138, %137
+  %140 = load double, ptr %14, align 8, !tbaa !145
+  call void @cairo_line_to(ptr noundef %0, double noundef %139, double noundef %140) #19
+  %141 = load double, ptr %13, align 8, !tbaa !145
+  %142 = load double, ptr %14, align 8, !tbaa !145
+  %143 = load double, ptr %15, align 8, !tbaa !145
+  %144 = fsub reassoc nsz arcp contract afn double %142, %143
+  call void @cairo_move_to(ptr noundef %0, double noundef %141, double noundef %144) #19
+  %145 = load double, ptr %13, align 8, !tbaa !145
+  %146 = load double, ptr %14, align 8, !tbaa !145
+  %147 = load double, ptr %15, align 8, !tbaa !145
+  %148 = fadd reassoc nsz arcp contract afn double %147, %146
+  call void @cairo_line_to(ptr noundef %0, double noundef %145, double noundef %148) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
-  br label %150
+  br label %149
 
-150:                                              ; preds = %133, %103, %44
-  %151 = phi i32 [ 1, %103 ], [ %125, %133 ], [ 1, %44 ]
-  %152 = select reassoc nsz arcp contract afn i1 %42, double 2.000000e+00, double 1.000000e+00
-  %153 = fmul reassoc nsz arcp contract afn double %36, %152
-  call void @cairo_set_line_width(ptr noundef %0, double noundef %153) #19
+149:                                              ; preds = %132, %103, %44
+  %150 = phi i1 [ false, %103 ], [ %123, %132 ], [ false, %44 ]
+  %151 = select reassoc nsz arcp contract afn i1 %42, double 2.000000e+00, double 1.000000e+00
+  %152 = fmul reassoc nsz arcp contract afn double %36, %151
+  call void @cairo_set_line_width(ptr noundef %0, double noundef %152) #19
   call void @cairo_set_source_rgba(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 4.000000e-01) #19
   call void @cairo_stroke_preserve(ptr noundef %0) #19
-  %154 = fmul reassoc nsz arcp contract afn double %152, %19
-  call void @cairo_set_line_width(ptr noundef %0, double noundef %154) #19
-  %155 = select i1 %37, i1 true, i1 %42
-  br i1 %155, label %159, label %156
+  %153 = fmul reassoc nsz arcp contract afn double %151, %19
+  call void @cairo_set_line_width(ptr noundef %0, double noundef %153) #19
+  %154 = select i1 %37, i1 true, i1 %42
+  br i1 %154, label %159, label %155
 
-156:                                              ; preds = %150
-  %157 = load i32, ptr %45, align 8, !tbaa !146
-  %158 = icmp eq i32 %157, 1
+155:                                              ; preds = %149
+  %156 = load i32, ptr %45, align 8, !tbaa !146
+  %157 = icmp eq i32 %156, 1
+  %158 = zext i1 %157 to i32
   br label %159
 
-159:                                              ; preds = %156, %150
-  %160 = phi i1 [ false, %150 ], [ %158, %156 ]
-  %161 = zext i1 %160 to i32
-  call void @cairo_set_dash(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %161, double noundef 0.000000e+00) #19
+159:                                              ; preds = %155, %149
+  %160 = phi i32 [ 0, %149 ], [ %158, %155 ]
+  call void @cairo_set_dash(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %160, double noundef 0.000000e+00) #19
   call void @cairo_set_source_rgba(ptr noundef %0, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 8.000000e-01) #19
   call void @cairo_stroke(ptr noundef %0) #19
-  %162 = load i32, ptr %45, align 8, !tbaa !146
-  %163 = icmp eq i32 %162, 0
-  br i1 %163, label %164, label %203
+  %161 = load i32, ptr %45, align 8, !tbaa !146
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %163, label %201
 
-164:                                              ; preds = %159
-  br i1 %42, label %165, label %174
+163:                                              ; preds = %159
+  br i1 %42, label %164, label %173
 
-165:                                              ; preds = %164
-  %166 = load float, ptr %23, align 16, !tbaa !94
-  %167 = fmul reassoc nsz arcp contract afn float %166, %1
-  %168 = fpext float %167 to double
-  %169 = load float, ptr %38, align 4, !tbaa !94
-  %170 = fmul reassoc nsz arcp contract afn float %169, %2
-  %171 = fpext float %170 to double
-  %172 = load double, ptr %8, align 8, !tbaa !145
-  %173 = fmul reassoc nsz arcp contract afn double %172, 2.000000e+00
-  call void @cairo_arc(ptr noundef %0, double noundef %168, double noundef %171, double noundef %173, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #19
-  br label %194
+164:                                              ; preds = %163
+  %165 = load float, ptr %23, align 16, !tbaa !94
+  %166 = fmul reassoc nsz arcp contract afn float %165, %1
+  %167 = fpext float %166 to double
+  %168 = load float, ptr %38, align 4, !tbaa !94
+  %169 = fmul reassoc nsz arcp contract afn float %168, %2
+  %170 = fpext float %169 to double
+  %171 = load double, ptr %8, align 8, !tbaa !145
+  %172 = fmul reassoc nsz arcp contract afn double %171, 2.000000e+00
+  call void @cairo_arc(ptr noundef %0, double noundef %167, double noundef %170, double noundef %172, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #19
+  br label %192
 
-174:                                              ; preds = %164
-  %175 = icmp eq i32 %151, 0
-  %176 = load float, ptr %41, align 16, !tbaa !94
-  %177 = fmul reassoc nsz arcp contract afn float %176, %1
-  %178 = fpext float %177 to double
-  br i1 %175, label %188, label %179
+173:                                              ; preds = %163
+  %174 = load float, ptr %41, align 16, !tbaa !94
+  %175 = fmul reassoc nsz arcp contract afn float %174, %1
+  %176 = fpext float %175 to double
+  br i1 %150, label %186, label %177
 
-179:                                              ; preds = %174
-  %180 = load double, ptr %8, align 8, !tbaa !145
-  %181 = fsub reassoc nsz arcp contract afn double %178, %180
-  %182 = getelementptr inbounds i8, ptr %41, i64 4
-  %183 = load float, ptr %182, align 4, !tbaa !94
-  %184 = fmul reassoc nsz arcp contract afn float %183, %2
-  %185 = fpext float %184 to double
-  %186 = fsub reassoc nsz arcp contract afn double %185, %180
-  %187 = fmul reassoc nsz arcp contract afn double %180, 2.000000e+00
-  call void @cairo_rectangle(ptr noundef %0, double noundef %181, double noundef %186, double noundef %187, double noundef %187) #19
-  br label %194
+177:                                              ; preds = %173
+  %178 = load double, ptr %8, align 8, !tbaa !145
+  %179 = fsub reassoc nsz arcp contract afn double %176, %178
+  %180 = getelementptr inbounds i8, ptr %41, i64 4
+  %181 = load float, ptr %180, align 4, !tbaa !94
+  %182 = fmul reassoc nsz arcp contract afn float %181, %2
+  %183 = fpext float %182 to double
+  %184 = fsub reassoc nsz arcp contract afn double %183, %178
+  %185 = fmul reassoc nsz arcp contract afn double %178, 2.000000e+00
+  call void @cairo_rectangle(ptr noundef %0, double noundef %179, double noundef %184, double noundef %185, double noundef %185) #19
+  br label %192
 
-188:                                              ; preds = %174
-  %189 = getelementptr inbounds i8, ptr %41, i64 4
-  %190 = load float, ptr %189, align 4, !tbaa !94
-  %191 = fmul reassoc nsz arcp contract afn float %190, %2
-  %192 = fpext float %191 to double
-  %193 = load double, ptr %8, align 8, !tbaa !145
-  call void @cairo_arc(ptr noundef %0, double noundef %178, double noundef %192, double noundef %193, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #19
-  br label %194
+186:                                              ; preds = %173
+  %187 = getelementptr inbounds i8, ptr %41, i64 4
+  %188 = load float, ptr %187, align 4, !tbaa !94
+  %189 = fmul reassoc nsz arcp contract afn float %188, %2
+  %190 = fpext float %189 to double
+  %191 = load double, ptr %8, align 8, !tbaa !145
+  call void @cairo_arc(ptr noundef %0, double noundef %176, double noundef %190, double noundef %191, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #19
+  br label %192
 
-194:                                              ; preds = %188, %179, %165
-  %195 = getelementptr inbounds i8, ptr %41, i64 208
+192:                                              ; preds = %186, %177, %164
+  %193 = getelementptr inbounds i8, ptr %41, i64 208
+  %194 = load double, ptr %193, align 1
+  %195 = getelementptr inbounds i8, ptr %41, i64 216
   %196 = load double, ptr %195, align 1
-  %197 = getelementptr inbounds i8, ptr %41, i64 216
+  %197 = getelementptr inbounds i8, ptr %41, i64 224
   %198 = load double, ptr %197, align 1
-  %199 = getelementptr inbounds i8, ptr %41, i64 224
+  %199 = getelementptr inbounds i8, ptr %41, i64 232
   %200 = load double, ptr %199, align 1
-  %201 = getelementptr inbounds i8, ptr %41, i64 232
-  %202 = load double, ptr %201, align 1
-  call void @cairo_set_source_rgba(ptr noundef %0, double noundef %196, double noundef %198, double noundef %200, double noundef %202) #19
+  call void @cairo_set_source_rgba(ptr noundef %0, double noundef %194, double noundef %196, double noundef %198, double noundef %200) #19
   call void @cairo_fill(ptr noundef %0) #19
-  br label %203
+  br label %201
 
-203:                                              ; preds = %194, %159
+201:                                              ; preds = %192, %159
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
-  br label %204
+  br label %202
 
-204:                                              ; preds = %203, %39
-  %205 = getelementptr inbounds i8, ptr %40, i64 8
-  %206 = load ptr, ptr %205, align 8, !tbaa !127
-  %207 = icmp eq ptr %206, null
-  br i1 %207, label %208, label %39
+202:                                              ; preds = %201, %39
+  %203 = getelementptr inbounds i8, ptr %40, i64 8
+  %204 = load ptr, ptr %203, align 8, !tbaa !127
+  %205 = icmp eq ptr %204, null
+  br i1 %205, label %206, label %39
 
-208:                                              ; preds = %204
+206:                                              ; preds = %202
   call void @cairo_restore(ptr noundef %0) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  br label %209
+  br label %207
 
-209:                                              ; preds = %208, %6
+207:                                              ; preds = %206, %6
   ret void
 }
 

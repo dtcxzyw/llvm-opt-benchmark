@@ -1261,22 +1261,22 @@ expand_.exit259:                                  ; preds = %120, %124
   %141 = tail call ptr @str_cat(ptr noundef nonnull @.str.35, ptr noundef %3) #11
   %142 = load ptr, ptr %0, align 8
   %.not210 = icmp eq ptr %142, null
-  br i1 %.not210, label %146, label %143
+  br i1 %.not210, label %148, label %143
 
 143:                                              ; preds = %expand_.exit259
   %144 = getelementptr inbounds i8, ptr %142, i64 -8
   %145 = load i32, ptr %144, align 4
-  br label %146
+  %146 = add i32 %145, -1
+  %147 = zext i32 %146 to i64
+  br label %148
 
-146:                                              ; preds = %expand_.exit259, %143
-  %.0179 = phi i32 [ %145, %143 ], [ 0, %expand_.exit259 ]
-  %147 = add i32 %.0179, -1
-  %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds ptr, ptr %142, i64 %148
+148:                                              ; preds = %expand_.exit259, %143
+  %.0179 = phi i64 [ %147, %143 ], [ 4294967295, %expand_.exit259 ]
+  %149 = getelementptr inbounds ptr, ptr %142, i64 %.0179
   store ptr %141, ptr %149, align 8
   br i1 %9, label %150, label %161
 
-150:                                              ; preds = %146
+150:                                              ; preds = %148
   %151 = load ptr, ptr %0, align 8
   %.not.i260 = icmp eq ptr %151, null
   br i1 %.not.i260, label %152, label %155
@@ -1300,7 +1300,7 @@ expand_.exit259:                                  ; preds = %120, %124
   %160 = icmp eq i32 %159, %158
   br i1 %160, label %.sink.split.sink.split, label %.sink.split
 
-161:                                              ; preds = %146
+161:                                              ; preds = %148
   %162 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 171), align 1
   %163 = trunc i8 %162 to i1
   br i1 %163, label %164, label %194
@@ -1685,22 +1685,22 @@ expand_.exit144.i:                                ; preds = %309, %305
   %327 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.50, ptr noundef %326) #11
   %328 = load ptr, ptr %0, align 8
   %.not116.i = icmp eq ptr %328, null
-  br i1 %.not116.i, label %332, label %329
+  br i1 %.not116.i, label %334, label %329
 
 329:                                              ; preds = %expand_.exit144.i
   %330 = getelementptr inbounds i8, ptr %328, i64 -8
   %331 = load i32, ptr %330, align 4
-  br label %332
+  %332 = add i32 %331, -1
+  %333 = zext i32 %332 to i64
+  br label %334
 
-332:                                              ; preds = %329, %expand_.exit144.i
-  %.092.i = phi i32 [ %331, %329 ], [ 0, %expand_.exit144.i ]
-  %333 = add i32 %.092.i, -1
-  %334 = zext i32 %333 to i64
-  %335 = getelementptr inbounds ptr, ptr %328, i64 %334
+334:                                              ; preds = %329, %expand_.exit144.i
+  %.092.i = phi i64 [ %333, %329 ], [ 4294967295, %expand_.exit144.i ]
+  %335 = getelementptr inbounds ptr, ptr %328, i64 %.092.i
   store ptr %327, ptr %335, align 8
   br label %336
 
-336:                                              ; preds = %332, %296
+336:                                              ; preds = %334, %296
   %337 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 376), align 8
   %.not117.i = icmp eq ptr %337, null
   br i1 %.not117.i, label %376, label %338
@@ -2315,18 +2315,18 @@ expand_.exit215.i:                                ; preds = %647, %643
   %665 = tail call ptr @arch_to_linker_arch(i32 noundef %664) #11
   %666 = load ptr, ptr %0, align 8
   %.not176.i = icmp eq ptr %666, null
-  br i1 %.not176.i, label %670, label %667
+  br i1 %.not176.i, label %672, label %667
 
 667:                                              ; preds = %expand_.exit215.i
   %668 = getelementptr inbounds i8, ptr %666, i64 -8
   %669 = load i32, ptr %668, align 4
-  br label %670
+  %670 = add i32 %669, -1
+  %671 = zext i32 %670 to i64
+  br label %672
 
-670:                                              ; preds = %667, %expand_.exit215.i
-  %.0147.i = phi i32 [ %669, %667 ], [ 0, %expand_.exit215.i ]
-  %671 = add i32 %.0147.i, -1
-  %672 = zext i32 %671 to i64
-  %673 = getelementptr inbounds ptr, ptr %666, i64 %672
+672:                                              ; preds = %667, %expand_.exit215.i
+  %.0147.i = phi i64 [ %671, %667 ], [ 4294967295, %expand_.exit215.i ]
+  %673 = getelementptr inbounds ptr, ptr %666, i64 %.0147.i
   store ptr %665, ptr %673, align 8
   %674 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 212), align 4
   %675 = icmp ne i32 %674, 0
@@ -2335,7 +2335,7 @@ expand_.exit215.i:                                ; preds = %647, %643
   %or.cond.i = select i1 %675, i1 %677, i1 false
   br i1 %or.cond.i, label %678, label %743
 
-678:                                              ; preds = %670
+678:                                              ; preds = %672
   %679 = load ptr, ptr %0, align 8
   %.not.i216.i = icmp eq ptr %679, null
   br i1 %.not.i216.i, label %680, label %683
@@ -2448,7 +2448,7 @@ expand_.exit215.i:                                ; preds = %647, %643
   store ptr @.str.81, ptr %742, align 8
   br label %743
 
-743:                                              ; preds = %735, %670
+743:                                              ; preds = %735, %672
   %744 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 208), align 8
   %.not179.i = icmp eq i32 %744, 0
   br i1 %.not179.i, label %linker_setup_windows.exit, label %745
@@ -5080,30 +5080,30 @@ expand_.exit399.i:                                ; preds = %2168, %2164
   %2185 = call ptr @str_cat(ptr noundef nonnull %.0.i374.i, ptr noundef nonnull @.str.96) #11
   %2186 = load ptr, ptr %0, align 8
   %.not312.i = icmp eq ptr %2186, null
-  br i1 %.not312.i, label %2190, label %2187
+  br i1 %.not312.i, label %2192, label %2187
 
 2187:                                             ; preds = %expand_.exit399.i
   %2188 = getelementptr inbounds i8, ptr %2186, i64 -8
   %2189 = load i32, ptr %2188, align 4
-  br label %2190
+  %2190 = add i32 %2189, -1
+  %2191 = zext i32 %2190 to i64
+  br label %2192
 
-2190:                                             ; preds = %2187, %expand_.exit399.i
-  %.0257.i = phi i32 [ %2189, %2187 ], [ 0, %expand_.exit399.i ]
-  %2191 = add i32 %.0257.i, -1
-  %2192 = zext i32 %2191 to i64
-  %2193 = getelementptr inbounds ptr, ptr %2186, i64 %2192
+2192:                                             ; preds = %2187, %expand_.exit399.i
+  %.0257.i = phi i64 [ %2191, %2187 ], [ 4294967295, %expand_.exit399.i ]
+  %2193 = getelementptr inbounds ptr, ptr %2186, i64 %.0257.i
   store ptr %2185, ptr %2193, align 8
   %2194 = load ptr, ptr %0, align 8
   %.not.i400.i = icmp eq ptr %2194, null
   br i1 %.not.i400.i, label %2195, label %2198
 
-2195:                                             ; preds = %2190
+2195:                                             ; preds = %2192
   %2196 = call ptr @calloc_arena(i64 noundef 72) #11
   %2197 = getelementptr inbounds i8, ptr %2196, i64 4
   store i32 8, ptr %2197, align 4
   br label %2200
 
-2198:                                             ; preds = %2190
+2198:                                             ; preds = %2192
   %2199 = getelementptr inbounds i8, ptr %2194, i64 -8
   %.phi.trans.insert.i401.i = getelementptr inbounds i8, ptr %2194, i64 -4
   %.pre.i402.i = load i32, ptr %.phi.trans.insert.i401.i, align 4
@@ -5146,30 +5146,30 @@ expand_.exit406.i:                                ; preds = %2204, %2200
   %2221 = call ptr @str_cat(ptr noundef nonnull %.0.i372.i, ptr noundef nonnull @.str.97) #11
   %2222 = load ptr, ptr %0, align 8
   %.not313.i = icmp eq ptr %2222, null
-  br i1 %.not313.i, label %2226, label %2223
+  br i1 %.not313.i, label %2228, label %2223
 
 2223:                                             ; preds = %expand_.exit406.i
   %2224 = getelementptr inbounds i8, ptr %2222, i64 -8
   %2225 = load i32, ptr %2224, align 4
-  br label %2226
+  %2226 = add i32 %2225, -1
+  %2227 = zext i32 %2226 to i64
+  br label %2228
 
-2226:                                             ; preds = %2223, %expand_.exit406.i
-  %.0258.i = phi i32 [ %2225, %2223 ], [ 0, %expand_.exit406.i ]
-  %2227 = add i32 %.0258.i, -1
-  %2228 = zext i32 %2227 to i64
-  %2229 = getelementptr inbounds ptr, ptr %2222, i64 %2228
+2228:                                             ; preds = %2223, %expand_.exit406.i
+  %.0258.i = phi i64 [ %2227, %2223 ], [ 4294967295, %expand_.exit406.i ]
+  %2229 = getelementptr inbounds ptr, ptr %2222, i64 %.0258.i
   store ptr %2221, ptr %2229, align 8
   %2230 = load ptr, ptr %0, align 8
   %.not.i407.i = icmp eq ptr %2230, null
   br i1 %.not.i407.i, label %2231, label %2234
 
-2231:                                             ; preds = %2226
+2231:                                             ; preds = %2228
   %2232 = call ptr @calloc_arena(i64 noundef 72) #11
   %2233 = getelementptr inbounds i8, ptr %2232, i64 4
   store i32 8, ptr %2233, align 4
   br label %2236
 
-2234:                                             ; preds = %2226
+2234:                                             ; preds = %2228
   %2235 = getelementptr inbounds i8, ptr %2230, i64 -8
   %.phi.trans.insert.i408.i = getelementptr inbounds i8, ptr %2230, i64 -4
   %.pre.i409.i = load i32, ptr %.phi.trans.insert.i408.i, align 4
@@ -5212,30 +5212,30 @@ expand_.exit413.i:                                ; preds = %2240, %2236
   %2257 = call ptr @str_cat(ptr noundef nonnull %.0.i374.i, ptr noundef nonnull @.str.98) #11
   %2258 = load ptr, ptr %0, align 8
   %.not314.i = icmp eq ptr %2258, null
-  br i1 %.not314.i, label %2262, label %2259
+  br i1 %.not314.i, label %2264, label %2259
 
 2259:                                             ; preds = %expand_.exit413.i
   %2260 = getelementptr inbounds i8, ptr %2258, i64 -8
   %2261 = load i32, ptr %2260, align 4
-  br label %2262
+  %2262 = add i32 %2261, -1
+  %2263 = zext i32 %2262 to i64
+  br label %2264
 
-2262:                                             ; preds = %2259, %expand_.exit413.i
-  %.0259.i = phi i32 [ %2261, %2259 ], [ 0, %expand_.exit413.i ]
-  %2263 = add i32 %.0259.i, -1
-  %2264 = zext i32 %2263 to i64
-  %2265 = getelementptr inbounds ptr, ptr %2258, i64 %2264
+2264:                                             ; preds = %2259, %expand_.exit413.i
+  %.0259.i = phi i64 [ %2263, %2259 ], [ 4294967295, %expand_.exit413.i ]
+  %2265 = getelementptr inbounds ptr, ptr %2258, i64 %.0259.i
   store ptr %2257, ptr %2265, align 8
   %2266 = load ptr, ptr %0, align 8
   %.not.i414.i = icmp eq ptr %2266, null
   br i1 %.not.i414.i, label %2267, label %2270
 
-2267:                                             ; preds = %2262
+2267:                                             ; preds = %2264
   %2268 = call ptr @calloc_arena(i64 noundef 72) #11
   %2269 = getelementptr inbounds i8, ptr %2268, i64 4
   store i32 8, ptr %2269, align 4
   br label %2272
 
-2270:                                             ; preds = %2262
+2270:                                             ; preds = %2264
   %2271 = getelementptr inbounds i8, ptr %2266, i64 -8
   %.phi.trans.insert.i415.i = getelementptr inbounds i8, ptr %2266, i64 -4
   %.pre.i416.i = load i32, ptr %.phi.trans.insert.i415.i, align 4
@@ -5347,30 +5347,30 @@ expand_.exit427.i:                                ; preds = %2312, %2308
   %2329 = call ptr @str_cat(ptr noundef nonnull %.0.i374.i, ptr noundef nonnull @.str.100) #11
   %2330 = load ptr, ptr %0, align 8
   %.not307.i = icmp eq ptr %2330, null
-  br i1 %.not307.i, label %2334, label %2331
+  br i1 %.not307.i, label %2336, label %2331
 
 2331:                                             ; preds = %expand_.exit427.i
   %2332 = getelementptr inbounds i8, ptr %2330, i64 -8
   %2333 = load i32, ptr %2332, align 4
-  br label %2334
+  %2334 = add i32 %2333, -1
+  %2335 = zext i32 %2334 to i64
+  br label %2336
 
-2334:                                             ; preds = %2331, %expand_.exit427.i
-  %.0261.i = phi i32 [ %2333, %2331 ], [ 0, %expand_.exit427.i ]
-  %2335 = add i32 %.0261.i, -1
-  %2336 = zext i32 %2335 to i64
-  %2337 = getelementptr inbounds ptr, ptr %2330, i64 %2336
+2336:                                             ; preds = %2331, %expand_.exit427.i
+  %.0261.i = phi i64 [ %2335, %2331 ], [ 4294967295, %expand_.exit427.i ]
+  %2337 = getelementptr inbounds ptr, ptr %2330, i64 %.0261.i
   store ptr %2329, ptr %2337, align 8
   %2338 = load ptr, ptr %0, align 8
   %.not.i428.i = icmp eq ptr %2338, null
   br i1 %.not.i428.i, label %2339, label %2342
 
-2339:                                             ; preds = %2334
+2339:                                             ; preds = %2336
   %2340 = call ptr @calloc_arena(i64 noundef 72) #11
   %2341 = getelementptr inbounds i8, ptr %2340, i64 4
   store i32 8, ptr %2341, align 4
   br label %2344
 
-2342:                                             ; preds = %2334
+2342:                                             ; preds = %2336
   %2343 = getelementptr inbounds i8, ptr %2338, i64 -8
   %.phi.trans.insert.i429.i = getelementptr inbounds i8, ptr %2338, i64 -4
   %.pre.i430.i = load i32, ptr %.phi.trans.insert.i429.i, align 4
@@ -5413,30 +5413,30 @@ expand_.exit434.i:                                ; preds = %2348, %2344
   %2365 = call ptr @str_cat(ptr noundef nonnull %.0.i372.i, ptr noundef nonnull @.str.101) #11
   %2366 = load ptr, ptr %0, align 8
   %.not308.i = icmp eq ptr %2366, null
-  br i1 %.not308.i, label %2370, label %2367
+  br i1 %.not308.i, label %2372, label %2367
 
 2367:                                             ; preds = %expand_.exit434.i
   %2368 = getelementptr inbounds i8, ptr %2366, i64 -8
   %2369 = load i32, ptr %2368, align 4
-  br label %2370
+  %2370 = add i32 %2369, -1
+  %2371 = zext i32 %2370 to i64
+  br label %2372
 
-2370:                                             ; preds = %2367, %expand_.exit434.i
-  %.0262.i = phi i32 [ %2369, %2367 ], [ 0, %expand_.exit434.i ]
-  %2371 = add i32 %.0262.i, -1
-  %2372 = zext i32 %2371 to i64
-  %2373 = getelementptr inbounds ptr, ptr %2366, i64 %2372
+2372:                                             ; preds = %2367, %expand_.exit434.i
+  %.0262.i = phi i64 [ %2371, %2367 ], [ 4294967295, %expand_.exit434.i ]
+  %2373 = getelementptr inbounds ptr, ptr %2366, i64 %.0262.i
   store ptr %2365, ptr %2373, align 8
   %2374 = load ptr, ptr %0, align 8
   %.not.i435.i = icmp eq ptr %2374, null
   br i1 %.not.i435.i, label %2375, label %2378
 
-2375:                                             ; preds = %2370
+2375:                                             ; preds = %2372
   %2376 = call ptr @calloc_arena(i64 noundef 72) #11
   %2377 = getelementptr inbounds i8, ptr %2376, i64 4
   store i32 8, ptr %2377, align 4
   br label %2380
 
-2378:                                             ; preds = %2370
+2378:                                             ; preds = %2372
   %2379 = getelementptr inbounds i8, ptr %2374, i64 -8
   %.phi.trans.insert.i436.i = getelementptr inbounds i8, ptr %2374, i64 -4
   %.pre.i437.i = load i32, ptr %.phi.trans.insert.i436.i, align 4
@@ -5479,30 +5479,30 @@ expand_.exit441.i:                                ; preds = %2384, %2380
   %2401 = call ptr @str_cat(ptr noundef nonnull %.0.i374.i, ptr noundef nonnull @.str.98) #11
   %2402 = load ptr, ptr %0, align 8
   %.not309.i = icmp eq ptr %2402, null
-  br i1 %.not309.i, label %2406, label %2403
+  br i1 %.not309.i, label %2408, label %2403
 
 2403:                                             ; preds = %expand_.exit441.i
   %2404 = getelementptr inbounds i8, ptr %2402, i64 -8
   %2405 = load i32, ptr %2404, align 4
-  br label %2406
+  %2406 = add i32 %2405, -1
+  %2407 = zext i32 %2406 to i64
+  br label %2408
 
-2406:                                             ; preds = %2403, %expand_.exit441.i
-  %.0263.i = phi i32 [ %2405, %2403 ], [ 0, %expand_.exit441.i ]
-  %2407 = add i32 %.0263.i, -1
-  %2408 = zext i32 %2407 to i64
-  %2409 = getelementptr inbounds ptr, ptr %2402, i64 %2408
+2408:                                             ; preds = %2403, %expand_.exit441.i
+  %.0263.i = phi i64 [ %2407, %2403 ], [ 4294967295, %expand_.exit441.i ]
+  %2409 = getelementptr inbounds ptr, ptr %2402, i64 %.0263.i
   store ptr %2401, ptr %2409, align 8
   %2410 = load ptr, ptr %0, align 8
   %.not.i442.i = icmp eq ptr %2410, null
   br i1 %.not.i442.i, label %2411, label %2414
 
-2411:                                             ; preds = %2406
+2411:                                             ; preds = %2408
   %2412 = call ptr @calloc_arena(i64 noundef 72) #11
   %2413 = getelementptr inbounds i8, ptr %2412, i64 4
   store i32 8, ptr %2413, align 4
   br label %2416
 
-2414:                                             ; preds = %2406
+2414:                                             ; preds = %2408
   %2415 = getelementptr inbounds i8, ptr %2410, i64 -8
   %.phi.trans.insert.i443.i = getelementptr inbounds i8, ptr %2410, i64 -4
   %.pre.i444.i = load i32, ptr %.phi.trans.insert.i443.i, align 4
@@ -6207,8 +6207,8 @@ linker_setup_windows.exit:                        ; preds = %.sink.split.i289, %
   %wide.trip.count351 = zext i32 %2788 to i64
   br label %.lr.ph329
 
-.lr.ph329:                                        ; preds = %.lr.ph329.preheader, %2824
-  %indvars.iv348 = phi i64 [ 0, %.lr.ph329.preheader ], [ %indvars.iv.next349, %2824 ]
+.lr.ph329:                                        ; preds = %.lr.ph329.preheader, %2826
+  %indvars.iv348 = phi i64 [ 0, %.lr.ph329.preheader ], [ %indvars.iv.next349, %2826 ]
   %2789 = load ptr, ptr %0, align 8
   %.not.i305 = icmp eq ptr %2789, null
   br i1 %.not.i305, label %2790, label %2793
@@ -6265,24 +6265,24 @@ expand_.exit311:                                  ; preds = %2795, %2799
   %2819 = call ptr @str_cat(ptr noundef nonnull %195, ptr noundef %2818) #11
   %2820 = load ptr, ptr %0, align 8
   %.not223 = icmp eq ptr %2820, null
-  br i1 %.not223, label %2824, label %2821
+  br i1 %.not223, label %2826, label %2821
 
 2821:                                             ; preds = %expand_.exit311
   %2822 = getelementptr inbounds i8, ptr %2820, i64 -8
   %2823 = load i32, ptr %2822, align 4
-  br label %2824
+  %2824 = add i32 %2823, -1
+  %2825 = zext i32 %2824 to i64
+  br label %2826
 
-2824:                                             ; preds = %expand_.exit311, %2821
-  %.0187 = phi i32 [ %2823, %2821 ], [ 0, %expand_.exit311 ]
-  %2825 = add i32 %.0187, -1
-  %2826 = zext i32 %2825 to i64
-  %2827 = getelementptr inbounds ptr, ptr %2820, i64 %2826
+2826:                                             ; preds = %expand_.exit311, %2821
+  %.0187 = phi i64 [ %2825, %2821 ], [ 4294967295, %expand_.exit311 ]
+  %2827 = getelementptr inbounds ptr, ptr %2820, i64 %.0187
   store ptr %2819, ptr %2827, align 8
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count351
   br i1 %exitcond352.not, label %._crit_edge330, label %.lr.ph329, !llvm.loop !11
 
-._crit_edge330:                                   ; preds = %2824, %._crit_edge, %2786
+._crit_edge330:                                   ; preds = %2826, %._crit_edge, %2786
   %2828 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 96), align 8
   %.not218 = icmp eq ptr %2828, null
   br i1 %.not218, label %._crit_edge334, label %2829
@@ -7449,13 +7449,13 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef %0, ptr nound
   %wide.trip.count = zext i32 %6 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %167
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %167 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %184
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %184 ]
   %7 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @str_remove_suffix(ptr noundef %8, ptr noundef nonnull @.str.134) #11
   %.not76 = icmp eq ptr %9, null
-  br i1 %.not76, label %71, label %10
+  br i1 %.not76, label %75, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = load ptr, ptr %0, align 8
@@ -7563,206 +7563,220 @@ define internal fastcc void @add_linked_libs(ptr nocapture noundef %0, ptr nound
   store i32 %69, ptr %.1.i86, align 4
   %70 = getelementptr inbounds i8, ptr %.1.i86, i64 8
   store ptr %70, ptr %0, align 8
-  br label %.sink.split
+  %71 = load i32, ptr %.1.i86, align 4
+  %72 = add i32 %71, -1
+  %73 = zext i32 %72 to i64
+  %74 = getelementptr inbounds ptr, ptr %70, i64 %73
+  store ptr %9, ptr %74, align 8
+  br label %184
 
-71:                                               ; preds = %.lr.ph
-  br i1 %2, label %72, label %134
-
-72:                                               ; preds = %71
-  %73 = tail call zeroext i1 @str_has_suffix(ptr noundef %8, ptr noundef nonnull @.str.136) #11
-  %74 = load ptr, ptr %0, align 8
-  %.not.i89 = icmp eq ptr %74, null
-  br i1 %73, label %75, label %103
-
-75:                                               ; preds = %72
-  br i1 %.not.i89, label %76, label %79
+75:                                               ; preds = %.lr.ph
+  br i1 %2, label %76, label %147
 
 76:                                               ; preds = %75
-  %77 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
-  store i32 8, ptr %78, align 4
-  br label %81
+  %77 = tail call zeroext i1 @str_has_suffix(ptr noundef %8, ptr noundef nonnull @.str.136) #11
+  %78 = load ptr, ptr %0, align 8
+  %.not.i89 = icmp eq ptr %78, null
+  br i1 %77, label %79, label %111
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %74, i64 -8
-  %.phi.trans.insert.i90 = getelementptr inbounds i8, ptr %74, i64 -4
+79:                                               ; preds = %76
+  br i1 %.not.i89, label %80, label %83
+
+80:                                               ; preds = %79
+  %81 = tail call ptr @calloc_arena(i64 noundef 72) #11
+  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  store i32 8, ptr %82, align 4
+  br label %85
+
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds i8, ptr %78, i64 -8
+  %.phi.trans.insert.i90 = getelementptr inbounds i8, ptr %78, i64 -4
   %.pre.i91 = load i32, ptr %.phi.trans.insert.i90, align 4
-  br label %81
+  br label %85
 
-81:                                               ; preds = %79, %76
-  %82 = phi i32 [ %.pre.i91, %79 ], [ 8, %76 ]
-  %.0.i92 = phi ptr [ %80, %79 ], [ %77, %76 ]
-  %83 = load i32, ptr %.0.i92, align 4
-  %84 = icmp eq i32 %83, %82
-  br i1 %84, label %85, label %99
+85:                                               ; preds = %83, %80
+  %86 = phi i32 [ %.pre.i91, %83 ], [ 8, %80 ]
+  %.0.i92 = phi ptr [ %84, %83 ], [ %81, %80 ]
+  %87 = load i32, ptr %.0.i92, align 4
+  %88 = icmp eq i32 %87, %86
+  br i1 %88, label %89, label %103
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %.0.i92, i64 4
-  %87 = shl i32 %82, 1
-  %88 = zext i32 %87 to i64
-  %89 = shl nuw nsw i64 %88, 3
-  %90 = or disjoint i64 %89, 8
-  %91 = tail call ptr @calloc_arena(i64 noundef %90) #11
-  %92 = getelementptr inbounds i8, ptr %91, i64 4
-  store i32 %87, ptr %92, align 4
-  %93 = load i32, ptr %86, align 4
-  %94 = zext i32 %93 to i64
-  %95 = shl nuw nsw i64 %94, 3
-  %96 = add nuw nsw i64 %95, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %91, ptr noundef nonnull align 4 dereferenceable(1) %.0.i92, i64 %96, i1 false)
-  %97 = load i32, ptr %92, align 4
-  %98 = shl i32 %97, 1
-  store i32 %98, ptr %92, align 4
-  %.pre18.i94 = load i32, ptr %91, align 4
-  br label %99
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds i8, ptr %.0.i92, i64 4
+  %91 = shl i32 %86, 1
+  %92 = zext i32 %91 to i64
+  %93 = shl nuw nsw i64 %92, 3
+  %94 = or disjoint i64 %93, 8
+  %95 = tail call ptr @calloc_arena(i64 noundef %94) #11
+  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  store i32 %91, ptr %96, align 4
+  %97 = load i32, ptr %90, align 4
+  %98 = zext i32 %97 to i64
+  %99 = shl nuw nsw i64 %98, 3
+  %100 = add nuw nsw i64 %99, 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %95, ptr noundef nonnull align 4 dereferenceable(1) %.0.i92, i64 %100, i1 false)
+  %101 = load i32, ptr %96, align 4
+  %102 = shl i32 %101, 1
+  store i32 %102, ptr %96, align 4
+  %.pre18.i94 = load i32, ptr %95, align 4
+  br label %103
 
-99:                                               ; preds = %81, %85
-  %100 = phi i32 [ %.pre18.i94, %85 ], [ %83, %81 ]
-  %.1.i93 = phi ptr [ %91, %85 ], [ %.0.i92, %81 ]
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %.1.i93, align 4
-  %102 = getelementptr inbounds i8, ptr %.1.i93, i64 8
-  store ptr %102, ptr %0, align 8
-  br label %.sink.split
+103:                                              ; preds = %85, %89
+  %104 = phi i32 [ %.pre18.i94, %89 ], [ %87, %85 ]
+  %.1.i93 = phi ptr [ %95, %89 ], [ %.0.i92, %85 ]
+  %105 = add i32 %104, 1
+  store i32 %105, ptr %.1.i93, align 4
+  %106 = getelementptr inbounds i8, ptr %.1.i93, i64 8
+  store ptr %106, ptr %0, align 8
+  %107 = load i32, ptr %.1.i93, align 4
+  %108 = add i32 %107, -1
+  %109 = zext i32 %108 to i64
+  %110 = getelementptr inbounds ptr, ptr %106, i64 %109
+  store ptr %8, ptr %110, align 8
+  br label %184
 
-103:                                              ; preds = %72
-  br i1 %.not.i89, label %104, label %107
+111:                                              ; preds = %76
+  br i1 %.not.i89, label %112, label %115
 
-104:                                              ; preds = %103
-  %105 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %106 = getelementptr inbounds i8, ptr %105, i64 4
-  store i32 8, ptr %106, align 4
-  br label %109
+112:                                              ; preds = %111
+  %113 = tail call ptr @calloc_arena(i64 noundef 72) #11
+  %114 = getelementptr inbounds i8, ptr %113, i64 4
+  store i32 8, ptr %114, align 4
+  br label %117
 
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %74, i64 -8
-  %.phi.trans.insert.i97 = getelementptr inbounds i8, ptr %74, i64 -4
+115:                                              ; preds = %111
+  %116 = getelementptr inbounds i8, ptr %78, i64 -8
+  %.phi.trans.insert.i97 = getelementptr inbounds i8, ptr %78, i64 -4
   %.pre.i98 = load i32, ptr %.phi.trans.insert.i97, align 4
-  br label %109
+  br label %117
 
-109:                                              ; preds = %107, %104
-  %110 = phi i32 [ %.pre.i98, %107 ], [ 8, %104 ]
-  %.0.i99 = phi ptr [ %108, %107 ], [ %105, %104 ]
-  %111 = load i32, ptr %.0.i99, align 4
-  %112 = icmp eq i32 %111, %110
-  br i1 %112, label %113, label %expand_.exit102
+117:                                              ; preds = %115, %112
+  %118 = phi i32 [ %.pre.i98, %115 ], [ 8, %112 ]
+  %.0.i99 = phi ptr [ %116, %115 ], [ %113, %112 ]
+  %119 = load i32, ptr %.0.i99, align 4
+  %120 = icmp eq i32 %119, %118
+  br i1 %120, label %121, label %expand_.exit102
 
-113:                                              ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %.0.i99, i64 4
-  %115 = shl i32 %110, 1
-  %116 = zext i32 %115 to i64
-  %117 = shl nuw nsw i64 %116, 3
-  %118 = or disjoint i64 %117, 8
-  %119 = tail call ptr @calloc_arena(i64 noundef %118) #11
-  %120 = getelementptr inbounds i8, ptr %119, i64 4
-  store i32 %115, ptr %120, align 4
-  %121 = load i32, ptr %114, align 4
-  %122 = zext i32 %121 to i64
-  %123 = shl nuw nsw i64 %122, 3
-  %124 = add nuw nsw i64 %123, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %119, ptr noundef nonnull align 4 dereferenceable(1) %.0.i99, i64 %124, i1 false)
-  %125 = load i32, ptr %120, align 4
-  %126 = shl i32 %125, 1
-  store i32 %126, ptr %120, align 4
-  %.pre18.i101 = load i32, ptr %119, align 4
+121:                                              ; preds = %117
+  %122 = getelementptr inbounds i8, ptr %.0.i99, i64 4
+  %123 = shl i32 %118, 1
+  %124 = zext i32 %123 to i64
+  %125 = shl nuw nsw i64 %124, 3
+  %126 = or disjoint i64 %125, 8
+  %127 = tail call ptr @calloc_arena(i64 noundef %126) #11
+  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  store i32 %123, ptr %128, align 4
+  %129 = load i32, ptr %122, align 4
+  %130 = zext i32 %129 to i64
+  %131 = shl nuw nsw i64 %130, 3
+  %132 = add nuw nsw i64 %131, 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %127, ptr noundef nonnull align 4 dereferenceable(1) %.0.i99, i64 %132, i1 false)
+  %133 = load i32, ptr %128, align 4
+  %134 = shl i32 %133, 1
+  store i32 %134, ptr %128, align 4
+  %.pre18.i101 = load i32, ptr %127, align 4
   br label %expand_.exit102
 
-expand_.exit102:                                  ; preds = %109, %113
-  %127 = phi i32 [ %.pre18.i101, %113 ], [ %111, %109 ]
-  %.1.i100 = phi ptr [ %119, %113 ], [ %.0.i99, %109 ]
-  %128 = add i32 %127, 1
-  store i32 %128, ptr %.1.i100, align 4
-  %129 = getelementptr inbounds i8, ptr %.1.i100, i64 8
-  store ptr %129, ptr %0, align 8
-  %130 = tail call ptr @str_cat(ptr noundef %8, ptr noundef nonnull @.str.136) #11
-  %131 = load ptr, ptr %0, align 8
-  %.not78 = icmp eq ptr %131, null
-  br i1 %.not78, label %167, label %132
+expand_.exit102:                                  ; preds = %117, %121
+  %135 = phi i32 [ %.pre18.i101, %121 ], [ %119, %117 ]
+  %.1.i100 = phi ptr [ %127, %121 ], [ %.0.i99, %117 ]
+  %136 = add i32 %135, 1
+  store i32 %136, ptr %.1.i100, align 4
+  %137 = getelementptr inbounds i8, ptr %.1.i100, i64 8
+  store ptr %137, ptr %0, align 8
+  %138 = tail call ptr @str_cat(ptr noundef %8, ptr noundef nonnull @.str.136) #11
+  %139 = load ptr, ptr %0, align 8
+  %.not78 = icmp eq ptr %139, null
+  br i1 %.not78, label %145, label %140
 
-132:                                              ; preds = %expand_.exit102
-  %133 = getelementptr inbounds i8, ptr %131, i64 -8
-  br label %.sink.split
+140:                                              ; preds = %expand_.exit102
+  %141 = getelementptr inbounds i8, ptr %139, i64 -8
+  %142 = load i32, ptr %141, align 4
+  %143 = add i32 %142, -1
+  %144 = zext i32 %143 to i64
+  br label %145
 
-134:                                              ; preds = %71
-  %135 = load ptr, ptr %0, align 8
-  %.not.i103 = icmp eq ptr %135, null
-  br i1 %.not.i103, label %136, label %139
+145:                                              ; preds = %expand_.exit102, %140
+  %.066 = phi i64 [ %144, %140 ], [ 4294967295, %expand_.exit102 ]
+  %146 = getelementptr inbounds ptr, ptr %139, i64 %.066
+  store ptr %138, ptr %146, align 8
+  br label %184
 
-136:                                              ; preds = %134
-  %137 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %138 = getelementptr inbounds i8, ptr %137, i64 4
-  store i32 8, ptr %138, align 4
-  br label %141
+147:                                              ; preds = %75
+  %148 = load ptr, ptr %0, align 8
+  %.not.i103 = icmp eq ptr %148, null
+  br i1 %.not.i103, label %149, label %152
 
-139:                                              ; preds = %134
-  %140 = getelementptr inbounds i8, ptr %135, i64 -8
-  %.phi.trans.insert.i104 = getelementptr inbounds i8, ptr %135, i64 -4
+149:                                              ; preds = %147
+  %150 = tail call ptr @calloc_arena(i64 noundef 72) #11
+  %151 = getelementptr inbounds i8, ptr %150, i64 4
+  store i32 8, ptr %151, align 4
+  br label %154
+
+152:                                              ; preds = %147
+  %153 = getelementptr inbounds i8, ptr %148, i64 -8
+  %.phi.trans.insert.i104 = getelementptr inbounds i8, ptr %148, i64 -4
   %.pre.i105 = load i32, ptr %.phi.trans.insert.i104, align 4
-  br label %141
+  br label %154
 
-141:                                              ; preds = %139, %136
-  %142 = phi i32 [ %.pre.i105, %139 ], [ 8, %136 ]
-  %.0.i106 = phi ptr [ %140, %139 ], [ %137, %136 ]
-  %143 = load i32, ptr %.0.i106, align 4
-  %144 = icmp eq i32 %143, %142
-  br i1 %144, label %145, label %expand_.exit109
+154:                                              ; preds = %152, %149
+  %155 = phi i32 [ %.pre.i105, %152 ], [ 8, %149 ]
+  %.0.i106 = phi ptr [ %153, %152 ], [ %150, %149 ]
+  %156 = load i32, ptr %.0.i106, align 4
+  %157 = icmp eq i32 %156, %155
+  br i1 %157, label %158, label %expand_.exit109
 
-145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %.0.i106, i64 4
-  %147 = shl i32 %142, 1
-  %148 = zext i32 %147 to i64
-  %149 = shl nuw nsw i64 %148, 3
-  %150 = or disjoint i64 %149, 8
-  %151 = tail call ptr @calloc_arena(i64 noundef %150) #11
-  %152 = getelementptr inbounds i8, ptr %151, i64 4
-  store i32 %147, ptr %152, align 4
-  %153 = load i32, ptr %146, align 4
-  %154 = zext i32 %153 to i64
-  %155 = shl nuw nsw i64 %154, 3
-  %156 = add nuw nsw i64 %155, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %151, ptr noundef nonnull align 4 dereferenceable(1) %.0.i106, i64 %156, i1 false)
-  %157 = load i32, ptr %152, align 4
-  %158 = shl i32 %157, 1
-  store i32 %158, ptr %152, align 4
-  %.pre18.i108 = load i32, ptr %151, align 4
+158:                                              ; preds = %154
+  %159 = getelementptr inbounds i8, ptr %.0.i106, i64 4
+  %160 = shl i32 %155, 1
+  %161 = zext i32 %160 to i64
+  %162 = shl nuw nsw i64 %161, 3
+  %163 = or disjoint i64 %162, 8
+  %164 = tail call ptr @calloc_arena(i64 noundef %163) #11
+  %165 = getelementptr inbounds i8, ptr %164, i64 4
+  store i32 %160, ptr %165, align 4
+  %166 = load i32, ptr %159, align 4
+  %167 = zext i32 %166 to i64
+  %168 = shl nuw nsw i64 %167, 3
+  %169 = add nuw nsw i64 %168, 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %164, ptr noundef nonnull align 4 dereferenceable(1) %.0.i106, i64 %169, i1 false)
+  %170 = load i32, ptr %165, align 4
+  %171 = shl i32 %170, 1
+  store i32 %171, ptr %165, align 4
+  %.pre18.i108 = load i32, ptr %164, align 4
   br label %expand_.exit109
 
-expand_.exit109:                                  ; preds = %141, %145
-  %159 = phi i32 [ %.pre18.i108, %145 ], [ %143, %141 ]
-  %.1.i107 = phi ptr [ %151, %145 ], [ %.0.i106, %141 ]
-  %160 = add i32 %159, 1
-  store i32 %160, ptr %.1.i107, align 4
-  %161 = getelementptr inbounds i8, ptr %.1.i107, i64 8
-  store ptr %161, ptr %0, align 8
-  %162 = tail call ptr @str_cat(ptr noundef nonnull @.str.137, ptr noundef %8) #11
-  %163 = load ptr, ptr %0, align 8
-  %.not77 = icmp eq ptr %163, null
-  br i1 %.not77, label %167, label %164
+expand_.exit109:                                  ; preds = %154, %158
+  %172 = phi i32 [ %.pre18.i108, %158 ], [ %156, %154 ]
+  %.1.i107 = phi ptr [ %164, %158 ], [ %.0.i106, %154 ]
+  %173 = add i32 %172, 1
+  store i32 %173, ptr %.1.i107, align 4
+  %174 = getelementptr inbounds i8, ptr %.1.i107, i64 8
+  store ptr %174, ptr %0, align 8
+  %175 = tail call ptr @str_cat(ptr noundef nonnull @.str.137, ptr noundef %8) #11
+  %176 = load ptr, ptr %0, align 8
+  %.not77 = icmp eq ptr %176, null
+  br i1 %.not77, label %182, label %177
 
-164:                                              ; preds = %expand_.exit109
-  %165 = getelementptr inbounds i8, ptr %163, i64 -8
-  br label %.sink.split
+177:                                              ; preds = %expand_.exit109
+  %178 = getelementptr inbounds i8, ptr %176, i64 -8
+  %179 = load i32, ptr %178, align 4
+  %180 = add i32 %179, -1
+  %181 = zext i32 %180 to i64
+  br label %182
 
-.sink.split:                                      ; preds = %67, %99, %132, %164
-  %.sink119 = phi ptr [ %165, %164 ], [ %133, %132 ], [ %.1.i93, %99 ], [ %.1.i86, %67 ]
-  %.sink116.ph = phi ptr [ %163, %164 ], [ %131, %132 ], [ %102, %99 ], [ %70, %67 ]
-  %.sink.ph = phi ptr [ %162, %164 ], [ %130, %132 ], [ %8, %99 ], [ %9, %67 ]
-  %166 = load i32, ptr %.sink119, align 4
-  br label %167
+182:                                              ; preds = %expand_.exit109, %177
+  %.067 = phi i64 [ %181, %177 ], [ 4294967295, %expand_.exit109 ]
+  %183 = getelementptr inbounds ptr, ptr %176, i64 %.067
+  store ptr %175, ptr %183, align 8
+  br label %184
 
-167:                                              ; preds = %.sink.split, %expand_.exit109, %expand_.exit102
-  %.067.sink = phi i32 [ 0, %expand_.exit102 ], [ 0, %expand_.exit109 ], [ %166, %.sink.split ]
-  %.sink116 = phi ptr [ %131, %expand_.exit102 ], [ %163, %expand_.exit109 ], [ %.sink116.ph, %.sink.split ]
-  %.sink = phi ptr [ %130, %expand_.exit102 ], [ %162, %expand_.exit109 ], [ %.sink.ph, %.sink.split ]
-  %168 = add i32 %.067.sink, -1
-  %169 = zext i32 %168 to i64
-  %170 = getelementptr inbounds ptr, ptr %.sink116, i64 %169
-  store ptr %.sink, ptr %170, align 8
+184:                                              ; preds = %182, %145, %103, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %167, %3, %4
+._crit_edge:                                      ; preds = %184, %3, %4
   ret void
 }
 

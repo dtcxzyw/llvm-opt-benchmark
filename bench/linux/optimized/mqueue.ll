@@ -493,7 +493,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_mq_timedrece
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__x64_sys_mq_notify(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_mq_notify(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.sigevent, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
@@ -2466,19 +2466,19 @@ define internal fastcc noundef range(i32 -512, 1) i32 @wq_sleep(ptr noundef %0, 
   %40 = load volatile i64, ptr %28, align 8
   %41 = and i64 %40, 131072
   %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %.thread, !prof !11
+  br i1 %42, label %43, label %.critedge, !prof !11
 
 43:                                               ; preds = %39
   %44 = load volatile i64, ptr %28, align 8
   %45 = and i64 %44, 4
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %.thread
+  br i1 %46, label %47, label %.critedge
 
 47:                                               ; preds = %43
   %48 = icmp eq i32 %32, 0
-  br i1 %48, label %.thread, label %31, !llvm.loop !19
+  br i1 %48, label %.critedge, label %31, !llvm.loop !19
 
-.thread:                                          ; preds = %39, %47, %43
+.critedge:                                        ; preds = %39, %47, %43
   %49 = phi i32 [ -512, %43 ], [ -110, %47 ], [ -512, %39 ]
   %50 = getelementptr inbounds i8, ptr %3, i64 8
   %51 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2491,8 +2491,8 @@ define internal fastcc noundef range(i32 -512, 1) i32 @wq_sleep(ptr noundef %0, 
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %51, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %.thread
-  %55 = phi i32 [ %49, %.thread ], [ 0, %36 ]
+.loopexit:                                        ; preds = %36, %.critedge
+  %55 = phi i32 [ %49, %.critedge ], [ 0, %36 ]
   tail call void @_raw_spin_unlock(ptr noundef %0) #15
   br label %56
 

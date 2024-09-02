@@ -5735,7 +5735,7 @@ define hidden noundef i32 @_ZN10JavaThread28popframe_preserved_args_sizeEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN10JavaThread37popframe_preserved_args_size_in_wordsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1800) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 -268435456, 268435456) i32 @_ZN10JavaThread37popframe_preserved_args_size_in_wordsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1800) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1528
   %3 = load i32, ptr %2, align 8
   %4 = sdiv i32 %3, 8

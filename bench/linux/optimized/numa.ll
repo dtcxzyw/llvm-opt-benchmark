@@ -1461,21 +1461,21 @@ define internal fastcc void @numa_init_array() unnamed_addr #12 section ".init.t
 
 .thread7:                                         ; preds = %.thread6, %40, %34
   %44 = icmp eq i64 %.pr.pre, 0
-  br i1 %44, label %47, label %45
+  br i1 %44, label %48, label %45
 
 45:                                               ; preds = %.thread7
   %46 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.pr.pre) #18, !srcloc !17
-  br label %47
+  %47 = trunc i64 %46 to i32
+  br label %48
 
-47:                                               ; preds = %45, %.thread7
-  %48 = phi i64 [ %46, %45 ], [ 64, %.thread7 ]
-  %49 = trunc i64 %48 to i32
+48:                                               ; preds = %45, %.thread7
+  %49 = phi i32 [ %47, %45 ], [ 64, %.thread7 ]
   %50 = tail call i32 @llvm.umin.i32(i32 %49, i32 64)
   br label %51
 
-51:                                               ; preds = %.thread, %47, %40, %18
-  %52 = phi ptr [ null, %18 ], [ %.pre, %47 ], [ %.pre, %40 ], [ %13, %.thread ]
-  %53 = phi i32 [ %15, %18 ], [ %50, %47 ], [ %42, %40 ], [ %15, %.thread ]
+51:                                               ; preds = %.thread, %48, %40, %18
+  %52 = phi ptr [ null, %18 ], [ %.pre, %48 ], [ %.pre, %40 ], [ %13, %.thread ]
+  %53 = phi i32 [ %15, %18 ], [ %50, %48 ], [ %42, %40 ], [ %15, %.thread ]
   %54 = add nuw i32 %14, 1
   %55 = load i32, ptr @nr_cpu_ids, align 4
   %56 = icmp ult i32 %54, %55

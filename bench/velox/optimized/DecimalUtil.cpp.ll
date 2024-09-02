@@ -268,7 +268,7 @@ _ZN8facebook5velox12_GLOBAL__N_113formatDecimalB5cxx11Ehn.exit: ; preds = %if.th
 declare i64 @_ZN8facebook5velox24getDecimalPrecisionScaleERKNS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -268435446, 268435457) i32 @_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn(i64 noundef %value.coerce0, i64 noundef %value.coerce1) local_unnamed_addr #2 align 2 {
+define noundef range(i32 1, 18) i32 @_ZN8facebook5velox11DecimalUtil18getByteArrayLengthEn(i64 noundef %value.coerce0, i64 noundef %value.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %value.sroa.2.0.insert.ext = zext i64 %value.coerce1 to i128
   %value.sroa.2.0.insert.shift = shl nuw i128 %value.sroa.2.0.insert.ext, 64
@@ -308,7 +308,7 @@ if.end12:                                         ; preds = %if.else, %if.then7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 -268435446, 268435457) i32 @_ZN8facebook5velox11DecimalUtil11toByteArrayEnPc(i64 noundef %value.coerce0, i64 noundef %value.coerce1, ptr nocapture noundef writeonly %out) local_unnamed_addr #3 align 2 {
+define noundef range(i32 1, 18) i32 @_ZN8facebook5velox11DecimalUtil11toByteArrayEnPc(i64 noundef %value.coerce0, i64 noundef %value.coerce1, ptr nocapture noundef writeonly %out) local_unnamed_addr #3 align 2 {
 entry:
   %lowBig = alloca i64, align 8
   %highBig = alloca i64, align 8

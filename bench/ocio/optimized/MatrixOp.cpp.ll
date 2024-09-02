@@ -1458,8 +1458,8 @@ for.body:                                         ; preds = %entry, %for.body
   store double %mul, ptr %arrayidx10, align 8
   %cmp13 = fcmp une double %div, 1.000000e+00
   %cmp16 = fcmp une double %mul, 0.000000e+00
-  %2 = select i1 %cmp13, i1 true, i1 %cmp16
-  %or12 = or i1 %somethingToDo.013, %2
+  %narrow = select i1 %cmp13, i1 true, i1 %cmp16
+  %or12 = or i1 %somethingToDo.013, %narrow
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
@@ -1470,20 +1470,20 @@ for.end:                                          ; preds = %for.body
 if.then:                                          ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %m44.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %m44.i, i8 0, i64 128, i1 false)
-  %3 = load double, ptr %scale4, align 16
-  store double %3, ptr %m44.i, align 16
+  %2 = load double, ptr %scale4, align 16
+  store double %2, ptr %m44.i, align 16
   %arrayidx2.i = getelementptr inbounds i8, ptr %scale4, i64 8
-  %4 = load double, ptr %arrayidx2.i, align 8
+  %3 = load double, ptr %arrayidx2.i, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %m44.i, i64 40
-  store double %4, ptr %arrayidx3.i, align 8
+  store double %3, ptr %arrayidx3.i, align 8
   %arrayidx4.i = getelementptr inbounds i8, ptr %scale4, i64 16
-  %5 = load double, ptr %arrayidx4.i, align 16
+  %4 = load double, ptr %arrayidx4.i, align 16
   %arrayidx5.i = getelementptr inbounds i8, ptr %m44.i, i64 80
-  store double %5, ptr %arrayidx5.i, align 16
+  store double %4, ptr %arrayidx5.i, align 16
   %arrayidx6.i = getelementptr inbounds i8, ptr %scale4, i64 24
-  %6 = load double, ptr %arrayidx6.i, align 8
+  %5 = load double, ptr %arrayidx6.i, align 8
   %arrayidx7.i = getelementptr inbounds i8, ptr %m44.i, i64 120
-  store double %6, ptr %arrayidx7.i, align 8
+  store double %5, ptr %arrayidx7.i, align 8
   call void @_ZN19OpenColorIO_v2_4dev20CreateMatrixOffsetOpERNS_10OpRcPtrVecEPKdS3_NS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(144) %ops, ptr noundef nonnull %m44.i, ptr noundef nonnull %offset4, i32 noundef %direction)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %m44.i)
   br label %if.end
@@ -1538,8 +1538,8 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   store double %mul.i, ptr %arrayidx10.i, align 8
   %cmp13.i = fcmp une double %div.i, 1.000000e+00
   %cmp16.i = fcmp une double %mul.i, 0.000000e+00
-  %2 = select i1 %cmp13.i, i1 true, i1 %cmp16.i
-  %or12.i = or i1 %somethingToDo.013.i, %2
+  %narrow.i = select i1 %cmp13.i, i1 true, i1 %cmp16.i
+  %or12.i = or i1 %somethingToDo.013.i, %narrow.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
@@ -1550,20 +1550,20 @@ for.end.i:                                        ; preds = %for.body.i
 if.then.i:                                        ; preds = %for.end.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %m44.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %m44.i.i, i8 0, i64 128, i1 false)
-  %3 = load double, ptr %scale4.i, align 16
-  store double %3, ptr %m44.i.i, align 16
+  %2 = load double, ptr %scale4.i, align 16
+  store double %2, ptr %m44.i.i, align 16
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %scale4.i, i64 8
-  %4 = load double, ptr %arrayidx2.i.i, align 8
+  %3 = load double, ptr %arrayidx2.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %m44.i.i, i64 40
-  store double %4, ptr %arrayidx3.i.i, align 8
+  store double %3, ptr %arrayidx3.i.i, align 8
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %scale4.i, i64 16
-  %5 = load double, ptr %arrayidx4.i.i, align 16
+  %4 = load double, ptr %arrayidx4.i.i, align 16
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %m44.i.i, i64 80
-  store double %5, ptr %arrayidx5.i.i, align 16
+  store double %4, ptr %arrayidx5.i.i, align 16
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %scale4.i, i64 24
-  %6 = load double, ptr %arrayidx6.i.i, align 8
+  %5 = load double, ptr %arrayidx6.i.i, align 8
   %arrayidx7.i.i = getelementptr inbounds i8, ptr %m44.i.i, i64 120
-  store double %6, ptr %arrayidx7.i.i, align 8
+  store double %5, ptr %arrayidx7.i.i, align 8
   call void @_ZN19OpenColorIO_v2_4dev20CreateMatrixOffsetOpERNS_10OpRcPtrVecEPKdS3_NS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(144) %ops, ptr noundef nonnull %m44.i.i, ptr noundef nonnull %offset4.i, i32 noundef %direction)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %m44.i.i)
   br label %_ZN19OpenColorIO_v2_4dev14CreateMinMaxOpERNS_10OpRcPtrVecEPKdS3_NS_18TransformDirectionE.exit

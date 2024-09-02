@@ -3679,21 +3679,20 @@ if.then3:                                         ; preds = %if.end
   %4 = and i8 %0, 1
   %header_eof = getelementptr inbounds i8, ptr %t, i64 2894
   store i8 %4, ptr %header_eof, align 2
-  %5 = and i8 %0, 32
-  %tobool14 = icmp ne i8 %5, 0
+  %5 = lshr i8 %0, 5
+  %.lobit = and i8 %5, 1
   br label %land.end
 
 land.end:                                         ; preds = %if.end, %if.then3
-  %6 = phi i1 [ %tobool14, %if.then3 ], [ false, %if.end ]
-  %cond = zext i1 %6 to i8
+  %cond = phi i8 [ %.lobit, %if.then3 ], [ 0, %if.end ]
   %ping_rate_policy = getelementptr inbounds i8, ptr %t, i64 2144
   tail call void @_ZN9grpc_core20Chttp2PingRatePolicy17ReceivedDataFrameEv(ptr noundef nonnull align 8 dereferenceable(24) %ping_rate_policy)
   %incoming_stream_id15 = getelementptr inbounds i8, ptr %t, i64 3296
-  %7 = load i32, ptr %incoming_stream_id15, align 8
+  %6 = load i32, ptr %incoming_stream_id15, align 8
   %stream_map.i = getelementptr inbounds i8, ptr %t, i64 560
-  %8 = load ptr, ptr %stream_map.i, align 8
-  tail call void @llvm.prefetch.p0(ptr %8, i32 0, i32 1, i32 1)
-  %conv.i.i.i.i = zext i32 %7 to i64
+  %7 = load ptr, ptr %stream_map.i, align 8
+  tail call void @llvm.prefetch.p0(ptr %7, i32 0, i32 1, i32 1)
+  %conv.i.i.i.i = zext i32 %6 to i64
   %add.i.i.i.i.i = add i64 %conv.i.i.i.i, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
   %conv.i.i.i.i.i = zext i64 %add.i.i.i.i.i to i128
   %mul.i.i.i.i.i = mul nuw i128 %conv.i.i.i.i.i, 11376068507788127593
@@ -3701,15 +3700,15 @@ land.end:                                         ; preds = %if.end, %if.then3
   %xor.i.i.i.i.i = xor i128 %shr.i.i.i.i.i, %mul.i.i.i.i.i
   %conv1.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i to i64
   %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 576
-  %9 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !121
+  %8 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !121
   %shr.i.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i, 7
-  %10 = ptrtoint ptr %8 to i64
-  %shr.i.i.i.i.i.i.i = lshr i64 %10, 12
+  %9 = ptrtoint ptr %7 to i64
+  %shr.i.i.i.i.i.i.i = lshr i64 %9, 12
   %xor.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i, %shr.i.i.i.i.i.i.i
   %slots_.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 568
-  %11 = load ptr, ptr %slots_.i.i.i.i.i, align 8
-  %12 = trunc i128 %xor.i.i.i.i.i to i8
-  %conv.i.i2.i.i = and i8 %12, 127
+  %10 = load ptr, ptr %slots_.i.i.i.i.i, align 8
+  %11 = trunc i128 %xor.i.i.i.i.i to i8
+  %conv.i.i2.i.i = and i8 %11, 127
   %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i2.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i.i.i
@@ -3717,31 +3716,31 @@ land.end:                                         ; preds = %if.end, %if.then3
 while.body.i.i.i:                                 ; preds = %if.end34.i.i.i, %land.end
   %xor.i.i.i.pn.i.i.i = phi i64 [ %xor.i.i.i.i.i.i, %land.end ], [ %add3.i.i.i.i, %if.end34.i.i.i ]
   %seq.sroa.10.0.i.i.i = phi i64 [ 0, %land.end ], [ %add.i12.i.i.i, %if.end34.i.i.i ]
-  %seq.sroa.4.0.i.i.i = and i64 %xor.i.i.i.pn.i.i.i, %9
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 %seq.sroa.4.0.i.i.i
-  %13 = load <16 x i8>, ptr %add.ptr.i.i.i, align 1
-  %cmp.i.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i.i, %13
-  %14 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
-  %cmp.i.not23.i.i.i = icmp eq i16 %14, 0
+  %seq.sroa.4.0.i.i.i = and i64 %xor.i.i.i.pn.i.i.i, %8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %seq.sroa.4.0.i.i.i
+  %12 = load <16 x i8>, ptr %add.ptr.i.i.i, align 1
+  %cmp.i.i.i.i.i = icmp eq <16 x i8> %vecinit15.i.i.i.i.i, %12
+  %13 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
+  %cmp.i.not23.i.i.i = icmp eq i16 %13, 0
   br i1 %cmp.i.not23.i.i.i, label %for.end.i.i.i, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %while.body.i.i.i
-  %15 = zext i16 %14 to i32
+  %14 = zext i16 %13 to i32
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.preheader.i.i.i
-  %__begin5.sroa.0.024.i.i.i = phi i32 [ %and.i9.i.i.i, %for.inc.i.i.i ], [ %15, %for.body.preheader.i.i.i ]
-  %16 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i.i, i1 true)
-  %conv.i.i.i = zext nneg i32 %16 to i64
+  %__begin5.sroa.0.024.i.i.i = phi i32 [ %and.i9.i.i.i, %for.inc.i.i.i ], [ %14, %for.body.preheader.i.i.i ]
+  %15 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin5.sroa.0.024.i.i.i, i1 true)
+  %conv.i.i.i = zext nneg i32 %15 to i64
   %add.i.i.i.i = add i64 %seq.sroa.4.0.i.i.i, %conv.i.i.i
-  %and.i.i.i.i = and i64 %add.i.i.i.i, %9
-  %add.ptr19.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %11, i64 %and.i.i.i.i
-  %17 = load i32, ptr %add.ptr19.i.i.i, align 4
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %17, %7
+  %and.i.i.i.i = and i64 %add.i.i.i.i, %8
+  %add.ptr19.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %10, i64 %and.i.i.i.i
+  %16 = load i32, ptr %add.ptr19.i.i.i, align 4
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %16, %6
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %and.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %and.i.i.i.i
   %.fca.0.insert.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i.i, 0
   %.fca.1.insert.i.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i.i, ptr %add.ptr19.i.i.i, 1
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE4findIjEENSG_8iteratorERSD_.exit.i
@@ -3753,9 +3752,9 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %cmp.i.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %while.body.i.i.i
-  %cmp.i.i10.i.i.i = icmp eq <16 x i8> %13, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
-  %18 = bitcast <16 x i1> %cmp.i.i10.i.i.i to i16
-  %cmp.i11.not.i.i.i = icmp eq i16 %18, 0
+  %cmp.i.i10.i.i.i = icmp eq <16 x i8> %12, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %17 = bitcast <16 x i1> %cmp.i.i10.i.i.i to i16
+  %cmp.i11.not.i.i.i = icmp eq i16 %17, 0
   br i1 %cmp.i11.not.i.i.i, label %if.end34.i.i.i, label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE4findIjEENSG_8iteratorERSD_.exit.i
 
 if.end34.i.i.i:                                   ; preds = %for.end.i.i.i
@@ -3765,23 +3764,23 @@ if.end34.i.i.i:                                   ; preds = %for.end.i.i.i
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE4findIjEENSG_8iteratorERSD_.exit.i: ; preds = %for.end.i.i.i, %if.then.i.i.i
   %call25.pn.i.i.i = phi { ptr, ptr } [ %.fca.1.insert.i.i.i.i, %if.then.i.i.i ], [ { ptr null, ptr undef }, %for.end.i.i.i ]
-  %19 = extractvalue { ptr, ptr } %call25.pn.i.i.i, 0
-  %cmp.i.i = icmp eq ptr %19, null
+  %18 = extractvalue { ptr, ptr } %call25.pn.i.i.i, 0
+  %cmp.i.i = icmp eq ptr %18, null
   br i1 %cmp.i.i, label %if.then17, label %_Z33grpc_chttp2_parsing_lookup_streamP21grpc_chttp2_transportj.exit
 
 _Z33grpc_chttp2_parsing_lookup_streamP21grpc_chttp2_transportj.exit: ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE4findIjEENSG_8iteratorERSD_.exit.i
-  %20 = extractvalue { ptr, ptr } %call25.pn.i.i.i, 1
-  %second.i = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load ptr, ptr %second.i, align 8
-  %cmp16 = icmp eq ptr %21, null
+  %19 = extractvalue { ptr, ptr } %call25.pn.i.i.i, 1
+  %second.i = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load ptr, ptr %second.i, align 8
+  %cmp16 = icmp eq ptr %20, null
   br i1 %cmp16, label %if.then17, label %if.else240
 
 if.then17:                                        ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE4findIjEENSG_8iteratorERSD_.exit.i, %_Z33grpc_chttp2_parsing_lookup_streamP21grpc_chttp2_transportj.exit
   br i1 %tobool2.not, label %if.end26, label %do.body
 
 do.body:                                          ; preds = %if.then17
-  %22 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i = trunc i8 %22 to i1
+  %21 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i = trunc i8 %21 to i1
   br i1 %tobool.i.i.i, label %if.then23, label %do.end
 
 if.then23:                                        ; preds = %do.body
@@ -3798,53 +3797,53 @@ do.end:                                           ; preds = %do.body, %if.then23
   %ref.tmp.sroa.3.0.parser1.sroa_idx.i = getelementptr inbounds i8, ptr %t, i64 2944
   store ptr %hpack_parser.i, ptr %ref.tmp.sroa.3.0.parser1.sroa_idx.i, align 8, !noalias !124
   %max_header_list_size_soft_limit.i = getelementptr inbounds i8, ptr %t, i64 3268
-  %23 = load i32, ptr %max_header_list_size_soft_limit.i, align 4, !noalias !124
+  %22 = load i32, ptr %max_header_list_size_soft_limit.i, align 4, !noalias !124
   %arrayidx3.i = getelementptr inbounds i8, ptr %t, i64 2076
-  %24 = load i32, ptr %arrayidx3.i, align 4, !noalias !124
+  %23 = load i32, ptr %arrayidx3.i, align 4, !noalias !124
   br i1 %cmp, label %if.then.i.i, label %_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit
 
 if.then.i.i:                                      ; preds = %do.end
   %header_eof.i.i = getelementptr inbounds i8, ptr %t, i64 2894
-  %25 = load i8, ptr %header_eof.i.i, align 2, !noalias !124
-  %tobool1.not.i.i = icmp eq i8 %25, 0
+  %24 = load i8, ptr %header_eof.i.i, align 2, !noalias !124
+  %tobool1.not.i.i = icmp eq i8 %24, 0
   %..i.i = select i1 %tobool1.not.i.i, i8 1, i8 2
   br label %_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit
 
 _ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit: ; preds = %do.end, %if.then.i.i
   %retval.0.i.i = phi i8 [ %..i.i, %if.then.i.i ], [ 0, %do.end ]
   %t.val.i = load i32, ptr %incoming_stream_id15, align 8, !noalias !124
-  %26 = getelementptr i8, ptr %t, i64 3376
-  %t.val7.i = load i8, ptr %26, align 8, !noalias !124
+  %25 = getelementptr i8, ptr %t, i64 3376
+  %t.val7.i = load i8, ptr %25, align 8, !noalias !124
   %frombool.i.i = and i8 %t.val7.i, 1
   %retval.sroa.3.0.insert.ext.i.i = zext nneg i8 %frombool.i.i to i64
   %retval.sroa.3.0.insert.shift.i.i = shl nuw nsw i64 %retval.sroa.3.0.insert.ext.i.i, 40
   %retval.sroa.0.0.insert.ext.i.i = zext i32 %t.val.i to i64
   %retval.sroa.2.0.insert.insert.i.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i, %retval.sroa.0.0.insert.ext.i.i
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i64 %retval.sroa.2.0.insert.insert.i.i, 8589934592
-  tail call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i, ptr noundef null, i32 noundef %23, i32 noundef %24, i8 noundef zeroext %retval.0.i.i, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i), !noalias !124
+  tail call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i, ptr noundef null, i32 noundef %22, i32 noundef %23, i8 noundef zeroext %retval.0.i.i, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i), !noalias !124
   store i64 0, ptr %agg.result, align 8, !alias.scope !127
   br label %return
 
 if.end26:                                         ; preds = %if.then17
   %is_client = getelementptr inbounds i8, ptr %t, i64 3376
-  %27 = load i8, ptr %is_client, align 8
-  %tobool27 = trunc i8 %27 to i1
+  %26 = load i8, ptr %is_client, align 8
+  %tobool27 = trunc i8 %26 to i1
   br i1 %tobool27, label %if.then28, label %if.else47
 
 if.then28:                                        ; preds = %if.end26
-  %and30 = and i32 %7, 1
+  %and30 = and i32 %6, 1
   %tobool31.not = icmp eq i32 %and30, 0
   br i1 %tobool31.not, label %do.body39, label %land.rhs32
 
 land.rhs32:                                       ; preds = %if.then28
   %next_stream_id = getelementptr inbounds i8, ptr %t, i64 2104
-  %28 = load i32, ptr %next_stream_id, align 8
-  %cmp34 = icmp ult i32 %7, %28
+  %27 = load i32, ptr %next_stream_id, align 8
+  %cmp34 = icmp ult i32 %6, %27
   br i1 %cmp34, label %if.end45, label %do.body39
 
 do.body39:                                        ; preds = %land.rhs32, %if.then28
-  %29 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i152 = trunc i8 %29 to i1
+  %28 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i152 = trunc i8 %28 to i1
   br i1 %tobool.i.i.i152, label %if.then42, label %if.end45
 
 if.then42:                                        ; preds = %do.body39
@@ -3861,15 +3860,15 @@ if.end45:                                         ; preds = %if.then42, %do.body
   %ref.tmp.sroa.3.0.parser1.sroa_idx.i156 = getelementptr inbounds i8, ptr %t, i64 2944
   store ptr %hpack_parser.i153, ptr %ref.tmp.sroa.3.0.parser1.sroa_idx.i156, align 8, !noalias !130
   %max_header_list_size_soft_limit.i157 = getelementptr inbounds i8, ptr %t, i64 3268
-  %30 = load i32, ptr %max_header_list_size_soft_limit.i157, align 4, !noalias !130
+  %29 = load i32, ptr %max_header_list_size_soft_limit.i157, align 4, !noalias !130
   %arrayidx3.i158 = getelementptr inbounds i8, ptr %t, i64 2076
-  %31 = load i32, ptr %arrayidx3.i158, align 4, !noalias !130
+  %30 = load i32, ptr %arrayidx3.i158, align 4, !noalias !130
   br i1 %cmp, label %if.then.i.i168, label %_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit172
 
 if.then.i.i168:                                   ; preds = %if.end45
   %header_eof.i.i169 = getelementptr inbounds i8, ptr %t, i64 2894
-  %32 = load i8, ptr %header_eof.i.i169, align 2, !noalias !130
-  %tobool1.not.i.i170 = icmp eq i8 %32, 0
+  %31 = load i8, ptr %header_eof.i.i169, align 2, !noalias !130
+  %tobool1.not.i.i170 = icmp eq i8 %31, 0
   %..i.i171 = select i1 %tobool1.not.i.i170, i8 1, i8 2
   br label %_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit172
 
@@ -3883,23 +3882,23 @@ _ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackPars
   %retval.sroa.0.0.insert.ext.i.i165 = zext i32 %t.val.i160 to i64
   %retval.sroa.2.0.insert.insert.i.i166 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i164, %retval.sroa.0.0.insert.ext.i.i165
   %retval.sroa.0.0.insert.insert.i.i167 = or disjoint i64 %retval.sroa.2.0.insert.insert.i.i166, 8589934592
-  tail call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i153, ptr noundef null, i32 noundef %30, i32 noundef %31, i8 noundef zeroext %retval.0.i.i159, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i167), !noalias !130
+  tail call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i153, ptr noundef null, i32 noundef %29, i32 noundef %30, i8 noundef zeroext %retval.0.i.i159, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i167), !noalias !130
   store i64 0, ptr %agg.result, align 8, !alias.scope !133
   br label %return
 
 if.else47:                                        ; preds = %if.end26
   %last_new_stream_id = getelementptr inbounds i8, ptr %t, i64 2108
-  %33 = load i32, ptr %last_new_stream_id, align 4
-  %cmp49.not = icmp ult i32 %33, %7
+  %32 = load i32, ptr %last_new_stream_id, align 4
+  %cmp49.not = icmp ult i32 %32, %6
   br i1 %cmp49.not, label %if.else61, label %do.body52
 
 do.body52:                                        ; preds = %if.else47
-  %34 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i173 = trunc i8 %34 to i1
+  %33 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i173 = trunc i8 %33 to i1
   br i1 %tobool.i.i.i173, label %if.then55, label %do.end59
 
 if.then55:                                        ; preds = %do.body52
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 637, i32 noundef 2, ptr noundef nonnull @.str.37, i32 noundef %33, i32 noundef %7)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 637, i32 noundef 2, ptr noundef nonnull @.str.37, i32 noundef %32, i32 noundef %6)
   br label %do.end59
 
 do.end59:                                         ; preds = %do.body52, %if.then55
@@ -3912,15 +3911,15 @@ do.end59:                                         ; preds = %do.body52, %if.then
   %ref.tmp.sroa.3.0.parser1.sroa_idx.i177 = getelementptr inbounds i8, ptr %t, i64 2944
   store ptr %hpack_parser.i174, ptr %ref.tmp.sroa.3.0.parser1.sroa_idx.i177, align 8, !noalias !136
   %max_header_list_size_soft_limit.i178 = getelementptr inbounds i8, ptr %t, i64 3268
-  %35 = load i32, ptr %max_header_list_size_soft_limit.i178, align 4, !noalias !136
+  %34 = load i32, ptr %max_header_list_size_soft_limit.i178, align 4, !noalias !136
   %arrayidx3.i179 = getelementptr inbounds i8, ptr %t, i64 2076
-  %36 = load i32, ptr %arrayidx3.i179, align 4, !noalias !136
+  %35 = load i32, ptr %arrayidx3.i179, align 4, !noalias !136
   br i1 %cmp, label %if.then.i.i189, label %_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit193
 
 if.then.i.i189:                                   ; preds = %do.end59
   %header_eof.i.i190 = getelementptr inbounds i8, ptr %t, i64 2894
-  %37 = load i8, ptr %header_eof.i.i190, align 2, !noalias !136
-  %tobool1.not.i.i191 = icmp eq i8 %37, 0
+  %36 = load i8, ptr %header_eof.i.i190, align 2, !noalias !136
+  %tobool1.not.i.i191 = icmp eq i8 %36, 0
   %..i.i192 = select i1 %tobool1.not.i.i191, i8 1, i8 2
   br label %_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit193
 
@@ -3934,22 +3933,22 @@ _ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackPars
   %retval.sroa.0.0.insert.ext.i.i186 = zext i32 %t.val.i181 to i64
   %retval.sroa.2.0.insert.insert.i.i187 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i185, %retval.sroa.0.0.insert.ext.i.i186
   %retval.sroa.0.0.insert.insert.i.i188 = or disjoint i64 %retval.sroa.2.0.insert.insert.i.i187, 8589934592
-  tail call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i174, ptr noundef null, i32 noundef %35, i32 noundef %36, i8 noundef zeroext %retval.0.i.i180, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i188), !noalias !136
+  tail call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i174, ptr noundef null, i32 noundef %34, i32 noundef %35, i8 noundef zeroext %retval.0.i.i180, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i188), !noalias !136
   store i64 0, ptr %agg.result, align 8, !alias.scope !139
   br label %return
 
 if.else61:                                        ; preds = %if.else47
-  %and63 = and i32 %7, 1
+  %and63 = and i32 %6, 1
   %cmp64 = icmp eq i32 %and63, 0
   br i1 %cmp64, label %do.body67, label %if.else75
 
 do.body67:                                        ; preds = %if.else61
-  %38 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i194 = trunc i8 %38 to i1
+  %37 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i194 = trunc i8 %37 to i1
   br i1 %tobool.i.i.i194, label %if.then70, label %do.end73
 
 if.then70:                                        ; preds = %do.body67
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 645, i32 noundef 2, ptr noundef nonnull @.str.38, i32 noundef %7)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 645, i32 noundef 2, ptr noundef nonnull @.str.38, i32 noundef %6)
   br label %do.end73
 
 do.end73:                                         ; preds = %do.body67, %if.then70
@@ -3958,13 +3957,13 @@ do.end73:                                         ; preds = %do.body67, %if.then
 
 if.else75:                                        ; preds = %if.else61
   %compressed_tuple_.i.i = getelementptr inbounds i8, ptr %t, i64 584
-  %39 = load i64, ptr %compressed_tuple_.i.i, align 8
+  %38 = load i64, ptr %compressed_tuple_.i.i, align 8
   %extra_streams = getelementptr inbounds i8, ptr %t, i64 592
-  %40 = load i64, ptr %extra_streams, align 8
-  %add = add i64 %40, %39
+  %39 = load i64, ptr %extra_streams, align 8
+  %add = add i64 %39, %38
   %arrayidx77 = getelementptr inbounds i8, ptr %t, i64 2064
-  %41 = load i32, ptr %arrayidx77, align 8
-  %conv78 = zext i32 %41 to i64
+  %40 = load i32, ptr %arrayidx77, align 8
+  %conv78 = zext i32 %40 to i64
   %cmp79.not = icmp ult i64 %add, %conv78
   br i1 %cmp79.not, label %if.else89, label %if.then81
 
@@ -3974,12 +3973,12 @@ if.then81:                                        ; preds = %if.else75
 
 if.then83:                                        ; preds = %if.then81
   %num_pending_induced_frames = getelementptr inbounds i8, ptr %t, i64 3292
-  %42 = load i32, ptr %num_pending_induced_frames, align 4
-  %inc = add i32 %42, 1
+  %41 = load i32, ptr %num_pending_induced_frames, align 4
+  %inc = add i32 %41, 1
   store i32 %inc, ptr %num_pending_induced_frames, align 4
   %qbuf = getelementptr inbounds i8, ptr %t, i64 1672
-  %43 = load i32, ptr %incoming_stream_id15, align 8
-  call void @_Z29grpc_chttp2_rst_stream_createjjP28grpc_transport_one_way_stats(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp, i32 noundef %43, i32 noundef 7, ptr noundef null)
+  %42 = load i32, ptr %incoming_stream_id15, align 8
+  call void @_Z29grpc_chttp2_rst_stream_createjjP28grpc_transport_one_way_stats(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp, i32 noundef %42, i32 noundef 7, ptr noundef null)
   call void @grpc_slice_buffer_add(ptr noundef nonnull %qbuf, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp)
   call void @_Z26grpc_chttp2_initiate_writeP21grpc_chttp2_transport33grpc_chttp2_initiate_write_reason(ptr noundef nonnull %t, i32 noundef 8)
   call fastcc void @_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb(ptr noalias align 8 %agg.result, ptr noundef nonnull %t, i8 noundef zeroext %cond, i1 noundef zeroext %cmp)
@@ -3995,34 +3994,34 @@ invoke.cont:                                      ; preds = %if.else86
   br label %return
 
 lpad:                                             ; preds = %if.else86
-  %44 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp88) #21
   br label %eh.resume
 
 if.else89:                                        ; preds = %if.else75
   %max_concurrent_streams_overload_protection = getelementptr inbounds i8, ptr %t, i64 3382
-  %45 = load i8, ptr %max_concurrent_streams_overload_protection, align 2
-  %tobool90 = trunc i8 %45 to i1
+  %44 = load i8, ptr %max_concurrent_streams_overload_protection, align 2
+  %tobool90 = trunc i8 %44 to i1
   br i1 %tobool90, label %land.rhs91, label %if.else105
 
 land.rhs91:                                       ; preds = %if.else89
   %streams_allocated = getelementptr inbounds i8, ptr %t, i64 3256
-  %46 = load atomic i64, ptr %streams_allocated monotonic, align 8
+  %45 = load atomic i64, ptr %streams_allocated monotonic, align 8
   %max_concurrent_streams_policy = getelementptr inbounds i8, ptr %t, i64 2312
   %call93 = tail call noundef i32 @_ZNK9grpc_core32Chttp2MaxConcurrentStreamsPolicy14AdvertiseValueEv(ptr noundef nonnull align 4 dereferenceable(16) %max_concurrent_streams_policy)
   %conv94 = zext i32 %call93 to i64
-  %cmp95 = icmp ugt i64 %46, %conv94
+  %cmp95 = icmp ugt i64 %45, %conv94
   br i1 %cmp95, label %if.then98, label %if.else105
 
 if.then98:                                        ; preds = %land.rhs91
   %num_pending_induced_frames99 = getelementptr inbounds i8, ptr %t, i64 3292
-  %47 = load i32, ptr %num_pending_induced_frames99, align 4
-  %inc100 = add i32 %47, 1
+  %46 = load i32, ptr %num_pending_induced_frames99, align 4
+  %inc100 = add i32 %46, 1
   store i32 %inc100, ptr %num_pending_induced_frames99, align 4
   %qbuf101 = getelementptr inbounds i8, ptr %t, i64 1672
-  %48 = load i32, ptr %incoming_stream_id15, align 8
-  call void @_Z29grpc_chttp2_rst_stream_createjjP28grpc_transport_one_way_stats(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp102, i32 noundef %48, i32 noundef 7, ptr noundef null)
+  %47 = load i32, ptr %incoming_stream_id15, align 8
+  call void @_Z29grpc_chttp2_rst_stream_createjjP28grpc_transport_one_way_stats(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp102, i32 noundef %47, i32 noundef 7, ptr noundef null)
   call void @grpc_slice_buffer_add(ptr noundef nonnull %qbuf101, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp102)
   call void @_Z26grpc_chttp2_initiate_writeP21grpc_chttp2_transport33grpc_chttp2_initiate_write_reason(ptr noundef nonnull %t, i32 noundef 8)
   call fastcc void @_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb(ptr noalias align 8 %agg.result, ptr noundef nonnull %t, i8 noundef zeroext %cond, i1 noundef zeroext %cmp)
@@ -4033,40 +4032,40 @@ if.else105:                                       ; preds = %if.else89, %land.rh
   br i1 %call.i, label %land.lhs.true, label %if.else135
 
 land.lhs.true:                                    ; preds = %if.else105
-  %49 = load i64, ptr %compressed_tuple_.i.i, align 8
+  %48 = load i64, ptr %compressed_tuple_.i.i, align 8
   %max_concurrent_streams_policy109 = getelementptr inbounds i8, ptr %t, i64 2312
   %call110 = tail call noundef i32 @_ZNK9grpc_core32Chttp2MaxConcurrentStreamsPolicy14AdvertiseValueEv(ptr noundef nonnull align 4 dereferenceable(16) %max_concurrent_streams_policy109)
   %conv111 = zext i32 %call110 to i64
-  %cmp112.not = icmp ult i64 %49, %conv111
+  %cmp112.not = icmp ult i64 %48, %conv111
   br i1 %cmp112.not, label %if.else135, label %land.rhs113
 
 land.rhs113:                                      ; preds = %land.lhs.true
   %call116 = tail call noundef i32 @_ZNK9grpc_core32Chttp2MaxConcurrentStreamsPolicy14AdvertiseValueEv(ptr noundef nonnull align 4 dereferenceable(16) %max_concurrent_streams_policy109)
   %conv117 = zext i32 %call116 to i64
-  %50 = load i32, ptr %arrayidx77, align 8
-  %conv121 = zext i32 %50 to i64
+  %49 = load i32, ptr %arrayidx77, align 8
+  %conv121 = zext i32 %49 to i64
   store i64 %conv117, ptr %ref.tmp114, align 8
   %hard_limit_.i = getelementptr inbounds i8, ptr %ref.tmp114, i64 8
   store i64 %conv121, ptr %hard_limit_.i, align 8
-  %51 = load i64, ptr %compressed_tuple_.i.i, align 8
+  %50 = load i64, ptr %compressed_tuple_.i.i, align 8
   %bitgen = getelementptr inbounds i8, ptr %t, i64 168
-  %52 = ptrtoint ptr %bitgen to i64
-  store i64 %52, ptr %agg.tmp124, align 8
+  %51 = ptrtoint ptr %bitgen to i64
+  store i64 %51, ptr %agg.tmp124, align 8
   %mock_call_.i = getelementptr inbounds i8, ptr %agg.tmp124, i64 8
   store ptr @_ZN4absl12lts_202308029BitGenRef8NotAMockEmPKvPvS4_, ptr %mock_call_.i, align 8
   %generate_impl_fn_.i = getelementptr inbounds i8, ptr %agg.tmp124, i64 16
   store ptr @_ZN4absl12lts_202308029BitGenRef6ImplFnINS0_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmm, ptr %generate_impl_fn_.i, align 8
-  %call125 = call noundef zeroext i1 @_ZNK9grpc_core20RandomEarlyDetection6RejectEmN4absl12lts_202308029BitGenRefE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp114, i64 noundef %51, ptr noundef nonnull byval(%"class.absl::lts_20230802::BitGenRef") align 8 %agg.tmp124)
+  %call125 = call noundef zeroext i1 @_ZNK9grpc_core20RandomEarlyDetection6RejectEmN4absl12lts_202308029BitGenRefE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp114, i64 noundef %50, ptr noundef nonnull byval(%"class.absl::lts_20230802::BitGenRef") align 8 %agg.tmp124)
   br i1 %call125, label %if.then128, label %if.else135
 
 if.then128:                                       ; preds = %land.rhs113
   %num_pending_induced_frames129 = getelementptr inbounds i8, ptr %t, i64 3292
-  %53 = load i32, ptr %num_pending_induced_frames129, align 4
-  %inc130 = add i32 %53, 1
+  %52 = load i32, ptr %num_pending_induced_frames129, align 4
+  %inc130 = add i32 %52, 1
   store i32 %inc130, ptr %num_pending_induced_frames129, align 4
   %qbuf131 = getelementptr inbounds i8, ptr %t, i64 1672
-  %54 = load i32, ptr %incoming_stream_id15, align 8
-  call void @_Z29grpc_chttp2_rst_stream_createjjP28grpc_transport_one_way_stats(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp132, i32 noundef %54, i32 noundef 7, ptr noundef null)
+  %53 = load i32, ptr %incoming_stream_id15, align 8
+  call void @_Z29grpc_chttp2_rst_stream_createjjP28grpc_transport_one_way_stats(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp132, i32 noundef %53, i32 noundef 7, ptr noundef null)
   call void @grpc_slice_buffer_add(ptr noundef nonnull %qbuf131, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp132)
   call void @_Z26grpc_chttp2_initiate_writeP21grpc_chttp2_transport33grpc_chttp2_initiate_write_reason(ptr noundef nonnull %t, i32 noundef 8)
   call fastcc void @_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb(ptr noalias align 8 %agg.result, ptr noundef nonnull %t, i8 noundef zeroext %cond, i1 noundef zeroext %cmp)
@@ -4074,40 +4073,40 @@ if.then128:                                       ; preds = %land.rhs113
 
 if.else135:                                       ; preds = %land.lhs.true, %if.else105, %land.rhs113
   %sent_goaway_state = getelementptr inbounds i8, ptr %t, i64 1952
-  %55 = load i32, ptr %sent_goaway_state, align 8
-  %56 = and i32 %55, -2
-  %switch = icmp eq i32 %56, 2
+  %54 = load i32, ptr %sent_goaway_state, align 8
+  %55 = and i32 %54, -2
+  %switch = icmp eq i32 %55, 2
   br i1 %switch, label %do.body140, label %if.else158
 
 do.body140:                                       ; preds = %if.else135
-  %57 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i198 = trunc i8 %57 to i1
+  %56 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i198 = trunc i8 %56 to i1
   br i1 %tobool.i.i.i198, label %if.then143, label %do.end156
 
 if.then143:                                       ; preds = %do.body140
   %peer_string = getelementptr inbounds i8, ptr %t, i64 32
-  %58 = load ptr, ptr %peer_string, align 8
-  %tobool.not.i.i = icmp eq ptr %58, null
+  %57 = load ptr, ptr %peer_string, align 8
+  %tobool.not.i.i = icmp eq ptr %57, null
   %bytes.i.i = getelementptr inbounds i8, ptr %t, i64 48
-  %59 = load ptr, ptr %bytes.i.i, align 8
+  %58 = load ptr, ptr %bytes.i.i, align 8
   %bytes5.i.i = getelementptr inbounds i8, ptr %t, i64 41
-  %cond.i.i = select i1 %tobool.not.i.i, ptr %bytes5.i.i, ptr %59
+  %cond.i.i = select i1 %tobool.not.i.i, ptr %bytes5.i.i, ptr %58
   %data.i.i = getelementptr inbounds i8, ptr %t, i64 40
-  %60 = load i64, ptr %data.i.i, align 8
-  %conv.i.i = and i64 %60, 255
-  %cond.i2.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %60
+  %59 = load i64, ptr %data.i.i, align 8
+  %conv.i.i = and i64 %59, 255
+  %cond.i2.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %59
   store i64 %cond.i2.i, ptr %ref.tmp145, align 8
-  %61 = getelementptr inbounds i8, ptr %ref.tmp145, i64 8
-  store ptr %cond.i.i, ptr %61, align 8
+  %60 = getelementptr inbounds i8, ptr %ref.tmp145, i64 8
+  store ptr %cond.i.i, ptr %60, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp144, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp145, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147)
           to label %invoke.cont149 unwind label %lpad148
 
 invoke.cont149:                                   ; preds = %if.then143
   %call150 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp144) #21
-  %62 = load i32, ptr %incoming_stream_id15, align 8
-  %63 = load i32, ptr %last_new_stream_id, align 4
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 698, i32 noundef 1, ptr noundef nonnull @.str.40, ptr noundef nonnull %t, ptr noundef %call150, i32 noundef %62, i32 noundef %63)
+  %61 = load i32, ptr %incoming_stream_id15, align 8
+  %62 = load i32, ptr %last_new_stream_id, align 4
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 698, i32 noundef 1, ptr noundef nonnull @.str.40, ptr noundef nonnull %t, ptr noundef %call150, i32 noundef %61, i32 noundef %62)
           to label %invoke.cont154 unwind label %lpad153
 
 invoke.cont154:                                   ; preds = %invoke.cont149
@@ -4116,18 +4115,18 @@ invoke.cont154:                                   ; preds = %invoke.cont149
   br label %do.end156
 
 lpad148:                                          ; preds = %if.then143
-  %64 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad153:                                          ; preds = %invoke.cont149
-  %65 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp144) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad153, %lpad148
-  %.pn147 = phi { ptr, i32 } [ %65, %lpad153 ], [ %64, %lpad148 ]
+  %.pn147 = phi { ptr, i32 } [ %64, %lpad153 ], [ %63, %lpad148 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147) #21
   br label %eh.resume
 
@@ -4137,39 +4136,39 @@ do.end156:                                        ; preds = %do.body140, %invoke
 
 if.else158:                                       ; preds = %if.else135
   %num_incoming_streams_before_settings_ack = getelementptr inbounds i8, ptr %t, i64 2112
-  %66 = load i32, ptr %num_incoming_streams_before_settings_ack, align 8
-  %cmp159 = icmp eq i32 %66, 0
+  %65 = load i32, ptr %num_incoming_streams_before_settings_ack, align 8
+  %cmp159 = icmp eq i32 %65, 0
   br i1 %cmp159, label %do.body161, label %if.end196
 
 do.body161:                                       ; preds = %if.else158
-  %67 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i199 = trunc i8 %67 to i1
+  %66 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i199 = trunc i8 %66 to i1
   br i1 %tobool.i.i.i199, label %if.then164, label %do.end180
 
 if.then164:                                       ; preds = %do.body161
   %peer_string167 = getelementptr inbounds i8, ptr %t, i64 32
-  %68 = load ptr, ptr %peer_string167, align 8
-  %tobool.not.i.i200 = icmp eq ptr %68, null
+  %67 = load ptr, ptr %peer_string167, align 8
+  %tobool.not.i.i200 = icmp eq ptr %67, null
   %bytes.i.i201 = getelementptr inbounds i8, ptr %t, i64 48
-  %69 = load ptr, ptr %bytes.i.i201, align 8
+  %68 = load ptr, ptr %bytes.i.i201, align 8
   %bytes5.i.i202 = getelementptr inbounds i8, ptr %t, i64 41
-  %cond.i.i203 = select i1 %tobool.not.i.i200, ptr %bytes5.i.i202, ptr %69
+  %cond.i.i203 = select i1 %tobool.not.i.i200, ptr %bytes5.i.i202, ptr %68
   %data.i.i204 = getelementptr inbounds i8, ptr %t, i64 40
-  %70 = load i64, ptr %data.i.i204, align 8
-  %conv.i.i205 = and i64 %70, 255
-  %cond.i2.i206 = select i1 %tobool.not.i.i200, i64 %conv.i.i205, i64 %70
+  %69 = load i64, ptr %data.i.i204, align 8
+  %conv.i.i205 = and i64 %69, 255
+  %cond.i2.i206 = select i1 %tobool.not.i.i200, i64 %conv.i.i205, i64 %69
   store i64 %cond.i2.i206, ptr %ref.tmp166, align 8
-  %71 = getelementptr inbounds i8, ptr %ref.tmp166, i64 8
-  store ptr %cond.i.i203, ptr %71, align 8
+  %70 = getelementptr inbounds i8, ptr %ref.tmp166, i64 8
+  store ptr %cond.i.i203, ptr %70, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp169) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp165, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp166, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp169)
           to label %invoke.cont171 unwind label %lpad170
 
 invoke.cont171:                                   ; preds = %if.then164
   %call172 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp165) #21
-  %72 = load i32, ptr %incoming_stream_id15, align 8
-  %73 = load i32, ptr %last_new_stream_id, align 4
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 706, i32 noundef 2, ptr noundef nonnull @.str.41, ptr noundef nonnull %t, ptr noundef %call172, i32 noundef %72, i32 noundef %73)
+  %71 = load i32, ptr %incoming_stream_id15, align 8
+  %72 = load i32, ptr %last_new_stream_id, align 4
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 706, i32 noundef 2, ptr noundef nonnull @.str.41, ptr noundef nonnull %t, ptr noundef %call172, i32 noundef %71, i32 noundef %72)
           to label %invoke.cont176 unwind label %lpad175
 
 invoke.cont176:                                   ; preds = %invoke.cont171
@@ -4178,50 +4177,50 @@ invoke.cont176:                                   ; preds = %invoke.cont171
   br label %do.end180
 
 lpad170:                                          ; preds = %if.then164
-  %74 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup178
 
 lpad175:                                          ; preds = %invoke.cont171
-  %75 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp165) #21
   br label %ehcleanup178
 
 ehcleanup178:                                     ; preds = %lpad175, %lpad170
-  %.pn145 = phi { ptr, i32 } [ %75, %lpad175 ], [ %74, %lpad170 ]
+  %.pn145 = phi { ptr, i32 } [ %74, %lpad175 ], [ %73, %lpad170 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp169) #21
   br label %eh.resume
 
 do.end180:                                        ; preds = %do.body161, %invoke.cont176
   %num_pending_induced_frames181 = getelementptr inbounds i8, ptr %t, i64 3292
-  %76 = load i32, ptr %num_pending_induced_frames181, align 4
-  %inc182 = add i32 %76, 1
+  %75 = load i32, ptr %num_pending_induced_frames181, align 4
+  %inc182 = add i32 %75, 1
   store i32 %inc182, ptr %num_pending_induced_frames181, align 4
   %qbuf183 = getelementptr inbounds i8, ptr %t, i64 1672
-  %77 = load i32, ptr %incoming_stream_id15, align 8
-  call void @_Z29grpc_chttp2_rst_stream_createjjP28grpc_transport_one_way_stats(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp184, i32 noundef %77, i32 noundef 11, ptr noundef null)
+  %76 = load i32, ptr %incoming_stream_id15, align 8
+  call void @_Z29grpc_chttp2_rst_stream_createjjP28grpc_transport_one_way_stats(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp184, i32 noundef %76, i32 noundef 11, ptr noundef null)
   call void @grpc_slice_buffer_add(ptr noundef nonnull %qbuf183, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %agg.tmp184)
   call void @_Z26grpc_chttp2_initiate_writeP21grpc_chttp2_transport33grpc_chttp2_initiate_write_reason(ptr noundef nonnull %t, i32 noundef 8)
-  %78 = load i32, ptr %incoming_stream_id15, align 8
-  store i32 %78, ptr %last_new_stream_id, align 4
+  %77 = load i32, ptr %incoming_stream_id15, align 8
+  store i32 %77, ptr %last_new_stream_id, align 4
   call fastcc void @_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb(ptr noalias align 8 %agg.result, ptr noundef nonnull %t, i8 noundef zeroext %cond, i1 noundef zeroext %cmp)
   br label %return
 
 if.end196:                                        ; preds = %if.else158
-  %dec = add i32 %66, -1
+  %dec = add i32 %65, -1
   store i32 %dec, ptr %num_incoming_streams_before_settings_ack, align 8
-  %79 = load i32, ptr %incoming_stream_id15, align 8
-  store i32 %79, ptr %last_new_stream_id, align 4
-  %call201 = call noundef ptr @_Z33grpc_chttp2_parsing_accept_streamP21grpc_chttp2_transportj(ptr noundef nonnull %t, i32 noundef %79)
+  %78 = load i32, ptr %incoming_stream_id15, align 8
+  store i32 %78, ptr %last_new_stream_id, align 4
+  %call201 = call noundef ptr @_Z33grpc_chttp2_parsing_accept_streamP21grpc_chttp2_transportj(ptr noundef nonnull %t, i32 noundef %78)
   %incoming_stream = getelementptr inbounds i8, ptr %t, i64 2920
   store ptr %call201, ptr %incoming_stream, align 8
-  %80 = load i64, ptr %requests_started, align 8
-  %inc202 = add i64 %80, 1
+  %79 = load i64, ptr %requests_started, align 8
+  %inc202 = add i64 %79, 1
   store i64 %inc202, ptr %requests_started, align 8
   %cmp203 = icmp eq ptr %call201, null
-  %81 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i209 = trunc i8 %81 to i1
+  %80 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i209 = trunc i8 %80 to i1
   br i1 %cmp203, label %do.body206, label %if.end213
 
 do.body206:                                       ; preds = %if.end196
@@ -4239,36 +4238,36 @@ if.end213:                                        ; preds = %if.end196
   br i1 %tobool.i.i.i209, label %if.then219, label %lor.lhs.false216
 
 lor.lhs.false216:                                 ; preds = %if.end213
-  %82 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_chttp2_new_stream, i64 16) monotonic, align 8
-  %tobool.i.i.i211 = trunc i8 %82 to i1
+  %81 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_chttp2_new_stream, i64 16) monotonic, align 8
+  %tobool.i.i.i211 = trunc i8 %81 to i1
   br i1 %tobool.i.i.i211, label %if.then219, label %if.end234
 
 if.then219:                                       ; preds = %lor.lhs.false216, %if.end213
   %ep = getelementptr inbounds i8, ptr %t, i64 24
-  %83 = load ptr, ptr %ep, align 8
-  %call220 = call noundef i32 @_Z20grpc_endpoint_get_fdP13grpc_endpoint(ptr noundef %83)
+  %82 = load ptr, ptr %ep, align 8
+  %call220 = call noundef i32 @_Z20grpc_endpoint_get_fdP13grpc_endpoint(ptr noundef %82)
   %peer_string223 = getelementptr inbounds i8, ptr %t, i64 32
-  %84 = load ptr, ptr %peer_string223, align 8
-  %tobool.not.i.i212 = icmp eq ptr %84, null
+  %83 = load ptr, ptr %peer_string223, align 8
+  %tobool.not.i.i212 = icmp eq ptr %83, null
   %bytes.i.i213 = getelementptr inbounds i8, ptr %t, i64 48
-  %85 = load ptr, ptr %bytes.i.i213, align 8
+  %84 = load ptr, ptr %bytes.i.i213, align 8
   %bytes5.i.i214 = getelementptr inbounds i8, ptr %t, i64 41
-  %cond.i.i215 = select i1 %tobool.not.i.i212, ptr %bytes5.i.i214, ptr %85
+  %cond.i.i215 = select i1 %tobool.not.i.i212, ptr %bytes5.i.i214, ptr %84
   %data.i.i216 = getelementptr inbounds i8, ptr %t, i64 40
-  %86 = load i64, ptr %data.i.i216, align 8
-  %conv.i.i217 = and i64 %86, 255
-  %cond.i2.i218 = select i1 %tobool.not.i.i212, i64 %conv.i.i217, i64 %86
+  %85 = load i64, ptr %data.i.i216, align 8
+  %conv.i.i217 = and i64 %85, 255
+  %cond.i2.i218 = select i1 %tobool.not.i.i212, i64 %conv.i.i217, i64 %85
   store i64 %cond.i2.i218, ptr %ref.tmp222, align 8
-  %87 = getelementptr inbounds i8, ptr %ref.tmp222, i64 8
-  store ptr %cond.i.i215, ptr %87, align 8
+  %86 = getelementptr inbounds i8, ptr %ref.tmp222, i64 8
+  store ptr %cond.i.i215, ptr %86, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp225) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp221, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp222, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp225)
           to label %invoke.cont227 unwind label %lpad226
 
 invoke.cont227:                                   ; preds = %if.then219
   %call228 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp221) #21
-  %88 = load i32, ptr %num_incoming_streams_before_settings_ack, align 8
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 733, i32 noundef 1, ptr noundef nonnull @.str.43, ptr noundef nonnull %t, i32 noundef %call220, ptr noundef %call228, i32 noundef %88)
+  %87 = load i32, ptr %num_incoming_streams_before_settings_ack, align 8
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.3, i32 noundef 733, i32 noundef 1, ptr noundef nonnull @.str.43, ptr noundef nonnull %t, i32 noundef %call220, ptr noundef %call228, i32 noundef %87)
           to label %invoke.cont231 unwind label %lpad230
 
 invoke.cont231:                                   ; preds = %invoke.cont227
@@ -4277,50 +4276,50 @@ invoke.cont231:                                   ; preds = %invoke.cont227
   br label %if.end234
 
 lpad226:                                          ; preds = %if.then219
-  %89 = landingpad { ptr, i32 }
+  %88 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup233
 
 lpad230:                                          ; preds = %invoke.cont227
-  %90 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp221) #21
   br label %ehcleanup233
 
 ehcleanup233:                                     ; preds = %lpad230, %lpad226
-  %.pn = phi { ptr, i32 } [ %90, %lpad230 ], [ %89, %lpad226 ]
+  %.pn = phi { ptr, i32 } [ %89, %lpad230 ], [ %88, %lpad226 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp225) #21
   br label %eh.resume
 
 if.end234:                                        ; preds = %invoke.cont231, %lor.lhs.false216
   %channelz_socket = getelementptr inbounds i8, ptr %t, i64 3280
-  %91 = load ptr, ptr %channelz_socket, align 8
-  %cmp.i.not = icmp eq ptr %91, null
+  %90 = load ptr, ptr %channelz_socket, align 8
+  %cmp.i.not = icmp eq ptr %90, null
   br i1 %cmp.i.not, label %if.end242, label %if.then236
 
 if.then236:                                       ; preds = %if.end234
-  call void @_ZN9grpc_core8channelz10SocketNode29RecordStreamStartedFromRemoteEv(ptr noundef nonnull align 8 dereferenceable(216) %91)
+  call void @_ZN9grpc_core8channelz10SocketNode29RecordStreamStartedFromRemoteEv(ptr noundef nonnull align 8 dereferenceable(216) %90)
   br label %if.end242
 
 if.else240:                                       ; preds = %_Z33grpc_chttp2_parsing_lookup_streamP21grpc_chttp2_transportj.exit
   %incoming_stream241 = getelementptr inbounds i8, ptr %t, i64 2920
-  store ptr %21, ptr %incoming_stream241, align 8
+  store ptr %20, ptr %incoming_stream241, align 8
   br label %if.end242
 
 if.end242:                                        ; preds = %if.end234, %if.then236, %if.else240
-  %s.0 = phi ptr [ %call201, %if.then236 ], [ %call201, %if.end234 ], [ %21, %if.else240 ]
+  %s.0 = phi ptr [ %call201, %if.then236 ], [ %call201, %if.end234 ], [ %20, %if.else240 ]
   %stats = getelementptr inbounds i8, ptr %s.0, i64 304
-  %92 = load i64, ptr %stats, align 8
-  %add243 = add i64 %92, 9
+  %91 = load i64, ptr %stats, align 8
+  %add243 = add i64 %91, 9
   store i64 %add243, ptr %stats, align 8
   %read_closed = getelementptr inbounds i8, ptr %s.0, i64 369
-  %93 = load i8, ptr %read_closed, align 1
-  %tobool244 = trunc i8 %93 to i1
+  %92 = load i8, ptr %read_closed, align 1
+  %tobool244 = trunc i8 %92 to i1
   br i1 %tobool244, label %do.body247, label %if.end255
 
 do.body247:                                       ; preds = %if.end242
-  %94 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i221 = trunc i8 %94 to i1
+  %93 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i221 = trunc i8 %93 to i1
   br i1 %tobool.i.i.i221, label %if.then250, label %do.end252
 
 if.then250:                                       ; preds = %do.body247
@@ -4339,30 +4338,30 @@ do.end252:                                        ; preds = %do.body247, %if.the
   %ref.tmp.sroa.3.0.parser1.sroa_idx.i225 = getelementptr inbounds i8, ptr %t, i64 2944
   store ptr %hpack_parser.i222, ptr %ref.tmp.sroa.3.0.parser1.sroa_idx.i225, align 8, !noalias !142
   %max_header_list_size_soft_limit.i226 = getelementptr inbounds i8, ptr %t, i64 3268
-  %95 = load i32, ptr %max_header_list_size_soft_limit.i226, align 4, !noalias !142
+  %94 = load i32, ptr %max_header_list_size_soft_limit.i226, align 4, !noalias !142
   %arrayidx3.i227 = getelementptr inbounds i8, ptr %t, i64 2076
-  %96 = load i32, ptr %arrayidx3.i227, align 4, !noalias !142
+  %95 = load i32, ptr %arrayidx3.i227, align 4, !noalias !142
   br i1 %cmp, label %if.then.i.i237, label %_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit241
 
 if.then.i.i237:                                   ; preds = %do.end252
   %header_eof.i.i238 = getelementptr inbounds i8, ptr %t, i64 2894
-  %97 = load i8, ptr %header_eof.i.i238, align 2, !noalias !142
-  %tobool1.not.i.i239 = icmp eq i8 %97, 0
+  %96 = load i8, ptr %header_eof.i.i238, align 2, !noalias !142
+  %tobool1.not.i.i239 = icmp eq i8 %96, 0
   %..i.i240 = select i1 %tobool1.not.i.i239, i8 1, i8 2
   br label %_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit241
 
 _ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit241: ; preds = %do.end252, %if.then.i.i237
   %retval.0.i.i228 = phi i8 [ %..i.i240, %if.then.i.i237 ], [ 0, %do.end252 ]
   %t.val.i229 = load i32, ptr %incoming_stream_id15, align 8, !noalias !142
-  %98 = getelementptr i8, ptr %t, i64 3376
-  %t.val7.i230 = load i8, ptr %98, align 8, !noalias !142
+  %97 = getelementptr i8, ptr %t, i64 3376
+  %t.val7.i230 = load i8, ptr %97, align 8, !noalias !142
   %frombool.i.i231 = and i8 %t.val7.i230, 1
   %retval.sroa.3.0.insert.ext.i.i232 = zext nneg i8 %frombool.i.i231 to i64
   %retval.sroa.3.0.insert.shift.i.i233 = shl nuw nsw i64 %retval.sroa.3.0.insert.ext.i.i232, 40
   %retval.sroa.0.0.insert.ext.i.i234 = zext i32 %t.val.i229 to i64
   %retval.sroa.2.0.insert.insert.i.i235 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i233, %retval.sroa.0.0.insert.ext.i.i234
   %retval.sroa.0.0.insert.insert.i.i236 = or disjoint i64 %retval.sroa.2.0.insert.insert.i.i235, 8589934592
-  call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i222, ptr noundef null, i32 noundef %95, i32 noundef %96, i8 noundef zeroext %retval.0.i.i228, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i236), !noalias !142
+  call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser.i222, ptr noundef null, i32 noundef %94, i32 noundef %95, i8 noundef zeroext %retval.0.i.i228, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i236), !noalias !142
   store i64 0, ptr %agg.result, align 8, !alias.scope !145
   br label %return
 
@@ -4375,8 +4374,8 @@ if.end255:                                        ; preds = %if.end242
   %ref.tmp256.sroa.3.0.parser257.sroa_idx = getelementptr inbounds i8, ptr %t, i64 2944
   store ptr %hpack_parser, ptr %ref.tmp256.sroa.3.0.parser257.sroa_idx, align 8
   %header_eof258 = getelementptr inbounds i8, ptr %t, i64 2894
-  %99 = load i8, ptr %header_eof258, align 2
-  %tobool259.not = icmp eq i8 %99, 0
+  %98 = load i8, ptr %header_eof258, align 2
+  %tobool259.not = icmp eq i8 %98, 0
   br i1 %tobool259.not, label %if.end261, label %if.then260
 
 if.then260:                                       ; preds = %if.end255
@@ -4386,8 +4385,8 @@ if.then260:                                       ; preds = %if.end255
 
 if.end261:                                        ; preds = %if.then260, %if.end255
   %header_frames_received = getelementptr inbounds i8, ptr %s.0, i64 2211
-  %100 = load i8, ptr %header_frames_received, align 1
-  switch i8 %100, label %if.end315 [
+  %99 = load i8, ptr %header_frames_received, align 1
+  switch i8 %99, label %if.end315 [
     i8 0, label %sw.bb
     i8 1, label %do.body294
     i8 2, label %sw.bb301
@@ -4395,18 +4394,18 @@ if.end261:                                        ; preds = %if.then260, %if.end
 
 sw.bb:                                            ; preds = %if.end261
   %is_client263 = getelementptr inbounds i8, ptr %t, i64 3376
-  %101 = load i8, ptr %is_client263, align 8
-  %tobool264 = trunc i8 %101 to i1
+  %100 = load i8, ptr %is_client263, align 8
+  %tobool264 = trunc i8 %100 to i1
   br i1 %tobool264, label %land.lhs.true265, label %do.body285
 
 land.lhs.true265:                                 ; preds = %sw.bb
-  %102 = load i8, ptr %header_eof258, align 2
-  %tobool267.not = icmp eq i8 %102, 0
+  %101 = load i8, ptr %header_eof258, align 2
+  %tobool267.not = icmp eq i8 %101, 0
   br i1 %tobool267.not, label %do.body285, label %do.body269
 
 do.body269:                                       ; preds = %land.lhs.true265
-  %103 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i242 = trunc i8 %103 to i1
+  %102 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i242 = trunc i8 %102 to i1
   br i1 %tobool.i.i.i242, label %if.then272, label %do.end274
 
 if.then272:                                       ; preds = %do.body269
@@ -4415,34 +4414,34 @@ if.then272:                                       ; preds = %do.body269
 
 do.end274:                                        ; preds = %do.body269, %if.then272
   %trailing_metadata_available = getelementptr inbounds i8, ptr %s.0, i64 240
-  %104 = load ptr, ptr %trailing_metadata_available, align 8
-  %cmp275.not = icmp eq ptr %104, null
+  %103 = load ptr, ptr %trailing_metadata_available, align 8
+  %cmp275.not = icmp eq ptr %103, null
   br i1 %cmp275.not, label %if.end278, label %if.then276
 
 if.then276:                                       ; preds = %do.end274
-  store i8 1, ptr %104, align 1
+  store i8 1, ptr %103, align 1
   br label %if.end278
 
 if.end278:                                        ; preds = %if.then276, %do.end274
   %parsed_trailers_only = getelementptr inbounds i8, ptr %s.0, i64 2208
   store i8 1, ptr %parsed_trailers_only, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %s.0, i64 970
-  %105 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
-  %storemerge.i.i.i.i = or i16 %105, 16384
+  %104 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
+  %storemerge.i.i.i.i = or i16 %104, 16384
   store i16 %storemerge.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 2
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %s.0, i64 979
   store i8 1, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %arrayidx.i.i.i.i.i243 = getelementptr inbounds i8, ptr %s.0, i64 402
-  %106 = load i16, ptr %arrayidx.i.i.i.i.i243, align 2
-  %storemerge.i.i.i.i244 = or i16 %106, 16384
+  %105 = load i16, ptr %arrayidx.i.i.i.i.i243, align 2
+  %storemerge.i.i.i.i244 = or i16 %105, 16384
   store i16 %storemerge.i.i.i.i244, ptr %arrayidx.i.i.i.i.i243, align 2
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i245 = getelementptr inbounds i8, ptr %s.0, i64 411
   store i8 1, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i245, align 1
   br label %land.lhs.true305
 
 do.body285:                                       ; preds = %sw.bb, %land.lhs.true265
-  %107 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i248 = trunc i8 %107 to i1
+  %106 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i248 = trunc i8 %106 to i1
   br i1 %tobool.i.i.i248, label %if.then288, label %do.end290
 
 if.then288:                                       ; preds = %do.body285
@@ -4454,8 +4453,8 @@ do.end290:                                        ; preds = %do.body285, %if.the
   br label %if.end315
 
 do.body294:                                       ; preds = %if.end261
-  %108 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
-  %tobool.i.i.i249 = trunc i8 %108 to i1
+  %107 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_http_trace, i64 16) monotonic, align 8
+  %tobool.i.i.i249 = trunc i8 %107 to i1
   br i1 %tobool.i.i.i249, label %if.then297, label %land.lhs.true305
 
 if.then297:                                       ; preds = %do.body294
@@ -4469,36 +4468,36 @@ sw.bb301:                                         ; preds = %if.end261
   store ptr @_Z31grpc_chttp2_header_parser_parsePvP21grpc_chttp2_transportP18grpc_chttp2_streamRK10grpc_slicei, ptr %ref.tmp256.sroa.2.0.parser257.sroa_idx, align 8, !noalias !148
   store ptr %hpack_parser, ptr %ref.tmp256.sroa.3.0.parser257.sroa_idx, align 8, !noalias !148
   %max_header_list_size_soft_limit.i254 = getelementptr inbounds i8, ptr %t, i64 3268
-  %109 = load i32, ptr %max_header_list_size_soft_limit.i254, align 4, !noalias !148
+  %108 = load i32, ptr %max_header_list_size_soft_limit.i254, align 4, !noalias !148
   %arrayidx3.i255 = getelementptr inbounds i8, ptr %t, i64 2076
-  %110 = load i32, ptr %arrayidx3.i255, align 4, !noalias !148
+  %109 = load i32, ptr %arrayidx3.i255, align 4, !noalias !148
   br i1 %cmp, label %if.then.i.i265, label %_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit269
 
 if.then.i.i265:                                   ; preds = %sw.bb301
-  %111 = load i8, ptr %header_eof258, align 2, !noalias !148
-  %tobool1.not.i.i267 = icmp eq i8 %111, 0
+  %110 = load i8, ptr %header_eof258, align 2, !noalias !148
+  %tobool1.not.i.i267 = icmp eq i8 %110, 0
   %..i.i268 = select i1 %tobool1.not.i.i267, i8 1, i8 2
   br label %_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit269
 
 _ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb.exit269: ; preds = %sw.bb301, %if.then.i.i265
   %retval.0.i.i256 = phi i8 [ %..i.i268, %if.then.i.i265 ], [ 0, %sw.bb301 ]
   %t.val.i257 = load i32, ptr %incoming_stream_id15, align 8, !noalias !148
-  %112 = getelementptr i8, ptr %t, i64 3376
-  %t.val7.i258 = load i8, ptr %112, align 8, !noalias !148
+  %111 = getelementptr i8, ptr %t, i64 3376
+  %t.val7.i258 = load i8, ptr %111, align 8, !noalias !148
   %frombool.i.i259 = and i8 %t.val7.i258, 1
   %retval.sroa.3.0.insert.ext.i.i260 = zext nneg i8 %frombool.i.i259 to i64
   %retval.sroa.3.0.insert.shift.i.i261 = shl nuw nsw i64 %retval.sroa.3.0.insert.ext.i.i260, 40
   %retval.sroa.0.0.insert.ext.i.i262 = zext i32 %t.val.i257 to i64
   %retval.sroa.2.0.insert.insert.i.i263 = or disjoint i64 %retval.sroa.3.0.insert.shift.i.i261, %retval.sroa.0.0.insert.ext.i.i262
   %retval.sroa.0.0.insert.insert.i.i264 = or disjoint i64 %retval.sroa.2.0.insert.insert.i.i263, 8589934592
-  call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser, ptr noundef null, i32 noundef %109, i32 noundef %110, i8 noundef zeroext %retval.0.i.i256, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i264), !noalias !148
+  call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser, ptr noundef null, i32 noundef %108, i32 noundef %109, i8 noundef zeroext %retval.0.i.i256, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i.i264), !noalias !148
   store i64 0, ptr %agg.result, align 8, !alias.scope !151
   br label %return
 
 land.lhs.true305:                                 ; preds = %if.then297, %do.body294, %if.end278
   %incoming_metadata_buffer.0.ph = getelementptr inbounds i8, ptr %s.0, i64 968
-  %113 = load i8, ptr %header_eof258, align 2
-  %tobool307.not = icmp eq i8 %113, 0
+  %112 = load i8, ptr %header_eof258, align 2
+  %tobool307.not = icmp eq i8 %112, 0
   br i1 %tobool307.not, label %if.then308, label %if.end315
 
 if.then308:                                       ; preds = %land.lhs.true305
@@ -4507,33 +4506,33 @@ if.then308:                                       ; preds = %land.lhs.true305
           to label %invoke.cont313 unwind label %lpad312
 
 invoke.cont313:                                   ; preds = %if.then308
-  %114 = load ptr, ptr %agg.tmp311, align 8
+  %113 = load ptr, ptr %agg.tmp311, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp311, i64 8
-  %115 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %114, %115
+  %114 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %113, %114
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont313, %_ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i ], [ %114, %invoke.cont313 ]
-  %116 = load i64, ptr %__first.addr.04.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i.i = and i64 %116, 1
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i ], [ %113, %invoke.cont313 ]
+  %115 = load i64, ptr %__first.addr.04.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i.i = and i64 %115, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %116)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %115)
           to label %_ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i
-  %117 = landingpad { ptr, i32 }
+  %116 = landingpad { ptr, i32 }
           catch ptr null
-  %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #22
+  %117 = extractvalue { ptr, i32 } %116, 0
+  call void @__clang_call_terminate(ptr %117) #22
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %115
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %114
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !7
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i
@@ -4541,16 +4540,16 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN4abs
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %invoke.cont313
-  %119 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %114, %invoke.cont313 ]
-  %tobool.not.i.i.i = icmp eq ptr %119, null
+  %118 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %113, %invoke.cont313 ]
+  %tobool.not.i.i.i = icmp eq ptr %118, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i272
 
 if.then.i.i.i272:                                 ; preds = %invoke.cont.i
-  call void @_ZdlPv(ptr noundef nonnull %119) #23
+  call void @_ZdlPv(ptr noundef nonnull %118) #23
   br label %return
 
 lpad312:                                          ; preds = %if.then308
-  %120 = landingpad { ptr, i32 }
+  %119 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp311) #21
   br label %eh.resume
@@ -4559,29 +4558,29 @@ if.end315:                                        ; preds = %if.end261, %do.end2
   %frame_type.0281 = phi i64 [ 4294967296, %land.lhs.true305 ], [ 8589934592, %if.end261 ], [ 0, %do.end290 ]
   %incoming_metadata_buffer.0279 = phi ptr [ %incoming_metadata_buffer.0.ph, %land.lhs.true305 ], [ null, %if.end261 ], [ %initial_metadata_buffer291, %do.end290 ]
   %max_header_list_size_soft_limit = getelementptr inbounds i8, ptr %t, i64 3268
-  %121 = load i32, ptr %max_header_list_size_soft_limit, align 4
+  %120 = load i32, ptr %max_header_list_size_soft_limit, align 4
   %arrayidx319 = getelementptr inbounds i8, ptr %t, i64 2076
-  %122 = load i32, ptr %arrayidx319, align 4
+  %121 = load i32, ptr %arrayidx319, align 4
   br i1 %cmp, label %if.then.i, label %_ZL19hpack_boundary_typeP21grpc_chttp2_transportb.exit
 
 if.then.i:                                        ; preds = %if.end315
-  %123 = load i8, ptr %header_eof258, align 2
-  %tobool1.not.i = icmp eq i8 %123, 0
+  %122 = load i8, ptr %header_eof258, align 2
+  %tobool1.not.i = icmp eq i8 %122, 0
   %..i = select i1 %tobool1.not.i, i8 1, i8 2
   br label %_ZL19hpack_boundary_typeP21grpc_chttp2_transportb.exit
 
 _ZL19hpack_boundary_typeP21grpc_chttp2_transportb.exit: ; preds = %if.end315, %if.then.i
   %retval.0.i273 = phi i8 [ %..i, %if.then.i ], [ 0, %if.end315 ]
   %t.val = load i32, ptr %incoming_stream_id15, align 8
-  %124 = getelementptr i8, ptr %t, i64 3376
-  %t.val151 = load i8, ptr %124, align 8
+  %123 = getelementptr i8, ptr %t, i64 3376
+  %t.val151 = load i8, ptr %123, align 8
   %frombool.i = and i8 %t.val151, 1
   %retval.sroa.3.0.insert.ext.i = zext nneg i8 %frombool.i to i64
   %retval.sroa.3.0.insert.shift.i = shl nuw nsw i64 %retval.sroa.3.0.insert.ext.i, 40
   %retval.sroa.2.0.insert.insert.i = or disjoint i64 %retval.sroa.3.0.insert.shift.i, %frame_type.0281
   %retval.sroa.0.0.insert.ext.i = zext i32 %t.val to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.2.0.insert.insert.i, %retval.sroa.0.0.insert.ext.i
-  call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser, ptr noundef %incoming_metadata_buffer.0279, i32 noundef %121, i32 noundef %122, i8 noundef zeroext %retval.0.i273, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i)
+  call void @_ZN9grpc_core11HPackParser10BeginFrameEP19grpc_metadata_batchjjNS0_8BoundaryENS0_8PriorityENS0_7LogInfoE(ptr noundef nonnull align 8 dereferenceable(200) %hpack_parser, ptr noundef %incoming_metadata_buffer.0279, i32 noundef %120, i32 noundef %121, i8 noundef zeroext %retval.0.i273, i8 noundef zeroext %cond, i64 %retval.sroa.0.0.insert.insert.i)
   store i64 0, ptr %agg.result, align 8, !alias.scope !154
   br label %return
 
@@ -4589,7 +4588,7 @@ return:                                           ; preds = %if.then.i.i.i272, %
   ret void
 
 eh.resume:                                        ; preds = %lpad312, %ehcleanup233, %ehcleanup178, %ehcleanup, %lpad
-  %.pn149 = phi { ptr, i32 } [ %44, %lpad ], [ %.pn147, %ehcleanup ], [ %.pn145, %ehcleanup178 ], [ %120, %lpad312 ], [ %.pn, %ehcleanup233 ]
+  %.pn149 = phi { ptr, i32 } [ %43, %lpad ], [ %.pn147, %ehcleanup ], [ %.pn145, %ehcleanup178 ], [ %119, %lpad312 ], [ %.pn, %ehcleanup233 ]
   resume { ptr, i32 } %.pn149
 }
 

@@ -238,38 +238,38 @@ define dso_local noundef ptr @xfrm_aalg_get_byname(ptr noundef readonly %0, i32 
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.split
 
-.thread:                                          ; preds = %11, %15
+.critedge:                                        ; preds = %11, %15
   %4 = add nuw nsw i64 %6, 1
   %5 = icmp eq i64 %4, 10
   br i1 %5, label %.loopexit, label %.split, !llvm.loop !5
 
-.split:                                           ; preds = %2, %.thread
-  %6 = phi i64 [ %4, %.thread ], [ 0, %2 ]
+.split:                                           ; preds = %2, %.critedge
+  %6 = phi i64 [ %4, %.critedge ], [ 0, %2 ]
   %7 = getelementptr %struct.xfrm_algo_desc, ptr @aalg_list, i64 %6
   %8 = load ptr, ptr %7, align 16
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef %8) #5
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.thread4, label %11
+  br i1 %10, label %.critedge5, label %11
 
 11:                                               ; preds = %.split
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %11
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %13) #5
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %.thread4, label %.thread
+  br i1 %.not, label %.critedge5, label %.critedge
 
-.thread4:                                         ; preds = %.split, %15
+.critedge5:                                       ; preds = %.split, %15
   %17 = getelementptr inbounds i8, ptr %7, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %.loopexit
 
-21:                                               ; preds = %.thread4
+21:                                               ; preds = %.critedge5
   %22 = icmp eq i32 %1, 0
   br i1 %22, label %.loopexit, label %23
 
@@ -287,8 +287,8 @@ define dso_local noundef ptr @xfrm_aalg_get_byname(ptr noundef readonly %0, i32 
   store i8 %31, ptr %17, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %2, %26, %23, %21, %.thread4
-  %32 = phi ptr [ %7, %26 ], [ %7, %.thread4 ], [ null, %23 ], [ null, %21 ], [ null, %2 ], [ null, %.thread ]
+.loopexit:                                        ; preds = %.critedge, %2, %26, %23, %21, %.critedge5
+  %32 = phi ptr [ %7, %26 ], [ %7, %.critedge5 ], [ null, %23 ], [ null, %21 ], [ null, %2 ], [ null, %.critedge ]
   ret ptr %32
 }
 
@@ -297,38 +297,38 @@ define dso_local noundef ptr @xfrm_ealg_get_byname(ptr noundef readonly %0, i32 
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.split
 
-.thread:                                          ; preds = %11, %15
+.critedge:                                        ; preds = %11, %15
   %4 = add nuw nsw i64 %6, 1
   %5 = icmp eq i64 %4, 11
   br i1 %5, label %.loopexit, label %.split, !llvm.loop !5
 
-.split:                                           ; preds = %2, %.thread
-  %6 = phi i64 [ %4, %.thread ], [ 0, %2 ]
+.split:                                           ; preds = %2, %.critedge
+  %6 = phi i64 [ %4, %.critedge ], [ 0, %2 ]
   %7 = getelementptr %struct.xfrm_algo_desc, ptr @ealg_list, i64 %6
   %8 = load ptr, ptr %7, align 16
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef %8) #5
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.thread4, label %11
+  br i1 %10, label %.critedge5, label %11
 
 11:                                               ; preds = %.split
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %11
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %13) #5
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %.thread4, label %.thread
+  br i1 %.not, label %.critedge5, label %.critedge
 
-.thread4:                                         ; preds = %.split, %15
+.critedge5:                                       ; preds = %.split, %15
   %17 = getelementptr inbounds i8, ptr %7, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %.loopexit
 
-21:                                               ; preds = %.thread4
+21:                                               ; preds = %.critedge5
   %22 = icmp eq i32 %1, 0
   br i1 %22, label %.loopexit, label %23
 
@@ -346,8 +346,8 @@ define dso_local noundef ptr @xfrm_ealg_get_byname(ptr noundef readonly %0, i32 
   store i8 %31, ptr %17, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %2, %26, %23, %21, %.thread4
-  %32 = phi ptr [ %7, %26 ], [ %7, %.thread4 ], [ null, %23 ], [ null, %21 ], [ null, %2 ], [ null, %.thread ]
+.loopexit:                                        ; preds = %.critedge, %2, %26, %23, %21, %.critedge5
+  %32 = phi ptr [ %7, %26 ], [ %7, %.critedge5 ], [ null, %23 ], [ null, %21 ], [ null, %2 ], [ null, %.critedge ]
   ret ptr %32
 }
 
@@ -356,38 +356,38 @@ define dso_local noundef ptr @xfrm_calg_get_byname(ptr noundef readonly %0, i32 
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.split
 
-.thread:                                          ; preds = %11, %15
+.critedge:                                        ; preds = %11, %15
   %4 = add nuw nsw i64 %6, 1
   %5 = icmp eq i64 %4, 3
   br i1 %5, label %.loopexit, label %.split, !llvm.loop !5
 
-.split:                                           ; preds = %2, %.thread
-  %6 = phi i64 [ %4, %.thread ], [ 0, %2 ]
+.split:                                           ; preds = %2, %.critedge
+  %6 = phi i64 [ %4, %.critedge ], [ 0, %2 ]
   %7 = getelementptr %struct.xfrm_algo_desc, ptr @calg_list, i64 %6
   %8 = load ptr, ptr %7, align 16
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef %8) #5
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.thread4, label %11
+  br i1 %10, label %.critedge5, label %11
 
 11:                                               ; preds = %.split
   %12 = getelementptr inbounds i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread, label %15
+  br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %11
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %13) #5
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %.thread4, label %.thread
+  br i1 %.not, label %.critedge5, label %.critedge
 
-.thread4:                                         ; preds = %.split, %15
+.critedge5:                                       ; preds = %.split, %15
   %17 = getelementptr inbounds i8, ptr %7, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %.loopexit
 
-21:                                               ; preds = %.thread4
+21:                                               ; preds = %.critedge5
   %22 = icmp eq i32 %1, 0
   br i1 %22, label %.loopexit, label %23
 
@@ -405,35 +405,35 @@ define dso_local noundef ptr @xfrm_calg_get_byname(ptr noundef readonly %0, i32 
   store i8 %31, ptr %17, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %2, %26, %23, %21, %.thread4
-  %32 = phi ptr [ %7, %26 ], [ %7, %.thread4 ], [ null, %23 ], [ null, %21 ], [ null, %2 ], [ null, %.thread ]
+.loopexit:                                        ; preds = %.critedge, %2, %26, %23, %21, %.critedge5
+  %32 = phi ptr [ %7, %26 ], [ %7, %.critedge5 ], [ null, %23 ], [ null, %21 ], [ null, %2 ], [ null, %.critedge ]
   ret ptr %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @xfrm_aead_get_byname(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
-  %.not4 = icmp eq ptr %0, null
-  br i1 %.not4, label %.loopexit, label %.split
+  %.not5 = icmp eq ptr %0, null
+  br i1 %.not5, label %.loopexit, label %.split
 
-.thread:                                          ; preds = %.split, %12
+.critedge:                                        ; preds = %.split, %12
   %4 = add nuw nsw i64 %6, 1
   %5 = icmp eq i64 %4, 8
   br i1 %5, label %.loopexit, label %.split, !llvm.loop !5
 
-.split:                                           ; preds = %3, %.thread
-  %6 = phi i64 [ %4, %.thread ], [ 0, %3 ]
+.split:                                           ; preds = %3, %.critedge
+  %6 = phi i64 [ %4, %.critedge ], [ 0, %3 ]
   %7 = getelementptr %struct.xfrm_algo_desc, ptr @aead_list, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i16, ptr %8, align 16
   %10 = zext i16 %9 to i32
   %11 = icmp eq i32 %1, %10
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %.split
   %13 = load ptr, ptr %7, align 16
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef %13) #5
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %.thread
+  br i1 %.not, label %15, label %.critedge
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %7, i64 16
@@ -460,8 +460,8 @@ define dso_local ptr @xfrm_aead_get_byname(ptr noundef readonly %0, i32 noundef 
   store i8 %30, ptr %16, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %3, %25, %22, %20, %15
-  %31 = phi ptr [ %7, %25 ], [ %7, %15 ], [ null, %22 ], [ null, %20 ], [ null, %3 ], [ null, %.thread ]
+.loopexit:                                        ; preds = %.critedge, %3, %25, %22, %20, %15
+  %31 = phi ptr [ %7, %25 ], [ %7, %15 ], [ null, %22 ], [ null, %20 ], [ null, %3 ], [ null, %.critedge ]
   ret ptr %31
 }
 

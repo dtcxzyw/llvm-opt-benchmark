@@ -2149,10 +2149,10 @@ define void @_ZN8nanobind6detail14nb_enum_exportEP7_object(ptr noundef %0) local
 13:                                               ; preds = %1
   store i64 0, ptr %4, align 8
   %14 = call i32 @PyDict_Next(ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %.not811 = icmp eq i32 %14, 0
-  br i1 %.not811, label %._crit_edge, label %.lr.ph
+  %.not812 = icmp eq i32 %14, 0
+  br i1 %.not812, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %13, %21
+.lr.ph:                                           ; preds = %13, %20
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr i8, ptr %15, i64 8
   %.val = load ptr, ptr %16, align 8
@@ -2162,26 +2162,26 @@ define void @_ZN8nanobind6detail14nb_enum_exportEP7_object(ptr noundef %0) local
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds i8, ptr %15, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = icmp eq i64 %19, 3
-  br i1 %20, label %21, label %.critedge
+  %.not11 = icmp eq i64 %19, 3
+  br i1 %.not11, label %20, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %17
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #10
   unreachable
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 24
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %15, i64 40
-  %26 = load ptr, ptr %25, align 8
-  call void @_ZN8nanobind6detail7setattrEP7_objectS2_S2_(ptr noundef %22, ptr noundef %24, ptr noundef %26)
-  %27 = load ptr, ptr %6, align 8
-  %28 = call i32 @PyDict_Next(ptr noundef %27, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %.not8 = icmp eq i32 %28, 0
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %8, align 8
+  %22 = getelementptr inbounds i8, ptr %15, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %15, i64 40
+  %25 = load ptr, ptr %24, align 8
+  call void @_ZN8nanobind6detail7setattrEP7_objectS2_S2_(ptr noundef %21, ptr noundef %23, ptr noundef %25)
+  %26 = load ptr, ptr %6, align 8
+  %27 = call i32 @PyDict_Next(ptr noundef %26, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %.not8 = icmp eq i32 %27, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %21, %13
+._crit_edge:                                      ; preds = %20, %13
   ret void
 }
 

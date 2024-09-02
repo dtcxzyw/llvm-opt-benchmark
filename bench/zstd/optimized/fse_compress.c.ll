@@ -603,7 +603,7 @@ return:                                           ; preds = %if.then103, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 1, 0) i32 @FSE_optimalTableLog_internal(i32 noundef %maxTableLog, i64 noundef %srcSize, i32 noundef %maxSymbolValue, i32 noundef %minus) local_unnamed_addr #1 {
+define range(i32 5, 13) i32 @FSE_optimalTableLog_internal(i32 noundef %maxTableLog, i64 noundef %srcSize, i32 noundef %maxSymbolValue, i32 noundef %minus) local_unnamed_addr #1 {
 entry:
   %0 = trunc i64 %srcSize to i32
   %conv = add i32 %0, -1
@@ -614,7 +614,7 @@ entry:
   %add.i = sub nuw nsw i32 32, %2
   %3 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %maxSymbolValue, i1 true)
   %add2.i = sub nuw nsw i32 33, %3
-  %cond.i = tail call range(i32 1, 34) i32 @llvm.umin.i32(i32 %add.i, i32 %add2.i)
+  %cond.i = tail call range(i32 1, 33) i32 @llvm.umin.i32(i32 %add.i, i32 %add2.i)
   %cmp = icmp eq i32 %maxTableLog, 0
   %spec.store.select = select i1 %cmp, i32 11, i32 %maxTableLog
   %spec.select = tail call i32 @llvm.umin.i32(i32 %sub1, i32 %spec.store.select)
@@ -625,7 +625,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 1, 0) i32 @FSE_optimalTableLog(i32 noundef %maxTableLog, i64 noundef %srcSize, i32 noundef %maxSymbolValue) local_unnamed_addr #1 {
+define range(i32 5, 13) i32 @FSE_optimalTableLog(i32 noundef %maxTableLog, i64 noundef %srcSize, i32 noundef %maxSymbolValue) local_unnamed_addr #1 {
 entry:
   %0 = trunc i64 %srcSize to i32
   %conv.i = add i32 %0, -1
@@ -635,13 +635,13 @@ entry:
   %add.i.i = sub nuw nsw i32 32, %2
   %3 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %maxSymbolValue, i1 true)
   %add2.i.i = sub nuw nsw i32 33, %3
-  %cond.i.i = tail call range(i32 1, 34) i32 @llvm.umin.i32(i32 %add.i.i, i32 %add2.i.i)
+  %cond.i.i = tail call range(i32 1, 33) i32 @llvm.umin.i32(i32 %add.i.i, i32 %add2.i.i)
   %cmp.i = icmp eq i32 %maxTableLog, 0
   %spec.store.select.i = select i1 %cmp.i, i32 11, i32 %maxTableLog
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %sub1.i, i32 %spec.store.select.i)
   %tableLog.1.i = tail call i32 @llvm.umax.i32(i32 %cond.i.i, i32 %spec.select.i)
   %spec.store.select1.i = tail call i32 @llvm.umax.i32(i32 %tableLog.1.i, i32 5)
-  %spec.store.select2.i = tail call range(i32 1, 0) i32 @llvm.umin.i32(i32 %spec.store.select1.i, i32 12)
+  %spec.store.select2.i = tail call range(i32 5, 13) i32 @llvm.umin.i32(i32 %spec.store.select1.i, i32 12)
   ret i32 %spec.store.select2.i
 }
 
@@ -663,7 +663,7 @@ if.end6:                                          ; preds = %if.end3
   %add.i = sub nuw nsw i32 32, %0
   %1 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %maxSymbolValue, i1 true)
   %add2.i = sub nuw nsw i32 33, %1
-  %cond.i = tail call range(i32 1, 34) i32 @llvm.umin.i32(i32 %add.i, i32 %add2.i)
+  %cond.i = tail call range(i32 1, 33) i32 @llvm.umin.i32(i32 %add.i, i32 %add2.i)
   %cmp7 = icmp ult i32 %spec.store.select, %cond.i
   br i1 %cmp7, label %return, label %if.end9
 

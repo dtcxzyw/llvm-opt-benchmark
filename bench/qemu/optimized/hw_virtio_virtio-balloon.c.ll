@@ -975,7 +975,7 @@ trace_virtio_balloon_set_config.exit:             ; preds = %if.end13, %land.lhs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @virtio_balloon_get_features(ptr noundef %vdev, i64 noundef %f, ptr nocapture readnone %errp) #0 {
+define internal range(i64 2, 0) i64 @virtio_balloon_get_features(ptr noundef %vdev, i64 noundef %f, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 24, ptr noundef nonnull @__func__.VIRTIO_BALLOON) #13
   %host_features = getelementptr inbounds i8, ptr %call.i, i64 848

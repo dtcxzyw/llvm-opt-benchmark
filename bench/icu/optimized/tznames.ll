@@ -144,8 +144,8 @@ lpad25:                                           ; preds = %new.notnull
 
 if.end29:                                         ; preds = %new.notnull
   %.pre = load i32, ptr %status, align 4
-  %cmp.i35 = icmp sgt i32 %.pre, 0
-  br i1 %cmp.i35, label %if.end63, label %if.then33
+  %6 = icmp sgt i32 %.pre, 0
+  br i1 %6, label %if.end63, label %if.then33
 
 if.then33:                                        ; preds = %if.end29
   %call34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
@@ -160,8 +160,8 @@ invoke.cont35:                                    ; preds = %if.then33
 if.end41:                                         ; preds = %invoke.cont35
   %call39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call36, ptr noundef nonnull dereferenceable(1) %3) #18
   %.pre51 = load i32, ptr %status, align 4
-  %6 = icmp sgt i32 %.pre51, 0
-  br i1 %6, label %if.end63, label %if.then45
+  %7 = icmp sgt i32 %.pre51, 0
+  br i1 %7, label %if.end63, label %if.then45
 
 if.then45:                                        ; preds = %if.end41
   %call47 = invoke noalias dereferenceable_or_null(24) ptr @uprv_malloc_75(i64 noundef 24) #20
@@ -181,14 +181,14 @@ if.else50:                                        ; preds = %invoke.cont46
 invoke.cont51:                                    ; preds = %if.else50
   %lastAccess = getelementptr inbounds i8, ptr %call47, i64 16
   store double %call52, ptr %lastAccess, align 8
-  %7 = load ptr, ptr @_ZN6icu_75L19gTimeZoneNamesCacheE, align 8
-  %call54 = invoke ptr @uhash_put_75(ptr noundef %7, ptr noundef nonnull %call36, ptr noundef nonnull %call47, ptr noundef nonnull %status)
+  %8 = load ptr, ptr @_ZN6icu_75L19gTimeZoneNamesCacheE, align 8
+  %call54 = invoke ptr @uhash_put_75(ptr noundef %8, ptr noundef nonnull %call36, ptr noundef nonnull %call47, ptr noundef nonnull %status)
           to label %if.end56 unwind label %lpad2.loopexit.split-lp
 
 if.end56:                                         ; preds = %invoke.cont51
   %.pre52 = load i32, ptr %status, align 4
-  %8 = icmp slt i32 %.pre52, 1
-  br i1 %8, label %if.end78, label %if.end63
+  %9 = icmp slt i32 %.pre52, 1
+  br i1 %9, label %if.end78, label %if.end63
 
 if.end67.thread:                                  ; preds = %if.then23
   store i32 7, ptr %status, align 4
@@ -204,8 +204,8 @@ if.end63:                                         ; preds = %if.end63.sink.split
   %cacheEntry.06265 = phi ptr [ %call47, %if.end56 ], [ null, %if.end41 ], [ null, %if.end29 ], [ null, %if.end63.sink.split ]
   %vtable = load ptr, ptr %call24, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %9 = load ptr, ptr %vfn, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %call24) #18
+  %10 = load ptr, ptr %vfn, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %call24) #18
   %cmp64.not = icmp eq ptr %newKey.0576167, null
   br i1 %cmp64.not, label %if.end67, label %if.then65
 
@@ -223,8 +223,8 @@ if.then69:                                        ; preds = %if.end67
 
 if.else73:                                        ; preds = %invoke.cont21
   %refCount74 = getelementptr inbounds i8, ptr %call22, i64 8
-  %10 = load i32, ptr %refCount74, align 8
-  %inc = add nsw i32 %10, 1
+  %11 = load i32, ptr %refCount74, align 8
+  %inc = add nsw i32 %11, 1
   store i32 %inc, ptr %refCount74, align 8
   %call76 = invoke double @uprv_getUTCtime_75()
           to label %invoke.cont75 unwind label %lpad2.loopexit.split-lp
@@ -236,10 +236,10 @@ invoke.cont75:                                    ; preds = %if.else73
 
 if.end78:                                         ; preds = %if.end67.thread, %if.end67, %if.then69, %if.end56, %invoke.cont75
   %cacheEntry.1 = phi ptr [ %call47, %if.end56 ], [ %call22, %invoke.cont75 ], [ null, %if.then69 ], [ null, %if.end67 ], [ null, %if.end67.thread ]
-  %11 = load i32, ptr @_ZN6icu_75L12gAccessCountE, align 4
-  %inc79 = add nsw i32 %11, 1
+  %12 = load i32, ptr @_ZN6icu_75L12gAccessCountE, align 4
+  %inc79 = add nsw i32 %12, 1
   store i32 %inc79, ptr @_ZN6icu_75L12gAccessCountE, align 4
-  %cmp80 = icmp sgt i32 %11, 98
+  %cmp80 = icmp sgt i32 %12, 98
   br i1 %cmp80, label %if.then81, label %if.end83
 
 if.then81:                                        ; preds = %if.end78
@@ -249,8 +249,8 @@ if.then81:                                        ; preds = %if.end78
           to label %call.i.noexc unwind label %lpad2.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %if.then81
-  %12 = load ptr, ptr @_ZN6icu_75L19gTimeZoneNamesCacheE, align 8
-  %call13.i42 = invoke ptr @uhash_nextElement_75(ptr noundef %12, ptr noundef nonnull %pos.i)
+  %13 = load ptr, ptr @_ZN6icu_75L19gTimeZoneNamesCacheE, align 8
+  %call13.i42 = invoke ptr @uhash_nextElement_75(ptr noundef %13, ptr noundef nonnull %pos.i)
           to label %call13.i.noexc unwind label %lpad2.loopexit.split-lp
 
 call13.i.noexc:                                   ; preds = %call.i.noexc
@@ -260,27 +260,27 @@ call13.i.noexc:                                   ; preds = %call.i.noexc
 while.body.i:                                     ; preds = %call13.i.noexc, %call1.i.noexc
   %call15.i = phi ptr [ %call1.i44, %call1.i.noexc ], [ %call13.i42, %call13.i.noexc ]
   %value.i = getelementptr inbounds i8, ptr %call15.i, i64 8
-  %13 = load ptr, ptr %value.i, align 8
-  %refCount.i = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load i32, ptr %refCount.i, align 8
-  %cmp3.i = icmp slt i32 %14, 1
+  %14 = load ptr, ptr %value.i, align 8
+  %refCount.i = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load i32, ptr %refCount.i, align 8
+  %cmp3.i = icmp slt i32 %15, 1
   br i1 %cmp3.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
-  %lastAccess.i = getelementptr inbounds i8, ptr %13, i64 16
-  %15 = load double, ptr %lastAccess.i, align 8
-  %sub.i = fsub double %call.i41, %15
+  %lastAccess.i = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = load double, ptr %lastAccess.i, align 8
+  %sub.i = fsub double %call.i41, %16
   %cmp4.i = fcmp ogt double %sub.i, 1.800000e+05
   br i1 %cmp4.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %16 = load ptr, ptr @_ZN6icu_75L19gTimeZoneNamesCacheE, align 8
-  %call5.i43 = invoke ptr @uhash_removeElement_75(ptr noundef %16, ptr noundef nonnull %call15.i)
+  %17 = load ptr, ptr @_ZN6icu_75L19gTimeZoneNamesCacheE, align 8
+  %call5.i43 = invoke ptr @uhash_removeElement_75(ptr noundef %17, ptr noundef nonnull %call15.i)
           to label %if.end.i unwind label %lpad2.loopexit
 
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true.i, %while.body.i
-  %17 = load ptr, ptr @_ZN6icu_75L19gTimeZoneNamesCacheE, align 8
-  %call1.i44 = invoke ptr @uhash_nextElement_75(ptr noundef %17, ptr noundef nonnull %pos.i)
+  %18 = load ptr, ptr @_ZN6icu_75L19gTimeZoneNamesCacheE, align 8
+  %call1.i44 = invoke ptr @uhash_nextElement_75(ptr noundef %18, ptr noundef nonnull %pos.i)
           to label %call1.i.noexc unwind label %lpad2.loopexit
 
 call1.i.noexc:                                    ; preds = %if.end.i
@@ -302,10 +302,10 @@ cleanup:                                          ; preds = %invoke.cont3, %if.e
           to label %_ZN6icu_755MutexD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #21
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #21
   unreachable
 
 _ZN6icu_755MutexD2Ev.exit:                        ; preds = %cleanup
@@ -317,10 +317,10 @@ ehcleanup:                                        ; preds = %lpad2.loopexit, %lp
           to label %ehcleanup84 unwind label %terminate.lpad.i45
 
 terminate.lpad.i45:                               ; preds = %ehcleanup
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #21
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #21
   unreachable
 
 ehcleanup84:                                      ; preds = %ehcleanup, %lpad

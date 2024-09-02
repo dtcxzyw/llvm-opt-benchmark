@@ -3844,8 +3844,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
   %.0.i52 = phi double [ %1182, %.noexc54 ], [ %.sroa.684.sroa.7.0.copyload, %1178 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16), !noalias !821
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !821
-  %.0.sroa.speculated.i.i = call noundef i32 @llvm.umax.i32(i32 %.val1.i, i32 1)
-  %.0.sroa.speculated.i41.i = call noundef i32 @llvm.umax.i32(i32 %.val.i, i32 1)
+  %.0.sroa.speculated.i.i = call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %.val1.i, i32 1)
+  %.0.sroa.speculated.i41.i = call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %.val.i, i32 1)
   call void @_ZN9tiny_skia6pixmap6Pixmap3new17hcd265c6525366ef5E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %15, i32 noundef %.0.sroa.speculated.i.i, i32 noundef %.0.sroa.speculated.i41.i)
   %1183 = load i64, ptr %15, align 8, !range !29, !noalias !821, !noundef !8
   %1184 = icmp eq i64 %1183, -9223372036854775808

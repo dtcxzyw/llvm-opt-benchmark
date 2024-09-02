@@ -2037,12 +2037,12 @@ for.cond89:                                       ; preds = %for.cond89.preheade
 if.end.i106:                                      ; preds = %for.cond89
   %arrayidx.i107 = getelementptr inbounds i8, ptr %71, i64 -4
   %72 = load i32, ptr %arrayidx.i107, align 4
+  %73 = zext i32 %72 to i64
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit109
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit109:  ; preds = %for.cond89, %if.end.i106
-  %retval.0.i108 = phi i32 [ %72, %if.end.i106 ], [ 0, %for.cond89 ]
-  %73 = zext i32 %retval.0.i108 to i64
-  %cmp92 = icmp ult i64 %indvars.iv279, %73
+  %retval.0.i108 = phi i64 [ %73, %if.end.i106 ], [ 0, %for.cond89 ]
+  %cmp92 = icmp ult i64 %indvars.iv279, %retval.0.i108
   br i1 %cmp92, label %for.body93, label %for.end109
 
 for.body93:                                       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit109

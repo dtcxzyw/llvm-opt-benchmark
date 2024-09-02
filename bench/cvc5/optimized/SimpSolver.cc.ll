@@ -265,14 +265,15 @@ invoke.cont15:                                    ; preds = %land.lhs.true
   %produceUnsatCores = getelementptr inbounds i8, ptr %6, i64 117
   %7 = load i8, ptr %produceUnsatCores, align 1
   %tobool17 = trunc i8 %7 to i1
+  br i1 %tobool17, label %land.end, label %land.rhs
+
+land.rhs:                                         ; preds = %invoke.cont15
   %tobool18.not = icmp eq ptr %pnm, null
-  %not.tobool17 = xor i1 %tobool17, true
-  %spec.select = and i1 %tobool18.not, %not.tobool17
+  %8 = zext i1 %tobool18.not to i8
   br label %land.end
 
-land.end:                                         ; preds = %invoke.cont15, %entry
-  %8 = phi i1 [ false, %entry ], [ %spec.select, %invoke.cont15 ]
-  %frombool19 = zext i1 %8 to i8
+land.end:                                         ; preds = %land.rhs, %invoke.cont15, %entry
+  %frombool19 = phi i8 [ 0, %invoke.cont15 ], [ 0, %entry ], [ %8, %land.rhs ]
   store i8 %frombool19, ptr %use_rcheck, align 1
   %merges = getelementptr inbounds i8, ptr %this, i64 876
   store i32 0, ptr %merges, align 4

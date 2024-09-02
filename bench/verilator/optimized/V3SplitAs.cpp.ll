@@ -701,8 +701,8 @@ define linkonce_odr dso_local void @_ZN14SplitAsVisitor5visitEP9AstAlways(ptr no
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   br label %16
 
-16:                                               ; preds = %.lr.ph, %68
-  %.01631 = phi ptr [ null, %.lr.ph ], [ %.1, %68 ]
+16:                                               ; preds = %.lr.ph, %70
+  %.01631 = phi ptr [ null, %.lr.ph ], [ %.1, %70 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTV18SplitAsFindVisitor, i64 16), ptr %3, align 8
   store ptr null, ptr %14, align 8
   %17 = load ptr, ptr %1, align 8
@@ -711,7 +711,7 @@ define linkonce_odr dso_local void @_ZN14SplitAsVisitor5visitEP9AstAlways(ptr no
   call void %19(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %20 = load ptr, ptr %14, align 8
   %.not18 = icmp eq ptr %20, null
-  br i1 %.not18, label %66, label %21
+  br i1 %.not18, label %68, label %21
 
 21:                                               ; preds = %16
   %22 = call noundef i32 @_ZL5debugv()
@@ -815,23 +815,23 @@ _ZlsRSoPK7AstNode.exit25:                         ; preds = %45
   %.pre = load i32, ptr %7, align 8
   %.pre35 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
   %.pre36 = load i64, ptr %8, align 8
-  br label %68
+  %66 = and i64 %.pre36, 4294967295
+  %67 = icmp eq i64 %66, 0
+  br label %70
 
-66:                                               ; preds = %16
+68:                                               ; preds = %16
   store i64 1, ptr %8, align 8
-  %67 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %67, ptr %7, align 8
-  br label %68
+  %69 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %69, ptr %7, align 8
+  br label %70
 
-68:                                               ; preds = %66, %63
-  %69 = phi i64 [ %.pre36, %63 ], [ 1, %66 ]
-  %70 = phi i32 [ %.pre35, %63 ], [ %67, %66 ]
-  %71 = phi i32 [ %.pre, %63 ], [ %67, %66 ]
-  %.1 = phi ptr [ %20, %63 ], [ %.01631, %66 ]
-  %72 = icmp ne i32 %71, %70
-  %73 = and i64 %69, 4294967295
-  %.not26 = icmp eq i64 %73, 0
-  %.not = select i1 %72, i1 true, i1 %.not26
+70:                                               ; preds = %68, %63
+  %.not26 = phi i1 [ %67, %63 ], [ false, %68 ]
+  %71 = phi i32 [ %.pre35, %63 ], [ %69, %68 ]
+  %72 = phi i32 [ %.pre, %63 ], [ %69, %68 ]
+  %.1 = phi ptr [ %20, %63 ], [ %.01631, %68 ]
+  %73 = icmp ne i32 %72, %71
+  %.not = select i1 %73, i1 true, i1 %.not26
   br i1 %.not, label %16, label %._crit_edge, !llvm.loop !5
 
 74:                                               ; preds = %61, %51, %35
@@ -840,7 +840,7 @@ _ZlsRSoPK7AstNode.exit25:                         ; preds = %45
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #17
   resume { ptr, i32 } %.pn
 
-._crit_edge:                                      ; preds = %68, %2
+._crit_edge:                                      ; preds = %70, %2
   ret void
 }
 

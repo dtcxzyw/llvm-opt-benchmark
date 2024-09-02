@@ -813,7 +813,7 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_parse_subject_alt_name(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2147474176) i32 @mbedtls_x509_parse_subject_alt_name(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.mbedtls_x509_san_other_name, align 8
@@ -2418,8 +2418,8 @@ x509_crt_check_san.exit.thread.i:                 ; preds = %x509_crt_check_san.
   %44 = getelementptr inbounds i8, ptr %.031.i, i64 16
   %45 = load ptr, ptr %44, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.76, ptr noundef nonnull dereferenceable(3) %45, i64 3)
-  %.not28.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not28.i, label %46, label %.critedge.i
+  %.not24.i = icmp eq i32 %bcmp.i, 0
+  br i1 %.not24.i, label %46, label %.critedge.i
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %.031.i, i64 24
@@ -2430,8 +2430,8 @@ x509_crt_check_san.exit.thread.i:                 ; preds = %x509_crt_check_san.
 .critedge.i:                                      ; preds = %46, %43, %40
   %50 = getelementptr inbounds i8, ptr %.031.i, i64 48
   %51 = load ptr, ptr %50, align 8
-  %cond26.i = icmp eq ptr %51, null
-  br i1 %cond26.i, label %x509_crt_verify_name.exit, label %40, !llvm.loop !16
+  %cond27.i = icmp eq ptr %51, null
+  br i1 %cond27.i, label %x509_crt_verify_name.exit, label %40, !llvm.loop !16
 
 x509_crt_verify_name.exit:                        ; preds = %x509_crt_check_san.exit.i, %x509_crt_check_san.exit.thread.i, %46, %.critedge.i, %22
   %.1 = phi i32 [ 0, %22 ], [ 4, %.critedge.i ], [ 0, %46 ], [ 4, %x509_crt_check_san.exit.thread.i ], [ 0, %x509_crt_check_san.exit.i ]
@@ -2850,14 +2850,14 @@ x509_crt_check_parent.exit.i.i.i:                 ; preds = %245, %240, %234
   %269 = load ptr, ptr %157, align 8
   %270 = load i64, ptr %158, align 8
   %271 = call i32 @mbedtls_pk_verify_ext(i32 noundef %266, ptr noundef %267, ptr noundef nonnull %262, i32 noundef %268, ptr noundef nonnull %13, i64 noundef %257, ptr noundef %269, i64 noundef %270) #16
+  %272 = icmp eq i32 %271, 0
   br label %x509_crt_check_signature.exit.i.i.i
 
 x509_crt_check_signature.exit.i.i.i:              ; preds = %265, %261, %253
-  %.0.i.i.i.i = phi i32 [ %271, %265 ], [ -1, %253 ], [ -1, %261 ]
+  %.0.i.i.i.i = phi i1 [ %272, %265 ], [ false, %253 ], [ false, %261 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
-  %272 = icmp eq i32 %.0.i.i.i.i, 0
-  %273 = zext i1 %272 to i32
-  %or.cond.i.i.i = select i1 %.not9.i.i.i.i, i1 true, i1 %272
+  %273 = zext i1 %.0.i.i.i.i to i32
+  %or.cond.i.i.i = select i1 %.not9.i.i.i.i, i1 true, i1 %.0.i.i.i.i
   br i1 %or.cond.i.i.i, label %274, label %x509_crt_check_parent.exit.thread.i.i.i
 
 274:                                              ; preds = %x509_crt_check_signature.exit.i.i.i

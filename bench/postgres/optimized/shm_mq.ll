@@ -219,7 +219,7 @@ define dso_local void @shm_mq_set_handle(ptr nocapture noundef writeonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @shm_mq_send(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @shm_mq_send(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.shm_mq_iovec, align 8
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -229,7 +229,7 @@ define dso_local noundef i32 @shm_mq_send(ptr nocapture noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [8 x i8], align 1
@@ -365,7 +365,7 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
   %65 = sub nuw i64 %.2105, %.pre153.ph
   %66 = add i32 %.2108.ph, 1
   %.not132 = icmp slt i32 %66, %2
-  br i1 %.not132, label %._crit_edge152, label %.loopexit166
+  br i1 %.not132, label %._crit_edge152, label %.loopexit167
 
 ._crit_edge152:                                   ; preds = %64
   %.phi.trans.insert.phi.trans.insert = sext i32 %66 to i64
@@ -373,12 +373,15 @@ define dso_local noundef i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr nocaptu
   %.pre.pre = load i64, ptr %.phi.trans.insert151.phi.trans.insert, align 8
   br label %.preheader.outer
 
-.loopexit166:                                     ; preds = %64, %55
-  %.3109 = phi i32 [ %.2108.ph, %55 ], [ %66, %64 ]
-  %.3 = phi i64 [ %62, %55 ], [ %65, %64 ]
-  %.1 = phi i32 [ 8, %55 ], [ %.0, %64 ]
-  %67 = sext i32 %.1 to i64
-  %68 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %67, ptr noundef nonnull %8, i1 noundef zeroext %3, ptr noundef nonnull %7)
+.loopexit167:                                     ; preds = %64
+  %67 = sext i32 %.0 to i64
+  br label %.loopexit166
+
+.loopexit166:                                     ; preds = %55, %.loopexit167
+  %.3109 = phi i32 [ %66, %.loopexit167 ], [ %.2108.ph, %55 ]
+  %.3 = phi i64 [ %65, %.loopexit167 ], [ %62, %55 ]
+  %.1 = phi i64 [ %67, %.loopexit167 ], [ 8, %55 ]
+  %68 = call fastcc i32 @shm_mq_send_bytes(ptr noundef nonnull %0, i64 noundef %.1, ptr noundef nonnull %8, i1 noundef zeroext %3, ptr noundef nonnull %7)
   %69 = icmp eq i32 %68, 2
   br i1 %69, label %70, label %71
 
@@ -662,7 +665,7 @@ shm_mq_get_receiver.exit:                         ; preds = %39, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @shm_mq_receive(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @shm_mq_receive(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8

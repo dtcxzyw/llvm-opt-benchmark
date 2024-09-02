@@ -231,7 +231,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_cab_options(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_read_format_cab_read_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -30, 2) i32 @archive_read_format_cab_read_header(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 2072

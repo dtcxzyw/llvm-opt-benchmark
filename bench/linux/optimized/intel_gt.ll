@@ -1011,7 +1011,7 @@ define dso_local i32 @intel_gt_wait_for_idle(ptr noundef %0, i64 noundef %1) loc
   %4 = getelementptr inbounds i8, ptr %0, i64 3336
   %5 = load volatile i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %.thread, label %.preheader.preheader
+  br i1 %6, label %.critedge, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %2
   store i64 0, ptr %3, align 8, !annotation !13
@@ -1030,13 +1030,13 @@ define dso_local i32 @intel_gt_wait_for_idle(ptr noundef %0, i64 noundef %1) loc
   %14 = load volatile i64, ptr %13, align 8
   %15 = and i64 %14, 131072
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %.thread, !prof !15
+  br i1 %16, label %17, label %.critedge, !prof !15
 
 17:                                               ; preds = %10
   %18 = load volatile i64, ptr %13, align 8
   %19 = and i64 %18, 4
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %.preheader, label %.thread, !llvm.loop !16
+  br i1 %20, label %.preheader, label %.critedge, !llvm.loop !16
 
 21:                                               ; preds = %.preheader
   %22 = icmp eq i64 %8, 0
@@ -1044,7 +1044,7 @@ define dso_local i32 @intel_gt_wait_for_idle(ptr noundef %0, i64 noundef %1) loc
 
 23:                                               ; preds = %21
   %24 = trunc i64 %8 to i32
-  br label %.thread
+  br label %.critedge
 
 25:                                               ; preds = %21
   %26 = load i64, ptr %3, align 8
@@ -1059,9 +1059,9 @@ define dso_local i32 @intel_gt_wait_for_idle(ptr noundef %0, i64 noundef %1) loc
   %30 = phi i64 [ 0, %28 ], [ %26, %25 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 632
   %32 = call i32 @intel_guc_wait_for_idle(ptr noundef %31, i64 noundef %30) #7
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %10, %17, %29, %23, %2
+.critedge:                                        ; preds = %10, %17, %29, %23, %2
   %33 = phi i32 [ %24, %23 ], [ %32, %29 ], [ 0, %2 ], [ -4, %17 ], [ -4, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret i32 %33
@@ -1488,36 +1488,36 @@ define internal fastcc i32 @__engines_record_defaults(ptr noundef %0) unnamed_ad
   %65 = getelementptr inbounds i8, ptr %0, i64 3336
   %66 = load volatile i64, ptr %65, align 8
   %67 = icmp eq i64 %66, 0
-  br i1 %67, label %.thread24.thread, label %.preheader34
+  br i1 %67, label %.critedge.thread, label %.preheader33
 
-.preheader34:                                     ; preds = %64, %78
+.preheader33:                                     ; preds = %64, %78
   %68 = phi i64 [ %69, %78 ], [ 200, %64 ]
   %69 = call i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 noundef %68, ptr noundef nonnull %2) #7
   %70 = icmp sgt i64 %69, 0
   br i1 %70, label %71, label %82
 
-71:                                               ; preds = %.preheader34
+71:                                               ; preds = %.preheader33
   %72 = call i32 @__SCT__cond_resched() #7
   %73 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !14
   %74 = inttoptr i64 %73 to ptr
   %75 = load volatile i64, ptr %74, align 8
   %76 = and i64 %75, 131072
   %77 = icmp eq i64 %76, 0
-  br i1 %77, label %78, label %.thread24.thread, !prof !15
+  br i1 %77, label %78, label %.critedge.thread, !prof !15
 
 78:                                               ; preds = %71
   %79 = load volatile i64, ptr %74, align 8
   %80 = and i64 %79, 4
   %81 = icmp eq i64 %80, 0
-  br i1 %81, label %.preheader34, label %.thread24.thread, !llvm.loop !16
+  br i1 %81, label %.preheader33, label %.critedge.thread, !llvm.loop !16
 
-82:                                               ; preds = %.preheader34
+82:                                               ; preds = %.preheader33
   %83 = icmp eq i64 %69, 0
   br i1 %83, label %86, label %84
 
 84:                                               ; preds = %82
   %85 = trunc i64 %69 to i32
-  br label %.thread24
+  br label %.critedge
 
 86:                                               ; preds = %82
   %87 = load i64, ptr %2, align 8
@@ -1532,19 +1532,19 @@ define internal fastcc i32 @__engines_record_defaults(ptr noundef %0) unnamed_ad
   %91 = phi i64 [ 0, %89 ], [ %87, %86 ]
   %92 = getelementptr inbounds i8, ptr %0, i64 632
   %93 = call i32 @intel_guc_wait_for_idle(ptr noundef %92, i64 noundef %91) #7
-  br label %.thread24
+  br label %.critedge
 
-.thread24.thread:                                 ; preds = %78, %71, %64
+.critedge.thread:                                 ; preds = %78, %71, %64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   br label %.preheader.preheader
 
-.thread24:                                        ; preds = %90, %84
+.critedge:                                        ; preds = %90, %84
   %94 = phi i32 [ %85, %84 ], [ %93, %90 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   %95 = icmp eq i32 %94, -62
-  br i1 %95, label %.thread29, label %.preheader.preheader
+  br i1 %95, label %.thread28, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.thread24.thread, %.thread24
+.preheader.preheader:                             ; preds = %.critedge.thread, %.critedge
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %122
@@ -1558,7 +1558,7 @@ define internal fastcc i32 @__engines_record_defaults(ptr noundef %0) unnamed_ad
   %101 = getelementptr inbounds i8, ptr %98, i64 60
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %104, label %.thread29
+  br i1 %103, label %104, label %.thread28
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds i8, ptr %98, i64 88
@@ -1595,23 +1595,23 @@ define internal fastcc i32 @__engines_record_defaults(ptr noundef %0) unnamed_ad
 .loopexit:                                        ; preds = %115, %.thread23
   %125 = phi i32 [ %.ph, %.thread23 ], [ %117, %115 ]
   %126 = icmp eq i32 %125, 0
-  br i1 %126, label %.loopexit.thread, label %.thread29
+  br i1 %126, label %.loopexit.thread, label %.thread28
 
-.thread29:                                        ; preds = %100, %.thread24, %.loopexit
-  %127 = phi i32 [ %125, %.loopexit ], [ -5, %.thread24 ], [ -5, %100 ]
+.thread28:                                        ; preds = %100, %.critedge, %.loopexit
+  %127 = phi i32 [ %125, %.loopexit ], [ -5, %.critedge ], [ -5, %100 ]
   call void @intel_gt_set_wedged(ptr noundef %0) #7
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %122, %.thread29, %.loopexit
-  %128 = phi i32 [ %127, %.thread29 ], [ 0, %.loopexit ], [ 0, %122 ]
+.loopexit.thread:                                 ; preds = %122, %.thread28, %.loopexit
+  %128 = phi i32 [ %127, %.thread28 ], [ 0, %.loopexit ], [ 0, %122 ]
   br label %129
 
-129:                                              ; preds = %.thread33, %.loopexit.thread
-  %130 = phi i64 [ %154, %.thread33 ], [ 0, %.loopexit.thread ]
+129:                                              ; preds = %.thread32, %.loopexit.thread
+  %130 = phi i64 [ %154, %.thread32 ], [ 0, %.loopexit.thread ]
   %131 = getelementptr [27 x ptr], ptr %3, i64 0, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = icmp eq ptr %132, null
-  br i1 %133, label %.thread33, label %134
+  br i1 %133, label %.thread32, label %134
 
 134:                                              ; preds = %129
   %135 = getelementptr inbounds i8, ptr %132, i64 88
@@ -1623,18 +1623,18 @@ define internal fastcc i32 @__engines_record_defaults(ptr noundef %0) unnamed_ad
 
 140:                                              ; preds = %134
   %141 = icmp sgt i32 %138, 0
-  br i1 %141, label %.thread31, label %142, !prof !15
+  br i1 %141, label %.thread30, label %142, !prof !15
 
 142:                                              ; preds = %140
   call void @refcount_warn_saturate(ptr noundef %137, i32 noundef 3) #7
-  br label %.thread31
+  br label %.thread30
 
 143:                                              ; preds = %134
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !18
   call void @dma_fence_release(ptr noundef %137) #7
-  br label %.thread31
+  br label %.thread30
 
-.thread31:                                        ; preds = %140, %142, %143
+.thread30:                                        ; preds = %140, %142, %143
   %144 = getelementptr inbounds i8, ptr %136, i64 400
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds i8, ptr %145, i64 112
@@ -1643,25 +1643,25 @@ define internal fastcc i32 @__engines_record_defaults(ptr noundef %0) unnamed_ad
   %149 = icmp eq i32 %148, 1
   br i1 %149, label %153, label %150
 
-150:                                              ; preds = %.thread31
+150:                                              ; preds = %.thread30
   %151 = icmp sgt i32 %148, 0
-  br i1 %151, label %.thread33, label %152, !prof !15
+  br i1 %151, label %.thread32, label %152, !prof !15
 
 152:                                              ; preds = %150
   call void @refcount_warn_saturate(ptr noundef %136, i32 noundef 3) #7
-  br label %.thread33
+  br label %.thread32
 
-153:                                              ; preds = %.thread31
+153:                                              ; preds = %.thread30
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !18
   call void %147(ptr noundef %136) #7
-  br label %.thread33
+  br label %.thread32
 
-.thread33:                                        ; preds = %150, %152, %153, %129
+.thread32:                                        ; preds = %150, %152, %153, %129
   %154 = add nuw nsw i64 %130, 1
   %155 = icmp eq i64 %154, 27
   br i1 %155, label %156, label %129, !llvm.loop !23
 
-156:                                              ; preds = %.thread33
+156:                                              ; preds = %.thread32
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %3) #7
   ret i32 %128
 }

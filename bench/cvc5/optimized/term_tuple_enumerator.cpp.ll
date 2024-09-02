@@ -2206,7 +2206,7 @@ return:                                           ; preds = %if.end, %land.rhs41
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN4cvc58internal6theory11quantifiers24TermTupleEnumeratorBasic12prepareTermsEm(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %variableIx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZN4cvc58internal6theory11quantifiers24TermTupleEnumeratorBasic12prepareTermsEm(ptr noundef nonnull align 8 dereferenceable(232) %this, i64 noundef %variableIx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i314 = alloca %"class.std::tuple.333", align 8
   %ref.tmp10.i315 = alloca %"class.std::tuple.233", align 1

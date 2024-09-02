@@ -82,12 +82,12 @@ lor.lhs.false22:                                  ; preds = %lor.lhs.false19
 cond.false:                                       ; preds = %lor.lhs.false22
   %session_id_length = getelementptr inbounds i8, ptr %in, i64 64
   %4 = load i32, ptr %session_id_length, align 8
+  %5 = zext i32 %4 to i64
   br label %cond.end
 
 cond.end:                                         ; preds = %lor.lhs.false22, %cond.false
-  %cond = phi i32 [ %4, %cond.false ], [ 0, %lor.lhs.false22 ]
-  %conv24 = zext i32 %cond to i64
-  %call25 = call i32 @CBB_add_bytes(ptr noundef nonnull %child, ptr noundef nonnull %session_id, i64 noundef %conv24) #6
+  %cond = phi i64 [ %5, %cond.false ], [ 0, %lor.lhs.false22 ]
+  %call25 = call i32 @CBB_add_bytes(ptr noundef nonnull %child, ptr noundef nonnull %session_id, i64 noundef %cond) #6
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %err.sink.split, label %lor.lhs.false27
 
@@ -99,16 +99,16 @@ lor.lhs.false27:                                  ; preds = %cond.end
 lor.lhs.false30:                                  ; preds = %lor.lhs.false27
   %master_key = getelementptr inbounds i8, ptr %in, i64 16
   %master_key_length = getelementptr inbounds i8, ptr %in, i64 12
-  %5 = load i32, ptr %master_key_length, align 4
-  %conv32 = sext i32 %5 to i64
+  %6 = load i32, ptr %master_key_length, align 4
+  %conv32 = sext i32 %6 to i64
   %call33 = call i32 @CBB_add_bytes(ptr noundef nonnull %child, ptr noundef nonnull %master_key, i64 noundef %conv32) #6
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %err.sink.split, label %if.end36
 
 if.end36:                                         ; preds = %lor.lhs.false30
   %time = getelementptr inbounds i8, ptr %in, i64 176
-  %6 = load i64, ptr %time, align 8
-  %cmp37.not = icmp eq i64 %6, 0
+  %7 = load i64, ptr %time, align 8
+  %cmp37.not = icmp eq i64 %7, 0
   br i1 %cmp37.not, label %if.end48, label %if.then39
 
 if.then39:                                        ; preds = %if.end36
@@ -117,15 +117,15 @@ if.then39:                                        ; preds = %if.end36
   br i1 %tobool41.not, label %err.sink.split, label %lor.lhs.false42
 
 lor.lhs.false42:                                  ; preds = %if.then39
-  %7 = load i64, ptr %time, align 8
-  %call44 = call i32 @CBB_add_asn1_uint64(ptr noundef nonnull %child, i64 noundef %7) #6
+  %8 = load i64, ptr %time, align 8
+  %call44 = call i32 @CBB_add_asn1_uint64(ptr noundef nonnull %child, i64 noundef %8) #6
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %err.sink.split, label %if.end48
 
 if.end48:                                         ; preds = %lor.lhs.false42, %if.end36
   %timeout = getelementptr inbounds i8, ptr %in, i64 168
-  %8 = load i64, ptr %timeout, align 8
-  %cmp49.not = icmp eq i64 %8, 0
+  %9 = load i64, ptr %timeout, align 8
+  %cmp49.not = icmp eq i64 %9, 0
   br i1 %cmp49.not, label %if.end60, label %if.then51
 
 if.then51:                                        ; preds = %if.end48
@@ -134,22 +134,22 @@ if.then51:                                        ; preds = %if.end48
   br i1 %tobool53.not, label %err.sink.split, label %lor.lhs.false54
 
 lor.lhs.false54:                                  ; preds = %if.then51
-  %9 = load i64, ptr %timeout, align 8
-  %call56 = call i32 @CBB_add_asn1_uint64(ptr noundef nonnull %child, i64 noundef %9) #6
+  %10 = load i64, ptr %timeout, align 8
+  %call56 = call i32 @CBB_add_asn1_uint64(ptr noundef nonnull %child, i64 noundef %10) #6
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %err.sink.split, label %if.end60
 
 if.end60:                                         ; preds = %lor.lhs.false54, %if.end48
   %peer = getelementptr inbounds i8, ptr %in, i64 144
-  %10 = load ptr, ptr %peer, align 8
-  %tobool61.not = icmp eq ptr %10, null
+  %11 = load ptr, ptr %peer, align 8
+  %tobool61.not = icmp eq ptr %11, null
   br i1 %tobool61.not, label %if.end73, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end60
   %peer_sha256_valid = getelementptr inbounds i8, ptr %in, i64 376
   %bf.load = load i8, ptr %peer_sha256_valid, align 8
-  %11 = and i8 %bf.load, 2
-  %tobool62.not = icmp eq i8 %11, 0
+  %12 = and i8 %bf.load, 2
+  %tobool62.not = icmp eq i8 %12, 0
   br i1 %tobool62.not, label %if.then63, label %if.end73
 
 if.then63:                                        ; preds = %land.lhs.true
@@ -158,8 +158,8 @@ if.then63:                                        ; preds = %land.lhs.true
   br i1 %tobool65.not, label %err.sink.split, label %if.end67
 
 if.end67:                                         ; preds = %if.then63
-  %12 = load ptr, ptr %peer, align 8
-  %call69 = call fastcc i32 @add_X509(ptr noundef nonnull %child, ptr noundef %12)
+  %13 = load ptr, ptr %peer, align 8
+  %call69 = call fastcc i32 @add_X509(ptr noundef nonnull %child, ptr noundef %13)
   %tobool70.not = icmp eq i32 %call69, 0
   br i1 %tobool70.not, label %err, label %if.end73
 
@@ -176,16 +176,16 @@ lor.lhs.false76:                                  ; preds = %if.end73
 lor.lhs.false79:                                  ; preds = %lor.lhs.false76
   %sid_ctx = getelementptr inbounds i8, ptr %in, i64 104
   %sid_ctx_length = getelementptr inbounds i8, ptr %in, i64 100
-  %13 = load i32, ptr %sid_ctx_length, align 4
-  %conv81 = zext i32 %13 to i64
+  %14 = load i32, ptr %sid_ctx_length, align 4
+  %conv81 = zext i32 %14 to i64
   %call82 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef nonnull %sid_ctx, i64 noundef %conv81) #6
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %err.sink.split, label %if.end85
 
 if.end85:                                         ; preds = %lor.lhs.false79
   %verify_result = getelementptr inbounds i8, ptr %in, i64 160
-  %14 = load i64, ptr %verify_result, align 8
-  %cmp86.not = icmp eq i64 %14, 0
+  %15 = load i64, ptr %verify_result, align 8
+  %cmp86.not = icmp eq i64 %15, 0
   br i1 %cmp86.not, label %if.end97, label %if.then88
 
 if.then88:                                        ; preds = %if.end85
@@ -194,15 +194,15 @@ if.then88:                                        ; preds = %if.end85
   br i1 %tobool90.not, label %err.sink.split, label %lor.lhs.false91
 
 lor.lhs.false91:                                  ; preds = %if.then88
-  %15 = load i64, ptr %verify_result, align 8
-  %call93 = call i32 @CBB_add_asn1_uint64(ptr noundef nonnull %child, i64 noundef %15) #6
+  %16 = load i64, ptr %verify_result, align 8
+  %call93 = call i32 @CBB_add_asn1_uint64(ptr noundef nonnull %child, i64 noundef %16) #6
   %tobool94.not = icmp eq i32 %call93, 0
   br i1 %tobool94.not, label %err.sink.split, label %if.end97
 
 if.end97:                                         ; preds = %lor.lhs.false91, %if.end85
   %tlsext_hostname = getelementptr inbounds i8, ptr %in, i64 216
-  %16 = load ptr, ptr %tlsext_hostname, align 8
-  %tobool98.not = icmp eq ptr %16, null
+  %17 = load ptr, ptr %tlsext_hostname, align 8
+  %tobool98.not = icmp eq ptr %17, null
   br i1 %tobool98.not, label %if.end113, label %if.then99
 
 if.then99:                                        ; preds = %if.end97
@@ -216,16 +216,16 @@ lor.lhs.false102:                                 ; preds = %if.then99
   br i1 %tobool104.not, label %err.sink.split, label %lor.lhs.false105
 
 lor.lhs.false105:                                 ; preds = %lor.lhs.false102
-  %17 = load ptr, ptr %tlsext_hostname, align 8
-  %call108 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #7
-  %call109 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef %17, i64 noundef %call108) #6
+  %18 = load ptr, ptr %tlsext_hostname, align 8
+  %call108 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
+  %call109 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef %18, i64 noundef %call108) #6
   %tobool110.not = icmp eq i32 %call109, 0
   br i1 %tobool110.not, label %err.sink.split, label %if.end113
 
 if.end113:                                        ; preds = %lor.lhs.false105, %if.end97
   %psk_identity = getelementptr inbounds i8, ptr %in, i64 136
-  %18 = load ptr, ptr %psk_identity, align 8
-  %tobool114.not = icmp eq ptr %18, null
+  %19 = load ptr, ptr %psk_identity, align 8
+  %tobool114.not = icmp eq ptr %19, null
   br i1 %tobool114.not, label %if.end129, label %if.then115
 
 if.then115:                                       ; preds = %if.end113
@@ -239,16 +239,16 @@ lor.lhs.false118:                                 ; preds = %if.then115
   br i1 %tobool120.not, label %err.sink.split, label %lor.lhs.false121
 
 lor.lhs.false121:                                 ; preds = %lor.lhs.false118
-  %19 = load ptr, ptr %psk_identity, align 8
-  %call124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #7
-  %call125 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef %19, i64 noundef %call124) #6
+  %20 = load ptr, ptr %psk_identity, align 8
+  %call124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #7
+  %call125 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef %20, i64 noundef %call124) #6
   %tobool126.not = icmp eq i32 %call125, 0
   br i1 %tobool126.not, label %err.sink.split, label %if.end129
 
 if.end129:                                        ; preds = %lor.lhs.false121, %if.end113
   %tlsext_tick_lifetime_hint = getelementptr inbounds i8, ptr %in, i64 372
-  %20 = load i32, ptr %tlsext_tick_lifetime_hint, align 4
-  %cmp130.not = icmp eq i32 %20, 0
+  %21 = load i32, ptr %tlsext_tick_lifetime_hint, align 4
+  %cmp130.not = icmp eq i32 %21, 0
   br i1 %cmp130.not, label %if.end142, label %if.then132
 
 if.then132:                                       ; preds = %if.end129
@@ -257,16 +257,16 @@ if.then132:                                       ; preds = %if.end129
   br i1 %tobool134.not, label %err.sink.split, label %lor.lhs.false135
 
 lor.lhs.false135:                                 ; preds = %if.then132
-  %21 = load i32, ptr %tlsext_tick_lifetime_hint, align 4
-  %conv137 = zext i32 %21 to i64
+  %22 = load i32, ptr %tlsext_tick_lifetime_hint, align 4
+  %conv137 = zext i32 %22 to i64
   %call138 = call i32 @CBB_add_asn1_uint64(ptr noundef nonnull %child, i64 noundef %conv137) #6
   %tobool139.not = icmp eq i32 %call138, 0
   br i1 %tobool139.not, label %err.sink.split, label %if.end142
 
 if.end142:                                        ; preds = %lor.lhs.false135, %if.end129
   %tlsext_tick = getelementptr inbounds i8, ptr %in, i64 224
-  %22 = load ptr, ptr %tlsext_tick, align 8
-  %tobool143 = icmp eq ptr %22, null
+  %23 = load ptr, ptr %tlsext_tick, align 8
+  %tobool143 = icmp eq ptr %23, null
   %or.cond = or i1 %tobool23, %tobool143
   br i1 %or.cond, label %if.end158, label %if.then146
 
@@ -281,18 +281,18 @@ lor.lhs.false149:                                 ; preds = %if.then146
   br i1 %tobool151.not, label %err.sink.split, label %lor.lhs.false152
 
 lor.lhs.false152:                                 ; preds = %lor.lhs.false149
-  %23 = load ptr, ptr %tlsext_tick, align 8
+  %24 = load ptr, ptr %tlsext_tick, align 8
   %tlsext_ticklen = getelementptr inbounds i8, ptr %in, i64 232
-  %24 = load i64, ptr %tlsext_ticklen, align 8
-  %call154 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef %23, i64 noundef %24) #6
+  %25 = load i64, ptr %tlsext_ticklen, align 8
+  %call154 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef %24, i64 noundef %25) #6
   %tobool155.not = icmp eq i32 %call154, 0
   br i1 %tobool155.not, label %err.sink.split, label %if.end158
 
 if.end158:                                        ; preds = %lor.lhs.false152, %if.end142
   %peer_sha256_valid159 = getelementptr inbounds i8, ptr %in, i64 376
   %bf.load160 = load i8, ptr %peer_sha256_valid159, align 8
-  %25 = and i8 %bf.load160, 2
-  %tobool164.not = icmp eq i8 %25, 0
+  %26 = and i8 %bf.load160, 2
+  %tobool164.not = icmp eq i8 %26, 0
   br i1 %tobool164.not, label %if.end177, label %if.then165
 
 if.then165:                                       ; preds = %if.end158
@@ -313,8 +313,8 @@ lor.lhs.false171:                                 ; preds = %lor.lhs.false168
 
 if.end177:                                        ; preds = %lor.lhs.false171, %if.end158
   %original_handshake_hash_len = getelementptr inbounds i8, ptr %in, i64 368
-  %26 = load i32, ptr %original_handshake_hash_len, align 8
-  %cmp178.not = icmp eq i32 %26, 0
+  %27 = load i32, ptr %original_handshake_hash_len, align 8
+  %cmp178.not = icmp eq i32 %27, 0
   br i1 %cmp178.not, label %if.end194, label %if.then180
 
 if.then180:                                       ; preds = %if.end177
@@ -329,16 +329,16 @@ lor.lhs.false183:                                 ; preds = %if.then180
 
 lor.lhs.false186:                                 ; preds = %lor.lhs.false183
   %original_handshake_hash = getelementptr inbounds i8, ptr %in, i64 304
-  %27 = load i32, ptr %original_handshake_hash_len, align 8
-  %conv189 = zext i32 %27 to i64
+  %28 = load i32, ptr %original_handshake_hash_len, align 8
+  %conv189 = zext i32 %28 to i64
   %call190 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef nonnull %original_handshake_hash, i64 noundef %conv189) #6
   %tobool191.not = icmp eq i32 %call190, 0
   br i1 %tobool191.not, label %err.sink.split, label %if.end194
 
 if.end194:                                        ; preds = %lor.lhs.false186, %if.end177
   %tlsext_signed_cert_timestamp_list_length = getelementptr inbounds i8, ptr %in, i64 240
-  %28 = load i64, ptr %tlsext_signed_cert_timestamp_list_length, align 8
-  %cmp195.not = icmp eq i64 %28, 0
+  %29 = load i64, ptr %tlsext_signed_cert_timestamp_list_length, align 8
+  %cmp195.not = icmp eq i64 %29, 0
   br i1 %cmp195.not, label %if.end209, label %if.then197
 
 if.then197:                                       ; preds = %if.end194
@@ -353,16 +353,16 @@ lor.lhs.false200:                                 ; preds = %if.then197
 
 lor.lhs.false203:                                 ; preds = %lor.lhs.false200
   %tlsext_signed_cert_timestamp_list = getelementptr inbounds i8, ptr %in, i64 248
-  %29 = load ptr, ptr %tlsext_signed_cert_timestamp_list, align 8
-  %30 = load i64, ptr %tlsext_signed_cert_timestamp_list_length, align 8
-  %call205 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef %29, i64 noundef %30) #6
+  %30 = load ptr, ptr %tlsext_signed_cert_timestamp_list, align 8
+  %31 = load i64, ptr %tlsext_signed_cert_timestamp_list_length, align 8
+  %call205 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef %30, i64 noundef %31) #6
   %tobool206.not = icmp eq i32 %call205, 0
   br i1 %tobool206.not, label %err.sink.split, label %if.end209
 
 if.end209:                                        ; preds = %lor.lhs.false203, %if.end194
   %ocsp_response_length = getelementptr inbounds i8, ptr %in, i64 256
-  %31 = load i64, ptr %ocsp_response_length, align 8
-  %cmp210.not = icmp eq i64 %31, 0
+  %32 = load i64, ptr %ocsp_response_length, align 8
+  %cmp210.not = icmp eq i64 %32, 0
   br i1 %cmp210.not, label %if.end224, label %if.then212
 
 if.then212:                                       ; preds = %if.end209
@@ -377,9 +377,9 @@ lor.lhs.false215:                                 ; preds = %if.then212
 
 lor.lhs.false218:                                 ; preds = %lor.lhs.false215
   %ocsp_response = getelementptr inbounds i8, ptr %in, i64 264
-  %32 = load ptr, ptr %ocsp_response, align 8
-  %33 = load i64, ptr %ocsp_response_length, align 8
-  %call220 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef %32, i64 noundef %33) #6
+  %33 = load ptr, ptr %ocsp_response, align 8
+  %34 = load i64, ptr %ocsp_response_length, align 8
+  %call220 = call i32 @CBB_add_bytes(ptr noundef nonnull %child2, ptr noundef %33, i64 noundef %34) #6
   %tobool221.not = icmp eq i32 %call220, 0
   br i1 %tobool221.not, label %err.sink.split, label %if.end224
 
@@ -406,8 +406,8 @@ lor.lhs.false235:                                 ; preds = %lor.lhs.false232
 
 if.end240:                                        ; preds = %lor.lhs.false235, %if.end224
   %key_exchange_info = getelementptr inbounds i8, ptr %in, i64 8
-  %34 = load i32, ptr %key_exchange_info, align 8
-  %cmp241.not = icmp eq i32 %34, 0
+  %35 = load i32, ptr %key_exchange_info, align 8
+  %cmp241.not = icmp eq i32 %35, 0
   br i1 %cmp241.not, label %if.end252, label %land.lhs.true243
 
 land.lhs.true243:                                 ; preds = %if.end240
@@ -416,22 +416,22 @@ land.lhs.true243:                                 ; preds = %if.end240
   br i1 %tobool245.not, label %err.sink.split, label %lor.lhs.false246
 
 lor.lhs.false246:                                 ; preds = %land.lhs.true243
-  %35 = load i32, ptr %key_exchange_info, align 8
-  %conv248 = zext i32 %35 to i64
+  %36 = load i32, ptr %key_exchange_info, align 8
+  %conv248 = zext i32 %36 to i64
   %call249 = call i32 @CBB_add_asn1_uint64(ptr noundef nonnull %child, i64 noundef %conv248) #6
   %tobool250.not = icmp eq i32 %call249, 0
   br i1 %tobool250.not, label %err.sink.split, label %if.end252
 
 if.end252:                                        ; preds = %lor.lhs.false246, %if.end240
   %cert_chain = getelementptr inbounds i8, ptr %in, i64 152
-  %36 = load ptr, ptr %cert_chain, align 8
-  %cmp253.not = icmp eq ptr %36, null
+  %37 = load ptr, ptr %cert_chain, align 8
+  %cmp253.not = icmp eq ptr %37, null
   br i1 %cmp253.not, label %if.end277, label %land.lhs.true255
 
 land.lhs.true255:                                 ; preds = %if.end252
   %bf.load257 = load i8, ptr %peer_sha256_valid159, align 8
-  %37 = and i8 %bf.load257, 2
-  %tobool261.not = icmp eq i8 %37, 0
+  %38 = and i8 %bf.load257, 2
+  %tobool261.not = icmp eq i8 %38, 0
   br i1 %tobool261.not, label %if.then262, label %if.end277
 
 if.then262:                                       ; preds = %land.lhs.true255
@@ -440,22 +440,22 @@ if.then262:                                       ; preds = %land.lhs.true255
   br i1 %tobool264.not, label %err.sink.split, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then262
-  %38 = load ptr, ptr %cert_chain, align 8
-  %call26851 = call i64 @sk_num(ptr noundef %38) #6
+  %39 = load ptr, ptr %cert_chain, align 8
+  %call26851 = call i64 @sk_num(ptr noundef %39) #6
   %cmp26952.not = icmp eq i64 %call26851, 0
   br i1 %cmp26952.not, label %if.end277, label %for.body
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.053, 1
-  %39 = load ptr, ptr %cert_chain, align 8
-  %call268 = call i64 @sk_num(ptr noundef %39) #6
+  %40 = load ptr, ptr %cert_chain, align 8
+  %call268 = call i64 @sk_num(ptr noundef %40) #6
   %cmp269 = icmp ult i64 %inc, %call268
   br i1 %cmp269, label %for.body, label %if.end277, !llvm.loop !7
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.053 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %40 = load ptr, ptr %cert_chain, align 8
-  %call272 = call ptr @sk_value(ptr noundef %40, i64 noundef %i.053) #6
+  %41 = load ptr, ptr %cert_chain, align 8
+  %call272 = call ptr @sk_value(ptr noundef %41, i64 noundef %i.053) #6
   %call273 = call fastcc i32 @add_X509(ptr noundef nonnull %child, ptr noundef %call272)
   %tobool274.not = icmp eq i32 %call273, 0
   br i1 %tobool274.not, label %err, label %for.cond

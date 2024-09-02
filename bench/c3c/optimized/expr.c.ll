@@ -477,8 +477,8 @@ tailrecurse.backedge:                             ; preds = %.critedge, %29
   %21 = getelementptr inbounds %struct.Expr_, ptr %19, i64 %20
   br label %tailrecurse.backedge279
 
-tailrecurse.backedge279:                          ; preds = %tailrecurse.backedge, %.thread99, %126, %6, %22, %45, %59, %71, %77, %.thread, %148, %150
-  %.066.be = phi ptr [ %21, %tailrecurse.backedge ], [ %151, %150 ], [ %149, %148 ], [ %109, %.thread ], [ %79, %77 ], [ %76, %71 ], [ %61, %59 ], [ %47, %45 ], [ %24, %22 ], [ %8, %6 ], [ %121, %126 ], [ %121, %.thread99 ]
+tailrecurse.backedge279:                          ; preds = %tailrecurse.backedge, %.critedge89, %126, %6, %22, %45, %59, %71, %77, %.critedge87, %148, %150
+  %.066.be = phi ptr [ %21, %tailrecurse.backedge ], [ %151, %150 ], [ %149, %148 ], [ %109, %.critedge87 ], [ %79, %77 ], [ %76, %71 ], [ %61, %59 ], [ %47, %45 ], [ %24, %22 ], [ %8, %6 ], [ %121, %126 ], [ %121, %.critedge89 ]
   br label %tailrecurse
 
 22:                                               ; preds = %tailrecurse, %tailrecurse
@@ -517,22 +517,22 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
 39:                                               ; preds = %36
   %40 = getelementptr inbounds i8, ptr %38, i64 -8
   %41 = load i32, ptr %40, align 4
-  %.not104150.not = icmp eq i32 %41, 0
-  br i1 %.not104150.not, label %expr_list_is_constant_eval.exit, label %.lr.ph152.preheader
+  %.not105151.not = icmp eq i32 %41, 0
+  br i1 %.not105151.not, label %expr_list_is_constant_eval.exit, label %.lr.ph153.preheader
 
-.lr.ph152.preheader:                              ; preds = %39
-  %wide.trip.count195 = zext i32 %41 to i64
-  br label %.lr.ph152
+.lr.ph153.preheader:                              ; preds = %39
+  %wide.trip.count196 = zext i32 %41 to i64
+  br label %.lr.ph153
 
-.lr.ph152:                                        ; preds = %.lr.ph152, %.lr.ph152.preheader
-  %indvars.iv192 = phi i64 [ 0, %.lr.ph152.preheader ], [ %indvars.iv.next193, %.lr.ph152 ]
-  %42 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv192
+.lr.ph153:                                        ; preds = %.lr.ph153, %.lr.ph153.preheader
+  %indvars.iv193 = phi i64 [ 0, %.lr.ph153.preheader ], [ %indvars.iv.next194, %.lr.ph153 ]
+  %42 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv193
   %43 = load ptr, ptr %42, align 8
   %44 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %43, i32 noundef %1)
-  %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %exitcond196.not = icmp ne i64 %indvars.iv.next193, %wide.trip.count195
-  %or.cond265.not = select i1 %44, i1 %exitcond196.not, i1 false
-  br i1 %or.cond265.not, label %.lr.ph152, label %expr_list_is_constant_eval.exit, !llvm.loop !9
+  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
+  %exitcond197.not = icmp ne i64 %indvars.iv.next194, %wide.trip.count196
+  %or.cond265.not = select i1 %44, i1 %exitcond197.not, i1 false
+  br i1 %or.cond265.not, label %.lr.ph153, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 45:                                               ; preds = %tailrecurse
   %46 = getelementptr inbounds i8, ptr %.066, i64 32
@@ -573,28 +573,28 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
 62:                                               ; preds = %tailrecurse
   %63 = getelementptr inbounds i8, ptr %.066, i64 24
   %64 = load ptr, ptr %63, align 8
-  %.not.i86 = icmp eq ptr %64, null
-  br i1 %.not.i86, label %expr_list_is_constant_eval.exit, label %65
+  %.not.i90 = icmp eq ptr %64, null
+  br i1 %.not.i90, label %expr_list_is_constant_eval.exit, label %65
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds i8, ptr %64, i64 -8
   %67 = load i32, ptr %66, align 4
-  %.not103144.not = icmp eq i32 %67, 0
-  br i1 %.not103144.not, label %expr_list_is_constant_eval.exit, label %.lr.ph146.preheader
+  %.not104145.not = icmp eq i32 %67, 0
+  br i1 %.not104145.not, label %expr_list_is_constant_eval.exit, label %.lr.ph147.preheader
 
-.lr.ph146.preheader:                              ; preds = %65
-  %wide.trip.count190 = zext i32 %67 to i64
-  br label %.lr.ph146
+.lr.ph147.preheader:                              ; preds = %65
+  %wide.trip.count191 = zext i32 %67 to i64
+  br label %.lr.ph147
 
-.lr.ph146:                                        ; preds = %.lr.ph146, %.lr.ph146.preheader
-  %indvars.iv187 = phi i64 [ 0, %.lr.ph146.preheader ], [ %indvars.iv.next188, %.lr.ph146 ]
-  %68 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv187
+.lr.ph147:                                        ; preds = %.lr.ph147, %.lr.ph147.preheader
+  %indvars.iv188 = phi i64 [ 0, %.lr.ph147.preheader ], [ %indvars.iv.next189, %.lr.ph147 ]
+  %68 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv188
   %69 = load ptr, ptr %68, align 8
   %70 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %69, i32 noundef %1)
-  %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
-  %exitcond191.not = icmp ne i64 %indvars.iv.next188, %wide.trip.count190
-  %or.cond267.not = select i1 %70, i1 %exitcond191.not, i1 false
-  br i1 %or.cond267.not, label %.lr.ph146, label %expr_list_is_constant_eval.exit, !llvm.loop !9
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %exitcond192.not = icmp ne i64 %indvars.iv.next189, %wide.trip.count191
+  %or.cond267.not = select i1 %70, i1 %exitcond192.not, i1 false
+  br i1 %or.cond267.not, label %.lr.ph147, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 71:                                               ; preds = %tailrecurse
   %72 = getelementptr inbounds i8, ptr %.066, i64 24
@@ -612,40 +612,40 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
 80:                                               ; preds = %tailrecurse
   %81 = getelementptr inbounds i8, ptr %.066, i64 24
   %82 = load ptr, ptr %81, align 8
-  %.not.i90 = icmp eq ptr %82, null
-  br i1 %.not.i90, label %expr_list_is_constant_eval.exit, label %83
+  %.not.i94 = icmp eq ptr %82, null
+  br i1 %.not.i94, label %expr_list_is_constant_eval.exit, label %83
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds i8, ptr %82, i64 -8
   %85 = load i32, ptr %84, align 4
-  %.not102138.not = icmp eq i32 %85, 0
-  br i1 %.not102138.not, label %expr_list_is_constant_eval.exit, label %.lr.ph140.preheader
+  %.not103139.not = icmp eq i32 %85, 0
+  br i1 %.not103139.not, label %expr_list_is_constant_eval.exit, label %.lr.ph141.preheader
 
-.lr.ph140.preheader:                              ; preds = %83
-  %wide.trip.count185 = zext i32 %85 to i64
-  br label %.lr.ph140
+.lr.ph141.preheader:                              ; preds = %83
+  %wide.trip.count186 = zext i32 %85 to i64
+  br label %.lr.ph141
 
-.lr.ph140:                                        ; preds = %.lr.ph140, %.lr.ph140.preheader
-  %indvars.iv182 = phi i64 [ 0, %.lr.ph140.preheader ], [ %indvars.iv.next183, %.lr.ph140 ]
-  %86 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv182
+.lr.ph141:                                        ; preds = %.lr.ph141, %.lr.ph141.preheader
+  %indvars.iv183 = phi i64 [ 0, %.lr.ph141.preheader ], [ %indvars.iv.next184, %.lr.ph141 ]
+  %86 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv183
   %87 = load ptr, ptr %86, align 8
   %88 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef %87, i32 noundef %1)
-  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %exitcond186.not = icmp ne i64 %indvars.iv.next183, %wide.trip.count185
-  %or.cond269.not = select i1 %88, i1 %exitcond186.not, i1 false
-  br i1 %or.cond269.not, label %.lr.ph140, label %expr_list_is_constant_eval.exit, !llvm.loop !9
+  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
+  %exitcond187.not = icmp ne i64 %indvars.iv.next184, %wide.trip.count186
+  %or.cond269.not = select i1 %88, i1 %exitcond187.not, i1 false
+  br i1 %or.cond269.not, label %.lr.ph141, label %expr_list_is_constant_eval.exit, !llvm.loop !9
 
 89:                                               ; preds = %tailrecurse
   %90 = getelementptr inbounds i8, ptr %.066, i64 24
   %91 = load ptr, ptr %90, align 8
-  %.not.i94 = icmp eq ptr %91, null
-  br i1 %.not.i94, label %expr_list_is_constant_eval.exit, label %92
+  %.not.i98 = icmp eq ptr %91, null
+  br i1 %.not.i98, label %expr_list_is_constant_eval.exit, label %92
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds i8, ptr %91, i64 -8
   %94 = load i32, ptr %93, align 4
-  %.not101134.not = icmp eq i32 %94, 0
-  br i1 %.not101134.not, label %expr_list_is_constant_eval.exit, label %.lr.ph.preheader
+  %.not102135.not = icmp eq i32 %94, 0
+  br i1 %.not102135.not, label %expr_list_is_constant_eval.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %92
   %wide.trip.count = zext i32 %94 to i64
@@ -666,21 +666,21 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   %100 = getelementptr inbounds i8, ptr %.066, i64 32
   %101 = load i32, ptr %100, align 4
   %.not75 = icmp eq i32 %101, 0
-  %.pre199 = load ptr, ptr @expr_arena, align 8
-  br i1 %.not75, label %.thread, label %102
+  %.pre200 = load ptr, ptr @expr_arena, align 8
+  br i1 %.not75, label %.critedge87, label %102
 
 102:                                              ; preds = %98
   %103 = zext i32 %101 to i64
-  %104 = getelementptr inbounds %struct.Expr_, ptr %.pre199, i64 %103
+  %104 = getelementptr inbounds %struct.Expr_, ptr %.pre200, i64 %103
   %105 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %104, i32 noundef %1)
-  br i1 %105, label %..thread_crit_edge, label %expr_list_is_constant_eval.exit.loopexit278
+  br i1 %105, label %..critedge87_crit_edge, label %expr_list_is_constant_eval.exit.loopexit278
 
-..thread_crit_edge:                               ; preds = %102
-  %.pre198 = load ptr, ptr @expr_arena, align 8
-  br label %.thread
+..critedge87_crit_edge:                           ; preds = %102
+  %.pre199 = load ptr, ptr @expr_arena, align 8
+  br label %.critedge87
 
-.thread:                                          ; preds = %..thread_crit_edge, %98
-  %106 = phi ptr [ %.pre198, %..thread_crit_edge ], [ %.pre199, %98 ]
+.critedge87:                                      ; preds = %..critedge87_crit_edge, %98
+  %106 = phi ptr [ %.pre199, %..critedge87_crit_edge ], [ %.pre200, %98 ]
   %107 = load i32, ptr %99, align 8
   %108 = zext i32 %107 to i64
   %109 = getelementptr inbounds %struct.Expr_, ptr %106, i64 %108
@@ -691,21 +691,21 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   %112 = getelementptr inbounds i8, ptr %.066, i64 32
   %113 = load i32, ptr %112, align 4
   %.not = icmp eq i32 %113, 0
-  %.pre197 = load ptr, ptr @expr_arena, align 8
-  br i1 %.not, label %.thread99, label %114
+  %.pre198 = load ptr, ptr @expr_arena, align 8
+  br i1 %.not, label %.critedge89, label %114
 
 114:                                              ; preds = %110
   %115 = zext i32 %113 to i64
-  %116 = getelementptr inbounds %struct.Expr_, ptr %.pre197, i64 %115
+  %116 = getelementptr inbounds %struct.Expr_, ptr %.pre198, i64 %115
   %117 = tail call zeroext i1 @expr_is_constant_eval(ptr noundef nonnull %116, i32 noundef %1)
-  br i1 %117, label %..thread99_crit_edge, label %expr_list_is_constant_eval.exit.loopexit278
+  br i1 %117, label %..critedge89_crit_edge, label %expr_list_is_constant_eval.exit.loopexit278
 
-..thread99_crit_edge:                             ; preds = %114
+..critedge89_crit_edge:                           ; preds = %114
   %.pre = load ptr, ptr @expr_arena, align 8
-  br label %.thread99
+  br label %.critedge89
 
-.thread99:                                        ; preds = %..thread99_crit_edge, %110
-  %118 = phi ptr [ %.pre, %..thread99_crit_edge ], [ %.pre197, %110 ]
+.critedge89:                                      ; preds = %..critedge89_crit_edge, %110
+  %118 = phi ptr [ %.pre, %..critedge89_crit_edge ], [ %.pre198, %110 ]
   %119 = load i32, ptr %111, align 8
   %120 = zext i32 %119 to i64
   %121 = getelementptr inbounds %struct.Expr_, ptr %118, i64 %120
@@ -715,7 +715,7 @@ tailrecurse.backedge279:                          ; preds = %tailrecurse.backedg
   %125 = icmp eq i16 %124, 34
   br i1 %125, label %126, label %tailrecurse.backedge279
 
-126:                                              ; preds = %.thread99
+126:                                              ; preds = %.critedge89
   %127 = getelementptr inbounds i8, ptr %121, i64 24
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 24
@@ -794,8 +794,8 @@ expr_list_is_constant_eval.exit.loopexit278:      ; preds = %48, %57, %54, %54, 
   %.0.ph = phi i1 [ true, %29 ], [ false, %25 ], [ true, %.critedge ], [ false, %12 ], [ false, %tailrecurse ], [ false, %141 ], [ false, %141 ], [ false, %147 ], [ false, %141 ], [ false, %141 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %114 ], [ false, %102 ], [ false, %tailrecurse ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ false, %57 ], [ true, %48 ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ], [ false, %tailrecurse ]
   br label %expr_list_is_constant_eval.exit
 
-expr_list_is_constant_eval.exit:                  ; preds = %.lr.ph, %.lr.ph140, %.lr.ph146, %.lr.ph152, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %54, %expr_list_is_constant_eval.exit.loopexit278, %89, %80, %62, %36, %92, %83, %65, %39, %133, %136, %145, %139, %138, %34, %32
-  %.0 = phi i1 [ %146, %145 ], [ %140, %139 ], [ true, %138 ], [ %35, %34 ], [ %33, %32 ], [ false, %136 ], [ false, %133 ], [ true, %39 ], [ true, %65 ], [ true, %83 ], [ true, %92 ], [ true, %36 ], [ true, %62 ], [ true, %80 ], [ true, %89 ], [ %.0.ph, %expr_list_is_constant_eval.exit.loopexit278 ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ false, %54 ], [ true, %tailrecurse ], [ %44, %.lr.ph152 ], [ %70, %.lr.ph146 ], [ %88, %.lr.ph140 ], [ %97, %.lr.ph ]
+expr_list_is_constant_eval.exit:                  ; preds = %.lr.ph, %.lr.ph141, %.lr.ph147, %.lr.ph153, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %54, %expr_list_is_constant_eval.exit.loopexit278, %89, %80, %62, %36, %92, %83, %65, %39, %133, %136, %145, %139, %138, %34, %32
+  %.0 = phi i1 [ %146, %145 ], [ %140, %139 ], [ true, %138 ], [ %35, %34 ], [ %33, %32 ], [ false, %136 ], [ false, %133 ], [ true, %39 ], [ true, %65 ], [ true, %83 ], [ true, %92 ], [ true, %36 ], [ true, %62 ], [ true, %80 ], [ true, %89 ], [ %.0.ph, %expr_list_is_constant_eval.exit.loopexit278 ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ false, %54 ], [ true, %tailrecurse ], [ %44, %.lr.ph153 ], [ %70, %.lr.ph147 ], [ %88, %.lr.ph141 ], [ %97, %.lr.ph ]
   ret i1 %.0
 }
 

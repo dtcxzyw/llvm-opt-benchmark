@@ -292,17 +292,20 @@ define void @saucy_search(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   %25 = add nsw i32 %.val74.i, %.0652.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %5
-  %.065.lcssa.i = phi i32 [ 0, %5 ], [ %25, %.lr.ph.i ]
-  %26 = add nsw i32 %20, 1
+._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
+  %26 = shl nsw i32 %25, 1
   %27 = sext i32 %26 to i64
-  %28 = tail call noalias noundef ptr @calloc(i64 noundef %27, i64 noundef 4) #25
-  %29 = shl nsw i32 %.065.lcssa.i, 1
+  %28 = shl nsw i64 %27, 2
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %5
+  %.065.lcssa.i = phi i64 [ 0, %5 ], [ %28, %._crit_edge.i.loopexit ]
+  %29 = add nsw i32 %20, 1
   %30 = sext i32 %29 to i64
-  %31 = shl nsw i64 %30, 2
-  %32 = tail call noalias noundef ptr @malloc(i64 noundef %31) #26
+  %31 = tail call noalias noundef ptr @calloc(i64 noundef %30, i64 noundef 4) #25
+  %32 = tail call noalias noundef ptr @malloc(i64 noundef %.065.lcssa.i) #26
   %33 = icmp sgt i32 %20, 0
   br i1 %33, label %.lr.ph14.preheader.i, label %buildDepGraph.exit
 
@@ -314,7 +317,7 @@ define void @saucy_search(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
 .lr.ph14.i:                                       ; preds = %.loopexit.i, %.lr.ph14.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph14.preheader.i ], [ %indvars.iv.next33.i, %.loopexit.i ]
   %35 = icmp slt i64 %indvars.iv32.i, %34
-  %36 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv32.i
+  %36 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv32.i
   %37 = load i32, ptr %36, align 4
   br i1 %35, label %38, label %54
 
@@ -388,7 +391,7 @@ define void @saucy_search(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
 buildDepGraph.exit:                               ; preds = %.loopexit.i, %._crit_edge.i
   store i32 %20, ptr %1, align 8
   %70 = getelementptr inbounds i8, ptr %1, i64 528
-  store ptr %28, ptr %70, align 8
+  store ptr %31, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %1, i64 536
   store ptr %32, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %1, i64 504
@@ -504,10 +507,10 @@ buildDepGraph.exit:                               ; preds = %.loopexit.i, %._cri
   br label %._crit_edge333
 
 ._crit_edge:                                      ; preds = %111
-  %121 = getelementptr inbounds i8, ptr %1, i64 432
-  store i32 0, ptr %121, align 8
-  %122 = icmp sgt i32 %117, 0
-  br i1 %122, label %.lr.ph330, label %._crit_edge333
+  %121 = icmp sgt i32 %117, 0
+  %122 = getelementptr inbounds i8, ptr %1, i64 432
+  store i32 0, ptr %122, align 8
+  br i1 %121, label %.lr.ph330, label %._crit_edge333
 
 .lr.ph330:                                        ; preds = %._crit_edge
   %123 = getelementptr inbounds i8, ptr %1, i64 424
@@ -3656,8 +3659,8 @@ define internal noundef i32 @refineBySim1_left(ptr noundef %0, ptr noundef %1) #
   %23 = getelementptr inbounds i8, ptr %0, i64 536
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %141
-  %.05986 = phi i32 [ 0, %.preheader.lr.ph ], [ %142, %141 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %142
+  %.05986 = phi i32 [ 0, %.preheader.lr.ph ], [ %.160, %142 ]
   %24 = load ptr, ptr %3, align 8
   %25 = getelementptr i8, ptr %24, i64 48
   %.val67 = load ptr, ptr %25, align 8
@@ -3875,7 +3878,7 @@ add_induce.exit74:                                ; preds = %109, %113
   store ptr %129, ptr %14, align 8
   %130 = tail call fastcc range(i32 0, 2) i32 @refine(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %.pre = load ptr, ptr %39, align 8
-  br label %135
+  br label %136
 
 131:                                              ; preds = %._crit_edge
   %132 = getelementptr inbounds i8, ptr %34, i64 8
@@ -3889,35 +3892,35 @@ add_induce.exit74:                                ; preds = %109, %113
 
 Vec_IntFree.exit:                                 ; preds = %131, %134
   tail call void @free(ptr noundef nonnull %34) #24
-  br label %135
+  %135 = add nsw i32 %.05986, 1
+  br label %136
 
-135:                                              ; preds = %Vec_IntFree.exit, %._crit_edge85
-  %136 = phi ptr [ %.pre, %._crit_edge85 ], [ %40, %Vec_IntFree.exit ]
-  %.160 = phi i32 [ 0, %._crit_edge85 ], [ %.05986, %Vec_IntFree.exit ]
-  %.not64 = icmp eq ptr %136, null
-  br i1 %.not64, label %138, label %137
+136:                                              ; preds = %Vec_IntFree.exit, %._crit_edge85
+  %137 = phi ptr [ %.pre, %._crit_edge85 ], [ %40, %Vec_IntFree.exit ]
+  %.160 = phi i32 [ 1, %._crit_edge85 ], [ %135, %Vec_IntFree.exit ]
+  %.not64 = icmp eq ptr %137, null
+  br i1 %.not64, label %139, label %138
 
-137:                                              ; preds = %135
-  tail call void @free(ptr noundef nonnull %136) #24
-  br label %138
+138:                                              ; preds = %136
+  tail call void @free(ptr noundef nonnull %137) #24
+  br label %139
 
-138:                                              ; preds = %135, %137
-  %139 = load ptr, ptr %41, align 8
-  %.not65 = icmp eq ptr %139, null
-  br i1 %.not65, label %141, label %140
+139:                                              ; preds = %136, %138
+  %140 = load ptr, ptr %41, align 8
+  %.not65 = icmp eq ptr %140, null
+  br i1 %.not65, label %142, label %141
 
-140:                                              ; preds = %138
-  tail call void @free(ptr noundef nonnull %139) #24
-  br label %141
+141:                                              ; preds = %139
+  tail call void @free(ptr noundef nonnull %140) #24
+  br label %142
 
-141:                                              ; preds = %138, %140
+142:                                              ; preds = %139, %141
   tail call void @free(ptr noundef nonnull %38) #24
-  %142 = add nsw i32 %.160, 1
   %143 = load i32, ptr @NUM_SIM1_ITERATION, align 4
-  %144 = icmp slt i32 %142, %143
+  %144 = icmp slt i32 %.160, %143
   br i1 %144, label %.preheader, label %.critedge, !llvm.loop !65
 
-.critedge:                                        ; preds = %141, %.preheader, %29, %.preheader76
+.critedge:                                        ; preds = %142, %.preheader, %29, %.preheader76
   %145 = getelementptr inbounds i8, ptr %0, i64 584
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr i8, ptr %146, i64 4
@@ -3961,8 +3964,8 @@ define internal noundef i32 @refineBySim2_left(ptr noundef %0, ptr noundef %1) #
   %21 = getelementptr inbounds i8, ptr %0, i64 536
   br label %22
 
-22:                                               ; preds = %.lr.ph72, %133
-  %.05270 = phi i32 [ 0, %.lr.ph72 ], [ %134, %133 ]
+22:                                               ; preds = %.lr.ph72, %134
+  %.05270 = phi i32 [ 0, %.lr.ph72 ], [ %.153, %134 ]
   %23 = load ptr, ptr %5, align 8
   %24 = tail call fastcc ptr @assignRandomBitsToCells(ptr noundef %23, ptr noundef %1)
   %25 = load ptr, ptr %5, align 8
@@ -4157,7 +4160,7 @@ add_induce.exit64:                                ; preds = %101, %105
   store ptr %121, ptr %11, align 8
   %122 = tail call fastcc range(i32 0, 2) i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
   %.pre = load ptr, ptr %31, align 8
-  br label %127
+  br label %128
 
 123:                                              ; preds = %._crit_edge
   %124 = getelementptr inbounds i8, ptr %24, i64 8
@@ -4171,35 +4174,35 @@ add_induce.exit64:                                ; preds = %101, %105
 
 Vec_IntFree.exit:                                 ; preds = %123, %126
   tail call void @free(ptr noundef nonnull %24) #24
-  br label %127
+  %127 = add nsw i32 %.05270, 1
+  br label %128
 
-127:                                              ; preds = %Vec_IntFree.exit, %._crit_edge69
-  %128 = phi ptr [ %.pre, %._crit_edge69 ], [ %32, %Vec_IntFree.exit ]
-  %.153 = phi i32 [ 0, %._crit_edge69 ], [ %.05270, %Vec_IntFree.exit ]
-  %.not = icmp eq ptr %128, null
-  br i1 %.not, label %130, label %129
+128:                                              ; preds = %Vec_IntFree.exit, %._crit_edge69
+  %129 = phi ptr [ %.pre, %._crit_edge69 ], [ %32, %Vec_IntFree.exit ]
+  %.153 = phi i32 [ 1, %._crit_edge69 ], [ %127, %Vec_IntFree.exit ]
+  %.not = icmp eq ptr %129, null
+  br i1 %.not, label %131, label %130
 
-129:                                              ; preds = %127
-  tail call void @free(ptr noundef nonnull %128) #24
-  br label %130
+130:                                              ; preds = %128
+  tail call void @free(ptr noundef nonnull %129) #24
+  br label %131
 
-130:                                              ; preds = %127, %129
-  %131 = load ptr, ptr %33, align 8
-  %.not57 = icmp eq ptr %131, null
-  br i1 %.not57, label %133, label %132
+131:                                              ; preds = %128, %130
+  %132 = load ptr, ptr %33, align 8
+  %.not57 = icmp eq ptr %132, null
+  br i1 %.not57, label %134, label %133
 
-132:                                              ; preds = %130
-  tail call void @free(ptr noundef nonnull %131) #24
-  br label %133
+133:                                              ; preds = %131
+  tail call void @free(ptr noundef nonnull %132) #24
+  br label %134
 
-133:                                              ; preds = %130, %132
+134:                                              ; preds = %131, %133
   tail call void @free(ptr noundef nonnull %30) #24
-  %134 = add nsw i32 %.153, 1
   %135 = load i32, ptr @NUM_SIM2_ITERATION, align 4
-  %136 = icmp slt i32 %134, %135
+  %136 = icmp slt i32 %.153, %135
   br i1 %136, label %22, label %._crit_edge73, !llvm.loop !68
 
-._crit_edge73:                                    ; preds = %133, %2
+._crit_edge73:                                    ; preds = %134, %2
   %137 = getelementptr inbounds i8, ptr %0, i64 600
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr i8, ptr %138, i64 4
@@ -4614,7 +4617,7 @@ define internal range(i32 0, 2) i32 @refineBySim1_other(ptr noundef %0, ptr noun
   %28 = sext i32 %10 to i64
   br label %37
 
-29:                                               ; preds = %111
+29:                                               ; preds = %112
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %30 = load ptr, ptr %3, align 8
   %31 = load i32, ptr %5, align 8
@@ -4702,7 +4705,7 @@ add_induce.exit:                                  ; preds = %58, %62
   %79 = icmp eq i32 %78, %52
   %.not57 = icmp eq i32 %77, 0
   %.not = select i1 %79, i1 true, i1 %.not57
-  br i1 %.not, label %107, label %.preheader
+  br i1 %.not, label %108, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
   %80 = load i32, ptr %0, align 8
@@ -4760,32 +4763,32 @@ add_induce.exit66:                                ; preds = %85, %89
   %105 = load ptr, ptr %27, align 8
   store ptr %105, ptr %18, align 8
   %106 = tail call fastcc range(i32 0, 2) i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
-  br label %107
+  %107 = icmp eq i32 %106, 0
+  br label %108
 
-107:                                              ; preds = %._crit_edge70, %._crit_edge
-  %.051 = phi i32 [ %106, %._crit_edge70 ], [ 0, %._crit_edge ]
+108:                                              ; preds = %._crit_edge70, %._crit_edge
+  %.051 = phi i1 [ %107, %._crit_edge70 ], [ true, %._crit_edge ]
   %.not58 = icmp eq ptr %49, null
-  br i1 %.not58, label %109, label %108
+  br i1 %.not58, label %110, label %109
 
-108:                                              ; preds = %107
+109:                                              ; preds = %108
   tail call void @free(ptr noundef nonnull %49) #24
-  br label %109
+  br label %110
 
-109:                                              ; preds = %107, %108
+110:                                              ; preds = %108, %109
   %.not59 = icmp eq ptr %51, null
-  br i1 %.not59, label %111, label %110
+  br i1 %.not59, label %112, label %111
 
-110:                                              ; preds = %109
+111:                                              ; preds = %110
   tail call void @free(ptr noundef nonnull %51) #24
-  br label %111
+  br label %112
 
-111:                                              ; preds = %110, %109
+112:                                              ; preds = %111, %110
   tail call void @free(ptr noundef nonnull %45) #24
-  %.not60 = icmp eq i32 %.051, 0
-  br i1 %.not60, label %._crit_edge74, label %29
+  br i1 %.051, label %._crit_edge74, label %29
 
-._crit_edge74:                                    ; preds = %37, %111, %29, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %29 ], [ 0, %111 ], [ 0, %37 ]
+._crit_edge74:                                    ; preds = %37, %112, %29, %2
+  %.0 = phi i32 [ 1, %2 ], [ 1, %29 ], [ 0, %112 ], [ 0, %37 ]
   ret i32 %.0
 }
 
@@ -4824,7 +4827,7 @@ define internal range(i32 0, 2) i32 @refineBySim2_other(ptr noundef %0, ptr noun
   %30 = sext i32 %10 to i64
   br label %39
 
-31:                                               ; preds = %115
+31:                                               ; preds = %116
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %32 = load ptr, ptr %3, align 8
   %33 = load i32, ptr %5, align 8
@@ -4914,7 +4917,7 @@ add_induce.exit:                                  ; preds = %62, %66
   %83 = icmp eq i32 %82, %56
   %.not60 = icmp eq i32 %81, 0
   %.not = select i1 %83, i1 true, i1 %.not60
-  br i1 %.not, label %111, label %.preheader
+  br i1 %.not, label %112, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
   %84 = load i32, ptr %0, align 8
@@ -4972,32 +4975,32 @@ add_induce.exit69:                                ; preds = %89, %93
   %109 = load ptr, ptr %29, align 8
   store ptr %109, ptr %20, align 8
   %110 = tail call fastcc range(i32 0, 2) i32 @refine(ptr noundef nonnull %0, ptr noundef %1)
-  br label %111
+  %111 = icmp eq i32 %110, 0
+  br label %112
 
-111:                                              ; preds = %._crit_edge73, %._crit_edge
-  %.054 = phi i32 [ %110, %._crit_edge73 ], [ 0, %._crit_edge ]
+112:                                              ; preds = %._crit_edge73, %._crit_edge
+  %.054 = phi i1 [ %111, %._crit_edge73 ], [ true, %._crit_edge ]
   %.not61 = icmp eq ptr %53, null
-  br i1 %.not61, label %113, label %112
+  br i1 %.not61, label %114, label %113
 
-112:                                              ; preds = %111
+113:                                              ; preds = %112
   tail call void @free(ptr noundef nonnull %53) #24
-  br label %113
+  br label %114
 
-113:                                              ; preds = %111, %112
+114:                                              ; preds = %112, %113
   %.not62 = icmp eq ptr %55, null
-  br i1 %.not62, label %115, label %114
+  br i1 %.not62, label %116, label %115
 
-114:                                              ; preds = %113
+115:                                              ; preds = %114
   tail call void @free(ptr noundef nonnull %55) #24
-  br label %115
+  br label %116
 
-115:                                              ; preds = %114, %113
+116:                                              ; preds = %115, %114
   tail call void @free(ptr noundef nonnull %49) #24
-  %.not63 = icmp eq i32 %.054, 0
-  br i1 %.not63, label %._crit_edge77, label %31
+  br i1 %.054, label %._crit_edge77, label %31
 
-._crit_edge77:                                    ; preds = %39, %115, %31, %2
-  %.0 = phi i32 [ 1, %2 ], [ 1, %31 ], [ 0, %115 ], [ 0, %39 ]
+._crit_edge77:                                    ; preds = %39, %116, %31, %2
+  %.0 = phi i32 [ 1, %2 ], [ 1, %31 ], [ 0, %116 ], [ 0, %39 ]
   ret i32 %.0
 }
 

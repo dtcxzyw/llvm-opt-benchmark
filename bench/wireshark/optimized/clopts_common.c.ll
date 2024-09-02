@@ -66,7 +66,7 @@ declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @get_positive_int(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 1, -2147483648) i32 @get_positive_int(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @get_natural_int(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %6

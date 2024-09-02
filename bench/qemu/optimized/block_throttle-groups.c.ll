@@ -1108,7 +1108,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 throttle_group_next_tgm.exit.i.i:                 ; preds = %if.then.i.i.i, %if.end.i.i
   %next.0.i.i.i = phi ptr [ %9, %if.end.i.i ], [ %11, %if.then.i.i.i ]
   %cmp.not39.i.i = icmp eq ptr %next.0.i.i.i, %8
-  br i1 %cmp.not39.i.i, label %land.lhs.true9.i.i, label %land.rhs.i.i
+  br i1 %cmp.not39.i.i, label %if.end12.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %throttle_group_next_tgm.exit.i.i, %throttle_group_next_tgm.exit29.i.i
   %token.040.i.i = phi ptr [ %next.0.i25.i.i, %throttle_group_next_tgm.exit29.i.i ], [ %next.0.i.i.i, %throttle_group_next_tgm.exit.i.i ]
@@ -1116,7 +1116,7 @@ land.rhs.i.i:                                     ; preds = %throttle_group_next
   %arrayidx.i21.i.i = getelementptr [2 x i32], ptr %pending_reqs.i19.i.i, i64 0, i64 %indvars.iv27
   %12 = load i32, ptr %arrayidx.i21.i.i, align 4
   %tobool.i22.not.i.i = icmp eq i32 %12, 0
-  br i1 %tobool.i22.not.i.i, label %while.body5.i.i, label %if.end12.i.i
+  br i1 %tobool.i22.not.i.i, label %while.body5.i.i, label %if.end.i
 
 while.body5.i.i:                                  ; preds = %land.rhs.i.i
   %round_robin.i23.i.i = getelementptr inbounds i8, ptr %token.040.i.i, i64 160
@@ -1134,9 +1134,9 @@ if.then.i26.i.i:                                  ; preds = %while.body5.i.i
 throttle_group_next_tgm.exit29.i.i:               ; preds = %if.then.i26.i.i, %while.body5.i.i
   %next.0.i25.i.i = phi ptr [ %13, %while.body5.i.i ], [ %15, %if.then.i26.i.i ]
   %cmp.not.i.i = icmp eq ptr %next.0.i25.i.i, %8
-  br i1 %cmp.not.i.i, label %land.lhs.true9.i.i, label %land.rhs.i.i, !llvm.loop !7
+  br i1 %cmp.not.i.i, label %if.end12.i.i, label %land.rhs.i.i, !llvm.loop !7
 
-land.lhs.true9.i.i:                               ; preds = %throttle_group_next_tgm.exit29.i.i, %throttle_group_next_tgm.exit.i.i
+if.end12.i.i:                                     ; preds = %throttle_group_next_tgm.exit29.i.i, %throttle_group_next_tgm.exit.i.i
   %token.0.lcssa.i.i = phi ptr [ %next.0.i.i.i, %throttle_group_next_tgm.exit.i.i ], [ %next.0.i25.i.i, %throttle_group_next_tgm.exit29.i.i ]
   %pending_reqs.i30.i.i = getelementptr inbounds i8, ptr %token.0.lcssa.i.i, i64 152
   %arrayidx.i32.i.i = getelementptr [2 x i32], ptr %pending_reqs.i30.i.i, i64 0, i64 %indvars.iv27
@@ -1146,13 +1146,8 @@ land.lhs.true9.i.i:                               ; preds = %throttle_group_next
   %pending_reqs.i.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %spec.select.i.i, i64 152
   %arrayidx.i15.phi.trans.insert.i.phi.trans.insert = getelementptr [2 x i32], ptr %pending_reqs.i.phi.trans.insert.i.phi.trans.insert, i64 0, i64 %indvars.iv27
   %.pre.i.pre = load i32, ptr %arrayidx.i15.phi.trans.insert.i.phi.trans.insert, align 4
-  br label %if.end12.i.i
-
-if.end12.i.i:                                     ; preds = %land.rhs.i.i, %land.lhs.true9.i.i
-  %.pre.i = phi i32 [ %.pre.i.pre, %land.lhs.true9.i.i ], [ 1, %land.rhs.i.i ]
-  %token.1.i.i = phi ptr [ %spec.select.i.i, %land.lhs.true9.i.i ], [ %token.040.i.i, %land.rhs.i.i ]
-  %cmp13.i.i = icmp eq ptr %token.1.i.i, %tgm
-  %17 = icmp eq i32 %.pre.i, 0
+  %17 = icmp eq i32 %.pre.i.pre, 0
+  %cmp13.i.i = icmp eq ptr %spec.select.i.i, %tgm
   br i1 %cmp13.i.i, label %next_throttle_token.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end12.i.i
@@ -1165,8 +1160,8 @@ if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
 next_throttle_token.exit.i:                       ; preds = %if.end12.i.i
   br i1 %17, label %for.inc21, label %if.end.i
 
-if.end.i:                                         ; preds = %next_throttle_token.exit.i, %lor.lhs.false.i.i, %while.end.i.i
-  %retval.0.i32.i = phi ptr [ %token.1.i.i, %next_throttle_token.exit.i ], [ %token.1.i.i, %lor.lhs.false.i.i ], [ %tgm, %while.end.i.i ]
+if.end.i:                                         ; preds = %land.rhs.i.i, %next_throttle_token.exit.i, %lor.lhs.false.i.i, %while.end.i.i
+  %retval.0.i32.i = phi ptr [ %spec.select.i.i, %next_throttle_token.exit.i ], [ %spec.select.i.i, %lor.lhs.false.i.i ], [ %tgm, %while.end.i.i ], [ %token.040.i.i, %land.rhs.i.i ]
   %throttle_state.i16.i = getelementptr inbounds i8, ptr %retval.0.i32.i, i64 96
   %18 = load ptr, ptr %throttle_state.i16.i, align 8
   %throttle_timers.i.i = getelementptr inbounds i8, ptr %retval.0.i32.i, i64 104

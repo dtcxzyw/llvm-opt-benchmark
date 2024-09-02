@@ -2255,12 +2255,12 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 if.end.i.i144:                                    ; preds = %for.cond.i
   %arrayidx.i.i145 = getelementptr inbounds i8, ptr %80, i64 -4
   %81 = load i32, ptr %arrayidx.i.i145, align 4
+  %82 = zext i32 %81 to i64
   br label %_ZNK6vectorISt4pairIj7obj_refI4expr11ast_managerEELb1EjE4sizeEv.exit.i
 
 _ZNK6vectorISt4pairIj7obj_refI4expr11ast_managerEELb1EjE4sizeEv.exit.i: ; preds = %if.end.i.i144, %for.cond.i
-  %retval.0.i.i146 = phi i32 [ %81, %if.end.i.i144 ], [ 0, %for.cond.i ]
-  %82 = zext i32 %retval.0.i.i146 to i64
-  %cmp.i147 = icmp ult i64 %indvars.iv.i142, %82
+  %retval.0.i.i146 = phi i64 [ %82, %if.end.i.i144 ], [ 0, %for.cond.i ]
+  %cmp.i147 = icmp ult i64 %indvars.iv.i142, %retval.0.i.i146
   br i1 %cmp.i147, label %for.body.i148, label %for.cond.i171
 
 for.body.i148:                                    ; preds = %_ZNK6vectorISt4pairIj7obj_refI4expr11ast_managerEELb1EjE4sizeEv.exit.i
@@ -2330,12 +2330,12 @@ for.cond.i171:                                    ; preds = %_ZNK6vectorISt4pair
 if.end.i.i174:                                    ; preds = %for.cond.i171
   %arrayidx.i.i175 = getelementptr inbounds i8, ptr %94, i64 -4
   %95 = load i32, ptr %arrayidx.i.i175, align 4
+  %96 = zext i32 %95 to i64
   br label %_ZNK6vectorISt4pairIj7obj_refI4expr11ast_managerEELb1EjE4sizeEv.exit.i176
 
 _ZNK6vectorISt4pairIj7obj_refI4expr11ast_managerEELb1EjE4sizeEv.exit.i176: ; preds = %if.end.i.i174, %for.cond.i171
-  %retval.0.i.i177 = phi i32 [ %95, %if.end.i.i174 ], [ 0, %for.cond.i171 ]
-  %96 = zext i32 %retval.0.i.i177 to i64
-  %cmp.i178 = icmp ult i64 %indvars.iv.i172, %96
+  %retval.0.i.i177 = phi i64 [ %96, %if.end.i.i174 ], [ 0, %for.cond.i171 ]
+  %cmp.i178 = icmp ult i64 %indvars.iv.i172, %retval.0.i.i177
   br i1 %cmp.i178, label %for.body.i179, label %if.end73
 
 for.body.i179:                                    ; preds = %_ZNK6vectorISt4pairIj7obj_refI4expr11ast_managerEELb1EjE4sizeEv.exit.i176

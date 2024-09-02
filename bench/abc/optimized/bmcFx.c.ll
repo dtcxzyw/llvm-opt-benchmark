@@ -1739,14 +1739,14 @@ Vec_IntPush.exit292:                              ; preds = %.Vec_IntGrow.exit10
 
 .critedge4.loopexit:                              ; preds = %187
   %.val244.pre = load i32, ptr %13, align 4
+  %190 = sext i32 %.val244.pre to i64
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %155
   %.val246384 = phi i32 [ %.val246385, %.critedge4.loopexit ], [ %.val246388, %155 ]
-  %.val244 = phi i32 [ %.val244.pre, %.critedge4.loopexit ], [ 0, %155 ]
+  %.val244 = phi i64 [ %190, %.critedge4.loopexit ], [ 0, %155 ]
   %.val259 = load ptr, ptr %19, align 8
-  %190 = sext i32 %.val244 to i64
-  %191 = getelementptr inbounds i32, ptr %.val259, i64 %190
+  %191 = getelementptr inbounds i32, ptr %.val259, i64 %.val244
   %192 = call i32 @sat_solver_solve(ptr noundef %0, ptr noundef %.val259, ptr noundef %191, i64 noundef 1000000, i64 noundef 0, i64 noundef 0, i64 noundef 0) #17
   %193 = icmp eq i32 %192, 1
   br i1 %193, label %196, label %194
@@ -1852,14 +1852,14 @@ Vec_IntPush.exit299:                              ; preds = %.Vec_IntGrow.exit10
 
 .critedge6.loopexit:                              ; preds = %230
   %.val242.pre = load i32, ptr %13, align 4
+  %233 = sext i32 %.val242.pre to i64
   br label %.critedge6
 
 .critedge6:                                       ; preds = %.critedge, %Vec_IntAppend.exit, %.critedge6.loopexit, %.critedge2
   %.val247395398 = phi i32 [ %.pr, %.critedge6.loopexit ], [ %.pr, %.critedge2 ], [ %.pr, %Vec_IntAppend.exit ], [ 0, %.critedge ]
-  %.val242 = phi i32 [ %.val242.pre, %.critedge6.loopexit ], [ 0, %.critedge2 ], [ 0, %Vec_IntAppend.exit ], [ 0, %.critedge ]
+  %.val242 = phi i64 [ %233, %.critedge6.loopexit ], [ 0, %.critedge2 ], [ 0, %Vec_IntAppend.exit ], [ 0, %.critedge ]
   %.val261 = load ptr, ptr %19, align 8
-  %233 = sext i32 %.val242 to i64
-  %234 = getelementptr inbounds i32, ptr %.val261, i64 %233
+  %234 = getelementptr inbounds i32, ptr %.val261, i64 %.val242
   %235 = call i32 @sat_solver_solve(ptr noundef %0, ptr noundef %.val261, ptr noundef %234, i64 noundef 1000000, i64 noundef 0, i64 noundef 0, i64 noundef 0) #17
   %236 = load ptr, ptr %56, align 8
   %237 = load i32, ptr %57, align 4

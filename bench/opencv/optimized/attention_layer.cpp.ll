@@ -2468,19 +2468,19 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %287
 .noexc103:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %290, ptr align 4 %.val34, i64 %.idx, i1 false)
   %291 = getelementptr inbounds i8, ptr %290, i64 %.idx
+  %292 = ptrtoint ptr %291 to i64
   br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %289, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  %292 = landingpad { ptr, i32 }
+  %293 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit66, %.noexc103
-  %.sroa.7109.0 = phi ptr [ %291, %.noexc103 ], [ null, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit66 ]
+  %.sroa.7109.0 = phi i64 [ %292, %.noexc103 ], [ 0, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit66 ]
   %.sroa.0104.0 = phi ptr [ %290, %.noexc103 ], [ null, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit66 ]
-  %293 = ptrtoint ptr %.sroa.7109.0 to i64
   %294 = ptrtoint ptr %.sroa.0104.0 to i64
-  %295 = sub i64 %293, %294
+  %295 = sub i64 %.sroa.7109.0, %294
   %296 = lshr exact i64 %295, 2
   %297 = trunc i64 %296 to i32
   %298 = add i32 %297, -1
@@ -2737,7 +2737,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3M
   unreachable
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %380, %377, %376, %374, %369, %366, %361, %358, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i
-  %.pn = phi { ptr, i32 } [ %292, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %359, %358 ], [ %359, %361 ], [ %367, %366 ], [ %367, %369 ], [ %375, %374 ], [ %375, %376 ], [ %378, %377 ], [ %378, %380 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit128, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit132, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %293, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i ], [ %359, %358 ], [ %359, %361 ], [ %367, %366 ], [ %367, %369 ], [ %375, %374 ], [ %375, %376 ], [ %378, %377 ], [ %378, %380 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit128, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit132, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #22
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #22
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #22
@@ -4731,22 +4731,22 @@ define linkonce_odr hidden void @_ZZN2cv3dnn18AttentionLayerImpl7forwardERKNS_11
 
 ._crit_edge.loopexit:                             ; preds = %52
   %.pre = load i64, ptr %12, align 8
+  %57 = trunc i64 %55 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
-  %57 = phi i64 [ %34, %19 ], [ %.pre, %._crit_edge.loopexit ]
-  %.lcssa = phi i64 [ 0, %19 ], [ %55, %._crit_edge.loopexit ]
-  %58 = load ptr, ptr %15, align 8
-  %59 = getelementptr inbounds [3 x ptr], ptr %58, i64 0, i64 %27
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %16, align 8
-  %62 = getelementptr inbounds [3 x i64], ptr %61, i64 0, i64 %27
-  %63 = load i64, ptr %62, align 8
-  %64 = mul i64 %63, %38
-  %65 = getelementptr inbounds float, ptr %60, i64 %64
-  %66 = trunc i64 %.lcssa to i32
+  %58 = phi i64 [ %34, %19 ], [ %.pre, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ 0, %19 ], [ %57, %._crit_edge.loopexit ]
+  %59 = load ptr, ptr %15, align 8
+  %60 = getelementptr inbounds [3 x ptr], ptr %59, i64 0, i64 %27
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %16, align 8
+  %63 = getelementptr inbounds [3 x i64], ptr %62, i64 0, i64 %27
+  %64 = load i64, ptr %63, align 8
+  %65 = mul i64 %64, %38
+  %66 = getelementptr inbounds float, ptr %61, i64 %65
   %67 = trunc i64 %32 to i32
-  %68 = trunc i64 %57 to i32
+  %68 = trunc i64 %58 to i32
   %69 = load ptr, ptr %17, align 8
   %70 = load ptr, ptr %69, align 8
   %71 = shl i64 %23, 32
@@ -4754,7 +4754,7 @@ define linkonce_odr hidden void @_ZZN2cv3dnn18AttentionLayerImpl7forwardERKNS_11
   %sext40 = mul i64 %72, %34
   %73 = ashr exact i64 %sext40, 30
   %74 = getelementptr inbounds i8, ptr %70, i64 %73
-  tail call void @_ZN2cv3dnn8fastGemmEbiiifPKfiS2_fPfiRNS0_11FastGemmOptE(i1 noundef zeroext false, i32 noundef %66, i32 noundef %67, i32 noundef %68, float noundef 1.000000e+00, ptr noundef %74, i32 noundef %68, ptr noundef %65, float noundef 1.000000e+00, ptr noundef %50, i32 noundef %67, ptr noundef nonnull align 1 dereferenceable(5) %18)
+  tail call void @_ZN2cv3dnn8fastGemmEbiiifPKfiS2_fPfiRNS0_11FastGemmOptE(i1 noundef zeroext false, i32 noundef %.lcssa, i32 noundef %67, i32 noundef %68, float noundef 1.000000e+00, ptr noundef %74, i32 noundef %68, ptr noundef %66, float noundef 1.000000e+00, ptr noundef %50, i32 noundef %67, ptr noundef nonnull align 1 dereferenceable(5) %18)
   %75 = add nsw i32 %.043, 1
   %76 = load i32, ptr %4, align 4
   %77 = icmp slt i32 %75, %76

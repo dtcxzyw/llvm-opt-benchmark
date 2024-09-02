@@ -740,7 +740,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   %14 = getelementptr inbounds i8, ptr %8, i64 18
   %15 = load volatile i8, ptr %14, align 2
   %16 = icmp eq i8 %15, 1
-  br i1 %16, label %17, label %.thread47, !prof !8
+  br i1 %16, label %17, label %.thread46, !prof !8
 
 17:                                               ; preds = %2
   %18 = and i32 %10, 1
@@ -749,7 +749,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
 
 20:                                               ; preds = %17
   %21 = tail call fastcc i32 @unix_stream_recv_urg(ptr noundef %0), !range !16
-  br label %.thread47
+  br label %.thread46
 
 22:                                               ; preds = %17
   %23 = and i32 %10, 256
@@ -816,18 +816,18 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br label %.outer
 
 .outer:                                           ; preds = %205, %45
-  %.ph353 = phi i64 [ %115, %205 ], [ %13, %45 ]
-  %.ph354 = phi i32 [ %120, %205 ], [ %47, %45 ]
-  %.ph355 = phi i64 [ %190, %205 ], [ %38, %45 ]
-  %.ph356 = phi i8 [ %116, %205 ], [ 0, %45 ]
-  %.ph357 = phi i32 [ %117, %205 ], [ 0, %45 ]
+  %.ph352 = phi i64 [ %115, %205 ], [ %13, %45 ]
+  %.ph353 = phi i32 [ %120, %205 ], [ %47, %45 ]
+  %.ph354 = phi i64 [ %190, %205 ], [ %38, %45 ]
+  %.ph355 = phi i8 [ %116, %205 ], [ 0, %45 ]
+  %.ph356 = phi i32 [ %117, %205 ], [ 0, %45 ]
   br label %70
 
 70:                                               ; preds = %.outer, %351
-  %71 = phi i64 [ %327, %351 ], [ %.ph353, %.outer ]
-  %72 = phi i32 [ %211, %351 ], [ %.ph354, %.outer ]
-  %73 = phi i8 [ %279, %351 ], [ %.ph356, %.outer ]
-  %74 = phi i32 [ %325, %351 ], [ %.ph357, %.outer ]
+  %71 = phi i64 [ %327, %351 ], [ %.ph352, %.outer ]
+  %72 = phi i32 [ %211, %351 ], [ %.ph353, %.outer ]
+  %73 = phi i8 [ %279, %351 ], [ %.ph355, %.outer ]
+  %74 = phi i32 [ %325, %351 ], [ %.ph356, %.outer ]
   br label %75
 
 75:                                               ; preds = %.thread31, %70
@@ -870,7 +870,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
 
 .thread31.thread:                                 ; preds = %96
   call void @_raw_spin_unlock(ptr noundef %48) #19
-  br label %.thread43
+  br label %.thread42
 
 98:                                               ; preds = %96
   %99 = load volatile i64, ptr %49, align 8
@@ -882,8 +882,8 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br i1 %41, label %103, label %.thread29.preheader
 
 .thread29.preheader:                              ; preds = %105, %93, %104, %103, %102
-  %.ph344 = phi i32 [ 0, %103 ], [ 0, %102 ], [ 0, %104 ], [ %76, %93 ], [ 0, %105 ]
-  %.ph345 = phi ptr [ %81, %103 ], [ %81, %102 ], [ %81, %104 ], [ %81, %93 ], [ %106, %105 ]
+  %.ph343 = phi i32 [ 0, %103 ], [ 0, %102 ], [ 0, %104 ], [ %76, %93 ], [ 0, %105 ]
+  %.ph344 = phi ptr [ %81, %103 ], [ %81, %102 ], [ %81, %104 ], [ %81, %93 ], [ %106, %105 ]
   br label %.thread29
 
 103:                                              ; preds = %102
@@ -906,14 +906,14 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
 .thread31:                                        ; preds = %105, %92
   call void @_raw_spin_unlock(ptr noundef %48) #19
   %109 = icmp eq i32 %76, 0
-  br i1 %109, label %75, label %.thread43
+  br i1 %109, label %75, label %.thread42
 
 .thread29:                                        ; preds = %.thread29.preheader, %370
-  %110 = phi i32 [ %325, %370 ], [ %.ph344, %.thread29.preheader ]
+  %110 = phi i32 [ %325, %370 ], [ %.ph343, %.thread29.preheader ]
   %111 = phi i8 [ %279, %370 ], [ %73, %.thread29.preheader ]
   %112 = phi i32 [ 0, %370 ], [ %72, %.thread29.preheader ]
   %113 = phi i64 [ %327, %370 ], [ %71, %.thread29.preheader ]
-  %114 = phi ptr [ %371, %370 ], [ %.ph345, %.thread29.preheader ]
+  %114 = phi ptr [ %371, %370 ], [ %.ph344, %.thread29.preheader ]
   br label %209
 
 .thread32:                                        ; preds = %80, %218
@@ -934,7 +934,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
 125:                                              ; preds = %122
   %126 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %60, i32 0, ptr elementtype(i32) %60) #19, !srcloc !17
   %127 = icmp eq i32 %126, 0
-  br i1 %127, label %.thread33, label %.loopexit59.split.loop.exit124
+  br i1 %127, label %.thread33, label %.loopexit58.split.loop.exit123
 
 .thread33:                                        ; preds = %122, %125
   %128 = load i8, ptr %61, align 4
@@ -944,8 +944,8 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
 
 131:                                              ; preds = %.thread33
   call void @_raw_spin_unlock(ptr noundef %48) #19
-  %132 = icmp eq i64 %.ph355, 0
-  br i1 %132, label %.thread43, label %133
+  %132 = icmp eq i64 %.ph354, 0
+  br i1 %132, label %.thread42, label %133
 
 133:                                              ; preds = %131
   call void @mutex_unlock(ptr noundef %39) #19
@@ -968,7 +968,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
 
 .preheader:                                       ; preds = %133, %184
   %141 = phi ptr [ %188, %184 ], [ %139, %133 ]
-  %142 = phi i64 [ %173, %184 ], [ %.ph355, %133 ]
+  %142 = phi i64 [ %173, %184 ], [ %.ph354, %133 ]
   %143 = icmp eq ptr %141, null
   br i1 %143, label %148, label %144
 
@@ -1046,7 +1046,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   br i1 %189, label %.preheader, label %.thread34, !llvm.loop !21
 
 .thread34:                                        ; preds = %155, %184, %172, %159, %151, %148, %144, %133
-  %190 = phi i64 [ %.ph355, %133 ], [ %142, %155 ], [ %173, %172 ], [ %173, %184 ], [ %142, %144 ], [ %142, %148 ], [ %142, %151 ], [ %142, %159 ]
+  %190 = phi i64 [ %.ph354, %133 ], [ %142, %155 ], [ %173, %172 ], [ %173, %184 ], [ %142, %144 ], [ %142, %148 ], [ %142, %151 ], [ %142, %159 ]
   %191 = load volatile ptr, ptr %67, align 8
   call void @finish_wait(ptr noundef %191, ptr noundef nonnull %3) #19
   call void @_raw_spin_unlock(ptr noundef %48) #19
@@ -1054,15 +1054,15 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   %192 = load volatile i64, ptr %135, align 8
   %193 = and i64 %192, 131072
   %194 = icmp eq i64 %193, 0
-  br i1 %194, label %195, label %.thread35, !prof !8
+  br i1 %194, label %195, label %.critedge, !prof !8
 
 195:                                              ; preds = %.thread34
   %196 = load volatile i64, ptr %135, align 8
   %197 = and i64 %196, 4
   %198 = icmp eq i64 %197, 0
-  br i1 %198, label %205, label %.thread35
+  br i1 %198, label %205, label %.critedge
 
-.thread35:                                        ; preds = %.thread34, %195
+.critedge:                                        ; preds = %.thread34, %195
   %199 = icmp eq i64 %190, 9223372036854775807
   %200 = select i1 %199, i32 -512, i32 -4
   %201 = load ptr, ptr %4, align 8
@@ -1070,25 +1070,25 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   store ptr null, ptr %4, align 8
   %202 = load ptr, ptr %58, align 8
   %203 = icmp eq ptr %202, null
-  br i1 %203, label %.thread45, label %204
+  br i1 %203, label %.thread44, label %204
 
-204:                                              ; preds = %.thread35
+204:                                              ; preds = %.critedge
   call void @__scm_destroy(ptr noundef nonnull %4) #19
-  br label %.thread45
+  br label %.thread44
 
 205:                                              ; preds = %195
   call void @mutex_lock(ptr noundef %39) #19
   br label %.outer, !llvm.loop !22
 
-.loopexit59.split.loop.exit124:                   ; preds = %125
+.loopexit58.split.loop.exit123:                   ; preds = %125
   %206 = sub i32 0, %126
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread32, %.thread33, %75, %.loopexit59.split.loop.exit124
-  %207 = phi i32 [ %206, %.loopexit59.split.loop.exit124 ], [ -104, %75 ], [ 0, %.thread33 ], [ 0, %.thread32 ]
-  %208 = phi i32 [ %117, %.loopexit59.split.loop.exit124 ], [ %76, %75 ], [ %117, %.thread33 ], [ %117, %.thread32 ]
+.loopexit:                                        ; preds = %.thread32, %.thread33, %75, %.loopexit58.split.loop.exit123
+  %207 = phi i32 [ %206, %.loopexit58.split.loop.exit123 ], [ -104, %75 ], [ 0, %.thread33 ], [ 0, %.thread32 ]
+  %208 = phi i32 [ %117, %.loopexit58.split.loop.exit123 ], [ %76, %75 ], [ %117, %.thread33 ], [ %117, %.thread32 ]
   call void @_raw_spin_unlock(ptr noundef %48) #19
-  br label %.thread43
+  br label %.thread42
 
 209:                                              ; preds = %218, %.thread29
   %210 = phi ptr [ %220, %218 ], [ %114, %.thread29 ]
@@ -1122,28 +1122,28 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   %231 = load ptr, ptr %230, align 8
   %232 = load ptr, ptr %4, align 8
   %233 = icmp eq ptr %231, %232
-  br i1 %233, label %234, label %.thread43
+  br i1 %233, label %234, label %.thread42
 
 234:                                              ; preds = %229
   %235 = getelementptr inbounds i8, ptr %210, i64 48
   %236 = load i32, ptr %235, align 8
   %237 = load i32, ptr %52, align 4
   %238 = icmp eq i32 %236, %237
-  br i1 %238, label %239, label %.thread43
+  br i1 %238, label %239, label %.thread42
 
 239:                                              ; preds = %234
   %240 = getelementptr inbounds i8, ptr %210, i64 52
   %241 = load i32, ptr %240, align 4
   %242 = load i32, ptr %53, align 8
   %243 = icmp eq i32 %241, %242
-  br i1 %243, label %244, label %.thread43
+  br i1 %243, label %244, label %.thread42
 
 244:                                              ; preds = %239
   %245 = load i32, ptr %54, align 4
   %246 = getelementptr inbounds i8, ptr %210, i64 64
   %247 = load i32, ptr %246, align 8
   %248 = icmp eq i32 %245, %247
-  br i1 %248, label %278, label %.thread43
+  br i1 %248, label %278, label %.thread42
 
 249:                                              ; preds = %224
   %250 = load volatile i64, ptr %55, align 8
@@ -1260,14 +1260,14 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
 320:                                              ; preds = %314
   %321 = icmp eq i32 %110, 0
   %322 = select i1 %321, i32 -14, i32 %110
-  br label %.thread43
+  br label %.thread42
 
 323:                                              ; preds = %314
   %324 = icmp eq i32 %317, %318
   %325 = add i32 %316, %110
   %326 = zext nneg i32 %316 to i64
   %327 = sub i64 %113, %326
-  br i1 %324, label %.thread43, label %328
+  br i1 %324, label %.thread42, label %328
 
 328:                                              ; preds = %323
   br i1 %41, label %329, label %355
@@ -1310,7 +1310,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   %348 = load i32, ptr %225, align 8
   %349 = load i32, ptr %226, align 4
   %350 = icmp eq i32 %348, %349
-  br i1 %350, label %351, label %.thread43
+  br i1 %350, label %351, label %.thread42
 
 351:                                              ; preds = %347
   call void @skb_unlink(ptr noundef nonnull %210, ptr noundef %50) #19
@@ -1318,8 +1318,8 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   %352 = load ptr, ptr %58, align 8
   %353 = icmp ne ptr %352, null
   %354 = icmp eq i64 %327, 0
-  %or.cond49 = select i1 %353, i1 true, i1 %354
-  br i1 %or.cond49, label %.thread43, label %70, !llvm.loop !22
+  %or.cond48 = select i1 %353, i1 true, i1 %354
+  br i1 %or.cond48, label %.thread42, label %70, !llvm.loop !22
 
 355:                                              ; preds = %328
   %356 = getelementptr inbounds i8, ptr %210, i64 56
@@ -1348,7 +1348,7 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
 367:                                              ; preds = %364, %361
   %368 = load ptr, ptr %356, align 8
   %369 = icmp eq ptr %368, null
-  br i1 %369, label %370, label %.thread43
+  br i1 %369, label %370, label %.thread42
 
 370:                                              ; preds = %367
   call void @_raw_spin_lock(ptr noundef %48) #19
@@ -1360,9 +1360,9 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
 
 375:                                              ; preds = %370
   call void @_raw_spin_unlock(ptr noundef %48) #19
-  br label %.thread43
+  br label %.thread42
 
-.thread43:                                        ; preds = %351, %347, %131, %.thread31, %239, %234, %229, %367, %323, %244, %.thread31.thread, %375, %320, %.loopexit
+.thread42:                                        ; preds = %351, %347, %131, %.thread31, %239, %234, %229, %367, %323, %244, %.thread31.thread, %375, %320, %.loopexit
   %376 = phi i32 [ %325, %375 ], [ %322, %320 ], [ %208, %.loopexit ], [ %76, %.thread31.thread ], [ %110, %244 ], [ %325, %323 ], [ %325, %367 ], [ %110, %229 ], [ %110, %234 ], [ %110, %239 ], [ %76, %.thread31 ], [ %325, %351 ], [ %325, %347 ], [ %117, %131 ]
   %377 = phi i32 [ 0, %375 ], [ 0, %320 ], [ %207, %.loopexit ], [ 0, %.thread31.thread ], [ 0, %244 ], [ 0, %323 ], [ 0, %367 ], [ 0, %229 ], [ 0, %234 ], [ 0, %239 ], [ 0, %.thread31 ], [ 0, %351 ], [ 0, %347 ], [ -11, %131 ]
   call void @mutex_unlock(ptr noundef %39) #19
@@ -1370,32 +1370,32 @@ define internal fastcc i32 @unix_stream_read_generic(ptr noundef %0, i1 noundef 
   %379 = icmp eq ptr %378, null
   br i1 %379, label %381, label %380
 
-380:                                              ; preds = %.thread43
+380:                                              ; preds = %.thread42
   call fastcc void @scm_recv_unix(ptr noundef %6, ptr noundef nonnull %378, ptr noundef nonnull %4)
-  br label %.thread45
+  br label %.thread44
 
-381:                                              ; preds = %.thread43
+381:                                              ; preds = %.thread42
   %382 = load ptr, ptr %4, align 8
   call void @put_pid(ptr noundef %382) #19
   store ptr null, ptr %4, align 8
   %383 = load ptr, ptr %58, align 8
   %384 = icmp eq ptr %383, null
-  br i1 %384, label %.thread45, label %385
+  br i1 %384, label %.thread44, label %385
 
 385:                                              ; preds = %381
   call void @__scm_destroy(ptr noundef nonnull %4) #19
-  br label %.thread45
+  br label %.thread44
 
-.thread45:                                        ; preds = %204, %.thread35, %385, %381, %380
-  %386 = phi i32 [ %377, %380 ], [ %377, %381 ], [ %377, %385 ], [ %200, %.thread35 ], [ %200, %204 ]
-  %387 = phi i32 [ %376, %380 ], [ %376, %381 ], [ %376, %385 ], [ %117, %.thread35 ], [ %117, %204 ]
+.thread44:                                        ; preds = %204, %.critedge, %385, %381, %380
+  %386 = phi i32 [ %377, %380 ], [ %377, %381 ], [ %377, %385 ], [ %200, %.critedge ], [ %200, %204 ]
+  %387 = phi i32 [ %376, %380 ], [ %376, %381 ], [ %376, %385 ], [ %117, %.critedge ], [ %117, %204 ]
   %.fr = freeze i32 %387
   %388 = icmp eq i32 %.fr, 0
   %spec.select = select i1 %388, i32 %386, i32 %.fr
-  br label %.thread47
+  br label %.thread46
 
-.thread47:                                        ; preds = %.thread45, %2, %20
-  %389 = phi i32 [ -22, %2 ], [ %21, %20 ], [ %spec.select, %.thread45 ]
+.thread46:                                        ; preds = %.thread44, %2, %20
+  %389 = phi i32 [ -22, %2 ], [ %21, %20 ], [ %spec.select, %.thread44 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
   ret i32 %389
 }
@@ -2279,12 +2279,12 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
   %8 = load ptr, ptr %7, align 8
   %9 = add i32 %2, -111
   %10 = icmp ult i32 %9, -108
-  br i1 %10, label %.thread26, label %11
+  br i1 %10, label %.thread25, label %11
 
 11:                                               ; preds = %4
   %12 = load i16, ptr %1, align 2
   %13 = icmp eq i16 %12, 1
-  br i1 %13, label %14, label %.thread26
+  br i1 %13, label %14, label %.thread25
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2308,7 +2308,7 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
 27:                                               ; preds = %23
   %28 = tail call fastcc i32 @unix_autobind(ptr noundef %6)
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %.thread26
+  br i1 %29, label %30, label %.thread25
 
 30:                                               ; preds = %27, %23, %19
   %31 = and i32 %3, 2048
@@ -2332,7 +2332,7 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
 43:                                               ; preds = %36
   %44 = ptrtoint ptr %41 to i64
   %45 = trunc i64 %44 to i32
-  br label %.thread26
+  br label %.thread25
 
 46:                                               ; preds = %36
   %47 = tail call ptr @sock_wmalloc(ptr noundef %41, i64 noundef 1, i32 noundef 0, i32 noundef 3264) #19
@@ -2345,14 +2345,14 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
   %52 = zext i16 %51 to i32
   %53 = tail call fastcc ptr @unix_find_other(ptr noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef %52)
   %54 = icmp ugt ptr %53, inttoptr (i64 -4096 to ptr)
-  br i1 %54, label %.loopexit30, label %55
+  br i1 %54, label %.loopexit29, label %55
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds i8, ptr %6, i64 18
   %57 = getelementptr inbounds i8, ptr %6, i64 864
   br label %61
 
-.loopexit30:                                      ; preds = %.thread18, %49
+.loopexit29:                                      ; preds = %.thread18, %49
   %58 = phi ptr [ %53, %49 ], [ %82, %.thread18 ]
   %59 = ptrtoint ptr %58 to i64
   %60 = trunc i64 %59 to i32
@@ -2399,7 +2399,7 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
   %81 = zext i16 %80 to i32
   %82 = tail call fastcc ptr @unix_find_other(ptr noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef %81)
   %83 = icmp ugt ptr %82, inttoptr (i64 -4096 to ptr)
-  br i1 %83, label %.loopexit30, label %61
+  br i1 %83, label %.loopexit29, label %61
 
 84:                                               ; preds = %61
   %85 = getelementptr inbounds i8, ptr %62, i64 18
@@ -2433,13 +2433,13 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
   %105 = load volatile i64, ptr %104, align 8
   %106 = and i64 %105, 131072
   %107 = icmp eq i64 %106, 0
-  br i1 %107, label %108, label %.thread19, !prof !8
+  br i1 %107, label %108, label %.critedge, !prof !8
 
 108:                                              ; preds = %101
   %109 = load volatile i64, ptr %104, align 8
   %110 = and i64 %109, 4
   %111 = icmp eq i64 %110, 0
-  br i1 %111, label %112, label %.thread19
+  br i1 %111, label %112, label %.critedge
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds i8, ptr %62, i64 128
@@ -2563,7 +2563,7 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
   %167 = load ptr, ptr %166, align 8
   tail call void %167(ptr noundef %62) #19
   tail call fastcc void @sock_put(ptr noundef %62)
-  br label %.thread28
+  br label %.thread27
 
 .loopexit.loopexit:                               ; preds = %120
   br label %.loopexit
@@ -2577,19 +2577,19 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
   tail call void @_raw_spin_unlock(ptr noundef %64) #19
   br label %173
 
-.thread19:                                        ; preds = %101, %108
+.critedge:                                        ; preds = %101, %108
   %171 = icmp eq i64 %102, 9223372036854775807
   %172 = select i1 %171, i32 -512, i32 -4
   br label %173
 
-.thread26:                                        ; preds = %11, %4, %27, %43
+.thread25:                                        ; preds = %11, %4, %27, %43
   %.ph = phi i32 [ %28, %27 ], [ %45, %43 ], [ -22, %4 ], [ -22, %11 ]
   tail call void @kfree_skb_reason(ptr noundef null, i32 noundef 2) #19
-  br label %.thread28
+  br label %.thread27
 
-173:                                              ; preds = %.thread19, %170, %.loopexit, %.loopexit30, %46
-  %174 = phi i32 [ -12, %46 ], [ %60, %.loopexit30 ], [ %168, %170 ], [ %168, %.loopexit ], [ %172, %.thread19 ]
-  %175 = phi ptr [ null, %46 ], [ null, %.loopexit30 ], [ %62, %170 ], [ null, %.loopexit ], [ %62, %.thread19 ]
+173:                                              ; preds = %.critedge, %170, %.loopexit, %.loopexit29, %46
+  %174 = phi i32 [ -12, %46 ], [ %60, %.loopexit29 ], [ %168, %170 ], [ %168, %.loopexit ], [ %172, %.critedge ]
+  %175 = phi ptr [ null, %46 ], [ null, %.loopexit29 ], [ %62, %170 ], [ null, %.loopexit ], [ %62, %.critedge ]
   tail call void @kfree_skb_reason(ptr noundef %47, i32 noundef 2) #19
   %176 = icmp eq ptr %41, null
   br i1 %176, label %178, label %177
@@ -2600,7 +2600,7 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
 
 178:                                              ; preds = %177, %173
   %179 = icmp eq ptr %175, null
-  br i1 %179, label %.thread28, label %180
+  br i1 %179, label %.thread27, label %180
 
 180:                                              ; preds = %178
   %181 = getelementptr inbounds i8, ptr %175, i64 128
@@ -2610,19 +2610,19 @@ define internal i32 @unix_stream_connect(ptr noundef %0, ptr noundef %1, i32 nou
 
 184:                                              ; preds = %180
   %185 = icmp sgt i32 %182, 0
-  br i1 %185, label %.thread28, label %186, !prof !8
+  br i1 %185, label %.thread27, label %186, !prof !8
 
 186:                                              ; preds = %184
   tail call void @refcount_warn_saturate(ptr noundef %181, i32 noundef 3) #19
-  br label %.thread28
+  br label %.thread27
 
 187:                                              ; preds = %180
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !30
   tail call void @sk_free(ptr noundef nonnull %175) #19
-  br label %.thread28
+  br label %.thread27
 
-.thread28:                                        ; preds = %184, %186, %.thread26, %187, %178, %152
-  %188 = phi i32 [ 0, %152 ], [ %174, %178 ], [ %174, %187 ], [ %.ph, %.thread26 ], [ %174, %186 ], [ %174, %184 ]
+.thread27:                                        ; preds = %184, %186, %.thread25, %187, %178, %152
+  %188 = phi i32 [ 0, %152 ], [ %174, %178 ], [ %174, %187 ], [ %.ph, %.thread25 ], [ %174, %186 ], [ %174, %184 ]
   ret i32 %188
 }
 
@@ -3897,7 +3897,7 @@ define internal i32 @unix_stream_recvmsg(ptr noundef %0, ptr noundef %1, i64 nou
 declare dso_local i32 @sock_no_mmap(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @unix_stream_splice_read(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @unix_stream_splice_read(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca %struct.unix_stream_read_state, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #19
   store ptr @unix_stream_splice_actor, ptr %6, align 8
@@ -6167,7 +6167,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %.thread25
+  br i1 %22, label %23, label %.thread24
 
 23:                                               ; preds = %.thread
   %24 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6187,7 +6187,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
 
 .thread18:                                        ; preds = %27, %30
   store i32 -22, ptr %5, align 4
-  br label %.thread25
+  br label %.thread24
 
 33:                                               ; preds = %30
   store i32 0, ptr %5, align 4
@@ -6333,7 +6333,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   store ptr @unix_destruct_scm, ptr %117, align 8
   store i32 %116, ptr %5, align 4
   %118 = icmp slt i32 %116, 0
-  br i1 %118, label %.thread21, label %119
+  br i1 %118, label %.critedge, label %119
 
 119:                                              ; preds = %.thread19, %115
   %120 = trunc i64 %85 to i32
@@ -6347,7 +6347,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %126 = call i32 @skb_copy_datagram_from_iter(ptr noundef nonnull %88, i32 noundef 0, ptr noundef %125, i32 noundef %123) #19
   store i32 %126, ptr %5, align 4
   %127 = icmp eq i32 %126, 0
-  br i1 %127, label %128, label %.thread21
+  br i1 %127, label %128, label %.critedge
 
 128:                                              ; preds = %119
   %129 = load i32, ptr %19, align 4
@@ -6385,7 +6385,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
 
 151:                                              ; preds = %148
   store i32 -104, ptr %5, align 4
-  br i1 %137, label %.thread21, label %152
+  br i1 %137, label %.critedge, label %152
 
 152:                                              ; preds = %151
   %153 = load ptr, ptr %138, align 8
@@ -6400,7 +6400,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %160 = ptrtoint ptr %157 to i64
   %161 = trunc i64 %160 to i32
   store i32 %161, ptr %5, align 4
-  br label %.thread21
+  br label %.critedge
 
 162:                                              ; preds = %152, %148
   %163 = phi ptr [ %149, %148 ], [ %157, %152 ]
@@ -6410,7 +6410,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
 
 166:                                              ; preds = %162
   store i32 %123, ptr %5, align 4
-  br label %.thread21
+  br label %.critedge
 
 167:                                              ; preds = %162
   %168 = getelementptr inbounds i8, ptr %163, i64 864
@@ -6421,7 +6421,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %171 = icmp ne ptr %170, null
   %172 = icmp ne ptr %170, %.fr229
   %173 = and i1 %171, %172
-  br i1 %173, label %.loopexit29, label %174
+  br i1 %173, label %.loopexit28, label %174
 
 174:                                              ; preds = %167
   %175 = getelementptr inbounds i8, ptr %163, i64 96
@@ -6436,14 +6436,14 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %181 = load volatile i64, ptr %175, align 8
   %182 = and i64 %181, 1
   %183 = icmp eq i64 %182, 0
-  br i1 %183, label %184, label %.critedge, !prof !8
+  br i1 %183, label %184, label %.critedge227, !prof !8
 
 184:                                              ; preds = %.split.us
   store i32 -32, ptr %5, align 4
   %185 = load i8, ptr %176, align 4
   %186 = and i8 %185, 1
   %187 = icmp eq i8 %186, 0
-  br i1 %187, label %188, label %.loopexit29
+  br i1 %187, label %188, label %.loopexit28
 
 188:                                              ; preds = %184
   %189 = load i16, ptr %139, align 2
@@ -6456,7 +6456,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %194 = call i32 @security_unix_may_send(ptr noundef %192, ptr noundef %193) #19
   store i32 %194, ptr %5, align 4
   %195 = icmp eq i32 %194, 0
-  br i1 %195, label %.loopexit, label %.loopexit29
+  br i1 %195, label %.loopexit, label %.loopexit28
 
 .split:                                           ; preds = %174
   br i1 %147, label %.split.split.us, label %.split.split
@@ -6467,14 +6467,14 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %198 = load volatile i64, ptr %175, align 8
   %199 = and i64 %198, 1
   %200 = icmp eq i64 %199, 0
-  br i1 %200, label %201, label %.split70.us, !prof !8
+  br i1 %200, label %201, label %.split69.us, !prof !8
 
 201:                                              ; preds = %.split.split.us
   store i32 -32, ptr %5, align 4
   %202 = load i8, ptr %176, align 4
   %203 = and i8 %202, 1
   %204 = icmp eq i8 %203, 0
-  br i1 %204, label %205, label %.split72.us
+  br i1 %204, label %205, label %.split71.us
 
 205:                                              ; preds = %201
   %206 = load i16, ptr %139, align 2
@@ -6487,7 +6487,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %211 = call i32 @security_unix_may_send(ptr noundef %209, ptr noundef %210) #19
   store i32 %211, ptr %5, align 4
   %212 = icmp eq i32 %211, 0
-  br i1 %212, label %._crit_edge321, label %.split72.us
+  br i1 %212, label %._crit_edge321, label %.split71.us
 
 ._crit_edge321:                                   ; preds = %208
   %.pre322 = load ptr, ptr %169, align 64
@@ -6496,13 +6496,13 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
 213:                                              ; preds = %._crit_edge321, %205
   %214 = phi ptr [ %.pre322, %._crit_edge321 ], [ %196, %205 ]
   %215 = icmp eq ptr %214, %.fr229
-  br i1 %215, label %.split137.us, label %216
+  br i1 %215, label %.split136.us, label %216
 
 216:                                              ; preds = %213
   %217 = load volatile i32, ptr %179, align 8
   %218 = load volatile i32, ptr %180, align 4
   %219 = icmp ugt i32 %217, %218
-  br i1 %219, label %220, label %.split137.us, !prof !7
+  br i1 %219, label %220, label %.split136.us, !prof !7
 
 220:                                              ; preds = %216
   br i1 %197, label %221, label %222
@@ -6515,15 +6515,15 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
 222:                                              ; preds = %221, %220
   %223 = load ptr, ptr %141, align 64
   %224 = icmp eq ptr %223, %163
-  br i1 %224, label %225, label %.split143.us
+  br i1 %224, label %225, label %.split142.us
 
 225:                                              ; preds = %222
   %226 = call fastcc i32 @unix_dgram_peer_wake_me(ptr noundef %.fr229, ptr noundef %163), !range !57
   %227 = icmp eq i32 %226, 0
-  br i1 %227, label %228, label %.split143.us
+  br i1 %227, label %228, label %.split142.us
 
 228:                                              ; preds = %225
-  br i1 %197, label %229, label %.loopexit28
+  br i1 %197, label %229, label %.loopexit27
 
 229:                                              ; preds = %228
   store i32 -1, ptr %5, align 4
@@ -6531,29 +6531,29 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %231 = icmp ne ptr %230, null
   %232 = icmp ne ptr %230, %.fr229
   %233 = and i1 %231, %232
-  br i1 %233, label %.thread23, label %.split.split.us
+  br i1 %233, label %.thread22, label %.split.split.us
 
 .split.split:                                     ; preds = %.split
   %234 = load volatile i64, ptr %175, align 8
   %235 = and i64 %234, 1
   %236 = icmp eq i64 %235, 0
-  br i1 %236, label %248, label %.critedge, !prof !8
+  br i1 %236, label %248, label %.critedge227, !prof !8
 
-.split70.us:                                      ; preds = %.split.split.us
+.split69.us:                                      ; preds = %.split.split.us
   call void @_raw_spin_unlock(ptr noundef %168) #19
   call fastcc void @sock_put(ptr noundef %163)
   br i1 %197, label %237, label %238
 
-.critedge:                                        ; preds = %.split.split, %.split.us
+.critedge227:                                     ; preds = %.split.split, %.split.us
   call void @_raw_spin_unlock(ptr noundef %168) #19
   call fastcc void @sock_put(ptr noundef %163)
   br label %237
 
-237:                                              ; preds = %.critedge, %.split70.us
+237:                                              ; preds = %.critedge227, %.split69.us
   call void @_raw_spin_lock(ptr noundef %142) #19
   br label %238
 
-238:                                              ; preds = %237, %.split70.us
+238:                                              ; preds = %237, %.split69.us
   store i32 0, ptr %5, align 4
   %239 = load i16, ptr %139, align 2
   %240 = icmp eq i16 %239, 5
@@ -6562,7 +6562,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
 241:                                              ; preds = %238
   call void @_raw_spin_unlock(ptr noundef %142) #19
   store i32 -32, ptr %5, align 4
-  br label %.thread21
+  br label %.critedge
 
 242:                                              ; preds = %238
   %243 = load ptr, ptr %141, align 64
@@ -6577,20 +6577,20 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   call fastcc void @unix_dgram_disconnected(ptr noundef %.fr229, ptr noundef %163)
   call fastcc void @sock_put(ptr noundef %163)
   store i32 -111, ptr %5, align 4
-  br label %.thread21
+  br label %.critedge
 
 246:                                              ; preds = %242
   call void @_raw_spin_unlock(ptr noundef %142) #19
   %.pr = load i32, ptr %5, align 4
   %247 = icmp eq i32 %.pr, 0
-  br i1 %247, label %148, label %.thread21
+  br i1 %247, label %148, label %.critedge
 
 248:                                              ; preds = %.split.split
   store i32 -32, ptr %5, align 4
   %249 = load i8, ptr %176, align 4
   %250 = and i8 %249, 1
   %251 = icmp eq i8 %250, 0
-  br i1 %251, label %252, label %.loopexit29
+  br i1 %251, label %252, label %.loopexit28
 
 252:                                              ; preds = %248
   %253 = load i16, ptr %139, align 2
@@ -6603,7 +6603,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %258 = call i32 @security_unix_may_send(ptr noundef %256, ptr noundef %257) #19
   store i32 %258, ptr %5, align 4
   %259 = icmp eq i32 %258, 0
-  br i1 %259, label %._crit_edge, label %.loopexit29
+  br i1 %259, label %._crit_edge, label %.loopexit28
 
 ._crit_edge:                                      ; preds = %255
   %.pre = load ptr, ptr %169, align 64
@@ -6630,26 +6630,26 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %273 = load volatile i64, ptr %272, align 8
   %274 = and i64 %273, 131072
   %275 = icmp eq i64 %274, 0
-  br i1 %275, label %276, label %.thread21, !prof !8
+  br i1 %275, label %276, label %.critedge, !prof !8
 
 276:                                              ; preds = %267
   %277 = load volatile i64, ptr %272, align 8
   %278 = and i64 %277, 4
   %279 = icmp eq i64 %278, 0
-  br i1 %279, label %144, label %.thread21
+  br i1 %279, label %144, label %.critedge
 
-.split143.us:                                     ; preds = %222, %225
+.split142.us:                                     ; preds = %222, %225
   store i32 -11, ptr %5, align 4
-  br label %.thread23
+  br label %.thread22
 
-.split137.us:                                     ; preds = %213, %216
-  br i1 %197, label %.loopexit, label %.loopexit28, !prof !58
+.split136.us:                                     ; preds = %213, %216
+  br i1 %197, label %.loopexit, label %.loopexit27, !prof !58
 
-.loopexit28:                                      ; preds = %228, %.split137.us
+.loopexit27:                                      ; preds = %228, %.split136.us
   call void @_raw_spin_unlock(ptr noundef %142) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %260, %263, %188, %191, %.loopexit28, %.split137.us
+.loopexit:                                        ; preds = %260, %263, %188, %191, %.loopexit27, %.split136.us
   %280 = load volatile i64, ptr %175, align 8
   %281 = and i64 %280, 2048
   %282 = icmp eq i64 %281, 0
@@ -6693,30 +6693,30 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   call fastcc void @scm_destroy(ptr noundef nonnull %4)
   br label %322
 
-.split72.us:                                      ; preds = %208, %201
-  br i1 %197, label %.loopexit29, label %.thread23
+.split71.us:                                      ; preds = %208, %201
+  br i1 %197, label %.loopexit28, label %.thread22
 
-.thread23:                                        ; preds = %229, %.split72.us, %.split143.us
+.thread22:                                        ; preds = %229, %.split71.us, %.split142.us
   call void @_raw_spin_unlock(ptr noundef %142) #19
-  br label %.loopexit29
+  br label %.loopexit28
 
-.loopexit29:                                      ; preds = %255, %248, %167, %184, %191, %.thread23, %.split72.us
+.loopexit28:                                      ; preds = %255, %248, %167, %184, %191, %.thread22, %.split71.us
   call void @_raw_spin_unlock(ptr noundef %168) #19
-  br label %.thread21
+  br label %.critedge
 
-.thread21:                                        ; preds = %267, %276, %246, %151, %241, %245, %.loopexit29, %166, %159, %119, %115
-  %302 = phi ptr [ %51, %115 ], [ %51, %119 ], [ %163, %166 ], [ %163, %.loopexit29 ], [ null, %159 ], [ null, %245 ], [ null, %241 ], [ null, %151 ], [ null, %246 ], [ %163, %276 ], [ %163, %267 ]
+.critedge:                                        ; preds = %267, %276, %246, %151, %241, %245, %.loopexit28, %166, %159, %119, %115
+  %302 = phi ptr [ %51, %115 ], [ %51, %119 ], [ %163, %166 ], [ %163, %.loopexit28 ], [ null, %159 ], [ null, %245 ], [ null, %241 ], [ null, %151 ], [ null, %246 ], [ %163, %276 ], [ %163, %267 ]
   call void @kfree_skb_reason(ptr noundef nonnull %88, i32 noundef 2) #19
   br label %304
 
 303:                                              ; preds = %34
   call void @_raw_spin_unlock(ptr noundef %35) #19
-  br label %.thread25
+  br label %.thread24
 
-304:                                              ; preds = %.thread21, %82, %68, %65
-  %305 = phi ptr [ %51, %68 ], [ %51, %82 ], [ %302, %.thread21 ], [ %51, %65 ]
+304:                                              ; preds = %.critedge, %82, %68, %65
+  %305 = phi ptr [ %51, %68 ], [ %51, %82 ], [ %302, %.critedge ], [ %51, %65 ]
   %306 = icmp eq ptr %305, null
-  br i1 %306, label %.thread25, label %307
+  br i1 %306, label %.thread24, label %307
 
 307:                                              ; preds = %304
   %308 = getelementptr inbounds i8, ptr %305, i64 128
@@ -6726,18 +6726,18 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
 
 311:                                              ; preds = %307
   %312 = icmp sgt i32 %309, 0
-  br i1 %312, label %.thread25, label %313, !prof !8
+  br i1 %312, label %.thread24, label %313, !prof !8
 
 313:                                              ; preds = %311
   call void @refcount_warn_saturate(ptr noundef %308, i32 noundef 3) #19
-  br label %.thread25
+  br label %.thread24
 
 314:                                              ; preds = %307
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !30
   call void @sk_free(ptr noundef nonnull %305) #19
-  br label %.thread25
+  br label %.thread24
 
-.thread25:                                        ; preds = %311, %313, %.thread18, %303, %.thread, %314, %304
+.thread24:                                        ; preds = %311, %313, %.thread18, %303, %.thread, %314, %304
   %315 = load ptr, ptr %4, align 8
   call void @put_pid(ptr noundef %315) #19
   store ptr null, ptr %4, align 8
@@ -6746,11 +6746,11 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %318 = icmp eq ptr %317, null
   br i1 %318, label %320, label %319
 
-319:                                              ; preds = %.thread25
+319:                                              ; preds = %.thread24
   call void @__scm_destroy(ptr noundef nonnull %4) #19
   br label %320
 
-320:                                              ; preds = %319, %.thread25
+320:                                              ; preds = %319, %.thread24
   %321 = load i32, ptr %5, align 4
   br label %322
 

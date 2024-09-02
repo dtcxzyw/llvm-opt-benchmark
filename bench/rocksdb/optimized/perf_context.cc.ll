@@ -153,7 +153,7 @@ $_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb18PerfContextByLevelEESt10_Select1stIS4_ESt4
 declare i32 @__cxa_thread_atexit(ptr, ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define noundef ptr @_ZN7rocksdb16get_perf_contextEv() local_unnamed_addr #1 {
+define noundef nonnull ptr @_ZN7rocksdb16get_perf_contextEv() local_unnamed_addr #1 {
 entry:
   tail call void @_ZTHN7rocksdb12perf_contextE()
   %0 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)

@@ -285,7 +285,7 @@ define dso_local i64 @binary_decode(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i64 @hex_encode(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #3 {
+define dso_local noundef range(i64 0, -1) i64 @hex_encode(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #3 {
   %4 = getelementptr i8, ptr %0, i64 %1
   %5 = icmp ult ptr %0, %4
   br i1 %5, label %.lr.ph, label %._crit_edge

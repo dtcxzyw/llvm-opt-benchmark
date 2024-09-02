@@ -121,15 +121,18 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
   %16 = getelementptr i8, ptr %.099139, i64 56
   %17 = load ptr, ptr %16, align 8
   %.not117 = icmp eq ptr %17, null
-  br i1 %.not117, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not117, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %15, %.preheader
-  %.0103.lcssa = phi i32 [ 7, %.preheader ], [ %.1104, %15 ]
-  %18 = add i32 %.0103.lcssa, 1
+._crit_edge.loopexit:                             ; preds = %15
+  %18 = add i32 %.1104, 1
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 3
-  %21 = call ptr @pg_malloc0(i64 noundef %20) #15
-  %22 = call ptr @pg_malloc0(i64 noundef %20) #15
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.0103.lcssa = phi i64 [ 64, %.preheader ], [ %20, %._crit_edge.loopexit ]
+  %21 = call ptr @pg_malloc0(i64 noundef %.0103.lcssa) #15
+  %22 = call ptr @pg_malloc0(i64 noundef %.0103.lcssa) #15
   store ptr @.str.1, ptr %21, align 8
   store ptr @.str.2, ptr %22, align 8
   %23 = load ptr, ptr %5, align 8

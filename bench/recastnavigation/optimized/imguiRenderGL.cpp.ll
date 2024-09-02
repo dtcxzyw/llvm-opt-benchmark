@@ -6157,7 +6157,7 @@ define dso_local void @stbtt_MakeCodepointBitmap(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @stbtt_BakeFontBitmap(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #3 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #3 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -6804,28 +6804,28 @@ define dso_local i32 @stbtt_PackFontRangesGatherRects(ptr nocapture noundef read
   %204 = tail call float @llvm.fmuladd.f32(float %203, float %89, float 0.000000e+00)
   %205 = tail call noundef float @llvm.ceil.f32(float %204)
   %206 = fptosi float %205 to i32
+  %207 = xor i32 %192, -1
+  %208 = xor i32 %197, -1
   br label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
 stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %157, %91, %81, %160
-  %.063 = phi i32 [ %192, %160 ], [ 0, %81 ], [ 0, %91 ], [ 0, %157 ]
-  %.062 = phi i32 [ %197, %160 ], [ 0, %81 ], [ 0, %91 ], [ 0, %157 ]
+  %.063 = phi i32 [ %207, %160 ], [ -1, %81 ], [ -1, %91 ], [ -1, %157 ]
+  %.062 = phi i32 [ %208, %160 ], [ -1, %81 ], [ -1, %91 ], [ -1, %157 ]
   %.061 = phi i32 [ %201, %160 ], [ 0, %81 ], [ 0, %91 ], [ 0, %157 ]
   %.sink.i = phi i32 [ %206, %160 ], [ 0, %81 ], [ 0, %91 ], [ 0, %157 ]
-  %207 = load i32, ptr %16, align 4
-  %208 = xor i32 %.063, -1
-  %209 = add i32 %84, %208
-  %210 = add i32 %209, %.061
-  %211 = add i32 %210, %207
-  %212 = getelementptr inbounds %struct.stbrp_rect, ptr %4, i64 %indvars.iv94
-  %213 = getelementptr inbounds i8, ptr %212, i64 12
-  store i32 %211, ptr %213, align 4
-  %214 = load i32, ptr %16, align 4
-  %215 = load i32, ptr %11, align 4
-  %216 = xor i32 %.062, -1
-  %217 = add i32 %.sink.i, %216
-  %218 = add i32 %217, %214
-  %219 = add i32 %218, %215
-  %220 = getelementptr inbounds i8, ptr %212, i64 16
+  %209 = load i32, ptr %16, align 4
+  %210 = add i32 %.063, %84
+  %211 = add i32 %210, %.061
+  %212 = add i32 %211, %209
+  %213 = getelementptr inbounds %struct.stbrp_rect, ptr %4, i64 %indvars.iv94
+  %214 = getelementptr inbounds i8, ptr %213, i64 12
+  store i32 %212, ptr %214, align 4
+  %215 = load i32, ptr %16, align 4
+  %216 = load i32, ptr %11, align 4
+  %217 = add i32 %.062, %.sink.i
+  %218 = add i32 %217, %215
+  %219 = add i32 %218, %216
+  %220 = getelementptr inbounds i8, ptr %213, i64 16
   store i32 %219, ptr %220, align 4
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

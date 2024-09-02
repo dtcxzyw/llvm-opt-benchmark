@@ -1244,8 +1244,8 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr nocapture noundef readonly 
   %6 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, -33
-  %spec.select = icmp eq i8 %8, 88
-  %9 = zext i1 %spec.select to i32
+  %narrow63 = icmp eq i8 %8, 88
+  %9 = zext i1 %narrow63 to i32
   %10 = add nuw nsw i32 %.066, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1340,8 +1340,8 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr nocapture noundef readonly 
 
 62:                                               ; preds = %39, %53, %42
   %63 = and i8 %41, -33
-  %spec.select63 = icmp eq i8 %63, 88
-  %64 = zext i1 %spec.select63 to i32
+  %narrow = icmp eq i8 %63, 88
+  %64 = zext i1 %narrow to i32
   %65 = add nuw nsw i32 %.05268, %64
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88

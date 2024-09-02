@@ -5701,7 +5701,7 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h08bb23d96ab0c243E.llvm.12929368810573836545(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #13 {
+define hidden noundef range(i64 0, 329406144173384851) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h08bb23d96ab0c243E.llvm.12929368810573836545(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !1304, !noalias !1307, !noundef !9
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5714,7 +5714,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h80549cf9110b9da7E.llvm.12929368810573836545(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #13 {
+define hidden noundef range(i64 0, 256204778801521551) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h80549cf9110b9da7E.llvm.12929368810573836545(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !1309, !noalias !1312, !noundef !9
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5727,7 +5727,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8956623638938bcdE.llvm.12929368810573836545(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #13 {
+define hidden noundef range(i64 0, 256204778801521551) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8956623638938bcdE.llvm.12929368810573836545(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !1314, !noalias !1317, !noundef !9
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5740,7 +5740,7 @@ define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hae29736a55df74fcE.llvm.12929368810573836545(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #13 {
+define hidden noundef range(i64 0, 576460752303423488) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hae29736a55df74fcE.llvm.12929368810573836545(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !1319, !noalias !1322, !noundef !9
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10170,12 +10170,12 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17hdb2c102a56ca43bcE"(ptr no
   %57 = getelementptr inbounds i8, ptr %52, i64 80
   %58 = load ptr, ptr %57, align 8, !noundef !9
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %..thread159_crit_edge, label %64
+  br i1 %59, label %..thread_crit_edge, label %64
 
-..thread159_crit_edge:                            ; preds = %56
+..thread_crit_edge:                               ; preds = %56
   %.phi.trans.insert279 = getelementptr inbounds i8, ptr %52, i64 32
   %.pre280 = load i64, ptr %.phi.trans.insert279, align 8, !alias.scope !2075, !noalias !2078
-  br label %.thread159
+  br label %.thread
 
 60:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %25)
@@ -10202,13 +10202,13 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17hdb2c102a56ca43bcE"(ptr no
   %67 = load i64, ptr %66, align 8, !noundef !9
   %68 = load i64, ptr %65, align 8, !noundef !9
   %69 = icmp ult i64 %67, %68
-  br i1 %69, label %.thread159, label %70
+  br i1 %69, label %.thread, label %70
 
 70:                                               ; preds = %64
   br i1 %3, label %82, label %98
 
-.thread159:                                       ; preds = %..thread159_crit_edge, %64
-  %71 = phi i64 [ %.pre280, %..thread159_crit_edge ], [ %67, %64 ]
+.thread:                                          ; preds = %..thread_crit_edge, %64
+  %71 = phi i64 [ %.pre280, %..thread_crit_edge ], [ %67, %64 ]
   %72 = getelementptr inbounds i8, ptr %52, i64 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
@@ -10218,7 +10218,7 @@ define hidden void @"_ZN5flume15Shared$LT$T$GT$4send17hdb2c102a56ca43bcE"(ptr no
   %76 = icmp eq i64 %71, %75
   br i1 %76, label %77, label %166
 
-77:                                               ; preds = %.thread159
+77:                                               ; preds = %.thread
   invoke void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4grow17h33bbf8e9332764deE.llvm.16633494844240028166"(ptr noalias noundef nonnull align 8 dereferenceable(32) %72)
           to label %._crit_edge.i unwind label %78, !noalias !2078
 
@@ -10515,9 +10515,9 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #36
   unreachable
 
-166:                                              ; preds = %.thread159, %._crit_edge.i
-  %167 = phi i64 [ %.pre6.i, %._crit_edge.i ], [ %75, %.thread159 ]
-  %168 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %71, %.thread159 ]
+166:                                              ; preds = %.thread, %._crit_edge.i
+  %167 = phi i64 [ %.pre6.i, %._crit_edge.i ], [ %75, %.thread ]
+  %168 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %71, %.thread ]
   %169 = getelementptr inbounds i8, ptr %52, i64 24
   %170 = load i64, ptr %169, align 8, !alias.scope !2075, !noalias !2078, !noundef !9
   %171 = add i64 %170, %168
@@ -11026,7 +11026,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22)
   br label %.loopexit.thread
 
-.thread:                                          ; preds = %378
+.thread281:                                       ; preds = %378
   %lpad.loopexit211 = landingpad { ptr, i32 }
           cleanup
   br label %.thread165
@@ -11089,7 +11089,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
 378:                                              ; preds = %375
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h91101adc2d74effcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24)
-          to label %"_ZN4core3ptr194drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h03349285bf2447dbE.exit132" unwind label %.thread
+          to label %"_ZN4core3ptr194drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h03349285bf2447dbE.exit132" unwind label %.thread281
 
 "_ZN4core3ptr194drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$flume..Hook$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$C$dyn$u20$flume..signal..Signal$GT$$GT$$GT$$GT$17h03349285bf2447dbE.exit132": ; preds = %375, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17he6135abb8f96bfcdE.exit", %378
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
@@ -11106,9 +11106,9 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.12929368810573836545.exit.t
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$17h744973ec133fb64dE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %22) #35
           to label %.body99 unwind label %164
 
-.thread165:                                       ; preds = %.thread, %.body92, %177
-  %.pn58170 = phi { ptr, i32 } [ %.pn58, %177 ], [ %eh.lpad-body93, %.body92 ], [ %lpad.loopexit211, %.thread ]
-  %.555169 = phi i8 [ %.555, %177 ], [ 1, %.body92 ], [ 1, %.thread ]
+.thread165:                                       ; preds = %.thread281, %.body92, %177
+  %.pn58170 = phi { ptr, i32 } [ %.pn58, %177 ], [ %eh.lpad-body93, %.body92 ], [ %lpad.loopexit211, %.thread281 ]
+  %.555169 = phi i8 [ %.555, %177 ], [ 1, %.body92 ], [ 1, %.thread281 ]
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$$LP$sqlx_sqlite..connection..worker..Command$C$tracing..span..Span$RP$$GT$$GT$17he6135abb8f96bfcdE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %25) #35
           to label %.body68 unwind label %164
 

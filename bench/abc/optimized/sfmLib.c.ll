@@ -2602,23 +2602,23 @@ Vec_IntPush.exit236:                              ; preds = %.Vec_IntGrow.exit10
   %412 = zext i32 %6 to i64
   br label %.lr.ph271
 
-.lr.ph271:                                        ; preds = %.lr.ph271.preheader, %419
-  %indvars.iv293 = phi i64 [ 0, %.lr.ph271.preheader ], [ %indvars.iv.next294, %419 ]
-  %.5268 = phi i32 [ %.4.lcssa, %.lr.ph271.preheader ], [ %.6, %419 ]
+.lr.ph271:                                        ; preds = %.lr.ph271.preheader, %420
+  %indvars.iv293 = phi i64 [ 0, %.lr.ph271.preheader ], [ %indvars.iv.next294, %420 ]
+  %.5268 = phi i32 [ %.4.lcssa, %.lr.ph271.preheader ], [ %.6, %420 ]
   %413 = icmp eq i64 %indvars.iv293, %412
-  br i1 %413, label %419, label %414
+  br i1 %413, label %420, label %414
 
 414:                                              ; preds = %.lr.ph271
   %415 = add nsw i32 %.5268, 1
   %416 = sext i32 %.5268 to i64
   %417 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 %416
   %418 = load i32, ptr %417, align 4
-  br label %419
+  %419 = trunc i32 %418 to i8
+  br label %420
 
-419:                                              ; preds = %.lr.ph271, %414
+420:                                              ; preds = %.lr.ph271, %414
   %.6 = phi i32 [ %.5268, %.lr.ph271 ], [ %415, %414 ]
-  %420 = phi i32 [ 16, %.lr.ph271 ], [ %418, %414 ]
-  %421 = trunc i32 %420 to i8
+  %421 = phi i8 [ 16, %.lr.ph271 ], [ %419, %414 ]
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %422 = getelementptr inbounds [9 x i8], ptr %410, i64 0, i64 %indvars.iv.next294
   store i8 %421, ptr %422, align 1
@@ -2628,7 +2628,7 @@ Vec_IntPush.exit236:                              ; preds = %.Vec_IntGrow.exit10
   %426 = icmp ult i64 %indvars.iv.next294, %425
   br i1 %426, label %.lr.ph271, label %.loopexit, !llvm.loop !35
 
-.loopexit:                                        ; preds = %272, %419, %406, %._crit_edge266, %Sfm_LibNewIsContained.exit
+.loopexit:                                        ; preds = %272, %420, %406, %._crit_edge266, %Sfm_LibNewIsContained.exit
   ret void
 }
 
@@ -3229,7 +3229,7 @@ Abc_Clock.exit:                                   ; preds = %5, %19
   %.0.i.neg = phi i64 [ %.neg231, %19 ], [ 1, %5 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %23 = call ptr @Sfm_LibStart(i32 noundef %0, i32 noundef %2, i32 noundef %4)
-  %24 = call noundef i32 @llvm.smin.i32(i32 %0, i32 6)
+  %24 = call noundef range(i32 -2147483648, 7) i32 @llvm.smin.i32(i32 %0, i32 6)
   %25 = getelementptr inbounds i8, ptr %23, i64 24
   %26 = call ptr @Mio_CollectRootsNewDefault2(i32 noundef %24, ptr noundef nonnull %25, i32 noundef 0) #24
   %27 = getelementptr inbounds i8, ptr %23, i64 16

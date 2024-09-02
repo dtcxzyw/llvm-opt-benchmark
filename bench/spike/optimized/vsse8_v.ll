@@ -1764,11 +1764,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 112:                                              ; preds = %100
   %113 = mul i64 %8, %92
-  %114 = icmp ult i64 %113, 9
+  %114 = icmp ugt i64 %113, 8
   %115 = add i64 %113, %29
-  %116 = icmp ult i64 %115, 33
-  %or.cond = and i1 %114, %116
-  br i1 %or.cond, label %122, label %117
+  %116 = icmp ugt i64 %115, 32
+  %or.cond = or i1 %114, %116
+  br i1 %or.cond, label %117, label %122
 
 117:                                              ; preds = %112
   %118 = tail call ptr @__cxa_allocate_exception(i64 32) #17
@@ -2205,11 +2205,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 112:                                              ; preds = %100
   %113 = mul i64 %8, %92
-  %114 = icmp ult i64 %113, 9
+  %114 = icmp ugt i64 %113, 8
   %115 = add i64 %113, %29
-  %116 = icmp ult i64 %115, 33
-  %or.cond = and i1 %114, %116
-  br i1 %or.cond, label %122, label %117
+  %116 = icmp ugt i64 %115, 32
+  %or.cond = or i1 %114, %116
+  br i1 %or.cond, label %117, label %122
 
 117:                                              ; preds = %112
   %118 = tail call ptr @__cxa_allocate_exception(i64 32) #17
@@ -2644,11 +2644,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 112:                                              ; preds = %100
   %113 = mul i64 %8, %92
-  %114 = icmp ult i64 %113, 9
+  %114 = icmp ugt i64 %113, 8
   %115 = add i64 %113, %29
-  %116 = icmp ult i64 %115, 33
-  %or.cond = and i1 %114, %116
-  br i1 %or.cond, label %122, label %117
+  %116 = icmp ugt i64 %115, 32
+  %or.cond = or i1 %114, %116
+  br i1 %or.cond, label %117, label %122
 
 117:                                              ; preds = %112
   %118 = tail call ptr @__cxa_allocate_exception(i64 32) #17
@@ -3085,11 +3085,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 112:                                              ; preds = %100
   %113 = mul i64 %8, %92
-  %114 = icmp ult i64 %113, 9
+  %114 = icmp ugt i64 %113, 8
   %115 = add i64 %113, %29
-  %116 = icmp ult i64 %115, 33
-  %or.cond = and i1 %114, %116
-  br i1 %or.cond, label %122, label %117
+  %116 = icmp ugt i64 %115, 32
+  %or.cond = or i1 %114, %116
+  br i1 %or.cond, label %117, label %122
 
 117:                                              ; preds = %112
   %118 = tail call ptr @__cxa_allocate_exception(i64 32) #17

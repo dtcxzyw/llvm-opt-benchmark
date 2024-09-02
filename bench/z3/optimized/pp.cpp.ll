@@ -783,7 +783,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr nocapture noundef readonly %f) unnamed_addr #3 {
+define internal fastcc range(i64 0, 8589934592) i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr nocapture noundef readonly %f) unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %class.symbol, align 8
   %m_decl.i.i = getelementptr inbounds i8, ptr %f, i64 16
@@ -839,7 +839,6 @@ sw.bb7:                                           ; preds = %_ZNK3app13get_decl_
   %6 = load ptr, ptr %m_args.i, align 8
   %call10 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %6)
   %retval.sroa.0.0.extract.trunc3 = trunc i64 %call10 to i32
-  %retval.sroa.10.0.extract.shift15 = and i64 %call10, -1099511627776
   br label %return
 
 for.cond:                                         ; preds = %for.body
@@ -857,16 +856,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call15 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %9)
   %pair.sroa.0.0.extract.trunc = trunc i64 %call15 to i32
   %add = add i32 %r.025, %pair.sroa.0.0.extract.trunc
-  %10 = and i64 %call15, 4294967296
-  %tobool.not = icmp eq i64 %10, 0
+  %tobool.not = icmp ult i64 %call15, 4294967296
   br i1 %tobool.not, label %for.cond, label %return
 
 sw.bb20:                                          ; preds = %_ZNK3app13get_decl_kindEv.exit
   %m_args.i21 = getelementptr inbounds i8, ptr %f, i64 32
-  %11 = load ptr, ptr %m_args.i21, align 8
-  %call23 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %11)
+  %10 = load ptr, ptr %m_args.i21, align 8
+  %call23 = tail call fastcc i64 @_ZL21space_upto_line_breakR11ast_managerP3app(ptr noundef %10)
   %retval.sroa.0.0.extract.trunc6 = trunc i64 %call23 to i32
-  %retval.sroa.10.0.extract.shift21 = and i64 %call23, -1099511627776
   br label %return
 
 sw.default:                                       ; preds = %entry, %_ZNK3app13get_decl_kindEv.exit
@@ -875,12 +872,10 @@ sw.default:                                       ; preds = %entry, %_ZNK3app13g
 return:                                           ; preds = %for.body, %for.cond, %for.cond.preheader, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %sw.default, %sw.bb20, %sw.bb7, %_ZNK9parameter10get_symbolEv.exit
   %retval.sroa.0.0 = phi i32 [ 0, %sw.default ], [ %retval.sroa.0.0.extract.trunc6, %sw.bb20 ], [ %retval.sroa.0.0.extract.trunc3, %sw.bb7 ], [ %call4, %_ZNK9parameter10get_symbolEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %for.cond.preheader ], [ %add, %for.cond ], [ %add, %for.body ]
   %retval.sroa.8.0 = phi i64 [ 0, %sw.default ], [ %call23, %sw.bb20 ], [ %call10, %sw.bb7 ], [ 0, %_ZNK9parameter10get_symbolEv.exit ], [ 4294967296, %_ZNK3app13get_decl_kindEv.exit ], [ 4294967296, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %for.cond.preheader ], [ 4294967296, %for.body ], [ 0, %for.cond ]
-  %retval.sroa.10.sroa.0.0 = phi i64 [ 0, %sw.default ], [ %retval.sroa.10.0.extract.shift21, %sw.bb20 ], [ %retval.sroa.10.0.extract.shift15, %sw.bb7 ], [ 0, %_ZNK9parameter10get_symbolEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %_ZNK3app13get_decl_kindEv.exit ], [ 0, %for.cond.preheader ], [ 0, %for.cond ], [ 0, %for.body ]
-  %retval.sroa.8.0.insert.ext = and i64 %retval.sroa.8.0, 1095216660480
+  %retval.sroa.8.0.insert.ext = and i64 %retval.sroa.8.0, 4294967296
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.8.0.insert.insert = or disjoint i64 %retval.sroa.8.0.insert.ext, %retval.sroa.0.0.insert.ext
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.8.0.insert.insert, %retval.sroa.10.sroa.0.0
-  ret i64 %retval.sroa.0.0.insert.insert
+  ret i64 %retval.sroa.8.0.insert.insert
 }
 
 declare noundef i32 @_ZNK6symbol12display_sizeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

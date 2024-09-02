@@ -2304,10 +2304,10 @@ pmix_obj_run_destructors.exit269:                 ; preds = %.lr.ph.i266, %264
   br label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %294
-  %295 = load i32, ptr %22, align 8
-  %296 = icmp sge i32 %.2200, %295
-  %297 = trunc nuw i8 %.1185 to i1
-  %.not232 = select i1 %296, i1 true, i1 %297
+  %295 = trunc nuw i8 %.1185 to i1
+  %296 = load i32, ptr %22, align 8
+  %297 = icmp sge i32 %.2200, %296
+  %.not232 = select i1 %297, i1 true, i1 %295
   br i1 %.not232, label %.split359, label %.split357, !llvm.loop !13
 
 .split359.sink.split:                             ; preds = %.split357, %.split357.preheader, %53
@@ -2318,7 +2318,7 @@ pmix_obj_run_destructors.exit269:                 ; preds = %.lr.ph.i266, %264
   br label %.split359
 
 .split359:                                        ; preds = %._crit_edge, %.split359.sink.split
-  %.us-phi360 = phi i32 [ %298, %.split359.sink.split ], [ %295, %._crit_edge ]
+  %.us-phi360 = phi i32 [ %298, %.split359.sink.split ], [ %296, %._crit_edge ]
   %.us-phi361 = phi i32 [ %.us-phi361.ph, %.split359.sink.split ], [ %.2200, %._crit_edge ]
   %.us-phi362 = phi i32 [ %.us-phi362.ph, %.split359.sink.split ], [ %.4195, %._crit_edge ]
   %.us-phi363 = phi i8 [ %.us-phi363.ph, %.split359.sink.split ], [ %.3, %._crit_edge ]

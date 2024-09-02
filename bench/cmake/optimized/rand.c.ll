@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [32 x i8] c"WARNING: using weak random seed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_rand(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 5, 4) i32 @Curl_rand(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not22 = icmp eq i64 %2, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
@@ -127,7 +127,7 @@ define internal fastcc range(i32 5, 4) i32 @randit(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_rand_hex(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 5, 4) i32 @Curl_rand_hex(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [128 x i8], align 16
   %6 = and i64 %2, -255
@@ -193,7 +193,7 @@ Curl_rand.exit:                                   ; preds = %.lr.ph.i
 declare void @Curl_hexencode(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_rand_alnum(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 5, 4) i32 @Curl_rand_alnum(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.01018 = add i64 %2, -1
   %.not19 = icmp eq i64 %.01018, 0

@@ -230,7 +230,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
 define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc287d73689068976E"(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %12, label %4
+  br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -248,31 +248,31 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
 .lr.ph.split.us.i:                                ; preds = %4
   %10 = load ptr, ptr %1, align 8, !noalias !64, !nonnull !5, !align !74, !noundef !5
   %bcmp.i.i.i.i.us11.i = tail call i32 @bcmp(ptr nonnull readonly %.promoted.i, ptr nonnull readonly %10, i64 %7), !alias.scope !75, !noalias !79
-  %11 = icmp eq i32 %bcmp.i.i.i.i.us11.i, 0
-  br i1 %11, label %15, label %.critedge._crit_edge.sink.split.i
+  %.not.i = icmp eq i32 %bcmp.i.i.i.i.us11.i, 0
+  br i1 %.not.i, label %14, label %.critedge._crit_edge.sink.split.i
 
-12:                                               ; preds = %.critedge._crit_edge.sink.split.i, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !noundef !5
-  %.not5 = icmp eq ptr %14, null
-  br i1 %.not5, label %19, label %16
+11:                                               ; preds = %.critedge._crit_edge.sink.split.i, %2
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8, !noundef !5
+  %.not5 = icmp eq ptr %13, null
+  br i1 %.not5, label %18, label %15
 
 .critedge._crit_edge.sink.split.i:                ; preds = %.lr.ph.split.us.i, %4
   store ptr null, ptr %5, align 8, !alias.scope !59, !noalias !62
   store i64 0, ptr %0, align 8
-  br label %12
+  br label %11
 
-15:                                               ; preds = %.lr.ph.split.us.i
+14:                                               ; preds = %.lr.ph.split.us.i
   store ptr null, ptr %5, align 8, !alias.scope !59, !noalias !62
-  br label %19
+  br label %18
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  %18 = tail call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9700c0994bc073acE.llvm.16538095213602398362(ptr noalias noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 1 %17)
-  br label %19
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = tail call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9700c0994bc073acE.llvm.16538095213602398362(ptr noalias noundef nonnull align 8 dereferenceable(16) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 1 %16)
+  br label %18
 
-19:                                               ; preds = %16, %12, %15
-  %.0 = phi i1 [ true, %15 ], [ false, %12 ], [ %18, %16 ]
+18:                                               ; preds = %15, %11, %14
+  %.0 = phi i1 [ true, %14 ], [ false, %11 ], [ %17, %15 ]
   ret i1 %.0
 }
 
@@ -8969,17 +8969,15 @@ common.resume:                                    ; preds = %129, %80, %39
   %.not.i = xor i1 %106, true
   %109 = and i1 %107, %.not.i
   %110 = xor i1 %106, %107
-  %..i = zext i1 %110 to i8
   br i1 %109, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd2b066d5f3f3306aE.exit.thread", label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd2b066d5f3f3306aE.exit"
 
 111:                                              ; preds = %101
-  %.0.i.i = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8 %103, i8 %105)
+  %112 = icmp ugt i8 %103, %105
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd2b066d5f3f3306aE.exit"
 
 "_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd2b066d5f3f3306aE.exit": ; preds = %108, %111
-  %.0.i45 = phi i8 [ %.0.i.i, %111 ], [ %..i, %108 ]
-  %112 = icmp eq i8 %.0.i45, 1
-  %spec.select = select i1 %112, ptr %98, ptr %26
+  %.0.i45 = phi i1 [ %112, %111 ], [ %110, %108 ]
+  %spec.select = select i1 %.0.i45, ptr %98, ptr %26
   br label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd2b066d5f3f3306aE.exit.thread"
 
 "_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd2b066d5f3f3306aE.exit.thread": ; preds = %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hd2b066d5f3f3306aE.exit", %108, %97
@@ -10602,9 +10600,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #37
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i8(i8, i8) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #37

@@ -2034,14 +2034,17 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit191:            ; preds = %._ZNSt6vectorIfSaIf
   %376 = add nuw i64 %.081337, 1
   %377 = load i64, ptr %4, align 8
   %378 = icmp ult i64 %376, %377
-  br i1 %378, label %.lr.ph338, label %._crit_edge339, !llvm.loop !31
+  br i1 %378, label %.lr.ph338, label %._crit_edge339.loopexit, !llvm.loop !31
 
-._crit_edge339:                                   ; preds = %.lr.ph338, %_ZNSt6vectorIfSaIfEE6resizeEm.exit191
-  %.lcssa = phi i64 [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit191 ], [ %377, %.lr.ph338 ]
-  %379 = load i32, ptr %16, align 8
-  store i32 %379, ptr %13, align 4
-  %380 = trunc i64 %.lcssa to i32
-  store i32 %380, ptr %14, align 4
+._crit_edge339.loopexit:                          ; preds = %.lr.ph338
+  %379 = trunc i64 %377 to i32
+  br label %._crit_edge339
+
+._crit_edge339:                                   ; preds = %._crit_edge339.loopexit, %_ZNSt6vectorIfSaIfEE6resizeEm.exit191
+  %.lcssa = phi i32 [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit191 ], [ %379, %._crit_edge339.loopexit ]
+  %380 = load i32, ptr %16, align 8
+  store i32 %380, ptr %13, align 4
+  store i32 %.lcssa, ptr %14, align 4
   store float 1.000000e+00, ptr %15, align 4
   %381 = load ptr, ptr %321, align 8
   %382 = invoke i32 @sgemm_(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %.sroa.0231.0, ptr noundef nonnull %13, ptr noundef %.sroa.0221.0, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %381, ptr noundef nonnull %13)

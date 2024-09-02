@@ -385,7 +385,7 @@ if.end.i97:                                       ; preds = %lor.lhs.false.i93
 
 need_large_offset.exit107.thread149:              ; preds = %if.end.i97
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ofsval.i90)
-  br label %cond.end103
+  br label %cond.false101
 
 need_large_offset.exit107.thread:                 ; preds = %lor.lhs.false.i93, %for.body91
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ofsval.i90)
@@ -403,93 +403,96 @@ need_large_offset.exit107:                        ; preds = %if.end.i97
 
 need_large_offset.exit107.cond.false101_crit_edge: ; preds = %need_large_offset.exit107
   %.pre = load i64, ptr %offset95, align 8
-  br label %cond.end103
+  br label %cond.false101
 
 cond.true98:                                      ; preds = %need_large_offset.exit107.thread, %need_large_offset.exit107
   %inc99 = add i32 %nr_large_offset.0171, 1
   %or = or i32 %nr_large_offset.0171, -2147483648
-  %conv100 = zext i32 %or to i64
   br label %cond.end103
 
-cond.end103:                                      ; preds = %need_large_offset.exit107.thread149, %need_large_offset.exit107.cond.false101_crit_edge, %cond.true98
-  %nr_large_offset.1 = phi i32 [ %inc99, %cond.true98 ], [ %nr_large_offset.0171, %need_large_offset.exit107.cond.false101_crit_edge ], [ %nr_large_offset.0171, %need_large_offset.exit107.thread149 ]
-  %cond104 = phi i64 [ %conv100, %cond.true98 ], [ %.pre, %need_large_offset.exit107.cond.false101_crit_edge ], [ %27, %need_large_offset.exit107.thread149 ]
+cond.false101:                                    ; preds = %need_large_offset.exit107.cond.false101_crit_edge, %need_large_offset.exit107.thread149
+  %31 = phi i64 [ %.pre, %need_large_offset.exit107.cond.false101_crit_edge ], [ %27, %need_large_offset.exit107.thread149 ]
+  %32 = trunc i64 %31 to i32
+  br label %cond.end103
+
+cond.end103:                                      ; preds = %cond.false101, %cond.true98
+  %nr_large_offset.1 = phi i32 [ %inc99, %cond.true98 ], [ %nr_large_offset.0171, %cond.false101 ]
+  %cond104 = phi i32 [ %or, %cond.true98 ], [ %32, %cond.false101 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i108)
-  %conv105 = trunc i64 %cond104 to i32
-  %31 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv105) #20, !srcloc !7
-  store i32 %31, ptr %data.addr.i108, align 4
+  %33 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %cond104) #20, !srcloc !7
+  store i32 %33, ptr %data.addr.i108, align 4
   call void @hashwrite(ptr noundef %f.0, ptr noundef nonnull %data.addr.i108, i32 noundef 4) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i108)
   %inc107 = add nuw nsw i32 %i.4170, 1
   %exitcond184.not = icmp eq i32 %inc107, %nr_objects
   br i1 %exitcond184.not, label %while.cond109.preheader, label %for.body91, !llvm.loop !12
 
+while.cond109.critedge:                           ; preds = %if.end.i121
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ofsval.i114)
+  br label %while.cond109.backedge
+
 while.body111:                                    ; preds = %while.body111.lr.ph, %while.cond109.backedge
   %list.5178 = phi ptr [ %sorted_by_sha.0, %while.body111.lr.ph ], [ %incdec.ptr113, %while.cond109.backedge ]
   %nr_large_offset.2176 = phi i32 [ %nr_large_offset.1, %while.body111.lr.ph ], [ %nr_large_offset.2.be, %while.cond109.backedge ]
   %incdec.ptr113 = getelementptr inbounds i8, ptr %list.5178, i64 8
-  %32 = load ptr, ptr %list.5178, align 8
-  %offset115 = getelementptr inbounds i8, ptr %32, i64 40
-  %33 = load i64, ptr %offset115, align 8
+  %34 = load ptr, ptr %list.5178, align 8
+  %offset115 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = load i64, ptr %offset115, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ofsval.i114)
-  %tobool.not.i115 = icmp ult i64 %33, 2147483648
+  %tobool.not.i115 = icmp ult i64 %35, 2147483648
   br i1 %tobool.not.i115, label %lor.lhs.false.i117, label %need_large_offset.exit131.thread
 
 lor.lhs.false.i117:                               ; preds = %while.body111
-  %34 = load i32, ptr %off32_limit.i118, align 8
-  %conv.i119 = zext i32 %34 to i64
-  %cmp.i120 = icmp ugt i64 %33, %conv.i119
+  %36 = load i32, ptr %off32_limit.i118, align 8
+  %conv.i119 = zext i32 %36 to i64
+  %cmp.i120 = icmp ugt i64 %35, %conv.i119
   br i1 %cmp.i120, label %need_large_offset.exit131.thread, label %if.end.i121
 
 if.end.i121:                                      ; preds = %lor.lhs.false.i117
-  %35 = load i32, ptr %anomaly_nr.i122, align 8
-  %tobool2.not.i123 = icmp eq i32 %35, 0
-  br i1 %tobool2.not.i123, label %need_large_offset.exit131.thread190, label %need_large_offset.exit131
+  %37 = load i32, ptr %anomaly_nr.i122, align 8
+  %tobool2.not.i123 = icmp eq i32 %37, 0
+  br i1 %tobool2.not.i123, label %while.cond109.critedge, label %if.end4.i124
 
-need_large_offset.exit131.thread190:              ; preds = %if.end.i121
+if.end4.i124:                                     ; preds = %if.end.i121
+  %conv5.i125 = trunc nuw i64 %35 to i32
+  store i32 %conv5.i125, ptr %ofsval.i114, align 4
+  %38 = load ptr, ptr %anomaly.i126, align 8
+  %conv7.i127 = sext i32 %37 to i64
+  %call.i128 = call ptr @bsearch(ptr noundef nonnull %ofsval.i114, ptr noundef %38, i64 noundef %conv7.i127, i64 noundef 4, ptr noundef nonnull @cmp_uint32) #19
+  %tobool8.i129.not = icmp eq ptr %call.i128, null
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ofsval.i114)
-  br label %while.cond109.backedge
+  br i1 %tobool8.i129.not, label %while.cond109.backedge, label %if.end119
 
 need_large_offset.exit131.thread:                 ; preds = %lor.lhs.false.i117, %while.body111
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ofsval.i114)
   br label %if.end119
 
-need_large_offset.exit131:                        ; preds = %if.end.i121
-  %conv5.i125 = trunc nuw i64 %33 to i32
-  store i32 %conv5.i125, ptr %ofsval.i114, align 4
-  %36 = load ptr, ptr %anomaly.i126, align 8
-  %conv7.i127 = sext i32 %35 to i64
-  %call.i128 = call ptr @bsearch(ptr noundef nonnull %ofsval.i114, ptr noundef %36, i64 noundef %conv7.i127, i64 noundef 4, ptr noundef nonnull @cmp_uint32) #19
-  %tobool8.i129.not = icmp eq ptr %call.i128, null
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ofsval.i114)
-  br i1 %tobool8.i129.not, label %while.cond109.backedge, label %if.end119
-
-if.end119:                                        ; preds = %need_large_offset.exit131.thread, %need_large_offset.exit131
+if.end119:                                        ; preds = %need_large_offset.exit131.thread, %if.end4.i124
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.addr.i132)
-  %37 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %33) #20, !srcloc !13
-  store i64 %37, ptr %data.addr.i132, align 8
+  %39 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %35) #20, !srcloc !13
+  store i64 %39, ptr %data.addr.i132, align 8
   call void @hashwrite(ptr noundef %f.0, ptr noundef nonnull %data.addr.i132, i32 noundef 8) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i132)
   %dec = add i32 %nr_large_offset.2176, -1
   br label %while.cond109.backedge
 
-while.cond109.backedge:                           ; preds = %need_large_offset.exit131.thread190, %if.end119, %need_large_offset.exit131
-  %nr_large_offset.2.be = phi i32 [ %dec, %if.end119 ], [ %nr_large_offset.2176, %need_large_offset.exit131 ], [ %nr_large_offset.2176, %need_large_offset.exit131.thread190 ]
+while.cond109.backedge:                           ; preds = %if.end119, %if.end4.i124, %while.cond109.critedge
+  %nr_large_offset.2.be = phi i32 [ %dec, %if.end119 ], [ %nr_large_offset.2176, %if.end4.i124 ], [ %nr_large_offset.2176, %while.cond109.critedge ]
   %tobool110.not = icmp eq i32 %nr_large_offset.2.be, 0
   br i1 %tobool110.not, label %if.end122, label %while.body111, !llvm.loop !14
 
 if.end122:                                        ; preds = %while.cond109.backedge, %for.end75, %for.cond44.preheader, %while.cond109.preheader
-  %38 = load ptr, ptr @the_repository, align 8
-  %hash_algo123 = getelementptr inbounds i8, ptr %38, i64 256
-  %39 = load ptr, ptr %hash_algo123, align 8
-  %rawsz124 = getelementptr inbounds i8, ptr %39, i64 16
-  %40 = load i64, ptr %rawsz124, align 8
-  %conv125 = trunc i64 %40 to i32
+  %40 = load ptr, ptr @the_repository, align 8
+  %hash_algo123 = getelementptr inbounds i8, ptr %40, i64 256
+  %41 = load ptr, ptr %hash_algo123, align 8
+  %rawsz124 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = load i64, ptr %rawsz124, align 8
+  %conv125 = trunc i64 %42 to i32
   call void @hashwrite(ptr noundef %f.0, ptr noundef %sha1, i32 noundef %conv125) #19
-  %41 = load i32, ptr %opts, align 8
-  %and127 = shl i32 %41, 1
-  %42 = and i32 %and127, 2
-  %or130 = xor i32 %42, 7
+  %43 = load i32, ptr %opts, align 8
+  %and127 = shl i32 %43, 1
+  %44 = and i32 %and127, 2
+  %or130 = xor i32 %44, 7
   %call131 = call i32 @finalize_hashfile(ptr noundef %f.0, ptr noundef null, i32 noundef 4, i32 noundef %or130) #19
   ret ptr %index_name.addr.0
 }

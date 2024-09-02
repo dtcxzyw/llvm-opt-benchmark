@@ -75,13 +75,16 @@ define dso_local i32 @assoc_array_iterate(ptr noundef %0, ptr nocapture noundef 
   %42 = and i64 %.pre-phi27, -4
   %43 = inttoptr i64 %42 to ptr
   %44 = icmp slt i32 %41, 16
-  br i1 %44, label %.loopexit10, label %.preheader
+  br i1 %44, label %.loopexit10.loopexit, label %.preheader
 
-.loopexit10:                                      ; preds = %39, %36
-  %45 = phi ptr [ %17, %36 ], [ %43, %39 ]
-  %46 = phi i32 [ 0, %36 ], [ %41, %39 ]
-  %47 = getelementptr inbounds i8, ptr %45, i64 16
-  %48 = sext i32 %46 to i64
+.loopexit10.loopexit:                             ; preds = %39
+  %45 = sext i32 %41 to i64
+  br label %.loopexit10
+
+.loopexit10:                                      ; preds = %36, %.loopexit10.loopexit
+  %46 = phi ptr [ %43, %.loopexit10.loopexit ], [ %17, %36 ]
+  %47 = phi i64 [ %45, %.loopexit10.loopexit ], [ 0, %36 ]
+  %48 = getelementptr inbounds i8, ptr %46, i64 16
   br label %52
 
 49:                                               ; preds = %52
@@ -90,8 +93,8 @@ define dso_local i32 @assoc_array_iterate(ptr noundef %0, ptr nocapture noundef 
   br i1 %51, label %.preheader.preheader, label %52, !llvm.loop !8
 
 52:                                               ; preds = %49, %.loopexit10
-  %53 = phi i64 [ %48, %.loopexit10 ], [ %50, %49 ]
-  %54 = getelementptr [16 x ptr], ptr %47, i64 0, i64 %53
+  %53 = phi i64 [ %47, %.loopexit10 ], [ %50, %49 ]
+  %54 = getelementptr [16 x ptr], ptr %48, i64 0, i64 %53
   %55 = load volatile ptr, ptr %54, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = and i64 %56, 1
@@ -99,7 +102,7 @@ define dso_local i32 @assoc_array_iterate(ptr noundef %0, ptr nocapture noundef 
   br i1 %58, label %49, label %.preheader12
 
 .preheader.preheader:                             ; preds = %49, %36
-  %.ph = phi ptr [ %17, %36 ], [ %45, %49 ]
+  %.ph = phi ptr [ %17, %36 ], [ %46, %49 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %39
@@ -221,13 +224,16 @@ assoc_array_delete_collapse_iterator.exit:        ; preds = %37, %30, %19
   %51 = and i64 %.pre-phi12, -4
   %52 = inttoptr i64 %51 to ptr
   %53 = icmp slt i32 %50, 16
-  br i1 %53, label %.loopexit2, label %.preheader
+  br i1 %53, label %.loopexit2.loopexit, label %.preheader
 
-.loopexit2:                                       ; preds = %48, %45
-  %54 = phi ptr [ %17, %45 ], [ %52, %48 ]
-  %55 = phi i32 [ 0, %45 ], [ %50, %48 ]
-  %56 = getelementptr inbounds i8, ptr %54, i64 16
-  %57 = sext i32 %55 to i64
+.loopexit2.loopexit:                              ; preds = %48
+  %54 = sext i32 %50 to i64
+  br label %.loopexit2
+
+.loopexit2:                                       ; preds = %45, %.loopexit2.loopexit
+  %55 = phi ptr [ %52, %.loopexit2.loopexit ], [ %17, %45 ]
+  %56 = phi i64 [ %54, %.loopexit2.loopexit ], [ 0, %45 ]
+  %57 = getelementptr inbounds i8, ptr %55, i64 16
   br label %61
 
 58:                                               ; preds = %61
@@ -236,8 +242,8 @@ assoc_array_delete_collapse_iterator.exit:        ; preds = %37, %30, %19
   br i1 %60, label %.preheader.preheader, label %61, !llvm.loop !8
 
 61:                                               ; preds = %58, %.loopexit2
-  %62 = phi i64 [ %57, %.loopexit2 ], [ %59, %58 ]
-  %63 = getelementptr [16 x ptr], ptr %56, i64 0, i64 %62
+  %62 = phi i64 [ %56, %.loopexit2 ], [ %59, %58 ]
+  %63 = getelementptr [16 x ptr], ptr %57, i64 0, i64 %62
   %64 = load volatile ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = and i64 %65, 1
@@ -245,7 +251,7 @@ assoc_array_delete_collapse_iterator.exit:        ; preds = %37, %30, %19
   br i1 %67, label %58, label %.loopexit
 
 .preheader.preheader:                             ; preds = %58, %45
-  %.ph = phi ptr [ %17, %45 ], [ %54, %58 ]
+  %.ph = phi ptr [ %17, %45 ], [ %55, %58 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %48
@@ -2326,7 +2332,7 @@ define internal void @assoc_array_rcu_cleanup(ptr noundef %0) #0 align 16 {
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @assoc_array_gc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8
@@ -2526,52 +2532,52 @@ define dso_local noundef i32 @assoc_array_gc(ptr noundef %0, ptr noundef %1, ptr
 132:                                              ; preds = %128
   %133 = and i64 %129, 2
   %134 = icmp eq i64 %133, 0
-  br i1 %134, label %140, label %135
+  br i1 %134, label %141, label %135
 
 135:                                              ; preds = %132
   %136 = and i64 %129, -4
   %137 = inttoptr i64 %136 to ptr
   %138 = getelementptr inbounds i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
+  %140 = icmp eq i64 %136, 0
   %.pre = ptrtoint ptr %139 to i64
-  br label %140
+  br label %141
 
-140:                                              ; preds = %135, %132
+141:                                              ; preds = %135, %132
   %.pre-phi = phi i64 [ %.pre, %135 ], [ %129, %132 ]
-  %141 = phi ptr [ %137, %135 ], [ null, %132 ]
-  %142 = and i64 %.pre-phi, -4
-  %143 = inttoptr i64 %142 to ptr
-  %144 = getelementptr inbounds i8, ptr %143, i64 144
-  %145 = load i64, ptr %144, align 8
-  %146 = load i64, ptr %79, align 8
-  %147 = add i64 %146, %145
-  store i64 %147, ptr %79, align 8
-  %148 = load i64, ptr %144, align 8
-  %149 = add i32 %124, 1
-  %150 = sext i32 %149 to i64
-  %151 = icmp ugt i64 %148, %150
-  br i1 %151, label %189, label %152
+  %142 = phi i1 [ %140, %135 ], [ true, %132 ]
+  %143 = and i64 %.pre-phi, -4
+  %144 = inttoptr i64 %143 to ptr
+  %145 = getelementptr inbounds i8, ptr %144, i64 144
+  %146 = load i64, ptr %145, align 8
+  %147 = load i64, ptr %79, align 8
+  %148 = add i64 %147, %146
+  store i64 %148, ptr %79, align 8
+  %149 = load i64, ptr %145, align 8
+  %150 = add i32 %124, 1
+  %151 = sext i32 %150 to i64
+  %152 = icmp ugt i64 %149, %151
+  br i1 %152, label %189, label %153
 
-152:                                              ; preds = %140
-  %153 = icmp eq ptr %141, null
-  br i1 %153, label %155, label %154, !prof !18
+153:                                              ; preds = %141
+  br i1 %142, label %155, label %154, !prof !18
 
-154:                                              ; preds = %152
+154:                                              ; preds = %153
   tail call void asm sideeffect "182: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 182b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 182) #8, !srcloc !98
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1586, i32 0, i64 12) #8, !srcloc !99
   unreachable
 
-155:                                              ; preds = %152
+155:                                              ; preds = %153
   store ptr null, ptr %125, align 8
   %156 = trunc i64 %121 to i32
   %157 = tail call i32 @llvm.smin.i32(i32 %156, i32 %123)
-  %158 = getelementptr inbounds i8, ptr %143, i64 16
+  %158 = getelementptr inbounds i8, ptr %144, i64 16
   br label %159
 
 159:                                              ; preds = %183, %155
   %160 = phi i64 [ 0, %155 ], [ %186, %183 ]
   %161 = phi i32 [ %157, %155 ], [ %185, %183 ]
-  %162 = phi i32 [ %149, %155 ], [ %184, %183 ]
+  %162 = phi i32 [ %150, %155 ], [ %184, %183 ]
   %163 = getelementptr [16 x ptr], ptr %158, i64 0, i64 %160
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, null
@@ -2620,13 +2626,13 @@ define dso_local noundef i32 @assoc_array_gc(ptr noundef %0, ptr noundef %1, ptr
   br i1 %187, label %188, label %159, !llvm.loop !105
 
 188:                                              ; preds = %183
-  tail call void @kfree(ptr noundef %143) #8
+  tail call void @kfree(ptr noundef %144) #8
   br label %189
 
-189:                                              ; preds = %188, %140, %128, %.preheader22
-  %190 = phi i32 [ %124, %128 ], [ %124, %.preheader22 ], [ %184, %188 ], [ %124, %140 ]
-  %191 = phi i32 [ %123, %128 ], [ %123, %.preheader22 ], [ %185, %188 ], [ %123, %140 ]
-  %192 = phi i8 [ %122, %128 ], [ %122, %.preheader22 ], [ %122, %188 ], [ 1, %140 ]
+189:                                              ; preds = %188, %141, %128, %.preheader22
+  %190 = phi i32 [ %124, %128 ], [ %124, %.preheader22 ], [ %184, %188 ], [ %124, %141 ]
+  %191 = phi i32 [ %123, %128 ], [ %123, %.preheader22 ], [ %185, %188 ], [ %123, %141 ]
+  %192 = phi i8 [ %122, %128 ], [ %122, %.preheader22 ], [ %122, %188 ], [ 1, %141 ]
   %193 = add nuw nsw i64 %121, 1
   %194 = icmp eq i64 %193, 16
   br i1 %194, label %195, label %.preheader22, !llvm.loop !106

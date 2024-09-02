@@ -672,9 +672,9 @@ getFrameControlData.exit:                         ; preds = %.thread, %172, %.th
   %.pre = phi i32 [ %207, %202 ], [ %.pre.pre, %208 ]
   %.0.i173 = phi i32 [ 1, %202 ], [ 2, %208 ]
   %212 = add nuw nsw i32 %.0.i173, %192
-  %213 = icmp ult i8 %139, 4
-  %214 = icmp ne i32 %.pre, 0
-  %or.cond9 = select i1 %213, i1 %214, i1 false
+  %213 = icmp ne i32 %.pre, 0
+  %214 = icmp ult i8 %139, 4
+  %or.cond9 = select i1 %214, i1 %213, i1 false
   br i1 %or.cond9, label %215, label %.thread241
 
 215:                                              ; preds = %211

@@ -1242,12 +1242,12 @@ define dso_local i64 @range_gist_picksplit(ptr noundef %0) local_unnamed_addr #0
   %42 = lshr i32 %38, 5
   %43 = and i32 %42, 4
   %spec.select11.i = or disjoint i32 %.2.i, %43
+  %44 = zext nneg i32 %spec.select11.i to i64
   br label %get_gist_range_class.exit
 
 get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
-  %.0.i = phi i32 [ 8, %.lr.ph ], [ %spec.select11.i, %40 ]
-  %44 = zext nneg i32 %.0.i to i64
-  %45 = getelementptr [9 x i32], ptr %6, i64 0, i64 %44
+  %.0.i = phi i64 [ 8, %.lr.ph ], [ %44, %40 ]
+  %45 = getelementptr [9 x i32], ptr %6, i64 0, i64 %.0.i
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4
@@ -2099,12 +2099,12 @@ range_gist_fallback_split.exit:                   ; preds = %323, %._crit_edge.l
   %419 = lshr i32 %415, 5
   %420 = and i32 %419, 4
   %spec.select11.i.i = or disjoint i32 %.2.i.i107, %420
+  %421 = zext nneg i32 %spec.select11.i.i to i64
   br label %get_gist_range_class.exit.i
 
 get_gist_range_class.exit.i:                      ; preds = %417, %408
-  %.0.i.i = phi i32 [ 8, %408 ], [ %spec.select11.i.i, %417 ]
-  %421 = zext nneg i32 %.0.i.i to i64
-  %422 = getelementptr i32, ptr %7, i64 %421
+  %.0.i.i = phi i64 [ 8, %408 ], [ %421, %417 ]
+  %422 = getelementptr i32, ptr %7, i64 %.0.i.i
   %423 = load i32, ptr %422, align 4
   %424 = icmp eq i32 %423, 0
   br i1 %424, label %425, label %430

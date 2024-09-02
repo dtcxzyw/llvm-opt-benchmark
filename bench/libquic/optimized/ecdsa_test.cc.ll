@@ -535,24 +535,25 @@ terminate.lpad.i.i:                               ; preds = %if.then.i99.i
 
 _ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i: ; preds = %if.then.i99.i, %cleanup255.i
   store ptr null, ptr %wrong_eckey.i, align 8
+  %38 = icmp eq i32 %cleanup.dest.slot.2.i, 1
   %.pre.i = load ptr, ptr %eckey.i, align 8
   br label %cleanup257.i
 
 cleanup257.i:                                     ; preds = %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i, %if.then41.i
-  %38 = phi ptr [ %call27.i, %if.then41.i ], [ %.pre.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ]
-  %cleanup.dest.slot.1.i = phi i32 [ 1, %if.then41.i ], [ %cleanup.dest.slot.2.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ]
-  %cmp.not.i100.i = icmp eq ptr %38, null
+  %39 = phi ptr [ %call27.i, %if.then41.i ], [ %.pre.i, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ]
+  %cleanup.dest.slot.1.i = phi i1 [ true, %if.then41.i ], [ %38, %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i ]
+  %cmp.not.i100.i = icmp eq ptr %39, null
   br i1 %cmp.not.i100.i, label %cleanup259.i, label %if.then.i101.i
 
 if.then.i101.i:                                   ; preds = %cleanup257.i
-  invoke void @EC_KEY_free(ptr noundef nonnull %38)
+  invoke void @EC_KEY_free(ptr noundef nonnull %39)
           to label %cleanup259.i unwind label %terminate.lpad.i102.i
 
 terminate.lpad.i102.i:                            ; preds = %if.then.i101.i
-  %39 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #19
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #19
   unreachable
 
 cleanup259.i:                                     ; preds = %if.then.i101.i, %cleanup257.i
@@ -562,23 +563,22 @@ cleanup259.i:                                     ; preds = %if.then.i101.i, %cl
   br i1 %cmp.not.i104.i, label %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i, label %if.then.i105.i
 
 if.then.i105.i:                                   ; preds = %cleanup259.i, %cleanup259.thread141.i
-  %cleanup.dest.slot.0144.i = phi i32 [ 4, %cleanup259.thread141.i ], [ %cleanup.dest.slot.1.i, %cleanup259.i ]
-  %41 = phi ptr [ %call11.i, %cleanup259.thread141.i ], [ %.pre136.i, %cleanup259.i ]
-  invoke void @EC_GROUP_free(ptr noundef nonnull %41)
+  %cleanup.dest.slot.0144.i = phi i1 [ false, %cleanup259.thread141.i ], [ %cleanup.dest.slot.1.i, %cleanup259.i ]
+  %42 = phi ptr [ %call11.i, %cleanup259.thread141.i ], [ %.pre136.i, %cleanup259.i ]
+  invoke void @EC_GROUP_free(ptr noundef nonnull %42)
           to label %_ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i unwind label %terminate.lpad.i106.i
 
 terminate.lpad.i106.i:                            ; preds = %if.then.i105.i
-  %42 = landingpad { ptr, i32 }
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #19
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #19
   unreachable
 
 _ZNSt10unique_ptrI11ec_group_st14OpenSSLDeleterIS0_XadL_Z13EC_GROUP_freeEEEED2Ev.exit.i: ; preds = %if.then.i105.i, %cleanup259.i
-  %cleanup.dest.slot.0140.i = phi i32 [ %cleanup.dest.slot.1.i, %cleanup259.i ], [ %cleanup.dest.slot.0144.i, %if.then.i105.i ]
+  %cleanup.dest.slot.0140.i = phi i1 [ %cleanup.dest.slot.1.i, %cleanup259.i ], [ %cleanup.dest.slot.0144.i, %if.then.i105.i ]
   store ptr null, ptr %group.i, align 8
-  %switch.not.i = icmp eq i32 %cleanup.dest.slot.0140.i, 1
-  br i1 %switch.not.i, label %_ZL11TestBuiltinP8_IO_FILE.exit.thread, label %for.cond.i
+  br i1 %cleanup.dest.slot.0140.i, label %_ZL11TestBuiltinP8_IO_FILE.exit.thread, label %for.cond.i
 
 ehcleanup.i:                                      ; preds = %lpad172.i, %lpad89.i
   %signature.sroa.0.6.i = phi ptr [ %signature.sroa.0.4.i, %lpad89.i ], [ %signature.sroa.0.8.i, %lpad172.i ]
@@ -644,8 +644,8 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false9
 
 if.then:                                          ; preds = %_ZL11TestBuiltinP8_IO_FILE.exit.thread, %lor.lhs.false12, %lor.lhs.false9, %lor.lhs.false6, %lor.lhs.false3, %lor.lhs.false
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %44 = load ptr, ptr @stdout, align 8
-  call void @ERR_print_errors_fp(ptr noundef %44)
+  %45 = load ptr, ptr @stdout, align 8
+  call void @ERR_print_errors_fp(ptr noundef %45)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false12

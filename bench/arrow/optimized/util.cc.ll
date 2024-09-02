@@ -41433,14 +41433,14 @@ _ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i:    ; preds = %.noexc
   %.pre.i = load i64, ptr %size_.i.i.i, align 8, !noalias !2065
   %.pre48.i = add nsw i64 %.pre.i, %add46.i
   %.pre = load ptr, ptr %data_.i.i, align 8, !noalias !2065
+  %0 = lshr i64 %.pre.i, 2
   br label %do.end7.i
 
 do.end7.i:                                        ; preds = %do.body, %_ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i
-  %0 = phi ptr [ %.pre, %_ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i ], [ @_ZN5arrow4util8internalL14kNonNullFillerE, %do.body ]
+  %1 = phi ptr [ %.pre, %_ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i ], [ @_ZN5arrow4util8internalL14kNonNullFillerE, %do.body ]
   %add.i.i40.pre-phi.i = phi i64 [ %.pre48.i, %_ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i ], [ %add46.i, %do.body ]
-  %1 = phi i64 [ %.pre.i, %_ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i ], [ 0, %do.body ]
-  %div1.i.i.i = lshr i64 %1, 2
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %0, i64 %div1.i.i.i
+  %div1.i.i.i = phi i64 [ %0, %_ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i ], [ 0, %do.body ]
+  %add.ptr.i.i = getelementptr inbounds i32, ptr %1, i64 %div1.i.i.i
   store i64 %add.i.i40.pre-phi.i, ptr %size_.i.i.i, align 8, !noalias !2065
   %add.ptr3.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %this.16.val
   %cmp.not3.i.i.i.i.i = icmp eq i64 %this.16.val, 0
@@ -42380,14 +42380,14 @@ _ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i:    ; preds = %.noexc
   %.pre.i = load i64, ptr %size_.i.i.i, align 8, !noalias !2080
   %.pre48.i = add nsw i64 %.pre.i, %add46.i
   %.pre = load ptr, ptr %data_.i.i, align 8, !noalias !2080
+  %0 = lshr i64 %.pre.i, 3
   br label %do.end7.i
 
 do.end7.i:                                        ; preds = %do.body, %_ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i
-  %0 = phi ptr [ %.pre, %_ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i ], [ @_ZN5arrow4util8internalL14kNonNullFillerE, %do.body ]
+  %1 = phi ptr [ %.pre, %_ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i ], [ @_ZN5arrow4util8internalL14kNonNullFillerE, %do.body ]
   %add.i.i40.pre-phi.i = phi i64 [ %.pre48.i, %_ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i ], [ %add46.i, %do.body ]
-  %1 = phi i64 [ %.pre.i, %_ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i ], [ 0, %do.body ]
-  %div1.i.i.i = lshr i64 %1, 3
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %0, i64 %div1.i.i.i
+  %div1.i.i.i = phi i64 [ %0, %_ZN5arrow6StatusD2Ev.exit.do.end7_crit_edge.i ], [ 0, %do.body ]
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %1, i64 %div1.i.i.i
   store i64 %add.i.i40.pre-phi.i, ptr %size_.i.i.i, align 8, !noalias !2080
   %add.ptr3.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i, i64 %this.16.val
   %cmp.not3.i.i.i.i.i = icmp eq i64 %this.16.val, 0

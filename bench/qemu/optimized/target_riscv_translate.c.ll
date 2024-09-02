@@ -20539,7 +20539,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %arrayidx2.i, align 8
   %2 = getelementptr i8, ptr %s, i64 137
   %s.val.i = load i8, ptr %2, align 1
-  %3 = tail call i8 @llvm.smax.i8(i8 %s.val.i, i8 0)
+  %3 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %s.val.i, i8 0)
   %4 = load i32, ptr %a, align 4
   %bf.value.i = and i32 %4, 1
   %5 = shl nuw i8 %3, 1
@@ -20913,7 +20913,7 @@ if.end.i:                                         ; preds = %vext_check_store.ex
   %12 = load ptr, ptr %arrayidx2.i, align 8
   %sub.i.i = add i8 %s.val6.i, 1
   %add.i.i = sub i8 %sub.i.i, %s.val7.i
-  %13 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 0)
+  %13 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i.i, i8 0)
   %bf.value.i = and i32 %4, 1
   %14 = shl nuw i8 %13, 1
   %15 = and i8 %14, 14
@@ -21127,7 +21127,7 @@ vext_check_store.exit.i.i:                        ; preds = %require_align.exit.
 if.then:                                          ; preds = %vext_check_store.exit.i.i
   %sub.i.i = add i8 %s.val6.i, 1
   %add.i.i = sub i8 %sub.i.i, %s.val7.i
-  %12 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 0)
+  %12 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i.i, i8 0)
   %bf.value.i = and i32 %4, 1
   %13 = shl nuw i8 %12, 1
   %14 = and i8 %13, 14
@@ -21174,7 +21174,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %arrayidx2.i, align 8
   %2 = getelementptr i8, ptr %s, i64 137
   %s.val.i = load i8, ptr %2, align 1
-  %3 = tail call i8 @llvm.smax.i8(i8 %s.val.i, i8 0)
+  %3 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %s.val.i, i8 0)
   %4 = load i32, ptr %a, align 4
   %bf.value.i = and i32 %4, 1
   %5 = shl nuw i8 %3, 1
@@ -21274,7 +21274,7 @@ if.end.i:                                         ; preds = %vext_check_store.ex
   %12 = load ptr, ptr %arrayidx2.i, align 16
   %sub.i.i = add i8 %s.val6.i, 2
   %add.i.i = sub i8 %sub.i.i, %s.val7.i
-  %13 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 0)
+  %13 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i.i, i8 0)
   %bf.value.i = and i32 %4, 1
   %14 = shl nuw i8 %13, 1
   %15 = and i8 %14, 14
@@ -21488,7 +21488,7 @@ vext_check_store.exit.i.i:                        ; preds = %require_align.exit.
 if.then:                                          ; preds = %vext_check_store.exit.i.i
   %sub.i.i = add i8 %s.val6.i, 2
   %add.i.i = sub i8 %sub.i.i, %s.val7.i
-  %12 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 0)
+  %12 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i.i, i8 0)
   %bf.value.i = and i32 %4, 1
   %13 = shl nuw i8 %12, 1
   %14 = and i8 %13, 14
@@ -21535,7 +21535,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %arrayidx2.i, align 8
   %2 = getelementptr i8, ptr %s, i64 137
   %s.val.i = load i8, ptr %2, align 1
-  %3 = tail call i8 @llvm.smax.i8(i8 %s.val.i, i8 0)
+  %3 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %s.val.i, i8 0)
   %4 = load i32, ptr %a, align 4
   %bf.value.i = and i32 %4, 1
   %5 = shl nuw i8 %3, 1
@@ -21635,7 +21635,7 @@ if.end.i:                                         ; preds = %vext_check_store.ex
   %12 = load ptr, ptr %arrayidx2.i, align 8
   %sub.i.i = add i8 %s.val6.i, 3
   %add.i.i = sub i8 %sub.i.i, %s.val7.i
-  %13 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 0)
+  %13 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i.i, i8 0)
   %bf.value.i = and i32 %4, 1
   %14 = shl nuw i8 %13, 1
   %15 = and i8 %14, 14
@@ -21849,7 +21849,7 @@ vext_check_store.exit.i.i:                        ; preds = %require_align.exit.
 if.then:                                          ; preds = %vext_check_store.exit.i.i
   %sub.i.i = add i8 %s.val6.i, 3
   %add.i.i = sub i8 %sub.i.i, %s.val7.i
-  %12 = tail call i8 @llvm.smax.i8(i8 %add.i.i, i8 0)
+  %12 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i.i, i8 0)
   %bf.value.i = and i32 %4, 1
   %13 = shl nuw i8 %12, 1
   %14 = and i8 %13, 14
@@ -21896,7 +21896,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %arrayidx2.i, align 8
   %2 = getelementptr i8, ptr %s, i64 137
   %s.val.i = load i8, ptr %2, align 1
-  %3 = tail call i8 @llvm.smax.i8(i8 %s.val.i, i8 0)
+  %3 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %s.val.i, i8 0)
   %4 = load i32, ptr %a, align 4
   %bf.value.i = and i32 %4, 1
   %5 = shl nuw i8 %3, 1
@@ -24346,7 +24346,7 @@ if.end.i:                                         ; preds = %st_us_check.exit
   %10 = load ptr, ptr %arrayidx2.i, align 8
   %sub.i.i4 = add i8 %s.val5.i, 1
   %add.i.i5 = sub i8 %sub.i.i4, %s.val6.i
-  %11 = tail call i8 @llvm.smax.i8(i8 %add.i.i5, i8 0)
+  %11 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i.i5, i8 0)
   %bf.value.i = and i32 %9, 1
   %12 = shl nuw i8 %11, 1
   %13 = and i8 %12, 14
@@ -24421,7 +24421,7 @@ st_stride_check.exit:                             ; preds = %land.lhs.true9.i.i,
 if.then:                                          ; preds = %st_stride_check.exit
   %sub.i.i4 = add i8 %s.val5.i, 1
   %add.i.i5 = sub i8 %sub.i.i4, %s.val6.i
-  %9 = tail call i8 @llvm.smax.i8(i8 %add.i.i5, i8 0)
+  %9 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i.i5, i8 0)
   %10 = load i32, ptr %a, align 4
   %bf.value.i = and i32 %10, 1
   %11 = shl nuw i8 %9, 1
@@ -24602,7 +24602,7 @@ if.end.i:                                         ; preds = %st_us_check.exit
   %10 = load ptr, ptr %arrayidx2.i, align 16
   %sub.i.i4 = add i8 %s.val5.i, 2
   %add.i.i5 = sub i8 %sub.i.i4, %s.val6.i
-  %11 = tail call i8 @llvm.smax.i8(i8 %add.i.i5, i8 0)
+  %11 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i.i5, i8 0)
   %bf.value.i = and i32 %9, 1
   %12 = shl nuw i8 %11, 1
   %13 = and i8 %12, 14
@@ -24677,7 +24677,7 @@ st_stride_check.exit:                             ; preds = %land.lhs.true9.i.i,
 if.then:                                          ; preds = %st_stride_check.exit
   %sub.i.i4 = add i8 %s.val5.i, 2
   %add.i.i5 = sub i8 %sub.i.i4, %s.val6.i
-  %9 = tail call i8 @llvm.smax.i8(i8 %add.i.i5, i8 0)
+  %9 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i.i5, i8 0)
   %10 = load i32, ptr %a, align 4
   %bf.value.i = and i32 %10, 1
   %11 = shl nuw i8 %9, 1
@@ -24858,7 +24858,7 @@ if.end.i:                                         ; preds = %st_us_check.exit
   %10 = load ptr, ptr %arrayidx2.i, align 8
   %sub.i.i4 = add i8 %s.val5.i, 3
   %add.i.i5 = sub i8 %sub.i.i4, %s.val6.i
-  %11 = tail call i8 @llvm.smax.i8(i8 %add.i.i5, i8 0)
+  %11 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i.i5, i8 0)
   %bf.value.i = and i32 %9, 1
   %12 = shl nuw i8 %11, 1
   %13 = and i8 %12, 14
@@ -24933,7 +24933,7 @@ st_stride_check.exit:                             ; preds = %land.lhs.true9.i.i,
 if.then:                                          ; preds = %st_stride_check.exit
   %sub.i.i4 = add i8 %s.val5.i, 3
   %add.i.i5 = sub i8 %sub.i.i4, %s.val6.i
-  %9 = tail call i8 @llvm.smax.i8(i8 %add.i.i5, i8 0)
+  %9 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i.i5, i8 0)
   %10 = load i32, ptr %a, align 4
   %bf.value.i = and i32 %10, 1
   %11 = shl nuw i8 %9, 1
@@ -88151,7 +88151,7 @@ ldff_trans.exit:                                  ; preds = %if.then.i.i, %sw.ep
   %bf.value = and i32 %3, 1
   %sub.i = add i8 %s.val, %eew
   %add.i = sub i8 %sub.i, %s.val19
-  %12 = tail call i8 @llvm.smax.i8(i8 %add.i, i8 0)
+  %12 = tail call range(i8 0, -128) i8 @llvm.smax.i8(i8 %add.i, i8 0)
   %13 = shl nuw i8 %12, 1
   %14 = and i8 %13, 14
   %and6.i = zext nneg i8 %14 to i32
@@ -88663,7 +88663,7 @@ for.body.us8.i.us.us.preheader:                   ; preds = %for.body.us8.prehea
   %cond18.i33.i59.us.i.us.us = sext i8 %29 to i32
   %sub.i34.i60.us.i.us.us = sub nsw i32 %cond.i.i73.us.i.us.us, %cond18.i33.i59.us.i.us.us
   %cmp22.i36.i62.us.i.us.us = icmp sge i32 %sub.i34.i60.us.i.us.us, %add21.i.i76.i
-  %tobool43.us.i.us.us = select i1 %cmp22.i36.i62.us.i.us.us, i1 %26, i1 false
+  %30 = select i1 %cmp22.i36.i62.us.i.us.us, i1 %26, i1 false
   br label %for.end.loopexit53.i
 
 for.body.us8.i.us:                                ; preds = %for.body.us8.preheader.i.split.us, %for.body.us8.i.us
@@ -88673,19 +88673,19 @@ for.body.us8.i.us:                                ; preds = %for.body.us8.prehea
   %add12.us12.i.us = add i32 %mul36.us11.i.us, %2
   %conv13.us13.i.us = trunc i32 %add12.us12.i.us to i8
   %add.i.i70.us.i.us = add i8 %conv3.i47.i, %conv13.us13.i.us
-  %30 = tail call i8 @llvm.smax.i8(i8 %add.i.i70.us.i.us, i8 %add5.i.i72.i)
-  %cond.i.i73.us.i.us = sext i8 %30 to i32
-  %31 = tail call i8 @llvm.smin.i8(i8 %conv13.us13.i.us, i8 %conv37.i)
-  %cond18.i33.i59.us.i.us = sext i8 %31 to i32
+  %31 = tail call i8 @llvm.smax.i8(i8 %add.i.i70.us.i.us, i8 %add5.i.i72.i)
+  %cond.i.i73.us.i.us = sext i8 %31 to i32
+  %32 = tail call i8 @llvm.smin.i8(i8 %conv13.us13.i.us, i8 %conv37.i)
+  %cond18.i33.i59.us.i.us = sext i8 %32 to i32
   %sub.i34.i60.us.i.us = sub nsw i32 %cond.i.i73.us.i.us, %cond18.i33.i59.us.i.us
   %cmp22.i36.i62.us.i.us = icmp sge i32 %sub.i34.i60.us.i.us, %add21.i.i76.i
   %add.i85.us17.i.us = add i8 %conv13.us13.i.us, %conv60.i
-  %32 = tail call i8 @llvm.smax.i8(i8 %add.i85.us17.i.us, i8 %add5.i.i)
-  %cond.i.us18.i.us = sext i8 %32 to i32
+  %33 = tail call i8 @llvm.smax.i8(i8 %add.i85.us17.i.us, i8 %add5.i.i)
+  %cond.i.us18.i.us = sext i8 %33 to i32
   %sub.i86.us20.i.us = sub nsw i32 %cond.i.us18.i.us, %cond18.i33.i59.us.i.us
   %cmp22.i.us21.i.us = icmp sge i32 %sub.i86.us20.i.us, %add21.i.i
-  %33 = select i1 %cmp22.i.us21.i.us, i1 %cmp22.i36.i62.us.i.us, i1 false
-  %tobool76.us23.i.us = select i1 %33, i1 %ret.07.us9.i.us, i1 false
+  %34 = select i1 %cmp22.i.us21.i.us, i1 %cmp22.i36.i62.us.i.us, i1 false
+  %tobool76.us23.i.us = select i1 %34, i1 %ret.07.us9.i.us, i1 false
   %inc.us27.i.us = add nuw nsw i32 %i.06.us10.i.us, 1
   %exitcond56.not.i.us = icmp eq i32 %inc.us27.i.us, %4
   br i1 %exitcond56.not.i.us, label %for.end.loopexit53.i, label %for.body.us8.i.us, !llvm.loop !11
@@ -88698,8 +88698,8 @@ for.body.us8.i:                                   ; preds = %for.body.us8.prehea
   %conv13.us13.i = trunc i32 %add12.us12.i to i8
   %cmp20.i65.us.i = icmp slt i8 %conv13.us13.i, %conv37.i
   %add.i.i70.us.i = add i8 %conv3.i47.i, %conv13.us13.i
-  %34 = tail call i8 @llvm.smax.i8(i8 %add.i.i70.us.i, i8 %add5.i.i72.i)
-  %cond.i.i73.us.i = sext i8 %34 to i32
+  %35 = tail call i8 @llvm.smax.i8(i8 %add.i.i70.us.i, i8 %add5.i.i72.i)
+  %cond.i.i73.us.i = sext i8 %35 to i32
   br i1 %cmp20.i65.us.i, label %land.lhs.true25.i68.us.i, label %if.end33.i53.us.i
 
 land.lhs.true25.i68.us.i:                         ; preds = %for.body.us8.i
@@ -88710,39 +88710,39 @@ land.lhs.true25.i68.us.i:                         ; preds = %for.body.us8.i
   br i1 %cmp22.i.i77.us.i, label %land.lhs.true27.i78.us.i, label %if.end33.i53.us.i
 
 land.lhs.true27.i78.us.i:                         ; preds = %land.lhs.true25.i68.us.i
-  %35 = tail call i8 @llvm.smax.i8(i8 %add.i.i70.us.i, i8 %add5.i22.i79.i)
-  %cond.i23.i80.us.i = sext i8 %35 to i32
-  %36 = tail call i8 @llvm.smin.i8(i8 %conv13.us13.i, i8 %add5.i.i72.i)
-  %cond18.i24.i81.us.i = sext i8 %36 to i32
+  %36 = tail call i8 @llvm.smax.i8(i8 %add.i.i70.us.i, i8 %add5.i22.i79.i)
+  %cond.i23.i80.us.i = sext i8 %36 to i32
+  %37 = tail call i8 @llvm.smin.i8(i8 %conv13.us13.i, i8 %add5.i.i72.i)
+  %cond18.i24.i81.us.i = sext i8 %37 to i32
   %sub.i25.i82.us.i = sub nsw i32 %cond.i23.i80.us.i, %cond18.i24.i81.us.i
   %cmp22.i27.i83.us.i = icmp slt i32 %sub.i25.i82.us.i, %add21.i.i76.i
   br i1 %cmp22.i27.i83.us.i, label %if.end33.i53.us.i, label %require_noover.exit84.us.i
 
 if.end33.i53.us.i:                                ; preds = %land.lhs.true27.i78.us.i, %land.lhs.true25.i68.us.i, %for.body.us8.i
-  %37 = tail call i8 @llvm.smin.i8(i8 %conv13.us13.i, i8 %conv37.i)
-  %cond18.i33.i59.us.i = sext i8 %37 to i32
+  %38 = tail call i8 @llvm.smin.i8(i8 %conv13.us13.i, i8 %conv37.i)
+  %cond18.i33.i59.us.i = sext i8 %38 to i32
   %sub.i34.i60.us.i = sub nsw i32 %cond.i.i73.us.i, %cond18.i33.i59.us.i
   %cmp22.i36.i62.us.i = icmp sge i32 %sub.i34.i60.us.i, %add21.i.i76.i
+  %39 = select i1 %cmp22.i36.i62.us.i, i1 %ret.07.us9.i, i1 false
   br label %require_noover.exit84.us.i
 
 require_noover.exit84.us.i:                       ; preds = %if.end33.i53.us.i, %land.lhs.true27.i78.us.i
-  %retval.0.i63.us.i = phi i1 [ %cmp22.i36.i62.us.i, %if.end33.i53.us.i ], [ true, %land.lhs.true27.i78.us.i ]
-  %tobool43.us.i = select i1 %retval.0.i63.us.i, i1 %ret.07.us9.i, i1 false
+  %retval.0.i63.us.i = phi i1 [ %39, %if.end33.i53.us.i ], [ %ret.07.us9.i, %land.lhs.true27.i78.us.i ]
   br i1 %cmp47.not.i, label %for.inc.us25.i, label %if.then49.us16.i
 
 if.then49.us16.i:                                 ; preds = %require_noover.exit84.us.i
   %add.i85.us17.i = add i8 %conv13.us13.i, %conv60.i
-  %38 = tail call i8 @llvm.smax.i8(i8 %add.i85.us17.i, i8 %add5.i.i)
-  %cond.i.us18.i = sext i8 %38 to i32
-  %39 = tail call i8 @llvm.smin.i8(i8 %conv13.us13.i, i8 %conv37.i)
-  %cond18.i.us19.i = sext i8 %39 to i32
+  %40 = tail call i8 @llvm.smax.i8(i8 %add.i85.us17.i, i8 %add5.i.i)
+  %cond.i.us18.i = sext i8 %40 to i32
+  %41 = tail call i8 @llvm.smin.i8(i8 %conv13.us13.i, i8 %conv37.i)
+  %cond18.i.us19.i = sext i8 %41 to i32
   %sub.i86.us20.i = sub nsw i32 %cond.i.us18.i, %cond18.i.us19.i
   %cmp22.i.us21.i = icmp sge i32 %sub.i86.us20.i, %add21.i.i
-  %tobool76.us23.i = select i1 %cmp22.i.us21.i, i1 %tobool43.us.i, i1 false
+  %tobool76.us23.i = select i1 %cmp22.i.us21.i, i1 %retval.0.i63.us.i, i1 false
   br label %for.inc.us25.i
 
 for.inc.us25.i:                                   ; preds = %if.then49.us16.i, %require_noover.exit84.us.i
-  %ret.2.us26.in.i = phi i1 [ %tobool76.us23.i, %if.then49.us16.i ], [ %tobool43.us.i, %require_noover.exit84.us.i ]
+  %ret.2.us26.in.i = phi i1 [ %tobool76.us23.i, %if.then49.us16.i ], [ %retval.0.i63.us.i, %require_noover.exit84.us.i ]
   %inc.us27.i = add nuw nsw i32 %i.06.us10.i, 1
   %exitcond56.not.i = icmp eq i32 %inc.us27.i, %4
   br i1 %exitcond56.not.i, label %for.end.loopexit53.i, label %for.body.us8.i, !llvm.loop !11
@@ -88751,20 +88751,20 @@ for.body.lr.ph.split.split.i:                     ; preds = %for.body.lr.ph.spli
   br i1 %cmp47.not.i, label %vext_check_ld_index.exit, label %for.body.us31.preheader.i
 
 for.body.us31.preheader.i:                        ; preds = %for.body.lr.ph.split.split.i
-  %40 = icmp ne i8 %frombool.i, 0
+  %42 = icmp ne i8 %frombool.i, 0
   br label %for.body.us31.i
 
 for.body.us31.i:                                  ; preds = %for.body.us31.i, %for.body.us31.preheader.i
-  %ret.07.us32.i = phi i1 [ %tobool76.us44.i, %for.body.us31.i ], [ %40, %for.body.us31.preheader.i ]
+  %ret.07.us32.i = phi i1 [ %tobool76.us44.i, %for.body.us31.i ], [ %42, %for.body.us31.preheader.i ]
   %i.06.us33.i = phi i32 [ %inc.us48.i, %for.body.us31.i ], [ 0, %for.body.us31.preheader.i ]
   %mul36.us34.i = shl i32 %i.06.us33.i, %cond.i
   %add12.us35.i = add i32 %mul36.us34.i, %2
   %conv13.us36.i = trunc i32 %add12.us35.i to i8
   %add.i85.us38.i = add i8 %conv13.us36.i, %conv60.i
-  %41 = tail call i8 @llvm.smax.i8(i8 %add.i85.us38.i, i8 %add5.i.i)
-  %cond.i.us39.i = sext i8 %41 to i32
-  %42 = tail call i8 @llvm.smin.i8(i8 %conv13.us36.i, i8 %conv37.i)
-  %cond18.i.us40.i = sext i8 %42 to i32
+  %43 = tail call i8 @llvm.smax.i8(i8 %add.i85.us38.i, i8 %add5.i.i)
+  %cond.i.us39.i = sext i8 %43 to i32
+  %44 = tail call i8 @llvm.smin.i8(i8 %conv13.us36.i, i8 %conv37.i)
+  %cond18.i.us40.i = sext i8 %44 to i32
   %sub.i86.us41.i = sub nsw i32 %cond.i.us39.i, %cond18.i.us40.i
   %cmp22.i.us42.i = icmp sge i32 %sub.i86.us41.i, %add21.i.i
   %tobool76.us44.i = select i1 %cmp22.i.us42.i, i1 %ret.07.us32.i, i1 false
@@ -88773,7 +88773,7 @@ for.body.us31.i:                                  ; preds = %for.body.us31.i, %f
   br i1 %exitcond.not.i, label %for.end.loopexit55.i, label %for.body.us31.i, !llvm.loop !11
 
 for.end.loopexit53.i:                             ; preds = %for.body.us8.i.us, %for.inc.us25.i, %for.body.us8.i.us.us.preheader
-  %.us-phi = phi i1 [ %tobool43.us.i.us.us, %for.body.us8.i.us.us.preheader ], [ %ret.2.us26.in.i, %for.inc.us25.i ], [ %tobool76.us23.i.us, %for.body.us8.i.us ]
+  %.us-phi = phi i1 [ %30, %for.body.us8.i.us.us.preheader ], [ %ret.2.us26.in.i, %for.inc.us25.i ], [ %tobool76.us23.i.us, %for.body.us8.i.us ]
   %ret.2.us26.i = zext i1 %.us-phi to i8
   br label %vext_check_ld_index.exit
 
@@ -88787,8 +88787,8 @@ vext_check_ld_index.exit:                         ; preds = %for.inc.us.i, %land
   br label %land.end
 
 land.end:                                         ; preds = %vext_check_ld_index.exit, %land.lhs.true, %entry
-  %43 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %tobool79.i, %vext_check_ld_index.exit ]
-  ret i1 %43
+  %45 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %tobool79.i, %vext_check_ld_index.exit ]
+  ret i1 %45
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

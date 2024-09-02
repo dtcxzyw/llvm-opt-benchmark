@@ -819,7 +819,7 @@ define internal fastcc range(i32 0, 2) i32 @time_excluded(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @owner_excluded(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 2) i32 @owner_excluded(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 384
@@ -1041,7 +1041,7 @@ match_owner_id.exit.thread:                       ; preds = %20, %39, %26, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_exclude_pattern(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_exclude_pattern(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.3) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %add_pattern_mbs.exit, label %5
@@ -1165,7 +1165,7 @@ define internal fastcc range(i32 -30, 1) i32 @add_pattern_mbs(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @archive_match_exclude_pattern_w(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_exclude_pattern_w(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.5) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %add_pattern_wcs.exit, label %5
@@ -3226,7 +3226,7 @@ add_owner_name.exit:                              ; preds = %10, %8, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @archive_match_owner_excluded(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 2) i32 @archive_match_owner_excluded(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.31) #13
   %4 = icmp eq i32 %3, -30
   br i1 %4, label %15, label %5

@@ -1369,7 +1369,7 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   %65 = icmp ne i64 %64, 1
   %.not17 = select i1 %63, i1 true, i1 %65
   %66 = and i1 %12, %.not17
-  br i1 %66, label %67, label %156
+  br i1 %66, label %67, label %157
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr %2, align 8
@@ -1515,88 +1515,87 @@ define internal fastcc noundef zeroext i1 @_prb_read_valid(ptr noundef %0, ptr n
   br label %.loopexit18
 
 .thread14:                                        ; preds = %112, %140, %148, %51, %59, %150
-  %.ph13 = phi i32 [ -2, %148 ], [ -22, %140 ], [ -2, %112 ], [ -2, %59 ], [ -22, %51 ], [ -2, %150 ]
+  %156 = phi i1 [ true, %148 ], [ false, %140 ], [ true, %112 ], [ true, %59 ], [ false, %51 ], [ true, %150 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
-  br label %157
+  br label %158
 
-156:                                              ; preds = %61
+157:                                              ; preds = %61
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
-  br i1 %.not17, label %.loopexit18, label %157
+  br i1 %.not17, label %.loopexit18, label %158
 
-157:                                              ; preds = %.thread14, %156
-  %158 = phi i32 [ %.ph13, %.thread14 ], [ -2, %156 ]
+158:                                              ; preds = %.thread14, %157
+  %159 = phi i1 [ %156, %.thread14 ], [ true, %157 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  br label %159
+  br label %160
 
-159:                                              ; preds = %193, %157
-  %160 = phi i64 [ 0, %157 ], [ %188, %193 ]
-  %161 = load volatile i64, ptr %17, align 8
-  %162 = load ptr, ptr %8, align 8
-  %163 = load i32, ptr %0, align 8
-  %164 = shl nsw i32 -1, %163
-  %165 = xor i32 %164, -1
-  %166 = zext nneg i32 %165 to i64
-  %167 = and i64 %161, %166
-  %168 = load ptr, ptr %9, align 8
-  %169 = getelementptr %struct.prb_desc, ptr %168, i64 %167
-  %170 = load volatile i64, ptr %169, align 8
-  %171 = and i64 %170, 4611686018427387903
-  %172 = icmp eq i64 %171, %161
-  %173 = lshr i64 %170, 62
-  %174 = trunc nuw nsw i64 %173 to i32
-  %175 = select i1 %172, i32 %174, i32 -1
-  %176 = add nsw i32 %175, 1
-  %177 = icmp ult i32 %176, 2
-  br i1 %177, label %187, label %178
+160:                                              ; preds = %194, %158
+  %161 = phi i64 [ 0, %158 ], [ %189, %194 ]
+  %162 = load volatile i64, ptr %17, align 8
+  %163 = load ptr, ptr %8, align 8
+  %164 = load i32, ptr %0, align 8
+  %165 = shl nsw i32 -1, %164
+  %166 = xor i32 %165, -1
+  %167 = zext nneg i32 %166 to i64
+  %168 = and i64 %162, %167
+  %169 = load ptr, ptr %9, align 8
+  %170 = getelementptr %struct.prb_desc, ptr %169, i64 %168
+  %171 = load volatile i64, ptr %170, align 8
+  %172 = and i64 %171, 4611686018427387903
+  %173 = icmp eq i64 %172, %162
+  %174 = lshr i64 %171, 62
+  %175 = trunc nuw nsw i64 %174 to i32
+  %176 = select i1 %173, i32 %175, i32 -1
+  %177 = add nsw i32 %176, 1
+  %178 = icmp ult i32 %177, 2
+  br i1 %178, label %188, label %179
 
-178:                                              ; preds = %159
-  %179 = getelementptr %struct.printk_info, ptr %162, i64 %167
+179:                                              ; preds = %160
+  %180 = getelementptr %struct.printk_info, ptr %163, i64 %168
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
-  %180 = load i64, ptr %179, align 8
+  %181 = load i64, ptr %180, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
-  %181 = load volatile i64, ptr %169, align 8
-  %182 = and i64 %181, 4611686018427387903
-  %183 = icmp eq i64 %182, %161
-  %184 = lshr i64 %181, 62
-  %185 = trunc nuw nsw i64 %184 to i32
-  %186 = select i1 %183, i32 %185, i32 -1
-  br label %187
+  %182 = load volatile i64, ptr %170, align 8
+  %183 = and i64 %182, 4611686018427387903
+  %184 = icmp eq i64 %183, %162
+  %185 = lshr i64 %182, 62
+  %186 = trunc nuw nsw i64 %185 to i32
+  %187 = select i1 %184, i32 %186, i32 -1
+  br label %188
 
-187:                                              ; preds = %178, %159
-  %188 = phi i64 [ %160, %159 ], [ %180, %178 ]
-  %189 = phi i32 [ %175, %159 ], [ %186, %178 ]
-  %190 = phi i64 [ %170, %159 ], [ %181, %178 ]
-  store volatile i64 %190, ptr %5, align 8
-  %191 = and i32 %189, -2
-  %192 = icmp eq i32 %191, 2
-  br i1 %192, label %194, label %193
+188:                                              ; preds = %179, %160
+  %189 = phi i64 [ %161, %160 ], [ %181, %179 ]
+  %190 = phi i32 [ %176, %160 ], [ %187, %179 ]
+  %191 = phi i64 [ %171, %160 ], [ %182, %179 ]
+  store volatile i64 %191, ptr %5, align 8
+  %192 = and i32 %190, -2
+  %193 = icmp eq i32 %192, 2
+  br i1 %193, label %195, label %194
 
-193:                                              ; preds = %187
+194:                                              ; preds = %188
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !50
-  br label %159, !llvm.loop !51
+  br label %160, !llvm.loop !51
 
-194:                                              ; preds = %187
+195:                                              ; preds = %188
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %195 = load i64, ptr %1, align 8
-  %196 = icmp ult i64 %195, %188
-  br i1 %196, label %201, label %197
+  %196 = load i64, ptr %1, align 8
+  %197 = icmp ult i64 %196, %189
+  br i1 %197, label %201, label %198
 
-197:                                              ; preds = %194
-  %198 = icmp eq i32 %158, -2
-  br i1 %198, label %199, label %.loopexit18
+198:                                              ; preds = %195
+  br i1 %159, label %199, label %.loopexit18
 
-199:                                              ; preds = %197
-  %200 = add i64 %195, 1
+199:                                              ; preds = %198
+  %200 = add i64 %196, 1
   br label %201
 
-201:                                              ; preds = %199, %194
-  %202 = phi i64 [ %200, %199 ], [ %188, %194 ]
+201:                                              ; preds = %199, %195
+  %202 = phi i64 [ %200, %199 ], [ %189, %195 ]
   store i64 %202, ptr %1, align 8
   br label %18, !llvm.loop !52
 
-.loopexit18:                                      ; preds = %197, %156, %.thread15
-  %203 = phi i1 [ true, %.thread15 ], [ true, %156 ], [ false, %197 ]
+.loopexit18:                                      ; preds = %198, %157, %.thread15
+  %203 = phi i1 [ true, %.thread15 ], [ true, %157 ], [ false, %198 ]
   ret i1 %203
 }
 

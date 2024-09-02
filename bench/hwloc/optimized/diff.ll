@@ -58,7 +58,7 @@ define noundef i32 @hwloc_topology_diff_destroy(ptr noundef %0) local_unnamed_ad
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @hwloc_topology_diff_build(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 200
   %7 = load i64, ptr %6, align 8
@@ -640,7 +640,7 @@ hwloc_append_diff.exit.i:                         ; preds = %.loopexit
   br label %.critedge233
 
 .critedge233:                                     ; preds = %.lr.ph, %64, %._crit_edge281, %.preheader239, %hwloc_append_diff.exit.i, %.loopexit, %18, %16, %13
-  %.0 = phi i32 [ -1, %16 ], [ -1, %13 ], [ %21, %18 ], [ 1, %.loopexit ], [ 1, %hwloc_append_diff.exit.i ], [ 0, %.preheader239 ], [ 0, %._crit_edge281 ], [ -1, %64 ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ -1, %16 ], [ -1, %13 ], [ -1, %18 ], [ 1, %.loopexit ], [ 1, %hwloc_append_diff.exit.i ], [ 0, %.preheader239 ], [ 0, %._crit_edge281 ], [ -1, %64 ], [ 1, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -648,7 +648,7 @@ hwloc_append_diff.exit.i:                         ; preds = %.loopexit
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_diff_trees(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds i8, ptr %1, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 48
@@ -1081,7 +1081,7 @@ hwloc_append_diff.exit.i:                         ; preds = %203, %196
   br label %hwloc_append_diff_too_complex.exit
 
 hwloc_append_diff_too_complex.exit:               ; preds = %133, %.lr.ph30, %.lr.ph38, %.lr.ph47, %.lr.ph56, %hwloc_append_diff.exit.i, %.loopexit, %._crit_edge57, %84, %72
-  %.0 = phi i32 [ -1, %72 ], [ -1, %84 ], [ 0, %._crit_edge57 ], [ 0, %.loopexit ], [ 0, %hwloc_append_diff.exit.i ], [ %187, %.lr.ph56 ], [ %173, %.lr.ph47 ], [ %159, %.lr.ph38 ], [ %145, %.lr.ph30 ], [ -1, %133 ]
+  %.0 = phi i32 [ -1, %72 ], [ -1, %84 ], [ 0, %._crit_edge57 ], [ 0, %.loopexit ], [ 0, %hwloc_append_diff.exit.i ], [ -1, %.lr.ph56 ], [ -1, %.lr.ph47 ], [ -1, %.lr.ph38 ], [ -1, %.lr.ph30 ], [ -1, %133 ]
   ret i32 %.0
 }
 

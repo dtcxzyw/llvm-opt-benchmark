@@ -288,8 +288,8 @@ if.end5.i:                                        ; preds = %if.end.i
 if.end6:                                          ; preds = %if.end5.i
   tail call void @block_reader_start(ptr noundef nonnull %block_reader.i, ptr noundef nonnull %cur) #7
   %.pre = load i32, ptr %is_finished.i, align 8
-  %tobool.not = icmp eq i32 %.pre, 0
-  br i1 %tobool.not, label %while.body.backedge, label %return
+  %6 = icmp eq i32 %.pre, 0
+  br i1 %6, label %while.body.backedge, label %return
 
 while.body.backedge:                              ; preds = %if.end6, %lor.lhs.false
   %call = tail call i32 @block_iter_next(ptr noundef nonnull %cur, ptr noundef %rec) #7
@@ -297,14 +297,14 @@ while.body.backedge:                              ; preds = %if.end6, %lor.lhs.f
   br i1 %cmp, label %return, label %if.end
 
 if.end9:                                          ; preds = %if.end
-  %6 = load ptr, ptr %buf, align 8
-  %7 = load i64, ptr %len, align 8
-  %bcmp = tail call i32 @bcmp(ptr %6, ptr nonnull %target_value, i64 %7)
+  %7 = load ptr, ptr %buf, align 8
+  %8 = load i64, ptr %len, align 8
+  %bcmp = tail call i32 @bcmp(ptr %7, ptr nonnull %target_value, i64 %8)
   %tobool12.not = icmp eq i32 %bcmp, 0
   br i1 %tobool12.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end9
-  %bcmp13 = tail call i32 @bcmp(ptr %6, ptr nonnull %value, i64 %7)
+  %bcmp13 = tail call i32 @bcmp(ptr %7, ptr nonnull %value, i64 %8)
   %tobool21.not = icmp eq i32 %bcmp13, 0
   br i1 %tobool21.not, label %return, label %while.body.backedge
 

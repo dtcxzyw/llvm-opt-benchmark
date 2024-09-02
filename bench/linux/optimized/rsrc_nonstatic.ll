@@ -114,7 +114,7 @@ define internal range(i32 -19, 1) i32 @pcmcia_nonstatic_validate_mem(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @nonstatic_find_io(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
+define internal range(i32 -22, 1) i32 @nonstatic_find_io(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
   %7 = alloca %struct.pcmcia_align_data, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = add i32 %4, -1

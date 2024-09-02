@@ -2147,7 +2147,7 @@ if.end190:                                        ; preds = %if.then187, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 -2147483648, 2147483647) i32 @fastlog2(i64 noundef %sz) local_unnamed_addr #9 {
+define dso_local range(i32 0, 64) i32 @fastlog2(i64 noundef %sz) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %sz, 0
   br i1 %cmp, label %return, label %for.body.preheader
@@ -2566,15 +2566,15 @@ while.body.i:                                     ; preds = %while.cond.backedge
   %d_name.i = getelementptr inbounds i8, ptr %call317.i, i64 19
   %call.i.i = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %d_name.i, i32 noundef 46) #15
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
-  br i1 %tobool.not.i.i, label %while.cond.backedge.i, label %is_table_name.exit.i
+  br i1 %tobool.not.i.i, label %while.cond.backedge.i, label %land.rhs.i.i
 
-is_table_name.exit.i:                             ; preds = %while.body.i
+land.rhs.i.i:                                     ; preds = %while.body.i
   %call1.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i.i, ptr noundef nonnull dereferenceable(5) @.str.3) #15
   %tobool2.not.i.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.not.i.not.i, label %land.rhs.i, label %while.cond.backedge.i
 
-land.rhs.i:                                       ; preds = %is_table_name.exit.i, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %is_table_name.exit.i ]
+land.rhs.i:                                       ; preds = %land.rhs.i.i, %for.body.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %land.rhs.i.i ]
   %2 = load i64, ptr %readers_len.i, align 8
   %cmp.i = icmp ugt i64 %2, %indvars.iv.i
   br i1 %cmp.i, label %for.body.i, label %if.end18.i
@@ -2633,7 +2633,7 @@ remove_maybe_stale_table.exit.i:                  ; preds = %if.then7.i.i, %if.e
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %table_path.i.i)
   br label %while.cond.backedge.i
 
-while.cond.backedge.i:                            ; preds = %for.body.i, %remove_maybe_stale_table.exit.i, %is_table_name.exit.i, %while.body.i
+while.cond.backedge.i:                            ; preds = %for.body.i, %remove_maybe_stale_table.exit.i, %land.rhs.i.i, %while.body.i
   %call3.i = call ptr @readdir64(ptr noundef nonnull %call2.i) #14
   %tobool4.not.i = icmp eq ptr %call3.i, null
   br i1 %tobool4.not.i, label %while.end.i, label %while.body.i, !llvm.loop !29

@@ -1387,38 +1387,38 @@ default.unreachable:                              ; preds = %563
   %.031.i = phi ptr [ %785, %.loopexit.i ], [ %585, %.thread ]
   %586 = load i32, ptr @Rankdir, align 4
   %.not23.i = icmp eq i32 %586, 0
-  br i1 %.not23.i, label %588, label %587
+  br i1 %.not23.i, label %589, label %587
 
 587:                                              ; preds = %.lr.ph32.i
   call void @gv_nodesize(ptr noundef nonnull %.031.i, i1 noundef zeroext false) #18
   %.pre.i72 = load i32, ptr @Rankdir, align 4
-  br label %588
+  %588 = mul nuw nsw i32 %.pre.i72, 90
+  br label %589
 
-588:                                              ; preds = %587, %.lr.ph32.i
-  %589 = phi i32 [ %.pre.i72, %587 ], [ 0, %.lr.ph32.i ]
-  %590 = getelementptr inbounds i8, ptr %.031.i, i64 16
-  %591 = load ptr, ptr %590, align 8
-  %592 = getelementptr inbounds i8, ptr %591, i64 32
-  %593 = load double, ptr %592, align 8
-  %594 = getelementptr inbounds i8, ptr %591, i64 40
-  %595 = load double, ptr %594, align 8
-  %596 = mul nuw nsw i32 %589, 90
-  %597 = call { double, double } @ccwrotatepf(double %593, double %595, i32 noundef %596) #18
+589:                                              ; preds = %587, %.lr.ph32.i
+  %590 = phi i32 [ %588, %587 ], [ 0, %.lr.ph32.i ]
+  %591 = getelementptr inbounds i8, ptr %.031.i, i64 16
+  %592 = load ptr, ptr %591, align 8
+  %593 = getelementptr inbounds i8, ptr %592, i64 32
+  %594 = load double, ptr %593, align 8
+  %595 = getelementptr inbounds i8, ptr %592, i64 40
+  %596 = load double, ptr %595, align 8
+  %597 = call { double, double } @ccwrotatepf(double %594, double %596, i32 noundef %590) #18
   %598 = extractvalue { double, double } %597, 0
   %599 = extractvalue { double, double } %597, 1
   %600 = load double, ptr @Offset, align 8
   %601 = fsub double %598, %600
   %602 = load double, ptr getelementptr inbounds (i8, ptr @Offset, i64 8), align 8
   %603 = fsub double %599, %602
-  store double %601, ptr %592, align 8
-  store double %603, ptr %594, align 8
-  %604 = load ptr, ptr %590, align 8
+  store double %601, ptr %593, align 8
+  store double %603, ptr %595, align 8
+  %604 = load ptr, ptr %591, align 8
   %605 = getelementptr inbounds i8, ptr %604, i64 144
   %606 = load ptr, ptr %605, align 8
   %.not24.i = icmp eq ptr %606, null
   br i1 %.not24.i, label %621, label %607
 
-607:                                              ; preds = %588
+607:                                              ; preds = %589
   %608 = getelementptr inbounds i8, ptr %606, i64 72
   %609 = load double, ptr %608, align 8
   %610 = getelementptr inbounds i8, ptr %606, i64 80
@@ -1436,7 +1436,7 @@ default.unreachable:                              ; preds = %563
   store double %620, ptr %610, align 8
   br label %621
 
-621:                                              ; preds = %607, %588
+621:                                              ; preds = %607, %589
   %622 = load i32, ptr @State, align 4
   %623 = icmp eq i32 %622, 1
   br i1 %623, label %624, label %.loopexit.i

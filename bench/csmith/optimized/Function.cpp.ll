@@ -2830,7 +2830,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_Z17get_all_fu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_Z12FuncListSizev() local_unnamed_addr #10 {
+define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_Z12FuncListSizev() local_unnamed_addr #10 {
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL8FuncList, i64 8), align 8
   %2 = load ptr, ptr @_ZL8FuncList, align 8
   %3 = ptrtoint ptr %1 to i64

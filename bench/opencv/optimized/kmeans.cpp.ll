@@ -187,58 +187,58 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnone %
   store i64 %107, ptr %7, align 8
   %108 = trunc i64 %107 to i32
   %109 = urem i32 %108, %100
+  %110 = sitofp i32 %109 to double
   br label %_ZN2cv3RNG7uniformEii.exit
 
 _ZN2cv3RNG7uniformEii.exit:                       ; preds = %102, %99
-  %110 = phi i32 [ %109, %102 ], [ 0, %99 ]
-  %111 = load i32, ptr %43, align 8
-  %112 = icmp eq i32 %111, 0
-  br i1 %112, label %_ZN2cv3RNG7uniformEii.exit68, label %113
+  %111 = phi double [ %110, %102 ], [ 0.000000e+00, %99 ]
+  %112 = load i32, ptr %43, align 8
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %_ZN2cv3RNG7uniformEii.exit68, label %114
 
-113:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit
-  %114 = load i64, ptr %7, align 8
-  %115 = and i64 %114, 4294967295
-  %116 = mul nuw i64 %115, 4164903690
-  %117 = lshr i64 %114, 32
-  %118 = add nuw i64 %116, %117
-  store i64 %118, ptr %7, align 8
-  %119 = trunc i64 %118 to i32
-  %120 = urem i32 %119, %111
+114:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit
+  %115 = load i64, ptr %7, align 8
+  %116 = and i64 %115, 4294967295
+  %117 = mul nuw i64 %116, 4164903690
+  %118 = lshr i64 %115, 32
+  %119 = add nuw i64 %117, %118
+  store i64 %119, ptr %7, align 8
+  %120 = trunc i64 %119 to i32
+  %121 = urem i32 %120, %112
+  %122 = sitofp i32 %121 to double
   br label %_ZN2cv3RNG7uniformEii.exit68
 
-_ZN2cv3RNG7uniformEii.exit68:                     ; preds = %113, %_ZN2cv3RNG7uniformEii.exit
-  %121 = phi i32 [ %120, %113 ], [ 0, %_ZN2cv3RNG7uniformEii.exit ]
-  %122 = mul nuw nsw i32 %.05283, %92
-  %123 = udiv i32 %122, %97
-  %124 = icmp eq i32 %.05283, %98
-  br i1 %124, label %129, label %125
+_ZN2cv3RNG7uniformEii.exit68:                     ; preds = %114, %_ZN2cv3RNG7uniformEii.exit
+  %123 = phi double [ %122, %114 ], [ 0.000000e+00, %_ZN2cv3RNG7uniformEii.exit ]
+  %124 = mul nuw nsw i32 %.05283, %92
+  %125 = udiv i32 %124, %97
+  %126 = icmp eq i32 %.05283, %98
+  br i1 %126, label %131, label %127
 
-125:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit68
-  %126 = add nuw nsw i32 %.05283, 1
-  %127 = mul nuw nsw i32 %126, %92
-  %128 = udiv i32 %127, %97
-  br label %129
+127:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit68
+  %128 = add nuw nsw i32 %.05283, 1
+  %129 = mul nuw nsw i32 %128, %92
+  %130 = udiv i32 %129, %97
+  br label %131
 
-129:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit68, %125
-  %130 = phi i32 [ %128, %125 ], [ %92, %_ZN2cv3RNG7uniformEii.exit68 ]
+131:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit68, %127
+  %132 = phi i32 [ %130, %127 ], [ %92, %_ZN2cv3RNG7uniformEii.exit68 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store i32 %123, ptr %3, align 4, !noalias !5
-  store i32 %130, ptr %44, align 4, !noalias !5
+  store i32 %125, ptr %3, align 4, !noalias !5
+  store i32 %132, ptr %44, align 4, !noalias !5
   store i64 9223372034707292160, ptr %4, align 8, !noalias !5
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
-          to label %131 unwind label %.loopexit
+          to label %133 unwind label %.loopexit
 
-131:                                              ; preds = %129
+133:                                              ; preds = %131
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %46, align 8
   store i32 50397184, ptr %12, align 8
   store ptr %11, ptr %45, align 8
-  %132 = sitofp i32 %110 to double
-  %133 = sitofp i32 %121 to double
-  store double %132, ptr %14, align 8
-  store double %133, ptr %47, align 8
+  store double %111, ptr %14, align 8
+  store double %123, ptr %47, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   store i32 -1056833530, ptr %13, align 8
   store ptr %14, ptr %50, align 8
@@ -258,7 +258,7 @@ _ZN2cv3RNG7uniformEii.exit68:                     ; preds = %113, %_ZN2cv3RNG7un
   invoke void @_ZN2cv3RNG4fillERKNS_17_InputOutputArrayEiRKNS_11_InputArrayES6_b(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, i1 noundef zeroext false)
           to label %140 unwind label %144
 
-140:                                              ; preds = %131
+140:                                              ; preds = %133
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #10
   %141 = add nuw nsw i32 %.05283, 1
   %exitcond.not = icmp eq i32 %141, %97
@@ -269,7 +269,7 @@ _ZN2cv3RNG7uniformEii.exit68:                     ; preds = %113, %_ZN2cv3RNG7un
           cleanup
   br label %284
 
-.loopexit:                                        ; preds = %129
+.loopexit:                                        ; preds = %131
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %280
@@ -279,7 +279,7 @@ _ZN2cv3RNG7uniformEii.exit68:                     ; preds = %113, %_ZN2cv3RNG7un
           cleanup
   br label %280
 
-144:                                              ; preds = %131
+144:                                              ; preds = %133
   %145 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #10

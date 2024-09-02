@@ -2058,7 +2058,7 @@ process_tight_capabilities.exit459.i:             ; preds = %.lr.ph.i455.i, %pro
 462:                                              ; preds = %42, %46, %62, %.loopexit.i, %89, %95, %97, %99, %101, %103, %119, %120, %121, %123, %126, %128, %147, %._crit_edge467.thread.i, %199, %200, %206, %209, %212, %215, %218, %221, %224, %228, %233, %238, %253, %263, %268, %280, %291, %._crit_edge.i, %322, %324, %326, %327, %333, %407, %408, %process_tight_capabilities.exit459.i, %44, %60, %274, %270
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %463 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  br label %1499
+  br label %1496
 
 464:                                              ; preds = %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -2071,7 +2071,7 @@ process_tight_capabilities.exit459.i:             ; preds = %.lr.ph.i455.i, %pro
   %469 = load ptr, ptr @tls_handle, align 8
   %470 = tail call i32 @call_dissector_with_data(ptr noundef %469, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %25, ptr noundef null) #4
   %471 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  br label %1499
+  br label %1496
 
 472:                                              ; preds = %464
   %473 = load ptr, ptr @vnc_tcp_range, align 8
@@ -2352,14 +2352,14 @@ vnc_client_set_pixel_format.exit.i:               ; preds = %521, %vnc_set_bytes
   %629 = load i32, ptr %6, align 4
   %630 = add i32 %629, 1
   store i32 %630, ptr %6, align 4
-  switch i8 %623, label %1483 [
+  switch i8 %623, label %1480 [
     i8 0, label %631
-    i8 1, label %1401
-    i8 2, label %1453
-    i8 3, label %1454
-    i8 -128, label %1475
-    i8 -106, label %1477
-    i8 -8, label %1481
+    i8 1, label %1398
+    i8 2, label %1450
+    i8 3, label %1451
+    i8 -128, label %1472
+    i8 -106, label %1474
+    i8 -8, label %1478
   ]
 
 631:                                              ; preds = %621
@@ -2466,18 +2466,18 @@ vnc_client_set_pixel_format.exit.i:               ; preds = %521, %vnc_set_bytes
     i32 1, label %716
     i32 2, label %726
     i32 5, label %786
-    i32 16, label %930
-    i32 7, label %998
-    i32 -239, label %1141
-    i32 -240, label %1141
-    i32 -232, label %1200
-    i32 1211250228, label %1369
-    i32 -308, label %1201
-    i32 -525, label %1331
-    i32 -131071, label %1249
-    i32 -131070, label %1271
-    i32 -131069, label %1290
-    i32 -524, label %1301
+    i32 16, label %927
+    i32 7, label %995
+    i32 -239, label %1138
+    i32 -240, label %1138
+    i32 -232, label %1197
+    i32 1211250228, label %1366
+    i32 -308, label %1198
+    i32 -525, label %1328
+    i32 -131071, label %1246
+    i32 -131070, label %1268
+    i32 -131069, label %1287
+    i32 -524, label %1298
   ]
 
 695:                                              ; preds = %692
@@ -2651,1108 +2651,1108 @@ vnc_get_bytes_per_pixel.exit.i156.i.i:            ; preds = %786
   br i1 %.not147157.i.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph159.i.i.i
 
 ..loopexit153_crit_edge.i.i.i:                    ; preds = %.loopexit.i.i.i
-  %.not.i157.i.i = icmp eq i32 %805, %791
+  %.not.i157.i.i = icmp eq i32 %804, %791
   br i1 %.not.i157.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph159.i.i.i, !llvm.loop !11
 
 .lr.ph159.i.i.i:                                  ; preds = %.lr.ph162.i.i.i, %..loopexit153_crit_edge.i.i.i
-  %798 = phi i32 [ %805, %..loopexit153_crit_edge.i.i.i ], [ 0, %.lr.ph162.i.i.i ]
-  %.0130161.i.i.i = phi i32 [ %804, %..loopexit153_crit_edge.i.i.i ], [ 0, %.lr.ph162.i.i.i ]
+  %798 = phi i32 [ %804, %..loopexit153_crit_edge.i.i.i ], [ 0, %.lr.ph162.i.i.i ]
+  %.0130161.i.i.i = phi i32 [ %803, %..loopexit153_crit_edge.i.i.i ], [ 0, %.lr.ph162.i.i.i ]
   %799 = add nuw nsw i32 %798, 16
   %800 = icmp ugt i32 %799, %791
   %801 = sub nsw i32 %791, %.0130161.i.i.i
   %802 = and i32 %801, 255
-  %803 = select i1 %800, i32 %802, i32 16
-  %804 = add nuw nsw i32 %803, %798
-  %805 = and i32 %804, 65535
-  %806 = mul nuw nsw i32 %803, %795
-  br label %807
+  %.0134.i.i.i = select i1 %800, i32 %802, i32 16
+  %803 = add nuw nsw i32 %.0134.i.i.i, %798
+  %804 = and i32 %803, 65535
+  %805 = mul nuw nsw i32 %.0134.i.i.i, %795
+  br label %806
 
-807:                                              ; preds = %.loopexit.i.i.i, %.lr.ph159.i.i.i
-  %808 = phi i32 [ 0, %.lr.ph159.i.i.i ], [ %823, %.loopexit.i.i.i ]
-  %.0158.i.i.i = phi i32 [ 0, %.lr.ph159.i.i.i ], [ %814, %.loopexit.i.i.i ]
-  %809 = add nuw nsw i32 %808, 16
-  %810 = icmp ugt i32 %809, %794
-  %811 = sub nsw i32 %794, %.0158.i.i.i
-  %812 = and i32 %811, 255
-  %813 = select i1 %810, i32 %812, i32 16
-  %814 = add nuw nsw i32 %813, %808
-  %815 = load i32, ptr %6, align 4
-  %816 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %815) #4
-  %817 = icmp eq i32 %816, 0
-  br i1 %817, label %vnc_server_framebuffer_update.exit.i, label %818
+806:                                              ; preds = %.loopexit.i.i.i, %.lr.ph159.i.i.i
+  %807 = phi i32 [ 0, %.lr.ph159.i.i.i ], [ %821, %.loopexit.i.i.i ]
+  %.0158.i.i.i = phi i32 [ 0, %.lr.ph159.i.i.i ], [ %812, %.loopexit.i.i.i ]
+  %808 = add nuw nsw i32 %807, 16
+  %809 = icmp ugt i32 %808, %794
+  %810 = sub nsw i32 %794, %.0158.i.i.i
+  %811 = and i32 %810, 255
+  %.0135.i.i.i = select i1 %809, i32 %811, i32 16
+  %812 = add nuw nsw i32 %.0135.i.i.i, %807
+  %813 = load i32, ptr %6, align 4
+  %814 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %813) #4
+  %815 = icmp eq i32 %814, 0
+  br i1 %815, label %vnc_server_framebuffer_update.exit.i, label %816
 
-818:                                              ; preds = %807
+816:                                              ; preds = %806
+  %817 = load i32, ptr %6, align 4
+  %818 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %817) #4
   %819 = load i32, ptr %6, align 4
-  %820 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %819) #4
-  %821 = load i32, ptr %6, align 4
-  %822 = load i32, ptr @ett_vnc_hextile_tile, align 4
-  %823 = and i32 %814, 65535
-  %824 = zext i8 %820 to i32
-  %825 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %694, ptr noundef %0, i32 noundef %821, i32 noundef 1, i32 noundef %822, ptr noundef null, ptr noundef nonnull @.str.850, i32 noundef %823, i32 noundef %805, i32 noundef %824) #4
-  %826 = load i32, ptr @hf_vnc_hextile_subencoding_mask, align 4
-  %827 = load i32, ptr %6, align 4
-  %828 = call ptr @proto_tree_add_item(ptr noundef %825, i32 noundef %826, ptr noundef %0, i32 noundef %827, i32 noundef 1, i32 noundef 0) #4
-  %829 = load i32, ptr @ett_vnc_hextile_subencoding_mask, align 4
-  %830 = call ptr @proto_item_add_subtree(ptr noundef %828, i32 noundef %829) #4
-  %831 = load i32, ptr @hf_vnc_hextile_raw, align 4
-  %832 = load i32, ptr %6, align 4
-  %833 = call ptr @proto_tree_add_item(ptr noundef %830, i32 noundef %831, ptr noundef %0, i32 noundef %832, i32 noundef 1, i32 noundef 0) #4
-  %834 = load i32, ptr @hf_vnc_hextile_bg, align 4
-  %835 = load i32, ptr %6, align 4
-  %836 = call ptr @proto_tree_add_item(ptr noundef %830, i32 noundef %834, ptr noundef %0, i32 noundef %835, i32 noundef 1, i32 noundef 0) #4
-  %837 = load i32, ptr @hf_vnc_hextile_fg, align 4
-  %838 = load i32, ptr %6, align 4
-  %839 = call ptr @proto_tree_add_item(ptr noundef %830, i32 noundef %837, ptr noundef %0, i32 noundef %838, i32 noundef 1, i32 noundef 0) #4
-  %840 = load i32, ptr @hf_vnc_hextile_anysubrects, align 4
-  %841 = load i32, ptr %6, align 4
-  %842 = call ptr @proto_tree_add_item(ptr noundef %830, i32 noundef %840, ptr noundef %0, i32 noundef %841, i32 noundef 1, i32 noundef 0) #4
-  %843 = load i32, ptr @hf_vnc_hextile_subrectscolored, align 4
+  %820 = load i32, ptr @ett_vnc_hextile_tile, align 4
+  %821 = and i32 %812, 65535
+  %822 = zext i8 %818 to i32
+  %823 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %694, ptr noundef %0, i32 noundef %819, i32 noundef 1, i32 noundef %820, ptr noundef null, ptr noundef nonnull @.str.850, i32 noundef %821, i32 noundef %804, i32 noundef %822) #4
+  %824 = load i32, ptr @hf_vnc_hextile_subencoding_mask, align 4
+  %825 = load i32, ptr %6, align 4
+  %826 = call ptr @proto_tree_add_item(ptr noundef %823, i32 noundef %824, ptr noundef %0, i32 noundef %825, i32 noundef 1, i32 noundef 0) #4
+  %827 = load i32, ptr @ett_vnc_hextile_subencoding_mask, align 4
+  %828 = call ptr @proto_item_add_subtree(ptr noundef %826, i32 noundef %827) #4
+  %829 = load i32, ptr @hf_vnc_hextile_raw, align 4
+  %830 = load i32, ptr %6, align 4
+  %831 = call ptr @proto_tree_add_item(ptr noundef %828, i32 noundef %829, ptr noundef %0, i32 noundef %830, i32 noundef 1, i32 noundef 0) #4
+  %832 = load i32, ptr @hf_vnc_hextile_bg, align 4
+  %833 = load i32, ptr %6, align 4
+  %834 = call ptr @proto_tree_add_item(ptr noundef %828, i32 noundef %832, ptr noundef %0, i32 noundef %833, i32 noundef 1, i32 noundef 0) #4
+  %835 = load i32, ptr @hf_vnc_hextile_fg, align 4
+  %836 = load i32, ptr %6, align 4
+  %837 = call ptr @proto_tree_add_item(ptr noundef %828, i32 noundef %835, ptr noundef %0, i32 noundef %836, i32 noundef 1, i32 noundef 0) #4
+  %838 = load i32, ptr @hf_vnc_hextile_anysubrects, align 4
+  %839 = load i32, ptr %6, align 4
+  %840 = call ptr @proto_tree_add_item(ptr noundef %828, i32 noundef %838, ptr noundef %0, i32 noundef %839, i32 noundef 1, i32 noundef 0) #4
+  %841 = load i32, ptr @hf_vnc_hextile_subrectscolored, align 4
+  %842 = load i32, ptr %6, align 4
+  %843 = call ptr @proto_tree_add_item(ptr noundef %828, i32 noundef %841, ptr noundef %0, i32 noundef %842, i32 noundef 1, i32 noundef 0) #4
   %844 = load i32, ptr %6, align 4
-  %845 = call ptr @proto_tree_add_item(ptr noundef %830, i32 noundef %843, ptr noundef %0, i32 noundef %844, i32 noundef 1, i32 noundef 0) #4
-  %846 = load i32, ptr %6, align 4
-  %847 = add i32 %846, 1
-  store i32 %847, ptr %6, align 4
-  %848 = and i32 %824, 1
-  %.not148.i.i.i = icmp eq i32 %848, 0
-  br i1 %.not148.i.i.i, label %859, label %849
+  %845 = add i32 %844, 1
+  store i32 %845, ptr %6, align 4
+  %846 = and i32 %822, 1
+  %.not148.i.i.i = icmp eq i32 %846, 0
+  br i1 %.not148.i.i.i, label %857, label %847
 
-849:                                              ; preds = %818
-  %850 = mul nuw nsw i32 %806, %813
-  %851 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %847) #4
-  %852 = icmp ugt i32 %850, %851
-  br i1 %852, label %vnc_server_framebuffer_update.exit.i, label %853
+847:                                              ; preds = %816
+  %848 = mul nuw nsw i32 %805, %.0135.i.i.i
+  %849 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %845) #4
+  %850 = icmp ugt i32 %848, %849
+  br i1 %850, label %vnc_server_framebuffer_update.exit.i, label %851
 
-853:                                              ; preds = %849
-  %854 = load i32, ptr @hf_vnc_hextile_raw_value, align 4
+851:                                              ; preds = %847
+  %852 = load i32, ptr @hf_vnc_hextile_raw_value, align 4
+  %853 = load i32, ptr %6, align 4
+  %854 = call ptr @proto_tree_add_item(ptr noundef %823, i32 noundef %852, ptr noundef %0, i32 noundef %853, i32 noundef %848, i32 noundef 0) #4
   %855 = load i32, ptr %6, align 4
-  %856 = call ptr @proto_tree_add_item(ptr noundef %825, i32 noundef %854, ptr noundef %0, i32 noundef %855, i32 noundef %850, i32 noundef 0) #4
-  %857 = load i32, ptr %6, align 4
-  %858 = add i32 %857, %850
-  store i32 %858, ptr %6, align 4
+  %856 = add i32 %855, %848
+  store i32 %856, ptr %6, align 4
   br label %.loopexit.i.i.i
 
-859:                                              ; preds = %818
-  %860 = and i32 %824, 2
-  %.not149.i.i.i = icmp eq i32 %860, 0
-  br i1 %.not149.i.i.i, label %870, label %861
+857:                                              ; preds = %816
+  %858 = and i32 %822, 2
+  %.not149.i.i.i = icmp eq i32 %858, 0
+  br i1 %.not149.i.i.i, label %868, label %859
 
-861:                                              ; preds = %859
-  %862 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %847) #4
-  %863 = icmp ult i32 %862, %795
-  br i1 %863, label %vnc_server_framebuffer_update.exit.i, label %864
+859:                                              ; preds = %857
+  %860 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %845) #4
+  %861 = icmp ult i32 %860, %795
+  br i1 %861, label %vnc_server_framebuffer_update.exit.i, label %862
 
-864:                                              ; preds = %861
-  %865 = load i32, ptr @hf_vnc_hextile_bg_value, align 4
+862:                                              ; preds = %859
+  %863 = load i32, ptr @hf_vnc_hextile_bg_value, align 4
+  %864 = load i32, ptr %6, align 4
+  %865 = call ptr @proto_tree_add_item(ptr noundef %823, i32 noundef %863, ptr noundef %0, i32 noundef %864, i32 noundef %795, i32 noundef 0) #4
   %866 = load i32, ptr %6, align 4
-  %867 = call ptr @proto_tree_add_item(ptr noundef %825, i32 noundef %865, ptr noundef %0, i32 noundef %866, i32 noundef %795, i32 noundef 0) #4
-  %868 = load i32, ptr %6, align 4
-  %869 = add i32 %868, %795
-  store i32 %869, ptr %6, align 4
-  br label %870
+  %867 = add i32 %866, %795
+  store i32 %867, ptr %6, align 4
+  br label %868
 
-870:                                              ; preds = %864, %859
-  %871 = phi i32 [ %869, %864 ], [ %847, %859 ]
-  %872 = and i32 %824, 4
-  %.not150.i.i.i = icmp eq i32 %872, 0
-  br i1 %.not150.i.i.i, label %882, label %873
+868:                                              ; preds = %862, %857
+  %869 = phi i32 [ %867, %862 ], [ %845, %857 ]
+  %870 = and i32 %822, 4
+  %.not150.i.i.i = icmp eq i32 %870, 0
+  br i1 %.not150.i.i.i, label %880, label %871
 
-873:                                              ; preds = %870
-  %874 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %871) #4
-  %875 = icmp ult i32 %874, %795
-  br i1 %875, label %vnc_server_framebuffer_update.exit.i, label %876
+871:                                              ; preds = %868
+  %872 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %869) #4
+  %873 = icmp ult i32 %872, %795
+  br i1 %873, label %vnc_server_framebuffer_update.exit.i, label %874
 
-876:                                              ; preds = %873
-  %877 = load i32, ptr @hf_vnc_hextile_fg_value, align 4
+874:                                              ; preds = %871
+  %875 = load i32, ptr @hf_vnc_hextile_fg_value, align 4
+  %876 = load i32, ptr %6, align 4
+  %877 = call ptr @proto_tree_add_item(ptr noundef %823, i32 noundef %875, ptr noundef %0, i32 noundef %876, i32 noundef %795, i32 noundef 0) #4
   %878 = load i32, ptr %6, align 4
-  %879 = call ptr @proto_tree_add_item(ptr noundef %825, i32 noundef %877, ptr noundef %0, i32 noundef %878, i32 noundef %795, i32 noundef 0) #4
-  %880 = load i32, ptr %6, align 4
-  %881 = add i32 %880, %795
-  store i32 %881, ptr %6, align 4
-  br label %882
+  %879 = add i32 %878, %795
+  store i32 %879, ptr %6, align 4
+  br label %880
 
-882:                                              ; preds = %876, %870
-  %883 = phi i32 [ %881, %876 ], [ %871, %870 ]
-  %884 = and i32 %824, 8
-  %.not151.i.i.i = icmp eq i32 %884, 0
-  br i1 %.not151.i.i.i, label %.loopexit.i.i.i, label %885
+880:                                              ; preds = %874, %868
+  %881 = phi i32 [ %879, %874 ], [ %869, %868 ]
+  %882 = and i32 %822, 8
+  %.not151.i.i.i = icmp eq i32 %882, 0
+  br i1 %.not151.i.i.i, label %.loopexit.i.i.i, label %883
 
-885:                                              ; preds = %882
-  %886 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %883) #4
-  %887 = icmp ult i32 %886, 3
-  br i1 %887, label %vnc_server_framebuffer_update.exit.i, label %888
+883:                                              ; preds = %880
+  %884 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %881) #4
+  %885 = icmp ult i32 %884, 3
+  br i1 %885, label %vnc_server_framebuffer_update.exit.i, label %886
 
-888:                                              ; preds = %885
-  %889 = load i32, ptr @hf_vnc_hextile_num_subrects, align 4
+886:                                              ; preds = %883
+  %887 = load i32, ptr @hf_vnc_hextile_num_subrects, align 4
+  %888 = load i32, ptr %6, align 4
+  %889 = call ptr @proto_tree_add_item(ptr noundef %823, i32 noundef %887, ptr noundef %0, i32 noundef %888, i32 noundef 1, i32 noundef 0) #4
   %890 = load i32, ptr %6, align 4
-  %891 = call ptr @proto_tree_add_item(ptr noundef %825, i32 noundef %889, ptr noundef %0, i32 noundef %890, i32 noundef 1, i32 noundef 0) #4
+  %891 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %890) #4
   %892 = load i32, ptr %6, align 4
-  %893 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %892) #4
-  %894 = load i32, ptr %6, align 4
-  %895 = add i32 %894, 1
-  store i32 %895, ptr %6, align 4
-  %896 = and i32 %824, 16
-  %.not152.i.i.i = icmp eq i32 %896, 0
-  %897 = select i1 %.not152.i.i.i, i32 2, i32 %797
-  %898 = zext i8 %893 to i32
-  %899 = mul nuw nsw i32 %897, %898
-  %900 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %895) #4
-  %901 = icmp ugt i32 %899, %900
-  br i1 %901, label %vnc_server_framebuffer_update.exit.i, label %902
+  %893 = add i32 %892, 1
+  store i32 %893, ptr %6, align 4
+  %894 = and i32 %822, 16
+  %.not152.i.i.i = icmp eq i32 %894, 0
+  %.0133.i.i.i = select i1 %.not152.i.i.i, i32 2, i32 %797
+  %895 = zext i8 %891 to i32
+  %896 = mul nuw nsw i32 %.0133.i.i.i, %895
+  %897 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %893) #4
+  %898 = icmp ugt i32 %896, %897
+  br i1 %898, label %vnc_server_framebuffer_update.exit.i, label %899
 
-902:                                              ; preds = %888
-  %903 = load i32, ptr @ett_vnc_hextile_num_subrects, align 4
-  %904 = call ptr @proto_item_add_subtree(ptr noundef %891, i32 noundef %903) #4
-  %.not163.i.i.i = icmp eq i8 %893, 0
+899:                                              ; preds = %886
+  %900 = load i32, ptr @ett_vnc_hextile_num_subrects, align 4
+  %901 = call ptr @proto_item_add_subtree(ptr noundef %889, i32 noundef %900) #4
+  %.not163.i.i.i = icmp eq i8 %891, 0
   br i1 %.not163.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.preheader.i158.i.i
 
-.lr.ph.preheader.i158.i.i:                        ; preds = %902
+.lr.ph.preheader.i158.i.i:                        ; preds = %899
   %.pre.i159.i.i = load i32, ptr %6, align 4
   br label %.lr.ph.i160.i.i
 
-.lr.ph.i160.i.i:                                  ; preds = %914, %.lr.ph.preheader.i158.i.i
-  %905 = phi i32 [ %.pre.i159.i.i, %.lr.ph.preheader.i158.i.i ], [ %929, %914 ]
-  %indvars.iv.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i158.i.i ], [ %907, %914 ]
-  %906 = load i32, ptr @ett_vnc_hextile_subrect, align 4
-  %907 = add nuw nsw i32 %indvars.iv.i.i.i, 1
-  %908 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %904, ptr noundef %0, i32 noundef %905, i32 noundef %897, i32 noundef %906, ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %907) #4
+.lr.ph.i160.i.i:                                  ; preds = %911, %.lr.ph.preheader.i158.i.i
+  %902 = phi i32 [ %.pre.i159.i.i, %.lr.ph.preheader.i158.i.i ], [ %926, %911 ]
+  %indvars.iv.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i158.i.i ], [ %904, %911 ]
+  %903 = load i32, ptr @ett_vnc_hextile_subrect, align 4
+  %904 = add nuw nsw i32 %indvars.iv.i.i.i, 1
+  %905 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %901, ptr noundef %0, i32 noundef %902, i32 noundef %.0133.i.i.i, i32 noundef %903, ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %904) #4
   %.pre167.i.i.i = load i32, ptr %6, align 4
-  br i1 %.not152.i.i.i, label %914, label %909
+  br i1 %.not152.i.i.i, label %911, label %906
 
-909:                                              ; preds = %.lr.ph.i160.i.i
-  %910 = load i32, ptr @hf_vnc_hextile_subrect_pixel_value, align 4
-  %911 = call ptr @proto_tree_add_item(ptr noundef %908, i32 noundef %910, ptr noundef %0, i32 noundef %.pre167.i.i.i, i32 noundef %795, i32 noundef 0) #4
-  %912 = load i32, ptr %6, align 4
-  %913 = add i32 %912, %795
-  store i32 %913, ptr %6, align 4
-  br label %914
+906:                                              ; preds = %.lr.ph.i160.i.i
+  %907 = load i32, ptr @hf_vnc_hextile_subrect_pixel_value, align 4
+  %908 = call ptr @proto_tree_add_item(ptr noundef %905, i32 noundef %907, ptr noundef %0, i32 noundef %.pre167.i.i.i, i32 noundef %795, i32 noundef 0) #4
+  %909 = load i32, ptr %6, align 4
+  %910 = add i32 %909, %795
+  store i32 %910, ptr %6, align 4
+  br label %911
 
-914:                                              ; preds = %909, %.lr.ph.i160.i.i
-  %915 = phi i32 [ %913, %909 ], [ %.pre167.i.i.i, %.lr.ph.i160.i.i ]
-  %916 = load i32, ptr @hf_vnc_hextile_subrect_x_pos, align 4
-  %917 = call ptr @proto_tree_add_item(ptr noundef %908, i32 noundef %916, ptr noundef %0, i32 noundef %915, i32 noundef 1, i32 noundef 0) #4
-  %918 = load i32, ptr @hf_vnc_hextile_subrect_y_pos, align 4
-  %919 = load i32, ptr %6, align 4
-  %920 = call ptr @proto_tree_add_item(ptr noundef %908, i32 noundef %918, ptr noundef %0, i32 noundef %919, i32 noundef 1, i32 noundef 0) #4
-  %921 = load i32, ptr %6, align 4
-  %922 = add i32 %921, 1
-  store i32 %922, ptr %6, align 4
-  %923 = load i32, ptr @hf_vnc_hextile_subrect_width, align 4
-  %924 = call ptr @proto_tree_add_item(ptr noundef %908, i32 noundef %923, ptr noundef %0, i32 noundef %922, i32 noundef 1, i32 noundef 0) #4
-  %925 = load i32, ptr @hf_vnc_hextile_subrect_height, align 4
-  %926 = load i32, ptr %6, align 4
-  %927 = call ptr @proto_tree_add_item(ptr noundef %908, i32 noundef %925, ptr noundef %0, i32 noundef %926, i32 noundef 1, i32 noundef 0) #4
-  %928 = load i32, ptr %6, align 4
-  %929 = add i32 %928, 1
-  store i32 %929, ptr %6, align 4
-  %exitcond.not.i161.i.i = icmp eq i32 %907, %898
+911:                                              ; preds = %906, %.lr.ph.i160.i.i
+  %912 = phi i32 [ %910, %906 ], [ %.pre167.i.i.i, %.lr.ph.i160.i.i ]
+  %913 = load i32, ptr @hf_vnc_hextile_subrect_x_pos, align 4
+  %914 = call ptr @proto_tree_add_item(ptr noundef %905, i32 noundef %913, ptr noundef %0, i32 noundef %912, i32 noundef 1, i32 noundef 0) #4
+  %915 = load i32, ptr @hf_vnc_hextile_subrect_y_pos, align 4
+  %916 = load i32, ptr %6, align 4
+  %917 = call ptr @proto_tree_add_item(ptr noundef %905, i32 noundef %915, ptr noundef %0, i32 noundef %916, i32 noundef 1, i32 noundef 0) #4
+  %918 = load i32, ptr %6, align 4
+  %919 = add i32 %918, 1
+  store i32 %919, ptr %6, align 4
+  %920 = load i32, ptr @hf_vnc_hextile_subrect_width, align 4
+  %921 = call ptr @proto_tree_add_item(ptr noundef %905, i32 noundef %920, ptr noundef %0, i32 noundef %919, i32 noundef 1, i32 noundef 0) #4
+  %922 = load i32, ptr @hf_vnc_hextile_subrect_height, align 4
+  %923 = load i32, ptr %6, align 4
+  %924 = call ptr @proto_tree_add_item(ptr noundef %905, i32 noundef %922, ptr noundef %0, i32 noundef %923, i32 noundef 1, i32 noundef 0) #4
+  %925 = load i32, ptr %6, align 4
+  %926 = add i32 %925, 1
+  store i32 %926, ptr %6, align 4
+  %exitcond.not.i161.i.i = icmp eq i32 %904, %895
   br i1 %exitcond.not.i161.i.i, label %.loopexit.i.i.i, label %.lr.ph.i160.i.i, !llvm.loop !12
 
-.loopexit.i.i.i:                                  ; preds = %914, %902, %882, %853
-  %.not147.i.i.i = icmp eq i32 %823, %794
-  br i1 %.not147.i.i.i, label %..loopexit153_crit_edge.i.i.i, label %807, !llvm.loop !13
+.loopexit.i.i.i:                                  ; preds = %911, %899, %880, %851
+  %.not147.i.i.i = icmp eq i32 %821, %794
+  br i1 %.not147.i.i.i, label %..loopexit153_crit_edge.i.i.i, label %806, !llvm.loop !13
 
-930:                                              ; preds = %692
-  %931 = call ptr @wmem_file_scope() #4
-  %932 = load i32, ptr @proto_vnc, align 4
-  %933 = call ptr @p_get_proto_data(ptr noundef %931, ptr noundef %1, i32 noundef %932, i32 noundef 0) #4
-  %.not.i.i162.i.i = icmp eq ptr %933, null
-  br i1 %.not.i.i162.i.i, label %934, label %vnc_get_bytes_per_pixel.exit.i163.i.i
+927:                                              ; preds = %692
+  %928 = call ptr @wmem_file_scope() #4
+  %929 = load i32, ptr @proto_vnc, align 4
+  %930 = call ptr @p_get_proto_data(ptr noundef %928, ptr noundef %1, i32 noundef %929, i32 noundef 0) #4
+  %.not.i.i162.i.i = icmp eq ptr %930, null
+  br i1 %.not.i.i162.i.i, label %931, label %vnc_get_bytes_per_pixel.exit.i163.i.i
 
-934:                                              ; preds = %930
+931:                                              ; preds = %927
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.820, ptr noundef nonnull @.str.821, i32 noundef 3549, ptr noundef nonnull @.str.822) #5
   unreachable
 
-vnc_get_bytes_per_pixel.exit.i163.i.i:            ; preds = %930
-  %935 = getelementptr inbounds i8, ptr %933, i64 4
-  %936 = load i8, ptr %935, align 4
-  %937 = load i32, ptr %6, align 4
-  %938 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %937) #4
-  %939 = icmp ult i32 %938, 4
-  br i1 %939, label %vnc_server_framebuffer_update.exit.i, label %940
+vnc_get_bytes_per_pixel.exit.i163.i.i:            ; preds = %927
+  %932 = getelementptr inbounds i8, ptr %930, i64 4
+  %933 = load i8, ptr %932, align 4
+  %934 = load i32, ptr %6, align 4
+  %935 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %934) #4
+  %936 = icmp ult i32 %935, 4
+  br i1 %936, label %vnc_server_framebuffer_update.exit.i, label %937
 
-940:                                              ; preds = %vnc_get_bytes_per_pixel.exit.i163.i.i
-  %941 = load i32, ptr @hf_vnc_zrle_len, align 4
-  %942 = load i32, ptr %6, align 4
-  %943 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %941, ptr noundef %0, i32 noundef %942, i32 noundef 4, i32 noundef 0) #4
-  %944 = load i32, ptr %6, align 4
-  %945 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %944) #4
-  %946 = load i32, ptr %6, align 4
-  %947 = add i32 %946, 4
-  store i32 %947, ptr %6, align 4
-  %948 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %947) #4
-  %949 = icmp ugt i32 %945, %948
-  br i1 %949, label %vnc_server_framebuffer_update.exit.i, label %950
+937:                                              ; preds = %vnc_get_bytes_per_pixel.exit.i163.i.i
+  %938 = load i32, ptr @hf_vnc_zrle_len, align 4
+  %939 = load i32, ptr %6, align 4
+  %940 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %938, ptr noundef %0, i32 noundef %939, i32 noundef 4, i32 noundef 0) #4
+  %941 = load i32, ptr %6, align 4
+  %942 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %941) #4
+  %943 = load i32, ptr %6, align 4
+  %944 = add i32 %943, 4
+  store i32 %944, ptr %6, align 4
+  %945 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %944) #4
+  %946 = icmp ugt i32 %942, %945
+  br i1 %946, label %vnc_server_framebuffer_update.exit.i, label %947
 
-950:                                              ; preds = %940
-  %951 = load i32, ptr @hf_vnc_zrle_data, align 4
-  %952 = load i32, ptr %6, align 4
-  %953 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %951, ptr noundef %0, i32 noundef %952, i32 noundef %945, i32 noundef 0) #4
-  %954 = load i32, ptr %6, align 4
-  %955 = call ptr @tvb_child_uncompress(ptr noundef %0, ptr noundef %0, i32 noundef %954, i32 noundef %945) #4
-  %.not.i164.i.i = icmp eq ptr %955, null
-  br i1 %.not.i164.i.i, label %992, label %956
+947:                                              ; preds = %937
+  %948 = load i32, ptr @hf_vnc_zrle_data, align 4
+  %949 = load i32, ptr %6, align 4
+  %950 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %948, ptr noundef %0, i32 noundef %949, i32 noundef %942, i32 noundef 0) #4
+  %951 = load i32, ptr %6, align 4
+  %952 = call ptr @tvb_child_uncompress(ptr noundef %0, ptr noundef %0, i32 noundef %951, i32 noundef %942) #4
+  %.not.i164.i.i = icmp eq ptr %952, null
+  br i1 %.not.i164.i.i, label %989, label %953
 
-956:                                              ; preds = %950
-  call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %955, ptr noundef nonnull @.str.851) #4
-  %957 = load i32, ptr @hf_vnc_zrle_subencoding, align 4
-  %958 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %957, ptr noundef nonnull %955, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
-  %959 = load i32, ptr @ett_vnc_zrle_subencoding, align 4
-  %960 = call ptr @proto_item_add_subtree(ptr noundef %958, i32 noundef %959) #4
-  %961 = load i32, ptr @hf_vnc_zrle_rle, align 4
-  %962 = call ptr @proto_tree_add_item(ptr noundef %960, i32 noundef %961, ptr noundef nonnull %955, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
-  %963 = load i32, ptr @hf_vnc_zrle_palette_size, align 4
-  %964 = call ptr @proto_tree_add_item(ptr noundef %960, i32 noundef %963, ptr noundef nonnull %955, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
-  %965 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %955, i32 noundef 0) #4
-  %966 = and i8 %965, 127
-  %967 = icmp eq i8 %965, 0
-  br i1 %967, label %968, label %980
+953:                                              ; preds = %947
+  call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %952, ptr noundef nonnull @.str.851) #4
+  %954 = load i32, ptr @hf_vnc_zrle_subencoding, align 4
+  %955 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %954, ptr noundef nonnull %952, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %956 = load i32, ptr @ett_vnc_zrle_subencoding, align 4
+  %957 = call ptr @proto_item_add_subtree(ptr noundef %955, i32 noundef %956) #4
+  %958 = load i32, ptr @hf_vnc_zrle_rle, align 4
+  %959 = call ptr @proto_tree_add_item(ptr noundef %957, i32 noundef %958, ptr noundef nonnull %952, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %960 = load i32, ptr @hf_vnc_zrle_palette_size, align 4
+  %961 = call ptr @proto_tree_add_item(ptr noundef %957, i32 noundef %960, ptr noundef nonnull %952, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %962 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %952, i32 noundef 0) #4
+  %963 = and i8 %962, 127
+  %964 = icmp eq i8 %962, 0
+  br i1 %964, label %965, label %977
 
-968:                                              ; preds = %956
-  %969 = zext i16 %676 to i32
-  %970 = zext i16 %682 to i32
-  %971 = mul nuw i32 %970, %969
-  %972 = zext i8 %936 to i32
-  %973 = mul i32 %971, %972
-  %974 = load i32, ptr %6, align 4
-  %975 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %974) #4
-  %976 = icmp ugt i32 %973, %975
-  br i1 %976, label %vnc_server_framebuffer_update.exit.i, label %977
+965:                                              ; preds = %953
+  %966 = zext i16 %676 to i32
+  %967 = zext i16 %682 to i32
+  %968 = mul nuw i32 %967, %966
+  %969 = zext i8 %933 to i32
+  %970 = mul i32 %968, %969
+  %971 = load i32, ptr %6, align 4
+  %972 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %971) #4
+  %973 = icmp ugt i32 %970, %972
+  br i1 %973, label %vnc_server_framebuffer_update.exit.i, label %974
 
-977:                                              ; preds = %968
-  %978 = load i32, ptr @hf_vnc_zrle_raw, align 4
-  %979 = call ptr @proto_tree_add_item(ptr noundef %960, i32 noundef %978, ptr noundef nonnull %955, i32 noundef 1, i32 noundef %973, i32 noundef 0) #4
-  br label %995
+974:                                              ; preds = %965
+  %975 = load i32, ptr @hf_vnc_zrle_raw, align 4
+  %976 = call ptr @proto_tree_add_item(ptr noundef %957, i32 noundef %975, ptr noundef nonnull %952, i32 noundef 1, i32 noundef %970, i32 noundef 0) #4
+  br label %992
 
-980:                                              ; preds = %956
-  %981 = icmp ugt i8 %965, -127
-  br i1 %981, label %982, label %995
+977:                                              ; preds = %953
+  %978 = icmp ugt i8 %962, -127
+  br i1 %978, label %979, label %992
 
-982:                                              ; preds = %980
-  %983 = zext nneg i8 %966 to i32
-  %984 = zext i8 %936 to i32
-  %985 = mul nuw nsw i32 %983, %984
-  %986 = load i32, ptr %6, align 4
-  %987 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %986) #4
-  %988 = icmp ugt i32 %985, %987
-  br i1 %988, label %vnc_server_framebuffer_update.exit.i, label %989
+979:                                              ; preds = %977
+  %980 = zext nneg i8 %963 to i32
+  %981 = zext i8 %933 to i32
+  %982 = mul nuw nsw i32 %980, %981
+  %983 = load i32, ptr %6, align 4
+  %984 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %983) #4
+  %985 = icmp ugt i32 %982, %984
+  br i1 %985, label %vnc_server_framebuffer_update.exit.i, label %986
 
-989:                                              ; preds = %982
-  %990 = load i32, ptr @hf_vnc_zrle_palette, align 4
-  %991 = call ptr @proto_tree_add_item(ptr noundef %960, i32 noundef %990, ptr noundef nonnull %955, i32 noundef 1, i32 noundef %985, i32 noundef 0) #4
-  br label %995
+986:                                              ; preds = %979
+  %987 = load i32, ptr @hf_vnc_zrle_palette, align 4
+  %988 = call ptr @proto_tree_add_item(ptr noundef %957, i32 noundef %987, ptr noundef nonnull %952, i32 noundef 1, i32 noundef %982, i32 noundef 0) #4
+  br label %992
 
-992:                                              ; preds = %950
+989:                                              ; preds = %947
+  %990 = load i32, ptr %6, align 4
+  %991 = call ptr @proto_tree_add_expert(ptr noundef %694, ptr noundef %1, ptr noundef nonnull @ei_vnc_zrle_failed, ptr noundef %0, i32 noundef %990, i32 noundef %942) #4
+  br label %992
+
+992:                                              ; preds = %989, %986, %977, %974
   %993 = load i32, ptr %6, align 4
-  %994 = call ptr @proto_tree_add_expert(ptr noundef %694, ptr noundef %1, ptr noundef nonnull @ei_vnc_zrle_failed, ptr noundef %0, i32 noundef %993, i32 noundef %945) #4
-  br label %995
-
-995:                                              ; preds = %992, %989, %980, %977
-  %996 = load i32, ptr %6, align 4
-  %997 = add i32 %996, %945
-  store i32 %997, ptr %6, align 4
+  %994 = add i32 %993, %942
+  store i32 %994, ptr %6, align 4
   br label %vnc_raw_encoding.exit.i.i
 
-998:                                              ; preds = %692
-  %999 = call ptr @wmem_file_scope() #4
-  %1000 = load i32, ptr @proto_vnc, align 4
-  %1001 = call ptr @p_get_proto_data(ptr noundef %999, ptr noundef %1, i32 noundef %1000, i32 noundef 0) #4
-  %.not.i166.i.i = icmp eq ptr %1001, null
-  br i1 %.not.i166.i.i, label %1002, label %1003
+995:                                              ; preds = %692
+  %996 = call ptr @wmem_file_scope() #4
+  %997 = load i32, ptr @proto_vnc, align 4
+  %998 = call ptr @p_get_proto_data(ptr noundef %996, ptr noundef %1, i32 noundef %997, i32 noundef 0) #4
+  %.not.i166.i.i = icmp eq ptr %998, null
+  br i1 %.not.i166.i.i, label %999, label %1000
 
-1002:                                             ; preds = %998
+999:                                              ; preds = %995
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.820, ptr noundef nonnull @.str.821, i32 noundef 3231, ptr noundef nonnull @.str.822) #5
   unreachable
 
-1003:                                             ; preds = %998
-  %1004 = load i32, ptr %6, align 4
-  %1005 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1004) #4
-  %1006 = icmp eq i32 %1005, 0
-  br i1 %1006, label %vnc_server_framebuffer_update.exit.i, label %1007
+1000:                                             ; preds = %995
+  %1001 = load i32, ptr %6, align 4
+  %1002 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1001) #4
+  %1003 = icmp eq i32 %1002, 0
+  br i1 %1003, label %vnc_server_framebuffer_update.exit.i, label %1004
 
-1007:                                             ; preds = %1003
-  %1008 = load i32, ptr %6, align 4
-  %1009 = shl i32 %1008, 3
-  %1010 = load i32, ptr @hf_vnc_tight_reset_stream0, align 4
-  %1011 = or disjoint i32 %1009, 7
+1004:                                             ; preds = %1000
+  %1005 = load i32, ptr %6, align 4
+  %1006 = shl i32 %1005, 3
+  %1007 = load i32, ptr @hf_vnc_tight_reset_stream0, align 4
+  %1008 = or disjoint i32 %1006, 7
+  %1009 = call ptr @proto_tree_add_bits_item(ptr noundef %694, i32 noundef %1007, ptr noundef %0, i32 noundef %1008, i32 noundef 1, i32 noundef 0) #4
+  %1010 = load i32, ptr @hf_vnc_tight_reset_stream1, align 4
+  %1011 = or disjoint i32 %1006, 6
   %1012 = call ptr @proto_tree_add_bits_item(ptr noundef %694, i32 noundef %1010, ptr noundef %0, i32 noundef %1011, i32 noundef 1, i32 noundef 0) #4
-  %1013 = load i32, ptr @hf_vnc_tight_reset_stream1, align 4
-  %1014 = or disjoint i32 %1009, 6
+  %1013 = load i32, ptr @hf_vnc_tight_reset_stream2, align 4
+  %1014 = or disjoint i32 %1006, 5
   %1015 = call ptr @proto_tree_add_bits_item(ptr noundef %694, i32 noundef %1013, ptr noundef %0, i32 noundef %1014, i32 noundef 1, i32 noundef 0) #4
-  %1016 = load i32, ptr @hf_vnc_tight_reset_stream2, align 4
-  %1017 = or disjoint i32 %1009, 5
+  %1016 = load i32, ptr @hf_vnc_tight_reset_stream3, align 4
+  %1017 = or disjoint i32 %1006, 4
   %1018 = call ptr @proto_tree_add_bits_item(ptr noundef %694, i32 noundef %1016, ptr noundef %0, i32 noundef %1017, i32 noundef 1, i32 noundef 0) #4
-  %1019 = load i32, ptr @hf_vnc_tight_reset_stream3, align 4
-  %1020 = or disjoint i32 %1009, 4
-  %1021 = call ptr @proto_tree_add_bits_item(ptr noundef %694, i32 noundef %1019, ptr noundef %0, i32 noundef %1020, i32 noundef 1, i32 noundef 0) #4
-  %1022 = load i32, ptr @hf_vnc_tight_rect_type, align 4
-  %1023 = call ptr @proto_tree_add_bits_item(ptr noundef %694, i32 noundef %1022, ptr noundef %0, i32 noundef %1009, i32 noundef 4, i32 noundef 0) #4
-  %1024 = load i32, ptr %6, align 4
-  %1025 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1024) #4
-  %1026 = load i32, ptr %6, align 4
-  %1027 = add i32 %1026, 1
-  store i32 %1027, ptr %6, align 4
-  %1028 = lshr i8 %1025, 4
-  switch i8 %1028, label %1061 [
-    i8 8, label %1029
-    i8 9, label %1059
+  %1019 = load i32, ptr @hf_vnc_tight_rect_type, align 4
+  %1020 = call ptr @proto_tree_add_bits_item(ptr noundef %694, i32 noundef %1019, ptr noundef %0, i32 noundef %1006, i32 noundef 4, i32 noundef 0) #4
+  %1021 = load i32, ptr %6, align 4
+  %1022 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1021) #4
+  %1023 = load i32, ptr %6, align 4
+  %1024 = add i32 %1023, 1
+  store i32 %1024, ptr %6, align 4
+  %1025 = lshr i8 %1022, 4
+  switch i8 %1025, label %1058 [
+    i8 8, label %1026
+    i8 9, label %1056
   ]
 
-1029:                                             ; preds = %1007
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1023, ptr noundef nonnull @.str.852) #4
-  %1030 = getelementptr inbounds i8, ptr %1001, i64 5
-  %1031 = load i8, ptr %1030, align 1
-  %1032 = icmp eq i8 %1031, 24
-  br i1 %1032, label %1033, label %1041
+1026:                                             ; preds = %1004
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1020, ptr noundef nonnull @.str.852) #4
+  %1027 = getelementptr inbounds i8, ptr %998, i64 5
+  %1028 = load i8, ptr %1027, align 1
+  %1029 = icmp eq i8 %1028, 24
+  br i1 %1029, label %1030, label %1038
 
-1033:                                             ; preds = %1029
-  %1034 = load i32, ptr %6, align 4
-  %1035 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1034) #4
-  %1036 = icmp ult i32 %1035, 3
-  br i1 %1036, label %vnc_server_framebuffer_update.exit.i, label %1037
+1030:                                             ; preds = %1026
+  %1031 = load i32, ptr %6, align 4
+  %1032 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1031) #4
+  %1033 = icmp ult i32 %1032, 3
+  br i1 %1033, label %vnc_server_framebuffer_update.exit.i, label %1034
 
-1037:                                             ; preds = %1033
-  %1038 = load i32, ptr @hf_vnc_tight_fill_color, align 4
-  %1039 = load i32, ptr %6, align 4
-  %1040 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1038, ptr noundef %0, i32 noundef %1039, i32 noundef 3, i32 noundef 0) #4
+1034:                                             ; preds = %1030
+  %1035 = load i32, ptr @hf_vnc_tight_fill_color, align 4
+  %1036 = load i32, ptr %6, align 4
+  %1037 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1035, ptr noundef %0, i32 noundef %1036, i32 noundef 3, i32 noundef 0) #4
   br label %.critedge.sink.split.i.i.i
 
-1041:                                             ; preds = %1029
-  %1042 = getelementptr inbounds i8, ptr %1001, i64 4
-  %1043 = load i8, ptr %1042, align 4
-  %1044 = zext i8 %1043 to i32
-  %1045 = load i32, ptr %6, align 4
-  %1046 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1045) #4
-  %1047 = icmp ult i32 %1046, %1044
-  br i1 %1047, label %1048, label %1051
+1038:                                             ; preds = %1026
+  %1039 = getelementptr inbounds i8, ptr %998, i64 4
+  %1040 = load i8, ptr %1039, align 4
+  %1041 = zext i8 %1040 to i32
+  %1042 = load i32, ptr %6, align 4
+  %1043 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1042) #4
+  %1044 = icmp ult i32 %1043, %1041
+  br i1 %1044, label %1045, label %1048
 
-1048:                                             ; preds = %1041
-  %1049 = load i8, ptr %1042, align 4
-  %1050 = zext i8 %1049 to i32
+1045:                                             ; preds = %1038
+  %1046 = load i8, ptr %1039, align 4
+  %1047 = zext i8 %1046 to i32
   br label %vnc_raw_encoding.exit.i.i
 
-1051:                                             ; preds = %1041
-  %1052 = load i32, ptr @hf_vnc_tight_fill_color, align 4
-  %1053 = load i32, ptr %6, align 4
-  %1054 = load i8, ptr %1042, align 4
+1048:                                             ; preds = %1038
+  %1049 = load i32, ptr @hf_vnc_tight_fill_color, align 4
+  %1050 = load i32, ptr %6, align 4
+  %1051 = load i8, ptr %1039, align 4
+  %1052 = zext i8 %1051 to i32
+  %1053 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1049, ptr noundef %0, i32 noundef %1050, i32 noundef %1052, i32 noundef 0) #4
+  %1054 = load i8, ptr %1039, align 4
   %1055 = zext i8 %1054 to i32
-  %1056 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1052, ptr noundef %0, i32 noundef %1053, i32 noundef %1055, i32 noundef 0) #4
-  %1057 = load i8, ptr %1042, align 4
-  %1058 = zext i8 %1057 to i32
   br label %.critedge.sink.split.i.i.i
 
-1059:                                             ; preds = %1007
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1023, ptr noundef nonnull @.str.853) #4
-  %1060 = call fastcc i32 @process_compact_length_and_image_data(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %694)
-  %.not107.i.i.i = icmp eq i32 %1060, 0
+1056:                                             ; preds = %1004
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1020, ptr noundef nonnull @.str.853) #4
+  %1057 = call fastcc i32 @process_compact_length_and_image_data(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %694)
+  %.not107.i.i.i = icmp eq i32 %1057, 0
   br i1 %.not107.i.i.i, label %vnc_raw_encoding.exit.i.i, label %vnc_server_framebuffer_update.exit.i
 
-1061:                                             ; preds = %1007
-  %1062 = icmp ugt i8 %1025, -97
-  br i1 %1062, label %1063, label %1065
+1058:                                             ; preds = %1004
+  %1059 = icmp ugt i8 %1022, -97
+  br i1 %1059, label %1060, label %1062
 
-1063:                                             ; preds = %1061
-  %1064 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1023, ptr noundef nonnull @ei_vnc_invalid_encoding) #4
+1060:                                             ; preds = %1058
+  %1061 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1020, ptr noundef nonnull @ei_vnc_invalid_encoding) #4
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.820, ptr noundef nonnull @.str.821, i32 noundef 3343, ptr noundef nonnull @.str.855) #5
   unreachable
 
-1065:                                             ; preds = %1061
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1023, ptr noundef nonnull @.str.854) #4
-  %1066 = load i32, ptr @hf_vnc_tight_filter_flag, align 4
-  %1067 = or disjoint i32 %1009, 1
-  %1068 = call ptr @proto_tree_add_bits_item(ptr noundef %694, i32 noundef %1066, ptr noundef %0, i32 noundef %1067, i32 noundef 1, i32 noundef 0) #4
-  %1069 = getelementptr inbounds i8, ptr %1001, i64 5
-  %1070 = load i8, ptr %1069, align 1
-  %1071 = zext i8 %1070 to i32
-  %1072 = and i8 %1025, 64
-  %.not104.i.i.i = icmp eq i8 %1072, 0
-  br i1 %.not104.i.i.i, label %process_tight_rect_filter_palette.exit.thread.i.i.i, label %1073
+1062:                                             ; preds = %1058
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1020, ptr noundef nonnull @.str.854) #4
+  %1063 = load i32, ptr @hf_vnc_tight_filter_flag, align 4
+  %1064 = or disjoint i32 %1006, 1
+  %1065 = call ptr @proto_tree_add_bits_item(ptr noundef %694, i32 noundef %1063, ptr noundef %0, i32 noundef %1064, i32 noundef 1, i32 noundef 0) #4
+  %1066 = getelementptr inbounds i8, ptr %998, i64 5
+  %1067 = load i8, ptr %1066, align 1
+  %1068 = zext i8 %1067 to i32
+  %1069 = and i8 %1022, 64
+  %.not104.i.i.i = icmp eq i8 %1069, 0
+  br i1 %.not104.i.i.i, label %process_tight_rect_filter_palette.exit.thread.i.i.i, label %1070
 
-1073:                                             ; preds = %1065
-  %1074 = load i32, ptr %6, align 4
-  %1075 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1074) #4
-  %1076 = icmp eq i32 %1075, 0
-  br i1 %1076, label %vnc_server_framebuffer_update.exit.i, label %1077
+1070:                                             ; preds = %1062
+  %1071 = load i32, ptr %6, align 4
+  %1072 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1071) #4
+  %1073 = icmp eq i32 %1072, 0
+  br i1 %1073, label %vnc_server_framebuffer_update.exit.i, label %1074
 
-1077:                                             ; preds = %1073
-  %1078 = load i32, ptr @hf_vnc_tight_filter_id, align 4
-  %1079 = load i32, ptr %6, align 4
-  %1080 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1078, ptr noundef %0, i32 noundef %1079, i32 noundef 1, i32 noundef 0) #4
-  %1081 = load i32, ptr %6, align 4
-  %1082 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1081) #4
-  %1083 = load i32, ptr %6, align 4
-  %1084 = add i32 %1083, 1
-  store i32 %1084, ptr %6, align 4
-  %cond.i.i.i = icmp eq i8 %1082, 1
-  br i1 %cond.i.i.i, label %1085, label %process_tight_rect_filter_palette.exit.thread.i.i.i
+1074:                                             ; preds = %1070
+  %1075 = load i32, ptr @hf_vnc_tight_filter_id, align 4
+  %1076 = load i32, ptr %6, align 4
+  %1077 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1075, ptr noundef %0, i32 noundef %1076, i32 noundef 1, i32 noundef 0) #4
+  %1078 = load i32, ptr %6, align 4
+  %1079 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1078) #4
+  %1080 = load i32, ptr %6, align 4
+  %1081 = add i32 %1080, 1
+  store i32 %1081, ptr %6, align 4
+  %cond.i.i.i = icmp eq i8 %1079, 1
+  br i1 %cond.i.i.i, label %1082, label %process_tight_rect_filter_palette.exit.thread.i.i.i
 
-1085:                                             ; preds = %1077
-  %1086 = call ptr @wmem_file_scope() #4
-  %1087 = load i32, ptr @proto_vnc, align 4
-  %1088 = call ptr @p_get_proto_data(ptr noundef %1086, ptr noundef %1, i32 noundef %1087, i32 noundef 0) #4
-  %.not.i.i168.i.i = icmp eq ptr %1088, null
-  br i1 %.not.i.i168.i.i, label %1089, label %1090
+1082:                                             ; preds = %1074
+  %1083 = call ptr @wmem_file_scope() #4
+  %1084 = load i32, ptr @proto_vnc, align 4
+  %1085 = call ptr @p_get_proto_data(ptr noundef %1083, ptr noundef %1, i32 noundef %1084, i32 noundef 0) #4
+  %.not.i.i168.i.i = icmp eq ptr %1085, null
+  br i1 %.not.i.i168.i.i, label %1086, label %1087
 
-1089:                                             ; preds = %1085
+1086:                                             ; preds = %1082
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.820, ptr noundef nonnull @.str.821, i32 noundef 3190, ptr noundef nonnull @.str.822) #5
   unreachable
 
-1090:                                             ; preds = %1085
-  %1091 = load i32, ptr %6, align 4
-  %1092 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1091) #4
-  %1093 = icmp eq i32 %1092, 0
-  br i1 %1093, label %vnc_server_framebuffer_update.exit.i, label %1094
+1087:                                             ; preds = %1082
+  %1088 = load i32, ptr %6, align 4
+  %1089 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1088) #4
+  %1090 = icmp eq i32 %1089, 0
+  br i1 %1090, label %vnc_server_framebuffer_update.exit.i, label %1091
 
-1094:                                             ; preds = %1090
-  %1095 = load i32, ptr @hf_vnc_tight_palette_num_colors, align 4
-  %1096 = load i32, ptr %6, align 4
-  %1097 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1095, ptr noundef %0, i32 noundef %1096, i32 noundef 1, i32 noundef 0) #4
+1091:                                             ; preds = %1087
+  %1092 = load i32, ptr @hf_vnc_tight_palette_num_colors, align 4
+  %1093 = load i32, ptr %6, align 4
+  %1094 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1092, ptr noundef %0, i32 noundef %1093, i32 noundef 1, i32 noundef 0) #4
+  %1095 = load i32, ptr %6, align 4
+  %1096 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1095) #4
+  %1097 = zext i8 %1096 to i32
   %1098 = load i32, ptr %6, align 4
-  %1099 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1098) #4
-  %1100 = zext i8 %1099 to i32
-  %1101 = load i32, ptr %6, align 4
-  %1102 = add i32 %1101, 1
-  store i32 %1102, ptr %6, align 4
-  %1103 = add nuw nsw i32 %1100, 1
-  %1104 = icmp eq i8 %1099, 0
-  br i1 %1104, label %process_tight_rect_filter_palette.exit.thread.i.i.i, label %1105
+  %1099 = add i32 %1098, 1
+  store i32 %1099, ptr %6, align 4
+  %1100 = add nuw nsw i32 %1097, 1
+  %1101 = icmp eq i8 %1096, 0
+  br i1 %1101, label %process_tight_rect_filter_palette.exit.thread.i.i.i, label %1102
 
-1105:                                             ; preds = %1094
-  %1106 = getelementptr inbounds i8, ptr %1088, i64 5
-  %1107 = load i8, ptr %1106, align 1
-  %1108 = icmp eq i8 %1107, 24
-  %1109 = mul nuw nsw i32 %1103, 3
-  %1110 = zext i8 %1107 to i32
-  %1111 = mul nuw nsw i32 %1103, %1110
-  %1112 = lshr i32 %1111, 3
-  %.0.i.i.i.i = select i1 %1108, i32 %1109, i32 %1112
-  %1113 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1102) #4
-  %1114 = icmp ugt i32 %.0.i.i.i.i, %1113
-  br i1 %1114, label %vnc_server_framebuffer_update.exit.i, label %1115
+1102:                                             ; preds = %1091
+  %1103 = getelementptr inbounds i8, ptr %1085, i64 5
+  %1104 = load i8, ptr %1103, align 1
+  %1105 = icmp eq i8 %1104, 24
+  %1106 = mul nuw nsw i32 %1100, 3
+  %1107 = zext i8 %1104 to i32
+  %1108 = mul nuw nsw i32 %1100, %1107
+  %1109 = lshr i32 %1108, 3
+  %.0.i.i.i.i = select i1 %1105, i32 %1106, i32 %1109
+  %1110 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1099) #4
+  %1111 = icmp ugt i32 %.0.i.i.i.i, %1110
+  br i1 %1111, label %vnc_server_framebuffer_update.exit.i, label %1112
 
-1115:                                             ; preds = %1105
-  %1116 = load i32, ptr @hf_vnc_tight_palette_data, align 4
-  %1117 = load i32, ptr %6, align 4
-  %1118 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1116, ptr noundef %0, i32 noundef %1117, i32 noundef %.0.i.i.i.i, i32 noundef 0) #4
-  %1119 = load i32, ptr %6, align 4
-  %1120 = add i32 %1119, %.0.i.i.i.i
-  store i32 %1120, ptr %6, align 4
-  %1121 = icmp eq i32 %1103, 2
-  %..i.i.i.i = select i1 %1121, i32 1, i32 8
+1112:                                             ; preds = %1102
+  %1113 = load i32, ptr @hf_vnc_tight_palette_data, align 4
+  %1114 = load i32, ptr %6, align 4
+  %1115 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1113, ptr noundef %0, i32 noundef %1114, i32 noundef %.0.i.i.i.i, i32 noundef 0) #4
+  %1116 = load i32, ptr %6, align 4
+  %1117 = add i32 %1116, %.0.i.i.i.i
+  store i32 %1117, ptr %6, align 4
+  %1118 = icmp eq i32 %1100, 2
+  %..i.i.i.i = select i1 %1118, i32 1, i32 8
   br label %process_tight_rect_filter_palette.exit.thread.i.i.i
 
-process_tight_rect_filter_palette.exit.thread.i.i.i: ; preds = %1115, %1094, %1077, %1065
-  %.0109.i.i.i = phi i32 [ %1071, %1065 ], [ %1071, %1077 ], [ %..i.i.i.i, %1115 ], [ %1071, %1094 ]
-  %1122 = zext i16 %676 to i32
-  %1123 = mul nuw nsw i32 %.0109.i.i.i, %1122
-  %1124 = add nuw nsw i32 %1123, 7
-  %1125 = lshr i32 %1124, 3
-  %1126 = zext i16 %682 to i32
-  %1127 = mul i32 %1125, %1126
-  %1128 = icmp ult i32 %1127, 12
-  br i1 %1128, label %1129, label %1137
+process_tight_rect_filter_palette.exit.thread.i.i.i: ; preds = %1112, %1091, %1074, %1062
+  %.0109.i.i.i = phi i32 [ %1068, %1062 ], [ %1068, %1074 ], [ %..i.i.i.i, %1112 ], [ %1068, %1091 ]
+  %1119 = zext i16 %676 to i32
+  %1120 = mul nuw nsw i32 %.0109.i.i.i, %1119
+  %1121 = add nuw nsw i32 %1120, 7
+  %1122 = lshr i32 %1121, 3
+  %1123 = zext i16 %682 to i32
+  %1124 = mul i32 %1122, %1123
+  %1125 = icmp ult i32 %1124, 12
+  br i1 %1125, label %1126, label %1134
 
-1129:                                             ; preds = %process_tight_rect_filter_palette.exit.thread.i.i.i
-  %1130 = load i32, ptr %6, align 4
-  %1131 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1130) #4
-  %1132 = icmp ugt i32 %1127, %1131
-  br i1 %1132, label %vnc_server_framebuffer_update.exit.i, label %1133
+1126:                                             ; preds = %process_tight_rect_filter_palette.exit.thread.i.i.i
+  %1127 = load i32, ptr %6, align 4
+  %1128 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1127) #4
+  %1129 = icmp ugt i32 %1124, %1128
+  br i1 %1129, label %vnc_server_framebuffer_update.exit.i, label %1130
 
-1133:                                             ; preds = %1129
-  %1134 = load i32, ptr @hf_vnc_tight_image_data, align 4
-  %1135 = load i32, ptr %6, align 4
-  %1136 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1134, ptr noundef %0, i32 noundef %1135, i32 noundef %1127, i32 noundef 0) #4
+1130:                                             ; preds = %1126
+  %1131 = load i32, ptr @hf_vnc_tight_image_data, align 4
+  %1132 = load i32, ptr %6, align 4
+  %1133 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1131, ptr noundef %0, i32 noundef %1132, i32 noundef %1124, i32 noundef 0) #4
   br label %.critedge.sink.split.i.i.i
 
-1137:                                             ; preds = %process_tight_rect_filter_palette.exit.thread.i.i.i
-  %1138 = call fastcc i32 @process_compact_length_and_image_data(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %694)
-  %.not106.i.i.i = icmp eq i32 %1138, 0
+1134:                                             ; preds = %process_tight_rect_filter_palette.exit.thread.i.i.i
+  %1135 = call fastcc i32 @process_compact_length_and_image_data(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %694)
+  %.not106.i.i.i = icmp eq i32 %1135, 0
   br i1 %.not106.i.i.i, label %vnc_raw_encoding.exit.i.i, label %vnc_server_framebuffer_update.exit.i
 
-.critedge.sink.split.i.i.i:                       ; preds = %1133, %1051, %1037
-  %.sink113.sink.i.i.i = phi i32 [ %1127, %1133 ], [ %1058, %1051 ], [ 3, %1037 ]
-  %1139 = load i32, ptr %6, align 4
-  %1140 = add i32 %1139, %.sink113.sink.i.i.i
-  store i32 %1140, ptr %6, align 4
+.critedge.sink.split.i.i.i:                       ; preds = %1130, %1048, %1034
+  %.sink113.sink.i.i.i = phi i32 [ %1124, %1130 ], [ %1055, %1048 ], [ 3, %1034 ]
+  %1136 = load i32, ptr %6, align 4
+  %1137 = add i32 %1136, %.sink113.sink.i.i.i
+  store i32 %1137, ptr %6, align 4
   br label %vnc_raw_encoding.exit.i.i
 
-1141:                                             ; preds = %692, %692
+1138:                                             ; preds = %692, %692
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %666, ptr noundef nonnull @.str.841) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %670, ptr noundef nonnull @.str.842) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %674, ptr noundef nonnull @.str.843) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %680, ptr noundef nonnull @.str.844) #4
-  %1142 = icmp eq i32 %688, -239
-  br i1 %1142, label %1143, label %1172
+  %1139 = icmp eq i32 %688, -239
+  br i1 %1139, label %1140, label %1169
 
-1143:                                             ; preds = %1141
-  %1144 = call ptr @wmem_file_scope() #4
-  %1145 = load i32, ptr @proto_vnc, align 4
-  %1146 = call ptr @p_get_proto_data(ptr noundef %1144, ptr noundef %1, i32 noundef %1145, i32 noundef 0) #4
-  %.not.i.i169.i.i = icmp eq ptr %1146, null
-  br i1 %.not.i.i169.i.i, label %1147, label %vnc_get_bytes_per_pixel.exit.i170.i.i
+1140:                                             ; preds = %1138
+  %1141 = call ptr @wmem_file_scope() #4
+  %1142 = load i32, ptr @proto_vnc, align 4
+  %1143 = call ptr @p_get_proto_data(ptr noundef %1141, ptr noundef %1, i32 noundef %1142, i32 noundef 0) #4
+  %.not.i.i169.i.i = icmp eq ptr %1143, null
+  br i1 %.not.i.i169.i.i, label %1144, label %vnc_get_bytes_per_pixel.exit.i170.i.i
 
-1147:                                             ; preds = %1143
+1144:                                             ; preds = %1140
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.820, ptr noundef nonnull @.str.821, i32 noundef 3549, ptr noundef nonnull @.str.822) #5
   unreachable
 
-vnc_get_bytes_per_pixel.exit.i170.i.i:            ; preds = %1143
-  %1148 = getelementptr inbounds i8, ptr %1146, i64 4
-  %1149 = load i8, ptr %1148, align 4
-  %1150 = zext i16 %676 to i32
-  %1151 = zext i16 %682 to i32
-  %1152 = mul nuw i32 %1151, %1150
-  %1153 = zext i8 %1149 to i32
-  %1154 = mul i32 %1152, %1153
-  %1155 = add nuw nsw i32 %1150, 7
-  %1156 = lshr i32 %1155, 3
-  %1157 = mul nuw nsw i32 %1156, %1151
-  %1158 = add i32 %1154, %1157
-  %1159 = load i32, ptr %6, align 4
-  %1160 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1159) #4
-  %1161 = icmp ugt i32 %1158, %1160
-  br i1 %1161, label %vnc_server_framebuffer_update.exit.i, label %1162
+vnc_get_bytes_per_pixel.exit.i170.i.i:            ; preds = %1140
+  %1145 = getelementptr inbounds i8, ptr %1143, i64 4
+  %1146 = load i8, ptr %1145, align 4
+  %1147 = zext i16 %676 to i32
+  %1148 = zext i16 %682 to i32
+  %1149 = mul nuw i32 %1148, %1147
+  %1150 = zext i8 %1146 to i32
+  %1151 = mul i32 %1149, %1150
+  %1152 = add nuw nsw i32 %1147, 7
+  %1153 = lshr i32 %1152, 3
+  %1154 = mul nuw nsw i32 %1153, %1148
+  %1155 = add i32 %1151, %1154
+  %1156 = load i32, ptr %6, align 4
+  %1157 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1156) #4
+  %1158 = icmp ugt i32 %1155, %1157
+  br i1 %1158, label %vnc_server_framebuffer_update.exit.i, label %1159
 
-1162:                                             ; preds = %vnc_get_bytes_per_pixel.exit.i170.i.i
-  %1163 = load i32, ptr @hf_vnc_cursor_encoding_pixels, align 4
-  %1164 = load i32, ptr %6, align 4
-  %1165 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1163, ptr noundef %0, i32 noundef %1164, i32 noundef %1154, i32 noundef 0) #4
-  %1166 = load i32, ptr %6, align 4
-  %1167 = add i32 %1166, %1154
-  store i32 %1167, ptr %6, align 4
-  %1168 = load i32, ptr @hf_vnc_cursor_encoding_bitmask, align 4
-  %1169 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1168, ptr noundef %0, i32 noundef %1167, i32 noundef %1157, i32 noundef 0) #4
+1159:                                             ; preds = %vnc_get_bytes_per_pixel.exit.i170.i.i
+  %1160 = load i32, ptr @hf_vnc_cursor_encoding_pixels, align 4
+  %1161 = load i32, ptr %6, align 4
+  %1162 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1160, ptr noundef %0, i32 noundef %1161, i32 noundef %1151, i32 noundef 0) #4
+  %1163 = load i32, ptr %6, align 4
+  %1164 = add i32 %1163, %1151
+  store i32 %1164, ptr %6, align 4
+  %1165 = load i32, ptr @hf_vnc_cursor_encoding_bitmask, align 4
+  %1166 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1165, ptr noundef %0, i32 noundef %1164, i32 noundef %1154, i32 noundef 0) #4
+  %1167 = load i32, ptr %6, align 4
+  %1168 = add i32 %1167, %1154
+  store i32 %1168, ptr %6, align 4
+  br label %vnc_raw_encoding.exit.i.i
+
+1169:                                             ; preds = %1138
   %1170 = load i32, ptr %6, align 4
-  %1171 = add i32 %1170, %1157
-  store i32 %1171, ptr %6, align 4
+  %1171 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1170) #4
+  %1172 = icmp ult i32 %1171, 6
+  br i1 %1172, label %vnc_server_framebuffer_update.exit.i, label %1173
+
+1173:                                             ; preds = %1169
+  %1174 = zext i16 %676 to i32
+  %1175 = add nuw nsw i32 %1174, 7
+  %1176 = lshr i32 %1175, 3
+  %1177 = zext i16 %682 to i32
+  %1178 = mul nuw nsw i32 %1176, %1177
+  %1179 = load i32, ptr @hf_vnc_cursor_x_fore_back, align 4
+  %1180 = load i32, ptr %6, align 4
+  %1181 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1179, ptr noundef %0, i32 noundef %1180, i32 noundef 6, i32 noundef 0) #4
+  %1182 = load i32, ptr %6, align 4
+  %1183 = add i32 %1182, 6
+  store i32 %1183, ptr %6, align 4
+  %1184 = shl nuw nsw i32 %1178, 1
+  %1185 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1183) #4
+  %1186 = icmp ugt i32 %1184, %1185
+  br i1 %1186, label %vnc_server_framebuffer_update.exit.i, label %1187
+
+1187:                                             ; preds = %1173
+  %1188 = load i32, ptr @hf_vnc_cursor_encoding_pixels, align 4
+  %1189 = load i32, ptr %6, align 4
+  %1190 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1188, ptr noundef %0, i32 noundef %1189, i32 noundef %1178, i32 noundef 0) #4
+  %1191 = load i32, ptr %6, align 4
+  %1192 = add i32 %1191, %1178
+  store i32 %1192, ptr %6, align 4
+  %1193 = load i32, ptr @hf_vnc_cursor_encoding_bitmask, align 4
+  %1194 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1193, ptr noundef %0, i32 noundef %1192, i32 noundef %1178, i32 noundef 0) #4
+  %1195 = load i32, ptr %6, align 4
+  %1196 = add i32 %1195, %1178
+  store i32 %1196, ptr %6, align 4
   br label %vnc_raw_encoding.exit.i.i
 
-1172:                                             ; preds = %1141
-  %1173 = load i32, ptr %6, align 4
-  %1174 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1173) #4
-  %1175 = icmp ult i32 %1174, 6
-  br i1 %1175, label %vnc_server_framebuffer_update.exit.i, label %1176
-
-1176:                                             ; preds = %1172
-  %1177 = zext i16 %676 to i32
-  %1178 = add nuw nsw i32 %1177, 7
-  %1179 = lshr i32 %1178, 3
-  %1180 = zext i16 %682 to i32
-  %1181 = mul nuw nsw i32 %1179, %1180
-  %1182 = load i32, ptr @hf_vnc_cursor_x_fore_back, align 4
-  %1183 = load i32, ptr %6, align 4
-  %1184 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1182, ptr noundef %0, i32 noundef %1183, i32 noundef 6, i32 noundef 0) #4
-  %1185 = load i32, ptr %6, align 4
-  %1186 = add i32 %1185, 6
-  store i32 %1186, ptr %6, align 4
-  %1187 = shl nuw nsw i32 %1181, 1
-  %1188 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1186) #4
-  %1189 = icmp ugt i32 %1187, %1188
-  br i1 %1189, label %vnc_server_framebuffer_update.exit.i, label %1190
-
-1190:                                             ; preds = %1176
-  %1191 = load i32, ptr @hf_vnc_cursor_encoding_pixels, align 4
-  %1192 = load i32, ptr %6, align 4
-  %1193 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1191, ptr noundef %0, i32 noundef %1192, i32 noundef %1181, i32 noundef 0) #4
-  %1194 = load i32, ptr %6, align 4
-  %1195 = add i32 %1194, %1181
-  store i32 %1195, ptr %6, align 4
-  %1196 = load i32, ptr @hf_vnc_cursor_encoding_bitmask, align 4
-  %1197 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1196, ptr noundef %0, i32 noundef %1195, i32 noundef %1181, i32 noundef 0) #4
-  %1198 = load i32, ptr %6, align 4
-  %1199 = add i32 %1198, %1181
-  store i32 %1199, ptr %6, align 4
-  br label %vnc_raw_encoding.exit.i.i
-
-1200:                                             ; preds = %692
+1197:                                             ; preds = %692
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %666, ptr noundef nonnull @.str.845) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %670, ptr noundef nonnull @.str.846) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %674, ptr noundef nonnull @.str.847) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %680, ptr noundef nonnull @.str.847) #4
   br label %vnc_raw_encoding.exit.i.i
 
-1201:                                             ; preds = %692
+1198:                                             ; preds = %692
+  %1199 = load i32, ptr %6, align 4
+  %1200 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1199) #4
+  %1201 = load i32, ptr @hf_vnc_desktop_screen_num, align 4
   %1202 = load i32, ptr %6, align 4
-  %1203 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1202) #4
-  %1204 = load i32, ptr @hf_vnc_desktop_screen_num, align 4
-  %1205 = load i32, ptr %6, align 4
-  %1206 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1204, ptr noundef %0, i32 noundef %1205, i32 noundef 1, i32 noundef 0) #4
-  %1207 = load i32, ptr %6, align 4
-  %1208 = add i32 %1207, 1
-  store i32 %1208, ptr %6, align 4
-  %1209 = load i32, ptr @hf_vnc_padding, align 4
-  %1210 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1209, ptr noundef %0, i32 noundef %1208, i32 noundef 3, i32 noundef 0) #4
-  %1211 = zext i8 %1203 to i32
-  %1212 = shl nuw nsw i32 %1211, 4
-  %1213 = or disjoint i32 %1212, 3
-  %1214 = load i32, ptr %6, align 4
-  %1215 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1214) #4
-  %1216 = icmp ugt i32 %1213, %1215
-  br i1 %1216, label %vnc_server_framebuffer_update.exit.i, label %1217
+  %1203 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1201, ptr noundef %0, i32 noundef %1202, i32 noundef 1, i32 noundef 0) #4
+  %1204 = load i32, ptr %6, align 4
+  %1205 = add i32 %1204, 1
+  store i32 %1205, ptr %6, align 4
+  %1206 = load i32, ptr @hf_vnc_padding, align 4
+  %1207 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1206, ptr noundef %0, i32 noundef %1205, i32 noundef 3, i32 noundef 0) #4
+  %1208 = zext i8 %1200 to i32
+  %1209 = shl nuw nsw i32 %1208, 4
+  %1210 = or disjoint i32 %1209, 3
+  %1211 = load i32, ptr %6, align 4
+  %1212 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1211) #4
+  %1213 = icmp ugt i32 %1210, %1212
+  br i1 %1213, label %vnc_server_framebuffer_update.exit.i, label %1214
 
-1217:                                             ; preds = %1201
-  %1218 = load i32, ptr %6, align 4
-  %1219 = add i32 %1218, 3
-  store i32 %1219, ptr %6, align 4
-  %.not.i173.i.i = icmp eq i8 %1203, 0
+1214:                                             ; preds = %1198
+  %1215 = load i32, ptr %6, align 4
+  %1216 = add i32 %1215, 3
+  store i32 %1216, ptr %6, align 4
+  %.not.i173.i.i = icmp eq i8 %1200, 0
   br i1 %.not.i173.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph.i174.i.i
 
-.lr.ph.i174.i.i:                                  ; preds = %1217, %.lr.ph.i174.i.i
-  %1220 = phi i32 [ %1248, %.lr.ph.i174.i.i ], [ %1219, %1217 ]
-  %indvars.iv.i175.i.i = phi i32 [ %1222, %.lr.ph.i174.i.i ], [ 0, %1217 ]
-  %1221 = load i32, ptr @ett_vnc_desktop_screen, align 4
-  %1222 = add nuw nsw i32 %indvars.iv.i175.i.i, 1
-  %1223 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %694, ptr noundef %0, i32 noundef %1220, i32 noundef 16, i32 noundef %1221, ptr noundef null, ptr noundef nonnull @.str.856, i32 noundef %1222) #4
-  %1224 = load i32, ptr @hf_vnc_desktop_screen_id, align 4
-  %1225 = load i32, ptr %6, align 4
-  %1226 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1224, ptr noundef %0, i32 noundef %1225, i32 noundef 4, i32 noundef 0) #4
-  %1227 = load i32, ptr %6, align 4
-  %1228 = add i32 %1227, 4
-  store i32 %1228, ptr %6, align 4
-  %1229 = load i32, ptr @hf_vnc_desktop_screen_x, align 4
-  %1230 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1229, ptr noundef %0, i32 noundef %1228, i32 noundef 2, i32 noundef 0) #4
-  %1231 = load i32, ptr %6, align 4
-  %1232 = add i32 %1231, 2
-  store i32 %1232, ptr %6, align 4
-  %1233 = load i32, ptr @hf_vnc_desktop_screen_y, align 4
-  %1234 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1233, ptr noundef %0, i32 noundef %1232, i32 noundef 2, i32 noundef 0) #4
-  %1235 = load i32, ptr %6, align 4
-  %1236 = add i32 %1235, 2
-  store i32 %1236, ptr %6, align 4
-  %1237 = load i32, ptr @hf_vnc_desktop_screen_width, align 4
-  %1238 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1237, ptr noundef %0, i32 noundef %1236, i32 noundef 2, i32 noundef 0) #4
-  %1239 = load i32, ptr %6, align 4
-  %1240 = add i32 %1239, 2
-  store i32 %1240, ptr %6, align 4
-  %1241 = load i32, ptr @hf_vnc_desktop_screen_height, align 4
-  %1242 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1241, ptr noundef %0, i32 noundef %1240, i32 noundef 2, i32 noundef 0) #4
-  %1243 = load i32, ptr %6, align 4
-  %1244 = add i32 %1243, 2
-  store i32 %1244, ptr %6, align 4
-  %1245 = load i32, ptr @hf_vnc_desktop_screen_flags, align 4
-  %1246 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1245, ptr noundef %0, i32 noundef %1244, i32 noundef 4, i32 noundef 0) #4
-  %1247 = load i32, ptr %6, align 4
-  %1248 = add i32 %1247, 4
-  store i32 %1248, ptr %6, align 4
-  %exitcond.not.i176.i.i = icmp eq i32 %1222, %1211
+.lr.ph.i174.i.i:                                  ; preds = %1214, %.lr.ph.i174.i.i
+  %1217 = phi i32 [ %1245, %.lr.ph.i174.i.i ], [ %1216, %1214 ]
+  %indvars.iv.i175.i.i = phi i32 [ %1219, %.lr.ph.i174.i.i ], [ 0, %1214 ]
+  %1218 = load i32, ptr @ett_vnc_desktop_screen, align 4
+  %1219 = add nuw nsw i32 %indvars.iv.i175.i.i, 1
+  %1220 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %694, ptr noundef %0, i32 noundef %1217, i32 noundef 16, i32 noundef %1218, ptr noundef null, ptr noundef nonnull @.str.856, i32 noundef %1219) #4
+  %1221 = load i32, ptr @hf_vnc_desktop_screen_id, align 4
+  %1222 = load i32, ptr %6, align 4
+  %1223 = call ptr @proto_tree_add_item(ptr noundef %1220, i32 noundef %1221, ptr noundef %0, i32 noundef %1222, i32 noundef 4, i32 noundef 0) #4
+  %1224 = load i32, ptr %6, align 4
+  %1225 = add i32 %1224, 4
+  store i32 %1225, ptr %6, align 4
+  %1226 = load i32, ptr @hf_vnc_desktop_screen_x, align 4
+  %1227 = call ptr @proto_tree_add_item(ptr noundef %1220, i32 noundef %1226, ptr noundef %0, i32 noundef %1225, i32 noundef 2, i32 noundef 0) #4
+  %1228 = load i32, ptr %6, align 4
+  %1229 = add i32 %1228, 2
+  store i32 %1229, ptr %6, align 4
+  %1230 = load i32, ptr @hf_vnc_desktop_screen_y, align 4
+  %1231 = call ptr @proto_tree_add_item(ptr noundef %1220, i32 noundef %1230, ptr noundef %0, i32 noundef %1229, i32 noundef 2, i32 noundef 0) #4
+  %1232 = load i32, ptr %6, align 4
+  %1233 = add i32 %1232, 2
+  store i32 %1233, ptr %6, align 4
+  %1234 = load i32, ptr @hf_vnc_desktop_screen_width, align 4
+  %1235 = call ptr @proto_tree_add_item(ptr noundef %1220, i32 noundef %1234, ptr noundef %0, i32 noundef %1233, i32 noundef 2, i32 noundef 0) #4
+  %1236 = load i32, ptr %6, align 4
+  %1237 = add i32 %1236, 2
+  store i32 %1237, ptr %6, align 4
+  %1238 = load i32, ptr @hf_vnc_desktop_screen_height, align 4
+  %1239 = call ptr @proto_tree_add_item(ptr noundef %1220, i32 noundef %1238, ptr noundef %0, i32 noundef %1237, i32 noundef 2, i32 noundef 0) #4
+  %1240 = load i32, ptr %6, align 4
+  %1241 = add i32 %1240, 2
+  store i32 %1241, ptr %6, align 4
+  %1242 = load i32, ptr @hf_vnc_desktop_screen_flags, align 4
+  %1243 = call ptr @proto_tree_add_item(ptr noundef %1220, i32 noundef %1242, ptr noundef %0, i32 noundef %1241, i32 noundef 4, i32 noundef 0) #4
+  %1244 = load i32, ptr %6, align 4
+  %1245 = add i32 %1244, 4
+  store i32 %1245, ptr %6, align 4
+  %exitcond.not.i176.i.i = icmp eq i32 %1219, %1208
   br i1 %exitcond.not.i176.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph.i174.i.i, !llvm.loop !14
 
-1249:                                             ; preds = %692
-  %1250 = zext i16 %676 to i32
-  %1251 = load i32, ptr %6, align 4
-  %1252 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1251) #4
-  %1253 = icmp ult i32 %1252, %1250
-  br i1 %1253, label %vnc_server_framebuffer_update.exit.i, label %1254
+1246:                                             ; preds = %692
+  %1247 = zext i16 %676 to i32
+  %1248 = load i32, ptr %6, align 4
+  %1249 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1248) #4
+  %1250 = icmp ult i32 %1249, %1247
+  br i1 %1250, label %vnc_server_framebuffer_update.exit.i, label %1251
 
-1254:                                             ; preds = %1249
-  %1255 = icmp ugt i16 %676, 63
-  br i1 %1255, label %1256, label %1267
+1251:                                             ; preds = %1246
+  %1252 = icmp ugt i16 %676, 63
+  br i1 %1252, label %1253, label %1264
 
-1256:                                             ; preds = %1254
-  %1257 = load i32, ptr @hf_vnc_supported_messages_client2server, align 4
-  %1258 = load i32, ptr %6, align 4
-  %1259 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1257, ptr noundef %0, i32 noundef %1258, i32 noundef 32, i32 noundef 0) #4
-  %1260 = load i32, ptr %6, align 4
-  %1261 = add i32 %1260, 32
-  store i32 %1261, ptr %6, align 4
-  %1262 = load i32, ptr @hf_vnc_supported_messages_server2client, align 4
-  %1263 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1262, ptr noundef %0, i32 noundef %1261, i32 noundef 32, i32 noundef 0) #4
-  %1264 = load i32, ptr %6, align 4
-  %1265 = add nsw i32 %1250, -32
-  %1266 = add i32 %1265, %1264
-  br label %1270
+1253:                                             ; preds = %1251
+  %1254 = load i32, ptr @hf_vnc_supported_messages_client2server, align 4
+  %1255 = load i32, ptr %6, align 4
+  %1256 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1254, ptr noundef %0, i32 noundef %1255, i32 noundef 32, i32 noundef 0) #4
+  %1257 = load i32, ptr %6, align 4
+  %1258 = add i32 %1257, 32
+  store i32 %1258, ptr %6, align 4
+  %1259 = load i32, ptr @hf_vnc_supported_messages_server2client, align 4
+  %1260 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1259, ptr noundef %0, i32 noundef %1258, i32 noundef 32, i32 noundef 0) #4
+  %1261 = load i32, ptr %6, align 4
+  %1262 = add nsw i32 %1247, -32
+  %1263 = add i32 %1262, %1261
+  br label %1267
 
-1267:                                             ; preds = %1254
-  %1268 = load i32, ptr %6, align 4
-  %1269 = add i32 %1268, %1250
-  br label %1270
+1264:                                             ; preds = %1251
+  %1265 = load i32, ptr %6, align 4
+  %1266 = add i32 %1265, %1247
+  br label %1267
 
-1270:                                             ; preds = %1267, %1256
-  %storemerge.i.i.i = phi i32 [ %1269, %1267 ], [ %1266, %1256 ]
+1267:                                             ; preds = %1264, %1253
+  %storemerge.i.i.i = phi i32 [ %1266, %1264 ], [ %1263, %1253 ]
   store i32 %storemerge.i.i.i, ptr %6, align 4
   br label %vnc_raw_encoding.exit.i.i
 
-1271:                                             ; preds = %692
-  %1272 = load i32, ptr @hf_vnc_num_supported_encodings, align 4
-  %1273 = load i32, ptr %6, align 4
-  %1274 = zext i16 %682 to i32
-  %1275 = call ptr @proto_tree_add_uint(ptr noundef %694, i32 noundef %1272, ptr noundef %0, i32 noundef %1273, i32 noundef 0, i32 noundef %1274) #4
-  %1276 = zext i16 %676 to i32
-  %1277 = load i32, ptr %6, align 4
-  %1278 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1277) #4
-  %1279 = icmp ult i32 %1278, %1276
-  br i1 %1279, label %vnc_server_framebuffer_update.exit.i, label %.preheader.i180.i.i
+1268:                                             ; preds = %692
+  %1269 = load i32, ptr @hf_vnc_num_supported_encodings, align 4
+  %1270 = load i32, ptr %6, align 4
+  %1271 = zext i16 %682 to i32
+  %1272 = call ptr @proto_tree_add_uint(ptr noundef %694, i32 noundef %1269, ptr noundef %0, i32 noundef %1270, i32 noundef 0, i32 noundef %1271) #4
+  %1273 = zext i16 %676 to i32
+  %1274 = load i32, ptr %6, align 4
+  %1275 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1274) #4
+  %1276 = icmp ult i32 %1275, %1273
+  br i1 %1276, label %vnc_server_framebuffer_update.exit.i, label %.preheader.i180.i.i
 
-.preheader.i180.i.i:                              ; preds = %1271
-  %1280 = icmp ugt i16 %676, 3
+.preheader.i180.i.i:                              ; preds = %1268
+  %1277 = icmp ugt i16 %676, 3
   %.pre21.i.i.i = load i32, ptr %6, align 4
-  br i1 %1280, label %.lr.ph.i181.i.i, label %._crit_edge.i.i.i
+  br i1 %1277, label %.lr.ph.i181.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i181.i.i:                                  ; preds = %.preheader.i180.i.i, %.lr.ph.i181.i.i
-  %1281 = phi i32 [ %1285, %.lr.ph.i181.i.i ], [ %.pre21.i.i.i, %.preheader.i180.i.i ]
-  %.020.i.i.i = phi i16 [ %1286, %.lr.ph.i181.i.i ], [ %676, %.preheader.i180.i.i ]
-  %1282 = load i32, ptr @hf_vnc_supported_encodings, align 4
-  %1283 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1282, ptr noundef %0, i32 noundef %1281, i32 noundef 4, i32 noundef 0) #4
-  %1284 = load i32, ptr %6, align 4
-  %1285 = add i32 %1284, 4
-  store i32 %1285, ptr %6, align 4
-  %1286 = add i16 %.020.i.i.i, -4
-  %1287 = icmp ugt i16 %1286, 3
-  br i1 %1287, label %.lr.ph.i181.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !15
+  %1278 = phi i32 [ %1282, %.lr.ph.i181.i.i ], [ %.pre21.i.i.i, %.preheader.i180.i.i ]
+  %.020.i.i.i = phi i16 [ %1283, %.lr.ph.i181.i.i ], [ %676, %.preheader.i180.i.i ]
+  %1279 = load i32, ptr @hf_vnc_supported_encodings, align 4
+  %1280 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1279, ptr noundef %0, i32 noundef %1278, i32 noundef 4, i32 noundef 0) #4
+  %1281 = load i32, ptr %6, align 4
+  %1282 = add i32 %1281, 4
+  store i32 %1282, ptr %6, align 4
+  %1283 = add i16 %.020.i.i.i, -4
+  %1284 = icmp ugt i16 %1283, 3
+  br i1 %1284, label %.lr.ph.i181.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i181.i.i
-  %.pre.i182.i.i = zext nneg i16 %1286 to i32
+  %.pre.i182.i.i = zext nneg i16 %1283 to i32
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %.preheader.i180.i.i
-  %.pre-phi.i.i.i = phi i32 [ %.pre.i182.i.i, %._crit_edge.loopexit.i.i.i ], [ %1276, %.preheader.i180.i.i ]
-  %1288 = phi i32 [ %1285, %._crit_edge.loopexit.i.i.i ], [ %.pre21.i.i.i, %.preheader.i180.i.i ]
-  %1289 = add i32 %1288, %.pre-phi.i.i.i
-  store i32 %1289, ptr %6, align 4
+  %.pre-phi.i.i.i = phi i32 [ %.pre.i182.i.i, %._crit_edge.loopexit.i.i.i ], [ %1273, %.preheader.i180.i.i ]
+  %1285 = phi i32 [ %1282, %._crit_edge.loopexit.i.i.i ], [ %.pre21.i.i.i, %.preheader.i180.i.i ]
+  %1286 = add i32 %1285, %.pre-phi.i.i.i
+  store i32 %1286, ptr %6, align 4
   br label %vnc_raw_encoding.exit.i.i
 
-1290:                                             ; preds = %692
-  %1291 = zext i16 %676 to i32
-  %1292 = load i32, ptr %6, align 4
-  %1293 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1292) #4
-  %1294 = icmp ult i32 %1293, %1291
-  br i1 %1294, label %vnc_server_framebuffer_update.exit.i, label %1295
+1287:                                             ; preds = %692
+  %1288 = zext i16 %676 to i32
+  %1289 = load i32, ptr %6, align 4
+  %1290 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1289) #4
+  %1291 = icmp ult i32 %1290, %1288
+  br i1 %1291, label %vnc_server_framebuffer_update.exit.i, label %1292
 
-1295:                                             ; preds = %1290
-  %1296 = load i32, ptr @hf_vnc_server_identity, align 4
-  %1297 = load i32, ptr %6, align 4
-  %1298 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1296, ptr noundef %0, i32 noundef %1297, i32 noundef %1291, i32 noundef 0) #4
+1292:                                             ; preds = %1287
+  %1293 = load i32, ptr @hf_vnc_server_identity, align 4
+  %1294 = load i32, ptr %6, align 4
+  %1295 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1293, ptr noundef %0, i32 noundef %1294, i32 noundef %1288, i32 noundef 0) #4
+  %1296 = load i32, ptr %6, align 4
+  %1297 = add i32 %1296, %1288
+  store i32 %1297, ptr %6, align 4
+  br label %vnc_raw_encoding.exit.i.i
+
+1298:                                             ; preds = %692
   %1299 = load i32, ptr %6, align 4
-  %1300 = add i32 %1299, %1291
-  store i32 %1300, ptr %6, align 4
+  %1300 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1299) #4
+  %1301 = icmp ult i32 %1300, 20
+  br i1 %1301, label %vnc_server_framebuffer_update.exit.i, label %1302
+
+1302:                                             ; preds = %1298
+  %1303 = load i32, ptr @hf_vnc_context_information_app_id, align 4
+  %1304 = load i32, ptr %6, align 4
+  %1305 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1303, ptr noundef %0, i32 noundef %1304, i32 noundef 4, i32 noundef 0) #4
+  %1306 = load i32, ptr %6, align 4
+  %1307 = add i32 %1306, 4
+  store i32 %1307, ptr %6, align 4
+  %1308 = load i32, ptr @hf_vnc_context_information_app_trust_level, align 4
+  %1309 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1308, ptr noundef %0, i32 noundef %1307, i32 noundef 2, i32 noundef 0) #4
+  %1310 = load i32, ptr %6, align 4
+  %1311 = add i32 %1310, 2
+  store i32 %1311, ptr %6, align 4
+  %1312 = load i32, ptr @hf_vnc_context_information_content_trust_level, align 4
+  %1313 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1312, ptr noundef %0, i32 noundef %1311, i32 noundef 2, i32 noundef 0) #4
+  %1314 = load i32, ptr %6, align 4
+  %1315 = add i32 %1314, 2
+  store i32 %1315, ptr %6, align 4
+  %1316 = load i32, ptr @hf_vnc_context_information_app_category, align 4
+  %1317 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1316, ptr noundef %0, i32 noundef %1315, i32 noundef 4, i32 noundef 0) #4
+  %1318 = load i32, ptr %6, align 4
+  %1319 = add i32 %1318, 4
+  store i32 %1319, ptr %6, align 4
+  %1320 = load i32, ptr @hf_vnc_context_information_content_category, align 4
+  %1321 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1320, ptr noundef %0, i32 noundef %1319, i32 noundef 4, i32 noundef 0) #4
+  %1322 = load i32, ptr %6, align 4
+  %1323 = add i32 %1322, 4
+  store i32 %1323, ptr %6, align 4
+  %1324 = load i32, ptr @hf_vnc_context_information_content_rules, align 4
+  %1325 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1324, ptr noundef %0, i32 noundef %1323, i32 noundef 4, i32 noundef 0) #4
+  %1326 = load i32, ptr %6, align 4
+  %1327 = add i32 %1326, 4
+  store i32 %1327, ptr %6, align 4
   br label %vnc_raw_encoding.exit.i.i
 
-1301:                                             ; preds = %692
-  %1302 = load i32, ptr %6, align 4
-  %1303 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1302) #4
-  %1304 = icmp ult i32 %1303, 20
-  br i1 %1304, label %vnc_server_framebuffer_update.exit.i, label %1305
+1328:                                             ; preds = %692
+  %1329 = call ptr @wmem_file_scope() #4
+  %1330 = load i32, ptr @proto_vnc, align 4
+  %1331 = call ptr @p_get_proto_data(ptr noundef %1329, ptr noundef %1, i32 noundef %1330, i32 noundef 0) #4
+  %.not.i.i185.i.i = icmp eq ptr %1331, null
+  br i1 %.not.i.i185.i.i, label %1332, label %vnc_get_depth.exit.i.i.i
 
-1305:                                             ; preds = %1301
-  %1306 = load i32, ptr @hf_vnc_context_information_app_id, align 4
-  %1307 = load i32, ptr %6, align 4
-  %1308 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1306, ptr noundef %0, i32 noundef %1307, i32 noundef 4, i32 noundef 0) #4
-  %1309 = load i32, ptr %6, align 4
-  %1310 = add i32 %1309, 4
-  store i32 %1310, ptr %6, align 4
-  %1311 = load i32, ptr @hf_vnc_context_information_app_trust_level, align 4
-  %1312 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1311, ptr noundef %0, i32 noundef %1310, i32 noundef 2, i32 noundef 0) #4
-  %1313 = load i32, ptr %6, align 4
-  %1314 = add i32 %1313, 2
-  store i32 %1314, ptr %6, align 4
-  %1315 = load i32, ptr @hf_vnc_context_information_content_trust_level, align 4
-  %1316 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1315, ptr noundef %0, i32 noundef %1314, i32 noundef 2, i32 noundef 0) #4
-  %1317 = load i32, ptr %6, align 4
-  %1318 = add i32 %1317, 2
-  store i32 %1318, ptr %6, align 4
-  %1319 = load i32, ptr @hf_vnc_context_information_app_category, align 4
-  %1320 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1319, ptr noundef %0, i32 noundef %1318, i32 noundef 4, i32 noundef 0) #4
-  %1321 = load i32, ptr %6, align 4
-  %1322 = add i32 %1321, 4
-  store i32 %1322, ptr %6, align 4
-  %1323 = load i32, ptr @hf_vnc_context_information_content_category, align 4
-  %1324 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1323, ptr noundef %0, i32 noundef %1322, i32 noundef 4, i32 noundef 0) #4
-  %1325 = load i32, ptr %6, align 4
-  %1326 = add i32 %1325, 4
-  store i32 %1326, ptr %6, align 4
-  %1327 = load i32, ptr @hf_vnc_context_information_content_rules, align 4
-  %1328 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1327, ptr noundef %0, i32 noundef %1326, i32 noundef 4, i32 noundef 0) #4
-  %1329 = load i32, ptr %6, align 4
-  %1330 = add i32 %1329, 4
-  store i32 %1330, ptr %6, align 4
-  br label %vnc_raw_encoding.exit.i.i
-
-1331:                                             ; preds = %692
-  %1332 = call ptr @wmem_file_scope() #4
-  %1333 = load i32, ptr @proto_vnc, align 4
-  %1334 = call ptr @p_get_proto_data(ptr noundef %1332, ptr noundef %1, i32 noundef %1333, i32 noundef 0) #4
-  %.not.i.i185.i.i = icmp eq ptr %1334, null
-  br i1 %.not.i.i185.i.i, label %1335, label %vnc_get_depth.exit.i.i.i
-
-1335:                                             ; preds = %1331
+1332:                                             ; preds = %1328
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.820, ptr noundef nonnull @.str.821, i32 noundef 3562, ptr noundef nonnull @.str.822) #5
   unreachable
 
-vnc_get_depth.exit.i.i.i:                         ; preds = %1331
+vnc_get_depth.exit.i.i.i:                         ; preds = %1328
   %.not.i186.i.i = icmp eq i16 %682, 0
   br i1 %.not.i186.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph.i187.i.i
 
 .lr.ph.i187.i.i:                                  ; preds = %vnc_get_depth.exit.i.i.i
-  %1336 = getelementptr inbounds i8, ptr %1334, i64 5
-  %1337 = load i8, ptr %1336, align 1
-  %1338 = zext i8 %1337 to i32
-  %1339 = and i8 %1337, 7
-  %1340 = zext nneg i8 %1339 to i32
-  %reass.sub41.i.i.i = sub nsw i32 %1338, %1340
-  %1341 = icmp ult i8 %1339, 5
-  %.035.in.in.v.i.i.i = select i1 %1341, i32 8, i32 16
+  %1333 = getelementptr inbounds i8, ptr %1331, i64 5
+  %1334 = load i8, ptr %1333, align 1
+  %1335 = zext i8 %1334 to i32
+  %1336 = and i8 %1334, 7
+  %1337 = zext nneg i8 %1336 to i32
+  %reass.sub41.i.i.i = sub nsw i32 %1335, %1337
+  %1338 = icmp ult i8 %1336, 5
+  %.035.in.in.v.i.i.i = select i1 %1338, i32 8, i32 16
   %.035.in.in.i.i.i = add nsw i32 %reass.sub41.i.i.i, %.035.in.in.v.i.i.i
   %.035.in424344.i.i.i = lshr i32 %.035.in.in.i.i.i, 3
   %wide.trip.count.i.i.i = zext i16 %682 to i32
   %.pre.i188.i.i = load i32, ptr %6, align 4
-  br label %1342
+  br label %1339
 
-1342:                                             ; preds = %1363, %.lr.ph.i187.i.i
-  %1343 = phi i32 [ %.pre.i188.i.i, %.lr.ph.i187.i.i ], [ %1368, %1363 ]
-  %indvars.iv.i189.i.i = phi i32 [ 0, %.lr.ph.i187.i.i ], [ %1354, %1363 ]
-  %1344 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1343) #4
-  %1345 = icmp ult i32 %1344, 2
-  br i1 %1345, label %vnc_server_framebuffer_update.exit.i, label %1346
+1339:                                             ; preds = %1360, %.lr.ph.i187.i.i
+  %1340 = phi i32 [ %.pre.i188.i.i, %.lr.ph.i187.i.i ], [ %1365, %1360 ]
+  %indvars.iv.i189.i.i = phi i32 [ 0, %.lr.ph.i187.i.i ], [ %1351, %1360 ]
+  %1341 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1340) #4
+  %1342 = icmp ult i32 %1341, 2
+  br i1 %1342, label %vnc_server_framebuffer_update.exit.i, label %1343
 
-1346:                                             ; preds = %1342
-  %1347 = load i32, ptr %6, align 4
-  %1348 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1347) #4
-  %1349 = zext i16 %1348 to i32
-  %1350 = mul nuw nsw i32 %.035.in424344.i.i.i, %1349
-  %1351 = load i32, ptr %6, align 4
-  %1352 = add nuw nsw i32 %1350, 2
-  %1353 = load i32, ptr @ett_vnc_slrle_subline, align 4
-  %1354 = add nuw nsw i32 %indvars.iv.i189.i.i, 1
-  %1355 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %694, ptr noundef %0, i32 noundef %1351, i32 noundef %1352, i32 noundef %1353, ptr noundef null, ptr noundef nonnull @.str.857, i32 noundef %1354) #4
-  %1356 = load i32, ptr @hf_vnc_slrle_run_num, align 4
-  %1357 = load i32, ptr %6, align 4
-  %1358 = call ptr @proto_tree_add_item(ptr noundef %1355, i32 noundef %1356, ptr noundef %0, i32 noundef %1357, i32 noundef 2, i32 noundef 0) #4
-  %1359 = load i32, ptr %6, align 4
-  %1360 = add i32 %1359, 2
-  store i32 %1360, ptr %6, align 4
-  %1361 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1360) #4
-  %1362 = icmp ugt i32 %1350, %1361
-  br i1 %1362, label %vnc_server_framebuffer_update.exit.i, label %1363
+1343:                                             ; preds = %1339
+  %1344 = load i32, ptr %6, align 4
+  %1345 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1344) #4
+  %1346 = zext i16 %1345 to i32
+  %1347 = mul nuw nsw i32 %.035.in424344.i.i.i, %1346
+  %1348 = load i32, ptr %6, align 4
+  %1349 = add nuw nsw i32 %1347, 2
+  %1350 = load i32, ptr @ett_vnc_slrle_subline, align 4
+  %1351 = add nuw nsw i32 %indvars.iv.i189.i.i, 1
+  %1352 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %694, ptr noundef %0, i32 noundef %1348, i32 noundef %1349, i32 noundef %1350, ptr noundef null, ptr noundef nonnull @.str.857, i32 noundef %1351) #4
+  %1353 = load i32, ptr @hf_vnc_slrle_run_num, align 4
+  %1354 = load i32, ptr %6, align 4
+  %1355 = call ptr @proto_tree_add_item(ptr noundef %1352, i32 noundef %1353, ptr noundef %0, i32 noundef %1354, i32 noundef 2, i32 noundef 0) #4
+  %1356 = load i32, ptr %6, align 4
+  %1357 = add i32 %1356, 2
+  store i32 %1357, ptr %6, align 4
+  %1358 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1357) #4
+  %1359 = icmp ugt i32 %1347, %1358
+  br i1 %1359, label %vnc_server_framebuffer_update.exit.i, label %1360
 
-1363:                                             ; preds = %1346
-  %1364 = load i32, ptr @hf_vnc_slrle_run_data, align 4
-  %1365 = load i32, ptr %6, align 4
-  %1366 = call ptr @proto_tree_add_item(ptr noundef %1355, i32 noundef %1364, ptr noundef %0, i32 noundef %1365, i32 noundef %1350, i32 noundef 0) #4
+1360:                                             ; preds = %1343
+  %1361 = load i32, ptr @hf_vnc_slrle_run_data, align 4
+  %1362 = load i32, ptr %6, align 4
+  %1363 = call ptr @proto_tree_add_item(ptr noundef %1352, i32 noundef %1361, ptr noundef %0, i32 noundef %1362, i32 noundef %1347, i32 noundef 0) #4
+  %1364 = load i32, ptr %6, align 4
+  %1365 = add i32 %1364, %1347
+  store i32 %1365, ptr %6, align 4
+  %exitcond.not.i190.i.i = icmp eq i32 %1351, %wide.trip.count.i.i.i
+  br i1 %exitcond.not.i190.i.i, label %vnc_raw_encoding.exit.i.i, label %1339, !llvm.loop !16
+
+1366:                                             ; preds = %692
   %1367 = load i32, ptr %6, align 4
-  %1368 = add i32 %1367, %1350
-  store i32 %1368, ptr %6, align 4
-  %exitcond.not.i190.i.i = icmp eq i32 %1354, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i190.i.i, label %vnc_raw_encoding.exit.i.i, label %1342, !llvm.loop !16
+  %1368 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1367) #4
+  %1369 = icmp ult i32 %1368, 16
+  br i1 %1369, label %vnc_server_framebuffer_update.exit.i, label %1370
 
-1369:                                             ; preds = %692
-  %1370 = load i32, ptr %6, align 4
-  %1371 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1370) #4
-  %1372 = icmp ult i32 %1371, 16
-  br i1 %1372, label %vnc_server_framebuffer_update.exit.i, label %1373
-
-1373:                                             ; preds = %1369
+1370:                                             ; preds = %1366
+  %1371 = load i32, ptr %6, align 4
+  %1372 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1371) #4
+  %1373 = load i32, ptr @hf_vnc_h264_nbytes, align 4
   %1374 = load i32, ptr %6, align 4
-  %1375 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1374) #4
-  %1376 = load i32, ptr @hf_vnc_h264_nbytes, align 4
-  %1377 = load i32, ptr %6, align 4
-  %1378 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1376, ptr noundef %0, i32 noundef %1377, i32 noundef 4, i32 noundef 0) #4
-  %1379 = load i32, ptr %6, align 4
-  %1380 = add i32 %1379, 4
-  store i32 %1380, ptr %6, align 4
-  %1381 = load i32, ptr @hf_vnc_h264_slice_type, align 4
-  %1382 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1381, ptr noundef %0, i32 noundef %1380, i32 noundef 4, i32 noundef 0) #4
-  %1383 = load i32, ptr %6, align 4
-  %1384 = add i32 %1383, 4
-  store i32 %1384, ptr %6, align 4
-  %1385 = load i32, ptr @hf_vnc_h264_width, align 4
-  %1386 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1385, ptr noundef %0, i32 noundef %1384, i32 noundef 4, i32 noundef 0) #4
-  %1387 = load i32, ptr %6, align 4
-  %1388 = add i32 %1387, 4
-  store i32 %1388, ptr %6, align 4
-  %1389 = load i32, ptr @hf_vnc_h264_height, align 4
-  %1390 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1389, ptr noundef %0, i32 noundef %1388, i32 noundef 4, i32 noundef 0) #4
-  %1391 = load i32, ptr %6, align 4
-  %1392 = add i32 %1391, 4
-  store i32 %1392, ptr %6, align 4
-  %1393 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1392) #4
-  %1394 = icmp ugt i32 %1375, %1393
-  br i1 %1394, label %vnc_server_framebuffer_update.exit.i, label %1395
+  %1375 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1373, ptr noundef %0, i32 noundef %1374, i32 noundef 4, i32 noundef 0) #4
+  %1376 = load i32, ptr %6, align 4
+  %1377 = add i32 %1376, 4
+  store i32 %1377, ptr %6, align 4
+  %1378 = load i32, ptr @hf_vnc_h264_slice_type, align 4
+  %1379 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1378, ptr noundef %0, i32 noundef %1377, i32 noundef 4, i32 noundef 0) #4
+  %1380 = load i32, ptr %6, align 4
+  %1381 = add i32 %1380, 4
+  store i32 %1381, ptr %6, align 4
+  %1382 = load i32, ptr @hf_vnc_h264_width, align 4
+  %1383 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1382, ptr noundef %0, i32 noundef %1381, i32 noundef 4, i32 noundef 0) #4
+  %1384 = load i32, ptr %6, align 4
+  %1385 = add i32 %1384, 4
+  store i32 %1385, ptr %6, align 4
+  %1386 = load i32, ptr @hf_vnc_h264_height, align 4
+  %1387 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1386, ptr noundef %0, i32 noundef %1385, i32 noundef 4, i32 noundef 0) #4
+  %1388 = load i32, ptr %6, align 4
+  %1389 = add i32 %1388, 4
+  store i32 %1389, ptr %6, align 4
+  %1390 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1389) #4
+  %1391 = icmp ugt i32 %1372, %1390
+  br i1 %1391, label %vnc_server_framebuffer_update.exit.i, label %1392
 
-1395:                                             ; preds = %1373
-  %1396 = load i32, ptr @hf_vnc_h264_data, align 4
-  %1397 = load i32, ptr %6, align 4
-  %1398 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1396, ptr noundef %0, i32 noundef %1397, i32 noundef %1375, i32 noundef 0) #4
-  %1399 = load i32, ptr %6, align 4
-  %1400 = add i32 %1399, %1375
-  store i32 %1400, ptr %6, align 4
+1392:                                             ; preds = %1370
+  %1393 = load i32, ptr @hf_vnc_h264_data, align 4
+  %1394 = load i32, ptr %6, align 4
+  %1395 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %1393, ptr noundef %0, i32 noundef %1394, i32 noundef %1372, i32 noundef 0) #4
+  %1396 = load i32, ptr %6, align 4
+  %1397 = add i32 %1396, %1372
+  store i32 %1397, ptr %6, align 4
   br label %vnc_raw_encoding.exit.i.i
 
-vnc_raw_encoding.exit.i.i:                        ; preds = %1363, %.lr.ph.i174.i.i, %..loopexit153_crit_edge.i.i.i, %.lr.ph.i.i.i, %1395, %vnc_get_depth.exit.i.i.i, %1305, %1295, %._crit_edge.i.i.i, %1270, %1217, %1200, %1190, %1162, %.critedge.sink.split.i.i.i, %1137, %1059, %1048, %995, %.lr.ph162.i.i.i, %vnc_get_bytes_per_pixel.exit.i156.i.i, %.preheader.i.i.i, %745, %716, %710, %692
-  %.1.i.i = phi i32 [ 0, %1200 ], [ 0, %716 ], [ 0, %692 ], [ 0, %710 ], [ 0, %745 ], [ 0, %.preheader.i.i.i ], [ 0, %vnc_get_bytes_per_pixel.exit.i156.i.i ], [ 0, %.lr.ph162.i.i.i ], [ 0, %995 ], [ %1050, %1048 ], [ 0, %1162 ], [ 0, %1190 ], [ 0, %1217 ], [ 0, %1270 ], [ 0, %._crit_edge.i.i.i ], [ 0, %1295 ], [ 0, %1305 ], [ 0, %vnc_get_depth.exit.i.i.i ], [ 0, %1395 ], [ 0, %.critedge.sink.split.i.i.i ], [ 0, %1137 ], [ 0, %1059 ], [ 0, %.lr.ph.i.i.i ], [ 0, %..loopexit153_crit_edge.i.i.i ], [ 0, %.lr.ph.i174.i.i ], [ 0, %1363 ]
+vnc_raw_encoding.exit.i.i:                        ; preds = %1360, %.lr.ph.i174.i.i, %..loopexit153_crit_edge.i.i.i, %.lr.ph.i.i.i, %1392, %vnc_get_depth.exit.i.i.i, %1302, %1292, %._crit_edge.i.i.i, %1267, %1214, %1197, %1187, %1159, %.critedge.sink.split.i.i.i, %1134, %1056, %1045, %992, %.lr.ph162.i.i.i, %vnc_get_bytes_per_pixel.exit.i156.i.i, %.preheader.i.i.i, %745, %716, %710, %692
+  %.1.i.i = phi i32 [ 0, %1197 ], [ 0, %716 ], [ 0, %692 ], [ 0, %710 ], [ 0, %745 ], [ 0, %.preheader.i.i.i ], [ 0, %vnc_get_bytes_per_pixel.exit.i156.i.i ], [ 0, %.lr.ph162.i.i.i ], [ 0, %992 ], [ %1047, %1045 ], [ 0, %1159 ], [ 0, %1187 ], [ 0, %1214 ], [ 0, %1267 ], [ 0, %._crit_edge.i.i.i ], [ 0, %1292 ], [ 0, %1302 ], [ 0, %vnc_get_depth.exit.i.i.i ], [ 0, %1392 ], [ 0, %.critedge.sink.split.i.i.i ], [ 0, %1134 ], [ 0, %1056 ], [ 0, %.lr.ph.i.i.i ], [ 0, %..loopexit153_crit_edge.i.i.i ], [ 0, %.lr.ph.i174.i.i ], [ 0, %1360 ]
   %.not.i.i51 = icmp eq i32 %.1.i.i, 0
   br i1 %.not.i.i51, label %651, label %vnc_server_framebuffer_update.exit.i, !llvm.loop !17
 
-1401:                                             ; preds = %621
-  %1402 = load ptr, ptr %19, align 8
-  call void @col_append_sep_str(ptr noundef %1402, i32 noundef 25, ptr noundef nonnull @.str.823, ptr noundef nonnull @.str.858) #4
-  %1403 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
-  %1404 = load i32, ptr %6, align 4
-  %1405 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1404) #4
-  %1406 = icmp ult i32 %1405, 3
-  br i1 %1406, label %vnc_server_framebuffer_update.exit.i, label %1407
+1398:                                             ; preds = %621
+  %1399 = load ptr, ptr %19, align 8
+  call void @col_append_sep_str(ptr noundef %1399, i32 noundef 25, ptr noundef nonnull @.str.823, ptr noundef nonnull @.str.858) #4
+  %1400 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
+  %1401 = load i32, ptr %6, align 4
+  %1402 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1401) #4
+  %1403 = icmp ult i32 %1402, 3
+  br i1 %1403, label %vnc_server_framebuffer_update.exit.i, label %1404
 
-1407:                                             ; preds = %1401
-  %1408 = load i32, ptr @hf_vnc_padding, align 4
-  %1409 = load i32, ptr %6, align 4
-  %1410 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %1408, ptr noundef %0, i32 noundef %1409, i32 noundef 1, i32 noundef 0) #4
-  %1411 = load i32, ptr %6, align 4
-  %1412 = add i32 %1411, 1
-  store i32 %1412, ptr %6, align 4
-  %1413 = load i32, ptr @hf_vnc_colormap_first_color, align 4
-  %1414 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %1413, ptr noundef %0, i32 noundef %1412, i32 noundef 2, i32 noundef 0) #4
-  %1415 = load i32, ptr %6, align 4
-  %1416 = add i32 %1415, 2
-  store i32 %1416, ptr %6, align 4
-  %1417 = load i32, ptr @hf_vnc_colormap_num_colors, align 4
-  %1418 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %1417, ptr noundef %0, i32 noundef %1416, i32 noundef 2, i32 noundef 0) #4
-  %1419 = zext i16 %1403 to i32
-  %1420 = icmp ugt i16 %1403, 10000
-  br i1 %1420, label %1421, label %1423
+1404:                                             ; preds = %1398
+  %1405 = load i32, ptr @hf_vnc_padding, align 4
+  %1406 = load i32, ptr %6, align 4
+  %1407 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %1405, ptr noundef %0, i32 noundef %1406, i32 noundef 1, i32 noundef 0) #4
+  %1408 = load i32, ptr %6, align 4
+  %1409 = add i32 %1408, 1
+  store i32 %1409, ptr %6, align 4
+  %1410 = load i32, ptr @hf_vnc_colormap_first_color, align 4
+  %1411 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %1410, ptr noundef %0, i32 noundef %1409, i32 noundef 2, i32 noundef 0) #4
+  %1412 = load i32, ptr %6, align 4
+  %1413 = add i32 %1412, 2
+  store i32 %1413, ptr %6, align 4
+  %1414 = load i32, ptr @hf_vnc_colormap_num_colors, align 4
+  %1415 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %1414, ptr noundef %0, i32 noundef %1413, i32 noundef 2, i32 noundef 0) #4
+  %1416 = zext i16 %1400 to i32
+  %1417 = icmp ugt i16 %1400, 10000
+  br i1 %1417, label %1418, label %1420
 
-1421:                                             ; preds = %1407
-  %1422 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %1418, ptr noundef nonnull @ei_vnc_too_many_colors, ptr noundef nonnull @.str.859, i32 noundef %1419) #4
+1418:                                             ; preds = %1404
+  %1419 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %1415, ptr noundef nonnull @ei_vnc_too_many_colors, ptr noundef nonnull @.str.859, i32 noundef %1416) #4
   br label %vnc_server_framebuffer_update.exit.thread.i
 
-1423:                                             ; preds = %1407
-  %1424 = mul nuw nsw i32 %1419, 6
-  %1425 = add nuw nsw i32 %1424, 5
-  %1426 = load i32, ptr %6, align 4
-  %1427 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1426) #4
-  %1428 = icmp ugt i32 %1425, %1427
-  br i1 %1428, label %vnc_server_framebuffer_update.exit.i, label %1429
+1420:                                             ; preds = %1404
+  %1421 = mul nuw nsw i32 %1416, 6
+  %1422 = add nuw nsw i32 %1421, 5
+  %1423 = load i32, ptr %6, align 4
+  %1424 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1423) #4
+  %1425 = icmp ugt i32 %1422, %1424
+  br i1 %1425, label %vnc_server_framebuffer_update.exit.i, label %1426
 
-1429:                                             ; preds = %1423
-  %1430 = load i32, ptr %6, align 4
-  %1431 = add i32 %1430, 2
-  store i32 %1431, ptr %6, align 4
-  %1432 = load i32, ptr @hf_vnc_color_groups, align 4
-  %1433 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %1432, ptr noundef %0, i32 noundef %1431, i32 noundef %1424, i32 noundef 0) #4
-  %1434 = load i32, ptr @ett_vnc_colormap_num_groups, align 4
-  %1435 = call ptr @proto_item_add_subtree(ptr noundef %1433, i32 noundef %1434) #4
-  %.not.i49.i = icmp eq i16 %1403, 0
+1426:                                             ; preds = %1420
+  %1427 = load i32, ptr %6, align 4
+  %1428 = add i32 %1427, 2
+  store i32 %1428, ptr %6, align 4
+  %1429 = load i32, ptr @hf_vnc_color_groups, align 4
+  %1430 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %1429, ptr noundef %0, i32 noundef %1428, i32 noundef %1421, i32 noundef 0) #4
+  %1431 = load i32, ptr @ett_vnc_colormap_num_groups, align 4
+  %1432 = call ptr @proto_item_add_subtree(ptr noundef %1430, i32 noundef %1431) #4
+  %.not.i49.i = icmp eq i16 %1400, 0
   br i1 %.not.i49.i, label %vnc_server_framebuffer_update.exit.thread.i, label %.lr.ph.preheader.i.i47
 
-.lr.ph.preheader.i.i47:                           ; preds = %1429
+.lr.ph.preheader.i.i47:                           ; preds = %1426
   %.pre.i.i48 = load i32, ptr %6, align 4
   br label %.lr.ph.i.i49
 
 .lr.ph.i.i49:                                     ; preds = %.lr.ph.i.i49, %.lr.ph.preheader.i.i47
-  %1436 = phi i32 [ %1452, %.lr.ph.i.i49 ], [ %.pre.i.i48, %.lr.ph.preheader.i.i47 ]
-  %.04952.i.i = phi i32 [ %1438, %.lr.ph.i.i49 ], [ 0, %.lr.ph.preheader.i.i47 ]
-  %1437 = load i32, ptr @ett_vnc_colormap_color_group, align 4
-  %1438 = add nuw nsw i32 %.04952.i.i, 1
-  %1439 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1435, ptr noundef %0, i32 noundef %1436, i32 noundef 6, i32 noundef %1437, ptr noundef null, ptr noundef nonnull @.str.860, i32 noundef %1438) #4
-  %1440 = load i32, ptr @hf_vnc_colormap_red, align 4
-  %1441 = load i32, ptr %6, align 4
-  %1442 = call ptr @proto_tree_add_item(ptr noundef %1439, i32 noundef %1440, ptr noundef %0, i32 noundef %1441, i32 noundef 2, i32 noundef 0) #4
-  %1443 = load i32, ptr %6, align 4
-  %1444 = add i32 %1443, 2
-  store i32 %1444, ptr %6, align 4
-  %1445 = load i32, ptr @hf_vnc_colormap_green, align 4
-  %1446 = call ptr @proto_tree_add_item(ptr noundef %1439, i32 noundef %1445, ptr noundef %0, i32 noundef %1444, i32 noundef 2, i32 noundef 0) #4
-  %1447 = load i32, ptr %6, align 4
-  %1448 = add i32 %1447, 2
-  store i32 %1448, ptr %6, align 4
-  %1449 = load i32, ptr @hf_vnc_colormap_blue, align 4
-  %1450 = call ptr @proto_tree_add_item(ptr noundef %1439, i32 noundef %1449, ptr noundef %0, i32 noundef %1448, i32 noundef 2, i32 noundef 0) #4
-  %1451 = load i32, ptr %6, align 4
-  %1452 = add i32 %1451, 2
-  store i32 %1452, ptr %6, align 4
-  %exitcond.not.i50.i = icmp eq i32 %1438, %1419
+  %1433 = phi i32 [ %1449, %.lr.ph.i.i49 ], [ %.pre.i.i48, %.lr.ph.preheader.i.i47 ]
+  %.04952.i.i = phi i32 [ %1435, %.lr.ph.i.i49 ], [ 0, %.lr.ph.preheader.i.i47 ]
+  %1434 = load i32, ptr @ett_vnc_colormap_color_group, align 4
+  %1435 = add nuw nsw i32 %.04952.i.i, 1
+  %1436 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1432, ptr noundef %0, i32 noundef %1433, i32 noundef 6, i32 noundef %1434, ptr noundef null, ptr noundef nonnull @.str.860, i32 noundef %1435) #4
+  %1437 = load i32, ptr @hf_vnc_colormap_red, align 4
+  %1438 = load i32, ptr %6, align 4
+  %1439 = call ptr @proto_tree_add_item(ptr noundef %1436, i32 noundef %1437, ptr noundef %0, i32 noundef %1438, i32 noundef 2, i32 noundef 0) #4
+  %1440 = load i32, ptr %6, align 4
+  %1441 = add i32 %1440, 2
+  store i32 %1441, ptr %6, align 4
+  %1442 = load i32, ptr @hf_vnc_colormap_green, align 4
+  %1443 = call ptr @proto_tree_add_item(ptr noundef %1436, i32 noundef %1442, ptr noundef %0, i32 noundef %1441, i32 noundef 2, i32 noundef 0) #4
+  %1444 = load i32, ptr %6, align 4
+  %1445 = add i32 %1444, 2
+  store i32 %1445, ptr %6, align 4
+  %1446 = load i32, ptr @hf_vnc_colormap_blue, align 4
+  %1447 = call ptr @proto_tree_add_item(ptr noundef %1436, i32 noundef %1446, ptr noundef %0, i32 noundef %1445, i32 noundef 2, i32 noundef 0) #4
+  %1448 = load i32, ptr %6, align 4
+  %1449 = add i32 %1448, 2
+  store i32 %1449, ptr %6, align 4
+  %exitcond.not.i50.i = icmp eq i32 %1435, %1416
   br i1 %exitcond.not.i50.i, label %vnc_server_framebuffer_update.exit.thread.i, label %.lr.ph.i.i49, !llvm.loop !18
 
-1453:                                             ; preds = %621
+1450:                                             ; preds = %621
   %.val.i46 = load ptr, ptr %19, align 8
   call void @col_append_sep_str(ptr noundef %.val.i46, i32 noundef 25, ptr noundef nonnull @.str.823, ptr noundef nonnull @.str.861) #4
   br label %vnc_server_framebuffer_update.exit.i
 
-1454:                                             ; preds = %621
-  %1455 = load ptr, ptr %19, align 8
-  call void @col_append_sep_str(ptr noundef %1455, i32 noundef 25, ptr noundef nonnull @.str.823, ptr noundef nonnull @.str.862) #4
+1451:                                             ; preds = %621
+  %1452 = load ptr, ptr %19, align 8
+  call void @col_append_sep_str(ptr noundef %1452, i32 noundef 25, ptr noundef nonnull @.str.823, ptr noundef nonnull @.str.862) #4
+  %1453 = load i32, ptr %6, align 4
+  %1454 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1453) #4
+  %1455 = load i32, ptr @hf_vnc_server_cut_text_len, align 4
   %1456 = load i32, ptr %6, align 4
-  %1457 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1456) #4
-  %1458 = load i32, ptr @hf_vnc_server_cut_text_len, align 4
-  %1459 = load i32, ptr %6, align 4
-  %1460 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %1458, ptr noundef %0, i32 noundef %1459, i32 noundef 4, i32 noundef 0) #4
-  %1461 = load i32, ptr %6, align 4
-  %1462 = add i32 %1461, 4
-  store i32 %1462, ptr %6, align 4
-  %1463 = icmp ugt i32 %1457, 100000
-  br i1 %1463, label %1464, label %1466
+  %1457 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %1455, ptr noundef %0, i32 noundef %1456, i32 noundef 4, i32 noundef 0) #4
+  %1458 = load i32, ptr %6, align 4
+  %1459 = add i32 %1458, 4
+  store i32 %1459, ptr %6, align 4
+  %1460 = icmp ugt i32 %1454, 100000
+  br i1 %1460, label %1461, label %1463
 
-1464:                                             ; preds = %1454
-  %1465 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %1460, ptr noundef nonnull @ei_vnc_too_many_cut_text, ptr noundef nonnull @.str.863, i32 noundef %1457) #4
+1461:                                             ; preds = %1451
+  %1462 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %1457, ptr noundef nonnull @ei_vnc_too_many_cut_text, ptr noundef nonnull @.str.863, i32 noundef %1454) #4
   br label %vnc_server_framebuffer_update.exit.thread.i
 
-1466:                                             ; preds = %1454
-  %1467 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1462) #4
-  %1468 = icmp ugt i32 %1457, %1467
-  br i1 %1468, label %vnc_server_framebuffer_update.exit.i, label %1469
+1463:                                             ; preds = %1451
+  %1464 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1459) #4
+  %1465 = icmp ugt i32 %1454, %1464
+  br i1 %1465, label %vnc_server_framebuffer_update.exit.i, label %1466
 
-1469:                                             ; preds = %1466
-  %1470 = load i32, ptr @hf_vnc_server_cut_text, align 4
-  %1471 = load i32, ptr %6, align 4
-  %1472 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %1470, ptr noundef %0, i32 noundef %1471, i32 noundef %1457, i32 noundef 0) #4
-  %1473 = load i32, ptr %6, align 4
-  %1474 = add i32 %1473, %1457
-  store i32 %1474, ptr %6, align 4
+1466:                                             ; preds = %1463
+  %1467 = load i32, ptr @hf_vnc_server_cut_text, align 4
+  %1468 = load i32, ptr %6, align 4
+  %1469 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %1467, ptr noundef %0, i32 noundef %1468, i32 noundef %1454, i32 noundef 0) #4
+  %1470 = load i32, ptr %6, align 4
+  %1471 = add i32 %1470, %1454
+  store i32 %1471, ptr %6, align 4
   br label %vnc_server_framebuffer_update.exit.i
 
-1475:                                             ; preds = %621
-  %1476 = call fastcc i32 @vnc_mirrorlink(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %628)
+1472:                                             ; preds = %621
+  %1473 = call fastcc i32 @vnc_mirrorlink(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %628)
   br label %vnc_server_framebuffer_update.exit.i
 
-1477:                                             ; preds = %621
-  %1478 = load ptr, ptr %19, align 8
-  call void @col_append_sep_str(ptr noundef %1478, i32 noundef 25, ptr noundef nonnull @.str.823, ptr noundef nonnull @.str.835) #4
-  %1479 = load i32, ptr %6, align 4
-  %1480 = add i32 %1479, 1
-  store i32 %1480, ptr %6, align 4
+1474:                                             ; preds = %621
+  %1475 = load ptr, ptr %19, align 8
+  call void @col_append_sep_str(ptr noundef %1475, i32 noundef 25, ptr noundef nonnull @.str.823, ptr noundef nonnull @.str.835) #4
+  %1476 = load i32, ptr %6, align 4
+  %1477 = add i32 %1476, 1
+  store i32 %1477, ptr %6, align 4
   br label %vnc_server_framebuffer_update.exit.i
 
-1481:                                             ; preds = %621
-  %1482 = call fastcc i32 @vnc_fence(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %628)
+1478:                                             ; preds = %621
+  %1479 = call fastcc i32 @vnc_fence(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %628)
   br label %vnc_server_framebuffer_update.exit.i
 
-1483:                                             ; preds = %621
-  %1484 = load ptr, ptr %19, align 8
-  call void @col_append_sep_str(ptr noundef %1484, i32 noundef 25, ptr noundef nonnull @.str.823, ptr noundef nonnull @.str.836) #4
-  %1485 = call i32 @tvb_reported_length(ptr noundef %0) #4
-  store i32 %1485, ptr %6, align 4
+1480:                                             ; preds = %621
+  %1481 = load ptr, ptr %19, align 8
+  call void @col_append_sep_str(ptr noundef %1481, i32 noundef 25, ptr noundef nonnull @.str.823, ptr noundef nonnull @.str.836) #4
+  %1482 = call i32 @tvb_reported_length(ptr noundef %0) #4
+  store i32 %1482, ptr %6, align 4
   br label %vnc_server_framebuffer_update.exit.i
 
-vnc_server_framebuffer_update.exit.i:             ; preds = %vnc_raw_encoding.exit.i.i, %1373, %1369, %1301, %1290, %1271, %1249, %1201, %1176, %1172, %vnc_get_bytes_per_pixel.exit.i170.i.i, %1137, %1129, %1105, %1090, %1073, %1059, %1033, %1003, %982, %968, %940, %vnc_get_bytes_per_pixel.exit.i163.i.i, %751, %747, %vnc_get_bytes_per_pixel.exit.i153.i.i, %vnc_get_bytes_per_pixel.exit.i.i.i, %655, %1346, %1342, %888, %885, %873, %861, %849, %807, %1483, %1481, %1477, %1475, %1469, %1466, %1453, %1423, %1401
-  %.1.i = phi i32 [ %.0.i43, %1483 ], [ %1482, %1481 ], [ %.0.i43, %1477 ], [ %1476, %1475 ], [ %.0.i43, %1453 ], [ 3, %1401 ], [ %1425, %1423 ], [ %1474, %1469 ], [ %1457, %1466 ], [ %899, %888 ], [ 3, %885 ], [ %795, %873 ], [ %795, %861 ], [ %850, %849 ], [ 1, %807 ], [ %1350, %1346 ], [ 2, %1342 ], [ %706, %vnc_get_bytes_per_pixel.exit.i.i.i ], [ 4, %vnc_get_bytes_per_pixel.exit.i153.i.i ], [ %748, %747 ], [ %758, %751 ], [ 4, %vnc_get_bytes_per_pixel.exit.i163.i.i ], [ %945, %940 ], [ %973, %968 ], [ %985, %982 ], [ 1, %1003 ], [ 3, %1033 ], [ %1060, %1059 ], [ 1, %1073 ], [ %1127, %1129 ], [ %1138, %1137 ], [ 1, %1090 ], [ %.0.i.i.i.i, %1105 ], [ %1158, %vnc_get_bytes_per_pixel.exit.i170.i.i ], [ 6, %1172 ], [ %1187, %1176 ], [ %1213, %1201 ], [ %1250, %1249 ], [ %1276, %1271 ], [ %1291, %1290 ], [ 20, %1301 ], [ 16, %1369 ], [ %1375, %1373 ], [ %.1.i.i, %vnc_raw_encoding.exit.i.i ], [ 12, %655 ]
-  %1486 = icmp sgt i32 %.1.i, 0
-  %1487 = load i32, ptr @vnc_preference_desegment, align 4
-  %1488 = icmp ne i32 %1487, 0
-  %or.cond.i = select i1 %1486, i1 %1488, i1 false
-  br i1 %or.cond.i, label %1489, label %vnc_server_framebuffer_update.exit.thread.i
+vnc_server_framebuffer_update.exit.i:             ; preds = %vnc_raw_encoding.exit.i.i, %1370, %1366, %1298, %1287, %1268, %1246, %1198, %1173, %1169, %vnc_get_bytes_per_pixel.exit.i170.i.i, %1134, %1126, %1102, %1087, %1070, %1056, %1030, %1000, %979, %965, %937, %vnc_get_bytes_per_pixel.exit.i163.i.i, %751, %747, %vnc_get_bytes_per_pixel.exit.i153.i.i, %vnc_get_bytes_per_pixel.exit.i.i.i, %655, %1343, %1339, %886, %883, %871, %859, %847, %806, %1480, %1478, %1474, %1472, %1466, %1463, %1450, %1420, %1398
+  %.1.i = phi i32 [ %.0.i43, %1480 ], [ %1479, %1478 ], [ %.0.i43, %1474 ], [ %1473, %1472 ], [ %.0.i43, %1450 ], [ 3, %1398 ], [ %1422, %1420 ], [ %1471, %1466 ], [ %1454, %1463 ], [ %896, %886 ], [ 3, %883 ], [ %795, %871 ], [ %795, %859 ], [ %848, %847 ], [ 1, %806 ], [ %1347, %1343 ], [ 2, %1339 ], [ %706, %vnc_get_bytes_per_pixel.exit.i.i.i ], [ 4, %vnc_get_bytes_per_pixel.exit.i153.i.i ], [ %748, %747 ], [ %758, %751 ], [ 4, %vnc_get_bytes_per_pixel.exit.i163.i.i ], [ %942, %937 ], [ %970, %965 ], [ %982, %979 ], [ 1, %1000 ], [ 3, %1030 ], [ %1057, %1056 ], [ 1, %1070 ], [ %1124, %1126 ], [ %1135, %1134 ], [ 1, %1087 ], [ %.0.i.i.i.i, %1102 ], [ %1155, %vnc_get_bytes_per_pixel.exit.i170.i.i ], [ 6, %1169 ], [ %1184, %1173 ], [ %1210, %1198 ], [ %1247, %1246 ], [ %1273, %1268 ], [ %1288, %1287 ], [ 20, %1298 ], [ 16, %1366 ], [ %1372, %1370 ], [ %.1.i.i, %vnc_raw_encoding.exit.i.i ], [ 12, %655 ]
+  %1483 = icmp sgt i32 %.1.i, 0
+  %1484 = load i32, ptr @vnc_preference_desegment, align 4
+  %1485 = icmp ne i32 %1484, 0
+  %or.cond.i = select i1 %1483, i1 %1485, i1 false
+  br i1 %or.cond.i, label %1486, label %vnc_server_framebuffer_update.exit.thread.i
 
-1489:                                             ; preds = %vnc_server_framebuffer_update.exit.i
-  %1490 = load i16, ptr %620, align 8
-  %.not.i45 = icmp eq i16 %1490, 0
-  br i1 %.not.i45, label %vnc_server_framebuffer_update.exit.thread.i, label %1491
+1486:                                             ; preds = %vnc_server_framebuffer_update.exit.i
+  %1487 = load i16, ptr %620, align 8
+  %.not.i45 = icmp eq i16 %1487, 0
+  br i1 %.not.i45, label %vnc_server_framebuffer_update.exit.thread.i, label %1488
 
-1491:                                             ; preds = %1489
-  %1492 = call ptr @proto_tree_add_expert(ptr noundef %628, ptr noundef nonnull %1, ptr noundef nonnull @ei_vnc_reassemble, ptr noundef %0, i32 noundef %622, i32 noundef -1) #4
-  %1493 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 %622, ptr %1493, align 4
-  %1494 = getelementptr inbounds i8, ptr %1, i64 336
-  store i32 268435455, ptr %1494, align 8
+1488:                                             ; preds = %1486
+  %1489 = call ptr @proto_tree_add_expert(ptr noundef %628, ptr noundef nonnull %1, ptr noundef nonnull @ei_vnc_reassemble, ptr noundef %0, i32 noundef %622, i32 noundef -1) #4
+  %1490 = getelementptr inbounds i8, ptr %1, i64 332
+  store i32 %622, ptr %1490, align 4
+  %1491 = getelementptr inbounds i8, ptr %1, i64 336
+  store i32 268435455, ptr %1491, align 8
   br label %vnc_client_to_server.exit
 
-vnc_server_framebuffer_update.exit.thread.i:      ; preds = %.lr.ph.i.i49, %659, %651, %1489, %vnc_server_framebuffer_update.exit.i, %1464, %1429, %1421, %653, %646
-  %.155.i = phi i32 [ %.1.i, %1489 ], [ %.1.i, %vnc_server_framebuffer_update.exit.i ], [ 0, %646 ], [ 0, %653 ], [ 0, %1421 ], [ 0, %1429 ], [ 0, %1464 ], [ 0, %651 ], [ 0, %659 ], [ 0, %.lr.ph.i.i49 ]
-  %1495 = load i32, ptr %6, align 4
-  %1496 = call i32 @tvb_reported_length(ptr noundef %0) #4
-  %1497 = icmp ult i32 %1495, %1496
-  br i1 %1497, label %621, label %vnc_client_to_server.exit
+vnc_server_framebuffer_update.exit.thread.i:      ; preds = %.lr.ph.i.i49, %659, %651, %1486, %vnc_server_framebuffer_update.exit.i, %1461, %1426, %1418, %653, %646
+  %.155.i = phi i32 [ %.1.i, %1486 ], [ %.1.i, %vnc_server_framebuffer_update.exit.i ], [ 0, %646 ], [ 0, %653 ], [ 0, %1418 ], [ 0, %1426 ], [ 0, %1461 ], [ 0, %651 ], [ 0, %659 ], [ 0, %.lr.ph.i.i49 ]
+  %1492 = load i32, ptr %6, align 4
+  %1493 = call i32 @tvb_reported_length(ptr noundef %0) #4
+  %1494 = icmp ult i32 %1492, %1493
+  br i1 %1494, label %621, label %vnc_client_to_server.exit
 
-vnc_client_to_server.exit:                        ; preds = %vnc_server_framebuffer_update.exit.thread.i, %1491, %616, %614, %612, %610, %601, %580, %573, %562, %._crit_edge.thread.i.i, %._crit_edge.i.i, %vnc_client_set_pixel_format.exit.i
-  %1498 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  br label %1499
+vnc_client_to_server.exit:                        ; preds = %vnc_server_framebuffer_update.exit.thread.i, %1488, %616, %614, %612, %610, %601, %580, %573, %562, %._crit_edge.thread.i.i, %._crit_edge.i.i, %vnc_client_set_pixel_format.exit.i
+  %1495 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  br label %1496
 
-1499:                                             ; preds = %vnc_client_to_server.exit, %468, %462
-  %.036 = phi i32 [ %463, %462 ], [ %471, %468 ], [ %1498, %vnc_client_to_server.exit ]
+1496:                                             ; preds = %vnc_client_to_server.exit, %468, %462
+  %.036 = phi i32 [ %463, %462 ], [ %471, %468 ], [ %1495, %vnc_client_to_server.exit ]
   ret i32 %.036
 }
 
@@ -4562,7 +4562,7 @@ declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @process_compact_length_and_image_data(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4194304) i32 @process_compact_length_and_image_data(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %4) #4
   %6 = icmp eq i32 %5, 0

@@ -1159,13 +1159,16 @@ Vec_PtrGrow.exit.i87:                             ; preds = %76, %74
   %.val73 = load i32, ptr %139, align 4
   %140 = sext i32 %.val73 to i64
   %141 = icmp slt i64 %indvars.iv.next106, %140
-  br i1 %141, label %.lr.ph97, label %.critedge, !llvm.loop !15
+  br i1 %141, label %.lr.ph97, label %.critedge.loopexit, !llvm.loop !15
 
-.critedge:                                        ; preds = %.lr.ph97, %106
-  %142 = phi ptr [ %124, %106 ], [ %138, %.lr.ph97 ]
-  %.1.lcssa = phi i64 [ 0, %106 ], [ %indvars.iv.next106, %.lr.ph97 ]
-  %143 = and i64 %.1.lcssa, 4294967295
-  %144 = getelementptr inbounds ptr, ptr %111, i64 %143
+.critedge.loopexit:                               ; preds = %.lr.ph97
+  %142 = and i64 %indvars.iv.next106, 4294967295
+  br label %.critedge
+
+.critedge:                                        ; preds = %.critedge.loopexit, %106
+  %143 = phi ptr [ %124, %106 ], [ %138, %.critedge.loopexit ]
+  %.1.lcssa = phi i64 [ 0, %106 ], [ %142, %.critedge.loopexit ]
+  %144 = getelementptr inbounds ptr, ptr %111, i64 %.1.lcssa
   %145 = load ptr, ptr %5, align 8
   %146 = getelementptr i8, ptr %145, i64 4
   %.val7299 = load i32, ptr %146, align 4
@@ -1205,7 +1208,7 @@ Vec_PtrGrow.exit.i87:                             ; preds = %76, %74
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge
   %163 = phi ptr [ %159, %.critedge2.loopexit ], [ %145, %.critedge ]
-  %164 = phi ptr [ %.pre, %.critedge2.loopexit ], [ %142, %.critedge ]
+  %164 = phi ptr [ %.pre, %.critedge2.loopexit ], [ %143, %.critedge ]
   %165 = getelementptr i8, ptr %164, i64 4
   %.val71 = load i32, ptr %165, align 4
   %166 = icmp sgt i32 %.val71, 1
@@ -1528,7 +1531,7 @@ Aig_ManObj.exit.thread:                           ; preds = %.lr.ph.split, %Aig_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Dch_ClassesRefineConst1Group(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @Dch_ClassesRefineConst1Group(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val52 = load i32, ptr %4, align 4
   %5 = icmp eq i32 %.val52, 0

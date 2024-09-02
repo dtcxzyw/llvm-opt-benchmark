@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @fileset_filename_match_pattern(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr @fileset_filename_match_pattern.regex, align 8
   %7 = icmp eq ptr %6, null
@@ -369,12 +369,11 @@ fileset_is_file_in_set.exit.thread:               ; preds = %.lr.ph
   %44 = load ptr, ptr %5, align 8
   %45 = load ptr, ptr %6, align 8
   %46 = call i32 @g_strcmp0(ptr noundef %44, ptr noundef %45) #9
-  %47 = icmp eq i32 %46, 0
-  %spec.select.i = zext i1 %47 to i32
+  %47 = icmp ne i32 %46, 0
   br label %fileset_is_file_in_set.exit
 
 fileset_is_file_in_set.exit:                      ; preds = %35, %38, %43
-  %.0.i = phi i32 [ 0, %38 ], [ 0, %35 ], [ %spec.select.i, %43 ]
+  %.0.i = phi i1 [ true, %38 ], [ true, %35 ], [ %47, %43 ]
   %48 = load ptr, ptr %3, align 8
   call void @g_free(ptr noundef %48) #9
   %49 = load ptr, ptr %4, align 8
@@ -387,8 +386,7 @@ fileset_is_file_in_set.exit:                      ; preds = %35, %38, %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.not22 = icmp eq i32 %.0.i, 0
-  br i1 %.not22, label %58, label %52
+  br i1 %.0.i, label %58, label %52
 
 52:                                               ; preds = %fileset_is_file_in_set.exit
   %53 = load ptr, ptr %9, align 8

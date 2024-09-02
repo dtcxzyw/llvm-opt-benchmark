@@ -838,7 +838,7 @@ declare noundef i32 @_ZN4node6crypto16PKEY_SPKI_ExportEPNS0_13KeyObjectDataEPNS0
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i16 @_ZN4node6crypto15GetDsaKeyDetailEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS6_6ObjectEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef readonly %key, ptr %target.coerce) local_unnamed_addr #3 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6crypto15GetDsaKeyDetailEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEEN2v85LocalINS6_6ObjectEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef readonly %key, ptr %target.coerce) local_unnamed_addr #3 {
 entry:
   %p = alloca ptr, align 8
   %q = alloca ptr, align 8

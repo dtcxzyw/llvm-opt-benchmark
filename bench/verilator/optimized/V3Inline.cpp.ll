@@ -6205,17 +6205,17 @@ _ZlsRSoPK7AstNode.exit119:                        ; preds = %226
   %240 = load i64, ptr %239, align 4
   %241 = and i64 %240, 1024
   %.not144 = icmp eq i64 %241, 0
-  br i1 %.not144, label %245, label %242
+  br i1 %.not144, label %246, label %242
 
 242:                                              ; preds = %234
   %243 = getelementptr inbounds i8, ptr %146, i64 249
   %.sroa.0.0.copyload.i120 = load i8, ptr %243, align 1
   %244 = icmp eq i8 %.sroa.0.0.copyload.i120, 2
-  br label %245
+  %245 = zext i1 %244 to i64
+  br label %246
 
-245:                                              ; preds = %242, %234
-  %246 = phi i1 [ false, %234 ], [ %244, %242 ]
-  %.sroa.0.0.insert.ext.i = zext i1 %246 to i64
+246:                                              ; preds = %242, %234
+  %.sroa.0.0.insert.ext.i = phi i64 [ 0, %234 ], [ %245, %242 ]
   %247 = getelementptr inbounds i8, ptr %146, i64 128
   store i64 %.sroa.0.0.insert.ext.i, ptr %247, align 8
   %248 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
@@ -6223,7 +6223,7 @@ _ZlsRSoPK7AstNode.exit119:                        ; preds = %226
   store i32 %248, ptr %249, align 8
   br label %250
 
-250:                                              ; preds = %245, %.lr.ph168
+250:                                              ; preds = %246, %.lr.ph168
   %251 = getelementptr inbounds i8, ptr %.065166, i64 8
   %252 = load ptr, ptr %251, align 8
   %cond171 = icmp eq ptr %252, null

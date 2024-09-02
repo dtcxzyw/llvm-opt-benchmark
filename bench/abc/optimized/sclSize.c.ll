@@ -450,16 +450,19 @@ Abc_ObjIsBarBuf.exit.thread.i:                    ; preds = %Abc_ObjIsBarBuf.exi
   %.1.i176 = phi i32 [ %.023.i, %50 ], [ %.023.i, %Abc_ObjIsBarBuf.exit.i ], [ %66, %Abc_ObjIsBarBuf.exit.thread.i ], [ %.023.i, %57 ], [ %.023.i, %54 ]
   %indvars.iv.next.i177 = add nuw nsw i64 %indvars.iv.i174, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i177, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Abc_SclGetBufInvCount.exit, label %50, !llvm.loop !8
+  br i1 %exitcond.not.i, label %Abc_SclGetBufInvCount.exit.loopexit, label %50, !llvm.loop !8
 
-Abc_SclGetBufInvCount.exit:                       ; preds = %67, %40
-  %.0.lcssa.i = phi i32 [ 0, %40 ], [ %.1.i176, %67 ]
-  %68 = sitofp i32 %.0.lcssa.i to double
+Abc_SclGetBufInvCount.exit.loopexit:              ; preds = %67
+  %68 = sitofp i32 %.1.i176 to double
   %69 = fmul double %68, 1.000000e+02
+  br label %Abc_SclGetBufInvCount.exit
+
+Abc_SclGetBufInvCount.exit:                       ; preds = %Abc_SclGetBufInvCount.exit.loopexit, %40
+  %.0.lcssa.i = phi double [ 0.000000e+00, %40 ], [ %69, %Abc_SclGetBufInvCount.exit.loopexit ]
   %70 = getelementptr i8, ptr %44, i64 124
   %.val150 = load i32, ptr %70, align 4
   %71 = sitofp i32 %.val150 to double
-  %72 = fdiv double %69, %71
+  %72 = fdiv double %.0.lcssa.i, %71
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %72)
   %73 = getelementptr inbounds i8, ptr %0, i64 164
   %74 = load float, ptr %73, align 4
@@ -558,11 +561,11 @@ Abc_ObjIsBarBuf.exit.thread.i190:                 ; preds = %Abc_ObjIsBarBuf.exi
   %120 = sitofp i32 %.1.i184 to double
   %121 = fdiv double %.116.i, %120
   %122 = fptrunc double %121 to float
+  %123 = fpext float %122 to double
   br label %Abc_SclGetAverageSize.exit
 
 Abc_SclGetAverageSize.exit:                       ; preds = %Abc_SclGetBufInvCount.exit, %.critedge.loopexit.i
-  %123 = phi float [ 0x7FF8000000000000, %Abc_SclGetBufInvCount.exit ], [ %122, %.critedge.loopexit.i ]
-  %124 = fpext float %123 to double
+  %124 = phi double [ 0x7FF8000000000000, %Abc_SclGetBufInvCount.exit ], [ %123, %.critedge.loopexit.i ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %124)
   %125 = load ptr, ptr %4, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 32
@@ -647,12 +650,12 @@ Abc_ObjIsBarBuf.exit.thread.i206:                 ; preds = %Abc_ObjIsBarBuf.exi
 
 .critedge.loopexit.i201:                          ; preds = %162
   %163 = fptrunc double %.1.i198 to float
+  %164 = fpext float %163 to double
   br label %Abc_SclGetTotalArea.exit
 
 Abc_SclGetTotalArea.exit:                         ; preds = %Abc_SclGetAverageSize.exit, %.critedge.loopexit.i201
-  %.011.lcssa.i = phi float [ 0.000000e+00, %Abc_SclGetAverageSize.exit ], [ %163, %.critedge.loopexit.i201 ]
-  %164 = fpext float %.011.lcssa.i to double
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, double noundef %164, ptr noundef nonnull @.str.4)
+  %.011.lcssa.i = phi double [ 0.000000e+00, %Abc_SclGetAverageSize.exit ], [ %164, %.critedge.loopexit.i201 ]
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, double noundef %.011.lcssa.i, ptr noundef nonnull @.str.4)
   %165 = load ptr, ptr %0, align 8
   %166 = load ptr, ptr %4, align 8
   %167 = tail call i32 @Abc_SclCountMinSize(ptr noundef %165, ptr noundef %166, i32 noundef 0) #24

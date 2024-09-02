@@ -70010,17 +70010,18 @@ if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge: ; preds = %if.then.i.
   %.pre259 = load ptr, ptr %details.i.i.i.i, align 8, !tbaa !127, !noalias !977
   %17 = load <2 x ptr>, ptr %_M_refcount.i.i.i.i.i.i, align 8, !tbaa !50
   %.pre262 = load ptr, ptr %node.i.i.i, align 8, !tbaa !35
+  %18 = icmp eq ptr %.pre262, null
   br label %_ZN4entt8meta_anyC2EOS0_.exit147
 
 terminate.lpad.i.i136:                            ; preds = %if.then.i.i134
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #26
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #26
   unreachable
 
 _ZN4entt8meta_anyC2EOS0_.exit147:                 ; preds = %if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge, %_ZN4entt8meta_anyC2EOS0_.exit
-  %20 = phi ptr [ %.pre262, %if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge ], [ null, %_ZN4entt8meta_anyC2EOS0_.exit ]
+  %cmp.i.not = phi i1 [ %18, %if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge ], [ true, %_ZN4entt8meta_anyC2EOS0_.exit ]
   %21 = phi ptr [ %.pre259, %if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge ], [ %13, %_ZN4entt8meta_anyC2EOS0_.exit ]
   %22 = phi ptr [ %.pre258, %if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge ], [ %12, %_ZN4entt8meta_anyC2EOS0_.exit ]
   %23 = phi <2 x ptr> [ %17, %if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge ], [ %16, %_ZN4entt8meta_anyC2EOS0_.exit ]
@@ -70037,7 +70038,6 @@ _ZN4entt8meta_anyC2EOS0_.exit147:                 ; preds = %if.then.i.i134._ZN4
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable.i, align 8, !tbaa !50
   store <2 x ptr> %23, ptr %_M_refcount.i.i.i.i.i.i143, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #24
-  %cmp.i.not = icmp eq ptr %20, null
   %frombool = zext i1 %cmp.i.not to i8
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !36
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
@@ -70472,17 +70472,18 @@ if.then.i.i140._ZN4entt8meta_anyC2EOS0_.exit153_crit_edge: ; preds = %if.then.i.
   %.pre264 = load ptr, ptr %details.i.i.i.i, align 8, !tbaa !127, !noalias !991
   %14 = load <2 x ptr>, ptr %_M_refcount.i.i.i.i.i.i, align 8, !tbaa !50
   %.pre267 = load ptr, ptr %node4.i, align 8, !tbaa !35
+  %15 = icmp eq ptr %.pre267, null
   br label %_ZN4entt8meta_anyC2EOS0_.exit153
 
 terminate.lpad.i.i142:                            ; preds = %if.then.i.i140
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #26
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #26
   unreachable
 
 _ZN4entt8meta_anyC2EOS0_.exit153:                 ; preds = %if.then.i.i140._ZN4entt8meta_anyC2EOS0_.exit153_crit_edge, %_ZN4entt8meta_anyC2EOS0_.exit
-  %17 = phi ptr [ %.pre267, %if.then.i.i140._ZN4entt8meta_anyC2EOS0_.exit153_crit_edge ], [ null, %_ZN4entt8meta_anyC2EOS0_.exit ]
+  %cmp.i.not = phi i1 [ %15, %if.then.i.i140._ZN4entt8meta_anyC2EOS0_.exit153_crit_edge ], [ true, %_ZN4entt8meta_anyC2EOS0_.exit ]
   %18 = phi ptr [ %.pre264, %if.then.i.i140._ZN4entt8meta_anyC2EOS0_.exit153_crit_edge ], [ %9, %_ZN4entt8meta_anyC2EOS0_.exit ]
   %19 = phi ptr [ %.pre263, %if.then.i.i140._ZN4entt8meta_anyC2EOS0_.exit153_crit_edge ], [ %8, %_ZN4entt8meta_anyC2EOS0_.exit ]
   %20 = phi <2 x ptr> [ %14, %if.then.i.i140._ZN4entt8meta_anyC2EOS0_.exit153_crit_edge ], [ %13, %_ZN4entt8meta_anyC2EOS0_.exit ]
@@ -70499,7 +70500,6 @@ _ZN4entt8meta_anyC2EOS0_.exit153:                 ; preds = %if.then.i.i140._ZN4
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable.i, align 8, !tbaa !50
   store <2 x ptr> %20, ptr %_M_refcount.i.i.i.i.i.i149, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #24
-  %cmp.i.not = icmp eq ptr %17, null
   %frombool = zext i1 %cmp.i.not to i8
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !36
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
@@ -70972,17 +70972,18 @@ if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge: ; preds = %if.then.i.
   %.pre259 = load ptr, ptr %details.i.i.i.i, align 8, !tbaa !127, !noalias !1005
   %17 = load <2 x ptr>, ptr %_M_refcount.i.i.i.i.i.i, align 8, !tbaa !50
   %.pre262 = load ptr, ptr %node.i.i, align 8, !tbaa !35
+  %18 = icmp eq ptr %.pre262, null
   br label %_ZN4entt8meta_anyC2EOS0_.exit147
 
 terminate.lpad.i.i136:                            ; preds = %if.then.i.i134
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #26
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #26
   unreachable
 
 _ZN4entt8meta_anyC2EOS0_.exit147:                 ; preds = %if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge, %_ZN4entt8meta_anyC2EOS0_.exit
-  %20 = phi ptr [ %.pre262, %if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge ], [ null, %_ZN4entt8meta_anyC2EOS0_.exit ]
+  %cmp.i.not = phi i1 [ %18, %if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge ], [ true, %_ZN4entt8meta_anyC2EOS0_.exit ]
   %21 = phi ptr [ %.pre259, %if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge ], [ %13, %_ZN4entt8meta_anyC2EOS0_.exit ]
   %22 = phi ptr [ %.pre258, %if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge ], [ %12, %_ZN4entt8meta_anyC2EOS0_.exit ]
   %23 = phi <2 x ptr> [ %17, %if.then.i.i134._ZN4entt8meta_anyC2EOS0_.exit147_crit_edge ], [ %16, %_ZN4entt8meta_anyC2EOS0_.exit ]
@@ -70999,7 +71000,6 @@ _ZN4entt8meta_anyC2EOS0_.exit147:                 ; preds = %if.then.i.i134._ZN4
   store ptr @_ZN4entt8meta_any12basic_vtableIvEENSt9enable_ifIXsr3stdE9is_same_vINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeES5_EEvE4typeENS_8internal11meta_traitsEbPKvPv, ptr %vtable.i, align 8, !tbaa !50
   store <2 x ptr> %23, ptr %_M_refcount.i.i.i.i.i.i143, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #24
-  %cmp.i.not = icmp eq ptr %20, null
   %frombool = zext i1 %cmp.i.not to i8
   store i8 %frombool, ptr %gtest_ar_, align 8, !tbaa !36
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
@@ -113439,13 +113439,13 @@ if.then7.i.i.i.i.i2359:                           ; preds = %invoke.cont.i.i.i.i
 
 _ZN4entt9meta_typeD2Ev.exit2367thread-pre-split:  ; preds = %if.then7.i.i.i.i.i2359, %invoke.cont.i.i.i.i.i2356, %if.then.i.i.i.i.i2361
   %.pr3343 = load i8, ptr %gtest_ar_445, align 8, !tbaa !36
-  br label %_ZN4entt9meta_typeD2Ev.exit2367
-
-_ZN4entt9meta_typeD2Ev.exit2367:                  ; preds = %_ZN4entt9meta_typeD2Ev.exit2367thread-pre-split, %invoke.cont449
-  %525 = phi i8 [ %.pr3343, %_ZN4entt9meta_typeD2Ev.exit2367thread-pre-split ], [ %frombool451, %invoke.cont449 ]
+  %525 = icmp eq i8 %.pr3343, 0
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp447) #24
-  %tobool.i2368.not = icmp eq i8 %525, 0
-  br i1 %tobool.i2368.not, label %if.else460, label %cleanup.cont484
+  br i1 %525, label %if.else460, label %cleanup.cont484
+
+_ZN4entt9meta_typeD2Ev.exit2367:                  ; preds = %invoke.cont449
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp447) #24
+  br i1 %call450, label %if.else460, label %cleanup.cont484
 
 ehcleanup444:                                     ; preds = %ehcleanup437, %lpad413
   %.pn1384.pn.pn = phi { ptr, i32 } [ %.pn1384.pn, %ehcleanup437 ], [ %486, %lpad413 ]
@@ -113459,7 +113459,7 @@ lpad448:                                          ; preds = %_ZN4entt7resolveIiE
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ref.tmp447) #24
   br label %ehcleanup485
 
-if.else460:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit2367
+if.else460:                                       ; preds = %_ZN4entt9meta_typeD2Ev.exit2367thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit2367
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp461) #24
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp461)
           to label %invoke.cont463 unwind label %lpad462
@@ -113577,7 +113577,7 @@ ehcleanup478:                                     ; preds = %_ZNKSt14default_del
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_445) #24
   br label %ehcleanup485
 
-cleanup.cont484:                                  ; preds = %_ZN4entt9meta_typeD2Ev.exit2367
+cleanup.cont484:                                  ; preds = %_ZN4entt9meta_typeD2Ev.exit2367thread-pre-split, %_ZN4entt9meta_typeD2Ev.exit2367
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_445) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_445) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_486) #24

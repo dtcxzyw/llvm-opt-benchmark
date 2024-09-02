@@ -472,12 +472,12 @@ while.body:                                       ; preds = %if.end, %sw.epilog
   ]
 
 opthelp:                                          ; preds = %if.end215, %sw.bb205, %while.body, %while.end.thread, %land.lhs.true249, %while.end, %if.then235, %if.then213, %if.then198
-  %issuers.1657 = phi ptr [ %issuers.1.lcssa89010231069, %land.lhs.true249 ], [ %issuers.2, %while.end ], [ %issuers.2, %if.then235 ], [ %issuers.1671, %if.then213 ], [ %issuers.1671, %if.then198 ], [ null, %while.end.thread ], [ %issuers.1671, %while.body ], [ %issuers.1671, %sw.bb205 ], [ %issuers.1671, %if.end215 ]
-  %cert.1646 = phi ptr [ %cert.1.lcssa89110221070, %land.lhs.true249 ], [ %cert.2, %while.end ], [ %cert.2, %if.then235 ], [ %cert.1673, %if.then213 ], [ %cert.1673, %if.then198 ], [ null, %while.end.thread ], [ %cert.1673, %while.body ], [ %cert.1673, %sw.bb205 ], [ %cert.1673, %if.end215 ]
-  %rsign_sigopts.1605 = phi ptr [ %rsign_sigopts.1.lcssa89510181074, %land.lhs.true249 ], [ %rsign_sigopts.2, %while.end ], [ %rsign_sigopts.2, %if.then235 ], [ %rsign_sigopts.1677, %if.then213 ], [ %rsign_sigopts.1677, %if.then198 ], [ null, %while.end.thread ], [ %rsign_sigopts.1677, %while.body ], [ %rsign_sigopts.1677, %sw.bb205 ], [ %rsign_sigopts.1677, %if.end215 ]
-  %thost.1414 = phi ptr [ %thost.1.lcssa9149991092, %land.lhs.true249 ], [ %thost.2, %while.end ], [ %thost.2, %if.then235 ], [ %thost.1696, %if.then213 ], [ %thost.1696, %if.then198 ], [ null, %while.end.thread ], [ %thost.1696, %while.body ], [ %thost.1696, %sw.bb205 ], [ %thost.1696, %if.end215 ]
-  %tport.1403 = phi ptr [ %tport.1.lcssa9159981093, %land.lhs.true249 ], [ %tport.2, %while.end ], [ %tport.2, %if.then235 ], [ %tport.1697, %if.then213 ], [ %tport.1697, %if.then198 ], [ null, %while.end.thread ], [ %tport.1697, %while.body ], [ %tport.1697, %sw.bb205 ], [ %tport.1697, %if.end215 ]
-  %tpath.1392 = phi ptr [ %tpath.1.lcssa9169971094, %land.lhs.true249 ], [ %tpath.2, %while.end ], [ %tpath.2, %if.then235 ], [ %tpath.1698, %if.then213 ], [ %tpath.1698, %if.then198 ], [ null, %while.end.thread ], [ %tpath.1698, %while.body ], [ %tpath.1698, %sw.bb205 ], [ %tpath.1698, %if.end215 ]
+  %issuers.1657 = phi ptr [ %issuers.1.lcssa89010221068, %land.lhs.true249 ], [ %issuers.2, %while.end ], [ %issuers.2, %if.then235 ], [ %issuers.1671, %if.then213 ], [ %issuers.1671, %if.then198 ], [ null, %while.end.thread ], [ %issuers.1671, %while.body ], [ %issuers.1671, %sw.bb205 ], [ %issuers.1671, %if.end215 ]
+  %cert.1646 = phi ptr [ %cert.1.lcssa89110211069, %land.lhs.true249 ], [ %cert.2, %while.end ], [ %cert.2, %if.then235 ], [ %cert.1673, %if.then213 ], [ %cert.1673, %if.then198 ], [ null, %while.end.thread ], [ %cert.1673, %while.body ], [ %cert.1673, %sw.bb205 ], [ %cert.1673, %if.end215 ]
+  %rsign_sigopts.1605 = phi ptr [ %rsign_sigopts.1.lcssa89510171073, %land.lhs.true249 ], [ %rsign_sigopts.2, %while.end ], [ %rsign_sigopts.2, %if.then235 ], [ %rsign_sigopts.1677, %if.then213 ], [ %rsign_sigopts.1677, %if.then198 ], [ null, %while.end.thread ], [ %rsign_sigopts.1677, %while.body ], [ %rsign_sigopts.1677, %sw.bb205 ], [ %rsign_sigopts.1677, %if.end215 ]
+  %thost.1414 = phi ptr [ %thost.1.lcssa9149981091, %land.lhs.true249 ], [ %thost.2, %while.end ], [ %thost.2, %if.then235 ], [ %thost.1696, %if.then213 ], [ %thost.1696, %if.then198 ], [ null, %while.end.thread ], [ %thost.1696, %while.body ], [ %thost.1696, %sw.bb205 ], [ %thost.1696, %if.end215 ]
+  %tport.1403 = phi ptr [ %tport.1.lcssa9159971092, %land.lhs.true249 ], [ %tport.2, %while.end ], [ %tport.2, %if.then235 ], [ %tport.1697, %if.then213 ], [ %tport.1697, %if.then198 ], [ null, %while.end.thread ], [ %tport.1697, %while.body ], [ %tport.1697, %sw.bb205 ], [ %tport.1697, %if.end215 ]
+  %tpath.1392 = phi ptr [ %tpath.1.lcssa9169961093, %land.lhs.true249 ], [ %tpath.2, %while.end ], [ %tpath.2, %if.then235 ], [ %tpath.1698, %if.then213 ], [ %tpath.1698, %if.then198 ], [ null, %while.end.thread ], [ %tpath.1698, %while.body ], [ %tpath.1698, %sw.bb205 ], [ %tpath.1698, %if.end215 ]
   %0 = load ptr, ptr @bio_err, align 8
   %1 = load ptr, ptr @prog, align 8
   %call9 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.197, ptr noundef %1) #9
@@ -998,6 +998,11 @@ sw.epilog:                                        ; preds = %if.end215, %if.end1
   br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %sw.epilog
+  %22 = icmp ne i32 %req_text.1, 0
+  %23 = icmp eq i32 %ignore_err.1, 0
+  %24 = icmp eq i32 %resp_text.1, 0
+  %25 = icmp eq i32 %vpmtouched.1, 0
+  %26 = icmp eq i32 %noverify.1, 0
   %call230 = call i32 @opt_check_rest_arg(ptr noundef null) #9
   %tobool231.not = icmp eq i32 %call230, 0
   br i1 %tobool231.not, label %opthelp, label %if.end233
@@ -1008,13 +1013,13 @@ while.end.thread:                                 ; preds = %if.end
   br i1 %tobool231.not888, label %opthelp, label %if.end244
 
 if.end233:                                        ; preds = %while.end
-  %tobool234.not = icmp eq i32 %trailing_md.1, 0
-  br i1 %tobool234.not, label %if.end237, label %if.then235
+  %27 = icmp eq i32 %trailing_md.1, 0
+  br i1 %27, label %if.end237, label %if.then235
 
 if.then235:                                       ; preds = %if.end233
-  %22 = load ptr, ptr @bio_err, align 8
-  %23 = load ptr, ptr @prog, align 8
-  %call236 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.203, ptr noundef %23) #9
+  %28 = load ptr, ptr @bio_err, align 8
+  %29 = load ptr, ptr @prog, align 8
+  %call236 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.203, ptr noundef %29) #9
   br label %opthelp
 
 if.end237:                                        ; preds = %if.end233
@@ -1027,81 +1032,81 @@ if.then239:                                       ; preds = %if.end237
   br i1 %tobool241.not, label %end, label %if.end244
 
 if.end244:                                        ; preds = %while.end.thread, %if.then239, %if.end237
-  %rflags.0.lcssa9339801111 = phi i64 [ %rflags.1, %if.then239 ], [ %rflags.1, %if.end237 ], [ 0, %while.end.thread ]
-  %verify_flags.0.lcssa9329811110 = phi i64 [ %verify_flags.1, %if.then239 ], [ %verify_flags.1, %if.end237 ], [ 0, %while.end.thread ]
-  %sign_flags.0.lcssa9319821109 = phi i64 [ %sign_flags.1, %if.then239 ], [ %sign_flags.1, %if.end237 ], [ 0, %while.end.thread ]
-  %req_timeout.0.lcssa9309831108 = phi i32 [ %req_timeout.1, %if.then239 ], [ %req_timeout.1, %if.end237 ], [ -1, %while.end.thread ]
-  %resp_text.0.lcssa9299841107 = phi i32 [ %resp_text.1, %if.then239 ], [ %resp_text.1, %if.end237 ], [ 0, %while.end.thread ]
-  %req_text.0.lcssa9289851106 = phi i32 [ %req_text.1, %if.then239 ], [ %req_text.1, %if.end237 ], [ 0, %while.end.thread ]
-  %ndays.0.lcssa9279861105 = phi i32 [ %ndays.1, %if.then239 ], [ %ndays.1, %if.end237 ], [ -1, %while.end.thread ]
-  %nmin.0.lcssa9269871104 = phi i32 [ %nmin.1, %if.then239 ], [ %nmin.1, %if.end237 ], [ 0, %while.end.thread ]
-  %ignore_err.0.lcssa9259881103 = phi i32 [ %ignore_err.1, %if.then239 ], [ %ignore_err.1, %if.end237 ], [ 0, %while.end.thread ]
-  %badsig.0.lcssa9249891102 = phi i32 [ %badsig.1, %if.then239 ], [ %badsig.1, %if.end237 ], [ 0, %while.end.thread ]
-  %vpmtouched.0.lcssa9239901101 = phi i32 [ %vpmtouched.1, %if.then239 ], [ %vpmtouched.1, %if.end237 ], [ 0, %while.end.thread ]
-  %noverify.0.lcssa9229911100 = phi i32 [ %noverify.1, %if.then239 ], [ %noverify.1, %if.end237 ], [ 0, %while.end.thread ]
-  %add_nonce.0.lcssa9219921099 = phi i32 [ %add_nonce.1, %if.then239 ], [ %add_nonce.1, %if.end237 ], [ 1, %while.end.thread ]
-  %accept_count.0.lcssa9209931098 = phi i32 [ %accept_count.1, %if.then239 ], [ %accept_count.1, %if.end237 ], [ -1, %while.end.thread ]
-  %noCAstore.0.lcssa9199941097 = phi i32 [ %noCAstore.1, %if.then239 ], [ %noCAstore.1, %if.end237 ], [ 0, %while.end.thread ]
-  %noCApath.0.lcssa9189951096 = phi i32 [ %noCApath.1, %if.then239 ], [ %noCApath.1, %if.end237 ], [ 0, %while.end.thread ]
-  %noCAfile.0.lcssa9179961095 = phi i32 [ %noCAfile.1, %if.then239 ], [ %noCAfile.1, %if.end237 ], [ 0, %while.end.thread ]
-  %tpath.1.lcssa9169971094 = phi ptr [ %tpath.2, %if.then239 ], [ %tpath.2, %if.end237 ], [ null, %while.end.thread ]
-  %tport.1.lcssa9159981093 = phi ptr [ %tport.2, %if.then239 ], [ %tport.2, %if.end237 ], [ null, %while.end.thread ]
-  %thost.1.lcssa9149991092 = phi ptr [ %thost.2, %if.then239 ], [ %thost.2, %if.end237 ], [ null, %while.end.thread ]
-  %keyfile.0.lcssa91310001091 = phi ptr [ %keyfile.1, %if.then239 ], [ %keyfile.1, %if.end237 ], [ null, %while.end.thread ]
-  %signfile.0.lcssa91210011090 = phi ptr [ %signfile.1, %if.then239 ], [ %signfile.1, %if.end237 ], [ null, %while.end.thread ]
-  %rcertfile.0.lcssa91110021089 = phi ptr [ %rcertfile.1, %if.then239 ], [ %rcertfile.1, %if.end237 ], [ null, %while.end.thread ]
-  %verify_certfile.0.lcssa91010031088 = phi ptr [ %verify_certfile.1, %if.then239 ], [ %verify_certfile.1, %if.end237 ], [ null, %while.end.thread ]
-  %sign_certfile.0.lcssa90910041087 = phi ptr [ %sign_certfile.1, %if.then239 ], [ %sign_certfile.1, %if.end237 ], [ null, %while.end.thread ]
-  %passinarg.0.lcssa90810051086 = phi ptr [ %passinarg.1, %if.then239 ], [ %passinarg.1, %if.end237 ], [ null, %while.end.thread ]
-  %rkeyfile.0.lcssa90710061085 = phi ptr [ %rkeyfile.1, %if.then239 ], [ %rkeyfile.1, %if.end237 ], [ null, %while.end.thread ]
-  %rsignfile.0.lcssa90610071084 = phi ptr [ %rsignfile.1, %if.then239 ], [ %rsignfile.1, %if.end237 ], [ null, %while.end.thread ]
-  %ridx_filename.0.lcssa90510081083 = phi ptr [ %ridx_filename.1, %if.then239 ], [ %ridx_filename.1, %if.end237 ], [ null, %while.end.thread ]
-  %respout.0.lcssa90410091082 = phi ptr [ %respout.1, %if.then239 ], [ %respout.1, %if.end237 ], [ null, %while.end.thread ]
-  %reqout.0.lcssa90310101081 = phi ptr [ %reqout.1, %if.then239 ], [ %reqout.1, %if.end237 ], [ null, %while.end.thread ]
-  %respin.0.lcssa90210111080 = phi ptr [ %respin.1, %if.then239 ], [ %respin.1, %if.end237 ], [ null, %while.end.thread ]
-  %reqin.0.lcssa90110121079 = phi ptr [ %reqin.1, %if.then239 ], [ %reqin.1, %if.end237 ], [ null, %while.end.thread ]
-  %rca_filename.0.lcssa90010131078 = phi ptr [ %rca_filename.1, %if.then239 ], [ %rca_filename.1, %if.end237 ], [ null, %while.end.thread ]
-  %opt_no_proxy.0.lcssa89910141077 = phi ptr [ %opt_no_proxy.1, %if.then239 ], [ %opt_no_proxy.1, %if.end237 ], [ null, %while.end.thread ]
-  %opt_proxy.0.lcssa89810151076 = phi ptr [ %opt_proxy.1, %if.then239 ], [ %opt_proxy.1, %if.end237 ], [ null, %while.end.thread ]
-  %outfile.0.lcssa89710161075 = phi ptr [ %outfile.1, %if.then239 ], [ %outfile.1, %if.end237 ], [ null, %while.end.thread ]
-  %rsign_sigopts.1.lcssa89510181074 = phi ptr [ %rsign_sigopts.2, %if.then239 ], [ %rsign_sigopts.2, %if.end237 ], [ null, %while.end.thread ]
-  %CAstore.0.lcssa89410191073 = phi ptr [ %CAstore.1, %if.then239 ], [ %CAstore.1, %if.end237 ], [ null, %while.end.thread ]
-  %CApath.0.lcssa89310201072 = phi ptr [ %CApath.1, %if.then239 ], [ %CApath.1, %if.end237 ], [ null, %while.end.thread ]
-  %CAfile.0.lcssa89210211071 = phi ptr [ %CAfile.1, %if.then239 ], [ %CAfile.1, %if.end237 ], [ null, %while.end.thread ]
-  %cert.1.lcssa89110221070 = phi ptr [ %cert.2, %if.then239 ], [ %cert.2, %if.end237 ], [ null, %while.end.thread ]
-  %issuers.1.lcssa89010231069 = phi ptr [ %issuers.2, %if.then239 ], [ %issuers.2, %if.end237 ], [ null, %while.end.thread ]
-  %24 = load ptr, ptr %req, align 8
-  %cmp245 = icmp eq ptr %24, null
-  %cmp246 = icmp eq ptr %reqin.0.lcssa90110121079, null
+  %rflags.0.lcssa9339791110 = phi i64 [ %rflags.1, %if.then239 ], [ %rflags.1, %if.end237 ], [ 0, %while.end.thread ]
+  %verify_flags.0.lcssa9329801109 = phi i64 [ %verify_flags.1, %if.then239 ], [ %verify_flags.1, %if.end237 ], [ 0, %while.end.thread ]
+  %sign_flags.0.lcssa9319811108 = phi i64 [ %sign_flags.1, %if.then239 ], [ %sign_flags.1, %if.end237 ], [ 0, %while.end.thread ]
+  %req_timeout.0.lcssa9309821107 = phi i32 [ %req_timeout.1, %if.then239 ], [ %req_timeout.1, %if.end237 ], [ -1, %while.end.thread ]
+  %resp_text.0.lcssa9299831106 = phi i1 [ %24, %if.then239 ], [ %24, %if.end237 ], [ true, %while.end.thread ]
+  %req_text.0.lcssa9289841105 = phi i1 [ %22, %if.then239 ], [ %22, %if.end237 ], [ false, %while.end.thread ]
+  %ndays.0.lcssa9279851104 = phi i32 [ %ndays.1, %if.then239 ], [ %ndays.1, %if.end237 ], [ -1, %while.end.thread ]
+  %nmin.0.lcssa9269861103 = phi i32 [ %nmin.1, %if.then239 ], [ %nmin.1, %if.end237 ], [ 0, %while.end.thread ]
+  %ignore_err.0.lcssa9259871102 = phi i1 [ %23, %if.then239 ], [ %23, %if.end237 ], [ true, %while.end.thread ]
+  %badsig.0.lcssa9249881101 = phi i32 [ %badsig.1, %if.then239 ], [ %badsig.1, %if.end237 ], [ 0, %while.end.thread ]
+  %vpmtouched.0.lcssa9239891100 = phi i1 [ %25, %if.then239 ], [ %25, %if.end237 ], [ true, %while.end.thread ]
+  %noverify.0.lcssa9229901099 = phi i1 [ %26, %if.then239 ], [ %26, %if.end237 ], [ true, %while.end.thread ]
+  %add_nonce.0.lcssa9219911098 = phi i32 [ %add_nonce.1, %if.then239 ], [ %add_nonce.1, %if.end237 ], [ 1, %while.end.thread ]
+  %accept_count.0.lcssa9209921097 = phi i32 [ %accept_count.1, %if.then239 ], [ %accept_count.1, %if.end237 ], [ -1, %while.end.thread ]
+  %noCAstore.0.lcssa9199931096 = phi i32 [ %noCAstore.1, %if.then239 ], [ %noCAstore.1, %if.end237 ], [ 0, %while.end.thread ]
+  %noCApath.0.lcssa9189941095 = phi i32 [ %noCApath.1, %if.then239 ], [ %noCApath.1, %if.end237 ], [ 0, %while.end.thread ]
+  %noCAfile.0.lcssa9179951094 = phi i32 [ %noCAfile.1, %if.then239 ], [ %noCAfile.1, %if.end237 ], [ 0, %while.end.thread ]
+  %tpath.1.lcssa9169961093 = phi ptr [ %tpath.2, %if.then239 ], [ %tpath.2, %if.end237 ], [ null, %while.end.thread ]
+  %tport.1.lcssa9159971092 = phi ptr [ %tport.2, %if.then239 ], [ %tport.2, %if.end237 ], [ null, %while.end.thread ]
+  %thost.1.lcssa9149981091 = phi ptr [ %thost.2, %if.then239 ], [ %thost.2, %if.end237 ], [ null, %while.end.thread ]
+  %keyfile.0.lcssa9139991090 = phi ptr [ %keyfile.1, %if.then239 ], [ %keyfile.1, %if.end237 ], [ null, %while.end.thread ]
+  %signfile.0.lcssa91210001089 = phi ptr [ %signfile.1, %if.then239 ], [ %signfile.1, %if.end237 ], [ null, %while.end.thread ]
+  %rcertfile.0.lcssa91110011088 = phi ptr [ %rcertfile.1, %if.then239 ], [ %rcertfile.1, %if.end237 ], [ null, %while.end.thread ]
+  %verify_certfile.0.lcssa91010021087 = phi ptr [ %verify_certfile.1, %if.then239 ], [ %verify_certfile.1, %if.end237 ], [ null, %while.end.thread ]
+  %sign_certfile.0.lcssa90910031086 = phi ptr [ %sign_certfile.1, %if.then239 ], [ %sign_certfile.1, %if.end237 ], [ null, %while.end.thread ]
+  %passinarg.0.lcssa90810041085 = phi ptr [ %passinarg.1, %if.then239 ], [ %passinarg.1, %if.end237 ], [ null, %while.end.thread ]
+  %rkeyfile.0.lcssa90710051084 = phi ptr [ %rkeyfile.1, %if.then239 ], [ %rkeyfile.1, %if.end237 ], [ null, %while.end.thread ]
+  %rsignfile.0.lcssa90610061083 = phi ptr [ %rsignfile.1, %if.then239 ], [ %rsignfile.1, %if.end237 ], [ null, %while.end.thread ]
+  %ridx_filename.0.lcssa90510071082 = phi ptr [ %ridx_filename.1, %if.then239 ], [ %ridx_filename.1, %if.end237 ], [ null, %while.end.thread ]
+  %respout.0.lcssa90410081081 = phi ptr [ %respout.1, %if.then239 ], [ %respout.1, %if.end237 ], [ null, %while.end.thread ]
+  %reqout.0.lcssa90310091080 = phi ptr [ %reqout.1, %if.then239 ], [ %reqout.1, %if.end237 ], [ null, %while.end.thread ]
+  %respin.0.lcssa90210101079 = phi ptr [ %respin.1, %if.then239 ], [ %respin.1, %if.end237 ], [ null, %while.end.thread ]
+  %reqin.0.lcssa90110111078 = phi ptr [ %reqin.1, %if.then239 ], [ %reqin.1, %if.end237 ], [ null, %while.end.thread ]
+  %rca_filename.0.lcssa90010121077 = phi ptr [ %rca_filename.1, %if.then239 ], [ %rca_filename.1, %if.end237 ], [ null, %while.end.thread ]
+  %opt_no_proxy.0.lcssa89910131076 = phi ptr [ %opt_no_proxy.1, %if.then239 ], [ %opt_no_proxy.1, %if.end237 ], [ null, %while.end.thread ]
+  %opt_proxy.0.lcssa89810141075 = phi ptr [ %opt_proxy.1, %if.then239 ], [ %opt_proxy.1, %if.end237 ], [ null, %while.end.thread ]
+  %outfile.0.lcssa89710151074 = phi ptr [ %outfile.1, %if.then239 ], [ %outfile.1, %if.end237 ], [ null, %while.end.thread ]
+  %rsign_sigopts.1.lcssa89510171073 = phi ptr [ %rsign_sigopts.2, %if.then239 ], [ %rsign_sigopts.2, %if.end237 ], [ null, %while.end.thread ]
+  %CAstore.0.lcssa89410181072 = phi ptr [ %CAstore.1, %if.then239 ], [ %CAstore.1, %if.end237 ], [ null, %while.end.thread ]
+  %CApath.0.lcssa89310191071 = phi ptr [ %CApath.1, %if.then239 ], [ %CApath.1, %if.end237 ], [ null, %while.end.thread ]
+  %CAfile.0.lcssa89210201070 = phi ptr [ %CAfile.1, %if.then239 ], [ %CAfile.1, %if.end237 ], [ null, %while.end.thread ]
+  %cert.1.lcssa89110211069 = phi ptr [ %cert.2, %if.then239 ], [ %cert.2, %if.end237 ], [ null, %while.end.thread ]
+  %issuers.1.lcssa89010221068 = phi ptr [ %issuers.2, %if.then239 ], [ %issuers.2, %if.end237 ], [ null, %while.end.thread ]
+  %30 = load ptr, ptr %req, align 8
+  %cmp245 = icmp eq ptr %30, null
+  %cmp246 = icmp eq ptr %reqin.0.lcssa90110111078, null
   %or.cond = select i1 %cmp245, i1 %cmp246, i1 false
-  %cmp248 = icmp eq ptr %respin.0.lcssa90210111080, null
+  %cmp248 = icmp eq ptr %respin.0.lcssa90210101079, null
   %or.cond1 = select i1 %or.cond, i1 %cmp248, i1 false
   br i1 %or.cond1, label %land.lhs.true249, label %if.end254
 
 land.lhs.true249:                                 ; preds = %if.end244
-  %25 = load ptr, ptr %port, align 8
-  %cmp250 = icmp ne ptr %25, null
-  %cmp252 = icmp ne ptr %ridx_filename.0.lcssa90510081083, null
+  %31 = load ptr, ptr %port, align 8
+  %cmp250 = icmp ne ptr %31, null
+  %cmp252 = icmp ne ptr %ridx_filename.0.lcssa90510071082, null
   %or.cond2 = select i1 %cmp250, i1 %cmp252, i1 false
   br i1 %or.cond2, label %if.end254, label %opthelp
 
 if.end254:                                        ; preds = %land.lhs.true249, %if.end244
-  %call255 = call ptr @bio_open_default(ptr noundef %outfile.0.lcssa89710161075, i8 noundef signext 119, i32 noundef 32769) #9
+  %call255 = call ptr @bio_open_default(ptr noundef %outfile.0.lcssa89710151074, i8 noundef signext 119, i32 noundef 32769) #9
   %cmp256 = icmp eq ptr %call255, null
   br i1 %cmp256, label %end, label %if.end258
 
 if.end258:                                        ; preds = %if.end254
-  %26 = load ptr, ptr %req, align 8
-  %cmp259 = icmp eq ptr %26, null
-  %cmp261 = icmp ne i32 %add_nonce.0.lcssa9219921099, 2
+  %32 = load ptr, ptr %req, align 8
+  %cmp259 = icmp eq ptr %32, null
+  %cmp261 = icmp ne i32 %add_nonce.0.lcssa9219911098, 2
   %or.cond3 = select i1 %cmp259, i1 %cmp261, i1 false
-  %spec.store.select17 = select i1 %or.cond3, i32 0, i32 %add_nonce.0.lcssa9219921099
-  %cmp266 = icmp ne ptr %reqin.0.lcssa90110121079, null
+  %spec.store.select17 = select i1 %or.cond3, i32 0, i32 %add_nonce.0.lcssa9219911098
+  %cmp266 = icmp ne ptr %reqin.0.lcssa90110111078, null
   %or.cond4 = select i1 %cmp259, i1 %cmp266, i1 false
   br i1 %or.cond4, label %if.then267, label %if.end278
 
 if.then267:                                       ; preds = %if.end258
-  %call268 = call ptr @bio_open_default(ptr noundef nonnull %reqin.0.lcssa90110121079, i8 noundef signext 114, i32 noundef 4) #9
+  %call268 = call ptr @bio_open_default(ptr noundef nonnull %reqin.0.lcssa90110111078, i8 noundef signext 114, i32 noundef 4) #9
   %cmp269 = icmp eq ptr %call268, null
   br i1 %cmp269, label %end, label %if.end271
 
@@ -1109,97 +1114,97 @@ if.end271:                                        ; preds = %if.then267
   %call272 = call ptr @ASN1_d2i_bio(ptr noundef nonnull @OCSP_REQUEST_new, ptr noundef nonnull @d2i_OCSP_REQUEST, ptr noundef nonnull %call268, ptr noundef null) #9
   store ptr %call272, ptr %req, align 8
   %call273 = call i32 @BIO_free(ptr noundef nonnull %call268) #9
-  %27 = load ptr, ptr %req, align 8
-  %cmp274 = icmp eq ptr %27, null
+  %33 = load ptr, ptr %req, align 8
+  %cmp274 = icmp eq ptr %33, null
   br i1 %cmp274, label %if.then275, label %if.end287
 
 if.then275:                                       ; preds = %if.end271
-  %28 = load ptr, ptr @bio_err, align 8
-  %call276 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.204) #9
+  %34 = load ptr, ptr @bio_err, align 8
+  %call276 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %34, ptr noundef nonnull @.str.204) #9
   br label %end
 
 if.end278:                                        ; preds = %if.end258
-  %cmp279 = icmp eq ptr %26, null
-  %29 = load ptr, ptr %port, align 8
-  %cmp281 = icmp ne ptr %29, null
+  %cmp279 = icmp eq ptr %32, null
+  %35 = load ptr, ptr %port, align 8
+  %cmp281 = icmp ne ptr %35, null
   %or.cond5 = select i1 %cmp279, i1 %cmp281, i1 false
   br i1 %or.cond5, label %if.then282, label %if.end287
 
 if.then282:                                       ; preds = %if.end278
-  %30 = load ptr, ptr @prog, align 8
-  %call283 = call ptr @http_server_init(ptr noundef %30, ptr noundef nonnull %29, i32 noundef -1) #9
+  %36 = load ptr, ptr @prog, align 8
+  %call283 = call ptr @http_server_init(ptr noundef %36, ptr noundef nonnull %35, i32 noundef -1) #9
   %cmp284 = icmp eq ptr %call283, null
   br i1 %cmp284, label %end, label %if.end287
 
 if.end287:                                        ; preds = %if.end271, %if.then282, %if.end278
   %acbio.1 = phi ptr [ %call283, %if.then282 ], [ null, %if.end278 ], [ null, %if.end271 ]
-  %cmp288.not = icmp eq ptr %rsignfile.0.lcssa90610071084, null
+  %cmp288.not = icmp eq ptr %rsignfile.0.lcssa90610061083, null
   br i1 %cmp288.not, label %if.end318, label %if.then289
 
 if.then289:                                       ; preds = %if.end287
-  %cmp290 = icmp eq ptr %rkeyfile.0.lcssa90710061085, null
-  %spec.select = select i1 %cmp290, ptr %rsignfile.0.lcssa90610071084, ptr %rkeyfile.0.lcssa90710061085
-  %call293 = call ptr @load_cert_pass(ptr noundef nonnull %rsignfile.0.lcssa90610071084, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.205) #9
+  %cmp290 = icmp eq ptr %rkeyfile.0.lcssa90710051084, null
+  %spec.select = select i1 %cmp290, ptr %rsignfile.0.lcssa90610061083, ptr %rkeyfile.0.lcssa90710051084
+  %call293 = call ptr @load_cert_pass(ptr noundef nonnull %rsignfile.0.lcssa90610061083, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.205) #9
   %cmp294 = icmp eq ptr %call293, null
   br i1 %cmp294, label %if.then295, label %if.end297
 
 if.then295:                                       ; preds = %if.then289
-  %31 = load ptr, ptr @bio_err, align 8
-  %call296 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %31, ptr noundef nonnull @.str.206) #9
+  %37 = load ptr, ptr @bio_err, align 8
+  %call296 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.206) #9
   br label %end
 
 if.end297:                                        ; preds = %if.then289
-  %call298 = call i32 @load_certs(ptr noundef %rca_filename.0.lcssa90010131078, i32 noundef 0, ptr noundef nonnull %rca_certs, ptr noundef null, ptr noundef nonnull @.str.29) #9
+  %call298 = call i32 @load_certs(ptr noundef %rca_filename.0.lcssa90010121077, i32 noundef 0, ptr noundef nonnull %rca_certs, ptr noundef null, ptr noundef nonnull @.str.29) #9
   %tobool299.not = icmp eq i32 %call298, 0
   br i1 %tobool299.not, label %end, label %if.end301
 
 if.end301:                                        ; preds = %if.end297
-  %cmp302.not = icmp eq ptr %rcertfile.0.lcssa91110021089, null
+  %cmp302.not = icmp eq ptr %rcertfile.0.lcssa91110011088, null
   br i1 %cmp302.not, label %if.end308, label %if.then303
 
 if.then303:                                       ; preds = %if.end301
-  %call304 = call i32 @load_certs(ptr noundef nonnull %rcertfile.0.lcssa91110021089, i32 noundef 0, ptr noundef nonnull %rother, ptr noundef null, ptr noundef nonnull @.str.207) #9
+  %call304 = call i32 @load_certs(ptr noundef nonnull %rcertfile.0.lcssa91110011088, i32 noundef 0, ptr noundef nonnull %rother, ptr noundef null, ptr noundef nonnull @.str.207) #9
   %tobool305.not = icmp eq i32 %call304, 0
   br i1 %tobool305.not, label %end, label %if.end308
 
 if.end308:                                        ; preds = %if.then303, %if.end301
-  %call309 = call i32 @app_passwd(ptr noundef %passinarg.0.lcssa90810051086, ptr noundef null, ptr noundef nonnull %passin, ptr noundef null) #9
+  %call309 = call i32 @app_passwd(ptr noundef %passinarg.0.lcssa90810041085, ptr noundef null, ptr noundef nonnull %passin, ptr noundef null) #9
   %tobool310.not = icmp eq i32 %call309, 0
   br i1 %tobool310.not, label %if.then311, label %if.end313
 
 if.then311:                                       ; preds = %if.end308
-  %32 = load ptr, ptr @bio_err, align 8
-  %call312 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %32, ptr noundef nonnull @.str.208) #9
+  %38 = load ptr, ptr @bio_err, align 8
+  %call312 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %38, ptr noundef nonnull @.str.208) #9
   br label %end
 
 if.end313:                                        ; preds = %if.end308
-  %33 = load ptr, ptr %passin, align 8
-  %call314 = call ptr @load_key(ptr noundef nonnull %spec.select, i32 noundef 0, i32 noundef 0, ptr noundef %33, ptr noundef null, ptr noundef nonnull @.str.209) #9
+  %39 = load ptr, ptr %passin, align 8
+  %call314 = call ptr @load_key(ptr noundef nonnull %spec.select, i32 noundef 0, i32 noundef 0, ptr noundef %39, ptr noundef null, ptr noundef nonnull @.str.209) #9
   %cmp315 = icmp eq ptr %call314, null
   br i1 %cmp315, label %end, label %if.end318
 
 if.end318:                                        ; preds = %if.end313, %if.end287
   %rkey.1 = phi ptr [ %call314, %if.end313 ], [ null, %if.end287 ]
   %rsigner.1 = phi ptr [ %call293, %if.end313 ], [ null, %if.end287 ]
-  %cmp319 = icmp ne ptr %ridx_filename.0.lcssa90510081083, null
+  %cmp319 = icmp ne ptr %ridx_filename.0.lcssa90510071082, null
   br i1 %cmp319, label %land.lhs.true320, label %if.end339
 
 land.lhs.true320:                                 ; preds = %if.end318
   %cmp321 = icmp eq ptr %rkey.1, null
   %cmp323 = icmp eq ptr %rsigner.1, null
   %or.cond6 = or i1 %cmp321, %cmp323
-  %34 = load ptr, ptr %rca_certs, align 8
-  %cmp325 = icmp eq ptr %34, null
+  %40 = load ptr, ptr %rca_certs, align 8
+  %cmp325 = icmp eq ptr %40, null
   %or.cond7 = select i1 %or.cond6, i1 true, i1 %cmp325
   br i1 %or.cond7, label %if.then326, label %if.then330
 
 if.then326:                                       ; preds = %land.lhs.true320
-  %35 = load ptr, ptr @bio_err, align 8
-  %call327 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.210) #9
+  %41 = load ptr, ptr @bio_err, align 8
+  %call327 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %41, ptr noundef nonnull @.str.210) #9
   br label %end
 
 if.then330:                                       ; preds = %land.lhs.true320
-  %call331 = call ptr @load_index(ptr noundef nonnull %ridx_filename.0.lcssa90510081083, ptr noundef null) #9
+  %call331 = call ptr @load_index(ptr noundef nonnull %ridx_filename.0.lcssa90510071082, ptr noundef null) #9
   %cmp332 = icmp eq ptr %call331, null
   br i1 %cmp332, label %if.then336, label %lor.lhs.false333
 
@@ -1209,25 +1214,25 @@ lor.lhs.false333:                                 ; preds = %if.then330
   br i1 %cmp335, label %if.then336, label %if.end339
 
 if.then336:                                       ; preds = %lor.lhs.false333, %if.then330
-  %36 = load ptr, ptr @bio_err, align 8
-  %call337 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %36, ptr noundef nonnull @.str.211, ptr noundef nonnull %ridx_filename.0.lcssa90510081083) #9
+  %42 = load ptr, ptr @bio_err, align 8
+  %call337 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %42, ptr noundef nonnull @.str.211, ptr noundef nonnull %ridx_filename.0.lcssa90510071082) #9
   br label %end
 
 if.end339:                                        ; preds = %if.end318, %lor.lhs.false333
   %rdb.1 = phi ptr [ %call331, %lor.lhs.false333 ], [ null, %if.end318 ]
-  %37 = load i32, ptr @n_responders, align 4
-  %cmp340 = icmp ne i32 %37, 0
+  %43 = load i32, ptr @n_responders, align 4
+  %cmp340 = icmp ne i32 %43, 0
   %cmp342 = icmp ne ptr %acbio.1, null
   %or.cond8 = and i1 %cmp342, %cmp340
   br i1 %or.cond8, label %if.then343, label %if.end344
 
 if.then343:                                       ; preds = %if.end339
-  %38 = load ptr, ptr @prog, align 8
-  call void @spawn_loop(ptr noundef %38) #9
+  %44 = load ptr, ptr @prog, align 8
+  call void @spawn_loop(ptr noundef %44) #9
   br label %if.end344
 
 if.end344:                                        ; preds = %if.then343, %if.end339
-  %cmp347 = icmp sgt i32 %req_timeout.0.lcssa9309831108, 0
+  %cmp347 = icmp sgt i32 %req_timeout.0.lcssa9309821107, 0
   %or.cond9 = select i1 %cmp342, i1 %cmp347, i1 false
   br i1 %or.cond9, label %if.end350.thread, label %if.end350
 
@@ -1239,31 +1244,28 @@ if.end350:                                        ; preds = %if.end344
   br i1 %cmp342, label %if.then352, label %if.end353
 
 if.then352:                                       ; preds = %if.end350.thread, %if.end350
-  %39 = load ptr, ptr @prog, align 8
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef -1, ptr noundef %39, i32 noundef 6, ptr noundef nonnull @.str.212) #9
+  %45 = load ptr, ptr @prog, align 8
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef -1, ptr noundef %45, i32 noundef 6, ptr noundef nonnull @.str.212) #9
   br label %if.end353
 
 if.end353:                                        ; preds = %if.then352, %if.end350
-  %cmp382 = icmp ne ptr %signfile.0.lcssa91210011090, null
-  %cmp384 = icmp ne ptr %reqout.0.lcssa90310101081, null
+  %cmp382 = icmp ne ptr %signfile.0.lcssa91210001089, null
+  %cmp384 = icmp ne ptr %reqout.0.lcssa90310091080, null
   %or.cond10 = select i1 %cmp382, i1 true, i1 %cmp384
   %tobool388 = icmp ne i32 %spec.store.select17, 0
   %tobool396.not = icmp eq i32 %spec.store.select17, 0
-  %cmp403.not = icmp eq ptr %signfile.0.lcssa91210011090, null
-  %cmp413.not = icmp eq ptr %sign_certfile.0.lcssa90910041087, null
-  %tobool430 = icmp ne i32 %req_text.0.lcssa9289851106, 0
-  %cmp436.not = icmp eq ptr %reqout.0.lcssa90310101081, null
-  %cmp478.not = icmp eq ptr %respout.0.lcssa90410091082, null
-  %tobool492.not = icmp eq i32 %ignore_err.0.lcssa9259881103, 0
-  %tobool496.not = icmp eq i32 %resp_text.0.lcssa9299841107, 0
+  %cmp403.not = icmp eq ptr %signfile.0.lcssa91210001089, null
+  %cmp413.not = icmp eq ptr %sign_certfile.0.lcssa90910031086, null
+  %cmp436.not = icmp eq ptr %reqout.0.lcssa90310091080, null
+  %cmp478.not = icmp eq ptr %respout.0.lcssa90410081081, null
   br label %redo_accept.outer
 
 redo_accept.outer:                                ; preds = %if.end509, %if.end353
   %rdb.2.ph = phi ptr [ %rdb.5, %if.end509 ], [ %rdb.1, %if.end353 ]
   %key.1.ph = phi ptr [ %key.2, %if.end509 ], [ null, %if.end353 ]
   %signer.1.ph = phi ptr [ %signer.2, %if.end509 ], [ null, %if.end353 ]
-  %keyfile.2.ph = phi ptr [ %keyfile.3, %if.end509 ], [ %keyfile.0.lcssa91310001091, %if.end353 ]
-  %accept_count.2.ph = phi i32 [ %accept_count.3, %if.end509 ], [ %accept_count.0.lcssa9209931098, %if.end353 ]
+  %keyfile.2.ph = phi ptr [ %keyfile.3, %if.end509 ], [ %keyfile.0.lcssa9139991090, %if.end353 ]
+  %accept_count.2.ph = phi i32 [ %accept_count.3, %if.end509 ], [ %accept_count.0.lcssa9209921097, %if.end353 ]
   br i1 %cmp342, label %redo_accept.us, label %redo_accept.outer.split
 
 redo_accept.us:                                   ; preds = %redo_accept.outer, %if.end366.us
@@ -1273,7 +1275,7 @@ redo_accept.us:                                   ; preds = %redo_accept.outer, 
   br i1 %tobool357.not.us, label %if.end366.us, label %if.then358.us
 
 if.then358.us:                                    ; preds = %redo_accept.us
-  %call359.us = call ptr @load_index(ptr noundef %ridx_filename.0.lcssa90510081083, ptr noundef null) #9
+  %call359.us = call ptr @load_index(ptr noundef %ridx_filename.0.lcssa90510071082, ptr noundef null) #9
   %cmp360.not.us = icmp eq ptr %call359.us, null
   br i1 %cmp360.not.us, label %if.else.us, label %land.lhs.true361.us
 
@@ -1288,20 +1290,20 @@ if.then364.us:                                    ; preds = %land.lhs.true361.us
 
 if.else.us:                                       ; preds = %land.lhs.true361.us, %if.then358.us
   call void @free_index(ptr noundef %call359.us) #9
-  %40 = load ptr, ptr @prog, align 8
-  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef -1, ptr noundef %40, i32 noundef 3, ptr noundef nonnull @.str.213, ptr noundef %ridx_filename.0.lcssa90510081083) #9
+  %46 = load ptr, ptr @prog, align 8
+  call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef -1, ptr noundef %46, i32 noundef 3, ptr noundef nonnull @.str.213, ptr noundef %ridx_filename.0.lcssa90510071082) #9
   br label %if.end366.us
 
 if.end366.us:                                     ; preds = %if.else.us, %if.then364.us, %redo_accept.us
   %rdb.4.us = phi ptr [ %call359.us, %if.then364.us ], [ %rdb.2.us, %if.else.us ], [ %rdb.2.us, %redo_accept.us ]
   store ptr null, ptr %req, align 8
-  %call367.us = call fastcc i32 @do_responder(ptr noundef nonnull %req, ptr noundef nonnull %cbio, ptr noundef nonnull %acbio.1, i32 noundef %req_timeout.0.lcssa9309831108)
+  %call367.us = call fastcc i32 @do_responder(ptr noundef nonnull %req, ptr noundef nonnull %cbio, ptr noundef nonnull %acbio.1, i32 noundef %req_timeout.0.lcssa9309821107)
   %cmp368.us = icmp eq i32 %call367.us, 0
   br i1 %cmp368.us, label %redo_accept.us, label %if.end370.split.us
 
 if.end370.split.us:                               ; preds = %if.end366.us
-  %41 = load ptr, ptr %req, align 8
-  %cmp371 = icmp eq ptr %41, null
+  %47 = load ptr, ptr %req, align 8
+  %cmp371 = icmp eq ptr %47, null
   br i1 %cmp371, label %if.then372, label %if.end393
 
 redo_accept.outer.split:                          ; preds = %redo_accept.outer
@@ -1316,30 +1318,30 @@ if.then372:                                       ; preds = %if.end370.split.us
 if.then374:                                       ; preds = %if.then372
   %call375 = call ptr @OCSP_response_create(i32 noundef 1, ptr noundef null) #9
   store ptr %call375, ptr %resp, align 8
-  %42 = load ptr, ptr %cbio, align 8
-  call fastcc void @send_ocsp_response(ptr noundef %42, ptr noundef %call375)
+  %48 = load ptr, ptr %cbio, align 8
+  call fastcc void @send_ocsp_response(ptr noundef %48, ptr noundef %call375)
   br label %done_resp
 
 land.lhs.true381:                                 ; preds = %redo_accept.outer.split
-  %43 = load ptr, ptr %host, align 8
-  %cmp386 = icmp ne ptr %43, null
+  %49 = load ptr, ptr %host, align 8
+  %cmp386 = icmp ne ptr %49, null
   %or.cond11 = select i1 %or.cond10, i1 true, i1 %cmp386
   %or.cond12 = select i1 %or.cond11, i1 true, i1 %tobool388
   %or.cond13 = or i1 %cmp319, %or.cond12
   br i1 %or.cond13, label %if.then391, label %if.end429
 
 if.then391:                                       ; preds = %land.lhs.true381
-  %44 = load ptr, ptr @bio_err, align 8
-  %call392 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %44, ptr noundef nonnull @.str.214) #9
+  %50 = load ptr, ptr @bio_err, align 8
+  %call392 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %50, ptr noundef nonnull @.str.214) #9
   br label %end
 
 if.end393:                                        ; preds = %if.end370.split.us, %redo_accept.outer.split
   %rdb.3182 = phi ptr [ %rdb.2.ph, %redo_accept.outer.split ], [ %rdb.4.us, %if.end370.split.us ]
-  %45 = phi ptr [ %.pr, %redo_accept.outer.split ], [ %41, %if.end370.split.us ]
+  %51 = phi ptr [ %.pr, %redo_accept.outer.split ], [ %47, %if.end370.split.us ]
   br i1 %tobool396.not, label %if.end402, label %if.then397
 
 if.then397:                                       ; preds = %if.end393
-  %call398 = call i32 @OCSP_request_add1_nonce(ptr noundef nonnull %45, ptr noundef null, i32 noundef -1) #9
+  %call398 = call i32 @OCSP_request_add1_nonce(ptr noundef nonnull %51, ptr noundef null, i32 noundef -1) #9
   %tobool399.not = icmp eq i32 %call398, 0
   br i1 %tobool399.not, label %end, label %if.end402
 
@@ -1348,21 +1350,21 @@ if.end402:                                        ; preds = %if.then397, %if.end
 
 if.then404:                                       ; preds = %if.end402
   %cmp405 = icmp eq ptr %keyfile.2.ph, null
-  %spec.select157 = select i1 %cmp405, ptr %signfile.0.lcssa91210011090, ptr %keyfile.2.ph
-  %call408 = call ptr @load_cert_pass(ptr noundef nonnull %signfile.0.lcssa91210011090, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.215) #9
+  %spec.select157 = select i1 %cmp405, ptr %signfile.0.lcssa91210001089, ptr %keyfile.2.ph
+  %call408 = call ptr @load_cert_pass(ptr noundef nonnull %signfile.0.lcssa91210001089, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.215) #9
   %cmp409 = icmp eq ptr %call408, null
   br i1 %cmp409, label %if.then410, label %if.end412
 
 if.then410:                                       ; preds = %if.then404
-  %46 = load ptr, ptr @bio_err, align 8
-  %call411 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %46, ptr noundef nonnull @.str.216) #9
+  %52 = load ptr, ptr @bio_err, align 8
+  %call411 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %52, ptr noundef nonnull @.str.216) #9
   br label %end
 
 if.end412:                                        ; preds = %if.then404
   br i1 %cmp413.not, label %if.end419, label %if.then414
 
 if.then414:                                       ; preds = %if.end412
-  %call415 = call i32 @load_certs(ptr noundef nonnull %sign_certfile.0.lcssa90910041087, i32 noundef 0, ptr noundef nonnull %sign_other, ptr noundef null, ptr noundef nonnull @.str.217) #9
+  %call415 = call i32 @load_certs(ptr noundef nonnull %sign_certfile.0.lcssa90910031086, i32 noundef 0, ptr noundef nonnull %sign_other, ptr noundef null, ptr noundef nonnull @.str.217) #9
   %tobool416.not = icmp eq i32 %call415, 0
   br i1 %tobool416.not, label %end, label %if.end419
 
@@ -1372,15 +1374,15 @@ if.end419:                                        ; preds = %if.then414, %if.end
   br i1 %cmp421, label %end, label %if.end423
 
 if.end423:                                        ; preds = %if.end419
-  %47 = load ptr, ptr %req, align 8
-  %48 = load ptr, ptr %sign_other, align 8
-  %call424 = call i32 @OCSP_request_sign(ptr noundef %47, ptr noundef nonnull %call408, ptr noundef nonnull %call420, ptr noundef null, ptr noundef %48, i64 noundef %sign_flags.0.lcssa9319821109) #9
+  %53 = load ptr, ptr %req, align 8
+  %54 = load ptr, ptr %sign_other, align 8
+  %call424 = call i32 @OCSP_request_sign(ptr noundef %53, ptr noundef nonnull %call408, ptr noundef nonnull %call420, ptr noundef null, ptr noundef %54, i64 noundef %sign_flags.0.lcssa9319811108) #9
   %tobool425.not = icmp eq i32 %call424, 0
   br i1 %tobool425.not, label %if.then426, label %if.end429
 
 if.then426:                                       ; preds = %if.end423
-  %49 = load ptr, ptr @bio_err, align 8
-  %call427 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %49, ptr noundef nonnull @.str.219) #9
+  %55 = load ptr, ptr @bio_err, align 8
+  %call427 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %55, ptr noundef nonnull @.str.219) #9
   br label %end
 
 if.end429:                                        ; preds = %land.lhs.true381, %if.end423, %if.end402
@@ -1388,26 +1390,26 @@ if.end429:                                        ; preds = %land.lhs.true381, %
   %key.3 = phi ptr [ %call420, %if.end423 ], [ %key.1.ph, %if.end402 ], [ %key.1.ph, %land.lhs.true381 ]
   %signer.3 = phi ptr [ %call408, %if.end423 ], [ %signer.1.ph, %if.end402 ], [ %signer.1.ph, %land.lhs.true381 ]
   %keyfile.4 = phi ptr [ %spec.select157, %if.end423 ], [ %keyfile.2.ph, %if.end402 ], [ %keyfile.2.ph, %land.lhs.true381 ]
-  %50 = load ptr, ptr %req, align 8
-  %cmp432 = icmp ne ptr %50, null
-  %or.cond15 = select i1 %tobool430, i1 %cmp432, i1 false
+  %56 = load ptr, ptr %req, align 8
+  %cmp432 = icmp ne ptr %56, null
+  %or.cond15 = select i1 %req_text.0.lcssa9289841105, i1 %cmp432, i1 false
   br i1 %or.cond15, label %if.then433, label %if.end435
 
 if.then433:                                       ; preds = %if.end429
-  %call434 = call i32 @OCSP_REQUEST_print(ptr noundef %call255, ptr noundef nonnull %50, i64 noundef 0) #9
+  %call434 = call i32 @OCSP_REQUEST_print(ptr noundef %call255, ptr noundef nonnull %56, i64 noundef 0) #9
   br label %if.end435
 
 if.end435:                                        ; preds = %if.then433, %if.end429
   br i1 %cmp436.not, label %if.end444, label %if.then437
 
 if.then437:                                       ; preds = %if.end435
-  %call438 = call ptr @bio_open_default(ptr noundef nonnull %reqout.0.lcssa90310101081, i8 noundef signext 119, i32 noundef 4) #9
+  %call438 = call ptr @bio_open_default(ptr noundef nonnull %reqout.0.lcssa90310091080, i8 noundef signext 119, i32 noundef 4) #9
   %cmp439 = icmp eq ptr %call438, null
   br i1 %cmp439, label %end, label %if.end441
 
 if.end441:                                        ; preds = %if.then437
-  %51 = load ptr, ptr %req, align 8
-  %call442 = call i32 @ASN1_i2d_bio(ptr noundef nonnull @i2d_OCSP_REQUEST, ptr noundef nonnull %call438, ptr noundef %51) #9
+  %57 = load ptr, ptr %req, align 8
+  %call442 = call i32 @ASN1_i2d_bio(ptr noundef nonnull @i2d_OCSP_REQUEST, ptr noundef nonnull %call438, ptr noundef %57) #9
   %call443 = call i32 @BIO_free(ptr noundef nonnull %call438) #9
   br label %if.end444
 
@@ -1416,38 +1418,38 @@ if.end444:                                        ; preds = %if.end441, %if.end4
   br i1 %cmp445.not, label %if.else454, label %if.then446
 
 if.then446:                                       ; preds = %if.end444
-  %52 = load ptr, ptr @bio_err, align 8
-  %53 = load ptr, ptr %req, align 8
-  %54 = load ptr, ptr %rca_certs, align 8
-  %55 = load ptr, ptr %rsign_md, align 8
-  %56 = load ptr, ptr %rother, align 8
-  %57 = load ptr, ptr %resp_certid_md, align 8
-  call fastcc void @make_ocsp_response(ptr noundef %52, ptr noundef nonnull %resp, ptr noundef %53, ptr noundef nonnull %rdb.3182187190, ptr noundef %54, ptr noundef %rsigner.1, ptr noundef %rkey.1, ptr noundef %55, ptr noundef %rsign_sigopts.1.lcssa89510181074, ptr noundef %56, i64 noundef %rflags.0.lcssa9339801111, i32 noundef %nmin.0.lcssa9269871104, i32 noundef %ndays.0.lcssa9279861105, i32 noundef %badsig.0.lcssa9249891102, ptr noundef %57)
-  %58 = load ptr, ptr %resp, align 8
-  %cmp447 = icmp eq ptr %58, null
+  %58 = load ptr, ptr @bio_err, align 8
+  %59 = load ptr, ptr %req, align 8
+  %60 = load ptr, ptr %rca_certs, align 8
+  %61 = load ptr, ptr %rsign_md, align 8
+  %62 = load ptr, ptr %rother, align 8
+  %63 = load ptr, ptr %resp_certid_md, align 8
+  call fastcc void @make_ocsp_response(ptr noundef %58, ptr noundef nonnull %resp, ptr noundef %59, ptr noundef nonnull %rdb.3182187190, ptr noundef %60, ptr noundef %rsigner.1, ptr noundef %rkey.1, ptr noundef %61, ptr noundef %rsign_sigopts.1.lcssa89510171073, ptr noundef %62, i64 noundef %rflags.0.lcssa9339791110, i32 noundef %nmin.0.lcssa9269861103, i32 noundef %ndays.0.lcssa9279851104, i32 noundef %badsig.0.lcssa9249881101, ptr noundef %63)
+  %64 = load ptr, ptr %resp, align 8
+  %cmp447 = icmp eq ptr %64, null
   br i1 %cmp447, label %end, label %if.end449
 
 if.end449:                                        ; preds = %if.then446
-  %59 = load ptr, ptr %cbio, align 8
-  %cmp450.not = icmp eq ptr %59, null
+  %65 = load ptr, ptr %cbio, align 8
+  %cmp450.not = icmp eq ptr %65, null
   br i1 %cmp450.not, label %done_resp, label %if.then451
 
 if.then451:                                       ; preds = %if.end449
-  call fastcc void @send_ocsp_response(ptr noundef nonnull %59, ptr noundef nonnull %58)
+  call fastcc void @send_ocsp_response(ptr noundef nonnull %65, ptr noundef nonnull %64)
   br label %done_resp
 
 if.else454:                                       ; preds = %if.end444
-  %60 = load ptr, ptr %host, align 8
-  %cmp455.not = icmp eq ptr %60, null
+  %66 = load ptr, ptr %host, align 8
+  %cmp455.not = icmp eq ptr %66, null
   br i1 %cmp455.not, label %if.else461, label %if.then456
 
 if.then456:                                       ; preds = %if.else454
-  %61 = load ptr, ptr %req, align 8
-  %62 = load ptr, ptr %port, align 8
-  %63 = load ptr, ptr %path, align 8
-  %64 = load i32, ptr %use_ssl, align 4
-  %65 = load ptr, ptr %headers, align 8
-  %call457 = call ptr @process_responder(ptr noundef %61, ptr noundef nonnull %60, ptr noundef %62, ptr noundef %63, ptr noundef %opt_proxy.0.lcssa89810151076, ptr noundef %opt_no_proxy.0.lcssa89910141077, i32 noundef %64, ptr noundef %65, i32 noundef %req_timeout.0.lcssa9309831108)
+  %67 = load ptr, ptr %req, align 8
+  %68 = load ptr, ptr %port, align 8
+  %69 = load ptr, ptr %path, align 8
+  %70 = load i32, ptr %use_ssl, align 4
+  %71 = load ptr, ptr %headers, align 8
+  %call457 = call ptr @process_responder(ptr noundef %67, ptr noundef nonnull %66, ptr noundef %68, ptr noundef %69, ptr noundef %opt_proxy.0.lcssa89810141075, ptr noundef %opt_no_proxy.0.lcssa89910131076, i32 noundef %70, ptr noundef %71, i32 noundef %req_timeout.0.lcssa9309821107)
   store ptr %call457, ptr %resp, align 8
   %cmp458 = icmp eq ptr %call457, null
   br i1 %cmp458, label %end, label %done_resp
@@ -1456,7 +1458,7 @@ if.else461:                                       ; preds = %if.else454
   br i1 %cmp248, label %end, label %if.then463
 
 if.then463:                                       ; preds = %if.else461
-  %call464 = call ptr @bio_open_default(ptr noundef nonnull %respin.0.lcssa90210111080, i8 noundef signext 114, i32 noundef 4) #9
+  %call464 = call ptr @bio_open_default(ptr noundef nonnull %respin.0.lcssa90210101079, i8 noundef signext 114, i32 noundef 4) #9
   %cmp465 = icmp eq ptr %call464, null
   br i1 %cmp465, label %end, label %if.end467
 
@@ -1468,8 +1470,8 @@ if.end467:                                        ; preds = %if.then463
   br i1 %cmp470, label %if.then471, label %done_resp
 
 if.then471:                                       ; preds = %if.end467
-  %66 = load ptr, ptr @bio_err, align 8
-  %call472 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %66, ptr noundef nonnull @.str.220) #9
+  %72 = load ptr, ptr @bio_err, align 8
+  %call472 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %72, ptr noundef nonnull @.str.220) #9
   br label %end
 
 done_resp:                                        ; preds = %if.then451, %if.end449, %if.end467, %if.then456, %if.then372, %if.then374
@@ -1484,19 +1486,19 @@ done_resp.if.end486_crit_edge:                    ; preds = %done_resp
   br label %if.end486
 
 if.then479:                                       ; preds = %done_resp
-  %call480 = call ptr @bio_open_default(ptr noundef nonnull %respout.0.lcssa90410091082, i8 noundef signext 119, i32 noundef 4) #9
+  %call480 = call ptr @bio_open_default(ptr noundef nonnull %respout.0.lcssa90410081081, i8 noundef signext 119, i32 noundef 4) #9
   %cmp481 = icmp eq ptr %call480, null
   br i1 %cmp481, label %end, label %if.end483
 
 if.end483:                                        ; preds = %if.then479
-  %67 = load ptr, ptr %resp, align 8
-  %call484 = call i32 @ASN1_i2d_bio(ptr noundef nonnull @i2d_OCSP_RESPONSE, ptr noundef nonnull %call480, ptr noundef %67) #9
+  %73 = load ptr, ptr %resp, align 8
+  %call484 = call i32 @ASN1_i2d_bio(ptr noundef nonnull @i2d_OCSP_RESPONSE, ptr noundef nonnull %call480, ptr noundef %73) #9
   %call485 = call i32 @BIO_free(ptr noundef nonnull %call480) #9
   br label %if.end486
 
 if.end486:                                        ; preds = %done_resp.if.end486_crit_edge, %if.end483
-  %68 = phi ptr [ %.pre, %done_resp.if.end486_crit_edge ], [ %67, %if.end483 ]
-  %call487 = call i32 @OCSP_response_status(ptr noundef %68) #9
+  %74 = phi ptr [ %.pre, %done_resp.if.end486_crit_edge ], [ %73, %if.end483 ]
+  %call487 = call i32 @OCSP_response_status(ptr noundef %74) #9
   %cmp488.not = icmp eq i32 %call487, 0
   br i1 %cmp488.not, label %if.end495, label %if.then489
 
@@ -1504,18 +1506,18 @@ if.then489:                                       ; preds = %if.end486
   %conv = sext i32 %call487 to i64
   %call490 = call ptr @OCSP_response_status_str(i64 noundef %conv) #9
   %call491 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %call255, ptr noundef nonnull @.str.221, ptr noundef %call490, i32 noundef %call487) #9
-  br i1 %tobool492.not, label %end, label %if.end495
+  br i1 %ignore_err.0.lcssa9259871102, label %end, label %if.end495
 
 if.end495:                                        ; preds = %if.then489, %if.end486
-  br i1 %tobool496.not, label %if.end499, label %if.then497
+  br i1 %resp_text.0.lcssa9299831106, label %if.end499, label %if.then497
 
 if.then497:                                       ; preds = %if.end495
-  %call498 = call i32 @OCSP_RESPONSE_print(ptr noundef %call255, ptr noundef %68, i64 noundef 0) #9
+  %call498 = call i32 @OCSP_RESPONSE_print(ptr noundef %call255, ptr noundef %74, i64 noundef 0) #9
   br label %if.end499
 
 if.end499:                                        ; preds = %if.then497, %if.end495
-  %69 = load ptr, ptr %cbio, align 8
-  %cmp500.not = icmp eq ptr %69, null
+  %75 = load ptr, ptr %cbio, align 8
+  %cmp500.not = icmp eq ptr %75, null
   br i1 %cmp500.not, label %if.end510, label %if.then502
 
 if.then502:                                       ; preds = %if.end499
@@ -1529,12 +1531,12 @@ land.lhs.true505:                                 ; preds = %if.then502
 
 if.end509:                                        ; preds = %land.lhs.true505, %if.then502
   %accept_count.3 = phi i32 [ %dec, %land.lhs.true505 ], [ -1, %if.then502 ]
-  call void @BIO_free_all(ptr noundef nonnull %69) #9
+  call void @BIO_free_all(ptr noundef nonnull %75) #9
   store ptr null, ptr %cbio, align 8
-  %70 = load ptr, ptr %req, align 8
-  call void @OCSP_REQUEST_free(ptr noundef %70) #9
+  %76 = load ptr, ptr %req, align 8
+  call void @OCSP_REQUEST_free(ptr noundef %76) #9
   store ptr null, ptr %req, align 8
-  call void @OCSP_RESPONSE_free(ptr noundef %68) #9
+  call void @OCSP_RESPONSE_free(ptr noundef %74) #9
   store ptr null, ptr %resp, align 8
   br label %redo_accept.outer
 
@@ -1542,75 +1544,73 @@ if.end510:                                        ; preds = %if.end499
   br i1 %cmp319, label %end, label %if.then517
 
 if.then517:                                       ; preds = %if.end510
-  %call518 = call ptr @setup_verify(ptr noundef %CAfile.0.lcssa89210211071, i32 noundef %noCAfile.0.lcssa9179961095, ptr noundef %CApath.0.lcssa89310201072, i32 noundef %noCApath.0.lcssa9189951096, ptr noundef %CAstore.0.lcssa89410191073, i32 noundef %noCAstore.0.lcssa9199941097) #9
+  %call518 = call ptr @setup_verify(ptr noundef %CAfile.0.lcssa89210201070, i32 noundef %noCAfile.0.lcssa9179951094, ptr noundef %CApath.0.lcssa89310191071, i32 noundef %noCApath.0.lcssa9189941095, ptr noundef %CAstore.0.lcssa89410181072, i32 noundef %noCAstore.0.lcssa9199931096) #9
   %tobool519.not = icmp eq ptr %call518, null
   br i1 %tobool519.not, label %end, label %if.end522
 
 if.end522:                                        ; preds = %if.then517
-  %tobool523.not = icmp eq i32 %vpmtouched.0.lcssa9239901101, 0
-  br i1 %tobool523.not, label %if.end526, label %if.then524
+  br i1 %vpmtouched.0.lcssa9239891100, label %if.end526, label %if.then524
 
 if.then524:                                       ; preds = %if.end522
   %call525 = call i32 @X509_STORE_set1_param(ptr noundef nonnull %call518, ptr noundef %call4) #9
   br label %if.end526
 
 if.end526:                                        ; preds = %if.then524, %if.end522
-  %cmp527.not = icmp eq ptr %verify_certfile.0.lcssa91010031088, null
+  %cmp527.not = icmp eq ptr %verify_certfile.0.lcssa91010021087, null
   br i1 %cmp527.not, label %if.end534, label %if.then529
 
 if.then529:                                       ; preds = %if.end526
-  %call530 = call i32 @load_certs(ptr noundef nonnull %verify_certfile.0.lcssa91010031088, i32 noundef 0, ptr noundef nonnull %verify_other, ptr noundef null, ptr noundef nonnull @.str.222) #9
+  %call530 = call i32 @load_certs(ptr noundef nonnull %verify_certfile.0.lcssa91010021087, i32 noundef 0, ptr noundef nonnull %verify_other, ptr noundef null, ptr noundef nonnull @.str.222) #9
   %tobool531.not = icmp eq i32 %call530, 0
   br i1 %tobool531.not, label %end, label %if.end534
 
 if.end534:                                        ; preds = %if.then529, %if.end526
-  %71 = load ptr, ptr %resp, align 8
-  %call535 = call ptr @OCSP_response_get1_basic(ptr noundef %71) #9
+  %77 = load ptr, ptr %resp, align 8
+  %call535 = call ptr @OCSP_response_get1_basic(ptr noundef %77) #9
   %cmp536 = icmp eq ptr %call535, null
   br i1 %cmp536, label %if.then538, label %if.end540
 
 if.then538:                                       ; preds = %if.end534
-  %72 = load ptr, ptr @bio_err, align 8
-  %call539 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %72, ptr noundef nonnull @.str.223) #9
+  %78 = load ptr, ptr @bio_err, align 8
+  %call539 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %78, ptr noundef nonnull @.str.223) #9
   br label %end
 
 if.end540:                                        ; preds = %if.end534
-  %tobool541.not = icmp eq i32 %noverify.0.lcssa9229911100, 0
-  br i1 %tobool541.not, label %if.then542, label %if.end577
+  br i1 %noverify.0.lcssa9229901099, label %if.then542, label %if.end577
 
 if.then542:                                       ; preds = %if.end540
-  %73 = load ptr, ptr %req, align 8
-  %cmp543.not = icmp eq ptr %73, null
+  %79 = load ptr, ptr %req, align 8
+  %cmp543.not = icmp eq ptr %79, null
   br i1 %cmp543.not, label %if.end557, label %land.lhs.true545
 
 land.lhs.true545:                                 ; preds = %if.then542
-  %call546 = call i32 @OCSP_check_nonce(ptr noundef nonnull %73, ptr noundef nonnull %call535) #9
+  %call546 = call i32 @OCSP_check_nonce(ptr noundef nonnull %79, ptr noundef nonnull %call535) #9
   %cmp547 = icmp slt i32 %call546, 1
   br i1 %cmp547, label %if.then549, label %if.end557
 
 if.then549:                                       ; preds = %land.lhs.true545
   %cmp550 = icmp eq i32 %call546, -1
-  %74 = load ptr, ptr @bio_err, align 8
+  %80 = load ptr, ptr @bio_err, align 8
   br i1 %cmp550, label %if.then552, label %if.else554
 
 if.then552:                                       ; preds = %if.then549
-  %call553 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %74, ptr noundef nonnull @.str.224) #9
+  %call553 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %80, ptr noundef nonnull @.str.224) #9
   br label %if.end557
 
 if.else554:                                       ; preds = %if.then549
-  %call555 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %74, ptr noundef nonnull @.str.225) #9
+  %call555 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %80, ptr noundef nonnull @.str.225) #9
   br label %end
 
 if.end557:                                        ; preds = %if.then552, %land.lhs.true545, %if.then542
-  %75 = load ptr, ptr %verify_other, align 8
-  %call558 = call i32 @OCSP_basic_verify(ptr noundef nonnull %call535, ptr noundef %75, ptr noundef nonnull %call518, i64 noundef %verify_flags.0.lcssa9329811110) #9
+  %81 = load ptr, ptr %verify_other, align 8
+  %call558 = call i32 @OCSP_basic_verify(ptr noundef nonnull %call535, ptr noundef %81, ptr noundef nonnull %call518, i64 noundef %verify_flags.0.lcssa9329801109) #9
   %cmp559 = icmp slt i32 %call558, 1
-  %tobool562 = icmp ne ptr %issuers.1.lcssa89010231069, null
+  %tobool562 = icmp ne ptr %issuers.1.lcssa89010221068, null
   %or.cond16 = select i1 %cmp559, i1 %tobool562, i1 false
   br i1 %or.cond16, label %if.then563, label %if.end569
 
 if.then563:                                       ; preds = %if.end557
-  %call564 = call i32 @OCSP_basic_verify(ptr noundef nonnull %call535, ptr noundef nonnull %issuers.1.lcssa89010231069, ptr noundef nonnull %call518, i64 noundef 512) #9
+  %call564 = call i32 @OCSP_basic_verify(ptr noundef nonnull %call535, ptr noundef nonnull %issuers.1.lcssa89010221068, ptr noundef nonnull %call518, i64 noundef 512) #9
   %cmp565 = icmp sgt i32 %call564, 0
   br i1 %cmp565, label %if.end569.thread193, label %if.then572
 
@@ -1622,23 +1622,23 @@ if.end569:                                        ; preds = %if.end557
   br i1 %cmp559, label %if.then572, label %if.else574
 
 if.then572:                                       ; preds = %if.then563, %if.end569
-  %76 = load ptr, ptr @bio_err, align 8
-  %call573 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %76, ptr noundef nonnull @.str.226) #9
-  %77 = load ptr, ptr @bio_err, align 8
-  call void @ERR_print_errors(ptr noundef %77) #9
+  %82 = load ptr, ptr @bio_err, align 8
+  %call573 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %82, ptr noundef nonnull @.str.226) #9
+  %83 = load ptr, ptr @bio_err, align 8
+  call void @ERR_print_errors(ptr noundef %83) #9
   br label %if.end577
 
 if.else574:                                       ; preds = %if.end569.thread193, %if.end569
-  %78 = load ptr, ptr @bio_err, align 8
-  %call575 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %78, ptr noundef nonnull @.str.227) #9
+  %84 = load ptr, ptr @bio_err, align 8
+  %call575 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %84, ptr noundef nonnull @.str.227) #9
   br label %if.end577
 
 if.end577:                                        ; preds = %if.then572, %if.else574, %if.end540
   %ret.1 = phi i32 [ 0, %if.end540 ], [ 1, %if.then572 ], [ 0, %if.else574 ]
-  %79 = load ptr, ptr %req, align 8
-  %80 = load i64, ptr %nsec, align 8
-  %81 = load i64, ptr %maxage, align 8
-  %call578 = call fastcc i32 @print_ocsp_summary(ptr noundef %call255, ptr noundef nonnull %call535, ptr noundef %79, ptr noundef nonnull %call, ptr noundef %call1, i64 noundef %80, i64 noundef %81)
+  %85 = load ptr, ptr %req, align 8
+  %86 = load i64, ptr %nsec, align 8
+  %87 = load i64, ptr %maxage, align 8
+  %call578 = call fastcc i32 @print_ocsp_summary(ptr noundef %call255, ptr noundef nonnull %call535, ptr noundef %85, ptr noundef nonnull %call, ptr noundef %call1, i64 noundef %86, i64 noundef %87)
   %tobool579.not = icmp eq i32 %call578, 0
   %spec.select158 = select i1 %tobool579.not, i32 1, i32 %ret.1
   br label %end
@@ -1649,56 +1649,56 @@ end:                                              ; preds = %sw.bb225, %if.end20
   %rkey.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ null, %opthelp ], [ null, %if.then19 ], [ null, %sw.bb10 ], [ null, %if.end254 ], [ null, %if.then267 ], [ null, %if.then275 ], [ null, %if.then282 ], [ null, %if.then295 ], [ null, %if.end313 ], [ %rkey.1, %if.then326 ], [ %rkey.1, %if.then336 ], [ %rkey.1, %if.then538 ], [ %rkey.1, %if.else554 ], [ %rkey.1, %if.then529 ], [ %rkey.1, %if.then517 ], [ %rkey.1, %if.then391 ], [ %rkey.1, %if.then410 ], [ %rkey.1, %if.then471 ], [ %rkey.1, %if.then426 ], [ null, %if.then311 ], [ null, %if.then303 ], [ null, %if.end297 ], [ null, %if.then239 ], [ %rkey.1, %if.end510 ], [ %rkey.1, %if.end577 ], [ null, %add_ocsp_cert.exit.thread ], [ null, %if.then.i ], [ null, %err.i ], [ null, %if.then12.i ], [ %rkey.1, %if.then397 ], [ %rkey.1, %if.then414 ], [ %rkey.1, %if.end419 ], [ %rkey.1, %if.then437 ], [ %rkey.1, %if.then446 ], [ %rkey.1, %if.then456 ], [ %rkey.1, %if.then463 ], [ %rkey.1, %if.then479 ], [ %rkey.1, %if.then489 ], [ %rkey.1, %if.else461 ], [ %rkey.1, %land.lhs.true505 ], [ null, %sw.bb82 ], [ null, %sw.bb99 ], [ null, %if.then106 ], [ null, %if.end111 ], [ null, %sw.bb118 ], [ null, %if.end131 ], [ null, %if.end148 ], [ null, %lor.lhs.false186 ], [ null, %if.end184 ], [ null, %if.end200 ], [ null, %sw.bb225 ]
   %bs.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ null, %opthelp ], [ null, %if.then19 ], [ null, %sw.bb10 ], [ null, %if.end254 ], [ null, %if.then267 ], [ null, %if.then275 ], [ null, %if.then282 ], [ null, %if.then295 ], [ null, %if.end313 ], [ null, %if.then326 ], [ null, %if.then336 ], [ null, %if.then538 ], [ %call535, %if.else554 ], [ null, %if.then529 ], [ null, %if.then517 ], [ null, %if.then391 ], [ null, %if.then410 ], [ null, %if.then471 ], [ null, %if.then426 ], [ null, %if.then311 ], [ null, %if.then303 ], [ null, %if.end297 ], [ null, %if.then239 ], [ null, %if.end510 ], [ %call535, %if.end577 ], [ null, %add_ocsp_cert.exit.thread ], [ null, %if.then.i ], [ null, %err.i ], [ null, %if.then12.i ], [ null, %if.then397 ], [ null, %if.then414 ], [ null, %if.end419 ], [ null, %if.then437 ], [ null, %if.then446 ], [ null, %if.then456 ], [ null, %if.then463 ], [ null, %if.then479 ], [ null, %if.then489 ], [ null, %if.else461 ], [ null, %land.lhs.true505 ], [ null, %sw.bb82 ], [ null, %sw.bb99 ], [ null, %if.then106 ], [ null, %if.end111 ], [ null, %sw.bb118 ], [ null, %if.end131 ], [ null, %if.end148 ], [ null, %lor.lhs.false186 ], [ null, %if.end184 ], [ null, %if.end200 ], [ null, %sw.bb225 ]
   %ids.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ %call1, %lor.lhs.false3 ], [ %call1, %opthelp ], [ %call1, %if.then19 ], [ %call1, %sw.bb10 ], [ %call1, %if.end254 ], [ %call1, %if.then267 ], [ %call1, %if.then275 ], [ %call1, %if.then282 ], [ %call1, %if.then295 ], [ %call1, %if.end313 ], [ %call1, %if.then326 ], [ %call1, %if.then336 ], [ %call1, %if.then538 ], [ %call1, %if.else554 ], [ %call1, %if.then529 ], [ %call1, %if.then517 ], [ %call1, %if.then391 ], [ %call1, %if.then410 ], [ %call1, %if.then471 ], [ %call1, %if.then426 ], [ %call1, %if.then311 ], [ %call1, %if.then303 ], [ %call1, %if.end297 ], [ %call1, %if.then239 ], [ %call1, %if.end510 ], [ %call1, %if.end577 ], [ %call1, %add_ocsp_cert.exit.thread ], [ %call1, %if.then.i ], [ %call1, %err.i ], [ %call1, %if.then12.i ], [ %call1, %if.then397 ], [ %call1, %if.then414 ], [ %call1, %if.end419 ], [ %call1, %if.then437 ], [ %call1, %if.then446 ], [ %call1, %if.then456 ], [ %call1, %if.then463 ], [ %call1, %if.then479 ], [ %call1, %if.then489 ], [ %call1, %if.else461 ], [ %call1, %land.lhs.true505 ], [ %call1, %sw.bb82 ], [ %call1, %sw.bb99 ], [ %call1, %if.then106 ], [ %call1, %if.end111 ], [ %call1, %sw.bb118 ], [ %call1, %if.end131 ], [ %call1, %if.end148 ], [ %call1, %lor.lhs.false186 ], [ %call1, %if.end184 ], [ %call1, %if.end200 ], [ %call1, %sw.bb225 ]
-  %issuers.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %issuers.1657, %opthelp ], [ %issuers.1671, %if.then19 ], [ %issuers.1671, %sw.bb10 ], [ %issuers.1.lcssa89010231069, %if.end254 ], [ %issuers.1.lcssa89010231069, %if.then267 ], [ %issuers.1.lcssa89010231069, %if.then275 ], [ %issuers.1.lcssa89010231069, %if.then282 ], [ %issuers.1.lcssa89010231069, %if.then295 ], [ %issuers.1.lcssa89010231069, %if.end313 ], [ %issuers.1.lcssa89010231069, %if.then326 ], [ %issuers.1.lcssa89010231069, %if.then336 ], [ %issuers.1.lcssa89010231069, %if.then538 ], [ %issuers.1.lcssa89010231069, %if.else554 ], [ %issuers.1.lcssa89010231069, %if.then529 ], [ %issuers.1.lcssa89010231069, %if.then517 ], [ %issuers.1.lcssa89010231069, %if.then391 ], [ %issuers.1.lcssa89010231069, %if.then410 ], [ %issuers.1.lcssa89010231069, %if.then471 ], [ %issuers.1.lcssa89010231069, %if.then426 ], [ %issuers.1.lcssa89010231069, %if.then311 ], [ %issuers.1.lcssa89010231069, %if.then303 ], [ %issuers.1.lcssa89010231069, %if.end297 ], [ %issuers.2, %if.then239 ], [ %issuers.1.lcssa89010231069, %if.end510 ], [ %issuers.1.lcssa89010231069, %if.end577 ], [ %issuers.1671, %add_ocsp_cert.exit.thread ], [ %issuers.1671, %if.then.i ], [ %issuers.1671, %err.i ], [ %issuers.1671, %if.then12.i ], [ %issuers.1.lcssa89010231069, %if.then397 ], [ %issuers.1.lcssa89010231069, %if.then414 ], [ %issuers.1.lcssa89010231069, %if.end419 ], [ %issuers.1.lcssa89010231069, %if.then437 ], [ %issuers.1.lcssa89010231069, %if.then446 ], [ %issuers.1.lcssa89010231069, %if.then456 ], [ %issuers.1.lcssa89010231069, %if.then463 ], [ %issuers.1.lcssa89010231069, %if.then479 ], [ %issuers.1.lcssa89010231069, %if.then489 ], [ %issuers.1.lcssa89010231069, %if.else461 ], [ %issuers.1.lcssa89010231069, %land.lhs.true505 ], [ %issuers.1671, %sw.bb225 ], [ %issuers.1671, %if.end200 ], [ %issuers.1671, %if.end184 ], [ %issuers.1671, %lor.lhs.false186 ], [ %issuers.1671, %if.end148 ], [ %issuers.1671, %if.end131 ], [ %issuers.1671, %sw.bb118 ], [ %issuers.3, %if.end111 ], [ null, %if.then106 ], [ %issuers.1671, %sw.bb99 ], [ %issuers.1671, %sw.bb82 ]
-  %cert.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %cert.1646, %opthelp ], [ %cert.1673, %if.then19 ], [ %cert.1673, %sw.bb10 ], [ %cert.1.lcssa89110221070, %if.end254 ], [ %cert.1.lcssa89110221070, %if.then267 ], [ %cert.1.lcssa89110221070, %if.then275 ], [ %cert.1.lcssa89110221070, %if.then282 ], [ %cert.1.lcssa89110221070, %if.then295 ], [ %cert.1.lcssa89110221070, %if.end313 ], [ %cert.1.lcssa89110221070, %if.then326 ], [ %cert.1.lcssa89110221070, %if.then336 ], [ %cert.1.lcssa89110221070, %if.then538 ], [ %cert.1.lcssa89110221070, %if.else554 ], [ %cert.1.lcssa89110221070, %if.then529 ], [ %cert.1.lcssa89110221070, %if.then517 ], [ %cert.1.lcssa89110221070, %if.then391 ], [ %cert.1.lcssa89110221070, %if.then410 ], [ %cert.1.lcssa89110221070, %if.then471 ], [ %cert.1.lcssa89110221070, %if.then426 ], [ %cert.1.lcssa89110221070, %if.then311 ], [ %cert.1.lcssa89110221070, %if.then303 ], [ %cert.1.lcssa89110221070, %if.end297 ], [ %cert.2, %if.then239 ], [ %cert.1.lcssa89110221070, %if.end510 ], [ %cert.1.lcssa89110221070, %if.end577 ], [ %call120, %add_ocsp_cert.exit.thread ], [ %cert.1673, %if.then.i ], [ %cert.1673, %err.i ], [ %cert.1673, %if.then12.i ], [ %cert.1.lcssa89110221070, %if.then397 ], [ %cert.1.lcssa89110221070, %if.then414 ], [ %cert.1.lcssa89110221070, %if.end419 ], [ %cert.1.lcssa89110221070, %if.then437 ], [ %cert.1.lcssa89110221070, %if.then446 ], [ %cert.1.lcssa89110221070, %if.then456 ], [ %cert.1.lcssa89110221070, %if.then463 ], [ %cert.1.lcssa89110221070, %if.then479 ], [ %cert.1.lcssa89110221070, %if.then489 ], [ %cert.1.lcssa89110221070, %if.else461 ], [ %cert.1.lcssa89110221070, %land.lhs.true505 ], [ %cert.1673, %sw.bb225 ], [ %cert.1673, %if.end200 ], [ %cert.1673, %if.end184 ], [ %cert.1673, %lor.lhs.false186 ], [ %cert.1673, %if.end148 ], [ %call120, %if.end131 ], [ null, %sw.bb118 ], [ %cert.1673, %if.end111 ], [ %cert.1673, %if.then106 ], [ %cert.1673, %sw.bb99 ], [ %cert.1673, %sw.bb82 ]
+  %issuers.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %issuers.1657, %opthelp ], [ %issuers.1671, %if.then19 ], [ %issuers.1671, %sw.bb10 ], [ %issuers.1.lcssa89010221068, %if.end254 ], [ %issuers.1.lcssa89010221068, %if.then267 ], [ %issuers.1.lcssa89010221068, %if.then275 ], [ %issuers.1.lcssa89010221068, %if.then282 ], [ %issuers.1.lcssa89010221068, %if.then295 ], [ %issuers.1.lcssa89010221068, %if.end313 ], [ %issuers.1.lcssa89010221068, %if.then326 ], [ %issuers.1.lcssa89010221068, %if.then336 ], [ %issuers.1.lcssa89010221068, %if.then538 ], [ %issuers.1.lcssa89010221068, %if.else554 ], [ %issuers.1.lcssa89010221068, %if.then529 ], [ %issuers.1.lcssa89010221068, %if.then517 ], [ %issuers.1.lcssa89010221068, %if.then391 ], [ %issuers.1.lcssa89010221068, %if.then410 ], [ %issuers.1.lcssa89010221068, %if.then471 ], [ %issuers.1.lcssa89010221068, %if.then426 ], [ %issuers.1.lcssa89010221068, %if.then311 ], [ %issuers.1.lcssa89010221068, %if.then303 ], [ %issuers.1.lcssa89010221068, %if.end297 ], [ %issuers.2, %if.then239 ], [ %issuers.1.lcssa89010221068, %if.end510 ], [ %issuers.1.lcssa89010221068, %if.end577 ], [ %issuers.1671, %add_ocsp_cert.exit.thread ], [ %issuers.1671, %if.then.i ], [ %issuers.1671, %err.i ], [ %issuers.1671, %if.then12.i ], [ %issuers.1.lcssa89010221068, %if.then397 ], [ %issuers.1.lcssa89010221068, %if.then414 ], [ %issuers.1.lcssa89010221068, %if.end419 ], [ %issuers.1.lcssa89010221068, %if.then437 ], [ %issuers.1.lcssa89010221068, %if.then446 ], [ %issuers.1.lcssa89010221068, %if.then456 ], [ %issuers.1.lcssa89010221068, %if.then463 ], [ %issuers.1.lcssa89010221068, %if.then479 ], [ %issuers.1.lcssa89010221068, %if.then489 ], [ %issuers.1.lcssa89010221068, %if.else461 ], [ %issuers.1.lcssa89010221068, %land.lhs.true505 ], [ %issuers.1671, %sw.bb225 ], [ %issuers.1671, %if.end200 ], [ %issuers.1671, %if.end184 ], [ %issuers.1671, %lor.lhs.false186 ], [ %issuers.1671, %if.end148 ], [ %issuers.1671, %if.end131 ], [ %issuers.1671, %sw.bb118 ], [ %issuers.3, %if.end111 ], [ null, %if.then106 ], [ %issuers.1671, %sw.bb99 ], [ %issuers.1671, %sw.bb82 ]
+  %cert.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %cert.1646, %opthelp ], [ %cert.1673, %if.then19 ], [ %cert.1673, %sw.bb10 ], [ %cert.1.lcssa89110211069, %if.end254 ], [ %cert.1.lcssa89110211069, %if.then267 ], [ %cert.1.lcssa89110211069, %if.then275 ], [ %cert.1.lcssa89110211069, %if.then282 ], [ %cert.1.lcssa89110211069, %if.then295 ], [ %cert.1.lcssa89110211069, %if.end313 ], [ %cert.1.lcssa89110211069, %if.then326 ], [ %cert.1.lcssa89110211069, %if.then336 ], [ %cert.1.lcssa89110211069, %if.then538 ], [ %cert.1.lcssa89110211069, %if.else554 ], [ %cert.1.lcssa89110211069, %if.then529 ], [ %cert.1.lcssa89110211069, %if.then517 ], [ %cert.1.lcssa89110211069, %if.then391 ], [ %cert.1.lcssa89110211069, %if.then410 ], [ %cert.1.lcssa89110211069, %if.then471 ], [ %cert.1.lcssa89110211069, %if.then426 ], [ %cert.1.lcssa89110211069, %if.then311 ], [ %cert.1.lcssa89110211069, %if.then303 ], [ %cert.1.lcssa89110211069, %if.end297 ], [ %cert.2, %if.then239 ], [ %cert.1.lcssa89110211069, %if.end510 ], [ %cert.1.lcssa89110211069, %if.end577 ], [ %call120, %add_ocsp_cert.exit.thread ], [ %cert.1673, %if.then.i ], [ %cert.1673, %err.i ], [ %cert.1673, %if.then12.i ], [ %cert.1.lcssa89110211069, %if.then397 ], [ %cert.1.lcssa89110211069, %if.then414 ], [ %cert.1.lcssa89110211069, %if.end419 ], [ %cert.1.lcssa89110211069, %if.then437 ], [ %cert.1.lcssa89110211069, %if.then446 ], [ %cert.1.lcssa89110211069, %if.then456 ], [ %cert.1.lcssa89110211069, %if.then463 ], [ %cert.1.lcssa89110211069, %if.then479 ], [ %cert.1.lcssa89110211069, %if.then489 ], [ %cert.1.lcssa89110211069, %if.else461 ], [ %cert.1.lcssa89110211069, %land.lhs.true505 ], [ %cert.1673, %sw.bb225 ], [ %cert.1673, %if.end200 ], [ %cert.1673, %if.end184 ], [ %cert.1673, %lor.lhs.false186 ], [ %cert.1673, %if.end148 ], [ %call120, %if.end131 ], [ null, %sw.bb118 ], [ %cert.1673, %if.end111 ], [ %cert.1673, %if.then106 ], [ %cert.1673, %sw.bb99 ], [ %cert.1673, %sw.bb82 ]
   %signer.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ null, %opthelp ], [ null, %if.then19 ], [ null, %sw.bb10 ], [ null, %if.end254 ], [ null, %if.then267 ], [ null, %if.then275 ], [ null, %if.then282 ], [ null, %if.then295 ], [ null, %if.end313 ], [ null, %if.then326 ], [ null, %if.then336 ], [ %signer.2, %if.then538 ], [ %signer.2, %if.else554 ], [ %signer.2, %if.then529 ], [ %signer.2, %if.then517 ], [ %signer.1.ph, %if.then391 ], [ null, %if.then410 ], [ %signer.3, %if.then471 ], [ %call408, %if.then426 ], [ null, %if.then311 ], [ null, %if.then303 ], [ null, %if.end297 ], [ null, %if.then239 ], [ %signer.2, %if.end510 ], [ %signer.2, %if.end577 ], [ null, %add_ocsp_cert.exit.thread ], [ null, %if.then.i ], [ null, %err.i ], [ null, %if.then12.i ], [ %signer.2, %land.lhs.true505 ], [ %signer.3, %if.else461 ], [ %signer.1.ph, %if.then397 ], [ %call408, %if.then414 ], [ %signer.3, %if.then463 ], [ %signer.3, %if.then456 ], [ %signer.3, %if.then446 ], [ %signer.3, %if.then437 ], [ %call408, %if.end419 ], [ %signer.2, %if.then489 ], [ %signer.2, %if.then479 ], [ null, %sw.bb82 ], [ null, %sw.bb99 ], [ null, %if.then106 ], [ null, %if.end111 ], [ null, %sw.bb118 ], [ null, %if.end131 ], [ null, %if.end148 ], [ null, %lor.lhs.false186 ], [ null, %if.end184 ], [ null, %if.end200 ], [ null, %sw.bb225 ]
   %rsigner.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ null, %opthelp ], [ null, %if.then19 ], [ null, %sw.bb10 ], [ null, %if.end254 ], [ null, %if.then267 ], [ null, %if.then275 ], [ null, %if.then282 ], [ null, %if.then295 ], [ %call293, %if.end313 ], [ %rsigner.1, %if.then326 ], [ %rsigner.1, %if.then336 ], [ %rsigner.1, %if.then538 ], [ %rsigner.1, %if.else554 ], [ %rsigner.1, %if.then529 ], [ %rsigner.1, %if.then517 ], [ %rsigner.1, %if.then391 ], [ %rsigner.1, %if.then410 ], [ %rsigner.1, %if.then471 ], [ %rsigner.1, %if.then426 ], [ %call293, %if.then311 ], [ %call293, %if.then303 ], [ %call293, %if.end297 ], [ null, %if.then239 ], [ %rsigner.1, %if.end510 ], [ %rsigner.1, %if.end577 ], [ null, %add_ocsp_cert.exit.thread ], [ null, %if.then.i ], [ null, %err.i ], [ null, %if.then12.i ], [ %rsigner.1, %if.then397 ], [ %rsigner.1, %if.then414 ], [ %rsigner.1, %if.end419 ], [ %rsigner.1, %if.then437 ], [ %rsigner.1, %if.then446 ], [ %rsigner.1, %if.then456 ], [ %rsigner.1, %if.then463 ], [ %rsigner.1, %if.then479 ], [ %rsigner.1, %if.then489 ], [ %rsigner.1, %if.else461 ], [ %rsigner.1, %land.lhs.true505 ], [ null, %sw.bb82 ], [ null, %sw.bb99 ], [ null, %if.then106 ], [ null, %if.end111 ], [ null, %sw.bb118 ], [ null, %if.end131 ], [ null, %if.end148 ], [ null, %lor.lhs.false186 ], [ null, %if.end184 ], [ null, %if.end200 ], [ null, %sw.bb225 ]
   %store.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ null, %opthelp ], [ null, %if.then19 ], [ null, %sw.bb10 ], [ null, %if.end254 ], [ null, %if.then267 ], [ null, %if.then275 ], [ null, %if.then282 ], [ null, %if.then295 ], [ null, %if.end313 ], [ null, %if.then326 ], [ null, %if.then336 ], [ %call518, %if.then538 ], [ %call518, %if.else554 ], [ %call518, %if.then529 ], [ null, %if.then517 ], [ null, %if.then391 ], [ null, %if.then410 ], [ null, %if.then471 ], [ null, %if.then426 ], [ null, %if.then311 ], [ null, %if.then303 ], [ null, %if.end297 ], [ null, %if.then239 ], [ null, %if.end510 ], [ %call518, %if.end577 ], [ null, %add_ocsp_cert.exit.thread ], [ null, %if.then.i ], [ null, %err.i ], [ null, %if.then12.i ], [ null, %if.then397 ], [ null, %if.then414 ], [ null, %if.end419 ], [ null, %if.then437 ], [ null, %if.then446 ], [ null, %if.then456 ], [ null, %if.then463 ], [ null, %if.then479 ], [ null, %if.then489 ], [ null, %if.else461 ], [ null, %land.lhs.true505 ], [ null, %sw.bb82 ], [ null, %sw.bb99 ], [ null, %if.then106 ], [ null, %if.end111 ], [ null, %sw.bb118 ], [ null, %if.end131 ], [ null, %if.end148 ], [ null, %lor.lhs.false186 ], [ null, %if.end184 ], [ null, %if.end200 ], [ null, %sw.bb225 ]
   %vpm.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %call4, %opthelp ], [ %call4, %if.then19 ], [ %call4, %sw.bb10 ], [ %call4, %if.end254 ], [ %call4, %if.then267 ], [ %call4, %if.then275 ], [ %call4, %if.then282 ], [ %call4, %if.then295 ], [ %call4, %if.end313 ], [ %call4, %if.then326 ], [ %call4, %if.then336 ], [ %call4, %if.then538 ], [ %call4, %if.else554 ], [ %call4, %if.then529 ], [ %call4, %if.then517 ], [ %call4, %if.then391 ], [ %call4, %if.then410 ], [ %call4, %if.then471 ], [ %call4, %if.then426 ], [ %call4, %if.then311 ], [ %call4, %if.then303 ], [ %call4, %if.end297 ], [ %call4, %if.then239 ], [ %call4, %if.end510 ], [ %call4, %if.end577 ], [ %call4, %add_ocsp_cert.exit.thread ], [ %call4, %if.then.i ], [ %call4, %err.i ], [ %call4, %if.then12.i ], [ %call4, %if.then397 ], [ %call4, %if.then414 ], [ %call4, %if.end419 ], [ %call4, %if.then437 ], [ %call4, %if.then446 ], [ %call4, %if.then456 ], [ %call4, %if.then463 ], [ %call4, %if.then479 ], [ %call4, %if.then489 ], [ %call4, %if.else461 ], [ %call4, %land.lhs.true505 ], [ %call4, %sw.bb82 ], [ %call4, %sw.bb99 ], [ %call4, %if.then106 ], [ %call4, %if.end111 ], [ %call4, %sw.bb118 ], [ %call4, %if.end131 ], [ %call4, %if.end148 ], [ %call4, %lor.lhs.false186 ], [ %call4, %if.end184 ], [ %call4, %if.end200 ], [ %call4, %sw.bb225 ]
-  %rsign_sigopts.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %rsign_sigopts.1605, %opthelp ], [ %rsign_sigopts.1677, %if.then19 ], [ %rsign_sigopts.1677, %sw.bb10 ], [ %rsign_sigopts.1.lcssa89510181074, %if.end254 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then267 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then275 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then282 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then295 ], [ %rsign_sigopts.1.lcssa89510181074, %if.end313 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then326 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then336 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then538 ], [ %rsign_sigopts.1.lcssa89510181074, %if.else554 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then529 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then517 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then391 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then410 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then471 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then426 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then311 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then303 ], [ %rsign_sigopts.1.lcssa89510181074, %if.end297 ], [ %rsign_sigopts.2, %if.then239 ], [ %rsign_sigopts.1.lcssa89510181074, %if.end510 ], [ %rsign_sigopts.1.lcssa89510181074, %if.end577 ], [ %rsign_sigopts.1677, %add_ocsp_cert.exit.thread ], [ %rsign_sigopts.1677, %if.then.i ], [ %rsign_sigopts.1677, %err.i ], [ %rsign_sigopts.1677, %if.then12.i ], [ %rsign_sigopts.1.lcssa89510181074, %if.then397 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then414 ], [ %rsign_sigopts.1.lcssa89510181074, %if.end419 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then437 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then446 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then456 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then463 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then479 ], [ %rsign_sigopts.1.lcssa89510181074, %if.then489 ], [ %rsign_sigopts.1.lcssa89510181074, %if.else461 ], [ %rsign_sigopts.1.lcssa89510181074, %land.lhs.true505 ], [ %rsign_sigopts.1677, %sw.bb225 ], [ %rsign_sigopts.1677, %if.end200 ], [ null, %if.end184 ], [ %rsign_sigopts.3179, %lor.lhs.false186 ], [ %rsign_sigopts.1677, %if.end148 ], [ %rsign_sigopts.1677, %if.end131 ], [ %rsign_sigopts.1677, %sw.bb118 ], [ %rsign_sigopts.1677, %if.end111 ], [ %rsign_sigopts.1677, %if.then106 ], [ %rsign_sigopts.1677, %sw.bb99 ], [ %rsign_sigopts.1677, %sw.bb82 ]
-  %thost.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %thost.1414, %opthelp ], [ null, %if.then19 ], [ %thost.1696, %sw.bb10 ], [ %thost.1.lcssa9149991092, %if.end254 ], [ %thost.1.lcssa9149991092, %if.then267 ], [ %thost.1.lcssa9149991092, %if.then275 ], [ %thost.1.lcssa9149991092, %if.then282 ], [ %thost.1.lcssa9149991092, %if.then295 ], [ %thost.1.lcssa9149991092, %if.end313 ], [ %thost.1.lcssa9149991092, %if.then326 ], [ %thost.1.lcssa9149991092, %if.then336 ], [ %thost.1.lcssa9149991092, %if.then538 ], [ %thost.1.lcssa9149991092, %if.else554 ], [ %thost.1.lcssa9149991092, %if.then529 ], [ %thost.1.lcssa9149991092, %if.then517 ], [ %thost.1.lcssa9149991092, %if.then391 ], [ %thost.1.lcssa9149991092, %if.then410 ], [ %thost.1.lcssa9149991092, %if.then471 ], [ %thost.1.lcssa9149991092, %if.then426 ], [ %thost.1.lcssa9149991092, %if.then311 ], [ %thost.1.lcssa9149991092, %if.then303 ], [ %thost.1.lcssa9149991092, %if.end297 ], [ %thost.2, %if.then239 ], [ %thost.1.lcssa9149991092, %if.end510 ], [ %thost.1.lcssa9149991092, %if.end577 ], [ %thost.1696, %add_ocsp_cert.exit.thread ], [ %thost.1696, %if.then.i ], [ %thost.1696, %err.i ], [ %thost.1696, %if.then12.i ], [ %thost.1.lcssa9149991092, %if.then397 ], [ %thost.1.lcssa9149991092, %if.then414 ], [ %thost.1.lcssa9149991092, %if.end419 ], [ %thost.1.lcssa9149991092, %if.then437 ], [ %thost.1.lcssa9149991092, %if.then446 ], [ %thost.1.lcssa9149991092, %if.then456 ], [ %thost.1.lcssa9149991092, %if.then463 ], [ %thost.1.lcssa9149991092, %if.then479 ], [ %thost.1.lcssa9149991092, %if.then489 ], [ %thost.1.lcssa9149991092, %if.else461 ], [ %thost.1.lcssa9149991092, %land.lhs.true505 ], [ %thost.1696, %sw.bb82 ], [ %thost.1696, %sw.bb99 ], [ %thost.1696, %if.then106 ], [ %thost.1696, %if.end111 ], [ %thost.1696, %sw.bb118 ], [ %thost.1696, %if.end131 ], [ %thost.1696, %if.end148 ], [ %thost.1696, %lor.lhs.false186 ], [ %thost.1696, %if.end184 ], [ %thost.1696, %if.end200 ], [ %thost.1696, %sw.bb225 ]
-  %tport.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %tport.1403, %opthelp ], [ null, %if.then19 ], [ %tport.1697, %sw.bb10 ], [ %tport.1.lcssa9159981093, %if.end254 ], [ %tport.1.lcssa9159981093, %if.then267 ], [ %tport.1.lcssa9159981093, %if.then275 ], [ %tport.1.lcssa9159981093, %if.then282 ], [ %tport.1.lcssa9159981093, %if.then295 ], [ %tport.1.lcssa9159981093, %if.end313 ], [ %tport.1.lcssa9159981093, %if.then326 ], [ %tport.1.lcssa9159981093, %if.then336 ], [ %tport.1.lcssa9159981093, %if.then538 ], [ %tport.1.lcssa9159981093, %if.else554 ], [ %tport.1.lcssa9159981093, %if.then529 ], [ %tport.1.lcssa9159981093, %if.then517 ], [ %tport.1.lcssa9159981093, %if.then391 ], [ %tport.1.lcssa9159981093, %if.then410 ], [ %tport.1.lcssa9159981093, %if.then471 ], [ %tport.1.lcssa9159981093, %if.then426 ], [ %tport.1.lcssa9159981093, %if.then311 ], [ %tport.1.lcssa9159981093, %if.then303 ], [ %tport.1.lcssa9159981093, %if.end297 ], [ %tport.2, %if.then239 ], [ %tport.1.lcssa9159981093, %if.end510 ], [ %tport.1.lcssa9159981093, %if.end577 ], [ %tport.1697, %add_ocsp_cert.exit.thread ], [ %tport.1697, %if.then.i ], [ %tport.1697, %err.i ], [ %tport.1697, %if.then12.i ], [ %tport.1.lcssa9159981093, %if.then397 ], [ %tport.1.lcssa9159981093, %if.then414 ], [ %tport.1.lcssa9159981093, %if.end419 ], [ %tport.1.lcssa9159981093, %if.then437 ], [ %tport.1.lcssa9159981093, %if.then446 ], [ %tport.1.lcssa9159981093, %if.then456 ], [ %tport.1.lcssa9159981093, %if.then463 ], [ %tport.1.lcssa9159981093, %if.then479 ], [ %tport.1.lcssa9159981093, %if.then489 ], [ %tport.1.lcssa9159981093, %if.else461 ], [ %tport.1.lcssa9159981093, %land.lhs.true505 ], [ %tport.1697, %sw.bb82 ], [ %tport.1697, %sw.bb99 ], [ %tport.1697, %if.then106 ], [ %tport.1697, %if.end111 ], [ %tport.1697, %sw.bb118 ], [ %tport.1697, %if.end131 ], [ %tport.1697, %if.end148 ], [ %tport.1697, %lor.lhs.false186 ], [ %tport.1697, %if.end184 ], [ %tport.1697, %if.end200 ], [ %tport.1697, %sw.bb225 ]
-  %tpath.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %tpath.1392, %opthelp ], [ null, %if.then19 ], [ %tpath.1698, %sw.bb10 ], [ %tpath.1.lcssa9169971094, %if.end254 ], [ %tpath.1.lcssa9169971094, %if.then267 ], [ %tpath.1.lcssa9169971094, %if.then275 ], [ %tpath.1.lcssa9169971094, %if.then282 ], [ %tpath.1.lcssa9169971094, %if.then295 ], [ %tpath.1.lcssa9169971094, %if.end313 ], [ %tpath.1.lcssa9169971094, %if.then326 ], [ %tpath.1.lcssa9169971094, %if.then336 ], [ %tpath.1.lcssa9169971094, %if.then538 ], [ %tpath.1.lcssa9169971094, %if.else554 ], [ %tpath.1.lcssa9169971094, %if.then529 ], [ %tpath.1.lcssa9169971094, %if.then517 ], [ %tpath.1.lcssa9169971094, %if.then391 ], [ %tpath.1.lcssa9169971094, %if.then410 ], [ %tpath.1.lcssa9169971094, %if.then471 ], [ %tpath.1.lcssa9169971094, %if.then426 ], [ %tpath.1.lcssa9169971094, %if.then311 ], [ %tpath.1.lcssa9169971094, %if.then303 ], [ %tpath.1.lcssa9169971094, %if.end297 ], [ %tpath.2, %if.then239 ], [ %tpath.1.lcssa9169971094, %if.end510 ], [ %tpath.1.lcssa9169971094, %if.end577 ], [ %tpath.1698, %add_ocsp_cert.exit.thread ], [ %tpath.1698, %if.then.i ], [ %tpath.1698, %err.i ], [ %tpath.1698, %if.then12.i ], [ %tpath.1.lcssa9169971094, %if.then397 ], [ %tpath.1.lcssa9169971094, %if.then414 ], [ %tpath.1.lcssa9169971094, %if.end419 ], [ %tpath.1.lcssa9169971094, %if.then437 ], [ %tpath.1.lcssa9169971094, %if.then446 ], [ %tpath.1.lcssa9169971094, %if.then456 ], [ %tpath.1.lcssa9169971094, %if.then463 ], [ %tpath.1.lcssa9169971094, %if.then479 ], [ %tpath.1.lcssa9169971094, %if.then489 ], [ %tpath.1.lcssa9169971094, %if.else461 ], [ %tpath.1.lcssa9169971094, %land.lhs.true505 ], [ %tpath.1698, %sw.bb82 ], [ %tpath.1698, %sw.bb99 ], [ %tpath.1698, %if.then106 ], [ %tpath.1698, %if.end111 ], [ %tpath.1698, %sw.bb118 ], [ %tpath.1698, %if.end131 ], [ %tpath.1698, %if.end148 ], [ %tpath.1698, %lor.lhs.false186 ], [ %tpath.1698, %if.end184 ], [ %tpath.1698, %if.end200 ], [ %tpath.1698, %sw.bb225 ]
+  %rsign_sigopts.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %rsign_sigopts.1605, %opthelp ], [ %rsign_sigopts.1677, %if.then19 ], [ %rsign_sigopts.1677, %sw.bb10 ], [ %rsign_sigopts.1.lcssa89510171073, %if.end254 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then267 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then275 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then282 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then295 ], [ %rsign_sigopts.1.lcssa89510171073, %if.end313 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then326 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then336 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then538 ], [ %rsign_sigopts.1.lcssa89510171073, %if.else554 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then529 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then517 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then391 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then410 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then471 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then426 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then311 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then303 ], [ %rsign_sigopts.1.lcssa89510171073, %if.end297 ], [ %rsign_sigopts.2, %if.then239 ], [ %rsign_sigopts.1.lcssa89510171073, %if.end510 ], [ %rsign_sigopts.1.lcssa89510171073, %if.end577 ], [ %rsign_sigopts.1677, %add_ocsp_cert.exit.thread ], [ %rsign_sigopts.1677, %if.then.i ], [ %rsign_sigopts.1677, %err.i ], [ %rsign_sigopts.1677, %if.then12.i ], [ %rsign_sigopts.1.lcssa89510171073, %if.then397 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then414 ], [ %rsign_sigopts.1.lcssa89510171073, %if.end419 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then437 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then446 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then456 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then463 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then479 ], [ %rsign_sigopts.1.lcssa89510171073, %if.then489 ], [ %rsign_sigopts.1.lcssa89510171073, %if.else461 ], [ %rsign_sigopts.1.lcssa89510171073, %land.lhs.true505 ], [ %rsign_sigopts.1677, %sw.bb225 ], [ %rsign_sigopts.1677, %if.end200 ], [ null, %if.end184 ], [ %rsign_sigopts.3179, %lor.lhs.false186 ], [ %rsign_sigopts.1677, %if.end148 ], [ %rsign_sigopts.1677, %if.end131 ], [ %rsign_sigopts.1677, %sw.bb118 ], [ %rsign_sigopts.1677, %if.end111 ], [ %rsign_sigopts.1677, %if.then106 ], [ %rsign_sigopts.1677, %sw.bb99 ], [ %rsign_sigopts.1677, %sw.bb82 ]
+  %thost.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %thost.1414, %opthelp ], [ null, %if.then19 ], [ %thost.1696, %sw.bb10 ], [ %thost.1.lcssa9149981091, %if.end254 ], [ %thost.1.lcssa9149981091, %if.then267 ], [ %thost.1.lcssa9149981091, %if.then275 ], [ %thost.1.lcssa9149981091, %if.then282 ], [ %thost.1.lcssa9149981091, %if.then295 ], [ %thost.1.lcssa9149981091, %if.end313 ], [ %thost.1.lcssa9149981091, %if.then326 ], [ %thost.1.lcssa9149981091, %if.then336 ], [ %thost.1.lcssa9149981091, %if.then538 ], [ %thost.1.lcssa9149981091, %if.else554 ], [ %thost.1.lcssa9149981091, %if.then529 ], [ %thost.1.lcssa9149981091, %if.then517 ], [ %thost.1.lcssa9149981091, %if.then391 ], [ %thost.1.lcssa9149981091, %if.then410 ], [ %thost.1.lcssa9149981091, %if.then471 ], [ %thost.1.lcssa9149981091, %if.then426 ], [ %thost.1.lcssa9149981091, %if.then311 ], [ %thost.1.lcssa9149981091, %if.then303 ], [ %thost.1.lcssa9149981091, %if.end297 ], [ %thost.2, %if.then239 ], [ %thost.1.lcssa9149981091, %if.end510 ], [ %thost.1.lcssa9149981091, %if.end577 ], [ %thost.1696, %add_ocsp_cert.exit.thread ], [ %thost.1696, %if.then.i ], [ %thost.1696, %err.i ], [ %thost.1696, %if.then12.i ], [ %thost.1.lcssa9149981091, %if.then397 ], [ %thost.1.lcssa9149981091, %if.then414 ], [ %thost.1.lcssa9149981091, %if.end419 ], [ %thost.1.lcssa9149981091, %if.then437 ], [ %thost.1.lcssa9149981091, %if.then446 ], [ %thost.1.lcssa9149981091, %if.then456 ], [ %thost.1.lcssa9149981091, %if.then463 ], [ %thost.1.lcssa9149981091, %if.then479 ], [ %thost.1.lcssa9149981091, %if.then489 ], [ %thost.1.lcssa9149981091, %if.else461 ], [ %thost.1.lcssa9149981091, %land.lhs.true505 ], [ %thost.1696, %sw.bb82 ], [ %thost.1696, %sw.bb99 ], [ %thost.1696, %if.then106 ], [ %thost.1696, %if.end111 ], [ %thost.1696, %sw.bb118 ], [ %thost.1696, %if.end131 ], [ %thost.1696, %if.end148 ], [ %thost.1696, %lor.lhs.false186 ], [ %thost.1696, %if.end184 ], [ %thost.1696, %if.end200 ], [ %thost.1696, %sw.bb225 ]
+  %tport.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %tport.1403, %opthelp ], [ null, %if.then19 ], [ %tport.1697, %sw.bb10 ], [ %tport.1.lcssa9159971092, %if.end254 ], [ %tport.1.lcssa9159971092, %if.then267 ], [ %tport.1.lcssa9159971092, %if.then275 ], [ %tport.1.lcssa9159971092, %if.then282 ], [ %tport.1.lcssa9159971092, %if.then295 ], [ %tport.1.lcssa9159971092, %if.end313 ], [ %tport.1.lcssa9159971092, %if.then326 ], [ %tport.1.lcssa9159971092, %if.then336 ], [ %tport.1.lcssa9159971092, %if.then538 ], [ %tport.1.lcssa9159971092, %if.else554 ], [ %tport.1.lcssa9159971092, %if.then529 ], [ %tport.1.lcssa9159971092, %if.then517 ], [ %tport.1.lcssa9159971092, %if.then391 ], [ %tport.1.lcssa9159971092, %if.then410 ], [ %tport.1.lcssa9159971092, %if.then471 ], [ %tport.1.lcssa9159971092, %if.then426 ], [ %tport.1.lcssa9159971092, %if.then311 ], [ %tport.1.lcssa9159971092, %if.then303 ], [ %tport.1.lcssa9159971092, %if.end297 ], [ %tport.2, %if.then239 ], [ %tport.1.lcssa9159971092, %if.end510 ], [ %tport.1.lcssa9159971092, %if.end577 ], [ %tport.1697, %add_ocsp_cert.exit.thread ], [ %tport.1697, %if.then.i ], [ %tport.1697, %err.i ], [ %tport.1697, %if.then12.i ], [ %tport.1.lcssa9159971092, %if.then397 ], [ %tport.1.lcssa9159971092, %if.then414 ], [ %tport.1.lcssa9159971092, %if.end419 ], [ %tport.1.lcssa9159971092, %if.then437 ], [ %tport.1.lcssa9159971092, %if.then446 ], [ %tport.1.lcssa9159971092, %if.then456 ], [ %tport.1.lcssa9159971092, %if.then463 ], [ %tport.1.lcssa9159971092, %if.then479 ], [ %tport.1.lcssa9159971092, %if.then489 ], [ %tport.1.lcssa9159971092, %if.else461 ], [ %tport.1.lcssa9159971092, %land.lhs.true505 ], [ %tport.1697, %sw.bb82 ], [ %tport.1697, %sw.bb99 ], [ %tport.1697, %if.then106 ], [ %tport.1697, %if.end111 ], [ %tport.1697, %sw.bb118 ], [ %tport.1697, %if.end131 ], [ %tport.1697, %if.end148 ], [ %tport.1697, %lor.lhs.false186 ], [ %tport.1697, %if.end184 ], [ %tport.1697, %if.end200 ], [ %tport.1697, %sw.bb225 ]
+  %tpath.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ %tpath.1392, %opthelp ], [ null, %if.then19 ], [ %tpath.1698, %sw.bb10 ], [ %tpath.1.lcssa9169961093, %if.end254 ], [ %tpath.1.lcssa9169961093, %if.then267 ], [ %tpath.1.lcssa9169961093, %if.then275 ], [ %tpath.1.lcssa9169961093, %if.then282 ], [ %tpath.1.lcssa9169961093, %if.then295 ], [ %tpath.1.lcssa9169961093, %if.end313 ], [ %tpath.1.lcssa9169961093, %if.then326 ], [ %tpath.1.lcssa9169961093, %if.then336 ], [ %tpath.1.lcssa9169961093, %if.then538 ], [ %tpath.1.lcssa9169961093, %if.else554 ], [ %tpath.1.lcssa9169961093, %if.then529 ], [ %tpath.1.lcssa9169961093, %if.then517 ], [ %tpath.1.lcssa9169961093, %if.then391 ], [ %tpath.1.lcssa9169961093, %if.then410 ], [ %tpath.1.lcssa9169961093, %if.then471 ], [ %tpath.1.lcssa9169961093, %if.then426 ], [ %tpath.1.lcssa9169961093, %if.then311 ], [ %tpath.1.lcssa9169961093, %if.then303 ], [ %tpath.1.lcssa9169961093, %if.end297 ], [ %tpath.2, %if.then239 ], [ %tpath.1.lcssa9169961093, %if.end510 ], [ %tpath.1.lcssa9169961093, %if.end577 ], [ %tpath.1698, %add_ocsp_cert.exit.thread ], [ %tpath.1698, %if.then.i ], [ %tpath.1698, %err.i ], [ %tpath.1698, %if.then12.i ], [ %tpath.1.lcssa9169961093, %if.then397 ], [ %tpath.1.lcssa9169961093, %if.then414 ], [ %tpath.1.lcssa9169961093, %if.end419 ], [ %tpath.1.lcssa9169961093, %if.then437 ], [ %tpath.1.lcssa9169961093, %if.then446 ], [ %tpath.1.lcssa9169961093, %if.then456 ], [ %tpath.1.lcssa9169961093, %if.then463 ], [ %tpath.1.lcssa9169961093, %if.then479 ], [ %tpath.1.lcssa9169961093, %if.then489 ], [ %tpath.1.lcssa9169961093, %if.else461 ], [ %tpath.1.lcssa9169961093, %land.lhs.true505 ], [ %tpath.1698, %sw.bb82 ], [ %tpath.1698, %sw.bb99 ], [ %tpath.1698, %if.then106 ], [ %tpath.1698, %if.end111 ], [ %tpath.1698, %sw.bb118 ], [ %tpath.1698, %if.end131 ], [ %tpath.1698, %if.end148 ], [ %tpath.1698, %lor.lhs.false186 ], [ %tpath.1698, %if.end184 ], [ %tpath.1698, %if.end200 ], [ %tpath.1698, %sw.bb225 ]
   %out.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ null, %opthelp ], [ null, %if.then19 ], [ null, %sw.bb10 ], [ null, %if.end254 ], [ %call255, %if.then267 ], [ %call255, %if.then275 ], [ %call255, %if.then282 ], [ %call255, %if.then295 ], [ %call255, %if.end313 ], [ %call255, %if.then326 ], [ %call255, %if.then336 ], [ %call255, %if.then538 ], [ %call255, %if.else554 ], [ %call255, %if.then529 ], [ %call255, %if.then517 ], [ %call255, %if.then391 ], [ %call255, %if.then410 ], [ %call255, %if.then471 ], [ %call255, %if.then426 ], [ %call255, %if.then311 ], [ %call255, %if.then303 ], [ %call255, %if.end297 ], [ null, %if.then239 ], [ %call255, %if.end510 ], [ %call255, %if.end577 ], [ null, %add_ocsp_cert.exit.thread ], [ null, %if.then.i ], [ null, %err.i ], [ null, %if.then12.i ], [ %call255, %if.then397 ], [ %call255, %if.then414 ], [ %call255, %if.end419 ], [ %call255, %if.then437 ], [ %call255, %if.then446 ], [ %call255, %if.then456 ], [ %call255, %if.then463 ], [ %call255, %if.then479 ], [ %call255, %if.then489 ], [ %call255, %if.else461 ], [ %call255, %land.lhs.true505 ], [ null, %sw.bb82 ], [ null, %sw.bb99 ], [ null, %if.then106 ], [ null, %if.end111 ], [ null, %sw.bb118 ], [ null, %if.end131 ], [ null, %if.end148 ], [ null, %lor.lhs.false186 ], [ null, %if.end184 ], [ null, %if.end200 ], [ null, %sw.bb225 ]
   %ret.0 = phi i32 [ 1, %entry ], [ 1, %lor.lhs.false ], [ 1, %lor.lhs.false3 ], [ 1, %opthelp ], [ 1, %if.then19 ], [ 0, %sw.bb10 ], [ 1, %if.end254 ], [ 1, %if.then267 ], [ 1, %if.then275 ], [ 1, %if.then282 ], [ 1, %if.then295 ], [ 1, %if.end313 ], [ 1, %if.then326 ], [ 1, %if.then336 ], [ 1, %if.then538 ], [ 1, %if.else554 ], [ 1, %if.then529 ], [ 1, %if.then517 ], [ 1, %if.then391 ], [ 1, %if.then410 ], [ 1, %if.then471 ], [ 1, %if.then426 ], [ 1, %if.then311 ], [ 1, %if.then303 ], [ 1, %if.end297 ], [ 1, %if.then239 ], [ 0, %if.end510 ], [ %spec.select158, %if.end577 ], [ 1, %add_ocsp_cert.exit.thread ], [ 1, %if.then.i ], [ 1, %err.i ], [ 1, %if.then12.i ], [ 0, %land.lhs.true505 ], [ 0, %if.else461 ], [ 1, %if.then397 ], [ 1, %if.then414 ], [ 1, %if.then463 ], [ 1, %if.then456 ], [ 1, %if.then446 ], [ 1, %if.then437 ], [ 1, %if.end419 ], [ 1, %if.then489 ], [ 1, %if.then479 ], [ 1, %sw.bb82 ], [ 1, %sw.bb99 ], [ 1, %if.then106 ], [ 1, %if.end111 ], [ 1, %sw.bb118 ], [ 1, %if.end131 ], [ 1, %if.end148 ], [ 1, %lor.lhs.false186 ], [ 1, %if.end184 ], [ 1, %if.end200 ], [ 1, %sw.bb225 ]
   %acbio.0 = phi ptr [ null, %entry ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false3 ], [ null, %opthelp ], [ null, %if.then19 ], [ null, %sw.bb10 ], [ null, %if.end254 ], [ null, %if.then267 ], [ null, %if.then275 ], [ null, %if.then282 ], [ %acbio.1, %if.then295 ], [ %acbio.1, %if.end313 ], [ %acbio.1, %if.then326 ], [ %acbio.1, %if.then336 ], [ %acbio.1, %if.then538 ], [ %acbio.1, %if.else554 ], [ %acbio.1, %if.then529 ], [ %acbio.1, %if.then517 ], [ null, %if.then391 ], [ %acbio.1, %if.then410 ], [ %acbio.1, %if.then471 ], [ %acbio.1, %if.then426 ], [ %acbio.1, %if.then311 ], [ %acbio.1, %if.then303 ], [ %acbio.1, %if.end297 ], [ null, %if.then239 ], [ %acbio.1, %if.end510 ], [ %acbio.1, %if.end577 ], [ null, %add_ocsp_cert.exit.thread ], [ null, %if.then.i ], [ null, %err.i ], [ null, %if.then12.i ], [ %acbio.1, %if.then397 ], [ %acbio.1, %if.then414 ], [ %acbio.1, %if.end419 ], [ %acbio.1, %if.then437 ], [ %acbio.1, %if.then446 ], [ %acbio.1, %if.then456 ], [ %acbio.1, %if.then463 ], [ %acbio.1, %if.then479 ], [ %acbio.1, %if.then489 ], [ %acbio.1, %if.else461 ], [ %acbio.1, %land.lhs.true505 ], [ null, %sw.bb82 ], [ null, %sw.bb99 ], [ null, %if.then106 ], [ null, %if.end111 ], [ null, %sw.bb118 ], [ null, %if.end131 ], [ null, %if.end148 ], [ null, %lor.lhs.false186 ], [ null, %if.end184 ], [ null, %if.end200 ], [ null, %sw.bb225 ]
-  %82 = load ptr, ptr @bio_err, align 8
-  call void @ERR_print_errors(ptr noundef %82) #9
+  %88 = load ptr, ptr @bio_err, align 8
+  call void @ERR_print_errors(ptr noundef %88) #9
   call void @X509_free(ptr noundef %signer.0) #9
   call void @X509_STORE_free(ptr noundef %store.0) #9
   call void @X509_VERIFY_PARAM_free(ptr noundef %vpm.0) #9
   call void @OPENSSL_sk_free(ptr noundef %rsign_sigopts.0) #9
   call void @EVP_PKEY_free(ptr noundef %key.0) #9
   call void @EVP_PKEY_free(ptr noundef %rkey.0) #9
-  %83 = load ptr, ptr %cert_id_md, align 8
-  call void @EVP_MD_free(ptr noundef %83) #9
-  %84 = load ptr, ptr %rsign_md, align 8
-  call void @EVP_MD_free(ptr noundef %84) #9
-  %85 = load ptr, ptr %resp_certid_md, align 8
-  call void @EVP_MD_free(ptr noundef %85) #9
+  %89 = load ptr, ptr %cert_id_md, align 8
+  call void @EVP_MD_free(ptr noundef %89) #9
+  %90 = load ptr, ptr %rsign_md, align 8
+  call void @EVP_MD_free(ptr noundef %90) #9
+  %91 = load ptr, ptr %resp_certid_md, align 8
+  call void @EVP_MD_free(ptr noundef %91) #9
   call void @X509_free(ptr noundef %cert.0) #9
   call void @OSSL_STACK_OF_X509_free(ptr noundef %issuers.0) #9
   call void @X509_free(ptr noundef %rsigner.0) #9
-  %86 = load ptr, ptr %rca_certs, align 8
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %86) #9
+  %92 = load ptr, ptr %rca_certs, align 8
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %92) #9
   call void @free_index(ptr noundef %rdb.0) #9
-  %87 = load ptr, ptr %cbio, align 8
-  call void @BIO_free_all(ptr noundef %87) #9
+  %93 = load ptr, ptr %cbio, align 8
+  call void @BIO_free_all(ptr noundef %93) #9
   call void @BIO_free_all(ptr noundef %acbio.0) #9
   call void @BIO_free_all(ptr noundef %out.0) #9
-  %88 = load ptr, ptr %req, align 8
-  call void @OCSP_REQUEST_free(ptr noundef %88) #9
-  %89 = load ptr, ptr %resp, align 8
-  call void @OCSP_RESPONSE_free(ptr noundef %89) #9
+  %94 = load ptr, ptr %req, align 8
+  call void @OCSP_REQUEST_free(ptr noundef %94) #9
+  %95 = load ptr, ptr %resp, align 8
+  call void @OCSP_RESPONSE_free(ptr noundef %95) #9
   call void @OCSP_BASICRESP_free(ptr noundef %bs.0) #9
   call void @OPENSSL_sk_free(ptr noundef %call) #9
   call void @OPENSSL_sk_free(ptr noundef %ids.0) #9
-  %90 = load ptr, ptr %sign_other, align 8
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %90) #9
-  %91 = load ptr, ptr %verify_other, align 8
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %91) #9
-  %92 = load ptr, ptr %headers, align 8
-  call void @OPENSSL_sk_pop_free(ptr noundef %92, ptr noundef nonnull @X509V3_conf_free) #9
+  %96 = load ptr, ptr %sign_other, align 8
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %96) #9
+  %97 = load ptr, ptr %verify_other, align 8
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %97) #9
+  %98 = load ptr, ptr %headers, align 8
+  call void @OPENSSL_sk_pop_free(ptr noundef %98, ptr noundef nonnull @X509V3_conf_free) #9
   call void @CRYPTO_free(ptr noundef %thost.0, ptr noundef nonnull @.str.198, i32 noundef 882) #9
   call void @CRYPTO_free(ptr noundef %tport.0, ptr noundef nonnull @.str.198, i32 noundef 883) #9
   call void @CRYPTO_free(ptr noundef %tpath.0, ptr noundef nonnull @.str.198, i32 noundef 884) #9

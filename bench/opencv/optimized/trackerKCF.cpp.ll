@@ -2368,7 +2368,7 @@ define hidden noundef zeroext i1 @_ZN2cv8tracking4impl14TrackerKCFImpl6updateERK
   %166 = ashr exact i64 %165, 3
   %167 = sub nsw i64 %160, %166
   %168 = icmp ugt i64 %167, %154
-  br i1 %168, label %169, label %._crit_edge, !llvm.loop !24
+  br i1 %168, label %169, label %._crit_edge.loopexit, !llvm.loop !24
 
 169:                                              ; preds = %.lr.ph, %152
   %170 = phi i64 [ 0, %.lr.ph ], [ %154, %152 ]
@@ -2411,15 +2411,18 @@ define hidden noundef zeroext i1 @_ZN2cv8tracking4impl14TrackerKCFImpl6updateERK
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #25
   br label %.loopexit.split-lp
 
-._crit_edge:                                      ; preds = %152, %.preheader352
-  %189 = phi ptr [ %142, %.preheader352 ], [ %162, %152 ]
-  %190 = phi ptr [ %141, %.preheader352 ], [ %161, %152 ]
-  %.lcssa392 = phi i64 [ 0, %.preheader352 ], [ %167, %152 ]
-  %.not445 = icmp eq ptr %190, %189
+._crit_edge.loopexit:                             ; preds = %152
+  %189 = trunc i64 %167 to i32
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader352
+  %190 = phi ptr [ %142, %.preheader352 ], [ %162, %._crit_edge.loopexit ]
+  %191 = phi ptr [ %141, %.preheader352 ], [ %161, %._crit_edge.loopexit ]
+  %.lcssa392 = phi i32 [ 0, %.preheader352 ], [ %189, %._crit_edge.loopexit ]
+  %.not445 = icmp eq ptr %191, %190
   br i1 %.not445, label %._crit_edge409, label %.lr.ph408
 
 .lr.ph408:                                        ; preds = %._crit_edge
-  %191 = trunc i64 %.lcssa392 to i32
   %192 = getelementptr inbounds i8, ptr %0, i64 80
   %193 = getelementptr inbounds i8, ptr %0, i64 88
   %194 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2429,7 +2432,7 @@ define hidden noundef zeroext i1 @_ZN2cv8tracking4impl14TrackerKCFImpl6updateERK
 196:                                              ; preds = %.lr.ph408, %217
   %197 = phi i64 [ 0, %.lr.ph408 ], [ %220, %217 ]
   %.0143406 = phi i32 [ 0, %.lr.ph408 ], [ %218, %217 ]
-  %.0146405 = phi i32 [ %191, %.lr.ph408 ], [ %219, %217 ]
+  %.0146405 = phi i32 [ %.lcssa392, %.lr.ph408 ], [ %219, %217 ]
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) %14)
           to label %198 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2557,7 +2560,7 @@ define hidden noundef zeroext i1 @_ZN2cv8tracking4impl14TrackerKCFImpl6updateERK
   %277 = ashr exact i64 %276, 3
   %278 = sub nsw i64 %271, %277
   %279 = icmp ugt i64 %278, %265
-  br i1 %279, label %280, label %._crit_edge413, !llvm.loop !26
+  br i1 %279, label %280, label %._crit_edge413.loopexit, !llvm.loop !26
 
 280:                                              ; preds = %.lr.ph412, %263
   %281 = phi i64 [ 0, %.lr.ph412 ], [ %265, %263 ]
@@ -2600,15 +2603,18 @@ define hidden noundef zeroext i1 @_ZN2cv8tracking4impl14TrackerKCFImpl6updateERK
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #25
   br label %.loopexit.split-lp
 
-._crit_edge413:                                   ; preds = %263, %241
-  %300 = phi ptr [ %253, %241 ], [ %273, %263 ]
-  %301 = phi ptr [ %252, %241 ], [ %272, %263 ]
-  %.lcssa380 = phi i64 [ 0, %241 ], [ %278, %263 ]
-  %.not447 = icmp eq ptr %301, %300
+._crit_edge413.loopexit:                          ; preds = %263
+  %300 = trunc i64 %278 to i32
+  br label %._crit_edge413
+
+._crit_edge413:                                   ; preds = %._crit_edge413.loopexit, %241
+  %301 = phi ptr [ %253, %241 ], [ %273, %._crit_edge413.loopexit ]
+  %302 = phi ptr [ %252, %241 ], [ %272, %._crit_edge413.loopexit ]
+  %.lcssa380 = phi i32 [ 0, %241 ], [ %300, %._crit_edge413.loopexit ]
+  %.not447 = icmp eq ptr %302, %301
   br i1 %.not447, label %._crit_edge419, label %.lr.ph418
 
 .lr.ph418:                                        ; preds = %._crit_edge413
-  %302 = trunc i64 %.lcssa380 to i32
   %303 = getelementptr inbounds i8, ptr %0, i64 80
   %304 = getelementptr inbounds i8, ptr %0, i64 88
   %305 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2618,7 +2624,7 @@ define hidden noundef zeroext i1 @_ZN2cv8tracking4impl14TrackerKCFImpl6updateERK
 307:                                              ; preds = %.lr.ph418, %328
   %308 = phi i64 [ 0, %.lr.ph418 ], [ %331, %328 ]
   %.0148416 = phi i32 [ 0, %.lr.ph418 ], [ %329, %328 ]
-  %.0151415 = phi i32 [ %302, %.lr.ph418 ], [ %330, %328 ]
+  %.0151415 = phi i32 [ %.lcssa380, %.lr.ph418 ], [ %330, %328 ]
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(96) %14)
           to label %309 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -3226,7 +3232,7 @@ _ZN2cv4Mat_INS_3VecIfLi2EEEEC2Eii.exit:           ; preds = %450
   %599 = ashr exact i64 %598, 3
   %600 = sub nsw i64 %593, %599
   %601 = icmp ugt i64 %600, %587
-  br i1 %601, label %602, label %._crit_edge423, !llvm.loop !28
+  br i1 %601, label %602, label %._crit_edge423.loopexit, !llvm.loop !28
 
 602:                                              ; preds = %.lr.ph422, %585
   %603 = phi i64 [ 0, %.lr.ph422 ], [ %587, %585 ]
@@ -3269,22 +3275,25 @@ _ZN2cv4Mat_INS_3VecIfLi2EEEEC2Eii.exit:           ; preds = %450
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %44) #25
   br label %.loopexit.split-lp
 
-._crit_edge423:                                   ; preds = %585, %543
-  %622 = phi ptr [ %578, %543 ], [ %595, %585 ]
-  %623 = phi ptr [ %577, %543 ], [ %594, %585 ]
-  %.lcssa368 = phi i64 [ 0, %543 ], [ %600, %585 ]
-  %.not449 = icmp eq ptr %623, %622
+._crit_edge423.loopexit:                          ; preds = %585
+  %622 = trunc i64 %600 to i32
+  br label %._crit_edge423
+
+._crit_edge423:                                   ; preds = %._crit_edge423.loopexit, %543
+  %623 = phi ptr [ %578, %543 ], [ %595, %._crit_edge423.loopexit ]
+  %624 = phi ptr [ %577, %543 ], [ %594, %._crit_edge423.loopexit ]
+  %.lcssa368 = phi i32 [ 0, %543 ], [ %622, %._crit_edge423.loopexit ]
+  %.not449 = icmp eq ptr %624, %623
   br i1 %.not449, label %._crit_edge429, label %.lr.ph428
 
 .lr.ph428:                                        ; preds = %._crit_edge423
-  %624 = trunc i64 %.lcssa368 to i32
   %625 = getelementptr inbounds i8, ptr %0, i64 3064
   br label %626
 
 626:                                              ; preds = %.lr.ph428, %647
   %627 = phi i64 [ 0, %.lr.ph428 ], [ %650, %647 ]
   %.0154426 = phi i32 [ 0, %.lr.ph428 ], [ %648, %647 ]
-  %.0155425 = phi i32 [ %624, %.lr.ph428 ], [ %649, %647 ]
+  %.0155425 = phi i32 [ %.lcssa368, %.lr.ph428 ], [ %649, %647 ]
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %45, ptr noundef nonnull align 8 dereferenceable(96) %14)
           to label %628 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -3409,7 +3418,7 @@ _ZN2cv4Mat_INS_3VecIfLi2EEEEC2Eii.exit:           ; preds = %450
   %704 = ashr exact i64 %703, 3
   %705 = sub nsw i64 %698, %704
   %706 = icmp ugt i64 %705, %692
-  br i1 %706, label %707, label %._crit_edge433, !llvm.loop !30
+  br i1 %706, label %707, label %._crit_edge433.loopexit, !llvm.loop !30
 
 707:                                              ; preds = %.lr.ph432, %690
   %708 = phi i64 [ 0, %.lr.ph432 ], [ %692, %690 ]
@@ -3452,21 +3461,24 @@ _ZN2cv4Mat_INS_3VecIfLi2EEEEC2Eii.exit:           ; preds = %450
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %48) #25
   br label %.loopexit.split-lp
 
-._crit_edge433:                                   ; preds = %690, %671
-  %727 = phi ptr [ %683, %671 ], [ %700, %690 ]
-  %728 = phi ptr [ %682, %671 ], [ %699, %690 ]
-  %.lcssa = phi i64 [ 0, %671 ], [ %705, %690 ]
-  %.not451 = icmp eq ptr %728, %727
+._crit_edge433.loopexit:                          ; preds = %690
+  %727 = trunc i64 %705 to i32
+  br label %._crit_edge433
+
+._crit_edge433:                                   ; preds = %._crit_edge433.loopexit, %671
+  %728 = phi ptr [ %683, %671 ], [ %700, %._crit_edge433.loopexit ]
+  %729 = phi ptr [ %682, %671 ], [ %699, %._crit_edge433.loopexit ]
+  %.lcssa = phi i32 [ 0, %671 ], [ %727, %._crit_edge433.loopexit ]
+  %.not451 = icmp eq ptr %729, %728
   br i1 %.not451, label %._crit_edge439, label %.lr.ph438
 
 .lr.ph438:                                        ; preds = %._crit_edge433
-  %729 = trunc i64 %.lcssa to i32
   %730 = getelementptr inbounds i8, ptr %0, i64 3040
   br label %731
 
 731:                                              ; preds = %.lr.ph438, %752
   %732 = phi i64 [ 0, %.lr.ph438 ], [ %755, %752 ]
-  %.0149436 = phi i32 [ %729, %.lr.ph438 ], [ %754, %752 ]
+  %.0149436 = phi i32 [ %.lcssa, %.lr.ph438 ], [ %754, %752 ]
   %.0150435 = phi i32 [ 0, %.lr.ph438 ], [ %753, %752 ]
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %49, ptr noundef nonnull align 8 dereferenceable(96) %14)
           to label %733 unwind label %.loopexit329

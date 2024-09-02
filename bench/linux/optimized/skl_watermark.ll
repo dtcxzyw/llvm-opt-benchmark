@@ -2900,7 +2900,7 @@ define dso_local void @skl_watermark_debugfs_register(ptr noundef %0) local_unna
 declare dso_local ptr @debugfs_create_file(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @skl_watermark_max_latency(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 65540) i32 @skl_watermark_max_latency(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7024
   %3 = load i8, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 6918
@@ -5504,27 +5504,27 @@ mbus_ddb_offset.exit:                             ; preds = %629, %662, %665
   %1624 = load i64, ptr %1623, align 4
   %1625 = and i64 %1624, 8
   %1626 = icmp eq i64 %1625, 0
-  br i1 %1626, label %1632, label %1629
+  br i1 %1626, label %1633, label %1629
 
 1627:                                             ; preds = %1616
   %1628 = icmp eq i16 %1619, 12
-  br i1 %1628, label %1629, label %1632
+  br i1 %1628, label %1629, label %1633
 
 1629:                                             ; preds = %1627, %1621
   %1630 = load i8, ptr %1608, align 8
   %1631 = icmp eq i8 %1630, 0
-  br label %1632
+  %1632 = zext i1 %1631 to i8
+  br label %1633
 
-1632:                                             ; preds = %1629, %1627, %1621
-  %1633 = phi i1 [ false, %1627 ], [ false, %1621 ], [ %1631, %1629 ]
-  %1634 = getelementptr inbounds i8, ptr %1618, i64 4022
-  %1635 = zext i1 %1633 to i8
-  store i8 %1635, ptr %1634, align 2
+1633:                                             ; preds = %1629, %1627, %1621
+  %1634 = phi i8 [ 0, %1627 ], [ 0, %1621 ], [ %1632, %1629 ]
+  %1635 = getelementptr inbounds i8, ptr %1618, i64 4022
+  store i8 %1634, ptr %1635, align 2
   %.pre331 = load ptr, ptr %7, align 8
   br label %1636
 
-1636:                                             ; preds = %1632, %1609
-  %1637 = phi ptr [ %.pre331, %1632 ], [ %1610, %1609 ]
+1636:                                             ; preds = %1633, %1609
+  %1637 = phi ptr [ %.pre331, %1633 ], [ %1610, %1609 ]
   %1638 = add nuw nsw i64 %1611, 1
   %1639 = getelementptr inbounds i8, ptr %1637, i64 728
   %1640 = load i32, ptr %1639, align 8
@@ -7116,7 +7116,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare dso_local zeroext i1 @intel_wm_plane_visible(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @skl_build_plane_wm_single(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.skl_wm_params, align 4
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8

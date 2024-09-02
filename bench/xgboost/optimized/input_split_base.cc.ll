@@ -3260,7 +3260,7 @@ define void @_ZN4dmlc2io14InputSplitBase13ConvertToURIsERKNSt7__cxx1112basic_str
 273:                                              ; preds = %270
   %274 = icmp ult i64 %252, 16
   call void @llvm.assume(i1 %274)
-  br label %280
+  br label %281
 
 275:                                              ; preds = %270
   %276 = load i64, ptr %46, align 8, !tbaa !28
@@ -3272,11 +3272,11 @@ define void @_ZN4dmlc2io14InputSplitBase13ConvertToURIsERKNSt7__cxx1112basic_str
 
 ._crit_edge:                                      ; preds = %275
   %.pre = load i64, ptr %45, align 8, !tbaa !29
-  br label %280
+  %280 = icmp ult i64 %.pre, 16
+  br label %281
 
-280:                                              ; preds = %._crit_edge, %273
-  %281 = phi i64 [ %.pre, %._crit_edge ], [ 0, %273 ]
-  %282 = icmp ult i64 %281, 16
+281:                                              ; preds = %._crit_edge, %273
+  %282 = phi i1 [ %280, %._crit_edge ], [ true, %273 ]
   call void @llvm.assume(i1 %282)
   br label %286
 
@@ -3286,7 +3286,7 @@ define void @_ZN4dmlc2io14InputSplitBase13ConvertToURIsERKNSt7__cxx1112basic_str
   call void @_ZdlPvm(ptr noundef %278, i64 noundef %285) #34
   br label %286
 
-286:                                              ; preds = %283, %280
+286:                                              ; preds = %283, %281
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #15
   %287 = load ptr, ptr %15, align 8, !tbaa !27
   %288 = icmp eq ptr %287, %42
@@ -14408,11 +14408,14 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail9_CompilerINSt7__cxx1112re
   %420 = extractvalue { i32, i1 } %416, 0
   %421 = getelementptr inbounds i8, ptr %408, i64 1
   %422 = icmp eq ptr %421, %402
-  br i1 %422, label %_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit, label %406
+  br i1 %422, label %_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit.loopexit, label %406
 
-_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit: ; preds = %419, %399
-  %423 = phi i32 [ 0, %399 ], [ %420, %419 ]
-  %424 = sext i32 %423 to i64
+_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit.loopexit: ; preds = %419
+  %423 = sext i32 %420 to i64
+  br label %_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit
+
+_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit: ; preds = %_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit.loopexit, %399
+  %424 = phi i64 [ 0, %399 ], [ %423, %_ZNSt8__detail9_CompilerINSt7__cxx1112regex_traitsIcEEE16_M_cur_int_valueEi.exit.loopexit ]
   %425 = sub nsw i64 %424, %372
   %426 = load i32, ptr %16, align 8, !tbaa !221
   br label %427

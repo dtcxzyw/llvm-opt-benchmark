@@ -3420,11 +3420,15 @@ switch.lookup:                                    ; preds = %163
   store i8 %324, ptr %325, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph, %315
+._crit_edge.loopexit:                             ; preds = %.lr.ph
   %326 = zext i32 %.0423525 to i64
-  %327 = getelementptr i8, ptr %321, i64 %326
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %315, %._crit_edge.loopexit
+  %.0421.lcssa = phi i64 [ %326, %._crit_edge.loopexit ], [ 0, %315 ]
+  %327 = getelementptr i8, ptr %321, i64 %.0421.lcssa
   store i8 0, ptr %327, align 1
   %328 = load i32, ptr %237, align 4
   switch i32 %328, label %346 [

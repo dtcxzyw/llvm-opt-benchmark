@@ -78,7 +78,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [35 x i8] c"java/awt/image/ComponentColorModel\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @awt_parseImage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @awt_parseImage(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 

@@ -293,13 +293,13 @@ for.body.i.i67:                                   ; preds = %for.body.i.i67, %ca
 invoke.cont25:                                    ; preds = %for.body.i.i67
   %mpEnd.i7.i = getelementptr inbounds i8, ptr %toVector, i64 8
   store ptr %add.ptr.i.i, ptr %mpEnd.i7.i, align 8
+  %18 = add nsw i64 %15, 2
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont25, %_ZN10TestObjectD2Ev.exit
-  %18 = phi i64 [ %inc.i.i.i, %invoke.cont25 ], [ %dec.i, %_ZN10TestObjectD2Ev.exit ]
+  %inc.i = phi i64 [ %18, %invoke.cont25 ], [ %24, %_ZN10TestObjectD2Ev.exit ]
   %i.01035 = phi i64 [ 0, %invoke.cont25 ], [ %inc, %_ZN10TestObjectD2Ev.exit ]
   %conv28 = trunc nuw i64 %i.01035 to i32
-  %inc.i = add nsw i64 %18, 1
   store i64 %inc.i, ptr @_ZN10TestObject8sTOCountE, align 8
   %19 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i = add nsw i64 %19, 1

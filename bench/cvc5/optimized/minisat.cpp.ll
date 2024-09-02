@@ -850,7 +850,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i8 @_ZN4cvc58internal4prop16MinisatSatSolver14toMinisatlboolENS1_8SatValueE(i32 noundef %val) local_unnamed_addr #11 align 2 {
+define hidden noundef range(i8 0, 3) i8 @_ZN4cvc58internal4prop16MinisatSatSolver14toMinisatlboolENS1_8SatValueE(i32 noundef %val) local_unnamed_addr #11 align 2 {
 entry:
   %switch.selectcmp = icmp eq i32 %val, 0
   %switch.select = select i1 %switch.selectcmp, i8 2, i8 1

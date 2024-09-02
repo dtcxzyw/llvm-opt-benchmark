@@ -976,7 +976,7 @@ proto_item_set_generated.exit:                    ; preds = %38, %35, %30, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_iso14443_cmd_type_wupb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 16) i32 @dissect_iso14443_cmd_type_wupb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #3
   %6 = ptrtoint ptr %3 to i64
   %7 = trunc i64 %6 to i32
@@ -1191,7 +1191,7 @@ define internal range(i32 2, 5) i32 @dissect_iso14443_cmd_type_hlta(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_iso14443_cmd_type_uid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 11) i32 @dissect_iso14443_cmd_type_uid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i32
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #3
@@ -1311,7 +1311,7 @@ dissect_iso14443_uid_part.exit60:                 ; preds = %58, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_iso14443_cmd_type_ats(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 258) i32 @dissect_iso14443_cmd_type_ats(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i32
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #3
@@ -1698,7 +1698,7 @@ dissect_iso14443_attrib.exit:                     ; preds = %107, %79, %76, %4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_iso14443_cmd_type_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 1, 261) i32 @dissect_iso14443_cmd_type_block(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i32
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #3

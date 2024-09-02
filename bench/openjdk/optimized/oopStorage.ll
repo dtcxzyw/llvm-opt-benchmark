@@ -494,7 +494,7 @@ define hidden noundef zeroext i1 @_ZNK10OopStorage5Block8is_emptyEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZNK10OopStorage5Block17bitmask_for_entryEPKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 1, -9223372036854775807) i64 @_ZNK10OopStorage5Block17bitmask_for_entryEPKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
@@ -573,7 +573,7 @@ define hidden void @_ZN10OopStorage5Block20atomic_add_allocatedEm(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10OopStorage5Block8allocateEv(ptr noundef nonnull align 8 dereferenceable(576) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull ptr @_ZN10OopStorage5Block8allocateEv(ptr noundef nonnull align 8 dereferenceable(576) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 512
   %3 = load volatile i64, ptr %2, align 8
   %4 = xor i64 %3, -1
@@ -911,7 +911,7 @@ define hidden noundef ptr @_ZNK10OopStorage4nameEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN10OopStorage8allocateEPPP7oopDescm(ptr noundef nonnull align 8 dereferenceable(126) %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i64 0, 65) i64 @_ZN10OopStorage8allocateEPPP7oopDescm(ptr noundef nonnull align 8 dereferenceable(126) %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %5, null
@@ -2628,7 +2628,7 @@ _ZN10OopStorage15WithActiveArrayD2Ev.exit:        ; preds = %_ZN10OopStorage15Wi
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext %0) local_unnamed_addr #12 align 2 {
+define hidden noundef range(i32 1, 0) i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext %0) local_unnamed_addr #12 align 2 {
   %2 = load i32, ptr @ConcGCThreads, align 4
   %3 = load i32, ptr @ParallelGCThreads, align 4
   %4 = select i1 %0, i32 %2, i32 %3

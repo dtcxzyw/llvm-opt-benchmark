@@ -2732,15 +2732,18 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   %wide.trip.count = zext nneg i32 %.sroa.speculated to i64
   br label %while.body
 
-while.cond65.preheader:                           ; preds = %invoke.cont59, %while.cond.preheader
-  %nextCompBuffer.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %.sroa.speculated, %invoke.cont59 ]
-  %dxComp.0.lcssa = phi i32 [ %spec.select175, %while.cond.preheader ], [ %dxComp.1, %invoke.cont59 ]
-  %dyComp.0.lcssa = phi i32 [ %dyStart.0.sroa.speculated, %while.cond.preheader ], [ %dyComp.1, %invoke.cont59 ]
+while.cond65.preheader.loopexit:                  ; preds = %invoke.cont59
+  %20 = zext nneg i32 %.sroa.speculated to i64
+  br label %while.cond65.preheader
+
+while.cond65.preheader:                           ; preds = %while.cond65.preheader.loopexit, %while.cond.preheader
+  %nextCompBuffer.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %20, %while.cond65.preheader.loopexit ]
+  %dxComp.0.lcssa = phi i32 [ %spec.select175, %while.cond.preheader ], [ %dxComp.1, %while.cond65.preheader.loopexit ]
+  %dyComp.0.lcssa = phi i32 [ %dyStart.0.sroa.speculated, %while.cond.preheader ], [ %dyComp.1, %while.cond65.preheader.loopexit ]
   %cmp66218 = icmp sgt i32 %mul, 0
   br i1 %cmp66218, label %while.body67.preheader, label %while.end98
 
 while.body67.preheader:                           ; preds = %while.cond65.preheader
-  %20 = zext nneg i32 %nextCompBuffer.0.lcssa to i64
   %21 = zext nneg i32 %mul to i64
   %wide.trip.count275 = zext nneg i32 %mul to i64
   br label %while.body67
@@ -2806,7 +2809,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
   %add63 = select i1 %cmp61.not, i32 0, i32 %spec.select
   %dyComp.1 = add nsw i32 %add63, %dyComp.0215
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %while.cond65.preheader, label %while.body, !llvm.loop !22
+  br i1 %exitcond.not, label %while.cond65.preheader.loopexit, label %while.body, !llvm.loop !22
 
 lpad52.loopexit:                                  ; preds = %while.body.i, %delete.end.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2844,7 +2847,7 @@ lpad56.body:                                      ; preds = %lpad.i, %lpad56
   br label %ehcleanup99
 
 while.body67:                                     ; preds = %while.body67.preheader, %if.end85
-  %indvars.iv270 = phi i64 [ %20, %while.body67.preheader ], [ %indvars.iv.next271, %if.end85 ]
+  %indvars.iv270 = phi i64 [ %nextCompBuffer.0.lcssa, %while.body67.preheader ], [ %indvars.iv.next271, %if.end85 ]
   %indvars.iv268 = phi i64 [ 0, %while.body67.preheader ], [ %indvars.iv.next269, %if.end85 ]
   %dyWrite.0229 = phi i32 [ %dyStart.0.sroa.speculated, %while.body67.preheader ], [ %dyWrite.1, %if.end85 ]
   %dxWrite.0223 = phi i32 [ %spec.select175, %while.body67.preheader ], [ %dxWrite.1, %if.end85 ]

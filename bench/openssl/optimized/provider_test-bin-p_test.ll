@@ -320,20 +320,20 @@ land.lhs.true65:                                  ; preds = %land.lhs.true61
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end37.thread, %land.lhs.true65, %if.then58, %land.lhs.true61, %land.lhs.true50, %land.lhs.true46, %land.lhs.true42, %land.lhs.true
-  %ok.138 = phi i32 [ 1, %land.lhs.true61 ], [ 1, %if.then58 ], [ 1, %land.lhs.true50 ], [ 1, %land.lhs.true46 ], [ 1, %land.lhs.true42 ], [ 1, %land.lhs.true ], [ 1, %land.lhs.true65 ], [ 0, %if.end37.thread ]
+  %19 = phi i1 [ false, %land.lhs.true61 ], [ false, %if.then58 ], [ false, %land.lhs.true50 ], [ false, %land.lhs.true46 ], [ false, %land.lhs.true42 ], [ false, %land.lhs.true ], [ false, %land.lhs.true65 ], [ true, %if.end37.thread ]
   %digestsuccess.0 = phi i32 [ 0, %land.lhs.true61 ], [ 0, %if.then58 ], [ 0, %land.lhs.true50 ], [ 0, %land.lhs.true46 ], [ 0, %land.lhs.true42 ], [ 0, %land.lhs.true ], [ %spec.select, %land.lhs.true65 ], [ 0, %if.end37.thread ]
   call void @EVP_MD_CTX_free(ptr noundef %call29) #12
   call void @EVP_MD_free(ptr noundef %call28) #12
   %call72 = call i32 @OSSL_PROVIDER_unload(ptr noundef %call31) #12
   %data_size73 = getelementptr inbounds i8, ptr %p.040, i64 24
-  %19 = load i64, ptr %data_size73, align 8
-  %cmp74 = icmp ugt i64 %19, 3
+  %20 = load i64, ptr %data_size73, align 8
+  %cmp74 = icmp ugt i64 %20, 3
   br i1 %cmp74, label %if.then75, label %for.end
 
 if.then75:                                        ; preds = %if.end71
   %data76 = getelementptr inbounds i8, ptr %p.040, i64 16
-  %20 = load ptr, ptr %data76, align 8
-  store i32 %digestsuccess.0, ptr %20, align 4
+  %21 = load ptr, ptr %data76, align 8
+  store i32 %digestsuccess.0, ptr %21, align 4
   %return_size77 = getelementptr inbounds i8, ptr %p.040, i64 32
   store i64 4, ptr %return_size77, align 8
   br label %for.inc
@@ -344,26 +344,25 @@ if.else80:                                        ; preds = %if.else23
   br i1 %cmp83, label %if.then84, label %for.inc
 
 if.then84:                                        ; preds = %if.else80
-  %21 = load ptr, ptr %libctx85, align 8
-  %call86 = call i32 @EVP_set_default_properties(ptr noundef %21, ptr noundef null) #12
+  %22 = load ptr, ptr %libctx85, align 8
+  %call86 = call i32 @EVP_set_default_properties(ptr noundef %22, ptr noundef null) #12
   %data_size87 = getelementptr inbounds i8, ptr %p.040, i64 24
-  %22 = load i64, ptr %data_size87, align 8
-  %cmp88 = icmp ugt i64 %22, 3
+  %23 = load i64, ptr %data_size87, align 8
+  %cmp88 = icmp ugt i64 %23, 3
   br i1 %cmp88, label %if.then89, label %for.end
 
 if.then89:                                        ; preds = %if.then84
   %data90 = getelementptr inbounds i8, ptr %p.040, i64 16
-  %23 = load ptr, ptr %data90, align 8
-  store i32 %call86, ptr %23, align 4
+  %24 = load ptr, ptr %data90, align 8
+  store i32 %call86, ptr %24, align 4
   %return_size91 = getelementptr inbounds i8, ptr %p.040, i64 32
   store i64 4, ptr %return_size91, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then18, %if.else80, %if.then89, %if.then75
-  %ok.2 = phi i32 [ 1, %if.then18 ], [ %ok.138, %if.then75 ], [ 1, %if.then89 ], [ 1, %if.else80 ]
+  %ok.2 = phi i1 [ false, %if.then18 ], [ %19, %if.then75 ], [ false, %if.then89 ], [ false, %if.else80 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %p.040, i64 40
-  %tobool.not = icmp eq i32 %ok.2, 0
-  br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !7
+  br i1 %ok.2, label %for.end, label %land.rhs, !llvm.loop !7
 
 for.end:                                          ; preds = %if.then84, %if.end71, %if.end14, %for.inc, %land.rhs
   %ok.0.lcssa = phi i32 [ 0, %for.inc ], [ 1, %land.rhs ], [ 0, %if.end14 ], [ 0, %if.end71 ], [ 0, %if.then84 ]

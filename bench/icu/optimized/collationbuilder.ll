@@ -1049,12 +1049,12 @@ cond.true.i:                                      ; preds = %cond.true.i.lr.ph, 
   %3 = load ptr, ptr %elements.i56, align 8
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx.i, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds i64, ptr %1, i64 %idxprom
-  %5 = load i64, ptr %arrayidx, align 8
-  %shr.i = lshr i64 %5, 32
+  %5 = sext i32 %4 to i64
+  %arrayidx = getelementptr inbounds i64, ptr %1, i64 %5
+  %6 = load i64, ptr %arrayidx, align 8
+  %shr.i = lshr i64 %6, 32
   %conv.i57 = trunc nuw i64 %shr.i to i32
-  %cmp7 = icmp ult i64 %5, 4294967296
+  %cmp7 = icmp ult i64 %6, 4294967296
   %cond = select i1 %cmp7, i32 0, i32 1280
   br i1 %cmp7, label %cond.end, label %cond.false
 
@@ -1064,7 +1064,7 @@ cond.false:                                       ; preds = %cond.true.i
 
 cond.end:                                         ; preds = %cond.true.i, %cond.false
   %cond10 = phi i32 [ %call9, %cond.false ], [ 0, %cond.true.i ]
-  %conv.i58 = trunc i64 %5 to i32
+  %conv.i58 = trunc i64 %6 to i32
   %shr.i59 = lshr i32 %conv.i58, 8
   %and.i = and i32 %shr.i59, 1048575
   %cmp12.not157 = icmp eq i32 %and.i, 0
@@ -1081,8 +1081,9 @@ while.body:                                       ; preds = %cond.end, %if.end13
   %pIsTailored.0158 = phi i8 [ %pIsTailored.1, %if.end133 ], [ 0, %cond.end ]
   %idxprom13 = zext nneg i32 %nextIndex.0162 to i64
   %arrayidx14 = getelementptr inbounds i64, ptr %1, i64 %idxprom13
-  %6 = load i64, ptr %arrayidx14, align 8
-  %conv.i60 = trunc i64 %6 to i32
+  %7 = load i64, ptr %arrayidx14, align 8
+  %.fr = freeze i64 %7
+  %conv.i60 = trunc i64 %.fr to i32
   %shr.i61 = lshr i32 %conv.i60, 8
   %and.i62 = and i32 %shr.i61, 1048575
   %and.i64 = and i32 %conv.i60, 3
@@ -1102,8 +1103,8 @@ if.end21:                                         ; preds = %if.then18
   br label %if.end126
 
 if.then23:                                        ; preds = %while.body
-  %7 = and i64 %6, 8
-  %tobool25.not = icmp eq i64 %7, 0
+  %8 = and i64 %.fr, 8
+  %tobool25.not = icmp eq i64 %8, 0
   br i1 %tobool25.not, label %if.else58, label %if.then26
 
 if.then26:                                        ; preds = %if.then23
@@ -1119,20 +1120,20 @@ if.end.i:                                         ; preds = %if.then28, %if.end1
   %count.013.i = phi i32 [ %count.1.i, %if.end10.i ], [ 0, %if.then28 ]
   %idxprom.i66 = zext nneg i32 %i.addr.014.i to i64
   %arrayidx.i67 = getelementptr inbounds i64, ptr %1, i64 %idxprom.i66
-  %8 = load i64, ptr %arrayidx.i67, align 8
-  %conv.i.i = trunc i64 %8 to i32
+  %9 = load i64, ptr %arrayidx.i67, align 8
+  %conv.i.i = trunc i64 %9 to i32
   %and.i.i = and i32 %conv.i.i, 3
   %cmp1.i = icmp ult i32 %and.i.i, 2
-  br i1 %cmp1.i, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit, label %if.end3.i
+  br i1 %cmp1.i, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit.loopexit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %cmp5.i68 = icmp eq i32 %and.i.i, 2
   br i1 %cmp5.i68, label %if.then6.i, label %if.end10.i
 
 if.then6.i:                                       ; preds = %if.end3.i
-  %9 = and i64 %8, 8
-  %tobool.not.i = icmp eq i64 %9, 0
-  br i1 %tobool.not.i, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit, label %if.then8.i
+  %10 = and i64 %9, 8
+  %tobool.not.i = icmp eq i64 %10, 0
+  br i1 %tobool.not.i, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit.loopexit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then6.i
   %inc.i = add nsw i32 %count.013.i, 1
@@ -1143,26 +1144,30 @@ if.end10.i:                                       ; preds = %if.then8.i, %if.end
   %shr.i.i = lshr i32 %conv.i.i, 8
   %and.i11.i = and i32 %shr.i.i, 1048575
   %cmp.i69 = icmp eq i32 %and.i11.i, 0
-  br i1 %cmp.i69, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit, label %if.end.i, !llvm.loop !4
+  br i1 %cmp.i69, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit.loopexit, label %if.end.i, !llvm.loop !4
 
-_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit: ; preds = %if.end.i, %if.then6.i, %if.end10.i, %if.then28
-  %count.0.lcssa.i = phi i32 [ 0, %if.then28 ], [ %count.1.i, %if.end10.i ], [ %count.013.i, %if.end.i ], [ %count.013.i, %if.then6.i ]
-  %add = add nsw i32 %count.0.lcssa.i, 1
+_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit.loopexit: ; preds = %if.end10.i, %if.then6.i, %if.end.i
+  %count.0.lcssa.i.ph = phi i32 [ %count.013.i, %if.then6.i ], [ %count.013.i, %if.end.i ], [ %count.1.i, %if.end10.i ]
+  %11 = add nsw i32 %count.0.lcssa.i.ph, 1
+  br label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit
+
+_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit: ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit.loopexit, %if.then28
+  %count.0.lcssa.i = phi i32 [ 1, %if.then28 ], [ %11, %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit.loopexit ]
   %cmp30 = icmp eq i32 %t.0163, 0
   br i1 %cmp30, label %if.then31, label %if.else36
 
 if.then31:                                        ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit
-  %10 = load ptr, ptr %rootElements, align 8
-  %arrayidx.i70 = getelementptr inbounds i8, ptr %10, i64 16
-  %11 = load i32, ptr %arrayidx.i70, align 4
-  %shl.i = shl i32 %11, 8
+  %12 = load ptr, ptr %rootElements, align 8
+  %arrayidx.i70 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = load i32, ptr %arrayidx.i70, align 4
+  %shl.i = shl i32 %13, 8
   %and.i71 = and i32 %shl.i, 65280
   %sub = add nsw i32 %and.i71, -256
-  %12 = load i32, ptr %10, align 4
-  %idxprom.i72 = zext i32 %12 to i64
-  %arrayidx3.i = getelementptr inbounds i32, ptr %10, i64 %idxprom.i72
-  %13 = load i32, ptr %arrayidx3.i, align 4
-  %and = and i32 %13, 16191
+  %14 = load i32, ptr %12, align 4
+  %idxprom.i72 = zext i32 %14 to i64
+  %arrayidx3.i = getelementptr inbounds i32, ptr %12, i64 %idxprom.i72
+  %15 = load i32, ptr %arrayidx3.i, align 4
+  %and = and i32 %15, 16191
   br label %if.end50
 
 if.else36:                                        ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit
@@ -1180,10 +1185,10 @@ if.else42:                                        ; preds = %if.else36
   br i1 %cmp43, label %if.end50, label %if.else45
 
 if.else45:                                        ; preds = %if.else42
-  %14 = load ptr, ptr %rootElements, align 8
-  %arrayidx.i74 = getelementptr inbounds i8, ptr %14, i64 16
-  %15 = load i32, ptr %arrayidx.i74, align 4
-  %shl.i75 = shl i32 %15, 8
+  %16 = load ptr, ptr %rootElements, align 8
+  %arrayidx.i74 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = load i32, ptr %arrayidx.i74, align 4
+  %shl.i75 = shl i32 %17, 8
   %and.i76 = and i32 %shl.i75, 65280
   br label %if.end50
 
@@ -1191,7 +1196,7 @@ if.end50:                                         ; preds = %if.else42, %if.then
   %t.2 = phi i32 [ %sub, %if.then31 ], [ %t.0163, %if.else45 ], [ %t.0163, %if.then39 ], [ 256, %if.else42 ]
   %tLimit.0 = phi i32 [ %and, %if.then31 ], [ %and.i76, %if.else45 ], [ %call41, %if.then39 ], [ 1280, %if.else42 ]
   call void @_ZN6icu_7516CollationWeights15initForTertiaryEv(ptr noundef nonnull align 4 dereferenceable(164) %tertiaries)
-  %call51 = call noundef signext i8 @_ZN6icu_7516CollationWeights12allocWeightsEjji(ptr noundef nonnull align 4 dereferenceable(164) %tertiaries, i32 noundef %t.2, i32 noundef %tLimit.0, i32 noundef %add)
+  %call51 = call noundef signext i8 @_ZN6icu_7516CollationWeights12allocWeightsEjji(ptr noundef nonnull align 4 dereferenceable(164) %tertiaries, i32 noundef %t.2, i32 noundef %tLimit.0, i32 noundef %count.0.lcssa.i)
   %tobool52.not = icmp eq i8 %call51, 0
   br i1 %tobool52.not, label %for.end.sink.split, label %if.end56
 
@@ -1200,13 +1205,13 @@ if.end56:                                         ; preds = %if.end50, %if.then2
   br label %if.end126
 
 if.else58:                                        ; preds = %if.then23
-  %shr.i77 = lshr i64 %6, 48
+  %shr.i77 = lshr i64 %.fr, 48
   %conv.i78 = trunc nuw nsw i64 %shr.i77 to i32
   br label %if.end126
 
 if.then63:                                        ; preds = %while.body
-  %16 = and i64 %6, 8
-  %tobool65.not = icmp eq i64 %16, 0
+  %18 = and i64 %.fr, 8
+  %tobool65.not = icmp eq i64 %18, 0
   br i1 %tobool65.not, label %if.else104, label %if.then66
 
 if.then66:                                        ; preds = %if.then63
@@ -1222,18 +1227,18 @@ if.end.i81:                                       ; preds = %if.then68, %if.end1
   %count.013.i83 = phi i32 [ %count.1.i92, %if.end10.i91 ], [ 0, %if.then68 ]
   %idxprom.i84 = zext nneg i32 %i.addr.014.i82 to i64
   %arrayidx.i85 = getelementptr inbounds i64, ptr %1, i64 %idxprom.i84
-  %17 = load i64, ptr %arrayidx.i85, align 8
-  %conv.i.i86 = trunc i64 %17 to i32
+  %19 = load i64, ptr %arrayidx.i85, align 8
+  %conv.i.i86 = trunc i64 %19 to i32
   %and.i.i87 = and i32 %conv.i.i86, 3
   switch i32 %and.i.i87, label %if.end10.i91 [
-    i32 0, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101
+    i32 0, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101.loopexit
     i32 1, label %if.then6.i97
   ]
 
 if.then6.i97:                                     ; preds = %if.end.i81
-  %18 = and i64 %17, 8
-  %tobool.not.i98 = icmp eq i64 %18, 0
-  br i1 %tobool.not.i98, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101, label %if.then8.i99
+  %20 = and i64 %19, 8
+  %tobool.not.i98 = icmp eq i64 %20, 0
+  br i1 %tobool.not.i98, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101.loopexit, label %if.then8.i99
 
 if.then8.i99:                                     ; preds = %if.then6.i97
   %inc.i100 = add nsw i32 %count.013.i83, 1
@@ -1244,27 +1249,31 @@ if.end10.i91:                                     ; preds = %if.end.i81, %if.the
   %shr.i.i93 = lshr i32 %conv.i.i86, 8
   %and.i11.i94 = and i32 %shr.i.i93, 1048575
   %cmp.i95 = icmp eq i32 %and.i11.i94, 0
-  br i1 %cmp.i95, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101, label %if.end.i81, !llvm.loop !4
+  br i1 %cmp.i95, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101.loopexit, label %if.end.i81, !llvm.loop !4
 
-_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101: ; preds = %if.end.i81, %if.then6.i97, %if.end10.i91, %if.then68
-  %count.0.lcssa.i96 = phi i32 [ 0, %if.then68 ], [ %count.1.i92, %if.end10.i91 ], [ %count.013.i83, %if.end.i81 ], [ %count.013.i83, %if.then6.i97 ]
-  %add70 = add nsw i32 %count.0.lcssa.i96, 1
+_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101.loopexit: ; preds = %if.end10.i91, %if.then6.i97, %if.end.i81
+  %count.0.lcssa.i96.ph = phi i32 [ %count.013.i83, %if.then6.i97 ], [ %count.013.i83, %if.end.i81 ], [ %count.1.i92, %if.end10.i91 ]
+  %21 = add nsw i32 %count.0.lcssa.i96.ph, 1
+  br label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101
+
+_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101: ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101.loopexit, %if.then68
+  %count.0.lcssa.i96 = phi i32 [ 1, %if.then68 ], [ %21, %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101.loopexit ]
   %cmp71 = icmp eq i32 %s.0164, 0
   br i1 %cmp71, label %if.then72, label %if.else78
 
 if.then72:                                        ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101
-  %19 = load ptr, ptr %rootElements, align 8
-  %arrayidx.i102 = getelementptr inbounds i8, ptr %19, i64 16
-  %20 = load i32, ptr %arrayidx.i102, align 4
-  %shr.i103 = lshr i32 %20, 8
+  %22 = load ptr, ptr %rootElements, align 8
+  %arrayidx.i102 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = load i32, ptr %arrayidx.i102, align 4
+  %shr.i103 = lshr i32 %23, 8
   %and.i104 = and i32 %shr.i103, 65280
   %sub75 = add nsw i32 %and.i104, -256
-  %arrayidx.i105 = getelementptr inbounds i8, ptr %19, i64 4
-  %21 = load i32, ptr %arrayidx.i105, align 4
-  %idxprom.i106 = zext i32 %21 to i64
-  %arrayidx3.i107 = getelementptr inbounds i32, ptr %19, i64 %idxprom.i106
-  %22 = load i32, ptr %arrayidx3.i107, align 4
-  %shr = lshr i32 %22, 16
+  %arrayidx.i105 = getelementptr inbounds i8, ptr %22, i64 4
+  %24 = load i32, ptr %arrayidx.i105, align 4
+  %idxprom.i106 = zext i32 %24 to i64
+  %arrayidx3.i107 = getelementptr inbounds i32, ptr %22, i64 %idxprom.i106
+  %25 = load i32, ptr %arrayidx3.i107, align 4
+  %shr = lshr i32 %25, 16
   br label %if.end91
 
 if.else78:                                        ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit101
@@ -1280,10 +1289,10 @@ if.else83:                                        ; preds = %if.else78
   br i1 %cmp84, label %if.end96, label %if.else86
 
 if.else86:                                        ; preds = %if.else83
-  %23 = load ptr, ptr %rootElements, align 8
-  %arrayidx.i109 = getelementptr inbounds i8, ptr %23, i64 16
-  %24 = load i32, ptr %arrayidx.i109, align 4
-  %shr.i110 = lshr i32 %24, 8
+  %26 = load ptr, ptr %rootElements, align 8
+  %arrayidx.i109 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = load i32, ptr %arrayidx.i109, align 4
+  %shr.i110 = lshr i32 %27, 8
   %and.i111 = and i32 %shr.i110, 65280
   br label %if.end91
 
@@ -1294,10 +1303,10 @@ if.end91:                                         ; preds = %if.then80, %if.else
   br i1 %cmp92, label %if.then93, label %if.end96
 
 if.then93:                                        ; preds = %if.end91
-  %25 = load ptr, ptr %rootElements, align 8
-  %arrayidx.i112 = getelementptr inbounds i8, ptr %25, i64 16
-  %26 = load i32, ptr %arrayidx.i112, align 4
-  %shr.i113 = lshr i32 %26, 16
+  %28 = load ptr, ptr %rootElements, align 8
+  %arrayidx.i112 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = load i32, ptr %arrayidx.i112, align 4
+  %shr.i113 = lshr i32 %29, 16
   %and.i114 = and i32 %shr.i113, 65280
   br label %if.end96
 
@@ -1305,7 +1314,7 @@ if.end96:                                         ; preds = %if.else83, %if.then
   %sLimit.0146 = phi i32 [ %sLimit.0, %if.then93 ], [ %sLimit.0, %if.end91 ], [ 1280, %if.else83 ]
   %s.4 = phi i32 [ %and.i114, %if.then93 ], [ %s.3, %if.end91 ], [ 256, %if.else83 ]
   call void @_ZN6icu_7516CollationWeights16initForSecondaryEv(ptr noundef nonnull align 4 dereferenceable(164) %secondaries)
-  %call97 = call noundef signext i8 @_ZN6icu_7516CollationWeights12allocWeightsEjji(ptr noundef nonnull align 4 dereferenceable(164) %secondaries, i32 noundef %s.4, i32 noundef %sLimit.0146, i32 noundef %add70)
+  %call97 = call noundef signext i8 @_ZN6icu_7516CollationWeights12allocWeightsEjji(ptr noundef nonnull align 4 dereferenceable(164) %secondaries, i32 noundef %s.4, i32 noundef %sLimit.0146, i32 noundef %count.0.lcssa.i96)
   %tobool98.not = icmp eq i8 %call97, 0
   br i1 %tobool98.not, label %for.end.sink.split, label %if.end102
 
@@ -1314,7 +1323,7 @@ if.end102:                                        ; preds = %if.end96, %if.then6
   br label %if.end122
 
 if.else104:                                       ; preds = %if.then63
-  %shr.i115 = lshr i64 %6, 48
+  %shr.i115 = lshr i64 %.fr, 48
   %conv.i116 = trunc nuw nsw i64 %shr.i115 to i32
   br label %if.end122
 
@@ -1334,16 +1343,16 @@ if.end.i118:                                      ; preds = %if.then109, %if.end
   %count.013.i120 = phi i32 [ %count.1.i129, %if.end10.i128 ], [ 0, %if.then109 ]
   %idxprom.i121 = zext nneg i32 %i.addr.014.i119 to i64
   %arrayidx.i122 = getelementptr inbounds i64, ptr %1, i64 %idxprom.i121
-  %27 = load i64, ptr %arrayidx.i122, align 8
-  %conv.i.i123 = trunc i64 %27 to i32
+  %30 = load i64, ptr %arrayidx.i122, align 8
+  %conv.i.i123 = trunc i64 %30 to i32
   %and.i.i124 = and i32 %conv.i.i123, 3
   %cmp5.i127 = icmp eq i32 %and.i.i124, 0
   br i1 %cmp5.i127, label %if.then6.i134, label %if.end10.i128
 
 if.then6.i134:                                    ; preds = %if.end.i118
-  %28 = and i64 %27, 8
-  %tobool.not.i135 = icmp eq i64 %28, 0
-  br i1 %tobool.not.i135, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138, label %if.then8.i136
+  %31 = and i64 %30, 8
+  %tobool.not.i135 = icmp eq i64 %31, 0
+  br i1 %tobool.not.i135, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138.loopexit, label %if.then8.i136
 
 if.then8.i136:                                    ; preds = %if.then6.i134
   %inc.i137 = add nsw i32 %count.013.i120, 1
@@ -1354,21 +1363,25 @@ if.end10.i128:                                    ; preds = %if.then8.i136, %if.
   %shr.i.i130 = lshr i32 %conv.i.i123, 8
   %and.i11.i131 = and i32 %shr.i.i130, 1048575
   %cmp.i132 = icmp eq i32 %and.i11.i131, 0
-  br i1 %cmp.i132, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138, label %if.end.i118, !llvm.loop !4
+  br i1 %cmp.i132, label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138.loopexit, label %if.end.i118, !llvm.loop !4
 
-_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138: ; preds = %if.then6.i134, %if.end10.i128, %if.then109
-  %count.0.lcssa.i133 = phi i32 [ 0, %if.then109 ], [ %count.1.i129, %if.end10.i128 ], [ %count.013.i120, %if.then6.i134 ]
-  %add111 = add nsw i32 %count.0.lcssa.i133, 1
-  %29 = load ptr, ptr %baseData, align 8
+_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138.loopexit: ; preds = %if.end10.i128, %if.then6.i134
+  %count.0.lcssa.i133.ph = phi i32 [ %count.013.i120, %if.then6.i134 ], [ %count.1.i129, %if.end10.i128 ]
+  %32 = add nsw i32 %count.0.lcssa.i133.ph, 1
+  br label %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138
+
+_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138: ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138.loopexit, %if.then109
+  %count.0.lcssa.i133 = phi i32 [ 1, %if.then109 ], [ %32, %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138.loopexit ]
+  %33 = load ptr, ptr %baseData, align 8
   %shr.i139 = lshr i32 %p.0165, 24
-  %compressibleBytes.i.i = getelementptr inbounds i8, ptr %29, i64 72
-  %30 = load ptr, ptr %compressibleBytes.i.i, align 8
+  %compressibleBytes.i.i = getelementptr inbounds i8, ptr %33, i64 72
+  %34 = load ptr, ptr %compressibleBytes.i.i, align 8
   %idxprom.i.i = zext nneg i32 %shr.i139 to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %30, i64 %idxprom.i.i
-  %31 = load i8, ptr %arrayidx.i.i, align 1
-  %call114 = call noundef i32 @_ZNK6icu_7521CollationRootElements15getPrimaryAfterEjia(ptr noundef nonnull align 8 dereferenceable(12) %rootElements, i32 noundef %p.0165, i32 noundef %cond10, i8 noundef signext %31)
-  call void @_ZN6icu_7516CollationWeights14initForPrimaryEa(ptr noundef nonnull align 4 dereferenceable(164) %primaries, i8 noundef signext %31)
-  %call115 = call noundef signext i8 @_ZN6icu_7516CollationWeights12allocWeightsEjji(ptr noundef nonnull align 4 dereferenceable(164) %primaries, i32 noundef %p.0165, i32 noundef %call114, i32 noundef %add111)
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %34, i64 %idxprom.i.i
+  %35 = load i8, ptr %arrayidx.i.i, align 1
+  %call114 = call noundef i32 @_ZNK6icu_7521CollationRootElements15getPrimaryAfterEjia(ptr noundef nonnull align 8 dereferenceable(12) %rootElements, i32 noundef %p.0165, i32 noundef %cond10, i8 noundef signext %35)
+  call void @_ZN6icu_7516CollationWeights14initForPrimaryEa(ptr noundef nonnull align 4 dereferenceable(164) %primaries, i8 noundef signext %35)
+  %call115 = call noundef signext i8 @_ZN6icu_7516CollationWeights12allocWeightsEjji(ptr noundef nonnull align 4 dereferenceable(164) %primaries, i32 noundef %p.0165, i32 noundef %call114, i32 noundef %count.0.lcssa.i133)
   %tobool116.not = icmp eq i8 %call115, 0
   br i1 %tobool116.not, label %for.end.sink.split, label %if.end122.thread
 
@@ -1379,8 +1392,7 @@ if.end122.thread:                                 ; preds = %if.else107, %_ZN6ic
 if.end122:                                        ; preds = %if.end102, %if.else104
   %sIsTailored.4 = phi i8 [ 1, %if.end102 ], [ 0, %if.else104 ]
   %s.5 = phi i32 [ %call103, %if.end102 ], [ %conv.i116, %if.else104 ]
-  %s.5.fr = freeze i32 %s.5
-  %cmp123 = icmp eq i32 %s.5.fr, 0
+  %cmp123 = icmp eq i32 %s.5, 0
   %spec.select = select i1 %cmp123, i32 0, i32 1280
   br label %if.end126
 
@@ -1390,10 +1402,10 @@ if.end126:                                        ; preds = %if.end122, %if.end1
   %tIsTailored.1 = phi i8 [ %tIsTailored.0160, %if.end21 ], [ 1, %if.end56 ], [ 0, %if.else58 ], [ 0, %if.end122.thread ], [ 0, %if.end122 ]
   %q.1 = phi i32 [ %inc, %if.end21 ], [ 0, %if.end56 ], [ 0, %if.else58 ], [ 0, %if.end122.thread ], [ 0, %if.end122 ]
   %t.1 = phi i32 [ %t.0163, %if.end21 ], [ %call57, %if.end56 ], [ %conv.i78, %if.else58 ], [ 1280, %if.end122.thread ], [ %spec.select, %if.end122 ]
-  %s.1 = phi i32 [ %s.0164, %if.end21 ], [ %s.0164, %if.end56 ], [ %s.0164, %if.else58 ], [ 1280, %if.end122.thread ], [ %s.5.fr, %if.end122 ]
+  %s.1 = phi i32 [ %s.0164, %if.end21 ], [ %s.0164, %if.end56 ], [ %s.0164, %if.else58 ], [ 1280, %if.end122.thread ], [ %s.5, %if.end122 ]
   %p.1 = phi i32 [ %p.0165, %if.end21 ], [ %p.0165, %if.end56 ], [ %p.0165, %if.else58 ], [ %call121, %if.end122.thread ], [ %p.0165, %if.end122 ]
-  %32 = and i64 %6, 8
-  %tobool128.not = icmp eq i64 %32, 0
+  %36 = and i64 %.fr, 8
+  %tobool128.not = icmp eq i64 %36, 0
   br i1 %tobool128.not, label %if.end133, label %if.then129
 
 if.then129:                                       ; preds = %if.end126
@@ -1415,9 +1427,9 @@ if.end133:                                        ; preds = %if.then129, %if.end
 
 for.inc:                                          ; preds = %if.end133, %cond.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = load i32, ptr %count.i, align 8
-  %34 = sext i32 %33 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %34
+  %37 = load i32, ptr %count.i, align 8
+  %38 = sext i32 %37 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %38
   br i1 %cmp, label %cond.true.i, label %for.end, !llvm.loop !7
 
 for.end.sink.split:                               ; preds = %_ZN6icu_7516CollationBuilder18countTailoredNodesEPKlii.exit138, %if.end96, %if.end50, %if.then18
@@ -3819,7 +3831,7 @@ return:                                           ; preds = %if.then44, %lor.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6icu_7516CollationBuilder10ceStrengthEl(i64 noundef %ce) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 16) i32 @_ZN6icu_7516CollationBuilder10ceStrengthEl(i64 noundef %ce) local_unnamed_addr #6 align 2 {
 entry:
   %conv.i = trunc i64 %ce to i32
   %0 = add i32 %conv.i, -1174405120

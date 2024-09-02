@@ -729,7 +729,7 @@ MuxDeleteAllNamedData.exit.thread:                ; preds = %11, %11, %11, %8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @WebPMuxSetCanvasSize(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @WebPMuxSetCanvasSize(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %MuxDeleteAllNamedData.exit.thread, label %5
 
@@ -805,7 +805,7 @@ MuxDeleteAllNamedData.exit.thread:                ; preds = %14, %14, %14, %11, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @WebPMuxDeleteChunk(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @WebPMuxDeleteChunk(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

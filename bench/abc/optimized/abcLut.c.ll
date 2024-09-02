@@ -1324,17 +1324,17 @@ Extra_TruthAnd.exit252.i.i.us.us.us.us:           ; preds = %select.unfold.i249.
   br i1 %exitcond.not.i268.i.i, label %.critedge.loopexit.i.i.i, label %534, !llvm.loop !35
 
 .critedge.loopexit.i.i.i:                         ; preds = %534
-  %544 = add nuw nsw i32 %543, 1
+  %544 = shl nuw i32 %543, 12
+  %545 = add i32 %544, 4096
   br label %Abc_NodeGetLevel.exit.i.i
 
 Abc_NodeGetLevel.exit.i.i:                        ; preds = %.critedge.loopexit.i.i.i, %._crit_edge331.i.i
-  %.0.lcssa.i.i.i = phi i32 [ 1, %._crit_edge331.i.i ], [ %544, %.critedge.loopexit.i.i.i ]
-  %545 = getelementptr inbounds i8, ptr %518, i64 20
-  %546 = load i32, ptr %545, align 4
-  %547 = shl i32 %.0.lcssa.i.i.i, 12
-  %548 = and i32 %546, 4095
-  %549 = or disjoint i32 %548, %547
-  store i32 %549, ptr %545, align 4
+  %.0.lcssa.i.i.i = phi i32 [ 4096, %._crit_edge331.i.i ], [ %545, %.critedge.loopexit.i.i.i ]
+  %546 = getelementptr inbounds i8, ptr %518, i64 20
+  %547 = load i32, ptr %546, align 4
+  %548 = and i32 %547, 4095
+  %549 = or disjoint i32 %548, %.0.lcssa.i.i.i
+  store i32 %549, ptr %546, align 4
   %550 = getelementptr inbounds [6 x ptr], ptr %6, i64 0, i64 %indvars.iv411.i.i
   store ptr %518, ptr %550, align 8
   %indvars.iv.next412.i.i = add nuw nsw i64 %indvars.iv411.i.i, 1

@@ -270,7 +270,7 @@ if.then9:                                         ; preds = %if.then
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then9, %if.then16, %if.then38, %if.then50, %if.end53
-  %c.0.be = phi ptr [ %8, %if.then9 ], [ %11, %if.then16 ], [ %21, %if.then38 ], [ %35, %if.then50 ], [ %37, %if.end53 ]
+  %c.0.be = phi ptr [ %8, %if.then9 ], [ %11, %if.then16 ], [ %19, %if.then38 ], [ %33, %if.then50 ], [ %35, %if.end53 ]
   %tobool.not = icmp eq ptr %c.0.be, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !4
 
@@ -307,84 +307,84 @@ if.end22:                                         ; preds = %if.end19, %while.bo
 
 land.rhs:                                         ; preds = %if.end22
   %15 = load i32, ptr %5, align 8
-  %cmp24 = icmp ne i32 %15, 0
+  %cmp24.not = icmp ne i32 %15, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.end22
-  %16 = phi i1 [ false, %if.end22 ], [ %cmp24, %land.rhs ]
+  %conv32 = phi i1 [ false, %if.end22 ], [ %cmp24.not, %land.rhs ]
   %m_flags.i26 = getelementptr inbounds i8, ptr %6, i64 4
-  %17 = load i16, ptr %m_flags.i26, align 4
-  %18 = and i16 %17, 2
-  %cmp.i27.not = icmp eq i16 %18, 0
+  %16 = load i16, ptr %m_flags.i26, align 4
+  %17 = and i16 %16, 2
+  %cmp.i27.not = icmp eq i16 %17, 0
   br i1 %cmp.i27.not, label %land.end29, label %land.rhs26
 
 land.rhs26:                                       ; preds = %land.end
-  %19 = load i32, ptr %6, align 8
-  %cmp28 = icmp ne i32 %19, 0
+  %18 = load i32, ptr %6, align 8
+  %cmp28.not = icmp ne i32 %18, 0
   br label %land.end29
 
 land.end29:                                       ; preds = %land.rhs26, %land.end
-  %20 = phi i1 [ false, %land.end ], [ %cmp28, %land.rhs26 ]
-  %brmerge = select i1 %16, i1 true, i1 %20
+  %conv36 = phi i1 [ false, %land.end ], [ %cmp28.not, %land.rhs26 ]
+  %brmerge = select i1 %conv32, i1 true, i1 %conv36
   br i1 %brmerge, label %if.end40, label %if.then38
 
 if.then38:                                        ; preds = %land.end29
   %m_next.i28 = getelementptr inbounds i8, ptr %c.033, i64 24
-  %21 = load ptr, ptr %m_next.i28, align 8
+  %19 = load ptr, ptr %m_next.i28, align 8
   br label %while.cond.backedge
 
 if.end40:                                         ; preds = %land.end29
   %m_proxies = getelementptr inbounds i8, ptr %1, i64 48
-  %22 = load ptr, ptr %m_proxies, align 8
+  %20 = load ptr, ptr %m_proxies, align 8
   %idxprom = sext i32 %3 to i64
-  %proxyId = getelementptr inbounds %struct.b2FixtureProxy, ptr %22, i64 %idxprom, i32 3
-  %23 = load i32, ptr %proxyId, align 4
+  %proxyId = getelementptr inbounds %struct.b2FixtureProxy, ptr %20, i64 %idxprom, i32 3
+  %21 = load i32, ptr %proxyId, align 4
   %m_proxies41 = getelementptr inbounds i8, ptr %2, i64 48
-  %24 = load ptr, ptr %m_proxies41, align 8
+  %22 = load ptr, ptr %m_proxies41, align 8
   %idxprom42 = sext i32 %4 to i64
-  %proxyId44 = getelementptr inbounds %struct.b2FixtureProxy, ptr %24, i64 %idxprom42, i32 3
-  %25 = load i32, ptr %proxyId44, align 4
-  %26 = load ptr, ptr %m_nodes.i.i, align 8
-  %idxprom.i.i = sext i32 %23 to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.b2TreeNode, ptr %26, i64 %idxprom.i.i
-  %idxprom.i2.i = sext i32 %25 to i64
-  %arrayidx.i3.i = getelementptr inbounds %struct.b2TreeNode, ptr %26, i64 %idxprom.i2.i
+  %proxyId44 = getelementptr inbounds %struct.b2FixtureProxy, ptr %22, i64 %idxprom42, i32 3
+  %23 = load i32, ptr %proxyId44, align 4
+  %24 = load ptr, ptr %m_nodes.i.i, align 8
+  %idxprom.i.i = sext i32 %21 to i64
+  %arrayidx.i.i = getelementptr inbounds %struct.b2TreeNode, ptr %24, i64 %idxprom.i.i
+  %idxprom.i2.i = sext i32 %23 to i64
+  %arrayidx.i3.i = getelementptr inbounds %struct.b2TreeNode, ptr %24, i64 %idxprom.i2.i
   %upperBound.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
-  %27 = load float, ptr %arrayidx.i3.i, align 4
-  %28 = load float, ptr %upperBound.i.i, align 4
+  %25 = load float, ptr %arrayidx.i3.i, align 4
+  %26 = load float, ptr %upperBound.i.i, align 4
   %y.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i3.i, i64 4
-  %29 = load float, ptr %y.i.i.i, align 4
+  %27 = load float, ptr %y.i.i.i, align 4
   %y2.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 12
-  %30 = load float, ptr %y2.i.i.i, align 4
-  %cmp.i.i = fcmp ogt float %27, %28
-  %cmp5.i.i = fcmp ogt float %29, %30
+  %28 = load float, ptr %y2.i.i.i, align 4
+  %cmp.i.i = fcmp ogt float %25, %26
+  %cmp5.i.i = fcmp ogt float %27, %28
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp5.i.i
   br i1 %or.cond.i.i, label %if.then50, label %_ZNK12b2BroadPhase11TestOverlapEii.exit
 
 _ZNK12b2BroadPhase11TestOverlapEii.exit:          ; preds = %if.end40
   %y.i5.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
-  %31 = load float, ptr %y.i5.i.i, align 4
+  %29 = load float, ptr %y.i5.i.i, align 4
   %y2.i6.i.i = getelementptr inbounds i8, ptr %arrayidx.i3.i, i64 12
-  %32 = load float, ptr %y2.i6.i.i, align 4
+  %30 = load float, ptr %y2.i6.i.i, align 4
   %upperBound3.i.i = getelementptr inbounds i8, ptr %arrayidx.i3.i, i64 8
-  %33 = load float, ptr %arrayidx.i.i, align 4
-  %34 = load float, ptr %upperBound3.i.i, align 4
-  %cmp7.i.i = fcmp ule float %33, %34
-  %cmp10.i.i = fcmp ule float %31, %32
+  %31 = load float, ptr %arrayidx.i.i, align 4
+  %32 = load float, ptr %upperBound3.i.i, align 4
+  %cmp7.i.i = fcmp ule float %31, %32
+  %cmp10.i.i = fcmp ule float %29, %30
   %or.cond1.not.i.i = select i1 %cmp7.i.i, i1 %cmp10.i.i, i1 false
   br i1 %or.cond1.not.i.i, label %if.end53, label %if.then50
 
 if.then50:                                        ; preds = %if.end40, %_ZNK12b2BroadPhase11TestOverlapEii.exit
   %m_next.i29 = getelementptr inbounds i8, ptr %c.033, i64 24
-  %35 = load ptr, ptr %m_next.i29, align 8
+  %33 = load ptr, ptr %m_next.i29, align 8
   tail call void @_ZN16b2ContactManager7DestroyEP9b2Contact(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %c.033)
   br label %while.cond.backedge
 
 if.end53:                                         ; preds = %_ZNK12b2BroadPhase11TestOverlapEii.exit
-  %36 = load ptr, ptr %m_contactListener, align 8
-  tail call void @_ZN9b2Contact6UpdateEP17b2ContactListener(ptr noundef nonnull align 8 dereferenceable(208) %c.033, ptr noundef %36)
+  %34 = load ptr, ptr %m_contactListener, align 8
+  tail call void @_ZN9b2Contact6UpdateEP17b2ContactListener(ptr noundef nonnull align 8 dereferenceable(208) %c.033, ptr noundef %34)
   %m_next.i30 = getelementptr inbounds i8, ptr %c.033, i64 24
-  %37 = load ptr, ptr %m_next.i30, align 8
+  %35 = load ptr, ptr %m_next.i30, align 8
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %entry

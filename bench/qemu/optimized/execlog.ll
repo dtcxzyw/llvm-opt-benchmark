@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [5 x i8] c"%u, \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @qemu_plugin_install(i64 noundef %id, ptr nocapture noundef readonly %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %id, ptr nocapture noundef readonly %info, i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %v.i = alloca i64, align 8
   %system_emulation = getelementptr inbounds i8, ptr %info, i64 16

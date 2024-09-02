@@ -1810,7 +1810,7 @@ if.end.i:                                         ; preds = %_ZNSt6vectorIS_IN3u
   %_upb.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i301, i64 4
   br label %while.cond.i
 
-while.cond.i:                                     ; preds = %cleanup57.i, %if.end.i
+while.cond.i:                                     ; preds = %for.end.i, %if.end.i
   %129 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %130 = load ptr, ptr %cProps.i, align 8
   %corpusLimit16.i = getelementptr inbounds i8, ptr %130, i64 36
@@ -2744,7 +2744,6 @@ if.end39.i:                                       ; preds = %if.end.i.i.i.i.i.i.
 
 cleanup.i:                                        ; preds = %if.end39.i, %if.then31.i
   %cond88.i = phi i1 [ true, %if.end39.i ], [ false, %if.then31.i ]
-  %cleanup.dest.slot.0.i = phi i32 [ 0, %if.end39.i ], [ 8, %if.then31.i ]
   %225 = load ptr, ptr %vu.i, align 8
   %tobool.not.i.i.i165.i = icmp eq ptr %225, null
   br i1 %tobool.not.i.i.i165.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit167.i, label %if.then.i.i.i166.i
@@ -2755,7 +2754,7 @@ if.then.i.i.i166.i:                               ; preds = %cleanup.i
 
 _ZNSt6vectorIjSaIjEED2Ev.exit167.i:               ; preds = %if.then.i.i.i166.i, %cleanup.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %vu.i) #26
-  br i1 %cond88.i, label %for.cond.i, label %cleanup57.i
+  br i1 %cond88.i, label %for.cond.i, label %cleanup57.do.end63thread-pre-split_crit_edge.i
 
 ehcleanup.sink.split.i:                           ; preds = %lpad27.i, %ehcleanup.i.i
   %.sink.i = phi ptr [ %199, %ehcleanup.i.i ], [ %224, %lpad27.i ]
@@ -2771,14 +2770,9 @@ ehcleanup.i:                                      ; preds = %ehcleanup.sink.spli
 for.end.i:                                        ; preds = %for.cond.i
   %.pre250.i = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %cmp54.i = icmp eq i64 %.pre250.i, %129
-  br i1 %cmp54.i, label %do.end63.i, label %cleanup57.i
+  br i1 %cmp54.i, label %do.end63.i, label %while.cond.i
 
-cleanup57.i:                                      ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit167.i, %for.end.i
-  %cleanup.dest.slot.2.i = phi i32 [ 0, %for.end.i ], [ %cleanup.dest.slot.0.i, %_ZNSt6vectorIjSaIjEED2Ev.exit167.i ]
-  %switch.i = icmp eq i32 %cleanup.dest.slot.2.i, 0
-  br i1 %switch.i, label %while.cond.i, label %cleanup57.do.end63thread-pre-split_crit_edge.i
-
-cleanup57.do.end63thread-pre-split_crit_edge.i:   ; preds = %cleanup57.i
+cleanup57.do.end63thread-pre-split_crit_edge.i:   ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit167.i
   %.pr.pre.i = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
   br label %do.end63.i
 
@@ -3504,11 +3498,11 @@ invoke.cont23:                                    ; preds = %if.else.i.i
 
 invoke.cont23._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i_crit_edge: ; preds = %invoke.cont23
   %.pre565 = load i64, ptr %_M_string_length.i.i.i.i, align 8
+  %338 = icmp ult i64 %.pre565, 16
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %invoke.cont23._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i_crit_edge, %invoke.cont23.thread
-  %338 = phi i64 [ %.pre565, %invoke.cont23._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i_crit_edge ], [ 0, %invoke.cont23.thread ]
-  %cmp3.i.i.i = icmp ult i64 %338, 16
+  %cmp3.i.i.i = phi i1 [ %338, %invoke.cont23._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i_crit_edge ], [ true, %invoke.cont23.thread ]
   call void @llvm.assume(i1 %cmp3.i.i.i)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
@@ -8033,7 +8027,7 @@ invoke.cont13.i:                                  ; preds = %if.end.i
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %s.i, i64 8
   br label %while.cond.i
 
-while.cond.i:                                     ; preds = %cleanup63.i, %invoke.cont13.i
+while.cond.i:                                     ; preds = %for.end.i, %invoke.cont13.i
   %19 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %20 = load ptr, ptr %cProps.i, align 8
   %corpusLimit16.i = getelementptr inbounds i8, ptr %20, i64 36
@@ -8790,7 +8784,6 @@ if.end43.i:                                       ; preds = %_ZNKSt4lessINSt7__c
 
 cleanup.i:                                        ; preds = %if.end43.i, %do.end35.i
   %cond94.i = phi i1 [ true, %if.end43.i ], [ false, %do.end35.i ]
-  %cleanup.dest.slot.0.i = phi i32 [ 0, %if.end43.i ], [ 10, %do.end35.i ]
   %124 = load ptr, ptr %s.i, align 8
   %cmp.i.i.i121.i = icmp eq ptr %124, %18
   br i1 %cmp.i.i.i121.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i123.i, label %if.then.i.i122.i
@@ -8807,7 +8800,7 @@ if.then.i.i122.i:                                 ; preds = %cleanup.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i: ; preds = %if.then.i.i122.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i123.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i) #26
-  br i1 %cond94.i, label %for.cond.i, label %cleanup63.i
+  br i1 %cond94.i, label %for.cond.i, label %cleanup63.do.end69_crit_edge.i
 
 ehcleanup46.i:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i37.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   %.pn102.i = phi { ptr, i32 } [ %.pn.i.i, %if.then.i.i37.i.i ], [ %.pn.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ], [ %121, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %121, %if.then.i.i.i ]
@@ -8817,14 +8810,9 @@ ehcleanup46.i:                                    ; preds = %if.then.i.i.i, %_ZN
 for.end.i:                                        ; preds = %for.cond.i
   %.pre155.i = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %cmp60.i = icmp eq i64 %.pre155.i, %19
-  br i1 %cmp60.i, label %do.end69.i, label %cleanup63.i
+  br i1 %cmp60.i, label %do.end69.i, label %while.cond.i
 
-cleanup63.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i, %for.end.i
-  %cleanup.dest.slot.2.i = phi i32 [ 0, %for.end.i ], [ %cleanup.dest.slot.0.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i ]
-  %switch.i = icmp eq i32 %cleanup.dest.slot.2.i, 0
-  br i1 %switch.i, label %while.cond.i, label %cleanup63.do.end69_crit_edge.i
-
-cleanup63.do.end69_crit_edge.i:                   ; preds = %cleanup63.i
+cleanup63.do.end69_crit_edge.i:                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126.i
   %.pre156.i = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
   br label %do.end69.i
 

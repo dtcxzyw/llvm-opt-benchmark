@@ -1323,14 +1323,14 @@ _ZL5myexpddd.exit177:                             ; preds = %_ZL5myexpddd.exit17
 
 260:                                              ; preds = %259
   %261 = load i32, ptr %256, align 4
+  %262 = add nsw i32 %261, -1
+  %263 = sdiv i32 %262, 2
+  %264 = sext i32 %263 to i64
   br label %_Z11effnNparamsi.exit180
 
 _Z11effnNparamsi.exit180:                         ; preds = %259, %260
-  %.0.i179 = phi i32 [ %261, %260 ], [ -1, %259 ]
-  %262 = add nsw i32 %.0.i179, -1
-  %263 = sdiv i32 %262, 2
-  %264 = sext i32 %263 to i64
-  %265 = icmp slt i64 %indvars.iv235, %264
+  %.0.i179 = phi i64 [ %264, %260 ], [ -1, %259 ]
+  %265 = icmp slt i64 %indvars.iv235, %.0.i179
   br i1 %265, label %266, label %.loopexit
 
 266:                                              ; preds = %_Z11effnNparamsi.exit180

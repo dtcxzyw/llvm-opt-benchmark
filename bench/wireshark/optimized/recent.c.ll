@@ -1074,7 +1074,7 @@ declare void @packet_list_recent_write_all(ptr noundef) local_unnamed_addr #1
 declare ptr @get_last_open_dir() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @recent_set_arg(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @recent_set_arg(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 58) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %16, label %4

@@ -141,7 +141,7 @@ return:                                           ; preds = %while.body, %if.end
 declare signext i8 @Curl_raw_tolower(i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_url_set_authority(ptr nocapture noundef %u, ptr noundef %authority, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden range(i32 0, 32) i32 @Curl_url_set_authority(ptr nocapture noundef %u, ptr noundef %authority, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %host = alloca %struct.dynbuf, align 8
   call void @Curl_dyn_init(ptr noundef nonnull %host, i64 noundef 8000000) #10
@@ -172,7 +172,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_authority(ptr nocapture noundef %u, ptr noundef %auth, i64 noundef %authlen, i32 noundef %flags, ptr noundef %host, i1 noundef zeroext %has_scheme) unnamed_addr #0 {
+define internal fastcc range(i32 0, 32) i32 @parse_authority(ptr nocapture noundef %u, ptr noundef %auth, i64 noundef %authlen, i32 noundef %flags, ptr noundef %host, i1 noundef zeroext %has_scheme) unnamed_addr #0 {
 entry:
   %parts.i = alloca [4 x i64], align 16
   %endp.i = alloca ptr, align 8
@@ -842,7 +842,7 @@ return:                                           ; preds = %entry, %do.end117, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @curl_url_get(ptr noundef readonly %u, i32 noundef %what, ptr noundef %part, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly %u, i32 noundef %what, ptr noundef %part, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %portbuf = alloca [7 x i8], align 1
   %allochost = alloca ptr, align 8
@@ -1544,7 +1544,7 @@ return:                                           ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @curl_url_set(ptr noundef %u, i32 noundef %what, ptr noundef %part, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 32) i32 @curl_url_set(ptr noundef %u, i32 noundef %what, ptr noundef %part, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %endp = alloca ptr, align 8
   %oldurl = alloca ptr, align 8
@@ -2212,7 +2212,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parseurl_and_replace(ptr noundef %url, ptr nocapture noundef %u, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 32) i32 @parseurl_and_replace(ptr noundef %url, ptr nocapture noundef %u, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %schemebuf.i = alloca [41 x i8], align 16
   %host.i = alloca %struct.dynbuf, align 8

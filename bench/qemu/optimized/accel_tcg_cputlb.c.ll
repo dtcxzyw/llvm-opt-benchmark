@@ -13548,7 +13548,7 @@ return:                                           ; preds = %sw.epilog, %do_ld_w
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @do_st_mmio_leN(ptr noundef %cpu, ptr nocapture noundef readonly %full, i64 noundef %val_le, i64 noundef %addr, i32 noundef %size, i32 noundef %mmu_idx, i64 noundef %ra) unnamed_addr #0 {
+define internal fastcc range(i64 0, 72057594037927936) i64 @do_st_mmio_leN(ptr noundef %cpu, ptr nocapture noundef readonly %full, i64 noundef %val_le, i64 noundef %addr, i32 noundef %size, i32 noundef %mmu_idx, i64 noundef %ra) unnamed_addr #0 {
 entry:
   %0 = add i32 %size, -1
   %or.cond = icmp ult i32 %0, 8
@@ -14126,7 +14126,7 @@ if.end22:                                         ; preds = %do.body.i.i.i, %do.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @do_st16_mmio_leN(ptr noundef %cpu, ptr nocapture noundef readonly %full, i64 noundef %val_le.coerce0, i64 noundef %val_le.coerce1, i64 noundef %addr, i32 noundef %size, i32 noundef %mmu_idx, i64 noundef %ra) unnamed_addr #0 {
+define internal fastcc range(i64 0, 72057594037927936) i64 @do_st16_mmio_leN(ptr noundef %cpu, ptr nocapture noundef readonly %full, i64 noundef %val_le.coerce0, i64 noundef %val_le.coerce1, i64 noundef %addr, i32 noundef %size, i32 noundef %mmu_idx, i64 noundef %ra) unnamed_addr #0 {
 entry:
   %0 = add i32 %size, -9
   %or.cond = icmp ult i32 %0, 8

@@ -22422,9 +22422,9 @@ define internal fastcc void @"_ZN108_$LT$deltalake_aws..storage..S3ObjectStoreFa
   %14 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i, i64 1
   %15 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !3903, !noundef !14
   %16 = add i8 %15, -65
-  %.0.i.i = icmp ult i8 %16, 26
-  %17 = select i1 %.0.i.i, i8 32, i8 0
-  %18 = or i8 %17, %15
+  %17 = icmp ult i8 %16, 26
+  %.0.i.i = select i1 %17, i8 32, i8 0
+  %18 = or i8 %.0.i.i, %15
   store i8 %18, ptr %.sroa.0.06.i.i, align 1, !alias.scope !3903
   %19 = icmp eq ptr %14, %12
   br i1 %19, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hecbc8d546df21621E.exit", label %.lr.ph.i.i

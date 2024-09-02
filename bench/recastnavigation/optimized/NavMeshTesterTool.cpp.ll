@@ -679,8 +679,8 @@ _Z7inRangePKfS0_ff.exit83.thread:                 ; preds = %226, %_Z7inRangePKf
   %297 = load i32, ptr %101, align 4
   %298 = add nsw i32 %297, 1
   store i32 %298, ptr %101, align 4
-  %.not78 = icmp ne i32 %.1, 0
   %299 = icmp slt i32 %297, 2047
+  %.not78 = icmp ne i32 %.1, 0
   %or.cond82 = select i1 %.not78, i1 %299, i1 false
   br i1 %or.cond82, label %130, label %.critedge, !llvm.loop !9
 

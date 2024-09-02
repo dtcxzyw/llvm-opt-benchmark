@@ -546,131 +546,122 @@ define ptr @Java_java_io_UnixFileSystem_list0(ptr noundef %0, ptr nocapture noun
 
 .outer._crit_edge.thread:                         ; preds = %.preheader
   %28 = tail call i32 @closedir(ptr noundef nonnull %19)
-  br label %77
+  br label %72
 
 sub_0.lr.ph:                                      ; preds = %.preheader, %.outer
-  %29 = phi ptr [ %74, %.outer ], [ %27, %.preheader ]
-  %.066.ph99 = phi i32 [ %70, %.outer ], [ 0, %.preheader ]
+  %29 = phi ptr [ %69, %.outer ], [ %27, %.preheader ]
+  %.066.ph99 = phi i32 [ %65, %.outer ], [ 0, %.preheader ]
   %.067.ph98 = phi i32 [ %.1, %.outer ], [ 16, %.preheader ]
   %.068.ph97 = phi ptr [ %.169, %.outer ], [ %25, %.preheader ]
   br label %sub_0
 
-sub_0:                                            ; preds = %sub_0.lr.ph, %45
-  %30 = phi ptr [ %29, %sub_0.lr.ph ], [ %46, %45 ]
+sub_0:                                            ; preds = %sub_0.lr.ph, %41
+  %30 = phi ptr [ %29, %sub_0.lr.ph ], [ %42, %41 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 19
   %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i32
-  %34 = add nsw i32 %33, -46
-  %.not103 = icmp eq i32 %34, 0
-  br i1 %.not103, label %.tail, label %.tail83
+  %.not103 = icmp eq i8 %32, 46
+  br i1 %.not103, label %.tail, label %.tail83.thread
 
 .tail:                                            ; preds = %sub_0
-  %35 = getelementptr inbounds i8, ptr %30, i64 20
-  %36 = load i8, ptr %35, align 1
-  %.not79 = icmp eq i8 %36, 0
-  br i1 %.not79, label %45, label %sub_185
+  %33 = getelementptr inbounds i8, ptr %30, i64 20
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp eq i8 %34, 0
+  br i1 %35, label %41, label %sub_185
 
 sub_185:                                          ; preds = %.tail
-  %37 = getelementptr inbounds i8, ptr %30, i64 20
-  %38 = load i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = add nsw i32 %39, -46
-  %.not105 = icmp eq i32 %40, 0
-  br i1 %.not105, label %sub_2, label %.tail83
+  %36 = getelementptr inbounds i8, ptr %30, i64 20
+  %37 = load i8, ptr %36, align 1
+  %.not105 = icmp eq i8 %37, 46
+  br i1 %.not105, label %.tail83, label %.tail83.thread
 
-sub_2:                                            ; preds = %sub_185
-  %41 = getelementptr inbounds i8, ptr %30, i64 21
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  br label %.tail83
+.tail83:                                          ; preds = %sub_185
+  %38 = getelementptr inbounds i8, ptr %30, i64 21
+  %39 = load i8, ptr %38, align 1
+  %40 = icmp eq i8 %39, 0
+  br i1 %40, label %41, label %.tail83.thread
 
-.tail83:                                          ; preds = %sub_0, %sub_185, %sub_2
-  %44 = phi i32 [ %40, %sub_185 ], [ %43, %sub_2 ], [ %34, %sub_0 ]
-  %.not80 = icmp eq i32 %44, 0
-  br i1 %.not80, label %45, label %47
-
-45:                                               ; preds = %.tail83, %.tail
-  %46 = tail call ptr @readdir64(ptr noundef nonnull %19) #7
-  %.not = icmp eq ptr %46, null
+41:                                               ; preds = %.tail83, %.tail
+  %42 = tail call ptr @readdir64(ptr noundef nonnull %19) #7
+  %.not = icmp eq ptr %42, null
   br i1 %.not, label %.outer._crit_edge, label %sub_0, !llvm.loop !9
 
-47:                                               ; preds = %.tail83
-  %48 = getelementptr inbounds i8, ptr %30, i64 19
-  %49 = icmp eq i32 %.066.ph99, %.067.ph98
-  br i1 %49, label %50, label %64
+.tail83.thread:                                   ; preds = %sub_0, %sub_185, %.tail83
+  %43 = getelementptr inbounds i8, ptr %30, i64 19
+  %44 = icmp eq i32 %.066.ph99, %.067.ph98
+  br i1 %44, label %45, label %59
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1376
-  %53 = load ptr, ptr %52, align 8
-  %54 = shl nuw i32 %.066.ph99, 1
-  %55 = tail call ptr %53(ptr noundef nonnull %0, i32 noundef %54, ptr noundef nonnull %4, ptr noundef null) #7
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %.loopexit, label %57
+45:                                               ; preds = %.tail83.thread
+  %46 = load ptr, ptr %0, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 1376
+  %48 = load ptr, ptr %47, align 8
+  %49 = shl nuw i32 %.066.ph99, 1
+  %50 = tail call ptr %48(ptr noundef nonnull %0, i32 noundef %49, ptr noundef nonnull %4, ptr noundef null) #7
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %.loopexit, label %52
 
-57:                                               ; preds = %50
-  %58 = tail call i32 @JNU_CopyObjectArray(ptr noundef nonnull %0, ptr noundef nonnull %55, ptr noundef %.068.ph97, i32 noundef %.066.ph99) #7
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %.loopexit, label %60
+52:                                               ; preds = %45
+  %53 = tail call i32 @JNU_CopyObjectArray(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef %.068.ph97, i32 noundef %.066.ph99) #7
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %.loopexit, label %55
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 184
-  %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull %0, ptr noundef %.068.ph97) #7
-  br label %64
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %0, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 184
+  %58 = load ptr, ptr %57, align 8
+  tail call void %58(ptr noundef nonnull %0, ptr noundef %.068.ph97) #7
+  br label %59
 
-64:                                               ; preds = %60, %47
-  %.169 = phi ptr [ %55, %60 ], [ %.068.ph97, %47 ]
-  %.1 = phi i32 [ %54, %60 ], [ %.067.ph98, %47 ]
-  %65 = tail call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull %48) #7
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %.loopexit, label %.outer
+59:                                               ; preds = %55, %.tail83.thread
+  %.169 = phi ptr [ %50, %55 ], [ %.068.ph97, %.tail83.thread ]
+  %.1 = phi i32 [ %49, %55 ], [ %.067.ph98, %.tail83.thread ]
+  %60 = tail call ptr @JNU_NewStringPlatform(ptr noundef nonnull %0, ptr noundef nonnull %43) #7
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %.loopexit, label %.outer
 
-.outer:                                           ; preds = %64
-  %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1392
-  %69 = load ptr, ptr %68, align 8
-  %70 = add nuw nsw i32 %.066.ph99, 1
-  tail call void %69(ptr noundef nonnull %0, ptr noundef %.169, i32 noundef %.066.ph99, ptr noundef nonnull %65) #7
-  %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 184
-  %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef nonnull %0, ptr noundef nonnull %65) #7
-  %74 = tail call ptr @readdir64(ptr noundef nonnull %19) #7
-  %.not90 = icmp eq ptr %74, null
+.outer:                                           ; preds = %59
+  %62 = load ptr, ptr %0, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 1392
+  %64 = load ptr, ptr %63, align 8
+  %65 = add nuw nsw i32 %.066.ph99, 1
+  tail call void %64(ptr noundef nonnull %0, ptr noundef %.169, i32 noundef %.066.ph99, ptr noundef nonnull %60) #7
+  %66 = load ptr, ptr %0, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 184
+  %68 = load ptr, ptr %67, align 8
+  tail call void %68(ptr noundef nonnull %0, ptr noundef nonnull %60) #7
+  %69 = tail call ptr @readdir64(ptr noundef nonnull %19) #7
+  %.not90 = icmp eq ptr %69, null
   br i1 %.not90, label %.outer._crit_edge, label %sub_0.lr.ph, !llvm.loop !9
 
-.outer._crit_edge:                                ; preds = %.outer, %45
-  %.068.ph.lcssa89 = phi ptr [ %.068.ph97, %45 ], [ %.169, %.outer ]
-  %.067.ph.lcssa88 = phi i32 [ %.067.ph98, %45 ], [ %.1, %.outer ]
-  %.066.ph.lcssa87 = phi i32 [ %.066.ph99, %45 ], [ %70, %.outer ]
-  %75 = tail call i32 @closedir(ptr noundef nonnull %19)
-  %76 = icmp slt i32 %.066.ph.lcssa87, %.067.ph.lcssa88
-  br i1 %76, label %77, label %.thread81
+.outer._crit_edge:                                ; preds = %.outer, %41
+  %.068.ph.lcssa89 = phi ptr [ %.068.ph97, %41 ], [ %.169, %.outer ]
+  %.067.ph.lcssa88 = phi i32 [ %.067.ph98, %41 ], [ %.1, %.outer ]
+  %.066.ph.lcssa87 = phi i32 [ %.066.ph99, %41 ], [ %65, %.outer ]
+  %70 = tail call i32 @closedir(ptr noundef nonnull %19)
+  %71 = icmp slt i32 %.066.ph.lcssa87, %.067.ph.lcssa88
+  br i1 %71, label %72, label %.thread81
 
-77:                                               ; preds = %.outer._crit_edge.thread, %.outer._crit_edge
-  %.066.ph.lcssa87120 = phi i32 [ 0, %.outer._crit_edge.thread ], [ %.066.ph.lcssa87, %.outer._crit_edge ]
-  %.068.ph.lcssa89119 = phi ptr [ %25, %.outer._crit_edge.thread ], [ %.068.ph.lcssa89, %.outer._crit_edge ]
-  %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1376
-  %80 = load ptr, ptr %79, align 8
-  %81 = tail call ptr %80(ptr noundef nonnull %0, i32 noundef %.066.ph.lcssa87120, ptr noundef nonnull %4, ptr noundef null) #7
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %.thread81, label %83
+72:                                               ; preds = %.outer._crit_edge.thread, %.outer._crit_edge
+  %.066.ph.lcssa87121 = phi i32 [ 0, %.outer._crit_edge.thread ], [ %.066.ph.lcssa87, %.outer._crit_edge ]
+  %.068.ph.lcssa89120 = phi ptr [ %25, %.outer._crit_edge.thread ], [ %.068.ph.lcssa89, %.outer._crit_edge ]
+  %73 = load ptr, ptr %0, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 1376
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call ptr %75(ptr noundef nonnull %0, i32 noundef %.066.ph.lcssa87121, ptr noundef nonnull %4, ptr noundef null) #7
+  %77 = icmp eq ptr %76, null
+  br i1 %77, label %.thread81, label %78
 
-83:                                               ; preds = %77
-  %84 = tail call i32 @JNU_CopyObjectArray(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef %.068.ph.lcssa89119, i32 noundef %.066.ph.lcssa87120) #7
-  %85 = icmp slt i32 %84, 0
-  %spec.select = select i1 %85, ptr null, ptr %81
+78:                                               ; preds = %72
+  %79 = tail call i32 @JNU_CopyObjectArray(ptr noundef nonnull %0, ptr noundef nonnull %76, ptr noundef %.068.ph.lcssa89120, i32 noundef %.066.ph.lcssa87121) #7
+  %80 = icmp slt i32 %79, 0
+  %spec.select = select i1 %80, ptr null, ptr %76
   br label %.thread81
 
-.loopexit:                                        ; preds = %64, %57, %50, %21
-  %86 = tail call i32 @closedir(ptr noundef nonnull %19)
+.loopexit:                                        ; preds = %59, %52, %45, %21
+  %81 = tail call i32 @closedir(ptr noundef nonnull %19)
   br label %.thread81
 
-.thread81:                                        ; preds = %15, %.thread, %83, %.outer._crit_edge, %77, %18, %3, %.loopexit
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %3 ], [ null, %18 ], [ null, %77 ], [ %.068.ph.lcssa89, %.outer._crit_edge ], [ %spec.select, %83 ], [ null, %.thread ], [ null, %15 ]
+.thread81:                                        ; preds = %15, %.thread, %78, %.outer._crit_edge, %72, %18, %3, %.loopexit
+  %.0 = phi ptr [ null, %.loopexit ], [ null, %3 ], [ null, %18 ], [ null, %72 ], [ %.068.ph.lcssa89, %.outer._crit_edge ], [ %spec.select, %78 ], [ null, %.thread ], [ null, %15 ]
   ret ptr %.0
 }
 

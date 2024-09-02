@@ -2291,7 +2291,7 @@ define internal fastcc noundef range(i32 -4, 1) i32 @dm_wait_for_completion(ptr 
 
 9:                                                ; preds = %2
   %10 = tail call zeroext i1 @blk_mq_queue_inflight(ptr noundef %5) #23
-  br i1 %10, label %11, label %.thread5
+  br i1 %10, label %11, label %.critedge7
 
 11:                                               ; preds = %9
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !74
@@ -2299,36 +2299,36 @@ define internal fastcc noundef range(i32 -4, 1) i32 @dm_wait_for_completion(ptr 
   %14 = and i32 %1, 257
   %15 = icmp eq i32 %14, 0
   %16 = getelementptr inbounds i8, ptr %13, i64 1936
-  br i1 %15, label %.thread4.us, label %.split
+  br i1 %15, label %.critedge5.us, label %.split
 
-.thread4.us:                                      ; preds = %11, %.thread4.us
+.critedge5.us:                                    ; preds = %11, %.critedge5.us
   tail call void @usleep_range_state(i64 noundef 5000, i64 noundef 10000, i32 noundef 2) #23
   %17 = load ptr, ptr %4, align 8
   %18 = tail call zeroext i1 @blk_mq_queue_inflight(ptr noundef %17) #23
-  br i1 %18, label %.thread4.us, label %.thread5, !llvm.loop !75
+  br i1 %18, label %.critedge5.us, label %.critedge7, !llvm.loop !75
 
 .split:                                           ; preds = %11
   %19 = and i32 %1, 1
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %.split.split, label %.split.split.us
 
-.split.split.us:                                  ; preds = %.split, %.thread4.us6
+.split.split.us:                                  ; preds = %.split, %.critedge5.us8
   %20 = load volatile i64, ptr %13, align 8
   %21 = and i64 %20, 131072
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %.thread5, !prof !16
+  br i1 %22, label %23, label %.critedge7, !prof !16
 
 23:                                               ; preds = %.split.split.us
   %24 = load volatile i64, ptr %13, align 8
   %25 = and i64 %24, 4
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %.thread4.us6, label %.thread5
+  br i1 %26, label %.critedge5.us8, label %.critedge7
 
-.thread4.us6:                                     ; preds = %23
+.critedge5.us8:                                   ; preds = %23
   tail call void @usleep_range_state(i64 noundef 5000, i64 noundef 10000, i32 noundef 2) #23
   %27 = load ptr, ptr %4, align 8
   %28 = tail call zeroext i1 @blk_mq_queue_inflight(ptr noundef %27) #23
-  br i1 %28, label %.split.split.us, label %.thread5, !llvm.loop !75
+  br i1 %28, label %.split.split.us, label %.critedge7, !llvm.loop !75
 
 29:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #23
@@ -2352,7 +2352,7 @@ define internal fastcc noundef range(i32 -4, 1) i32 @dm_wait_for_completion(ptr 
   %42 = getelementptr inbounds i8, ptr %32, i64 1936
   br label %43
 
-43:                                               ; preds = %.thread2, %29
+43:                                               ; preds = %.critedge, %29
   call void @prepare_to_wait(ptr noundef %36, ptr noundef nonnull %3, i32 noundef %1) #23
   %44 = load i64, ptr @__cpu_possible_mask, align 8
   br label %45
@@ -2389,87 +2389,74 @@ define internal fastcc noundef range(i32 -4, 1) i32 @dm_wait_for_completion(ptr 
 .thread:                                          ; preds = %45, %55, %51
   %.lcssa = phi i64 [ %47, %45 ], [ %64, %55 ], [ %47, %51 ]
   %68 = icmp eq i64 %.lcssa, 0
-  br i1 %68, label %.thread3, label %69
+  br i1 %68, label %.critedge3, label %69
 
 69:                                               ; preds = %.thread
-  br i1 %39, label %.thread2, label %70
+  br i1 %39, label %.critedge, label %70
 
 70:                                               ; preds = %69
   %71 = load volatile i64, ptr %32, align 8
   %72 = and i64 %71, 131072
   %73 = icmp eq i64 %72, 0
-  br i1 %73, label %74, label %81, !prof !16
+  br i1 %73, label %74, label %79, !prof !16
 
 74:                                               ; preds = %70
   %75 = load volatile i64, ptr %32, align 8
   %76 = and i64 %75, 4
   %77 = icmp eq i64 %76, 0
   %78 = or i1 %41, %77
-  %79 = xor i1 %77, true
-  %80 = zext i1 %79 to i32
-  br i1 %78, label %87, label %82
+  br i1 %78, label %84, label %80
 
-81:                                               ; preds = %70
-  br i1 %41, label %.thread3, label %82
+79:                                               ; preds = %70
+  br i1 %41, label %.critedge3, label %80
 
-82:                                               ; preds = %81, %74
-  %83 = load i64, ptr %42, align 8
-  %84 = trunc i64 %83 to i32
-  %85 = lshr i32 %84, 8
-  %86 = and i32 %85, 1
-  br label %87
+80:                                               ; preds = %79, %74
+  %81 = load i64, ptr %42, align 8
+  %82 = and i64 %81, 256
+  %83 = icmp eq i64 %82, 0
+  br i1 %83, label %.critedge, label %.critedge3
 
-87:                                               ; preds = %82, %74
-  %88 = phi i32 [ %80, %74 ], [ %86, %82 ]
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %.thread2, label %.thread3
+84:                                               ; preds = %74
+  br i1 %77, label %.critedge, label %.critedge3
 
-.thread2:                                         ; preds = %69, %87
+.critedge:                                        ; preds = %80, %69, %84
   call void @io_schedule() #23
   br label %43, !llvm.loop !79
 
-.thread3:                                         ; preds = %81, %87, %.thread
-  %90 = phi i32 [ 0, %.thread ], [ -4, %87 ], [ -4, %81 ]
+.critedge3:                                       ; preds = %80, %79, %84, %.thread
+  %85 = phi i32 [ 0, %.thread ], [ -4, %84 ], [ -4, %79 ], [ -4, %80 ]
   call void @finish_wait(ptr noundef %36, ptr noundef nonnull %3) #23
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !80
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #23
-  br label %.thread5
+  br label %.critedge7
 
-.split.split:                                     ; preds = %.split, %.thread4
-  %91 = load volatile i64, ptr %13, align 8
-  %92 = and i64 %91, 131072
-  %93 = icmp eq i64 %92, 0
-  br i1 %93, label %94, label %98, !prof !16
+.split.split:                                     ; preds = %.split, %.critedge5
+  %86 = load volatile i64, ptr %13, align 8
+  %87 = and i64 %86, 131072
+  %88 = icmp eq i64 %87, 0
+  br i1 %88, label %89, label %93, !prof !16
 
-94:                                               ; preds = %.split.split
-  %95 = load volatile i64, ptr %13, align 8
-  %96 = and i64 %95, 4
-  %.not9 = icmp eq i64 %96, 0
-  %.lobit = lshr exact i64 %96, 2
-  %97 = trunc nuw nsw i64 %.lobit to i32
-  br i1 %.not9, label %103, label %98
+89:                                               ; preds = %.split.split
+  %90 = load volatile i64, ptr %13, align 8
+  %91 = and i64 %90, 4
+  %92 = icmp eq i64 %91, 0
+  br i1 %92, label %.critedge5, label %93
 
-98:                                               ; preds = %.split.split, %94
-  %99 = load i64, ptr %16, align 8
-  %100 = trunc i64 %99 to i32
-  %101 = lshr i32 %100, 8
-  %102 = and i32 %101, 1
-  br label %103
+93:                                               ; preds = %.split.split, %89
+  %94 = load i64, ptr %16, align 8
+  %95 = and i64 %94, 256
+  %96 = icmp eq i64 %95, 0
+  br i1 %96, label %.critedge5, label %.critedge7
 
-103:                                              ; preds = %98, %94
-  %104 = phi i32 [ %97, %94 ], [ %102, %98 ]
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %.thread4, label %.thread5
-
-.thread4:                                         ; preds = %103
+.critedge5:                                       ; preds = %89, %93
   tail call void @usleep_range_state(i64 noundef 5000, i64 noundef 10000, i32 noundef 2) #23
-  %106 = load ptr, ptr %4, align 8
-  %107 = tail call zeroext i1 @blk_mq_queue_inflight(ptr noundef %106) #23
-  br i1 %107, label %.split.split, label %.thread5, !llvm.loop !75
+  %97 = load ptr, ptr %4, align 8
+  %98 = tail call zeroext i1 @blk_mq_queue_inflight(ptr noundef %97) #23
+  br i1 %98, label %.split.split, label %.critedge7, !llvm.loop !75
 
-.thread5:                                         ; preds = %.split.split.us, %23, %.thread4.us6, %.thread4, %103, %.thread4.us, %.thread3, %9
-  %108 = phi i32 [ %90, %.thread3 ], [ 0, %9 ], [ 0, %.thread4.us ], [ -4, %103 ], [ 0, %.thread4 ], [ -4, %.split.split.us ], [ 0, %.thread4.us6 ], [ -4, %23 ]
-  ret i32 %108
+.critedge7:                                       ; preds = %.split.split.us, %23, %.critedge5.us8, %93, %.critedge5, %.critedge5.us, %.critedge3, %9
+  %99 = phi i32 [ %85, %.critedge3 ], [ 0, %9 ], [ 0, %.critedge5.us ], [ -4, %93 ], [ 0, %.critedge5 ], [ -4, %.split.split.us ], [ 0, %.critedge5.us8 ], [ -4, %23 ]
+  ret i32 %99
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5507,27 +5494,27 @@ define internal fastcc i32 @dm_prepare_ioctl(ptr noundef %0, ptr nocapture nound
   %37 = load volatile i64, ptr %36, align 8
   %38 = and i64 %37, 4
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %.thread, label %40
+  br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %36, i64 1936
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, 256
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %.thread, label %.loopexit
+  br i1 %44, label %.critedge, label %.loopexit
 
-.thread:                                          ; preds = %34, %40
+.critedge:                                        ; preds = %34, %40
   %45 = load i32, ptr %1, align 4
   %46 = icmp ult i32 %45, 2
   br i1 %46, label %48, label %47, !prof !16
 
-47:                                               ; preds = %.thread
+47:                                               ; preds = %.critedge
   tail call void asm sideeffect "182: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 182b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 182) #23, !srcloc !17
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.11, i32 285, i32 2307, i64 12) #23, !srcloc !18
   tail call void asm sideeffect "183: nop\0A\09.pushsection .discard.instr_end\0A\09.long 183b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 183) #23, !srcloc !19
   br label %48
 
-48:                                               ; preds = %47, %.thread
+48:                                               ; preds = %47, %.critedge
   tail call void @__srcu_read_unlock(ptr noundef %4, i32 noundef %45) #23
   tail call void @usleep_range_state(i64 noundef 10000, i64 noundef 20000, i32 noundef 2) #23
   %49 = tail call i32 @__srcu_read_lock(ptr noundef %4) #23

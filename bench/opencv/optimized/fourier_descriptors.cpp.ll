@@ -1638,9 +1638,9 @@ _ZN2cv8ximgproc14ContourFitting13frequencyInitEv.exit: ; preds = %255, %.prehead
 
 ._crit_edge226.thread:                            ; preds = %.preheader
   %353 = call double @atan2(double noundef 0.000000e+00, double noundef 0.000000e+00) #20
-  %354 = fneg double %353
-  %355 = fmul double %353, -0.000000e+00
-  %356 = call noundef { double, double } @cexp(double noundef %355, double noundef %354) #20
+  %354 = fmul double %353, -0.000000e+00
+  %355 = fneg double %353
+  %356 = call noundef { double, double } @cexp(double noundef %354, double noundef %355) #20
   br label %431
 
 .lr.ph225:                                        ; preds = %.preheader, %.lr.ph225
@@ -1747,7 +1747,7 @@ _ZN2cv8ximgproc14ContourFitting13frequencyInitEv.exit: ; preds = %255, %.prehead
 
 431:                                              ; preds = %._crit_edge226.thread, %425, %._crit_edge233
   %432 = phi double [ %421, %425 ], [ %421, %._crit_edge233 ], [ 0x7FF8000000000000, %._crit_edge226.thread ]
-  %433 = phi double [ %383, %425 ], [ %383, %._crit_edge233 ], [ %354, %._crit_edge226.thread ]
+  %433 = phi double [ %383, %425 ], [ %383, %._crit_edge233 ], [ %355, %._crit_edge226.thread ]
   %.0115 = phi double [ %430, %425 ], [ 1.000000e+04, %._crit_edge233 ], [ 1.000000e+04, %._crit_edge226.thread ]
   %434 = fcmp olt double %.0115, %.0113
   br i1 %434, label %435, label %436

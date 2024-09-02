@@ -319,22 +319,22 @@ _ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit: ; preds = %land.en
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit._ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit114_crit_edge: ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit
   %.pre = load i32, ptr %18, align 64
+  %19 = icmp eq i32 %.pre, 17
   br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit114
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJEEEvDpOT_.exit.i111: ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit
   store i32 0, ptr @gLCTestObjectTrueTrue, align 64
-  %19 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
-  %inc.i.i.i112 = add nsw i64 %19, 1
+  %20 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
+  %inc.i.i.i112 = add nsw i64 %20, 1
   store i64 %inc.i.i.i112, ptr @_ZN12LCTestObject8sTOCountE, align 8
-  %20 = load i64, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
-  %inc2.i.i.i113 = add nsw i64 %20, 1
+  %21 = load i64, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
+  %inc2.i.i.i113 = add nsw i64 %21, 1
   store i64 %inc2.i.i.i113, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
   store ptr @gLCTestObjectTrueTrue, ptr getelementptr inbounds (i8, ptr @gLCTestObjectTrueTrue, i64 64), align 64
   br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit114
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit114: ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit._ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit114_crit_edge, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJEEEvDpOT_.exit.i111
-  %21 = phi i32 [ 0, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJEEEvDpOT_.exit.i111 ], [ %.pre, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit._ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit114_crit_edge ]
-  %cmp27 = icmp eq i32 %21, 17
+  %cmp27 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJEEEvDpOT_.exit.i111 ], [ %19, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit._ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit114_crit_edge ]
   %call28 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp27, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 208, ptr noundef nonnull @.str.11)
   %22 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
   %cmp29 = icmp eq i64 %22, 1
@@ -408,22 +408,22 @@ _ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit121: ; preds = %land
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit121._ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit126_crit_edge: ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit121
   %.pre582 = load i32, ptr %37, align 64
+  %38 = icmp eq i32 %.pre582, 18
   br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit126
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJEEEvDpOT_.exit.i123: ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit121
   store i32 0, ptr @gLCTestObjectTrueTrue, align 64
-  %38 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
-  %inc.i.i.i124 = add nsw i64 %38, 1
+  %39 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
+  %inc.i.i.i124 = add nsw i64 %39, 1
   store i64 %inc.i.i.i124, ptr @_ZN12LCTestObject8sTOCountE, align 8
-  %39 = load i64, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
-  %inc2.i.i.i125 = add nsw i64 %39, 1
+  %40 = load i64, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
+  %inc2.i.i.i125 = add nsw i64 %40, 1
   store i64 %inc2.i.i.i125, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
   store ptr @gLCTestObjectTrueTrue, ptr getelementptr inbounds (i8, ptr @gLCTestObjectTrueTrue, i64 64), align 64
   br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit126
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit126: ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit121._ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit126_crit_edge, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJEEEvDpOT_.exit.i123
-  %40 = phi i32 [ 0, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJEEEvDpOT_.exit.i123 ], [ %.pre582, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit121._ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit126_crit_edge ]
-  %cmp50 = icmp eq i32 %40, 18
+  %cmp50 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJEEEvDpOT_.exit.i123 ], [ %38, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit121._ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EEptEv.exit126_crit_edge ]
   %call51 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp50, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 216, ptr noundef nonnull @.str.13)
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @gLCTestObjectTrueTrue, i64 64), align 64
   %cmp.i127 = icmp ne ptr %41, null
@@ -612,22 +612,22 @@ land.end127:                                      ; preds = %land.rhs125, %_ZN5e
 
 land.end127._ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiEEEvDpOT_.exit_crit_edge: ; preds = %land.end127
   %.pre585 = load i32, ptr %84, align 64
+  %85 = icmp eq i32 %.pre585, 14
   br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiEEEvDpOT_.exit
 
 if.then.i160:                                     ; preds = %land.end127
   store i32 14, ptr @gLCTestObjectFalseTrue, align 64
-  %85 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
-  %inc.i.i161 = add nsw i64 %85, 1
+  %86 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
+  %inc.i.i161 = add nsw i64 %86, 1
   store i64 %inc.i.i161, ptr @_ZN12LCTestObject8sTOCountE, align 8
-  %86 = load i64, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
-  %inc2.i.i162 = add nsw i64 %86, 1
+  %87 = load i64, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
+  %inc2.i.i162 = add nsw i64 %87, 1
   store i64 %inc2.i.i162, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
   store ptr @gLCTestObjectFalseTrue, ptr getelementptr inbounds (i8, ptr @gLCTestObjectFalseTrue, i64 64), align 64
   br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiEEEvDpOT_.exit
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiEEEvDpOT_.exit: ; preds = %land.end127._ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiEEEvDpOT_.exit_crit_edge, %if.then.i160
-  %87 = phi i32 [ %.pre585, %land.end127._ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiEEEvDpOT_.exit_crit_edge ], [ 14, %if.then.i160 ]
-  %cmp134 = icmp eq i32 %87, 14
+  %cmp134 = phi i1 [ %85, %land.end127._ZN5eastl16late_constructedI12LCTestObjectLb1ELb1EE9constructIJiEEEvDpOT_.exit_crit_edge ], [ true, %if.then.i160 ]
   %call135 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp134, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 254, ptr noundef nonnull @.str.21)
   %88 = load ptr, ptr getelementptr inbounds (i8, ptr @gLCTestObjectFalseTrue, i64 64), align 64
   store i32 18, ptr %88, align 64
@@ -771,22 +771,22 @@ _ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit: ; preds = %land.en
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit._ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit190_crit_edge: ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit
   %.pre587 = load i32, ptr %121, align 64
+  %122 = icmp eq i32 %.pre587, 17
   br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit190
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJEEEvDpOT_.exit.i187: ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit
   store i32 0, ptr @gLCTestObjectTrueFalse, align 64
-  %122 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
-  %inc.i.i.i188 = add nsw i64 %122, 1
+  %123 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
+  %inc.i.i.i188 = add nsw i64 %123, 1
   store i64 %inc.i.i.i188, ptr @_ZN12LCTestObject8sTOCountE, align 8
-  %123 = load i64, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
-  %inc2.i.i.i189 = add nsw i64 %123, 1
+  %124 = load i64, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
+  %inc2.i.i.i189 = add nsw i64 %124, 1
   store i64 %inc2.i.i.i189, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
   store ptr @gLCTestObjectTrueFalse, ptr getelementptr inbounds (i8, ptr @gLCTestObjectTrueFalse, i64 64), align 64
   br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit190
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit190: ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit._ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit190_crit_edge, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJEEEvDpOT_.exit.i187
-  %124 = phi i32 [ 0, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJEEEvDpOT_.exit.i187 ], [ %.pre587, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit._ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit190_crit_edge ]
-  %cmp198 = icmp eq i32 %124, 17
+  %cmp198 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJEEEvDpOT_.exit.i187 ], [ %122, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit._ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit190_crit_edge ]
   %call199 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp198, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 294, ptr noundef nonnull @.str.27)
   %125 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
   %cmp200 = icmp eq i64 %125, 1
@@ -860,22 +860,22 @@ _ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit200: ; preds = %land
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit200._ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit205_crit_edge: ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit200
   %.pre589 = load i32, ptr %140, align 64
+  %141 = icmp eq i32 %.pre589, 18
   br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit205
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJEEEvDpOT_.exit.i202: ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit200
   store i32 0, ptr @gLCTestObjectTrueFalse, align 64
-  %141 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
-  %inc.i.i.i203 = add nsw i64 %141, 1
+  %142 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
+  %inc.i.i.i203 = add nsw i64 %142, 1
   store i64 %inc.i.i.i203, ptr @_ZN12LCTestObject8sTOCountE, align 8
-  %142 = load i64, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
-  %inc2.i.i.i204 = add nsw i64 %142, 1
+  %143 = load i64, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
+  %inc2.i.i.i204 = add nsw i64 %143, 1
   store i64 %inc2.i.i.i204, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
   store ptr @gLCTestObjectTrueFalse, ptr getelementptr inbounds (i8, ptr @gLCTestObjectTrueFalse, i64 64), align 64
   br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit205
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit205: ; preds = %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit200._ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit205_crit_edge, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJEEEvDpOT_.exit.i202
-  %143 = phi i32 [ 0, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJEEEvDpOT_.exit.i202 ], [ %.pre589, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit200._ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit205_crit_edge ]
-  %cmp221 = icmp eq i32 %143, 18
+  %cmp221 = phi i1 [ false, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJEEEvDpOT_.exit.i202 ], [ %141, %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit200._ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EEptEv.exit205_crit_edge ]
   %call222 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp221, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 302, ptr noundef nonnull @.str.28)
   %144 = load ptr, ptr getelementptr inbounds (i8, ptr @gLCTestObjectTrueFalse, i64 64), align 64
   %cmp.i206 = icmp ne ptr %144, null
@@ -1064,22 +1064,22 @@ land.end298:                                      ; preds = %land.rhs296, %_ZN5e
 
 land.end298._ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiEEEvDpOT_.exit_crit_edge: ; preds = %land.end298
   %.pre592 = load i32, ptr %187, align 64
+  %188 = icmp eq i32 %.pre592, 14
   br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiEEEvDpOT_.exit
 
 if.then.i240:                                     ; preds = %land.end298
   store i32 14, ptr @gLCTestObjectFalseFalse, align 64
-  %188 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
-  %inc.i.i241 = add nsw i64 %188, 1
+  %189 = load i64, ptr @_ZN12LCTestObject8sTOCountE, align 8
+  %inc.i.i241 = add nsw i64 %189, 1
   store i64 %inc.i.i241, ptr @_ZN12LCTestObject8sTOCountE, align 8
-  %189 = load i64, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
-  %inc2.i.i242 = add nsw i64 %189, 1
+  %190 = load i64, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
+  %inc2.i.i242 = add nsw i64 %190, 1
   store i64 %inc2.i.i242, ptr @_ZN12LCTestObject12sTOCtorCountE, align 8
   store ptr @gLCTestObjectFalseFalse, ptr getelementptr inbounds (i8, ptr @gLCTestObjectFalseFalse, i64 64), align 64
   br label %_ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiEEEvDpOT_.exit
 
 _ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiEEEvDpOT_.exit: ; preds = %land.end298._ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiEEEvDpOT_.exit_crit_edge, %if.then.i240
-  %190 = phi i32 [ %.pre592, %land.end298._ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiEEEvDpOT_.exit_crit_edge ], [ 14, %if.then.i240 ]
-  %cmp306 = icmp eq i32 %190, 14
+  %cmp306 = phi i1 [ %188, %land.end298._ZN5eastl16late_constructedI12LCTestObjectLb1ELb0EE9constructIJiEEEvDpOT_.exit_crit_edge ], [ true, %if.then.i240 ]
   %call307 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp306, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.4, i32 noundef 340, ptr noundef nonnull @.str.33)
   %191 = load ptr, ptr getelementptr inbounds (i8, ptr @gLCTestObjectFalseFalse, i64 64), align 64
   store i32 18, ptr %191, align 64

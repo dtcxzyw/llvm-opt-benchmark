@@ -836,7 +836,7 @@ define range(i32 0, 2) i32 @yr_arena_allocate_memory(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @yr_arena_allocate_struct(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, ...) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @yr_arena_allocate_struct(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 @yr_arena_reserve_memory(ptr noundef %0, i64 noundef %1)
@@ -888,7 +888,7 @@ define range(i32 0, 2) i32 @yr_arena_make_relocatable(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @yr_arena_write_data(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @yr_arena_write_data(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -939,7 +939,7 @@ yr_arena_allocate_memory.exit:                    ; preds = %13, %25, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @yr_arena_write_string(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @yr_arena_write_string(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %5 = add i64 %4, 1
   %6 = getelementptr inbounds i8, ptr %0, i64 16

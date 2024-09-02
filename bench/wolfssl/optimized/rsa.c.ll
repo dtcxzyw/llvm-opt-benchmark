@@ -2813,19 +2813,19 @@ entry:
   %mul1 = and i32 %mul, 134217726
   %1 = shl nuw nsw i32 %mul1, 3
   %narrow = add nuw nsw i32 %1, 16
-  %add13 = zext nneg i32 %narrow to i64
-  %vla = alloca i8, i64 %add13, align 16
-  %vla40 = alloca i8, i64 %add13, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla, i8 0, i64 %add13, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla40, i8 0, i64 %add13, i1 false)
+  %2 = zext nneg i32 %narrow to i64
+  %vla = alloca i8, i64 %2, align 16
+  %vla40 = alloca i8, i64 %2, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla, i8 0, i64 %2, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %vla40, i8 0, i64 %2, i1 false)
   %add100 = or disjoint i32 %mul1, 1
   %call = call i32 @sp_init_size(ptr noundef nonnull %vla, i32 noundef %add100) #11
   %cmp101.not = icmp eq i32 %call, 0
   br i1 %cmp101.not, label %lor.lhs.false, label %if.end256
 
 lor.lhs.false:                                    ; preds = %entry
-  %2 = load i32, ptr %key, align 8
-  %mul105 = shl i32 %2, 1
+  %3 = load i32, ptr %key, align 8
+  %mul105 = shl i32 %3, 1
   %mul109 = and i32 %mul105, 134217726
   %add110 = or disjoint i32 %mul109, 1
   %call111 = call i32 @sp_init_size(ptr noundef nonnull %vla40, i32 noundef %add110) #11
@@ -2915,14 +2915,14 @@ land.lhs.true242:                                 ; preds = %land.lhs.true233
   br i1 %cmp244.not, label %land.lhs.true250, label %if.end256
 
 land.lhs.true250:                                 ; preds = %land.lhs.true242
-  %3 = load i64, ptr %mp, align 8
-  %call252 = call i32 @sp_mont_red_ex(ptr noundef %tmp, ptr noundef nonnull %key, i64 noundef %3, i32 noundef 1) #11
+  %4 = load i64, ptr %mp, align 8
+  %call252 = call i32 @sp_mont_red_ex(ptr noundef %tmp, ptr noundef nonnull %key, i64 noundef %4, i32 noundef 1) #11
   %cmp253.not = icmp eq i32 %call252, 0
-  %spec.select102 = select i1 %cmp253.not, i32 0, i32 -117
+  %spec.select101 = select i1 %cmp253.not, i32 0, i32 -117
   br label %if.end256
 
 if.end256:                                        ; preds = %land.lhs.true, %land.lhs.true163, %land.lhs.true171, %land.lhs.true180, %land.lhs.true189, %lor.lhs.false, %entry, %if.then123, %if.end120, %if.then133, %if.then143, %land.lhs.true198, %land.lhs.true207, %land.lhs.true216, %land.lhs.true225, %land.lhs.true233, %land.lhs.true242, %land.lhs.true250
-  %ret.16 = phi i32 [ %spec.select102, %land.lhs.true250 ], [ -117, %land.lhs.true242 ], [ -117, %land.lhs.true233 ], [ -117, %land.lhs.true225 ], [ -117, %land.lhs.true216 ], [ -117, %land.lhs.true207 ], [ -115, %land.lhs.true198 ], [ -117, %if.then143 ], [ -112, %if.then133 ], [ -119, %if.then123 ], [ %call119, %if.end120 ], [ -110, %entry ], [ -110, %lor.lhs.false ], [ -116, %land.lhs.true189 ], [ -117, %land.lhs.true180 ], [ -114, %land.lhs.true171 ], [ -112, %land.lhs.true163 ], [ -112, %land.lhs.true ]
+  %ret.16 = phi i32 [ %spec.select101, %land.lhs.true250 ], [ -117, %land.lhs.true242 ], [ -117, %land.lhs.true233 ], [ -117, %land.lhs.true225 ], [ -117, %land.lhs.true216 ], [ -117, %land.lhs.true207 ], [ -115, %land.lhs.true198 ], [ -117, %if.then143 ], [ -112, %if.then133 ], [ -119, %if.then123 ], [ %call119, %if.end120 ], [ -110, %entry ], [ -110, %lor.lhs.false ], [ -116, %land.lhs.true189 ], [ -117, %land.lhs.true180 ], [ -114, %land.lhs.true171 ], [ -112, %land.lhs.true163 ], [ -112, %land.lhs.true ]
   call void @sp_forcezero(ptr noundef nonnull %vla40) #11
   call void @sp_forcezero(ptr noundef nonnull %vla) #11
   ret i32 %ret.16

@@ -1021,7 +1021,7 @@ define internal fastcc noundef zeroext i1 @_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16H
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL26nthreads_omp_efficient_maxiRKN3gmx7CpuInfoEb(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 8, 33) i32 @_ZL26nthreads_omp_efficient_maxiRKN3gmx7CpuInfoEb(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = icmp sgt i32 %0, 1
   br i1 %4, label %28, label %5
 
@@ -1253,13 +1253,13 @@ define void @_Z29checkAndUpdateHardwareOptionsRKN3gmx8MDLoggerEP12gmx_hw_opt_tbi
 38:                                               ; preds = %34
   %39 = load i32, ptr %1, align 8
   %40 = icmp eq i32 %39, 0
+  %41 = zext i1 %40 to i8
   br label %.thread
 
 .thread:                                          ; preds = %31, %32, %38, %34, %33
-  %41 = phi i1 [ false, %34 ], [ false, %33 ], [ %40, %38 ], [ false, %32 ], [ false, %31 ]
-  %42 = getelementptr inbounds i8, ptr %1, i64 96
-  %43 = zext i1 %41 to i8
-  store i8 %43, ptr %42, align 8
+  %42 = phi i8 [ 0, %34 ], [ 0, %33 ], [ %41, %38 ], [ 0, %32 ], [ 0, %31 ]
+  %43 = getelementptr inbounds i8, ptr %1, i64 96
+  store i8 %42, ptr %43, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %23, %.thread

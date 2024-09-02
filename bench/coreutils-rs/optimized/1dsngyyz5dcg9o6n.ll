@@ -1963,7 +1963,7 @@ define hidden void @_ZN7uu_head22find_nth_line_from_end17h6d64e78e6ee54cf6E(ptr 
 19:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 65536, ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65536) %11, i8 0, i64 65536, i1 false)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 65536)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, 65537) i64 @llvm.umin.i64(i64 %18, i64 65536)
   %20 = getelementptr inbounds i8, ptr %9, i64 8
   %21 = getelementptr inbounds i8, ptr %10, i64 8
   %22 = getelementptr inbounds i8, ptr %11, i64 %.0.sroa.speculated.i

@@ -69,7 +69,8 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 54:                                               ; preds = %51
   %55 = load i32, ptr %5, align 4, !tbaa !3
-  %56 = icmp slt i32 %55, 0
+  %.fr15 = freeze i32 %55
+  %56 = icmp slt i32 %.fr15, 0
   br i1 %56, label %.thread, label %57
 
 57:                                               ; preds = %54
@@ -93,7 +94,7 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %68, label %.thread, label %69
 
 69:                                               ; preds = %65
-  %70 = icmp eq i32 %55, 0
+  %70 = icmp eq i32 %.fr15, 0
   %71 = load i32, ptr %13, align 4, !tbaa !3
   br i1 %70, label %72, label %74
 
@@ -129,9 +130,8 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 86:                                               ; preds = %84
   %87 = or i32 %49, %52
-  %88 = or i32 %87, %55
-  %.fr23 = freeze i32 %88
-  %spec.select.not = icmp eq i32 %.fr23, 0
+  %88 = or i32 %87, %.fr15
+  %spec.select.not = icmp eq i32 %88, 0
   %89 = add nuw nsw i32 %46, 1
   store i32 %89, ptr %21, align 4, !tbaa !3
   %90 = select i1 %40, i1 %38, i1 false
@@ -194,14 +194,14 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %127 = fmul double %125, %126
   store double %127, ptr %122, align 8, !tbaa !7
   %128 = icmp slt i64 %116, %96
-  br i1 %128, label %.preheader11.split, label %.loopexit12.loopexit16, !llvm.loop !9
+  br i1 %128, label %.preheader11.split, label %.loopexit12.loopexit17, !llvm.loop !9
 
-.loopexit12.loopexit16:                           ; preds = %.preheader11.split
+.loopexit12.loopexit17:                           ; preds = %.preheader11.split
   %.pre = load i32, ptr %2, align 4, !tbaa !3
   br label %.loopexit12
 
-.loopexit12:                                      ; preds = %.preheader11.split.us, %.loopexit12.loopexit16, %93
-  %129 = phi i32 [ %.pre, %.loopexit12.loopexit16 ], [ 1, %93 ], [ %110, %.preheader11.split.us ]
+.loopexit12:                                      ; preds = %.preheader11.split.us, %.loopexit12.loopexit17, %93
+  %129 = phi i32 [ %.pre, %.loopexit12.loopexit17 ], [ 1, %93 ], [ %110, %.preheader11.split.us ]
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds double, ptr %22, i64 %130
   %132 = getelementptr inbounds double, ptr %23, i64 %130
@@ -236,14 +236,14 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds double, ptr %36, i64 %150
   call void @dlasr_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %21, ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %151, ptr noundef %8, ptr noundef nonnull %9) #4
-  %.pre18 = load i32, ptr %2, align 4, !tbaa !3
+  %.pre19 = load i32, ptr %2, align 4, !tbaa !3
   br label %.thread7
 
 152:                                              ; preds = %86
   br i1 %40, label %225, label %.thread7
 
 .thread7:                                         ; preds = %145, %148, %152
-  %153 = phi i32 [ %46, %152 ], [ %.pre18, %148 ], [ %134, %145 ]
+  %153 = phi i32 [ %46, %152 ], [ %.pre19, %148 ], [ %134, %145 ]
   %154 = phi i32 [ %43, %152 ], [ 0, %148 ], [ 0, %145 ]
   %155 = icmp slt i32 %153, 2
   br i1 %155, label %.loopexit10, label %.preheader

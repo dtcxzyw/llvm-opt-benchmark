@@ -261,7 +261,7 @@ define dso_local zeroext i1 @raw6_local_deliver(ptr noundef %0, i32 noundef %1) 
   br i1 %86, label %87, label %128
 
 87:                                               ; preds = %85, %76, %69
-  br i1 %33, label %88, label %.thread6
+  br i1 %33, label %88, label %.critedge
 
 88:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
@@ -283,25 +283,21 @@ define dso_local zeroext i1 @raw6_local_deliver(ptr noundef %0, i32 noundef %1) 
   br i1 %102, label %107, label %103, !prof !7
 
 103:                                              ; preds = %88
-  br i1 %38, label %.thread8, label %104
+  br i1 %38, label %.critedge6, label %104
 
 104:                                              ; preds = %103
   %105 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %97, ptr noundef nonnull %3, i32 noundef 4) #13
   %106 = icmp slt i32 %105, 0
-  br i1 %106, label %.thread8, label %.thread5, !prof !8
+  br i1 %106, label %.critedge6, label %.thread7, !prof !8
 
 107:                                              ; preds = %88
   %108 = shl i64 %96, 32
   %109 = ashr exact i64 %108, 32
   %110 = getelementptr i8, ptr %93, i64 %109
   %111 = icmp eq ptr %110, null
-  br i1 %111, label %.thread8, label %.thread5
+  br i1 %111, label %.critedge6, label %.thread7
 
-.thread8:                                         ; preds = %107, %103, %104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  br label %128
-
-.thread5:                                         ; preds = %104, %107
+.thread7:                                         ; preds = %104, %107
   %112 = phi ptr [ %110, %107 ], [ %3, %104 ]
   %113 = getelementptr inbounds i8, ptr %40, i64 968
   %114 = load i8, ptr %112, align 4
@@ -311,23 +307,27 @@ define dso_local zeroext i1 @raw6_local_deliver(ptr noundef %0, i32 noundef %1) 
   %118 = getelementptr i32, ptr %113, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %115, 31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   %121 = shl nuw i32 1, %120
   %122 = and i32 %121, %119
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %.thread6, label %128
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  br i1 %123, label %.critedge, label %128
 
-.thread6:                                         ; preds = %87, %.thread5
+.critedge:                                        ; preds = %87, %.thread7
   %124 = call ptr @skb_clone(ptr noundef %0, i32 noundef 2080) #13
   %125 = icmp eq ptr %124, null
   br i1 %125, label %128, label %126
 
-126:                                              ; preds = %.thread6
+126:                                              ; preds = %.critedge
   %127 = call i32 @rawv6_rcv(ptr noundef nonnull %40, ptr noundef nonnull %124), !range !9
   br label %128
 
-128:                                              ; preds = %.thread8, %126, %.thread6, %.thread5, %85, %82, %63, %57, %46, %39
-  %129 = phi i8 [ 1, %.thread6 ], [ 1, %126 ], [ 1, %.thread5 ], [ %41, %63 ], [ %41, %39 ], [ %41, %46 ], [ %41, %57 ], [ %41, %85 ], [ %41, %82 ], [ 1, %.thread8 ]
+.critedge6:                                       ; preds = %104, %103, %107
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  br label %128
+
+128:                                              ; preds = %.critedge6, %126, %.critedge, %.thread7, %85, %82, %63, %57, %46, %39
+  %129 = phi i8 [ 1, %.critedge ], [ 1, %126 ], [ 1, %.thread7 ], [ %41, %63 ], [ %41, %39 ], [ %41, %46 ], [ %41, %57 ], [ %41, %85 ], [ %41, %82 ], [ 1, %.critedge6 ]
   %130 = getelementptr inbounds i8, ptr %40, i64 104
   %131 = load volatile ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null

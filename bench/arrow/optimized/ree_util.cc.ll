@@ -595,7 +595,7 @@ _ZN5arrow8ree_util8internal21FindPhysicalIndexImplIlEElRNS1_19PhysicalIndexFinde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN5arrow8ree_util17FindPhysicalIndexERKNS_9ArraySpanEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %span, i64 noundef %i, i64 noundef %absolute_offset) local_unnamed_addr #0 {
+define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN5arrow8ree_util17FindPhysicalIndexERKNS_9ArraySpanEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %span, i64 noundef %i, i64 noundef %absolute_offset) local_unnamed_addr #0 {
 entry:
   %child_data.i = getelementptr inbounds i8, ptr %span, i64 104
   %0 = load ptr, ptr %child_data.i, align 8
@@ -686,7 +686,7 @@ return:                                           ; preds = %while.body.i.i.i.i2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN5arrow8ree_util18FindPhysicalLengthERKNS_9ArraySpanE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %span) local_unnamed_addr #0 {
+define noundef range(i64 -4611686018427387903, 4611686018427387905) i64 @_ZN5arrow8ree_util18FindPhysicalLengthERKNS_9ArraySpanE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %span) local_unnamed_addr #0 {
 entry:
   %child_data.i = getelementptr inbounds i8, ptr %span, i64 104
   %0 = load ptr, ptr %child_data.i, align 8

@@ -618,7 +618,7 @@ define internal fastcc void @test_sync(i32 noundef %0) unnamed_addr #0 {
 ._crit_edge.us:                                   ; preds = %18
   %23 = add i32 %.03863.us, 1
   %.b48.us = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b48.us, label %._crit_edge64, label %.preheader55.us, !llvm.loop !12
+  br i1 %.b48.us, label %._crit_edge64.loopexit, label %.preheader55.us, !llvm.loop !12
 
 .preheader55:                                     ; preds = %.preheader55.lr.ph, %.preheader55
   br label %.preheader55
@@ -628,21 +628,24 @@ define internal fastcc void @test_sync(i32 noundef %0) unnamed_addr #0 {
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
-._crit_edge64:                                    ; preds = %._crit_edge.us, %13
-  %.038.lcssa = phi i32 [ 0, %13 ], [ %23, %._crit_edge.us ]
-  %24 = tail call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
-  %25 = load i64, ptr @start_t, align 8
-  %26 = load i64, ptr getelementptr inbounds (i8, ptr @start_t, i64 8), align 8
-  %27 = load i64, ptr @stop_t, align 8
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @stop_t, i64 8), align 8
-  %29 = sub i64 %27, %25
-  %30 = sitofp i64 %29 to double
-  %31 = sub i64 %28, %26
-  %32 = sitofp i64 %31 to double
-  %33 = tail call double @llvm.fmuladd.f64(double %32, double 0x3EB0C6F7A0B5ED8D, double %30)
-  %34 = sitofp i32 %.038.lcssa to double
-  %35 = fdiv double %34, %33
-  %36 = fdiv double %33, %34
+._crit_edge64.loopexit:                           ; preds = %._crit_edge.us
+  %24 = sitofp i32 %23 to double
+  br label %._crit_edge64
+
+._crit_edge64:                                    ; preds = %._crit_edge64.loopexit, %13
+  %.038.lcssa = phi double [ 0.000000e+00, %13 ], [ %24, %._crit_edge64.loopexit ]
+  %25 = tail call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
+  %26 = load i64, ptr @start_t, align 8
+  %27 = load i64, ptr getelementptr inbounds (i8, ptr @start_t, i64 8), align 8
+  %28 = load i64, ptr @stop_t, align 8
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @stop_t, i64 8), align 8
+  %30 = sub i64 %28, %26
+  %31 = sitofp i64 %30 to double
+  %32 = sub i64 %29, %27
+  %33 = sitofp i64 %32 to double
+  %34 = tail call double @llvm.fmuladd.f64(double %33, double 0x3EB0C6F7A0B5ED8D, double %31)
+  %35 = fdiv double %.038.lcssa, %34
+  %36 = fdiv double %34, %.038.lcssa
   %37 = fmul double %36, 1.000000e+06
   %38 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %35, double noundef %37) #14
   %39 = tail call i32 @close(i32 noundef %9) #14

@@ -1912,7 +1912,7 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %22 = getelementptr inbounds i8, ptr %9, i64 14344
   %23 = load i32, ptr %22, align 8
   %24 = icmp slt i32 %23, 2
-  br i1 %24, label %265, label %25
+  br i1 %24, label %266, label %25
 
 25:                                               ; preds = %2
   %26 = sext i32 %16 to i64
@@ -2013,8 +2013,8 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %.phi.trans.insert = getelementptr inbounds i8, ptr %64, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.not334 = icmp sgt i32 %.pre, %.0284404
-  %or.cond443 = select i1 %.not333, i1 true, i1 %.not334
-  br i1 %or.cond443, label %._crit_edge414, label %71
+  %or.cond441 = select i1 %.not333, i1 true, i1 %.not334
+  br i1 %or.cond441, label %._crit_edge414, label %71
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds i8, ptr %70, i64 24
@@ -2162,8 +2162,8 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %.phi.trans.insert416 = getelementptr inbounds i8, ptr %143, i64 4
   %.pre417 = load i32, ptr %.phi.trans.insert416, align 4
   %.not341 = icmp sgt i32 %.pre417, %.0284404
-  %or.cond444 = select i1 %.not340, i1 true, i1 %.not341
-  br i1 %or.cond444, label %._crit_edge415, label %147
+  %or.cond442 = select i1 %.not340, i1 true, i1 %.not341
+  br i1 %or.cond442, label %._crit_edge415, label %147
 
 147:                                              ; preds = %144
   %148 = getelementptr inbounds i8, ptr %146, i64 24
@@ -2290,27 +2290,23 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %.not408, label %.lr.ph388.preheader, label %.preheader
 
 .loopexit:                                        ; preds = %221
-  %203 = getelementptr inbounds i8, ptr %.9, i64 32
-  %204 = load ptr, ptr %203, align 8
-  %205 = icmp ne ptr %.1280, %204
-  %206 = icmp ne i32 %.2, 0
-  %207 = select i1 %205, i1 %206, i1 false
+  %203 = icmp ne i32 %.2, 0
+  %204 = getelementptr inbounds i8, ptr %.9, i64 32
+  %205 = load ptr, ptr %204, align 8
+  %206 = icmp ne ptr %.1280, %205
+  %207 = select i1 %206, i1 %203, i1 false
   br i1 %207, label %.preheader, label %.lr.ph388.preheader, !llvm.loop !13
 
-.preheader353:                                    ; preds = %.preheader
-  %.not324385 = icmp eq ptr %.7382, null
-  br i1 %.not324385, label %._crit_edge397.thread, label %.lr.ph388.preheader
-
-.lr.ph388.preheader:                              ; preds = %.loopexit, %.preheader354, %.preheader353
-  %.7.lcssa429 = phi ptr [ %.7382, %.preheader353 ], [ %.1291.lcssa, %.preheader354 ], [ %.9, %.loopexit ]
+.lr.ph388.preheader:                              ; preds = %.loopexit, %.preheader, %.preheader354
+  %.7.lcssa429 = phi ptr [ %.1291.lcssa, %.preheader354 ], [ %.9, %.loopexit ], [ %.7382, %.preheader ]
   br label %.lr.ph388
 
 .preheader:                                       ; preds = %.preheader354, %.loopexit
-  %208 = phi ptr [ %204, %.loopexit ], [ %202, %.preheader354 ]
+  %208 = phi ptr [ %205, %.loopexit ], [ %202, %.preheader354 ]
   %.0273383 = phi ptr [ %.1280, %.loopexit ], [ null, %.preheader354 ]
   %.7382 = phi ptr [ %.9, %.loopexit ], [ %.1291.lcssa, %.preheader354 ]
   %.not329371 = icmp eq ptr %.7382, %.0273383
-  br i1 %.not329371, label %.preheader353, label %.lr.ph378
+  br i1 %.not329371, label %.lr.ph388.preheader, label %.lr.ph378
 
 .lr.ph378:                                        ; preds = %.preheader, %221
   %.1377 = phi i32 [ %.2, %221 ], [ 0, %.preheader ]
@@ -2425,34 +2421,34 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %.not325, label %._crit_edge397, label %232, !llvm.loop !16
 
 ._crit_edge397:                                   ; preds = %250
-  %.not326 = icmp ne i32 %.2289, 0
+  %257 = icmp ne i32 %.2289, 0
   %.not327.not = icmp slt i32 %.1286351, %6
-  %or.cond347 = select i1 %.not326, i1 %.not327.not, i1 false
-  br i1 %or.cond347, label %257, label %._crit_edge397.thread
+  %or.cond347 = select i1 %257, i1 %.not327.not, i1 false
+  br i1 %or.cond347, label %258, label %._crit_edge397.thread
 
-257:                                              ; preds = %._crit_edge397
-  %258 = load ptr, ptr %3, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 16
-  %260 = load ptr, ptr %259, align 8
-  %261 = ashr exact i32 %.0284404, 10
-  tail call void %260(ptr noundef %258, i32 noundef %.1286351, i32 noundef %7, i32 noundef %261) #12
+258:                                              ; preds = %._crit_edge397
+  %259 = load ptr, ptr %3, align 8
+  %260 = getelementptr inbounds i8, ptr %259, i64 16
+  %261 = load ptr, ptr %260, align 8
+  %262 = ashr exact i32 %.0284404, 10
+  tail call void %261(ptr noundef %259, i32 noundef %.1286351, i32 noundef %7, i32 noundef %262) #12
   br label %._crit_edge397.thread
 
-._crit_edge397.thread:                            ; preds = %.preheader353, %._crit_edge397, %257, %._crit_edge369
-  %.6 = phi ptr [ %.7.lcssa429, %257 ], [ %.7.lcssa429, %._crit_edge397 ], [ null, %._crit_edge369 ], [ null, %.preheader353 ]
+._crit_edge397.thread:                            ; preds = %._crit_edge397, %258, %._crit_edge369
+  %.6 = phi ptr [ %.7.lcssa429, %258 ], [ %.7.lcssa429, %._crit_edge397 ], [ null, %._crit_edge369 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.0284 = add nsw i32 %.0284404, 1024
-  %262 = icmp sle i32 %.0284, %13
-  %263 = icmp slt i64 %indvars.iv.next, %26
-  %264 = select i1 %262, i1 %263, i1 false
-  br i1 %264, label %.lr.ph406, label %._crit_edge407, !llvm.loop !17
+  %263 = icmp sle i32 %.0284, %13
+  %264 = icmp slt i64 %indvars.iv.next, %26
+  %265 = select i1 %263, i1 %264, i1 false
+  br i1 %265, label %.lr.ph406, label %._crit_edge407, !llvm.loop !17
 
 ._crit_edge407:                                   ; preds = %._crit_edge397.thread, %._crit_edge360
   tail call void @free(ptr noundef %34) #12
   tail call void @free(ptr noundef %28) #12
-  br label %265
+  br label %266
 
-265:                                              ; preds = %2, %._crit_edge407
+266:                                              ; preds = %2, %._crit_edge407
   ret void
 }
 

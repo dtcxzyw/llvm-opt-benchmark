@@ -4312,7 +4312,7 @@ define dso_local void @getrusage(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %64 = add i64 %63, %62
   store i64 %64, ptr %26, align 8
   %65 = load i64, ptr %35, align 8
-  br label %169
+  br label %168
 
 .split:                                           ; preds = %3, %161
   %66 = phi i1 [ false, %161 ], [ true, %3 ]
@@ -4479,76 +4479,76 @@ define dso_local void @getrusage(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %158 = phi i64 [ %114, %.loopexit ], [ %90, %81 ]
   %159 = and i32 %79, 1
   %160 = icmp eq i32 %159, 0
-  br i1 %160, label %161, label %163
+  br i1 %160, label %161, label %.critedge4
 
 161:                                              ; preds = %155
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !43
   %162 = load volatile i32, ptr %11, align 4
   %.not = icmp eq i32 %162, %79
-  br i1 %.not, label %.thread4, label %.split
+  br i1 %.not, label %.critedge, label %.split
 
-163:                                              ; preds = %155
+.critedge4:                                       ; preds = %155
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %12, i64 noundef %80) #13
-  br label %.thread4
+  br label %.critedge
 
-.thread4:                                         ; preds = %161, %163
-  br i1 %28, label %189, label %164
+.critedge:                                        ; preds = %161, %.critedge4
+  br i1 %28, label %188, label %163
 
-164:                                              ; preds = %.thread4
+163:                                              ; preds = %.critedge
   call void @thread_group_cputime_adjusted(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
-  %165 = load i64, ptr %4, align 8
-  %166 = add i64 %157, %165
-  store i64 %166, ptr %6, align 8
-  %167 = load i64, ptr %5, align 8
-  %168 = add i64 %156, %167
-  store i64 %168, ptr %7, align 8
-  br label %169
+  %164 = load i64, ptr %4, align 8
+  %165 = add i64 %157, %164
+  store i64 %165, ptr %6, align 8
+  %166 = load i64, ptr %5, align 8
+  %167 = add i64 %156, %166
+  store i64 %167, ptr %7, align 8
+  br label %168
 
-169:                                              ; preds = %164, %.split.us
-  %170 = phi i64 [ %65, %.split.us ], [ %158, %164 ]
-  %171 = call ptr @get_task_mm(ptr noundef %0) #13
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %189, label %173
+168:                                              ; preds = %163, %.split.us
+  %169 = phi i64 [ %65, %.split.us ], [ %158, %163 ]
+  %170 = call ptr @get_task_mm(ptr noundef %0) #13
+  %171 = icmp eq ptr %170, null
+  br i1 %171, label %188, label %172
 
-173:                                              ; preds = %169
-  %174 = getelementptr inbounds i8, ptr %171, i64 240
-  %175 = load i64, ptr %174, align 16
-  %176 = getelementptr i8, ptr %171, i64 832
-  %177 = load volatile i64, ptr %176, align 8
-  %178 = call i64 @llvm.smax.i64(i64 %177, i64 0)
-  %179 = getelementptr i8, ptr %171, i64 872
-  %180 = load volatile i64, ptr %179, align 8
-  %181 = call i64 @llvm.smax.i64(i64 %180, i64 0)
-  %182 = add nuw i64 %181, %178
-  %183 = getelementptr i8, ptr %171, i64 952
-  %184 = load volatile i64, ptr %183, align 8
-  %185 = call i64 @llvm.smax.i64(i64 %184, i64 0)
-  %186 = add i64 %182, %185
-  %187 = call i64 @llvm.umax.i64(i64 %175, i64 %186)
-  %188 = call i64 @llvm.umax.i64(i64 %170, i64 %187)
-  call void @mmput(ptr noundef nonnull %171) #13
-  br label %189
+172:                                              ; preds = %168
+  %173 = getelementptr inbounds i8, ptr %170, i64 240
+  %174 = load i64, ptr %173, align 16
+  %175 = getelementptr i8, ptr %170, i64 832
+  %176 = load volatile i64, ptr %175, align 8
+  %177 = call i64 @llvm.smax.i64(i64 %176, i64 0)
+  %178 = getelementptr i8, ptr %170, i64 872
+  %179 = load volatile i64, ptr %178, align 8
+  %180 = call i64 @llvm.smax.i64(i64 %179, i64 0)
+  %181 = add nuw i64 %180, %177
+  %182 = getelementptr i8, ptr %170, i64 952
+  %183 = load volatile i64, ptr %182, align 8
+  %184 = call i64 @llvm.smax.i64(i64 %183, i64 0)
+  %185 = add i64 %181, %184
+  %186 = call i64 @llvm.umax.i64(i64 %174, i64 %185)
+  %187 = call i64 @llvm.umax.i64(i64 %169, i64 %186)
+  call void @mmput(ptr noundef nonnull %170) #13
+  br label %188
 
-189:                                              ; preds = %173, %169, %.thread4
-  %190 = phi i64 [ %170, %169 ], [ %188, %173 ], [ %158, %.thread4 ]
-  %191 = shl i64 %190, 2
-  %192 = getelementptr inbounds i8, ptr %2, i64 32
-  store i64 %191, ptr %192, align 8
-  %193 = load i64, ptr %6, align 8
-  %194 = call { i64, i64 } @ns_to_kernel_old_timeval(i64 noundef %193) #13
-  %195 = extractvalue { i64, i64 } %194, 0
-  %196 = extractvalue { i64, i64 } %194, 1
-  store i64 %195, ptr %2, align 8
-  %197 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %196, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %2, i64 16
-  %199 = load i64, ptr %7, align 8
-  %200 = call { i64, i64 } @ns_to_kernel_old_timeval(i64 noundef %199) #13
-  %201 = extractvalue { i64, i64 } %200, 0
-  %202 = extractvalue { i64, i64 } %200, 1
-  store i64 %201, ptr %198, align 8
-  %203 = getelementptr inbounds i8, ptr %2, i64 24
-  store i64 %202, ptr %203, align 8
+188:                                              ; preds = %172, %168, %.critedge
+  %189 = phi i64 [ %169, %168 ], [ %187, %172 ], [ %158, %.critedge ]
+  %190 = shl i64 %189, 2
+  %191 = getelementptr inbounds i8, ptr %2, i64 32
+  store i64 %190, ptr %191, align 8
+  %192 = load i64, ptr %6, align 8
+  %193 = call { i64, i64 } @ns_to_kernel_old_timeval(i64 noundef %192) #13
+  %194 = extractvalue { i64, i64 } %193, 0
+  %195 = extractvalue { i64, i64 } %193, 1
+  store i64 %194, ptr %2, align 8
+  %196 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %195, ptr %196, align 8
+  %197 = getelementptr inbounds i8, ptr %2, i64 16
+  %198 = load i64, ptr %7, align 8
+  %199 = call { i64, i64 } @ns_to_kernel_old_timeval(i64 noundef %198) #13
+  %200 = extractvalue { i64, i64 } %199, 0
+  %201 = extractvalue { i64, i64 } %199, 1
+  store i64 %200, ptr %197, align 8
+  %202 = getelementptr inbounds i8, ptr %2, i64 24
+  store i64 %201, ptr %202, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13

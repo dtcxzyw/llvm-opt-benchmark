@@ -1822,7 +1822,9 @@ while.cond.preheader:                             ; preds = %_ZN5folly8OptionalI
   %which_.i.i.i132 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %cmp.i.i.i.i.i82 = icmp eq ptr %agg.result, %headerValueRes
   %cmp.i.i.i.i.i = icmp eq ptr %agg.result, %headerNameRes
-  br label %while.cond
+  %6 = load i8, ptr %hasValue.i.i, align 8
+  %tobool.i.i.i62298 = trunc i8 %6 to i1
+  br i1 %tobool.i.i.i62298, label %_ZN5folly8OptionalISt4pairImmEEptEv.exit64, label %if.then.i.i.i63
 
 invoke.cont37:                                    ; preds = %_ZN5folly8OptionalISt4pairImmEEptEv.exit53
   store i64 %4, ptr %ref.tmp.i124, align 16, !alias.scope !25
@@ -1837,26 +1839,21 @@ invoke.cont37:                                    ; preds = %_ZN5folly8OptionalI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30) #29
   br label %return
 
-while.cond:                                       ; preds = %while.cond.preheader, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137
-  %numHeaders.0 = phi i32 [ %numHeaders.1249, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137 ], [ 0, %while.cond.preheader ]
-  %parsed.0 = phi i64 [ %parsed.1251, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137 ], [ %3, %while.cond.preheader ]
-  %remaining.addr.0 = phi i64 [ %remaining.addr.1253, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137 ], [ %sub, %while.cond.preheader ]
-  %6 = load i8, ptr %hasValue.i.i, align 8
-  %tobool.i.i.i62 = trunc i8 %6 to i1
-  br i1 %tobool.i.i.i62, label %_ZN5folly8OptionalISt4pairImmEEptEv.exit64, label %if.then.i.i.i63
-
-if.then.i.i.i63:                                  ; preds = %while.cond
+if.then.i.i.i63:                                  ; preds = %while.cond.backedge, %while.cond.preheader
   call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #12
   unreachable
 
-_ZN5folly8OptionalISt4pairImmEEptEv.exit64:       ; preds = %while.cond
+_ZN5folly8OptionalISt4pairImmEEptEv.exit64:       ; preds = %while.cond.preheader, %while.cond.backedge
+  %remaining.addr.0301 = phi i64 [ %remaining.addr.0.be, %while.cond.backedge ], [ %sub, %while.cond.preheader ]
+  %parsed.0300 = phi i64 [ %parsed.0.be, %while.cond.backedge ], [ %3, %while.cond.preheader ]
+  %numHeaders.0299 = phi i32 [ %numHeaders.0.be, %while.cond.backedge ], [ 0, %while.cond.preheader ]
   %7 = load i64, ptr %lengthOfHeaders, align 8
-  %cmp43 = icmp ult i64 %parsed.0, %7
+  %cmp43 = icmp ult i64 %parsed.0300, %7
   br i1 %cmp43, label %while.body, label %while.end
 
 while.body:                                       ; preds = %_ZN5folly8OptionalISt4pairImmEEptEv.exit64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headerName) #29
-  invoke void @_ZN8proxygen15HTTPBinaryCodec22parseKnownLengthStringERN5folly2io6CursorEmNS1_5RangeIPKcEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.folly::Expected") align 8 %headerNameRes, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %remaining.addr.0, ptr nonnull @.str.18, ptr nonnull getelementptr inbounds (i8, ptr @.str.18, i64 10), ptr noundef nonnull align 8 dereferenceable(32) %headerName)
+  invoke void @_ZN8proxygen15HTTPBinaryCodec22parseKnownLengthStringERN5folly2io6CursorEmNS1_5RangeIPKcEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.folly::Expected") align 8 %headerNameRes, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %remaining.addr.0301, ptr nonnull @.str.18, ptr nonnull getelementptr inbounds (i8, ptr @.str.18, i64 10), ptr noundef nonnull align 8 dereferenceable(32) %headerName)
           to label %invoke.cont47 unwind label %lpad45
 
 invoke.cont47:                                    ; preds = %while.body
@@ -1890,8 +1887,8 @@ if.end.i.i.i:                                     ; preds = %invoke.cont47
 
 invoke.cont55:                                    ; preds = %invoke.cont47
   %10 = load i64, ptr %headerNameRes, align 8
-  %add54 = add i64 %10, %parsed.0
-  %sub57 = sub i64 %remaining.addr.0, %10
+  %add54 = add i64 %10, %parsed.0300
+  %sub57 = sub i64 %remaining.addr.0301, %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headerValue) #29
   invoke void @_ZN8proxygen15HTTPBinaryCodec22parseKnownLengthStringERN5folly2io6CursorEmNS1_5RangeIPKcEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.folly::Expected") align 8 %headerValueRes, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %sub57, ptr nonnull @.str.19, ptr nonnull getelementptr inbounds (i8, ptr @.str.19, i64 11), ptr noundef nonnull align 8 dereferenceable(32) %headerValue)
           to label %invoke.cont61 unwind label %lpad59
@@ -2125,66 +2122,71 @@ ehcleanup84:                                      ; preds = %lpad79, %lpad77
   br label %ehcleanup99
 
 if.end98:                                         ; preds = %_ZN8proxygen15HPACKHeaderNameD2Ev.exit
-  %inc = add nsw i32 %numHeaders.0, 1
+  %inc = add nsw i32 %numHeaders.0299, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i86, %if.end98, %invoke.cont95
-  %numHeaders.2.ph = phi i32 [ %numHeaders.0, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i86 ], [ %numHeaders.0, %invoke.cont95 ], [ %inc, %if.end98 ]
+  %numHeaders.2.ph = phi i32 [ %numHeaders.0299, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i86 ], [ %numHeaders.0299, %invoke.cont95 ], [ %inc, %if.end98 ]
   %parsed.2.ph = phi i64 [ %add54, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i86 ], [ %add68, %invoke.cont95 ], [ %add68, %if.end98 ]
   %remaining.addr.2.ph = phi i64 [ %sub57, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i86 ], [ %sub71, %invoke.cont95 ], [ %sub71, %if.end98 ]
-  %cleanup.dest.slot.1.ph = phi i32 [ 1, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i86 ], [ 1, %invoke.cont95 ], [ 0, %if.end98 ]
+  %.ph = phi i1 [ false, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i86 ], [ false, %invoke.cont95 ], [ true, %if.end98 ]
   %.pr = load i8, ptr %which_.i79, align 8
   %cond.i.i.i = icmp eq i8 %.pr, 2
   br i1 %cond.i.i.i, label %sw.bb2.i.i.i, label %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 sw.bb2.i.i.i:                                     ; preds = %if.then63, %cleanup
-  %cleanup.dest.slot.1242 = phi i32 [ %cleanup.dest.slot.1.ph, %cleanup ], [ 1, %if.then63 ]
-  %remaining.addr.2240 = phi i64 [ %remaining.addr.2.ph, %cleanup ], [ %sub57, %if.then63 ]
-  %parsed.2238 = phi i64 [ %parsed.2.ph, %cleanup ], [ %add54, %if.then63 ]
-  %numHeaders.2236 = phi i32 [ %numHeaders.2.ph, %cleanup ], [ %numHeaders.0, %if.then63 ]
+  %38 = phi i1 [ %.ph, %cleanup ], [ false, %if.then63 ]
+  %remaining.addr.2239 = phi i64 [ %remaining.addr.2.ph, %cleanup ], [ %sub57, %if.then63 ]
+  %parsed.2237 = phi i64 [ %parsed.2.ph, %cleanup ], [ %add54, %if.then63 ]
+  %numHeaders.2235 = phi i32 [ %numHeaders.2.ph, %cleanup ], [ %numHeaders.0299, %if.then63 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headerValueRes) #29
   br label %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %cleanup, %sw.bb2.i.i.i
-  %cleanup.dest.slot.1241 = phi i32 [ %cleanup.dest.slot.1.ph, %cleanup ], [ %cleanup.dest.slot.1242, %sw.bb2.i.i.i ]
-  %remaining.addr.2239 = phi i64 [ %remaining.addr.2.ph, %cleanup ], [ %remaining.addr.2240, %sw.bb2.i.i.i ]
-  %parsed.2237 = phi i64 [ %parsed.2.ph, %cleanup ], [ %parsed.2238, %sw.bb2.i.i.i ]
-  %numHeaders.2235 = phi i32 [ %numHeaders.2.ph, %cleanup ], [ %numHeaders.2236, %sw.bb2.i.i.i ]
+  %39 = phi i1 [ %.ph, %cleanup ], [ %38, %sw.bb2.i.i.i ]
+  %remaining.addr.2238 = phi i64 [ %remaining.addr.2.ph, %cleanup ], [ %remaining.addr.2239, %sw.bb2.i.i.i ]
+  %parsed.2236 = phi i64 [ %parsed.2.ph, %cleanup ], [ %parsed.2237, %sw.bb2.i.i.i ]
+  %numHeaders.2234 = phi i32 [ %numHeaders.2.ph, %cleanup ], [ %numHeaders.2235, %sw.bb2.i.i.i ]
   store i8 0, ptr %which_.i79, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headerValue) #29
   br label %cleanup102
 
 cleanup102:                                       ; preds = %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  %numHeaders.1.ph = phi i32 [ %numHeaders.0, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i ], [ %numHeaders.2235, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ]
-  %parsed.1.ph = phi i64 [ %parsed.0, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i ], [ %parsed.2237, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ]
-  %remaining.addr.1.ph = phi i64 [ %remaining.addr.0, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i ], [ %remaining.addr.2239, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ]
-  %cleanup.dest.slot.0.ph = phi i32 [ 1, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i ], [ %cleanup.dest.slot.1241, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ]
-  %.pr243 = load i8, ptr %which_.i, align 8
-  %cond.i.i.i135 = icmp eq i8 %.pr243, 2
+  %numHeaders.1.ph = phi i32 [ %numHeaders.0299, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i ], [ %numHeaders.2234, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ]
+  %parsed.1.ph = phi i64 [ %parsed.0300, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i ], [ %parsed.2236, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ]
+  %remaining.addr.1.ph = phi i64 [ %remaining.addr.0301, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i ], [ %remaining.addr.2238, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ]
+  %cleanup.dest.slot.0.ph = phi i1 [ false, %_ZN5folly15expected_detail17MoveConstructibleINS0_15ExpectedStorageImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELNS0_11StorageTypeE2EEELb1ELb1EEC2EOSB_.exit.sink.split.i.i ], [ %39, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ]
+  %.pr240 = load i8, ptr %which_.i, align 8
+  %cond.i.i.i135 = icmp eq i8 %.pr240, 2
   br i1 %cond.i.i.i135, label %sw.bb2.i.i.i136, label %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137
 
 sw.bb2.i.i.i136:                                  ; preds = %if.then49, %cleanup102
-  %cleanup.dest.slot.0256 = phi i32 [ %cleanup.dest.slot.0.ph, %cleanup102 ], [ 1, %if.then49 ]
-  %remaining.addr.1254 = phi i64 [ %remaining.addr.1.ph, %cleanup102 ], [ %remaining.addr.0, %if.then49 ]
-  %parsed.1252 = phi i64 [ %parsed.1.ph, %cleanup102 ], [ %parsed.0, %if.then49 ]
-  %numHeaders.1250 = phi i32 [ %numHeaders.1.ph, %cleanup102 ], [ %numHeaders.0, %if.then49 ]
+  %cleanup.dest.slot.0253 = phi i1 [ %cleanup.dest.slot.0.ph, %cleanup102 ], [ false, %if.then49 ]
+  %remaining.addr.1251 = phi i64 [ %remaining.addr.1.ph, %cleanup102 ], [ %remaining.addr.0301, %if.then49 ]
+  %parsed.1249 = phi i64 [ %parsed.1.ph, %cleanup102 ], [ %parsed.0300, %if.then49 ]
+  %numHeaders.1247 = phi i32 [ %numHeaders.1.ph, %cleanup102 ], [ %numHeaders.0299, %if.then49 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headerNameRes) #29
-  br label %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137
-
-_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137: ; preds = %cleanup102, %sw.bb2.i.i.i136
-  %cleanup.dest.slot.0255 = phi i32 [ %cleanup.dest.slot.0.ph, %cleanup102 ], [ %cleanup.dest.slot.0256, %sw.bb2.i.i.i136 ]
-  %remaining.addr.1253 = phi i64 [ %remaining.addr.1.ph, %cleanup102 ], [ %remaining.addr.1254, %sw.bb2.i.i.i136 ]
-  %parsed.1251 = phi i64 [ %parsed.1.ph, %cleanup102 ], [ %parsed.1252, %sw.bb2.i.i.i136 ]
-  %numHeaders.1249 = phi i32 [ %numHeaders.1.ph, %cleanup102 ], [ %numHeaders.1250, %sw.bb2.i.i.i136 ]
   store i8 0, ptr %which_.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headerName) #29
-  %switch = icmp eq i32 %cleanup.dest.slot.0255, 0
-  br i1 %switch, label %while.cond, label %return
+  br i1 %cleanup.dest.slot.0253, label %while.cond.backedge, label %return
+
+_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137: ; preds = %cleanup102
+  store i8 0, ptr %which_.i, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %headerName) #29
+  br i1 %cleanup.dest.slot.0.ph, label %while.cond.backedge, label %return
+
+while.cond.backedge:                              ; preds = %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137, %sw.bb2.i.i.i136
+  %numHeaders.0.be = phi i32 [ %numHeaders.1.ph, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137 ], [ %numHeaders.1247, %sw.bb2.i.i.i136 ]
+  %parsed.0.be = phi i64 [ %parsed.1.ph, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137 ], [ %parsed.1249, %sw.bb2.i.i.i136 ]
+  %remaining.addr.0.be = phi i64 [ %remaining.addr.1.ph, %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137 ], [ %remaining.addr.1251, %sw.bb2.i.i.i136 ]
+  %40 = load i8, ptr %hasValue.i.i, align 8
+  %tobool.i.i.i62 = trunc i8 %40 to i1
+  br i1 %tobool.i.i.i62, label %_ZN5folly8OptionalISt4pairImmEEptEv.exit64, label %if.then.i.i.i63
 
 ehcleanup99:                                      ; preds = %lpad65.loopexit, %lpad65.loopexit.split-lp, %ehcleanup84
   %.pn25.pn = phi { ptr, i32 } [ %.pn23, %ehcleanup84 ], [ %lpad.loopexit, %lpad65.loopexit ], [ %lpad.loopexit.split-lp, %lpad65.loopexit.split-lp ]
-  %38 = load i8, ptr %which_.i79, align 8
-  %cond.i.i.i139 = icmp eq i8 %38, 2
+  %41 = load i8, ptr %which_.i79, align 8
+  %cond.i.i.i139 = icmp eq i8 %41, 2
   br i1 %cond.i.i.i139, label %sw.bb2.i.i.i140, label %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit141
 
 sw.bb2.i.i.i140:                                  ; preds = %ehcleanup99
@@ -2202,8 +2204,8 @@ ehcleanup101:                                     ; preds = %_ZN5folly8ExpectedI
 
 ehcleanup103:                                     ; preds = %ehcleanup101, %lpad51
   %.pn25.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn, %ehcleanup101 ], [ %12, %lpad51 ]
-  %39 = load i8, ptr %which_.i, align 8
-  %cond.i.i.i143 = icmp eq i8 %39, 2
+  %42 = load i8, ptr %which_.i, align 8
+  %cond.i.i.i143 = icmp eq i8 %42, 2
   br i1 %cond.i.i.i143, label %sw.bb2.i.i.i144, label %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit145
 
 sw.bb2.i.i.i144:                                  ; preds = %ehcleanup103
@@ -2220,12 +2222,12 @@ ehcleanup105:                                     ; preds = %_ZN5folly8ExpectedI
   br label %eh.resume
 
 while.end:                                        ; preds = %_ZN5folly8OptionalISt4pairImmEEptEv.exit64
-  %cmp106 = icmp sgt i32 %numHeaders.0, 0
+  %cmp106 = icmp sgt i32 %numHeaders.0299, 0
   %brmerge = or i1 %isTrailers, %cmp106
   br i1 %brmerge, label %if.end117, label %invoke.cont114
 
 invoke.cont114:                                   ; preds = %while.end
-  %retval.i3.sroa.0.0.insert.ext.i = zext i32 %numHeaders.0 to i64
+  %retval.i3.sroa.0.0.insert.ext.i = zext i32 %numHeaders.0299 to i64
   store i64 %retval.i3.sroa.0.0.insert.ext.i, ptr %ref.tmp.i145, align 16, !noalias !31
   call void @_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp109, ptr nonnull @.str.21, i64 70, i64 1, ptr nonnull %ref.tmp.i145)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp108, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109) #29
@@ -2236,11 +2238,11 @@ invoke.cont114:                                   ; preds = %while.end
   br label %return
 
 if.end117:                                        ; preds = %while.end
-  store i64 %parsed.0, ptr %agg.result, align 8
+  store i64 %parsed.0300, ptr %agg.result, align 8
   store i8 1, ptr %which_.i.i.i132, align 8
   br label %return
 
-return:                                           ; preds = %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137, %if.end117, %invoke.cont114, %invoke.cont37, %invoke.cont18, %invoke.cont7
+return:                                           ; preds = %_ZN5folly8ExpectedImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit137, %sw.bb2.i.i.i136, %if.end117, %invoke.cont114, %invoke.cont37, %invoke.cont18, %invoke.cont7
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup105, %ehcleanup8

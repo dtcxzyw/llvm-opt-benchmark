@@ -1759,7 +1759,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 51:                                               ; preds = %45
   %52 = load atomic i64, ptr %4 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.040, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.040, i32 6)
   br label %54
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %54
@@ -1946,7 +1946,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 51:                                               ; preds = %45
   %52 = load atomic i64, ptr %4 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.040, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.040, i32 6)
   br label %54
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %54
@@ -2133,7 +2133,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 51:                                               ; preds = %45
   %52 = load atomic i64, ptr %4 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.040, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.040, i32 6)
   br label %54
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %54
@@ -2320,7 +2320,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 51:                                               ; preds = %45
   %52 = load atomic i64, ptr %4 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.040, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.040, i32 6)
   br label %54
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %54
@@ -2509,7 +2509,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 51:                                               ; preds = %45
   %52 = load atomic i64, ptr %4 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.040, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.040, i32 6)
   br label %54
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %54
@@ -2781,7 +2781,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 79:                                               ; preds = %64
   %80 = load atomic i64, ptr %7 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.0112.lcssa, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0112.lcssa, i32 6)
   br label %85
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %85
@@ -3056,7 +3056,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 78:                                               ; preds = %64
   %79 = load atomic i64, ptr %7 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.0112.lcssa, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0112.lcssa, i32 6)
   br label %84
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %84
@@ -3291,7 +3291,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 66:                                               ; preds = %52
   %67 = load atomic i64, ptr %5 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.0112.lcssa, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0112.lcssa, i32 6)
   br label %72
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %72
@@ -3566,7 +3566,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 78:                                               ; preds = %64
   %79 = load atomic i64, ptr %7 acquire, align 8
-  %.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.0112.lcssa, i32 6)
+  %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0112.lcssa, i32 6)
   br label %84
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %84
@@ -4716,7 +4716,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 }
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden noundef i64 @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17h62d7fc69810a3d94E"(ptr nocapture noundef nonnull readonly align 128 %0) unnamed_addr #7 {
+define hidden noundef range(i64 -288230376151711774, -9223372036854775808) i64 @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17h62d7fc69810a3d94E"(ptr nocapture noundef nonnull readonly align 128 %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   br label %3
 
@@ -4750,7 +4750,7 @@ define hidden noundef i64 @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT
 }
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden noundef i64 @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17hcda68d5c8a792c98E"(ptr nocapture noundef nonnull readonly align 128 %0) unnamed_addr #7 {
+define hidden noundef range(i64 -288230376151711774, -9223372036854775808) i64 @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17hcda68d5c8a792c98E"(ptr nocapture noundef nonnull readonly align 128 %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   br label %3
 
@@ -4784,7 +4784,7 @@ define hidden noundef i64 @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT
 }
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden noundef i64 @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17he7629634db4d418eE"(ptr nocapture noundef nonnull readonly align 128 %0) unnamed_addr #7 {
+define hidden noundef range(i64 -288230376151711774, -9223372036854775808) i64 @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$3len17he7629634db4d418eE"(ptr nocapture noundef nonnull readonly align 128 %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   br label %3
 

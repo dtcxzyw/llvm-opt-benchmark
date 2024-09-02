@@ -2899,7 +2899,7 @@ define noundef i32 @_ZN11wasi_common4sync4file4File12from_cap_std17hab5976855c4a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #12 {
+define noundef range(i8 0, 8) i8 @_ZN11wasi_common4sync4file13filetype_from17hd53e7a46c3969dfaE(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #12 {
   %2 = load i8, ptr %0, align 1, !range !4, !noundef !5
   %3 = add nsw i8 %2, -5
   %4 = icmp eq i8 %3, 0

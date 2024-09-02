@@ -4771,18 +4771,21 @@ define weak_odr void @_ZN8LightGBM25VotingParallelTreeLearnerINS_14GPUTreeLearne
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.02697, i32 %38)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %25, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %25, %14
-  %.026.lcssa = phi i32 [ 0, %14 ], [ %spec.select, %25 ]
-  %39 = shl nsw i32 %15, 1
-  %40 = sext i32 %39 to i64
-  %41 = zext nneg i32 %.026.lcssa to i64
-  %42 = shl nuw nsw i64 %41, 4
+._crit_edge.loopexit:                             ; preds = %25
+  %39 = zext nneg i32 %spec.select to i64
+  %40 = shl nuw nsw i64 %39, 4
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
+  %.026.lcssa = phi i64 [ 0, %14 ], [ %40, %._crit_edge.loopexit ]
+  %41 = shl nsw i32 %15, 1
+  %42 = sext i32 %41 to i64
   %43 = sext i32 %6 to i64
   %44 = mul nsw i64 %43, 24
-  %.sroa.speculated81 = tail call i64 @llvm.umax.i64(i64 %42, i64 %44)
-  %45 = mul i64 %.sroa.speculated81, %40
+  %.sroa.speculated81 = tail call i64 @llvm.umax.i64(i64 %.026.lcssa, i64 %44)
+  %45 = mul i64 %.sroa.speculated81, %42
   %46 = getelementptr inbounds i8, ptr %0, i64 360
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 492
@@ -8018,18 +8021,21 @@ define weak_odr void @_ZN8LightGBM25VotingParallelTreeLearnerINS_17SerialTreeLea
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.02697, i32 %38)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %25, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %25, %14
-  %.026.lcssa = phi i32 [ 0, %14 ], [ %spec.select, %25 ]
-  %39 = shl nsw i32 %15, 1
-  %40 = sext i32 %39 to i64
-  %41 = zext nneg i32 %.026.lcssa to i64
-  %42 = shl nuw nsw i64 %41, 4
+._crit_edge.loopexit:                             ; preds = %25
+  %39 = zext nneg i32 %spec.select to i64
+  %40 = shl nuw nsw i64 %39, 4
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14
+  %.026.lcssa = phi i64 [ 0, %14 ], [ %40, %._crit_edge.loopexit ]
+  %41 = shl nsw i32 %15, 1
+  %42 = sext i32 %41 to i64
   %43 = sext i32 %6 to i64
   %44 = mul nsw i64 %43, 24
-  %.sroa.speculated81 = tail call i64 @llvm.umax.i64(i64 %42, i64 %44)
-  %45 = mul i64 %.sroa.speculated81, %40
+  %.sroa.speculated81 = tail call i64 @llvm.umax.i64(i64 %.026.lcssa, i64 %44)
+  %45 = mul i64 %.sroa.speculated81, %42
   %46 = getelementptr inbounds i8, ptr %0, i64 360
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 492
@@ -266648,7 +266654,7 @@ define weak_odr void @_ZN8LightGBM25VotingParallelTreeLearnerINS_14GPUTreeLearne
 
 62:                                               ; preds = %.lr.ph113, %213
   %indvars.iv = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next, %213 ]
-  %.053111 = phi i64 [ 0, %.lr.ph113 ], [ %196, %213 ]
+  %.053111 = phi i64 [ 0, %.lr.ph113 ], [ %197, %213 ]
   %.054110 = phi i64 [ 0, %.lr.ph113 ], [ %.2, %213 ]
   %.064108 = phi i64 [ 0, %.lr.ph113 ], [ %.165.lcssa, %213 ]
   %63 = sub i64 %40, %.053111
@@ -266746,7 +266752,7 @@ define weak_odr void @_ZN8LightGBM25VotingParallelTreeLearnerINS_14GPUTreeLearne
   %.257 = phi i64 [ %80, %._crit_edge118 ], [ %.05595, %.lr.ph98 ]
   %.3 = phi i64 [ %127, %._crit_edge118 ], [ %.196, %.lr.ph98 ]
   %.not = icmp ult i64 %.257, %.sroa.speculated
-  br i1 %.not, label %129, label %._crit_edge99
+  br i1 %.not, label %129, label %._crit_edge99.loopexit
 
 129:                                              ; preds = %128
   %130 = load ptr, ptr %33, align 8
@@ -266834,18 +266840,24 @@ define weak_odr void @_ZN8LightGBM25VotingParallelTreeLearnerINS_14GPUTreeLearne
   %.362 = phi i64 [ %190, %._crit_edge117 ], [ %.261, %129 ]
   %.358 = phi i64 [ %146, %._crit_edge117 ], [ %.257, %129 ]
   %195 = icmp ult i64 %.358, %.sroa.speculated
-  br i1 %195, label %.lr.ph98, label %._crit_edge99, !llvm.loop !848
+  br i1 %195, label %.lr.ph98, label %._crit_edge99.loopexit, !llvm.loop !848
 
-._crit_edge99:                                    ; preds = %194, %128, %62
-  %.165.lcssa = phi i64 [ %.064108, %62 ], [ %.16593, %128 ], [ %.266, %194 ]
-  %.160 = phi i64 [ 0, %62 ], [ %.261, %128 ], [ %.362, %194 ]
-  %.156 = phi i64 [ 0, %62 ], [ %.257, %128 ], [ %.358, %194 ]
-  %.2 = phi i64 [ %.054110, %62 ], [ %.3, %128 ], [ %.3, %194 ]
-  %196 = add i64 %.156, %.053111
-  %197 = trunc i64 %.160 to i32
+._crit_edge99.loopexit:                           ; preds = %128, %194
+  %.165.lcssa.ph = phi i64 [ %.266, %194 ], [ %.16593, %128 ]
+  %.160.ph = phi i64 [ %.362, %194 ], [ %.261, %128 ]
+  %.156.ph = phi i64 [ %.358, %194 ], [ %.257, %128 ]
+  %196 = trunc i64 %.160.ph to i32
+  br label %._crit_edge99
+
+._crit_edge99:                                    ; preds = %._crit_edge99.loopexit, %62
+  %.165.lcssa = phi i64 [ %.064108, %62 ], [ %.165.lcssa.ph, %._crit_edge99.loopexit ]
+  %.160 = phi i32 [ 0, %62 ], [ %196, %._crit_edge99.loopexit ]
+  %.156 = phi i64 [ 0, %62 ], [ %.156.ph, %._crit_edge99.loopexit ]
+  %.2 = phi i64 [ %.054110, %62 ], [ %.3, %._crit_edge99.loopexit ]
+  %197 = add i64 %.156, %.053111
   %198 = load ptr, ptr %61, align 8
   %199 = getelementptr inbounds i32, ptr %198, i64 %indvars.iv
-  store i32 %197, ptr %199, align 4
+  store i32 %.160, ptr %199, align 4
   %200 = load i32, ptr %41, align 8
   %201 = add nsw i32 %200, -1
   %202 = sext i32 %201 to i64
@@ -274958,7 +274970,7 @@ define weak_odr void @_ZN8LightGBM25VotingParallelTreeLearnerINS_17SerialTreeLea
 
 62:                                               ; preds = %.lr.ph113, %213
   %indvars.iv = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next, %213 ]
-  %.053111 = phi i64 [ 0, %.lr.ph113 ], [ %196, %213 ]
+  %.053111 = phi i64 [ 0, %.lr.ph113 ], [ %197, %213 ]
   %.054110 = phi i64 [ 0, %.lr.ph113 ], [ %.2, %213 ]
   %.064108 = phi i64 [ 0, %.lr.ph113 ], [ %.165.lcssa, %213 ]
   %63 = sub i64 %40, %.053111
@@ -275056,7 +275068,7 @@ define weak_odr void @_ZN8LightGBM25VotingParallelTreeLearnerINS_17SerialTreeLea
   %.257 = phi i64 [ %80, %._crit_edge118 ], [ %.05595, %.lr.ph98 ]
   %.3 = phi i64 [ %127, %._crit_edge118 ], [ %.196, %.lr.ph98 ]
   %.not = icmp ult i64 %.257, %.sroa.speculated
-  br i1 %.not, label %129, label %._crit_edge99
+  br i1 %.not, label %129, label %._crit_edge99.loopexit
 
 129:                                              ; preds = %128
   %130 = load ptr, ptr %33, align 8
@@ -275144,18 +275156,24 @@ define weak_odr void @_ZN8LightGBM25VotingParallelTreeLearnerINS_17SerialTreeLea
   %.362 = phi i64 [ %190, %._crit_edge117 ], [ %.261, %129 ]
   %.358 = phi i64 [ %146, %._crit_edge117 ], [ %.257, %129 ]
   %195 = icmp ult i64 %.358, %.sroa.speculated
-  br i1 %195, label %.lr.ph98, label %._crit_edge99, !llvm.loop !920
+  br i1 %195, label %.lr.ph98, label %._crit_edge99.loopexit, !llvm.loop !920
 
-._crit_edge99:                                    ; preds = %194, %128, %62
-  %.165.lcssa = phi i64 [ %.064108, %62 ], [ %.16593, %128 ], [ %.266, %194 ]
-  %.160 = phi i64 [ 0, %62 ], [ %.261, %128 ], [ %.362, %194 ]
-  %.156 = phi i64 [ 0, %62 ], [ %.257, %128 ], [ %.358, %194 ]
-  %.2 = phi i64 [ %.054110, %62 ], [ %.3, %128 ], [ %.3, %194 ]
-  %196 = add i64 %.156, %.053111
-  %197 = trunc i64 %.160 to i32
+._crit_edge99.loopexit:                           ; preds = %128, %194
+  %.165.lcssa.ph = phi i64 [ %.266, %194 ], [ %.16593, %128 ]
+  %.160.ph = phi i64 [ %.362, %194 ], [ %.261, %128 ]
+  %.156.ph = phi i64 [ %.358, %194 ], [ %.257, %128 ]
+  %196 = trunc i64 %.160.ph to i32
+  br label %._crit_edge99
+
+._crit_edge99:                                    ; preds = %._crit_edge99.loopexit, %62
+  %.165.lcssa = phi i64 [ %.064108, %62 ], [ %.165.lcssa.ph, %._crit_edge99.loopexit ]
+  %.160 = phi i32 [ 0, %62 ], [ %196, %._crit_edge99.loopexit ]
+  %.156 = phi i64 [ 0, %62 ], [ %.156.ph, %._crit_edge99.loopexit ]
+  %.2 = phi i64 [ %.054110, %62 ], [ %.3, %._crit_edge99.loopexit ]
+  %197 = add i64 %.156, %.053111
   %198 = load ptr, ptr %61, align 8
   %199 = getelementptr inbounds i32, ptr %198, i64 %indvars.iv
-  store i32 %197, ptr %199, align 4
+  store i32 %.160, ptr %199, align 4
   %200 = load i32, ptr %41, align 8
   %201 = add nsw i32 %200, -1
   %202 = sext i32 %201 to i64

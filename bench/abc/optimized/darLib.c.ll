@@ -1489,8 +1489,8 @@ define range(i32 0, 2) i32 @Dar_LibCutMatch(ptr nocapture noundef %0, ptr nocapt
   %24 = getelementptr inbounds i8, ptr %3, i64 16096
   br label %25
 
-25:                                               ; preds = %.lr.ph, %76
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
+25:                                               ; preds = %.lr.ph, %77
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
   %26 = load ptr, ptr %22, align 8
   %27 = getelementptr i8, ptr %26, i64 32
   %.val29 = load ptr, ptr %27, align 8
@@ -1516,7 +1516,7 @@ Aig_ManObj.exit.thread:                           ; preds = %25, %Aig_ManObj.exi
   %39 = load i32, ptr %38, align 8
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 8
-  br label %84
+  br label %85
 
 41:                                               ; preds = %Aig_ManObj.exit
   %42 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1543,7 +1543,7 @@ Aig_ManObj.exit.thread:                           ; preds = %25, %Aig_ManObj.exi
   %61 = getelementptr inbounds i8, ptr %60, i64 24
   %62 = load i32, ptr %61, align 4
   %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %76, label %63
+  br i1 %.not, label %77, label %63
 
 63:                                               ; preds = %41
   %64 = load ptr, ptr %22, align 8
@@ -1559,28 +1559,28 @@ Aig_ManObj.exit.thread:                           ; preds = %25, %Aig_ManObj.exi
   %72 = and i64 %47, 1
   %.not28 = icmp eq i64 %72, 0
   %73 = fsub float 1.000000e+00, %71
-  %narrow.sel = select i1 %.not28, float %71, float %73
-  %74 = load ptr, ptr %24, align 8
-  %75 = getelementptr inbounds %struct.Dar_LibDat_t_, ptr %74, i64 %indvars.iv, i32 3
-  store float %narrow.sel, ptr %75, align 8
-  br label %76
+  %74 = select i1 %.not28, float %71, float %73
+  %75 = load ptr, ptr %24, align 8
+  %76 = getelementptr inbounds %struct.Dar_LibDat_t_, ptr %75, i64 %indvars.iv, i32 3
+  store float %74, ptr %76, align 8
+  br label %77
 
-76:                                               ; preds = %41, %63
+77:                                               ; preds = %41, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = load i32, ptr %6, align 4
-  %78 = lshr i32 %77, 29
-  %79 = zext nneg i32 %78 to i64
-  %80 = icmp ult i64 %indvars.iv.next, %79
-  br i1 %80, label %25, label %._crit_edge, !llvm.loop !35
+  %78 = load i32, ptr %6, align 4
+  %79 = lshr i32 %78, 29
+  %80 = zext nneg i32 %79 to i64
+  %81 = icmp ult i64 %indvars.iv.next, %80
+  br i1 %81, label %25, label %._crit_edge, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %76, %2
-  %81 = getelementptr inbounds i8, ptr %0, i64 2764
-  %82 = load i32, ptr %81, align 4
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %81, align 4
-  br label %84
+._crit_edge:                                      ; preds = %77, %2
+  %82 = getelementptr inbounds i8, ptr %0, i64 2764
+  %83 = load i32, ptr %82, align 4
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %82, align 4
+  br label %85
 
-84:                                               ; preds = %._crit_edge, %Aig_ManObj.exit.thread
+85:                                               ; preds = %._crit_edge, %Aig_ManObj.exit.thread
   %.0 = phi i32 [ 0, %Aig_ManObj.exit.thread ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
@@ -1725,9 +1725,9 @@ define void @Dar_LibEvalAssignNums(ptr nocapture noundef readonly %0, i32 nounde
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   br label %11
 
-11:                                               ; preds = %.lr.ph, %106
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
-  %12 = phi ptr [ %5, %.lr.ph ], [ %107, %106 ]
+11:                                               ; preds = %.lr.ph, %107
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
+  %12 = phi ptr [ %5, %.lr.ph ], [ %108, %107 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 11624
   %14 = getelementptr inbounds [222 x ptr], ptr %13, i64 0, i64 %4
   %15 = load ptr, ptr %14, align 8
@@ -1775,12 +1775,12 @@ define void @Dar_LibEvalAssignNums(ptr nocapture noundef readonly %0, i32 nounde
   store i32 %49, ptr %50, align 8
   %51 = load ptr, ptr %37, align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %106, label %53
+  br i1 %52, label %107, label %53
 
 53:                                               ; preds = %11
   %54 = load ptr, ptr %43, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %106, label %56
+  br i1 %55, label %107, label %56
 
 56:                                               ; preds = %53
   %57 = ptrtoint ptr %51 to i64
@@ -1792,7 +1792,7 @@ define void @Dar_LibEvalAssignNums(ptr nocapture noundef readonly %0, i32 nounde
   %63 = inttoptr i64 %62 to ptr
   %64 = icmp eq ptr %2, %63
   %or.cond = or i1 %61, %64
-  br i1 %or.cond, label %106, label %65
+  br i1 %or.cond, label %107, label %65
 
 65:                                               ; preds = %56
   %66 = load i64, ptr %19, align 4
@@ -1808,7 +1808,7 @@ define void @Dar_LibEvalAssignNums(ptr nocapture noundef readonly %0, i32 nounde
   %76 = tail call ptr @Aig_TableLookupTwo(ptr noundef %75, ptr noundef %74, ptr noundef %73) #20
   store ptr %76, ptr %28, align 8
   %.not = icmp eq ptr %76, null
-  br i1 %.not, label %106, label %77
+  br i1 %.not, label %107, label %77
 
 77:                                               ; preds = %65
   %78 = ptrtoint ptr %76 to i64
@@ -1832,7 +1832,7 @@ define void @Dar_LibEvalAssignNums(ptr nocapture noundef readonly %0, i32 nounde
   %92 = getelementptr inbounds i8, ptr %91, i64 24
   %93 = load i32, ptr %92, align 4
   %.not45 = icmp eq i32 %93, 0
-  br i1 %.not45, label %106, label %94
+  br i1 %.not45, label %107, label %94
 
 94:                                               ; preds = %77
   %95 = load ptr, ptr %10, align 8
@@ -1848,22 +1848,22 @@ define void @Dar_LibEvalAssignNums(ptr nocapture noundef readonly %0, i32 nounde
   %103 = and i64 %78, 1
   %.not46 = icmp eq i64 %103, 0
   %104 = fsub float 1.000000e+00, %102
-  %narrow.sel = select i1 %.not46, float %102, float %104
-  %105 = getelementptr inbounds i8, ptr %28, i64 16
-  store float %narrow.sel, ptr %105, align 8
-  br label %106
+  %105 = select i1 %.not46, float %102, float %104
+  %106 = getelementptr inbounds i8, ptr %28, i64 16
+  store float %105, ptr %106, align 8
+  br label %107
 
-106:                                              ; preds = %65, %94, %77, %56, %11, %53
+107:                                              ; preds = %65, %94, %77, %56, %11, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %107 = load ptr, ptr @s_DarLib, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 10732
-  %109 = getelementptr inbounds [222 x i32], ptr %108, i64 0, i64 %4
-  %110 = load i32, ptr %109, align 4
-  %111 = sext i32 %110 to i64
-  %112 = icmp slt i64 %indvars.iv.next, %111
-  br i1 %112, label %11, label %._crit_edge, !llvm.loop !38
+  %108 = load ptr, ptr @s_DarLib, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 10732
+  %110 = getelementptr inbounds [222 x i32], ptr %109, i64 0, i64 %4
+  %111 = load i32, ptr %110, align 4
+  %112 = sext i32 %111 to i64
+  %113 = icmp slt i64 %indvars.iv.next, %112
+  br i1 %113, label %11, label %._crit_edge, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %106, %3
+._crit_edge:                                      ; preds = %107, %3
   ret void
 }
 

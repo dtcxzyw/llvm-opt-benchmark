@@ -20757,7 +20757,7 @@ define noundef zeroext i1 @"_ZN111_$LT$wasmtime_wasi..bindings..async_io..wasi..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$9get_flags28_$u7b$$u7b$closure$u7d$$u7d$16get_from_fdflags17ha1d578223205f57dE"(i32 noundef %0) unnamed_addr #2 {
+define noundef range(i8 0, 32) i8 @"_ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$9get_flags28_$u7b$$u7b$closure$u7d$$u7d$16get_from_fdflags17ha1d578223205f57dE"(i32 noundef %0) unnamed_addr #2 {
   %2 = trunc i32 %0 to i8
   %3 = shl i8 %2, 3
   %spec.select = and i8 %3, 16

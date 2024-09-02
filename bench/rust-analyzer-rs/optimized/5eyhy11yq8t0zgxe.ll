@@ -118,7 +118,7 @@ common.resume:                                    ; preds = %92, %.body, %32
   store i8 4, ptr %.sroa.76.0..sroa_idx, align 8
   %40 = sub i64 %12, %14
   %41 = tail call i64 @llvm.uadd.sat.i64(i64 %40, i64 1)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %41, i64 4)
+  %.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %41, i64 4)
   %42 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h25f250967fa2d08cE"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %43 unwind label %37
 

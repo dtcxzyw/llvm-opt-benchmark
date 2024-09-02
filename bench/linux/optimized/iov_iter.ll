@@ -133,36 +133,36 @@ define dso_local i64 @fault_in_iov_iter_readable(ptr nocapture noundef readonly 
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  br label %29
+  br label %30
 
-select.unfold:                                    ; preds = %36, %29
-  %.ph = phi i64 [ %30, %29 ], [ %43, %36 ]
-  %27 = getelementptr i8, ptr %32, i64 16
-  %28 = icmp eq i64 %.ph, 0
-  br i1 %28, label %.loopexit, label %29, !llvm.loop !6
+.thread:                                          ; preds = %30, %37
+  %27 = phi i64 [ %44, %37 ], [ %31, %30 ]
+  %28 = getelementptr i8, ptr %33, i64 16
+  %29 = icmp eq i64 %27, 0
+  br i1 %29, label %.loopexit, label %30, !llvm.loop !6
 
-29:                                               ; preds = %select.unfold, %22
-  %30 = phi i64 [ %.ph, %select.unfold ], [ %19, %22 ]
-  %31 = phi i64 [ 0, %select.unfold ], [ %24, %22 ]
-  %32 = phi ptr [ %27, %select.unfold ], [ %26, %22 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = load i64, ptr %33, align 8
-  %35 = icmp eq i64 %34, %31
-  br i1 %35, label %select.unfold, label %36, !prof !9
+30:                                               ; preds = %.thread, %22
+  %31 = phi i64 [ %27, %.thread ], [ %19, %22 ]
+  %32 = phi i64 [ 0, %.thread ], [ %24, %22 ]
+  %33 = phi ptr [ %28, %.thread ], [ %26, %22 ]
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = load i64, ptr %34, align 8
+  %36 = icmp eq i64 %35, %32
+  br i1 %36, label %.thread, label %37, !prof !9
 
-36:                                               ; preds = %29
-  %37 = sub i64 %34, %31
-  %38 = tail call i64 @llvm.umin.i64(i64 %30, i64 %37)
-  %39 = load ptr, ptr %32, align 8
-  %40 = getelementptr i8, ptr %39, i64 %31
-  %41 = tail call i64 @fault_in_readable(ptr noundef %40, i64 noundef %38) #15
-  %42 = sub i64 %30, %38
-  %43 = add i64 %41, %42
-  %44 = icmp eq i64 %41, 0
-  br i1 %44, label %select.unfold, label %.loopexit
+37:                                               ; preds = %30
+  %38 = sub i64 %35, %32
+  %39 = tail call i64 @llvm.umin.i64(i64 %31, i64 %38)
+  %40 = load ptr, ptr %33, align 8
+  %41 = getelementptr i8, ptr %40, i64 %32
+  %42 = tail call i64 @fault_in_readable(ptr noundef %41, i64 noundef %39) #15
+  %43 = sub i64 %31, %39
+  %44 = add i64 %42, %43
+  %.not = icmp eq i64 %42, 0
+  br i1 %.not, label %.thread, label %.loopexit
 
-.loopexit:                                        ; preds = %36, %select.unfold, %16
-  %45 = phi i64 [ 0, %16 ], [ %43, %36 ], [ 0, %select.unfold ]
+.loopexit:                                        ; preds = %37, %.thread, %16
+  %45 = phi i64 [ 0, %16 ], [ %44, %37 ], [ 0, %.thread ]
   %46 = add i64 %20, %45
   br label %47
 
@@ -215,36 +215,36 @@ define dso_local i64 @fault_in_iov_iter_writeable(ptr nocapture noundef readonly
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  br label %29
+  br label %30
 
-select.unfold:                                    ; preds = %36, %29
-  %.ph = phi i64 [ %30, %29 ], [ %43, %36 ]
-  %27 = getelementptr i8, ptr %32, i64 16
-  %28 = icmp eq i64 %.ph, 0
-  br i1 %28, label %.loopexit, label %29, !llvm.loop !10
+.thread:                                          ; preds = %30, %37
+  %27 = phi i64 [ %44, %37 ], [ %31, %30 ]
+  %28 = getelementptr i8, ptr %33, i64 16
+  %29 = icmp eq i64 %27, 0
+  br i1 %29, label %.loopexit, label %30, !llvm.loop !10
 
-29:                                               ; preds = %select.unfold, %22
-  %30 = phi i64 [ %.ph, %select.unfold ], [ %19, %22 ]
-  %31 = phi i64 [ 0, %select.unfold ], [ %24, %22 ]
-  %32 = phi ptr [ %27, %select.unfold ], [ %26, %22 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = load i64, ptr %33, align 8
-  %35 = icmp eq i64 %34, %31
-  br i1 %35, label %select.unfold, label %36, !prof !9
+30:                                               ; preds = %.thread, %22
+  %31 = phi i64 [ %27, %.thread ], [ %19, %22 ]
+  %32 = phi i64 [ 0, %.thread ], [ %24, %22 ]
+  %33 = phi ptr [ %28, %.thread ], [ %26, %22 ]
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = load i64, ptr %34, align 8
+  %36 = icmp eq i64 %35, %32
+  br i1 %36, label %.thread, label %37, !prof !9
 
-36:                                               ; preds = %29
-  %37 = sub i64 %34, %31
-  %38 = tail call i64 @llvm.umin.i64(i64 %30, i64 %37)
-  %39 = load ptr, ptr %32, align 8
-  %40 = getelementptr i8, ptr %39, i64 %31
-  %41 = tail call i64 @fault_in_safe_writeable(ptr noundef %40, i64 noundef %38) #15
-  %42 = sub i64 %30, %38
-  %43 = add i64 %41, %42
-  %44 = icmp eq i64 %41, 0
-  br i1 %44, label %select.unfold, label %.loopexit
+37:                                               ; preds = %30
+  %38 = sub i64 %35, %32
+  %39 = tail call i64 @llvm.umin.i64(i64 %31, i64 %38)
+  %40 = load ptr, ptr %33, align 8
+  %41 = getelementptr i8, ptr %40, i64 %32
+  %42 = tail call i64 @fault_in_safe_writeable(ptr noundef %41, i64 noundef %39) #15
+  %43 = sub i64 %31, %39
+  %44 = add i64 %42, %43
+  %.not = icmp eq i64 %42, 0
+  br i1 %.not, label %.thread, label %.loopexit
 
-.loopexit:                                        ; preds = %36, %select.unfold, %16
-  %45 = phi i64 [ 0, %16 ], [ %43, %36 ], [ 0, %select.unfold ]
+.loopexit:                                        ; preds = %37, %.thread, %16
+  %45 = phi i64 [ 0, %16 ], [ %44, %37 ], [ 0, %.thread ]
   %46 = add i64 %20, %45
   br label %47
 
@@ -4929,17 +4929,17 @@ define internal fastcc i64 @iov_iter_alignment_iovec(ptr nocapture noundef reado
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   br i1 %11, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %5, %33
-  %13 = phi i64 [ %39, %33 ], [ 0, %5 ]
-  %14 = phi i32 [ %38, %33 ], [ 0, %5 ]
-  %15 = phi i64 [ 0, %33 ], [ %7, %5 ]
-  %16 = phi i64 [ %35, %33 ], [ %9, %5 ]
-  %17 = phi i64 [ %34, %33 ], [ 0, %5 ]
+.split.us:                                        ; preds = %5, %32
+  %13 = phi i64 [ %37, %32 ], [ 0, %5 ]
+  %14 = phi i32 [ %36, %32 ], [ 0, %5 ]
+  %15 = phi i64 [ 0, %32 ], [ %7, %5 ]
+  %16 = phi i64 [ %34, %32 ], [ %9, %5 ]
+  %17 = phi i64 [ %33, %32 ], [ 0, %5 ]
   %18 = getelementptr %struct.iovec, ptr %12, i64 %13
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, %15
-  br i1 %21, label %33, label %22
+  br i1 %21, label %32, label %22
 
 22:                                               ; preds = %.split.us
   %23 = sub i64 %20, %15
@@ -4950,64 +4950,60 @@ define internal fastcc i64 @iov_iter_alignment_iovec(ptr nocapture noundef reado
   %28 = or i64 %17, %26
   %29 = or i64 %28, %27
   %30 = sub i64 %16, %27
-  %31 = icmp eq i64 %30, 0
-  %32 = select i1 %31, i32 2, i32 0
-  br label %33
+  %31 = icmp ne i64 %30, 0
+  br label %32
 
-33:                                               ; preds = %22, %.split.us
-  %34 = phi i64 [ %17, %.split.us ], [ %29, %22 ]
-  %35 = phi i64 [ %16, %.split.us ], [ %30, %22 ]
-  %36 = phi i32 [ 0, %.split.us ], [ %32, %22 ]
-  %37 = icmp eq i32 %36, 0
-  %38 = add i32 %14, 1
-  %39 = zext i32 %38 to i64
-  %40 = icmp ugt i64 %3, %39
-  %41 = select i1 %37, i1 %40, i1 false
-  br i1 %41, label %.split.us, label %.loopexit, !llvm.loop !93
+32:                                               ; preds = %22, %.split.us
+  %33 = phi i64 [ %17, %.split.us ], [ %29, %22 ]
+  %34 = phi i64 [ %16, %.split.us ], [ %30, %22 ]
+  %35 = phi i1 [ true, %.split.us ], [ %31, %22 ]
+  %36 = add i32 %14, 1
+  %37 = zext i32 %36 to i64
+  %38 = icmp ugt i64 %3, %37
+  %39 = select i1 %35, i1 %38, i1 false
+  br i1 %39, label %.split.us, label %.loopexit, !llvm.loop !93
 
 .split:                                           ; preds = %5
-  %42 = load ptr, ptr %12, align 8
-  br label %43
+  %40 = load ptr, ptr %12, align 8
+  br label %41
 
-43:                                               ; preds = %64, %.split
-  %44 = phi i64 [ 0, %.split ], [ %70, %64 ]
-  %45 = phi i32 [ 0, %.split ], [ %69, %64 ]
-  %46 = phi i64 [ %7, %.split ], [ 0, %64 ]
-  %47 = phi i64 [ %9, %.split ], [ %66, %64 ]
-  %48 = phi i64 [ 0, %.split ], [ %65, %64 ]
-  %49 = getelementptr %struct.iovec, ptr %42, i64 %44
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
-  %51 = load i64, ptr %50, align 8
-  %52 = icmp eq i64 %51, %46
-  br i1 %52, label %64, label %53
+41:                                               ; preds = %61, %.split
+  %42 = phi i64 [ 0, %.split ], [ %66, %61 ]
+  %43 = phi i32 [ 0, %.split ], [ %65, %61 ]
+  %44 = phi i64 [ %7, %.split ], [ 0, %61 ]
+  %45 = phi i64 [ %9, %.split ], [ %63, %61 ]
+  %46 = phi i64 [ 0, %.split ], [ %62, %61 ]
+  %47 = getelementptr %struct.iovec, ptr %40, i64 %42
+  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = load i64, ptr %48, align 8
+  %50 = icmp eq i64 %49, %44
+  br i1 %50, label %61, label %51
 
-53:                                               ; preds = %43
-  %54 = sub i64 %51, %46
-  %55 = load ptr, ptr %49, align 8
-  %56 = ptrtoint ptr %55 to i64
-  %57 = add i64 %46, %56
-  %58 = tail call i64 @llvm.umin.i64(i64 %54, i64 %47)
-  %59 = or i64 %48, %57
-  %60 = or i64 %59, %58
-  %61 = sub i64 %47, %58
-  %62 = icmp eq i64 %61, 0
-  %63 = select i1 %62, i32 2, i32 0
-  br label %64
+51:                                               ; preds = %41
+  %52 = sub i64 %49, %44
+  %53 = load ptr, ptr %47, align 8
+  %54 = ptrtoint ptr %53 to i64
+  %55 = add i64 %44, %54
+  %56 = tail call i64 @llvm.umin.i64(i64 %52, i64 %45)
+  %57 = or i64 %46, %55
+  %58 = or i64 %57, %56
+  %59 = sub i64 %45, %56
+  %60 = icmp ne i64 %59, 0
+  br label %61
 
-64:                                               ; preds = %53, %43
-  %65 = phi i64 [ %48, %43 ], [ %60, %53 ]
-  %66 = phi i64 [ %47, %43 ], [ %61, %53 ]
-  %67 = phi i32 [ 0, %43 ], [ %63, %53 ]
-  %68 = icmp eq i32 %67, 0
-  %69 = add i32 %45, 1
-  %70 = zext i32 %69 to i64
-  %71 = icmp ugt i64 %3, %70
-  %72 = select i1 %68, i1 %71, i1 false
-  br i1 %72, label %43, label %.loopexit, !llvm.loop !93
+61:                                               ; preds = %51, %41
+  %62 = phi i64 [ %46, %41 ], [ %58, %51 ]
+  %63 = phi i64 [ %45, %41 ], [ %59, %51 ]
+  %64 = phi i1 [ true, %41 ], [ %60, %51 ]
+  %65 = add i32 %43, 1
+  %66 = zext i32 %65 to i64
+  %67 = icmp ugt i64 %3, %66
+  %68 = select i1 %64, i1 %67, i1 false
+  br i1 %68, label %41, label %.loopexit, !llvm.loop !93
 
-.loopexit:                                        ; preds = %64, %33, %1
-  %73 = phi i64 [ 0, %1 ], [ %34, %33 ], [ %65, %64 ]
-  ret i64 %73
+.loopexit:                                        ; preds = %61, %32, %1
+  %69 = phi i64 [ 0, %1 ], [ %33, %32 ], [ %62, %61 ]
+  ret i64 %69
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
@@ -5714,7 +5710,7 @@ define dso_local ptr @iovec_from_user(ptr noundef %0, i64 noundef %1, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @copy_compat_iovec_from_user(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @copy_compat_iovec_from_user(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = shl nuw nsw i64 %2, 3
   %5 = ptrtoint ptr %1 to i64
   %6 = add i64 %4, %5
@@ -6220,7 +6216,7 @@ define dso_local void @iov_iter_restore(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @iov_iter_extract_pages(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
+define dso_local range(i64 -2147483648, 17592186040321) i64 @iov_iter_extract_pages(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
@@ -6415,7 +6411,7 @@ define dso_local i64 @iov_iter_extract_pages(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @iov_iter_extract_kvec_pages(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -12, 17592186040321) i64 @iov_iter_extract_kvec_pages(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
@@ -6578,7 +6574,7 @@ define internal fastcc i64 @iov_iter_extract_kvec_pages(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @iov_iter_extract_bvec_pages(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -12, 17592186040321) i64 @iov_iter_extract_bvec_pages(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8

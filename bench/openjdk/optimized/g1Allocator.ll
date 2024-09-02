@@ -746,7 +746,7 @@ define hidden void @_ZN11G1Allocator12set_old_fullEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN11G1Allocator21unsafe_max_tlab_allocEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZN11G1Allocator21unsafe_max_tlab_allocEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i32 @_ZNK6G1NUMA23index_of_current_threadEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #15

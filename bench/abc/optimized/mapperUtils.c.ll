@@ -132,7 +132,7 @@ define ptr @Map_MappingDfs(ptr nocapture noundef readonly %0, i32 noundef %1) lo
 declare ptr @Map_NodeVecAlloc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @Map_MappingCountLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @Map_MappingCountLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0

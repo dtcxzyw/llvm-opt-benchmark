@@ -1115,7 +1115,7 @@ define internal void @_ZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %402, %._crit_edge, %417, %480, %516, %524, %.loopexit
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %402, %._crit_edge, %418, %480, %516, %524, %.loopexit
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1875,41 +1875,42 @@ _ZZN12_GLOBAL__N_18ExecPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11cha
   %413 = sub i64 %411, %412
   %414 = ashr exact i64 %413, 5
   %415 = icmp ult i64 %408, %414
-  br i1 %415, label %57, label %._crit_edge, !llvm.loop !6
+  br i1 %415, label %57, label %._crit_edge.loopexit, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %407, %.preheader
-  %.075.lcssa = phi i8 [ 0, %.preheader ], [ %.176, %407 ]
-  %.073.lcssa = phi i32 [ 0, %.preheader ], [ %.174, %407 ]
-  %.069.lcssa = phi i1 [ false, %.preheader ], [ %.170, %407 ]
-  %.066.lcssa = phi i1 [ false, %.preheader ], [ %.167, %407 ]
-  %.066.lcssa.fr = freeze i1 %.066.lcssa
-  %.075.lcssa.fr = freeze i8 %.075.lcssa
-  %416 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  invoke void (ptr, ptr, ...) @_ZN5Yosys10log_headerEPNS_5RTLIL6DesignEPKcz(ptr noundef %2, ptr noundef nonnull @.str.33, ptr noundef %416)
-          to label %417 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+._crit_edge.loopexit:                             ; preds = %407
+  %416 = trunc i8 %.176 to i1
+  br label %._crit_edge
 
-417:                                              ; preds = %._crit_edge
-  invoke void @_ZN5Yosys8log_pushEv()
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.075.lcssa = phi i1 [ false, %.preheader ], [ %416, %._crit_edge.loopexit ]
+  %.073.lcssa = phi i32 [ 0, %.preheader ], [ %.174, %._crit_edge.loopexit ]
+  %.069.lcssa = phi i1 [ false, %.preheader ], [ %.170, %._crit_edge.loopexit ]
+  %.066.lcssa = phi i1 [ false, %.preheader ], [ %.167, %._crit_edge.loopexit ]
+  %417 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
+  invoke void (ptr, ptr, ...) @_ZN5Yosys10log_headerEPNS_5RTLIL6DesignEPKcz(ptr noundef %2, ptr noundef nonnull @.str.33, ptr noundef %417)
           to label %418 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-418:                                              ; preds = %417
-  %419 = load ptr, ptr @stdout, align 8
-  %420 = call i32 @fflush(ptr noundef %419)
-  %421 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  %422 = call noalias ptr @popen(ptr noundef %421, ptr noundef nonnull @.str.34)
-  %423 = icmp eq ptr %422, null
-  br i1 %423, label %480, label %.critedge.preheader
+418:                                              ; preds = %._crit_edge
+  invoke void @_ZN5Yosys8log_pushEv()
+          to label %419 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.critedge.preheader:                              ; preds = %418
-  %424 = trunc i8 %.075.lcssa.fr to i1
+419:                                              ; preds = %418
+  %420 = load ptr, ptr @stdout, align 8
+  %421 = call i32 @fflush(ptr noundef %420)
+  %422 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #26
+  %423 = call noalias ptr @popen(ptr noundef %422, ptr noundef nonnull @.str.34)
+  %424 = icmp eq ptr %423, null
+  br i1 %424, label %480, label %.critedge.preheader
+
+.critedge.preheader:                              ; preds = %419
   %425 = getelementptr inbounds i8, ptr %10, i64 8
-  br i1 %424, label %.critedge.preheader.split.us, label %.critedge.preheader.split
+  br i1 %.075.lcssa, label %.critedge.preheader.split.us, label %.critedge.preheader.split
 
 .critedge.preheader.split.us:                     ; preds = %.critedge.preheader
-  br i1 %.066.lcssa.fr, label %.critedge.us.us, label %.critedge.us
+  br i1 %.066.lcssa, label %.critedge.us.us, label %.critedge.us
 
 .critedge.us.us:                                  ; preds = %.critedge.preheader.split.us, %._crit_edge234.split.us.us.split.us.us
-  %426 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1024, ptr noundef nonnull %422)
+  %426 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1024, ptr noundef nonnull %423)
   %.not141.us.us = icmp eq ptr %426, null
   %427 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %7)
           to label %428 unwind label %.loopexit.split-lp.loopexit.split.us.split.us
@@ -1998,7 +1999,7 @@ _ZSt12regex_searchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIc
   br label %.split237.us
 
 .critedge.us:                                     ; preds = %.critedge.preheader.split.us, %._crit_edge234.split.us.us.split
-  %447 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1024, ptr noundef nonnull %422)
+  %447 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1024, ptr noundef nonnull %423)
   %.not141.us = icmp eq ptr %447, null
   %448 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %7)
           to label %449 unwind label %.loopexit.split-lp.loopexit.split.us.split
@@ -2092,10 +2093,10 @@ _ZSt12regex_searchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIc
   br label %.split237.us
 
 .critedge.preheader.split:                        ; preds = %.critedge.preheader
-  br i1 %.066.lcssa.fr, label %.critedge.us250, label %.critedge
+  br i1 %.066.lcssa, label %.critedge.us250, label %.critedge
 
 .critedge.us250:                                  ; preds = %.critedge.preheader.split, %._crit_edge234.split.split.us.us
-  %470 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1024, ptr noundef nonnull %422)
+  %470 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1024, ptr noundef nonnull %423)
   %.not141.us251 = icmp eq ptr %470, null
   %471 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %7)
           to label %472 unwind label %.loopexit.split-lp.loopexit.split.split.us
@@ -2140,7 +2141,7 @@ _ZSt12regex_searchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIc
           cleanup
   br label %.body136
 
-480:                                              ; preds = %418
+480:                                              ; preds = %419
   %481 = tail call ptr @__errno_location() #30
   %482 = load i32, ptr %481, align 4
   invoke void (ptr, ...) @_ZN5Yosys13log_cmd_errorEPKcz(ptr noundef nonnull @.str.35, i32 noundef %482) #28
@@ -2153,7 +2154,7 @@ _ZSt12regex_searchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIc
   br i1 %.not141, label %.split246.us, label %.critedge
 
 .critedge:                                        ; preds = %.critedge.preheader.split, %._crit_edge234.split.split
-  %484 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1024, ptr noundef nonnull %422)
+  %484 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1024, ptr noundef nonnull %423)
   %.not141 = icmp eq ptr %484, null
   %485 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %7)
           to label %486 unwind label %.loopexit.split-lp.loopexit.split.split
@@ -2208,7 +2209,7 @@ _ZSt12regex_searchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIc
   br label %.body136
 
 .split246.us:                                     ; preds = %._crit_edge234.split.split, %._crit_edge234.split.split.us.us, %._crit_edge234.split.us.us.split, %._crit_edge234.split.us.us.split.us.us
-  %500 = call i32 @pclose(ptr noundef nonnull %422)
+  %500 = call i32 @pclose(ptr noundef nonnull %423)
   %501 = and i32 %500, 127
   %502 = icmp eq i32 %501, 0
   br i1 %502, label %503, label %506
@@ -2248,7 +2249,7 @@ _ZSt12regex_searchIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIc
   unreachable
 
 518:                                              ; preds = %515
-  br i1 %424, label %519, label %.loopexit
+  br i1 %.075.lcssa, label %519, label %.loopexit
 
 519:                                              ; preds = %518
   %.val95 = load ptr, ptr %10, align 8

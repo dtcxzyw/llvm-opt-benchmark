@@ -277,11 +277,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 105:                                              ; preds = %93
   %106 = mul i64 %8, %85
-  %107 = icmp ult i64 %106, 9
+  %107 = icmp ugt i64 %106, 8
   %108 = add i64 %106, %22
-  %109 = icmp ult i64 %108, 33
-  %or.cond = select i1 %107, i1 %109, i1 false
-  br i1 %or.cond, label %115, label %110
+  %109 = icmp ugt i64 %108, 32
+  %or.cond = select i1 %107, i1 true, i1 %109
+  br i1 %or.cond, label %110, label %115
 
 110:                                              ; preds = %105
   %111 = tail call ptr @__cxa_allocate_exception(i64 32) #18
@@ -745,11 +745,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 105:                                              ; preds = %93
   %106 = mul i64 %8, %85
-  %107 = icmp ult i64 %106, 9
+  %107 = icmp ugt i64 %106, 8
   %108 = add i64 %106, %22
-  %109 = icmp ult i64 %108, 33
-  %or.cond = select i1 %107, i1 %109, i1 false
-  br i1 %or.cond, label %115, label %110
+  %109 = icmp ugt i64 %108, 32
+  %or.cond = select i1 %107, i1 true, i1 %109
+  br i1 %or.cond, label %110, label %115
 
 110:                                              ; preds = %105
   %111 = tail call ptr @__cxa_allocate_exception(i64 32) #18
@@ -1166,11 +1166,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 105:                                              ; preds = %93
   %106 = mul i64 %8, %85
-  %107 = icmp ult i64 %106, 9
+  %107 = icmp ugt i64 %106, 8
   %108 = add i64 %106, %22
-  %109 = icmp ult i64 %108, 33
-  %or.cond = select i1 %107, i1 %109, i1 false
-  br i1 %or.cond, label %115, label %110
+  %109 = icmp ugt i64 %108, 32
+  %or.cond = select i1 %107, i1 true, i1 %109
+  br i1 %or.cond, label %110, label %115
 
 110:                                              ; preds = %105
   %111 = tail call ptr @__cxa_allocate_exception(i64 32) #18
@@ -1589,11 +1589,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 105:                                              ; preds = %93
   %106 = mul i64 %8, %85
-  %107 = icmp ult i64 %106, 9
+  %107 = icmp ugt i64 %106, 8
   %108 = add i64 %106, %22
-  %109 = icmp ult i64 %108, 33
-  %or.cond = select i1 %107, i1 %109, i1 false
-  br i1 %or.cond, label %115, label %110
+  %109 = icmp ugt i64 %108, 32
+  %or.cond = select i1 %107, i1 true, i1 %109
+  br i1 %or.cond, label %110, label %115
 
 110:                                              ; preds = %105
   %111 = tail call ptr @__cxa_allocate_exception(i64 32) #18
@@ -2026,11 +2026,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 112:                                              ; preds = %100
   %113 = mul i64 %8, %92
-  %114 = icmp ult i64 %113, 9
+  %114 = icmp ugt i64 %113, 8
   %115 = add i64 %113, %29
-  %116 = icmp ult i64 %115, 33
-  %or.cond = select i1 %114, i1 %116, i1 false
-  br i1 %or.cond, label %122, label %117
+  %116 = icmp ugt i64 %115, 32
+  %or.cond = select i1 %114, i1 true, i1 %116
+  br i1 %or.cond, label %117, label %122
 
 117:                                              ; preds = %112
   %118 = tail call ptr @__cxa_allocate_exception(i64 32) #18
@@ -2465,11 +2465,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 112:                                              ; preds = %100
   %113 = mul i64 %8, %92
-  %114 = icmp ult i64 %113, 9
+  %114 = icmp ugt i64 %113, 8
   %115 = add i64 %113, %29
-  %116 = icmp ult i64 %115, 33
-  %or.cond = select i1 %114, i1 %116, i1 false
-  br i1 %or.cond, label %122, label %117
+  %116 = icmp ugt i64 %115, 32
+  %or.cond = select i1 %114, i1 true, i1 %116
+  br i1 %or.cond, label %117, label %122
 
 117:                                              ; preds = %112
   %118 = tail call ptr @__cxa_allocate_exception(i64 32) #18
@@ -2902,11 +2902,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 112:                                              ; preds = %100
   %113 = mul i64 %8, %92
-  %114 = icmp ult i64 %113, 9
+  %114 = icmp ugt i64 %113, 8
   %115 = add i64 %113, %29
-  %116 = icmp ult i64 %115, 33
-  %or.cond = select i1 %114, i1 %116, i1 false
-  br i1 %or.cond, label %122, label %117
+  %116 = icmp ugt i64 %115, 32
+  %or.cond = select i1 %114, i1 true, i1 %116
+  br i1 %or.cond, label %117, label %122
 
 117:                                              ; preds = %112
   %118 = tail call ptr @__cxa_allocate_exception(i64 32) #18
@@ -3341,11 +3341,11 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 112:                                              ; preds = %100
   %113 = mul i64 %8, %92
-  %114 = icmp ult i64 %113, 9
+  %114 = icmp ugt i64 %113, 8
   %115 = add i64 %113, %29
-  %116 = icmp ult i64 %115, 33
-  %or.cond = select i1 %114, i1 %116, i1 false
-  br i1 %or.cond, label %122, label %117
+  %116 = icmp ugt i64 %115, 32
+  %or.cond = select i1 %114, i1 true, i1 %116
+  br i1 %or.cond, label %117, label %122
 
 117:                                              ; preds = %112
   %118 = tail call ptr @__cxa_allocate_exception(i64 32) #18

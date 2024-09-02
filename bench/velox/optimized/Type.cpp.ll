@@ -3135,7 +3135,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i16 @_ZN8facebook5velox20tryMapNameToTypeKindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define range(i16 0, 512) i16 @_ZN8facebook5velox20tryMapNameToTypeKindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8facebook5velox16getTypeStringMapB5cxx11Ev()
   %call.i = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox8TypeKindEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN8facebook5velox16getTypeStringMapB5cxx11EvE14kTypeStringMapB5cxx11, ptr noundef nonnull align 8 dereferenceable(32) %name)
@@ -3779,7 +3779,7 @@ _ZNSt10_HashtableIN8facebook5velox8TypeKindESt4pairIKS2_NSt7__cxx1112basic_strin
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN8facebook5velox24getDecimalPrecisionScaleERKNS0_4TypeE(ptr noundef nonnull readonly align 8 dereferenceable(17) %type) local_unnamed_addr #0 {
+define range(i64 0, 1099511627776) i64 @_ZN8facebook5velox24getDecimalPrecisionScaleERKNS0_4TypeE(ptr noundef nonnull readonly align 8 dereferenceable(17) %type) local_unnamed_addr #0 {
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %type, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox16ShortDecimalTypeE, i64 0) #39
   %cmp.i.not = icmp eq ptr %0, null
@@ -8264,22 +8264,21 @@ invoke.cont:                                      ; preds = %entry
   %call = call i64 @_ZNK8facebook5velox7RowType19getChildIdxIfExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #39
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #39
-  %5 = and i64 %call, 4294967296
-  %tobool.i.i.not = icmp eq i64 %5, 0
+  %tobool.i.i.not = icmp ult i64 %call, 4294967296
   br i1 %tobool.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
   %children_ = getelementptr inbounds i8, ptr %this, i64 48
   %conv = and i64 %call, 4294967295
-  %6 = load ptr, ptr %children_, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr", ptr %6, i64 %conv
+  %5 = load ptr, ptr %children_, align 8
+  %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr", ptr %5, i64 %conv
   ret ptr %add.ptr.i
 
 lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #39
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 
 if.end:                                           ; preds = %invoke.cont
   call void @llvm.trap()
@@ -8287,7 +8286,7 @@ if.end:                                           ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i64 @_ZNK8facebook5velox7RowType19getChildIdxIfExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 8589934592) i64 @_ZNK8facebook5velox7RowType19getChildIdxIfExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %childrenIndices_ = getelementptr inbounds i8, ptr %this, i64 96
   %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #39
@@ -8674,25 +8673,23 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   %call = call i64 @_ZNK8facebook5velox7RowType19getChildIdxIfExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
-  %5 = and i64 %call, 4294967296
-  %tobool.i.i = icmp ne i64 %5, 0
+  %tobool.i.i = icmp ugt i64 %call, 4294967295
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #39
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #39
   ret i1 %tobool.i.i
 
 lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #39
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZNK8facebook5velox7RowType11getChildIdxERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #2 align 2 {
 entry:
   %call = tail call i64 @_ZNK8facebook5velox7RowType19getChildIdxIfExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
-  %0 = and i64 %call, 4294967296
-  %tobool.i.i.not = icmp eq i64 %0, 0
+  %tobool.i.i.not = icmp ult i64 %call, 4294967296
   br i1 %tobool.i.i.not, label %if.then, label %_ZNRSt8optionalIjE5valueEv.exit
 
 if.then:                                          ; preds = %entry

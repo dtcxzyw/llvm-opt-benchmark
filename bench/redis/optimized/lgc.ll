@@ -442,7 +442,7 @@ if.end31:                                         ; preds = %if.else27, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @singlestep(ptr noundef %L) unnamed_addr #0 {
+define internal fastcc range(i64 -120259084216, 120259084417) i64 @singlestep(ptr noundef %L) unnamed_addr #0 {
 entry:
   %l_G = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !4
@@ -1384,7 +1384,7 @@ declare hidden void @luaE_freethread(ptr noundef, ptr noundef) local_unnamed_add
 declare hidden ptr @luaM_realloc_(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @propagatemark(ptr noundef %g) unnamed_addr #0 {
+define internal fastcc range(i64 -120259084216, 120259084417) i64 @propagatemark(ptr noundef %g) unnamed_addr #0 {
 entry:
   %gray = getelementptr inbounds i8, ptr %g, i64 56
   %0 = load ptr, ptr %gray, align 8, !tbaa !45

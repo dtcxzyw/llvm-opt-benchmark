@@ -8230,7 +8230,7 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 818:                                              ; preds = %.noexc99
   %819 = udiv i32 256, %816
-  %.0.sroa.speculated.i.i = call noundef i32 @llvm.umax.i32(i32 %819, i32 2)
+  %.0.sroa.speculated.i.i = call noundef range(i32 2, 0) i32 @llvm.umax.i32(i32 %819, i32 2)
   %820 = add nsw i32 %.0.sroa.speculated.i.i, -1
   %821 = icmp ugt i32 %820, 1
   br i1 %821, label %.lr.ph.i45, label %._crit_edge.i44

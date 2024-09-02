@@ -67,7 +67,7 @@ gv_alloc.exit:                                    ; preds = %5
   br label %.lr.ph392
 
 .lr.ph392:                                        ; preds = %.lr.ph392.preheader, %._crit_edge388
-  %31 = phi i32 [ %.pre, %.lr.ph392.preheader ], [ %54, %._crit_edge388 ]
+  %31 = phi i32 [ %.pre, %.lr.ph392.preheader ], [ %55, %._crit_edge388 ]
   %indvars.iv481 = phi i64 [ 0, %.lr.ph392.preheader ], [ %indvars.iv.next482, %._crit_edge388 ]
   %32 = getelementptr inbounds double, ptr %30, i64 %indvars.iv481
   %indvars.iv.next482 = add nuw nsw i64 %indvars.iv481, 1
@@ -107,14 +107,16 @@ gv_alloc.exit:                                    ; preds = %5
   %indvars.iv.next479 = add nsw i64 %indvars.iv478, 1
   %51 = sext i32 %49 to i64
   %52 = icmp slt i64 %indvars.iv.next479, %51
-  br i1 %52, label %.lr.ph387, label %._crit_edge388
+  br i1 %52, label %.lr.ph387, label %._crit_edge388.loopexit
 
-._crit_edge388:                                   ; preds = %48, %.lr.ph392
-  %53 = phi double [ 0.000000e+00, %.lr.ph392 ], [ %50, %48 ]
-  %54 = phi i32 [ %34, %.lr.ph392 ], [ %49, %48 ]
-  %.0333.lcssa = phi i32 [ 0, %.lr.ph392 ], [ %.1334, %48 ]
-  %55 = sitofp i32 %.0333.lcssa to double
-  %56 = fdiv double %53, %55
+._crit_edge388.loopexit:                          ; preds = %48
+  %53 = sitofp i32 %.1334 to double
+  %54 = fdiv double %50, %53
+  br label %._crit_edge388
+
+._crit_edge388:                                   ; preds = %._crit_edge388.loopexit, %.lr.ph392
+  %55 = phi i32 [ %34, %.lr.ph392 ], [ %49, %._crit_edge388.loopexit ]
+  %56 = phi double [ 0x7FF8000000000000, %.lr.ph392 ], [ %54, %._crit_edge388.loopexit ]
   store double %56, ptr %32, align 8
   %exitcond485.not = icmp eq i64 %indvars.iv.next482, %wide.trip.count484
   br i1 %exitcond485.not, label %.lr.ph414.preheader, label %.lr.ph392
@@ -2121,7 +2123,7 @@ define noalias noundef ptr @TriangleSmoother_new(ptr noundef %0, i32 noundef %1,
   br label %.lr.ph156
 
 .lr.ph156:                                        ; preds = %.lr.ph156.preheader, %._crit_edge
-  %13 = phi i32 [ %.pre, %.lr.ph156.preheader ], [ %36, %._crit_edge ]
+  %13 = phi i32 [ %.pre, %.lr.ph156.preheader ], [ %37, %._crit_edge ]
   %indvars.iv186 = phi i64 [ 0, %.lr.ph156.preheader ], [ %indvars.iv.next187, %._crit_edge ]
   %14 = getelementptr inbounds double, ptr %11, i64 %indvars.iv186
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
@@ -2161,14 +2163,16 @@ define noalias noundef ptr @TriangleSmoother_new(ptr noundef %0, i32 noundef %1,
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %33 = sext i32 %31 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge
+  br i1 %34, label %.lr.ph, label %._crit_edge.loopexit
 
-._crit_edge:                                      ; preds = %30, %.lr.ph156
-  %35 = phi double [ 0.000000e+00, %.lr.ph156 ], [ %32, %30 ]
-  %36 = phi i32 [ %16, %.lr.ph156 ], [ %31, %30 ]
-  %.0141.lcssa = phi i32 [ 0, %.lr.ph156 ], [ %.1142, %30 ]
-  %37 = sitofp i32 %.0141.lcssa to double
-  %38 = fdiv double %35, %37
+._crit_edge.loopexit:                             ; preds = %30
+  %35 = sitofp i32 %.1142 to double
+  %36 = fdiv double %32, %35
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph156
+  %37 = phi i32 [ %16, %.lr.ph156 ], [ %31, %._crit_edge.loopexit ]
+  %38 = phi double [ 0x7FF8000000000000, %.lr.ph156 ], [ %36, %._crit_edge.loopexit ]
   store double %38, ptr %14, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge157, label %.lr.ph156
@@ -2325,25 +2329,28 @@ TriangleSmoother_delete.exit:                     ; preds = %68, %69
   %indvars.iv.next190 = add nsw i64 %indvars.iv189, 1
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next190, %108
-  br i1 %109, label %.lr.ph165, label %._crit_edge166
+  br i1 %109, label %.lr.ph165, label %._crit_edge166.loopexit
 
-._crit_edge166:                                   ; preds = %106, %.lr.ph177
-  %.0139.lcssa = phi double [ 0.000000e+00, %.lr.ph177 ], [ %.1140, %106 ]
-  %.0137.lcssa = phi double [ 0.000000e+00, %.lr.ph177 ], [ %.1138, %106 ]
-  %.0135.lcssa = phi i32 [ -1, %.lr.ph177 ], [ %.1136, %106 ]
-  %.1133.lcssa = phi double [ %.0132173, %.lr.ph177 ], [ %.2134, %106 ]
-  %.1130.lcssa = phi double [ %.0129174, %.lr.ph177 ], [ %.2131, %106 ]
-  %110 = fneg double %.0137.lcssa
-  %111 = getelementptr inbounds double, ptr %51, i64 %indvars.iv192
-  %112 = load double, ptr %111, align 8
-  %113 = fmul double %112, %110
-  store double %113, ptr %111, align 8
-  %114 = fsub double %113, %.0137.lcssa
-  %115 = sext i32 %.0135.lcssa to i64
-  %116 = getelementptr inbounds double, ptr %76, i64 %115
-  store double %114, ptr %116, align 8
+._crit_edge166.loopexit:                          ; preds = %106
+  %110 = sext i32 %.1136 to i64
+  br label %._crit_edge166
+
+._crit_edge166:                                   ; preds = %._crit_edge166.loopexit, %.lr.ph177
+  %.0139.lcssa = phi double [ 0.000000e+00, %.lr.ph177 ], [ %.1140, %._crit_edge166.loopexit ]
+  %.0137.lcssa = phi double [ 0.000000e+00, %.lr.ph177 ], [ %.1138, %._crit_edge166.loopexit ]
+  %.0135.lcssa = phi i64 [ -1, %.lr.ph177 ], [ %110, %._crit_edge166.loopexit ]
+  %.1133.lcssa = phi double [ %.0132173, %.lr.ph177 ], [ %.2134, %._crit_edge166.loopexit ]
+  %.1130.lcssa = phi double [ %.0129174, %.lr.ph177 ], [ %.2131, %._crit_edge166.loopexit ]
+  %111 = fneg double %.0137.lcssa
+  %112 = getelementptr inbounds double, ptr %51, i64 %indvars.iv192
+  %113 = load double, ptr %112, align 8
+  %114 = fmul double %113, %111
+  store double %114, ptr %112, align 8
+  %115 = fsub double %114, %.0137.lcssa
+  %116 = getelementptr inbounds double, ptr %76, i64 %.0135.lcssa
+  store double %115, ptr %116, align 8
   %117 = fneg double %.0139.lcssa
-  %118 = getelementptr inbounds double, ptr %78, i64 %115
+  %118 = getelementptr inbounds double, ptr %78, i64 %.0135.lcssa
   store double %117, ptr %118, align 8
   %exitcond196.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count195
   br i1 %exitcond196.not, label %._crit_edge178.loopexit, label %.lr.ph177
@@ -2472,7 +2479,7 @@ gv_alloc.exit:                                    ; preds = %4
   br label %.lr.ph222
 
 .lr.ph222:                                        ; preds = %.lr.ph222.preheader, %._crit_edge
-  %22 = phi i32 [ %.pre, %.lr.ph222.preheader ], [ %45, %._crit_edge ]
+  %22 = phi i32 [ %.pre, %.lr.ph222.preheader ], [ %46, %._crit_edge ]
   %indvars.iv276 = phi i64 [ 0, %.lr.ph222.preheader ], [ %indvars.iv.next277, %._crit_edge ]
   %23 = getelementptr inbounds double, ptr %20, i64 %indvars.iv276
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
@@ -2512,14 +2519,16 @@ gv_alloc.exit:                                    ; preds = %4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %42 = sext i32 %40 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph, label %._crit_edge
+  br i1 %43, label %.lr.ph, label %._crit_edge.loopexit
 
-._crit_edge:                                      ; preds = %39, %.lr.ph222
-  %44 = phi double [ 0.000000e+00, %.lr.ph222 ], [ %41, %39 ]
-  %45 = phi i32 [ %25, %.lr.ph222 ], [ %40, %39 ]
-  %.0197.lcssa = phi i32 [ 0, %.lr.ph222 ], [ %.1198, %39 ]
-  %46 = sitofp i32 %.0197.lcssa to double
-  %47 = fdiv double %44, %46
+._crit_edge.loopexit:                             ; preds = %39
+  %44 = sitofp i32 %.1198 to double
+  %45 = fdiv double %41, %44
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph222
+  %46 = phi i32 [ %25, %.lr.ph222 ], [ %40, %._crit_edge.loopexit ]
+  %47 = phi double [ 0x7FF8000000000000, %.lr.ph222 ], [ %45, %._crit_edge.loopexit ]
   store double %47, ptr %23, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph244.preheader, label %.lr.ph222

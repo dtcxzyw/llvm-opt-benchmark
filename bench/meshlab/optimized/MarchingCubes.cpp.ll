@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN13MarchingCubes10vertexListE = local_unnamed_addr global [12 x [3 x double]] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6Square20AntipodalCornerIndexEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN6Square20AntipodalCornerIndexEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = and i32 %0, 3
   %3 = xor i32 %2, 3
   ret i32 %3
@@ -158,7 +158,7 @@ _ZN6Square9EdgeIndexEii.exit:                     ; preds = %_ZN6Square15FactorE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6Square18ReflectCornerIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 4) i32 @_ZN6Square18ReflectCornerIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = srem i32 %1, 2
   switch i32 %3, label %9 [
     i32 0, label %4
@@ -580,7 +580,7 @@ define void @_ZN4Cube11FaceCornersEiRiS0_S0_S0_(i32 noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN4Cube20AntipodalCornerIndexEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 8) i32 @_ZN4Cube20AntipodalCornerIndexEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = and i32 %0, 7
   %3 = xor i32 %2, 7
   ret i32 %3
@@ -667,7 +667,7 @@ define noundef i32 @_ZN4Cube20FaceReflectEdgeIndexEii(i32 noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN4Cube22FaceReflectCornerIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 8) i32 @_ZN4Cube22FaceReflectCornerIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = sdiv i32 %1, 2
   switch i32 %3, label %11 [
     i32 0, label %4
@@ -696,7 +696,7 @@ define noundef i32 @_ZN4Cube22FaceReflectCornerIndexEii(i32 noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN4Cube22EdgeReflectCornerIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 8) i32 @_ZN4Cube22EdgeReflectCornerIndexEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = ashr i32 %1, 2
   switch i32 %3, label %11 [
     i32 0, label %4

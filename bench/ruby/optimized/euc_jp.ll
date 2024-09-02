@@ -226,7 +226,7 @@ define internal range(i32 -401, 4) i32 @code_to_mbclen(i32 noundef %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @code_to_mbc(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #5 {
+define internal range(i32 -400, 4) i32 @code_to_mbc(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #5 {
   %4 = and i32 %0, 16711680
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
@@ -325,7 +325,7 @@ mbc_enc_len.exit:                                 ; preds = %22, %27, %39, %44, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr noundef readnone %2, ptr nocapture noundef %3, ptr nocapture readnone %4) #6 {
+define internal range(i32 -400, 4) i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr noundef readnone %2, ptr nocapture noundef %3, ptr nocapture readnone %4) #6 {
   %6 = load ptr, ptr %1, align 8
   %7 = load i8, ptr %6, align 1
   %8 = icmp sgt i8 %7, -1

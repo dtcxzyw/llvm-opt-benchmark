@@ -2026,13 +2026,16 @@ dissect_asam_cmp_status_interface_support_mask.exit.i: ; preds = %390, %387, %38
   %406 = add nuw i32 %.06.i, 1
   %407 = load i32, ptr %31, align 4
   %408 = icmp ult i32 %406, %407
-  br i1 %408, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
+  br i1 %408, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %397
-  %.7.lcssa.i = phi i32 [ %395, %397 ], [ %405, %.lr.ph.i ]
-  %.lcssa.i = phi i32 [ 0, %397 ], [ %407, %.lr.ph.i ]
-  %409 = and i32 %.lcssa.i, 1
-  %410 = add i32 %409, %.7.lcssa.i
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %409 = and i32 %407, 1
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %397
+  %.7.lcssa.i = phi i32 [ %395, %397 ], [ %405, %._crit_edge.loopexit.i ]
+  %.lcssa.i = phi i32 [ 0, %397 ], [ %409, %._crit_edge.loopexit.i ]
+  %410 = add i32 %.lcssa.i, %.7.lcssa.i
   br label %411
 
 411:                                              ; preds = %._crit_edge.i, %dissect_asam_cmp_status_interface_support_mask.exit.i

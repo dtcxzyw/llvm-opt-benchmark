@@ -1212,13 +1212,13 @@ define dso_local void @copy_xstate_to_uabi_buf(ptr nocapture writeonly %0, i64 %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @copy_uabi_from_kernel_to_xstate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @copy_uabi_from_kernel_to_xstate(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   %4 = tail call fastcc i32 @copy_uabi_to_xstate(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @copy_uabi_to_xstate(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @copy_uabi_to_xstate(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #2 align 16 {
   %5 = alloca %struct.xstate_header, align 8
   %6 = alloca [2 x i32], align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1421,7 +1421,7 @@ define internal fastcc noundef i32 @copy_uabi_to_xstate(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @copy_sigframe_from_user_to_xstate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -22, 1) i32 @copy_sigframe_from_user_to_xstate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 3024
   %4 = load ptr, ptr %3, align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 2964

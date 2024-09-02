@@ -107,7 +107,7 @@ fdt_rw_probe_.exit.thread:                        ; preds = %26, %6, %3, %fdt_rw
 declare i32 @fdt_num_mem_rsv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @fdt_splice_mem_rsv_(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 -4, 1) i32 @fdt_splice_mem_rsv_(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = shl i32 %2, 4
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr %6, align 1

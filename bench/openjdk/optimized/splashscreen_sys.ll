@@ -259,7 +259,7 @@ define hidden void @msec2timeval(i32 noundef %0, ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @GetNumAvailableColors(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 257) i32 @GetNumAvailableColors(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x i64], align 8
   %5 = alloca [256 x i64], align 16
   %spec.select = tail call i32 @llvm.umin.i32(i32 %2, i32 256)

@@ -3893,9 +3893,9 @@ Vec_IntCountEntry.exit67:                         ; preds = %57, %48
 
 68:                                               ; preds = %Vec_IntCountEntry.exit67
   %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.04974, i32 noundef %38, i32 noundef %.0.lcssa.i60)
-  %70 = tail call noundef i32 @llvm.smax.i32(i32 %67, i32 0)
+  %70 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %67, i32 0)
   %71 = sub nsw i32 0, %67
-  %72 = tail call noundef i32 @llvm.smax.i32(i32 %71, i32 0)
+  %72 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %71, i32 0)
   %73 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %63, i32 noundef %64, i32 noundef %70, i32 noundef %72)
   br label %Vec_IntCountEntry.exit.thread
 
@@ -4053,9 +4053,9 @@ Vec_IntCountEntry.exit67:                         ; preds = %55, %46
   %66 = add i32 %63, %65
   %67 = sub i32 %.0.lcssa.i, %66
   %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef 1, i32 noundef %.0.lcssa.i, i32 noundef %.0.lcssa.i60)
-  %69 = tail call noundef i32 @llvm.smax.i32(i32 %67, i32 0)
+  %69 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %67, i32 0)
   %70 = sub nsw i32 0, %67
-  %71 = tail call noundef i32 @llvm.smax.i32(i32 %70, i32 0)
+  %71 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %70, i32 0)
   %72 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %62, i32 noundef %65, i32 noundef %69, i32 noundef %71)
   br label %73
 
@@ -4092,7 +4092,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

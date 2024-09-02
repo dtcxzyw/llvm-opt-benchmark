@@ -1895,7 +1895,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %37 = getelementptr inbounds i8, ptr %0, i64 288
   %38 = load i8, ptr %37, align 8
   %39 = icmp eq i8 %38, 1
-  br i1 %39, label %53, label %40
+  br i1 %39, label %54, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %0, i64 289
@@ -1910,12 +1910,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %50 = or disjoint i32 %45, %47
   %51 = or disjoint i32 %50, 10
   %52 = add nuw nsw i32 %51, %49
-  br label %53
+  %53 = zext nneg i32 %52 to i64
+  br label %54
 
-53:                                               ; preds = %36, %40
-  %54 = phi i32 [ %52, %40 ], [ 16, %36 ]
-  %55 = zext nneg i32 %54 to i64
-  %56 = add i64 %2, %55
+54:                                               ; preds = %36, %40
+  %55 = phi i64 [ %53, %40 ], [ 16, %36 ]
+  %56 = add i64 %55, %2
   %57 = load ptr, ptr %30, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   store i64 %56, ptr %58, align 8
@@ -1927,7 +1927,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   store i64 %2, ptr %61, align 8
   br label %62
 
-62:                                               ; preds = %59, %53
+62:                                               ; preds = %59, %54
   %63 = load ptr, ptr %30, align 8
   %64 = getelementptr inbounds %struct.H5O_chunk_t, ptr %63, i64 %31, i32 1
   %65 = load i64, ptr %64, align 8
@@ -1979,7 +1979,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
 
 99:                                               ; preds = %86
   %100 = icmp eq i8 %98, 1
-  br i1 %100, label %115, label %101
+  br i1 %100, label %116, label %101
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds i8, ptr %0, i64 289
@@ -1995,15 +1995,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %112 = or disjoint i32 %111, 10
   %113 = add nuw nsw i32 %112, %110
   %114 = add nsw i32 %113, -4
-  br label %115
+  %115 = zext nneg i32 %114 to i64
+  br label %116
 
-115:                                              ; preds = %99, %101
-  %116 = phi i32 [ %114, %101 ], [ 16, %99 ]
-  %117 = zext nneg i32 %116 to i64
+116:                                              ; preds = %99, %101
+  %117 = phi i64 [ %115, %101 ], [ 16, %99 ]
   %118 = icmp ugt ptr %92, %96
   br i1 %118, label %124, label %119
 
-119:                                              ; preds = %115
+119:                                              ; preds = %116
   %120 = ptrtoint ptr %96 to i64
   %121 = ptrtoint ptr %92 to i64
   %reass.sub464 = sub i64 %120, %121
@@ -2011,7 +2011,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %123 = icmp ult i64 %122, %117
   br i1 %123, label %124, label %128
 
-124:                                              ; preds = %115, %119
+124:                                              ; preds = %116, %119
   %125 = load i64, ptr @H5E_OHDR_g, align 8
   %126 = load i64, ptr @H5E_OVERFLOW_g, align 8
   %127 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5O__chunk_deserialize, i32 noundef 1223, i64 noundef %125, i64 noundef %126, ptr noundef nonnull @.str.7) #9

@@ -2043,7 +2043,7 @@ declare void @_PyErr_ChainExceptions1(ptr noundef) local_unnamed_addr #4
 declare void @_PyErr_Print(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_PyEval_MakePendingCalls(ptr noundef %tstate) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @_PyEval_MakePendingCalls(ptr noundef %tstate) local_unnamed_addr #3 {
 entry:
   %call.i = tail call i64 @PyThread_get_thread_ident() #15
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 368), align 8
@@ -2127,7 +2127,7 @@ return:                                           ; preds = %_Py_atomic_compare_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Py_MakePendingCalls() local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @Py_MakePendingCalls() local_unnamed_addr #3 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8

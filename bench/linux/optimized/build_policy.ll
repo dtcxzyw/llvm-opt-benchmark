@@ -1244,7 +1244,7 @@ define dso_local void @rto_push_irq_work_func(ptr noundef %0) local_unnamed_addr
   %20 = load i32, ptr %15, align 8
   %21 = add i32 %20, 1
   %22 = icmp ugt i32 %21, 63
-  br i1 %22, label %31, label %23, !prof !7
+  br i1 %22, label %32, label %23, !prof !7
 
 23:                                               ; preds = %19
   %24 = load i64, ptr %16, align 8
@@ -1252,21 +1252,21 @@ define dso_local void @rto_push_irq_work_func(ptr noundef %0) local_unnamed_addr
   %26 = shl nsw i64 -1, %25
   %27 = and i64 %24, %26
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %31, label %29
+  br i1 %28, label %32, label %29
 
 29:                                               ; preds = %23
   %30 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %27) #28, !srcloc !76
-  br label %31
+  %31 = trunc i64 %30 to i32
+  br label %32
 
-31:                                               ; preds = %29, %23, %19
-  %32 = phi i64 [ 64, %19 ], [ %30, %29 ], [ 64, %23 ]
-  %33 = trunc i64 %32 to i32
+32:                                               ; preds = %29, %23, %19
+  %33 = phi i32 [ 64, %19 ], [ %31, %29 ], [ 64, %23 ]
   store i32 %33, ptr %15, align 8
   %34 = load i32, ptr @nr_cpu_ids, align 4
   %35 = icmp ugt i32 %34, %33
   br i1 %35, label %41, label %36
 
-36:                                               ; preds = %31
+36:                                               ; preds = %32
   store i32 -1, ptr %15, align 8
   %37 = load volatile i32, ptr %17, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !85
@@ -1282,7 +1282,7 @@ define dso_local void @rto_push_irq_work_func(ptr noundef %0) local_unnamed_addr
   store i32 %37, ptr %18, align 4
   br label %19, !llvm.loop !86
 
-41:                                               ; preds = %31
+41:                                               ; preds = %32
   tail call void @_raw_spin_unlock(ptr noundef %14) #29
   %42 = icmp slt i32 %33, 0
   br i1 %42, label %43, label %44
@@ -1300,7 +1300,7 @@ define dso_local void @rto_push_irq_work_func(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @push_rt_task(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 0, 2) i32 @push_rt_task(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2144
   %4 = load i32, ptr %3, align 32
   %5 = icmp eq i32 %4, 0
@@ -6075,19 +6075,19 @@ define dso_local void @thread_group_cputime(ptr nocapture noundef readonly %0, p
 .loopexit:                                        ; preds = %.preheader, %33
   %60 = and i32 %34, 1
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %64
+  br i1 %61, label %62, label %.critedge1
 
 62:                                               ; preds = %.loopexit
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !175
   %63 = load volatile i32, ptr %13, align 4
   %.not = icmp eq i32 %63, %34
-  br i1 %.not, label %.thread1, label %20, !llvm.loop !176
+  br i1 %.not, label %.critedge, label %20, !llvm.loop !176
 
-64:                                               ; preds = %.loopexit
+.critedge1:                                       ; preds = %.loopexit
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %14, i64 noundef %35) #29
-  br label %.thread1
+  br label %.critedge
 
-.thread1:                                         ; preds = %62, %64
+.critedge:                                        ; preds = %62, %.critedge1
   tail call void @__rcu_read_unlock() #29
   ret void
 }
@@ -11932,7 +11932,7 @@ define internal fastcc void @tell_cpu_to_push(ptr nocapture noundef readonly %0)
   %21 = phi i32 [ %.pre, %41 ], [ %14, %16 ]
   %22 = add i32 %21, 1
   %23 = icmp ugt i32 %22, 63
-  br i1 %23, label %32, label %24, !prof !7
+  br i1 %23, label %33, label %24, !prof !7
 
 24:                                               ; preds = %20
   %25 = load i64, ptr %17, align 8
@@ -11940,21 +11940,21 @@ define internal fastcc void @tell_cpu_to_push(ptr nocapture noundef readonly %0)
   %27 = shl nsw i64 -1, %26
   %28 = and i64 %25, %27
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %32, label %30
+  br i1 %29, label %33, label %30
 
 30:                                               ; preds = %24
   %31 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %28) #28, !srcloc !76
-  br label %32
+  %32 = trunc i64 %31 to i32
+  br label %33
 
-32:                                               ; preds = %30, %24, %20
-  %33 = phi i64 [ 64, %20 ], [ %31, %30 ], [ 64, %24 ]
-  %34 = trunc i64 %33 to i32
+33:                                               ; preds = %30, %24, %20
+  %34 = phi i32 [ 64, %20 ], [ %32, %30 ], [ 64, %24 ]
   store i32 %34, ptr %13, align 8
   %35 = load i32, ptr @nr_cpu_ids, align 4
   %36 = icmp ugt i32 %35, %34
   br i1 %36, label %.loopexit.loopexit, label %37
 
-37:                                               ; preds = %32
+37:                                               ; preds = %33
   store i32 -1, ptr %13, align 8
   %38 = load volatile i32, ptr %18, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !85
@@ -11967,8 +11967,8 @@ define internal fastcc void @tell_cpu_to_push(ptr nocapture noundef readonly %0)
   %.pre = load i32, ptr %13, align 8
   br label %20, !llvm.loop !86
 
-.loopexit.loopexit:                               ; preds = %32, %37
-  %.ph = phi i32 [ %34, %32 ], [ -1, %37 ]
+.loopexit.loopexit:                               ; preds = %33, %37
+  %.ph = phi i32 [ %34, %33 ], [ -1, %37 ]
   %.pre5 = load ptr, ptr %2, align 16
   br label %.loopexit
 

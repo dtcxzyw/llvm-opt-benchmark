@@ -1670,8 +1670,8 @@ if.end.i302:                                      ; preds = %if.end.i218
   %sub.i = add i64 %4, 11
   %5 = inttoptr i64 %sub.i to ptr
   %6 = load i16, ptr %5, align 2
-  %cmp.i304 = icmp ult i16 %6, 128
-  br i1 %cmp.i304, label %do.end18, label %do.body15
+  %cmp.i304 = icmp ugt i16 %6, 127
+  br i1 %cmp.i304, label %do.body15, label %do.end18
 
 do.body15:                                        ; preds = %if.end.i218, %if.end.i302
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node3url11BindingData6FormatERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_0) #22
@@ -2817,8 +2817,8 @@ if.end.i376:                                      ; preds = %_ZNK2v820FunctionCa
   %sub.i = add i64 %8, 11
   %9 = inttoptr i64 %sub.i to ptr
   %10 = load i16, ptr %9, align 2
-  %cmp.i378 = icmp ult i16 %10, 128
-  br i1 %cmp.i378, label %lor.lhs.false.i259, label %do.body7
+  %cmp.i378 = icmp ugt i16 %10, 127
+  br i1 %cmp.i378, label %do.body7, label %lor.lhs.false.i259
 
 do.body7:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit288, %if.end.i376
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node3url11BindingData6UpdateERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args) #22
@@ -2888,8 +2888,8 @@ if.end.i386:                                      ; preds = %_ZNK2v820FunctionCa
   %sub.i415 = add i64 %24, 11
   %25 = inttoptr i64 %sub.i415 to ptr
   %26 = load i16, ptr %25, align 2
-  %cmp.i388 = icmp ult i16 %26, 128
-  br i1 %cmp.i388, label %do.end40, label %do.body37
+  %cmp.i388 = icmp ugt i16 %26, 127
+  br i1 %cmp.i388, label %do.body37, label %do.end40
 
 do.body37:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit252, %if.end.i386
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node3url11BindingData6UpdateERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_1) #22

@@ -745,7 +745,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end7.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %10 = phi i64 [ %9, %for.body.lr.ph.i ], [ %28, %for.inc.i ]
+  %10 = phi i64 [ %9, %for.body.lr.ph.i ], [ %29, %for.inc.i ]
   %any_purged.058.i = phi i1 [ false, %for.body.lr.ph.i ], [ %any_purged.3.i, %for.inc.i ]
   %full_purge.057.i = phi i1 [ true, %for.body.lr.ph.i ], [ %full_purge.4.i, %for.inc.i ]
   %i.056.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc47.i, %for.inc.i ]
@@ -810,7 +810,7 @@ if.then31.i:                                      ; preds = %while.body24.i
 
 while.cond1.preheader.i.i:                        ; preds = %if.then31.i, %if.end10.i.i
   %bitidx.018.i.i = phi i64 [ %add12.i.i, %if.end10.i.i ], [ %bitidx.051.i, %if.then31.i ]
-  %all_purged.017.i.i = phi i1 [ %cond.fr.i, %if.end10.i.i ], [ false, %if.then31.i ]
+  %all_purged.017.i.i = phi i1 [ %all_purged.1.i.i, %if.end10.i.i ], [ false, %if.then31.i ]
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body6.i.i, %while.cond1.preheader.i.i
@@ -867,31 +867,31 @@ if.then8.i.i:                                     ; preds = %if.end.i.i, %if.the
 
 mi_arena_purge.exit.i:                            ; preds = %if.then8.i.i, %if.end.i.i, %if.then.i41.i
   %cmp8.i.i = icmp eq i64 %count.0.lcssa.i.i, %bitlen.149.i
-  %spec.select.i.i = or i1 %all_purged.017.i.i, %cmp8.i.i
+  %spec.select.i.i = select i1 %cmp8.i.i, i1 true, i1 %all_purged.017.i.i
+  %26 = freeze i1 %spec.select.i.i
   br label %if.end10.i.i
 
 if.end10.i.i:                                     ; preds = %mi_arena_purge.exit.i, %while.end.i.i
-  %all_purged.1.i.i = phi i1 [ %all_purged.017.i.i, %while.end.i.i ], [ %spec.select.i.i, %mi_arena_purge.exit.i ]
-  %cond.fr.i = freeze i1 %all_purged.1.i.i
+  %all_purged.1.i.i = phi i1 [ %all_purged.017.i.i, %while.end.i.i ], [ %26, %mi_arena_purge.exit.i ]
   %add11.i.i = add i64 %bitidx.018.i.i, 1
   %add12.i.i = add i64 %add11.i.i, %count.0.lcssa.i.i
   %cmp.i.i = icmp ult i64 %add12.i.i, %add.i38.i
   br i1 %cmp.i.i, label %while.cond1.preheader.i.i, label %mi_arena_purge_range.exit.i, !llvm.loop !10
 
 mi_arena_purge_range.exit.i:                      ; preds = %if.end10.i.i
-  %spec.select.i = select i1 %cond.fr.i, i1 %full_purge.153.i, i1 false
+  %spec.select.i = select i1 %all_purged.1.i.i, i1 %full_purge.153.i, i1 false
   br label %mi_arena_purge_range.exit.thread.i
 
 mi_arena_purge_range.exit.thread.i:               ; preds = %mi_arena_purge_range.exit.i, %if.then31.i
-  %26 = phi i1 [ false, %if.then31.i ], [ %spec.select.i, %mi_arena_purge_range.exit.i ]
-  %27 = load i64, ptr %field_count.i, align 8
-  %call41.i = tail call zeroext i1 @_mi_bitmap_unclaim(ptr noundef nonnull %blocks_inuse.i, i64 noundef %27, i64 noundef %bitlen.149.i, i64 noundef %add.i66.i) #11
+  %27 = phi i1 [ false, %if.then31.i ], [ %spec.select.i, %mi_arena_purge_range.exit.i ]
+  %28 = load i64, ptr %field_count.i, align 8
+  %call41.i = tail call zeroext i1 @_mi_bitmap_unclaim(ptr noundef nonnull %blocks_inuse.i, i64 noundef %28, i64 noundef %bitlen.149.i, i64 noundef %add.i66.i) #11
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.end28.i, %mi_arena_purge_range.exit.thread.i, %while.end.i
   %bitlen.145.i = phi i64 [ %bitlen.149.i, %mi_arena_purge_range.exit.thread.i ], [ 0, %while.end.i ], [ 0, %if.end28.i ]
   %purge.1.i = phi i64 [ %16, %mi_arena_purge_range.exit.thread.i ], [ %purge.050.i, %while.end.i ], [ %purge.050.i, %if.end28.i ]
-  %full_purge.2.i = phi i1 [ %26, %mi_arena_purge_range.exit.thread.i ], [ %full_purge.153.i, %while.end.i ], [ %full_purge.153.i, %if.end28.i ]
+  %full_purge.2.i = phi i1 [ %27, %mi_arena_purge_range.exit.thread.i ], [ %full_purge.153.i, %while.end.i ], [ %full_purge.153.i, %if.end28.i ]
   %any_purged.2.i = phi i1 [ true, %mi_arena_purge_range.exit.thread.i ], [ %any_purged.154.i, %while.end.i ], [ %any_purged.154.i, %if.end28.i ]
   %add43.i = add nuw nsw i64 %bitidx.051.i, 1
   %add44.i = add i64 %add43.i, %bitlen.145.i
@@ -903,11 +903,11 @@ for.inc.loopexit.i:                               ; preds = %if.end42.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.loopexit.i, %for.body.i
-  %28 = phi i64 [ %10, %for.body.i ], [ %.pre.i, %for.inc.loopexit.i ]
+  %29 = phi i64 [ %10, %for.body.i ], [ %.pre.i, %for.inc.loopexit.i ]
   %full_purge.4.i = phi i1 [ %full_purge.057.i, %for.body.i ], [ %full_purge.2.i, %for.inc.loopexit.i ]
   %any_purged.3.i = phi i1 [ %any_purged.058.i, %for.body.i ], [ %any_purged.2.i, %for.inc.loopexit.i ]
   %inc47.i = add nuw i64 %i.056.i, 1
-  %cmp11.i = icmp ult i64 %inc47.i, %28
+  %cmp11.i = icmp ult i64 %inc47.i, %29
   br i1 %cmp11.i, label %for.body.i, label %for.end.i, !llvm.loop !12
 
 for.end.i:                                        ; preds = %for.inc.i
@@ -919,7 +919,7 @@ if.then49.i:                                      ; preds = %for.end.i
   %mul.i39.i = mul nsw i64 %call1.i.i, %call.i.i
   %call53.i = tail call i64 @_mi_clock_now() #11
   %add54.i = add nsw i64 %call53.i, %mul.i39.i
-  %29 = cmpxchg ptr %purge_expire.i, i64 0, i64 %add54.i acq_rel acquire, align 8
+  %30 = cmpxchg ptr %purge_expire.i, i64 0, i64 %add54.i acq_rel acquire, align 8
   br i1 %any_purged.3.i, label %if.then18, label %for.inc
 
 mi_arena_try_purge.exit:                          ; preds = %for.end.i
@@ -1464,7 +1464,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mi_reserve_huge_os_pages_interleave(i64 noundef %pages, i64 noundef %numa_nodes, i64 noundef %timeout_msecs) local_unnamed_addr #2 {
+define range(i32 0, 13) i32 @mi_reserve_huge_os_pages_interleave(i64 noundef %pages, i64 noundef %numa_nodes, i64 noundef %timeout_msecs) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %pages, 0
   br i1 %cmp, label %return, label %if.end
@@ -1524,7 +1524,7 @@ return:                                           ; preds = %if.end18, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mi_reserve_huge_os_pages(i64 noundef %pages, double noundef %max_secs, ptr noundef writeonly %pages_reserved) local_unnamed_addr #2 {
+define range(i32 0, 13) i32 @mi_reserve_huge_os_pages(i64 noundef %pages, double noundef %max_secs, ptr noundef writeonly %pages_reserved) local_unnamed_addr #2 {
 entry:
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.12) #11
   %cmp.not = icmp eq ptr %pages_reserved, null

@@ -331,12 +331,12 @@ for.cond:                                         ; preds = %for.inc, %_ZN2lp12i
 if.end.i.i:                                       ; preds = %for.cond
   %arrayidx.i.i14 = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i14, align 4
+  %12 = zext i32 %11 to i64
   br label %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE9row_countEv.exit
 
 _ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE9row_countEv.exit: ; preds = %for.cond, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %11, %if.end.i.i ], [ 0, %for.cond ]
-  %12 = zext i32 %retval.0.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %12
+  %retval.0.i.i = phi i64 [ %12, %if.end.i.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK2lp13static_matrixI8rationalNS_12numeric_pairIS1_EEE9row_countEv.exit

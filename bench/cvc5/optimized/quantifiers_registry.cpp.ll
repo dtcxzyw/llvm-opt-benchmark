@@ -2334,7 +2334,7 @@ return:                                           ; preds = %if.then13.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK4cvc58internal6theory11quantifiers19QuantifiersRegistry28getNumInstantiationConstantsENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(488) %this, ptr nocapture noundef readonly %q) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK4cvc58internal6theory11quantifiers19QuantifiersRegistry28getNumInstantiationConstantsENS0_12NodeTemplateILb1EEE(ptr noundef nonnull readonly align 8 dereferenceable(488) %this, ptr nocapture noundef readonly %q) local_unnamed_addr #7 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8

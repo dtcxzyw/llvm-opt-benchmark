@@ -493,13 +493,13 @@ _ZNK4absl7debian211string_view6substrEmm.exit.i:  ; preds = %84
 
 _ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit.loopexit: ; preds = %_ZNK4absl7debian211string_view6substrEmm.exit.i
   %.pre14 = load i32, ptr %13, align 8
+  %94 = icmp ne i32 %.pre14, 2
   br label %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit
 
 _ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit: ; preds = %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit.loopexit, %69
-  %94 = phi i64 [ %93, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit.loopexit ], [ %.pre15, %69 ]
-  %95 = phi i32 [ %.pre14, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit.loopexit ], [ 2, %69 ]
-  %96 = icmp ne i32 %95, 2
-  %97 = icmp ne i64 %94, %.sroa.2.0.copyload.i.i.i
+  %95 = phi i64 [ %93, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit.loopexit ], [ %.pre15, %69 ]
+  %96 = phi i1 [ %94, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_9SkipEmptyENS0_11string_viewEEEEppEv.exit.loopexit ], [ false, %69 ]
+  %97 = icmp ne i64 %95, %.sroa.2.0.copyload.i.i.i
   %.not3.i = select i1 %96, i1 true, i1 %97
   br i1 %.not3.i, label %54, label %._crit_edge
 

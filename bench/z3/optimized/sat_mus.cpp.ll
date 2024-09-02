@@ -239,12 +239,12 @@ for.cond.i:                                       ; preds = %_ZN6vectorIN3sat7li
 if.end.i.i:                                       ; preds = %for.cond.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
+  %2 = zext i32 %1 to i64
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i:   ; preds = %if.end.i.i, %for.cond.i
-  %retval.0.i.i = phi i32 [ %1, %if.end.i.i ], [ 0, %for.cond.i ]
-  %2 = zext i32 %retval.0.i.i to i64
-  %cmp.i = icmp ult i64 %indvars.iv.i, %2
+  %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %for.cond.i ]
+  %cmp.i = icmp ult i64 %indvars.iv.i, %retval.0.i.i
   br i1 %cmp.i, label %for.body.i, label %_ZN6vectorIN3sat7literalELb0EjE6appendERKS2_.exit
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i
@@ -310,12 +310,12 @@ for.cond.i1:                                      ; preds = %_ZN6vectorIN3sat7li
 if.end.i.i4:                                      ; preds = %for.cond.i1
   %arrayidx.i.i5 = getelementptr inbounds i8, ptr %14, i64 -4
   %15 = load i32, ptr %arrayidx.i.i5, align 4
+  %16 = zext i32 %15 to i64
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i6
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i6:  ; preds = %if.end.i.i4, %for.cond.i1
-  %retval.0.i.i7 = phi i32 [ %15, %if.end.i.i4 ], [ 0, %for.cond.i1 ]
-  %16 = zext i32 %retval.0.i.i7 to i64
-  %cmp.i8 = icmp ult i64 %indvars.iv.i2, %16
+  %retval.0.i.i7 = phi i64 [ %16, %if.end.i.i4 ], [ 0, %for.cond.i1 ]
+  %cmp.i8 = icmp ult i64 %indvars.iv.i2, %retval.0.i.i7
   br i1 %cmp.i8, label %for.body.i9, label %_ZN6vectorIN3sat7literalELb0EjE6appendERKS2_.exit26
 
 for.body.i9:                                      ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i6
@@ -386,12 +386,12 @@ for.cond.i:                                       ; preds = %_ZN6vectorI5lboolLb
 if.end.i.i:                                       ; preds = %for.cond.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i, align 4
+  %5 = zext i32 %4 to i64
   br label %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i
 
 _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i:           ; preds = %if.end.i.i, %for.cond.i
-  %retval.0.i.i = phi i32 [ %4, %if.end.i.i ], [ 0, %for.cond.i ]
-  %5 = zext i32 %retval.0.i.i to i64
-  %cmp.i1 = icmp ult i64 %indvars.iv.i, %5
+  %retval.0.i.i = phi i64 [ %5, %if.end.i.i ], [ 0, %for.cond.i ]
+  %cmp.i1 = icmp ult i64 %indvars.iv.i, %retval.0.i.i
   br i1 %cmp.i1, label %for.body.i, label %if.end
 
 for.body.i:                                       ; preds = %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i
@@ -968,12 +968,12 @@ for.cond.i.i:                                     ; preds = %_ZN6vectorIN3sat7li
 if.end.i.i.i:                                     ; preds = %for.cond.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %31, i64 -4
   %32 = load i32, ptr %arrayidx.i.i.i, align 4
+  %33 = zext i32 %32 to i64
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i.i: ; preds = %if.end.i.i.i, %for.cond.i.i
-  %retval.0.i.i.i = phi i32 [ %32, %if.end.i.i.i ], [ 0, %for.cond.i.i ]
-  %33 = zext i32 %retval.0.i.i.i to i64
-  %cmp.i2.i = icmp ult i64 %indvars.iv.i.i, %33
+  %retval.0.i.i.i = phi i64 [ %33, %if.end.i.i.i ], [ 0, %for.cond.i.i ]
+  %cmp.i2.i = icmp ult i64 %indvars.iv.i.i, %retval.0.i.i.i
   %34 = load ptr, ptr %m_mus, align 8
   %cmp.i5.i.i = icmp eq ptr %34, null
   br i1 %cmp.i2.i, label %for.body.i.i, label %invoke.cont
@@ -1458,12 +1458,12 @@ for.cond.i.i136:                                  ; preds = %_ZN6vectorI5lboolLb
 if.end.i.i.i139:                                  ; preds = %for.cond.i.i136
   %arrayidx.i.i.i140 = getelementptr inbounds i8, ptr %91, i64 -4
   %92 = load i32, ptr %arrayidx.i.i.i140, align 4
+  %93 = zext i32 %92 to i64
   br label %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i:         ; preds = %if.end.i.i.i139, %for.cond.i.i136
-  %retval.0.i.i.i141 = phi i32 [ %92, %if.end.i.i.i139 ], [ 0, %for.cond.i.i136 ]
-  %93 = zext i32 %retval.0.i.i.i141 to i64
-  %cmp.i1.i = icmp ult i64 %indvars.iv.i.i137, %93
+  %retval.0.i.i.i141 = phi i64 [ %93, %if.end.i.i.i139 ], [ 0, %for.cond.i.i136 ]
+  %cmp.i1.i = icmp ult i64 %indvars.iv.i.i137, %retval.0.i.i.i141
   br i1 %cmp.i1.i, label %for.body.i.i142, label %sw.epilog
 
 for.body.i.i142:                                  ; preds = %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i
@@ -1611,12 +1611,12 @@ for.cond:                                         ; preds = %for.cond.preheader,
 if.end.i181:                                      ; preds = %for.cond
   %arrayidx.i182 = getelementptr inbounds i8, ptr %112, i64 -4
   %113 = load i32, ptr %arrayidx.i182, align 4
+  %114 = zext i32 %113 to i64
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit184
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit184:  ; preds = %for.cond, %if.end.i181
-  %retval.0.i183 = phi i32 [ %113, %if.end.i181 ], [ 0, %for.cond ]
-  %114 = zext i32 %retval.0.i183 to i64
-  %cmp127 = icmp ult i64 %indvars.iv, %114
+  %retval.0.i183 = phi i64 [ %114, %if.end.i181 ], [ 0, %for.cond ]
+  %cmp127 = icmp ult i64 %indvars.iv, %retval.0.i183
   br i1 %cmp127, label %for.body, label %sw.epilog
 
 for.body:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit184
@@ -1858,12 +1858,12 @@ for.cond.i:                                       ; preds = %_ZN6vectorIN3sat7li
 if.end.i.i:                                       ; preds = %for.cond.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i, align 4
+  %5 = zext i32 %4 to i64
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i:   ; preds = %if.end.i.i, %for.cond.i
-  %retval.0.i.i = phi i32 [ %4, %if.end.i.i ], [ 0, %for.cond.i ]
-  %5 = zext i32 %retval.0.i.i to i64
-  %cmp.i = icmp ult i64 %indvars.iv.i, %5
+  %retval.0.i.i = phi i64 [ %5, %if.end.i.i ], [ 0, %for.cond.i ]
+  %cmp.i = icmp ult i64 %indvars.iv.i, %retval.0.i.i
   br i1 %cmp.i, label %for.body.i, label %for.cond
 
 for.body.i:                                       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i
@@ -2532,12 +2532,12 @@ for.cond:                                         ; preds = %for.inc, %entry
 if.end.i:                                         ; preds = %for.cond
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
+  %2 = zext i32 %1 to i64
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %for.cond, %if.end.i
-  %retval.0.i = phi i32 [ %1, %if.end.i ], [ 0, %for.cond ]
-  %2 = zext i32 %retval.0.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %2
+  %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
@@ -3153,12 +3153,12 @@ for.cond.i.i48:                                   ; preds = %_ZN6vectorI5lboolLb
 if.end.i.i.i51:                                   ; preds = %for.cond.i.i48
   %arrayidx.i.i.i52 = getelementptr inbounds i8, ptr %65, i64 -4
   %66 = load i32, ptr %arrayidx.i.i.i52, align 4
+  %67 = zext i32 %66 to i64
   br label %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i:         ; preds = %if.end.i.i.i51, %for.cond.i.i48
-  %retval.0.i.i.i53 = phi i32 [ %66, %if.end.i.i.i51 ], [ 0, %for.cond.i.i48 ]
-  %67 = zext i32 %retval.0.i.i.i53 to i64
-  %cmp.i1.i = icmp ult i64 %indvars.iv.i.i49, %67
+  %retval.0.i.i.i53 = phi i64 [ %67, %if.end.i.i.i51 ], [ 0, %for.cond.i.i48 ]
+  %cmp.i1.i = icmp ult i64 %indvars.iv.i.i49, %retval.0.i.i.i53
   br i1 %cmp.i1.i, label %for.body.i.i54, label %sw.epilog
 
 for.body.i.i54:                                   ; preds = %_ZNK6vectorI5lboolLb0EjE4sizeEv.exit.i.i
@@ -4910,12 +4910,12 @@ for.cond:                                         ; preds = %_ZN16tracked_uint_s
 if.end.i:                                         ; preds = %for.cond
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
+  %2 = zext i32 %1 to i64
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %for.cond, %if.end.i
-  %retval.0.i = phi i32 [ %1, %if.end.i ], [ 0, %for.cond ]
-  %2 = zext i32 %retval.0.i to i64
-  %cmp = icmp ult i64 %indvars.iv, %2
+  %retval.0.i = phi i64 [ %2, %if.end.i ], [ 0, %for.cond ]
+  %cmp = icmp ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit

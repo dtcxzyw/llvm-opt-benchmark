@@ -1150,7 +1150,7 @@ return:                                           ; preds = %entry, %_ZNK8facebo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @YGNodeGetChildCount(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define range(i64 -1152921504606846976, 1152921504606846976) i64 @YGNodeGetChildCount(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
   %children_.i = getelementptr inbounds i8, ptr %node, i64 592
   %_M_finish.i = getelementptr inbounds i8, ptr %node, i64 600
@@ -1283,7 +1283,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @YGNodeGetNodeType(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @YGNodeGetNodeType(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
   %bf.load.i = load i8, ptr %node, align 8
   %bf.lshr.i = lshr i8 %bf.load.i, 3

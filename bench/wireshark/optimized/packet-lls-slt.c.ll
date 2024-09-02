@@ -254,30 +254,30 @@ xml_value_to_gchar.exit71.thread:                 ; preds = %.lr.ph87, %100, %11
 
 ._crit_edge:                                      ; preds = %.loopexit
   %.pre = load i32, ptr %27, align 4
-  %.not67 = icmp eq i32 %.pre, 0
-  br i1 %.not67, label %.backedge, label %124
+  %124 = icmp eq i32 %.pre, 0
+  br i1 %124, label %.backedge, label %125
 
-124:                                              ; preds = %._crit_edge
-  %125 = call ptr @wmem_file_scope() #6
-  %126 = call noalias ptr @wmem_alloc(ptr noundef %125, i64 noundef 12) #6
-  %127 = call ptr @wmem_file_scope() #6
-  %128 = call noalias ptr @wmem_alloc(ptr noundef %127, i64 noundef 12) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %126, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %128, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
-  %129 = load ptr, ptr @lls_slt_table, align 8
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %131, label %lls_check_init_slt_table.exit
+125:                                              ; preds = %._crit_edge
+  %126 = call ptr @wmem_file_scope() #6
+  %127 = call noalias ptr @wmem_alloc(ptr noundef %126, i64 noundef 12) #6
+  %128 = call ptr @wmem_file_scope() #6
+  %129 = call noalias ptr @wmem_alloc(ptr noundef %128, i64 noundef 12) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %127, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %129, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)
+  %130 = load ptr, ptr @lls_slt_table, align 8
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %132, label %lls_check_init_slt_table.exit
 
-131:                                              ; preds = %124
-  %132 = call ptr @wmem_epan_scope() #6
-  %133 = call ptr @wmem_file_scope() #6
-  %134 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %132, ptr noundef %133, ptr noundef nonnull @lls_slt_key_hash, ptr noundef nonnull @lls_slt_key_equal) #6
-  store ptr %134, ptr @lls_slt_table, align 8
+132:                                              ; preds = %125
+  %133 = call ptr @wmem_epan_scope() #6
+  %134 = call ptr @wmem_file_scope() #6
+  %135 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %133, ptr noundef %134, ptr noundef nonnull @lls_slt_key_hash, ptr noundef nonnull @lls_slt_key_equal) #6
+  store ptr %135, ptr @lls_slt_table, align 8
   br label %lls_check_init_slt_table.exit
 
-lls_check_init_slt_table.exit:                    ; preds = %124, %131
-  %135 = phi ptr [ %129, %124 ], [ %134, %131 ]
-  %136 = call ptr @wmem_map_insert(ptr noundef %135, ptr noundef nonnull %126, ptr noundef nonnull %128) #6
+lls_check_init_slt_table.exit:                    ; preds = %125, %132
+  %136 = phi ptr [ %130, %125 ], [ %135, %132 ]
+  %137 = call ptr @wmem_map_insert(ptr noundef %136, ptr noundef nonnull %127, ptr noundef nonnull %129) #6
   br label %.backedge
 
 .thread:                                          ; preds = %19, %.backedge, %10, %21, %2

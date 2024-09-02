@@ -10004,7 +10004,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   br label %invoke.cont10.outer
 
 invoke.cont10.outer:                              ; preds = %cleanup570, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %nb.sroa.0.sroa.20.sroa.0.0.ph = phi i24 [ %nb.sroa.0.sroa.20.sroa.0.1.insert.insert, %cleanup570 ], [ undef, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %check_for_falling.sroa.14.0.ph = phi ptr [ %check_for_falling.sroa.14.3, %cleanup570 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %check_for_falling.sroa.9.0.ph = phi ptr [ %check_for_falling.sroa.9.3, %cleanup570 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %check_for_falling.sroa.0.0.ph = phi ptr [ %check_for_falling.sroa.0.3, %cleanup570 ], [ null, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
@@ -10346,7 +10345,6 @@ for.body:                                         ; preds = %sw.epilog202, %sw.e
   %flowing_down.02390 = phi i8 [ 0, %sw.epilog ], [ %flowing_down.1, %sw.epilog202 ]
   %ignored_sources.02389 = phi i8 [ 0, %sw.epilog ], [ %ignored_sources.1, %sw.epilog202 ]
   %floating_node_above.02388 = phi i8 [ 0, %sw.epilog ], [ %floating_node_above.1, %sw.epilog202 ]
-  %nb.sroa.0.sroa.20.sroa.0.12386 = phi i24 [ %nb.sroa.0.sroa.20.sroa.0.0.ph, %sw.epilog ], [ %nb.sroa.0.sroa.20.sroa.0.1.insert.insert, %sw.epilog202 ]
   %51 = trunc i64 %indvars.iv to i16
   switch i16 %51, label %invoke.cont71 [
     i16 0, label %sw.bb67
@@ -10389,8 +10387,6 @@ invoke.cont76:                                    ; preds = %invoke.cont71
   %nb.sroa.0.sroa.20.sroa.0.1.copyload = load i16, ptr %npos, align 8, !tbaa !191
   %nb.sroa.0.sroa.20.sroa.0.1.insert.ext = zext i16 %nb.sroa.0.sroa.20.sroa.0.1.copyload to i24
   %nb.sroa.0.sroa.20.sroa.0.1.insert.shift = shl nuw i24 %nb.sroa.0.sroa.20.sroa.0.1.insert.ext, 8
-  %nb.sroa.0.sroa.20.sroa.0.1.insert.mask = and i24 %nb.sroa.0.sroa.20.sroa.0.12386, 255
-  %nb.sroa.0.sroa.20.sroa.0.1.insert.insert = or disjoint i24 %nb.sroa.0.sroa.20.sroa.0.1.insert.shift, %nb.sroa.0.sroa.20.sroa.0.1.insert.mask
   %nb.sroa.21.6.copyload = load i32, ptr %nb.sroa.21.6.npos.sroa_idx, align 2
   %55 = load ptr, ptr %m_nodedef, align 8, !tbaa !192
   %nb.sroa.0.sroa.0.sroa.0.0.extract.trunc.mask = and i32 %call77, 65535
@@ -10454,7 +10450,7 @@ if.then94:                                        ; preds = %sw.bb91
   %inc95 = add nsw i32 %num_airs.02392, 1
   %idxprom96 = sext i32 %num_airs.02392 to i64
   %arrayidx97 = getelementptr inbounds [6 x %struct.NodeNeighbor], ptr %airs, i64 0, i64 %idxprom96
-  %nb.sroa.0.sroa.20.0.insert.ext1845 = zext i24 %nb.sroa.0.sroa.20.sroa.0.1.insert.insert to i64
+  %nb.sroa.0.sroa.20.0.insert.ext1845 = zext i24 %nb.sroa.0.sroa.20.sroa.0.1.insert.shift to i64
   %nb.sroa.0.sroa.20.0.insert.shift1846 = shl nuw i64 %nb.sroa.0.sroa.20.0.insert.ext1845, 40
   %nb.sroa.0.sroa.14.0.insert.ext1821 = zext nneg i8 %nt.0 to i64
   %nb.sroa.0.sroa.14.0.insert.shift1822 = shl nuw nsw i64 %nb.sroa.0.sroa.14.0.insert.ext1821, 32
@@ -10642,7 +10638,7 @@ if.then146:                                       ; preds = %if.else143
   %inc147 = add nsw i32 %num_sources.02394, 1
   %idxprom148 = sext i32 %num_sources.02394 to i64
   %arrayidx149 = getelementptr inbounds [6 x %struct.NodeNeighbor], ptr %sources, i64 0, i64 %idxprom148
-  %nb.sroa.0.sroa.20.0.insert.ext1857 = zext i24 %nb.sroa.0.sroa.20.sroa.0.1.insert.insert to i64
+  %nb.sroa.0.sroa.20.0.insert.ext1857 = zext i24 %nb.sroa.0.sroa.20.sroa.0.1.insert.shift to i64
   %nb.sroa.0.sroa.20.0.insert.shift1858 = shl nuw i64 %nb.sroa.0.sroa.20.0.insert.ext1857, 40
   %nb.sroa.0.sroa.14.0.insert.ext1833 = zext nneg i8 %nt.0 to i64
   %nb.sroa.0.sroa.14.0.insert.shift1834 = shl nuw nsw i64 %nb.sroa.0.sroa.14.0.insert.ext1833, 32
@@ -10729,7 +10725,7 @@ if.else192:                                       ; preds = %if.end183
   %inc193 = add nsw i32 %num_flows.02393, 1
   %idxprom194 = sext i32 %num_flows.02393 to i64
   %arrayidx195 = getelementptr inbounds [6 x %struct.NodeNeighbor], ptr %flows, i64 0, i64 %idxprom194
-  %nb.sroa.0.sroa.20.0.insert.ext1865 = zext i24 %nb.sroa.0.sroa.20.sroa.0.1.insert.insert to i64
+  %nb.sroa.0.sroa.20.0.insert.ext1865 = zext i24 %nb.sroa.0.sroa.20.sroa.0.1.insert.shift to i64
   %nb.sroa.0.sroa.20.0.insert.shift1866 = shl nuw i64 %nb.sroa.0.sroa.20.0.insert.ext1865, 40
   %nb.sroa.0.sroa.14.0.insert.ext1841 = zext nneg i8 %nt.0 to i64
   %nb.sroa.0.sroa.14.0.insert.shift1842 = shl nuw nsw i64 %nb.sroa.0.sroa.14.0.insert.ext1841, 32
@@ -12739,9 +12735,9 @@ if.end705.thread:                                 ; preds = %if.else699
   br label %land.lhs.true716
 
 if.end705:                                        ; preds = %if.else699
-  %.pre521 = load i64, ptr %m_inc_trending_up_start_time, align 8
+  %.pre519 = load i64, ptr %m_inc_trending_up_start_time, align 8
   store i8 1, ptr %m_queue_size_timer_started700, align 8, !tbaa !77
-  %cmp710 = icmp ugt i64 %.pre521, %add.i1402
+  %cmp710 = icmp ugt i64 %.pre519, %add.i1402
   br i1 %cmp710, label %if.end713.thread, label %land.lhs.true716
 
 if.end713.thread:                                 ; preds = %if.end705
@@ -12753,7 +12749,7 @@ if.end713:                                        ; preds = %invoke.cont693
   br label %cleanup752
 
 land.lhs.true716:                                 ; preds = %if.end705.thread, %if.end705
-  %312 = phi i64 [ %add.i1402, %if.end705.thread ], [ %.pre521, %if.end705 ]
+  %312 = phi i64 [ %add.i1402, %if.end705.thread ], [ %.pre519, %if.end705 ]
   %sub718 = sub nuw i64 %add.i1402, %312
   %conv719 = zext i16 %mul to i64
   %cmp720 = icmp ugt i64 %sub718, %conv719

@@ -43,8 +43,8 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
   store i8 0, ptr %12, align 1
   br label %.loopexit
 
-13:                                               ; preds = %.preheader, %217
-  %.058 = phi ptr [ %218, %217 ], [ %1, %.preheader ]
+13:                                               ; preds = %.preheader, %218
+  %.058 = phi ptr [ %219, %218 ], [ %1, %.preheader ]
   %14 = load i8, ptr %.058, align 1
   switch i8 %14, label %15 [
     i8 0, label %.loopexit
@@ -53,12 +53,12 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
 
 15:                                               ; preds = %13
   %16 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %14) #6
-  br label %217
+  br label %218
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %.058, i64 1
   %19 = load i8, ptr %18, align 1
-  switch i8 %19, label %22 [
+  switch i8 %19, label %23 [
     i8 106, label %20
     i8 108, label %20
     i8 122, label %20
@@ -66,400 +66,401 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
 
 20:                                               ; preds = %17, %17, %17
   %21 = getelementptr inbounds i8, ptr %.058, i64 2
+  %22 = zext nneg i8 %19 to i32
   %.pr = load i8, ptr %21, align 1
-  br label %22
+  br label %23
 
-22:                                               ; preds = %20, %17
-  %23 = phi i8 [ %.pr, %20 ], [ %19, %17 ]
+23:                                               ; preds = %20, %17
+  %24 = phi i8 [ %.pr, %20 ], [ %19, %17 ]
   %.2 = phi ptr [ %21, %20 ], [ %18, %17 ]
-  %.0 = phi i8 [ %19, %20 ], [ 0, %17 ]
-  switch i8 %23, label %215 [
-    i8 37, label %24
-    i8 99, label %26
-    i8 100, label %42
-    i8 115, label %99
-    i8 83, label %136
-    i8 111, label %158
-    i8 117, label %158
-    i8 120, label %158
-    i8 88, label %158
+  %.0 = phi i32 [ %22, %20 ], [ 0, %17 ]
+  switch i8 %24, label %216 [
+    i8 37, label %25
+    i8 99, label %27
+    i8 100, label %43
+    i8 115, label %100
+    i8 83, label %137
+    i8 111, label %159
+    i8 117, label %159
+    i8 120, label %159
+    i8 88, label %159
   ]
 
-24:                                               ; preds = %22
-  %25 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 37) #6
-  br label %217
+25:                                               ; preds = %23
+  %26 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 37) #6
+  br label %218
 
-26:                                               ; preds = %22
-  %27 = load i32, ptr %2, align 8
-  %28 = icmp ult i32 %27, 41
-  br i1 %28, label %29, label %34
+27:                                               ; preds = %23
+  %28 = load i32, ptr %2, align 8
+  %29 = icmp ult i32 %28, 41
+  br i1 %29, label %30, label %35
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %10, align 8
-  %31 = zext nneg i32 %27 to i64
-  %32 = getelementptr i8, ptr %30, i64 %31
-  %33 = add nuw nsw i32 %27, 8
-  store i32 %33, ptr %2, align 8
-  br label %37
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %10, align 8
+  %32 = zext nneg i32 %28 to i64
+  %33 = getelementptr i8, ptr %31, i64 %32
+  %34 = add nuw nsw i32 %28, 8
+  store i32 %34, ptr %2, align 8
+  br label %38
 
-34:                                               ; preds = %26
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr i8, ptr %35, i64 8
-  store ptr %36, ptr %9, align 8
-  br label %37
+35:                                               ; preds = %27
+  %36 = load ptr, ptr %9, align 8
+  %37 = getelementptr i8, ptr %36, i64 8
+  store ptr %37, ptr %9, align 8
+  br label %38
 
-37:                                               ; preds = %34, %29
-  %38 = phi ptr [ %32, %29 ], [ %35, %34 ]
-  %39 = load i32, ptr %38, align 4
-  %40 = trunc i32 %39 to i8
-  %41 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %40) #6
-  br label %217
+38:                                               ; preds = %35, %30
+  %39 = phi ptr [ %33, %30 ], [ %36, %35 ]
+  %40 = load i32, ptr %39, align 4
+  %41 = trunc i32 %40 to i8
+  %42 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %41) #6
+  br label %218
 
-42:                                               ; preds = %22
-  %43 = load i32, ptr %2, align 8
-  %44 = icmp ult i32 %43, 41
-  switch i8 %.0, label %81 [
-    i8 106, label %45
-    i8 108, label %57
-    i8 122, label %69
+43:                                               ; preds = %23
+  %44 = load i32, ptr %2, align 8
+  %45 = icmp ult i32 %44, 41
+  switch i32 %.0, label %82 [
+    i32 106, label %46
+    i32 108, label %58
+    i32 122, label %70
   ]
 
-45:                                               ; preds = %42
-  br i1 %44, label %46, label %51
+46:                                               ; preds = %43
+  br i1 %45, label %47, label %52
 
-46:                                               ; preds = %45
-  %47 = load ptr, ptr %10, align 8
-  %48 = zext nneg i32 %43 to i64
-  %49 = getelementptr i8, ptr %47, i64 %48
-  %50 = add nuw nsw i32 %43, 8
-  store i32 %50, ptr %2, align 8
-  br label %54
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %10, align 8
+  %49 = zext nneg i32 %44 to i64
+  %50 = getelementptr i8, ptr %48, i64 %49
+  %51 = add nuw nsw i32 %44, 8
+  store i32 %51, ptr %2, align 8
+  br label %55
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr i8, ptr %52, i64 8
-  store ptr %53, ptr %9, align 8
-  br label %54
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %9, align 8
+  %54 = getelementptr i8, ptr %53, i64 8
+  store ptr %54, ptr %9, align 8
+  br label %55
 
-54:                                               ; preds = %51, %46
-  %55 = phi ptr [ %49, %46 ], [ %52, %51 ]
-  %56 = load i64, ptr %55, align 8
-  br label %94
+55:                                               ; preds = %52, %47
+  %56 = phi ptr [ %50, %47 ], [ %53, %52 ]
+  %57 = load i64, ptr %56, align 8
+  br label %95
 
-57:                                               ; preds = %42
-  br i1 %44, label %58, label %63
+58:                                               ; preds = %43
+  br i1 %45, label %59, label %64
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %10, align 8
-  %60 = zext nneg i32 %43 to i64
-  %61 = getelementptr i8, ptr %59, i64 %60
-  %62 = add nuw nsw i32 %43, 8
-  store i32 %62, ptr %2, align 8
-  br label %66
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %10, align 8
+  %61 = zext nneg i32 %44 to i64
+  %62 = getelementptr i8, ptr %60, i64 %61
+  %63 = add nuw nsw i32 %44, 8
+  store i32 %63, ptr %2, align 8
+  br label %67
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr %9, align 8
-  %65 = getelementptr i8, ptr %64, i64 8
-  store ptr %65, ptr %9, align 8
-  br label %66
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %9, align 8
+  %66 = getelementptr i8, ptr %65, i64 8
+  store ptr %66, ptr %9, align 8
+  br label %67
 
-66:                                               ; preds = %63, %58
-  %67 = phi ptr [ %61, %58 ], [ %64, %63 ]
-  %68 = load i64, ptr %67, align 8
-  br label %94
+67:                                               ; preds = %64, %59
+  %68 = phi ptr [ %62, %59 ], [ %65, %64 ]
+  %69 = load i64, ptr %68, align 8
+  br label %95
 
-69:                                               ; preds = %42
-  br i1 %44, label %70, label %75
+70:                                               ; preds = %43
+  br i1 %45, label %71, label %76
 
-70:                                               ; preds = %69
-  %71 = load ptr, ptr %10, align 8
-  %72 = zext nneg i32 %43 to i64
-  %73 = getelementptr i8, ptr %71, i64 %72
-  %74 = add nuw nsw i32 %43, 8
-  store i32 %74, ptr %2, align 8
-  br label %78
+71:                                               ; preds = %70
+  %72 = load ptr, ptr %10, align 8
+  %73 = zext nneg i32 %44 to i64
+  %74 = getelementptr i8, ptr %72, i64 %73
+  %75 = add nuw nsw i32 %44, 8
+  store i32 %75, ptr %2, align 8
+  br label %79
 
-75:                                               ; preds = %69
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr i8, ptr %76, i64 8
-  store ptr %77, ptr %9, align 8
-  br label %78
+76:                                               ; preds = %70
+  %77 = load ptr, ptr %9, align 8
+  %78 = getelementptr i8, ptr %77, i64 8
+  store ptr %78, ptr %9, align 8
+  br label %79
 
-78:                                               ; preds = %75, %70
-  %79 = phi ptr [ %73, %70 ], [ %76, %75 ]
-  %80 = load i64, ptr %79, align 8
-  br label %94
+79:                                               ; preds = %76, %71
+  %80 = phi ptr [ %74, %71 ], [ %77, %76 ]
+  %81 = load i64, ptr %80, align 8
+  br label %95
 
-81:                                               ; preds = %42
-  br i1 %44, label %82, label %87
+82:                                               ; preds = %43
+  br i1 %45, label %83, label %88
 
-82:                                               ; preds = %81
-  %83 = load ptr, ptr %10, align 8
-  %84 = zext nneg i32 %43 to i64
-  %85 = getelementptr i8, ptr %83, i64 %84
-  %86 = add nuw nsw i32 %43, 8
-  store i32 %86, ptr %2, align 8
-  br label %90
+83:                                               ; preds = %82
+  %84 = load ptr, ptr %10, align 8
+  %85 = zext nneg i32 %44 to i64
+  %86 = getelementptr i8, ptr %84, i64 %85
+  %87 = add nuw nsw i32 %44, 8
+  store i32 %87, ptr %2, align 8
+  br label %91
 
-87:                                               ; preds = %81
-  %88 = load ptr, ptr %9, align 8
-  %89 = getelementptr i8, ptr %88, i64 8
-  store ptr %89, ptr %9, align 8
-  br label %90
+88:                                               ; preds = %82
+  %89 = load ptr, ptr %9, align 8
+  %90 = getelementptr i8, ptr %89, i64 8
+  store ptr %90, ptr %9, align 8
+  br label %91
 
-90:                                               ; preds = %87, %82
-  %91 = phi ptr [ %85, %82 ], [ %88, %87 ]
-  %92 = load i32, ptr %91, align 4
-  %93 = sext i32 %92 to i64
-  br label %94
+91:                                               ; preds = %88, %83
+  %92 = phi ptr [ %86, %83 ], [ %89, %88 ]
+  %93 = load i32, ptr %92, align 4
+  %94 = sext i32 %93 to i64
+  br label %95
 
-94:                                               ; preds = %90, %78, %66, %54
-  %.057 = phi i64 [ %93, %90 ], [ %80, %78 ], [ %68, %66 ], [ %56, %54 ]
-  %95 = icmp slt i64 %.057, 0
-  br i1 %95, label %96, label %append_int.exit
+95:                                               ; preds = %91, %79, %67, %55
+  %.057 = phi i64 [ %94, %91 ], [ %81, %79 ], [ %69, %67 ], [ %57, %55 ]
+  %96 = icmp slt i64 %.057, 0
+  br i1 %96, label %97, label %append_int.exit
 
-96:                                               ; preds = %94
-  %97 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 45) #6
-  %98 = sub i64 0, %.057
+97:                                               ; preds = %95
+  %98 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 45) #6
+  %99 = sub i64 0, %.057
   br label %append_int.exit
 
-append_int.exit:                                  ; preds = %94, %96
-  %.0.i = phi i64 [ %98, %96 ], [ %.057, %94 ]
+append_int.exit:                                  ; preds = %95, %97
+  %.0.i = phi i64 [ %99, %97 ], [ %.057, %95 ]
   tail call fastcc void @append_uint(ptr noundef %0, i64 noundef %.0.i, i32 noundef 10)
-  br label %217
+  br label %218
 
-99:                                               ; preds = %22
-  %cond = icmp eq i8 %.0, 108
-  %100 = load i32, ptr %2, align 8
-  %101 = icmp ult i32 %100, 41
-  br i1 %cond, label %102, label %122
+100:                                              ; preds = %23
+  %cond = icmp eq i32 %.0, 108
+  %101 = load i32, ptr %2, align 8
+  %102 = icmp ult i32 %101, 41
+  br i1 %cond, label %103, label %123
 
-102:                                              ; preds = %99
-  br i1 %101, label %103, label %108
+103:                                              ; preds = %100
+  br i1 %102, label %104, label %109
 
-103:                                              ; preds = %102
-  %104 = load ptr, ptr %10, align 8
-  %105 = zext nneg i32 %100 to i64
-  %106 = getelementptr i8, ptr %104, i64 %105
-  %107 = add nuw nsw i32 %100, 8
-  store i32 %107, ptr %2, align 8
-  br label %111
+104:                                              ; preds = %103
+  %105 = load ptr, ptr %10, align 8
+  %106 = zext nneg i32 %101 to i64
+  %107 = getelementptr i8, ptr %105, i64 %106
+  %108 = add nuw nsw i32 %101, 8
+  store i32 %108, ptr %2, align 8
+  br label %112
 
-108:                                              ; preds = %102
-  %109 = load ptr, ptr %9, align 8
-  %110 = getelementptr i8, ptr %109, i64 8
-  store ptr %110, ptr %9, align 8
-  br label %111
+109:                                              ; preds = %103
+  %110 = load ptr, ptr %9, align 8
+  %111 = getelementptr i8, ptr %110, i64 8
+  store ptr %111, ptr %9, align 8
+  br label %112
 
-111:                                              ; preds = %108, %103
-  %112 = phi ptr [ %106, %103 ], [ %109, %108 ]
-  %113 = load ptr, ptr %112, align 8
-  %114 = icmp eq ptr %113, null
-  %spec.store.select = select i1 %114, ptr @.str.1, ptr %113
-  %115 = tail call i64 @wcslen(ptr noundef nonnull %spec.store.select) #8
-  %116 = tail call i32 @archive_string_append_from_wcs(ptr noundef %0, ptr noundef nonnull %spec.store.select, i64 noundef %115) #6
-  %.not76 = icmp eq i32 %116, 0
-  br i1 %.not76, label %217, label %117
+112:                                              ; preds = %109, %104
+  %113 = phi ptr [ %107, %104 ], [ %110, %109 ]
+  %114 = load ptr, ptr %113, align 8
+  %115 = icmp eq ptr %114, null
+  %spec.store.select = select i1 %115, ptr @.str.1, ptr %114
+  %116 = tail call i64 @wcslen(ptr noundef nonnull %spec.store.select) #8
+  %117 = tail call i32 @archive_string_append_from_wcs(ptr noundef %0, ptr noundef nonnull %spec.store.select, i64 noundef %116) #6
+  %.not76 = icmp eq i32 %117, 0
+  br i1 %.not76, label %218, label %118
 
-117:                                              ; preds = %111
-  %118 = tail call ptr @__errno_location() #9
-  %119 = load i32, ptr %118, align 4
-  %120 = icmp eq i32 %119, 12
-  br i1 %120, label %121, label %217
+118:                                              ; preds = %112
+  %119 = tail call ptr @__errno_location() #9
+  %120 = load i32, ptr %119, align 4
+  %121 = icmp eq i32 %120, 12
+  br i1 %121, label %122, label %218
 
-121:                                              ; preds = %117
+122:                                              ; preds = %118
   tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #7
   unreachable
 
-122:                                              ; preds = %99
-  br i1 %101, label %123, label %128
+123:                                              ; preds = %100
+  br i1 %102, label %124, label %129
 
-123:                                              ; preds = %122
-  %124 = load ptr, ptr %10, align 8
-  %125 = zext nneg i32 %100 to i64
-  %126 = getelementptr i8, ptr %124, i64 %125
-  %127 = add nuw nsw i32 %100, 8
-  store i32 %127, ptr %2, align 8
-  br label %131
+124:                                              ; preds = %123
+  %125 = load ptr, ptr %10, align 8
+  %126 = zext nneg i32 %101 to i64
+  %127 = getelementptr i8, ptr %125, i64 %126
+  %128 = add nuw nsw i32 %101, 8
+  store i32 %128, ptr %2, align 8
+  br label %132
 
-128:                                              ; preds = %122
-  %129 = load ptr, ptr %9, align 8
-  %130 = getelementptr i8, ptr %129, i64 8
-  store ptr %130, ptr %9, align 8
-  br label %131
+129:                                              ; preds = %123
+  %130 = load ptr, ptr %9, align 8
+  %131 = getelementptr i8, ptr %130, i64 8
+  store ptr %131, ptr %9, align 8
+  br label %132
 
-131:                                              ; preds = %128, %123
-  %132 = phi ptr [ %126, %123 ], [ %129, %128 ]
-  %133 = load ptr, ptr %132, align 8
-  %134 = icmp eq ptr %133, null
-  %spec.store.select1 = select i1 %134, ptr @.str.2, ptr %133
-  %135 = tail call ptr @archive_strcat(ptr noundef %0, ptr noundef nonnull %spec.store.select1) #6
-  br label %217
+132:                                              ; preds = %129, %124
+  %133 = phi ptr [ %127, %124 ], [ %130, %129 ]
+  %134 = load ptr, ptr %133, align 8
+  %135 = icmp eq ptr %134, null
+  %spec.store.select1 = select i1 %135, ptr @.str.2, ptr %134
+  %136 = tail call ptr @archive_strcat(ptr noundef %0, ptr noundef nonnull %spec.store.select1) #6
+  br label %218
 
-136:                                              ; preds = %22
-  %137 = load i32, ptr %2, align 8
-  %138 = icmp ult i32 %137, 41
-  br i1 %138, label %139, label %144
+137:                                              ; preds = %23
+  %138 = load i32, ptr %2, align 8
+  %139 = icmp ult i32 %138, 41
+  br i1 %139, label %140, label %145
 
-139:                                              ; preds = %136
-  %140 = load ptr, ptr %10, align 8
-  %141 = zext nneg i32 %137 to i64
-  %142 = getelementptr i8, ptr %140, i64 %141
-  %143 = add nuw nsw i32 %137, 8
-  store i32 %143, ptr %2, align 8
-  br label %147
+140:                                              ; preds = %137
+  %141 = load ptr, ptr %10, align 8
+  %142 = zext nneg i32 %138 to i64
+  %143 = getelementptr i8, ptr %141, i64 %142
+  %144 = add nuw nsw i32 %138, 8
+  store i32 %144, ptr %2, align 8
+  br label %148
 
-144:                                              ; preds = %136
-  %145 = load ptr, ptr %9, align 8
-  %146 = getelementptr i8, ptr %145, i64 8
-  store ptr %146, ptr %9, align 8
-  br label %147
+145:                                              ; preds = %137
+  %146 = load ptr, ptr %9, align 8
+  %147 = getelementptr i8, ptr %146, i64 8
+  store ptr %147, ptr %9, align 8
+  br label %148
 
-147:                                              ; preds = %144, %139
-  %148 = phi ptr [ %142, %139 ], [ %145, %144 ]
-  %149 = load ptr, ptr %148, align 8
-  %150 = icmp eq ptr %149, null
-  %spec.store.select2 = select i1 %150, ptr @.str.1, ptr %149
-  %151 = tail call i64 @wcslen(ptr noundef nonnull %spec.store.select2) #8
-  %152 = tail call i32 @archive_string_append_from_wcs(ptr noundef %0, ptr noundef nonnull %spec.store.select2, i64 noundef %151) #6
-  %.not75 = icmp eq i32 %152, 0
-  br i1 %.not75, label %217, label %153
+148:                                              ; preds = %145, %140
+  %149 = phi ptr [ %143, %140 ], [ %146, %145 ]
+  %150 = load ptr, ptr %149, align 8
+  %151 = icmp eq ptr %150, null
+  %spec.store.select2 = select i1 %151, ptr @.str.1, ptr %150
+  %152 = tail call i64 @wcslen(ptr noundef nonnull %spec.store.select2) #8
+  %153 = tail call i32 @archive_string_append_from_wcs(ptr noundef %0, ptr noundef nonnull %spec.store.select2, i64 noundef %152) #6
+  %.not75 = icmp eq i32 %153, 0
+  br i1 %.not75, label %218, label %154
 
-153:                                              ; preds = %147
-  %154 = tail call ptr @__errno_location() #9
-  %155 = load i32, ptr %154, align 4
-  %156 = icmp eq i32 %155, 12
-  br i1 %156, label %157, label %217
+154:                                              ; preds = %148
+  %155 = tail call ptr @__errno_location() #9
+  %156 = load i32, ptr %155, align 4
+  %157 = icmp eq i32 %156, 12
+  br i1 %157, label %158, label %218
 
-157:                                              ; preds = %153
+158:                                              ; preds = %154
   tail call void @__archive_errx(i32 noundef 1, ptr noundef nonnull @.str) #7
   unreachable
 
-158:                                              ; preds = %22, %22, %22, %22
-  %159 = load i32, ptr %2, align 8
-  %160 = icmp ult i32 %159, 41
-  switch i8 %.0, label %197 [
-    i8 106, label %161
-    i8 108, label %173
-    i8 122, label %185
+159:                                              ; preds = %23, %23, %23, %23
+  %160 = load i32, ptr %2, align 8
+  %161 = icmp ult i32 %160, 41
+  switch i32 %.0, label %198 [
+    i32 106, label %162
+    i32 108, label %174
+    i32 122, label %186
   ]
 
-161:                                              ; preds = %158
-  br i1 %160, label %162, label %167
+162:                                              ; preds = %159
+  br i1 %161, label %163, label %168
 
-162:                                              ; preds = %161
-  %163 = load ptr, ptr %10, align 8
-  %164 = zext nneg i32 %159 to i64
-  %165 = getelementptr i8, ptr %163, i64 %164
-  %166 = add nuw nsw i32 %159, 8
-  store i32 %166, ptr %2, align 8
-  br label %170
+163:                                              ; preds = %162
+  %164 = load ptr, ptr %10, align 8
+  %165 = zext nneg i32 %160 to i64
+  %166 = getelementptr i8, ptr %164, i64 %165
+  %167 = add nuw nsw i32 %160, 8
+  store i32 %167, ptr %2, align 8
+  br label %171
 
-167:                                              ; preds = %161
-  %168 = load ptr, ptr %9, align 8
-  %169 = getelementptr i8, ptr %168, i64 8
-  store ptr %169, ptr %9, align 8
-  br label %170
+168:                                              ; preds = %162
+  %169 = load ptr, ptr %9, align 8
+  %170 = getelementptr i8, ptr %169, i64 8
+  store ptr %170, ptr %9, align 8
+  br label %171
 
-170:                                              ; preds = %167, %162
-  %171 = phi ptr [ %165, %162 ], [ %168, %167 ]
-  %172 = load i64, ptr %171, align 8
-  br label %210
+171:                                              ; preds = %168, %163
+  %172 = phi ptr [ %166, %163 ], [ %169, %168 ]
+  %173 = load i64, ptr %172, align 8
+  br label %211
 
-173:                                              ; preds = %158
-  br i1 %160, label %174, label %179
+174:                                              ; preds = %159
+  br i1 %161, label %175, label %180
 
-174:                                              ; preds = %173
-  %175 = load ptr, ptr %10, align 8
-  %176 = zext nneg i32 %159 to i64
-  %177 = getelementptr i8, ptr %175, i64 %176
-  %178 = add nuw nsw i32 %159, 8
-  store i32 %178, ptr %2, align 8
-  br label %182
+175:                                              ; preds = %174
+  %176 = load ptr, ptr %10, align 8
+  %177 = zext nneg i32 %160 to i64
+  %178 = getelementptr i8, ptr %176, i64 %177
+  %179 = add nuw nsw i32 %160, 8
+  store i32 %179, ptr %2, align 8
+  br label %183
 
-179:                                              ; preds = %173
-  %180 = load ptr, ptr %9, align 8
-  %181 = getelementptr i8, ptr %180, i64 8
-  store ptr %181, ptr %9, align 8
-  br label %182
+180:                                              ; preds = %174
+  %181 = load ptr, ptr %9, align 8
+  %182 = getelementptr i8, ptr %181, i64 8
+  store ptr %182, ptr %9, align 8
+  br label %183
 
-182:                                              ; preds = %179, %174
-  %183 = phi ptr [ %177, %174 ], [ %180, %179 ]
-  %184 = load i64, ptr %183, align 8
-  br label %210
+183:                                              ; preds = %180, %175
+  %184 = phi ptr [ %178, %175 ], [ %181, %180 ]
+  %185 = load i64, ptr %184, align 8
+  br label %211
 
-185:                                              ; preds = %158
-  br i1 %160, label %186, label %191
+186:                                              ; preds = %159
+  br i1 %161, label %187, label %192
 
-186:                                              ; preds = %185
-  %187 = load ptr, ptr %10, align 8
-  %188 = zext nneg i32 %159 to i64
-  %189 = getelementptr i8, ptr %187, i64 %188
-  %190 = add nuw nsw i32 %159, 8
-  store i32 %190, ptr %2, align 8
-  br label %194
+187:                                              ; preds = %186
+  %188 = load ptr, ptr %10, align 8
+  %189 = zext nneg i32 %160 to i64
+  %190 = getelementptr i8, ptr %188, i64 %189
+  %191 = add nuw nsw i32 %160, 8
+  store i32 %191, ptr %2, align 8
+  br label %195
 
-191:                                              ; preds = %185
-  %192 = load ptr, ptr %9, align 8
-  %193 = getelementptr i8, ptr %192, i64 8
-  store ptr %193, ptr %9, align 8
-  br label %194
+192:                                              ; preds = %186
+  %193 = load ptr, ptr %9, align 8
+  %194 = getelementptr i8, ptr %193, i64 8
+  store ptr %194, ptr %9, align 8
+  br label %195
 
-194:                                              ; preds = %191, %186
-  %195 = phi ptr [ %189, %186 ], [ %192, %191 ]
-  %196 = load i64, ptr %195, align 8
-  br label %210
+195:                                              ; preds = %192, %187
+  %196 = phi ptr [ %190, %187 ], [ %193, %192 ]
+  %197 = load i64, ptr %196, align 8
+  br label %211
 
-197:                                              ; preds = %158
-  br i1 %160, label %198, label %203
+198:                                              ; preds = %159
+  br i1 %161, label %199, label %204
 
-198:                                              ; preds = %197
-  %199 = load ptr, ptr %10, align 8
-  %200 = zext nneg i32 %159 to i64
-  %201 = getelementptr i8, ptr %199, i64 %200
-  %202 = add nuw nsw i32 %159, 8
-  store i32 %202, ptr %2, align 8
-  br label %206
+199:                                              ; preds = %198
+  %200 = load ptr, ptr %10, align 8
+  %201 = zext nneg i32 %160 to i64
+  %202 = getelementptr i8, ptr %200, i64 %201
+  %203 = add nuw nsw i32 %160, 8
+  store i32 %203, ptr %2, align 8
+  br label %207
 
-203:                                              ; preds = %197
-  %204 = load ptr, ptr %9, align 8
-  %205 = getelementptr i8, ptr %204, i64 8
-  store ptr %205, ptr %9, align 8
-  br label %206
+204:                                              ; preds = %198
+  %205 = load ptr, ptr %9, align 8
+  %206 = getelementptr i8, ptr %205, i64 8
+  store ptr %206, ptr %9, align 8
+  br label %207
 
-206:                                              ; preds = %203, %198
-  %207 = phi ptr [ %201, %198 ], [ %204, %203 ]
-  %208 = load i32, ptr %207, align 4
-  %209 = zext i32 %208 to i64
-  br label %210
+207:                                              ; preds = %204, %199
+  %208 = phi ptr [ %202, %199 ], [ %205, %204 ]
+  %209 = load i32, ptr %208, align 4
+  %210 = zext i32 %209 to i64
+  br label %211
 
-210:                                              ; preds = %206, %194, %182, %170
-  %.059 = phi i64 [ %209, %206 ], [ %196, %194 ], [ %184, %182 ], [ %172, %170 ]
-  %211 = load i8, ptr %.2, align 1
-  switch i8 %211, label %214 [
-    i8 111, label %212
-    i8 117, label %213
+211:                                              ; preds = %207, %195, %183, %171
+  %.059 = phi i64 [ %210, %207 ], [ %197, %195 ], [ %185, %183 ], [ %173, %171 ]
+  %212 = load i8, ptr %.2, align 1
+  switch i8 %212, label %215 [
+    i8 111, label %213
+    i8 117, label %214
   ]
 
-212:                                              ; preds = %210
+213:                                              ; preds = %211
   tail call fastcc void @append_uint(ptr noundef %0, i64 noundef %.059, i32 noundef 8)
-  br label %217
+  br label %218
 
-213:                                              ; preds = %210
+214:                                              ; preds = %211
   tail call fastcc void @append_uint(ptr noundef %0, i64 noundef %.059, i32 noundef 10)
-  br label %217
+  br label %218
 
-214:                                              ; preds = %210
+215:                                              ; preds = %211
   tail call fastcc void @append_uint(ptr noundef %0, i64 noundef %.059, i32 noundef 16)
-  br label %217
+  br label %218
 
-215:                                              ; preds = %22
-  %216 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 37) #6
-  br label %217
+216:                                              ; preds = %23
+  %217 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 37) #6
+  br label %218
 
-217:                                              ; preds = %24, %37, %append_int.exit, %215, %111, %117, %131, %153, %147, %214, %213, %212, %15
-  %.1 = phi ptr [ %.058, %15 ], [ %.058, %215 ], [ %.2, %214 ], [ %.2, %213 ], [ %.2, %212 ], [ %.2, %153 ], [ %.2, %147 ], [ %.2, %117 ], [ %.2, %111 ], [ %.2, %131 ], [ %.2, %append_int.exit ], [ %.2, %37 ], [ %.2, %24 ]
-  %218 = getelementptr inbounds i8, ptr %.1, i64 1
+218:                                              ; preds = %25, %38, %append_int.exit, %216, %112, %118, %132, %154, %148, %215, %214, %213, %15
+  %.1 = phi ptr [ %.058, %15 ], [ %.058, %216 ], [ %.2, %215 ], [ %.2, %214 ], [ %.2, %213 ], [ %.2, %154 ], [ %.2, %148 ], [ %.2, %118 ], [ %.2, %112 ], [ %.2, %132 ], [ %.2, %append_int.exit ], [ %.2, %38 ], [ %.2, %25 ]
+  %219 = getelementptr inbounds i8, ptr %.1, i64 1
   br label %13, !llvm.loop !5
 
 .loopexit:                                        ; preds = %13, %11

@@ -652,7 +652,7 @@ common.resume:                                    ; preds = %109, %.body6, %34, 
   %50 = load i64, ptr %11, align 8, !noundef !16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %51 = call i64 @llvm.uadd.sat.i64(i64 %50, i64 1)
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umax.i64(i64 %51, i64 4)
+  %.0.sroa.speculated.i = call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 %51, i64 4)
   %52 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h7a99050f5a5850e3E"(i64 noundef %.0.sroa.speculated.i, i1 noundef zeroext false)
           to label %53 unwind label %47
 

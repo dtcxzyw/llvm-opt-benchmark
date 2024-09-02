@@ -525,7 +525,7 @@ for.end83:                                        ; preds = %for.end78, %while.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i32 @BrotliBuildSimpleHuffmanTable(ptr nocapture noundef %table, i32 noundef %root_bits, ptr nocapture noundef %val, i32 noundef %num_symbols) local_unnamed_addr #0 {
+define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr nocapture noundef %table, i32 noundef %root_bits, ptr nocapture noundef %val, i32 noundef %num_symbols) local_unnamed_addr #0 {
 entry:
   %shl = shl nuw i32 1, %root_bits
   switch i32 %num_symbols, label %sw.epilog [

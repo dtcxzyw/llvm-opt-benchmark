@@ -91,42 +91,42 @@ define dso_local noundef range(i32 0, 272) i32 @_Z12cmExpr_yylexPN18cmExprParser
   %27 = getelementptr inbounds i8, ptr %1, i64 40
   %28 = load ptr, ptr %27, align 8
   %.not138 = icmp eq ptr %28, null
-  br i1 %.not138, label %34, label %29
+  br i1 %.not138, label %35, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %1, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds ptr, ptr %28, i64 %31
   %33 = load ptr, ptr %32, align 8
-  %.not139 = icmp eq ptr %33, null
-  br i1 %.not139, label %40, label %65
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %.critedge, label %65
 
-34:                                               ; preds = %26
-  %35 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #30
-  store ptr %35, ptr %27, align 8
-  %.not28.i = icmp eq ptr %35, null
-  br i1 %.not28.i, label %36, label %37
+35:                                               ; preds = %26
+  %36 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #30
+  store ptr %36, ptr %27, align 8
+  %.not28.i = icmp eq ptr %36, null
+  br i1 %.not28.i, label %37, label %38
 
-36:                                               ; preds = %34
+37:                                               ; preds = %35
   tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.11) #31
   unreachable
 
-37:                                               ; preds = %34
-  store i64 0, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
-  store i64 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
-  store i64 0, ptr %39, align 8
+38:                                               ; preds = %35
+  store i64 0, ptr %36, align 8
+  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  store i64 1, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  store i64 0, ptr %40, align 8
   br label %_ZL28cmExpr_yyensure_buffer_stackPv.exit
 
-40:                                               ; preds = %29
+.critedge:                                        ; preds = %29
   %41 = getelementptr inbounds i8, ptr %1, i64 32
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, -1
   %.not29.i = icmp ult i64 %31, %43
   br i1 %.not29.i, label %_ZL28cmExpr_yyensure_buffer_stackPv.exit, label %44
 
-44:                                               ; preds = %40
+44:                                               ; preds = %.critedge
   %45 = add i64 %42, 8
   %46 = shl i64 %45, 3
   %47 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %28, i64 noundef %46) #32
@@ -146,8 +146,8 @@ define dso_local noundef range(i32 0, 272) i32 @_Z12cmExpr_yylexPN18cmExprParser
   %.pre = load ptr, ptr %16, align 8
   br label %_ZL28cmExpr_yyensure_buffer_stackPv.exit
 
-_ZL28cmExpr_yyensure_buffer_stackPv.exit:         ; preds = %37, %40, %49
-  %52 = phi ptr [ %21, %37 ], [ %21, %40 ], [ %.pre, %49 ]
+_ZL28cmExpr_yyensure_buffer_stackPv.exit:         ; preds = %38, %.critedge, %49
+  %52 = phi ptr [ %21, %38 ], [ %21, %.critedge ], [ %.pre, %49 ]
   %53 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #30
   %.not.i152 = icmp eq ptr %53, null
   br i1 %.not.i152, label %54, label %55
@@ -178,16 +178,16 @@ _Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit:    ; preds = %55
   %63 = load i64, ptr %62, align 8
   %64 = getelementptr inbounds ptr, ptr %61, i64 %63
   store ptr %53, ptr %64, align 8
-  %.pre362 = load ptr, ptr %27, align 8
-  %.pre363 = load i64, ptr %62, align 8
-  %.phi.trans.insert364 = getelementptr inbounds ptr, ptr %.pre362, i64 %.pre363
-  %.pre365 = load ptr, ptr %.phi.trans.insert364, align 8
+  %.pre360 = load ptr, ptr %27, align 8
+  %.pre361 = load i64, ptr %62, align 8
+  %.phi.trans.insert362 = getelementptr inbounds ptr, ptr %.pre360, i64 %.pre361
+  %.pre363 = load ptr, ptr %.phi.trans.insert362, align 8
   br label %65
 
 65:                                               ; preds = %_Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit, %29
-  %66 = phi ptr [ %.pre365, %_Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit ], [ %33, %29 ]
-  %67 = phi i64 [ %.pre363, %_Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit ], [ %31, %29 ]
-  %68 = phi ptr [ %.pre362, %_Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit ], [ %28, %29 ]
+  %66 = phi ptr [ %.pre363, %_Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit ], [ %33, %29 ]
+  %67 = phi i64 [ %.pre361, %_Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit ], [ %31, %29 ]
+  %68 = phi ptr [ %.pre360, %_Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit ], [ %28, %29 ]
   %69 = getelementptr inbounds ptr, ptr %68, i64 %67
   %70 = getelementptr inbounds i8, ptr %66, i64 28
   %71 = load i32, ptr %70, align 4
@@ -264,13 +264,13 @@ _Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit:    ; preds = %55
   %114 = getelementptr inbounds [56 x i16], ptr @_ZL6yy_chk, i64 0, i64 %113
   %115 = load i16, ptr %114, align 2
   %116 = sext i16 %115 to i32
-  %.not141296 = icmp eq i32 %.1, %116
-  br i1 %.not141296, label %._crit_edge, label %.lr.ph
+  %.not141294 = icmp eq i32 %.1, %116
+  br i1 %.not141294, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %107, %126
   %117 = phi i64 [ %131, %126 ], [ %112, %107 ]
   %118 = phi i64 [ %127, %126 ], [ %108, %107 ]
-  %.0122297 = phi i8 [ %.1123, %126 ], [ %102, %107 ]
+  %.0122295 = phi i8 [ %.1123, %126 ], [ %102, %107 ]
   %119 = getelementptr inbounds [32 x i16], ptr @_ZL6yy_def, i64 0, i64 %118
   %120 = load i16, ptr %119, align 2
   %121 = shl nuw i64 1, %118
@@ -284,7 +284,7 @@ _Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit:    ; preds = %55
   br label %126
 
 126:                                              ; preds = %123, %.lr.ph
-  %.1123 = phi i8 [ %125, %123 ], [ %.0122297, %.lr.ph ]
+  %.1123 = phi i8 [ %125, %123 ], [ %.0122295, %.lr.ph ]
   %127 = sext i16 %120 to i64
   %128 = getelementptr inbounds [32 x i16], ptr @_ZL7yy_base, i64 0, i64 %127
   %129 = load i16, ptr %128, align 2
@@ -354,11 +354,11 @@ _Z23cmExpr_yy_create_bufferP8_IO_FILEiPv.exit:    ; preds = %55
     i32 1, label %.loopexit.backedge
     i32 2, label %161
     i32 3, label %192
-    i32 4, label %.loopexit212
-    i32 5, label %.loopexit310
-    i32 6, label %.loopexit376
-    i32 7, label %.loopexit464
-    i32 8, label %.loopexit553
+    i32 4, label %.loopexit210
+    i32 5, label %.loopexit308
+    i32 6, label %.loopexit374
+    i32 7, label %.loopexit462
+    i32 8, label %.loopexit551
     i32 9, label %598
     i32 10, label %223
     i32 11, label %224
@@ -632,16 +632,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit160: ;
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr inbounds i8, ptr %253, i64 56
   store i32 1, ptr %254, align 8
-  %.pre366 = load ptr, ptr %90, align 8
-  %.pre367 = load i64, ptr %91, align 8
-  %.phi.trans.insert368 = getelementptr inbounds ptr, ptr %.pre366, i64 %.pre367
-  %.pre369 = load ptr, ptr %.phi.trans.insert368, align 8
+  %.pre364 = load ptr, ptr %90, align 8
+  %.pre365 = load i64, ptr %91, align 8
+  %.phi.trans.insert366 = getelementptr inbounds ptr, ptr %.pre364, i64 %.pre365
+  %.pre367 = load ptr, ptr %.phi.trans.insert366, align 8
   br label %255
 
 255:                                              ; preds = %245, %235
-  %256 = phi ptr [ %.pre369, %245 ], [ %241, %235 ]
-  %257 = phi i64 [ %.pre367, %245 ], [ %239, %235 ]
-  %258 = phi ptr [ %.pre366, %245 ], [ %238, %235 ]
+  %256 = phi ptr [ %.pre367, %245 ], [ %241, %235 ]
+  %257 = phi i64 [ %.pre365, %245 ], [ %239, %235 ]
+  %258 = phi ptr [ %.pre364, %245 ], [ %238, %235 ]
   %259 = load ptr, ptr %83, align 8
   %260 = getelementptr inbounds i8, ptr %256, i64 8
   %261 = load ptr, ptr %260, align 8
@@ -786,8 +786,8 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i167, %322
   %341 = shl nuw i64 1, %.lcssa.i170
   %342 = and i64 %341, 72057542498320384
   %.not18.i = icmp ne i64 %342, 0
-  %.not145308 = icmp eq i64 %.lcssa.i170, 0
-  %.not145 = or i1 %.not18.i, %.not145308
+  %.not145306 = icmp eq i64 %.lcssa.i170, 0
+  %.not145 = or i1 %.not18.i, %.not145306
   br i1 %.not145, label %.outer.backedge, label %343
 
 343:                                              ; preds = %_ZL16yy_try_NUL_transiPv.exit
@@ -819,7 +819,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %.lr.ph.i167, %322
 359:                                              ; preds = %353
   %360 = sub i64 %357, %358
   %361 = icmp eq i64 %360, 1
-  br i1 %361, label %_ZL18yy_get_next_bufferPv.exit.thread, label %_ZL18yy_get_next_bufferPv.exit.thread210
+  br i1 %361, label %_ZL18yy_get_next_bufferPv.exit.thread, label %_ZL18yy_get_next_bufferPv.exit.thread208
 
 362:                                              ; preds = %353
   %363 = xor i64 %358, -1
@@ -1050,20 +1050,20 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %435, %464
   %489 = getelementptr inbounds i8, ptr %488, i64 8
   %490 = load ptr, ptr %489, align 8
   store ptr %490, ptr %88, align 8
-  switch i32 %.0103.i, label %default.unreachable375 [
+  switch i32 %.0103.i, label %default.unreachable373 [
     i32 1, label %_ZL18yy_get_next_bufferPv.exit.thread
     i32 0, label %497
-    i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread210_crit_edge
+    i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread208_crit_edge
   ]
 
-_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread210_crit_edge: ; preds = %_ZL18yy_get_next_bufferPv.exit
+_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread208_crit_edge: ; preds = %_ZL18yy_get_next_bufferPv.exit
   %491 = getelementptr inbounds ptr, ptr %485, i64 %486
-  %.pre370 = load ptr, ptr %491, align 8
-  %.phi.trans.insert371 = getelementptr inbounds i8, ptr %.pre370, i64 8
-  %.pre372 = load ptr, ptr %.phi.trans.insert371, align 8
-  %.pre373 = load i32, ptr %92, align 4
-  %.pre374 = sext i32 %.pre373 to i64
-  br label %_ZL18yy_get_next_bufferPv.exit.thread210
+  %.pre368 = load ptr, ptr %491, align 8
+  %.phi.trans.insert369 = getelementptr inbounds i8, ptr %.pre368, i64 8
+  %.pre370 = load ptr, ptr %.phi.trans.insert369, align 8
+  %.pre371 = load i32, ptr %92, align 4
+  %.pre372 = sext i32 %.pre371 to i64
+  br label %_ZL18yy_get_next_bufferPv.exit.thread208
 
 _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %359, %_ZL18yy_get_next_bufferPv.exit
   %492 = phi ptr [ %349, %359 ], [ %490, %_ZL18yy_get_next_bufferPv.exit ]
@@ -1080,8 +1080,8 @@ _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %359, %_ZL18yy_get_n
   %499 = sub i64 %152, %498
   %500 = trunc i64 %499 to i32
   %501 = shl i64 %499, 32
-  %sext309 = add i64 %501, -4294967296
-  %502 = ashr exact i64 %sext309, 32
+  %sext307 = add i64 %501, -4294967296
+  %502 = ashr exact i64 %sext307, 32
   %503 = getelementptr inbounds i8, ptr %490, i64 %502
   store ptr %503, ptr %83, align 8
   %504 = load i32, ptr %85, align 4
@@ -1171,25 +1171,25 @@ _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %359, %_ZL18yy_get_n
   %exitcond.not.i189 = icmp eq ptr %548, %503
   br i1 %exitcond.not.i189, label %.backedge.backedge, label %.lr.ph33.i176, !llvm.loop !10
 
-_ZL18yy_get_next_bufferPv.exit.thread210:         ; preds = %359, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread210_crit_edge
-  %.pre-phi = phi i64 [ %.pre374, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread210_crit_edge ], [ %263, %359 ]
-  %549 = phi ptr [ %490, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread210_crit_edge ], [ %349, %359 ]
-  %550 = phi ptr [ %.pre372, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread210_crit_edge ], [ %261, %359 ]
+_ZL18yy_get_next_bufferPv.exit.thread208:         ; preds = %359, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread208_crit_edge
+  %.pre-phi = phi i64 [ %.pre372, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread208_crit_edge ], [ %263, %359 ]
+  %549 = phi ptr [ %490, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread208_crit_edge ], [ %349, %359 ]
+  %550 = phi ptr [ %.pre370, %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread208_crit_edge ], [ %261, %359 ]
   %551 = getelementptr inbounds i8, ptr %550, i64 %.pre-phi
   store ptr %551, ptr %83, align 8
   %552 = load i32, ptr %85, align 4
   %553 = icmp ult ptr %549, %551
   br i1 %553, label %.lr.ph33.i192, label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %._crit_edge.i203, %_ZL18yy_get_next_bufferPv.exit.thread210, %_ZL16yy_try_NUL_transiPv.exit
-  %.1131.ph.be = phi ptr [ %269, %_ZL16yy_try_NUL_transiPv.exit ], [ %549, %_ZL18yy_get_next_bufferPv.exit.thread210 ], [ %549, %._crit_edge.i203 ]
-  %.2126.ph.be = phi ptr [ %272, %_ZL16yy_try_NUL_transiPv.exit ], [ %551, %_ZL18yy_get_next_bufferPv.exit.thread210 ], [ %551, %._crit_edge.i203 ]
-  %.3.ph.be = phi i32 [ %.021.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %552, %_ZL18yy_get_next_bufferPv.exit.thread210 ], [ %595, %._crit_edge.i203 ]
+.outer.backedge:                                  ; preds = %._crit_edge.i203, %_ZL18yy_get_next_bufferPv.exit.thread208, %_ZL16yy_try_NUL_transiPv.exit
+  %.1131.ph.be = phi ptr [ %269, %_ZL16yy_try_NUL_transiPv.exit ], [ %549, %_ZL18yy_get_next_bufferPv.exit.thread208 ], [ %549, %._crit_edge.i203 ]
+  %.2126.ph.be = phi ptr [ %272, %_ZL16yy_try_NUL_transiPv.exit ], [ %551, %_ZL18yy_get_next_bufferPv.exit.thread208 ], [ %551, %._crit_edge.i203 ]
+  %.3.ph.be = phi i32 [ %.021.lcssa.i, %_ZL16yy_try_NUL_transiPv.exit ], [ %552, %_ZL18yy_get_next_bufferPv.exit.thread208 ], [ %595, %._crit_edge.i203 ]
   br label %.outer
 
-.lr.ph33.i192:                                    ; preds = %_ZL18yy_get_next_bufferPv.exit.thread210, %._crit_edge.i203
-  %.02131.i193 = phi i32 [ %595, %._crit_edge.i203 ], [ %552, %_ZL18yy_get_next_bufferPv.exit.thread210 ]
-  %.02330.i194 = phi ptr [ %596, %._crit_edge.i203 ], [ %549, %_ZL18yy_get_next_bufferPv.exit.thread210 ]
+.lr.ph33.i192:                                    ; preds = %_ZL18yy_get_next_bufferPv.exit.thread208, %._crit_edge.i203
+  %.02131.i193 = phi i32 [ %595, %._crit_edge.i203 ], [ %552, %_ZL18yy_get_next_bufferPv.exit.thread208 ]
+  %.02330.i194 = phi ptr [ %596, %._crit_edge.i203 ], [ %549, %_ZL18yy_get_next_bufferPv.exit.thread208 ]
   %554 = load i8, ptr %.02330.i194, align 1
   %.not.i195 = icmp eq i8 %554, 0
   br i1 %.not.i195, label %559, label %555
@@ -1268,26 +1268,26 @@ _ZL18yy_get_next_bufferPv.exit.thread210:         ; preds = %359, %_ZL18yy_get_n
   tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str) #31
   unreachable
 
-default.unreachable375:                           ; preds = %_ZL18yy_get_next_bufferPv.exit
+default.unreachable373:                           ; preds = %_ZL18yy_get_next_bufferPv.exit
   unreachable
 
-.loopexit212:                                     ; preds = %156
+.loopexit210:                                     ; preds = %156
   br label %598
 
-.loopexit310:                                     ; preds = %156
+.loopexit308:                                     ; preds = %156
   br label %598
 
-.loopexit376:                                     ; preds = %156
+.loopexit374:                                     ; preds = %156
   br label %598
 
-.loopexit464:                                     ; preds = %156
+.loopexit462:                                     ; preds = %156
   br label %598
 
-.loopexit553:                                     ; preds = %156
+.loopexit551:                                     ; preds = %156
   br label %598
 
-598:                                              ; preds = %156, %.loopexit553, %.loopexit464, %.loopexit376, %.loopexit310, %.loopexit212, %234, %229, %228, %227, %226, %225, %224, %223, %220, %189
-  %.0 = phi i32 [ 0, %234 ], [ 266, %229 ], [ 265, %228 ], [ 264, %227 ], [ 263, %226 ], [ 270, %225 ], [ 269, %224 ], [ 268, %223 ], [ 271, %220 ], [ 271, %189 ], [ 258, %.loopexit212 ], [ 259, %.loopexit310 ], [ 260, %.loopexit376 ], [ 261, %.loopexit464 ], [ 262, %.loopexit553 ], [ 267, %156 ]
+598:                                              ; preds = %156, %.loopexit551, %.loopexit462, %.loopexit374, %.loopexit308, %.loopexit210, %234, %229, %228, %227, %226, %225, %224, %223, %220, %189
+  %.0 = phi i32 [ 0, %234 ], [ 266, %229 ], [ 265, %228 ], [ 264, %227 ], [ 263, %226 ], [ 270, %225 ], [ 269, %224 ], [ 268, %223 ], [ 271, %220 ], [ 271, %189 ], [ 258, %.loopexit210 ], [ 259, %.loopexit308 ], [ 260, %.loopexit374 ], [ 261, %.loopexit462 ], [ 262, %.loopexit551 ], [ 267, %156 ]
   ret i32 %.0
 
 .body:                                            ; preds = %.body163, %198, %221, %.body154, %167, %190
@@ -2412,8 +2412,8 @@ define dso_local noundef i32 @_Z20cmExpr_yylex_destroyPv(ptr nocapture noundef %
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %.not26 = icmp eq ptr %4, null
-  br i1 %.not26, label %.thread, label %.lr.ph
+  %.not25 = icmp eq ptr %4, null
+  br i1 %.not25, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 52
@@ -2425,113 +2425,113 @@ define dso_local noundef i32 @_Z20cmExpr_yylex_destroyPv(ptr nocapture noundef %
   %11 = load i64, ptr %2, align 8
   %12 = getelementptr inbounds ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %.not2133 = icmp eq ptr %13, null
-  br i1 %.not2133, label %.thread, label %.thread.i
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %.critedge, label %.thread.i
 
 .thread.i:                                        ; preds = %.lr.ph, %_Z25cmExpr_yypop_buffer_statePv.exit
-  %14 = phi ptr [ %58, %_Z25cmExpr_yypop_buffer_statePv.exit ], [ %13, %.lr.ph ]
-  %15 = phi ptr [ %57, %_Z25cmExpr_yypop_buffer_statePv.exit ], [ %12, %.lr.ph ]
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
-  %17 = load i32, ptr %16, align 8
-  %.not15.i = icmp eq i32 %17, 0
-  br i1 %.not15.i, label %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit, label %18
+  %15 = phi ptr [ %61, %_Z25cmExpr_yypop_buffer_statePv.exit ], [ %13, %.lr.ph ]
+  %16 = phi ptr [ %60, %_Z25cmExpr_yypop_buffer_statePv.exit ], [ %12, %.lr.ph ]
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %18 = load i32, ptr %17, align 8
+  %.not15.i = icmp eq i32 %18, 0
+  br i1 %.not15.i, label %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit, label %19
 
-18:                                               ; preds = %.thread.i
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
-  %20 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %20) #33
+19:                                               ; preds = %.thread.i
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load ptr, ptr %20, align 8
+  tail call void @free(ptr noundef %21) #33
   br label %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit
 
-_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.thread.i, %18
-  tail call void @free(ptr noundef nonnull %14) #33
-  %.pre31 = load i64, ptr %2, align 8
-  %.pre = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds ptr, ptr %.pre, i64 %.pre31
-  store ptr null, ptr %21, align 8
+_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit: ; preds = %.thread.i, %19
+  tail call void @free(ptr noundef nonnull %15) #33
   %22 = load ptr, ptr %3, align 8
-  %.not.i23 = icmp eq ptr %22, null
-  br i1 %.not.i23, label %.thread, label %23
+  %23 = load i64, ptr %2, align 8
+  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  store ptr null, ptr %24, align 8
+  %25 = load ptr, ptr %3, align 8
+  %.not.i23 = icmp eq ptr %25, null
+  br i1 %.not.i23, label %.critedge, label %26
 
-23:                                               ; preds = %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit
-  %24 = load i64, ptr %2, align 8
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %_Z25cmExpr_yypop_buffer_statePv.exit, label %.thread.i.i
+26:                                               ; preds = %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit
+  %27 = load i64, ptr %2, align 8
+  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %_Z25cmExpr_yypop_buffer_statePv.exit, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %23
-  store ptr null, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 32
-  %29 = load i32, ptr %28, align 8
-  %.not15.i.i = icmp eq i32 %29, 0
-  br i1 %.not15.i.i, label %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit.i, label %30
+.thread.i.i:                                      ; preds = %26
+  store ptr null, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %29, i64 32
+  %32 = load i32, ptr %31, align 8
+  %.not15.i.i = icmp eq i32 %32, 0
+  br i1 %.not15.i.i, label %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit.i, label %33
 
-30:                                               ; preds = %.thread.i.i
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
-  %32 = load ptr, ptr %31, align 8
-  tail call void @free(ptr noundef %32) #33
+33:                                               ; preds = %.thread.i.i
+  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %35 = load ptr, ptr %34, align 8
+  tail call void @free(ptr noundef %35) #33
   br label %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit.i
 
-_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %30, %.thread.i.i
-  tail call void @free(ptr noundef nonnull %26) #33
-  %33 = load ptr, ptr %3, align 8
-  %34 = load i64, ptr %2, align 8
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
-  store ptr null, ptr %35, align 8
-  %36 = load i64, ptr %2, align 8
-  %.not22.i = icmp eq i64 %36, 0
-  br i1 %.not22.i, label %39, label %37
+_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit.i: ; preds = %33, %.thread.i.i
+  tail call void @free(ptr noundef nonnull %29) #33
+  %36 = load ptr, ptr %3, align 8
+  %37 = load i64, ptr %2, align 8
+  %38 = getelementptr inbounds ptr, ptr %36, i64 %37
+  store ptr null, ptr %38, align 8
+  %39 = load i64, ptr %2, align 8
+  %.not22.i = icmp eq i64 %39, 0
+  br i1 %.not22.i, label %42, label %40
 
-37:                                               ; preds = %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit.i
-  %38 = add i64 %36, -1
-  store i64 %38, ptr %2, align 8
-  br label %39
+40:                                               ; preds = %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit.i
+  %41 = add i64 %39, -1
+  store i64 %41, ptr %2, align 8
+  br label %42
 
-39:                                               ; preds = %37, %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit.i
-  %40 = phi i64 [ %38, %37 ], [ 0, %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit.i ]
-  %41 = load ptr, ptr %3, align 8
-  %.not23.i = icmp eq ptr %41, null
-  br i1 %.not23.i, label %.thread, label %42
+42:                                               ; preds = %40, %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit.i
+  %43 = phi i64 [ %41, %40 ], [ 0, %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit.i ]
+  %44 = load ptr, ptr %3, align 8
+  %.not23.i = icmp eq ptr %44, null
+  br i1 %.not23.i, label %.critedge, label %45
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %40
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %_Z25cmExpr_yypop_buffer_statePv.exit, label %46
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds ptr, ptr %44, i64 %43
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %_Z25cmExpr_yypop_buffer_statePv.exit, label %49
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %44, i64 28
-  %48 = load i32, ptr %47, align 4
-  store i32 %48, ptr %5, align 4
-  %49 = load ptr, ptr %43, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %6, align 8
-  store ptr %51, ptr %7, align 8
-  %52 = load ptr, ptr %43, align 8
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %8, align 8
-  %54 = load i8, ptr %51, align 1
-  store i8 %54, ptr %9, align 8
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %47, i64 28
+  %51 = load i32, ptr %50, align 4
+  store i32 %51, ptr %5, align 4
+  %52 = load ptr, ptr %46, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %6, align 8
+  store ptr %54, ptr %7, align 8
+  %55 = load ptr, ptr %46, align 8
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %8, align 8
+  %57 = load i8, ptr %54, align 1
+  store i8 %57, ptr %9, align 8
   store i32 1, ptr %10, align 8
   br label %_Z25cmExpr_yypop_buffer_statePv.exit
 
-_Z25cmExpr_yypop_buffer_statePv.exit:             ; preds = %23, %42, %46
-  %55 = phi ptr [ %22, %23 ], [ %41, %42 ], [ %41, %46 ]
-  %56 = load i64, ptr %2, align 8
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
-  %58 = load ptr, ptr %57, align 8
-  %.not21 = icmp eq ptr %58, null
-  br i1 %.not21, label %.thread, label %.thread.i, !llvm.loop !14
+_Z25cmExpr_yypop_buffer_statePv.exit:             ; preds = %26, %45, %49
+  %58 = phi ptr [ %25, %26 ], [ %44, %45 ], [ %44, %49 ]
+  %59 = load i64, ptr %2, align 8
+  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %.critedge, label %.thread.i, !llvm.loop !14
 
-.thread:                                          ; preds = %_Z25cmExpr_yypop_buffer_statePv.exit, %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit, %39, %.lr.ph, %1
-  %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit ], [ %55, %_Z25cmExpr_yypop_buffer_statePv.exit ]
+.critedge:                                        ; preds = %_Z25cmExpr_yypop_buffer_statePv.exit, %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit, %42, %.lr.ph, %1
+  %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %42 ], [ null, %_Z23cmExpr_yy_delete_bufferP15yy_buffer_statePv.exit ], [ %58, %_Z25cmExpr_yypop_buffer_statePv.exit ]
   tail call void @free(ptr noundef %.lcssa) #33
   store ptr null, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 96
-  %60 = load ptr, ptr %59, align 8
-  tail call void @free(ptr noundef %60) #33
+  %63 = getelementptr inbounds i8, ptr %0, i64 96
+  %64 = load ptr, ptr %63, align 8
+  tail call void @free(ptr noundef %64) #33
   tail call void @free(ptr noundef nonnull %0) #33
   ret i32 0
 }

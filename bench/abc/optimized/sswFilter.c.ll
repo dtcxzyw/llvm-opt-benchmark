@@ -2027,7 +2027,7 @@ Abc_Clock.exit:                                   ; preds = %14, %19
   %.val66 = load i32, ptr %30, align 8
   %31 = sub i32 0, %.val
   %32 = icmp eq i32 %.val66, %31
-  br i1 %32, label %116, label %33
+  br i1 %32, label %138, label %33
 
 33:                                               ; preds = %27
   %34 = call i32 @Aig_ManRandom(i32 noundef 1) #11
@@ -2076,146 +2076,194 @@ Abc_Clock.exit:                                   ; preds = %14, %19
   %53 = getelementptr inbounds i8, ptr %11, i64 8
   %.not64 = icmp eq i32 %5, 0
   %54 = getelementptr inbounds i8, ptr %10, i64 8
-  br label %55
+  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-55:                                               ; preds = %.lr.ph, %111
-  %.05673 = phi i32 [ 0, %.lr.ph ], [ %112, %111 ]
-  %56 = load ptr, ptr %39, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 112
-  %58 = load i32, ptr %57, align 8
-  %.not62 = icmp eq i32 %58, 0
-  br i1 %.not62, label %60, label %59
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
+  %.05676.us = phi i32 [ %82, %.critedge.us ], [ 0, %.lr.ph ]
+  %55 = load ptr, ptr %39, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 112
+  %57 = load i32, ptr %56, align 8
+  %.not62.us = icmp eq i32 %57, 0
+  br i1 %.not62.us, label %59, label %58
 
-59:                                               ; preds = %55
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %.05673)
+58:                                               ; preds = %.lr.ph.split.us
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %.05676.us)
+  %.pre80 = load ptr, ptr %39, align 8
+  br label %59
+
+59:                                               ; preds = %58, %.lr.ph.split.us
+  %60 = phi ptr [ %.pre80, %58 ], [ %55, %.lr.ph.split.us ]
+  %61 = getelementptr inbounds i8, ptr %60, i64 12
+  %62 = load i32, ptr %61, align 4
+  call void @Ssw_ManRefineByFilterSim(ptr noundef nonnull %39, i32 noundef %62)
+  %63 = load ptr, ptr %48, align 8
+  %64 = call i32 @Ssw_ClassesCand1Num(ptr noundef %63) #11
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %70
+
+66:                                               ; preds = %59
+  %67 = load ptr, ptr %48, align 8
+  %68 = call i32 @Ssw_ClassesClassNum(ptr noundef %67) #11
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %.split.us, label %70
+
+70:                                               ; preds = %66, %59
+  %71 = load ptr, ptr %39, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 112
+  %73 = load i32, ptr %72, align 8
+  %.not63.us = icmp eq i32 %73, 0
+  br i1 %.not63.us, label %.critedge.us, label %74
+
+74:                                               ; preds = %70
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6)
+  %75 = load ptr, ptr %48, align 8
+  call void @Ssw_ClassesPrint(ptr noundef %75, i32 noundef 0) #11
+  br label %.critedge.us
+
+.critedge.us:                                     ; preds = %74, %70
+  %76 = call ptr @Ssw_SatStart(i32 noundef 0) #11
+  store ptr %76, ptr %52, align 8
+  %77 = call i32 @Ssw_ManSweepBmcFilter(ptr noundef nonnull %39, i32 noundef %5)
+  %78 = load ptr, ptr %52, align 8
+  call void @Ssw_SatStop(ptr noundef %78) #11
+  store ptr null, ptr %52, align 8
+  call void @Ssw_ManCleanup(ptr noundef nonnull %39) #11
+  %79 = load ptr, ptr %39, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 12
+  %81 = load i32, ptr %80, align 4
+  call void @Ssw_ManRollForward(ptr noundef nonnull %39, i32 noundef %81)
+  %82 = add nuw nsw i32 %.05676.us, 1
+  %exitcond79.not = icmp eq i32 %82, %3
+  br i1 %exitcond79.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !35
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %133
+  %.05676 = phi i32 [ %134, %133 ], [ 0, %.lr.ph ]
+  %83 = load ptr, ptr %39, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 112
+  %85 = load i32, ptr %84, align 8
+  %.not62 = icmp eq i32 %85, 0
+  br i1 %.not62, label %87, label %86
+
+86:                                               ; preds = %.lr.ph.split
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %.05676)
   %.pre = load ptr, ptr %39, align 8
-  br label %60
+  br label %87
 
-60:                                               ; preds = %59, %55
-  %61 = phi ptr [ %.pre, %59 ], [ %56, %55 ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 12
-  %63 = load i32, ptr %62, align 4
-  call void @Ssw_ManRefineByFilterSim(ptr noundef nonnull %39, i32 noundef %63)
-  %64 = load ptr, ptr %48, align 8
-  %65 = call i32 @Ssw_ClassesCand1Num(ptr noundef %64) #11
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %72
+87:                                               ; preds = %86, %.lr.ph.split
+  %88 = phi ptr [ %.pre, %86 ], [ %83, %.lr.ph.split ]
+  %89 = getelementptr inbounds i8, ptr %88, i64 12
+  %90 = load i32, ptr %89, align 4
+  call void @Ssw_ManRefineByFilterSim(ptr noundef nonnull %39, i32 noundef %90)
+  %91 = load ptr, ptr %48, align 8
+  %92 = call i32 @Ssw_ClassesCand1Num(ptr noundef %91) #11
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %94, label %98
 
-67:                                               ; preds = %60
-  %68 = load ptr, ptr %48, align 8
-  %69 = call i32 @Ssw_ClassesClassNum(ptr noundef %68) #11
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %71, label %72
+94:                                               ; preds = %87
+  %95 = load ptr, ptr %48, align 8
+  %96 = call i32 @Ssw_ClassesClassNum(ptr noundef %95) #11
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %.split.us, label %98
 
-71:                                               ; preds = %67
+.split.us:                                        ; preds = %94, %66
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5)
   br label %.loopexit
 
-72:                                               ; preds = %67, %60
-  %73 = load ptr, ptr %39, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 112
-  %75 = load i32, ptr %74, align 8
-  %.not63 = icmp eq i32 %75, 0
-  br i1 %.not63, label %78, label %76
+98:                                               ; preds = %94, %87
+  %99 = load ptr, ptr %39, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 112
+  %101 = load i32, ptr %100, align 8
+  %.not63 = icmp eq i32 %101, 0
+  br i1 %.not63, label %104, label %102
 
-76:                                               ; preds = %72
+102:                                              ; preds = %98
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6)
-  %77 = load ptr, ptr %48, align 8
-  call void @Ssw_ClassesPrint(ptr noundef %77, i32 noundef 0) #11
-  br label %78
+  %103 = load ptr, ptr %48, align 8
+  call void @Ssw_ClassesPrint(ptr noundef %103, i32 noundef 0) #11
+  br label %104
 
-78:                                               ; preds = %76, %72
-  %79 = call ptr @Ssw_SatStart(i32 noundef 0) #11
-  store ptr %79, ptr %52, align 8
-  br i1 %.not, label %88, label %80
-
-80:                                               ; preds = %78
+104:                                              ; preds = %102, %98
+  %105 = call ptr @Ssw_SatStart(i32 noundef 0) #11
+  store ptr %105, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  %81 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #11
-  %82 = icmp slt i32 %81, 0
-  br i1 %82, label %Abc_Clock.exit68, label %83
+  %106 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #11
+  %107 = icmp slt i32 %106, 0
+  br i1 %107, label %111, label %108
 
-83:                                               ; preds = %80
-  %84 = load i64, ptr %11, align 8
-  %.neg71 = mul i64 %84, -1000000
-  %85 = load i64, ptr %53, align 8
-  %.neg = sdiv i64 %85, -1000
-  %.neg72 = add i64 %.neg, %.neg71
-  br label %Abc_Clock.exit68
+108:                                              ; preds = %104
+  %109 = load i64, ptr %11, align 8
+  %.neg74 = mul i64 %109, -1000000
+  %110 = load i64, ptr %53, align 8
+  %.neg = sdiv i64 %110, -1000
+  %.neg75 = add i64 %.neg, %.neg74
+  br label %111
 
-Abc_Clock.exit68:                                 ; preds = %80, %83
-  %.0.i67.neg = phi i64 [ %.neg72, %83 ], [ 1, %80 ]
+111:                                              ; preds = %108, %104
+  %.0.i67.neg = phi i64 [ %.neg75, %108 ], [ 1, %104 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %86 = add i64 %.0.i67.neg, %28
-  %87 = sdiv i64 %86, 1000000
-  br label %88
+  %112 = add i64 %.0.i67.neg, %28
+  %113 = sdiv i64 %112, 1000000
+  %114 = trunc i64 %113 to i32
+  br i1 %.not64, label %.thread72, label %115
 
-88:                                               ; preds = %78, %Abc_Clock.exit68
-  %89 = phi i64 [ %87, %Abc_Clock.exit68 ], [ 0, %78 ]
-  %90 = trunc i64 %89 to i32
-  br i1 %.not64, label %94, label %91
+115:                                              ; preds = %111
+  %.not65 = icmp eq i32 %114, 0
+  br i1 %.not65, label %.thread72, label %116
 
-91:                                               ; preds = %88
-  %.not65 = icmp eq i32 %90, 0
-  br i1 %.not65, label %94, label %92
+116:                                              ; preds = %115
+  %117 = call range(i32 1, 0) i32 @llvm.smin.i32(i32 %114, i32 %5)
+  br label %.thread72
 
-92:                                               ; preds = %91
-  %93 = call range(i32 1, 0) i32 @llvm.smin.i32(i32 %90, i32 %5)
-  br label %94
-
-94:                                               ; preds = %91, %92, %88
-  %.0 = phi i32 [ %93, %92 ], [ %90, %88 ], [ %5, %91 ]
-  %95 = call i32 @Ssw_ManSweepBmcFilter(ptr noundef nonnull %39, i32 noundef %.0)
-  %96 = load ptr, ptr %52, align 8
-  call void @Ssw_SatStop(ptr noundef %96) #11
+.thread72:                                        ; preds = %115, %116, %111
+  %.0 = phi i32 [ %117, %116 ], [ %114, %111 ], [ %5, %115 ]
+  %118 = call i32 @Ssw_ManSweepBmcFilter(ptr noundef nonnull %39, i32 noundef %.0)
+  %119 = load ptr, ptr %52, align 8
+  call void @Ssw_SatStop(ptr noundef %119) #11
   store ptr null, ptr %52, align 8
   call void @Ssw_ManCleanup(ptr noundef nonnull %39) #11
-  %97 = load ptr, ptr %39, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 12
-  %99 = load i32, ptr %98, align 4
-  call void @Ssw_ManRollForward(ptr noundef nonnull %39, i32 noundef %99)
-  br i1 %.not, label %111, label %100
-
-100:                                              ; preds = %94
+  %120 = load ptr, ptr %39, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 12
+  %122 = load i32, ptr %121, align 4
+  call void @Ssw_ManRollForward(ptr noundef nonnull %39, i32 noundef %122)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %101 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #11
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %Abc_Clock.exit70, label %103
+  %123 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #11
+  %124 = icmp slt i32 %123, 0
+  br i1 %124, label %Abc_Clock.exit70, label %125
 
-103:                                              ; preds = %100
-  %104 = load i64, ptr %10, align 8
-  %105 = mul nsw i64 %104, 1000000
-  %106 = load i64, ptr %54, align 8
-  %107 = sdiv i64 %106, 1000
-  %108 = add nsw i64 %107, %105
+125:                                              ; preds = %.thread72
+  %126 = load i64, ptr %10, align 8
+  %127 = mul nsw i64 %126, 1000000
+  %128 = load i64, ptr %54, align 8
+  %129 = sdiv i64 %128, 1000
+  %130 = add nsw i64 %129, %127
   br label %Abc_Clock.exit70
 
-Abc_Clock.exit70:                                 ; preds = %100, %103
-  %.0.i69 = phi i64 [ %108, %103 ], [ -1, %100 ]
+Abc_Clock.exit70:                                 ; preds = %.thread72, %125
+  %.0.i69 = phi i64 [ %130, %125 ], [ -1, %.thread72 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %109 = icmp sgt i64 %.0.i69, %28
-  br i1 %109, label %110, label %111
+  %131 = icmp sgt i64 %.0.i69, %28
+  br i1 %131, label %132, label %133
 
-110:                                              ; preds = %Abc_Clock.exit70
+132:                                              ; preds = %Abc_Clock.exit70
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, i32 noundef %4)
   br label %.loopexit
 
-111:                                              ; preds = %94, %Abc_Clock.exit70
-  %112 = add nuw nsw i32 %.05673, 1
-  %exitcond.not = icmp eq i32 %112, %3
-  br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !35
+133:                                              ; preds = %Abc_Clock.exit70
+  %134 = add nuw nsw i32 %.05676, 1
+  %exitcond.not = icmp eq i32 %134, %3
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !35
 
-.loopexit:                                        ; preds = %111, %50, %110, %71
-  %113 = getelementptr inbounds i8, ptr %39, i64 16
-  %114 = load ptr, ptr %113, align 8
-  call void @Aig_ManSetPhase(ptr noundef %114) #11
-  %115 = load ptr, ptr %113, align 8
-  call void @Aig_ManCleanMarkB(ptr noundef %115) #11
+.loopexit:                                        ; preds = %133, %.critedge.us, %50, %132, %.split.us
+  %135 = getelementptr inbounds i8, ptr %39, i64 16
+  %136 = load ptr, ptr %135, align 8
+  call void @Aig_ManSetPhase(ptr noundef %136) #11
+  %137 = load ptr, ptr %135, align 8
+  call void @Aig_ManCleanMarkB(ptr noundef %137) #11
   store i32 0, ptr %38, align 8
   call void @Ssw_ManStop(ptr noundef nonnull %39) #11
-  br label %116
+  br label %138
 
-116:                                              ; preds = %27, %.loopexit
+138:                                              ; preds = %27, %.loopexit
   ret void
 }
 

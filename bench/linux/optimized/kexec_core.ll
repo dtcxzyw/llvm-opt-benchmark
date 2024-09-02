@@ -1308,12 +1308,12 @@ define dso_local noundef range(i32 -14, 1) i32 @kimage_load_segment(ptr noundef 
   %136 = icmp eq i64 %134, 0
   br i1 %136, label %.thread, label %.preheader
 
-.lr.ph:                                           ; preds = %.preheader14, %187
-  %137 = phi i64 [ %189, %187 ], [ %17, %.preheader14 ]
-  %138 = phi i64 [ %188, %187 ], [ %13, %.preheader14 ]
-  %139 = phi i64 [ %197, %187 ], [ %15, %.preheader14 ]
-  %140 = phi ptr [ %196, %187 ], [ %11, %.preheader14 ]
-  %141 = phi ptr [ %194, %187 ], [ %10, %.preheader14 ]
+.lr.ph:                                           ; preds = %.preheader14, %190
+  %137 = phi i64 [ %192, %190 ], [ %17, %.preheader14 ]
+  %138 = phi i64 [ %191, %190 ], [ %13, %.preheader14 ]
+  %139 = phi i64 [ %200, %190 ], [ %15, %.preheader14 ]
+  %140 = phi ptr [ %199, %190 ], [ %11, %.preheader14 ]
+  %141 = phi ptr [ %197, %190 ], [ %10, %.preheader14 ]
   %142 = lshr i64 %137, 12
   %143 = load i64, ptr @vmemmap_base, align 8
   %144 = inttoptr i64 %143 to ptr
@@ -1353,47 +1353,50 @@ define dso_local noundef range(i32 -14, 1) i32 @kimage_load_segment(ptr noundef 
   %171 = load i8, ptr %3, align 8
   %172 = and i8 %171, 4
   %173 = icmp eq i8 %172, 0
-  br i1 %173, label %175, label %174
+  br i1 %173, label %180, label %.critedge
 
-174:                                              ; preds = %170
+.critedge:                                        ; preds = %170
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %162, ptr align 1 %141, i64 %166, i1 false)
-  br label %178
+  %174 = load i64, ptr @vmemmap_base, align 8
+  %175 = sub i64 %148, %174
+  %176 = shl i64 %175, 6
+  %177 = load i64, ptr @page_offset_base, align 8
+  %178 = add i64 %176, %177
+  %179 = inttoptr i64 %178 to ptr
+  tail call void @arch_kexec_pre_free_pages(ptr noundef %179, i32 noundef 1) #17
+  br label %190
 
-175:                                              ; preds = %170
-  %176 = tail call i64 @_copy_from_user(ptr noundef %162, ptr noundef %140, i64 noundef %166) #17
-  %177 = trunc i64 %176 to i32
-  br label %178
+180:                                              ; preds = %170
+  %181 = tail call i64 @_copy_from_user(ptr noundef %162, ptr noundef %140, i64 noundef %166) #17
+  %182 = and i64 %181, 4294967295
+  %183 = icmp eq i64 %182, 0
+  %184 = load i64, ptr @vmemmap_base, align 8
+  %185 = sub i64 %148, %184
+  %186 = shl i64 %185, 6
+  %187 = load i64, ptr @page_offset_base, align 8
+  %188 = add i64 %186, %187
+  %189 = inttoptr i64 %188 to ptr
+  tail call void @arch_kexec_pre_free_pages(ptr noundef %189, i32 noundef 1) #17
+  br i1 %183, label %190, label %.thread
 
-178:                                              ; preds = %175, %174
-  %179 = phi i32 [ 0, %174 ], [ %177, %175 ]
-  %180 = load i64, ptr @vmemmap_base, align 8
-  %181 = sub i64 %148, %180
-  %182 = shl i64 %181, 6
-  %183 = load i64, ptr @page_offset_base, align 8
-  %184 = add i64 %182, %183
-  %185 = inttoptr i64 %184 to ptr
-  tail call void @arch_kexec_pre_free_pages(ptr noundef %185, i32 noundef 1) #17
-  %186 = icmp eq i32 %179, 0
-  br i1 %186, label %187, label %.thread
+190:                                              ; preds = %.critedge, %180
+  %191 = sub i64 %138, %166
+  %192 = add i64 %164, %137
+  %193 = load i8, ptr %3, align 8
+  %194 = and i8 %193, 4
+  %195 = icmp eq i8 %194, 0
+  %196 = select i1 %195, i64 0, i64 %164
+  %197 = getelementptr i8, ptr %141, i64 %196
+  %198 = select i1 %195, i64 %164, i64 0
+  %199 = getelementptr i8, ptr %140, i64 %198
+  %200 = sub i64 %139, %164
+  %201 = tail call i32 @__SCT__cond_resched() #17
+  %202 = icmp eq i64 %200, 0
+  br i1 %202, label %.thread, label %.lr.ph
 
-187:                                              ; preds = %178
-  %188 = sub i64 %138, %166
-  %189 = add i64 %164, %137
-  %190 = load i8, ptr %3, align 8
-  %191 = and i8 %190, 4
-  %192 = icmp eq i8 %191, 0
-  %193 = select i1 %192, i64 0, i64 %164
-  %194 = getelementptr i8, ptr %141, i64 %193
-  %195 = select i1 %192, i64 %164, i64 0
-  %196 = getelementptr i8, ptr %140, i64 %195
-  %197 = sub i64 %139, %164
-  %198 = tail call i32 @__SCT__cond_resched() #17
-  %199 = icmp eq i64 %197, 0
-  br i1 %199, label %.thread, label %.lr.ph
-
-.thread:                                          ; preds = %187, %.lr.ph, %178, %79, %120, %.preheader, %124, %.preheader14, %33, %53
-  %200 = phi i32 [ 0, %53 ], [ -12, %33 ], [ 0, %.preheader14 ], [ -12, %79 ], [ -12, %.preheader ], [ -14, %120 ], [ 0, %124 ], [ 0, %187 ], [ -12, %.lr.ph ], [ -14, %178 ]
-  ret i32 %200
+.thread:                                          ; preds = %190, %.lr.ph, %180, %79, %120, %.preheader, %124, %.preheader14, %33, %53
+  %203 = phi i32 [ 0, %53 ], [ -12, %33 ], [ 0, %.preheader14 ], [ -12, %79 ], [ -12, %.preheader ], [ -14, %120 ], [ 0, %124 ], [ 0, %190 ], [ -12, %.lr.ph ], [ -14, %180 ]
+  ret i32 %203
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

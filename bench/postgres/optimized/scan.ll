@@ -4887,8 +4887,8 @@ define dso_local range(i32 0, 2) i32 @core_yylex_init_extra(ptr noundef %0, ptr 
 define dso_local noundef i32 @core_yylex_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %.not34 = icmp eq ptr %3, null
-  br i1 %.not34, label %core_yyfree.exit, label %.lr.ph
+  %.not32 = icmp eq ptr %3, null
+  br i1 %.not32, label %core_yyfree.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4901,140 +4901,140 @@ define dso_local noundef i32 @core_yylex_destroy(ptr noundef %0) local_unnamed_a
   %11 = load i64, ptr %4, align 8
   %12 = getelementptr ptr, ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %.not2140 = icmp eq ptr %13, null
-  br i1 %.not2140, label %._crit_edge, label %.thread.i
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %.critedge, label %.thread.i
 
 .thread.i:                                        ; preds = %.lr.ph, %core_yypop_buffer_state.exit
-  %14 = phi ptr [ %58, %core_yypop_buffer_state.exit ], [ %13, %.lr.ph ]
-  %15 = phi ptr [ %57, %core_yypop_buffer_state.exit ], [ %12, %.lr.ph ]
-  store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
-  %17 = load i32, ptr %16, align 8
-  %.not15.i = icmp eq i32 %17, 0
-  br i1 %.not15.i, label %core_yy_delete_buffer.exit, label %18
+  %15 = phi ptr [ %61, %core_yypop_buffer_state.exit ], [ %13, %.lr.ph ]
+  %16 = phi ptr [ %60, %core_yypop_buffer_state.exit ], [ %12, %.lr.ph ]
+  store ptr null, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %18 = load i32, ptr %17, align 8
+  %.not15.i = icmp eq i32 %18, 0
+  br i1 %.not15.i, label %core_yy_delete_buffer.exit, label %19
 
-18:                                               ; preds = %.thread.i
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %core_yy_delete_buffer.exit, label %21
+19:                                               ; preds = %.thread.i
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %.not.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i, label %core_yy_delete_buffer.exit, label %22
 
-21:                                               ; preds = %18
-  tail call void @pfree(ptr noundef nonnull %20) #23
+22:                                               ; preds = %19
+  tail call void @pfree(ptr noundef nonnull %21) #23
   br label %core_yy_delete_buffer.exit
 
-core_yy_delete_buffer.exit:                       ; preds = %.thread.i, %18, %21
-  tail call void @pfree(ptr noundef nonnull %14) #23
-  %.pre36 = load i64, ptr %4, align 8
-  %.pre = load ptr, ptr %2, align 8
-  %22 = getelementptr ptr, ptr %.pre, i64 %.pre36
-  store ptr null, ptr %22, align 8
+core_yy_delete_buffer.exit:                       ; preds = %.thread.i, %19, %22
+  tail call void @pfree(ptr noundef nonnull %15) #23
   %23 = load ptr, ptr %2, align 8
-  %.not.i23 = icmp eq ptr %23, null
-  br i1 %.not.i23, label %core_yyfree.exit, label %24
+  %24 = load i64, ptr %4, align 8
+  %25 = getelementptr ptr, ptr %23, i64 %24
+  store ptr null, ptr %25, align 8
+  %26 = load ptr, ptr %2, align 8
+  %.not.i23 = icmp eq ptr %26, null
+  br i1 %.not.i23, label %core_yyfree.exit, label %27
 
-24:                                               ; preds = %core_yy_delete_buffer.exit
-  %25 = load i64, ptr %4, align 8
-  %26 = getelementptr ptr, ptr %23, i64 %25
-  %27 = load ptr, ptr %26, align 8
-  %.not20.i = icmp eq ptr %27, null
+27:                                               ; preds = %core_yy_delete_buffer.exit
+  %28 = load i64, ptr %4, align 8
+  %29 = getelementptr ptr, ptr %26, i64 %28
+  %30 = load ptr, ptr %29, align 8
+  %.not20.i = icmp eq ptr %30, null
   br i1 %.not20.i, label %core_yypop_buffer_state.exit, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %24
-  store ptr null, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
-  %29 = load i32, ptr %28, align 8
-  %.not15.i.i = icmp eq i32 %29, 0
-  br i1 %.not15.i.i, label %core_yy_delete_buffer.exit.i, label %30
+.thread.i.i:                                      ; preds = %27
+  store ptr null, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %32 = load i32, ptr %31, align 8
+  %.not15.i.i = icmp eq i32 %32, 0
+  br i1 %.not15.i.i, label %core_yy_delete_buffer.exit.i, label %33
 
-30:                                               ; preds = %.thread.i.i
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %.not.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i, label %core_yy_delete_buffer.exit.i, label %33
+33:                                               ; preds = %.thread.i.i
+  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %.not.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i, label %core_yy_delete_buffer.exit.i, label %36
 
-33:                                               ; preds = %30
-  tail call void @pfree(ptr noundef nonnull %32) #23
+36:                                               ; preds = %33
+  tail call void @pfree(ptr noundef nonnull %35) #23
   br label %core_yy_delete_buffer.exit.i
 
-core_yy_delete_buffer.exit.i:                     ; preds = %33, %30, %.thread.i.i
-  tail call void @pfree(ptr noundef nonnull %27) #23
-  %34 = load ptr, ptr %2, align 8
-  %35 = load i64, ptr %4, align 8
-  %36 = getelementptr ptr, ptr %34, i64 %35
-  store ptr null, ptr %36, align 8
-  %37 = load i64, ptr %4, align 8
-  %.not21.i = icmp eq i64 %37, 0
-  br i1 %.not21.i, label %40, label %38
+core_yy_delete_buffer.exit.i:                     ; preds = %36, %33, %.thread.i.i
+  tail call void @pfree(ptr noundef nonnull %30) #23
+  %37 = load ptr, ptr %2, align 8
+  %38 = load i64, ptr %4, align 8
+  %39 = getelementptr ptr, ptr %37, i64 %38
+  store ptr null, ptr %39, align 8
+  %40 = load i64, ptr %4, align 8
+  %.not21.i = icmp eq i64 %40, 0
+  br i1 %.not21.i, label %43, label %41
 
-38:                                               ; preds = %core_yy_delete_buffer.exit.i
-  %39 = add i64 %37, -1
-  store i64 %39, ptr %4, align 8
-  br label %40
+41:                                               ; preds = %core_yy_delete_buffer.exit.i
+  %42 = add i64 %40, -1
+  store i64 %42, ptr %4, align 8
+  br label %43
 
-40:                                               ; preds = %38, %core_yy_delete_buffer.exit.i
-  %41 = phi i64 [ %39, %38 ], [ 0, %core_yy_delete_buffer.exit.i ]
-  %42 = load ptr, ptr %2, align 8
-  %.not22.i = icmp eq ptr %42, null
-  br i1 %.not22.i, label %core_yyfree.exit, label %43
-
-43:                                               ; preds = %40
-  %44 = getelementptr ptr, ptr %42, i64 %41
-  %45 = load ptr, ptr %44, align 8
-  %.not23.i = icmp eq ptr %45, null
-  br i1 %.not23.i, label %core_yypop_buffer_state.exit, label %46
+43:                                               ; preds = %41, %core_yy_delete_buffer.exit.i
+  %44 = phi i64 [ %42, %41 ], [ 0, %core_yy_delete_buffer.exit.i ]
+  %45 = load ptr, ptr %2, align 8
+  %.not22.i = icmp eq ptr %45, null
+  br i1 %.not22.i, label %core_yyfree.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %45, i64 28
-  %48 = load i32, ptr %47, align 4
-  store i32 %48, ptr %5, align 4
-  %49 = load ptr, ptr %44, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8
-  store ptr %51, ptr %6, align 8
-  store ptr %51, ptr %7, align 8
-  %52 = load ptr, ptr %44, align 8
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %8, align 8
-  %54 = load i8, ptr %51, align 1
-  store i8 %54, ptr %9, align 8
+  %47 = getelementptr ptr, ptr %45, i64 %44
+  %48 = load ptr, ptr %47, align 8
+  %.not23.i = icmp eq ptr %48, null
+  br i1 %.not23.i, label %core_yypop_buffer_state.exit, label %49
+
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds i8, ptr %48, i64 28
+  %51 = load i32, ptr %50, align 4
+  store i32 %51, ptr %5, align 4
+  %52 = load ptr, ptr %47, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %6, align 8
+  store ptr %54, ptr %7, align 8
+  %55 = load ptr, ptr %47, align 8
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %8, align 8
+  %57 = load i8, ptr %54, align 1
+  store i8 %57, ptr %9, align 8
   store i32 1, ptr %10, align 8
   br label %core_yypop_buffer_state.exit
 
-core_yypop_buffer_state.exit:                     ; preds = %24, %43, %46
-  %55 = phi ptr [ %23, %24 ], [ %42, %43 ], [ %42, %46 ]
-  %56 = load i64, ptr %4, align 8
-  %57 = getelementptr ptr, ptr %55, i64 %56
-  %58 = load ptr, ptr %57, align 8
-  %.not21 = icmp eq ptr %58, null
-  br i1 %.not21, label %._crit_edge, label %.thread.i, !llvm.loop !15
+core_yypop_buffer_state.exit:                     ; preds = %27, %46, %49
+  %58 = phi ptr [ %26, %27 ], [ %45, %46 ], [ %45, %49 ]
+  %59 = load i64, ptr %4, align 8
+  %60 = getelementptr ptr, ptr %58, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %.critedge, label %.thread.i, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %core_yypop_buffer_state.exit, %.lr.ph
-  %.lcssa = phi ptr [ %3, %.lr.ph ], [ %55, %core_yypop_buffer_state.exit ]
+.critedge:                                        ; preds = %core_yypop_buffer_state.exit, %.lr.ph
+  %.lcssa = phi ptr [ %3, %.lr.ph ], [ %58, %core_yypop_buffer_state.exit ]
   tail call void @pfree(ptr noundef nonnull %.lcssa) #23
   br label %core_yyfree.exit
 
-core_yyfree.exit:                                 ; preds = %40, %core_yy_delete_buffer.exit, %1, %._crit_edge
+core_yyfree.exit:                                 ; preds = %43, %core_yy_delete_buffer.exit, %1, %.critedge
   store ptr null, ptr %2, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 96
-  %60 = load ptr, ptr %59, align 8
-  %.not.i25 = icmp eq ptr %60, null
-  br i1 %.not.i25, label %core_yyfree.exit28, label %61
+  %63 = getelementptr inbounds i8, ptr %0, i64 96
+  %64 = load ptr, ptr %63, align 8
+  %.not.i25 = icmp eq ptr %64, null
+  br i1 %.not.i25, label %core_yyfree.exit28, label %65
 
-61:                                               ; preds = %core_yyfree.exit
-  tail call void @pfree(ptr noundef nonnull %60) #23
+65:                                               ; preds = %core_yyfree.exit
+  tail call void @pfree(ptr noundef nonnull %64) #23
   br label %core_yyfree.exit28
 
-core_yyfree.exit28:                               ; preds = %core_yyfree.exit, %61
-  %62 = getelementptr inbounds i8, ptr %0, i64 64
-  %63 = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 0, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 0, ptr %64, align 8
-  store ptr null, ptr %59, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %65, i8 0, i64 40, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
+core_yyfree.exit28:                               ; preds = %core_yyfree.exit, %65
+  %66 = getelementptr inbounds i8, ptr %0, i64 64
+  %67 = getelementptr inbounds i8, ptr %0, i64 84
+  store i32 0, ptr %67, align 4
+  %68 = getelementptr inbounds i8, ptr %0, i64 88
+  store i32 0, ptr %68, align 8
+  store ptr null, ptr %63, align 8
+  %69 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %69, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
   tail call void @pfree(ptr noundef nonnull %0) #23
   ret i32 0
 }

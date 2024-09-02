@@ -13933,22 +13933,22 @@ if.end6.i.i:                                      ; preds = %land.lhs.true.i.i, 
 invoke.cont10:                                    ; preds = %if.end6.i.i
   %.pre = load i8, ptr %tmp, align 8
   %.pre21 = and i8 %.pre, 1
-  %cmp.i.i.not.i = icmp eq i8 %.pre21, 0
-  br i1 %cmp.i.i.not.i, label %_ZN4absl4CordD2Ev.exit, label %if.then.i
+  %25 = icmp eq i8 %.pre21, 0
+  br i1 %25, label %_ZN4absl4CordD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont10
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %tmp)
           to label %_ZN4absl4CordD2Ev.exit unwind label %terminate.lpad.i.split
 
 terminate.lpad.i.split:                           ; preds = %if.then.i
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %terminate.lpad.i.split.us, %terminate.lpad.i.split
-  %.us-phi13 = phi { ptr, i32 } [ %25, %terminate.lpad.i.split ], [ %14, %terminate.lpad.i.split.us ]
-  %26 = extractvalue { ptr, i32 } %.us-phi13, 0
-  call void @__clang_call_terminate(ptr %26) #29
+  %.us-phi13 = phi { ptr, i32 } [ %26, %terminate.lpad.i.split ], [ %14, %terminate.lpad.i.split.us ]
+  %27 = extractvalue { ptr, i32 } %.us-phi13, 0
+  call void @__clang_call_terminate(ptr %27) #29
   unreachable
 
 _ZN4absl4CordD2Ev.exit:                           ; preds = %invoke.cont10.thread, %invoke.cont10, %if.then.i
@@ -13957,29 +13957,29 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %invoke.cont10.threa
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 
 lpad.split:                                       ; preds = %invoke.cont4, %for.body
-  %27 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad3.split:                                      ; preds = %invoke.cont
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %lpad3
 
 lpad3:                                            ; preds = %lpad3.split.us, %lpad3.split
   %.us-phi10 = phi ptr [ %call2, %lpad3.split ], [ %call2.us, %lpad3.split.us ]
-  %.us-phi11 = phi { ptr, i32 } [ %28, %lpad3.split ], [ %12, %lpad3.split.us ]
+  %.us-phi11 = phi { ptr, i32 } [ %29, %lpad3.split ], [ %12, %lpad3.split.us ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #27
   call void @_ZdlPv(ptr noundef nonnull %.us-phi10) #28
   br label %ehcleanup
 
 lpad8.split:                                      ; preds = %if.end6.i.i, %invoke.cont7
-  %29 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %lpad8
 
 lpad8:                                            ; preds = %lpad8.split.us, %lpad8.split
-  %.us-phi12 = phi { ptr, i32 } [ %29, %lpad8.split ], [ %13, %lpad8.split.us ]
+  %.us-phi12 = phi { ptr, i32 } [ %30, %lpad8.split ], [ %13, %lpad8.split.us ]
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %tmp) #27
   br label %ehcleanup
 
@@ -13987,7 +13987,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN4absl4CordD2Ev.e
   ret void
 
 ehcleanup:                                        ; preds = %lpad.split, %lpad.split.us, %lpad3, %lpad8
-  %.pn = phi { ptr, i32 } [ %.us-phi12, %lpad8 ], [ %.us-phi11, %lpad3 ], [ %27, %lpad.split ], [ %11, %lpad.split.us ]
+  %.pn = phi { ptr, i32 } [ %.us-phi12, %lpad8 ], [ %.us-phi11, %lpad3 ], [ %28, %lpad.split ], [ %11, %lpad.split.us ]
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #27
   resume { ptr, i32 } %.pn
 }
@@ -15250,22 +15250,22 @@ if.end6.i.i:                                      ; preds = %land.lhs.true.i.i, 
 invoke.cont12:                                    ; preds = %if.end6.i.i
   %.pre = load i8, ptr %tmp, align 8
   %.pre21 = and i8 %.pre, 1
-  %cmp.i.i.not.i = icmp eq i8 %.pre21, 0
-  br i1 %cmp.i.i.not.i, label %_ZN4absl4CordD2Ev.exit, label %if.then.i
+  %16 = icmp eq i8 %.pre21, 0
+  br i1 %16, label %_ZN4absl4CordD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont12
   invoke void @_ZN4absl4Cord15DestroyCordSlowEv(ptr noundef nonnull align 8 dereferenceable(16) %tmp)
           to label %_ZN4absl4CordD2Ev.exit unwind label %terminate.lpad.i.split
 
 terminate.lpad.i.split:                           ; preds = %if.then.i
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %terminate.lpad.i.split.us, %terminate.lpad.i.split
-  %.us-phi13 = phi { ptr, i32 } [ %16, %terminate.lpad.i.split ], [ %9, %terminate.lpad.i.split.us ]
-  %17 = extractvalue { ptr, i32 } %.us-phi13, 0
-  call void @__clang_call_terminate(ptr %17) #29
+  %.us-phi13 = phi { ptr, i32 } [ %17, %terminate.lpad.i.split ], [ %9, %terminate.lpad.i.split.us ]
+  %18 = extractvalue { ptr, i32 } %.us-phi13, 0
+  call void @__clang_call_terminate(ptr %18) #29
   unreachable
 
 _ZN4absl4CordD2Ev.exit:                           ; preds = %invoke.cont12.thread, %invoke.cont12, %if.then.i
@@ -15274,28 +15274,28 @@ _ZN4absl4CordD2Ev.exit:                           ; preds = %invoke.cont12.threa
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
 lpad.split:                                       ; preds = %invoke.cont7, %for.body
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad6.split:                                      ; preds = %invoke.cont
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad6
 
 lpad6:                                            ; preds = %lpad6.split.us, %lpad6.split
   %.us-phi10 = phi ptr [ %call5, %lpad6.split ], [ %call5.us, %lpad6.split.us ]
-  %.us-phi11 = phi { ptr, i32 } [ %19, %lpad6.split ], [ %7, %lpad6.split.us ]
+  %.us-phi11 = phi { ptr, i32 } [ %20, %lpad6.split ], [ %7, %lpad6.split.us ]
   call void @_ZdlPv(ptr noundef nonnull %.us-phi10) #28
   br label %ehcleanup
 
 lpad10.split:                                     ; preds = %if.end6.i.i, %invoke.cont9
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %lpad10
 
 lpad10:                                           ; preds = %lpad10.split.us, %lpad10.split
-  %.us-phi12 = phi { ptr, i32 } [ %20, %lpad10.split ], [ %8, %lpad10.split.us ]
+  %.us-phi12 = phi { ptr, i32 } [ %21, %lpad10.split ], [ %8, %lpad10.split.us ]
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %tmp) #27
   br label %ehcleanup
 
@@ -15303,7 +15303,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN4absl4CordD2Ev.e
   ret void
 
 ehcleanup:                                        ; preds = %lpad.split, %lpad.split.us, %lpad10, %lpad6
-  %.pn = phi { ptr, i32 } [ %.us-phi12, %lpad10 ], [ %.us-phi11, %lpad6 ], [ %18, %lpad.split ], [ %6, %lpad.split.us ]
+  %.pn = phi { ptr, i32 } [ %.us-phi12, %lpad10 ], [ %.us-phi11, %lpad6 ], [ %19, %lpad.split ], [ %6, %lpad.split.us ]
   call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.result) #27
   resume { ptr, i32 } %.pn
 }

@@ -263,8 +263,8 @@ define internal fastcc void @Cut_CellSuppMin(ptr noundef %0) unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %28 = and i32 %.03239, 1
-  %.not36.not = icmp eq i32 %28, 0
-  br i1 %.not36.not, label %select.unfold.preheader.i, label %Extra_TruthCopy.exit
+  %.not63 = icmp eq i32 %28, 0
+  br i1 %.not63, label %select.unfold.preheader.i, label %Extra_TruthCopy.exit
 
 select.unfold.preheader.i:                        ; preds = %._crit_edge
   %29 = icmp ult i32 %24, 6
@@ -627,8 +627,8 @@ Cut_CManStart.exit:                               ; preds = %33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %107 = and i32 %.03239.i, 1
-  %.not36.not.i = icmp eq i32 %107, 0
-  br i1 %.not36.not.i, label %select.unfold.preheader.i.i, label %Extra_TruthCopy.exit.i
+  %.not63.i = icmp eq i32 %107, 0
+  br i1 %.not63.i, label %select.unfold.preheader.i.i, label %Extra_TruthCopy.exit.i
 
 select.unfold.preheader.i.i:                      ; preds = %._crit_edge.i
   %108 = icmp ult i32 %103, 6
@@ -1187,8 +1187,8 @@ Cut_CellCrossBar.exit.us:                         ; preds = %351, %335, %319, %3
 
 ._crit_edge.i270.us:                              ; preds = %.lr.ph.i264.us
   %395 = and i32 %.03239.i267.us, 1
-  %.not36.not.i271.us = icmp eq i32 %395, 0
-  br i1 %.not36.not.i271.us, label %select.unfold.preheader.i.i272.us, label %Extra_TruthCopy.exit.i263.us
+  %.not63.i271.us = icmp eq i32 %395, 0
+  br i1 %.not63.i271.us, label %select.unfold.preheader.i.i272.us, label %Extra_TruthCopy.exit.i263.us
 
 select.unfold.preheader.i.i272.us:                ; preds = %._crit_edge.i270.us
   %396 = icmp ult i32 %391, 6

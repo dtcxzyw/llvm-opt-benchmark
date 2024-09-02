@@ -156,6 +156,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   %mul.i.i = shl nuw nsw i64 %i.06.i.i, 6
   %2 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
   %add.i.i = or disjoint i64 %2, %mul.i.i
+  %3 = trunc i64 %add.i.i to i8
   br label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
@@ -164,8 +165,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit, label %for.body.i.i, !llvm.loop !5
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.inc.i.i, %if.then.i.i
-  %retval.0.i.i = phi i64 [ %add.i.i, %if.then.i.i ], [ 256, %for.inc.i.i ]
-  %conv = trunc i64 %retval.0.i.i to i8
+  %retval.0.i.i = phi i8 [ %3, %if.then.i.i ], [ 0, %for.inc.i.i ]
   %m_header.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__begin1.sroa.0.034, i64 136
   %__begin3.sroa.0.029 = load ptr, ptr %m_header.i.i.i.i.i.i17, align 8
   %cmp.i.i.i.i.i.i.i.not30 = icmp eq ptr %__begin3.sroa.0.029, %m_header.i.i.i.i.i.i17
@@ -174,18 +174,18 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.inc.i.i, %if.th
 for.body12:                                       ; preds = %_ZNK3ue29CharReach10find_firstEv.exit, %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
   %__begin3.sroa.0.031 = phi ptr [ %__begin3.sroa.0.0, %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit ], [ %__begin3.sroa.0.029, %_ZNK3ue29CharReach10find_firstEv.exit ]
   %target.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.031, i64 40
-  %3 = load ptr, ptr %target.i.i.i, align 8
+  %4 = load ptr, ptr %target.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp12.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp21.i)
-  %in_edge_list.i.i.i = getelementptr inbounds i8, ptr %3, i64 104
-  %4 = load i64, ptr %in_edge_list.i.i.i, align 8
-  %cmp.not.i = icmp eq i64 %4, 1
+  %in_edge_list.i.i.i = getelementptr inbounds i8, ptr %4, i64 104
+  %5 = load i64, ptr %in_edge_list.i.i.i, align 8
+  %cmp.not.i = icmp eq i64 %5, 1
   br i1 %cmp.not.i, label %if.end.i, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 
 if.end.i:                                         ; preds = %for.body12
-  %props.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  switch i8 %conv, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit [
+  %props.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  switch i8 %retval.0.i.i, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit [
     i8 -32, label %if.then4.i
     i8 -16, label %if.then11.i
     i8 -12, label %if.then20.i
@@ -214,9 +214,9 @@ if.then20.i:                                      ; preds = %if.end.i
 
 if.end29.sink.split.i:                            ; preds = %if.then20.i, %if.then11.i, %if.then4.i
   %.sink7.i = phi i64 [ 4294967295, %if.then4.i ], [ 65535, %if.then11.i ], [ -65536, %if.then20.i ]
-  %arrayidx.i.i22.i.i23.i = getelementptr inbounds i8, ptr %3, i64 32
-  %5 = load i64, ptr %arrayidx.i.i22.i.i23.i, align 8
-  %or17.i.i24.i = or i64 %5, %.sink7.i
+  %arrayidx.i.i22.i.i23.i = getelementptr inbounds i8, ptr %4, i64 32
+  %6 = load i64, ptr %arrayidx.i.i22.i.i23.i, align 8
+  %or17.i.i24.i = or i64 %6, %.sink7.i
   store i64 %or17.i.i24.i, ptr %arrayidx.i.i22.i.i23.i, align 8
   br label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 

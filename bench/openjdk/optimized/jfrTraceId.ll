@@ -431,7 +431,7 @@ _ZL13next_class_idv.exit:                         ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN10JfrTraceId4loadEP7_jclassb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 281474976710657) i64 @_ZN10JfrTraceId4loadEP7_jclassb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN10JNIHandles7resolveEP8_jobject.exit, label %3
 
@@ -527,7 +527,7 @@ _ZL14load_primitiveP7oopDesc.exit:                ; preds = %36, %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN10JfrTraceId8load_rawEP7_jclass(ptr noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 281474976710657) i64 @_ZN10JfrTraceId8load_rawEP7_jclass(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %_ZN10JNIHandles7resolveEP8_jobject.exit.i, label %2
 

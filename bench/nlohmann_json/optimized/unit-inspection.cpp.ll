@@ -2255,18 +2255,17 @@ invoke.cont260:                                   ; preds = %invoke.cont254
   ]
 
 lor.lhs.false5.i:                                 ; preds = %invoke.cont260
-  %39 = add i8 %38, -5
-  %spec.select.i304 = icmp ult i8 %39, 4
+  %39 = add i8 %38, -9
+  %spec.select.i304 = icmp ult i8 %39, -4
+  %40 = zext i1 %spec.select.i304 to i64
   br label %invoke.cont265
 
 invoke.cont265:                                   ; preds = %lor.lhs.false5.i, %invoke.cont260, %invoke.cont260, %invoke.cont260
-  %40 = phi i1 [ true, %invoke.cont260 ], [ true, %invoke.cont260 ], [ true, %invoke.cont260 ], [ %spec.select.i304, %lor.lhs.false5.i ]
-  %lnot263 = xor i1 %40, true
+  %lnot263 = phi i64 [ 0, %invoke.cont260 ], [ 0, %invoke.cont260 ], [ 0, %invoke.cont260 ], [ %40, %lor.lhs.false5.i ]
   %41 = load i32, ptr %ref.tmp259, align 4
   %retval.sroa.21.0.insert.ext.i306 = zext i32 %41 to i64
   %retval.sroa.21.0.insert.shift.i307 = shl nuw i64 %retval.sroa.21.0.insert.ext.i306, 32
-  %retval.sroa.0.0.insert.ext.i308 = zext i1 %lnot263 to i64
-  %retval.sroa.0.0.insert.insert.i309 = or disjoint i64 %retval.sroa.21.0.insert.shift.i307, %retval.sroa.0.0.insert.ext.i308
+  %retval.sroa.0.0.insert.insert.i309 = or disjoint i64 %retval.sroa.21.0.insert.shift.i307, %lnot263
   store i64 %retval.sroa.0.0.insert.insert.i309, ptr %ref.tmp258, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp257, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp258)
           to label %invoke.cont267 unwind label %lpad97
@@ -2834,18 +2833,17 @@ invoke.cont510:                                   ; preds = %invoke.cont504
   ]
 
 lor.lhs.false5.i426:                              ; preds = %invoke.cont510
-  %102 = add i8 %101, -5
-  %spec.select.i427 = icmp ult i8 %102, 4
+  %102 = add i8 %101, -9
+  %spec.select.i427 = icmp ult i8 %102, -4
+  %103 = zext i1 %spec.select.i427 to i64
   br label %invoke.cont515
 
 invoke.cont515:                                   ; preds = %lor.lhs.false5.i426, %invoke.cont510, %invoke.cont510, %invoke.cont510
-  %103 = phi i1 [ true, %invoke.cont510 ], [ true, %invoke.cont510 ], [ true, %invoke.cont510 ], [ %spec.select.i427, %lor.lhs.false5.i426 ]
-  %lnot513 = xor i1 %103, true
+  %lnot513 = phi i64 [ 0, %invoke.cont510 ], [ 0, %invoke.cont510 ], [ 0, %invoke.cont510 ], [ %103, %lor.lhs.false5.i426 ]
   %104 = load i32, ptr %ref.tmp509, align 4
   %retval.sroa.21.0.insert.ext.i430 = zext i32 %104 to i64
   %retval.sroa.21.0.insert.shift.i431 = shl nuw i64 %retval.sroa.21.0.insert.ext.i430, 32
-  %retval.sroa.0.0.insert.ext.i432 = zext i1 %lnot513 to i64
-  %retval.sroa.0.0.insert.insert.i433 = or disjoint i64 %retval.sroa.21.0.insert.shift.i431, %retval.sroa.0.0.insert.ext.i432
+  %retval.sroa.0.0.insert.insert.i433 = or disjoint i64 %retval.sroa.21.0.insert.shift.i431, %lnot513
   store i64 %retval.sroa.0.0.insert.insert.i433, ptr %ref.tmp508, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp507, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp508)
           to label %invoke.cont517 unwind label %lpad345
@@ -3301,15 +3299,15 @@ invoke.cont718:                                   ; preds = %invoke.cont712
 lor.lhs.false5.i536:                              ; preds = %invoke.cont718
   %154 = add i8 %153, -5
   %spec.select.i537 = icmp ult i8 %154, 4
+  %155 = zext i1 %spec.select.i537 to i64
   br label %invoke.cont722
 
 invoke.cont722:                                   ; preds = %lor.lhs.false5.i536, %invoke.cont718, %invoke.cont718, %invoke.cont718
-  %155 = phi i1 [ true, %invoke.cont718 ], [ true, %invoke.cont718 ], [ true, %invoke.cont718 ], [ %spec.select.i537, %lor.lhs.false5.i536 ]
+  %frombool721 = phi i64 [ 1, %invoke.cont718 ], [ 1, %invoke.cont718 ], [ 1, %invoke.cont718 ], [ %155, %lor.lhs.false5.i536 ]
   %156 = load i32, ptr %ref.tmp717, align 4
   %retval.sroa.21.0.insert.ext.i540 = zext i32 %156 to i64
   %retval.sroa.21.0.insert.shift.i541 = shl nuw i64 %retval.sroa.21.0.insert.ext.i540, 32
-  %retval.sroa.0.0.insert.ext.i542 = zext i1 %155 to i64
-  %retval.sroa.0.0.insert.insert.i543 = or disjoint i64 %retval.sroa.21.0.insert.shift.i541, %retval.sroa.0.0.insert.ext.i542
+  %retval.sroa.0.0.insert.insert.i543 = or disjoint i64 %retval.sroa.21.0.insert.shift.i541, %frombool721
   store i64 %retval.sroa.0.0.insert.insert.i543, ptr %ref.tmp716, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp715, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp716)
           to label %invoke.cont724 unwind label %lpad553
@@ -3752,15 +3750,15 @@ invoke.cont927:                                   ; preds = %invoke.cont921
 lor.lhs.false5.i646:                              ; preds = %invoke.cont927
   %204 = add i8 %203, -5
   %spec.select.i647 = icmp ult i8 %204, 4
+  %205 = zext i1 %spec.select.i647 to i64
   br label %invoke.cont931
 
 invoke.cont931:                                   ; preds = %lor.lhs.false5.i646, %invoke.cont927, %invoke.cont927, %invoke.cont927
-  %205 = phi i1 [ true, %invoke.cont927 ], [ true, %invoke.cont927 ], [ true, %invoke.cont927 ], [ %spec.select.i647, %lor.lhs.false5.i646 ]
+  %frombool930 = phi i64 [ 1, %invoke.cont927 ], [ 1, %invoke.cont927 ], [ 1, %invoke.cont927 ], [ %205, %lor.lhs.false5.i646 ]
   %206 = load i32, ptr %ref.tmp926, align 4
   %retval.sroa.21.0.insert.ext.i650 = zext i32 %206 to i64
   %retval.sroa.21.0.insert.shift.i651 = shl nuw i64 %retval.sroa.21.0.insert.ext.i650, 32
-  %retval.sroa.0.0.insert.ext.i652 = zext i1 %205 to i64
-  %retval.sroa.0.0.insert.insert.i653 = or disjoint i64 %retval.sroa.21.0.insert.shift.i651, %retval.sroa.0.0.insert.ext.i652
+  %retval.sroa.0.0.insert.insert.i653 = or disjoint i64 %retval.sroa.21.0.insert.shift.i651, %frombool930
   store i64 %retval.sroa.0.0.insert.insert.i653, ptr %ref.tmp925, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp924, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp925)
           to label %invoke.cont933 unwind label %lpad762
@@ -4210,15 +4208,15 @@ invoke.cont1136:                                  ; preds = %invoke.cont1130
 lor.lhs.false5.i756:                              ; preds = %invoke.cont1136
   %255 = add i8 %254, -5
   %spec.select.i757 = icmp ult i8 %255, 4
+  %256 = zext i1 %spec.select.i757 to i64
   br label %invoke.cont1140
 
 invoke.cont1140:                                  ; preds = %lor.lhs.false5.i756, %invoke.cont1136, %invoke.cont1136, %invoke.cont1136
-  %256 = phi i1 [ true, %invoke.cont1136 ], [ true, %invoke.cont1136 ], [ true, %invoke.cont1136 ], [ %spec.select.i757, %lor.lhs.false5.i756 ]
+  %frombool1139 = phi i64 [ 1, %invoke.cont1136 ], [ 1, %invoke.cont1136 ], [ 1, %invoke.cont1136 ], [ %256, %lor.lhs.false5.i756 ]
   %257 = load i32, ptr %ref.tmp1135, align 4
   %retval.sroa.21.0.insert.ext.i760 = zext i32 %257 to i64
   %retval.sroa.21.0.insert.shift.i761 = shl nuw i64 %retval.sroa.21.0.insert.ext.i760, 32
-  %retval.sroa.0.0.insert.ext.i762 = zext i1 %256 to i64
-  %retval.sroa.0.0.insert.insert.i763 = or disjoint i64 %retval.sroa.21.0.insert.shift.i761, %retval.sroa.0.0.insert.ext.i762
+  %retval.sroa.0.0.insert.insert.i763 = or disjoint i64 %retval.sroa.21.0.insert.shift.i761, %frombool1139
   store i64 %retval.sroa.0.0.insert.insert.i763, ptr %ref.tmp1134, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1133, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp1134)
           to label %invoke.cont1142 unwind label %lpad971
@@ -4662,15 +4660,15 @@ invoke.cont1344:                                  ; preds = %invoke.cont1338
 lor.lhs.false5.i867:                              ; preds = %invoke.cont1344
   %305 = add i8 %304, -5
   %spec.select.i868 = icmp ult i8 %305, 4
+  %306 = zext i1 %spec.select.i868 to i64
   br label %invoke.cont1348
 
 invoke.cont1348:                                  ; preds = %lor.lhs.false5.i867, %invoke.cont1344, %invoke.cont1344, %invoke.cont1344
-  %306 = phi i1 [ true, %invoke.cont1344 ], [ true, %invoke.cont1344 ], [ true, %invoke.cont1344 ], [ %spec.select.i868, %lor.lhs.false5.i867 ]
+  %frombool1347 = phi i64 [ 1, %invoke.cont1344 ], [ 1, %invoke.cont1344 ], [ 1, %invoke.cont1344 ], [ %306, %lor.lhs.false5.i867 ]
   %307 = load i32, ptr %ref.tmp1343, align 4
   %retval.sroa.21.0.insert.ext.i871 = zext i32 %307 to i64
   %retval.sroa.21.0.insert.shift.i872 = shl nuw i64 %retval.sroa.21.0.insert.ext.i871, 32
-  %retval.sroa.0.0.insert.ext.i873 = zext i1 %306 to i64
-  %retval.sroa.0.0.insert.insert.i874 = or disjoint i64 %retval.sroa.21.0.insert.shift.i872, %retval.sroa.0.0.insert.ext.i873
+  %retval.sroa.0.0.insert.insert.i874 = or disjoint i64 %retval.sroa.21.0.insert.shift.i872, %frombool1347
   store i64 %retval.sroa.0.0.insert.insert.i874, ptr %ref.tmp1342, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1341, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp1342)
           to label %invoke.cont1350 unwind label %lpad1180
@@ -5113,15 +5111,15 @@ invoke.cont1551:                                  ; preds = %invoke.cont1545
 lor.lhs.false5.i979:                              ; preds = %invoke.cont1551
   %355 = add i8 %354, -5
   %spec.select.i980 = icmp ult i8 %355, 4
+  %356 = zext i1 %spec.select.i980 to i64
   br label %invoke.cont1555
 
 invoke.cont1555:                                  ; preds = %lor.lhs.false5.i979, %invoke.cont1551, %invoke.cont1551, %invoke.cont1551
-  %356 = phi i1 [ true, %invoke.cont1551 ], [ true, %invoke.cont1551 ], [ true, %invoke.cont1551 ], [ %spec.select.i980, %lor.lhs.false5.i979 ]
+  %frombool1554 = phi i64 [ 1, %invoke.cont1551 ], [ 1, %invoke.cont1551 ], [ 1, %invoke.cont1551 ], [ %356, %lor.lhs.false5.i979 ]
   %357 = load i32, ptr %ref.tmp1550, align 4
   %retval.sroa.21.0.insert.ext.i983 = zext i32 %357 to i64
   %retval.sroa.21.0.insert.shift.i984 = shl nuw i64 %retval.sroa.21.0.insert.ext.i983, 32
-  %retval.sroa.0.0.insert.ext.i985 = zext i1 %356 to i64
-  %retval.sroa.0.0.insert.insert.i986 = or disjoint i64 %retval.sroa.21.0.insert.shift.i984, %retval.sroa.0.0.insert.ext.i985
+  %retval.sroa.0.0.insert.insert.i986 = or disjoint i64 %retval.sroa.21.0.insert.shift.i984, %frombool1554
   store i64 %retval.sroa.0.0.insert.insert.i986, ptr %ref.tmp1549, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1548, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp1549)
           to label %invoke.cont1557 unwind label %lpad1388
@@ -5564,15 +5562,15 @@ invoke.cont1759:                                  ; preds = %invoke.cont1753
 lor.lhs.false5.i1090:                             ; preds = %invoke.cont1759
   %405 = add i8 %404, -5
   %spec.select.i1091 = icmp ult i8 %405, 4
+  %406 = zext i1 %spec.select.i1091 to i64
   br label %invoke.cont1763
 
 invoke.cont1763:                                  ; preds = %lor.lhs.false5.i1090, %invoke.cont1759, %invoke.cont1759, %invoke.cont1759
-  %406 = phi i1 [ true, %invoke.cont1759 ], [ true, %invoke.cont1759 ], [ true, %invoke.cont1759 ], [ %spec.select.i1091, %lor.lhs.false5.i1090 ]
+  %frombool1762 = phi i64 [ 1, %invoke.cont1759 ], [ 1, %invoke.cont1759 ], [ 1, %invoke.cont1759 ], [ %406, %lor.lhs.false5.i1090 ]
   %407 = load i32, ptr %ref.tmp1758, align 4
   %retval.sroa.21.0.insert.ext.i1094 = zext i32 %407 to i64
   %retval.sroa.21.0.insert.shift.i1095 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1094, 32
-  %retval.sroa.0.0.insert.ext.i1096 = zext i1 %406 to i64
-  %retval.sroa.0.0.insert.insert.i1097 = or disjoint i64 %retval.sroa.21.0.insert.shift.i1095, %retval.sroa.0.0.insert.ext.i1096
+  %retval.sroa.0.0.insert.insert.i1097 = or disjoint i64 %retval.sroa.21.0.insert.shift.i1095, %frombool1762
   store i64 %retval.sroa.0.0.insert.insert.i1097, ptr %ref.tmp1757, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1756, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp1757)
           to label %invoke.cont1765 unwind label %lpad1595
@@ -6019,15 +6017,15 @@ invoke.cont1968:                                  ; preds = %invoke.cont1962
 lor.lhs.false5.i1200:                             ; preds = %invoke.cont1968
   %455 = add i8 %454, -5
   %spec.select.i1201 = icmp ult i8 %455, 4
+  %456 = zext i1 %spec.select.i1201 to i64
   br label %invoke.cont1972
 
 invoke.cont1972:                                  ; preds = %lor.lhs.false5.i1200, %invoke.cont1968, %invoke.cont1968, %invoke.cont1968
-  %456 = phi i1 [ true, %invoke.cont1968 ], [ true, %invoke.cont1968 ], [ true, %invoke.cont1968 ], [ %spec.select.i1201, %lor.lhs.false5.i1200 ]
+  %frombool1971 = phi i64 [ 1, %invoke.cont1968 ], [ 1, %invoke.cont1968 ], [ 1, %invoke.cont1968 ], [ %456, %lor.lhs.false5.i1200 ]
   %457 = load i32, ptr %ref.tmp1967, align 4
   %retval.sroa.21.0.insert.ext.i1204 = zext i32 %457 to i64
   %retval.sroa.21.0.insert.shift.i1205 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1204, 32
-  %retval.sroa.0.0.insert.ext.i1206 = zext i1 %456 to i64
-  %retval.sroa.0.0.insert.insert.i1207 = or disjoint i64 %retval.sroa.21.0.insert.shift.i1205, %retval.sroa.0.0.insert.ext.i1206
+  %retval.sroa.0.0.insert.insert.i1207 = or disjoint i64 %retval.sroa.21.0.insert.shift.i1205, %frombool1971
   store i64 %retval.sroa.0.0.insert.insert.i1207, ptr %ref.tmp1966, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp1965, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp1966)
           to label %invoke.cont1974 unwind label %lpad1803
@@ -6467,18 +6465,17 @@ invoke.cont2177:                                  ; preds = %invoke.cont2171
   ]
 
 lor.lhs.false5.i1311:                             ; preds = %invoke.cont2177
-  %505 = add i8 %504, -5
-  %spec.select.i1312 = icmp ult i8 %505, 4
+  %505 = add i8 %504, -9
+  %spec.select.i1312 = icmp ult i8 %505, -4
+  %506 = zext i1 %spec.select.i1312 to i64
   br label %invoke.cont2182
 
 invoke.cont2182:                                  ; preds = %lor.lhs.false5.i1311, %invoke.cont2177, %invoke.cont2177, %invoke.cont2177
-  %506 = phi i1 [ true, %invoke.cont2177 ], [ true, %invoke.cont2177 ], [ true, %invoke.cont2177 ], [ %spec.select.i1312, %lor.lhs.false5.i1311 ]
-  %lnot2180 = xor i1 %506, true
+  %lnot2180 = phi i64 [ 0, %invoke.cont2177 ], [ 0, %invoke.cont2177 ], [ 0, %invoke.cont2177 ], [ %506, %lor.lhs.false5.i1311 ]
   %507 = load i32, ptr %ref.tmp2176, align 4
   %retval.sroa.21.0.insert.ext.i1315 = zext i32 %507 to i64
   %retval.sroa.21.0.insert.shift.i1316 = shl nuw i64 %retval.sroa.21.0.insert.ext.i1315, 32
-  %retval.sroa.0.0.insert.ext.i1317 = zext i1 %lnot2180 to i64
-  %retval.sroa.0.0.insert.insert.i1318 = or disjoint i64 %retval.sroa.21.0.insert.shift.i1316, %retval.sroa.0.0.insert.ext.i1317
+  %retval.sroa.0.0.insert.insert.i1318 = or disjoint i64 %retval.sroa.21.0.insert.shift.i1316, %lnot2180
   store i64 %retval.sroa.0.0.insert.insert.i1318, ptr %ref.tmp2175, align 8
   invoke void @_ZN7doctest6detail14Expression_lhsIbEcvNS0_6ResultEEv(ptr nonnull sret(%"struct.doctest::detail::Result") align 8 %ref.tmp2174, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp2175)
           to label %invoke.cont2184 unwind label %lpad2012
@@ -35262,14 +35259,14 @@ land.lhs.true2.i.i7.i.i:                          ; preds = %_ZNKSt19istreambuf_
   %call4.i.i8.i.i = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %__end.sroa.0.0)
   %cmp.i.i2.i.i9.i.i = icmp eq i32 %call4.i.i8.i.i, -1
   %spec.select65 = select i1 %cmp.i.i2.i.i9.i.i, ptr null, ptr %__end.sroa.0.0
+  %3 = icmp eq i32 %call4.i.i8.i.i, -1
   br label %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
 
 _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = %land.lhs.true2.i.i7.i.i, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i
   %__end.sroa.0.2 = phi ptr [ null, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %spec.select65, %land.lhs.true2.i.i7.i.i ]
-  %__ret.0.i.i5.i.i = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %call4.i.i8.i.i, %land.lhs.true2.i.i7.i.i ]
+  %__ret.0.i.i5.i.i = phi i1 [ true, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %3, %land.lhs.true2.i.i7.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %__ret.0.i.i.i.i, -1
-  %3 = icmp eq i32 %__ret.0.i.i5.i.i, -1
-  %lnot.i = xor i1 %cmp.i.i.i.i.i, %3
+  %lnot.i = xor i1 %cmp.i.i.i.i.i, %__ret.0.i.i5.i.i
   %cmp = icmp ult i64 %__len.0, 15
   %4 = select i1 %lnot.i, i1 %cmp, i1 false
   br i1 %4, label %while.body, label %while.end

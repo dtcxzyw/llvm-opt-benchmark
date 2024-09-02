@@ -309,7 +309,7 @@ define void @Sbc_ManCriticalPath_rec(ptr noundef %0, ptr noundef %1, i32 noundef
 
 65:                                               ; preds = %49
   %66 = sub nsw i32 %62, %47
-  %67 = tail call noundef i32 @llvm.smax.i32(i32 %66, i32 0)
+  %67 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %66, i32 0)
   tail call void @Sbc_ManCriticalPath_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %58, i32 noundef %61, ptr noundef %4, i32 noundef %67)
   br label %68
 
@@ -334,7 +334,7 @@ define void @Sbc_ManCriticalPath_rec(ptr noundef %0, ptr noundef %1, i32 noundef
 
 78:                                               ; preds = %69
   %79 = sub nsw i32 %77, %32
-  %80 = tail call noundef i32 @llvm.smax.i32(i32 %79, i32 0)
+  %80 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %79, i32 0)
   tail call void @Sbc_ManCriticalPath_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %73, i32 noundef %76, ptr noundef %4, i32 noundef %80)
   %.val77.pre = load ptr, ptr %24, align 8
   br label %81

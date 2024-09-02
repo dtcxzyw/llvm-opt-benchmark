@@ -5954,8 +5954,8 @@ _ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44: ; preds = %220
   %225 = load ptr, ptr %224, align 8
   %226 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_nullEP6Symbol6HandleS2_P10JavaThread(ptr noundef %225, ptr null, ptr null, ptr noundef %2) #20
   %.pre = load ptr, ptr %180, align 8
-  %.not81 = icmp eq ptr %.pre, null
-  br i1 %.not81, label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread, label %_ZN12ResourceMarkD2Ev.exit
+  %227 = icmp eq ptr %.pre, null
+  br i1 %227, label %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread, label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %.lr.ph.split, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread, %.lr.ph.split.us, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us, %193, %.preheader, %132, %130, %103, %101, %75, %73, %182, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit, %111, %82, %_ZNK16CompactHashtableIPK5KlassPK31ArchivedKlassSubGraphInfoRecordXadL_Z33read_value_from_compact_hashtableIS5_ET_PhjEEXadL_ZN10HeapShared37record_equals_compact_hashtable_entryES5_S2_iEEE6lookupES2_ji.exit, %3
   %.0 = phi ptr [ null, %3 ], [ null, %_ZNK16CompactHashtableIPK5KlassPK31ArchivedKlassSubGraphInfoRecordXadL_Z33read_value_from_compact_hashtableIS5_ET_PhjEEXadL_ZN10HeapShared37record_equals_compact_hashtable_entryES5_S2_iEEE6lookupES2_ji.exit ], [ null, %82 ], [ null, %111 ], [ null, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit ], [ %.0.i.ph, %182 ], [ null, %73 ], [ null, %75 ], [ null, %101 ], [ null, %103 ], [ null, %130 ], [ null, %132 ], [ %.0.i.ph, %.preheader ], [ null, %.lr.ph.split.us ], [ null, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.us ], [ %.0.i.ph, %193 ], [ null, %.lr.ph.split ], [ null, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44 ], [ %.0.i.ph, %_ZN10HeapShared15resolve_or_initEP5KlassbP10JavaThread.exit44.thread ]

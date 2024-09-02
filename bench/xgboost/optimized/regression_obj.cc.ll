@@ -4089,13 +4089,16 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %92 = load i8, ptr %91, align 1
   %93 = add i8 %92, -48
   %94 = icmp ult i8 %93, 10
-  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %94, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph, %.critedge3.thread
-  %.6.lcssa = phi ptr [ %82, %.critedge3.thread ], [ %91, %.lr.ph ]
-  %.0124.lcssa = phi i64 [ 0, %.critedge3.thread ], [ %90, %.lr.ph ]
-  %.lcssa = phi i8 [ %83, %.critedge3.thread ], [ %92, %.lr.ph ]
-  %95 = uitofp i64 %.0124.lcssa to float
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %95 = uitofp i64 %90 to float
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.critedge3.thread
+  %.6.lcssa = phi ptr [ %82, %.critedge3.thread ], [ %91, %._crit_edge.loopexit ]
+  %.0124.lcssa = phi float [ 0.000000e+00, %.critedge3.thread ], [ %95, %._crit_edge.loopexit ]
+  %.lcssa = phi i8 [ %83, %.critedge3.thread ], [ %92, %._crit_edge.loopexit ]
   %96 = icmp eq i8 %.lcssa, 46
   br i1 %96, label %.preheader161, label %120
 
@@ -4144,13 +4147,13 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %117 = phi i8 [ %97, %.preheader161 ], [ %110, %._crit_edge183.loopexit ]
   %.8.lcssa = phi ptr [ %.8177, %.preheader161 ], [ %.8, %._crit_edge183.loopexit ]
   %118 = phi float [ 0.000000e+00, %.preheader161 ], [ %116, %._crit_edge183.loopexit ]
-  %119 = fadd float %118, %95
+  %119 = fadd float %.0124.lcssa, %118
   br label %120
 
 120:                                              ; preds = %._crit_edge183, %._crit_edge
   %121 = phi i8 [ %117, %._crit_edge183 ], [ %.lcssa, %._crit_edge ]
   %.7 = phi ptr [ %.8.lcssa, %._crit_edge183 ], [ %.6.lcssa, %._crit_edge ]
-  %.0122 = phi float [ %119, %._crit_edge183 ], [ %95, %._crit_edge ]
+  %.0122 = phi float [ %119, %._crit_edge183 ], [ %.0124.lcssa, %._crit_edge ]
   switch i8 %121, label %163 [
     i8 101, label %122
     i8 69, label %122
@@ -32173,18 +32176,18 @@ _ZNK7xgboost6linalg6TensorIfLi2EE8HostViewEv.exit: ; preds = %.preheader.i8.i.i1
   %214 = call double @exp(double noundef %213) #17
   %215 = call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %129)
   %.not.i133 = icmp eq i64 %215, 0
-  br i1 %.not.i133, label %220, label %.noexc135
+  br i1 %.not.i133, label %221, label %.noexc135
 
 .noexc135:                                        ; preds = %.noexc134
   %216 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %129)
   %217 = load ptr, ptr %216, align 8
   %218 = getelementptr inbounds float, ptr %217, i64 %209
   %219 = load float, ptr %218, align 4
-  br label %220
+  %220 = fpext float %219 to double
+  br label %221
 
-220:                                              ; preds = %.noexc134, %.noexc135
-  %221 = phi float [ %219, %.noexc135 ], [ 1.000000e+00, %.noexc134 ]
-  %222 = fpext float %221 to double
+221:                                              ; preds = %.noexc134, %.noexc135
+  %222 = phi double [ %220, %.noexc135 ], [ 1.000000e+00, %.noexc134 ]
   %223 = mul i64 %201, %209
   %224 = getelementptr inbounds float, ptr %180, i64 %223
   %225 = load float, ptr %224, align 4
@@ -32194,11 +32197,11 @@ _ZNK7xgboost6linalg6TensorIfLi2EE8HostViewEv.exit: ; preds = %.preheader.i8.i.i1
   %229 = fcmp olt double %.089172, %227
   br i1 %229, label %230, label %232
 
-230:                                              ; preds = %220
+230:                                              ; preds = %221
   %231 = fsub double %.178178, %228
   br label %252
 
-232:                                              ; preds = %220
+232:                                              ; preds = %221
   %233 = fcmp ugt double %.089172, %227
   br i1 %233, label %234, label %252
 
@@ -32278,9 +32281,9 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit142: ; preds = %.noexc141, %_ZN4dm
   %265 = fneg double %.184
   %266 = fmul double %264, %265
   %267 = call double @llvm.fmuladd.f64(double %214, double %.182, double %266)
-  %268 = fmul double %263, %222
+  %268 = fmul double %222, %263
   %269 = fptrunc double %268 to float
-  %270 = fmul double %267, %222
+  %270 = fmul double %222, %267
   %271 = fptrunc double %270 to float
   %272 = mul i64 %115, %209
   %273 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal", ptr %96, i64 %272
@@ -36298,9 +36301,9 @@ _ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8Met
 _ZN7xgboost6linalg7MakeVecIdEEDaPT_mNS_9DeviceOrdE.exit.i.i: ; preds = %114
   %.pre = load ptr, ptr %104, align 8, !noalias !800
   %.pre109 = load i32, ptr %106, align 8, !noalias !803
+  %116 = icmp eq i32 %.pre109, 0
   call void @llvm.experimental.noalias.scope.decl(metadata !806)
   call void @llvm.experimental.noalias.scope.decl(metadata !807)
-  %116 = icmp eq i32 %.pre109, 0
   br i1 %116, label %.noexc.i.i.i65, label %_ZN7xgboost10collectivelsIZNKS_3obj17MeanAbsoluteError14InitEstimationERKNS_8MetaInfoEPNS_6linalg6TensorIfLi1EEEEUlvE0_EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSE_OSD_.exit.thread113
 
 .noexc.i.i.i65:                                   ; preds = %_ZN7xgboost6linalg7MakeVecIdEEDaPT_mNS_9DeviceOrdE.exit.i.i

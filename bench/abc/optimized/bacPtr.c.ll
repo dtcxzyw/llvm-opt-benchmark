@@ -753,46 +753,45 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nofree nounwind uwtable
 define void @Bac_PtrDumpSignalsVerilog(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %1, i64 4
-  %.val1012 = load i32, ptr %4, align 4
-  %5 = icmp sgt i32 %.val1012, 0
+  %.val1011 = load i32, ptr %4, align 4
+  %5 = icmp sgt i32 %.val1011, 0
   br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr i8, ptr %1, i64 8
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %.lr.ph.split.us, label %.thread
+  br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.val1014.us = phi i32 [ %.val10.us, %.lr.ph.split.us ], [ %.val1012, %.lr.ph ]
+  %indvars.iv16 = phi i64 [ %indvars.iv.next17, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.val1013.us = phi i32 [ %.val10.us, %.lr.ph.split.us ], [ %.val1011, %.lr.ph ]
   %.val.us = load ptr, ptr %6, align 8
-  %7 = getelementptr inbounds ptr, ptr %.val.us, i64 %indvars.iv17
+  %7 = getelementptr inbounds ptr, ptr %.val.us, i64 %indvars.iv16
   %8 = load ptr, ptr %7, align 8
-  %9 = add nsw i32 %.val1014.us, -1
+  %9 = add nsw i32 %.val1013.us, -1
   %10 = sext i32 %9 to i64
-  %11 = icmp slt i64 %indvars.iv17, %10
-  %cond.fr.us = freeze i1 %11
-  %spec.select = select i1 %cond.fr.us, ptr @.str.12, ptr @.str.13
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %8, ptr noundef nonnull %spec.select) #14
-  %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
+  %11 = icmp slt i64 %indvars.iv16, %10
+  %12 = select i1 %11, ptr @.str.12, ptr @.str.13
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %8, ptr noundef nonnull %12) #14
+  %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %.val10.us = load i32, ptr %4, align 4
-  %13 = sext i32 %.val10.us to i64
-  %14 = icmp slt i64 %indvars.iv.next18, %13
-  br i1 %14, label %.lr.ph.split.us, label %.critedge, !llvm.loop !13
+  %14 = sext i32 %.val10.us to i64
+  %15 = icmp slt i64 %indvars.iv.next17, %14
+  br i1 %15, label %.lr.ph.split.us, label %.critedge, !llvm.loop !13
 
-.thread:                                          ; preds = %.lr.ph, %.thread
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.val = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %16, ptr noundef nonnull @.str.12) #14
+  %16 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %17, ptr noundef nonnull @.str.12) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val10 = load i32, ptr %4, align 4
-  %18 = sext i32 %.val10 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.thread, label %.critedge, !llvm.loop !13
+  %19 = sext i32 %.val10 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  br i1 %20, label %.lr.ph.split, label %.critedge, !llvm.loop !13
 
-.critedge:                                        ; preds = %.thread, %.lr.ph.split.us, %3
+.critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
   ret void
 }
 
@@ -873,16 +872,16 @@ define void @Bac_PtrDumpModuleVerilog(ptr nocapture noundef %0, ptr nocapture no
   %6 = getelementptr inbounds i8, ptr %.val21, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
-  %.val1012.i = load i32, ptr %8, align 4
-  %9 = icmp sgt i32 %.val1012.i, 0
+  %.val1011.i = load i32, ptr %8, align 4
+  %9 = icmp sgt i32 %.val1011.i, 0
   br i1 %9, label %.lr.ph.i, label %Bac_PtrDumpSignalsVerilog.exit
 
 .lr.ph.i:                                         ; preds = %2
   %10 = getelementptr i8, ptr %7, i64 8
-  br label %.thread.i
+  br label %.lr.ph.split.i
 
-.thread.i:                                        ; preds = %.thread.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.i ], [ 0, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %.val.i = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds ptr, ptr %.val.i, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
@@ -891,9 +890,9 @@ define void @Bac_PtrDumpModuleVerilog(ptr nocapture noundef %0, ptr nocapture no
   %.val10.i = load i32, ptr %8, align 4
   %14 = sext i32 %.val10.i to i64
   %15 = icmp slt i64 %indvars.iv.next.i, %14
-  br i1 %15, label %.thread.i, label %Bac_PtrDumpSignalsVerilog.exit.loopexit, !llvm.loop !13
+  br i1 %15, label %.lr.ph.split.i, label %Bac_PtrDumpSignalsVerilog.exit.loopexit, !llvm.loop !13
 
-Bac_PtrDumpSignalsVerilog.exit.loopexit:          ; preds = %.thread.i
+Bac_PtrDumpSignalsVerilog.exit.loopexit:          ; preds = %.lr.ph.split.i
   %.val20.pre = load ptr, ptr %3, align 8
   br label %Bac_PtrDumpSignalsVerilog.exit
 
@@ -902,8 +901,8 @@ Bac_PtrDumpSignalsVerilog.exit:                   ; preds = %Bac_PtrDumpSignalsV
   %16 = getelementptr inbounds i8, ptr %.val20, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 4
-  %.val1012.i23 = load i32, ptr %18, align 4
-  %19 = icmp sgt i32 %.val1012.i23, 0
+  %.val1011.i23 = load i32, ptr %18, align 4
+  %19 = icmp sgt i32 %.val1011.i23, 0
   br i1 %19, label %.lr.ph.i24, label %Bac_PtrDumpSignalsVerilog.exit25
 
 .lr.ph.i24:                                       ; preds = %Bac_PtrDumpSignalsVerilog.exit
@@ -911,117 +910,114 @@ Bac_PtrDumpSignalsVerilog.exit:                   ; preds = %Bac_PtrDumpSignalsV
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.i24
-  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i24 ]
-  %.val1014.us.i = phi i32 [ %.val10.us.i, %.lr.ph.split.us.i ], [ %.val1012.i23, %.lr.ph.i24 ]
+  %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i24 ]
+  %.val1013.us.i = phi i32 [ %.val10.us.i, %.lr.ph.split.us.i ], [ %.val1011.i23, %.lr.ph.i24 ]
   %.val.us.i = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds ptr, ptr %.val.us.i, i64 %indvars.iv17.i
+  %21 = getelementptr inbounds ptr, ptr %.val.us.i, i64 %indvars.iv16.i
   %22 = load ptr, ptr %21, align 8
-  %23 = add nsw i32 %.val1014.us.i, -1
+  %23 = add nsw i32 %.val1013.us.i, -1
   %24 = sext i32 %23 to i64
-  %25 = icmp slt i64 %indvars.iv17.i, %24
-  %cond.fr.us.i = freeze i1 %25
-  %spec.select.i = select i1 %cond.fr.us.i, ptr @.str.12, ptr @.str.13
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %22, ptr noundef nonnull %spec.select.i) #14
-  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
+  %25 = icmp slt i64 %indvars.iv16.i, %24
+  %26 = select i1 %25, ptr @.str.12, ptr @.str.13
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %22, ptr noundef nonnull %26) #14
+  %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %.val10.us.i = load i32, ptr %18, align 4
-  %27 = sext i32 %.val10.us.i to i64
-  %28 = icmp slt i64 %indvars.iv.next18.i, %27
-  br i1 %28, label %.lr.ph.split.us.i, label %Bac_PtrDumpSignalsVerilog.exit25, !llvm.loop !13
+  %28 = sext i32 %.val10.us.i to i64
+  %29 = icmp slt i64 %indvars.iv.next17.i, %28
+  br i1 %29, label %.lr.ph.split.us.i, label %Bac_PtrDumpSignalsVerilog.exit25, !llvm.loop !13
 
 Bac_PtrDumpSignalsVerilog.exit25:                 ; preds = %.lr.ph.split.us.i, %Bac_PtrDumpSignalsVerilog.exit
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 6, i64 1, ptr %0)
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 7, i64 1, ptr %0)
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 6, i64 1, ptr %0)
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 7, i64 1, ptr %0)
   %.val19 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %.val19, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr i8, ptr %32, i64 4
-  %.val1012.i26 = load i32, ptr %33, align 4
-  %34 = icmp sgt i32 %.val1012.i26, 0
-  br i1 %34, label %.lr.ph.i27, label %Bac_PtrDumpSignalsVerilog.exit36
+  %32 = getelementptr inbounds i8, ptr %.val19, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr i8, ptr %33, i64 4
+  %.val1011.i26 = load i32, ptr %34, align 4
+  %35 = icmp sgt i32 %.val1011.i26, 0
+  br i1 %35, label %.lr.ph.i27, label %Bac_PtrDumpSignalsVerilog.exit34
 
 .lr.ph.i27:                                       ; preds = %Bac_PtrDumpSignalsVerilog.exit25
-  %35 = getelementptr i8, ptr %32, i64 8
+  %36 = getelementptr i8, ptr %33, i64 8
   br label %.lr.ph.split.us.i28
 
 .lr.ph.split.us.i28:                              ; preds = %.lr.ph.split.us.i28, %.lr.ph.i27
-  %indvars.iv17.i29 = phi i64 [ %indvars.iv.next18.i34, %.lr.ph.split.us.i28 ], [ 0, %.lr.ph.i27 ]
-  %.val1014.us.i30 = phi i32 [ %.val10.us.i35, %.lr.ph.split.us.i28 ], [ %.val1012.i26, %.lr.ph.i27 ]
-  %.val.us.i31 = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds ptr, ptr %.val.us.i31, i64 %indvars.iv17.i29
-  %37 = load ptr, ptr %36, align 8
-  %38 = add nsw i32 %.val1014.us.i30, -1
-  %39 = sext i32 %38 to i64
-  %40 = icmp slt i64 %indvars.iv17.i29, %39
-  %cond.fr.us.i32 = freeze i1 %40
-  %spec.select.i33 = select i1 %cond.fr.us.i32, ptr @.str.12, ptr @.str.13
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %37, ptr noundef nonnull %spec.select.i33) #14
-  %indvars.iv.next18.i34 = add nuw nsw i64 %indvars.iv17.i29, 1
-  %.val10.us.i35 = load i32, ptr %33, align 4
-  %42 = sext i32 %.val10.us.i35 to i64
-  %43 = icmp slt i64 %indvars.iv.next18.i34, %42
-  br i1 %43, label %.lr.ph.split.us.i28, label %Bac_PtrDumpSignalsVerilog.exit36, !llvm.loop !13
+  %indvars.iv16.i29 = phi i64 [ %indvars.iv.next17.i32, %.lr.ph.split.us.i28 ], [ 0, %.lr.ph.i27 ]
+  %.val1013.us.i30 = phi i32 [ %.val10.us.i33, %.lr.ph.split.us.i28 ], [ %.val1011.i26, %.lr.ph.i27 ]
+  %.val.us.i31 = load ptr, ptr %36, align 8
+  %37 = getelementptr inbounds ptr, ptr %.val.us.i31, i64 %indvars.iv16.i29
+  %38 = load ptr, ptr %37, align 8
+  %39 = add nsw i32 %.val1013.us.i30, -1
+  %40 = sext i32 %39 to i64
+  %41 = icmp slt i64 %indvars.iv16.i29, %40
+  %42 = select i1 %41, ptr @.str.12, ptr @.str.13
+  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %38, ptr noundef nonnull %42) #14
+  %indvars.iv.next17.i32 = add nuw nsw i64 %indvars.iv16.i29, 1
+  %.val10.us.i33 = load i32, ptr %34, align 4
+  %44 = sext i32 %.val10.us.i33 to i64
+  %45 = icmp slt i64 %indvars.iv.next17.i32, %44
+  br i1 %45, label %.lr.ph.split.us.i28, label %Bac_PtrDumpSignalsVerilog.exit34, !llvm.loop !13
 
-Bac_PtrDumpSignalsVerilog.exit36:                 ; preds = %.lr.ph.split.us.i28, %Bac_PtrDumpSignalsVerilog.exit25
-  %44 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 2, i64 1, ptr %0)
-  %45 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 8, i64 1, ptr %0)
+Bac_PtrDumpSignalsVerilog.exit34:                 ; preds = %.lr.ph.split.us.i28, %Bac_PtrDumpSignalsVerilog.exit25
+  %46 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 2, i64 1, ptr %0)
+  %47 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 8, i64 1, ptr %0)
   %.val18 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds i8, ptr %.val18, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr i8, ptr %47, i64 4
-  %.val1012.i37 = load i32, ptr %48, align 4
-  %49 = icmp sgt i32 %.val1012.i37, 0
-  br i1 %49, label %.lr.ph.i38, label %Bac_PtrDumpSignalsVerilog.exit47
+  %48 = getelementptr inbounds i8, ptr %.val18, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr i8, ptr %49, i64 4
+  %.val1011.i35 = load i32, ptr %50, align 4
+  %51 = icmp sgt i32 %.val1011.i35, 0
+  br i1 %51, label %.lr.ph.i36, label %Bac_PtrDumpSignalsVerilog.exit43
 
-.lr.ph.i38:                                       ; preds = %Bac_PtrDumpSignalsVerilog.exit36
-  %50 = getelementptr i8, ptr %47, i64 8
-  br label %.lr.ph.split.us.i39
+.lr.ph.i36:                                       ; preds = %Bac_PtrDumpSignalsVerilog.exit34
+  %52 = getelementptr i8, ptr %49, i64 8
+  br label %.lr.ph.split.us.i37
 
-.lr.ph.split.us.i39:                              ; preds = %.lr.ph.split.us.i39, %.lr.ph.i38
-  %indvars.iv17.i40 = phi i64 [ %indvars.iv.next18.i45, %.lr.ph.split.us.i39 ], [ 0, %.lr.ph.i38 ]
-  %.val1014.us.i41 = phi i32 [ %.val10.us.i46, %.lr.ph.split.us.i39 ], [ %.val1012.i37, %.lr.ph.i38 ]
-  %.val.us.i42 = load ptr, ptr %50, align 8
-  %51 = getelementptr inbounds ptr, ptr %.val.us.i42, i64 %indvars.iv17.i40
-  %52 = load ptr, ptr %51, align 8
-  %53 = add nsw i32 %.val1014.us.i41, -1
-  %54 = sext i32 %53 to i64
-  %55 = icmp slt i64 %indvars.iv17.i40, %54
-  %cond.fr.us.i43 = freeze i1 %55
-  %spec.select.i44 = select i1 %cond.fr.us.i43, ptr @.str.12, ptr @.str.13
-  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %52, ptr noundef nonnull %spec.select.i44) #14
-  %indvars.iv.next18.i45 = add nuw nsw i64 %indvars.iv17.i40, 1
-  %.val10.us.i46 = load i32, ptr %48, align 4
-  %57 = sext i32 %.val10.us.i46 to i64
-  %58 = icmp slt i64 %indvars.iv.next18.i45, %57
-  br i1 %58, label %.lr.ph.split.us.i39, label %Bac_PtrDumpSignalsVerilog.exit47, !llvm.loop !13
+.lr.ph.split.us.i37:                              ; preds = %.lr.ph.split.us.i37, %.lr.ph.i36
+  %indvars.iv16.i38 = phi i64 [ %indvars.iv.next17.i41, %.lr.ph.split.us.i37 ], [ 0, %.lr.ph.i36 ]
+  %.val1013.us.i39 = phi i32 [ %.val10.us.i42, %.lr.ph.split.us.i37 ], [ %.val1011.i35, %.lr.ph.i36 ]
+  %.val.us.i40 = load ptr, ptr %52, align 8
+  %53 = getelementptr inbounds ptr, ptr %.val.us.i40, i64 %indvars.iv16.i38
+  %54 = load ptr, ptr %53, align 8
+  %55 = add nsw i32 %.val1013.us.i39, -1
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %indvars.iv16.i38, %56
+  %58 = select i1 %57, ptr @.str.12, ptr @.str.13
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %54, ptr noundef nonnull %58) #14
+  %indvars.iv.next17.i41 = add nuw nsw i64 %indvars.iv16.i38, 1
+  %.val10.us.i42 = load i32, ptr %50, align 4
+  %60 = sext i32 %.val10.us.i42 to i64
+  %61 = icmp slt i64 %indvars.iv.next17.i41, %60
+  br i1 %61, label %.lr.ph.split.us.i37, label %Bac_PtrDumpSignalsVerilog.exit43, !llvm.loop !13
 
-Bac_PtrDumpSignalsVerilog.exit47:                 ; preds = %.lr.ph.split.us.i39, %Bac_PtrDumpSignalsVerilog.exit36
-  %59 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 2, i64 1, ptr %0)
+Bac_PtrDumpSignalsVerilog.exit43:                 ; preds = %.lr.ph.split.us.i37, %Bac_PtrDumpSignalsVerilog.exit34
+  %62 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 2, i64 1, ptr %0)
   %.val = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds i8, ptr %.val, i64 32
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr i8, ptr %61, i64 4
-  %.val67.i = load i32, ptr %62, align 4
-  %63 = icmp sgt i32 %.val67.i, 0
-  br i1 %63, label %.lr.ph.i48, label %Bac_PtrDumpBoxesVerilog.exit
+  %63 = getelementptr inbounds i8, ptr %.val, i64 32
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr i8, ptr %64, i64 4
+  %.val67.i = load i32, ptr %65, align 4
+  %66 = icmp sgt i32 %.val67.i, 0
+  br i1 %66, label %.lr.ph.i44, label %Bac_PtrDumpBoxesVerilog.exit
 
-.lr.ph.i48:                                       ; preds = %Bac_PtrDumpSignalsVerilog.exit47
-  %64 = getelementptr i8, ptr %61, i64 8
-  br label %65
+.lr.ph.i44:                                       ; preds = %Bac_PtrDumpSignalsVerilog.exit43
+  %67 = getelementptr i8, ptr %64, i64 8
+  br label %68
 
-65:                                               ; preds = %65, %.lr.ph.i48
-  %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.i48 ], [ %indvars.iv.next.i51, %65 ]
-  %.val.i50 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds ptr, ptr %.val.i50, i64 %indvars.iv.i49
-  %67 = load ptr, ptr %66, align 8
-  tail call void @Bac_PtrDumpBoxVerilog(ptr noundef %0, ptr noundef %67)
-  %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
-  %.val6.i = load i32, ptr %62, align 4
-  %68 = sext i32 %.val6.i to i64
-  %69 = icmp slt i64 %indvars.iv.next.i51, %68
-  br i1 %69, label %65, label %Bac_PtrDumpBoxesVerilog.exit, !llvm.loop !15
+68:                                               ; preds = %68, %.lr.ph.i44
+  %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.i44 ], [ %indvars.iv.next.i47, %68 ]
+  %.val.i46 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds ptr, ptr %.val.i46, i64 %indvars.iv.i45
+  %70 = load ptr, ptr %69, align 8
+  tail call void @Bac_PtrDumpBoxVerilog(ptr noundef %0, ptr noundef %70)
+  %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i45, 1
+  %.val6.i = load i32, ptr %65, align 4
+  %71 = sext i32 %.val6.i to i64
+  %72 = icmp slt i64 %indvars.iv.next.i47, %71
+  br i1 %72, label %68, label %Bac_PtrDumpBoxesVerilog.exit, !llvm.loop !15
 
-Bac_PtrDumpBoxesVerilog.exit:                     ; preds = %65, %Bac_PtrDumpSignalsVerilog.exit47
-  %70 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 11, i64 1, ptr %0)
+Bac_PtrDumpBoxesVerilog.exit:                     ; preds = %68, %Bac_PtrDumpSignalsVerilog.exit43
+  %73 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 11, i64 1, ptr %0)
   ret void
 }
 

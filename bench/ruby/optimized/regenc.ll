@@ -1413,110 +1413,110 @@ onigenc_strlen.exit:                              ; preds = %onigenc_mbclen.exit
   %30 = zext i32 %29 to i64
   br label %31
 
-31:                                               ; preds = %onigenc_strlen.exit, %onigenc_with_ascii_strnicmp.exit.thread37
-  %indvars.iv = phi ptr [ getelementptr inbounds (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 2), %onigenc_strlen.exit ], [ %scevgep, %onigenc_with_ascii_strnicmp.exit.thread37 ]
-  %.01327 = phi ptr [ @onigenc_minimum_property_name_to_ctype.PBS, %onigenc_strlen.exit ], [ %83, %onigenc_with_ascii_strnicmp.exit.thread37 ]
-  %32 = load i16, ptr %.01327, align 4
+31:                                               ; preds = %onigenc_strlen.exit, %.critedge
+  %indvars.iv = phi ptr [ getelementptr inbounds (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 2), %onigenc_strlen.exit ], [ %scevgep, %.critedge ]
+  %.01325 = phi ptr [ @onigenc_minimum_property_name_to_ctype.PBS, %onigenc_strlen.exit ], [ %83, %.critedge ]
+  %32 = load i16, ptr %.01325, align 4
   %33 = sext i16 %32 to i32
   %34 = icmp eq i32 %.08.lcssa.i, %33
-  br i1 %34, label %35, label %onigenc_with_ascii_strnicmp.exit.thread37
+  br i1 %34, label %35, label %.critedge
 
 35:                                               ; preds = %31
   %36 = icmp sgt i16 %32, 0
   br i1 %36, label %.lr.ph.i15, label %onigenc_with_ascii_strnicmp.exit.thread
 
 .lr.ph.i15:                                       ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %.01327, i64 2
-  %scevgep36 = getelementptr i8, ptr %indvars.iv, i64 %30
+  %37 = getelementptr inbounds i8, ptr %.01325, i64 2
+  %scevgep32 = getelementptr i8, ptr %indvars.iv, i64 %30
   br label %38
 
 38:                                               ; preds = %onigenc_mbclen.exit.i16, %.lr.ph.i15
-  %.02635.i = phi ptr [ %37, %.lr.ph.i15 ], [ %55, %onigenc_mbclen.exit.i16 ]
-  %.02734.i = phi ptr [ %1, %.lr.ph.i15 ], [ %78, %onigenc_mbclen.exit.i16 ]
+  %.02635.i = phi ptr [ %37, %.lr.ph.i15 ], [ %57, %onigenc_mbclen.exit.i16 ]
+  %.02734.i = phi ptr [ %1, %.lr.ph.i15 ], [ %80, %onigenc_mbclen.exit.i16 ]
   %.not.i = icmp ult ptr %.02734.i, %2
-  br i1 %.not.i, label %39, label %onigenc_with_ascii_strnicmp.exit
-
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %26, align 8
-  %41 = tail call i32 %40(ptr noundef %.02734.i, ptr noundef nonnull %2, ptr noundef %0) #11
-  %42 = icmp slt i32 %41, 128
-  br i1 %42, label %43, label %48
-
-43:                                               ; preds = %39
-  %44 = sext i32 %41 to i64
-  %45 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  br label %48
-
-48:                                               ; preds = %43, %39
-  %.0.i = phi i32 [ %47, %43 ], [ %41, %39 ]
-  %49 = load i8, ptr %.02635.i, align 1
-  %50 = zext i8 %49 to i64
-  %51 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %50
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %.not32.i = icmp eq i32 %.0.i, %53
-  br i1 %.not32.i, label %54, label %onigenc_with_ascii_strnicmp.exit.thread37
-
-54:                                               ; preds = %48
-  %55 = getelementptr i8, ptr %.02635.i, i64 1
-  %56 = load i32, ptr %27, align 8
-  %57 = load i32, ptr %28, align 4
-  %58 = icmp eq i32 %56, %57
-  br i1 %58, label %onigenc_mbclen.exit.i16, label %59
-
-59:                                               ; preds = %54
-  %60 = load ptr, ptr %0, align 8
-  %61 = tail call i32 %60(ptr noundef %.02734.i, ptr noundef nonnull %2, ptr noundef nonnull %0) #11
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %63, label %70
-
-63:                                               ; preds = %59
-  %64 = zext nneg i32 %61 to i64
-  %65 = getelementptr i8, ptr %.02734.i, i64 %64
-  %66 = icmp ugt ptr %65, %2
-  %67 = ptrtoint ptr %.02734.i to i64
-  %68 = sub i64 %5, %67
-  %69 = trunc i64 %68 to i32
-  %.0.i.i17 = select i1 %66, i32 %69, i32 %61
-  br label %onigenc_mbclen.exit.i16
-
-70:                                               ; preds = %59
-  %71 = icmp slt i32 %61, -1
-  br i1 %71, label %72, label %onigenc_mbclen.exit.i16
-
-72:                                               ; preds = %70
-  %73 = ptrtoint ptr %.02734.i to i64
-  %74 = sub i64 %5, %73
-  %75 = trunc i64 %74 to i32
-  br label %onigenc_mbclen.exit.i16
-
-onigenc_mbclen.exit.i16:                          ; preds = %72, %70, %63, %54
-  %76 = phi i32 [ %56, %54 ], [ %.0.i.i17, %63 ], [ %75, %72 ], [ 1, %70 ]
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr i8, ptr %.02734.i, i64 %77
-  %exitcond.not = icmp eq ptr %.02635.i, %scevgep36
-  br i1 %exitcond.not, label %onigenc_with_ascii_strnicmp.exit.thread, label %38, !llvm.loop !18
+  br i1 %.not.i, label %41, label %onigenc_with_ascii_strnicmp.exit
 
 onigenc_with_ascii_strnicmp.exit:                 ; preds = %38
-  %79 = load i8, ptr %.02635.i, align 1
-  %80 = icmp eq i8 %79, 0
-  br i1 %80, label %onigenc_with_ascii_strnicmp.exit.thread, label %onigenc_with_ascii_strnicmp.exit.thread37
+  %39 = load i8, ptr %.02635.i, align 1
+  %40 = icmp eq i8 %39, 0
+  br i1 %40, label %onigenc_with_ascii_strnicmp.exit.thread, label %.critedge
+
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %26, align 8
+  %43 = tail call i32 %42(ptr noundef %.02734.i, ptr noundef nonnull %2, ptr noundef %0) #11
+  %44 = icmp slt i32 %43, 128
+  br i1 %44, label %45, label %50
+
+45:                                               ; preds = %41
+  %46 = sext i32 %43 to i64
+  %47 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %46
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i32
+  br label %50
+
+50:                                               ; preds = %45, %41
+  %.0.i = phi i32 [ %49, %45 ], [ %43, %41 ]
+  %51 = load i8, ptr %.02635.i, align 1
+  %52 = zext i8 %51 to i64
+  %53 = getelementptr [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %52
+  %54 = load i8, ptr %53, align 1
+  %55 = zext i8 %54 to i32
+  %.not32.i = icmp eq i32 %.0.i, %55
+  br i1 %.not32.i, label %56, label %.critedge
+
+56:                                               ; preds = %50
+  %57 = getelementptr i8, ptr %.02635.i, i64 1
+  %58 = load i32, ptr %27, align 8
+  %59 = load i32, ptr %28, align 4
+  %60 = icmp eq i32 %58, %59
+  br i1 %60, label %onigenc_mbclen.exit.i16, label %61
+
+61:                                               ; preds = %56
+  %62 = load ptr, ptr %0, align 8
+  %63 = tail call i32 %62(ptr noundef %.02734.i, ptr noundef nonnull %2, ptr noundef nonnull %0) #11
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %65, label %72
+
+65:                                               ; preds = %61
+  %66 = zext nneg i32 %63 to i64
+  %67 = getelementptr i8, ptr %.02734.i, i64 %66
+  %68 = icmp ugt ptr %67, %2
+  %69 = ptrtoint ptr %.02734.i to i64
+  %70 = sub i64 %5, %69
+  %71 = trunc i64 %70 to i32
+  %.0.i.i17 = select i1 %68, i32 %71, i32 %63
+  br label %onigenc_mbclen.exit.i16
+
+72:                                               ; preds = %61
+  %73 = icmp slt i32 %63, -1
+  br i1 %73, label %74, label %onigenc_mbclen.exit.i16
+
+74:                                               ; preds = %72
+  %75 = ptrtoint ptr %.02734.i to i64
+  %76 = sub i64 %5, %75
+  %77 = trunc i64 %76 to i32
+  br label %onigenc_mbclen.exit.i16
+
+onigenc_mbclen.exit.i16:                          ; preds = %74, %72, %65, %56
+  %78 = phi i32 [ %58, %56 ], [ %.0.i.i17, %65 ], [ %77, %74 ], [ 1, %72 ]
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr i8, ptr %.02734.i, i64 %79
+  %exitcond.not = icmp eq ptr %.02635.i, %scevgep32
+  br i1 %exitcond.not, label %onigenc_with_ascii_strnicmp.exit.thread, label %38, !llvm.loop !18
 
 onigenc_with_ascii_strnicmp.exit.thread:          ; preds = %35, %onigenc_with_ascii_strnicmp.exit, %onigenc_mbclen.exit.i16
-  %81 = getelementptr inbounds i8, ptr %.01327, i64 8
+  %81 = getelementptr inbounds i8, ptr %.01325, i64 8
   %82 = load i32, ptr %81, align 4
   br label %.loopexit
 
-onigenc_with_ascii_strnicmp.exit.thread37:        ; preds = %48, %31, %onigenc_with_ascii_strnicmp.exit
-  %83 = getelementptr i8, ptr %.01327, i64 12
+.critedge:                                        ; preds = %50, %31, %onigenc_with_ascii_strnicmp.exit
+  %83 = getelementptr i8, ptr %.01325, i64 12
   %84 = icmp ult ptr %83, getelementptr inbounds (i8, ptr @onigenc_minimum_property_name_to_ctype.PBS, i64 168)
   %scevgep = getelementptr i8, ptr %indvars.iv, i64 12
   br i1 %84, label %31, label %.loopexit, !llvm.loop !19
 
-.loopexit:                                        ; preds = %onigenc_with_ascii_strnicmp.exit.thread37, %onigenc_with_ascii_strnicmp.exit.thread
-  %.0 = phi i32 [ %82, %onigenc_with_ascii_strnicmp.exit.thread ], [ -223, %onigenc_with_ascii_strnicmp.exit.thread37 ]
+.loopexit:                                        ; preds = %.critedge, %onigenc_with_ascii_strnicmp.exit.thread
+  %.0 = phi i32 [ %82, %onigenc_with_ascii_strnicmp.exit.thread ], [ -223, %.critedge ]
   ret i32 %.0
 }
 

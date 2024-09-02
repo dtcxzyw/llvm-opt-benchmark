@@ -762,7 +762,7 @@ _ZNK8C2Access11mem_node_moEv.exit:                ; preds = %15, %18, %20, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK8C2Access11mem_node_moEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef range(i32 0, 4) i32 @_ZNK8C2Access11mem_node_moEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1024
@@ -4197,7 +4197,7 @@ define hidden noundef ptr @_ZNK12BarrierSetC213atomic_add_atER19C2AtomicParseAcc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN12BarrierSetC229arraycopy_payload_base_offsetEb(i1 noundef zeroext %0) local_unnamed_addr #9 align 2 {
+define hidden noundef range(i32 8, 21) i32 @_ZN12BarrierSetC229arraycopy_payload_base_offsetEb(i1 noundef zeroext %0) local_unnamed_addr #9 align 2 {
 .thread7:
   %1 = load i8, ptr @UseCompressedClassPointers, align 1
   %2 = trunc i8 %1 to i1

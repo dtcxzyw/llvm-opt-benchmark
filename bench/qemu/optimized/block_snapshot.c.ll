@@ -877,8 +877,8 @@ do.end:                                           ; preds = %entry
   br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %do.end
-  %tobool5.not27 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool5.not27, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, label %while.body.lr.ph
+  %tobool5.not26 = icmp eq ptr %bdrvs.val.pre, null
+  br i1 %tobool5.not26, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, label %while.body.lr.ph
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit.thread: ; preds = %while.cond.preheader
   tail call void @bdrv_graph_rdunlock_main_loop() #6
@@ -889,8 +889,8 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br i1 %tobool7.not, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end17.us
-  %iterbdrvs.028.us = phi ptr [ %iterbdrvs.0.us, %if.end17.us ], [ %bdrvs.val.pre, %while.body.lr.ph ]
-  %0 = load ptr, ptr %iterbdrvs.028.us, align 8
+  %iterbdrvs.027.us = phi ptr [ %iterbdrvs.0.us, %if.end17.us ], [ %bdrvs.val.pre, %while.body.lr.ph ]
+  %0 = load ptr, ptr %iterbdrvs.027.us, align 8
   %call6.us = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #6
   tail call void @aio_context_acquire(ptr noundef %call6.us) #6
   %call.i.us = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -950,14 +950,14 @@ if.then8.i.us:                                    ; preds = %if.end6.i.us
 
 if.end17.us:                                      ; preds = %if.end6.i.us, %do.end.i.us, %lor.lhs.false.i.us, %bdrv_all_snapshots_includes_bs.exit.us
   tail call void @aio_context_release(ptr noundef %call6.us) #6
-  %next.us = getelementptr inbounds i8, ptr %iterbdrvs.028.us, i64 8
+  %next.us = getelementptr inbounds i8, ptr %iterbdrvs.027.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool5.not.us = icmp eq ptr %iterbdrvs.0.us, null
   br i1 %tobool5.not.us, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body.us, !llvm.loop !11
 
 while.body:                                       ; preds = %while.body.lr.ph, %bdrv_can_snapshot.exit
-  %iterbdrvs.028 = phi ptr [ %iterbdrvs.0, %bdrv_can_snapshot.exit ], [ %bdrvs.val.pre, %while.body.lr.ph ]
-  %4 = load ptr, ptr %iterbdrvs.028, align 8
+  %iterbdrvs.027 = phi ptr [ %iterbdrvs.0, %bdrv_can_snapshot.exit ], [ %bdrvs.val.pre, %while.body.lr.ph ]
+  %4 = load ptr, ptr %iterbdrvs.027, align 8
   %call6 = tail call ptr @bdrv_get_aio_context(ptr noundef %4) #6
   tail call void @aio_context_acquire(ptr noundef %call6) #6
   br label %tailrecurse.i
@@ -1002,15 +1002,15 @@ if.then8.i:                                       ; preds = %if.end6.i
 
 bdrv_can_snapshot.exit:                           ; preds = %if.end6.i
   tail call void @aio_context_release(ptr noundef %call6) #6
-  %next = getelementptr inbounds i8, ptr %iterbdrvs.028, i64 8
+  %next = getelementptr inbounds i8, ptr %iterbdrvs.027, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
   br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !11
 
 if.then15:                                        ; preds = %if.then8.i, %do.end.i11, %lor.lhs.false.i12, %lor.lhs.false3.i, %do.end.i11.us, %lor.lhs.false.i12.us, %lor.lhs.false3.i.us, %if.then8.i.us
   %.us-phi = phi ptr [ %0, %if.then8.i.us ], [ %0, %lor.lhs.false3.i.us ], [ %0, %lor.lhs.false.i12.us ], [ %0, %do.end.i11.us ], [ %4, %lor.lhs.false3.i ], [ %4, %lor.lhs.false.i12 ], [ %4, %do.end.i11 ], [ %4, %if.then8.i ]
-  %.us-phi29 = phi ptr [ %call6.us, %if.then8.i.us ], [ %call6.us, %lor.lhs.false3.i.us ], [ %call6.us, %lor.lhs.false.i12.us ], [ %call6.us, %do.end.i11.us ], [ %call6, %lor.lhs.false3.i ], [ %call6, %lor.lhs.false.i12 ], [ %call6, %do.end.i11 ], [ %call6, %if.then8.i ]
-  tail call void @aio_context_release(ptr noundef %.us-phi29) #6
+  %.us-phi28 = phi ptr [ %call6.us, %if.then8.i.us ], [ %call6.us, %lor.lhs.false3.i.us ], [ %call6.us, %lor.lhs.false.i12.us ], [ %call6.us, %do.end.i11.us ], [ %call6, %lor.lhs.false3.i ], [ %call6, %lor.lhs.false.i12 ], [ %call6, %do.end.i11 ], [ %call6, %if.then8.i ]
+  tail call void @aio_context_release(ptr noundef %.us-phi28) #6
   %call16 = tail call ptr @bdrv_get_device_or_node_name(ptr noundef %.us-phi) #6
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 558, ptr noundef nonnull @__func__.bdrv_all_can_snapshot, ptr noundef nonnull @.str.21, ptr noundef %call16) #6
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
@@ -1026,8 +1026,8 @@ if.then.i.i16:                                    ; preds = %glib_autoptr_cleanu
   br label %glib_autoptr_cleanup_GList.exit
 
 glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, %glib_autoptr_cleanup_GraphLockableMainloop.exit, %if.then.i.i16
-  %retval.045 = phi i1 [ true, %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread ], [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %retval.0, %if.then.i.i16 ]
-  ret i1 %retval.045
+  %retval.044 = phi i1 [ true, %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread ], [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %retval.0, %if.then.i.i16 ]
+  ret i1 %retval.044
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1123,8 +1123,8 @@ do.end:                                           ; preds = %entry
   br i1 %cmp, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %do.end
-  %tobool5.not36 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool5.not36, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, label %while.body.lr.ph
+  %tobool5.not34 = icmp eq ptr %bdrvs.val.pre, null
+  br i1 %tobool5.not34, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, label %while.body.lr.ph
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit.thread: ; preds = %while.cond.preheader
   tail call void @bdrv_graph_rdunlock_main_loop() #6
@@ -1136,8 +1136,8 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end19
-  %iterbdrvs.037 = phi ptr [ %bdrvs.val.pre, %while.body.lr.ph ], [ %iterbdrvs.0, %if.end19 ]
-  %0 = load ptr, ptr %iterbdrvs.037, align 8
+  %iterbdrvs.035 = phi ptr [ %bdrvs.val.pre, %while.body.lr.ph ], [ %iterbdrvs.0, %if.end19 ]
+  %0 = load ptr, ptr %iterbdrvs.035, align 8
   %call6 = call ptr @bdrv_get_aio_context(ptr noundef %0) #6
   call void @aio_context_acquire(ptr noundef %call6) #6
   br i1 %tobool7.not, label %lor.lhs.false, label %land.lhs.true
@@ -1153,11 +1153,11 @@ if.else.i:                                        ; preds = %lor.lhs.false
 do.end.i:                                         ; preds = %lor.lhs.false
   call void @assert_bdrv_graph_readable() #6
   %call1.i = call zeroext i1 @bdrv_is_inserted(ptr noundef %0) #6
-  br i1 %call1.i, label %lor.lhs.false.i, label %if.end15.thread
+  br i1 %call1.i, label %lor.lhs.false.i, label %if.end19.critedge
 
 lor.lhs.false.i:                                  ; preds = %do.end.i
   %call2.i = call zeroext i1 @bdrv_is_read_only(ptr noundef %0) #6
-  br i1 %call2.i, label %if.end15.thread, label %if.end4.i
+  br i1 %call2.i, label %if.end19.critedge, label %if.end4.i
 
 if.end4.i:                                        ; preds = %lor.lhs.false.i
   %call5.i = call zeroext i1 @bdrv_has_blk(ptr noundef %0) #6
@@ -1167,7 +1167,7 @@ bdrv_all_snapshots_includes_bs.exit:              ; preds = %if.end4.i
   %parents.i = getelementptr inbounds i8, ptr %0, i64 16848
   %1 = load ptr, ptr %parents.i, align 8
   %cmp.i = icmp eq ptr %1, null
-  br i1 %cmp.i, label %land.lhs.true, label %if.end15.thread
+  br i1 %cmp.i, label %land.lhs.true, label %if.end19.critedge
 
 land.lhs.true:                                    ; preds = %if.end4.i, %bdrv_all_snapshots_includes_bs.exit, %while.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sn_tab.i)
@@ -1181,7 +1181,7 @@ if.else.i15:                                      ; preds = %land.lhs.true
 do.end.i16:                                       ; preds = %land.lhs.true
   %call1.i17 = call i32 @bdrv_snapshot_list(ptr noundef %0, ptr noundef nonnull %sn_tab.i)
   %cmp.i18 = icmp slt i32 %call1.i17, 0
-  br i1 %cmp.i18, label %if.end15.thread.sink.split, label %for.cond.preheader.i
+  br i1 %cmp.i18, label %if.end19.critedge.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %do.end.i16
   %cmp46.not.i = icmp eq i32 %call1.i17, 0
@@ -1203,36 +1203,36 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %name5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 128
   %call6.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name5.i, ptr noundef nonnull readonly dereferenceable(1) %name) #8
   %tobool.not.i = icmp eq i32 %call6.i, 0
-  br i1 %tobool.not.i, label %if.end15, label %for.cond.i
+  br i1 %tobool.not.i, label %if.then11, label %for.cond.i
 
 bdrv_snapshot_find.exit.thread27:                 ; preds = %for.cond.i, %for.cond.preheader.i
   call void @g_free(ptr noundef %.pre.i) #6
-  br label %if.end15.thread.sink.split
+  br label %if.end19.critedge.sink.split
 
-if.end15.thread.sink.split:                       ; preds = %do.end.i16, %bdrv_snapshot_find.exit.thread27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
-  br label %if.end15.thread
-
-if.end15.thread:                                  ; preds = %if.end15.thread.sink.split, %bdrv_all_snapshots_includes_bs.exit, %lor.lhs.false.i, %do.end.i
-  call void @aio_context_release(ptr noundef %call6) #6
-  br label %if.end19
-
-if.end15:                                         ; preds = %for.body.i
+if.then11:                                        ; preds = %for.body.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %sn1, ptr noundef nonnull align 8 dereferenceable(416) %arrayidx.i, i64 416, i1 false)
   call void @g_free(ptr noundef %.pre.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
   %call14 = call i32 @bdrv_snapshot_delete(ptr noundef %0, ptr noundef nonnull %sn1, ptr noundef nonnull %name12, ptr noundef %errp)
+  %2 = icmp slt i32 %call14, 0
   call void @aio_context_release(ptr noundef %call6) #6
-  %cmp16 = icmp slt i32 %call14, 0
-  br i1 %cmp16, label %if.then17, label %if.end19
+  br i1 %2, label %if.then17, label %if.end19
 
-if.then17:                                        ; preds = %if.end15
+if.then17:                                        ; preds = %if.then11
   %call18 = call ptr @bdrv_get_device_or_node_name(ptr noundef %0) #6
   call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.22, ptr noundef %name, ptr noundef %call18) #6
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
-if.end19:                                         ; preds = %if.end15.thread, %if.end15
-  %next = getelementptr inbounds i8, ptr %iterbdrvs.037, i64 8
+if.end19.critedge.sink.split:                     ; preds = %do.end.i16, %bdrv_snapshot_find.exit.thread27
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sn_tab.i)
+  br label %if.end19.critedge
+
+if.end19.critedge:                                ; preds = %if.end19.critedge.sink.split, %do.end.i, %lor.lhs.false.i, %bdrv_all_snapshots_includes_bs.exit
+  call void @aio_context_release(ptr noundef %call6) #6
+  br label %if.end19
+
+if.end19:                                         ; preds = %if.end19.critedge, %if.then11
+  %next = getelementptr inbounds i8, ptr %iterbdrvs.035, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %iterbdrvs.0, null
   br i1 %tobool5.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %while.body, !llvm.loop !14
@@ -1248,8 +1248,8 @@ if.then.i.i21:                                    ; preds = %glib_autoptr_cleanu
   br label %glib_autoptr_cleanup_GList.exit
 
 glib_autoptr_cleanup_GList.exit:                  ; preds = %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread, %glib_autoptr_cleanup_GraphLockableMainloop.exit, %if.then.i.i21
-  %retval.044 = phi i32 [ 0, %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread ], [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %retval.0, %if.then.i.i21 ]
-  ret i32 %retval.044
+  %retval.042 = phi i32 [ 0, %glib_autoptr_cleanup_GraphLockableMainloop.exit.thread ], [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %retval.0, %if.then.i.i21 ]
+  ret i32 %retval.042
 }
 
 declare void @error_prepend(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -1275,16 +1275,16 @@ do.end:                                           ; preds = %entry
   br i1 %cmp, label %cleanup, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %do.end
-  %tobool4.not16 = icmp eq ptr %bdrvs.val.pre, null
-  br i1 %tobool4.not16, label %glib_autoptr_cleanup_GList.exit, label %while.body.lr.ph
+  %tobool4.not14 = icmp eq ptr %bdrvs.val.pre, null
+  br i1 %tobool4.not14, label %glib_autoptr_cleanup_GList.exit, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
   %tobool8.not.not = icmp eq ptr %devices, null
   br i1 %tobool8.not.not, label %while.body, label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end14.us
-  %iterbdrvs.017.us = phi ptr [ %iterbdrvs.0.us, %if.end14.us ], [ %bdrvs.val.pre, %while.body.lr.ph ]
-  %0 = load ptr, ptr %iterbdrvs.017.us, align 8
+  %iterbdrvs.015.us = phi ptr [ %iterbdrvs.0.us, %if.end14.us ], [ %bdrvs.val.pre, %while.body.lr.ph ]
+  %0 = load ptr, ptr %iterbdrvs.015.us, align 8
   %call5.us = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #6
   tail call void @aio_context_acquire(ptr noundef %call5.us) #6
   tail call void @bdrv_graph_rdlock_main_loop() #6
@@ -1307,20 +1307,20 @@ if.end4.i.us:                                     ; preds = %lor.lhs.false.i.us
 bdrv_all_snapshots_includes_bs.exit.us:           ; preds = %if.end4.i.us, %lor.lhs.false.i.us, %do.end.i.us
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   %call10.us = tail call i32 @bdrv_snapshot_goto(ptr noundef %0, ptr noundef %name, ptr noundef %errp)
+  %1 = icmp slt i32 %call10.us, 0
   tail call void @aio_context_release(ptr noundef %call5.us) #6
-  %cmp11.us = icmp slt i32 %call10.us, 0
-  br i1 %cmp11.us, label %if.then12, label %if.end14.us
+  br i1 %1, label %if.then12, label %if.end14.us
 
 if.end14.us:                                      ; preds = %bdrv_all_snapshots_includes_bs.exit.us
-  %next.us = getelementptr inbounds i8, ptr %iterbdrvs.017.us, i64 8
+  %next.us = getelementptr inbounds i8, ptr %iterbdrvs.015.us, i64 8
   %iterbdrvs.0.us = load ptr, ptr %next.us, align 8
   %tobool4.not.us = icmp eq ptr %iterbdrvs.0.us, null
   br i1 %tobool4.not.us, label %cleanup, label %while.body.us, !llvm.loop !15
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end14
-  %iterbdrvs.017 = phi ptr [ %iterbdrvs.0, %if.end14 ], [ %bdrvs.val.pre, %while.body.lr.ph ]
-  %1 = load ptr, ptr %iterbdrvs.017, align 8
-  %call5 = tail call ptr @bdrv_get_aio_context(ptr noundef %1) #6
+  %iterbdrvs.015 = phi ptr [ %iterbdrvs.0, %if.end14 ], [ %bdrvs.val.pre, %while.body.lr.ph ]
+  %2 = load ptr, ptr %iterbdrvs.015, align 8
+  %call5 = tail call ptr @bdrv_get_aio_context(ptr noundef %2) #6
   tail call void @aio_context_acquire(ptr noundef %call5) #6
   tail call void @bdrv_graph_rdlock_main_loop() #6
   %call.i = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -1332,52 +1332,52 @@ if.else.i:                                        ; preds = %while.body.us, %whi
 
 do.end.i:                                         ; preds = %while.body
   tail call void @assert_bdrv_graph_readable() #6
-  %call1.i = tail call zeroext i1 @bdrv_is_inserted(ptr noundef %1) #6
-  br i1 %call1.i, label %lor.lhs.false.i, label %cond.end.thread.critedge
+  %call1.i = tail call zeroext i1 @bdrv_is_inserted(ptr noundef %2) #6
+  br i1 %call1.i, label %lor.lhs.false.i, label %if.end14.critedge.critedge
 
 lor.lhs.false.i:                                  ; preds = %do.end.i
-  %call2.i = tail call zeroext i1 @bdrv_is_read_only(ptr noundef %1) #6
-  br i1 %call2.i, label %cond.end.thread.critedge, label %if.end4.i
+  %call2.i = tail call zeroext i1 @bdrv_is_read_only(ptr noundef %2) #6
+  br i1 %call2.i, label %if.end14.critedge.critedge, label %if.end4.i
 
 if.end4.i:                                        ; preds = %lor.lhs.false.i
-  %call5.i = tail call zeroext i1 @bdrv_has_blk(ptr noundef %1) #6
-  br i1 %call5.i, label %cond.end.critedge, label %lor.rhs.i
+  %call5.i = tail call zeroext i1 @bdrv_has_blk(ptr noundef %2) #6
+  br i1 %call5.i, label %cond.true.critedge, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.end4.i
-  %parents.i = getelementptr inbounds i8, ptr %1, i64 16848
-  %2 = load ptr, ptr %parents.i, align 8
-  %cmp.i = icmp eq ptr %2, null
+  %parents.i = getelementptr inbounds i8, ptr %2, i64 16848
+  %3 = load ptr, ptr %parents.i, align 8
+  %cmp.i = icmp eq ptr %3, null
   tail call void @bdrv_graph_rdunlock_main_loop() #6
-  br i1 %cmp.i, label %cond.end, label %cond.end.thread
+  br i1 %cmp.i, label %cond.true, label %if.end14.critedge
 
-cond.end.thread.critedge:                         ; preds = %do.end.i, %lor.lhs.false.i
+cond.true.critedge:                               ; preds = %if.end4.i
   tail call void @bdrv_graph_rdunlock_main_loop() #6
-  br label %cond.end.thread
+  br label %cond.true
 
-cond.end.thread:                                  ; preds = %cond.end.thread.critedge, %lor.rhs.i
+cond.true:                                        ; preds = %cond.true.critedge, %lor.rhs.i
+  %call10 = tail call i32 @bdrv_snapshot_goto(ptr noundef %2, ptr noundef %name, ptr noundef %errp)
+  %4 = icmp slt i32 %call10, 0
   tail call void @aio_context_release(ptr noundef %call5) #6
-  br label %if.end14
+  br i1 %4, label %if.then12, label %if.end14
 
-cond.end.critedge:                                ; preds = %if.end4.i
-  tail call void @bdrv_graph_rdunlock_main_loop() #6
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.end.critedge, %lor.rhs.i
-  %call10 = tail call i32 @bdrv_snapshot_goto(ptr noundef %1, ptr noundef %name, ptr noundef %errp)
-  tail call void @aio_context_release(ptr noundef %call5) #6
-  %cmp11 = icmp slt i32 %call10, 0
-  br i1 %cmp11, label %if.then12, label %if.end14
-
-if.then12:                                        ; preds = %bdrv_all_snapshots_includes_bs.exit.us, %cond.end
-  %.us-phi = phi ptr [ %1, %cond.end ], [ %0, %bdrv_all_snapshots_includes_bs.exit.us ]
+if.then12:                                        ; preds = %bdrv_all_snapshots_includes_bs.exit.us, %cond.true
+  %.us-phi = phi ptr [ %2, %cond.true ], [ %0, %bdrv_all_snapshots_includes_bs.exit.us ]
   tail call void @bdrv_graph_rdlock_main_loop() #6
   %call13 = tail call ptr @bdrv_get_device_or_node_name(ptr noundef %.us-phi) #6
   tail call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.23, ptr noundef %name, ptr noundef %call13) #6
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   br label %cleanup
 
-if.end14:                                         ; preds = %cond.end.thread, %cond.end
-  %next = getelementptr inbounds i8, ptr %iterbdrvs.017, i64 8
+if.end14.critedge.critedge:                       ; preds = %do.end.i, %lor.lhs.false.i
+  tail call void @bdrv_graph_rdunlock_main_loop() #6
+  br label %if.end14.critedge
+
+if.end14.critedge:                                ; preds = %if.end14.critedge.critedge, %lor.rhs.i
+  tail call void @aio_context_release(ptr noundef %call5) #6
+  br label %if.end14
+
+if.end14:                                         ; preds = %if.end14.critedge, %cond.true
+  %next = getelementptr inbounds i8, ptr %iterbdrvs.015, i64 8
   %iterbdrvs.0 = load ptr, ptr %next, align 8
   %tobool4.not = icmp eq ptr %iterbdrvs.0, null
   br i1 %tobool4.not, label %cleanup, label %while.body, !llvm.loop !15
@@ -1392,8 +1392,8 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %glib_autoptr_cleanup_GList.exit
 
 glib_autoptr_cleanup_GList.exit:                  ; preds = %while.cond.preheader, %cleanup, %if.then.i.i
-  %retval.027 = phi i32 [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i ], [ 0, %while.cond.preheader ]
-  ret i32 %retval.027
+  %retval.025 = phi i32 [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i ], [ 0, %while.cond.preheader ]
+  ret i32 %retval.025
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

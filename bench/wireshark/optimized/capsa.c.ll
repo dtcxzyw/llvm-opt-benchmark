@@ -289,7 +289,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -65503, 65536) i32 @capsa_read_packet(i16 %.96.val.0.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 65504) i32 @capsa_read_packet(i16 %.96.val.0.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.capsarec_hdr, align 4
   %7 = alloca %struct.pbrec_hdr, align 4
   switch i16 %.96.val.0.val, label %46 [

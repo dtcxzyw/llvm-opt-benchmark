@@ -325,7 +325,7 @@ _ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN7Imf_3_27CubeMap10sizeOfFaceERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) local_unnamed_addr #7 {
+define noundef range(i32 -2147483648, 357913942) i32 @_ZN7Imf_3_27CubeMap10sizeOfFaceERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) local_unnamed_addr #7 {
 entry:
   %max = getelementptr inbounds i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max, align 4
@@ -358,7 +358,7 @@ entry:
   %sub6.i = add i32 %2, 1
   %add7.i = sub i32 %sub6.i, %3
   %div.i = sdiv i32 %add7.i, 6
-  %.sroa.speculated.i = tail call noundef i32 @llvm.smin.i32(i32 %div.i, i32 %add.i)
+  %.sroa.speculated.i = tail call noundef range(i32 -2147483648, 357913942) i32 @llvm.smin.i32(i32 %div.i, i32 %add.i)
   %y3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   %max.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %y3.i4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 12
@@ -387,7 +387,7 @@ entry:
   %sub6.i.i = add i32 %2, 1
   %add7.i.i = sub i32 %sub6.i.i, %3
   %div.i.i = sdiv i32 %add7.i.i, 6
-  %.sroa.speculated.i.i = tail call noundef i32 @llvm.smin.i32(i32 %div.i.i, i32 %add.i.i)
+  %.sroa.speculated.i.i = tail call noundef range(i32 -2147483648, 357913942) i32 @llvm.smin.i32(i32 %div.i.i, i32 %add.i.i)
   %mul.i = mul nsw i32 %.sroa.speculated.i.i, %face
   %sub.i = add i32 %.sroa.speculated.i.i, -1
   %sub8.i = add i32 %sub.i, %mul.i
@@ -489,7 +489,7 @@ entry:
   %sub6.i = add i32 %2, 1
   %add7.i = sub i32 %sub6.i, %3
   %div.i = sdiv i32 %add7.i, 6
-  %.sroa.speculated.i = tail call noundef i32 @llvm.smin.i32(i32 %div.i, i32 %add.i)
+  %.sroa.speculated.i = tail call noundef range(i32 -2147483648, 357913942) i32 @llvm.smin.i32(i32 %div.i, i32 %add.i)
   %4 = load float, ptr %direction, align 4
   %5 = tail call noundef float @llvm.fabs.f32(float %4)
   %y = getelementptr inbounds i8, ptr %direction, i64 4
@@ -615,7 +615,7 @@ entry:
   %sub6.i = add i32 %2, 1
   %add7.i = sub i32 %sub6.i, %3
   %div.i = sdiv i32 %add7.i, 6
-  %.sroa.speculated.i = tail call noundef i32 @llvm.smin.i32(i32 %div.i, i32 %add.i)
+  %.sroa.speculated.i = tail call noundef range(i32 -2147483648, 357913942) i32 @llvm.smin.i32(i32 %div.i, i32 %add.i)
   %cmp = icmp sgt i32 %.sroa.speculated.i, 1
   br i1 %cmp, label %if.then, label %if.end
 

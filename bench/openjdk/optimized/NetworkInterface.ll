@@ -1487,7 +1487,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_isUp0(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @getFlags0(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 65536) i32 @getFlags0(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.ifreq, align 8
   %4 = alloca i8, align 1
   %.not = icmp eq ptr %1, null

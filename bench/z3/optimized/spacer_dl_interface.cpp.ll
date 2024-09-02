@@ -611,12 +611,12 @@ land.rhs:                                         ; preds = %land.rhs.backedge, 
 if.end.i.i.i:                                     ; preds = %land.rhs
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i.i, align 4
+  %5 = zext i32 %4 to i64
   br label %_ZNK7datalog8rule_set13get_num_rulesEv.exit
 
 _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %land.rhs, %if.end.i.i.i
-  %retval.0.i.i.i = phi i32 [ %4, %if.end.i.i.i ], [ 0, %land.rhs ]
-  %5 = zext i32 %retval.0.i.i.i to i64
-  %cmp = icmp ult i64 %indvars.iv23, %5
+  %retval.0.i.i.i = phi i64 [ %5, %if.end.i.i.i ], [ 0, %land.rhs ]
+  %cmp = icmp ult i64 %indvars.iv23, %retval.0.i.i.i
   br i1 %cmp, label %land.rhs7, label %for.end21
 
 land.rhs7:                                        ; preds = %_ZNK7datalog8rule_set13get_num_rulesEv.exit, %for.body11
@@ -629,12 +629,12 @@ land.rhs7:                                        ; preds = %_ZNK7datalog8rule_s
 if.end.i.i:                                       ; preds = %land.rhs7
   %arrayidx.i.i13 = getelementptr inbounds i8, ptr %6, i64 -4
   %7 = load i32, ptr %arrayidx.i.i13, align 4
+  %8 = zext i32 %7 to i64
   br label %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit
 
 _ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit: ; preds = %land.rhs7, %if.end.i.i
-  %retval.0.i.i = phi i32 [ %7, %if.end.i.i ], [ 0, %land.rhs7 ]
-  %8 = zext i32 %retval.0.i.i to i64
-  %cmp9 = icmp ult i64 %indvars.iv, %8
+  %retval.0.i.i = phi i64 [ %8, %if.end.i.i ], [ 0, %land.rhs7 ]
+  %cmp9 = icmp ult i64 %indvars.iv, %retval.0.i.i
   br i1 %cmp9, label %for.body11, label %if.then17
 
 for.body11:                                       ; preds = %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4sizeEv.exit

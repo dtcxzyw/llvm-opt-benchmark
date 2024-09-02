@@ -1039,7 +1039,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN14btQuantizedBvh17calcSplittingAxisEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(244) %this, i32 noundef %startIndex, i32 noundef %endIndex) local_unnamed_addr #8 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN14btQuantizedBvh17calcSplittingAxisEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(244) %this, i32 noundef %startIndex, i32 noundef %endIndex) local_unnamed_addr #8 align 2 {
 entry:
   %sub = sub nsw i32 %endIndex, %startIndex
   %cmp231 = icmp slt i32 %startIndex, %endIndex
@@ -2982,49 +2982,49 @@ cond.false.i:                                     ; preds = %lor.lhs.false.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %lor.lhs.false.i, %while.body
-  %cond.i = phi i1 [ true, %cond.false.i ], [ false, %lor.lhs.false.i ], [ false, %while.body ]
+  %29 = phi i1 [ false, %cond.false.i ], [ true, %lor.lhs.false.i ], [ true, %while.body ]
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %rootNode.0136, i64 24
-  %29 = load float, ptr %arrayidx.i12.i, align 4
-  %cmp7.i = fcmp ogt float %add13.i, %29
+  %30 = load float, ptr %arrayidx.i12.i, align 4
+  %cmp7.i = fcmp ogt float %add13.i, %30
   br i1 %cmp7.i, label %cond.end15.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %cond.end.i
   %arrayidx.i14.i = getelementptr inbounds i8, ptr %rootNode.0136, i64 8
-  %30 = load float, ptr %arrayidx.i14.i, align 4
-  %cmp11.i = fcmp olt float %add13.i46, %30
+  %31 = load float, ptr %arrayidx.i14.i, align 4
+  %cmp11.i = fcmp olt float %add13.i46, %31
   br i1 %cmp11.i, label %cond.end15.i, label %cond.false13.i
 
 cond.false13.i:                                   ; preds = %lor.lhs.false8.i
   br label %cond.end15.i
 
 cond.end15.i:                                     ; preds = %cond.false13.i, %lor.lhs.false8.i, %cond.end.i
-  %cond16.i = phi i1 [ %cond.i, %cond.false13.i ], [ false, %lor.lhs.false8.i ], [ false, %cond.end.i ]
+  %cond16.i = phi i1 [ %29, %cond.false13.i ], [ true, %lor.lhs.false8.i ], [ true, %cond.end.i ]
   %arrayidx.i16.i = getelementptr inbounds i8, ptr %rootNode.0136, i64 20
-  %31 = load float, ptr %arrayidx.i16.i, align 4
-  %cmp20.i = fcmp ogt float %add8.i, %31
+  %32 = load float, ptr %arrayidx.i16.i, align 4
+  %cmp20.i = fcmp ogt float %add8.i, %32
   br i1 %cmp20.i, label %cond.end68.thread, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %cond.end15.i
   %arrayidx.i18.i = getelementptr inbounds i8, ptr %rootNode.0136, i64 4
-  %32 = load float, ptr %arrayidx.i18.i, align 4
-  %cmp24.i = fcmp uge float %add8.i43, %32
-  %brmerge133.not = and i1 %cond16.i, %cmp24.i
-  br i1 %brmerge133.not, label %cond.true64, label %cond.end68.thread
+  %33 = load float, ptr %arrayidx.i18.i, align 4
+  %cmp24.i = fcmp olt float %add8.i43, %33
+  %brmerge133 = or i1 %cond16.i, %cmp24.i
+  br i1 %brmerge133, label %cond.end68.thread, label %cond.true64
 
 cond.true64:                                      ; preds = %lor.lhs.false21.i
-  %33 = load float, ptr %arrayidx1.i, align 16
-  %34 = load float, ptr %raySource, align 4
-  %sub.i82 = fsub float %33, %34
+  %34 = load float, ptr %arrayidx1.i, align 16
+  %35 = load float, ptr %raySource, align 4
+  %sub.i82 = fsub float %34, %35
   %mul.i = fmul float %cond, %sub.i82
-  %35 = load float, ptr %arrayidx7.i83, align 16
-  %sub10.i = fsub float %35, %34
+  %36 = load float, ptr %arrayidx7.i83, align 16
+  %sub10.i = fsub float %36, %35
   %mul12.i = fmul float %cond, %sub10.i
-  %36 = load float, ptr %arrayidx.i.i85, align 4
-  %37 = load float, ptr %rayAabbMin.sroa.6.0.raySource.sroa_idx, align 4
-  %sub18.i = fsub float %36, %37
+  %37 = load float, ptr %arrayidx.i.i85, align 4
+  %38 = load float, ptr %rayAabbMin.sroa.6.0.raySource.sroa_idx, align 4
+  %sub18.i = fsub float %37, %38
   %mul20.i = fmul float %cond23, %sub18.i
-  %38 = load float, ptr %arrayidx.i44.i, align 4
-  %sub27.i = fsub float %38, %37
+  %39 = load float, ptr %arrayidx.i44.i, align 4
+  %sub27.i = fsub float %39, %38
   %mul29.i = fmul float %cond23, %sub27.i
   %cmp.i86 = fcmp ogt float %mul.i, %mul29.i
   %cmp30.i = fcmp ogt float %mul20.i, %mul12.i
@@ -3033,56 +3033,56 @@ cond.true64:                                      ; preds = %lor.lhs.false21.i
 
 if.end.i:                                         ; preds = %cond.true64
   %cmp31.i = fcmp ogt float %mul20.i, %mul.i
-  %39 = select i1 %cmp31.i, float %mul20.i, float %mul.i
+  %40 = select i1 %cmp31.i, float %mul20.i, float %mul.i
   %cmp34.i = fcmp olt float %mul29.i, %mul12.i
   %tmax.0.i = select i1 %cmp34.i, float %mul29.i, float %mul12.i
-  %40 = load float, ptr %arrayidx.i47.i, align 8
-  %41 = load float, ptr %rayAabbMin.sroa.11.0.raySource.sroa_idx, align 4
-  %sub42.i = fsub float %40, %41
+  %41 = load float, ptr %arrayidx.i47.i, align 8
+  %42 = load float, ptr %rayAabbMin.sroa.11.0.raySource.sroa_idx, align 4
+  %sub42.i = fsub float %41, %42
   %mul44.i = fmul float %cond35, %sub42.i
-  %42 = load float, ptr %arrayidx.i50.i, align 8
-  %sub51.i = fsub float %42, %41
+  %43 = load float, ptr %arrayidx.i50.i, align 8
+  %sub51.i = fsub float %43, %42
   %mul53.i = fmul float %cond35, %sub51.i
-  %cmp54.i = fcmp ogt float %39, %mul53.i
+  %cmp54.i = fcmp ogt float %40, %mul53.i
   %cmp56.i = fcmp ogt float %mul44.i, %tmax.0.i
   %or.cond41.i = select i1 %cmp54.i, i1 true, i1 %cmp56.i
   br i1 %or.cond41.i, label %cond.end68.thread, label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.end.i
-  %cmp59.i = fcmp ogt float %mul44.i, %39
-  %43 = select i1 %cmp59.i, float %mul44.i, float %39
+  %cmp59.i = fcmp ogt float %mul44.i, %40
+  %44 = select i1 %cmp59.i, float %mul44.i, float %40
   %cmp62.i = fcmp olt float %mul53.i, %tmax.0.i
   %tmax.1.i = select i1 %cmp62.i, float %mul53.i, float %tmax.0.i
-  %cmp65.i = fcmp olt float %43, %13
+  %cmp65.i = fcmp olt float %44, %13
   %cmp66.i = fcmp ogt float %tmax.1.i, 0.000000e+00
-  %44 = select i1 %cmp65.i, i1 %cmp66.i, i1 false
+  %45 = select i1 %cmp65.i, i1 %cmp66.i, i1 false
   %m_escapeIndex = getelementptr inbounds i8, ptr %rootNode.0136, i64 32
-  %45 = load i32, ptr %m_escapeIndex, align 4
-  %cmp71 = icmp eq i32 %45, -1
-  %or.cond = and i1 %44, %cmp71
+  %46 = load i32, ptr %m_escapeIndex, align 4
+  %cmp71 = icmp eq i32 %46, -1
+  %or.cond = and i1 %45, %cmp71
   br i1 %or.cond, label %if.end.thread, label %if.end
 
 cond.end68.thread:                                ; preds = %lor.lhs.false21.i, %cond.true64, %if.end.i, %cond.end15.i
   %m_escapeIndex127 = getelementptr inbounds i8, ptr %rootNode.0136, i64 32
-  %46 = load i32, ptr %m_escapeIndex127, align 4
-  %cmp71128 = icmp eq i32 %46, -1
+  %47 = load i32, ptr %m_escapeIndex127, align 4
+  %cmp71128 = icmp eq i32 %47, -1
   br label %if.end
 
 if.end.thread:                                    ; preds = %if.end58.i
   %m_subPart = getelementptr inbounds i8, ptr %rootNode.0136, i64 36
-  %47 = load i32, ptr %m_subPart, align 4
+  %48 = load i32, ptr %m_subPart, align 4
   %m_triangleIndex = getelementptr inbounds i8, ptr %rootNode.0136, i64 40
-  %48 = load i32, ptr %m_triangleIndex, align 4
+  %49 = load i32, ptr %m_triangleIndex, align 4
   %vtable = load ptr, ptr %nodeCallback, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %49 = load ptr, ptr %vfn, align 8
-  tail call void %49(ptr noundef nonnull align 8 dereferenceable(8) %nodeCallback, i32 noundef %47, i32 noundef %48)
+  %50 = load ptr, ptr %vfn, align 8
+  tail call void %50(ptr noundef nonnull align 8 dereferenceable(8) %nodeCallback, i32 noundef %48, i32 noundef %49)
   br label %if.then76
 
 if.end:                                           ; preds = %cond.end68.thread, %if.end58.i
   %cmp71132 = phi i1 [ %cmp71128, %cond.end68.thread ], [ %cmp71, %if.end58.i ]
   %m_escapeIndex131 = phi ptr [ %m_escapeIndex127, %cond.end68.thread ], [ %m_escapeIndex, %if.end58.i ]
-  %cond69130 = phi i1 [ false, %cond.end68.thread ], [ %44, %if.end58.i ]
+  %cond69130 = phi i1 [ false, %cond.end68.thread ], [ %45, %if.end58.i ]
   %brmerge = or i1 %cmp71132, %cond69130
   br i1 %brmerge, label %if.then76, label %if.else
 
@@ -3092,17 +3092,17 @@ if.then76:                                        ; preds = %if.end.thread, %if.
   br label %if.end79
 
 if.else:                                          ; preds = %if.end
-  %50 = load i32, ptr %m_escapeIndex131, align 4
-  %idx.ext = sext i32 %50 to i64
+  %51 = load i32, ptr %m_escapeIndex131, align 4
+  %idx.ext = sext i32 %51 to i64
   %add.ptr = getelementptr inbounds %struct.btOptimizedBvhNode, ptr %rootNode.0136, i64 %idx.ext
-  %add = add nsw i32 %50, %curIndex.0135
+  %add = add nsw i32 %51, %curIndex.0135
   br label %if.end79
 
 if.end79:                                         ; preds = %if.else, %if.then76
   %curIndex.1 = phi i32 [ %inc77, %if.then76 ], [ %add, %if.else ]
   %rootNode.1 = phi ptr [ %incdec.ptr, %if.then76 ], [ %add.ptr, %if.else ]
-  %51 = load i32, ptr %m_curNodeIndex, align 4
-  %cmp53 = icmp slt i32 %curIndex.1, %51
+  %52 = load i32, ptr %m_curNodeIndex, align 4
+  %cmp53 = icmp slt i32 %curIndex.1, %52
   br i1 %cmp53, label %while.body, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %if.end79, %_ZN9btVector313safeNormalizeEv.exit

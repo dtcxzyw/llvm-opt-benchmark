@@ -374,7 +374,7 @@ define internal fastcc noundef zeroext i1 @prepare_common(i32 noundef %0, ptr no
 
 isvarchar.exit.i:                                 ; preds = %46
   %47 = icmp slt i8 %41, 0
-  br i1 %47, label %isvarchar.exit.thread.i, label %.critedge.i
+  br i1 %47, label %isvarchar.exit.thread.i, label %.critedge.loopexit.i
 
 isvarchar.exit.thread.i:                          ; preds = %isvarchar.exit.i, %46, %46, %46, %46, %40
   %48 = add i32 %.05170.i, 1
@@ -383,14 +383,18 @@ isvarchar.exit.thread.i:                          ; preds = %isvarchar.exit.i, %
   %51 = getelementptr i8, ptr %33, i64 %50
   %52 = load i8, ptr %51, align 1
   %.not63.i = icmp eq i8 %52, 0
-  br i1 %.not63.i, label %.critedge.i, label %40, !llvm.loop !6
+  br i1 %.not63.i, label %.critedge.loopexit.i, label %40, !llvm.loop !6
 
-.critedge.i:                                      ; preds = %isvarchar.exit.thread.i, %isvarchar.exit.i, %30
-  %.051.lcssa.i = phi i32 [ 1, %30 ], [ %.05170.i, %isvarchar.exit.i ], [ %48, %isvarchar.exit.thread.i ]
-  %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #10
-  %54 = sext i32 %.051.lcssa.i to i64
+.critedge.loopexit.i:                             ; preds = %isvarchar.exit.thread.i, %isvarchar.exit.i
+  %.051.lcssa.ph.i = phi i32 [ %.05170.i, %isvarchar.exit.i ], [ %48, %isvarchar.exit.thread.i ]
+  %53 = sext i32 %.051.lcssa.ph.i to i64
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %.critedge.loopexit.i, %30
+  %.051.lcssa.i = phi i64 [ 1, %30 ], [ %53, %.critedge.loopexit.i ]
+  %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #10
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #10
-  %reass.sub = sub i64 %53, %54
+  %reass.sub = sub i64 %54, %.051.lcssa.i
   %56 = add i64 %reass.sub, 1
   %57 = add i64 %56, %55
   %58 = tail call ptr @ecpg_alloc(i64 noundef %57, i32 noundef %0) #11
@@ -408,7 +412,7 @@ isvarchar.exit.thread.i:                          ; preds = %isvarchar.exit.i, %
   %63 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %62, ptr noundef nonnull dereferenceable(1) %29) #11
   %64 = load ptr, ptr %12, align 8
   %65 = getelementptr i8, ptr %64, i64 %17
-  %66 = getelementptr i8, ptr %65, i64 %54
+  %66 = getelementptr i8, ptr %65, i64 %.051.lcssa.i
   %67 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %66) #11
   %68 = load ptr, ptr %12, align 8
   tail call void @ecpg_free(ptr noundef %68) #11

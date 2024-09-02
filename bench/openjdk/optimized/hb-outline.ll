@@ -44,7 +44,7 @@ define hidden void @_ZNK12hb_outline_t6replayEP15hb_draw_funcs_tPv(ptr nocapture
 
 23:                                               ; preds = %.lr.ph, %._crit_edge.thread
   %.0207 = phi i32 [ 0, %.lr.ph ], [ %24, %._crit_edge.thread ]
-  %.0117206 = phi ptr [ %6, %.lr.ph ], [ %144, %._crit_edge.thread ]
+  %.0117206 = phi ptr [ %6, %.lr.ph ], [ %145, %._crit_edge.thread ]
   %24 = load i32, ptr %.0117206, align 4
   %25 = load i32, ptr %12, align 4
   %26 = sub i32 %24, %.0207
@@ -308,52 +308,52 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
 
 ._crit_edge:                                      ; preds = %115
   %.pre210 = load i32, ptr %4, align 4
-  %.not118 = icmp eq i32 %.pre210, 0
-  br i1 %.not118, label %._crit_edge.thread, label %126
+  %126 = icmp eq i32 %.pre210, 0
+  br i1 %126, label %._crit_edge.thread, label %127
 
-126:                                              ; preds = %._crit_edge
-  %127 = load float, ptr %17, align 4
-  %128 = fcmp une float %127, %117
+127:                                              ; preds = %._crit_edge
+  %128 = load float, ptr %17, align 4
+  %129 = fcmp une float %128, %117
   %.pre211 = load float, ptr %18, align 4
-  %129 = fcmp une float %.pre211, %116
-  %or.cond223 = select i1 %128, i1 true, i1 %129
-  br i1 %or.cond223, label %130, label %137
+  %130 = fcmp une float %.pre211, %116
+  %or.cond223 = select i1 %129, i1 true, i1 %130
+  br i1 %or.cond223, label %131, label %138
 
-130:                                              ; preds = %126
-  %131 = load ptr, ptr %21, align 8
-  %132 = load ptr, ptr %16, align 8
-  %.not.i162 = icmp eq ptr %132, null
-  br i1 %.not.i162, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163, label %133
+131:                                              ; preds = %127
+  %132 = load ptr, ptr %21, align 8
+  %133 = load ptr, ptr %16, align 8
+  %.not.i162 = icmp eq ptr %133, null
+  br i1 %.not.i162, label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163, label %134
 
-133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %132, i64 8
-  %135 = load ptr, ptr %134, align 8
+134:                                              ; preds = %131
+  %135 = getelementptr inbounds i8, ptr %133, i64 8
+  %136 = load ptr, ptr %135, align 8
   br label %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163
 
-_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163: ; preds = %130, %133
-  %136 = phi ptr [ %135, %133 ], [ null, %130 ]
-  call void %131(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %127, float noundef %.pre211, ptr noundef %136)
-  br label %137
+_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163: ; preds = %131, %134
+  %137 = phi ptr [ %136, %134 ], [ null, %131 ]
+  call void %132(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, float noundef %128, float noundef %.pre211, ptr noundef %137)
+  br label %138
 
-137:                                              ; preds = %126, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163
-  %138 = load ptr, ptr %22, align 8
-  %139 = load ptr, ptr %16, align 8
-  %.not.i164 = icmp eq ptr %139, null
-  br i1 %.not.i164, label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165, label %140
+138:                                              ; preds = %127, %_ZN15hb_draw_funcs_t12emit_line_toEPvR15hb_draw_state_tff.exit163
+  %139 = load ptr, ptr %22, align 8
+  %140 = load ptr, ptr %16, align 8
+  %.not.i164 = icmp eq ptr %140, null
+  br i1 %.not.i164, label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165, label %141
 
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %139, i64 32
-  %142 = load ptr, ptr %141, align 8
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds i8, ptr %140, i64 32
+  %143 = load ptr, ptr %142, align 8
   br label %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165
 
-_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165: ; preds = %137, %140
-  %143 = phi ptr [ %142, %140 ], [ null, %137 ]
-  call void %138(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef %143)
+_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165: ; preds = %138, %141
+  %144 = phi ptr [ %143, %141 ], [ null, %138 ]
+  call void %139(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, ptr noundef %144)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %23, %_ZN15hb_draw_funcs_t15emit_close_pathEPvR15hb_draw_state_t.exit165, %._crit_edge
-  %144 = getelementptr inbounds i8, ptr %.0117206, i64 4
-  %.not = icmp eq ptr %144, %10
+  %145 = getelementptr inbounds i8, ptr %.0117206, i64 4
+  %.not = icmp eq ptr %145, %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   br i1 %.not, label %._crit_edge209, label %23
 

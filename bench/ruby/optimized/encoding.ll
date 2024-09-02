@@ -3645,7 +3645,7 @@ rb_enc_from_index.exit:                           ; preds = %0, %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_filesystem_encindex() local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @rb_filesystem_encindex() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 0, ptr %1, align 8
@@ -3692,7 +3692,7 @@ define dso_local ptr @rb_filesystem_encoding() local_unnamed_addr #0 {
 rb_filesystem_encindex.exit:                      ; preds = %0, %3, %5
   %.0.i.i = phi i32 [ %7, %5 ], [ -1, %0 ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  %spec.store.select.i = call i32 @llvm.smax.i32(i32 %.0.i.i, i32 0)
+  %spec.store.select.i = call range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %.0.i.i, i32 0)
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @global_enc_table, i64 6144), align 8
   %9 = and i32 %spec.store.select.i, 16777215
   %.not = icmp sgt i32 %8, %9

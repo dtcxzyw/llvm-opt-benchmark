@@ -1612,8 +1612,8 @@ weakenNode.exit.thread18:                         ; preds = %47, %52
 weakenNode.exit:                                  ; preds = %.lr.ph
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.011, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  store i8 0, ptr %19, align 4
   %57 = icmp eq ptr %.pre, null
+  store i8 0, ptr %19, align 4
   br i1 %57, label %weakenNode.exit.thread, label %60
 
 weakenNode.exit.thread:                           ; preds = %46, %weakenNode.exit

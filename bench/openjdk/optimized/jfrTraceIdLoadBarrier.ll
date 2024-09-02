@@ -72,7 +72,7 @@ define hidden noundef zeroext i1 @_ZN21JfrTraceIdLoadBarrier10initializeEv() loc
   %15 = sub nuw nsw i64 64, %14
   %16 = shl nuw nsw i64 1, %15
   %.0.i.i = select i1 %or.cond.i.i, i64 %12, i64 %16
-  %17 = tail call noundef i64 @llvm.umax.i64(i64 %.0.i.i, i64 1024)
+  %17 = tail call noundef range(i64 1024, 8589934593) i64 @llvm.umax.i64(i64 %.0.i.i, i64 1024)
   tail call void @_ZN20JfrTraceIdKlassQueueC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
   store ptr %7, ptr @_ZL20_sampler_klass_queue, align 8
   %18 = tail call noundef zeroext i1 @_ZN20JfrTraceIdKlassQueue10initializeEmmm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %17, i64 noundef -1, i64 noundef 2) #6

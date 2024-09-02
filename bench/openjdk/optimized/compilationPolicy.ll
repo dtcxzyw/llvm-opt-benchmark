@@ -620,7 +620,7 @@ _ZN17CompilationPolicy16must_be_compiledERK12methodHandlei.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef signext i8 @_ZN17CompilationPolicy21initial_compile_levelERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef signext range(i8 -128, 5) i8 @_ZN17CompilationPolicy21initial_compile_levelERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
   switch i32 %2, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit.fold.split3 [
     i32 0, label %_ZN17CompilationPolicy26force_comp_at_level_simpleERK12methodHandle.exit
@@ -1314,7 +1314,7 @@ declare noundef i32 @_ZN10C2Compiler24initial_code_buffer_sizeEi(i32 noundef) lo
 declare noundef i64 @_ZN2os13javaTimeNanosEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @_ZN17CompilationPolicy21highest_compile_levelEv() local_unnamed_addr #1 align 2 {
+define hidden noundef signext range(i8 -128, 5) i8 @_ZN17CompilationPolicy21highest_compile_levelEv() local_unnamed_addr #1 align 2 {
   %1 = load i32, ptr @_ZN9Arguments5_modeE, align 4
   %2 = icmp eq i32 %1, 0
   %3 = load i64, ptr @TieredStopAtLevel, align 8

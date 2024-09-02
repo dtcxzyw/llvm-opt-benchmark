@@ -952,25 +952,20 @@ if.then6:                                         ; preds = %if.then3
   call void @_ZNK18OpenImageIO_v2_6_010ParamValue11get_ustringEi(ptr nonnull sret(%"class.OpenImageIO_v2_6_0::ustring") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(39) %call, i32 noundef 64)
   %7 = load ptr, ptr %ref.tmp8, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i, label %_ZNK18OpenImageIO_v2_6_07ustring4sizeEv.exit, label %if.end.i.i
+  br i1 %tobool.not.i.i, label %if.end10, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then6
   %length.i.i = getelementptr inbounds i8, ptr %7, i64 -24
   %8 = load i64, ptr %length.i.i, align 8
-  br label %_ZNK18OpenImageIO_v2_6_07ustring4sizeEv.exit
-
-_ZNK18OpenImageIO_v2_6_07ustring4sizeEv.exit:     ; preds = %if.then6, %if.end.i.i
-  %retval.0.i.i = phi i64 [ %8, %if.end.i.i ], [ 0, %if.then6 ]
-  %add = add i64 %retval.0.i.i, 1
-  %.pre = load i32, ptr %tifftype, align 16
+  %9 = add i64 %8, 1
   br label %if.end10
 
-if.end10:                                         ; preds = %_ZNK18OpenImageIO_v2_6_07ustring4sizeEv.exit, %if.then3
-  %9 = phi i32 [ %.pre, %_ZNK18OpenImageIO_v2_6_07ustring4sizeEv.exit ], [ %5, %if.then3 ]
-  %count.0 = phi i64 [ %add, %_ZNK18OpenImageIO_v2_6_07ustring4sizeEv.exit ], [ %conv, %if.then3 ]
-  %d.0 = phi ptr [ %6, %_ZNK18OpenImageIO_v2_6_07ustring4sizeEv.exit ], [ %cond.i31, %if.then3 ]
+if.end10:                                         ; preds = %if.end.i.i, %if.then6, %if.then3
+  %count.0 = phi i64 [ %conv, %if.then3 ], [ %9, %if.end.i.i ], [ 1, %if.then6 ]
+  %d.0 = phi ptr [ %cond.i31, %if.then3 ], [ %6, %if.end.i.i ], [ %6, %if.then6 ]
   %10 = load i32, ptr %__begin2.0.ptr47, align 16
-  call void @_ZN18OpenImageIO_v2_6_03pvt21append_tiff_dir_entryERSt6vectorI12TIFFDirEntrySaIS2_EERS1_IcSaIcEEi12TIFFDataTypemPKvmmNS_6endianE(ptr noundef nonnull align 8 dereferenceable(24) %makerdirs, ptr noundef nonnull align 8 dereferenceable(24) %data, i32 noundef %10, i32 noundef %9, i64 noundef %count.0, ptr noundef %d.0, i64 noundef %offset_correction, i64 noundef 0, i32 noundef 1234)
+  %11 = load i32, ptr %tifftype, align 16
+  call void @_ZN18OpenImageIO_v2_6_03pvt21append_tiff_dir_entryERSt6vectorI12TIFFDirEntrySaIS2_EERS1_IcSaIcEEi12TIFFDataTypemPKvmmNS_6endianE(ptr noundef nonnull align 8 dereferenceable(24) %makerdirs, ptr noundef nonnull align 8 dereferenceable(24) %data, i32 noundef %10, i32 noundef %11, i64 noundef %count.0, ptr noundef %d.0, i64 noundef %offset_correction, i64 noundef 0, i32 noundef 1234)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit, %if.end10, %for.body
@@ -982,10 +977,10 @@ for.end:                                          ; preds = %for.inc
   call fastcc void @_ZN18OpenImageIO_v2_6_03pvtL18encode_indexed_tagIsEEvi12TIFFDataTypeNS_4spanIKNS0_10LabelIndexELln1EEERSt6vectorIcSaIcEERS7_I12TIFFDirEntrySaISB_EERKNS_9ImageSpecEm(i32 noundef 1, ptr nonnull @_ZN18OpenImageIO_v2_6_03pvtL28canon_camerasettings_indicesE, i64 37, ptr noundef nonnull align 8 dereferenceable(24) %data, ptr noundef nonnull align 8 dereferenceable(24) %makerdirs, ptr noundef nonnull align 8 dereferenceable(160) %spec, i64 noundef %offset_correction)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp8.i)
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_indicesE, i64 48), align 16
-  %add.i = add i32 %11, 1
+  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_indicesE, i64 48), align 16
+  %add.i = add i32 %12, 1
   %conv.i = sext i32 %add.i to i64
-  %cmp.i.i.i = icmp slt i32 %11, -1
+  %cmp.i.i.i = icmp slt i32 %12, -1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %for.end
@@ -1001,12 +996,12 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZNSt6vectorItSaItE
   %call5.i.i.i.i2.i.i8.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #19
   call void @llvm.memset.p0.i64(ptr nonnull align 2 %call5.i.i.i.i2.i.i8.i, i8 0, i64 %mul.i.i.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %call5.i.i.i.i2.i.i8.i, i64 %conv.i
-  %12 = ptrtoint ptr %add.ptr.i.i.i.i to i64
+  %13 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   br label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i, %if.end.i.i.i.i.i.i.i.i
   %array.sroa.0.0.i = phi ptr [ null, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %call5.i.i.i.i2.i.i8.i, %if.end.i.i.i.i.i.i.i.i ]
-  %retval.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %12, %if.end.i.i.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %13, %if.end.i.i.i.i.i.i.i.i ]
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %array.sroa.0.0.i to i64
   %sub.ptr.sub.i.i = sub i64 %retval.0.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 1
@@ -1026,19 +1021,19 @@ for.body.outer.i:                                 ; preds = %for.inc.thread.i, %
 for.body.i:                                       ; preds = %for.inc.i, %for.body.outer.i
   %__begin2.032.i.idx = phi i64 [ %__begin2.032.i.add38, %for.inc.i ], [ %__begin2.032.ph.i.idx, %for.body.outer.i ]
   %__begin2.032.i.ptr = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_indicesE, i64 %__begin2.032.i.idx
-  %13 = load i32, ptr %__begin2.032.i.ptr, align 8
-  %cmp7.i = icmp slt i32 %13, %conv6.i
+  %14 = load i32, ptr %__begin2.032.i.ptr, align 8
+  %cmp7.i = icmp slt i32 %14, %conv6.i
   br i1 %cmp7.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
   %label.i = getelementptr inbounds i8, ptr %__begin2.032.i.ptr, i64 8
-  %14 = load ptr, ptr %label.i, align 8
-  store ptr %14, ptr %agg.tmp.i, align 8
-  %tobool.not.i.i33 = icmp eq ptr %14, null
+  %15 = load ptr, ptr %label.i, align 8
+  store ptr %15, ptr %agg.tmp.i, align 8
+  %tobool.not.i.i33 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i33, label %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then.i
-  %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #17
+  %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #17
   br label %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.i
 
 _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.i: ; preds = %cond.true.i.i, %if.then.i
@@ -1091,8 +1086,8 @@ for.inc.i:                                        ; preds = %invoke.cont10.i, %f
 
 for.inc.thread.i:                                 ; preds = %if.then12.i
   %conv15.i = trunc i32 %call14.i to i16
-  %15 = load i32, ptr %__begin2.032.i.ptr, align 8
-  %conv17.i = sext i32 %15 to i64
+  %16 = load i32, ptr %__begin2.032.i.ptr, align 8
+  %conv17.i = sext i32 %16 to i64
   %add.ptr.i9.i = getelementptr inbounds i16, ptr %array.sroa.0.0.i, i64 %conv17.i
   store i16 %conv15.i, ptr %add.ptr.i9.i, align 2
   %__begin2.032.i.add = add nsw i64 %__begin2.032.i.idx, 16

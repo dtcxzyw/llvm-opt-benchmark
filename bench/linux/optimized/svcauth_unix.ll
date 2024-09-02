@@ -1418,7 +1418,7 @@ define internal void @unix_gid_request(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @unix_gid_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal range(i32 -22, 1) i32 @unix_gid_parse(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.unix_gid, align 8
   %5 = alloca [50 x i8], align 16
   %6 = alloca ptr, align 8

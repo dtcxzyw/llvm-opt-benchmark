@@ -279,7 +279,7 @@ Curl_cwriter_write.exit:                          ; preds = %.thread, %80, %78
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_init_stack(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @do_init_stack(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 328
   %3 = load ptr, ptr @Curl_ccalloc, align 8
   %4 = tail call ptr %3(i64 noundef 1, i64 noundef 24) #9
@@ -1070,7 +1070,7 @@ define dso_local i64 @Curl_cwriter_count(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_cwriter_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_cwriter_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

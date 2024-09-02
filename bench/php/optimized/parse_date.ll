@@ -47735,14 +47735,14 @@ add_pbf_error.exit876:                            ; preds = %1677, %1682
   %1720 = getelementptr inbounds i8, ptr %77, i64 1
   %1721 = tail call i64 @strtol(ptr nocapture noundef nonnull %1720, ptr noundef null, i32 noundef 10) #19
   %sext23.i = mul i64 %1721, %.sink24.i
-  %1722 = ashr exact i64 %sext23.i, 32
+  %1722 = lshr exact i64 %sext23.i, 32
+  %1723 = trunc nuw i64 %1722 to i32
   br label %timelib_parse_tz_minutes.exit
 
 timelib_parse_tz_minutes.exit:                    ; preds = %1704, %1715, %.sink.split.i
-  %.0.i879 = phi i64 [ -9999999, %1704 ], [ -9999999, %1715 ], [ %1722, %.sink.split.i ]
-  %1723 = trunc nsw i64 %.0.i879 to i32
+  %.0.i879 = phi i32 [ -9999999, %1704 ], [ -9999999, %1715 ], [ %1723, %.sink.split.i ]
   %1724 = getelementptr inbounds i8, ptr %1705, i64 56
-  store i32 %1723, ptr %1724, align 8
+  store i32 %.0.i879, ptr %1724, align 8
   %1725 = load ptr, ptr %17, align 8
   %1726 = getelementptr inbounds i8, ptr %1725, i64 56
   %1727 = load i32, ptr %1726, align 8

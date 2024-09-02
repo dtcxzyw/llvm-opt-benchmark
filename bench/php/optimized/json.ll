@@ -470,12 +470,12 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 3) #13
-  br label %.thread290
+  br label %.thread294
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %0, i64 80
   %13 = icmp eq i32 %8, 1
-  br i1 %13, label %.thread282, label %14
+  br i1 %13, label %.thread303, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 96
@@ -491,36 +491,37 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
 
 20:                                               ; preds = %14
   %21 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %15, ptr noundef nonnull %5, i32 noundef 2) #13
-  br i1 %21, label %22, label %.thread290
+  br i1 %21, label %22, label %.thread294
 
 22:                                               ; preds = %20, %.critedge
   %.not = icmp eq i32 %8, 3
-  br i1 %.not, label %23, label %.thread282
+  br i1 %.not, label %23, label %.thread303
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds i8, ptr %0, i64 112
   %25 = getelementptr inbounds i8, ptr %0, i64 120
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %26, 4
-  br i1 %27, label %.thread, label %29
+  br i1 %27, label %.thread282, label %29
 
-.thread:                                          ; preds = %23
+.thread282:                                       ; preds = %23
   %28 = load i64, ptr %24, align 8
   store i64 %28, ptr %6, align 8
-  br label %.thread282
+  br label %.thread303
 
 29:                                               ; preds = %23
   %30 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %24, ptr noundef nonnull %6, i32 noundef 3) #13
-  br i1 %30, label %.thread282, label %.thread290
+  %.fr = freeze i1 %30
+  br i1 %.fr, label %.thread303, label %.thread294
 
-.thread290:                                       ; preds = %29, %20, %10
-  %.0243298 = phi i32 [ 9, %20 ], [ 1, %10 ], [ 9, %29 ]
-  %.0246297 = phi ptr [ %15, %20 ], [ null, %10 ], [ %24, %29 ]
-  %.0247296 = phi i32 [ 2, %20 ], [ 0, %10 ], [ 3, %29 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0243298, i32 noundef %.0247296, ptr noundef null, i32 noundef 0, ptr noundef %.0246297) #13
+.thread294:                                       ; preds = %20, %10, %29
+  %.0243302 = phi i32 [ 9, %29 ], [ 9, %20 ], [ 1, %10 ]
+  %.0246301 = phi ptr [ %24, %29 ], [ %15, %20 ], [ null, %10 ]
+  %.0247300 = phi i32 [ 3, %29 ], [ 2, %20 ], [ 0, %10 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0243302, i32 noundef %.0247300, ptr noundef null, i32 noundef 0, ptr noundef %.0246301) #13
   br label %141
 
-.thread282:                                       ; preds = %29, %.thread, %22, %11
+.thread303:                                       ; preds = %29, %.thread282, %22, %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   %31 = load i64, ptr %6, align 8
   %32 = trunc i64 %31 to i32
@@ -534,7 +535,7 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
   %or.cond276 = icmp eq i64 %38, 4194304
   br i1 %or.cond276, label %57, label %39
 
-39:                                               ; preds = %.thread282
+39:                                               ; preds = %.thread303
   %40 = and i64 %37, 512
   %.not262 = icmp ne i64 %40, 0
   %41 = getelementptr inbounds i8, ptr %3, i64 8
@@ -574,7 +575,7 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
   store i32 2, ptr %56, align 8
   br label %141
 
-57:                                               ; preds = %.thread282
+57:                                               ; preds = %.thread303
   %58 = getelementptr inbounds i8, ptr %3, i64 8
   %59 = load i32, ptr %58, align 4
   %.not263 = icmp eq i32 %59, 0
@@ -738,7 +739,7 @@ php_json_get_error_msg.exit:                      ; preds = %73, %switch.lookup
   store i32 %139, ptr %140, align 8
   br label %141
 
-141:                                              ; preds = %135, %php_json_get_error_msg.exit, %55, %.thread290
+141:                                              ; preds = %135, %php_json_get_error_msg.exit, %55, %.thread294
   ret void
 }
 

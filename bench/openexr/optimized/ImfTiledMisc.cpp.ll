@@ -28,7 +28,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7Imf_3_29levelSizeEiiiNS_17LevelRoundingModeE(i32 noundef %min, i32 noundef %max, i32 noundef %l, i32 noundef %rmode) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1, -2147483648) i32 @_ZN7Imf_3_29levelSizeEiiiNS_17LevelRoundingModeE(i32 noundef %min, i32 noundef %max, i32 noundef %l, i32 noundef %rmode) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp slt i32 %l, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -134,7 +134,7 @@ _ZN7Imf_3_29levelSizeEiiiNS_17LevelRoundingModeE.exit20: ; preds = %_ZN7Imf_3_29
   %or.cond.not.i = select i1 %cmp1.i, i1 %cmp2.not.i, i1 false
   %add4.i = zext i1 %or.cond.not.i to i32
   %spec.select.i = add nsw i32 %div.i, %add4.i
-  %.sroa.speculated.i = tail call noundef i32 @llvm.smax.i32(i32 %spec.select.i, i32 1)
+  %.sroa.speculated.i = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i, i32 1)
   %sub.i5 = sub nsw i32 %maxY, %minY
   %add.i6 = add nsw i32 %sub.i5, 1
   %shl.i7 = shl nuw i32 1, %ly
@@ -144,7 +144,7 @@ _ZN7Imf_3_29levelSizeEiiiNS_17LevelRoundingModeE.exit20: ; preds = %_ZN7Imf_3_29
   %or.cond.not.i12 = select i1 %cmp1.i, i1 %cmp2.not.i11, i1 false
   %add4.i13 = zext i1 %or.cond.not.i12 to i32
   %spec.select.i14 = add nsw i32 %div.i8, %add4.i13
-  %.sroa.speculated.i15 = tail call noundef i32 @llvm.smax.i32(i32 %spec.select.i14, i32 1)
+  %.sroa.speculated.i15 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i14, i32 1)
   %sub = add i32 %minX, -1
   %add.i22 = add i32 %sub, %.sroa.speculated.i
   %sub3 = add i32 %minY, -1
@@ -593,7 +593,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %or.cond.not.i.i = select i1 %cmp1.i.i, i1 %cmp2.not.i.i, i1 false
   %add4.i.i = zext i1 %or.cond.not.i.i to i32
   %spec.select.i.i = add nsw i32 %div.i.i, %add4.i.i
-  %.sroa.speculated.i.i = tail call noundef i32 @llvm.smax.i32(i32 %spec.select.i.i, i32 1)
+  %.sroa.speculated.i.i = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i.i, i32 1)
   %conv.i = zext nneg i32 %.sroa.speculated.i.i to i64
   %sub.i = add nsw i64 %add.i85, %conv.i
   %div.i = udiv i64 %sub.i, %conv1.i
@@ -636,7 +636,7 @@ for.body.i94:                                     ; preds = %for.body.i94, %for.
   %or.cond.not.i.i100 = select i1 %cmp1.i.i90, i1 %cmp2.not.i.i99, i1 false
   %add4.i.i101 = zext i1 %or.cond.not.i.i100 to i32
   %spec.select.i.i102 = add nsw i32 %div.i.i97, %add4.i.i101
-  %.sroa.speculated.i.i103 = tail call noundef i32 @llvm.smax.i32(i32 %spec.select.i.i102, i32 1)
+  %.sroa.speculated.i.i103 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %spec.select.i.i102, i32 1)
   %conv.i104 = zext nneg i32 %.sroa.speculated.i.i103 to i64
   %sub.i105 = add nsw i64 %add.i92, %conv.i104
   %div.i106 = udiv i64 %sub.i105, %conv1.i91

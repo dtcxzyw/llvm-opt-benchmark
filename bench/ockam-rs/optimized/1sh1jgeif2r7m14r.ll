@@ -1524,7 +1524,7 @@ define void @_ZN10ockam_core4bare9write_str17h45bf16c359560f2cE(ptr noalias noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
-define noundef i64 @_ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E(i64 noundef %0) unnamed_addr #15 {
+define noundef range(i64 1, 0) i64 @_ZN10ockam_core4bare23size_of_variable_length17h4f405c59410e4404E(i64 noundef %0) unnamed_addr #15 {
   br label %2
 
 2:                                                ; preds = %2, %1

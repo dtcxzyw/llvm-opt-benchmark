@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Grequest_complete = weak alias i32 (ptr), ptr @PMPI_Grequest_complete
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PMPI_Grequest_complete(ptr noundef %0) #0 {
+define range(i32 0, 18) i32 @PMPI_Grequest_complete(ptr noundef %0) #0 {
   %2 = load i8, ptr @ompi_mpi_param_check, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %15

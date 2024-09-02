@@ -390,7 +390,7 @@ declare void @MarkBufferDirtyHint(i32 noundef, i1 noundef zeroext) local_unnamed
 declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @GetRecordedFreeSpace(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 0, 8161) i64 @GetRecordedFreeSpace(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = udiv i32 %1, 4069
   %4 = urem i32 %1, 4069
   %.sroa.2.0.insert.ext.i = zext nneg i32 %3 to i64

@@ -6467,7 +6467,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_mult_msg(ptr noundef %0, ptr 
   %16 = load ptr, ptr %0, align 8
   %17 = tail call ptr @slurm_persist_make_rc_msg(ptr noundef %16, i32 noundef 2002, ptr noundef nonnull @.str.139, i16 noundef zeroext 1474) #10
   store ptr %17, ptr %2, align 8
-  br label %46
+  br label %47
 
 18:                                               ; preds = %3
   %19 = tail call ptr @list_create(ptr noundef nonnull @slurmdbd_free_buffer) #10
@@ -6476,10 +6476,10 @@ define internal fastcc range(i32 -1, 1) i32 @_send_mult_msg(ptr noundef %0, ptr 
   %21 = tail call ptr @list_iterator_create(ptr noundef %20) #10
   br label %22
 
-22:                                               ; preds = %37, %18
+22:                                               ; preds = %38, %18
   %23 = call ptr @list_next(ptr noundef %21) #10
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %38, label %24
+  br i1 %.not, label %39, label %24
 
 24:                                               ; preds = %22
   store ptr null, ptr %5, align 8
@@ -6490,47 +6490,47 @@ define internal fastcc range(i32 -1, 1) i32 @_send_mult_msg(ptr noundef %0, ptr 
   %29 = load i32, ptr %28, align 8
   %30 = call i32 @slurm_persist_conn_process_msg(ptr noundef %25, ptr noundef nonnull %6, ptr noundef %27, i32 noundef %29, ptr noundef nonnull %5, i1 noundef zeroext false) #10
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %34
+  br i1 %31, label %32, label %35
 
 32:                                               ; preds = %24
   %33 = call i32 @proc_req(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %5)
   call void @slurmdbd_free_msg(ptr noundef nonnull %6) #10
-  br label %34
+  %34 = icmp eq i32 %33, 0
+  br label %35
 
-34:                                               ; preds = %32, %24
-  %.0 = phi i32 [ %33, %32 ], [ %30, %24 ]
-  %35 = load ptr, ptr %5, align 8
-  %.not25 = icmp eq ptr %35, null
-  br i1 %.not25, label %37, label %36
+35:                                               ; preds = %32, %24
+  %.0 = phi i1 [ %34, %32 ], [ false, %24 ]
+  %36 = load ptr, ptr %5, align 8
+  %.not25 = icmp eq ptr %36, null
+  br i1 %.not25, label %38, label %37
 
-36:                                               ; preds = %34
-  call void @list_append(ptr noundef %19, ptr noundef nonnull %35) #10
-  br label %37
+37:                                               ; preds = %35
+  call void @list_append(ptr noundef %19, ptr noundef nonnull %36) #10
+  br label %38
 
-37:                                               ; preds = %36, %34
-  %.not26 = icmp eq i32 %.0, 0
-  br i1 %.not26, label %22, label %38, !llvm.loop !11
+38:                                               ; preds = %37, %35
+  br i1 %.0, label %22, label %39, !llvm.loop !11
 
-38:                                               ; preds = %37, %22
+39:                                               ; preds = %38, %22
   call void @list_iterator_destroy(ptr noundef %21) #10
-  %39 = call ptr @init_buf(i32 noundef 1024) #10
-  store ptr %39, ptr %2, align 8
-  call void @pack16(i16 noundef zeroext 1475, ptr noundef %39) #10
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 160
-  %42 = load i16, ptr %41, align 8
-  %43 = load ptr, ptr %2, align 8
-  call void @slurmdbd_pack_list_msg(ptr noundef nonnull %4, i16 noundef zeroext %42, i32 noundef 1475, ptr noundef %43) #10
-  %44 = load ptr, ptr %4, align 8
-  %.not27 = icmp eq ptr %44, null
-  br i1 %.not27, label %46, label %45
+  %40 = call ptr @init_buf(i32 noundef 1024) #10
+  store ptr %40, ptr %2, align 8
+  call void @pack16(i16 noundef zeroext 1475, ptr noundef %40) #10
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 160
+  %43 = load i16, ptr %42, align 8
+  %44 = load ptr, ptr %2, align 8
+  call void @slurmdbd_pack_list_msg(ptr noundef nonnull %4, i16 noundef zeroext %43, i32 noundef 1475, ptr noundef %44) #10
+  %45 = load ptr, ptr %4, align 8
+  %.not27 = icmp eq ptr %45, null
+  br i1 %.not27, label %47, label %46
 
-45:                                               ; preds = %38
-  call void @list_destroy(ptr noundef nonnull %44) #10
-  br label %46
+46:                                               ; preds = %39
+  call void @list_destroy(ptr noundef nonnull %45) #10
+  br label %47
 
-46:                                               ; preds = %38, %45, %14
-  %.020 = phi i32 [ -1, %14 ], [ 0, %45 ], [ 0, %38 ]
+47:                                               ; preds = %39, %46, %14
+  %.020 = phi i32 [ -1, %14 ], [ 0, %46 ], [ 0, %39 ]
   ret i32 %.020
 }
 

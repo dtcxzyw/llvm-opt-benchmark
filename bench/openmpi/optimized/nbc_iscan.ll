@@ -54,14 +54,13 @@ define internal fastcc i32 @nbc_scan_init(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
-  %spec.select = select i1 %15, ptr %0, ptr %1
-  %spec.select100 = zext i1 %15 to i8
+  %15 = icmp ne ptr %1, inttoptr (i64 1 to ptr)
+  %spec.select = select i1 %15, ptr %1, ptr %0
   br label %16
 
 16:                                               ; preds = %14, %12, %9
   %.087 = phi ptr [ %1, %9 ], [ %1, %12 ], [ %spec.select, %14 ]
-  %.082 = phi i8 [ 1, %9 ], [ 1, %12 ], [ %spec.select100, %14 ]
+  %.082 = phi i1 [ false, %9 ], [ false, %12 ], [ %15, %14 ]
   %.081 = phi ptr [ %0, %9 ], [ %1, %12 ], [ %0, %14 ]
   %17 = getelementptr i8, ptr %5, i64 220
   %.val = load i32, ptr %17, align 4
@@ -184,11 +183,10 @@ opal_obj_new.exit.thread:                         ; preds = %72
   br label %nbc_get_noop_request.exit
 
 opal_obj_new.exit.thread129:                      ; preds = %.lr.ph.i.i, %73
-  %.not.i105 = icmp eq i8 %.082, 0
   br i1 %.not, label %102, label %80
 
 80:                                               ; preds = %opal_obj_new.exit.thread129
-  br i1 %.not.i105, label %81, label %83
+  br i1 %.082, label %81, label %83
 
 81:                                               ; preds = %80
   %82 = tail call i32 @NBC_Sched_copy(ptr noundef %.081, i8 noundef signext 0, i64 noundef %26, ptr noundef %3, ptr noundef %.087, i8 noundef signext 0, i64 noundef %26, ptr noundef %3, ptr noundef nonnull %68, i1 noundef zeroext false) #4
@@ -234,7 +232,7 @@ opal_datatype_span.exit.i:                        ; preds = %88, %85
   br label %scan_sched_linear.exit
 
 102:                                              ; preds = %opal_obj_new.exit.thread129
-  br i1 %.not.i105, label %103, label %107
+  br i1 %.082, label %103, label %107
 
 103:                                              ; preds = %102
   %104 = tail call i32 @NBC_Sched_copy(ptr noundef %.081, i8 noundef signext 0, i64 noundef %26, ptr noundef %3, ptr noundef %.087, i8 noundef signext 0, i64 noundef %26, ptr noundef %3, ptr noundef nonnull %68, i1 noundef zeroext true) #4

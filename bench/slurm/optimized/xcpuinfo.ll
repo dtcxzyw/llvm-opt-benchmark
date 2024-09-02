@@ -1511,96 +1511,97 @@ define range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr nocapture n
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 2048
   %.not57.i10 = icmp eq i16 %18, 0
-  br i1 %.not57.i10, label %._crit_edge, label %.lr.ph
+  br i1 %.not57.i10, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.outer.i, %.lr.ph
-  %.05272.i13 = phi i32 [ 1, %.lr.ph ], [ %.05272.ph.i, %.outer.i ]
-  %.04575.i12 = phi ptr [ %19, %.lr.ph ], [ %.04575.ph.i, %.outer.i ]
-  %.04376.i11 = phi ptr [ %spec.select.i, %.lr.ph ], [ %.04376.ph.i, %.outer.i ]
-  %.not59.i = icmp eq i32 %.05272.i13, 0
-  %spec.select.i = select i1 %.not59.i, ptr %.04575.i12, ptr %.04376.i11
-  %19 = getelementptr inbounds i8, ptr %.04575.i12, i64 1
-  %20 = load i8, ptr %19, align 1
-  %21 = sext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %13, i64 %21
-  %23 = load i16, ptr %22, align 2
-  %24 = and i16 %23, 2048
-  %.not57.i = icmp eq i16 %24, 0
+.lr.ph.preheader:                                 ; preds = %.outer.i
+  %19 = icmp eq i32 %.05272.ph.i, 0
+  %20 = select i1 %19, ptr %.04575.ph.i, ptr %.04376.ph.i
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.04575.i12 = phi ptr [ %21, %.lr.ph ], [ %.04575.ph.i, %.lr.ph.preheader ]
+  %21 = getelementptr inbounds i8, ptr %.04575.i12, i64 1
+  %22 = load i8, ptr %21, align 1
+  %23 = sext i8 %22 to i64
+  %24 = getelementptr inbounds i16, ptr %13, i64 %23
+  %25 = load i16, ptr %24, align 2
+  %26 = and i16 %25, 2048
+  %.not57.i = icmp eq i16 %26, 0
   br i1 %.not57.i, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.outer.i
-  %.04376.i.lcssa = phi ptr [ %.04376.ph.i, %.outer.i ], [ %spec.select.i, %.lr.ph ]
-  %.04575.i.lcssa = phi ptr [ %.04575.ph.i, %.outer.i ], [ %19, %.lr.ph ]
+  %.04376.i.lcssa = phi ptr [ %.04376.ph.i, %.outer.i ], [ %20, %.lr.ph ]
+  %.04575.i.lcssa = phi ptr [ %.04575.ph.i, %.outer.i ], [ %21, %.lr.ph ]
   %.05272.i.lcssa = phi i32 [ %.05272.ph.i, %.outer.i ], [ 1, %.lr.ph ]
-  %.lcssa = phi i8 [ %14, %.outer.i ], [ %20, %.lr.ph ]
+  %.lcssa = phi i8 [ %14, %.outer.i ], [ %22, %.lr.ph ]
   switch i8 %.lcssa, label %_range_to_map.exit [
-    i8 45, label %25
-    i8 44, label %31
-    i8 0, label %31
+    i8 45, label %27
+    i8 44, label %33
+    i8 0, label %33
   ]
 
-25:                                               ; preds = %._crit_edge
-  %26 = icmp ne ptr %.04376.i.lcssa, null
-  %27 = icmp ne i32 %.05272.i.lcssa, 0
-  %or.cond.i = select i1 %26, i1 %27, i1 false
-  br i1 %or.cond.i, label %28, label %.outer.backedge.i
+27:                                               ; preds = %._crit_edge
+  %28 = icmp ne ptr %.04376.i.lcssa, null
+  %29 = icmp ne i32 %.05272.i.lcssa, 0
+  %or.cond.i = select i1 %28, i1 %29, i1 false
+  br i1 %or.cond.i, label %30, label %.outer.backedge.i
 
-28:                                               ; preds = %25
+30:                                               ; preds = %27
   store i8 0, ptr %.04575.i.lcssa, align 1
-  %29 = tail call i32 @atoi(ptr nocapture noundef nonnull %.04376.i.lcssa) #13
-  %30 = trunc i32 %29 to i16
+  %31 = tail call i32 @atoi(ptr nocapture noundef nonnull %.04376.i.lcssa) #13
+  %32 = trunc i32 %31 to i16
   br label %.outer.backedge.i
 
-31:                                               ; preds = %._crit_edge, %._crit_edge
-  %32 = icmp eq i8 %.lcssa, 0
-  %33 = icmp ne ptr %.04376.i.lcssa, null
-  %34 = icmp ne i32 %.05272.i.lcssa, 0
-  %or.cond3.i = select i1 %33, i1 %34, i1 false
-  br i1 %or.cond3.i, label %35, label %.thread.i
+33:                                               ; preds = %._crit_edge, %._crit_edge
+  %34 = icmp eq i8 %.lcssa, 0
+  %35 = icmp ne ptr %.04376.i.lcssa, null
+  %36 = icmp ne i32 %.05272.i.lcssa, 0
+  %or.cond3.i = select i1 %35, i1 %36, i1 false
+  br i1 %or.cond3.i, label %37, label %.thread.i
 
-35:                                               ; preds = %31
+37:                                               ; preds = %33
   store i8 0, ptr %.04575.i.lcssa, align 1
-  %36 = tail call i32 @atoi(ptr nocapture noundef nonnull %.04376.i.lcssa) #13
-  %37 = trunc i32 %36 to i16
+  %38 = tail call i32 @atoi(ptr nocapture noundef nonnull %.04376.i.lcssa) #13
+  %39 = trunc i32 %38 to i16
   %.not58.i = icmp eq i32 %.04973.ph.i, 0
-  %spec.select61.i = select i1 %.not58.i, i16 %37, i16 %.03977.ph.i
-  %38 = load i16, ptr @threads, align 2
-  %39 = mul i16 %spec.select61.i, %38
-  %40 = add i16 %37, 1
-  %41 = mul i16 %40, %38
-  %42 = add i16 %41, -1
-  %43 = icmp ule i16 %39, %42
-  %44 = icmp ult i16 %39, %9
-  %45 = and i1 %44, %43
-  br i1 %45, label %.lr.ph.preheader.i, label %.thread.i
+  %spec.select61.i = select i1 %.not58.i, i16 %39, i16 %.03977.ph.i
+  %40 = load i16, ptr @threads, align 2
+  %41 = mul i16 %spec.select61.i, %40
+  %42 = add i16 %39, 1
+  %43 = mul i16 %42, %40
+  %44 = add i16 %43, -1
+  %45 = icmp ule i16 %41, %44
+  %46 = icmp ult i16 %41, %9
+  %47 = and i1 %46, %45
+  br i1 %47, label %.lr.ph.preheader.i, label %.thread.i
 
-.lr.ph.preheader.i:                               ; preds = %35
-  %46 = zext i16 %39 to i64
-  %47 = zext i16 %42 to i64
+.lr.ph.preheader.i:                               ; preds = %37
+  %48 = zext i16 %41 to i64
+  %49 = zext i16 %44 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %46, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %48 = getelementptr inbounds i16, ptr %8, i64 %indvars.iv.i
-  store i16 1, ptr %48, align 2
+  %indvars.iv.i = phi i64 [ %48, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %50 = getelementptr inbounds i16, ptr %8, i64 %indvars.iv.i
+  store i16 1, ptr %50, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %49 = icmp ult i64 %indvars.iv.i, %47
-  %50 = icmp ult i64 %indvars.iv.next.i, %12
-  %51 = and i1 %49, %50
-  br i1 %51, label %.lr.ph.i, label %.thread.i, !llvm.loop !24
+  %51 = icmp ult i64 %indvars.iv.i, %49
+  %52 = icmp ult i64 %indvars.iv.next.i, %12
+  %53 = and i1 %51, %52
+  br i1 %53, label %.lr.ph.i, label %.thread.i, !llvm.loop !24
 
-.thread.i:                                        ; preds = %.lr.ph.i, %35, %31
-  %.14470.i = phi ptr [ %.04376.i.lcssa, %31 ], [ null, %35 ], [ null, %.lr.ph.i ]
-  %.15368.i = phi i32 [ %.05272.i.lcssa, %31 ], [ 0, %35 ], [ 0, %.lr.ph.i ]
-  %.251.i = phi i32 [ %.04973.ph.i, %31 ], [ 0, %35 ], [ 0, %.lr.ph.i ]
-  %.342.i = phi i16 [ %.03977.ph.i, %31 ], [ %39, %35 ], [ %39, %.lr.ph.i ]
-  br i1 %32, label %_range_to_map.exit, label %.outer.backedge.i
+.thread.i:                                        ; preds = %.lr.ph.i, %37, %33
+  %.14470.i = phi ptr [ %.04376.i.lcssa, %33 ], [ null, %37 ], [ null, %.lr.ph.i ]
+  %.15368.i = phi i32 [ %.05272.i.lcssa, %33 ], [ 0, %37 ], [ 0, %.lr.ph.i ]
+  %.251.i = phi i32 [ %.04973.ph.i, %33 ], [ 0, %37 ], [ 0, %.lr.ph.i ]
+  %.342.i = phi i16 [ %.03977.ph.i, %33 ], [ %41, %37 ], [ %41, %.lr.ph.i ]
+  br i1 %34, label %_range_to_map.exit, label %.outer.backedge.i
 
-.outer.backedge.i:                                ; preds = %25, %.thread.i, %28
-  %.03977.ph.be.i = phi i16 [ %30, %28 ], [ %.342.i, %.thread.i ], [ %.03977.ph.i, %25 ]
-  %.04376.ph.be.i = phi ptr [ null, %28 ], [ %.14470.i, %.thread.i ], [ %.04376.i.lcssa, %25 ]
-  %.04973.ph.be.i = phi i32 [ 1, %28 ], [ %.251.i, %.thread.i ], [ %.04973.ph.i, %25 ]
-  %.05272.ph.be.i = phi i32 [ 0, %28 ], [ %.15368.i, %.thread.i ], [ %.05272.i.lcssa, %25 ]
+.outer.backedge.i:                                ; preds = %27, %.thread.i, %30
+  %.03977.ph.be.i = phi i16 [ %32, %30 ], [ %.342.i, %.thread.i ], [ %.03977.ph.i, %27 ]
+  %.04376.ph.be.i = phi ptr [ null, %30 ], [ %.14470.i, %.thread.i ], [ %.04376.i.lcssa, %27 ]
+  %.04973.ph.be.i = phi i32 [ 1, %30 ], [ %.251.i, %.thread.i ], [ %.04973.ph.i, %27 ]
+  %.05272.ph.be.i = phi i32 [ 0, %30 ], [ %.15368.i, %.thread.i ], [ %.05272.i.lcssa, %27 ]
   %.04575.ph.be.i = getelementptr inbounds i8, ptr %.04575.i.lcssa, i64 1
   br label %.outer.i, !llvm.loop !23
 

@@ -245,11 +245,11 @@ proto_item_set_generated.exit270:                 ; preds = %74, %79, %82
   br label %.critedge
 
 87:                                               ; preds = %70
-  %.not257.not = icmp ugt i64 %68, %72
+  %.not257 = icmp ugt i64 %68, %72
   br label %.critedge
 
 .critedge:                                        ; preds = %51, %66, %87, %62, %proto_item_set_generated.exit270
-  %.0232 = phi i1 [ false, %proto_item_set_generated.exit270 ], [ %.not257.not, %87 ], [ true, %62 ], [ true, %66 ], [ true, %51 ]
+  %.0232 = phi i1 [ false, %proto_item_set_generated.exit270 ], [ %.not257, %87 ], [ true, %62 ], [ true, %66 ], [ true, %51 ]
   %.0229 = phi ptr [ %65, %proto_item_set_generated.exit270 ], [ null, %87 ], [ null, %62 ], [ null, %66 ], [ null, %51 ]
   %.0228 = phi ptr [ %86, %proto_item_set_generated.exit270 ], [ null, %87 ], [ null, %62 ], [ null, %66 ], [ null, %51 ]
   %88 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #3

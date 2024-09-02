@@ -1055,7 +1055,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
 
 125:                                              ; preds = %119
   store ptr %79, ptr %61, align 8
-  br label %129
+  br label %130
 
 126:                                              ; preds = %119
   %127 = getelementptr inbounds i8, ptr %123, i64 32
@@ -1063,12 +1063,12 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   %128 = load ptr, ptr %60, align 8
   store ptr %128, ptr %120, align 8
   %.pre378 = load i64, ptr %62, align 8
-  br label %129
+  %129 = add i64 %.pre378, 1
+  br label %130
 
-129:                                              ; preds = %126, %125
-  %130 = phi i64 [ %.pre378, %126 ], [ %122, %125 ]
+130:                                              ; preds = %126, %125
+  %131 = phi i64 [ %129, %126 ], [ %121, %125 ]
   store ptr %79, ptr %60, align 8
-  %131 = add i64 %130, 1
   store i64 %131, ptr %62, align 8
   br label %184
 
@@ -1149,7 +1149,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
 
 173:                                              ; preds = %167
   store ptr %79, ptr %61, align 8
-  br label %177
+  br label %178
 
 174:                                              ; preds = %167
   %175 = getelementptr inbounds i8, ptr %171, i64 32
@@ -1157,12 +1157,12 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   %176 = load ptr, ptr %60, align 8
   store ptr %176, ptr %168, align 8
   %.pre379 = load i64, ptr %62, align 8
-  br label %177
+  %177 = add i64 %.pre379, 1
+  br label %178
 
-177:                                              ; preds = %174, %173
-  %178 = phi i64 [ %.pre379, %174 ], [ %170, %173 ]
+178:                                              ; preds = %174, %173
+  %179 = phi i64 [ %177, %174 ], [ %169, %173 ]
   store ptr %79, ptr %60, align 8
-  %179 = add i64 %178, 1
   store i64 %179, ptr %62, align 8
   br label %184
 
@@ -1173,7 +1173,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %182, ptr align 1 %183, i64 %136, i1 false)
   br label %184
 
-184:                                              ; preds = %129, %180, %177, %82
+184:                                              ; preds = %130, %180, %178, %82
   %185 = call ptr @H5SL_next(ptr noundef nonnull %.1) #9
   br label %186
 
@@ -1322,7 +1322,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
 
 264:                                              ; preds = %258
   store ptr %224, ptr %195, align 8
-  br label %268
+  br label %269
 
 265:                                              ; preds = %258
   %266 = getelementptr inbounds i8, ptr %262, i64 32
@@ -1330,22 +1330,22 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   %267 = load ptr, ptr %194, align 8
   store ptr %267, ptr %259, align 8
   %.pre380 = load i64, ptr %196, align 8
-  br label %268
+  %268 = add i64 %.pre380, 1
+  br label %269
 
-268:                                              ; preds = %265, %264
-  %269 = phi i64 [ %.pre380, %265 ], [ %261, %264 ]
+269:                                              ; preds = %265, %264
+  %270 = phi i64 [ %268, %265 ], [ %260, %264 ]
   store ptr %224, ptr %194, align 8
-  %270 = add i64 %269, 1
   store i64 %270, ptr %196, align 8
   br i1 %190, label %271, label %274
 
-271:                                              ; preds = %268
+271:                                              ; preds = %269
   %272 = load i32, ptr %198, align 4
   %273 = add i32 %272, 1
   store i32 %273, ptr %198, align 4
   br label %390
 
-274:                                              ; preds = %268
+274:                                              ; preds = %269
   %275 = load i32, ptr %197, align 8
   %276 = add i32 %275, 1
   store i32 %276, ptr %197, align 8
@@ -1992,7 +1992,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
 
 111:                                              ; preds = %105
   store ptr %75, ptr %60, align 8
-  br label %115
+  br label %116
 
 112:                                              ; preds = %105
   %113 = getelementptr inbounds i8, ptr %109, i64 32
@@ -2000,12 +2000,12 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   %114 = load ptr, ptr %59, align 8
   store ptr %114, ptr %106, align 8
   %.pre = load i64, ptr %61, align 8
-  br label %115
+  %115 = add i64 %.pre, 1
+  br label %116
 
-115:                                              ; preds = %112, %111
-  %116 = phi i64 [ %.pre, %112 ], [ %108, %111 ]
+116:                                              ; preds = %112, %111
+  %117 = phi i64 [ %115, %112 ], [ %107, %111 ]
   store ptr %75, ptr %59, align 8
-  %117 = add i64 %116, 1
   store i64 %117, ptr %61, align 8
   br label %209
 
@@ -2091,7 +2091,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
 
 159:                                              ; preds = %153
   store ptr %123, ptr %60, align 8
-  br label %163
+  br label %164
 
 160:                                              ; preds = %153
   %161 = getelementptr inbounds i8, ptr %157, i64 32
@@ -2099,12 +2099,12 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   %162 = load ptr, ptr %59, align 8
   store ptr %162, ptr %154, align 8
   %.pre438 = load i64, ptr %61, align 8
-  br label %163
+  %163 = add i64 %.pre438, 1
+  br label %164
 
-163:                                              ; preds = %160, %159
-  %164 = phi i64 [ %.pre438, %160 ], [ %156, %159 ]
+164:                                              ; preds = %160, %159
+  %165 = phi i64 [ %163, %160 ], [ %155, %159 ]
   store ptr %123, ptr %59, align 8
-  %165 = add i64 %164, 1
   store i64 %165, ptr %61, align 8
   br label %209
 
@@ -2193,7 +2193,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   %208 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5PB_entry_t_reg_free_list, ptr noundef nonnull %167) #9
   br label %209
 
-209:                                              ; preds = %115, %73, %166, %204, %122, %163
+209:                                              ; preds = %116, %73, %166, %204, %122, %164
   %210 = add nuw i64 %.0333427, 1
   %211 = icmp ult i64 %210, %56
   br i1 %211, label %68, label %.loopexit
@@ -2333,7 +2333,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
 
 283:                                              ; preds = %277
   store ptr %246, ptr %218, align 8
-  br label %287
+  br label %288
 
 284:                                              ; preds = %277
   %285 = getelementptr inbounds i8, ptr %281, i64 32
@@ -2341,22 +2341,22 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   %286 = load ptr, ptr %217, align 8
   store ptr %286, ptr %278, align 8
   %.pre439 = load i64, ptr %219, align 8
-  br label %287
+  %287 = add i64 %.pre439, 1
+  br label %288
 
-287:                                              ; preds = %284, %283
-  %288 = phi i64 [ %.pre439, %284 ], [ %280, %283 ]
+288:                                              ; preds = %284, %283
+  %289 = phi i64 [ %287, %284 ], [ %279, %283 ]
   store ptr %246, ptr %217, align 8
-  %289 = add i64 %288, 1
   store i64 %289, ptr %219, align 8
   br i1 %or.cond7, label %290, label %293
 
-290:                                              ; preds = %287
+290:                                              ; preds = %288
   %291 = load i32, ptr %221, align 4
   %292 = add i32 %291, 1
   store i32 %292, ptr %221, align 4
   br label %454
 
-293:                                              ; preds = %287
+293:                                              ; preds = %288
   %294 = load i32, ptr %220, align 8
   %295 = add i32 %294, 1
   store i32 %295, ptr %220, align 8

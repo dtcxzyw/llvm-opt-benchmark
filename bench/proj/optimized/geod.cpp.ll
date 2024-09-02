@@ -74,28 +74,28 @@ sub_0:                                            ; preds = %12, %10
   store ptr %storemerge, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
   %14 = load i8, ptr %storemerge, align 1
   %.not138 = icmp eq i8 %14, 105
-  br i1 %.not138, label %sub_1, label %.critedge238
+  br i1 %.not138, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %15 = getelementptr inbounds i8, ptr %storemerge, i64 1
   %16 = load i8, ptr %15, align 1
   %.not139 = icmp eq i8 %16, 110
-  br i1 %.not139, label %sub_2, label %.critedge238
+  br i1 %.not139, label %.tail, label %.tail.thread
 
-sub_2:                                            ; preds = %sub_1
+.tail:                                            ; preds = %sub_1
   %17 = getelementptr inbounds i8, ptr %storemerge, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 118
-  br i1 %19, label %23, label %.critedge238
+  br i1 %19, label %23, label %.tail.thread
 
-.critedge238:                                     ; preds = %sub_0, %sub_1, %sub_2
+.tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   %20 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %storemerge, ptr noundef nonnull dereferenceable(7) @.str.1, i64 noundef 6) #10
   %21 = icmp eq i32 %20, 0
   %22 = zext i1 %21 to i32
   br label %23
 
-23:                                               ; preds = %.critedge238, %sub_2
-  %24 = phi i32 [ 1, %sub_2 ], [ %22, %.critedge238 ]
+23:                                               ; preds = %.tail.thread, %.tail
+  %24 = phi i32 [ 1, %.tail ], [ %22, %.tail.thread ]
   %25 = icmp slt i32 %0, 2
   br i1 %25, label %26, label %.preheader108
 

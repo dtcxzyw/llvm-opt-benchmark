@@ -296,7 +296,7 @@ define dso_local void @_ZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9Algorith
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  switch i32 %3, label %60 [
+  switch i32 %3, label %56 [
     i32 0, label %8
     i32 1, label %36
   ]
@@ -392,58 +392,52 @@ _ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocess
   %46 = getelementptr inbounds i8, ptr %6, i64 200
   %47 = ptrtoint ptr %2 to i64
   %48 = getelementptr inbounds i8, ptr %6, i64 208
-  br label %49
+  %49 = ptrtoint ptr %1 to i64
+  %50 = sub i64 %47, %49
+  %.not.i.i5.i5 = icmp ult i64 %50, 128
+  br i1 %.not.i.i5.i5, label %._crit_edge, label %.lr.ph
 
-49:                                               ; preds = %59, %36
-  %.0.i.i = phi ptr [ %1, %36 ], [ %.0.i.i.i, %59 ]
-  %50 = ptrtoint ptr %.0.i.i to i64
-  %51 = sub i64 %47, %50
-  %.not.i.i5.i = icmp ult i64 %51, 128
-  br i1 %.not.i.i5.i, label %53, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i.i.i
+._crit_edge:                                      ; preds = %.lr.ph, %36
+  %.0.i.i.lcssa = phi ptr [ %1, %36 ], [ %52, %.lr.ph ]
+  %.lcssa4 = phi i64 [ %50, %36 ], [ %55, %.lr.ph ]
+  %.not.i.i.i.i.i20.i.i9.i = icmp eq ptr %2, %.0.i.i.lcssa
+  br i1 %.not.i.i.i.i.i20.i.i9.i, label %"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.exit.loopexit14.i", label %51
 
-_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i.i.i:           ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %.0.i.i, i64 128
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %45, ptr noundef nonnull align 1 dereferenceable(128) %.0.i.i, i64 128, i1 false), !noalias !19
-  br label %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocessedEPKvS6_.exit.i.i
-
-53:                                               ; preds = %49
-  %.not.i.i.i.i.i20.i.i9.i = icmp eq ptr %2, %.0.i.i
-  br i1 %.not.i.i.i.i.i20.i.i9.i, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit21.i.i.i, label %54
-
-54:                                               ; preds = %53
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %45, ptr align 1 %.0.i.i, i64 %51, i1 false), !noalias !19
+51:                                               ; preds = %._crit_edge
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr align 1 %.0.i.i.lcssa, i64 %.lcssa4, i1 false), !noalias !19
   %.pre22.i.i10.i = load i64, ptr %46, align 8, !noalias !19
-  br label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit21.i.i.i
+  br label %"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.exit.loopexit14.i"
 
-_ZSt4copyIPKhPhET0_T_S4_S3_.exit21.i.i.i:         ; preds = %54, %53
-  %55 = phi i64 [ %.pre22.i.i10.i, %54 ], [ 0, %53 ]
-  %56 = add i64 %55, %51
-  br label %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocessedEPKvS6_.exit.i.i
-
-_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocessedEPKvS6_.exit.i.i: ; preds = %_ZSt4copyIPKhPhET0_T_S4_S3_.exit21.i.i.i, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i.i.i
-  %.sink24.i.i.i = phi i64 [ %56, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit21.i.i.i ], [ 128, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i.i.i ]
-  %.sink.i.i.i = phi i64 [ %51, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit21.i.i.i ], [ 128, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i.i.i ]
-  %.0.i.i.i = phi ptr [ null, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit21.i.i.i ], [ %52, %_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i.i.i ]
-  store i64 %.sink24.i.i.i, ptr %46, align 8, !noalias !19
-  %57 = shl nuw nsw i64 %.sink.i.i.i, 3
-  %58 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5vcpkg7UInt128pLEm(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %57) #21, !noalias !19
-  %.not.i8.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i8.i, label %"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.exit", label %59
-
-59:                                               ; preds = %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocessedEPKvS6_.exit.i.i
+.lr.ph:                                           ; preds = %36, %.lr.ph
+  %.0.i.i6 = phi ptr [ %52, %.lr.ph ], [ %1, %36 ]
+  %52 = getelementptr inbounds i8, ptr %.0.i.i6, i64 128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %45, ptr noundef nonnull align 1 dereferenceable(128) %.0.i.i6, i64 128, i1 false), !noalias !19
+  store i64 128, ptr %46, align 8, !noalias !19
+  %53 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5vcpkg7UInt128pLEm(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef 1024) #21, !noalias !19
   call fastcc void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha512Algorithm18process_full_chunkERKSt5arrayIhLm128EE(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 1 dereferenceable(128) %45) #21, !noalias !19
   store i64 0, ptr %46, align 8, !noalias !19
-  br label %49, !llvm.loop !22
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %47, %54
+  %.not.i.i5.i = icmp ult i64 %55, 128
+  br i1 %.not.i.i5.i, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
-60:                                               ; preds = %4
+56:                                               ; preds = %4
   store i32 539, ptr %7, align 8, !noalias !11
-  %61 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr @.str.2, ptr %61, align 8, !noalias !11
+  %57 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr @.str.2, ptr %57, align 8, !noalias !11
   call void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %7) #23, !noalias !11
   unreachable
 
-"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.exit": ; preds = %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocessedEPKvS6_.exit.i.i, %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocessedEPKvS6_.exit.thread.i.i
-  %.sink4.i = phi ptr [ %5, %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocessedEPKvS6_.exit.thread.i.i ], [ %6, %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE18add_to_unprocessedEPKvS6_.exit.i.i ]
+"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.exit.loopexit14.i": ; preds = %51, %._crit_edge
+  %58 = phi i64 [ %.pre22.i.i10.i, %51 ], [ 0, %._crit_edge ]
+  %59 = add i64 %58, %.lcssa4
+  %60 = shl nuw nsw i64 %.lcssa4, 3
+  store i64 %59, ptr %46, align 8, !noalias !19
+  %61 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5vcpkg7UInt128pLEm(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %60) #21, !noalias !19
+  br label %"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.exit"
+
+"_ZN5vcpkg4HashL7do_hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZNS0_14get_bytes_hashEPKvS9_NS0_9AlgorithmEE3$_0EET_SA_RKT0_.exit": ; preds = %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocessedEPKvS6_.exit.thread.i.i, %"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.exit.loopexit14.i"
+  %.sink4.i = phi ptr [ %5, %_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE18add_to_unprocessedEPKvS6_.exit.thread.i.i ], [ %6, %"_ZZN5vcpkg4Hash14get_bytes_hashB5cxx11EPKvS2_NS0_9AlgorithmEENK3$_0clB5cxx11ERNS0_6HasherE.exit.loopexit14.i" ]
   %62 = load ptr, ptr %.sink4.i, align 8, !noalias !11
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !noalias !11

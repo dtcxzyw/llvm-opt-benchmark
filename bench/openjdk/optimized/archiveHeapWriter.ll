@@ -2750,7 +2750,7 @@ _ZN16java_lang_Module11is_instanceEP7oopDesc.exit: ; preds = %76, %86
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN17ArchiveHeapWriter22filler_array_byte_sizeEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZN17ArchiveHeapWriter22filler_array_byte_sizeEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
   %2 = sext i32 %0 to i64
   %3 = load i32, ptr @heapOopSize, align 4
   %4 = sext i32 %3 to i64

@@ -544,7 +544,7 @@ define dso_local void @ip_options_fragment(ptr nocapture noundef %0) local_unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__ip_options_compile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @__ip_options_compile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %6 = icmp eq ptr %2, null
@@ -1127,7 +1127,7 @@ declare dso_local zeroext i1 @ns_capable(ptr noundef, i32 noundef) local_unnamed
 declare dso_local i32 @cipso_v4_validate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ip_options_compile(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @ip_options_compile(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4, !annotation !13
@@ -1550,19 +1550,19 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
   %17 = icmp eq i64 %15, 0
-  br i1 %17, label %.thread10, label %18
+  br i1 %17, label %.thread9, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds i8, ptr %0, i64 128
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, 7
   %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %.thread10
+  br i1 %22, label %23, label %.thread9
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %16, i64 144
   %25 = load i16, ptr %24, align 8
-  switch i16 %25, label %.thread10 [
+  switch i16 %25, label %.thread9 [
     i16 1, label %26
     i16 2, label %33
   ]
@@ -1572,12 +1572,12 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   %28 = load i8, ptr %27, align 4
   %29 = and i8 %28, 1
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %.thread10, label %31
+  br i1 %30, label %.thread9, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds i8, ptr %0, i64 44
   tail call void @__icmp_send(ptr noundef %0, i32 noundef 12, i32 noundef 0, i32 noundef 16, ptr noundef %32) #11
-  br label %.thread10
+  br label %.thread9
 
 33:                                               ; preds = %23
   %34 = getelementptr i8, ptr %12, i64 2
@@ -1586,7 +1586,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   %37 = load i8, ptr %36, align 1
   %38 = getelementptr i8, ptr %12, i64 -1
   %39 = icmp ugt i8 %35, %37
-  br i1 %39, label %.thread10, label %40
+  br i1 %39, label %.thread9, label %40
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds i8, ptr %8, i64 12
@@ -1610,7 +1610,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   %55 = zext i8 %54 to i32
   %56 = getelementptr inbounds i8, ptr %0, i64 44
   tail call void @__icmp_send(ptr noundef %0, i32 noundef 12, i32 noundef 0, i32 noundef %55, ptr noundef %56) #11
-  br label %.thread10
+  br label %.thread9
 
 57:                                               ; preds = %48
   %58 = getelementptr i8, ptr %38, i64 %49
@@ -1622,60 +1622,60 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   tail call void @__rcu_read_lock() #11
   %63 = tail call i32 @ip_route_input_noref(ptr noundef %0, i32 noundef %59, i32 noundef %61, i8 noundef zeroext %62, ptr noundef %1) #11
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %.thread
+  br i1 %64, label %66, label %.thread
 
-65:                                               ; preds = %57
-  %66 = load i64, ptr %13, align 8
-  %67 = and i64 %66, 1
-  %68 = icmp ne i64 %67, 0
-  %69 = icmp ugt i64 %66, 1
-  %70 = and i1 %69, %68
-  br i1 %70, label %71, label %92
-
-71:                                               ; preds = %65
-  %72 = and i64 %66, -2
-  %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds i8, ptr %73, i64 64
-  %75 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %74, i32 1, ptr elementtype(i32) %74) #11, !srcloc !19
-  %76 = icmp ult i8 %75, 2
-  tail call void @llvm.assume(i1 %76)
-  %77 = icmp eq i8 %75, 0
-  br i1 %77, label %81, label %78, !prof !20
-
-78:                                               ; preds = %71
-  %79 = tail call zeroext i1 @rcuref_get_slowpath(ptr noundef %74) #11
-  %80 = select i1 %79, ptr %73, ptr null
-  br label %81
-
-81:                                               ; preds = %78, %71
-  %82 = phi ptr [ %80, %78 ], [ %73, %71 ]
-  %83 = ptrtoint ptr %82 to i64
-  store i64 %83, ptr %13, align 8
-  %84 = icmp ne ptr %82, null
-  %85 = load i24, ptr %43, align 1
-  %86 = and i24 %85, 1048576
-  %87 = icmp ne i24 %86, 0
-  %88 = or i1 %84, %87
-  %89 = select i1 %88, i24 1048576, i24 0
-  %90 = and i24 %85, -1048577
-  %91 = or disjoint i24 %89, %90
-  store i24 %91, ptr %43, align 1
-  br label %92
-
-92:                                               ; preds = %81, %65
-  %93 = phi i64 [ %83, %81 ], [ %66, %65 ]
-  %94 = icmp ult i64 %93, 2
-  br i1 %94, label %.thread, label %96
-
-.thread:                                          ; preds = %57, %92
+.thread:                                          ; preds = %57
   tail call void @__rcu_read_unlock() #11
-  %95 = load i64, ptr %13, align 8
+  %65 = load i64, ptr %13, align 8
   br label %.loopexit
 
-96:                                               ; preds = %92
+66:                                               ; preds = %57
+  %67 = load i64, ptr %13, align 8
+  %68 = and i64 %67, 1
+  %69 = icmp ne i64 %68, 0
+  %70 = icmp ugt i64 %67, 1
+  %71 = and i1 %70, %69
+  br i1 %71, label %72, label %93
+
+72:                                               ; preds = %66
+  %73 = and i64 %67, -2
+  %74 = inttoptr i64 %73 to ptr
+  %75 = getelementptr inbounds i8, ptr %74, i64 64
+  %76 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %75, i32 1, ptr elementtype(i32) %75) #11, !srcloc !19
+  %77 = icmp ult i8 %76, 2
+  tail call void @llvm.assume(i1 %77)
+  %78 = icmp eq i8 %76, 0
+  br i1 %78, label %82, label %79, !prof !20
+
+79:                                               ; preds = %72
+  %80 = tail call zeroext i1 @rcuref_get_slowpath(ptr noundef %75) #11
+  %81 = select i1 %80, ptr %74, ptr null
+  br label %82
+
+82:                                               ; preds = %79, %72
+  %83 = phi ptr [ %81, %79 ], [ %74, %72 ]
+  %84 = ptrtoint ptr %83 to i64
+  store i64 %84, ptr %13, align 8
+  %85 = icmp ne ptr %83, null
+  %86 = load i24, ptr %43, align 1
+  %87 = and i24 %86, 1048576
+  %88 = icmp ne i24 %87, 0
+  %89 = or i1 %85, %88
+  %90 = select i1 %89, i24 1048576, i24 0
+  %91 = and i24 %86, -1048577
+  %92 = or disjoint i24 %90, %91
+  store i24 %92, ptr %43, align 1
+  br label %93
+
+93:                                               ; preds = %66, %82
+  %94 = phi i64 [ %67, %66 ], [ %84, %82 ]
+  %95 = icmp ugt i64 %94, 1
   tail call void @__rcu_read_unlock() #11
-  %97 = load i64, ptr %13, align 8
-  %98 = and i64 %97, -2
+  %96 = load i64, ptr %13, align 8
+  br i1 %95, label %97, label %.loopexit
+
+97:                                               ; preds = %93
+  %98 = and i64 %96, -2
   %99 = inttoptr i64 %98 to ptr
   %100 = getelementptr inbounds i8, ptr %99, i64 144
   %101 = load i16, ptr %100, align 8
@@ -1683,8 +1683,8 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   %103 = icmp ult i16 %102, 2
   br i1 %103, label %111, label %.loopexit
 
-.loopexit:                                        ; preds = %96, %.thread
-  %104 = phi i64 [ %95, %.thread ], [ %97, %96 ]
+.loopexit:                                        ; preds = %97, %93, %.thread
+  %104 = phi i64 [ %65, %.thread ], [ %96, %93 ], [ %96, %97 ]
   %105 = icmp ne i64 %104, 0
   %106 = and i64 %104, 1
   %107 = icmp eq i64 %106, 0
@@ -1698,9 +1698,9 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
 
 110:                                              ; preds = %108, %.loopexit
   store i64 %60, ptr %13, align 8
-  br label %.thread10
+  br label %.thread9
 
-111:                                              ; preds = %96
+111:                                              ; preds = %97
   %112 = and i64 %60, 1
   %113 = icmp eq i64 %112, 0
   br i1 %113, label %114, label %116
@@ -1723,7 +1723,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   store i8 %121, ptr %45, align 4
   %122 = add nuw nsw i64 %49, 4
   %123 = icmp ugt i64 %122, %47
-  br i1 %123, label %.thread10, label %48, !llvm.loop !21
+  br i1 %123, label %.thread9, label %48, !llvm.loop !21
 
 124:                                              ; preds = %116
   %125 = load i8, ptr %45, align 4
@@ -1731,9 +1731,9 @@ define dso_local noundef range(i32 -22, 1) i32 @ip_options_rcv_srr(ptr noundef %
   store i32 %59, ptr %126, align 4
   %127 = or i8 %125, 6
   store i8 %127, ptr %45, align 4
-  br label %.thread10
+  br label %.thread9
 
-.thread10:                                        ; preds = %119, %33, %124, %110, %52, %31, %26, %23, %18, %2
+.thread9:                                         ; preds = %119, %33, %124, %110, %52, %31, %26, %23, %18, %2
   %128 = phi i32 [ -22, %31 ], [ -22, %52 ], [ -22, %110 ], [ 0, %2 ], [ -22, %18 ], [ 0, %26 ], [ -22, %23 ], [ 0, %124 ], [ 0, %33 ], [ 0, %119 ]
   ret i32 %128
 }

@@ -6421,11 +6421,11 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_defmodelP8PJconsts(p
 104:                                              ; preds = %99
   %bcmp.i.i = call i32 @bcmp(ptr %100, ptr %101, i64 %102)
   %105 = icmp eq i32 %bcmp.i.i, 0
+  %106 = zext i1 %105 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %104, %99, %80
-  %106 = phi i1 [ false, %80 ], [ %105, %104 ], [ true, %99 ]
-  %107 = zext i1 %106 to i8
+  %107 = phi i8 [ 0, %80 ], [ %106, %104 ], [ 1, %99 ]
   store i8 %107, ptr %93, align 8
   %108 = getelementptr inbounds i8, ptr %78, i64 33
   %109 = load ptr, ptr %78, align 8
@@ -6445,11 +6445,11 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 119:                                              ; preds = %114
   %bcmp.i36.i = call i32 @bcmp(ptr %115, ptr %116, i64 %117)
   %120 = icmp eq i32 %bcmp.i36.i, 0
+  %121 = zext i1 %120 to i8
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit37.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit37.i: ; preds = %119, %114, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
-  %121 = phi i1 [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ %120, %119 ], [ true, %114 ]
-  %122 = zext i1 %121 to i8
+  %122 = phi i8 [ 0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ], [ %121, %119 ], [ 1, %114 ]
   store i8 %122, ptr %108, align 1
   %123 = getelementptr inbounds i8, ptr %78, i64 34
   %124 = load ptr, ptr %78, align 8

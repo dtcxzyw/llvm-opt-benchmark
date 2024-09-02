@@ -1022,7 +1022,7 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   store i64 %39, ptr %40, align 8
   %41 = load i32, ptr @hf_gvsp_blockid16, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %41, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
-  br label %55
+  br label %58
 
 43:                                               ; preds = %17
   %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #4
@@ -1039,12 +1039,15 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   %52 = load i32, ptr @hf_gvsp_flags, align 4
   %53 = load i32, ptr @ett_gvsp_flags, align 4
   %54 = tail call ptr @proto_tree_add_bitmask(ptr noundef %24, ptr noundef %0, i32 noundef 2, i32 noundef %52, i32 noundef %53, ptr noundef nonnull @flags_fields, i32 noundef 0) #4
-  br label %55
+  %55 = icmp eq i32 %46, 0
+  %56 = icmp eq i32 %48, 0
+  %57 = icmp eq i32 %50, 0
+  br label %58
 
-55:                                               ; preds = %43, %37
-  %56 = phi i32 [ %50, %43 ], [ 0, %37 ]
-  %57 = phi i32 [ %48, %43 ], [ 0, %37 ]
-  %58 = phi i32 [ %46, %43 ], [ 0, %37 ]
+58:                                               ; preds = %43, %37
+  %.not114 = phi i1 [ %57, %43 ], [ true, %37 ]
+  %.not113 = phi i1 [ %56, %43 ], [ true, %37 ]
+  %.not112 = phi i1 [ %55, %43 ], [ true, %37 ]
   %59 = phi i64 [ 0, %43 ], [ %39, %37 ]
   %60 = load i32, ptr @hf_gvsp_format, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %60, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
@@ -1054,7 +1057,7 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   store i32 %64, ptr %63, align 8
   br i1 %36, label %73, label %65
 
-65:                                               ; preds = %55
+65:                                               ; preds = %58
   %66 = icmp eq i8 %28, 1
   br i1 %66, label %67, label %78
 
@@ -1068,7 +1071,7 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   %72 = icmp eq i8 %71, 10
   br i1 %72, label %.sink.split, label %78
 
-73:                                               ; preds = %55
+73:                                               ; preds = %58
   %74 = load i32, ptr @hf_gvsp_packetid24, align 4
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %74, ptr noundef %0, i32 noundef 5, i32 noundef 3, i32 noundef 0) #4
   br label %86
@@ -1097,7 +1100,6 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   %.1 = phi i32 [ 20, %78 ], [ 8, %73 ]
   %89 = load ptr, ptr %18, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %89, i32 noundef 25, ptr noundef nonnull @.str.699, i64 noundef %88, i32 noundef %87) #4
-  %.not112 = icmp eq i32 %58, 0
   br i1 %.not112, label %92, label %90
 
 90:                                               ; preds = %86
@@ -1106,7 +1108,6 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   br label %92
 
 92:                                               ; preds = %90, %86
-  %.not113 = icmp eq i32 %57, 0
   br i1 %.not113, label %95, label %93
 
 93:                                               ; preds = %92
@@ -1115,7 +1116,6 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   br label %95
 
 95:                                               ; preds = %93, %92
-  %.not114 = icmp eq i32 %56, 0
   br i1 %.not114, label %98, label %96
 
 96:                                               ; preds = %95

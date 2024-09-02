@@ -458,28 +458,28 @@ define dso_local i32 @ipv6_flowlabel_opt(ptr noundef %0, ptr %1, i8 %2, i32 noun
   %8 = alloca %struct.in6_flowlabel_req, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
   %9 = icmp ult i32 %3, 32
-  br i1 %9, label %.thread40, label %10
+  br i1 %9, label %.thread39, label %10
 
 10:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !16
   %11 = and i8 %2, 1
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %.thread
-
-.thread:                                          ; preds = %10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, ptr noundef align 1 dereferenceable(32) %1, i64 32, i1 false)
-  br label %17
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %10
   %14 = call i64 @_copy_from_user(ptr noundef nonnull %8, ptr noundef %1, i64 noundef 32) #13
   %15 = and i64 %14, 4294967295
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %.thread40
+  br i1 %16, label %17, label %.thread39
 
-17:                                               ; preds = %.thread, %13
+.critedge:                                        ; preds = %10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %8, ptr noundef align 1 dereferenceable(32) %1, i64 32, i1 false)
+  br label %17
+
+17:                                               ; preds = %.critedge, %13
   %18 = getelementptr inbounds i8, ptr %8, i64 20
   %19 = load i8, ptr %18, align 4
-  switch i8 %19, label %.thread40 [
+  switch i8 %19, label %.thread39 [
     i8 1, label %20
     i8 2, label %75
     i8 0, label %192
@@ -511,21 +511,21 @@ define dso_local i32 @ipv6_flowlabel_opt(ptr noundef %0, ptr %1, i8 %2, i32 noun
   %37 = getelementptr inbounds i8, ptr %0, i64 516
   %38 = load i16, ptr %37, align 4
   %39 = icmp eq i16 %38, 6
-  br i1 %39, label %40, label %.thread40
+  br i1 %39, label %40, label %.thread39
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %0, i64 752
   %42 = load volatile i64, ptr %41, align 8
   %43 = and i64 %42, 134217728
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %.thread40, label %45
+  br i1 %44, label %.thread39, label %45
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %31, i64 48
   store i32 0, ptr %46, align 8
   %47 = getelementptr i8, ptr %0, i64 755
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %47, i32 -9, ptr elementtype(i8) %47) #13, !srcloc !17
-  br label %.thread40
+  br label %.thread39
 
 48:                                               ; preds = %30
   call void @_raw_spin_lock_bh(ptr noundef nonnull @ip6_sk_fl_lock) #13
@@ -550,7 +550,7 @@ define dso_local i32 @ipv6_flowlabel_opt(ptr noundef %0, ptr %1, i8 %2, i32 noun
 
 62:                                               ; preds = %52
   call void @_raw_spin_unlock_bh(ptr noundef nonnull @ip6_sk_fl_lock) #13
-  br label %.thread40
+  br label %.thread39
 
 63:                                               ; preds = %56
   %64 = getelementptr inbounds i8, ptr %54, i64 8
@@ -573,7 +573,7 @@ define dso_local i32 @ipv6_flowlabel_opt(ptr noundef %0, ptr %1, i8 %2, i32 noun
   call fastcc void @fl_release(ptr noundef %73)
   %74 = getelementptr inbounds i8, ptr %54, i64 16
   call void @kvfree_call_rcu(ptr noundef %74, ptr noundef nonnull %54) #13
-  br label %.thread40
+  br label %.thread39
 
 75:                                               ; preds = %17
   %76 = getelementptr inbounds i8, ptr %0, i64 18
@@ -691,20 +691,20 @@ define dso_local i32 @ipv6_flowlabel_opt(ptr noundef %0, ptr %1, i8 %2, i32 noun
 fl6_renew.exit:                                   ; preds = %112, %120, %143
   %144 = phi i32 [ 0, %143 ], [ -1, %112 ], [ -1, %120 ]
   call void @__rcu_read_unlock() #13
-  br label %.thread40
+  br label %.thread39
 
 145:                                              ; preds = %92
   call void @__rcu_read_unlock() #13
   %146 = getelementptr inbounds i8, ptr %8, i64 21
   %147 = load i8, ptr %146, align 1
   %148 = icmp eq i8 %147, 0
-  br i1 %148, label %149, label %.thread40
+  br i1 %148, label %149, label %.thread39
 
 149:                                              ; preds = %145
   %150 = getelementptr inbounds i8, ptr %88, i64 80
   %151 = load ptr, ptr %150, align 16
   %152 = call zeroext i1 @ns_capable(ptr noundef %151, i32 noundef 12) #13
-  br i1 %152, label %153, label %.thread40
+  br i1 %152, label %153, label %.thread39
 
 153:                                              ; preds = %149
   %154 = load i32, ptr %90, align 4
@@ -714,7 +714,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %157 = getelementptr [256 x ptr], ptr @fl_ht, i64 0, i64 %156
   %158 = load volatile ptr, ptr %157, align 8
   %159 = icmp eq ptr %158, null
-  br i1 %159, label %.thread32, label %.preheader
+  br i1 %159, label %.thread31, label %.preheader
 
 .preheader:                                       ; preds = %153, %168
   %160 = phi ptr [ %169, %168 ], [ %158, %153 ]
@@ -732,15 +732,15 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
 168:                                              ; preds = %164, %.preheader
   %169 = load volatile ptr, ptr %160, align 8
   %170 = icmp eq ptr %169, null
-  br i1 %170, label %.thread32, label %.preheader, !llvm.loop !20
+  br i1 %170, label %.thread31, label %.preheader, !llvm.loop !20
 
 171:                                              ; preds = %164
   %172 = getelementptr inbounds i8, ptr %160, i64 12
   %173 = load volatile i32, ptr %172, align 4
   %174 = icmp eq i32 %173, 0
-  br i1 %174, label %.thread32, label %.lr.ph56, !prof !5
+  br i1 %174, label %.thread31, label %.lr.ph55, !prof !5
 
-.lr.ph56:                                         ; preds = %171, %181
+.lr.ph55:                                         ; preds = %171, %181
   %175 = phi i32 [ %182, %181 ], [ %173, %171 ]
   %176 = add i32 %175, 1
   %177 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %172, i32 %176, ptr elementtype(i32) %172, i32 %175) #13, !srcloc !6
@@ -750,16 +750,16 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %180 = icmp eq i8 %178, 0
   br i1 %180, label %181, label %184, !prof !7
 
-181:                                              ; preds = %.lr.ph56
+181:                                              ; preds = %.lr.ph55
   %182 = extractvalue { i8, i32 } %177, 1
   %183 = icmp eq i32 %182, 0
-  br i1 %183, label %.thread32, label %.lr.ph56, !prof !8, !llvm.loop !9
+  br i1 %183, label %.thread31, label %.lr.ph55, !prof !8, !llvm.loop !9
 
-.thread32:                                        ; preds = %168, %181, %171, %153
+.thread31:                                        ; preds = %168, %181, %171, %153
   call void @__rcu_read_unlock() #13
-  br label %.thread40
+  br label %.thread39
 
-184:                                              ; preds = %.lr.ph56
+184:                                              ; preds = %.lr.ph55
   call void @__rcu_read_unlock() #13
   %185 = getelementptr inbounds i8, ptr %8, i64 26
   %186 = load i16, ptr %185, align 2
@@ -769,7 +769,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %190 = zext i16 %189 to i64
   %191 = call fastcc i32 @fl6_renew(ptr noundef nonnull %160, i64 noundef %187, i64 noundef %190), !range !21
   call fastcc void @fl_release(ptr noundef nonnull %160)
-  br label %.thread40
+  br label %.thread39
 
 192:                                              ; preds = %17
   %193 = getelementptr inbounds i8, ptr %0, i64 18
@@ -804,29 +804,29 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
 214:                                              ; preds = %210
   %215 = call i32 @net_ratelimit() #13
   %216 = icmp eq i32 %215, 0
-  br i1 %216, label %.thread40, label %217
+  br i1 %216, label %.thread39, label %217
 
 217:                                              ; preds = %214
   %218 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #14
-  br label %.thread40
+  br label %.thread39
 
 219:                                              ; preds = %210
   %220 = getelementptr inbounds i8, ptr %0, i64 516
   %221 = load i16, ptr %220, align 4
   %222 = icmp eq i16 %221, 6
-  br i1 %222, label %223, label %.thread40
+  br i1 %222, label %223, label %.thread39
 
 223:                                              ; preds = %219
   %224 = getelementptr i8, ptr %0, i64 755
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %224, i32 8, ptr elementtype(i8) %224) #13, !srcloc !22
-  br label %.thread40
+  br label %.thread39
 
 225:                                              ; preds = %202
   %226 = getelementptr inbounds i8, ptr %8, i64 16
   %227 = load i32, ptr %226, align 4
   %228 = and i32 %227, 61695
   %229 = icmp eq i32 %228, 0
-  br i1 %229, label %230, label %.thread40
+  br i1 %229, label %230, label %.thread39
 
 230:                                              ; preds = %225
   %231 = getelementptr inbounds i8, ptr %205, i64 1795
@@ -835,18 +835,18 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %234 = and i32 %227, 2048
   %235 = icmp eq i32 %234, 0
   %236 = or i1 %235, %233
-  br i1 %236, label %237, label %.thread40
+  br i1 %236, label %237, label %.thread39
 
 237:                                              ; preds = %230
   %238 = add i32 %3, -32
   %239 = icmp sgt i32 %238, 65536
-  br i1 %239, label %.thread40, label %240
+  br i1 %239, label %.thread39, label %240
 
 240:                                              ; preds = %237
   %241 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %242 = call noalias noundef align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %241, i32 noundef 3520, i64 noundef 104) #15
   %243 = icmp eq ptr %242, null
-  br i1 %243, label %.thread40, label %244
+  br i1 %243, label %.thread39, label %244
 
 244:                                              ; preds = %240
   %245 = icmp sgt i32 %238, 0
@@ -865,7 +865,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %250 = getelementptr inbounds i8, ptr %242, i64 32
   store ptr %249, ptr %250, align 8
   %251 = icmp eq ptr %249, null
-  br i1 %251, label %.thread34, label %252
+  br i1 %251, label %.thread33, label %252
 
 252:                                              ; preds = %246
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %249, i8 0, i64 64, i1 false)
@@ -880,7 +880,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %258 = call i64 @_copy_from_user(ptr noundef %255, ptr noundef %256, i64 noundef %247) #13
   %259 = and i64 %258, 4294967295
   %260 = icmp eq i64 %259, 0
-  br i1 %260, label %._crit_edge, label %.thread34
+  br i1 %260, label %._crit_edge, label %.thread33
 
 ._crit_edge:                                      ; preds = %257
   %.pre = load ptr, ptr %250, align 8
@@ -902,14 +902,14 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   store ptr %263, ptr %267, align 8
   %268 = call i32 @ip6_datagram_send_ctl(ptr noundef %205, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
   %269 = icmp eq i32 %268, 0
-  br i1 %269, label %270, label %.thread34
+  br i1 %269, label %270, label %.thread33
 
 270:                                              ; preds = %262
   %271 = load ptr, ptr %250, align 8
   %272 = getelementptr inbounds i8, ptr %271, i64 8
   %273 = load i16, ptr %272, align 8
   %274 = icmp eq i16 %273, 0
-  br i1 %274, label %275, label %.thread34
+  br i1 %274, label %275, label %.thread33
 
 275:                                              ; preds = %270
   %276 = getelementptr inbounds i8, ptr %271, i64 10
@@ -922,7 +922,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   store ptr null, ptr %250, align 8
   br label %280
 
-.thread34:                                        ; preds = %246, %257, %262, %270
+.thread33:                                        ; preds = %246, %257, %262, %270
   %.ph = phi i32 [ -22, %270 ], [ %268, %262 ], [ -14, %257 ], [ -12, %246 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #13
@@ -974,7 +974,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
     i8 1, label %319
     i8 -1, label %319
     i8 2, label %307
-    i8 3, label %.thread67
+    i8 3, label %.thread
   ]
 
 307:                                              ; preds = %303
@@ -983,10 +983,10 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %310 = call ptr @get_task_pid(ptr noundef %309, i32 noundef 0) #13
   %311 = getelementptr inbounds i8, ptr %242, i64 72
   store ptr %310, ptr %311, align 8
-  %.pre66 = load i8, ptr %296, align 8
+  %.pre65 = load i8, ptr %296, align 8
   br label %319
 
-.thread67:                                        ; preds = %303
+.thread:                                          ; preds = %303
   %312 = getelementptr inbounds i8, ptr %242, i64 72
   %313 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !23
   %314 = inttoptr i64 %313 to ptr
@@ -998,7 +998,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   br label %327
 
 319:                                              ; preds = %307, %303, %303
-  %320 = phi i8 [ %.pre66, %307 ], [ %306, %303 ], [ %306, %303 ]
+  %320 = phi i8 [ %.pre65, %307 ], [ %306, %303 ], [ %306, %303 ]
   %321 = add i8 %320, -1
   %322 = icmp ult i8 %321, 3
   br i1 %322, label %327, label %323
@@ -1009,20 +1009,20 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %326 = icmp eq ptr %325, null
   br i1 %326, label %334, label %327
 
-327:                                              ; preds = %.thread67, %323, %319
+327:                                              ; preds = %.thread, %323, %319
   %328 = load ptr, ptr %204, align 8
   %329 = getelementptr inbounds i8, ptr %328, i64 2000
   store volatile i8 1, ptr %329, align 16
   %330 = call zeroext i1 @static_key_slow_inc(ptr noundef nonnull @ipv6_flowlabel_exclusive) #13
   br label %334
 
-331:                                              ; preds = %281, %293, %303, %.thread34
-  %.ph36 = phi i32 [ %.ph, %.thread34 ], [ -22, %303 ], [ -22, %293 ], [ -1, %281 ]
+331:                                              ; preds = %281, %293, %303, %.thread33
+  %.ph35 = phi i32 [ %.ph, %.thread33 ], [ -22, %303 ], [ -22, %293 ], [ -1, %281 ]
   %332 = getelementptr inbounds i8, ptr %242, i64 32
   %333 = load ptr, ptr %332, align 8
   call void @kfree(ptr noundef %333) #13
   call void @kfree(ptr noundef nonnull %242) #13
-  br label %.thread40
+  br label %.thread39
 
 334:                                              ; preds = %323, %327
   %335 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -1041,7 +1041,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %343 = phi ptr [ %340, %339 ], [ %344, %346 ]
   %344 = load volatile ptr, ptr %343, align 8
   %345 = icmp eq ptr %344, null
-  br i1 %345, label %.thread45, label %346
+  br i1 %345, label %.thread44, label %346
 
 346:                                              ; preds = %342
   %347 = getelementptr inbounds i8, ptr %344, i64 8
@@ -1065,7 +1065,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %358 = getelementptr inbounds i8, ptr %348, i64 12
   %359 = load volatile i32, ptr %358, align 4
   %360 = icmp eq i32 %359, 0
-  br i1 %360, label %.thread45, label %.lr.ph, !prof !5
+  br i1 %360, label %.thread44, label %.lr.ph, !prof !5
 
 .lr.ph:                                           ; preds = %357, %367
   %361 = phi i32 [ %368, %367 ], [ %359, %357 ]
@@ -1080,31 +1080,31 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
 367:                                              ; preds = %.lr.ph
   %368 = extractvalue { i8, i32 } %363, 1
   %369 = icmp eq i32 %368, 0
-  br i1 %369, label %.thread45, label %.lr.ph, !prof !8, !llvm.loop !9
+  br i1 %369, label %.thread44, label %.lr.ph, !prof !8, !llvm.loop !9
 
-.thread45:                                        ; preds = %342, %367, %357
+.thread44:                                        ; preds = %342, %367, %357
   call void @__rcu_read_unlock() #13
   br label %372
 
 370:                                              ; preds = %.lr.ph
   call void @__rcu_read_unlock() #13
   %371 = icmp eq ptr %348, null
-  br i1 %371, label %372, label %.thread46
+  br i1 %371, label %372, label %.thread45
 
-372:                                              ; preds = %370, %.thread45
+372:                                              ; preds = %370, %.thread44
   %373 = load i32, ptr %226, align 4
   %374 = call fastcc ptr @fl_lookup(ptr noundef %205, i32 noundef %373)
   %375 = icmp eq ptr %374, null
-  br i1 %375, label %419, label %.thread46
+  br i1 %375, label %419, label %.thread45
 
-.thread46:                                        ; preds = %370, %428, %372
+.thread45:                                        ; preds = %370, %428, %372
   %376 = phi ptr [ %374, %372 ], [ %430, %428 ], [ %348, %370 ]
   %377 = load i16, ptr %206, align 2
   %378 = and i16 %377, 2
   %379 = icmp eq i16 %378, 0
   br i1 %379, label %380, label %417
 
-380:                                              ; preds = %.thread46
+380:                                              ; preds = %.thread45
   %381 = getelementptr inbounds i8, ptr %376, i64 64
   %382 = load i8, ptr %381, align 8
   %383 = icmp eq i8 %382, 1
@@ -1168,10 +1168,10 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
 416:                                              ; preds = %415, %409
   call fastcc void @fl_link(ptr noundef %203, ptr noundef nonnull %336, ptr noundef nonnull %376)
   call fastcc void @fl_free(ptr noundef nonnull %242)
-  br label %.thread40
+  br label %.thread39
 
-417:                                              ; preds = %400, %394, %388, %384, %380, %.thread46
-  %418 = phi i32 [ -1, %380 ], [ -12, %400 ], [ -1, %394 ], [ -1, %388 ], [ -1, %384 ], [ -17, %.thread46 ]
+417:                                              ; preds = %400, %394, %388, %384, %380, %.thread45
+  %418 = phi i32 [ -1, %380 ], [ -12, %400 ], [ -1, %394 ], [ -1, %388 ], [ -1, %384 ], [ -17, %.thread45 ]
   call fastcc void @fl_release(ptr noundef nonnull %376)
   br label %443
 
@@ -1194,7 +1194,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %429 = load i32, ptr %226, align 4
   %430 = call fastcc ptr @fl_intern(ptr noundef %205, ptr noundef nonnull %242, i32 noundef %429)
   %431 = icmp eq ptr %430, null
-  br i1 %431, label %432, label %.thread46
+  br i1 %431, label %432, label %.thread45
 
 432:                                              ; preds = %428
   %433 = load i32, ptr %226, align 4
@@ -1217,7 +1217,7 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
 
 442:                                              ; preds = %440, %438, %432
   call fastcc void @fl_link(ptr noundef %203, ptr noundef nonnull %336, ptr noundef nonnull %242)
-  br label %.thread40
+  br label %.thread39
 
 443:                                              ; preds = %425, %423, %419, %417, %356
   %444 = phi i32 [ -2, %419 ], [ -12, %423 ], [ %418, %417 ], [ %426, %425 ], [ -17, %356 ]
@@ -1241,10 +1241,10 @@ fl6_renew.exit:                                   ; preds = %112, %120, %143
   %455 = getelementptr inbounds i8, ptr %242, i64 48
   call void @call_rcu(ptr noundef %455, ptr noundef nonnull @fl_free_rcu) #13
   call void @kfree(ptr noundef %336) #13
-  br label %.thread40
+  br label %.thread39
 
-.thread40:                                        ; preds = %237, %240, %331, %145, %149, %.thread32, %184, %454, %442, %416, %230, %225, %223, %219, %217, %214, %fl6_renew.exit, %71, %62, %45, %40, %36, %17, %13, %4
-  %456 = phi i32 [ -22, %4 ], [ -14, %13 ], [ -22, %17 ], [ 0, %45 ], [ 0, %71 ], [ -3, %62 ], [ -92, %36 ], [ -3, %40 ], [ %144, %fl6_renew.exit ], [ %191, %184 ], [ 0, %223 ], [ %444, %454 ], [ 0, %416 ], [ 0, %442 ], [ -1, %217 ], [ -1, %214 ], [ -92, %219 ], [ -22, %225 ], [ -34, %230 ], [ -3, %.thread32 ], [ -3, %149 ], [ -3, %145 ], [ -12, %240 ], [ -22, %237 ], [ %.ph36, %331 ]
+.thread39:                                        ; preds = %237, %240, %331, %145, %149, %.thread31, %184, %454, %442, %416, %230, %225, %223, %219, %217, %214, %fl6_renew.exit, %71, %62, %45, %40, %36, %17, %13, %4
+  %456 = phi i32 [ -22, %4 ], [ -14, %13 ], [ -22, %17 ], [ 0, %45 ], [ 0, %71 ], [ -3, %62 ], [ -92, %36 ], [ -3, %40 ], [ %144, %fl6_renew.exit ], [ %191, %184 ], [ 0, %223 ], [ %444, %454 ], [ 0, %416 ], [ 0, %442 ], [ -1, %217 ], [ -1, %214 ], [ -92, %219 ], [ -22, %225 ], [ -34, %230 ], [ -3, %.thread31 ], [ -3, %149 ], [ -3, %145 ], [ -12, %240 ], [ -22, %237 ], [ %.ph35, %331 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
   ret i32 %456
 }

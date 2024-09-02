@@ -904,8 +904,8 @@ define dso_local void @stepd_send_step_complete_msgs(ptr nocapture noundef reado
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 128), align 8
   %.not.i = icmp ne ptr %11, null
   %12 = icmp sgt i32 %9, 0
-  %or.cond105 = and i1 %.not.i, %12
-  br i1 %or.cond105, label %.lr.ph.i.preheader, label %.critedge
+  %or.cond102 = and i1 %.not.i, %12
+  br i1 %or.cond102, label %.lr.ph.i.preheader, label %.critedge
 
 .lr.ph.i.preheader:                               ; preds = %.split16
   %zext = and i64 %8, 2147483647
@@ -956,7 +956,7 @@ _bit_getrange.exit:                               ; preds = %.sink.split.i, %19
   tail call fastcc void @_one_step_complete_msg(ptr noundef %0, i32 noundef %25, i32 noundef %25)
   %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
   %.not24 = icmp eq i32 %26, 0
-  br i1 %.not24, label %54, label %27
+  br i1 %.not24, label %55, label %27
 
 27:                                               ; preds = %.thread
   %28 = tail call ptr @__errno_location() #16
@@ -983,8 +983,8 @@ _bit_getrange.exit:                               ; preds = %.sink.split.i, %19
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @step_complete, i64 128), align 8
   %.not.i25 = icmp ne ptr %36, null
   %37 = icmp slt i32 %34, %9
-  %or.cond98 = and i1 %.not.i25, %37
-  br i1 %or.cond98, label %.lr.ph.preheader.i31, label %._crit_edge
+  %or.cond95 = and i1 %.not.i25, %37
+  br i1 %or.cond95, label %.lr.ph.preheader.i31, label %._crit_edge
 
 .lr.ph.preheader.i31:                             ; preds = %.split
   %38 = sext i32 %34 to i64
@@ -1028,29 +1028,29 @@ _bit_getrange.exit42:                             ; preds = %.sink.split.i36, %4
   %.5 = phi i32 [ %47, %45 ], [ %.7, %.sink.split.i36 ]
   %.020.i28 = phi i8 [ %.023.i34, %45 ], [ %.1.i38, %.sink.split.i36 ]
   %48 = and i8 %.020.i28, 1
-  %.not22 = icmp eq i8 %48, 0
-  br i1 %.not22, label %._crit_edge, label %.split, !llvm.loop !12
+  %49 = icmp eq i8 %48, 0
+  br i1 %49, label %._crit_edge, label %.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.split, %_bit_getrange.exit42
-  br i1 %spec.select61, label %50, label %.critedge
+  br i1 %spec.select61, label %51, label %.critedge
 
 .critedge:                                        ; preds = %.split16, %_bit_getrange.exit, %._crit_edge
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
-  tail call fastcc void @_one_step_complete_msg(ptr noundef %0, i32 noundef %49, i32 noundef %49)
-  br label %50
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
+  tail call fastcc void @_one_step_complete_msg(ptr noundef %0, i32 noundef %50, i32 noundef %50)
+  br label %51
 
-50:                                               ; preds = %._crit_edge, %.critedge
-  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
-  %.not23 = icmp eq i32 %51, 0
-  br i1 %.not23, label %54, label %52
+51:                                               ; preds = %._crit_edge, %.critedge
+  %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @step_complete, i64 48)) #15
+  %.not23 = icmp eq i32 %52, 0
+  br i1 %.not23, label %55, label %53
 
-52:                                               ; preds = %50
-  %53 = tail call ptr @__errno_location() #16
-  store i32 %51, ptr %53, align 4
+53:                                               ; preds = %51
+  %54 = tail call ptr @__errno_location() #16
+  store i32 %52, ptr %54, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.10, i32 noundef 906, ptr noundef nonnull @__func__.stepd_send_step_complete_msgs) #17
   unreachable
 
-54:                                               ; preds = %50, %.thread
+55:                                               ; preds = %51, %.thread
   ret void
 }
 

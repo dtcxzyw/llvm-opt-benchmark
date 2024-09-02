@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN18ZAddressSpaceLimit10mark_stackEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, 1844674407404509593) i64 @_ZN18ZAddressSpaceLimit10mark_stackEv() local_unnamed_addr #0 align 2 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 0, ptr %1, align 8
@@ -21,7 +21,7 @@ define hidden noundef i64 @_ZN18ZAddressSpaceLimit10mark_stackEv() local_unnamed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN18ZAddressSpaceLimit4heapEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -9223372036852678657) i64 @_ZN18ZAddressSpaceLimit4heapEv() local_unnamed_addr #0 align 2 {
   %1 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 0, ptr %1, align 8

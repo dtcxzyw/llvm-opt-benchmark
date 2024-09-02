@@ -719,14 +719,14 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i: ; preds = %if
   %add21.i.i = add i64 %add.i.i, %.sroa.speculated.i.i.i
   store i64 %add21.i.i, ptr %it, align 8, !noalias !15
   %.pre248 = load i32, ptr %state_.i.i, align 8
+  %87 = icmp ne i32 %.pre248, 2
   br label %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit, !llvm.loop !13
 
 _ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit: ; preds = %if.then.i.i197, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i
-  %87 = phi i64 [ %.pre249, %if.then.i.i197 ], [ %add21.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
-  %88 = phi i32 [ 2, %if.then.i.i197 ], [ %.pre248, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+  %88 = phi i64 [ %.pre249, %if.then.i.i197 ], [ %add21.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
+  %cmp.i.i14 = phi i1 [ false, %if.then.i.i197 ], [ %87, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i ]
   %retval.sroa.0.0.copyload.i.i.i12 = load i64, ptr %strings, align 8, !noalias !18
-  %cmp.i.i14 = icmp ne i32 %88, 2
-  %cmp3.i.i = icmp ne i64 %87, %retval.sroa.0.0.copyload.i.i.i12
+  %cmp3.i.i = icmp ne i64 %88, %retval.sroa.0.0.copyload.i.i.i12
   %.not.i = select i1 %cmp.i.i14, i1 true, i1 %cmp3.i.i
   %89 = load ptr, ptr %agg.result, align 8
   %cmp.i.not.i = icmp eq ptr %89, null

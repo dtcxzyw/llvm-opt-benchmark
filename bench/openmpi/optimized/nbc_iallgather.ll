@@ -77,13 +77,13 @@ define internal fastcc i32 @nbc_allgather_init(ptr noundef %0, i32 noundef %1, p
 
 23:                                               ; preds = %17
   %24 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.val143.val)
-  %.not133 = icmp ult i32 %24, 2
-  %25 = icmp eq i32 %22, 2
-  %or.cond3 = select i1 %25, i1 %.not133, i1 false
+  %.not133 = icmp ugt i32 %24, 1
+  %25 = icmp ne i32 %22, 2
+  %or.cond3.not = select i1 %25, i1 true, i1 %.not133
   br label %26
 
 26:                                               ; preds = %17, %23
-  %.0113 = phi i1 [ false, %17 ], [ %or.cond3, %23 ]
+  %.0113 = phi i1 [ true, %17 ], [ %or.cond3.not, %23 ]
   %27 = getelementptr i8, ptr %5, i64 48
   %.val144 = load i64, ptr %27, align 8
   %28 = getelementptr i8, ptr %5, i64 56
@@ -220,7 +220,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
   br label %nbc_get_noop_request.exit
 
 83:                                               ; preds = %56, %opal_obj_new.exit.thread176
-  br i1 %.0113, label %104, label %84
+  br i1 %.0113, label %84, label %104
 
 84:                                               ; preds = %83
   %85 = load i64, ptr %27, align 8
@@ -305,8 +305,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
   %.not48.i = icmp eq i32 %126, 0
   br i1 %.not48.i, label %111, label %allgather_sched_linear.exit
 
-allgather_sched_linear.exit:                      ; preds = %96, %101, %114, %122
-  %.2 = phi i32 [ %121, %114 ], [ %126, %122 ], [ %100, %96 ], [ %102, %101 ]
+allgather_sched_linear.exit:                      ; preds = %114, %122, %96, %101
+  %.2 = phi i32 [ %100, %96 ], [ %102, %101 ], [ %121, %114 ], [ %126, %122 ]
   %127 = load i8, ptr @opal_uses_threads, align 1
   %128 = trunc i8 %127 to i1
   br i1 %128, label %129, label %132
@@ -349,7 +349,7 @@ opal_obj_run_destructors.exit160:                 ; preds = %.lr.ph.i157, %137
   tail call void @free(ptr noundef %44) #9
   br label %nbc_get_noop_request.exit
 
-.loopexit:                                        ; preds = %103, %111, %84, %104
+.loopexit:                                        ; preds = %111, %103, %84, %104
   %145 = tail call i32 @NBC_Sched_commit(ptr noundef nonnull %44) #9
   %.not137 = icmp eq i32 %145, 0
   br i1 %.not137, label %165, label %146

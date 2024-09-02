@@ -755,7 +755,7 @@ _ZN9grpc_core6chttp2L23AdjustForMemoryPressureEdd.exit: ; preds = %if.then.i2, %
 declare void @_ZN9grpc_core13PidControllerC1ERKNS0_4ArgsE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK9grpc_core6chttp220TransportFlowControl19DesiredAnnounceSizeEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, i1 noundef zeroext %writing_anyway) local_unnamed_addr #9 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK9grpc_core6chttp220TransportFlowControl19DesiredAnnounceSizeEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this, i1 noundef zeroext %writing_anyway) local_unnamed_addr #9 align 2 {
 entry:
   %announced_stream_total_over_incoming_window_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %announced_stream_total_over_incoming_window_.i, align 8
@@ -1888,7 +1888,7 @@ _ZN9grpc_core6chttp220TransportFlowControl21IncomingUpdateContextD2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #13 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #13 align 2 {
 entry:
   %min_progress_size_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %min_progress_size_.i, align 8

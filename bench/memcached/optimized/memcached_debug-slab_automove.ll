@@ -204,23 +204,23 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %window_sum.exit.loopexit, label %for.body.i, !llvm.loop !7
 
 window_sum.exit.loopexit:                         ; preds = %for.body.i
-  %24 = udiv i64 %add.i, %wide.trip.count.i
+  %24 = icmp eq i64 %add3.i, 0
+  %25 = udiv i64 %add.i, %wide.trip.count.i
   br label %window_sum.exit
 
-window_sum.exit:                                  ; preds = %window_sum.exit.loopexit, %if.end50
-  %w_sum.sroa.4.1 = phi i64 [ 0, %if.end50 ], [ %add3.i, %window_sum.exit.loopexit ]
-  %w_sum.sroa.7.1 = phi float [ 0.000000e+00, %if.end50 ], [ %add5.i, %window_sum.exit.loopexit ]
-  %w_sum.sroa.1074.1 = phi i64 [ 0, %if.end50 ], [ %add7.i, %window_sum.exit.loopexit ]
-  %div64 = phi i64 [ poison, %if.end50 ], [ %24, %window_sum.exit.loopexit ]
+window_sum.exit:                                  ; preds = %if.end50, %window_sum.exit.loopexit
+  %w_sum.sroa.4.1 = phi i1 [ %24, %window_sum.exit.loopexit ], [ true, %if.end50 ]
+  %w_sum.sroa.7.1 = phi float [ %add5.i, %window_sum.exit.loopexit ], [ 0.000000e+00, %if.end50 ]
+  %w_sum.sroa.1074.1 = phi i64 [ %add7.i, %window_sum.exit.loopexit ], [ 0, %if.end50 ]
+  %div64 = phi i64 [ %25, %window_sum.exit.loopexit ], [ poison, %if.end50 ]
   %free_chunks = getelementptr inbounds i8, ptr %arrayidx41, i64 8
-  %25 = load i64, ptr %free_chunks, align 8
-  %conv68 = sitofp i64 %25 to double
-  %26 = load i32, ptr %arrayidx41, align 8
-  %conv72 = uitofp i32 %26 to double
+  %26 = load i64, ptr %free_chunks, align 8
+  %conv68 = sitofp i64 %26 to double
+  %27 = load i32, ptr %arrayidx41, align 8
+  %conv72 = uitofp i32 %27 to double
   %mul73 = fmul double %conv72, 2.500000e+00
   %cmp74 = fcmp olt double %mul73, %conv68
-  %cmp78 = icmp eq i64 %w_sum.sroa.4.1, 0
-  %or.cond1 = select i1 %cmp74, i1 %cmp78, i1 false
+  %or.cond1 = select i1 %cmp74, i1 %w_sum.sroa.4.1, i1 false
   br i1 %or.cond1, label %if.then80, label %if.end82
 
 if.then80:                                        ; preds = %window_sum.exit
@@ -233,8 +233,8 @@ if.end82:                                         ; preds = %window_sum.exit
   br i1 %cmp83, label %land.lhs.true, label %if.end92
 
 land.lhs.true:                                    ; preds = %if.end82
-  %27 = load i64, ptr %total_pages, align 8
-  %cmp89 = icmp sgt i64 %27, 2
+  %28 = load i64, ptr %total_pages, align 8
+  %cmp89 = icmp sgt i64 %28, 2
   %spec.select = select i1 %cmp89, i64 %div64, i64 %oldest_age.092
   %spec.select73 = select i1 %cmp89, i32 %5, i32 %oldest.093
   br label %if.end92
@@ -282,17 +282,17 @@ for.end115:                                       ; preds = %for.inc113, %if.the
   br i1 %or.cond, label %land.lhs.true129, label %if.end145
 
 land.lhs.true129:                                 ; preds = %for.end115
-  %28 = load i32, ptr %window_cur, align 4
-  %29 = load i32, ptr %window_size, align 8
-  %cmp132 = icmp ugt i32 %28, %29
+  %29 = load i32, ptr %window_cur, align 4
+  %30 = load i32, ptr %window_size, align 8
+  %cmp132 = icmp ugt i32 %29, %30
   br i1 %cmp132, label %if.then134, label %if.end145
 
 if.then134:                                       ; preds = %land.lhs.true129
   %conv135 = uitofp i64 %youngest_age.086 to double
   %conv136 = uitofp i64 %oldest_age.081 to double
   %max_age_ratio = getelementptr inbounds i8, ptr %arg, i64 16
-  %30 = load double, ptr %max_age_ratio, align 8
-  %mul137 = fmul double %30, %conv136
+  %31 = load double, ptr %max_age_ratio, align 8
+  %mul137 = fmul double %31, %conv136
   %cmp138 = fcmp ogt double %mul137, %conv135
   %brmerge.not = select i1 %cmp138, i1 %youngest_evicting.084, i1 false
   br i1 %brmerge.not, label %if.then143, label %if.end145

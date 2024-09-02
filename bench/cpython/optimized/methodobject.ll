@@ -1791,7 +1791,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @meth_hash(ptr nocapture noundef readonly %a) #0 {
+define internal range(i64 0, -1) i64 @meth_hash(ptr nocapture noundef readonly %a) #0 {
 entry:
   %m_self = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load ptr, ptr %m_self, align 8

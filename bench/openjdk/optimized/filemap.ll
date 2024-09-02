@@ -2131,12 +2131,12 @@ define hidden void @_ZN11FileMapInfo26allocate_shared_path_tableEP10JavaThread(p
 
 19:                                               ; preds = %.preheader
   %20 = load i32, ptr %18, align 4
+  %21 = sext i32 %20 to i64
   br label %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit
 
 _ZN11FileMapInfo28num_non_existent_class_pathsEv.exit: ; preds = %.preheader, %19
-  %.0.i = phi i32 [ %20, %19 ], [ 0, %.preheader ]
-  %21 = sext i32 %.0.i to i64
-  %22 = icmp slt i64 %indvars.iv, %21
+  %.0.i = phi i64 [ %21, %19 ], [ 0, %.preheader ]
+  %22 = icmp slt i64 %indvars.iv, %.0.i
   br i1 %22, label %23, label %_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread.exit.thread
 
 23:                                               ; preds = %_ZN11FileMapInfo28num_non_existent_class_pathsEv.exit
@@ -2623,11 +2623,11 @@ _ZNK6Symbol11starts_withEPKci.exit19:             ; preds = %_ZN11FileMapInfo26g
 
 41:                                               ; preds = %38
   %42 = load i32, ptr %39, align 8
+  %43 = sext i32 %42 to i64
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit20
 
 _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit20: ; preds = %38, %41
-  %43 = phi i32 [ %42, %41 ], [ 0, %38 ]
-  %44 = sext i32 %43 to i64
+  %44 = phi i64 [ %43, %41 ], [ 0, %38 ]
   %45 = icmp slt i64 %indvars.iv, %44
   br i1 %45, label %46, label %88
 
@@ -4033,11 +4033,11 @@ define hidden noundef zeroext i1 @_ZN11FileMapInfo26validate_shared_path_tableEv
 
 106:                                              ; preds = %103
   %107 = load i32, ptr %104, align 8
+  %108 = sext i32 %107 to i64
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.i
 
 _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit.i: ; preds = %106, %103
-  %108 = phi i32 [ %107, %106 ], [ 0, %103 ]
-  %109 = sext i32 %108 to i64
+  %109 = phi i64 [ %108, %106 ], [ 0, %103 ]
   %110 = icmp slt i64 %indvars.iv.i, %109
   br i1 %110, label %111, label %_ZN11FileMapInfo33validate_non_existent_class_pathsEv.exit
 
@@ -4144,11 +4144,11 @@ define hidden void @_ZN11FileMapInfo33validate_non_existent_class_pathsEv(ptr no
 
 14:                                               ; preds = %11
   %15 = load i32, ptr %12, align 8
+  %16 = sext i32 %15 to i64
   br label %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit
 
 _ZN11FileMapInfo26get_number_of_shared_pathsEv.exit: ; preds = %11, %14
-  %16 = phi i32 [ %15, %14 ], [ 0, %11 ]
-  %17 = sext i32 %16 to i64
+  %17 = phi i64 [ %16, %14 ], [ 0, %11 ]
   %18 = icmp slt i64 %indvars.iv, %17
   br i1 %18, label %19, label %44
 
@@ -6059,7 +6059,7 @@ _ZN11FileMapInfo12write_regionEiPcmbb.exit:       ; preds = %191, %200
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN11FileMapInfo17write_heap_regionEP15ArchiveHeapInfo(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 0, -7) i64 @_ZN11FileMapInfo17write_heap_regionEP15ArchiveHeapInfo(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8

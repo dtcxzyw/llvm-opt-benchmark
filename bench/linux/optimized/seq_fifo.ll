@@ -364,13 +364,13 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_fifo_cell_out(ptr nound
   %25 = load volatile i64, ptr %8, align 8
   %26 = and i64 %25, 131072
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %.thread, !prof !13
+  br i1 %27, label %28, label %.critedge, !prof !13
 
 28:                                               ; preds = %22
   %29 = load volatile i64, ptr %8, align 8
   %30 = and i64 %29, 4
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.split.us, label %.thread, !llvm.loop !14
+  br i1 %31, label %.split.us, label %.critedge, !llvm.loop !14
 
 .split:                                           ; preds = %6
   %32 = load ptr, ptr %13, align 8
@@ -404,12 +404,12 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_fifo_cell_out(ptr nound
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %11, i64 noundef %12) #6
   br label %43
 
-.thread:                                          ; preds = %22, %28
+.critedge:                                        ; preds = %22, %28
   call void @_raw_spin_unlock_irqrestore(ptr noundef %11, i64 noundef %24) #6
   br label %43
 
-43:                                               ; preds = %39, %.thread, %42, %3
-  %44 = phi i32 [ -11, %42 ], [ -512, %.thread ], [ 0, %39 ], [ -22, %3 ]
+43:                                               ; preds = %39, %.critedge, %42, %3
+  %44 = phi i32 [ -11, %42 ], [ -512, %.critedge ], [ 0, %39 ], [ -22, %3 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   ret i32 %44
 }

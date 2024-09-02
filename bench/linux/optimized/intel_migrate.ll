@@ -1653,19 +1653,19 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
   %169 = shl nsw i32 %168, 8
   %170 = add nsw i32 %169, 261888
   %171 = and i32 %170, 261888
+  %172 = or disjoint i32 %171, 1377828867
   br label %.thread23
 
 .thread23:                                        ; preds = %157, %164
-  %172 = phi i32 [ %171, %164 ], [ 261888, %157 ]
-  %173 = getelementptr i8, ptr %155, i64 4
+  %173 = phi i32 [ %172, %164 ], [ 1378090755, %157 ]
+  %174 = getelementptr i8, ptr %155, i64 4
   store i32 318833153, ptr %155, align 4
-  %174 = getelementptr i8, ptr %155, i64 8
-  store i32 0, ptr %173, align 4
-  %175 = getelementptr i8, ptr %155, i64 12
+  %175 = getelementptr i8, ptr %155, i64 8
   store i32 0, ptr %174, align 4
-  %176 = or disjoint i32 %172, 1377828867
+  %176 = getelementptr i8, ptr %155, i64 12
+  store i32 0, ptr %175, align 4
   %177 = getelementptr i8, ptr %155, i64 16
-  store i32 %176, ptr %175, align 4
+  store i32 %173, ptr %176, align 4
   store i32 %27, ptr %177, align 4
   %178 = load ptr, ptr %62, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 57

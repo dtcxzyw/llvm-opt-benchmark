@@ -1696,19 +1696,22 @@ define hidden noundef i32 @ir_schedule(ptr noundef %0) local_unnamed_addr #0 {
   %.9 = phi i32 [ %.8845, %198 ], [ %.8845, %205 ], [ %229, %228 ], [ %.8845, %226 ]
   %231 = add nsw i32 %.0685846, -1
   %232 = icmp sgt i32 %.0685846, 1
-  br i1 %232, label %198, label %._crit_edge850
+  br i1 %232, label %198, label %._crit_edge850.loopexit
 
-._crit_edge850:                                   ; preds = %209, %230, %.preheader802
-  %.5.lcssa = phi i32 [ %.4869, %.preheader802 ], [ %.5860, %230 ], [ %199, %209 ]
-  %.lcssa810 = phi i32 [ 0, %.preheader802 ], [ %197, %230 ], [ 0, %209 ]
-  %.8.lcssa = phi i32 [ %.6734867, %.preheader802 ], [ %.9, %230 ], [ %.8845, %209 ]
-  %233 = sext i32 %.5.lcssa to i64
-  %234 = getelementptr inbounds i32, ptr %114, i64 %233
-  store i32 %.4740866, ptr %234, align 4
-  %235 = lshr i32 %.lcssa810, 2
+._crit_edge850.loopexit:                          ; preds = %230
+  %233 = lshr i32 %197, 2
+  br label %._crit_edge850
+
+._crit_edge850:                                   ; preds = %209, %._crit_edge850.loopexit, %.preheader802
+  %.5.lcssa = phi i32 [ %.4869, %.preheader802 ], [ %.5860, %._crit_edge850.loopexit ], [ %199, %209 ]
+  %.lcssa810 = phi i32 [ 0, %.preheader802 ], [ %233, %._crit_edge850.loopexit ], [ 0, %209 ]
+  %.8.lcssa = phi i32 [ %.6734867, %.preheader802 ], [ %.9, %._crit_edge850.loopexit ], [ %.8845, %209 ]
+  %234 = sext i32 %.5.lcssa to i64
+  %235 = getelementptr inbounds i32, ptr %114, i64 %234
+  store i32 %.4740866, ptr %235, align 4
   %236 = add i32 %.4740866, 1
-  %237 = add i32 %236, %235
-  %238 = getelementptr inbounds i32, ptr %14, i64 %233
+  %237 = add i32 %236, %.lcssa810
+  %238 = getelementptr inbounds i32, ptr %14, i64 %234
   %239 = load i32, ptr %238, align 4
   %240 = sext i32 %239 to i64
   %241 = getelementptr inbounds %struct._ir_insn, ptr %125, i64 %240

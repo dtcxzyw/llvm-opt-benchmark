@@ -533,21 +533,21 @@ define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef 
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
   %8 = and i8 %7, 3
   %9 = icmp eq i8 %8, 3
-  br i1 %9, label %10, label %12
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %4
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #5
-  br label %12
+  %12 = icmp eq i8 %11, 27
+  br label %13
 
-12:                                               ; preds = %10, %4
-  %.0 = phi i8 [ %11, %10 ], [ 0, %4 ]
+13:                                               ; preds = %10, %4
+  %.0 = phi i1 [ %12, %10 ], [ false, %4 ]
   %.0192 = phi i32 [ 40, %10 ], [ 0, %4 ]
-  %13 = icmp eq i8 %8, 2
-  %14 = icmp eq i8 %.0, 27
-  %or.cond = select i1 %13, i1 true, i1 %14
+  %14 = icmp eq i8 %8, 2
+  %or.cond = select i1 %14, i1 true, i1 %.0
   br i1 %or.cond, label %15, label %28
 
-15:                                               ; preds = %12
+15:                                               ; preds = %13
   %16 = add nuw nsw i32 %.0192, 8
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %16) #5
   %18 = icmp eq i8 %17, 100
@@ -566,7 +566,7 @@ define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef 
   %27 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   br label %252
 
-28:                                               ; preds = %15, %19, %12
+28:                                               ; preds = %15, %19, %13
   %29 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %2) #5
   %30 = getelementptr inbounds i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8

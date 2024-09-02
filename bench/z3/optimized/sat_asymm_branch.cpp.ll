@@ -3230,12 +3230,12 @@ for.cond26:                                       ; preds = %for.inc, %if.then19
 if.end.i32:                                       ; preds = %for.cond26
   %arrayidx.i33 = getelementptr inbounds i8, ptr %.pre6566, i64 -4
   %28 = load i32, ptr %arrayidx.i33, align 4
+  %29 = zext i32 %28 to i64
   br label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit35
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit35:   ; preds = %for.cond26, %if.end.i32
-  %retval.0.i34 = phi i32 [ %28, %if.end.i32 ], [ 0, %for.cond26 ]
-  %29 = zext i32 %retval.0.i34 to i64
-  %cmp29 = icmp ult i64 %indvars.iv61, %29
+  %retval.0.i34 = phi i64 [ %29, %if.end.i32 ], [ 0, %for.cond26 ]
+  %cmp29 = icmp ult i64 %indvars.iv61, %retval.0.i34
   br i1 %cmp29, label %for.body30, label %if.end49
 
 for.body30:                                       ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit35

@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden noundef i64 @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3len17hf62debd4aa91de24E"(ptr nocapture noundef nonnull readonly align 128 %0) unnamed_addr #0 {
+define hidden noundef range(i64 -288230376151711774, -9223372036854775808) i64 @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3len17hf62debd4aa91de24E"(ptr nocapture noundef nonnull readonly align 128 %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   br label %3
 

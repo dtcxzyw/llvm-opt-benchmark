@@ -1978,633 +1978,637 @@ define internal fastcc range(i32 0, -2147483648) i32 @psmouse_extensions(ptr nou
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %29
-  br i1 %2, label %32, label %338
+  br i1 %2, label %32, label %340
 
 32:                                               ; preds = %31
   %33 = tail call i32 @focaltech_init(ptr noundef %0) #14
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %338, label %35
+  br i1 %34, label %340, label %35
 
 35:                                               ; preds = %32, %29
   store i32 1, ptr %5, align 4
   store i32 1, ptr @psmouse_max_proto, align 4
-  br label %thread-pre-split
+  br label %37
 
-thread-pre-split:                                 ; preds = %26, %3, %35
-  %36 = phi i32 [ 1, %35 ], [ %1, %3 ], [ %1, %26 ]
-  %37 = icmp ugt i32 %36, 6
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 201
-  %40 = load i8, ptr %39, align 1
-  %41 = icmp eq i8 %40, 5
-  br i1 %41, label %.thread15, label %42
+thread-pre-split:                                 ; preds = %3, %26
+  %36 = icmp ugt i32 %1, 6
+  br label %37
 
-42:                                               ; preds = %thread-pre-split
-  br i1 %2, label %45, label %.thread14
+37:                                               ; preds = %thread-pre-split, %35
+  %38 = phi i32 [ %1, %thread-pre-split ], [ 1, %35 ]
+  %39 = phi i1 [ %36, %thread-pre-split ], [ false, %35 ]
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 201
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp eq i8 %42, 5
+  br i1 %43, label %.thread15, label %44
 
-.thread14:                                        ; preds = %42
-  %43 = tail call i32 @lifebook_detect(ptr noundef %0, i1 noundef zeroext false) #14
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %338, label %.thread15
+44:                                               ; preds = %37
+  br i1 %2, label %47, label %.thread14
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %48, i8 0, i64 128, i1 false)
-  tail call void @input_set_capability(ptr noundef %47, i32 noundef 1, i32 noundef 272) #14
-  tail call void @input_set_capability(ptr noundef %47, i32 noundef 1, i32 noundef 273) #14
-  tail call void @input_set_capability(ptr noundef %47, i32 noundef 2, i32 noundef 0) #14
-  tail call void @input_set_capability(ptr noundef %47, i32 noundef 2, i32 noundef 1) #14
-  %49 = getelementptr inbounds i8, ptr %47, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %49, i64 0) #14, !srcloc !19
-  %50 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr @psmouse_protocols, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 408
-  store ptr @psmouse_set_rate, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 416
-  store ptr @psmouse_set_resolution, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 424
-  store ptr @psmouse_set_scale, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 464
-  store ptr @psmouse_poll, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 400
-  store ptr @psmouse_process_byte, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 242
-  store i8 3, ptr %56, align 2
-  %57 = getelementptr inbounds i8, ptr %0, i64 432
-  %58 = getelementptr inbounds i8, ptr %0, i64 472
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %57, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
-  %59 = tail call i32 @lifebook_detect(ptr noundef %0, i1 noundef zeroext true) #14
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %.thread15
+.thread14:                                        ; preds = %44
+  %45 = tail call i32 @lifebook_detect(ptr noundef %0, i1 noundef zeroext false) #14
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %340, label %.thread15
 
-61:                                               ; preds = %45
-  br i1 %37, label %62, label %338
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %50, i8 0, i64 128, i1 false)
+  tail call void @input_set_capability(ptr noundef %49, i32 noundef 1, i32 noundef 272) #14
+  tail call void @input_set_capability(ptr noundef %49, i32 noundef 1, i32 noundef 273) #14
+  tail call void @input_set_capability(ptr noundef %49, i32 noundef 2, i32 noundef 0) #14
+  tail call void @input_set_capability(ptr noundef %49, i32 noundef 2, i32 noundef 1) #14
+  %51 = getelementptr inbounds i8, ptr %49, i64 32
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %51, i64 0) #14, !srcloc !19
+  %52 = getelementptr inbounds i8, ptr %0, i64 224
+  store ptr @psmouse_protocols, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 408
+  store ptr @psmouse_set_rate, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 416
+  store ptr @psmouse_set_resolution, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 424
+  store ptr @psmouse_set_scale, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 464
+  store ptr @psmouse_poll, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 400
+  store ptr @psmouse_process_byte, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %0, i64 242
+  store i8 3, ptr %58, align 2
+  %59 = getelementptr inbounds i8, ptr %0, i64 432
+  %60 = getelementptr inbounds i8, ptr %0, i64 472
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %59, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
+  %61 = tail call i32 @lifebook_detect(ptr noundef %0, i1 noundef zeroext true) #14
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %.thread15
 
-62:                                               ; preds = %61
-  %63 = tail call i32 @lifebook_init(ptr noundef %0) #14
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %338, label %65
+63:                                               ; preds = %47
+  br i1 %39, label %64, label %340
 
-65:                                               ; preds = %62
+64:                                               ; preds = %63
+  %65 = tail call i32 @lifebook_init(ptr noundef %0) #14
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %340, label %67
+
+67:                                               ; preds = %64
   store i32 6, ptr %5, align 4
   br label %.thread15
 
-.thread15:                                        ; preds = %45, %thread-pre-split, %.thread14, %65
-  %.pr18 = phi i32 [ %36, %45 ], [ %36, %thread-pre-split ], [ %36, %.thread14 ], [ 6, %65 ]
-  %66 = icmp ugt i32 %.pr18, 6
-  br label %70
+.thread15:                                        ; preds = %47, %37, %.thread14, %67
+  %.pr18 = phi i32 [ %38, %47 ], [ %38, %37 ], [ %38, %.thread14 ], [ 6, %67 ]
+  %68 = icmp ugt i32 %.pr18, 6
+  br label %72
 
-67:                                               ; preds = %70
-  %68 = add nuw nsw i64 %71, 1
-  %69 = icmp eq i64 %68, 17
-  br i1 %69, label %.thread16, label %70, !llvm.loop !14
+69:                                               ; preds = %72
+  %70 = add nuw nsw i64 %73, 1
+  %71 = icmp eq i64 %70, 17
+  br i1 %71, label %.thread16, label %72, !llvm.loop !14
 
-70:                                               ; preds = %67, %.thread15
-  %71 = phi i64 [ 0, %.thread15 ], [ %68, %67 ]
-  %72 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %71
-  %73 = load i32, ptr %72, align 8
-  %74 = icmp eq i32 %73, 19
-  br i1 %74, label %75, label %67
+72:                                               ; preds = %69, %.thread15
+  %73 = phi i64 [ 0, %.thread15 ], [ %70, %69 ]
+  %74 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %73
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp eq i32 %75, 19
+  br i1 %76, label %77, label %69
 
-75:                                               ; preds = %70
-  %76 = icmp eq ptr %72, null
-  br i1 %76, label %.thread16, label %77
+77:                                               ; preds = %72
+  %78 = icmp eq ptr %74, null
+  br i1 %78, label %.thread16, label %79
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %72, i64 24
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %72, i64 6
-  %81 = load i8, ptr %80, align 2, !range !5, !noundef !6
-  %82 = icmp ne i8 %81, 0
-  %83 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %79, ptr noundef %0, i1 noundef zeroext %82, i1 noundef zeroext %2)
-  %84 = and i1 %2, %83
-  br i1 %84, label %85, label %93
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds i8, ptr %74, i64 24
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %74, i64 6
+  %83 = load i8, ptr %82, align 2, !range !5, !noundef !6
+  %84 = icmp ne i8 %83, 0
+  %85 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %81, ptr noundef %0, i1 noundef zeroext %84, i1 noundef zeroext %2)
+  %86 = and i1 %2, %85
+  br i1 %86, label %87, label %95
 
-85:                                               ; preds = %77
-  %86 = getelementptr inbounds i8, ptr %72, i64 32
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp ne ptr %87, null
-  %89 = and i1 %66, %88
-  br i1 %89, label %90, label %338
+87:                                               ; preds = %79
+  %88 = getelementptr inbounds i8, ptr %74, i64 32
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp ne ptr %89, null
+  %91 = and i1 %68, %90
+  br i1 %91, label %92, label %340
 
-90:                                               ; preds = %85
-  %91 = tail call i32 %87(ptr noundef %0) #14
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %338, label %.thread19
+92:                                               ; preds = %87
+  %93 = tail call i32 %89(ptr noundef %0) #14
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %340, label %.thread19
 
-.thread19:                                        ; preds = %90
+.thread19:                                        ; preds = %92
   store i32 6, ptr %5, align 4
   br label %.thread21
 
-93:                                               ; preds = %77
-  br i1 %83, label %338, label %.thread16
+95:                                               ; preds = %79
+  br i1 %85, label %340, label %.thread16
 
-.thread16:                                        ; preds = %67, %93, %75
-  br i1 %66, label %94, label %115
+.thread16:                                        ; preds = %69, %95, %77
+  br i1 %68, label %96, label %117
 
-94:                                               ; preds = %.thread16
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 201
-  %97 = load i8, ptr %96, align 1
-  %.not = icmp eq i8 %97, 5
-  br i1 %.not, label %.thread21, label %98
+96:                                               ; preds = %.thread16
+  %97 = load ptr, ptr %6, align 8
+  %98 = getelementptr inbounds i8, ptr %97, i64 201
+  %99 = load i8, ptr %98, align 1
+  %.not = icmp eq i8 %99, 5
+  br i1 %.not, label %.thread21, label %100
 
-98:                                               ; preds = %94
-  br i1 %2, label %99, label %psmouse_do_detect.exit
+100:                                              ; preds = %96
+  br i1 %2, label %101, label %psmouse_do_detect.exit
 
-99:                                               ; preds = %98
-  %100 = getelementptr inbounds i8, ptr %0, i64 8
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %102, i8 0, i64 128, i1 false)
-  tail call void @input_set_capability(ptr noundef %101, i32 noundef 1, i32 noundef 272) #14
-  tail call void @input_set_capability(ptr noundef %101, i32 noundef 1, i32 noundef 273) #14
-  tail call void @input_set_capability(ptr noundef %101, i32 noundef 2, i32 noundef 0) #14
-  tail call void @input_set_capability(ptr noundef %101, i32 noundef 2, i32 noundef 1) #14
-  %103 = getelementptr inbounds i8, ptr %101, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %103, i64 0) #14, !srcloc !19
-  %104 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr @psmouse_protocols, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 408
-  store ptr @psmouse_set_rate, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 416
-  store ptr @psmouse_set_resolution, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 424
-  store ptr @psmouse_set_scale, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 464
-  store ptr @psmouse_poll, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 400
-  store ptr @psmouse_process_byte, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 242
-  store i8 3, ptr %110, align 2
-  %111 = getelementptr inbounds i8, ptr %0, i64 432
-  %112 = getelementptr inbounds i8, ptr %0, i64 472
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %111, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %112, i8 0, i64 16, i1 false)
+101:                                              ; preds = %100
+  %102 = getelementptr inbounds i8, ptr %0, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %104, i8 0, i64 128, i1 false)
+  tail call void @input_set_capability(ptr noundef %103, i32 noundef 1, i32 noundef 272) #14
+  tail call void @input_set_capability(ptr noundef %103, i32 noundef 1, i32 noundef 273) #14
+  tail call void @input_set_capability(ptr noundef %103, i32 noundef 2, i32 noundef 0) #14
+  tail call void @input_set_capability(ptr noundef %103, i32 noundef 2, i32 noundef 1) #14
+  %105 = getelementptr inbounds i8, ptr %103, i64 32
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %105, i64 0) #14, !srcloc !19
+  %106 = getelementptr inbounds i8, ptr %0, i64 224
+  store ptr @psmouse_protocols, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %0, i64 408
+  store ptr @psmouse_set_rate, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %0, i64 416
+  store ptr @psmouse_set_resolution, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %0, i64 424
+  store ptr @psmouse_set_scale, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %0, i64 464
+  store ptr @psmouse_poll, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %0, i64 400
+  store ptr @psmouse_process_byte, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %0, i64 242
+  store i8 3, ptr %112, align 2
+  %113 = getelementptr inbounds i8, ptr %0, i64 432
+  %114 = getelementptr inbounds i8, ptr %0, i64 472
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %113, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %114, i8 0, i64 16, i1 false)
   br label %psmouse_do_detect.exit
 
-psmouse_do_detect.exit:                           ; preds = %98, %99
-  %113 = tail call i32 @thinking_detect(ptr noundef %0, i1 noundef zeroext %2) #14
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %338, label %.thread21
+psmouse_do_detect.exit:                           ; preds = %100, %101
+  %115 = tail call i32 @thinking_detect(ptr noundef %0, i1 noundef zeroext %2) #14
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %340, label %.thread21
 
-115:                                              ; preds = %.thread16
-  %116 = icmp ugt i32 %.pr18, 1
-  br i1 %116, label %.thread21, label %.thread47
+117:                                              ; preds = %.thread16
+  %118 = icmp ugt i32 %.pr18, 1
+  br i1 %118, label %.thread21, label %.thread47
 
-.thread21:                                        ; preds = %94, %psmouse_do_detect.exit, %.thread19, %115
-  %117 = phi i32 [ %.pr18, %115 ], [ %.pr18, %psmouse_do_detect.exit ], [ 6, %.thread19 ], [ %.pr18, %94 ]
-  %118 = phi i1 [ false, %115 ], [ true, %psmouse_do_detect.exit ], [ false, %.thread19 ], [ true, %94 ]
-  %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 201
-  %121 = load i8, ptr %120, align 1
-  %122 = icmp eq i8 %121, 5
-  br i1 %122, label %149, label %123
+.thread21:                                        ; preds = %96, %psmouse_do_detect.exit, %.thread19, %117
+  %119 = phi i32 [ %.pr18, %117 ], [ %.pr18, %psmouse_do_detect.exit ], [ 6, %.thread19 ], [ %.pr18, %96 ]
+  %120 = phi i1 [ false, %117 ], [ true, %psmouse_do_detect.exit ], [ false, %.thread19 ], [ true, %96 ]
+  %121 = load ptr, ptr %6, align 8
+  %122 = getelementptr inbounds i8, ptr %121, i64 201
+  %123 = load i8, ptr %122, align 1
+  %124 = icmp eq i8 %123, 5
+  br i1 %124, label %151, label %125
 
-123:                                              ; preds = %.thread21
-  br i1 %2, label %124, label %138
+125:                                              ; preds = %.thread21
+  br i1 %2, label %126, label %140
 
-124:                                              ; preds = %123
-  %125 = getelementptr inbounds i8, ptr %0, i64 8
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %127, i8 0, i64 128, i1 false)
-  tail call void @input_set_capability(ptr noundef %126, i32 noundef 1, i32 noundef 272) #14
-  tail call void @input_set_capability(ptr noundef %126, i32 noundef 1, i32 noundef 273) #14
-  tail call void @input_set_capability(ptr noundef %126, i32 noundef 2, i32 noundef 0) #14
-  tail call void @input_set_capability(ptr noundef %126, i32 noundef 2, i32 noundef 1) #14
-  %128 = getelementptr inbounds i8, ptr %126, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %128, i64 0) #14, !srcloc !19
-  %129 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr @psmouse_protocols, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 408
-  store ptr @psmouse_set_rate, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 416
-  store ptr @psmouse_set_resolution, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 424
-  store ptr @psmouse_set_scale, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 464
-  store ptr @psmouse_poll, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 400
-  store ptr @psmouse_process_byte, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 242
-  store i8 3, ptr %135, align 2
-  %136 = getelementptr inbounds i8, ptr %0, i64 432
-  %137 = getelementptr inbounds i8, ptr %0, i64 472
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %136, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %137, i8 0, i64 16, i1 false)
-  br label %138
+126:                                              ; preds = %125
+  %127 = getelementptr inbounds i8, ptr %0, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %129, i8 0, i64 128, i1 false)
+  tail call void @input_set_capability(ptr noundef %128, i32 noundef 1, i32 noundef 272) #14
+  tail call void @input_set_capability(ptr noundef %128, i32 noundef 1, i32 noundef 273) #14
+  tail call void @input_set_capability(ptr noundef %128, i32 noundef 2, i32 noundef 0) #14
+  tail call void @input_set_capability(ptr noundef %128, i32 noundef 2, i32 noundef 1) #14
+  %130 = getelementptr inbounds i8, ptr %128, i64 32
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %130, i64 0) #14, !srcloc !19
+  %131 = getelementptr inbounds i8, ptr %0, i64 224
+  store ptr @psmouse_protocols, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %0, i64 408
+  store ptr @psmouse_set_rate, ptr %132, align 8
+  %133 = getelementptr inbounds i8, ptr %0, i64 416
+  store ptr @psmouse_set_resolution, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %0, i64 424
+  store ptr @psmouse_set_scale, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %0, i64 464
+  store ptr @psmouse_poll, ptr %135, align 8
+  %136 = getelementptr inbounds i8, ptr %0, i64 400
+  store ptr @psmouse_process_byte, ptr %136, align 8
+  %137 = getelementptr inbounds i8, ptr %0, i64 242
+  store i8 3, ptr %137, align 2
+  %138 = getelementptr inbounds i8, ptr %0, i64 432
+  %139 = getelementptr inbounds i8, ptr %0, i64 472
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %138, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %139, i8 0, i64 16, i1 false)
+  br label %140
 
-138:                                              ; preds = %124, %123
-  %139 = tail call i32 @synaptics_detect(ptr noundef %0, i1 noundef zeroext %2) #14
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %141, label %149
+140:                                              ; preds = %126, %125
+  %141 = tail call i32 @synaptics_detect(ptr noundef %0, i1 noundef zeroext %2) #14
+  %142 = icmp eq i32 %141, 0
+  br i1 %142, label %143, label %151
 
-141:                                              ; preds = %138
-  br i1 %118, label %142, label %147
+143:                                              ; preds = %140
+  br i1 %120, label %144, label %149
 
-142:                                              ; preds = %141
-  br i1 %2, label %143, label %338
+144:                                              ; preds = %143
+  br i1 %2, label %145, label %340
 
-143:                                              ; preds = %142
-  %144 = tail call i32 @synaptics_init(ptr noundef %0) #14
-  %145 = icmp sgt i32 %144, -1
-  br i1 %145, label %338, label %146
+145:                                              ; preds = %144
+  %146 = tail call i32 @synaptics_init(ptr noundef %0) #14
+  %147 = icmp sgt i32 %146, -1
+  br i1 %147, label %340, label %148
 
-146:                                              ; preds = %143
+148:                                              ; preds = %145
   store i32 6, ptr %5, align 4
-  br label %147
-
-147:                                              ; preds = %146, %141
-  %148 = phi i32 [ 6, %146 ], [ %117, %141 ]
-  tail call void @synaptics_reset(ptr noundef %0) #14
   br label %149
 
-149:                                              ; preds = %147, %138, %.thread21
-  %.pr40.pr = phi i32 [ %148, %147 ], [ %117, %138 ], [ %117, %.thread21 ]
-  %150 = phi i1 [ true, %147 ], [ false, %138 ], [ false, %.thread21 ]
-  %151 = icmp ugt i32 %.pr40.pr, 6
-  br i1 %151, label %152, label %.thread47
+149:                                              ; preds = %148, %143
+  %150 = phi i32 [ 6, %148 ], [ %119, %143 ]
+  tail call void @synaptics_reset(ptr noundef %0) #14
+  br label %151
 
-152:                                              ; preds = %149
-  %153 = load ptr, ptr %6, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 201
-  %155 = load i8, ptr %154, align 1
-  %156 = icmp eq i8 %155, 5
-  br i1 %156, label %.thread24, label %157
+151:                                              ; preds = %149, %140, %.thread21
+  %.pr40.pr = phi i32 [ %150, %149 ], [ %119, %140 ], [ %119, %.thread21 ]
+  %152 = phi i1 [ true, %149 ], [ false, %140 ], [ false, %.thread21 ]
+  %153 = icmp ugt i32 %.pr40.pr, 6
+  br i1 %153, label %154, label %.thread47
 
-157:                                              ; preds = %152
-  br i1 %2, label %160, label %.thread23
+154:                                              ; preds = %151
+  %155 = load ptr, ptr %6, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 201
+  %157 = load i8, ptr %156, align 1
+  %158 = icmp eq i8 %157, 5
+  br i1 %158, label %.thread24, label %159
 
-.thread23:                                        ; preds = %157
-  %158 = tail call i32 @cypress_detect(ptr noundef %0, i1 noundef zeroext false) #14
-  %159 = icmp eq i32 %158, 0
-  br i1 %159, label %338, label %.thread24
+159:                                              ; preds = %154
+  br i1 %2, label %162, label %.thread23
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %0, i64 8
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %163, i8 0, i64 128, i1 false)
-  tail call void @input_set_capability(ptr noundef %162, i32 noundef 1, i32 noundef 272) #14
-  tail call void @input_set_capability(ptr noundef %162, i32 noundef 1, i32 noundef 273) #14
-  tail call void @input_set_capability(ptr noundef %162, i32 noundef 2, i32 noundef 0) #14
-  tail call void @input_set_capability(ptr noundef %162, i32 noundef 2, i32 noundef 1) #14
-  %164 = getelementptr inbounds i8, ptr %162, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %164, i64 0) #14, !srcloc !19
-  %165 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr @psmouse_protocols, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %0, i64 408
-  store ptr @psmouse_set_rate, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %0, i64 416
-  store ptr @psmouse_set_resolution, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 424
-  store ptr @psmouse_set_scale, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %0, i64 464
-  store ptr @psmouse_poll, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %0, i64 400
-  store ptr @psmouse_process_byte, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %0, i64 242
-  store i8 3, ptr %171, align 2
-  %172 = getelementptr inbounds i8, ptr %0, i64 432
-  %173 = getelementptr inbounds i8, ptr %0, i64 472
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %172, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %173, i8 0, i64 16, i1 false)
-  %174 = tail call i32 @cypress_detect(ptr noundef %0, i1 noundef zeroext true) #14
-  %175 = icmp eq i32 %174, 0
-  br i1 %175, label %176, label %.thread24
+.thread23:                                        ; preds = %159
+  %160 = tail call i32 @cypress_detect(ptr noundef %0, i1 noundef zeroext false) #14
+  %161 = icmp eq i32 %160, 0
+  br i1 %161, label %340, label %.thread24
 
-176:                                              ; preds = %160
-  %177 = tail call i32 @cypress_init(ptr noundef %0) #14
-  %178 = icmp eq i32 %177, 0
-  br i1 %178, label %338, label %.thread47.sink.split
+162:                                              ; preds = %159
+  %163 = getelementptr inbounds i8, ptr %0, i64 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds i8, ptr %164, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %165, i8 0, i64 128, i1 false)
+  tail call void @input_set_capability(ptr noundef %164, i32 noundef 1, i32 noundef 272) #14
+  tail call void @input_set_capability(ptr noundef %164, i32 noundef 1, i32 noundef 273) #14
+  tail call void @input_set_capability(ptr noundef %164, i32 noundef 2, i32 noundef 0) #14
+  tail call void @input_set_capability(ptr noundef %164, i32 noundef 2, i32 noundef 1) #14
+  %166 = getelementptr inbounds i8, ptr %164, i64 32
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %166, i64 0) #14, !srcloc !19
+  %167 = getelementptr inbounds i8, ptr %0, i64 224
+  store ptr @psmouse_protocols, ptr %167, align 8
+  %168 = getelementptr inbounds i8, ptr %0, i64 408
+  store ptr @psmouse_set_rate, ptr %168, align 8
+  %169 = getelementptr inbounds i8, ptr %0, i64 416
+  store ptr @psmouse_set_resolution, ptr %169, align 8
+  %170 = getelementptr inbounds i8, ptr %0, i64 424
+  store ptr @psmouse_set_scale, ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %0, i64 464
+  store ptr @psmouse_poll, ptr %171, align 8
+  %172 = getelementptr inbounds i8, ptr %0, i64 400
+  store ptr @psmouse_process_byte, ptr %172, align 8
+  %173 = getelementptr inbounds i8, ptr %0, i64 242
+  store i8 3, ptr %173, align 2
+  %174 = getelementptr inbounds i8, ptr %0, i64 432
+  %175 = getelementptr inbounds i8, ptr %0, i64 472
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %174, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %175, i8 0, i64 16, i1 false)
+  %176 = tail call i32 @cypress_detect(ptr noundef %0, i1 noundef zeroext true) #14
+  %177 = icmp eq i32 %176, 0
+  br i1 %177, label %178, label %.thread24
 
-.thread24:                                        ; preds = %.thread23, %152, %160
-  %179 = tail call i32 @ps2_command(ptr noundef %6, ptr noundef null, i32 noundef 246) #14
-  %180 = load ptr, ptr %6, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 201
-  %182 = load i8, ptr %181, align 1
-  %183 = icmp eq i8 %182, 5
-  br i1 %183, label %.preheader62.preheader, label %184
+178:                                              ; preds = %162
+  %179 = tail call i32 @cypress_init(ptr noundef %0) #14
+  %180 = icmp eq i32 %179, 0
+  br i1 %180, label %340, label %.thread47.sink.split
 
-184:                                              ; preds = %.thread24
-  br i1 %2, label %187, label %.thread31
+.thread24:                                        ; preds = %.thread23, %154, %162
+  %181 = tail call i32 @ps2_command(ptr noundef %6, ptr noundef null, i32 noundef 246) #14
+  %182 = load ptr, ptr %6, align 8
+  %183 = getelementptr inbounds i8, ptr %182, i64 201
+  %184 = load i8, ptr %183, align 1
+  %185 = icmp eq i8 %184, 5
+  br i1 %185, label %.preheader62.preheader, label %186
 
-.thread31:                                        ; preds = %184
-  %185 = tail call i32 @alps_detect(ptr noundef %0, i1 noundef zeroext false) #14
-  %186 = icmp eq i32 %185, 0
-  br i1 %186, label %338, label %.preheader62.preheader
+186:                                              ; preds = %.thread24
+  br i1 %2, label %189, label %.thread31
 
-187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %0, i64 8
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %190, i8 0, i64 128, i1 false)
-  tail call void @input_set_capability(ptr noundef %189, i32 noundef 1, i32 noundef 272) #14
-  tail call void @input_set_capability(ptr noundef %189, i32 noundef 1, i32 noundef 273) #14
-  tail call void @input_set_capability(ptr noundef %189, i32 noundef 2, i32 noundef 0) #14
-  tail call void @input_set_capability(ptr noundef %189, i32 noundef 2, i32 noundef 1) #14
-  %191 = getelementptr inbounds i8, ptr %189, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %191, i64 0) #14, !srcloc !19
-  %192 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr @psmouse_protocols, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %0, i64 408
-  store ptr @psmouse_set_rate, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %0, i64 416
-  store ptr @psmouse_set_resolution, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %0, i64 424
-  store ptr @psmouse_set_scale, ptr %195, align 8
-  %196 = getelementptr inbounds i8, ptr %0, i64 464
-  store ptr @psmouse_poll, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %0, i64 400
-  store ptr @psmouse_process_byte, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %0, i64 242
-  store i8 3, ptr %198, align 2
-  %199 = getelementptr inbounds i8, ptr %0, i64 432
-  %200 = getelementptr inbounds i8, ptr %0, i64 472
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %199, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %200, i8 0, i64 16, i1 false)
-  %201 = tail call i32 @alps_detect(ptr noundef %0, i1 noundef zeroext true) #14
-  %202 = icmp eq i32 %201, 0
-  br i1 %202, label %203, label %.preheader62.preheader
+.thread31:                                        ; preds = %186
+  %187 = tail call i32 @alps_detect(ptr noundef %0, i1 noundef zeroext false) #14
+  %188 = icmp eq i32 %187, 0
+  br i1 %188, label %340, label %.preheader62.preheader
 
-.preheader62.preheader:                           ; preds = %.thread31, %.thread24, %187
+189:                                              ; preds = %186
+  %190 = getelementptr inbounds i8, ptr %0, i64 8
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr inbounds i8, ptr %191, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %192, i8 0, i64 128, i1 false)
+  tail call void @input_set_capability(ptr noundef %191, i32 noundef 1, i32 noundef 272) #14
+  tail call void @input_set_capability(ptr noundef %191, i32 noundef 1, i32 noundef 273) #14
+  tail call void @input_set_capability(ptr noundef %191, i32 noundef 2, i32 noundef 0) #14
+  tail call void @input_set_capability(ptr noundef %191, i32 noundef 2, i32 noundef 1) #14
+  %193 = getelementptr inbounds i8, ptr %191, i64 32
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %193, i64 0) #14, !srcloc !19
+  %194 = getelementptr inbounds i8, ptr %0, i64 224
+  store ptr @psmouse_protocols, ptr %194, align 8
+  %195 = getelementptr inbounds i8, ptr %0, i64 408
+  store ptr @psmouse_set_rate, ptr %195, align 8
+  %196 = getelementptr inbounds i8, ptr %0, i64 416
+  store ptr @psmouse_set_resolution, ptr %196, align 8
+  %197 = getelementptr inbounds i8, ptr %0, i64 424
+  store ptr @psmouse_set_scale, ptr %197, align 8
+  %198 = getelementptr inbounds i8, ptr %0, i64 464
+  store ptr @psmouse_poll, ptr %198, align 8
+  %199 = getelementptr inbounds i8, ptr %0, i64 400
+  store ptr @psmouse_process_byte, ptr %199, align 8
+  %200 = getelementptr inbounds i8, ptr %0, i64 242
+  store i8 3, ptr %200, align 2
+  %201 = getelementptr inbounds i8, ptr %0, i64 432
+  %202 = getelementptr inbounds i8, ptr %0, i64 472
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %201, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %202, i8 0, i64 16, i1 false)
+  %203 = tail call i32 @alps_detect(ptr noundef %0, i1 noundef zeroext true) #14
+  %204 = icmp eq i32 %203, 0
+  br i1 %204, label %205, label %.preheader62.preheader
+
+.preheader62.preheader:                           ; preds = %.thread31, %.thread24, %189
   br label %.preheader62
 
-203:                                              ; preds = %187
-  %204 = tail call i32 @alps_init(ptr noundef %0) #14
-  %205 = icmp eq i32 %204, 0
-  br i1 %205, label %338, label %.thread47.sink.split
+205:                                              ; preds = %189
+  %206 = tail call i32 @alps_init(ptr noundef %0) #14
+  %207 = icmp eq i32 %206, 0
+  br i1 %207, label %340, label %.thread47.sink.split
 
-206:                                              ; preds = %.preheader62
-  %207 = add nuw nsw i64 %209, 1
-  %208 = icmp eq i64 %207, 17
-  br i1 %208, label %.preheader61.preheader, label %.preheader62, !llvm.loop !14
+208:                                              ; preds = %.preheader62
+  %209 = add nuw nsw i64 %211, 1
+  %210 = icmp eq i64 %209, 17
+  br i1 %210, label %.preheader61.preheader, label %.preheader62, !llvm.loop !14
 
-.preheader62:                                     ; preds = %.preheader62.preheader, %206
-  %209 = phi i64 [ %207, %206 ], [ 0, %.preheader62.preheader ]
-  %210 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %209
-  %211 = load i32, ptr %210, align 8
-  %212 = icmp eq i32 %211, 13
-  br i1 %212, label %213, label %206
+.preheader62:                                     ; preds = %.preheader62.preheader, %208
+  %211 = phi i64 [ %209, %208 ], [ 0, %.preheader62.preheader ]
+  %212 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %211
+  %213 = load i32, ptr %212, align 8
+  %214 = icmp eq i32 %213, 13
+  br i1 %214, label %215, label %208
 
-213:                                              ; preds = %.preheader62
-  %214 = icmp eq ptr %210, null
-  br i1 %214, label %.preheader61.preheader, label %215
+215:                                              ; preds = %.preheader62
+  %216 = icmp eq ptr %212, null
+  br i1 %216, label %.preheader61.preheader, label %217
 
-215:                                              ; preds = %213
-  %216 = getelementptr inbounds i8, ptr %210, i64 24
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %210, i64 6
-  %219 = load i8, ptr %218, align 2, !range !5, !noundef !6
-  %220 = icmp ne i8 %219, 0
-  %221 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %217, ptr noundef %0, i1 noundef zeroext %220, i1 noundef zeroext %2)
-  %222 = and i1 %2, %221
-  br i1 %222, label %223, label %230
+217:                                              ; preds = %215
+  %218 = getelementptr inbounds i8, ptr %212, i64 24
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %212, i64 6
+  %221 = load i8, ptr %220, align 2, !range !5, !noundef !6
+  %222 = icmp ne i8 %221, 0
+  %223 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %219, ptr noundef %0, i1 noundef zeroext %222, i1 noundef zeroext %2)
+  %224 = and i1 %2, %223
+  br i1 %224, label %225, label %232
 
-223:                                              ; preds = %215
-  %224 = getelementptr inbounds i8, ptr %210, i64 32
-  %225 = load ptr, ptr %224, align 8
-  %226 = icmp eq ptr %225, null
-  br i1 %226, label %338, label %227
+225:                                              ; preds = %217
+  %226 = getelementptr inbounds i8, ptr %212, i64 32
+  %227 = load ptr, ptr %226, align 8
+  %228 = icmp eq ptr %227, null
+  br i1 %228, label %340, label %229
 
-227:                                              ; preds = %223
-  %228 = tail call i32 %225(ptr noundef %0) #14
-  %229 = icmp eq i32 %228, 0
-  br i1 %229, label %338, label %.thread47.sink.split
+229:                                              ; preds = %225
+  %230 = tail call i32 %227(ptr noundef %0) #14
+  %231 = icmp eq i32 %230, 0
+  br i1 %231, label %340, label %.thread47.sink.split
 
-230:                                              ; preds = %215
-  br i1 %221, label %338, label %.preheader61.preheader
+232:                                              ; preds = %217
+  br i1 %223, label %340, label %.preheader61.preheader
 
-.preheader61.preheader:                           ; preds = %206, %213, %230
+.preheader61.preheader:                           ; preds = %208, %215, %232
   br label %.preheader61
 
-231:                                              ; preds = %.preheader61
-  %232 = add nuw nsw i64 %234, 1
-  %233 = icmp eq i64 %232, 17
-  br i1 %233, label %.thread44, label %.preheader61, !llvm.loop !14
+233:                                              ; preds = %.preheader61
+  %234 = add nuw nsw i64 %236, 1
+  %235 = icmp eq i64 %234, 17
+  br i1 %235, label %.thread44, label %.preheader61, !llvm.loop !14
 
-.preheader61:                                     ; preds = %.preheader61.preheader, %231
-  %234 = phi i64 [ %232, %231 ], [ 0, %.preheader61.preheader ]
-  %235 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %234
-  %236 = load i32, ptr %235, align 8
-  %237 = icmp eq i32 %236, 14
-  br i1 %237, label %238, label %231
+.preheader61:                                     ; preds = %.preheader61.preheader, %233
+  %236 = phi i64 [ %234, %233 ], [ 0, %.preheader61.preheader ]
+  %237 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %236
+  %238 = load i32, ptr %237, align 8
+  %239 = icmp eq i32 %238, 14
+  br i1 %239, label %240, label %233
 
-238:                                              ; preds = %.preheader61
-  %239 = icmp eq ptr %235, null
-  br i1 %239, label %.thread44, label %240
+240:                                              ; preds = %.preheader61
+  %241 = icmp eq ptr %237, null
+  br i1 %241, label %.thread44, label %242
 
-240:                                              ; preds = %238
-  %241 = getelementptr inbounds i8, ptr %235, i64 24
-  %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %235, i64 6
-  %244 = load i8, ptr %243, align 2, !range !5, !noundef !6
-  %245 = icmp ne i8 %244, 0
-  %246 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %242, ptr noundef %0, i1 noundef zeroext %245, i1 noundef zeroext %2)
-  %247 = xor i1 %246, true
-  %248 = or i1 %2, %247
-  br i1 %248, label %.thread44, label %338
+242:                                              ; preds = %240
+  %243 = getelementptr inbounds i8, ptr %237, i64 24
+  %244 = load ptr, ptr %243, align 8
+  %245 = getelementptr inbounds i8, ptr %237, i64 6
+  %246 = load i8, ptr %245, align 2, !range !5, !noundef !6
+  %247 = icmp ne i8 %246, 0
+  %248 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %244, ptr noundef %0, i1 noundef zeroext %247, i1 noundef zeroext %2)
+  %249 = xor i1 %248, true
+  %250 = or i1 %2, %249
+  br i1 %250, label %.thread44, label %340
 
-.thread44:                                        ; preds = %231, %238, %240
-  %249 = load ptr, ptr %6, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 201
-  %251 = load i8, ptr %250, align 1
-  %.not60 = icmp eq i8 %251, 5
-  br i1 %.not60, label %psmouse_do_detect.exit12.thread, label %252
+.thread44:                                        ; preds = %233, %240, %242
+  %251 = load ptr, ptr %6, align 8
+  %252 = getelementptr inbounds i8, ptr %251, i64 201
+  %253 = load i8, ptr %252, align 1
+  %.not60 = icmp eq i8 %253, 5
+  br i1 %.not60, label %psmouse_do_detect.exit12.thread, label %254
 
-252:                                              ; preds = %.thread44
-  br i1 %2, label %253, label %psmouse_do_detect.exit12
+254:                                              ; preds = %.thread44
+  br i1 %2, label %255, label %psmouse_do_detect.exit12
 
-253:                                              ; preds = %252
-  %254 = getelementptr inbounds i8, ptr %0, i64 8
-  %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %256, i8 0, i64 128, i1 false)
-  tail call void @input_set_capability(ptr noundef %255, i32 noundef 1, i32 noundef 272) #14
-  tail call void @input_set_capability(ptr noundef %255, i32 noundef 1, i32 noundef 273) #14
-  tail call void @input_set_capability(ptr noundef %255, i32 noundef 2, i32 noundef 0) #14
-  tail call void @input_set_capability(ptr noundef %255, i32 noundef 2, i32 noundef 1) #14
-  %257 = getelementptr inbounds i8, ptr %255, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %257, i64 0) #14, !srcloc !19
-  %258 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr @psmouse_protocols, ptr %258, align 8
-  %259 = getelementptr inbounds i8, ptr %0, i64 408
-  store ptr @psmouse_set_rate, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %0, i64 416
-  store ptr @psmouse_set_resolution, ptr %260, align 8
-  %261 = getelementptr inbounds i8, ptr %0, i64 424
-  store ptr @psmouse_set_scale, ptr %261, align 8
-  %262 = getelementptr inbounds i8, ptr %0, i64 464
-  store ptr @psmouse_poll, ptr %262, align 8
-  %263 = getelementptr inbounds i8, ptr %0, i64 400
-  store ptr @psmouse_process_byte, ptr %263, align 8
-  %264 = getelementptr inbounds i8, ptr %0, i64 242
-  store i8 3, ptr %264, align 2
-  %265 = getelementptr inbounds i8, ptr %0, i64 432
-  %266 = getelementptr inbounds i8, ptr %0, i64 472
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %265, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %266, i8 0, i64 16, i1 false)
+255:                                              ; preds = %254
+  %256 = getelementptr inbounds i8, ptr %0, i64 8
+  %257 = load ptr, ptr %256, align 8
+  %258 = getelementptr inbounds i8, ptr %257, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %258, i8 0, i64 128, i1 false)
+  tail call void @input_set_capability(ptr noundef %257, i32 noundef 1, i32 noundef 272) #14
+  tail call void @input_set_capability(ptr noundef %257, i32 noundef 1, i32 noundef 273) #14
+  tail call void @input_set_capability(ptr noundef %257, i32 noundef 2, i32 noundef 0) #14
+  tail call void @input_set_capability(ptr noundef %257, i32 noundef 2, i32 noundef 1) #14
+  %259 = getelementptr inbounds i8, ptr %257, i64 32
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %259, i64 0) #14, !srcloc !19
+  %260 = getelementptr inbounds i8, ptr %0, i64 224
+  store ptr @psmouse_protocols, ptr %260, align 8
+  %261 = getelementptr inbounds i8, ptr %0, i64 408
+  store ptr @psmouse_set_rate, ptr %261, align 8
+  %262 = getelementptr inbounds i8, ptr %0, i64 416
+  store ptr @psmouse_set_resolution, ptr %262, align 8
+  %263 = getelementptr inbounds i8, ptr %0, i64 424
+  store ptr @psmouse_set_scale, ptr %263, align 8
+  %264 = getelementptr inbounds i8, ptr %0, i64 464
+  store ptr @psmouse_poll, ptr %264, align 8
+  %265 = getelementptr inbounds i8, ptr %0, i64 400
+  store ptr @psmouse_process_byte, ptr %265, align 8
+  %266 = getelementptr inbounds i8, ptr %0, i64 242
+  store i8 3, ptr %266, align 2
+  %267 = getelementptr inbounds i8, ptr %0, i64 432
+  %268 = getelementptr inbounds i8, ptr %0, i64 472
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %267, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %268, i8 0, i64 16, i1 false)
   br label %psmouse_do_detect.exit12
 
-psmouse_do_detect.exit12:                         ; preds = %252, %253
-  %267 = tail call i32 @genius_detect(ptr noundef %0, i1 noundef zeroext %2) #14
-  %268 = icmp eq i32 %267, 0
-  br i1 %268, label %338, label %psmouse_do_detect.exit12.thread
+psmouse_do_detect.exit12:                         ; preds = %254, %255
+  %269 = tail call i32 @genius_detect(ptr noundef %0, i1 noundef zeroext %2) #14
+  %270 = icmp eq i32 %269, 0
+  br i1 %270, label %340, label %psmouse_do_detect.exit12.thread
 
 psmouse_do_detect.exit12.thread:                  ; preds = %.thread44, %psmouse_do_detect.exit12
-  %269 = call fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %5, i1 noundef zeroext %2)
-  br i1 %269, label %338, label %270
+  %271 = call fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %5, i1 noundef zeroext %2)
+  br i1 %271, label %340, label %272
 
-270:                                              ; preds = %psmouse_do_detect.exit12.thread
-  %271 = call fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %5, i1 noundef zeroext %2)
-  br i1 %271, label %338, label %272
+272:                                              ; preds = %psmouse_do_detect.exit12.thread
+  %273 = call fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %5, i1 noundef zeroext %2)
+  br i1 %273, label %340, label %274
 
-272:                                              ; preds = %270
-  %273 = call fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef 11, ptr noundef nonnull %5, i1 noundef zeroext %2)
-  br i1 %273, label %338, label %.thread43
+274:                                              ; preds = %272
+  %275 = call fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef 11, ptr noundef nonnull %5, i1 noundef zeroext %2)
+  br i1 %275, label %340, label %.thread43
 
-.thread43:                                        ; preds = %272
+.thread43:                                        ; preds = %274
   %.pr46.pr.pr = load i32, ptr %5, align 4
-  %274 = icmp ugt i32 %.pr46.pr.pr, 6
-  br i1 %274, label %.preheader, label %.thread47
+  %276 = icmp ugt i32 %.pr46.pr.pr, 6
+  br i1 %276, label %.preheader, label %.thread47
 
-275:                                              ; preds = %.preheader
-  %276 = add nuw nsw i64 %278, 1
-  %277 = icmp eq i64 %276, 17
-  br i1 %277, label %.thread47, label %.preheader, !llvm.loop !14
+277:                                              ; preds = %.preheader
+  %278 = add nuw nsw i64 %280, 1
+  %279 = icmp eq i64 %278, 17
+  br i1 %279, label %.thread47, label %.preheader, !llvm.loop !14
 
-.preheader:                                       ; preds = %.thread43, %275
-  %278 = phi i64 [ %276, %275 ], [ 0, %.thread43 ]
-  %279 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %278
-  %280 = load i32, ptr %279, align 8
-  %281 = icmp eq i32 %280, 15
-  br i1 %281, label %282, label %275
+.preheader:                                       ; preds = %.thread43, %277
+  %280 = phi i64 [ %278, %277 ], [ 0, %.thread43 ]
+  %281 = getelementptr [17 x %struct.psmouse_protocol], ptr @psmouse_protocols, i64 0, i64 %280
+  %282 = load i32, ptr %281, align 8
+  %283 = icmp eq i32 %282, 15
+  br i1 %283, label %284, label %277
 
-282:                                              ; preds = %.preheader
-  %283 = icmp eq ptr %279, null
-  br i1 %283, label %.thread47, label %284
+284:                                              ; preds = %.preheader
+  %285 = icmp eq ptr %281, null
+  br i1 %285, label %.thread47, label %286
 
-284:                                              ; preds = %282
-  %285 = getelementptr inbounds i8, ptr %279, i64 24
-  %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds i8, ptr %279, i64 6
-  %288 = load i8, ptr %287, align 2, !range !5, !noundef !6
-  %289 = icmp ne i8 %288, 0
-  %290 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %286, ptr noundef %0, i1 noundef zeroext %289, i1 noundef zeroext %2)
-  %291 = and i1 %2, %290
-  br i1 %291, label %292, label %299
+286:                                              ; preds = %284
+  %287 = getelementptr inbounds i8, ptr %281, i64 24
+  %288 = load ptr, ptr %287, align 8
+  %289 = getelementptr inbounds i8, ptr %281, i64 6
+  %290 = load i8, ptr %289, align 2, !range !5, !noundef !6
+  %291 = icmp ne i8 %290, 0
+  %292 = tail call fastcc zeroext i1 @psmouse_do_detect(ptr noundef %288, ptr noundef %0, i1 noundef zeroext %291, i1 noundef zeroext %2)
+  %293 = and i1 %2, %292
+  br i1 %293, label %294, label %301
 
-292:                                              ; preds = %284
-  %293 = getelementptr inbounds i8, ptr %279, i64 32
-  %294 = load ptr, ptr %293, align 8
-  %295 = icmp eq ptr %294, null
-  br i1 %295, label %338, label %296
+294:                                              ; preds = %286
+  %295 = getelementptr inbounds i8, ptr %281, i64 32
+  %296 = load ptr, ptr %295, align 8
+  %297 = icmp eq ptr %296, null
+  br i1 %297, label %340, label %298
 
-296:                                              ; preds = %292
-  %297 = tail call i32 %294(ptr noundef %0) #14
-  %298 = icmp eq i32 %297, 0
-  br i1 %298, label %338, label %.thread47.sink.split
+298:                                              ; preds = %294
+  %299 = tail call i32 %296(ptr noundef %0) #14
+  %300 = icmp eq i32 %299, 0
+  br i1 %300, label %340, label %.thread47.sink.split
 
-299:                                              ; preds = %284
-  br i1 %290, label %338, label %.thread47
+301:                                              ; preds = %286
+  br i1 %292, label %340, label %.thread47
 
-.thread47.sink.split:                             ; preds = %296, %227, %203, %176
+.thread47.sink.split:                             ; preds = %298, %229, %205, %178
   store i32 6, ptr %5, align 4
   br label %.thread47
 
-.thread47:                                        ; preds = %275, %.thread47.sink.split, %115, %299, %282, %149, %.thread43
-  %300 = phi i1 [ %150, %.thread43 ], [ %150, %149 ], [ %150, %282 ], [ %150, %299 ], [ false, %115 ], [ %150, %.thread47.sink.split ], [ %150, %275 ]
-  %301 = phi i32 [ %.pr46.pr.pr, %.thread43 ], [ %.pr40.pr, %149 ], [ %.pr46.pr.pr, %282 ], [ %.pr46.pr.pr, %299 ], [ %.pr18, %115 ], [ 6, %.thread47.sink.split ], [ %.pr46.pr.pr, %275 ]
-  %302 = tail call i32 @ps2_command(ptr noundef %6, ptr noundef null, i32 noundef 246) #14
+.thread47:                                        ; preds = %277, %.thread47.sink.split, %117, %301, %284, %151, %.thread43
+  %302 = phi i1 [ %152, %.thread43 ], [ %152, %151 ], [ %152, %284 ], [ %152, %301 ], [ false, %117 ], [ %152, %.thread47.sink.split ], [ %152, %277 ]
+  %303 = phi i32 [ %.pr46.pr.pr, %.thread43 ], [ %.pr40.pr, %151 ], [ %.pr46.pr.pr, %284 ], [ %.pr46.pr.pr, %301 ], [ %.pr18, %117 ], [ 6, %.thread47.sink.split ], [ %.pr46.pr.pr, %277 ]
+  %304 = tail call i32 @ps2_command(ptr noundef %6, ptr noundef null, i32 noundef 246) #14
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
   store i16 0, ptr %4, align 2, !annotation !7
-  %303 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 767) #14
+  %305 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 767) #14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14
-  %304 = icmp ugt i32 %301, 5
-  br i1 %304, label %305, label %307
-
-305:                                              ; preds = %.thread47
-  %306 = call fastcc zeroext i1 @psmouse_do_detect(ptr noundef nonnull @im_explorer_detect, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext %2)
-  br i1 %306, label %338, label %.thread51
+  %306 = icmp ugt i32 %303, 5
+  br i1 %306, label %307, label %309
 
 307:                                              ; preds = %.thread47
-  %308 = icmp eq i32 %301, 5
-  br i1 %308, label %.thread51, label %310
+  %308 = call fastcc zeroext i1 @psmouse_do_detect(ptr noundef nonnull @im_explorer_detect, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext %2)
+  br i1 %308, label %340, label %.thread51
 
-.thread51:                                        ; preds = %305, %307
-  %309 = call fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %5, i1 noundef zeroext %2)
-  br i1 %309, label %338, label %310
+309:                                              ; preds = %.thread47
+  %310 = icmp eq i32 %303, 5
+  br i1 %310, label %.thread51, label %312
 
-310:                                              ; preds = %.thread51, %307
-  br i1 %2, label %311, label %ps2bare_detect.exit
+.thread51:                                        ; preds = %307, %309
+  %311 = call fastcc zeroext i1 @psmouse_try_protocol(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %5, i1 noundef zeroext %2)
+  br i1 %311, label %340, label %312
 
-311:                                              ; preds = %310
-  %312 = getelementptr inbounds i8, ptr %0, i64 8
-  %313 = load ptr, ptr %312, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %314, i8 0, i64 128, i1 false)
-  call void @input_set_capability(ptr noundef %313, i32 noundef 1, i32 noundef 272) #14
-  call void @input_set_capability(ptr noundef %313, i32 noundef 1, i32 noundef 273) #14
-  call void @input_set_capability(ptr noundef %313, i32 noundef 2, i32 noundef 0) #14
-  call void @input_set_capability(ptr noundef %313, i32 noundef 2, i32 noundef 1) #14
-  %315 = getelementptr inbounds i8, ptr %313, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %315, i64 0) #14, !srcloc !19
-  %316 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr @psmouse_protocols, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %0, i64 408
-  store ptr @psmouse_set_rate, ptr %317, align 8
-  %318 = getelementptr inbounds i8, ptr %0, i64 416
-  store ptr @psmouse_set_resolution, ptr %318, align 8
-  %319 = getelementptr inbounds i8, ptr %0, i64 424
-  store ptr @psmouse_set_scale, ptr %319, align 8
-  %320 = getelementptr inbounds i8, ptr %0, i64 464
-  store ptr @psmouse_poll, ptr %320, align 8
-  %321 = getelementptr inbounds i8, ptr %0, i64 400
-  store ptr @psmouse_process_byte, ptr %321, align 8
-  %322 = getelementptr inbounds i8, ptr %0, i64 242
-  store i8 3, ptr %322, align 2
-  %323 = getelementptr inbounds i8, ptr %0, i64 432
-  %324 = getelementptr inbounds i8, ptr %0, i64 472
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %323, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %324, i8 0, i64 16, i1 false)
-  %325 = getelementptr inbounds i8, ptr %0, i64 208
-  %326 = load ptr, ptr %325, align 8
-  %327 = icmp eq ptr %326, null
-  br i1 %327, label %328, label %329
+312:                                              ; preds = %.thread51, %309
+  br i1 %2, label %313, label %ps2bare_detect.exit
 
-328:                                              ; preds = %311
-  store ptr @.str.38, ptr %325, align 8
-  br label %329
+313:                                              ; preds = %312
+  %314 = getelementptr inbounds i8, ptr %0, i64 8
+  %315 = load ptr, ptr %314, align 8
+  %316 = getelementptr inbounds i8, ptr %315, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(128) %316, i8 0, i64 128, i1 false)
+  call void @input_set_capability(ptr noundef %315, i32 noundef 1, i32 noundef 272) #14
+  call void @input_set_capability(ptr noundef %315, i32 noundef 1, i32 noundef 273) #14
+  call void @input_set_capability(ptr noundef %315, i32 noundef 2, i32 noundef 0) #14
+  call void @input_set_capability(ptr noundef %315, i32 noundef 2, i32 noundef 1) #14
+  %317 = getelementptr inbounds i8, ptr %315, i64 32
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %317, i64 0) #14, !srcloc !19
+  %318 = getelementptr inbounds i8, ptr %0, i64 224
+  store ptr @psmouse_protocols, ptr %318, align 8
+  %319 = getelementptr inbounds i8, ptr %0, i64 408
+  store ptr @psmouse_set_rate, ptr %319, align 8
+  %320 = getelementptr inbounds i8, ptr %0, i64 416
+  store ptr @psmouse_set_resolution, ptr %320, align 8
+  %321 = getelementptr inbounds i8, ptr %0, i64 424
+  store ptr @psmouse_set_scale, ptr %321, align 8
+  %322 = getelementptr inbounds i8, ptr %0, i64 464
+  store ptr @psmouse_poll, ptr %322, align 8
+  %323 = getelementptr inbounds i8, ptr %0, i64 400
+  store ptr @psmouse_process_byte, ptr %323, align 8
+  %324 = getelementptr inbounds i8, ptr %0, i64 242
+  store i8 3, ptr %324, align 2
+  %325 = getelementptr inbounds i8, ptr %0, i64 432
+  %326 = getelementptr inbounds i8, ptr %0, i64 472
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %325, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %326, i8 0, i64 16, i1 false)
+  %327 = getelementptr inbounds i8, ptr %0, i64 208
+  %328 = load ptr, ptr %327, align 8
+  %329 = icmp eq ptr %328, null
+  br i1 %329, label %330, label %331
 
-329:                                              ; preds = %328, %311
-  %330 = getelementptr inbounds i8, ptr %0, i64 216
-  %331 = load ptr, ptr %330, align 8
-  %332 = icmp eq ptr %331, null
-  br i1 %332, label %333, label %334
+330:                                              ; preds = %313
+  store ptr @.str.38, ptr %327, align 8
+  br label %331
 
-333:                                              ; preds = %329
-  store ptr @.str.39, ptr %330, align 8
-  br label %334
+331:                                              ; preds = %330, %313
+  %332 = getelementptr inbounds i8, ptr %0, i64 216
+  %333 = load ptr, ptr %332, align 8
+  %334 = icmp eq ptr %333, null
+  br i1 %334, label %335, label %336
 
-334:                                              ; preds = %333, %329
-  %335 = load ptr, ptr %312, align 8
-  call void @input_set_capability(ptr noundef %335, i32 noundef 1, i32 noundef 274) #14
+335:                                              ; preds = %331
+  store ptr @.str.39, ptr %332, align 8
+  br label %336
+
+336:                                              ; preds = %335, %331
+  %337 = load ptr, ptr %314, align 8
+  call void @input_set_capability(ptr noundef %337, i32 noundef 1, i32 noundef 274) #14
   br label %ps2bare_detect.exit
 
-ps2bare_detect.exit:                              ; preds = %310, %334
-  br i1 %300, label %336, label %338
+ps2bare_detect.exit:                              ; preds = %312, %336
+  br i1 %302, label %338, label %340
 
-336:                                              ; preds = %ps2bare_detect.exit
-  %337 = call i32 @psmouse_reset(ptr noundef %0)
-  br label %338
+338:                                              ; preds = %ps2bare_detect.exit
+  %339 = call i32 @psmouse_reset(ptr noundef %0)
+  br label %340
 
-338:                                              ; preds = %.thread31, %.thread23, %.thread14, %336, %ps2bare_detect.exit, %.thread51, %305, %299, %296, %292, %272, %270, %psmouse_do_detect.exit12.thread, %psmouse_do_detect.exit12, %240, %230, %227, %223, %203, %176, %143, %142, %psmouse_do_detect.exit, %93, %90, %85, %62, %61, %32, %31
-  %339 = phi i32 [ 18, %32 ], [ 18, %31 ], [ 19, %93 ], [ 7, %142 ], [ %144, %143 ], [ 13, %230 ], [ 2, %psmouse_do_detect.exit12.thread ], [ 10, %270 ], [ 11, %272 ], [ 15, %299 ], [ 5, %.thread51 ], [ 1, %336 ], [ 1, %ps2bare_detect.exit ], [ 9, %62 ], [ 9, %61 ], [ 19, %90 ], [ 19, %85 ], [ 17, %176 ], [ 8, %203 ], [ 13, %227 ], [ 13, %223 ], [ 14, %240 ], [ 3, %psmouse_do_detect.exit ], [ 4, %psmouse_do_detect.exit12 ], [ 15, %296 ], [ 15, %292 ], [ 6, %305 ], [ 9, %.thread14 ], [ 17, %.thread23 ], [ 8, %.thread31 ]
-  ret i32 %339
+340:                                              ; preds = %.thread31, %.thread23, %.thread14, %338, %ps2bare_detect.exit, %.thread51, %307, %301, %298, %294, %274, %272, %psmouse_do_detect.exit12.thread, %psmouse_do_detect.exit12, %242, %232, %229, %225, %205, %178, %145, %144, %psmouse_do_detect.exit, %95, %92, %87, %64, %63, %32, %31
+  %341 = phi i32 [ 18, %32 ], [ 18, %31 ], [ 19, %95 ], [ 7, %144 ], [ %146, %145 ], [ 13, %232 ], [ 2, %psmouse_do_detect.exit12.thread ], [ 10, %272 ], [ 11, %274 ], [ 15, %301 ], [ 5, %.thread51 ], [ 1, %338 ], [ 1, %ps2bare_detect.exit ], [ 9, %64 ], [ 9, %63 ], [ 19, %92 ], [ 19, %87 ], [ 17, %178 ], [ 8, %205 ], [ 13, %229 ], [ 13, %225 ], [ 14, %242 ], [ 3, %psmouse_do_detect.exit ], [ 4, %psmouse_do_detect.exit12 ], [ 15, %298 ], [ 15, %294 ], [ 6, %307 ], [ 9, %.thread14 ], [ 17, %.thread23 ], [ 8, %.thread31 ]
+  ret i32 %341
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid

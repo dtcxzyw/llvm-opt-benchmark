@@ -3068,36 +3068,36 @@ if.end:                                           ; preds = %if.end23.i, %if.end
   %21 = and i8 %20, 3
   %size_type_37.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %21, ptr %size_type_37.i, align 8
+  %22 = icmp eq i8 %21, 0
   %size_type_ = getelementptr inbounds i8, ptr %this, i64 16
-  %switch = icmp eq i8 %21, 0
-  br i1 %switch, label %sw.bb, label %sw.bb6
+  br i1 %22, label %sw.bb, label %sw.bb6
 
 sw.bb:                                            ; preds = %if.end.thread, %if.end
   %name.i84 = getelementptr inbounds i8, ptr %t.i, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %22 = getelementptr inbounds i8, ptr %t.i, i64 24
+  %23 = getelementptr inbounds i8, ptr %t.i, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #22
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name.i84, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #22
-  store ptr %22, ptr %name.i84, align 8
+  store ptr %23, ptr %name.i84, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #22
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %t.i, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8
-  %23 = load ptr, ptr %name.i84, align 8
-  store i8 0, ptr %23, align 1
+  %24 = load ptr, ptr %name.i84, align 8
+  store i8 0, ptr %24, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %24 = load ptr, ptr %reader_.i, align 8
-  %end.i.i = getelementptr inbounds i8, ptr %24, i64 8
-  %25 = load ptr, ptr %end.i.i, align 8
-  %26 = load ptr, ptr %24, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %26 to i64
+  %25 = load ptr, ptr %reader_.i, align 8
+  %end.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load ptr, ptr %end.i.i, align 8
+  %27 = load ptr, ptr %25, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.i.i = icmp ult i64 %sub.ptr.sub.i.i, 4
   br i1 %cmp.i.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm0ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEEbRNS_4errcERT3_OT4_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.bb
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %26, i64 4
-  store ptr %add.ptr.i.i, ptr %24, align 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %27, i64 4
+  store ptr %add.ptr.i.i, ptr %25, align 8
   %.pre167 = load ptr, ptr %reader_.i, align 8
   %end.i.i87.phi.trans.insert = getelementptr inbounds i8, ptr %.pre167, i64 8
   %.pre168 = load ptr, ptr %end.i.i87.phi.trans.insert, align 8
@@ -3105,27 +3105,27 @@ if.end.i.i:                                       ; preds = %sw.bb
   br label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm0ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEEbRNS_4errcERT3_OT4_.exit
 
 _ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm0ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEEbRNS_4errcERT3_OT4_.exit: ; preds = %if.end.i.i, %sw.bb
-  %27 = phi ptr [ %.pre169, %if.end.i.i ], [ %26, %sw.bb ]
-  %28 = phi ptr [ %.pre168, %if.end.i.i ], [ %25, %sw.bb ]
-  %29 = phi ptr [ %.pre167, %if.end.i.i ], [ %24, %sw.bb ]
-  %cmp.i.not.i = icmp eq ptr %28, %27
+  %28 = phi ptr [ %.pre169, %if.end.i.i ], [ %27, %sw.bb ]
+  %29 = phi ptr [ %.pre168, %if.end.i.i ], [ %26, %sw.bb ]
+  %30 = phi ptr [ %.pre167, %if.end.i.i ], [ %25, %sw.bb ]
+  %cmp.i.not.i = icmp eq ptr %29, %28
   br i1 %cmp.i.not.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit, label %if.end.i88
 
 if.end.i88:                                       ; preds = %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm0ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEEbRNS_4errcERT3_OT4_.exit
-  %size.0.copyload.i = load i8, ptr %27, align 1
+  %size.0.copyload.i = load i8, ptr %28, align 1
   %size.0.insert.ext.i = zext i8 %size.0.copyload.i to i64
-  %add.ptr.i.i89 = getelementptr inbounds i8, ptr %27, i64 1
-  store ptr %add.ptr.i.i89, ptr %29, align 8
+  %add.ptr.i.i89 = getelementptr inbounds i8, ptr %28, i64 1
+  store ptr %add.ptr.i.i89, ptr %30, align 8
   %cmp.i90 = icmp eq i8 %size.0.copyload.i, 0
   br i1 %cmp.i90, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i88
-  %30 = load ptr, ptr %reader_.i, align 8
-  %end.i3.i = getelementptr inbounds i8, ptr %30, i64 8
-  %31 = load ptr, ptr %end.i3.i, align 8
-  %32 = load ptr, ptr %30, align 8
-  %sub.ptr.lhs.cast.i4.i = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %32 to i64
+  %31 = load ptr, ptr %reader_.i, align 8
+  %end.i3.i = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = load ptr, ptr %end.i3.i, align 8
+  %33 = load ptr, ptr %31, align 8
+  %sub.ptr.lhs.cast.i4.i = ptrtoint ptr %32 to i64
+  %sub.ptr.rhs.cast.i5.i = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i6.i = sub i64 %sub.ptr.lhs.cast.i4.i, %sub.ptr.rhs.cast.i5.i
   %cmp.i7.not.i = icmp ult i64 %sub.ptr.sub.i6.i, %size.0.insert.ext.i
   br i1 %cmp.i7.not.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit, label %if.end7.i
@@ -3135,77 +3135,77 @@ if.end7.i:                                        ; preds = %if.end3.i
           to label %.noexc unwind label %lpad.i
 
 .noexc:                                           ; preds = %if.end7.i
-  %33 = load ptr, ptr %reader_.i, align 8
-  %end.i8.i = getelementptr inbounds i8, ptr %33, i64 8
-  %34 = load ptr, ptr %end.i8.i, align 8
-  %35 = load ptr, ptr %33, align 8
-  %sub.ptr.lhs.cast.i9.i = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i10.i = ptrtoint ptr %35 to i64
+  %34 = load ptr, ptr %reader_.i, align 8
+  %end.i8.i = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = load ptr, ptr %end.i8.i, align 8
+  %36 = load ptr, ptr %34, align 8
+  %sub.ptr.lhs.cast.i9.i = ptrtoint ptr %35 to i64
+  %sub.ptr.rhs.cast.i10.i = ptrtoint ptr %36 to i64
   %sub.ptr.sub.i11.i = sub i64 %sub.ptr.lhs.cast.i9.i, %sub.ptr.rhs.cast.i10.i
   %cmp.i12.not.i = icmp ult i64 %sub.ptr.sub.i11.i, %size.0.insert.ext.i
   br i1 %cmp.i12.not.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit, label %if.end.i13.i
 
 if.end.i13.i:                                     ; preds = %.noexc
-  %36 = load ptr, ptr %field, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %35, i64 %size.0.insert.ext.i, i1 false)
-  %37 = load ptr, ptr %33, align 8
-  %add.ptr.i14.i = getelementptr inbounds i8, ptr %37, i64 %size.0.insert.ext.i
-  store ptr %add.ptr.i14.i, ptr %33, align 8
+  %37 = load ptr, ptr %field, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr align 1 %36, i64 %size.0.insert.ext.i, i1 false)
+  %38 = load ptr, ptr %34, align 8
+  %add.ptr.i14.i = getelementptr inbounds i8, ptr %38, i64 %size.0.insert.ext.i
+  store ptr %add.ptr.i14.i, ptr %34, align 8
   br label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit
 
 _ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit: ; preds = %if.end.i13.i, %.noexc, %if.end3.i, %if.end.i88, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm0ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEEbRNS_4errcERT3_OT4_.exit
   %retval.0.i91 = phi i32 [ 0, %if.end.i88 ], [ 1, %if.end3.i ], [ 1, %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm0ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiEEbRNS_4errcERT3_OT4_.exit ], [ 0, %.noexc ], [ 0, %if.end.i13.i ]
-  %38 = load ptr, ptr %name.i84, align 8
-  %cmp.i.i.i.i = icmp eq ptr %38, %22
+  %39 = load ptr, ptr %name.i84, align 8
+  %cmp.i.i.i.i = icmp eq ptr %39, %23
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit
-  %39 = load i64, ptr %_M_string_length.i.i.i.i, align 8
-  %cmp3.i.i.i.i = icmp ult i64 %39, 16
+  %40 = load i64, ptr %_M_string_length.i.i.i.i, align 8
+  %cmp3.i.i.i.i = icmp ult i64 %40, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %return.sink.split
 
 if.then.i.i.i:                                    ; preds = %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm1ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit
-  call void @_ZdlPv(ptr noundef %38) #25
+  call void @_ZdlPv(ptr noundef %39) #25
   br label %return.sink.split
 
 common.resume:                                    ; preds = %lpad.i21, %lpad.i
   %t.i14.sink = phi ptr [ %t.i14, %lpad.i21 ], [ %t.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %59, %lpad.i21 ], [ %40, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %60, %lpad.i21 ], [ %41, %lpad.i ]
   call void @_ZN6personD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %t.i14.sink) #22
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.end7.i
-  %40 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 sw.bb6:                                           ; preds = %if.end
   %name.i95 = getelementptr inbounds i8, ptr %t.i14, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i94)
-  %41 = getelementptr inbounds i8, ptr %t.i14, i64 24
+  %42 = getelementptr inbounds i8, ptr %t.i14, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i94) #22
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %name.i95, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i94) #22
-  store ptr %41, ptr %name.i95, align 8
+  store ptr %42, ptr %name.i95, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i94) #22
   %_M_string_length.i.i.i.i96 = getelementptr inbounds i8, ptr %t.i14, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i96, align 8
-  %42 = load ptr, ptr %name.i95, align 8
-  store i8 0, ptr %42, align 1
+  %43 = load ptr, ptr %name.i95, align 8
+  store i8 0, ptr %43, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i94)
-  %43 = load ptr, ptr %reader_.i, align 8
-  %end.i.i98 = getelementptr inbounds i8, ptr %43, i64 8
-  %44 = load ptr, ptr %end.i.i98, align 8
-  %45 = load ptr, ptr %43, align 8
-  %sub.ptr.lhs.cast.i.i99 = ptrtoint ptr %44 to i64
-  %sub.ptr.rhs.cast.i.i100 = ptrtoint ptr %45 to i64
+  %44 = load ptr, ptr %reader_.i, align 8
+  %end.i.i98 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = load ptr, ptr %end.i.i98, align 8
+  %46 = load ptr, ptr %44, align 8
+  %sub.ptr.lhs.cast.i.i99 = ptrtoint ptr %45 to i64
+  %sub.ptr.rhs.cast.i.i100 = ptrtoint ptr %46 to i64
   %sub.ptr.sub.i.i101 = sub i64 %sub.ptr.lhs.cast.i.i99, %sub.ptr.rhs.cast.i.i100
   %cmp.i.i102 = icmp ult i64 %sub.ptr.sub.i.i101, 4
   br i1 %cmp.i.i102, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb0ELm0EiEENS_4errcERT3_.exit, label %if.end.i.i103
 
 if.end.i.i103:                                    ; preds = %sw.bb6
-  %add.ptr.i.i104 = getelementptr inbounds i8, ptr %45, i64 4
-  store ptr %add.ptr.i.i104, ptr %43, align 8
+  %add.ptr.i.i104 = getelementptr inbounds i8, ptr %46, i64 4
+  store ptr %add.ptr.i.i104, ptr %44, align 8
   %.pre = load ptr, ptr %reader_.i, align 8
   %end.i.i108.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
   %.pre165 = load ptr, ptr %end.i.i108.phi.trans.insert, align 8
@@ -3217,10 +3217,10 @@ if.end.i.i103:                                    ; preds = %sw.bb6
 
 _ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb0ELm0EiEENS_4errcERT3_.exit: ; preds = %sw.bb6, %if.end.i.i103
   %sub.ptr.sub.i.i111.pre-phi = phi i64 [ %sub.ptr.sub.i.i101, %sw.bb6 ], [ %.pre172, %if.end.i.i103 ]
-  %46 = phi ptr [ %45, %sw.bb6 ], [ %.pre166, %if.end.i.i103 ]
-  %47 = phi ptr [ %43, %sw.bb6 ], [ %.pre, %if.end.i.i103 ]
-  %48 = load i8, ptr %size_type_, align 8
-  switch i8 %48, label %sw.default.i [
+  %47 = phi ptr [ %46, %sw.bb6 ], [ %.pre166, %if.end.i.i103 ]
+  %48 = phi ptr [ %44, %sw.bb6 ], [ %.pre, %if.end.i.i103 ]
+  %49 = load i8, ptr %size_type_, align 8
+  switch i8 %49, label %sw.default.i [
     i8 1, label %sw.bb.i118
     i8 2, label %sw.bb2.i116
     i8 3, label %sw.bb7.i
@@ -3231,7 +3231,7 @@ sw.bb.i118:                                       ; preds = %_ZN11struct_pack6de
   br i1 %cmp.i.i119, label %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm2ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit
 
 _ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i: ; preds = %sw.bb.i118
-  %size.0.copyload34.i = load i16, ptr %46, align 1
+  %size.0.copyload34.i = load i16, ptr %47, align 1
   %size.0.insert.ext36.i = zext i16 %size.0.copyload34.i to i64
   br label %sw.epilog.i114
 
@@ -3240,7 +3240,7 @@ sw.bb2.i116:                                      ; preds = %_ZN11struct_pack6de
   br i1 %cmp.i7.i, label %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm2ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit
 
 _ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i: ; preds = %sw.bb2.i116
-  %size.0.copyload33.i = load i32, ptr %46, align 1
+  %size.0.copyload33.i = load i32, ptr %47, align 1
   %size.0.insert.ext.i117 = zext i32 %size.0.copyload33.i to i64
   br label %sw.epilog.i114
 
@@ -3249,7 +3249,7 @@ sw.bb7.i:                                         ; preds = %_ZN11struct_pack6de
   br i1 %cmp.i15.i, label %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm2ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit
 
 _ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i: ; preds = %sw.bb7.i
-  %size.0.copyload.i113 = load i64, ptr %46, align 1
+  %size.0.copyload.i113 = load i64, ptr %47, align 1
   br label %sw.epilog.i114
 
 sw.default.i:                                     ; preds = %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE15deserialize_oneILm2ELm18446744073709551615ELb0ELm0EiEENS_4errcERT3_.exit
@@ -3258,18 +3258,18 @@ sw.default.i:                                     ; preds = %_ZN11struct_pack6de
 sw.epilog.i114:                                   ; preds = %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i
   %.sink.i = phi i64 [ 8, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i ], [ 4, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i ], [ 2, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i ]
   %size.0.i = phi i64 [ %size.0.copyload.i113, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i ], [ %size.0.insert.ext.i117, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i ], [ %size.0.insert.ext36.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i ]
-  %add.ptr.i17.i = getelementptr inbounds i8, ptr %46, i64 %.sink.i
-  store ptr %add.ptr.i17.i, ptr %47, align 8
+  %add.ptr.i17.i = getelementptr inbounds i8, ptr %47, i64 %.sink.i
+  store ptr %add.ptr.i17.i, ptr %48, align 8
   %cmp.i115 = icmp eq i64 %size.0.i, 0
   br i1 %cmp.i115, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm2ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %sw.epilog.i114
-  %49 = load ptr, ptr %reader_.i, align 8
-  %end.i19.i = getelementptr inbounds i8, ptr %49, i64 8
-  %50 = load ptr, ptr %end.i19.i, align 8
-  %51 = load ptr, ptr %49, align 8
-  %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %50 to i64
-  %sub.ptr.rhs.cast.i21.i = ptrtoint ptr %51 to i64
+  %50 = load ptr, ptr %reader_.i, align 8
+  %end.i19.i = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = load ptr, ptr %end.i19.i, align 8
+  %52 = load ptr, ptr %50, align 8
+  %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %51 to i64
+  %sub.ptr.rhs.cast.i21.i = ptrtoint ptr %52 to i64
   %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i21.i
   %cmp.i23.not.i = icmp ult i64 %sub.ptr.sub.i22.i, %size.0.i
   br i1 %cmp.i23.not.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm2ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit, label %if.end17.i
@@ -3279,42 +3279,42 @@ if.end17.i:                                       ; preds = %if.end13.i
           to label %.noexc120 unwind label %lpad.i21
 
 .noexc120:                                        ; preds = %if.end17.i
-  %52 = load ptr, ptr %reader_.i, align 8
-  %end.i24.i = getelementptr inbounds i8, ptr %52, i64 8
-  %53 = load ptr, ptr %end.i24.i, align 8
-  %54 = load ptr, ptr %52, align 8
-  %sub.ptr.lhs.cast.i25.i = ptrtoint ptr %53 to i64
-  %sub.ptr.rhs.cast.i26.i = ptrtoint ptr %54 to i64
+  %53 = load ptr, ptr %reader_.i, align 8
+  %end.i24.i = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = load ptr, ptr %end.i24.i, align 8
+  %55 = load ptr, ptr %53, align 8
+  %sub.ptr.lhs.cast.i25.i = ptrtoint ptr %54 to i64
+  %sub.ptr.rhs.cast.i26.i = ptrtoint ptr %55 to i64
   %sub.ptr.sub.i27.i = sub i64 %sub.ptr.lhs.cast.i25.i, %sub.ptr.rhs.cast.i26.i
   %cmp.i28.not.i = icmp ult i64 %sub.ptr.sub.i27.i, %size.0.i
   br i1 %cmp.i28.not.i, label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm2ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit, label %if.end.i29.i
 
 if.end.i29.i:                                     ; preds = %.noexc120
-  %55 = load ptr, ptr %field, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr align 1 %54, i64 %size.0.i, i1 false)
-  %56 = load ptr, ptr %52, align 8
-  %add.ptr.i30.i = getelementptr inbounds i8, ptr %56, i64 %size.0.i
-  store ptr %add.ptr.i30.i, ptr %52, align 8
+  %56 = load ptr, ptr %field, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %55, i64 %size.0.i, i1 false)
+  %57 = load ptr, ptr %53, align 8
+  %add.ptr.i30.i = getelementptr inbounds i8, ptr %57, i64 %size.0.i
+  store ptr %add.ptr.i30.i, ptr %53, align 8
   br label %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm2ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit
 
 _ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm2ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit: ; preds = %if.end.i29.i, %.noexc120, %if.end13.i, %sw.epilog.i114, %sw.bb7.i, %sw.bb2.i116, %sw.bb.i118
   %retval.0.i112 = phi i32 [ 0, %sw.epilog.i114 ], [ 1, %if.end13.i ], [ 1, %sw.bb.i118 ], [ 1, %sw.bb2.i116 ], [ 1, %sw.bb7.i ], [ 0, %.noexc120 ], [ 0, %if.end.i29.i ]
-  %57 = load ptr, ptr %name.i95, align 8
-  %cmp.i.i.i.i122 = icmp eq ptr %57, %41
+  %58 = load ptr, ptr %name.i95, align 8
+  %cmp.i.i.i.i122 = icmp eq ptr %58, %42
   br i1 %cmp.i.i.i.i122, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i124, label %if.then.i.i.i123
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i124: ; preds = %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm2ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit
-  %58 = load i64, ptr %_M_string_length.i.i.i.i96, align 8
-  %cmp3.i.i.i.i126 = icmp ult i64 %58, 16
+  %59 = load i64, ptr %_M_string_length.i.i.i.i96, align 8
+  %cmp3.i.i.i.i126 = icmp ult i64 %59, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i126)
   br label %return.sink.split
 
 if.then.i.i.i123:                                 ; preds = %_ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE9set_valueILm2ELm18446744073709551615ELm1ELm1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_EEbRNS_4errcERT3_OT4_.exit
-  call void @_ZdlPv(ptr noundef %57) #25
+  call void @_ZdlPv(ptr noundef %58) #25
   br label %return.sink.split
 
 lpad.i21:                                         ; preds = %if.end17.i
-  %59 = landingpad { ptr, i32 }
+  %60 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 

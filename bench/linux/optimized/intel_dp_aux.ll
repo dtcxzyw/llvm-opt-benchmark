@@ -277,7 +277,7 @@ define dso_local void @intel_dp_aux_init(ptr noundef %0) local_unnamed_addr #2 a
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @xelpdp_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 409616, 0) i32 @xelpdp_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -392
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 3516
@@ -513,7 +513,7 @@ define internal i32 @skl_aux_data_reg(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 933904, 933649) i32 @ilk_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal noundef range(i32 933904, 409617) i32 @ilk_aux_ctl_reg(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3516
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %7 [
@@ -834,7 +834,7 @@ declare dso_local void @drm_dp_aux_init(ptr noundef) local_unnamed_addr #3
 declare dso_local noalias ptr @kasprintf(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @intel_dp_aux_transfer(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @intel_dp_aux_transfer(ptr noundef %0, ptr nocapture noundef %1) #2 align 16 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca [20 x i8], align 16
   %5 = getelementptr i8, ptr %0, i64 -224
@@ -1306,7 +1306,7 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_dp_aux_xfer(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 32) i32 @intel_dp_aux_xfer(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca [5 x %struct.i915_reg_t], align 16
   %9 = getelementptr i8, ptr %0, i64 -392

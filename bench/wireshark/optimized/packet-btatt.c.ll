@@ -11917,9 +11917,9 @@ switch.early.test7980:                            ; preds = %is_readable_respons
   br i1 %or.cond12, label %1213, label %.thread6580
 
 1213:                                             ; preds = %1206
-  %1214 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_authorizing_body_data_certification_data_list, align 4
-  %1215 = zext i16 %1209 to i32
-  %1216 = call ptr @proto_tree_add_item(ptr noundef %1171, i32 noundef %1214, ptr noundef %25, i32 noundef %1210, i32 noundef %1215, i32 noundef 0) #13
+  %1214 = zext i16 %1209 to i32
+  %1215 = load i32, ptr @hf_btatt_regulatory_certification_data_list_item_authorizing_body_data_certification_data_list, align 4
+  %1216 = call ptr @proto_tree_add_item(ptr noundef %1171, i32 noundef %1215, ptr noundef %25, i32 noundef %1210, i32 noundef %1214, i32 noundef 0) #13
   %1217 = load i32, ptr @ett_btatt_list, align 4
   %1218 = call ptr @proto_item_add_subtree(ptr noundef %1216, i32 noundef %1217) #13
   br label %1219

@@ -4077,13 +4077,13 @@ Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10
 ._crit_edge150.loopexit:                          ; preds = %158
   %.val100.pre = load ptr, ptr %10, align 8
   %.val113.pre = load i32, ptr %8, align 4
+  %162 = sext i32 %.val113.pre to i64
   br label %._crit_edge150
 
 ._crit_edge150:                                   ; preds = %._crit_edge150.loopexit, %123
-  %.val113 = phi i32 [ %.val113.pre, %._crit_edge150.loopexit ], [ 0, %123 ]
+  %.val113 = phi i64 [ %162, %._crit_edge150.loopexit ], [ 0, %123 ]
   %.val100 = phi ptr [ %.val100.pre, %._crit_edge150.loopexit ], [ %.val100175, %123 ]
-  %162 = sext i32 %.val113 to i64
-  %163 = getelementptr inbounds i32, ptr %.val100, i64 %162
+  %163 = getelementptr inbounds i32, ptr %.val100, i64 %.val113
   %164 = tail call i32 @sat_solver_solve(ptr noundef %3, ptr noundef %.val100, ptr noundef %163, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #18
   %165 = icmp ne i32 %164, 1
   %or.cond = and i1 %122, %165
@@ -4379,13 +4379,16 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next, %100
   %.pr = load i32, ptr %17, align 4
-  br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !48
+  br i1 %101, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !48
 
-._crit_edge:                                      ; preds = %Vec_IntPush.exit, %Vec_IntFill.exit
-  %.val183 = phi i32 [ 1, %Vec_IntFill.exit ], [ %.pr, %Vec_IntPush.exit ]
+._crit_edge.loopexit:                             ; preds = %Vec_IntPush.exit
+  %102 = sext i32 %.pr to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Vec_IntFill.exit
+  %.val183 = phi i64 [ %102, %._crit_edge.loopexit ], [ 1, %Vec_IntFill.exit ]
   %.val168 = load ptr, ptr %19, align 8
-  %102 = sext i32 %.val183 to i64
-  %103 = getelementptr inbounds i32, ptr %.val168, i64 %102
+  %103 = getelementptr inbounds i32, ptr %.val168, i64 %.val183
   %104 = call i32 @sat_solver_addclause(ptr noundef %13, ptr noundef %.val168, ptr noundef %103) #18
   %105 = add nuw nsw i32 %.0134260, 1
   %106 = load i32, ptr %.0146259, align 4

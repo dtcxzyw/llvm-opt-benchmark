@@ -407,51 +407,51 @@ gavl_update_node_info.exit:                       ; preds = %14, %19
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %.0, i64 24
   store i64 %26, ptr %27, align 8
-  br i1 %9, label %31, label %28
+  br i1 %9, label %32, label %28
 
 28:                                               ; preds = %gavl_update_node_info.exit
   %29 = getelementptr inbounds i8, ptr %8, i64 24
   %30 = load i64, ptr %29, align 8
-  br label %31
+  %31 = trunc i64 %30 to i32
+  br label %32
 
-31:                                               ; preds = %gavl_update_node_info.exit, %28
-  %32 = phi i64 [ %30, %28 ], [ 0, %gavl_update_node_info.exit ]
-  %33 = trunc i64 %32 to i32
-  br i1 %18, label %37, label %34
+32:                                               ; preds = %gavl_update_node_info.exit, %28
+  %33 = phi i32 [ %31, %28 ], [ 0, %gavl_update_node_info.exit ]
+  br i1 %18, label %38, label %34
 
-34:                                               ; preds = %31
+34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %17, i64 24
   %36 = load i64, ptr %35, align 8
-  br label %37
+  %37 = trunc i64 %36 to i32
+  br label %38
 
-37:                                               ; preds = %31, %34
-  %38 = phi i64 [ %36, %34 ], [ 0, %31 ]
-  %39 = trunc i64 %38 to i32
+38:                                               ; preds = %32, %34
+  %39 = phi i32 [ %37, %34 ], [ 0, %32 ]
   %40 = sub nsw i32 %33, %39
   %41 = icmp sgt i32 %40, 1
   br i1 %41, label %42, label %193
 
-42:                                               ; preds = %37
+42:                                               ; preds = %38
   %43 = getelementptr inbounds i8, ptr %8, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %49, label %46
+  br i1 %45, label %51, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   %48 = load i64, ptr %47, align 8
-  br label %49
+  %49 = trunc i64 %48 to i32
+  %50 = add nsw i32 %49, 1
+  br label %51
 
-49:                                               ; preds = %42, %46
-  %50 = phi i64 [ %48, %46 ], [ 0, %42 ]
-  %51 = trunc i64 %50 to i32
-  %52 = add nsw i32 %51, 1
+51:                                               ; preds = %42, %46
+  %52 = phi i32 [ %50, %46 ], [ 1, %42 ]
   %53 = icmp eq i32 %52, %33
   %54 = getelementptr inbounds i8, ptr %8, i64 16
   %55 = load ptr, ptr %54, align 8
   br i1 %53, label %56, label %100
 
-56:                                               ; preds = %49
+56:                                               ; preds = %51
   store ptr %55, ptr %7, align 8
   store ptr %.0, ptr %54, align 8
   %57 = load ptr, ptr %.0, align 8
@@ -535,7 +535,7 @@ gavl_right_rotation.exit:                         ; preds = %87, %91
   store i64 %98, ptr %99, align 8
   br label %350
 
-100:                                              ; preds = %49
+100:                                              ; preds = %51
   %101 = getelementptr inbounds i8, ptr %55, i64 8
   %102 = load ptr, ptr %101, align 8
   store ptr %102, ptr %54, align 8
@@ -706,7 +706,7 @@ gavl_left_right_rotation.exit:                    ; preds = %181, %185
   store i64 %192, ptr %150, align 8
   br label %350
 
-193:                                              ; preds = %37
+193:                                              ; preds = %38
   %194 = sub nsw i32 %39, %33
   %195 = icmp sgt i32 %194, 1
   br i1 %195, label %196, label %350
@@ -715,21 +715,21 @@ gavl_left_right_rotation.exit:                    ; preds = %181, %185
   %197 = getelementptr inbounds i8, ptr %17, i64 8
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, null
-  br i1 %199, label %203, label %200
+  br i1 %199, label %205, label %200
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds i8, ptr %198, i64 24
   %202 = load i64, ptr %201, align 8
-  br label %203
+  %203 = trunc i64 %202 to i32
+  %204 = add nsw i32 %203, 1
+  br label %205
 
-203:                                              ; preds = %196, %200
-  %204 = phi i64 [ %202, %200 ], [ 0, %196 ]
-  %205 = trunc i64 %204 to i32
-  %206 = add nsw i32 %205, 1
+205:                                              ; preds = %196, %200
+  %206 = phi i32 [ %204, %200 ], [ 1, %196 ]
   %207 = icmp eq i32 %206, %39
   br i1 %207, label %208, label %302
 
-208:                                              ; preds = %203
+208:                                              ; preds = %205
   %209 = getelementptr inbounds i8, ptr %198, i64 16
   %210 = load ptr, ptr %209, align 8
   store ptr %210, ptr %197, align 8
@@ -901,7 +901,7 @@ gavl_right_left_rotation.exit:                    ; preds = %290, %294
   store i64 %301, ptr %256, align 8
   br label %350
 
-302:                                              ; preds = %203
+302:                                              ; preds = %205
   store ptr %198, ptr %16, align 8
   store ptr %.0, ptr %197, align 8
   %303 = load ptr, ptr %.0, align 8

@@ -229,7 +229,7 @@ define internal fastcc noundef ptr @snd_info_create_entry(ptr noundef %0, ptr no
 declare dso_local ptr @proc_mkdir(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i32 -2147483648, 1) i32 @snd_info_version_init() unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc range(i32 -12, 1) i32 @snd_info_version_init() unnamed_addr #3 section ".init.text" align 16 {
   %1 = load ptr, ptr @snd_proc_root, align 8
   %2 = tail call fastcc noundef ptr @snd_info_create_entry(ptr noundef nonnull @.str, ptr noundef %1, ptr noundef null)
   %3 = icmp eq ptr %2, null
@@ -399,7 +399,7 @@ define internal void @snd_card_id_read(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_info_card_register(ptr noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 -12, 1) i32 @snd_info_card_register(ptr noundef %0) local_unnamed_addr #4 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
 
@@ -442,7 +442,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_info_card_register(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_info_register(ptr noundef %0) #4 align 16 {
+define dso_local range(i32 -12, 1) i32 @snd_info_register(ptr noundef %0) #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

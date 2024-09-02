@@ -58,7 +58,7 @@ define hidden void @_ZN23JvmtiManageCapabilities10initializeEv() local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 19765372387328, 19765389164544) i64 @_ZN23JvmtiManageCapabilities24init_always_capabilitiesEv() local_unnamed_addr #0 align 2 {
+define hidden noundef range(i64 19765374492313, 19765387075226) i64 @_ZN23JvmtiManageCapabilities24init_always_capabilitiesEv() local_unnamed_addr #0 align 2 {
   %1 = tail call noundef zeroext i1 @_ZN2os28is_thread_cpu_time_supportedEv() #9
   %spec.select = select i1 %1, i64 19765387075225, i64 19765374492313
   ret i64 %spec.select

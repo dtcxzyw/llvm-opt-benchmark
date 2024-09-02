@@ -58,7 +58,7 @@ define hidden noundef i64 @_ZN10MarkBitMap12compute_sizeEm(i64 noundef %0) local
 declare noundef i64 @_ZN13ReservedSpace24allocation_align_size_upEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN10MarkBitMap13mark_distanceEv() local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 -2147483648, 2147483641) i64 @_ZN10MarkBitMap13mark_distanceEv() local_unnamed_addr #2 align 2 {
   %1 = load i32, ptr @MinObjAlignmentInBytes, align 4
   %2 = shl nsw i32 %1, 3
   %3 = sext i32 %2 to i64

@@ -290,7 +290,7 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
   %129 = load i64, ptr %128, align 8
   %130 = load i8, ptr %15, align 8
   %131 = icmp eq i8 %130, 1
-  br i1 %131, label %144, label %132
+  br i1 %131, label %145, label %132
 
 132:                                              ; preds = %126
   %133 = load i8, ptr %110, align 1
@@ -304,11 +304,11 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
   %141 = or disjoint i32 %136, %138
   %142 = or disjoint i32 %141, 10
   %143 = add nuw nsw i32 %142, %140
-  br label %144
+  %144 = zext nneg i32 %143 to i64
+  br label %145
 
-144:                                              ; preds = %126, %132
-  %145 = phi i32 [ %143, %132 ], [ 16, %126 ]
-  %146 = zext nneg i32 %145 to i64
+145:                                              ; preds = %126, %132
+  %146 = phi i64 [ %144, %132 ], [ 16, %126 ]
   %147 = sub i64 %129, %146
   br label %151
 
@@ -317,9 +317,9 @@ define range(i32 -1, 1) i32 @H5O__debug_real(ptr noundef %0, ptr noundef %1, i64
   %150 = load i64, ptr %149, align 8
   br label %151
 
-151:                                              ; preds = %148, %144
-  %152 = phi ptr [ %127, %144 ], [ %119, %148 ]
-  %.0321 = phi i64 [ %147, %144 ], [ %150, %148 ]
+151:                                              ; preds = %148, %145
+  %152 = phi ptr [ %127, %145 ], [ %119, %148 ]
+  %.0321 = phi i64 [ %147, %145 ], [ %150, %148 ]
   %153 = add i64 %.0321, %.0319378
   %154 = getelementptr inbounds %struct.H5O_chunk_t, ptr %152, i64 %112, i32 2
   %155 = load i64, ptr %154, align 8

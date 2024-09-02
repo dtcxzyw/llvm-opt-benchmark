@@ -543,7 +543,7 @@ define hidden void @_ZN15DictionaryEntryD2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK10Dictionary10table_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1, -2147483647) i32 @_ZNK10Dictionary10table_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -2622,13 +2622,16 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadP
   %68 = load volatile ptr, ptr %.07.i.i, align 8, !noalias !35
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !noalias !35, !srcloc !9
   %.not.i6.i = icmp eq ptr %68, null
-  br i1 %.not.i6.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !38
+  br i1 %.not.i6.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !38
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %61
-  %.024.lcssa.i.i = phi i64 [ 0, %61 ], [ %66, %.lr.ph.i.i ]
-  %.3.lcssa.i.i = phi i64 [ %.110.i.i, %61 ], [ %67, %.lr.ph.i.i ]
-  %69 = uitofp i64 %.024.lcssa.i.i to double
-  call void @_ZN9NumberSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %4, double noundef %69) #15, !noalias !35
+._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
+  %69 = uitofp i64 %66 to double
+  br label %._crit_edge.i.i
+
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %61
+  %.024.lcssa.i.i = phi double [ 0.000000e+00, %61 ], [ %69, %._crit_edge.loopexit.i.i ]
+  %.3.lcssa.i.i = phi i64 [ %.110.i.i, %61 ], [ %67, %._crit_edge.loopexit.i.i ]
+  call void @_ZN9NumberSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %4, double noundef %.024.lcssa.i.i) #15, !noalias !35
   br label %70
 
 70:                                               ; preds = %._crit_edge.i.i, %57, %.lr.ph11.i.i

@@ -620,10 +620,10 @@ magic_date_calc.exit:                             ; preds = %111, %94, %92, %do_
   br label %125
 
 125:                                              ; preds = %do_range_limit_days.exit, %magic_date_calc.exit
-  %126 = phi i64 [ %201, %do_range_limit_days.exit ], [ %.promoted76, %magic_date_calc.exit ]
+  %126 = phi i64 [ %202, %do_range_limit_days.exit ], [ %.promoted76, %magic_date_calc.exit ]
   %.promoted78 = phi i64 [ %.promoted79, %do_range_limit_days.exit ], [ %.promoted76, %magic_date_calc.exit ]
   %127 = phi i64 [ %154, %do_range_limit_days.exit ], [ %.promoted75, %magic_date_calc.exit ]
-  %128 = phi i64 [ %202, %do_range_limit_days.exit ], [ %.promoted74, %magic_date_calc.exit ]
+  %128 = phi i64 [ %203, %do_range_limit_days.exit ], [ %.promoted74, %magic_date_calc.exit ]
   %.fr.i50 = freeze i64 %128
   %129 = add i64 %.fr.i50, -146097
   %or.cond.i = icmp ult i64 %129, -292193
@@ -750,14 +750,14 @@ do_range_limit.exit.i:                            ; preds = %149, %146
   %188 = load i32, ptr %187, align 4
   %189 = sext i32 %188 to i64
   %190 = icmp sgt i64 %185, %189
-  br i1 %190, label %.lr.ph128, label %do_range_limit_days.exit
+  br i1 %190, label %.lr.ph128, label %do_range_limit_days.exit.loopexit
 
 .lr.ph69:                                         ; preds = %.lr.ph128
   %191 = getelementptr inbounds i32, ptr %164, i64 %198
   %192 = load i32, ptr %191, align 4
   %193 = sext i32 %192 to i64
   %194 = icmp sgt i64 %197, %193
-  br i1 %194, label %.lr.ph128, label %do_range_limit_days.exit
+  br i1 %194, label %.lr.ph128, label %do_range_limit_days.exit.loopexit
 
 .lr.ph128:                                        ; preds = %.lr.ph69.preheader, %.lr.ph69
   %195 = phi i64 [ %193, %.lr.ph69 ], [ %189, %.lr.ph69.preheader ]
@@ -770,49 +770,56 @@ do_range_limit.exit.i:                            ; preds = %149, %146
   %199 = icmp sgt i64 %197, 0
   %200 = icmp slt i64 %.promoted81127, 12
   %or.cond98 = and i1 %199, %200
-  br i1 %or.cond98, label %.lr.ph69, label %do_range_limit_days.exit
+  br i1 %or.cond98, label %.lr.ph69, label %do_range_limit_days.exit.loopexit
 
-do_range_limit_days.exit:                         ; preds = %.lr.ph.i, %.lr.ph69, %.lr.ph128, %.lr.ph69.preheader, %.lr.ph59.preheader.i
-  %201 = phi i64 [ %171, %.lr.ph59.preheader.i ], [ %186, %.lr.ph69.preheader ], [ %198, %.lr.ph128 ], [ %198, %.lr.ph69 ], [ %171, %.lr.ph.i ]
-  %.promoted79 = phi i64 [ %171, %.lr.ph59.preheader.i ], [ %.promoted82110, %.lr.ph69.preheader ], [ %198, %.lr.ph128 ], [ %198, %.lr.ph69 ], [ 0, %.lr.ph.i ]
-  %202 = phi i64 [ %182, %.lr.ph59.preheader.i ], [ %185, %.lr.ph69.preheader ], [ %197, %.lr.ph128 ], [ %197, %.lr.ph69 ], [ %182, %.lr.ph.i ]
-  %.1.lcssa.i = phi i32 [ 1, %.lr.ph59.preheader.i ], [ %.0.lcssa.ph.i111, %.lr.ph69.preheader ], [ 1, %.lr.ph128 ], [ 1, %.lr.ph69 ], [ 1, %.lr.ph.i ]
-  %.not27 = icmp eq i32 %.1.lcssa.i, 0
-  br i1 %.not27, label %do_range_limit_days.exit.thread, label %125
+do_range_limit_days.exit.loopexit:                ; preds = %.lr.ph128, %.lr.ph69, %.lr.ph69.preheader
+  %.ph = phi i64 [ %186, %.lr.ph69.preheader ], [ %198, %.lr.ph69 ], [ %198, %.lr.ph128 ]
+  %.promoted79.ph = phi i64 [ %.promoted82110, %.lr.ph69.preheader ], [ %198, %.lr.ph69 ], [ %198, %.lr.ph128 ]
+  %.ph121 = phi i64 [ %185, %.lr.ph69.preheader ], [ %197, %.lr.ph69 ], [ %197, %.lr.ph128 ]
+  %.1.lcssa.i.ph = phi i32 [ %.0.lcssa.ph.i111, %.lr.ph69.preheader ], [ 1, %.lr.ph69 ], [ 1, %.lr.ph128 ]
+  %201 = icmp eq i32 %.1.lcssa.i.ph, 0
+  br label %do_range_limit_days.exit
+
+do_range_limit_days.exit:                         ; preds = %.lr.ph.i, %do_range_limit_days.exit.loopexit, %.lr.ph59.preheader.i
+  %202 = phi i64 [ %171, %.lr.ph59.preheader.i ], [ %.ph, %do_range_limit_days.exit.loopexit ], [ %171, %.lr.ph.i ]
+  %.promoted79 = phi i64 [ %171, %.lr.ph59.preheader.i ], [ %.promoted79.ph, %do_range_limit_days.exit.loopexit ], [ 0, %.lr.ph.i ]
+  %203 = phi i64 [ %182, %.lr.ph59.preheader.i ], [ %.ph121, %do_range_limit_days.exit.loopexit ], [ %182, %.lr.ph.i ]
+  %.1.lcssa.i = phi i1 [ false, %.lr.ph59.preheader.i ], [ %201, %do_range_limit_days.exit.loopexit ], [ false, %.lr.ph.i ]
+  br i1 %.1.lcssa.i, label %do_range_limit_days.exit.thread, label %125
 
 do_range_limit_days.exit.thread:                  ; preds = %.lr.ph.i.preheader, %do_range_limit_days.exit
-  %203 = phi i64 [ %201, %do_range_limit_days.exit ], [ %153, %.lr.ph.i.preheader ]
-  %204 = icmp slt i64 %203, 1
-  br i1 %204, label %205, label %212
+  %204 = phi i64 [ %202, %do_range_limit_days.exit ], [ %153, %.lr.ph.i.preheader ]
+  %205 = icmp slt i64 %204, 1
+  br i1 %205, label %206, label %213
 
-205:                                              ; preds = %do_range_limit_days.exit.thread
-  %206 = sub i64 0, %203
-  %207 = sdiv i64 %206, 12
-  %.neg24.i54 = xor i64 %207, -1
-  %208 = add i64 %154, %.neg24.i54
-  store i64 %208, ptr %0, align 8
-  %209 = mul nsw i64 %207, 12
-  %210 = add nsw i64 %203, 12
-  %211 = add i64 %210, %209
-  store i64 %211, ptr %71, align 8
-  br label %212
+206:                                              ; preds = %do_range_limit_days.exit.thread
+  %207 = sub i64 0, %204
+  %208 = sdiv i64 %207, 12
+  %.neg24.i54 = xor i64 %208, -1
+  %209 = add i64 %154, %.neg24.i54
+  store i64 %209, ptr %0, align 8
+  %210 = mul nsw i64 %208, 12
+  %211 = add nsw i64 %204, 12
+  %212 = add i64 %211, %210
+  store i64 %212, ptr %71, align 8
+  br label %213
 
-212:                                              ; preds = %205, %do_range_limit_days.exit.thread
-  %213 = phi i64 [ %208, %205 ], [ %154, %do_range_limit_days.exit.thread ]
-  %214 = phi i64 [ %211, %205 ], [ %203, %do_range_limit_days.exit.thread ]
-  %.fr.i52 = freeze i64 %214
+213:                                              ; preds = %206, %do_range_limit_days.exit.thread
+  %214 = phi i64 [ %209, %206 ], [ %154, %do_range_limit_days.exit.thread ]
+  %215 = phi i64 [ %212, %206 ], [ %204, %do_range_limit_days.exit.thread ]
+  %.fr.i52 = freeze i64 %215
   %.not.i51 = icmp slt i64 %.fr.i52, 13
-  br i1 %.not.i51, label %do_range_limit.exit55, label %215
+  br i1 %.not.i51, label %do_range_limit.exit55, label %216
 
-215:                                              ; preds = %212
-  %216 = udiv i64 %.fr.i52, 12
-  %217 = add nsw i64 %213, %216
-  store i64 %217, ptr %0, align 8
-  %218 = urem i64 %.fr.i52, 12
-  store i64 %218, ptr %71, align 8
+216:                                              ; preds = %213
+  %217 = udiv i64 %.fr.i52, 12
+  %218 = add nsw i64 %214, %217
+  store i64 %218, ptr %0, align 8
+  %219 = urem i64 %.fr.i52, 12
+  store i64 %219, ptr %71, align 8
   br label %do_range_limit.exit55
 
-do_range_limit.exit55:                            ; preds = %212, %215
+do_range_limit.exit55:                            ; preds = %213, %216
   ret void
 }
 

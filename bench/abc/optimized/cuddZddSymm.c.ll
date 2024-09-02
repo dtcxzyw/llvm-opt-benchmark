@@ -1228,12 +1228,15 @@ define range(i32 -2147483647, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
   %94 = add nsw i32 %.1, 1
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %.not126.not = icmp slt i32 %.1, %2
-  br i1 %.not126.not, label %.preheader145, label %._crit_edge175, !llvm.loop !38
+  br i1 %.not126.not, label %.preheader145, label %._crit_edge175.loopexit, !llvm.loop !38
 
-._crit_edge175:                                   ; preds = %84, %.preheader148
-  %.0.lcssa = phi i64 [ 0, %.preheader148 ], [ %indvars.iv.next207, %84 ]
-  %95 = and i64 %.0.lcssa, 4294967295
-  tail call void @qsort(ptr noundef nonnull %14, i64 noundef %95, i64 noundef 4, ptr noundef nonnull @cuddZddUniqueCompare) #10
+._crit_edge175.loopexit:                          ; preds = %84
+  %95 = and i64 %indvars.iv.next207, 4294967295
+  br label %._crit_edge175
+
+._crit_edge175:                                   ; preds = %._crit_edge175.loopexit, %.preheader148
+  %.0.lcssa = phi i64 [ 0, %.preheader148 ], [ %95, %._crit_edge175.loopexit ]
+  tail call void @qsort(ptr noundef nonnull %14, i64 noundef %.0.lcssa, i64 noundef 4, ptr noundef nonnull @cuddZddUniqueCompare) #10
   %96 = load i32, ptr %41, align 8
   %.132 = tail call i32 @llvm.smin.i32(i32 %7, i32 %96)
   %97 = icmp sgt i32 %.132, 0

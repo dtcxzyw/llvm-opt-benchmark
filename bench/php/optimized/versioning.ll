@@ -165,7 +165,7 @@ declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_
 declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %3, 0
   %4 = load i8, ptr %1, align 1
@@ -531,7 +531,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 3) #7
-  br label %.thread321
+  br label %.thread325
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 80
@@ -548,7 +548,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 16:                                               ; preds = %10
   %17 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %11, ptr noundef nonnull %3, i32 noundef 1) #7
   %18 = load ptr, ptr %3, align 8
-  br i1 %17, label %19, label %.thread321
+  br i1 %17, label %19, label %.thread325
 
 19:                                               ; preds = %.thread301, %16
   %.pn = phi ptr [ %15, %.thread301 ], [ %18, %16 ]
@@ -567,13 +567,13 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 26:                                               ; preds = %19
   %27 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %21, ptr noundef nonnull %4, i32 noundef 2) #7
   %28 = load ptr, ptr %4, align 8
-  br i1 %27, label %29, label %.thread321
+  br i1 %27, label %29, label %.thread325
 
 29:                                               ; preds = %.thread307, %26
-  %.pn352 = phi ptr [ %25, %.thread307 ], [ %28, %26 ]
-  %30 = getelementptr inbounds i8, ptr %.pn352, i64 24
+  %.pn358 = phi ptr [ %25, %.thread307 ], [ %28, %26 ]
+  %30 = getelementptr inbounds i8, ptr %.pn358, i64 24
   %31 = icmp eq i32 %7, 2
-  br i1 %31, label %.thread333, label %32
+  br i1 %31, label %.thread340, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %0, i64 112
@@ -581,45 +581,45 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
   %35 = load i8, ptr %34, align 8
   switch i8 %35, label %38 [
     i8 6, label %36
-    i8 1, label %.thread350
+    i8 1, label %.thread321
   ]
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %33, align 8
-  br label %.thread350
+  br label %.thread321
 
-.thread350:                                       ; preds = %36, %32
+.thread321:                                       ; preds = %36, %32
   %storemerge = phi ptr [ %37, %36 ], [ null, %32 ]
   store ptr %storemerge, ptr %5, align 8
-  br label %.thread333
+  br label %.thread340
 
 38:                                               ; preds = %32
   %39 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %33, ptr noundef nonnull %5, i32 noundef 3) #7
-  %cond.fr309 = freeze i1 %39
-  br i1 %cond.fr309, label %.thread333, label %.thread321
+  %.fr = freeze i1 %39
+  br i1 %.fr, label %.thread340, label %.thread325
 
-.thread321:                                       ; preds = %38, %26, %16, %9
-  %.0248332 = phi i32 [ 9, %26 ], [ 9, %16 ], [ 1, %9 ], [ 9, %38 ]
-  %.0251331 = phi i32 [ 4, %26 ], [ 4, %16 ], [ 0, %9 ], [ 5, %38 ]
-  %.0252330 = phi ptr [ %21, %26 ], [ %11, %16 ], [ null, %9 ], [ %33, %38 ]
-  %.0253329 = phi i32 [ 2, %26 ], [ 1, %16 ], [ 0, %9 ], [ 3, %38 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0248332, i32 noundef %.0253329, ptr noundef null, i32 noundef %.0251331, ptr noundef %.0252330) #7
+.thread325:                                       ; preds = %38, %26, %16, %9
+  %.0248336 = phi i32 [ 9, %26 ], [ 9, %16 ], [ 1, %9 ], [ 9, %38 ]
+  %.0251335 = phi i32 [ 4, %26 ], [ 4, %16 ], [ 0, %9 ], [ 5, %38 ]
+  %.0252334 = phi ptr [ %21, %26 ], [ %11, %16 ], [ null, %9 ], [ %33, %38 ]
+  %.0253333 = phi i32 [ 2, %26 ], [ 1, %16 ], [ 0, %9 ], [ 3, %38 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0248336, i32 noundef %.0253333, ptr noundef null, i32 noundef %.0251335, ptr noundef %.0252334) #7
   br label %78
 
-.thread333:                                       ; preds = %38, %.thread350, %29
+.thread340:                                       ; preds = %38, %.thread321, %29
   %40 = call i32 @php_version_compare(ptr noundef nonnull %20, ptr noundef nonnull %30)
   %41 = load ptr, ptr %5, align 8
   %.not266 = icmp eq ptr %41, null
   br i1 %.not266, label %42, label %45
 
-42:                                               ; preds = %.thread333
+42:                                               ; preds = %.thread340
   %43 = sext i32 %40 to i64
   store i64 %43, ptr %1, align 8
   %44 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %44, align 8
   br label %78
 
-45:                                               ; preds = %.thread333
+45:                                               ; preds = %.thread340
   %46 = getelementptr inbounds i8, ptr %41, i64 16
   %47 = load i64, ptr %46, align 8
   switch i64 %47, label %.critedge26 [
@@ -738,7 +738,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.15) #7
   br label %78
 
-78:                                               ; preds = %.critedge26, %75, %70, %65, %60, %57, %52, %42, %.thread321
+78:                                               ; preds = %.critedge26, %75, %70, %65, %60, %57, %52, %42, %.thread325
   ret void
 }
 

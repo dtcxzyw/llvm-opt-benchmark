@@ -581,7 +581,7 @@ return:                                           ; preds = %for.body160, %for.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hs_clone_scratch(ptr noundef %src, ptr noundef writeonly %dest) local_unnamed_addr #0 {
+define dso_local range(i32 -9, 1) i32 @hs_clone_scratch(ptr noundef %src, ptr noundef writeonly %dest) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne ptr %dest, null
   %tobool1 = icmp ne ptr %src, null

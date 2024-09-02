@@ -371,11 +371,14 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %85, %_ZN5ZXing6Redu
   %96 = add i16 %95, %.057.i.i.i56
   %97 = getelementptr inbounds i8, ptr %.08.i.i.i55, i64 2
   %.not.i.i.i57 = icmp eq ptr %97, %94
-  br i1 %.not.i.i.i57, label %_ZNK5ZXing11PatternView3sumEi.exit, label %.lr.ph.i.i.i54, !llvm.loop !7
+  br i1 %.not.i.i.i57, label %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i58, label %.lr.ph.i.i.i54, !llvm.loop !7
 
-_ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %.lr.ph.i.i.i54, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit
-  %.05.lcssa.i.i.i59 = phi i16 [ 0, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ], [ %96, %.lr.ph.i.i.i54 ]
-  %98 = lshr i16 %.05.lcssa.i.i.i59, 1
+_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i58: ; preds = %.lr.ph.i.i.i54
+  %98 = lshr i16 %96, 1
+  br label %_ZNK5ZXing11PatternView3sumEi.exit
+
+_ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i58
+  %.05.lcssa.i.i.i59 = phi i16 [ 0, %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit ], [ %98, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i58 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 20)
           to label %.preheader unwind label %.loopexit.split-lp
@@ -404,7 +407,7 @@ _ZN5ZXing11PatternView5shiftEi.exit.i:            ; preds = %_ZN5ZXing11PatternV
 
 _ZN5ZXing11PatternView10skipSingleEi.exit:        ; preds = %_ZN5ZXing11PatternView5shiftEi.exit.i
   %107 = load i16, ptr %102, align 2
-  %.not101 = icmp ult i16 %98, %107
+  %.not101 = icmp ult i16 %.05.lcssa.i.i.i59, %107
   br i1 %.not101, label %_ZN5ZXing11PatternView10skipSymbolEv.exit.thread, label %125
 
 _ZN5ZXing11PatternView10skipSymbolEv.exit.thread: ; preds = %_ZN5ZXing11PatternView5shiftEi.exit.i, %.preheader, %_ZN5ZXing11PatternView10skipSingleEi.exit, %_ZN5ZXing11PatternView10skipSymbolEv.exit
@@ -590,7 +593,7 @@ _ZN5ZXing6ResultC2Ev.exit78:                      ; preds = %154
   %190 = load i16, ptr %185, align 2
   %191 = uitofp i16 %190 to float
   %.not6.i.i.i.i = icmp eq i32 %183, 0
-  br i1 %.not6.i.i.i.i, label %_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit, label %.lr.ph.i.i.i.i
+  br i1 %.not6.i.i.i.i, label %_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit.thread, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %189, %.lr.ph.i.i.i.i
   %.08.i.i.i.i = phi ptr [ %194, %.lr.ph.i.i.i.i ], [ %182, %189 ]
@@ -599,15 +602,11 @@ _ZN5ZXing6ResultC2Ev.exit78:                      ; preds = %154
   %193 = add i16 %192, %.057.i.i.i.i
   %194 = getelementptr inbounds i8, ptr %.08.i.i.i.i, i64 2
   %.not.i.i.i.i = icmp eq ptr %194, %185
-  br i1 %.not.i.i.i.i, label %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i.i, label %_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
-_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit: ; preds = %.lr.ph.i.i.i.i
   %195 = uitofp i16 %193 to float
-  br label %_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit
-
-_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit: ; preds = %189, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i.i
-  %.05.lcssa.i.i.i.i = phi float [ 0.000000e+00, %189 ], [ %195, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i.i ]
-  %196 = fmul float %.05.lcssa.i.i.i.i, 5.000000e-01
+  %196 = fmul float %195, 5.000000e-01
   %197 = fcmp ugt float %196, %191
   br i1 %197, label %198, label %_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit.thread
 
@@ -650,7 +649,7 @@ _ZN5ZXing6ResultC2Ev.exit80:                      ; preds = %198
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %215, i8 0, i64 19, i1 false)
   br label %291
 
-_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit.thread: ; preds = %181, %_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit
+_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit.thread: ; preds = %189, %181, %_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit
   %216 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
   %217 = load i8, ptr %216, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #15

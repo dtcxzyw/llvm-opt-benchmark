@@ -1364,14 +1364,16 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread25: ; preds =
   %36 = mul nsw i32 %35, %.0231.i19
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count.i16
-  br i1 %exitcond.not.i21, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23, label %.lr.ph.i17, !llvm.loop !13
+  br i1 %exitcond.not.i21, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23.loopexit, label %.lr.ph.i17, !llvm.loop !13
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23: ; preds = %.lr.ph.i17, %15
-  %37 = phi i32 [ 0, %15 ], [ %32, %.lr.ph.i17 ]
-  %.024.i22 = phi i32 [ 0, %15 ], [ %36, %.lr.ph.i17 ]
-  %38 = mul nsw i32 %.024.i22, 3
-  %39 = add nsw i32 %38, %37
-  %40 = sext i32 %39 to i64
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23.loopexit: ; preds = %.lr.ph.i17
+  %37 = mul nsw i32 %36, 3
+  %38 = add nsw i32 %37, %32
+  %39 = sext i32 %38 to i64
+  br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23
+
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23.loopexit, %15
+  %40 = phi i64 [ 0, %15 ], [ %39, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23.loopexit ]
   %41 = add nsw i64 %.0934, %40
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax

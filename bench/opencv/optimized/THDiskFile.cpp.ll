@@ -1972,34 +1972,34 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readStringEPNS_8THFile__EPKcPPc
 37:                                               ; preds = %26
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
   %39 = icmp ugt i64 %38, 1
-  br i1 %39, label %40, label %.thread
+  br i1 %39, label %40, label %.critedge
 
 40:                                               ; preds = %37
   %41 = load i8, ptr %1, align 1
   %42 = icmp eq i8 %41, 42
-  br i1 %42, label %43, label %.thread
+  br i1 %42, label %43, label %.critedge
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %1, i64 1
   %45 = load i8, ptr %44, align 1
-  switch i8 %45, label %.thread [
+  switch i8 %45, label %.critedge [
     i8 97, label %53
     i8 108, label %86
   ]
 
-.thread:                                          ; preds = %43, %40, %37
+.critedge:                                        ; preds = %43, %37, %40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %46 unwind label %48
 
-46:                                               ; preds = %.thread
+46:                                               ; preds = %.critedge
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2THL21THDiskFile_readStringEPNS_8THFile__EPKcPPc, ptr noundef nonnull @.str.1, i32 noundef 366) #15
           to label %47 unwind label %50
 
 47:                                               ; preds = %46
   unreachable
 
-48:                                               ; preds = %.thread
+48:                                               ; preds = %.critedge
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %52
@@ -2103,7 +2103,7 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readStringEPNS_8THFile__EPKcPPc
 86:                                               ; preds = %43
   %87 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #17
   %88 = icmp eq ptr %87, null
-  br i1 %88, label %89, label %.preheader110
+  br i1 %88, label %89, label %.preheader105
 
 89:                                               ; preds = %86
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull @.str.18)
@@ -2119,7 +2119,7 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readStringEPNS_8THFile__EPKcPPc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #14
   br label %131
 
-.preheader110:                                    ; preds = %86, %126
+.preheader105:                                    ; preds = %86, %126
   %.074 = phi ptr [ %.175, %126 ], [ %87, %86 ]
   %.072 = phi i64 [ %.173, %126 ], [ 1024, %86 ]
   %.071 = phi i64 [ %127, %126 ], [ 0, %86 ]
@@ -2127,7 +2127,7 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readStringEPNS_8THFile__EPKcPPc
   %94 = icmp slt i64 %93, 2
   br i1 %94, label %95, label %103
 
-95:                                               ; preds = %.preheader110
+95:                                               ; preds = %.preheader105
   %96 = add nsw i64 %.072, 1024
   %97 = tail call ptr @realloc(ptr noundef %.074, i64 noundef %96) #18
   %98 = icmp eq ptr %97, null
@@ -2152,10 +2152,10 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readStringEPNS_8THFile__EPKcPPc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
   br label %131
 
-103:                                              ; preds = %._crit_edge, %.preheader110
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %93, %.preheader110 ]
-  %.175 = phi ptr [ %97, %._crit_edge ], [ %.074, %.preheader110 ]
-  %.173 = phi i64 [ %96, %._crit_edge ], [ %.072, %.preheader110 ]
+103:                                              ; preds = %._crit_edge, %.preheader105
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %93, %.preheader105 ]
+  %.175 = phi ptr [ %97, %._crit_edge ], [ %.074, %.preheader105 ]
+  %.173 = phi i64 [ %96, %._crit_edge ], [ %.072, %.preheader105 ]
   %104 = getelementptr inbounds i8, ptr %.175, i64 %.071
   %105 = trunc i64 %.pre-phi to i32
   %106 = load ptr, ptr %16, align 8
@@ -2204,16 +2204,16 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readStringEPNS_8THFile__EPKcPPc
 
 126:                                              ; preds = %122, %119
   %127 = add nsw i64 %120, %.071
-  br label %.preheader110, !llvm.loop !15
+  br label %.preheader105, !llvm.loop !15
 
 128:                                              ; preds = %122
   %129 = add nsw i64 %123, %.071
   br label %130
 
 130:                                              ; preds = %109, %111, %76, %78, %128
-  %.175.lcssa130.sink = phi ptr [ %.175, %128 ], [ null, %78 ], [ %.184, %76 ], [ null, %111 ], [ %.175, %109 ]
+  %.175.lcssa125.sink = phi ptr [ %.175, %128 ], [ null, %78 ], [ %.184, %76 ], [ null, %111 ], [ %.175, %109 ]
   %.0 = phi i64 [ %129, %128 ], [ 0, %78 ], [ %74, %76 ], [ 0, %111 ], [ %.071, %109 ]
-  store ptr %.175.lcssa130.sink, ptr %2, align 8
+  store ptr %.175.lcssa125.sink, ptr %2, align 8
   ret i64 %.0
 
 131:                                              ; preds = %117, %101, %91, %84, %67, %58, %52, %36, %25

@@ -1462,27 +1462,27 @@ _ZN11floatbuffer6getvalEii.exit:                  ; preds = %52
   %.0.i81.ph = phi float [ 0.000000e+00, %62 ], [ 0.000000e+00, %65 ], [ %71, %66 ]
   %73 = fsub float 0.000000e+00, %.0.i81.ph
   %.not11.i89 = icmp sle i32 %.176199, %53
-  br i1 %.not11.i89, label %74, label %79
+  br i1 %.not11.i89, label %74, label %80
 
 74:                                               ; preds = %72
   %75 = add nuw nsw i32 %56, %39
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds float, ptr %55, i64 %76
   %78 = load float, ptr %77, align 4
-  br label %79
+  %79 = fpext float %78 to double
+  br label %80
 
-79:                                               ; preds = %72, %74
-  %.0.i88.ph = phi float [ 0.000000e+00, %72 ], [ %78, %74 ]
-  %80 = fpext float %.0.i88.ph to double
+80:                                               ; preds = %72, %74
+  %.0.i88.ph = phi double [ 0.000000e+00, %72 ], [ %79, %74 ]
   %81 = fpext float %73 to double
-  %82 = tail call double @llvm.fmuladd.f64(double %80, double -2.000000e+00, double %81)
+  %82 = tail call double @llvm.fmuladd.f64(double %.0.i88.ph, double -2.000000e+00, double %81)
   %83 = fptrunc double %82 to float
   %84 = add nuw nsw i32 %.1194, 1
   %.not12.i97 = icmp slt i32 %84, %54
   %or.cond.i98 = select i1 %.not11.i89, i1 %.not12.i97, i1 false
   br i1 %or.cond.i98, label %85, label %91
 
-85:                                               ; preds = %79
+85:                                               ; preds = %80
   %86 = mul nsw i32 %53, %84
   %87 = add nuw nsw i32 %86, %39
   %88 = zext nneg i32 %87 to i64
@@ -1490,8 +1490,8 @@ _ZN11floatbuffer6getvalEii.exit:                  ; preds = %52
   %90 = load float, ptr %89, align 4
   br label %91
 
-91:                                               ; preds = %79, %85
-  %.0.i95.ph = phi float [ 0.000000e+00, %79 ], [ %90, %85 ]
+91:                                               ; preds = %80, %85
+  %.0.i95.ph = phi float [ 0.000000e+00, %80 ], [ %90, %85 ]
   %92 = fsub float %83, %.0.i95.ph
   %.not11.i103 = icmp slt i32 %40, %53
   %.not12.i104 = icmp sle i32 %.1194, %54
@@ -1636,8 +1636,12 @@ _ZN11floatbuffer6getvalEii.exit127:               ; preds = %146
 166:                                              ; preds = %156, %159, %160
   %.0.i130.ph = phi float [ 0.000000e+00, %156 ], [ 0.000000e+00, %159 ], [ %165, %160 ]
   %167 = fsub float 0.000000e+00, %.0.i130.ph
-  %.not12.i139 = icmp sle i32 %.2200, %148
-  br i1 %.not12.i139, label %168, label %174
+  %.not12.i139.not = icmp sgt i32 %.2200, %148
+  br i1 %.not12.i139.not, label %.thread217, label %168
+
+.thread217:                                       ; preds = %166
+  %.not11.i145219 = icmp slt i32 %142, %147
+  br label %184
 
 168:                                              ; preds = %166
   %169 = mul nsw i32 %147, %157
@@ -1645,36 +1649,33 @@ _ZN11floatbuffer6getvalEii.exit127:               ; preds = %146
   %171 = zext nneg i32 %170 to i64
   %172 = getelementptr inbounds float, ptr %149, i64 %171
   %173 = load float, ptr %172, align 4
-  br label %174
-
-174:                                              ; preds = %166, %168
-  %.0.i137.ph = phi float [ 0.000000e+00, %166 ], [ %173, %168 ]
-  %175 = fpext float %.0.i137.ph to double
-  %176 = fpext float %167 to double
-  %177 = tail call double @llvm.fmuladd.f64(double %175, double -2.000000e+00, double %176)
-  %178 = fptrunc double %177 to float
+  %174 = fpext float %173 to double
+  %175 = fpext float %167 to double
+  %176 = tail call double @llvm.fmuladd.f64(double %174, double -2.000000e+00, double %175)
+  %177 = fptrunc double %176 to float
   %.not11.i145 = icmp slt i32 %142, %147
-  %or.cond.i147 = and i1 %.not11.i145, %.not12.i139
-  br i1 %or.cond.i147, label %179, label %185
+  br i1 %.not11.i145, label %178, label %184
 
-179:                                              ; preds = %174
-  %180 = mul nsw i32 %147, %157
-  %181 = add nuw nsw i32 %180, %142
-  %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds float, ptr %149, i64 %182
-  %184 = load float, ptr %183, align 4
-  br label %185
+178:                                              ; preds = %168
+  %179 = mul nsw i32 %147, %157
+  %180 = add nuw nsw i32 %179, %142
+  %181 = zext nneg i32 %180 to i64
+  %182 = getelementptr inbounds float, ptr %149, i64 %181
+  %183 = load float, ptr %182, align 4
+  br label %184
 
-185:                                              ; preds = %174, %179
-  %.0.i144.ph = phi float [ 0.000000e+00, %174 ], [ %184, %179 ]
-  %186 = fsub float %178, %.0.i144.ph
+184:                                              ; preds = %.thread217, %168, %178
+  %.not11.i145221 = phi i1 [ false, %168 ], [ true, %178 ], [ %.not11.i145219, %.thread217 ]
+  %185 = phi float [ %177, %168 ], [ %177, %178 ], [ %167, %.thread217 ]
+  %.0.i144.ph = phi float [ 0.000000e+00, %168 ], [ %183, %178 ], [ 0.000000e+00, %.thread217 ]
+  %186 = fsub float %185, %.0.i144.ph
   %187 = add nuw nsw i32 %.2200, 1
   %.not11.i152 = icmp sle i32 %.277203, %147
   %.not12.i153 = icmp slt i32 %187, %148
   %or.cond.i154 = select i1 %.not11.i152, i1 %.not12.i153, i1 false
   br i1 %or.cond.i154, label %188, label %194
 
-188:                                              ; preds = %185
+188:                                              ; preds = %184
   %189 = mul nsw i32 %147, %187
   %190 = add nuw nsw i32 %189, %141
   %191 = zext nneg i32 %190 to i64
@@ -1682,12 +1683,12 @@ _ZN11floatbuffer6getvalEii.exit127:               ; preds = %146
   %193 = load float, ptr %192, align 4
   br label %194
 
-194:                                              ; preds = %185, %188
-  %.0.i151.ph = phi float [ 0.000000e+00, %185 ], [ %193, %188 ]
+194:                                              ; preds = %184, %188
+  %.0.i151.ph = phi float [ 0.000000e+00, %184 ], [ %193, %188 ]
   %195 = fadd float %186, %.0.i151.ph
-  br i1 %.not12.i153, label %197, label %.thread217
+  br i1 %.not12.i153, label %197, label %.thread222
 
-.thread217:                                       ; preds = %194
+.thread222:                                       ; preds = %194
   %196 = fadd float %195, 0.000000e+00
   br label %_ZN11floatbuffer6getvalEii.exit169
 
@@ -1701,7 +1702,7 @@ _ZN11floatbuffer6getvalEii.exit127:               ; preds = %146
   %204 = fpext float %195 to double
   %205 = tail call double @llvm.fmuladd.f64(double %203, double 2.000000e+00, double %204)
   %206 = fptrunc double %205 to float
-  br i1 %.not11.i145, label %207, label %_ZN11floatbuffer6getvalEii.exit169
+  br i1 %.not11.i145221, label %207, label %_ZN11floatbuffer6getvalEii.exit169
 
 207:                                              ; preds = %197
   %208 = mul nsw i32 %147, %187
@@ -1711,9 +1712,9 @@ _ZN11floatbuffer6getvalEii.exit127:               ; preds = %146
   %212 = load float, ptr %211, align 4
   br label %_ZN11floatbuffer6getvalEii.exit169
 
-_ZN11floatbuffer6getvalEii.exit169:               ; preds = %.thread217, %143, %197, %207
-  %213 = phi float [ %206, %207 ], [ %206, %197 ], [ 1.000000e+00, %143 ], [ %196, %.thread217 ]
-  %.0.i165 = phi float [ %212, %207 ], [ 0.000000e+00, %197 ], [ -1.000000e+00, %143 ], [ 0.000000e+00, %.thread217 ]
+_ZN11floatbuffer6getvalEii.exit169:               ; preds = %.thread222, %143, %197, %207
+  %213 = phi float [ %206, %207 ], [ %206, %197 ], [ 1.000000e+00, %143 ], [ %196, %.thread222 ]
+  %.0.i165 = phi float [ %212, %207 ], [ 0.000000e+00, %197 ], [ -1.000000e+00, %143 ], [ 0.000000e+00, %.thread222 ]
   %214 = fadd float %213, %.0.i165
   %215 = tail call noundef float @llvm.fabs.f32(float %214)
   %216 = load ptr, ptr %0, align 8
@@ -5604,64 +5605,64 @@ declare void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceabl
 define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.preheader, label %._crit_edge205
+  br i1 %5, label %.preheader, label %._crit_edge199
 
 .preheader:                                       ; preds = %3, %._crit_edge
-  %.0204 = phi i32 [ %.pre-phi, %._crit_edge ], [ 0, %3 ]
+  %.0198 = phi i32 [ %.pre-phi, %._crit_edge ], [ 0, %3 ]
   %6 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.preheader.._crit_edge_crit_edge
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
-  %.pre = add nuw nsw i32 %.0204, 1
+  %.pre = add nuw nsw i32 %.0198, 1
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = shl nuw nsw i32 %.0204, 1
-  %.not199 = icmp eq i32 %.0204, 0
-  %9 = add nsw i32 %.0204, -1
-  %10 = icmp ne i32 %.0204, 0
+  %8 = shl nuw nsw i32 %.0198, 1
+  %.not193 = icmp eq i32 %.0198, 0
+  %9 = add nsw i32 %.0198, -1
+  %10 = icmp ne i32 %.0198, 0
   %11 = or disjoint i32 %8, 1
-  %12 = add nuw nsw i32 %.0204, 1
+  %12 = add nuw nsw i32 %.0198, 1
   br label %13
 
-13:                                               ; preds = %.lr.ph, %429
-  %.0144201 = phi i32 [ 0, %.lr.ph ], [ %430, %429 ]
-  %14 = shl nuw nsw i32 %.0144201, 1
+13:                                               ; preds = %.lr.ph, %433
+  %.0144195 = phi i32 [ 0, %.lr.ph ], [ %434, %433 ]
+  %14 = shl nuw nsw i32 %.0144195, 1
   %15 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %14, i32 noundef %8)
   %16 = icmp eq i32 %15, %2
   br i1 %16, label %17, label %103
 
 17:                                               ; preds = %13
-  %18 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144201, i32 noundef %.0204)
-  %.not200 = icmp eq i32 %.0144201, 0
-  br i1 %.not200, label %19, label %.thread206
+  %18 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144195, i32 noundef %.0198)
+  %.not194 = icmp eq i32 %.0144195, 0
+  br i1 %.not194, label %19, label %.thread200
 
 19:                                               ; preds = %17
-  br i1 %.not199, label %.thread, label %22
+  br i1 %.not193, label %.thread, label %22
 
-.thread206:                                       ; preds = %17
-  %20 = add nsw i32 %.0144201, -1
-  %21 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %.0204)
-  br i1 %.not199, label %.thread, label %24
+.thread200:                                       ; preds = %17
+  %20 = add nsw i32 %.0144195, -1
+  %21 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %.0198)
+  br i1 %.not193, label %.thread, label %24
 
 22:                                               ; preds = %19
-  %23 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144201, i32 noundef %9)
+  %23 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144195, i32 noundef %9)
   br label %.thread
 
-24:                                               ; preds = %.thread206
-  %25 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144201, i32 noundef %9)
-  %26 = add nsw i32 %.0144201, -1
+24:                                               ; preds = %.thread200
+  %25 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144195, i32 noundef %9)
+  %26 = add nsw i32 %.0144195, -1
   %27 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %26, i32 noundef %9)
   br label %.thread
 
-.thread:                                          ; preds = %22, %.thread206, %19, %24
-  %28 = phi i32 [ %21, %24 ], [ %2, %22 ], [ %2, %19 ], [ %21, %.thread206 ]
-  %29 = phi i32 [ 48, %24 ], [ 0, %22 ], [ 0, %19 ], [ 48, %.thread206 ]
-  %30 = phi i32 [ %25, %24 ], [ %23, %22 ], [ %2, %19 ], [ %2, %.thread206 ]
-  %31 = phi i32 [ 48, %24 ], [ 48, %22 ], [ 0, %19 ], [ 0, %.thread206 ]
-  %32 = phi i32 [ 16, %24 ], [ 0, %22 ], [ 0, %19 ], [ 0, %.thread206 ]
-  %33 = phi i32 [ %27, %24 ], [ %2, %22 ], [ %2, %19 ], [ %2, %.thread206 ]
+.thread:                                          ; preds = %22, %.thread200, %19, %24
+  %28 = phi i32 [ %21, %24 ], [ %2, %22 ], [ %2, %19 ], [ %21, %.thread200 ]
+  %29 = phi i32 [ 48, %24 ], [ 0, %22 ], [ 0, %19 ], [ 48, %.thread200 ]
+  %30 = phi i32 [ %25, %24 ], [ %23, %22 ], [ %2, %19 ], [ %2, %.thread200 ]
+  %31 = phi i32 [ 48, %24 ], [ 48, %22 ], [ 0, %19 ], [ 0, %.thread200 ]
+  %32 = phi i32 [ 16, %24 ], [ 0, %22 ], [ 0, %19 ], [ 0, %.thread200 ]
+  %33 = phi i32 [ %27, %24 ], [ %2, %22 ], [ %2, %19 ], [ %2, %.thread200 ]
   %34 = lshr i32 %18, 16
   %35 = and i32 %34, 255
   %36 = lshr i32 %28, 16
@@ -5699,9 +5700,9 @@ define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dere
   %65 = add nuw nsw i32 %63, %64
   %66 = mul nuw nsw i32 %60, %32
   %67 = add nuw nsw i32 %65, %66
-  %.lhs.trunc153 = trunc nuw i32 %67 to i16
-  %68 = udiv i16 %.lhs.trunc153, %.rhs.trunc
-  %.zext155 = zext nneg i16 %68 to i32
+  %.lhs.trunc148 = trunc nuw i32 %67 to i16
+  %68 = udiv i16 %.lhs.trunc148, %.rhs.trunc
+  %.zext150 = zext nneg i16 %68 to i32
   %69 = and i32 %18, 255
   %70 = and i32 %28, 255
   %71 = and i32 %30, 255
@@ -5713,8 +5714,8 @@ define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dere
   %77 = add nuw nsw i32 %75, %76
   %78 = mul nuw nsw i32 %72, %32
   %79 = add nuw nsw i32 %77, %78
-  %.lhs.trunc156 = trunc nuw i32 %79 to i16
-  %80 = udiv i16 %.lhs.trunc156, %.rhs.trunc
+  %.lhs.trunc151 = trunc nuw i32 %79 to i16
+  %80 = udiv i16 %.lhs.trunc151, %.rhs.trunc
   %81 = lshr i32 %18, 24
   %82 = lshr i32 %28, 24
   %83 = lshr i32 %30, 24
@@ -5726,14 +5727,14 @@ define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dere
   %89 = add nuw nsw i32 %87, %88
   %90 = mul nuw nsw i32 %84, %32
   %91 = add nuw nsw i32 %89, %90
-  %.lhs.trunc159 = trunc nuw i32 %91 to i16
-  %92 = udiv i16 %.lhs.trunc159, %.rhs.trunc
-  %.zext161 = zext nneg i16 %92 to i32
-  %93 = shl i32 %.zext161, 24
+  %.lhs.trunc154 = trunc nuw i32 %91 to i16
+  %92 = udiv i16 %.lhs.trunc154, %.rhs.trunc
+  %.zext156 = zext nneg i16 %92 to i32
+  %93 = shl i32 %.zext156, 24
   %94 = shl nuw nsw i32 %.zext, 16
   %95 = and i32 %94, 16711680
   %96 = or disjoint i32 %93, %95
-  %97 = shl nuw nsw i32 %.zext155, 8
+  %97 = shl nuw nsw i32 %.zext150, 8
   %98 = and i32 %97, 65280
   %99 = or disjoint i32 %96, %98
   %100 = and i16 %80, 255
@@ -5749,26 +5750,26 @@ define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dere
   br i1 %106, label %107, label %208
 
 107:                                              ; preds = %103
-  %108 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144201, i32 noundef %.0204)
+  %108 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144195, i32 noundef %.0198)
   %109 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %110 = add nsw i32 %109, -1
-  %111 = icmp slt i32 %.0144201, %110
+  %111 = icmp slt i32 %.0144195, %110
   br i1 %111, label %112, label %115
 
 112:                                              ; preds = %107
-  %113 = add nuw nsw i32 %.0144201, 1
-  %114 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %113, i32 noundef %.0204)
+  %113 = add nuw nsw i32 %.0144195, 1
+  %114 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %113, i32 noundef %.0198)
   br label %115
 
 115:                                              ; preds = %107, %112
   %116 = phi i32 [ %114, %112 ], [ %2, %107 ]
   %117 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %118 = add nsw i32 %117, -1
-  %119 = icmp slt i32 %.0144201, %118
+  %119 = icmp slt i32 %.0144195, %118
   br i1 %10, label %120, label %122
 
 120:                                              ; preds = %115
-  %121 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144201, i32 noundef %9)
+  %121 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144195, i32 noundef %9)
   br label %122
 
 122:                                              ; preds = %115, %120
@@ -5776,12 +5777,12 @@ define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dere
   %124 = phi i32 [ %121, %120 ], [ %2, %115 ]
   %125 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %126 = add nsw i32 %125, -1
-  %127 = icmp slt i32 %.0144201, %126
+  %127 = icmp slt i32 %.0144195, %126
   %or.cond3 = and i1 %10, %127
   br i1 %or.cond3, label %128, label %131
 
 128:                                              ; preds = %122
-  %129 = add nuw nsw i32 %.0144201, 1
+  %129 = add nuw nsw i32 %.0144195, 1
   %130 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %129, i32 noundef %9)
   br label %131
 
@@ -5789,7 +5790,7 @@ define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dere
   %132 = phi i32 [ %130, %128 ], [ %2, %122 ]
   %133 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %134 = add nsw i32 %133, -1
-  %135 = icmp slt i32 %.0144201, %134
+  %135 = icmp slt i32 %.0144195, %134
   %136 = and i1 %10, %135
   %137 = lshr i32 %108, 16
   %138 = and i32 %137, 255
@@ -5811,10 +5812,10 @@ define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dere
   %154 = add nuw nsw i32 %146, 144
   %155 = add nuw nsw i32 %154, %123
   %156 = add nuw nsw i32 %155, %151
-  %.lhs.trunc162 = trunc nuw i32 %153 to i16
-  %.rhs.trunc163 = trunc nuw nsw i32 %156 to i16
-  %157 = udiv i16 %.lhs.trunc162, %.rhs.trunc163
-  %.zext164 = zext nneg i16 %157 to i32
+  %.lhs.trunc157 = trunc nuw i32 %153 to i16
+  %.rhs.trunc158 = trunc nuw nsw i32 %156 to i16
+  %157 = udiv i16 %.lhs.trunc157, %.rhs.trunc158
+  %.zext159 = zext nneg i16 %157 to i32
   %158 = lshr i32 %108, 8
   %159 = and i32 %158, 255
   %160 = lshr i32 %116, 8
@@ -5830,9 +5831,9 @@ define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dere
   %170 = add nuw nsw i32 %168, %169
   %171 = mul nuw nsw i32 %151, %165
   %172 = add nuw nsw i32 %170, %171
-  %.lhs.trunc165 = trunc nuw i32 %172 to i16
-  %173 = udiv i16 %.lhs.trunc165, %.rhs.trunc163
-  %.zext167 = zext nneg i16 %173 to i32
+  %.lhs.trunc160 = trunc nuw i32 %172 to i16
+  %173 = udiv i16 %.lhs.trunc160, %.rhs.trunc158
+  %.zext162 = zext nneg i16 %173 to i32
   %174 = and i32 %108, 255
   %175 = and i32 %116, 255
   %176 = and i32 %124, 255
@@ -5844,8 +5845,8 @@ define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dere
   %182 = add nuw nsw i32 %180, %181
   %183 = mul nuw nsw i32 %151, %177
   %184 = add nuw nsw i32 %182, %183
-  %.lhs.trunc168 = trunc nuw i32 %184 to i16
-  %185 = udiv i16 %.lhs.trunc168, %.rhs.trunc163
+  %.lhs.trunc163 = trunc nuw i32 %184 to i16
+  %185 = udiv i16 %.lhs.trunc163, %.rhs.trunc158
   %186 = lshr i32 %108, 24
   %187 = lshr i32 %116, 24
   %188 = lshr i32 %124, 24
@@ -5857,14 +5858,14 @@ define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dere
   %194 = add nuw nsw i32 %192, %193
   %195 = mul nuw nsw i32 %151, %189
   %196 = add nuw nsw i32 %194, %195
-  %.lhs.trunc171 = trunc nuw i32 %196 to i16
-  %197 = udiv i16 %.lhs.trunc171, %.rhs.trunc163
-  %.zext173 = zext nneg i16 %197 to i32
-  %198 = shl i32 %.zext173, 24
-  %199 = shl nuw nsw i32 %.zext164, 16
+  %.lhs.trunc166 = trunc nuw i32 %196 to i16
+  %197 = udiv i16 %.lhs.trunc166, %.rhs.trunc158
+  %.zext168 = zext nneg i16 %197 to i32
+  %198 = shl i32 %.zext168, 24
+  %199 = shl nuw nsw i32 %.zext159, 16
   %200 = and i32 %199, 16711680
   %201 = or disjoint i32 %198, %200
-  %202 = shl nuw nsw i32 %.zext167, 8
+  %202 = shl nuw nsw i32 %.zext162, 8
   %203 = and i32 %202, 65280
   %204 = or disjoint i32 %201, %203
   %205 = and i16 %185, 255
@@ -5876,16 +5877,16 @@ define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dere
 208:                                              ; preds = %131, %103
   %209 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %14, i32 noundef %11)
   %210 = icmp eq i32 %209, %2
-  br i1 %210, label %211, label %312
+  br i1 %210, label %211, label %314
 
 211:                                              ; preds = %208
-  %212 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144201, i32 noundef %.0204)
-  %.not = icmp eq i32 %.0144201, 0
+  %212 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144195, i32 noundef %.0198)
+  %.not = icmp eq i32 %.0144195, 0
   br i1 %.not, label %216, label %213
 
 213:                                              ; preds = %211
-  %214 = add nsw i32 %.0144201, -1
-  %215 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %214, i32 noundef %.0204)
+  %214 = add nsw i32 %.0144195, -1
+  %215 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %214, i32 noundef %.0198)
   br label %216
 
 216:                                              ; preds = %211, %213
@@ -5893,288 +5894,286 @@ define void @_ZN3vcg12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dere
   %218 = phi i32 [ %215, %213 ], [ %2, %211 ]
   %219 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %220 = add nsw i32 %219, -1
-  %221 = icmp slt i32 %.0204, %220
+  %221 = icmp slt i32 %.0198, %220
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %216
-  %223 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144201, i32 noundef %12)
+  %223 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144195, i32 noundef %12)
   br label %224
 
 224:                                              ; preds = %216, %222
   %225 = phi i32 [ %223, %222 ], [ %2, %216 ]
   %226 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %227 = add nsw i32 %226, -1
-  %228 = icmp slt i32 %.0204, %227
-  br i1 %.not, label %.thread148, label %229
+  %228 = icmp slt i32 %.0198, %227
+  br i1 %.not, label %241, label %229
 
 229:                                              ; preds = %224
   %230 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %231 = add nsw i32 %230, -1
-  %232 = icmp slt i32 %.0204, %231
+  %232 = icmp slt i32 %.0198, %231
   br i1 %232, label %233, label %236
 
 233:                                              ; preds = %229
-  %234 = add nsw i32 %.0144201, -1
+  %234 = add nsw i32 %.0144195, -1
   %235 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %234, i32 noundef %12)
   br label %236
 
-236:                                              ; preds = %233, %229
+236:                                              ; preds = %229, %233
   %.ph = phi i32 [ %2, %229 ], [ %235, %233 ]
   %237 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %238 = add nsw i32 %237, -1
-  %239 = icmp slt i32 %.0204, %238
-  %cond.fr = freeze i1 %239
-  %spec.select = select i1 %cond.fr, i32 16, i32 0
-  br label %.thread148
+  %239 = icmp slt i32 %.0198, %238
+  %240 = select i1 %239, i32 16, i32 0
+  br label %241
 
-.thread148:                                       ; preds = %236, %224
-  %240 = phi i32 [ %2, %224 ], [ %.ph, %236 ]
-  %241 = phi i32 [ 0, %224 ], [ %spec.select, %236 ]
-  %242 = lshr i32 %212, 16
-  %243 = and i32 %242, 255
-  %244 = lshr i32 %218, 16
+241:                                              ; preds = %224, %236
+  %242 = phi i32 [ %.ph, %236 ], [ %2, %224 ]
+  %243 = phi i32 [ %240, %236 ], [ 0, %224 ]
+  %244 = lshr i32 %212, 16
   %245 = and i32 %244, 255
-  %246 = lshr i32 %225, 16
+  %246 = lshr i32 %218, 16
   %247 = and i32 %246, 255
-  %248 = lshr i32 %240, 16
+  %248 = lshr i32 %225, 16
   %249 = and i32 %248, 255
-  %250 = mul nuw nsw i32 %243, 144
-  %251 = mul nuw nsw i32 %245, %217
-  %252 = add nuw nsw i32 %251, %250
-  %253 = select i1 %228, i32 48, i32 0
-  %254 = mul nuw nsw i32 %253, %247
-  %255 = add nuw nsw i32 %252, %254
-  %256 = mul nuw nsw i32 %249, %241
-  %257 = add nuw nsw i32 %255, %256
-  %258 = add nuw nsw i32 %217, 144
-  %259 = add nuw nsw i32 %258, %253
-  %260 = add nuw nsw i32 %259, %241
-  %.lhs.trunc174 = trunc nuw i32 %257 to i16
-  %.rhs.trunc175 = trunc nuw nsw i32 %260 to i16
-  %261 = udiv i16 %.lhs.trunc174, %.rhs.trunc175
-  %.zext176 = zext nneg i16 %261 to i32
-  %262 = lshr i32 %212, 8
-  %263 = and i32 %262, 255
-  %264 = lshr i32 %218, 8
+  %250 = lshr i32 %242, 16
+  %251 = and i32 %250, 255
+  %252 = mul nuw nsw i32 %245, 144
+  %253 = mul nuw nsw i32 %247, %217
+  %254 = add nuw nsw i32 %253, %252
+  %255 = select i1 %228, i32 48, i32 0
+  %256 = mul nuw nsw i32 %255, %249
+  %257 = add nuw nsw i32 %254, %256
+  %258 = mul nuw nsw i32 %251, %243
+  %259 = add nuw nsw i32 %257, %258
+  %260 = add nuw nsw i32 %217, 144
+  %261 = add nuw nsw i32 %260, %255
+  %262 = add nuw nsw i32 %261, %243
+  %.lhs.trunc169 = trunc nuw i32 %259 to i16
+  %.rhs.trunc170 = trunc nuw nsw i32 %262 to i16
+  %263 = udiv i16 %.lhs.trunc169, %.rhs.trunc170
+  %.zext171 = zext nneg i16 %263 to i32
+  %264 = lshr i32 %212, 8
   %265 = and i32 %264, 255
-  %266 = lshr i32 %225, 8
+  %266 = lshr i32 %218, 8
   %267 = and i32 %266, 255
-  %268 = lshr i32 %240, 8
+  %268 = lshr i32 %225, 8
   %269 = and i32 %268, 255
-  %270 = mul nuw nsw i32 %263, 144
-  %271 = mul nuw nsw i32 %265, %217
-  %272 = add nuw nsw i32 %271, %270
-  %273 = mul nuw nsw i32 %253, %267
-  %274 = add nuw nsw i32 %272, %273
-  %275 = mul nuw nsw i32 %269, %241
+  %270 = lshr i32 %242, 8
+  %271 = and i32 %270, 255
+  %272 = mul nuw nsw i32 %265, 144
+  %273 = mul nuw nsw i32 %267, %217
+  %274 = add nuw nsw i32 %273, %272
+  %275 = mul nuw nsw i32 %255, %269
   %276 = add nuw nsw i32 %274, %275
-  %.lhs.trunc177 = trunc nuw i32 %276 to i16
-  %277 = udiv i16 %.lhs.trunc177, %.rhs.trunc175
-  %.zext179 = zext nneg i16 %277 to i32
-  %278 = and i32 %212, 255
-  %279 = and i32 %218, 255
-  %280 = and i32 %225, 255
-  %281 = and i32 %240, 255
-  %282 = mul nuw nsw i32 %278, 144
-  %283 = mul nuw nsw i32 %279, %217
-  %284 = add nuw nsw i32 %283, %282
-  %285 = mul nuw nsw i32 %253, %280
-  %286 = add nuw nsw i32 %284, %285
-  %287 = mul nuw nsw i32 %281, %241
+  %277 = mul nuw nsw i32 %271, %243
+  %278 = add nuw nsw i32 %276, %277
+  %.lhs.trunc172 = trunc nuw i32 %278 to i16
+  %279 = udiv i16 %.lhs.trunc172, %.rhs.trunc170
+  %.zext174 = zext nneg i16 %279 to i32
+  %280 = and i32 %212, 255
+  %281 = and i32 %218, 255
+  %282 = and i32 %225, 255
+  %283 = and i32 %242, 255
+  %284 = mul nuw nsw i32 %280, 144
+  %285 = mul nuw nsw i32 %281, %217
+  %286 = add nuw nsw i32 %285, %284
+  %287 = mul nuw nsw i32 %255, %282
   %288 = add nuw nsw i32 %286, %287
-  %.lhs.trunc180 = trunc nuw i32 %288 to i16
-  %289 = udiv i16 %.lhs.trunc180, %.rhs.trunc175
-  %290 = lshr i32 %212, 24
-  %291 = lshr i32 %218, 24
-  %292 = lshr i32 %225, 24
-  %293 = lshr i32 %240, 24
-  %294 = mul nuw nsw i32 %290, 144
-  %295 = mul nuw nsw i32 %291, %217
-  %296 = add nuw nsw i32 %295, %294
-  %297 = mul nuw nsw i32 %253, %292
-  %298 = add nuw nsw i32 %296, %297
-  %299 = mul nuw nsw i32 %293, %241
+  %289 = mul nuw nsw i32 %283, %243
+  %290 = add nuw nsw i32 %288, %289
+  %.lhs.trunc175 = trunc nuw i32 %290 to i16
+  %291 = udiv i16 %.lhs.trunc175, %.rhs.trunc170
+  %292 = lshr i32 %212, 24
+  %293 = lshr i32 %218, 24
+  %294 = lshr i32 %225, 24
+  %295 = lshr i32 %242, 24
+  %296 = mul nuw nsw i32 %292, 144
+  %297 = mul nuw nsw i32 %293, %217
+  %298 = add nuw nsw i32 %297, %296
+  %299 = mul nuw nsw i32 %255, %294
   %300 = add nuw nsw i32 %298, %299
-  %.lhs.trunc183 = trunc nuw i32 %300 to i16
-  %301 = udiv i16 %.lhs.trunc183, %.rhs.trunc175
-  %.zext185 = zext nneg i16 %301 to i32
-  %302 = shl i32 %.zext185, 24
-  %303 = shl nuw nsw i32 %.zext176, 16
-  %304 = and i32 %303, 16711680
-  %305 = or disjoint i32 %302, %304
-  %306 = shl nuw nsw i32 %.zext179, 8
-  %307 = and i32 %306, 65280
-  %308 = or disjoint i32 %305, %307
-  %309 = and i16 %289, 255
-  %310 = zext nneg i16 %309 to i32
-  %311 = or disjoint i32 %308, %310
-  tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %14, i32 noundef %11, i32 noundef %311)
-  br label %312
+  %301 = mul nuw nsw i32 %295, %243
+  %302 = add nuw nsw i32 %300, %301
+  %.lhs.trunc178 = trunc nuw i32 %302 to i16
+  %303 = udiv i16 %.lhs.trunc178, %.rhs.trunc170
+  %.zext180 = zext nneg i16 %303 to i32
+  %304 = shl i32 %.zext180, 24
+  %305 = shl nuw nsw i32 %.zext171, 16
+  %306 = and i32 %305, 16711680
+  %307 = or disjoint i32 %304, %306
+  %308 = shl nuw nsw i32 %.zext174, 8
+  %309 = and i32 %308, 65280
+  %310 = or disjoint i32 %307, %309
+  %311 = and i16 %291, 255
+  %312 = zext nneg i16 %311 to i32
+  %313 = or disjoint i32 %310, %312
+  tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %14, i32 noundef %11, i32 noundef %313)
+  br label %314
 
-312:                                              ; preds = %.thread148, %208
-  %313 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %104, i32 noundef %11)
-  %314 = icmp eq i32 %313, %2
-  br i1 %314, label %315, label %429
+314:                                              ; preds = %241, %208
+  %315 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %104, i32 noundef %11)
+  %316 = icmp eq i32 %315, %2
+  br i1 %316, label %317, label %433
 
-315:                                              ; preds = %312
-  %316 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144201, i32 noundef %.0204)
-  %317 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %318 = add nsw i32 %317, -1
-  %319 = icmp slt i32 %.0144201, %318
-  br i1 %319, label %320, label %323
+317:                                              ; preds = %314
+  %318 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144195, i32 noundef %.0198)
+  %319 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %320 = add nsw i32 %319, -1
+  %321 = icmp slt i32 %.0144195, %320
+  br i1 %321, label %322, label %325
 
-320:                                              ; preds = %315
-  %321 = add nuw nsw i32 %.0144201, 1
-  %322 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %321, i32 noundef %.0204)
-  br label %323
+322:                                              ; preds = %317
+  %323 = add nuw nsw i32 %.0144195, 1
+  %324 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %323, i32 noundef %.0198)
+  br label %325
 
-323:                                              ; preds = %315, %320
-  %324 = phi i32 [ %322, %320 ], [ %2, %315 ]
-  %325 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %326 = add nsw i32 %325, -1
-  %327 = icmp slt i32 %.0144201, %326
-  %328 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %329 = add nsw i32 %328, -1
-  %330 = icmp slt i32 %.0204, %329
-  br i1 %330, label %331, label %333
+325:                                              ; preds = %317, %322
+  %326 = phi i32 [ %324, %322 ], [ %2, %317 ]
+  %327 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %328 = add nsw i32 %327, -1
+  %329 = icmp slt i32 %.0144195, %328
+  %330 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %331 = add nsw i32 %330, -1
+  %332 = icmp slt i32 %.0198, %331
+  br i1 %332, label %333, label %335
 
-331:                                              ; preds = %323
-  %332 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144201, i32 noundef %12)
-  br label %333
+333:                                              ; preds = %325
+  %334 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0144195, i32 noundef %12)
+  br label %335
 
-333:                                              ; preds = %323, %331
-  %334 = phi i32 [ %332, %331 ], [ %2, %323 ]
-  %335 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %336 = add nsw i32 %335, -1
-  %337 = icmp slt i32 %.0204, %336
-  %338 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %339 = add nsw i32 %338, -1
-  %340 = icmp slt i32 %.0144201, %339
-  br i1 %340, label %341, label %348
+335:                                              ; preds = %325, %333
+  %336 = phi i32 [ %334, %333 ], [ %2, %325 ]
+  %337 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %338 = add nsw i32 %337, -1
+  %339 = icmp slt i32 %.0198, %338
+  %340 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %341 = add nsw i32 %340, -1
+  %342 = icmp slt i32 %.0144195, %341
+  br i1 %342, label %343, label %350
 
-341:                                              ; preds = %333
-  %342 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %343 = add nsw i32 %342, -1
-  %344 = icmp slt i32 %.0204, %343
-  br i1 %344, label %345, label %348
+343:                                              ; preds = %335
+  %344 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %345 = add nsw i32 %344, -1
+  %346 = icmp slt i32 %.0198, %345
+  br i1 %346, label %347, label %350
 
-345:                                              ; preds = %341
-  %346 = add nuw nsw i32 %.0144201, 1
-  %347 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %346, i32 noundef %12)
-  br label %348
+347:                                              ; preds = %343
+  %348 = add nuw nsw i32 %.0144195, 1
+  %349 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %348, i32 noundef %12)
+  br label %350
 
-348:                                              ; preds = %333, %341, %345
-  %349 = phi i32 [ %347, %345 ], [ %2, %341 ], [ %2, %333 ]
-  %350 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %351 = add nsw i32 %350, -1
-  %352 = icmp slt i32 %.0144201, %351
-  br i1 %352, label %353, label %.thread151
+350:                                              ; preds = %335, %343, %347
+  %351 = phi i32 [ %349, %347 ], [ %2, %343 ], [ %2, %335 ]
+  %352 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %353 = add nsw i32 %352, -1
+  %354 = icmp slt i32 %.0144195, %353
+  br i1 %354, label %355, label %360
 
-353:                                              ; preds = %348
-  %354 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %355 = add nsw i32 %354, -1
-  %356 = icmp slt i32 %.0204, %355
-  %cond.fr150 = freeze i1 %356
-  %spec.select198 = select i1 %cond.fr150, i32 16, i32 0
-  br label %.thread151
+355:                                              ; preds = %350
+  %356 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %357 = add nsw i32 %356, -1
+  %358 = icmp slt i32 %.0198, %357
+  %359 = select i1 %358, i32 16, i32 0
+  br label %360
 
-.thread151:                                       ; preds = %353, %348
-  %357 = phi i32 [ 0, %348 ], [ %spec.select198, %353 ]
-  %358 = lshr i32 %316, 16
-  %359 = and i32 %358, 255
-  %360 = lshr i32 %324, 16
-  %361 = and i32 %360, 255
-  %362 = lshr i32 %334, 16
+360:                                              ; preds = %355, %350
+  %361 = phi i32 [ 0, %350 ], [ %359, %355 ]
+  %362 = lshr i32 %318, 16
   %363 = and i32 %362, 255
-  %364 = lshr i32 %349, 16
+  %364 = lshr i32 %326, 16
   %365 = and i32 %364, 255
-  %366 = mul nuw nsw i32 %359, 144
-  %367 = select i1 %327, i32 48, i32 0
-  %368 = mul nuw nsw i32 %367, %361
-  %369 = add nuw nsw i32 %368, %366
-  %370 = select i1 %337, i32 48, i32 0
-  %371 = mul nuw nsw i32 %370, %363
-  %372 = add nuw nsw i32 %369, %371
-  %373 = mul nuw nsw i32 %357, %365
-  %374 = add nuw nsw i32 %372, %373
-  %375 = add nuw nsw i32 %367, 144
-  %376 = add nuw nsw i32 %375, %370
-  %377 = add nuw nsw i32 %376, %357
-  %.lhs.trunc186 = trunc nuw i32 %374 to i16
-  %.rhs.trunc187 = trunc nuw nsw i32 %377 to i16
-  %378 = udiv i16 %.lhs.trunc186, %.rhs.trunc187
-  %.zext188 = zext nneg i16 %378 to i32
-  %379 = lshr i32 %316, 8
-  %380 = and i32 %379, 255
-  %381 = lshr i32 %324, 8
-  %382 = and i32 %381, 255
-  %383 = lshr i32 %334, 8
+  %366 = lshr i32 %336, 16
+  %367 = and i32 %366, 255
+  %368 = lshr i32 %351, 16
+  %369 = and i32 %368, 255
+  %370 = mul nuw nsw i32 %363, 144
+  %371 = select i1 %329, i32 48, i32 0
+  %372 = mul nuw nsw i32 %371, %365
+  %373 = add nuw nsw i32 %372, %370
+  %374 = select i1 %339, i32 48, i32 0
+  %375 = mul nuw nsw i32 %374, %367
+  %376 = add nuw nsw i32 %373, %375
+  %377 = mul nuw nsw i32 %361, %369
+  %378 = add nuw nsw i32 %376, %377
+  %379 = add nuw nsw i32 %371, 144
+  %380 = add nuw nsw i32 %379, %374
+  %381 = add nuw nsw i32 %380, %361
+  %.lhs.trunc181 = trunc nuw i32 %378 to i16
+  %.rhs.trunc182 = trunc nuw nsw i32 %381 to i16
+  %382 = udiv i16 %.lhs.trunc181, %.rhs.trunc182
+  %.zext183 = zext nneg i16 %382 to i32
+  %383 = lshr i32 %318, 8
   %384 = and i32 %383, 255
-  %385 = lshr i32 %349, 8
+  %385 = lshr i32 %326, 8
   %386 = and i32 %385, 255
-  %387 = mul nuw nsw i32 %380, 144
-  %388 = mul nuw nsw i32 %367, %382
-  %389 = add nuw nsw i32 %388, %387
-  %390 = mul nuw nsw i32 %370, %384
-  %391 = add nuw nsw i32 %389, %390
-  %392 = mul nuw nsw i32 %357, %386
-  %393 = add nuw nsw i32 %391, %392
-  %.lhs.trunc189 = trunc nuw i32 %393 to i16
-  %394 = udiv i16 %.lhs.trunc189, %.rhs.trunc187
-  %.zext191 = zext nneg i16 %394 to i32
-  %395 = and i32 %316, 255
-  %396 = and i32 %324, 255
-  %397 = and i32 %334, 255
-  %398 = and i32 %349, 255
-  %399 = mul nuw nsw i32 %395, 144
-  %400 = mul nuw nsw i32 %367, %396
-  %401 = add nuw nsw i32 %400, %399
-  %402 = mul nuw nsw i32 %370, %397
-  %403 = add nuw nsw i32 %401, %402
-  %404 = mul nuw nsw i32 %357, %398
-  %405 = add nuw nsw i32 %403, %404
-  %.lhs.trunc192 = trunc nuw i32 %405 to i16
-  %406 = udiv i16 %.lhs.trunc192, %.rhs.trunc187
-  %407 = lshr i32 %316, 24
-  %408 = lshr i32 %324, 24
-  %409 = lshr i32 %334, 24
-  %410 = lshr i32 %349, 24
-  %411 = mul nuw nsw i32 %407, 144
-  %412 = mul nuw nsw i32 %367, %408
-  %413 = add nuw nsw i32 %412, %411
-  %414 = mul nuw nsw i32 %370, %409
-  %415 = add nuw nsw i32 %413, %414
-  %416 = mul nuw nsw i32 %357, %410
-  %417 = add nuw nsw i32 %415, %416
-  %.lhs.trunc195 = trunc nuw i32 %417 to i16
-  %418 = udiv i16 %.lhs.trunc195, %.rhs.trunc187
-  %.zext197 = zext nneg i16 %418 to i32
-  %419 = shl i32 %.zext197, 24
-  %420 = shl nuw nsw i32 %.zext188, 16
-  %421 = and i32 %420, 16711680
-  %422 = or disjoint i32 %419, %421
-  %423 = shl nuw nsw i32 %.zext191, 8
-  %424 = and i32 %423, 65280
-  %425 = or disjoint i32 %422, %424
-  %426 = and i16 %406, 255
-  %427 = zext nneg i16 %426 to i32
-  %428 = or disjoint i32 %425, %427
-  tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %104, i32 noundef %11, i32 noundef %428)
-  br label %429
+  %387 = lshr i32 %336, 8
+  %388 = and i32 %387, 255
+  %389 = lshr i32 %351, 8
+  %390 = and i32 %389, 255
+  %391 = mul nuw nsw i32 %384, 144
+  %392 = mul nuw nsw i32 %371, %386
+  %393 = add nuw nsw i32 %392, %391
+  %394 = mul nuw nsw i32 %374, %388
+  %395 = add nuw nsw i32 %393, %394
+  %396 = mul nuw nsw i32 %361, %390
+  %397 = add nuw nsw i32 %395, %396
+  %.lhs.trunc184 = trunc nuw i32 %397 to i16
+  %398 = udiv i16 %.lhs.trunc184, %.rhs.trunc182
+  %.zext186 = zext nneg i16 %398 to i32
+  %399 = and i32 %318, 255
+  %400 = and i32 %326, 255
+  %401 = and i32 %336, 255
+  %402 = and i32 %351, 255
+  %403 = mul nuw nsw i32 %399, 144
+  %404 = mul nuw nsw i32 %371, %400
+  %405 = add nuw nsw i32 %404, %403
+  %406 = mul nuw nsw i32 %374, %401
+  %407 = add nuw nsw i32 %405, %406
+  %408 = mul nuw nsw i32 %361, %402
+  %409 = add nuw nsw i32 %407, %408
+  %.lhs.trunc187 = trunc nuw i32 %409 to i16
+  %410 = udiv i16 %.lhs.trunc187, %.rhs.trunc182
+  %411 = lshr i32 %318, 24
+  %412 = lshr i32 %326, 24
+  %413 = lshr i32 %336, 24
+  %414 = lshr i32 %351, 24
+  %415 = mul nuw nsw i32 %411, 144
+  %416 = mul nuw nsw i32 %371, %412
+  %417 = add nuw nsw i32 %416, %415
+  %418 = mul nuw nsw i32 %374, %413
+  %419 = add nuw nsw i32 %417, %418
+  %420 = mul nuw nsw i32 %361, %414
+  %421 = add nuw nsw i32 %419, %420
+  %.lhs.trunc190 = trunc nuw i32 %421 to i16
+  %422 = udiv i16 %.lhs.trunc190, %.rhs.trunc182
+  %.zext192 = zext nneg i16 %422 to i32
+  %423 = shl i32 %.zext192, 24
+  %424 = shl nuw nsw i32 %.zext183, 16
+  %425 = and i32 %424, 16711680
+  %426 = or disjoint i32 %423, %425
+  %427 = shl nuw nsw i32 %.zext186, 8
+  %428 = and i32 %427, 65280
+  %429 = or disjoint i32 %426, %428
+  %430 = and i16 %410, 255
+  %431 = zext nneg i16 %430 to i32
+  %432 = or disjoint i32 %429, %431
+  tail call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %104, i32 noundef %11, i32 noundef %432)
+  br label %433
 
-429:                                              ; preds = %312, %.thread151
-  %430 = add nuw nsw i32 %.0144201, 1
-  %431 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %432 = icmp slt i32 %430, %431
-  br i1 %432, label %13, label %._crit_edge, !llvm.loop !64
+433:                                              ; preds = %314, %360
+  %434 = add nuw nsw i32 %.0144195, 1
+  %435 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %436 = icmp slt i32 %434, %435
+  br i1 %436, label %13, label %._crit_edge, !llvm.loop !64
 
-._crit_edge:                                      ; preds = %429, %.preheader.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %12, %429 ]
-  %433 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %434 = icmp slt i32 %.pre-phi, %433
-  br i1 %434, label %.preheader, label %._crit_edge205, !llvm.loop !65
+._crit_edge:                                      ; preds = %433, %.preheader.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %12, %433 ]
+  %437 = tail call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %438 = icmp slt i32 %.pre-phi, %437
+  br i1 %438, label %.preheader, label %._crit_edge199, !llvm.loop !65
 
-._crit_edge205:                                   ; preds = %._crit_edge, %3
+._crit_edge199:                                   ; preds = %._crit_edge, %3
   ret void
 }
 
@@ -12295,7 +12294,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit: ; preds = %_ZN12MeshDocument1
   %indvars.iv.next1628 = add nuw nsw i64 %indvars.iv1627, 1
   %595 = load ptr, ptr %.sroa.01355.01572, align 8
   %.not1492 = icmp eq ptr %595, %579
-  br i1 %.not1492, label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge, label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit
+  br i1 %.not1492, label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge.loopexit, label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit
 
 .loopexit:                                        ; preds = %849, %770
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -12307,41 +12306,44 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit: ; preds = %_ZN12MeshDocument1
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit726, %597, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit, %577, %._crit_edge1599, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge, %575, %._crit_edge1570
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit726, %599, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit, %577, %._crit_edge1599, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge, %575, %._crit_edge1570
   %lpad.loopexit.split-lp1505 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge: ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader
-  %.0508.lcssa = phi float [ 1.000000e+06, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader ], [ %.1509, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit ]
-  %.0506.lcssa = phi float [ -1.000000e+06, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader ], [ %.1507, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit ]
-  %596 = invoke ptr @_ZN12MeshDocument14rasterIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %4)
-          to label %597 unwind label %.loopexit.split-lp.loopexit.split-lp
+_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge.loopexit: ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit
+  %596 = fpext float %.1509 to double
+  %597 = fpext float %.1507 to double
+  br label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge
 
-597:                                              ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge
-  %598 = invoke ptr @_ZN12MeshDocument11rasterBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %596)
+_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge: ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge.loopexit, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader
+  %.0508.lcssa = phi double [ 1.000000e+06, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader ], [ %596, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge.loopexit ]
+  %.0506.lcssa = phi double [ -1.000000e+06, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader ], [ %597, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge.loopexit ]
+  %598 = invoke ptr @_ZN12MeshDocument14rasterIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %4)
+          to label %599 unwind label %.loopexit.split-lp.loopexit.split-lp
+
+599:                                              ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit._crit_edge
+  %600 = invoke ptr @_ZN12MeshDocument11rasterBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %598)
           to label %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit726 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZN12MeshDocument19RasterRangeIterator5beginEv.exit726: ; preds = %597
-  %599 = invoke ptr @_ZN12MeshDocument9rasterEndEv(ptr noundef nonnull align 8 dereferenceable(192) %596)
+_ZN12MeshDocument19RasterRangeIterator5beginEv.exit726: ; preds = %599
+  %601 = invoke ptr @_ZN12MeshDocument9rasterEndEv(ptr noundef nonnull align 8 dereferenceable(192) %598)
           to label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit727.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN12MeshDocument19RasterRangeIterator3endEv.exit727.preheader: ; preds = %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit726
-  %.not14931587 = icmp eq ptr %598, %599
+  %.not14931587 = icmp eq ptr %600, %601
   br i1 %.not14931587, label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit727._crit_edge, label %.lr.ph1592
 
 .lr.ph1592:                                       ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit727.preheader
-  %600 = fpext float %.0508.lcssa to double
-  %601 = fneg double %600
-  %602 = fpext float %.0506.lcssa to double
-  %603 = fmul double %600, 0xBFEFAE147AE147AE
-  %604 = call double @llvm.fmuladd.f64(double %602, double 1.010000e+00, double %603)
+  %602 = fneg double %.0508.lcssa
+  %603 = fmul double %.0508.lcssa, 0xBFEFAE147AE147AE
+  %604 = call double @llvm.fmuladd.f64(double %.0506.lcssa, double 1.010000e+00, double %603)
   br label %605
 
 605:                                              ; preds = %.lr.ph1592, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit727
   %.14611591 = phi ptr [ null, %.lr.ph1592 ], [ %.2, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit727 ]
   %.15041590 = phi i32 [ 0, %.lr.ph1592 ], [ %.2505, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit727 ]
-  %.sroa.01349.01588 = phi ptr [ %598, %.lr.ph1592 ], [ %971, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit727 ]
+  %.sroa.01349.01588 = phi ptr [ %600, %.lr.ph1592 ], [ %971, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit727 ]
   %606 = getelementptr inbounds i8, ptr %.sroa.01349.01588, i64 16
   %607 = getelementptr inbounds i8, ptr %.sroa.01349.01588, i64 168
   %608 = load i8, ptr %607, align 8
@@ -12930,7 +12932,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit848:            ; preds = %876, %_ZN3vcg6Point
 
 887:                                              ; preds = %886
   %888 = fpext float %827 to double
-  %889 = call double @llvm.fmuladd.f64(double %601, double 0x3FEFAE147AE147AE, double %888)
+  %889 = call double @llvm.fmuladd.f64(double %602, double 0x3FEFAE147AE147AE, double %888)
   %890 = fdiv double %889, %604
   %891 = fsub double 1.000000e+00, %890
   %892 = fptrunc double %891 to float
@@ -13064,7 +13066,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit727: ; preds = %605, %._crit_ed
   %.2505 = phi i32 [ %968, %970 ], [ %968, %._crit_edge1586 ], [ %.15041590, %610 ], [ %.15041590, %605 ]
   %.2 = phi ptr [ %626, %970 ], [ %626, %._crit_edge1586 ], [ %.14611591, %610 ], [ %.14611591, %605 ]
   %971 = load ptr, ptr %.sroa.01349.01588, align 8
-  %.not1493 = icmp eq ptr %971, %599
+  %.not1493 = icmp eq ptr %971, %601
   br i1 %.not1493, label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit727._crit_edge, label %605
 
 _ZN12MeshDocument19RasterRangeIterator3endEv.exit727._crit_edge: ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit727, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit727.preheader
@@ -14473,7 +14475,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit997: ; preds = %_ZN12MeshDocume
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1458 = load ptr, ptr %.sroa.01259.01549, align 8
   %.not1489 = icmp eq ptr %1458, %1442
-  br i1 %.not1489, label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge, label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997
+  br i1 %.not1489, label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge.loopexit, label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997
 
 .loopexit1507:                                    ; preds = %.invoke, %1861, %1899
   %lpad.loopexit1509 = landingpad { ptr, i32 }
@@ -14490,35 +14492,38 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit997: ; preds = %_ZN12MeshDocume
           cleanup
   br label %.loopexit.split-lp1508
 
-.loopexit.split-lp1508.loopexit.split-lp.loopexit.split-lp: ; preds = %._crit_edge1547, %1438, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge, %1922, %1924, %1925, %.critedge, %1957, %1958, %1960, %1440, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit995, %1460, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit999, %1926
+.loopexit.split-lp1508.loopexit.split-lp.loopexit.split-lp: ; preds = %._crit_edge1547, %1438, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge, %1922, %1924, %1925, %.critedge, %1957, %1958, %1960, %1440, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit995, %1462, %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit999, %1926
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp1508
 
-_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge: ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997.preheader
-  %.0546.lcssa = phi float [ -1.000000e+06, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997.preheader ], [ %.1547, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997 ]
-  %.0544.lcssa = phi float [ 1.000000e+06, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997.preheader ], [ %.1545, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997 ]
-  %1459 = invoke ptr @_ZN12MeshDocument14rasterIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %4)
-          to label %1460 unwind label %.loopexit.split-lp1508.loopexit.split-lp.loopexit.split-lp
+_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge.loopexit: ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997
+  %1459 = fpext float %.1545 to double
+  %1460 = fpext float %.1547 to double
+  br label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge
 
-1460:                                             ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge
-  %1461 = invoke ptr @_ZN12MeshDocument11rasterBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %1459)
+_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge: ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge.loopexit, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997.preheader
+  %.0546.lcssa = phi double [ -1.000000e+06, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997.preheader ], [ %1460, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge.loopexit ]
+  %.0544.lcssa = phi double [ 1.000000e+06, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997.preheader ], [ %1459, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge.loopexit ]
+  %1461 = invoke ptr @_ZN12MeshDocument14rasterIteratorEv(ptr noundef nonnull align 8 dereferenceable(192) %4)
+          to label %1462 unwind label %.loopexit.split-lp1508.loopexit.split-lp.loopexit.split-lp
+
+1462:                                             ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit997._crit_edge
+  %1463 = invoke ptr @_ZN12MeshDocument11rasterBeginEv(ptr noundef nonnull align 8 dereferenceable(192) %1461)
           to label %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit999 unwind label %.loopexit.split-lp1508.loopexit.split-lp.loopexit.split-lp
 
-_ZN12MeshDocument19RasterRangeIterator5beginEv.exit999: ; preds = %1460
-  %1462 = invoke ptr @_ZN12MeshDocument9rasterEndEv(ptr noundef nonnull align 8 dereferenceable(192) %1459)
+_ZN12MeshDocument19RasterRangeIterator5beginEv.exit999: ; preds = %1462
+  %1464 = invoke ptr @_ZN12MeshDocument9rasterEndEv(ptr noundef nonnull align 8 dereferenceable(192) %1461)
           to label %_ZN12MeshDocument19RasterRangeIterator3endEv.exit1001.preheader unwind label %.loopexit.split-lp1508.loopexit.split-lp.loopexit.split-lp
 
 _ZN12MeshDocument19RasterRangeIterator3endEv.exit1001.preheader: ; preds = %_ZN12MeshDocument19RasterRangeIterator5beginEv.exit999
-  %.not14901557 = icmp eq ptr %1461, %1462
+  %.not14901557 = icmp eq ptr %1463, %1464
   br i1 %.not14901557, label %.preheader, label %.lr.ph1562
 
 .lr.ph1562:                                       ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit1001.preheader
-  %1463 = fpext float %.0544.lcssa to double
-  %1464 = fneg double %1463
-  %1465 = fpext float %.0546.lcssa to double
-  %1466 = fmul double %1463, 0xBFEFAE147AE147AE
-  %1467 = call double @llvm.fmuladd.f64(double %1465, double 1.010000e+00, double %1466)
+  %1465 = fneg double %.0544.lcssa
+  %1466 = fmul double %.0544.lcssa, 0xBFEFAE147AE147AE
+  %1467 = call double @llvm.fmuladd.f64(double %.0546.lcssa, double 1.010000e+00, double %1466)
   br label %1470
 
 .preheader:                                       ; preds = %_ZN12MeshDocument19RasterRangeIterator3endEv.exit1001, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit1001.preheader
@@ -14530,7 +14535,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit1001.preheader: ; preds = %_ZN1
 1470:                                             ; preds = %.lr.ph1562, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit1001
   %.31561 = phi ptr [ null, %.lr.ph1562 ], [ %.4, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit1001 ]
   %.15491560 = phi i32 [ 0, %.lr.ph1562 ], [ %.2550, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit1001 ]
-  %.sroa.01253.01558 = phi ptr [ %1461, %.lr.ph1562 ], [ %1855, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit1001 ]
+  %.sroa.01253.01558 = phi ptr [ %1463, %.lr.ph1562 ], [ %1855, %_ZN12MeshDocument19RasterRangeIterator3endEv.exit1001 ]
   %1471 = getelementptr inbounds i8, ptr %.sroa.01253.01558, i64 16
   %1472 = getelementptr inbounds i8, ptr %.sroa.01253.01558, i64 168
   %1473 = load i8, ptr %1472, align 8
@@ -15116,7 +15121,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit1132:           ; preds = %1742, %1728
 
 1753:                                             ; preds = %1752
   %1754 = fpext float %1687 to double
-  %1755 = call double @llvm.fmuladd.f64(double %1464, double 0x3FEFAE147AE147AE, double %1754)
+  %1755 = call double @llvm.fmuladd.f64(double %1465, double 0x3FEFAE147AE147AE, double %1754)
   %1756 = fdiv double %1755, %1467
   %1757 = fsub double 1.000000e+00, %1756
   %1758 = fptrunc double %1757 to float
@@ -15267,7 +15272,7 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit1001: ; preds = %1470, %._crit_
   %.2550 = phi i32 [ %1852, %1854 ], [ %1852, %._crit_edge ], [ %.15491560, %1475 ], [ %.15491560, %1470 ]
   %.4 = phi ptr [ %1491, %1854 ], [ %1491, %._crit_edge ], [ %.31561, %1475 ], [ %.31561, %1470 ]
   %1855 = load ptr, ptr %.sroa.01253.01558, align 8
-  %.not1490 = icmp eq ptr %1855, %1462
+  %.not1490 = icmp eq ptr %1855, %1464
   br i1 %.not1490, label %.preheader, label %1470
 
 .lr.ph1564:                                       ; preds = %.preheader, %1909

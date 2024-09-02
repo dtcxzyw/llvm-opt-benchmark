@@ -58,7 +58,7 @@ define ptr @Io_ReadBench(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %4 = alloca [1000 x i8], align 16
   %5 = tail call ptr @Extra_FileReaderAlloc(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %463, label %7
+  br i1 %6, label %415, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3)
@@ -86,10 +86,10 @@ define ptr @Io_ReadBench(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %19 = getelementptr inbounds i8, ptr %9, i64 256
   br label %20
 
-20:                                               ; preds = %418, %.lr.ph312.i
-  %21 = phi ptr [ %13, %.lr.ph312.i ], [ %419, %418 ]
-  %22 = phi ptr [ %18, %.lr.ph312.i ], [ %420, %418 ]
-  %.0196311.i = phi i32 [ 0, %.lr.ph312.i ], [ %.1.i, %418 ]
+20:                                               ; preds = %370, %.lr.ph312.i
+  %21 = phi ptr [ %13, %.lr.ph312.i ], [ %371, %370 ]
+  %22 = phi ptr [ %18, %.lr.ph312.i ], [ %372, %370 ]
+  %.0196311.i = phi i32 [ 0, %.lr.ph312.i ], [ %.1.i, %370 ]
   %23 = call i32 @Extra_FileReaderGetCurPosition(ptr noundef nonnull %5) #12
   br i1 %.not.i.i, label %27, label %24
 
@@ -134,7 +134,7 @@ Vec_StrFree.exit.i:                               ; preds = %34, %31
   %42 = getelementptr inbounds i8, ptr %37, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr @Io_ReadCreatePi(ptr noundef %9, ptr noundef %43) #12
-  br label %418
+  br label %370
 
 45:                                               ; preds = %35
   %46 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.12, i64 noundef 5) #14
@@ -145,912 +145,847 @@ Vec_StrFree.exit.i:                               ; preds = %34, %31
 
 50:                                               ; preds = %45
   %51 = call ptr @Io_ReadCreatePo(ptr noundef %9, ptr noundef %49) #12
-  br label %418
+  br label %370
 
 sub_0.i:                                          ; preds = %45
   %52 = load i8, ptr %49, align 1
-  %53 = zext i8 %52 to i32
-  %54 = add nsw i32 %53, -68
-  %.not313.i = icmp eq i32 %54, 0
-  br i1 %.not313.i, label %sub_1.i, label %.tail.i
+  %.not313.i = icmp eq i8 %52, 68
+  br i1 %.not313.i, label %sub_1.i, label %.tail.thread.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %53 = getelementptr inbounds i8, ptr %49, i64 1
+  %54 = load i8, ptr %53, align 1
+  %.not314.i = icmp eq i8 %54, 70
+  br i1 %.not314.i, label %.tail.i, label %.tail.thread.i
+
+.tail.i:                                          ; preds = %sub_1.i
+  %55 = getelementptr inbounds i8, ptr %49, i64 2
   %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = add nsw i32 %57, -70
-  %.not314.i = icmp eq i32 %58, 0
-  br i1 %.not314.i, label %sub_2.i, label %.tail.i
+  %57 = icmp eq i8 %56, 70
+  br i1 %57, label %58, label %.tail.thread.i
 
-sub_2.i:                                          ; preds = %sub_1.i
-  %59 = getelementptr inbounds i8, ptr %49, i64 2
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
-  %62 = add nsw i32 %61, -70
-  br label %.tail.i
+58:                                               ; preds = %.tail.i
+  %59 = icmp eq i32 %29, 6
+  br i1 %59, label %60, label %75
 
-.tail.i:                                          ; preds = %sub_2.i, %sub_1.i, %sub_0.i
-  %63 = phi i32 [ %54, %sub_0.i ], [ %58, %sub_1.i ], [ %62, %sub_2.i ]
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %92
-
-65:                                               ; preds = %.tail.i
-  %66 = icmp eq i32 %29, 6
-  br i1 %66, label %67, label %82
-
-67:                                               ; preds = %65
-  %68 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %9, ptr noundef %38) #12
-  %69 = call ptr @Abc_NtkCreateObj(ptr noundef %9, i32 noundef 2) #12
-  call void @Abc_ObjAddFanin(ptr noundef %68, ptr noundef %69) #12
+60:                                               ; preds = %58
+  %61 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %9, ptr noundef %38) #12
+  %62 = call ptr @Abc_NtkCreateObj(ptr noundef %9, i32 noundef 2) #12
+  call void @Abc_ObjAddFanin(ptr noundef %61, ptr noundef %62) #12
   %.val224308.i = load i32, ptr %28, align 4
-  %70 = icmp sgt i32 %.val224308.i, 2
-  br i1 %70, label %.lr.ph.i, label %.critedge.i
+  %63 = icmp sgt i32 %.val224308.i, 2
+  br i1 %63, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %67, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %67 ]
+.lr.ph.i:                                         ; preds = %60, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %60 ]
   %.val225.i = load ptr, ptr %36, align 8
-  %71 = getelementptr inbounds ptr, ptr %.val225.i, i64 %indvars.iv.i
-  %72 = load ptr, ptr %71, align 8
-  %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %38, ptr noundef %72) #12
-  %74 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %9, ptr noundef %72) #12
-  %75 = call ptr @Abc_NtkCreateNodeBuf(ptr noundef %9, ptr noundef %74) #12
-  %76 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %9, ptr noundef nonnull %4) #12
-  call void @Abc_ObjAddFanin(ptr noundef %76, ptr noundef %75) #12
-  %77 = call ptr @Abc_NtkCreateObj(ptr noundef %9, i32 noundef 3) #12
-  call void @Abc_ObjAddFanin(ptr noundef %77, ptr noundef %76) #12
+  %64 = getelementptr inbounds ptr, ptr %.val225.i, i64 %indvars.iv.i
+  %65 = load ptr, ptr %64, align 8
+  %66 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %38, ptr noundef %65) #12
+  %67 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %9, ptr noundef %65) #12
+  %68 = call ptr @Abc_NtkCreateNodeBuf(ptr noundef %9, ptr noundef %67) #12
+  %69 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %9, ptr noundef nonnull %4) #12
+  call void @Abc_ObjAddFanin(ptr noundef %69, ptr noundef %68) #12
+  %70 = call ptr @Abc_NtkCreateObj(ptr noundef %9, i32 noundef 3) #12
+  call void @Abc_ObjAddFanin(ptr noundef %70, ptr noundef %69) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val224.i = load i32, ptr %28, align 4
-  %78 = sext i32 %.val224.i to i64
-  %79 = icmp slt i64 %indvars.iv.next.i, %78
-  br i1 %79, label %.lr.ph.i, label %.critedge.i, !llvm.loop !4
+  %71 = sext i32 %.val224.i to i64
+  %72 = icmp slt i64 %indvars.iv.next.i, %71
+  br i1 %72, label %.lr.ph.i, label %.critedge.i, !llvm.loop !4
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %67
-  %80 = load i32, ptr %10, align 8
-  %81 = add nsw i32 %80, 1
-  store i32 %81, ptr %10, align 8
-  br label %418
+.critedge.i:                                      ; preds = %.lr.ph.i, %60
+  %73 = load i32, ptr %10, align 8
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %10, align 8
+  br label %370
 
-82:                                               ; preds = %65
-  %83 = getelementptr inbounds i8, ptr %37, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = call ptr @Io_ReadCreateLatch(ptr noundef %9, ptr noundef %84, ptr noundef %38) #12
-  %86 = getelementptr inbounds i8, ptr %49, i64 3
-  %87 = load i8, ptr %86, align 1
-  %88 = getelementptr inbounds i8, ptr %85, i64 56
-  switch i8 %87, label %91 [
-    i8 48, label %89
-    i8 49, label %90
+75:                                               ; preds = %58
+  %76 = getelementptr inbounds i8, ptr %37, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = call ptr @Io_ReadCreateLatch(ptr noundef %9, ptr noundef %77, ptr noundef %38) #12
+  %79 = getelementptr inbounds i8, ptr %49, i64 3
+  %80 = load i8, ptr %79, align 1
+  %81 = getelementptr inbounds i8, ptr %78, i64 56
+  switch i8 %80, label %84 [
+    i8 48, label %82
+    i8 49, label %83
   ]
 
-89:                                               ; preds = %82
-  store ptr inttoptr (i64 1 to ptr), ptr %88, align 8
-  br label %418
+82:                                               ; preds = %75
+  store ptr inttoptr (i64 1 to ptr), ptr %81, align 8
+  br label %370
 
-90:                                               ; preds = %82
-  store ptr inttoptr (i64 2 to ptr), ptr %88, align 8
-  br label %418
+83:                                               ; preds = %75
+  store ptr inttoptr (i64 2 to ptr), ptr %81, align 8
+  br label %370
 
-91:                                               ; preds = %82
-  store ptr inttoptr (i64 3 to ptr), ptr %88, align 8
-  br label %418
+84:                                               ; preds = %75
+  store ptr inttoptr (i64 3 to ptr), ptr %81, align 8
+  br label %370
 
-92:                                               ; preds = %.tail.i
-  %93 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.15) #14
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %254
+.tail.thread.i:                                   ; preds = %.tail.i, %sub_1.i, %sub_0.i
+  %85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.15) #14
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %241
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %37, i64 24
-  %97 = add nsw i32 %29, -3
-  %98 = icmp sgt i32 %29, 18
-  br i1 %98, label %99, label %sub_0257.i
+87:                                               ; preds = %.tail.thread.i
+  %88 = getelementptr inbounds i8, ptr %37, i64 24
+  %89 = add nsw i32 %29, -3
+  %90 = icmp sgt i32 %29, 18
+  br i1 %90, label %91, label %sub_0257.i
 
-99:                                               ; preds = %95
-  %100 = call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %5) #12
-  %101 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %100, i32 noundef %97)
+91:                                               ; preds = %87
+  %92 = call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %5) #12
+  %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %92, i32 noundef %89)
   %.not.i232.i = icmp eq ptr %21, null
-  br i1 %.not.i232.i, label %Vec_StrFree.exit233.i, label %102
+  br i1 %.not.i232.i, label %Vec_StrFree.exit233.i, label %94
 
-102:                                              ; preds = %99
+94:                                               ; preds = %91
   call void @free(ptr noundef nonnull %21) #12
   br label %Vec_StrFree.exit233.i
 
-Vec_StrFree.exit233.i:                            ; preds = %102, %99
+Vec_StrFree.exit233.i:                            ; preds = %94, %91
   call void @free(ptr noundef nonnull %11) #12
   br label %Io_ReadBenchNetwork.exit.thread
 
-sub_0257.i:                                       ; preds = %95
-  %103 = getelementptr inbounds i8, ptr %37, i64 16
-  %104 = load ptr, ptr %103, align 8
-  %105 = load i8, ptr %104, align 1
-  %106 = zext i8 %105 to i32
-  %107 = add nsw i32 %106, -48
-  %.not327.i = icmp eq i32 %107, 0
-  br i1 %.not327.i, label %sub_1258.i, label %.tail256.i
+sub_0257.i:                                       ; preds = %87
+  %95 = getelementptr inbounds i8, ptr %37, i64 16
+  %96 = load ptr, ptr %95, align 8
+  %97 = load i8, ptr %96, align 1
+  %.not327.i = icmp eq i8 %97, 48
+  br i1 %.not327.i, label %.tail256.i, label %.tail256.thread.i
 
-sub_1258.i:                                       ; preds = %sub_0257.i
-  %108 = getelementptr inbounds i8, ptr %104, i64 1
-  %109 = load i8, ptr %108, align 1
-  %110 = zext i8 %109 to i32
-  %111 = add nsw i32 %110, -120
-  br label %.tail256.i
+.tail256.i:                                       ; preds = %sub_0257.i
+  %98 = getelementptr inbounds i8, ptr %96, i64 1
+  %99 = load i8, ptr %98, align 1
+  %100 = icmp eq i8 %99, 120
+  br i1 %100, label %104, label %.tail256.thread.i
 
-.tail256.i:                                       ; preds = %sub_1258.i, %sub_0257.i
-  %112 = phi i32 [ %107, %sub_0257.i ], [ %111, %sub_1258.i ]
-  %.not220.i = icmp eq i32 %112, 0
-  br i1 %.not220.i, label %117, label %113
-
-113:                                              ; preds = %.tail256.i
-  %114 = call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %5) #12
-  %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %114, ptr noundef nonnull %104)
+.tail256.thread.i:                                ; preds = %.tail256.i, %sub_0257.i
+  %101 = call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %5) #12
+  %102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %101, ptr noundef nonnull %96)
   %.not.i234.i = icmp eq ptr %21, null
-  br i1 %.not.i234.i, label %Vec_StrFree.exit235.i, label %116
+  br i1 %.not.i234.i, label %Vec_StrFree.exit235.i, label %103
 
-116:                                              ; preds = %113
+103:                                              ; preds = %.tail256.thread.i
   call void @free(ptr noundef nonnull %21) #12
   br label %Vec_StrFree.exit235.i
 
-Vec_StrFree.exit235.i:                            ; preds = %116, %113
+Vec_StrFree.exit235.i:                            ; preds = %103, %.tail256.thread.i
   call void @free(ptr noundef nonnull %11) #12
   br label %Io_ReadBenchNetwork.exit.thread
 
-117:                                              ; preds = %.tail256.i
-  %118 = getelementptr inbounds i8, ptr %104, i64 2
-  %119 = shl nuw nsw i32 1, %97
-  %120 = lshr i32 %119, 2
-  %121 = icmp ult i32 %97, 2
-  %spec.store.select.i = select i1 %121, i32 1, i32 %120
-  %122 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %118) #14
-  %123 = zext nneg i32 %spec.store.select.i to i64
-  %124 = icmp ult i64 %122, %123
-  br i1 %124, label %125, label %198
+104:                                              ; preds = %.tail256.i
+  %105 = getelementptr inbounds i8, ptr %96, i64 2
+  %106 = shl nuw nsw i32 1, %89
+  %107 = lshr i32 %106, 2
+  %108 = icmp ult i32 %89, 2
+  %spec.store.select.i = select i1 %108, i32 1, i32 %107
+  %109 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #14
+  %110 = zext nneg i32 %spec.store.select.i to i64
+  %111 = icmp ult i64 %109, %110
+  br i1 %111, label %112, label %185
 
-125:                                              ; preds = %117
-  %126 = trunc i64 %122 to i32
-  %127 = sub nsw i32 %spec.store.select.i, %126
-  %128 = load i32, ptr %11, align 8
-  %.not.i.i.i = icmp slt i32 %128, %127
-  br i1 %.not.i.i.i, label %129, label %Vec_StrGrow.exit.i.i
+112:                                              ; preds = %104
+  %113 = trunc i64 %109 to i32
+  %114 = sub nsw i32 %spec.store.select.i, %113
+  %115 = load i32, ptr %11, align 8
+  %.not.i.i.i = icmp slt i32 %115, %114
+  br i1 %.not.i.i.i, label %116, label %Vec_StrGrow.exit.i.i
 
-129:                                              ; preds = %125
+116:                                              ; preds = %112
   %.not9.i.i.i = icmp eq ptr %21, null
-  %130 = sext i32 %127 to i64
-  br i1 %.not9.i.i.i, label %133, label %131
+  %117 = sext i32 %114 to i64
+  br i1 %.not9.i.i.i, label %120, label %118
 
-131:                                              ; preds = %129
-  %132 = call ptr @realloc(ptr noundef nonnull %21, i64 noundef %130) #15
-  br label %135
+118:                                              ; preds = %116
+  %119 = call ptr @realloc(ptr noundef nonnull %21, i64 noundef %117) #15
+  br label %122
 
-133:                                              ; preds = %129
-  %134 = call noalias ptr @malloc(i64 noundef %130) #13
-  br label %135
+120:                                              ; preds = %116
+  %121 = call noalias ptr @malloc(i64 noundef %117) #13
+  br label %122
 
-135:                                              ; preds = %133, %131
-  %136 = phi ptr [ %132, %131 ], [ %134, %133 ]
-  store ptr %136, ptr %14, align 8
-  store i32 %127, ptr %11, align 8
+122:                                              ; preds = %120, %118
+  %123 = phi ptr [ %119, %118 ], [ %121, %120 ]
+  store ptr %123, ptr %14, align 8
+  store i32 %114, ptr %11, align 8
   br label %Vec_StrGrow.exit.i.i
 
-Vec_StrGrow.exit.i.i:                             ; preds = %135, %125
-  %137 = phi ptr [ %136, %135 ], [ %21, %125 ]
-  store i32 %127, ptr %12, align 4
-  %138 = icmp sgt i32 %127, 0
-  br i1 %138, label %.lr.ph.i.preheader.i, label %Vec_StrFill.exit.i
+Vec_StrGrow.exit.i.i:                             ; preds = %122, %112
+  %124 = phi ptr [ %123, %122 ], [ %21, %112 ]
+  store i32 %114, ptr %12, align 4
+  %125 = icmp sgt i32 %114, 0
+  br i1 %125, label %.lr.ph.i.preheader.i, label %Vec_StrFill.exit.i
 
 .lr.ph.i.preheader.i:                             ; preds = %Vec_StrGrow.exit.i.i
-  %139 = zext nneg i32 %127 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %137, i8 48, i64 %139, i1 false)
+  %126 = zext nneg i32 %114 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %124, i8 48, i64 %126, i1 false)
   br label %Vec_StrFill.exit.i
 
 Vec_StrFill.exit.i:                               ; preds = %.lr.ph.i.preheader.i, %Vec_StrGrow.exit.i.i
-  %140 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %118) #14
-  %141 = trunc i64 %140 to i32
-  %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.lr.ph.i236.i, label %Vec_StrPrintStr.exit.i
+  %127 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %105) #14
+  %128 = trunc i64 %127 to i32
+  %129 = icmp sgt i32 %128, 0
+  br i1 %129, label %.lr.ph.i236.i, label %Vec_StrPrintStr.exit.i
 
 .lr.ph.i236.i:                                    ; preds = %Vec_StrFill.exit.i
-  %wide.trip.count.i.i = and i64 %140, 2147483647
-  br label %143
+  %wide.trip.count.i.i = and i64 %127, 2147483647
+  br label %130
 
-143:                                              ; preds = %Vec_StrPush.exit.i.i, %.lr.ph.i236.i
+130:                                              ; preds = %Vec_StrPush.exit.i.i, %.lr.ph.i236.i
   %indvars.iv.i237.i = phi i64 [ 0, %.lr.ph.i236.i ], [ %indvars.iv.next.i238.i, %Vec_StrPush.exit.i.i ]
-  %144 = getelementptr inbounds i8, ptr %118, i64 %indvars.iv.i237.i
-  %145 = load i8, ptr %144, align 1
-  %146 = load i32, ptr %12, align 4
-  %147 = load i32, ptr %11, align 8
-  %148 = icmp eq i32 %146, %147
-  br i1 %148, label %149, label %.Vec_StrGrow.exit10_crit_edge.i.i.i
+  %131 = getelementptr inbounds i8, ptr %105, i64 %indvars.iv.i237.i
+  %132 = load i8, ptr %131, align 1
+  %133 = load i32, ptr %12, align 4
+  %134 = load i32, ptr %11, align 8
+  %135 = icmp eq i32 %133, %134
+  br i1 %135, label %136, label %.Vec_StrGrow.exit10_crit_edge.i.i.i
 
-.Vec_StrGrow.exit10_crit_edge.i.i.i:              ; preds = %143
+.Vec_StrGrow.exit10_crit_edge.i.i.i:              ; preds = %130
   %.pre.i.i.i = load ptr, ptr %14, align 8
   br label %Vec_StrPush.exit.i.i
 
-149:                                              ; preds = %143
-  %150 = icmp slt i32 %146, 16
-  br i1 %150, label %151, label %158
+136:                                              ; preds = %130
+  %137 = icmp slt i32 %133, 16
+  br i1 %137, label %138, label %145
 
-151:                                              ; preds = %149
-  %152 = load ptr, ptr %14, align 8
-  %.not9.i.i.i.i = icmp eq ptr %152, null
-  br i1 %.not9.i.i.i.i, label %155, label %153
+138:                                              ; preds = %136
+  %139 = load ptr, ptr %14, align 8
+  %.not9.i.i.i.i = icmp eq ptr %139, null
+  br i1 %.not9.i.i.i.i, label %142, label %140
 
-153:                                              ; preds = %151
-  %154 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %152, i64 noundef 16) #15
+140:                                              ; preds = %138
+  %141 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %139, i64 noundef 16) #15
   br label %Vec_StrGrow.exit.i.i.i
 
-155:                                              ; preds = %151
-  %156 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
+142:                                              ; preds = %138
+  %143 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   br label %Vec_StrGrow.exit.i.i.i
 
-Vec_StrGrow.exit.i.i.i:                           ; preds = %155, %153
-  %157 = phi ptr [ %154, %153 ], [ %156, %155 ]
-  store ptr %157, ptr %14, align 8
+Vec_StrGrow.exit.i.i.i:                           ; preds = %142, %140
+  %144 = phi ptr [ %141, %140 ], [ %143, %142 ]
+  store ptr %144, ptr %14, align 8
   store i32 16, ptr %11, align 8
   br label %Vec_StrPush.exit.i.i
 
-158:                                              ; preds = %149
-  %159 = shl nuw nsw i32 %146, 1
-  %160 = load ptr, ptr %14, align 8
-  %.not9.i9.i.i.i = icmp eq ptr %160, null
-  %161 = zext nneg i32 %159 to i64
-  br i1 %.not9.i9.i.i.i, label %164, label %162
+145:                                              ; preds = %136
+  %146 = shl nuw nsw i32 %133, 1
+  %147 = load ptr, ptr %14, align 8
+  %.not9.i9.i.i.i = icmp eq ptr %147, null
+  %148 = zext nneg i32 %146 to i64
+  br i1 %.not9.i9.i.i.i, label %151, label %149
 
-162:                                              ; preds = %158
-  %163 = call ptr @realloc(ptr noundef nonnull %160, i64 noundef %161) #15
-  br label %166
+149:                                              ; preds = %145
+  %150 = call ptr @realloc(ptr noundef nonnull %147, i64 noundef %148) #15
+  br label %153
 
-164:                                              ; preds = %158
-  %165 = call noalias ptr @malloc(i64 noundef %161) #13
-  br label %166
+151:                                              ; preds = %145
+  %152 = call noalias ptr @malloc(i64 noundef %148) #13
+  br label %153
 
-166:                                              ; preds = %164, %162
-  %167 = phi ptr [ %163, %162 ], [ %165, %164 ]
-  store ptr %167, ptr %14, align 8
-  store i32 %159, ptr %11, align 8
+153:                                              ; preds = %151, %149
+  %154 = phi ptr [ %150, %149 ], [ %152, %151 ]
+  store ptr %154, ptr %14, align 8
+  store i32 %146, ptr %11, align 8
   br label %Vec_StrPush.exit.i.i
 
-Vec_StrPush.exit.i.i:                             ; preds = %166, %Vec_StrGrow.exit.i.i.i, %.Vec_StrGrow.exit10_crit_edge.i.i.i
-  %168 = phi ptr [ %.pre.i.i.i, %.Vec_StrGrow.exit10_crit_edge.i.i.i ], [ %167, %166 ], [ %157, %Vec_StrGrow.exit.i.i.i ]
-  %169 = add nsw i32 %146, 1
-  store i32 %169, ptr %12, align 4
-  %170 = sext i32 %146 to i64
-  %171 = getelementptr inbounds i8, ptr %168, i64 %170
-  store i8 %145, ptr %171, align 1
+Vec_StrPush.exit.i.i:                             ; preds = %153, %Vec_StrGrow.exit.i.i.i, %.Vec_StrGrow.exit10_crit_edge.i.i.i
+  %155 = phi ptr [ %.pre.i.i.i, %.Vec_StrGrow.exit10_crit_edge.i.i.i ], [ %154, %153 ], [ %144, %Vec_StrGrow.exit.i.i.i ]
+  %156 = add nsw i32 %133, 1
+  store i32 %156, ptr %12, align 4
+  %157 = sext i32 %133 to i64
+  %158 = getelementptr inbounds i8, ptr %155, i64 %157
+  store i8 %132, ptr %158, align 1
   %indvars.iv.next.i238.i = add nuw nsw i64 %indvars.iv.i237.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i238.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Vec_StrPrintStr.exit.i, label %143, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %Vec_StrPrintStr.exit.i, label %130, !llvm.loop !6
 
 Vec_StrPrintStr.exit.i:                           ; preds = %Vec_StrPush.exit.i.i, %Vec_StrFill.exit.i
-  %172 = load i32, ptr %12, align 4
-  %173 = load i32, ptr %11, align 8
-  %174 = icmp eq i32 %172, %173
-  br i1 %174, label %175, label %.Vec_StrGrow.exit10_crit_edge.i.i
+  %159 = load i32, ptr %12, align 4
+  %160 = load i32, ptr %11, align 8
+  %161 = icmp eq i32 %159, %160
+  br i1 %161, label %162, label %.Vec_StrGrow.exit10_crit_edge.i.i
 
 .Vec_StrGrow.exit10_crit_edge.i.i:                ; preds = %Vec_StrPrintStr.exit.i
   %.pre.i.i = load ptr, ptr %14, align 8
   br label %Vec_StrPush.exit.i
 
-175:                                              ; preds = %Vec_StrPrintStr.exit.i
-  %176 = icmp slt i32 %172, 16
-  br i1 %176, label %177, label %184
+162:                                              ; preds = %Vec_StrPrintStr.exit.i
+  %163 = icmp slt i32 %159, 16
+  br i1 %163, label %164, label %171
 
-177:                                              ; preds = %175
-  %178 = load ptr, ptr %14, align 8
-  %.not9.i.i239.i = icmp eq ptr %178, null
-  br i1 %.not9.i.i239.i, label %181, label %179
+164:                                              ; preds = %162
+  %165 = load ptr, ptr %14, align 8
+  %.not9.i.i239.i = icmp eq ptr %165, null
+  br i1 %.not9.i.i239.i, label %168, label %166
 
-179:                                              ; preds = %177
-  %180 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %178, i64 noundef 16) #15
+166:                                              ; preds = %164
+  %167 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %165, i64 noundef 16) #15
   br label %Vec_StrGrow.exit.i240.i
 
-181:                                              ; preds = %177
-  %182 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
+168:                                              ; preds = %164
+  %169 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   br label %Vec_StrGrow.exit.i240.i
 
-Vec_StrGrow.exit.i240.i:                          ; preds = %181, %179
-  %183 = phi ptr [ %180, %179 ], [ %182, %181 ]
-  store ptr %183, ptr %14, align 8
+Vec_StrGrow.exit.i240.i:                          ; preds = %168, %166
+  %170 = phi ptr [ %167, %166 ], [ %169, %168 ]
+  store ptr %170, ptr %14, align 8
   store i32 16, ptr %11, align 8
   br label %Vec_StrPush.exit.i
 
-184:                                              ; preds = %175
-  %185 = shl nuw nsw i32 %172, 1
-  %186 = load ptr, ptr %14, align 8
-  %.not9.i9.i.i = icmp eq ptr %186, null
-  %187 = zext nneg i32 %185 to i64
-  br i1 %.not9.i9.i.i, label %190, label %188
+171:                                              ; preds = %162
+  %172 = shl nuw nsw i32 %159, 1
+  %173 = load ptr, ptr %14, align 8
+  %.not9.i9.i.i = icmp eq ptr %173, null
+  %174 = zext nneg i32 %172 to i64
+  br i1 %.not9.i9.i.i, label %177, label %175
 
-188:                                              ; preds = %184
-  %189 = call ptr @realloc(ptr noundef nonnull %186, i64 noundef %187) #15
-  br label %192
+175:                                              ; preds = %171
+  %176 = call ptr @realloc(ptr noundef nonnull %173, i64 noundef %174) #15
+  br label %179
 
-190:                                              ; preds = %184
-  %191 = call noalias ptr @malloc(i64 noundef %187) #13
-  br label %192
+177:                                              ; preds = %171
+  %178 = call noalias ptr @malloc(i64 noundef %174) #13
+  br label %179
 
-192:                                              ; preds = %190, %188
-  %193 = phi ptr [ %189, %188 ], [ %191, %190 ]
-  store ptr %193, ptr %14, align 8
-  store i32 %185, ptr %11, align 8
+179:                                              ; preds = %177, %175
+  %180 = phi ptr [ %176, %175 ], [ %178, %177 ]
+  store ptr %180, ptr %14, align 8
+  store i32 %172, ptr %11, align 8
   br label %Vec_StrPush.exit.i
 
-Vec_StrPush.exit.i:                               ; preds = %192, %Vec_StrGrow.exit.i240.i, %.Vec_StrGrow.exit10_crit_edge.i.i
-  %194 = phi ptr [ %.pre.i.i, %.Vec_StrGrow.exit10_crit_edge.i.i ], [ %193, %192 ], [ %183, %Vec_StrGrow.exit.i240.i ]
-  %195 = add nsw i32 %172, 1
-  store i32 %195, ptr %12, align 4
-  %196 = sext i32 %172 to i64
-  %197 = getelementptr inbounds i8, ptr %194, i64 %196
-  store i8 0, ptr %197, align 1
+Vec_StrPush.exit.i:                               ; preds = %179, %Vec_StrGrow.exit.i240.i, %.Vec_StrGrow.exit10_crit_edge.i.i
+  %181 = phi ptr [ %.pre.i.i, %.Vec_StrGrow.exit10_crit_edge.i.i ], [ %180, %179 ], [ %170, %Vec_StrGrow.exit.i240.i ]
+  %182 = add nsw i32 %159, 1
+  store i32 %182, ptr %12, align 4
+  %183 = sext i32 %159 to i64
+  %184 = getelementptr inbounds i8, ptr %181, i64 %183
+  store i8 0, ptr %184, align 1
   %.val226.i = load ptr, ptr %14, align 8
-  br label %198
+  br label %185
 
-198:                                              ; preds = %Vec_StrPush.exit.i, %117
-  %199 = phi ptr [ %.val226.i, %Vec_StrPush.exit.i ], [ %21, %117 ]
-  %.0198.i = phi ptr [ %.val226.i, %Vec_StrPush.exit.i ], [ %118, %117 ]
-  %200 = call i32 @Extra_ReadHexadecimal(ptr noundef nonnull %3, ptr noundef %.0198.i, i32 noundef %97) #12
-  %.not221.i = icmp eq i32 %200, 0
-  br i1 %.not221.i, label %201, label %205
+185:                                              ; preds = %Vec_StrPush.exit.i, %104
+  %186 = phi ptr [ %.val226.i, %Vec_StrPush.exit.i ], [ %21, %104 ]
+  %.0198.i = phi ptr [ %.val226.i, %Vec_StrPush.exit.i ], [ %105, %104 ]
+  %187 = call i32 @Extra_ReadHexadecimal(ptr noundef nonnull %3, ptr noundef %.0198.i, i32 noundef %89) #12
+  %.not221.i = icmp eq i32 %187, 0
+  br i1 %.not221.i, label %188, label %192
 
-201:                                              ; preds = %198
-  %202 = call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %5) #12
-  %203 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %202, ptr noundef %.0198.i)
-  %.not.i241.i = icmp eq ptr %199, null
-  br i1 %.not.i241.i, label %Vec_StrFree.exit242.i, label %204
+188:                                              ; preds = %185
+  %189 = call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %5) #12
+  %190 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef %189, ptr noundef %.0198.i)
+  %.not.i241.i = icmp eq ptr %186, null
+  br i1 %.not.i241.i, label %Vec_StrFree.exit242.i, label %191
 
-204:                                              ; preds = %201
-  call void @free(ptr noundef nonnull %199) #12
+191:                                              ; preds = %188
+  call void @free(ptr noundef nonnull %186) #12
   br label %Vec_StrFree.exit242.i
 
-Vec_StrFree.exit242.i:                            ; preds = %204, %201
+Vec_StrFree.exit242.i:                            ; preds = %191, %188
   call void @free(ptr noundef nonnull %11) #12
   br label %Io_ReadBenchNetwork.exit.thread
 
-205:                                              ; preds = %198
-  %206 = icmp slt i32 %29, 9
-  %207 = add nsw i32 %29, -8
-  %208 = shl nuw nsw i32 1, %207
-  %209 = select i1 %206, i32 1, i32 %208
-  %210 = zext nneg i32 %209 to i64
-  br label %211
+192:                                              ; preds = %185
+  %193 = icmp slt i32 %29, 9
+  %194 = add nsw i32 %29, -8
+  %195 = shl nuw nsw i32 1, %194
+  %196 = select i1 %193, i32 1, i32 %195
+  %197 = zext nneg i32 %196 to i64
+  br label %198
 
-211:                                              ; preds = %213, %205
-  %indvars.iv.i243.i = phi i64 [ %indvars.iv.next.i244.i, %213 ], [ %210, %205 ]
-  %212 = icmp sgt i64 %indvars.iv.i243.i, 0
-  br i1 %212, label %213, label %Extra_TruthIsConst0.exit.i
+198:                                              ; preds = %200, %192
+  %indvars.iv.i243.i = phi i64 [ %indvars.iv.next.i244.i, %200 ], [ %197, %192 ]
+  %199 = icmp sgt i64 %indvars.iv.i243.i, 0
+  br i1 %199, label %200, label %Extra_TruthIsConst0.exit.i
 
-213:                                              ; preds = %211
+200:                                              ; preds = %198
   %indvars.iv.next.i244.i = add nsw i64 %indvars.iv.i243.i, -1
-  %214 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i244.i
-  %215 = load i32, ptr %214, align 4
-  %.not.i245.i = icmp eq i32 %215, 0
-  br i1 %.not.i245.i, label %211, label %.preheader.i, !llvm.loop !7
+  %201 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i244.i
+  %202 = load i32, ptr %201, align 4
+  %.not.i245.i = icmp eq i32 %202, 0
+  br i1 %.not.i245.i, label %198, label %.preheader.i, !llvm.loop !7
 
-Extra_TruthIsConst0.exit.i:                       ; preds = %211
-  %216 = load ptr, ptr %36, align 8
-  %217 = load ptr, ptr %216, align 8
-  %218 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %217, ptr noundef nonnull %96, i32 noundef 0) #12
-  %219 = load ptr, ptr %19, align 8
-  %220 = call ptr @Abc_SopRegister(ptr noundef %219, ptr noundef nonnull @.str.20) #12
-  %221 = getelementptr inbounds i8, ptr %218, i64 56
-  store ptr %220, ptr %221, align 8
-  br label %418
+Extra_TruthIsConst0.exit.i:                       ; preds = %198
+  %203 = load ptr, ptr %36, align 8
+  %204 = load ptr, ptr %203, align 8
+  %205 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %204, ptr noundef nonnull %88, i32 noundef 0) #12
+  %206 = load ptr, ptr %19, align 8
+  %207 = call ptr @Abc_SopRegister(ptr noundef %206, ptr noundef nonnull @.str.20) #12
+  %208 = getelementptr inbounds i8, ptr %205, i64 56
+  store ptr %207, ptr %208, align 8
+  br label %370
 
-.preheader.i:                                     ; preds = %213, %223
-  %indvars.iv.i246.i = phi i64 [ %indvars.iv.next.i248.i, %223 ], [ %210, %213 ]
-  %222 = icmp sgt i64 %indvars.iv.i246.i, 0
-  br i1 %222, label %223, label %Extra_TruthIsConst1.exit.i
+.preheader.i:                                     ; preds = %200, %210
+  %indvars.iv.i246.i = phi i64 [ %indvars.iv.next.i248.i, %210 ], [ %197, %200 ]
+  %209 = icmp sgt i64 %indvars.iv.i246.i, 0
+  br i1 %209, label %210, label %Extra_TruthIsConst1.exit.i
 
-223:                                              ; preds = %.preheader.i
+210:                                              ; preds = %.preheader.i
   %indvars.iv.next.i248.i = add nsw i64 %indvars.iv.i246.i, -1
-  %224 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i248.i
-  %225 = load i32, ptr %224, align 4
-  %.not.i249.i = icmp eq i32 %225, -1
-  br i1 %.not.i249.i, label %.preheader.i, label %232, !llvm.loop !8
+  %211 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i248.i
+  %212 = load i32, ptr %211, align 4
+  %.not.i249.i = icmp eq i32 %212, -1
+  br i1 %.not.i249.i, label %.preheader.i, label %219, !llvm.loop !8
 
 Extra_TruthIsConst1.exit.i:                       ; preds = %.preheader.i
-  %226 = load ptr, ptr %36, align 8
-  %227 = load ptr, ptr %226, align 8
-  %228 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %227, ptr noundef nonnull %96, i32 noundef 0) #12
-  %229 = load ptr, ptr %19, align 8
-  %230 = call ptr @Abc_SopRegister(ptr noundef %229, ptr noundef nonnull @.str.21) #12
-  %231 = getelementptr inbounds i8, ptr %228, i64 56
-  store ptr %230, ptr %231, align 8
-  br label %418
+  %213 = load ptr, ptr %36, align 8
+  %214 = load ptr, ptr %213, align 8
+  %215 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %214, ptr noundef nonnull %88, i32 noundef 0) #12
+  %216 = load ptr, ptr %19, align 8
+  %217 = call ptr @Abc_SopRegister(ptr noundef %216, ptr noundef nonnull @.str.21) #12
+  %218 = getelementptr inbounds i8, ptr %215, i64 56
+  store ptr %217, ptr %218, align 8
+  br label %370
 
-232:                                              ; preds = %223
-  %233 = load ptr, ptr %36, align 8
-  %234 = load ptr, ptr %233, align 8
-  %235 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %234, ptr noundef nonnull %96, i32 noundef %97) #12
-  %236 = icmp sgt i32 %29, 4
-  br i1 %236, label %237, label %241
+219:                                              ; preds = %210
+  %220 = load ptr, ptr %36, align 8
+  %221 = load ptr, ptr %220, align 8
+  %222 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %221, ptr noundef nonnull %88, i32 noundef %89) #12
+  %223 = icmp sgt i32 %29, 4
+  br i1 %223, label %224, label %228
 
-237:                                              ; preds = %232
-  %238 = load ptr, ptr %19, align 8
-  %239 = call ptr @Abc_SopCreateFromTruth(ptr noundef %238, i32 noundef %97, ptr noundef nonnull %3) #12
-  %240 = getelementptr inbounds i8, ptr %235, i64 56
-  store ptr %239, ptr %240, align 8
-  br label %418
+224:                                              ; preds = %219
+  %225 = load ptr, ptr %19, align 8
+  %226 = call ptr @Abc_SopCreateFromTruth(ptr noundef %225, i32 noundef %89, ptr noundef nonnull %3) #12
+  %227 = getelementptr inbounds i8, ptr %222, i64 56
+  store ptr %226, ptr %227, align 8
+  br label %370
 
-241:                                              ; preds = %232
-  %242 = load i8, ptr %.0198.i, align 1
-  switch i8 %242, label %251 [
-    i8 50, label %243
-    i8 49, label %247
+228:                                              ; preds = %219
+  %229 = load i8, ptr %.0198.i, align 1
+  switch i8 %229, label %238 [
+    i8 50, label %230
+    i8 49, label %234
   ]
 
-243:                                              ; preds = %241
-  %244 = load ptr, ptr %19, align 8
-  %245 = call ptr @Abc_SopCreateBuf(ptr noundef %244) #12
-  %246 = getelementptr inbounds i8, ptr %235, i64 56
-  store ptr %245, ptr %246, align 8
-  br label %418
+230:                                              ; preds = %228
+  %231 = load ptr, ptr %19, align 8
+  %232 = call ptr @Abc_SopCreateBuf(ptr noundef %231) #12
+  %233 = getelementptr inbounds i8, ptr %222, i64 56
+  store ptr %232, ptr %233, align 8
+  br label %370
+
+234:                                              ; preds = %228
+  %235 = load ptr, ptr %19, align 8
+  %236 = call ptr @Abc_SopCreateInv(ptr noundef %235) #12
+  %237 = getelementptr inbounds i8, ptr %222, i64 56
+  store ptr %236, ptr %237, align 8
+  br label %370
+
+238:                                              ; preds = %228
+  %239 = call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %5) #12
+  %240 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef %239, ptr noundef nonnull %.0198.i)
+  call fastcc void @Vec_StrFree(ptr noundef nonnull %11)
+  br label %Io_ReadBenchNetwork.exit.thread
+
+241:                                              ; preds = %.tail.thread.i
+  %242 = getelementptr inbounds i8, ptr %37, i64 16
+  %243 = add nsw i32 %29, -2
+  %244 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %38, ptr noundef nonnull %242, i32 noundef %243) #12
+  %245 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.23) #14
+  %246 = icmp eq i32 %245, 0
+  br i1 %246, label %250, label %247
 
 247:                                              ; preds = %241
-  %248 = load ptr, ptr %19, align 8
-  %249 = call ptr @Abc_SopCreateInv(ptr noundef %248) #12
-  %250 = getelementptr inbounds i8, ptr %235, i64 56
-  store ptr %249, ptr %250, align 8
-  br label %418
+  %248 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.24) #14
+  %249 = icmp eq i32 %248, 0
+  br i1 %249, label %250, label %sub_0261.i
 
-251:                                              ; preds = %241
-  %252 = call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %5) #12
-  %253 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, ptr noundef %252, ptr noundef nonnull %.0198.i)
-  call fastcc void @Vec_StrFree(ptr noundef nonnull %11)
-  br label %Io_ReadBenchNetwork.exit.thread
+250:                                              ; preds = %247, %241
+  %251 = load ptr, ptr %19, align 8
+  %252 = call ptr @Abc_SopCreateAnd(ptr noundef %251, i32 noundef %243, ptr noundef null) #12
+  %253 = getelementptr inbounds i8, ptr %244, i64 56
+  store ptr %252, ptr %253, align 8
+  br label %370
 
-254:                                              ; preds = %92
-  %255 = getelementptr inbounds i8, ptr %37, i64 16
-  %256 = add nsw i32 %29, -2
-  %257 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %38, ptr noundef nonnull %255, i32 noundef %256) #12
-  %258 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.23) #14
-  %259 = icmp eq i32 %258, 0
-  br i1 %259, label %263, label %260
-
-260:                                              ; preds = %254
-  %261 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.24) #14
-  %262 = icmp eq i32 %261, 0
-  br i1 %262, label %263, label %sub_0261.i
-
-263:                                              ; preds = %260, %254
-  %264 = load ptr, ptr %19, align 8
-  %265 = call ptr @Abc_SopCreateAnd(ptr noundef %264, i32 noundef %256, ptr noundef null) #12
-  %266 = getelementptr inbounds i8, ptr %257, i64 56
-  store ptr %265, ptr %266, align 8
-  br label %418
-
-sub_0261.i:                                       ; preds = %260
-  %267 = load i8, ptr %49, align 1
-  %268 = zext i8 %267 to i32
-  %269 = add nsw i32 %268, -79
-  %.not315.i = icmp eq i32 %269, 0
-  br i1 %.not315.i, label %sub_1262.i, label %.tail260.i
+sub_0261.i:                                       ; preds = %247
+  %254 = load i8, ptr %49, align 1
+  switch i8 %254, label %.tail265.thread.i [
+    i8 79, label %sub_1262.i
+    i8 111, label %sub_1267.i
+  ]
 
 sub_1262.i:                                       ; preds = %sub_0261.i
-  %270 = getelementptr inbounds i8, ptr %49, i64 1
-  %271 = load i8, ptr %270, align 1
-  %272 = zext i8 %271 to i32
-  %273 = add nsw i32 %272, -82
-  %.not316.i = icmp eq i32 %273, 0
-  br i1 %.not316.i, label %sub_2263.i, label %.tail260.i
+  %255 = getelementptr inbounds i8, ptr %49, i64 1
+  %256 = load i8, ptr %255, align 1
+  %.not316.i = icmp eq i8 %256, 82
+  br i1 %.not316.i, label %.tail260.i, label %.tail265.thread.i
 
-sub_2263.i:                                       ; preds = %sub_1262.i
-  %274 = getelementptr inbounds i8, ptr %49, i64 2
-  %275 = load i8, ptr %274, align 1
-  %276 = zext i8 %275 to i32
-  br label %.tail260.i
+.tail260.i:                                       ; preds = %sub_1262.i
+  %257 = getelementptr inbounds i8, ptr %49, i64 2
+  %258 = load i8, ptr %257, align 1
+  %259 = icmp eq i8 %258, 0
+  br i1 %259, label %265, label %.tail265.thread.i
 
-.tail260.i:                                       ; preds = %sub_2263.i, %sub_1262.i, %sub_0261.i
-  %277 = phi i32 [ %269, %sub_0261.i ], [ %273, %sub_1262.i ], [ %276, %sub_2263.i ]
-  %278 = icmp eq i32 %277, 0
-  br i1 %278, label %289, label %sub_0266.i
+sub_1267.i:                                       ; preds = %sub_0261.i
+  %260 = getelementptr inbounds i8, ptr %49, i64 1
+  %261 = load i8, ptr %260, align 1
+  %.not318.i = icmp eq i8 %261, 114
+  br i1 %.not318.i, label %.tail265.i, label %.tail265.thread.i
 
-sub_0266.i:                                       ; preds = %.tail260.i
-  %279 = add nsw i32 %268, -111
-  %.not317.i = icmp eq i32 %279, 0
-  br i1 %.not317.i, label %sub_1267.i, label %.tail265.i
+.tail265.i:                                       ; preds = %sub_1267.i
+  %262 = getelementptr inbounds i8, ptr %49, i64 2
+  %263 = load i8, ptr %262, align 1
+  %264 = icmp eq i8 %263, 0
+  br i1 %264, label %265, label %.tail265.thread.i
 
-sub_1267.i:                                       ; preds = %sub_0266.i
-  %280 = getelementptr inbounds i8, ptr %49, i64 1
-  %281 = load i8, ptr %280, align 1
-  %282 = zext i8 %281 to i32
-  %283 = add nsw i32 %282, -114
-  %.not318.i = icmp eq i32 %283, 0
-  br i1 %.not318.i, label %sub_2268.i, label %.tail265.i
+265:                                              ; preds = %.tail265.i, %.tail260.i
+  %266 = load ptr, ptr %19, align 8
+  %267 = call ptr @Abc_SopCreateOr(ptr noundef %266, i32 noundef %243, ptr noundef null) #12
+  %268 = getelementptr inbounds i8, ptr %244, i64 56
+  store ptr %267, ptr %268, align 8
+  br label %370
 
-sub_2268.i:                                       ; preds = %sub_1267.i
-  %284 = getelementptr inbounds i8, ptr %49, i64 2
-  %285 = load i8, ptr %284, align 1
-  %286 = zext i8 %285 to i32
-  br label %.tail265.i
+.tail265.thread.i:                                ; preds = %.tail265.i, %sub_1267.i, %.tail260.i, %sub_1262.i, %sub_0261.i
+  %269 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.27) #14
+  %270 = icmp eq i32 %269, 0
+  br i1 %270, label %274, label %271
 
-.tail265.i:                                       ; preds = %sub_2268.i, %sub_1267.i, %sub_0266.i
-  %287 = phi i32 [ %279, %sub_0266.i ], [ %283, %sub_1267.i ], [ %286, %sub_2268.i ]
-  %288 = icmp eq i32 %287, 0
-  br i1 %288, label %289, label %293
+271:                                              ; preds = %.tail265.thread.i
+  %272 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.28) #14
+  %273 = icmp eq i32 %272, 0
+  br i1 %273, label %274, label %278
 
-289:                                              ; preds = %.tail265.i, %.tail260.i
-  %290 = load ptr, ptr %19, align 8
-  %291 = call ptr @Abc_SopCreateOr(ptr noundef %290, i32 noundef %256, ptr noundef null) #12
-  %292 = getelementptr inbounds i8, ptr %257, i64 56
-  store ptr %291, ptr %292, align 8
-  br label %418
+274:                                              ; preds = %271, %.tail265.thread.i
+  %275 = load ptr, ptr %19, align 8
+  %276 = call ptr @Abc_SopCreateNand(ptr noundef %275, i32 noundef %243) #12
+  %277 = getelementptr inbounds i8, ptr %244, i64 56
+  store ptr %276, ptr %277, align 8
+  br label %370
 
-293:                                              ; preds = %.tail265.i
-  %294 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.27) #14
-  %295 = icmp eq i32 %294, 0
-  br i1 %295, label %299, label %296
+278:                                              ; preds = %271
+  %279 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.29) #14
+  %280 = icmp eq i32 %279, 0
+  br i1 %280, label %284, label %281
 
-296:                                              ; preds = %293
-  %297 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.28) #14
-  %298 = icmp eq i32 %297, 0
-  br i1 %298, label %299, label %303
+281:                                              ; preds = %278
+  %282 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.30) #14
+  %283 = icmp eq i32 %282, 0
+  br i1 %283, label %284, label %288
 
-299:                                              ; preds = %296, %293
-  %300 = load ptr, ptr %19, align 8
-  %301 = call ptr @Abc_SopCreateNand(ptr noundef %300, i32 noundef %256) #12
-  %302 = getelementptr inbounds i8, ptr %257, i64 56
-  store ptr %301, ptr %302, align 8
-  br label %418
+284:                                              ; preds = %281, %278
+  %285 = load ptr, ptr %19, align 8
+  %286 = call ptr @Abc_SopCreateNor(ptr noundef %285, i32 noundef %243) #12
+  %287 = getelementptr inbounds i8, ptr %244, i64 56
+  store ptr %286, ptr %287, align 8
+  br label %370
 
-303:                                              ; preds = %296
-  %304 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.29) #14
-  %305 = icmp eq i32 %304, 0
-  br i1 %305, label %309, label %306
+288:                                              ; preds = %281
+  %289 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.31) #14
+  %290 = icmp eq i32 %289, 0
+  br i1 %290, label %294, label %291
 
-306:                                              ; preds = %303
-  %307 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.30) #14
-  %308 = icmp eq i32 %307, 0
-  br i1 %308, label %309, label %313
+291:                                              ; preds = %288
+  %292 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.32) #14
+  %293 = icmp eq i32 %292, 0
+  br i1 %293, label %294, label %298
 
-309:                                              ; preds = %306, %303
-  %310 = load ptr, ptr %19, align 8
-  %311 = call ptr @Abc_SopCreateNor(ptr noundef %310, i32 noundef %256) #12
-  %312 = getelementptr inbounds i8, ptr %257, i64 56
-  store ptr %311, ptr %312, align 8
-  br label %418
+294:                                              ; preds = %291, %288
+  %295 = load ptr, ptr %19, align 8
+  %296 = call ptr @Abc_SopCreateXor(ptr noundef %295, i32 noundef %243) #12
+  %297 = getelementptr inbounds i8, ptr %244, i64 56
+  store ptr %296, ptr %297, align 8
+  br label %370
 
-313:                                              ; preds = %306
-  %314 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.31) #14
-  %315 = icmp eq i32 %314, 0
-  br i1 %315, label %319, label %316
+298:                                              ; preds = %291
+  %299 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.33) #14
+  %300 = icmp eq i32 %299, 0
+  br i1 %300, label %310, label %301
 
-316:                                              ; preds = %313
-  %317 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.32) #14
-  %318 = icmp eq i32 %317, 0
-  br i1 %318, label %319, label %323
+301:                                              ; preds = %298
+  %302 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.34) #14
+  %303 = icmp eq i32 %302, 0
+  br i1 %303, label %310, label %304
 
-319:                                              ; preds = %316, %313
-  %320 = load ptr, ptr %19, align 8
-  %321 = call ptr @Abc_SopCreateXor(ptr noundef %320, i32 noundef %256) #12
-  %322 = getelementptr inbounds i8, ptr %257, i64 56
-  store ptr %321, ptr %322, align 8
-  br label %418
+304:                                              ; preds = %301
+  %305 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.35) #14
+  %306 = icmp eq i32 %305, 0
+  br i1 %306, label %310, label %307
 
-323:                                              ; preds = %316
-  %324 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.33) #14
-  %325 = icmp eq i32 %324, 0
-  br i1 %325, label %335, label %326
+307:                                              ; preds = %304
+  %308 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.36) #14
+  %309 = icmp eq i32 %308, 0
+  br i1 %309, label %310, label %sub_0271.i
 
-326:                                              ; preds = %323
-  %327 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.34) #14
-  %328 = icmp eq i32 %327, 0
-  br i1 %328, label %335, label %329
+310:                                              ; preds = %307, %304, %301, %298
+  %311 = load ptr, ptr %19, align 8
+  %312 = call ptr @Abc_SopCreateNxor(ptr noundef %311, i32 noundef %243) #12
+  %313 = getelementptr inbounds i8, ptr %244, i64 56
+  store ptr %312, ptr %313, align 8
+  br label %370
 
-329:                                              ; preds = %326
-  %330 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.35) #14
-  %331 = icmp eq i32 %330, 0
-  br i1 %331, label %335, label %332
-
-332:                                              ; preds = %329
-  %333 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(5) @.str.36) #14
-  %334 = icmp eq i32 %333, 0
-  br i1 %334, label %335, label %sub_0271.i
-
-335:                                              ; preds = %332, %329, %326, %323
-  %336 = load ptr, ptr %19, align 8
-  %337 = call ptr @Abc_SopCreateNxor(ptr noundef %336, i32 noundef %256) #12
-  %338 = getelementptr inbounds i8, ptr %257, i64 56
-  store ptr %337, ptr %338, align 8
-  br label %418
-
-sub_0271.i:                                       ; preds = %332
-  %339 = add nsw i32 %268, -66
-  %.not319.i = icmp eq i32 %339, 0
-  br i1 %.not319.i, label %sub_1272.i, label %.tail270.i
+sub_0271.i:                                       ; preds = %307
+  %.not319.i = icmp eq i8 %254, 66
+  br i1 %.not319.i, label %sub_1272.i, label %.tail270.thread.i
 
 sub_1272.i:                                       ; preds = %sub_0271.i
-  %340 = getelementptr inbounds i8, ptr %49, i64 1
-  %341 = load i8, ptr %340, align 1
-  %342 = zext i8 %341 to i32
-  %343 = add nsw i32 %342, -85
-  %.not320.i = icmp eq i32 %343, 0
-  br i1 %.not320.i, label %sub_2273.i, label %.tail270.i
+  %314 = getelementptr inbounds i8, ptr %49, i64 1
+  %315 = load i8, ptr %314, align 1
+  %.not320.i = icmp eq i8 %315, 85
+  br i1 %.not320.i, label %.tail270.i, label %.tail270.thread.i
 
-sub_2273.i:                                       ; preds = %sub_1272.i
-  %344 = getelementptr inbounds i8, ptr %49, i64 2
-  %345 = load i8, ptr %344, align 1
-  %346 = zext i8 %345 to i32
-  %347 = add nsw i32 %346, -70
-  br label %.tail270.i
+.tail270.i:                                       ; preds = %sub_1272.i
+  %316 = getelementptr inbounds i8, ptr %49, i64 2
+  %317 = load i8, ptr %316, align 1
+  %318 = icmp eq i8 %317, 70
+  br i1 %318, label %321, label %.tail270.thread.i
 
-.tail270.i:                                       ; preds = %sub_2273.i, %sub_1272.i, %sub_0271.i
-  %348 = phi i32 [ %339, %sub_0271.i ], [ %343, %sub_1272.i ], [ %347, %sub_2273.i ]
-  %349 = icmp eq i32 %348, 0
-  br i1 %349, label %353, label %350
+.tail270.thread.i:                                ; preds = %.tail270.i, %sub_1272.i, %sub_0271.i
+  %319 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.38) #14
+  %320 = icmp eq i32 %319, 0
+  br i1 %320, label %321, label %325
 
-350:                                              ; preds = %.tail270.i
-  %351 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.38) #14
-  %352 = icmp eq i32 %351, 0
-  br i1 %352, label %353, label %357
+321:                                              ; preds = %.tail270.thread.i, %.tail270.i
+  %322 = load ptr, ptr %19, align 8
+  %323 = call ptr @Abc_SopCreateBuf(ptr noundef %322) #12
+  %324 = getelementptr inbounds i8, ptr %244, i64 56
+  store ptr %323, ptr %324, align 8
+  br label %370
 
-353:                                              ; preds = %350, %.tail270.i
-  %354 = load ptr, ptr %19, align 8
-  %355 = call ptr @Abc_SopCreateBuf(ptr noundef %354) #12
-  %356 = getelementptr inbounds i8, ptr %257, i64 56
-  store ptr %355, ptr %356, align 8
-  br label %418
+325:                                              ; preds = %.tail270.thread.i
+  %326 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.39) #14
+  %327 = icmp eq i32 %326, 0
+  br i1 %327, label %331, label %328
 
-357:                                              ; preds = %350
-  %358 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.39) #14
-  %359 = icmp eq i32 %358, 0
-  br i1 %359, label %363, label %360
+328:                                              ; preds = %325
+  %329 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.40) #14
+  %330 = icmp eq i32 %329, 0
+  br i1 %330, label %331, label %sub_0276.i
 
-360:                                              ; preds = %357
-  %361 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.40) #14
-  %362 = icmp eq i32 %361, 0
-  br i1 %362, label %363, label %sub_0276.i
+331:                                              ; preds = %328, %325
+  %332 = load ptr, ptr %19, align 8
+  %333 = call ptr @Abc_SopCreateInv(ptr noundef %332) #12
+  %334 = getelementptr inbounds i8, ptr %244, i64 56
+  store ptr %333, ptr %334, align 8
+  br label %370
 
-363:                                              ; preds = %360, %357
-  %364 = load ptr, ptr %19, align 8
-  %365 = call ptr @Abc_SopCreateInv(ptr noundef %364) #12
-  %366 = getelementptr inbounds i8, ptr %257, i64 56
-  store ptr %365, ptr %366, align 8
-  br label %418
-
-sub_0276.i:                                       ; preds = %360
-  %367 = add nsw i32 %268, -77
-  %.not321.i = icmp eq i32 %367, 0
-  br i1 %.not321.i, label %sub_1277.i, label %.tail275.i
+sub_0276.i:                                       ; preds = %328
+  %.not321.i = icmp eq i8 %254, 77
+  br i1 %.not321.i, label %sub_1277.i, label %.tail275.thread.i
 
 sub_1277.i:                                       ; preds = %sub_0276.i
-  %368 = getelementptr inbounds i8, ptr %49, i64 1
-  %369 = load i8, ptr %368, align 1
-  %370 = zext i8 %369 to i32
-  %371 = add nsw i32 %370, -85
-  %.not322.i = icmp eq i32 %371, 0
-  br i1 %.not322.i, label %sub_2278.i, label %.tail275.i
+  %335 = getelementptr inbounds i8, ptr %49, i64 1
+  %336 = load i8, ptr %335, align 1
+  %.not322.i = icmp eq i8 %336, 85
+  br i1 %.not322.i, label %.tail275.i, label %.tail275.thread.thread.i
 
-sub_2278.i:                                       ; preds = %sub_1277.i
-  %372 = getelementptr inbounds i8, ptr %49, i64 2
-  %373 = load i8, ptr %372, align 1
-  %374 = zext i8 %373 to i32
-  %375 = add nsw i32 %374, -88
-  br label %.tail275.i
+.tail275.i:                                       ; preds = %sub_1277.i
+  %337 = getelementptr inbounds i8, ptr %49, i64 2
+  %338 = load i8, ptr %337, align 1
+  %339 = icmp eq i8 %338, 88
+  br i1 %339, label %346, label %.thread.i
 
-.tail275.i:                                       ; preds = %sub_2278.i, %sub_1277.i, %sub_0276.i
-  %376 = phi i32 [ %367, %sub_0276.i ], [ %371, %sub_1277.i ], [ %375, %sub_2278.i ]
-  %377 = icmp eq i32 %376, 0
-  br i1 %377, label %381, label %378
+.tail275.thread.i:                                ; preds = %sub_0276.i
+  %340 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.42) #14
+  %341 = icmp eq i32 %340, 0
+  br i1 %341, label %346, label %sub_0281.i
 
-378:                                              ; preds = %.tail275.i
-  %379 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.42) #14
-  %380 = icmp eq i32 %379, 0
-  br i1 %380, label %381, label %sub_0281.i
+.tail275.thread.thread.i:                         ; preds = %sub_1277.i
+  %342 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.42) #14
+  %343 = icmp eq i32 %342, 0
+  br i1 %343, label %346, label %.tail285.thread.i
 
-381:                                              ; preds = %378, %.tail275.i
-  %382 = load ptr, ptr %19, align 8
-  %383 = call ptr @Abc_SopRegister(ptr noundef %382, ptr noundef nonnull @.str.43) #12
-  %384 = getelementptr inbounds i8, ptr %257, i64 56
-  store ptr %383, ptr %384, align 8
-  br label %418
+.thread.i:                                        ; preds = %.tail275.i
+  %344 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.42) #14
+  %345 = icmp eq i32 %344, 0
+  br i1 %345, label %346, label %.tail285.thread.i
 
-sub_0281.i:                                       ; preds = %378
-  %385 = add nsw i32 %268, -103
-  %.not323.i = icmp eq i32 %385, 0
-  br i1 %.not323.i, label %sub_1282.i, label %.tail280.i
+346:                                              ; preds = %.thread.i, %.tail275.thread.thread.i, %.tail275.thread.i, %.tail275.i
+  %347 = load ptr, ptr %19, align 8
+  %348 = call ptr @Abc_SopRegister(ptr noundef %347, ptr noundef nonnull @.str.43) #12
+  %349 = getelementptr inbounds i8, ptr %244, i64 56
+  store ptr %348, ptr %349, align 8
+  br label %370
+
+sub_0281.i:                                       ; preds = %.tail275.thread.i
+  switch i8 %254, label %.tail285.thread.i [
+    i8 103, label %sub_1282.i
+    i8 118, label %sub_1287.i
+  ]
 
 sub_1282.i:                                       ; preds = %sub_0281.i
-  %386 = getelementptr inbounds i8, ptr %49, i64 1
-  %387 = load i8, ptr %386, align 1
-  %388 = zext i8 %387 to i32
-  %389 = add nsw i32 %388, -110
-  %.not324.i = icmp eq i32 %389, 0
-  br i1 %.not324.i, label %sub_2283.i, label %.tail280.i
+  %350 = getelementptr inbounds i8, ptr %49, i64 1
+  %351 = load i8, ptr %350, align 1
+  %.not324.i = icmp eq i8 %351, 110
+  br i1 %.not324.i, label %.tail280.i, label %.tail285.thread.i
 
-sub_2283.i:                                       ; preds = %sub_1282.i
-  %390 = getelementptr inbounds i8, ptr %49, i64 2
-  %391 = load i8, ptr %390, align 1
-  %392 = zext i8 %391 to i32
-  %393 = add nsw i32 %392, -100
-  br label %.tail280.i
+.tail280.i:                                       ; preds = %sub_1282.i
+  %352 = getelementptr inbounds i8, ptr %49, i64 2
+  %353 = load i8, ptr %352, align 1
+  %354 = icmp eq i8 %353, 100
+  br i1 %354, label %355, label %.tail285.thread.i
 
-.tail280.i:                                       ; preds = %sub_2283.i, %sub_1282.i, %sub_0281.i
-  %394 = phi i32 [ %385, %sub_0281.i ], [ %389, %sub_1282.i ], [ %393, %sub_2283.i ]
-  %395 = icmp eq i32 %394, 0
-  br i1 %395, label %396, label %sub_0286.i
+355:                                              ; preds = %.tail280.i
+  %356 = load ptr, ptr %19, align 8
+  %357 = call ptr @Abc_SopRegister(ptr noundef %356, ptr noundef nonnull @.str.20) #12
+  %358 = getelementptr inbounds i8, ptr %244, i64 56
+  store ptr %357, ptr %358, align 8
+  br label %370
 
-396:                                              ; preds = %.tail280.i
-  %397 = load ptr, ptr %19, align 8
-  %398 = call ptr @Abc_SopRegister(ptr noundef %397, ptr noundef nonnull @.str.20) #12
-  %399 = getelementptr inbounds i8, ptr %257, i64 56
-  store ptr %398, ptr %399, align 8
-  br label %418
+sub_1287.i:                                       ; preds = %sub_0281.i
+  %359 = getelementptr inbounds i8, ptr %49, i64 1
+  %360 = load i8, ptr %359, align 1
+  %.not326.i = icmp eq i8 %360, 100
+  br i1 %.not326.i, label %.tail285.i, label %.tail285.thread.i
 
-sub_0286.i:                                       ; preds = %.tail280.i
-  %400 = add nsw i32 %268, -118
-  %.not325.i = icmp eq i32 %400, 0
-  br i1 %.not325.i, label %sub_1287.i, label %.tail285.i
+.tail285.i:                                       ; preds = %sub_1287.i
+  %361 = getelementptr inbounds i8, ptr %49, i64 2
+  %362 = load i8, ptr %361, align 1
+  %363 = icmp eq i8 %362, 100
+  br i1 %363, label %364, label %.tail285.thread.i
 
-sub_1287.i:                                       ; preds = %sub_0286.i
-  %401 = getelementptr inbounds i8, ptr %49, i64 1
-  %402 = load i8, ptr %401, align 1
-  %403 = zext i8 %402 to i32
-  %404 = add nsw i32 %403, -100
-  %.not326.i = icmp eq i32 %404, 0
-  br i1 %.not326.i, label %sub_2288.i, label %.tail285.i
+364:                                              ; preds = %.tail285.i
+  %365 = load ptr, ptr %19, align 8
+  %366 = call ptr @Abc_SopRegister(ptr noundef %365, ptr noundef nonnull @.str.21) #12
+  %367 = getelementptr inbounds i8, ptr %244, i64 56
+  store ptr %366, ptr %367, align 8
+  br label %370
 
-sub_2288.i:                                       ; preds = %sub_1287.i
-  %405 = getelementptr inbounds i8, ptr %49, i64 2
-  %406 = load i8, ptr %405, align 1
-  %407 = zext i8 %406 to i32
-  %408 = add nsw i32 %407, -100
-  br label %.tail285.i
-
-.tail285.i:                                       ; preds = %sub_2288.i, %sub_1287.i, %sub_0286.i
-  %409 = phi i32 [ %400, %sub_0286.i ], [ %404, %sub_1287.i ], [ %408, %sub_2288.i ]
-  %410 = icmp eq i32 %409, 0
-  br i1 %410, label %411, label %415
-
-411:                                              ; preds = %.tail285.i
-  %412 = load ptr, ptr %19, align 8
-  %413 = call ptr @Abc_SopRegister(ptr noundef %412, ptr noundef nonnull @.str.21) #12
-  %414 = getelementptr inbounds i8, ptr %257, i64 56
-  store ptr %413, ptr %414, align 8
-  br label %418
-
-415:                                              ; preds = %.tail285.i
-  %416 = call i32 @Extra_FileReaderGetLineNumber(ptr noundef nonnull %5, i32 noundef 0) #12
-  %417 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef nonnull %49, i32 noundef %416)
+.tail285.thread.i:                                ; preds = %.tail285.i, %sub_1287.i, %.tail280.i, %sub_1282.i, %sub_0281.i, %.thread.i, %.tail275.thread.thread.i
+  %368 = call i32 @Extra_FileReaderGetLineNumber(ptr noundef nonnull %5, i32 noundef 0) #12
+  %369 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef nonnull %49, i32 noundef %368)
   call fastcc void @Vec_StrFree(ptr noundef nonnull %11)
   br label %Io_ReadBenchNetwork.exit.thread
 
-418:                                              ; preds = %411, %396, %381, %363, %353, %335, %319, %309, %299, %289, %263, %247, %243, %237, %Extra_TruthIsConst1.exit.i, %Extra_TruthIsConst0.exit.i, %91, %90, %89, %.critedge.i, %50, %41
-  %419 = phi ptr [ %21, %41 ], [ %21, %50 ], [ %21, %.critedge.i ], [ %21, %89 ], [ %21, %90 ], [ %21, %91 ], [ %199, %Extra_TruthIsConst0.exit.i ], [ %199, %Extra_TruthIsConst1.exit.i ], [ %199, %237 ], [ %199, %243 ], [ %199, %247 ], [ %21, %263 ], [ %21, %289 ], [ %21, %299 ], [ %21, %309 ], [ %21, %319 ], [ %21, %335 ], [ %21, %353 ], [ %21, %363 ], [ %21, %381 ], [ %21, %396 ], [ %21, %411 ]
-  %.1.i = phi i32 [ %.0196311.i, %41 ], [ %.0196311.i, %50 ], [ %.0196311.i, %.critedge.i ], [ %.0196311.i, %89 ], [ %.0196311.i, %90 ], [ %.0196311.i, %91 ], [ 1, %Extra_TruthIsConst0.exit.i ], [ 1, %Extra_TruthIsConst1.exit.i ], [ 1, %237 ], [ 1, %243 ], [ 1, %247 ], [ %.0196311.i, %263 ], [ %.0196311.i, %289 ], [ %.0196311.i, %299 ], [ %.0196311.i, %309 ], [ %.0196311.i, %319 ], [ %.0196311.i, %335 ], [ %.0196311.i, %353 ], [ %.0196311.i, %363 ], [ %.0196311.i, %381 ], [ %.0196311.i, %396 ], [ %.0196311.i, %411 ]
-  %420 = call ptr @Extra_FileReaderGetTokens(ptr noundef nonnull %5) #12
-  %.not.i = icmp eq ptr %420, null
+370:                                              ; preds = %364, %355, %346, %331, %321, %310, %294, %284, %274, %265, %250, %234, %230, %224, %Extra_TruthIsConst1.exit.i, %Extra_TruthIsConst0.exit.i, %84, %83, %82, %.critedge.i, %50, %41
+  %371 = phi ptr [ %21, %41 ], [ %21, %50 ], [ %21, %.critedge.i ], [ %21, %82 ], [ %21, %83 ], [ %21, %84 ], [ %186, %Extra_TruthIsConst0.exit.i ], [ %186, %Extra_TruthIsConst1.exit.i ], [ %186, %224 ], [ %186, %230 ], [ %186, %234 ], [ %21, %250 ], [ %21, %265 ], [ %21, %274 ], [ %21, %284 ], [ %21, %294 ], [ %21, %310 ], [ %21, %321 ], [ %21, %331 ], [ %21, %346 ], [ %21, %355 ], [ %21, %364 ]
+  %.1.i = phi i32 [ %.0196311.i, %41 ], [ %.0196311.i, %50 ], [ %.0196311.i, %.critedge.i ], [ %.0196311.i, %82 ], [ %.0196311.i, %83 ], [ %.0196311.i, %84 ], [ 1, %Extra_TruthIsConst0.exit.i ], [ 1, %Extra_TruthIsConst1.exit.i ], [ 1, %224 ], [ 1, %230 ], [ 1, %234 ], [ %.0196311.i, %250 ], [ %.0196311.i, %265 ], [ %.0196311.i, %274 ], [ %.0196311.i, %284 ], [ %.0196311.i, %294 ], [ %.0196311.i, %310 ], [ %.0196311.i, %321 ], [ %.0196311.i, %331 ], [ %.0196311.i, %346 ], [ %.0196311.i, %355 ], [ %.0196311.i, %364 ]
+  %372 = call ptr @Extra_FileReaderGetTokens(ptr noundef nonnull %5) #12
+  %.not.i = icmp eq ptr %372, null
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %20, !llvm.loop !9
 
-._crit_edge.loopexit.i:                           ; preds = %418
-  %421 = icmp eq i32 %.1.i, 0
+._crit_edge.loopexit.i:                           ; preds = %370
+  %373 = icmp eq i32 %.1.i, 0
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %7
-  %422 = phi ptr [ %13, %7 ], [ %419, %._crit_edge.loopexit.i ]
-  %.0196.lcssa.i = phi i1 [ true, %7 ], [ %421, %._crit_edge.loopexit.i ]
+  %374 = phi ptr [ %13, %7 ], [ %371, %._crit_edge.loopexit.i ]
+  %.0196.lcssa.i = phi i1 [ true, %7 ], [ %373, %._crit_edge.loopexit.i ]
   call void @Extra_ProgressBarStop(ptr noundef %17) #12
-  %.not.i250.i = icmp eq ptr %422, null
-  br i1 %.not.i250.i, label %Vec_StrFree.exit251.i, label %423
+  %.not.i250.i = icmp eq ptr %374, null
+  br i1 %.not.i250.i, label %Vec_StrFree.exit251.i, label %375
 
-423:                                              ; preds = %._crit_edge.i
-  call void @free(ptr noundef nonnull %422) #12
+375:                                              ; preds = %._crit_edge.i
+  call void @free(ptr noundef nonnull %374) #12
   br label %Vec_StrFree.exit251.i
 
-Vec_StrFree.exit251.i:                            ; preds = %423, %._crit_edge.i
+Vec_StrFree.exit251.i:                            ; preds = %375, %._crit_edge.i
   call void @free(ptr noundef nonnull %11) #12
-  %424 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.44) #12
-  %.not210.i = icmp eq ptr %424, null
-  br i1 %.not210.i, label %430, label %425
+  %376 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.44) #12
+  %.not210.i = icmp eq ptr %376, null
+  br i1 %.not210.i, label %382, label %377
 
-425:                                              ; preds = %Vec_StrFree.exit251.i
-  %426 = getelementptr i8, ptr %424, i64 28
-  %.val227.i = load i32, ptr %426, align 4
-  %427 = icmp eq i32 %.val227.i, 0
-  br i1 %427, label %428, label %430
+377:                                              ; preds = %Vec_StrFree.exit251.i
+  %378 = getelementptr i8, ptr %376, i64 28
+  %.val227.i = load i32, ptr %378, align 4
+  %379 = icmp eq i32 %.val227.i, 0
+  br i1 %379, label %380, label %382
 
-428:                                              ; preds = %425
-  %429 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.44, i32 noundef 0) #12
-  br label %430
+380:                                              ; preds = %377
+  %381 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.44, i32 noundef 0) #12
+  br label %382
 
-430:                                              ; preds = %428, %425, %Vec_StrFree.exit251.i
-  %431 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.47) #12
-  %.not211.i = icmp eq ptr %431, null
-  br i1 %.not211.i, label %437, label %432
+382:                                              ; preds = %380, %377, %Vec_StrFree.exit251.i
+  %383 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.47) #12
+  %.not211.i = icmp eq ptr %383, null
+  br i1 %.not211.i, label %389, label %384
 
-432:                                              ; preds = %430
-  %433 = getelementptr i8, ptr %431, i64 28
-  %.val228.i = load i32, ptr %433, align 4
-  %434 = icmp eq i32 %.val228.i, 0
-  br i1 %434, label %435, label %437
+384:                                              ; preds = %382
+  %385 = getelementptr i8, ptr %383, i64 28
+  %.val228.i = load i32, ptr %385, align 4
+  %386 = icmp eq i32 %.val228.i, 0
+  br i1 %386, label %387, label %389
 
-435:                                              ; preds = %432
+387:                                              ; preds = %384
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %436 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 0) #12
-  br label %437
+  %388 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.47, i32 noundef 0) #12
+  br label %389
 
-437:                                              ; preds = %435, %432, %430
-  %438 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.45) #12
-  %.not212.i = icmp eq ptr %438, null
-  br i1 %.not212.i, label %444, label %439
+389:                                              ; preds = %387, %384, %382
+  %390 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.45) #12
+  %.not212.i = icmp eq ptr %390, null
+  br i1 %.not212.i, label %396, label %391
 
-439:                                              ; preds = %437
-  %440 = getelementptr i8, ptr %438, i64 28
-  %.val229.i = load i32, ptr %440, align 4
-  %441 = icmp eq i32 %.val229.i, 0
-  br i1 %441, label %442, label %444
+391:                                              ; preds = %389
+  %392 = getelementptr i8, ptr %390, i64 28
+  %.val229.i = load i32, ptr %392, align 4
+  %393 = icmp eq i32 %.val229.i, 0
+  br i1 %393, label %394, label %396
 
-442:                                              ; preds = %439
-  %443 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.45, i32 noundef 1) #12
-  br label %444
+394:                                              ; preds = %391
+  %395 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.45, i32 noundef 1) #12
+  br label %396
 
-444:                                              ; preds = %442, %439, %437
-  %445 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.49) #12
-  %.not213.i = icmp eq ptr %445, null
-  br i1 %.not213.i, label %451, label %446
+396:                                              ; preds = %394, %391, %389
+  %397 = call ptr @Abc_NtkFindNet(ptr noundef %9, ptr noundef nonnull @.str.49) #12
+  %.not213.i = icmp eq ptr %397, null
+  br i1 %.not213.i, label %403, label %398
 
-446:                                              ; preds = %444
-  %447 = getelementptr i8, ptr %445, i64 28
-  %.val230.i = load i32, ptr %447, align 4
-  %448 = icmp eq i32 %.val230.i, 0
-  br i1 %448, label %449, label %451
+398:                                              ; preds = %396
+  %399 = getelementptr i8, ptr %397, i64 28
+  %.val230.i = load i32, ptr %399, align 4
+  %400 = icmp eq i32 %.val230.i, 0
+  br i1 %400, label %401, label %403
 
-449:                                              ; preds = %446
+401:                                              ; preds = %398
   %puts214.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %450 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.49, i32 noundef 1) #12
-  br label %451
+  %402 = call ptr @Io_ReadCreateConst(ptr noundef %9, ptr noundef nonnull @.str.49, i32 noundef 1) #12
+  br label %403
 
-451:                                              ; preds = %449, %446, %444
+403:                                              ; preds = %401, %398, %396
   call void @Abc_NtkFinalizeRead(ptr noundef %9) #12
-  br i1 %.0196.lcssa.i, label %Io_ReadBenchNetwork.exit, label %452
+  br i1 %.0196.lcssa.i, label %Io_ReadBenchNetwork.exit, label %404
 
-452:                                              ; preds = %451
-  %453 = call i32 @Abc_NtkToBdd(ptr noundef %9) #12
-  %.not216.i = icmp eq i32 %453, 0
-  br i1 %.not216.i, label %454, label %455
+404:                                              ; preds = %403
+  %405 = call i32 @Abc_NtkToBdd(ptr noundef %9) #12
+  %.not216.i = icmp eq i32 %405, 0
+  br i1 %.not216.i, label %406, label %407
 
-454:                                              ; preds = %452
+406:                                              ; preds = %404
   %puts217.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   br label %Io_ReadBenchNetwork.exit.thread
 
-455:                                              ; preds = %452
-  %456 = call i32 @Abc_NtkToSop(ptr noundef %9, i32 noundef -1, i32 noundef 1000000000) #12
-  %.not218.i = icmp eq i32 %456, 0
-  br i1 %.not218.i, label %457, label %Io_ReadBenchNetwork.exit
+407:                                              ; preds = %404
+  %408 = call i32 @Abc_NtkToSop(ptr noundef %9, i32 noundef -1, i32 noundef 1000000000) #12
+  %.not218.i = icmp eq i32 %408, 0
+  br i1 %.not218.i, label %409, label %Io_ReadBenchNetwork.exit
 
-457:                                              ; preds = %455
+409:                                              ; preds = %407
   %puts219.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   br label %Io_ReadBenchNetwork.exit.thread
 
-Io_ReadBenchNetwork.exit.thread:                  ; preds = %Vec_StrFree.exit.i, %Vec_StrFree.exit233.i, %Vec_StrFree.exit235.i, %Vec_StrFree.exit242.i, %251, %415, %454, %457
+Io_ReadBenchNetwork.exit.thread:                  ; preds = %Vec_StrFree.exit.i, %Vec_StrFree.exit233.i, %Vec_StrFree.exit235.i, %Vec_StrFree.exit242.i, %238, %.tail285.thread.i, %406, %409
   call void @Abc_NtkDelete(ptr noundef %9) #12
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4)
   call void @Extra_FileReaderFree(ptr noundef nonnull %5) #12
-  br label %463
+  br label %415
 
-Io_ReadBenchNetwork.exit:                         ; preds = %451, %455
+Io_ReadBenchNetwork.exit:                         ; preds = %403, %407
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4)
   call void @Extra_FileReaderFree(ptr noundef nonnull %5) #12
-  %458 = icmp eq ptr %9, null
-  br i1 %458, label %463, label %459
+  %410 = icmp eq ptr %9, null
+  br i1 %410, label %415, label %411
 
-459:                                              ; preds = %Io_ReadBenchNetwork.exit
+411:                                              ; preds = %Io_ReadBenchNetwork.exit
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %463, label %460
+  br i1 %.not, label %415, label %412
 
-460:                                              ; preds = %459
-  %461 = call i32 @Abc_NtkCheckRead(ptr noundef nonnull %9) #12
-  %.not11 = icmp eq i32 %461, 0
-  br i1 %.not11, label %462, label %463
+412:                                              ; preds = %411
+  %413 = call i32 @Abc_NtkCheckRead(ptr noundef nonnull %9) #12
+  %.not11 = icmp eq i32 %413, 0
+  br i1 %.not11, label %414, label %415
 
-462:                                              ; preds = %460
+414:                                              ; preds = %412
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   call void @Abc_NtkDelete(ptr noundef nonnull %9) #12
-  br label %463
+  br label %415
 
-463:                                              ; preds = %Io_ReadBenchNetwork.exit.thread, %459, %460, %Io_ReadBenchNetwork.exit, %2, %462
-  %.0 = phi ptr [ null, %462 ], [ null, %2 ], [ null, %Io_ReadBenchNetwork.exit ], [ %9, %460 ], [ %9, %459 ], [ null, %Io_ReadBenchNetwork.exit.thread ]
+415:                                              ; preds = %Io_ReadBenchNetwork.exit.thread, %411, %412, %Io_ReadBenchNetwork.exit, %2, %414
+  %.0 = phi ptr [ null, %414 ], [ null, %2 ], [ null, %Io_ReadBenchNetwork.exit ], [ %9, %412 ], [ %9, %411 ], [ null, %Io_ReadBenchNetwork.exit.thread ]
   ret ptr %.0
 }
 

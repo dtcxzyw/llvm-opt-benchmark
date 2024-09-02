@@ -2067,7 +2067,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array16print_long_array17h662
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = lshr i64 %17, 3
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 10)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, 11) i64 @llvm.umin.i64(i64 %18, i64 10)
   %.not = icmp ult i64 %17, 8
   br i1 %.not, label %.thread94, label %.lr.ph
 
@@ -2382,7 +2382,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array16print_long_array17h7b1
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = lshr i64 %17, 3
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 10)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, 11) i64 @llvm.umin.i64(i64 %18, i64 10)
   %.not = icmp ult i64 %17, 8
   br i1 %.not, label %.thread94, label %.lr.ph
 
@@ -2697,7 +2697,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array16print_long_array17hbd4
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = lshr i64 %17, 3
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 10)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, 11) i64 @llvm.umin.i64(i64 %18, i64 10)
   %.not = icmp ult i64 %17, 8
   br i1 %.not, label %.thread94, label %.lr.ph
 
@@ -3012,7 +3012,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array16print_long_array17he83
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = lshr i64 %17, 2
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 10)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, 11) i64 @llvm.umin.i64(i64 %18, i64 10)
   %.not = icmp ult i64 %17, 4
   br i1 %.not, label %.thread94, label %.lr.ph
 
@@ -3327,7 +3327,7 @@ define hidden noundef zeroext i1 @_ZN11arrow_array5array16print_long_array17hf75
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = lshr i64 %17, 3
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 10)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, 11) i64 @llvm.umin.i64(i64 %18, i64 10)
   %.not = icmp ult i64 %17, 8
   br i1 %.not, label %.thread94, label %.lr.ph
 
@@ -9651,7 +9651,7 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$$LP$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h3957c4b940450a45E.llvm.12936710431969675094(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #10 {
+define hidden noundef range(i64 0, 576460752303423488) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h3957c4b940450a45E.llvm.12936710431969675094(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !alias.scope !1656, !noalias !1659, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -13547,7 +13547,7 @@ define hidden noundef zeroext i1 @"_ZN94_$LT$arrow_array..array..byte_array..Gen
   %27 = load i64, ptr %26, align 8, !alias.scope !2022, !noalias !2025, !noundef !4
   %28 = lshr i64 %27, 2
   %29 = add nsw i64 %28, -1
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %29, i64 10)
+  %.0.sroa.speculated.i.i = call noundef range(i64 0, 11) i64 @llvm.umin.i64(i64 %29, i64 10)
   %.not.i = icmp eq i64 %29, 0
   br i1 %.not.i, label %_ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit, label %.lr.ph.i
 

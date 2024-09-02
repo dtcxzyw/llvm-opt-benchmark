@@ -196,7 +196,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @NAME_CONSTRAINTS_check(ptr noundef %x, ptr nocapture noundef readonly %nc) local_unnamed_addr #0 {
+define hidden range(i32 0, 54) i32 @NAME_CONSTRAINTS_check(ptr noundef %x, ptr nocapture noundef readonly %nc) local_unnamed_addr #0 {
 entry:
   %gntmp = alloca %struct.GENERAL_NAME_st, align 8
   %call = tail call ptr @X509_get_subject_name(ptr noundef %x) #5
@@ -268,7 +268,7 @@ declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_NAME_entry_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nc_match(ptr nocapture noundef readonly %gen, ptr nocapture noundef readonly %nc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 54) i32 @nc_match(ptr nocapture noundef readonly %gen, ptr nocapture noundef readonly %nc) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %call29 = tail call i64 @sk_num(ptr noundef %0) #5

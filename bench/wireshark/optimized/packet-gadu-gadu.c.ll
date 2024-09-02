@@ -1528,7 +1528,7 @@ dissect_gadu_gadu_login_protocol.exit:            ; preds = %_tvb_memcpy_reverse
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 31, 95) i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 92, 95) i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 25, ptr noundef nonnull @.str.270) #2

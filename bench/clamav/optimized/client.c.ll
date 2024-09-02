@@ -575,50 +575,50 @@ define dso_local range(i32 0, 35) i32 @client(ptr noundef %0, ptr noundef %1, pt
   %10 = tail call signext i16 @ping_clamd(ptr noundef %0)
   switch i16 %10, label %11 [
     i16 0, label %12
-    i16 1, label %138
+    i16 1, label %135
   ]
 
 11:                                               ; preds = %9
-  br label %138
+  br label %135
 
 12:                                               ; preds = %9, %3
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
   %.not67 = icmp eq ptr %14, null
-  br i1 %.not67, label %.critedge130, label %15
+  br i1 %.not67, label %.tail.thread, label %15
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %14, align 8
   %.not68 = icmp eq ptr %16, null
-  br i1 %.not68, label %.critedge130, label %sub_0
+  br i1 %.not68, label %.tail.thread, label %sub_0
 
 sub_0:                                            ; preds = %15
   %17 = load i8, ptr %16, align 1
   %.not109 = icmp eq i8 %17, 45
-  br i1 %.not109, label %sub_1, label %.critedge130
+  br i1 %.not109, label %.tail, label %.tail.thread
 
-sub_1:                                            ; preds = %sub_0
+.tail:                                            ; preds = %sub_0
   %18 = getelementptr inbounds i8, ptr %16, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %.critedge130
+  br i1 %20, label %21, label %.tail.thread
 
-21:                                               ; preds = %sub_1
+21:                                               ; preds = %.tail
   %22 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #14
   %23 = getelementptr inbounds i8, ptr %22, i64 32
   %24 = load i32, ptr %23, align 8
   %.not70 = icmp eq i32 %24, 0
-  br i1 %.not70, label %25, label %.critedge130
+  br i1 %.not70, label %25, label %.tail.thread
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %13, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not71 = icmp eq ptr %28, null
-  br label %.critedge130
+  br label %.tail.thread
 
-.critedge130:                                     ; preds = %sub_0, %25, %21, %sub_1, %15, %12
-  %29 = phi i1 [ false, %21 ], [ false, %sub_1 ], [ false, %15 ], [ false, %12 ], [ %.not71, %25 ], [ false, %sub_0 ]
+.tail.thread:                                     ; preds = %sub_0, %25, %21, %.tail, %15, %12
+  %29 = phi i1 [ false, %21 ], [ false, %.tail ], [ false, %15 ], [ false, %12 ], [ %.not71, %25 ], [ false, %sub_0 ]
   %30 = tail call fastcc i32 @isremote()
   %31 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #14
   %32 = getelementptr inbounds i8, ptr %31, i64 32
@@ -627,7 +627,7 @@ sub_1:                                            ; preds = %sub_0
   %.not73 = icmp eq i32 %34, 0
   br i1 %.not73, label %35, label %.critedge
 
-35:                                               ; preds = %.critedge130
+35:                                               ; preds = %.tail.thread
   %36 = load ptr, ptr @clamdopts, align 8
   %37 = tail call ptr @optget(ptr noundef %36, ptr noundef nonnull @.str.21) #14
   %38 = getelementptr inbounds i8, ptr %37, i64 32
@@ -652,7 +652,7 @@ sub_1:                                            ; preds = %sub_0
 49:                                               ; preds = %40, %35
   br i1 %29, label %.critedge, label %53
 
-.critedge:                                        ; preds = %.critedge130, %49
+.critedge:                                        ; preds = %.tail.thread, %49
   %50 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #14
   %51 = getelementptr inbounds i8, ptr %50, i64 32
   %52 = load i32, ptr %51, align 8
@@ -714,7 +714,7 @@ sub_1:                                            ; preds = %sub_0
   %88 = load i32, ptr %87, align 4
   %89 = tail call ptr @strerror(i32 noundef %88) #14
   %90 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.29, ptr noundef %86, ptr noundef %89) #14
-  br label %138
+  br label %135
 
 91:                                               ; preds = %81
   %92 = getelementptr inbounds i8, ptr %5, i64 24
@@ -753,7 +753,7 @@ sub_1:                                            ; preds = %sub_0
   %109 = getelementptr inbounds i8, ptr %108, i64 32
   %110 = load i32, ptr %109, align 8
   %.not79 = icmp eq i32 %110, 0
-  br i1 %.not79, label %134, label %111
+  br i1 %.not79, label %131, label %111
 
 111:                                              ; preds = %107
   %.pr = load ptr, ptr %13, align 8
@@ -777,62 +777,55 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not82104106, label %.loopexit, label %sub_0100.lr.ph
 
 sub_0100.lr.ph:                                   ; preds = %117, %.outer
-  %119 = phi ptr [ %133, %.outer ], [ %118, %117 ]
-  %.2.ph107 = phi i32 [ %132, %.outer ], [ 0, %117 ]
+  %119 = phi ptr [ %130, %.outer ], [ %118, %117 ]
+  %.2.ph107 = phi i32 [ %129, %.outer ], [ 0, %117 ]
   br label %sub_0100
 
-sub_0100:                                         ; preds = %sub_0100.lr.ph, %128
-  %120 = phi ptr [ %119, %sub_0100.lr.ph ], [ %130, %128 ]
+sub_0100:                                         ; preds = %sub_0100.lr.ph, %125
+  %120 = phi ptr [ %119, %sub_0100.lr.ph ], [ %127, %125 ]
   %121 = load i8, ptr %120, align 1
-  %122 = zext i8 %121 to i32
-  %123 = add nsw i32 %122, -45
-  %.not110 = icmp eq i32 %123, 0
-  br i1 %.not110, label %sub_1101, label %.tail99
+  %.not110 = icmp eq i8 %121, 45
+  br i1 %.not110, label %.tail99, label %.outer
 
-sub_1101:                                         ; preds = %sub_0100
-  %124 = getelementptr inbounds i8, ptr %120, i64 1
-  %125 = load i8, ptr %124, align 1
-  %126 = zext i8 %125 to i32
-  br label %.tail99
+.tail99:                                          ; preds = %sub_0100
+  %122 = getelementptr inbounds i8, ptr %120, i64 1
+  %123 = load i8, ptr %122, align 1
+  %124 = icmp eq i8 %123, 0
+  br i1 %124, label %125, label %.outer
 
-.tail99:                                          ; preds = %sub_0100, %sub_1101
-  %127 = phi i32 [ %123, %sub_0100 ], [ %126, %sub_1101 ]
-  %.not83 = icmp eq i32 %127, 0
-  br i1 %.not83, label %128, label %.outer
-
-128:                                              ; preds = %.tail99
-  %129 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.31) #14
-  %130 = tail call ptr @filelist(ptr noundef %0, ptr noundef null) #14
-  %.not82 = icmp eq ptr %130, null
+125:                                              ; preds = %.tail99
+  %126 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.31) #14
+  %127 = tail call ptr @filelist(ptr noundef %0, ptr noundef null) #14
+  %.not82 = icmp eq ptr %127, null
   br i1 %.not82, label %.loopexit, label %sub_0100
 
-.outer:                                           ; preds = %.tail99
-  %131 = tail call fastcc i32 @client_scan(ptr noundef nonnull %120, i32 noundef %.055, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %66, i32 noundef %.056, i32 noundef %80)
-  %132 = add nsw i32 %131, %.2.ph107
-  %133 = tail call ptr @filelist(ptr noundef %0, ptr noundef null) #14
-  %.not82104 = icmp eq ptr %133, null
+.outer:                                           ; preds = %sub_0100, %.tail99
+  %128 = tail call fastcc i32 @client_scan(ptr noundef nonnull %120, i32 noundef %.055, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %66, i32 noundef %.056, i32 noundef %80)
+  %129 = add nsw i32 %128, %.2.ph107
+  %130 = tail call ptr @filelist(ptr noundef %0, ptr noundef null) #14
+  %.not82104 = icmp eq ptr %130, null
   br i1 %.not82104, label %.loopexit, label %sub_0100.lr.ph
 
-134:                                              ; preds = %107
-  %135 = tail call fastcc i32 @client_scan(ptr noundef nonnull @.str.32, i32 noundef %.055, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %66, i32 noundef %.056, i32 noundef %80)
+131:                                              ; preds = %107
+  %132 = tail call fastcc i32 @client_scan(ptr noundef nonnull @.str.32, i32 noundef %.055, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %66, i32 noundef %.056, i32 noundef %80)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.outer, %128, %117, %134, %103
-  %.160 = phi i32 [ %.059.ph, %103 ], [ %135, %134 ], [ 0, %117 ], [ %.2.ph107, %128 ], [ %132, %.outer ]
+.loopexit:                                        ; preds = %.outer, %125, %117, %131, %103
+  %.160 = phi i32 [ %.059.ph, %103 ], [ %132, %131 ], [ 0, %117 ], [ %.2.ph107, %125 ], [ %129, %.outer ]
   %.160.fr = freeze i32 %.160
   %.not86 = icmp eq i32 %.160.fr, 0
   %spec.select98 = select i1 %.not86, i32 0, i32 2
   br label %.thread92
 
 .thread92:                                        ; preds = %91, %.loopexit
-  %136 = phi i32 [ %spec.select98, %.loopexit ], [ 2, %91 ]
+  %133 = phi i32 [ %spec.select98, %.loopexit ], [ 2, %91 ]
   %.not8597.in = load i32, ptr %1, align 4
   %.not8597 = icmp eq i32 %.not8597.in, 0
-  %137 = select i1 %.not8597, i32 %136, i32 1
-  br label %138
+  %134 = select i1 %.not8597, i32 %133, i32 1
+  br label %135
 
-138:                                              ; preds = %9, %.thread92, %84, %11
-  %.0 = phi i32 [ 34, %11 ], [ 2, %84 ], [ %137, %.thread92 ], [ 21, %9 ]
+135:                                              ; preds = %9, %.thread92, %84, %11
+  %.0 = phi i32 [ 34, %11 ], [ 2, %84 ], [ %134, %.thread92 ], [ 21, %9 ]
   ret i32 %.0
 }
 

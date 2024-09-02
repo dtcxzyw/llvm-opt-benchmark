@@ -1224,7 +1224,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @hbitmap_serialization_size(ptr nocapture noundef readonly %hb, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
+define dso_local range(i64 0, -7) i64 @hbitmap_serialization_size(ptr nocapture noundef readonly %hb, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   %el_count = alloca i64, align 8
   %cur = alloca ptr, align 8

@@ -2395,9 +2395,10 @@ invoke.cont91:                                    ; preds = %for.body89
   store i32 4, ptr %call92, align 8
   %_M_size.i.i.i109 = getelementptr inbounds i8, ptr %__begin381.sroa.0.01594, i64 32
   %18 = load i64, ptr %_M_size.i.i.i109, align 8
-  %conv94 = trunc i64 %18 to i32
+  %.fr = freeze i64 %18
+  %conv94 = trunc i64 %.fr to i32
   store i32 %conv94, ptr %mNumFaces.i, align 8
-  %conv96 = and i64 %18, 4294967295
+  %conv96 = and i64 %.fr, 4294967295
   %19 = shl nuw nsw i64 %conv96, 4
   %20 = or disjoint i64 %19, 8
   %call98 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %20) #26
@@ -2425,7 +2426,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
 arrayctor.cont:                                   ; preds = %arrayctor.loop, %invoke.cont97
   %mFaces = getelementptr inbounds i8, ptr %call92, i64 208
   store ptr %21, ptr %mFaces, align 8
-  %conv100 = mul i64 %18, 6
+  %conv100 = mul i64 %.fr, 6
   %mul101 = and i64 %conv100, 8589934590
   %cmp3.i.not = icmp eq i64 %mul101, 0
   br i1 %cmp3.i.not, label %invoke.cont105, label %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i
@@ -3282,16 +3283,15 @@ _ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i428: ; preds = 
 
 _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit29.i.i: ; preds = %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i428
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i443, i8 0, i64 %mul.i.i.i.i.i431, i1 false)
-  %add.ptr37.i.i = getelementptr inbounds %class.aiVector3t, ptr %call5.i.i.i.i.i443, i64 %mul101
+  %add.ptr37.i.i = getelementptr %class.aiVector3t, ptr %call5.i.i.i.i.i443, i64 %mul101
   br label %invoke.cont209
 
 invoke.cont209:                                   ; preds = %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit29.i.i, %invoke.cont205
   %texcoord_arr.sroa.0.6 = phi ptr [ %call5.i.i.i.i.i443, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit29.i.i ], [ null, %invoke.cont205 ]
   %texcoord_arr.sroa.12.4 = phi ptr [ %add.ptr37.i.i, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit29.i.i ], [ null, %invoke.cont205 ]
-  %texcoord_arr.sroa.12.4.fr = freeze ptr %texcoord_arr.sroa.12.4
   %__begin5.sroa.0.01571 = load ptr, ptr %_M_storage.i.i108, align 8
   %cmp.i444.not1572 = icmp eq ptr %__begin5.sroa.0.01571, %_M_storage.i.i108
-  %.pre1894 = ptrtoint ptr %texcoord_arr.sroa.12.4.fr to i64
+  %.pre1894 = ptrtoint ptr %texcoord_arr.sroa.12.4 to i64
   %.pre1895 = ptrtoint ptr %texcoord_arr.sroa.0.6 to i64
   %.pre1896 = sub i64 %.pre1894, %.pre1895
   %.pre1897 = sdiv exact i64 %.pre1896, 12
@@ -3631,7 +3631,7 @@ call5.i.i.i.i.i.noexc627:                         ; preds = %_ZNKSt6vectorI10aiV
   %add.ptr.i.i611 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i628, i64 %.pre1896
   %88 = mul nuw nsw i64 %sub.i594, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.i.i611, i8 0, i64 %88, i1 false)
-  %cmp.not5.i.i.i.i.i612 = icmp eq ptr %texcoord_arr.sroa.0.6, %texcoord_arr.sroa.12.4.fr
+  %cmp.not5.i.i.i.i.i612 = icmp eq ptr %texcoord_arr.sroa.0.6, %texcoord_arr.sroa.12.4
   br i1 %cmp.not5.i.i.i.i.i612, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i619, label %for.body.i.i.i.i.i613.preheader
 
 for.body.i.i.i.i.i613.preheader:                  ; preds = %call5.i.i.i.i.i.noexc627
@@ -3658,7 +3658,7 @@ _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit29.i.i622: 
 if.else.i587:                                     ; preds = %delete.notnull
   %cmp4.i588 = icmp ult i64 %idx_vert_new.0.lcssa, %.pre1897
   %add.ptr.i590 = getelementptr inbounds %class.aiVector3t, ptr %texcoord_arr.sroa.0.6, i64 %idx_vert_new.0.lcssa
-  %spec.select = select i1 %cmp4.i588, ptr %add.ptr.i590, ptr %texcoord_arr.sroa.12.4.fr
+  %spec.select = select i1 %cmp4.i588, ptr %add.ptr.i590, ptr %texcoord_arr.sroa.12.4
   br label %if.end272
 
 if.end272:                                        ; preds = %if.else.i587, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit29.i.i622, %for.end180

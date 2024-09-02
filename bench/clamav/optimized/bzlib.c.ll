@@ -99,7 +99,7 @@ define internal void @default_bzfree(ptr nocapture readnone %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nsis_BZ2_bzDecompress(ptr noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -4, 5) i32 @nsis_BZ2_bzDecompress(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [6 x i8], align 1
   %3 = icmp eq ptr %0, null
   br i1 %3, label %unRLE_obuf_to_output_SMALL.exit.thread, label %4

@@ -138,29 +138,20 @@ for.body:                                         ; preds = %if.end3, %for.inc
   %arrayidx = getelementptr inbounds [5 x %struct.key_st], ptr @keys, i64 0, i64 %i.010
   %0 = load ptr, ptr %arrayidx, align 16
   %1 = load i8, ptr %0, align 1
-  %2 = zext i8 %1 to i32
-  %3 = add nsw i32 %2, -68
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %sub_1, label %for.body.tail
+  %.not = icmp eq i8 %1, 68
+  br i1 %.not, label %sub_1, label %if.end15
 
 sub_1:                                            ; preds = %for.body
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = load i8, ptr %2, align 1
+  %.not11 = icmp eq i8 %3, 72
+  br i1 %.not11, label %for.body.tail, label %if.end15
+
+for.body.tail:                                    ; preds = %sub_1
+  %4 = getelementptr inbounds i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 1
-  %6 = zext i8 %5 to i32
-  %7 = add nsw i32 %6, -72
-  %.not11 = icmp eq i32 %7, 0
-  br i1 %.not11, label %sub_2, label %for.body.tail
-
-sub_2:                                            ; preds = %sub_1
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
-  %9 = load i8, ptr %8, align 1
-  %10 = zext i8 %9 to i32
-  br label %for.body.tail
-
-for.body.tail:                                    ; preds = %for.body, %sub_1, %sub_2
-  %11 = phi i32 [ %3, %for.body ], [ %7, %sub_1 ], [ %10, %sub_2 ]
-  %cmp6 = icmp eq i32 %11, 0
-  br i1 %cmp6, label %if.then7, label %if.end15
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %if.then7, label %if.end15
 
 if.then7:                                         ; preds = %for.body.tail
   %call8 = call ptr @test_get_argument(i64 noundef 1) #5
@@ -171,7 +162,7 @@ if.then7:                                         ; preds = %for.body.tail
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %return, label %for.inc
 
-if.end15:                                         ; preds = %for.body.tail
+if.end15:                                         ; preds = %sub_1, %for.body, %for.body.tail
   %call18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.21) #6
   %cmp19 = icmp eq i32 %call18, 0
   br i1 %cmp19, label %if.then20, label %if.end29
@@ -187,18 +178,18 @@ if.then20:                                        ; preds = %if.end15
 
 if.end29:                                         ; preds = %if.end15
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 713, ptr noundef nonnull @.str.23, ptr noundef nonnull %0) #5
-  %12 = load ptr, ptr %arrayidx, align 16
+  %7 = load ptr, ptr %arrayidx, align 16
   %template_params = getelementptr inbounds i8, ptr %arrayidx, i64 16
-  %13 = load ptr, ptr %template_params, align 16
+  %8 = load ptr, ptr %template_params, align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %template.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pkey.i)
   store ptr null, ptr %template.i, align 8
   store ptr null, ptr %pkey.i, align 8
-  %cmp.not.i = icmp eq ptr %13, null
+  %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end29
-  %call.i = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef %12, ptr noundef null) #5
+  %call.i = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef %7, ptr noundef null) #5
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %make_key.exit, label %lor.lhs.false.i
 
@@ -208,12 +199,12 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp3.i, label %make_key.exit, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
-  %14 = load ptr, ptr %13, align 8
-  %cmp5.not.i = icmp eq ptr %14, null
+  %9 = load ptr, ptr %8, align 8
+  %cmp5.not.i = icmp eq ptr %9, null
   br i1 %cmp5.not.i, label %lor.lhs.false9.i, label %land.lhs.true6.i
 
 land.lhs.true6.i:                                 ; preds = %lor.lhs.false4.i
-  %call7.i = call i32 @EVP_PKEY_CTX_set_params(ptr noundef nonnull %call.i, ptr noundef nonnull %13) #5
+  %call7.i = call i32 @EVP_PKEY_CTX_set_params(ptr noundef nonnull %call.i, ptr noundef nonnull %8) #5
   %cmp8.i = icmp slt i32 %call7.i, 1
   br i1 %cmp8.i, label %make_key.exit, label %lor.lhs.false9.i
 
@@ -225,16 +216,16 @@ lor.lhs.false9.i:                                 ; preds = %land.lhs.true6.i, %
 if.end.i:                                         ; preds = %lor.lhs.false9.i, %if.end29
   %ctx.0.i = phi ptr [ %call.i, %lor.lhs.false9.i ], [ null, %if.end29 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %ctx.0.i) #5
-  %15 = load ptr, ptr %template.i, align 8
-  %cmp12.not.i = icmp eq ptr %15, null
+  %10 = load ptr, ptr %template.i, align 8
+  %cmp12.not.i = icmp eq ptr %10, null
   br i1 %cmp12.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %call13.i = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %15, ptr noundef null) #5
+  %call13.i = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %10, ptr noundef null) #5
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end.i
-  %call14.i = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef %12, ptr noundef null) #5
+  %call14.i = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef %7, ptr noundef null) #5
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
@@ -253,15 +244,15 @@ land.rhs.i:                                       ; preds = %land.lhs.true16.i
 
 make_key.exit:                                    ; preds = %land.lhs.true.i, %lor.lhs.false.i, %land.lhs.true6.i, %lor.lhs.false9.i, %cond.end.i, %land.lhs.true16.i, %land.rhs.i
   %ctx.1.i = phi ptr [ null, %land.lhs.true.i ], [ %call.i, %lor.lhs.false.i ], [ %call.i, %land.lhs.true6.i ], [ %call.i, %lor.lhs.false9.i ], [ %cond.i, %land.rhs.i ], [ %cond.i, %land.lhs.true16.i ], [ null, %cond.end.i ]
-  %16 = load ptr, ptr %template.i, align 8
-  call void @EVP_PKEY_free(ptr noundef %16) #5
+  %11 = load ptr, ptr %template.i, align 8
+  call void @EVP_PKEY_free(ptr noundef %11) #5
   call void @EVP_PKEY_CTX_free(ptr noundef %ctx.1.i) #5
-  %17 = load ptr, ptr %pkey.i, align 8
+  %12 = load ptr, ptr %pkey.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %template.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pkey.i)
   %key37 = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  store ptr %17, ptr %key37, align 8
-  %call38 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 715, ptr noundef nonnull @.str.24, ptr noundef %17) #5
+  store ptr %12, ptr %key37, align 8
+  %call38 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 715, ptr noundef nonnull @.str.24, ptr noundef %12) #5
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %return, label %for.inc
 

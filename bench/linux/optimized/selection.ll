@@ -97,7 +97,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @set_selection_user(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @set_selection_user(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.tiocl_selection, align 2
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %3, i8 0, i64 10, i1 false), !annotation !5
@@ -140,8 +140,8 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %15 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
-  %reass.sub48 = sub i32 %16, %15
-  %18 = add i32 %reass.sub48, 2
+  %reass.sub50 = sub i32 %16, %15
+  %18 = add i32 %reass.sub50, 2
   tail call void @invert_screen(ptr noundef %17, i32 noundef %15, i32 noundef %18, i1 noundef zeroext true) #9
   store volatile i32 -1, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
   br label %475
@@ -257,7 +257,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %103 = tail call i32 @vt_do_kdgkbmode(i32 noundef %102) #9
   %104 = icmp eq i32 %103, 3
   switch i16 %101, label %475 [
-    i16 0, label %.loopexit27
+    i16 0, label %.loopexit29
     i16 1, label %105
     i16 2, label %249
     i16 3, label %257
@@ -265,7 +265,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %104, label %107, label %.thread60
+  br i1 %104, label %107, label %.thread62
 
 107:                                              ; preds = %105
   %108 = sdiv i32 %88, 2
@@ -273,7 +273,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %110 = icmp eq i32 %109, 32
   br i1 %110, label %.split.us.split.us, label %.split.split.us
 
-.thread60:                                        ; preds = %105
+.thread62:                                        ; preds = %105
   %111 = tail call zeroext i16 @screen_glyph(ptr noundef %106, i32 noundef %88) #9
   %112 = tail call zeroext i16 @inverse_translate(ptr noundef %106, i16 noundef zeroext %111, i1 noundef zeroext false) #9
   %113 = icmp eq i16 %112, 32
@@ -284,52 +284,52 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %115 = sdiv i32 %88, 2
   %116 = tail call i32 @screen_glyph_unicode(ptr noundef %114, i32 noundef %115) #9
   %117 = icmp eq i32 %116, 32
-  br i1 %117, label %.thread.us.us, label %.split30.us.thread
+  br i1 %117, label %.critedge.us.us, label %.split32.us.thread
 
-.split30.us.thread:                               ; preds = %.split.us.split.us
+.split32.us.thread:                               ; preds = %.split.us.split.us
   %118 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   br label %186
 
-.thread.us.us:                                    ; preds = %.split.us.split.us, %123
+.critedge.us.us:                                  ; preds = %.split.us.split.us, %123
   %119 = phi i32 [ %124, %123 ], [ %88, %.split.us.split.us ]
   %120 = load i32, ptr %73, align 4
   %121 = urem i32 %119, %120
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %.split30.us, label %123
+  br i1 %122, label %.split32.us, label %123
 
-123:                                              ; preds = %.thread.us.us
+123:                                              ; preds = %.critedge.us.us
   %124 = add i32 %119, -2
   %125 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   %126 = sdiv i32 %124, 2
   %127 = tail call i32 @screen_glyph_unicode(ptr noundef %125, i32 noundef %126) #9
   %128 = icmp eq i32 %127, 32
-  br i1 %128, label %.thread.us.us, label %.split30.us, !llvm.loop !7
+  br i1 %128, label %.critedge.us.us, label %.split32.us, !llvm.loop !7
 
-.split.us.split:                                  ; preds = %.thread60
+.split.us.split:                                  ; preds = %.thread62
   %129 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   %130 = tail call zeroext i16 @screen_glyph(ptr noundef %129, i32 noundef %88) #9
   %131 = tail call zeroext i16 @inverse_translate(ptr noundef %129, i16 noundef zeroext %130, i1 noundef zeroext false) #9
   %132 = icmp eq i16 %131, 32
-  br i1 %132, label %.thread.us, label %.split30.us.thread64
+  br i1 %132, label %.critedge.us, label %.split32.us.thread66
 
-.split30.us.thread64:                             ; preds = %.split.us.split
+.split32.us.thread66:                             ; preds = %.split.us.split
   %133 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
-  br label %.thread67
+  br label %.thread69
 
-.thread.us:                                       ; preds = %.split.us.split, %138
+.critedge.us:                                     ; preds = %.split.us.split, %138
   %134 = phi i32 [ %139, %138 ], [ %88, %.split.us.split ]
   %135 = load i32, ptr %73, align 4
   %136 = urem i32 %134, %135
   %137 = icmp eq i32 %136, 0
-  br i1 %137, label %.split30.us, label %138
+  br i1 %137, label %.split32.us, label %138
 
-138:                                              ; preds = %.thread.us
+138:                                              ; preds = %.critedge.us
   %139 = add i32 %134, -2
   %140 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   %141 = tail call zeroext i16 @screen_glyph(ptr noundef %140, i32 noundef %139) #9
   %142 = tail call zeroext i16 @inverse_translate(ptr noundef %140, i16 noundef zeroext %141, i1 noundef zeroext false) #9
   %143 = icmp eq i16 %142, 32
-  br i1 %143, label %.thread.us, label %.split30.us, !llvm.loop !7
+  br i1 %143, label %.critedge.us, label %.split32.us, !llvm.loop !7
 
 .split.split.us:                                  ; preds = %107, %162
   %144 = phi i32 [ %145, %162 ], [ %88, %107 ]
@@ -338,7 +338,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %147 = sdiv i32 %145, 2
   %148 = tail call i32 @screen_glyph_unicode(ptr noundef %146, i32 noundef %147) #9
   %149 = icmp ugt i32 %148, 127
-  br i1 %149, label %.thread.us31, label %150
+  br i1 %149, label %.critedge.us33, label %150
 
 150:                                              ; preds = %.split.split.us
   %151 = lshr i32 %148, 5
@@ -349,26 +349,26 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %156 = shl nuw i32 1, %155
   %157 = and i32 %154, %156
   %158 = icmp eq i32 %157, 0
-  br i1 %158, label %.split30.us, label %.thread.us31
+  br i1 %158, label %.split32.us, label %.critedge.us33
 
-.thread.us31:                                     ; preds = %150, %.split.split.us
+.critedge.us33:                                   ; preds = %150, %.split.split.us
   %159 = load i32, ptr %73, align 4
   %160 = urem i32 %145, %159
   %161 = icmp eq i32 %160, 0
-  br i1 %161, label %.split30.us, label %162
+  br i1 %161, label %.split32.us, label %162
 
-162:                                              ; preds = %.thread.us31
+162:                                              ; preds = %.critedge.us33
   %163 = add i32 %145, -2
   br label %.split.split.us, !llvm.loop !7
 
-.split.split:                                     ; preds = %.thread60, %183
-  %164 = phi i32 [ %165, %183 ], [ %88, %.thread60 ]
-  %165 = phi i32 [ %184, %183 ], [ %88, %.thread60 ]
+.split.split:                                     ; preds = %.thread62, %183
+  %164 = phi i32 [ %165, %183 ], [ %88, %.thread62 ]
+  %165 = phi i32 [ %184, %183 ], [ %88, %.thread62 ]
   %166 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   %167 = tail call zeroext i16 @screen_glyph(ptr noundef %166, i32 noundef %165) #9
   %168 = tail call zeroext i16 @inverse_translate(ptr noundef %166, i16 noundef zeroext %167, i1 noundef zeroext false) #9
   %169 = icmp ugt i16 %168, 127
-  br i1 %169, label %.thread, label %170
+  br i1 %169, label %.critedge, label %170
 
 170:                                              ; preds = %.split.split
   %171 = zext nneg i16 %168 to i32
@@ -380,99 +380,99 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %177 = shl nuw i32 1, %176
   %178 = and i32 %175, %177
   %179 = icmp eq i32 %178, 0
-  br i1 %179, label %.split30.us, label %.thread
+  br i1 %179, label %.split32.us, label %.critedge
 
-.thread:                                          ; preds = %.split.split, %170
+.critedge:                                        ; preds = %.split.split, %170
   %180 = load i32, ptr %73, align 4
   %181 = urem i32 %165, %180
   %182 = icmp eq i32 %181, 0
-  br i1 %182, label %.split30.us, label %183
+  br i1 %182, label %.split32.us, label %183
 
-183:                                              ; preds = %.thread
+183:                                              ; preds = %.critedge
   %184 = add i32 %165, -2
   br label %.split.split, !llvm.loop !7
 
-.split30.us:                                      ; preds = %.thread, %170, %138, %.thread.us, %.thread.us31, %150, %123, %.thread.us.us
-  %.us-phi = phi i32 [ %119, %.thread.us.us ], [ %119, %123 ], [ %145, %.thread.us31 ], [ %144, %150 ], [ %134, %.thread.us ], [ %134, %138 ], [ %165, %.thread ], [ %164, %170 ]
+.split32.us:                                      ; preds = %.critedge, %170, %138, %.critedge.us, %.critedge.us33, %150, %123, %.critedge.us.us
+  %.us-phi = phi i32 [ %119, %.critedge.us.us ], [ %119, %123 ], [ %145, %.critedge.us33 ], [ %144, %150 ], [ %134, %.critedge.us ], [ %134, %138 ], [ %165, %.critedge ], [ %164, %170 ]
   %185 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
-  br i1 %104, label %186, label %.thread67
+  br i1 %104, label %186, label %.thread69
 
-186:                                              ; preds = %.split30.us, %.split30.us.thread
-  %187 = phi ptr [ %118, %.split30.us.thread ], [ %185, %.split30.us ]
-  %.us-phi63 = phi i32 [ %88, %.split30.us.thread ], [ %.us-phi, %.split30.us ]
+186:                                              ; preds = %.split32.us, %.split32.us.thread
+  %187 = phi ptr [ %118, %.split32.us.thread ], [ %185, %.split32.us ]
+  %.us-phi65 = phi i32 [ %88, %.split32.us.thread ], [ %.us-phi, %.split32.us ]
   %188 = sdiv i32 %87, 2
   %189 = tail call i32 @screen_glyph_unicode(ptr noundef %187, i32 noundef %188) #9
   %190 = icmp eq i32 %189, 32
-  br i1 %190, label %.split37.us.split.us, label %.split37.preheader
+  br i1 %190, label %.split39.us.split.us, label %.split39.preheader
 
-.thread67:                                        ; preds = %.split30.us, %.split30.us.thread64
-  %191 = phi ptr [ %133, %.split30.us.thread64 ], [ %185, %.split30.us ]
-  %.us-phi66 = phi i32 [ %88, %.split30.us.thread64 ], [ %.us-phi, %.split30.us ]
+.thread69:                                        ; preds = %.split32.us, %.split32.us.thread66
+  %191 = phi ptr [ %133, %.split32.us.thread66 ], [ %185, %.split32.us ]
+  %.us-phi68 = phi i32 [ %88, %.split32.us.thread66 ], [ %.us-phi, %.split32.us ]
   %192 = tail call zeroext i16 @screen_glyph(ptr noundef %191, i32 noundef %87) #9
   %193 = tail call zeroext i16 @inverse_translate(ptr noundef %191, i16 noundef zeroext %192, i1 noundef zeroext false) #9
   %194 = icmp eq i16 %193, 32
-  br i1 %194, label %.split37.us.split, label %.split37.preheader
+  br i1 %194, label %.split39.us.split, label %.split39.preheader
 
-.split37.preheader:                               ; preds = %.thread67, %186
-  %.us-phi6270 = phi i32 [ %.us-phi66, %.thread67 ], [ %.us-phi63, %186 ]
-  br label %.split37
+.split39.preheader:                               ; preds = %.thread69, %186
+  %.us-phi6472 = phi i32 [ %.us-phi68, %.thread69 ], [ %.us-phi65, %186 ]
+  br label %.split39
 
-.split37.us.split.us:                             ; preds = %186
+.split39.us.split.us:                             ; preds = %186
   %195 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   %196 = sdiv i32 %87, 2
   %197 = tail call i32 @screen_glyph_unicode(ptr noundef %195, i32 noundef %196) #9
   %198 = icmp eq i32 %197, 32
-  br i1 %198, label %.thread15.us.us, label %.loopexit27
+  br i1 %198, label %.critedge16.us.us, label %.loopexit29
 
-199:                                              ; preds = %.thread15.us.us
+199:                                              ; preds = %.critedge16.us.us
   %200 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   %201 = sdiv i32 %205, 2
   %202 = tail call i32 @screen_glyph_unicode(ptr noundef %200, i32 noundef %201) #9
   %203 = icmp eq i32 %202, 32
-  br i1 %203, label %.thread15.us.us, label %.loopexit27, !llvm.loop !9
+  br i1 %203, label %.critedge16.us.us, label %.loopexit29, !llvm.loop !9
 
-.thread15.us.us:                                  ; preds = %.split37.us.split.us, %199
-  %204 = phi i32 [ %205, %199 ], [ %87, %.split37.us.split.us ]
+.critedge16.us.us:                                ; preds = %.split39.us.split.us, %199
+  %204 = phi i32 [ %205, %199 ], [ %87, %.split39.us.split.us ]
   %205 = add i32 %204, 2
   %206 = load i32, ptr %73, align 4
   %207 = urem i32 %205, %206
   %208 = icmp eq i32 %207, 0
-  br i1 %208, label %.loopexit27, label %199, !llvm.loop !9
+  br i1 %208, label %.loopexit29, label %199, !llvm.loop !9
 
-.split37.us.split:                                ; preds = %.thread67
+.split39.us.split:                                ; preds = %.thread69
   %209 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   %210 = tail call zeroext i16 @screen_glyph(ptr noundef %209, i32 noundef %87) #9
   %211 = tail call zeroext i16 @inverse_translate(ptr noundef %209, i16 noundef zeroext %210, i1 noundef zeroext false) #9
   %212 = icmp eq i16 %211, 32
-  br i1 %212, label %.thread15.us, label %.loopexit27
+  br i1 %212, label %.critedge16.us, label %.loopexit29
 
-213:                                              ; preds = %.thread15.us
+213:                                              ; preds = %.critedge16.us
   %214 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   %215 = tail call zeroext i16 @screen_glyph(ptr noundef %214, i32 noundef %219) #9
   %216 = tail call zeroext i16 @inverse_translate(ptr noundef %214, i16 noundef zeroext %215, i1 noundef zeroext false) #9
   %217 = icmp eq i16 %216, 32
-  br i1 %217, label %.thread15.us, label %.loopexit27, !llvm.loop !9
+  br i1 %217, label %.critedge16.us, label %.loopexit29, !llvm.loop !9
 
-.thread15.us:                                     ; preds = %.split37.us.split, %213
-  %218 = phi i32 [ %219, %213 ], [ %87, %.split37.us.split ]
+.critedge16.us:                                   ; preds = %.split39.us.split, %213
+  %218 = phi i32 [ %219, %213 ], [ %87, %.split39.us.split ]
   %219 = add i32 %218, 2
   %220 = load i32, ptr %73, align 4
   %221 = urem i32 %219, %220
   %222 = icmp eq i32 %221, 0
-  br i1 %222, label %.loopexit27, label %213, !llvm.loop !9
+  br i1 %222, label %.loopexit29, label %213, !llvm.loop !9
 
-.split37:                                         ; preds = %.split37.preheader, %.thread15
-  %223 = phi i32 [ %224, %.thread15 ], [ %87, %.split37.preheader ]
-  %224 = phi i32 [ %245, %.thread15 ], [ %87, %.split37.preheader ]
+.split39:                                         ; preds = %.split39.preheader, %.critedge16
+  %223 = phi i32 [ %224, %.critedge16 ], [ %87, %.split39.preheader ]
+  %224 = phi i32 [ %245, %.critedge16 ], [ %87, %.split39.preheader ]
   %225 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   br i1 %104, label %226, label %229
 
-226:                                              ; preds = %.split37
+226:                                              ; preds = %.split39
   %227 = sdiv i32 %224, 2
   %228 = tail call i32 @screen_glyph_unicode(ptr noundef %225, i32 noundef %227) #9
   br label %233
 
-229:                                              ; preds = %.split37
+229:                                              ; preds = %.split39
   %230 = tail call zeroext i16 @screen_glyph(ptr noundef %225, i32 noundef %224) #9
   %231 = tail call zeroext i16 @inverse_translate(ptr noundef %225, i16 noundef zeroext %230, i1 noundef zeroext false) #9
   %232 = zext i16 %231 to i32
@@ -481,7 +481,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 233:                                              ; preds = %229, %226
   %234 = phi i32 [ %228, %226 ], [ %232, %229 ]
   %235 = icmp ugt i32 %234, 127
-  br i1 %235, label %.thread15, label %236
+  br i1 %235, label %.critedge16, label %236
 
 236:                                              ; preds = %233
   %237 = lshr i32 %234, 5
@@ -492,14 +492,14 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %242 = shl nuw i32 1, %241
   %243 = and i32 %240, %242
   %244 = icmp eq i32 %243, 0
-  br i1 %244, label %.loopexit27, label %.thread15
+  br i1 %244, label %.loopexit29, label %.critedge16
 
-.thread15:                                        ; preds = %233, %236
+.critedge16:                                      ; preds = %233, %236
   %245 = add i32 %224, 2
   %246 = load i32, ptr %73, align 4
   %247 = urem i32 %245, %246
   %248 = icmp eq i32 %247, 0
-  br i1 %248, label %.loopexit27, label %.split37, !llvm.loop !9
+  br i1 %248, label %.loopexit29, label %.split39, !llvm.loop !9
 
 249:                                              ; preds = %100
   %250 = load i32, ptr %73, align 4
@@ -509,32 +509,32 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %254 = add i32 %87, -2
   %255 = add i32 %254, %250
   %256 = sub i32 %255, %253
-  br label %.loopexit27
+  br label %.loopexit29
 
 257:                                              ; preds = %100
   %258 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   tail call void @complement_pos(ptr noundef %258, i32 noundef %87) #9
   br label %475
 
-.loopexit27:                                      ; preds = %.thread15.us, %213, %236, %.thread15, %.thread15.us.us, %199, %.split37.us.split, %.split37.us.split.us, %249, %100
-  %259 = phi i32 [ %256, %249 ], [ %87, %100 ], [ %87, %.split37.us.split.us ], [ %87, %.split37.us.split ], [ %204, %199 ], [ %204, %.thread15.us.us ], [ %223, %236 ], [ %224, %.thread15 ], [ %218, %213 ], [ %218, %.thread15.us ]
-  %260 = phi i32 [ %252, %249 ], [ %88, %100 ], [ %.us-phi63, %.split37.us.split.us ], [ %.us-phi66, %.split37.us.split ], [ %.us-phi63, %199 ], [ %.us-phi63, %.thread15.us.us ], [ %.us-phi6270, %.thread15 ], [ %.us-phi6270, %236 ], [ %.us-phi66, %213 ], [ %.us-phi66, %.thread15.us ]
+.loopexit29:                                      ; preds = %.critedge16.us, %213, %236, %.critedge16, %.critedge16.us.us, %199, %.split39.us.split, %.split39.us.split.us, %249, %100
+  %259 = phi i32 [ %256, %249 ], [ %87, %100 ], [ %87, %.split39.us.split.us ], [ %87, %.split39.us.split ], [ %204, %199 ], [ %204, %.critedge16.us.us ], [ %223, %236 ], [ %224, %.critedge16 ], [ %218, %213 ], [ %218, %.critedge16.us ]
+  %260 = phi i32 [ %252, %249 ], [ %88, %100 ], [ %.us-phi65, %.split39.us.split.us ], [ %.us-phi68, %.split39.us.split ], [ %.us-phi65, %199 ], [ %.us-phi65, %.critedge16.us.us ], [ %.us-phi6472, %.critedge16 ], [ %.us-phi6472, %236 ], [ %.us-phi68, %213 ], [ %.us-phi68, %.critedge16.us ]
   %261 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   tail call void @complement_pos(ptr noundef %261, i32 noundef -1) #9
   %262 = icmp sgt i32 %259, %260
-  br i1 %262, label %263, label %.thread16
+  br i1 %262, label %263, label %.critedge18
 
-263:                                              ; preds = %.loopexit27
+263:                                              ; preds = %.loopexit29
   %264 = load i32, ptr %73, align 4
   %265 = srem i32 %259, %264
   %266 = icmp eq i32 %265, 0
-  br i1 %266, label %.thread16, label %267
+  br i1 %266, label %.critedge18, label %267
 
 267:                                              ; preds = %263
   %268 = add i32 %259, 2
   %269 = srem i32 %268, %264
   %.not = icmp eq i32 %269, 0
-  br i1 %.not, label %.thread16, label %270
+  br i1 %.not, label %.critedge18, label %270
 
 270:                                              ; preds = %267
   %271 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
@@ -554,20 +554,20 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 279:                                              ; preds = %275, %272
   %280 = phi i32 [ %274, %272 ], [ %278, %275 ]
   %281 = icmp eq i32 %280, 32
-  br i1 %281, label %.preheader26, label %.thread16
+  br i1 %281, label %.preheader28, label %.critedge18
 
-.preheader26:                                     ; preds = %279, %299
+.preheader28:                                     ; preds = %279, %299
   %282 = phi i32 [ %283, %299 ], [ %259, %279 ]
   %283 = add i32 %282, 2
   %284 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   br i1 %104, label %285, label %288
 
-285:                                              ; preds = %.preheader26
+285:                                              ; preds = %.preheader28
   %286 = sdiv i32 %283, 2
   %287 = tail call i32 @screen_glyph_unicode(ptr noundef %284, i32 noundef %286) #9
   br label %292
 
-288:                                              ; preds = %.preheader26
+288:                                              ; preds = %.preheader28
   %289 = tail call zeroext i16 @screen_glyph(ptr noundef %284, i32 noundef %283) #9
   %290 = tail call zeroext i16 @inverse_translate(ptr noundef %284, i16 noundef zeroext %289, i1 noundef zeroext false) #9
   %291 = zext i16 %290 to i32
@@ -576,30 +576,30 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 292:                                              ; preds = %288, %285
   %293 = phi i32 [ %287, %285 ], [ %291, %288 ]
   %294 = icmp eq i32 %293, 32
-  br i1 %294, label %295, label %.thread17
+  br i1 %294, label %295, label %.critedge20
 
 295:                                              ; preds = %292
   %296 = load i32, ptr %73, align 4
   %297 = srem i32 %283, %296
   %298 = icmp eq i32 %297, 0
-  br i1 %298, label %.thread17, label %299
+  br i1 %298, label %.critedge20, label %299
 
 299:                                              ; preds = %295
   %300 = add i32 %282, 4
   %301 = srem i32 %300, %296
-  %.not20 = icmp eq i32 %301, 0
-  br i1 %.not20, label %.thread17, label %.preheader26, !llvm.loop !10
+  %.not22 = icmp eq i32 %301, 0
+  br i1 %.not22, label %.critedge20, label %.preheader28, !llvm.loop !10
 
-.thread17:                                        ; preds = %295, %299, %292
+.critedge20:                                      ; preds = %295, %299, %292
   %302 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   br i1 %104, label %303, label %306
 
-303:                                              ; preds = %.thread17
+303:                                              ; preds = %.critedge20
   %304 = sdiv i32 %283, 2
   %305 = tail call i32 @screen_glyph_unicode(ptr noundef %302, i32 noundef %304) #9
   br label %310
 
-306:                                              ; preds = %.thread17
+306:                                              ; preds = %.critedge20
   %307 = tail call zeroext i16 @screen_glyph(ptr noundef %302, i32 noundef %283) #9
   %308 = tail call zeroext i16 @inverse_translate(ptr noundef %302, i16 noundef zeroext %307, i1 noundef zeroext false) #9
   %309 = zext i16 %308 to i32
@@ -609,22 +609,22 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %311 = phi i32 [ %305, %303 ], [ %309, %306 ]
   %312 = icmp eq i32 %311, 32
   %313 = select i1 %312, i32 %283, i32 %259
-  br label %.thread16
+  br label %.critedge18
 
-.thread16:                                        ; preds = %263, %310, %279, %267, %.loopexit27
-  %314 = phi i32 [ %259, %267 ], [ %259, %279 ], [ %259, %.loopexit27 ], [ %313, %310 ], [ %259, %263 ]
+.critedge18:                                      ; preds = %263, %310, %279, %267, %.loopexit29
+  %314 = phi i32 [ %259, %267 ], [ %259, %279 ], [ %259, %.loopexit29 ], [ %313, %310 ], [ %259, %263 ]
   %315 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
   %316 = icmp eq i32 %315, -1
   br i1 %316, label %317, label %320
 
-317:                                              ; preds = %.thread16
+317:                                              ; preds = %.critedge18
   %318 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
-  %reass.sub46 = sub i32 %314, %260
-  %319 = add i32 %reass.sub46, 2
+  %reass.sub48 = sub i32 %314, %260
+  %319 = add i32 %reass.sub48, 2
   tail call void @invert_screen(ptr noundef %318, i32 noundef %260, i32 noundef %319, i1 noundef zeroext true) #9
   br label %357
 
-320:                                              ; preds = %.thread16
+320:                                              ; preds = %.critedge18
   %321 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
   %322 = icmp eq i32 %260, %321
   %323 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
@@ -682,16 +682,16 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %350 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
   %351 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
   %352 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
-  %reass.sub44 = sub i32 %351, %350
-  %353 = add i32 %reass.sub44, 2
+  %reass.sub46 = sub i32 %351, %350
+  %353 = add i32 %reass.sub46, 2
   tail call void @invert_screen(ptr noundef %352, i32 noundef %350, i32 noundef %353, i1 noundef zeroext true) #9
   store volatile i32 -1, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
   br label %354
 
 354:                                              ; preds = %349, %345
   %355 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
-  %reass.sub45 = sub i32 %314, %260
-  %356 = add i32 %reass.sub45, 2
+  %reass.sub47 = sub i32 %314, %260
+  %356 = add i32 %reass.sub47, 2
   tail call void @invert_screen(ptr noundef %355, i32 noundef %260, i32 noundef %356, i1 noundef zeroext true) #9
   br label %357
 
@@ -706,15 +706,15 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %363 = select i1 %104, i64 4, i64 1
   %364 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %362, i64 %363)
   %365 = extractvalue { i64, i1 } %364, 1
-  br i1 %365, label %.thread18, label %366, !prof !11
+  br i1 %365, label %.thread, label %366, !prof !11
 
 366:                                              ; preds = %357
   %367 = extractvalue { i64, i1 } %364, 0
   %368 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %367, i32 noundef 11456) #10
   %369 = icmp eq ptr %368, null
-  br i1 %369, label %.thread18, label %379
+  br i1 %369, label %.thread, label %379
 
-.thread18:                                        ; preds = %357, %366
+.thread:                                          ; preds = %357, %366
   %370 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #11
   %371 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
   tail call void @complement_pos(ptr noundef %371, i32 noundef -1) #9
@@ -722,12 +722,12 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %373 = icmp eq i32 %372, -1
   br i1 %373, label %475, label %374
 
-374:                                              ; preds = %.thread18
+374:                                              ; preds = %.thread
   %375 = load volatile i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
   %376 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 56), align 8
   %377 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 32), align 8
-  %reass.sub47 = sub i32 %376, %375
-  %378 = add i32 %reass.sub47, 2
+  %reass.sub49 = sub i32 %376, %375
+  %378 = add i32 %reass.sub49, 2
   tail call void @invert_screen(ptr noundef %377, i32 noundef %375, i32 noundef %378, i1 noundef zeroext true) #9
   store volatile i32 -1, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 52), align 4
   br label %475
@@ -888,8 +888,8 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   store i32 %474, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 48), align 8
   br label %475
 
-475:                                              ; preds = %.loopexit, %374, %.thread18, %325, %257, %100, %64, %14, %10
-  %476 = phi i32 [ 0, %64 ], [ 0, %10 ], [ 0, %14 ], [ 0, %257 ], [ -22, %100 ], [ 0, %325 ], [ 0, %.loopexit ], [ -12, %.thread18 ], [ -12, %374 ]
+475:                                              ; preds = %.loopexit, %374, %.thread, %325, %257, %100, %64, %14, %10
+  %476 = phi i32 [ 0, %64 ], [ 0, %10 ], [ 0, %14 ], [ 0, %257 ], [ -22, %100 ], [ 0, %325 ], [ 0, %.loopexit ], [ -12, %.thread ], [ -12, %374 ]
   tail call void @console_unlock() #9
   tail call void @mutex_unlock(ptr noundef nonnull @vc_sel) #9
   ret i32 %476
@@ -939,7 +939,7 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 48), align 8
   %17 = icmp ne i32 %16, 0
   %18 = select i1 %15, i1 %17, i1 false
-  br i1 %18, label %19, label %.thread
+  br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds i8, ptr %7, i64 24
@@ -952,13 +952,13 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
   %25 = load volatile i64, ptr %7, align 8
   %26 = and i64 %25, 131072
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %.thread, !prof !16
+  br i1 %27, label %28, label %.critedge, !prof !16
 
 28:                                               ; preds = %22
   %29 = load volatile i64, ptr %7, align 8
   %30 = and i64 %29, 4
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %.thread
+  br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %28
   %33 = load volatile i64, ptr %21, align 8
@@ -979,7 +979,7 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
   %41 = load i32, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 48), align 8
   %42 = icmp ugt i32 %41, %38
   %43 = select i1 %40, i1 %42, i1 false
-  br i1 %43, label %22, label %.thread, !llvm.loop !17
+  br i1 %43, label %22, label %.critedge, !llvm.loop !17
 
 44:                                               ; preds = %32
   store volatile i32 0, ptr %20, align 8
@@ -994,7 +994,7 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
   %53 = add i32 %23, %52
   br label %37
 
-.thread:                                          ; preds = %22, %37, %28, %12
+.critedge:                                        ; preds = %22, %37, %28, %12
   %54 = phi i32 [ 0, %12 ], [ -4, %22 ], [ -4, %28 ], [ 0, %37 ]
   call void @mutex_unlock(ptr noundef nonnull @vc_sel) #9
   call void @remove_wait_queue(ptr noundef %13, ptr noundef nonnull %2) #9
@@ -1004,8 +1004,8 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
   call void @tty_ldisc_deref(ptr noundef nonnull %10) #9
   br label %56
 
-56:                                               ; preds = %.thread, %1
-  %57 = phi i32 [ %54, %.thread ], [ -5, %1 ]
+56:                                               ; preds = %.critedge, %1
+  %57 = phi i32 [ %54, %.critedge ], [ -5, %1 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #9
   ret i32 %57
 }

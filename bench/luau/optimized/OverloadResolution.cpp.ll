@@ -7105,7 +7105,7 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit:  ; preds = %_ZSt8_DestroyIPN4Lu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4Luau16OverloadResolver7indexofENS0_8AnalysisE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZN4Luau16OverloadResolver7indexofENS0_8AnalysisE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(440) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = icmp ult i32 %1, 4

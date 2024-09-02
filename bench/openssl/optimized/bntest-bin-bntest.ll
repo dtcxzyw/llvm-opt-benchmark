@@ -5176,11 +5176,11 @@ lor.rhs:                                          ; preds = %land.lhs.true29, %l
 land.rhs:                                         ; preds = %lor.rhs
   %call34 = tail call i32 @BN_is_odd(ptr noundef %call6) #7
   %tobool35.not = icmp eq i32 %call34, 0
+  %4 = zext i1 %tobool35.not to i32
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.rhs, %land.lhs.true29
-  %4 = phi i1 [ true, %land.lhs.true29 ], [ false, %lor.rhs ], [ %tobool35.not, %land.rhs ]
-  %lor.ext = zext i1 %4 to i32
+  %lor.ext = phi i32 [ 1, %land.lhs.true29 ], [ 0, %lor.rhs ], [ %4, %land.rhs ]
   %call38 = tail call i32 @test_false(ptr noundef nonnull @.str.17, i32 noundef 754, ptr noundef nonnull @.str.505, i32 noundef %lor.ext) #7
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %err, label %if.end41

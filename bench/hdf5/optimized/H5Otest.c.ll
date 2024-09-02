@@ -162,7 +162,7 @@ declare i32 @H5O_unprotect(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5O__is_attr_empty_test(i64 noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @H5O__is_attr_empty_test(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.H5O_ainfo_t, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8

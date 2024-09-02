@@ -5491,11 +5491,11 @@ land.lhs.true53:                                  ; preds = %if.end51
 
 land.lhs.true53.if.end57_crit_edge:               ; preds = %land.lhs.true53
   %.pre99 = load i64, ptr %nOutUsed, align 8
+  %12 = trunc i64 %.pre99 to i32
   br label %if.end57
 
 if.end57:                                         ; preds = %land.lhs.true53.if.end57_crit_edge, %if.end51
-  %12 = phi i64 [ %.pre99, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
-  %conv58 = trunc i64 %12 to i32
+  %conv58 = phi i32 [ %12, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
   %13 = load i64, ptr %nInUsed, align 8
   %add.ptr60 = getelementptr inbounds i16, ptr %pInBufferData.addr.090, i64 %13
@@ -5749,11 +5749,11 @@ land.lhs.true53:                                  ; preds = %if.end51
 
 land.lhs.true53.if.end57_crit_edge:               ; preds = %land.lhs.true53
   %.pre99 = load i64, ptr %nOutUsed, align 8
+  %12 = trunc i64 %.pre99 to i32
   br label %if.end57
 
 if.end57:                                         ; preds = %land.lhs.true53.if.end57_crit_edge, %if.end51
-  %12 = phi i64 [ %.pre99, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
-  %conv58 = trunc i64 %12 to i32
+  %conv58 = phi i32 [ %12, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
   %13 = load i64, ptr %nInUsed, align 8
   %add.ptr60 = getelementptr inbounds i32, ptr %pInBufferData.addr.090, i64 %13
@@ -7528,11 +7528,11 @@ land.lhs.true52:                                  ; preds = %if.end50
 
 land.lhs.true52.if.end56_crit_edge:               ; preds = %land.lhs.true52
   %.pre99 = load i64, ptr %nOutUsed, align 8
+  %12 = trunc i64 %.pre99 to i32
   br label %if.end56
 
 if.end56:                                         ; preds = %land.lhs.true52.if.end56_crit_edge, %if.end50
-  %12 = phi i64 [ %.pre99, %land.lhs.true52.if.end56_crit_edge ], [ 0, %if.end50 ]
-  %conv57 = trunc i64 %12 to i32
+  %conv57 = phi i32 [ %12, %land.lhs.true52.if.end56_crit_edge ], [ 0, %if.end50 ]
   %add58 = add nsw i32 %nWriteCountSum.1, %conv57
   %13 = load i64, ptr %nInUsed, align 8
   %add.ptr59 = getelementptr inbounds i8, ptr %pInBufferData.addr.090, i64 %13
@@ -7786,11 +7786,11 @@ land.lhs.true53:                                  ; preds = %if.end51
 
 land.lhs.true53.if.end57_crit_edge:               ; preds = %land.lhs.true53
   %.pre99 = load i64, ptr %nOutUsed, align 8
+  %12 = trunc i64 %.pre99 to i32
   br label %if.end57
 
 if.end57:                                         ; preds = %land.lhs.true53.if.end57_crit_edge, %if.end51
-  %12 = phi i64 [ %.pre99, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
-  %conv58 = trunc i64 %12 to i32
+  %conv58 = phi i32 [ %12, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
   %13 = load i64, ptr %nInUsed, align 8
   %add.ptr60 = getelementptr inbounds i32, ptr %pInBufferData.addr.090, i64 %13
@@ -9549,11 +9549,11 @@ land.lhs.true52:                                  ; preds = %if.end50
 
 land.lhs.true52.if.end56_crit_edge:               ; preds = %land.lhs.true52
   %.pre99 = load i64, ptr %nOutUsed, align 8
+  %12 = trunc i64 %.pre99 to i32
   br label %if.end56
 
 if.end56:                                         ; preds = %land.lhs.true52.if.end56_crit_edge, %if.end50
-  %12 = phi i64 [ %.pre99, %land.lhs.true52.if.end56_crit_edge ], [ 0, %if.end50 ]
-  %conv57 = trunc i64 %12 to i32
+  %conv57 = phi i32 [ %12, %land.lhs.true52.if.end56_crit_edge ], [ 0, %if.end50 ]
   %add58 = add nsw i32 %nWriteCountSum.1, %conv57
   %13 = load i64, ptr %nInUsed, align 8
   %add.ptr59 = getelementptr inbounds i8, ptr %pInBufferData.addr.090, i64 %13
@@ -9807,11 +9807,11 @@ land.lhs.true53:                                  ; preds = %if.end51
 
 land.lhs.true53.if.end57_crit_edge:               ; preds = %land.lhs.true53
   %.pre99 = load i64, ptr %nOutUsed, align 8
+  %12 = trunc i64 %.pre99 to i32
   br label %if.end57
 
 if.end57:                                         ; preds = %land.lhs.true53.if.end57_crit_edge, %if.end51
-  %12 = phi i64 [ %.pre99, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
-  %conv58 = trunc i64 %12 to i32
+  %conv58 = phi i32 [ %12, %land.lhs.true53.if.end57_crit_edge ], [ 0, %if.end51 ]
   %add59 = add nsw i32 %nWriteCountSum.1, %conv58
   %13 = load i64, ptr %nInUsed, align 8
   %add.ptr60 = getelementptr inbounds i16, ptr %pInBufferData.addr.090, i64 %13

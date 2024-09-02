@@ -829,56 +829,56 @@ define dso_local void @_ZN13V3GraphVertex12rerouteEdgesEP7V3Graph(ptr nocapture 
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %26, i32 %24)
   %27 = load i8, ptr %15, align 4
   %28 = trunc i8 %27 to i1
-  br i1 %28, label %29, label %32
+  br i1 %28, label %29, label %33
 
 29:                                               ; preds = %16
   %30 = getelementptr inbounds i8, ptr %.sroa.0.063, i64 60
   %31 = load i8, ptr %30, align 4
-  br label %32
+  %32 = and i8 %31, 1
+  br label %33
 
-32:                                               ; preds = %29, %16
-  %33 = phi i8 [ 0, %16 ], [ %31, %29 ]
+33:                                               ; preds = %29, %16
+  %34 = phi i8 [ 0, %16 ], [ %32, %29 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %20, align 8
-  %34 = getelementptr inbounds i8, ptr %20, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
+  %35 = getelementptr inbounds i8, ptr %20, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %35, label %38
+  br i1 %.not.i, label %36, label %39
 
-35:                                               ; preds = %32
-  %36 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.6, i32 noundef 142, i1 noundef zeroext true)
+36:                                               ; preds = %33
+  %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.6, i32 noundef 142, i1 noundef zeroext true)
           to label %.noexc unwind label %72
 
-.noexc:                                           ; preds = %35
-  %37 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+.noexc:                                           ; preds = %36
+  %38 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
           to label %.noexc54.invoke unwind label %72
 
-38:                                               ; preds = %32
+39:                                               ; preds = %33
   %.not6.i = icmp eq ptr %23, null
-  br i1 %.not6.i, label %39, label %45
+  br i1 %.not6.i, label %40, label %46
 
-39:                                               ; preds = %38
-  %40 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.6, i32 noundef 143, i1 noundef zeroext true)
+40:                                               ; preds = %39
+  %41 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.6, i32 noundef 143, i1 noundef zeroext true)
           to label %.noexc53 unwind label %72
 
-.noexc53:                                         ; preds = %39
-  %41 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+.noexc53:                                         ; preds = %40
+  %42 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
           to label %.noexc54.invoke unwind label %72
 
 .noexc54.invoke:                                  ; preds = %.noexc53, %.noexc
-  %42 = phi ptr [ %37, %.noexc ], [ %41, %.noexc53 ]
-  %43 = phi ptr [ @.str.7, %.noexc ], [ @.str.8, %.noexc53 ]
-  %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull %43)
+  %43 = phi ptr [ %38, %.noexc ], [ %42, %.noexc53 ]
+  %44 = phi ptr [ @.str.7, %.noexc ], [ @.str.8, %.noexc53 ]
+  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %44)
           to label %.noexc55.invoke unwind label %72
 
 .noexc55.invoke:                                  ; preds = %.noexc54.invoke
-  invoke void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %44) #24
+  invoke void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %45) #24
           to label %.noexc55.cont unwind label %72
 
 .noexc55.cont:                                    ; preds = %.noexc55.invoke
   unreachable
 
-45:                                               ; preds = %38
-  %46 = and i8 %33, 1
+46:                                               ; preds = %39
   %47 = getelementptr inbounds i8, ptr %20, i64 40
   store ptr %21, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %20, i64 48
@@ -886,11 +886,11 @@ define dso_local void @_ZN13V3GraphVertex12rerouteEdgesEP7V3Graph(ptr nocapture 
   %49 = getelementptr inbounds i8, ptr %20, i64 56
   store i32 %.sroa.speculated, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %20, i64 60
-  store i8 %46, ptr %50, align 4
+  store i8 %34, ptr %50, align 4
   %51 = getelementptr inbounds i8, ptr %20, i64 64
   store ptr null, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %21, i64 24
-  store ptr null, ptr %34, align 8
+  store ptr null, ptr %35, align 8
   %53 = getelementptr inbounds i8, ptr %21, i64 32
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %20, i64 16
@@ -898,12 +898,12 @@ define dso_local void @_ZN13V3GraphVertex12rerouteEdgesEP7V3Graph(ptr nocapture 
   %.not.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i, label %58, label %56
 
-56:                                               ; preds = %45
+56:                                               ; preds = %46
   %57 = getelementptr inbounds i8, ptr %54, i64 8
   store ptr %20, ptr %57, align 8
   br label %58
 
-58:                                               ; preds = %56, %45
+58:                                               ; preds = %56, %46
   store ptr %20, ptr %53, align 8
   %59 = load ptr, ptr %52, align 8
   %.not8.i.i = icmp eq ptr %59, null
@@ -945,7 +945,7 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit: ; preds = %69, %71
   %.not48 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not48, label %.loopexit.loopexit, label %16
 
-72:                                               ; preds = %.noexc54.invoke, %.noexc55.invoke, %.noexc53, %39, %.noexc, %35
+72:                                               ; preds = %.noexc54.invoke, %.noexc55.invoke, %.noexc53, %40, %.noexc, %36
   %73 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %20) #25

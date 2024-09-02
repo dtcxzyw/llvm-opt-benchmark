@@ -4386,7 +4386,7 @@ define range(i32 -2147483647, -2147483648) i32 @Gia_NodeDeref_rec(ptr noundef %0
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Gia_NodeRef_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
+define range(i32 -2147483647, -2147483648) i32 @Gia_NodeRef_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
   %.val = load i64, ptr %1, align 4
   %4 = and i64 %.val, 2684354559
   %narrow.i.not = icmp eq i64 %4, 2684354559

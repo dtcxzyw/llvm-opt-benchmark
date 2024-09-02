@@ -29051,8 +29051,8 @@ define internal fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr n
   br label %._crit_edge102
 
 ._crit_edge102:                                   ; preds = %77, %._crit_edge102.split.loop.exit123
-  %.2.lcssa = phi i32 [ %78, %._crit_edge102.split.loop.exit123 ], [ %9, %77 ]
-  %79 = icmp eq i32 %.2.lcssa, 4
+  %.2.lcssa.ph = phi i32 [ %78, %._crit_edge102.split.loop.exit123 ], [ %9, %77 ]
+  %79 = icmp eq i32 %.2.lcssa.ph, 4
   %or.cond = and i1 %28, %79
   br i1 %or.cond, label %80, label %._crit_edge102.thread
 
@@ -33747,7 +33747,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @requestLength(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, -3) i32 @requestLength(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_x11_request_length, align 4
   %7 = load i32, ptr %1, align 4

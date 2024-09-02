@@ -4066,7 +4066,7 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %35 = load i64, ptr %second.i4.i.i.i, align 8
   %36 = shl nuw i64 1, %21
   %37 = and i64 %35, %36
-  %tobool.i.i.i.i = icmp ne i64 %37, 0
+  %tobool.i.i.i.i = icmp eq i64 %37, 0
   br label %cleanup
 
 lpad6:                                            ; preds = %if.then13.i.i.i60, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit40
@@ -4082,7 +4082,7 @@ lpad9:                                            ; preds = %_ZN4cvc58internal12
   br label %common.resume
 
 cleanup:                                          ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i, %if.end15.i.i.i.i.i.i
-  %retval.0.i.i.i = phi i1 [ %tobool.i.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i ], [ false, %if.end15.i.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i ], [ false, %if.end3.i.i.i.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i ]
+  %retval.0.i.i.i = phi i1 [ %tobool.i.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i ], [ true, %if.end15.i.i.i.i.i.i ], [ true, %for.cond.i.i.i.i.i.i ], [ true, %if.end3.i.i.i.i.i.i.i.i ], [ true, %lor.lhs.false.i.i.i.i.i.i.i.i ]
   %bf.load.i.i81 = load i64, ptr %15, align 8
   %40 = and i64 %bf.load.i.i81, 1152920405095219200
   %cmp.not.i.i82 = icmp eq i64 %40, 1152920405095219200
@@ -4109,7 +4109,7 @@ terminate.lpad.i90:                               ; preds = %if.then13.i.i89
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91: ; preds = %cleanup, %if.then.i.i83, %if.then13.i.i89
-  br i1 %retval.0.i.i.i, label %return, label %for.inc
+  br i1 %retval.0.i.i.i, label %for.inc, label %return
 
 for.inc:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %inc = add nuw i32 %i.0111, 1
@@ -4464,7 +4464,7 @@ _ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.
   %35 = load i64, ptr %second.i4.i.i.i, align 8
   %36 = shl nuw i64 1, %21
   %37 = and i64 %35, %36
-  %tobool.i.i.i.i = icmp ne i64 %37, 0
+  %tobool.i.i.i.i = icmp eq i64 %37, 0
   br label %cleanup
 
 lpad6:                                            ; preds = %if.then13.i.i.i60, %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit40
@@ -4480,7 +4480,7 @@ lpad9:                                            ; preds = %_ZN4cvc58internal12
   br label %common.resume
 
 cleanup:                                          ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i, %if.end15.i.i.i.i.i.i
-  %retval.0.i.i.i = phi i1 [ %tobool.i.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i ], [ false, %if.end15.i.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i ], [ false, %if.end3.i.i.i.i.i.i.i.i ], [ false, %lor.lhs.false.i.i.i.i.i.i.i.i ]
+  %retval.0.i.i.i = phi i1 [ %tobool.i.i.i.i, %_ZNK4cvc58internal4expr4attr8AttrHashIbE4findERKSt4pairImPNS1_9NodeValueEE.exit.thread.i.i.i ], [ true, %if.end15.i.i.i.i.i.i ], [ true, %for.cond.i.i.i.i.i.i ], [ true, %if.end3.i.i.i.i.i.i.i.i ], [ true, %lor.lhs.false.i.i.i.i.i.i.i.i ]
   %bf.load.i.i81 = load i64, ptr %15, align 8
   %40 = and i64 %bf.load.i.i81, 1152920405095219200
   %cmp.not.i.i82 = icmp eq i64 %40, 1152920405095219200
@@ -4507,7 +4507,7 @@ terminate.lpad.i90:                               ; preds = %if.then13.i.i89
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91: ; preds = %cleanup, %if.then.i.i83, %if.then13.i.i89
-  br i1 %retval.0.i.i.i, label %return, label %for.inc
+  br i1 %retval.0.i.i.i, label %for.inc, label %return
 
 for.inc:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %inc = add nuw i32 %i.0111, 1

@@ -4421,7 +4421,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN4cvc58internal6theory5arith6linear9DioSolver14scaleEqAtIndexEmRKNS0_7IntegerE(ptr noundef nonnull align 8 dereferenceable(1032) %this, i64 noundef %i, ptr noundef nonnull align 8 dereferenceable(16) %g) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 -192153584101141162, 192153584101141163) i64 @_ZN4cvc58internal6theory5arith6linear9DioSolver14scaleEqAtIndexEmRKNS0_7IntegerE(ptr noundef nonnull align 8 dereferenceable(1032) %this, i64 noundef %i, ptr noundef nonnull align 8 dereferenceable(16) %g) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %invg = alloca %"class.cvc5::internal::theory::arith::linear::Constant", align 8
   %ref.tmp = alloca %"class.cvc5::internal::Rational", align 8
@@ -9687,7 +9687,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnu
 declare noundef i32 @_ZNK4cvc58internal7Integer3sgnEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN4cvc58internal6theory5arith6linear9DioSolver18combineEqAtIndexesEmRKNS0_7IntegerEmS7_(ptr noundef nonnull align 8 dereferenceable(1032) %this, i64 noundef %i, ptr noundef nonnull align 8 dereferenceable(16) %q, i64 noundef %j, ptr noundef nonnull align 8 dereferenceable(16) %r) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 -192153584101141162, 192153584101141163) i64 @_ZN4cvc58internal6theory5arith6linear9DioSolver18combineEqAtIndexesEmRKNS0_7IntegerEmS7_(ptr noundef nonnull align 8 dereferenceable(1032) %this, i64 noundef %i, ptr noundef nonnull align 8 dereferenceable(16) %q, i64 noundef %j, ptr noundef nonnull align 8 dereferenceable(16) %r) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cq = alloca %"class.cvc5::internal::theory::arith::linear::Constant", align 8
   %ref.tmp = alloca %"class.cvc5::internal::Rational", align 8

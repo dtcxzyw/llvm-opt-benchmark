@@ -558,41 +558,41 @@ define dso_local void @lapic_online() local_unnamed_addr #0 align 16 {
   tail call void @irq_matrix_online(ptr noundef %1) #15
   br label %2
 
-2:                                                ; preds = %18, %0
-  %3 = phi i64 [ 0, %0 ], [ %22, %18 ]
+2:                                                ; preds = %19, %0
+  %3 = phi i64 [ 0, %0 ], [ %22, %19 ]
   %4 = add nsw i64 %3, -48
   %5 = icmp ult i64 %3, 48
-  br i1 %5, label %18, label %6
+  br i1 %5, label %19, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @legacy_pic, align 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = icmp slt i64 %4, %9
-  br i1 %10, label %11, label %18
+  br i1 %10, label %11, label %19
 
 11:                                               ; preds = %6
   %12 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @io_apic_irqs, i64 %4) #15, !srcloc !19
   %13 = icmp ult i8 %12, 2
   tail call void @llvm.assume(i1 %13)
   %14 = icmp eq i8 %12, 0
-  br i1 %14, label %15, label %18
+  br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
   %16 = trunc i64 %4 to i32
   %17 = tail call ptr @irq_to_desc(i32 noundef %16) #15
-  br label %18
+  %18 = ptrtoint ptr %17 to i64
+  br label %19
 
-18:                                               ; preds = %15, %11, %6, %2
-  %19 = phi ptr [ %17, %15 ], [ null, %6 ], [ null, %2 ], [ null, %11 ]
-  %20 = ptrtoint ptr %19 to i64
+19:                                               ; preds = %15, %11, %6, %2
+  %20 = phi i64 [ %18, %15 ], [ 0, %6 ], [ 0, %2 ], [ 0, %11 ]
   %21 = getelementptr [256 x ptr], ptr @vector_irq, i64 0, i64 %3
   tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %21, i64 %20, ptr elementtype(ptr) %21) #15, !srcloc !20
   %22 = add nuw nsw i64 %3, 1
   %23 = icmp eq i64 %22, 256
   br i1 %23, label %24, label %2, !llvm.loop !21
 
-24:                                               ; preds = %18
+24:                                               ; preds = %19
   ret void
 }
 
@@ -1739,7 +1739,7 @@ define internal void @x86_vector_free_irqs(ptr nocapture readnone %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @x86_vector_activate(ptr nocapture readnone %0, ptr noundef %1, i1 noundef zeroext %2) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @x86_vector_activate(ptr nocapture readnone %0, ptr noundef %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %12, label %.preheader9
 

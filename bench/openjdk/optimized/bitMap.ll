@@ -2269,7 +2269,7 @@ define hidden noundef i64 @_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZNK6BitMap26count_one_bits_within_wordEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i64 0, 65) i64 @_ZNK6BitMap26count_one_bits_within_wordEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
   %.not = icmp eq i64 %1, %2
   br i1 %.not, label %15, label %4
 

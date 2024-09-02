@@ -18059,11 +18059,11 @@ define void @_ZN2cv15calcCovarMatrixEPKNS_3MatEiRS0_S3_ii(ptr noundef %0, i32 no
   %61 = getelementptr i64, ptr %59, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -8
   %63 = load i64, ptr %62, align 8
+  %64 = trunc i64 %63 to i32
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %47, %57
-  %64 = phi i64 [ %63, %57 ], [ 0, %47 ]
-  %65 = trunc i64 %64 to i32
+  %65 = phi i32 [ %64, %57 ], [ 0, %47 ]
   %66 = load i32, ptr %0, align 8
   %67 = and i32 %66, 4095
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #25
@@ -18184,7 +18184,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %47, %57
 .lr.ph:                                           ; preds = %113
   %114 = getelementptr inbounds i8, ptr %18, i64 16
   %115 = getelementptr inbounds i8, ptr %18, i64 72
-  %116 = mul nsw i32 %53, %65
+  %116 = mul nsw i32 %65, %53
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds i8, ptr %24, i64 8
   %119 = getelementptr inbounds i8, ptr %24, i64 16
@@ -25108,11 +25108,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i, i64 0, i64 %829
   %switch.load = load ptr, ptr %switch.gep, align 8
   %830 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1425 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i.6, i64 0, i64 %830
-  %switch.load1426 = load ptr, ptr %switch.gep1425, align 8
+  %switch.gep1422 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i.6, i64 0, i64 %830
+  %switch.load1423 = load ptr, ptr %switch.gep1422, align 8
   %831 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1427 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i.7, i64 0, i64 %831
-  %switch.load1428 = load ptr, ptr %switch.gep1427, align 8
+  %switch.gep1424 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i.7, i64 0, i64 %831
+  %switch.load1425 = load ptr, ptr %switch.gep1424, align 8
   %832 = icmp eq i32 %.sroa.01145.0, 1
   %833 = icmp eq i32 %.01229, 1
   %or.cond6 = select i1 %832, i1 true, i1 %833
@@ -25128,7 +25128,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not1243, label %851, label %838
 
 838:                                              ; preds = %835
-  br i1 %832, label %847, label %839
+  br i1 %832, label %848, label %839
 
 839:                                              ; preds = %838
   %840 = lshr i32 %20, 3
@@ -25138,17 +25138,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %844 = lshr i32 675553809, %843
   %845 = and i32 %844, 15
   %846 = mul nuw nsw i32 %845, %841
-  br label %847
+  %847 = zext nneg i32 %846 to i64
+  br label %848
 
-847:                                              ; preds = %838, %839
-  %848 = phi i32 [ %846, %839 ], [ 0, %838 ]
-  %849 = zext nneg i32 %848 to i64
+848:                                              ; preds = %838, %839
+  %849 = phi i64 [ %847, %839 ], [ 0, %838 ]
   %850 = or disjoint i32 %6, 2
   br label %851
 
-851:                                              ; preds = %switch.lookup, %847, %835
-  %.0953 = phi i64 [ %849, %847 ], [ %810, %835 ], [ %810, %switch.lookup ]
-  %.0 = phi i32 [ %850, %847 ], [ %6, %835 ], [ %6, %switch.lookup ]
+851:                                              ; preds = %switch.lookup, %848, %835
+  %.0953 = phi i64 [ %849, %848 ], [ %810, %835 ], [ %810, %switch.lookup ]
+  %.0 = phi i32 [ %850, %848 ], [ %6, %835 ], [ %6, %switch.lookup ]
   %852 = icmp slt i32 %.sroa.29.0, 65
   %853 = icmp slt i32 %.sroa.01145.0, 65
   %or.cond9 = select i1 %852, i1 true, i1 %853
@@ -25403,45 +25403,44 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %.noexc, %_ZN2cv10Au
   %980 = mul i64 %.0913, %977
   %.sroa.21086.0.insert.ext = zext i32 %.0918 to i64
   %.sroa.21086.0.insert.shift = shl nuw i64 %.sroa.21086.0.insert.ext, 32
+  %981 = and i32 %.31354, 15
+  %982 = or disjoint i32 %981, 16
   br label %.lr.ph1339.split.us
 
 .lr.ph1339.split.us:                              ; preds = %.lr.ph1339, %._crit_edge.us.thread
-  %.41337.us = phi i32 [ %1003, %._crit_edge.us.thread ], [ %.31354, %.lr.ph1339 ]
   %.09201336.us = phi i32 [ %1004, %._crit_edge.us.thread ], [ 0, %.lr.ph1339 ]
-  %981 = load ptr, ptr %958, align 8
-  %982 = load i64, ptr %960, align 8
-  %983 = mul i64 %982, %977
-  %984 = getelementptr inbounds i8, ptr %981, i64 %983
-  %985 = mul nsw i32 %.09201336.us, %880
-  %986 = sext i32 %985 to i64
-  %987 = getelementptr inbounds i8, ptr %984, i64 %986
-  %988 = sext i32 %.09201336.us to i64
-  %989 = mul i64 %.0908, %988
-  %990 = getelementptr inbounds i8, ptr %979, i64 %989
-  %991 = add nsw i32 %.09201336.us, %.0914
-  %.not1044.us = icmp slt i32 %991, %.sroa.01145.0
-  br i1 %.not1044.us, label %992, label %996
+  %983 = load ptr, ptr %958, align 8
+  %984 = load i64, ptr %960, align 8
+  %985 = mul i64 %984, %977
+  %986 = getelementptr inbounds i8, ptr %983, i64 %985
+  %987 = mul nsw i32 %.09201336.us, %880
+  %988 = sext i32 %987 to i64
+  %989 = getelementptr inbounds i8, ptr %986, i64 %988
+  %990 = sext i32 %.09201336.us to i64
+  %991 = mul i64 %.0908, %990
+  %992 = getelementptr inbounds i8, ptr %979, i64 %991
+  %993 = add nsw i32 %.09201336.us, %.0914
+  %.not1044.us = icmp slt i32 %993, %.sroa.01145.0
+  br i1 %.not1044.us, label %994, label %998
 
-992:                                              ; preds = %.lr.ph1339.split.us
-  %993 = shl nsw i32 %991, 3
-  %994 = add nsw i32 %993, %.0914
-  %995 = icmp sgt i32 %994, %961
-  br i1 %995, label %996, label %.lr.ph1335.us
+994:                                              ; preds = %.lr.ph1339.split.us
+  %995 = shl nsw i32 %993, 3
+  %996 = add nsw i32 %995, %.0914
+  %997 = icmp sgt i32 %996, %961
+  br i1 %997, label %998, label %.lr.ph1335.us
 
-996:                                              ; preds = %992, %.lr.ph1339.split.us
-  %997 = sub nsw i32 %.sroa.01145.0, %.09201336.us
+998:                                              ; preds = %994, %.lr.ph1339.split.us
+  %999 = sub nsw i32 %.sroa.01145.0, %.09201336.us
   br label %.lr.ph1335.us
 
-.lr.ph1335.us:                                    ; preds = %996, %992
-  %.0917.us = phi i32 [ %997, %996 ], [ %.0914, %992 ]
-  %998 = and i32 %.41337.us, 15
-  %999 = mul nsw i32 %.0917.us, %883
-  %1000 = sext i32 %999 to i64
-  %1001 = mul i64 %.0910, %988
-  %1002 = icmp slt i32 %.0917.us, %.sroa.01145.0
+.lr.ph1335.us:                                    ; preds = %998, %994
+  %.0917.us = phi i32 [ %999, %998 ], [ %.0914, %994 ]
+  %1000 = mul nsw i32 %.0917.us, %883
+  %1001 = sext i32 %1000 to i64
+  %1002 = mul i64 %.0910, %990
+  %1003 = icmp slt i32 %.0917.us, %.sroa.01145.0
   %.sroa.01085.0.insert.ext.us = zext i32 %.0917.us to i64
   %.sroa.01085.0.insert.insert.us = or disjoint i64 %.sroa.21086.0.insert.shift, %.sroa.01085.0.insert.ext.us
-  %1003 = or disjoint i32 %998, 16
   br label %.backedge
 
 ._crit_edge.us.thread:                            ; preds = %.thread, %._crit_edge.us
@@ -25450,7 +25449,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %.noexc, %_ZN2cv10Au
   br i1 %1005, label %.lr.ph1339.split.us, label %._crit_edge1340, !llvm.loop !468
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph1335.us
-  %.51334.us = phi i32 [ %998, %.lr.ph1335.us ], [ %1003, %.backedge.backedge ]
+  %.51334.us = phi i32 [ %981, %.lr.ph1335.us ], [ %982, %.backedge.backedge ]
   %.09191333.us = phi i32 [ 0, %.lr.ph1335.us ], [ %.09191333.us.be, %.backedge.backedge ]
   %1006 = load ptr, ptr %963, align 8
   %1007 = getelementptr inbounds i8, ptr %1006, i64 %980
@@ -25461,7 +25460,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %.noexc, %_ZN2cv10Au
   %1012 = load ptr, ptr %965, align 8
   %1013 = mul i64 %.0911, %1008
   %1014 = getelementptr inbounds i8, ptr %1012, i64 %1013
-  %1015 = getelementptr inbounds i8, ptr %1014, i64 %1001
+  %1015 = getelementptr inbounds i8, ptr %1014, i64 %1002
   %1016 = add nsw i32 %.09191333.us, %.sroa.speculated
   %.not1045.us = icmp slt i32 %1016, %.01229
   br i1 %.not1045.us, label %1017, label %1021
@@ -25618,7 +25617,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %.noexc, %_ZN2cv10Au
   %.sroa.8.1.us = phi i32 [ %spec.select1235.us, %.loopexit.us ], [ %spec.select1236.us, %1023 ]
   %.0896.us = phi ptr [ %spec.select1071, %.loopexit.us ], [ %1010, %1023 ]
   %.0895.us = phi i64 [ %1026, %.loopexit.us ], [ %1011, %1023 ]
-  br i1 %1002, label %1074, label %_ZN2cv12cpu_baselineL14GEMM_CopyBlockEPKhmPhmNS_5Size_IiEEm.exit.us
+  br i1 %1003, label %1074, label %_ZN2cv12cpu_baselineL14GEMM_CopyBlockEPKhmPhmNS_5Size_IiEEm.exit.us
 
 1074:                                             ; preds = %1073
   %spec.select1237.us = select i1 %.not1041, i32 %.0916.us, i32 %.0917.us
@@ -25668,11 +25667,11 @@ _ZN2cv12cpu_baselineL14GEMM_CopyBlockEPKhmPhmNS_5Size_IiEEm.exit.us: ; preds = %
   br i1 %962, label %1087, label %1086
 
 1086:                                             ; preds = %_ZN2cv12cpu_baselineL14GEMM_CopyBlockEPKhmPhmNS_5Size_IiEEm.exit.us
-  invoke void %switch.load(ptr noundef %.0896.us, i64 noundef %.0895.us, ptr noundef %.0894.us, i64 noundef %.0893.us, ptr noundef %990, i64 noundef %817, ptr noundef %987, i64 noundef %982, i64 %.sroa.01090.0.insert.insert1093.us, i64 %.sroa.01085.0.insert.insert.us, double noundef %2, double noundef %4, i32 noundef %.51334.us)
+  invoke void %switch.load(ptr noundef %.0896.us, i64 noundef %.0895.us, ptr noundef %.0894.us, i64 noundef %.0893.us, ptr noundef %992, i64 noundef %817, ptr noundef %989, i64 noundef %984, i64 %.sroa.01090.0.insert.insert1093.us, i64 %.sroa.01085.0.insert.insert.us, double noundef %2, double noundef %4, i32 noundef %.51334.us)
           to label %.thread unwind label %.loopexit1248.split.us, !callees !467
 
 1087:                                             ; preds = %_ZN2cv12cpu_baselineL14GEMM_CopyBlockEPKhmPhmNS_5Size_IiEEm.exit.us
-  invoke void %switch.load1426(ptr noundef %.0896.us, i64 noundef %.0895.us, ptr noundef %.0894.us, i64 noundef %.0893.us, ptr noundef %952, i64 noundef %1000, i64 %.sroa.01090.0.insert.insert1093.us, i64 %.sroa.01085.0.insert.insert.us, i32 noundef %.51334.us)
+  invoke void %switch.load1423(ptr noundef %.0896.us, i64 noundef %.0895.us, ptr noundef %.0894.us, i64 noundef %.0893.us, ptr noundef %952, i64 noundef %1001, i64 %.sroa.01090.0.insert.insert1093.us, i64 %.sroa.01085.0.insert.insert.us, i32 noundef %.51334.us)
           to label %1088 unwind label %.loopexit1248.split.us, !callees !475
 
 1088:                                             ; preds = %1087
@@ -25695,9 +25694,9 @@ _ZN2cv12cpu_baselineL14GEMM_CopyBlockEPKhmPhmNS_5Size_IiEEm.exit.us: ; preds = %
   %1095 = load i64, ptr %1094, align 8
   %1096 = mul i64 %1095, %977
   %1097 = getelementptr inbounds i8, ptr %1093, i64 %1096
-  %1098 = getelementptr inbounds i8, ptr %1097, i64 %986
+  %1098 = getelementptr inbounds i8, ptr %1097, i64 %988
   %1099 = load i64, ptr %960, align 8
-  invoke void %switch.load1428(ptr noundef %990, i64 noundef %817, ptr noundef %952, i64 noundef %1000, ptr noundef %1098, i64 noundef %1099, i64 %.sroa.01085.0.insert.insert.us, double noundef %2, double noundef %4, i32 noundef %1003)
+  invoke void %switch.load1425(ptr noundef %992, i64 noundef %817, ptr noundef %952, i64 noundef %1001, ptr noundef %1098, i64 noundef %1099, i64 %.sroa.01085.0.insert.insert.us, double noundef %2, double noundef %4, i32 noundef %982)
           to label %._crit_edge.us.thread unwind label %.loopexit.split-lp.loopexit.split.us, !callees !477
 
 .loopexit.split-lp.loopexit.split.us:             ; preds = %._crit_edge.us
@@ -25739,7 +25738,7 @@ _ZN2cv12cpu_baselineL14GEMM_CopyBlockEPKhmPhmNS_5Size_IiEEm.exit.us: ; preds = %
   br label %.body
 
 ._crit_edge1340:                                  ; preds = %._crit_edge.us.thread, %976
-  %.4.lcssa = phi i32 [ %.31354, %976 ], [ %1003, %._crit_edge.us.thread ]
+  %.4.lcssa = phi i32 [ %.31354, %976 ], [ %982, %._crit_edge.us.thread ]
   %1107 = add nsw i32 %.0918, %.121353
   %1108 = icmp slt i32 %1107, %.sroa.29.0
   br i1 %1108, label %968, label %.loopexit1252, !llvm.loop !478
@@ -28836,8 +28835,8 @@ define internal void @_ZN2cv12cpu_baselineL18GEMMSingleMul_32fcEPKNS_7ComplexIfE
   store ptr %30, ptr %14, align 8
   br label %.thread.i
 
-31:                                               ; preds = %431, %28
-  %32 = phi ptr [ %172, %431 ], [ %scevgep.i.i, %28 ]
+31:                                               ; preds = %447, %28
+  %32 = phi ptr [ %172, %447 ], [ %scevgep.i.i, %28 ]
   %33 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit.i
@@ -29142,7 +29141,7 @@ _ZN2cv10AutoBufferINS_7ComplexIfEELm136EE8allocateEm.exit555.i: ; preds = %.noex
   %.0376901.i = phi i64 [ %.0376.i, %34 ], [ %18, %.noexc.i ], [ %18, %27 ]
   %173 = and i32 %12, 2
   %.not387.i = icmp eq i32 %173, 0
-  br i1 %.not387.i, label %231, label %.preheader920.i
+  br i1 %.not387.i, label %247, label %.preheader920.i
 
 .preheader920.i:                                  ; preds = %.thread.i
   %174 = icmp sgt i32 %.sroa.8.0.extract.trunc.i, 0
@@ -29156,586 +29155,617 @@ _ZN2cv10AutoBufferINS_7ComplexIfEELm136EE8allocateEm.exit555.i: ; preds = %.noex
   %brmerge.i = select i1 %.not396.i, i1 true, i1 %175
   %wide.trip.count.i = zext nneg i32 %.0366904.i to i64
   %wide.trip.count1064.i = and i64 %9, 2147483647
+  %178 = fmul double %10, 0.000000e+00
   br i1 %176, label %.lr.ph936.i.split.us, label %.lr.ph936.i.split
 
 .lr.ph936.i.split.us:                             ; preds = %.lr.ph936.i, %._crit_edge931.i.loopexit.us
-  %.1344935.i.us = phi ptr [ %224, %._crit_edge931.i.loopexit.us ], [ %6, %.lr.ph936.i ]
-  %.1349934.i.us = phi i32 [ %221, %._crit_edge931.i.loopexit.us ], [ 0, %.lr.ph936.i ]
-  %.0367933.i.us = phi ptr [ %222, %._crit_edge931.i.loopexit.us ], [ %0, %.lr.ph936.i ]
-  %.1371932.i.us = phi ptr [ %223, %._crit_edge931.i.loopexit.us ], [ %4, %.lr.ph936.i ]
+  %.1344935.i.us = phi ptr [ %201, %._crit_edge931.i.loopexit.us ], [ %6, %.lr.ph936.i ]
+  %.1349934.i.us = phi i32 [ %198, %._crit_edge931.i.loopexit.us ], [ 0, %.lr.ph936.i ]
+  %.0367933.i.us = phi ptr [ %199, %._crit_edge931.i.loopexit.us ], [ %0, %.lr.ph936.i ]
+  %.1371932.i.us = phi ptr [ %200, %._crit_edge931.i.loopexit.us ], [ %4, %.lr.ph936.i ]
   %.0367933.mux.i.us = select i1 %.not396.i, ptr %.0367933.i.us, ptr %.0374903.i
   br i1 %brmerge.i, label %.loopexit919.i.us, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph936.i.split.us, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i.us ], [ 0, %.lr.ph936.i.split.us ]
-  %178 = mul i64 %indvars.iv.i.us, %.0376901.i
-  %179 = getelementptr inbounds %"class.cv::Complex", ptr %.0367933.i.us, i64 %178
-  %180 = getelementptr inbounds %"class.cv::Complex", ptr %.0374903.i, i64 %indvars.iv.i.us
-  %181 = load i64, ptr %179, align 4
-  store i64 %181, ptr %180, align 4
+  %179 = mul i64 %indvars.iv.i.us, %.0376901.i
+  %180 = getelementptr inbounds %"class.cv::Complex", ptr %.0367933.i.us, i64 %179
+  %181 = getelementptr inbounds %"class.cv::Complex", ptr %.0374903.i, i64 %indvars.iv.i.us
+  %182 = load i64, ptr %180, align 4
+  store i64 %182, ptr %181, align 4
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %.loopexit919.i.us, label %.lr.ph.i.us, !llvm.loop !554
 
 .loopexit919.i.us:                                ; preds = %.lr.ph.i.us, %.lr.ph936.i.split.us
   %.1.i.us = phi ptr [ %.0367933.mux.i.us, %.lr.ph936.i.split.us ], [ %.0374903.i, %.lr.ph.i.us ]
-  br label %.preheader917.i.us
+  br i1 %177, label %.preheader917.i.us.us, label %.preheader917.i.us29
 
-.preheader917.i.us:                               ; preds = %.loopexit919.i.us, %215
-  %indvars.iv1061.i.us = phi i64 [ %indvars.iv.next1062.i.us, %215 ], [ 0, %.loopexit919.i.us ]
-  %.1337930.i.us = phi ptr [ %219, %215 ], [ %2, %.loopexit919.i.us ]
-  %.2341929.i.us = phi ptr [ %220, %215 ], [ %.1371932.i.us, %.loopexit919.i.us ]
-  br i1 %177, label %.lr.ph926.i.us, label %._crit_edge.i.us
+.preheader917.i.us29:                             ; preds = %.loopexit919.i.us, %193
+  %indvars.iv1061.i.us30 = phi i64 [ %indvars.iv.next1062.i.us38, %193 ], [ 0, %.loopexit919.i.us ]
+  %.2341929.i.us32 = phi ptr [ %197, %193 ], [ %.1371932.i.us, %.loopexit919.i.us ]
+  %.not397.i.us33 = icmp eq ptr %.2341929.i.us32, null
+  br i1 %.not397.i.us33, label %193, label %183
 
-.lr.ph926.i.us:                                   ; preds = %.preheader917.i.us, %.lr.ph926.i.us
-  %indvars.iv1056.i.us = phi i64 [ %indvars.iv.next1057.i.us, %.lr.ph926.i.us ], [ 0, %.preheader917.i.us ]
-  %.sroa.7863.0924.i.us = phi double [ %200, %.lr.ph926.i.us ], [ 0.000000e+00, %.preheader917.i.us ]
-  %.sroa.0861.0923.i.us = phi double [ %199, %.lr.ph926.i.us ], [ 0.000000e+00, %.preheader917.i.us ]
-  %182 = getelementptr inbounds %"class.cv::Complex", ptr %.1.i.us, i64 %indvars.iv1056.i.us
-  %183 = load float, ptr %182, align 4
-  %184 = fpext float %183 to double
-  %185 = getelementptr inbounds i8, ptr %182, i64 4
-  %186 = load float, ptr %185, align 4
-  %187 = fpext float %186 to double
-  %188 = getelementptr inbounds %"class.cv::Complex", ptr %.1337930.i.us, i64 %indvars.iv1056.i.us
-  %189 = load float, ptr %188, align 4
-  %190 = fpext float %189 to double
-  %191 = getelementptr inbounds i8, ptr %188, i64 4
-  %192 = load float, ptr %191, align 4
-  %193 = fpext float %192 to double
-  %194 = fneg double %193
-  %195 = fmul double %187, %194
-  %196 = call double @llvm.fmuladd.f64(double %184, double %190, double %195)
-  %197 = fmul double %187, %190
-  %198 = call double @llvm.fmuladd.f64(double %184, double %193, double %197)
-  %199 = fadd double %.sroa.0861.0923.i.us, %196
-  %200 = fadd double %.sroa.7863.0924.i.us, %198
-  %indvars.iv.next1057.i.us = add nuw nsw i64 %indvars.iv1056.i.us, 1
-  %exitcond1060.not.i.us = icmp eq i64 %indvars.iv.next1057.i.us, %wide.trip.count.i
-  br i1 %exitcond1060.not.i.us, label %._crit_edge.i.us, label %.lr.ph926.i.us, !llvm.loop !555
+183:                                              ; preds = %.preheader917.i.us29
+  %184 = load float, ptr %.2341929.i.us32, align 4
+  %185 = fpext float %184 to double
+  %186 = getelementptr inbounds i8, ptr %.2341929.i.us32, i64 4
+  %187 = load float, ptr %186, align 4
+  %188 = fpext float %187 to double
+  %189 = fmul double %11, %185
+  %190 = fmul double %11, %188
+  %191 = fadd double %178, %189
+  %192 = fadd double %178, %190
+  br label %193
 
-._crit_edge.i.us:                                 ; preds = %.lr.ph926.i.us, %.preheader917.i.us
-  %.sroa.0861.0.lcssa.i.us = phi double [ 0.000000e+00, %.preheader917.i.us ], [ %199, %.lr.ph926.i.us ]
-  %.sroa.7863.0.lcssa.i.us = phi double [ 0.000000e+00, %.preheader917.i.us ], [ %200, %.lr.ph926.i.us ]
-  %201 = fadd double %.sroa.0861.0.lcssa.i.us, 0.000000e+00
-  %202 = fadd double %.sroa.7863.0.lcssa.i.us, 0.000000e+00
-  %203 = fmul double %10, %201
-  %204 = fmul double %10, %202
-  %.not397.i.us = icmp eq ptr %.2341929.i.us, null
-  br i1 %.not397.i.us, label %215, label %205
+193:                                              ; preds = %183, %.preheader917.i.us29
+  %.sink1169.i.us34 = phi double [ %191, %183 ], [ %178, %.preheader917.i.us29 ]
+  %.sink1168.i.us35 = phi double [ %192, %183 ], [ %178, %.preheader917.i.us29 ]
+  %194 = fptrunc double %.sink1169.i.us34 to float
+  %195 = fptrunc double %.sink1168.i.us35 to float
+  %.sroa.0.0.vec.insert.i615.i.us36 = insertelement <2 x float> poison, float %194, i64 0
+  %.sroa.0.4.vec.insert.i616.i.us37 = insertelement <2 x float> %.sroa.0.0.vec.insert.i615.i.us36, float %195, i64 1
+  %196 = getelementptr inbounds %"class.cv::Complex", ptr %.1344935.i.us, i64 %indvars.iv1061.i.us30
+  store <2 x float> %.sroa.0.4.vec.insert.i616.i.us37, ptr %196, align 4
+  %indvars.iv.next1062.i.us38 = add nuw nsw i64 %indvars.iv1061.i.us30, 1
+  %197 = getelementptr inbounds %"class.cv::Complex", ptr %.2341929.i.us32, i64 %.0378.i
+  %exitcond1065.not.i.us39 = icmp eq i64 %indvars.iv.next1062.i.us38, %wide.trip.count1064.i
+  br i1 %exitcond1065.not.i.us39, label %._crit_edge931.i.loopexit.us, label %.preheader917.i.us29, !llvm.loop !555
 
-205:                                              ; preds = %._crit_edge.i.us
-  %206 = load float, ptr %.2341929.i.us, align 4
+._crit_edge931.i.loopexit.us:                     ; preds = %193, %235
+  %198 = add nuw nsw i32 %.1349934.i.us, 1
+  %199 = getelementptr inbounds %"class.cv::Complex", ptr %.0367933.i.us, i64 %.0375902.i
+  %200 = getelementptr inbounds %"class.cv::Complex", ptr %.1371932.i.us, i64 %.0377.i
+  %201 = getelementptr inbounds %"class.cv::Complex", ptr %.1344935.i.us, i64 %21
+  %exitcond1066.not.i.us = icmp eq i32 %198, %.sroa.8.0.extract.trunc.i
+  br i1 %exitcond1066.not.i.us, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i, label %.lr.ph936.i.split.us, !llvm.loop !556
+
+.preheader917.i.us.us:                            ; preds = %.loopexit919.i.us, %235
+  %indvars.iv1061.i.us.us = phi i64 [ %indvars.iv.next1062.i.us.us, %235 ], [ 0, %.loopexit919.i.us ]
+  %.1337930.i.us.us = phi ptr [ %239, %235 ], [ %2, %.loopexit919.i.us ]
+  %.2341929.i.us.us = phi ptr [ %240, %235 ], [ %.1371932.i.us, %.loopexit919.i.us ]
+  br label %.lr.ph926.i.us.us
+
+.lr.ph926.i.us.us:                                ; preds = %.lr.ph926.i.us.us, %.preheader917.i.us.us
+  %indvars.iv1056.i.us.us = phi i64 [ %indvars.iv.next1057.i.us.us, %.lr.ph926.i.us.us ], [ 0, %.preheader917.i.us.us ]
+  %.sroa.7863.0924.i.us.us = phi double [ %220, %.lr.ph926.i.us.us ], [ 0.000000e+00, %.preheader917.i.us.us ]
+  %.sroa.0861.0923.i.us.us = phi double [ %219, %.lr.ph926.i.us.us ], [ 0.000000e+00, %.preheader917.i.us.us ]
+  %202 = getelementptr inbounds %"class.cv::Complex", ptr %.1.i.us, i64 %indvars.iv1056.i.us.us
+  %203 = load float, ptr %202, align 4
+  %204 = fpext float %203 to double
+  %205 = getelementptr inbounds i8, ptr %202, i64 4
+  %206 = load float, ptr %205, align 4
   %207 = fpext float %206 to double
-  %208 = getelementptr inbounds i8, ptr %.2341929.i.us, i64 4
+  %208 = getelementptr inbounds %"class.cv::Complex", ptr %.1337930.i.us.us, i64 %indvars.iv1056.i.us.us
   %209 = load float, ptr %208, align 4
   %210 = fpext float %209 to double
-  %211 = fmul double %11, %207
-  %212 = fmul double %11, %210
-  %213 = fadd double %203, %211
-  %214 = fadd double %204, %212
-  br label %215
+  %211 = getelementptr inbounds i8, ptr %208, i64 4
+  %212 = load float, ptr %211, align 4
+  %213 = fpext float %212 to double
+  %214 = fneg double %213
+  %215 = fmul double %207, %214
+  %216 = call double @llvm.fmuladd.f64(double %204, double %210, double %215)
+  %217 = fmul double %207, %210
+  %218 = call double @llvm.fmuladd.f64(double %204, double %213, double %217)
+  %219 = fadd double %.sroa.0861.0923.i.us.us, %216
+  %220 = fadd double %.sroa.7863.0924.i.us.us, %218
+  %indvars.iv.next1057.i.us.us = add nuw nsw i64 %indvars.iv1056.i.us.us, 1
+  %exitcond1060.not.i.us.us = icmp eq i64 %indvars.iv.next1057.i.us.us, %wide.trip.count.i
+  br i1 %exitcond1060.not.i.us.us, label %._crit_edge.loopexit.i.us.us, label %.lr.ph926.i.us.us, !llvm.loop !557
 
-215:                                              ; preds = %205, %._crit_edge.i.us
-  %.sink1169.i.us = phi double [ %213, %205 ], [ %203, %._crit_edge.i.us ]
-  %.sink1168.i.us = phi double [ %214, %205 ], [ %204, %._crit_edge.i.us ]
-  %216 = fptrunc double %.sink1169.i.us to float
-  %217 = fptrunc double %.sink1168.i.us to float
-  %.sroa.0.0.vec.insert.i615.i.us = insertelement <2 x float> poison, float %216, i64 0
-  %.sroa.0.4.vec.insert.i616.i.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i615.i.us, float %217, i64 1
-  %218 = getelementptr inbounds %"class.cv::Complex", ptr %.1344935.i.us, i64 %indvars.iv1061.i.us
-  store <2 x float> %.sroa.0.4.vec.insert.i616.i.us, ptr %218, align 4
-  %indvars.iv.next1062.i.us = add nuw nsw i64 %indvars.iv1061.i.us, 1
-  %219 = getelementptr inbounds %"class.cv::Complex", ptr %.1337930.i.us, i64 %19
-  %220 = getelementptr inbounds %"class.cv::Complex", ptr %.2341929.i.us, i64 %.0378.i
-  %exitcond1065.not.i.us = icmp eq i64 %indvars.iv.next1062.i.us, %wide.trip.count1064.i
-  br i1 %exitcond1065.not.i.us, label %._crit_edge931.i.loopexit.us, label %.preheader917.i.us, !llvm.loop !556
+._crit_edge.loopexit.i.us.us:                     ; preds = %.lr.ph926.i.us.us
+  %221 = fadd double %219, 0.000000e+00
+  %222 = fadd double %220, 0.000000e+00
+  %223 = fmul double %10, %221
+  %224 = fmul double %10, %222
+  %.not397.i.us.us = icmp eq ptr %.2341929.i.us.us, null
+  br i1 %.not397.i.us.us, label %235, label %225
 
-._crit_edge931.i.loopexit.us:                     ; preds = %215
-  %221 = add nuw nsw i32 %.1349934.i.us, 1
-  %222 = getelementptr inbounds %"class.cv::Complex", ptr %.0367933.i.us, i64 %.0375902.i
-  %223 = getelementptr inbounds %"class.cv::Complex", ptr %.1371932.i.us, i64 %.0377.i
-  %224 = getelementptr inbounds %"class.cv::Complex", ptr %.1344935.i.us, i64 %21
-  %exitcond1066.not.i.us = icmp eq i32 %221, %.sroa.8.0.extract.trunc.i
-  br i1 %exitcond1066.not.i.us, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i, label %.lr.ph936.i.split.us, !llvm.loop !557
+225:                                              ; preds = %._crit_edge.loopexit.i.us.us
+  %226 = load float, ptr %.2341929.i.us.us, align 4
+  %227 = fpext float %226 to double
+  %228 = getelementptr inbounds i8, ptr %.2341929.i.us.us, i64 4
+  %229 = load float, ptr %228, align 4
+  %230 = fpext float %229 to double
+  %231 = fmul double %11, %227
+  %232 = fmul double %11, %230
+  %233 = fadd double %223, %231
+  %234 = fadd double %224, %232
+  br label %235
+
+235:                                              ; preds = %225, %._crit_edge.loopexit.i.us.us
+  %.sink1169.i.us.us = phi double [ %233, %225 ], [ %223, %._crit_edge.loopexit.i.us.us ]
+  %.sink1168.i.us.us = phi double [ %234, %225 ], [ %224, %._crit_edge.loopexit.i.us.us ]
+  %236 = fptrunc double %.sink1169.i.us.us to float
+  %237 = fptrunc double %.sink1168.i.us.us to float
+  %.sroa.0.0.vec.insert.i615.i.us.us = insertelement <2 x float> poison, float %236, i64 0
+  %.sroa.0.4.vec.insert.i616.i.us.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i615.i.us.us, float %237, i64 1
+  %238 = getelementptr inbounds %"class.cv::Complex", ptr %.1344935.i.us, i64 %indvars.iv1061.i.us.us
+  store <2 x float> %.sroa.0.4.vec.insert.i616.i.us.us, ptr %238, align 4
+  %indvars.iv.next1062.i.us.us = add nuw nsw i64 %indvars.iv1061.i.us.us, 1
+  %239 = getelementptr inbounds %"class.cv::Complex", ptr %.1337930.i.us.us, i64 %19
+  %240 = getelementptr inbounds %"class.cv::Complex", ptr %.2341929.i.us.us, i64 %.0378.i
+  %exitcond1065.not.i.us.us = icmp eq i64 %indvars.iv.next1062.i.us.us, %wide.trip.count1064.i
+  br i1 %exitcond1065.not.i.us.us, label %._crit_edge931.i.loopexit.us, label %.preheader917.i.us.us, !llvm.loop !555
 
 .lr.ph936.i.split:                                ; preds = %.lr.ph936.i
   br i1 %brmerge.i, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph936.i.split, %.loopexit919.i.loopexit
-  %.1349934.i = phi i32 [ %229, %.loopexit919.i.loopexit ], [ 0, %.lr.ph936.i.split ]
-  %.0367933.i = phi ptr [ %230, %.loopexit919.i.loopexit ], [ %0, %.lr.ph936.i.split ]
+  %.1349934.i = phi i32 [ %245, %.loopexit919.i.loopexit ], [ 0, %.lr.ph936.i.split ]
+  %.0367933.i = phi ptr [ %246, %.loopexit919.i.loopexit ], [ %0, %.lr.ph936.i.split ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %225 = mul i64 %indvars.iv.i, %.0376901.i
-  %226 = getelementptr inbounds %"class.cv::Complex", ptr %.0367933.i, i64 %225
-  %227 = getelementptr inbounds %"class.cv::Complex", ptr %.0374903.i, i64 %indvars.iv.i
-  %228 = load i64, ptr %226, align 4
-  store i64 %228, ptr %227, align 4
+  %241 = mul i64 %indvars.iv.i, %.0376901.i
+  %242 = getelementptr inbounds %"class.cv::Complex", ptr %.0367933.i, i64 %241
+  %243 = getelementptr inbounds %"class.cv::Complex", ptr %.0374903.i, i64 %indvars.iv.i
+  %244 = load i64, ptr %242, align 4
+  store i64 %244, ptr %243, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit919.i.loopexit, label %.lr.ph.i, !llvm.loop !554
 
 .loopexit919.i.loopexit:                          ; preds = %.lr.ph.i
-  %229 = add nuw nsw i32 %.1349934.i, 1
-  %230 = getelementptr inbounds %"class.cv::Complex", ptr %.0367933.i, i64 %.0375902.i
-  %exitcond1066.not.i = icmp eq i32 %229, %.sroa.8.0.extract.trunc.i
-  br i1 %exitcond1066.not.i, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i, label %.lr.ph.i.preheader, !llvm.loop !557
+  %245 = add nuw nsw i32 %.1349934.i, 1
+  %246 = getelementptr inbounds %"class.cv::Complex", ptr %.0367933.i, i64 %.0375902.i
+  %exitcond1066.not.i = icmp eq i32 %245, %.sroa.8.0.extract.trunc.i
+  br i1 %exitcond1066.not.i, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i, label %.lr.ph.i.preheader, !llvm.loop !556
 
-231:                                              ; preds = %.thread.i
+247:                                              ; preds = %.thread.i
   %sext.i = shl i64 %9, 32
-  %232 = icmp ult i64 %sext.i, 859530330112
-  br i1 %232, label %.preheader909.i, label %428
+  %248 = icmp ult i64 %sext.i, 859530330112
+  br i1 %248, label %.preheader909.i, label %444
 
-.preheader909.i:                                  ; preds = %231
-  %233 = icmp sgt i32 %.sroa.8.0.extract.trunc.i, 0
-  br i1 %233, label %.lr.ph1010.i, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i
+.preheader909.i:                                  ; preds = %247
+  %249 = icmp sgt i32 %.sroa.8.0.extract.trunc.i, 0
+  br i1 %249, label %.lr.ph1010.i, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i
 
 .lr.ph1010.i:                                     ; preds = %.preheader909.i
   %.not390.i = icmp eq ptr %.0374903.i, null
-  %234 = icmp slt i32 %.0366904.i, 1
+  %250 = icmp slt i32 %.0366904.i, 1
   %.not391986.i = icmp slt i32 %.sroa.0326.0.extract.trunc.i, 4
-  %235 = icmp sgt i32 %.0366904.i, 0
+  %251 = icmp sgt i32 %.0366904.i, 0
   %.idx.i = shl nsw i64 %.0378.i, 4
   %.idx394.i = mul i64 %.0378.i, 24
   %.idx395.i = shl nsw i64 %.0378.i, 5
   %sext1143.i = add nsw i64 %sext.i, -17179869184
-  %236 = ashr exact i64 %sext1143.i, 32
-  %brmerge1034.i = select i1 %.not390.i, i1 true, i1 %234
+  %252 = ashr exact i64 %sext1143.i, 32
+  %brmerge1034.i = select i1 %.not390.i, i1 true, i1 %250
   %wide.trip.count1099.i = zext nneg i32 %.0366904.i to i64
   %wide.trip.count1117.i = and i64 %9, 4294967295
-  br label %237
+  br label %253
 
-237:                                              ; preds = %._crit_edge1005.i, %.lr.ph1010.i
-  %.23451009.i = phi ptr [ %6, %.lr.ph1010.i ], [ %427, %._crit_edge1005.i ]
-  %.23501008.i = phi i32 [ 0, %.lr.ph1010.i ], [ %424, %._crit_edge1005.i ]
-  %.13681007.i = phi ptr [ %0, %.lr.ph1010.i ], [ %425, %._crit_edge1005.i ]
-  %.23721006.i = phi ptr [ %4, %.lr.ph1010.i ], [ %426, %._crit_edge1005.i ]
+253:                                              ; preds = %._crit_edge1005.i, %.lr.ph1010.i
+  %.23451009.i = phi ptr [ %6, %.lr.ph1010.i ], [ %443, %._crit_edge1005.i ]
+  %.23501008.i = phi i32 [ 0, %.lr.ph1010.i ], [ %440, %._crit_edge1005.i ]
+  %.13681007.i = phi ptr [ %0, %.lr.ph1010.i ], [ %441, %._crit_edge1005.i ]
+  %.23721006.i = phi ptr [ %4, %.lr.ph1010.i ], [ %442, %._crit_edge1005.i ]
   %.13681007.mux.i = select i1 %.not390.i, ptr %.13681007.i, ptr %.0374903.i
   br i1 %brmerge1034.i, label %.loopexit908.i, label %.lr.ph964.i
 
-.lr.ph964.i:                                      ; preds = %237, %.lr.ph964.i
-  %indvars.iv1096.i = phi i64 [ %indvars.iv.next1097.i, %.lr.ph964.i ], [ 0, %237 ]
-  %238 = mul i64 %indvars.iv1096.i, %.0376901.i
-  %239 = getelementptr inbounds %"class.cv::Complex", ptr %.13681007.i, i64 %238
-  %240 = getelementptr inbounds %"class.cv::Complex", ptr %.0374903.i, i64 %indvars.iv1096.i
-  %241 = load i64, ptr %239, align 4
-  store i64 %241, ptr %240, align 4
+.lr.ph964.i:                                      ; preds = %253, %.lr.ph964.i
+  %indvars.iv1096.i = phi i64 [ %indvars.iv.next1097.i, %.lr.ph964.i ], [ 0, %253 ]
+  %254 = mul i64 %indvars.iv1096.i, %.0376901.i
+  %255 = getelementptr inbounds %"class.cv::Complex", ptr %.13681007.i, i64 %254
+  %256 = getelementptr inbounds %"class.cv::Complex", ptr %.0374903.i, i64 %indvars.iv1096.i
+  %257 = load i64, ptr %255, align 4
+  store i64 %257, ptr %256, align 4
   %indvars.iv.next1097.i = add nuw nsw i64 %indvars.iv1096.i, 1
   %exitcond1100.not.i = icmp eq i64 %indvars.iv.next1097.i, %wide.trip.count1099.i
   br i1 %exitcond1100.not.i, label %.loopexit908.i, label %.lr.ph964.i, !llvm.loop !558
 
-.loopexit908.i:                                   ; preds = %.lr.ph964.i, %237
-  %.2.i = phi ptr [ %.13681007.mux.i, %237 ], [ %.0374903.i, %.lr.ph964.i ]
+.loopexit908.i:                                   ; preds = %.lr.ph964.i, %253
+  %.2.i = phi ptr [ %.13681007.mux.i, %253 ], [ %.0374903.i, %.lr.ph964.i ]
   br i1 %.not391986.i, label %.preheader906.i, label %.lr.ph990.i
 
-.preheader906.loopexit.i:                         ; preds = %381
-  %242 = trunc nuw nsw i64 %indvars.iv.next1107.i to i32
+.preheader906.loopexit.i:                         ; preds = %397
+  %258 = trunc nuw nsw i64 %indvars.iv.next1107.i to i32
   br label %.preheader906.i
 
 .preheader906.i:                                  ; preds = %.preheader906.loopexit.i, %.loopexit908.i
-  %.4356.lcssa.i = phi i32 [ 0, %.loopexit908.i ], [ %242, %.preheader906.loopexit.i ]
-  %.3342.lcssa.i = phi ptr [ %.23721006.i, %.loopexit908.i ], [ %386, %.preheader906.loopexit.i ]
-  %243 = icmp slt i32 %.4356.lcssa.i, %.sroa.0326.0.extract.trunc.i
-  br i1 %243, label %.lr.ph1004.preheader.i, label %._crit_edge1005.i
+  %.4356.lcssa.i = phi i32 [ 0, %.loopexit908.i ], [ %258, %.preheader906.loopexit.i ]
+  %.3342.lcssa.i = phi ptr [ %.23721006.i, %.loopexit908.i ], [ %402, %.preheader906.loopexit.i ]
+  %259 = icmp slt i32 %.4356.lcssa.i, %.sroa.0326.0.extract.trunc.i
+  br i1 %259, label %.lr.ph1004.preheader.i, label %._crit_edge1005.i
 
 .lr.ph1004.preheader.i:                           ; preds = %.preheader906.i
-  %244 = zext nneg i32 %.4356.lcssa.i to i64
+  %260 = zext nneg i32 %.4356.lcssa.i to i64
   br label %.lr.ph1004.i
 
-.lr.ph990.i:                                      ; preds = %.loopexit908.i, %381
-  %indvars.iv1106.i = phi i64 [ %indvars.iv.next1107.i, %381 ], [ 0, %.loopexit908.i ]
-  %.3342988.i = phi ptr [ %386, %381 ], [ %.23721006.i, %.loopexit908.i ]
-  br i1 %235, label %.lr.ph976.preheader.i, label %._crit_edge977.i
+.lr.ph990.i:                                      ; preds = %.loopexit908.i, %397
+  %indvars.iv1106.i = phi i64 [ %indvars.iv.next1107.i, %397 ], [ 0, %.loopexit908.i ]
+  %.3342988.i = phi ptr [ %402, %397 ], [ %.23721006.i, %.loopexit908.i ]
+  br i1 %251, label %.lr.ph976.preheader.i, label %._crit_edge977.i
 
 .lr.ph976.preheader.i:                            ; preds = %.lr.ph990.i
-  %245 = getelementptr inbounds %"class.cv::Complex", ptr %2, i64 %indvars.iv1106.i
+  %261 = getelementptr inbounds %"class.cv::Complex", ptr %2, i64 %indvars.iv1106.i
   br label %.lr.ph976.i
 
 .lr.ph976.i:                                      ; preds = %.lr.ph976.i, %.lr.ph976.preheader.i
   %indvars.iv1101.i = phi i64 [ 0, %.lr.ph976.preheader.i ], [ %indvars.iv.next1102.i, %.lr.ph976.i ]
-  %.0381973.i = phi ptr [ %245, %.lr.ph976.preheader.i ], [ %303, %.lr.ph976.i ]
-  %.sroa.7836.0972.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %263, %.lr.ph976.i ]
-  %.sroa.0835.0971.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %262, %.lr.ph976.i ]
-  %.sroa.7834.0970.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %276, %.lr.ph976.i ]
-  %.sroa.0833.0969.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %275, %.lr.ph976.i ]
-  %.sroa.7832.0968.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %289, %.lr.ph976.i ]
-  %.sroa.0831.0967.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %288, %.lr.ph976.i ]
-  %.sroa.7830.0966.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %302, %.lr.ph976.i ]
-  %.sroa.0829.0965.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %301, %.lr.ph976.i ]
-  %246 = getelementptr inbounds %"class.cv::Complex", ptr %.2.i, i64 %indvars.iv1101.i
-  %247 = load float, ptr %246, align 4
-  %248 = fpext float %247 to double
-  %249 = getelementptr inbounds i8, ptr %246, i64 4
-  %250 = load float, ptr %249, align 4
-  %251 = fpext float %250 to double
-  %252 = load float, ptr %.0381973.i, align 4
-  %253 = fpext float %252 to double
-  %254 = getelementptr inbounds i8, ptr %.0381973.i, i64 4
-  %255 = load float, ptr %254, align 4
-  %256 = fpext float %255 to double
-  %257 = fneg double %256
-  %258 = fmul double %251, %257
-  %259 = call double @llvm.fmuladd.f64(double %248, double %253, double %258)
-  %260 = fmul double %251, %253
-  %261 = call double @llvm.fmuladd.f64(double %248, double %256, double %260)
-  %262 = fadd double %.sroa.0835.0971.i, %259
-  %263 = fadd double %.sroa.7836.0972.i, %261
-  %264 = getelementptr inbounds i8, ptr %.0381973.i, i64 8
-  %265 = load float, ptr %264, align 4
-  %266 = fpext float %265 to double
-  %267 = getelementptr inbounds i8, ptr %.0381973.i, i64 12
-  %268 = load float, ptr %267, align 4
+  %.0381973.i = phi ptr [ %261, %.lr.ph976.preheader.i ], [ %319, %.lr.ph976.i ]
+  %.sroa.7836.0972.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %279, %.lr.ph976.i ]
+  %.sroa.0835.0971.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %278, %.lr.ph976.i ]
+  %.sroa.7834.0970.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %292, %.lr.ph976.i ]
+  %.sroa.0833.0969.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %291, %.lr.ph976.i ]
+  %.sroa.7832.0968.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %305, %.lr.ph976.i ]
+  %.sroa.0831.0967.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %304, %.lr.ph976.i ]
+  %.sroa.7830.0966.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %318, %.lr.ph976.i ]
+  %.sroa.0829.0965.i = phi double [ 0.000000e+00, %.lr.ph976.preheader.i ], [ %317, %.lr.ph976.i ]
+  %262 = getelementptr inbounds %"class.cv::Complex", ptr %.2.i, i64 %indvars.iv1101.i
+  %263 = load float, ptr %262, align 4
+  %264 = fpext float %263 to double
+  %265 = getelementptr inbounds i8, ptr %262, i64 4
+  %266 = load float, ptr %265, align 4
+  %267 = fpext float %266 to double
+  %268 = load float, ptr %.0381973.i, align 4
   %269 = fpext float %268 to double
-  %270 = fneg double %269
-  %271 = fmul double %251, %270
-  %272 = call double @llvm.fmuladd.f64(double %248, double %266, double %271)
-  %273 = fmul double %251, %266
-  %274 = call double @llvm.fmuladd.f64(double %248, double %269, double %273)
-  %275 = fadd double %.sroa.0833.0969.i, %272
-  %276 = fadd double %.sroa.7834.0970.i, %274
-  %277 = getelementptr inbounds i8, ptr %.0381973.i, i64 16
-  %278 = load float, ptr %277, align 4
-  %279 = fpext float %278 to double
-  %280 = getelementptr inbounds i8, ptr %.0381973.i, i64 20
+  %270 = getelementptr inbounds i8, ptr %.0381973.i, i64 4
+  %271 = load float, ptr %270, align 4
+  %272 = fpext float %271 to double
+  %273 = fneg double %272
+  %274 = fmul double %267, %273
+  %275 = call double @llvm.fmuladd.f64(double %264, double %269, double %274)
+  %276 = fmul double %267, %269
+  %277 = call double @llvm.fmuladd.f64(double %264, double %272, double %276)
+  %278 = fadd double %.sroa.0835.0971.i, %275
+  %279 = fadd double %.sroa.7836.0972.i, %277
+  %280 = getelementptr inbounds i8, ptr %.0381973.i, i64 8
   %281 = load float, ptr %280, align 4
   %282 = fpext float %281 to double
-  %283 = fneg double %282
-  %284 = fmul double %251, %283
-  %285 = call double @llvm.fmuladd.f64(double %248, double %279, double %284)
-  %286 = fmul double %251, %279
-  %287 = call double @llvm.fmuladd.f64(double %248, double %282, double %286)
-  %288 = fadd double %.sroa.0831.0967.i, %285
-  %289 = fadd double %.sroa.7832.0968.i, %287
-  %290 = getelementptr inbounds i8, ptr %.0381973.i, i64 24
-  %291 = load float, ptr %290, align 4
-  %292 = fpext float %291 to double
-  %293 = getelementptr inbounds i8, ptr %.0381973.i, i64 28
+  %283 = getelementptr inbounds i8, ptr %.0381973.i, i64 12
+  %284 = load float, ptr %283, align 4
+  %285 = fpext float %284 to double
+  %286 = fneg double %285
+  %287 = fmul double %267, %286
+  %288 = call double @llvm.fmuladd.f64(double %264, double %282, double %287)
+  %289 = fmul double %267, %282
+  %290 = call double @llvm.fmuladd.f64(double %264, double %285, double %289)
+  %291 = fadd double %.sroa.0833.0969.i, %288
+  %292 = fadd double %.sroa.7834.0970.i, %290
+  %293 = getelementptr inbounds i8, ptr %.0381973.i, i64 16
   %294 = load float, ptr %293, align 4
   %295 = fpext float %294 to double
-  %296 = fneg double %295
-  %297 = fmul double %251, %296
-  %298 = call double @llvm.fmuladd.f64(double %248, double %292, double %297)
-  %299 = fmul double %251, %292
-  %300 = call double @llvm.fmuladd.f64(double %248, double %295, double %299)
-  %301 = fadd double %.sroa.0829.0965.i, %298
-  %302 = fadd double %.sroa.7830.0966.i, %300
+  %296 = getelementptr inbounds i8, ptr %.0381973.i, i64 20
+  %297 = load float, ptr %296, align 4
+  %298 = fpext float %297 to double
+  %299 = fneg double %298
+  %300 = fmul double %267, %299
+  %301 = call double @llvm.fmuladd.f64(double %264, double %295, double %300)
+  %302 = fmul double %267, %295
+  %303 = call double @llvm.fmuladd.f64(double %264, double %298, double %302)
+  %304 = fadd double %.sroa.0831.0967.i, %301
+  %305 = fadd double %.sroa.7832.0968.i, %303
+  %306 = getelementptr inbounds i8, ptr %.0381973.i, i64 24
+  %307 = load float, ptr %306, align 4
+  %308 = fpext float %307 to double
+  %309 = getelementptr inbounds i8, ptr %.0381973.i, i64 28
+  %310 = load float, ptr %309, align 4
+  %311 = fpext float %310 to double
+  %312 = fneg double %311
+  %313 = fmul double %267, %312
+  %314 = call double @llvm.fmuladd.f64(double %264, double %308, double %313)
+  %315 = fmul double %267, %308
+  %316 = call double @llvm.fmuladd.f64(double %264, double %311, double %315)
+  %317 = fadd double %.sroa.0829.0965.i, %314
+  %318 = fadd double %.sroa.7830.0966.i, %316
   %indvars.iv.next1102.i = add nuw nsw i64 %indvars.iv1101.i, 1
-  %303 = getelementptr inbounds %"class.cv::Complex", ptr %.0381973.i, i64 %19
+  %319 = getelementptr inbounds %"class.cv::Complex", ptr %.0381973.i, i64 %19
   %exitcond1105.not.i = icmp eq i64 %indvars.iv.next1102.i, %wide.trip.count1099.i
   br i1 %exitcond1105.not.i, label %._crit_edge977.i, label %.lr.ph976.i, !llvm.loop !559
 
 ._crit_edge977.i:                                 ; preds = %.lr.ph976.i, %.lr.ph990.i
-  %.sroa.0829.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %301, %.lr.ph976.i ]
-  %.sroa.7830.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %302, %.lr.ph976.i ]
-  %.sroa.0831.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %288, %.lr.ph976.i ]
-  %.sroa.7832.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %289, %.lr.ph976.i ]
-  %.sroa.0833.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %275, %.lr.ph976.i ]
-  %.sroa.7834.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %276, %.lr.ph976.i ]
-  %.sroa.0835.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %262, %.lr.ph976.i ]
-  %.sroa.7836.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %263, %.lr.ph976.i ]
+  %.sroa.0829.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %317, %.lr.ph976.i ]
+  %.sroa.7830.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %318, %.lr.ph976.i ]
+  %.sroa.0831.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %304, %.lr.ph976.i ]
+  %.sroa.7832.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %305, %.lr.ph976.i ]
+  %.sroa.0833.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %291, %.lr.ph976.i ]
+  %.sroa.7834.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %292, %.lr.ph976.i ]
+  %.sroa.0835.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %278, %.lr.ph976.i ]
+  %.sroa.7836.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph990.i ], [ %279, %.lr.ph976.i ]
   %.not393.i = icmp eq ptr %.3342988.i, null
-  %304 = fmul double %10, %.sroa.0835.0.lcssa.i
-  %305 = fmul double %10, %.sroa.7836.0.lcssa.i
-  br i1 %.not393.i, label %306, label %324
+  %320 = fmul double %10, %.sroa.0835.0.lcssa.i
+  %321 = fmul double %10, %.sroa.7836.0.lcssa.i
+  br i1 %.not393.i, label %322, label %340
 
-306:                                              ; preds = %._crit_edge977.i
-  %307 = fptrunc double %304 to float
-  %308 = fptrunc double %305 to float
-  %.sroa.0.0.vec.insert.i645.i = insertelement <2 x float> poison, float %307, i64 0
-  %.sroa.0.4.vec.insert.i646.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i645.i, float %308, i64 1
-  %309 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %indvars.iv1106.i
-  store <2 x float> %.sroa.0.4.vec.insert.i646.i, ptr %309, align 4
-  %310 = fmul double %10, %.sroa.0833.0.lcssa.i
-  %311 = fmul double %10, %.sroa.7834.0.lcssa.i
-  %312 = fptrunc double %310 to float
-  %313 = fptrunc double %311 to float
-  %.sroa.0.0.vec.insert.i649.i = insertelement <2 x float> poison, float %312, i64 0
-  %.sroa.0.4.vec.insert.i650.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i649.i, float %313, i64 1
-  %314 = or disjoint i64 %indvars.iv1106.i, 1
-  %315 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %314
-  store <2 x float> %.sroa.0.4.vec.insert.i650.i, ptr %315, align 4
-  %316 = fmul double %10, %.sroa.0831.0.lcssa.i
-  %317 = fmul double %10, %.sroa.7832.0.lcssa.i
-  %318 = fptrunc double %316 to float
-  %319 = fptrunc double %317 to float
-  %.sroa.0.0.vec.insert.i653.i = insertelement <2 x float> poison, float %318, i64 0
-  %.sroa.0.4.vec.insert.i654.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i653.i, float %319, i64 1
-  %320 = or disjoint i64 %indvars.iv1106.i, 2
-  %321 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %320
-  store <2 x float> %.sroa.0.4.vec.insert.i654.i, ptr %321, align 4
-  %322 = fmul double %10, %.sroa.0829.0.lcssa.i
-  %323 = fmul double %10, %.sroa.7830.0.lcssa.i
-  br label %381
+322:                                              ; preds = %._crit_edge977.i
+  %323 = fptrunc double %320 to float
+  %324 = fptrunc double %321 to float
+  %.sroa.0.0.vec.insert.i645.i = insertelement <2 x float> poison, float %323, i64 0
+  %.sroa.0.4.vec.insert.i646.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i645.i, float %324, i64 1
+  %325 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %indvars.iv1106.i
+  store <2 x float> %.sroa.0.4.vec.insert.i646.i, ptr %325, align 4
+  %326 = fmul double %10, %.sroa.0833.0.lcssa.i
+  %327 = fmul double %10, %.sroa.7834.0.lcssa.i
+  %328 = fptrunc double %326 to float
+  %329 = fptrunc double %327 to float
+  %.sroa.0.0.vec.insert.i649.i = insertelement <2 x float> poison, float %328, i64 0
+  %.sroa.0.4.vec.insert.i650.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i649.i, float %329, i64 1
+  %330 = or disjoint i64 %indvars.iv1106.i, 1
+  %331 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %330
+  store <2 x float> %.sroa.0.4.vec.insert.i650.i, ptr %331, align 4
+  %332 = fmul double %10, %.sroa.0831.0.lcssa.i
+  %333 = fmul double %10, %.sroa.7832.0.lcssa.i
+  %334 = fptrunc double %332 to float
+  %335 = fptrunc double %333 to float
+  %.sroa.0.0.vec.insert.i653.i = insertelement <2 x float> poison, float %334, i64 0
+  %.sroa.0.4.vec.insert.i654.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i653.i, float %335, i64 1
+  %336 = or disjoint i64 %indvars.iv1106.i, 2
+  %337 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %336
+  store <2 x float> %.sroa.0.4.vec.insert.i654.i, ptr %337, align 4
+  %338 = fmul double %10, %.sroa.0829.0.lcssa.i
+  %339 = fmul double %10, %.sroa.7830.0.lcssa.i
+  br label %397
 
-324:                                              ; preds = %._crit_edge977.i
-  %325 = fmul double %10, %.sroa.0833.0.lcssa.i
-  %326 = fmul double %10, %.sroa.7834.0.lcssa.i
-  %327 = fmul double %10, %.sroa.0831.0.lcssa.i
-  %328 = fmul double %10, %.sroa.7832.0.lcssa.i
-  %329 = fmul double %10, %.sroa.0829.0.lcssa.i
-  %330 = fmul double %10, %.sroa.7830.0.lcssa.i
-  %331 = load float, ptr %.3342988.i, align 4
-  %332 = fpext float %331 to double
-  %333 = getelementptr inbounds i8, ptr %.3342988.i, i64 4
-  %334 = load float, ptr %333, align 4
-  %335 = fpext float %334 to double
-  %336 = fmul double %11, %332
-  %337 = fmul double %11, %335
-  %338 = fadd double %304, %336
-  %339 = fadd double %305, %337
-  %340 = fptrunc double %338 to float
-  %341 = fptrunc double %339 to float
-  %.sroa.0.0.vec.insert.i673.i = insertelement <2 x float> poison, float %340, i64 0
-  %.sroa.0.4.vec.insert.i674.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i673.i, float %341, i64 1
-  %342 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %indvars.iv1106.i
-  store <2 x float> %.sroa.0.4.vec.insert.i674.i, ptr %342, align 4
-  %343 = getelementptr inbounds %"class.cv::Complex", ptr %.3342988.i, i64 %.0378.i
-  %344 = load float, ptr %343, align 4
-  %345 = fpext float %344 to double
-  %346 = getelementptr inbounds i8, ptr %343, i64 4
-  %347 = load float, ptr %346, align 4
+340:                                              ; preds = %._crit_edge977.i
+  %341 = fmul double %10, %.sroa.0833.0.lcssa.i
+  %342 = fmul double %10, %.sroa.7834.0.lcssa.i
+  %343 = fmul double %10, %.sroa.0831.0.lcssa.i
+  %344 = fmul double %10, %.sroa.7832.0.lcssa.i
+  %345 = fmul double %10, %.sroa.0829.0.lcssa.i
+  %346 = fmul double %10, %.sroa.7830.0.lcssa.i
+  %347 = load float, ptr %.3342988.i, align 4
   %348 = fpext float %347 to double
-  %349 = fmul double %11, %345
-  %350 = fmul double %11, %348
-  %351 = fadd double %325, %349
-  %352 = fadd double %326, %350
-  %353 = fptrunc double %351 to float
-  %354 = fptrunc double %352 to float
-  %.sroa.0.0.vec.insert.i681.i = insertelement <2 x float> poison, float %353, i64 0
-  %.sroa.0.4.vec.insert.i682.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i681.i, float %354, i64 1
-  %355 = or disjoint i64 %indvars.iv1106.i, 1
-  %356 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %355
-  store <2 x float> %.sroa.0.4.vec.insert.i682.i, ptr %356, align 4
-  %357 = getelementptr inbounds i8, ptr %.3342988.i, i64 %.idx.i
-  %358 = load float, ptr %357, align 4
-  %359 = fpext float %358 to double
-  %360 = getelementptr inbounds i8, ptr %357, i64 4
-  %361 = load float, ptr %360, align 4
-  %362 = fpext float %361 to double
-  %363 = fmul double %11, %359
-  %364 = fmul double %11, %362
-  %365 = fadd double %327, %363
-  %366 = fadd double %328, %364
-  %367 = fptrunc double %365 to float
-  %368 = fptrunc double %366 to float
-  %.sroa.0.0.vec.insert.i689.i = insertelement <2 x float> poison, float %367, i64 0
-  %.sroa.0.4.vec.insert.i690.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i689.i, float %368, i64 1
-  %369 = or disjoint i64 %indvars.iv1106.i, 2
-  %370 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %369
-  store <2 x float> %.sroa.0.4.vec.insert.i690.i, ptr %370, align 4
-  %371 = getelementptr inbounds i8, ptr %.3342988.i, i64 %.idx394.i
-  %372 = load float, ptr %371, align 4
-  %373 = fpext float %372 to double
-  %374 = getelementptr inbounds i8, ptr %371, i64 4
-  %375 = load float, ptr %374, align 4
-  %376 = fpext float %375 to double
-  %377 = fmul double %11, %373
-  %378 = fmul double %11, %376
-  %379 = fadd double %329, %377
-  %380 = fadd double %330, %378
-  br label %381
+  %349 = getelementptr inbounds i8, ptr %.3342988.i, i64 4
+  %350 = load float, ptr %349, align 4
+  %351 = fpext float %350 to double
+  %352 = fmul double %11, %348
+  %353 = fmul double %11, %351
+  %354 = fadd double %320, %352
+  %355 = fadd double %321, %353
+  %356 = fptrunc double %354 to float
+  %357 = fptrunc double %355 to float
+  %.sroa.0.0.vec.insert.i673.i = insertelement <2 x float> poison, float %356, i64 0
+  %.sroa.0.4.vec.insert.i674.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i673.i, float %357, i64 1
+  %358 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %indvars.iv1106.i
+  store <2 x float> %.sroa.0.4.vec.insert.i674.i, ptr %358, align 4
+  %359 = getelementptr inbounds %"class.cv::Complex", ptr %.3342988.i, i64 %.0378.i
+  %360 = load float, ptr %359, align 4
+  %361 = fpext float %360 to double
+  %362 = getelementptr inbounds i8, ptr %359, i64 4
+  %363 = load float, ptr %362, align 4
+  %364 = fpext float %363 to double
+  %365 = fmul double %11, %361
+  %366 = fmul double %11, %364
+  %367 = fadd double %341, %365
+  %368 = fadd double %342, %366
+  %369 = fptrunc double %367 to float
+  %370 = fptrunc double %368 to float
+  %.sroa.0.0.vec.insert.i681.i = insertelement <2 x float> poison, float %369, i64 0
+  %.sroa.0.4.vec.insert.i682.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i681.i, float %370, i64 1
+  %371 = or disjoint i64 %indvars.iv1106.i, 1
+  %372 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %371
+  store <2 x float> %.sroa.0.4.vec.insert.i682.i, ptr %372, align 4
+  %373 = getelementptr inbounds i8, ptr %.3342988.i, i64 %.idx.i
+  %374 = load float, ptr %373, align 4
+  %375 = fpext float %374 to double
+  %376 = getelementptr inbounds i8, ptr %373, i64 4
+  %377 = load float, ptr %376, align 4
+  %378 = fpext float %377 to double
+  %379 = fmul double %11, %375
+  %380 = fmul double %11, %378
+  %381 = fadd double %343, %379
+  %382 = fadd double %344, %380
+  %383 = fptrunc double %381 to float
+  %384 = fptrunc double %382 to float
+  %.sroa.0.0.vec.insert.i689.i = insertelement <2 x float> poison, float %383, i64 0
+  %.sroa.0.4.vec.insert.i690.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i689.i, float %384, i64 1
+  %385 = or disjoint i64 %indvars.iv1106.i, 2
+  %386 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %385
+  store <2 x float> %.sroa.0.4.vec.insert.i690.i, ptr %386, align 4
+  %387 = getelementptr inbounds i8, ptr %.3342988.i, i64 %.idx394.i
+  %388 = load float, ptr %387, align 4
+  %389 = fpext float %388 to double
+  %390 = getelementptr inbounds i8, ptr %387, i64 4
+  %391 = load float, ptr %390, align 4
+  %392 = fpext float %391 to double
+  %393 = fmul double %11, %389
+  %394 = fmul double %11, %392
+  %395 = fadd double %345, %393
+  %396 = fadd double %346, %394
+  br label %397
 
-381:                                              ; preds = %324, %306
-  %.sink1175.i = phi double [ %322, %306 ], [ %379, %324 ]
-  %.sink1174.i = phi double [ %323, %306 ], [ %380, %324 ]
-  %382 = fptrunc double %.sink1175.i to float
-  %383 = fptrunc double %.sink1174.i to float
-  %.sroa.0.0.vec.insert.i657.i = insertelement <2 x float> poison, float %382, i64 0
-  %.sroa.0.4.vec.insert.i658.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i657.i, float %383, i64 1
-  %384 = or disjoint i64 %indvars.iv1106.i, 3
-  %385 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %384
-  store <2 x float> %.sroa.0.4.vec.insert.i658.i, ptr %385, align 4
+397:                                              ; preds = %340, %322
+  %.sink1175.i = phi double [ %338, %322 ], [ %395, %340 ]
+  %.sink1174.i = phi double [ %339, %322 ], [ %396, %340 ]
+  %398 = fptrunc double %.sink1175.i to float
+  %399 = fptrunc double %.sink1174.i to float
+  %.sroa.0.0.vec.insert.i657.i = insertelement <2 x float> poison, float %398, i64 0
+  %.sroa.0.4.vec.insert.i658.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i657.i, float %399, i64 1
+  %400 = or disjoint i64 %indvars.iv1106.i, 3
+  %401 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %400
+  store <2 x float> %.sroa.0.4.vec.insert.i658.i, ptr %401, align 4
   %indvars.iv.next1107.i = add nuw nsw i64 %indvars.iv1106.i, 4
-  %386 = getelementptr inbounds i8, ptr %.3342988.i, i64 %.idx395.i
-  %.not391.i = icmp sgt i64 %indvars.iv.next1107.i, %236
+  %402 = getelementptr inbounds i8, ptr %.3342988.i, i64 %.idx395.i
+  %.not391.i = icmp sgt i64 %indvars.iv.next1107.i, %252
   br i1 %.not391.i, label %.preheader906.loopexit.i, label %.lr.ph990.i, !llvm.loop !560
 
-.lr.ph1004.i:                                     ; preds = %419, %.lr.ph1004.preheader.i
-  %indvars.iv1114.i = phi i64 [ %244, %.lr.ph1004.preheader.i ], [ %indvars.iv.next1115.i, %419 ]
-  %.41003.i = phi ptr [ %.3342.lcssa.i, %.lr.ph1004.preheader.i ], [ %423, %419 ]
-  br i1 %235, label %.lr.ph998.preheader.i, label %._crit_edge999.i
+.lr.ph1004.i:                                     ; preds = %435, %.lr.ph1004.preheader.i
+  %indvars.iv1114.i = phi i64 [ %260, %.lr.ph1004.preheader.i ], [ %indvars.iv.next1115.i, %435 ]
+  %.41003.i = phi ptr [ %.3342.lcssa.i, %.lr.ph1004.preheader.i ], [ %439, %435 ]
+  br i1 %251, label %.lr.ph998.preheader.i, label %._crit_edge999.i
 
 .lr.ph998.preheader.i:                            ; preds = %.lr.ph1004.i
-  %387 = getelementptr inbounds %"class.cv::Complex", ptr %2, i64 %indvars.iv1114.i
+  %403 = getelementptr inbounds %"class.cv::Complex", ptr %2, i64 %indvars.iv1114.i
   br label %.lr.ph998.i
 
 .lr.ph998.i:                                      ; preds = %.lr.ph998.i, %.lr.ph998.preheader.i
   %indvars.iv1109.i = phi i64 [ 0, %.lr.ph998.preheader.i ], [ %indvars.iv.next1110.i, %.lr.ph998.i ]
-  %.0347996.i = phi ptr [ %387, %.lr.ph998.preheader.i ], [ %406, %.lr.ph998.i ]
-  %.sroa.7.0994.i = phi double [ 0.000000e+00, %.lr.ph998.preheader.i ], [ %405, %.lr.ph998.i ]
-  %.sroa.0777.0993.i = phi double [ 0.000000e+00, %.lr.ph998.preheader.i ], [ %404, %.lr.ph998.i ]
-  %388 = getelementptr inbounds %"class.cv::Complex", ptr %.2.i, i64 %indvars.iv1109.i
-  %389 = load float, ptr %388, align 4
-  %390 = fpext float %389 to double
-  %391 = getelementptr inbounds i8, ptr %388, i64 4
-  %392 = load float, ptr %391, align 4
-  %393 = fpext float %392 to double
-  %394 = load float, ptr %.0347996.i, align 4
-  %395 = fpext float %394 to double
-  %396 = getelementptr inbounds i8, ptr %.0347996.i, i64 4
-  %397 = load float, ptr %396, align 4
-  %398 = fpext float %397 to double
-  %399 = fneg double %398
-  %400 = fmul double %393, %399
-  %401 = call double @llvm.fmuladd.f64(double %390, double %395, double %400)
-  %402 = fmul double %393, %395
-  %403 = call double @llvm.fmuladd.f64(double %390, double %398, double %402)
-  %404 = fadd double %.sroa.0777.0993.i, %401
-  %405 = fadd double %.sroa.7.0994.i, %403
+  %.0347996.i = phi ptr [ %403, %.lr.ph998.preheader.i ], [ %422, %.lr.ph998.i ]
+  %.sroa.7.0994.i = phi double [ 0.000000e+00, %.lr.ph998.preheader.i ], [ %421, %.lr.ph998.i ]
+  %.sroa.0777.0993.i = phi double [ 0.000000e+00, %.lr.ph998.preheader.i ], [ %420, %.lr.ph998.i ]
+  %404 = getelementptr inbounds %"class.cv::Complex", ptr %.2.i, i64 %indvars.iv1109.i
+  %405 = load float, ptr %404, align 4
+  %406 = fpext float %405 to double
+  %407 = getelementptr inbounds i8, ptr %404, i64 4
+  %408 = load float, ptr %407, align 4
+  %409 = fpext float %408 to double
+  %410 = load float, ptr %.0347996.i, align 4
+  %411 = fpext float %410 to double
+  %412 = getelementptr inbounds i8, ptr %.0347996.i, i64 4
+  %413 = load float, ptr %412, align 4
+  %414 = fpext float %413 to double
+  %415 = fneg double %414
+  %416 = fmul double %409, %415
+  %417 = call double @llvm.fmuladd.f64(double %406, double %411, double %416)
+  %418 = fmul double %409, %411
+  %419 = call double @llvm.fmuladd.f64(double %406, double %414, double %418)
+  %420 = fadd double %.sroa.0777.0993.i, %417
+  %421 = fadd double %.sroa.7.0994.i, %419
   %indvars.iv.next1110.i = add nuw nsw i64 %indvars.iv1109.i, 1
-  %406 = getelementptr inbounds %"class.cv::Complex", ptr %.0347996.i, i64 %19
+  %422 = getelementptr inbounds %"class.cv::Complex", ptr %.0347996.i, i64 %19
   %exitcond1113.not.i = icmp eq i64 %indvars.iv.next1110.i, %wide.trip.count1099.i
   br i1 %exitcond1113.not.i, label %._crit_edge999.i, label %.lr.ph998.i, !llvm.loop !561
 
 ._crit_edge999.i:                                 ; preds = %.lr.ph998.i, %.lr.ph1004.i
-  %.sroa.0777.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph1004.i ], [ %404, %.lr.ph998.i ]
-  %.sroa.7.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph1004.i ], [ %405, %.lr.ph998.i ]
-  %407 = fmul double %10, %.sroa.0777.0.lcssa.i
-  %408 = fmul double %10, %.sroa.7.0.lcssa.i
+  %.sroa.0777.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph1004.i ], [ %420, %.lr.ph998.i ]
+  %.sroa.7.0.lcssa.i = phi double [ 0.000000e+00, %.lr.ph1004.i ], [ %421, %.lr.ph998.i ]
+  %423 = fmul double %10, %.sroa.0777.0.lcssa.i
+  %424 = fmul double %10, %.sroa.7.0.lcssa.i
   %.not392.i = icmp eq ptr %.41003.i, null
-  br i1 %.not392.i, label %419, label %409
+  br i1 %.not392.i, label %435, label %425
 
-409:                                              ; preds = %._crit_edge999.i
-  %410 = load float, ptr %.41003.i, align 4
-  %411 = fpext float %410 to double
-  %412 = getelementptr inbounds i8, ptr %.41003.i, i64 4
-  %413 = load float, ptr %412, align 4
-  %414 = fpext float %413 to double
-  %415 = fmul double %11, %411
-  %416 = fmul double %11, %414
-  %417 = fadd double %407, %415
-  %418 = fadd double %408, %416
-  br label %419
+425:                                              ; preds = %._crit_edge999.i
+  %426 = load float, ptr %.41003.i, align 4
+  %427 = fpext float %426 to double
+  %428 = getelementptr inbounds i8, ptr %.41003.i, i64 4
+  %429 = load float, ptr %428, align 4
+  %430 = fpext float %429 to double
+  %431 = fmul double %11, %427
+  %432 = fmul double %11, %430
+  %433 = fadd double %423, %431
+  %434 = fadd double %424, %432
+  br label %435
 
-419:                                              ; preds = %409, %._crit_edge999.i
-  %.sink1179.i = phi double [ %417, %409 ], [ %407, %._crit_edge999.i ]
-  %.sink1178.i = phi double [ %418, %409 ], [ %408, %._crit_edge999.i ]
-  %420 = fptrunc double %.sink1179.i to float
-  %421 = fptrunc double %.sink1178.i to float
-  %.sroa.0.0.vec.insert.i707.i = insertelement <2 x float> poison, float %420, i64 0
-  %.sroa.0.4.vec.insert.i708.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i707.i, float %421, i64 1
-  %422 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %indvars.iv1114.i
-  store <2 x float> %.sroa.0.4.vec.insert.i708.i, ptr %422, align 4
+435:                                              ; preds = %425, %._crit_edge999.i
+  %.sink1179.i = phi double [ %433, %425 ], [ %423, %._crit_edge999.i ]
+  %.sink1178.i = phi double [ %434, %425 ], [ %424, %._crit_edge999.i ]
+  %436 = fptrunc double %.sink1179.i to float
+  %437 = fptrunc double %.sink1178.i to float
+  %.sroa.0.0.vec.insert.i707.i = insertelement <2 x float> poison, float %436, i64 0
+  %.sroa.0.4.vec.insert.i708.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i707.i, float %437, i64 1
+  %438 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %indvars.iv1114.i
+  store <2 x float> %.sroa.0.4.vec.insert.i708.i, ptr %438, align 4
   %indvars.iv.next1115.i = add nuw nsw i64 %indvars.iv1114.i, 1
-  %423 = getelementptr inbounds %"class.cv::Complex", ptr %.41003.i, i64 %.0378.i
+  %439 = getelementptr inbounds %"class.cv::Complex", ptr %.41003.i, i64 %.0378.i
   %exitcond1118.not.i = icmp eq i64 %indvars.iv.next1115.i, %wide.trip.count1117.i
   br i1 %exitcond1118.not.i, label %._crit_edge1005.i, label %.lr.ph1004.i, !llvm.loop !562
 
-._crit_edge1005.i:                                ; preds = %419, %.preheader906.i
-  %424 = add nuw nsw i32 %.23501008.i, 1
-  %425 = getelementptr inbounds %"class.cv::Complex", ptr %.13681007.i, i64 %.0375902.i
-  %426 = getelementptr inbounds %"class.cv::Complex", ptr %.23721006.i, i64 %.0377.i
-  %427 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %21
-  %exitcond1119.not.i = icmp eq i32 %424, %.sroa.8.0.extract.trunc.i
-  br i1 %exitcond1119.not.i, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i, label %237, !llvm.loop !563
+._crit_edge1005.i:                                ; preds = %435, %.preheader906.i
+  %440 = add nuw nsw i32 %.23501008.i, 1
+  %441 = getelementptr inbounds %"class.cv::Complex", ptr %.13681007.i, i64 %.0375902.i
+  %442 = getelementptr inbounds %"class.cv::Complex", ptr %.23721006.i, i64 %.0377.i
+  %443 = getelementptr inbounds %"class.cv::Complex", ptr %.23451009.i, i64 %21
+  %exitcond1119.not.i = icmp eq i32 %440, %.sroa.8.0.extract.trunc.i
+  br i1 %exitcond1119.not.i, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i, label %253, !llvm.loop !563
 
-428:                                              ; preds = %231
-  %429 = ashr exact i64 %sext.i, 32
+444:                                              ; preds = %247
+  %445 = ashr exact i64 %sext.i, 32
   %scevgep.i717.i = getelementptr inbounds i8, ptr %16, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1152) %scevgep.i717.i, i8 0, i64 1152, i1 false)
   store ptr %scevgep.i717.i, ptr %16, align 8
-  %430 = getelementptr inbounds i8, ptr %16, i64 8
-  %.not.i.i718.i = icmp ugt i64 %429, 72
-  store i64 %429, ptr %430, align 8
-  br i1 %.not.i.i718.i, label %431, label %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EEC2Em.exit.i
+  %446 = getelementptr inbounds i8, ptr %16, i64 8
+  %.not.i.i718.i = icmp ugt i64 %445, 72
+  store i64 %445, ptr %446, align 8
+  br i1 %.not.i.i718.i, label %447, label %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EEC2Em.exit.i
 
-431:                                              ; preds = %428
-  %432 = icmp ugt i64 %429, 1152921504606846975
-  %433 = ashr exact i64 %sext.i, 28
-  %434 = select i1 %432, i64 -1, i64 %433
-  %435 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %434) #27
+447:                                              ; preds = %444
+  %448 = icmp ugt i64 %445, 1152921504606846975
+  %449 = ashr exact i64 %sext.i, 28
+  %450 = select i1 %448, i64 -1, i64 %449
+  %451 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %450) #27
           to label %.noexc719.i unwind label %31
 
-.noexc719.i:                                      ; preds = %431
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %435, i8 0, i64 %433, i1 false)
-  store ptr %435, ptr %16, align 8
+.noexc719.i:                                      ; preds = %447
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %451, i8 0, i64 %449, i1 false)
+  store ptr %451, ptr %16, align 8
   br label %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EEC2Em.exit.i
 
-_ZN2cv10AutoBufferINS_7ComplexIdEELm72EEC2Em.exit.i: ; preds = %.noexc719.i, %428
-  %436 = phi ptr [ %435, %.noexc719.i ], [ %scevgep.i717.i, %428 ]
-  %437 = icmp sgt i32 %.sroa.8.0.extract.trunc.i, 0
-  br i1 %437, label %.lr.ph961.i, label %._crit_edge962.i
+_ZN2cv10AutoBufferINS_7ComplexIdEELm72EEC2Em.exit.i: ; preds = %.noexc719.i, %444
+  %452 = phi ptr [ %451, %.noexc719.i ], [ %scevgep.i717.i, %444 ]
+  %453 = icmp sgt i32 %.sroa.8.0.extract.trunc.i, 0
+  br i1 %453, label %.lr.ph961.i, label %._crit_edge962.i
 
 .lr.ph961.i:                                      ; preds = %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EEC2Em.exit.i
   %.not388.i = icmp eq ptr %.0374903.i, null
-  %438 = icmp slt i32 %.0366904.i, 1
-  %439 = icmp sgt i32 %.sroa.0326.0.extract.trunc.i, 0
-  %440 = icmp sgt i32 %.0366904.i, 0
-  %441 = and i64 %9, 4294967295
-  %442 = shl nuw nsw i64 %441, 4
-  %brmerge1036.i = select i1 %.not388.i, i1 true, i1 %438
+  %454 = icmp slt i32 %.0366904.i, 1
+  %455 = icmp sgt i32 %.sroa.0326.0.extract.trunc.i, 0
+  %456 = icmp sgt i32 %.0366904.i, 0
+  %457 = and i64 %9, 4294967295
+  %458 = shl nuw nsw i64 %457, 4
+  %brmerge1036.i = select i1 %.not388.i, i1 true, i1 %454
   %wide.trip.count1070.i = zext nneg i32 %.0366904.i to i64
-  br label %443
+  br label %459
 
-443:                                              ; preds = %.loopexit911.i, %.lr.ph961.i
-  %.3346959.i = phi ptr [ %6, %.lr.ph961.i ], [ %500, %.loopexit911.i ]
-  %.3351958.i = phi i32 [ 0, %.lr.ph961.i ], [ %497, %.loopexit911.i ]
-  %.2369957.i = phi ptr [ %0, %.lr.ph961.i ], [ %498, %.loopexit911.i ]
-  %.3373955.i = phi ptr [ %4, %.lr.ph961.i ], [ %499, %.loopexit911.i ]
+459:                                              ; preds = %.loopexit911.i, %.lr.ph961.i
+  %.3346959.i = phi ptr [ %6, %.lr.ph961.i ], [ %516, %.loopexit911.i ]
+  %.3351958.i = phi i32 [ 0, %.lr.ph961.i ], [ %513, %.loopexit911.i ]
+  %.2369957.i = phi ptr [ %0, %.lr.ph961.i ], [ %514, %.loopexit911.i ]
+  %.3373955.i = phi ptr [ %4, %.lr.ph961.i ], [ %515, %.loopexit911.i ]
   %.2369957.mux.i = select i1 %.not388.i, ptr %.2369957.i, ptr %.0374903.i
   br i1 %brmerge1036.i, label %.loopexit916.i, label %.lr.ph938.i
 
-.lr.ph938.i:                                      ; preds = %443, %.lr.ph938.i
-  %indvars.iv1067.i = phi i64 [ %indvars.iv.next1068.i, %.lr.ph938.i ], [ 0, %443 ]
-  %444 = mul i64 %indvars.iv1067.i, %.0376901.i
-  %445 = getelementptr inbounds %"class.cv::Complex", ptr %.2369957.i, i64 %444
-  %446 = getelementptr inbounds %"class.cv::Complex", ptr %.0374903.i, i64 %indvars.iv1067.i
-  %447 = load i64, ptr %445, align 4
-  store i64 %447, ptr %446, align 4
+.lr.ph938.i:                                      ; preds = %459, %.lr.ph938.i
+  %indvars.iv1067.i = phi i64 [ %indvars.iv.next1068.i, %.lr.ph938.i ], [ 0, %459 ]
+  %460 = mul i64 %indvars.iv1067.i, %.0376901.i
+  %461 = getelementptr inbounds %"class.cv::Complex", ptr %.2369957.i, i64 %460
+  %462 = getelementptr inbounds %"class.cv::Complex", ptr %.0374903.i, i64 %indvars.iv1067.i
+  %463 = load i64, ptr %461, align 4
+  store i64 %463, ptr %462, align 4
   %indvars.iv.next1068.i = add nuw nsw i64 %indvars.iv1067.i, 1
   %exitcond1071.not.i = icmp eq i64 %indvars.iv.next1068.i, %wide.trip.count1070.i
   br i1 %exitcond1071.not.i, label %.loopexit916.i, label %.lr.ph938.i, !llvm.loop !564
 
-.loopexit916.i:                                   ; preds = %.lr.ph938.i, %443
-  %.3.i = phi ptr [ %.2369957.mux.i, %443 ], [ %.0374903.i, %.lr.ph938.i ]
-  br i1 %439, label %.preheader914.i, label %.loopexit911.i
+.loopexit916.i:                                   ; preds = %.lr.ph938.i, %459
+  %.3.i = phi ptr [ %.2369957.mux.i, %459 ], [ %.0374903.i, %.lr.ph938.i ]
+  br i1 %455, label %.preheader914.i, label %.loopexit911.i
 
 .preheader914.i:                                  ; preds = %.loopexit916.i
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %436, i8 0, i64 %442, i1 false)
-  br i1 %440, label %.lr.ph944.us.i, label %._crit_edge949.i
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %452, i8 0, i64 %458, i1 false)
+  br i1 %456, label %.lr.ph944.us.i, label %._crit_edge949.i
 
 .lr.ph944.us.i:                                   ; preds = %.preheader914.i, %._crit_edge945.us.i
   %indvars.iv1080.i = phi i64 [ %indvars.iv.next1081.i, %._crit_edge945.us.i ], [ 0, %.preheader914.i ]
-  %.2338947.us.i = phi ptr [ %472, %._crit_edge945.us.i ], [ %2, %.preheader914.i ]
-  %448 = getelementptr inbounds %"class.cv::Complex", ptr %.3.i, i64 %indvars.iv1080.i
-  %449 = load float, ptr %448, align 4
-  %450 = fpext float %449 to double
-  %451 = getelementptr inbounds i8, ptr %448, i64 4
-  %452 = load float, ptr %451, align 4
-  %453 = fpext float %452 to double
-  %454 = fneg double %453
-  br label %455
+  %.2338947.us.i = phi ptr [ %488, %._crit_edge945.us.i ], [ %2, %.preheader914.i ]
+  %464 = getelementptr inbounds %"class.cv::Complex", ptr %.3.i, i64 %indvars.iv1080.i
+  %465 = load float, ptr %464, align 4
+  %466 = fpext float %465 to double
+  %467 = getelementptr inbounds i8, ptr %464, i64 4
+  %468 = load float, ptr %467, align 4
+  %469 = fpext float %468 to double
+  %470 = fneg double %469
+  br label %471
 
-455:                                              ; preds = %455, %.lr.ph944.us.i
-  %indvars.iv1075.i = phi i64 [ 0, %.lr.ph944.us.i ], [ %indvars.iv.next1076.i, %455 ]
-  %456 = getelementptr inbounds %"class.cv::Complex", ptr %.2338947.us.i, i64 %indvars.iv1075.i
-  %457 = load float, ptr %456, align 4
-  %458 = fpext float %457 to double
-  %459 = getelementptr inbounds i8, ptr %456, i64 4
-  %460 = load float, ptr %459, align 4
-  %461 = fpext float %460 to double
-  %462 = fmul double %454, %461
-  %463 = call double @llvm.fmuladd.f64(double %458, double %450, double %462)
-  %464 = fmul double %450, %461
-  %465 = call double @llvm.fmuladd.f64(double %458, double %453, double %464)
-  %466 = getelementptr inbounds %"class.cv::Complex.6", ptr %436, i64 %indvars.iv1075.i
-  %467 = load double, ptr %466, align 8
-  %468 = fadd double %467, %463
-  store double %468, ptr %466, align 8
-  %469 = getelementptr inbounds i8, ptr %466, i64 8
-  %470 = load double, ptr %469, align 8
-  %471 = fadd double %465, %470
-  store double %471, ptr %469, align 8
+471:                                              ; preds = %471, %.lr.ph944.us.i
+  %indvars.iv1075.i = phi i64 [ 0, %.lr.ph944.us.i ], [ %indvars.iv.next1076.i, %471 ]
+  %472 = getelementptr inbounds %"class.cv::Complex", ptr %.2338947.us.i, i64 %indvars.iv1075.i
+  %473 = load float, ptr %472, align 4
+  %474 = fpext float %473 to double
+  %475 = getelementptr inbounds i8, ptr %472, i64 4
+  %476 = load float, ptr %475, align 4
+  %477 = fpext float %476 to double
+  %478 = fmul double %470, %477
+  %479 = call double @llvm.fmuladd.f64(double %474, double %466, double %478)
+  %480 = fmul double %466, %477
+  %481 = call double @llvm.fmuladd.f64(double %474, double %469, double %480)
+  %482 = getelementptr inbounds %"class.cv::Complex.6", ptr %452, i64 %indvars.iv1075.i
+  %483 = load double, ptr %482, align 8
+  %484 = fadd double %483, %479
+  store double %484, ptr %482, align 8
+  %485 = getelementptr inbounds i8, ptr %482, i64 8
+  %486 = load double, ptr %485, align 8
+  %487 = fadd double %481, %486
+  store double %487, ptr %485, align 8
   %indvars.iv.next1076.i = add nuw nsw i64 %indvars.iv1075.i, 1
-  %exitcond1079.not.i = icmp eq i64 %indvars.iv.next1076.i, %441
-  br i1 %exitcond1079.not.i, label %._crit_edge945.us.i, label %455, !llvm.loop !565
+  %exitcond1079.not.i = icmp eq i64 %indvars.iv.next1076.i, %457
+  br i1 %exitcond1079.not.i, label %._crit_edge945.us.i, label %471, !llvm.loop !565
 
-._crit_edge945.us.i:                              ; preds = %455
+._crit_edge945.us.i:                              ; preds = %471
   %indvars.iv.next1081.i = add nuw nsw i64 %indvars.iv1080.i, 1
-  %472 = getelementptr inbounds %"class.cv::Complex", ptr %.2338947.us.i, i64 %19
+  %488 = getelementptr inbounds %"class.cv::Complex", ptr %.2338947.us.i, i64 %19
   %exitcond1084.not.i = icmp eq i64 %indvars.iv.next1081.i, %wide.trip.count1070.i
   br i1 %exitcond1084.not.i, label %._crit_edge949.i, label %.lr.ph944.us.i, !llvm.loop !566
 
@@ -29745,108 +29775,108 @@ _ZN2cv10AutoBufferINS_7ComplexIdEELm72EEC2Em.exit.i: ; preds = %.noexc719.i, %42
 
 .lr.ph954.i:                                      ; preds = %._crit_edge949.i, %.lr.ph954.i
   %indvars.iv1090.i = phi i64 [ %indvars.iv.next1091.i, %.lr.ph954.i ], [ 0, %._crit_edge949.i ]
-  %473 = getelementptr inbounds %"class.cv::Complex.6", ptr %436, i64 %indvars.iv1090.i
-  %.val445.i = load double, ptr %473, align 8
-  %474 = getelementptr i8, ptr %473, i64 8
-  %.val446.i = load double, ptr %474, align 8
-  %475 = fmul double %10, %.val445.i
-  %476 = fmul double %10, %.val446.i
-  %477 = fptrunc double %475 to float
-  %478 = fptrunc double %476 to float
-  %.sroa.0.0.vec.insert.i729.i = insertelement <2 x float> poison, float %477, i64 0
-  %.sroa.0.4.vec.insert.i730.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i729.i, float %478, i64 1
-  %479 = getelementptr inbounds %"class.cv::Complex", ptr %.3346959.i, i64 %indvars.iv1090.i
-  store <2 x float> %.sroa.0.4.vec.insert.i730.i, ptr %479, align 4
+  %489 = getelementptr inbounds %"class.cv::Complex.6", ptr %452, i64 %indvars.iv1090.i
+  %.val445.i = load double, ptr %489, align 8
+  %490 = getelementptr i8, ptr %489, i64 8
+  %.val446.i = load double, ptr %490, align 8
+  %491 = fmul double %10, %.val445.i
+  %492 = fmul double %10, %.val446.i
+  %493 = fptrunc double %491 to float
+  %494 = fptrunc double %492 to float
+  %.sroa.0.0.vec.insert.i729.i = insertelement <2 x float> poison, float %493, i64 0
+  %.sroa.0.4.vec.insert.i730.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i729.i, float %494, i64 1
+  %495 = getelementptr inbounds %"class.cv::Complex", ptr %.3346959.i, i64 %indvars.iv1090.i
+  store <2 x float> %.sroa.0.4.vec.insert.i730.i, ptr %495, align 4
   %indvars.iv.next1091.i = add nuw nsw i64 %indvars.iv1090.i, 1
-  %exitcond1094.not.i = icmp eq i64 %indvars.iv.next1091.i, %441
+  %exitcond1094.not.i = icmp eq i64 %indvars.iv.next1091.i, %457
   br i1 %exitcond1094.not.i, label %.loopexit911.i, label %.lr.ph954.i, !llvm.loop !567
 
 .lr.ph952.i:                                      ; preds = %._crit_edge949.i, %.lr.ph952.i
   %indvars.iv1085.i = phi i64 [ %indvars.iv.next1086.i, %.lr.ph952.i ], [ 0, %._crit_edge949.i ]
-  %.5951.i = phi ptr [ %496, %.lr.ph952.i ], [ %.3373955.i, %._crit_edge949.i ]
-  %480 = getelementptr inbounds %"class.cv::Complex.6", ptr %436, i64 %indvars.iv1085.i
-  %.val447.i = load double, ptr %480, align 8
-  %481 = getelementptr i8, ptr %480, i64 8
-  %.val448.i = load double, ptr %481, align 8
-  %482 = fmul double %10, %.val447.i
-  %483 = fmul double %10, %.val448.i
-  %484 = load float, ptr %.5951.i, align 4
-  %485 = fpext float %484 to double
-  %486 = getelementptr inbounds i8, ptr %.5951.i, i64 4
-  %487 = load float, ptr %486, align 4
-  %488 = fpext float %487 to double
-  %489 = fmul double %11, %485
-  %490 = fmul double %11, %488
-  %491 = fadd double %482, %489
-  %492 = fadd double %483, %490
-  %493 = fptrunc double %491 to float
-  %494 = fptrunc double %492 to float
-  %.sroa.0.0.vec.insert.i739.i = insertelement <2 x float> poison, float %493, i64 0
-  %.sroa.0.4.vec.insert.i740.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i739.i, float %494, i64 1
-  %495 = getelementptr inbounds %"class.cv::Complex", ptr %.3346959.i, i64 %indvars.iv1085.i
-  store <2 x float> %.sroa.0.4.vec.insert.i740.i, ptr %495, align 4
+  %.5951.i = phi ptr [ %512, %.lr.ph952.i ], [ %.3373955.i, %._crit_edge949.i ]
+  %496 = getelementptr inbounds %"class.cv::Complex.6", ptr %452, i64 %indvars.iv1085.i
+  %.val447.i = load double, ptr %496, align 8
+  %497 = getelementptr i8, ptr %496, i64 8
+  %.val448.i = load double, ptr %497, align 8
+  %498 = fmul double %10, %.val447.i
+  %499 = fmul double %10, %.val448.i
+  %500 = load float, ptr %.5951.i, align 4
+  %501 = fpext float %500 to double
+  %502 = getelementptr inbounds i8, ptr %.5951.i, i64 4
+  %503 = load float, ptr %502, align 4
+  %504 = fpext float %503 to double
+  %505 = fmul double %11, %501
+  %506 = fmul double %11, %504
+  %507 = fadd double %498, %505
+  %508 = fadd double %499, %506
+  %509 = fptrunc double %507 to float
+  %510 = fptrunc double %508 to float
+  %.sroa.0.0.vec.insert.i739.i = insertelement <2 x float> poison, float %509, i64 0
+  %.sroa.0.4.vec.insert.i740.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i739.i, float %510, i64 1
+  %511 = getelementptr inbounds %"class.cv::Complex", ptr %.3346959.i, i64 %indvars.iv1085.i
+  store <2 x float> %.sroa.0.4.vec.insert.i740.i, ptr %511, align 4
   %indvars.iv.next1086.i = add nuw nsw i64 %indvars.iv1085.i, 1
-  %496 = getelementptr inbounds %"class.cv::Complex", ptr %.5951.i, i64 %.0378.i
-  %exitcond1089.not.i = icmp eq i64 %indvars.iv.next1086.i, %441
+  %512 = getelementptr inbounds %"class.cv::Complex", ptr %.5951.i, i64 %.0378.i
+  %exitcond1089.not.i = icmp eq i64 %indvars.iv.next1086.i, %457
   br i1 %exitcond1089.not.i, label %.loopexit911.i, label %.lr.ph952.i, !llvm.loop !568
 
 .loopexit911.i:                                   ; preds = %.lr.ph952.i, %.lr.ph954.i, %.loopexit916.i
-  %497 = add nuw nsw i32 %.3351958.i, 1
-  %498 = getelementptr inbounds %"class.cv::Complex", ptr %.2369957.i, i64 %.0375902.i
-  %499 = getelementptr inbounds %"class.cv::Complex", ptr %.3373955.i, i64 %.0377.i
-  %500 = getelementptr inbounds %"class.cv::Complex", ptr %.3346959.i, i64 %21
-  %exitcond1095.not.i = icmp eq i32 %497, %.sroa.8.0.extract.trunc.i
-  br i1 %exitcond1095.not.i, label %._crit_edge962.loopexit.i, label %443, !llvm.loop !569
+  %513 = add nuw nsw i32 %.3351958.i, 1
+  %514 = getelementptr inbounds %"class.cv::Complex", ptr %.2369957.i, i64 %.0375902.i
+  %515 = getelementptr inbounds %"class.cv::Complex", ptr %.3373955.i, i64 %.0377.i
+  %516 = getelementptr inbounds %"class.cv::Complex", ptr %.3346959.i, i64 %21
+  %exitcond1095.not.i = icmp eq i32 %513, %.sroa.8.0.extract.trunc.i
+  br i1 %exitcond1095.not.i, label %._crit_edge962.loopexit.i, label %459, !llvm.loop !569
 
 ._crit_edge962.loopexit.i:                        ; preds = %.loopexit911.i
   %.pre.i = load ptr, ptr %16, align 8
   br label %._crit_edge962.i
 
 ._crit_edge962.i:                                 ; preds = %._crit_edge962.loopexit.i, %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EEC2Em.exit.i
-  %501 = phi ptr [ %.pre.i, %._crit_edge962.loopexit.i ], [ %436, %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EEC2Em.exit.i ]
-  %.not.i.i741.i = icmp eq ptr %501, %scevgep.i717.i
-  br i1 %.not.i.i741.i, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i, label %502
+  %517 = phi ptr [ %.pre.i, %._crit_edge962.loopexit.i ], [ %452, %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EEC2Em.exit.i ]
+  %.not.i.i741.i = icmp eq ptr %517, %scevgep.i717.i
+  br i1 %.not.i.i741.i, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i, label %518
 
-502:                                              ; preds = %._crit_edge962.i
-  %503 = icmp eq ptr %501, null
-  br i1 %503, label %505, label %504
+518:                                              ; preds = %._crit_edge962.i
+  %519 = icmp eq ptr %517, null
+  br i1 %519, label %521, label %520
 
-504:                                              ; preds = %502
-  call void @_ZdaPv(ptr noundef nonnull %501) #28
-  br label %505
+520:                                              ; preds = %518
+  call void @_ZdaPv(ptr noundef nonnull %517) #28
+  br label %521
 
-505:                                              ; preds = %504, %502
+521:                                              ; preds = %520, %518
   store ptr %scevgep.i717.i, ptr %16, align 8
-  store i64 72, ptr %430, align 8
+  store i64 72, ptr %446, align 8
   br label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i
 
-_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i: ; preds = %.loopexit919.i.loopexit, %._crit_edge931.i.loopexit.us, %._crit_edge1005.i, %.lr.ph936.i.split, %505, %._crit_edge962.i, %.preheader909.i, %.preheader920.i, %171, %._crit_edge1031.i
-  %506 = load ptr, ptr %14, align 8
-  %.not.i.i743.i = icmp eq ptr %506, %scevgep.i.i
-  %507 = icmp eq ptr %506, null
-  %or.cond1180.i = or i1 %.not.i.i743.i, %507
-  br i1 %or.cond1180.i, label %_ZN2cv12cpu_baselineL13GEMMSingleMulINS_7ComplexIfEENS2_IdEEEEvPKT_mS7_mS7_mPS5_mNS_5Size_IiEESA_ddi.exit, label %508
+_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i: ; preds = %.loopexit919.i.loopexit, %._crit_edge931.i.loopexit.us, %._crit_edge1005.i, %.lr.ph936.i.split, %521, %._crit_edge962.i, %.preheader909.i, %.preheader920.i, %171, %._crit_edge1031.i
+  %522 = load ptr, ptr %14, align 8
+  %.not.i.i743.i = icmp eq ptr %522, %scevgep.i.i
+  %523 = icmp eq ptr %522, null
+  %or.cond1180.i = or i1 %.not.i.i743.i, %523
+  br i1 %or.cond1180.i, label %_ZN2cv12cpu_baselineL13GEMMSingleMulINS_7ComplexIfEENS2_IdEEEEvPKT_mS7_mS7_mPS5_mNS_5Size_IiEESA_ddi.exit, label %524
 
-508:                                              ; preds = %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i
-  call void @_ZdaPv(ptr noundef nonnull %506) #28
+524:                                              ; preds = %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i
+  call void @_ZdaPv(ptr noundef nonnull %522) #28
   br label %_ZN2cv12cpu_baselineL13GEMMSingleMulINS_7ComplexIfEENS2_IdEEEEvPKT_mS7_mS7_mPS5_mNS_5Size_IiEESA_ddi.exit
 
 _ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit.i: ; preds = %53, %31
-  %509 = phi ptr [ %32, %31 ], [ %.pre, %53 ]
+  %525 = phi ptr [ %32, %31 ], [ %.pre, %53 ]
   %.pn.i = phi { ptr, i32 } [ %33, %31 ], [ %54, %53 ]
-  %.not.i.i746.i = icmp eq ptr %509, %scevgep.i.i
-  %510 = icmp eq ptr %509, null
-  %or.cond1181.i = or i1 %.not.i.i746.i, %510
-  br i1 %or.cond1181.i, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit748.i, label %511
+  %.not.i.i746.i = icmp eq ptr %525, %scevgep.i.i
+  %526 = icmp eq ptr %525, null
+  %or.cond1181.i = or i1 %.not.i.i746.i, %526
+  br i1 %or.cond1181.i, label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit748.i, label %527
 
-511:                                              ; preds = %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %509) #28
+527:                                              ; preds = %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit.i
+  call void @_ZdaPv(ptr noundef nonnull %525) #28
   br label %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit748.i
 
-_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit748.i: ; preds = %511, %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit.i
+_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit748.i: ; preds = %527, %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit.i
   resume { ptr, i32 } %.pn.i
 
-_ZN2cv12cpu_baselineL13GEMMSingleMulINS_7ComplexIfEENS2_IdEEEEvPKT_mS7_mS7_mPS5_mNS_5Size_IiEESA_ddi.exit: ; preds = %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i, %508
+_ZN2cv12cpu_baselineL13GEMMSingleMulINS_7ComplexIfEENS2_IdEEEEvPKT_mS7_mS7_mPS5_mNS_5Size_IiEESA_ddi.exit: ; preds = %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit600.i, %524
   call void @llvm.lifetime.end.p0(i64 1104, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1104, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 1168, ptr nonnull %16)
@@ -30857,10 +30887,10 @@ _ZN2cv10AutoBufferINS_7ComplexIdEELm72EE8allocateEm.exit565.i: ; preds = %.noexc
 .preheader818.i.preheader:                        ; preds = %.loopexit820.i
   br i1 %132, label %.preheader818.i.us, label %.preheader818.i
 
-.preheader818.i.us:                               ; preds = %.preheader818.i.preheader, %152
-  %indvars.iv962.i.us = phi i64 [ %indvars.iv.next963.i.us, %152 ], [ 0, %.preheader818.i.preheader ]
-  %.1347831.i.us = phi ptr [ %154, %152 ], [ %2, %.preheader818.i.preheader ]
-  %.2351830.i.us = phi ptr [ %155, %152 ], [ %.1381833.i, %.preheader818.i.preheader ]
+.preheader818.i.us:                               ; preds = %.preheader818.i.preheader, %156
+  %indvars.iv962.i.us = phi i64 [ %indvars.iv.next963.i.us, %156 ], [ 0, %.preheader818.i.preheader ]
+  %.1347831.i.us = phi ptr [ %158, %156 ], [ %2, %.preheader818.i.preheader ]
+  %.2351830.i.us = phi ptr [ %159, %156 ], [ %.1381833.i, %.preheader818.i.preheader ]
   br label %.lr.ph827.i.us
 
 .lr.ph827.i.us:                                   ; preds = %.preheader818.i.us, %.lr.ph827.i.us
@@ -30884,38 +30914,38 @@ _ZN2cv10AutoBufferINS_7ComplexIdEELm72EE8allocateEm.exit565.i: ; preds = %.noexc
   %146 = fadd double %.sroa.7763.0825.i.us, %144
   %indvars.iv.next958.i.us = add nuw nsw i64 %indvars.iv957.i.us, 1
   %exitcond961.not.i.us = icmp eq i64 %indvars.iv.next958.i.us, %wide.trip.count.i
-  br i1 %exitcond961.not.i.us, label %._crit_edge.i.loopexit.us, label %.lr.ph827.i.us, !llvm.loop !590
+  br i1 %exitcond961.not.i.us, label %._crit_edge.loopexit.i.us, label %.lr.ph827.i.us, !llvm.loop !590
 
-147:                                              ; preds = %._crit_edge.i.loopexit.us
+._crit_edge.loopexit.i.us:                        ; preds = %.lr.ph827.i.us
+  %147 = fadd double %145, 0.000000e+00
+  %148 = fadd double %146, 0.000000e+00
+  %149 = fmul double %10, %147
+  %150 = fmul double %10, %148
+  %.not407.i.us = icmp eq ptr %.2351830.i.us, null
+  br i1 %.not407.i.us, label %156, label %151
+
+151:                                              ; preds = %._crit_edge.loopexit.i.us
   %.sroa.0740.0.copyload.i.us = load double, ptr %.2351830.i.us, align 8
   %.sroa.2741.0..2351.sroa_idx.i.us = getelementptr inbounds i8, ptr %.2351830.i.us, i64 8
   %.sroa.2741.0.copyload.i.us = load double, ptr %.sroa.2741.0..2351.sroa_idx.i.us, align 8
-  %148 = fmul double %11, %.sroa.0740.0.copyload.i.us
-  %149 = fmul double %11, %.sroa.2741.0.copyload.i.us
-  %150 = fadd double %158, %148
-  %151 = fadd double %159, %149
-  br label %152
+  %152 = fmul double %11, %.sroa.0740.0.copyload.i.us
+  %153 = fmul double %11, %.sroa.2741.0.copyload.i.us
+  %154 = fadd double %149, %152
+  %155 = fadd double %150, %153
+  br label %156
 
-152:                                              ; preds = %147, %._crit_edge.i.loopexit.us
-  %.sink1070.i.us = phi double [ %150, %147 ], [ %158, %._crit_edge.i.loopexit.us ]
-  %.sink1068.i.us = phi double [ %151, %147 ], [ %159, %._crit_edge.i.loopexit.us ]
-  %153 = getelementptr inbounds %"class.cv::Complex.6", ptr %.1354836.i, i64 %indvars.iv962.i.us
-  store double %.sink1070.i.us, ptr %153, align 8
-  %.sroa.2765.0..sroa_idx.i.us = getelementptr inbounds i8, ptr %153, i64 8
+156:                                              ; preds = %151, %._crit_edge.loopexit.i.us
+  %.sink1070.i.us = phi double [ %154, %151 ], [ %149, %._crit_edge.loopexit.i.us ]
+  %.sink1068.i.us = phi double [ %155, %151 ], [ %150, %._crit_edge.loopexit.i.us ]
+  %157 = getelementptr inbounds %"class.cv::Complex.6", ptr %.1354836.i, i64 %indvars.iv962.i.us
+  store double %.sink1070.i.us, ptr %157, align 8
+  %.sroa.2765.0..sroa_idx.i.us = getelementptr inbounds i8, ptr %157, i64 8
   store double %.sink1068.i.us, ptr %.sroa.2765.0..sroa_idx.i.us, align 8
   %indvars.iv.next963.i.us = add nuw nsw i64 %indvars.iv962.i.us, 1
-  %154 = getelementptr inbounds %"class.cv::Complex.6", ptr %.1347831.i.us, i64 %19
-  %155 = getelementptr inbounds %"class.cv::Complex.6", ptr %.2351830.i.us, i64 %.0388.i
+  %158 = getelementptr inbounds %"class.cv::Complex.6", ptr %.1347831.i.us, i64 %19
+  %159 = getelementptr inbounds %"class.cv::Complex.6", ptr %.2351830.i.us, i64 %.0388.i
   %exitcond966.not.i.us = icmp eq i64 %indvars.iv.next963.i.us, %wide.trip.count965.i
   br i1 %exitcond966.not.i.us, label %._crit_edge832.i, label %.preheader818.i.us, !llvm.loop !591
-
-._crit_edge.i.loopexit.us:                        ; preds = %.lr.ph827.i.us
-  %156 = fadd double %145, 0.000000e+00
-  %157 = fadd double %146, 0.000000e+00
-  %158 = fmul double %10, %156
-  %159 = fmul double %10, %157
-  %.not407.i.us = icmp eq ptr %.2351830.i.us, null
-  br i1 %.not407.i.us, label %152, label %147
 
 .preheader818.i:                                  ; preds = %.preheader818.i.preheader, %165
   %indvars.iv962.i = phi i64 [ %indvars.iv.next963.i, %165 ], [ 0, %.preheader818.i.preheader ]
@@ -30945,7 +30975,7 @@ _ZN2cv10AutoBufferINS_7ComplexIdEELm72EE8allocateEm.exit565.i: ; preds = %.noexc
   %exitcond966.not.i = icmp eq i64 %indvars.iv.next963.i, %wide.trip.count965.i
   br i1 %exitcond966.not.i, label %._crit_edge832.i, label %.preheader818.i, !llvm.loop !591
 
-._crit_edge832.i:                                 ; preds = %165, %152, %.loopexit820.i
+._crit_edge832.i:                                 ; preds = %165, %156, %.loopexit820.i
   %168 = add nuw nsw i32 %.1358835.i, 1
   %169 = getelementptr inbounds %"class.cv::Complex.6", ptr %.0377834.i, i64 %.0385803.i
   %170 = getelementptr inbounds %"class.cv::Complex.6", ptr %.1381833.i, i64 %.0387.i

@@ -241,7 +241,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp.not.i, label %ends_with_dirsep.exit.thread, label %ends_with_dirsep.exit
 
 ends_with_dirsep.exit.thread:                     ; preds = %land.lhs.true
-  %spec.select149 = add i64 %call2, 1
+  %spec.select148 = add i64 %call2, 1
   br label %if.end7
 
 ends_with_dirsep.exit:                            ; preds = %land.lhs.true
@@ -253,12 +253,12 @@ ends_with_dirsep.exit:                            ; preds = %land.lhs.true
   %4 = icmp ne i8 %.pre.i.fr, 47
   %inc = zext i1 %4 to i64
   %spec.select = add i64 %call2, %inc
-  %spec.select154 = select i1 %4, ptr @.str.28, ptr @.str.26
+  %spec.select153 = select i1 %4, ptr @.str.28, ptr @.str.26
   br label %if.end7
 
 if.end7:                                          ; preds = %ends_with_dirsep.exit, %ends_with_dirsep.exit.thread, %if.end
-  %dirlen.0 = phi i64 [ 0, %if.end ], [ %spec.select149, %ends_with_dirsep.exit.thread ], [ %spec.select, %ends_with_dirsep.exit ]
-  %pathsep.0 = phi ptr [ @.str.26, %if.end ], [ @.str.28, %ends_with_dirsep.exit.thread ], [ %spec.select154, %ends_with_dirsep.exit ]
+  %dirlen.0 = phi i64 [ 0, %if.end ], [ %spec.select148, %ends_with_dirsep.exit.thread ], [ %spec.select, %ends_with_dirsep.exit ]
+  %pathsep.0 = phi ptr [ @.str.26, %if.end ], [ @.str.28, %ends_with_dirsep.exit.thread ], [ %spec.select153, %ends_with_dirsep.exit ]
   %.b90 = load i1, ptr @verbose, align 4
   br i1 %.b90, label %if.then9, label %if.end11
 

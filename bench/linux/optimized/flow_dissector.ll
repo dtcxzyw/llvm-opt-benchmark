@@ -1105,7 +1105,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %219 = icmp eq i32 %116, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #12
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %26) #12
-  br label %1201
+  br label %1200
 
 220:                                              ; preds = %.thread70, %.thread
   %221 = load i64, ptr %2, align 8
@@ -1125,11 +1125,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %233 = zext i16 %232 to i64
   %234 = getelementptr i8, ptr %3, i64 %233
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(12) %234, ptr noundef align 1 dereferenceable(12) %230, i64 12, i1 false)
-  %.pre206 = load i64, ptr %2, align 8
+  %.pre210 = load i64, ptr %2, align 8
   br label %235
 
 235:                                              ; preds = %224, %220
-  %236 = phi i64 [ %.pre206, %224 ], [ %221, %220 ]
+  %236 = phi i64 [ %.pre210, %224 ], [ %221, %220 ]
   %237 = and i64 %236, 268435456
   %238 = icmp eq i64 %237, 0
   br i1 %238, label %244, label %239
@@ -1184,13 +1184,13 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 282:                                              ; preds = %.backedge, %244
   %283 = phi i16 [ %63, %244 ], [ %.be, %.backedge ]
-  %284 = phi i32 [ %64, %244 ], [ %.be261, %.backedge ]
-  %285 = phi i8 [ 0, %244 ], [ %804, %.backedge ]
-  %286 = phi i32 [ 0, %244 ], [ %.be263, %.backedge ]
-  %287 = phi i8 [ 0, %244 ], [ %.be264, %.backedge ]
-  %288 = phi i32 [ 0, %244 ], [ %806, %.backedge ]
-  %289 = phi i32 [ 33, %244 ], [ %807, %.backedge ]
-  switch i16 %283, label %.thread113 [
+  %284 = phi i32 [ %64, %244 ], [ %.be265, %.backedge ]
+  %285 = phi i8 [ 0, %244 ], [ %803, %.backedge ]
+  %286 = phi i32 [ 0, %244 ], [ %.be267, %.backedge ]
+  %287 = phi i8 [ 0, %244 ], [ %.be268, %.backedge ]
+  %288 = phi i32 [ 0, %244 ], [ %805, %.backedge ]
+  %289 = phi i32 [ 33, %244 ], [ %806, %.backedge ]
+  switch i16 %283, label %.thread116 [
     i16 8, label %290
     i16 -8826, label %353
     i16 -22392, label %413
@@ -1204,9 +1204,9 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
     i16 13696, label %645
     i16 1347, label %715
     i16 -2168, label %742
-    i16 -1144, label %759
-    i16 12169, label %759
-    i16 649, label %777
+    i16 -1144, label %758
+    i16 12169, label %758
+    i16 649, label %776
   ]
 
 290:                                              ; preds = %282
@@ -1260,11 +1260,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %322 = load i32, ptr %321, align 4
   store i32 %322, ptr %320, align 4
   store i16 2, ptr %254, align 2
-  %.pre210 = load i64, ptr %2, align 8
+  %.pre214 = load i64, ptr %2, align 8
   br label %323
 
 323:                                              ; preds = %314, %305
-  %324 = phi i64 [ %.pre210, %314 ], [ %311, %305 ]
+  %324 = phi i64 [ %.pre214, %314 ], [ %311, %305 ]
   %325 = and i64 %324, 2097152
   %326 = icmp eq i64 %325, 0
   br i1 %326, label %336, label %327
@@ -1311,7 +1311,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %351 = phi i8 [ %287, %297 ], [ %287, %.thread72 ], [ %310, %347 ], [ %310, %349 ], [ %310, %341 ], [ %287, %293 ], [ %287, %294 ]
   %352 = phi i32 [ 1, %297 ], [ 1, %.thread72 ], [ 0, %347 ], [ 4, %349 ], [ 0, %341 ], [ 1, %293 ], [ 1, %294 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %28) #12
-  br label %801
+  br label %800
 
 353:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29) #12
@@ -1354,11 +1354,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %377 = getelementptr inbounds i8, ptr %364, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %376, ptr noundef align 4 dereferenceable(16) %377, i64 16, i1 false)
   store i16 3, ptr %254, align 2
-  %.pre208 = load i64, ptr %2, align 8
+  %.pre212 = load i64, ptr %2, align 8
   br label %378
 
 378:                                              ; preds = %371, %.thread76
-  %379 = phi i64 [ %.pre208, %371 ], [ %368, %.thread76 ]
+  %379 = phi i64 [ %.pre212, %371 ], [ %368, %.thread76 ]
   %380 = and i64 %379, 2048
   %381 = icmp eq i64 %380, 0
   %382 = and i1 %263, %381
@@ -1385,11 +1385,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br i1 %263, label %._crit_edge, label %.thread75
 
 ._crit_edge:                                      ; preds = %393
-  %.pre209 = load i64, ptr %2, align 8
+  %.pre213 = load i64, ptr %2, align 8
   br label %394
 
 394:                                              ; preds = %._crit_edge, %383, %378
-  %395 = phi i64 [ %.pre209, %._crit_edge ], [ %379, %383 ], [ %379, %378 ]
+  %395 = phi i64 [ %.pre213, %._crit_edge ], [ %379, %383 ], [ %379, %378 ]
   %396 = phi i32 [ %266, %._crit_edge ], [ 4, %383 ], [ 4, %378 ]
   %397 = and i64 %395, 2097152
   %398 = icmp eq i64 %397, 0
@@ -1415,7 +1415,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %411 = phi i8 [ %287, %360 ], [ %366, %393 ], [ %366, %394 ], [ %366, %399 ], [ %287, %356 ], [ %287, %357 ]
   %412 = phi i32 [ 1, %360 ], [ %266, %393 ], [ %396, %394 ], [ %396, %399 ], [ 1, %356 ], [ 1, %357 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #12
-  br label %801
+  br label %800
 
 413:                                              ; preds = %282, %282
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #12
@@ -1546,7 +1546,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %495 = phi i32 [ %289, %426 ], [ %455, %487 ], [ %455, %454 ], [ %289, %452 ], [ %289, %422 ], [ %289, %423 ]
   %496 = phi i32 [ 1, %426 ], [ 2, %487 ], [ 2, %454 ], [ 2, %452 ], [ 1, %422 ], [ 1, %423 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #12
-  br label %801
+  br label %800
 
 497:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #12
@@ -1639,7 +1639,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %547 = phi i32 [ %284, %504 ], [ %522, %537 ], [ %522, %531 ], [ %522, %528 ], [ %284, %511 ], [ %284, %.thread84 ], [ %284, %500 ], [ %284, %501 ]
   %548 = phi i32 [ 1, %504 ], [ %533, %537 ], [ %533, %531 ], [ 1, %528 ], [ 1, %511 ], [ 1, %.thread84 ], [ 1, %500 ], [ 1, %501 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #12
-  br label %801
+  br label %800
 
 549:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #12
@@ -1699,7 +1699,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 .thread87:                                        ; preds = %553, %552, %574, %.thread88, %556
   %577 = phi i32 [ 1, %556 ], [ 0, %574 ], [ 0, %.thread88 ], [ 1, %552 ], [ 1, %553 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #12
-  br label %801
+  br label %800
 
 578:                                              ; preds = %282, %282
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #12
@@ -1734,7 +1734,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br i1 %595, label %.thread91, label %..thread92_crit_edge, !prof !5
 
 ..thread92_crit_edge:                             ; preds = %593
-  %.pre207 = load i64, ptr %2, align 8
+  %.pre211 = load i64, ptr %2, align 8
   br label %.thread92
 
 596:                                              ; preds = %589
@@ -1744,7 +1744,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br i1 %599, label %.thread91, label %.thread92
 
 .thread92:                                        ; preds = %..thread92_crit_edge, %596
-  %600 = phi i64 [ %579, %596 ], [ %.pre207, %..thread92_crit_edge ]
+  %600 = phi i64 [ %579, %596 ], [ %.pre211, %..thread92_crit_edge ]
   %601 = phi ptr [ %598, %596 ], [ %24, %..thread92_crit_edge ]
   %602 = load i32, ptr %601, align 4
   %603 = call i32 @llvm.bswap.i32(i32 %602)
@@ -1800,7 +1800,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #12
   %637 = add i32 %284, 4
   %638 = add i32 %288, 1
-  br label %801
+  br label %800
 
 639:                                              ; preds = %282
   %640 = sub i32 %65, %284
@@ -1808,7 +1808,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %642 = add i32 %284, 38
   %643 = select i1 %641, i32 %284, i32 %642
   %644 = zext i1 %641 to i32
-  br label %801
+  br label %800
 
 645:                                              ; preds = %282, %282
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %22) #12
@@ -1929,7 +1929,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %714 = phi i32 [ 0, %.thread100 ], [ 0, %645 ], [ 1, %656 ], [ 1, %675 ], [ 1, %671 ], [ 1, %667 ], [ 1, %663 ], [ 1, %.thread96 ], [ 1, %686 ], [ 1, %652 ], [ 1, %653 ], [ 1, %682 ], [ 1, %683 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #12
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %22) #12
-  br label %801
+  br label %800
 
 715:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #12
@@ -1978,905 +1978,909 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %740 = phi i32 [ %284, %722 ], [ %736, %733 ], [ %284, %730 ], [ %284, %.thread104 ], [ %284, %718 ], [ %284, %719 ]
   %741 = phi i32 [ 1, %722 ], [ %249, %733 ], [ 1, %730 ], [ 1, %.thread104 ], [ 1, %718 ], [ 1, %719 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #12
-  br label %801
+  br label %800
 
 742:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %33) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %33, i8 0, i64 34, i1 false), !annotation !19
   %743 = sub i32 %65, %284
   %744 = icmp slt i32 %743, 34
-  br i1 %744, label %748, label %745, !prof !5
+  br i1 %744, label %750, label %745, !prof !5
 
 745:                                              ; preds = %742
   %746 = sext i32 %284 to i64
   %747 = getelementptr i8, ptr %66, i64 %746
-  br label %753
+  %.fr = freeze ptr %747
+  %748 = icmp eq ptr %.fr, null
+  %749 = add i32 %284, 34
+  br i1 %748, label %.thread105, label %755
 
-748:                                              ; preds = %742
-  br i1 %75, label %753, label %749
+750:                                              ; preds = %742
+  br i1 %75, label %.thread105, label %751
 
-749:                                              ; preds = %748
-  %750 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %284, ptr noundef nonnull %33, i32 noundef 34) #12
-  %751 = icmp slt i32 %750, 0
-  %752 = select i1 %751, ptr null, ptr %33, !prof !5
-  br label %753
+751:                                              ; preds = %750
+  %752 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %284, ptr noundef nonnull %33, i32 noundef 34) #12
+  %.fr173 = freeze i32 %752
+  %753 = icmp slt i32 %.fr173, 0
+  %754 = add i32 %284, 34
+  br i1 %753, label %.thread105, label %755
 
-753:                                              ; preds = %749, %748, %745
-  %754 = phi ptr [ %747, %745 ], [ null, %748 ], [ %752, %749 ]
-  %755 = icmp eq ptr %754, null
-  %756 = add i32 %284, 34
-  %757 = select i1 %755, i32 %284, i32 %756
-  %758 = zext i1 %755 to i32
+.thread105:                                       ; preds = %750, %745, %751
+  br label %755
+
+755:                                              ; preds = %745, %751, %.thread105
+  %756 = phi i32 [ 1, %.thread105 ], [ 0, %751 ], [ 0, %745 ]
+  %757 = phi i32 [ %284, %.thread105 ], [ %754, %751 ], [ %749, %745 ]
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %33) #12
-  br label %801
+  br label %800
 
-759:                                              ; preds = %282, %282
+758:                                              ; preds = %282, %282
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %34) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %34, i8 0, i64 6, i1 false), !annotation !19
-  %760 = sub i32 %65, %284
-  %761 = icmp slt i32 %760, 6
-  br i1 %761, label %762, label %766, !prof !5
+  %759 = sub i32 %65, %284
+  %760 = icmp slt i32 %759, 6
+  br i1 %760, label %761, label %765, !prof !5
 
-762:                                              ; preds = %759
-  br i1 %75, label %.thread107, label %763
+761:                                              ; preds = %758
+  br i1 %75, label %.thread110, label %762
 
-763:                                              ; preds = %762
-  %764 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %284, ptr noundef nonnull %34, i32 noundef 6) #12
-  %765 = icmp slt i32 %764, 0
-  br i1 %765, label %.thread107, label %.thread108, !prof !5
+762:                                              ; preds = %761
+  %763 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %284, ptr noundef nonnull %34, i32 noundef 6) #12
+  %764 = icmp slt i32 %763, 0
+  br i1 %764, label %.thread110, label %.thread111, !prof !5
 
-766:                                              ; preds = %759
-  %767 = sext i32 %284 to i64
-  %768 = getelementptr i8, ptr %66, i64 %767
-  %769 = icmp eq ptr %768, null
-  br i1 %769, label %.thread107, label %.thread108
+765:                                              ; preds = %758
+  %766 = sext i32 %284 to i64
+  %767 = getelementptr i8, ptr %66, i64 %766
+  %768 = icmp eq ptr %767, null
+  br i1 %768, label %.thread110, label %.thread111
 
-.thread108:                                       ; preds = %763, %766
-  %770 = phi ptr [ %768, %766 ], [ %34, %763 ]
-  %771 = getelementptr inbounds i8, ptr %770, i64 4
-  %772 = load i16, ptr %771, align 1
-  %773 = add i32 %284, 6
-  br label %.thread107
+.thread111:                                       ; preds = %762, %765
+  %769 = phi ptr [ %767, %765 ], [ %34, %762 ]
+  %770 = getelementptr inbounds i8, ptr %769, i64 4
+  %771 = load i16, ptr %770, align 1
+  %772 = add i32 %284, 6
+  br label %.thread110
 
-.thread107:                                       ; preds = %763, %762, %.thread108, %766
-  %774 = phi i16 [ %283, %766 ], [ %772, %.thread108 ], [ %283, %762 ], [ %283, %763 ]
-  %775 = phi i32 [ %284, %766 ], [ %773, %.thread108 ], [ %284, %762 ], [ %284, %763 ]
-  %776 = phi i32 [ 1, %766 ], [ 2, %.thread108 ], [ 1, %762 ], [ 1, %763 ]
+.thread110:                                       ; preds = %762, %761, %.thread111, %765
+  %773 = phi i16 [ %283, %765 ], [ %771, %.thread111 ], [ %283, %761 ], [ %283, %762 ]
+  %774 = phi i32 [ %284, %765 ], [ %772, %.thread111 ], [ %284, %761 ], [ %284, %762 ]
+  %775 = phi i32 [ 1, %765 ], [ 2, %.thread111 ], [ 1, %761 ], [ 1, %762 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %34) #12
-  br label %801
+  br label %800
 
-777:                                              ; preds = %282
+776:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20) #12
   store i16 0, ptr %20, align 2, !annotation !19
-  %778 = load i64, ptr %2, align 8
-  %779 = and i64 %778, 2147483648
-  %780 = icmp eq i64 %779, 0
-  br i1 %780, label %.thread111, label %781
+  %777 = load i64, ptr %2, align 8
+  %778 = and i64 %777, 2147483648
+  %779 = icmp eq i64 %778, 0
+  br i1 %779, label %.thread114, label %780
 
-781:                                              ; preds = %777
-  %782 = sub i32 %65, %284
-  %783 = icmp slt i32 %782, 2
-  br i1 %783, label %784, label %788, !prof !5
+780:                                              ; preds = %776
+  %781 = sub i32 %65, %284
+  %782 = icmp slt i32 %781, 2
+  br i1 %782, label %783, label %787, !prof !5
 
-784:                                              ; preds = %781
-  br i1 %75, label %.thread111, label %785
+783:                                              ; preds = %780
+  br i1 %75, label %.thread114, label %784
 
-785:                                              ; preds = %784
-  %786 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %284, ptr noundef nonnull %20, i32 noundef 2) #12
-  %787 = icmp slt i32 %786, 0
-  br i1 %787, label %.thread111, label %.thread112, !prof !5
+784:                                              ; preds = %783
+  %785 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %284, ptr noundef nonnull %20, i32 noundef 2) #12
+  %786 = icmp slt i32 %785, 0
+  br i1 %786, label %.thread114, label %.thread115, !prof !5
 
-788:                                              ; preds = %781
-  %789 = sext i32 %284 to i64
-  %790 = getelementptr i8, ptr %66, i64 %789
-  %791 = icmp eq ptr %790, null
-  br i1 %791, label %.thread111, label %.thread112
+787:                                              ; preds = %780
+  %788 = sext i32 %284 to i64
+  %789 = getelementptr i8, ptr %66, i64 %788
+  %790 = icmp eq ptr %789, null
+  br i1 %790, label %.thread114, label %.thread115
 
-.thread112:                                       ; preds = %785, %788
-  %792 = phi ptr [ %790, %788 ], [ %20, %785 ]
-  %793 = load i16, ptr %245, align 2
-  %794 = zext i16 %793 to i64
-  %795 = getelementptr i8, ptr %3, i64 %794
-  %796 = load i8, ptr %792, align 1
-  store i8 %796, ptr %795, align 1
-  %797 = getelementptr inbounds i8, ptr %792, i64 1
-  %798 = load i8, ptr %797, align 1
-  %799 = getelementptr inbounds i8, ptr %795, i64 1
-  store i8 %798, ptr %799, align 1
-  br label %.thread111
+.thread115:                                       ; preds = %784, %787
+  %791 = phi ptr [ %789, %787 ], [ %20, %784 ]
+  %792 = load i16, ptr %245, align 2
+  %793 = zext i16 %792 to i64
+  %794 = getelementptr i8, ptr %3, i64 %793
+  %795 = load i8, ptr %791, align 1
+  store i8 %795, ptr %794, align 1
+  %796 = getelementptr inbounds i8, ptr %791, i64 1
+  %797 = load i8, ptr %796, align 1
+  %798 = getelementptr inbounds i8, ptr %794, i64 1
+  store i8 %797, ptr %798, align 1
+  br label %.thread114
 
-.thread111:                                       ; preds = %785, %784, %.thread112, %788, %777
-  %800 = phi i32 [ 0, %.thread112 ], [ 0, %777 ], [ 1, %788 ], [ 1, %784 ], [ 1, %785 ]
+.thread114:                                       ; preds = %784, %783, %.thread115, %787, %776
+  %799 = phi i32 [ 0, %.thread115 ], [ 0, %776 ], [ 1, %787 ], [ 1, %783 ], [ 1, %784 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20) #12
-  br label %801
+  br label %800
 
-801:                                              ; preds = %.thread111, %.thread107, %753, %.thread103, %.thread95, %639, %.thread91, %.thread87, %.thread83, %.thread79, %.thread75, %.thread71
-  %802 = phi i16 [ 649, %.thread111 ], [ %774, %.thread107 ], [ -2168, %753 ], [ %739, %.thread103 ], [ %283, %.thread95 ], [ %283, %.thread91 ], [ -13688, %.thread87 ], [ %546, %.thread83 ], [ %493, %.thread79 ], [ -8826, %.thread75 ], [ 8, %.thread71 ], [ 1673, %639 ]
-  %803 = phi i32 [ %284, %.thread111 ], [ %775, %.thread107 ], [ %757, %753 ], [ %740, %.thread103 ], [ %284, %.thread95 ], [ %637, %.thread91 ], [ %284, %.thread87 ], [ %547, %.thread83 ], [ %494, %.thread79 ], [ %410, %.thread75 ], [ %350, %.thread71 ], [ %643, %639 ]
-  %804 = phi i8 [ %285, %.thread111 ], [ %285, %.thread107 ], [ %285, %753 ], [ %285, %.thread103 ], [ %285, %.thread95 ], [ %635, %.thread91 ], [ %285, %.thread87 ], [ %285, %.thread83 ], [ %285, %.thread79 ], [ %285, %.thread75 ], [ %285, %.thread71 ], [ %285, %639 ]
-  %805 = phi i8 [ %287, %.thread111 ], [ %287, %.thread107 ], [ %287, %753 ], [ %287, %.thread103 ], [ %287, %.thread95 ], [ %287, %.thread91 ], [ %287, %.thread87 ], [ %287, %.thread83 ], [ %287, %.thread79 ], [ %411, %.thread75 ], [ %351, %.thread71 ], [ %287, %639 ]
-  %806 = phi i32 [ %288, %.thread111 ], [ %288, %.thread107 ], [ %288, %753 ], [ %288, %.thread103 ], [ %288, %.thread95 ], [ %638, %.thread91 ], [ %288, %.thread87 ], [ %288, %.thread83 ], [ %288, %.thread79 ], [ %288, %.thread75 ], [ %288, %.thread71 ], [ %288, %639 ]
-  %807 = phi i32 [ %289, %.thread111 ], [ %289, %.thread107 ], [ %289, %753 ], [ %289, %.thread103 ], [ %289, %.thread95 ], [ %289, %.thread91 ], [ %289, %.thread87 ], [ %289, %.thread83 ], [ %495, %.thread79 ], [ %289, %.thread75 ], [ %289, %.thread71 ], [ %289, %639 ]
-  %808 = phi i32 [ %800, %.thread111 ], [ %776, %.thread107 ], [ %758, %753 ], [ %741, %.thread103 ], [ %714, %.thread95 ], [ %636, %.thread91 ], [ %577, %.thread87 ], [ %548, %.thread83 ], [ %496, %.thread79 ], [ %412, %.thread75 ], [ %352, %.thread71 ], [ %644, %639 ]
-  switch i32 %808, label %.thread113 [
+800:                                              ; preds = %.thread114, %.thread110, %755, %.thread103, %.thread95, %639, %.thread91, %.thread87, %.thread83, %.thread79, %.thread75, %.thread71
+  %801 = phi i16 [ 649, %.thread114 ], [ %773, %.thread110 ], [ -2168, %755 ], [ %739, %.thread103 ], [ %283, %.thread95 ], [ %283, %.thread91 ], [ -13688, %.thread87 ], [ %546, %.thread83 ], [ %493, %.thread79 ], [ -8826, %.thread75 ], [ 8, %.thread71 ], [ 1673, %639 ]
+  %802 = phi i32 [ %284, %.thread114 ], [ %774, %.thread110 ], [ %757, %755 ], [ %740, %.thread103 ], [ %284, %.thread95 ], [ %637, %.thread91 ], [ %284, %.thread87 ], [ %547, %.thread83 ], [ %494, %.thread79 ], [ %410, %.thread75 ], [ %350, %.thread71 ], [ %643, %639 ]
+  %803 = phi i8 [ %285, %.thread114 ], [ %285, %.thread110 ], [ %285, %755 ], [ %285, %.thread103 ], [ %285, %.thread95 ], [ %635, %.thread91 ], [ %285, %.thread87 ], [ %285, %.thread83 ], [ %285, %.thread79 ], [ %285, %.thread75 ], [ %285, %.thread71 ], [ %285, %639 ]
+  %804 = phi i8 [ %287, %.thread114 ], [ %287, %.thread110 ], [ %287, %755 ], [ %287, %.thread103 ], [ %287, %.thread95 ], [ %287, %.thread91 ], [ %287, %.thread87 ], [ %287, %.thread83 ], [ %287, %.thread79 ], [ %411, %.thread75 ], [ %351, %.thread71 ], [ %287, %639 ]
+  %805 = phi i32 [ %288, %.thread114 ], [ %288, %.thread110 ], [ %288, %755 ], [ %288, %.thread103 ], [ %288, %.thread95 ], [ %638, %.thread91 ], [ %288, %.thread87 ], [ %288, %.thread83 ], [ %288, %.thread79 ], [ %288, %.thread75 ], [ %288, %.thread71 ], [ %288, %639 ]
+  %806 = phi i32 [ %289, %.thread114 ], [ %289, %.thread110 ], [ %289, %755 ], [ %289, %.thread103 ], [ %289, %.thread95 ], [ %289, %.thread91 ], [ %289, %.thread87 ], [ %289, %.thread83 ], [ %495, %.thread79 ], [ %289, %.thread75 ], [ %289, %.thread71 ], [ %289, %639 ]
+  %807 = phi i32 [ %799, %.thread114 ], [ %775, %.thread110 ], [ %756, %755 ], [ %741, %.thread103 ], [ %714, %.thread95 ], [ %636, %.thread91 ], [ %577, %.thread87 ], [ %548, %.thread83 ], [ %496, %.thread79 ], [ %412, %.thread75 ], [ %352, %.thread71 ], [ %644, %639 ]
+  switch i32 %807, label %.thread116 [
     i32 0, label %.loopexit
-    i32 2, label %809
+    i32 2, label %808
     i32 4, label %.preheader
     i32 3, label %.preheader
   ]
 
-.preheader:                                       ; preds = %801, %801
-  br label %812
+.preheader:                                       ; preds = %800, %800
+  br label %811
 
-809:                                              ; preds = %801
-  %810 = add i32 %286, 1
-  %811 = icmp slt i32 %810, 16
-  br i1 %811, label %.backedge, label %.loopexit
+808:                                              ; preds = %800
+  %809 = add i32 %286, 1
+  %810 = icmp slt i32 %809, 16
+  br i1 %810, label %.backedge, label %.loopexit
 
-812:                                              ; preds = %.preheader, %1182
-  %813 = phi i16 [ %1127, %1182 ], [ %802, %.preheader ]
-  %814 = phi i32 [ %1128, %1182 ], [ %803, %.preheader ]
-  %815 = phi i32 [ %1183, %1182 ], [ %286, %.preheader ]
-  %816 = phi i8 [ %1129, %1182 ], [ %805, %.preheader ]
-  switch i8 %816, label %1126 [
-    i8 47, label %817
-    i8 0, label %946
-    i8 43, label %946
-    i8 60, label %946
-    i8 44, label %970
-    i8 4, label %998
-    i8 41, label %1002
-    i8 -119, label %1006
-    i8 6, label %1007
-    i8 1, label %1032
-    i8 58, label %1032
-    i8 115, label %1065
-    i8 50, label %1085
-    i8 51, label %1105
+811:                                              ; preds = %.preheader, %1181
+  %812 = phi i16 [ %1126, %1181 ], [ %801, %.preheader ]
+  %813 = phi i32 [ %1127, %1181 ], [ %802, %.preheader ]
+  %814 = phi i32 [ %1182, %1181 ], [ %286, %.preheader ]
+  %815 = phi i8 [ %1128, %1181 ], [ %804, %.preheader ]
+  switch i8 %815, label %1125 [
+    i8 47, label %816
+    i8 0, label %945
+    i8 43, label %945
+    i8 60, label %945
+    i8 44, label %969
+    i8 4, label %997
+    i8 41, label %1001
+    i8 -119, label %1005
+    i8 6, label %1006
+    i8 1, label %1031
+    i8 58, label %1031
+    i8 115, label %1064
+    i8 50, label %1084
+    i8 51, label %1104
   ]
 
-817:                                              ; preds = %812
-  br i1 %276, label %818, label %1126
+816:                                              ; preds = %811
+  br i1 %276, label %817, label %1125
 
-818:                                              ; preds = %817
+817:                                              ; preds = %816
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #12
   store i32 0, ptr %16, align 4, !annotation !19
-  %819 = sub i32 %65, %814
-  %820 = icmp slt i32 %819, 4
-  br i1 %820, label %821, label %825, !prof !5
+  %818 = sub i32 %65, %813
+  %819 = icmp slt i32 %818, 4
+  br i1 %819, label %820, label %824, !prof !5
 
-821:                                              ; preds = %818
-  br i1 %75, label %.thread116, label %822
+820:                                              ; preds = %817
+  br i1 %75, label %.thread119, label %821
 
-822:                                              ; preds = %821
-  %823 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %814, ptr noundef nonnull %16, i32 noundef 4) #12
-  %824 = icmp slt i32 %823, 0
-  br i1 %824, label %.thread116, label %.thread117, !prof !5
+821:                                              ; preds = %820
+  %822 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %813, ptr noundef nonnull %16, i32 noundef 4) #12
+  %823 = icmp slt i32 %822, 0
+  br i1 %823, label %.thread119, label %.thread120, !prof !5
 
-825:                                              ; preds = %818
-  %826 = sext i32 %814 to i64
-  %827 = getelementptr i8, ptr %66, i64 %826
-  %828 = icmp eq ptr %827, null
-  br i1 %828, label %.thread116, label %.thread117
+824:                                              ; preds = %817
+  %825 = sext i32 %813 to i64
+  %826 = getelementptr i8, ptr %66, i64 %825
+  %827 = icmp eq ptr %826, null
+  br i1 %827, label %.thread119, label %.thread120
 
-.thread117:                                       ; preds = %822, %825
-  %829 = phi ptr [ %827, %825 ], [ %16, %822 ]
-  %830 = load i16, ptr %829, align 1
-  %831 = and i16 %830, 64
-  %832 = icmp eq i16 %831, 0
-  br i1 %832, label %833, label %.thread116
+.thread120:                                       ; preds = %821, %824
+  %828 = phi ptr [ %826, %824 ], [ %16, %821 ]
+  %829 = load i16, ptr %828, align 1
+  %830 = and i16 %829, 64
+  %831 = icmp eq i16 %830, 0
+  br i1 %831, label %832, label %.thread119
 
-833:                                              ; preds = %.thread117
-  %834 = lshr i16 %830, 8
-  %835 = and i16 %834, 7
-  %836 = icmp ugt i16 %835, 1
-  br i1 %836, label %.thread116, label %837
+832:                                              ; preds = %.thread120
+  %833 = lshr i16 %829, 8
+  %834 = and i16 %833, 7
+  %835 = icmp ugt i16 %834, 1
+  br i1 %835, label %.thread119, label %836
 
-837:                                              ; preds = %833
-  %838 = getelementptr inbounds i8, ptr %829, i64 2
-  %839 = load i16, ptr %838, align 1
-  %840 = icmp eq i16 %835, 0
-  br i1 %840, label %849, label %841
+836:                                              ; preds = %832
+  %837 = getelementptr inbounds i8, ptr %828, i64 2
+  %838 = load i16, ptr %837, align 1
+  %839 = icmp eq i16 %834, 0
+  br i1 %839, label %848, label %840
 
-841:                                              ; preds = %837
-  %842 = icmp ne i16 %839, 2952
-  %843 = and i16 %830, 32
-  %844 = icmp eq i16 %843, 0
-  %845 = or i1 %844, %842
-  br i1 %845, label %.thread116, label %.thread214
+840:                                              ; preds = %836
+  %841 = icmp ne i16 %838, 2952
+  %842 = and i16 %829, 32
+  %843 = icmp eq i16 %842, 0
+  %844 = or i1 %843, %841
+  br i1 %844, label %.thread119, label %.thread218
 
-.thread214:                                       ; preds = %841
-  %846 = and i16 %830, 128
-  %847 = icmp eq i16 %846, 0
-  %848 = select i1 %847, i32 4, i32 8
-  br label %858
+.thread218:                                       ; preds = %840
+  %845 = and i16 %829, 128
+  %846 = icmp eq i16 %845, 0
+  %847 = select i1 %846, i32 4, i32 8
+  br label %857
 
-849:                                              ; preds = %837
-  %.pre213 = and i16 %830, 32
-  %850 = and i16 %830, 128
+848:                                              ; preds = %836
+  %.pre217 = and i16 %829, 32
+  %849 = icmp eq i16 %.pre217, 0
+  %850 = and i16 %829, 128
   %851 = icmp eq i16 %850, 0
   %852 = select i1 %851, i32 4, i32 8
-  %853 = icmp eq i16 %.pre213, 0
-  br i1 %853, label %.thread216, label %858
+  br i1 %849, label %.thread220, label %857
 
-.thread216:                                       ; preds = %849
-  %854 = lshr i16 %830, 2
-  %855 = and i16 %854, 4
-  %856 = zext nneg i16 %855 to i32
-  %857 = add nuw nsw i32 %852, %856
-  br label %888
+.thread220:                                       ; preds = %848
+  %853 = lshr i16 %829, 2
+  %854 = and i16 %853, 4
+  %855 = zext nneg i16 %854 to i32
+  %856 = add nuw nsw i32 %852, %855
+  br label %887
 
-858:                                              ; preds = %.thread214, %849
-  %859 = phi i32 [ %848, %.thread214 ], [ %852, %849 ]
+857:                                              ; preds = %.thread218, %848
+  %858 = phi i32 [ %847, %.thread218 ], [ %852, %848 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #12
   store i32 0, ptr %17, align 4, !annotation !19
-  %860 = add i32 %859, %814
-  %861 = sub i32 %65, %860
-  %862 = icmp slt i32 %861, 4
-  br i1 %862, label %863, label %867, !prof !5
+  %859 = add i32 %858, %813
+  %860 = sub i32 %65, %859
+  %861 = icmp slt i32 %860, 4
+  br i1 %861, label %862, label %866, !prof !5
 
-863:                                              ; preds = %858
-  br i1 %75, label %.thread123, label %864
+862:                                              ; preds = %857
+  br i1 %75, label %.thread126, label %863
 
-864:                                              ; preds = %863
-  %865 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %860, ptr noundef nonnull %17, i32 noundef 4) #12
-  %866 = icmp slt i32 %865, 0
-  br i1 %866, label %.thread123, label %.thread121, !prof !5
+863:                                              ; preds = %862
+  %864 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %859, ptr noundef nonnull %17, i32 noundef 4) #12
+  %865 = icmp slt i32 %864, 0
+  br i1 %865, label %.thread126, label %.thread124, !prof !5
 
-867:                                              ; preds = %858
-  %868 = sext i32 %860 to i64
-  %869 = getelementptr i8, ptr %66, i64 %868
-  %870 = icmp eq ptr %869, null
-  br i1 %870, label %.thread123, label %.thread121
+866:                                              ; preds = %857
+  %867 = sext i32 %859 to i64
+  %868 = getelementptr i8, ptr %66, i64 %867
+  %869 = icmp eq ptr %868, null
+  br i1 %869, label %.thread126, label %.thread124
 
-.thread121:                                       ; preds = %864, %867
-  %871 = phi ptr [ %869, %867 ], [ %17, %864 ]
-  %872 = load i64, ptr %2, align 8
-  %873 = and i64 %872, 4096
-  %874 = icmp eq i64 %873, 0
-  br i1 %874, label %882, label %875
+.thread124:                                       ; preds = %863, %866
+  %870 = phi ptr [ %868, %866 ], [ %17, %863 ]
+  %871 = load i64, ptr %2, align 8
+  %872 = and i64 %871, 4096
+  %873 = icmp eq i64 %872, 0
+  br i1 %873, label %881, label %874
 
-875:                                              ; preds = %.thread121
-  %876 = load i16, ptr %277, align 2
-  %877 = zext i16 %876 to i64
-  %878 = getelementptr i8, ptr %3, i64 %877
-  %879 = load i32, ptr %871, align 4
-  %880 = and i32 %879, -65536
-  %881 = select i1 %840, i32 %879, i32 %880
-  store i32 %881, ptr %878, align 4
-  br label %882
+874:                                              ; preds = %.thread124
+  %875 = load i16, ptr %277, align 2
+  %876 = zext i16 %875 to i64
+  %877 = getelementptr i8, ptr %3, i64 %876
+  %878 = load i32, ptr %870, align 4
+  %879 = and i32 %878, -65536
+  %880 = select i1 %839, i32 %878, i32 %879
+  store i32 %880, ptr %877, align 4
+  br label %881
 
-.thread123:                                       ; preds = %867, %863, %864
+.thread126:                                       ; preds = %866, %862, %863
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #12
-  br label %.thread116
+  br label %.thread119
 
-882:                                              ; preds = %875, %.thread121
-  %883 = add nuw nsw i32 %859, 4
+881:                                              ; preds = %874, %.thread124
+  %882 = add nuw nsw i32 %858, 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #12
-  %.pre211 = load i16, ptr %829, align 1
-  %884 = lshr i16 %.pre211, 2
-  %885 = and i16 %884, 4
-  %886 = zext nneg i16 %885 to i32
-  %887 = add nuw nsw i32 %883, %886
-  br i1 %840, label %888, label %907
+  %.pre215 = load i16, ptr %828, align 1
+  %883 = lshr i16 %.pre215, 2
+  %884 = and i16 %883, 4
+  %885 = zext nneg i16 %884 to i32
+  %886 = add nuw nsw i32 %882, %885
+  br i1 %839, label %887, label %906
 
-888:                                              ; preds = %.thread216, %882
-  %889 = phi i32 [ %857, %.thread216 ], [ %887, %882 ]
-  %890 = icmp eq i16 %839, 22629
-  br i1 %890, label %891, label %937
+887:                                              ; preds = %.thread220, %881
+  %888 = phi i32 [ %856, %.thread220 ], [ %886, %881 ]
+  %889 = icmp eq i16 %838, 22629
+  br i1 %889, label %890, label %936
 
-891:                                              ; preds = %888
+890:                                              ; preds = %887
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %18) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %18, i8 0, i64 14, i1 false), !annotation !19
-  %892 = add i32 %889, %814
-  %893 = sub i32 %65, %892
-  %894 = icmp slt i32 %893, 14
-  br i1 %894, label %895, label %899, !prof !5
+  %891 = add i32 %888, %813
+  %892 = sub i32 %65, %891
+  %893 = icmp slt i32 %892, 14
+  br i1 %893, label %894, label %898, !prof !5
 
-895:                                              ; preds = %891
-  br i1 %75, label %.thread129, label %896
+894:                                              ; preds = %890
+  br i1 %75, label %.thread132, label %895
 
-896:                                              ; preds = %895
-  %897 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %892, ptr noundef nonnull %18, i32 noundef 14) #12
-  %898 = icmp slt i32 %897, 0
-  br i1 %898, label %.thread129, label %.thread127, !prof !5
+895:                                              ; preds = %894
+  %896 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %891, ptr noundef nonnull %18, i32 noundef 14) #12
+  %897 = icmp slt i32 %896, 0
+  br i1 %897, label %.thread132, label %.thread130, !prof !5
 
-899:                                              ; preds = %891
-  %900 = sext i32 %892 to i64
-  %901 = getelementptr i8, ptr %66, i64 %900
-  %902 = icmp eq ptr %901, null
-  br i1 %902, label %.thread129, label %.thread127
+898:                                              ; preds = %890
+  %899 = sext i32 %891 to i64
+  %900 = getelementptr i8, ptr %66, i64 %899
+  %901 = icmp eq ptr %900, null
+  br i1 %901, label %.thread132, label %.thread130
 
-.thread129:                                       ; preds = %899, %895, %896
+.thread132:                                       ; preds = %898, %894, %895
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %18) #12
-  br label %.thread116
+  br label %.thread119
 
-.thread127:                                       ; preds = %896, %899
-  %903 = phi ptr [ %901, %899 ], [ %18, %896 ]
-  %904 = getelementptr inbounds i8, ptr %903, i64 12
-  %905 = load i16, ptr %904, align 1
-  %906 = add nuw nsw i32 %889, 14
+.thread130:                                       ; preds = %895, %898
+  %902 = phi ptr [ %900, %898 ], [ %18, %895 ]
+  %903 = getelementptr inbounds i8, ptr %902, i64 12
+  %904 = load i16, ptr %903, align 1
+  %905 = add nuw nsw i32 %888, 14
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %18) #12
-  br label %937
+  br label %936
 
-907:                                              ; preds = %882
+906:                                              ; preds = %881
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #12
   store i32 0, ptr %19, align 4, !annotation !19
-  %908 = load i16, ptr %829, align 1
-  %909 = add nuw nsw i32 %887, 4
-  %910 = icmp slt i16 %908, 0
-  %911 = select i1 %910, i32 %909, i32 %887
-  %912 = add i32 %911, %814
-  %913 = sub i32 %65, %912
-  %914 = icmp slt i32 %913, 4
-  br i1 %914, label %915, label %919, !prof !5
+  %907 = load i16, ptr %828, align 1
+  %908 = add nuw nsw i32 %886, 4
+  %909 = icmp slt i16 %907, 0
+  %910 = select i1 %909, i32 %908, i32 %886
+  %911 = add i32 %910, %813
+  %912 = sub i32 %65, %911
+  %913 = icmp slt i32 %912, 4
+  br i1 %913, label %914, label %918, !prof !5
 
-915:                                              ; preds = %907
-  br i1 %75, label %.thread135, label %916
+914:                                              ; preds = %906
+  br i1 %75, label %.thread138, label %915
 
-916:                                              ; preds = %915
-  %917 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %912, ptr noundef nonnull %19, i32 noundef 4) #12
-  %918 = icmp slt i32 %917, 0
-  br i1 %918, label %.thread135, label %.thread133, !prof !5
+915:                                              ; preds = %914
+  %916 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %911, ptr noundef nonnull %19, i32 noundef 4) #12
+  %917 = icmp slt i32 %916, 0
+  br i1 %917, label %.thread138, label %.thread136, !prof !5
 
-919:                                              ; preds = %907
-  %920 = sext i32 %912 to i64
-  %921 = getelementptr i8, ptr %66, i64 %920
-  %922 = icmp eq ptr %921, null
-  br i1 %922, label %.thread135, label %.thread133
+918:                                              ; preds = %906
+  %919 = sext i32 %911 to i64
+  %920 = getelementptr i8, ptr %66, i64 %919
+  %921 = icmp eq ptr %920, null
+  br i1 %921, label %.thread138, label %.thread136
 
-.thread133:                                       ; preds = %916, %919
-  %923 = phi ptr [ %921, %919 ], [ %19, %916 ]
-  %924 = getelementptr i8, ptr %923, i64 2
-  %925 = load i8, ptr %924, align 1
-  %926 = zext i8 %925 to i16
-  %927 = shl nuw i16 %926, 8
-  %928 = getelementptr i8, ptr %923, i64 3
-  %929 = load i8, ptr %928, align 1
-  %930 = zext i8 %929 to i16
-  %931 = or disjoint i16 %927, %930
-  switch i16 %931, label %934 [
-    i16 33, label %932
-    i16 87, label %933
+.thread136:                                       ; preds = %915, %918
+  %922 = phi ptr [ %920, %918 ], [ %19, %915 ]
+  %923 = getelementptr i8, ptr %922, i64 2
+  %924 = load i8, ptr %923, align 1
+  %925 = zext i8 %924 to i16
+  %926 = shl nuw i16 %925, 8
+  %927 = getelementptr i8, ptr %922, i64 3
+  %928 = load i8, ptr %927, align 1
+  %929 = zext i8 %928 to i16
+  %930 = or disjoint i16 %926, %929
+  switch i16 %930, label %933 [
+    i16 33, label %931
+    i16 87, label %932
   ]
 
-932:                                              ; preds = %.thread133
-  br label %934
+931:                                              ; preds = %.thread136
+  br label %933
 
-933:                                              ; preds = %.thread133
-  br label %934
+932:                                              ; preds = %.thread136
+  br label %933
 
-.thread135:                                       ; preds = %919, %915, %916
+.thread138:                                       ; preds = %918, %914, %915
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #12
-  br label %.thread116
+  br label %.thread119
 
-934:                                              ; preds = %.thread133, %932, %933
-  %935 = phi i16 [ %839, %.thread133 ], [ -8826, %933 ], [ 8, %932 ]
-  %936 = add nuw nsw i32 %911, 4
+933:                                              ; preds = %.thread136, %931, %932
+  %934 = phi i16 [ %838, %.thread136 ], [ -8826, %932 ], [ 8, %931 ]
+  %935 = add nuw nsw i32 %910, 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #12
-  br label %937
+  br label %936
 
-937:                                              ; preds = %934, %.thread127, %888
-  %938 = phi i16 [ %905, %.thread127 ], [ %839, %888 ], [ %935, %934 ]
-  %939 = phi i32 [ %906, %.thread127 ], [ %889, %888 ], [ %936, %934 ]
-  %940 = add i32 %939, %814
-  %941 = load i32, ptr %246, align 4
-  %942 = or i32 %941, 4
-  store i32 %942, ptr %246, align 4
-  br label %.thread116
+936:                                              ; preds = %933, %.thread130, %887
+  %937 = phi i16 [ %904, %.thread130 ], [ %838, %887 ], [ %934, %933 ]
+  %938 = phi i32 [ %905, %.thread130 ], [ %888, %887 ], [ %935, %933 ]
+  %939 = add i32 %938, %813
+  %940 = load i32, ptr %246, align 4
+  %941 = or i32 %940, 4
+  store i32 %941, ptr %246, align 4
+  br label %.thread119
 
-.thread116:                                       ; preds = %822, %821, %.thread135, %.thread129, %.thread123, %937, %841, %833, %.thread117, %825
-  %943 = phi i16 [ %813, %825 ], [ %813, %833 ], [ %938, %937 ], [ %839, %841 ], [ %813, %.thread117 ], [ %839, %.thread123 ], [ 22629, %.thread129 ], [ %839, %.thread135 ], [ %813, %821 ], [ %813, %822 ]
-  %944 = phi i32 [ %814, %825 ], [ %814, %833 ], [ %940, %937 ], [ %814, %841 ], [ %814, %.thread117 ], [ %814, %.thread123 ], [ %814, %.thread129 ], [ %814, %.thread135 ], [ %814, %821 ], [ %814, %822 ]
-  %945 = phi i32 [ 1, %825 ], [ 0, %833 ], [ %249, %937 ], [ 0, %841 ], [ 0, %.thread117 ], [ 1, %.thread123 ], [ 1, %.thread129 ], [ 1, %.thread135 ], [ 1, %821 ], [ 1, %822 ]
+.thread119:                                       ; preds = %821, %820, %.thread138, %.thread132, %.thread126, %936, %840, %832, %.thread120, %824
+  %942 = phi i16 [ %812, %824 ], [ %812, %832 ], [ %937, %936 ], [ %838, %840 ], [ %812, %.thread120 ], [ %838, %.thread126 ], [ 22629, %.thread132 ], [ %838, %.thread138 ], [ %812, %820 ], [ %812, %821 ]
+  %943 = phi i32 [ %813, %824 ], [ %813, %832 ], [ %939, %936 ], [ %813, %840 ], [ %813, %.thread120 ], [ %813, %.thread126 ], [ %813, %.thread132 ], [ %813, %.thread138 ], [ %813, %820 ], [ %813, %821 ]
+  %944 = phi i32 [ 1, %824 ], [ 0, %832 ], [ %249, %936 ], [ 0, %840 ], [ 0, %.thread120 ], [ 1, %.thread126 ], [ 1, %.thread132 ], [ 1, %.thread138 ], [ 1, %820 ], [ 1, %821 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
-  br label %1126
+  br label %1125
 
-946:                                              ; preds = %812, %812, %812
+945:                                              ; preds = %811, %811, %811
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %35) #12
   store i16 0, ptr %35, align 2, !annotation !19
-  %947 = icmp eq i16 %813, -8826
-  br i1 %947, label %948, label %.thread138
+  %946 = icmp eq i16 %812, -8826
+  br i1 %946, label %947, label %.thread141
 
-948:                                              ; preds = %946
-  %949 = sub i32 %65, %814
-  %950 = icmp slt i32 %949, 2
-  br i1 %950, label %951, label %955, !prof !5
+947:                                              ; preds = %945
+  %948 = sub i32 %65, %813
+  %949 = icmp slt i32 %948, 2
+  br i1 %949, label %950, label %954, !prof !5
 
-951:                                              ; preds = %948
-  br i1 %75, label %.thread138, label %952
+950:                                              ; preds = %947
+  br i1 %75, label %.thread141, label %951
 
-952:                                              ; preds = %951
-  %953 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %814, ptr noundef nonnull %35, i32 noundef 2) #12
-  %954 = icmp slt i32 %953, 0
-  br i1 %954, label %.thread138, label %.thread139, !prof !5
+951:                                              ; preds = %950
+  %952 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %813, ptr noundef nonnull %35, i32 noundef 2) #12
+  %953 = icmp slt i32 %952, 0
+  br i1 %953, label %.thread141, label %.thread142, !prof !5
 
-955:                                              ; preds = %948
-  %956 = sext i32 %814 to i64
-  %957 = getelementptr i8, ptr %66, i64 %956
-  %958 = icmp eq ptr %957, null
-  br i1 %958, label %.thread138, label %.thread139
+954:                                              ; preds = %947
+  %955 = sext i32 %813 to i64
+  %956 = getelementptr i8, ptr %66, i64 %955
+  %957 = icmp eq ptr %956, null
+  br i1 %957, label %.thread141, label %.thread142
 
-.thread139:                                       ; preds = %952, %955
-  %959 = phi ptr [ %957, %955 ], [ %35, %952 ]
-  %960 = load i8, ptr %959, align 1
-  %961 = getelementptr i8, ptr %959, i64 1
-  %962 = load i8, ptr %961, align 1
-  %963 = zext i8 %962 to i32
-  %964 = shl nuw nsw i32 %963, 3
-  %965 = add i32 %814, 8
-  %966 = add i32 %965, %964
-  br label %.thread138
+.thread142:                                       ; preds = %951, %954
+  %958 = phi ptr [ %956, %954 ], [ %35, %951 ]
+  %959 = load i8, ptr %958, align 1
+  %960 = getelementptr i8, ptr %958, i64 1
+  %961 = load i8, ptr %960, align 1
+  %962 = zext i8 %961 to i32
+  %963 = shl nuw nsw i32 %962, 3
+  %964 = add i32 %813, 8
+  %965 = add i32 %964, %963
+  br label %.thread141
 
-.thread138:                                       ; preds = %952, %951, %.thread139, %955, %946
-  %967 = phi i32 [ %814, %955 ], [ %966, %.thread139 ], [ %814, %946 ], [ %814, %951 ], [ %814, %952 ]
-  %968 = phi i8 [ %816, %955 ], [ %960, %.thread139 ], [ %816, %946 ], [ %816, %951 ], [ %816, %952 ]
-  %969 = phi i32 [ 1, %955 ], [ 3, %.thread139 ], [ 4, %946 ], [ 1, %951 ], [ 1, %952 ]
+.thread141:                                       ; preds = %951, %950, %.thread142, %954, %945
+  %966 = phi i32 [ %813, %954 ], [ %965, %.thread142 ], [ %813, %945 ], [ %813, %950 ], [ %813, %951 ]
+  %967 = phi i8 [ %815, %954 ], [ %959, %.thread142 ], [ %815, %945 ], [ %815, %950 ], [ %815, %951 ]
+  %968 = phi i32 [ 1, %954 ], [ 3, %.thread142 ], [ 4, %945 ], [ 1, %950 ], [ 1, %951 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %35) #12
-  br label %1126
+  br label %1125
 
-970:                                              ; preds = %812
+969:                                              ; preds = %811
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #12
   store i64 0, ptr %36, align 8, !annotation !19
-  %971 = icmp eq i16 %813, -8826
-  br i1 %971, label %972, label %.thread142
+  %970 = icmp eq i16 %812, -8826
+  br i1 %970, label %971, label %.thread145
 
-972:                                              ; preds = %970
-  %973 = sub i32 %65, %814
-  %974 = icmp slt i32 %973, 8
-  br i1 %974, label %975, label %979, !prof !5
+971:                                              ; preds = %969
+  %972 = sub i32 %65, %813
+  %973 = icmp slt i32 %972, 8
+  br i1 %973, label %974, label %978, !prof !5
 
-975:                                              ; preds = %972
-  br i1 %75, label %.thread142, label %976
+974:                                              ; preds = %971
+  br i1 %75, label %.thread145, label %975
 
-976:                                              ; preds = %975
-  %977 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %814, ptr noundef nonnull %36, i32 noundef 8) #12
-  %978 = icmp slt i32 %977, 0
-  br i1 %978, label %.thread142, label %.thread143, !prof !5
+975:                                              ; preds = %974
+  %976 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %813, ptr noundef nonnull %36, i32 noundef 8) #12
+  %977 = icmp slt i32 %976, 0
+  br i1 %977, label %.thread145, label %.thread146, !prof !5
 
-979:                                              ; preds = %972
-  %980 = sext i32 %814 to i64
-  %981 = getelementptr i8, ptr %66, i64 %980
-  %982 = icmp eq ptr %981, null
-  br i1 %982, label %.thread142, label %.thread143
+978:                                              ; preds = %971
+  %979 = sext i32 %813 to i64
+  %980 = getelementptr i8, ptr %66, i64 %979
+  %981 = icmp eq ptr %980, null
+  br i1 %981, label %.thread145, label %.thread146
 
-.thread143:                                       ; preds = %976, %979
-  %983 = phi ptr [ %981, %979 ], [ %36, %976 ]
-  %984 = load i32, ptr %246, align 4
-  %985 = or i32 %984, 1
-  store i32 %985, ptr %246, align 4
-  %986 = add i32 %814, 8
-  %987 = load i8, ptr %983, align 4
-  %988 = getelementptr inbounds i8, ptr %983, i64 2
-  %989 = load i16, ptr %988, align 2
-  %990 = and i16 %989, -1793
-  %991 = icmp eq i16 %990, 0
-  br i1 %991, label %992, label %994
+.thread146:                                       ; preds = %975, %978
+  %982 = phi ptr [ %980, %978 ], [ %36, %975 ]
+  %983 = load i32, ptr %246, align 4
+  %984 = or i32 %983, 1
+  store i32 %984, ptr %246, align 4
+  %985 = add i32 %813, 8
+  %986 = load i8, ptr %982, align 4
+  %987 = getelementptr inbounds i8, ptr %982, i64 2
+  %988 = load i16, ptr %987, align 2
+  %989 = and i16 %988, -1793
+  %990 = icmp eq i16 %989, 0
+  br i1 %990, label %991, label %993
 
-992:                                              ; preds = %.thread143
-  %993 = or i32 %984, 3
-  store i32 %993, ptr %246, align 4
-  br i1 %270, label %994, label %.thread142
+991:                                              ; preds = %.thread146
+  %992 = or i32 %983, 3
+  store i32 %992, ptr %246, align 4
+  br i1 %270, label %993, label %.thread145
 
-994:                                              ; preds = %992, %.thread143
-  br label %.thread142
+993:                                              ; preds = %991, %.thread146
+  br label %.thread145
 
-.thread142:                                       ; preds = %976, %975, %994, %992, %979, %970
-  %995 = phi i32 [ %814, %979 ], [ %986, %994 ], [ %986, %992 ], [ %814, %970 ], [ %814, %975 ], [ %814, %976 ]
-  %996 = phi i8 [ 44, %979 ], [ %987, %994 ], [ %987, %992 ], [ 44, %970 ], [ 44, %975 ], [ 44, %976 ]
-  %997 = phi i32 [ 1, %979 ], [ 0, %994 ], [ 3, %992 ], [ 4, %970 ], [ 1, %975 ], [ 1, %976 ]
+.thread145:                                       ; preds = %975, %974, %993, %991, %978, %969
+  %994 = phi i32 [ %813, %978 ], [ %985, %993 ], [ %985, %991 ], [ %813, %969 ], [ %813, %974 ], [ %813, %975 ]
+  %995 = phi i8 [ 44, %978 ], [ %986, %993 ], [ %986, %991 ], [ 44, %969 ], [ 44, %974 ], [ 44, %975 ]
+  %996 = phi i32 [ 1, %978 ], [ 0, %993 ], [ 3, %991 ], [ 4, %969 ], [ 1, %974 ], [ 1, %975 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #12
-  br label %1126
+  br label %1125
 
-998:                                              ; preds = %812
-  br i1 %276, label %999, label %1126
+997:                                              ; preds = %811
+  br i1 %276, label %998, label %1125
 
-999:                                              ; preds = %998
-  %1000 = load i32, ptr %246, align 4
-  %1001 = or i32 %1000, 4
-  store i32 %1001, ptr %246, align 4
-  br label %1126
+998:                                              ; preds = %997
+  %999 = load i32, ptr %246, align 4
+  %1000 = or i32 %999, 4
+  store i32 %1000, ptr %246, align 4
+  br label %1125
 
-1002:                                             ; preds = %812
-  br i1 %276, label %1003, label %1126
+1001:                                             ; preds = %811
+  br i1 %276, label %1002, label %1125
 
-1003:                                             ; preds = %1002
-  %1004 = load i32, ptr %246, align 4
-  %1005 = or i32 %1004, 4
-  store i32 %1005, ptr %246, align 4
-  br label %1126
+1002:                                             ; preds = %1001
+  %1003 = load i32, ptr %246, align 4
+  %1004 = or i32 %1003, 4
+  store i32 %1004, ptr %246, align 4
+  br label %1125
 
-1006:                                             ; preds = %812
-  br label %1126
+1005:                                             ; preds = %811
+  br label %1125
 
-1007:                                             ; preds = %812
+1006:                                             ; preds = %811
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 20, i1 false), !annotation !19
-  %1008 = load i64, ptr %2, align 8
-  %1009 = and i64 %1008, 1048576
-  %1010 = icmp eq i64 %1009, 0
-  br i1 %1010, label %.thread146, label %1011
+  %1007 = load i64, ptr %2, align 8
+  %1008 = and i64 %1007, 1048576
+  %1009 = icmp eq i64 %1008, 0
+  br i1 %1009, label %.thread149, label %1010
 
-1011:                                             ; preds = %1007
-  %1012 = sub i32 %65, %814
-  %1013 = icmp slt i32 %1012, 20
-  br i1 %1013, label %1014, label %1018, !prof !5
+1010:                                             ; preds = %1006
+  %1011 = sub i32 %65, %813
+  %1012 = icmp slt i32 %1011, 20
+  br i1 %1012, label %1013, label %1017, !prof !5
 
-1014:                                             ; preds = %1011
-  br i1 %75, label %.thread146, label %1015
+1013:                                             ; preds = %1010
+  br i1 %75, label %.thread149, label %1014
 
-1015:                                             ; preds = %1014
-  %1016 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %814, ptr noundef nonnull %15, i32 noundef 20) #12
-  %1017 = icmp slt i32 %1016, 0
-  br i1 %1017, label %.thread146, label %.thread147, !prof !5
+1014:                                             ; preds = %1013
+  %1015 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %813, ptr noundef nonnull %15, i32 noundef 20) #12
+  %1016 = icmp slt i32 %1015, 0
+  br i1 %1016, label %.thread149, label %.thread150, !prof !5
 
-1018:                                             ; preds = %1011
-  %1019 = sext i32 %814 to i64
-  %1020 = getelementptr i8, ptr %66, i64 %1019
-  %1021 = icmp eq ptr %1020, null
-  br i1 %1021, label %.thread146, label %.thread147
+1017:                                             ; preds = %1010
+  %1018 = sext i32 %813 to i64
+  %1019 = getelementptr i8, ptr %66, i64 %1018
+  %1020 = icmp eq ptr %1019, null
+  br i1 %1020, label %.thread149, label %.thread150
 
-.thread147:                                       ; preds = %1015, %1018
-  %1022 = phi ptr [ %1020, %1018 ], [ %15, %1015 ]
-  %1023 = getelementptr inbounds i8, ptr %1022, i64 12
-  %1024 = load i16, ptr %1023, align 4
-  %1025 = and i16 %1024, 240
-  %1026 = icmp ult i16 %1025, 80
-  br i1 %1026, label %.thread146, label %1027, !prof !5
+.thread150:                                       ; preds = %1014, %1017
+  %1021 = phi ptr [ %1019, %1017 ], [ %15, %1014 ]
+  %1022 = getelementptr inbounds i8, ptr %1021, i64 12
+  %1023 = load i16, ptr %1022, align 4
+  %1024 = and i16 %1023, 240
+  %1025 = icmp ult i16 %1024, 80
+  br i1 %1025, label %.thread149, label %1026, !prof !5
 
-1027:                                             ; preds = %.thread147
-  %1028 = load i16, ptr %274, align 2
-  %1029 = zext i16 %1028 to i64
-  %1030 = getelementptr i8, ptr %3, i64 %1029
-  %1031 = and i16 %1024, -241
-  store i16 %1031, ptr %1030, align 2
-  br label %.thread146
+1026:                                             ; preds = %.thread150
+  %1027 = load i16, ptr %274, align 2
+  %1028 = zext i16 %1027 to i64
+  %1029 = getelementptr i8, ptr %3, i64 %1028
+  %1030 = and i16 %1023, -241
+  store i16 %1030, ptr %1029, align 2
+  br label %.thread149
 
-.thread146:                                       ; preds = %1015, %1014, %1027, %.thread147, %1018, %1007
+.thread149:                                       ; preds = %1014, %1013, %1026, %.thread150, %1017, %1006
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #12
-  br label %1126
+  br label %1125
 
-1032:                                             ; preds = %812, %812
-  %1033 = load i64, ptr %2, align 8
-  %1034 = and i64 %1033, 64
-  %1035 = icmp eq i64 %1034, 0
-  br i1 %1035, label %1126, label %1036
+1031:                                             ; preds = %811, %811
+  %1032 = load i64, ptr %2, align 8
+  %1033 = and i64 %1032, 64
+  %1034 = icmp eq i64 %1033, 0
+  br i1 %1034, label %1125, label %1035
 
-1036:                                             ; preds = %1032
-  %1037 = load i16, ptr %273, align 2
-  %1038 = zext i16 %1037 to i64
-  %1039 = getelementptr i8, ptr %3, i64 %1038
+1035:                                             ; preds = %1031
+  %1036 = load i16, ptr %273, align 2
+  %1037 = zext i16 %1036 to i64
+  %1038 = getelementptr i8, ptr %3, i64 %1037
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #12
   store i64 0, ptr %14, align 8, !annotation !19
-  %1040 = sub i32 %65, %814
-  %1041 = icmp slt i32 %1040, 8
-  br i1 %1041, label %1042, label %1046, !prof !5
+  %1039 = sub i32 %65, %813
+  %1040 = icmp slt i32 %1039, 8
+  br i1 %1040, label %1041, label %1045, !prof !5
 
-1042:                                             ; preds = %1036
-  br i1 %75, label %.thread150, label %1043
+1041:                                             ; preds = %1035
+  br i1 %75, label %.thread153, label %1042
 
-1043:                                             ; preds = %1042
-  %1044 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %814, ptr noundef nonnull %14, i32 noundef 8) #12
-  %1045 = icmp slt i32 %1044, 0
-  br i1 %1045, label %.thread150, label %.thread151, !prof !5
+1042:                                             ; preds = %1041
+  %1043 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %813, ptr noundef nonnull %14, i32 noundef 8) #12
+  %1044 = icmp slt i32 %1043, 0
+  br i1 %1044, label %.thread153, label %.thread154, !prof !5
 
-1046:                                             ; preds = %1036
-  %1047 = sext i32 %814 to i64
-  %1048 = getelementptr i8, ptr %66, i64 %1047
-  %1049 = icmp eq ptr %1048, null
-  br i1 %1049, label %.thread150, label %.thread151
+1045:                                             ; preds = %1035
+  %1046 = sext i32 %813 to i64
+  %1047 = getelementptr i8, ptr %66, i64 %1046
+  %1048 = icmp eq ptr %1047, null
+  br i1 %1048, label %.thread153, label %.thread154
 
-.thread151:                                       ; preds = %1043, %1046
-  %1050 = phi ptr [ %1048, %1046 ], [ %14, %1043 ]
-  %1051 = load i8, ptr %1050, align 4
-  store i8 %1051, ptr %1039, align 2
-  %1052 = getelementptr inbounds i8, ptr %1050, i64 1
-  %1053 = load i8, ptr %1052, align 1
-  %1054 = getelementptr inbounds i8, ptr %1039, i64 1
-  store i8 %1053, ptr %1054, align 1
-  %1055 = load i8, ptr %1050, align 4
-  switch i8 %1055, label %1062 [
-    i8 8, label %1056
-    i8 0, label %1056
-    i8 13, label %1056
-    i8 14, label %1056
-    i8 -128, label %1056
-    i8 -127, label %1056
+.thread154:                                       ; preds = %1042, %1045
+  %1049 = phi ptr [ %1047, %1045 ], [ %14, %1042 ]
+  %1050 = load i8, ptr %1049, align 4
+  store i8 %1050, ptr %1038, align 2
+  %1051 = getelementptr inbounds i8, ptr %1049, i64 1
+  %1052 = load i8, ptr %1051, align 1
+  %1053 = getelementptr inbounds i8, ptr %1038, i64 1
+  store i8 %1052, ptr %1053, align 1
+  %1054 = load i8, ptr %1049, align 4
+  switch i8 %1054, label %1061 [
+    i8 8, label %1055
+    i8 0, label %1055
+    i8 13, label %1055
+    i8 14, label %1055
+    i8 -128, label %1055
+    i8 -127, label %1055
   ]
 
-1056:                                             ; preds = %.thread151, %.thread151, %.thread151, %.thread151, %.thread151, %.thread151
-  %1057 = getelementptr inbounds i8, ptr %1050, i64 4
-  %1058 = load i16, ptr %1057, align 4
-  %1059 = icmp eq i16 %1058, 0
-  %1060 = call i16 @llvm.bswap.i16(i16 %1058)
-  %1061 = select i1 %1059, i16 1, i16 %1060
-  br label %1062
+1055:                                             ; preds = %.thread154, %.thread154, %.thread154, %.thread154, %.thread154, %.thread154
+  %1056 = getelementptr inbounds i8, ptr %1049, i64 4
+  %1057 = load i16, ptr %1056, align 4
+  %1058 = icmp eq i16 %1057, 0
+  %1059 = call i16 @llvm.bswap.i16(i16 %1057)
+  %1060 = select i1 %1058, i16 1, i16 %1059
+  br label %1061
 
-1062:                                             ; preds = %1056, %.thread151
-  %1063 = phi i16 [ %1061, %1056 ], [ 0, %.thread151 ]
-  %1064 = getelementptr inbounds i8, ptr %1039, i64 2
-  store i16 %1063, ptr %1064, align 2
-  br label %.thread150
+1061:                                             ; preds = %1055, %.thread154
+  %1062 = phi i16 [ %1060, %1055 ], [ 0, %.thread154 ]
+  %1063 = getelementptr inbounds i8, ptr %1038, i64 2
+  store i16 %1062, ptr %1063, align 2
+  br label %.thread153
 
-.thread150:                                       ; preds = %1043, %1042, %1062, %1046
+.thread153:                                       ; preds = %1042, %1041, %1061, %1045
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
-  br label %1126
+  br label %1125
 
-1065:                                             ; preds = %812
+1064:                                             ; preds = %811
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
   store i32 0, ptr %13, align 4, !annotation !19
-  %1066 = load i64, ptr %2, align 8
-  %1067 = and i64 %1066, 1073741824
-  %1068 = icmp eq i64 %1067, 0
-  br i1 %1068, label %.thread154, label %1069
+  %1065 = load i64, ptr %2, align 8
+  %1066 = and i64 %1065, 1073741824
+  %1067 = icmp eq i64 %1066, 0
+  br i1 %1067, label %.thread157, label %1068
 
-1069:                                             ; preds = %1065
-  %1070 = sub i32 %65, %814
-  %1071 = icmp slt i32 %1070, 4
-  br i1 %1071, label %1072, label %1076, !prof !5
+1068:                                             ; preds = %1064
+  %1069 = sub i32 %65, %813
+  %1070 = icmp slt i32 %1069, 4
+  br i1 %1070, label %1071, label %1075, !prof !5
 
-1072:                                             ; preds = %1069
-  br i1 %75, label %.thread154, label %1073
+1071:                                             ; preds = %1068
+  br i1 %75, label %.thread157, label %1072
 
-1073:                                             ; preds = %1072
-  %1074 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %814, ptr noundef nonnull %13, i32 noundef 4) #12
-  %1075 = icmp slt i32 %1074, 0
-  br i1 %1075, label %.thread154, label %.thread155, !prof !5
+1072:                                             ; preds = %1071
+  %1073 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %813, ptr noundef nonnull %13, i32 noundef 4) #12
+  %1074 = icmp slt i32 %1073, 0
+  br i1 %1074, label %.thread157, label %.thread158, !prof !5
 
-1076:                                             ; preds = %1069
-  %1077 = sext i32 %814 to i64
-  %1078 = getelementptr i8, ptr %66, i64 %1077
-  %1079 = icmp eq ptr %1078, null
-  br i1 %1079, label %.thread154, label %.thread155
+1075:                                             ; preds = %1068
+  %1076 = sext i32 %813 to i64
+  %1077 = getelementptr i8, ptr %66, i64 %1076
+  %1078 = icmp eq ptr %1077, null
+  br i1 %1078, label %.thread157, label %.thread158
 
-.thread155:                                       ; preds = %1073, %1076
-  %1080 = phi ptr [ %1078, %1076 ], [ %13, %1073 ]
-  %1081 = load i16, ptr %272, align 2
-  %1082 = zext i16 %1081 to i64
-  %1083 = getelementptr i8, ptr %3, i64 %1082
-  %1084 = load i32, ptr %1080, align 4
-  store i32 %1084, ptr %1083, align 4
-  br label %.thread154
+.thread158:                                       ; preds = %1072, %1075
+  %1079 = phi ptr [ %1077, %1075 ], [ %13, %1072 ]
+  %1080 = load i16, ptr %272, align 2
+  %1081 = zext i16 %1080 to i64
+  %1082 = getelementptr i8, ptr %3, i64 %1081
+  %1083 = load i32, ptr %1079, align 4
+  store i32 %1083, ptr %1082, align 4
+  br label %.thread157
 
-.thread154:                                       ; preds = %1073, %1072, %.thread155, %1076, %1065
+.thread157:                                       ; preds = %1072, %1071, %.thread158, %1075, %1064
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  br label %1126
+  br label %1125
 
-1085:                                             ; preds = %812
+1084:                                             ; preds = %811
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #12
   store i64 0, ptr %12, align 8, !annotation !19
-  %1086 = load i64, ptr %2, align 8
-  %1087 = and i64 %1086, 4294967296
-  %1088 = icmp eq i64 %1087, 0
-  br i1 %1088, label %.thread158, label %1089
+  %1085 = load i64, ptr %2, align 8
+  %1086 = and i64 %1085, 4294967296
+  %1087 = icmp eq i64 %1086, 0
+  br i1 %1087, label %.thread161, label %1088
 
-1089:                                             ; preds = %1085
-  %1090 = sub i32 %65, %814
-  %1091 = icmp slt i32 %1090, 8
-  br i1 %1091, label %1092, label %1096, !prof !5
+1088:                                             ; preds = %1084
+  %1089 = sub i32 %65, %813
+  %1090 = icmp slt i32 %1089, 8
+  br i1 %1090, label %1091, label %1095, !prof !5
 
-1092:                                             ; preds = %1089
-  br i1 %75, label %.thread158, label %1093
+1091:                                             ; preds = %1088
+  br i1 %75, label %.thread161, label %1092
 
-1093:                                             ; preds = %1092
-  %1094 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %814, ptr noundef nonnull %12, i32 noundef 8) #12
-  %1095 = icmp slt i32 %1094, 0
-  br i1 %1095, label %.thread158, label %.thread159, !prof !5
+1092:                                             ; preds = %1091
+  %1093 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %813, ptr noundef nonnull %12, i32 noundef 8) #12
+  %1094 = icmp slt i32 %1093, 0
+  br i1 %1094, label %.thread161, label %.thread162, !prof !5
 
-1096:                                             ; preds = %1089
-  %1097 = sext i32 %814 to i64
-  %1098 = getelementptr i8, ptr %66, i64 %1097
-  %1099 = icmp eq ptr %1098, null
-  br i1 %1099, label %.thread158, label %.thread159
+1095:                                             ; preds = %1088
+  %1096 = sext i32 %813 to i64
+  %1097 = getelementptr i8, ptr %66, i64 %1096
+  %1098 = icmp eq ptr %1097, null
+  br i1 %1098, label %.thread161, label %.thread162
 
-.thread159:                                       ; preds = %1093, %1096
-  %1100 = phi ptr [ %1098, %1096 ], [ %12, %1093 ]
-  %1101 = load i16, ptr %271, align 2
-  %1102 = zext i16 %1101 to i64
-  %1103 = getelementptr i8, ptr %3, i64 %1102
-  %1104 = load i32, ptr %1100, align 4
-  store i32 %1104, ptr %1103, align 4
-  br label %.thread158
+.thread162:                                       ; preds = %1092, %1095
+  %1099 = phi ptr [ %1097, %1095 ], [ %12, %1092 ]
+  %1100 = load i16, ptr %271, align 2
+  %1101 = zext i16 %1100 to i64
+  %1102 = getelementptr i8, ptr %3, i64 %1101
+  %1103 = load i32, ptr %1099, align 4
+  store i32 %1103, ptr %1102, align 4
+  br label %.thread161
 
-.thread158:                                       ; preds = %1093, %1092, %.thread159, %1096, %1085
+.thread161:                                       ; preds = %1092, %1091, %.thread162, %1095, %1084
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #12
-  br label %1126
+  br label %1125
 
-1105:                                             ; preds = %812
+1104:                                             ; preds = %811
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false), !annotation !19
-  %1106 = load i64, ptr %2, align 8
-  %1107 = and i64 %1106, 4294967296
-  %1108 = icmp eq i64 %1107, 0
-  br i1 %1108, label %.thread162, label %1109
+  %1105 = load i64, ptr %2, align 8
+  %1106 = and i64 %1105, 4294967296
+  %1107 = icmp eq i64 %1106, 0
+  br i1 %1107, label %.thread165, label %1108
 
-1109:                                             ; preds = %1105
-  %1110 = sub i32 %65, %814
-  %1111 = icmp slt i32 %1110, 12
-  br i1 %1111, label %1112, label %1116, !prof !5
+1108:                                             ; preds = %1104
+  %1109 = sub i32 %65, %813
+  %1110 = icmp slt i32 %1109, 12
+  br i1 %1110, label %1111, label %1115, !prof !5
 
-1112:                                             ; preds = %1109
-  br i1 %75, label %.thread162, label %1113
+1111:                                             ; preds = %1108
+  br i1 %75, label %.thread165, label %1112
 
-1113:                                             ; preds = %1112
-  %1114 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %814, ptr noundef nonnull %11, i32 noundef 12) #12
-  %1115 = icmp slt i32 %1114, 0
-  br i1 %1115, label %.thread162, label %.thread163, !prof !5
+1112:                                             ; preds = %1111
+  %1113 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %813, ptr noundef nonnull %11, i32 noundef 12) #12
+  %1114 = icmp slt i32 %1113, 0
+  br i1 %1114, label %.thread165, label %.thread166, !prof !5
 
-1116:                                             ; preds = %1109
-  %1117 = sext i32 %814 to i64
-  %1118 = getelementptr i8, ptr %66, i64 %1117
-  %1119 = icmp eq ptr %1118, null
-  br i1 %1119, label %.thread162, label %.thread163
+1115:                                             ; preds = %1108
+  %1116 = sext i32 %813 to i64
+  %1117 = getelementptr i8, ptr %66, i64 %1116
+  %1118 = icmp eq ptr %1117, null
+  br i1 %1118, label %.thread165, label %.thread166
 
-.thread163:                                       ; preds = %1113, %1116
-  %1120 = phi ptr [ %1118, %1116 ], [ %11, %1113 ]
-  %1121 = load i16, ptr %271, align 2
-  %1122 = zext i16 %1121 to i64
-  %1123 = getelementptr i8, ptr %3, i64 %1122
-  %1124 = getelementptr inbounds i8, ptr %1120, i64 4
-  %1125 = load i32, ptr %1124, align 4
-  store i32 %1125, ptr %1123, align 4
-  br label %.thread162
+.thread166:                                       ; preds = %1112, %1115
+  %1119 = phi ptr [ %1117, %1115 ], [ %11, %1112 ]
+  %1120 = load i16, ptr %271, align 2
+  %1121 = zext i16 %1120 to i64
+  %1122 = getelementptr i8, ptr %3, i64 %1121
+  %1123 = getelementptr inbounds i8, ptr %1119, i64 4
+  %1124 = load i32, ptr %1123, align 4
+  store i32 %1124, ptr %1122, align 4
+  br label %.thread165
 
-.thread162:                                       ; preds = %1113, %1112, %.thread163, %1116, %1105
+.thread165:                                       ; preds = %1112, %1111, %.thread166, %1115, %1104
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #12
-  br label %1126
+  br label %1125
 
-1126:                                             ; preds = %.thread162, %.thread158, %.thread154, %.thread150, %1032, %.thread146, %1006, %1003, %1002, %999, %998, %.thread142, %.thread138, %.thread116, %817, %812
-  %1127 = phi i16 [ %813, %812 ], [ %813, %.thread162 ], [ %813, %.thread158 ], [ %813, %.thread154 ], [ %813, %.thread146 ], [ 18312, %1006 ], [ -8826, %1003 ], [ %813, %1002 ], [ 8, %999 ], [ %813, %998 ], [ %813, %.thread142 ], [ %813, %.thread138 ], [ %943, %.thread116 ], [ %813, %817 ], [ %813, %1032 ], [ %813, %.thread150 ]
-  %1128 = phi i32 [ %814, %812 ], [ %814, %.thread162 ], [ %814, %.thread158 ], [ %814, %.thread154 ], [ %814, %.thread146 ], [ %814, %1006 ], [ %814, %1003 ], [ %814, %1002 ], [ %814, %999 ], [ %814, %998 ], [ %995, %.thread142 ], [ %967, %.thread138 ], [ %944, %.thread116 ], [ %814, %817 ], [ %814, %1032 ], [ %814, %.thread150 ]
-  %1129 = phi i8 [ %816, %812 ], [ 51, %.thread162 ], [ 50, %.thread158 ], [ 115, %.thread154 ], [ 6, %.thread146 ], [ %816, %1006 ], [ 41, %1003 ], [ 41, %1002 ], [ 4, %999 ], [ 4, %998 ], [ %996, %.thread142 ], [ %968, %.thread138 ], [ 47, %.thread116 ], [ 47, %817 ], [ %816, %1032 ], [ %816, %.thread150 ]
-  %1130 = phi i32 [ 4, %812 ], [ 4, %.thread162 ], [ 4, %.thread158 ], [ 4, %.thread154 ], [ 4, %.thread146 ], [ 2, %1006 ], [ %249, %1003 ], [ 0, %1002 ], [ %249, %999 ], [ 0, %998 ], [ %997, %.thread142 ], [ %969, %.thread138 ], [ %945, %.thread116 ], [ 0, %817 ], [ 4, %1032 ], [ 4, %.thread150 ]
-  %1131 = load i32, ptr %246, align 4
-  %1132 = and i32 %1131, 1
-  %1133 = icmp eq i32 %1132, 0
-  br i1 %1133, label %1134, label %1178
+1125:                                             ; preds = %.thread165, %.thread161, %.thread157, %.thread153, %1031, %.thread149, %1005, %1002, %1001, %998, %997, %.thread145, %.thread141, %.thread119, %816, %811
+  %1126 = phi i16 [ %812, %811 ], [ %812, %.thread165 ], [ %812, %.thread161 ], [ %812, %.thread157 ], [ %812, %.thread149 ], [ 18312, %1005 ], [ -8826, %1002 ], [ %812, %1001 ], [ 8, %998 ], [ %812, %997 ], [ %812, %.thread145 ], [ %812, %.thread141 ], [ %942, %.thread119 ], [ %812, %816 ], [ %812, %1031 ], [ %812, %.thread153 ]
+  %1127 = phi i32 [ %813, %811 ], [ %813, %.thread165 ], [ %813, %.thread161 ], [ %813, %.thread157 ], [ %813, %.thread149 ], [ %813, %1005 ], [ %813, %1002 ], [ %813, %1001 ], [ %813, %998 ], [ %813, %997 ], [ %994, %.thread145 ], [ %966, %.thread141 ], [ %943, %.thread119 ], [ %813, %816 ], [ %813, %1031 ], [ %813, %.thread153 ]
+  %1128 = phi i8 [ %815, %811 ], [ 51, %.thread165 ], [ 50, %.thread161 ], [ 115, %.thread157 ], [ 6, %.thread149 ], [ %815, %1005 ], [ 41, %1002 ], [ 41, %1001 ], [ 4, %998 ], [ 4, %997 ], [ %995, %.thread145 ], [ %967, %.thread141 ], [ 47, %.thread119 ], [ 47, %816 ], [ %815, %1031 ], [ %815, %.thread153 ]
+  %1129 = phi i32 [ 4, %811 ], [ 4, %.thread165 ], [ 4, %.thread161 ], [ 4, %.thread157 ], [ 4, %.thread149 ], [ 2, %1005 ], [ %249, %1002 ], [ 0, %1001 ], [ %249, %998 ], [ 0, %997 ], [ %996, %.thread145 ], [ %968, %.thread141 ], [ %944, %.thread119 ], [ 0, %816 ], [ 4, %1031 ], [ 4, %.thread153 ]
+  %1130 = load i32, ptr %246, align 4
+  %1131 = and i32 %1130, 1
+  %1132 = icmp eq i32 %1131, 0
+  br i1 %1132, label %1133, label %1177
 
-1134:                                             ; preds = %1126
-  %1135 = load i64, ptr %2, align 8
-  %1136 = and i64 %1135, 48
-  %1137 = icmp eq i64 %1136, 0
-  br i1 %1137, label %1178, label %1138
+1133:                                             ; preds = %1125
+  %1134 = load i64, ptr %2, align 8
+  %1135 = and i64 %1134, 48
+  %1136 = icmp eq i64 %1135, 0
+  br i1 %1136, label %1177, label %1137
 
-1138:                                             ; preds = %1134
-  %1139 = and i64 %1135, 16
-  %1140 = icmp eq i64 %1139, 0
-  %1141 = and i64 %1135, 32
-  %1142 = icmp eq i64 %1141, 0
-  %1143 = select i1 %1142, i64 33, i64 5
-  %1144 = select i1 %1140, i64 %1143, i64 4
-  %1145 = getelementptr [33 x i16], ptr %67, i64 0, i64 %1144
-  %1146 = load i16, ptr %1145, align 2
-  %1147 = zext i16 %1146 to i64
-  %1148 = getelementptr i8, ptr %3, i64 %1147
-  switch i8 %1129, label %1150 [
-    i8 6, label %1151
-    i8 17, label %1151
-    i8 33, label %1151
-    i8 50, label %1151
-    i8 -124, label %1151
-    i8 -120, label %1151
-    i8 51, label %1149
+1137:                                             ; preds = %1133
+  %1138 = and i64 %1134, 16
+  %1139 = icmp eq i64 %1138, 0
+  %1140 = and i64 %1134, 32
+  %1141 = icmp eq i64 %1140, 0
+  %1142 = select i1 %1141, i64 33, i64 5
+  %1143 = select i1 %1139, i64 %1142, i64 4
+  %1144 = getelementptr [33 x i16], ptr %67, i64 0, i64 %1143
+  %1145 = load i16, ptr %1144, align 2
+  %1146 = zext i16 %1145 to i64
+  %1147 = getelementptr i8, ptr %3, i64 %1146
+  switch i8 %1128, label %1149 [
+    i8 6, label %1150
+    i8 17, label %1150
+    i8 33, label %1150
+    i8 50, label %1150
+    i8 -124, label %1150
+    i8 -120, label %1150
+    i8 51, label %1148
   ]
 
-1149:                                             ; preds = %1138
-  br label %1151
+1148:                                             ; preds = %1137
+  br label %1150
 
-1150:                                             ; preds = %1138
-  br label %1151
+1149:                                             ; preds = %1137
+  br label %1150
 
-1151:                                             ; preds = %1150, %1149, %1138, %1138, %1138, %1138, %1138, %1138
-  %1152 = phi i1 [ false, %1150 ], [ true, %1149 ], [ true, %1138 ], [ true, %1138 ], [ true, %1138 ], [ true, %1138 ], [ true, %1138 ], [ true, %1138 ]
-  %1153 = phi i32 [ -22, %1150 ], [ 4, %1149 ], [ 0, %1138 ], [ 0, %1138 ], [ 0, %1138 ], [ 0, %1138 ], [ 0, %1138 ], [ 0, %1138 ]
-  br i1 %278, label %1154, label %1159
+1150:                                             ; preds = %1149, %1148, %1137, %1137, %1137, %1137, %1137, %1137
+  %1151 = phi i1 [ false, %1149 ], [ true, %1148 ], [ true, %1137 ], [ true, %1137 ], [ true, %1137 ], [ true, %1137 ], [ true, %1137 ], [ true, %1137 ]
+  %1152 = phi i32 [ -22, %1149 ], [ 4, %1148 ], [ 0, %1137 ], [ 0, %1137 ], [ 0, %1137 ], [ 0, %1137 ], [ 0, %1137 ], [ 0, %1137 ]
+  br i1 %278, label %1153, label %1158
 
-1154:                                             ; preds = %1151
-  %1155 = load ptr, ptr %279, align 8
-  %1156 = load i32, ptr %280, align 8
-  %1157 = load i32, ptr %281, align 4
-  %1158 = sub i32 %1156, %1157
-  br label %1159
+1153:                                             ; preds = %1150
+  %1154 = load ptr, ptr %279, align 8
+  %1155 = load i32, ptr %280, align 8
+  %1156 = load i32, ptr %281, align 4
+  %1157 = sub i32 %1155, %1156
+  br label %1158
 
-1159:                                             ; preds = %1154, %1151
-  %1160 = phi ptr [ %66, %1151 ], [ %1155, %1154 ]
-  %1161 = phi i32 [ %65, %1151 ], [ %1158, %1154 ]
-  br i1 %1152, label %1162, label %1176
+1158:                                             ; preds = %1153, %1150
+  %1159 = phi ptr [ %66, %1150 ], [ %1154, %1153 ]
+  %1160 = phi i32 [ %65, %1150 ], [ %1157, %1153 ]
+  br i1 %1151, label %1161, label %1175
 
-1162:                                             ; preds = %1159
+1161:                                             ; preds = %1158
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
   store i32 0, ptr %10, align 4, !annotation !19
-  %1163 = add i32 %1153, %1128
-  %1164 = sub i32 %1161, %1163
-  %1165 = icmp slt i32 %1164, 4
-  br i1 %1165, label %1166, label %1170, !prof !5
+  %1162 = add i32 %1152, %1127
+  %1163 = sub i32 %1160, %1162
+  %1164 = icmp slt i32 %1163, 4
+  br i1 %1164, label %1165, label %1169, !prof !5
 
-1166:                                             ; preds = %1162
-  br i1 %75, label %.sink.split, label %1167
+1165:                                             ; preds = %1161
+  br i1 %75, label %.sink.split, label %1166
 
-1167:                                             ; preds = %1166
-  %1168 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %1163, ptr noundef nonnull %10, i32 noundef 4) #12
-  %1169 = icmp slt i32 %1168, 0
-  br i1 %1169, label %.sink.split, label %.thread167, !prof !5
+1166:                                             ; preds = %1165
+  %1167 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %1162, ptr noundef nonnull %10, i32 noundef 4) #12
+  %1168 = icmp slt i32 %1167, 0
+  br i1 %1168, label %.sink.split, label %.thread170, !prof !5
 
-1170:                                             ; preds = %1162
-  %1171 = sext i32 %1163 to i64
-  %1172 = getelementptr i8, ptr %1160, i64 %1171
-  %1173 = icmp eq ptr %1172, null
-  br i1 %1173, label %.sink.split, label %.thread167
+1169:                                             ; preds = %1161
+  %1170 = sext i32 %1162 to i64
+  %1171 = getelementptr i8, ptr %1159, i64 %1170
+  %1172 = icmp eq ptr %1171, null
+  br i1 %1172, label %.sink.split, label %.thread170
 
-.thread167:                                       ; preds = %1167, %1170
-  %1174 = phi ptr [ %1172, %1170 ], [ %10, %1167 ]
-  %1175 = load i32, ptr %1174, align 4
+.thread170:                                       ; preds = %1166, %1169
+  %1173 = phi ptr [ %1171, %1169 ], [ %10, %1166 ]
+  %1174 = load i32, ptr %1173, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %1167, %1166, %1170, %.thread167
-  %.ph235 = phi i32 [ %1175, %.thread167 ], [ 0, %1170 ], [ 0, %1166 ], [ 0, %1167 ]
+.sink.split:                                      ; preds = %1166, %1165, %1169, %.thread170
+  %.ph239 = phi i32 [ %1174, %.thread170 ], [ 0, %1169 ], [ 0, %1165 ], [ 0, %1166 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  br label %1176
+  br label %1175
 
-1176:                                             ; preds = %.sink.split, %1159
-  %1177 = phi i32 [ 0, %1159 ], [ %.ph235, %.sink.split ]
-  store i32 %1177, ptr %1148, align 4
-  br label %1178
+1175:                                             ; preds = %.sink.split, %1158
+  %1176 = phi i32 [ 0, %1158 ], [ %.ph239, %.sink.split ]
+  store i32 %1176, ptr %1147, align 4
+  br label %1177
 
-1178:                                             ; preds = %1176, %1134, %1126
-  switch i32 %1130, label %.thread113 [
-    i32 2, label %1179
-    i32 3, label %1182
+1177:                                             ; preds = %1175, %1133, %1125
+  switch i32 %1129, label %.thread116 [
+    i32 2, label %1178
+    i32 3, label %1181
     i32 0, label %.loopexit
     i32 4, label %.loopexit
   ]
 
-1179:                                             ; preds = %1178
-  %1180 = add i32 %815, 1
-  %1181 = icmp slt i32 %1180, 16
-  br i1 %1181, label %.backedge, label %.loopexit
+1178:                                             ; preds = %1177
+  %1179 = add i32 %814, 1
+  %1180 = icmp slt i32 %1179, 16
+  br i1 %1180, label %.backedge, label %.loopexit
 
-.backedge:                                        ; preds = %1179, %809
-  %.be = phi i16 [ %1127, %1179 ], [ %802, %809 ]
-  %.be261 = phi i32 [ %1128, %1179 ], [ %803, %809 ]
-  %.be263 = phi i32 [ %1180, %1179 ], [ %810, %809 ]
-  %.be264 = phi i8 [ %1129, %1179 ], [ %805, %809 ]
+.backedge:                                        ; preds = %1178, %808
+  %.be = phi i16 [ %1126, %1178 ], [ %801, %808 ]
+  %.be265 = phi i32 [ %1127, %1178 ], [ %802, %808 ]
+  %.be267 = phi i32 [ %1179, %1178 ], [ %809, %808 ]
+  %.be268 = phi i8 [ %1128, %1178 ], [ %804, %808 ]
   br label %282
 
-1182:                                             ; preds = %1178
-  %1183 = add i32 %815, 1
-  %1184 = icmp slt i32 %1183, 16
-  br i1 %1184, label %812, label %.loopexit
+1181:                                             ; preds = %1177
+  %1182 = add i32 %814, 1
+  %1183 = icmp slt i32 %1182, 16
+  br i1 %1183, label %811, label %.loopexit
 
-.loopexit:                                        ; preds = %1179, %809, %801, %1182, %1178, %1178, %.thread113
-  %1185 = phi i16 [ %1198, %.thread113 ], [ %1127, %1178 ], [ %1127, %1178 ], [ %1127, %1182 ], [ %802, %801 ], [ %802, %809 ], [ %1127, %1179 ]
-  %1186 = phi i32 [ %1199, %.thread113 ], [ %1128, %1178 ], [ %1128, %1178 ], [ %1128, %1182 ], [ %803, %801 ], [ %803, %809 ], [ %1128, %1179 ]
-  %1187 = phi i1 [ false, %.thread113 ], [ true, %1178 ], [ true, %1178 ], [ true, %1182 ], [ true, %801 ], [ true, %809 ], [ true, %1179 ]
-  %1188 = phi i8 [ %1200, %.thread113 ], [ %1129, %1178 ], [ %1129, %1178 ], [ %1129, %1182 ], [ %805, %801 ], [ %805, %809 ], [ %1129, %1179 ]
-  br i1 %75, label %1191, label %1189
+.loopexit:                                        ; preds = %1178, %808, %800, %1181, %1177, %1177, %.thread116
+  %1184 = phi i16 [ %1197, %.thread116 ], [ %1126, %1177 ], [ %1126, %1177 ], [ %1126, %1181 ], [ %801, %800 ], [ %801, %808 ], [ %1126, %1178 ]
+  %1185 = phi i32 [ %1198, %.thread116 ], [ %1127, %1177 ], [ %1127, %1177 ], [ %1127, %1181 ], [ %802, %800 ], [ %802, %808 ], [ %1127, %1178 ]
+  %1186 = phi i1 [ false, %.thread116 ], [ true, %1177 ], [ true, %1177 ], [ true, %1181 ], [ true, %800 ], [ true, %808 ], [ true, %1178 ]
+  %1187 = phi i8 [ %1199, %.thread116 ], [ %1128, %1177 ], [ %1128, %1177 ], [ %1128, %1181 ], [ %804, %800 ], [ %804, %808 ], [ %1128, %1178 ]
+  br i1 %75, label %1190, label %1188
 
-1189:                                             ; preds = %.loopexit
-  %1190 = load i32, ptr %280, align 4
-  br label %1191
+1188:                                             ; preds = %.loopexit
+  %1189 = load i32, ptr %280, align 4
+  br label %1190
 
-1191:                                             ; preds = %1189, %.loopexit
-  %1192 = phi i32 [ %65, %.loopexit ], [ %1190, %1189 ]
-  %1193 = and i32 %1186, 65535
-  %1194 = and i32 %1192, 65535
-  %1195 = call i32 @llvm.umin.i32(i32 %1193, i32 %1194)
-  %1196 = trunc nuw i32 %1195 to i16
-  store i16 %1196, ptr %70, align 4
-  store i16 %1185, ptr %74, align 2
-  %1197 = getelementptr inbounds i8, ptr %74, i64 2
-  store i8 %1188, ptr %1197, align 2
-  br label %1201
+1190:                                             ; preds = %1188, %.loopexit
+  %1191 = phi i32 [ %65, %.loopexit ], [ %1189, %1188 ]
+  %1192 = and i32 %1185, 65535
+  %1193 = and i32 %1191, 65535
+  %1194 = call i32 @llvm.umin.i32(i32 %1192, i32 %1193)
+  %1195 = trunc nuw i32 %1194 to i16
+  store i16 %1195, ptr %70, align 4
+  store i16 %1184, ptr %74, align 2
+  %1196 = getelementptr inbounds i8, ptr %74, i64 2
+  store i8 %1187, ptr %1196, align 2
+  br label %1200
 
-.thread113:                                       ; preds = %282, %801, %1178
-  %1198 = phi i16 [ %1127, %1178 ], [ %283, %282 ], [ %802, %801 ]
-  %1199 = phi i32 [ %1128, %1178 ], [ %284, %282 ], [ %803, %801 ]
-  %1200 = phi i8 [ %1129, %1178 ], [ %287, %282 ], [ %805, %801 ]
+.thread116:                                       ; preds = %282, %800, %1177
+  %1197 = phi i16 [ %1126, %1177 ], [ %283, %282 ], [ %801, %800 ]
+  %1198 = phi i32 [ %1127, %1177 ], [ %284, %282 ], [ %802, %800 ]
+  %1199 = phi i8 [ %1128, %1177 ], [ %287, %282 ], [ %804, %800 ]
   br label %.loopexit
 
-1201:                                             ; preds = %218, %1191
-  %1202 = phi i1 [ %1187, %1191 ], [ %219, %218 ]
-  ret i1 %1202
+1200:                                             ; preds = %218, %1190
+  %1201 = phi i1 [ %1186, %1190 ], [ %219, %218 ]
+  ret i1 %1201
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

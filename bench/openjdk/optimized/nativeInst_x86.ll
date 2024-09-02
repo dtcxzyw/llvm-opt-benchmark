@@ -396,7 +396,7 @@ define hidden noundef i32 @_ZNK15NativeMovRegMem17instruction_startEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK15NativeMovRegMem12patch_offsetEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i32 2, 0) i32 @_ZNK15NativeMovRegMem12patch_offsetEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %3 [
     i8 -59, label %_ZNK15NativeMovRegMem19instruction_addressEv.exit

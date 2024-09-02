@@ -1368,25 +1368,25 @@ define hidden void @_Z11pj_load_iniP6pj_ctx(ptr noundef %0) local_unnamed_addr #
 
 14:                                               ; preds = %12
   %15 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalEPKcS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str.24) #24
-  br i1 %15, label %20, label %16
+  br i1 %15, label %21, label %16
 
 16:                                               ; preds = %14
   %17 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalEPKcS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str.25) #24
-  br i1 %17, label %20, label %18
+  br i1 %17, label %21, label %18
 
 18:                                               ; preds = %16
   %19 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalEPKcS3_(ptr noundef nonnull %11, ptr noundef nonnull @.str.26) #24
-  br label %20
+  %20 = zext i1 %19 to i8
+  br label %21
 
-20:                                               ; preds = %18, %16, %14
-  %21 = phi i1 [ true, %16 ], [ true, %14 ], [ %19, %18 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 368
-  %23 = zext i1 %21 to i8
-  store i8 %23, ptr %22, align 8
+21:                                               ; preds = %18, %16, %14
+  %22 = phi i8 [ 1, %16 ], [ 1, %14 ], [ %20, %18 ]
+  %23 = getelementptr inbounds i8, ptr %0, i64 368
+  store i8 %22, ptr %23, align 8
   br label %24
 
-24:                                               ; preds = %10, %12, %20
-  %.0 = phi i1 [ false, %20 ], [ true, %12 ], [ true, %10 ]
+24:                                               ; preds = %10, %12, %21
+  %.0 = phi i1 [ false, %21 ], [ true, %12 ], [ true, %10 ]
   %25 = tail call ptr @getenv(ptr noundef nonnull @.str.27) #24
   %.not77 = icmp eq ptr %25, null
   br i1 %.not77, label %31, label %26
@@ -1641,19 +1641,19 @@ _ZL4trimRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit90: ; preds =
 
 141:                                              ; preds = %138
   %142 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.24) #24
-  br i1 %142, label %147, label %143
+  br i1 %142, label %148, label %143
 
 143:                                              ; preds = %141
   %144 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.25) #24
-  br i1 %144, label %147, label %145
+  br i1 %144, label %148, label %145
 
 145:                                              ; preds = %143
   %146 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.26) #24
-  br label %147
+  %147 = zext i1 %146 to i8
+  br label %148
 
-147:                                              ; preds = %145, %143, %141
-  %148 = phi i1 [ true, %143 ], [ true, %141 ], [ %146, %145 ]
-  %149 = zext i1 %148 to i8
+148:                                              ; preds = %145, %143, %141
+  %149 = phi i8 [ 1, %143 ], [ 1, %141 ], [ %147, %145 ]
   store i8 %149, ptr %98, align 8
   br label %213
 
@@ -1664,19 +1664,19 @@ _ZL4trimRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit90: ; preds =
 
 153:                                              ; preds = %150
   %154 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.24) #24
-  br i1 %154, label %159, label %155
+  br i1 %154, label %160, label %155
 
 155:                                              ; preds = %153
   %156 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.25) #24
-  br i1 %156, label %159, label %157
+  br i1 %156, label %160, label %157
 
 157:                                              ; preds = %155
   %158 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.26) #24
-  br label %159
+  %159 = zext i1 %158 to i8
+  br label %160
 
-159:                                              ; preds = %157, %155, %153
-  %160 = phi i1 [ true, %155 ], [ true, %153 ], [ %158, %157 ]
-  %161 = zext i1 %160 to i8
+160:                                              ; preds = %157, %155, %153
+  %161 = phi i8 [ 1, %155 ], [ 1, %153 ], [ %159, %157 ]
   store i8 %161, ptr %97, align 8
   br label %213
 
@@ -1766,23 +1766,23 @@ _ZL4trimRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit90: ; preds =
 204:                                              ; preds = %201
   store i8 0, ptr %91, align 1
   %205 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.24) #24
-  br i1 %205, label %210, label %206
+  br i1 %205, label %211, label %206
 
 206:                                              ; preds = %204
   %207 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.25) #24
-  br i1 %207, label %210, label %208
+  br i1 %207, label %211, label %208
 
 208:                                              ; preds = %206
   %209 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.26) #24
-  br label %210
+  %210 = zext i1 %209 to i8
+  br label %211
 
-210:                                              ; preds = %208, %206, %204
-  %211 = phi i1 [ true, %206 ], [ true, %204 ], [ %209, %208 ]
-  %212 = zext i1 %211 to i8
+211:                                              ; preds = %208, %206, %204
+  %212 = phi i8 [ 1, %206 ], [ 1, %204 ], [ %210, %208 ]
   store i8 %212, ptr %92, align 8
   br label %213
 
-213:                                              ; preds = %.invoke, %147, %165, %188, %193, %192, %184, %200, %201, %210, %175, %159
+213:                                              ; preds = %.invoke, %148, %165, %188, %193, %192, %184, %200, %201, %211, %175, %160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   br label %215

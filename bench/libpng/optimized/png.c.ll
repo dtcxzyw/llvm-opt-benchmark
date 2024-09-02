@@ -5986,7 +5986,7 @@ define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 24577) i32 @png_set_option(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #15 {
+define range(i32 0, 4) i32 @png_set_option(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #15 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ult i32 %1, 14
   %or.cond3 = and i1 %4, %5

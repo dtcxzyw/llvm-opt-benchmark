@@ -1405,7 +1405,7 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
 12:                                               ; preds = %3
   %13 = load ptr, ptr %7, align 8
   %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.29, ptr noundef %13) #10
-  br label %135
+  br label %131
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %5, i64 24
@@ -1419,7 +1419,7 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
   store i32 13, ptr %20, align 4
   %21 = load ptr, ptr %7, align 8
   %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.30, ptr noundef %21) #10
-  br label %135
+  br label %131
 
 23:                                               ; preds = %15
   %24 = load ptr, ptr %7, align 8
@@ -1432,7 +1432,7 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
   store i32 13, ptr %28, align 4
   %29 = load ptr, ptr %7, align 8
   %30 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef %29) #10
-  br label %135
+  br label %131
 
 31:                                               ; preds = %23
   %32 = tail call ptr @env_array_create() #10
@@ -1441,7 +1441,7 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
   %34 = getelementptr inbounds i8, ptr %0, i64 24
   %35 = load i32, ptr %34, align 8
   %.not70 = icmp eq i32 %35, -2
-  br i1 %.not70, label %48, label %36
+  br i1 %.not70, label %46, label %36
 
 36:                                               ; preds = %31
   %37 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %35)
@@ -1450,182 +1450,180 @@ define range(i32 -1, 1) i32 @archive_run_script(ptr nocapture noundef readonly %
 
 38:                                               ; preds = %36
   %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34) #10
-  br label %135
+  br label %131
 
 40:                                               ; preds = %36
   %41 = load i32, ptr %34, align 8
-  %.not72 = icmp ne i32 %41, -2
-  %42 = and i32 %41, 524288
-  %43 = icmp ne i32 %42, 0
-  %44 = and i1 %.not72, %43
-  %45 = zext i1 %44 to i32
-  %46 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i32 noundef %45) #10
-  %47 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i64 noundef %37) #10
-  br label %48
+  %.not72 = icmp eq i32 %41, -2
+  %42 = lshr i32 %41, 19
+  %.lobit = and i32 %42, 1
+  %43 = select i1 %.not72, i32 0, i32 %.lobit
+  %44 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i32 noundef %43) #10
+  %45 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i64 noundef %37) #10
+  br label %46
 
-48:                                               ; preds = %40, %31
-  %49 = getelementptr inbounds i8, ptr %0, i64 28
-  %50 = load i32, ptr %49, align 4
-  %.not73 = icmp eq i32 %50, -2
-  br i1 %.not73, label %63, label %51
+46:                                               ; preds = %40, %31
+  %47 = getelementptr inbounds i8, ptr %0, i64 28
+  %48 = load i32, ptr %47, align 4
+  %.not73 = icmp eq i32 %48, -2
+  br i1 %.not73, label %59, label %49
 
-51:                                               ; preds = %48
-  %52 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %50)
-  %.not74 = icmp eq i64 %52, 0
-  br i1 %.not74, label %53, label %55
+49:                                               ; preds = %46
+  %50 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %48)
+  %.not74 = icmp eq i64 %50, 0
+  br i1 %.not74, label %51, label %53
 
-53:                                               ; preds = %51
-  %54 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39) #10
-  br label %135
+51:                                               ; preds = %49
+  %52 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39) #10
+  br label %131
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr %49, align 4
-  %.not75 = icmp ne i32 %56, -2
-  %57 = and i32 %56, 524288
-  %58 = icmp ne i32 %57, 0
-  %59 = and i1 %.not75, %58
-  %60 = zext i1 %59 to i32
-  %61 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.36, i32 noundef %60) #10
-  %62 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.38, i64 noundef %52) #10
-  br label %63
+53:                                               ; preds = %49
+  %54 = load i32, ptr %47, align 4
+  %.not75 = icmp eq i32 %54, -2
+  %55 = lshr i32 %54, 19
+  %.lobit76 = and i32 %55, 1
+  %56 = select i1 %.not75, i32 0, i32 %.lobit76
+  %57 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.36, i32 noundef %56) #10
+  %58 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.38, i64 noundef %50) #10
+  br label %59
 
-63:                                               ; preds = %55, %48
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
-  %65 = load i32, ptr %64, align 8
-  %.not76 = icmp eq i32 %65, -2
-  br i1 %.not76, label %77, label %66
+59:                                               ; preds = %53, %46
+  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  %61 = load i32, ptr %60, align 8
+  %.not77 = icmp eq i32 %61, -2
+  br i1 %.not77, label %73, label %62
 
-66:                                               ; preds = %63
-  %67 = load i32, ptr %49, align 4
-  %68 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %67)
-  %.not77 = icmp eq i64 %68, 0
-  br i1 %.not77, label %69, label %71
+62:                                               ; preds = %59
+  %63 = load i32, ptr %47, align 4
+  %64 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %63)
+  %.not78 = icmp eq i64 %64, 0
+  br i1 %.not78, label %65, label %67
 
-69:                                               ; preds = %66
-  %70 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39) #10
-  br label %135
+65:                                               ; preds = %62
+  %66 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39) #10
+  br label %131
 
-71:                                               ; preds = %66
-  %72 = load i32, ptr %49, align 4
-  %.not78 = icmp eq i32 %72, -2
-  %73 = lshr i32 %72, 19
-  %.lobit = and i32 %73, 1
-  %74 = select i1 %.not78, i32 0, i32 %.lobit
-  %75 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.36, i32 noundef %74) #10
-  %76 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.38, i64 noundef %68) #10
-  br label %77
+67:                                               ; preds = %62
+  %68 = load i32, ptr %47, align 4
+  %.not79 = icmp eq i32 %68, -2
+  %69 = lshr i32 %68, 19
+  %.lobit80 = and i32 %69, 1
+  %70 = select i1 %.not79, i32 0, i32 %.lobit80
+  %71 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.36, i32 noundef %70) #10
+  %72 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.38, i64 noundef %64) #10
+  br label %73
 
-77:                                               ; preds = %71, %63
-  %78 = getelementptr inbounds i8, ptr %0, i64 36
-  %79 = load i32, ptr %78, align 4
-  %.not79 = icmp eq i32 %79, -2
-  br i1 %.not79, label %90, label %80
+73:                                               ; preds = %67, %59
+  %74 = getelementptr inbounds i8, ptr %0, i64 36
+  %75 = load i32, ptr %74, align 4
+  %.not81 = icmp eq i32 %75, -2
+  br i1 %.not81, label %86, label %76
 
-80:                                               ; preds = %77
-  %81 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %79)
-  %.not80 = icmp eq i64 %81, 0
-  br i1 %.not80, label %82, label %84
+76:                                               ; preds = %73
+  %77 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %75)
+  %.not82 = icmp eq i64 %77, 0
+  br i1 %.not82, label %78, label %80
 
-82:                                               ; preds = %80
-  %83 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44) #10
-  br label %135
+78:                                               ; preds = %76
+  %79 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44) #10
+  br label %131
 
-84:                                               ; preds = %80
-  %85 = load i32, ptr %78, align 4
-  %.not81 = icmp eq i32 %85, -2
-  %86 = lshr i32 %85, 19
-  %.lobit82 = and i32 %86, 1
-  %87 = select i1 %.not81, i32 0, i32 %.lobit82
-  %88 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.36, i32 noundef %87) #10
-  %89 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.38, i64 noundef %81) #10
-  br label %90
+80:                                               ; preds = %76
+  %81 = load i32, ptr %74, align 4
+  %.not83 = icmp eq i32 %81, -2
+  %82 = lshr i32 %81, 19
+  %.lobit84 = and i32 %82, 1
+  %83 = select i1 %.not83, i32 0, i32 %.lobit84
+  %84 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.36, i32 noundef %83) #10
+  %85 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.38, i64 noundef %77) #10
+  br label %86
 
-90:                                               ; preds = %84, %77
-  %91 = getelementptr inbounds i8, ptr %0, i64 40
-  %92 = load i32, ptr %91, align 8
-  %.not83 = icmp eq i32 %92, -2
-  br i1 %.not83, label %103, label %93
+86:                                               ; preds = %80, %73
+  %87 = getelementptr inbounds i8, ptr %0, i64 40
+  %88 = load i32, ptr %87, align 8
+  %.not85 = icmp eq i32 %88, -2
+  br i1 %.not85, label %99, label %89
 
-93:                                               ; preds = %90
-  %94 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %92)
-  %.not84 = icmp eq i64 %94, 0
-  br i1 %.not84, label %95, label %97
+89:                                               ; preds = %86
+  %90 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %88)
+  %.not86 = icmp eq i64 %90, 0
+  br i1 %.not86, label %91, label %93
 
-95:                                               ; preds = %93
-  %96 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #10
-  br label %135
+91:                                               ; preds = %89
+  %92 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47) #10
+  br label %131
 
-97:                                               ; preds = %93
-  %98 = load i32, ptr %91, align 8
-  %.not85 = icmp eq i32 %98, -2
-  %99 = lshr i32 %98, 19
-  %.lobit86 = and i32 %99, 1
-  %100 = select i1 %.not85, i32 0, i32 %.lobit86
-  %101 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.36, i32 noundef %100) #10
-  %102 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.38, i64 noundef %94) #10
-  br label %103
+93:                                               ; preds = %89
+  %94 = load i32, ptr %87, align 8
+  %.not87 = icmp eq i32 %94, -2
+  %95 = lshr i32 %94, 19
+  %.lobit88 = and i32 %95, 1
+  %96 = select i1 %.not87, i32 0, i32 %.lobit88
+  %97 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.36, i32 noundef %96) #10
+  %98 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.38, i64 noundef %90) #10
+  br label %99
 
-103:                                              ; preds = %97, %90
-  %104 = getelementptr inbounds i8, ptr %0, i64 44
-  %105 = load i32, ptr %104, align 4
-  %.not87 = icmp eq i32 %105, -2
-  br i1 %.not87, label %116, label %106
+99:                                               ; preds = %93, %86
+  %100 = getelementptr inbounds i8, ptr %0, i64 44
+  %101 = load i32, ptr %100, align 4
+  %.not89 = icmp eq i32 %101, -2
+  br i1 %.not89, label %112, label %102
 
-106:                                              ; preds = %103
-  %107 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %105)
-  %.not88 = icmp eq i64 %107, 0
-  br i1 %.not88, label %108, label %110
+102:                                              ; preds = %99
+  %103 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %101)
+  %.not90 = icmp eq i64 %103, 0
+  br i1 %.not90, label %104, label %106
 
-108:                                              ; preds = %106
-  %109 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #10
-  br label %135
+104:                                              ; preds = %102
+  %105 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.50) #10
+  br label %131
 
-110:                                              ; preds = %106
-  %111 = load i32, ptr %104, align 4
-  %.not89 = icmp eq i32 %111, -2
-  %112 = lshr i32 %111, 19
-  %.lobit90 = and i32 %112, 1
-  %113 = select i1 %.not89, i32 0, i32 %.lobit90
-  %114 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.36, i32 noundef %113) #10
-  %115 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.38, i64 noundef %107) #10
-  br label %116
+106:                                              ; preds = %102
+  %107 = load i32, ptr %100, align 4
+  %.not91 = icmp eq i32 %107, -2
+  %108 = lshr i32 %107, 19
+  %.lobit92 = and i32 %108, 1
+  %109 = select i1 %.not91, i32 0, i32 %.lobit92
+  %110 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.36, i32 noundef %109) #10
+  %111 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.38, i64 noundef %103) #10
+  br label %112
 
-116:                                              ; preds = %110, %103
-  %117 = getelementptr inbounds i8, ptr %0, i64 48
-  %118 = load i32, ptr %117, align 8
-  %.not91 = icmp eq i32 %118, -2
-  br i1 %.not91, label %129, label %119
+112:                                              ; preds = %106, %99
+  %113 = getelementptr inbounds i8, ptr %0, i64 48
+  %114 = load i32, ptr %113, align 8
+  %.not93 = icmp eq i32 %114, -2
+  br i1 %.not93, label %125, label %115
 
-119:                                              ; preds = %116
-  %120 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %118)
-  %.not92 = icmp eq i64 %120, 0
-  br i1 %.not92, label %121, label %123
+115:                                              ; preds = %112
+  %116 = call i64 @archive_setup_end_time(i64 noundef %2, i32 noundef %114)
+  %.not94 = icmp eq i64 %116, 0
+  br i1 %.not94, label %117, label %119
 
-121:                                              ; preds = %119
-  %122 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.53) #10
-  br label %135
+117:                                              ; preds = %115
+  %118 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.53) #10
+  br label %131
 
-123:                                              ; preds = %119
-  %124 = load i32, ptr %117, align 8
-  %.not93 = icmp eq i32 %124, -2
-  %125 = lshr i32 %124, 19
-  %.lobit94 = and i32 %125, 1
-  %126 = select i1 %.not93, i32 0, i32 %.lobit94
-  %127 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.36, i32 noundef %126) #10
-  %128 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.38, i64 noundef %120) #10
-  br label %129
+119:                                              ; preds = %115
+  %120 = load i32, ptr %113, align 8
+  %.not95 = icmp eq i32 %120, -2
+  %121 = lshr i32 %120, 19
+  %.lobit96 = and i32 %121, 1
+  %122 = select i1 %.not95, i32 0, i32 %.lobit96
+  %123 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.36, i32 noundef %122) #10
+  %124 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.38, i64 noundef %116) #10
+  br label %125
 
-129:                                              ; preds = %123, %116
-  %130 = call i32 @env_array_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57) #10
-  %131 = load ptr, ptr %7, align 8
-  %132 = load ptr, ptr %6, align 8
-  %133 = call i32 @execve(ptr noundef %131, ptr noundef nonnull %4, ptr noundef %132) #10
-  %134 = load ptr, ptr %6, align 8
-  call void @env_array_free(ptr noundef %134) #10
-  br label %135
+125:                                              ; preds = %119, %112
+  %126 = call i32 @env_array_append(ptr noundef nonnull %6, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57) #10
+  %127 = load ptr, ptr %7, align 8
+  %128 = load ptr, ptr %6, align 8
+  %129 = call i32 @execve(ptr noundef %127, ptr noundef nonnull %4, ptr noundef %128) #10
+  %130 = load ptr, ptr %6, align 8
+  call void @env_array_free(ptr noundef %130) #10
+  br label %131
 
-135:                                              ; preds = %129, %121, %108, %95, %82, %69, %53, %38, %27, %19, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %27 ], [ 0, %129 ], [ -1, %121 ], [ -1, %108 ], [ -1, %95 ], [ -1, %82 ], [ -1, %69 ], [ -1, %53 ], [ -1, %38 ], [ -1, %19 ]
+131:                                              ; preds = %125, %117, %104, %91, %78, %65, %51, %38, %27, %19, %12
+  %.0 = phi i32 [ -1, %12 ], [ -1, %27 ], [ 0, %125 ], [ -1, %117 ], [ -1, %104 ], [ -1, %91 ], [ -1, %78 ], [ -1, %65 ], [ -1, %51 ], [ -1, %38 ], [ -1, %19 ]
   ret i32 %.0
 }
 

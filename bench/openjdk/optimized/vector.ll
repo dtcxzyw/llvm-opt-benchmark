@@ -100,9 +100,9 @@ define hidden void @_ZN11PhaseVector21optimize_vector_boxesEv(ptr noundef nonnul
   %33 = add nsw i32 %31, -1
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %62, %.lr.ph.preheader.i
-  %34 = phi ptr [ %58, %62 ], [ %19, %.lr.ph.preheader.i ]
-  %.06.i = phi i32 [ %67, %62 ], [ %33, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.preheader.i
+  %34 = phi ptr [ %59, %.thread.i ], [ %19, %.lr.ph.preheader.i ]
+  %.06.i = phi i32 [ %64, %.thread.i ], [ %33, %.lr.ph.preheader.i ]
   %35 = getelementptr inbounds i8, ptr %34, i64 424
   %36 = load ptr, ptr %35, align 8
   %37 = zext nneg i32 %.06.i to i64
@@ -112,17 +112,7 @@ define hidden void @_ZN11PhaseVector21optimize_vector_boxesEv(ptr noundef nonnul
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(52) %39) #6
   %43 = icmp eq i32 %42, 468
-  br i1 %43, label %44, label %.lr.ph._crit_edge.i
-
-.lr.ph._crit_edge.i:                              ; preds = %.lr.ph.i
-  %.pre.i = load ptr, ptr %3, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 352
-  %.pre9.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert10.i = getelementptr inbounds i8, ptr %.pre9.i, i64 88
-  %.pre11.i = load ptr, ptr %.phi.trans.insert10.i, align 8
-  %.phi.trans.insert12.i = getelementptr inbounds i8, ptr %.pre.i, i64 376
-  %.pre13.i = load ptr, ptr %.phi.trans.insert12.i, align 8
-  br label %55
+  br i1 %43, label %44, label %55
 
 44:                                               ; preds = %.lr.ph.i
   call void @_ZN11PhaseVector16expand_vbox_nodeEP13VectorBoxNode(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %39)
@@ -136,31 +126,36 @@ define hidden void @_ZN11PhaseVector21optimize_vector_boxesEv(ptr noundef nonnul
   %52 = load ptr, ptr %51, align 8
   %53 = icmp ne ptr %52, null
   %54 = select i1 %50, i1 true, i1 %53
-  br i1 %54, label %_ZN11PhaseVector17expand_vbox_nodesEv.exit, label %55
+  br i1 %54, label %_ZN11PhaseVector17expand_vbox_nodesEv.exit, label %.thread.i
 
-55:                                               ; preds = %44, %.lr.ph._crit_edge.i
-  %56 = phi ptr [ %.pre13.i, %.lr.ph._crit_edge.i ], [ null, %44 ]
-  %57 = phi ptr [ %.pre11.i, %.lr.ph._crit_edge.i ], [ null, %44 ]
-  %58 = phi ptr [ %.pre.i, %.lr.ph._crit_edge.i ], [ %45, %44 ]
-  %59 = icmp ne ptr %57, null
-  %60 = icmp ne ptr %56, null
-  %61 = select i1 %59, i1 true, i1 %60
-  br i1 %61, label %_ZN11PhaseVector17expand_vbox_nodesEv.exit, label %62
+55:                                               ; preds = %.lr.ph.i
+  %.pre.i = load ptr, ptr %3, align 8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 352
+  %.pre9.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  %.phi.trans.insert10.i = getelementptr inbounds i8, ptr %.pre9.i, i64 88
+  %.pre11.i = load ptr, ptr %.phi.trans.insert10.i, align 8
+  %.phi.trans.insert12.i = getelementptr inbounds i8, ptr %.pre.i, i64 376
+  %.pre13.i = load ptr, ptr %.phi.trans.insert12.i, align 8
+  %56 = icmp ne ptr %.pre11.i, null
+  %57 = icmp ne ptr %.pre13.i, null
+  %58 = select i1 %56, i1 true, i1 %57
+  br i1 %58, label %_ZN11PhaseVector17expand_vbox_nodesEv.exit, label %.thread.i
 
-62:                                               ; preds = %55
-  %63 = add nsw i32 %.06.i, -1
-  %64 = getelementptr inbounds i8, ptr %58, i64 416
-  %65 = load i32, ptr %64, align 4
-  %66 = add nsw i32 %65, -1
-  %67 = call noundef i32 @llvm.smin.i32(i32 %63, i32 %66)
-  %68 = icmp sgt i32 %67, -1
-  br i1 %68, label %.lr.ph.i, label %_ZN11PhaseVector17expand_vbox_nodesEv.exit, !llvm.loop !6
+.thread.i:                                        ; preds = %55, %44
+  %59 = phi ptr [ %.pre.i, %55 ], [ %45, %44 ]
+  %60 = add nsw i32 %.06.i, -1
+  %61 = getelementptr inbounds i8, ptr %59, i64 416
+  %62 = load i32, ptr %61, align 4
+  %63 = add nsw i32 %62, -1
+  %64 = call noundef i32 @llvm.smin.i32(i32 %60, i32 %63)
+  %65 = icmp sgt i32 %64, -1
+  br i1 %65, label %.lr.ph.i, label %_ZN11PhaseVector17expand_vbox_nodesEv.exit, !llvm.loop !6
 
-_ZN11PhaseVector17expand_vbox_nodesEv.exit:       ; preds = %44, %55, %62, %1, %29
+_ZN11PhaseVector17expand_vbox_nodesEv.exit:       ; preds = %44, %55, %.thread.i, %1, %29
   call void @_ZN11PhaseVector26eliminate_vbox_alloc_nodesEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 121
-  store i8 0, ptr %70, align 1
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 121
+  store i8 0, ptr %67, align 1
   call void @_ZN11PhaseVector10do_cleanupEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %2) #6
   ret void
@@ -366,9 +361,9 @@ define hidden void @_ZN11PhaseVector17expand_vbox_nodesEv(ptr noundef nonnull al
   %17 = add nsw i32 %15, -1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %18 = phi ptr [ %42, %46 ], [ %3, %.lr.ph.preheader ]
-  %.06 = phi i32 [ %51, %46 ], [ %17, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
+  %18 = phi ptr [ %43, %.thread ], [ %3, %.lr.ph.preheader ]
+  %.06 = phi i32 [ %48, %.thread ], [ %17, %.lr.ph.preheader ]
   %19 = getelementptr inbounds i8, ptr %18, i64 424
   %20 = load ptr, ptr %19, align 8
   %21 = zext nneg i32 %.06 to i64
@@ -378,17 +373,7 @@ define hidden void @_ZN11PhaseVector17expand_vbox_nodesEv(ptr noundef nonnull al
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(52) %23) #6
   %27 = icmp eq i32 %26, 468
-  br i1 %27, label %28, label %.lr.ph._crit_edge
-
-.lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.pre = load ptr, ptr %2, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 352
-  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert10 = getelementptr inbounds i8, ptr %.pre9, i64 88
-  %.pre11 = load ptr, ptr %.phi.trans.insert10, align 8
-  %.phi.trans.insert12 = getelementptr inbounds i8, ptr %.pre, i64 376
-  %.pre13 = load ptr, ptr %.phi.trans.insert12, align 8
-  br label %39
+  br i1 %27, label %28, label %39
 
 28:                                               ; preds = %.lr.ph
   tail call void @_ZN11PhaseVector16expand_vbox_nodeEP13VectorBoxNode(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %23)
@@ -402,27 +387,32 @@ define hidden void @_ZN11PhaseVector17expand_vbox_nodesEv(ptr noundef nonnull al
   %36 = load ptr, ptr %35, align 8
   %37 = icmp ne ptr %36, null
   %38 = select i1 %34, i1 true, i1 %37
-  br i1 %38, label %.loopexit, label %39
+  br i1 %38, label %.loopexit, label %.thread
 
-39:                                               ; preds = %.lr.ph._crit_edge, %28
-  %40 = phi ptr [ %.pre13, %.lr.ph._crit_edge ], [ null, %28 ]
-  %41 = phi ptr [ %.pre11, %.lr.ph._crit_edge ], [ null, %28 ]
-  %42 = phi ptr [ %.pre, %.lr.ph._crit_edge ], [ %29, %28 ]
-  %43 = icmp ne ptr %41, null
-  %44 = icmp ne ptr %40, null
-  %45 = select i1 %43, i1 true, i1 %44
-  br i1 %45, label %.loopexit, label %46
+39:                                               ; preds = %.lr.ph
+  %.pre = load ptr, ptr %2, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 352
+  %.pre9 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert10 = getelementptr inbounds i8, ptr %.pre9, i64 88
+  %.pre11 = load ptr, ptr %.phi.trans.insert10, align 8
+  %.phi.trans.insert12 = getelementptr inbounds i8, ptr %.pre, i64 376
+  %.pre13 = load ptr, ptr %.phi.trans.insert12, align 8
+  %40 = icmp ne ptr %.pre11, null
+  %41 = icmp ne ptr %.pre13, null
+  %42 = select i1 %40, i1 true, i1 %41
+  br i1 %42, label %.loopexit, label %.thread
 
-46:                                               ; preds = %39
-  %47 = add nsw i32 %.06, -1
-  %48 = getelementptr inbounds i8, ptr %42, i64 416
-  %49 = load i32, ptr %48, align 4
-  %50 = add nsw i32 %49, -1
-  %51 = tail call noundef i32 @llvm.smin.i32(i32 %47, i32 %50)
-  %52 = icmp sgt i32 %51, -1
-  br i1 %52, label %.lr.ph, label %.loopexit, !llvm.loop !6
+.thread:                                          ; preds = %28, %39
+  %43 = phi ptr [ %.pre, %39 ], [ %29, %28 ]
+  %44 = add nsw i32 %.06, -1
+  %45 = getelementptr inbounds i8, ptr %43, i64 416
+  %46 = load i32, ptr %45, align 4
+  %47 = add nsw i32 %46, -1
+  %48 = tail call noundef i32 @llvm.smin.i32(i32 %44, i32 %47)
+  %49 = icmp sgt i32 %48, -1
+  br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %46, %28, %39, %13, %1
+.loopexit:                                        ; preds = %.thread, %28, %39, %13, %1
   ret void
 }
 

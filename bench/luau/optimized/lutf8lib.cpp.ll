@@ -475,20 +475,20 @@ _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
   %55 = shl i64 %indvars.iv.i.i14, 32
   %sext.i.i18 = sub i64 30064771072, %55
   %56 = ashr exact i64 %sext.i.i18, 32
+  %sext = shl i64 %indvars.iv.next.i.i17, 32
+  %57 = ashr exact i64 %sext, 32
   br label %_ZL11buffutfcharP9lua_StateiPcPPKc.exit23
 
 _ZL11buffutfcharP9lua_StateiPcPPKc.exit23:        ; preds = %38, %50
   %.sink26.i.i19 = phi i64 [ %56, %50 ], [ 7, %38 ]
   %.sink.in.i.i20 = phi i64 [ %54, %50 ], [ %39, %38 ]
-  %.014.i.i21 = phi i64 [ %indvars.iv.next.i.i17, %50 ], [ 1, %38 ]
+  %.014.i.i21 = phi i64 [ %57, %50 ], [ 1, %38 ]
   %.sink.i.i22 = trunc i64 %.sink.in.i.i20 to i8
-  %57 = getelementptr inbounds i8, ptr %2, i64 %.sink26.i.i19
-  store i8 %.sink.i.i22, ptr %57, align 1
-  %sext = shl i64 %.014.i.i21, 32
-  %58 = ashr exact i64 %sext, 32
-  %59 = sub nsw i64 0, %58
+  %58 = getelementptr inbounds i8, ptr %2, i64 %.sink26.i.i19
+  store i8 %.sink.i.i22, ptr %58, align 1
+  %59 = sub nsw i64 0, %.014.i.i21
   %60 = getelementptr inbounds i8, ptr %34, i64 %59
-  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %3, ptr noundef nonnull %60, i64 noundef %58)
+  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %3, ptr noundef nonnull %60, i64 noundef %.014.i.i21)
   %61 = add nuw i32 %.031, 1
   %exitcond.not = icmp eq i32 %.031, %4
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !14

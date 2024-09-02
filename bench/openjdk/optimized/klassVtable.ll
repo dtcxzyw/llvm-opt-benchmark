@@ -1507,9 +1507,9 @@ _ZN11klassVtable13put_method_atEP6Methodi.exit:   ; preds = %143, %_ZN11klassVta
   %wide.trip.count88 = zext nneg i32 %160 to i64
   br label %170
 
-170:                                              ; preds = %162, %219
-  %indvars.iv85 = phi i64 [ 0, %162 ], [ %indvars.iv.next86, %219 ]
-  %.377 = phi i32 [ %.067.lcssa, %162 ], [ %.4, %219 ]
+170:                                              ; preds = %162, %220
+  %indvars.iv85 = phi i64 [ 0, %162 ], [ %indvars.iv.next86, %220 ]
+  %.377 = phi i32 [ %.067.lcssa, %162 ], [ %.4, %220 ]
   %171 = getelementptr inbounds ptr, ptr %165, i64 %indvars.iv85
   %172 = load ptr, ptr %171, align 8
   store ptr %172, ptr %4, align 8
@@ -1554,7 +1554,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit49:      ; preds = %170, %_ZN26Growable
   %193 = trunc nuw nsw i64 %indvars.iv85 to i32
   %194 = call noundef zeroext i1 @_ZN11klassVtable23update_inherited_vtableEP6ThreadRK12methodHandleiiP13GrowableArrayIP13InstanceKlassE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %.0.i, i32 noundef %193, ptr noundef %1)
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
-  br i1 %194, label %195, label %219
+  br i1 %194, label %195, label %220
 
 195:                                              ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit49
   %196 = load ptr, ptr %171, align 8
@@ -1584,84 +1584,84 @@ _ZN11klassVtable13put_method_atEP6Methodi.exit53: ; preds = %195, %201
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre98, i64 188
   %.pre99 = load i16, ptr %.phi.trans.insert, align 4
   %.pre102 = and i16 %.pre99, 1
-  %.not.i54 = icmp eq i16 %.pre102, 0
-  br i1 %.not.i54, label %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread, label %_ZN11klassVtable13put_method_atEP6Methodi.exit53.thread
+  %211 = icmp eq i16 %.pre102, 0
+  br i1 %211, label %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread, label %_ZN11klassVtable13put_method_atEP6Methodi.exit53.thread
 
 _ZN11klassVtable13put_method_atEP6Methodi.exit53.thread: ; preds = %201, %_ZN11klassVtable13put_method_atEP6Methodi.exit53
-  %211 = phi i16 [ %.pre99, %_ZN11klassVtable13put_method_atEP6Methodi.exit53 ], [ %199, %201 ]
-  %212 = load i8, ptr @_ZN15MetaspaceShared19_remapped_readwriteE, align 1
-  %213 = trunc i8 %212 to i1
-  %214 = and i16 %211, 8
-  %215 = icmp eq i16 %214, 0
-  %or.cond.not = or i1 %215, %213
-  br i1 %or.cond.not, label %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread, label %217
+  %212 = phi i16 [ %.pre99, %_ZN11klassVtable13put_method_atEP6Methodi.exit53 ], [ %199, %201 ]
+  %213 = load i8, ptr @_ZN15MetaspaceShared19_remapped_readwriteE, align 1
+  %214 = trunc i8 %213 to i1
+  %215 = and i16 %212, 8
+  %216 = icmp eq i16 %215, 0
+  %or.cond.not = or i1 %216, %214
+  br i1 %or.cond.not, label %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread, label %218
 
 _ZN11klassVtable24is_preinitialized_vtableEv.exit.thread: ; preds = %_ZN11klassVtable13put_method_atEP6Methodi.exit53, %_ZN11klassVtable13put_method_atEP6Methodi.exit53.thread
-  %216 = getelementptr inbounds i32, ptr %169, i64 %indvars.iv85
-  store i32 %.377, ptr %216, align 4
-  br label %217
+  %217 = getelementptr inbounds i32, ptr %169, i64 %indvars.iv85
+  store i32 %.377, ptr %217, align 4
+  br label %218
 
-217:                                              ; preds = %_ZN11klassVtable13put_method_atEP6Methodi.exit53.thread, %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread
-  %218 = add nsw i32 %.377, 1
-  br label %219
+218:                                              ; preds = %_ZN11klassVtable13put_method_atEP6Methodi.exit53.thread, %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread
+  %219 = add nsw i32 %.377, 1
+  br label %220
 
-219:                                              ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit49, %217
-  %.4 = phi i32 [ %218, %217 ], [ %.377, %_ZN12methodHandleC2EP6ThreadP6Method.exit49 ]
+220:                                              ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit49, %218
+  %.4 = phi i32 [ %219, %218 ], [ %.377, %_ZN12methodHandleC2EP6ThreadP6Method.exit49 ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %.loopexit74.loopexit, label %170, !llvm.loop !18
 
-.loopexit74.loopexit:                             ; preds = %219
+.loopexit74.loopexit:                             ; preds = %220
   %.pre100 = load ptr, ptr %0, align 8
   br label %.loopexit74
 
 .loopexit74:                                      ; preds = %.loopexit74.loopexit, %159, %._crit_edge
-  %220 = phi ptr [ %156, %._crit_edge ], [ %156, %159 ], [ %.pre100, %.loopexit74.loopexit ]
+  %221 = phi ptr [ %156, %._crit_edge ], [ %156, %159 ], [ %.pre100, %.loopexit74.loopexit ]
   %.2 = phi i32 [ %.067.lcssa, %._crit_edge ], [ %.067.lcssa, %159 ], [ %.4, %.loopexit74.loopexit ]
-  %221 = getelementptr inbounds i8, ptr %220, i64 164
-  %222 = load i32, ptr %221, align 4
-  %223 = and i32 %222, 512
-  %.not71 = icmp eq i32 %223, 0
-  br i1 %.not71, label %224, label %226
+  %222 = getelementptr inbounds i8, ptr %221, i64 164
+  %223 = load i32, ptr %222, align 4
+  %224 = and i32 %223, 512
+  %.not71 = icmp eq i32 %224, 0
+  br i1 %.not71, label %225, label %227
 
-224:                                              ; preds = %.loopexit74
-  %225 = call noundef i32 @_ZN11klassVtable16fill_in_mirandasEP6Threadi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %12, i32 noundef %.2)
+225:                                              ; preds = %.loopexit74
+  %226 = call noundef i32 @_ZN11klassVtable16fill_in_mirandasEP6Threadi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %12, i32 noundef %.2)
   %.pre101 = load ptr, ptr %0, align 8
-  br label %226
+  br label %227
 
-226:                                              ; preds = %224, %.loopexit74
-  %227 = phi ptr [ %220, %.loopexit74 ], [ %.pre101, %224 ]
-  %.5 = phi i32 [ %.2, %.loopexit74 ], [ %225, %224 ]
-  %228 = call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %227) #15
-  %229 = icmp ugt i16 %228, 50
-  br i1 %229, label %.loopexit, label %.preheader72
+227:                                              ; preds = %225, %.loopexit74
+  %228 = phi ptr [ %221, %.loopexit74 ], [ %.pre101, %225 ]
+  %.5 = phi i32 [ %.2, %.loopexit74 ], [ %226, %225 ]
+  %229 = call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %228) #15
+  %230 = icmp ugt i16 %229, 50
+  br i1 %230, label %.loopexit, label %.preheader72
 
-.preheader72:                                     ; preds = %226
-  %230 = getelementptr inbounds i8, ptr %0, i64 12
-  %231 = load i32, ptr %230, align 4
-  %232 = icmp slt i32 %.5, %231
-  br i1 %232, label %.lr.ph80, label %.loopexit
+.preheader72:                                     ; preds = %227
+  %231 = getelementptr inbounds i8, ptr %0, i64 12
+  %232 = load i32, ptr %231, align 4
+  %233 = icmp slt i32 %.5, %232
+  br i1 %233, label %.lr.ph80, label %.loopexit
 
 .lr.ph80:                                         ; preds = %.preheader72
-  %233 = getelementptr inbounds i8, ptr %0, i64 8
-  %234 = sext i32 %.5 to i64
-  br label %235
+  %234 = getelementptr inbounds i8, ptr %0, i64 8
+  %235 = sext i32 %.5 to i64
+  br label %236
 
-235:                                              ; preds = %.lr.ph80, %235
-  %indvars.iv90 = phi i64 [ %234, %.lr.ph80 ], [ %indvars.iv.next91, %235 ]
-  %236 = load ptr, ptr %0, align 8
-  %237 = load i32, ptr %233, align 8
-  %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds i8, ptr %236, i64 %238
-  %240 = getelementptr inbounds %class.vtableEntry, ptr %239, i64 %indvars.iv90
-  store ptr null, ptr %240, align 8
+236:                                              ; preds = %.lr.ph80, %236
+  %indvars.iv90 = phi i64 [ %235, %.lr.ph80 ], [ %indvars.iv.next91, %236 ]
+  %237 = load ptr, ptr %0, align 8
+  %238 = load i32, ptr %234, align 8
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr inbounds i8, ptr %237, i64 %239
+  %241 = getelementptr inbounds %class.vtableEntry, ptr %240, i64 %indvars.iv90
+  store ptr null, ptr %241, align 8
   %indvars.iv.next91 = add nsw i64 %indvars.iv90, 1
-  %241 = load i32, ptr %230, align 4
-  %242 = sext i32 %241 to i64
-  %243 = icmp slt i64 %indvars.iv.next91, %242
-  br i1 %243, label %235, label %.loopexit, !llvm.loop !19
+  %242 = load i32, ptr %231, align 4
+  %243 = sext i32 %242 to i64
+  %244 = icmp slt i64 %indvars.iv.next91, %243
+  br i1 %244, label %236, label %.loopexit, !llvm.loop !19
 
-.loopexit:                                        ; preds = %235, %36, %.preheader72, %.preheader, %226, %_ZN11klassVtable21initialize_from_superEP5Klass.exit
+.loopexit:                                        ; preds = %236, %36, %.preheader72, %.preheader, %227, %_ZN11klassVtable21initialize_from_superEP5Klass.exit
   ret void
 }
 
@@ -3191,19 +3191,19 @@ _ZN11klassVtable24is_preinitialized_vtableEv.exit.thread.i: ; preds = %46, %31
 
 _ZN11klassVtable13put_method_atEP6Methodi.exit:   ; preds = %46, %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread.i
   %55 = tail call noundef zeroext i1 @_ZNK6Method17is_default_methodEv(ptr noundef nonnull align 8 dereferenceable(88) %25) #15
-  br i1 %55, label %56, label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit
+  br i1 %55, label %56, label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit.thread
 
 56:                                               ; preds = %_ZN11klassVtable13put_method_atEP6Methodi.exit
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 408
   %59 = load ptr, ptr %58, align 8
   %.not.i = icmp eq ptr %59, null
-  br i1 %.not.i, label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit, label %60
+  br i1 %.not.i, label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit.thread, label %60
 
 60:                                               ; preds = %56
   %61 = load i32, ptr %59, align 8
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph.i, label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit
+  br i1 %62, label %.lr.ph.i, label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit.thread
 
 .lr.ph.i:                                         ; preds = %60
   %63 = getelementptr inbounds i8, ptr %57, i64 440
@@ -3215,7 +3215,7 @@ _ZN11klassVtable13put_method_atEP6Methodi.exit:   ; preds = %46, %_ZN11klassVtab
 66:                                               ; preds = %67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit, label %67, !llvm.loop !25
+  br i1 %exitcond.not.i, label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit.thread, label %67, !llvm.loop !25
 
 67:                                               ; preds = %66, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %66 ]
@@ -3230,22 +3230,22 @@ _ZN11klassVtable13put_method_atEP6Methodi.exit:   ; preds = %46, %_ZN11klassVtab
   %74 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, %25
-  br i1 %76, label %77, label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit
+  br i1 %76, label %77, label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit.thread
 
 77:                                               ; preds = %72
   store ptr %41, ptr %74, align 8
-  br label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit
+  br label %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit.thread
 
-_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit: ; preds = %66, %77, %72, %60, %56, %_ZN11klassVtable13put_method_atEP6Methodi.exit
+_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit.thread: ; preds = %66, %60, %56, %72, %77, %_ZN11klassVtable13put_method_atEP6Methodi.exit
   %.0 = phi ptr [ @.str.10, %_ZN11klassVtable13put_method_atEP6Methodi.exit ], [ @.str.9, %77 ], [ @.str.10, %72 ], [ @.str.10, %56 ], [ @.str.10, %60 ], [ @.str.10, %66 ]
   %78 = load i8, ptr %1, align 1
   %79 = trunc i8 %78 to i1
   br i1 %79, label %92, label %80
 
-80:                                               ; preds = %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit
+80:                                               ; preds = %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit.thread
   %81 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_168ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not22 = icmp eq ptr %81, null
-  br i1 %.not22, label %91, label %82
+  %.not23 = icmp eq ptr %81, null
+  br i1 %.not23, label %91, label %82
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr %0, align 8
@@ -3263,10 +3263,10 @@ _ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit: ; preds = %66, %77, %
   store i8 1, ptr %1, align 1
   br label %92
 
-92:                                               ; preds = %91, %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit
+92:                                               ; preds = %91, %_ZN11klassVtable21adjust_default_methodEiP6MethodS1_.exit.thread
   %93 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_168ELS1_175ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not23 = icmp eq ptr %93, null
-  br i1 %.not23, label %98, label %94
+  %.not24 = icmp eq ptr %93, null
+  br i1 %.not24, label %98, label %94
 
 94:                                               ; preds = %92
   %95 = load ptr, ptr %0, align 8
@@ -4233,7 +4233,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %24, %26
 declare void @_ZN6Method16set_itable_indexEi(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN11klassItable26method_count_for_interfaceEP13InstanceKlass(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -8) i32 @_ZN11klassItable26method_count_for_interfaceEP13InstanceKlass(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 400
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8

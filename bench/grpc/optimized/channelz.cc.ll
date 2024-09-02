@@ -17210,7 +17210,7 @@ _ZNK9grpc_core10RefCountedINS_8channelz10SocketNode8SecurityENS_19PolymorphicRef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZN9grpc_core8channelz12_GLOBAL__N_114SecurityArgCmpEPvS2_(ptr noundef readnone %p, ptr noundef readnone %q) #16 {
+define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core8channelz12_GLOBAL__N_114SecurityArgCmpEPvS2_(ptr noundef readnone %p, ptr noundef readnone %q) #16 {
 entry:
   %cmp.i = icmp ult ptr %p, %q
   %cmp1.i = icmp ult ptr %q, %p

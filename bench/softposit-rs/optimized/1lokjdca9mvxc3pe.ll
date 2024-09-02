@@ -268,7 +268,7 @@ define noundef i32 @_ZN9softposit4p8e07convert21convert_p8bits_to_u3217hda8040e2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
-define noundef i64 @_ZN9softposit4p8e07convert21convert_p8bits_to_u6417hca086a50cf89ab6bE(i8 noundef %0) unnamed_addr #9 {
+define noundef range(i64 0, -6917529027641081856) i64 @_ZN9softposit4p8e07convert21convert_p8bits_to_u6417hca086a50cf89ab6bE(i8 noundef %0) unnamed_addr #9 {
   %2 = icmp ult i8 %0, 33
   br i1 %2, label %39, label %3
 

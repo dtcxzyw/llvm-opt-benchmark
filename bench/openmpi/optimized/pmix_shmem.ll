@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_shmem_t_class = local_unnamed_addr global %struct.pmix_class_t { ptr @.str.2, ptr @pmix_object_t_class, ptr @shmem_construct, ptr @shmem_destruct, i32 0, i32 0, ptr null, ptr null, i64 4256 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_shmem_segment_create(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -67, 1) i32 @pmix_shmem_segment_create(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = add i64 %1, 4
   %5 = tail call i64 @sysconf(i32 noundef 30) #8
   %6 = icmp eq i64 %5, -1

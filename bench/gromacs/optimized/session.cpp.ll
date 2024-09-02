@@ -319,7 +319,7 @@ define void @_ZN6gmxapi13SignalManagerC2EPN3gmx18StopHandlerBuilderE(ptr noundef
 
 .thread:                                          ; preds = %2
   store i32 2, ptr %8, align 4
-  br label %22
+  br label %23
 
 _ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit: ; preds = %2
   %18 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
@@ -336,25 +336,25 @@ _ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit: ; preds = %2
 
 ._crit_edge:                                      ; preds = %20
   %.pre = load i32, ptr %21, align 4
-  br label %22
+  %22 = add nsw i32 %.pre, 1
+  br label %23
 
-22:                                               ; preds = %._crit_edge, %.thread
-  %23 = phi i32 [ 2, %.thread ], [ %.pre, %._crit_edge ]
-  %24 = phi ptr [ %8, %.thread ], [ %21, %._crit_edge ]
-  %25 = phi ptr [ %7, %.thread ], [ %.pr, %._crit_edge ]
-  %26 = phi ptr [ %10, %.thread ], [ %19, %._crit_edge ]
-  %27 = add nsw i32 %23, 1
-  store i32 %27, ptr %24, align 4
+23:                                               ; preds = %._crit_edge, %.thread
+  %24 = phi i32 [ 3, %.thread ], [ %22, %._crit_edge ]
+  %25 = phi ptr [ %8, %.thread ], [ %21, %._crit_edge ]
+  %26 = phi ptr [ %7, %.thread ], [ %.pr, %._crit_edge ]
+  %27 = phi ptr [ %10, %.thread ], [ %19, %._crit_edge ]
+  store i32 %24, ptr %25, align 4
   br label %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit8
 
 28:                                               ; preds = %20
   %29 = atomicrmw volatile add ptr %21, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit8
 
-_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit8: ; preds = %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit, %22, %28
-  %.not.i.i.i617 = phi i1 [ true, %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit ], [ false, %22 ], [ false, %28 ]
-  %30 = phi ptr [ %19, %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit ], [ %26, %22 ], [ %19, %28 ]
-  %31 = phi ptr [ null, %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit ], [ %25, %22 ], [ %.pr, %28 ]
+_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit8: ; preds = %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit, %23, %28
+  %.not.i.i.i617 = phi i1 [ true, %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit ], [ false, %23 ], [ false, %28 ]
+  %30 = phi ptr [ %19, %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit ], [ %27, %23 ], [ %19, %28 ]
+  %31 = phi ptr [ null, %_ZNSt10shared_ptrIN3gmx10StopSignalEEC2ERKS2_.exit ], [ %26, %23 ], [ %.pr, %28 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %32 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
           to label %.noexc unwind label %121

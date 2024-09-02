@@ -2049,17 +2049,17 @@ largest_common_denominator.exit.us.i:             ; preds = %.preheader.us.i
 334:                                              ; preds = %328
   %335 = sub i16 %333, %331
   %.not62.i.i = icmp slt i16 %335, %324
-  br i1 %.not62.i.i, label %339, label %336
+  br i1 %.not62.i.i, label %340, label %336
 
 336:                                              ; preds = %334
   %337 = sext i16 %335 to i32
   %338 = sdiv i32 %337, %325
-  br label %339
+  %339 = trunc i32 %338 to i16
+  br label %340
 
-339:                                              ; preds = %336, %334
-  %.051.i.i = phi i32 [ %338, %336 ], [ 0, %334 ]
-  %340 = trunc i32 %.051.i.i to i16
-  %341 = sub i16 0, %340
+340:                                              ; preds = %336, %334
+  %.051.i.i = phi i16 [ %339, %336 ], [ 0, %334 ]
+  %341 = sub i16 0, %.051.i.i
   br label %348
 
 342:                                              ; preds = %328
@@ -2073,8 +2073,8 @@ largest_common_denominator.exit.us.i:             ; preds = %.preheader.us.i
   %347 = trunc i32 %346 to i16
   br label %348
 
-348:                                              ; preds = %344, %342, %339
-  %.1.i.i = phi i16 [ %341, %339 ], [ %347, %344 ], [ 0, %342 ]
+348:                                              ; preds = %344, %342, %340
+  %.1.i.i = phi i16 [ %341, %340 ], [ %347, %344 ], [ 0, %342 ]
   store i16 %.1.i.i, ptr %329, align 2
   br label %349
 
@@ -4930,29 +4930,29 @@ thread-pre-split:                                 ; preds = %1104, %1108, %1124
   %1238 = load ptr, ptr %1235, align 8
   %1239 = getelementptr inbounds [64 x i16], ptr %1238, i64 %1178
   %1240 = load i16, ptr %1239, align 2
-  %1241 = sext i16 %1240 to i32
-  %1242 = load i32, ptr %1179, align 4
-  %1243 = icmp ult i32 %1167, %1242
-  br i1 %1243, label %1244, label %.lr.ph.us71.us.i
+  %1241 = load i32, ptr %1179, align 4
+  %1242 = icmp ult i32 %1167, %1241
+  br i1 %1242, label %1243, label %.lr.ph.us71.us.i
 
-1244:                                             ; preds = %.lr.ph66.us85.i
+1243:                                             ; preds = %.lr.ph66.us85.i
+  %1244 = sext i16 %1240 to i32
   %1245 = getelementptr inbounds [64 x i16], ptr %1238, i64 %1180
   %1246 = load i16, ptr %1245, align 2
   %1247 = sext i16 %1246 to i32
-  %1248 = add nsw i32 %1247, %1241
-  %1249 = ashr i32 %1248, 1
+  %1248 = add nsw i32 %1247, %1244
+  %1249 = lshr i32 %1248, 1
+  %1250 = trunc i32 %1249 to i16
   br label %.lr.ph.us71.us.i
 
-.lr.ph.us71.us.i:                                 ; preds = %1244, %.lr.ph66.us85.i
-  %.058.us68.us.i = phi i32 [ %1249, %1244 ], [ %1241, %.lr.ph66.us85.i ]
-  %1250 = trunc nsw i32 %.058.us68.us.i to i16
+.lr.ph.us71.us.i:                                 ; preds = %1243, %.lr.ph66.us85.i
+  %.058.us68.us.i = phi i16 [ %1250, %1243 ], [ %1240, %.lr.ph66.us85.i ]
   br label %1251
 
 1251:                                             ; preds = %1251, %.lr.ph.us71.us.i
   %indvars.iv99.i = phi i64 [ %indvars.iv.next100.i, %1251 ], [ %1174, %.lr.ph.us71.us.i ]
   %1252 = load ptr, ptr %1235, align 8
   %1253 = getelementptr inbounds [64 x i16], ptr %1252, i64 %indvars.iv99.i
-  store i16 %1250, ptr %1253, align 2
+  store i16 %.058.us68.us.i, ptr %1253, align 2
   %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
   %exitcond.not.i222 = icmp eq i64 %indvars.iv.next100.i, %1180
   br i1 %exitcond.not.i222, label %..loopexit_crit_edge.us72.us.i, label %1251, !llvm.loop !98

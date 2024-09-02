@@ -1008,7 +1008,7 @@ define internal fastcc void @__rate_control_send_low(ptr nocapture noundef reado
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %43, %25
   %45 = icmp eq i32 %44, %25
-  br i1 %45, label %.thread, label %46
+  br i1 %45, label %.critedge, label %46
 
 46:                                               ; preds = %40, %.split.us
   %47 = add nuw nsw i64 %36, 1
@@ -1038,9 +1038,9 @@ define internal fastcc void @__rate_control_send_low(ptr nocapture noundef reado
   %64 = zext i32 %63 to i64
   %65 = and i64 %50, %64
   %66 = icmp eq i64 %65, 0
-  br i1 %66, label %69, label %.thread
+  br i1 %66, label %69, label %.critedge
 
-.thread:                                          ; preds = %59, %40
+.critedge:                                        ; preds = %59, %40
   %.us-phi = phi i64 [ %36, %40 ], [ %49, %59 ]
   %67 = trunc i64 %.us-phi to i32
   %68 = trunc i64 %.us-phi to i8
@@ -1053,9 +1053,9 @@ define internal fastcc void @__rate_control_send_low(ptr nocapture noundef reado
   %71 = icmp eq i64 %70, %35
   br i1 %71, label %.loopexit, label %.split, !llvm.loop !51
 
-.loopexit:                                        ; preds = %69, %46, %.thread, %24
-  %72 = phi i32 [ %.pre, %.thread ], [ %28, %24 ], [ %28, %46 ], [ %28, %69 ]
-  %73 = phi i32 [ %67, %.thread ], [ 0, %24 ], [ %28, %46 ], [ %28, %69 ]
+.loopexit:                                        ; preds = %69, %46, %.critedge, %24
+  %72 = phi i32 [ %.pre, %.critedge ], [ %28, %24 ], [ %28, %46 ], [ %28, %69 ]
+  %73 = phi i32 [ %67, %.critedge ], [ 0, %24 ], [ %28, %46 ], [ %28, %69 ]
   %74 = icmp ne i32 %73, %72
   %75 = load i1, ptr @__rate_control_send_low.__already_done, align 1
   %76 = select i1 %74, i1 true, i1 %75

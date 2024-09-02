@@ -25829,8 +25829,8 @@ lor.rhs:                                          ; preds = %land.lhs.true
 
 land.rhs13:                                       ; preds = %lor.rhs
   %6 = load i32, ptr %arrayidx, align 4
-  %cmp.i.i21 = icmp eq i32 %.pre, %6
-  br i1 %cmp.i.i21, label %for.inc, label %if.end24
+  %cmp.i.i21.not = icmp eq i32 %.pre, %6
+  br i1 %cmp.i.i21.not, label %for.inc, label %if.end24
 
 if.then20:                                        ; preds = %if.end, %lor.rhs
   %idxprom22 = sext i32 %numUniqueInactiveVals.042 to i64
@@ -33419,8 +33419,8 @@ lor.rhs:                                          ; preds = %land.lhs.true
 
 land.rhs13:                                       ; preds = %lor.rhs
   %6 = load i64, ptr %arrayidx, align 8
-  %cmp.i.i21 = icmp eq i64 %.pre, %6
-  br i1 %cmp.i.i21, label %for.inc, label %if.end24
+  %cmp.i.i21.not = icmp eq i64 %.pre, %6
+  br i1 %cmp.i.i21.not, label %for.inc, label %if.end24
 
 if.then20:                                        ; preds = %if.end, %lor.rhs
   %idxprom22 = sext i32 %numUniqueInactiveVals.042 to i64
@@ -40898,8 +40898,8 @@ lor.rhs:                                          ; preds = %land.lhs.true
 
 land.rhs13:                                       ; preds = %lor.rhs
   %6 = load float, ptr %arrayidx, align 4
-  %cmp.i.i21 = fcmp oeq float %.pre, %6
-  br i1 %cmp.i.i21, label %for.inc, label %if.end24
+  %cmp.i.i21 = fcmp une float %.pre, %6
+  br i1 %cmp.i.i21, label %if.end24, label %for.inc
 
 if.then20:                                        ; preds = %if.end, %lor.rhs
   %idxprom22 = sext i32 %numUniqueInactiveVals.042 to i64
@@ -48682,8 +48682,8 @@ lor.rhs:                                          ; preds = %land.lhs.true
 
 land.rhs13:                                       ; preds = %lor.rhs
   %6 = load double, ptr %arrayidx, align 8
-  %cmp.i.i21 = fcmp oeq double %.pre, %6
-  br i1 %cmp.i.i21, label %for.inc, label %if.end24
+  %cmp.i.i21 = fcmp une double %.pre, %6
+  br i1 %cmp.i.i21, label %if.end24, label %for.inc
 
 if.then20:                                        ; preds = %if.end, %lor.rhs
   %idxprom22 = sext i32 %numUniqueInactiveVals.042 to i64
@@ -56500,8 +56500,8 @@ _ZN7openvdb5v11_02io12MaskCompressINS0_4math4Vec3IiEENS0_4util8NodeMaskILj3EEEE2
   %arrayidx.i.i7.i.i.i26 = getelementptr inbounds i8, ptr %arrayidx8, i64 8
   %13 = load i32, ptr %arrayidx.i.i7.i.i.i26, align 4
   %14 = load i32, ptr %arrayidx.i.i8.i.i.i27, align 4
-  %cmp.i9.i.i.i28 = icmp eq i32 %13, %14
-  br i1 %cmp.i9.i.i.i28, label %for.inc, label %if.end25
+  %cmp.i9.i.i.i28.not = icmp eq i32 %13, %14
+  br i1 %cmp.i9.i.i.i28.not, label %for.inc, label %if.end25
 
 if.then21:                                        ; preds = %if.end, %lor.rhs
   %idxprom23 = sext i32 %numUniqueInactiveVals.0149 to i64
@@ -64153,8 +64153,8 @@ _ZN7openvdb5v11_02io12MaskCompressINS0_4math4Vec3IfEENS0_4util8NodeMaskILj3EEEE2
   %arrayidx.i.i7.i.i.i26 = getelementptr inbounds i8, ptr %arrayidx8, i64 8
   %13 = load float, ptr %arrayidx.i.i7.i.i.i26, align 4
   %14 = load float, ptr %arrayidx.i.i8.i.i.i27, align 4
-  %cmp.i9.i.i.i28 = fcmp oeq float %13, %14
-  br i1 %cmp.i9.i.i.i28, label %for.inc, label %if.end25
+  %cmp.i9.i.i.i28 = fcmp une float %13, %14
+  br i1 %cmp.i9.i.i.i28, label %if.end25, label %for.inc
 
 if.then21:                                        ; preds = %if.end, %lor.rhs
   %idxprom23 = sext i32 %numUniqueInactiveVals.0145 to i64
@@ -72396,8 +72396,8 @@ _ZN7openvdb5v11_02io12MaskCompressINS0_4math4Vec3IdEENS0_4util8NodeMaskILj3EEEE2
   %arrayidx.i.i7.i.i.i26 = getelementptr inbounds i8, ptr %arrayidx8, i64 16
   %13 = load double, ptr %arrayidx.i.i7.i.i.i26, align 8
   %14 = load double, ptr %arrayidx.i.i8.i.i.i27, align 8
-  %cmp.i9.i.i.i28 = fcmp oeq double %13, %14
-  br i1 %cmp.i9.i.i.i28, label %for.inc, label %if.end25
+  %cmp.i9.i.i.i28 = fcmp une double %13, %14
+  br i1 %cmp.i9.i.i.i28, label %if.end25, label %for.inc
 
 if.then21:                                        ; preds = %if.end, %lor.rhs
   %idxprom23 = sext i32 %numUniqueInactiveVals.0141 to i64

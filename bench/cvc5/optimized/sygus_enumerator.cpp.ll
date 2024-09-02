@@ -11028,15 +11028,14 @@ if.else126:                                       ; preds = %invoke.cont122
   %98 = load i32, ptr %d_sizeEnum.i, align 8
   %add = add i32 %98, %sum.01976
   %99 = load i32, ptr %d_currSize, align 8
-  %cmp129 = icmp ugt i32 %add, %99
-  %.doTerminate.2 = select i1 %cmp129, i8 0, i8 %doTerminate.21975
-  %. = select i1 %cmp129, i32 7, i32 0
+  %cmp129 = icmp ule i32 %add, %99
+  %.doTerminate.2 = select i1 %cmp129, i8 %doTerminate.21975, i8 0
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else126, %invoke.cont122
   %doTerminate.4 = phi i8 [ 0, %invoke.cont122 ], [ %.doTerminate.2, %if.else126 ]
   %sum.1 = phi i32 [ %sum.01976, %invoke.cont122 ], [ %add, %if.else126 ]
-  %cleanup.dest.slot.0 = phi i32 [ 7, %invoke.cont122 ], [ %., %if.else126 ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %invoke.cont122 ], [ %cmp129, %if.else126 ]
   %100 = load ptr, ptr %tnc, align 8
   %bf.load.i.i705 = load i64, ptr %100, align 8
   %101 = and i64 %bf.load.i.i705, 1152920405095219200
@@ -11064,10 +11063,9 @@ terminate.lpad.i714:                              ; preds = %if.then13.i.i713
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit715:           ; preds = %cleanup, %if.then.i.i707, %if.then13.i.i713
-  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp114 = icmp ult i64 %indvars.iv.next, %87
-  %or.cond = and i1 %switch, %cmp114
+  %or.cond = and i1 %cleanup.dest.slot.0, %cmp114
   br i1 %or.cond, label %for.body115, label %for.end.loopexit, !llvm.loop !58
 
 for.end.loopexit:                                 ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit715

@@ -1096,114 +1096,107 @@ for.end:                                          ; preds = %for.cond, %for.cond
   %cmp32 = icmp eq ptr %12, @BN_mod_exp_mont
   %cmp34 = icmp eq i32 %ex_primes.0, 0
   %or.cond1 = and i1 %cmp34, %cmp32
-  br i1 %or.cond1, label %land.rhs, label %land.end
+  br i1 %or.cond1, label %land.rhs, label %if.end40
 
 land.rhs:                                         ; preds = %for.end
   %13 = load ptr, ptr %q, align 8
   %call36 = tail call i32 @BN_num_bits(ptr noundef %13) #8
   %14 = load ptr, ptr %p, align 8
   %call38 = tail call i32 @BN_num_bits(ptr noundef %14) #8
-  %cmp39 = icmp eq i32 %call36, %call38
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.end
-  %15 = phi i1 [ false, %for.end ], [ %cmp39, %land.rhs ]
-  %land.ext = zext i1 %15 to i32
-  %.pre = load i32, ptr %flags, align 4
+  %cmp39 = icmp ne i32 %call36, %call38
   br label %if.end40
 
-if.end40:                                         ; preds = %land.end, %if.end9
-  %16 = phi i32 [ %.pre, %land.end ], [ %3, %if.end9 ]
-  %smooth.0 = phi i32 [ %land.ext, %land.end ], [ 0, %if.end9 ]
-  %and42 = and i32 %16, 2
+if.end40:                                         ; preds = %for.end, %land.rhs, %if.end9
+  %smooth.0 = phi i1 [ true, %if.end9 ], [ true, %for.end ], [ %cmp39, %land.rhs ]
+  %15 = load i32, ptr %flags, align 4
+  %and42 = and i32 %15, 2
   %tobool43.not = icmp eq i32 %and42, 0
   br i1 %tobool43.not, label %if.end50, label %if.then44
 
 if.then44:                                        ; preds = %if.end40
   %_method_mod_n = getelementptr inbounds i8, ptr %rsa, i64 168
   %lock45 = getelementptr inbounds i8, ptr %rsa, i64 208
-  %17 = load ptr, ptr %lock45, align 8
+  %16 = load ptr, ptr %lock45, align 8
   %n = getelementptr inbounds i8, ptr %rsa, i64 40
-  %18 = load ptr, ptr %n, align 8
-  %call46 = tail call ptr @BN_MONT_CTX_set_locked(ptr noundef nonnull %_method_mod_n, ptr noundef %17, ptr noundef %18, ptr noundef %ctx) #8
+  %17 = load ptr, ptr %n, align 8
+  %call46 = tail call ptr @BN_MONT_CTX_set_locked(ptr noundef nonnull %_method_mod_n, ptr noundef %16, ptr noundef %17, ptr noundef %ctx) #8
   %tobool47.not = icmp eq ptr %call46, null
   br i1 %tobool47.not, label %err, label %if.end50
 
 if.end50:                                         ; preds = %if.then44, %if.end40
-  %tobool51.not = icmp eq i32 %smooth.0, 0
-  br i1 %tobool51.not, label %if.end97, label %if.then52
+  br i1 %smooth.0, label %if.end97, label %if.then52
 
 if.then52:                                        ; preds = %if.end50
   %_method_mod_q53 = getelementptr inbounds i8, ptr %rsa, i64 184
-  %19 = load ptr, ptr %_method_mod_q53, align 8
-  %call54 = tail call i32 @bn_from_mont_fixed_top(ptr noundef %call2, ptr noundef %I, ptr noundef %19, ptr noundef %ctx) #8
+  %18 = load ptr, ptr %_method_mod_q53, align 8
+  %call54 = tail call i32 @bn_from_mont_fixed_top(ptr noundef %call2, ptr noundef %I, ptr noundef %18, ptr noundef %ctx) #8
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %err, label %lor.lhs.false56
 
 lor.lhs.false56:                                  ; preds = %if.then52
-  %20 = load ptr, ptr %_method_mod_q53, align 8
-  %call58 = tail call i32 @bn_to_mont_fixed_top(ptr noundef %call2, ptr noundef %call2, ptr noundef %20, ptr noundef %ctx) #8
+  %19 = load ptr, ptr %_method_mod_q53, align 8
+  %call58 = tail call i32 @bn_to_mont_fixed_top(ptr noundef %call2, ptr noundef %call2, ptr noundef %19, ptr noundef %ctx) #8
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %err, label %lor.lhs.false60
 
 lor.lhs.false60:                                  ; preds = %lor.lhs.false56
   %_method_mod_p61 = getelementptr inbounds i8, ptr %rsa, i64 176
-  %21 = load ptr, ptr %_method_mod_p61, align 8
-  %call62 = tail call i32 @bn_from_mont_fixed_top(ptr noundef %call, ptr noundef %I, ptr noundef %21, ptr noundef %ctx) #8
+  %20 = load ptr, ptr %_method_mod_p61, align 8
+  %call62 = tail call i32 @bn_from_mont_fixed_top(ptr noundef %call, ptr noundef %I, ptr noundef %20, ptr noundef %ctx) #8
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %err, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %lor.lhs.false60
-  %22 = load ptr, ptr %_method_mod_p61, align 8
-  %call66 = tail call i32 @bn_to_mont_fixed_top(ptr noundef %call, ptr noundef %call, ptr noundef %22, ptr noundef %ctx) #8
+  %21 = load ptr, ptr %_method_mod_p61, align 8
+  %call66 = tail call i32 @bn_to_mont_fixed_top(ptr noundef %call, ptr noundef %call, ptr noundef %21, ptr noundef %ctx) #8
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %err, label %lor.lhs.false68
 
 lor.lhs.false68:                                  ; preds = %lor.lhs.false64
   %dmq1 = getelementptr inbounds i8, ptr %rsa, i64 88
-  %23 = load ptr, ptr %dmq1, align 8
+  %22 = load ptr, ptr %dmq1, align 8
   %q69 = getelementptr inbounds i8, ptr %rsa, i64 72
-  %24 = load ptr, ptr %q69, align 8
-  %25 = load ptr, ptr %_method_mod_q53, align 8
+  %23 = load ptr, ptr %q69, align 8
+  %24 = load ptr, ptr %_method_mod_q53, align 8
   %dmp1 = getelementptr inbounds i8, ptr %rsa, i64 80
-  %26 = load ptr, ptr %dmp1, align 8
+  %25 = load ptr, ptr %dmp1, align 8
   %p71 = getelementptr inbounds i8, ptr %rsa, i64 64
-  %27 = load ptr, ptr %p71, align 8
-  %28 = load ptr, ptr %_method_mod_p61, align 8
-  %call73 = tail call i32 @BN_mod_exp_mont_consttime_x2(ptr noundef %call2, ptr noundef %call2, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %call, ptr noundef %call, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %ctx) #8
+  %26 = load ptr, ptr %p71, align 8
+  %27 = load ptr, ptr %_method_mod_p61, align 8
+  %call73 = tail call i32 @BN_mod_exp_mont_consttime_x2(ptr noundef %call2, ptr noundef %call2, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %call, ptr noundef %call, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %ctx) #8
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %err, label %lor.lhs.false75
 
 lor.lhs.false75:                                  ; preds = %lor.lhs.false68
-  %29 = load ptr, ptr %p71, align 8
-  %call77 = tail call i32 @bn_mod_sub_fixed_top(ptr noundef %call, ptr noundef %call, ptr noundef %call2, ptr noundef %29) #8
+  %28 = load ptr, ptr %p71, align 8
+  %call77 = tail call i32 @bn_mod_sub_fixed_top(ptr noundef %call, ptr noundef %call, ptr noundef %call2, ptr noundef %28) #8
   %tobool78.not = icmp eq i32 %call77, 0
   br i1 %tobool78.not, label %err, label %lor.lhs.false79
 
 lor.lhs.false79:                                  ; preds = %lor.lhs.false75
-  %30 = load ptr, ptr %_method_mod_p61, align 8
-  %call81 = tail call i32 @bn_to_mont_fixed_top(ptr noundef %call, ptr noundef %call, ptr noundef %30, ptr noundef %ctx) #8
+  %29 = load ptr, ptr %_method_mod_p61, align 8
+  %call81 = tail call i32 @bn_to_mont_fixed_top(ptr noundef %call, ptr noundef %call, ptr noundef %29, ptr noundef %ctx) #8
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %err, label %lor.lhs.false83
 
 lor.lhs.false83:                                  ; preds = %lor.lhs.false79
   %iqmp = getelementptr inbounds i8, ptr %rsa, i64 96
-  %31 = load ptr, ptr %iqmp, align 8
-  %32 = load ptr, ptr %_method_mod_p61, align 8
-  %call85 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %call, ptr noundef %call, ptr noundef %31, ptr noundef %32, ptr noundef %ctx) #8
+  %30 = load ptr, ptr %iqmp, align 8
+  %31 = load ptr, ptr %_method_mod_p61, align 8
+  %call85 = tail call i32 @bn_mul_mont_fixed_top(ptr noundef %call, ptr noundef %call, ptr noundef %30, ptr noundef %31, ptr noundef %ctx) #8
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %err, label %lor.lhs.false87
 
 lor.lhs.false87:                                  ; preds = %lor.lhs.false83
-  %33 = load ptr, ptr %q69, align 8
-  %call89 = tail call i32 @bn_mul_fixed_top(ptr noundef %r0, ptr noundef %call, ptr noundef %33, ptr noundef %ctx) #8
+  %32 = load ptr, ptr %q69, align 8
+  %call89 = tail call i32 @bn_mul_fixed_top(ptr noundef %r0, ptr noundef %call, ptr noundef %32, ptr noundef %ctx) #8
   %tobool90.not = icmp eq i32 %call89, 0
   br i1 %tobool90.not, label %err, label %lor.lhs.false91
 
 lor.lhs.false91:                                  ; preds = %lor.lhs.false87
   %n92 = getelementptr inbounds i8, ptr %rsa, i64 40
-  %34 = load ptr, ptr %n92, align 8
-  %call93 = tail call i32 @bn_mod_add_fixed_top(ptr noundef %r0, ptr noundef %r0, ptr noundef %call2, ptr noundef %34) #8
+  %33 = load ptr, ptr %n92, align 8
+  %call93 = tail call i32 @bn_mod_add_fixed_top(ptr noundef %r0, ptr noundef %r0, ptr noundef %call2, ptr noundef %33) #8
   %tobool94.not = icmp eq i32 %call93, 0
   br i1 %tobool94.not, label %err, label %tail
 
@@ -1215,8 +1208,8 @@ if.end97:                                         ; preds = %if.end50
 if.end101:                                        ; preds = %if.end97
   tail call void @BN_with_flags(ptr noundef nonnull %call98, ptr noundef %I, i32 noundef 4) #8
   %q102 = getelementptr inbounds i8, ptr %rsa, i64 72
-  %35 = load ptr, ptr %q102, align 8
-  %call103 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call, ptr noundef nonnull %call98, ptr noundef %35, ptr noundef %ctx) #8
+  %34 = load ptr, ptr %q102, align 8
+  %call103 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call, ptr noundef nonnull %call98, ptr noundef %34, ptr noundef %ctx) #8
   %tobool104.not = icmp eq i32 %call103, 0
   br i1 %tobool104.not, label %if.then105, label %if.end106
 
@@ -1235,16 +1228,16 @@ if.then110:                                       ; preds = %if.end106
 
 if.end111:                                        ; preds = %if.end106
   %dmq1112 = getelementptr inbounds i8, ptr %rsa, i64 88
-  %36 = load ptr, ptr %dmq1112, align 8
-  tail call void @BN_with_flags(ptr noundef nonnull %call108, ptr noundef %36, i32 noundef 4) #8
+  %35 = load ptr, ptr %dmq1112, align 8
+  tail call void @BN_with_flags(ptr noundef nonnull %call108, ptr noundef %35, i32 noundef 4) #8
   %meth113 = getelementptr inbounds i8, ptr %rsa, i64 24
-  %37 = load ptr, ptr %meth113, align 8
-  %bn_mod_exp114 = getelementptr inbounds i8, ptr %37, i64 48
-  %38 = load ptr, ptr %bn_mod_exp114, align 8
-  %39 = load ptr, ptr %q102, align 8
+  %36 = load ptr, ptr %meth113, align 8
+  %bn_mod_exp114 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = load ptr, ptr %bn_mod_exp114, align 8
+  %38 = load ptr, ptr %q102, align 8
   %_method_mod_q116 = getelementptr inbounds i8, ptr %rsa, i64 184
-  %40 = load ptr, ptr %_method_mod_q116, align 8
-  %call117 = tail call i32 %38(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %call108, ptr noundef %39, ptr noundef %ctx, ptr noundef %40) #8
+  %39 = load ptr, ptr %_method_mod_q116, align 8
+  %call117 = tail call i32 %37(ptr noundef %call2, ptr noundef %call, ptr noundef nonnull %call108, ptr noundef %38, ptr noundef %ctx, ptr noundef %39) #8
   %tobool118.not = icmp eq i32 %call117, 0
   br i1 %tobool118.not, label %if.then119, label %if.end120
 
@@ -1256,8 +1249,8 @@ if.then119:                                       ; preds = %if.end111
 if.end120:                                        ; preds = %if.end111
   tail call void @BN_free(ptr noundef nonnull %call108) #8
   %p121 = getelementptr inbounds i8, ptr %rsa, i64 64
-  %41 = load ptr, ptr %p121, align 8
-  %call122 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call, ptr noundef nonnull %call98, ptr noundef %41, ptr noundef %ctx) #8
+  %40 = load ptr, ptr %p121, align 8
+  %call122 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call, ptr noundef nonnull %call98, ptr noundef %40, ptr noundef %ctx) #8
   %tobool123.not = icmp eq i32 %call122, 0
   tail call void @BN_free(ptr noundef nonnull %call98) #8
   br i1 %tobool123.not, label %err, label %if.end125
@@ -1269,15 +1262,15 @@ if.end125:                                        ; preds = %if.end120
 
 if.end130:                                        ; preds = %if.end125
   %dmp1131 = getelementptr inbounds i8, ptr %rsa, i64 80
-  %42 = load ptr, ptr %dmp1131, align 8
-  tail call void @BN_with_flags(ptr noundef nonnull %call127, ptr noundef %42, i32 noundef 4) #8
-  %43 = load ptr, ptr %meth113, align 8
-  %bn_mod_exp133 = getelementptr inbounds i8, ptr %43, i64 48
-  %44 = load ptr, ptr %bn_mod_exp133, align 8
-  %45 = load ptr, ptr %p121, align 8
+  %41 = load ptr, ptr %dmp1131, align 8
+  tail call void @BN_with_flags(ptr noundef nonnull %call127, ptr noundef %41, i32 noundef 4) #8
+  %42 = load ptr, ptr %meth113, align 8
+  %bn_mod_exp133 = getelementptr inbounds i8, ptr %42, i64 48
+  %43 = load ptr, ptr %bn_mod_exp133, align 8
+  %44 = load ptr, ptr %p121, align 8
   %_method_mod_p135 = getelementptr inbounds i8, ptr %rsa, i64 176
-  %46 = load ptr, ptr %_method_mod_p135, align 8
-  %call136 = tail call i32 %44(ptr noundef %r0, ptr noundef %call, ptr noundef nonnull %call127, ptr noundef %45, ptr noundef %ctx, ptr noundef %46) #8
+  %45 = load ptr, ptr %_method_mod_p135, align 8
+  %call136 = tail call i32 %43(ptr noundef %r0, ptr noundef %call, ptr noundef nonnull %call127, ptr noundef %44, ptr noundef %ctx, ptr noundef %45) #8
   %tobool137.not = icmp eq i32 %call136, 0
   tail call void @BN_free(ptr noundef nonnull %call127) #8
   br i1 %tobool137.not, label %err, label %if.end139
@@ -1323,15 +1316,15 @@ if.then154:                                       ; preds = %for.body151
   br label %err
 
 if.end155:                                        ; preds = %for.body151
-  %47 = load ptr, ptr %prime_infos156, align 8
-  %48 = trunc nuw nsw i64 %indvars.iv to i32
-  %call.i268 = tail call ptr @OPENSSL_sk_value(ptr noundef %47, i32 noundef %48) #8
+  %46 = load ptr, ptr %prime_infos156, align 8
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
+  %call.i268 = tail call ptr @OPENSSL_sk_value(ptr noundef %46, i32 noundef %47) #8
   tail call void @BN_with_flags(ptr noundef %call143, ptr noundef %I, i32 noundef 4) #8
   %d = getelementptr inbounds i8, ptr %call.i268, i64 8
-  %49 = load ptr, ptr %d, align 8
-  tail call void @BN_with_flags(ptr noundef %call142, ptr noundef %49, i32 noundef 4) #8
-  %50 = load ptr, ptr %call.i268, align 8
-  %call159 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call, ptr noundef %call143, ptr noundef %50, ptr noundef %ctx) #8
+  %48 = load ptr, ptr %d, align 8
+  tail call void @BN_with_flags(ptr noundef %call142, ptr noundef %48, i32 noundef 4) #8
+  %49 = load ptr, ptr %call.i268, align 8
+  %call159 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call, ptr noundef %call143, ptr noundef %49, ptr noundef %ctx) #8
   %tobool160.not = icmp eq i32 %call159, 0
   br i1 %tobool160.not, label %if.then161, label %if.end162
 
@@ -1341,13 +1334,13 @@ if.then161:                                       ; preds = %if.end155
   br label %err
 
 if.end162:                                        ; preds = %if.end155
-  %51 = load ptr, ptr %meth113, align 8
-  %bn_mod_exp164 = getelementptr inbounds i8, ptr %51, i64 48
-  %52 = load ptr, ptr %bn_mod_exp164, align 8
-  %53 = load ptr, ptr %call.i268, align 8
+  %50 = load ptr, ptr %meth113, align 8
+  %bn_mod_exp164 = getelementptr inbounds i8, ptr %50, i64 48
+  %51 = load ptr, ptr %bn_mod_exp164, align 8
+  %52 = load ptr, ptr %call.i268, align 8
   %m168 = getelementptr inbounds i8, ptr %call.i268, i64 32
-  %54 = load ptr, ptr %m168, align 8
-  %call169 = tail call i32 %52(ptr noundef nonnull %call152, ptr noundef %call, ptr noundef %call142, ptr noundef %53, ptr noundef %ctx, ptr noundef %54) #8
+  %53 = load ptr, ptr %m168, align 8
+  %call169 = tail call i32 %51(ptr noundef nonnull %call152, ptr noundef %call, ptr noundef %call142, ptr noundef %52, ptr noundef %ctx, ptr noundef %53) #8
   %tobool170.not = icmp eq i32 %call169, 0
   br i1 %tobool170.not, label %if.then171, label %for.cond149
 
@@ -1372,15 +1365,15 @@ if.end180:                                        ; preds = %if.end176
   br i1 %tobool182.not, label %if.end189, label %if.then183
 
 if.then183:                                       ; preds = %if.end180
-  %55 = load ptr, ptr %p121, align 8
-  %call185 = tail call i32 @BN_add(ptr noundef %r0, ptr noundef %r0, ptr noundef %55) #8
+  %54 = load ptr, ptr %p121, align 8
+  %call185 = tail call i32 @BN_add(ptr noundef %r0, ptr noundef %r0, ptr noundef %54) #8
   %tobool186.not = icmp eq i32 %call185, 0
   br i1 %tobool186.not, label %err, label %if.end189
 
 if.end189:                                        ; preds = %if.then183, %if.end180
   %iqmp190 = getelementptr inbounds i8, ptr %rsa, i64 96
-  %56 = load ptr, ptr %iqmp190, align 8
-  %call191 = tail call i32 @BN_mul(ptr noundef %call, ptr noundef %r0, ptr noundef %56, ptr noundef %ctx) #8
+  %55 = load ptr, ptr %iqmp190, align 8
+  %call191 = tail call i32 @BN_mul(ptr noundef %call, ptr noundef %r0, ptr noundef %55, ptr noundef %ctx) #8
   %tobool192.not = icmp eq i32 %call191, 0
   br i1 %tobool192.not, label %err, label %if.end194
 
@@ -1391,8 +1384,8 @@ if.end194:                                        ; preds = %if.end189
 
 if.end198:                                        ; preds = %if.end194
   tail call void @BN_with_flags(ptr noundef nonnull %call195, ptr noundef %call, i32 noundef 4) #8
-  %57 = load ptr, ptr %p121, align 8
-  %call200 = tail call i32 @BN_div(ptr noundef null, ptr noundef %r0, ptr noundef nonnull %call195, ptr noundef %57, ptr noundef %ctx) #8
+  %56 = load ptr, ptr %p121, align 8
+  %call200 = tail call i32 @BN_div(ptr noundef null, ptr noundef %r0, ptr noundef nonnull %call195, ptr noundef %56, ptr noundef %ctx) #8
   %tobool201.not = icmp eq i32 %call200, 0
   tail call void @BN_free(ptr noundef nonnull %call195) #8
   br i1 %tobool201.not, label %err, label %if.end203
@@ -1403,14 +1396,14 @@ if.end203:                                        ; preds = %if.end198
   br i1 %tobool205.not, label %if.end212, label %if.then206
 
 if.then206:                                       ; preds = %if.end203
-  %58 = load ptr, ptr %p121, align 8
-  %call208 = tail call i32 @BN_add(ptr noundef %r0, ptr noundef %r0, ptr noundef %58) #8
+  %57 = load ptr, ptr %p121, align 8
+  %call208 = tail call i32 @BN_add(ptr noundef %r0, ptr noundef %r0, ptr noundef %57) #8
   %tobool209.not = icmp eq i32 %call208, 0
   br i1 %tobool209.not, label %err, label %if.end212
 
 if.end212:                                        ; preds = %if.then206, %if.end203
-  %59 = load ptr, ptr %q102, align 8
-  %call214 = tail call i32 @BN_mul(ptr noundef %call, ptr noundef %r0, ptr noundef %59, ptr noundef %ctx) #8
+  %58 = load ptr, ptr %q102, align 8
+  %call214 = tail call i32 @BN_mul(ptr noundef %call, ptr noundef %r0, ptr noundef %58, ptr noundef %ctx) #8
   %tobool215.not = icmp eq i32 %call214, 0
   br i1 %tobool215.not, label %err, label %if.end217
 
@@ -1439,12 +1432,12 @@ for.cond228:                                      ; preds = %if.end260
 
 for.body230:                                      ; preds = %for.body230.lr.ph, %for.cond228
   %indvars.iv278 = phi i64 [ 0, %for.body230.lr.ph ], [ %indvars.iv.next279, %for.cond228 ]
-  %60 = load ptr, ptr %prime_infos231, align 8
-  %61 = trunc nuw nsw i64 %indvars.iv278 to i32
-  %call.i269 = tail call ptr @OPENSSL_sk_value(ptr noundef %60, i32 noundef %61) #8
+  %59 = load ptr, ptr %prime_infos231, align 8
+  %60 = trunc nuw nsw i64 %indvars.iv278 to i32
+  %call.i269 = tail call ptr @OPENSSL_sk_value(ptr noundef %59, i32 noundef %60) #8
   %arrayidx234 = getelementptr inbounds [3 x ptr], ptr %m, i64 0, i64 %indvars.iv278
-  %62 = load ptr, ptr %arrayidx234, align 8
-  %call235 = tail call i32 @BN_sub(ptr noundef %call, ptr noundef %62, ptr noundef %r0) #8
+  %61 = load ptr, ptr %arrayidx234, align 8
+  %call235 = tail call i32 @BN_sub(ptr noundef %call, ptr noundef %61, ptr noundef %r0) #8
   %tobool236.not = icmp eq i32 %call235, 0
   br i1 %tobool236.not, label %if.then237, label %if.end238
 
@@ -1454,8 +1447,8 @@ if.then237:                                       ; preds = %for.body230
 
 if.end238:                                        ; preds = %for.body230
   %t = getelementptr inbounds i8, ptr %call.i269, i64 16
-  %63 = load ptr, ptr %t, align 8
-  %call239 = tail call i32 @BN_mul(ptr noundef %call1, ptr noundef %call, ptr noundef %63, ptr noundef %ctx) #8
+  %62 = load ptr, ptr %t, align 8
+  %call239 = tail call i32 @BN_mul(ptr noundef %call1, ptr noundef %call, ptr noundef %62, ptr noundef %ctx) #8
   %tobool240.not = icmp eq i32 %call239, 0
   br i1 %tobool240.not, label %if.then241, label %if.end242
 
@@ -1465,8 +1458,8 @@ if.then241:                                       ; preds = %if.end238
 
 if.end242:                                        ; preds = %if.end238
   tail call void @BN_with_flags(ptr noundef nonnull %call224, ptr noundef %call1, i32 noundef 4) #8
-  %64 = load ptr, ptr %call.i269, align 8
-  %call244 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call, ptr noundef nonnull %call224, ptr noundef %64, ptr noundef %ctx) #8
+  %63 = load ptr, ptr %call.i269, align 8
+  %call244 = tail call i32 @BN_div(ptr noundef null, ptr noundef %call, ptr noundef nonnull %call224, ptr noundef %63, ptr noundef %ctx) #8
   %tobool245.not = icmp eq i32 %call244, 0
   br i1 %tobool245.not, label %if.then246, label %if.end247
 
@@ -1480,8 +1473,8 @@ if.end247:                                        ; preds = %if.end242
   br i1 %tobool249.not, label %if.end256, label %if.then250
 
 if.then250:                                       ; preds = %if.end247
-  %65 = load ptr, ptr %call.i269, align 8
-  %call252 = tail call i32 @BN_add(ptr noundef %call, ptr noundef %call, ptr noundef %65) #8
+  %64 = load ptr, ptr %call.i269, align 8
+  %call252 = tail call i32 @BN_add(ptr noundef %call, ptr noundef %call, ptr noundef %64) #8
   %tobool253.not = icmp eq i32 %call252, 0
   br i1 %tobool253.not, label %if.then254, label %if.end256
 
@@ -1491,8 +1484,8 @@ if.then254:                                       ; preds = %if.then250
 
 if.end256:                                        ; preds = %if.then250, %if.end247
   %pp = getelementptr inbounds i8, ptr %call.i269, i64 24
-  %66 = load ptr, ptr %pp, align 8
-  %call257 = tail call i32 @BN_mul(ptr noundef %call, ptr noundef %call, ptr noundef %66, ptr noundef %ctx) #8
+  %65 = load ptr, ptr %pp, align 8
+  %call257 = tail call i32 @BN_mul(ptr noundef %call, ptr noundef %call, ptr noundef %65, ptr noundef %ctx) #8
   %tobool258.not = icmp eq i32 %call257, 0
   br i1 %tobool258.not, label %if.then259, label %if.end260
 
@@ -1515,41 +1508,41 @@ for.end267:                                       ; preds = %for.cond228
 
 tail:                                             ; preds = %if.end221, %for.end267, %lor.lhs.false91
   %e = getelementptr inbounds i8, ptr %rsa, i64 48
-  %67 = load ptr, ptr %e, align 8
-  %tobool269.not = icmp eq ptr %67, null
+  %66 = load ptr, ptr %e, align 8
+  %tobool269.not = icmp eq ptr %66, null
   br i1 %tobool269.not, label %if.end335, label %land.lhs.true270
 
 land.lhs.true270:                                 ; preds = %tail
   %n271 = getelementptr inbounds i8, ptr %rsa, i64 40
-  %68 = load ptr, ptr %n271, align 8
-  %tobool272.not = icmp eq ptr %68, null
+  %67 = load ptr, ptr %n271, align 8
+  %tobool272.not = icmp eq ptr %67, null
   br i1 %tobool272.not, label %if.end335, label %if.then273
 
 if.then273:                                       ; preds = %land.lhs.true270
   %meth274 = getelementptr inbounds i8, ptr %rsa, i64 24
-  %69 = load ptr, ptr %meth274, align 8
-  %bn_mod_exp275 = getelementptr inbounds i8, ptr %69, i64 48
-  %70 = load ptr, ptr %bn_mod_exp275, align 8
-  %cmp276 = icmp eq ptr %70, @BN_mod_exp_mont
+  %68 = load ptr, ptr %meth274, align 8
+  %bn_mod_exp275 = getelementptr inbounds i8, ptr %68, i64 48
+  %69 = load ptr, ptr %bn_mod_exp275, align 8
+  %cmp276 = icmp eq ptr %69, @BN_mod_exp_mont
   br i1 %cmp276, label %if.then277, label %if.else
 
 if.then277:                                       ; preds = %if.then273
   %_method_mod_n280 = getelementptr inbounds i8, ptr %rsa, i64 168
-  %71 = load ptr, ptr %_method_mod_n280, align 8
-  %call281 = tail call i32 @BN_mod_exp_mont(ptr noundef nonnull %call3, ptr noundef %r0, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef %ctx, ptr noundef %71) #8
+  %70 = load ptr, ptr %_method_mod_n280, align 8
+  %call281 = tail call i32 @BN_mod_exp_mont(ptr noundef nonnull %call3, ptr noundef %r0, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef %ctx, ptr noundef %70) #8
   %tobool282.not = icmp eq i32 %call281, 0
   br i1 %tobool282.not, label %err, label %if.end294
 
 if.else:                                          ; preds = %if.then273
   tail call void @bn_correct_top(ptr noundef %r0) #8
-  %72 = load ptr, ptr %meth274, align 8
-  %bn_mod_exp286 = getelementptr inbounds i8, ptr %72, i64 48
-  %73 = load ptr, ptr %bn_mod_exp286, align 8
-  %74 = load ptr, ptr %e, align 8
-  %75 = load ptr, ptr %n271, align 8
+  %71 = load ptr, ptr %meth274, align 8
+  %bn_mod_exp286 = getelementptr inbounds i8, ptr %71, i64 48
+  %72 = load ptr, ptr %bn_mod_exp286, align 8
+  %73 = load ptr, ptr %e, align 8
+  %74 = load ptr, ptr %n271, align 8
   %_method_mod_n289 = getelementptr inbounds i8, ptr %rsa, i64 168
-  %76 = load ptr, ptr %_method_mod_n289, align 8
-  %call290 = tail call i32 %73(ptr noundef nonnull %call3, ptr noundef %r0, ptr noundef %74, ptr noundef %75, ptr noundef %ctx, ptr noundef %76) #8
+  %75 = load ptr, ptr %_method_mod_n289, align 8
+  %call290 = tail call i32 %72(ptr noundef nonnull %call3, ptr noundef %r0, ptr noundef %73, ptr noundef %74, ptr noundef %ctx, ptr noundef %75) #8
   %tobool291.not = icmp eq i32 %call290, 0
   br i1 %tobool291.not, label %err, label %if.end294
 
@@ -1568,8 +1561,8 @@ if.then301:                                       ; preds = %if.end298
   br label %err
 
 if.end302:                                        ; preds = %if.end298
-  %77 = load ptr, ptr %n271, align 8
-  %call304 = tail call i32 @BN_div(ptr noundef null, ptr noundef nonnull %call3, ptr noundef nonnull %call3, ptr noundef %77, ptr noundef %ctx) #8
+  %76 = load ptr, ptr %n271, align 8
+  %call304 = tail call i32 @BN_div(ptr noundef null, ptr noundef nonnull %call3, ptr noundef nonnull %call3, ptr noundef %76, ptr noundef %ctx) #8
   %tobool305.not = icmp eq i32 %call304, 0
   br i1 %tobool305.not, label %err, label %if.end307
 
@@ -1579,8 +1572,8 @@ if.end307:                                        ; preds = %if.end302
   br i1 %tobool309.not, label %if.end316, label %if.then310
 
 if.then310:                                       ; preds = %if.end307
-  %78 = load ptr, ptr %n271, align 8
-  %call312 = tail call i32 @BN_add(ptr noundef nonnull %call3, ptr noundef nonnull %call3, ptr noundef %78) #8
+  %77 = load ptr, ptr %n271, align 8
+  %call312 = tail call i32 @BN_add(ptr noundef nonnull %call3, ptr noundef nonnull %call3, ptr noundef %77) #8
   %tobool313.not = icmp eq i32 %call312, 0
   br i1 %tobool313.not, label %err, label %if.end316
 
@@ -1596,15 +1589,15 @@ if.then319:                                       ; preds = %if.end316
 
 if.end324:                                        ; preds = %if.then319
   %d325 = getelementptr inbounds i8, ptr %rsa, i64 56
-  %79 = load ptr, ptr %d325, align 8
-  tail call void @BN_with_flags(ptr noundef nonnull %call321, ptr noundef %79, i32 noundef 4) #8
-  %80 = load ptr, ptr %meth274, align 8
-  %bn_mod_exp327 = getelementptr inbounds i8, ptr %80, i64 48
-  %81 = load ptr, ptr %bn_mod_exp327, align 8
-  %82 = load ptr, ptr %n271, align 8
+  %78 = load ptr, ptr %d325, align 8
+  tail call void @BN_with_flags(ptr noundef nonnull %call321, ptr noundef %78, i32 noundef 4) #8
+  %79 = load ptr, ptr %meth274, align 8
+  %bn_mod_exp327 = getelementptr inbounds i8, ptr %79, i64 48
+  %80 = load ptr, ptr %bn_mod_exp327, align 8
+  %81 = load ptr, ptr %n271, align 8
   %_method_mod_n329 = getelementptr inbounds i8, ptr %rsa, i64 168
-  %83 = load ptr, ptr %_method_mod_n329, align 8
-  %call330 = tail call i32 %81(ptr noundef %r0, ptr noundef %I, ptr noundef nonnull %call321, ptr noundef %82, ptr noundef %ctx, ptr noundef %83) #8
+  %82 = load ptr, ptr %_method_mod_n329, align 8
+  %call330 = tail call i32 %80(ptr noundef %r0, ptr noundef %I, ptr noundef nonnull %call321, ptr noundef %81, ptr noundef %ctx, ptr noundef %82) #8
   %tobool331.not = icmp eq i32 %call330, 0
   tail call void @BN_free(ptr noundef nonnull %call321) #8
   br i1 %tobool331.not, label %err, label %if.end335

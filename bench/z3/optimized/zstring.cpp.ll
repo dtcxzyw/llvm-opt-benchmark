@@ -960,9 +960,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %26 = load i32, ptr %m_pos.i.i18, align 8
   %add = add i32 %26, %i.0146
   %cmp20 = icmp ugt i32 %add, %25
-  %.not = select i1 %found.0145, i1 true, i1 %cmp20
+  %frombool.not = select i1 %found.0145, i1 true, i1 %cmp20
   %.pre151 = load ptr, ptr %this, align 8
-  br i1 %.not, label %if.else, label %invoke.cont24.lr.ph
+  br i1 %frombool.not, label %if.else, label %invoke.cont24.lr.ph
 
 invoke.cont24.lr.ph:                              ; preds = %for.body
   %27 = load ptr, ptr %src, align 8

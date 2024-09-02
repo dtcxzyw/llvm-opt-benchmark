@@ -6578,12 +6578,12 @@ for.cond:                                         ; preds = %for.cond.preheader,
 if.end.i:                                         ; preds = %for.cond
   %arrayidx.i = getelementptr inbounds i8, ptr %18, i64 -4
   %19 = load i32, ptr %arrayidx.i, align 4
+  %20 = zext i32 %19 to i64
   br label %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit
 
 _ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit: ; preds = %for.cond, %if.end.i
-  %retval.0.i = phi i32 [ %19, %if.end.i ], [ 0, %for.cond ]
-  %20 = zext i32 %retval.0.i to i64
-  %cmp84 = icmp ult i64 %indvars.iv, %20
+  %retval.0.i = phi i64 [ %20, %if.end.i ], [ 0, %for.cond ]
+  %cmp84 = icmp ult i64 %indvars.iv, %retval.0.i
   br i1 %cmp84, label %for.body, label %do.body
 
 for.body:                                         ; preds = %_ZNK6vectorIN17algebraic_numbers4anumELb0EjE4sizeEv.exit

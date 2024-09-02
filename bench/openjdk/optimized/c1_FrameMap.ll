@@ -24,6 +24,7 @@ $_ZN26GrowableArrayWithAllocatorI7LIR_Opr13GrowableArrayIS0_EE9expand_toEi = com
 @all_RegisterImpls = external hidden global [33 x %"class.Register::RegisterImpl"], align 16
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 @switch.table._ZN8FrameMapC2EP8ciMethodii = private unnamed_addr constant [12 x i32] [i32 41, i32 177, i32 25, i32 25, i32 9, i32 145, i32 25, i32 25, i32 25, i32 33, i32 25, i32 57], align 4
+@switch.table._ZN8FrameMap14finalize_frameEi = private unnamed_addr constant [7 x i64] [i64 10, i64 11, i64 12, i64 15, i64 6, i64 7, i64 17], align 8
 
 @_ZN8FrameMapC1EP8ciMethodii = hidden unnamed_addr alias void (ptr, ptr, i32, i32), ptr @_ZN8FrameMapC2EP8ciMethodii
 
@@ -583,8 +584,8 @@ _ZN13GrowableArrayIiEC2EiiRKi.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIiEC2EiiRKi.exit, %_ZNK7LIR_Opr4typeEv.exit
-  %37 = phi i32 [ %99, %_ZNK7LIR_Opr4typeEv.exit ], [ %35, %_ZN13GrowableArrayIiEC2EiiRKi.exit ]
-  %38 = phi ptr [ %100, %_ZNK7LIR_Opr4typeEv.exit ], [ %34, %_ZN13GrowableArrayIiEC2EiiRKi.exit ]
+  %37 = phi i32 [ %100, %_ZNK7LIR_Opr4typeEv.exit ], [ %35, %_ZN13GrowableArrayIiEC2EiiRKi.exit ]
+  %38 = phi ptr [ %101, %_ZNK7LIR_Opr4typeEv.exit ], [ %34, %_ZN13GrowableArrayIiEC2EiiRKi.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK7LIR_Opr4typeEv.exit ], [ 0, %_ZN13GrowableArrayIiEC2EiiRKi.exit ]
   %.020 = phi i32 [ %104, %_ZNK7LIR_Opr4typeEv.exit ], [ 0, %_ZN13GrowableArrayIiEC2EiiRKi.exit ]
   %39 = getelementptr inbounds i8, ptr %38, i64 8
@@ -593,7 +594,7 @@ _ZN13GrowableArrayIiEC2EiiRKi.exit:               ; preds = %.lr.ph.preheader.i.
   %.sroa.0.0.copyload.i = load i64, ptr %41, align 8
   %42 = and i64 %.sroa.0.0.copyload.i, 1
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %_ZNK7LIR_Opr10is_addressEv.exit, label %84
+  br i1 %43, label %_ZNK7LIR_Opr10is_addressEv.exit, label %85
 
 _ZNK7LIR_Opr10is_addressEv.exit:                  ; preds = %.lr.ph
   %44 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -660,62 +661,62 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %81 = getelementptr inbounds i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = tail call noundef zeroext i8 %82(ptr noundef nonnull align 8 dereferenceable(8) %44) #9
+  %84 = zext i8 %83 to i64
   %.pre = load ptr, ptr %30, align 8
   %.pre23 = load ptr, ptr %.pre, align 8
   %.pre24 = load i32, ptr %.pre23, align 4
   br label %_ZNK7LIR_Opr4typeEv.exit
 
-84:                                               ; preds = %.lr.ph
-  %85 = and i64 %.sroa.0.0.copyload.i, 7
-  %86 = icmp eq i64 %85, 7
-  %87 = trunc i64 %.sroa.0.0.copyload.i to i32
-  %88 = lshr i32 %87, 3
-  %89 = and i32 %88, 15
-  %90 = select i1 %86, i32 0, i32 %89
-  switch i32 %90, label %97 [
+85:                                               ; preds = %.lr.ph
+  %86 = and i64 %.sroa.0.0.copyload.i, 7
+  %87 = icmp eq i64 %86, 7
+  %88 = trunc i64 %.sroa.0.0.copyload.i to i32
+  %89 = lshr i32 %88, 3
+  %90 = and i32 %89, 15
+  %91 = select i1 %87, i32 0, i32 %90
+  switch i32 %91, label %98 [
     i32 1, label %_ZNK7LIR_Opr4typeEv.exit
-    i32 2, label %91
-    i32 5, label %92
-    i32 6, label %93
-    i32 3, label %94
-    i32 4, label %95
-    i32 7, label %96
+    i32 2, label %92
+    i32 5, label %93
+    i32 6, label %94
+    i32 3, label %95
+    i32 4, label %96
+    i32 7, label %97
   ]
 
-91:                                               ; preds = %84
+92:                                               ; preds = %85
   br label %_ZNK7LIR_Opr4typeEv.exit
 
-92:                                               ; preds = %84
+93:                                               ; preds = %85
   br label %_ZNK7LIR_Opr4typeEv.exit
 
-93:                                               ; preds = %84
+94:                                               ; preds = %85
   br label %_ZNK7LIR_Opr4typeEv.exit
 
-94:                                               ; preds = %84
+95:                                               ; preds = %85
   br label %_ZNK7LIR_Opr4typeEv.exit
 
-95:                                               ; preds = %84
+96:                                               ; preds = %85
   br label %_ZNK7LIR_Opr4typeEv.exit
 
-96:                                               ; preds = %84
+97:                                               ; preds = %85
   br label %_ZNK7LIR_Opr4typeEv.exit
 
-97:                                               ; preds = %84
-  %98 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %98, align 1
+98:                                               ; preds = %85
+  %99 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %99, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.4, i32 noundef 508) #10
   unreachable
 
-_ZNK7LIR_Opr4typeEv.exit:                         ; preds = %79, %84, %91, %92, %93, %94, %95, %96
-  %99 = phi i32 [ %.pre24, %79 ], [ %37, %96 ], [ %37, %95 ], [ %37, %94 ], [ %37, %93 ], [ %37, %92 ], [ %37, %91 ], [ %37, %84 ]
-  %100 = phi ptr [ %.pre23, %79 ], [ %38, %96 ], [ %38, %95 ], [ %38, %94 ], [ %38, %93 ], [ %38, %92 ], [ %38, %91 ], [ %38, %84 ]
-  %.0.i = phi i8 [ %83, %79 ], [ 17, %96 ], [ 15, %95 ], [ 12, %94 ], [ 7, %93 ], [ 6, %92 ], [ 11, %91 ], [ 10, %84 ]
-  %101 = zext i8 %.0.i to i64
-  %102 = getelementptr inbounds [20 x i32], ptr @type2size, i64 0, i64 %101
+_ZNK7LIR_Opr4typeEv.exit:                         ; preds = %79, %85, %92, %93, %94, %95, %96, %97
+  %100 = phi i32 [ %.pre24, %79 ], [ %37, %97 ], [ %37, %96 ], [ %37, %95 ], [ %37, %94 ], [ %37, %93 ], [ %37, %92 ], [ %37, %85 ]
+  %101 = phi ptr [ %.pre23, %79 ], [ %38, %97 ], [ %38, %96 ], [ %38, %95 ], [ %38, %94 ], [ %38, %93 ], [ %38, %92 ], [ %38, %85 ]
+  %.0.i = phi i64 [ %84, %79 ], [ 17, %97 ], [ 15, %96 ], [ 12, %95 ], [ 7, %94 ], [ 6, %93 ], [ 11, %92 ], [ 10, %85 ]
+  %102 = getelementptr inbounds [20 x i32], ptr @type2size, i64 0, i64 %.0.i
   %103 = load i32, ptr %102, align 4
   %104 = add nsw i32 %103, %.020
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %105 = sext i32 %99 to i64
+  %105 = sext i32 %100 to i64
   %106 = icmp slt i64 %indvars.iv.next, %105
   br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
@@ -786,7 +787,7 @@ define hidden noundef zeroext i1 @_ZN8FrameMap14finalize_frameEi(ptr noundef non
 42:                                               ; preds = %32, %25
   %43 = and i64 %.sroa.0.0.copyload.i, 1
   %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %51
+  br i1 %44, label %45, label %52
 
 45:                                               ; preds = %42
   %46 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
@@ -794,35 +795,34 @@ define hidden noundef zeroext i1 @_ZN8FrameMap14finalize_frameEi(ptr noundef non
   %48 = getelementptr inbounds i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i8 %49(ptr noundef nonnull align 8 dereferenceable(8) %46) #9
+  %51 = zext i8 %50 to i64
   br label %_ZNK7LIR_Opr4typeEv.exit
 
-51:                                               ; preds = %42
-  %52 = icmp eq i64 %30, 7
-  %53 = trunc i64 %.sroa.0.0.copyload.i to i32
-  %54 = lshr i32 %53, 3
-  %55 = and i32 %54, 15
-  %56 = add nsw i32 %55, -1
-  %switch.tableidx = select i1 %52, i32 -1, i32 %56
-  %57 = icmp ult i32 %switch.tableidx, 7
-  br i1 %57, label %switch.lookup, label %58
+52:                                               ; preds = %42
+  %53 = icmp eq i64 %30, 7
+  %54 = trunc i64 %.sroa.0.0.copyload.i to i32
+  %55 = lshr i32 %54, 3
+  %56 = and i32 %55, 15
+  %57 = add nsw i32 %56, -1
+  %switch.tableidx = select i1 %53, i32 -1, i32 %57
+  %58 = icmp ult i32 %switch.tableidx, 7
+  br i1 %58, label %switch.lookup, label %59
 
-58:                                               ; preds = %51
-  %59 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %59, align 1
+59:                                               ; preds = %52
+  %60 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %60, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.4, i32 noundef 508) #10
   unreachable
 
-switch.lookup:                                    ; preds = %51
-  %60 = shl nuw nsw i32 %switch.tableidx, 3
-  %switch.shiftamt = zext nneg i32 %60 to i56
-  %switch.downshift = lshr i56 4792797207726858, %switch.shiftamt
-  %switch.masked = trunc i56 %switch.downshift to i8
+switch.lookup:                                    ; preds = %52
+  %61 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table._ZN8FrameMap14finalize_frameEi, i64 0, i64 %61
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK7LIR_Opr4typeEv.exit
 
 _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %45
-  %.0.i = phi i8 [ %50, %45 ], [ %switch.masked, %switch.lookup ]
-  %61 = zext i8 %.0.i to i64
-  %62 = getelementptr inbounds [20 x i32], ptr @type2size, i64 0, i64 %61
+  %.0.i = phi i64 [ %51, %45 ], [ %switch.load, %switch.lookup ]
+  %62 = getelementptr inbounds [20 x i32], ptr @type2size, i64 0, i64 %.0.i
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i32 %63, %.079
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

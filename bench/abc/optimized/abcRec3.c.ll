@@ -647,26 +647,26 @@ Vec_StrAlloc.exit:                                ; preds = %1, %7
   %26 = and i64 %.val, 536870911
   %27 = icmp eq i64 %26, 536870911
   %narrow.i.not = or i1 %.not.i15, %27
-  br i1 %narrow.i.not, label %30, label %28
+  br i1 %narrow.i.not, label %31, label %28
 
 28:                                               ; preds = %15
   tail call void @Lms_ObjAreaMark_rec(ptr noundef nonnull %24)
   %29 = tail call i32 @Lms_ObjAreaUnmark_rec(ptr noundef nonnull %24)
-  br label %30
+  %30 = trunc i32 %29 to i8
+  br label %31
 
-30:                                               ; preds = %15, %28
-  %31 = phi i32 [ %29, %28 ], [ 0, %15 ]
-  %32 = trunc i32 %31 to i8
+31:                                               ; preds = %15, %28
+  %32 = phi i8 [ %30, %28 ], [ 0, %15 ]
   %33 = load i32, ptr %6, align 4
   %34 = load i32, ptr %4, align 8
   %35 = icmp eq i32 %33, %34
   br i1 %35, label %36, label %.Vec_StrGrow.exit10_crit_edge.i
 
-.Vec_StrGrow.exit10_crit_edge.i:                  ; preds = %30
+.Vec_StrGrow.exit10_crit_edge.i:                  ; preds = %31
   %.pre.i = load ptr, ptr %11, align 8
   br label %Vec_StrPush.exit
 
-36:                                               ; preds = %30
+36:                                               ; preds = %31
   %37 = icmp slt i32 %33, 16
   br i1 %37, label %38, label %45
 

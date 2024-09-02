@@ -425,7 +425,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %conv = trunc i64 %addr to i8
   %call = tail call fastcc i32 @rtl8139_io_readb(ptr noundef %opaque, i8 noundef zeroext %conv)
-  %conv1 = zext i32 %call to i64
+  %conv1 = zext nneg i32 %call to i64
   br label %return
 
 sw.bb2:                                           ; preds = %entry
@@ -615,8 +615,8 @@ sw.default.i:                                     ; preds = %sw.bb2
   %call36.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %conv3)
   %add.i = add i8 %conv3, 1
   %call39.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %add.i)
-  %shl.i = shl i32 %call39.i, 8
-  %or.i = or i32 %shl.i, %call36.i
+  %shl.i = shl nuw nsw i32 %call39.i, 8
+  %or.i = or disjoint i32 %shl.i, %call36.i
   br label %rtl8139_io_readw.exit
 
 rtl8139_io_readw.exit:                            ; preds = %sw.bb2, %sw.bb.i, %if.end.i.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i, %sw.bb15.i, %sw.bb18.i, %sw.bb21.i, %sw.bb24.i, %sw.bb28.i, %sw.bb31.i, %sw.default.i
@@ -742,16 +742,16 @@ sw.default.i23:                                   ; preds = %sw.bb6
   %call25.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %conv7)
   %add.i24 = add i8 %conv7, 1
   %call28.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %add.i24)
-  %shl.i25 = shl i32 %call28.i, 8
-  %or.i26 = or i32 %shl.i25, %call25.i
+  %shl.i25 = shl nuw nsw i32 %call28.i, 8
+  %or.i26 = or disjoint i32 %shl.i25, %call25.i
   %add30.i = add i8 %conv7, 2
   %call32.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %add30.i)
-  %shl33.i = shl i32 %call32.i, 16
-  %or34.i = or i32 %or.i26, %shl33.i
+  %shl33.i = shl nuw nsw i32 %call32.i, 16
+  %or34.i = or disjoint i32 %or.i26, %shl33.i
   %add36.i = add i8 %conv7, 3
   %call38.i = tail call fastcc i32 @rtl8139_io_readb(ptr noundef readonly %opaque, i8 noundef zeroext %add36.i)
-  %shl39.i = shl i32 %call38.i, 24
-  %or40.i = or i32 %or34.i, %shl39.i
+  %shl39.i = shl nuw i32 %call38.i, 24
+  %or40.i = or disjoint i32 %or34.i, %shl39.i
   br label %rtl8139_io_readl.exit
 
 rtl8139_io_readl.exit:                            ; preds = %sw.bb.i22, %sw.bb1.i20, %sw.bb3.i18, %sw.bb5.i10, %if.end.i.i13, %sw.bb7.i9, %sw.bb10.i, %sw.bb12.i, %sw.bb14.i, %sw.bb16.i, %sw.bb21.i5, %sw.default.i23
@@ -1318,7 +1318,7 @@ sw.epilog:                                        ; preds = %sw.default.i18, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal fastcc i32 @rtl8139_io_readb(ptr nocapture noundef readonly %opaque, i8 noundef zeroext %addr) unnamed_addr #2 {
+define internal fastcc range(i32 0, 256) i32 @rtl8139_io_readb(ptr nocapture noundef readonly %opaque, i8 noundef zeroext %addr) unnamed_addr #2 {
 entry:
   %conv = zext i8 %addr to i32
   switch i8 %addr, label %sw.epilog [
@@ -1975,8 +1975,8 @@ land.rhs:                                         ; preds = %entry, %while.body
   br i1 %tobool.not.i, label %while.end, label %if.end.i
 
 if.end.i:                                         ; preds = %land.rhs
-  %s.val221.i = load i16, ptr %1, align 2
-  %3 = and i16 %s.val221.i, 1
+  %s.val220.i = load i16, ptr %1, align 2
+  %3 = and i16 %s.val220.i, 1
   %tobool3.not.i = icmp eq i16 %3, 0
   br i1 %tobool3.not.i, label %while.end, label %if.end6.i
 
@@ -1995,17 +1995,17 @@ if.end6.i:                                        ; preds = %if.end.i
   %add18.i = add i64 %add.i, 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
-  %call.i.i.i.i225.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add18.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext false) #12
+  %call.i.i.i.i224.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add18.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext false) #12
   %7 = load i32, ptr %val.i, align 4
   %add21.i = add i64 %add.i, 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
-  %call.i.i.i.i227.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add21.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext false) #12
+  %call.i.i.i.i226.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add21.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext false) #12
   %8 = load i32, ptr %val.i, align 4
   %add24.i = add i64 %add.i, 12
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
-  %call.i.i.i.i229.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add24.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext false) #12
+  %call.i.i.i.i228.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add24.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext false) #12
   %9 = load i32, ptr %val.i, align 4
   %tobool28.not.i = icmp sgt i32 %6, -1
   br i1 %tobool28.not.i, label %while.end, label %if.end31.i
@@ -2021,10 +2021,10 @@ if.then35.i:                                      ; preds = %if.end31.i
 
 if.end37.i:                                       ; preds = %if.then35.i, %if.end31.i
   %and38.i = and i32 %6, 65535
-  %conv.i230.i = zext i32 %8 to i64
-  %conv1.i231.i = zext i32 %9 to i64
-  %shl.i232.i = shl nuw i64 %conv1.i231.i, 32
-  %or.i233.i = or disjoint i64 %shl.i232.i, %conv.i230.i
+  %conv.i229.i = zext i32 %8 to i64
+  %conv1.i230.i = zext i32 %9 to i64
+  %shl.i231.i = shl nuw i64 %conv1.i230.i, 32
+  %or.i232.i = or disjoint i64 %shl.i231.i, %conv.i229.i
   %10 = load ptr, ptr %cplus_txbuffer.i, align 16
   %tobool40.not.i = icmp eq ptr %10, null
   br i1 %tobool40.not.i, label %if.then41.i, label %if.end37.if.end49_crit_edge.i
@@ -2047,15 +2047,15 @@ if.end49.i:                                       ; preds = %if.then41.i, %if.en
   %13 = load i32, ptr %cplus_txbuffer_len.i, align 8
   %cmp.not.i = icmp slt i32 %add51.i, %13
   %sub.i = sub i32 %13, %12
-  %spec.select242.i = select i1 %cmp.not.i, i32 %and38.i, i32 %sub.i
+  %spec.select.i = select i1 %cmp.not.i, i32 %and38.i, i32 %sub.i
   %idx.ext.i = sext i32 %12 to i64
   %add.ptr.i = getelementptr i8, ptr %11, i64 %idx.ext.i
-  %conv63.i = sext i32 %spec.select242.i to i64
+  %conv63.i = sext i32 %spec.select.i to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
-  %call.i.i.i.i235.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %or.i233.i, i32 1, ptr noundef %add.ptr.i, i64 noundef %conv63.i, i1 noundef zeroext false) #12
+  %call.i.i.i.i234.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %or.i232.i, i32 1, ptr noundef %add.ptr.i, i64 noundef %conv63.i, i1 noundef zeroext false) #12
   %14 = load i32, ptr %cplus_txbuffer_offset.i, align 4
-  %add66.i = add i32 %14, %spec.select242.i
+  %add66.i = add i32 %14, %spec.select.i
   store i32 %add66.i, ptr %cplus_txbuffer_offset.i, align 4
   %and67.i = and i32 %6, 1073741824
   %tobool68.not.i = icmp eq i32 %and67.i, 0
@@ -2075,7 +2075,7 @@ if.end78.i:                                       ; preds = %if.else.i, %if.end4
   store i32 %and84.i, ptr %val.i, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
-  %call.i.i.i.i237.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext true) #12
+  %call.i.i.i.i236.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext true) #12
   %and87.i = and i32 %6, 268435456
   %tobool88.not.i = icmp eq i32 %and87.i, 0
   br i1 %tobool88.not.i, label %while.body, label %if.then89.i
@@ -2099,9 +2099,9 @@ if.end108.i:                                      ; preds = %if.then96.i, %if.th
   %and112.i = and i32 %6, 134676480
   %tobool113.not.i = icmp eq i32 %and112.i, 0
   %cmp117.i = icmp ult i32 %17, 34
-  %or.cond243.i = select i1 %tobool113.not.i, i1 true, i1 %cmp117.i
+  %or.cond241.i = select i1 %tobool113.not.i, i1 true, i1 %cmp117.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %cplus_txbuffer.i, i8 0, i64 16, i1 false)
-  br i1 %or.cond243.i, label %skip_offload.i, label %if.end120.i
+  br i1 %or.cond241.i, label %skip_offload.i, label %if.end120.i
 
 if.end120.i:                                      ; preds = %if.end108.i
   %add.ptr121.i = getelementptr i8, ptr %16, i64 12
@@ -2119,8 +2119,8 @@ if.end127.i:                                      ; preds = %if.end120.i
   br i1 %cmp134.not.i, label %if.end142.i, label %skip_offload.i
 
 if.end142.i:                                      ; preds = %if.end127.i
-  %conv.i238.i = zext nneg i8 %20 to i32
-  %and145.i = shl nuw nsw i32 %conv.i238.i, 2
+  %conv.i237.i = zext nneg i8 %20 to i32
+  %and145.i = shl nuw nsw i32 %conv.i237.i, 2
   %shl.i = and i32 %and145.i, 60
   %conv146.i = zext nneg i32 %shl.i to i64
   %cmp147.i = icmp ult i32 %shl.i, 20
@@ -2155,7 +2155,7 @@ if.end179.thread.i:                               ; preds = %if.end163.i
   store i16 0, ptr %ip_sum.i, align 2
   %call174.i = call fastcc zeroext i16 @ip_checksum(ptr noundef nonnull %add.ptr129.i, i64 noundef %conv146.i)
   store i16 %call174.i, ptr %ip_sum.i, align 2
-  %cmp184239.i = icmp eq i8 %21, 6
+  %cmp184238.i = icmp eq i8 %21, 6
   br label %if.else307.i
 
 if.end179.i:                                      ; preds = %if.end163.i
@@ -2191,8 +2191,8 @@ if.end197.i:                                      ; preds = %if.end191.i
 
 if.end221.i:                                      ; preds = %if.end197.i
   %invariant.op.i = add nuw nsw i32 %shl212.i, 12
-  %cmp226244.not.i = icmp eq i16 %conv166.i, %29
-  br i1 %cmp226244.not.i, label %skip_offload.i, label %for.body.lr.ph.i
+  %cmp226242.not.i = icmp eq i16 %conv166.i, %29
+  br i1 %cmp226242.not.i, label %skip_offload.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end221.i
   %narrow.i = sub nuw i16 %conv166.i, %29
@@ -2218,14 +2218,14 @@ for.body.i:                                       ; preds = %if.end261.i, %for.b
   %cmp230.not.not.i = icmp ult i64 %indvars.iv.next.i, %31
   %32 = sub nuw nsw i64 %31, %indvars.iv.i
   %33 = trunc nuw nsw i64 %32 to i32
-  %spec.select219.i = select i1 %cmp230.not.not.i, i32 %and193.i, i32 %33
+  %chunk_size.0.in.i = select i1 %cmp230.not.not.i, i32 %and193.i, i32 %33
   store i64 %saved_ip_header.i.12.saved_ip_header.i.12.saved_ip_header.i.12.saved_ip_header.12.saved_ip_header.12..i, ptr %add.ptr205.i, align 1
   %tobool243.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %tobool243.not.i, label %if.end252.i, label %if.then244.i
 
 if.then244.i:                                     ; preds = %for.body.i
   %add.ptr250.i = getelementptr i8, ptr %add.ptr246.i, i64 %indvars.iv.i
-  %conv251.i = zext nneg i32 %spec.select219.i to i64
+  %conv251.i = zext nneg i32 %chunk_size.0.in.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr246.i, ptr align 1 %add.ptr250.i, i64 %conv251.i, i1 false)
   br label %if.end252.i
 
@@ -2241,17 +2241,17 @@ if.then254.i:                                     ; preds = %if.end252.i
 if.end261.i:                                      ; preds = %if.then254.i, %if.end252.i
   store i8 0, ptr %zeros.i, align 4
   store i8 6, ptr %ip_proto.i, align 1
-  %35 = trunc nuw i32 %spec.select219.i to i16
+  %35 = trunc nuw i32 %chunk_size.0.in.i to i16
   %conv264.i = add i16 %29, %35
   %36 = call noundef i16 @llvm.bswap.i16(i16 %conv264.i)
   store i16 %36, ptr %ip_payload.i, align 2
   store i16 0, ptr %th_sum.i, align 4
-  %add268.reass.i = add nuw nsw i32 %invariant.op.i, %spec.select219.i
+  %add268.reass.i = add nuw nsw i32 %invariant.op.i, %chunk_size.0.in.i
   %conv269.i = zext nneg i32 %add268.reass.i to i64
   %call270.i = call fastcc zeroext i16 @ip_checksum(ptr noundef nonnull %add.ptr205.i, i64 noundef %conv269.i)
   store i16 %call270.i, ptr %th_sum.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr129.i, ptr nonnull align 16 %saved_ip_header.i, i64 %conv146.i, i1 false)
-  %add279.i = add nuw nsw i32 %add277.i, %spec.select219.i
+  %add279.i = add nuw nsw i32 %add277.i, %chunk_size.0.in.i
   %conv280.i = trunc i32 %add279.i to i16
   %37 = call noundef i16 @llvm.bswap.i16(i16 %conv280.i)
   store i16 %37, ptr %ip_len.i, align 2
@@ -2266,21 +2266,21 @@ if.end261.i:                                      ; preds = %if.then254.i, %if.e
   store i16 0, ptr %ip_sum289.i, align 2
   %call291.i = call fastcc zeroext i16 @ip_checksum(ptr noundef nonnull %add.ptr129.i, i64 noundef %conv146.i)
   store i16 %call291.i, ptr %ip_sum289.i, align 2
-  %add299.i = add nuw nsw i32 %add297.i, %spec.select219.i
+  %add299.i = add nuw nsw i32 %add297.i, %chunk_size.0.in.i
   call fastcc void @rtl8139_transfer_frame(ptr noundef %s, ptr noundef nonnull %16, i32 noundef %add299.i, ptr noundef %dot1q_buffer.0.i)
-  %th_seq.val222.i = load i32, ptr %th_seq.i, align 1
-  %43 = call i32 @llvm.bswap.i32(i32 %th_seq.val222.i)
-  %add305.i = add i32 %43, %spec.select219.i
+  %th_seq.val221.i = load i32, ptr %th_seq.i, align 1
+  %43 = call i32 @llvm.bswap.i32(i32 %th_seq.val221.i)
+  %add305.i = add i32 %43, %chunk_size.0.in.i
   %44 = call i32 @llvm.bswap.i32(i32 %add305.i)
   store i32 %44, ptr %th_seq.i, align 1
   br i1 %cmp230.not.not.i, label %for.body.i, label %skip_offload.i, !llvm.loop !9
 
 if.else307.i:                                     ; preds = %if.end179.i, %if.end179.thread.i
-  %cmp184241.i = phi i1 [ %cmp184239.i, %if.end179.thread.i ], [ %cmp184.i, %if.end179.i ]
+  %cmp184240.i = phi i1 [ %cmp184238.i, %if.end179.thread.i ], [ %cmp184.i, %if.end179.i ]
   %and311.i = and i32 %6, 196608
   %tobool312.not.i = icmp eq i32 %and311.i, 0
-  %or.cond220.i = or i1 %tobool168.i, %tobool312.not.i
-  br i1 %or.cond220.i, label %skip_offload.i, label %if.then313.i
+  %or.cond219.i = or i1 %tobool168.i, %tobool312.not.i
+  br i1 %or.cond219.i, label %skip_offload.i, label %if.then313.i
 
 if.then313.i:                                     ; preds = %if.else307.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %saved_ip_header315.i, ptr nonnull align 1 %add.ptr129.i, i64 %conv146.i, i1 false)
@@ -2290,7 +2290,7 @@ if.then313.i:                                     ; preds = %if.else307.i
   store i64 %saved_ip_header315.i.12.saved_ip_header315.i.12.saved_ip_header315.i.12.saved_ip_header315.12.saved_ip_header315.12..i, ptr %add.ptr321.i, align 1
   %and324.i = and i32 %6, 65536
   %tobool325.i = icmp ne i32 %and324.i, 0
-  %or.cond1.i = select i1 %tobool325.i, i1 %cmp184241.i, i1 false
+  %or.cond1.i = select i1 %tobool325.i, i1 %cmp184240.i, i1 false
   br i1 %or.cond1.i, label %if.then330.i, label %if.else350.i
 
 if.then330.i:                                     ; preds = %if.then313.i

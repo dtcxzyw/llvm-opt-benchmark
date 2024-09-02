@@ -500,7 +500,7 @@ define hidden void @zif_md5_file(ptr noundef %0, ptr nocapture noundef writeonly
 
 11:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 2) #10
-  br label %.thread262
+  br label %.thread266
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 80
@@ -516,7 +516,7 @@ define hidden void @zif_md5_file(ptr noundef %0, ptr nocapture noundef writeonly
 
 18:                                               ; preds = %12
   %19 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %13, ptr noundef nonnull %3, i32 noundef 1) #10
-  br i1 %19, label %thread-pre-split, label %.thread262
+  br i1 %19, label %thread-pre-split, label %.thread266
 
 thread-pre-split:                                 ; preds = %18
   %.pr = load ptr, ptr %3, align 8
@@ -533,54 +533,54 @@ thread-pre-split:                                 ; preds = %18
   %25 = load i64, ptr %24, align 8
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #11
   %.not240 = icmp eq i64 %25, %26
-  br i1 %.not240, label %27, label %.thread262
+  br i1 %.not240, label %27, label %.thread266
 
 27:                                               ; preds = %20, %22
   %28 = getelementptr inbounds i8, ptr %21, i64 24
   %29 = icmp eq i32 %9, 1
-  br i1 %29, label %.thread273, label %30
+  br i1 %29, label %.thread280, label %30
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %0, i64 104
   %32 = load i8, ptr %31, align 8
   switch i8 %32, label %34 [
-    i8 3, label %.thread281
+    i8 3, label %.thread261
     i8 2, label %33
   ]
 
 33:                                               ; preds = %30
-  br label %.thread281
+  br label %.thread261
 
-.thread281:                                       ; preds = %33, %30
+.thread261:                                       ; preds = %33, %30
   %storemerge = phi i8 [ 0, %33 ], [ 1, %30 ]
   store i8 %storemerge, ptr %4, align 1
-  br label %.thread273
+  br label %.thread280
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %0, i64 96
   %36 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %35, ptr noundef nonnull %4, i32 noundef 2) #10
-  %cond.fr249 = freeze i1 %36
-  br i1 %cond.fr249, label %.thread273, label %.thread262
+  %.fr = freeze i1 %36
+  br i1 %.fr, label %.thread280, label %.thread266
 
-.thread262:                                       ; preds = %34, %18, %22, %11
-  %.0229272 = phi i32 [ 9, %18 ], [ 9, %22 ], [ 1, %11 ], [ 9, %34 ]
-  %.0230271 = phi i32 [ 1, %18 ], [ 1, %22 ], [ 0, %11 ], [ 2, %34 ]
-  %.0231270 = phi i32 [ 16, %18 ], [ 16, %22 ], [ 0, %11 ], [ 2, %34 ]
-  %.0232269 = phi ptr [ %13, %18 ], [ %13, %22 ], [ null, %11 ], [ %35, %34 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0229272, i32 noundef %.0230271, ptr noundef null, i32 noundef %.0231270, ptr noundef %.0232269) #10
+.thread266:                                       ; preds = %34, %18, %22, %11
+  %.0229276 = phi i32 [ 9, %18 ], [ 9, %22 ], [ 1, %11 ], [ 9, %34 ]
+  %.0230275 = phi i32 [ 1, %18 ], [ 1, %22 ], [ 0, %11 ], [ 2, %34 ]
+  %.0231274 = phi i32 [ 16, %18 ], [ 16, %22 ], [ 0, %11 ], [ 2, %34 ]
+  %.0232273 = phi ptr [ %13, %18 ], [ %13, %22 ], [ null, %11 ], [ %35, %34 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0229276, i32 noundef %.0230275, ptr noundef null, i32 noundef %.0231274, ptr noundef %.0232273) #10
   br label %120
 
-.thread273:                                       ; preds = %34, %.thread281, %27
+.thread280:                                       ; preds = %34, %.thread261, %27
   %37 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %28, ptr noundef nonnull @.str, i32 noundef 8, ptr noundef null, ptr noundef null) #10
   %.not242 = icmp eq ptr %37, null
   br i1 %.not242, label %38, label %40
 
-38:                                               ; preds = %.thread273
+38:                                               ; preds = %.thread280
   %39 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %39, align 8
   br label %120
 
-40:                                               ; preds = %.thread273
+40:                                               ; preds = %.thread280
   %41 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 1732584193, ptr %41, align 4
   %42 = getelementptr inbounds i8, ptr %7, i64 12
@@ -737,7 +737,7 @@ make_digest_ex.exit:                              ; preds = %.lr.ph.i
   store i8 0, ptr %119, align 1
   br label %120
 
-120:                                              ; preds = %make_digest_ex.exit, %90, %85, %38, %.thread262
+120:                                              ; preds = %make_digest_ex.exit, %90, %85, %38, %.thread266
   ret void
 }
 

@@ -113,7 +113,7 @@ _ZNK9grpc_core10RefCountedINS_14ConfigSelectorENS_19PolymorphicRefCountENS_11Unr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZN9grpc_core12_GLOBAL__N_120ConfigSelectorArgCmpEPvS1_(ptr noundef readnone %p, ptr noundef readnone %q) #6 {
+define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_120ConfigSelectorArgCmpEPvS1_(ptr noundef readnone %p, ptr noundef readnone %q) #6 {
 entry:
   %cmp.i = icmp ult ptr %p, %q
   %cmp1.i = icmp ult ptr %q, %p

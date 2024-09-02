@@ -95,8 +95,8 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %48 = getelementptr inbounds i8, ptr %4, i64 40
   br label %49
 
-49:                                               ; preds = %.thread48, %3
-  %50 = phi i32 [ %2, %3 ], [ 1, %.thread48 ]
+49:                                               ; preds = %.thread46, %3
+  %50 = phi i32 [ %2, %3 ], [ 1, %.thread46 ]
   %51 = icmp slt i32 %50, 1
   br i1 %51, label %744, label %52
 
@@ -113,12 +113,12 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %61, label %744, label %62
 
 62:                                               ; preds = %._crit_edge, %52
-  %.pre-phi66 = phi ptr [ %.pre65, %._crit_edge ], [ %55, %52 ]
+  %.pre-phi64 = phi ptr [ %.pre63, %._crit_edge ], [ %55, %52 ]
   %63 = phi ptr [ %787, %._crit_edge ], [ %57, %52 ]
-  %64 = getelementptr inbounds i8, ptr %.pre-phi66, i64 60
+  %64 = getelementptr inbounds i8, ptr %.pre-phi64, i64 60
   %65 = load i16, ptr %64, align 4
   %66 = zext i16 %65 to i32
-  %67 = load ptr, ptr %.pre-phi66, align 8
+  %67 = load ptr, ptr %.pre-phi64, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 172
   %69 = load i16, ptr %68, align 4
   %70 = zext i16 %69 to i32
@@ -193,7 +193,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
 118:                                              ; preds = %.thread, %.thread
   %119 = getelementptr inbounds i8, ptr %63, i64 226
   %120 = load i16, ptr %119, align 2
-  switch i16 %120, label %.thread53 [
+  switch i16 %120, label %.thread51 [
     i16 2, label %121
     i16 10, label %339
   ]
@@ -201,7 +201,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
 121:                                              ; preds = %118
   %122 = call fastcc i32 @xfrm_inner_extract_output(ptr noundef %63, ptr noundef %1)
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %.thread53
+  br i1 %123, label %124, label %.thread51
 
 124:                                              ; preds = %121
   %125 = load i16, ptr %35, align 4
@@ -515,12 +515,12 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   call void asm sideeffect "856: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 856b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 856) #8, !srcloc !9
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 423, i32 2307, i64 12) #8, !srcloc !10
   call void asm sideeffect "857: nop\0A\09.pushsection .discard.instr_end\0A\09.long 857b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 857) #8, !srcloc !11
-  br label %.thread53
+  br label %.thread51
 
 339:                                              ; preds = %118
   %340 = call fastcc i32 @xfrm_inner_extract_output(ptr noundef %63, ptr noundef %1)
   %341 = icmp eq i32 %340, 0
-  br i1 %341, label %342, label %.thread53
+  br i1 %341, label %342, label %.thread51
 
 342:                                              ; preds = %339
   %343 = load i8, ptr %26, align 8
@@ -767,12 +767,12 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   call void asm sideeffect "858: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 858b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 858) #8, !srcloc !12
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 445, i32 2307, i64 12) #8, !srcloc !13
   call void asm sideeffect "859: nop\0A\09.pushsection .discard.instr_end\0A\09.long 859b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 859) #8, !srcloc !14
-  br label %.thread53
+  br label %.thread51
 
 512:                                              ; preds = %.thread
   %513 = getelementptr inbounds i8, ptr %63, i64 226
   %514 = load i16, ptr %513, align 2
-  switch i16 %514, label %.thread53 [
+  switch i16 %514, label %.thread51 [
     i16 2, label %515
     i16 10, label %553
   ]
@@ -977,13 +977,13 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   call void asm sideeffect "862: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 862b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 862) #8, !srcloc !16
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 472, i32 2307, i64 12) #8, !srcloc !17
   call void asm sideeffect "863: nop\0A\09.pushsection .discard.instr_end\0A\09.long 863b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 863) #8, !srcloc !18
-  br label %.thread53
+  br label %.thread51
 
 652:                                              ; preds = %.thread
   call void asm sideeffect "864: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 864b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 864) #8, !srcloc !19
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 475, i32 2307, i64 12) #8, !srcloc !20
   call void asm sideeffect "865: nop\0A\09.pushsection .discard.instr_end\0A\09.long 865b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 865) #8, !srcloc !21
-  br label %.thread53
+  br label %.thread51
 
 653:                                              ; preds = %649, %604
   %654 = phi i32 [ %650, %649 ], [ %605, %604 ]
@@ -1063,13 +1063,13 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
 703:                                              ; preds = %692, %666
   %704 = phi i64 [ %694, %692 ], [ %677, %666 ]
   %705 = icmp ult i64 %704, 2
-  br i1 %705, label %.thread53, label %706
+  br i1 %705, label %.thread51, label %706
 
 706:                                              ; preds = %703
   %707 = load i8, ptr %38, align 1
   %708 = and i8 %707, 1
   %709 = icmp eq i8 %708, 0
-  br i1 %709, label %.thread41, label %710
+  br i1 %709, label %.critedge, label %710
 
 710:                                              ; preds = %706
   %711 = load ptr, ptr %39, align 8
@@ -1079,18 +1079,18 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %715 = shl nuw nsw i64 %714, 3
   %716 = getelementptr i8, ptr %711, i64 %715
   %717 = icmp eq ptr %716, null
-  br i1 %717, label %.thread41, label %718
+  br i1 %717, label %.critedge, label %718
 
 718:                                              ; preds = %710
   %719 = getelementptr inbounds i8, ptr %716, i64 4
   %720 = load i32, ptr %719, align 4
   %721 = icmp eq i32 %720, 0
-  br i1 %721, label %.thread41, label %722
+  br i1 %721, label %.critedge, label %722
 
 722:                                              ; preds = %718
   %723 = load i32, ptr %716, align 8
   %724 = icmp eq i32 %723, %720
-  br i1 %724, label %725, label %.thread41
+  br i1 %724, label %725, label %.critedge
 
 725:                                              ; preds = %722
   %726 = getelementptr inbounds i8, ptr %716, i64 64
@@ -1098,7 +1098,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %728 = sext i32 %727 to i64
   %729 = getelementptr [1 x %struct.xfrm_offload], ptr %726, i64 0, i64 %728
   %730 = icmp eq ptr %729, null
-  br i1 %730, label %.thread41, label %731
+  br i1 %730, label %.critedge, label %731
 
 731:                                              ; preds = %725
   %732 = getelementptr inbounds i8, ptr %63, i64 720
@@ -1108,7 +1108,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   call void %735(ptr noundef %63, ptr noundef %1) #8
   br label %744
 
-.thread41:                                        ; preds = %706, %710, %718, %722, %725
+.critedge:                                        ; preds = %706, %722, %718, %710, %725
   %736 = load i24, ptr %14, align 1
   %737 = and i24 %736, -8193
   store i24 %737, ptr %14, align 1
@@ -1118,10 +1118,10 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %741 = load ptr, ptr %740, align 8
   %742 = call i32 %741(ptr noundef %63, ptr noundef %1) #8
   %743 = icmp eq i32 %742, -115
-  br i1 %743, label %.thread49, label %744
+  br i1 %743, label %.thread47, label %744
 
-744:                                              ; preds = %.thread41, %731, %52, %49
-  %745 = phi i32 [ %50, %52 ], [ %50, %49 ], [ 0, %731 ], [ %742, %.thread41 ]
+744:                                              ; preds = %.critedge, %731, %52, %49
+  %745 = phi i32 [ %50, %52 ], [ %50, %49 ], [ 0, %731 ], [ %742, %.critedge ]
   %746 = icmp eq i32 %745, 0
   br i1 %746, label %747, label %.loopexit
 
@@ -1139,13 +1139,13 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %756 = load i16, ptr %755, align 8
   %757 = and i16 %756, 64
   %758 = icmp eq i16 %757, 0
-  br i1 %758, label %.thread42, label %759
+  br i1 %758, label %.thread40, label %759
 
 759:                                              ; preds = %747, %754
   %760 = getelementptr inbounds i8, ptr %750, i64 232
   %761 = load ptr, ptr %760, align 8
   %762 = icmp eq ptr %761, null
-  br i1 %762, label %.thread42, label %763
+  br i1 %762, label %.thread40, label %763
 
 763:                                              ; preds = %759
   %764 = getelementptr inbounds i8, ptr %761, i64 64
@@ -1153,26 +1153,26 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %766 = icmp ult i8 %765, 2
   call void @llvm.assume(i1 %766)
   %767 = icmp eq i8 %765, 0
-  br i1 %767, label %.thread42, label %768, !prof !5
+  br i1 %767, label %.thread40, label %768, !prof !5
 
 768:                                              ; preds = %763
   %769 = call zeroext i1 @rcuref_get_slowpath(ptr noundef %764) #8
-  br i1 %769, label %.thread42, label %770, !prof !5
+  br i1 %769, label %.thread40, label %770, !prof !5
 
 770:                                              ; preds = %768
   call void asm sideeffect "548: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 548b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 548) #8, !srcloc !23
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 238, i32 2305, i64 12) #8, !srcloc !24
   call void asm sideeffect "549: nop\0A\09.pushsection .discard.instr_end\0A\09.long 549b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 549) #8, !srcloc !25
-  br label %.thread42
+  br label %.thread40
 
-.thread42:                                        ; preds = %754, %770, %768, %763, %759
+.thread40:                                        ; preds = %754, %770, %768, %763, %759
   %771 = phi i1 [ false, %770 ], [ false, %768 ], [ false, %763 ], [ true, %759 ], [ true, %754 ]
   %772 = phi ptr [ %761, %770 ], [ %761, %768 ], [ %761, %763 ], [ null, %759 ], [ null, %754 ]
   %773 = load i64, ptr %7, align 8
   %774 = icmp eq i64 %773, 0
   br i1 %774, label %781, label %775
 
-775:                                              ; preds = %.thread42
+775:                                              ; preds = %.thread40
   %776 = and i64 %773, 1
   %777 = icmp eq i64 %776, 0
   br i1 %777, label %778, label %780
@@ -1186,8 +1186,8 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   store i64 0, ptr %7, align 8
   br label %781
 
-781:                                              ; preds = %780, %.thread42
-  br i1 %771, label %.thread53, label %782
+781:                                              ; preds = %780, %.thread40
+  br i1 %771, label %.thread51, label %782
 
 782:                                              ; preds = %781
   %783 = load i24, ptr %14, align 1
@@ -1208,8 +1208,8 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %793, label %._crit_edge, label %796, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %789
-  %.pre64 = and i64 %785, -2
-  %.pre65 = inttoptr i64 %.pre64 to ptr
+  %.pre62 = and i64 %785, -2
+  %.pre63 = inttoptr i64 %.pre62 to ptr
   br label %62
 
 794:                                              ; preds = %663, %660, %.thread38
@@ -1222,7 +1222,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %798 = and i64 %797, -8
   %799 = inttoptr i64 %798 to ptr
   %800 = icmp eq i64 %798, 0
-  br i1 %800, label %.thread46, label %801
+  br i1 %800, label %.thread44, label %801
 
 801:                                              ; preds = %796
   %802 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %799, i32 -1, ptr nonnull elementtype(i32) %799) #8, !srcloc !29
@@ -1231,18 +1231,18 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
 
 804:                                              ; preds = %801
   %805 = icmp sgt i32 %802, 0
-  br i1 %805, label %.thread46, label %806, !prof !5
+  br i1 %805, label %.thread44, label %806, !prof !5
 
 806:                                              ; preds = %804
   call void @refcount_warn_saturate(ptr noundef nonnull %799, i32 noundef 3) #8
-  br label %.thread46
+  br label %.thread44
 
 807:                                              ; preds = %801
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !30
   call void @nf_conntrack_destroy(ptr noundef nonnull %799) #8
-  br label %.thread46
+  br label %.thread44
 
-.thread46:                                        ; preds = %804, %806, %807, %796
+.thread44:                                        ; preds = %804, %806, %807, %796
   store i64 0, ptr %40, align 8
   %808 = load i64, ptr %7, align 8
   %809 = and i64 %808, -2
@@ -1253,9 +1253,9 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   %814 = load ptr, ptr %813, align 32
   %815 = call i32 %814(ptr noundef %13, ptr noundef %0, ptr noundef %1) #8
   %816 = icmp eq i32 %815, 1
-  br i1 %816, label %817, label %.loopexit57, !prof !5
+  br i1 %816, label %817, label %.loopexit55, !prof !5
 
-817:                                              ; preds = %.thread46
+817:                                              ; preds = %.thread44
   %818 = load i64, ptr %7, align 8
   %819 = and i64 %818, -2
   %820 = inttoptr i64 %819 to ptr
@@ -1272,7 +1272,7 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
 
 828:                                              ; preds = %824
   %829 = call i32 @ip6_output(ptr noundef %13, ptr noundef %0, ptr noundef %1) #8
-  br label %.loopexit57
+  br label %.loopexit55
 
 830:                                              ; preds = %824
   %831 = icmp eq ptr %826, @ip_output
@@ -1280,11 +1280,11 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
 
 832:                                              ; preds = %830
   %833 = call i32 @ip_output(ptr noundef %13, ptr noundef %0, ptr noundef %1) #8
-  br label %.loopexit57
+  br label %.loopexit55
 
 834:                                              ; preds = %830
   %835 = call i32 %826(ptr noundef %13, ptr noundef %0, ptr noundef %1) #8
-  br label %.loopexit57
+  br label %.loopexit55
 
 836:                                              ; preds = %817
   %837 = getelementptr inbounds i8, ptr %820, i64 8
@@ -1296,8 +1296,8 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   switch i8 %840, label %843 [
     i8 2, label %844
     i8 10, label %842
-    i8 3, label %.thread48
-    i8 7, label %.thread48
+    i8 3, label %.thread46
+    i8 7, label %.thread46
   ]
 
 842:                                              ; preds = %836
@@ -1307,13 +1307,13 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   call void asm sideeffect "512: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 512b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 512) #8, !srcloc !31
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.4, i32 259, i32 2307, i64 12) #8, !srcloc !32
   call void asm sideeffect "513: nop\0A\09.pushsection .discard.instr_end\0A\09.long 513b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 513) #8, !srcloc !33
-  br label %.thread48
+  br label %.thread46
 
 844:                                              ; preds = %836, %842
   %.in = phi ptr [ %41, %842 ], [ %42, %836 ]
   %845 = load volatile ptr, ptr %.in, align 8
   %846 = icmp eq ptr %845, null
-  br i1 %846, label %.thread48, label %847
+  br i1 %846, label %.thread46, label %847
 
 847:                                              ; preds = %844
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
@@ -1327,31 +1327,31 @@ define dso_local i32 @xfrm_output_resume(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr @xfrm_output2, ptr %48, align 8
   %848 = call i32 @nf_hook_slow(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %845, i32 noundef 0) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #8
-  br label %.thread48
+  br label %.thread46
 
-.thread48:                                        ; preds = %836, %836, %843, %847, %844
+.thread46:                                        ; preds = %836, %836, %843, %847, %844
   %849 = phi i32 [ %848, %847 ], [ 1, %844 ], [ 1, %843 ], [ 1, %836 ], [ 1, %836 ]
   call void @__rcu_read_unlock() #8
   %850 = icmp eq i32 %849, 1
-  br i1 %850, label %49, label %.loopexit57, !prof !5, !llvm.loop !34
+  br i1 %850, label %49, label %.loopexit55, !prof !5, !llvm.loop !34
 
-.thread53:                                        ; preds = %703, %781, %512, %118, %121, %339, %652, %651, %338, %511
-  %.ph52 = phi i32 [ -95, %511 ], [ -95, %338 ], [ -95, %651 ], [ -95, %652 ], [ -95, %512 ], [ -95, %118 ], [ %122, %121 ], [ %340, %339 ], [ -113, %703 ], [ -113, %781 ]
+.thread51:                                        ; preds = %703, %781, %512, %118, %121, %339, %652, %651, %338, %511
+  %.ph50 = phi i32 [ -95, %511 ], [ -95, %338 ], [ -95, %651 ], [ -95, %652 ], [ -95, %512 ], [ -95, %118 ], [ %122, %121 ], [ %340, %339 ], [ -113, %703 ], [ -113, %781 ]
   call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #8
-  br label %.loopexit57
+  br label %.loopexit55
 
 .loopexit:                                        ; preds = %102, %653, %744, %794
   %851 = phi i32 [ %795, %794 ], [ %745, %744 ], [ %654, %653 ], [ %105, %102 ]
   %.fr = freeze i32 %851
   call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #8
   %852 = icmp eq i32 %.fr, -115
-  br i1 %852, label %.thread49, label %.loopexit57
+  br i1 %852, label %.thread47, label %.loopexit55
 
-.thread49:                                        ; preds = %.thread41, %.loopexit
-  br label %.loopexit57
+.thread47:                                        ; preds = %.critedge, %.loopexit
+  br label %.loopexit55
 
-.loopexit57:                                      ; preds = %.thread48, %.thread46, %.thread49, %.loopexit, %.thread53, %834, %832, %828
-  %853 = phi i32 [ %829, %828 ], [ %833, %832 ], [ %835, %834 ], [ 0, %.thread49 ], [ %.fr, %.loopexit ], [ %.ph52, %.thread53 ], [ %849, %.thread48 ], [ %815, %.thread46 ]
+.loopexit55:                                      ; preds = %.thread46, %.thread44, %.thread47, %.loopexit, %.thread51, %834, %832, %828
+  %853 = phi i32 [ %829, %828 ], [ %833, %832 ], [ %835, %834 ], [ 0, %.thread47 ], [ %.fr, %.loopexit ], [ %.ph50, %.thread51 ], [ %849, %.thread46 ], [ %815, %.thread44 ]
   ret i32 %853
 }
 

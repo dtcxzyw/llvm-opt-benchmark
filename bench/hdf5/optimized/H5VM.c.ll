@@ -235,11 +235,11 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %7
   %indvars.iv77 = phi i64 [ 0, %.preheader.split.us.preheader ], [ %indvars.iv.next78, %7 ]
-  %.02541.us = phi i64 [ 1, %.preheader.split.us.preheader ], [ %35, %7 ]
-  %.02640.us = phi i64 [ 1, %.preheader.split.us.preheader ], [ %27, %7 ]
+  %.02541.us = phi i64 [ 1, %.preheader.split.us.preheader ], [ %36, %7 ]
+  %.02640.us = phi i64 [ 1, %.preheader.split.us.preheader ], [ %28, %7 ]
   br i1 %.not35, label %.thread, label %8
 
-7:                                                ; preds = %33
+7:                                                ; preds = %34
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
   br i1 %exitcond81.not, label %.loopexit, label %.preheader.split.us
@@ -247,58 +247,58 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
 8:                                                ; preds = %.preheader.split.us
   %9 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv77
   %10 = load i64, ptr %9, align 8
-  %.not36.us = icmp eq i64 %10, 0
-  br i1 %.not36.us, label %.thread, label %.loopexit
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %.preheader.split.us, %8
-  br i1 %.not37, label %14, label %11
+  br i1 %.not37, label %15, label %12
 
-11:                                               ; preds = %.thread
-  %12 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv77
-  %13 = load i64, ptr %12, align 8
-  br label %14
+12:                                               ; preds = %.thread
+  %13 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv77
+  %14 = load i64, ptr %13, align 8
+  br label %15
 
-14:                                               ; preds = %11, %.thread
-  %15 = phi i64 [ %13, %11 ], [ 0, %.thread ]
-  br i1 %.not38, label %19, label %16
+15:                                               ; preds = %12, %.thread
+  %16 = phi i64 [ %14, %12 ], [ 0, %.thread ]
+  br i1 %.not38, label %20, label %17
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv77
-  %18 = load i64, ptr %17, align 8
-  br label %19
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv77
+  %19 = load i64, ptr %18, align 8
+  br label %20
 
-19:                                               ; preds = %16, %14
-  %20 = phi i64 [ %18, %16 ], [ 0, %14 ]
-  %.not39.us = icmp eq i64 %15, %20
-  br i1 %.not39.us, label %21, label %.loopexit
+20:                                               ; preds = %17, %15
+  %21 = phi i64 [ %19, %17 ], [ 0, %15 ]
+  %.not39.us = icmp eq i64 %16, %21
+  br i1 %.not39.us, label %22, label %.loopexit
 
-21:                                               ; preds = %19
-  br i1 %.not37, label %25, label %22
+22:                                               ; preds = %20
+  br i1 %.not37, label %26, label %23
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv77
-  %24 = load i64, ptr %23, align 8
-  br label %25
+23:                                               ; preds = %22
+  %24 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv77
+  %25 = load i64, ptr %24, align 8
+  br label %26
 
-25:                                               ; preds = %22, %21
-  %26 = phi i64 [ %24, %22 ], [ 0, %21 ]
-  %27 = mul i64 %26, %.02640.us
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.loopexit, label %29
+26:                                               ; preds = %23, %22
+  %27 = phi i64 [ %25, %23 ], [ 0, %22 ]
+  %28 = mul i64 %27, %.02640.us
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %.loopexit, label %30
 
-29:                                               ; preds = %25
-  br i1 %.not38, label %33, label %30
+30:                                               ; preds = %26
+  br i1 %.not38, label %34, label %31
 
-30:                                               ; preds = %29
-  %31 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv77
-  %32 = load i64, ptr %31, align 8
-  br label %33
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv77
+  %33 = load i64, ptr %32, align 8
+  br label %34
 
-33:                                               ; preds = %30, %29
-  %34 = phi i64 [ %32, %30 ], [ 0, %29 ]
-  %35 = mul i64 %34, %.02541.us
-  %36 = icmp eq i64 %35, 0
-  br i1 %36, label %.loopexit, label %7
+34:                                               ; preds = %31, %30
+  %35 = phi i64 [ %33, %31 ], [ 0, %30 ]
+  %36 = mul i64 %35, %.02541.us
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %.loopexit, label %7
 
 .preheader.split:                                 ; preds = %.preheader
   br i1 %.not35, label %.preheader.split.split.us.preheader, label %.preheader.split.split
@@ -307,69 +307,69 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   %wide.trip.count75 = zext i32 %0 to i64
   br label %.preheader.split.split.us
 
-.preheader.split.split.us:                        ; preds = %.preheader.split.split.us.preheader, %39
-  %indvars.iv72 = phi i64 [ 0, %.preheader.split.split.us.preheader ], [ %indvars.iv.next73, %39 ]
-  %.02541.us44 = phi i64 [ 1, %.preheader.split.split.us.preheader ], [ %65, %39 ]
-  %.02640.us45 = phi i64 [ 1, %.preheader.split.split.us.preheader ], [ %57, %39 ]
-  %37 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv72
-  %38 = load i64, ptr %37, align 8
-  %.not36.us46 = icmp eq i64 %38, 0
-  br i1 %.not36.us46, label %40, label %.loopexit
+.preheader.split.split.us:                        ; preds = %.preheader.split.split.us.preheader, %40
+  %indvars.iv72 = phi i64 [ 0, %.preheader.split.split.us.preheader ], [ %indvars.iv.next73, %40 ]
+  %.02541.us44 = phi i64 [ 1, %.preheader.split.split.us.preheader ], [ %66, %40 ]
+  %.02640.us45 = phi i64 [ 1, %.preheader.split.split.us.preheader ], [ %58, %40 ]
+  %38 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv72
+  %39 = load i64, ptr %38, align 8
+  %.not36.us46 = icmp eq i64 %39, 0
+  br i1 %.not36.us46, label %41, label %.loopexit
 
-39:                                               ; preds = %63
+40:                                               ; preds = %64
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
   br i1 %exitcond76.not, label %.loopexit, label %.preheader.split.split.us
 
-40:                                               ; preds = %.preheader.split.split.us
-  br i1 %.not37, label %44, label %41
+41:                                               ; preds = %.preheader.split.split.us
+  br i1 %.not37, label %45, label %42
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv72
-  %43 = load i64, ptr %42, align 8
-  br label %44
+42:                                               ; preds = %41
+  %43 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv72
+  %44 = load i64, ptr %43, align 8
+  br label %45
 
-44:                                               ; preds = %41, %40
-  %45 = phi i64 [ %43, %41 ], [ 0, %40 ]
-  br i1 %.not38, label %49, label %46
+45:                                               ; preds = %42, %41
+  %46 = phi i64 [ %44, %42 ], [ 0, %41 ]
+  br i1 %.not38, label %50, label %47
 
-46:                                               ; preds = %44
-  %47 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv72
-  %48 = load i64, ptr %47, align 8
-  br label %49
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv72
+  %49 = load i64, ptr %48, align 8
+  br label %50
 
-49:                                               ; preds = %46, %44
-  %50 = phi i64 [ %48, %46 ], [ 0, %44 ]
-  %.not39.us47 = icmp eq i64 %45, %50
-  br i1 %.not39.us47, label %51, label %.loopexit
+50:                                               ; preds = %47, %45
+  %51 = phi i64 [ %49, %47 ], [ 0, %45 ]
+  %.not39.us47 = icmp eq i64 %46, %51
+  br i1 %.not39.us47, label %52, label %.loopexit
 
-51:                                               ; preds = %49
-  br i1 %.not37, label %55, label %52
+52:                                               ; preds = %50
+  br i1 %.not37, label %56, label %53
 
-52:                                               ; preds = %51
-  %53 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv72
-  %54 = load i64, ptr %53, align 8
-  br label %55
+53:                                               ; preds = %52
+  %54 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv72
+  %55 = load i64, ptr %54, align 8
+  br label %56
 
-55:                                               ; preds = %52, %51
-  %56 = phi i64 [ %54, %52 ], [ 0, %51 ]
-  %57 = mul i64 %56, %.02640.us45
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %.loopexit, label %59
+56:                                               ; preds = %53, %52
+  %57 = phi i64 [ %55, %53 ], [ 0, %52 ]
+  %58 = mul i64 %57, %.02640.us45
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %.loopexit, label %60
 
-59:                                               ; preds = %55
-  br i1 %.not38, label %63, label %60
+60:                                               ; preds = %56
+  br i1 %.not38, label %64, label %61
 
-60:                                               ; preds = %59
-  %61 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv72
-  %62 = load i64, ptr %61, align 8
-  br label %63
+61:                                               ; preds = %60
+  %62 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv72
+  %63 = load i64, ptr %62, align 8
+  br label %64
 
-63:                                               ; preds = %60, %59
-  %64 = phi i64 [ %62, %60 ], [ 0, %59 ]
-  %65 = mul i64 %64, %.02541.us44
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %.loopexit, label %39
+64:                                               ; preds = %61, %60
+  %65 = phi i64 [ %63, %61 ], [ 0, %60 ]
+  %66 = mul i64 %65, %.02541.us44
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %.loopexit, label %40
 
 .preheader.split.split:                           ; preds = %.preheader.split
   %brmerge = or i1 %.not37, %.not38
@@ -379,42 +379,42 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   %wide.trip.count = zext i32 %0 to i64
   br label %.preheader.split.split.split.split
 
-67:                                               ; preds = %80
+68:                                               ; preds = %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.preheader.split.split.split.split
 
-.preheader.split.split.split.split:               ; preds = %.preheader.split.split.split.split.preheader, %67
-  %indvars.iv = phi i64 [ 0, %.preheader.split.split.split.split.preheader ], [ %indvars.iv.next, %67 ]
-  %.02541 = phi i64 [ 1, %.preheader.split.split.split.split.preheader ], [ %81, %67 ]
-  %.02640 = phi i64 [ 1, %.preheader.split.split.split.split.preheader ], [ %78, %67 ]
-  %68 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
-  %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
-  %71 = load i64, ptr %70, align 8
-  %.not36 = icmp eq i64 %69, %71
-  br i1 %.not36, label %72, label %.loopexit
+.preheader.split.split.split.split:               ; preds = %.preheader.split.split.split.split.preheader, %68
+  %indvars.iv = phi i64 [ 0, %.preheader.split.split.split.split.preheader ], [ %indvars.iv.next, %68 ]
+  %.02541 = phi i64 [ 1, %.preheader.split.split.split.split.preheader ], [ %82, %68 ]
+  %.02640 = phi i64 [ 1, %.preheader.split.split.split.split.preheader ], [ %79, %68 ]
+  %69 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %70 = load i64, ptr %69, align 8
+  %71 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %72 = load i64, ptr %71, align 8
+  %.not36 = icmp eq i64 %70, %72
+  br i1 %.not36, label %73, label %.loopexit
 
-72:                                               ; preds = %.preheader.split.split.split.split
-  %73 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
-  %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv
-  %76 = load i64, ptr %75, align 8
-  %.not39 = icmp eq i64 %74, %76
-  br i1 %.not39, label %77, label %.loopexit
+73:                                               ; preds = %.preheader.split.split.split.split
+  %74 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %75 = load i64, ptr %74, align 8
+  %76 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv
+  %77 = load i64, ptr %76, align 8
+  %.not39 = icmp eq i64 %75, %77
+  br i1 %.not39, label %78, label %.loopexit
 
-77:                                               ; preds = %72
-  %78 = mul i64 %74, %.02640
-  %79 = icmp eq i64 %78, 0
-  br i1 %79, label %.loopexit, label %80
+78:                                               ; preds = %73
+  %79 = mul i64 %75, %.02640
+  %80 = icmp eq i64 %79, 0
+  br i1 %80, label %.loopexit, label %81
 
-80:                                               ; preds = %77
-  %81 = mul i64 %74, %.02541
-  %82 = icmp eq i64 %81, 0
-  br i1 %82, label %.loopexit, label %67
+81:                                               ; preds = %78
+  %82 = mul i64 %75, %.02541
+  %83 = icmp eq i64 %82, 0
+  br i1 %83, label %.loopexit, label %68
 
-.loopexit:                                        ; preds = %80, %77, %72, %.preheader.split.split.split.split, %67, %39, %.preheader.split.split.us, %49, %55, %63, %33, %25, %19, %8, %7, %.preheader.split.split, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %.preheader.split.split ], [ 0, %33 ], [ 0, %25 ], [ 0, %19 ], [ 0, %8 ], [ 1, %7 ], [ 0, %63 ], [ 0, %55 ], [ 0, %49 ], [ 0, %.preheader.split.split.us ], [ 1, %39 ], [ 0, %80 ], [ 0, %77 ], [ 0, %72 ], [ 0, %.preheader.split.split.split.split ], [ 1, %67 ]
+.loopexit:                                        ; preds = %81, %78, %73, %.preheader.split.split.split.split, %68, %40, %.preheader.split.split.us, %50, %56, %64, %34, %26, %20, %8, %7, %.preheader.split.split, %5
+  %.0 = phi i32 [ 1, %5 ], [ 0, %.preheader.split.split ], [ 0, %34 ], [ 0, %26 ], [ 0, %20 ], [ 0, %8 ], [ 1, %7 ], [ 0, %64 ], [ 0, %56 ], [ 0, %50 ], [ 0, %.preheader.split.split.us ], [ 1, %40 ], [ 0, %81 ], [ 0, %78 ], [ 0, %73 ], [ 0, %.preheader.split.split.split.split ], [ 1, %68 ]
   ret i32 %.0
 }
 

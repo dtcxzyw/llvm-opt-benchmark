@@ -2022,7 +2022,7 @@ define dso_local void @nfs_pageio_init(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @nfs_generic_pgio(ptr noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @nfs_generic_pgio(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.nfs_commit_info, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3949,7 +3949,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
 
 30:                                               ; preds = %.backedge, %15
   %31 = phi ptr [ %1, %15 ], [ %.be, %.backedge ]
-  %32 = phi i32 [ %19, %15 ], [ %.be31, %.backedge ]
+  %32 = phi i32 [ %19, %15 ], [ %.be30, %.backedge ]
   %33 = load ptr, ptr %3, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 40
   %35 = load ptr, ptr %34, align 8
@@ -4055,7 +4055,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
   %99 = load ptr, ptr %98, align 8
   %100 = tail call i32 @cred_fscmp(ptr noundef %97, ptr noundef %99) #11
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %.thread30
+  br i1 %101, label %102, label %.thread29
 
 102:                                              ; preds = %87
   %103 = getelementptr inbounds i8, ptr %91, i64 96
@@ -4063,7 +4063,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
   %105 = getelementptr inbounds i8, ptr %95, i64 96
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %104, %106
-  br i1 %107, label %108, label %.thread30
+  br i1 %107, label %108, label %.thread29
 
 108:                                              ; preds = %102
   %109 = load ptr, ptr %88, align 8
@@ -4084,28 +4084,28 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
   %121 = load volatile ptr, ptr %120, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !95
   %122 = icmp eq ptr %121, %120
-  br i1 %122, label %123, label %.thread
+  br i1 %122, label %123, label %.critedge
 
 123:                                              ; preds = %119
   %124 = getelementptr inbounds i8, ptr %117, i64 32
   %125 = load volatile ptr, ptr %124, align 8
   %.not = icmp eq ptr %120, %125
-  br i1 %.not, label %126, label %.thread
+  br i1 %.not, label %126, label %.critedge
 
 126:                                              ; preds = %123
   %127 = getelementptr inbounds i8, ptr %117, i64 8
   %128 = load volatile ptr, ptr %127, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !95
   %129 = icmp eq ptr %128, %127
-  br i1 %129, label %130, label %.thread
+  br i1 %129, label %130, label %.critedge
 
 130:                                              ; preds = %126
   %131 = getelementptr inbounds i8, ptr %117, i64 16
   %132 = load volatile ptr, ptr %131, align 8
   %133 = icmp eq ptr %127, %132
-  br i1 %133, label %141, label %.thread
+  br i1 %133, label %141, label %.critedge
 
-.thread:                                          ; preds = %119, %130, %126, %123
+.critedge:                                        ; preds = %119, %130, %126, %123
   %134 = load ptr, ptr %88, align 8
   %135 = load ptr, ptr %92, align 8
   %136 = getelementptr inbounds i8, ptr %134, i64 32
@@ -4113,9 +4113,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
   %138 = getelementptr inbounds i8, ptr %135, i64 32
   %139 = load ptr, ptr %138, align 8
   %140 = icmp eq ptr %137, %139
-  br i1 %140, label %141, label %.thread30
+  br i1 %140, label %141, label %.thread29
 
-141:                                              ; preds = %.thread, %130, %108
+141:                                              ; preds = %.critedge, %130, %108
   %142 = getelementptr inbounds i8, ptr %66, i64 44
   %143 = load i32, ptr %142, align 4
   %144 = getelementptr inbounds i8, ptr %66, i64 48
@@ -4139,7 +4139,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
   %162 = add i64 %157, %161
   %163 = add i64 %162, %160
   %164 = icmp eq i64 %154, %163
-  br i1 %164, label %165, label %.thread30
+  br i1 %164, label %165, label %.thread29
 
 165:                                              ; preds = %141
   %166 = getelementptr inbounds i8, ptr %31, i64 44
@@ -4152,13 +4152,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
   %171 = load volatile i64, ptr %170, align 8
   %172 = and i64 %171, 4
   %173 = icmp eq i64 %172, 0
-  br i1 %173, label %.thread28, label %174
+  br i1 %173, label %.thread, label %174
 
 174:                                              ; preds = %169
   %175 = getelementptr inbounds i8, ptr %66, i64 16
   %176 = load ptr, ptr %175, align 8
   %177 = icmp eq ptr %176, null
-  br i1 %177, label %.thread28, label %178
+  br i1 %177, label %.thread, label %178
 
 178:                                              ; preds = %174
   %179 = load volatile i64, ptr %176, align 8
@@ -4175,16 +4175,16 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
 186:                                              ; preds = %182, %178
   %187 = phi i64 [ %185, %182 ], [ 0, %178 ]
   %188 = shl i64 4096, %187
-  br label %.thread28
+  br label %.thread
 
-.thread28:                                        ; preds = %169, %186, %174
+.thread:                                          ; preds = %169, %186, %174
   %189 = phi i64 [ %188, %186 ], [ 4096, %174 ], [ 4096, %169 ]
   %190 = icmp eq i64 %189, %147
-  br i1 %190, label %213, label %.thread30
+  br i1 %190, label %213, label %.thread29
 
 191:                                              ; preds = %165
   %192 = icmp eq i32 %167, %146
-  br i1 %192, label %193, label %.thread30
+  br i1 %192, label %193, label %.thread29
 
 193:                                              ; preds = %191
   %194 = getelementptr inbounds i8, ptr %31, i64 56
@@ -4193,48 +4193,48 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
   %197 = icmp eq i64 %196, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %31, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %197, label %.thread29, label %198
+  br i1 %197, label %.thread28, label %198
 
 198:                                              ; preds = %193
   %199 = icmp eq ptr %.pre, null
-  br i1 %199, label %.thread29, label %200
+  br i1 %199, label %.thread28, label %200
 
 200:                                              ; preds = %198
   %201 = getelementptr inbounds i8, ptr %66, i64 56
   %202 = load volatile i64, ptr %201, align 8
   %203 = and i64 %202, 4
   %204 = icmp eq i64 %203, 0
-  br i1 %204, label %.thread30, label %205
+  br i1 %204, label %.thread29, label %205
 
 205:                                              ; preds = %200
   %206 = getelementptr inbounds i8, ptr %66, i64 16
   %207 = load ptr, ptr %206, align 8
   %208 = icmp eq ptr %.pre, %207
-  br i1 %208, label %213, label %.thread30
+  br i1 %208, label %213, label %.thread29
 
-.thread29:                                        ; preds = %193, %198
+.thread28:                                        ; preds = %193, %198
   %209 = phi ptr [ null, %198 ], [ %.pre, %193 ]
   %210 = getelementptr inbounds i8, ptr %66, i64 16
   %211 = load ptr, ptr %210, align 8
   %212 = icmp eq ptr %209, %211
-  br i1 %212, label %213, label %.thread30
+  br i1 %212, label %213, label %.thread29
 
-213:                                              ; preds = %205, %.thread28, %.thread29, %85
+213:                                              ; preds = %205, %.thread, %.thread28, %85
   %214 = load ptr, ptr %3, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 8
   %216 = load ptr, ptr %215, align 8
   %217 = tail call i64 %216(ptr noundef %0, ptr noundef %66, ptr noundef %31) #11
   %218 = trunc i64 %217 to i32
-  br label %.thread30
+  br label %.thread29
 
-.thread30:                                        ; preds = %200, %205, %.thread28, %213, %.thread29, %191, %141, %.thread, %102, %87
-  %219 = phi i32 [ %218, %213 ], [ 0, %102 ], [ 0, %.thread ], [ 0, %.thread29 ], [ 0, %87 ], [ 0, %191 ], [ 0, %141 ], [ 0, %.thread28 ], [ 0, %205 ], [ 0, %200 ]
+.thread29:                                        ; preds = %200, %205, %.thread, %213, %.thread28, %191, %141, %.critedge, %102, %87
+  %219 = phi i32 [ %218, %213 ], [ 0, %102 ], [ 0, %.critedge ], [ 0, %.thread28 ], [ 0, %87 ], [ 0, %191 ], [ 0, %141 ], [ 0, %.thread ], [ 0, %205 ], [ 0, %200 ]
   %220 = getelementptr inbounds i8, ptr %31, i64 48
   %221 = load i32, ptr %220, align 8
   %222 = icmp ult i32 %219, %221
   br i1 %222, label %236, label %223
 
-223:                                              ; preds = %.thread30
+223:                                              ; preds = %.thread29
   %224 = getelementptr inbounds i8, ptr %31, i64 8
   %225 = load ptr, ptr %224, align 8
   %226 = load ptr, ptr %31, align 8
@@ -4256,8 +4256,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
   %235 = load i32, ptr %220, align 8
   br label %236
 
-236:                                              ; preds = %223, %.thread30, %84, %83, %51
-  %237 = phi i32 [ %235, %223 ], [ 0, %51 ], [ 0, %84 ], [ 0, %83 ], [ %219, %.thread30 ]
+236:                                              ; preds = %223, %.thread29, %84, %83, %51
+  %237 = phi i32 [ %235, %223 ], [ 0, %51 ], [ 0, %84 ], [ 0, %83 ], [ %219, %.thread29 ]
   %238 = icmp eq i32 %237, %32
   %239 = icmp eq ptr %31, %1
   br i1 %238, label %240, label %248
@@ -4401,7 +4401,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @__nfs_pageio_add_request(ptr
 
 .backedge:                                        ; preds = %311, %309, %241
   %.be = phi ptr [ %1, %241 ], [ %253, %309 ], [ %314, %311 ]
-  %.be31 = phi i32 [ %245, %241 ], [ %254, %309 ], [ %237, %311 ]
+  %.be30 = phi i32 [ %245, %241 ], [ %254, %309 ], [ %237, %311 ]
   br label %30, !llvm.loop !99
 
 316:                                              ; preds = %240

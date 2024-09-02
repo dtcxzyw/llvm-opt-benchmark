@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %data, ptr noundef %type2ref, ptr nocapture noundef %ntlm) local_unnamed_addr #1 {
+define hidden range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %data, ptr noundef %type2ref, ptr nocapture noundef %ntlm) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @Curl_bufref_ptr(ptr noundef %type2ref) #7
   %call1 = tail call i64 @Curl_bufref_len(ptr noundef %type2ref) #7

@@ -295,114 +295,114 @@ define internal fastcc void @early_root_info_init() unnamed_addr #0 section ".in
   %145 = icmp eq i64 %143, 0
   %146 = add i64 %143, 1
   %147 = add i64 %144, -1
-  br label %148
+  %148 = icmp eq i64 %147, 0
+  br label %149
 
-148:                                              ; preds = %.thread31, %._crit_edge
-  %149 = phi i32 [ 0, %._crit_edge ], [ %213, %.thread31 ]
-  %150 = trunc i32 %149 to i8
-  %151 = shl nuw nsw i8 %150, 3
-  %152 = or disjoint i8 %151, -128
-  %153 = call i32 @read_pci_config(i8 noundef zeroext %11, i8 noundef zeroext %12, i8 noundef zeroext 1, i8 noundef zeroext %152) #9
-  %154 = and i32 %153, 3
-  %155 = icmp eq i32 %154, 0
-  br i1 %155, label %.thread31, label %156
+149:                                              ; preds = %.thread31, %._crit_edge
+  %150 = phi i32 [ 0, %._crit_edge ], [ %213, %.thread31 ]
+  %151 = trunc i32 %150 to i8
+  %152 = shl nuw nsw i8 %151, 3
+  %153 = or disjoint i8 %152, -128
+  %154 = call i32 @read_pci_config(i8 noundef zeroext %11, i8 noundef zeroext %12, i8 noundef zeroext 1, i8 noundef zeroext %153) #9
+  %155 = and i32 %154, 3
+  %156 = icmp eq i32 %155, 0
+  br i1 %156, label %.thread31, label %157
 
-156:                                              ; preds = %148
-  %157 = and i32 %153, -256
-  %158 = zext i32 %157 to i64
-  %159 = shl nuw nsw i64 %158, 8
-  %160 = or disjoint i8 %151, -124
-  %161 = call i32 @read_pci_config(i8 noundef zeroext %11, i8 noundef zeroext %12, i8 noundef zeroext 1, i8 noundef zeroext %160) #9
-  %162 = and i32 %161, 7
-  %163 = lshr i32 %161, 4
-  %164 = and i32 %163, 3
-  %165 = zext i32 %161 to i64
-  %166 = shl nuw nsw i64 %165, 8
-  %167 = or i64 %166, 65535
-  %168 = load ptr, ptr @pci_root_infos, align 8
-  %169 = icmp eq ptr %168, @pci_root_infos
-  br i1 %169, label %.thread31, label %.preheader46
+157:                                              ; preds = %149
+  %158 = and i32 %154, -256
+  %159 = zext i32 %158 to i64
+  %160 = shl nuw nsw i64 %159, 8
+  %161 = or disjoint i8 %152, -124
+  %162 = call i32 @read_pci_config(i8 noundef zeroext %11, i8 noundef zeroext %12, i8 noundef zeroext 1, i8 noundef zeroext %161) #9
+  %163 = and i32 %162, 7
+  %164 = lshr i32 %162, 4
+  %165 = and i32 %164, 3
+  %166 = zext i32 %162 to i64
+  %167 = shl nuw nsw i64 %166, 8
+  %168 = or i64 %167, 65535
+  %169 = load ptr, ptr @pci_root_infos, align 8
+  %170 = icmp eq ptr %169, @pci_root_infos
+  br i1 %170, label %.thread31, label %.preheader46
 
-.preheader46:                                     ; preds = %156, %178
-  %170 = phi ptr [ %179, %178 ], [ %168, %156 ]
-  %171 = getelementptr inbounds i8, ptr %170, i64 112
-  %172 = load i32, ptr %171, align 8
-  %173 = icmp eq i32 %172, %162
-  br i1 %173, label %174, label %178
+.preheader46:                                     ; preds = %157, %179
+  %171 = phi ptr [ %180, %179 ], [ %169, %157 ]
+  %172 = getelementptr inbounds i8, ptr %171, i64 112
+  %173 = load i32, ptr %172, align 8
+  %174 = icmp eq i32 %173, %163
+  br i1 %174, label %175, label %179
 
-174:                                              ; preds = %.preheader46
-  %175 = getelementptr inbounds i8, ptr %170, i64 116
-  %176 = load i32, ptr %175, align 4
-  %177 = icmp eq i32 %176, %164
-  br i1 %177, label %181, label %178
+175:                                              ; preds = %.preheader46
+  %176 = getelementptr inbounds i8, ptr %171, i64 116
+  %177 = load i32, ptr %176, align 4
+  %178 = icmp eq i32 %177, %165
+  br i1 %178, label %182, label %179
 
-178:                                              ; preds = %174, %.preheader46
-  %179 = load ptr, ptr %170, align 8
-  %180 = icmp eq ptr %179, @pci_root_infos
-  br i1 %180, label %.thread31, label %.preheader46, !llvm.loop !10
+179:                                              ; preds = %175, %.preheader46
+  %180 = load ptr, ptr %171, align 8
+  %181 = icmp eq ptr %180, @pci_root_infos
+  br i1 %181, label %.thread31, label %.preheader46, !llvm.loop !10
 
-181:                                              ; preds = %174
-  %182 = icmp eq ptr %170, null
-  br i1 %182, label %.thread31, label %183
+182:                                              ; preds = %175
+  %183 = icmp eq ptr %171, null
+  br i1 %183, label %.thread31, label %184
 
-183:                                              ; preds = %181
-  %184 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %162, i32 noundef %164, i64 noundef %159, i64 noundef %167) #10
-  br i1 %145, label %208, label %185
+184:                                              ; preds = %182
+  %185 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %163, i32 noundef %165, i64 noundef %160, i64 noundef %168) #10
+  br i1 %145, label %208, label %186
 
-185:                                              ; preds = %183
-  %186 = icmp ult i64 %159, %144
-  %187 = icmp ugt i64 %159, %143
-  %.not39 = or i1 %186, %187
-  %188 = select i1 %.not39, i64 %159, i64 %146
-  %189 = icmp ult i64 %167, %144
-  %190 = icmp ugt i64 %167, %143
-  %.not41 = or i1 %189, %190
-  %191 = select i1 %.not41, i64 %167, i64 %147
-  %192 = icmp ult i64 %188, %144
-  %193 = icmp ugt i64 %191, %143
-  %194 = select i1 %192, i1 %193, i1 false
-  br i1 %194, label %.thread32, label %196
+186:                                              ; preds = %184
+  %187 = icmp ult i64 %160, %144
+  %188 = icmp ugt i64 %160, %143
+  %.not39 = or i1 %187, %188
+  %189 = select i1 %.not39, i64 %160, i64 %146
+  %190 = icmp ult i64 %168, %144
+  %191 = icmp ugt i64 %168, %143
+  %.not41 = or i1 %190, %191
+  %192 = select i1 %.not41, i64 %168, i64 %147
+  %193 = icmp ult i64 %189, %144
+  %194 = icmp ugt i64 %192, %143
+  %195 = select i1 %193, i1 %194, i1 false
+  br i1 %195, label %.thread32, label %197
 
-.thread32:                                        ; preds = %185
-  call void @update_res(ptr noundef nonnull %170, i64 noundef %188, i64 noundef %147, i64 noundef 512, i32 noundef 0) #9
-  call void @subtract_range(ptr noundef nonnull %1, i32 noundef 16, i64 noundef %188, i64 noundef %144) #9
-  %195 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i64 noundef %188, i64 noundef %147) #10
-  br label %197
+.thread32:                                        ; preds = %186
+  call void @update_res(ptr noundef nonnull %171, i64 noundef %189, i64 noundef %147, i64 noundef 512, i32 noundef 0) #9
+  call void @subtract_range(ptr noundef nonnull %1, i32 noundef 16, i64 noundef %189, i64 noundef %144) #9
+  %196 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i64 noundef %189, i64 noundef %147) #10
+  br label %198
 
-196:                                              ; preds = %185
+197:                                              ; preds = %186
   %.not36 = and i1 %.not39, %.not41
-  br i1 %.not36, label %208, label %197
+  br i1 %.not36, label %208, label %198
 
-197:                                              ; preds = %.thread32, %196
-  %198 = phi i64 [ %146, %.thread32 ], [ %188, %196 ]
-  %199 = phi i64 [ %147, %.thread32 ], [ 0, %196 ]
-  %200 = icmp ugt i64 %198, %191
-  %201 = icmp eq i64 %199, 0
-  br i1 %200, label %205, label %202
+198:                                              ; preds = %.thread32, %197
+  %199 = phi i64 [ %146, %.thread32 ], [ %189, %197 ]
+  %200 = phi i1 [ %148, %.thread32 ], [ true, %197 ]
+  %201 = icmp ugt i64 %199, %192
+  br i1 %201, label %205, label %202
 
-202:                                              ; preds = %197
-  %203 = select i1 %201, ptr @.str.7, ptr @.str.6
-  %204 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull %203, i64 noundef %198, i64 noundef %191) #10
+202:                                              ; preds = %198
+  %203 = select i1 %200, ptr @.str.7, ptr @.str.6
+  %204 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef nonnull %203, i64 noundef %199, i64 noundef %192) #10
   br label %208
 
-205:                                              ; preds = %197
-  %206 = select i1 %201, ptr @.str.10, ptr @.str.9
+205:                                              ; preds = %198
+  %206 = select i1 %200, ptr @.str.10, ptr @.str.9
   %207 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull %206) #10
   br label %.thread31
 
-208:                                              ; preds = %202, %196, %183
-  %209 = phi i64 [ %167, %183 ], [ %191, %196 ], [ %191, %202 ]
-  %210 = phi i64 [ %159, %183 ], [ %188, %196 ], [ %198, %202 ]
-  call void @update_res(ptr noundef nonnull %170, i64 noundef %210, i64 noundef %209, i64 noundef 512, i32 noundef 1) #9
+208:                                              ; preds = %202, %197, %184
+  %209 = phi i64 [ %168, %184 ], [ %192, %197 ], [ %192, %202 ]
+  %210 = phi i64 [ %160, %184 ], [ %189, %197 ], [ %199, %202 ]
+  call void @update_res(ptr noundef nonnull %171, i64 noundef %210, i64 noundef %209, i64 noundef 512, i32 noundef 1) #9
   %211 = add nsw i64 %209, 1
   call void @subtract_range(ptr noundef nonnull %1, i32 noundef 16, i64 noundef %210, i64 noundef %211) #9
   %212 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #10
   br label %.thread31
 
-.thread31:                                        ; preds = %178, %156, %208, %205, %181, %148
-  %213 = add nuw nsw i32 %149, 1
+.thread31:                                        ; preds = %179, %157, %208, %205, %182, %149
+  %213 = add nuw nsw i32 %150, 1
   %214 = icmp eq i32 %213, 8
-  br i1 %214, label %215, label %148, !llvm.loop !13
+  br i1 %214, label %215, label %149, !llvm.loop !13
 
 215:                                              ; preds = %.thread31
   %216 = call fastcc i64 @native_read_msr(i32 noundef -1073676272)
@@ -599,59 +599,62 @@ declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef)
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @pci_enable_pci_io_ecs() unnamed_addr #0 section ".init.text" align 16 {
-  br label %1
+  %1 = load i8, ptr getelementptr inbounds (i8, ptr @amd_nb_bus_dev_ranges, i64 2), align 1
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %.loopexit.loopexit._crit_edge, label %.lr.ph
 
-1:                                                ; preds = %.loopexit, %0
-  %2 = phi i32 [ 0, %0 ], [ %30, %.loopexit ]
-  %3 = zext i32 %2 to i64
-  %4 = getelementptr [0 x %struct.amd_nb_bus_dev_range], ptr @amd_nb_bus_dev_ranges, i64 0, i64 %3
-  %5 = getelementptr inbounds i8, ptr %4, i64 2
-  %6 = load i8, ptr %5, align 1
-  %7 = icmp eq i8 %6, 0
-  br i1 %7, label %32, label %8
+.lr.ph:                                           ; preds = %0, %.backedge
+  %3 = phi i8 [ %30, %.backedge ], [ %1, %0 ]
+  %4 = phi ptr [ %28, %.backedge ], [ @amd_nb_bus_dev_ranges, %0 ]
+  %5 = phi i32 [ %.be, %.backedge ], [ 0, %0 ]
+  %6 = load i8, ptr %4, align 1
+  %7 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp ult i8 %8, %3
+  br i1 %9, label %.preheader, label %.backedge
 
-8:                                                ; preds = %1
-  %9 = load i8, ptr %4, align 1
-  %10 = getelementptr inbounds i8, ptr %4, i64 1
-  %11 = load i8, ptr %10, align 1
-  %12 = icmp ult i8 %11, %6
-  br i1 %12, label %.preheader, label %.loopexit
+.preheader:                                       ; preds = %.lr.ph, %22
+  %10 = phi i8 [ %24, %22 ], [ %8, %.lr.ph ]
+  %11 = phi i32 [ %23, %22 ], [ 0, %.lr.ph ]
+  %12 = tail call i32 @read_pci_config(i8 noundef zeroext %6, i8 noundef zeroext %10, i8 noundef zeroext 3, i8 noundef zeroext 0) #9
+  %13 = tail call zeroext i1 @early_is_amd_nb(i32 noundef %12) #9
+  br i1 %13, label %14, label %22
 
-.preheader:                                       ; preds = %8, %25
-  %13 = phi i8 [ %27, %25 ], [ %11, %8 ]
-  %14 = phi i32 [ %26, %25 ], [ 0, %8 ]
-  %15 = tail call i32 @read_pci_config(i8 noundef zeroext %9, i8 noundef zeroext %13, i8 noundef zeroext 3, i8 noundef zeroext 0) #9
-  %16 = tail call zeroext i1 @early_is_amd_nb(i32 noundef %15) #9
-  br i1 %16, label %17, label %25
+14:                                               ; preds = %.preheader
+  %15 = tail call i32 @read_pci_config(i8 noundef zeroext %6, i8 noundef zeroext %10, i8 noundef zeroext 3, i8 noundef zeroext -116) #9
+  %16 = and i32 %15, 16384
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %.preheader
-  %18 = tail call i32 @read_pci_config(i8 noundef zeroext %9, i8 noundef zeroext %13, i8 noundef zeroext 3, i8 noundef zeroext -116) #9
-  %19 = and i32 %18, 16384
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %23
+18:                                               ; preds = %14
+  %19 = or disjoint i32 %15, 16384
+  tail call void @write_pci_config(i8 noundef zeroext %6, i8 noundef zeroext %10, i8 noundef zeroext 3, i8 noundef zeroext -116, i32 noundef %19) #9
+  br label %20
 
-21:                                               ; preds = %17
-  %22 = or disjoint i32 %18, 16384
-  tail call void @write_pci_config(i8 noundef zeroext %9, i8 noundef zeroext %13, i8 noundef zeroext 3, i8 noundef zeroext -116, i32 noundef %22) #9
-  br label %23
+20:                                               ; preds = %18, %14
+  %21 = add i32 %11, 1
+  br label %22
 
-23:                                               ; preds = %21, %17
-  %24 = add i32 %14, 1
-  br label %25
+22:                                               ; preds = %20, %.preheader
+  %23 = phi i32 [ %21, %20 ], [ %11, %.preheader ]
+  %24 = add nuw i8 %10, 1
+  %25 = icmp ult i8 %24, %3
+  br i1 %25, label %.preheader, label %.loopexit.loopexit, !llvm.loop !23
 
-25:                                               ; preds = %23, %.preheader
-  %26 = phi i32 [ %24, %23 ], [ %14, %.preheader ]
-  %27 = add nuw i8 %13, 1
-  %28 = icmp ult i8 %27, %6
-  br i1 %28, label %.preheader, label %.loopexit, !llvm.loop !23
+.loopexit.loopexit:                               ; preds = %22
+  %26 = icmp eq i32 %23, 0
+  br i1 %26, label %.backedge, label %.loopexit.loopexit._crit_edge
 
-.loopexit:                                        ; preds = %25, %8
-  %29 = phi i32 [ 0, %8 ], [ %26, %25 ]
-  %30 = add i32 %2, 1
-  %31 = icmp eq i32 %29, 0
-  br i1 %31, label %1, label %32, !llvm.loop !24
+.backedge:                                        ; preds = %.lr.ph, %.loopexit.loopexit
+  %.be = add i32 %5, 1
+  %27 = zext i32 %.be to i64
+  %28 = getelementptr [0 x %struct.amd_nb_bus_dev_range], ptr @amd_nb_bus_dev_ranges, i64 0, i64 %27
+  %29 = getelementptr inbounds i8, ptr %28, i64 2
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp eq i8 %30, 0
+  br i1 %31, label %.loopexit.loopexit._crit_edge, label %.lr.ph, !llvm.loop !24
 
-32:                                               ; preds = %.loopexit, %1
+.loopexit.loopexit._crit_edge:                    ; preds = %.backedge, %.loopexit.loopexit, %0
   ret void
 }
 

@@ -1663,13 +1663,12 @@ if.end16:                                         ; preds = %if.end10
   br label %while.cond.outer.outer.i
 
 while.cond.outer.outer.i:                         ; preds = %append_block_.exit.i, %if.end16
-  %first_block.0.ph.ph.i = phi i32 [ 1, %if.end16 ], [ 0, %append_block_.exit.i ]
+  %4 = phi i1 [ false, %if.end16 ], [ true, %append_block_.exit.i ]
   %tobool111.not.i = phi i1 [ true, %if.end16 ], [ false, %append_block_.exit.i ]
   %ds64_found.0.ph.ph.i = phi i32 [ 0, %if.end16 ], [ %ds64_found.1.i, %append_block_.exit.i ]
   br label %while.cond.outer.i
 
 while.cond.outer.i:                               ; preds = %while.cond.outer.i.backedge, %while.cond.outer.outer.i
-  %first_block.0.ph.i = phi i32 [ %first_block.0.ph.ph.i, %while.cond.outer.outer.i ], [ %first_block.0.ph.i.be, %while.cond.outer.i.backedge ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %while.cond.outer.i
@@ -1692,8 +1691,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br i1 %tobool5.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end8.i:                                        ; preds = %if.end.i
-  %tobool9.not.i = icmp eq i32 %first_block.0.ph.i, 0
-  br i1 %tobool9.not.i, label %if.else.i, label %for.body.outer.i
+  br i1 %4, label %if.else.i, label %for.body.outer.i
 
 for.body.outer.i:                                 ; preds = %if.end8.i, %for.inc.thread.i
   %indvars.iv.ph.i = phi i64 [ %indvars.iv.next213.i, %for.inc.thread.i ], [ 0, %if.end8.i ]
@@ -1703,8 +1701,8 @@ for.body.outer.i:                                 ; preds = %if.end8.i, %for.inc
 for.body.i:                                       ; preds = %for.inc.i, %for.body.outer.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ %indvars.iv.ph.i, %for.body.outer.i ]
   %arrayidx.i = getelementptr inbounds [3 x ptr], ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 0, i64 %indvars.iv.i
-  %4 = load ptr, ptr %arrayidx.i, align 8
-  %bcmp139.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %id.i, ptr noundef nonnull dereferenceable(4) %4, i64 4)
+  %5 = load ptr, ptr %arrayidx.i, align 8
+  %bcmp139.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %id.i, ptr noundef nonnull dereferenceable(4) %5, i64 4)
   %cmp14.i = icmp eq i32 %bcmp139.i, 0
   br i1 %cmp14.i, label %for.inc.thread.i, label %for.inc.i
 
@@ -1714,8 +1712,8 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
 
 for.inc.thread.i:                                 ; preds = %for.body.i
-  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %5, ptr %fm, align 8
+  %6 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %6, ptr %fm, align 8
   %indvars.iv.next213.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not214.i = icmp eq i64 %indvars.iv.next213.i, 3
   br i1 %exitcond.not214.i, label %if.end28.i, label %for.body.outer.i, !llvm.loop !13
@@ -1724,16 +1722,15 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %tobool17.not.i, label %if.end28.i, label %while.cond.outer.i.backedge
 
 if.else.i:                                        ; preds = %if.end8.i
-  %6 = load i32, ptr %fm, align 8
-  %idxprom22.i = zext i32 %6 to i64
+  %7 = load i32, ptr %fm, align 8
+  %idxprom22.i = zext i32 %7 to i64
   %arrayidx23.i = getelementptr inbounds [3 x ptr], ptr @FLAC__FOREIGN_METADATA_APPLICATION_ID, i64 0, i64 %idxprom22.i
-  %7 = load ptr, ptr %arrayidx23.i, align 8
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %id.i, ptr noundef nonnull dereferenceable(4) %7, i64 4)
+  %8 = load ptr, ptr %arrayidx23.i, align 8
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %id.i, ptr noundef nonnull dereferenceable(4) %8, i64 4)
   %tobool25.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool25.not.i, label %if.end28.i, label %while.cond.outer.i.backedge
 
 while.cond.outer.i.backedge:                      ; preds = %if.else.i, %for.end.i
-  %first_block.0.ph.i.be = phi i32 [ 0, %if.else.i ], [ 1, %for.end.i ]
   br label %while.cond.outer.i, !llvm.loop !12
 
 if.end28.i:                                       ; preds = %if.else.i, %for.end.i, %for.inc.thread.i
@@ -1758,8 +1755,8 @@ if.then46.i:                                      ; preds = %if.end41.i
   br i1 %tobool47.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end50.i:                                       ; preds = %if.end41.i
-  %8 = load i64, ptr %num_blocks.i, align 8
-  %cmp51.i = icmp eq i64 %8, 0
+  %9 = load i64, ptr %num_blocks.i, align 8
+  %cmp51.i = icmp eq i64 %9, 0
   br i1 %cmp51.i, label %if.then53.i, label %if.else110.i
 
 if.then53.i:                                      ; preds = %if.end50.i
@@ -1770,8 +1767,8 @@ if.then53.i:                                      ; preds = %if.end50.i
   %.not150.i = icmp eq i32 %lhsv149.i, 875972178
   %conv57.i = zext i1 %.not150.i to i32
   store i32 %conv57.i, ptr %is_rf64177.i, align 8
-  %9 = load i32, ptr %fm, align 8
-  switch i32 %9, label %if.else103.i [
+  %10 = load i32, ptr %fm, align 8
+  switch i32 %10, label %if.else103.i [
     i32 1, label %land.lhs.true.i
     i32 2, label %land.lhs.true72.i
     i32 0, label %land.lhs.true82.i
@@ -1819,8 +1816,8 @@ if.then112.i:                                     ; preds = %if.else110.i
   br i1 %tobool113.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.else116.i:                                     ; preds = %if.else110.i
-  %10 = load i32, ptr %fm, align 8
-  switch i32 %10, label %if.else324.i [
+  %11 = load i32, ptr %fm, align 8
+  switch i32 %11, label %if.else324.i [
     i32 1, label %if.then120.i
     i32 2, label %if.then199.i
     i32 0, label %if.then247.i
@@ -1834,8 +1831,8 @@ if.then120.i:                                     ; preds = %if.else116.i
   ]
 
 if.then124.i:                                     ; preds = %if.then120.i
-  %11 = load i64, ptr %format_block300.i, align 8
-  %tobool125.not.i = icmp eq i64 %11, 0
+  %12 = load i64, ptr %format_block300.i, align 8
+  %tobool125.not.i = icmp eq i64 %12, 0
   br i1 %tobool125.not.i, label %if.end130.i, label %if.then126.i
 
 if.then126.i:                                     ; preds = %if.then124.i
@@ -1843,8 +1840,8 @@ if.then126.i:                                     ; preds = %if.then124.i
   br i1 %tobool127.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end130.i:                                      ; preds = %if.then124.i
-  %12 = load i64, ptr %audio_block293.i, align 8
-  %tobool131.not.i = icmp eq i64 %12, 0
+  %13 = load i64, ptr %audio_block293.i, align 8
+  %tobool131.not.i = icmp eq i64 %13, 0
   br i1 %tobool131.not.i, label %if.end136.i, label %if.then132.i
 
 if.then132.i:                                     ; preds = %if.end130.i
@@ -1852,7 +1849,7 @@ if.then132.i:                                     ; preds = %if.end130.i
   br i1 %tobool133.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end136.i:                                      ; preds = %if.end130.i
-  store i64 %8, ptr %format_block300.i, align 8
+  store i64 %9, ptr %format_block300.i, align 8
   %call141.i = call i64 @fread(ptr noundef nonnull %add.ptr310.i, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call11)
   %cmp142.not.i = icmp eq i64 %call141.i, 8
   br i1 %cmp142.not.i, label %if.end148.i, label %if.then144.i
@@ -1869,8 +1866,8 @@ if.end148.i:                                      ; preds = %if.end136.i
   br label %if.end332.i
 
 if.then159.i:                                     ; preds = %if.then120.i
-  %13 = load i64, ptr %audio_block293.i, align 8
-  %tobool161.not.i = icmp eq i64 %13, 0
+  %14 = load i64, ptr %audio_block293.i, align 8
+  %tobool161.not.i = icmp eq i64 %14, 0
   br i1 %tobool161.not.i, label %if.end166.i, label %if.then162.i
 
 if.then162.i:                                     ; preds = %if.then159.i
@@ -1878,8 +1875,8 @@ if.then162.i:                                     ; preds = %if.then159.i
   br i1 %tobool163.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end166.i:                                      ; preds = %if.then159.i
-  %14 = load i64, ptr %format_block300.i, align 8
-  %tobool168.not.i = icmp eq i64 %14, 0
+  %15 = load i64, ptr %format_block300.i, align 8
+  %tobool168.not.i = icmp eq i64 %15, 0
   br i1 %tobool168.not.i, label %if.then169.i, label %if.end173.i
 
 if.then169.i:                                     ; preds = %if.end166.i
@@ -1887,13 +1884,13 @@ if.then169.i:                                     ; preds = %if.end166.i
   br i1 %tobool170.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end173.i:                                      ; preds = %if.end166.i
-  store i64 %8, ptr %audio_block293.i, align 8
+  store i64 %9, ptr %audio_block293.i, align 8
   br label %if.end332.i
 
 if.else176.i:                                     ; preds = %if.then120.i
-  %15 = load i32, ptr %is_rf64177.i, align 8
-  %tobool178.not.i = icmp ne i32 %15, 0
-  %cmp181.i = icmp eq i64 %8, 1
+  %16 = load i32, ptr %is_rf64177.i, align 8
+  %tobool178.not.i = icmp ne i32 %16, 0
+  %cmp181.i = icmp eq i64 %9, 1
   %or.cond140.i = and i1 %cmp181.i, %tobool178.not.i
   br i1 %or.cond140.i, label %if.then183.i, label %if.end332.i
 
@@ -1913,8 +1910,8 @@ if.then199.i:                                     ; preds = %if.else116.i
   ]
 
 if.then203.i:                                     ; preds = %if.then199.i
-  %16 = load i64, ptr %format_block300.i, align 8
-  %tobool205.not.i = icmp eq i64 %16, 0
+  %17 = load i64, ptr %format_block300.i, align 8
+  %tobool205.not.i = icmp eq i64 %17, 0
   br i1 %tobool205.not.i, label %if.end210.i, label %if.then206.i
 
 if.then206.i:                                     ; preds = %if.then203.i
@@ -1922,8 +1919,8 @@ if.then206.i:                                     ; preds = %if.then203.i
   br i1 %tobool207.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end210.i:                                      ; preds = %if.then203.i
-  %17 = load i64, ptr %audio_block293.i, align 8
-  %tobool212.not.i = icmp eq i64 %17, 0
+  %18 = load i64, ptr %audio_block293.i, align 8
+  %tobool212.not.i = icmp eq i64 %18, 0
   br i1 %tobool212.not.i, label %if.end217.i, label %if.then213.i
 
 if.then213.i:                                     ; preds = %if.end210.i
@@ -1931,12 +1928,12 @@ if.then213.i:                                     ; preds = %if.end210.i
   br i1 %tobool214.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end217.i:                                      ; preds = %if.end210.i
-  store i64 %8, ptr %format_block300.i, align 8
+  store i64 %9, ptr %format_block300.i, align 8
   br label %if.end332.i
 
 if.then224.i:                                     ; preds = %if.then199.i
-  %18 = load i64, ptr %audio_block293.i, align 8
-  %tobool226.not.i = icmp eq i64 %18, 0
+  %19 = load i64, ptr %audio_block293.i, align 8
+  %tobool226.not.i = icmp eq i64 %19, 0
   br i1 %tobool226.not.i, label %if.end231.i, label %if.then227.i
 
 if.then227.i:                                     ; preds = %if.then224.i
@@ -1944,8 +1941,8 @@ if.then227.i:                                     ; preds = %if.then224.i
   br i1 %tobool228.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end231.i:                                      ; preds = %if.then224.i
-  %19 = load i64, ptr %format_block300.i, align 8
-  %tobool233.not.i = icmp eq i64 %19, 0
+  %20 = load i64, ptr %format_block300.i, align 8
+  %tobool233.not.i = icmp eq i64 %20, 0
   br i1 %tobool233.not.i, label %if.then234.i, label %if.end238.i
 
 if.then234.i:                                     ; preds = %if.end231.i
@@ -1953,7 +1950,7 @@ if.then234.i:                                     ; preds = %if.end231.i
   br i1 %tobool235.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end238.i:                                      ; preds = %if.end231.i
-  store i64 %8, ptr %audio_block293.i, align 8
+  store i64 %9, ptr %audio_block293.i, align 8
   br label %if.end332.i
 
 if.then247.i:                                     ; preds = %if.else116.i
@@ -1964,8 +1961,8 @@ if.then247.i:                                     ; preds = %if.else116.i
   ]
 
 if.then251.i:                                     ; preds = %if.then247.i
-  %20 = load i64, ptr %format_block300.i, align 8
-  %tobool253.not.i = icmp eq i64 %20, 0
+  %21 = load i64, ptr %format_block300.i, align 8
+  %tobool253.not.i = icmp eq i64 %21, 0
   br i1 %tobool253.not.i, label %if.end258.i, label %if.then254.i
 
 if.then254.i:                                     ; preds = %if.then251.i
@@ -1973,8 +1970,8 @@ if.then254.i:                                     ; preds = %if.then251.i
   br i1 %tobool255.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end258.i:                                      ; preds = %if.then251.i
-  %21 = load i64, ptr %audio_block293.i, align 8
-  %tobool260.not.i = icmp eq i64 %21, 0
+  %22 = load i64, ptr %audio_block293.i, align 8
+  %tobool260.not.i = icmp eq i64 %22, 0
   br i1 %tobool260.not.i, label %if.end265.i, label %if.then261.i
 
 if.then261.i:                                     ; preds = %if.end258.i
@@ -1982,9 +1979,9 @@ if.then261.i:                                     ; preds = %if.end258.i
   br i1 %tobool262.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end265.i:                                      ; preds = %if.end258.i
-  store i64 %8, ptr %format_block300.i, align 8
-  %22 = load i32, ptr %is_aifc268.i, align 8
-  %tobool269.not.i = icmp eq i32 %22, 0
+  store i64 %9, ptr %format_block300.i, align 8
+  %23 = load i32, ptr %is_aifc268.i, align 8
+  %tobool269.not.i = icmp eq i32 %23, 0
   br i1 %tobool269.not.i, label %if.end332.i, label %if.then270.i
 
 if.then270.i:                                     ; preds = %if.end265.i
@@ -2005,8 +2002,8 @@ if.end280.i:                                      ; preds = %if.then270.i
   br label %if.end332.i
 
 if.then292.i:                                     ; preds = %if.then247.i
-  %23 = load i64, ptr %audio_block293.i, align 8
-  %tobool294.not.i = icmp eq i64 %23, 0
+  %24 = load i64, ptr %audio_block293.i, align 8
+  %tobool294.not.i = icmp eq i64 %24, 0
   br i1 %tobool294.not.i, label %if.end299.i, label %if.then295.i
 
 if.then295.i:                                     ; preds = %if.then292.i
@@ -2014,8 +2011,8 @@ if.then295.i:                                     ; preds = %if.then292.i
   br i1 %tobool296.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end299.i:                                      ; preds = %if.then292.i
-  %24 = load i64, ptr %format_block300.i, align 8
-  %tobool301.not.i = icmp eq i64 %24, 0
+  %25 = load i64, ptr %format_block300.i, align 8
+  %tobool301.not.i = icmp eq i64 %25, 0
   br i1 %tobool301.not.i, label %if.then302.i, label %if.end306.i
 
 if.then302.i:                                     ; preds = %if.end299.i
@@ -2023,7 +2020,7 @@ if.then302.i:                                     ; preds = %if.end299.i
   br i1 %tobool303.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end306.i:                                      ; preds = %if.end299.i
-  store i64 %8, ptr %audio_block293.i, align 8
+  store i64 %9, ptr %audio_block293.i, align 8
   %call311.i = call i64 @fread(ptr noundef nonnull %add.ptr310.i, i64 noundef 1, i64 noundef 8, ptr noundef nonnull %call11)
   %cmp312.not.i = icmp eq i64 %call311.i, 8
   br i1 %cmp312.not.i, label %if.end318.i, label %if.then314.i
@@ -2033,19 +2030,19 @@ if.then314.i:                                     ; preds = %if.end306.i
   br i1 %tobool315.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end318.i:                                      ; preds = %if.end306.i
-  %25 = load i8, ptr %add.ptr320.i, align 8
-  %conv.i.i = zext i8 %25 to i32
+  %26 = load i8, ptr %add.ptr320.i, align 8
+  %conv.i.i = zext i8 %26 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
-  %26 = load i8, ptr %arrayidx1.i.i, align 1
-  %conv2.i.i = zext i8 %26 to i32
+  %27 = load i8, ptr %arrayidx1.i.i, align 1
+  %conv2.i.i = zext i8 %27 to i32
   %shl3.i.i = shl nuw nsw i32 %conv2.i.i, 16
   %add.i.i = or disjoint i32 %shl3.i.i, %shl.i.i
-  %27 = load i8, ptr %arrayidx4.i.i, align 2
-  %conv5.i.i = zext i8 %27 to i32
+  %28 = load i8, ptr %arrayidx4.i.i, align 2
+  %conv5.i.i = zext i8 %28 to i32
   %shl6.i.i = shl nuw nsw i32 %conv5.i.i, 8
   %add7.i.i = or disjoint i32 %add.i.i, %shl6.i.i
-  %28 = load i8, ptr %arrayidx8.i.i, align 1
-  %conv9.i.i = zext i8 %28 to i32
+  %29 = load i8, ptr %arrayidx8.i.i, align 1
+  %conv9.i.i = zext i8 %29 to i32
   %add10.i.i = or disjoint i32 %add7.i.i, %conv9.i.i
   store i32 %add10.i.i, ptr %ssnd_offset_size.i, align 4
   br label %if.end332.i
@@ -2066,15 +2063,15 @@ if.then.i.i:                                      ; preds = %if.end332.i
   br i1 %tobool.not.i.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end2.i.i:                                      ; preds = %if.end332.i
-  %29 = load i64, ptr %num_blocks.i, align 8
-  %or.cond.i.i.i = icmp ugt i64 %29, 1152921504606846974
+  %30 = load i64, ptr %num_blocks.i, align 8
+  %or.cond.i.i.i = icmp ugt i64 %30, 1152921504606846974
   br i1 %or.cond.i.i.i, label %if.end12.i.i, label %safe_realloc_nofree_muladd2_.exit.i.i
 
 safe_realloc_nofree_muladd2_.exit.i.i:            ; preds = %if.end2.i.i
-  %30 = load ptr, ptr %blocks.i.i, align 8
-  %add.i.i.i = shl nuw i64 %29, 4
+  %31 = load ptr, ptr %blocks.i.i, align 8
+  %add.i.i.i = shl nuw i64 %30, 4
   %mul.i.i.i.i = add nuw i64 %add.i.i.i, 16
-  %call4.i.i.i.i = call ptr @realloc(ptr noundef %30, i64 noundef %mul.i.i.i.i) #15
+  %call4.i.i.i.i = call ptr @realloc(ptr noundef %31, i64 noundef %mul.i.i.i.i) #15
   %tobool3.not.i.i = icmp eq ptr %call4.i.i.i.i, null
   br i1 %tobool3.not.i.i, label %if.end12.i.i, label %append_block_.exit.i
 
@@ -2083,19 +2080,19 @@ if.end12.i.i:                                     ; preds = %safe_realloc_nofree
   br i1 %tobool13.not.i.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 append_block_.exit.i:                             ; preds = %safe_realloc_nofree_muladd2_.exit.i.i
-  %31 = load i64, ptr %num_blocks.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %struct.foreign_block_t, ptr %call4.i.i.i.i, i64 %31
+  %32 = load i64, ptr %num_blocks.i, align 8
+  %arrayidx.i.i = getelementptr inbounds %struct.foreign_block_t, ptr %call4.i.i.i.i, i64 %32
   store i64 %add33.reass.i, ptr %arrayidx.i.i, align 8
-  %size9.i.i = getelementptr inbounds %struct.foreign_block_t, ptr %call4.i.i.i.i, i64 %31, i32 1
+  %size9.i.i = getelementptr inbounds %struct.foreign_block_t, ptr %call4.i.i.i.i, i64 %32, i32 1
   store i32 %sub.i, ptr %size9.i.i, align 8
-  %inc.i.i = add i64 %31, 1
+  %inc.i.i = add i64 %32, 1
   store i64 %inc.i.i, ptr %num_blocks.i, align 8
   store ptr %call4.i.i.i.i, ptr %blocks.i.i, align 8
   br label %while.cond.outer.outer.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %while.cond.i
-  %32 = load i32, ptr %is_rf64177.i, align 8
-  %tobool341.i = icmp eq i32 %32, 0
+  %33 = load i32, ptr %is_rf64177.i, align 8
+  %tobool341.i = icmp eq i32 %33, 0
   %tobool343.i = icmp ne i32 %ds64_found.0.ph.ph.i, 0
   %or.cond.i = select i1 %tobool341.i, i1 true, i1 %tobool343.i
   br i1 %or.cond.i, label %if.end348.i, label %if.then344.i
@@ -2105,8 +2102,8 @@ if.then344.i:                                     ; preds = %while.end.i
   br i1 %tobool345.not.i, label %read_from_flac_.exit, label %return.sink.split.i
 
 if.end348.i:                                      ; preds = %while.end.i
-  %33 = load i64, ptr %format_block300.i, align 8
-  %tobool350.not.i = icmp eq i64 %33, 0
+  %34 = load i64, ptr %format_block300.i, align 8
+  %tobool350.not.i = icmp eq i64 %34, 0
   br i1 %tobool350.not.i, label %if.then351.i, label %if.end362.i
 
 if.then351.i:                                     ; preds = %if.end348.i
@@ -2114,16 +2111,16 @@ if.then351.i:                                     ; preds = %if.end348.i
   br i1 %tobool352.not.i, label %read_from_flac_.exit, label %if.then353.i
 
 if.then353.i:                                     ; preds = %if.then351.i
-  %34 = load i32, ptr %fm, align 8
-  %cmp355.i = icmp eq i32 %34, 1
-  %cmp358.i = icmp eq i32 %34, 2
+  %35 = load i32, ptr %fm, align 8
+  %cmp355.i = icmp eq i32 %35, 1
+  %cmp358.i = icmp eq i32 %35, 2
   %cond.i = select i1 %cmp358.i, ptr @.str.113, ptr @.str.114
   %cond360.i = select i1 %cmp355.i, ptr @.str.112, ptr %cond.i
   br label %return.sink.split.i
 
 if.end362.i:                                      ; preds = %if.end348.i
-  %35 = load i64, ptr %audio_block293.i, align 8
-  %tobool364.not.i = icmp eq i64 %35, 0
+  %36 = load i64, ptr %audio_block293.i, align 8
+  %tobool364.not.i = icmp eq i64 %36, 0
   br i1 %tobool364.not.i, label %if.then365.i, label %read_from_flac_.exit
 
 if.then365.i:                                     ; preds = %if.end362.i
@@ -2131,9 +2128,9 @@ if.then365.i:                                     ; preds = %if.end362.i
   br i1 %tobool366.not.i, label %read_from_flac_.exit, label %if.then367.i
 
 if.then367.i:                                     ; preds = %if.then365.i
-  %36 = load i32, ptr %fm, align 8
-  %cmp369.i = icmp eq i32 %36, 1
-  %cmp374.i = icmp eq i32 %36, 2
+  %37 = load i32, ptr %fm, align 8
+  %cmp369.i = icmp eq i32 %37, 1
+  %cmp374.i = icmp eq i32 %37, 2
   %cond376.i = select i1 %cmp374.i, ptr @.str.116, ptr @.str.117
   %cond378.i = select i1 %cmp369.i, ptr @.str.115, ptr %cond376.i
   br label %return.sink.split.i

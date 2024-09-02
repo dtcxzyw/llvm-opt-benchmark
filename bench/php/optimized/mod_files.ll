@@ -411,7 +411,7 @@ ps_files_path_create.exit.thread:                 ; preds = %2, %5, %10, %41, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @ps_gc_files(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define hidden range(i64 -2147483648, 2147483648) i64 @ps_gc_files(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca [4096 x i8], align 16
   %6 = alloca i64, align 8

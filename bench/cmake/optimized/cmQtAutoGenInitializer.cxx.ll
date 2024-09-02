@@ -10655,8 +10655,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %245 = getelementptr inbounds i8, ptr %0, i64 688
   %246 = load i8, ptr %245, align 8
   %247 = trunc i8 %246 to i1
-  %spec.select143.not = select i1 %247, i1 true, i1 %244
-  br i1 %spec.select143.not, label %.thread, label %248
+  %.not809 = select i1 %247, i1 true, i1 %244
+  br i1 %.not809, label %.thread, label %248
 
 248:                                              ; preds = %241
   %249 = getelementptr inbounds i8, ptr %0, i64 992

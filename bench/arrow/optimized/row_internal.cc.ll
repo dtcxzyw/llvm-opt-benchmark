@@ -1182,7 +1182,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNK5arrow7compute12RowTableImpl12size_offsetsEl(ptr nocapture noundef nonnull readnone align 8 dereferenceable(209) %this, i64 noundef %num_rows) local_unnamed_addr #7 align 2 {
+define noundef range(i64 68, 65) i64 @_ZNK5arrow7compute12RowTableImpl12size_offsetsEl(ptr nocapture noundef nonnull readnone align 8 dereferenceable(209) %this, i64 noundef %num_rows) local_unnamed_addr #7 align 2 {
 entry:
   %add = shl i64 %num_rows, 2
   %add2 = add i64 %add, 68
@@ -1869,18 +1869,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %total_length_to_append.0226 = phi i32 [ %add31, %for.body ], [ 0, %for.body.lr.ph ]
   %arrayidx23 = getelementptr inbounds i16, ptr %source_row_ids, i64 %indvars.iv
   %18 = load i16, ptr %arrayidx23, align 2
-  %19 = zext i16 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %cond.i, i64 %19
-  %arrayidx28 = getelementptr inbounds i8, ptr %20, i64 4
-  %21 = load i32, ptr %arrayidx28, align 4
-  %22 = load i32, ptr %20, align 4
-  %sub = sub i32 %21, %22
+  %conv26 = zext i16 %18 to i64
+  %19 = getelementptr inbounds i32, ptr %cond.i, i64 %conv26
+  %arrayidx28 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = load i32, ptr %arrayidx28, align 4
+  %21 = load i32, ptr %19, align 4
+  %sub = sub i32 %20, %21
   %add31 = add i32 %sub, %total_length_to_append.0226
   %add32 = add i32 %add31, %11
-  %23 = load i64, ptr %num_rows_121, align 8
-  %24 = getelementptr i32, ptr %cond.i99, i64 %23
-  %25 = getelementptr i32, ptr %24, i64 %indvars.iv
-  %arrayidx37 = getelementptr i8, ptr %25, i64 4
+  %22 = load i64, ptr %num_rows_121, align 8
+  %23 = getelementptr i32, ptr %cond.i99, i64 %22
+  %24 = getelementptr i32, ptr %23, i64 %indvars.iv
+  %arrayidx37 = getelementptr i8, ptr %24, i64 4
   store i32 %add32, ptr %arrayidx37, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
@@ -1891,35 +1891,35 @@ _ZN5arrow6StatusD2Ev.exit135:                     ; preds = %for.body, %for.body
   %conv41 = zext i32 %total_length_to_append.0.lcssa to i64
   call void @_ZN5arrow7compute12RowTableImpl33ResizeOptionalVaryingLengthBufferEl(ptr nonnull sret(%"class.arrow::Status") align 8 %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(209) %this, i64 noundef %conv41)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  %26 = load ptr, ptr %ref.tmp40, align 8, !noalias !54
-  store ptr %26, ptr %agg.result, align 8, !alias.scope !54
-  %cmp.i136 = icmp eq ptr %26, null
+  %25 = load ptr, ptr %ref.tmp40, align 8, !noalias !54
+  store ptr %25, ptr %agg.result, align 8, !alias.scope !54
+  %cmp.i136 = icmp eq ptr %25, null
   br i1 %cmp.i136, label %do.end63, label %return
 
 do.end63:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit135
   %rows_ = getelementptr inbounds i8, ptr %from, i64 144
-  %27 = load ptr, ptr %rows_, align 8
-  %is_cpu_.i173 = getelementptr inbounds i8, ptr %27, i64 9
-  %28 = load i8, ptr %is_cpu_.i173, align 1
-  %tobool.i174 = trunc i8 %28 to i1
-  %data_.i175 = getelementptr inbounds i8, ptr %27, i64 16
-  %29 = load ptr, ptr %data_.i175, align 8
-  %cond.i176 = select i1 %tobool.i174, ptr %29, ptr null
+  %26 = load ptr, ptr %rows_, align 8
+  %is_cpu_.i173 = getelementptr inbounds i8, ptr %26, i64 9
+  %27 = load i8, ptr %is_cpu_.i173, align 1
+  %tobool.i174 = trunc i8 %27 to i1
+  %data_.i175 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = load ptr, ptr %data_.i175, align 8
+  %cond.i176 = select i1 %tobool.i174, ptr %28, ptr null
   br i1 %cmp224.not, label %if.end167, label %for.body72.lr.ph
 
 for.body72.lr.ph:                                 ; preds = %do.end63
   %rows_66 = getelementptr inbounds i8, ptr %this, i64 144
-  %30 = load ptr, ptr %rows_66, align 8
-  %is_cpu_.i177 = getelementptr inbounds i8, ptr %30, i64 9
-  %31 = load i8, ptr %is_cpu_.i177, align 1
-  %tobool.i178 = trunc i8 %31 to i1
-  %is_mutable_.i179 = getelementptr inbounds i8, ptr %30, i64 8
-  %32 = load i8, ptr %is_mutable_.i179, align 8
-  %tobool2.i180 = trunc i8 %32 to i1
-  %33 = select i1 %tobool.i178, i1 %tobool2.i180, i1 false
-  %data_.i181 = getelementptr inbounds i8, ptr %30, i64 16
-  %34 = load ptr, ptr %data_.i181, align 8
-  %cond.i182 = select i1 %33, ptr %34, ptr null
+  %29 = load ptr, ptr %rows_66, align 8
+  %is_cpu_.i177 = getelementptr inbounds i8, ptr %29, i64 9
+  %30 = load i8, ptr %is_cpu_.i177, align 1
+  %tobool.i178 = trunc i8 %30 to i1
+  %is_mutable_.i179 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = load i8, ptr %is_mutable_.i179, align 8
+  %tobool2.i180 = trunc i8 %31 to i1
+  %32 = select i1 %tobool.i178, i1 %tobool2.i180, i1 false
+  %data_.i181 = getelementptr inbounds i8, ptr %29, i64 16
+  %33 = load ptr, ptr %data_.i181, align 8
+  %cond.i182 = select i1 %32, ptr %33, ptr null
   %idx.ext = zext i32 %11 to i64
   %add.ptr = getelementptr inbounds i8, ptr %cond.i182, i64 %idx.ext
   %tobool74.not = icmp eq ptr %source_row_ids, null
@@ -1928,17 +1928,20 @@ for.body72.lr.ph:                                 ; preds = %do.end63
 for.body72:                                       ; preds = %for.body72.lr.ph, %for.end107
   %indvars.iv285 = phi i64 [ 0, %for.body72.lr.ph ], [ %indvars.iv.next286, %for.end107 ]
   %dst.0231 = phi ptr [ %add.ptr, %for.body72.lr.ph ], [ %add.ptr109, %for.end107 ]
-  br i1 %tobool74.not, label %cond.end80, label %cond.true75
+  br i1 %tobool74.not, label %cond.false79, label %cond.true75
 
 cond.true75:                                      ; preds = %for.body72
   %arrayidx77 = getelementptr inbounds i16, ptr %source_row_ids, i64 %indvars.iv285
-  %35 = load i16, ptr %arrayidx77, align 2
-  %conv78 = zext i16 %35 to i64
+  %34 = load i16, ptr %arrayidx77, align 2
   br label %cond.end80
 
-cond.end80:                                       ; preds = %for.body72, %cond.true75
-  %cond81 = phi i64 [ %conv78, %cond.true75 ], [ %indvars.iv285, %for.body72 ]
-  %conv84 = and i64 %cond81, 65535
+cond.false79:                                     ; preds = %for.body72
+  %35 = trunc i64 %indvars.iv285 to i16
+  br label %cond.end80
+
+cond.end80:                                       ; preds = %cond.false79, %cond.true75
+  %cond81 = phi i16 [ %34, %cond.true75 ], [ %35, %cond.false79 ]
+  %conv84 = zext i16 %cond81 to i64
   %36 = getelementptr inbounds i32, ptr %cond.i, i64 %conv84
   %arrayidx87 = getelementptr inbounds i8, ptr %36, i64 4
   %37 = load i32, ptr %arrayidx87, align 4
@@ -2053,9 +2056,9 @@ for.body128:                                      ; preds = %for.body128.lr.ph.s
   %dst117.0237 = phi ptr [ %add.ptr163, %for.end161 ], [ %add.ptr124, %for.body128.lr.ph.split ]
   %arrayidx133 = getelementptr inbounds i16, ptr %source_row_ids, i64 %indvars.iv295
   %54 = load i16, ptr %arrayidx133, align 2
-  %conv134 = zext i16 %54 to i32
   %55 = load i32, ptr %fixed_length, align 4
-  %mul144 = mul i32 %55, %conv134
+  %conv143 = zext i16 %54 to i32
+  %mul144 = mul i32 %55, %conv143
   %idx.ext145 = zext i32 %mul144 to i64
   %add.ptr146 = getelementptr i8, ptr %cond.i188, i64 %idx.ext145
   %cmp.i195 = icmp eq i32 %55, 0

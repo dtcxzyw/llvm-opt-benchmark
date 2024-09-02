@@ -467,14 +467,17 @@ define i32 @ompi_coll_base_allgather_intra_sparbit(ptr noundef %0, i32 noundef %
   %79 = tail call i32 %73(ptr noundef %76, i64 noundef %44, ptr noundef %5, i32 noundef %50, i32 noundef %77, ptr noundef %6, ptr noundef %78) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %59, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %59, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %59, %46
-  %.085.lcssa = phi i32 [ 0, %46 ], [ %54, %59 ]
-  %80 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
-  %81 = shl nuw nsw i32 %.085.lcssa, 1
-  %82 = zext nneg i32 %81 to i64
-  %83 = tail call i32 %80(i64 noundef %82, ptr noundef %27, ptr noundef null) #8
+._crit_edge.loopexit:                             ; preds = %59
+  %80 = shl nuw nsw i32 %54, 1
+  %81 = zext nneg i32 %80 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %46
+  %.085.lcssa = phi i64 [ 0, %46 ], [ %81, %._crit_edge.loopexit ]
+  %82 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
+  %83 = tail call i32 %82(i64 noundef %.085.lcssa, ptr noundef %27, ptr noundef null) #8
   %84 = lshr i32 %.08298, 1
   %85 = shl i32 %.08497, 1
   %86 = sub nsw i32 %85, %53

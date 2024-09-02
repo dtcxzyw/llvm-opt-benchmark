@@ -2888,7 +2888,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN4node12_GLOBAL__N_123GetActualThreadPoolSizeEi.exit: ; preds = %if.end, %if.then.i
   %thread_pool_size.addr.0.i = phi i32 [ %sub.i, %if.then.i ], [ %thread_pool_size, %if.end ]
-  %.sroa.speculated.i = tail call noundef i32 @llvm.smax.i32(i32 %thread_pool_size.addr.0.i, i32 1)
+  %.sroa.speculated.i = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %thread_pool_size.addr.0.i, i32 1)
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #26, !noalias !76
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !81

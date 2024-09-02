@@ -6243,7 +6243,7 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   %32 = fpext float %31 to double
   %33 = fmul double %26, 5.000000e-01
   %34 = fcmp olt double %33, %32
-  br i1 %34, label %35, label %43
+  br i1 %34, label %35, label %44
 
 35:                                               ; preds = %7
   %36 = load ptr, ptr %4, align 8
@@ -6253,11 +6253,11 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   %40 = tail call noundef float %39(ptr noundef nonnull align 8 dereferenceable(20) %36)
   %41 = fpext float %40 to double
   %42 = fsub double %41, %33
-  br label %43
+  %43 = fptosi double %42 to i32
+  br label %44
 
-43:                                               ; preds = %7, %35
-  %44 = phi double [ %42, %35 ], [ 0.000000e+00, %7 ]
-  %45 = fptosi double %44 to i32
+44:                                               ; preds = %7, %35
+  %45 = phi i32 [ %43, %35 ], [ 0, %7 ]
   %46 = load ptr, ptr %4, align 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 24
@@ -6265,9 +6265,9 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   %50 = tail call noundef float %49(ptr noundef nonnull align 8 dereferenceable(20) %46)
   %51 = fpext float %50 to double
   %52 = fcmp olt double %33, %51
-  br i1 %52, label %53, label %61
+  br i1 %52, label %53, label %62
 
-53:                                               ; preds = %43
+53:                                               ; preds = %44
   %54 = load ptr, ptr %4, align 8
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 24
@@ -6275,11 +6275,11 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   %58 = tail call noundef float %57(ptr noundef nonnull align 8 dereferenceable(20) %54)
   %59 = fpext float %58 to double
   %60 = fsub double %59, %33
-  br label %61
+  %61 = fptosi double %60 to i32
+  br label %62
 
-61:                                               ; preds = %43, %53
-  %62 = phi double [ %60, %53 ], [ 0.000000e+00, %43 ]
-  %63 = fptosi double %62 to i32
+62:                                               ; preds = %44, %53
+  %63 = phi i32 [ %61, %53 ], [ 0, %44 ]
   %64 = load ptr, ptr %4, align 8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 16
@@ -6289,7 +6289,7 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   %70 = fsub float %68, %69
   %71 = fmul float %70, 2.000000e+00
   %72 = fptosi float %71 to i32
-  %73 = add nsw i32 %72, %45
+  %73 = add nsw i32 %45, %72
   %74 = icmp sgt i32 %73, %22
   %75 = sub nsw i32 %22, %45
   %spec.select = select i1 %74, i32 %75, i32 %72
@@ -6302,7 +6302,7 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   %82 = fsub float %80, %81
   %83 = fmul float %82, 2.000000e+00
   %84 = fptosi float %83 to i32
-  %85 = add nsw i32 %84, %63
+  %85 = add nsw i32 %63, %84
   %86 = icmp sgt i32 %85, %24
   %87 = sub nsw i32 %24, %63
   %.sroa.12.0 = select i1 %86, i32 %87, i32 %84
@@ -6313,9 +6313,9 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   %92 = tail call noundef float %91(ptr noundef nonnull align 8 dereferenceable(20) %88)
   %93 = fpext float %92 to double
   %94 = fcmp olt double %33, %93
-  br i1 %94, label %95, label %103
+  br i1 %94, label %95, label %104
 
-95:                                               ; preds = %61
+95:                                               ; preds = %62
   %96 = load ptr, ptr %3, align 8
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 16
@@ -6323,11 +6323,11 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   %100 = tail call noundef float %99(ptr noundef nonnull align 8 dereferenceable(20) %96)
   %101 = fpext float %100 to double
   %102 = fsub double %101, %33
-  br label %103
+  %103 = fptosi double %102 to i32
+  br label %104
 
-103:                                              ; preds = %61, %95
-  %104 = phi double [ %102, %95 ], [ 0.000000e+00, %61 ]
-  %105 = fptosi double %104 to i32
+104:                                              ; preds = %62, %95
+  %105 = phi i32 [ %103, %95 ], [ 0, %62 ]
   %106 = load ptr, ptr %3, align 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 24
@@ -6335,9 +6335,9 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   %110 = tail call noundef float %109(ptr noundef nonnull align 8 dereferenceable(20) %106)
   %111 = fpext float %110 to double
   %112 = fcmp olt double %33, %111
-  br i1 %112, label %113, label %121
+  br i1 %112, label %113, label %122
 
-113:                                              ; preds = %103
+113:                                              ; preds = %104
   %114 = load ptr, ptr %3, align 8
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 24
@@ -6345,11 +6345,11 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   %118 = tail call noundef float %117(ptr noundef nonnull align 8 dereferenceable(20) %114)
   %119 = fpext float %118 to double
   %120 = fsub double %119, %33
-  br label %121
+  %121 = fptosi double %120 to i32
+  br label %122
 
-121:                                              ; preds = %103, %113
-  %122 = phi double [ %120, %113 ], [ 0.000000e+00, %103 ]
-  %123 = fptosi double %122 to i32
+122:                                              ; preds = %104, %113
+  %123 = phi i32 [ %121, %113 ], [ 0, %104 ]
   %124 = load ptr, ptr %3, align 8
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 16
@@ -6359,7 +6359,7 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   %130 = fsub float %128, %129
   %131 = fmul float %130, 2.000000e+00
   %132 = fptosi float %131 to i32
-  %133 = add nsw i32 %132, %105
+  %133 = add nsw i32 %105, %132
   %134 = icmp sgt i32 %133, %22
   %135 = sub nsw i32 %22, %105
   %spec.select53 = select i1 %134, i32 %135, i32 %132
@@ -6372,7 +6372,7 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   %142 = fsub float %140, %141
   %143 = fmul float %142, 2.000000e+00
   %144 = fptosi float %143 to i32
-  %145 = add nsw i32 %144, %123
+  %145 = add nsw i32 %123, %144
   %146 = icmp sgt i32 %145, %24
   %147 = sub nsw i32 %24, %123
   %.sroa.13.0 = select i1 %146, i32 %147, i32 %144
@@ -6396,7 +6396,7 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   invoke void @_ZN5zxing6qrcode8Detector17findPointsForLineERNS_3RefINS_11ResultPointEEES5_S5_NS1_5Rect_ES6_RSt6vectorIS4_SaIS4_EESA_f(ptr noundef nonnull align 8 dereferenceable(60) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 %.sroa.013.0.insert.insert, i64 %.sroa.9.8.insert.insert, ptr noundef nonnull byval(%"struct.zxing::qrcode::Detector::Rect_") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, float noundef %5)
           to label %148 unwind label %158
 
-148:                                              ; preds = %121
+148:                                              ; preds = %122
   %149 = invoke noundef i32 @_ZN5zxing6qrcode8Detector7fitLineERSt6vectorINS_3RefINS_11ResultPointEEESaIS5_EERfS9_Ri(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %150 unwind label %158
 
@@ -6421,7 +6421,7 @@ define hidden void @_ZN5zxing6qrcode8Detector24findAlignmentWithFitLineENS_3RefI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %157) #14
   br label %223
 
-158:                                              ; preds = %206, %167, %152, %215, %163, %148, %121
+158:                                              ; preds = %206, %167, %152, %215, %163, %148, %122
   %159 = landingpad { ptr, i32 }
           cleanup
   br label %256

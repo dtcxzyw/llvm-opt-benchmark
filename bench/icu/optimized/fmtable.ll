@@ -2354,37 +2354,37 @@ if.then.i:                                        ; preds = %new.cont
 
 _ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEEC2EPS3_R10UErrorCode.exit: ; preds = %new.notnull
   %.pre = load i32, ptr %status, align 4
-  %cmp.i11 = icmp slt i32 %.pre, 1
-  br i1 %cmp.i11, label %if.end, label %delete.notnull.i20
+  %3 = icmp slt i32 %.pre, 1
+  br i1 %3, label %if.end, label %delete.notnull.i20
 
 lpad:                                             ; preds = %new.notnull
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call) #17
   br label %eh.resume
 
 delete.notnull.i:                                 ; preds = %if.then.i12, %sw.bb.i, %call4.i.noexc, %sw.bb5.i, %sw.bb8.i
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   %vtable.i = load ptr, ptr %call, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
-  %5 = load ptr, ptr %vfn.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(66) %call) #17
+  %6 = load ptr, ptr %vfn.i, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(66) %call) #17
   br label %eh.resume
 
 if.end:                                           ; preds = %_ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEEC2EPS3_R10UErrorCode.exit
-  %6 = load ptr, ptr %fDecimalQuantity, align 8
-  %cmp.not.i = icmp eq ptr %6, null
+  %7 = load ptr, ptr %fDecimalQuantity, align 8
+  %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i12
 
 if.then.i12:                                      ; preds = %if.end
-  %call.i13 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %call, ptr noundef nonnull align 8 dereferenceable(66) %6)
+  %call.i13 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %call, ptr noundef nonnull align 8 dereferenceable(66) %7)
           to label %invoke.cont10 unwind label %delete.notnull.i
 
 if.end.i:                                         ; preds = %if.end
   %fType.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load i32, ptr %fType.i, align 8
-  switch i32 %7, label %invoke.cont10.thread [
+  %8 = load i32, ptr %fType.i, align 8
+  switch i32 %8, label %invoke.cont10.thread [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb5.i
     i32 5, label %sw.bb8.i
@@ -2392,8 +2392,8 @@ if.end.i:                                         ; preds = %if.end
 
 sw.bb.i:                                          ; preds = %if.end.i
   %fValue.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %8 = load double, ptr %fValue.i.i, align 8
-  %call4.i14 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66) %call, double noundef %8)
+  %9 = load double, ptr %fValue.i.i, align 8
+  %call4.i14 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull align 8 dereferenceable(66) %call, double noundef %9)
           to label %call4.i.noexc unwind label %delete.notnull.i
 
 call4.i.noexc:                                    ; preds = %sw.bb.i
@@ -2402,15 +2402,15 @@ call4.i.noexc:                                    ; preds = %sw.bb.i
 
 sw.bb5.i:                                         ; preds = %if.end.i
   %fValue.i5.i = getelementptr inbounds i8, ptr %this, i64 8
-  %9 = load i64, ptr %fValue.i5.i, align 8
-  %conv.i.i = trunc i64 %9 to i32
+  %10 = load i64, ptr %fValue.i5.i, align 8
+  %conv.i.i = trunc i64 %10 to i32
   %call7.i15 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity8setToIntEi(ptr noundef nonnull align 8 dereferenceable(66) %call, i32 noundef %conv.i.i)
           to label %invoke.cont10 unwind label %delete.notnull.i
 
 sw.bb8.i:                                         ; preds = %if.end.i
   %fValue.i6.i = getelementptr inbounds i8, ptr %this, i64 8
-  %10 = load i64, ptr %fValue.i6.i, align 8
-  %call10.i16 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity9setToLongEl(ptr noundef nonnull align 8 dereferenceable(66) %call, i64 noundef %10)
+  %11 = load i64, ptr %fValue.i6.i, align 8
+  %call10.i16 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity9setToLongEl(ptr noundef nonnull align 8 dereferenceable(66) %call, i64 noundef %11)
           to label %invoke.cont10 unwind label %delete.notnull.i
 
 invoke.cont10.thread:                             ; preds = %if.end.i
@@ -2425,8 +2425,8 @@ invoke.cont10:                                    ; preds = %if.then.i12, %call4
 delete.notnull.i20:                               ; preds = %invoke.cont10.thread, %invoke.cont10, %_ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEEC2EPS3_R10UErrorCode.exit
   %vtable.i21 = load ptr, ptr %call, align 8
   %vfn.i22 = getelementptr inbounds i8, ptr %vtable.i21, i64 8
-  %11 = load ptr, ptr %vfn.i22, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(66) %call) #17
+  %12 = load ptr, ptr %vfn.i22, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(66) %call) #17
   br label %return
 
 _ZN6icu_7512LocalPointerINS_6number4impl15DecimalQuantityEED2Ev.exit23: ; preds = %invoke.cont10
@@ -2448,7 +2448,7 @@ if.then34:                                        ; preds = %if.end19
   br label %return
 
 lpad25:                                           ; preds = %new.notnull22
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call20) #17
   br label %eh.resume
@@ -2456,78 +2456,78 @@ lpad25:                                           ; preds = %new.notnull22
 if.end35:                                         ; preds = %new.notnull22
   %len.i = getelementptr inbounds i8, ptr %call20, i64 56
   store i32 0, ptr %len.i, align 8
-  %13 = load ptr, ptr %call20, align 8
-  store i8 0, ptr %13, align 1
+  %14 = load ptr, ptr %call20, align 8
+  store i8 0, ptr %14, align 1
   store ptr %call20, ptr %fDecimalStr, align 8
-  %14 = load ptr, ptr %fDecimalQuantity, align 8
-  %vtable = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %fDecimalQuantity, align 8
+  %vtable = load ptr, ptr %15, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
-  %15 = load ptr, ptr %vfn, align 8
-  %call37 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(66) %14)
+  %16 = load ptr, ptr %vfn, align 8
+  %call37 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(66) %15)
   br i1 %call37, label %if.then38, label %if.else
 
 if.then38:                                        ; preds = %if.end35
-  %16 = load ptr, ptr %fDecimalStr, align 8
+  %17 = load ptr, ptr %fDecimalStr, align 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef nonnull @.str.1)
-  %17 = load ptr, ptr %agg.tmp, align 8
-  %18 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %19 = load i32, ptr %18, align 8
-  %call3.i = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %16, ptr noundef %17, i32 noundef %19, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %18 = load ptr, ptr %agg.tmp, align 8
+  %19 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %20 = load i32, ptr %19, align 8
+  %call3.i = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %17, ptr noundef %18, i32 noundef %20, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end83
 
 if.else:                                          ; preds = %if.end35
-  %20 = load ptr, ptr %fDecimalQuantity, align 8
-  %vtable42 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %fDecimalQuantity, align 8
+  %vtable42 = load ptr, ptr %21, align 8
   %vfn43 = getelementptr inbounds i8, ptr %vtable42, i64 24
-  %21 = load ptr, ptr %vfn43, align 8
-  %call44 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(66) %20)
+  %22 = load ptr, ptr %vfn43, align 8
+  %call44 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(66) %21)
   br i1 %call44, label %if.then45, label %if.else49
 
 if.then45:                                        ; preds = %if.else
-  %22 = load ptr, ptr %fDecimalStr, align 8
+  %23 = load ptr, ptr %fDecimalStr, align 8
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp47, ptr noundef nonnull @.str.2)
-  %23 = load ptr, ptr %agg.tmp47, align 8
-  %24 = getelementptr inbounds i8, ptr %agg.tmp47, i64 8
-  %25 = load i32, ptr %24, align 8
-  %call3.i25 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %22, ptr noundef %23, i32 noundef %25, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %24 = load ptr, ptr %agg.tmp47, align 8
+  %25 = getelementptr inbounds i8, ptr %agg.tmp47, i64 8
+  %26 = load i32, ptr %25, align 8
+  %call3.i25 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %23, ptr noundef %24, i32 noundef %26, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end83
 
 if.else49:                                        ; preds = %if.else
-  %26 = load ptr, ptr %fDecimalQuantity, align 8
-  %call51 = tail call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %26)
+  %27 = load ptr, ptr %fDecimalQuantity, align 8
+  %call51 = tail call noundef zeroext i1 @_ZNK6icu_756number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %27)
   br i1 %call51, label %if.then52, label %if.else55
 
 if.then52:                                        ; preds = %if.else49
-  %27 = load ptr, ptr %fDecimalStr, align 8
-  %call54 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %27, ptr noundef nonnull @.str.3, i32 noundef -1, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %28 = load ptr, ptr %fDecimalStr, align 8
+  %call54 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %28, ptr noundef nonnull @.str.3, i32 noundef -1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end83
 
 if.else55:                                        ; preds = %if.else49
   %fType = getelementptr inbounds i8, ptr %this, i64 40
-  %28 = load i32, ptr %fType, align 8
-  switch i32 %28, label %lor.lhs.false59 [
+  %29 = load i32, ptr %fType, align 8
+  switch i32 %29, label %lor.lhs.false59 [
     i32 2, label %if.then66
     i32 5, label %if.then66
   ]
 
 lor.lhs.false59:                                  ; preds = %if.else55
-  %29 = load ptr, ptr %fDecimalQuantity, align 8
-  %call61 = tail call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %29)
+  %30 = load ptr, ptr %fDecimalQuantity, align 8
+  %call61 = tail call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %30)
   %cmp62.not = icmp eq i32 %call61, -2147483648
   br i1 %cmp62.not, label %if.else72, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false59
-  %30 = load ptr, ptr %fDecimalQuantity, align 8
-  %call64 = tail call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %30)
-  %31 = tail call i32 @llvm.abs.i32(i32 %call64, i1 true)
-  %cmp65 = icmp ult i32 %31, 5
+  %31 = load ptr, ptr %fDecimalQuantity, align 8
+  %call64 = tail call noundef i32 @_ZNK6icu_756number4impl15DecimalQuantity12getMagnitudeEv(ptr noundef nonnull align 8 dereferenceable(66) %31)
+  %32 = tail call i32 @llvm.abs.i32(i32 %call64, i1 true)
+  %cmp65 = icmp ult i32 %32, 5
   br i1 %cmp65, label %if.then66, label %if.else72
 
 if.then66:                                        ; preds = %if.else55, %if.else55, %land.lhs.true
-  %32 = load ptr, ptr %fDecimalStr, align 8
-  %33 = load ptr, ptr %fDecimalQuantity, align 8
-  call void @_ZNK6icu_756number4impl15DecimalQuantity13toPlainStringEv(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(66) %33)
-  %call71 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %32, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %33 = load ptr, ptr %fDecimalStr, align 8
+  %34 = load ptr, ptr %fDecimalQuantity, align 8
+  call void @_ZNK6icu_756number4impl15DecimalQuantity13toPlainStringEv(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(66) %34)
+  %call71 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %33, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont70 unwind label %lpad69
 
 invoke.cont70:                                    ; preds = %if.then66
@@ -2535,16 +2535,16 @@ invoke.cont70:                                    ; preds = %if.then66
   br label %if.end83
 
 lpad69:                                           ; preds = %if.then66
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #17
   br label %eh.resume
 
 if.else72:                                        ; preds = %land.lhs.true, %lor.lhs.false59
-  %35 = load ptr, ptr %fDecimalStr, align 8
-  %36 = load ptr, ptr %fDecimalQuantity, align 8
-  call void @_ZNK6icu_756number4impl15DecimalQuantity18toScientificStringEv(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(66) %36)
-  %call78 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %35, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp74, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %36 = load ptr, ptr %fDecimalStr, align 8
+  %37 = load ptr, ptr %fDecimalQuantity, align 8
+  call void @_ZNK6icu_756number4impl15DecimalQuantity18toScientificStringEv(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(66) %37)
+  %call78 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %36, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp74, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %if.else72
@@ -2552,21 +2552,21 @@ invoke.cont77:                                    ; preds = %if.else72
   br label %if.end83
 
 lpad76:                                           ; preds = %if.else72
-  %37 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp74) #17
   br label %eh.resume
 
 if.end83:                                         ; preds = %if.then38, %if.then52, %invoke.cont77, %invoke.cont70, %if.then45, %entry
-  %38 = load ptr, ptr %fDecimalStr, align 8
+  %39 = load ptr, ptr %fDecimalStr, align 8
   br label %return
 
 return:                                           ; preds = %if.then.i, %new.cont, %delete.notnull.i20, %if.end83, %if.then34
-  %retval.1 = phi ptr [ null, %if.then34 ], [ %38, %if.end83 ], [ null, %delete.notnull.i20 ], [ null, %new.cont ], [ null, %if.then.i ]
+  %retval.1 = phi ptr [ null, %if.then34 ], [ %39, %if.end83 ], [ null, %delete.notnull.i20 ], [ null, %new.cont ], [ null, %if.then.i ]
   ret ptr %retval.1
 
 eh.resume:                                        ; preds = %delete.notnull.i, %lpad25, %lpad, %lpad76, %lpad69
-  %.pn = phi { ptr, i32 } [ %34, %lpad69 ], [ %37, %lpad76 ], [ %12, %lpad25 ], [ %3, %lpad ], [ %4, %delete.notnull.i ]
+  %.pn = phi { ptr, i32 } [ %35, %lpad69 ], [ %38, %lpad76 ], [ %13, %lpad25 ], [ %4, %lpad ], [ %5, %delete.notnull.i ]
   resume { ptr, i32 } %.pn
 }
 

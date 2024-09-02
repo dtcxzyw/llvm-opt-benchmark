@@ -70,7 +70,7 @@ define ptr @Gia_ManExtractMfs(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
   %28 = tail call i32 @Gia_ManLutSizeMax(ptr noundef nonnull %0) #16
-  %29 = tail call noundef i32 @llvm.smax.i32(i32 %28, i32 6)
+  %29 = tail call noundef range(i32 6, -2147483648) i32 @llvm.smax.i32(i32 %28, i32 6)
   %.not300 = icmp eq ptr %12, null
   br i1 %.not300, label %31, label %30
 
@@ -4162,7 +4162,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

@@ -9626,7 +9626,7 @@ if.then19.i:                                      ; preds = %if.end47.i77
   br i1 %tobool.i.not.i, label %common.ret182, label %common.ret182.sink.split
 
 common.ret182.sink.split:                         ; preds = %if.then19.i, %if.then41.i
-  %.sink = phi i16 [ %31, %if.then41.i ], [ %20, %if.then19.i ]
+  %.sink = phi i16 [ %30, %if.then41.i ], [ %20, %if.then19.i ]
   %common.ret182.op.ph = phi ptr [ %retval.i67.0.ph, %if.then41.i ], [ null, %if.then19.i ]
   %conv2.i.i = trunc i64 %hasbits to i32
   %conv3.i.i = zext i16 %.sink to i64
@@ -9644,67 +9644,67 @@ if.end25.i:                                       ; preds = %done1.i, %do.body.i
   %res.i.i.0.ph = phi i64 [ %conv.i69, %do.body.i ], [ %and60.i, %done1.i ]
   %retval.i67.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.0, %done1.i ]
   %conv26.i = trunc i64 %res.i.i.0.ph to i32
-  %cmp2.i.not = icmp sle i32 %conv1.i, %conv26.i
-  %cmp5.i = icmp sgt i32 %add.i, %conv26.i
-  %22 = select i1 %cmp2.i.not, i1 %cmp5.i, i1 false
-  br i1 %22, label %if.end36.i, label %if.then31.i
+  %cmp2.i.not = icmp sgt i32 %conv1.i, %conv26.i
+  %cmp5.i = icmp sle i32 %add.i, %conv26.i
+  %lnot.i = select i1 %cmp2.i.not, i1 true, i1 %cmp5.i
+  br i1 %lnot.i, label %if.then31.i, label %if.end36.i
 
 if.then31.i:                                      ; preds = %if.end25.i
   %call35.i = musttail call noundef ptr @_ZN6google8protobuf8internal8TcParser23FastUnknownEnumFallbackEPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr noundef %msg, ptr noundef nonnull %ptr.addr.i.0, ptr noundef %ctx, i64 poison, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call35.i
 
 if.end36.i:                                       ; preds = %if.end25.i
-  %23 = load i32, ptr %total_size_.i, align 4
-  %24 = load i32, ptr %add.ptr.i121, align 8
-  %cmp.i = icmp eq i32 %24, %23
+  %22 = load i32, ptr %total_size_.i, align 4
+  %23 = load i32, ptr %add.ptr.i121, align 8
+  %cmp.i = icmp eq i32 %23, %22
   br i1 %cmp.i, label %if.then.i144, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit
 
 if.then.i144:                                     ; preds = %if.end36.i
-  %add.i145 = add nsw i32 %23, 1
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i121, i32 noundef %23, i32 noundef %add.i145)
-  %25 = load i32, ptr %total_size_.i, align 4
+  %add.i145 = add nsw i32 %22, 1
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i121, i32 noundef %22, i32 noundef %add.i145)
+  %24 = load i32, ptr %total_size_.i, align 4
   %.pre.i = load i32, ptr %add.ptr.i121, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit: ; preds = %if.end36.i, %if.then.i144
-  %26 = phi i32 [ %.pre.i, %if.then.i144 ], [ %24, %if.end36.i ]
-  %total_size.0.i = phi i32 [ %25, %if.then.i144 ], [ %23, %if.end36.i ]
+  %25 = phi i32 [ %.pre.i, %if.then.i144 ], [ %23, %if.end36.i ]
+  %total_size.0.i = phi i32 [ %24, %if.then.i144 ], [ %22, %if.end36.i ]
   %elem.0.i = load ptr, ptr %arena_or_elements_.i.i, align 8
-  %add7.i = add nsw i32 %26, 1
+  %add7.i = add nsw i32 %25, 1
   store i32 %add7.i, ptr %add.ptr.i121, align 8
-  %idx.ext.i142 = sext i32 %26 to i64
+  %idx.ext.i142 = sext i32 %25 to i64
   %add.ptr.i143 = getelementptr inbounds i32, ptr %elem.0.i, i64 %idx.ext.i142
   store i32 %conv26.i, ptr %add.ptr.i143, align 4
-  %27 = load i32, ptr %add.ptr.i121, align 8
-  %cmp10.i = icmp eq i32 %add7.i, %27
+  %26 = load i32, ptr %add.ptr.i121, align 8
+  %cmp10.i = icmp eq i32 %add7.i, %26
   tail call void @llvm.assume(i1 %cmp10.i)
-  %28 = load ptr, ptr %arena_or_elements_.i.i, align 8
-  %cmp11.i = icmp eq ptr %elem.0.i, %28
+  %27 = load ptr, ptr %arena_or_elements_.i.i, align 8
+  %cmp11.i = icmp eq ptr %elem.0.i, %27
   tail call void @llvm.assume(i1 %cmp11.i)
-  %29 = load i32, ptr %total_size_.i, align 4
-  %cmp13.i = icmp eq i32 %total_size.0.i, %29
+  %28 = load i32, ptr %total_size_.i, align 4
+  %cmp13.i = icmp eq i32 %total_size.0.i, %28
   tail call void @llvm.assume(i1 %cmp13.i)
-  %30 = load ptr, ptr %ctx, align 8
-  %cmp.i146 = icmp ult ptr %retval.i67.0.ph, %30
+  %29 = load ptr, ptr %ctx, align 8
+  %cmp.i146 = icmp ult ptr %retval.i67.0.ph, %29
   br i1 %cmp.i146, label %if.end47.i, label %if.then41.i
 
 if.then41.i:                                      ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit
-  %31 = load i16, ptr %table, align 8
-  %tobool.i.i.not = icmp eq i16 %31, 0
+  %30 = load i16, ptr %table, align 8
+  %tobool.i.i.not = icmp eq i16 %30, 0
   br i1 %tobool.i.i.not, label %common.ret182, label %common.ret182.sink.split
 
 if.end47.i:                                       ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit
-  %32 = load i8, ptr %retval.i67.0.ph, align 1
-  %cmp51.i = icmp eq i8 %32, %1
+  %31 = load i8, ptr %retval.i67.0.ph, align 1
+  %cmp51.i = icmp eq i8 %31, %1
   br i1 %cmp51.i, label %do.body.i, label %if.end.i.i, !llvm.loop !47
 
 if.end.i.i:                                       ; preds = %if.end47.i
   %tmp.0.copyload.i.i = load i16, ptr %retval.i67.0.ph, align 1
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %table, i64 8
-  %33 = load i8, ptr %fast_idx_mask.i, align 8
-  %34 = zext i8 %33 to i16
-  %35 = and i16 %tmp.0.copyload.i.i, %34
-  %conv3.i = zext nneg i16 %35 to i64
+  %32 = load i8, ptr %fast_idx_mask.i, align 8
+  %33 = zext i8 %32 to i16
+  %34 = and i16 %tmp.0.copyload.i.i, %33
+  %conv3.i = zext nneg i16 %34 to i64
   %and4.i = and i64 %conv3.i, 7
   %cmp.i13 = icmp eq i64 %and4.i, 0
   tail call void @llvm.assume(i1 %cmp.i13)
@@ -9715,8 +9715,8 @@ if.end.i.i:                                       ; preds = %if.end47.i
   %data.i9.sroa.0.0.copyload = load i64, ptr %bits.i, align 8
   %conv6.i = zext i16 %tmp.0.copyload.i.i to i64
   %xor.i = xor i64 %data.i9.sroa.0.0.copyload, %conv6.i
-  %36 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
-  %atomic-temp.i.0.i.i = inttoptr i64 %36 to ptr
+  %35 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
+  %atomic-temp.i.0.i.i = inttoptr i64 %35 to ptr
   %call10.i15 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %msg, ptr noundef nonnull %retval.i67.0.ph, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call10.i15
 }
@@ -9881,7 +9881,7 @@ if.then19.i:                                      ; preds = %if.end47.i77
   br i1 %tobool.i.not.i, label %common.ret184, label %common.ret184.sink.split
 
 common.ret184.sink.split:                         ; preds = %if.then19.i, %if.then41.i
-  %.sink = phi i16 [ %30, %if.then41.i ], [ %19, %if.then19.i ]
+  %.sink = phi i16 [ %29, %if.then41.i ], [ %19, %if.then19.i ]
   %common.ret184.op.ph = phi ptr [ %retval.i67.0.ph, %if.then41.i ], [ null, %if.then19.i ]
   %conv2.i.i = trunc i64 %hasbits to i32
   %conv3.i.i = zext i16 %.sink to i64
@@ -9899,53 +9899,53 @@ if.end25.i:                                       ; preds = %done1.i, %do.body.i
   %res.i.i.0.ph = phi i64 [ %conv.i69, %do.body.i ], [ %and60.i, %done1.i ]
   %retval.i67.0.ph = phi ptr [ %incdec.ptr.i, %do.body.i ], [ %p.addr.i.0, %done1.i ]
   %conv26.i = trunc i64 %res.i.i.0.ph to i32
-  %cmp2.i.not = icmp sle i32 %conv1.i, %conv26.i
-  %cmp5.i = icmp sgt i32 %add.i, %conv26.i
-  %21 = select i1 %cmp2.i.not, i1 %cmp5.i, i1 false
-  br i1 %21, label %if.end36.i, label %if.then31.i
+  %cmp2.i.not = icmp sgt i32 %conv1.i, %conv26.i
+  %cmp5.i = icmp sle i32 %add.i, %conv26.i
+  %lnot.i = select i1 %cmp2.i.not, i1 true, i1 %cmp5.i
+  br i1 %lnot.i, label %if.then31.i, label %if.end36.i
 
 if.then31.i:                                      ; preds = %if.end25.i
   %call35.i = musttail call noundef ptr @_ZN6google8protobuf8internal8TcParser23FastUnknownEnumFallbackEPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr noundef %msg, ptr noundef nonnull %ptr.addr.i.0, ptr noundef %ctx, i64 poison, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call35.i
 
 if.end36.i:                                       ; preds = %if.end25.i
-  %22 = load i32, ptr %total_size_.i, align 4
-  %23 = load i32, ptr %add.ptr.i121, align 8
-  %cmp.i = icmp eq i32 %23, %22
+  %21 = load i32, ptr %total_size_.i, align 4
+  %22 = load i32, ptr %add.ptr.i121, align 8
+  %cmp.i = icmp eq i32 %22, %21
   br i1 %cmp.i, label %if.then.i144, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit
 
 if.then.i144:                                     ; preds = %if.end36.i
-  %add.i145 = add nsw i32 %22, 1
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i121, i32 noundef %22, i32 noundef %add.i145)
-  %24 = load i32, ptr %total_size_.i, align 4
+  %add.i145 = add nsw i32 %21, 1
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i121, i32 noundef %21, i32 noundef %add.i145)
+  %23 = load i32, ptr %total_size_.i, align 4
   %.pre.i = load i32, ptr %add.ptr.i121, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit: ; preds = %if.end36.i, %if.then.i144
-  %25 = phi i32 [ %.pre.i, %if.then.i144 ], [ %23, %if.end36.i ]
-  %total_size.0.i = phi i32 [ %24, %if.then.i144 ], [ %22, %if.end36.i ]
+  %24 = phi i32 [ %.pre.i, %if.then.i144 ], [ %22, %if.end36.i ]
+  %total_size.0.i = phi i32 [ %23, %if.then.i144 ], [ %21, %if.end36.i ]
   %elem.0.i = load ptr, ptr %arena_or_elements_.i.i, align 8
-  %add7.i = add nsw i32 %25, 1
+  %add7.i = add nsw i32 %24, 1
   store i32 %add7.i, ptr %add.ptr.i121, align 8
-  %idx.ext.i142 = sext i32 %25 to i64
+  %idx.ext.i142 = sext i32 %24 to i64
   %add.ptr.i143 = getelementptr inbounds i32, ptr %elem.0.i, i64 %idx.ext.i142
   store i32 %conv26.i, ptr %add.ptr.i143, align 4
-  %26 = load i32, ptr %add.ptr.i121, align 8
-  %cmp10.i = icmp eq i32 %add7.i, %26
+  %25 = load i32, ptr %add.ptr.i121, align 8
+  %cmp10.i = icmp eq i32 %add7.i, %25
   tail call void @llvm.assume(i1 %cmp10.i)
-  %27 = load ptr, ptr %arena_or_elements_.i.i, align 8
-  %cmp11.i = icmp eq ptr %elem.0.i, %27
+  %26 = load ptr, ptr %arena_or_elements_.i.i, align 8
+  %cmp11.i = icmp eq ptr %elem.0.i, %26
   tail call void @llvm.assume(i1 %cmp11.i)
-  %28 = load i32, ptr %total_size_.i, align 4
-  %cmp13.i = icmp eq i32 %total_size.0.i, %28
+  %27 = load i32, ptr %total_size_.i, align 4
+  %cmp13.i = icmp eq i32 %total_size.0.i, %27
   tail call void @llvm.assume(i1 %cmp13.i)
-  %29 = load ptr, ptr %ctx, align 8
-  %cmp.i146 = icmp ult ptr %retval.i67.0.ph, %29
+  %28 = load ptr, ptr %ctx, align 8
+  %cmp.i146 = icmp ult ptr %retval.i67.0.ph, %28
   br i1 %cmp.i146, label %if.end47.i, label %if.then41.i
 
 if.then41.i:                                      ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit
-  %30 = load i16, ptr %table, align 8
-  %tobool.i.i.not = icmp eq i16 %30, 0
+  %29 = load i16, ptr %table, align 8
+  %tobool.i.i.not = icmp eq i16 %29, 0
   br i1 %tobool.i.i.not, label %common.ret184, label %common.ret184.sink.split
 
 if.end47.i:                                       ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit
@@ -9955,10 +9955,10 @@ if.end47.i:                                       ; preds = %_ZN6google8protobuf
 
 if.end.i.i:                                       ; preds = %if.end47.i
   %fast_idx_mask.i = getelementptr inbounds i8, ptr %table, i64 8
-  %31 = load i8, ptr %fast_idx_mask.i, align 8
-  %32 = zext i8 %31 to i16
-  %33 = and i16 %tmp.0.copyload.i.i148, %32
-  %conv3.i = zext nneg i16 %33 to i64
+  %30 = load i8, ptr %fast_idx_mask.i, align 8
+  %31 = zext i8 %30 to i16
+  %32 = and i16 %tmp.0.copyload.i.i148, %31
+  %conv3.i = zext nneg i16 %32 to i64
   %and4.i = and i64 %conv3.i, 7
   %cmp.i13 = icmp eq i64 %and4.i, 0
   tail call void @llvm.assume(i1 %cmp.i13)
@@ -9969,8 +9969,8 @@ if.end.i.i:                                       ; preds = %if.end47.i
   %data.i9.sroa.0.0.copyload = load i64, ptr %bits.i, align 8
   %conv6.i = zext i16 %tmp.0.copyload.i.i148 to i64
   %xor.i = xor i64 %data.i9.sroa.0.0.copyload, %conv6.i
-  %34 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
-  %atomic-temp.i.0.i.i = inttoptr i64 %34 to ptr
+  %33 = load atomic i64, ptr %add.ptr2.i monotonic, align 8
+  %atomic-temp.i.0.i.i = inttoptr i64 %33 to ptr
   %call10.i15 = musttail call noundef ptr %atomic-temp.i.0.i.i(ptr noundef nonnull %msg, ptr noundef nonnull %retval.i67.0.ph, ptr noundef nonnull %ctx, i64 %xor.i, ptr noundef nonnull %table, i64 noundef %hasbits)
   ret ptr %call10.i15
 }
@@ -10177,8 +10177,8 @@ if.then15.i:                                      ; preds = %if.end.i61
   %sh_prom.i = and i32 %23, 31
   %24 = shl nuw i32 1, %sh_prom.i
   %25 = and i32 %22, %24
-  %cmp19.i.not = icmp eq i32 %25, 0
-  br i1 %cmp19.i.not, label %if.then31.i, label %if.end36.i
+  %cmp19.i = icmp eq i32 %25, 0
+  br i1 %cmp19.i, label %if.then31.i, label %if.end36.i
 
 if.end20.i:                                       ; preds = %if.end.i61
   %shr22.i = lshr i32 %21, 16
@@ -10479,8 +10479,8 @@ if.then15.i:                                      ; preds = %if.end.i61
   %sh_prom.i = and i32 %22, 31
   %23 = shl nuw i32 1, %sh_prom.i
   %24 = and i32 %21, %23
-  %cmp19.i.not = icmp eq i32 %24, 0
-  br i1 %cmp19.i.not, label %if.then31.i, label %if.end36.i
+  %cmp19.i = icmp eq i32 %24, 0
+  br i1 %cmp19.i, label %if.then31.i, label %if.end36.i
 
 if.end20.i:                                       ; preds = %if.end.i61
   %shr22.i = lshr i32 %20, 16
@@ -18133,8 +18133,8 @@ if.then15.i:                                      ; preds = %if.end.i177
   %sh_prom.i180 = and i32 %42, 31
   %43 = shl nuw i32 1, %sh_prom.i180
   %44 = and i32 %41, %43
-  %cmp19.i.not = icmp eq i32 %44, 0
-  br i1 %cmp19.i.not, label %if.then42, label %if.else
+  %cmp19.i = icmp eq i32 %44, 0
+  br i1 %cmp19.i, label %if.then42, label %if.else
 
 if.end20.i:                                       ; preds = %if.end.i177
   %shr22.i = lshr i32 %39, 16
@@ -20482,8 +20482,8 @@ if.then15.i:                                      ; preds = %if.end.i177
   %sh_prom.i180 = and i32 %51, 31
   %52 = shl nuw i32 1, %sh_prom.i180
   %53 = and i32 %50, %52
-  %cmp19.i.not = icmp eq i32 %53, 0
-  br i1 %cmp19.i.not, label %if.then42, label %if.else
+  %cmp19.i = icmp eq i32 %53, 0
+  br i1 %cmp19.i, label %if.then42, label %if.else
 
 if.end20.i:                                       ; preds = %if.end.i177
   %shr22.i = lshr i32 %48, 16

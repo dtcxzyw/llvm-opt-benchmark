@@ -161,7 +161,7 @@ define noundef ptr @Kit_GraphAppendNode(ptr nocapture noundef %0) local_unnamed_
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 0, -2147483648) i32 @Kit_GraphAddNodeAnd(ptr nocapture noundef %0, i32 %1, i32 %2) local_unnamed_addr #3 {
+define range(i32 0, 2147483647) i32 @Kit_GraphAddNodeAnd(ptr nocapture noundef %0, i32 %1, i32 %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -224,7 +224,7 @@ Kit_GraphAppendNode.exit:                         ; preds = %3, %19
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 0, -2147483648) i32 @Kit_GraphAddNodeOr(ptr nocapture noundef %0, i32 %1, i32 %2) local_unnamed_addr #3 {
+define range(i32 1, -2147483648) i32 @Kit_GraphAddNodeOr(ptr nocapture noundef %0, i32 %1, i32 %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12

@@ -112,7 +112,7 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readon
 
 71:                                               ; preds = %69
   %72 = icmp eq i32 %57, 0
-  br i1 %72, label %93, label %73
+  br i1 %72, label %95, label %73
 
 73:                                               ; preds = %71
   %74 = tail call i32 @ilaenv_(ptr noundef nonnull @c__1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, ptr noundef nonnull @c__1, ptr noundef nonnull %3, ptr noundef nonnull @c__0, i32 noundef 6, i32 noundef 1) #6
@@ -145,48 +145,48 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readon
   %91 = add nsw i32 %.sink35, %80
   store i32 %91, ptr %17, align 4, !tbaa !3
   %92 = call i32 @llvm.smax.i32(i32 %.sink, i32 %91)
-  br label %93
+  %93 = sitofp i32 %92 to double
+  %94 = icmp eq i32 %.sink35, 0
+  br label %95
 
-93:                                               ; preds = %.sink.split, %71
-  %94 = phi i32 [ 0, %71 ], [ %.sink35, %.sink.split ]
-  %95 = phi i32 [ 1, %71 ], [ %78, %.sink.split ]
-  %96 = phi i32 [ 1, %71 ], [ %92, %.sink.split ]
-  %97 = sitofp i32 %96 to double
-  store double %97, ptr %11, align 8, !tbaa !7
-  %98 = load i32, ptr %12, align 4, !tbaa !3
-  %99 = icmp sge i32 %98, %95
-  %100 = select i1 %99, i1 true, i1 %44
-  br i1 %100, label %101, label %.thread16.sink.split
+95:                                               ; preds = %.sink.split, %71
+  %96 = phi i1 [ true, %71 ], [ %94, %.sink.split ]
+  %97 = phi i32 [ 1, %71 ], [ %78, %.sink.split ]
+  %98 = phi double [ 1.000000e+00, %71 ], [ %93, %.sink.split ]
+  store double %98, ptr %11, align 8, !tbaa !7
+  %99 = load i32, ptr %12, align 4, !tbaa !3
+  %100 = icmp sge i32 %99, %97
+  %101 = select i1 %100, i1 true, i1 %44
+  br i1 %101, label %102, label %.thread16.sink.split
 
-101:                                              ; preds = %93
+102:                                              ; preds = %95
   %.pr14 = load i32, ptr %14, align 4, !tbaa !3
-  %102 = icmp eq i32 %.pr14, 0
-  br i1 %102, label %106, label %.thread16
+  %103 = icmp eq i32 %.pr14, 0
+  br i1 %103, label %107, label %.thread16
 
-.thread16.sink.split:                             ; preds = %93, %63, %59, %56, %53, %48
-  %.sink37 = phi i32 [ -1, %48 ], [ -2, %53 ], [ -4, %56 ], [ -6, %59 ], [ -11, %63 ], [ -13, %93 ]
+.thread16.sink.split:                             ; preds = %95, %63, %59, %56, %53, %48
+  %.sink37 = phi i32 [ -1, %48 ], [ -2, %53 ], [ -4, %56 ], [ -6, %59 ], [ -11, %63 ], [ -13, %95 ]
   store i32 %.sink37, ptr %14, align 4, !tbaa !3
   br label %.thread16
 
-.thread16:                                        ; preds = %.thread16.sink.split, %69, %101
-  %103 = phi i32 [ %.pr14, %101 ], [ %.pr, %69 ], [ %.sink37, %.thread16.sink.split ]
-  %104 = sub nsw i32 0, %103
-  store i32 %104, ptr %16, align 4, !tbaa !3
-  %105 = call i32 @xerbla_(ptr noundef nonnull @.str.6, ptr noundef nonnull %16, i32 noundef 6) #6
+.thread16:                                        ; preds = %.thread16.sink.split, %69, %102
+  %104 = phi i32 [ %.pr14, %102 ], [ %.pr, %69 ], [ %.sink37, %.thread16.sink.split ]
+  %105 = sub nsw i32 0, %104
+  store i32 %105, ptr %16, align 4, !tbaa !3
+  %106 = call i32 @xerbla_(ptr noundef nonnull @.str.6, ptr noundef nonnull %16, i32 noundef 6) #6
   br label %331
 
-106:                                              ; preds = %101
-  br i1 %44, label %331, label %107
+107:                                              ; preds = %102
+  br i1 %44, label %331, label %108
 
-107:                                              ; preds = %106
-  %108 = icmp eq i32 %94, 0
-  br i1 %108, label %109, label %110
+108:                                              ; preds = %107
+  br i1 %96, label %109, label %110
 
-109:                                              ; preds = %107
+109:                                              ; preds = %108
   store i32 0, ptr %6, align 4, !tbaa !3
   br label %331
 
-110:                                              ; preds = %107
+110:                                              ; preds = %108
   %111 = call double @dlamch_(ptr noundef nonnull @.str.7) #6
   %112 = call double @dlamch_(ptr noundef nonnull @.str.1) #6
   store double %112, ptr %26, align 8, !tbaa !7
@@ -584,10 +584,10 @@ define void @dgees_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readon
   br i1 %330, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.thread19, %291, %288, %287
-  store double %97, ptr %11, align 8, !tbaa !7
+  store double %98, ptr %11, align 8, !tbaa !7
   br label %331
 
-331:                                              ; preds = %.loopexit, %109, %106, %.thread16
+331:                                              ; preds = %.loopexit, %109, %107, %.thread16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #6

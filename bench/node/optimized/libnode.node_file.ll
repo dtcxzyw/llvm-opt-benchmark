@@ -10009,8 +10009,8 @@ if.end.i511:                                      ; preds = %if.end.i258
   %sub.i.i = add i64 %4, 11
   %5 = inttoptr i64 %sub.i.i to ptr
   %6 = load i16, ptr %5, align 2
-  %cmp.i512 = icmp ult i16 %6, 128
-  br i1 %cmp.i512, label %do.end18, label %do.body15
+  %cmp.i512 = icmp ugt i16 %6, 127
+  br i1 %cmp.i512, label %do.body15, label %do.end18
 
 do.body15:                                        ; preds = %if.end.i258, %if.end.i511
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fs11BindingData17LegacyMainResolveERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_0) #30
@@ -15357,8 +15357,8 @@ if.end.i299:                                      ; preds = %if.end.i125
   %sub.i.i = add i64 %4, 11
   %5 = inttoptr i64 %sub.i.i to ptr
   %6 = load i16, ptr %5, align 2
-  %cmp.i300 = icmp ult i16 %6, 128
-  br i1 %cmp.i300, label %do.end18, label %do.body15
+  %cmp.i300 = icmp ugt i16 %6, 127
+  br i1 %cmp.i300, label %do.body15, label %do.end18
 
 do.body15:                                        ; preds = %if.end.i125, %if.end.i299
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node2fsL28GetFormatOfExtensionlessFileERKN2v820FunctionCallbackInfoINS1_5ValueEEEE4args_0) #30
@@ -24514,8 +24514,8 @@ if.end5.i:                                        ; preds = %if.end.i413
   %44 = inttoptr i64 %sub.i.i424 to ptr
   %45 = load i64, ptr %44, align 8
   %shr.i.mask = and i64 %45, -4294967296
-  %cmp7.i = icmp eq i64 %shr.i.mask, 21474836480
-  br i1 %cmp7.i, label %lor.lhs.false.i, label %if.then55
+  %cmp7.i.not = icmp eq i64 %shr.i.mask, 21474836480
+  br i1 %cmp7.i.not, label %lor.lhs.false.i, label %if.then55
 
 if.then55:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit179, %if.end.i413, %if.end5.i
   %call56 = call noundef ptr @_ZN4node2fs10GetReqWrapERKN2v820FunctionCallbackInfoINS1_5ValueEEEib(ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 2, i1 noundef zeroext %call46)
@@ -25162,8 +25162,8 @@ if.end5.i:                                        ; preds = %if.end.i381
   %38 = inttoptr i64 %sub.i.i392 to ptr
   %39 = load i64, ptr %38, align 8
   %shr.i.mask = and i64 %39, -4294967296
-  %cmp7.i = icmp eq i64 %shr.i.mask, 21474836480
-  br i1 %cmp7.i, label %lor.lhs.false.i, label %if.then41
+  %cmp7.i.not = icmp eq i64 %shr.i.mask, 21474836480
+  br i1 %cmp7.i.not, label %lor.lhs.false.i, label %if.then41
 
 if.then41:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit153, %if.end.i381, %if.end5.i
   %call42 = call noundef ptr @_ZN4node2fs10GetReqWrapERKN2v820FunctionCallbackInfoINS1_5ValueEEEib(ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 2, i1 noundef zeroext %call32)
@@ -25821,8 +25821,8 @@ if.end5.i:                                        ; preds = %if.end.i439
   %42 = inttoptr i64 %sub.i.i450 to ptr
   %43 = load i64, ptr %42, align 8
   %shr.i.mask = and i64 %43, -4294967296
-  %cmp7.i = icmp eq i64 %shr.i.mask, 21474836480
-  br i1 %cmp7.i, label %lor.lhs.false.i, label %if.then49
+  %cmp7.i.not = icmp eq i64 %shr.i.mask, 21474836480
+  br i1 %cmp7.i.not, label %lor.lhs.false.i, label %if.then49
 
 if.then49:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit148, %if.end.i439, %if.end5.i
   %call50 = tail call noundef ptr @_ZN4node2fs10GetReqWrapERKN2v820FunctionCallbackInfoINS1_5ValueEEEib(ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 2, i1 noundef zeroext %call40)
@@ -31889,8 +31889,8 @@ if.end148:                                        ; preds = %if.end140, %_ZN4nod
   %74 = load ptr, ptr %buf_.i99, align 8
   call void @_ZNK4node11Environment14PrintSyncTraceEv(ptr noundef nonnull align 8 dereferenceable(2872) %retval.0.i.i) #30
   %call.i.i114 = call noundef i32 @uv_fs_open(ptr noundef null, ptr noundef nonnull %req_open, ptr noundef %74, i32 noundef %call53, i32 noundef %call83, ptr noundef null) #30
-  %cmp.i.i = icmp slt i32 %call.i.i114, 0
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZN4node2fs23SyncCallAndThrowOnErrorIPFiP9uv_loop_sP7uv_fs_sPKciiPFvS5_EEJPciiEEEiPNS_11EnvironmentEPNS0_13FSReqWrapSyncET_DpT0_.exit
+  %cmp.i.i = icmp sgt i32 %call.i.i114, -1
+  br i1 %cmp.i.i, label %_ZN4node2fs23SyncCallAndThrowOnErrorIPFiP9uv_loop_sP7uv_fs_sPKciiPFvS5_EEJPciiEEEiPNS_11EnvironmentEPNS0_13FSReqWrapSyncET_DpT0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end148
   %75 = load ptr, ptr %syscall_p.i, align 8
@@ -31992,7 +31992,6 @@ _ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit150: ; preds = %_ZNSt10unique
   br label %if.end169
 
 if.end169:                                        ; preds = %if.end160, %_ZN4node7tracingL13AddTraceEventEcPKhPKcS4_mmj.exit150, %_ZN4node7tracing16TraceEventHelper23GetCategoryGroupEnabledEPKc.exit122
-  %call.i.i114.lobit = lshr i32 %call.i.i114, 31
   call void @uv_fs_req_cleanup(ptr noundef nonnull %req_open) #30
   %90 = load ptr, ptr %continuation_data_.i, align 8
   %cmp.not.i.i = icmp eq ptr %90, null
@@ -32011,7 +32010,7 @@ _ZN4node2fs13FSReqWrapSyncD2Ev.exit:              ; preds = %if.end169, %_ZNKSt1
 
 cleanup173:                                       ; preds = %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit
   %file.1 = phi i32 [ %call.i.i114, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit ], [ undef, %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit ]
-  %cleanup.dest.slot.0 = phi i32 [ %call.i.i114.lobit, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit ], [ 1, %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit ]
+  %cleanup.dest.slot.0 = phi i1 [ %cmp.i.i, %_ZN4node2fs13FSReqWrapSyncD2Ev.exit ], [ false, %_ZN4node2fsL20CheckOpenPermissionsEPNS_11EnvironmentERKNS_11BufferValueEi.exit ]
   %92 = load ptr, ptr %buf_.i99, align 8
   %cmp.i.i.i.i153 = icmp ne ptr %92, null
   %buf_st_.i.i.i = getelementptr inbounds i8, ptr %path, i64 24
@@ -32024,8 +32023,7 @@ if.then.i.i155:                                   ; preds = %cleanup173
   br label %_ZN4node11BufferValueD2Ev.exit
 
 _ZN4node11BufferValueD2Ev.exit:                   ; preds = %cleanup173, %if.then.i.i155
-  %cond = icmp eq i32 %cleanup.dest.slot.0, 0
-  br i1 %cond, label %if.end174, label %cleanup275
+  br i1 %cleanup.dest.slot.0, label %if.end174, label %cleanup275
 
 if.end174:                                        ; preds = %_ZN4node11BufferValueD2Ev.exit, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit295
   %file.0 = phi i32 [ %call103, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit295 ], [ %file.1, %_ZN4node11BufferValueD2Ev.exit ]

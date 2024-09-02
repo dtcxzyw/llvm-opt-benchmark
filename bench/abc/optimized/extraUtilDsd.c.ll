@@ -685,7 +685,7 @@ define void @Sdm_ManPrintDsdStats(ptr nocapture noundef readonly %0, i32 noundef
   %30 = fmul double %29, 1.000000e+02
   %31 = getelementptr inbounds i8, ptr %0, i64 6744
   %32 = load i32, ptr %31, align 8
-  %33 = tail call noundef i32 @llvm.smax.i32(i32 %32, i32 1)
+  %33 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %32, i32 1)
   %34 = uitofp nneg i32 %33 to double
   %35 = fdiv double %30, %34
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %28, double noundef %35)
@@ -1264,12 +1264,12 @@ Vec_IntStartFull.exit:                            ; preds = %Abc_Clock.exit, %17
   %.pre = load ptr, ptr %18, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 4
   %.val189.pre = load i32, ptr %.phi.trans.insert, align 4
-  %60 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
-  %61 = icmp sgt i32 %.val189.pre, 0
-  br i1 %61, label %.lr.ph193, label %.critedge
+  %60 = icmp sgt i32 %.val189.pre, 0
+  %61 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
+  br i1 %60, label %.lr.ph193, label %.critedge
 
 .lr.ph193:                                        ; preds = %._crit_edge.thread, %._crit_edge
-  %62 = phi ptr [ %21, %._crit_edge.thread ], [ %60, %._crit_edge ]
+  %62 = phi ptr [ %21, %._crit_edge.thread ], [ %61, %._crit_edge ]
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %.loopexit, %.lr.ph193
@@ -1390,7 +1390,7 @@ default.unreachable:                              ; preds = %Vec_IntFill.exit
   br i1 %109, label %Vec_IntGrow.exit.i, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.loopexit, %._crit_edge
-  %110 = phi ptr [ %60, %._crit_edge ], [ %62, %.loopexit ]
+  %110 = phi ptr [ %61, %._crit_edge ], [ %62, %.loopexit ]
   %.not.i165 = icmp eq ptr %110, null
   br i1 %.not.i165, label %Vec_IntFree.exit, label %111
 

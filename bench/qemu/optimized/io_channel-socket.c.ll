@@ -1603,7 +1603,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qio_channel_socket_flush(ptr noundef %ioc, ptr noundef %errp) #0 {
+define internal range(i32 -1, 2) i32 @qio_channel_socket_flush(ptr noundef %ioc, ptr noundef %errp) #0 {
 entry:
   %msg = alloca %struct.msghdr, align 8
   %control = alloca [32 x i8], align 16

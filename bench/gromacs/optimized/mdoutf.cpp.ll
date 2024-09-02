@@ -2667,7 +2667,7 @@ define void @_Z32mdoutf_write_to_trajectory_filesP8_IO_FILEPK9t_commrecP10gmx_md
   %121 = getelementptr inbounds i8, ptr %1, i64 48
   %122 = load i32, ptr %121, align 8
   %123 = icmp sgt i32 %122, 1
-  br i1 %123, label %129, label %124
+  br i1 %123, label %130, label %124
 
 124:                                              ; preds = %120, %116
   %125 = getelementptr inbounds i8, ptr %2, i64 88
@@ -2676,51 +2676,51 @@ define void @_Z32mdoutf_write_to_trajectory_filesP8_IO_FILEPK9t_commrecP10gmx_md
   %.not.i = icmp eq ptr %114, null
   %128 = getelementptr inbounds %"class.gmx::BasicVector.264", ptr %114, i64 %127
   %spec.select.i = select i1 %.not.i, ptr null, ptr %128
-  br label %129
+  %129 = ptrtoint ptr %spec.select.i to i64
+  br label %130
 
-129:                                              ; preds = %120, %124
+130:                                              ; preds = %120, %124
   %.sroa.0187.0 = phi ptr [ %114, %124 ], [ null, %120 ]
-  %.sroa.3.0 = phi ptr [ %spec.select.i, %124 ], [ null, %120 ]
-  %130 = load ptr, ptr %23, align 8
-  %131 = getelementptr inbounds i8, ptr %7, i64 776
-  %132 = load i32, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %7, i64 780
-  %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds i8, ptr %7, i64 784
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %7, i64 792
-  %138 = load ptr, ptr %137, align 8
-  %139 = ptrtoint ptr %138 to i64
-  %140 = ptrtoint ptr %136 to i64
-  %141 = sub i64 %139, %140
-  %142 = getelementptr inbounds i8, ptr %136, i64 %141
-  %143 = load ptr, ptr %10, align 8
-  store ptr %143, ptr %17, align 8
-  %144 = getelementptr inbounds i8, ptr %17, i64 8
-  %145 = getelementptr inbounds i8, ptr %10, i64 8
-  %146 = load ptr, ptr %145, align 8
-  %147 = ptrtoint ptr %146 to i64
-  %148 = ptrtoint ptr %143 to i64
-  %149 = sub i64 %147, %148
-  %150 = getelementptr inbounds i8, ptr %143, i64 %149
-  store ptr %150, ptr %144, align 8
+  %.sroa.3.0 = phi i64 [ %129, %124 ], [ 0, %120 ]
+  %131 = load ptr, ptr %23, align 8
+  %132 = getelementptr inbounds i8, ptr %7, i64 776
+  %133 = load i32, ptr %132, align 8
+  %134 = getelementptr inbounds i8, ptr %7, i64 780
+  %135 = load i32, ptr %134, align 4
+  %136 = getelementptr inbounds i8, ptr %7, i64 784
+  %137 = load ptr, ptr %136, align 8
+  %138 = getelementptr inbounds i8, ptr %7, i64 792
+  %139 = load ptr, ptr %138, align 8
+  %140 = ptrtoint ptr %139 to i64
+  %141 = ptrtoint ptr %137 to i64
+  %142 = sub i64 %140, %141
+  %143 = getelementptr inbounds i8, ptr %137, i64 %142
+  %144 = load ptr, ptr %10, align 8
+  store ptr %144, ptr %17, align 8
+  %145 = getelementptr inbounds i8, ptr %17, i64 8
+  %146 = getelementptr inbounds i8, ptr %10, i64 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = ptrtoint ptr %147 to i64
+  %149 = ptrtoint ptr %144 to i64
+  %150 = sub i64 %148, %149
+  %151 = getelementptr inbounds i8, ptr %144, i64 %150
+  store ptr %151, ptr %145, align 8
   store ptr %.sroa.0187.0, ptr %18, align 8
-  %151 = getelementptr inbounds i8, ptr %18, i64 8
-  %152 = ptrtoint ptr %.sroa.3.0 to i64
+  %152 = getelementptr inbounds i8, ptr %18, i64 8
   %153 = ptrtoint ptr %.sroa.0187.0 to i64
-  %154 = sub i64 %152, %153
+  %154 = sub i64 %.sroa.3.0, %153
   %155 = getelementptr inbounds i8, ptr %.sroa.0187.0, i64 %154
-  store ptr %155, ptr %151, align 8
-  tail call void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11BasicVectorIfEEEENS2_IS6_EE(ptr noundef %130, i32 noundef %132, i32 noundef %134, ptr %136, ptr %142, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %17, ptr noundef nonnull byval(%"class.gmx::ArrayRef.258") align 8 %18)
+  store ptr %155, ptr %152, align 8
+  tail call void @_Z14dd_collect_vecP12gmx_domdec_tiiN3gmx8ArrayRefIKiEENS2_IKNS1_11BasicVectorIfEEEENS2_IS6_EE(ptr noundef %131, i32 noundef %133, i32 noundef %135, ptr %137, ptr %143, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %17, ptr noundef nonnull byval(%"class.gmx::ArrayRef.258") align 8 %18)
   br label %158
 
 156:                                              ; preds = %12
   %157 = load ptr, ptr %10, align 8
   br label %158
 
-158:                                              ; preds = %112, %129, %156
-  %.0148 = phi ptr [ %114, %129 ], [ %114, %112 ], [ %157, %156 ]
-  %.0147 = phi ptr [ %8, %129 ], [ %8, %112 ], [ %7, %156 ]
+158:                                              ; preds = %112, %130, %156
+  %.0148 = phi ptr [ %114, %130 ], [ %114, %112 ], [ %157, %156 ]
+  %.0147 = phi ptr [ %8, %130 ], [ %8, %112 ], [ %7, %156 ]
   %159 = getelementptr inbounds i8, ptr %1, i64 52
   %160 = load i32, ptr %159, align 4
   %161 = icmp eq i32 %160, 0

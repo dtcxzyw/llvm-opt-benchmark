@@ -3906,14 +3906,14 @@ define internal fastcc void @setup_pebs_fixed_sample_data(ptr noundef %0, ptr no
   %170 = getelementptr inbounds i8, ptr %6, i64 82
   br label %171
 
-171:                                              ; preds = %182, %168
-  %172 = phi ptr [ %169, %168 ], [ %191, %182 ]
-  %173 = phi i32 [ %158, %168 ], [ %193, %182 ]
-  %174 = phi i64 [ %135, %168 ], [ %194, %182 ]
+171:                                              ; preds = %183, %168
+  %172 = phi ptr [ %169, %168 ], [ %191, %183 ]
+  %173 = phi i32 [ %158, %168 ], [ %193, %183 ]
+  %174 = phi i64 [ %135, %168 ], [ %194, %183 ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 112, i1 false), !annotation !45
   %175 = icmp slt i64 %174, 0
-  br i1 %175, label %182, label %176
+  br i1 %175, label %183, label %176
 
 176:                                              ; preds = %171
   %177 = load i64, ptr %117, align 8
@@ -3921,11 +3921,11 @@ define internal fastcc void @setup_pebs_fixed_sample_data(ptr noundef %0, ptr no
   %179 = icmp eq i64 %178, 0
   %180 = icmp eq i64 %177, 51
   %181 = or i1 %180, %179
-  br label %182
+  %182 = zext i1 %181 to i32
+  br label %183
 
-182:                                              ; preds = %176, %171
-  %183 = phi i1 [ true, %171 ], [ %181, %176 ]
-  %184 = zext i1 %183 to i32
+183:                                              ; preds = %176, %171
+  %184 = phi i32 [ 1, %171 ], [ %182, %176 ]
   call void @insn_init(ptr noundef nonnull %6, ptr noundef %172, i32 noundef %173, i32 noundef %184) #14
   %185 = call i32 @insn_get_length(ptr noundef nonnull %6) #14
   %186 = icmp eq i32 %185, 0
@@ -3942,7 +3942,7 @@ define internal fastcc void @setup_pebs_fixed_sample_data(ptr noundef %0, ptr no
   %196 = select i1 %186, i1 %195, i1 false
   br i1 %196, label %171, label %197, !llvm.loop !109
 
-197:                                              ; preds = %182
+197:                                              ; preds = %183
   %198 = icmp eq i64 %194, %127
   br i1 %198, label %._crit_edge, label %213
 

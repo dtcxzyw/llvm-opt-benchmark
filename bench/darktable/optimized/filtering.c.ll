@@ -9468,22 +9468,22 @@ define internal noundef range(i32 0, 2) i32 @_module_order_update(ptr noundef %0
   %54 = icmp eq i32 %53, 100
   br i1 %54, label %.preheader, label %80
 
-.preheader:                                       ; preds = %51, %63
+.preheader:                                       ; preds = %51, %64
   %55 = load ptr, ptr %4, align 8, !tbaa !6
   %56 = call i32 @sqlite3_column_int(ptr noundef %55, i32 noundef 1) #21
   %57 = load ptr, ptr %4, align 8, !tbaa !6
   %58 = call i32 @sqlite3_column_bytes(ptr noundef %57, i32 noundef 0) #21
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %63, label %60
+  br i1 %59, label %64, label %60
 
 60:                                               ; preds = %.preheader
   %61 = load ptr, ptr %4, align 8, !tbaa !6
   %62 = call i32 @sqlite3_column_int(ptr noundef %61, i32 noundef 0) #21
-  br label %63
+  %63 = sext i32 %62 to i64
+  br label %64
 
-63:                                               ; preds = %60, %.preheader
-  %64 = phi i32 [ %62, %60 ], [ 4, %.preheader ]
-  %65 = sext i32 %64 to i64
+64:                                               ; preds = %60, %.preheader
+  %65 = phi i64 [ %63, %60 ], [ 4, %.preheader ]
   %66 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %65
   store i32 %56, ptr %66, align 4, !tbaa !65
   %67 = load ptr, ptr %4, align 8, !tbaa !6
@@ -9491,7 +9491,7 @@ define internal noundef range(i32 0, 2) i32 @_module_order_update(ptr noundef %0
   %69 = icmp eq i32 %68, 100
   br i1 %69, label %.preheader, label %70
 
-70:                                               ; preds = %63
+70:                                               ; preds = %64
   %71 = load i32, ptr %3, align 16, !tbaa !65
   %72 = getelementptr inbounds i8, ptr %3, i64 4
   %73 = load i32, ptr %72, align 4, !tbaa !65

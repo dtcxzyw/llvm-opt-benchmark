@@ -3592,23 +3592,23 @@ _ZN5drjit9dr_vectorImEC2ERKS1_.exit:              ; preds = %.lr.ph.i, %5
   %.phi.trans.insert = getelementptr inbounds i8, ptr %47, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !noalias !67
   %.pre1707 = load i64, ptr %47, align 8, !noalias !67
+  %53 = trunc i64 %.pre to i32
+  %54 = trunc i64 %.pre1707 to i32
+  %55 = add i32 %54, -1
+  %56 = add i32 %53, -1
   br label %.loopexit1660
 
 .loopexit1660:                                    ; preds = %.loopexit1660.loopexit, %.noexc
-  %53 = phi i64 [ %.pre1707, %.loopexit1660.loopexit ], [ undef, %.noexc ]
-  %54 = phi i64 [ %.pre, %.loopexit1660.loopexit ], [ undef, %.noexc ]
-  %55 = trunc i64 %46 to i32
-  %56 = trunc i64 %54 to i32
-  %57 = trunc i64 %53 to i32
-  %58 = add i32 %57, -1
-  %59 = add i32 %56, -1
-  %60 = urem i32 %55, %58
-  %61 = sub i32 %55, %60
-  %62 = udiv i32 %61, %59
-  %63 = urem i32 %62, %59
-  %64 = mul i32 %63, %58
+  %57 = phi i32 [ %55, %.loopexit1660.loopexit ], [ undef, %.noexc ]
+  %58 = phi i32 [ %56, %.loopexit1660.loopexit ], [ undef, %.noexc ]
+  %59 = trunc i64 %46 to i32
+  %60 = urem i32 %59, %57
+  %61 = sub i32 %59, %60
+  %62 = udiv i32 %61, %58
+  %63 = urem i32 %62, %58
+  %64 = mul i32 %63, %57
   %65 = sub i32 %61, %64
-  %66 = mul i32 %58, %59
+  %66 = mul i32 %57, %58
   %67 = udiv i32 %65, %66
   %68 = insertelement <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, i32 %60, i64 0
   %69 = insertelement <4 x i32> %68, i32 %63, i64 1
@@ -3719,16 +3719,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit1206.loopexit:     ; preds = %.lr.ph.i1202
   %.pre1709 = load i64, ptr %.phi.trans.insert1708, align 8, !noalias !67
   %.phi.trans.insert1710 = getelementptr inbounds i8, ptr %146, i64 8
   %.pre1711 = load i64, ptr %.phi.trans.insert1710, align 8, !noalias !67
+  %152 = trunc i64 %.pre1709 to i32
+  %153 = trunc i64 %.pre1711 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit1206
 
 _ZN5drjit9dr_vectorImED2Ev.exit1206:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit1206.loopexit, %.noexc1204
-  %152 = phi i64 [ %.pre1711, %_ZN5drjit9dr_vectorImED2Ev.exit1206.loopexit ], [ undef, %.noexc1204 ]
-  %153 = phi i64 [ %.pre1709, %_ZN5drjit9dr_vectorImED2Ev.exit1206.loopexit ], [ undef, %.noexc1204 ]
-  %154 = trunc i64 %153 to i32
-  %155 = trunc i64 %152 to i32
-  %156 = mul i32 %67, %155
+  %154 = phi i32 [ %153, %_ZN5drjit9dr_vectorImED2Ev.exit1206.loopexit ], [ undef, %.noexc1204 ]
+  %155 = phi i32 [ %152, %_ZN5drjit9dr_vectorImED2Ev.exit1206.loopexit ], [ undef, %.noexc1204 ]
+  %156 = mul i32 %67, %154
   %157 = add i32 %156, %63
-  %158 = mul i32 %157, %154
+  %158 = mul i32 %157, %155
   %159 = add i32 %158, %60
   tail call void @_ZdaPv(ptr noundef nonnull %146) #35, !noalias !67
   %160 = zext i32 %159 to i64
@@ -3765,16 +3765,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit1212.loopexit:     ; preds = %.lr.ph.i1208
   %.pre1713 = load i64, ptr %.phi.trans.insert1712, align 8, !noalias !67
   %.phi.trans.insert1714 = getelementptr inbounds i8, ptr %168, i64 8
   %.pre1715 = load i64, ptr %.phi.trans.insert1714, align 8, !noalias !67
+  %174 = trunc i64 %.pre1713 to i32
+  %175 = trunc i64 %.pre1715 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit1212
 
 _ZN5drjit9dr_vectorImED2Ev.exit1212:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit1212.loopexit, %.noexc1210
-  %174 = phi i64 [ %.pre1715, %_ZN5drjit9dr_vectorImED2Ev.exit1212.loopexit ], [ undef, %.noexc1210 ]
-  %175 = phi i64 [ %.pre1713, %_ZN5drjit9dr_vectorImED2Ev.exit1212.loopexit ], [ undef, %.noexc1210 ]
-  %176 = trunc i64 %175 to i32
-  %177 = trunc i64 %174 to i32
-  %178 = mul i32 %67, %177
+  %176 = phi i32 [ %175, %_ZN5drjit9dr_vectorImED2Ev.exit1212.loopexit ], [ undef, %.noexc1210 ]
+  %177 = phi i32 [ %174, %_ZN5drjit9dr_vectorImED2Ev.exit1212.loopexit ], [ undef, %.noexc1210 ]
+  %178 = mul i32 %67, %176
   %179 = add i32 %178, %63
-  %180 = mul i32 %179, %176
+  %180 = mul i32 %179, %177
   %.sroa.01169.0.vec.extract = add i32 %60, 1
   %181 = add i32 %.sroa.01169.0.vec.extract, %180
   tail call void @_ZdaPv(ptr noundef nonnull %168) #35, !noalias !67
@@ -3812,17 +3812,17 @@ _ZN5drjit9dr_vectorImED2Ev.exit1218.loopexit:     ; preds = %.lr.ph.i1214
   %.pre1717 = load i64, ptr %.phi.trans.insert1716, align 8, !noalias !67
   %.phi.trans.insert1718 = getelementptr inbounds i8, ptr %190, i64 8
   %.pre1719 = load i64, ptr %.phi.trans.insert1718, align 8, !noalias !67
+  %196 = trunc i64 %.pre1717 to i32
+  %197 = trunc i64 %.pre1719 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit1218
 
 _ZN5drjit9dr_vectorImED2Ev.exit1218:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit1218.loopexit, %.noexc1216
-  %196 = phi i64 [ %.pre1719, %_ZN5drjit9dr_vectorImED2Ev.exit1218.loopexit ], [ undef, %.noexc1216 ]
-  %197 = phi i64 [ %.pre1717, %_ZN5drjit9dr_vectorImED2Ev.exit1218.loopexit ], [ undef, %.noexc1216 ]
-  %198 = trunc i64 %197 to i32
-  %199 = trunc i64 %196 to i32
-  %200 = mul i32 %67, %199
+  %198 = phi i32 [ %197, %_ZN5drjit9dr_vectorImED2Ev.exit1218.loopexit ], [ undef, %.noexc1216 ]
+  %199 = phi i32 [ %196, %_ZN5drjit9dr_vectorImED2Ev.exit1218.loopexit ], [ undef, %.noexc1216 ]
+  %200 = mul i32 %67, %198
   %.sroa.01171.4.vec.extract = add i32 %63, 1
   %201 = add i32 %.sroa.01171.4.vec.extract, %200
-  %202 = mul i32 %201, %198
+  %202 = mul i32 %201, %199
   %203 = add i32 %202, %60
   tail call void @_ZdaPv(ptr noundef nonnull %190) #35, !noalias !67
   %204 = zext i32 %203 to i64
@@ -3859,17 +3859,17 @@ _ZN5drjit9dr_vectorImED2Ev.exit1224.loopexit:     ; preds = %.lr.ph.i1220
   %.pre1721 = load i64, ptr %.phi.trans.insert1720, align 8, !noalias !67
   %.phi.trans.insert1722 = getelementptr inbounds i8, ptr %212, i64 8
   %.pre1723 = load i64, ptr %.phi.trans.insert1722, align 8, !noalias !67
+  %218 = trunc i64 %.pre1721 to i32
+  %219 = trunc i64 %.pre1723 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit1224
 
 _ZN5drjit9dr_vectorImED2Ev.exit1224:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit1224.loopexit, %.noexc1222
-  %218 = phi i64 [ %.pre1723, %_ZN5drjit9dr_vectorImED2Ev.exit1224.loopexit ], [ undef, %.noexc1222 ]
-  %219 = phi i64 [ %.pre1721, %_ZN5drjit9dr_vectorImED2Ev.exit1224.loopexit ], [ undef, %.noexc1222 ]
-  %220 = trunc i64 %219 to i32
-  %221 = trunc i64 %218 to i32
-  %222 = mul i32 %67, %221
+  %220 = phi i32 [ %219, %_ZN5drjit9dr_vectorImED2Ev.exit1224.loopexit ], [ undef, %.noexc1222 ]
+  %221 = phi i32 [ %218, %_ZN5drjit9dr_vectorImED2Ev.exit1224.loopexit ], [ undef, %.noexc1222 ]
+  %222 = mul i32 %67, %220
   %.sroa.01173.4.vec.extract = extractelement <4 x i32> %136, i64 1
   %223 = add i32 %222, %.sroa.01173.4.vec.extract
-  %224 = mul i32 %223, %220
+  %224 = mul i32 %223, %221
   %.sroa.01173.0.vec.extract = extractelement <4 x i32> %136, i64 0
   %225 = add i32 %224, %.sroa.01173.0.vec.extract
   tail call void @_ZdaPv(ptr noundef nonnull %212) #35, !noalias !67
@@ -4436,23 +4436,23 @@ _ZN5drjit9dr_vectorImEC2ERKS1_.exit:              ; preds = %.lr.ph.i, %4
   %.phi.trans.insert = getelementptr inbounds i8, ptr %46, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !noalias !71
   %.pre1704 = load i64, ptr %46, align 8, !noalias !71
+  %52 = trunc i64 %.pre to i32
+  %53 = trunc i64 %.pre1704 to i32
+  %54 = add i32 %53, -1
+  %55 = add i32 %52, -1
   br label %.loopexit1657
 
 .loopexit1657:                                    ; preds = %.loopexit1657.loopexit, %.noexc
-  %52 = phi i64 [ %.pre1704, %.loopexit1657.loopexit ], [ undef, %.noexc ]
-  %53 = phi i64 [ %.pre, %.loopexit1657.loopexit ], [ undef, %.noexc ]
-  %54 = trunc i64 %45 to i32
-  %55 = trunc i64 %53 to i32
-  %56 = trunc i64 %52 to i32
-  %57 = add i32 %56, -1
-  %58 = add i32 %55, -1
-  %59 = urem i32 %54, %57
-  %60 = sub i32 %54, %59
-  %61 = udiv i32 %60, %58
-  %62 = urem i32 %61, %58
-  %63 = mul i32 %62, %57
+  %56 = phi i32 [ %54, %.loopexit1657.loopexit ], [ undef, %.noexc ]
+  %57 = phi i32 [ %55, %.loopexit1657.loopexit ], [ undef, %.noexc ]
+  %58 = trunc i64 %45 to i32
+  %59 = urem i32 %58, %56
+  %60 = sub i32 %58, %59
+  %61 = udiv i32 %60, %57
+  %62 = urem i32 %61, %57
+  %63 = mul i32 %62, %56
   %64 = sub i32 %60, %63
-  %65 = mul i32 %57, %58
+  %65 = mul i32 %56, %57
   %66 = udiv i32 %64, %65
   %67 = insertelement <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, i32 %59, i64 0
   %68 = insertelement <4 x i32> %67, i32 %62, i64 1
@@ -4563,16 +4563,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit1203.loopexit:     ; preds = %.lr.ph.i1199
   %.pre1706 = load i64, ptr %.phi.trans.insert1705, align 8, !noalias !71
   %.phi.trans.insert1707 = getelementptr inbounds i8, ptr %145, i64 8
   %.pre1708 = load i64, ptr %.phi.trans.insert1707, align 8, !noalias !71
+  %151 = trunc i64 %.pre1706 to i32
+  %152 = trunc i64 %.pre1708 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit1203
 
 _ZN5drjit9dr_vectorImED2Ev.exit1203:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit1203.loopexit, %.noexc1201
-  %151 = phi i64 [ %.pre1708, %_ZN5drjit9dr_vectorImED2Ev.exit1203.loopexit ], [ undef, %.noexc1201 ]
-  %152 = phi i64 [ %.pre1706, %_ZN5drjit9dr_vectorImED2Ev.exit1203.loopexit ], [ undef, %.noexc1201 ]
-  %153 = trunc i64 %152 to i32
-  %154 = trunc i64 %151 to i32
-  %155 = mul i32 %66, %154
+  %153 = phi i32 [ %152, %_ZN5drjit9dr_vectorImED2Ev.exit1203.loopexit ], [ undef, %.noexc1201 ]
+  %154 = phi i32 [ %151, %_ZN5drjit9dr_vectorImED2Ev.exit1203.loopexit ], [ undef, %.noexc1201 ]
+  %155 = mul i32 %66, %153
   %156 = add i32 %155, %62
-  %157 = mul i32 %156, %153
+  %157 = mul i32 %156, %154
   %158 = add i32 %157, %59
   tail call void @_ZdaPv(ptr noundef nonnull %145) #35, !noalias !71
   %159 = zext i32 %158 to i64
@@ -4609,16 +4609,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit1209.loopexit:     ; preds = %.lr.ph.i1205
   %.pre1710 = load i64, ptr %.phi.trans.insert1709, align 8, !noalias !71
   %.phi.trans.insert1711 = getelementptr inbounds i8, ptr %167, i64 8
   %.pre1712 = load i64, ptr %.phi.trans.insert1711, align 8, !noalias !71
+  %173 = trunc i64 %.pre1710 to i32
+  %174 = trunc i64 %.pre1712 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit1209
 
 _ZN5drjit9dr_vectorImED2Ev.exit1209:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit1209.loopexit, %.noexc1207
-  %173 = phi i64 [ %.pre1712, %_ZN5drjit9dr_vectorImED2Ev.exit1209.loopexit ], [ undef, %.noexc1207 ]
-  %174 = phi i64 [ %.pre1710, %_ZN5drjit9dr_vectorImED2Ev.exit1209.loopexit ], [ undef, %.noexc1207 ]
-  %175 = trunc i64 %174 to i32
-  %176 = trunc i64 %173 to i32
-  %177 = mul i32 %66, %176
+  %175 = phi i32 [ %174, %_ZN5drjit9dr_vectorImED2Ev.exit1209.loopexit ], [ undef, %.noexc1207 ]
+  %176 = phi i32 [ %173, %_ZN5drjit9dr_vectorImED2Ev.exit1209.loopexit ], [ undef, %.noexc1207 ]
+  %177 = mul i32 %66, %175
   %178 = add i32 %177, %62
-  %179 = mul i32 %178, %175
+  %179 = mul i32 %178, %176
   %.sroa.01166.0.vec.extract = add i32 %59, 1
   %180 = add i32 %.sroa.01166.0.vec.extract, %179
   tail call void @_ZdaPv(ptr noundef nonnull %167) #35, !noalias !71
@@ -4656,17 +4656,17 @@ _ZN5drjit9dr_vectorImED2Ev.exit1215.loopexit:     ; preds = %.lr.ph.i1211
   %.pre1714 = load i64, ptr %.phi.trans.insert1713, align 8, !noalias !71
   %.phi.trans.insert1715 = getelementptr inbounds i8, ptr %189, i64 8
   %.pre1716 = load i64, ptr %.phi.trans.insert1715, align 8, !noalias !71
+  %195 = trunc i64 %.pre1714 to i32
+  %196 = trunc i64 %.pre1716 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit1215
 
 _ZN5drjit9dr_vectorImED2Ev.exit1215:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit1215.loopexit, %.noexc1213
-  %195 = phi i64 [ %.pre1716, %_ZN5drjit9dr_vectorImED2Ev.exit1215.loopexit ], [ undef, %.noexc1213 ]
-  %196 = phi i64 [ %.pre1714, %_ZN5drjit9dr_vectorImED2Ev.exit1215.loopexit ], [ undef, %.noexc1213 ]
-  %197 = trunc i64 %196 to i32
-  %198 = trunc i64 %195 to i32
-  %199 = mul i32 %66, %198
+  %197 = phi i32 [ %196, %_ZN5drjit9dr_vectorImED2Ev.exit1215.loopexit ], [ undef, %.noexc1213 ]
+  %198 = phi i32 [ %195, %_ZN5drjit9dr_vectorImED2Ev.exit1215.loopexit ], [ undef, %.noexc1213 ]
+  %199 = mul i32 %66, %197
   %.sroa.01168.4.vec.extract = add i32 %62, 1
   %200 = add i32 %.sroa.01168.4.vec.extract, %199
-  %201 = mul i32 %200, %197
+  %201 = mul i32 %200, %198
   %202 = add i32 %201, %59
   tail call void @_ZdaPv(ptr noundef nonnull %189) #35, !noalias !71
   %203 = zext i32 %202 to i64
@@ -4703,17 +4703,17 @@ _ZN5drjit9dr_vectorImED2Ev.exit1221.loopexit:     ; preds = %.lr.ph.i1217
   %.pre1718 = load i64, ptr %.phi.trans.insert1717, align 8, !noalias !71
   %.phi.trans.insert1719 = getelementptr inbounds i8, ptr %211, i64 8
   %.pre1720 = load i64, ptr %.phi.trans.insert1719, align 8, !noalias !71
+  %217 = trunc i64 %.pre1718 to i32
+  %218 = trunc i64 %.pre1720 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit1221
 
 _ZN5drjit9dr_vectorImED2Ev.exit1221:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit1221.loopexit, %.noexc1219
-  %217 = phi i64 [ %.pre1720, %_ZN5drjit9dr_vectorImED2Ev.exit1221.loopexit ], [ undef, %.noexc1219 ]
-  %218 = phi i64 [ %.pre1718, %_ZN5drjit9dr_vectorImED2Ev.exit1221.loopexit ], [ undef, %.noexc1219 ]
-  %219 = trunc i64 %218 to i32
-  %220 = trunc i64 %217 to i32
-  %221 = mul i32 %66, %220
+  %219 = phi i32 [ %218, %_ZN5drjit9dr_vectorImED2Ev.exit1221.loopexit ], [ undef, %.noexc1219 ]
+  %220 = phi i32 [ %217, %_ZN5drjit9dr_vectorImED2Ev.exit1221.loopexit ], [ undef, %.noexc1219 ]
+  %221 = mul i32 %66, %219
   %.sroa.01170.4.vec.extract = extractelement <4 x i32> %135, i64 1
   %222 = add i32 %221, %.sroa.01170.4.vec.extract
-  %223 = mul i32 %222, %219
+  %223 = mul i32 %222, %220
   %.sroa.01170.0.vec.extract = extractelement <4 x i32> %135, i64 0
   %224 = add i32 %223, %.sroa.01170.0.vec.extract
   tail call void @_ZdaPv(ptr noundef nonnull %211) #35, !noalias !71
@@ -5632,23 +5632,23 @@ _ZN5drjit9dr_vectorImEC2ERKS1_.exit:              ; preds = %.lr.ph.i, %_ZNK5drj
   %.phi.trans.insert = getelementptr inbounds i8, ptr %203, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !noalias !77
   %.pre3097 = load i64, ptr %203, align 8, !noalias !77
+  %209 = trunc i64 %.pre to i32
+  %210 = trunc i64 %.pre3097 to i32
+  %211 = add i32 %210, -1
+  %212 = add i32 %209, -1
   br label %.loopexit3057
 
 .loopexit3057:                                    ; preds = %.loopexit3057.loopexit, %.noexc
-  %209 = phi i64 [ %.pre3097, %.loopexit3057.loopexit ], [ undef, %.noexc ]
-  %210 = phi i64 [ %.pre, %.loopexit3057.loopexit ], [ undef, %.noexc ]
-  %211 = trunc i64 %202 to i32
-  %212 = trunc i64 %210 to i32
-  %213 = trunc i64 %209 to i32
-  %214 = add i32 %213, -1
-  %215 = add i32 %212, -1
-  %216 = urem i32 %211, %214
-  %217 = sub i32 %211, %216
-  %218 = udiv i32 %217, %215
-  %219 = urem i32 %218, %215
-  %220 = mul i32 %219, %214
+  %213 = phi i32 [ %211, %.loopexit3057.loopexit ], [ undef, %.noexc ]
+  %214 = phi i32 [ %212, %.loopexit3057.loopexit ], [ undef, %.noexc ]
+  %215 = trunc i64 %202 to i32
+  %216 = urem i32 %215, %213
+  %217 = sub i32 %215, %216
+  %218 = udiv i32 %217, %214
+  %219 = urem i32 %218, %214
+  %220 = mul i32 %219, %213
   %221 = sub i32 %217, %220
-  %222 = mul i32 %214, %215
+  %222 = mul i32 %213, %214
   %223 = udiv i32 %221, %222
   %224 = insertelement <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, i32 %216, i64 0
   %225 = insertelement <4 x i32> %224, i32 %219, i64 1
@@ -6446,16 +6446,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit2625.loopexit:     ; preds = %.lr.ph.i2621
   %.pre3099 = load i64, ptr %.phi.trans.insert3098, align 8, !noalias !77
   %.phi.trans.insert3100 = getelementptr inbounds i8, ptr %622, i64 8
   %.pre3101 = load i64, ptr %.phi.trans.insert3100, align 8, !noalias !77
+  %628 = trunc i64 %.pre3099 to i32
+  %629 = trunc i64 %.pre3101 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit2625
 
 _ZN5drjit9dr_vectorImED2Ev.exit2625:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit2625.loopexit, %.noexc2623
-  %628 = phi i64 [ %.pre3101, %_ZN5drjit9dr_vectorImED2Ev.exit2625.loopexit ], [ undef, %.noexc2623 ]
-  %629 = phi i64 [ %.pre3099, %_ZN5drjit9dr_vectorImED2Ev.exit2625.loopexit ], [ undef, %.noexc2623 ]
-  %630 = trunc i64 %629 to i32
-  %631 = trunc i64 %628 to i32
-  %632 = mul i32 %223, %631
+  %630 = phi i32 [ %629, %_ZN5drjit9dr_vectorImED2Ev.exit2625.loopexit ], [ undef, %.noexc2623 ]
+  %631 = phi i32 [ %628, %_ZN5drjit9dr_vectorImED2Ev.exit2625.loopexit ], [ undef, %.noexc2623 ]
+  %632 = mul i32 %223, %630
   %633 = add i32 %632, %219
-  %634 = mul i32 %633, %630
+  %634 = mul i32 %633, %631
   %635 = add i32 %634, %216
   tail call void @_ZdaPv(ptr noundef nonnull %622) #35, !noalias !77
   %636 = zext i32 %635 to i64
@@ -6492,16 +6492,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit2631.loopexit:     ; preds = %.lr.ph.i2627
   %.pre3103 = load i64, ptr %.phi.trans.insert3102, align 8, !noalias !77
   %.phi.trans.insert3104 = getelementptr inbounds i8, ptr %644, i64 8
   %.pre3105 = load i64, ptr %.phi.trans.insert3104, align 8, !noalias !77
+  %650 = trunc i64 %.pre3103 to i32
+  %651 = trunc i64 %.pre3105 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit2631
 
 _ZN5drjit9dr_vectorImED2Ev.exit2631:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit2631.loopexit, %.noexc2629
-  %650 = phi i64 [ %.pre3105, %_ZN5drjit9dr_vectorImED2Ev.exit2631.loopexit ], [ undef, %.noexc2629 ]
-  %651 = phi i64 [ %.pre3103, %_ZN5drjit9dr_vectorImED2Ev.exit2631.loopexit ], [ undef, %.noexc2629 ]
-  %652 = trunc i64 %651 to i32
-  %653 = trunc i64 %650 to i32
-  %654 = mul i32 %223, %653
+  %652 = phi i32 [ %651, %_ZN5drjit9dr_vectorImED2Ev.exit2631.loopexit ], [ undef, %.noexc2629 ]
+  %653 = phi i32 [ %650, %_ZN5drjit9dr_vectorImED2Ev.exit2631.loopexit ], [ undef, %.noexc2629 ]
+  %654 = mul i32 %223, %652
   %655 = add i32 %654, %219
-  %656 = mul i32 %655, %652
+  %656 = mul i32 %655, %653
   %.sroa.02513.0.vec.extract = add i32 %216, 1
   %657 = add i32 %.sroa.02513.0.vec.extract, %656
   tail call void @_ZdaPv(ptr noundef nonnull %644) #35, !noalias !77
@@ -7521,23 +7521,23 @@ _ZN5drjit9dr_vectorImEC2ERKS1_.exit:              ; preds = %.lr.ph.i, %_ZNK5drj
   %.phi.trans.insert = getelementptr inbounds i8, ptr %202, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !noalias !211
   %.pre3095 = load i64, ptr %202, align 8, !noalias !211
+  %208 = trunc i64 %.pre to i32
+  %209 = trunc i64 %.pre3095 to i32
+  %210 = add i32 %209, -1
+  %211 = add i32 %208, -1
   br label %.loopexit3055
 
 .loopexit3055:                                    ; preds = %.loopexit3055.loopexit, %.noexc
-  %208 = phi i64 [ %.pre3095, %.loopexit3055.loopexit ], [ undef, %.noexc ]
-  %209 = phi i64 [ %.pre, %.loopexit3055.loopexit ], [ undef, %.noexc ]
-  %210 = trunc i64 %201 to i32
-  %211 = trunc i64 %209 to i32
-  %212 = trunc i64 %208 to i32
-  %213 = add i32 %212, -1
-  %214 = add i32 %211, -1
-  %215 = urem i32 %210, %213
-  %216 = sub i32 %210, %215
-  %217 = udiv i32 %216, %214
-  %218 = urem i32 %217, %214
-  %219 = mul i32 %218, %213
+  %212 = phi i32 [ %210, %.loopexit3055.loopexit ], [ undef, %.noexc ]
+  %213 = phi i32 [ %211, %.loopexit3055.loopexit ], [ undef, %.noexc ]
+  %214 = trunc i64 %201 to i32
+  %215 = urem i32 %214, %212
+  %216 = sub i32 %214, %215
+  %217 = udiv i32 %216, %213
+  %218 = urem i32 %217, %213
+  %219 = mul i32 %218, %212
   %220 = sub i32 %216, %219
-  %221 = mul i32 %213, %214
+  %221 = mul i32 %212, %213
   %222 = udiv i32 %220, %221
   %223 = insertelement <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, i32 %215, i64 0
   %224 = insertelement <4 x i32> %223, i32 %218, i64 1
@@ -8334,16 +8334,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit2623.loopexit:     ; preds = %.lr.ph.i2619
   %.pre3097 = load i64, ptr %.phi.trans.insert3096, align 8, !noalias !211
   %.phi.trans.insert3098 = getelementptr inbounds i8, ptr %621, i64 8
   %.pre3099 = load i64, ptr %.phi.trans.insert3098, align 8, !noalias !211
+  %627 = trunc i64 %.pre3097 to i32
+  %628 = trunc i64 %.pre3099 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit2623
 
 _ZN5drjit9dr_vectorImED2Ev.exit2623:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit2623.loopexit, %.noexc2621
-  %627 = phi i64 [ %.pre3099, %_ZN5drjit9dr_vectorImED2Ev.exit2623.loopexit ], [ undef, %.noexc2621 ]
-  %628 = phi i64 [ %.pre3097, %_ZN5drjit9dr_vectorImED2Ev.exit2623.loopexit ], [ undef, %.noexc2621 ]
-  %629 = trunc i64 %628 to i32
-  %630 = trunc i64 %627 to i32
-  %631 = mul i32 %222, %630
+  %629 = phi i32 [ %628, %_ZN5drjit9dr_vectorImED2Ev.exit2623.loopexit ], [ undef, %.noexc2621 ]
+  %630 = phi i32 [ %627, %_ZN5drjit9dr_vectorImED2Ev.exit2623.loopexit ], [ undef, %.noexc2621 ]
+  %631 = mul i32 %222, %629
   %632 = add i32 %631, %218
-  %633 = mul i32 %632, %629
+  %633 = mul i32 %632, %630
   %634 = add i32 %633, %215
   tail call void @_ZdaPv(ptr noundef nonnull %621) #35, !noalias !211
   %635 = zext i32 %634 to i64
@@ -8380,16 +8380,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit2629.loopexit:     ; preds = %.lr.ph.i2625
   %.pre3101 = load i64, ptr %.phi.trans.insert3100, align 8, !noalias !211
   %.phi.trans.insert3102 = getelementptr inbounds i8, ptr %643, i64 8
   %.pre3103 = load i64, ptr %.phi.trans.insert3102, align 8, !noalias !211
+  %649 = trunc i64 %.pre3101 to i32
+  %650 = trunc i64 %.pre3103 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit2629
 
 _ZN5drjit9dr_vectorImED2Ev.exit2629:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit2629.loopexit, %.noexc2627
-  %649 = phi i64 [ %.pre3103, %_ZN5drjit9dr_vectorImED2Ev.exit2629.loopexit ], [ undef, %.noexc2627 ]
-  %650 = phi i64 [ %.pre3101, %_ZN5drjit9dr_vectorImED2Ev.exit2629.loopexit ], [ undef, %.noexc2627 ]
-  %651 = trunc i64 %650 to i32
-  %652 = trunc i64 %649 to i32
-  %653 = mul i32 %222, %652
+  %651 = phi i32 [ %650, %_ZN5drjit9dr_vectorImED2Ev.exit2629.loopexit ], [ undef, %.noexc2627 ]
+  %652 = phi i32 [ %649, %_ZN5drjit9dr_vectorImED2Ev.exit2629.loopexit ], [ undef, %.noexc2627 ]
+  %653 = mul i32 %222, %651
   %654 = add i32 %653, %218
-  %655 = mul i32 %654, %651
+  %655 = mul i32 %654, %652
   %.sroa.02511.0.vec.extract = add i32 %215, 1
   %656 = add i32 %.sroa.02511.0.vec.extract, %655
   tail call void @_ZdaPv(ptr noundef nonnull %643) #35, !noalias !211
@@ -9400,23 +9400,23 @@ _ZN5drjit9dr_vectorImEC2ERKS1_.exit:              ; preds = %.lr.ph.i, %_ZNK5drj
   %.phi.trans.insert = getelementptr inbounds i8, ptr %203, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !noalias !324
   %.pre3181 = load i64, ptr %203, align 8, !noalias !324
+  %209 = trunc i64 %.pre to i32
+  %210 = trunc i64 %.pre3181 to i32
+  %211 = add i32 %210, -1
+  %212 = add i32 %209, -1
   br label %.loopexit3141
 
 .loopexit3141:                                    ; preds = %.loopexit3141.loopexit, %.noexc
-  %209 = phi i64 [ %.pre3181, %.loopexit3141.loopexit ], [ undef, %.noexc ]
-  %210 = phi i64 [ %.pre, %.loopexit3141.loopexit ], [ undef, %.noexc ]
-  %211 = trunc i64 %202 to i32
-  %212 = trunc i64 %210 to i32
-  %213 = trunc i64 %209 to i32
-  %214 = add i32 %213, -1
-  %215 = add i32 %212, -1
-  %216 = urem i32 %211, %214
-  %217 = sub i32 %211, %216
-  %218 = udiv i32 %217, %215
-  %219 = urem i32 %218, %215
-  %220 = mul i32 %219, %214
+  %213 = phi i32 [ %211, %.loopexit3141.loopexit ], [ undef, %.noexc ]
+  %214 = phi i32 [ %212, %.loopexit3141.loopexit ], [ undef, %.noexc ]
+  %215 = trunc i64 %202 to i32
+  %216 = urem i32 %215, %213
+  %217 = sub i32 %215, %216
+  %218 = udiv i32 %217, %214
+  %219 = urem i32 %218, %214
+  %220 = mul i32 %219, %213
   %221 = sub i32 %217, %220
-  %222 = mul i32 %214, %215
+  %222 = mul i32 %213, %214
   %223 = udiv i32 %221, %222
   %224 = insertelement <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, i32 %216, i64 0
   %225 = insertelement <4 x i32> %224, i32 %219, i64 1
@@ -10211,16 +10211,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit2709.loopexit:     ; preds = %.lr.ph.i2705
   %.pre3183 = load i64, ptr %.phi.trans.insert3182, align 8, !noalias !324
   %.phi.trans.insert3184 = getelementptr inbounds i8, ptr %619, i64 8
   %.pre3185 = load i64, ptr %.phi.trans.insert3184, align 8, !noalias !324
+  %625 = trunc i64 %.pre3183 to i32
+  %626 = trunc i64 %.pre3185 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit2709
 
 _ZN5drjit9dr_vectorImED2Ev.exit2709:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit2709.loopexit, %.noexc2707
-  %625 = phi i64 [ %.pre3185, %_ZN5drjit9dr_vectorImED2Ev.exit2709.loopexit ], [ undef, %.noexc2707 ]
-  %626 = phi i64 [ %.pre3183, %_ZN5drjit9dr_vectorImED2Ev.exit2709.loopexit ], [ undef, %.noexc2707 ]
-  %627 = trunc i64 %626 to i32
-  %628 = trunc i64 %625 to i32
-  %629 = mul i32 %223, %628
+  %627 = phi i32 [ %626, %_ZN5drjit9dr_vectorImED2Ev.exit2709.loopexit ], [ undef, %.noexc2707 ]
+  %628 = phi i32 [ %625, %_ZN5drjit9dr_vectorImED2Ev.exit2709.loopexit ], [ undef, %.noexc2707 ]
+  %629 = mul i32 %223, %627
   %630 = add i32 %629, %219
-  %631 = mul i32 %630, %627
+  %631 = mul i32 %630, %628
   %632 = add i32 %631, %216
   tail call void @_ZdaPv(ptr noundef nonnull %619) #35, !noalias !324
   %633 = zext i32 %632 to i64
@@ -10257,16 +10257,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit2715.loopexit:     ; preds = %.lr.ph.i2711
   %.pre3187 = load i64, ptr %.phi.trans.insert3186, align 8, !noalias !324
   %.phi.trans.insert3188 = getelementptr inbounds i8, ptr %641, i64 8
   %.pre3189 = load i64, ptr %.phi.trans.insert3188, align 8, !noalias !324
+  %647 = trunc i64 %.pre3187 to i32
+  %648 = trunc i64 %.pre3189 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit2715
 
 _ZN5drjit9dr_vectorImED2Ev.exit2715:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit2715.loopexit, %.noexc2713
-  %647 = phi i64 [ %.pre3189, %_ZN5drjit9dr_vectorImED2Ev.exit2715.loopexit ], [ undef, %.noexc2713 ]
-  %648 = phi i64 [ %.pre3187, %_ZN5drjit9dr_vectorImED2Ev.exit2715.loopexit ], [ undef, %.noexc2713 ]
-  %649 = trunc i64 %648 to i32
-  %650 = trunc i64 %647 to i32
-  %651 = mul i32 %223, %650
+  %649 = phi i32 [ %648, %_ZN5drjit9dr_vectorImED2Ev.exit2715.loopexit ], [ undef, %.noexc2713 ]
+  %650 = phi i32 [ %647, %_ZN5drjit9dr_vectorImED2Ev.exit2715.loopexit ], [ undef, %.noexc2713 ]
+  %651 = mul i32 %223, %649
   %652 = add i32 %651, %219
-  %653 = mul i32 %652, %649
+  %653 = mul i32 %652, %650
   %.sroa.02597.0.vec.extract = add i32 %216, 1
   %654 = add i32 %.sroa.02597.0.vec.extract, %653
   tail call void @_ZdaPv(ptr noundef nonnull %641) #35, !noalias !324
@@ -11264,23 +11264,23 @@ _ZN5drjit9dr_vectorImEC2ERKS1_.exit:              ; preds = %.lr.ph.i, %_ZNK5drj
   %.phi.trans.insert = getelementptr inbounds i8, ptr %202, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !noalias !458
   %.pre3179 = load i64, ptr %202, align 8, !noalias !458
+  %208 = trunc i64 %.pre to i32
+  %209 = trunc i64 %.pre3179 to i32
+  %210 = add i32 %209, -1
+  %211 = add i32 %208, -1
   br label %.loopexit3139
 
 .loopexit3139:                                    ; preds = %.loopexit3139.loopexit, %.noexc
-  %208 = phi i64 [ %.pre3179, %.loopexit3139.loopexit ], [ undef, %.noexc ]
-  %209 = phi i64 [ %.pre, %.loopexit3139.loopexit ], [ undef, %.noexc ]
-  %210 = trunc i64 %201 to i32
-  %211 = trunc i64 %209 to i32
-  %212 = trunc i64 %208 to i32
-  %213 = add i32 %212, -1
-  %214 = add i32 %211, -1
-  %215 = urem i32 %210, %213
-  %216 = sub i32 %210, %215
-  %217 = udiv i32 %216, %214
-  %218 = urem i32 %217, %214
-  %219 = mul i32 %218, %213
+  %212 = phi i32 [ %210, %.loopexit3139.loopexit ], [ undef, %.noexc ]
+  %213 = phi i32 [ %211, %.loopexit3139.loopexit ], [ undef, %.noexc ]
+  %214 = trunc i64 %201 to i32
+  %215 = urem i32 %214, %212
+  %216 = sub i32 %214, %215
+  %217 = udiv i32 %216, %213
+  %218 = urem i32 %217, %213
+  %219 = mul i32 %218, %212
   %220 = sub i32 %216, %219
-  %221 = mul i32 %213, %214
+  %221 = mul i32 %212, %213
   %222 = udiv i32 %220, %221
   %223 = insertelement <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, i32 %215, i64 0
   %224 = insertelement <4 x i32> %223, i32 %218, i64 1
@@ -12074,16 +12074,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit2707.loopexit:     ; preds = %.lr.ph.i2703
   %.pre3181 = load i64, ptr %.phi.trans.insert3180, align 8, !noalias !458
   %.phi.trans.insert3182 = getelementptr inbounds i8, ptr %618, i64 8
   %.pre3183 = load i64, ptr %.phi.trans.insert3182, align 8, !noalias !458
+  %624 = trunc i64 %.pre3181 to i32
+  %625 = trunc i64 %.pre3183 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit2707
 
 _ZN5drjit9dr_vectorImED2Ev.exit2707:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit2707.loopexit, %.noexc2705
-  %624 = phi i64 [ %.pre3183, %_ZN5drjit9dr_vectorImED2Ev.exit2707.loopexit ], [ undef, %.noexc2705 ]
-  %625 = phi i64 [ %.pre3181, %_ZN5drjit9dr_vectorImED2Ev.exit2707.loopexit ], [ undef, %.noexc2705 ]
-  %626 = trunc i64 %625 to i32
-  %627 = trunc i64 %624 to i32
-  %628 = mul i32 %222, %627
+  %626 = phi i32 [ %625, %_ZN5drjit9dr_vectorImED2Ev.exit2707.loopexit ], [ undef, %.noexc2705 ]
+  %627 = phi i32 [ %624, %_ZN5drjit9dr_vectorImED2Ev.exit2707.loopexit ], [ undef, %.noexc2705 ]
+  %628 = mul i32 %222, %626
   %629 = add i32 %628, %218
-  %630 = mul i32 %629, %626
+  %630 = mul i32 %629, %627
   %631 = add i32 %630, %215
   tail call void @_ZdaPv(ptr noundef nonnull %618) #35, !noalias !458
   %632 = zext i32 %631 to i64
@@ -12120,16 +12120,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit2713.loopexit:     ; preds = %.lr.ph.i2709
   %.pre3185 = load i64, ptr %.phi.trans.insert3184, align 8, !noalias !458
   %.phi.trans.insert3186 = getelementptr inbounds i8, ptr %640, i64 8
   %.pre3187 = load i64, ptr %.phi.trans.insert3186, align 8, !noalias !458
+  %646 = trunc i64 %.pre3185 to i32
+  %647 = trunc i64 %.pre3187 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit2713
 
 _ZN5drjit9dr_vectorImED2Ev.exit2713:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit2713.loopexit, %.noexc2711
-  %646 = phi i64 [ %.pre3187, %_ZN5drjit9dr_vectorImED2Ev.exit2713.loopexit ], [ undef, %.noexc2711 ]
-  %647 = phi i64 [ %.pre3185, %_ZN5drjit9dr_vectorImED2Ev.exit2713.loopexit ], [ undef, %.noexc2711 ]
-  %648 = trunc i64 %647 to i32
-  %649 = trunc i64 %646 to i32
-  %650 = mul i32 %222, %649
+  %648 = phi i32 [ %647, %_ZN5drjit9dr_vectorImED2Ev.exit2713.loopexit ], [ undef, %.noexc2711 ]
+  %649 = phi i32 [ %646, %_ZN5drjit9dr_vectorImED2Ev.exit2713.loopexit ], [ undef, %.noexc2711 ]
+  %650 = mul i32 %222, %648
   %651 = add i32 %650, %218
-  %652 = mul i32 %651, %648
+  %652 = mul i32 %651, %649
   %.sroa.02595.0.vec.extract = add i32 %215, 1
   %653 = add i32 %.sroa.02595.0.vec.extract, %652
   tail call void @_ZdaPv(ptr noundef nonnull %640) #35, !noalias !458
@@ -13118,23 +13118,23 @@ _ZN5drjit9dr_vectorImEC2ERKS1_.exit:              ; preds = %.lr.ph.i, %_ZNK5drj
   %.phi.trans.insert = getelementptr inbounds i8, ptr %203, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !noalias !571
   %.pre3186 = load i64, ptr %203, align 8, !noalias !571
+  %209 = trunc i64 %.pre to i32
+  %210 = trunc i64 %.pre3186 to i32
+  %211 = add i32 %210, -1
+  %212 = add i32 %209, -1
   br label %.loopexit3146
 
 .loopexit3146:                                    ; preds = %.loopexit3146.loopexit, %.noexc
-  %209 = phi i64 [ %.pre3186, %.loopexit3146.loopexit ], [ undef, %.noexc ]
-  %210 = phi i64 [ %.pre, %.loopexit3146.loopexit ], [ undef, %.noexc ]
-  %211 = trunc i64 %202 to i32
-  %212 = trunc i64 %210 to i32
-  %213 = trunc i64 %209 to i32
-  %214 = add i32 %213, -1
-  %215 = add i32 %212, -1
-  %216 = urem i32 %211, %214
-  %217 = sub i32 %211, %216
-  %218 = udiv i32 %217, %215
-  %219 = urem i32 %218, %215
-  %220 = mul i32 %219, %214
+  %213 = phi i32 [ %211, %.loopexit3146.loopexit ], [ undef, %.noexc ]
+  %214 = phi i32 [ %212, %.loopexit3146.loopexit ], [ undef, %.noexc ]
+  %215 = trunc i64 %202 to i32
+  %216 = urem i32 %215, %213
+  %217 = sub i32 %215, %216
+  %218 = udiv i32 %217, %214
+  %219 = urem i32 %218, %214
+  %220 = mul i32 %219, %213
   %221 = sub i32 %217, %220
-  %222 = mul i32 %214, %215
+  %222 = mul i32 %213, %214
   %223 = udiv i32 %221, %222
   %224 = insertelement <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, i32 %216, i64 0
   %225 = insertelement <4 x i32> %224, i32 %219, i64 1
@@ -13929,16 +13929,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit2712.loopexit:     ; preds = %.lr.ph.i2708
   %.pre3188 = load i64, ptr %.phi.trans.insert3187, align 8, !noalias !571
   %.phi.trans.insert3189 = getelementptr inbounds i8, ptr %619, i64 8
   %.pre3190 = load i64, ptr %.phi.trans.insert3189, align 8, !noalias !571
+  %625 = trunc i64 %.pre3188 to i32
+  %626 = trunc i64 %.pre3190 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit2712
 
 _ZN5drjit9dr_vectorImED2Ev.exit2712:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit2712.loopexit, %.noexc2710
-  %625 = phi i64 [ %.pre3190, %_ZN5drjit9dr_vectorImED2Ev.exit2712.loopexit ], [ undef, %.noexc2710 ]
-  %626 = phi i64 [ %.pre3188, %_ZN5drjit9dr_vectorImED2Ev.exit2712.loopexit ], [ undef, %.noexc2710 ]
-  %627 = trunc i64 %626 to i32
-  %628 = trunc i64 %625 to i32
-  %629 = mul i32 %223, %628
+  %627 = phi i32 [ %626, %_ZN5drjit9dr_vectorImED2Ev.exit2712.loopexit ], [ undef, %.noexc2710 ]
+  %628 = phi i32 [ %625, %_ZN5drjit9dr_vectorImED2Ev.exit2712.loopexit ], [ undef, %.noexc2710 ]
+  %629 = mul i32 %223, %627
   %630 = add i32 %629, %219
-  %631 = mul i32 %630, %627
+  %631 = mul i32 %630, %628
   %632 = add i32 %631, %216
   tail call void @_ZdaPv(ptr noundef nonnull %619) #35, !noalias !571
   %633 = zext i32 %632 to i64
@@ -13975,16 +13975,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit2718.loopexit:     ; preds = %.lr.ph.i2714
   %.pre3192 = load i64, ptr %.phi.trans.insert3191, align 8, !noalias !571
   %.phi.trans.insert3193 = getelementptr inbounds i8, ptr %641, i64 8
   %.pre3194 = load i64, ptr %.phi.trans.insert3193, align 8, !noalias !571
+  %647 = trunc i64 %.pre3192 to i32
+  %648 = trunc i64 %.pre3194 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit2718
 
 _ZN5drjit9dr_vectorImED2Ev.exit2718:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit2718.loopexit, %.noexc2716
-  %647 = phi i64 [ %.pre3194, %_ZN5drjit9dr_vectorImED2Ev.exit2718.loopexit ], [ undef, %.noexc2716 ]
-  %648 = phi i64 [ %.pre3192, %_ZN5drjit9dr_vectorImED2Ev.exit2718.loopexit ], [ undef, %.noexc2716 ]
-  %649 = trunc i64 %648 to i32
-  %650 = trunc i64 %647 to i32
-  %651 = mul i32 %223, %650
+  %649 = phi i32 [ %648, %_ZN5drjit9dr_vectorImED2Ev.exit2718.loopexit ], [ undef, %.noexc2716 ]
+  %650 = phi i32 [ %647, %_ZN5drjit9dr_vectorImED2Ev.exit2718.loopexit ], [ undef, %.noexc2716 ]
+  %651 = mul i32 %223, %649
   %652 = add i32 %651, %219
-  %653 = mul i32 %652, %649
+  %653 = mul i32 %652, %650
   %.sroa.02600.0.vec.extract = add i32 %216, 1
   %654 = add i32 %.sroa.02600.0.vec.extract, %653
   tail call void @_ZdaPv(ptr noundef nonnull %641) #35, !noalias !571
@@ -14982,23 +14982,23 @@ _ZN5drjit9dr_vectorImEC2ERKS1_.exit:              ; preds = %.lr.ph.i, %_ZNK5drj
   %.phi.trans.insert = getelementptr inbounds i8, ptr %202, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !noalias !705
   %.pre3184 = load i64, ptr %202, align 8, !noalias !705
+  %208 = trunc i64 %.pre to i32
+  %209 = trunc i64 %.pre3184 to i32
+  %210 = add i32 %209, -1
+  %211 = add i32 %208, -1
   br label %.loopexit3144
 
 .loopexit3144:                                    ; preds = %.loopexit3144.loopexit, %.noexc
-  %208 = phi i64 [ %.pre3184, %.loopexit3144.loopexit ], [ undef, %.noexc ]
-  %209 = phi i64 [ %.pre, %.loopexit3144.loopexit ], [ undef, %.noexc ]
-  %210 = trunc i64 %201 to i32
-  %211 = trunc i64 %209 to i32
-  %212 = trunc i64 %208 to i32
-  %213 = add i32 %212, -1
-  %214 = add i32 %211, -1
-  %215 = urem i32 %210, %213
-  %216 = sub i32 %210, %215
-  %217 = udiv i32 %216, %214
-  %218 = urem i32 %217, %214
-  %219 = mul i32 %218, %213
+  %212 = phi i32 [ %210, %.loopexit3144.loopexit ], [ undef, %.noexc ]
+  %213 = phi i32 [ %211, %.loopexit3144.loopexit ], [ undef, %.noexc ]
+  %214 = trunc i64 %201 to i32
+  %215 = urem i32 %214, %212
+  %216 = sub i32 %214, %215
+  %217 = udiv i32 %216, %213
+  %218 = urem i32 %217, %213
+  %219 = mul i32 %218, %212
   %220 = sub i32 %216, %219
-  %221 = mul i32 %213, %214
+  %221 = mul i32 %212, %213
   %222 = udiv i32 %220, %221
   %223 = insertelement <4 x i32> <i32 poison, i32 poison, i32 poison, i32 0>, i32 %215, i64 0
   %224 = insertelement <4 x i32> %223, i32 %218, i64 1
@@ -15792,16 +15792,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit2710.loopexit:     ; preds = %.lr.ph.i2706
   %.pre3186 = load i64, ptr %.phi.trans.insert3185, align 8, !noalias !705
   %.phi.trans.insert3187 = getelementptr inbounds i8, ptr %618, i64 8
   %.pre3188 = load i64, ptr %.phi.trans.insert3187, align 8, !noalias !705
+  %624 = trunc i64 %.pre3186 to i32
+  %625 = trunc i64 %.pre3188 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit2710
 
 _ZN5drjit9dr_vectorImED2Ev.exit2710:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit2710.loopexit, %.noexc2708
-  %624 = phi i64 [ %.pre3188, %_ZN5drjit9dr_vectorImED2Ev.exit2710.loopexit ], [ undef, %.noexc2708 ]
-  %625 = phi i64 [ %.pre3186, %_ZN5drjit9dr_vectorImED2Ev.exit2710.loopexit ], [ undef, %.noexc2708 ]
-  %626 = trunc i64 %625 to i32
-  %627 = trunc i64 %624 to i32
-  %628 = mul i32 %222, %627
+  %626 = phi i32 [ %625, %_ZN5drjit9dr_vectorImED2Ev.exit2710.loopexit ], [ undef, %.noexc2708 ]
+  %627 = phi i32 [ %624, %_ZN5drjit9dr_vectorImED2Ev.exit2710.loopexit ], [ undef, %.noexc2708 ]
+  %628 = mul i32 %222, %626
   %629 = add i32 %628, %218
-  %630 = mul i32 %629, %626
+  %630 = mul i32 %629, %627
   %631 = add i32 %630, %215
   tail call void @_ZdaPv(ptr noundef nonnull %618) #35, !noalias !705
   %632 = zext i32 %631 to i64
@@ -15838,16 +15838,16 @@ _ZN5drjit9dr_vectorImED2Ev.exit2716.loopexit:     ; preds = %.lr.ph.i2712
   %.pre3190 = load i64, ptr %.phi.trans.insert3189, align 8, !noalias !705
   %.phi.trans.insert3191 = getelementptr inbounds i8, ptr %640, i64 8
   %.pre3192 = load i64, ptr %.phi.trans.insert3191, align 8, !noalias !705
+  %646 = trunc i64 %.pre3190 to i32
+  %647 = trunc i64 %.pre3192 to i32
   br label %_ZN5drjit9dr_vectorImED2Ev.exit2716
 
 _ZN5drjit9dr_vectorImED2Ev.exit2716:              ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit2716.loopexit, %.noexc2714
-  %646 = phi i64 [ %.pre3192, %_ZN5drjit9dr_vectorImED2Ev.exit2716.loopexit ], [ undef, %.noexc2714 ]
-  %647 = phi i64 [ %.pre3190, %_ZN5drjit9dr_vectorImED2Ev.exit2716.loopexit ], [ undef, %.noexc2714 ]
-  %648 = trunc i64 %647 to i32
-  %649 = trunc i64 %646 to i32
-  %650 = mul i32 %222, %649
+  %648 = phi i32 [ %647, %_ZN5drjit9dr_vectorImED2Ev.exit2716.loopexit ], [ undef, %.noexc2714 ]
+  %649 = phi i32 [ %646, %_ZN5drjit9dr_vectorImED2Ev.exit2716.loopexit ], [ undef, %.noexc2714 ]
+  %650 = mul i32 %222, %648
   %651 = add i32 %650, %218
-  %652 = mul i32 %651, %648
+  %652 = mul i32 %651, %649
   %.sroa.02598.0.vec.extract = add i32 %215, 1
   %653 = add i32 %.sroa.02598.0.vec.extract, %652
   tail call void @_ZdaPv(ptr noundef nonnull %640) #35, !noalias !705

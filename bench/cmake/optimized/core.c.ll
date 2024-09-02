@@ -375,62 +375,62 @@ define dso_local range(i32 0, 2) i32 @uv_run(ptr noundef %0, i32 noundef %1) loc
 uv__loop_alive.exit:                              ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 360
   %15 = load ptr, ptr %14, align 8
-  %.not67 = icmp eq ptr %15, null
-  br i1 %.not67, label %28, label %.critedge53.preheader
+  %.not66 = icmp eq ptr %15, null
+  br i1 %.not66, label %16, label %.critedge53.preheader
 
-.critedge53.preheader:                            ; preds = %2, %7, %10, %uv__loop_alive.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
-  %17 = getelementptr inbounds i8, ptr %0, i64 544
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 416
-  %22 = icmp eq i32 %1, 1
-  %23 = icmp eq i32 %1, 0
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
-  %25 = getelementptr inbounds i8, ptr %0, i64 360
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
-  %27 = add i32 %1, -3
-  %or.cond7 = icmp ult i32 %27, -2
-  br label %.critedge53
-
-28:                                               ; preds = %uv__loop_alive.exit
-  %29 = tail call i64 @uv__hrtime(i32 noundef 1) #22
-  %30 = udiv i64 %29, 1000000
-  %31 = getelementptr inbounds i8, ptr %0, i64 544
-  store i64 %30, ptr %31, align 8
+16:                                               ; preds = %uv__loop_alive.exit
+  %17 = tail call i64 @uv__hrtime(i32 noundef 1) #22
+  %18 = udiv i64 %17, 1000000
+  %19 = getelementptr inbounds i8, ptr %0, i64 544
+  store i64 %18, ptr %19, align 8
   br label %.critedge
 
+.critedge53.preheader:                            ; preds = %10, %7, %2, %uv__loop_alive.exit
+  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds i8, ptr %0, i64 544
+  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 416
+  %26 = icmp eq i32 %1, 1
+  %27 = icmp eq i32 %1, 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds i8, ptr %0, i64 360
+  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = add i32 %1, -3
+  %or.cond7 = icmp ult i32 %31, -2
+  br label %.critedge53
+
 .critedge53:                                      ; preds = %.critedge53.preheader, %uv__loop_alive.exit65
-  %32 = load i32, ptr %16, align 8
+  %32 = load i32, ptr %20, align 8
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.critedge
 
 34:                                               ; preds = %.critedge53
   %35 = call i64 @uv__hrtime(i32 noundef 1) #22
   %36 = udiv i64 %35, 1000000
-  store i64 %36, ptr %17, align 8
+  store i64 %36, ptr %21, align 8
   call void @uv__run_timers(ptr noundef nonnull %0) #22
-  %37 = load ptr, ptr %18, align 8
-  %38 = icmp eq ptr %18, %37
+  %37 = load ptr, ptr %22, align 8
+  %38 = icmp eq ptr %22, %37
   br i1 %38, label %.thread, label %41
 
 .thread:                                          ; preds = %34
-  %39 = load ptr, ptr %21, align 8
-  %40 = icmp eq ptr %21, %39
+  %39 = load ptr, ptr %25, align 8
+  %40 = icmp eq ptr %25, %39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   br label %uv__run_pending.exit
 
 41:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %42 = load ptr, ptr %19, align 8
-  store ptr %42, ptr %20, align 8
+  %42 = load ptr, ptr %23, align 8
+  store ptr %42, ptr %24, align 8
   store ptr %4, ptr %42, align 8
   store ptr %37, ptr %4, align 16
   %43 = getelementptr inbounds i8, ptr %37, i64 8
   %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %19, align 8
-  store ptr %18, ptr %44, align 8
+  store ptr %44, ptr %23, align 8
+  store ptr %22, ptr %44, align 8
   store ptr %4, ptr %43, align 8
   %.pre.i = load ptr, ptr %4, align 16
   %.not23.i = icmp eq ptr %4, %.pre.i
@@ -459,12 +459,12 @@ uv__run_pending.exit:                             ; preds = %.lr.ph.i, %.thread,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @uv__run_idle(ptr noundef %0) #22
   call void @uv__run_prepare(ptr noundef %0) #22
-  %or.cond = select i1 %22, i1 %54, i1 false
-  %or.cond3 = or i1 %23, %or.cond
+  %or.cond = select i1 %26, i1 %54, i1 false
+  %or.cond3 = or i1 %27, %or.cond
   br i1 %or.cond3, label %55, label %uv__backend_timeout.exit
 
 55:                                               ; preds = %uv__run_pending.exit
-  %56 = load i32, ptr %16, align 8
+  %56 = load i32, ptr %20, align 8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %uv__backend_timeout.exit
 
@@ -474,22 +474,22 @@ uv__run_pending.exit:                             ; preds = %.lr.ph.i, %.thread,
   br i1 %.not.i55, label %60, label %62
 
 60:                                               ; preds = %58
-  %61 = load i32, ptr %24, align 8
+  %61 = load i32, ptr %28, align 8
   %.not9.i = icmp eq i32 %61, 0
   br i1 %.not9.i, label %uv__backend_timeout.exit, label %62
 
 62:                                               ; preds = %60, %58
-  %63 = load ptr, ptr %18, align 8
-  %64 = icmp eq ptr %18, %63
+  %63 = load ptr, ptr %22, align 8
+  %64 = icmp eq ptr %22, %63
   br i1 %64, label %65, label %uv__backend_timeout.exit
 
 65:                                               ; preds = %62
-  %66 = load ptr, ptr %21, align 8
-  %67 = icmp eq ptr %21, %66
+  %66 = load ptr, ptr %25, align 8
+  %67 = icmp eq ptr %25, %66
   br i1 %67, label %68, label %uv__backend_timeout.exit
 
 68:                                               ; preds = %65
-  %69 = load ptr, ptr %25, align 8
+  %69 = load ptr, ptr %29, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %uv__backend_timeout.exit
 
@@ -503,21 +503,21 @@ uv__backend_timeout.exit:                         ; preds = %71, %68, %65, %62, 
   br label %73
 
 73:                                               ; preds = %uv__backend_timeout.exit, %uv__run_pending.exit60
-  %.266 = phi i32 [ 0, %uv__backend_timeout.exit ], [ %88, %uv__run_pending.exit60 ]
-  %74 = load ptr, ptr %18, align 8
-  %.not50 = icmp eq ptr %18, %74
+  %.267 = phi i32 [ 0, %uv__backend_timeout.exit ], [ %88, %uv__run_pending.exit60 ]
+  %74 = load ptr, ptr %22, align 8
+  %.not50 = icmp eq ptr %22, %74
   br i1 %.not50, label %.critedge5, label %75
 
 75:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %76 = load ptr, ptr %19, align 8
-  store ptr %76, ptr %26, align 8
+  %76 = load ptr, ptr %23, align 8
+  store ptr %76, ptr %30, align 8
   store ptr %3, ptr %76, align 8
   store ptr %74, ptr %3, align 16
   %77 = getelementptr inbounds i8, ptr %74, i64 8
   %78 = load ptr, ptr %77, align 8
-  store ptr %78, ptr %19, align 8
-  store ptr %18, ptr %78, align 8
+  store ptr %78, ptr %23, align 8
+  store ptr %22, ptr %78, align 8
   store ptr %3, ptr %77, align 8
   %.pre.i56 = load ptr, ptr %3, align 16
   %.not23.i57 = icmp eq ptr %3, %.pre.i56
@@ -543,15 +543,15 @@ uv__backend_timeout.exit:                         ; preds = %71, %68, %65, %62, 
 
 uv__run_pending.exit60:                           ; preds = %.lr.ph.i58, %75
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %88 = add nuw nsw i32 %.266, 1
+  %88 = add nuw nsw i32 %.267, 1
   %exitcond.not = icmp eq i32 %88, 8
   br i1 %exitcond.not, label %.critedge5, label %73, !llvm.loop !7
 
 .critedge5:                                       ; preds = %uv__run_pending.exit60, %73
   call void @uv__metrics_update_idle_time(ptr noundef %0) #22
   call void @uv__run_check(ptr noundef %0) #22
-  %89 = load ptr, ptr %25, align 8
-  store ptr null, ptr %25, align 8
+  %89 = load ptr, ptr %29, align 8
+  store ptr null, ptr %29, align 8
   %.not6.i = icmp eq ptr %89, null
   br i1 %.not6.i, label %uv__run_closing_handles.exit, label %.lr.ph.i61
 
@@ -645,12 +645,12 @@ uv__finish_close.exit.i:                          ; preds = %133, %124, %103
   br i1 %.not.i62, label %uv__run_closing_handles.exit, label %.lr.ph.i61, !llvm.loop !8
 
 uv__run_closing_handles.exit:                     ; preds = %uv__finish_close.exit.i, %.critedge5
-  br i1 %22, label %134, label %137
+  br i1 %26, label %134, label %137
 
 134:                                              ; preds = %uv__run_closing_handles.exit
   %135 = call i64 @uv__hrtime(i32 noundef 1) #22
   %136 = udiv i64 %135, 1000000
-  store i64 %136, ptr %17, align 8
+  store i64 %136, ptr %21, align 8
   call void @uv__run_timers(ptr noundef %0) #22
   br label %137
 
@@ -660,17 +660,17 @@ uv__run_closing_handles.exit:                     ; preds = %uv__finish_close.ex
   br i1 %.not.i63, label %139, label %uv__loop_alive.exit65
 
 139:                                              ; preds = %137
-  %140 = load i32, ptr %24, align 8
+  %140 = load i32, ptr %28, align 8
   %.not5.i64 = icmp eq i32 %140, 0
   br i1 %.not5.i64, label %141, label %uv__loop_alive.exit65
 
 141:                                              ; preds = %139
-  %142 = load ptr, ptr %18, align 8
-  %143 = icmp eq ptr %18, %142
+  %142 = load ptr, ptr %22, align 8
+  %143 = icmp eq ptr %22, %142
   br i1 %143, label %144, label %uv__loop_alive.exit65
 
 144:                                              ; preds = %141
-  %145 = load ptr, ptr %25, align 8
+  %145 = load ptr, ptr %29, align 8
   %146 = icmp ne ptr %145, null
   %147 = zext i1 %146 to i32
   br label %uv__loop_alive.exit65
@@ -681,8 +681,8 @@ uv__loop_alive.exit65:                            ; preds = %137, %139, %141, %1
   %or.cond9 = select i1 %or.cond7, i1 %149, i1 false
   br i1 %or.cond9, label %.critedge53, label %.critedge, !llvm.loop !9
 
-.critedge:                                        ; preds = %uv__loop_alive.exit65, %.critedge53, %28
-  %.1 = phi i32 [ 0, %28 ], [ 1, %.critedge53 ], [ %148, %uv__loop_alive.exit65 ]
+.critedge:                                        ; preds = %uv__loop_alive.exit65, %.critedge53, %16
+  %.1 = phi i32 [ 0, %16 ], [ 1, %.critedge53 ], [ %148, %uv__loop_alive.exit65 ]
   %150 = getelementptr inbounds i8, ptr %0, i64 48
   %151 = load i32, ptr %150, align 8
   %.not51 = icmp eq i32 %151, 0
@@ -2191,7 +2191,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_get_passwd(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @uv_translate_sys_error(i32 noundef %0) local_unnamed_addr #5 {
+define dso_local range(i32 -2147483648, 1) i32 @uv_translate_sys_error(i32 noundef %0) local_unnamed_addr #5 {
   %2 = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
   %3 = sub i32 0, %2
   ret i32 %3

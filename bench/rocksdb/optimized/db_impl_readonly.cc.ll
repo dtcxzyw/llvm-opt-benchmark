@@ -2999,7 +2999,7 @@ land.end:                                         ; preds = %land.rhs, %cond.end
   %22 = load ptr, ptr %column_families, align 8
   %23 = load ptr, ptr %_M_finish.i58, align 8
   %cmp.i64.not184 = icmp eq ptr %22, %23
-  br i1 %cmp.i64.not184, label %invoke.cont112, label %for.body59.lr.ph
+  br i1 %cmp.i64.not184, label %for.cond.cleanup120, label %for.body59.lr.ph
 
 for.body59.lr.ph:                                 ; preds = %land.end
   %_M_finish.i.i66 = getelementptr inbounds i8, ptr %cfd_to_sv, i64 152
@@ -3208,9 +3208,9 @@ _ZN7rocksdb6StatusD2Ev.exit88:                    ; preds = %for.inc107.critedge
 for.inc107:                                       ; preds = %_ZN7rocksdb6StatusD2Ev.exit88, %invoke.cont69
   %incdec.ptr.i89 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0185, i64 8
   %cmp.i64.not = icmp eq ptr %incdec.ptr.i89, %23
-  br i1 %cmp.i64.not, label %invoke.cont112.loopexit, label %for.body59
+  br i1 %cmp.i64.not, label %invoke.cont112, label %for.body59
 
-invoke.cont112.loopexit:                          ; preds = %for.inc107
+invoke.cont112:                                   ; preds = %for.inc107
   %.pre = load i64, ptr %cfd_to_sv, align 8, !noalias !24
   %.pre192 = load ptr, ptr %_M_finish.i.i66, align 8, !noalias !24
   %.pre193 = load ptr, ptr %vect_.i, align 8, !noalias !24
@@ -3219,18 +3219,14 @@ invoke.cont112.loopexit:                          ; preds = %for.inc107
   %53 = sub i64 %51, %52
   %54 = ashr exact i64 %53, 4
   %55 = add i64 %54, %.pre
-  br label %invoke.cont112
-
-invoke.cont112:                                   ; preds = %invoke.cont112.loopexit, %land.end
-  %add.i.i97 = phi i64 [ %55, %invoke.cont112.loopexit ], [ 0, %land.end ]
-  %cmp.i.i101.not188 = icmp eq i64 %add.i.i97, 0
+  %cmp.i.i101.not188 = icmp eq i64 %55, 0
   br i1 %cmp.i.i101.not188, label %for.cond.cleanup120, label %invoke.cont122.lr.ph
 
 invoke.cont122.lr.ph:                             ; preds = %invoke.cont112
   %env_ = getelementptr inbounds i8, ptr %this, i64 824
   br label %invoke.cont122
 
-for.cond.cleanup120:                              ; preds = %for.inc146, %invoke.cont112
+for.cond.cleanup120:                              ; preds = %for.inc146, %land.end, %invoke.cont112
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !27
@@ -3363,7 +3359,7 @@ _ZNSt6vectorIPN7rocksdb8IteratorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx
 
 for.inc146:                                       ; preds = %_ZNSt6vectorIPN7rocksdb8IteratorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i113
   %inc.i120 = add nuw i64 %__begin1111.sroa.2.0189, 1
-  %cmp.i.i101.not = icmp eq i64 %inc.i120, %add.i.i97
+  %cmp.i.i101.not = icmp eq i64 %inc.i120, %55
   br i1 %cmp.i.i101.not, label %for.cond.cleanup120, label %invoke.cont122
 
 cleanup155:                                       ; preds = %for.inc92, %invoke.cont79, %for.cond.cleanup120

@@ -1237,7 +1237,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7516BytesTrieBuilder22getElementStringLengthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %i) unnamed_addr #11 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZNK6icu_7516BytesTrieBuilder22getElementStringLengthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %i) unnamed_addr #11 align 2 {
 entry:
   %elements = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %elements, align 8

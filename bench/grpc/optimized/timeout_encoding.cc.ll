@@ -25,14 +25,14 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @_ZN9grpc_core7Timeout12FromDurationENS_8DurationE(i64 %duration.coerce) local_unnamed_addr #3 align 2 {
+define range(i32 0, 1048576) i32 @_ZN9grpc_core7Timeout12FromDurationENS_8DurationE(i64 %duration.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %call1 = tail call i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef %duration.coerce)
   ret i32 %call1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef %millis) local_unnamed_addr #3 align 2 {
+define range(i32 0, 1048576) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef %millis) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i64 %millis, 1
   br i1 %cmp, label %return, label %if.else
@@ -344,7 +344,7 @@ return:                                           ; preds = %if.end, %if.then, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK9grpc_core7Timeout10AsDurationEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(3) %this) local_unnamed_addr #4 align 2 {
+define range(i64 0, 393210000001) i64 @_ZNK9grpc_core7Timeout10AsDurationEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(3) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i16, ptr %this, align 2
   %conv = zext i16 %0 to i64
@@ -576,7 +576,7 @@ sw.epilog75:                                      ; preds = %sw.bb73, %sw.bb71, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 noundef %seconds) local_unnamed_addr #3 align 2 {
+define range(i32 262144, 1048576) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 noundef %seconds) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i64 %seconds, 1000
   br i1 %cmp, label %if.then, label %if.else
@@ -693,7 +693,7 @@ return:                                           ; preds = %if.end23.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @_ZN9grpc_core7Timeout11FromMinutesEl(i64 noundef %minutes) local_unnamed_addr #3 align 2 {
+define range(i32 458752, 1048576) i32 @_ZN9grpc_core7Timeout11FromMinutesEl(i64 noundef %minutes) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i64 %minutes, 1000
   br i1 %cmp, label %if.then, label %if.else
@@ -753,7 +753,7 @@ return:                                           ; preds = %if.then4, %if.end23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @_ZN9grpc_core7Timeout9FromHoursEl(i64 noundef %hours) local_unnamed_addr #3 align 2 {
+define range(i32 655360, 720896) i32 @_ZN9grpc_core7Timeout9FromHoursEl(i64 noundef %hours) local_unnamed_addr #3 align 2 {
 entry:
   %spec.select3 = tail call i64 @llvm.smin.i64(i64 %hours, i64 27000)
   %spec.select = trunc i64 %spec.select3 to i32

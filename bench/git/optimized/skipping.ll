@@ -323,15 +323,18 @@ push_parent.exit.i:                               ; preds = %if.then43.i.i, %if.
   %next.i = getelementptr inbounds i8, ptr %p.036.i, i64 8
   %p.0.i = load ptr, ptr %next.i, align 8
   %tobool22.not.i = icmp eq ptr %p.0.i, null
-  br i1 %tobool22.not.i, label %for.end.i, label %for.body.i, !llvm.loop !9
+  br i1 %tobool22.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !9
 
-for.end.i:                                        ; preds = %push_parent.exit.i, %if.end20.i
-  %parent_pushed.0.lcssa.i = phi i32 [ 0, %if.end20.i ], [ %or24.i, %push_parent.exit.i ]
+for.end.loopexit.i:                               ; preds = %push_parent.exit.i
+  %29 = icmp ne i32 %or24.i, 0
+  br label %for.end.i
+
+for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end20.i
+  %parent_pushed.0.lcssa.i = phi i1 [ false, %if.end20.i ], [ %29, %for.end.loopexit.i ]
   %bf.load26.i = load i32, ptr %3, align 8
-  %29 = and i32 %bf.load26.i, 64
-  %tobool29.i = icmp ne i32 %29, 0
-  %tobool31.i = icmp ne i32 %parent_pushed.0.lcssa.i, 0
-  %or.cond.i = select i1 %tobool29.i, i1 true, i1 %tobool31.i
+  %30 = and i32 %bf.load26.i, 64
+  %tobool29.i = icmp ne i32 %30, 0
+  %or.cond.i = select i1 %tobool29.i, i1 true, i1 %parent_pushed.0.lcssa.i
   call void @free(ptr noundef %call.i) #6
   %spec.select25.i = select i1 %or.cond.i, ptr %to_send.1.i, ptr %3
   %cmp.i = icmp eq ptr %spec.select25.i, null

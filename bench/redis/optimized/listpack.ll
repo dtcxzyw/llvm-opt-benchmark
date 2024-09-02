@@ -1865,18 +1865,18 @@ if.else12.i122:                                   ; preds = %if.else.i120
 
 if.else31.i124:                                   ; preds = %if.else12.i122
   %cmp32.i125 = icmp ult i32 %retval.0.i116, 268435455
-  %spec.select180 = select i1 %cmp32.i125, i32 4, i32 5
+  %41 = select i1 %cmp32.i125, i32 4, i32 5
   br label %lpEncodeBacklen.exit132
 
 switch.lookup191:                                 ; preds = %if.end18.i
-  %41 = zext nneg i8 %switch.tableidx192 to i64
-  %switch.gep193 = getelementptr inbounds [4 x i32], ptr @switch.table.lpRandomEntries.4, i64 0, i64 %41
+  %42 = zext nneg i8 %switch.tableidx192 to i64
+  %switch.gep193 = getelementptr inbounds [4 x i32], ptr @switch.table.lpRandomEntries.4, i64 0, i64 %42
   %switch.load194 = load i32, ptr %switch.gep193, align 4
   br label %lpEncodeBacklen.exit132
 
 lpEncodeBacklen.exit132:                          ; preds = %switch.lookup191, %lpCurrentEncodedSizeUnsafe.exit.thread, %if.else31.i124, %if.end59.i, %if.end11.i, %if.then64, %if.end88.i, %if.else12.i122, %if.else.i120, %lpCurrentEncodedSizeUnsafe.exit
   %retval.0.i116160 = phi i32 [ %retval.0.i116, %lpCurrentEncodedSizeUnsafe.exit ], [ %retval.0.i116, %if.else.i120 ], [ %retval.0.i116, %if.else12.i122 ], [ 1, %if.end59.i ], [ 2, %if.end11.i ], [ 1, %if.then64 ], [ 0, %if.end88.i ], [ %retval.0.i116, %if.else31.i124 ], [ %add.i118, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ %switch.load194, %switch.lookup191 ]
-  %retval.0.i127 = phi i32 [ 1, %lpCurrentEncodedSizeUnsafe.exit ], [ 2, %if.else.i120 ], [ 3, %if.else12.i122 ], [ 1, %if.end59.i ], [ 1, %if.end11.i ], [ 1, %if.then64 ], [ 1, %if.end88.i ], [ %spec.select180, %if.else31.i124 ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ 1, %switch.lookup191 ]
+  %retval.0.i127 = phi i32 [ 1, %lpCurrentEncodedSizeUnsafe.exit ], [ 2, %if.else.i120 ], [ 3, %if.else12.i122 ], [ 1, %if.end59.i ], [ 1, %if.end11.i ], [ 1, %if.then64 ], [ 1, %if.end88.i ], [ %41, %if.else31.i124 ], [ 1, %lpCurrentEncodedSizeUnsafe.exit.thread ], [ 1, %switch.lookup191 ]
   %conv69 = add i32 %retval.0.i127, %retval.0.i116160
   %add.ptr71 = getelementptr inbounds i8, ptr %lp, i64 6
   %cmp72.not = icmp uge ptr %p.addr.0, %add.ptr71
@@ -1926,8 +1926,8 @@ if.end129:                                        ; preds = %if.end127, %land.lh
   %cmp130 = icmp eq i32 %where.addr.1, 0
   %add.ptr133 = getelementptr inbounds i8, ptr %dst.0, i64 %enclen.0152
   %add.ptr134 = getelementptr inbounds i8, ptr %add.ptr133, i64 %cond
-  %42 = select i1 %cmp130, i64 0, i64 %conv111
-  %.sink = add i64 %sub.ptr.sub, %42
+  %43 = select i1 %cmp130, i64 0, i64 %conv111
+  %.sink = add i64 %sub.ptr.sub, %43
   %add.ptr140.sink.idx = select i1 %cmp130, i64 0, i64 %conv111
   %add.ptr140.sink = getelementptr inbounds i8, ptr %dst.0, i64 %add.ptr140.sink.idx
   %sub143 = sub i64 %or60, %.sink
@@ -1955,8 +1955,8 @@ if.then156:                                       ; preds = %if.end154
   br i1 %0, label %land.lhs.true158, label %if.then167
 
 land.lhs.true158:                                 ; preds = %if.then156
-  %43 = load i8, ptr %dst.1, align 1
-  %cmp161 = icmp eq i8 %43, -1
+  %44 = load i8, ptr %dst.1, align 1
+  %cmp161 = icmp eq i8 %44, -1
   br i1 %cmp161, label %if.then163, label %if.then184
 
 if.then163:                                       ; preds = %land.lhs.true158
@@ -1981,8 +1981,8 @@ if.then173:                                       ; preds = %if.else171
   br i1 %cmp.i133, label %if.then.i141, label %if.else.i134
 
 if.then.i141:                                     ; preds = %if.then173
-  %44 = trunc nuw i32 %size to i8
-  %conv.i142 = or disjoint i8 %44, -128
+  %45 = trunc nuw i32 %size to i8
+  %conv.i142 = or disjoint i8 %45, -128
   store i8 %conv.i142, ptr %dst.1, align 1
   br label %lpEncodeString.exit
 
@@ -1992,8 +1992,8 @@ if.else.i134:                                     ; preds = %if.then173
 
 if.then4.i139:                                    ; preds = %if.else.i134
   %shr.i140 = lshr i32 %size, 8
-  %45 = trunc nuw i32 %shr.i140 to i8
-  %conv6.i = or disjoint i8 %45, -32
+  %46 = trunc nuw i32 %shr.i140 to i8
+  %conv6.i = or disjoint i8 %46, -32
   store i8 %conv6.i, ptr %dst.1, align 1
   %conv8.i = trunc i32 %size to i8
   %arrayidx9.i = getelementptr inbounds i8, ptr %dst.1, i64 1
@@ -2039,11 +2039,11 @@ if.end180:                                        ; preds = %if.then170, %lpEnco
 
 if.then184:                                       ; preds = %if.then163, %land.lhs.true158, %if.end165
   %arrayidx185 = getelementptr inbounds i8, ptr %lp.addr.1, i64 4
-  %46 = load i8, ptr %arrayidx185, align 1
-  %conv186 = zext i8 %46 to i32
+  %47 = load i8, ptr %arrayidx185, align 1
+  %conv186 = zext i8 %47 to i32
   %arrayidx188 = getelementptr inbounds i8, ptr %lp.addr.1, i64 5
-  %47 = load i8, ptr %arrayidx188, align 1
-  %conv189 = zext i8 %47 to i32
+  %48 = load i8, ptr %arrayidx188, align 1
+  %conv189 = zext i8 %48 to i32
   %shl190 = shl nuw nsw i32 %conv189, 8
   %or191 = or disjoint i32 %shl190, %conv186
   %cmp192.not = icmp eq i32 %or191, 65535
@@ -2051,11 +2051,11 @@ if.then184:                                       ; preds = %if.then163, %land.l
 
 if.then184.thread:                                ; preds = %if.end180
   %arrayidx185164 = getelementptr inbounds i8, ptr %lp.addr.1, i64 4
-  %48 = load i8, ptr %arrayidx185164, align 1
-  %conv186165 = zext i8 %48 to i32
+  %49 = load i8, ptr %arrayidx185164, align 1
+  %conv186165 = zext i8 %49 to i32
   %arrayidx188166 = getelementptr inbounds i8, ptr %lp.addr.1, i64 5
-  %49 = load i8, ptr %arrayidx188166, align 1
-  %conv189167 = zext i8 %49 to i32
+  %50 = load i8, ptr %arrayidx188166, align 1
+  %conv189167 = zext i8 %50 to i32
   %shl190168 = shl nuw nsw i32 %conv189167, 8
   %or191169 = or disjoint i32 %shl190168, %conv186165
   %cmp192.not170 = icmp eq i32 %or191169, 65535

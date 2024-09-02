@@ -5830,19 +5830,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit263.i:
 1864:                                             ; preds = %1860, %1857
   %indvars.iv.next360.i = add nuw nsw i64 %indvars.iv359.i, 1
   %exitcond363.not.i = icmp eq i64 %indvars.iv.next360.i, %wide.trip.count362.i
-  br i1 %exitcond363.not.i, label %._crit_edge320.i, label %1849, !llvm.loop !43
+  br i1 %exitcond363.not.i, label %._crit_edge320.loopexit.i, label %1849, !llvm.loop !43
 
-._crit_edge320.i:                                 ; preds = %1864
-  %1865 = getelementptr inbounds i8, ptr %.sroa.0290.0328.i, i64 12
-  %1866 = load i32, ptr %1865, align 4
-  %1867 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1791, ptr noundef nonnull @.str.200, i32 noundef %1866) #21
-  %1868 = fpext float %.1147.i to double
-  %1869 = fpext float %.1.i to double
-  %1870 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1791, ptr noundef nonnull @.str.243, double noundef %1868, double noundef %1869) #21
+._crit_edge320.loopexit.i:                        ; preds = %1864
+  %1865 = fpext float %.1147.i to double
+  %1866 = fpext float %.1.i to double
+  %1867 = getelementptr inbounds i8, ptr %.sroa.0290.0328.i, i64 12
+  %1868 = load i32, ptr %1867, align 4
+  %1869 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1791, ptr noundef nonnull @.str.200, i32 noundef %1868) #21
+  %1870 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1791, ptr noundef nonnull @.str.243, double noundef %1865, double noundef %1866) #21
   br label %1871
 
-1871:                                             ; preds = %1871, %._crit_edge320.i
-  %indvars.iv364.i = phi i64 [ 0, %._crit_edge320.i ], [ %indvars.iv.next365.i, %1871 ]
+1871:                                             ; preds = %1871, %._crit_edge320.loopexit.i
+  %indvars.iv364.i = phi i64 [ 0, %._crit_edge320.loopexit.i ], [ %indvars.iv.next365.i, %1871 ]
   %1872 = getelementptr inbounds [9 x float], ptr %1848, i64 0, i64 %indvars.iv364.i
   %1873 = load float, ptr %1872, align 4
   %1874 = fpext float %1873 to double

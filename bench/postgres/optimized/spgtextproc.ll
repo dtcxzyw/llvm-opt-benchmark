@@ -1211,8 +1211,8 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr nocapture noundef re
   br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %164, %162
-  %.1 = phi i8 [ %.2, %164 ], [ %.3, %162 ]
-  %168 = trunc nuw i8 %.1 to i1
+  %.1.ph = phi i8 [ %.2, %164 ], [ %.3, %162 ]
+  %168 = trunc nuw i8 %.1.ph to i1
   br i1 %168, label %._crit_edge.thread, label %189
 
 ._crit_edge.thread:                               ; preds = %103, %._crit_edge

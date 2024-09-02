@@ -334,20 +334,20 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   br label %.lr.ph129
 
 27:                                               ; preds = %._crit_edge
-  %28 = zext nneg i32 %.193 to i64
-  %29 = getelementptr inbounds i64, ptr %2, i64 %28
-  %30 = load i64, ptr %29, align 8
-  %31 = sext i32 %.196 to i64
-  %32 = getelementptr inbounds i64, ptr %2, i64 %31
+  %28 = sext i32 %.196 to i64
+  %29 = zext nneg i32 %.193 to i64
+  %30 = getelementptr inbounds i64, ptr %2, i64 %29
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds i64, ptr %2, i64 %28
   %33 = load i64, ptr %32, align 8
-  %34 = add nsw i64 %33, %30
+  %34 = add nsw i64 %33, %31
   store i64 %34, ptr %32, align 8
-  store i64 1000000001, ptr %29, align 8
-  %35 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %31
+  store i64 1000000001, ptr %30, align 8
+  %35 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %28
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 4
-  %38 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %31
+  %38 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %28
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %.lr.ph123, label %._crit_edge124
@@ -365,14 +365,14 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %48, label %.lr.ph123, label %._crit_edge124, !llvm.loop !11
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %27
-  %.lcssa121 = phi i64 [ %31, %27 ], [ %42, %.lr.ph123 ]
+  %.lcssa121 = phi i64 [ %28, %27 ], [ %42, %.lr.ph123 ]
   %49 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %.lcssa121
   store i32 %.193, ptr %49, align 4
-  %50 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %28
+  %50 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %29
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %50, align 4
-  %53 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %28
+  %53 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %29
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, -1
   br i1 %55, label %.lr.ph127, label %.lr.ph.backedge

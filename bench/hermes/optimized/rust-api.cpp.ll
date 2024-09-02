@@ -4339,7 +4339,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @hermes_parser_parse(i32 %flags.coerce, ptr noundef %source, i64 noundef %len) local_unnamed_addr #2 {
+define hidden noundef nonnull ptr @hermes_parser_parse(i32 %flags.coerce, ptr noundef %source, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %ref.tmp.i41 = alloca %"class.llvh::Twine", align 8
   %agg.tmp.i24 = alloca %"class.std::unique_ptr.155", align 8

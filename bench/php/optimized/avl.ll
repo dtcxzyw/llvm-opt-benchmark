@@ -212,37 +212,37 @@ define internal fastcc ptr @lexbor_avl_node_balance(ptr noundef %0, ptr nocaptur
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i16, ptr %6, align 8
+  %8 = sext i16 %7 to i32
   br label %lexbor_avl_node_height.exit
 
 lexbor_avl_node_height.exit:                      ; preds = %2, %5
-  %8 = phi i16 [ %7, %5 ], [ 0, %2 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %.not.i45 = icmp eq ptr %10, null
-  br i1 %.not.i45, label %lexbor_avl_node_height.exit46, label %11
+  %9 = phi i32 [ %8, %5 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = load ptr, ptr %10, align 8
+  %.not.i45 = icmp eq ptr %11, null
+  br i1 %.not.i45, label %lexbor_avl_node_height.exit46, label %12
 
-11:                                               ; preds = %lexbor_avl_node_height.exit
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load i16, ptr %12, align 8
+12:                                               ; preds = %lexbor_avl_node_height.exit
+  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = load i16, ptr %13, align 8
+  %15 = sext i16 %14 to i32
   br label %lexbor_avl_node_height.exit46
 
-lexbor_avl_node_height.exit46:                    ; preds = %lexbor_avl_node_height.exit, %11
-  %14 = phi i16 [ %13, %11 ], [ 0, %lexbor_avl_node_height.exit ]
-  %15 = sext i16 %8 to i32
-  %16 = sext i16 %14 to i32
-  %17 = tail call i32 @llvm.smax.i32(i32 %15, i32 %16)
+lexbor_avl_node_height.exit46:                    ; preds = %lexbor_avl_node_height.exit, %12
+  %16 = phi i32 [ %15, %12 ], [ 0, %lexbor_avl_node_height.exit ]
+  %17 = tail call i32 @llvm.smax.i32(i32 %9, i32 %16)
   %18 = trunc nsw i32 %17 to i16
   %19 = add i16 %18, 1
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %19, ptr %20, align 8
-  %21 = sub nsw i32 %16, %15
+  %21 = sub nsw i32 %16, %9
   switch i32 %21, label %342 [
     i32 2, label %22
     i32 -2, label %182
   ]
 
 22:                                               ; preds = %lexbor_avl_node_height.exit46
-  %23 = getelementptr inbounds i8, ptr %10, i64 32
+  %23 = getelementptr inbounds i8, ptr %11, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %lexbor_avl_node_height.exit.i, label %25
@@ -254,7 +254,7 @@ lexbor_avl_node_height.exit46:                    ; preds = %lexbor_avl_node_hei
 
 lexbor_avl_node_height.exit.i:                    ; preds = %25, %22
   %28 = phi i16 [ %27, %25 ], [ 0, %22 ]
-  %29 = getelementptr inbounds i8, ptr %10, i64 24
+  %29 = getelementptr inbounds i8, ptr %11, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not.i2.i = icmp eq ptr %30, null
   br i1 %.not.i2.i, label %lexbor_avl_node_balance_factor.exit, label %31
@@ -271,7 +271,7 @@ lexbor_avl_node_balance_factor.exit:              ; preds = %lexbor_avl_node_hei
   br i1 %36, label %37, label %74
 
 37:                                               ; preds = %lexbor_avl_node_balance_factor.exit
-  %38 = getelementptr inbounds i8, ptr %10, i64 40
+  %38 = getelementptr inbounds i8, ptr %11, i64 40
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %30, i64 40
   store ptr %39, ptr %40, align 8
@@ -282,7 +282,7 @@ lexbor_avl_node_balance_factor.exit:              ; preds = %lexbor_avl_node_hei
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds i8, ptr %42, i64 40
-  store ptr %10, ptr %44, align 8
+  store ptr %11, ptr %44, align 8
   %.pre.i = load ptr, ptr %41, align 8
   br label %45
 
@@ -290,7 +290,7 @@ lexbor_avl_node_balance_factor.exit:              ; preds = %lexbor_avl_node_hei
   %46 = phi ptr [ %.pre.i, %43 ], [ null, %37 ]
   store ptr %46, ptr %29, align 8
   store ptr %30, ptr %38, align 8
-  store ptr %10, ptr %41, align 8
+  store ptr %11, ptr %41, align 8
   %47 = load ptr, ptr %29, align 8
   %.not.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i, label %lexbor_avl_node_height.exit.i.i, label %48
@@ -315,7 +315,7 @@ lexbor_avl_node_set_height.exit.i:                ; preds = %53, %lexbor_avl_nod
   %56 = phi i16 [ %55, %53 ], [ 0, %lexbor_avl_node_height.exit.i.i ]
   %57 = tail call i16 @llvm.smax.i16(i16 %51, i16 %56)
   %58 = add i16 %57, 1
-  %59 = getelementptr inbounds i8, ptr %10, i64 8
+  %59 = getelementptr inbounds i8, ptr %11, i64 8
   store i16 %58, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %30, i64 24
   %61 = load ptr, ptr %60, align 8
@@ -344,11 +344,11 @@ lexbor_avl_node_rotate_right.exit:                ; preds = %lexbor_avl_node_hei
   %72 = add i16 %71, 1
   %73 = getelementptr inbounds i8, ptr %30, i64 8
   store i16 %72, ptr %73, align 8
-  store ptr %30, ptr %9, align 8
+  store ptr %30, ptr %10, align 8
   br label %74
 
 74:                                               ; preds = %lexbor_avl_node_rotate_right.exit, %lexbor_avl_node_balance_factor.exit
-  %75 = phi ptr [ %30, %lexbor_avl_node_rotate_right.exit ], [ %10, %lexbor_avl_node_balance_factor.exit ]
+  %75 = phi ptr [ %30, %lexbor_avl_node_rotate_right.exit ], [ %11, %lexbor_avl_node_balance_factor.exit ]
   %76 = getelementptr inbounds i8, ptr %0, i64 40
   %77 = load ptr, ptr %76, align 8
   %.not44 = icmp eq ptr %77, null
@@ -376,7 +376,7 @@ lexbor_avl_node_rotate_right.exit:                ; preds = %lexbor_avl_node_hei
 
 88:                                               ; preds = %86, %85
   %89 = phi ptr [ %.pre.i49, %86 ], [ null, %85 ]
-  store ptr %89, ptr %9, align 8
+  store ptr %89, ptr %10, align 8
   store ptr %75, ptr %76, align 8
   store ptr %0, ptr %83, align 8
   %90 = load ptr, ptr %3, align 8
@@ -390,7 +390,7 @@ lexbor_avl_node_rotate_right.exit:                ; preds = %lexbor_avl_node_hei
 
 lexbor_avl_node_height.exit.i.i51:                ; preds = %91, %88
   %94 = phi i16 [ %93, %91 ], [ 0, %88 ]
-  %95 = load ptr, ptr %9, align 8
+  %95 = load ptr, ptr %10, align 8
   %.not.i6.i.i52 = icmp eq ptr %95, null
   br i1 %.not.i6.i.i52, label %lexbor_avl_node_set_height.exit.i53, label %96
 
@@ -445,7 +445,7 @@ lexbor_avl_node_rotate_left.exit:                 ; preds = %lexbor_avl_node_hei
 
 119:                                              ; preds = %117, %116
   %120 = phi ptr [ %.pre.i58, %117 ], [ null, %116 ]
-  store ptr %120, ptr %9, align 8
+  store ptr %120, ptr %10, align 8
   store ptr %75, ptr %76, align 8
   store ptr %0, ptr %83, align 8
   %121 = load ptr, ptr %3, align 8
@@ -459,7 +459,7 @@ lexbor_avl_node_rotate_left.exit:                 ; preds = %lexbor_avl_node_hei
 
 lexbor_avl_node_height.exit.i.i60:                ; preds = %122, %119
   %125 = phi i16 [ %124, %122 ], [ 0, %119 ]
-  %126 = load ptr, ptr %9, align 8
+  %126 = load ptr, ptr %10, align 8
   %.not.i6.i.i61 = icmp eq ptr %126, null
   br i1 %.not.i6.i.i61, label %lexbor_avl_node_set_height.exit.i62, label %127
 
@@ -520,7 +520,7 @@ lexbor_avl_node_rotate_left.exit66:               ; preds = %lexbor_avl_node_hei
 
 154:                                              ; preds = %152, %148
   %155 = phi ptr [ %.pre.i68, %152 ], [ null, %148 ]
-  store ptr %155, ptr %9, align 8
+  store ptr %155, ptr %10, align 8
   store ptr %75, ptr %76, align 8
   store ptr %0, ptr %150, align 8
   %156 = load ptr, ptr %3, align 8
@@ -534,7 +534,7 @@ lexbor_avl_node_rotate_left.exit66:               ; preds = %lexbor_avl_node_hei
 
 lexbor_avl_node_height.exit.i.i70:                ; preds = %157, %154
   %160 = phi i16 [ %159, %157 ], [ 0, %154 ]
-  %161 = load ptr, ptr %9, align 8
+  %161 = load ptr, ptr %10, align 8
   %.not.i6.i.i71 = icmp eq ptr %161, null
   br i1 %.not.i6.i.i71, label %lexbor_avl_node_set_height.exit.i72, label %162
 
@@ -726,7 +726,7 @@ lexbor_avl_node_rotate_left.exit90:               ; preds = %lexbor_avl_node_hei
 
 lexbor_avl_node_height.exit.i.i94:                ; preds = %251, %248
   %254 = phi i16 [ %253, %251 ], [ 0, %248 ]
-  %255 = load ptr, ptr %9, align 8
+  %255 = load ptr, ptr %10, align 8
   %.not.i6.i.i95 = icmp eq ptr %255, null
   br i1 %.not.i6.i.i95, label %lexbor_avl_node_set_height.exit.i96, label %256
 
@@ -795,7 +795,7 @@ lexbor_avl_node_rotate_right.exit100:             ; preds = %lexbor_avl_node_hei
 
 lexbor_avl_node_height.exit.i.i104:               ; preds = %282, %279
   %285 = phi i16 [ %284, %282 ], [ 0, %279 ]
-  %286 = load ptr, ptr %9, align 8
+  %286 = load ptr, ptr %10, align 8
   %.not.i6.i.i105 = icmp eq ptr %286, null
   br i1 %.not.i6.i.i105, label %lexbor_avl_node_set_height.exit.i106, label %287
 
@@ -870,7 +870,7 @@ lexbor_avl_node_rotate_right.exit110:             ; preds = %lexbor_avl_node_hei
 
 lexbor_avl_node_height.exit.i.i114:               ; preds = %317, %314
   %320 = phi i16 [ %319, %317 ], [ 0, %314 ]
-  %321 = load ptr, ptr %9, align 8
+  %321 = load ptr, ptr %10, align 8
   %.not.i6.i.i115 = icmp eq ptr %321, null
   br i1 %.not.i6.i.i115, label %lexbor_avl_node_set_height.exit.i116, label %322
 

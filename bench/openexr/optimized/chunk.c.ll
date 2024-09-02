@@ -667,11 +667,11 @@ if.end.us:                                        ; preds = %if.then10.us, %for.
 if.end.i.us:                                      ; preds = %if.end.us
   %rem.i.us = srem i32 %y, %9
   %cmp3.i.us = icmp eq i32 %rem.i.us, 0
-  %cond.i.us = zext i1 %cmp3.i.us to i64
+  %10 = zext i1 %cmp3.i.us to i64
   br label %compute_sampled_lines.exit.us
 
 compute_sampled_lines.exit.us:                    ; preds = %if.end.i.us, %if.end.us
-  %retval.0.i.us = phi i64 [ 1, %if.end.us ], [ %cond.i.us, %if.end.i.us ]
+  %retval.0.i.us = phi i64 [ 1, %if.end.us ], [ %10, %if.end.i.us ]
   %mul14.us = mul nuw nsw i64 %chansz.0.us, %retval.0.i.us
   %add.us = add i64 %mul14.us, %unpacksize.016.us
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
@@ -683,41 +683,41 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   %unpacksize.016 = phi i64 [ %add, %compute_sampled_lines.exit ], [ 0, %for.body.lr.ph ]
   %add.ptr = getelementptr inbounds %struct.exr_attr_chlist_entry_t, ptr %5, i64 %indvars.iv
   %pixel_type = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %10 = load i32, ptr %pixel_type, align 8
-  %cmp4 = icmp eq i32 %10, 1
-  %11 = select i1 %cmp4, i64 1, i64 2
-  %mul = shl nsw i64 %conv7, %11
+  %11 = load i32, ptr %pixel_type, align 8
+  %cmp4 = icmp eq i32 %11, 1
+  %12 = select i1 %cmp4, i64 1, i64 2
+  %mul = shl nsw i64 %conv7, %12
   %x_sampling = getelementptr inbounds i8, ptr %add.ptr, i64 24
-  %12 = load i32, ptr %x_sampling, align 8
-  %cmp8 = icmp sgt i32 %12, 1
+  %13 = load i32, ptr %x_sampling, align 8
+  %cmp8 = icmp sgt i32 %13, 1
   br i1 %cmp8, label %if.then10, label %if.end
 
 if.then10:                                        ; preds = %for.body
-  %conv12 = zext nneg i32 %12 to i64
+  %conv12 = zext nneg i32 %13 to i64
   %div = udiv i64 %mul, %conv12
   br label %if.end
 
 if.end:                                           ; preds = %if.then10, %for.body
   %chansz.0 = phi i64 [ %div, %if.then10 ], [ %mul, %for.body ]
   %y_sampling = getelementptr inbounds i8, ptr %add.ptr, i64 28
-  %13 = load i32, ptr %y_sampling, align 4
-  %cmp.i = icmp slt i32 %13, 2
+  %14 = load i32, ptr %y_sampling, align 4
+  %cmp.i = icmp slt i32 %14, 2
   br i1 %cmp.i, label %compute_sampled_lines.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %rem.i = srem i32 %y, %13
+  %rem.i = srem i32 %y, %14
   %cmp3.i = icmp eq i32 %rem.i, 0
-  %sub.i = sub nsw i32 %13, %rem.i
+  %sub.i = sub nsw i32 %14, %rem.i
   %add.i = select i1 %cmp3.i, i32 0, i32 %sub.i
   %start.0.i = add nsw i32 %add.i, %y
-  %rem11.i = srem i32 %sub10.i, %13
+  %rem11.i = srem i32 %sub10.i, %14
   %sub12.i = sub nsw i32 %sub10.i, %rem11.i
   %cmp13.i = icmp sgt i32 %start.0.i, %sub12.i
   br i1 %cmp13.i, label %compute_sampled_lines.exit, label %if.else15.i
 
 if.else15.i:                                      ; preds = %if.end.i
   %sub16.i = sub nsw i32 %sub12.i, %start.0.i
-  %div.i = sdiv i32 %sub16.i, %13
+  %div.i = sdiv i32 %sub16.i, %14
   %add17.i = add nsw i32 %div.i, 1
   br label %compute_sampled_lines.exit
 
@@ -732,11 +732,11 @@ compute_sampled_lines.exit:                       ; preds = %if.end, %if.end.i, 
 
 if.else:                                          ; preds = %entry
   %unpacked_size_per_chunk = getelementptr inbounds i8, ptr %part, i64 232
-  %14 = load i64, ptr %unpacked_size_per_chunk, align 8
+  %15 = load i64, ptr %unpacked_size_per_chunk, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %compute_sampled_lines.exit, %compute_sampled_lines.exit.us, %if.then, %if.else
-  %unpacksize.1 = phi i64 [ %14, %if.else ], [ 0, %if.then ], [ %add.us, %compute_sampled_lines.exit.us ], [ %add, %compute_sampled_lines.exit ]
+  %unpacksize.1 = phi i64 [ %15, %if.else ], [ 0, %if.then ], [ %add.us, %compute_sampled_lines.exit.us ], [ %add, %compute_sampled_lines.exit ]
   ret i64 %unpacksize.1
 }
 

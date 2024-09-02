@@ -574,10 +574,11 @@ _ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit:   ; preds = %land.rhs.i
   %rem3.i = srem i64 %y.0.fr, 400
   %cmp4.i = icmp eq i64 %rem3.i, 0
   %spec.select54 = select i1 %cmp4.i, i64 366, i64 365
+  %2 = zext i1 %cmp4.i to i64
   br label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50
 
 _ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50: ; preds = %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit, %land.rhs.i, %lor.rhs
-  %2 = phi i1 [ false, %lor.rhs ], [ true, %land.rhs.i ], [ %cmp4.i, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit ]
+  %idxprom = phi i64 [ 0, %lor.rhs ], [ 1, %land.rhs.i ], [ %2, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit ]
   %3 = phi i64 [ 365, %lor.rhs ], [ 366, %land.rhs.i ], [ %spec.select54, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit ]
   %cmp25.not = icmp ult i64 %days.1, %3
   br i1 %cmp25.not, label %while.end39, label %while.body26
@@ -619,7 +620,6 @@ if.end48:                                         ; preds = %while.end39
   %conv50 = trunc i64 %days.1 to i32
   %tm_yday = getelementptr inbounds i8, ptr %tm, i64 28
   store i32 %conv50, ptr %tm_yday, align 4
-  %idxprom = zext i1 %2 to i64
   %arrayidx = getelementptr inbounds [2 x [12 x i32]], ptr @_ZN8facebook5velox12_GLOBAL__N_112monthLengthsE, i64 0, i64 %idxprom
   %tm_mon = getelementptr inbounds i8, ptr %tm, i64 16
   %6 = load i32, ptr %arrayidx, align 16

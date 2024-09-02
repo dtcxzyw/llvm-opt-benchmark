@@ -137,7 +137,7 @@ _ZN3ozz3log6LoggerlsIA28_cEERSoRKT_.exit:         ; preds = %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z20InitializeEndiannessv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 2) i32 @_Z20InitializeEndiannessv() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.ozz::log::LogV", align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL14OPTIONS_endian, i64 48), align 8
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.8) #14

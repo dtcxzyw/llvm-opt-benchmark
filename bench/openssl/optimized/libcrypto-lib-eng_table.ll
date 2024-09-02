@@ -410,22 +410,19 @@ if.end21:                                         ; preds = %land.lhs.true, %if.
 
 trynext.preheader:                                ; preds = %if.end21
   %sk = getelementptr inbounds i8, ptr %call.i, i64 8
-  br label %trynext
+  %6 = load ptr, ptr %sk, align 8
+  %call.i2232 = call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef 0) #5
+  %tobool27.not33 = icmp eq ptr %call.i2232, null
+  br i1 %tobool27.not33, label %if.then52, label %if.end29
 
 if.then23:                                        ; preds = %if.end21
-  %6 = load ptr, ptr %funct, align 8
+  %7 = load ptr, ptr %funct, align 8
   br label %if.then52
 
-trynext:                                          ; preds = %trynext.preheader, %if.end33
-  %loop.0 = phi i32 [ %inc, %if.end33 ], [ 0, %trynext.preheader ]
-  %7 = load ptr, ptr %sk, align 8
-  %inc = add nuw nsw i32 %loop.0, 1
-  %call.i22 = call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %loop.0) #5
-  %tobool27.not = icmp eq ptr %call.i22, null
-  br i1 %tobool27.not, label %if.then52, label %if.end29
-
-if.end29:                                         ; preds = %trynext
-  %funct_ref = getelementptr inbounds i8, ptr %call.i22, i64 160
+if.end29:                                         ; preds = %trynext.preheader, %trynext.backedge
+  %call.i2235 = phi ptr [ %call.i22, %trynext.backedge ], [ %call.i2232, %trynext.preheader ]
+  %inc34 = phi i32 [ %inc, %trynext.backedge ], [ 1, %trynext.preheader ]
+  %funct_ref = getelementptr inbounds i8, ptr %call.i2235, i64 160
   %8 = load i32, ptr %funct_ref, align 8
   %cmp = icmp sgt i32 %8, 0
   br i1 %cmp, label %if.then31, label %lor.lhs.false
@@ -434,50 +431,53 @@ lor.lhs.false:                                    ; preds = %if.end29
   %9 = load i32, ptr @table_flags, align 4
   %and = and i32 %9, 1
   %tobool30.not = icmp eq i32 %and, 0
-  br i1 %tobool30.not, label %if.then31, label %if.end33
+  br i1 %tobool30.not, label %if.then31, label %trynext.backedge
 
 if.then31:                                        ; preds = %lor.lhs.false, %if.end29
-  %call32 = call i32 @engine_unlocked_init(ptr noundef nonnull %call.i22) #5
-  br label %if.end33
+  %call32 = call i32 @engine_unlocked_init(ptr noundef nonnull %call.i2235) #5
+  %10 = icmp eq i32 %call32, 0
+  br i1 %10, label %trynext.backedge, label %if.then35
 
-if.end33:                                         ; preds = %lor.lhs.false, %if.then31
-  %initres.0 = phi i32 [ %call32, %if.then31 ], [ 0, %lor.lhs.false ]
-  %tobool34.not = icmp eq i32 %initres.0, 0
-  br i1 %tobool34.not, label %trynext, label %if.then35
+trynext.backedge:                                 ; preds = %if.then31, %lor.lhs.false
+  %11 = load ptr, ptr %sk, align 8
+  %inc = add nuw nsw i32 %inc34, 1
+  %call.i22 = call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %inc34) #5
+  %tobool27.not = icmp eq ptr %call.i22, null
+  br i1 %tobool27.not, label %if.then52, label %if.end29
 
-if.then35:                                        ; preds = %if.end33
-  %10 = load ptr, ptr %funct, align 8
-  %cmp37.not = icmp eq ptr %10, %call.i22
+if.then35:                                        ; preds = %if.then31
+  %12 = load ptr, ptr %funct, align 8
+  %cmp37.not = icmp eq ptr %12, %call.i2235
   br i1 %cmp37.not, label %if.then52, label %land.lhs.true38
 
 land.lhs.true38:                                  ; preds = %if.then35
-  %call39 = call i32 @engine_unlocked_init(ptr noundef nonnull %call.i22) #5
+  %call39 = call i32 @engine_unlocked_init(ptr noundef nonnull %call.i2235) #5
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then52, label %if.then41
 
 if.then41:                                        ; preds = %land.lhs.true38
-  %11 = load ptr, ptr %funct, align 8
-  %tobool43.not = icmp eq ptr %11, null
+  %13 = load ptr, ptr %funct, align 8
+  %tobool43.not = icmp eq ptr %13, null
   br i1 %tobool43.not, label %if.end47, label %if.then44
 
 if.then44:                                        ; preds = %if.then41
-  %call46 = call i32 @engine_unlocked_finish(ptr noundef nonnull %11, i32 noundef 0) #5
+  %call46 = call i32 @engine_unlocked_finish(ptr noundef nonnull %13, i32 noundef 0) #5
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then44, %if.then41
-  store ptr %call.i22, ptr %funct, align 8
+  store ptr %call.i2235, ptr %funct, align 8
   br label %if.then52
 
-if.then52:                                        ; preds = %trynext, %if.then19, %if.then23, %if.end47, %land.lhs.true38, %if.then35
-  %ret.0.ph = phi ptr [ %call.i22, %if.then35 ], [ %call.i22, %land.lhs.true38 ], [ %call.i22, %if.end47 ], [ %6, %if.then23 ], [ %4, %if.then19 ], [ null, %trynext ]
+if.then52:                                        ; preds = %trynext.backedge, %trynext.preheader, %if.then19, %if.then23, %if.end47, %land.lhs.true38, %if.then35
+  %ret.0.ph = phi ptr [ %call.i2235, %if.then35 ], [ %call.i2235, %land.lhs.true38 ], [ %call.i2235, %if.end47 ], [ %7, %if.then23 ], [ %4, %if.then19 ], [ null, %trynext.preheader ], [ null, %trynext.backedge ]
   %uptodate53 = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 1, ptr %uptodate53, align 8
   br label %if.end58
 
 if.end58:                                         ; preds = %if.end5, %if.end, %if.end9, %if.then52
   %ret.029 = phi ptr [ %ret.0.ph, %if.then52 ], [ null, %if.end9 ], [ null, %if.end ], [ null, %if.end5 ]
-  %12 = load ptr, ptr @global_engine_lock, align 8
-  %call59 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %12) #5
+  %14 = load ptr, ptr @global_engine_lock, align 8
+  %call59 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %14) #5
   %call60 = call i32 @ERR_pop_to_mark() #5
   br label %return
 

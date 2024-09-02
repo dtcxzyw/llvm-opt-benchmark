@@ -625,7 +625,7 @@ declare ptr @mca_base_component_to_string(ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Put(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_pml_base_pml_check_selected(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -13, 1) i32 @mca_pml_base_pml_check_selected(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @ompi_pml_base_check_pml, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %.loopexit

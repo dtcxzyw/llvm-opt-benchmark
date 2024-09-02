@@ -659,11 +659,11 @@ land.lhs.true:                                    ; preds = %if.end17
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = zext nneg i32 %5 to i64
-  %switch.gep88 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %9
-  %switch.load89 = load i32, ptr %switch.gep88, align 4
+  %switch.gep84 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %9
+  %switch.load85 = load i32, ptr %switch.gep84, align 4
   %10 = zext nneg i32 %5 to i64
-  %switch.gep90 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %10
-  %switch.load91 = load i32, ptr %switch.gep90, align 4
+  %switch.gep86 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %10
+  %switch.load87 = load i32, ptr %switch.gep86, align 4
   %freq.i = getelementptr inbounds i8, ptr %sw, i64 24
   %11 = load i32, ptr %freq.i, align 4
   %cmp.i57 = icmp eq i32 %11, %6
@@ -680,7 +680,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true.i
   %13 = load i8, ptr %is_signed11.i, align 4
   %14 = and i8 %13, 1
   %conv.i = zext nneg i8 %14 to i32
-  %cmp14.i = icmp eq i32 %switch.load89, %conv.i
+  %cmp14.i = icmp eq i32 %switch.load85, %conv.i
   br i1 %cmp14.i, label %land.lhs.true16.i, label %if.end22
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true10.i
@@ -688,7 +688,7 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true10.i
   %15 = load i8, ptr %is_float17.i, align 1
   %16 = and i8 %15, 1
   %conv19.i = zext nneg i8 %16 to i32
-  %cmp22.i = icmp eq i32 %switch.load91, %conv19.i
+  %cmp22.i = icmp eq i32 %switch.load87, %conv19.i
   br i1 %cmp22.i, label %land.lhs.true24.i, label %if.end22
 
 land.lhs.true24.i:                                ; preds = %land.lhs.true16.i
@@ -751,9 +751,9 @@ if.else:                                          ; preds = %if.end22
   tail call void @AUD_close_out(ptr noundef nonnull %card, ptr noundef nonnull %sw)
   %.pre = load ptr, ptr %dev, align 8
   %driver.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
-  %.pre82 = load i32, ptr %driver.i.i.phi.trans.insert, align 8
+  %.pre80 = load i32, ptr %driver.i.i.phi.trans.insert, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hw_as.i)
-  %switch.i.i = icmp ult i32 %.pre82, 4
+  %switch.i.i = icmp ult i32 %.pre80, 4
   br i1 %switch.i.i, label %audio_get_pdo_out.exit.i, label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.else
@@ -828,90 +828,87 @@ if.then.i.i61:                                    ; preds = %lor.lhs.false.i.i, 
 
 if.end8.i.i:                                      ; preds = %if.then.i.i61, %lor.lhs.false.i.i
   %hw_head_out.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
+  %cond.i2.i.i.i = load ptr, ptr %hw_head_out.i.i.i.i, align 8
+  %tobool.not3.i.i.i = icmp eq ptr %cond.i2.i.i.i, null
+  br i1 %tobool.not3.i.i.i, label %if.end12.i.i, label %while.body.lr.ph.i.i.i
+
+while.body.lr.ph.i.i.i:                           ; preds = %if.end8.i.i
   %fmt.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 8
-  %nchannels8.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 4
-  %endianness.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 12
   %35 = load i32, ptr %fmt.i.i.i.i, align 8
+  %switch.i14.i.i = icmp ult i32 %35, 7
+  br i1 %switch.i14.i.i, label %while.body.lr.ph.split.i.i.i, label %sw.default.i.i.i.i
+
+while.body.lr.ph.split.i.i.i:                     ; preds = %while.body.lr.ph.i.i.i
+  %endianness.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 12
+  %nchannels8.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 4
   %36 = load i32, ptr %hw_as.i, align 8
   %37 = load i32, ptr %nchannels8.i.i.i.i, align 4
   %38 = load i32, ptr %endianness.i.i.i.i, align 4
   %cmp28.i.i.i.i = icmp ne i32 %38, 0
   %conv29.i.i.i.i = zext i1 %cmp28.i.i.i.i to i32
-  %39 = icmp ult i32 %35, 7
+  %39 = zext nneg i32 %35 to i64
+  %switch.gep88 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %39
   %40 = zext nneg i32 %35 to i64
-  %switch.gep92 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %40
+  %switch.gep90 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %40
   %41 = zext nneg i32 %35 to i64
-  %switch.gep94 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %41
-  %42 = zext nneg i32 %35 to i64
-  %switch.gep96 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %42
-  br label %while.cond.i.i.i
+  %switch.gep92 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %41
+  br label %while.body.i.i.i
 
-while.cond.i.i.i:                                 ; preds = %audio_pcm_info_eq.exit.i.i.i, %if.end8.i.i
-  %hw.addr.0.i.i.i = phi ptr [ null, %if.end8.i.i ], [ %cond.i.i.i.i, %audio_pcm_info_eq.exit.i.i.i ]
-  %tobool.not.i.i.i.i = icmp eq ptr %hw.addr.0.i.i.i, null
-  %entries.i.i.i.i = getelementptr inbounds i8, ptr %hw.addr.0.i.i.i, i64 152
-  %cond.in.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %hw_head_out.i.i.i.i, ptr %entries.i.i.i.i
-  %cond.i.i.i.i = load ptr, ptr %cond.in.i.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %cond.i.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %if.end12.i.i, label %while.body.i.i.i
+while.body.i.i.i:                                 ; preds = %while.cond.backedge.i.i.i, %while.body.lr.ph.split.i.i.i
+  %cond.i4.i.i.i = phi ptr [ %cond.i2.i.i.i, %while.body.lr.ph.split.i.i.i ], [ %cond.i.i.i.i, %while.cond.backedge.i.i.i ]
+  %info.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 20
+  %switch.load89 = load i32, ptr %switch.gep88, align 4
+  %switch.load91 = load i32, ptr %switch.gep90, align 4
+  %switch.load93 = load i32, ptr %switch.gep92, align 4
+  %freq.i.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 28
+  %42 = load i32, ptr %freq.i.i.i.i, align 4
+  %cmp.i.i.i.i = icmp eq i32 %42, %36
+  br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %while.cond.backedge.i.i.i
 
-while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
-  %info.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 20
-  br i1 %39, label %switch.lookup, label %sw.default.i.i.i.i
-
-sw.default.i.i.i.i:                               ; preds = %while.body.i.i.i
+sw.default.i.i.i.i:                               ; preds = %while.body.lr.ph.i.i.i
   call void @abort() #24
   unreachable
 
-switch.lookup:                                    ; preds = %while.body.i.i.i
-  %switch.load93 = load i32, ptr %switch.gep92, align 4
-  %switch.load95 = load i32, ptr %switch.gep94, align 4
-  %switch.load97 = load i32, ptr %switch.gep96, align 4
-  %freq.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 28
-  %43 = load i32, ptr %freq.i.i.i.i, align 4
-  %cmp.i.i.i.i = icmp eq i32 %43, %36
-  br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
-
-land.lhs.true.i.i.i.i:                            ; preds = %switch.lookup
-  %nchannels.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 32
-  %44 = load i32, ptr %nchannels.i.i.i.i, align 4
-  %cmp9.i.i.i.i = icmp eq i32 %44, %37
-  br i1 %cmp9.i.i.i.i, label %land.lhs.true10.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+land.lhs.true.i.i.i.i:                            ; preds = %while.body.i.i.i
+  %nchannels.i.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 32
+  %43 = load i32, ptr %nchannels.i.i.i.i, align 4
+  %cmp9.i.i.i.i = icmp eq i32 %43, %37
+  br i1 %cmp9.i.i.i.i, label %land.lhs.true10.i.i.i.i, label %while.cond.backedge.i.i.i
 
 land.lhs.true10.i.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i
-  %is_signed11.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 24
-  %45 = load i8, ptr %is_signed11.i.i.i.i, align 4
-  %46 = and i8 %45, 1
-  %conv.i.i.i.i = zext nneg i8 %46 to i32
-  %cmp14.i.i.i.i = icmp eq i32 %switch.load95, %conv.i.i.i.i
-  br i1 %cmp14.i.i.i.i, label %land.lhs.true16.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+  %is_signed11.i.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 24
+  %44 = load i8, ptr %is_signed11.i.i.i.i, align 4
+  %45 = and i8 %44, 1
+  %conv.i.i.i.i = zext nneg i8 %45 to i32
+  %cmp14.i.i.i.i = icmp eq i32 %switch.load91, %conv.i.i.i.i
+  br i1 %cmp14.i.i.i.i, label %land.lhs.true16.i.i.i.i, label %while.cond.backedge.i.i.i
 
 land.lhs.true16.i.i.i.i:                          ; preds = %land.lhs.true10.i.i.i.i
-  %is_float17.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 25
-  %47 = load i8, ptr %is_float17.i.i.i.i, align 1
-  %48 = and i8 %47, 1
-  %conv19.i.i.i.i = zext nneg i8 %48 to i32
-  %cmp22.i.i.i.i = icmp eq i32 %switch.load97, %conv19.i.i.i.i
-  br i1 %cmp22.i.i.i.i, label %land.lhs.true24.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+  %is_float17.i.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 25
+  %46 = load i8, ptr %is_float17.i.i.i.i, align 1
+  %47 = and i8 %46, 1
+  %conv19.i.i.i.i = zext nneg i8 %47 to i32
+  %cmp22.i.i.i.i = icmp eq i32 %switch.load93, %conv19.i.i.i.i
+  br i1 %cmp22.i.i.i.i, label %land.lhs.true24.i.i.i.i, label %while.cond.backedge.i.i.i
 
 land.lhs.true24.i.i.i.i:                          ; preds = %land.lhs.true16.i.i.i.i
-  %49 = load i32, ptr %info.i.i.i, align 4
-  %cmp26.i.i.i.i = icmp eq i32 %49, %switch.load93
-  br i1 %cmp26.i.i.i.i, label %land.rhs.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+  %48 = load i32, ptr %info.i.i.i, align 4
+  %cmp26.i.i.i.i = icmp eq i32 %48, %switch.load89
+  br i1 %cmp26.i.i.i.i, label %land.rhs.i.i.i.i, label %while.cond.backedge.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true24.i.i.i.i
-  %swap_endianness.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 44
-  %50 = load i32, ptr %swap_endianness.i.i.i.i, align 4
-  %cmp30.i.i.i.i = icmp eq i32 %50, %conv29.i.i.i.i
-  %51 = zext i1 %cmp30.i.i.i.i to i32
-  br label %audio_pcm_info_eq.exit.i.i.i
+  %swap_endianness.i.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 44
+  %49 = load i32, ptr %swap_endianness.i.i.i.i, align 4
+  %cmp30.i.not.i.i.i = icmp eq i32 %49, %conv29.i.i.i.i
+  br i1 %cmp30.i.not.i.i.i, label %if.end7.i, label %while.cond.backedge.i.i.i
 
-audio_pcm_info_eq.exit.i.i.i:                     ; preds = %land.rhs.i.i.i.i, %land.lhs.true24.i.i.i.i, %land.lhs.true16.i.i.i.i, %land.lhs.true10.i.i.i.i, %land.lhs.true.i.i.i.i, %switch.lookup
-  %land.ext.i.i.i.i = phi i32 [ 0, %land.lhs.true24.i.i.i.i ], [ 0, %land.lhs.true16.i.i.i.i ], [ 0, %land.lhs.true10.i.i.i.i ], [ 0, %land.lhs.true.i.i.i.i ], [ 0, %switch.lookup ], [ %51, %land.rhs.i.i.i.i ]
-  %tobool2.not.i.i.i = icmp eq i32 %land.ext.i.i.i.i, 0
-  br i1 %tobool2.not.i.i.i, label %while.cond.i.i.i, label %if.end7.i, !llvm.loop !8
+while.cond.backedge.i.i.i:                        ; preds = %land.rhs.i.i.i.i, %land.lhs.true24.i.i.i.i, %land.lhs.true16.i.i.i.i, %land.lhs.true10.i.i.i.i, %land.lhs.true.i.i.i.i, %while.body.i.i.i
+  %entries.i.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 152
+  %cond.i.i.i.i = load ptr, ptr %entries.i.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %cond.i.i.i.i, null
+  br i1 %tobool.not.i.i.i, label %if.end12.i.i, label %while.body.i.i.i, !llvm.loop !8
 
-if.end12.i.i:                                     ; preds = %while.cond.i.i.i
+if.end12.i.i:                                     ; preds = %while.cond.backedge.i.i.i, %if.end8.i.i
   %call13.i.i = call fastcc ptr @audio_pcm_hw_add_new_out(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
   %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool14.not.i.i, label %if.end16.i.i, label %if.end7.i
@@ -929,17 +926,17 @@ if.then6.i:                                       ; preds = %audio_pcm_hw_add_ou
   call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.51, ptr noundef nonnull %name)
   br label %audio_pcm_create_voice_pair_out.exit.thread
 
-if.end7.i:                                        ; preds = %audio_pcm_info_eq.exit.i.i.i, %audio_pcm_hw_add_out.exit.i, %if.end12.i.i
-  %retval.0.i1125.i = phi ptr [ %retval.0.i11.i, %audio_pcm_hw_add_out.exit.i ], [ %call13.i.i, %if.end12.i.i ], [ %cond.i.i.i.i, %audio_pcm_info_eq.exit.i.i.i ]
+if.end7.i:                                        ; preds = %land.rhs.i.i.i.i, %audio_pcm_hw_add_out.exit.i, %if.end12.i.i
+  %retval.0.i1125.i = phi ptr [ %retval.0.i11.i, %audio_pcm_hw_add_out.exit.i ], [ %call13.i.i, %if.end12.i.i ], [ %cond.i4.i.i.i, %land.rhs.i.i.i.i ]
   %sw_head.i.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 128
-  %52 = load ptr, ptr %sw_head.i.i, align 8
+  %50 = load ptr, ptr %sw_head.i.i, align 8
   %entries.i.i = getelementptr inbounds i8, ptr %call2.i, i64 160
-  store ptr %52, ptr %entries.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %52, null
+  store ptr %50, ptr %entries.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %50, null
   br i1 %cmp.not.i.i, label %audio_pcm_hw_add_sw_out.exit.i, label %if.then.i12.i
 
 if.then.i12.i:                                    ; preds = %if.end7.i
-  %le_prev.i.i = getelementptr inbounds i8, ptr %52, i64 168
+  %le_prev.i.i = getelementptr inbounds i8, ptr %50, i64 168
   store ptr %entries.i.i, ptr %le_prev.i.i, align 8
   br label %audio_pcm_hw_add_sw_out.exit.i
 
@@ -952,62 +949,62 @@ audio_pcm_hw_add_sw_out.exit.i:                   ; preds = %if.then.i12.i, %if.
   br i1 %tobool9.not.i, label %audio_pcm_create_voice_pair_out.exit, label %err2.i
 
 err2.i:                                           ; preds = %audio_pcm_hw_add_sw_out.exit.i
-  %53 = load ptr, ptr %entries.i.i, align 8
-  %cmp.not.i14.i = icmp eq ptr %53, null
+  %51 = load ptr, ptr %entries.i.i, align 8
+  %cmp.not.i14.i = icmp eq ptr %51, null
   %.pre7.i.i = load ptr, ptr %le_prev11.i.i, align 8
   br i1 %cmp.not.i14.i, label %audio_pcm_hw_del_sw_out.exit.i, label %if.then.i15.i
 
 if.then.i15.i:                                    ; preds = %err2.i
-  %le_prev5.i.i = getelementptr inbounds i8, ptr %53, i64 168
+  %le_prev5.i.i = getelementptr inbounds i8, ptr %51, i64 168
   store ptr %.pre7.i.i, ptr %le_prev5.i.i, align 8
   %.pre.i.i = load ptr, ptr %entries.i.i, align 8
   br label %audio_pcm_hw_del_sw_out.exit.i
 
 audio_pcm_hw_del_sw_out.exit.i:                   ; preds = %if.then.i15.i, %err2.i
-  %54 = phi ptr [ %.pre.i.i, %if.then.i15.i ], [ null, %err2.i ]
-  store ptr %54, ptr %.pre7.i.i, align 8
+  %52 = phi ptr [ %.pre.i.i, %if.then.i15.i ], [ null, %err2.i ]
+  store ptr %52, ptr %.pre7.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i.i, i8 0, i64 16, i1 false)
-  %55 = load ptr, ptr %retval.0.i1125.i, align 8
-  %56 = load ptr, ptr %sw_head.i.i, align 8
-  %tobool.not.i.i62 = icmp eq ptr %56, null
+  %53 = load ptr, ptr %retval.0.i1125.i, align 8
+  %54 = load ptr, ptr %sw_head.i.i, align 8
+  %tobool.not.i.i62 = icmp eq ptr %54, null
   br i1 %tobool.not.i.i62, label %if.then.i18.i, label %audio_pcm_create_voice_pair_out.exit.thread
 
 if.then.i18.i:                                    ; preds = %audio_pcm_hw_del_sw_out.exit.i
-  %57 = getelementptr i8, ptr %retval.0.i1125.i, i64 136
-  %.val.i.i = load ptr, ptr %57, align 8
+  %55 = getelementptr i8, ptr %retval.0.i1125.i, i64 136
+  %.val.i.i = load ptr, ptr %55, align 8
   call fastcc void @audio_detach_capture(ptr %.val.i.i)
   %entries.i19.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 152
-  %58 = load ptr, ptr %entries.i19.i, align 8
-  %cmp.not.i20.i = icmp eq ptr %58, null
+  %56 = load ptr, ptr %entries.i19.i, align 8
+  %cmp.not.i20.i = icmp eq ptr %56, null
   %le_prev11.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 160
   %.pre15.i.i = load ptr, ptr %le_prev11.phi.trans.insert.i.i, align 8
   br i1 %cmp.not.i20.i, label %if.end.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i18.i
-  %le_prev7.i.i = getelementptr inbounds i8, ptr %58, i64 160
+  %le_prev7.i.i = getelementptr inbounds i8, ptr %56, i64 160
   store ptr %.pre15.i.i, ptr %le_prev7.i.i, align 8
   %.pre.i21.i = load ptr, ptr %entries.i19.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then2.i.i, %if.then.i18.i
-  %59 = phi ptr [ %.pre.i21.i, %if.then2.i.i ], [ null, %if.then.i18.i ]
-  store ptr %59, ptr %.pre15.i.i, align 8
+  %57 = phi ptr [ %.pre.i21.i, %if.then2.i.i ], [ null, %if.then.i18.i ]
+  store ptr %57, ptr %.pre15.i.i, align 8
   %pcm_ops.i.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i19.i, i8 0, i64 16, i1 false)
-  %60 = load ptr, ptr %pcm_ops.i.i, align 8
-  %fini_out.i.i = getelementptr inbounds i8, ptr %60, i64 8
-  %61 = load ptr, ptr %fini_out.i.i, align 8
-  call void %61(ptr noundef nonnull %retval.0.i1125.i) #25
-  %nb_hw_voices_out.i.i = getelementptr inbounds i8, ptr %55, i64 64
-  %62 = load i32, ptr %nb_hw_voices_out.i.i, align 8
-  %add.i.i = add i32 %62, 1
+  %58 = load ptr, ptr %pcm_ops.i.i, align 8
+  %fini_out.i.i = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = load ptr, ptr %fini_out.i.i, align 8
+  call void %59(ptr noundef nonnull %retval.0.i1125.i) #25
+  %nb_hw_voices_out.i.i = getelementptr inbounds i8, ptr %53, i64 64
+  %60 = load i32, ptr %nb_hw_voices_out.i.i, align 8
+  %add.i.i = add i32 %60, 1
   store i32 %add.i.i, ptr %nb_hw_voices_out.i.i, align 8
   %buf_emul.i.i.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 88
-  %63 = load ptr, ptr %buf_emul.i.i.i, align 8
-  call void @g_free(ptr noundef %63) #25
+  %61 = load ptr, ptr %buf_emul.i.i.i, align 8
+  call void @g_free(ptr noundef %61) #25
   %buffer.i.i.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 80
-  %64 = load ptr, ptr %buffer.i.i.i, align 8
-  call void @g_free(ptr noundef %64) #25
+  %62 = load ptr, ptr %buffer.i.i.i, align 8
+  call void @g_free(ptr noundef %62) #25
   %size.i.i.i = getelementptr inbounds i8, ptr %retval.0.i1125.i, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i.i, i8 0, i64 16, i1 false)
   call void @g_free(ptr noundef nonnull %retval.0.i1125.i) #25
@@ -1621,11 +1618,11 @@ land.lhs.true:                                    ; preds = %if.end17
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = zext nneg i32 %5 to i64
-  %switch.gep88 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %9
-  %switch.load89 = load i32, ptr %switch.gep88, align 4
+  %switch.gep84 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %9
+  %switch.load85 = load i32, ptr %switch.gep84, align 4
   %10 = zext nneg i32 %5 to i64
-  %switch.gep90 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %10
-  %switch.load91 = load i32, ptr %switch.gep90, align 4
+  %switch.gep86 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %10
+  %switch.load87 = load i32, ptr %switch.gep86, align 4
   %freq.i = getelementptr inbounds i8, ptr %sw, i64 28
   %11 = load i32, ptr %freq.i, align 4
   %cmp.i57 = icmp eq i32 %11, %6
@@ -1642,7 +1639,7 @@ land.lhs.true10.i:                                ; preds = %land.lhs.true.i
   %13 = load i8, ptr %is_signed11.i, align 4
   %14 = and i8 %13, 1
   %conv.i = zext nneg i8 %14 to i32
-  %cmp14.i = icmp eq i32 %switch.load89, %conv.i
+  %cmp14.i = icmp eq i32 %switch.load85, %conv.i
   br i1 %cmp14.i, label %land.lhs.true16.i, label %if.end22
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true10.i
@@ -1650,7 +1647,7 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true10.i
   %15 = load i8, ptr %is_float17.i, align 1
   %16 = and i8 %15, 1
   %conv19.i = zext nneg i8 %16 to i32
-  %cmp22.i = icmp eq i32 %switch.load91, %conv19.i
+  %cmp22.i = icmp eq i32 %switch.load87, %conv19.i
   br i1 %cmp22.i, label %land.lhs.true24.i, label %if.end22
 
 land.lhs.true24.i:                                ; preds = %land.lhs.true16.i
@@ -1713,9 +1710,9 @@ if.else:                                          ; preds = %if.end22
   tail call void @AUD_close_in(ptr noundef nonnull %card, ptr noundef nonnull %sw)
   %.pre = load ptr, ptr %dev, align 8
   %driver.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
-  %.pre82 = load i32, ptr %driver.i.i.phi.trans.insert, align 8
+  %.pre80 = load i32, ptr %driver.i.i.phi.trans.insert, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hw_as.i)
-  %switch.i.i = icmp ult i32 %.pre82, 4
+  %switch.i.i = icmp ult i32 %.pre80, 4
   br i1 %switch.i.i, label %audio_get_pdo_in.exit.i, label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.else
@@ -1790,90 +1787,87 @@ if.then.i.i61:                                    ; preds = %lor.lhs.false.i.i, 
 
 if.end8.i.i:                                      ; preds = %if.then.i.i61, %lor.lhs.false.i.i
   %hw_head_in.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %cond.i2.i.i.i = load ptr, ptr %hw_head_in.i.i.i.i, align 8
+  %tobool.not3.i.i.i = icmp eq ptr %cond.i2.i.i.i, null
+  br i1 %tobool.not3.i.i.i, label %if.end12.i.i, label %while.body.lr.ph.i.i.i
+
+while.body.lr.ph.i.i.i:                           ; preds = %if.end8.i.i
   %fmt.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 8
-  %nchannels8.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 4
-  %endianness.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 12
   %35 = load i32, ptr %fmt.i.i.i.i, align 8
+  %switch.i14.i.i = icmp ult i32 %35, 7
+  br i1 %switch.i14.i.i, label %while.body.lr.ph.split.i.i.i, label %sw.default.i.i.i.i
+
+while.body.lr.ph.split.i.i.i:                     ; preds = %while.body.lr.ph.i.i.i
+  %endianness.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 12
+  %nchannels8.i.i.i.i = getelementptr inbounds i8, ptr %hw_as.i, i64 4
   %36 = load i32, ptr %hw_as.i, align 8
   %37 = load i32, ptr %nchannels8.i.i.i.i, align 4
   %38 = load i32, ptr %endianness.i.i.i.i, align 4
   %cmp28.i.i.i.i = icmp ne i32 %38, 0
   %conv29.i.i.i.i = zext i1 %cmp28.i.i.i.i to i32
-  %39 = icmp ult i32 %35, 7
+  %39 = zext nneg i32 %35 to i64
+  %switch.gep88 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %39
   %40 = zext nneg i32 %35 to i64
-  %switch.gep92 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.23, i64 0, i64 %40
+  %switch.gep90 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %40
   %41 = zext nneg i32 %35 to i64
-  %switch.gep94 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.21, i64 0, i64 %41
-  %42 = zext nneg i32 %35 to i64
-  %switch.gep96 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %42
-  br label %while.cond.i.i.i
+  %switch.gep92 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.22, i64 0, i64 %41
+  br label %while.body.i.i.i
 
-while.cond.i.i.i:                                 ; preds = %audio_pcm_info_eq.exit.i.i.i, %if.end8.i.i
-  %hw.addr.0.i.i.i = phi ptr [ null, %if.end8.i.i ], [ %cond.i.i.i.i, %audio_pcm_info_eq.exit.i.i.i ]
-  %tobool.not.i.i.i.i = icmp eq ptr %hw.addr.0.i.i.i, null
-  %entries.i.i.i.i = getelementptr inbounds i8, ptr %hw.addr.0.i.i.i, i64 152
-  %cond.in.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %hw_head_in.i.i.i.i, ptr %entries.i.i.i.i
-  %cond.i.i.i.i = load ptr, ptr %cond.in.i.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %cond.i.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %if.end12.i.i, label %while.body.i.i.i
+while.body.i.i.i:                                 ; preds = %while.cond.backedge.i.i.i, %while.body.lr.ph.split.i.i.i
+  %cond.i4.i.i.i = phi ptr [ %cond.i2.i.i.i, %while.body.lr.ph.split.i.i.i ], [ %cond.i.i.i.i, %while.cond.backedge.i.i.i ]
+  %info.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 16
+  %switch.load89 = load i32, ptr %switch.gep88, align 4
+  %switch.load91 = load i32, ptr %switch.gep90, align 4
+  %switch.load93 = load i32, ptr %switch.gep92, align 4
+  %freq.i.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 24
+  %42 = load i32, ptr %freq.i.i.i.i, align 4
+  %cmp.i.i.i.i = icmp eq i32 %42, %36
+  br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %while.cond.backedge.i.i.i
 
-while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
-  %info.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 16
-  br i1 %39, label %switch.lookup, label %sw.default.i.i.i.i
-
-sw.default.i.i.i.i:                               ; preds = %while.body.i.i.i
+sw.default.i.i.i.i:                               ; preds = %while.body.lr.ph.i.i.i
   call void @abort() #24
   unreachable
 
-switch.lookup:                                    ; preds = %while.body.i.i.i
-  %switch.load93 = load i32, ptr %switch.gep92, align 4
-  %switch.load95 = load i32, ptr %switch.gep94, align 4
-  %switch.load97 = load i32, ptr %switch.gep96, align 4
-  %freq.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 24
-  %43 = load i32, ptr %freq.i.i.i.i, align 4
-  %cmp.i.i.i.i = icmp eq i32 %43, %36
-  br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
-
-land.lhs.true.i.i.i.i:                            ; preds = %switch.lookup
-  %nchannels.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 28
-  %44 = load i32, ptr %nchannels.i.i.i.i, align 4
-  %cmp9.i.i.i.i = icmp eq i32 %44, %37
-  br i1 %cmp9.i.i.i.i, label %land.lhs.true10.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+land.lhs.true.i.i.i.i:                            ; preds = %while.body.i.i.i
+  %nchannels.i.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 28
+  %43 = load i32, ptr %nchannels.i.i.i.i, align 4
+  %cmp9.i.i.i.i = icmp eq i32 %43, %37
+  br i1 %cmp9.i.i.i.i, label %land.lhs.true10.i.i.i.i, label %while.cond.backedge.i.i.i
 
 land.lhs.true10.i.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i
-  %is_signed11.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 20
-  %45 = load i8, ptr %is_signed11.i.i.i.i, align 4
-  %46 = and i8 %45, 1
-  %conv.i.i.i.i = zext nneg i8 %46 to i32
-  %cmp14.i.i.i.i = icmp eq i32 %switch.load95, %conv.i.i.i.i
-  br i1 %cmp14.i.i.i.i, label %land.lhs.true16.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+  %is_signed11.i.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 20
+  %44 = load i8, ptr %is_signed11.i.i.i.i, align 4
+  %45 = and i8 %44, 1
+  %conv.i.i.i.i = zext nneg i8 %45 to i32
+  %cmp14.i.i.i.i = icmp eq i32 %switch.load91, %conv.i.i.i.i
+  br i1 %cmp14.i.i.i.i, label %land.lhs.true16.i.i.i.i, label %while.cond.backedge.i.i.i
 
 land.lhs.true16.i.i.i.i:                          ; preds = %land.lhs.true10.i.i.i.i
-  %is_float17.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 21
-  %47 = load i8, ptr %is_float17.i.i.i.i, align 1
-  %48 = and i8 %47, 1
-  %conv19.i.i.i.i = zext nneg i8 %48 to i32
-  %cmp22.i.i.i.i = icmp eq i32 %switch.load97, %conv19.i.i.i.i
-  br i1 %cmp22.i.i.i.i, label %land.lhs.true24.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+  %is_float17.i.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 21
+  %46 = load i8, ptr %is_float17.i.i.i.i, align 1
+  %47 = and i8 %46, 1
+  %conv19.i.i.i.i = zext nneg i8 %47 to i32
+  %cmp22.i.i.i.i = icmp eq i32 %switch.load93, %conv19.i.i.i.i
+  br i1 %cmp22.i.i.i.i, label %land.lhs.true24.i.i.i.i, label %while.cond.backedge.i.i.i
 
 land.lhs.true24.i.i.i.i:                          ; preds = %land.lhs.true16.i.i.i.i
-  %49 = load i32, ptr %info.i.i.i, align 4
-  %cmp26.i.i.i.i = icmp eq i32 %49, %switch.load93
-  br i1 %cmp26.i.i.i.i, label %land.rhs.i.i.i.i, label %audio_pcm_info_eq.exit.i.i.i
+  %48 = load i32, ptr %info.i.i.i, align 4
+  %cmp26.i.i.i.i = icmp eq i32 %48, %switch.load89
+  br i1 %cmp26.i.i.i.i, label %land.rhs.i.i.i.i, label %while.cond.backedge.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %land.lhs.true24.i.i.i.i
-  %swap_endianness.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 40
-  %50 = load i32, ptr %swap_endianness.i.i.i.i, align 4
-  %cmp30.i.i.i.i = icmp eq i32 %50, %conv29.i.i.i.i
-  %51 = zext i1 %cmp30.i.i.i.i to i32
-  br label %audio_pcm_info_eq.exit.i.i.i
+  %swap_endianness.i.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 40
+  %49 = load i32, ptr %swap_endianness.i.i.i.i, align 4
+  %cmp30.i.not.i.i.i = icmp eq i32 %49, %conv29.i.i.i.i
+  br i1 %cmp30.i.not.i.i.i, label %if.end7.i, label %while.cond.backedge.i.i.i
 
-audio_pcm_info_eq.exit.i.i.i:                     ; preds = %land.rhs.i.i.i.i, %land.lhs.true24.i.i.i.i, %land.lhs.true16.i.i.i.i, %land.lhs.true10.i.i.i.i, %land.lhs.true.i.i.i.i, %switch.lookup
-  %land.ext.i.i.i.i = phi i32 [ 0, %land.lhs.true24.i.i.i.i ], [ 0, %land.lhs.true16.i.i.i.i ], [ 0, %land.lhs.true10.i.i.i.i ], [ 0, %land.lhs.true.i.i.i.i ], [ 0, %switch.lookup ], [ %51, %land.rhs.i.i.i.i ]
-  %tobool2.not.i.i.i = icmp eq i32 %land.ext.i.i.i.i, 0
-  br i1 %tobool2.not.i.i.i, label %while.cond.i.i.i, label %if.end7.i, !llvm.loop !9
+while.cond.backedge.i.i.i:                        ; preds = %land.rhs.i.i.i.i, %land.lhs.true24.i.i.i.i, %land.lhs.true16.i.i.i.i, %land.lhs.true10.i.i.i.i, %land.lhs.true.i.i.i.i, %while.body.i.i.i
+  %entries.i.i.i.i = getelementptr inbounds i8, ptr %cond.i4.i.i.i, i64 152
+  %cond.i.i.i.i = load ptr, ptr %entries.i.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %cond.i.i.i.i, null
+  br i1 %tobool.not.i.i.i, label %if.end12.i.i, label %while.body.i.i.i, !llvm.loop !9
 
-if.end12.i.i:                                     ; preds = %while.cond.i.i.i
+if.end12.i.i:                                     ; preds = %while.cond.backedge.i.i.i, %if.end8.i.i
   %call13.i.i = call fastcc ptr @audio_pcm_hw_add_new_in(ptr noundef nonnull %0, ptr noundef nonnull %hw_as.i)
   %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool14.not.i.i, label %if.end16.i.i, label %if.end7.i
@@ -1891,17 +1885,17 @@ if.then6.i:                                       ; preds = %audio_pcm_hw_add_in
   call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.51, ptr noundef nonnull %name)
   br label %audio_pcm_create_voice_pair_in.exit.thread
 
-if.end7.i:                                        ; preds = %audio_pcm_info_eq.exit.i.i.i, %audio_pcm_hw_add_in.exit.i, %if.end12.i.i
-  %retval.0.i1124.i = phi ptr [ %retval.0.i11.i, %audio_pcm_hw_add_in.exit.i ], [ %call13.i.i, %if.end12.i.i ], [ %cond.i.i.i.i, %audio_pcm_info_eq.exit.i.i.i ]
+if.end7.i:                                        ; preds = %land.rhs.i.i.i.i, %audio_pcm_hw_add_in.exit.i, %if.end12.i.i
+  %retval.0.i1124.i = phi ptr [ %retval.0.i11.i, %audio_pcm_hw_add_in.exit.i ], [ %call13.i.i, %if.end12.i.i ], [ %cond.i4.i.i.i, %land.rhs.i.i.i.i ]
   %sw_head.i.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 136
-  %52 = load ptr, ptr %sw_head.i.i, align 8
+  %50 = load ptr, ptr %sw_head.i.i, align 8
   %entries.i.i = getelementptr inbounds i8, ptr %call2.i, i64 152
-  store ptr %52, ptr %entries.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %52, null
+  store ptr %50, ptr %entries.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %50, null
   br i1 %cmp.not.i.i, label %audio_pcm_hw_add_sw_in.exit.i, label %if.then.i12.i
 
 if.then.i12.i:                                    ; preds = %if.end7.i
-  %le_prev.i.i = getelementptr inbounds i8, ptr %52, i64 160
+  %le_prev.i.i = getelementptr inbounds i8, ptr %50, i64 160
   store ptr %entries.i.i, ptr %le_prev.i.i, align 8
   br label %audio_pcm_hw_add_sw_in.exit.i
 
@@ -1914,59 +1908,59 @@ audio_pcm_hw_add_sw_in.exit.i:                    ; preds = %if.then.i12.i, %if.
   br i1 %tobool9.not.i, label %audio_pcm_create_voice_pair_in.exit, label %err2.i
 
 err2.i:                                           ; preds = %audio_pcm_hw_add_sw_in.exit.i
-  %53 = load ptr, ptr %entries.i.i, align 8
-  %cmp.not.i14.i = icmp eq ptr %53, null
+  %51 = load ptr, ptr %entries.i.i, align 8
+  %cmp.not.i14.i = icmp eq ptr %51, null
   %.pre7.i.i = load ptr, ptr %le_prev11.i.i, align 8
   br i1 %cmp.not.i14.i, label %audio_pcm_hw_del_sw_in.exit.i, label %if.then.i15.i
 
 if.then.i15.i:                                    ; preds = %err2.i
-  %le_prev5.i.i = getelementptr inbounds i8, ptr %53, i64 160
+  %le_prev5.i.i = getelementptr inbounds i8, ptr %51, i64 160
   store ptr %.pre7.i.i, ptr %le_prev5.i.i, align 8
   %.pre.i.i = load ptr, ptr %entries.i.i, align 8
   br label %audio_pcm_hw_del_sw_in.exit.i
 
 audio_pcm_hw_del_sw_in.exit.i:                    ; preds = %if.then.i15.i, %err2.i
-  %54 = phi ptr [ %.pre.i.i, %if.then.i15.i ], [ null, %err2.i ]
-  store ptr %54, ptr %.pre7.i.i, align 8
+  %52 = phi ptr [ %.pre.i.i, %if.then.i15.i ], [ null, %err2.i ]
+  store ptr %52, ptr %.pre7.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i.i, i8 0, i64 16, i1 false)
-  %55 = load ptr, ptr %retval.0.i1124.i, align 8
-  %56 = load ptr, ptr %sw_head.i.i, align 8
-  %tobool.not.i.i62 = icmp eq ptr %56, null
+  %53 = load ptr, ptr %retval.0.i1124.i, align 8
+  %54 = load ptr, ptr %sw_head.i.i, align 8
+  %tobool.not.i.i62 = icmp eq ptr %54, null
   br i1 %tobool.not.i.i62, label %do.body.i.i, label %audio_pcm_create_voice_pair_in.exit.thread
 
 do.body.i.i:                                      ; preds = %audio_pcm_hw_del_sw_in.exit.i
   %entries.i18.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 152
-  %57 = load ptr, ptr %entries.i18.i, align 8
-  %cmp.not.i19.i = icmp eq ptr %57, null
+  %55 = load ptr, ptr %entries.i18.i, align 8
+  %cmp.not.i19.i = icmp eq ptr %55, null
   %le_prev11.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 160
   %.pre14.i.i = load ptr, ptr %le_prev11.phi.trans.insert.i.i, align 8
   br i1 %cmp.not.i19.i, label %if.end.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %do.body.i.i
-  %le_prev7.i.i = getelementptr inbounds i8, ptr %57, i64 160
+  %le_prev7.i.i = getelementptr inbounds i8, ptr %55, i64 160
   store ptr %.pre14.i.i, ptr %le_prev7.i.i, align 8
   %.pre.i20.i = load ptr, ptr %entries.i18.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then2.i.i, %do.body.i.i
-  %58 = phi ptr [ %.pre.i20.i, %if.then2.i.i ], [ null, %do.body.i.i ]
-  store ptr %58, ptr %.pre14.i.i, align 8
+  %56 = phi ptr [ %.pre.i20.i, %if.then2.i.i ], [ null, %do.body.i.i ]
+  store ptr %56, ptr %.pre14.i.i, align 8
   %pcm_ops.i.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries.i18.i, i8 0, i64 16, i1 false)
-  %59 = load ptr, ptr %pcm_ops.i.i, align 8
-  %fini_in.i.i = getelementptr inbounds i8, ptr %59, i64 80
-  %60 = load ptr, ptr %fini_in.i.i, align 8
-  call void %60(ptr noundef nonnull %retval.0.i1124.i) #25
-  %nb_hw_voices_in.i.i = getelementptr inbounds i8, ptr %55, i64 68
-  %61 = load i32, ptr %nb_hw_voices_in.i.i, align 4
-  %add.i.i = add i32 %61, 1
+  %57 = load ptr, ptr %pcm_ops.i.i, align 8
+  %fini_in.i.i = getelementptr inbounds i8, ptr %57, i64 80
+  %58 = load ptr, ptr %fini_in.i.i, align 8
+  call void %58(ptr noundef nonnull %retval.0.i1124.i) #25
+  %nb_hw_voices_in.i.i = getelementptr inbounds i8, ptr %53, i64 68
+  %59 = load i32, ptr %nb_hw_voices_in.i.i, align 4
+  %add.i.i = add i32 %59, 1
   store i32 %add.i.i, ptr %nb_hw_voices_in.i.i, align 4
   %buf_emul.i.i.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 96
-  %62 = load ptr, ptr %buf_emul.i.i.i, align 8
-  call void @g_free(ptr noundef %62) #25
+  %60 = load ptr, ptr %buf_emul.i.i.i, align 8
+  call void @g_free(ptr noundef %60) #25
   %buffer.i.i.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 88
-  %63 = load ptr, ptr %buffer.i.i.i, align 8
-  call void @g_free(ptr noundef %63) #25
+  %61 = load ptr, ptr %buffer.i.i.i, align 8
+  call void @g_free(ptr noundef %61) #25
   %size.i.i.i = getelementptr inbounds i8, ptr %retval.0.i1124.i, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i.i, i8 0, i64 16, i1 false)
   call void @g_free(ptr noundef nonnull %retval.0.i1124.i) #25

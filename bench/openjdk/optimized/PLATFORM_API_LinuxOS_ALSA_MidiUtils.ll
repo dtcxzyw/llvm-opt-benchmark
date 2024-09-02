@@ -356,7 +356,7 @@ define hidden void @freeMIDIDeviceDescription(ptr nocapture noundef readonly %0)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @getMidiDeviceName(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 -11115, 1) i32 @getMidiDeviceName(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.tag_ALSA_MIDIDeviceDescription, align 8
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 4

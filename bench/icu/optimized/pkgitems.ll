@@ -195,8 +195,8 @@ if.then6.i:                                       ; preds = %if.end.i
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv.i28.i = trunc i64 %sub.ptr.sub.i.i to i32
-  %cmp9.i.i = icmp sgt i32 %conv.i28.i, 191
-  br i1 %cmp9.i.i, label %invoke.cont.i, label %if.end10.i
+  %cmp9.i.i = icmp slt i32 %conv.i28.i, 192
+  br i1 %cmp9.i.i, label %if.end10.i, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then6.i
   %add8.i.i = add nuw nsw i64 %sub.ptr.sub.i.i, 8

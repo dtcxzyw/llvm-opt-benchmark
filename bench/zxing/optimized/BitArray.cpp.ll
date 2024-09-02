@@ -166,11 +166,11 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %_ZNSt6vectorIhSaIhE
   %38 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv47
   br label %39
 
-39:                                               ; preds = %48, %.preheader.us
-  %.022.us.us = phi i32 [ 0, %.preheader.us ], [ %54, %48 ]
-  %.121.us.us = phi i32 [ %.01429.us, %.preheader.us ], [ %.2.us.us, %48 ]
+39:                                               ; preds = %49, %.preheader.us
+  %.022.us.us = phi i32 [ 0, %.preheader.us ], [ %54, %49 ]
+  %.121.us.us = phi i32 [ %.01429.us, %.preheader.us ], [ %.2.us.us, %49 ]
   %40 = icmp slt i32 %.121.us.us, %34
-  br i1 %40, label %41, label %48
+  br i1 %40, label %41, label %49
 
 41:                                               ; preds = %39
   %42 = sext i32 %.121.us.us to i64
@@ -182,21 +182,21 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %_ZNSt6vectorIhSaIhE
   %45 = load i8, ptr %44, align 1
   %46 = icmp ne i8 %45, 0
   %47 = add nsw i32 %.121.us.us, 1
-  br label %48
+  %48 = zext i1 %46 to i8
+  br label %49
 
-48:                                               ; preds = %43, %39
+49:                                               ; preds = %43, %39
   %.2.us.us = phi i32 [ %47, %43 ], [ %.121.us.us, %39 ]
-  %49 = phi i1 [ %46, %43 ], [ false, %39 ]
-  %50 = load i8, ptr %38, align 1
-  %51 = shl i8 %50, 1
-  %52 = zext i1 %49 to i8
-  %53 = or disjoint i8 %51, %52
+  %50 = phi i8 [ %48, %43 ], [ 0, %39 ]
+  %51 = load i8, ptr %38, align 1
+  %52 = shl i8 %51, 1
+  %53 = or disjoint i8 %52, %50
   store i8 %53, ptr %38, align 1
   %54 = add nuw nsw i32 %.022.us.us, 1
   %exitcond46.not = icmp eq i32 %54, 8
   br i1 %exitcond46.not, label %.split26.us.us, label %39, !llvm.loop !6
 
-.split26.us.us:                                   ; preds = %48
+.split26.us.us:                                   ; preds = %49
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
   br i1 %exitcond51.not, label %._crit_edge, label %.preheader.us, !llvm.loop !7
@@ -228,10 +228,10 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %_ZNSt6vectorIhSaIhE
   %60 = load i8, ptr %59, align 1
   %61 = icmp ne i8 %60, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %62 = load i8, ptr %55, align 1
-  %63 = shl i8 %62, 1
-  %64 = zext i1 %61 to i8
-  %65 = or disjoint i8 %63, %64
+  %62 = zext i1 %61 to i8
+  %63 = load i8, ptr %55, align 1
+  %64 = shl i8 %63, 1
+  %65 = or disjoint i8 %64, %62
   store i8 %65, ptr %55, align 1
   %66 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %66, 8

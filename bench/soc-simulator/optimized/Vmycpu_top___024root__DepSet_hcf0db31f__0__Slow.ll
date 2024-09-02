@@ -2006,18 +2006,18 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 991:                                              ; preds = %935, %929, %.sink.split3840, %933
   %992 = and i32 %739, 2031616
   switch i32 %992, label %993 [
-    i32 1114112, label %995
-    i32 1048576, label %995
+    i32 1114112, label %997
+    i32 1048576, label %997
   ]
 
 993:                                              ; preds = %991
   %994 = lshr i32 %739, 11
-  br label %995
+  %995 = trunc i32 %994 to i8
+  %996 = and i8 %995, 31
+  br label %997
 
-995:                                              ; preds = %991, %991, %993
-  %996 = phi i32 [ 31, %991 ], [ %994, %993 ], [ 31, %991 ]
-  %997 = trunc i32 %996 to i8
-  %998 = and i8 %997, 31
+997:                                              ; preds = %991, %991, %993
+  %998 = phi i8 [ 31, %991 ], [ %996, %993 ], [ 31, %991 ]
   %999 = getelementptr inbounds i8, ptr %0, i64 112
   store i8 %998, ptr %999, align 8
   store i32 64, ptr %56, align 8
@@ -2025,7 +2025,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %.not2991 = icmp eq i32 %1000, 0
   br i1 %.not2991, label %1004, label %1001
 
-1001:                                             ; preds = %995
+1001:                                             ; preds = %997
   %1002 = and i32 %739, 917504
   %or.cond3667 = icmp eq i32 %1002, 0
   br i1 %or.cond3667, label %1003, label %1115
@@ -2034,7 +2034,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i32 229440, ptr %56, align 8
   br label %1115
 
-1004:                                             ; preds = %995
+1004:                                             ; preds = %997
   %1005 = and i32 %739, 524288
   %.not2992 = icmp eq i32 %1005, 0
   br i1 %.not2992, label %1016, label %1006
@@ -3553,18 +3553,18 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
 1718:                                             ; preds = %1655, %1649, %.sink.split3861, %1653
   %1719 = and i32 %1436, 2031616
   switch i32 %1719, label %1720 [
-    i32 1114112, label %1722
-    i32 1048576, label %1722
+    i32 1114112, label %1724
+    i32 1048576, label %1724
   ]
 
 1720:                                             ; preds = %1718
   %1721 = lshr i32 %1436, 11
-  br label %1722
+  %1722 = trunc i32 %1721 to i8
+  %1723 = and i8 %1722, 31
+  br label %1724
 
-1722:                                             ; preds = %1718, %1718, %1720
-  %1723 = phi i32 [ 31, %1718 ], [ %1721, %1720 ], [ 31, %1718 ]
-  %1724 = trunc i32 %1723 to i8
-  %1725 = and i8 %1724, 31
+1724:                                             ; preds = %1718, %1718, %1720
+  %1725 = phi i8 [ 31, %1718 ], [ %1723, %1720 ], [ 31, %1718 ]
   %1726 = getelementptr inbounds i8, ptr %0, i64 111
   store i8 %1725, ptr %1726, align 1
   store i32 64, ptr %1461, align 4
@@ -3574,7 +3574,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   %.not3255 = icmp eq i32 %1728, 0
   br i1 %.not3254, label %1738, label %1729
 
-1729:                                             ; preds = %1722
+1729:                                             ; preds = %1724
   br i1 %.not3255, label %1730, label %1735
 
 1730:                                             ; preds = %1729
@@ -3597,7 +3597,7 @@ define dso_local void @_Z42Vmycpu_top___024root___stl_sequent__TOP__0P20Vmycpu_t
   store i32 229440, ptr %1461, align 4
   br label %1860
 
-1738:                                             ; preds = %1722
+1738:                                             ; preds = %1724
   br i1 %.not3255, label %1750, label %1739
 
 1739:                                             ; preds = %1738
@@ -8688,7 +8688,7 @@ define internal noundef i64 @_ZL13VL_EXTENDS_QQiim(i32 %0, i32 noundef %1, i64 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZL15VL_EXTENDSIGN_Qim(i32 noundef %0, i64 noundef %1) #4 {
+define internal noundef range(i64 -9223372036854775808, 1) i64 @_ZL15VL_EXTENDSIGN_Qim(i32 noundef %0, i64 noundef %1) #4 {
   %3 = add nsw i32 %0, -1
   %4 = zext nneg i32 %3 to i64
   %5 = shl nuw i64 1, %4

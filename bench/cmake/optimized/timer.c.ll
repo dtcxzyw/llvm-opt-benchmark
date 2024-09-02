@@ -656,7 +656,7 @@ define dso_local i64 @uv_timer_get_due_in(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @uv__next_timeout(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local range(i32 -1, -2147483648) i32 @uv__next_timeout(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 520
   %.val = load ptr, ptr %2, align 8
   %3 = icmp eq ptr %.val, null

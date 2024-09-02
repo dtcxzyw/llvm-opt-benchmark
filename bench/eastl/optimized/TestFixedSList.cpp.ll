@@ -1848,13 +1848,12 @@ while.body.i.i:                                   ; preds = %invoke.cont, %while
   br i1 %tobool.not.i.i, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i, label %while.body.i.i, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i: ; preds = %while.body.i.i
-  %3 = zext i32 %inc.i.i to i64
+  %3 = icmp eq i32 %inc.i.i, 0
   br label %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit
 
 _ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit: ; preds = %invoke.cont, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i
-  %n.0.lcssa.i.i = phi i64 [ 0, %invoke.cont ], [ %3, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i ]
-  %cmp = icmp eq i64 %n.0.lcssa.i.i, 0
-  %call4 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 49, ptr noundef nonnull @.str.2)
+  %n.0.lcssa.i.i = phi i1 [ true, %invoke.cont ], [ %3, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i ]
+  %call4 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 49, ptr noundef nonnull @.str.2)
           to label %invoke.cont3 unwind label %lpad.loopexit.split-lp1478.loopexit.split-lp
 
 invoke.cont3:                                     ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit
@@ -1917,13 +1916,12 @@ while.body.i.i14:                                 ; preds = %invoke.cont12, %whi
   br i1 %tobool.not.i.i18, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i19, label %while.body.i.i14, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i19: ; preds = %while.body.i.i14
-  %13 = zext i32 %inc.i.i17 to i64
+  %13 = icmp eq i32 %n.05.i.i15, 0
   br label %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit21
 
 _ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit21: ; preds = %invoke.cont12, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i19
-  %n.0.lcssa.i.i20 = phi i64 [ 0, %invoke.cont12 ], [ %13, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i19 ]
-  %cmp15 = icmp eq i64 %n.0.lcssa.i.i20, 1
-  %call17 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp15, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 54, ptr noundef nonnull @.str.5)
+  %n.0.lcssa.i.i20 = phi i1 [ false, %invoke.cont12 ], [ %13, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i19 ]
+  %call17 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i20, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 54, ptr noundef nonnull @.str.5)
           to label %for.cond.i unwind label %lpad.loopexit.split-lp1478.loopexit.split-lp
 
 for.cond.i:                                       ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit21, %for.cond.i
@@ -2046,13 +2044,12 @@ while.body.i.i29:                                 ; preds = %invoke.cont22, %whi
   br i1 %tobool.not.i.i33, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i34, label %while.body.i.i29, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i34: ; preds = %while.body.i.i29
-  %31 = zext i32 %inc.i.i32 to i64
+  %31 = icmp eq i32 %inc.i.i32, 3
   br label %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit36
 
 _ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit36: ; preds = %invoke.cont22, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i34
-  %n.0.lcssa.i.i35 = phi i64 [ 0, %invoke.cont22 ], [ %31, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i34 ]
-  %cmp25 = icmp eq i64 %n.0.lcssa.i.i35, 3
-  %call27 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp25, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 58, ptr noundef nonnull @.str.6)
+  %n.0.lcssa.i.i35 = phi i1 [ false, %invoke.cont22 ], [ %31, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i34 ]
+  %call27 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i35, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 58, ptr noundef nonnull @.str.6)
           to label %invoke.cont26 unwind label %lpad.loopexit.split-lp1478.loopexit.split-lp
 
 invoke.cont26:                                    ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit36
@@ -2143,13 +2140,12 @@ while.body.i.i43:                                 ; preds = %invoke.cont56, %whi
   br i1 %tobool.not.i.i47, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i48, label %while.body.i.i43, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i48: ; preds = %while.body.i.i43
-  %47 = zext i32 %inc.i.i46 to i64
+  %47 = icmp eq i32 %inc.i.i46, 0
   br label %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit50
 
 _ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit50: ; preds = %invoke.cont56, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i48
-  %n.0.lcssa.i.i49 = phi i64 [ 0, %invoke.cont56 ], [ %47, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i48 ]
-  %cmp59 = icmp eq i64 %n.0.lcssa.i.i49, 0
-  %call61 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp59, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 68, ptr noundef nonnull @.str.2)
+  %n.0.lcssa.i.i49 = phi i1 [ true, %invoke.cont56 ], [ %47, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i48 ]
+  %call61 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i49, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 68, ptr noundef nonnull @.str.2)
           to label %invoke.cont60 unwind label %lpad.loopexit.split-lp1478.loopexit.split-lp
 
 invoke.cont60:                                    ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit50
@@ -2237,13 +2233,12 @@ while.body.i.i65:                                 ; preds = %invoke.cont65, %whi
   br i1 %tobool.not.i.i69, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i70, label %while.body.i.i65, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i70: ; preds = %while.body.i.i65
-  %60 = zext i32 %inc.i.i68 to i64
+  %60 = icmp eq i32 %inc.i.i68, 0
   br label %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit
 
 _ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit: ; preds = %invoke.cont65, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i70
-  %n.0.lcssa.i.i71 = phi i64 [ 0, %invoke.cont65 ], [ %60, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i70 ]
-  %cmp68 = icmp eq i64 %n.0.lcssa.i.i71, 0
-  %call70 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp68, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @.str.2)
+  %n.0.lcssa.i.i71 = phi i1 [ true, %invoke.cont65 ], [ %60, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i70 ]
+  %call70 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i71, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @.str.2)
           to label %invoke.cont69 unwind label %lpad64.loopexit.split-lp
 
 invoke.cont69:                                    ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit
@@ -2306,13 +2301,12 @@ while.body.i.i91:                                 ; preds = %invoke.cont80, %whi
   br i1 %tobool.not.i.i95, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i96, label %while.body.i.i91, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i96: ; preds = %while.body.i.i91
-  %70 = zext i32 %inc.i.i94 to i64
+  %70 = icmp eq i32 %n.05.i.i92, 0
   br label %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit98
 
 _ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit98: ; preds = %invoke.cont80, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i96
-  %n.0.lcssa.i.i97 = phi i64 [ 0, %invoke.cont80 ], [ %70, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i96 ]
-  %cmp83 = icmp eq i64 %n.0.lcssa.i.i97, 1
-  %call85 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp83, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @.str.5)
+  %n.0.lcssa.i.i97 = phi i1 [ false, %invoke.cont80 ], [ %70, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i96 ]
+  %call85 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i97, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @.str.5)
           to label %invoke.cont84 unwind label %lpad64.loopexit.split-lp
 
 invoke.cont84:                                    ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit98
@@ -2340,13 +2334,12 @@ while.body.i.i101:                                ; preds = %invoke.cont90, %whi
   br i1 %tobool.not.i.i105, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i106, label %while.body.i.i101, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i106: ; preds = %while.body.i.i101
-  %74 = zext i32 %inc.i.i104 to i64
+  %74 = icmp eq i32 %inc.i.i104, 3
   br label %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit108
 
 _ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit108: ; preds = %invoke.cont90, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i106
-  %n.0.lcssa.i.i107 = phi i64 [ 0, %invoke.cont90 ], [ %74, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i106 ]
-  %cmp93 = icmp eq i64 %n.0.lcssa.i.i107, 3
-  %call95 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp93, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.6)
+  %n.0.lcssa.i.i107 = phi i1 [ false, %invoke.cont90 ], [ %74, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i106 ]
+  %call95 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i107, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.6)
           to label %invoke.cont94 unwind label %lpad64.loopexit.split-lp
 
 invoke.cont94:                                    ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit108
@@ -2502,13 +2495,12 @@ while.body.i.i145:                                ; preds = %invoke.cont129, %wh
   br i1 %tobool.not.i.i149, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i150, label %while.body.i.i145, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i150: ; preds = %while.body.i.i145
-  %94 = zext i32 %inc.i.i148 to i64
+  %94 = icmp eq i32 %inc.i.i148, 0
   br label %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit152
 
 _ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit152: ; preds = %invoke.cont129, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i150
-  %n.0.lcssa.i.i151 = phi i64 [ 0, %invoke.cont129 ], [ %94, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i150 ]
-  %cmp132 = icmp eq i64 %n.0.lcssa.i.i151, 0
-  %call134 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp132, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull @.str.2)
+  %n.0.lcssa.i.i151 = phi i1 [ true, %invoke.cont129 ], [ %94, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i150 ]
+  %call134 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i151, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull @.str.2)
           to label %invoke.cont133 unwind label %lpad64.loopexit.split-lp
 
 invoke.cont133:                                   ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm64ELm8ELm0ELb1E15MallocAllocatorEEE4sizeEv.exit152
@@ -2912,13 +2904,12 @@ while.body.i.i285:                                ; preds = %invoke.cont158, %wh
   br i1 %tobool.not.i.i289, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i290, label %while.body.i.i285, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i290: ; preds = %while.body.i.i285
-  %158 = zext i32 %inc.i.i288 to i64
+  %158 = icmp eq i32 %inc.i.i288, 0
   br label %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb0ENS_9allocatorEEEE4sizeEv.exit
 
 _ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb0ENS_9allocatorEEEE4sizeEv.exit: ; preds = %invoke.cont158, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i290
-  %n.0.lcssa.i.i291 = phi i64 [ 0, %invoke.cont158 ], [ %158, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i290 ]
-  %cmp161 = icmp eq i64 %n.0.lcssa.i.i291, 0
-  %call163 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp161, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 129, ptr noundef nonnull @.str.12)
+  %n.0.lcssa.i.i291 = phi i1 [ true, %invoke.cont158 ], [ %158, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i290 ]
+  %call163 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i291, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 129, ptr noundef nonnull @.str.12)
           to label %invoke.cont162 unwind label %lpad154
 
 invoke.cont162:                                   ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb0ENS_9allocatorEEEE4sizeEv.exit
@@ -2941,13 +2932,12 @@ while.body.i.i.i:                                 ; preds = %invoke.cont165, %wh
   br i1 %tobool.not.i.i.i, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i, label %while.body.i.i.i, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i: ; preds = %while.body.i.i.i
-  %162 = icmp ugt i32 %inc.i.i.i293, 5
+  %162 = icmp ult i32 %inc.i.i.i293, 6
   br label %_ZNK5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEE14has_overflowedEv.exit
 
 _ZNK5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEE14has_overflowedEv.exit: ; preds = %invoke.cont165, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i
-  %n.0.lcssa.i.i.i = phi i1 [ false, %invoke.cont165 ], [ %162, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i ]
-  %lnot169 = xor i1 %n.0.lcssa.i.i.i, true
-  %call171 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot169, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 131, ptr noundef nonnull @.str.14)
+  %n.0.lcssa.i.i.i = phi i1 [ true, %invoke.cont165 ], [ %162, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i ]
+  %call171 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 131, ptr noundef nonnull @.str.14)
           to label %invoke.cont170 unwind label %lpad154
 
 invoke.cont170:                                   ; preds = %_ZNK5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEE14has_overflowedEv.exit
@@ -3086,13 +3076,12 @@ while.body.i.i.i349:                              ; preds = %invoke.cont184, %wh
   br i1 %tobool.not.i.i.i353, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i354, label %while.body.i.i.i349, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i354: ; preds = %while.body.i.i.i349
-  %186 = icmp ugt i32 %inc.i.i.i352, 5
+  %186 = icmp ult i32 %inc.i.i.i352, 6
   br label %_ZNK5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEE14has_overflowedEv.exit356
 
 _ZNK5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEE14has_overflowedEv.exit356: ; preds = %invoke.cont184, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i354
-  %n.0.lcssa.i.i.i355 = phi i1 [ false, %invoke.cont184 ], [ %186, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i354 ]
-  %lnot188 = xor i1 %n.0.lcssa.i.i.i355, true
-  %call190 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot188, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 139, ptr noundef nonnull @.str.14)
+  %n.0.lcssa.i.i.i355 = phi i1 [ true, %invoke.cont184 ], [ %186, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i354 ]
+  %call190 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i.i355, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 139, ptr noundef nonnull @.str.14)
           to label %invoke.cont189 unwind label %lpad154
 
 invoke.cont189:                                   ; preds = %_ZNK5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEE14has_overflowedEv.exit356
@@ -3198,13 +3187,12 @@ while.body.i.i.i398:                              ; preds = %invoke.cont201, %wh
   br i1 %tobool.not.i.i.i402, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i403, label %while.body.i.i.i398, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i403: ; preds = %while.body.i.i.i398
-  %204 = icmp ugt i32 %inc.i.i.i401, 5
+  %204 = icmp ult i32 %inc.i.i.i401, 6
   br label %_ZNK5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEE14has_overflowedEv.exit405
 
 _ZNK5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEE14has_overflowedEv.exit405: ; preds = %invoke.cont201, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i403
-  %n.0.lcssa.i.i.i404 = phi i1 [ false, %invoke.cont201 ], [ %204, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i403 ]
-  %lnot205 = xor i1 %n.0.lcssa.i.i.i404, true
-  %call207 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot205, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 146, ptr noundef nonnull @.str.14)
+  %n.0.lcssa.i.i.i404 = phi i1 [ true, %invoke.cont201 ], [ %204, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i403 ]
+  %call207 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i.i404, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 146, ptr noundef nonnull @.str.14)
           to label %invoke.cont208 unwind label %lpad154
 
 invoke.cont208:                                   ; preds = %_ZNK5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEE14has_overflowedEv.exit405
@@ -3230,13 +3218,12 @@ while.body.i.i410:                                ; preds = %invoke.cont208, %wh
   br i1 %tobool.not.i.i414, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i415, label %while.body.i.i410, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i415: ; preds = %while.body.i.i410
-  %211 = zext i32 %inc.i.i413 to i64
+  %211 = icmp eq i32 %inc.i.i413, 4
   br label %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb0ENS_9allocatorEEEE4sizeEv.exit417
 
 _ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb0ENS_9allocatorEEEE4sizeEv.exit417: ; preds = %invoke.cont208, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i415
-  %n.0.lcssa.i.i416 = phi i64 [ 0, %invoke.cont208 ], [ %211, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i415 ]
-  %cmp210 = icmp eq i64 %n.0.lcssa.i.i416, 4
-  %call212 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp210, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 150, ptr noundef nonnull @.str.18)
+  %n.0.lcssa.i.i416 = phi i1 [ false, %invoke.cont208 ], [ %211, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i415 ]
+  %call212 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i416, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 150, ptr noundef nonnull @.str.18)
           to label %invoke.cont211 unwind label %lpad154
 
 invoke.cont211:                                   ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb0ENS_9allocatorEEEE4sizeEv.exit417
@@ -3259,13 +3246,12 @@ while.body.i.i.i420:                              ; preds = %invoke.cont215, %wh
   br i1 %tobool.not.i.i.i424, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i425, label %while.body.i.i.i420, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i425: ; preds = %while.body.i.i.i420
-  %215 = icmp ugt i32 %inc.i.i.i423, 5
+  %215 = icmp ult i32 %inc.i.i.i423, 6
   br label %_ZNK5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEE14has_overflowedEv.exit427
 
 _ZNK5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEE14has_overflowedEv.exit427: ; preds = %invoke.cont215, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i425
-  %n.0.lcssa.i.i.i426 = phi i1 [ false, %invoke.cont215 ], [ %215, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i425 ]
-  %lnot219 = xor i1 %n.0.lcssa.i.i.i426, true
-  %call221 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot219, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.14)
+  %n.0.lcssa.i.i.i426 = phi i1 [ true, %invoke.cont215 ], [ %215, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i425 ]
+  %call221 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i.i426, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @.str.14)
           to label %invoke.cont220 unwind label %lpad154
 
 invoke.cont220:                                   ; preds = %_ZNK5eastl11fixed_slistIiLm5ELb0ENS_9allocatorEE14has_overflowedEv.exit427
@@ -3326,13 +3312,12 @@ while.body.i.i444:                                ; preds = %invoke.cont227, %wh
   br i1 %tobool.not.i.i448, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i449, label %while.body.i.i444, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i449: ; preds = %while.body.i.i444
-  %223 = zext i32 %inc.i.i447 to i64
+  %223 = icmp eq i32 %inc.i.i447, 0
   br label %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit
 
 _ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit: ; preds = %invoke.cont227, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i449
-  %n.0.lcssa.i.i450 = phi i64 [ 0, %invoke.cont227 ], [ %223, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i449 ]
-  %cmp230 = icmp eq i64 %n.0.lcssa.i.i450, 0
-  %call232 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp230, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 166, ptr noundef nonnull @.str.12)
+  %n.0.lcssa.i.i450 = phi i1 [ true, %invoke.cont227 ], [ %223, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i449 ]
+  %call232 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i450, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 166, ptr noundef nonnull @.str.12)
           to label %invoke.cont231 unwind label %lpad223
 
 invoke.cont231:                                   ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit
@@ -3355,13 +3340,12 @@ while.body.i.i.i453:                              ; preds = %invoke.cont234, %wh
   br i1 %tobool.not.i.i.i457, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i458, label %while.body.i.i.i453, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i458: ; preds = %while.body.i.i.i453
-  %227 = icmp ugt i32 %inc.i.i.i456, 5
+  %227 = icmp ult i32 %inc.i.i.i456, 6
   br label %_ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit
 
 _ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit: ; preds = %invoke.cont234, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i458
-  %n.0.lcssa.i.i.i459 = phi i1 [ false, %invoke.cont234 ], [ %227, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i458 ]
-  %lnot238 = xor i1 %n.0.lcssa.i.i.i459, true
-  %call240 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot238, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 168, ptr noundef nonnull @.str.14)
+  %n.0.lcssa.i.i.i459 = phi i1 [ true, %invoke.cont234 ], [ %227, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i458 ]
+  %call240 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i.i459, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 168, ptr noundef nonnull @.str.14)
           to label %invoke.cont239 unwind label %lpad223
 
 invoke.cont239:                                   ; preds = %_ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit
@@ -3522,13 +3506,12 @@ while.body.i.i.i524:                              ; preds = %invoke.cont253, %wh
   br i1 %tobool.not.i.i.i528, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i529, label %while.body.i.i.i524, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i529: ; preds = %while.body.i.i.i524
-  %253 = icmp ugt i32 %inc.i.i.i527, 5
+  %253 = icmp ult i32 %inc.i.i.i527, 6
   br label %_ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit531
 
 _ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit531: ; preds = %invoke.cont253, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i529
-  %n.0.lcssa.i.i.i530 = phi i1 [ false, %invoke.cont253 ], [ %253, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i529 ]
-  %lnot257 = xor i1 %n.0.lcssa.i.i.i530, true
-  %call259 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot257, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 176, ptr noundef nonnull @.str.14)
+  %n.0.lcssa.i.i.i530 = phi i1 [ true, %invoke.cont253 ], [ %253, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i529 ]
+  %call259 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i.i530, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 176, ptr noundef nonnull @.str.14)
           to label %invoke.cont258 unwind label %lpad223
 
 invoke.cont258:                                   ; preds = %_ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit531
@@ -3647,13 +3630,12 @@ while.body.i.i.i579:                              ; preds = %invoke.cont270, %wh
   br i1 %tobool.not.i.i.i583, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i584, label %while.body.i.i.i579, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i584: ; preds = %while.body.i.i.i579
-  %272 = icmp ugt i32 %inc.i.i.i582, 5
+  %272 = icmp ult i32 %inc.i.i.i582, 6
   br label %_ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit586
 
 _ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit586: ; preds = %invoke.cont270, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i584
-  %n.0.lcssa.i.i.i585 = phi i1 [ false, %invoke.cont270 ], [ %272, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i584 ]
-  %lnot274 = xor i1 %n.0.lcssa.i.i.i585, true
-  %call276 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %lnot274, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 183, ptr noundef nonnull @.str.14)
+  %n.0.lcssa.i.i.i585 = phi i1 [ true, %invoke.cont270 ], [ %272, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i.i584 ]
+  %call276 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i.i585, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 183, ptr noundef nonnull @.str.14)
           to label %invoke.cont275 unwind label %lpad223
 
 invoke.cont275:                                   ; preds = %_ZNK5eastl11fixed_slistIiLm5ELb1ENS_9allocatorEE14has_overflowedEv.exit586
@@ -3777,13 +3759,12 @@ while.body.i.i629:                                ; preds = %invoke.cont291, %wh
   br i1 %tobool.not.i.i633, label %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i634, label %while.body.i.i629, !llvm.loop !15
 
 _ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i634: ; preds = %while.body.i.i629
-  %293 = zext i32 %inc.i.i632 to i64
+  %293 = icmp eq i32 %inc.i.i632, 5
   br label %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit636
 
 _ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit636: ; preds = %invoke.cont291, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i634
-  %n.0.lcssa.i.i635 = phi i64 [ 0, %invoke.cont291 ], [ %293, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i634 ]
-  %cmp293 = icmp eq i64 %n.0.lcssa.i.i635, 5
-  %call295 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp293, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 193, ptr noundef nonnull @.str.17)
+  %n.0.lcssa.i.i635 = phi i1 [ false, %invoke.cont291 ], [ %293, %_ZN5eastl16SListNodeGetSizeEPNS_13SListNodeBaseE.exit.loopexit.i634 ]
+  %call295 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %n.0.lcssa.i.i635, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 193, ptr noundef nonnull @.str.17)
           to label %invoke.cont294 unwind label %lpad223
 
 invoke.cont294:                                   ; preds = %_ZNK5eastl5slistIiNS_20fixed_node_allocatorILm16ELm5ELm8ELm0ELb1ENS_9allocatorEEEE4sizeEv.exit636

@@ -1605,12 +1605,12 @@ opv_to_opt.exit.thread:                           ; preds = %.preheader.i116
 68:                                               ; preds = %.lr.ph.i121
   %69 = getelementptr inbounds i8, ptr %65, i64 16
   %70 = load i8, ptr %69, align 8
+  %71 = sext i8 %70 to i32
   br label %opv_to_opt.exit125
 
 opv_to_opt.exit125:                               ; preds = %59, %opv_to_opt.exit.thread, %opv_to_opt.exit.thread128, %68
-  %.09.i124 = phi i8 [ %70, %68 ], [ 0, %opv_to_opt.exit.thread128 ], [ 0, %opv_to_opt.exit.thread ], [ 0, %59 ]
-  %71 = sext i8 %.09.i124 to i32
-  %72 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_saphdb_option_part_unknown, ptr noundef nonnull @.str.356, i32 noundef %19, i32 noundef %11, i32 noundef %71, i32 noundef %36) #3
+  %.09.i124 = phi i32 [ %71, %68 ], [ 0, %opv_to_opt.exit.thread128 ], [ 0, %opv_to_opt.exit.thread ], [ 0, %59 ]
+  %72 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_saphdb_option_part_unknown, ptr noundef nonnull @.str.356, i32 noundef %19, i32 noundef %11, i32 noundef %.09.i124, i32 noundef %36) #3
   br label %73
 
 73:                                               ; preds = %opv_to_opt.exit.thread128, %opv_to_opt.exit.thread, %opv_to_opt.exit125, %opv_to_opt.exit

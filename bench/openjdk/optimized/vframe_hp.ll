@@ -859,11 +859,11 @@ define hidden void @_ZN14compiledVFrame51create_deferred_updates_after_object_de
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %.sroa.0.0.copyload.i, align 8
+  %38 = ptrtoint ptr %37 to i64
   br label %_ZNK6HandleclEv.exit
 
 _ZNK6HandleclEv.exit:                             ; preds = %29, %36
-  %38 = phi ptr [ %37, %36 ], [ null, %29 ]
-  %39 = ptrtoint ptr %38 to i64
+  %39 = phi i64 [ %38, %36 ], [ 0, %29 ]
   %40 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZN14compiledVFrame21update_deferred_valueE9BasicTypei6jvalue(ptr noundef nonnull align 8 dereferenceable(5076) %0, i8 noundef zeroext 12, i32 noundef %40, i64 %39)
   %.pre = load ptr, ptr %8, align 8
@@ -931,11 +931,11 @@ _ZNK6HandleclEv.exit:                             ; preds = %29, %36
 
 79:                                               ; preds = %72
   %80 = load ptr, ptr %.sroa.0.0.copyload.i43, align 8
+  %81 = ptrtoint ptr %80 to i64
   br label %_ZNK6HandleclEv.exit44
 
 _ZNK6HandleclEv.exit44:                           ; preds = %72, %79
-  %81 = phi ptr [ %80, %79 ], [ null, %72 ]
-  %82 = ptrtoint ptr %81 to i64
+  %82 = phi i64 [ %81, %79 ], [ 0, %72 ]
   %83 = load ptr, ptr %0, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 48
   %85 = load ptr, ptr %84, align 8

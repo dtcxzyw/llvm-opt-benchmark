@@ -208,124 +208,124 @@ declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #1
 define ptr @Mvc_CoverAlgebraicSubtract(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Mvc_CoverClone(ptr noundef %0) #4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %.058 = load ptr, ptr %4, align 8
-  %.not59 = icmp eq ptr %.058, null
-  br i1 %.not59, label %._crit_edge, label %.lr.ph61
+  %.061 = load ptr, ptr %4, align 8
+  %.not62 = icmp eq ptr %.061, null
+  br i1 %.not62, label %._crit_edge, label %.lr.ph64
 
-.lr.ph61:                                         ; preds = %2
+.lr.ph64:                                         ; preds = %2
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   %8 = getelementptr inbounds i8, ptr %3, i64 32
   br label %9
 
-9:                                                ; preds = %.lr.ph61, %.critedge
-  %.060 = phi ptr [ %.058, %.lr.ph61 ], [ %.0, %.critedge ]
-  %.03950 = load ptr, ptr %5, align 8
-  %.not4151 = icmp eq ptr %.03950, null
-  br i1 %.not4151, label %.critedge47, label %.lr.ph
+9:                                                ; preds = %.lr.ph64, %.thread
+  %.063 = phi ptr [ %.061, %.lr.ph64 ], [ %.0, %.thread ]
+  %.03951 = load ptr, ptr %5, align 8
+  %.not4152 = icmp eq ptr %.03951, null
+  br i1 %.not4152, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %10 = getelementptr inbounds i8, ptr %.060, i64 8
+  %10 = getelementptr inbounds i8, ptr %.063, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 16777215
-  %13 = getelementptr inbounds i8, ptr %.060, i64 20
-  %14 = getelementptr inbounds i8, ptr %.060, i64 16
+  %13 = getelementptr inbounds i8, ptr %.063, i64 20
+  %14 = getelementptr inbounds i8, ptr %.063, i64 16
   switch i32 %12, label %.preheader [
     i32 0, label %.lr.ph.split.us
-    i32 1, label %.lr.ph.split.us53
+    i32 1, label %.lr.ph.split.us54
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %15 = load i32, ptr %14, align 8
   br label %16
 
-16:                                               ; preds = %.critedge45.us, %.lr.ph.split.us
-  %.03952.us = phi ptr [ %.03950, %.lr.ph.split.us ], [ %.039.us, %.critedge45.us ]
-  %17 = getelementptr inbounds i8, ptr %.03952.us, i64 16
+16:                                               ; preds = %.backedge.us, %.lr.ph.split.us
+  %.03953.us = phi ptr [ %.03951, %.lr.ph.split.us ], [ %.039.us, %.backedge.us ]
+  %17 = getelementptr inbounds i8, ptr %.03953.us, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %15, %18
-  br i1 %19, label %.critedge, label %.critedge45.us
+  br i1 %19, label %.thread, label %.backedge.us
 
-.critedge45.us:                                   ; preds = %16
-  %.039.us = load ptr, ptr %.03952.us, align 8
+.backedge.us:                                     ; preds = %16
+  %.039.us = load ptr, ptr %.03953.us, align 8
   %.not41.us = icmp eq ptr %.039.us, null
-  br i1 %.not41.us, label %.critedge47, label %16, !llvm.loop !10
+  br i1 %.not41.us, label %.critedge, label %16, !llvm.loop !10
 
-.lr.ph.split.us53:                                ; preds = %.lr.ph
+.lr.ph.split.us54:                                ; preds = %.lr.ph
   %20 = load i32, ptr %14, align 8
   br label %21
 
-21:                                               ; preds = %.critedge45.us55, %.lr.ph.split.us53
-  %.03952.us54 = phi ptr [ %.03950, %.lr.ph.split.us53 ], [ %.039.us56, %.critedge45.us55 ]
-  %22 = getelementptr inbounds i8, ptr %.03952.us54, i64 16
+21:                                               ; preds = %.backedge.us58, %.lr.ph.split.us54
+  %.03953.us55 = phi ptr [ %.03951, %.lr.ph.split.us54 ], [ %.039.us59, %.backedge.us58 ]
+  %22 = getelementptr inbounds i8, ptr %.03953.us55, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %20, %23
-  br i1 %24, label %25, label %.critedge45.us55
+  br i1 %24, label %25, label %.backedge.us58
 
 25:                                               ; preds = %21
   %26 = load i32, ptr %13, align 4
-  %27 = getelementptr inbounds i8, ptr %.03952.us54, i64 20
+  %27 = getelementptr inbounds i8, ptr %.03953.us55, i64 20
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %26, %28
-  br i1 %29, label %.critedge, label %.critedge45.us55
+  br i1 %29, label %.thread, label %.backedge.us58
 
-.critedge45.us55:                                 ; preds = %25, %21
-  %.039.us56 = load ptr, ptr %.03952.us54, align 8
-  %.not41.us57 = icmp eq ptr %.039.us56, null
-  br i1 %.not41.us57, label %.critedge47, label %21, !llvm.loop !10
+.backedge.us58:                                   ; preds = %21, %25
+  %.039.us59 = load ptr, ptr %.03953.us55, align 8
+  %.not41.us60 = icmp eq ptr %.039.us59, null
+  br i1 %.not41.us60, label %.critedge, label %21, !llvm.loop !10
 
-.preheader:                                       ; preds = %.lr.ph, %.critedge45.loopexit
-  %.03952 = phi ptr [ %.039, %.critedge45.loopexit ], [ %.03950, %.lr.ph ]
-  %30 = getelementptr inbounds i8, ptr %.03952, i64 16
+.critedge48.loopexit:                             ; preds = %34
+  %.039 = load ptr, ptr %.03953, align 8
+  %.not41 = icmp eq ptr %.039, null
+  br i1 %.not41, label %.critedge, label %.preheader, !llvm.loop !10
+
+.preheader:                                       ; preds = %.lr.ph, %.critedge48.loopexit
+  %.03953 = phi ptr [ %.039, %.critedge48.loopexit ], [ %.03951, %.lr.ph ]
+  %30 = getelementptr inbounds i8, ptr %.03953, i64 16
   br label %34
 
 31:                                               ; preds = %34
-  %32 = add nsw i32 %.03649, -1
-  %33 = icmp sgt i32 %.03649, 0
-  br i1 %33, label %34, label %.critedge, !llvm.loop !11
+  %32 = add nsw i32 %.03650, -1
+  %33 = icmp sgt i32 %.03650, 0
+  br i1 %33, label %34, label %.thread, !llvm.loop !11
 
 34:                                               ; preds = %.preheader, %31
-  %.03649 = phi i32 [ %12, %.preheader ], [ %32, %31 ]
-  %35 = zext nneg i32 %.03649 to i64
+  %.03650 = phi i32 [ %12, %.preheader ], [ %32, %31 ]
+  %35 = zext nneg i32 %.03650 to i64
   %36 = getelementptr inbounds [1 x i32], ptr %14, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds [1 x i32], ptr %30, i64 0, i64 %35
   %39 = load i32, ptr %38, align 4
   %.not42 = icmp eq i32 %37, %39
-  br i1 %.not42, label %31, label %.critedge45.loopexit
+  br i1 %.not42, label %31, label %.critedge48.loopexit
 
-.critedge45.loopexit:                             ; preds = %34
-  %.039 = load ptr, ptr %.03952, align 8
-  %.not41 = icmp eq ptr %.039, null
-  br i1 %.not41, label %.critedge47, label %.preheader, !llvm.loop !10
-
-.critedge47:                                      ; preds = %.critedge45.us55, %.critedge45.us, %.critedge45.loopexit, %9
-  %40 = tail call ptr @Mvc_CubeDup(ptr noundef %3, ptr noundef nonnull %.060) #4
+.critedge:                                        ; preds = %.backedge.us58, %.backedge.us, %.critedge48.loopexit, %9
+  %40 = tail call ptr @Mvc_CubeDup(ptr noundef %3, ptr noundef nonnull %.063) #4
   %41 = load ptr, ptr %6, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %45, label %43
 
-43:                                               ; preds = %.critedge47
+43:                                               ; preds = %.critedge
   %44 = load ptr, ptr %7, align 8
   br label %45
 
-45:                                               ; preds = %.critedge47, %43
-  %.sink = phi ptr [ %44, %43 ], [ %6, %.critedge47 ]
+45:                                               ; preds = %.critedge, %43
+  %.sink = phi ptr [ %44, %43 ], [ %6, %.critedge ]
   store ptr %40, ptr %.sink, align 8
   store ptr %40, ptr %7, align 8
   store ptr null, ptr %40, align 8
   %46 = load i32, ptr %8, align 8
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %8, align 8
-  br label %.critedge
+  br label %.thread
 
-.critedge:                                        ; preds = %25, %16, %31, %45
-  %.0 = load ptr, ptr %.060, align 8
+.thread:                                          ; preds = %25, %16, %31, %45
+  %.0 = load ptr, ptr %.063, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %.critedge, %2
+._crit_edge:                                      ; preds = %.thread, %2
   ret ptr %3
 }
 
@@ -334,99 +334,99 @@ declare ptr @Mvc_CubeDup(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Mvc_CoverAlgebraicEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %.02648 = load ptr, ptr %3, align 8
-  %.not49 = icmp eq ptr %.02648, null
-  br i1 %.not49, label %.critedge35, label %.lr.ph51
+  %.02651 = load ptr, ptr %3, align 8
+  %.not52 = icmp eq ptr %.02651, null
+  br i1 %.not52, label %.critedge, label %.lr.ph54
 
-.lr.ph51:                                         ; preds = %2
+.lr.ph54:                                         ; preds = %2
   %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %.02539 = load ptr, ptr %4, align 8
-  %.not2940 = icmp eq ptr %.02539, null
-  br i1 %.not2940, label %.critedge35, label %.lr.ph
+  %.02540 = load ptr, ptr %4, align 8
+  %.not2941 = icmp eq ptr %.02540, null
+  br i1 %.not2941, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph51, %.critedge
-  %.02650 = phi ptr [ %.026, %.critedge ], [ %.02648, %.lr.ph51 ]
-  %5 = getelementptr inbounds i8, ptr %.02650, i64 8
+.lr.ph:                                           ; preds = %.lr.ph54, %.thread
+  %.02653 = phi ptr [ %.026, %.thread ], [ %.02651, %.lr.ph54 ]
+  %5 = getelementptr inbounds i8, ptr %.02653, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 16777215
-  %8 = getelementptr inbounds i8, ptr %.02650, i64 20
-  %9 = getelementptr inbounds i8, ptr %.02650, i64 16
+  %8 = getelementptr inbounds i8, ptr %.02653, i64 20
+  %9 = getelementptr inbounds i8, ptr %.02653, i64 16
   switch i32 %7, label %.preheader [
     i32 0, label %.lr.ph.split.us
-    i32 1, label %.lr.ph.split.us43
+    i32 1, label %.lr.ph.split.us44
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %10 = load i32, ptr %9, align 8
   br label %11
 
-11:                                               ; preds = %.critedge33.us, %.lr.ph.split.us
-  %.02541.us = phi ptr [ %.02539, %.lr.ph.split.us ], [ %.025.us, %.critedge33.us ]
-  %12 = getelementptr inbounds i8, ptr %.02541.us, i64 16
+11:                                               ; preds = %.backedge.us, %.lr.ph.split.us
+  %.02542.us = phi ptr [ %.02540, %.lr.ph.split.us ], [ %.025.us, %.backedge.us ]
+  %12 = getelementptr inbounds i8, ptr %.02542.us, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %10, %13
-  br i1 %14, label %.critedge, label %.critedge33.us
+  br i1 %14, label %.thread, label %.backedge.us
 
-.critedge33.us:                                   ; preds = %11
-  %.025.us = load ptr, ptr %.02541.us, align 8
+.backedge.us:                                     ; preds = %11
+  %.025.us = load ptr, ptr %.02542.us, align 8
   %.not29.us = icmp eq ptr %.025.us, null
-  br i1 %.not29.us, label %.critedge35, label %11, !llvm.loop !13
+  br i1 %.not29.us, label %.critedge, label %11, !llvm.loop !13
 
-.lr.ph.split.us43:                                ; preds = %.lr.ph
+.lr.ph.split.us44:                                ; preds = %.lr.ph
   %15 = load i32, ptr %9, align 8
   br label %16
 
-16:                                               ; preds = %.critedge33.us45, %.lr.ph.split.us43
-  %.02541.us44 = phi ptr [ %.02539, %.lr.ph.split.us43 ], [ %.025.us46, %.critedge33.us45 ]
-  %17 = getelementptr inbounds i8, ptr %.02541.us44, i64 16
+16:                                               ; preds = %.backedge.us48, %.lr.ph.split.us44
+  %.02542.us45 = phi ptr [ %.02540, %.lr.ph.split.us44 ], [ %.025.us49, %.backedge.us48 ]
+  %17 = getelementptr inbounds i8, ptr %.02542.us45, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %15, %18
-  br i1 %19, label %20, label %.critedge33.us45
+  br i1 %19, label %20, label %.backedge.us48
 
 20:                                               ; preds = %16
   %21 = load i32, ptr %8, align 4
-  %22 = getelementptr inbounds i8, ptr %.02541.us44, i64 20
+  %22 = getelementptr inbounds i8, ptr %.02542.us45, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %21, %23
-  br i1 %24, label %.critedge, label %.critedge33.us45
+  br i1 %24, label %.thread, label %.backedge.us48
 
-.critedge33.us45:                                 ; preds = %20, %16
-  %.025.us46 = load ptr, ptr %.02541.us44, align 8
-  %.not29.us47 = icmp eq ptr %.025.us46, null
-  br i1 %.not29.us47, label %.critedge35, label %16, !llvm.loop !13
+.backedge.us48:                                   ; preds = %16, %20
+  %.025.us49 = load ptr, ptr %.02542.us45, align 8
+  %.not29.us50 = icmp eq ptr %.025.us49, null
+  br i1 %.not29.us50, label %.critedge, label %16, !llvm.loop !13
 
-.preheader:                                       ; preds = %.lr.ph, %.critedge33.loopexit
-  %.02541 = phi ptr [ %.025, %.critedge33.loopexit ], [ %.02539, %.lr.ph ]
-  %25 = getelementptr inbounds i8, ptr %.02541, i64 16
+.critedge36.loopexit:                             ; preds = %29
+  %.025 = load ptr, ptr %.02542, align 8
+  %.not29 = icmp eq ptr %.025, null
+  br i1 %.not29, label %.critedge, label %.preheader, !llvm.loop !13
+
+.preheader:                                       ; preds = %.lr.ph, %.critedge36.loopexit
+  %.02542 = phi ptr [ %.025, %.critedge36.loopexit ], [ %.02540, %.lr.ph ]
+  %25 = getelementptr inbounds i8, ptr %.02542, i64 16
   br label %29
 
 26:                                               ; preds = %29
-  %27 = add nsw i32 %.038, -1
-  %28 = icmp sgt i32 %.038, 0
-  br i1 %28, label %29, label %.critedge, !llvm.loop !14
+  %27 = add nsw i32 %.039, -1
+  %28 = icmp sgt i32 %.039, 0
+  br i1 %28, label %29, label %.thread, !llvm.loop !14
 
 29:                                               ; preds = %.preheader, %26
-  %.038 = phi i32 [ %7, %.preheader ], [ %27, %26 ]
-  %30 = zext nneg i32 %.038 to i64
+  %.039 = phi i32 [ %7, %.preheader ], [ %27, %26 ]
+  %30 = zext nneg i32 %.039 to i64
   %31 = getelementptr inbounds [1 x i32], ptr %9, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds [1 x i32], ptr %25, i64 0, i64 %30
   %34 = load i32, ptr %33, align 4
   %.not30 = icmp eq i32 %32, %34
-  br i1 %.not30, label %26, label %.critedge33.loopexit
+  br i1 %.not30, label %26, label %.critedge36.loopexit
 
-.critedge33.loopexit:                             ; preds = %29
-  %.025 = load ptr, ptr %.02541, align 8
-  %.not29 = icmp eq ptr %.025, null
-  br i1 %.not29, label %.critedge35, label %.preheader, !llvm.loop !13
-
-.critedge:                                        ; preds = %20, %11, %26
-  %.026 = load ptr, ptr %.02650, align 8
+.thread:                                          ; preds = %20, %11, %26
+  %.026 = load ptr, ptr %.02653, align 8
   %.not = icmp eq ptr %.026, null
-  br i1 %.not, label %.critedge35, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !15
 
-.critedge35:                                      ; preds = %.critedge, %.critedge33.us45, %.critedge33.us, %.critedge33.loopexit, %2, %.lr.ph51
-  %.027 = phi i32 [ 0, %.lr.ph51 ], [ 1, %2 ], [ 0, %.critedge33.loopexit ], [ 0, %.critedge33.us ], [ 0, %.critedge33.us45 ], [ 1, %.critedge ]
+.critedge:                                        ; preds = %.thread, %.backedge.us48, %.backedge.us, %.critedge36.loopexit, %2, %.lr.ph54
+  %.027 = phi i32 [ 0, %.lr.ph54 ], [ 1, %2 ], [ 0, %.critedge36.loopexit ], [ 0, %.backedge.us ], [ 0, %.backedge.us48 ], [ 1, %.thread ]
   ret i32 %.027
 }
 

@@ -7280,461 +7280,463 @@ findFill.exit:                                    ; preds = %106, %110
 139:                                              ; preds = %132
   %140 = load ptr, ptr %135, align 8
   %141 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %140, ptr noundef nonnull readonly dereferenceable(7) @.str.2) #30
-  %142 = icmp eq i32 %141, 0
+  %142 = icmp ne i32 %141, 0
   br label %143
 
 143:                                              ; preds = %139, %132
-  %144 = phi i1 [ true, %132 ], [ %142, %139 ]
-  %145 = icmp eq i64 %37, 0
-  %146 = icmp ne i32 %.0220, 0
-  %or.cond.not277.not280 = and i1 %145, %146
-  %brmerge.not = select i1 %or.cond.not277.not280, i1 %144, i1 false
-  br i1 %brmerge.not, label %.thread334, label %147
+  %.not262 = phi i1 [ false, %132 ], [ %142, %139 ]
+  %144 = icmp ne i64 %37, 0
+  %145 = icmp eq i32 %.0220, 0
+  %or.cond.not277 = or i1 %144, %145
+  %brmerge = select i1 %or.cond.not277, i1 true, i1 %.not262
+  br i1 %brmerge, label %146, label %.thread331
 
-.thread334:                                       ; preds = %143
+.thread331:                                       ; preds = %143
   call void @gvrender_set_pencolor(ptr noundef nonnull %0, ptr noundef nonnull @.str.91) #26
-  br label %.preheader281.lr.ph
+  br label %.preheader278.lr.ph
 
-147:                                              ; preds = %143
-  %.not318 = icmp eq i64 %37, 0
-  br i1 %.not318, label %._crit_edge285, label %.preheader281.lr.ph
+146:                                              ; preds = %143
+  %.not315 = icmp eq i64 %37, 0
+  br i1 %.not315, label %._crit_edge282, label %.preheader278.lr.ph
 
-.preheader281.lr.ph:                              ; preds = %.thread334, %147
-  %.0224337 = phi i64 [ 1, %.thread334 ], [ %37, %147 ]
-  %.not319 = icmp eq i64 %35, 0
-  %148 = icmp ult i64 %35, 3
-  %149 = and i32 %72, 1024
-  %.not258 = icmp eq i32 %149, 0
-  %150 = getelementptr inbounds i8, ptr %39, i64 32
-  %151 = and i32 %72, 2130706444
-  %.not259 = icmp eq i32 %151, 0
-  %152 = and i32 %72, 512
-  %153 = icmp ne i32 %152, 0
-  %154 = and i32 %72, 8
-  %.not261 = icmp eq i32 %154, 0
+.preheader278.lr.ph:                              ; preds = %.thread331, %146
+  %.0224334 = phi i64 [ 1, %.thread331 ], [ %37, %146 ]
+  %.not316 = icmp eq i64 %35, 0
+  %147 = icmp ult i64 %35, 3
+  %148 = and i32 %72, 1024
+  %.not258 = icmp eq i32 %148, 0
+  %149 = getelementptr inbounds i8, ptr %39, i64 32
+  %150 = and i32 %72, 2130706444
+  %.not259 = icmp eq i32 %150, 0
+  %151 = and i32 %72, 512
+  %152 = icmp ne i32 %151, 0
+  %153 = and i32 %72, 8
+  %.not261 = icmp eq i32 %153, 0
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  %155 = getelementptr inbounds i8, ptr %4, i64 16
-  %156 = getelementptr inbounds i8, ptr %4, i64 24
-  br i1 %148, label %.preheader281.us, label %.preheader281.lr.ph.split
+  %154 = getelementptr inbounds i8, ptr %4, i64 16
+  %155 = getelementptr inbounds i8, ptr %4, i64 24
+  br i1 %147, label %.preheader278.us, label %.preheader278.lr.ph.split
 
-.preheader281.us:                                 ; preds = %.preheader281.lr.ph, %184
-  %.2284.us = phi i32 [ 0, %184 ], [ %.0220, %.preheader281.lr.ph ]
-  %.0223283.us = phi i64 [ %185, %184 ], [ 0, %.preheader281.lr.ph ]
-  br i1 %.not319, label %._crit_edge.us, label %.lr.ph.us
+.preheader278.us:                                 ; preds = %.preheader278.lr.ph, %183
+  %.2281.us = phi i32 [ 0, %183 ], [ %.0220, %.preheader278.lr.ph ]
+  %.0223280.us = phi i64 [ %184, %183 ], [ 0, %.preheader278.lr.ph ]
+  br i1 %.not316, label %._crit_edge.us, label %.lr.ph.us
 
-._crit_edge.us:                                   ; preds = %186, %.preheader281.us
-  %157 = icmp eq i64 %.0223283.us, 0
-  %or.cond3.us = and i1 %153, %157
-  br i1 %or.cond3.us, label %158, label %166
+._crit_edge.us:                                   ; preds = %185, %.preheader278.us
+  %156 = icmp eq i64 %.0223280.us, 0
+  %or.cond3.us = and i1 %152, %156
+  br i1 %or.cond3.us, label %157, label %165
 
-158:                                              ; preds = %._crit_edge.us
-  %159 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0227, i32 noundef 58) #30
-  %.not260.us = icmp eq ptr %159, null
-  br i1 %.not260.us, label %166, label %160
+157:                                              ; preds = %._crit_edge.us
+  %158 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0227, i32 noundef 58) #30
+  %.not260.us = icmp eq ptr %158, null
+  br i1 %.not260.us, label %165, label %159
 
-160:                                              ; preds = %158
-  %161 = call i32 @wedgedEllipse(ptr noundef %0, ptr noundef %39, ptr noundef %.0227) #26
-  %162 = icmp sgt i32 %161, 1
-  br i1 %162, label %163, label %166
+159:                                              ; preds = %157
+  %160 = call i32 @wedgedEllipse(ptr noundef %0, ptr noundef %39, ptr noundef %.0227) #26
+  %161 = icmp sgt i32 %160, 1
+  br i1 %161, label %162, label %165
 
-163:                                              ; preds = %160
-  %164 = call ptr @agnameof(ptr noundef %1) #26
-  %165 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.92, ptr noundef %164) #26
-  br label %166
+162:                                              ; preds = %159
+  %163 = call ptr @agnameof(ptr noundef %1) #26
+  %164 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.92, ptr noundef %163) #26
+  br label %165
 
-166:                                              ; preds = %163, %160, %158, %._crit_edge.us
-  %.3.us = phi i32 [ %.2284.us, %158 ], [ %.2284.us, %._crit_edge.us ], [ 0, %163 ], [ 0, %160 ]
+165:                                              ; preds = %162, %159, %157, %._crit_edge.us
+  %.3.us = phi i32 [ %.2281.us, %157 ], [ %.2281.us, %._crit_edge.us ], [ 0, %162 ], [ 0, %159 ]
   call void @gvrender_ellipse(ptr noundef %0, ptr noundef %39, i32 noundef %.3.us) #26
-  br i1 %.not261, label %184, label %167
+  br i1 %.not261, label %183, label %166
 
-167:                                              ; preds = %166
+166:                                              ; preds = %165
   %.val.us = load ptr, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %168 = getelementptr inbounds i8, ptr %.val.us, i64 96
-  %169 = load double, ptr %168, align 8
-  %170 = fmul double %169, 7.500000e-01
-  %171 = fmul double %170, 5.000000e-01
-  %172 = getelementptr inbounds i8, ptr %.val.us, i64 112
-  %173 = load double, ptr %172, align 8
-  %174 = fmul double %173, 6.614000e-01
-  %175 = getelementptr inbounds i8, ptr %.val.us, i64 32
-  %176 = load double, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %.val.us, i64 40
-  %178 = load double, ptr %177, align 8
-  %179 = fadd double %174, %176
-  %180 = fadd double %171, %178
-  store double %179, ptr %4, align 16
-  store double %180, ptr %.sroa.2.0..sroa_idx.i, align 8
-  store double %180, ptr %156, align 8
-  %181 = call double @llvm.fmuladd.f64(double %174, double -2.000000e+00, double %179)
-  store double %181, ptr %155, align 16
+  %167 = getelementptr inbounds i8, ptr %.val.us, i64 96
+  %168 = load double, ptr %167, align 8
+  %169 = fmul double %168, 7.500000e-01
+  %170 = fmul double %169, 5.000000e-01
+  %171 = getelementptr inbounds i8, ptr %.val.us, i64 112
+  %172 = load double, ptr %171, align 8
+  %173 = fmul double %172, 6.614000e-01
+  %174 = getelementptr inbounds i8, ptr %.val.us, i64 32
+  %175 = load double, ptr %174, align 8
+  %176 = getelementptr inbounds i8, ptr %.val.us, i64 40
+  %177 = load double, ptr %176, align 8
+  %178 = fadd double %173, %175
+  %179 = fadd double %170, %177
+  store double %178, ptr %4, align 16
+  store double %179, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store double %179, ptr %155, align 8
+  %180 = call double @llvm.fmuladd.f64(double %173, double -2.000000e+00, double %178)
+  store double %180, ptr %154, align 16
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 2) #26
-  %182 = load double, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %183 = call double @llvm.fmuladd.f64(double %171, double -2.000000e+00, double %182)
-  store double %183, ptr %.sroa.2.0..sroa_idx.i, align 8
-  store double %183, ptr %156, align 8
+  %181 = load double, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %182 = call double @llvm.fmuladd.f64(double %170, double -2.000000e+00, double %181)
+  store double %182, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store double %182, ptr %155, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 2) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  br label %184
+  br label %183
 
-184:                                              ; preds = %167, %166
-  %185 = add nuw i64 %.0223283.us, 1
-  %exitcond332.not = icmp eq i64 %185, %.0224337
-  br i1 %exitcond332.not, label %._crit_edge285, label %.preheader281.us
+183:                                              ; preds = %166, %165
+  %184 = add nuw i64 %.0223280.us, 1
+  %exitcond329.not = icmp eq i64 %184, %.0224334
+  br i1 %exitcond329.not, label %._crit_edge282, label %.preheader278.us
 
-186:                                              ; preds = %.lr.ph.us, %186
-  %.0222282.us = phi i64 [ 0, %.lr.ph.us ], [ %193, %186 ]
-  %gep.us = getelementptr %struct.pointf_s, ptr %invariant.gep.us, i64 %.0222282.us
+185:                                              ; preds = %.lr.ph.us, %185
+  %.0222279.us = phi i64 [ 0, %.lr.ph.us ], [ %192, %185 ]
+  %gep.us = getelementptr %struct.pointf_s, ptr %invariant.gep.us, i64 %.0222279.us
   %.sroa.0.0.copyload.us = load double, ptr %gep.us, align 8
   %.sroa.4.0..sroa_idx.us = getelementptr inbounds i8, ptr %gep.us, i64 8
   %.sroa.4.0.copyload.us = load double, ptr %.sroa.4.0..sroa_idx.us, align 8
-  %187 = load double, ptr %196, align 8
-  %188 = call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload.us, double %54, double %187)
-  %189 = getelementptr inbounds %struct.pointf_s, ptr %39, i64 %.0222282.us
-  store double %188, ptr %189, align 8
-  %190 = load double, ptr %197, align 8
-  %191 = call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload.us, double %60, double %190)
-  %192 = getelementptr inbounds i8, ptr %189, i64 8
-  store double %191, ptr %192, align 8
-  %193 = add nuw i64 %.0222282.us, 1
-  %exitcond331.not = icmp eq i64 %193, %35
-  br i1 %exitcond331.not, label %._crit_edge.us, label %186
+  %186 = load double, ptr %195, align 8
+  %187 = call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload.us, double %54, double %186)
+  %188 = getelementptr inbounds %struct.pointf_s, ptr %39, i64 %.0222279.us
+  store double %187, ptr %188, align 8
+  %189 = load double, ptr %196, align 8
+  %190 = call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload.us, double %60, double %189)
+  %191 = getelementptr inbounds i8, ptr %188, i64 8
+  store double %190, ptr %191, align 8
+  %192 = add nuw i64 %.0222279.us, 1
+  %exitcond328.not = icmp eq i64 %192, %35
+  br i1 %exitcond328.not, label %._crit_edge.us, label %185
 
-.lr.ph.us:                                        ; preds = %.preheader281.us
-  %194 = mul i64 %.0223283.us, %35
-  %invariant.gep.us = getelementptr %struct.pointf_s, ptr %33, i64 %194
-  %195 = load ptr, ptr %28, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 32
-  %197 = getelementptr inbounds i8, ptr %195, i64 40
-  br label %186
+.lr.ph.us:                                        ; preds = %.preheader278.us
+  %193 = mul i64 %.0223280.us, %35
+  %invariant.gep.us = getelementptr %struct.pointf_s, ptr %33, i64 %193
+  %194 = load ptr, ptr %28, align 8
+  %195 = getelementptr inbounds i8, ptr %194, i64 32
+  %196 = getelementptr inbounds i8, ptr %194, i64 40
+  br label %185
 
-.preheader281.lr.ph.split:                        ; preds = %.preheader281.lr.ph
-  %198 = and i32 %72, 64
-  %.not257 = icmp eq i32 %198, 0
-  br i1 %.not257, label %.preheader281.us288, label %.preheader281.us303
+.preheader278.lr.ph.split:                        ; preds = %.preheader278.lr.ph
+  %197 = and i32 %72, 64
+  %.not257 = icmp eq i32 %197, 0
+  br i1 %.not257, label %.preheader278.us285, label %.preheader278.us300
 
-.preheader281.us288:                              ; preds = %.preheader281.lr.ph.split, %203
-  %.2284.us289 = phi i32 [ 0, %203 ], [ %.0220, %.preheader281.lr.ph.split ]
-  %.0223283.us290 = phi i64 [ %204, %203 ], [ 0, %.preheader281.lr.ph.split ]
-  br i1 %.not319, label %._crit_edge.us298, label %.lr.ph.us296
+.preheader278.us285:                              ; preds = %.preheader278.lr.ph.split, %202
+  %.2281.us286 = phi i32 [ 0, %202 ], [ %.0220, %.preheader278.lr.ph.split ]
+  %.0223280.us287 = phi i64 [ %203, %202 ], [ 0, %.preheader278.lr.ph.split ]
+  br i1 %.not316, label %._crit_edge.us295, label %.lr.ph.us293
 
-._crit_edge.us298:                                ; preds = %205, %.preheader281.us288
-  br i1 %.not258, label %200, label %199
+._crit_edge.us295:                                ; preds = %204, %.preheader278.us285
+  br i1 %.not258, label %199, label %198
 
-199:                                              ; preds = %._crit_edge.us298
+198:                                              ; preds = %._crit_edge.us295
   call void @gvrender_set_pencolor(ptr noundef %0, ptr noundef nonnull @.str.91) #26
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef %39, i64 noundef %35, i32 noundef %.2284.us289) #26
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef %39, i64 noundef %35, i32 noundef %.2281.us286) #26
   call void @gvrender_set_pencolor(ptr noundef %0, ptr noundef %.0226) #26
-  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %150, i64 noundef 2) #26
-  br label %203
+  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %149, i64 noundef 2) #26
+  br label %202
 
-200:                                              ; preds = %._crit_edge.us298
-  br i1 %.not259, label %202, label %201
+199:                                              ; preds = %._crit_edge.us295
+  br i1 %.not259, label %201, label %200
 
-201:                                              ; preds = %200
-  call void @round_corners(ptr noundef %0, ptr noundef %39, i64 noundef %35, i32 noundef %72, i32 noundef %.2284.us289)
-  br label %203
+200:                                              ; preds = %199
+  call void @round_corners(ptr noundef %0, ptr noundef %39, i64 noundef %35, i32 noundef %72, i32 noundef %.2281.us286)
+  br label %202
 
-202:                                              ; preds = %200
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef %39, i64 noundef %35, i32 noundef %.2284.us289) #26
-  br label %203
+201:                                              ; preds = %199
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef %39, i64 noundef %35, i32 noundef %.2281.us286) #26
+  br label %202
 
-203:                                              ; preds = %202, %201, %199
-  %204 = add nuw i64 %.0223283.us290, 1
-  %exitcond330.not = icmp eq i64 %204, %.0224337
-  br i1 %exitcond330.not, label %._crit_edge285, label %.preheader281.us288
+202:                                              ; preds = %201, %200, %198
+  %203 = add nuw i64 %.0223280.us287, 1
+  %exitcond327.not = icmp eq i64 %203, %.0224334
+  br i1 %exitcond327.not, label %._crit_edge282, label %.preheader278.us285
 
-205:                                              ; preds = %.lr.ph.us296, %205
-  %.0222282.us291 = phi i64 [ 0, %.lr.ph.us296 ], [ %212, %205 ]
-  %gep.us292 = getelementptr %struct.pointf_s, ptr %invariant.gep.us297, i64 %.0222282.us291
-  %.sroa.0.0.copyload.us293 = load double, ptr %gep.us292, align 8
-  %.sroa.4.0..sroa_idx.us294 = getelementptr inbounds i8, ptr %gep.us292, i64 8
-  %.sroa.4.0.copyload.us295 = load double, ptr %.sroa.4.0..sroa_idx.us294, align 8
-  %206 = load double, ptr %215, align 8
-  %207 = call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload.us293, double %54, double %206)
-  %208 = getelementptr inbounds %struct.pointf_s, ptr %39, i64 %.0222282.us291
-  store double %207, ptr %208, align 8
-  %209 = load double, ptr %216, align 8
-  %210 = call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload.us295, double %60, double %209)
-  %211 = getelementptr inbounds i8, ptr %208, i64 8
-  store double %210, ptr %211, align 8
-  %212 = add nuw i64 %.0222282.us291, 1
-  %exitcond329.not = icmp eq i64 %212, %35
-  br i1 %exitcond329.not, label %._crit_edge.us298, label %205
+204:                                              ; preds = %.lr.ph.us293, %204
+  %.0222279.us288 = phi i64 [ 0, %.lr.ph.us293 ], [ %211, %204 ]
+  %gep.us289 = getelementptr %struct.pointf_s, ptr %invariant.gep.us294, i64 %.0222279.us288
+  %.sroa.0.0.copyload.us290 = load double, ptr %gep.us289, align 8
+  %.sroa.4.0..sroa_idx.us291 = getelementptr inbounds i8, ptr %gep.us289, i64 8
+  %.sroa.4.0.copyload.us292 = load double, ptr %.sroa.4.0..sroa_idx.us291, align 8
+  %205 = load double, ptr %214, align 8
+  %206 = call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload.us290, double %54, double %205)
+  %207 = getelementptr inbounds %struct.pointf_s, ptr %39, i64 %.0222279.us288
+  store double %206, ptr %207, align 8
+  %208 = load double, ptr %215, align 8
+  %209 = call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload.us292, double %60, double %208)
+  %210 = getelementptr inbounds i8, ptr %207, i64 8
+  store double %209, ptr %210, align 8
+  %211 = add nuw i64 %.0222279.us288, 1
+  %exitcond326.not = icmp eq i64 %211, %35
+  br i1 %exitcond326.not, label %._crit_edge.us295, label %204
 
-.lr.ph.us296:                                     ; preds = %.preheader281.us288
-  %213 = mul i64 %.0223283.us290, %35
-  %invariant.gep.us297 = getelementptr %struct.pointf_s, ptr %33, i64 %213
-  %214 = load ptr, ptr %28, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 32
-  %216 = getelementptr inbounds i8, ptr %214, i64 40
-  br label %205
+.lr.ph.us293:                                     ; preds = %.preheader278.us285
+  %212 = mul i64 %.0223280.us287, %35
+  %invariant.gep.us294 = getelementptr %struct.pointf_s, ptr %33, i64 %212
+  %213 = load ptr, ptr %28, align 8
+  %214 = getelementptr inbounds i8, ptr %213, i64 32
+  %215 = getelementptr inbounds i8, ptr %213, i64 40
+  br label %204
 
-.preheader281.us303:                              ; preds = %.preheader281.lr.ph.split, %227
-  %.0223283.us304 = phi i64 [ %228, %227 ], [ 0, %.preheader281.lr.ph.split ]
-  %217 = mul i64 %.0223283.us304, %35
-  %invariant.gep.us311 = getelementptr %struct.pointf_s, ptr %33, i64 %217
-  %218 = load ptr, ptr %28, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 32
-  %220 = getelementptr inbounds i8, ptr %218, i64 40
-  br label %229
+.preheader278.us300:                              ; preds = %.preheader278.lr.ph.split, %226
+  %.0223280.us301 = phi i64 [ %227, %226 ], [ 0, %.preheader278.lr.ph.split ]
+  %216 = mul i64 %.0223280.us301, %35
+  %invariant.gep.us308 = getelementptr %struct.pointf_s, ptr %33, i64 %216
+  %217 = load ptr, ptr %28, align 8
+  %218 = getelementptr inbounds i8, ptr %217, i64 32
+  %219 = getelementptr inbounds i8, ptr %217, i64 40
+  br label %228
 
-221:                                              ; preds = %._crit_edge.us312
-  %222 = call i32 @stripedBox(ptr noundef %0, ptr noundef nonnull %39, ptr noundef %.0227, i32 noundef 1) #26
-  %223 = icmp sgt i32 %222, 1
-  br i1 %223, label %224, label %227
+220:                                              ; preds = %._crit_edge.us309
+  %221 = call i32 @stripedBox(ptr noundef %0, ptr noundef nonnull %39, ptr noundef %.0227, i32 noundef 1) #26
+  %222 = icmp sgt i32 %221, 1
+  br i1 %222, label %223, label %226
 
-224:                                              ; preds = %221
-  %225 = call ptr @agnameof(ptr noundef %1) #26
-  %226 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.92, ptr noundef %225) #26
-  br label %227
+223:                                              ; preds = %220
+  %224 = call ptr @agnameof(ptr noundef %1) #26
+  %225 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.92, ptr noundef %224) #26
+  br label %226
 
-227:                                              ; preds = %224, %221, %._crit_edge.us312
+226:                                              ; preds = %223, %220, %._crit_edge.us309
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %39, i64 noundef %35, i32 noundef 0) #26
-  %228 = add nuw i64 %.0223283.us304, 1
-  %exitcond327.not = icmp eq i64 %228, %.0224337
-  br i1 %exitcond327.not, label %._crit_edge285, label %.preheader281.us303
+  %227 = add nuw i64 %.0223280.us301, 1
+  %exitcond324.not = icmp eq i64 %227, %.0224334
+  br i1 %exitcond324.not, label %._crit_edge282, label %.preheader278.us300
 
-229:                                              ; preds = %.preheader281.us303, %229
-  %.0222282.us305 = phi i64 [ 0, %.preheader281.us303 ], [ %236, %229 ]
-  %gep.us306 = getelementptr %struct.pointf_s, ptr %invariant.gep.us311, i64 %.0222282.us305
-  %.sroa.0.0.copyload.us307 = load double, ptr %gep.us306, align 8
-  %.sroa.4.0..sroa_idx.us308 = getelementptr inbounds i8, ptr %gep.us306, i64 8
-  %.sroa.4.0.copyload.us309 = load double, ptr %.sroa.4.0..sroa_idx.us308, align 8
-  %230 = load double, ptr %219, align 8
-  %231 = call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload.us307, double %54, double %230)
-  %232 = getelementptr inbounds %struct.pointf_s, ptr %39, i64 %.0222282.us305
-  store double %231, ptr %232, align 8
-  %233 = load double, ptr %220, align 8
-  %234 = call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload.us309, double %60, double %233)
-  %235 = getelementptr inbounds i8, ptr %232, i64 8
-  store double %234, ptr %235, align 8
-  %236 = add nuw i64 %.0222282.us305, 1
-  %exitcond.not = icmp eq i64 %236, %35
-  br i1 %exitcond.not, label %._crit_edge.us312, label %229
+228:                                              ; preds = %.preheader278.us300, %228
+  %.0222279.us302 = phi i64 [ 0, %.preheader278.us300 ], [ %235, %228 ]
+  %gep.us303 = getelementptr %struct.pointf_s, ptr %invariant.gep.us308, i64 %.0222279.us302
+  %.sroa.0.0.copyload.us304 = load double, ptr %gep.us303, align 8
+  %.sroa.4.0..sroa_idx.us305 = getelementptr inbounds i8, ptr %gep.us303, i64 8
+  %.sroa.4.0.copyload.us306 = load double, ptr %.sroa.4.0..sroa_idx.us305, align 8
+  %229 = load double, ptr %218, align 8
+  %230 = call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload.us304, double %54, double %229)
+  %231 = getelementptr inbounds %struct.pointf_s, ptr %39, i64 %.0222279.us302
+  store double %230, ptr %231, align 8
+  %232 = load double, ptr %219, align 8
+  %233 = call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload.us306, double %60, double %232)
+  %234 = getelementptr inbounds i8, ptr %231, i64 8
+  store double %233, ptr %234, align 8
+  %235 = add nuw i64 %.0222279.us302, 1
+  %exitcond.not = icmp eq i64 %235, %35
+  br i1 %exitcond.not, label %._crit_edge.us309, label %228
 
-._crit_edge.us312:                                ; preds = %229
-  %237 = icmp eq i64 %.0223283.us304, 0
-  br i1 %237, label %221, label %227
+._crit_edge.us309:                                ; preds = %228
+  %236 = icmp eq i64 %.0223280.us301, 0
+  br i1 %236, label %220, label %226
 
-._crit_edge285:                                   ; preds = %227, %203, %184, %147
-  %.not318339 = phi i1 [ true, %147 ], [ false, %184 ], [ false, %203 ], [ false, %227 ]
-  %.2.lcssa = phi i32 [ %.0220, %147 ], [ 0, %184 ], [ 0, %203 ], [ 0, %227 ]
-  %238 = load ptr, ptr %28, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 16
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 24
-  %242 = load i8, ptr %241, align 8
-  %243 = trunc i8 %242 to i1
-  br i1 %243, label %244, label %252
+._crit_edge282:                                   ; preds = %226, %202, %183, %146
+  %.not315336 = phi i1 [ true, %146 ], [ false, %183 ], [ false, %202 ], [ false, %226 ]
+  %.2.lcssa = phi i32 [ %.0220, %146 ], [ 0, %183 ], [ 0, %202 ], [ 0, %226 ]
+  %237 = load ptr, ptr %28, align 8
+  %238 = getelementptr inbounds i8, ptr %237, i64 16
+  %239 = load ptr, ptr %238, align 8
+  %240 = getelementptr inbounds i8, ptr %239, i64 24
+  %241 = load i8, ptr %240, align 8
+  %242 = trunc i8 %241 to i1
+  br i1 %242, label %243, label %251
 
-244:                                              ; preds = %._crit_edge285
-  %245 = load ptr, ptr %240, align 8
-  %246 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %245, ptr noundef nonnull readonly dereferenceable(7) @.str.2) #30
-  %247 = icmp eq i32 %246, 0
-  br i1 %247, label %248, label %.preheader
+243:                                              ; preds = %._crit_edge282
+  %244 = load ptr, ptr %239, align 8
+  %245 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %244, ptr noundef nonnull readonly dereferenceable(7) @.str.2) #30
+  %246 = icmp eq i32 %245, 0
+  br i1 %246, label %247, label %.preheader
 
-248:                                              ; preds = %244
-  %249 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str) #26
-  %.not249 = icmp eq ptr %249, null
-  br i1 %.not249, label %.thread270, label %250
+247:                                              ; preds = %243
+  %248 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str) #26
+  %.not249 = icmp eq ptr %248, null
+  br i1 %.not249, label %.thread270, label %249
 
-250:                                              ; preds = %248
-  %251 = load i8, ptr %249, align 1
-  %.not250.not = icmp eq i8 %251, 0
+249:                                              ; preds = %247
+  %250 = load i8, ptr %248, align 1
+  %.not250.not = icmp eq i8 %250, 0
   br i1 %.not250.not, label %.thread270, label %.preheader
 
-252:                                              ; preds = %._crit_edge285
-  %253 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.10) #26
-  %.not247 = icmp eq ptr %253, null
-  br i1 %.not247, label %.thread270, label %254
+251:                                              ; preds = %._crit_edge282
+  %252 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.10) #26
+  %.not247 = icmp eq ptr %252, null
+  br i1 %.not247, label %.thread270, label %253
 
-254:                                              ; preds = %252
-  %255 = load i8, ptr %253, align 1
-  %.not248.not = icmp eq i8 %255, 0
+253:                                              ; preds = %251
+  %254 = load i8, ptr %252, align 1
+  %.not248.not = icmp eq i8 %254, 0
   br i1 %.not248.not, label %.thread270, label %.preheader
 
-.preheader:                                       ; preds = %250, %254, %244
-  %.0225273.ph = phi ptr [ %245, %244 ], [ %253, %254 ], [ %249, %250 ]
-  %.not320 = icmp eq i64 %35, 0
-  br i1 %.not320, label %._crit_edge.thread, label %.lr.ph
+.preheader:                                       ; preds = %249, %253, %243
+  %.0225273.ph = phi ptr [ %244, %243 ], [ %252, %253 ], [ %248, %249 ]
+  %.not317 = icmp eq i64 %35, 0
+  br i1 %.not317, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %256 = load ptr, ptr %28, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 32
-  %258 = getelementptr inbounds i8, ptr %256, i64 40
-  br label %259
+  %255 = load ptr, ptr %28, align 8
+  %256 = getelementptr inbounds i8, ptr %255, i64 32
+  %257 = getelementptr inbounds i8, ptr %255, i64 40
+  br label %258
 
-259:                                              ; preds = %.lr.ph, %259
-  %.0317 = phi i64 [ 0, %.lr.ph ], [ %267, %259 ]
-  %260 = getelementptr inbounds %struct.pointf_s, ptr %33, i64 %.0317
-  %.sroa.0.0.copyload99 = load double, ptr %260, align 8
-  %.sroa.4.0..sroa_idx100 = getelementptr inbounds i8, ptr %260, i64 8
+258:                                              ; preds = %.lr.ph, %258
+  %.0314 = phi i64 [ 0, %.lr.ph ], [ %266, %258 ]
+  %259 = getelementptr inbounds %struct.pointf_s, ptr %33, i64 %.0314
+  %.sroa.0.0.copyload99 = load double, ptr %259, align 8
+  %.sroa.4.0..sroa_idx100 = getelementptr inbounds i8, ptr %259, i64 8
   %.sroa.4.0.copyload101 = load double, ptr %.sroa.4.0..sroa_idx100, align 8
-  %261 = load double, ptr %257, align 8
-  %262 = call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload99, double %54, double %261)
-  %263 = getelementptr inbounds %struct.pointf_s, ptr %39, i64 %.0317
-  store double %262, ptr %263, align 8
-  %264 = load double, ptr %258, align 8
-  %265 = call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload101, double %60, double %264)
-  %266 = getelementptr inbounds i8, ptr %263, i64 8
-  store double %265, ptr %266, align 8
-  %267 = add nuw i64 %.0317, 1
-  %exitcond333.not = icmp eq i64 %267, %35
-  br i1 %exitcond333.not, label %._crit_edge, label %259
+  %260 = load double, ptr %256, align 8
+  %261 = call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload99, double %54, double %260)
+  %262 = getelementptr inbounds %struct.pointf_s, ptr %39, i64 %.0314
+  store double %261, ptr %262, align 8
+  %263 = load double, ptr %257, align 8
+  %264 = call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload101, double %60, double %263)
+  %265 = getelementptr inbounds i8, ptr %262, i64 8
+  store double %264, ptr %265, align 8
+  %266 = add nuw i64 %.0314, 1
+  %exitcond330.not = icmp eq i64 %266, %35
+  br i1 %exitcond330.not, label %._crit_edge, label %258
 
-._crit_edge:                                      ; preds = %259
-  %.not251 = icmp ne i32 %.2.lcssa, 0
-  %brmerge265.not = select i1 %.not251, i1 %144, i1 false
-  %.mux266 = zext i1 %.not251 to i32
-  br i1 %brmerge265.not, label %268, label %314
+._crit_edge:                                      ; preds = %258
+  %.not251 = icmp eq i32 %.2.lcssa, 0
+  %brmerge265 = select i1 %.not251, i1 true, i1 %.not262
+  %not..not251 = xor i1 %.not251, true
+  %.mux266 = zext i1 %not..not251 to i32
+  br i1 %brmerge265, label %313, label %267
 
 ._crit_edge.thread:                               ; preds = %.preheader
-  %.not251340 = icmp ne i32 %.2.lcssa, 0
-  %brmerge265.not341 = select i1 %.not251340, i1 %144, i1 false
-  %.mux266342 = zext i1 %.not251340 to i32
-  br i1 %brmerge265.not341, label %.thread343, label %314
+  %.not251337 = icmp eq i32 %.2.lcssa, 0
+  %brmerge265338 = select i1 %.not251337, i1 true, i1 %.not262
+  %not..not251339 = xor i1 %.not251337, true
+  %.mux266340 = zext i1 %not..not251339 to i32
+  br i1 %brmerge265338, label %313, label %.thread341
 
-268:                                              ; preds = %._crit_edge
-  %269 = icmp ult i64 %35, 3
-  br i1 %269, label %.thread343, label %301
+267:                                              ; preds = %._crit_edge
+  %268 = icmp ult i64 %35, 3
+  br i1 %268, label %.thread341, label %300
 
-.thread343:                                       ; preds = %._crit_edge.thread, %268
-  %270 = and i32 %72, 512
-  %271 = icmp ne i32 %270, 0
-  %or.cond5 = and i1 %271, %.not318339
-  br i1 %or.cond5, label %272, label %280
+.thread341:                                       ; preds = %._crit_edge.thread, %267
+  %269 = and i32 %72, 512
+  %270 = icmp ne i32 %269, 0
+  %or.cond5 = and i1 %270, %.not315336
+  br i1 %or.cond5, label %271, label %279
 
-272:                                              ; preds = %.thread343
-  %273 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0227, i32 noundef 58) #30
-  %.not254 = icmp eq ptr %273, null
-  br i1 %.not254, label %280, label %274
+271:                                              ; preds = %.thread341
+  %272 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0227, i32 noundef 58) #30
+  %.not254 = icmp eq ptr %272, null
+  br i1 %.not254, label %279, label %273
 
-274:                                              ; preds = %272
-  %275 = call i32 @wedgedEllipse(ptr noundef %0, ptr noundef %39, ptr noundef %.0227) #26
-  %276 = icmp sgt i32 %275, 1
-  br i1 %276, label %277, label %280
+273:                                              ; preds = %271
+  %274 = call i32 @wedgedEllipse(ptr noundef %0, ptr noundef %39, ptr noundef %.0227) #26
+  %275 = icmp sgt i32 %274, 1
+  br i1 %275, label %276, label %279
 
-277:                                              ; preds = %274
-  %278 = call ptr @agnameof(ptr noundef nonnull %1) #26
-  %279 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.92, ptr noundef %278) #26
-  br label %280
+276:                                              ; preds = %273
+  %277 = call ptr @agnameof(ptr noundef nonnull %1) #26
+  %278 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.92, ptr noundef %277) #26
+  br label %279
 
-280:                                              ; preds = %274, %277, %272, %.thread343
-  %.5 = phi i32 [ %.2.lcssa, %272 ], [ %.2.lcssa, %.thread343 ], [ 0, %277 ], [ 0, %274 ]
+279:                                              ; preds = %273, %276, %271, %.thread341
+  %.5 = phi i32 [ %.2.lcssa, %271 ], [ %.2.lcssa, %.thread341 ], [ 0, %276 ], [ 0, %273 ]
   call void @gvrender_ellipse(ptr noundef %0, ptr noundef %39, i32 noundef %.5) #26
-  %281 = and i32 %72, 8
-  %.not255 = icmp eq i32 %281, 0
-  br i1 %.not255, label %314, label %282
+  %280 = and i32 %72, 8
+  %.not255 = icmp eq i32 %280, 0
+  br i1 %.not255, label %313, label %281
 
-282:                                              ; preds = %280
+281:                                              ; preds = %279
   %.val267 = load ptr, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %283 = getelementptr inbounds i8, ptr %.val267, i64 96
-  %284 = load double, ptr %283, align 8
-  %285 = fmul double %284, 7.500000e-01
-  %286 = fmul double %285, 5.000000e-01
-  %287 = getelementptr inbounds i8, ptr %.val267, i64 112
-  %288 = load double, ptr %287, align 8
-  %289 = fmul double %288, 6.614000e-01
-  %290 = getelementptr inbounds i8, ptr %.val267, i64 32
-  %291 = load double, ptr %290, align 8
-  %292 = getelementptr inbounds i8, ptr %.val267, i64 40
-  %293 = load double, ptr %292, align 8
-  %294 = fadd double %289, %291
-  %295 = fadd double %286, %293
-  store double %294, ptr %3, align 16
+  %282 = getelementptr inbounds i8, ptr %.val267, i64 96
+  %283 = load double, ptr %282, align 8
+  %284 = fmul double %283, 7.500000e-01
+  %285 = fmul double %284, 5.000000e-01
+  %286 = getelementptr inbounds i8, ptr %.val267, i64 112
+  %287 = load double, ptr %286, align 8
+  %288 = fmul double %287, 6.614000e-01
+  %289 = getelementptr inbounds i8, ptr %.val267, i64 32
+  %290 = load double, ptr %289, align 8
+  %291 = getelementptr inbounds i8, ptr %.val267, i64 40
+  %292 = load double, ptr %291, align 8
+  %293 = fadd double %288, %290
+  %294 = fadd double %285, %292
+  store double %293, ptr %3, align 16
   %.sroa.2.0..sroa_idx.i269 = getelementptr inbounds i8, ptr %3, i64 8
-  store double %295, ptr %.sroa.2.0..sroa_idx.i269, align 8
-  %296 = getelementptr inbounds i8, ptr %3, i64 16
-  %297 = getelementptr inbounds i8, ptr %3, i64 24
-  store double %295, ptr %297, align 8
-  %298 = call double @llvm.fmuladd.f64(double %289, double -2.000000e+00, double %294)
-  store double %298, ptr %296, align 16
+  store double %294, ptr %.sroa.2.0..sroa_idx.i269, align 8
+  %295 = getelementptr inbounds i8, ptr %3, i64 16
+  %296 = getelementptr inbounds i8, ptr %3, i64 24
+  store double %294, ptr %296, align 8
+  %297 = call double @llvm.fmuladd.f64(double %288, double -2.000000e+00, double %293)
+  store double %297, ptr %295, align 16
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 2) #26
-  %299 = load double, ptr %.sroa.2.0..sroa_idx.i269, align 8
-  %300 = call double @llvm.fmuladd.f64(double %286, double -2.000000e+00, double %299)
-  store double %300, ptr %.sroa.2.0..sroa_idx.i269, align 8
-  store double %300, ptr %297, align 8
+  %298 = load double, ptr %.sroa.2.0..sroa_idx.i269, align 8
+  %299 = call double @llvm.fmuladd.f64(double %285, double -2.000000e+00, double %298)
+  store double %299, ptr %.sroa.2.0..sroa_idx.i269, align 8
+  store double %299, ptr %296, align 8
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 2) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  br label %314
+  br label %313
 
-301:                                              ; preds = %268
-  %302 = and i32 %72, 64
-  %.not252 = icmp eq i32 %302, 0
-  br i1 %.not252, label %310, label %303
+300:                                              ; preds = %267
+  %301 = and i32 %72, 64
+  %.not252 = icmp eq i32 %301, 0
+  br i1 %.not252, label %309, label %302
 
-303:                                              ; preds = %301
-  %304 = call i32 @stripedBox(ptr noundef %0, ptr noundef nonnull %39, ptr noundef %.0227, i32 noundef 1) #26
-  %305 = icmp sgt i32 %304, 1
-  br i1 %305, label %306, label %309
+302:                                              ; preds = %300
+  %303 = call i32 @stripedBox(ptr noundef %0, ptr noundef nonnull %39, ptr noundef %.0227, i32 noundef 1) #26
+  %304 = icmp sgt i32 %303, 1
+  br i1 %304, label %305, label %308
 
-306:                                              ; preds = %303
-  %307 = call ptr @agnameof(ptr noundef nonnull %1) #26
-  %308 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.92, ptr noundef %307) #26
-  br label %309
+305:                                              ; preds = %302
+  %306 = call ptr @agnameof(ptr noundef nonnull %1) #26
+  %307 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.92, ptr noundef %306) #26
+  br label %308
 
-309:                                              ; preds = %306, %303
+308:                                              ; preds = %305, %302
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %39, i64 noundef %35, i32 noundef 0) #26
-  br label %314
+  br label %313
 
-310:                                              ; preds = %301
-  %311 = and i32 %72, 12
-  %.not253 = icmp eq i32 %311, 0
-  br i1 %.not253, label %313, label %312
+309:                                              ; preds = %300
+  %310 = and i32 %72, 12
+  %.not253 = icmp eq i32 %310, 0
+  br i1 %.not253, label %312, label %311
 
-312:                                              ; preds = %310
+311:                                              ; preds = %309
   call void @round_corners(ptr noundef %0, ptr noundef nonnull %39, i64 noundef %35, i32 noundef %72, i32 noundef %.2.lcssa)
-  br label %314
+  br label %313
 
-313:                                              ; preds = %310
+312:                                              ; preds = %309
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %39, i64 noundef %35, i32 noundef %.2.lcssa) #26
-  br label %314
+  br label %313
 
-314:                                              ; preds = %._crit_edge.thread, %._crit_edge, %282, %280, %312, %313, %309
-  %.4 = phi i32 [ %.5, %282 ], [ %.5, %280 ], [ 1, %309 ], [ 1, %312 ], [ 1, %313 ], [ %.mux266, %._crit_edge ], [ %.mux266342, %._crit_edge.thread ]
-  %315 = icmp ne i32 %.4, 0
-  %316 = load ptr, ptr @N_imagescale, align 8
-  %317 = call ptr @late_string(ptr noundef nonnull %1, ptr noundef %316, ptr noundef nonnull @.str.13) #26
-  %318 = load ptr, ptr @N_imagepos, align 8
-  %319 = call ptr @late_string(ptr noundef nonnull %1, ptr noundef %318, ptr noundef nonnull @.str.93) #26
-  call void @gvrender_usershape(ptr noundef %0, ptr noundef %.0225273.ph, ptr noundef %39, i64 noundef %35, i1 noundef zeroext %315, ptr noundef %317, ptr noundef %319) #26
+313:                                              ; preds = %._crit_edge.thread, %._crit_edge, %281, %279, %311, %312, %308
+  %.4 = phi i32 [ %.5, %281 ], [ %.5, %279 ], [ 1, %308 ], [ 1, %311 ], [ 1, %312 ], [ %.mux266, %._crit_edge ], [ %.mux266340, %._crit_edge.thread ]
+  %314 = icmp ne i32 %.4, 0
+  %315 = load ptr, ptr @N_imagescale, align 8
+  %316 = call ptr @late_string(ptr noundef nonnull %1, ptr noundef %315, ptr noundef nonnull @.str.13) #26
+  %317 = load ptr, ptr @N_imagepos, align 8
+  %318 = call ptr @late_string(ptr noundef nonnull %1, ptr noundef %317, ptr noundef nonnull @.str.93) #26
+  call void @gvrender_usershape(ptr noundef %0, ptr noundef %.0225273.ph, ptr noundef %39, i64 noundef %35, i1 noundef zeroext %314, ptr noundef %316, ptr noundef %318) #26
   br label %.thread270
 
-.thread270:                                       ; preds = %252, %248, %254, %250, %314
+.thread270:                                       ; preds = %251, %247, %253, %249, %313
   call void @free(ptr noundef %39) #26
-  %320 = load ptr, ptr %6, align 16
-  call void @free(ptr noundef %320) #26
-  %321 = load ptr, ptr %28, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 136
-  %323 = load ptr, ptr %322, align 8
-  call void @emit_label(ptr noundef %0, i32 noundef 10, ptr noundef %323) #26
-  br i1 %27, label %324, label %337
+  %319 = load ptr, ptr %6, align 16
+  call void @free(ptr noundef %319) #26
+  %320 = load ptr, ptr %28, align 8
+  %321 = getelementptr inbounds i8, ptr %320, i64 136
+  %322 = load ptr, ptr %321, align 8
+  call void @emit_label(ptr noundef %0, i32 noundef 10, ptr noundef %322) #26
+  br i1 %27, label %323, label %336
 
-324:                                              ; preds = %.thread270
-  %325 = getelementptr inbounds i8, ptr %0, i64 272
-  %326 = load i32, ptr %325, align 8
-  %327 = and i32 %326, 4
-  %.not256 = icmp eq i32 %327, 0
-  br i1 %.not256, label %336, label %328
+323:                                              ; preds = %.thread270
+  %324 = getelementptr inbounds i8, ptr %0, i64 272
+  %325 = load i32, ptr %324, align 8
+  %326 = and i32 %325, 4
+  %.not256 = icmp eq i32 %326, 0
+  br i1 %.not256, label %335, label %327
 
-328:                                              ; preds = %324
-  %329 = load ptr, ptr %10, align 8
-  %330 = getelementptr inbounds i8, ptr %9, i64 280
-  %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %9, i64 312
-  %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds i8, ptr %9, i64 248
-  %335 = load ptr, ptr %334, align 8
-  call void @gvrender_begin_anchor(ptr noundef nonnull %0, ptr noundef %329, ptr noundef %331, ptr noundef %333, ptr noundef %335) #26
+327:                                              ; preds = %323
+  %328 = load ptr, ptr %10, align 8
+  %329 = getelementptr inbounds i8, ptr %9, i64 280
+  %330 = load ptr, ptr %329, align 8
+  %331 = getelementptr inbounds i8, ptr %9, i64 312
+  %332 = load ptr, ptr %331, align 8
+  %333 = getelementptr inbounds i8, ptr %9, i64 248
+  %334 = load ptr, ptr %333, align 8
+  call void @gvrender_begin_anchor(ptr noundef nonnull %0, ptr noundef %328, ptr noundef %330, ptr noundef %332, ptr noundef %334) #26
+  br label %335
+
+335:                                              ; preds = %327, %323
+  call void @gvrender_end_anchor(ptr noundef nonnull %0) #26
   br label %336
 
-336:                                              ; preds = %328, %324
-  call void @gvrender_end_anchor(ptr noundef nonnull %0) #26
-  br label %337
-
-337:                                              ; preds = %336, %.thread270
+336:                                              ; preds = %335, %.thread270
   ret void
 }
 

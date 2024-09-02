@@ -2000,7 +2000,7 @@ unreachable:                                      ; preds = %invoke.cont115
 declare void @_ZN3ue216addLitExpressionERNS_2NGEjPKcjPK11hs_expr_extjm(ptr noundef nonnull align 8 dereferenceable(1104), i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @hs_compile(ptr noundef %expression, i32 noundef %flags, i32 noundef %mode, ptr noundef %platform, ptr noundef %db, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i32 -11, 1) i32 @hs_compile(ptr noundef %expression, i32 noundef %flags, i32 noundef %mode, ptr noundef %platform, ptr noundef %db, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %expression.addr = alloca ptr, align 8
   %flags.addr = alloca i32, align 4
@@ -2131,7 +2131,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @hs_compile_lit(ptr noundef %expression, i32 noundef %flags, i64 noundef %len, i32 noundef %mode, ptr noundef %platform, ptr noundef %db, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i32 -11, 1) i32 @hs_compile_lit(ptr noundef %expression, i32 noundef %flags, i64 noundef %len, i32 noundef %mode, ptr noundef %platform, ptr noundef %db, ptr noundef %error) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %expression.addr = alloca ptr, align 8
   %flags.addr = alloca i32, align 4

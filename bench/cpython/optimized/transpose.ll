@@ -371,9 +371,9 @@ for.body17.us88:                                  ; preds = %for.cond14.preheade
   %cmp20.us93 = icmp ult i64 %add18.us92, %div1552
   %sub22.us94 = sub nuw nsw i64 %div1552, %offset.084.us89
   %3 = shl i64 %sub22.us94, 3
-  %add.ptr24.us95 = getelementptr i64, ptr %add.ptr.us, i64 %offset.084.us89
-  %mul25.us96 = select i1 %cmp20.us93, i64 32768, i64 %3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %readbuf.082.us91, ptr align 8 %add.ptr24.us95, i64 %mul25.us96, i1 false)
+  %cond.us95 = select i1 %cmp20.us93, i64 32768, i64 %3
+  %add.ptr24.us96 = getelementptr i64, ptr %add.ptr.us, i64 %offset.084.us89
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %readbuf.082.us91, ptr align 8 %add.ptr24.us96, i64 %cond.us95, i1 false)
   %invariant.gep = getelementptr i64, ptr %matrix, i64 %offset.084.us89
   br label %while.body.us
 
@@ -383,8 +383,8 @@ while.body.us:                                    ; preds = %while.body.us, %for
   %writebuf.176.us = phi ptr [ %readbuf.082.us91, %for.body17.us88 ], [ %readbuf.175.us, %while.body.us ]
   %readbuf.175.us = phi ptr [ %writebuf.083.us90, %for.body17.us88 ], [ %writebuf.176.us, %while.body.us ]
   %gep = getelementptr i64, ptr %invariant.gep, i64 %4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %readbuf.175.us, ptr align 8 %gep, i64 %mul25.us96, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %gep, ptr align 8 %writebuf.176.us, i64 %mul25.us96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %readbuf.175.us, ptr align 8 %gep, i64 %cond.us95, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %gep, ptr align 8 %writebuf.176.us, i64 %cond.us95, i1 false)
   %rem35.us = and i64 %next.077.us, 63
   %arrayidx36.us = getelementptr [0 x i64], ptr @mpd_bits, i64 0, i64 %rem35.us
   %5 = load i64, ptr %arrayidx36.us, align 8
@@ -425,7 +425,7 @@ for.cond14.preheader.us:                          ; preds = %for.body.us
 while.cond.while.end_crit_edge.us:                ; preds = %while.body.us
   %hp.0.us = getelementptr i64, ptr %matrix, i64 %div2854.pn.us
   %add.ptr43.us97 = getelementptr i64, ptr %hp.0.us, i64 %offset.084.us89
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr43.us97, ptr align 8 %readbuf.175.us, i64 %mul25.us96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr43.us97, ptr align 8 %readbuf.175.us, i64 %cond.us95, i1 false)
   %9 = load i64, ptr %arrayidx.us, align 8
   %or49.us98 = or i64 %9, %2
   store i64 %or49.us98, ptr %arrayidx.us, align 8
@@ -439,11 +439,11 @@ for.body17.us.us:                                 ; preds = %for.cond14.preheade
   %cmp20.us.us = icmp ult i64 %add18.us.us, %div1552
   %sub22.us.us = sub nuw nsw i64 %div1552, %offset.084.us.us
   %10 = shl i64 %sub22.us.us, 3
+  %cond.us.us = select i1 %cmp20.us.us, i64 32768, i64 %10
   %add.ptr24.us.us = getelementptr i64, ptr %add.ptr.us, i64 %offset.084.us.us
-  %mul25.us.us = select i1 %cmp20.us.us, i64 32768, i64 %10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %readbuf.082.us.us, ptr align 8 %add.ptr24.us.us, i64 %mul25.us.us, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %readbuf.082.us.us, ptr align 8 %add.ptr24.us.us, i64 %cond.us.us, i1 false)
   %add.ptr43.us.us = getelementptr i64, ptr %hp.073.us, i64 %offset.084.us.us
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr43.us.us, ptr align 8 %add.ptr24.us.us, i64 %mul25.us.us, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr43.us.us, ptr align 8 %add.ptr24.us.us, i64 %cond.us.us, i1 false)
   %11 = load i64, ptr %arrayidx.us, align 8
   %or49.us.us = or i64 %11, %2
   store i64 %or49.us.us, ptr %arrayidx.us, align 8

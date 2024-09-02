@@ -1780,7 +1780,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8ciMethod15bci
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN8ciMethod14check_overflowEiN9Bytecodes4CodeE(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN8ciMethod14check_overflowEiN9Bytecodes4CodeE(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = tail call i32 @llvm.umin.i32(i32 %0, i32 2147483647)
   ret i32 %3
 }
@@ -1868,7 +1868,7 @@ _ZN8ciMethod4codeEv.exit.i:                       ; preds = %46, %34
   br label %_ZN8ciMethod16java_code_at_bciEi.exit
 
 _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv.exit.i, %51
-  %53 = tail call noundef i32 @llvm.umin.i32(i32 %.0.i, i32 2147483647)
+  %53 = tail call noundef range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i, i32 2147483647)
   %54 = load ptr, ptr %28, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 32
   %56 = load ptr, ptr %55, align 8

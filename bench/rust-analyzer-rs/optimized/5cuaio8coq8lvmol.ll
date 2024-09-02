@@ -28611,10 +28611,10 @@ define void @_ZN10hir_expand24map_node_range_up_rooted17h0ab8ce8b73ee4ed5E(ptr n
   %.sroa.870.4.copyload = load i32, ptr %.sroa.870.4..sroa.4.0..sroa_idx.i.le.i58.sroa_idx, align 4, !noalias !8175
   %.sroa.971.4..sroa.4.0..sroa_idx.i.le.i58.sroa_idx = getelementptr inbounds i8, ptr %22, i64 20
   %.sroa.971.4.copyload = load i32, ptr %.sroa.971.4..sroa.4.0..sroa_idx.i.le.i58.sroa_idx, align 4, !noalias !8175
-  %34 = icmp eq i32 %.sroa.870.4.copyload, %.sroa.8.4.copyload
-  %35 = icmp eq i32 %.sroa.971.4.copyload, %.sroa.9.4.copyload
-  %.049 = select i1 %34, i1 %35, i1 false
-  br i1 %.049, label %64, label %.loopexit116
+  %34 = icmp ne i32 %.sroa.870.4.copyload, %.sroa.8.4.copyload
+  %35 = icmp ne i32 %.sroa.971.4.copyload, %.sroa.9.4.copyload
+  %.049 = select i1 %34, i1 true, i1 %35
+  br i1 %.049, label %.loopexit116, label %64
 
 36:                                               ; preds = %.loopexit
   %37 = landingpad { ptr, i32 }
@@ -28734,27 +28734,27 @@ define void @_ZN10hir_expand17map_node_range_up17h285122e3321ce77fE(ptr noalias 
   %.sroa.6.0.copyload46 = load i32, ptr %.sroa.6.0..sroa_idx45, align 4, !noalias !8190
   %.sroa.5.0..sroa_idx43 = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.5.0.copyload44 = load i32, ptr %.sroa.5.0..sroa_idx43, align 4, !noalias !8190
-  %.sroa.048.087 = getelementptr inbounds i8, ptr %10, i64 24
-  %17 = icmp eq ptr %.sroa.048.087, %11
+  %.sroa.048.090 = getelementptr inbounds i8, ptr %10, i64 24
+  %17 = icmp eq ptr %.sroa.048.090, %11
   br i1 %17, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37.thread", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37": ; preds = %.preheader, %56
-  %.sroa.048.091 = phi ptr [ %.sroa.048.0, %56 ], [ %.sroa.048.087, %.preheader ]
-  %.090 = phi i32 [ %.0.sroa.speculated.i39, %56 ], [ %.sroa.6.0.copyload46, %.preheader ]
-  %.03289 = phi i32 [ %.0.sroa.speculated.i, %56 ], [ %.sroa.5.0.copyload44, %.preheader ]
-  %.sroa.048.0.pn88 = phi ptr [ %.sroa.048.091, %56 ], [ %10, %.preheader ]
-  %18 = getelementptr inbounds i8, ptr %.sroa.048.0.pn88, i64 28
+  %.sroa.048.094 = phi ptr [ %.sroa.048.0, %56 ], [ %.sroa.048.090, %.preheader ]
+  %.093 = phi i32 [ %.0.sroa.speculated.i39, %56 ], [ %.sroa.6.0.copyload46, %.preheader ]
+  %.03292 = phi i32 [ %.0.sroa.speculated.i, %56 ], [ %.sroa.5.0.copyload44, %.preheader ]
+  %.sroa.048.0.pn91 = phi ptr [ %.sroa.048.094, %56 ], [ %10, %.preheader ]
+  %18 = getelementptr inbounds i8, ptr %.sroa.048.0.pn91, i64 28
   %.sroa.050.0.copyload = load i32, ptr %18, align 4, !noalias !8193
-  %.sroa.751.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.048.0.pn88, i64 32
+  %.sroa.751.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.048.0.pn91, i64 32
   %.sroa.751.0.copyload = load i32, ptr %.sroa.751.0..sroa_idx, align 4, !noalias !8193
-  %.sroa.852.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.048.0.pn88, i64 36
+  %.sroa.852.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.048.0.pn91, i64 36
   %.sroa.852.0.copyload = load i32, ptr %.sroa.852.0..sroa_idx, align 4, !noalias !8193
   %19 = icmp eq i32 %.sroa.050.0.copyload, 0
   br i1 %19, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37.thread", label %25
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37.thread": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37", %56, %.preheader
-  %.032.lcssa = phi i32 [ %.sroa.5.0.copyload44, %.preheader ], [ %.0.sroa.speculated.i, %56 ], [ %.03289, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37" ]
-  %.0.lcssa = phi i32 [ %.sroa.6.0.copyload46, %.preheader ], [ %.0.sroa.speculated.i39, %56 ], [ %.090, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37" ]
+  %.032.lcssa = phi i32 [ %.sroa.5.0.copyload44, %.preheader ], [ %.0.sroa.speculated.i, %56 ], [ %.03292, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37" ]
+  %.0.lcssa = phi i32 [ %.sroa.6.0.copyload46, %.preheader ], [ %.0.sroa.speculated.i39, %56 ], [ %.093, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37" ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %20 = tail call noundef i32 @"_ZN74_$LT$span..HirFileId$u20$as$u20$core..convert..From$LT$vfs..FileId$GT$$GT$4from17h3b1d757002614e88E"(i32 noundef %.sroa.747.0.copyload)
@@ -28767,15 +28767,15 @@ define void @_ZN10hir_expand17map_node_range_up17h285122e3321ce77fE(ptr noalias 
           to label %35 unwind label %28
 
 25:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37"
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.048.0.pn88, i64 44
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.048.0.pn91, i64 44
   %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4, !noalias !8193
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.048.0.pn88, i64 40
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.048.0.pn91, i64 40
   %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 4, !noalias !8193
   %26 = icmp eq i32 %.sroa.9.0.copyload, %.sroa.747.0.copyload
   %27 = icmp eq i32 %.sroa.10.0.copyload, %.sroa.8.0.copyload
-  %.033 = select i1 %26, i1 %27, i1 false
+  %.033.not87 = select i1 %26, i1 %27, i1 false
   %.not = icmp eq i32 %.sroa.050.0.copyload, %.sroa.042.0.copyload
-  %or.cond = and i1 %.not, %.033
+  %or.cond = and i1 %.not, %.033.not87
   br i1 %or.cond, label %56, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit.thread"
 
 28:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37.thread"
@@ -28857,9 +28857,9 @@ define void @_ZN10hir_expand17map_node_range_up17h285122e3321ce77fE(ptr noalias 
   resume { ptr, i32 } %29
 
 56:                                               ; preds = %25
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %.03289, i32 %.sroa.751.0.copyload)
-  %.0.sroa.speculated.i39 = tail call noundef i32 @llvm.umax.i32(i32 %.090, i32 %.sroa.852.0.copyload)
-  %.sroa.048.0 = getelementptr inbounds i8, ptr %.sroa.048.091, i64 24
+  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %.03292, i32 %.sroa.751.0.copyload)
+  %.0.sroa.speculated.i39 = tail call noundef i32 @llvm.umax.i32(i32 %.093, i32 %.sroa.852.0.copyload)
+  %.sroa.048.0 = getelementptr inbounds i8, ptr %.sroa.048.094, i64 24
   %57 = icmp eq ptr %.sroa.048.0, %11
   br i1 %57, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37.thread", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc868463245d2103aE.exit37"
 }

@@ -655,11 +655,11 @@ invoke.cont45:                                    ; preds = %if.else.i
 
 invoke.cont45._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i_crit_edge: ; preds = %invoke.cont45
   %.pre17 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !52
+  %33 = icmp ult i64 %.pre17, 16
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %invoke.cont45._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i_crit_edge, %invoke.cont45.thread
-  %33 = phi i64 [ %.pre17, %invoke.cont45._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i_crit_edge ], [ 0, %invoke.cont45.thread ]
-  %cmp3.i.i.i.i = icmp ult i64 %33, 16
+  %cmp3.i.i.i.i = phi i1 [ %33, %invoke.cont45._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i_crit_edge ], [ true, %invoke.cont45.thread ]
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN4AreaD2Ev.exit
 

@@ -2779,7 +2779,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit287:          ; preds = %526, %_ZN2cv10AutoB
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN2cv18DISOpticalFlowImpl23autoSelectCoarsestScaleEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1560) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN2cv18DISOpticalFlowImpl23autoSelectCoarsestScaleEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1560) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = sitofp i32 %1 to float
   %4 = fmul float %3, 2.000000e+00
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2814,7 +2814,7 @@ define hidden void @_ZN2cv18DISOpticalFlowImpl28autoSelectPatchSizeAndScalesEi(p
   %11 = tail call noundef float @log2f(float noundef %10) #19
   %12 = tail call noundef float @llvm.floor.f32(float %11)
   %13 = fptosi float %12 to i32
-  %.sroa.speculated.i = tail call noundef i32 @llvm.smax.i32(i32 %13, i32 0)
+  %.sroa.speculated.i = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %13, i32 0)
   store i32 %.sroa.speculated.i, ptr %8, align 4
   %14 = tail call i32 @llvm.smax.i32(i32 %13, i32 2)
   %.sroa.speculated23 = add nsw i32 %14, -2
@@ -2826,7 +2826,7 @@ define hidden void @_ZN2cv18DISOpticalFlowImpl28autoSelectPatchSizeAndScalesEi(p
   %17 = tail call noundef float @log2f(float noundef %16) #19
   %18 = tail call noundef float @llvm.floor.f32(float %17)
   %19 = fptosi float %18 to i32
-  %.sroa.speculated.i4 = tail call noundef i32 @llvm.smax.i32(i32 %19, i32 0)
+  %.sroa.speculated.i4 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %19, i32 0)
   store i32 %.sroa.speculated.i4, ptr %8, align 4
   %20 = tail call i32 @llvm.smax.i32(i32 %19, i32 4)
   %.sroa.speculated18 = add nsw i32 %20, -4
@@ -2838,7 +2838,7 @@ define hidden void @_ZN2cv18DISOpticalFlowImpl28autoSelectPatchSizeAndScalesEi(p
   %23 = tail call noundef float @log2f(float noundef %22) #19
   %24 = tail call noundef float @llvm.floor.f32(float %23)
   %25 = fptosi float %24 to i32
-  %.sroa.speculated.i6 = tail call noundef i32 @llvm.smax.i32(i32 %25, i32 0)
+  %.sroa.speculated.i6 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %25, i32 0)
   store i32 %.sroa.speculated.i6, ptr %8, align 4
   %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 5)
   %.sroa.speculated13 = add nsw i32 %26, -5
@@ -2850,7 +2850,7 @@ define hidden void @_ZN2cv18DISOpticalFlowImpl28autoSelectPatchSizeAndScalesEi(p
   %29 = tail call noundef float @log2f(float noundef %28) #19
   %30 = tail call noundef float @llvm.floor.f32(float %29)
   %31 = fptosi float %30 to i32
-  %.sroa.speculated.i8 = tail call noundef i32 @llvm.smax.i32(i32 %31, i32 0)
+  %.sroa.speculated.i8 = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %31, i32 0)
   store i32 %.sroa.speculated.i8, ptr %8, align 4
   %32 = tail call i32 @llvm.smax.i32(i32 %31, i32 2)
   %.sroa.speculated = add nsw i32 %32, -2

@@ -72,7 +72,7 @@ _ZN9grpc_core14DualRefCountedI34grpc_authorization_policy_providerE5UnrefEv.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_114ProviderArgCmpEPvS0_(ptr noundef readnone %p, ptr noundef readnone %q) #3 {
+define internal noundef range(i32 -1, 2) i32 @_ZN12_GLOBAL__N_114ProviderArgCmpEPvS0_(ptr noundef readnone %p, ptr noundef readnone %q) #3 {
 entry:
   %cmp.i = icmp ult ptr %p, %q
   %cmp1.i = icmp ult ptr %q, %p

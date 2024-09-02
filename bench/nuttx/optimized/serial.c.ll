@@ -369,8 +369,8 @@ define internal i64 @uart_read(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %14, label %29, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %.not237 = icmp eq i64 %2, 0
-  br i1 %.not237, label %.loopexit.thread, label %.lr.ph.lr.ph.lr.ph
+  %.not245 = icmp eq i64 %2, 0
+  br i1 %.not245, label %.loopexit.thread, label %.lr.ph.lr.ph.lr.ph
 
 .lr.ph.lr.ph.lr.ph:                               ; preds = %.preheader
   %15 = getelementptr inbounds i8, ptr %11, i64 258
@@ -390,20 +390,20 @@ define internal i64 @uart_read(ptr nocapture noundef readonly %0, ptr nocapture 
   br label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %uart_putxmitchar.exit
-  %.073.ph.ph234 = phi i1 [ false, %.lr.ph.lr.ph.lr.ph ], [ %.174, %uart_putxmitchar.exit ]
-  %.075.ph.ph233 = phi i64 [ 0, %.lr.ph.lr.ph.lr.ph ], [ %.2, %uart_putxmitchar.exit ]
-  %.078.ph.ph232 = phi ptr [ %1, %.lr.ph.lr.ph.lr.ph ], [ %.179, %uart_putxmitchar.exit ]
+  %.073.ph.ph242 = phi i1 [ false, %.lr.ph.lr.ph.lr.ph ], [ %.174, %uart_putxmitchar.exit ]
+  %.075.ph.ph241 = phi i64 [ 0, %.lr.ph.lr.ph.lr.ph ], [ %.2, %uart_putxmitchar.exit ]
+  %.078.ph.ph240 = phi ptr [ %1, %.lr.ph.lr.ph.lr.ph ], [ %.179, %uart_putxmitchar.exit ]
   br label %.lr.ph
 
 29:                                               ; preds = %3
   %30 = sext i32 %13 to i64
-  br label %219
+  br label %223
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split.backedge
   %31 = load volatile i16, ptr %15, align 2
   %32 = load volatile i16, ptr %16, align 8
   %.not = icmp eq i16 %32, %31
-  br i1 %.not, label %170, label %33
+  br i1 %.not, label %174, label %33
 
 33:                                               ; preds = %.lr.ph.split
   %34 = load ptr, ptr %17, align 8
@@ -418,7 +418,7 @@ define internal i64 @uart_read(ptr nocapture noundef readonly %0, ptr nocapture 
   %40 = load i32, ptr %19, align 4
   %41 = and i32 %40, 448
   %.not88 = icmp eq i32 %41, 0
-  br i1 %.not88, label %.split170, label %42
+  br i1 %.not88, label %.split178, label %42
 
 42:                                               ; preds = %33
   %43 = icmp ne i8 %37, 10
@@ -429,29 +429,29 @@ define internal i64 @uart_read(ptr nocapture noundef readonly %0, ptr nocapture 
 
 45:                                               ; preds = %42
   %46 = icmp eq i8 %37, 13
-  br i1 %46, label %47, label %.split170
+  br i1 %46, label %47, label %.split178
 
 47:                                               ; preds = %45
   %48 = and i32 %40, 256
   %.not90 = icmp eq i32 %48, 0
-  br i1 %.not90, label %select.unfold, label %.split170
+  br i1 %.not90, label %select.unfold, label %.split178
 
 select.unfold:                                    ; preds = %47, %42
   %49 = and i32 %40, 128
   %.not91 = icmp eq i32 %49, 0
-  br i1 %.not91, label %.split170, label %.lr.ph.split.backedge
+  br i1 %.not91, label %.split178, label %.lr.ph.split.backedge
 
-.split170:                                        ; preds = %33, %select.unfold, %47, %45, %select.unfold.us.us, %75, %73, %.lr.ph217
-  %.us-phi = phi i8 [ 13, %select.unfold.us.us ], [ %66, %.lr.ph217 ], [ %66, %73 ], [ 10, %75 ], [ 13, %select.unfold ], [ %37, %33 ], [ %37, %45 ], [ 10, %47 ]
-  %50 = getelementptr inbounds i8, ptr %.078.ph223, i64 1
-  store i8 %.us-phi, ptr %.078.ph223, align 1
-  %51 = add i64 %.075.ph225, 1
+.split178:                                        ; preds = %33, %select.unfold, %47, %45, %select.unfold.us.us, %75, %73, %.lr.ph225
+  %.us-phi = phi i8 [ 13, %select.unfold.us.us ], [ %66, %.lr.ph225 ], [ %66, %73 ], [ 10, %75 ], [ 13, %select.unfold ], [ %37, %33 ], [ %37, %45 ], [ 10, %47 ]
+  %50 = getelementptr inbounds i8, ptr %.078.ph231, i64 1
+  store i8 %.us-phi, ptr %.078.ph231, align 1
+  %51 = add i64 %.075.ph233, 1
   %52 = load i32, ptr %21, align 4
   %53 = and i32 %52, 8
   %.not92 = icmp eq i32 %53, 0
   br i1 %.not92, label %uart_putxmitchar.exit, label %54
 
-54:                                               ; preds = %.split170
+54:                                               ; preds = %.split178
   %55 = icmp eq i8 %.us-phi, 27
   br i1 %55, label %.outer.backedge, label %78
 
@@ -459,46 +459,46 @@ select.unfold:                                    ; preds = %47, %42
   %storemerge = phi i8 [ %85, %84 ], [ 2, %54 ]
   store i8 %storemerge, ptr %22, align 1
   %56 = icmp ult i64 %51, %2
-  br i1 %56, label %.lr.ph, label %.loopexit.loopexit287.split.loop.exit320, !llvm.loop !11
+  br i1 %56, label %.lr.ph, label %.loopexit.loopexit295.split.loop.exit328, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
-  %.075.ph225 = phi i64 [ %.075.ph.ph233, %.lr.ph.lr.ph ], [ %51, %.outer.backedge ]
-  %.078.ph223 = phi ptr [ %.078.ph.ph232, %.lr.ph.lr.ph ], [ %50, %.outer.backedge ]
-  %57 = icmp sgt i64 %.075.ph225, 0
+  %.075.ph233 = phi i64 [ %.075.ph.ph241, %.lr.ph.lr.ph ], [ %51, %.outer.backedge ]
+  %.078.ph231 = phi ptr [ %.078.ph.ph240, %.lr.ph.lr.ph ], [ %50, %.outer.backedge ]
+  %57 = icmp sgt i64 %.075.ph233, 0
   br i1 %57, label %.lr.ph.split.us.split.us, label %.lr.ph.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   %58 = load volatile i16, ptr %15, align 2
   %59 = load volatile i16, ptr %16, align 8
-  %.not.us.us216 = icmp eq i16 %59, %58
-  br i1 %.not.us.us216, label %.loopexit, label %.lr.ph217.preheader
+  %.not.us.us224 = icmp eq i16 %59, %58
+  br i1 %.not.us.us224, label %.loopexit, label %.lr.ph225.preheader
 
-.lr.ph217.preheader:                              ; preds = %.lr.ph.split.us.split.us
+.lr.ph225.preheader:                              ; preds = %.lr.ph.split.us.split.us
   %.pre = load ptr, ptr %17, align 8
-  %.pre278 = load i16, ptr %18, align 4
-  br label %.lr.ph217
+  %.pre286 = load i16, ptr %18, align 4
+  br label %.lr.ph225
 
 60:                                               ; preds = %select.unfold.us.us
   %61 = load volatile i16, ptr %15, align 2
   %62 = load volatile i16, ptr %16, align 8
   %.not.us.us = icmp eq i16 %62, %61
-  br i1 %.not.us.us, label %.loopexit, label %.lr.ph217
+  br i1 %.not.us.us, label %.loopexit, label %.lr.ph225
 
-.lr.ph217:                                        ; preds = %.lr.ph217.preheader, %60
-  %63 = phi i16 [ %61, %60 ], [ %58, %.lr.ph217.preheader ]
+.lr.ph225:                                        ; preds = %.lr.ph225.preheader, %60
+  %63 = phi i16 [ %61, %60 ], [ %58, %.lr.ph225.preheader ]
   %64 = sext i16 %63 to i64
   %65 = getelementptr inbounds i8, ptr %.pre, i64 %64
   %66 = load i8, ptr %65, align 1
   %67 = add i16 %63, 1
-  %.not87.us.us = icmp slt i16 %67, %.pre278
+  %.not87.us.us = icmp slt i16 %67, %.pre286
   %spec.store.select.us.us = select i1 %.not87.us.us, i16 %67, i16 0
   store volatile i16 %spec.store.select.us.us, ptr %15, align 2
   %68 = load i32, ptr %19, align 4
   %69 = and i32 %68, 448
   %.not88.us.us = icmp eq i32 %69, 0
-  br i1 %.not88.us.us, label %.split170, label %70
+  br i1 %.not88.us.us, label %.split178, label %70
 
-70:                                               ; preds = %.lr.ph217
+70:                                               ; preds = %.lr.ph225
   %71 = icmp ne i8 %66, 10
   %72 = and i32 %68, 64
   %.not89.us.us = icmp eq i32 %72, 0
@@ -507,17 +507,17 @@ select.unfold:                                    ; preds = %47, %42
 
 73:                                               ; preds = %70
   %74 = icmp eq i8 %66, 13
-  br i1 %74, label %75, label %.split170
+  br i1 %74, label %75, label %.split178
 
 75:                                               ; preds = %73
   %76 = and i32 %68, 256
   %.not90.us.us = icmp eq i32 %76, 0
-  br i1 %.not90.us.us, label %select.unfold.us.us, label %.split170
+  br i1 %.not90.us.us, label %select.unfold.us.us, label %.split178
 
 select.unfold.us.us:                              ; preds = %75, %70
   %77 = and i32 %68, 128
   %.not91.us.us = icmp eq i32 %77, 0
-  br i1 %.not91.us.us, label %.split170, label %60
+  br i1 %.not91.us.us, label %.split178, label %60
 
 78:                                               ; preds = %54
   %79 = load i8, ptr %22, align 1
@@ -528,17 +528,17 @@ select.unfold.us.us:                              ; preds = %75, %70
 
 82:                                               ; preds = %78
   store i8 0, ptr %22, align 1
-  br label %.loopexit127
+  br label %.loopexit135
 
 83:                                               ; preds = %78
   %.not93 = icmp eq i8 %79, 0
-  br i1 %.not93, label %.loopexit127, label %84
+  br i1 %.not93, label %.loopexit135, label %84
 
 84:                                               ; preds = %83
   %85 = add i8 %79, -1
   br label %.outer.backedge
 
-.loopexit127:                                     ; preds = %83, %82
+.loopexit135:                                     ; preds = %83, %82
   %86 = zext i8 %.us-phi to i32
   %87 = call i32 @iscntrl(i32 noundef %86) #6
   %88 = icmp eq i32 %87, 0
@@ -546,7 +546,7 @@ select.unfold.us.us:                              ; preds = %75, %70
   %or.cond5 = select i1 %88, i1 true, i1 %89
   br i1 %or.cond5, label %90, label %uart_putxmitchar.exit
 
-90:                                               ; preds = %.loopexit127
+90:                                               ; preds = %.loopexit135
   %91 = load volatile i16, ptr %24, align 8
   %92 = sext i16 %91 to i32
   %93 = add nsw i32 %92, 1
@@ -554,299 +554,326 @@ select.unfold.us.us:                              ; preds = %75, %70
   %95 = sext i16 %94 to i32
   %.not.i96 = icmp slt i32 %93, %95
   %spec.store.select.i97 = select i1 %.not.i96, i32 %93, i32 0
-  br i1 %89, label %.split.us.i98, label %.split.us.i
-
-.split.us.i:                                      ; preds = %90, %up_irq_restore.exit.us.i
   %96 = load volatile i16, ptr %26, align 2
   %97 = sext i16 %96 to i32
-  %.not21.us.i = icmp eq i32 %spec.store.select.i97, %97
-  br i1 %.not21.us.i, label %98, label %.split24.us.i
+  %.not2125.i98 = icmp eq i32 %spec.store.select.i97, %97
+  br i1 %89, label %.split81, label %.split
 
-98:                                               ; preds = %.split.us.i
+.split:                                           ; preds = %90
+  br i1 %.not2125.i98, label %.lr.ph.split.i, label %._crit_edge.i
+
+.critedge.i:                                      ; preds = %.lr.ph.split.i
+  %98 = and i64 %105, 512
+  %.not.i.i = icmp eq i64 %98, 0
+  br i1 %.not.i.i, label %.backedge.i, label %99
+
+99:                                               ; preds = %.critedge.i
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  br label %.backedge.i
+
+._crit_edge.i:                                    ; preds = %.backedge.i, %.split
+  %100 = load ptr, ptr %28, align 8
+  %101 = load volatile i16, ptr %24, align 8
+  %102 = sext i16 %101 to i64
+  %103 = getelementptr inbounds i8, ptr %100, i64 %102
+  store i8 %.us-phi, ptr %103, align 1
+  %104 = trunc i32 %spec.store.select.i97 to i16
+  store volatile i16 %104, ptr %24, align 8
+  br label %uart_putxmitchar.exit
+
+.lr.ph.split.i:                                   ; preds = %.split, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #5, !srcloc !8
-  %99 = load i64, ptr %7, align 8
+  %105 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %100 = load volatile i16, ptr %26, align 2
-  %101 = sext i16 %100 to i32
-  %.not22.us.i = icmp eq i32 %spec.store.select.i97, %101
-  br i1 %.not22.us.i, label %102, label %110
+  %106 = load volatile i16, ptr %26, align 2
+  %107 = sext i16 %106 to i32
+  %.not22.i = icmp eq i32 %spec.store.select.i97, %107
+  br i1 %.not22.i, label %108, label %.critedge.i
 
-102:                                              ; preds = %98
-  %103 = load ptr, ptr %20, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 72
-  %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull %11, i1 noundef zeroext true) #5
-  %106 = call i32 @nxsem_wait(ptr noundef nonnull %27) #5
-  %107 = load ptr, ptr %20, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 72
-  %109 = load ptr, ptr %108, align 8
-  call void %109(ptr noundef nonnull %11, i1 noundef zeroext false) #5
-  br label %110
+108:                                              ; preds = %.lr.ph.split.i
+  %109 = load ptr, ptr %20, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 72
+  %111 = load ptr, ptr %110, align 8
+  call void %111(ptr noundef nonnull %11, i1 noundef zeroext true) #5
+  %112 = call i32 @nxsem_wait(ptr noundef nonnull %27) #5
+  %113 = load ptr, ptr %20, align 8
+  %114 = getelementptr inbounds i8, ptr %113, i64 72
+  %115 = load ptr, ptr %114, align 8
+  call void %115(ptr noundef nonnull %11, i1 noundef zeroext false) #5
+  %116 = icmp slt i32 %112, 0
+  %117 = and i64 %105, 512
+  %.not.i23.i = icmp eq i64 %117, 0
+  br i1 %.not.i23.i, label %up_irq_restore.exit24.i, label %118
 
-110:                                              ; preds = %102, %98
-  %.0.us.i = phi i32 [ %106, %102 ], [ 0, %98 ]
-  %111 = and i64 %99, 512
-  %.not.i.us.i = icmp eq i64 %111, 0
-  br i1 %.not.i.us.i, label %up_irq_restore.exit.us.i, label %112
-
-112:                                              ; preds = %110
+118:                                              ; preds = %108
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit.us.i
+  br label %up_irq_restore.exit24.i
 
-up_irq_restore.exit.us.i:                         ; preds = %112, %110
-  %113 = icmp slt i32 %.0.us.i, 0
-  br i1 %113, label %uart_putxmitchar.exit, label %.split.us.i
+up_irq_restore.exit24.i:                          ; preds = %118, %108
+  br i1 %116, label %uart_putxmitchar.exit, label %.backedge.i
 
-.split24.us.i:                                    ; preds = %.split.us.i
-  %114 = load ptr, ptr %28, align 8
-  %115 = load volatile i16, ptr %24, align 8
-  %116 = sext i16 %115 to i64
-  %117 = getelementptr inbounds i8, ptr %114, i64 %116
-  store i8 %.us-phi, ptr %117, align 1
-  %118 = trunc i32 %spec.store.select.i97 to i16
-  store volatile i16 %118, ptr %24, align 8
-  br label %uart_putxmitchar.exit
-
-.split.us.i98:                                    ; preds = %90, %up_irq_restore.exit.us.i105
+.backedge.i:                                      ; preds = %up_irq_restore.exit24.i, %99, %.critedge.i
   %119 = load volatile i16, ptr %26, align 2
   %120 = sext i16 %119 to i32
-  %.not21.us.i99 = icmp eq i32 %spec.store.select.i97, %120
-  br i1 %.not21.us.i99, label %121, label %.split24.us.i100
+  %.not21.i = icmp eq i32 %spec.store.select.i97, %120
+  br i1 %.not21.i, label %.lr.ph.split.i, label %._crit_edge.i
 
-121:                                              ; preds = %.split.us.i98
+.split81:                                         ; preds = %90
+  br i1 %.not2125.i98, label %.lr.ph.split.i102, label %._crit_edge.i99
+
+.critedge.i104:                                   ; preds = %.lr.ph.split.i102
+  %121 = and i64 %128, 512
+  %.not.i.i105 = icmp eq i64 %121, 0
+  br i1 %.not.i.i105, label %.backedge.i106, label %122
+
+122:                                              ; preds = %.critedge.i104
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  br label %.backedge.i106
+
+._crit_edge.i99:                                  ; preds = %.backedge.i106, %.split81
+  %123 = load ptr, ptr %28, align 8
+  %124 = load volatile i16, ptr %24, align 8
+  %125 = sext i16 %124 to i64
+  %126 = getelementptr inbounds i8, ptr %123, i64 %125
+  store i8 13, ptr %126, align 1
+  %127 = trunc i32 %spec.store.select.i97 to i16
+  store volatile i16 %127, ptr %24, align 8
+  br label %uart_putxmitchar.exit110
+
+.lr.ph.split.i102:                                ; preds = %.split81, %.backedge.i106
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #5, !srcloc !8
-  %122 = load i64, ptr %6, align 8
+  %128 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %123 = load volatile i16, ptr %26, align 2
-  %124 = sext i16 %123 to i32
-  %.not22.us.i102 = icmp eq i32 %spec.store.select.i97, %124
-  br i1 %.not22.us.i102, label %125, label %133
+  %129 = load volatile i16, ptr %26, align 2
+  %130 = sext i16 %129 to i32
+  %.not22.i103 = icmp eq i32 %spec.store.select.i97, %130
+  br i1 %.not22.i103, label %131, label %.critedge.i104
 
-125:                                              ; preds = %121
-  %126 = load ptr, ptr %20, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 72
-  %128 = load ptr, ptr %127, align 8
-  call void %128(ptr noundef nonnull %11, i1 noundef zeroext true) #5
-  %129 = call i32 @nxsem_wait(ptr noundef nonnull %27) #5
-  %130 = load ptr, ptr %20, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 72
-  %132 = load ptr, ptr %131, align 8
-  call void %132(ptr noundef nonnull %11, i1 noundef zeroext false) #5
-  br label %133
+131:                                              ; preds = %.lr.ph.split.i102
+  %132 = load ptr, ptr %20, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 72
+  %134 = load ptr, ptr %133, align 8
+  call void %134(ptr noundef nonnull %11, i1 noundef zeroext true) #5
+  %135 = call i32 @nxsem_wait(ptr noundef nonnull %27) #5
+  %136 = load ptr, ptr %20, align 8
+  %137 = getelementptr inbounds i8, ptr %136, i64 72
+  %138 = load ptr, ptr %137, align 8
+  call void %138(ptr noundef nonnull %11, i1 noundef zeroext false) #5
+  %139 = icmp slt i32 %135, 0
+  %140 = and i64 %128, 512
+  %.not.i23.i108 = icmp eq i64 %140, 0
+  br i1 %.not.i23.i108, label %up_irq_restore.exit24.i109, label %141
 
-133:                                              ; preds = %125, %121
-  %.0.us.i103 = phi i32 [ %129, %125 ], [ 0, %121 ]
-  %134 = and i64 %122, 512
-  %.not.i.us.i104 = icmp eq i64 %134, 0
-  br i1 %.not.i.us.i104, label %up_irq_restore.exit.us.i105, label %135
-
-135:                                              ; preds = %133
+141:                                              ; preds = %131
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit.us.i105
+  br label %up_irq_restore.exit24.i109
 
-up_irq_restore.exit.us.i105:                      ; preds = %135, %133
-  %136 = icmp slt i32 %.0.us.i103, 0
-  br i1 %136, label %uart_putxmitchar.exit106, label %.split.us.i98
+up_irq_restore.exit24.i109:                       ; preds = %141, %131
+  br i1 %139, label %uart_putxmitchar.exit110, label %.backedge.i106
 
-.split24.us.i100:                                 ; preds = %.split.us.i98
-  %137 = load ptr, ptr %28, align 8
-  %138 = load volatile i16, ptr %24, align 8
-  %139 = sext i16 %138 to i64
-  %140 = getelementptr inbounds i8, ptr %137, i64 %139
-  store i8 13, ptr %140, align 1
-  %141 = trunc i32 %spec.store.select.i97 to i16
-  store volatile i16 %141, ptr %24, align 8
-  br label %uart_putxmitchar.exit106
-
-uart_putxmitchar.exit106:                         ; preds = %up_irq_restore.exit.us.i105, %.split24.us.i100
-  %142 = load volatile i16, ptr %24, align 8
+.backedge.i106:                                   ; preds = %up_irq_restore.exit24.i109, %122, %.critedge.i104
+  %142 = load volatile i16, ptr %26, align 2
   %143 = sext i16 %142 to i32
-  %144 = add nsw i32 %143, 1
-  %145 = load i16, ptr %25, align 4
-  %146 = sext i16 %145 to i32
-  %.not.i107 = icmp slt i32 %144, %146
-  %spec.store.select.i108 = select i1 %.not.i107, i32 %144, i32 0
-  br label %.split.us.i109
+  %.not21.i107 = icmp eq i32 %spec.store.select.i97, %143
+  br i1 %.not21.i107, label %.lr.ph.split.i102, label %._crit_edge.i99
 
-.split.us.i109:                                   ; preds = %up_irq_restore.exit.us.i116, %uart_putxmitchar.exit106
-  %147 = load volatile i16, ptr %26, align 2
+uart_putxmitchar.exit110:                         ; preds = %up_irq_restore.exit24.i109, %._crit_edge.i99
+  %144 = load volatile i16, ptr %24, align 8
+  %145 = sext i16 %144 to i32
+  %146 = add nsw i32 %145, 1
+  %147 = load i16, ptr %25, align 4
   %148 = sext i16 %147 to i32
-  %.not21.us.i110 = icmp eq i32 %spec.store.select.i108, %148
-  br i1 %.not21.us.i110, label %149, label %.split24.us.i111
+  %.not.i111 = icmp slt i32 %146, %148
+  %spec.store.select.i112 = select i1 %.not.i111, i32 %146, i32 0
+  %149 = load volatile i16, ptr %26, align 2
+  %150 = sext i16 %149 to i32
+  %.not2125.i113 = icmp eq i32 %spec.store.select.i112, %150
+  br i1 %.not2125.i113, label %.lr.ph.split.i117, label %._crit_edge.i114
 
-149:                                              ; preds = %.split.us.i109
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !8
-  %150 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %151 = load volatile i16, ptr %26, align 2
-  %152 = sext i16 %151 to i32
-  %.not22.us.i113 = icmp eq i32 %spec.store.select.i108, %152
-  br i1 %.not22.us.i113, label %153, label %161
+.critedge.i119:                                   ; preds = %.lr.ph.split.i117
+  %151 = and i64 %158, 512
+  %.not.i.i120 = icmp eq i64 %151, 0
+  br i1 %.not.i.i120, label %.backedge.i121, label %152
 
-153:                                              ; preds = %149
-  %154 = load ptr, ptr %20, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 72
-  %156 = load ptr, ptr %155, align 8
-  call void %156(ptr noundef nonnull %11, i1 noundef zeroext true) #5
-  %157 = call i32 @nxsem_wait(ptr noundef nonnull %27) #5
-  %158 = load ptr, ptr %20, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 72
-  %160 = load ptr, ptr %159, align 8
-  call void %160(ptr noundef nonnull %11, i1 noundef zeroext false) #5
-  br label %161
-
-161:                                              ; preds = %153, %149
-  %.0.us.i114 = phi i32 [ %157, %153 ], [ 0, %149 ]
-  %162 = and i64 %150, 512
-  %.not.i.us.i115 = icmp eq i64 %162, 0
-  br i1 %.not.i.us.i115, label %up_irq_restore.exit.us.i116, label %163
-
-163:                                              ; preds = %161
+152:                                              ; preds = %.critedge.i119
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit.us.i116
+  br label %.backedge.i121
 
-up_irq_restore.exit.us.i116:                      ; preds = %163, %161
-  %164 = icmp slt i32 %.0.us.i114, 0
-  br i1 %164, label %uart_putxmitchar.exit, label %.split.us.i109
-
-.split24.us.i111:                                 ; preds = %.split.us.i109
-  %165 = load ptr, ptr %28, align 8
-  %166 = load volatile i16, ptr %24, align 8
-  %167 = sext i16 %166 to i64
-  %168 = getelementptr inbounds i8, ptr %165, i64 %167
-  store i8 10, ptr %168, align 1
-  %169 = trunc i32 %spec.store.select.i108 to i16
-  store volatile i16 %169, ptr %24, align 8
+._crit_edge.i114:                                 ; preds = %.backedge.i121, %uart_putxmitchar.exit110
+  %153 = load ptr, ptr %28, align 8
+  %154 = load volatile i16, ptr %24, align 8
+  %155 = sext i16 %154 to i64
+  %156 = getelementptr inbounds i8, ptr %153, i64 %155
+  store i8 10, ptr %156, align 1
+  %157 = trunc i32 %spec.store.select.i112 to i16
+  store volatile i16 %157, ptr %24, align 8
   br label %uart_putxmitchar.exit
 
-170:                                              ; preds = %.lr.ph.split
-  %171 = load ptr, ptr %8, align 8
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %.loopexit, label %173
+.lr.ph.split.i117:                                ; preds = %uart_putxmitchar.exit110, %.backedge.i121
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !8
+  %158 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
+  %159 = load volatile i16, ptr %26, align 2
+  %160 = sext i16 %159 to i32
+  %.not22.i118 = icmp eq i32 %spec.store.select.i112, %160
+  br i1 %.not22.i118, label %161, label %.critedge.i119
 
-173:                                              ; preds = %170
-  %174 = load i32, ptr %0, align 8
-  %175 = and i32 %174, 64
-  %.not85 = icmp eq i32 %175, 0
-  br i1 %.not85, label %176, label %.loopexit
+161:                                              ; preds = %.lr.ph.split.i117
+  %162 = load ptr, ptr %20, align 8
+  %163 = getelementptr inbounds i8, ptr %162, i64 72
+  %164 = load ptr, ptr %163, align 8
+  call void %164(ptr noundef nonnull %11, i1 noundef zeroext true) #5
+  %165 = call i32 @nxsem_wait(ptr noundef nonnull %27) #5
+  %166 = load ptr, ptr %20, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i64 72
+  %168 = load ptr, ptr %167, align 8
+  call void %168(ptr noundef nonnull %11, i1 noundef zeroext false) #5
+  %169 = icmp slt i32 %165, 0
+  %170 = and i64 %158, 512
+  %.not.i23.i123 = icmp eq i64 %170, 0
+  br i1 %.not.i23.i123, label %up_irq_restore.exit24.i124, label %171
 
-176:                                              ; preds = %173
+171:                                              ; preds = %161
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  br label %up_irq_restore.exit24.i124
+
+up_irq_restore.exit24.i124:                       ; preds = %171, %161
+  br i1 %169, label %uart_putxmitchar.exit, label %.backedge.i121
+
+.backedge.i121:                                   ; preds = %up_irq_restore.exit24.i124, %152, %.critedge.i119
+  %172 = load volatile i16, ptr %26, align 2
+  %173 = sext i16 %172 to i32
+  %.not21.i122 = icmp eq i32 %spec.store.select.i112, %173
+  br i1 %.not21.i122, label %.lr.ph.split.i117, label %._crit_edge.i114
+
+174:                                              ; preds = %.lr.ph.split
+  %175 = load ptr, ptr %8, align 8
+  %176 = icmp eq ptr %175, null
+  br i1 %176, label %.loopexit, label %177
+
+177:                                              ; preds = %174
+  %178 = load i32, ptr %0, align 8
+  %179 = and i32 %178, 64
+  %.not85 = icmp eq i32 %179, 0
+  br i1 %.not85, label %180, label %.loopexit
+
+180:                                              ; preds = %177
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #5, !srcloc !8
-  %177 = load i64, ptr %4, align 8
+  %181 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %178 = load ptr, ptr %20, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 48
-  %180 = load ptr, ptr %179, align 8
-  call void %180(ptr noundef nonnull %11, i1 noundef zeroext false) #5
-  %181 = load volatile i16, ptr %16, align 8
-  %182 = load volatile i16, ptr %15, align 2
-  %183 = icmp eq i16 %181, %182
-  br i1 %183, label %184, label %201
+  %182 = load ptr, ptr %20, align 8
+  %183 = getelementptr inbounds i8, ptr %182, i64 48
+  %184 = load ptr, ptr %183, align 8
+  call void %184(ptr noundef nonnull %11, i1 noundef zeroext false) #5
+  %185 = load volatile i16, ptr %16, align 8
+  %186 = load volatile i16, ptr %15, align 2
+  %187 = icmp eq i16 %185, %186
+  br i1 %187, label %188, label %205
 
-184:                                              ; preds = %176
-  %185 = load ptr, ptr %20, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 48
-  %187 = load ptr, ptr %186, align 8
-  call void %187(ptr noundef nonnull %11, i1 noundef zeroext true) #5
-  %188 = load volatile i16, ptr %16, align 8
-  %189 = load volatile i16, ptr %15, align 2
-  %.not86 = icmp eq i16 %188, %189
-  br i1 %.not86, label %193, label %190
+188:                                              ; preds = %180
+  %189 = load ptr, ptr %20, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 48
+  %191 = load ptr, ptr %190, align 8
+  call void %191(ptr noundef nonnull %11, i1 noundef zeroext true) #5
+  %192 = load volatile i16, ptr %16, align 8
+  %193 = load volatile i16, ptr %15, align 2
+  %.not86 = icmp eq i16 %192, %193
+  br i1 %.not86, label %197, label %194
 
-190:                                              ; preds = %184
-  %191 = and i64 %177, 512
-  %.not.i118 = icmp eq i64 %191, 0
-  br i1 %.not.i118, label %.lr.ph.split.backedge, label %192
+194:                                              ; preds = %188
+  %195 = and i64 %181, 512
+  %.not.i126 = icmp eq i64 %195, 0
+  br i1 %.not.i126, label %.lr.ph.split.backedge, label %196
 
-192:                                              ; preds = %190
+196:                                              ; preds = %194
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %.lr.ph.split.backedge
 
-.lr.ph.split.backedge:                            ; preds = %192, %190, %select.unfold
+.lr.ph.split.backedge:                            ; preds = %196, %194, %select.unfold
   br label %.lr.ph.split
 
-193:                                              ; preds = %184
-  %194 = call i32 @nxsem_wait(ptr noundef nonnull %23) #5
-  %195 = and i64 %177, 512
-  %.not.i119 = icmp eq i64 %195, 0
-  br i1 %.not.i119, label %up_irq_restore.exit120, label %196
+197:                                              ; preds = %188
+  %198 = call i32 @nxsem_wait(ptr noundef nonnull %23) #5
+  %199 = and i64 %181, 512
+  %.not.i127 = icmp eq i64 %199, 0
+  br i1 %.not.i127, label %up_irq_restore.exit128, label %200
 
-196:                                              ; preds = %193
+200:                                              ; preds = %197
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit120
+  br label %up_irq_restore.exit128
 
-up_irq_restore.exit120:                           ; preds = %193, %196
-  %197 = icmp slt i32 %194, 0
-  br i1 %197, label %198, label %uart_putxmitchar.exit
+up_irq_restore.exit128:                           ; preds = %197, %200
+  %201 = icmp slt i32 %198, 0
+  br i1 %201, label %202, label %uart_putxmitchar.exit
 
-198:                                              ; preds = %up_irq_restore.exit120
-  %199 = icmp eq i64 %.075.ph225, 0
-  %200 = sext i32 %194 to i64
-  %spec.select95 = select i1 %199, i64 %200, i64 %.075.ph225
-  br i1 %.073.ph.ph234, label %209, label %.loopexit.thread
+202:                                              ; preds = %up_irq_restore.exit128
+  %203 = icmp eq i64 %.075.ph233, 0
+  %204 = sext i32 %198 to i64
+  %spec.select95 = select i1 %203, i64 %204, i64 %.075.ph233
+  br i1 %.073.ph.ph242, label %213, label %.loopexit.thread
 
-201:                                              ; preds = %176
-  %202 = and i64 %177, 512
-  %.not.i121 = icmp eq i64 %202, 0
-  br i1 %.not.i121, label %up_irq_restore.exit122, label %203
+205:                                              ; preds = %180
+  %206 = and i64 %181, 512
+  %.not.i129 = icmp eq i64 %206, 0
+  br i1 %.not.i129, label %up_irq_restore.exit130, label %207
 
-203:                                              ; preds = %201
+207:                                              ; preds = %205
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit122
+  br label %up_irq_restore.exit130
 
-up_irq_restore.exit122:                           ; preds = %201, %203
-  %204 = load ptr, ptr %20, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 48
-  %206 = load ptr, ptr %205, align 8
-  call void %206(ptr noundef nonnull %11, i1 noundef zeroext true) #5
+up_irq_restore.exit130:                           ; preds = %205, %207
+  %208 = load ptr, ptr %20, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 48
+  %210 = load ptr, ptr %209, align 8
+  call void %210(ptr noundef nonnull %11, i1 noundef zeroext true) #5
   br label %uart_putxmitchar.exit
 
-uart_putxmitchar.exit:                            ; preds = %.split170, %up_irq_restore.exit.us.i, %up_irq_restore.exit.us.i116, %.split24.us.i111, %.split24.us.i, %up_irq_restore.exit120, %up_irq_restore.exit122, %.loopexit127
-  %.179 = phi ptr [ %50, %.loopexit127 ], [ %.078.ph223, %up_irq_restore.exit120 ], [ %.078.ph223, %up_irq_restore.exit122 ], [ %50, %.split24.us.i ], [ %50, %.split24.us.i111 ], [ %50, %up_irq_restore.exit.us.i116 ], [ %50, %up_irq_restore.exit.us.i ], [ %50, %.split170 ]
-  %.2 = phi i64 [ %51, %.loopexit127 ], [ %.075.ph225, %up_irq_restore.exit120 ], [ %.075.ph225, %up_irq_restore.exit122 ], [ %51, %.split24.us.i ], [ %51, %.split24.us.i111 ], [ %51, %up_irq_restore.exit.us.i116 ], [ %51, %up_irq_restore.exit.us.i ], [ %51, %.split170 ]
-  %.174 = phi i1 [ %.073.ph.ph234, %.loopexit127 ], [ %.073.ph.ph234, %up_irq_restore.exit120 ], [ %.073.ph.ph234, %up_irq_restore.exit122 ], [ true, %.split24.us.i ], [ true, %.split24.us.i111 ], [ true, %up_irq_restore.exit.us.i116 ], [ true, %up_irq_restore.exit.us.i ], [ %.073.ph.ph234, %.split170 ]
-  %207 = icmp ult i64 %.2, %2
-  br i1 %207, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !11
+uart_putxmitchar.exit:                            ; preds = %.split178, %up_irq_restore.exit24.i, %up_irq_restore.exit24.i124, %._crit_edge.i114, %._crit_edge.i, %up_irq_restore.exit128, %up_irq_restore.exit130, %.loopexit135
+  %.179 = phi ptr [ %50, %.loopexit135 ], [ %.078.ph231, %up_irq_restore.exit128 ], [ %.078.ph231, %up_irq_restore.exit130 ], [ %50, %._crit_edge.i ], [ %50, %._crit_edge.i114 ], [ %50, %up_irq_restore.exit24.i124 ], [ %50, %up_irq_restore.exit24.i ], [ %50, %.split178 ]
+  %.2 = phi i64 [ %51, %.loopexit135 ], [ %.075.ph233, %up_irq_restore.exit128 ], [ %.075.ph233, %up_irq_restore.exit130 ], [ %51, %._crit_edge.i ], [ %51, %._crit_edge.i114 ], [ %51, %up_irq_restore.exit24.i124 ], [ %51, %up_irq_restore.exit24.i ], [ %51, %.split178 ]
+  %.174 = phi i1 [ %.073.ph.ph242, %.loopexit135 ], [ %.073.ph.ph242, %up_irq_restore.exit128 ], [ %.073.ph.ph242, %up_irq_restore.exit130 ], [ true, %._crit_edge.i ], [ true, %._crit_edge.i114 ], [ true, %up_irq_restore.exit24.i124 ], [ true, %up_irq_restore.exit24.i ], [ %.073.ph.ph242, %.split178 ]
+  %211 = icmp ult i64 %.2, %2
+  br i1 %211, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !11
 
-.loopexit.loopexit287.split.loop.exit320:         ; preds = %.outer.backedge
-  %208 = add nuw i64 %.075.ph.ph233, 1
-  %umax.le = call i64 @llvm.umax.i64(i64 %2, i64 %208)
+.loopexit.loopexit295.split.loop.exit328:         ; preds = %.outer.backedge
+  %212 = add nuw i64 %.075.ph.ph241, 1
+  %umax.le = call i64 @llvm.umax.i64(i64 %2, i64 %212)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %uart_putxmitchar.exit, %.lr.ph.split.us.split.us, %170, %173, %60, %.loopexit.loopexit287.split.loop.exit320
-  %.073.ph.ph156 = phi i1 [ %.073.ph.ph234, %.loopexit.loopexit287.split.loop.exit320 ], [ %.073.ph.ph234, %60 ], [ %.073.ph.ph234, %173 ], [ %.073.ph.ph234, %170 ], [ %.073.ph.ph234, %.lr.ph.split.us.split.us ], [ %.174, %uart_putxmitchar.exit ]
-  %.176 = phi i64 [ %umax.le, %.loopexit.loopexit287.split.loop.exit320 ], [ %.075.ph225, %60 ], [ -77, %170 ], [ -11, %173 ], [ %.075.ph225, %.lr.ph.split.us.split.us ], [ %.2, %uart_putxmitchar.exit ]
-  br i1 %.073.ph.ph156, label %209, label %.loopexit.thread
+.loopexit:                                        ; preds = %uart_putxmitchar.exit, %.lr.ph.split.us.split.us, %174, %177, %60, %.loopexit.loopexit295.split.loop.exit328
+  %.073.ph.ph164 = phi i1 [ %.073.ph.ph242, %.loopexit.loopexit295.split.loop.exit328 ], [ %.073.ph.ph242, %60 ], [ %.073.ph.ph242, %177 ], [ %.073.ph.ph242, %174 ], [ %.073.ph.ph242, %.lr.ph.split.us.split.us ], [ %.174, %uart_putxmitchar.exit ]
+  %.176 = phi i64 [ %umax.le, %.loopexit.loopexit295.split.loop.exit328 ], [ %.075.ph233, %60 ], [ -77, %174 ], [ -11, %177 ], [ %.075.ph233, %.lr.ph.split.us.split.us ], [ %.2, %uart_putxmitchar.exit ]
+  br i1 %.073.ph.ph164, label %213, label %.loopexit.thread
 
-209:                                              ; preds = %198, %.loopexit
-  %.176282 = phi i64 [ %spec.select95, %198 ], [ %.176, %.loopexit ]
-  %210 = getelementptr inbounds i8, ptr %11, i64 272
-  %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 72
-  %213 = load ptr, ptr %212, align 8
-  call void %213(ptr noundef nonnull %11, i1 noundef zeroext true) #5
-  br label %.loopexit.thread
-
-.loopexit.thread:                                 ; preds = %.preheader, %198, %209, %.loopexit
-  %.176281 = phi i64 [ %.176282, %209 ], [ %.176, %.loopexit ], [ %spec.select95, %198 ], [ 0, %.preheader ]
+213:                                              ; preds = %202, %.loopexit
+  %.176290 = phi i64 [ %spec.select95, %202 ], [ %.176, %.loopexit ]
   %214 = getelementptr inbounds i8, ptr %11, i64 272
   %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 48
+  %216 = getelementptr inbounds i8, ptr %215, i64 72
   %217 = load ptr, ptr %216, align 8
-  call void %217(ptr noundef %11, i1 noundef zeroext true) #5
-  %218 = call i32 @nxmutex_unlock(ptr noundef nonnull %12) #5
-  br label %219
+  call void %217(ptr noundef nonnull %11, i1 noundef zeroext true) #5
+  br label %.loopexit.thread
 
-219:                                              ; preds = %.loopexit.thread, %29
-  %.077 = phi i64 [ %30, %29 ], [ %.176281, %.loopexit.thread ]
+.loopexit.thread:                                 ; preds = %.preheader, %202, %213, %.loopexit
+  %.176289 = phi i64 [ %.176290, %213 ], [ %.176, %.loopexit ], [ %spec.select95, %202 ], [ 0, %.preheader ]
+  %218 = getelementptr inbounds i8, ptr %11, i64 272
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 48
+  %221 = load ptr, ptr %220, align 8
+  call void %221(ptr noundef %11, i1 noundef zeroext true) #5
+  %222 = call i32 @nxmutex_unlock(ptr noundef nonnull %12) #5
+  br label %223
+
+223:                                              ; preds = %.loopexit.thread, %29
+  %.077 = phi i64 [ %30, %29 ], [ %.176289, %.loopexit.thread ]
   ret i64 %.077
 }
 
@@ -973,8 +1000,8 @@ up_irq_restore.exit:                              ; preds = %uart_irqwrite.exit,
   %62 = getelementptr inbounds i8, ptr %61, i64 72
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef %10, i1 noundef zeroext false) #5
-  %.not4883 = icmp eq i64 %2, 0
-  br i1 %.not4883, label %.loopexit77, label %.lr.ph
+  %.not4886 = icmp eq i64 %2, 0
+  br i1 %.not4886, label %.loopexit80, label %.lr.ph
 
 .lr.ph:                                           ; preds = %56
   %64 = getelementptr inbounds i8, ptr %10, i64 8
@@ -985,11 +1012,11 @@ up_irq_restore.exit:                              ; preds = %uart_irqwrite.exit,
   %69 = getelementptr inbounds i8, ptr %10, i64 208
   br label %70
 
-70:                                               ; preds = %.lr.ph, %.loopexit
-  %.04385 = phi ptr [ %1, %.lr.ph ], [ %71, %.loopexit ]
-  %.04584 = phi i64 [ %2, %.lr.ph ], [ %146, %.loopexit ]
-  %71 = getelementptr inbounds i8, ptr %.04385, i64 1
-  %72 = load i8, ptr %.04385, align 1
+70:                                               ; preds = %.lr.ph, %.loopexit78
+  %.04388 = phi ptr [ %1, %.lr.ph ], [ %71, %.loopexit78 ]
+  %.04587 = phi i64 [ %2, %.lr.ph ], [ %146, %.loopexit78 ]
+  %71 = getelementptr inbounds i8, ptr %.04388, i64 1
+  %72 = load i8, ptr %.04388, align 1
   %73 = load i32, ptr %64, align 8
   %74 = and i32 %73, 1
   %.not49 = icmp eq i32 %74, 0
@@ -1017,148 +1044,158 @@ up_irq_restore.exit:                              ; preds = %uart_irqwrite.exit,
   %87 = sext i16 %86 to i32
   %.not.i54 = icmp slt i32 %85, %87
   %spec.store.select.i = select i1 %.not.i54, i32 %85, i32 0
-  br i1 %59, label %.split.us.i, label %.split.i
-
-.split.us.i:                                      ; preds = %82, %up_irq_restore.exit.us.i
   %88 = load volatile i16, ptr %67, align 2
   %89 = sext i16 %88 to i32
-  %.not21.us.i = icmp eq i32 %spec.store.select.i, %89
-  br i1 %.not21.us.i, label %90, label %.split24.us.i
+  %.not2125.i = icmp eq i32 %spec.store.select.i, %89
+  br i1 %.not2125.i, label %.lr.ph.i55, label %._crit_edge.i
 
-90:                                               ; preds = %.split.us.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !8
-  %91 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %92 = load volatile i16, ptr %67, align 2
-  %93 = sext i16 %92 to i32
-  %.not22.us.i = icmp eq i32 %spec.store.select.i, %93
-  br i1 %.not22.us.i, label %94, label %102
+.lr.ph.i55:                                       ; preds = %82
+  br i1 %59, label %.lr.ph.split.i, label %.loopexit
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr %60, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 72
-  %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef nonnull %10, i1 noundef zeroext true) #5
-  %98 = call i32 @nxsem_wait(ptr noundef nonnull %68) #5
-  %99 = load ptr, ptr %60, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 72
-  %101 = load ptr, ptr %100, align 8
-  call void %101(ptr noundef nonnull %10, i1 noundef zeroext false) #5
-  br label %102
+.critedge.i:                                      ; preds = %.lr.ph.split.i
+  %90 = and i64 %97, 512
+  %.not.i.i = icmp eq i64 %90, 0
+  br i1 %.not.i.i, label %.backedge.i, label %91
 
-102:                                              ; preds = %94, %90
-  %.0.us.i = phi i32 [ %98, %94 ], [ 0, %90 ]
-  %103 = and i64 %91, 512
-  %.not.i.us.i = icmp eq i64 %103, 0
-  br i1 %.not.i.us.i, label %up_irq_restore.exit.us.i, label %104
-
-104:                                              ; preds = %102
+91:                                               ; preds = %.critedge.i
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit.us.i
+  br label %.backedge.i
 
-up_irq_restore.exit.us.i:                         ; preds = %104, %102
-  %105 = icmp slt i32 %.0.us.i, 0
-  br i1 %105, label %.loopexit75, label %.split.us.i
-
-.split.i:                                         ; preds = %82
-  %106 = load volatile i16, ptr %67, align 2
-  %107 = sext i16 %106 to i32
-  %.not21.i = icmp eq i32 %spec.store.select.i, %107
-  br i1 %.not21.i, label %.loopexit75, label %.split24.us.i
-
-.split24.us.i:                                    ; preds = %.split.us.i, %.split.i
-  %108 = load ptr, ptr %69, align 8
-  %109 = load volatile i16, ptr %65, align 8
-  %110 = sext i16 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %108, i64 %110
-  store i8 13, ptr %111, align 1
-  %112 = trunc i32 %spec.store.select.i to i16
-  store volatile i16 %112, ptr %65, align 8
+._crit_edge.i:                                    ; preds = %.backedge.i, %82
+  %92 = load ptr, ptr %69, align 8
+  %93 = load volatile i16, ptr %65, align 8
+  %94 = sext i16 %93 to i64
+  %95 = getelementptr inbounds i8, ptr %92, i64 %94
+  store i8 13, ptr %95, align 1
+  %96 = trunc i32 %spec.store.select.i to i16
+  store volatile i16 %96, ptr %65, align 8
   br label %113
 
-113:                                              ; preds = %80, %75, %70, %.split24.us.i
-  %.040.ph = phi i8 [ 10, %.split24.us.i ], [ %72, %70 ], [ %72, %75 ], [ 10, %80 ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i55, %.backedge.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !8
+  %97 = load i64, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
+  %98 = load volatile i16, ptr %67, align 2
+  %99 = sext i16 %98 to i32
+  %.not22.i = icmp eq i32 %spec.store.select.i, %99
+  br i1 %.not22.i, label %100, label %.critedge.i
+
+100:                                              ; preds = %.lr.ph.split.i
+  %101 = load ptr, ptr %60, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 72
+  %103 = load ptr, ptr %102, align 8
+  call void %103(ptr noundef nonnull %10, i1 noundef zeroext true) #5
+  %104 = call i32 @nxsem_wait(ptr noundef nonnull %68) #5
+  %105 = load ptr, ptr %60, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 72
+  %107 = load ptr, ptr %106, align 8
+  call void %107(ptr noundef nonnull %10, i1 noundef zeroext false) #5
+  %108 = icmp slt i32 %104, 0
+  %109 = and i64 %97, 512
+  %.not.i23.i = icmp eq i64 %109, 0
+  br i1 %.not.i23.i, label %up_irq_restore.exit24.i, label %110
+
+110:                                              ; preds = %100
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  br label %up_irq_restore.exit24.i
+
+up_irq_restore.exit24.i:                          ; preds = %110, %100
+  br i1 %108, label %.loopexit, label %.backedge.i
+
+.backedge.i:                                      ; preds = %up_irq_restore.exit24.i, %91, %.critedge.i
+  %111 = load volatile i16, ptr %67, align 2
+  %112 = sext i16 %111 to i32
+  %.not21.i = icmp eq i32 %spec.store.select.i, %112
+  br i1 %.not21.i, label %.lr.ph.split.i, label %._crit_edge.i
+
+113:                                              ; preds = %80, %75, %70, %._crit_edge.i
+  %.040.ph = phi i8 [ 10, %._crit_edge.i ], [ %72, %70 ], [ %72, %75 ], [ 10, %80 ]
   %114 = load volatile i16, ptr %65, align 8
   %115 = sext i16 %114 to i32
   %116 = add nsw i32 %115, 1
   %117 = load i16, ptr %66, align 4
   %118 = sext i16 %117 to i32
-  %.not.i55 = icmp slt i32 %116, %118
-  %spec.store.select.i56 = select i1 %.not.i55, i32 %116, i32 0
-  br i1 %59, label %.split.us.i61, label %.split.i57
-
-.split.us.i61:                                    ; preds = %113, %up_irq_restore.exit.us.i66
+  %.not.i56 = icmp slt i32 %116, %118
+  %spec.store.select.i57 = select i1 %.not.i56, i32 %116, i32 0
   %119 = load volatile i16, ptr %67, align 2
   %120 = sext i16 %119 to i32
-  %.not21.us.i62 = icmp eq i32 %spec.store.select.i56, %120
-  br i1 %.not21.us.i62, label %121, label %.loopexit
+  %.not2125.i58 = icmp eq i32 %spec.store.select.i57, %120
+  br i1 %.not2125.i58, label %.lr.ph.i61, label %.loopexit78
 
-121:                                              ; preds = %.split.us.i61
+.lr.ph.i61:                                       ; preds = %113
+  br i1 %59, label %.lr.ph.split.i62, label %.loopexit
+
+.critedge.i64:                                    ; preds = %.lr.ph.split.i62
+  %121 = and i64 %123, 512
+  %.not.i.i65 = icmp eq i64 %121, 0
+  br i1 %.not.i.i65, label %.backedge.i66, label %122
+
+122:                                              ; preds = %.critedge.i64
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  br label %.backedge.i66
+
+.lr.ph.split.i62:                                 ; preds = %.lr.ph.i61, %.backedge.i66
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #5, !srcloc !8
-  %122 = load i64, ptr %4, align 8
+  %123 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
-  %123 = load volatile i16, ptr %67, align 2
-  %124 = sext i16 %123 to i32
-  %.not22.us.i63 = icmp eq i32 %spec.store.select.i56, %124
-  br i1 %.not22.us.i63, label %125, label %133
+  %124 = load volatile i16, ptr %67, align 2
+  %125 = sext i16 %124 to i32
+  %.not22.i63 = icmp eq i32 %spec.store.select.i57, %125
+  br i1 %.not22.i63, label %126, label %.critedge.i64
 
-125:                                              ; preds = %121
-  %126 = load ptr, ptr %60, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 72
-  %128 = load ptr, ptr %127, align 8
-  call void %128(ptr noundef nonnull %10, i1 noundef zeroext true) #5
-  %129 = call i32 @nxsem_wait(ptr noundef nonnull %68) #5
-  %130 = load ptr, ptr %60, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 72
-  %132 = load ptr, ptr %131, align 8
-  call void %132(ptr noundef nonnull %10, i1 noundef zeroext false) #5
-  br label %133
+126:                                              ; preds = %.lr.ph.split.i62
+  %127 = load ptr, ptr %60, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 72
+  %129 = load ptr, ptr %128, align 8
+  call void %129(ptr noundef nonnull %10, i1 noundef zeroext true) #5
+  %130 = call i32 @nxsem_wait(ptr noundef nonnull %68) #5
+  %131 = load ptr, ptr %60, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 72
+  %133 = load ptr, ptr %132, align 8
+  call void %133(ptr noundef nonnull %10, i1 noundef zeroext false) #5
+  %134 = icmp slt i32 %130, 0
+  %135 = and i64 %123, 512
+  %.not.i23.i68 = icmp eq i64 %135, 0
+  br i1 %.not.i23.i68, label %up_irq_restore.exit24.i69, label %136
 
-133:                                              ; preds = %125, %121
-  %.0.us.i64 = phi i32 [ %129, %125 ], [ 0, %121 ]
-  %134 = and i64 %122, 512
-  %.not.i.us.i65 = icmp eq i64 %134, 0
-  br i1 %.not.i.us.i65, label %up_irq_restore.exit.us.i66, label %135
-
-135:                                              ; preds = %133
+136:                                              ; preds = %126
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit.us.i66
+  br label %up_irq_restore.exit24.i69
 
-up_irq_restore.exit.us.i66:                       ; preds = %135, %133
-  %136 = icmp slt i32 %.0.us.i64, 0
-  br i1 %136, label %.loopexit75, label %.split.us.i61
+up_irq_restore.exit24.i69:                        ; preds = %136, %126
+  br i1 %134, label %.loopexit, label %.backedge.i66
 
-.split.i57:                                       ; preds = %113
+.backedge.i66:                                    ; preds = %up_irq_restore.exit24.i69, %122, %.critedge.i64
   %137 = load volatile i16, ptr %67, align 2
   %138 = sext i16 %137 to i32
-  %.not21.i58 = icmp eq i32 %spec.store.select.i56, %138
-  br i1 %.not21.i58, label %.loopexit75, label %.loopexit
+  %.not21.i67 = icmp eq i32 %spec.store.select.i57, %138
+  br i1 %.not21.i67, label %.lr.ph.split.i62, label %.loopexit78
 
-.loopexit75:                                      ; preds = %.split.i, %.split.i57, %up_irq_restore.exit.us.i, %up_irq_restore.exit.us.i66
-  %.142.ph = phi i64 [ -4, %up_irq_restore.exit.us.i66 ], [ -4, %up_irq_restore.exit.us.i ], [ -11, %.split.i57 ], [ -11, %.split.i ]
-  %139 = icmp ult i64 %.04584, %2
-  %140 = sub nuw i64 %2, %.04584
+.loopexit:                                        ; preds = %.lr.ph.i55, %.lr.ph.i61, %up_irq_restore.exit24.i, %up_irq_restore.exit24.i69
+  %.142.ph = phi i64 [ -4, %up_irq_restore.exit24.i69 ], [ -4, %up_irq_restore.exit24.i ], [ -11, %.lr.ph.i61 ], [ -11, %.lr.ph.i55 ]
+  %139 = icmp ult i64 %.04587, %2
+  %140 = sub nuw i64 %2, %.04587
   %spec.select = select i1 %139, i64 %140, i64 %.142.ph
-  br label %.loopexit77
+  br label %.loopexit80
 
-.loopexit:                                        ; preds = %.split.us.i61, %.split.i57
+.loopexit78:                                      ; preds = %.backedge.i66, %113
   %141 = load ptr, ptr %69, align 8
   %142 = load volatile i16, ptr %65, align 8
   %143 = sext i16 %142 to i64
   %144 = getelementptr inbounds i8, ptr %141, i64 %143
   store i8 %.040.ph, ptr %144, align 1
-  %145 = trunc i32 %spec.store.select.i56 to i16
+  %145 = trunc i32 %spec.store.select.i57 to i16
   store volatile i16 %145, ptr %65, align 8
-  %146 = add i64 %.04584, -1
+  %146 = add i64 %.04587, -1
   %.not48 = icmp eq i64 %146, 0
-  br i1 %.not48, label %.loopexit77, label %70, !llvm.loop !14
+  br i1 %.not48, label %.loopexit80, label %70, !llvm.loop !14
 
-.loopexit77:                                      ; preds = %.loopexit, %56, %.loopexit75
-  %.044 = phi i64 [ %spec.select, %.loopexit75 ], [ 0, %56 ], [ %2, %.loopexit ]
+.loopexit80:                                      ; preds = %.loopexit78, %56, %.loopexit
+  %.044 = phi i64 [ %spec.select, %.loopexit ], [ 0, %56 ], [ %2, %.loopexit78 ]
   %147 = getelementptr inbounds i8, ptr %10, i64 200
   %148 = load volatile i16, ptr %147, align 8
   %149 = getelementptr inbounds i8, ptr %10, i64 202
@@ -1166,14 +1203,14 @@ up_irq_restore.exit.us.i66:                       ; preds = %135, %133
   %.not52 = icmp eq i16 %148, %150
   br i1 %.not52, label %155, label %151
 
-151:                                              ; preds = %.loopexit77
+151:                                              ; preds = %.loopexit80
   %152 = load ptr, ptr %60, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 72
   %154 = load ptr, ptr %153, align 8
   call void %154(ptr noundef nonnull %10, i1 noundef zeroext true) #5
   br label %155
 
-155:                                              ; preds = %151, %.loopexit77
+155:                                              ; preds = %151, %.loopexit80
   %156 = call i32 @nxmutex_unlock(ptr noundef nonnull %51) #5
   br label %157
 

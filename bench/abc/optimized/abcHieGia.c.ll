@@ -217,7 +217,7 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   %32 = getelementptr i8, ptr %17, i64 28
   %.val77143 = load i32, ptr %32, align 4
   %33 = icmp sgt i32 %.val77143, 0
-  br i1 %33, label %.lr.ph, label %.critedge2
+  br i1 %33, label %.lr.ph, label %.critedge2.thread
 
 .lr.ph:                                           ; preds = %29
   %34 = getelementptr i8, ptr %17, i64 32
@@ -274,19 +274,21 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   %63 = icmp slt i64 %indvars.iv.next, %62
   br i1 %63, label %36, label %.critedge2, !llvm.loop !6
 
-.critedge2:                                       ; preds = %36, %29
-  %.val145 = phi i32 [ %.val77143, %29 ], [ %.val77, %36 ]
+.critedge2:                                       ; preds = %36
   br i1 %.not76, label %.critedge4.thread, label %.preheader
 
+.critedge2.thread:                                ; preds = %29
+  br i1 %.not76, label %.critedge4.thread, label %.critedge4
+
 .preheader:                                       ; preds = %.critedge2
-  %64 = icmp sgt i32 %.val145, 0
+  %64 = icmp sgt i32 %.val77, 0
   br i1 %64, label %.lr.ph147, label %.critedge4
 
 .lr.ph147:                                        ; preds = %.preheader
   %65 = getelementptr i8, ptr %31, i64 40
   br label %66
 
-.critedge4.thread:                                ; preds = %.critedge2
+.critedge4.thread:                                ; preds = %.critedge2.thread, %.critedge2
   tail call void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr noundef %31, ptr noundef nonnull %2, ptr noundef null)
   %.phi.trans.insert = getelementptr i8, ptr %17, i64 44
   %.val109151.pre = load i32, ptr %.phi.trans.insert, align 4
@@ -369,7 +371,7 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr nocapture nound
   %118 = icmp slt i64 %indvars.iv.next159, %117
   br i1 %118, label %66, label %.critedge4, !llvm.loop !7
 
-.critedge4:                                       ; preds = %66, %.preheader
+.critedge4:                                       ; preds = %66, %.critedge2.thread, %.preheader
   tail call void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr noundef %31, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %119 = getelementptr i8, ptr %17, i64 44
   %.val108148 = load i32, ptr %119, align 4
@@ -3238,7 +3240,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 

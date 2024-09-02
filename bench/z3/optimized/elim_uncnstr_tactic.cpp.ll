@@ -15673,12 +15673,12 @@ for.cond21:                                       ; preds = %for.inc37, %if.end1
 if.end.i:                                         ; preds = %for.cond21
   %arrayidx.i29 = getelementptr inbounds i8, ptr %20, i64 -4
   %21 = load i32, ptr %arrayidx.i29, align 4
+  %22 = zext i32 %21 to i64
   br label %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit
 
 _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %for.cond21, %if.end.i
-  %retval.0.i = phi i32 [ %21, %if.end.i ], [ 0, %for.cond21 ]
-  %22 = zext i32 %retval.0.i to i64
-  %cmp23 = icmp ult i64 %indvars.iv82, %22
+  %retval.0.i = phi i64 [ %22, %if.end.i ], [ 0, %for.cond21 ]
+  %cmp23 = icmp ult i64 %indvars.iv82, %retval.0.i
   br i1 %cmp23, label %for.body24, label %invoke.cont41
 
 for.body24:                                       ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit

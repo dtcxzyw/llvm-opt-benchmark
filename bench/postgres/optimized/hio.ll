@@ -137,7 +137,7 @@ define dso_local i32 @RelationGetBufferForTuple(ptr noundef %0, i64 noundef %1, 
 
 30:                                               ; preds = %20, %23
   %31 = phi i64 [ %29, %23 ], [ 0, %20 ]
-  %32 = add nsw i64 %14, %31
+  %32 = add nsw i64 %31, %14
   %33 = icmp ugt i64 %32, 8016
   %34 = tail call i64 @llvm.umax.i64(i64 %14, i64 8016)
   %.0156 = select i1 %33, i64 %34, i64 %32

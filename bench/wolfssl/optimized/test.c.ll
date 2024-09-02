@@ -1180,7 +1180,7 @@ return:                                           ; preds = %if.end23, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @memory_test() local_unnamed_addr #0 {
+define dso_local range(i32 -1278457405, 2) i32 @memory_test() local_unnamed_addr #0 {
 entry:
   %j.i = alloca i32, align 4
   %call.i = tail call ptr @wolfSSL_Malloc(i64 noundef 1024) #19
@@ -7152,7 +7152,7 @@ return:                                           ; preds = %if.end983, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @aes_test() local_unnamed_addr #0 {
+define dso_local range(i32 -741582525, 1) i32 @aes_test() local_unnamed_addr #0 {
 entry:
   %enc = alloca [1 x %struct.Aes], align 16
   %cipher = alloca [64 x i8], align 16
@@ -8184,7 +8184,7 @@ if.end866:                                        ; preds = %if.then864, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @aesgcm_default_test() local_unnamed_addr #0 {
+define dso_local range(i32 -741583105, 1) i32 @aesgcm_default_test() local_unnamed_addr #0 {
 entry:
   %key1 = alloca [16 x i8], align 16
   %iv1 = alloca [12 x i8], align 1
@@ -8227,7 +8227,7 @@ return:                                           ; preds = %if.end14, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @rsa_test() local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @rsa_test() local_unnamed_addr #0 {
 entry:
   %inOutIdx.i = alloca i32, align 4
   %n.i = alloca [2 x i8], align 2

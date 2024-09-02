@@ -69,27 +69,26 @@ define void @_ZN9ProtoNodeC2EP11_proto_nodePS_(ptr noundef nonnull align 8 deref
   %.not.i = icmp ne i32 %7, 0
   br label %8
 
-8:                                                ; preds = %.lr.ph, %16
-  %.01532 = phi ptr [ %.01529, %.lr.ph ], [ %.015, %16 ]
-  %.01631 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %16 ]
+8:                                                ; preds = %.lr.ph, %18
+  %.01532 = phi ptr [ %.01529, %.lr.ph ], [ %.015, %18 ]
+  %.01631 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %18 ]
   %9 = getelementptr inbounds i8, ptr %.01532, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not5.i.i = icmp eq ptr %10, null
-  br i1 %.not5.i.i, label %16, label %11
+  br i1 %.not5.i.i, label %18, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %10, i64 28
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 1
-  %15 = icmp ne i32 %14, 0
-  br label %16
+  %15 = icmp eq i32 %14, 0
+  %16 = select i1 %15, i1 true, i1 %.not.i
+  %17 = zext i1 %16 to i32
+  br label %18
 
-16:                                               ; preds = %11, %8
-  %.0.i.i = phi i1 [ %15, %11 ], [ false, %8 ]
-  %not..0.i.i = xor i1 %.0.i.i, true
-  %17 = select i1 %not..0.i.i, i1 true, i1 %.not.i
-  %18 = zext i1 %17 to i32
-  %spec.select = add i32 %.01631, %18
+18:                                               ; preds = %11, %8
+  %.0.i.i = phi i32 [ %17, %11 ], [ 1, %8 ]
+  %spec.select = add i32 %.0.i.i, %.01631
   %19 = getelementptr inbounds i8, ptr %.01532, i64 16
   %.015 = load ptr, ptr %19, align 8
   %.not18 = icmp eq ptr %.015, null
@@ -105,7 +104,7 @@ define void @_ZN9ProtoNodeC2EP11_proto_nodePS_(ptr noundef nonnull align 8 deref
           cleanup
   br label %42
 
-._crit_edge.loopexit:                             ; preds = %16
+._crit_edge.loopexit:                             ; preds = %18
   %20 = sext i32 %spec.select to i64
   br label %._crit_edge
 

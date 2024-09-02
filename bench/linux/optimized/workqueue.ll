@@ -1451,7 +1451,7 @@ define internal fastcc void @__queue_work(i32 noundef %0, ptr noundef %1, ptr no
   %55 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @wq_rr_cpu_last) #27, !srcloc !36
   %56 = add i32 %55, 1
   %57 = icmp ugt i32 %56, 63
-  br i1 %57, label %68, label %58, !prof !13
+  br i1 %57, label %69, label %58, !prof !13
 
 58:                                               ; preds = %54
   %59 = load i64, ptr @wq_unbound_cpumask, align 8
@@ -1461,43 +1461,43 @@ define internal fastcc void @__queue_work(i32 noundef %0, ptr noundef %1, ptr no
   %63 = and i64 %59, %62
   %64 = and i64 %63, %60
   %65 = icmp eq i64 %64, 0
-  br i1 %65, label %68, label %66
+  br i1 %65, label %69, label %66
 
 66:                                               ; preds = %58
   %67 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %64) #27, !srcloc !37
-  br label %68
+  %68 = trunc i64 %67 to i32
+  br label %69
 
-68:                                               ; preds = %66, %58, %54
-  %69 = phi i64 [ 64, %54 ], [ %67, %66 ], [ 64, %58 ]
-  %70 = trunc i64 %69 to i32
+69:                                               ; preds = %66, %58, %54
+  %70 = phi i32 [ 64, %54 ], [ %68, %66 ], [ 64, %58 ]
   %71 = load i32, ptr @nr_cpu_ids, align 4
   %72 = icmp ugt i32 %71, %70
   br i1 %72, label %84, label %73, !prof !12
 
-73:                                               ; preds = %68
+73:                                               ; preds = %69
   %74 = load i64, ptr @wq_unbound_cpumask, align 8
   %75 = load i64, ptr @__cpu_online_mask, align 8
   %76 = and i64 %75, %74
   %77 = icmp eq i64 %76, 0
-  br i1 %77, label %80, label %78
+  br i1 %77, label %81, label %78
 
 78:                                               ; preds = %73
   %79 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %76) #27, !srcloc !37
-  br label %80
+  %80 = trunc i64 %79 to i32
+  br label %81
 
-80:                                               ; preds = %78, %73
-  %81 = phi i64 [ %79, %78 ], [ 64, %73 ]
-  %82 = trunc i64 %81 to i32
+81:                                               ; preds = %78, %73
+  %82 = phi i32 [ %80, %78 ], [ 64, %73 ]
   %83 = icmp ugt i32 %71, %82
   br i1 %83, label %84, label %86, !prof !12
 
-84:                                               ; preds = %80, %68
-  %85 = phi i32 [ %82, %80 ], [ %70, %68 ]
+84:                                               ; preds = %81, %69
+  %85 = phi i32 [ %82, %81 ], [ %70, %69 ]
   tail call void asm "movl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @wq_rr_cpu_last, i32 %85, ptr nonnull elementtype(i32) @wq_rr_cpu_last) #26, !srcloc !38
   br label %86
 
-86:                                               ; preds = %84, %80, %45, %37, %35
-  %87 = phi i32 [ %36, %35 ], [ %85, %84 ], [ %41, %45 ], [ %41, %80 ], [ %41, %37 ]
+86:                                               ; preds = %84, %81, %45, %37, %35
+  %87 = phi i32 [ %36, %35 ], [ %85, %84 ], [ %41, %45 ], [ %41, %81 ], [ %41, %37 ]
   %88 = load ptr, ptr %30, align 8
   %89 = ptrtoint ptr %88 to i64
   %90 = sext i32 %87 to i64

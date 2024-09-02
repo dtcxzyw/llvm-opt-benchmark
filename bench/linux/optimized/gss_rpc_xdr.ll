@@ -385,7 +385,7 @@ declare dso_local void @xdr_inline_pages(ptr noundef, i32 noundef, ptr noundef, 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @gssx_dec_accept_sec_context(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -28, 1) i32 @gssx_dec_accept_sec_context(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call ptr @alloc_pages(i32 noundef 3264, i32 noundef 0) #9
   %5 = icmp eq ptr %4, null
   br i1 %5, label %287, label %6
@@ -886,7 +886,7 @@ gssx_dec_buffer.exit:                             ; preds = %276, %263, %277
 declare dso_local ptr @alloc_pages(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @gssx_dec_option_array(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -28, 1) i32 @gssx_dec_option_array(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread23, label %5, !prof !5
@@ -1200,7 +1200,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @dummy_dec_opt_array(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @gssx_dec_name(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -28, 1) i32 @gssx_dec_name(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.gssx_name_attr, align 8
   %4 = alloca %struct.gssx_option_array, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9

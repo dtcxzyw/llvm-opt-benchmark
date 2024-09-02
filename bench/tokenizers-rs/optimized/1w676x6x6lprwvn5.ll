@@ -20513,7 +20513,7 @@ define noundef i64 @_ZN10tokenizers9tokenizer8encoding8Encoding3len17h43933381c0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN10tokenizers9tokenizer8encoding8Encoding11n_sequences17hc47ce48049fd2e44E(ptr noalias nocapture noundef readonly align 8 dereferenceable(240) %0) unnamed_addr #10 {
+define noundef range(i64 1, 0) i64 @_ZN10tokenizers9tokenizer8encoding8Encoding11n_sequences17hc47ce48049fd2e44E(ptr noalias nocapture noundef readonly align 8 dereferenceable(240) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load i64, ptr %2, align 8, !noundef !9
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %3, i64 1)

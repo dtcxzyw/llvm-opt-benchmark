@@ -925,7 +925,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body8:                                        ; preds = %for.body, %for.inc
   %last_non_zero.030 = phi i32 [ %last_non_zero.1, %for.inc ], [ -1, %for.body ]
-  %i.029 = phi i32 [ %inc23, %for.inc ], [ 0, %for.body ]
+  %i.029 = phi i32 [ %i.1, %for.inc ], [ 0, %for.body ]
   %in_first_pixel.028 = phi i32 [ %in_first_pixel.1, %for.inc ], [ %first.0.i, %for.body ]
   %add9 = add nsw i32 %i.029, %in_first_pixel.028
   %conv10 = sitofp i32 %add9 to float
@@ -950,16 +950,16 @@ if.end22:                                         ; preds = %for.body8, %if.then
   %idxprom = sext i32 %i.029 to i64
   %arrayidx = getelementptr inbounds float, ptr %coefficient_group.addr.034, i64 %idxprom
   store float %coeff.0, ptr %arrayidx, align 4
+  %7 = add nsw i32 %i.029, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end22, %if.then20
   %in_first_pixel.1 = phi i32 [ %inc, %if.then20 ], [ %in_first_pixel.028, %if.end22 ]
-  %i.1 = phi i32 [ -1, %if.then20 ], [ %i.029, %if.end22 ]
+  %i.1 = phi i32 [ 0, %if.then20 ], [ %7, %if.end22 ]
   %last_non_zero.1 = phi i32 [ %last_non_zero.030, %if.then20 ], [ %last_non_zero.2, %if.end22 ]
-  %inc23 = add nsw i32 %i.1, 1
   %sub = sub nsw i32 %last.0.i, %in_first_pixel.1
-  %cmp6.not.not = icmp slt i32 %i.1, %sub
-  br i1 %cmp6.not.not, label %for.body8, label %for.end, !llvm.loop !17
+  %cmp6.not = icmp sgt i32 %i.1, %sub
+  br i1 %cmp6.not, label %for.end, label %for.body8, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %for.body
   %in_first_pixel.0.lcssa = phi i32 [ %first.0.i, %for.body ], [ %in_first_pixel.1, %for.inc ]

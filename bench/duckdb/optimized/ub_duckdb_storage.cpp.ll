@@ -45388,11 +45388,11 @@ invoke.cont11:                                    ; preds = %if.else.i.i
 
 invoke.cont11._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i_crit_edge: ; preds = %invoke.cont11
   %.pre18 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !66
+  %14 = icmp ult i64 %.pre18, 16
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %invoke.cont11._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i_crit_edge, %invoke.cont11.thread
-  %14 = phi i64 [ %.pre18, %invoke.cont11._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i_crit_edge ], [ 0, %invoke.cont11.thread ]
-  %cmp3.i.i.i.i = icmp ult i64 %14, 16
+  %cmp3.i.i.i.i = phi i1 [ %14, %invoke.cont11._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i_crit_edge ], [ true, %invoke.cont11.thread ]
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
   br label %_ZN6duckdb24TemporaryFileInformationD2Ev.exit
 

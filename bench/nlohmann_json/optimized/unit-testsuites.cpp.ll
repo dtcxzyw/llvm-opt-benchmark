@@ -37500,14 +37500,14 @@ land.lhs.true2.i.i7.i.i:                          ; preds = %_ZNKSt19istreambuf_
   %call4.i.i8.i.i = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %__end.sroa.0.0)
   %cmp.i.i2.i.i9.i.i = icmp eq i32 %call4.i.i8.i.i, -1
   %spec.select65 = select i1 %cmp.i.i2.i.i9.i.i, ptr null, ptr %__end.sroa.0.0
+  %3 = icmp eq i32 %call4.i.i8.i.i, -1
   br label %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
 
 _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = %land.lhs.true2.i.i7.i.i, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i
   %__end.sroa.0.2 = phi ptr [ null, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %spec.select65, %land.lhs.true2.i.i7.i.i ]
-  %__ret.0.i.i5.i.i = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %call4.i.i8.i.i, %land.lhs.true2.i.i7.i.i ]
+  %__ret.0.i.i5.i.i = phi i1 [ true, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %3, %land.lhs.true2.i.i7.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %__ret.0.i.i.i.i, -1
-  %3 = icmp eq i32 %__ret.0.i.i5.i.i, -1
-  %lnot.i = xor i1 %cmp.i.i.i.i.i, %3
+  %lnot.i = xor i1 %cmp.i.i.i.i.i, %__ret.0.i.i5.i.i
   %cmp = icmp ult i64 %__len.0, 15
   %4 = select i1 %lnot.i, i1 %cmp, i1 false
   br i1 %4, label %while.body, label %while.end

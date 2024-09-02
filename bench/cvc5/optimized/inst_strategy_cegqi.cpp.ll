@@ -2015,7 +2015,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory11quantifiers17InstStrategyCegqi10needsModelENS1_6Theory6EffortE(ptr noundef nonnull align 8 dereferenceable(544) %this, i32 %e) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 1, 5) i32 @_ZN4cvc58internal6theory11quantifiers17InstStrategyCegqi10needsModelENS1_6Theory6EffortE(ptr noundef nonnull align 8 dereferenceable(544) %this, i32 %e) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %q = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8

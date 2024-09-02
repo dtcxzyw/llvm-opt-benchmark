@@ -4846,7 +4846,7 @@ define hidden void @zif_xml_set_object(ptr nocapture noundef readonly %0, ptr no
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 64
   %.not764 = icmp eq i32 %36, 0
-  br i1 %.not764, label %37, label %40
+  br i1 %.not764, label %37, label %41
 
 37:                                               ; preds = %31
   %38 = load i32, ptr %33, align 4
@@ -4854,41 +4854,41 @@ define hidden void @zif_xml_set_object(ptr nocapture noundef readonly %0, ptr no
   store i32 %39, ptr %33, align 4
   %.pre = load ptr, ptr %21, align 8
   %.pre936 = load ptr, ptr %24, align 8
-  br label %40
+  %40 = icmp ne ptr %.pre, null
+  br label %41
 
-40:                                               ; preds = %37, %31
-  %41 = phi ptr [ %.pre936, %37 ], [ %25, %31 ]
-  %42 = phi ptr [ %.pre, %37 ], [ %22, %31 ]
-  %43 = icmp ne ptr %42, null
+41:                                               ; preds = %37, %31
+  %42 = phi ptr [ %.pre936, %37 ], [ %25, %31 ]
+  %43 = phi i1 [ %40, %37 ], [ true, %31 ]
   call void @llvm.assume(i1 %43)
-  %.not765 = icmp eq ptr %41, null
+  %.not765 = icmp eq ptr %42, null
   br i1 %.not765, label %56, label %44
 
-44:                                               ; preds = %40
-  %45 = load i32, ptr %41, align 4
+44:                                               ; preds = %41
+  %45 = load i32, ptr %42, align 4
   %46 = icmp ne i32 %45, 0
   call void @llvm.assume(i1 %46)
   %47 = add i32 %45, -1
-  store i32 %47, ptr %41, align 4
+  store i32 %47, ptr %42, align 4
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %44
-  call void @zend_objects_store_del(ptr noundef nonnull %41) #16
+  call void @zend_objects_store_del(ptr noundef nonnull %42) #16
   br label %56
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %41, i64 4
+  %51 = getelementptr inbounds i8, ptr %42, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, -1008
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %50
-  call void @gc_possible_root(ptr noundef nonnull %41) #16
+  call void @gc_possible_root(ptr noundef nonnull %42) #16
   br label %56
 
-56:                                               ; preds = %49, %55, %50, %40
+56:                                               ; preds = %49, %55, %50, %41
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %21) #16
   %57 = getelementptr inbounds i8, ptr %15, i64 -448
   %58 = load ptr, ptr %57, align 8
@@ -5100,7 +5100,7 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
   %159 = load i32, ptr %158, align 4
   %160 = and i32 %159, 64
   %.not772 = icmp eq i32 %160, 0
-  br i1 %.not772, label %161, label %164
+  br i1 %.not772, label %161, label %165
 
 161:                                              ; preds = %155
   %162 = load i32, ptr %157, align 4
@@ -5108,41 +5108,41 @@ php_xml_check_string_method_arg.exit:             ; preds = %92
   store i32 %163, ptr %157, align 4
   %.pre937 = load ptr, ptr %144, align 8
   %.pre938 = load ptr, ptr %147, align 8
-  br label %164
+  %164 = icmp ne ptr %.pre937, null
+  br label %165
 
-164:                                              ; preds = %161, %155
-  %165 = phi ptr [ %.pre938, %161 ], [ %148, %155 ]
-  %166 = phi ptr [ %.pre937, %161 ], [ %145, %155 ]
-  %167 = icmp ne ptr %166, null
+165:                                              ; preds = %161, %155
+  %166 = phi ptr [ %.pre938, %161 ], [ %148, %155 ]
+  %167 = phi i1 [ %164, %161 ], [ true, %155 ]
   call void @llvm.assume(i1 %167)
-  %.not773 = icmp eq ptr %165, null
+  %.not773 = icmp eq ptr %166, null
   br i1 %.not773, label %180, label %168
 
-168:                                              ; preds = %164
-  %169 = load i32, ptr %165, align 4
+168:                                              ; preds = %165
+  %169 = load i32, ptr %166, align 4
   %170 = icmp ne i32 %169, 0
   call void @llvm.assume(i1 %170)
   %171 = add i32 %169, -1
-  store i32 %171, ptr %165, align 4
+  store i32 %171, ptr %166, align 4
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %173, label %174
 
 173:                                              ; preds = %168
-  call void @zend_objects_store_del(ptr noundef nonnull %165) #16
+  call void @zend_objects_store_del(ptr noundef nonnull %166) #16
   br label %180
 
 174:                                              ; preds = %168
-  %175 = getelementptr inbounds i8, ptr %165, i64 4
+  %175 = getelementptr inbounds i8, ptr %166, i64 4
   %176 = load i32, ptr %175, align 4
   %177 = and i32 %176, -1008
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %179, label %180
 
 179:                                              ; preds = %174
-  call void @gc_possible_root(ptr noundef nonnull %165) #16
+  call void @gc_possible_root(ptr noundef nonnull %166) #16
   br label %180
 
-180:                                              ; preds = %173, %179, %174, %164
+180:                                              ; preds = %173, %179, %174, %165
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %144) #16
   %181 = getelementptr inbounds i8, ptr %15, i64 -408
   %182 = load ptr, ptr %181, align 8
@@ -5354,7 +5354,7 @@ php_xml_check_string_method_arg.exit869:          ; preds = %216
   %283 = load i32, ptr %282, align 4
   %284 = and i32 %283, 64
   %.not780 = icmp eq i32 %284, 0
-  br i1 %.not780, label %285, label %288
+  br i1 %.not780, label %285, label %289
 
 285:                                              ; preds = %279
   %286 = load i32, ptr %281, align 4
@@ -5362,41 +5362,41 @@ php_xml_check_string_method_arg.exit869:          ; preds = %216
   store i32 %287, ptr %281, align 4
   %.pre939 = load ptr, ptr %268, align 8
   %.pre940 = load ptr, ptr %271, align 8
-  br label %288
+  %288 = icmp ne ptr %.pre939, null
+  br label %289
 
-288:                                              ; preds = %285, %279
-  %289 = phi ptr [ %.pre940, %285 ], [ %272, %279 ]
-  %290 = phi ptr [ %.pre939, %285 ], [ %269, %279 ]
-  %291 = icmp ne ptr %290, null
+289:                                              ; preds = %285, %279
+  %290 = phi ptr [ %.pre940, %285 ], [ %272, %279 ]
+  %291 = phi i1 [ %288, %285 ], [ true, %279 ]
   call void @llvm.assume(i1 %291)
-  %.not781 = icmp eq ptr %289, null
+  %.not781 = icmp eq ptr %290, null
   br i1 %.not781, label %304, label %292
 
-292:                                              ; preds = %288
-  %293 = load i32, ptr %289, align 4
+292:                                              ; preds = %289
+  %293 = load i32, ptr %290, align 4
   %294 = icmp ne i32 %293, 0
   call void @llvm.assume(i1 %294)
   %295 = add i32 %293, -1
-  store i32 %295, ptr %289, align 4
+  store i32 %295, ptr %290, align 4
   %296 = icmp eq i32 %295, 0
   br i1 %296, label %297, label %298
 
 297:                                              ; preds = %292
-  call void @zend_objects_store_del(ptr noundef nonnull %289) #16
+  call void @zend_objects_store_del(ptr noundef nonnull %290) #16
   br label %304
 
 298:                                              ; preds = %292
-  %299 = getelementptr inbounds i8, ptr %289, i64 4
+  %299 = getelementptr inbounds i8, ptr %290, i64 4
   %300 = load i32, ptr %299, align 4
   %301 = and i32 %300, -1008
   %302 = icmp eq i32 %301, 0
   br i1 %302, label %303, label %304
 
 303:                                              ; preds = %298
-  call void @gc_possible_root(ptr noundef nonnull %289) #16
+  call void @gc_possible_root(ptr noundef nonnull %290) #16
   br label %304
 
-304:                                              ; preds = %297, %303, %298, %288
+304:                                              ; preds = %297, %303, %298, %289
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %268) #16
   %305 = getelementptr inbounds i8, ptr %15, i64 -368
   %306 = load ptr, ptr %305, align 8
@@ -5608,7 +5608,7 @@ php_xml_check_string_method_arg.exit876:          ; preds = %340
   %407 = load i32, ptr %406, align 4
   %408 = and i32 %407, 64
   %.not788 = icmp eq i32 %408, 0
-  br i1 %.not788, label %409, label %412
+  br i1 %.not788, label %409, label %413
 
 409:                                              ; preds = %403
   %410 = load i32, ptr %405, align 4
@@ -5616,41 +5616,41 @@ php_xml_check_string_method_arg.exit876:          ; preds = %340
   store i32 %411, ptr %405, align 4
   %.pre941 = load ptr, ptr %392, align 8
   %.pre942 = load ptr, ptr %395, align 8
-  br label %412
+  %412 = icmp ne ptr %.pre941, null
+  br label %413
 
-412:                                              ; preds = %409, %403
-  %413 = phi ptr [ %.pre942, %409 ], [ %396, %403 ]
-  %414 = phi ptr [ %.pre941, %409 ], [ %393, %403 ]
-  %415 = icmp ne ptr %414, null
+413:                                              ; preds = %409, %403
+  %414 = phi ptr [ %.pre942, %409 ], [ %396, %403 ]
+  %415 = phi i1 [ %412, %409 ], [ true, %403 ]
   call void @llvm.assume(i1 %415)
-  %.not789 = icmp eq ptr %413, null
+  %.not789 = icmp eq ptr %414, null
   br i1 %.not789, label %428, label %416
 
-416:                                              ; preds = %412
-  %417 = load i32, ptr %413, align 4
+416:                                              ; preds = %413
+  %417 = load i32, ptr %414, align 4
   %418 = icmp ne i32 %417, 0
   call void @llvm.assume(i1 %418)
   %419 = add i32 %417, -1
-  store i32 %419, ptr %413, align 4
+  store i32 %419, ptr %414, align 4
   %420 = icmp eq i32 %419, 0
   br i1 %420, label %421, label %422
 
 421:                                              ; preds = %416
-  call void @zend_objects_store_del(ptr noundef nonnull %413) #16
+  call void @zend_objects_store_del(ptr noundef nonnull %414) #16
   br label %428
 
 422:                                              ; preds = %416
-  %423 = getelementptr inbounds i8, ptr %413, i64 4
+  %423 = getelementptr inbounds i8, ptr %414, i64 4
   %424 = load i32, ptr %423, align 4
   %425 = and i32 %424, -1008
   %426 = icmp eq i32 %425, 0
   br i1 %426, label %427, label %428
 
 427:                                              ; preds = %422
-  call void @gc_possible_root(ptr noundef nonnull %413) #16
+  call void @gc_possible_root(ptr noundef nonnull %414) #16
   br label %428
 
-428:                                              ; preds = %421, %427, %422, %412
+428:                                              ; preds = %421, %427, %422, %413
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %392) #16
   %429 = getelementptr inbounds i8, ptr %15, i64 -328
   %430 = load ptr, ptr %429, align 8
@@ -5862,7 +5862,7 @@ php_xml_check_string_method_arg.exit883:          ; preds = %464
   %531 = load i32, ptr %530, align 4
   %532 = and i32 %531, 64
   %.not796 = icmp eq i32 %532, 0
-  br i1 %.not796, label %533, label %536
+  br i1 %.not796, label %533, label %537
 
 533:                                              ; preds = %527
   %534 = load i32, ptr %529, align 4
@@ -5870,41 +5870,41 @@ php_xml_check_string_method_arg.exit883:          ; preds = %464
   store i32 %535, ptr %529, align 4
   %.pre943 = load ptr, ptr %516, align 8
   %.pre944 = load ptr, ptr %519, align 8
-  br label %536
+  %536 = icmp ne ptr %.pre943, null
+  br label %537
 
-536:                                              ; preds = %533, %527
-  %537 = phi ptr [ %.pre944, %533 ], [ %520, %527 ]
-  %538 = phi ptr [ %.pre943, %533 ], [ %517, %527 ]
-  %539 = icmp ne ptr %538, null
+537:                                              ; preds = %533, %527
+  %538 = phi ptr [ %.pre944, %533 ], [ %520, %527 ]
+  %539 = phi i1 [ %536, %533 ], [ true, %527 ]
   call void @llvm.assume(i1 %539)
-  %.not797 = icmp eq ptr %537, null
+  %.not797 = icmp eq ptr %538, null
   br i1 %.not797, label %552, label %540
 
-540:                                              ; preds = %536
-  %541 = load i32, ptr %537, align 4
+540:                                              ; preds = %537
+  %541 = load i32, ptr %538, align 4
   %542 = icmp ne i32 %541, 0
   call void @llvm.assume(i1 %542)
   %543 = add i32 %541, -1
-  store i32 %543, ptr %537, align 4
+  store i32 %543, ptr %538, align 4
   %544 = icmp eq i32 %543, 0
   br i1 %544, label %545, label %546
 
 545:                                              ; preds = %540
-  call void @zend_objects_store_del(ptr noundef nonnull %537) #16
+  call void @zend_objects_store_del(ptr noundef nonnull %538) #16
   br label %552
 
 546:                                              ; preds = %540
-  %547 = getelementptr inbounds i8, ptr %537, i64 4
+  %547 = getelementptr inbounds i8, ptr %538, i64 4
   %548 = load i32, ptr %547, align 4
   %549 = and i32 %548, -1008
   %550 = icmp eq i32 %549, 0
   br i1 %550, label %551, label %552
 
 551:                                              ; preds = %546
-  call void @gc_possible_root(ptr noundef nonnull %537) #16
+  call void @gc_possible_root(ptr noundef nonnull %538) #16
   br label %552
 
-552:                                              ; preds = %545, %551, %546, %536
+552:                                              ; preds = %545, %551, %546, %537
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %516) #16
   %553 = getelementptr inbounds i8, ptr %15, i64 -288
   %554 = load ptr, ptr %553, align 8
@@ -6116,7 +6116,7 @@ php_xml_check_string_method_arg.exit890:          ; preds = %588
   %655 = load i32, ptr %654, align 4
   %656 = and i32 %655, 64
   %.not804 = icmp eq i32 %656, 0
-  br i1 %.not804, label %657, label %660
+  br i1 %.not804, label %657, label %661
 
 657:                                              ; preds = %651
   %658 = load i32, ptr %653, align 4
@@ -6124,41 +6124,41 @@ php_xml_check_string_method_arg.exit890:          ; preds = %588
   store i32 %659, ptr %653, align 4
   %.pre945 = load ptr, ptr %640, align 8
   %.pre946 = load ptr, ptr %643, align 8
-  br label %660
+  %660 = icmp ne ptr %.pre945, null
+  br label %661
 
-660:                                              ; preds = %657, %651
-  %661 = phi ptr [ %.pre946, %657 ], [ %644, %651 ]
-  %662 = phi ptr [ %.pre945, %657 ], [ %641, %651 ]
-  %663 = icmp ne ptr %662, null
+661:                                              ; preds = %657, %651
+  %662 = phi ptr [ %.pre946, %657 ], [ %644, %651 ]
+  %663 = phi i1 [ %660, %657 ], [ true, %651 ]
   call void @llvm.assume(i1 %663)
-  %.not805 = icmp eq ptr %661, null
+  %.not805 = icmp eq ptr %662, null
   br i1 %.not805, label %676, label %664
 
-664:                                              ; preds = %660
-  %665 = load i32, ptr %661, align 4
+664:                                              ; preds = %661
+  %665 = load i32, ptr %662, align 4
   %666 = icmp ne i32 %665, 0
   call void @llvm.assume(i1 %666)
   %667 = add i32 %665, -1
-  store i32 %667, ptr %661, align 4
+  store i32 %667, ptr %662, align 4
   %668 = icmp eq i32 %667, 0
   br i1 %668, label %669, label %670
 
 669:                                              ; preds = %664
-  call void @zend_objects_store_del(ptr noundef nonnull %661) #16
+  call void @zend_objects_store_del(ptr noundef nonnull %662) #16
   br label %676
 
 670:                                              ; preds = %664
-  %671 = getelementptr inbounds i8, ptr %661, i64 4
+  %671 = getelementptr inbounds i8, ptr %662, i64 4
   %672 = load i32, ptr %671, align 4
   %673 = and i32 %672, -1008
   %674 = icmp eq i32 %673, 0
   br i1 %674, label %675, label %676
 
 675:                                              ; preds = %670
-  call void @gc_possible_root(ptr noundef nonnull %661) #16
+  call void @gc_possible_root(ptr noundef nonnull %662) #16
   br label %676
 
-676:                                              ; preds = %669, %675, %670, %660
+676:                                              ; preds = %669, %675, %670, %661
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %640) #16
   %677 = getelementptr inbounds i8, ptr %15, i64 -248
   %678 = load ptr, ptr %677, align 8
@@ -6370,7 +6370,7 @@ php_xml_check_string_method_arg.exit897:          ; preds = %712
   %779 = load i32, ptr %778, align 4
   %780 = and i32 %779, 64
   %.not812 = icmp eq i32 %780, 0
-  br i1 %.not812, label %781, label %784
+  br i1 %.not812, label %781, label %785
 
 781:                                              ; preds = %775
   %782 = load i32, ptr %777, align 4
@@ -6378,41 +6378,41 @@ php_xml_check_string_method_arg.exit897:          ; preds = %712
   store i32 %783, ptr %777, align 4
   %.pre947 = load ptr, ptr %764, align 8
   %.pre948 = load ptr, ptr %767, align 8
-  br label %784
+  %784 = icmp ne ptr %.pre947, null
+  br label %785
 
-784:                                              ; preds = %781, %775
-  %785 = phi ptr [ %.pre948, %781 ], [ %768, %775 ]
-  %786 = phi ptr [ %.pre947, %781 ], [ %765, %775 ]
-  %787 = icmp ne ptr %786, null
+785:                                              ; preds = %781, %775
+  %786 = phi ptr [ %.pre948, %781 ], [ %768, %775 ]
+  %787 = phi i1 [ %784, %781 ], [ true, %775 ]
   call void @llvm.assume(i1 %787)
-  %.not813 = icmp eq ptr %785, null
+  %.not813 = icmp eq ptr %786, null
   br i1 %.not813, label %800, label %788
 
-788:                                              ; preds = %784
-  %789 = load i32, ptr %785, align 4
+788:                                              ; preds = %785
+  %789 = load i32, ptr %786, align 4
   %790 = icmp ne i32 %789, 0
   call void @llvm.assume(i1 %790)
   %791 = add i32 %789, -1
-  store i32 %791, ptr %785, align 4
+  store i32 %791, ptr %786, align 4
   %792 = icmp eq i32 %791, 0
   br i1 %792, label %793, label %794
 
 793:                                              ; preds = %788
-  call void @zend_objects_store_del(ptr noundef nonnull %785) #16
+  call void @zend_objects_store_del(ptr noundef nonnull %786) #16
   br label %800
 
 794:                                              ; preds = %788
-  %795 = getelementptr inbounds i8, ptr %785, i64 4
+  %795 = getelementptr inbounds i8, ptr %786, i64 4
   %796 = load i32, ptr %795, align 4
   %797 = and i32 %796, -1008
   %798 = icmp eq i32 %797, 0
   br i1 %798, label %799, label %800
 
 799:                                              ; preds = %794
-  call void @gc_possible_root(ptr noundef nonnull %785) #16
+  call void @gc_possible_root(ptr noundef nonnull %786) #16
   br label %800
 
-800:                                              ; preds = %793, %799, %794, %784
+800:                                              ; preds = %793, %799, %794, %785
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %764) #16
   %801 = getelementptr inbounds i8, ptr %15, i64 -208
   %802 = load ptr, ptr %801, align 8
@@ -6624,7 +6624,7 @@ php_xml_check_string_method_arg.exit904:          ; preds = %836
   %903 = load i32, ptr %902, align 4
   %904 = and i32 %903, 64
   %.not820 = icmp eq i32 %904, 0
-  br i1 %.not820, label %905, label %908
+  br i1 %.not820, label %905, label %909
 
 905:                                              ; preds = %899
   %906 = load i32, ptr %901, align 4
@@ -6632,41 +6632,41 @@ php_xml_check_string_method_arg.exit904:          ; preds = %836
   store i32 %907, ptr %901, align 4
   %.pre949 = load ptr, ptr %888, align 8
   %.pre950 = load ptr, ptr %891, align 8
-  br label %908
+  %908 = icmp ne ptr %.pre949, null
+  br label %909
 
-908:                                              ; preds = %905, %899
-  %909 = phi ptr [ %.pre950, %905 ], [ %892, %899 ]
-  %910 = phi ptr [ %.pre949, %905 ], [ %889, %899 ]
-  %911 = icmp ne ptr %910, null
+909:                                              ; preds = %905, %899
+  %910 = phi ptr [ %.pre950, %905 ], [ %892, %899 ]
+  %911 = phi i1 [ %908, %905 ], [ true, %899 ]
   call void @llvm.assume(i1 %911)
-  %.not821 = icmp eq ptr %909, null
+  %.not821 = icmp eq ptr %910, null
   br i1 %.not821, label %924, label %912
 
-912:                                              ; preds = %908
-  %913 = load i32, ptr %909, align 4
+912:                                              ; preds = %909
+  %913 = load i32, ptr %910, align 4
   %914 = icmp ne i32 %913, 0
   call void @llvm.assume(i1 %914)
   %915 = add i32 %913, -1
-  store i32 %915, ptr %909, align 4
+  store i32 %915, ptr %910, align 4
   %916 = icmp eq i32 %915, 0
   br i1 %916, label %917, label %918
 
 917:                                              ; preds = %912
-  call void @zend_objects_store_del(ptr noundef nonnull %909) #16
+  call void @zend_objects_store_del(ptr noundef nonnull %910) #16
   br label %924
 
 918:                                              ; preds = %912
-  %919 = getelementptr inbounds i8, ptr %909, i64 4
+  %919 = getelementptr inbounds i8, ptr %910, i64 4
   %920 = load i32, ptr %919, align 4
   %921 = and i32 %920, -1008
   %922 = icmp eq i32 %921, 0
   br i1 %922, label %923, label %924
 
 923:                                              ; preds = %918
-  call void @gc_possible_root(ptr noundef nonnull %909) #16
+  call void @gc_possible_root(ptr noundef nonnull %910) #16
   br label %924
 
-924:                                              ; preds = %917, %923, %918, %908
+924:                                              ; preds = %917, %923, %918, %909
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %888) #16
   %925 = getelementptr inbounds i8, ptr %15, i64 -168
   %926 = load ptr, ptr %925, align 8
@@ -6878,7 +6878,7 @@ php_xml_check_string_method_arg.exit911:          ; preds = %960
   %1027 = load i32, ptr %1026, align 4
   %1028 = and i32 %1027, 64
   %.not828 = icmp eq i32 %1028, 0
-  br i1 %.not828, label %1029, label %1032
+  br i1 %.not828, label %1029, label %1033
 
 1029:                                             ; preds = %1023
   %1030 = load i32, ptr %1025, align 4
@@ -6886,41 +6886,41 @@ php_xml_check_string_method_arg.exit911:          ; preds = %960
   store i32 %1031, ptr %1025, align 4
   %.pre951 = load ptr, ptr %1012, align 8
   %.pre952 = load ptr, ptr %1015, align 8
-  br label %1032
+  %1032 = icmp ne ptr %.pre951, null
+  br label %1033
 
-1032:                                             ; preds = %1029, %1023
-  %1033 = phi ptr [ %.pre952, %1029 ], [ %1016, %1023 ]
-  %1034 = phi ptr [ %.pre951, %1029 ], [ %1013, %1023 ]
-  %1035 = icmp ne ptr %1034, null
+1033:                                             ; preds = %1029, %1023
+  %1034 = phi ptr [ %.pre952, %1029 ], [ %1016, %1023 ]
+  %1035 = phi i1 [ %1032, %1029 ], [ true, %1023 ]
   call void @llvm.assume(i1 %1035)
-  %.not829 = icmp eq ptr %1033, null
+  %.not829 = icmp eq ptr %1034, null
   br i1 %.not829, label %1048, label %1036
 
-1036:                                             ; preds = %1032
-  %1037 = load i32, ptr %1033, align 4
+1036:                                             ; preds = %1033
+  %1037 = load i32, ptr %1034, align 4
   %1038 = icmp ne i32 %1037, 0
   call void @llvm.assume(i1 %1038)
   %1039 = add i32 %1037, -1
-  store i32 %1039, ptr %1033, align 4
+  store i32 %1039, ptr %1034, align 4
   %1040 = icmp eq i32 %1039, 0
   br i1 %1040, label %1041, label %1042
 
 1041:                                             ; preds = %1036
-  call void @zend_objects_store_del(ptr noundef nonnull %1033) #16
+  call void @zend_objects_store_del(ptr noundef nonnull %1034) #16
   br label %1048
 
 1042:                                             ; preds = %1036
-  %1043 = getelementptr inbounds i8, ptr %1033, i64 4
+  %1043 = getelementptr inbounds i8, ptr %1034, i64 4
   %1044 = load i32, ptr %1043, align 4
   %1045 = and i32 %1044, -1008
   %1046 = icmp eq i32 %1045, 0
   br i1 %1046, label %1047, label %1048
 
 1047:                                             ; preds = %1042
-  call void @gc_possible_root(ptr noundef nonnull %1033) #16
+  call void @gc_possible_root(ptr noundef nonnull %1034) #16
   br label %1048
 
-1048:                                             ; preds = %1041, %1047, %1042, %1032
+1048:                                             ; preds = %1041, %1047, %1042, %1033
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %1012) #16
   %1049 = getelementptr inbounds i8, ptr %15, i64 -128
   %1050 = load ptr, ptr %1049, align 8
@@ -7132,7 +7132,7 @@ php_xml_check_string_method_arg.exit918:          ; preds = %1084
   %1151 = load i32, ptr %1150, align 4
   %1152 = and i32 %1151, 64
   %.not836 = icmp eq i32 %1152, 0
-  br i1 %.not836, label %1153, label %1156
+  br i1 %.not836, label %1153, label %1157
 
 1153:                                             ; preds = %1147
   %1154 = load i32, ptr %1149, align 4
@@ -7140,41 +7140,41 @@ php_xml_check_string_method_arg.exit918:          ; preds = %1084
   store i32 %1155, ptr %1149, align 4
   %.pre953 = load ptr, ptr %1136, align 8
   %.pre954 = load ptr, ptr %1139, align 8
-  br label %1156
+  %1156 = icmp ne ptr %.pre953, null
+  br label %1157
 
-1156:                                             ; preds = %1153, %1147
-  %1157 = phi ptr [ %.pre954, %1153 ], [ %1140, %1147 ]
-  %1158 = phi ptr [ %.pre953, %1153 ], [ %1137, %1147 ]
-  %1159 = icmp ne ptr %1158, null
+1157:                                             ; preds = %1153, %1147
+  %1158 = phi ptr [ %.pre954, %1153 ], [ %1140, %1147 ]
+  %1159 = phi i1 [ %1156, %1153 ], [ true, %1147 ]
   call void @llvm.assume(i1 %1159)
-  %.not837 = icmp eq ptr %1157, null
+  %.not837 = icmp eq ptr %1158, null
   br i1 %.not837, label %1172, label %1160
 
-1160:                                             ; preds = %1156
-  %1161 = load i32, ptr %1157, align 4
+1160:                                             ; preds = %1157
+  %1161 = load i32, ptr %1158, align 4
   %1162 = icmp ne i32 %1161, 0
   call void @llvm.assume(i1 %1162)
   %1163 = add i32 %1161, -1
-  store i32 %1163, ptr %1157, align 4
+  store i32 %1163, ptr %1158, align 4
   %1164 = icmp eq i32 %1163, 0
   br i1 %1164, label %1165, label %1166
 
 1165:                                             ; preds = %1160
-  call void @zend_objects_store_del(ptr noundef nonnull %1157) #16
+  call void @zend_objects_store_del(ptr noundef nonnull %1158) #16
   br label %1172
 
 1166:                                             ; preds = %1160
-  %1167 = getelementptr inbounds i8, ptr %1157, i64 4
+  %1167 = getelementptr inbounds i8, ptr %1158, i64 4
   %1168 = load i32, ptr %1167, align 4
   %1169 = and i32 %1168, -1008
   %1170 = icmp eq i32 %1169, 0
   br i1 %1170, label %1171, label %1172
 
 1171:                                             ; preds = %1166
-  call void @gc_possible_root(ptr noundef nonnull %1157) #16
+  call void @gc_possible_root(ptr noundef nonnull %1158) #16
   br label %1172
 
-1172:                                             ; preds = %1165, %1171, %1166, %1156
+1172:                                             ; preds = %1165, %1171, %1166, %1157
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %1136) #16
   %1173 = getelementptr inbounds i8, ptr %15, i64 -88
   %1174 = load ptr, ptr %1173, align 8

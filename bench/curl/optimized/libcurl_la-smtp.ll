@@ -225,11 +225,11 @@ lor.rhs.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   %17 = load ptr, ptr %name.i.i.i.i, align 8
   %call10.i.i.i = call zeroext i1 @Curl_is_ASCII_name(ptr noundef %17) #8
   %lnot.i.i.i = xor i1 %call10.i.i.i, true
+  %18 = zext i1 %lnot.i.i.i to i8
   br label %land.end.i.i.i
 
 land.end.i.i.i:                                   ; preds = %lor.rhs.i.i.i, %lor.lhs.false.i.i.i, %land.rhs.i.i.i, %if.end.i.i.i
-  %18 = phi i1 [ false, %if.end.i.i.i ], [ true, %lor.lhs.false.i.i.i ], [ true, %land.rhs.i.i.i ], [ %lnot.i.i.i, %lor.rhs.i.i.i ]
-  %frombool.i.i.i = zext i1 %18 to i8
+  %frombool.i.i.i = phi i8 [ 0, %if.end.i.i.i ], [ 1, %lor.lhs.false.i.i.i ], [ 1, %land.rhs.i.i.i ], [ %18, %lor.rhs.i.i.i ]
   %19 = load ptr, ptr %name.i.i.i.i, align 8
   %tobool12.not.i.i.i = icmp eq ptr %19, null
   br i1 %tobool12.not.i.i.i, label %if.else.i.i.i, label %if.then13.i.i.i

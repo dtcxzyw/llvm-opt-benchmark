@@ -617,13 +617,13 @@ entry:
 
 entry.for.end_crit_edge:                          ; preds = %entry
   %high_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1644
-  %.pre172 = load i32, ptr %high_ip.i.phi.trans.insert, align 4
+  %.pre176 = load i32, ptr %high_ip.i.phi.trans.insert, align 4
   %low_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1652
-  %.pre173 = load i32, ptr %low_ip.i.phi.trans.insert, align 4
+  %.pre177 = load i32, ptr %low_ip.i.phi.trans.insert, align 4
   %rise_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1628
-  %.pre174 = load i32, ptr %rise_ip.i.phi.trans.insert, align 4
+  %.pre178 = load i32, ptr %rise_ip.i.phi.trans.insert, align 4
   %fall_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1636
-  %.pre175 = load i32, ptr %fall_ip.i.phi.trans.insert, align 4
+  %.pre179 = load i32, ptr %fall_ip.i.phi.trans.insert, align 4
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -642,8 +642,9 @@ for.body.lr.ph:                                   ; preds = %entry
   %output = getelementptr inbounds i8, ptr %s, i64 1344
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %deposit32.exit135
-  %i.0167 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %deposit32.exit135 ]
+for.body:                                         ; preds = %for.body.lr.ph, %deposit32.exit153
+  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %26, %deposit32.exit153 ]
+  %i.0167 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %deposit32.exit153 ]
   %conv2 = trunc nuw i64 %i.0167 to i32
   %exitcond.not = icmp eq i64 %i.0167, 32
   br i1 %exitcond.not, label %if.else.i, label %extract32.exit113
@@ -653,41 +654,41 @@ if.else.i:                                        ; preds = %for.body
   unreachable
 
 extract32.exit113:                                ; preds = %for.body
-  %1 = load i32, ptr %value, align 16
-  %2 = shl nuw i32 1, %conv2
-  %3 = and i32 %1, %2
-  %tobool = icmp ne i32 %3, 0
-  %4 = load i32, ptr %in3, align 4
-  %shr.i61 = lshr i32 %4, %conv2
-  %5 = trunc i32 %shr.i61 to i8
-  %frombool7 = and i8 %5, 1
-  %6 = load i32, ptr %in_mask8, align 8
-  %7 = and i32 %6, %2
-  %tobool11.not = icmp eq i32 %7, 0
-  %8 = load i32, ptr %output_en27, align 8
-  %9 = and i32 %8, %2
-  %tobool30.not = icmp eq i32 %9, 0
-  %10 = load i32, ptr %input_en32, align 4
-  %11 = and i32 %10, %2
-  %tobool35 = icmp ne i32 %11, 0
-  %12 = load i32, ptr %rise_ip37, align 4
-  %13 = and i32 %12, %2
-  %tobool40.not = icmp eq i32 %13, 0
-  %14 = load i32, ptr %fall_ip42, align 4
-  %15 = and i32 %14, %2
-  %tobool45.not = icmp ne i32 %15, 0
-  %16 = load i32, ptr %low_ip47, align 4
-  %17 = and i32 %16, %2
-  %tobool50 = icmp ne i32 %17, 0
-  %18 = load i32, ptr %high_ip52, align 4
-  %19 = and i32 %18, %2
-  %tobool55 = icmp ne i32 %19, 0
+  %2 = load i32, ptr %value, align 16
+  %3 = shl nuw i32 1, %conv2
+  %4 = and i32 %2, %3
+  %tobool = icmp ne i32 %4, 0
+  %5 = load i32, ptr %in3, align 4
+  %shr.i61 = lshr i32 %5, %conv2
+  %6 = trunc i32 %shr.i61 to i8
+  %frombool7 = and i8 %6, 1
+  %7 = load i32, ptr %in_mask8, align 8
+  %8 = and i32 %7, %3
+  %tobool11.not = icmp eq i32 %8, 0
+  %9 = load i32, ptr %output_en27, align 8
+  %10 = and i32 %9, %3
+  %tobool30.not = icmp eq i32 %10, 0
+  %11 = load i32, ptr %input_en32, align 4
+  %12 = and i32 %11, %3
+  %tobool35 = icmp ne i32 %12, 0
+  %13 = load i32, ptr %rise_ip37, align 4
+  %14 = and i32 %13, %3
+  %tobool40.not = icmp ne i32 %14, 0
+  %15 = load i32, ptr %fall_ip42, align 4
+  %16 = and i32 %15, %3
+  %tobool45.not = icmp ne i32 %16, 0
+  %17 = load i32, ptr %low_ip47, align 4
+  %18 = and i32 %17, %3
+  %tobool50 = icmp ne i32 %18, 0
+  %19 = load i32, ptr %high_ip52, align 4
+  %20 = and i32 %19, %3
+  %tobool55 = icmp ne i32 %20, 0
   %brmerge = select i1 %tobool30.not, i1 true, i1 %tobool11.not
   br i1 %brmerge, label %if.end74, label %do.body
 
 do.body:                                          ; preds = %extract32.exit113
-  %20 = load i32, ptr @qemu_loglevel, align 4
-  %and.i114 = and i32 %20, 2048
+  %21 = load i32, ptr @qemu_loglevel, align 4
+  %and.i114 = and i32 %21, 2048
   %cmp.i.not = icmp eq i32 %and.i114, 0
   br i1 %cmp.i.not, label %if.then89, label %if.then73
 
@@ -696,111 +697,104 @@ if.then73:                                        ; preds = %do.body
   br label %if.then89
 
 if.end74:                                         ; preds = %extract32.exit113
-  %not.tobool30.not = xor i1 %tobool30.not, true
-  %21 = load i32, ptr %out_xor18, align 16
-  %22 = load i32, ptr %port13, align 4
-  %shr.i71162 = xor i32 %21, %22
-  %23 = and i32 %shr.i71162, %2
-  %tobool63 = icmp ne i32 %23, 0
-  %spec.select = select i1 %not.tobool30.not, i1 %tobool63, i1 false
-  %frombool64 = zext i1 %spec.select to i8
+  %22 = load i32, ptr %out_xor18, align 16
+  %23 = load i32, ptr %port13, align 4
+  %shr.i71161 = xor i32 %22, %23
   %24 = load i32, ptr %pue, align 16
-  %shr.i81 = lshr i32 %24, %conv2
-  %25 = trunc i32 %shr.i81 to i8
-  %frombool26 = and i8 %25, 1
-  %frombool26.frombool64 = select i1 %tobool30.not, i8 %frombool26, i8 %frombool64
+  %frombool26.frombool64.v.v.v = select i1 %tobool30.not, i32 %24, i32 %shr.i71161
+  %frombool26.frombool64.v.v = lshr i32 %frombool26.frombool64.v.v.v, %conv2
+  %frombool26.frombool64.v = trunc i32 %frombool26.frombool64.v.v to i8
+  %frombool26.frombool64 = and i8 %frombool26.frombool64.v, 1
   %actual_value.0 = select i1 %tobool11.not, i8 %frombool26.frombool64, i8 %frombool7
-  br i1 %tobool30.not, label %deposit32.exit126, label %if.then89
+  br i1 %tobool30.not, label %deposit32.exit153, label %if.then89
 
 if.then89:                                        ; preds = %do.body, %if.then73, %if.end74
   %actual_value.0159 = phi i8 [ %actual_value.0, %if.end74 ], [ %frombool7, %if.then73 ], [ %frombool7, %do.body ]
   %arrayidx = getelementptr [32 x ptr], ptr %output, i64 0, i64 %i.0167
-  %26 = load ptr, ptr %arrayidx, align 8
+  %25 = load ptr, ptr %arrayidx, align 8
   %conv91 = zext nneg i8 %actual_value.0159 to i32
-  tail call void @qemu_set_irq(ptr noundef %26, i32 noundef %conv91) #7
+  tail call void @qemu_set_irq(ptr noundef %25, i32 noundef %conv91) #7
   %.pre = load i32, ptr %high_ip52, align 4
   %.pre171 = load i32, ptr %low_ip47, align 4
-  br label %deposit32.exit126
+  %.pre172 = load i32, ptr %rise_ip37, align 4
+  %.pre173 = load i32, ptr %fall_ip42, align 4
+  %.pre174 = load i32, ptr %value, align 16
+  %.pre175 = load i32, ptr %ngpio, align 4
+  br label %deposit32.exit153
 
-deposit32.exit126:                                ; preds = %if.then89, %if.end74
-  %27 = phi i32 [ %.pre171, %if.then89 ], [ %16, %if.end74 ]
-  %28 = phi i32 [ %.pre, %if.then89 ], [ %18, %if.end74 ]
+deposit32.exit153:                                ; preds = %if.end74, %if.then89
+  %26 = phi i32 [ %.pre175, %if.then89 ], [ %1, %if.end74 ]
+  %27 = phi i32 [ %.pre174, %if.then89 ], [ %2, %if.end74 ]
+  %28 = phi i32 [ %.pre173, %if.then89 ], [ %15, %if.end74 ]
+  %29 = phi i32 [ %.pre172, %if.then89 ], [ %13, %if.end74 ]
+  %30 = phi i32 [ %.pre171, %if.then89 ], [ %17, %if.end74 ]
+  %31 = phi i32 [ %.pre, %if.then89 ], [ %19, %if.end74 ]
   %actual_value.0160 = phi i8 [ %actual_value.0159, %if.then89 ], [ %actual_value.0, %if.end74 ]
   %tobool96 = trunc nuw i8 %actual_value.0160 to i1
-  %29 = select i1 %tobool35, i1 %tobool96, i1 false
-  %30 = select i1 %tobool55, i1 true, i1 %29
-  %conv108 = zext i1 %30 to i32
-  %not.i = xor i32 %2, -1
-  %and.i117 = and i32 %28, %not.i
+  %32 = select i1 %tobool35, i1 %tobool96, i1 false
+  %33 = select i1 %tobool55, i1 true, i1 %32
+  %conv108 = zext i1 %33 to i32
+  %not.i = xor i32 %3, -1
+  %and.i117 = and i32 %31, %not.i
   %and6.i = shl nuw i32 %conv108, %conv2
   %or.i = or i32 %and6.i, %and.i117
   store i32 %or.i, ptr %high_ip52, align 4
-  %lnot115 = xor i1 %29, true
-  %31 = select i1 %tobool50, i1 true, i1 %lnot115
-  %conv122 = zext i1 %31 to i32
-  %and.i122 = and i32 %27, %not.i
+  %lnot115 = xor i1 %32, true
+  %34 = select i1 %tobool50, i1 true, i1 %lnot115
+  %conv122 = zext i1 %34 to i32
+  %and.i122 = and i32 %30, %not.i
   %and6.i124 = shl nuw i32 %conv122, %conv2
   %or.i125 = or i32 %and6.i124, %and.i122
   store i32 %or.i125, ptr %low_ip47, align 4
-  br i1 %tobool40.not, label %lor.rhs127, label %deposit32.exit135
-
-lor.rhs127:                                       ; preds = %deposit32.exit126
   %lnot132 = xor i1 %tobool, true
-  %32 = select i1 %29, i1 %lnot132, i1 false
-  br label %deposit32.exit135
-
-deposit32.exit135:                                ; preds = %deposit32.exit126, %lor.rhs127
-  %33 = phi i1 [ true, %deposit32.exit126 ], [ %32, %lor.rhs127 ]
-  %34 = load i32, ptr %rise_ip37, align 4
-  %conv140 = zext i1 %33 to i32
-  %and.i131 = and i32 %34, %not.i
+  %35 = select i1 %32, i1 %lnot132, i1 false
+  %narrow = select i1 %tobool40.not, i1 true, i1 %35
+  %conv140 = zext i1 %narrow to i32
+  %and.i131 = and i32 %29, %not.i
   %and6.i133 = shl nuw i32 %conv140, %conv2
   %or.i134 = or i32 %and6.i133, %and.i131
   store i32 %or.i134, ptr %rise_ip37, align 4
-  %35 = select i1 %lnot115, i1 %tobool, i1 false
-  %spec.select161 = select i1 %tobool45.not, i1 true, i1 %35
-  %36 = load i32, ptr %fall_ip42, align 4
-  %conv156 = zext i1 %spec.select161 to i32
-  %and.i140 = and i32 %36, %not.i
+  %36 = select i1 %lnot115, i1 %tobool, i1 false
+  %narrow162 = select i1 %tobool45.not, i1 true, i1 %36
+  %conv156 = zext i1 %narrow162 to i32
+  %and.i140 = and i32 %28, %not.i
   %and6.i142 = shl nuw i32 %conv156, %conv2
   %or.i143 = or i32 %and.i140, %and6.i142
   store i32 %or.i143, ptr %fall_ip42, align 4
-  %37 = load i32, ptr %value, align 16
-  %conv162 = zext i1 %29 to i32
-  %and.i149 = and i32 %37, %not.i
+  %conv162 = zext i1 %32 to i32
+  %and.i149 = and i32 %27, %not.i
   %and6.i151 = shl nuw i32 %conv162, %conv2
   %or.i152 = or i32 %and.i149, %and6.i151
   store i32 %or.i152, ptr %value, align 16
   %inc = add nuw nsw i64 %i.0167, 1
-  %38 = load i32, ptr %ngpio, align 4
-  %conv = zext i32 %38 to i64
+  %conv = zext i32 %26 to i64
   %cmp = icmp ult i64 %inc, %conv
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !7
 
-for.end.loopexit:                                 ; preds = %deposit32.exit135
-  %39 = icmp eq i32 %38, 0
+for.end.loopexit:                                 ; preds = %deposit32.exit153
+  %37 = icmp eq i32 %26, 0
   br label %for.end
 
 for.end:                                          ; preds = %entry.for.end_crit_edge, %for.end.loopexit
-  %40 = phi i32 [ %.pre175, %entry.for.end_crit_edge ], [ %or.i143, %for.end.loopexit ]
-  %41 = phi i32 [ %.pre174, %entry.for.end_crit_edge ], [ %or.i134, %for.end.loopexit ]
-  %42 = phi i32 [ %.pre173, %entry.for.end_crit_edge ], [ %or.i125, %for.end.loopexit ]
-  %43 = phi i32 [ %.pre172, %entry.for.end_crit_edge ], [ %or.i, %for.end.loopexit ]
-  %.lcssa = phi i1 [ true, %entry.for.end_crit_edge ], [ %39, %for.end.loopexit ]
+  %38 = phi i32 [ %.pre179, %entry.for.end_crit_edge ], [ %or.i143, %for.end.loopexit ]
+  %39 = phi i32 [ %.pre178, %entry.for.end_crit_edge ], [ %or.i134, %for.end.loopexit ]
+  %40 = phi i32 [ %.pre177, %entry.for.end_crit_edge ], [ %or.i125, %for.end.loopexit ]
+  %41 = phi i32 [ %.pre176, %entry.for.end_crit_edge ], [ %or.i, %for.end.loopexit ]
+  %.lcssa = phi i1 [ true, %entry.for.end_crit_edge ], [ %37, %for.end.loopexit ]
   %high_ie.i = getelementptr inbounds i8, ptr %s, i64 1640
-  %44 = load i32, ptr %high_ie.i, align 8
-  %and.i154 = and i32 %44, %43
+  %42 = load i32, ptr %high_ie.i, align 8
+  %and.i154 = and i32 %42, %41
   %low_ie.i = getelementptr inbounds i8, ptr %s, i64 1648
-  %45 = load i32, ptr %low_ie.i, align 16
-  %and1.i = and i32 %45, %42
+  %43 = load i32, ptr %low_ie.i, align 16
+  %and1.i = and i32 %43, %40
   %or.i155 = or i32 %and1.i, %and.i154
   %rise_ie.i = getelementptr inbounds i8, ptr %s, i64 1624
-  %46 = load i32, ptr %rise_ie.i, align 8
-  %and2.i = and i32 %46, %41
+  %44 = load i32, ptr %rise_ie.i, align 8
+  %and2.i = and i32 %44, %39
   %or3.i = or i32 %or.i155, %and2.i
   %fall_ie.i = getelementptr inbounds i8, ptr %s, i64 1632
-  %47 = load i32, ptr %fall_ie.i, align 16
-  %and4.i = and i32 %47, %40
+  %45 = load i32, ptr %fall_ie.i, align 16
+  %and4.i = and i32 %45, %38
   %or5.i = or i32 %or3.i, %and4.i
   br i1 %.lcssa, label %update_output_irq.exit, label %for.body.lr.ph.i
 
@@ -813,36 +807,36 @@ for.body.i:                                       ; preds = %trace_sifive_gpio_u
   %i.020.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %trace_sifive_gpio_update_output_irq.exit.i ]
   %idxprom.i = sext i32 %i.020.i to i64
   %arrayidx.i = getelementptr [32 x ptr], ptr %irq.i, i64 0, i64 %idxprom.i
-  %48 = load ptr, ptr %arrayidx.i, align 8
-  %49 = lshr i32 %or5.i, %i.020.i
-  %conv.i = and i32 %49, 1
-  tail call void @qemu_set_irq(ptr noundef %48, i32 noundef %conv.i) #7
+  %46 = load ptr, ptr %arrayidx.i, align 8
+  %47 = lshr i32 %or5.i, %i.020.i
+  %conv.i = and i32 %47, 1
+  tail call void @qemu_set_irq(ptr noundef %46, i32 noundef %conv.i) #7
   %conv12.i = zext nneg i32 %conv.i to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %50 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i = icmp ne i32 %50, 0
-  %51 = load i16, ptr @_TRACE_SIFIVE_GPIO_UPDATE_OUTPUT_IRQ_DSTATE, align 2
-  %tobool4.i.i.i = icmp ne i16 %51, 0
+  %48 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i = icmp ne i32 %48, 0
+  %49 = load i16, ptr @_TRACE_SIFIVE_GPIO_UPDATE_OUTPUT_IRQ_DSTATE, align 2
+  %tobool4.i.i.i = icmp ne i16 %49, 0
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %trace_sifive_gpio_update_output_irq.exit.i
 
 land.lhs.true5.i.i.i:                             ; preds = %for.body.i
-  %52 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i = and i32 %52, 32768
+  %50 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i = and i32 %50, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %trace_sifive_gpio_update_output_irq.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.i
-  %53 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i = trunc i8 %53 to i1
+  %51 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i = trunc i8 %51 to i1
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #7
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #7
-  %54 = load i64, ptr %_now.i.i.i, align 8
-  %55 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i.i, i64 noundef %54, i64 noundef %55, i64 noundef %idxprom.i, i64 noundef %conv12.i) #7
+  %52 = load i64, ptr %_now.i.i.i, align 8
+  %53 = load i64, ptr %tv_usec.i.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i.i, i64 noundef %52, i64 noundef %53, i64 noundef %idxprom.i, i64 noundef %conv12.i) #7
   br label %trace_sifive_gpio_update_output_irq.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -852,8 +846,8 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 trace_sifive_gpio_update_output_irq.exit.i:       ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %for.body.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %inc.i = add nuw i32 %i.020.i, 1
-  %56 = load i32, ptr %ngpio, align 4
-  %cmp.i156 = icmp ult i32 %inc.i, %56
+  %54 = load i32, ptr %ngpio, align 4
+  %cmp.i156 = icmp ult i32 %inc.i, %54
   br i1 %cmp.i156, label %for.body.i, label %update_output_irq.exit, !llvm.loop !8
 
 update_output_irq.exit:                           ; preds = %trace_sifive_gpio_update_output_irq.exit.i, %for.end

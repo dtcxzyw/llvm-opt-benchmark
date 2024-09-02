@@ -3462,7 +3462,7 @@ create_cancelled_error.exit:                      ; preds = %if.then5.i, %if.els
   br i1 %tobool16.not, label %return, label %if.end19
 
 if.end19:                                         ; preds = %create_cancelled_error.exit.thread, %if.then4, %create_cancelled_error.exit
-  %clear_exc.0 = phi i32 [ 1, %create_cancelled_error.exit ], [ 0, %if.then4 ], [ 1, %create_cancelled_error.exit.thread ]
+  %tobool13.not121 = phi i1 [ false, %create_cancelled_error.exit ], [ true, %if.then4 ], [ false, %create_cancelled_error.exit.thread ]
   %exc.addr.1 = phi ptr [ %retval.0.i, %create_cancelled_error.exit ], [ %exc, %if.then4 ], [ %4, %create_cancelled_error.exit.thread ]
   %bf.load21 = load i8, ptr %task_must_cancel, align 4
   %bf.clear22 = and i8 %bf.load21, -5
@@ -3470,7 +3470,7 @@ if.end19:                                         ; preds = %create_cancelled_er
   br label %do.body
 
 do.body:                                          ; preds = %if.end, %if.end19
-  %clear_exc.1 = phi i32 [ %clear_exc.0, %if.end19 ], [ 0, %if.end ]
+  %clear_exc.1 = phi i1 [ %tobool13.not121, %if.end19 ], [ true, %if.end ]
   %exc.addr.2 = phi ptr [ %exc.addr.1, %if.end19 ], [ %exc, %if.end ]
   %task_fut_waiter = getelementptr inbounds i8, ptr %task, i64 112
   %7 = load ptr, ptr %task_fut_waiter, align 8
@@ -3503,8 +3503,7 @@ do.end:                                           ; preds = %do.body, %if.then25
 if.then28:                                        ; preds = %do.end
   %11 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.27) #6
-  %tobool29.not = icmp eq i32 %clear_exc.1, 0
-  br i1 %tobool29.not, label %return, label %if.then30
+  br i1 %clear_exc.1, label %return, label %if.then30
 
 if.then30:                                        ; preds = %if.then28
   %12 = load i64, ptr %exc.addr.2, align 8
@@ -3549,8 +3548,7 @@ if.end.i69:                                       ; preds = %if.else
 
 gen_status_from_result.exit:                      ; preds = %if.else, %if.end.i69
   %retval.0.i68 = phi i32 [ 1, %if.else ], [ %..i, %if.end.i69 ]
-  %tobool38.not = icmp eq i32 %clear_exc.1, 0
-  br i1 %tobool38.not, label %if.end41, label %if.then39
+  br i1 %clear_exc.1, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %gen_status_from_result.exit
   %14 = load i64, ptr %exc.addr.2, align 8
@@ -3607,9 +3605,9 @@ if.then.i.i:                                      ; preds = %if.end.i73
   %21 = load i32, ptr %19, align 8
   %add.i.i.i = add i32 %21, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
-  br i1 %cmp.i.i.i, label %Py_XINCREF.exit.i.thread123, label %Py_XINCREF.exit.i
+  br i1 %cmp.i.i.i, label %Py_XINCREF.exit.i.thread125, label %Py_XINCREF.exit.i
 
-Py_XINCREF.exit.i.thread123:                      ; preds = %if.then.i.i
+Py_XINCREF.exit.i.thread125:                      ; preds = %if.then.i.i
   store ptr %19, ptr %task_cancel_msg, align 8
   br label %if.then.i8.i
 
@@ -3620,8 +3618,8 @@ Py_XINCREF.exit.i:                                ; preds = %if.then.i.i
   %cmp.not.i7.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i7.i, label %Py_XDECREF.exit.i, label %if.then.i8.i
 
-if.then.i8.i:                                     ; preds = %Py_XINCREF.exit.i.thread123, %Py_XINCREF.exit.i
-  %22 = phi ptr [ %19, %Py_XINCREF.exit.i.thread123 ], [ %.pre, %Py_XINCREF.exit.i ]
+if.then.i8.i:                                     ; preds = %Py_XINCREF.exit.i.thread125, %Py_XINCREF.exit.i
+  %22 = phi ptr [ %19, %Py_XINCREF.exit.i.thread125 ], [ %.pre, %Py_XINCREF.exit.i ]
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %24, 0
@@ -10193,7 +10191,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 declare ptr @PyLong_FromUnsignedLongLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @task_eager_start(ptr nocapture noundef readonly %state, ptr noundef %task) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @task_eager_start(ptr nocapture noundef readonly %state, ptr noundef %task) unnamed_addr #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
   %task_loop = getelementptr inbounds i8, ptr %task, i64 16

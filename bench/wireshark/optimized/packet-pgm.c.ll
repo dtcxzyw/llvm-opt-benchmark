@@ -394,7 +394,7 @@ define internal i32 @dissect_pgm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %13 = alloca i32, align 4
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
   %15 = icmp slt i32 %14, 18
-  br i1 %15, label %780, label %16
+  br i1 %15, label %782, label %16
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %1, i64 8
@@ -655,7 +655,7 @@ optsstr.exit:                                     ; preds = %proto_item_set_hidd
 
 168:                                              ; preds = %151
   %169 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %164, ptr noundef nonnull @ei_address_format_invalid) #6
-  br label %.sink.split286
+  br label %.sink.split278
 
 170:                                              ; preds = %141, %141
   %171 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
@@ -718,7 +718,7 @@ optsstr.exit:                                     ; preds = %proto_item_set_hidd
 
 206:                                              ; preds = %198
   %207 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %202, ptr noundef nonnull @ei_address_format_invalid) #6
-  br label %.sink.split286
+  br label %.sink.split278
 
 208:                                              ; preds = %141
   %209 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
@@ -789,17 +789,17 @@ optsstr.exit:                                     ; preds = %proto_item_set_hidd
 
 .sink.split:                                      ; preds = %198, %151, %170, %235, %240, %248, %167, %205
   %hf_pgm_nak_grp.sink = phi ptr [ @hf_pgm_nak_grp6, %205 ], [ @hf_pgm_spm_path6, %167 ], [ @hf_pgm_ack_bitmap, %248 ], [ @hf_pgm_polr_res, %240 ], [ @hf_pgm_poll_matching_bmask, %235 ], [ @hf_pgm_spm_trail, %170 ], [ @hf_pgm_spm_path, %151 ], [ @hf_pgm_nak_grp, %198 ]
-  %.sink285 = phi i32 [ 16, %205 ], [ 16, %167 ], [ 4, %248 ], [ 2, %240 ], [ 4, %235 ], [ 4, %170 ], [ 4, %151 ], [ 4, %198 ]
+  %.sink277 = phi i32 [ 16, %205 ], [ 16, %167 ], [ 4, %248 ], [ 2, %240 ], [ 4, %235 ], [ 4, %170 ], [ 4, %151 ], [ 4, %198 ]
   %.not192.ph = phi i1 [ true, %205 ], [ true, %167 ], [ true, %248 ], [ true, %240 ], [ true, %235 ], [ false, %170 ], [ true, %151 ], [ true, %198 ]
   %254 = load i32, ptr %hf_pgm_nak_grp.sink, align 4
-  %255 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %254, i32 noundef %.sink285, i32 noundef 0) #6
+  %255 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %254, i32 noundef %.sink277, i32 noundef 0) #6
   br label %256
 
 256:                                              ; preds = %.sink.split, %141
   %.not192 = phi i1 [ true, %141 ], [ %.not192.ph, %.sink.split ]
   %257 = and i32 %63, 1
   %.not191 = icmp eq i32 %257, 0
-  br i1 %.not191, label %761, label %258
+  br i1 %.not191, label %763, label %258
 
 258:                                              ; preds = %256
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -849,7 +849,7 @@ optsstr.exit:                                     ; preds = %proto_item_set_hidd
   br i1 %.not496.i, label %dissect_pgmopts.exit, label %.lr.ph495.i
 
 .lr.ph495.i:                                      ; preds = %286, %._crit_edge.thread.i
-  %.0427492.i = phi i16 [ %758, %._crit_edge.thread.i ], [ %287, %286 ]
+  %.0427492.i = phi i16 [ %760, %._crit_edge.thread.i ], [ %287, %286 ]
   %288 = zext i16 %.0427492.i to i32
   %289 = icmp ult i16 %.0427492.i, 4
   br i1 %289, label %290, label %292
@@ -866,17 +866,17 @@ optsstr.exit:                                     ; preds = %proto_item_set_hidd
   %297 = call zeroext i8 @tvb_get_guint8(ptr noundef %259, i32 noundef %296) #6
   %.not461.i = icmp sgt i8 %294, -1
   %298 = and i8 %294, 127
-  switch i8 %298, label %740 [
+  switch i8 %298, label %742 [
     i8 3, label %299
     i8 8, label %332
     i8 9, label %390
     i8 2, label %423
-    i8 18, label %494
-    i8 19, label %541
-    i8 4, label %588
-    i8 5, label %623
-    i8 7, label %658
-    i8 1, label %703
+    i8 18, label %496
+    i8 19, label %543
+    i8 4, label %590
+    i8 5, label %625
+    i8 7, label %660
+    i8 1, label %705
   ]
 
 299:                                              ; preds = %292
@@ -1122,531 +1122,531 @@ paritystr.exit.i:                                 ; preds = %385, %384, %358
 .lr.ph.preheader.i:                               ; preds = %438
   %umax.i = call i32 @llvm.umax.i32(i32 %456, i32 1)
   %wide.trip.count.i = zext nneg i32 %umax.i to i64
-  br label %.lr.ph.i.outer
+  br label %.lr.ph.outer.i
 
-.lr.ph.i.outer:                                   ; preds = %.thread, %.lr.ph.preheader.i
-  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i204, %.thread ], [ 0, %.lr.ph.preheader.i ]
-  %.not463.i = phi i1 [ true, %.thread ], [ false, %.lr.ph.preheader.i ]
+.lr.ph.outer.i:                                   ; preds = %.thread.i, %.lr.ph.preheader.i
+  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next527.i, %.thread.i ], [ 0, %.lr.ph.preheader.i ]
+  %459 = phi i1 [ true, %.thread.i ], [ false, %.lr.ph.preheader.i ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %483
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %483 ], [ %indvars.iv.i.ph, %.lr.ph.i.outer ]
-  %.0490.i = phi i32 [ %485, %483 ], [ 0, %.lr.ph.i.outer ]
-  %.0421489.i = phi i32 [ %484, %483 ], [ 0, %.lr.ph.i.outer ]
-  %459 = sub i32 8192, %.0490.i
-  %460 = sext i32 %.0490.i to i64
-  %461 = getelementptr i8, ptr %458, i64 %460
-  %462 = sext i32 %459 to i64
-  %463 = getelementptr [63 x i32], ptr %7, i64 0, i64 %indvars.iv.i
-  %464 = load i32, ptr %463, align 4
-  %465 = call i32 @llvm.bswap.i32(i32 %464)
-  %466 = zext i32 %465 to i64
-  %467 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %461, i64 noundef %462, ptr noundef nonnull @.str.203, i64 noundef %466) #6
-  %468 = icmp slt i32 %459, %467
-  br i1 %468, label %474, label %469
+.lr.ph.i:                                         ; preds = %484, %.lr.ph.outer.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %484 ], [ %indvars.iv.ph.i, %.lr.ph.outer.i ]
+  %.0490.i = phi i32 [ %486, %484 ], [ 0, %.lr.ph.outer.i ]
+  %.0421489.i = phi i32 [ %485, %484 ], [ 0, %.lr.ph.outer.i ]
+  %460 = sub i32 8192, %.0490.i
+  %461 = sext i32 %.0490.i to i64
+  %462 = getelementptr i8, ptr %458, i64 %461
+  %463 = sext i32 %460 to i64
+  %464 = getelementptr [63 x i32], ptr %7, i64 0, i64 %indvars.iv.i
+  %465 = load i32, ptr %464, align 4
+  %466 = call i32 @llvm.bswap.i32(i32 %465)
+  %467 = zext i32 %466 to i64
+  %468 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %462, i64 noundef %463, ptr noundef nonnull @.str.203, i64 noundef %467) #6
+  %469 = icmp slt i32 %460, %468
+  br i1 %469, label %475, label %470
 
-469:                                              ; preds = %.lr.ph.i
-  %470 = load i32, ptr %463, align 4
-  %471 = call i32 @llvm.bswap.i32(i32 %470)
-  %472 = zext i32 %471 to i64
-  %473 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %461, i64 noundef %462, ptr noundef nonnull @.str.203, i64 noundef %472) #6
-  br label %474
+470:                                              ; preds = %.lr.ph.i
+  %471 = load i32, ptr %464, align 4
+  %472 = call i32 @llvm.bswap.i32(i32 %471)
+  %473 = zext i32 %472 to i64
+  %474 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %462, i64 noundef %463, ptr noundef nonnull @.str.203, i64 noundef %473) #6
+  br label %475
 
-474:                                              ; preds = %469, %.lr.ph.i
-  %475 = phi i32 [ %473, %469 ], [ %459, %.lr.ph.i ]
+475:                                              ; preds = %470, %.lr.ph.i
+  %476 = phi i32 [ %474, %470 ], [ %460, %.lr.ph.i ]
   %exitcond = icmp eq i32 %.0421489.i, 7
-  br i1 %exitcond, label %476, label %483
+  br i1 %exitcond, label %477, label %484
 
-476:                                              ; preds = %474
-  %477 = load i32, ptr @hf_pgm_opt_nak_list, align 4
-  %478 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  br i1 %.not463.i, label %481, label %479
+477:                                              ; preds = %475
+  %478 = load i32, ptr @hf_pgm_opt_nak_list, align 4
+  %479 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  br i1 %459, label %482, label %480
 
-479:                                              ; preds = %476
-  %480 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %428, i32 noundef %477, ptr noundef %259, i32 noundef %478, i32 noundef 32, ptr noundef %458, ptr noundef nonnull @.str.204, i32 noundef %456, ptr noundef %458) #6
-  br label %.thread
+480:                                              ; preds = %477
+  %481 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %428, i32 noundef %478, ptr noundef %259, i32 noundef %479, i32 noundef 32, ptr noundef %458, ptr noundef nonnull @.str.204, i32 noundef %456, ptr noundef %458) #6
+  br label %.thread.i
 
-481:                                              ; preds = %476
-  %482 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %428, i32 noundef %477, ptr noundef %259, i32 noundef %478, i32 noundef 32, ptr noundef %458, ptr noundef nonnull @.str.205, ptr noundef %458) #6
-  br label %.thread
+482:                                              ; preds = %477
+  %483 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %428, i32 noundef %478, ptr noundef %259, i32 noundef %479, i32 noundef 32, ptr noundef %458, ptr noundef nonnull @.str.205, ptr noundef %458) #6
+  br label %.thread.i
 
-483:                                              ; preds = %474
-  %484 = add nuw nsw i32 %.0421489.i, 1
-  %485 = add i32 %475, %.0490.i
+484:                                              ; preds = %475
+  %485 = add nuw nsw i32 %.0421489.i, 1
+  %486 = add i32 %476, %.0490.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %487, label %.lr.ph.i, !llvm.loop !4
 
-.thread:                                          ; preds = %479, %481
+.thread.i:                                        ; preds = %482, %480
   call void @ptvcursor_advance(ptr noundef %26, i32 noundef 32) #6
-  %indvars.iv.next.i204 = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i205 = icmp eq i64 %indvars.iv.next.i204, %wide.trip.count.i
-  br i1 %exitcond.not.i205, label %._crit_edge.thread.i, label %.lr.ph.i.outer, !llvm.loop !4
+  %indvars.iv.next527.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not528.i = icmp eq i64 %indvars.iv.next527.i, %wide.trip.count.i
+  br i1 %exitcond.not528.i, label %._crit_edge.thread.i, label %.lr.ph.outer.i, !llvm.loop !4
 
-._crit_edge.i:                                    ; preds = %483
-  %486 = load i32, ptr @hf_pgm_opt_nak_list, align 4
-  %487 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %488 = shl i32 %484, 2
-  br i1 %.not463.i, label %491, label %489
+487:                                              ; preds = %484
+  %488 = load i32, ptr @hf_pgm_opt_nak_list, align 4
+  %489 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %490 = shl i32 %485, 2
+  br i1 %459, label %493, label %491
 
-489:                                              ; preds = %._crit_edge.i
-  %490 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %428, i32 noundef %486, ptr noundef %259, i32 noundef %487, i32 noundef %488, ptr noundef %458, ptr noundef nonnull @.str.204, i32 noundef %456, ptr noundef %458) #6
-  br label %493
+491:                                              ; preds = %487
+  %492 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %428, i32 noundef %488, ptr noundef %259, i32 noundef %489, i32 noundef %490, ptr noundef %458, ptr noundef nonnull @.str.204, i32 noundef %456, ptr noundef %458) #6
+  br label %495
 
-491:                                              ; preds = %._crit_edge.i
-  %492 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %428, i32 noundef %486, ptr noundef %259, i32 noundef %487, i32 noundef %488, ptr noundef %458, ptr noundef nonnull @.str.205, ptr noundef %458) #6
-  br label %493
+493:                                              ; preds = %487
+  %494 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %428, i32 noundef %488, ptr noundef %259, i32 noundef %489, i32 noundef %490, ptr noundef %458, ptr noundef nonnull @.str.205, ptr noundef %458) #6
+  br label %495
 
-493:                                              ; preds = %491, %489
-  call void @ptvcursor_advance(ptr noundef %26, i32 noundef %488) #6
+495:                                              ; preds = %493, %491
+  call void @ptvcursor_advance(ptr noundef %26, i32 noundef %490) #6
   br label %._crit_edge.thread.i
 
-494:                                              ; preds = %292
-  %495 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %496 = zext i8 %297 to i32
-  %497 = load i32, ptr @ett_pgm_opts_ccdata, align 4
-  %498 = call ptr @val_to_str(i32 noundef 18, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
-  %499 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %495, i32 noundef %496, i32 noundef %497, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %498, i32 noundef %496) #6
-  %500 = icmp ult i8 %297, 4
-  br i1 %500, label %501, label %504
+496:                                              ; preds = %292
+  %497 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %498 = zext i8 %297 to i32
+  %499 = load i32, ptr @ett_pgm_opts_ccdata, align 4
+  %500 = call ptr @val_to_str(i32 noundef 18, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
+  %501 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %497, i32 noundef %498, i32 noundef %499, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %500, i32 noundef %498) #6
+  %502 = icmp ult i8 %297, 4
+  br i1 %502, label %503, label %506
 
-501:                                              ; preds = %494
-  %502 = load ptr, ptr %6, align 8
-  %503 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %502, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %496) #6
+503:                                              ; preds = %496
+  %504 = load ptr, ptr %6, align 8
+  %505 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %504, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %498) #6
   br label %dissect_pgmopts.exit
 
-504:                                              ; preds = %494
-  %505 = icmp ult i32 %288, %496
-  br i1 %505, label %506, label %509
+506:                                              ; preds = %496
+  %507 = icmp ult i32 %288, %498
+  br i1 %507, label %508, label %511
 
-506:                                              ; preds = %504
-  %507 = load ptr, ptr %6, align 8
-  %508 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %507, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %496) #6
+508:                                              ; preds = %506
+  %509 = load ptr, ptr %6, align 8
+  %510 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %509, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %498) #6
   br label %dissect_pgmopts.exit
 
-509:                                              ; preds = %504
-  call void @ptvcursor_set_tree(ptr noundef %26, ptr noundef %499) #6
-  %510 = load i32, ptr @hf_pgm_genopt_end, align 4
-  %511 = call ptr @ptvcursor_add_no_advance(ptr noundef %26, i32 noundef %510, i32 noundef 1, i32 noundef 0) #6
-  %512 = load i32, ptr @hf_pgm_genopt_type, align 4
-  %513 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %512, i32 noundef 1, i32 noundef 0) #6
-  %514 = icmp ult i8 %297, 16
-  %515 = load i32, ptr @hf_pgm_genopt_len, align 4
-  br i1 %514, label %516, label %519
+511:                                              ; preds = %506
+  call void @ptvcursor_set_tree(ptr noundef %26, ptr noundef %501) #6
+  %512 = load i32, ptr @hf_pgm_genopt_end, align 4
+  %513 = call ptr @ptvcursor_add_no_advance(ptr noundef %26, i32 noundef %512, i32 noundef 1, i32 noundef 0) #6
+  %514 = load i32, ptr @hf_pgm_genopt_type, align 4
+  %515 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %514, i32 noundef 1, i32 noundef 0) #6
+  %516 = icmp ult i8 %297, 16
+  %517 = load i32, ptr @hf_pgm_genopt_len, align 4
+  br i1 %516, label %518, label %521
 
-516:                                              ; preds = %509
-  %517 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %518 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %499, i32 noundef %515, ptr noundef %259, i32 noundef %517, i32 noundef 1, i32 noundef %496, ptr noundef nonnull @.str.202, i32 noundef %496, i32 noundef 16) #6
+518:                                              ; preds = %511
+  %519 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %520 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %501, i32 noundef %517, ptr noundef %259, i32 noundef %519, i32 noundef 1, i32 noundef %498, ptr noundef nonnull @.str.202, i32 noundef %498, i32 noundef 16) #6
   br label %._crit_edge.thread.i
 
-519:                                              ; preds = %509
-  %520 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %515, i32 noundef 1, i32 noundef 0) #6
-  %521 = load i32, ptr @hf_pgm_genopt_opx, align 4
-  %522 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %521, i32 noundef 1, i32 noundef 0) #6
-  %523 = load i32, ptr @hf_pgm_opt_ccdata_res, align 4
+521:                                              ; preds = %511
+  %522 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %517, i32 noundef 1, i32 noundef 0) #6
+  %523 = load i32, ptr @hf_pgm_genopt_opx, align 4
   %524 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %523, i32 noundef 1, i32 noundef 0) #6
-  %525 = load i32, ptr @hf_pgm_opt_ccdata_tsp, align 4
-  %526 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %525, i32 noundef 4, i32 noundef 0) #6
-  %527 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %528 = call zeroext i16 @tvb_get_ntohs(ptr noundef %259, i32 noundef %527) #6
-  %529 = load i32, ptr @hf_pgm_opt_ccdata_afi, align 4
-  %530 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %529, i32 noundef 2, i32 noundef 0) #6
-  %531 = load i32, ptr @hf_pgm_opt_ccdata_res2, align 4
+  %525 = load i32, ptr @hf_pgm_opt_ccdata_res, align 4
+  %526 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %525, i32 noundef 1, i32 noundef 0) #6
+  %527 = load i32, ptr @hf_pgm_opt_ccdata_tsp, align 4
+  %528 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %527, i32 noundef 4, i32 noundef 0) #6
+  %529 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %530 = call zeroext i16 @tvb_get_ntohs(ptr noundef %259, i32 noundef %529) #6
+  %531 = load i32, ptr @hf_pgm_opt_ccdata_afi, align 4
   %532 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %531, i32 noundef 2, i32 noundef 0) #6
-  switch i16 %528, label %539 [
-    i16 1, label %533
-    i16 2, label %536
+  %533 = load i32, ptr @hf_pgm_opt_ccdata_res2, align 4
+  %534 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %533, i32 noundef 2, i32 noundef 0) #6
+  switch i16 %530, label %541 [
+    i16 1, label %535
+    i16 2, label %538
   ]
 
-533:                                              ; preds = %519
-  %534 = load i32, ptr @hf_pgm_opt_ccdata_acker, align 4
-  %535 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %534, i32 noundef 4, i32 noundef 0) #6
+535:                                              ; preds = %521
+  %536 = load i32, ptr @hf_pgm_opt_ccdata_acker, align 4
+  %537 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %536, i32 noundef 4, i32 noundef 0) #6
   br label %._crit_edge.thread.i
 
-536:                                              ; preds = %519
-  %537 = load i32, ptr @hf_pgm_opt_ccdata_acker6, align 4
-  %538 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %537, i32 noundef 16, i32 noundef 0) #6
+538:                                              ; preds = %521
+  %539 = load i32, ptr @hf_pgm_opt_ccdata_acker6, align 4
+  %540 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %539, i32 noundef 16, i32 noundef 0) #6
   br label %._crit_edge.thread.i
 
-539:                                              ; preds = %519
-  %540 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %530, ptr noundef nonnull @ei_address_format_invalid) #6
+541:                                              ; preds = %521
+  %542 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %532, ptr noundef nonnull @ei_address_format_invalid) #6
   br label %._crit_edge.thread.i
 
-541:                                              ; preds = %292
-  %542 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %543 = zext i8 %297 to i32
-  %544 = load i32, ptr @ett_pgm_opts_ccdata, align 4
-  %545 = call ptr @val_to_str(i32 noundef 19, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
-  %546 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %542, i32 noundef %543, i32 noundef %544, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %545, i32 noundef %543) #6
-  %547 = icmp ult i8 %297, 4
-  br i1 %547, label %548, label %551
+543:                                              ; preds = %292
+  %544 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %545 = zext i8 %297 to i32
+  %546 = load i32, ptr @ett_pgm_opts_ccdata, align 4
+  %547 = call ptr @val_to_str(i32 noundef 19, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
+  %548 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %544, i32 noundef %545, i32 noundef %546, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %547, i32 noundef %545) #6
+  %549 = icmp ult i8 %297, 4
+  br i1 %549, label %550, label %553
 
-548:                                              ; preds = %541
-  %549 = load ptr, ptr %6, align 8
-  %550 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %549, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %543) #6
+550:                                              ; preds = %543
+  %551 = load ptr, ptr %6, align 8
+  %552 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %551, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %545) #6
   br label %dissect_pgmopts.exit
 
-551:                                              ; preds = %541
-  %552 = icmp ult i32 %288, %543
-  br i1 %552, label %553, label %556
+553:                                              ; preds = %543
+  %554 = icmp ult i32 %288, %545
+  br i1 %554, label %555, label %558
 
-553:                                              ; preds = %551
-  %554 = load ptr, ptr %6, align 8
-  %555 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %554, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %543) #6
+555:                                              ; preds = %553
+  %556 = load ptr, ptr %6, align 8
+  %557 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %556, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %545) #6
   br label %dissect_pgmopts.exit
 
-556:                                              ; preds = %551
-  call void @ptvcursor_set_tree(ptr noundef %26, ptr noundef %546) #6
-  %557 = load i32, ptr @hf_pgm_genopt_end, align 4
-  %558 = call ptr @ptvcursor_add_no_advance(ptr noundef %26, i32 noundef %557, i32 noundef 1, i32 noundef 0) #6
-  %559 = load i32, ptr @hf_pgm_genopt_type, align 4
-  %560 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %559, i32 noundef 1, i32 noundef 0) #6
-  %561 = icmp ult i8 %297, 16
-  %562 = load i32, ptr @hf_pgm_genopt_len, align 4
-  br i1 %561, label %563, label %566
+558:                                              ; preds = %553
+  call void @ptvcursor_set_tree(ptr noundef %26, ptr noundef %548) #6
+  %559 = load i32, ptr @hf_pgm_genopt_end, align 4
+  %560 = call ptr @ptvcursor_add_no_advance(ptr noundef %26, i32 noundef %559, i32 noundef 1, i32 noundef 0) #6
+  %561 = load i32, ptr @hf_pgm_genopt_type, align 4
+  %562 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %561, i32 noundef 1, i32 noundef 0) #6
+  %563 = icmp ult i8 %297, 16
+  %564 = load i32, ptr @hf_pgm_genopt_len, align 4
+  br i1 %563, label %565, label %568
 
-563:                                              ; preds = %556
-  %564 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %565 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %546, i32 noundef %562, ptr noundef %259, i32 noundef %564, i32 noundef 1, i32 noundef %543, ptr noundef nonnull @.str.202, i32 noundef %543, i32 noundef 16) #6
+565:                                              ; preds = %558
+  %566 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %567 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %548, i32 noundef %564, ptr noundef %259, i32 noundef %566, i32 noundef 1, i32 noundef %545, ptr noundef nonnull @.str.202, i32 noundef %545, i32 noundef 16) #6
   br label %._crit_edge.thread.i
 
-566:                                              ; preds = %556
-  %567 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %562, i32 noundef 1, i32 noundef 0) #6
-  %568 = load i32, ptr @hf_pgm_genopt_opx, align 4
-  %569 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %568, i32 noundef 1, i32 noundef 0) #6
-  %570 = load i32, ptr @hf_pgm_opt_ccfeedbk_res, align 4
+568:                                              ; preds = %558
+  %569 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %564, i32 noundef 1, i32 noundef 0) #6
+  %570 = load i32, ptr @hf_pgm_genopt_opx, align 4
   %571 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %570, i32 noundef 1, i32 noundef 0) #6
-  %572 = load i32, ptr @hf_pgm_opt_ccfeedbk_tsp, align 4
-  %573 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %572, i32 noundef 4, i32 noundef 0) #6
-  %574 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %575 = call zeroext i16 @tvb_get_ntohs(ptr noundef %259, i32 noundef %574) #6
-  %576 = load i32, ptr @hf_pgm_opt_ccfeedbk_afi, align 4
-  %577 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %576, i32 noundef 2, i32 noundef 0) #6
-  %578 = load i32, ptr @hf_pgm_opt_ccfeedbk_lossrate, align 4
+  %572 = load i32, ptr @hf_pgm_opt_ccfeedbk_res, align 4
+  %573 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %572, i32 noundef 1, i32 noundef 0) #6
+  %574 = load i32, ptr @hf_pgm_opt_ccfeedbk_tsp, align 4
+  %575 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %574, i32 noundef 4, i32 noundef 0) #6
+  %576 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %577 = call zeroext i16 @tvb_get_ntohs(ptr noundef %259, i32 noundef %576) #6
+  %578 = load i32, ptr @hf_pgm_opt_ccfeedbk_afi, align 4
   %579 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %578, i32 noundef 2, i32 noundef 0) #6
-  switch i16 %575, label %586 [
-    i16 1, label %580
-    i16 2, label %583
+  %580 = load i32, ptr @hf_pgm_opt_ccfeedbk_lossrate, align 4
+  %581 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %580, i32 noundef 2, i32 noundef 0) #6
+  switch i16 %577, label %588 [
+    i16 1, label %582
+    i16 2, label %585
   ]
 
-580:                                              ; preds = %566
-  %581 = load i32, ptr @hf_pgm_opt_ccfeedbk_acker, align 4
-  %582 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %581, i32 noundef 4, i32 noundef 0) #6
+582:                                              ; preds = %568
+  %583 = load i32, ptr @hf_pgm_opt_ccfeedbk_acker, align 4
+  %584 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %583, i32 noundef 4, i32 noundef 0) #6
   br label %._crit_edge.thread.i
 
-583:                                              ; preds = %566
-  %584 = load i32, ptr @hf_pgm_opt_ccfeedbk_acker6, align 4
-  %585 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %584, i32 noundef 16, i32 noundef 0) #6
+585:                                              ; preds = %568
+  %586 = load i32, ptr @hf_pgm_opt_ccfeedbk_acker6, align 4
+  %587 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %586, i32 noundef 16, i32 noundef 0) #6
   br label %._crit_edge.thread.i
 
-586:                                              ; preds = %566
-  %587 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %577, ptr noundef nonnull @ei_address_format_invalid) #6
+588:                                              ; preds = %568
+  %589 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %579, ptr noundef nonnull @ei_address_format_invalid) #6
   br label %._crit_edge.thread.i
 
-588:                                              ; preds = %292
-  %589 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %590 = zext i8 %297 to i32
-  %591 = load i32, ptr @ett_pgm_opts_nak_bo_ivl, align 4
-  %592 = call ptr @val_to_str(i32 noundef 4, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
-  %593 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %589, i32 noundef %590, i32 noundef %591, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %592, i32 noundef %590) #6
-  %594 = icmp ult i8 %297, 4
-  br i1 %594, label %595, label %598
+590:                                              ; preds = %292
+  %591 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %592 = zext i8 %297 to i32
+  %593 = load i32, ptr @ett_pgm_opts_nak_bo_ivl, align 4
+  %594 = call ptr @val_to_str(i32 noundef 4, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
+  %595 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %591, i32 noundef %592, i32 noundef %593, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %594, i32 noundef %592) #6
+  %596 = icmp ult i8 %297, 4
+  br i1 %596, label %597, label %600
 
-595:                                              ; preds = %588
-  %596 = load ptr, ptr %6, align 8
-  %597 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %596, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %590) #6
+597:                                              ; preds = %590
+  %598 = load ptr, ptr %6, align 8
+  %599 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %598, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %592) #6
   br label %dissect_pgmopts.exit
 
-598:                                              ; preds = %588
-  %599 = icmp ult i32 %288, %590
-  br i1 %599, label %600, label %603
+600:                                              ; preds = %590
+  %601 = icmp ult i32 %288, %592
+  br i1 %601, label %602, label %605
 
-600:                                              ; preds = %598
-  %601 = load ptr, ptr %6, align 8
-  %602 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %601, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %590) #6
+602:                                              ; preds = %600
+  %603 = load ptr, ptr %6, align 8
+  %604 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %603, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %592) #6
   br label %dissect_pgmopts.exit
 
-603:                                              ; preds = %598
-  call void @ptvcursor_set_tree(ptr noundef %26, ptr noundef %593) #6
-  %604 = load i32, ptr @hf_pgm_genopt_end, align 4
-  %605 = call ptr @ptvcursor_add_no_advance(ptr noundef %26, i32 noundef %604, i32 noundef 1, i32 noundef 0) #6
-  %606 = load i32, ptr @hf_pgm_genopt_type, align 4
-  %607 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %606, i32 noundef 1, i32 noundef 0) #6
-  %608 = icmp ult i8 %297, 12
-  %609 = load i32, ptr @hf_pgm_genopt_len, align 4
-  br i1 %608, label %610, label %613
+605:                                              ; preds = %600
+  call void @ptvcursor_set_tree(ptr noundef %26, ptr noundef %595) #6
+  %606 = load i32, ptr @hf_pgm_genopt_end, align 4
+  %607 = call ptr @ptvcursor_add_no_advance(ptr noundef %26, i32 noundef %606, i32 noundef 1, i32 noundef 0) #6
+  %608 = load i32, ptr @hf_pgm_genopt_type, align 4
+  %609 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %608, i32 noundef 1, i32 noundef 0) #6
+  %610 = icmp ult i8 %297, 12
+  %611 = load i32, ptr @hf_pgm_genopt_len, align 4
+  br i1 %610, label %612, label %615
 
-610:                                              ; preds = %603
-  %611 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %612 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %593, i32 noundef %609, ptr noundef %259, i32 noundef %611, i32 noundef 1, i32 noundef %590, ptr noundef nonnull @.str.202, i32 noundef %590, i32 noundef 12) #6
+612:                                              ; preds = %605
+  %613 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %614 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %595, i32 noundef %611, ptr noundef %259, i32 noundef %613, i32 noundef 1, i32 noundef %592, ptr noundef nonnull @.str.202, i32 noundef %592, i32 noundef 12) #6
   br label %._crit_edge.thread.i
 
-613:                                              ; preds = %603
-  %614 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %609, i32 noundef 1, i32 noundef 0) #6
-  %615 = load i32, ptr @hf_pgm_genopt_opx, align 4
-  %616 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %615, i32 noundef 1, i32 noundef 0) #6
-  %617 = load i32, ptr @hf_pgm_opt_nak_bo_ivl_res, align 4
+615:                                              ; preds = %605
+  %616 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %611, i32 noundef 1, i32 noundef 0) #6
+  %617 = load i32, ptr @hf_pgm_genopt_opx, align 4
   %618 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %617, i32 noundef 1, i32 noundef 0) #6
-  %619 = load i32, ptr @hf_pgm_opt_nak_bo_ivl_bo_ivl, align 4
-  %620 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %619, i32 noundef 4, i32 noundef 0) #6
-  %621 = load i32, ptr @hf_pgm_opt_nak_bo_ivl_bo_ivl_sqn, align 4
+  %619 = load i32, ptr @hf_pgm_opt_nak_bo_ivl_res, align 4
+  %620 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %619, i32 noundef 1, i32 noundef 0) #6
+  %621 = load i32, ptr @hf_pgm_opt_nak_bo_ivl_bo_ivl, align 4
   %622 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %621, i32 noundef 4, i32 noundef 0) #6
+  %623 = load i32, ptr @hf_pgm_opt_nak_bo_ivl_bo_ivl_sqn, align 4
+  %624 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %623, i32 noundef 4, i32 noundef 0) #6
   br label %._crit_edge.thread.i
 
-623:                                              ; preds = %292
-  %624 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %625 = zext i8 %297 to i32
-  %626 = load i32, ptr @ett_pgm_opts_nak_bo_rng, align 4
-  %627 = call ptr @val_to_str(i32 noundef 5, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
-  %628 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %624, i32 noundef %625, i32 noundef %626, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %627, i32 noundef %625) #6
-  %629 = icmp ult i8 %297, 4
-  br i1 %629, label %630, label %633
+625:                                              ; preds = %292
+  %626 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %627 = zext i8 %297 to i32
+  %628 = load i32, ptr @ett_pgm_opts_nak_bo_rng, align 4
+  %629 = call ptr @val_to_str(i32 noundef 5, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
+  %630 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %626, i32 noundef %627, i32 noundef %628, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %629, i32 noundef %627) #6
+  %631 = icmp ult i8 %297, 4
+  br i1 %631, label %632, label %635
 
-630:                                              ; preds = %623
-  %631 = load ptr, ptr %6, align 8
-  %632 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %631, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %625) #6
+632:                                              ; preds = %625
+  %633 = load ptr, ptr %6, align 8
+  %634 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %633, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %627) #6
   br label %dissect_pgmopts.exit
 
-633:                                              ; preds = %623
-  %634 = icmp ult i32 %288, %625
-  br i1 %634, label %635, label %638
+635:                                              ; preds = %625
+  %636 = icmp ult i32 %288, %627
+  br i1 %636, label %637, label %640
 
-635:                                              ; preds = %633
-  %636 = load ptr, ptr %6, align 8
-  %637 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %636, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %625) #6
+637:                                              ; preds = %635
+  %638 = load ptr, ptr %6, align 8
+  %639 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %638, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %627) #6
   br label %dissect_pgmopts.exit
 
-638:                                              ; preds = %633
-  call void @ptvcursor_set_tree(ptr noundef %26, ptr noundef %628) #6
-  %639 = load i32, ptr @hf_pgm_genopt_end, align 4
-  %640 = call ptr @ptvcursor_add_no_advance(ptr noundef %26, i32 noundef %639, i32 noundef 1, i32 noundef 0) #6
-  %641 = load i32, ptr @hf_pgm_genopt_type, align 4
-  %642 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %641, i32 noundef 1, i32 noundef 0) #6
-  %643 = icmp ult i8 %297, 12
-  %644 = load i32, ptr @hf_pgm_genopt_len, align 4
-  br i1 %643, label %645, label %648
+640:                                              ; preds = %635
+  call void @ptvcursor_set_tree(ptr noundef %26, ptr noundef %630) #6
+  %641 = load i32, ptr @hf_pgm_genopt_end, align 4
+  %642 = call ptr @ptvcursor_add_no_advance(ptr noundef %26, i32 noundef %641, i32 noundef 1, i32 noundef 0) #6
+  %643 = load i32, ptr @hf_pgm_genopt_type, align 4
+  %644 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %643, i32 noundef 1, i32 noundef 0) #6
+  %645 = icmp ult i8 %297, 12
+  %646 = load i32, ptr @hf_pgm_genopt_len, align 4
+  br i1 %645, label %647, label %650
 
-645:                                              ; preds = %638
-  %646 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %647 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %628, i32 noundef %644, ptr noundef %259, i32 noundef %646, i32 noundef 1, i32 noundef %625, ptr noundef nonnull @.str.202, i32 noundef %625, i32 noundef 12) #6
+647:                                              ; preds = %640
+  %648 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %649 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %630, i32 noundef %646, ptr noundef %259, i32 noundef %648, i32 noundef 1, i32 noundef %627, ptr noundef nonnull @.str.202, i32 noundef %627, i32 noundef 12) #6
   br label %._crit_edge.thread.i
 
-648:                                              ; preds = %638
-  %649 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %644, i32 noundef 1, i32 noundef 0) #6
-  %650 = load i32, ptr @hf_pgm_genopt_opx, align 4
-  %651 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %650, i32 noundef 1, i32 noundef 0) #6
-  %652 = load i32, ptr @hf_pgm_opt_nak_bo_rng_res, align 4
+650:                                              ; preds = %640
+  %651 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %646, i32 noundef 1, i32 noundef 0) #6
+  %652 = load i32, ptr @hf_pgm_genopt_opx, align 4
   %653 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %652, i32 noundef 1, i32 noundef 0) #6
-  %654 = load i32, ptr @hf_pgm_opt_nak_bo_rng_min_bo_ivl, align 4
-  %655 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %654, i32 noundef 4, i32 noundef 0) #6
-  %656 = load i32, ptr @hf_pgm_opt_nak_bo_rng_max_bo_ivl, align 4
+  %654 = load i32, ptr @hf_pgm_opt_nak_bo_rng_res, align 4
+  %655 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %654, i32 noundef 1, i32 noundef 0) #6
+  %656 = load i32, ptr @hf_pgm_opt_nak_bo_rng_min_bo_ivl, align 4
   %657 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %656, i32 noundef 4, i32 noundef 0) #6
+  %658 = load i32, ptr @hf_pgm_opt_nak_bo_rng_max_bo_ivl, align 4
+  %659 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %658, i32 noundef 4, i32 noundef 0) #6
   br label %._crit_edge.thread.i
 
-658:                                              ; preds = %292
-  %659 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %660 = zext i8 %297 to i32
-  %661 = load i32, ptr @ett_pgm_opts_redirect, align 4
-  %662 = call ptr @val_to_str(i32 noundef 7, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
-  %663 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %659, i32 noundef %660, i32 noundef %661, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %662, i32 noundef %660) #6
-  %664 = icmp ult i8 %297, 4
-  br i1 %664, label %665, label %668
+660:                                              ; preds = %292
+  %661 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %662 = zext i8 %297 to i32
+  %663 = load i32, ptr @ett_pgm_opts_redirect, align 4
+  %664 = call ptr @val_to_str(i32 noundef 7, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
+  %665 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %661, i32 noundef %662, i32 noundef %663, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %664, i32 noundef %662) #6
+  %666 = icmp ult i8 %297, 4
+  br i1 %666, label %667, label %670
 
-665:                                              ; preds = %658
-  %666 = load ptr, ptr %6, align 8
-  %667 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %666, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %660) #6
+667:                                              ; preds = %660
+  %668 = load ptr, ptr %6, align 8
+  %669 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %668, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %662) #6
   br label %dissect_pgmopts.exit
 
-668:                                              ; preds = %658
-  %669 = icmp ult i32 %288, %660
-  br i1 %669, label %670, label %673
+670:                                              ; preds = %660
+  %671 = icmp ult i32 %288, %662
+  br i1 %671, label %672, label %675
 
-670:                                              ; preds = %668
-  %671 = load ptr, ptr %6, align 8
-  %672 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %671, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %660) #6
+672:                                              ; preds = %670
+  %673 = load ptr, ptr %6, align 8
+  %674 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %673, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %662) #6
   br label %dissect_pgmopts.exit
 
-673:                                              ; preds = %668
-  call void @ptvcursor_set_tree(ptr noundef %26, ptr noundef %663) #6
-  %674 = load i32, ptr @hf_pgm_genopt_end, align 4
-  %675 = call ptr @ptvcursor_add_no_advance(ptr noundef %26, i32 noundef %674, i32 noundef 1, i32 noundef 0) #6
-  %676 = load i32, ptr @hf_pgm_genopt_type, align 4
-  %677 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %676, i32 noundef 1, i32 noundef 0) #6
-  %678 = icmp ult i8 %297, 12
-  %679 = load i32, ptr @hf_pgm_genopt_len, align 4
-  br i1 %678, label %680, label %683
+675:                                              ; preds = %670
+  call void @ptvcursor_set_tree(ptr noundef %26, ptr noundef %665) #6
+  %676 = load i32, ptr @hf_pgm_genopt_end, align 4
+  %677 = call ptr @ptvcursor_add_no_advance(ptr noundef %26, i32 noundef %676, i32 noundef 1, i32 noundef 0) #6
+  %678 = load i32, ptr @hf_pgm_genopt_type, align 4
+  %679 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %678, i32 noundef 1, i32 noundef 0) #6
+  %680 = icmp ult i8 %297, 12
+  %681 = load i32, ptr @hf_pgm_genopt_len, align 4
+  br i1 %680, label %682, label %685
 
-680:                                              ; preds = %673
-  %681 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %682 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %663, i32 noundef %679, ptr noundef %259, i32 noundef %681, i32 noundef 1, i32 noundef %660, ptr noundef nonnull @.str.202, i32 noundef %660, i32 noundef 12) #6
+682:                                              ; preds = %675
+  %683 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %684 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %665, i32 noundef %681, ptr noundef %259, i32 noundef %683, i32 noundef 1, i32 noundef %662, ptr noundef nonnull @.str.202, i32 noundef %662, i32 noundef 12) #6
   br label %._crit_edge.thread.i
 
-683:                                              ; preds = %673
-  %684 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %679, i32 noundef 1, i32 noundef 0) #6
-  %685 = load i32, ptr @hf_pgm_genopt_opx, align 4
-  %686 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %685, i32 noundef 1, i32 noundef 0) #6
-  %687 = load i32, ptr @hf_pgm_opt_redirect_res, align 4
+685:                                              ; preds = %675
+  %686 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %681, i32 noundef 1, i32 noundef 0) #6
+  %687 = load i32, ptr @hf_pgm_genopt_opx, align 4
   %688 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %687, i32 noundef 1, i32 noundef 0) #6
-  %689 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %690 = call zeroext i16 @tvb_get_ntohs(ptr noundef %259, i32 noundef %689) #6
-  %691 = load i32, ptr @hf_pgm_opt_redirect_afi, align 4
-  %692 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %691, i32 noundef 2, i32 noundef 0) #6
-  %693 = load i32, ptr @hf_pgm_opt_redirect_res2, align 4
+  %689 = load i32, ptr @hf_pgm_opt_redirect_res, align 4
+  %690 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %689, i32 noundef 1, i32 noundef 0) #6
+  %691 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %692 = call zeroext i16 @tvb_get_ntohs(ptr noundef %259, i32 noundef %691) #6
+  %693 = load i32, ptr @hf_pgm_opt_redirect_afi, align 4
   %694 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %693, i32 noundef 2, i32 noundef 0) #6
-  switch i16 %690, label %701 [
-    i16 1, label %695
-    i16 2, label %698
+  %695 = load i32, ptr @hf_pgm_opt_redirect_res2, align 4
+  %696 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %695, i32 noundef 2, i32 noundef 0) #6
+  switch i16 %692, label %703 [
+    i16 1, label %697
+    i16 2, label %700
   ]
 
-695:                                              ; preds = %683
-  %696 = load i32, ptr @hf_pgm_opt_redirect_dlr, align 4
-  %697 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %696, i32 noundef 4, i32 noundef 0) #6
+697:                                              ; preds = %685
+  %698 = load i32, ptr @hf_pgm_opt_redirect_dlr, align 4
+  %699 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %698, i32 noundef 4, i32 noundef 0) #6
   br label %._crit_edge.thread.i
 
-698:                                              ; preds = %683
-  %699 = load i32, ptr @hf_pgm_opt_redirect_dlr6, align 4
-  %700 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %699, i32 noundef 16, i32 noundef 0) #6
+700:                                              ; preds = %685
+  %701 = load i32, ptr @hf_pgm_opt_redirect_dlr6, align 4
+  %702 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %701, i32 noundef 16, i32 noundef 0) #6
   br label %._crit_edge.thread.i
 
-701:                                              ; preds = %683
-  %702 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %692, ptr noundef nonnull @ei_address_format_invalid) #6
+703:                                              ; preds = %685
+  %704 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %694, ptr noundef nonnull @ei_address_format_invalid) #6
   br label %._crit_edge.thread.i
 
-703:                                              ; preds = %292
-  %704 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %705 = zext i8 %297 to i32
-  %706 = load i32, ptr @ett_pgm_opts_fragment, align 4
-  %707 = call ptr @val_to_str(i32 noundef 1, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
-  %708 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %704, i32 noundef %705, i32 noundef %706, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %707, i32 noundef %705) #6
-  %709 = icmp ult i8 %297, 4
-  br i1 %709, label %710, label %713
+705:                                              ; preds = %292
+  %706 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %707 = zext i8 %297 to i32
+  %708 = load i32, ptr @ett_pgm_opts_fragment, align 4
+  %709 = call ptr @val_to_str(i32 noundef 1, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
+  %710 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %706, i32 noundef %707, i32 noundef %708, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %709, i32 noundef %707) #6
+  %711 = icmp ult i8 %297, 4
+  br i1 %711, label %712, label %715
 
-710:                                              ; preds = %703
-  %711 = load ptr, ptr %6, align 8
-  %712 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %711, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %705) #6
+712:                                              ; preds = %705
+  %713 = load ptr, ptr %6, align 8
+  %714 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %713, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %707) #6
   br label %dissect_pgmopts.exit
 
-713:                                              ; preds = %703
-  %714 = icmp ult i32 %288, %705
-  br i1 %714, label %715, label %718
+715:                                              ; preds = %705
+  %716 = icmp ult i32 %288, %707
+  br i1 %716, label %717, label %720
 
-715:                                              ; preds = %713
-  %716 = load ptr, ptr %6, align 8
-  %717 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %716, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %705) #6
+717:                                              ; preds = %715
+  %718 = load ptr, ptr %6, align 8
+  %719 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %718, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %707) #6
   br label %dissect_pgmopts.exit
 
-718:                                              ; preds = %713
-  call void @ptvcursor_set_tree(ptr noundef %26, ptr noundef %708) #6
-  %719 = load i32, ptr @hf_pgm_genopt_end, align 4
-  %720 = call ptr @ptvcursor_add_no_advance(ptr noundef %26, i32 noundef %719, i32 noundef 1, i32 noundef 0) #6
-  %721 = load i32, ptr @hf_pgm_genopt_type, align 4
-  %722 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %721, i32 noundef 1, i32 noundef 0) #6
-  %723 = icmp ult i8 %297, 16
-  %724 = load i32, ptr @hf_pgm_genopt_len, align 4
-  br i1 %723, label %725, label %728
+720:                                              ; preds = %715
+  call void @ptvcursor_set_tree(ptr noundef %26, ptr noundef %710) #6
+  %721 = load i32, ptr @hf_pgm_genopt_end, align 4
+  %722 = call ptr @ptvcursor_add_no_advance(ptr noundef %26, i32 noundef %721, i32 noundef 1, i32 noundef 0) #6
+  %723 = load i32, ptr @hf_pgm_genopt_type, align 4
+  %724 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %723, i32 noundef 1, i32 noundef 0) #6
+  %725 = icmp ult i8 %297, 16
+  %726 = load i32, ptr @hf_pgm_genopt_len, align 4
+  br i1 %725, label %727, label %730
 
-725:                                              ; preds = %718
-  %726 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %727 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %708, i32 noundef %724, ptr noundef %259, i32 noundef %726, i32 noundef 1, i32 noundef %705, ptr noundef nonnull @.str.202, i32 noundef %705, i32 noundef 16) #6
+727:                                              ; preds = %720
+  %728 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %729 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %710, i32 noundef %726, ptr noundef %259, i32 noundef %728, i32 noundef 1, i32 noundef %707, ptr noundef nonnull @.str.202, i32 noundef %707, i32 noundef 16) #6
   br label %._crit_edge.thread.i
 
-728:                                              ; preds = %718
-  %729 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %724, i32 noundef 1, i32 noundef 0) #6
-  %730 = load i32, ptr @hf_pgm_genopt_opx, align 4
-  %731 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %730, i32 noundef 1, i32 noundef 0) #6
-  %732 = load i32, ptr @hf_pgm_opt_fragment_res, align 4
+730:                                              ; preds = %720
+  %731 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %726, i32 noundef 1, i32 noundef 0) #6
+  %732 = load i32, ptr @hf_pgm_genopt_opx, align 4
   %733 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %732, i32 noundef 1, i32 noundef 0) #6
-  %734 = load i32, ptr @hf_pgm_opt_fragment_first_sqn, align 4
-  %735 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %734, i32 noundef 4, i32 noundef 0) #6
-  %736 = load i32, ptr @hf_pgm_opt_fragment_offset, align 4
+  %734 = load i32, ptr @hf_pgm_opt_fragment_res, align 4
+  %735 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %734, i32 noundef 1, i32 noundef 0) #6
+  %736 = load i32, ptr @hf_pgm_opt_fragment_first_sqn, align 4
   %737 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %736, i32 noundef 4, i32 noundef 0) #6
-  %738 = load i32, ptr @hf_pgm_opt_fragment_total_length, align 4
+  %738 = load i32, ptr @hf_pgm_opt_fragment_offset, align 4
   %739 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %738, i32 noundef 4, i32 noundef 0) #6
+  %740 = load i32, ptr @hf_pgm_opt_fragment_total_length, align 4
+  %741 = call ptr @ptvcursor_add(ptr noundef %26, i32 noundef %740, i32 noundef 4, i32 noundef 0) #6
   br label %._crit_edge.thread.i
 
-740:                                              ; preds = %292
-  %741 = zext nneg i8 %298 to i32
-  %742 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %743 = zext i8 %297 to i32
-  %744 = load i32, ptr @ett_pgm_opts, align 4
-  %745 = call ptr @val_to_str(i32 noundef %741, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
-  %746 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %742, i32 noundef %743, i32 noundef %744, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %745, i32 noundef %743) #6
-  %747 = icmp ult i8 %297, 4
-  br i1 %747, label %748, label %751
+742:                                              ; preds = %292
+  %743 = zext nneg i8 %298 to i32
+  %744 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %745 = zext i8 %297 to i32
+  %746 = load i32, ptr @ett_pgm_opts, align 4
+  %747 = call ptr @val_to_str(i32 noundef %743, ptr noundef nonnull @opt_vals, ptr noundef nonnull @.str.179) #6
+  %748 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %263, ptr noundef %259, i32 noundef %744, i32 noundef %745, i32 noundef %746, ptr noundef nonnull %6, ptr noundef nonnull @.str.199, ptr noundef %747, i32 noundef %745) #6
+  %749 = icmp ult i8 %297, 4
+  br i1 %749, label %750, label %753
 
-748:                                              ; preds = %740
-  %749 = load ptr, ptr %6, align 8
-  %750 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %749, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %743) #6
+750:                                              ; preds = %742
+  %751 = load ptr, ptr %6, align 8
+  %752 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %751, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.200, i32 noundef %745) #6
   br label %dissect_pgmopts.exit
 
-751:                                              ; preds = %740
-  %752 = icmp ult i32 %288, %743
-  br i1 %752, label %753, label %756
+753:                                              ; preds = %742
+  %754 = icmp ult i32 %288, %745
+  br i1 %754, label %755, label %758
 
-753:                                              ; preds = %751
-  %754 = load ptr, ptr %6, align 8
-  %755 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %754, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %743) #6
+755:                                              ; preds = %753
+  %756 = load ptr, ptr %6, align 8
+  %757 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %756, ptr noundef nonnull @ei_pgm_genopt_len, ptr noundef nonnull @.str.201, i32 noundef %745) #6
   br label %dissect_pgmopts.exit
 
-756:                                              ; preds = %751
-  call void @ptvcursor_advance(ptr noundef %26, i32 noundef %743) #6
+758:                                              ; preds = %753
+  call void @ptvcursor_advance(ptr noundef %26, i32 noundef %745) #6
   br label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %.thread, %756, %728, %725, %701, %698, %695, %680, %648, %645, %613, %610, %586, %583, %580, %563, %539, %536, %533, %516, %493, %438, %415, %412, %paritystr.exit.i, %354, %324, %321
-  %757 = zext i8 %297 to i16
-  %758 = sub i16 %.0427492.i, %757
-  %759 = icmp ne i16 %758, 0
-  %760 = select i1 %.not461.i, i1 %759, i1 false
-  br i1 %760, label %.lr.ph495.i, label %dissect_pgmopts.exit, !llvm.loop !6
+._crit_edge.thread.i:                             ; preds = %.thread.i, %758, %730, %727, %703, %700, %697, %682, %650, %647, %615, %612, %588, %585, %582, %565, %541, %538, %535, %518, %495, %438, %415, %412, %paritystr.exit.i, %354, %324, %321
+  %759 = zext i8 %297 to i16
+  %760 = sub i16 %.0427492.i, %759
+  %761 = icmp ne i16 %760, 0
+  %762 = select i1 %.not461.i, i1 %761, i1 false
+  br i1 %762, label %.lr.ph495.i, label %dissect_pgmopts.exit, !llvm.loop !6
 
-dissect_pgmopts.exit:                             ; preds = %._crit_edge.thread.i, %268, %284, %286, %290, %306, %311, %339, %344, %397, %402, %430, %435, %501, %506, %548, %553, %595, %600, %630, %635, %665, %670, %710, %715, %748, %753
+dissect_pgmopts.exit:                             ; preds = %._crit_edge.thread.i, %268, %284, %286, %290, %306, %311, %339, %344, %397, %402, %430, %435, %503, %508, %550, %555, %597, %602, %632, %637, %667, %672, %712, %717, %750, %755
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 252, ptr nonnull %7)
-  br label %761
+  br label %763
 
-761:                                              ; preds = %dissect_pgmopts.exit, %256
-  br i1 %.not192, label %.sink.split286, label %762
+763:                                              ; preds = %dissect_pgmopts.exit, %256
+  br i1 %.not192, label %.sink.split278, label %764
 
-762:                                              ; preds = %761
-  %763 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
-  %764 = load i32, ptr %8, align 4
-  %765 = load i32, ptr %9, align 4
+764:                                              ; preds = %763
+  %765 = call i32 @ptvcursor_current_offset(ptr noundef %26) #6
+  %766 = load i32, ptr %8, align 4
+  %767 = load i32, ptr %9, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %766 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %763) #6
-  %767 = load ptr, ptr @subdissector_table, align 8
-  %768 = and i32 %764, 65535
-  %769 = call i32 @dissector_try_uint(ptr noundef %767, i32 noundef %768, ptr noundef %766, ptr noundef %1, ptr noundef %2) #6
-  %.not.i200 = icmp eq i32 %769, 0
-  br i1 %.not.i200, label %770, label %decode_pgm_ports.exit
+  %768 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %765) #6
+  %769 = load ptr, ptr @subdissector_table, align 8
+  %770 = and i32 %766, 65535
+  %771 = call i32 @dissector_try_uint(ptr noundef %769, i32 noundef %770, ptr noundef %768, ptr noundef %1, ptr noundef %2) #6
+  %.not.i199 = icmp eq i32 %771, 0
+  br i1 %.not.i199, label %772, label %decode_pgm_ports.exit
 
-770:                                              ; preds = %762
-  %771 = load ptr, ptr @subdissector_table, align 8
-  %772 = and i32 %765, 65535
-  %773 = call i32 @dissector_try_uint(ptr noundef %771, i32 noundef %772, ptr noundef %766, ptr noundef %1, ptr noundef %2) #6
-  %.not17.i = icmp eq i32 %773, 0
-  br i1 %.not17.i, label %774, label %decode_pgm_ports.exit
+772:                                              ; preds = %764
+  %773 = load ptr, ptr @subdissector_table, align 8
+  %774 = and i32 %767, 65535
+  %775 = call i32 @dissector_try_uint(ptr noundef %773, i32 noundef %774, ptr noundef %768, ptr noundef %1, ptr noundef %2) #6
+  %.not17.i = icmp eq i32 %775, 0
+  br i1 %.not17.i, label %776, label %decode_pgm_ports.exit
 
-774:                                              ; preds = %770
-  %775 = load ptr, ptr @heur_subdissector_list, align 8
-  %776 = call i32 @dissector_try_heuristic(ptr noundef %775, ptr noundef %766, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef null) #6
-  %.not18.i = icmp eq i32 %776, 0
-  br i1 %.not18.i, label %777, label %decode_pgm_ports.exit
+776:                                              ; preds = %772
+  %777 = load ptr, ptr @heur_subdissector_list, align 8
+  %778 = call i32 @dissector_try_heuristic(ptr noundef %777, ptr noundef %768, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef null) #6
+  %.not18.i = icmp eq i32 %778, 0
+  br i1 %.not18.i, label %779, label %decode_pgm_ports.exit
 
-777:                                              ; preds = %774
-  %778 = call i32 @call_data_dissector(ptr noundef %766, ptr noundef %1, ptr noundef %2) #6
+779:                                              ; preds = %776
+  %780 = call i32 @call_data_dissector(ptr noundef %768, ptr noundef %1, ptr noundef %2) #6
   br label %decode_pgm_ports.exit
 
-decode_pgm_ports.exit:                            ; preds = %762, %770, %774, %777
+decode_pgm_ports.exit:                            ; preds = %764, %772, %776, %779
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %.sink.split286
+  br label %.sink.split278
 
-.sink.split286:                                   ; preds = %761, %decode_pgm_ports.exit, %168, %206
+.sink.split278:                                   ; preds = %763, %decode_pgm_ports.exit, %168, %206
   call void @ptvcursor_free(ptr noundef %26) #6
-  %779 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %780
+  %781 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  br label %782
 
-780:                                              ; preds = %.sink.split286, %4
-  %.0 = phi i32 [ 0, %4 ], [ %779, %.sink.split286 ]
+782:                                              ; preds = %.sink.split278, %4
+  %.0 = phi i32 [ 0, %4 ], [ %781, %.sink.split278 ]
   ret i32 %.0
 }
 

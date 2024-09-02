@@ -781,7 +781,7 @@ define internal i32 @dissect_wccp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #7
   %8 = tail call ptr @try_val_to_str(i32 noundef %7, ptr noundef nonnull @wccp_type_vals) #7
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %280, label %10
+  br i1 %9, label %289, label %10
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1093,379 +1093,359 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   call void @proto_item_set_end(ptr noundef %150, ptr noundef %0, i32 noundef %149) #7
   %151 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %149) #7
   %152 = icmp sgt i32 %151, 0
-  br i1 %152, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %152, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %148, %find_wccp_address_table.exit.i
-  %.0204.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1205.i, %148 ]
-  %.0202.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1203.i, %148 ]
-  %.0200.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1201.i, %148 ]
-  %.0198.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1199.i, %148 ]
-  %.0196.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1197.i, %148 ]
-  %.0194.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1195.i, %148 ]
-  %.0192.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1193.i, %148 ]
-  %.0190.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1191.i, %148 ]
-  %.0188.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1189.i, %148 ]
-  %.0186.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1187.i, %148 ]
-  %.0184.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1185.i, %148 ]
-  %.0182.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1183.i, %148 ]
-  %.0181.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1.i, %148 ]
+._crit_edge.loopexit.i:                           ; preds = %148
+  %153 = icmp eq i32 %.1205.i, 0
+  %154 = icmp eq i32 %.1203.i, 0
+  %155 = icmp eq i32 %.1201.i, 0
+  %156 = icmp eq i32 %.1199.i, 0
+  %157 = icmp eq i32 %.1197.i, 0
+  %158 = icmp eq i32 %.1195.i, 0
+  %159 = icmp eq i32 %.1191.i, 0
+  %160 = icmp eq i32 %.1189.i, 0
+  %161 = icmp eq i32 %.1183.i, 0
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %find_wccp_address_table.exit.i
+  %.0204.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %153, %._crit_edge.loopexit.i ]
+  %.0202.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %154, %._crit_edge.loopexit.i ]
+  %.0200.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %155, %._crit_edge.loopexit.i ]
+  %.0198.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %156, %._crit_edge.loopexit.i ]
+  %.0196.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %157, %._crit_edge.loopexit.i ]
+  %.0194.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %158, %._crit_edge.loopexit.i ]
+  %.0192.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1193.i, %._crit_edge.loopexit.i ]
+  %.0190.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %159, %._crit_edge.loopexit.i ]
+  %.0188.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %160, %._crit_edge.loopexit.i ]
+  %.0186.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1187.i, %._crit_edge.loopexit.i ]
+  %.0184.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1185.i, %._crit_edge.loopexit.i ]
+  %.0182.lcssa.i = phi i1 [ true, %find_wccp_address_table.exit.i ], [ %161, %._crit_edge.loopexit.i ]
+  %.0181.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1.i, %._crit_edge.loopexit.i ]
   switch i32 %7, label %dissect_wccp2_info.exit [
-    i32 10, label %153
-    i32 11, label %184
-    i32 13, label %209
-    i32 12, label %246
+    i32 10, label %162
+    i32 11, label %193
+    i32 13, label %218
+    i32 12, label %255
   ]
 
-153:                                              ; preds = %._crit_edge.i
-  %.not240.i = icmp eq i32 %.0204.lcssa.i, 0
-  br i1 %.not240.i, label %154, label %156
-
-154:                                              ; preds = %153
-  %155 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_security_info) #7
-  br label %156
-
-156:                                              ; preds = %154, %153
-  %.not241.i = icmp eq i32 %.0202.lcssa.i, 0
-  br i1 %.not241.i, label %157, label %159
-
-157:                                              ; preds = %156
-  %158 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_service_info) #7
-  br label %159
-
-159:                                              ; preds = %157, %156
-  %.not242.i = icmp eq i32 %.0200.lcssa.i, 0
-  br i1 %.not242.i, label %162, label %160
-
-160:                                              ; preds = %159
-  %161 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_router_id_info) #7
-  br label %162
-
-162:                                              ; preds = %160, %159
-  %.not243.i = icmp eq i32 %.0198.lcssa.i, 0
-  br i1 %.not243.i, label %163, label %165
+162:                                              ; preds = %._crit_edge.i
+  br i1 %.0204.lcssa.i, label %163, label %165
 
 163:                                              ; preds = %162
-  %164 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_wc_id_info) #7
+  %164 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_security_info) #7
   br label %165
 
 165:                                              ; preds = %163, %162
-  %.not244.i = icmp eq i32 %.0196.lcssa.i, 0
-  br i1 %.not244.i, label %168, label %166
+  br i1 %.0202.lcssa.i, label %166, label %168
 
 166:                                              ; preds = %165
-  %167 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_rtr_view_info) #7
+  %167 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_service_info) #7
   br label %168
 
 168:                                              ; preds = %166, %165
-  %.not245.i = icmp eq i32 %.0194.lcssa.i, 0
-  br i1 %.not245.i, label %169, label %171
+  br i1 %.0200.lcssa.i, label %171, label %169
 
 169:                                              ; preds = %168
-  %170 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_wc_view_info) #7
+  %170 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_router_id_info) #7
   br label %171
 
 171:                                              ; preds = %169, %168
-  %.not246.i = icmp eq i32 %.0192.lcssa.i, 0
-  br i1 %.not246.i, label %174, label %172
+  br i1 %.0198.lcssa.i, label %172, label %174
 
 172:                                              ; preds = %171
-  %173 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_redirect_assignment) #7
+  %173 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_wc_id_info) #7
   br label %174
 
 174:                                              ; preds = %172, %171
-  %.not247.i = icmp eq i32 %.0190.lcssa.i, 0
-  br i1 %.not247.i, label %177, label %175
+  br i1 %.0196.lcssa.i, label %177, label %175
 
 175:                                              ; preds = %174
-  %176 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_query_info) #7
+  %176 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_rtr_view_info) #7
   br label %177
 
 177:                                              ; preds = %175, %174
-  %.not248.i = icmp eq i32 %.0186.lcssa.i, 0
-  br i1 %.not248.i, label %180, label %178
+  br i1 %.0194.lcssa.i, label %178, label %180
 
 178:                                              ; preds = %177
-  %179 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_alt_assignment) #7
+  %179 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_wc_view_info) #7
   br label %180
 
 180:                                              ; preds = %178, %177
-  %.not249.i = icmp eq i32 %.0184.lcssa.i, 0
-  br i1 %.not249.i, label %183, label %181
+  %.not246.i = icmp eq i32 %.0192.lcssa.i, 0
+  br i1 %.not246.i, label %183, label %181
 
 181:                                              ; preds = %180
-  %182 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_assign_map) #7
+  %182 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_redirect_assignment) #7
   br label %183
 
 183:                                              ; preds = %181, %180
+  br i1 %.0190.lcssa.i, label %186, label %184
+
+184:                                              ; preds = %183
+  %185 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_query_info) #7
+  br label %186
+
+186:                                              ; preds = %184, %183
+  %.not248.i = icmp eq i32 %.0186.lcssa.i, 0
+  br i1 %.not248.i, label %189, label %187
+
+187:                                              ; preds = %186
+  %188 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_alt_assignment) #7
+  br label %189
+
+189:                                              ; preds = %187, %186
+  %.not249.i = icmp eq i32 %.0184.lcssa.i, 0
+  br i1 %.not249.i, label %192, label %190
+
+190:                                              ; preds = %189
+  %191 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_assign_map) #7
+  br label %192
+
+192:                                              ; preds = %190, %189
   %.not250.i = icmp eq i32 %.0181.lcssa.i, 0
   br i1 %.not250.i, label %dissect_wccp2_info.exit, label %.sink.split.i
 
-184:                                              ; preds = %._crit_edge.i
-  %.not231.i = icmp eq i32 %.0204.lcssa.i, 0
-  br i1 %.not231.i, label %185, label %187
-
-185:                                              ; preds = %184
-  %186 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_security_info) #7
-  br label %187
-
-187:                                              ; preds = %185, %184
-  %.not232.i = icmp eq i32 %.0202.lcssa.i, 0
-  br i1 %.not232.i, label %188, label %190
-
-188:                                              ; preds = %187
-  %189 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_service_info) #7
-  br label %190
-
-190:                                              ; preds = %188, %187
-  %.not233.i = icmp eq i32 %.0200.lcssa.i, 0
-  br i1 %.not233.i, label %191, label %193
-
-191:                                              ; preds = %190
-  %192 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_router_id_info) #7
-  br label %193
-
-193:                                              ; preds = %191, %190
-  %.not234.i = icmp eq i32 %.0198.lcssa.i, 0
-  br i1 %.not234.i, label %196, label %194
+193:                                              ; preds = %._crit_edge.i
+  br i1 %.0204.lcssa.i, label %194, label %196
 
 194:                                              ; preds = %193
-  %195 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_id_info) #7
+  %195 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_security_info) #7
   br label %196
 
 196:                                              ; preds = %194, %193
-  %.not235.i = icmp eq i32 %.0196.lcssa.i, 0
-  br i1 %.not235.i, label %197, label %199
+  br i1 %.0202.lcssa.i, label %197, label %199
 
 197:                                              ; preds = %196
-  %198 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_rtr_view_info) #7
+  %198 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_service_info) #7
   br label %199
 
 199:                                              ; preds = %197, %196
-  %.not236.i = icmp eq i32 %.0194.lcssa.i, 0
-  br i1 %.not236.i, label %202, label %200
+  br i1 %.0200.lcssa.i, label %200, label %202
 
 200:                                              ; preds = %199
-  %201 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_view_info) #7
+  %201 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_router_id_info) #7
   br label %202
 
 202:                                              ; preds = %200, %199
-  %.not237.i = icmp eq i32 %.0192.lcssa.i, 0
-  br i1 %.not237.i, label %205, label %203
+  br i1 %.0198.lcssa.i, label %205, label %203
 
 203:                                              ; preds = %202
-  %204 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_redirect_assignment) #7
+  %204 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_id_info) #7
   br label %205
 
 205:                                              ; preds = %203, %202
-  %.not238.i = icmp eq i32 %.0190.lcssa.i, 0
-  br i1 %.not238.i, label %208, label %206
+  br i1 %.0196.lcssa.i, label %206, label %208
 
 206:                                              ; preds = %205
-  %207 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_query_info) #7
+  %207 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_rtr_view_info) #7
   br label %208
 
 208:                                              ; preds = %206, %205
+  br i1 %.0194.lcssa.i, label %211, label %209
+
+209:                                              ; preds = %208
+  %210 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_view_info) #7
+  br label %211
+
+211:                                              ; preds = %209, %208
+  %.not237.i = icmp eq i32 %.0192.lcssa.i, 0
+  br i1 %.not237.i, label %214, label %212
+
+212:                                              ; preds = %211
+  %213 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_redirect_assignment) #7
+  br label %214
+
+214:                                              ; preds = %212, %211
+  br i1 %.0190.lcssa.i, label %217, label %215
+
+215:                                              ; preds = %214
+  %216 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_query_info) #7
+  br label %217
+
+217:                                              ; preds = %215, %214
   %.not239.i = icmp eq i32 %.0181.lcssa.i, 0
   br i1 %.not239.i, label %dissect_wccp2_info.exit, label %.sink.split.i
 
-209:                                              ; preds = %._crit_edge.i
-  %.not218.i = icmp eq i32 %.0204.lcssa.i, 0
-  br i1 %.not218.i, label %210, label %212
-
-210:                                              ; preds = %209
-  %211 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_security_info) #7
-  br label %212
-
-212:                                              ; preds = %210, %209
-  %.not219.i = icmp eq i32 %.0202.lcssa.i, 0
-  br i1 %.not219.i, label %213, label %215
-
-213:                                              ; preds = %212
-  %214 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_service_info) #7
-  br label %215
-
-215:                                              ; preds = %213, %212
-  %.not220.i = icmp eq i32 %.0200.lcssa.i, 0
-  br i1 %.not220.i, label %218, label %216
-
-216:                                              ; preds = %215
-  %217 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_router_id_info) #7
-  br label %218
-
-218:                                              ; preds = %216, %215
-  %.not221.i = icmp eq i32 %.0198.lcssa.i, 0
-  br i1 %.not221.i, label %221, label %219
+218:                                              ; preds = %._crit_edge.i
+  br i1 %.0204.lcssa.i, label %219, label %221
 
 219:                                              ; preds = %218
-  %220 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_id_info) #7
+  %220 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_security_info) #7
   br label %221
 
 221:                                              ; preds = %219, %218
-  %.not222.i = icmp eq i32 %.0196.lcssa.i, 0
-  br i1 %.not222.i, label %224, label %222
+  br i1 %.0202.lcssa.i, label %222, label %224
 
 222:                                              ; preds = %221
-  %223 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_rtr_view_info) #7
+  %223 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_service_info) #7
   br label %224
 
 224:                                              ; preds = %222, %221
-  %.not223.i = icmp eq i32 %.0194.lcssa.i, 0
-  br i1 %.not223.i, label %227, label %225
+  br i1 %.0200.lcssa.i, label %227, label %225
 
 225:                                              ; preds = %224
-  %226 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_view_info) #7
+  %226 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_router_id_info) #7
   br label %227
 
 227:                                              ; preds = %225, %224
-  %.not224.i = icmp eq i32 %.0192.lcssa.i, 0
-  br i1 %.not224.i, label %230, label %228
+  br i1 %.0198.lcssa.i, label %230, label %228
 
 228:                                              ; preds = %227
-  %229 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_redirect_assignment) #7
+  %229 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_id_info) #7
   br label %230
 
 230:                                              ; preds = %228, %227
-  %.not225.i = icmp eq i32 %.0190.lcssa.i, 0
-  br i1 %.not225.i, label %231, label %233
+  br i1 %.0196.lcssa.i, label %233, label %231
 
 231:                                              ; preds = %230
-  %232 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_query_info) #7
+  %232 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_rtr_view_info) #7
   br label %233
 
 233:                                              ; preds = %231, %230
-  %.not226.i = icmp eq i32 %.0188.lcssa.i, 0
-  br i1 %.not226.i, label %236, label %234
+  br i1 %.0194.lcssa.i, label %236, label %234
 
 234:                                              ; preds = %233
-  %235 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_capabilities_info) #7
+  %235 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_view_info) #7
   br label %236
 
 236:                                              ; preds = %234, %233
-  %.not227.i = icmp eq i32 %.0186.lcssa.i, 0
-  br i1 %.not227.i, label %239, label %237
+  %.not224.i = icmp eq i32 %.0192.lcssa.i, 0
+  br i1 %.not224.i, label %239, label %237
 
 237:                                              ; preds = %236
-  %238 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_alt_assignment) #7
+  %238 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_redirect_assignment) #7
   br label %239
 
 239:                                              ; preds = %237, %236
-  %.not228.i = icmp eq i32 %.0184.lcssa.i, 0
-  br i1 %.not228.i, label %242, label %240
+  br i1 %.0190.lcssa.i, label %240, label %242
 
 240:                                              ; preds = %239
-  %241 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_assign_map) #7
+  %241 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_query_info) #7
   br label %242
 
 242:                                              ; preds = %240, %239
-  %.not229.i = icmp eq i32 %.0182.lcssa.i, 0
-  br i1 %.not229.i, label %245, label %243
+  br i1 %.0188.lcssa.i, label %245, label %243
 
 243:                                              ; preds = %242
-  %244 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_command_extension) #7
+  %244 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_capabilities_info) #7
   br label %245
 
 245:                                              ; preds = %243, %242
+  %.not227.i = icmp eq i32 %.0186.lcssa.i, 0
+  br i1 %.not227.i, label %248, label %246
+
+246:                                              ; preds = %245
+  %247 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_alt_assignment) #7
+  br label %248
+
+248:                                              ; preds = %246, %245
+  %.not228.i = icmp eq i32 %.0184.lcssa.i, 0
+  br i1 %.not228.i, label %251, label %249
+
+249:                                              ; preds = %248
+  %250 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_assign_map) #7
+  br label %251
+
+251:                                              ; preds = %249, %248
+  br i1 %.0182.lcssa.i, label %254, label %252
+
+252:                                              ; preds = %251
+  %253 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_command_extension) #7
+  br label %254
+
+254:                                              ; preds = %252, %251
   %.not230.i = icmp eq i32 %.0181.lcssa.i, 0
   br i1 %.not230.i, label %dissect_wccp2_info.exit, label %.sink.split.i
 
-246:                                              ; preds = %._crit_edge.i
-  %.not.i = icmp eq i32 %.0204.lcssa.i, 0
-  br i1 %.not.i, label %247, label %249
-
-247:                                              ; preds = %246
-  %248 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_security_info) #7
-  br label %249
-
-249:                                              ; preds = %247, %246
-  %.not210.i = icmp eq i32 %.0202.lcssa.i, 0
-  br i1 %.not210.i, label %250, label %252
-
-250:                                              ; preds = %249
-  %251 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_service_info) #7
-  br label %252
-
-252:                                              ; preds = %250, %249
-  %.not211.i = icmp eq i32 %.0200.lcssa.i, 0
-  br i1 %.not211.i, label %255, label %253
-
-253:                                              ; preds = %252
-  %254 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_router_id_info) #7
-  br label %255
-
-255:                                              ; preds = %253, %252
-  %.not212.i = icmp eq i32 %.0198.lcssa.i, 0
-  br i1 %.not212.i, label %258, label %256
+255:                                              ; preds = %._crit_edge.i
+  br i1 %.0204.lcssa.i, label %256, label %258
 
 256:                                              ; preds = %255
-  %257 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_id_info) #7
+  %257 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_security_info) #7
   br label %258
 
 258:                                              ; preds = %256, %255
-  %.not213.i = icmp eq i32 %.0196.lcssa.i, 0
-  br i1 %.not213.i, label %261, label %259
+  br i1 %.0202.lcssa.i, label %259, label %261
 
 259:                                              ; preds = %258
-  %260 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_rtr_view_info) #7
+  %260 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_service_info) #7
   br label %261
 
 261:                                              ; preds = %259, %258
-  %.not214.i = icmp eq i32 %.0194.lcssa.i, 0
-  br i1 %.not214.i, label %264, label %262
+  br i1 %.0200.lcssa.i, label %264, label %262
 
 262:                                              ; preds = %261
-  %263 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_view_info) #7
+  %263 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_router_id_info) #7
   br label %264
 
 264:                                              ; preds = %262, %261
-  %.not215.i = icmp eq i32 %.0190.lcssa.i, 0
-  br i1 %.not215.i, label %267, label %265
+  br i1 %.0198.lcssa.i, label %267, label %265
 
 265:                                              ; preds = %264
-  %266 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_query_info) #7
+  %266 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_id_info) #7
   br label %267
 
 267:                                              ; preds = %265, %264
-  %.not216.i = icmp eq i32 %.0188.lcssa.i, 0
-  br i1 %.not216.i, label %270, label %268
+  br i1 %.0196.lcssa.i, label %270, label %268
 
 268:                                              ; preds = %267
-  %269 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_capabilities_info) #7
+  %269 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_rtr_view_info) #7
   br label %270
 
 270:                                              ; preds = %268, %267
-  %271 = icmp ne i32 %.0184.lcssa.i, 0
-  %272 = icmp ne i32 %.0181.lcssa.i, 0
-  %or.cond.i = select i1 %271, i1 true, i1 %272
-  %273 = icmp ne i32 %.0186.lcssa.i, 0
-  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %273
-  %274 = icmp ne i32 %.0192.lcssa.i, 0
-  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %274
-  br i1 %or.cond5.i, label %277, label %275
+  br i1 %.0194.lcssa.i, label %273, label %271
 
-275:                                              ; preds = %270
-  %276 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_assignment) #7
-  br label %277
+271:                                              ; preds = %270
+  %272 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_wc_view_info) #7
+  br label %273
 
-277:                                              ; preds = %275, %270
-  %.not217.i = icmp eq i32 %.0182.lcssa.i, 0
-  br i1 %.not217.i, label %dissect_wccp2_info.exit, label %.sink.split.i
+273:                                              ; preds = %271, %270
+  br i1 %.0190.lcssa.i, label %276, label %274
 
-.sink.split.i:                                    ; preds = %277, %245, %208, %183
-  %ei_wccp_contains_command_extension.sink.i = phi ptr [ @ei_wccp_contains_alt_assignment_map, %183 ], [ @ei_wccp_contains_alt_assignment_map, %208 ], [ @ei_wccp_contains_alt_assignment_map, %245 ], [ @ei_wccp_contains_command_extension, %277 ]
-  %278 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull %ei_wccp_contains_command_extension.sink.i) #7
+274:                                              ; preds = %273
+  %275 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_query_info) #7
+  br label %276
+
+276:                                              ; preds = %274, %273
+  br i1 %.0188.lcssa.i, label %279, label %277
+
+277:                                              ; preds = %276
+  %278 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_contains_capabilities_info) #7
+  br label %279
+
+279:                                              ; preds = %277, %276
+  %280 = icmp ne i32 %.0184.lcssa.i, 0
+  %281 = icmp ne i32 %.0181.lcssa.i, 0
+  %or.cond.i = select i1 %280, i1 true, i1 %281
+  %282 = icmp ne i32 %.0186.lcssa.i, 0
+  %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %282
+  %283 = icmp ne i32 %.0192.lcssa.i, 0
+  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %283
+  br i1 %or.cond5.i, label %286, label %284
+
+284:                                              ; preds = %279
+  %285 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_wccp_missing_assignment) #7
+  br label %286
+
+286:                                              ; preds = %284, %279
+  br i1 %.0182.lcssa.i, label %dissect_wccp2_info.exit, label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %286, %254, %217, %192
+  %ei_wccp_contains_command_extension.sink.i = phi ptr [ @ei_wccp_contains_alt_assignment_map, %192 ], [ @ei_wccp_contains_alt_assignment_map, %217 ], [ @ei_wccp_contains_alt_assignment_map, %254 ], [ @ei_wccp_contains_command_extension, %286 ]
+  %287 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %18, ptr noundef nonnull %ei_wccp_contains_command_extension.sink.i) #7
   br label %dissect_wccp2_info.exit
 
-dissect_wccp2_info.exit:                          ; preds = %._crit_edge.i, %183, %208, %245, %277, %.sink.split.i
+dissect_wccp2_info.exit:                          ; preds = %._crit_edge.i, %192, %217, %254, %286, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %68, %.lr.ph143, %27, %dissect_wccp2_info.exit, %21
-  %279 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  br label %280
+  %288 = call i32 @tvb_captured_length(ptr noundef %0) #7
+  br label %289
 
-280:                                              ; preds = %4, %.loopexit
-  %.0 = phi i32 [ %279, %.loopexit ], [ 0, %4 ]
+289:                                              ; preds = %4, %.loopexit
+  %.0 = phi i32 [ %288, %.loopexit ], [ 0, %4 ]
   ret i32 %.0
 }
 
@@ -3316,7 +3296,7 @@ default.unreachable61:                            ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_wccp2_hash_assignment_data_element(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483643) i32 @dissect_wccp2_hash_assignment_data_element(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_hash_assignment_buckets, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 32, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.417) #7
   %umin = tail call i32 @llvm.umin.i32(i32 %2, i32 31)

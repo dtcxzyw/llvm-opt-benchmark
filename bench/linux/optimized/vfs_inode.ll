@@ -1405,7 +1405,7 @@ define dso_local i32 @v9fs_refresh_inode(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc zeroext i16 @p9mode2unixmode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #10 align 16 {
+define internal fastcc zeroext range(i16 0, -12288) i16 @p9mode2unixmode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #10 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

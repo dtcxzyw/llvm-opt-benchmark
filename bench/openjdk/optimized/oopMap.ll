@@ -4321,7 +4321,7 @@ define hidden void @_ZN22ImmutableOopMapBuilderC2EPK9OopMapSet(ptr nocapture nou
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK22ImmutableOopMapBuilder8size_forEPK6OopMap(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i32 0, -7) i32 @_ZNK22ImmutableOopMapBuilder8size_forEPK6OopMap(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4511,7 +4511,7 @@ define hidden void @_ZN22ImmutableOopMapBuilder9fill_pairEP19ImmutableOopMapPair
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN22ImmutableOopMapBuilder8fill_mapEP19ImmutableOopMapPairPK6OopMapiPK18ImmutableOopMapSet(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 0, -7) i32 @_ZN22ImmutableOopMapBuilder8fill_mapEP19ImmutableOopMapPairPK6OopMapiPK18ImmutableOopMapSet(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #2 align 2 {
   %6 = load i32, ptr %2, align 8
   store i32 %6, ptr %1, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 4

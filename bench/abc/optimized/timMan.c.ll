@@ -885,11 +885,11 @@ Vec_PtrAlloc.exit:                                ; preds = %Tim_ManBoxNum.exit1
 211:                                              ; preds = %198
   %212 = getelementptr i8, ptr %210, i64 4
   %.val.i190 = load i32, ptr %212, align 4
+  %213 = add nsw i32 %.val.i190, -1
   br label %Tim_ManBoxNum.exit191
 
 Tim_ManBoxNum.exit191:                            ; preds = %198, %211
-  %213 = phi i32 [ %.val.i190, %211 ], [ 0, %198 ]
-  %214 = add nsw i32 %213, -1
+  %214 = phi i32 [ %213, %211 ], [ -1, %198 ]
   %215 = trunc nuw nsw i64 %indvars.iv252 to i32
   %216 = tail call i32 @Tim_ManBoxCopy(ptr noundef nonnull %0, i32 noundef %215) #18
   %217 = icmp eq i32 %216, -1
@@ -1360,11 +1360,11 @@ Vec_PtrAlloc.exit:                                ; preds = %Tim_ManBoxNum.exit
 173:                                              ; preds = %157
   %174 = getelementptr i8, ptr %172, i64 4
   %.val.i155 = load i32, ptr %174, align 4
+  %175 = add nsw i32 %.val.i155, -1
   br label %Tim_ManBoxNum.exit156
 
 Tim_ManBoxNum.exit156:                            ; preds = %157, %173
-  %175 = phi i32 [ %.val.i155, %173 ], [ 0, %157 ]
-  %176 = add nsw i32 %175, -1
+  %176 = phi i32 [ %175, %173 ], [ -1, %157 ]
   %177 = tail call i32 @Tim_ManBoxCopy(ptr noundef nonnull %0, i32 noundef %159) #18
   %178 = icmp eq i32 %177, -1
   br i1 %178, label %181, label %179

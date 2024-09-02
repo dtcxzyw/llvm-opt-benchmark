@@ -274,7 +274,7 @@ _index_job.exit.thread:                           ; preds = %42
 
 49:                                               ; preds = %47
   %50 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.20, ptr noundef nonnull @plugin_type) #9
-  br label %139
+  br label %140
 
 51:                                               ; preds = %47
   %52 = call ptr @curl_easy_init() #9
@@ -283,7 +283,7 @@ _index_job.exit.thread:                           ; preds = %42
 
 54:                                               ; preds = %51
   %55 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.21, ptr noundef nonnull @plugin_type) #9
-  br label %138
+  br label %139
 
 56:                                               ; preds = %51
   %57 = call ptr @curl_slist_append(ptr noundef null, ptr noundef nonnull @.str.22) #9
@@ -292,7 +292,7 @@ _index_job.exit.thread:                           ; preds = %42
 
 59:                                               ; preds = %56
   %60 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.23, ptr noundef nonnull @plugin_type) #9
-  br label %138
+  br label %139
 
 61:                                               ; preds = %56
   %62 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 226, ptr noundef nonnull @__func__._index_job) #9
@@ -449,33 +449,32 @@ _index_job.exit.thread:                           ; preds = %42
   br label %137
 
 137:                                              ; preds = %136, %133, %127, %125, %122, %119, %97, %90, %87, %84, %80
-  %.2.i = phi i32 [ -1, %80 ], [ -1, %97 ], [ 0, %136 ], [ 0, %133 ], [ 0, %127 ], [ -1, %84 ], [ -1, %87 ], [ -1, %90 ], [ -1, %119 ], [ -1, %122 ], [ -1, %125 ]
+  %138 = phi i1 [ false, %80 ], [ false, %97 ], [ true, %136 ], [ true, %133 ], [ true, %127 ], [ false, %84 ], [ false, %87 ], [ false, %90 ], [ false, %119 ], [ false, %122 ], [ false, %125 ]
   call void @curl_slist_free_all(ptr noundef nonnull %57) #9
   call void @slurm_xfree(ptr noundef nonnull %2) #9
-  br label %138
-
-138:                                              ; preds = %137, %59, %54
-  %.1.i = phi i32 [ -1, %54 ], [ -1, %59 ], [ %.2.i, %137 ]
-  call void @curl_easy_cleanup(ptr noundef %52) #9
   br label %139
 
-139:                                              ; preds = %138, %49
-  %.033.i = phi i32 [ -1, %49 ], [ %.1.i, %138 ]
-  call void @curl_global_cleanup() #9
-  %140 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @location_mutex) #9
-  %.not56.i = icmp eq i32 %140, 0
-  br i1 %.not56.i, label %_index_job.exit, label %141
+139:                                              ; preds = %137, %59, %54
+  %.1.i = phi i1 [ false, %54 ], [ false, %59 ], [ %138, %137 ]
+  call void @curl_easy_cleanup(ptr noundef %52) #9
+  br label %140
 
-141:                                              ; preds = %139
-  %142 = tail call ptr @__errno_location() #10
-  store i32 %140, ptr %142, align 4
+140:                                              ; preds = %139, %49
+  %.033.i = phi i1 [ false, %49 ], [ %.1.i, %139 ]
+  call void @curl_global_cleanup() #9
+  %141 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @location_mutex) #9
+  %.not56.i = icmp eq i32 %141, 0
+  br i1 %.not56.i, label %_index_job.exit, label %142
+
+142:                                              ; preds = %140
+  %143 = tail call ptr @__errno_location() #10
+  store i32 %141, ptr %143, align 4
   call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 290, ptr noundef nonnull @__func__._index_job) #11
   unreachable
 
-_index_job.exit:                                  ; preds = %139
+_index_job.exit:                                  ; preds = %140
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %143 = icmp eq i32 %.033.i, 0
-  br i1 %143, label %144, label %147
+  br i1 %.033.i, label %144, label %147
 
 144:                                              ; preds = %_index_job.exit
   %145 = call i32 @slurm_list_delete_item(ptr noundef %23) #9

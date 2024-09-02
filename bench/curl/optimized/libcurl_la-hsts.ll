@@ -873,7 +873,7 @@ hsts_load.exit:                                   ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_hsts_loadcb(ptr noundef %data, ptr noundef %h) local_unnamed_addr #0 {
+define hidden range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %data, ptr noundef %h) local_unnamed_addr #0 {
 entry:
   %buffer.i = alloca [257 x i8], align 16
   %e.i = alloca %struct.curl_hstsentry, align 8

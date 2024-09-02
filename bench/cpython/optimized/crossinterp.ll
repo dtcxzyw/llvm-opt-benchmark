@@ -1494,7 +1494,7 @@ if.then15:                                        ; preds = %if.end.i23, %if.end
   %.str.9.sink.i = phi ptr [ @.str.8, %if.end11 ], [ @.str.9, %if.end.i23 ]
   %19 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @_PyErr_SetString(ptr noundef nonnull %call, ptr noundef %19, ptr noundef nonnull %.str.9.sink.i) #13
-  %call.i = tail call fastcc noundef i32 @_xidata_release(ptr noundef nonnull %data, i32 noundef 0)
+  %call.i = tail call fastcc range(i32 -1, 1) i32 @_xidata_release(ptr noundef nonnull %data, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %if.end.i23, %Py_DECREF.exit, %Py_DECREF.exit30, %_set_xid_lookup_failure.exit, %if.then15
@@ -1506,7 +1506,7 @@ return:                                           ; preds = %if.end.i23, %Py_DEC
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyCrossInterpreterData_Release(ptr noundef %data) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyCrossInterpreterData_Release(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @_xidata_release(ptr noundef %data, i32 noundef 0)
   ret i32 %call
@@ -1522,7 +1522,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_xidata_release(ptr noundef %data, i32 noundef %rawfree) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_xidata_release(ptr noundef %data, i32 noundef %rawfree) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %cmp = icmp eq ptr %0, null
@@ -1682,7 +1682,7 @@ return:                                           ; preds = %if.end.i16, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_PyCrossInterpreterData_ReleaseAndRawFree(ptr noundef %data) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyCrossInterpreterData_ReleaseAndRawFree(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @_xidata_release(ptr noundef %data, i32 noundef 1)
   ret i32 %call
@@ -3011,7 +3011,7 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr null, ptr %data1, align 8
   %call.i = tail call ptr @PyErr_GetRaisedException() #13
-  %call.i.i = tail call fastcc noundef i32 @_xidata_release(ptr noundef nonnull %0, i32 noundef 0)
+  %call.i.i = tail call fastcc range(i32 -1, 1) i32 @_xidata_release(ptr noundef nonnull %0, i32 noundef 0)
   %cmp.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i, label %if.then.i, label %_release_xid_data.exit
 
@@ -5417,8 +5417,8 @@ if.end5:                                          ; preds = %if.end
 
 for.cond.preheader:                               ; preds = %if.end5
   %1 = load i64, ptr %call1, align 8
-  %cmp1631 = icmp sgt i64 %1, 0
-  br i1 %cmp1631, label %for.body.lr.ph, label %if.then.i22
+  %cmp1629 = icmp sgt i64 %1, 0
+  br i1 %cmp1629, label %for.body.lr.ph, label %if.then.i22
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %ob_item = getelementptr inbounds i8, ptr %obj, i64 24
@@ -5430,7 +5430,7 @@ if.then12:                                        ; preds = %if.end5
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end28
-  %i.032 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end28 ]
+  %i.030 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end28 ]
   %call.i = tail call ptr @PyMem_RawMalloc(i64 noundef 40) #13
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %_PyCrossInterpreterData_New.exit.thread, label %if.end21
@@ -5440,50 +5440,50 @@ _PyCrossInterpreterData_New.exit.thread:          ; preds = %for.body
   br label %error
 
 if.end21:                                         ; preds = %for.body
-  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.032
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.030
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load i32, ptr %c_recursion_remaining.i.i, align 4
   %dec.i.i = add i32 %3, -1
   store i32 %dec.i.i, ptr %c_recursion_remaining.i.i, align 4
   %cmp.i.i = icmp sgt i32 %3, 0
-  br i1 %cmp.i.i, label %if.end25, label %_Py_EnterRecursiveCallTstate.exit
+  br i1 %cmp.i.i, label %if.then23, label %_Py_EnterRecursiveCallTstate.exit
 
 _Py_EnterRecursiveCallTstate.exit:                ; preds = %if.end21
   %call1.i21 = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %tstate, ptr noundef nonnull @.str.47) #13
   %tobool2.i.not = icmp eq i32 %call1.i21, 0
-  br i1 %tobool2.i.not, label %if.end25, label %if.then27
+  br i1 %tobool2.i.not, label %if.then23, label %if.then27
 
-if.end25:                                         ; preds = %if.end21, %_Py_EnterRecursiveCallTstate.exit
+if.then23:                                        ; preds = %if.end21, %_Py_EnterRecursiveCallTstate.exit
   %call24 = tail call i32 @_PyObject_GetCrossInterpreterData(ptr noundef %2, ptr noundef nonnull %call.i)
   %4 = load i32, ptr %c_recursion_remaining.i.i, align 4
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %c_recursion_remaining.i.i, align 4
-  %cmp26 = icmp slt i32 %call24, 0
-  br i1 %cmp26, label %if.then27, label %if.end28
+  %5 = icmp slt i32 %call24, 0
+  br i1 %5, label %if.then27, label %if.end28
 
-if.then27:                                        ; preds = %_Py_EnterRecursiveCallTstate.exit, %if.end25
+if.then27:                                        ; preds = %_Py_EnterRecursiveCallTstate.exit, %if.then23
   tail call void @PyMem_RawFree(ptr noundef nonnull %call.i) #13
   br label %error
 
-if.end28:                                         ; preds = %if.end25
-  %5 = load ptr, ptr %data9, align 8
-  %arrayidx30 = getelementptr ptr, ptr %5, i64 %i.032
+if.end28:                                         ; preds = %if.then23
+  %6 = load ptr, ptr %data9, align 8
+  %arrayidx30 = getelementptr ptr, ptr %6, i64 %i.030
   store ptr %call.i, ptr %arrayidx30, align 8
-  %inc = add nuw nsw i64 %i.032, 1
-  %6 = load i64, ptr %call1, align 8
-  %cmp16 = icmp slt i64 %inc, %6
+  %inc = add nuw nsw i64 %i.030, 1
+  %7 = load i64, ptr %call1, align 8
+  %cmp16 = icmp slt i64 %inc, %7
   br i1 %cmp16, label %for.body, label %if.then.i22, !llvm.loop !18
 
 if.then.i22:                                      ; preds = %if.end28, %for.cond.preheader
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
-  %7 = load ptr, ptr %interp, align 8
-  %8 = getelementptr inbounds i8, ptr %data, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 32, i1 false)
+  %8 = load ptr, ptr %interp, align 8
+  %9 = getelementptr inbounds i8, ptr %data, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
   %interpid.i.i = getelementptr inbounds i8, ptr %data, i64 16
   store i64 -1, ptr %interpid.i.i, align 8
   store ptr %call1, ptr %data, align 8
-  %9 = load i32, ptr %obj, align 8
-  %add.i.i.i = add i32 %9, 1
+  %10 = load i32, ptr %obj, align 8
+  %add.i.i.i = add i32 %10, 1
   %cmp.i.i.i = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.end.i, label %if.end.i.i.i
 
@@ -5492,17 +5492,17 @@ if.end.i.i.i:                                     ; preds = %if.then.i22
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i22, %if.end.i.i.i
-  store ptr %obj, ptr %8, align 8
-  %cmp3.not.i = icmp eq ptr %7, null
+  store ptr %obj, ptr %9, align 8
+  %cmp3.not.i = icmp eq ptr %8, null
   br i1 %cmp3.not.i, label %_PyCrossInterpreterData_Init.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %id.i = getelementptr inbounds i8, ptr %7, i64 888
-  %10 = load i64, ptr %id.i, align 8
+  %id.i = getelementptr inbounds i8, ptr %8, i64 888
+  %11 = load i64, ptr %id.i, align 8
   br label %_PyCrossInterpreterData_Init.exit
 
 _PyCrossInterpreterData_Init.exit:                ; preds = %if.end.i, %cond.true.i
-  %cond.i = phi i64 [ %10, %cond.true.i ], [ -1, %if.end.i ]
+  %cond.i = phi i64 [ %11, %cond.true.i ], [ -1, %if.end.i ]
   store i64 %cond.i, ptr %interpid.i.i, align 8
   %new_object4.i = getelementptr inbounds i8, ptr %data, i64 24
   store ptr @_new_tuple_object, ptr %new_object4.i, align 8
@@ -5511,40 +5511,40 @@ _PyCrossInterpreterData_Init.exit:                ; preds = %if.end.i, %cond.tru
   br label %return
 
 error:                                            ; preds = %_PyCrossInterpreterData_New.exit.thread, %if.then27
-  %11 = load i64, ptr %call1, align 8
-  %cmp12.i = icmp sgt i64 %11, 0
+  %12 = load i64, ptr %call1, align 8
+  %cmp12.i = icmp sgt i64 %12, 0
   br i1 %cmp12.i, label %for.body.i, label %_tuple_shared_free.exit
 
 for.body.i:                                       ; preds = %error, %for.inc.i
-  %12 = phi i64 [ %18, %for.inc.i ], [ %11, %error ]
+  %13 = phi i64 [ %19, %for.inc.i ], [ %12, %error ]
   %i.013.i = phi i64 [ %inc.i24, %for.inc.i ], [ 0, %error ]
-  %13 = load ptr, ptr %data9, align 8
-  %arrayidx.i = getelementptr ptr, ptr %13, i64 %i.013.i
-  %14 = load ptr, ptr %arrayidx.i, align 8
-  %cmp2.not.i = icmp eq ptr %14, null
+  %14 = load ptr, ptr %data9, align 8
+  %arrayidx.i = getelementptr ptr, ptr %14, i64 %i.013.i
+  %15 = load ptr, ptr %arrayidx.i, align 8
+  %cmp2.not.i = icmp eq ptr %15, null
   br i1 %cmp2.not.i, label %for.inc.i, label %if.then.i23
 
 if.then.i23:                                      ; preds = %for.body.i
-  %call.i.i = tail call fastcc noundef i32 @_xidata_release(ptr noundef nonnull %14, i32 noundef 0)
-  %15 = load ptr, ptr %data9, align 8
-  %arrayidx6.i = getelementptr ptr, ptr %15, i64 %i.013.i
-  %16 = load ptr, ptr %arrayidx6.i, align 8
-  tail call void @PyMem_RawFree(ptr noundef %16) #13
-  %17 = load ptr, ptr %data9, align 8
-  %arrayidx8.i = getelementptr ptr, ptr %17, i64 %i.013.i
+  %call.i.i = tail call fastcc range(i32 -1, 1) i32 @_xidata_release(ptr noundef nonnull %15, i32 noundef 0)
+  %16 = load ptr, ptr %data9, align 8
+  %arrayidx6.i = getelementptr ptr, ptr %16, i64 %i.013.i
+  %17 = load ptr, ptr %arrayidx6.i, align 8
+  tail call void @PyMem_RawFree(ptr noundef %17) #13
+  %18 = load ptr, ptr %data9, align 8
+  %arrayidx8.i = getelementptr ptr, ptr %18, i64 %i.013.i
   store ptr null, ptr %arrayidx8.i, align 8
   %.pre.i = load i64, ptr %call1, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i23, %for.body.i
-  %18 = phi i64 [ %12, %for.body.i ], [ %.pre.i, %if.then.i23 ]
+  %19 = phi i64 [ %13, %for.body.i ], [ %.pre.i, %if.then.i23 ]
   %inc.i24 = add nuw nsw i64 %i.013.i, 1
-  %cmp.i25 = icmp slt i64 %inc.i24, %18
+  %cmp.i25 = icmp slt i64 %inc.i24, %19
   br i1 %cmp.i25, label %for.body.i, label %_tuple_shared_free.exit, !llvm.loop !19
 
 _tuple_shared_free.exit:                          ; preds = %for.inc.i, %error
-  %19 = load ptr, ptr %data9, align 8
-  tail call void @PyMem_Free(ptr noundef %19) #13
+  %20 = load ptr, ptr %data9, align 8
+  tail call void @PyMem_Free(ptr noundef %20) #13
   tail call void @PyMem_RawFree(ptr noundef nonnull %call1) #13
   br label %return
 
@@ -5716,7 +5716,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %call.i = tail call fastcc noundef i32 @_xidata_release(ptr noundef nonnull %3, i32 noundef 0)
+  %call.i = tail call fastcc range(i32 -1, 1) i32 @_xidata_release(ptr noundef nonnull %3, i32 noundef 0)
   %4 = load ptr, ptr %data1, align 8
   %arrayidx6 = getelementptr ptr, ptr %4, i64 %i.013
   %5 = load ptr, ptr %arrayidx6, align 8

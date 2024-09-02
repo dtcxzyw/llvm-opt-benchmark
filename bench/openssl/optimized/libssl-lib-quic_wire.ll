@@ -312,7 +312,7 @@ return:                                           ; preds = %lor.lhs.false3, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 25) i64 @ossl_quic_wire_get_encoded_frame_len_crypto_hdr(ptr nocapture noundef readonly %f) local_unnamed_addr #4 {
+define range(i64 0, 18) i64 @ossl_quic_wire_get_encoded_frame_len_crypto_hdr(ptr nocapture noundef readonly %f) local_unnamed_addr #4 {
 entry:
   %0 = load i64, ptr %f, align 8
   %cmp.i = icmp ult i64 %0, 64
@@ -497,7 +497,7 @@ return:                                           ; preds = %land.lhs.true28, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 33) i64 @ossl_quic_wire_get_encoded_frame_len_stream_hdr(ptr nocapture noundef readonly %f) local_unnamed_addr #4 {
+define range(i64 0, 26) i64 @ossl_quic_wire_get_encoded_frame_len_stream_hdr(ptr nocapture noundef readonly %f) local_unnamed_addr #4 {
 entry:
   %0 = load i64, ptr %f, align 8
   %cmp.i = icmp ult i64 %0, 64

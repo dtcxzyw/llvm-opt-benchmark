@@ -678,7 +678,7 @@ declare i32 @agnnodes(ptr noundef) local_unnamed_addr #1
 declare i32 @agnedges(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @label(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #7 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @label(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #7 {
   %4 = getelementptr i8, ptr %0, i64 16
   %.val21 = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %.val21, i64 16

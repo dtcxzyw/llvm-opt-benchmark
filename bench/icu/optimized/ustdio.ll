@@ -959,7 +959,7 @@ if.end19:                                         ; preds = %if.end19.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_fgetcx_75(ptr noundef %f) local_unnamed_addr #0 {
+define range(i32 -56613888, 10559488) i32 @u_fgetcx_75(ptr noundef %f) local_unnamed_addr #0 {
 entry:
   %str1.i = getelementptr inbounds i8, ptr %f, i64 24
   %0 = load ptr, ptr %str1.i, align 8

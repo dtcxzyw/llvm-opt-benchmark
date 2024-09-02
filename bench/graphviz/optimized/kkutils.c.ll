@@ -333,13 +333,16 @@ fill_neighbors_vec_unweighted.exit:               ; preds = %17, %.lr.ph57
   %spec.select.i = add i64 %.01011.i, %43
   %44 = add nuw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %44, %32
-  br i1 %exitcond.not.i, label %common_neighbors.exit, label %36
+  br i1 %exitcond.not.i, label %common_neighbors.exit.loopexit, label %36
 
-common_neighbors.exit:                            ; preds = %36, %27
-  %.010.lcssa.i = phi i64 [ 0, %27 ], [ %spec.select.i, %36 ]
-  %45 = add i64 %26, %32
-  %46 = shl i64 %.010.lcssa.i, 1
-  %47 = sub i64 %45, %46
+common_neighbors.exit.loopexit:                   ; preds = %36
+  %45 = shl i64 %spec.select.i, 1
+  br label %common_neighbors.exit
+
+common_neighbors.exit:                            ; preds = %common_neighbors.exit.loopexit, %27
+  %.010.lcssa.i = phi i64 [ 0, %27 ], [ %45, %common_neighbors.exit.loopexit ]
+  %46 = add i64 %26, %32
+  %47 = sub i64 %46, %.010.lcssa.i
   %48 = uitofp i64 %47 to float
   %49 = getelementptr inbounds float, ptr %.04055, i64 %.051
   store float %48, ptr %49, align 4

@@ -70,11 +70,11 @@ define internal fastcc i32 @nbc_bcast_init(ptr noundef %0, i32 noundef %1, ptr n
   %18 = getelementptr i8, ptr %2, i64 24
   %.val88 = load i64, ptr %18, align 8
   %19 = load i32, ptr @libnbc_ibcast_algorithm, align 4
-  switch i32 %19, label %35 [
+  switch i32 %19, label %36 [
     i32 0, label %20
-    i32 1, label %39
-    i32 2, label %33
-    i32 3, label %34
+    i32 1, label %40
+    i32 2, label %34
+    i32 3, label %35
   ]
 
 20:                                               ; preds = %17
@@ -85,127 +85,127 @@ define internal fastcc i32 @nbc_bcast_init(ptr noundef %0, i32 noundef %1, ptr n
 23:                                               ; preds = %20
   %24 = icmp sgt i32 %.val87.val, 4
   %. = zext i1 %24 to i32
-  br label %39
+  br label %40
 
 25:                                               ; preds = %20
   %26 = icmp slt i32 %.val87.val, 5
-  br i1 %26, label %39, label %27
+  br i1 %26, label %40, label %27
 
 27:                                               ; preds = %25
   %28 = sext i32 %1 to i64
   %29 = mul i64 %.val88, %28
   %30 = icmp ult i64 %29, 65536
-  br i1 %30, label %39, label %31
+  br i1 %30, label %40, label %31
 
 31:                                               ; preds = %27
   %32 = icmp ult i64 %29, 524288
-  %.85 = select i1 %32, i64 8192, i64 32768
-  br label %39
-
-33:                                               ; preds = %17
-  br label %39
+  %33 = select i1 %32, i64 8192, i64 32768
+  br label %40
 
 34:                                               ; preds = %17
-  br label %39
+  br label %40
 
 35:                                               ; preds = %17
-  %36 = icmp eq i32 %19, 4
-  %37 = load i32, ptr @libnbc_ibcast_knomial_radix, align 4
-  %38 = icmp sgt i32 %37, 1
-  %or.cond = select i1 %36, i1 %38, i1 false
+  br label %40
+
+36:                                               ; preds = %17
+  %37 = icmp eq i32 %19, 4
+  %38 = load i32, ptr @libnbc_ibcast_knomial_radix, align 4
+  %39 = icmp sgt i32 %38, 1
+  %or.cond = select i1 %37, i1 %39, i1 false
   %.86 = select i1 %or.cond, i32 3, i32 0
-  br label %39
+  br label %40
 
-39:                                               ; preds = %35, %17, %31, %27, %25, %23, %34, %33
-  %.074 = phi i64 [ 16384, %33 ], [ 16384, %34 ], [ 16384, %23 ], [ 16384, %25 ], [ 16384, %27 ], [ %.85, %31 ], [ 16384, %17 ], [ 16384, %35 ]
-  %.073 = phi i32 [ 1, %33 ], [ 2, %34 ], [ %., %23 ], [ 0, %25 ], [ 1, %27 ], [ 2, %31 ], [ 0, %17 ], [ %.86, %35 ]
-  %40 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
-  %41 = tail call noalias ptr @malloc(i64 noundef %40) #5
-  %42 = load i32, ptr @opal_class_init_epoch, align 4
-  %43 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
-  %.not.i = icmp eq i32 %42, %43
-  br i1 %.not.i, label %45, label %44
+40:                                               ; preds = %36, %17, %31, %27, %25, %23, %35, %34
+  %.074 = phi i64 [ 16384, %34 ], [ 16384, %35 ], [ 16384, %23 ], [ 16384, %25 ], [ 16384, %27 ], [ %33, %31 ], [ 16384, %17 ], [ 16384, %36 ]
+  %.073 = phi i32 [ 1, %34 ], [ 2, %35 ], [ %., %23 ], [ 0, %25 ], [ 1, %27 ], [ 2, %31 ], [ 0, %17 ], [ %.86, %36 ]
+  %41 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
+  %42 = tail call noalias ptr @malloc(i64 noundef %41) #5
+  %43 = load i32, ptr @opal_class_init_epoch, align 4
+  %44 = load i32, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 32), align 8
+  %.not.i = icmp eq i32 %43, %44
+  br i1 %.not.i, label %46, label %45
 
-44:                                               ; preds = %39
+45:                                               ; preds = %40
   tail call void @opal_class_initialize(ptr noundef nonnull @NBC_Schedule_class) #4
-  br label %45
+  br label %46
 
-45:                                               ; preds = %44, %39
-  %.not9.i = icmp eq ptr %41, null
-  br i1 %.not9.i, label %nbc_get_noop_request.exit, label %46
+46:                                               ; preds = %45, %40
+  %.not9.i = icmp eq ptr %42, null
+  br i1 %.not9.i, label %nbc_get_noop_request.exit, label %47
 
-46:                                               ; preds = %45
-  store ptr @NBC_Schedule_class, ptr %41, align 8
-  %47 = getelementptr inbounds i8, ptr %41, i64 8
-  store volatile i32 1, ptr %47, align 8
-  %48 = load ptr, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 40), align 8
-  %49 = load ptr, ptr %48, align 8
-  %.not6.i.i = icmp eq ptr %49, null
+47:                                               ; preds = %46
+  store ptr @NBC_Schedule_class, ptr %42, align 8
+  %48 = getelementptr inbounds i8, ptr %42, i64 8
+  store volatile i32 1, ptr %48, align 8
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 40), align 8
+  %50 = load ptr, ptr %49, align 8
+  %.not6.i.i = icmp eq ptr %50, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread125, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %46, %.lr.ph.i.i
-  %50 = phi ptr [ %52, %.lr.ph.i.i ], [ %49, %46 ]
-  %.07.i.i = phi ptr [ %51, %.lr.ph.i.i ], [ %48, %46 ]
-  tail call void %50(ptr noundef nonnull %41) #4
-  %51 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %.not.i.i = icmp eq ptr %52, null
+.lr.ph.i.i:                                       ; preds = %47, %.lr.ph.i.i
+  %51 = phi ptr [ %53, %.lr.ph.i.i ], [ %50, %47 ]
+  %.07.i.i = phi ptr [ %52, %.lr.ph.i.i ], [ %49, %47 ]
+  tail call void %51(ptr noundef nonnull %42) #4
+  %52 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %.not.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i, label %opal_obj_new.exit.thread125, label %.lr.ph.i.i, !llvm.loop !4
 
-opal_obj_new.exit.thread125:                      ; preds = %.lr.ph.i.i, %46
+opal_obj_new.exit.thread125:                      ; preds = %.lr.ph.i.i, %47
   switch i32 %.073, label %default.unreachable182 [
-    i32 0, label %53
+    i32 0, label %54
     i32 1, label %.preheader
-    i32 2, label %99
-    i32 3, label %164
+    i32 2, label %100
+    i32 3, label %165
   ]
 
-53:                                               ; preds = %opal_obj_new.exit.thread125
-  %54 = icmp eq i32 %.val, %3
-  br i1 %54, label %.preheader.i, label %62
+54:                                               ; preds = %opal_obj_new.exit.thread125
+  %55 = icmp eq i32 %.val, %3
+  br i1 %55, label %.preheader.i, label %63
 
-.preheader.i:                                     ; preds = %53
-  %55 = icmp sgt i32 %.val87.val, 0
-  br i1 %55, label %.lr.ph.i, label %bcast_sched_linear.exit.thread
+.preheader.i:                                     ; preds = %54
+  %56 = icmp sgt i32 %.val87.val, 0
+  br i1 %56, label %.lr.ph.i, label %bcast_sched_linear.exit.thread
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %56 = sext i32 %1 to i64
-  br label %57
+  %57 = sext i32 %1 to i64
+  br label %58
 
-57:                                               ; preds = %60, %.lr.ph.i
-  %.028.i = phi i32 [ 0, %.lr.ph.i ], [ %61, %60 ]
+58:                                               ; preds = %61, %.lr.ph.i
+  %.028.i = phi i32 [ 0, %.lr.ph.i ], [ %62, %61 ]
   %.not25.i = icmp eq i32 %.028.i, %3
-  br i1 %.not25.i, label %60, label %58
+  br i1 %.not25.i, label %61, label %59
 
-58:                                               ; preds = %57
-  %59 = tail call i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext 0, i64 noundef %56, ptr noundef %2, i32 noundef %.028.i, ptr noundef %41, i1 noundef zeroext false) #4
-  %.not26.i = icmp eq i32 %59, 0
-  br i1 %.not26.i, label %60, label %bcast_sched_linear.exit.thread129
+59:                                               ; preds = %58
+  %60 = tail call i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext 0, i64 noundef %57, ptr noundef %2, i32 noundef %.028.i, ptr noundef %42, i1 noundef zeroext false) #4
+  %.not26.i = icmp eq i32 %60, 0
+  br i1 %.not26.i, label %61, label %bcast_sched_linear.exit.thread129
 
-60:                                               ; preds = %58, %57
-  %61 = add nuw nsw i32 %.028.i, 1
-  %exitcond.not.i = icmp eq i32 %61, %.val87.val
-  br i1 %exitcond.not.i, label %bcast_sched_linear.exit.thread, label %57, !llvm.loop !6
+61:                                               ; preds = %59, %58
+  %62 = add nuw nsw i32 %.028.i, 1
+  %exitcond.not.i = icmp eq i32 %62, %.val87.val
+  br i1 %exitcond.not.i, label %bcast_sched_linear.exit.thread, label %58, !llvm.loop !6
 
-62:                                               ; preds = %53
-  %63 = sext i32 %1 to i64
-  %64 = tail call i32 @NBC_Sched_recv(ptr noundef %0, i8 noundef signext 0, i64 noundef %63, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %41, i1 noundef zeroext false) #4
-  %.not.i89 = icmp eq i32 %64, 0
+63:                                               ; preds = %54
+  %64 = sext i32 %1 to i64
+  %65 = tail call i32 @NBC_Sched_recv(ptr noundef %0, i8 noundef signext 0, i64 noundef %64, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %42, i1 noundef zeroext false) #4
+  %.not.i89 = icmp eq i32 %65, 0
   br i1 %.not.i89, label %bcast_sched_linear.exit.thread, label %bcast_sched_linear.exit.thread129
 
 .preheader:                                       ; preds = %opal_obj_new.exit.thread125, %.preheader
-  %.0.i.i = phi i32 [ %67, %.preheader ], [ 0, %opal_obj_new.exit.thread125 ]
-  %65 = shl nuw i32 1, %.0.i.i
-  %66 = icmp slt i32 %65, %.val87.val
-  %67 = add nuw nsw i32 %.0.i.i, 1
-  br i1 %66, label %.preheader, label %ceil_of_log2.exit.i, !llvm.loop !7
+  %.0.i.i = phi i32 [ %68, %.preheader ], [ 0, %opal_obj_new.exit.thread125 ]
+  %66 = shl nuw i32 1, %.0.i.i
+  %67 = icmp slt i32 %66, %.val87.val
+  %68 = add nuw nsw i32 %.0.i.i, 1
+  br i1 %67, label %.preheader, label %ceil_of_log2.exit.i, !llvm.loop !7
 
 ceil_of_log2.exit.i:                              ; preds = %.preheader
-  %68 = icmp eq i32 %.val, 0
-  %spec.select.i = select i1 %68, i32 %3, i32 %.val
-  %69 = icmp eq i32 %.val, %3
+  %69 = icmp eq i32 %.val, 0
+  %spec.select.i = select i1 %69, i32 %3, i32 %.val
+  %70 = icmp eq i32 %.val, %3
   %.not104.i = icmp eq i32 %spec.select.i, 0
-  %.not.i90 = or i1 %69, %.not104.i
+  %.not.i90 = or i1 %70, %.not104.i
   %.not8796.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i90, label %.thread.i, label %.preheader.i91
 
@@ -213,424 +213,424 @@ ceil_of_log2.exit.i:                              ; preds = %.preheader
   br i1 %.not8796.i, label %bcast_sched_linear.exit, label %.lr.ph.i92
 
 .lr.ph.i92:                                       ; preds = %.preheader.i91
-  %70 = sext i32 %1 to i64
-  br label %71
+  %71 = sext i32 %1 to i64
+  br label %72
 
-71:                                               ; preds = %80, %.lr.ph.i92
-  %.05879.i = phi i32 [ 0, %.lr.ph.i92 ], [ %81, %80 ]
-  %72 = shl nuw i32 1, %.05879.i
-  %.not72.i = icmp sge i32 %spec.select.i, %72
-  %73 = shl nuw i32 2, %.05879.i
-  %74 = icmp slt i32 %spec.select.i, %73
-  %or.cond75.i = select i1 %.not72.i, i1 %74, i1 false
-  br i1 %or.cond75.i, label %75, label %80
+72:                                               ; preds = %81, %.lr.ph.i92
+  %.05879.i = phi i32 [ 0, %.lr.ph.i92 ], [ %82, %81 ]
+  %73 = shl nuw i32 1, %.05879.i
+  %.not72.i = icmp sge i32 %spec.select.i, %73
+  %74 = shl nuw i32 2, %.05879.i
+  %75 = icmp slt i32 %spec.select.i, %74
+  %or.cond75.i = select i1 %.not72.i, i1 %75, i1 false
+  br i1 %or.cond75.i, label %76, label %81
 
-75:                                               ; preds = %71
-  %76 = sub nsw i32 %spec.select.i, %72
-  %77 = icmp eq i32 %spec.select.i, %72
-  %spec.select76.i = select i1 %77, i32 %3, i32 %76
-  %78 = icmp eq i32 %76, %3
-  %.1.i = select i1 %78, i32 0, i32 %spec.select76.i
-  %79 = tail call i32 @NBC_Sched_recv(ptr noundef %0, i8 noundef signext 0, i64 noundef %70, ptr noundef %2, i32 noundef %.1.i, ptr noundef %41, i1 noundef zeroext false) #4
-  %.not73.i = icmp eq i32 %79, 0
-  br i1 %.not73.i, label %80, label %bcast_sched_linear.exit.thread129
+76:                                               ; preds = %72
+  %77 = sub nsw i32 %spec.select.i, %73
+  %78 = icmp eq i32 %spec.select.i, %73
+  %spec.select76.i = select i1 %78, i32 %3, i32 %77
+  %79 = icmp eq i32 %77, %3
+  %.1.i = select i1 %79, i32 0, i32 %spec.select76.i
+  %80 = tail call i32 @NBC_Sched_recv(ptr noundef %0, i8 noundef signext 0, i64 noundef %71, ptr noundef %2, i32 noundef %.1.i, ptr noundef %42, i1 noundef zeroext false) #4
+  %.not73.i = icmp eq i32 %80, 0
+  br i1 %.not73.i, label %81, label %bcast_sched_linear.exit.thread129
 
-80:                                               ; preds = %75, %71
-  %81 = add nuw nsw i32 %.05879.i, 1
-  %exitcond.not.i93 = icmp eq i32 %81, %.0.i.i
-  br i1 %exitcond.not.i93, label %._crit_edge.i, label %71, !llvm.loop !8
+81:                                               ; preds = %76, %72
+  %82 = add nuw nsw i32 %.05879.i, 1
+  %exitcond.not.i93 = icmp eq i32 %82, %.0.i.i
+  br i1 %exitcond.not.i93, label %._crit_edge.i, label %72, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %80
-  %82 = tail call i32 @NBC_Sched_barrier(ptr noundef %41) #4
-  %.not70.i = icmp eq i32 %82, 0
+._crit_edge.i:                                    ; preds = %81
+  %83 = tail call i32 @NBC_Sched_barrier(ptr noundef %42) #4
+  %.not70.i = icmp eq i32 %83, 0
   br i1 %.not70.i, label %.lr.ph82.split.i, label %bcast_sched_linear.exit.thread129
 
 .thread.i:                                        ; preds = %ceil_of_log2.exit.i
   br i1 %.not8796.i, label %bcast_sched_linear.exit.thread, label %.lr.ph82.thread.i
 
 .lr.ph82.thread.i:                                ; preds = %.thread.i
-  %83 = sext i32 %1 to i64
+  %84 = sext i32 %1 to i64
   br label %.lr.ph82.split.us.i
 
-.lr.ph82.split.us.i:                              ; preds = %87, %.lr.ph82.thread.i
-  %.080.us.i = phi i32 [ %88, %87 ], [ 0, %.lr.ph82.thread.i ]
-  %84 = shl nuw i32 1, %.080.us.i
-  %85 = icmp eq i32 %84, %3
-  %.3.us.i = select i1 %85, i32 0, i32 %84
-  %86 = tail call i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext 0, i64 noundef %83, ptr noundef %2, i32 noundef %.3.us.i, ptr noundef %41, i1 noundef zeroext false) #4
-  %.not71.us.i = icmp eq i32 %86, 0
-  br i1 %.not71.us.i, label %87, label %bcast_sched_linear.exit.thread129
+.lr.ph82.split.us.i:                              ; preds = %88, %.lr.ph82.thread.i
+  %.080.us.i = phi i32 [ %89, %88 ], [ 0, %.lr.ph82.thread.i ]
+  %85 = shl nuw i32 1, %.080.us.i
+  %86 = icmp eq i32 %85, %3
+  %.3.us.i = select i1 %86, i32 0, i32 %85
+  %87 = tail call i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext 0, i64 noundef %84, ptr noundef %2, i32 noundef %.3.us.i, ptr noundef %42, i1 noundef zeroext false) #4
+  %.not71.us.i = icmp eq i32 %87, 0
+  br i1 %.not71.us.i, label %88, label %bcast_sched_linear.exit.thread129
 
-87:                                               ; preds = %.lr.ph82.split.us.i
-  %88 = add nuw nsw i32 %.080.us.i, 1
-  %exitcond95.not.i = icmp eq i32 %88, %.0.i.i
+88:                                               ; preds = %.lr.ph82.split.us.i
+  %89 = add nuw nsw i32 %.080.us.i, 1
+  %exitcond95.not.i = icmp eq i32 %89, %.0.i.i
   br i1 %exitcond95.not.i, label %bcast_sched_linear.exit.thread, label %.lr.ph82.split.us.i, !llvm.loop !9
 
-.lr.ph82.split.i:                                 ; preds = %._crit_edge.i, %97
-  %.080.i = phi i32 [ %98, %97 ], [ 0, %._crit_edge.i ]
-  %89 = shl nuw i32 1, %.080.i
-  %90 = add nsw i32 %89, %spec.select.i
-  %91 = icmp slt i32 %90, %.val87.val
-  %92 = icmp slt i32 %spec.select.i, %89
-  %or.cond.i = and i1 %92, %91
-  br i1 %or.cond.i, label %93, label %97
+.lr.ph82.split.i:                                 ; preds = %._crit_edge.i, %98
+  %.080.i = phi i32 [ %99, %98 ], [ 0, %._crit_edge.i ]
+  %90 = shl nuw i32 1, %.080.i
+  %91 = add nsw i32 %90, %spec.select.i
+  %92 = icmp slt i32 %91, %.val87.val
+  %93 = icmp slt i32 %spec.select.i, %90
+  %or.cond.i = and i1 %93, %92
+  br i1 %or.cond.i, label %94, label %98
 
-93:                                               ; preds = %.lr.ph82.split.i
-  %94 = icmp eq i32 %90, 0
-  %spec.select77.i = select i1 %94, i32 %3, i32 %90
-  %95 = icmp eq i32 %90, %3
-  %.3.i = select i1 %95, i32 0, i32 %spec.select77.i
-  %96 = tail call i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext 0, i64 noundef %70, ptr noundef %2, i32 noundef %.3.i, ptr noundef %41, i1 noundef zeroext false) #4
-  %.not71.i = icmp eq i32 %96, 0
-  br i1 %.not71.i, label %97, label %bcast_sched_linear.exit.thread129
+94:                                               ; preds = %.lr.ph82.split.i
+  %95 = icmp eq i32 %91, 0
+  %spec.select77.i = select i1 %95, i32 %3, i32 %91
+  %96 = icmp eq i32 %91, %3
+  %.3.i = select i1 %96, i32 0, i32 %spec.select77.i
+  %97 = tail call i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext 0, i64 noundef %71, ptr noundef %2, i32 noundef %.3.i, ptr noundef %42, i1 noundef zeroext false) #4
+  %.not71.i = icmp eq i32 %97, 0
+  br i1 %.not71.i, label %98, label %bcast_sched_linear.exit.thread129
 
-97:                                               ; preds = %93, %.lr.ph82.split.i
-  %98 = add nuw nsw i32 %.080.i, 1
-  %exitcond93.not.i = icmp eq i32 %98, %.0.i.i
+98:                                               ; preds = %94, %.lr.ph82.split.i
+  %99 = add nuw nsw i32 %.080.i, 1
+  %exitcond93.not.i = icmp eq i32 %99, %.0.i.i
   br i1 %exitcond93.not.i, label %bcast_sched_linear.exit.thread, label %.lr.ph82.split.i, !llvm.loop !9
 
-99:                                               ; preds = %opal_obj_new.exit.thread125
-  %100 = icmp eq i32 %.val, 0
-  %spec.select.i95 = select i1 %100, i32 %3, i32 %.val
-  %101 = icmp eq i32 %.val, %3
-  %.169.i = select i1 %101, i32 0, i32 %spec.select.i95
-  %102 = add nsw i32 %.169.i, -1
-  %103 = icmp eq i32 %102, 0
-  %.066.i = select i1 %103, i32 %3, i32 %102
-  %104 = icmp eq i32 %102, %3
-  %.167.i = select i1 %104, i32 0, i32 %.066.i
-  %105 = add nsw i32 %.169.i, 1
-  %106 = icmp eq i32 %105, 0
-  %.065.i = select i1 %106, i32 %3, i32 %105
-  %107 = icmp eq i32 %105, %3
-  %.1.i96 = select i1 %107, i32 0, i32 %.065.i
-  %108 = getelementptr i8, ptr %2, i64 48
-  %.val.i = load i64, ptr %108, align 8
-  %109 = getelementptr i8, ptr %2, i64 56
-  %.val84.i = load i64, ptr %109, align 8
-  %110 = sub nsw i64 %.val84.i, %.val.i
-  %111 = icmp eq i32 %1, 0
-  br i1 %111, label %bcast_sched_linear.exit.thread, label %112
+100:                                              ; preds = %opal_obj_new.exit.thread125
+  %101 = icmp eq i32 %.val, 0
+  %spec.select.i95 = select i1 %101, i32 %3, i32 %.val
+  %102 = icmp eq i32 %.val, %3
+  %.169.i = select i1 %102, i32 0, i32 %spec.select.i95
+  %103 = add nsw i32 %.169.i, -1
+  %104 = icmp eq i32 %103, 0
+  %.066.i = select i1 %104, i32 %3, i32 %103
+  %105 = icmp eq i32 %103, %3
+  %.167.i = select i1 %105, i32 0, i32 %.066.i
+  %106 = add nsw i32 %.169.i, 1
+  %107 = icmp eq i32 %106, 0
+  %.065.i = select i1 %107, i32 %3, i32 %106
+  %108 = icmp eq i32 %106, %3
+  %.1.i96 = select i1 %108, i32 0, i32 %.065.i
+  %109 = getelementptr i8, ptr %2, i64 48
+  %.val.i = load i64, ptr %109, align 8
+  %110 = getelementptr i8, ptr %2, i64 56
+  %.val84.i = load i64, ptr %110, align 8
+  %111 = sub nsw i64 %.val84.i, %.val.i
+  %112 = icmp eq i32 %1, 0
+  br i1 %112, label %bcast_sched_linear.exit.thread, label %113
 
-112:                                              ; preds = %99
-  %113 = sext i32 %1 to i64
-  %114 = mul i64 %.val88, %113
-  %115 = udiv i64 %114, %.074
-  %116 = trunc i64 %115 to i32
-  %117 = add nsw i64 %.074, -1
-  %118 = and i64 %117, %114
-  %.not.i97 = icmp ne i64 %118, 0
-  %119 = zext i1 %.not.i97 to i32
-  %spec.select83.i = add nsw i32 %116, %119
-  %120 = sdiv i32 %1, %spec.select83.i
-  %121 = icmp sgt i32 %spec.select83.i, 0
-  br i1 %121, label %.lr.ph.i100, label %bcast_sched_linear.exit.thread
+113:                                              ; preds = %100
+  %114 = sext i32 %1 to i64
+  %115 = mul i64 %.val88, %114
+  %116 = udiv i64 %115, %.074
+  %117 = trunc i64 %116 to i32
+  %118 = add nsw i64 %.074, -1
+  %119 = and i64 %118, %115
+  %.not.i97 = icmp ne i64 %119, 0
+  %120 = zext i1 %.not.i97 to i32
+  %spec.select83.i = add nsw i32 %117, %120
+  %121 = sdiv i32 %1, %spec.select83.i
+  %122 = icmp sgt i32 %spec.select83.i, 0
+  br i1 %122, label %.lr.ph.i100, label %bcast_sched_linear.exit.thread
 
-.lr.ph.i100:                                      ; preds = %112
-  %122 = sext i32 %120 to i64
-  %123 = mul i64 %110, %122
-  %124 = add nsw i32 %spec.select83.i, -1
+.lr.ph.i100:                                      ; preds = %113
+  %123 = sext i32 %121 to i64
+  %124 = mul i64 %111, %123
+  %125 = add nsw i32 %spec.select83.i, -1
   %.not78.i = icmp eq i32 %.169.i, 0
-  %125 = add i32 %.val87.val, -1
-  %.not80.i = icmp eq i32 %.169.i, %125
+  %126 = add i32 %.val87.val, -1
+  %.not80.i = icmp eq i32 %.169.i, %126
   br i1 %.not80.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i100
   br i1 %.not78.i, label %bcast_sched_linear.exit.thread, label %.lr.ph.split.us.split.preheader.i
 
 .lr.ph.split.us.split.preheader.i:                ; preds = %.lr.ph.split.us.i
-  %126 = zext nneg i32 %124 to i64
-  %127 = zext nneg i32 %spec.select83.i to i64
+  %127 = zext nneg i32 %125 to i64
+  %128 = zext nneg i32 %spec.select83.i to i64
   br label %.lr.ph.split.us.split.i
 
-.lr.ph.split.us.split.i:                          ; preds = %136, %.lr.ph.split.us.split.preheader.i
-  %indvars.iv109.i = phi i64 [ 0, %.lr.ph.split.us.split.preheader.i ], [ %indvars.iv.next110.i, %136 ]
-  %128 = mul i64 %indvars.iv109.i, %123
-  %129 = getelementptr inbounds i8, ptr %0, i64 %128
-  %130 = icmp eq i64 %indvars.iv109.i, %126
-  %131 = trunc nuw nsw i64 %indvars.iv109.i to i32
-  %132 = mul i32 %120, %131
-  %133 = sub i32 %1, %132
-  %.063.us.i = select i1 %130, i32 %133, i32 %120
-  %134 = sext i32 %.063.us.i to i64
-  %135 = tail call i32 @NBC_Sched_recv(ptr noundef %129, i8 noundef signext 0, i64 noundef %134, ptr noundef %2, i32 noundef %.167.i, ptr noundef %41, i1 noundef zeroext true) #4
-  %.not79.us.i = icmp eq i32 %135, 0
-  br i1 %.not79.us.i, label %136, label %bcast_sched_linear.exit.thread129
+.lr.ph.split.us.split.i:                          ; preds = %137, %.lr.ph.split.us.split.preheader.i
+  %indvars.iv109.i = phi i64 [ 0, %.lr.ph.split.us.split.preheader.i ], [ %indvars.iv.next110.i, %137 ]
+  %129 = mul i64 %indvars.iv109.i, %124
+  %130 = getelementptr inbounds i8, ptr %0, i64 %129
+  %131 = icmp eq i64 %indvars.iv109.i, %127
+  %132 = trunc nuw nsw i64 %indvars.iv109.i to i32
+  %133 = mul i32 %121, %132
+  %134 = sub i32 %1, %133
+  %.063.us.i = select i1 %131, i32 %134, i32 %121
+  %135 = sext i32 %.063.us.i to i64
+  %136 = tail call i32 @NBC_Sched_recv(ptr noundef %130, i8 noundef signext 0, i64 noundef %135, ptr noundef %2, i32 noundef %.167.i, ptr noundef %42, i1 noundef zeroext true) #4
+  %.not79.us.i = icmp eq i32 %136, 0
+  br i1 %.not79.us.i, label %137, label %bcast_sched_linear.exit.thread129
 
-136:                                              ; preds = %.lr.ph.split.us.split.i
+137:                                              ; preds = %.lr.ph.split.us.split.i
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
-  %137 = icmp ult i64 %indvars.iv.next110.i, %127
-  br i1 %137, label %.lr.ph.split.us.split.i, label %bcast_sched_linear.exit.thread, !llvm.loop !10
+  %138 = icmp ult i64 %indvars.iv.next110.i, %128
+  br i1 %138, label %.lr.ph.split.us.split.i, label %bcast_sched_linear.exit.thread, !llvm.loop !10
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i100
-  %138 = zext nneg i32 %124 to i64
-  %139 = zext nneg i32 %spec.select83.i to i64
+  %139 = zext nneg i32 %125 to i64
+  %140 = zext nneg i32 %spec.select83.i to i64
   br i1 %.not78.i, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.split.i
 
-.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %150
-  %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %150 ], [ 0, %.lr.ph.split.i ]
-  %140 = mul i64 %indvars.iv106.i, %123
-  %141 = getelementptr inbounds i8, ptr %0, i64 %140
-  %142 = icmp eq i64 %indvars.iv106.i, %138
-  %143 = trunc nuw nsw i64 %indvars.iv106.i to i32
-  %144 = mul i32 %120, %143
-  %145 = sub i32 %1, %144
-  %.063.us94.i = select i1 %142, i32 %145, i32 %120
-  %146 = sext i32 %.063.us94.i to i64
-  %147 = tail call i32 @NBC_Sched_send(ptr noundef %141, i8 noundef signext 0, i64 noundef %146, ptr noundef %2, i32 noundef %.1.i96, ptr noundef %41, i1 noundef zeroext false) #4
-  %.not81.us.i = icmp eq i32 %147, 0
-  br i1 %.not81.us.i, label %148, label %bcast_sched_linear.exit.thread129
+.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %151
+  %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %151 ], [ 0, %.lr.ph.split.i ]
+  %141 = mul i64 %indvars.iv106.i, %124
+  %142 = getelementptr inbounds i8, ptr %0, i64 %141
+  %143 = icmp eq i64 %indvars.iv106.i, %139
+  %144 = trunc nuw nsw i64 %indvars.iv106.i to i32
+  %145 = mul i32 %121, %144
+  %146 = sub i32 %1, %145
+  %.063.us94.i = select i1 %143, i32 %146, i32 %121
+  %147 = sext i32 %.063.us94.i to i64
+  %148 = tail call i32 @NBC_Sched_send(ptr noundef %142, i8 noundef signext 0, i64 noundef %147, ptr noundef %2, i32 noundef %.1.i96, ptr noundef %42, i1 noundef zeroext false) #4
+  %.not81.us.i = icmp eq i32 %148, 0
+  br i1 %.not81.us.i, label %149, label %bcast_sched_linear.exit.thread129
 
-148:                                              ; preds = %.lr.ph.split.split.us.i
-  %149 = tail call i32 @NBC_Sched_barrier(ptr noundef %41) #4
-  %.not82.us.i = icmp eq i32 %149, 0
-  br i1 %.not82.us.i, label %150, label %bcast_sched_linear.exit.thread129
+149:                                              ; preds = %.lr.ph.split.split.us.i
+  %150 = tail call i32 @NBC_Sched_barrier(ptr noundef %42) #4
+  %.not82.us.i = icmp eq i32 %150, 0
+  br i1 %.not82.us.i, label %151, label %bcast_sched_linear.exit.thread129
 
-150:                                              ; preds = %148
+151:                                              ; preds = %149
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
-  %151 = icmp ult i64 %indvars.iv.next107.i, %139
-  br i1 %151, label %.lr.ph.split.split.us.i, label %bcast_sched_linear.exit.thread, !llvm.loop !10
+  %152 = icmp ult i64 %indvars.iv.next107.i, %140
+  br i1 %152, label %.lr.ph.split.split.us.i, label %bcast_sched_linear.exit.thread, !llvm.loop !10
 
-.lr.ph.split.split.split.i:                       ; preds = %.lr.ph.split.i, %162
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %162 ], [ 0, %.lr.ph.split.i ]
-  %152 = mul i64 %indvars.iv.i, %123
-  %153 = getelementptr inbounds i8, ptr %0, i64 %152
-  %154 = icmp eq i64 %indvars.iv.i, %138
-  %155 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %156 = mul i32 %120, %155
-  %157 = sub i32 %1, %156
-  %.063.i = select i1 %154, i32 %157, i32 %120
-  %158 = sext i32 %.063.i to i64
-  %159 = tail call i32 @NBC_Sched_recv(ptr noundef %153, i8 noundef signext 0, i64 noundef %158, ptr noundef %2, i32 noundef %.167.i, ptr noundef %41, i1 noundef zeroext true) #4
-  %.not79.i = icmp eq i32 %159, 0
-  br i1 %.not79.i, label %160, label %bcast_sched_linear.exit.thread129
+.lr.ph.split.split.split.i:                       ; preds = %.lr.ph.split.i, %163
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %163 ], [ 0, %.lr.ph.split.i ]
+  %153 = mul i64 %indvars.iv.i, %124
+  %154 = getelementptr inbounds i8, ptr %0, i64 %153
+  %155 = icmp eq i64 %indvars.iv.i, %139
+  %156 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %157 = mul i32 %121, %156
+  %158 = sub i32 %1, %157
+  %.063.i = select i1 %155, i32 %158, i32 %121
+  %159 = sext i32 %.063.i to i64
+  %160 = tail call i32 @NBC_Sched_recv(ptr noundef %154, i8 noundef signext 0, i64 noundef %159, ptr noundef %2, i32 noundef %.167.i, ptr noundef %42, i1 noundef zeroext true) #4
+  %.not79.i = icmp eq i32 %160, 0
+  br i1 %.not79.i, label %161, label %bcast_sched_linear.exit.thread129
 
-160:                                              ; preds = %.lr.ph.split.split.split.i
-  %161 = tail call i32 @NBC_Sched_send(ptr noundef %153, i8 noundef signext 0, i64 noundef %158, ptr noundef %2, i32 noundef %.1.i96, ptr noundef %41, i1 noundef zeroext false) #4
-  %.not81.i = icmp eq i32 %161, 0
-  br i1 %.not81.i, label %162, label %bcast_sched_linear.exit.thread129
+161:                                              ; preds = %.lr.ph.split.split.split.i
+  %162 = tail call i32 @NBC_Sched_send(ptr noundef %154, i8 noundef signext 0, i64 noundef %159, ptr noundef %2, i32 noundef %.1.i96, ptr noundef %42, i1 noundef zeroext false) #4
+  %.not81.i = icmp eq i32 %162, 0
+  br i1 %.not81.i, label %163, label %bcast_sched_linear.exit.thread129
 
-162:                                              ; preds = %160
+163:                                              ; preds = %161
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %163 = icmp ult i64 %indvars.iv.next.i, %139
-  br i1 %163, label %.lr.ph.split.split.split.i, label %bcast_sched_linear.exit.thread, !llvm.loop !10
+  %164 = icmp ult i64 %indvars.iv.next.i, %140
+  br i1 %164, label %.lr.ph.split.split.split.i, label %bcast_sched_linear.exit.thread, !llvm.loop !10
 
-164:                                              ; preds = %opal_obj_new.exit.thread125
-  %165 = load i32, ptr @libnbc_ibcast_knomial_radix, align 4
-  %166 = sub i32 %.val, %3
-  %167 = add i32 %166, %.val87.val
-  %168 = srem i32 %167, %.val87.val
-  br label %169
+165:                                              ; preds = %opal_obj_new.exit.thread125
+  %166 = load i32, ptr @libnbc_ibcast_knomial_radix, align 4
+  %167 = sub i32 %.val, %3
+  %168 = add i32 %167, %.val87.val
+  %169 = srem i32 %168, %.val87.val
+  br label %170
 
-169:                                              ; preds = %171, %164
-  %.048.i = phi i32 [ 1, %164 ], [ %172, %171 ]
-  %170 = icmp slt i32 %.048.i, %.val87.val
-  br i1 %170, label %171, label %.loopexit63.i
+170:                                              ; preds = %172, %165
+  %.048.i = phi i32 [ 1, %165 ], [ %173, %172 ]
+  %171 = icmp slt i32 %.048.i, %.val87.val
+  br i1 %171, label %172, label %.loopexit63.i
 
-171:                                              ; preds = %169
-  %172 = mul nsw i32 %.048.i, %165
-  %173 = srem i32 %168, %172
-  %.not.i103 = icmp eq i32 %173, 0
-  br i1 %.not.i103, label %169, label %174, !llvm.loop !11
+172:                                              ; preds = %170
+  %173 = mul nsw i32 %.048.i, %166
+  %174 = srem i32 %169, %173
+  %.not.i103 = icmp eq i32 %174, 0
+  br i1 %.not.i103, label %170, label %175, !llvm.loop !11
 
-174:                                              ; preds = %171
-  %175 = add i32 %168, %3
-  %176 = sub i32 %175, %173
-  %177 = srem i32 %176, %.val87.val
-  %178 = sext i32 %1 to i64
-  %179 = tail call i32 @NBC_Sched_recv(ptr noundef %0, i8 noundef signext 0, i64 noundef %178, ptr noundef %2, i32 noundef %177, ptr noundef %41, i1 noundef zeroext true) #4
-  %.not58.i = icmp eq i32 %179, 0
+175:                                              ; preds = %172
+  %176 = add i32 %169, %3
+  %177 = sub i32 %176, %174
+  %178 = srem i32 %177, %.val87.val
+  %179 = sext i32 %1 to i64
+  %180 = tail call i32 @NBC_Sched_recv(ptr noundef %0, i8 noundef signext 0, i64 noundef %179, ptr noundef %2, i32 noundef %178, ptr noundef %42, i1 noundef zeroext true) #4
+  %.not58.i = icmp eq i32 %180, 0
   br i1 %.not58.i, label %.loopexit63.i, label %bcast_sched_linear.exit.thread129
 
-.loopexit63.i:                                    ; preds = %169, %174
-  %.14968.i = sdiv i32 %.048.i, %165
-  %180 = icmp sgt i32 %.14968.i, 0
-  br i1 %180, label %.preheader.lr.ph.i, label %bcast_sched_linear.exit.thread
+.loopexit63.i:                                    ; preds = %170, %175
+  %.14968.i = sdiv i32 %.048.i, %166
+  %181 = icmp sgt i32 %.14968.i, 0
+  br i1 %181, label %.preheader.lr.ph.i, label %bcast_sched_linear.exit.thread
 
 .preheader.lr.ph.i:                               ; preds = %.loopexit63.i
-  %invariant.op.i = add i32 %168, %3
-  %181 = icmp sgt i32 %165, 1
-  %182 = sext i32 %1 to i64
-  br i1 %181, label %.preheader.us.i, label %bcast_sched_linear.exit.thread
+  %invariant.op.i = add i32 %169, %3
+  %182 = icmp sgt i32 %166, 1
+  %183 = sext i32 %1 to i64
+  br i1 %182, label %.preheader.us.i, label %bcast_sched_linear.exit.thread
 
 .preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %..loopexit_crit_edge.us.i
   %.14969.us.i = phi i32 [ %.149.us.i, %..loopexit_crit_edge.us.i ], [ %.14968.i, %.preheader.lr.ph.i ]
-  br label %183
+  br label %184
 
-183:                                              ; preds = %190, %.preheader.us.i
-  %.067.us.i = phi i32 [ 1, %.preheader.us.i ], [ %191, %190 ]
-  %184 = mul nuw nsw i32 %.067.us.i, %.14969.us.i
-  %185 = add nsw i32 %184, %168
-  %186 = icmp slt i32 %185, %.val87.val
-  br i1 %186, label %187, label %190
+184:                                              ; preds = %191, %.preheader.us.i
+  %.067.us.i = phi i32 [ 1, %.preheader.us.i ], [ %192, %191 ]
+  %185 = mul nuw nsw i32 %.067.us.i, %.14969.us.i
+  %186 = add nsw i32 %185, %169
+  %187 = icmp slt i32 %186, %.val87.val
+  br i1 %187, label %188, label %191
 
-187:                                              ; preds = %183
-  %.reass.us.i = add i32 %invariant.op.i, %184
-  %188 = srem i32 %.reass.us.i, %.val87.val
-  %189 = tail call i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext 0, i64 noundef %182, ptr noundef %2, i32 noundef %188, ptr noundef %41, i1 noundef zeroext false) #4
-  %.not59.us.i = icmp eq i32 %189, 0
-  br i1 %.not59.us.i, label %190, label %bcast_sched_linear.exit.thread129
+188:                                              ; preds = %184
+  %.reass.us.i = add i32 %invariant.op.i, %185
+  %189 = srem i32 %.reass.us.i, %.val87.val
+  %190 = tail call i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext 0, i64 noundef %183, ptr noundef %2, i32 noundef %189, ptr noundef %42, i1 noundef zeroext false) #4
+  %.not59.us.i = icmp eq i32 %190, 0
+  br i1 %.not59.us.i, label %191, label %bcast_sched_linear.exit.thread129
 
-190:                                              ; preds = %187, %183
-  %191 = add nuw nsw i32 %.067.us.i, 1
-  %exitcond.not.i102 = icmp eq i32 %191, %165
-  br i1 %exitcond.not.i102, label %..loopexit_crit_edge.us.i, label %183, !llvm.loop !12
+191:                                              ; preds = %188, %184
+  %192 = add nuw nsw i32 %.067.us.i, 1
+  %exitcond.not.i102 = icmp eq i32 %192, %166
+  br i1 %exitcond.not.i102, label %..loopexit_crit_edge.us.i, label %184, !llvm.loop !12
 
-..loopexit_crit_edge.us.i:                        ; preds = %190
-  %.149.us.i = udiv i32 %.14969.us.i, %165
-  %192 = icmp sgt i32 %.149.us.i, 0
-  br i1 %192, label %.preheader.us.i, label %bcast_sched_linear.exit.thread, !llvm.loop !13
+..loopexit_crit_edge.us.i:                        ; preds = %191
+  %.149.us.i = udiv i32 %.14969.us.i, %166
+  %193 = icmp sgt i32 %.149.us.i, 0
+  br i1 %193, label %.preheader.us.i, label %bcast_sched_linear.exit.thread, !llvm.loop !13
 
 default.unreachable182:                           ; preds = %opal_obj_new.exit.thread125
   unreachable
 
 bcast_sched_linear.exit:                          ; preds = %.preheader.i91
-  %193 = tail call i32 @NBC_Sched_barrier(ptr noundef %41) #4
-  %.not = icmp eq i32 %193, 0
+  %194 = tail call i32 @NBC_Sched_barrier(ptr noundef %42) #4
+  %.not = icmp eq i32 %194, 0
   br i1 %.not, label %bcast_sched_linear.exit.thread, label %bcast_sched_linear.exit.thread129
 
-bcast_sched_linear.exit.thread129:                ; preds = %187, %160, %.lr.ph.split.split.split.i, %148, %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.i, %75, %93, %.lr.ph82.split.us.i, %58, %174, %._crit_edge.i, %62, %bcast_sched_linear.exit
-  %.075132 = phi i32 [ %193, %bcast_sched_linear.exit ], [ %179, %174 ], [ %82, %._crit_edge.i ], [ %64, %62 ], [ %59, %58 ], [ %86, %.lr.ph82.split.us.i ], [ %96, %93 ], [ %79, %75 ], [ %135, %.lr.ph.split.us.split.i ], [ %147, %.lr.ph.split.split.us.i ], [ %149, %148 ], [ %159, %.lr.ph.split.split.split.i ], [ %161, %160 ], [ %189, %187 ]
-  %194 = load i8, ptr @opal_uses_threads, align 1
-  %195 = trunc i8 %194 to i1
-  br i1 %195, label %196, label %199
+bcast_sched_linear.exit.thread129:                ; preds = %188, %161, %.lr.ph.split.split.split.i, %149, %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.i, %76, %94, %.lr.ph82.split.us.i, %59, %175, %._crit_edge.i, %63, %bcast_sched_linear.exit
+  %.075132 = phi i32 [ %194, %bcast_sched_linear.exit ], [ %180, %175 ], [ %83, %._crit_edge.i ], [ %65, %63 ], [ %60, %59 ], [ %87, %.lr.ph82.split.us.i ], [ %97, %94 ], [ %80, %76 ], [ %136, %.lr.ph.split.us.split.i ], [ %148, %.lr.ph.split.split.us.i ], [ %150, %149 ], [ %160, %.lr.ph.split.split.split.i ], [ %162, %161 ], [ %190, %188 ]
+  %195 = load i8, ptr @opal_uses_threads, align 1
+  %196 = trunc i8 %195 to i1
+  br i1 %196, label %197, label %200
 
-196:                                              ; preds = %bcast_sched_linear.exit.thread129
-  %197 = atomicrmw volatile add ptr %47, i32 -1 monotonic, align 4
-  %198 = add i32 %197, -1
+197:                                              ; preds = %bcast_sched_linear.exit.thread129
+  %198 = atomicrmw volatile add ptr %48, i32 -1 monotonic, align 4
+  %199 = add i32 %198, -1
   br label %opal_thread_add_fetch_32.exit
 
-199:                                              ; preds = %bcast_sched_linear.exit.thread129
-  %200 = load volatile i32, ptr %47, align 4
-  %201 = add nsw i32 %200, -1
-  store volatile i32 %201, ptr %47, align 4
-  %202 = load volatile i32, ptr %47, align 4
+200:                                              ; preds = %bcast_sched_linear.exit.thread129
+  %201 = load volatile i32, ptr %48, align 4
+  %202 = add nsw i32 %201, -1
+  store volatile i32 %202, ptr %48, align 4
+  %203 = load volatile i32, ptr %48, align 4
   br label %opal_thread_add_fetch_32.exit
 
-opal_thread_add_fetch_32.exit:                    ; preds = %196, %199
-  %.0.i104 = phi i32 [ %198, %196 ], [ %202, %199 ]
-  %203 = icmp eq i32 %.0.i104, 0
-  br i1 %203, label %204, label %nbc_get_noop_request.exit
+opal_thread_add_fetch_32.exit:                    ; preds = %197, %200
+  %.0.i104 = phi i32 [ %199, %197 ], [ %203, %200 ]
+  %204 = icmp eq i32 %.0.i104, 0
+  br i1 %204, label %205, label %nbc_get_noop_request.exit
 
-204:                                              ; preds = %opal_thread_add_fetch_32.exit
-  %205 = load ptr, ptr %41, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 48
-  %207 = load ptr, ptr %206, align 8
+205:                                              ; preds = %opal_thread_add_fetch_32.exit
+  %206 = load ptr, ptr %42, align 8
+  %207 = getelementptr inbounds i8, ptr %206, i64 48
   %208 = load ptr, ptr %207, align 8
-  %.not6.i = icmp eq ptr %208, null
+  %209 = load ptr, ptr %208, align 8
+  %.not6.i = icmp eq ptr %209, null
   br i1 %.not6.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i105
 
-.lr.ph.i105:                                      ; preds = %204, %.lr.ph.i105
-  %209 = phi ptr [ %211, %.lr.ph.i105 ], [ %208, %204 ]
-  %.07.i = phi ptr [ %210, %.lr.ph.i105 ], [ %207, %204 ]
-  tail call void %209(ptr noundef nonnull %41) #4
-  %210 = getelementptr inbounds i8, ptr %.07.i, i64 8
-  %211 = load ptr, ptr %210, align 8
-  %.not.i106 = icmp eq ptr %211, null
+.lr.ph.i105:                                      ; preds = %205, %.lr.ph.i105
+  %210 = phi ptr [ %212, %.lr.ph.i105 ], [ %209, %205 ]
+  %.07.i = phi ptr [ %211, %.lr.ph.i105 ], [ %208, %205 ]
+  tail call void %210(ptr noundef nonnull %42) #4
+  %211 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %212 = load ptr, ptr %211, align 8
+  %.not.i106 = icmp eq ptr %212, null
   br i1 %.not.i106, label %opal_obj_run_destructors.exit, label %.lr.ph.i105, !llvm.loop !14
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i105, %204
-  tail call void @free(ptr noundef %41) #4
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i105, %205
+  tail call void @free(ptr noundef %42) #4
   br label %nbc_get_noop_request.exit
 
-bcast_sched_linear.exit.thread:                   ; preds = %..loopexit_crit_edge.us.i, %162, %150, %136, %97, %87, %60, %.preheader.i, %62, %.preheader.lr.ph.i, %.loopexit63.i, %.lr.ph.split.us.i, %112, %99, %.thread.i, %bcast_sched_linear.exit
-  %212 = tail call i32 @NBC_Sched_commit(ptr noundef nonnull %41) #4
-  %.not83 = icmp eq i32 %212, 0
-  br i1 %.not83, label %232, label %213
+bcast_sched_linear.exit.thread:                   ; preds = %..loopexit_crit_edge.us.i, %163, %151, %137, %98, %88, %61, %.preheader.i, %63, %.preheader.lr.ph.i, %.loopexit63.i, %.lr.ph.split.us.i, %113, %100, %.thread.i, %bcast_sched_linear.exit
+  %213 = tail call i32 @NBC_Sched_commit(ptr noundef nonnull %42) #4
+  %.not83 = icmp eq i32 %213, 0
+  br i1 %.not83, label %233, label %214
 
-213:                                              ; preds = %bcast_sched_linear.exit.thread
-  %214 = load i8, ptr @opal_uses_threads, align 1
-  %215 = trunc i8 %214 to i1
-  br i1 %215, label %216, label %219
+214:                                              ; preds = %bcast_sched_linear.exit.thread
+  %215 = load i8, ptr @opal_uses_threads, align 1
+  %216 = trunc i8 %215 to i1
+  br i1 %216, label %217, label %220
 
-216:                                              ; preds = %213
-  %217 = atomicrmw volatile add ptr %47, i32 -1 monotonic, align 4
-  %218 = add i32 %217, -1
+217:                                              ; preds = %214
+  %218 = atomicrmw volatile add ptr %48, i32 -1 monotonic, align 4
+  %219 = add i32 %218, -1
   br label %opal_thread_add_fetch_32.exit109
 
-219:                                              ; preds = %213
-  %220 = load volatile i32, ptr %47, align 4
-  %221 = add nsw i32 %220, -1
-  store volatile i32 %221, ptr %47, align 4
-  %222 = load volatile i32, ptr %47, align 4
+220:                                              ; preds = %214
+  %221 = load volatile i32, ptr %48, align 4
+  %222 = add nsw i32 %221, -1
+  store volatile i32 %222, ptr %48, align 4
+  %223 = load volatile i32, ptr %48, align 4
   br label %opal_thread_add_fetch_32.exit109
 
-opal_thread_add_fetch_32.exit109:                 ; preds = %216, %219
-  %.0.i108 = phi i32 [ %218, %216 ], [ %222, %219 ]
-  %223 = icmp eq i32 %.0.i108, 0
-  br i1 %223, label %224, label %nbc_get_noop_request.exit
+opal_thread_add_fetch_32.exit109:                 ; preds = %217, %220
+  %.0.i108 = phi i32 [ %219, %217 ], [ %223, %220 ]
+  %224 = icmp eq i32 %.0.i108, 0
+  br i1 %224, label %225, label %nbc_get_noop_request.exit
 
-224:                                              ; preds = %opal_thread_add_fetch_32.exit109
-  %225 = load ptr, ptr %41, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 48
-  %227 = load ptr, ptr %226, align 8
+225:                                              ; preds = %opal_thread_add_fetch_32.exit109
+  %226 = load ptr, ptr %42, align 8
+  %227 = getelementptr inbounds i8, ptr %226, i64 48
   %228 = load ptr, ptr %227, align 8
-  %.not6.i110 = icmp eq ptr %228, null
+  %229 = load ptr, ptr %228, align 8
+  %.not6.i110 = icmp eq ptr %229, null
   br i1 %.not6.i110, label %opal_obj_run_destructors.exit115, label %.lr.ph.i111
 
-.lr.ph.i111:                                      ; preds = %224, %.lr.ph.i111
-  %229 = phi ptr [ %231, %.lr.ph.i111 ], [ %228, %224 ]
-  %.07.i112 = phi ptr [ %230, %.lr.ph.i111 ], [ %227, %224 ]
-  tail call void %229(ptr noundef nonnull %41) #4
-  %230 = getelementptr inbounds i8, ptr %.07.i112, i64 8
-  %231 = load ptr, ptr %230, align 8
-  %.not.i113 = icmp eq ptr %231, null
+.lr.ph.i111:                                      ; preds = %225, %.lr.ph.i111
+  %230 = phi ptr [ %232, %.lr.ph.i111 ], [ %229, %225 ]
+  %.07.i112 = phi ptr [ %231, %.lr.ph.i111 ], [ %228, %225 ]
+  tail call void %230(ptr noundef nonnull %42) #4
+  %231 = getelementptr inbounds i8, ptr %.07.i112, i64 8
+  %232 = load ptr, ptr %231, align 8
+  %.not.i113 = icmp eq ptr %232, null
   br i1 %.not.i113, label %opal_obj_run_destructors.exit115, label %.lr.ph.i111, !llvm.loop !14
 
-opal_obj_run_destructors.exit115:                 ; preds = %.lr.ph.i111, %224
-  tail call void @free(ptr noundef %41) #4
+opal_obj_run_destructors.exit115:                 ; preds = %.lr.ph.i111, %225
+  tail call void @free(ptr noundef %42) #4
   br label %nbc_get_noop_request.exit
 
-232:                                              ; preds = %bcast_sched_linear.exit.thread
-  %233 = tail call i32 @NBC_Schedule_request(ptr noundef nonnull %41, ptr noundef %4, ptr noundef %6, i1 noundef zeroext %7, ptr noundef %5, ptr noundef null) #4
-  %.not84 = icmp eq i32 %233, 0
-  br i1 %.not84, label %nbc_get_noop_request.exit, label %234
+233:                                              ; preds = %bcast_sched_linear.exit.thread
+  %234 = tail call i32 @NBC_Schedule_request(ptr noundef nonnull %42, ptr noundef %4, ptr noundef %6, i1 noundef zeroext %7, ptr noundef %5, ptr noundef null) #4
+  %.not84 = icmp eq i32 %234, 0
+  br i1 %.not84, label %nbc_get_noop_request.exit, label %235
 
-234:                                              ; preds = %232
-  %235 = load i8, ptr @opal_uses_threads, align 1
-  %236 = trunc i8 %235 to i1
-  br i1 %236, label %237, label %240
+235:                                              ; preds = %233
+  %236 = load i8, ptr @opal_uses_threads, align 1
+  %237 = trunc i8 %236 to i1
+  br i1 %237, label %238, label %241
 
-237:                                              ; preds = %234
-  %238 = atomicrmw volatile add ptr %47, i32 -1 monotonic, align 4
-  %239 = add i32 %238, -1
+238:                                              ; preds = %235
+  %239 = atomicrmw volatile add ptr %48, i32 -1 monotonic, align 4
+  %240 = add i32 %239, -1
   br label %opal_thread_add_fetch_32.exit117
 
-240:                                              ; preds = %234
-  %241 = load volatile i32, ptr %47, align 4
-  %242 = add nsw i32 %241, -1
-  store volatile i32 %242, ptr %47, align 4
-  %243 = load volatile i32, ptr %47, align 4
+241:                                              ; preds = %235
+  %242 = load volatile i32, ptr %48, align 4
+  %243 = add nsw i32 %242, -1
+  store volatile i32 %243, ptr %48, align 4
+  %244 = load volatile i32, ptr %48, align 4
   br label %opal_thread_add_fetch_32.exit117
 
-opal_thread_add_fetch_32.exit117:                 ; preds = %237, %240
-  %.0.i116 = phi i32 [ %239, %237 ], [ %243, %240 ]
-  %244 = icmp eq i32 %.0.i116, 0
-  br i1 %244, label %245, label %nbc_get_noop_request.exit
+opal_thread_add_fetch_32.exit117:                 ; preds = %238, %241
+  %.0.i116 = phi i32 [ %240, %238 ], [ %244, %241 ]
+  %245 = icmp eq i32 %.0.i116, 0
+  br i1 %245, label %246, label %nbc_get_noop_request.exit
 
-245:                                              ; preds = %opal_thread_add_fetch_32.exit117
-  %246 = load ptr, ptr %41, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 48
-  %248 = load ptr, ptr %247, align 8
+246:                                              ; preds = %opal_thread_add_fetch_32.exit117
+  %247 = load ptr, ptr %42, align 8
+  %248 = getelementptr inbounds i8, ptr %247, i64 48
   %249 = load ptr, ptr %248, align 8
-  %.not6.i118 = icmp eq ptr %249, null
+  %250 = load ptr, ptr %249, align 8
+  %.not6.i118 = icmp eq ptr %250, null
   br i1 %.not6.i118, label %opal_obj_run_destructors.exit123, label %.lr.ph.i119
 
-.lr.ph.i119:                                      ; preds = %245, %.lr.ph.i119
-  %250 = phi ptr [ %252, %.lr.ph.i119 ], [ %249, %245 ]
-  %.07.i120 = phi ptr [ %251, %.lr.ph.i119 ], [ %248, %245 ]
-  tail call void %250(ptr noundef nonnull %41) #4
-  %251 = getelementptr inbounds i8, ptr %.07.i120, i64 8
-  %252 = load ptr, ptr %251, align 8
-  %.not.i121 = icmp eq ptr %252, null
+.lr.ph.i119:                                      ; preds = %246, %.lr.ph.i119
+  %251 = phi ptr [ %253, %.lr.ph.i119 ], [ %250, %246 ]
+  %.07.i120 = phi ptr [ %252, %.lr.ph.i119 ], [ %249, %246 ]
+  tail call void %251(ptr noundef nonnull %42) #4
+  %252 = getelementptr inbounds i8, ptr %.07.i120, i64 8
+  %253 = load ptr, ptr %252, align 8
+  %.not.i121 = icmp eq ptr %253, null
   br i1 %.not.i121, label %opal_obj_run_destructors.exit123, label %.lr.ph.i119, !llvm.loop !14
 
-opal_obj_run_destructors.exit123:                 ; preds = %.lr.ph.i119, %245
-  tail call void @free(ptr noundef %41) #4
+opal_obj_run_destructors.exit123:                 ; preds = %.lr.ph.i119, %246
+  tail call void @free(ptr noundef %42) #4
   br label %nbc_get_noop_request.exit
 
-nbc_get_noop_request.exit:                        ; preds = %45, %16, %14, %232, %opal_obj_run_destructors.exit123, %opal_thread_add_fetch_32.exit117, %opal_obj_run_destructors.exit115, %opal_thread_add_fetch_32.exit109, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
-  %.0 = phi i32 [ %.075132, %opal_thread_add_fetch_32.exit ], [ %.075132, %opal_obj_run_destructors.exit ], [ %212, %opal_thread_add_fetch_32.exit109 ], [ %212, %opal_obj_run_destructors.exit115 ], [ %233, %opal_thread_add_fetch_32.exit117 ], [ %233, %opal_obj_run_destructors.exit123 ], [ 0, %232 ], [ %15, %14 ], [ 0, %16 ], [ -2, %45 ]
+nbc_get_noop_request.exit:                        ; preds = %46, %16, %14, %233, %opal_obj_run_destructors.exit123, %opal_thread_add_fetch_32.exit117, %opal_obj_run_destructors.exit115, %opal_thread_add_fetch_32.exit109, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
+  %.0 = phi i32 [ %.075132, %opal_thread_add_fetch_32.exit ], [ %.075132, %opal_obj_run_destructors.exit ], [ %213, %opal_thread_add_fetch_32.exit109 ], [ %213, %opal_obj_run_destructors.exit115 ], [ %234, %opal_thread_add_fetch_32.exit117 ], [ %234, %opal_obj_run_destructors.exit123 ], [ 0, %233 ], [ %15, %14 ], [ 0, %16 ], [ -2, %46 ]
   ret i32 %.0
 }
 

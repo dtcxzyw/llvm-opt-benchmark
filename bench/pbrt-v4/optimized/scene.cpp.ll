@@ -22677,11 +22677,13 @@ lpad37.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i.i.i.i106.
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load ptr, ptr %instanceDefinitionIterators, align 8
+  %49 = ptrtoint ptr %46 to i64
+  %50 = ptrtoint ptr %.pre to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %land.end28
-  %49 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %land.end28 ]
-  %50 = phi ptr [ %46, %for.end.loopexit ], [ null, %land.end28 ]
+  %sub.ptr.rhs.cast.i = phi i64 [ %50, %for.end.loopexit ], [ 0, %land.end28 ]
+  %sub.ptr.lhs.cast.i = phi i64 [ %49, %for.end.loopexit ], [ 0, %land.end28 ]
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp41, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp41, i8 0, i64 32, i1 false)
   %call.i.i2.i40 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
@@ -22689,8 +22691,6 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 invoke.cont43:                                    ; preds = %for.end
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp41, i64 24
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %50 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %49 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   store ptr %instanceDefinitionIterators, ptr %call.i.i2.i40, align 16

@@ -3508,8 +3508,8 @@ entry:
   %errorCode59 = alloca i32, align 4
   %errorCode120 = alloca i32, align 4
   %invariant.gep = getelementptr i8, ptr %label, i64 -2
-  %cmp.not.not70 = icmp sgt i32 %labelLength, 0
-  br i1 %cmp.not.not70, label %for.body.lr.ph, label %for.end166
+  %cmp.not.not66 = icmp sgt i32 %labelLength, 0
+  br i1 %cmp.not.not66, label %for.body.lr.ph, label %for.end166
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add nsw i32 %labelLength, -1
@@ -3520,7 +3520,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arabicDigits.073 = phi i32 [ 0, %for.body.lr.ph ], [ %arabicDigits.1, %for.inc ]
+  %arabicDigits.069 = phi i32 [ 0, %for.body.lr.ph ], [ %arabicDigits.1, %for.inc ]
   %arrayidx = getelementptr inbounds i16, ptr %label, i64 %indvars.iv
   %2 = load i16, ptr %arrayidx, align 2
   %cmp2 = icmp ult i16 %2, 183
@@ -3568,7 +3568,7 @@ if.then25:                                        ; preds = %if.then23
   %cmp30 = icmp ne i32 %and, 55296
   %cmp32.not = icmp eq i64 %5, %1
   %or.cond64 = select i1 %cmp30, i1 true, i1 %cmp32.not
-  br i1 %or.cond64, label %if.end46, label %land.lhs.true33
+  br i1 %or.cond64, label %do.end, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %if.then25
   %arrayidx35 = getelementptr inbounds i16, ptr %label, i64 %5
@@ -3576,23 +3576,23 @@ land.lhs.true33:                                  ; preds = %if.then25
   %conv36 = zext i16 %7 to i32
   %and37 = and i32 %conv36, 64512
   %cmp38 = icmp eq i32 %and37, 56320
-  br i1 %cmp38, label %if.then39, label %if.end46
+  br i1 %cmp38, label %if.then39, label %do.end
 
 if.then39:                                        ; preds = %land.lhs.true33
   %shl = shl nuw nsw i32 %conv29, 10
   %add42 = add nsw i32 %shl, -56613888
   %sub43 = add nuw nsw i32 %add42, %conv36
-  br label %if.end46
+  br label %do.end
 
-if.end46:                                         ; preds = %land.lhs.true33, %if.then39, %if.then25
+do.end:                                           ; preds = %if.then25, %if.then39, %land.lhs.true33
   %c.0 = phi i32 [ %sub43, %if.then39 ], [ %conv29, %land.lhs.true33 ], [ %conv29, %if.then25 ]
   %call = call i32 @uscript_getScript_75(i32 noundef %c.0, ptr noundef nonnull %errorCode)
-  %cmp47.not = icmp eq i32 %call, 14
-  br i1 %cmp47.not, label %for.inc, label %for.inc.sink.split
+  %8 = icmp eq i32 %call, 14
+  br i1 %8, label %for.inc, label %for.inc.sink.split
 
 if.else52:                                        ; preds = %if.then4
-  %8 = add nsw i16 %2, -1523
-  %or.cond = icmp ult i16 %8, 2
+  %9 = add nsw i16 %2, -1523
+  %or.cond = icmp ult i16 %9, 2
   br i1 %or.cond, label %if.then55, label %if.else93
 
 if.then55:                                        ; preds = %if.else52
@@ -3602,33 +3602,33 @@ if.then55:                                        ; preds = %if.else52
 if.then58:                                        ; preds = %if.then55
   store i32 0, ptr %errorCode59, align 4
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
-  %9 = load i16, ptr %gep, align 2
-  %conv64 = zext i16 %9 to i32
+  %10 = load i16, ptr %gep, align 2
+  %conv64 = zext i16 %10 to i32
   %and65 = and i32 %conv64, 64512
   %cmp66 = icmp eq i32 %and65, 56320
   %cmp69 = icmp ne i64 %indvars.iv, 1
   %or.cond3 = and i1 %cmp69, %cmp66
-  br i1 %or.cond3, label %land.lhs.true70, label %if.end87
+  br i1 %or.cond3, label %land.lhs.true70, label %do.end85
 
 land.lhs.true70:                                  ; preds = %if.then58
   %arrayidx73 = getelementptr i8, ptr %arrayidx, i64 -4
-  %10 = load i16, ptr %arrayidx73, align 2
-  %conv74 = zext i16 %10 to i32
+  %11 = load i16, ptr %arrayidx73, align 2
+  %conv74 = zext i16 %11 to i32
   %and75 = and i32 %conv74, 64512
   %cmp76 = icmp eq i32 %and75, 55296
-  br i1 %cmp76, label %if.then77, label %if.end87
+  br i1 %cmp76, label %if.then77, label %do.end85
 
 if.then77:                                        ; preds = %land.lhs.true70
   %shl80 = shl nuw nsw i32 %conv74, 10
   %add81 = add nuw nsw i32 %conv64, -56613888
   %sub82 = add nsw i32 %add81, %shl80
-  br label %if.end87
+  br label %do.end85
 
-if.end87:                                         ; preds = %land.lhs.true70, %if.then77, %if.then58
+do.end85:                                         ; preds = %if.then58, %if.then77, %land.lhs.true70
   %c.1 = phi i32 [ %sub82, %if.then77 ], [ %conv64, %land.lhs.true70 ], [ %conv64, %if.then58 ]
   %call86 = call i32 @uscript_getScript_75(i32 noundef %c.1, ptr noundef nonnull %errorCode59)
-  %cmp88.not = icmp eq i32 %call86, 19
-  br i1 %cmp88.not, label %for.inc, label %for.inc.sink.split
+  %12 = icmp eq i32 %call86, 19
+  br i1 %12, label %for.inc, label %for.inc.sink.split
 
 if.else93:                                        ; preds = %if.else52
   %cmp94 = icmp ugt i16 %2, 1631
@@ -3639,7 +3639,7 @@ if.then95:                                        ; preds = %if.else93
   br i1 %cmp96, label %if.then97, label %if.else103
 
 if.then97:                                        ; preds = %if.then95
-  %cmp98 = icmp sgt i32 %arabicDigits.073, 0
+  %cmp98 = icmp sgt i32 %arabicDigits.069, 0
   br i1 %cmp98, label %for.inc.sink.split, label %for.inc
 
 if.else103:                                       ; preds = %if.then95
@@ -3647,7 +3647,7 @@ if.else103:                                       ; preds = %if.then95
   br i1 %cmp104, label %if.then105, label %for.inc
 
 if.then105:                                       ; preds = %if.else103
-  %cmp106 = icmp slt i32 %arabicDigits.073, 0
+  %cmp106 = icmp slt i32 %arabicDigits.069, 0
   br i1 %cmp106, label %for.inc.sink.split, label %for.inc
 
 if.else117:                                       ; preds = %if.else
@@ -3667,8 +3667,8 @@ do.body128:                                       ; preds = %for.cond122
   %inc129 = add nsw i32 %j121.0, 1
   %idxprom130 = sext i32 %j121.0 to i64
   %arrayidx131 = getelementptr inbounds i16, ptr %label, i64 %idxprom130
-  %11 = load i16, ptr %arrayidx131, align 2
-  %conv132 = zext i16 %11 to i32
+  %13 = load i16, ptr %arrayidx131, align 2
+  %conv132 = zext i16 %13 to i32
   %and133 = and i32 %conv132, 64512
   %cmp134 = icmp ne i32 %and133, 55296
   %cmp137.not = icmp eq i32 %inc129, %labelLength
@@ -3678,8 +3678,8 @@ do.body128:                                       ; preds = %for.cond122
 land.lhs.true138:                                 ; preds = %do.body128
   %idxprom139 = sext i32 %inc129 to i64
   %arrayidx140 = getelementptr inbounds i16, ptr %label, i64 %idxprom139
-  %12 = load i16, ptr %arrayidx140, align 2
-  %conv141 = zext i16 %12 to i32
+  %14 = load i16, ptr %arrayidx140, align 2
+  %conv141 = zext i16 %14 to i32
   %and142 = and i32 %conv141, 64512
   %cmp143 = icmp eq i32 %and142, 56320
   br i1 %cmp143, label %if.then144, label %do.end152
@@ -3701,16 +3701,16 @@ do.end152:                                        ; preds = %do.body128, %if.the
     i32 17, label %for.inc
   ]
 
-for.inc.sink.split:                               ; preds = %for.cond122, %if.then105, %if.then97, %if.end87, %if.then55, %if.end46, %if.then23, %if.then6, %land.lhs.true, %land.lhs.true15
-  %.sink76 = phi i32 [ 8192, %land.lhs.true15 ], [ 8192, %land.lhs.true ], [ 8192, %if.then6 ], [ 8192, %if.then23 ], [ 8192, %if.end46 ], [ 8192, %if.then55 ], [ 8192, %if.end87 ], [ 16384, %if.then97 ], [ 16384, %if.then105 ], [ 8192, %for.cond122 ]
-  %arabicDigits.1.ph = phi i32 [ %arabicDigits.073, %land.lhs.true15 ], [ %arabicDigits.073, %land.lhs.true ], [ %arabicDigits.073, %if.then6 ], [ %arabicDigits.073, %if.then23 ], [ %arabicDigits.073, %if.end46 ], [ %arabicDigits.073, %if.then55 ], [ %arabicDigits.073, %if.end87 ], [ -1, %if.then97 ], [ 1, %if.then105 ], [ %arabicDigits.073, %for.cond122 ]
-  %13 = load i32, ptr %labelErrors125, align 4
-  %or109 = or i32 %13, %.sink76
+for.inc.sink.split:                               ; preds = %for.cond122, %if.then105, %if.then97, %do.end85, %if.then55, %do.end, %if.then23, %if.then6, %land.lhs.true, %land.lhs.true15
+  %.sink72 = phi i32 [ 8192, %land.lhs.true15 ], [ 8192, %land.lhs.true ], [ 8192, %if.then6 ], [ 8192, %if.then23 ], [ 8192, %do.end ], [ 8192, %if.then55 ], [ 8192, %do.end85 ], [ 16384, %if.then97 ], [ 16384, %if.then105 ], [ 8192, %for.cond122 ]
+  %arabicDigits.1.ph = phi i32 [ %arabicDigits.069, %land.lhs.true15 ], [ %arabicDigits.069, %land.lhs.true ], [ %arabicDigits.069, %if.then6 ], [ %arabicDigits.069, %if.then23 ], [ %arabicDigits.069, %do.end ], [ %arabicDigits.069, %if.then55 ], [ %arabicDigits.069, %do.end85 ], [ -1, %if.then97 ], [ 1, %if.then105 ], [ %arabicDigits.069, %for.cond122 ]
+  %15 = load i32, ptr %labelErrors125, align 4
+  %or109 = or i32 %15, %.sink72
   store i32 %or109, ptr %labelErrors125, align 4
   br label %for.inc
 
-for.inc:                                          ; preds = %do.end152, %do.end152, %do.end152, %for.inc.sink.split, %if.then105, %if.then97, %for.body, %if.else117, %land.lhs.true15, %if.end87, %if.else103, %if.else93, %if.end46
-  %arabicDigits.1 = phi i32 [ %arabicDigits.073, %for.body ], [ %arabicDigits.073, %land.lhs.true15 ], [ %arabicDigits.073, %if.end46 ], [ %arabicDigits.073, %if.end87 ], [ %arabicDigits.073, %if.else103 ], [ %arabicDigits.073, %if.else93 ], [ %arabicDigits.073, %if.else117 ], [ -1, %if.then97 ], [ 1, %if.then105 ], [ %arabicDigits.1.ph, %for.inc.sink.split ], [ %arabicDigits.073, %do.end152 ], [ %arabicDigits.073, %do.end152 ], [ %arabicDigits.073, %do.end152 ]
+for.inc:                                          ; preds = %do.end152, %do.end152, %do.end152, %for.inc.sink.split, %if.then105, %if.then97, %for.body, %if.else117, %land.lhs.true15, %do.end85, %if.else103, %if.else93, %do.end
+  %arabicDigits.1 = phi i32 [ %arabicDigits.069, %for.body ], [ %arabicDigits.069, %land.lhs.true15 ], [ %arabicDigits.069, %do.end ], [ %arabicDigits.069, %do.end85 ], [ %arabicDigits.069, %if.else103 ], [ %arabicDigits.069, %if.else93 ], [ %arabicDigits.069, %if.else117 ], [ -1, %if.then97 ], [ 1, %if.then105 ], [ %arabicDigits.1.ph, %for.inc.sink.split ], [ %arabicDigits.069, %do.end152 ], [ %arabicDigits.069, %do.end152 ], [ %arabicDigits.069, %do.end152 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %for.end166, label %for.body, !llvm.loop !18

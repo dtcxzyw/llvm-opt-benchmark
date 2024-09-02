@@ -3263,7 +3263,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @virtio_blk_get_features(ptr noundef %vdev, i64 noundef %features, ptr noundef %errp) #0 {
+define internal range(i64 128, 1) i64 @virtio_blk_get_features(ptr noundef %vdev, i64 noundef %features, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.41, i32 noundef 26, ptr noundef nonnull @__func__.VIRTIO_BLK) #14
   %host_features = getelementptr inbounds i8, ptr %call.i, i64 696

@@ -2213,10 +2213,10 @@ _ZL14calc_rotmatrixPfS_PA3_f.exit:                ; preds = %892, %895
   br label %._crit_edge486
 
 .preheader431:                                    ; preds = %.lr.ph480
+  %980 = icmp sgt i32 %1001, 0
   store float %994, ptr %41, align 4
   store float %997, ptr %879, align 4
   store float %1000, ptr %881, align 4
-  %980 = icmp sgt i32 %1001, 0
   br i1 %980, label %.lr.ph485, label %._crit_edge486
 
 .lr.ph480:                                        ; preds = %_ZL14calc_rotmatrixPfS_PA3_f.exit, %.lr.ph480
@@ -3603,17 +3603,17 @@ _ZL10pdb_legendP8_IO_FILEiiP7t_atomsPA3_f.exit:   ; preds = %1694, %_ZL14gmx_sfr
 
 1715:                                             ; preds = %1708
   store i32 12, ptr %1714, align 8
-  br label %1718
+  br label %1719
 
 1716:                                             ; preds = %1708
   %1717 = load i32, ptr %1714, align 8
-  br label %1718
+  %1718 = add nsw i32 %1717, 1
+  br label %1719
 
-1718:                                             ; preds = %1716, %1715
-  %1719 = phi i32 [ 12, %1715 ], [ %1717, %1716 ]
+1719:                                             ; preds = %1716, %1715
+  %1720 = phi i32 [ 13, %1715 ], [ %1718, %1716 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  %1720 = add nsw i32 %1713, 1
-  %1721 = add nsw i32 %1719, 1
+  %1721 = add nsw i32 %1713, 1
   %1722 = call float @llvm.rint.f32(float %1706)
   %1723 = fptosi float %1722 to i32
   %1724 = load float, ptr getelementptr inbounds (i8, ptr @_ZZ12gmx_editconfiPPcE6visbox, i64 4), align 4
@@ -3637,12 +3637,12 @@ _ZL10pdb_legendP8_IO_FILEiiP7t_atomsPA3_f.exit:   ; preds = %1694, %_ZL14gmx_sfr
   %or.cond407 = select i1 %or.cond404, i1 true, i1 %1740
   br i1 %or.cond407, label %1743, label %.preheader12.i
 
-.preheader12.i:                                   ; preds = %1718
+.preheader12.i:                                   ; preds = %1719
   %1741 = getelementptr inbounds i8, ptr %38, i64 16
   %1742 = getelementptr inbounds i8, ptr %38, i64 32
   br label %.preheader11.i
 
-1743:                                             ; preds = %1718
+1743:                                             ; preds = %1719
   %1744 = mul nsw i32 %1731, 24
   %1745 = sext i32 %1744 to i64
   %1746 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.142, i32 noundef 392, i64 noundef %1745, i64 noundef 12)
@@ -3763,7 +3763,7 @@ _ZL10pdb_legendP8_IO_FILEiiP7t_atomsPA3_f.exit:   ; preds = %1694, %_ZL14gmx_sfr
   %1789 = udiv i32 %indvars59.i, 24
   %1790 = trunc i32 %1789 to i8
   %1791 = add i8 %1790, 75
-  %1792 = add nsw i32 %1721, %indvars59.i
+  %1792 = add nsw i32 %1720, %indvars59.i
   %1793 = getelementptr inbounds [3 x float], ptr %1746, i64 %indvars.iv57.i
   %1794 = load float, ptr %1793, align 4
   %1795 = fmul float %1794, 1.000000e+01
@@ -3773,7 +3773,7 @@ _ZL10pdb_legendP8_IO_FILEiiP7t_atomsPA3_f.exit:   ; preds = %1694, %_ZL14gmx_sfr
   %1799 = getelementptr inbounds i8, ptr %1793, i64 8
   %1800 = load float, ptr %1799, align 4
   %1801 = fmul float %1800, 1.000000e+01
-  %1802 = add i32 %1720, %indvars59.i
+  %1802 = add i32 %1721, %indvars59.i
   %1803 = invoke noundef i32 @_Z24gmx_fprintf_pdb_atomlineP8_IO_FILE13PdbRecordTypeiPKccS3_cicfffffS3_(ptr noundef %1509, i32 noundef 0, i32 noundef %1802, ptr noundef nonnull @.str.201, i8 noundef signext 32, ptr noundef nonnull @.str.222, i8 noundef signext %1791, i32 noundef %1792, i8 noundef signext 32, float noundef %1795, float noundef %1798, float noundef %1801, float noundef 1.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull @.str.73)
           to label %.noexc383 unwind label %.loopexit409
 
@@ -3789,7 +3789,7 @@ _ZL10pdb_legendP8_IO_FILEiiP7t_atomsPA3_f.exit:   ; preds = %1694, %_ZL14gmx_sfr
 .preheader.i377:                                  ; preds = %._crit_edge.i376, %1817
   %.437.i = phi i32 [ %1818, %1817 ], [ 0, %._crit_edge.i376 ]
   %1805 = mul nuw nsw i32 %.437.i, 24
-  %1806 = add nsw i32 %1805, %1720
+  %1806 = add nsw i32 %1805, %1721
   br label %1807
 
 1807:                                             ; preds = %1807, %.preheader.i377
@@ -3832,11 +3832,11 @@ _ZL10pdb_legendP8_IO_FILEiiP7t_atomsPA3_f.exit:   ; preds = %1694, %_ZL14gmx_sfr
 1822:                                             ; preds = %.noexc386, %.preheader10.i
   %.19414.i = phi float [ 0.000000e+00, %.preheader10.i ], [ 1.000000e+01, %.noexc386 ]
   %.613.i = phi i32 [ %.515.i, %.preheader10.i ], [ %1835, %.noexc386 ]
-  %1823 = add nsw i32 %.613.i, %1720
+  %1823 = add nsw i32 %.613.i, %1721
   %1824 = sdiv i32 %.613.i, 8
   %1825 = trunc i32 %1824 to i8
   %1826 = add i8 %1825, 75
-  %1827 = add nsw i32 %.613.i, %1721
+  %1827 = add nsw i32 %.613.i, %1720
   %1828 = load float, ptr %38, align 16
   %1829 = fmul float %.19414.i, %1828
   %1830 = load float, ptr %1741, align 16
@@ -3861,11 +3861,11 @@ _ZL10pdb_legendP8_IO_FILEiiP7t_atomsPA3_f.exit:   ; preds = %1694, %_ZL14gmx_sfr
   %indvars.iv.i371 = phi i64 [ %indvars.iv.next.i372, %.preheader9.i ], [ 0, %1837 ]
   %1838 = getelementptr inbounds [24 x i32], ptr @__const._ZL13visualize_boxP8_IO_FILEiiPA3_fPKf.rectedge, i64 0, i64 %indvars.iv.i371
   %1839 = load i32, ptr %1838, align 8
-  %1840 = add nsw i32 %1839, %1720
+  %1840 = add nsw i32 %1839, %1721
   %1841 = or disjoint i64 %indvars.iv.i371, 1
   %1842 = getelementptr inbounds [24 x i32], ptr @__const._ZL13visualize_boxP8_IO_FILEiiPA3_fPKf.rectedge, i64 0, i64 %1841
   %1843 = load i32, ptr %1842, align 4
-  %1844 = add nsw i32 %1843, %1720
+  %1844 = add nsw i32 %1843, %1721
   %1845 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1509, ptr noundef nonnull @.str.223, i32 noundef %1840, i32 noundef %1844) #23
   %indvars.iv.next.i372 = add nuw nsw i64 %indvars.iv.i371, 2
   %1846 = icmp ult i64 %indvars.iv.i371, 22

@@ -1123,7 +1123,7 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
 26:                                               ; preds = %22
   %27 = and i32 %24, 8
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr i8, ptr %0, i64 -1248
@@ -1136,14 +1136,14 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   %35 = load ptr, ptr %34, align 8
   br label %36
 
-36:                                               ; preds = %29, %33
+36:                                               ; preds = %33, %29
   %37 = phi ptr [ %35, %33 ], [ null, %29 ]
   %38 = getelementptr i8, ptr %0, i64 3704
   %39 = load i32, ptr %38, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %37, ptr noundef nonnull @.str.34, i32 noundef %39) #14
   %40 = and i32 %24, -9
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %.thread
+  br i1 %41, label %42, label %.critedge
 
 42:                                               ; preds = %36, %22
   %43 = icmp ult i32 %14, %16
@@ -1306,21 +1306,21 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   %151 = load i32, ptr %23, align 1
   %152 = or i32 %151, %150
   store i32 %152, ptr %23, align 1
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %26, %149, %36
+.critedge:                                        ; preds = %26, %149, %36
   %153 = getelementptr i8, ptr %0, i64 -1248
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %154, null
   br i1 %155, label %159, label %156
 
-156:                                              ; preds = %.thread
+156:                                              ; preds = %.critedge
   %157 = getelementptr inbounds i8, ptr %154, i64 8
   %158 = load ptr, ptr %157, align 8
   br label %159
 
-159:                                              ; preds = %156, %.thread
-  %160 = phi ptr [ %158, %156 ], [ null, %.thread ]
+159:                                              ; preds = %156, %.critedge
+  %160 = phi ptr [ %158, %156 ], [ null, %.critedge ]
   %161 = getelementptr i8, ptr %0, i64 3704
   %162 = load i32, ptr %161, align 8
   %163 = load i32, ptr %10, align 1
@@ -1338,7 +1338,7 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   %169 = icmp slt i32 %168, 0
   %170 = icmp eq ptr %167, null
   %171 = or i1 %170, %169
-  br i1 %171, label %.thread40, label %172
+  br i1 %171, label %.thread39, label %172
 
 172:                                              ; preds = %166
   %173 = getelementptr inbounds i8, ptr %167, i64 20
@@ -1357,12 +1357,12 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   %182 = getelementptr i8, ptr %167, i64 24
   %183 = load i32, ptr %182, align 8
   %184 = icmp sgt i32 %183, -1
-  br i1 %184, label %.thread38, label %185, !prof !13
+  br i1 %184, label %.thread37, label %185, !prof !13
 
 185:                                              ; preds = %181
   %186 = lshr i32 %183, 28
   %187 = and i32 %186, 7
-  switch i32 %187, label %.thread38 [
+  switch i32 %187, label %.thread37 [
     i32 1, label %188
     i32 7, label %205
     i32 6, label %205
@@ -1402,7 +1402,7 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   %202 = load ptr, ptr @system_unbound_wq, align 8
   %203 = getelementptr inbounds i8, ptr %0, i64 216
   %204 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %202, ptr noundef %203) #13
-  br label %.thread40
+  br label %.thread39
 
 205:                                              ; preds = %185, %185, %185
   %206 = and i32 %174, 255
@@ -1488,7 +1488,7 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %255, ptr noundef nonnull @.str.41, i32 noundef %257, i32 noundef %206, i32 noundef %258, i32 noundef %207, i32 noundef %260) #14
   %261 = load ptr, ptr %213, align 8
   %262 = icmp eq ptr %261, %213
-  br i1 %262, label %.thread36, label %.preheader
+  br i1 %262, label %.thread35, label %.preheader
 
 .preheader:                                       ; preds = %254, %269
   %263 = phi ptr [ %274, %269 ], [ %261, %254 ]
@@ -1509,11 +1509,11 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %270, ptr noundef nonnull @.str.42, i32 noundef %271, i32 noundef %273) #14
   %274 = load ptr, ptr %263, align 8
   %275 = icmp eq ptr %274, %213
-  br i1 %275, label %.thread36, label %.preheader, !llvm.loop !48
+  br i1 %275, label %.thread35, label %.preheader, !llvm.loop !48
 
-.thread36:                                        ; preds = %269, %254
+.thread35:                                        ; preds = %269, %254
   call void @_raw_spin_unlock_irqrestore(ptr noundef %211, i64 noundef %212) #13
-  br label %.thread38
+  br label %.thread37
 
 276:                                              ; preds = %242, %238
   store i32 %240, ptr %223, align 8
@@ -1521,31 +1521,31 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   %278 = getelementptr inbounds i8, ptr %216, i64 20
   store volatile i32 %277, ptr %278, align 4
   call void @_raw_spin_unlock_irqrestore(ptr noundef %211, i64 noundef %212) #13
-  br i1 %.not, label %.thread38, label %279, !prof !49
+  br i1 %.not, label %.thread37, label %279, !prof !49
 
 279:                                              ; preds = %276
   call void @kfree(ptr noundef %167) #13
-  br label %.thread40
+  br label %.thread39
 
 280:                                              ; preds = %193
   %281 = call fastcc i32 @ct_process_request(ptr noundef %0, ptr noundef nonnull %167)
   %282 = icmp eq i32 %281, 0
-  br i1 %282, label %.thread40, label %.thread38, !prof !50
+  br i1 %282, label %.thread39, label %.thread37, !prof !50
 
-.thread38:                                        ; preds = %.thread36, %276, %185, %280, %181
-  %283 = phi i32 [ %281, %280 ], [ -71, %181 ], [ -126, %.thread36 ], [ %239, %276 ], [ -95, %185 ]
+.thread37:                                        ; preds = %.thread35, %276, %185, %280, %181
+  %283 = phi i32 [ %281, %280 ], [ -71, %181 ], [ -126, %.thread35 ], [ %239, %276 ], [ -95, %185 ]
   %284 = getelementptr i8, ptr %0, i64 -1248
   %285 = load ptr, ptr %284, align 8
   %286 = icmp eq ptr %285, null
   br i1 %286, label %290, label %287
 
-287:                                              ; preds = %.thread38
+287:                                              ; preds = %.thread37
   %288 = getelementptr inbounds i8, ptr %285, i64 8
   %289 = load ptr, ptr %288, align 8
   br label %290
 
-290:                                              ; preds = %287, %.thread38
-  %291 = phi ptr [ %289, %287 ], [ null, %.thread38 ]
+290:                                              ; preds = %287, %.thread37
+  %291 = phi ptr [ %289, %287 ], [ null, %.thread37 ]
   %292 = getelementptr i8, ptr %0, i64 3704
   %293 = load i32, ptr %292, align 8
   %294 = sext i32 %283 to i64
@@ -1554,7 +1554,7 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   br label %296
 
 296:                                              ; preds = %172, %177, %290
-  %.ph42 = phi i64 [ %294, %290 ], [ -74, %177 ], [ -95, %172 ]
+  %.ph41 = phi i64 [ %294, %290 ], [ -74, %177 ], [ -95, %172 ]
   %297 = getelementptr i8, ptr %0, i64 -1248
   %298 = load ptr, ptr %297, align 8
   %299 = icmp eq ptr %298, null
@@ -1569,19 +1569,19 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   %304 = phi ptr [ %302, %300 ], [ null, %296 ]
   %305 = getelementptr i8, ptr %0, i64 3704
   %306 = load i32, ptr %305, align 8
-  %307 = inttoptr i64 %.ph42 to ptr
+  %307 = inttoptr i64 %.ph41 to ptr
   %308 = getelementptr inbounds i8, ptr %167, i64 16
   %309 = load i32, ptr %308, align 8
   %310 = shl i32 %309, 2
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %304, ptr noundef nonnull @.str.31, i32 noundef %306, ptr noundef nonnull %307, i32 noundef %310, ptr noundef %173) #14
   call void @kfree(ptr noundef %167) #13
-  br label %.thread40
+  br label %.thread39
 
-.thread40:                                        ; preds = %279, %195, %280, %303, %166
+.thread39:                                        ; preds = %279, %195, %280, %303, %166
   %311 = icmp sgt i32 %168, 0
   br i1 %311, label %312, label %319
 
-312:                                              ; preds = %.thread40
+312:                                              ; preds = %.thread39
   %313 = getelementptr inbounds i8, ptr %0, i64 120
   %314 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %313, i64 0, ptr elementtype(i64) %313) #13, !srcloc !19
   %315 = icmp ult i8 %314, 2
@@ -1594,7 +1594,7 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   call void @__tasklet_hi_schedule(ptr noundef %318) #13
   br label %319
 
-319:                                              ; preds = %317, %312, %.thread40, %1
+319:                                              ; preds = %317, %312, %.thread39, %1
   ret void
 }
 

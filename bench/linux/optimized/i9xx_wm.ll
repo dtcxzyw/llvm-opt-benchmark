@@ -8474,7 +8474,7 @@ define internal void @i9xx_update_wm(ptr noundef %0) #0 align 16 {
 75:                                               ; preds = %69
   %76 = load i16, ptr %10, align 8
   %77 = icmp eq i16 %76, 2
-  br i1 %77, label %84, label %78
+  br i1 %77, label %85, label %78
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds i8, ptr %67, i64 72
@@ -8482,15 +8482,15 @@ define internal void @i9xx_update_wm(ptr noundef %0) #0 align 16 {
   %81 = getelementptr inbounds i8, ptr %80, i64 6
   %82 = load i8, ptr %81, align 2
   %83 = zext i8 %82 to i64
-  br label %84
+  %84 = mul nuw nsw i64 %83, 50
+  br label %85
 
-84:                                               ; preds = %78, %75
-  %85 = phi i64 [ %83, %78 ], [ 4, %75 ]
-  %86 = getelementptr inbounds i8, ptr %71, i64 856
-  %87 = load i32, ptr %86, align 8
-  %88 = mul nuw nsw i64 %85, 50
-  %89 = zext i32 %87 to i64
-  %90 = mul nuw nsw i64 %88, %89
+85:                                               ; preds = %78, %75
+  %86 = phi i64 [ %84, %78 ], [ 200, %75 ]
+  %87 = getelementptr inbounds i8, ptr %71, i64 856
+  %88 = load i32, ptr %87, align 8
+  %89 = zext i32 %88 to i64
+  %90 = mul nuw nsw i64 %86, %89
   %91 = add nuw nsw i64 %90, 9999
   %92 = udiv i64 %91, 10000
   %93 = trunc i64 %92 to i32
@@ -8533,8 +8533,8 @@ define internal void @i9xx_update_wm(ptr noundef %0) #0 align 16 {
   %126 = select i1 %124, i32 %125, i32 %119
   br label %127
 
-127:                                              ; preds = %115, %84
-  %128 = phi i32 [ %114, %84 ], [ %126, %115 ]
+127:                                              ; preds = %115, %85
+  %128 = phi i32 [ %114, %85 ], [ %126, %115 ]
   %129 = load i16, ptr %10, align 8
   %130 = icmp eq i16 %129, 2
   %131 = select i1 %130, ptr @i830_bc_wm_info, ptr %9

@@ -27497,7 +27497,7 @@ default.unreachable405:                           ; preds = %3091, %3080, %3064,
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %133), !noalias !3715
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.347.i.i.i)
   call void @llvm.lifetime.start.p0(i64 71, ptr nonnull %.sroa.6.i.i.i)
-  br label %290
+  br label %291
 
 285:                                              ; preds = %276
   br label %.invoke.i
@@ -27526,7 +27526,7 @@ default.unreachable405:                           ; preds = %3091, %3080, %3064,
     i8 0, label %._crit_edge.i
     i8 1, label %.invoke.i.i
     i8 2, label %341
-    i8 3, label %306
+    i8 3, label %307
   ]
 
 ._crit_edge.i:                                    ; preds = %288
@@ -27536,64 +27536,64 @@ default.unreachable405:                           ; preds = %3091, %3080, %3064,
   %.pre141.i = load ptr, ptr %.phi.trans.insert140.i, align 8, !noalias !3720
   %.phi.trans.insert142.i = getelementptr inbounds i8, ptr %0, i64 1177
   %.pre143.i = load i8, ptr %.phi.trans.insert142.i, align 1, !range !432, !noalias !3720
-  br label %290
+  %290 = trunc nuw i8 %.pre143.i to i1
+  br label %291
 
-290:                                              ; preds = %._crit_edge.i, %.thread.i.i
-  %291 = phi ptr [ %278, %.thread.i.i ], [ %264, %._crit_edge.i ]
-  %292 = phi ptr [ %279, %.thread.i.i ], [ %263, %._crit_edge.i ]
-  %293 = phi ptr [ %282, %.thread.i.i ], [ %.phi.trans.insert.i, %._crit_edge.i ]
-  %294 = phi ptr [ %283, %.thread.i.i ], [ %277, %._crit_edge.i ]
-  %295 = phi i8 [ 0, %.thread.i.i ], [ %.pre143.i, %._crit_edge.i ]
-  %296 = phi ptr [ %280, %.thread.i.i ], [ %.pre141.i, %._crit_edge.i ]
-  %297 = phi ptr [ %281, %.thread.i.i ], [ %.pre139.i, %._crit_edge.i ]
-  %298 = phi ptr [ %.sroa.958.0..sroa_idx.i.i, %.thread.i.i ], [ %.phi.trans.insert.i.i, %._crit_edge.i ]
-  %299 = phi ptr [ %284, %.thread.i.i ], [ %289, %._crit_edge.i ]
-  %300 = getelementptr inbounds i8, ptr %0, i64 1152
-  store ptr %296, ptr %300, align 8, !noalias !3720
+291:                                              ; preds = %._crit_edge.i, %.thread.i.i
+  %292 = phi ptr [ %278, %.thread.i.i ], [ %264, %._crit_edge.i ]
+  %293 = phi ptr [ %279, %.thread.i.i ], [ %263, %._crit_edge.i ]
+  %294 = phi ptr [ %282, %.thread.i.i ], [ %.phi.trans.insert.i, %._crit_edge.i ]
+  %295 = phi ptr [ %283, %.thread.i.i ], [ %277, %._crit_edge.i ]
+  %296 = phi i1 [ false, %.thread.i.i ], [ %290, %._crit_edge.i ]
+  %297 = phi ptr [ %280, %.thread.i.i ], [ %.pre141.i, %._crit_edge.i ]
+  %298 = phi ptr [ %281, %.thread.i.i ], [ %.pre139.i, %._crit_edge.i ]
+  %299 = phi ptr [ %.sroa.958.0..sroa_idx.i.i, %.thread.i.i ], [ %.phi.trans.insert.i.i, %._crit_edge.i ]
+  %300 = phi ptr [ %284, %.thread.i.i ], [ %289, %._crit_edge.i ]
+  %301 = getelementptr inbounds i8, ptr %0, i64 1152
+  store ptr %297, ptr %301, align 8, !noalias !3720
   call void @llvm.experimental.noalias.scope.decl(metadata !3724)
-  %301 = getelementptr inbounds i8, ptr %297, i64 88
+  %302 = getelementptr inbounds i8, ptr %298, i64 88
   call void @llvm.experimental.noalias.scope.decl(metadata !3727)
-  %302 = load ptr, ptr %301, align 8, !alias.scope !3730, !noalias !3731, !nonnull !10, !noundef !10
-  %303 = atomicrmw add ptr %302, i64 1 monotonic, align 8, !noalias !3732
-  %304 = icmp slt i64 %303, 0
-  br i1 %304, label %305, label %307
+  %303 = load ptr, ptr %302, align 8, !alias.scope !3730, !noalias !3731, !nonnull !10, !noundef !10
+  %304 = atomicrmw add ptr %303, i64 1 monotonic, align 8, !noalias !3732
+  %305 = icmp slt i64 %304, 0
+  br i1 %305, label %306, label %308
 
-305:                                              ; preds = %290
+306:                                              ; preds = %291
   call void @llvm.trap()
   unreachable
 
-306:                                              ; preds = %288
+307:                                              ; preds = %288
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %0, i64 1136
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !alias.scope !3733, !noalias !3738
   %.phi.trans.insert55.i.i.i = getelementptr inbounds i8, ptr %0, i64 1144
   %.pre56.i.i.i = load ptr, ptr %.phi.trans.insert55.i.i.i, align 8, !alias.scope !3733, !noalias !3738
   br label %344
 
-307:                                              ; preds = %290
-  %308 = trunc nuw i8 %295 to i1
-  %309 = getelementptr inbounds i8, ptr %297, i64 96
+308:                                              ; preds = %291
+  %309 = getelementptr inbounds i8, ptr %298, i64 96
   %310 = load ptr, ptr %309, align 8, !alias.scope !3730, !noalias !3731, !nonnull !10, !align !27, !noundef !10
-  store ptr %302, ptr %299, align 8, !noalias !3720
+  store ptr %303, ptr %300, align 8, !noalias !3720
   %.repack27.i.i.i = getelementptr inbounds i8, ptr %0, i64 1128
   store ptr %310, ptr %.repack27.i.i.i, align 8, !noalias !3720
   %311 = getelementptr inbounds i8, ptr %310, i64 16
   %312 = load i64, ptr %311, align 8, !range !499, !invariant.load !10, !noalias !3731
   %313 = add i64 %312, -1
   %314 = and i64 %313, -16
-  %315 = getelementptr i8, ptr %302, i64 %314
+  %315 = getelementptr i8, ptr %303, i64 %314
   %316 = getelementptr i8, ptr %315, i64 16
-  %317 = load ptr, ptr %300, align 8, !noalias !3720, !nonnull !10, !align !26, !noundef !10
+  %317 = load ptr, ptr %301, align 8, !noalias !3720, !nonnull !10, !align !26, !noundef !10
   %318 = getelementptr inbounds i8, ptr %310, i64 40
   %319 = load ptr, ptr %318, align 8, !invariant.load !10, !noalias !3731, !nonnull !10
-  %320 = invoke { ptr, ptr } %319(ptr noundef align 1 %316, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %317, i1 noundef zeroext %308)
+  %320 = invoke { ptr, ptr } %319(ptr noundef align 1 %316, ptr noalias noundef nonnull readonly align 1 dereferenceable(32) %317, i1 noundef zeroext %296)
           to label %323 unwind label %321, !noalias !3731
 
-321:                                              ; preds = %307
+321:                                              ; preds = %308
   %322 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
 
-323:                                              ; preds = %307
+323:                                              ; preds = %308
   %324 = extractvalue { ptr, ptr } %320, 0
   %325 = extractvalue { ptr, ptr } %320, 1
   %326 = getelementptr inbounds i8, ptr %0, i64 1136
@@ -27603,12 +27603,12 @@ default.unreachable405:                           ; preds = %3091, %3080, %3064,
   br label %344
 
 .body.i.i.i:                                      ; preds = %379, %376, %370, %366, %357, %321
-  %328 = phi ptr [ %345, %357 ], [ %291, %321 ], [ %345, %379 ], [ %345, %376 ], [ %345, %370 ], [ %345, %366 ]
-  %329 = phi ptr [ %346, %357 ], [ %292, %321 ], [ %346, %379 ], [ %346, %376 ], [ %346, %370 ], [ %346, %366 ]
-  %330 = phi ptr [ %347, %357 ], [ %293, %321 ], [ %347, %379 ], [ %347, %376 ], [ %347, %370 ], [ %347, %366 ]
-  %331 = phi ptr [ %348, %357 ], [ %294, %321 ], [ %348, %379 ], [ %348, %376 ], [ %348, %370 ], [ %348, %366 ]
-  %332 = phi ptr [ %349, %357 ], [ %298, %321 ], [ %349, %379 ], [ %349, %376 ], [ %349, %370 ], [ %349, %366 ]
-  %333 = phi ptr [ %350, %357 ], [ %299, %321 ], [ %350, %379 ], [ %350, %376 ], [ %350, %370 ], [ %350, %366 ]
+  %328 = phi ptr [ %345, %357 ], [ %292, %321 ], [ %345, %379 ], [ %345, %376 ], [ %345, %370 ], [ %345, %366 ]
+  %329 = phi ptr [ %346, %357 ], [ %293, %321 ], [ %346, %379 ], [ %346, %376 ], [ %346, %370 ], [ %346, %366 ]
+  %330 = phi ptr [ %347, %357 ], [ %294, %321 ], [ %347, %379 ], [ %347, %376 ], [ %347, %370 ], [ %347, %366 ]
+  %331 = phi ptr [ %348, %357 ], [ %295, %321 ], [ %348, %379 ], [ %348, %376 ], [ %348, %370 ], [ %348, %366 ]
+  %332 = phi ptr [ %349, %357 ], [ %299, %321 ], [ %349, %379 ], [ %349, %376 ], [ %349, %370 ], [ %349, %366 ]
+  %333 = phi ptr [ %350, %357 ], [ %300, %321 ], [ %350, %379 ], [ %350, %376 ], [ %350, %370 ], [ %350, %366 ]
   %.pn34.i.i.i = phi { ptr, i32 } [ %358, %357 ], [ %322, %321 ], [ %380, %379 ], [ %377, %376 ], [ %371, %370 ], [ %367, %366 ]
   invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_identity..purpose_keys..storage..purpose_keys_repository..PurposeKeysRepository$GT$$GT$17hd7b5b05d1669cbd1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %333) #38
           to label %334 unwind label %394, !noalias !3741
@@ -27636,15 +27636,15 @@ default.unreachable405:                           ; preds = %3091, %3080, %3064,
 .cont.i.i:                                        ; preds = %.invoke.i.i
   unreachable
 
-344:                                              ; preds = %323, %306
-  %345 = phi ptr [ %264, %306 ], [ %291, %323 ]
-  %346 = phi ptr [ %263, %306 ], [ %292, %323 ]
-  %347 = phi ptr [ %.phi.trans.insert.i, %306 ], [ %293, %323 ]
-  %348 = phi ptr [ %277, %306 ], [ %294, %323 ]
-  %349 = phi ptr [ %.phi.trans.insert.i.i, %306 ], [ %298, %323 ]
-  %350 = phi ptr [ %289, %306 ], [ %299, %323 ]
-  %351 = phi ptr [ %.pre56.i.i.i, %306 ], [ %325, %323 ]
-  %352 = phi ptr [ %.pre.i.i.i, %306 ], [ %324, %323 ]
+344:                                              ; preds = %323, %307
+  %345 = phi ptr [ %264, %307 ], [ %292, %323 ]
+  %346 = phi ptr [ %263, %307 ], [ %293, %323 ]
+  %347 = phi ptr [ %.phi.trans.insert.i, %307 ], [ %294, %323 ]
+  %348 = phi ptr [ %277, %307 ], [ %295, %323 ]
+  %349 = phi ptr [ %.phi.trans.insert.i.i, %307 ], [ %299, %323 ]
+  %350 = phi ptr [ %289, %307 ], [ %300, %323 ]
+  %351 = phi ptr [ %.pre56.i.i.i, %307 ], [ %325, %323 ]
+  %352 = phi ptr [ %.pre.i.i.i, %307 ], [ %324, %323 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %134), !noalias !3720
   %353 = getelementptr inbounds i8, ptr %0, i64 1136
   call void @llvm.experimental.noalias.scope.decl(metadata !3743)

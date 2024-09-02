@@ -694,8 +694,9 @@ cond.end181:                                      ; preds = %cond.end162, %cond.
   %cond182.in = phi ptr [ %arrayidx178, %cond.true174 ], [ %m_maxAppliedImpulse, %cond.end162 ]
   %cond182 = load float, ptr %cond182.in, align 4
   %cmp185 = fcmp ogt float %conv171256, 0.000000e+00
-  %max_applied_impulse.0 = select i1 %cmp185, float 0.000000e+00, float %cond182
   %105 = fneg float %cond182
+  %max_applied_impulse.0 = select i1 %cmp185, float 0.000000e+00, float %cond182
+  %min_applied_impulse.0 = select i1 %cmp185, float %105, float 0.000000e+00
   %106 = call noundef float @llvm.fabs.f32(float %conv171256)
   %cmp190 = fcmp ogt float %106, 0x3E80000000000000
   br i1 %cmp190, label %if.then191, label %for.inc
@@ -772,8 +773,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %114 = load ptr, ptr %m_data.i.i.i, align 8
   %idxprom.i180 = sext i32 %107 to i64
   %arrayidx.i181 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %114, i64 %idxprom.i180
-  %conv193 = select i1 %cmp185, float %105, float 0.000000e+00
-  %call195 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(220) %arrayidx.i181, ptr noundef nonnull align 8 dereferenceable(204) %data, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalAng, ptr noundef nonnull align 4 dereferenceable(16) %zero, ptr noundef nonnull align 4 dereferenceable(16) %zero, ptr noundef nonnull align 4 dereferenceable(16) %zero, float noundef %conv171256, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %conv193, float noundef %max_applied_impulse.0, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %damp.0)
+  %call195 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(220) %arrayidx.i181, ptr noundef nonnull align 8 dereferenceable(204) %data, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalAng, ptr noundef nonnull align 4 dereferenceable(16) %zero, ptr noundef nonnull align 4 dereferenceable(16) %zero, ptr noundef nonnull align 4 dereferenceable(16) %zero, float noundef %conv171256, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %min_applied_impulse.0, float noundef %max_applied_impulse.0, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %damp.0)
   %m_orgConstraint = getelementptr inbounds i8, ptr %arrayidx.i181, i64 208
   store ptr %this, ptr %m_orgConstraint, align 8
   %m_orgDofIndex = getelementptr inbounds i8, ptr %arrayidx.i181, i64 216

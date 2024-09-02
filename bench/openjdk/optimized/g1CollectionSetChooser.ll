@@ -350,7 +350,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.4 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm299078ES1_EELNS_11BarrierTypeE2ELm299078EE18oop_access_barrierEPv], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN22G1CollectionSetChooser25calculate_work_chunk_sizeEjj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 1, 0) i32 @_ZN22G1CollectionSetChooser25calculate_work_chunk_sizeEjj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = udiv i32 %1, %0
   %4 = tail call noundef i32 @llvm.umax.i32(i32 %3, i32 1)
   ret i32 %4
@@ -362,7 +362,7 @@ define hidden void @_ZN22G1CollectionSetChooser5buildEP13WorkerThreadsjP25G1Coll
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = udiv i32 %1, %6
-  %8 = tail call noundef i32 @llvm.umax.i32(i32 %7, i32 1)
+  %8 = tail call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %7, i32 1)
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @.str, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 16

@@ -785,20 +785,20 @@ lpad12:                                           ; preds = %if.else.i.i, %if.th
 for.end.loopexit:                                 ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %.pre = load ptr, ptr %_M_finish.i.i7, align 8
   %.pre54 = load ptr, ptr %sum, align 8
+  %24 = ptrtoint ptr %.pre to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.then
-  %24 = phi ptr [ %.pre54, %for.end.loopexit ], [ null, %if.then ]
-  %25 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %if.then ]
+  %25 = phi ptr [ %.pre54, %for.end.loopexit ], [ null, %if.then ]
+  %sub.ptr.lhs.cast.i = phi i64 [ %24, %for.end.loopexit ], [ 0, %if.then ]
   %_M_finish.i12 = getelementptr inbounds i8, ptr %sum, i64 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %24 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp eq i64 %sub.ptr.sub.i, 8
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %for.end
-  %26 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %sumn, align 8
   %bf.load.i.i13 = load i64, ptr %26, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i.i13, 40

@@ -1678,11 +1678,11 @@ if.end17:                                         ; preds = %lor.lhs.false13
 
 lor.lhs.false20:                                  ; preds = %if.end17
   %bcmp = call i32 @bcmp(ptr %4, ptr %0, i64 %1)
-  %cmp23.not = icmp ne i32 %bcmp, 0
+  %cmp23.not = icmp eq i32 %bcmp, 0
   br label %cleanup
 
 cleanup:                                          ; preds = %lor.lhs.false20, %if.end17
-  %cleanup.dest.slot.0 = phi i1 [ true, %if.end17 ], [ %cmp23.not, %lor.lhs.false20 ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %if.end17 ], [ %cmp23.not, %lor.lhs.false20 ]
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %if.then.i
 
@@ -1691,7 +1691,7 @@ if.then.i:                                        ; preds = %cleanup
   br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %cleanup, %if.then.i
-  br i1 %cleanup.dest.slot.0, label %return, label %for.cond
+  br i1 %cleanup.dest.slot.0, label %for.cond, label %return
 
 for.body29:                                       ; preds = %for.cond, %for.body29
   %i26.013 = phi i64 [ %inc41, %for.body29 ], [ 0, %for.cond ]

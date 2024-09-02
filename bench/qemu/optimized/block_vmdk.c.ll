@@ -625,7 +625,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vmdk_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vmdk_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %data = alloca %struct.VMDKCreateOptsData, align 8
@@ -2822,13 +2822,13 @@ if.end.i27:                                       ; preds = %while.cond.i22
 next_line.exit29:                                 ; preds = %while.cond.i22
   %add.ptr.i25 = getelementptr i8, ptr %s.addr.0.i23, i64 1
   %.pre = load i8, ptr %add.ptr.i25, align 1
-  %tobool.not.i12 = icmp eq i8 %.pre, 0
-  br i1 %tobool.not.i12, label %vmdk_parse_extents.exit, label %for.body.i, !llvm.loop !21
+  %58 = icmp eq i8 %.pre, 0
+  br i1 %58, label %vmdk_parse_extents.exit, label %for.body.i, !llvm.loop !21
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %if.end.i20
   %s.addr.0.i = phi ptr [ %incdec.ptr.i21, %if.end.i20 ], [ %p.0.i283, %while.cond.i.preheader ]
-  %58 = load i8, ptr %s.addr.0.i, align 1
-  switch i8 %58, label %if.end.i20 [
+  %59 = load i8, ptr %s.addr.0.i, align 1
+  switch i8 %59, label %if.end.i20 [
     i8 0, label %next_line.exit
     i8 10, label %if.then.i
   ]
@@ -2852,8 +2852,8 @@ if.else161.i:                                     ; preds = %next_line.exit
 
 if.end162.i:                                      ; preds = %next_line.exit
   %arrayidx163.i = getelementptr i8, ptr %retval.0.i19, i64 -1
-  %59 = load i8, ptr %arrayidx163.i, align 1
-  %cmp164.i = icmp eq i8 %59, 10
+  %60 = load i8, ptr %arrayidx163.i, align 1
+  %cmp164.i = icmp eq i8 %60, 10
   %spec.select73.i = select i1 %cmp164.i, ptr %arrayidx163.i, ptr %retval.0.i19
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %spec.select73.i to i64
   %sub.ptr.rhs.cast.i15 = ptrtoint ptr %p.0.i283 to i64
@@ -5042,7 +5042,7 @@ return:                                           ; preds = %if.end33, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vmdk_write_extent(ptr nocapture noundef %extent, i64 noundef %cluster_offset, i64 noundef %offset_in_cluster, ptr noundef %qiov, i64 noundef %qiov_offset, i64 noundef %n_bytes, i64 noundef %offset) #0 {
+define internal range(i32 -2147483648, 1) i32 @vmdk_write_extent(ptr nocapture noundef %extent, i64 noundef %cluster_offset, i64 noundef %offset_in_cluster, ptr noundef %qiov, i64 noundef %qiov_offset, i64 noundef %n_bytes, i64 noundef %offset) #0 {
 entry:
   %buf_len = alloca i64, align 8
   %local_qiov = alloca %struct.QEMUIOVector, align 8

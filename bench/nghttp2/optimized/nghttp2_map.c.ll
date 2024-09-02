@@ -176,7 +176,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_map_insert(ptr nocapture noundef %map, i32 noundef %key, ptr noundef %data) local_unnamed_addr #1 {
+define hidden range(i32 -901, 1) i32 @nghttp2_map_insert(ptr nocapture noundef %map, i32 noundef %key, ptr noundef %data) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %data, null
   br i1 %tobool.not, label %if.else, label %if.end

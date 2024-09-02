@@ -1335,7 +1335,7 @@ define hidden noundef i64 @_ZN3fmt3v104file4readEPvm(ptr nocapture noundef nonnu
 entry:
   br label %do.body
 
-do.body:                                          ; preds = %land.rhs, %entry
+do.body:                                          ; preds = %do.body.backedge, %entry
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr @_ZN12_GLOBAL__N_110read_countE, align 4
   %cmp.not.i = icmp eq i32 %1, 0
@@ -1350,7 +1350,7 @@ if.then.i:                                        ; preds = %do.body
 _ZN4test4readEiPvm.exit.thread:                   ; preds = %if.then.i
   %call.i = tail call ptr @__errno_location() #24
   store i32 4, ptr %call.i, align 4
-  br label %land.rhs
+  br label %do.body.backedge
 
 _ZN4test4readEiPvm.exit:                          ; preds = %do.body, %if.then.i
   %call4.i = tail call i64 @read(i32 noundef %0, ptr noundef %buffer, i64 noundef %count)
@@ -1360,18 +1360,17 @@ _ZN4test4readEiPvm.exit:                          ; preds = %do.body, %if.then.i
 _ZN4test4readEiPvm.exit.land.rhs_crit_edge:       ; preds = %_ZN4test4readEiPvm.exit
   %.pre = tail call ptr @__errno_location() #24
   %.pr = load i32, ptr %.pre, align 4
-  br label %land.rhs
+  %2 = icmp eq i32 %.pr, 4
+  br i1 %2, label %do.body.backedge, label %"_ZN3fmt3v1019basic_format_stringIcJEEC2IZZNS0_4file4readEPvmENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESB_.exit"
 
-land.rhs:                                         ; preds = %_ZN4test4readEiPvm.exit.land.rhs_crit_edge, %_ZN4test4readEiPvm.exit.thread
-  %2 = phi i32 [ %.pr, %_ZN4test4readEiPvm.exit.land.rhs_crit_edge ], [ 4, %_ZN4test4readEiPvm.exit.thread ]
-  %cmp4 = icmp eq i32 %2, 4
-  br i1 %cmp4, label %do.body, label %"_ZN3fmt3v1019basic_format_stringIcJEEC2IZZNS0_4file4readEPvmENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESB_.exit", !llvm.loop !8
+do.body.backedge:                                 ; preds = %_ZN4test4readEiPvm.exit.land.rhs_crit_edge, %_ZN4test4readEiPvm.exit.thread
+  br label %do.body, !llvm.loop !8
 
 do.end:                                           ; preds = %_ZN4test4readEiPvm.exit
   %cmp5 = icmp slt i64 %call4.i, 0
   br i1 %cmp5, label %"_ZN3fmt3v1019basic_format_stringIcJEEC2IZZNS0_4file4readEPvmENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESB_.exit", label %if.end
 
-"_ZN3fmt3v1019basic_format_stringIcJEEC2IZZNS0_4file4readEPvmENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESB_.exit": ; preds = %land.rhs, %do.end
+"_ZN3fmt3v1019basic_format_stringIcJEEC2IZZNS0_4file4readEPvmENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESB_.exit": ; preds = %_ZN4test4readEiPvm.exit.land.rhs_crit_edge, %do.end
   %exception = tail call ptr @__cxa_allocate_exception(i64 32) #25
   %call6 = tail call ptr @__errno_location() #24
   %3 = load i32, ptr %call6, align 4
@@ -1424,7 +1423,7 @@ define hidden noundef i64 @_ZN3fmt3v104file5writeEPKvm(ptr nocapture noundef non
 entry:
   br label %do.body
 
-do.body:                                          ; preds = %land.rhs, %entry
+do.body:                                          ; preds = %do.body.backedge, %entry
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr @_ZN12_GLOBAL__N_111write_countE, align 4
   %cmp.not.i = icmp eq i32 %1, 0
@@ -1439,7 +1438,7 @@ if.then.i:                                        ; preds = %do.body
 _ZN4test5writeEiPKvm.exit.thread:                 ; preds = %if.then.i
   %call.i = tail call ptr @__errno_location() #24
   store i32 4, ptr %call.i, align 4
-  br label %land.rhs
+  br label %do.body.backedge
 
 _ZN4test5writeEiPKvm.exit:                        ; preds = %do.body, %if.then.i
   %call4.i = tail call i64 @write(i32 noundef %0, ptr noundef readonly %buffer, i64 noundef %count)
@@ -1449,18 +1448,17 @@ _ZN4test5writeEiPKvm.exit:                        ; preds = %do.body, %if.then.i
 _ZN4test5writeEiPKvm.exit.land.rhs_crit_edge:     ; preds = %_ZN4test5writeEiPKvm.exit
   %.pre = tail call ptr @__errno_location() #24
   %.pr = load i32, ptr %.pre, align 4
-  br label %land.rhs
+  %2 = icmp eq i32 %.pr, 4
+  br i1 %2, label %do.body.backedge, label %"_ZN3fmt3v1019basic_format_stringIcJEEC2IZZNS0_4file5writeEPKvmENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESC_.exit"
 
-land.rhs:                                         ; preds = %_ZN4test5writeEiPKvm.exit.land.rhs_crit_edge, %_ZN4test5writeEiPKvm.exit.thread
-  %2 = phi i32 [ %.pr, %_ZN4test5writeEiPKvm.exit.land.rhs_crit_edge ], [ 4, %_ZN4test5writeEiPKvm.exit.thread ]
-  %cmp4 = icmp eq i32 %2, 4
-  br i1 %cmp4, label %do.body, label %"_ZN3fmt3v1019basic_format_stringIcJEEC2IZZNS0_4file5writeEPKvmENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESC_.exit", !llvm.loop !9
+do.body.backedge:                                 ; preds = %_ZN4test5writeEiPKvm.exit.land.rhs_crit_edge, %_ZN4test5writeEiPKvm.exit.thread
+  br label %do.body, !llvm.loop !9
 
 do.end:                                           ; preds = %_ZN4test5writeEiPKvm.exit
   %cmp5 = icmp slt i64 %call4.i, 0
   br i1 %cmp5, label %"_ZN3fmt3v1019basic_format_stringIcJEEC2IZZNS0_4file5writeEPKvmENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESC_.exit", label %if.end
 
-"_ZN3fmt3v1019basic_format_stringIcJEEC2IZZNS0_4file5writeEPKvmENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESC_.exit": ; preds = %land.rhs, %do.end
+"_ZN3fmt3v1019basic_format_stringIcJEEC2IZZNS0_4file5writeEPKvmENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESC_.exit": ; preds = %_ZN4test5writeEiPKvm.exit.land.rhs_crit_edge, %do.end
   %exception = tail call ptr @__cxa_allocate_exception(i64 32) #25
   %call6 = tail call ptr @__errno_location() #24
   %3 = load i32, ptr %call6, align 4
@@ -1625,12 +1623,12 @@ _ZN4test4dup2Eii.exit:                            ; preds = %do.body, %if.then.i
 _ZN4test4dup2Eii.exit.land.rhs_crit_edge:         ; preds = %_ZN4test4dup2Eii.exit
   %.pre = tail call ptr @__errno_location() #24
   %.pr = load i32, ptr %.pre, align 4
+  %2 = icmp eq i32 %.pr, 4
   br label %land.rhs
 
 land.rhs:                                         ; preds = %_ZN4test4dup2Eii.exit.land.rhs_crit_edge, %_ZN4test4dup2Eii.exit.thread
-  %2 = phi i32 [ %.pr, %_ZN4test4dup2Eii.exit.land.rhs_crit_edge ], [ 4, %_ZN4test4dup2Eii.exit.thread ]
+  %cmp3 = phi i1 [ %2, %_ZN4test4dup2Eii.exit.land.rhs_crit_edge ], [ true, %_ZN4test4dup2Eii.exit.thread ]
   %call2.pre-phi = phi ptr [ %.pre, %_ZN4test4dup2Eii.exit.land.rhs_crit_edge ], [ %call.i, %_ZN4test4dup2Eii.exit.thread ]
-  %cmp3 = icmp eq i32 %2, 4
   br i1 %cmp3, label %do.body, label %"_ZN3fmt3v1019basic_format_stringIcJRiS2_EEC2IZZNS0_4file4dup2EiENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESB_.exit", !llvm.loop !10
 
 "_ZN3fmt3v1019basic_format_stringIcJRiS2_EEC2IZZNS0_4file4dup2EiENK3$_0clEvE18FMT_COMPILE_STRINGTnNSt9enable_ifIXsr3std14is_convertibleIRKT_NS0_17basic_string_viewIcEEEE5valueEiE4typeELi0EEESB_.exit": ; preds = %land.rhs

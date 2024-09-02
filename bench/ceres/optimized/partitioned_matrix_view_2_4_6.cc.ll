@@ -23671,28 +23671,28 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph174
   %262 = shl nsw i64 %261, 3
   %scevgep259 = getelementptr i8, ptr %scevgep, i64 %262
   %load_initial = load double, ptr %scevgep259, align 8
+  %263 = fadd double %load_initial, 0.000000e+00
   br label %.preheader.i.us132.us.us
 
 .preheader.i.us132.us.us:                         ; preds = %.preheader.i.us132.us.us, %.preheader.i.us132.us.us.ph
-  %store_forwarded = phi double [ %load_initial, %.preheader.i.us132.us.us.ph ], [ %278, %.preheader.i.us132.us.us ]
+  %store_forwarded = phi double [ %263, %.preheader.i.us132.us.us.ph ], [ %278, %.preheader.i.us132.us.us ]
   %indvars.iv209 = phi i64 [ 0, %.preheader.i.us132.us.us.ph ], [ %indvars.iv.next210, %.preheader.i.us132.us.us ]
-  %263 = trunc i64 %indvars.iv209 to i32
-  %264 = add i32 %7, %263
-  %265 = mul nuw i32 %264, %10
-  %266 = add i32 %238, %265
-  %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds double, ptr %6, i64 %267
-  %269 = load double, ptr %268, align 8
-  %270 = fadd double %269, 0.000000e+00
-  store double %270, ptr %268, align 8
-  %271 = getelementptr inbounds i8, ptr %268, i64 8
-  %272 = load double, ptr %271, align 8
-  %273 = fadd double %272, 0.000000e+00
-  store double %273, ptr %271, align 8
-  %274 = getelementptr inbounds i8, ptr %268, i64 16
-  %275 = fadd double %store_forwarded, 0.000000e+00
-  store double %275, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %268, i64 24
+  %264 = trunc i64 %indvars.iv209 to i32
+  %265 = add i32 %7, %264
+  %266 = mul nuw i32 %265, %10
+  %267 = add i32 %238, %266
+  %268 = sext i32 %267 to i64
+  %269 = getelementptr inbounds double, ptr %6, i64 %268
+  %270 = load double, ptr %269, align 8
+  %271 = fadd double %270, 0.000000e+00
+  store double %271, ptr %269, align 8
+  %272 = getelementptr inbounds i8, ptr %269, i64 8
+  %273 = load double, ptr %272, align 8
+  %274 = fadd double %273, 0.000000e+00
+  store double %274, ptr %272, align 8
+  %275 = getelementptr inbounds i8, ptr %269, i64 16
+  store double %store_forwarded, ptr %275, align 8
+  %276 = getelementptr inbounds i8, ptr %269, i64 24
   %277 = load double, ptr %276, align 8
   %278 = fadd double %277, 0.000000e+00
   store double %278, ptr %276, align 8

@@ -499,8 +499,8 @@ define void @Map_TimePropagateRequired(ptr nocapture noundef readonly %0) local_
   %8 = zext nneg i32 %5 to i64
   br label %9
 
-9:                                                ; preds = %.lr.ph, %102
-  %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %102 ]
+9:                                                ; preds = %.lr.ph, %99
+  %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %99 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %10 = load ptr, ptr %2, align 8
   %11 = load ptr, ptr %10, align 8
@@ -510,7 +510,7 @@ define void @Map_TimePropagateRequired(ptr nocapture noundef readonly %0) local_
   %15 = getelementptr inbounds i8, ptr %13, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %102, label %18
+  br i1 %17, label %99, label %18
 
 18:                                               ; preds = %9
   %19 = tail call i32 @Map_NodeIsBuf(ptr noundef nonnull %13) #6
@@ -538,7 +538,7 @@ define void @Map_TimePropagateRequired(ptr nocapture noundef readonly %0) local_
   %37 = getelementptr inbounds [2 x %struct.Map_TimeStruct_t_], ptr %34, i64 0, i64 %36
   %38 = getelementptr inbounds i8, ptr %13, i64 132
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %37, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false)
-  br label %102
+  br label %99
 
 39:                                               ; preds = %18
   %40 = getelementptr inbounds i8, ptr %13, i64 144
@@ -546,104 +546,102 @@ define void @Map_TimePropagateRequired(ptr nocapture noundef readonly %0) local_
   %42 = icmp eq ptr %41, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %13, i64 152
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %42, label %._crit_edge70, label %43
+  %43 = icmp eq ptr %.pre, null
+  %brmerge = select i1 %42, i1 true, i1 %43
+  %not. = xor i1 %42, true
+  %.mux = select i1 %not., i1 true, i1 %43
+  br i1 %brmerge, label %._crit_edge70, label %71
 
-43:                                               ; preds = %39
-  %44 = icmp eq ptr %.pre, null
-  br i1 %44, label %._crit_edge70, label %74
+._crit_edge70:                                    ; preds = %39
+  %44 = zext i1 %.mux to i64
+  %45 = getelementptr inbounds [3 x i32], ptr %14, i64 0, i64 %44
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %48, label %71
 
-._crit_edge70:                                    ; preds = %39, %43
-  %45 = phi ptr [ null, %43 ], [ %.pre, %39 ]
-  %46 = icmp eq ptr %45, null
-  %47 = zext i1 %46 to i64
-  %48 = getelementptr inbounds [3 x i32], ptr %14, i64 0, i64 %47
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %51, label %74
-
-51:                                               ; preds = %._crit_edge70
-  %52 = getelementptr inbounds i8, ptr %13, i64 120
-  %53 = getelementptr inbounds %struct.Map_TimeStruct_t_, ptr %52, i64 %47
-  %54 = xor i1 %46, true
-  %55 = zext i1 %54 to i64
-  %56 = getelementptr inbounds %struct.Map_TimeStruct_t_, ptr %52, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
-  %58 = load float, ptr %57, align 4
-  %59 = load float, ptr %53, align 4
-  %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 128
-  %62 = load float, ptr %61, align 8
-  %63 = fsub float %59, %62
-  %64 = fcmp olt float %58, %63
-  %. = select i1 %64, float %58, float %63
-  store float %., ptr %57, align 4
-  %65 = load float, ptr %56, align 4
-  %66 = getelementptr inbounds i8, ptr %53, i64 4
+48:                                               ; preds = %._crit_edge70
+  %49 = getelementptr inbounds i8, ptr %13, i64 120
+  %50 = getelementptr inbounds %struct.Map_TimeStruct_t_, ptr %49, i64 %44
+  %51 = xor i1 %.mux, true
+  %52 = zext i1 %51 to i64
+  %53 = getelementptr inbounds %struct.Map_TimeStruct_t_, ptr %49, i64 %52
+  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %55 = load float, ptr %54, align 4
+  %56 = load float, ptr %50, align 4
+  %57 = load ptr, ptr %7, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 128
+  %59 = load float, ptr %58, align 8
+  %60 = fsub float %56, %59
+  %61 = fcmp olt float %55, %60
+  %. = select i1 %61, float %55, float %60
+  store float %., ptr %54, align 4
+  %62 = load float, ptr %53, align 4
+  %63 = getelementptr inbounds i8, ptr %50, i64 4
+  %64 = load float, ptr %63, align 4
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 132
   %67 = load float, ptr %66, align 4
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 132
-  %70 = load float, ptr %69, align 4
-  %71 = fsub float %67, %70
-  %72 = fcmp olt float %65, %71
-  %73 = select i1 %72, float %65, float %71
-  store float %73, ptr %56, align 4
-  br label %74
+  %68 = fsub float %64, %67
+  %69 = fcmp olt float %62, %68
+  %70 = select i1 %69, float %62, float %68
+  store float %70, ptr %53, align 4
+  br label %71
 
-74:                                               ; preds = %._crit_edge70, %51, %43
-  %75 = getelementptr inbounds i8, ptr %13, i64 120
-  %76 = getelementptr inbounds i8, ptr %13, i64 124
-  %77 = load float, ptr %76, align 4
-  %78 = load float, ptr %75, align 8
-  %79 = fcmp olt float %77, %78
-  %.66 = select i1 %79, float %77, float %78
-  %80 = getelementptr inbounds i8, ptr %13, i64 128
-  store float %.66, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %13, i64 132
-  %82 = getelementptr inbounds i8, ptr %13, i64 136
-  %83 = load float, ptr %82, align 4
-  %84 = load float, ptr %81, align 4
-  %85 = fcmp olt float %83, %84
-  %86 = select i1 %85, float %83, float %84
-  %87 = getelementptr inbounds i8, ptr %13, i64 140
-  store float %86, ptr %87, align 4
-  %88 = tail call i32 @Map_NodeIsAnd(ptr noundef nonnull %13) #6
-  %.not62 = icmp eq i32 %88, 0
-  br i1 %.not62, label %102, label %89
+71:                                               ; preds = %39, %._crit_edge70, %48
+  %72 = getelementptr inbounds i8, ptr %13, i64 120
+  %73 = getelementptr inbounds i8, ptr %13, i64 124
+  %74 = load float, ptr %73, align 4
+  %75 = load float, ptr %72, align 8
+  %76 = fcmp olt float %74, %75
+  %.66 = select i1 %76, float %74, float %75
+  %77 = getelementptr inbounds i8, ptr %13, i64 128
+  store float %.66, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %13, i64 132
+  %79 = getelementptr inbounds i8, ptr %13, i64 136
+  %80 = load float, ptr %79, align 4
+  %81 = load float, ptr %78, align 4
+  %82 = fcmp olt float %80, %81
+  %83 = select i1 %82, float %80, float %81
+  %84 = getelementptr inbounds i8, ptr %13, i64 140
+  store float %83, ptr %84, align 4
+  %85 = tail call i32 @Map_NodeIsAnd(ptr noundef nonnull %13) #6
+  %.not62 = icmp eq i32 %85, 0
+  br i1 %.not62, label %99, label %86
 
-89:                                               ; preds = %74
-  %90 = load ptr, ptr %40, align 8
-  %.not63 = icmp eq ptr %90, null
-  br i1 %.not63, label %95, label %91
+86:                                               ; preds = %71
+  %87 = load ptr, ptr %40, align 8
+  %.not63 = icmp eq ptr %87, null
+  br i1 %.not63, label %92, label %88
 
-91:                                               ; preds = %89
-  %92 = load float, ptr %80, align 8
-  %93 = fcmp olt float %92, 0x47B9999980000000
-  br i1 %93, label %94, label %95
+88:                                               ; preds = %86
+  %89 = load float, ptr %77, align 8
+  %90 = fcmp olt float %89, 0x47B9999980000000
+  br i1 %90, label %91, label %92
 
-94:                                               ; preds = %91
+91:                                               ; preds = %88
   tail call void @Map_TimePropagateRequiredPhase(ptr nonnull poison, ptr noundef nonnull %13, i32 noundef 0)
-  br label %95
+  br label %92
 
-95:                                               ; preds = %94, %91, %89
-  %96 = getelementptr inbounds i8, ptr %13, i64 152
-  %97 = load ptr, ptr %96, align 8
-  %.not64 = icmp eq ptr %97, null
-  br i1 %.not64, label %102, label %98
+92:                                               ; preds = %91, %88, %86
+  %93 = getelementptr inbounds i8, ptr %13, i64 152
+  %94 = load ptr, ptr %93, align 8
+  %.not64 = icmp eq ptr %94, null
+  br i1 %.not64, label %99, label %95
+
+95:                                               ; preds = %92
+  %96 = load float, ptr %84, align 4
+  %97 = fcmp olt float %96, 0x47B9999980000000
+  br i1 %97, label %98, label %99
 
 98:                                               ; preds = %95
-  %99 = load float, ptr %87, align 4
-  %100 = fcmp olt float %99, 0x47B9999980000000
-  br i1 %100, label %101, label %102
-
-101:                                              ; preds = %98
   tail call void @Map_TimePropagateRequiredPhase(ptr nonnull poison, ptr noundef nonnull %13, i32 noundef 1)
-  br label %102
+  br label %99
 
-102:                                              ; preds = %95, %98, %101, %74, %9, %20
-  %103 = icmp ugt i64 %indvars.iv, 1
-  br i1 %103, label %9, label %._crit_edge, !llvm.loop !9
+99:                                               ; preds = %92, %95, %98, %71, %9, %20
+  %100 = icmp ugt i64 %indvars.iv, 1
+  br i1 %100, label %9, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %102, %1
+._crit_edge:                                      ; preds = %99, %1
   ret void
 }
 

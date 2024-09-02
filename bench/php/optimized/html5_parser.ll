@@ -30,7 +30,7 @@ define hidden void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @lexbor_libxml2_bridge_convert_document(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
+define hidden range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert_document(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = alloca %struct.lexbor_array_obj_t, align 8
   %6 = tail call ptr @htmlNewDocNoDtD(ptr noundef null, ptr noundef null) #8
   %.not = icmp eq ptr %6, null

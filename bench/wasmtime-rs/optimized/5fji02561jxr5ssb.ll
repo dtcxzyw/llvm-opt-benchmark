@@ -138,7 +138,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define noundef i16 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h0f4dac8171fc57ddE"(ptr nocapture readnone align 1 %0, ptr readonly align 2 %1) unnamed_addr #3 {
+define noundef range(i16 0, -1) i16 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h0f4dac8171fc57ddE"(ptr nocapture readnone align 1 %0, ptr readonly align 2 %1) unnamed_addr #3 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %.val = load i16, ptr %1, align 2, !noundef !3
@@ -197,7 +197,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define noundef i16 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h85a8d33cde512275E"(ptr nocapture readnone align 1 %0, ptr readonly align 2 %1) unnamed_addr #3 {
+define noundef range(i16 0, -1) i16 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h85a8d33cde512275E"(ptr nocapture readnone align 1 %0, ptr readonly align 2 %1) unnamed_addr #3 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %.val = load i16, ptr %1, align 2, !noundef !3
@@ -206,7 +206,7 @@ define noundef i16 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define noundef i16 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc45f73de3b53d65bE"(ptr nocapture readnone align 1 %0, ptr readonly align 2 %1) unnamed_addr #3 {
+define noundef range(i16 0, -1) i16 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc45f73de3b53d65bE"(ptr nocapture readnone align 1 %0, ptr readonly align 2 %1) unnamed_addr #3 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %.val = load i16, ptr %1, align 2, !noundef !3

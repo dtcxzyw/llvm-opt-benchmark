@@ -6844,115 +6844,118 @@ _ZN9QMultiMapIdP7segmentE6insertERKdRKS1_.exit:   ; preds = %.lr.ph.i.i.i.i, %_Z
 385:                                              ; preds = %363, %_ZN9QMultiMapIdP7segmentE6insertERKdRKS1_.exit
   %storemerge = load ptr, ptr %storemerge288, align 8
   %.not65 = icmp eq ptr %storemerge, null
-  br i1 %.not65, label %._crit_edge291, label %318, !llvm.loop !22
+  br i1 %.not65, label %._crit_edge291.loopexit, label %318, !llvm.loop !22
 
-._crit_edge291:                                   ; preds = %385, %305
-  %.046.lcssa = phi i64 [ 0, %305 ], [ %.147, %385 ]
-  %.044.lcssa = phi i64 [ 0, %305 ], [ %.145, %385 ]
-  %.042.lcssa = phi i32 [ 0, %305 ], [ %.143, %385 ]
-  %.040.lcssa = phi i32 [ 0, %305 ], [ %.141, %385 ]
-  %386 = load i32, ptr %309, align 8
-  switch i32 %386, label %392 [
-    i32 0, label %387
-    i32 1, label %388
-    i32 2, label %389
-    i32 3, label %390
-    i32 4, label %391
+._crit_edge291.loopexit:                          ; preds = %385
+  %386 = sext i32 %.143 to i64
+  %387 = sext i32 %.141 to i64
+  br label %._crit_edge291
+
+._crit_edge291:                                   ; preds = %._crit_edge291.loopexit, %305
+  %.046.lcssa = phi i64 [ 0, %305 ], [ %.147, %._crit_edge291.loopexit ]
+  %.044.lcssa = phi i64 [ 0, %305 ], [ %.145, %._crit_edge291.loopexit ]
+  %.042.lcssa = phi i64 [ 0, %305 ], [ %386, %._crit_edge291.loopexit ]
+  %.040.lcssa = phi i64 [ 0, %305 ], [ %387, %._crit_edge291.loopexit ]
+  %388 = load i32, ptr %309, align 8
+  switch i32 %388, label %394 [
+    i32 0, label %389
+    i32 1, label %390
+    i32 2, label %391
+    i32 3, label %392
+    i32 4, label %393
   ]
 
-387:                                              ; preds = %._crit_edge291
-  call void @_ZN15TCPStreamDialog11fillStevensEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-  br label %392
-
-388:                                              ; preds = %._crit_edge291
-  call void @_ZN15TCPStreamDialog12fillTcptraceEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-  br label %392
-
 389:                                              ; preds = %._crit_edge291
-  call void @_ZN15TCPStreamDialog14fillThroughputEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-  br label %392
+  call void @_ZN15TCPStreamDialog11fillStevensEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
+  br label %394
 
 390:                                              ; preds = %._crit_edge291
-  call void @_ZN15TCPStreamDialog17fillRoundTripTimeEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-  br label %392
+  call void @_ZN15TCPStreamDialog12fillTcptraceEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
+  br label %394
 
 391:                                              ; preds = %._crit_edge291
-  call void @_ZN15TCPStreamDialog15fillWindowScaleEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
-  br label %392
+  call void @_ZN15TCPStreamDialog14fillThroughputEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
+  br label %394
 
-392:                                              ; preds = %._crit_edge291, %391, %390, %389, %388, %387
+392:                                              ; preds = %._crit_edge291
+  call void @_ZN15TCPStreamDialog17fillRoundTripTimeEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
+  br label %394
+
+393:                                              ; preds = %._crit_edge291
+  call void @_ZN15TCPStreamDialog15fillWindowScaleEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
+  br label %394
+
+394:                                              ; preds = %._crit_edge291, %393, %392, %391, %390, %389
   call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %36, i1 noundef zeroext true)
   call void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %26, ptr noundef nonnull align 8 dereferenceable(56) @_ZN15TCPStreamDialog16staticMetaObjectE, ptr noundef nonnull @.str.26, ptr noundef null, i32 noundef -1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, i64 3, ptr nonnull @.str.27)
-          to label %393 unwind label %492
+          to label %395 unwind label %492
 
-393:                                              ; preds = %392
-  %394 = load ptr, ptr %5, align 8
-  store ptr %394, ptr %27, align 8
-  %395 = getelementptr inbounds i8, ptr %27, i64 8
-  %396 = getelementptr inbounds i8, ptr %5, i64 8
-  %397 = load ptr, ptr %396, align 8
-  store ptr %397, ptr %395, align 8
-  %398 = getelementptr inbounds i8, ptr %27, i64 16
-  %399 = getelementptr inbounds i8, ptr %5, i64 16
-  %400 = load i64, ptr %399, align 8
-  store i64 %400, ptr %398, align 8
+395:                                              ; preds = %394
+  %396 = load ptr, ptr %5, align 8
+  store ptr %396, ptr %27, align 8
+  %397 = getelementptr inbounds i8, ptr %27, i64 8
+  %398 = getelementptr inbounds i8, ptr %5, i64 8
+  %399 = load ptr, ptr %398, align 8
+  store ptr %399, ptr %397, align 8
+  %400 = getelementptr inbounds i8, ptr %27, i64 16
+  %401 = getelementptr inbounds i8, ptr %5, i64 16
+  %402 = load i64, ptr %401, align 8
+  store i64 %402, ptr %400, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %25, ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27, i32 noundef 0, i16 32)
-          to label %401 unwind label %494
+          to label %403 unwind label %494
 
-401:                                              ; preds = %393
-  %402 = sext i32 %.042.lcssa to i64
-  %403 = invoke ptr @format_size_wmem(ptr noundef null, i64 noundef %402, i32 noundef 0, i16 noundef zeroext 1)
-          to label %404 unwind label %496
-
-404:                                              ; preds = %401
-  invoke void @_Z21gchar_free_to_qstringPc(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %28, ptr noundef %403)
+403:                                              ; preds = %395
+  %404 = invoke ptr @format_size_wmem(ptr noundef null, i64 noundef %.042.lcssa, i32 noundef 0, i16 noundef zeroext 1)
           to label %405 unwind label %496
 
-405:                                              ; preds = %404
-  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %28, i32 noundef 0, i16 32)
-          to label %406 unwind label %498
+405:                                              ; preds = %403
+  invoke void @_Z21gchar_free_to_qstringPc(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %28, ptr noundef %404)
+          to label %406 unwind label %496
 
 406:                                              ; preds = %405
-  %407 = invoke ptr @format_size_wmem(ptr noundef null, i64 noundef %.046.lcssa, i32 noundef 1, i16 noundef zeroext 1)
-          to label %408 unwind label %500
+  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %28, i32 noundef 0, i16 32)
+          to label %407 unwind label %498
 
-408:                                              ; preds = %406
-  invoke void @_Z21gchar_free_to_qstringPc(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %29, ptr noundef %407)
+407:                                              ; preds = %406
+  %408 = invoke ptr @format_size_wmem(ptr noundef null, i64 noundef %.046.lcssa, i32 noundef 1, i16 noundef zeroext 1)
           to label %409 unwind label %500
 
-409:                                              ; preds = %408
-  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef 0, i16 32)
-          to label %410 unwind label %502
+409:                                              ; preds = %407
+  invoke void @_Z21gchar_free_to_qstringPc(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %29, ptr noundef %408)
+          to label %410 unwind label %500
 
 410:                                              ; preds = %409
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, i64 3, ptr nonnull @.str.28)
-          to label %411 unwind label %504
+  invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef 0, i16 32)
+          to label %411 unwind label %502
 
 411:                                              ; preds = %410
-  %412 = load ptr, ptr %4, align 8
-  store ptr %412, ptr %30, align 8
-  %413 = getelementptr inbounds i8, ptr %30, i64 8
-  %414 = getelementptr inbounds i8, ptr %4, i64 8
-  %415 = load ptr, ptr %414, align 8
-  store ptr %415, ptr %413, align 8
-  %416 = getelementptr inbounds i8, ptr %30, i64 16
-  %417 = getelementptr inbounds i8, ptr %4, i64 16
-  %418 = load i64, ptr %417, align 8
-  store i64 %418, ptr %416, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, i64 3, ptr nonnull @.str.28)
+          to label %412 unwind label %504
+
+412:                                              ; preds = %411
+  %413 = load ptr, ptr %4, align 8
+  store ptr %413, ptr %30, align 8
+  %414 = getelementptr inbounds i8, ptr %30, i64 8
+  %415 = getelementptr inbounds i8, ptr %4, i64 8
+  %416 = load ptr, ptr %415, align 8
+  store ptr %416, ptr %414, align 8
+  %417 = getelementptr inbounds i8, ptr %30, i64 16
+  %418 = getelementptr inbounds i8, ptr %4, i64 16
+  %419 = load i64, ptr %418, align 8
+  store i64 %419, ptr %417, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %30, i32 noundef 0, i16 32)
-          to label %419 unwind label %506
+          to label %420 unwind label %506
 
-419:                                              ; preds = %411
-  %420 = sext i32 %.040.lcssa to i64
-  %421 = invoke ptr @format_size_wmem(ptr noundef null, i64 noundef %420, i32 noundef 0, i16 noundef zeroext 1)
+420:                                              ; preds = %412
+  %421 = invoke ptr @format_size_wmem(ptr noundef null, i64 noundef %.040.lcssa, i32 noundef 0, i16 noundef zeroext 1)
           to label %422 unwind label %508
 
-422:                                              ; preds = %419
+422:                                              ; preds = %420
   invoke void @_Z21gchar_free_to_qstringPc(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %31, ptr noundef %421)
           to label %423 unwind label %508
 
@@ -7191,47 +7194,47 @@ _ZN7QStringD2Ev.exit211:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @_ZN15TCPStreamDialog9resetAxesEv(ptr noundef nonnull align 8 dereferenceable(584) %0)
   br label %565
 
-492:                                              ; preds = %392
+492:                                              ; preds = %394
   %493 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit255
 
-494:                                              ; preds = %393
+494:                                              ; preds = %395
   %495 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit251
 
-496:                                              ; preds = %404, %401
+496:                                              ; preds = %405, %403
   %497 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit247
 
-498:                                              ; preds = %405
+498:                                              ; preds = %406
   %499 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit243
 
-500:                                              ; preds = %408, %406
+500:                                              ; preds = %409, %407
   %501 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit239
 
-502:                                              ; preds = %409
+502:                                              ; preds = %410
   %503 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit235
 
-504:                                              ; preds = %410
+504:                                              ; preds = %411
   %505 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit231
 
-506:                                              ; preds = %411
+506:                                              ; preds = %412
   %507 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit227
 
-508:                                              ; preds = %422, %419
+508:                                              ; preds = %422, %420
   %509 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit223
@@ -12513,7 +12516,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE
   %441 = load i32, ptr %439, align 4
   %442 = sub i32 %440, %441
   %.not71.i1004 = icmp sgt i32 %442, -1
-  br i1 %.not71.i1004, label %.lr.ph1007.preheader, label %._crit_edge1008
+  br i1 %.not71.i1004, label %.lr.ph1007.preheader, label %.outer.backedge.i
 
 .lr.ph1007.preheader:                             ; preds = %.lr.ph174.i
   %.pre1149 = load i32, ptr %.sroa.0102.0.ph178.i, align 4
@@ -12539,13 +12542,10 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE
   %449 = load i32, ptr %448, align 4
   %450 = sub i32 %510, %449
   %.not71.i = icmp sgt i32 %450, -1
-  br i1 %.not71.i, label %.lr.ph1007, label %._crit_edge1008, !llvm.loop !56
+  br i1 %.not71.i, label %.lr.ph1007, label %._crit_edge1008.loopexit, !llvm.loop !56
 
-._crit_edge1008:                                  ; preds = %447, %.lr.ph174.i
-  %.6.lcssa = phi i32 [ %.5, %.lr.ph174.i ], [ %.11, %447 ]
-  %.lcssa968 = phi ptr [ %433, %.lr.ph174.i ], [ %520, %447 ]
-  %indvars.iv203.i.lcssa = phi i64 [ %438, %.lr.ph174.i ], [ %indvars.iv.next204.i, %447 ]
-  %451 = trunc nsw i64 %indvars.iv203.i.lcssa to i32
+._crit_edge1008.loopexit:                         ; preds = %447
+  %451 = trunc nsw i64 %indvars.iv.next204.i to i32
   br label %.outer.backedge.i
 
 .lr.ph1007:                                       ; preds = %.lr.ph1007.preheader, %447
@@ -12586,11 +12586,11 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EE
   %.pre.i = load ptr, ptr %241, align 8
   br label %.outer.backedge.i
 
-.outer.backedge.i:                                ; preds = %.noexc191, %._crit_edge1008
-  %.7 = phi i32 [ %467, %.noexc191 ], [ %.6.lcssa, %._crit_edge1008 ]
-  %473 = phi ptr [ %.pre.i, %.noexc191 ], [ %.lcssa968, %._crit_edge1008 ]
-  %.sroa.0102.0.ph178.pn.i = phi ptr [ %471, %.noexc191 ], [ %.sroa.0102.0.ph178.i, %._crit_edge1008 ]
-  %.1.ph.be.i = phi i32 [ %472, %.noexc191 ], [ %451, %._crit_edge1008 ]
+.outer.backedge.i:                                ; preds = %.lr.ph174.i, %._crit_edge1008.loopexit, %.noexc191
+  %.7 = phi i32 [ %467, %.noexc191 ], [ %.5, %.lr.ph174.i ], [ %.11, %._crit_edge1008.loopexit ]
+  %473 = phi ptr [ %.pre.i, %.noexc191 ], [ %433, %.lr.ph174.i ], [ %520, %._crit_edge1008.loopexit ]
+  %.sroa.0102.0.ph178.pn.i = phi ptr [ %471, %.noexc191 ], [ %.sroa.0102.0.ph178.i, %.lr.ph174.i ], [ %.sroa.0102.0.ph178.i, %._crit_edge1008.loopexit ]
+  %.1.ph.be.i = phi i32 [ %472, %.noexc191 ], [ %.1.ph179.i, %.lr.ph174.i ], [ %451, %._crit_edge1008.loopexit ]
   %.sroa.0102.0.ph.be.i = getelementptr i8, ptr %.sroa.0102.0.ph178.pn.i, i64 8
   %474 = icmp slt i32 %.1.ph.be.i, %416
   %475 = icmp ne ptr %.sroa.0102.0.ph.be.i, %473

@@ -1678,26 +1678,26 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   tail call void @down_write(ptr noundef nonnull @trace_event_sem) #19
   %3 = load ptr, ptr @ftrace_events, align 8
   %4 = icmp eq ptr %3, @ftrace_events
-  br i1 %4, label %.loopexit24, label %5
+  br i1 %4, label %.loopexit23, label %5
 
 5:                                                ; preds = %2
   %6 = sext i32 %1 to i64
   br label %7
 
-7:                                                ; preds = %.loopexit23, %5
-  %8 = phi ptr [ %12, %.loopexit23 ], [ %3, %5 ]
-  %9 = phi ptr [ %19, %.loopexit23 ], [ null, %5 ]
-  %10 = phi i8 [ %246, %.loopexit23 ], [ 0, %5 ]
-  %11 = phi i32 [ %245, %.loopexit23 ], [ 0, %5 ]
+7:                                                ; preds = %.loopexit22, %5
+  %8 = phi ptr [ %12, %.loopexit22 ], [ %3, %5 ]
+  %9 = phi ptr [ %19, %.loopexit22 ], [ null, %5 ]
+  %10 = phi i8 [ %246, %.loopexit22 ], [ 0, %5 ]
+  %11 = phi i32 [ %245, %.loopexit22 ], [ 0, %5 ]
   %12 = load ptr, ptr %8, align 8
   %13 = icmp eq ptr %9, null
   %.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre36 = load ptr, ptr %.pre, align 8
+  %.pre35 = load ptr, ptr %.pre, align 8
   br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %7
-  %15 = icmp eq ptr %.pre36, %9
+  %15 = icmp eq ptr %.pre35, %9
   br i1 %15, label %._crit_edge, label %16
 
 16:                                               ; preds = %14
@@ -1706,9 +1706,9 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
 ._crit_edge:                                      ; preds = %7, %16, %14
   %17 = phi i32 [ %11, %14 ], [ 0, %16 ], [ 0, %7 ]
   %18 = phi i8 [ %10, %14 ], [ 1, %16 ], [ 1, %7 ]
-  %19 = phi ptr [ %9, %14 ], [ %.pre36, %16 ], [ %.pre36, %7 ]
+  %19 = phi ptr [ %9, %14 ], [ %.pre35, %16 ], [ %.pre35, %7 ]
   %20 = icmp slt i32 %17, %1
-  br i1 %20, label %21, label %.loopexit23
+  br i1 %20, label %21, label %.loopexit22
 
 21:                                               ; preds = %._crit_edge
   %22 = getelementptr inbounds i8, ptr %8, i64 16
@@ -1718,17 +1718,17 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   %26 = sext i32 %17 to i64
   br label %27
 
-27:                                               ; preds = %.loopexit21, %21
-  %28 = phi i64 [ %26, %21 ], [ %243, %.loopexit21 ]
-  %29 = phi i8 [ %18, %21 ], [ %242, %.loopexit21 ]
-  %30 = phi i32 [ %17, %21 ], [ %241, %.loopexit21 ]
+27:                                               ; preds = %.loopexit20, %21
+  %28 = phi i64 [ %26, %21 ], [ %243, %.loopexit20 ]
+  %29 = phi i8 [ %18, %21 ], [ %242, %.loopexit20 ]
+  %30 = phi i32 [ %17, %21 ], [ %241, %.loopexit20 ]
   %31 = load ptr, ptr %22, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr ptr, ptr %0, i64 %28
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %32, %35
-  br i1 %36, label %37, label %.loopexit21
+  br i1 %36, label %37, label %.loopexit20
 
 37:                                               ; preds = %27
   %38 = and i8 %29, 1
@@ -1743,7 +1743,7 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   %47 = load ptr, ptr %23, align 8
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %.loopexit20, label %50
+  br i1 %49, label %.loopexit19, label %50
 
 50:                                               ; preds = %37
   %51 = shl i64 %45, 32
@@ -1765,7 +1765,7 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   %60 = getelementptr i8, ptr %56, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 0
-  br i1 %62, label %.loopexit20, label %.loopexit
+  br i1 %62, label %.loopexit19, label %.loopexit
 
 63:                                               ; preds = %54
   %64 = xor i32 %57, 1
@@ -1793,7 +1793,7 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
 
 78:                                               ; preds = %.preheader
   %79 = icmp eq i8 %72, 0
-  br i1 %79, label %.loopexit20, label %.loopexit
+  br i1 %79, label %.loopexit19, label %.loopexit
 
 80:                                               ; preds = %67
   %81 = zext i8 %55 to i64
@@ -1809,9 +1809,9 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   %89 = load ptr, ptr %43, align 8
   %90 = tail call i32 @strncmp(ptr noundef %89, ptr noundef %56, i64 noundef %52) #19
   %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %.preheader49
+  br i1 %91, label %92, label %.preheader48
 
-.preheader49:                                     ; preds = %92, %88
+.preheader48:                                     ; preds = %92, %88
   br label %121
 
 92:                                               ; preds = %88
@@ -1824,7 +1824,7 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   %99 = icmp ne i8 %98, 0
   %100 = icmp eq i8 %94, 95
   %101 = or i1 %100, %99
-  br i1 %101, label %.preheader49, label %102
+  br i1 %101, label %.preheader48, label %102
 
 102:                                              ; preds = %92
   %103 = load i64, ptr %53, align 8
@@ -1855,10 +1855,10 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   tail call void asm sideeffect "1015: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1015b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1015) #19, !srcloc !61
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2782, i32 2307, i64 12) #19, !srcloc !62
   tail call void asm sideeffect "1016: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1016b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1016) #19, !srcloc !63
-  br label %.loopexit20
+  br label %.loopexit19
 
-121:                                              ; preds = %.backedge, %.preheader49
-  %122 = phi ptr [ %56, %.preheader49 ], [ %.be, %.backedge ]
+121:                                              ; preds = %.backedge, %.preheader48
+  %122 = phi ptr [ %56, %.preheader48 ], [ %.be, %.backedge ]
   %123 = getelementptr i8, ptr %122, i64 1
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i64
@@ -1872,7 +1872,7 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
 
 132:                                              ; preds = %121
   switch i8 %124, label %.loopexit [
-    i8 0, label %.loopexit20
+    i8 0, label %.loopexit19
     i8 46, label %137
     i8 45, label %133
   ]
@@ -1889,7 +1889,7 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   %140 = getelementptr i8, ptr %123, i64 %139
   %141 = load i8, ptr %140, align 1
   %142 = icmp eq i8 %141, 0
-  br i1 %142, label %.loopexit20, label %.backedge
+  br i1 %142, label %.loopexit19, label %.backedge
 
 .backedge:                                        ; preds = %137, %121
   %.be = phi ptr [ %123, %121 ], [ %140, %137 ]
@@ -1901,9 +1901,9 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   %145 = getelementptr i8, ptr %144, i64 1
   %146 = load i8, ptr %145, align 1
   %147 = icmp eq i8 %146, 0
-  br i1 %147, label %.loopexit20, label %54, !llvm.loop !65
+  br i1 %147, label %.loopexit19, label %54, !llvm.loop !65
 
-.loopexit20:                                      ; preds = %.loopexit, %78, %59, %137, %132, %.thread, %37
+.loopexit19:                                      ; preds = %.loopexit, %78, %59, %137, %132, %.thread, %37
   %148 = load ptr, ptr %33, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8
@@ -1914,13 +1914,13 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %157, label %156, !prof !13
 
-156:                                              ; preds = %.loopexit20
+156:                                              ; preds = %.loopexit19
   tail call void asm sideeffect "1019: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1019b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1019) #19, !srcloc !66
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2849, i32 2307, i64 12) #19, !srcloc !67
   tail call void asm sideeffect "1020: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1020b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1020) #19, !srcloc !68
-  br label %.loopexit21
+  br label %.loopexit20
 
-157:                                              ; preds = %.loopexit20
+157:                                              ; preds = %.loopexit19
   %158 = load ptr, ptr %22, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 40
   %160 = load ptr, ptr %159, align 8
@@ -1939,7 +1939,7 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   %167 = phi ptr [ %165, %164 ], [ %163, %162 ]
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %168, %167
-  br i1 %169, label %.loopexit21, label %170
+  br i1 %169, label %.loopexit20, label %170
 
 170:                                              ; preds = %166
   %171 = shl i64 %151, 32
@@ -1982,7 +1982,7 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   tail call void asm sideeffect "1021: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1021b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1021) #19, !srcloc !69
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2866, i32 2307, i64 12) #19, !srcloc !70
   tail call void asm sideeffect "1022: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1022b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1022) #19, !srcloc !71
-  br label %.loopexit21
+  br label %.loopexit20
 
 198:                                              ; preds = %194
   %199 = load ptr, ptr %176, align 8
@@ -1993,7 +1993,7 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   %204 = load i64, ptr %173, align 8
   %205 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %203, i64 noundef 0, ptr noundef nonnull @.str.19, i64 noundef %204) #19
   %206 = icmp sgt i32 %205, %152
-  br i1 %206, label %.thread19, label %207
+  br i1 %206, label %.critedge, label %207
 
 207:                                              ; preds = %198
   %208 = add i32 %205, 1
@@ -2013,9 +2013,9 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   %221 = getelementptr i8, ptr %203, i64 %220
   store i8 0, ptr %221, align 1
   %222 = icmp eq ptr %216, null
-  br i1 %222, label %.thread19, label %223, !prof !60
+  br i1 %222, label %.critedge, label %223, !prof !9
 
-.thread19:                                        ; preds = %198, %207
+.critedge:                                        ; preds = %198, %207
   tail call void asm sideeffect "1023: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1023b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1023) #19, !srcloc !72
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2871, i32 2307, i64 12) #19, !srcloc !73
   tail call void asm sideeffect "1024: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1024b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1024) #19, !srcloc !74
@@ -2057,26 +2057,26 @@ define dso_local void @trace_event_eval_update(ptr nocapture noundef readonly %0
   store ptr %195, ptr %176, align 8
   br label %238
 
-238:                                              ; preds = %237, %.thread19, %190, %180, %174
+238:                                              ; preds = %237, %.critedge, %190, %180, %174
   %239 = load ptr, ptr %175, align 8
   %240 = icmp eq ptr %239, %167
-  br i1 %240, label %.loopexit21, label %174, !llvm.loop !78
+  br i1 %240, label %.loopexit20, label %174, !llvm.loop !78
 
-.loopexit21:                                      ; preds = %238, %197, %166, %156, %27
+.loopexit20:                                      ; preds = %238, %197, %166, %156, %27
   %241 = phi i32 [ %30, %27 ], [ %41, %156 ], [ %41, %166 ], [ %41, %197 ], [ %41, %238 ]
   %242 = phi i8 [ %29, %27 ], [ %42, %156 ], [ %42, %166 ], [ %42, %197 ], [ %42, %238 ]
   %243 = add nsw i64 %28, 1
   %244 = icmp eq i64 %243, %6
-  br i1 %244, label %.loopexit23, label %27, !llvm.loop !79
+  br i1 %244, label %.loopexit22, label %27, !llvm.loop !79
 
-.loopexit23:                                      ; preds = %.loopexit21, %._crit_edge
-  %245 = phi i32 [ %17, %._crit_edge ], [ %241, %.loopexit21 ]
-  %246 = phi i8 [ %18, %._crit_edge ], [ %242, %.loopexit21 ]
+.loopexit22:                                      ; preds = %.loopexit20, %._crit_edge
+  %245 = phi i32 [ %17, %._crit_edge ], [ %241, %.loopexit20 ]
+  %246 = phi i8 [ %18, %._crit_edge ], [ %242, %.loopexit20 ]
   %247 = tail call i32 @__SCT__cond_resched() #19
   %248 = icmp eq ptr %12, @ftrace_events
-  br i1 %248, label %.loopexit24, label %7, !llvm.loop !80
+  br i1 %248, label %.loopexit23, label %7, !llvm.loop !80
 
-.loopexit24:                                      ; preds = %.loopexit23, %2
+.loopexit23:                                      ; preds = %.loopexit22, %2
   tail call void @up_write(ptr noundef nonnull @trace_event_sem) #19
   ret void
 }
@@ -3432,7 +3432,7 @@ define internal noundef range(i32 -19, 1) i32 @event_trace_enable_again() #4 sec
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @event_trace_init() local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @event_trace_init() local_unnamed_addr #4 section ".init.text" align 16 {
   %1 = load volatile ptr, ptr @ftrace_trace_arrays, align 8
   %2 = icmp eq ptr %1, @ftrace_trace_arrays
   br i1 %2, label %.thread, label %3
@@ -4681,7 +4681,7 @@ declare dso_local i32 @trace_pid_list_first(ptr noundef, ptr noundef) local_unna
 declare dso_local i32 @trigger_process_regex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -2147483648, 1) i32 @event_create_dir(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @event_create_dir(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -6280,7 +6280,7 @@ __ftrace_set_clr_event_nolock.exit.thread:        ; preds = %30
 .split.us:                                        ; preds = %36, %.thread.i.us
   %38 = phi ptr [ %81, %.thread.i.us ], [ %34, %36 ]
   %39 = phi i32 [ %.fr.us, %.thread.i.us ], [ -22, %36 ]
-  %40 = phi i32 [ %79, %.thread.i.us ], [ 0, %36 ]
+  %40 = phi i32 [ %80, %.thread.i.us ], [ 0, %36 ]
   %41 = getelementptr inbounds i8, ptr %38, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
@@ -6335,12 +6335,12 @@ __ftrace_set_clr_event_nolock.exit.thread:        ; preds = %30
   %76 = icmp ne i32 %40, 0
   %77 = select i1 %75, i1 true, i1 %76
   %78 = select i1 %77, i32 %40, i32 %74
+  %79 = freeze i32 %78
   br label %.thread.i.us
 
 .thread.i.us:                                     ; preds = %73, %66, %62, %59, %54
-  %79 = phi i32 [ %78, %73 ], [ %40, %66 ], [ %40, %62 ], [ %40, %59 ], [ %40, %54 ]
-  %80 = phi i32 [ %78, %73 ], [ %39, %66 ], [ %39, %62 ], [ %39, %59 ], [ %39, %54 ]
-  %.fr.us = freeze i32 %80
+  %80 = phi i32 [ %79, %73 ], [ %40, %66 ], [ %40, %62 ], [ %40, %59 ], [ %40, %54 ]
+  %.fr.us = phi i32 [ %79, %73 ], [ %39, %66 ], [ %39, %62 ], [ %39, %59 ], [ %39, %54 ]
   %81 = load ptr, ptr %38, align 8
   %82 = icmp eq ptr %81, %33
   br i1 %82, label %__ftrace_set_clr_event_nolock.exit, label %.split.us, !llvm.loop !99
@@ -6348,7 +6348,7 @@ __ftrace_set_clr_event_nolock.exit.thread:        ; preds = %30
 .split:                                           ; preds = %36, %.thread.i
   %83 = phi ptr [ %130, %.thread.i ], [ %34, %36 ]
   %84 = phi i32 [ %.fr, %.thread.i ], [ -22, %36 ]
-  %85 = phi i32 [ %128, %.thread.i ], [ 0, %36 ]
+  %85 = phi i32 [ %129, %.thread.i ], [ 0, %36 ]
   %86 = getelementptr inbounds i8, ptr %83, i64 16
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 96
@@ -6409,12 +6409,12 @@ __ftrace_set_clr_event_nolock.exit.thread:        ; preds = %30
   %125 = icmp ne i32 %85, 0
   %126 = select i1 %124, i1 true, i1 %125
   %127 = select i1 %126, i32 %85, i32 %123
+  %128 = freeze i32 %127
   br label %.thread.i
 
 .thread.i:                                        ; preds = %122, %118, %111, %107, %104, %99
-  %128 = phi i32 [ %85, %118 ], [ %127, %122 ], [ %85, %111 ], [ %85, %107 ], [ %85, %104 ], [ %85, %99 ]
-  %129 = phi i32 [ %84, %118 ], [ %127, %122 ], [ %84, %111 ], [ %84, %107 ], [ %84, %104 ], [ %84, %99 ]
-  %.fr = freeze i32 %129
+  %129 = phi i32 [ %85, %118 ], [ %128, %122 ], [ %85, %111 ], [ %85, %107 ], [ %85, %104 ], [ %85, %99 ]
+  %.fr = phi i32 [ %84, %118 ], [ %128, %122 ], [ %84, %111 ], [ %84, %107 ], [ %84, %104 ], [ %84, %99 ]
   %130 = load ptr, ptr %83, align 8
   %131 = icmp eq ptr %130, %33
   br i1 %131, label %__ftrace_set_clr_event_nolock.exit, label %.split, !llvm.loop !99

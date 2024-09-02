@@ -156,7 +156,7 @@ define hidden noundef i64 @_ZN22ThreadLocalAllocBuffer28refill_waste_limit_incre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN22ThreadLocalAllocBuffer9remainingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN22ThreadLocalAllocBuffer9remainingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -853,7 +853,7 @@ define hidden void @_ZN22ThreadLocalAllocBuffer10initializeEv(ptr noundef nonnul
   %7 = fpext float %6 to double
   %8 = fadd double %7, 5.000000e-01
   %9 = fptoui double %8 to i32
-  %10 = tail call noundef i32 @llvm.umax.i32(i32 %9, i32 1)
+  %10 = tail call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %9, i32 1)
   %11 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 -432
   %13 = load ptr, ptr %11, align 8
@@ -947,7 +947,7 @@ define hidden noundef i64 @_ZN22ThreadLocalAllocBuffer20initial_desired_sizeEv(p
   %7 = fpext float %6 to double
   %8 = fadd double %7, 5.000000e-01
   %9 = fptoui double %8 to i32
-  %10 = tail call noundef i32 @llvm.umax.i32(i32 %9, i32 1)
+  %10 = tail call noundef range(i32 1, 0) i32 @llvm.umax.i32(i32 %9, i32 1)
   %11 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 -432
   %13 = load ptr, ptr %11, align 8
@@ -1315,7 +1315,7 @@ _ZL20create_perf_variablePKcN8PerfData5UnitsEP10JavaThread.exit31: ; preds = %10
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN21ThreadLocalAllocStats22allocating_threads_avgEv() local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 1, 0) i32 @_ZN21ThreadLocalAllocStats22allocating_threads_avgEv() local_unnamed_addr #2 align 2 {
   %1 = load float, ptr @_ZN21ThreadLocalAllocStats23_allocating_threads_avgE, align 4
   %2 = fpext float %1 to double
   %3 = fadd double %2, 5.000000e-01

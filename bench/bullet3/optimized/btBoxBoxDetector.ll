@@ -1292,19 +1292,20 @@ if.end914:                                        ; preds = %if.else898, %if.the
 if.then949:                                       ; preds = %if.end914
   %cmp954 = fcmp ogt float %238, %239
   %. = select i1 %cmp954, i64 1, i64 2
+  %.574 = select i1 %cmp954, i32 2, i32 1
   br label %if.end967
 
 if.else958:                                       ; preds = %if.end914
   %cmp963 = fcmp ogt float %237, %239
   %.575 = select i1 %cmp963, i64 0, i64 2
+  %.577 = select i1 %cmp963, i32 2, i32 1
   %240 = zext i1 %cmp963 to i64
   br label %if.end967
 
 if.end967:                                        ; preds = %if.else958, %if.then949
-  %cmp963.sink = phi i1 [ %cmp963, %if.else958 ], [ %cmp954, %if.then949 ]
-  %lanr.0 = phi i64 [ %.575, %if.else958 ], [ %., %if.then949 ]
-  %a1.0 = phi i64 [ %240, %if.else958 ], [ 0, %if.then949 ]
-  %.577 = select i1 %cmp963.sink, i32 2, i32 1
+  %lanr.0 = phi i64 [ %., %if.then949 ], [ %.575, %if.else958 ]
+  %a1.0 = phi i64 [ 0, %if.then949 ], [ %240, %if.else958 ]
+  %a2.0 = phi i32 [ %.574, %if.then949 ], [ %.577, %if.else958 ]
   %arrayidx970 = getelementptr inbounds float, ptr %nr, i64 %lanr.0
   %241 = load float, ptr %arrayidx970, align 4
   %cmp971 = fcmp olt float %241, 0.000000e+00
@@ -1401,7 +1402,7 @@ if.end1031:                                       ; preds = %if.end1017, %if.the
   %arrayidx6.i736 = getelementptr inbounds i8, ptr %add.ptr1043, i64 32
   %271 = load float, ptr %arrayidx6.i736, align 4
   %272 = tail call noundef float @llvm.fmuladd.f32(float %261, float %271, float %270)
-  %idx.ext1047 = zext nneg i32 %.577 to i64
+  %idx.ext1047 = zext nneg i32 %a2.0 to i64
   %add.ptr1048 = getelementptr inbounds float, ptr %Rb.0962, i64 %idx.ext1047
   %273 = load float, ptr %add.ptr1048, align 4
   %arrayidx3.i738 = getelementptr inbounds i8, ptr %add.ptr1048, i64 16
@@ -1476,7 +1477,7 @@ if.end1108:                                       ; preds = %if.end1031
   %idxprom1169 = zext nneg i32 %codeN.0 to i64
   %arrayidx1170 = getelementptr inbounds float, ptr %Sa.0968, i64 %idxprom1169
   %289 = load float, ptr %arrayidx1170, align 4
-  %290 = zext nneg i32 %.577 to i64
+  %290 = zext nneg i32 %a2.0 to i64
   %wide.trip.count = zext nneg i32 %call1105 to i64
   br label %for.body1119
 

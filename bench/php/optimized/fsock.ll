@@ -42,7 +42,7 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
 
 15:                                               ; preds = %3
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 5) #4
-  br label %.thread329
+  br label %.thread335
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds i8, ptr %0, i64 80
@@ -58,7 +58,7 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
 
 22:                                               ; preds = %16
   %23 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %17, ptr noundef nonnull %4, i32 noundef 1) #4
-  br i1 %23, label %._crit_edge, label %.thread329
+  br i1 %23, label %._crit_edge, label %.thread335
 
 ._crit_edge:                                      ; preds = %22
   %.pre = load ptr, ptr %4, align 8
@@ -70,7 +70,7 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 24
   %29 = icmp eq i32 %13, 1
-  br i1 %29, label %.thread372, label %30
+  br i1 %29, label %.thread368, label %30
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds i8, ptr %0, i64 96
@@ -86,21 +86,21 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
 
 36:                                               ; preds = %30
   %37 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %31, ptr noundef nonnull %5, i32 noundef 2) #4
-  br i1 %37, label %38, label %.thread329
+  br i1 %37, label %38, label %.thread335
 
 38:                                               ; preds = %36, %.critedge
   %39 = icmp ult i32 %13, 3
-  br i1 %39, label %.thread372, label %40
+  br i1 %39, label %.thread368, label %40
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %0, i64 112
   %42 = icmp eq i32 %13, 3
-  br i1 %42, label %.thread372, label %43
+  br i1 %42, label %.thread368, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %0, i64 128
   %.not = icmp eq i32 %13, 5
-  br i1 %.not, label %45, label %.thread372
+  br i1 %.not, label %45, label %.thread368
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds i8, ptr %0, i64 144
@@ -108,26 +108,26 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   %48 = load i8, ptr %47, align 8
   switch i8 %48, label %49 [
     i8 5, label %52
-    i8 1, label %.thread372
+    i8 1, label %.thread368
   ]
 
 49:                                               ; preds = %45
   %50 = call zeroext i1 @zend_parse_arg_double_slow(ptr noundef nonnull %46, ptr noundef nonnull %6, i32 noundef 5) #4
-  %cond.fr294 = freeze i1 %50
-  br i1 %cond.fr294, label %.thread370, label %.thread329
+  %.fr = freeze i1 %50
+  br i1 %.fr, label %.thread351, label %.thread335
 
-.thread370:                                       ; preds = %49
+.thread335:                                       ; preds = %49, %22, %36, %15
+  %.0232349 = phi i32 [ 1, %22 ], [ 2, %36 ], [ 0, %15 ], [ 5, %49 ]
+  %.0233348 = phi ptr [ %17, %22 ], [ %31, %36 ], [ null, %15 ], [ %46, %49 ]
+  %.0234347 = phi i32 [ 4, %22 ], [ 0, %36 ], [ 0, %15 ], [ 21, %49 ]
+  %.0235346 = phi i32 [ 9, %22 ], [ 9, %36 ], [ 1, %15 ], [ 9, %49 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0235346, i32 noundef %.0232349, ptr noundef null, i32 noundef %.0234347, ptr noundef %.0233348) #4
+  br label %178
+
+.thread351:                                       ; preds = %49
   %51 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %51, align 8
   br label %58
-
-.thread329:                                       ; preds = %49, %22, %36, %15
-  %.0232343 = phi i32 [ 1, %22 ], [ 2, %36 ], [ 0, %15 ], [ 5, %49 ]
-  %.0233342 = phi ptr [ %17, %22 ], [ %31, %36 ], [ null, %15 ], [ %46, %49 ]
-  %.0234341 = phi i32 [ 4, %22 ], [ 0, %36 ], [ 0, %15 ], [ 21, %49 ]
-  %.0235340 = phi i32 [ 9, %22 ], [ 9, %36 ], [ 1, %15 ], [ 9, %49 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0235340, i32 noundef %.0232343, ptr noundef null, i32 noundef %.0234341, ptr noundef %.0233342) #4
-  br label %178
 
 52:                                               ; preds = %45
   %53 = load double, ptr %46, align 8
@@ -136,9 +136,9 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   store i32 2, ptr %54, align 8
   br label %58
 
-.thread372:                                       ; preds = %24, %38, %40, %43, %45
-  %.0250325353 = phi ptr [ %44, %45 ], [ %44, %43 ], [ null, %40 ], [ null, %38 ], [ null, %24 ]
-  %.0249326351 = phi ptr [ %41, %45 ], [ %41, %43 ], [ %41, %40 ], [ null, %38 ], [ null, %24 ]
+.thread368:                                       ; preds = %24, %38, %40, %43, %45
+  %.0249.ph367 = phi ptr [ %41, %45 ], [ null, %24 ], [ null, %38 ], [ %41, %40 ], [ %41, %43 ]
+  %.0250.ph366 = phi ptr [ %44, %45 ], [ null, %24 ], [ null, %38 ], [ null, %40 ], [ %44, %43 ]
   %55 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %55, align 8
   %56 = load i64, ptr getelementptr inbounds (i8, ptr @file_globals, i64 24), align 8
@@ -146,27 +146,27 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   store double %57, ptr %6, align 8
   br label %58
 
-58:                                               ; preds = %52, %.thread370, %.thread372
-  %59 = phi ptr [ %55, %.thread372 ], [ %54, %52 ], [ %51, %.thread370 ]
-  %.0250325352 = phi ptr [ %.0250325353, %.thread372 ], [ %44, %52 ], [ %44, %.thread370 ]
-  %.0249326350 = phi ptr [ %.0249326351, %.thread372 ], [ %41, %52 ], [ %41, %.thread370 ]
+58:                                               ; preds = %52, %.thread351, %.thread368
+  %59 = phi ptr [ %51, %.thread351 ], [ %55, %.thread368 ], [ %54, %52 ]
+  %.0250331358 = phi ptr [ %44, %.thread351 ], [ %.0250.ph366, %.thread368 ], [ %44, %52 ]
+  %.0249332357 = phi ptr [ %41, %.thread351 ], [ %.0249.ph367, %.thread368 ], [ %41, %52 ]
   %.not267 = icmp eq i32 %2, 0
-  %.pre368 = load i64, ptr %5, align 8
+  %.pre387 = load i64, ptr %5, align 8
   br i1 %.not267, label %62, label %60
 
 60:                                               ; preds = %58
-  %61 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %8, i64 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull %28, i64 noundef %.pre368) #4
-  %.pre367 = load i64, ptr %5, align 8
+  %61 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %8, i64 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull %28, i64 noundef %.pre387) #4
+  %.pre386 = load i64, ptr %5, align 8
   br label %62
 
 62:                                               ; preds = %60, %58
-  %63 = phi i64 [ %.pre367, %60 ], [ %.pre368, %58 ]
+  %63 = phi i64 [ %.pre386, %60 ], [ %.pre387, %58 ]
   %64 = icmp sgt i64 %63, 0
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %62
   %66 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %10, i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %28, i64 noundef %63) #4
-  %.pre369 = load ptr, ptr %10, align 8
+  %.pre388 = load ptr, ptr %10, align 8
   br label %68
 
 67:                                               ; preds = %62
@@ -174,7 +174,7 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   br label %68
 
 68:                                               ; preds = %67, %65
-  %69 = phi ptr [ %.pre369, %65 ], [ %28, %67 ]
+  %69 = phi ptr [ %.pre388, %65 ], [ %28, %67 ]
   %.0231 = phi i64 [ %66, %65 ], [ %27, %67 ]
   %70 = load double, ptr %6, align 8
   %71 = fmul double %70, 1.000000e+06
@@ -218,14 +218,14 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   br label %93
 
 93:                                               ; preds = %92, %90
-  %.not275 = icmp eq ptr %.0249326350, null
+  %.not275 = icmp eq ptr %.0249332357, null
   br i1 %83, label %94, label %139
 
 94:                                               ; preds = %93
   br i1 %.not275, label %108, label %95
 
 95:                                               ; preds = %94
-  %96 = load ptr, ptr %.0249326350, align 8
+  %96 = load ptr, ptr %.0249332357, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 24
   %98 = load ptr, ptr %97, align 8
   %.not276 = icmp eq ptr %98, null
@@ -253,11 +253,11 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   br i1 %.not277, label %138, label %110
 
 110:                                              ; preds = %108
-  %.not278 = icmp eq ptr %.0250325352, null
+  %.not278 = icmp eq ptr %.0250331358, null
   br i1 %.not278, label %125, label %111
 
 111:                                              ; preds = %110
-  %112 = load ptr, ptr %.0250325352, align 8
+  %112 = load ptr, ptr %.0250331358, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8
   %.not281 = icmp eq ptr %114, null
@@ -318,7 +318,7 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   br i1 %.not275, label %149, label %140
 
 140:                                              ; preds = %139
-  %141 = load ptr, ptr %.0249326350, align 8
+  %141 = load ptr, ptr %.0249332357, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 24
   %143 = load ptr, ptr %142, align 8
   %.not270 = icmp eq ptr %143, null
@@ -337,11 +337,11 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   br label %149
 
 149:                                              ; preds = %146, %144, %139
-  %.not271 = icmp eq ptr %.0250325352, null
+  %.not271 = icmp eq ptr %.0250331358, null
   br i1 %.not271, label %160, label %150
 
 150:                                              ; preds = %149
-  %151 = load ptr, ptr %.0250325352, align 8
+  %151 = load ptr, ptr %.0250331358, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 24
   %153 = load ptr, ptr %152, align 8
   %.not272 = icmp eq ptr %153, null
@@ -396,7 +396,7 @@ define internal fastcc void @php_fsockopen_stream(ptr noundef %0, ptr nocapture 
   store i16 %177, ptr %175, align 8
   br label %178
 
-178:                                              ; preds = %172, %138, %.thread329
+178:                                              ; preds = %172, %138, %.thread335
   ret void
 }
 

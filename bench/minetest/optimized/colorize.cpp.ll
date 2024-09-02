@@ -950,13 +950,13 @@ invoke.cont47:                                    ; preds = %if.then46
 
 invoke.cont47.if.end51_crit_edge:                 ; preds = %invoke.cont47
   %.pre = load i64, ptr %_M_string_length.i.i.i.i.i255, align 8
+  %121 = icmp eq i64 %.pre, 0
   br label %if.end51
 
 if.end51:                                         ; preds = %invoke.cont47.if.end51_crit_edge, %if.end44
-  %121 = phi i64 [ %.pre, %invoke.cont47.if.end51_crit_edge ], [ 0, %if.end44 ]
+  %cmp.i445 = phi i1 [ %121, %invoke.cont47.if.end51_crit_edge ], [ true, %if.end44 ]
   %122 = load i64, ptr %_M_string_length.i.i.i.i.i230, align 8, !tbaa !18
   %cmp.i443 = icmp eq i64 %122, 0
-  %cmp.i445 = icmp eq i64 %121, 0
   %or.cond = select i1 %cmp.i443, i1 %cmp.i445, i1 false
   br i1 %or.cond, label %if.end57, label %if.then54
 

@@ -3649,7 +3649,7 @@ define dso_local void @serial8250_console_write(ptr noundef %0, ptr noundef %1, 
   br label %19
 
 19:                                               ; preds = %18, %11
-  %20 = zext i1 %14 to i32
+  %20 = xor i1 %14, true
   br label %23
 
 21:                                               ; preds = %3
@@ -3658,7 +3658,7 @@ define dso_local void @serial8250_console_write(ptr noundef %0, ptr noundef %1, 
 
 23:                                               ; preds = %21, %19
   %24 = phi i64 [ %22, %21 ], [ %12, %19 ]
-  %25 = phi i32 [ 1, %21 ], [ %20, %19 ]
+  %25 = phi i1 [ false, %21 ], [ %20, %19 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 %27(ptr noundef %0, i32 noundef 1) #14
@@ -4048,14 +4048,13 @@ define dso_local void @serial8250_console_write(ptr noundef %0, ptr noundef %1, 
   br label %281
 
 281:                                              ; preds = %279, %274
-  %282 = icmp eq i32 %25, 0
-  br i1 %282, label %284, label %283
+  br i1 %25, label %283, label %282
 
-283:                                              ; preds = %281
+282:                                              ; preds = %281
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %24) #14
-  br label %284
+  br label %283
 
-284:                                              ; preds = %283, %281
+283:                                              ; preds = %282, %281
   ret void
 }
 

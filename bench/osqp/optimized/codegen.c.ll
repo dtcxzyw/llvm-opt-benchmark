@@ -560,7 +560,7 @@ write_info.exit.i:                                ; preds = %write_solution.exit
   br i1 %.not51.i.i.i, label %177, label %174
 
 174:                                              ; preds = %168
-  %175 = trunc i64 %173 to i32
+  %175 = trunc nuw nsw i64 %173 to i32
   %176 = call i64 @_osqp_error_line(i32 noundef %175, ptr noundef nonnull @__func__.write_data, ptr noundef nonnull @.str.86, i64 noundef 319) #8
   br label %write_data.exit.i.i
 
@@ -573,7 +573,7 @@ write_info.exit.i:                                ; preds = %write_solution.exit
   br i1 %.not52.i.i.i, label %185, label %182
 
 182:                                              ; preds = %177
-  %183 = trunc i64 %181 to i32
+  %183 = trunc nuw nsw i64 %181 to i32
   %184 = call i64 @_osqp_error_line(i32 noundef %183, ptr noundef nonnull @__func__.write_data, ptr noundef nonnull @.str.86, i64 noundef 321) #8
   br label %write_data.exit.i.i
 
@@ -1675,7 +1675,7 @@ define internal fastcc i64 @write_scaling(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i64 @write_OSQPMatrix(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc range(i64 0, 11) i64 @write_OSQPMatrix(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #5 {
   %4 = alloca [259 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %5

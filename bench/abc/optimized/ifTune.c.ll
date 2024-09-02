@@ -230,7 +230,7 @@ define void @Ifn_NtkPrint(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -225, 32) i32 @Ifn_NtkLutSizeMax(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 32) i32 @Ifn_NtkLutSizeMax(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -5134,12 +5134,15 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr nocapture noundef %0, ptr noca
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next315, %wide.trip.count321
-  br i1 %exitcond322.not, label %._crit_edge263, label %.lr.ph262, !llvm.loop !91
+  br i1 %exitcond322.not, label %._crit_edge263.loopexit, label %.lr.ph262, !llvm.loop !91
 
-._crit_edge263:                                   ; preds = %96, %80
-  %.0183.lcssa = phi i64 [ 1, %80 ], [ %indvars.iv.next317, %96 ]
-  %97 = and i64 %.0183.lcssa, 4294967295
-  %98 = getelementptr inbounds i32, ptr %4, i64 %97
+._crit_edge263.loopexit:                          ; preds = %96
+  %97 = and i64 %indvars.iv.next317, 4294967295
+  br label %._crit_edge263
+
+._crit_edge263:                                   ; preds = %._crit_edge263.loopexit, %80
+  %.0183.lcssa = phi i64 [ 1, %80 ], [ %97, %._crit_edge263.loopexit ]
+  %98 = getelementptr inbounds i32, ptr %4, i64 %.0183.lcssa
   %99 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %98) #23
   %.not203 = icmp eq i32 %99, 0
   br i1 %.not203, label %.loopexit, label %.loopexit206
@@ -5318,8 +5321,8 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr nocapture noundef %0, ptr noca
   %wide.trip.count304 = zext nneg i32 %77 to i64
   br label %207
 
-207:                                              ; preds = %.lr.ph248, %246
-  %.3182246 = phi i32 [ 0, %.lr.ph248 ], [ %247, %246 ]
+207:                                              ; preds = %.lr.ph248, %247
+  %.3182246 = phi i32 [ 0, %.lr.ph248 ], [ %248, %247 ]
   %208 = load i32, ptr %206, align 4
   %209 = icmp eq i32 %208, -1
   br i1 %209, label %210, label %215
@@ -5391,46 +5394,46 @@ define range(i32 0, 2) i32 @Ifn_NtkAddClauses(ptr nocapture noundef %0, ptr noca
 
 242:                                              ; preds = %238
   %.pre327 = load i32, ptr %206, align 4
-  %.not195 = icmp eq i32 %.pre327, 1
-  br i1 %.not195, label %246, label %.thread
+  %243 = icmp eq i32 %.pre327, 1
+  br i1 %243, label %247, label %.thread
 
 .thread:                                          ; preds = %._crit_edge244, %242
-  %243 = zext nneg i32 %237 to i64
-  %244 = getelementptr inbounds i32, ptr %4, i64 %243
-  %245 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %244) #23
-  %.not196 = icmp eq i32 %245, 0
-  br i1 %.not196, label %.loopexit, label %246
+  %244 = zext nneg i32 %237 to i64
+  %245 = getelementptr inbounds i32, ptr %4, i64 %244
+  %246 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %245) #23
+  %.not196 = icmp eq i32 %246, 0
+  br i1 %.not196, label %.loopexit, label %247
 
-246:                                              ; preds = %242, %.thread
-  %247 = add nuw nsw i32 %.3182246, 1
-  %exitcond306.not = icmp eq i32 %247, %205
+247:                                              ; preds = %242, %.thread
+  %248 = add nuw nsw i32 %.3182246, 1
+  %exitcond306.not = icmp eq i32 %248, %205
   br i1 %exitcond306.not, label %.loopexit206, label %207, !llvm.loop !96
 
-.loopexit206:                                     ; preds = %246, %131, %202, %100, %73, %._crit_edge263, %185
+.loopexit206:                                     ; preds = %247, %131, %202, %100, %73, %._crit_edge263, %185
   %indvars.iv.next324 = add nsw i64 %indvars.iv323, 1
-  %248 = load i32, ptr %7, align 4
-  %249 = sext i32 %248 to i64
-  %250 = icmp slt i64 %indvars.iv.next324, %249
-  br i1 %250, label %73, label %._crit_edge267, !llvm.loop !97
+  %249 = load i32, ptr %7, align 4
+  %250 = sext i32 %249 to i64
+  %251 = icmp slt i64 %indvars.iv.next324, %250
+  br i1 %251, label %73, label %._crit_edge267, !llvm.loop !97
 
 ._crit_edge267:                                   ; preds = %.loopexit206, %.preheader210
-  %.lcssa = phi i32 [ %26, %.preheader210 ], [ %248, %.loopexit206 ]
-  %251 = getelementptr inbounds i8, ptr %0, i64 8
-  %252 = add nsw i32 %.lcssa, -1
-  %253 = sext i32 %252 to i64
-  %254 = getelementptr inbounds [22 x %struct.Ifn_Obj_t_], ptr %251, i64 0, i64 %253
-  %255 = load i32, ptr %254, align 8
-  %256 = getelementptr inbounds i32, ptr %1, i64 %253
-  %257 = load i32, ptr %256, align 4
-  %258 = icmp eq i32 %257, 0
-  %259 = zext i1 %258 to i32
-  %260 = lshr i32 %255, 15
-  %261 = and i32 %260, 131070
-  %262 = or disjoint i32 %261, %259
-  store i32 %262, ptr %4, align 16
-  %263 = getelementptr inbounds i8, ptr %4, i64 4
-  %264 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %263) #23
-  %.not = icmp ne i32 %264, 0
+  %.lcssa = phi i32 [ %26, %.preheader210 ], [ %249, %.loopexit206 ]
+  %252 = getelementptr inbounds i8, ptr %0, i64 8
+  %253 = add nsw i32 %.lcssa, -1
+  %254 = sext i32 %253 to i64
+  %255 = getelementptr inbounds [22 x %struct.Ifn_Obj_t_], ptr %252, i64 0, i64 %254
+  %256 = load i32, ptr %255, align 8
+  %257 = getelementptr inbounds i32, ptr %1, i64 %254
+  %258 = load i32, ptr %257, align 4
+  %259 = icmp eq i32 %258, 0
+  %260 = zext i1 %259 to i32
+  %261 = lshr i32 %256, 15
+  %262 = and i32 %261, 131070
+  %263 = or disjoint i32 %262, %260
+  store i32 %263, ptr %4, align 16
+  %264 = getelementptr inbounds i8, ptr %4, i64 4
+  %265 = call i32 @sat_solver_addclause(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %264) #23
+  %.not = icmp ne i32 %265, 0
   %. = zext i1 %.not to i32
   br label %.loopexit
 
@@ -5658,15 +5661,18 @@ define void @Ifn_NtkMatchCollectConfig(ptr nocapture noundef readonly %0, ptr no
   %.1 = or i32 %22, %.032
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %13, !llvm.loop !102
 
-._crit_edge:                                      ; preds = %13, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %13 ]
-  %23 = sext i32 %.0.lcssa to i64
+._crit_edge.loopexit:                             ; preds = %13
+  %23 = sext i32 %.1 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %23, %._crit_edge.loopexit ]
   %24 = shl i32 %.02633, 2
   %25 = and i32 %24, 60
   %26 = zext nneg i32 %25 to i64
-  %27 = shl i64 %23, %26
+  %27 = shl i64 %.0.lcssa, %26
   %28 = lshr i32 %.02633, 4
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds i64, ptr %2, i64 %29
@@ -6115,20 +6121,23 @@ Abc_TtFindFirstBit.exit.thread:                   ; preds = %Abc_TtXor.exit, %Ab
   %.1.i = or i32 %196, %.032.i
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
   %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i98
-  br i1 %exitcond.not.i101, label %._crit_edge.i, label %189, !llvm.loop !102
+  br i1 %exitcond.not.i101, label %._crit_edge.loopexit.i, label %189, !llvm.loop !102
 
-._crit_edge.i:                                    ; preds = %189, %.preheader.i
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %189 ]
-  %197 = sext i32 %.0.lcssa.i to i64
+._crit_edge.loopexit.i:                           ; preds = %189
+  %197 = sext i32 %.1.i to i64
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
+  %.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %197, %._crit_edge.loopexit.i ]
   %198 = shl i32 %.02633.i, 2
   %199 = and i32 %198, 60
   %200 = zext nneg i32 %199 to i64
-  %201 = shl i64 %197, %200
+  %201 = shl i64 %.0.lcssa.i, %200
   %202 = lshr i32 %.02633.i, 4
   %203 = zext nneg i32 %202 to i64
   %204 = getelementptr inbounds i64, ptr %6, i64 %203
   %205 = load i64, ptr %204, align 8
-  %206 = or i64 %201, %205
+  %206 = or i64 %205, %201
   store i64 %206, ptr %204, align 8
   %207 = add nuw nsw i32 %.02633.i, 1
   %208 = load i32, ptr %0, align 8
@@ -6254,7 +6263,7 @@ define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_a
 
 7:                                                ; preds = %1
   %8 = shl nsw i32 %3, 1
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %8, i32 536870912)
+  %9 = tail call noundef range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %8, i32 536870912)
   %10 = icmp eq i32 %3, 536870912
   br i1 %10, label %11, label %12
 
